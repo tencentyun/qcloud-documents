@@ -20,7 +20,7 @@ https://bm.api.qcloud.com/v2/index.php?
 
 | 参数名称 | 必选   | 类型   | 描述   |
 | ---- | ---- | ---- | ---- |
-| 无    | -    | -    | -    |
+| deviceClassCode    | 否   | String   | 设备类型代号， 如PC000v1    |
 
 
 ## 响应
@@ -33,53 +33,82 @@ https://bm.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "B6": {
-            "1": {
-                "deviceClass": "B6",
-                "raidId": "1",
-                "diskSize": "600G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 568
+		"PC000v1":{
+			"1":{
+				"deviceClass":"B6",
+				"deviceClassCode":"PC000v1",
+				"raidId":"1",
+				"diskSize":"600G",
+				"partition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":568
+				},
+				"unFormatPartition":"",
+				"updateTime":"2018-01-05 12:29:25",
+				"raid":"RAID0",
+				"raidDisplay":"RAID0",
+				"description":"所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
+			},
+			"6":{
+				"deviceClass":"B6",
+				"deviceClassCode":"PC000v1",
+				"raidId":"6",
+				"diskSize":"600G",
+				"partition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":568
+				},
+				"unFormatPartition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":268,
+					"unformat":300
+				},
+				"updateTime":"2018-01-05 12:29:25",
+				"raid":"NORAID",
+				"raidDisplay":"NO RAID",
+				"description":"不做RAID，数据会有丢失风险，谨慎选择"
+			}
+		},
+        "PS100v1":{
+            "1":{
+                "deviceClass":"M10",
+                "deviceClassCode":"PS100v1",
+                "raidId":"1",
+                "diskSize":"3600G",
+                "partition":{
+                    "/":10,
+                    "swap":2,
+                    "/usr/local":20,
+                    "data":3568
                 },
-                "unFormatPartition": "",
-                "raid": "RAID0",
-                "raidDisplay": "RAID 0",
-                "description": "所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
-            }
-        },
-        "M10": {
-            "1": {
-                "deviceClass": "M10",
-                "raidId": "1",
-                "diskSize": "3600G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 3568
-                },
-                "unFormatPartition": "",
-                "raid": "RAID0",
-                "raidDisplay": "RAID 0",
-                "description": "所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
+                "unFormatPartition":"",
+                "updateTime":"2018-01-05 12:29:25",
+                "raid":"RAID0",
+                "raidDisplay":"RAID0",
+                "description":"所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
             },
-            "2": {
-                "deviceClass": "M10",
-                "raidId": "2",
-                "diskSize": "3300G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 3268
+            "2":{
+                "deviceClass":"M10",
+                "deviceClassCode":"PS100v1",
+                "raidId":"2",
+                "diskSize":"3300G",
+                "partition":{
+                    "/":10,
+                    "swap":2,
+                    "/usr/local":20,
+                    "data":3268
                 },
-                "unFormatPartition": "",
-                "raid": "RAID5",
-                "raidDisplay": "RAID 5",
-                "description": "所有盘组成RAID 5， 是兼顾存储性能、数据安全和存储成本的方案，适合读多写少的场景"
+                "unFormatPartition":"",
+                "updateTime":"2018-01-05 12:29:25",
+                "raid":"RAID5",
+                "raidDisplay":"RAID5",
+                "description":"所有盘组成RAID 5, 是兼顾存储性能、数据安全和存储成本的方案，适合读多写少的场景"
             }
         }
     }
@@ -100,7 +129,7 @@ data结构
 
 | 参数名称             | 类型     | 描述                                       |
 | ---------------- | ------ | ---------------------------------------- |
-| 机型（例如"M10"，"B6"） | Object | 以机型为key，对应的值为对象，对象为该机型支持的RAID信息。具体结构描述如RAIDLIST结构所示。 |
+| 机型（例如"PC000v1"，"PS100v1"） | Object | 以机型为key，对应的值为对象，对象为该机型支持的RAID信息。具体结构描述如RAIDLIST结构所示。 |
 
 RAIDLIST结构
 
@@ -147,53 +176,82 @@ https://bm.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "B6": {
-            "1": {
-                "deviceClass": "B6",
-                "raidId": "1",
-                "diskSize": "600G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 568
+		"PC000v1":{
+			"1":{
+				"deviceClass":"B6",
+				"deviceClassCode":"PC000v1",
+				"raidId":"1",
+				"diskSize":"600G",
+				"partition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":568
+				},
+				"unFormatPartition":"",
+				"updateTime":"2018-01-05 12:29:25",
+				"raid":"RAID0",
+				"raidDisplay":"RAID0",
+				"description":"所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
+			},
+			"6":{
+				"deviceClass":"B6",
+				"deviceClassCode":"PC000v1",
+				"raidId":"6",
+				"diskSize":"600G",
+				"partition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":568
+				},
+				"unFormatPartition":{
+					"/":10,
+					"swap":2,
+					"/usr/local":20,
+					"data":268,
+					"unformat":300
+				},
+				"updateTime":"2018-01-05 12:29:25",
+				"raid":"NORAID",
+				"raidDisplay":"NO RAID",
+				"description":"不做RAID，数据会有丢失风险，谨慎选择"
+			}
+		},
+        "PS100v1":{
+            "1":{
+                "deviceClass":"M10",
+                "deviceClassCode":"PS100v1",
+                "raidId":"1",
+                "diskSize":"3600G",
+                "partition":{
+                    "/":10,
+                    "swap":2,
+                    "/usr/local":20,
+                    "data":3568
                 },
-                "unFormatPartition": "",
-                "raid": "RAID0",
-                "raidDisplay": "RAID 0",
-                "description": "所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
-            }
-        },
-        "M10": {
-            "1": {
-                "deviceClass": "M10",
-                "raidId": "1",
-                "diskSize": "3600G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 3568
-                },
-                "unFormatPartition": "",
-                "raid": "RAID0",
-                "raidDisplay": "RAID 0",
-                "description": "所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
+                "unFormatPartition":"",
+                "updateTime":"2018-01-05 12:29:25",
+                "raid":"RAID0",
+                "raidDisplay":"RAID0",
+                "description":"所有盘组成RAID 0，读取速度快，但没有冗余，适用于读取要求很高，数据安全要求低的应用"
             },
-            "2": {
-                "deviceClass": "M10",
-                "raidId": "2",
-                "diskSize": "3300G",
-                "partition": {
-                    "/": 10,
-                    "swap": 2,
-                    "/usr/local": 20,
-                    "data": 3268
+            "2":{
+                "deviceClass":"M10",
+                "deviceClassCode":"PS100v1",
+                "raidId":"2",
+                "diskSize":"3300G",
+                "partition":{
+                    "/":10,
+                    "swap":2,
+                    "/usr/local":20,
+                    "data":3268
                 },
-                "unFormatPartition": "",
-                "raid": "RAID5",
-                "raidDisplay": "RAID 5",
-                "description": "所有盘组成RAID 5，是兼顾存储性能、数据安全和存储成本的方案，适合读多写少的场景"
+                "unFormatPartition":"",
+                "updateTime":"2018-01-05 12:29:25",
+                "raid":"RAID5",
+                "raidDisplay":"RAID5",
+                "description":"所有盘组成RAID 5, 是兼顾存储性能、数据安全和存储成本的方案，适合读多写少的场景"
             }
         }
     }

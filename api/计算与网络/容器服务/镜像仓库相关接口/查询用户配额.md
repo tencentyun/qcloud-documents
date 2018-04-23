@@ -1,0 +1,66 @@
+## 1. 接口描述
+本接口 ( GetLimit ) 查询用户配额。
+接口请求域名：`ccr.api.qcloud.com`。
+
+## 2. 输入参数
+本接口无参数，其它参数见 [公共请求参数](/doc/api/457/9463)。
+
+## 3. 输出参数
+ 
+| 参数名称 | 描述 |类型 | 
+|---------|---------|---------|
+| code | 公共错误码。0 表示成功，其他值表示失败|Int | 
+| codeDesc | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因|String |
+| message |  模块错误信息描述，与接口相关|String |
+| limitInfo |  配额信息|Object Array |
+
+配额信息字段：
+
+| 参数名称 | 描述 |类型 | 
+|---------|---------|---------|
+| username |  镜像仓库用户名|String |
+| type |  配额类型。<br>namespace：命名空间<br>repo：仓库<br>tag：镜像tag<br>triggers：触发器|String |
+| value |  配额的值|Int |
+
+## 4. 示例
+输入
+
+```
+  https://domain/v2/index.php?Action=GetLimit
+  &reponame=test/kube_test
+  &其它公共参数
+```
+输出
+
+```
+{
+    "code": 0,
+    "message": "", 
+    "codeDesc": "Success",
+    "data": {
+        "limitInfo": [
+            {
+                "username": "100001066666",
+                "type": "namespace",
+                "value": 10
+            },
+            {
+                "username": "100001066666",
+                "type": "repo",
+                "value": 100
+            },
+            {
+                "username": "100001066666",
+                "type": "tag",
+                "value": 100
+            },
+            {
+                "username": "100001066666",
+                "type": "triggers",
+                "value": 10
+            }
+        ]
+    }
+}
+
+```

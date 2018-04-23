@@ -9,7 +9,6 @@ Take the API <a href="/doc/api/229/831" title="Query List of Instances">Query Li
 | offset | No | Int | Offset; default is 0.  | 
 | limit | No | Int | The maximum number of servers allowed to be queried at a time. Default is 20, and the maximum is 100. |
 | status | No | Int | Status of CVM to be queried. |
-| projectId | No | String | Project ID. If it is left empty, the CVM instances of all projects will be queried. 0 means default project. To specify other projects, you can call API <a href="/document/product/378/4400" title="Query Project List">Query Project List</a>(DescribeProject) to query projects. |
 | simplify | No | Int | Obtain non-real time data if simplify=1. |
 | zoneId | No | Int | ID of availability zone. If it is left empty, the CVM instances of availability zones will be queried. To specify availability zones, you can call API <a href="/doc/api/229/1286" title="Query Availability Zones">Query Availability Zones</a>(DescribeAvailabilityZones) to query availability zones. |
 

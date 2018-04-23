@@ -1,50 +1,71 @@
+<style> table td { height: 35px; text-align:center; vertical-align:middle; } .markdown-text-box img { border: 0; max-width: 100%; height: auto; box-sizing: content-box; box-shadow: 0 0 0px #ccc; margin: 0px 0; } </style>
+## Billing of Short Video
 
-## 1 Billing Type and Description
+Tencent Cloud User Generated Short Video (UGSV) provides two versions of SDKs for customers and the billing method is as follows:
 
-The short video service is billed on a prepaid basis in Tencent Cloud VOD.
+<table>
+  <tr align="center">
+	  <th width="100px">Version</th>
+    <th width="90px">Variable-speed Recording</th>
+		<th width="90px">Segmented Recording</th>
+    <th width="90px">Basic Beauty Filter</th>
+		<th width="90px">Background Music</th>
+		<th width="90px">Time Effects</th>
+	  <th width="90px">Filter Effects</th>
+	  <th width="90px">Subtitle</th>
+    <th width="100px">Static & Dynamic Stickers</th>
+	  <th width="90px">Advanced Beauty Filter</th>
+	  <th width="90px">AI Sticker</th>
+    <th width="90px">Green Screen</th>
+		<th width="90px">AI Keying-out</th>
+  </tr>
+  <tr align="center">
+	  <td> Basic </td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+          <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+          <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  	<td/>
+		<td/>
+		<td/>
+		<td/>
+  </tr>
+	<tr align="center">
+	  <td> Commercial </td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+</table>
 
-### Prepaid Package
-You need to create a Tencent Cloud account and top up this account. For how to top up, please see [Top-up Process](http://cloud.tencent.com/doc/product/285/%E5%85%85%E5%80%BC):
-
-**After the account is topped up, go to [VOD Service](https://console.cloud.tencent.com/video) to purchase a package**.
-
-Packages are valid for 1 year with costs prepaid in one time. More information can be found in package descriptions.
-
-Packages vary on the storage, traffic and features. The costs for usage within the package quota are included in the package fee. Usage beyond the package quota is billed by storage and traffic.
-
-Package details:
-
-| | Beta | Startup | Enterprise | Ultimate I | Ultimate II | Ultimate III |
-|---------|---------|---------|---------|---------|---------|---------|
-| Price | Free for seven days | CNY 399/year | CNY 3,899/year | CNY 7,899/year | CNY 28,999/year | CNY 38,999/year |
-| Storage | 5 GB | 20 GB | 100 GB | 500 GB | 1.5 TB | 3 TB |
-| Traffic | 1 GB | 60 GB/Month | 500 GB/Month | 1,000 GB/Month | 3,000 GB/Month | 5,000 GB/Month |
-
-1. Storage refers to the maximum capacity that can be stored per day. CNY 0.03/GB/day is charged for the storage beyond the package quota. You can delete old files to avoid package quota exceeded.
-Take the enterprise version package with a storage of 100 GB as an example: if the usage reaches 101 GB the first day, 110 GB the next day, and less than 100 GB for each of the remaining day (by deleting files), (101-100+110-100)*0.03=0.33 (CNY) is charged at the end of the month.
+For more information on features, please see [Feature List](https://cloud.tencent.com/document/product/584/9457).
 
 
-2. Playing video files generates traffic. The traffic in the package defines the maximum amount of traffic that can be used without extra charge. Let's still take the enterprise version for an example, its traffic is 500 GB per month. The exceeding traffic is charged by CNY 0.59/GB/month.
+**Basic SDK**
+- For the Basic SDK of Tencent Cloud UGSV: The license fee is 10,000 CNY/year.
 
-[Purchase Process](https://cloud.tencent.com/document/product/584/9678)
+- For the Basic SDK and Tencent Cloud VOD: Top up 5,000 CNY to your Tencent Cloud account and you will receive a VOD voucher with a value of 5,000 CNY, which can be used to buy Tencent Cloud VOD service billed on a daily basis. You can also get one-year free license for the Basic SDK of Tencent Cloud UGSV.
 
+**Commercial SDK**
+- For the Commercial SDK of Tencent Cloud UGSV: The license fee is 500,000 CNY/year.
 
-## 2 Package Description
-
-For more information on packages, please see [VOD](http://cloud.tencent.com/product/vod.html).
-
-Usage exceeding the package quota is billed by storage and traffic on a monthly basis. In the billing cycle between the 1st and 5th day of each month, the fee for the exceeding usage is deducted from the Tencent Cloud account balance.
-If all of our traffic packages are not sufficient to cover your need, you can negotiate with business personnel for pricing. For more information, call the hotline 4009100100 or submit a ticket.
-
-## 3 Settlement and Deduction
-
-Tencent Cloud VOD follows the same [billing process](http://cloud.tencent.com/doc/product/285/%E8%AE%A1%E8%B4%B9%E6%B5%81%E7%A8%8B) as that of Tencent Cloud. The settlement cycle is between the 1st and 5th day of each month, which is available for both the usage exceeding the prepaid packages and the postpaid packages.
+- For the Commercial SDK and Tencent Cloud VOD: You can call 4009-100-100 to contact our business representative and get the discounted price for the Commercial SDK of UGSV in replacement of Tencent Cloud VOD resource bandwidth/traffic.
 
 
+## Billing of Tencent Cloud VOD
+It is recommended that you use the UGSV SDK together with Tencent Cloud VOD, which is cost-effective and provides better compatibility and user experience. For more information on the billing of VOD, please see [VOD Price List](https://cloud.tencent.com/document/product/266/2838).
 
-## 4 Arrears
-The billing system provides bills (in the form of internal message) and statistics on traffic for the previous month (such as the 1st to the 30th day) on the 5th of each month.
-We advise that you pay off the costs of the previous month before the 20th day of current month.
-You may receive a renewal reminder email from the 20th day of each month.
-If you do not renew or upgrade packages before the 27th day, the service will be unavailable from 00:00 on the 28th day, and only the overview page in the management console can be visited.
 

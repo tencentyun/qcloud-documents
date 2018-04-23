@@ -1,12 +1,12 @@
-## 1、接口描述
+## 接口描述
 
-协议： HTTPS
+协议： `HTTPS`
 
-域名： csec.api.qcloud.com
+域名： `csec.api.qcloud.com`
 
-接口名： AntiFraud
+接口名： `AntiFraud`
 
-## 2、输入参数
+## 输入参数
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 页面。其中，此接口的 Action 字段为 AntiFraud。
 
@@ -120,19 +120,34 @@ idfa</td>
 <td>String</td>
 <td>业务 ID，在多个业务中使用此服务，通过此 ID 区分统计数据</td>
 </tr>
+<tr>
+<td>idCryptoType
+</td><td> uint
+</td><td>身份证加密类型， 0：不加密（默认值） 1：md5
+</td></tr>
+<tr>
+<td> phoneCryptoType
+</td><td> uint
+</td><td> 手机号加密类型，0：不加密（默认值） 1：md5
+</td></tr>
+<tr>
+<td> nameCryptoType
+</td><td> uint
+</td><td> 姓名加密类型，0：不加密（默认值） 1：md5
+</td></tr>
 </table>
 
-## 3、输出参数
+## 输出参数
 
 | 参数名称 | 类型 | 描述 |
 | ----- | ----- | ----- |
 | code | Int | 公共错误码；</br>0 表示成功，其他值表示失败；</br>详见 [错误码](https://cloud.tencent.com/document/product/295/7285) 页面中的“公共错误码”相关内容。 |
 | codeDesc | String | 业务侧错误码；</br>成功时返回 Success；</br>错误时返回具体业务错误原因。 |
 | message | String | 模块错误信息描述，与接口相关。 |
-| idfound | Int | 表示该条记录中的身份证能否查到；</br>1 为能查到；</br>-1 为查不到。 |
-| found | Int | 表示该条记录能否查到；</br>1 为能查到；</br>-1 为查不到。 |
+| idfound | Int | 表示该条记录中的身份证能否查到；</br>1 :能查到；</br>-1 :查不到。 |
+| found | Int | 表示该条记录能否查到；</br>1 :能查到；</br>-1 :查不到。 |
 | riskScore | UInt | 0-100：欺诈分值；</br>值越高欺诈可能性越大；</br>-1：查询不到数据。 |
-| riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 为 0 时表示无此字段。 |
+| riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 0 :无此字段。 |
 
 RiskDetail 类型说明
 
@@ -216,7 +231,7 @@ RiskDetail 类型说明
 </tr>
 </table>
 
-## 4、示例代码
+## 示例代码
 
 代码下载：[Python 示例](https://mc.qcloudimg.com/static/archive/a8b291becf06c9fefab003f6afc16509/AntiFraud.py.zip)、 [PHP 代码示例](https://mc.qcloudimg.com/static/archive/06397c265ae2dc364f2f47559125ce5b/AntiFraud.php.zip)、 [Java 示例](https://mc.qcloudimg.com/static/archive/70b700e34e982822af2a020454185a8d/AntiFraud.zip)、 [.Net 示例](https://mc.qcloudimg.com/static/archive/05c3d0f6edbcd297502ab7407e91275b/AntiFraud.zip)
 
@@ -231,7 +246,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 &phoneNumber=008613246208548
 ```
 
-## 5、响应示例
+## 响应示例
 
 
 ```

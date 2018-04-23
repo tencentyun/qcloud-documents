@@ -27,29 +27,30 @@ bool post(const std::string &request, const std::string &url, std::string *respo
 
     curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
     curl_easy_setopt(hnd, CURLOPT_URL, url);
-    
+
     struct curl_slist *headers = curl_slist_append(NULL, "content-type: application/json");
     curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
-    
+
     curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, request);
-    
+
     // 设置云支付根证书
-    curl_easy_setopt(hnd, CURLOPT_SSL_VERIFYPEER, 1);   
+    curl_easy_setopt(hnd, CURLOPT_SSL_VERIFYPEER, 1);
     curl_easy_setopt(hnd, CURLOPT_SSL_VERIFYHOST, 2);
-    curl_easy_setopt(hnd, CURLOPT_CAINFO, "./cloudpayrootca.pem");  
-    
+    curl_easy_setopt(hnd, CURLOPT_CAINFO, "./cloudpayrootca.pem");
+
     curl_easy_setopt(hnd, CURLOPT_WRITEFUNCTION, recv_data);
     std::string rc;
-    curl_easy_setopt(hnd, CURLOPT_WRITEDATA, (void *)&rc);      
+    curl_easy_setopt(hnd, CURLOPT_WRITEDATA, (void *)&rc);
 
     CURLcode ret = curl_easy_perform(hnd);
     if (CURLE_OK != ret) {
+		curl_slist_free_all(headers);
+		curl_easy_cleanup(hnd);
         return false;
     }
     *response = rc;
-    if (NULL != headers) {
-        curl_slist_free_all(headers);
-    }
+
+    curl_slist_free_all(headers);
     curl_easy_cleanup(hnd);
     return true;
 }
@@ -101,7 +102,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
 返回是否成功，成功时签名存放于sign_base64encode指向的string
 */
 bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
-                                 const std::string &content, 
+                                 const std::string &content,
                                  std::string *sign_base64encode)
 {
     unsigned char digest[SHA256_DIGEST_LENGTH] = {0}; //32 bytes
@@ -127,7 +128,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
         EVP_MD_CTX_cleanup(&md_ctx);
         return false;
     }
-    
+
     EVP_MD_CTX_cleanup(&md_ctx);
 
     unsigned char em[256] = {0};
@@ -146,93 +147,56 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
     return true;
 }
 ```
-## 请求举例（以刷卡支付为例）
-- 构造request\_content结构，具体如下：
+## 构造请求举例（以刷卡支付为例）
 
 ```
 {
-    "request_content":{
-        "pay_mch_key":{
-            "pay_platform":2,
-            "out_mch_id":"1234mcWYS3M5TjKLorAZ',
-            "out_sub_mch_id":"12343ycHpBDv8GX]fmSv',
-            "out_shop_id":"1234ruQCleTa9w30AaAH'
-        },
-        "nonce_str":"542AB309ECA042FE92355BDEC4E2D733",
-        "order_client":{
-            "staff_id":"shop_manage_id_01',
-            "machine_no":"34-64-a9-15-b4-cl",
-            "terminal_type":1,
-            "sdk_version":"1.6",
-            "spbill_create_ip":"10.27.14.138",
-            "device_id":"device_id_01"
-        }
-        "pay_content":{
-            "author_code":"282129340414399818',
-            "out_trade_no":"12341008b320170802191960015",
-            "body":"生活用品套餐',
-            "total_fee":1,
-            "fee_type":"CNY"
-        }
-    }
-}
-```
-- 将request\_content从json转为字符串，根据认证算法计算出认证码，如下：
+		Json::Value pay_mch_key;      // 构造pay_mch_key
+		pay_mch_key["pay_platform"]   = 1;
+		pay_mch_key["out_mch_id"]     = "sz013NzuonO6CMJd0rCB";
+		pay_mch_key["out_sub_mch_id"] = "sz01ELTR281OFpmdAp6J";
+		pay_mch_key["out_shop_id"]    = "sz01qyoPJmd3j1hWmul4";
 
-```
-A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99
-```
-- 构造authen\_info结构，设置相应的认证算法和认证码，具体如下：
+		Json::Value pay_content;      // 构造pay_content
+		pay_content["out_trade_no"]   = "sz0100lmnx20171228151031";
+		pay_content["author_code"]    = "134680423163089456";
+		pay_content["total_fee"]      = 1;
+		pay_content["fee_type"]       = "CNY";
+		pay_content["attach"]         = "attach";
 
-```
-"authen_info":{
-    "a":{
-        "authen_type":1,
-        "authen_code":"A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99"
-    }
-}
-```
-- 构造请求数据包，包含authen\_info和request\_content两个结构，具体如下：
+		Json::Value order_client;        // 构造order_client
+		order_client["machine_no"]       = "32-62-A8-14-B3-C0";
+		order_client["sdk_version"]      = "1.0";
+		order_client["device_id"]        = 1;
+		order_client["spbill_create_ip"] = "183.15.244.75";
+		order_client["staff_id"]         = "1003";
+		order_client["terminal_type"]    = 2;
 
+		Json::Value request_content;     // 构造request_content
+		request_content["pay_mch_key"]   = pay_mch_key;
+		request_content["pay_content"]   = pay_content;
+		request_content["order_client"]  = order_client;
+		request_content["nonce_str"]     = "416492026bc84091bcaf7e74ea90ceba";
+
+		Json::FastWriter w;
+		std::string request_content_str = w.write(request_content);
+
+		Json::Value authen;
+		authen["authen_code"] = hmac_sha256(authen_key, request_content_str); //计算认证码
+		authen["authen_type"] = 1; //hmac_sha256 为1
+
+		Json::Value authen_info;
+		authen_info["a"] = authen;  //认证码，签名是s
+
+		Json::Value request;       //构造最终发给服务器的请求
+		request["request_content"] = request_content_str;
+		request["authen_info"]     = authen_info;
+
+		std::string request_str = w.write(request);
+
+		return request_str;
+	}
 ```
-{
-    "request_content":"{
-        "pay_mch_key":{
-            "pay_platform":2,
-            "out_mch_id":"1234mcWYS3M5TjKLorAZ",
-            "out_sub_mch_id":"12343ycHpBDv8GXDfmSv",
-            "out_shop_id":"1234ruQCleTa9w30AaAH"
-        },
-        "pay_content":{
-            "out_trade_no":"12341008b320170802191960015",
-            "author_code":"282129340414399818",
-            "total_fee":1,
-            "fee_type":"CNY",
-            "body":"生活用品套餐"
-        }
-        "wxpay_pay_content_ext":{
-            "attach":"",
-            "goods_tag":"",
-            "order_client":{
-                "device_id":"device_id_01",
-                "staff_id":"shop_manage_id_01",
-                "terminal_type":1,
-                "machine_no":"34-64-a9-15-b4-cl",
-                "sdk_version":"1.6",
-                "spbill_create_ip":"10.27.14.138"
-            }
-        },
-        "nonce_str":"542AB309ECA042FE92355BDEC4E2D733"
-    }",
-    "authen_info":{
-        "a":{
-            "authen_type":1,
-            "authen_code":"A2F2FBCB506FB461212525C4917479B515ABB42BDC5909F7C012B6F74C0ClB99"
-        }
-    }
-}
-```
-- 将json转为string，发送给服务器
 
 ## 响应举例（以刷卡支付为例）
 - 把响应包从string转成json，取出json里面的response\_content和authen\_info，具体如下：
@@ -301,7 +265,7 @@ A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99
 # 交易接口
 ## 刷卡支付
 ### 接口地址
-`https://pay.qcloud.com/cpay/micro_pay`  
+`https://pay.qcloud.com/cpay/micro_pay`
 
 content\_type：application/json
 ### 输入参数
@@ -462,8 +426,8 @@ std::string gen_cloud_pay_micropay(
     const std::string &out_shop_id,
     const std::string &out_trade_no,
     const std::string &author_code,
-    const int64_t     &total_fee, 
-    const std::string &fee_type, 
+    const int64_t     &total_fee,
+    const std::string &fee_type,
     const std::string &device_id,
     const std::string &staff_id,
     const int         &terminal_type,
@@ -476,7 +440,7 @@ std::string gen_cloud_pay_micropay(
     Json::Value request_content;
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value pay_mch_key, pay_content, order_client; 
+    Json::Value pay_mch_key, pay_content, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -497,7 +461,7 @@ std::string gen_cloud_pay_micropay(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -681,7 +645,7 @@ std::string gen_cloud_pay_scan_code_pay(
     const std::string &out_sub_mch_id,
     const std::string &out_shop_id,
     const std::string &out_trade_no,
-    const int64_t     &total_fee, 
+    const int64_t     &total_fee,
     const std::string &fee_type,
     const std::string &device_id,
     const std::string &staff_id,
@@ -695,7 +659,7 @@ std::string gen_cloud_pay_scan_code_pay(
     Json::Value request_content;
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value pay_mch_key, pay_content, order_client; 
+    Json::Value pay_mch_key, pay_content, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -715,7 +679,7 @@ std::string gen_cloud_pay_scan_code_pay(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -910,7 +874,7 @@ std::string gen_cloud_pay_reverse(
     request_content["nonce_str"] = generate_random_nonce_str();
     request_content["out_trade_no"] = out_trade_no;
 
-    Json::Value pay_mch_key, order_client; 
+    Json::Value pay_mch_key, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -925,7 +889,7 @@ std::string gen_cloud_pay_reverse(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -1131,7 +1095,7 @@ std::string gen_cloud_pay_refund(
     Json::Value request_content;
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value pay_mch_key, pay_content, order_client; 
+    Json::Value pay_mch_key, pay_content, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -1153,7 +1117,7 @@ std::string gen_cloud_pay_refund(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -1352,7 +1316,7 @@ std::string gen_cloud_pay_close_order(
     request_content["out_trade_no"] = out_trade_no;
     request_content["trade_type"] = trade_type;
 
-    Json::Value pay_mch_key, order_client; 
+    Json::Value pay_mch_key, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -1367,7 +1331,7 @@ std::string gen_cloud_pay_close_order(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -1578,7 +1542,7 @@ std::string gen_cloud_pay_query_order(
     request_content["out_trade_no"] = out_trade_no;
     request_content["trade_type"] = trade_type;
 
-    Json::Value pay_mch_key, order_client; 
+    Json::Value pay_mch_key, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -1593,7 +1557,7 @@ std::string gen_cloud_pay_query_order(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -1804,7 +1768,7 @@ std::string gen_cloud_pay_query_refund_order(
     request_content["out_trade_no"] = out_trade_no;
     request_content["out_refund_no"] = out_refund_no;
 
-    Json::Value pay_mch_key, order_client; 
+    Json::Value pay_mch_key, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -1819,7 +1783,7 @@ std::string gen_cloud_pay_query_refund_order(
     order_client["sdk_version"]      = sdk_version;
     order_client["spbill_create_ip"] = spbill_create_ip;
     request_content["order_client"]  = order_client;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -1849,7 +1813,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ## 支付成功回调
 ### 接口地址
-服务商在云支付管理后台配置的回调地址（https）  
+服务商在云支付管理后台配置的回调地址（https）
 content_type：application/json
 ### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1951,101 +1915,11 @@ content_type：application/json
    </tr>
 </table>
 
-## 撤单成功回调
-### 接口地址
-服务商在云支付管理后台配置的回调地址（https）  
-content_type：application/json
-### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
 
-### RequestContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>out_trade_no</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>错误码。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-</table>
 
 ## 退款成功回调
 ### 接口地址
-服务商在云支付管理后台配置的回调地址（https）  
+服务商在云支付管理后台配置的回调地址（https）
 content_type：application/json
 ### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -2140,6 +2014,106 @@ content_type：application/json
       <td>错误描述</td>
    </tr>
 </table>
+
+## 多条件查询订单信息
+
+### 接口地址
+
+- `https://pay.qcloud.com/cpay/client_order_detail`
+- `content_type：application/json`
+
+### 输入参数
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `request_content` | 是 | RequestContent | 请求内容，详见本节RequestContent |
+| `authen_info` | 是 | AuthenInfo | 认证信息，详见AuthenInfo |
+
+**RequestContent结构**
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `pay_platform` | 否 | Number(32) | 第三方支付平台，详见PayPlatform |
+| `out_sub_mch_id` | 是 | String  | 云支付分配的子商户ID |
+| `out_shop_id` | 否 | String | 云支付分配的门店全局ID |
+| `staff_id` | 否 | String | 门店内店员的编号 |
+| `device_id` | 否  | String | 子商户自定义的终端设备编号 |
+| `query_order_type` | 是 | Number(32) | 查询订单类型; 详细定义见本节QueryOrderType；默认为3 |
+| `start_time` | 否 | Number(64) | 查询开始时间；unix时间戳；默认为0 |
+| `end_time` | 是 | Number(64) | 查询结束时间；unix时间戳；默认为当前时间 |
+| `page_num` | 是 | Number(32) | 页码 （从1开始计数）|
+| `page_size` | 是 | Number(32) | 单页条数 |
+| `nonce_str` | 否 | String(32) | 随机字符串 |
+
+**QueryOrderType**取值：
+
+- 1：订单
+- 2：退款单
+- 3：订单和退款单
+
+注意：
+
+- 如果需要查询子商户的订单，`out_shop_id`, `staff_id`, `device_id`不传
+- 如果需要查询门店的订单，`out_shop_id`必传；`staff_id`, `device_id`不传
+- 如果需要查询店员的订单，`out_shop_id`, `staff_id`都必传
+
+### 返回参数
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `response_content` | 是 | ResponseContent | 请求内容，详见本节ResponseContent |
+| `authen_info` | 是 | AuthenInfo | 认证信息，详见AuthenInfo |
+
+**ResponseContent结构**
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `status` | 是 | Status | 错误码，详见Status |
+| `description` | 否 | String(255) | 错误描述信息 |
+| `log_id` | 是 | Number(32) | 消息ID |
+| `internal_status` | 是 | Number(32) | 调试使用，调用者可以不予理会 |
+| `order_detail_query` | 否 | OrderDetailQueryResponse | 订单信息，详细见本节 |
+
+**OrderDetailQueryResponse**结构如下：
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `total_count` | 否 | Number(32) | 符合条件的订单总条数；注意，不是本次返回的订单条数 |
+| `order_details` | 否 | OrderDetail [] | 订单详细信息，详细见本节 |
+
+**OrderDetail**结构如下：
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `shop_info` | 否 | ShopInfo | 门店信息，详细见ShopInfo |
+| `shop_staff_info` | 否 | StaffInfo | 店员信息，详细见StaffInfo |
+| `receipt` | 否 | Receipt | 订单信息，详细结构如下 |
+
+**Receipt**结构如下：
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `order` | 否 | Order | 支付订单信息 |
+| `refund_order` | 否 | RefundOrder | 退款单信息 |
+
+**Order**结构如下：
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `order_mch` | 是 | OrderMch | 支付商户信息，详细见OrderMch |
+| `order_content` | 是 | OrderContent | 订单信息，详细见OrderContent |
+| `order_client` | 是 | OrderClient | 客户端信息，详细见OrderClient |
+| `authen_info` | 是 | AuthenInfo | 认证信息，详细见AuthenInfo |
+
+**RefundOrder**结构如下：
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `refund_order_mch` | 是 | OrderMch | 支付商户信息，详细见OrderMch |
+| `refund_order_content` | 是 | RefundOrderContent | 订单信息，详细见OrderContent |
+| `order_client` | 是 | OrderClient | 客户端信息，详细见OrderClient |
+| `authen_info` | 是 | AuthenInfo | 认证信息，详细见AuthenInfo |
+
 
 # 门店接口
 ## 查询门店信息
@@ -2321,7 +2295,7 @@ std::string gen_cloud_pay_query_sub_mch_shop_info(
     request_content["out_sub_mch_id"] = out_sub_mch_id;
     request_content["page_num"] = page_num;
     request_content["page_size"] = page_size;
-    
+
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
@@ -2836,12 +2810,12 @@ std::string gen_cloud_pay_upload_client_monitor_info(
     request_content["out_mch_id"] = out_mch_id;
     request_content["out_sub_mch_id"] = out_sub_mch_id;
     request_content["out_shop_id"] = out_shop_id;
-    
+
     request_content["nonce_str"] = generate_random_nonce_str();
     request_content["interval"] = interval;
     request_content["is_compress"] = false;
 
-    Json::Value order_client; 
+    Json::Value order_client;
     order_client["device_id"]        = device_id;
     order_client["staff_id"]         = staff_id;
     order_client["terminal_type"]    = terminal_type;
@@ -3063,10 +3037,10 @@ std::string gen_cloud_pay_upload_client_conf_info(
     request_content["out_mch_id"] = out_mch_id;
     request_content["out_sub_mch_id"] = out_sub_mch_id;
     request_content["out_shop_id"] = out_shop_id;
-    
+
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value order_client; 
+    Json::Value order_client;
     order_client["device_id"]        = device_id;
     order_client["staff_id"]         = staff_id;
     order_client["terminal_type"]    = terminal_type;
@@ -3438,7 +3412,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
             <br>&nbsp;&nbsp;"amount": 10,
             <br>&nbsp;&nbsp;"merchant_contribute": 9,
             <br>&nbsp;&nbsp;"other_contribute": 1,
-            <br>&nbsp;&nbsp;"memo":"学生专用优惠", 
+            <br>&nbsp;&nbsp;"memo":"学生专用优惠",
             <br>&nbsp;&nbsp;"purchase_buyer_contribute": 2.01,
             <br>&nbsp;&nbsp;"purchase_merchant_contribute": 1.03,
             <br>&nbsp;&nbsp;"purchase_ant_contribute": 0.82
@@ -3845,6 +3819,55 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+## 查询订单时商户信息
+
+**OrderMch**结构
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+|`pay_platform` | 是 | Number(32) | 第三方支付平台；详细见PayPlatform |
+| `out_mch_id` | 否 | String | 云支付分配的服务商ID |
+| `out_sub_mch_id` | 否 | String | 云支付分配的子商户ID |
+| `out_shop_id` | 否 | String | 云支付分配的门店全局ID |
+| `out_channel_id` | 否 | String |云支付分配给渠道商的ID |
+| `out_card_id` | 否 | String |会员卡ID |
+| `sub_mch_pay_info` | 否 | String |商户下单时存在订单中的特定信息 |
+| `mch_uin` | 否 | String | 服务商的腾讯云账号ID |
+| `mch_sub_uin` | 否 | String | 子服务商的腾讯云账号ID |
+| `using_stream_sub_mch` | 否 | bool | 是否使用银行商户 |
+| `upstream_order_mch_ext` | 否 | UpstreamOrderMchExt | 银行渠道相关信息|
+| `wxpay_order_mch_ext` | 否 | WxpayOrderMchExt| 微信支付服务商扩展信息 |
+| `alipay_order_mch_ext` | 否 | AlipayOrderMchExt| 支付宝服务商扩展信息 |
+| `card_order_mch_ext` | 否 | CardOrderMchExt| 会员卡服务商扩展信息 |
+
+**WxpayOrderMchExt**结构
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `mch_id` | 否 | String | 微信支付分配给服务商的账号 |
+| `sub_mch_id` | 否 | String | 微信支付分配给子商户的账号 |
+| `shop_id` | 否 | String | 微信支付分配给门店的编号 |
+| `app_id` | 否 | String | 微信支付分配给服务商的公众号ID |
+| `sub_app_id` | 否 | String | 微信支付分配给子商户的公众号ID |
+| `open_id` | 否 | String | 顾客在服务商公众号下的唯一标识 |
+| `sub_open_id` | 否 | String | 顾客在子商户公众号下的唯一标识 |
+| `is_subscribe` | 否 | bool | 用户是否关注了服务商公众号 |
+| `sub_is_subscribe` | 否 | bool | 用户是否关注了子商户的公众号 |
+| `is_bill` | 否 | bool | 是否为微信买单商户 |
+| `use_bill` | 否 | bool | 是否走微信买单渠道 |
+| `bill_channel_id` | 否 | String | 微信买单渠道号 |
+| `bill_shop_id` | 否 | String | 微信买单默认门店号 |
+| `is_macro` | 否 | bool | 是否是小微商户 |
+
+**AlipayOrderMchExt**结构
+
+| 参数名 | 是否必填 | 类型 | 说明 |
+| -- | -- | -- | -- |
+| `app_id` | 否 | String | 支付宝分配给服务商的APP ID|
+| `sub_app_id` | 否 | String | 支付宝分配给子商户的APP ID|
+| `user_id` | 否 | String | 顾客的用户号 |
+| `sub_mch_id` | 否 | String | 支付宝的子商户号, 银行服务商使用|
+
 ## 交易请求时的商户信息
 ### PayMchKey结构
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4016,7 +4039,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>商家小票ID</td>
    </tr>
    <tr>
-      <td>goods_details</td>
+      <td>goods_detail</td>
       <td>必填</td>
       <td>GoodsDetail[]</td>
       <td>商品详情，详见GoodsDetail</td>
@@ -4424,13 +4447,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>device_infos</td>
-      <td>是</td>
+      <td>否</td>
       <td>DeviceInfo[]</td>
       <td>门店设备信息列表，详见DeviceInfo</td>
    </tr>
    <tr>
       <td>staff_infos</td>
-      <td>是</td>
+      <td>否</td>
       <td>StaffInfo[]</td>
       <td>门店店员信息列表，详见StaffInfo</td>
    </tr>
@@ -4467,6 +4490,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>String(64)</td>
       <td>子商户自定义备注信息</td>
+   </tr>
+   <tr>
+      <td>device_name</td>
+      <td>是</td>
+      <td>String</td>
+      <td>设备名称</td>
    </tr>
 </table>
 
@@ -4566,7 +4595,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>String(128)</td>
       <td>子商户二维码</td>
-   </tr>   
+   </tr>
    <tr>
       <td>merchant_name</td>
       <td>是</td>
@@ -4915,19 +4944,19 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>成功</td>
    </tr>
    <tr>
-      <td>3</td>
+      <td>4</td>
       <td>等待用户支付</td>
    </tr>
    <tr>
-      <td>4</td>
+      <td>5</td>
       <td>已关闭,或者已退款</td>
    </tr>
    <tr>
-      <td>5</td>
+      <td>6</td>
       <td>交易结束，不可退款</td>
    </tr>
    <tr>
-      <td>6</td>
+      <td>7</td>
       <td>订单不存在</td>
    </tr>
 </table>

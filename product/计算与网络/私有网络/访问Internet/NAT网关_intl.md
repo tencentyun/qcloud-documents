@@ -5,7 +5,9 @@ NAT gateway provides the capability to translate between private IPs and public 
 
 ## Network Topology
 As shown in the figure below, the NAT gateway resides on the boundary between the Internet and the VPC, and is connected to the router on the VPC. In such a topology, when resources like CVM in the VPC send data packets outwards via the NAT gateway, the data first passes through the router and makes routing selection based on routing policies. Then, the NAT gateway sends traffic to the Internet through the bound EIP as the source IP:
+
 ![](https://mc.qcloudimg.com/static/img/32593cb6e9930b0126889b5a15eb2dc9/image.png)
+
 
 ## Features
 - The NAT gateway supports SNAT and DNAT:
@@ -96,6 +98,7 @@ When you use the NAT gateway, note the followings:
 | Maximum forwarding capacity per NAT gateway | 5 Gbps |
 
 ## Billing Method
+
 Charges for a NAT gateway device include two parts: Gateway rental fee (by hour) and the fee for traffic generated during the access to the Internet. The cost for the traffic can be charged as per the "Bill by Traffic" method for CVM network charges. The billing mode for the NAT gateway itself is as follows:
  
  <table class="cvmMonth">
@@ -187,6 +190,7 @@ You can access the Internet through an NAT gateway by following the steps below:
 >**Note:**
 The rental fee will be frozen for 1 hour during the creation of NAT gateway.
 
+
 #### Step 2: Configure the Routing Table Associated with the Subnet
 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to go to the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then select "Routing Table".
 2. In the routing table list, click the ID of the routing table associated to the subnet that needs to access the Internet to go to the details page of the routing table, and then click "Edit" button in the "Routing Policies".
@@ -204,6 +208,7 @@ The port forwarding table is a configuration table on the NAT gateway, which is 
 The internal IP only supports the private IP of the CVM in this VPC.
 
 ![](https://mc.qcloudimg.com/static/img/ce676bb705b873413de907e94aa124d0/1.png)
+
 
 ### Querying Port Forwarding Rule
 
@@ -247,6 +252,7 @@ After it is enabled, you can view the metrics of IP traffic passing through an N
 2. In the NAT gateway list page, click the NAT gateway ID to go to its details page.
 3. Click the "Monitor" tab, and enable the switch of "Gateway Traffic Control Details" on the upper right corner.
 After the Gateway Traffic Control Details are enabled, it takes 5 to 6 days to collect and publish data. During this period, you can view the monitoring details table at the lower part of the monitoring chart.
+
 
 >**Note:**
 This feature is under internal trial. Submit a ticket to apply for it.

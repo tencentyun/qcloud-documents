@@ -4,12 +4,12 @@
 
 ## Custom Audio Data
 
-A flow chart showing how local audio data are processed:
+The following is a flow chart on how to process local audio data:
 
-> Audience Side
+> For Viewer
 ![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_member.jpg)
 
-> VJ Host Side
+> For VJ
 ![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_host.jpg)
 
 As shown in the above diagram, developers can intercept the data in any step and process them accordingly.
@@ -22,12 +22,12 @@ As shown in the above diagram, developers can intercept the data in any step and
 
 API | Description
 :--|:--:
-registAudioDataCallbackWithByteBuffer | Register callback for the specified type of audio data
+registAudioDataCallbackWithByteBuffer | The callback function to register a specific data type
 
 Parameter type | Description
 :--|:--:
 int | Type of audio data (see above diagram)
-RegistAudioDataCompleteCallbackWithByteBuffer | A class that calls an audio data callback function defined by the App
+RegistAudioDataCompleteCallbackWithByteBuffer | The callback function to direct to the audio data defined by the App
 
 ```java
 ILiveSDK.getInstance().getAvAudioCtrl().registAudioDataCallbackWithByteBuffer(
@@ -55,26 +55,26 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 #### iOS
 
-**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It is usually used in the following two ways:<br>
-1. Microphone pass-through: both the broadcasting side (the side capable of inputting upstream audio data) and the others receive the audio stream. Following code illustrates how to setup microphone pass-through:
+**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It usually is used in the following two ways:<br>
+1. Microphone pass-through: Both the microphone side (the side capable of inputting upstream audio data) and the others receive the audio stream. The following codes are used to set microphone pass-through:
 
 ```
 // Set audio processing callback
 [[[ILiveSDK getInstance] getAVContext].audioCtrl setAudioDataEventDelegate:self];
 
-// Note that the parameter is QAVAudioDataSource_MixToSend
+// Note: It is QAVAudioDataSource_MixToSend
 [[[ILiveSDK getInstance] getAVContext].audioCtrl registerAudioDataCallback:QAVAudioDataSource_MixToSend];
 [[[ILiveSDK getInstance] getAVContext].audioCtrl setAudioDataFormat:QAVAudioDataSource_MixToSend desc:pcmdesc];
 
 ```
 
-2. Speaker pass-through: configuration for the side with speakers on. Only this side can hear the sound and the others can't. Following code illustrates how to setup speaker pass-through:
+2. Speaker pass-through: When the speaker side is configured, only the speaker side can receive the audio stream. The following codes are used to set speaker pass-through:
 
 ```
  // Set audio processing callback
  [[[ILiveSDK getInstance] getAVContext].audioCtrl setAudioDataEventDelegate:self];
  
- // Note that the parameter is QAVAudioDataSource_MixToPlay.
+ // Note: It is QAVAudioDataSource_MixToPlay
  [[[ILiveSDK getInstance] getAVContext].audioCtrl registerAudioDataCallback:QAVAudioDataSource_MixToPlay];
  [[[ILiveSDK getInstance] getAVContext].audioCtrl setAudioDataFormat:QAVAudioDataSource_MixToPlay desc:pcmdesc];
 
@@ -172,12 +172,12 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 [[[ILiveSDK getInstance] getAVContext].audioCtrl setAudioDataEventDelegate:nil];
 
 // Or call AVSDK APIs to unregister different types of pass-through callbacks.
-// For details, please see QAVAudioCtrl in QAVSDK.framework.
+// For more information, please see QAVAudioCtrl in QAVSDK.framework.
 /*!
- @abstract      Unregister callbacks for a type of audio data.
- @discussion    The type of audio data to register for listening to. For more information, see QAVAudioDataSourceType.
- @param         type            The type of audio data to unregister for listening to. For more information, see QAVAudioDataSourceType.
- @return        QAV_OK is returned if the operation succeeds. For other cases, see QAVResult.
+ @abstract      Unregister audio data callbacks
+ @discussion    The type of audio data to register for listening to. For more information, please see QAVAudioDataSourceType.
+ @param         type            The type of audio data to unregister for listening to. For more information, please seeQAVAudioDataSourceType
+ @return        QAV_OK is returned if the operation succeeds. For other cases, please see QAVResult.
  @see           QAVAudioDataSourceType QAVResult
  */
 - (QAVResult)unregisterAudioDataCallback:(QAVAudioDataSourceType)type;
@@ -202,7 +202,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 Below is a flow chart illustrating the process of custom video data capture:    
 
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/custom_flow.png)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/custom_flow.png)
 
 ### Android
 
@@ -243,12 +243,12 @@ Parameter type | Description
 :--|:--:
 byte array | Image data
 int | Length of the array
-int | byteperRow of the image Only used by RGB32 video. Normally it is 4 times the width of the video. Pay special attention if a special resolution is used.
+int | byteperRow of the image. Only used by RGB32 video. Normally it is 4 times the width of the video. Pay special attention if a special resolution is used.
 int | Width of the video image
 int | Height of the video image
-int | video image rendering orientation Orientation could be 0, 1, 2, or 3, meaning that the video should be rotated by 0, 90, 180 or 270 degrees to be upright, respectively.
+int | Video image rendering orientation. Orientation could be 0, 1, 2, or 3, meaning that the video should be rotated by 0, 90, 180 or 270 degrees to be upright, respectively. |
 int | Color format of the video image. For specific values, refer to EXTERNAL_FORMAT_I420, EXTERNAL_FORMAT_RGBA, etc.
-int | Video source type Currently, only VIDEO_SRC_TYPE_CAMERA is supported.
+int | Video source type. Only VIDEO_SRC_TYPE_CAMERA is supported.
 
 ```java
 // The video image needs to be rotated by 90 degrees.
@@ -265,7 +265,7 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
 
 1. Intercepting AVSDK camera data
 
-| API |  Description  |
+| API Name |  Description  |
 |---------|---------|
 | **setLocalVideoPreProcessCallback** | Set the pre-processing function for local camera video data |
 ##### Implementation:
@@ -276,7 +276,7 @@ Function description:
 a. After pre-processing camera data, usually you only need to write the processed data back to VideoFrame.data, while keeping the data format and size of the video.
 b. Usually, you don't need to modify other properties.
 
-Returned value: true:  Successful    false:   Failed
+Return values: true: successful false: failed
 */
 boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCallback(new AVVideoCtrl.LocalVideoPreProcessCallback(){
 
@@ -307,7 +307,7 @@ Having obtained the camera video data from AVSDK, you can now pre-process them, 
 3. Stop intercepting AVSDK camera data
 ##### Implementation:
 <pre>
-// Returned value: true:  Successful    false:  Failed
+// true: successful  false: failed
 
 boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCallback(null);
 </pre>
@@ -320,12 +320,12 @@ Customizing video capture is mainly used to pre-process raw data, such as when y
 
 **Note: Dynamic effects are implemented by developers and are not related to this documentation. Besides dynamic effects, you can pre-process the raw data in any way you want.**
 
-1 Process description
+1. Process description
 Note that in customizing video capture, the capture process is independent of iLiveSDK and is not related to the SDK in any way. During the process, iLiveSDK's role is to pass-through data and render remote data. The process introduced here is: ***Customizing video capture -> Video data is passed to iLiveSDK -> Remote end receives the video frames and starts rendering***
 ![](http://mc.qcloudimg.com/static/img/5311e0e74ef71db124c291be01f8b5da/image.png)
 
 
-2 Preparation for capture
+2. Preparation for capture
 ***After joining the room and before capture starts***
 
 | API | Description |
@@ -335,16 +335,16 @@ Note that in customizing video capture, the capture process is independent of iL
 | Parameter Type | Parameter Name | Description |
 |---|---|---|
 | BOOL | isEnableExternalCapture | Whether to enable external video capture devices. Pass in YES in custom capture |
+| BOOL | shouldRender | Whether SDK will render input stream video data.The value is "YES" or "NO" |
 
 * Example:
 
 ```
-    QAVVideoCtrl *videoCtrl = [[ILiveSDK getInstance] getAvVideoCtrl].videoCtrl;
-    [videoCtrl enableExternalCapture:YES];
+    QAVContext *context = [[ILiveSDK getInstance] getAVContext];
+    [context.videoCtrl enableExternalCapture:YES shouldRender:NO];
 ```
 
-3 Custom capture
-
+3. Custom capture
 Custom capture uses system level APIs, which are unrelated to iLiveSDK. Here we only briefly introduce relevant system classes and methods.
 
 | System Class or Method | Description |
@@ -352,12 +352,12 @@ Custom capture uses system level APIs, which are unrelated to iLiveSDK. Here we 
 | AVCaptureSession | Capture video |
 | AVCaptureDeviceInput | Video input stream |
 | AVCaptureVideoDataOutput | Video output stream |
-| captureOutput:  didOutputSampleBuffer:  fromConnection: | Callback function for captured video. The captured video data are passed to this interface for you to pre-process. |
+| captureOutput: didOutputSampleBuffer: fromConnection: | Callback function for captured video. The captured video data are passed to this interface for you to pre-process. |
 
-4 Processing after Capture 
+4. Processing after Capture
 Having obtained the raw data (of type `CMSampleBufferRef`) from the system, you can now pre-process them, such as applying whitening, beauty filters, or performing face recognition. The video data after pre-process need to be rendered by the developers and are unrelated to iLiveSDK.
 
-5 iLiveSDK Pass-through
+5. iLiveSDK Pass-through
 
 | API | Description |
 |---|---|
@@ -366,24 +366,24 @@ Having obtained the raw data (of type `CMSampleBufferRef`) from the system, you 
 | Parameter Type | Parameter Name | Description |
 |---|---|---|
 | QAVVideoFrame | frame | A type of AVSDK vedio frame. Developers need to convert custom-captured video data to this type. |
-* Example:
+*Example:
 
 ```
     QAVVideoCtrl *videoCtrl = [[ILiveSDK getInstance] getAvVideoCtrl].videoCtrl;
     QAVResult result = [videoCtrl fillExternalCaptureFrame:frame];
 ```
 
-6 Remote Rendering
+6. Remote Rendering
 
 | API | Description |
 |---|---|
-| OnVideoPreview: | Callback for remote video data. It receives remote frame data, and renders them with iLiveSDK's rendering APIs. Developers only need to specify the rendering area.  For more information about rendering, please see [the new version of FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master) |
+| OnVideoPreview: | Callback for remote video data. It receives remote frame data, and renders them with iLiveSDK's rendering APIs. Developers only need to specify the rendering area. For more information about rendering, please see [the new version of FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master) |
 
 | Parameter Type | Parameter Name | Description |
 |---|---|---|
 | QAVVideoFrame | frameData | A type of AVSDK video frame |
 
-7 Notes
+7. Notes
 > *1 OpenGL and iLiveSDK should not be used together to render custom-captured video data. Otherwise, the App may crash. In other words, there should be two views on the interface: one to render custom-captured video data, and the other to render QAVVideoFrame objects.
 
 > *2 When converting to QAVVideoFrame, color_format attribute should be AVCOLOR_FORMAT_NV12.

@@ -19,7 +19,7 @@
 视频云 SDK 中的 TXVodPlayer 模块负责实现点播播放功能。
 
 ```objectivec
-TXVodPlayer _txVodPlayer = [[TXVodPlayer alloc] init];
+TXVodPlayer *_txVodPlayer = [[TXVodPlayer alloc] init];
 [_txVodPlayer setupVideoWidget:_myView insertIndex:0]
 ```
 
@@ -45,11 +45,25 @@ TXVodPlayer _txVodPlayer = [[TXVodPlayer alloc] init];
 ```
 
 ### step 3: 启动播放
+TXVodPlayer支持两种播放模式，您可以根据需要自行选择
+1. 通过url方式
 TXVodPlayer 内部会自动识别播放协议，您只需要将您的播放 URL 传给 startPlay 函数即可。
 ```objectivec
 NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 [_txVodPlayer startPlay:url ];
 ```
+2. 通过fileId方式
+```objectivec
+TXPlayerAuthParams *p = [TXPlayerAuthParams new];
+p.appId = 1252463788;
+p.fileId = @"4564972819220421305";
+[_txVodPlayer startPlayWithParams:p];
+```
+在[点播视频管理](https://console.cloud.tencent.com/video/videolist) 找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+
+![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+
+通过fileId方式播放，播放器会向后台请求真实的播放地址。如果此时网络异常或fileId不存在，则会收到`PLAY_ERR_GET_PLAYINFO_FAIL`事件，反之收到`PLAY_EVT_GET_PLAYINFO_SUCC`表示请求成功。
 
 ### step 4: 画面调整
 
@@ -67,8 +81,10 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 
 | 可选值 | 含义  |
 |---------|---------|
-| RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
+| HOME_ORIENTATION_RIGHT | home在右边 | 
+| HOME_ORIENTATION_DOWN | home在下面 | 
+| HOME_ORIENTATION_LEFT | home在左边 | 
+| HOME_ORIENTATION_UP | home在上面 | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
@@ -84,7 +100,7 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 ```
 
 ### step 6: 结束播放
-结束播放时，如果要推出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
+结束播放时，如果要退出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
 
 ```objectivec
 // 停止播放
@@ -93,7 +109,7 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 ```
 
 ### step 7: 屏幕截图
-通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
+通过调用 **snapshot** 您可以截取当前视频为一帧画面，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
@@ -110,7 +126,7 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 [_txVodPlayer startPlay:url];
 ```
 
-### step 9: 本地缓存
+### step 9: 本地缓存 [UGC版本暂不支持]
 在短视频播放场景中，视频文件的本地缓存是很刚需的一个特性，对于普通用户而言，一个已经看过的视频再次观看时，不应该再消耗一次流量。
 
 - **格式支持**
@@ -173,12 +189,12 @@ _player_B.isAutoPlay = NO;
 ### step 11: 贴片广告
 autoPlay 还可以用来做贴片广告功能，由于设置了 autoPlay 为 NO 之后，播放器会立刻加载但又不会立刻播放，因此可以在此时展示贴片广告，等广告播放结束，在使用 resume 函数立即开始视频的播放。
 
-### step 12: 加密播放
+### step 12: 加密播放 [UGC版本暂不支持]
 视频加密方案主要用于在线教育等需要对视频版权进行保护的场景。如果要对您的视频资源进行加密保护，就不仅仅需要在播放器上做改造，还需要对视频源本身进行加密转码，亦需要您的后台和终端研发工程师都参与其中。在 [视频加密解决方案](https://cloud.tencent.com/document/product/266/9638) 中您会了解到全部细节内容。
 
 目前 TXVodPlayer 也是支持加密播放的，您可以使用通过 [URL](https://cloud.tencent.com/document/product/266/9638#.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE.E6.96.B9.E6.A1.881.EF.BC.9A.E9.80.9A.E8.BF.87querystring.E4.BC.A0.E9.80.92.E8.BA.AB.E4.BB.BD.E8.AE.A4.E8.AF.81.E4.BF.A1.E6.81.AF) 携带身份认证信息的方案，该种方案下 SDK 的调用方式跟普通情况没有什么区别。 您也可以使用 [Cookie](https://cloud.tencent.com/document/product/266/9638#.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE.E6.96.B9.E6.A1.882.EF.BC.9A.E9.80.9A.E8.BF.87cookie.E4.BC.A0.E9.80.92.E8.BA.AB.E4.BB.BD.E8.AE.A4.E8.AF.81.E4.BF.A1.E6.81.AF) 携带身份认证信息的方案，该种方案下，需要您通过 TXVodPlayConfig 中的 headers 字段设置 cookie 信息于 http 请求头中。
 
-### step 13: HTTP-REF
+### step 13: HTTP-REF [UGC版本暂不支持]
 TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用的防止 URL 被到处拷贝的 Referer 字段（腾讯云可以提供更加安全的签名防盗链方案），以及用于验证客户端身份信息的 Cookie 字段。
 
 ### step 14: 硬件加速
@@ -192,52 +208,39 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
   [_txVodPlayer startPlay:_flvUrl type:_type];
 ```
 
+### step 15: 多码率文件 [UGC版本暂不支持]
+SDK支持hls的多码率格式，方便用户切换不同码率的播放流。在收到PLAY_EVT_PLAY_BEGIN事件后，可以通过下面方法获取多码率数组
+```objectivec
+NSArray *bitrates = [_txVodPlayer supportedBitrates]; //获取多码率数组
+```
+
+在播放过程中，可以随时通过`-[TXVodPlayer setBitrateIndex:]`切换码率。切换过程中，会重新拉取另一条流的数据，因此会有稍许卡顿。SDK针对腾讯云的多码率文件做过优化，可以做到切换无卡顿。
+
 ## 进度展示
 
 点播进度分为两个指标：**加载进度** 和 **播放进度**，SDK 目前是以事件通知的方式将这两个进度实时通知出来的。
 
-您可以为 TXVodPlayer 对象绑定一个 **TXLivePlayListener** 监听器（名字不匹配是历史原因），进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
+您可以为 TXVodPlayer 对象绑定一个 **TXVodPlayListener** 监听器，进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
 
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
-```objectivec
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
+```objective
+-(void) onPlayEvent:(TXVodPlayer *)player event:(int)EvtID withParam:(NSDictionary*)param {
     if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度, 单位是秒
+		    // 加载进度, 单位是秒, 小数部分为毫秒
 		    float playable = [param[EVT_PLAYABLE_DURATION] floatValue];
 				[_loadProgressBar setValue:playable];
 				
-		    // 播放进度, 单位是秒
+		    // 播放进度, 单位是秒, 小数部分为毫秒
 		    float progress = [param[EVT_PLAY_PROGRESS] floatValue];
 				[_seekProgressBar setValue:progress];
 				
-			// 视频总长, 单位是秒
+			// 视频总长, 单位是秒, 小数部分为毫秒
 			float duration = [param[EVT_PLAY_DURATION] floatValue];
 			// 可以用于设置时长显示等等
 	}
 }
 ```
-如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
-```objective
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
-    if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度, 单位是毫秒
-		    float playable_ms = [param[EVT_PLAYABLE_DURATION_MS] floatValue];
-				[_loadProgressBar setValue:playable];
-				
-		    // 播放进度, 单位是毫秒
-		    float progress_ms = [param[EVT_PLAY_PROGRESS_MS] floatValue];
-				[_seekProgressBar setValue:progress];
-				
-			// 视频总长, 单位是毫秒
-			float duration_ms = [param[EVT_PLAY_DURATION_MS] floatValue];
-			// 可以用于设置时长显示等等
-	}
-}
-```
-
-
-
 
 ## 事件监听
 除了 PROGRESS 进度信息，SDK 还会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）同步给您的应用程序很多其它的信息：
@@ -254,6 +257,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束   | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
+|PLAY_ERR_HLS_KEY		| -2305 | HLS解密key获取失败 |
 
 ### 3. 警告事件
 如下的这些事件您可以不用关心，它只是用来告知您 SDK 内部的一些事件。
@@ -280,6 +284,15 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
+### 5. 分辨率事件
+以下事件用于获取画面变化信息，您也无需关心：
+
+| 事件ID                     |    数值  |  含义说明                    |   
+| :-----------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_CHANGE_RESOLUTION|  2009    | 视频分辨率改变               |
+| PLAY_EVT_CHANGE_ROATION	|  2011    | MP4视频旋转角度 |
+
+
 ## 视频宽高 
 **视频的宽高（分辨率）是多少？**
 站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
@@ -297,4 +310,78 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
+
+您也可直接调用 `-[TXVodPlayer width]` 和 `-[TXVodPlayer height]` 直接获取当前宽高.
+
+## 视频信息
+如果通过fileId方式播放且请求成功，SDK会将一些请求信息通知到上层。您需要在收到`PLAY_EVT_GET_PLAYINFO_SUCC`事件后，解析param中的信息。
+
+|   视频信息                   |  含义说明                   |   
+| :------------------------  |  :------------------------ | 
+| EVT_PLAY_COVER_URL     | 视频封面地址 | 
+| EVT_PLAY_URL  | 视频播放地址 |
+| EVT_PLAY_DURATION | 视频时长 |
+
+## 离线下载
+
+点播离线播放是一个非常普遍的需求，用户可以在有网络的地方先下载好视频，等到了无网络的环境可以再次观看。SDK提供了播放本地文件的能力，但仅限于mp4和flv这种单一文件格式，HLS流媒体因为无法保存到本地，所以不能本地播放。现在，您可以通过`TXVodDownloadManager`将HLS下载到本地，以实现离线播放HLS的能力。
+
+### step1：准备工作
+
+`TXVodDownloadManager`被设计为单例，因此您不能创建多个下载对象。用法如下
+
+```objective-c
+TXVodDownloadManager *downloader = [TXVodDownloadManager shareInstance];
+[downloader setDownloadPath:"<指定您的下载目录>"];
+```
+
+### step2:  开始下载
+
+开始下载有两种方式：url和fileid。url方式非常简单，只需要传入下载地址即可
+
+```objective-c
+[downloader startDownloadUrl:@"http://1253131631.vod2.myqcloud.com/26f327f9vodgzp1253131631/f4bdff799031868222924043041/playlist.m3u8"]
+```
+
+fileid下载至少需要传入appId和fileId
+
+```objective-c
+TXPlayerAuthParams *auth = [TXPlayerAuthParams new];
+auth.appId = 1252463788;
+auth.fileId = @"4564972819220421305";
+TXVodDownloadDataSource *dataSource = [TXVodDownloadDataSource new];
+dataSource.auth = auth;
+[downloader startDownload:dataSource];
+```
+
+> fileid的获取方式可参考 https://cloud.tencent.com/document/product/454/12147#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE
+
+### step3：任务信息 
+
+在接收任务信息前，需要先设置回调delegate
+
+```objective-c
+downloader.delegate = self;
+```
+
+可能收到的任务回调有：
+
+1. -[TXVodDownloadDelegate onDownloadStart:]
+   任务开始，表示SDK已经开始下载。
+2. -[TXVodDownloadDelegate onDownloadProgress:]
+   任务进度，下载过程中，SDK会频繁回调此接口，你可以在这里更新进度显示
+3. -[TXVodDownloadDelegate onDownloadStop:] 
+   任务停止，当您调用是`stopDownload`停止下载，收到此消息表示停止成功
+4. -[TXVodDownloadDelegate onDownloadFinish:] 
+   下载完成，收到此回调表示已全部下载。此时下载文件可以给TXVodPlayer播放
+5. -[TXVodDownloadDelegate onDownloadError:errorMsg:]
+   下载错误，下载过程中遇到网络断开会回调此接口，同时下载任务停止。所有错误码请参考`TXDownloadError`。
+
+由于downloader可以同时下载多个任务，所以回调接口里带上了`TXVodDownloadMediaInfo`对象，您可以访问url或dataSource判断下载源，同时还可以获取到下载进度、文件大小等信息。
+
+### step4：中断下载
+
+停止下载请调用`-[TXVodDownloadManager stopDownload:]`方法，参数为`-[TXVodDownloadManager sartDownloadUrl:]`返回的对象。**SDK支持断点续传**，当下载目录没有发生改变时，下次下载同一个文件时会从上次停止的地方重新开始。
+
+如果您不需要重新下载，请调用`-[TXVodDownloadManager deleteDownloadFile:]`方法删除文件，以释放存储空间。
 

@@ -3,7 +3,9 @@ If the following prompt appears when applying for a Domain Validation (DV) SSL c
 ![](https://mc.qcloudimg.com/static/img/25451d24cf3c717454830a44925642ec/1.png)
 
 __The specific reasons for failed security verification:__<br/>
-According to the anti-phishing mechanism of CAs, sensitive words contained in domain names, such as bank and pay, can cause failed security verifications. Specific sensitive words are defined by CAs. And some less commonly used root domain names may also fail to pass verifications. For example, root domain names with .pw suffix, such as www.qq.pw and www.qcloud.pw, will fail to pass the verification.
+
+According to the anti-phishing mechanism of CAs, sensitive words contained in domain names, such as bank and pay, can cause failed security verifications. Specific sensitive words are defined by CAs. And some less commonly used root domain names may also fail to pass verifications. For example, root domain names with .pw suffix, such as `www.qq.pw` and `www.qcloud.pw`, will fail to pass the verification.
+
 
 Because DV SSL certificates are quickly issued through automatic authentication without manual intervention, the verification standards are strengthened with more stringent sensitive words.
 

@@ -1,36 +1,32 @@
-对于在iOS平台上传视频的场景，腾讯云点播提供了iOS上传SDK来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
+## 源代码下载
+您可以在腾讯云官网更新 [ iOS 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_iOS.zip)。
+下载完的 zip 包解压后可以看到 TXUGCUploadDemo 目录，发布相关源代码在 TXUGCUploadDemo/upload 目录下。
 
-## iOS接入
+## 集成上传库和源代码
 
-### 集成
+1. 拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
+2. 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。并添加以下依赖库：
 
-拷贝发布源代码(目录：TXUGCUploadDemo/upload)到您的工程中。
+    ```
+    1、CoreTelephony
+    2、Foundation
+    3、SystemConfiguration
+    4、libstdc++.tbd
+    ```
+    
+3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
-导入COS的动态库QCloudCore.framework、QCloudCOSXML.framework（demo根目录下）到您的工程中。
+##  简单视频上传
 
-并添加以下依赖库：
-
-```
-1、CoreTelephony
-2、Foundation
-3、SystemConfiguration
-4、libstdc++.tbd
-```
-
-在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
-
-## 如何上传一个视频
-
-### 使用示例
-
-初始化一个发布对象
+### 初始化一个上传对象
 
 ```objc
 TXUGCPublish   *_videoPublish = [[TXUGCPublish alloc] initWithUserID:@"carol_ios"];
 ```
 
-设置发布对象回调代理
+### 设置上传对象的回调
 
 ```objc
 _videoPublish.delegate = self;
@@ -49,72 +45,118 @@ _videoPublish.delegate = self;
 }
 ```
 
-调用发布
+### 构造上传参数
+
+```objc
+TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
+
+videoPublishParams.signature  = @"xxx";
+videoPublishParams.videoPath  = self.uploadTempFilePath;
+```
+>signature 计算规则可参考[客户端上传签名](/document/product/266/9221)。
+
+### 调用上传
+
+```objc
+[_videoPublish publishVideo:videoPublishParams];
+```
+
+## 高级功能
+### 携带封面
+
+在上传参数中带上封面图片即可。
 
 ```objc
 TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
 videoPublishParams.signature  = @"xxx";
-videoPublishParams.coverImage = nil;
+videoPublishParams.coverImage = [[UIImage alloc] initWithCGImage:imgRef];
 videoPublishParams.videoPath  = self.uploadTempFilePath;
-[_videoPublish publishVideo:videoPublishParams];
 ```
 
-### 接口描述
+### 取消、恢复上传
 
-初始化发布对象TXUGCPublish::initWithUserID
-
-| 参数名称   | 参数描述               | 类型        | 必填   |
-| ------ | ------------------ | --------- | ---- |
-| userID | 用户userID，用于区分不同的用户 | NSString* | 否    |
-
-
-发布参数TXPublishParam
-
-| 参数名称         | 参数描述                                     | 类型        | 必填   |
-| ------------ | ---------------------------------------- | --------- | ---- |
-| signature    | 点播签名 | NSString* | 是    |
-| videoPath    | 本地视频文件路径                                 | NSString* | 是    |
-| coverImage   | 封面图片，可不设置。不设置SDK会自动截取封面图                 | UIImage*  | 否    |
-| enableResume | 是否启动断点续传，默认开启                            | BOOL      | 否    |
-
-### 输出返回
-
-publishVideo参数检查不通过会直接返回非0错误码。错误信息在TXUGCPublish.h中定义
-
-发布进度回调。uploadBytes是上传字节数，totalBytes是总字节数
-
-```objc
--(void) onPublishProgress:(NSInteger)uploadBytes totalBytes: (NSInteger)totalBytes;
-```
-
-发布完成回调。如果成功，会返回视频文件fileid、url等信息；失败则返回失败错误码和错误信息。
-
-```objc
--(void) onPublishComplete:(TXPublishResult*)result;
-@interface TXPublishResult : NSObject
-@property (nonatomic, assign) int                   retCode;        //错误码
-@property (nonatomic, strong) NSString*             descMsg;        //错误描述信息
-@property (nonatomic, strong) NSString*             videoId;        //视频文件id
-@property (nonatomic, strong) NSString*             videoURL;       //视频播放地址
-@property (nonatomic, strong) NSString*             coverURL;       //封面存储地址
-@end
-```
-
-### 如何携带封面
-
-在发布参数中带上封面图片；或者不设置，SDK内部会尝试自动截取封面图。
-
-### 如何取消、恢复上传
-
-取消上传，调用TXUGCPublish的canclePublish()。
+取消上传，调用 `TXUGCPublish`的 `anclePublish()`。
 
 ```objc
 [_videoPublish canclePublish];
 ```
 
-恢复上传，用相同的发布参数（视频路径和封面路径不变）再调用一次TXUGCPublish的publishVideo。
+恢复上传，用相同的上传参数（视频路径和封面路径不变）再调用一次 `TXUGCPublish` 的 `publishVideo`。
 
-### 如何断点续传
+### 断点续传
 
-发布参数中的enableResume，是否开启断点续传。默认是开启的。
-在断点续传开启的情况下，只要待上传的文件路径、文件内容没有发生变化，SDK内部会自己实现断点续传，外部不用做特殊处理。
+在视频上传过程中，点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。断点续传的有效时间是 1 天，即同一个视频上传被中断，那么 1 天内再次上传可以直接从断点处上传，超过 1 天则默认会重新上传完整视频。
+上传参数中的 `enableResume` 为断点续传开关，默认是开启的。
+
+## 接口描述
+
+初始化上传对象 `TXUGCPublish::initWithUserID`
+
+| 参数名称   | 参数描述               | 类型        | 必填   |
+| ------ | ------------------ | --------- | ---- |
+| userID | 用户 userID，用于区分不同的用户 | NSString* | 否    |
+
+上传 `TXUGCPublish.publishVideo`
+
+| 参数名称  | 参数描述 | 类型              | 必填   |
+| ----- | ---- | --------------- | ---- |
+| param | 发布参数 | TXPublishParam* | 是    |
+
+上传参数 `TXPublishParam`
+
+| 参数名称         | 参数描述                               | 类型        | 必填   |
+| ------------ | ---------------------------------- | --------- | ---- |
+| signature    | [客户端上传签名](/document/product/266/9221) | NSString* | 是    |
+| videoPath    | 本地视频文件路径                           | NSString* | 是    |
+| coverImage   | 封面图片，可不设置。                         | UIImage*  | 否    |
+| enableResume | 是否启动断点续传，默认开启                      | BOOL      | 否    |
+
+
+设置上传回调 `TXUGCPublish.delegate`
+
+| 成员变量名称   | 变量描述        | 类型                     | 必填   |
+| -------- | ----------- | ---------------------- | ---- |
+| delegate | 上传进度和结果回调监听 | TXVideoPublishListener | 是    |
+
+
+进度回调 `TXVideoPublishListener.onPublishProgress`
+
+| 变量名称        | 变量描述     | 类型        |
+| ----------- | -------- | --------- |
+| uploadBytes | 已经上传的字节数 | NSInteger |
+| totalBytes  | 总字节数     | NSInteger |
+
+结果回调 `TXVideoPublishListener.onPublishComplete`
+
+| 变量名称   | 变量描述 | 类型               |
+| ------ | ---- | ---------------- |
+| result | 上传结果 | TXPublishResult* |
+
+上传结果 `TXPublishResult`
+
+| 成员变量名称   | 变量说明      | 类型        |
+| -------- | --------- | --------- |
+| retCode  | 结果码       | int       |
+| descMsg  | 上传失败的错误描述 | NSString* |
+| videoId  | 点播视频文件Id  | NSString* |
+| videoURL | 视频存储地址    | NSString* |
+| coverURL | 封面存储地址    | NSString* |
+
+
+## 错误码
+
+SDK 通过 `TXVideoPublishListener` 接口来监听视频上传相关的状态。因此，可以利用 `TXPublishResult` 中的 `retCode` 来确认视频发布的情况。
+
+| 状态码  | 在 TVCCommon 中所对应的常量           | 含义              |
+| :--: | :---------------------------- | :-------------- |
+|  0   | TVC_OK                        | 上传成功            |
+| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败，通常是客户端签名过期或者非法，需要 app 重新申请签名         |
+| 1002 | TVC_ERR_UGC_PARSE_FAILED      | 请求信息解析失败        |
+| 1003 | TVC_ERR_VIDEO_UPLOAD_FAILED   | 上传视频失败          |
+| 1004 | TVC_ERR_COVER_UPLOAD_FAILED   | 上传封面失败          |
+| 1005 | TVC_ERR_UGC_FINISH_REQ_FAILED | 结束上传请求失败        |
+| 1006 | TVC_ERR_UGC_FINISH_RSP_FAILED | 结束上传响应错误        |
+| 1008 | TVC_ERR_FILE_NOT_EXIST        | 上传文件不存在         |
+| 1012 | TVC_ERR_INVALID_SIGNATURE     | 视频上传 signature 为空 |
+| 1013 | TVC_ERR_INVALID_VIDEOPATH     | 视频文件的路径为空       |
+| 1017 | TVC_ERR_USER_CANCLE           | 用户调用取消上传        |

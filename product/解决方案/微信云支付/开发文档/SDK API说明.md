@@ -2,10 +2,10 @@
 云支付提供了五类接口，初始化和结束SDK类接口、门店类接口、支付类接口、安全相关的接口、其他。具体为：  
 
 - 初始化和结束类SDK接口，进程启动时需要调用SDK的初始化接口，和结束进程时需要调用SDK的结束接口；   
-- 门店类接口包含设置门店和查询门店信息；刷卡支付接口需要用到门店/设备/员工ID信息，所以调用者需要再初始化SDK后，先调用门店接口设置门店相关的信息；  
-- 支付类接口包含刷卡支付、查询订单、取消订单、扫码支付、申请退款、退款查询、交易明细等接口；其中刷卡支付和扫码支付接口成功代表提交下单成功，支付结果需要通过查询订单去获取。申请退款成功只表示退款受理成功，退款的结果需要通过退款查询去获取；  
-- 安全相关的接口；包含安全登入、安全登入确认、安全初始化、身份认证、身份认证确认。只有安全登入者登入成功后，才可以调用身份认证相关的两个接口。 如过服务商需要对商户敏感信息（如支付密钥）做保护，则建议采用安全模式； 
-- 其他接口；如果上述接口返回失败，可以通过获取错误描述接口来得到错误信息。 获取微信支付或支付宝的付款码前缀。
+- 门店类接口包含查询门店信息；刷卡支付接口需要用到门店/设备/员工ID信息，有两种方式可以获取，第一、调用者先初始化SDK，然后调用查询门店接口查询门店相关的信息， 第二、 直接在手机端子商户管理系统上获取相关信息，然后初始化SDK；  
+- 支付类接口包含刷卡支付、查询订单、取消订单、扫码支付、申请退款、退款查询、交易明细等接口；其中刷卡支付和扫码支付接口成功代表提交下单成功，支付结果需要通过查询订单去获取。申请退款成功只表示退款受理成功，退款的结果需要通过退款查询去获取； 
+- 安全相关的接口；包含安全登入、安全登入确认、安全初始化、身份认证、身份认证确认。只有安全登入者登入成功后，才可以调用身份认证相关的两个接口。 如果服务商需要对商户敏感信息（如支付密钥）做保护，则建议采用安全模式； 
+- 其他接口；如果上述接口返回失败，可以通过获取错误描述接口来得到错误信息。 获取微信支付或支付宝的付款码前缀。获取交易明细接口。获取交易统计接口。
 	
 # 初始化和结束SDK类接口  
 
@@ -69,70 +69,6 @@
 
 # 门店类接口
 
-## 设置门店
-
-### 接口定义
-	/**
-	* 设置门店（同步调用云支持系统）
-	* 请求参数 req:
-	*				见文件cloud_pay_sdk.proto 的结构SetShopInfoRequest, 按这个格式打包成json
-	*          shop_info:
-	*				 这里需要调用方自己先申请内存，返回门店相关的信息，见文件cloud_pay_sdk.proto 的结构QueryShopInfoResponse
-	*          length:
-	*				shop_info申请的内存空间长度, 建议申请64K内存
-	* 返回值  0  设置门店成功
-	*         -1 设置门店失败
-	*         -2 结果未知
-	*         -3 如sdk内部错误，请使用cloud_pay_get_errmsg获取错误信息
-	*/
-	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_set_shop_info(const char *req, char *shop_info, int length);
-
-### 构造设置门店请求参数
-	std::string gen_cloud_pay_add_shop(
-		const std::string &shop_id,
-		const std::string &shop_name,
-		const std::string &device_id,
-		const int         device_type,
-		const std::string &staff_id,
-		const std::string &staff_name
-	)
-	{
-		Json::Value root;
-
-		root["is_all"] = false;
-
-		{ //shop 1
-			Json::Value shop;
-
-			shop["shop_id"]   = shop_id;
-			shop["shop_name"] = shop_name;
-
-			{//device
-				Json::Value device00;
-				device00["device_id"]   = device_id;
-				device00["device_type"] = device_type; //1
-
-				shop["device_infos"].append(device00);
-			}
-
-			{//staff
-				Json::Value staff00;
-				staff00["staff_id"]   = staff_id;
-				staff00["staff_name"] = staff_name;
-
-				shop["staff_infos"].append(staff00);
-			}
-
-			root["shop_infos"].append(shop);
-		}
-
-
-		Json::FastWriter w;
-		std::string json = w.write(root);
-
-		return json;
-	}
-
 ## 门店查询
 
 ### 接口定义
@@ -181,7 +117,7 @@
 	*               如果受理成功 resp 会返回支付平台的类型, json格式的, 需要使用者自己去解析这个平台类型, 调用查单的时候需要用到
 	*               如果调用方知道平台类型, 可以不用关心这个值
 	* 返回值  0  受理成功，请使用QueryOrder接口获取支付结果
-	*         -1 受理失败，请使用cloud_pay_get_errmsg获取受理错误信息 
+	*        -1 受理失败，请使用cloud_pay_get_errmsg获取受理错误信息 
 	*        [ 请注意: 如果是受理失败, 请不要调用撤单接口. 
 	*          比如，重入失败(订单号一样，其他请求参数不一样的请求), 如果撤单, 会对之前受理成功的单进行撤单
 	*        ]
@@ -220,7 +156,7 @@
 		detail["quantity"]   = quantity;
 		detail["price"]      = price;
 
-		root["detail"].append(detail);
+		root["detail"]["goods_detail"].append(detail);
 
 		Json::FastWriter w;
 		std::string json = w.write(root);
@@ -247,6 +183,7 @@
 	*        -4  已退款或撤单或关单
 	*        -5  扫码支付 预下单成功， 通过order获取code_url给用户扫描二维码
 	*        -6  重入错误。 返回这个错误码后， 请一定不要对这笔单进行撤单操作。
+	*        -7  订单不存在。
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_query_order(const char *req, char *order, int length);
 
@@ -330,14 +267,14 @@
 		root["fee_type"]     = fee_type;
 		root["attach"]       = attach;
 		root["goods_tag"]    = goods_tag;
-		root["body"] = body;
+		root["body"]         = body;
 
 		Json::Value detail;
 		detail["goods_id"] = goods_id;
 		detail["quantity"] = quantity;
 		detail["price"]    = price;
 		
-		root["detail"].append(detail);
+		root["detail"]["goods_detail"].append(detail);
 
 		Json::FastWriter w;
 		std::string json = w.write(root);
@@ -472,6 +409,52 @@
 		return json;
 	}
 
+## 交易统计查询
+
+### 接口定义
+	/**
+	* 交易明细查询.
+	* 请求参数 req:
+	*				见文件cloud_pay_sdk.proto 的结构OrderStatRequest, 按这个格式打包成json
+	*          order_stat:
+	*				 这里需要调用方自己先申请内存, 结构见 见文件cloud_pay_sdk.proto 的结构OrderStatDetail
+	*          length:
+	*				order_stat申请的内存空间长度, 按照请求的page_size来确定，一个订单，建议分配64K内存
+	* 返回值  0  交易统计查询成功，成功的订单用order_stat返回
+	*        -1  交易统计查询失败。失败的原因请使用cloud_pay_get_errmsg获取错误信息
+	*        -2  结果未知，需要继续查询交易order_stat
+	*        -3 sdk内部错误等，请使用cloud_pay_get_errmsg获取错误信息
+	*/
+	CLOUDPAYAPI_SDK_CPP_API int __stdcall cloud_pay_order_stat(const char *req, char *order_stat, int length);
+
+### 构造交易统计查询请求参数例子
+	static std::string gen_cloud_pay_stat(
+		int pay_platform,
+		uint32_t page_num,
+		uint32_t page_size,
+		std::string out_shop_id,
+		uint64_t start_time,
+		uint64_t end_time
+	)
+	{
+		Json::Value root;
+
+		root["page_num"]     = page_num;
+		root["page_size"]    = page_size;
+		root["pay_platform"] = pay_platform;
+		root["start_time"]   = start_time;
+		root["end_time"]     = end_time;
+
+		if (!out_shop_id.empty()) {
+			root["out_shop_id"].append(out_shop_id);
+		}
+
+		Json::FastWriter w;
+		std::string json = w.write(root);
+
+		return json;
+	}
+
 # 安全类接口
 
 - 使用安全类接口，需要服务商登入手机端服务商管理页面去设置服务商管理员角色；需要商户登入手机端的商户管理页面，去设置商户管理员、店长、店员等角色。调用login接口后会返回一个二维码链接，调用者将这个链接生成一个二维码，登入者描述二维码，调用者然后调用login_check接口去查询登入者是否为一个合法的服务商管理员、子商户管理员、店长或店员，如果身份合法，返回相关的商户信息，如加解密本地信息使用的密钥。identification和identification_check纯粹用来身份验证，不返回附加商户等信息。
@@ -574,8 +557,8 @@
 	/**
 	*  获取支付宝和微信支付的付款码前缀
 	*  请求参数 resp:
-	*				这里需要调用方自己先申请内存, 内存的长度为length; 用于返回付款码前缀，返回的格式为json格式, { wx_author_code_prefix:["","",""],ali_author_code_prefix:["","",""] }
-	*           length:
+	*				这里需要调用方自己先申请内存, 内存的长度为length; 用于返回付款码前缀，返回的格式为json格式, { wx_author_code_prefi["","",""],ali_author_code_prefix:["","",""], author_code_prefix:[{1,["","",""]},{2,["","",""]},{3,""}]}，author_code_prefix包含所有的平台
+	*          length:
 	*				resp申请的内存空间长度, 建议申请256字节内存
 	*  返回值  0 获取付款码前缀成功，从resp解析各支付平台前缀
 	*          其他 获取付款码前缀失败 , 请使用cloud_pay_get_errmsg获取错误信息

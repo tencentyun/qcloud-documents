@@ -8,4 +8,4 @@
 ![应用模板删除-001.png-53.5kB][2]
 
   [1]: https://console.cloud.tencent.com/ccs/template
-  [2]: https://mc.qcloudimg.com/static/img/8f020faf5bd14a6db23f64c5b0767a6c/image.png
+  [2]: https://mc.qcloudimg.com/static/img/dd8cfcb02c86cfc41cb4e89c70914bfd/image.png

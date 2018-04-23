@@ -153,4 +153,15 @@
 | instanceId | String | ID of the basic network CVM resource that is linked to the VPC. For example: ins-dgd54d |
 | createTime | String | Creation time of the link between basic network device and VPC. For example: 2016-05-18 15:01:46 |
 
-
+## 13. FlowLog Related Parameters
+| Parameters | Type | Description |
+|---------|---------|---------|
+| vpcId | String | vpcId assigned by the system. For example: gz_vpc_266 |
+| flowLogName | String | FlowLog name |
+| flowLogDescription | String | FlowLog description，default "" |
+| resourceType | String | Resource type of FlowLog，VPC\|SUBNET\|NETWORKINTERFACE |
+| resourceId | String | Resource ID, For example:vpc-puz6fg, subnet-5o8ycyt, eni-08dhim |
+| trafficType | String | Collect type of FlowLog，ACCEPT\|REJECT\|ALL | 
+| cloudLogId | String | Storage ID of FlowLog, For example: d44e4cf0-c3e2-48d9-bb64-c5f0337ef2b0 |
+| flowLogId | String | FlowLog unique ID，For example: fl-q1b26f3d |
+| createdTime | String | FlowLog creation time |

@@ -1,48 +1,51 @@
-## 1. API Description
-This API (OfflineHost) is used to close the specified CDN domain.
+## API Description
+This API (**OfflineHost**) is used to disable the acceleration service for a specified domain name.
 
-Domain for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
-1) Only one CDN domain can be closed at a time;
-2) After the domain is closed, a 404 error will be returned for resource access to the domain.
+**Notes:** 
 
-[Call Demo](https://cloud.tencent.com/document/product/228/1734)
++ Only one CDN domain name can be disabled at a time
++ After the domain name is disabled, a 404 error is returned from CDN node. Make sure that the resolved IP has been moved away from CDN before the domain name is disabled.
++ You can only disable an "Enabled" domain name.
++ The frequency of calling the API is limited to 100/min.
 
-## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is OfflineHost.
+[View the example](https://cloud.tencent.com/document/product/228/1734)
 
-| Parameter Name   | Required | Type   | Description         |
-| ------ | ---- | ---- | ---------- |
-| hostId | Yes    | Int  | The domain ID to be closed |
+## Input Parameters
+The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page. The Action field for this API is OfflineHost.
 
-#### Note
+| Parameter Name | Required | Type | Description |
+| ------ | ---- | ------ | ---------- |
+| hostId | No | Int | ID of the domain name to be disabled |
+| host | No | String | Accelerated domain to be disabled |
 
-+ You can use APIs [Query Domain Information by Domain Name](https://cloud.tencent.com/doc/api/231/3938) and [Query Domain Information](https://cloud.tencent.com/doc/api/231/3937) to obtain the ID of the host;
-+ A failure will be returned if calling the closing API when the domain is in "Deploying".
+### Notes
+
++  You can use APIs [Query Domain Name Information by Domain Name](https://cloud.tencent.com/doc/api/231/3938) and [Query Domain Name Information](https://cloud.tencent.com/doc/api/231/3937) to obtain the ID of the host.
++  Either host or hostId must be specified for query.
 
 
-## 3. Output Parameters
+## Output Parameters
 
 
-| Parameter Name     | Type     | Description                                       |
+| Parameter Name | Type | Description |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
-| message  | String | Module error message description depending on API.                           |
-| codeDesc | String | English error message or error code at business side.                           |
+| code | Int | Common error code. 0: Successful; other values: Failed.<br/>For more information, please see [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
+| message | String | Module error message description depending on API. |
+| codeDesc | String | Error message or error code at business side.<br/>For more information, please see [Business Error Codes](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
 
+## Example
 
+### Sample Parameters
 
-## 4. Example
+```
+hostId: 1234
+```
 
-### 4.1 Input Example
+### GET Request
 
-> hostId: 1234
-
-
-
-### 4.2 GET Request
-
-For GET request, all the parameters are required to be appended to the URL:
+For a GET request, all the parameters are required to be appended to the URL:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php?
@@ -54,9 +57,9 @@ Action=OfflineHost
 &hostId=1234
 ```
 
-### 4.3 POST Request
+### POST Request
 
-For POST request, the parameters need to be filled in HTTP Request-body. Request address:
+For a POST request, the parameters are input in HTTP Request-body. The request address is:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php
@@ -75,11 +78,7 @@ array (
 )
 ```
 
-
-
-### 4.4 Example of Returned Result
-
-#### Successfully closed
+### Example of Result
 
 ```json
 {
@@ -88,8 +87,6 @@ array (
     "codeDesc": "Success"
 }
 ```
-
-#### Failed to close
 
 ```json
 {

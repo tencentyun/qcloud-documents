@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (DeleteUserGw) is used to delete peer gateway.
+This API (DeleteUserGw) is used to delete customer gateway.
 Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 
@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| userGwId | Yes | String | Peer gateway ID, for example: cgw-ekrvxcdv. You can query peer gateways by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
+| userGwId | Yes | String | Customer gateway ID, for example: cgw-ekrvxcdv. You can query customer gateways by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
 
 
 ## 3. Output Parameters
@@ -24,7 +24,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Error code | Description |
 |---------|---------|
-| InvalidUserGw.NotFound | Invalid peer gateway. Peer gateway resource does not exist. Please verify that the resource information you entered is correct. You can query peer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
+| InvalidUserGw.NotFound | Invalid customer gateway. Customer gateway resource does not exist. Please verify that the resource information you entered is correct. You can query customer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
 
 ## 5. Example
 Input

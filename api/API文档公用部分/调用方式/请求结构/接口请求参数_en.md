@@ -3,7 +3,7 @@ API request parameters depend on specific APIs. Different APIs support different
 >**Note:**
 >The parameters in this document use Tencent Cloud CVM as example. For actual parameters for other Tencent Cloud products, refer to their API parameter instructions accordingly.
 
-The following parameter list uses the Tencent Cloud CVM API [DescribeInstances](/document/api/229/831) as example. This API supports the following API request parameters:
+The following parameter list uses the Tencent Cloud CVM API DescribeInstances as example. This API supports the following API request parameters:
 
 | Parameter | Description | Type | Required |
 |---------|---------|---------|---------|

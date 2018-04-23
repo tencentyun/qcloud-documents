@@ -4,6 +4,7 @@ Default VPC and default subnet features are under **beta** test. The network att
 - The **only-vpc** accounts only support the creation of instances under VPC (such as CVM, LB), but not in [Basic Network](https://cloud.tencent.com/document/product/215/535).
 - The **classic** accounts support the creation of instances in either basic network or VPC.
 
+
 ### Default VPC and Default Subnet
 The only-vpc accounts support **default VPC** and **default subnet** features, and can create default VPC and default subnet in each region. The basic network is no longer supported in **regions launched after August 3, 2017 ** for all users, and default VPC and default subnet can be created in these new regions.
 The advantages of default VPC and default subnet features are:

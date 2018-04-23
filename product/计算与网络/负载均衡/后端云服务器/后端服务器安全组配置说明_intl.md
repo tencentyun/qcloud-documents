@@ -1,4 +1,6 @@
+
 As with all CVMs, the access to the backend server instances of a cloud load balancer can be controlled via a security group, which acts as a firewall. You can associate one or more security groups with a backend CVM and add one or more rules to each security group to control traffic to different servers. You can modify the rules for a security group at any time, and the new rules are automatically applied to all instances associated with the security group. For more information, please see [Security Group](https://intl.cloud.tencent.com/document/product/213/5221) product documentation. In the [Virtual Private Cloud](https://console.cloud.tencent.com/) environment, you can also use [Network ACL](https://intl.cloud.tencent.com/document/product/215/5132) for access control.
+
  
 You can use a security group to allow the backend instances to receive traffic only from the cloud load balancer or from other sources. Please note that, <font color="red">you must ensure that the instance's security group allows the cloud load balancer to communicate with the backend instance on the listener port and health check port</font>. In the VPC, your security groups and network ACLs must allow traffic to flow in both directions on these ports.
 

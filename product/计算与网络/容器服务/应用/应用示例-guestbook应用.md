@@ -17,16 +17,15 @@
 在新建应用后，进入到应用配置页面，在该页面执行下面的操作
 
 1. 填写应用名称和描述
-
 2. 选择地域和应用需要部署到的集群
-
-3. 选择应用模板，这里选择刚刚创建的`Guestbook`这个模板
-
-4. 选择配置项，可以使用模板中默认的配置项也可以根据需要选择特定的配置项。这里我们选择使用模板中默认的配置项。
 
 ![应用guestbook示例-10.png][5]
 
 点击下一步进入应用编辑页面，可以对应用中模板内容和配置项进行进一步的修改。
+
+1. 选择应用模板，这里选择刚刚创建的`Guestbook`这个模板
+2. 选择配置项，可以使用模板中默认的配置项也可以根据需要选择特定的配置项。这里我们选择使用模板中默认的配置项。
+![应用guestbook示例-10.png][6]
 
 >**注意：**
 >创建应用时会从应用模板拷贝一份副本。在应用中更新模板内容，修改的内容并不会同步回原来的应用模板。
@@ -39,15 +38,13 @@
 
 在应用编辑完成后，这个应用已经创建。在应用列表页面可以看到对应的应用。只是这时候应用还处于未部署状态。点击应用的名称，进入应用详情页面，可以对应用中的服务进行部署操作。
 
-![应用guestbook示例-012.png][8]
-
 ## 步骤五： 部署应用中的服务
 
 在应用详情页面，可以看到服务的状态为未部署，点击部署按钮，部署服务。
 
 ![应用guestbook示例-016.png][9]
 
-查看应用中服务的状态已经变为了已部署。
+查看应用中服务的状态已经变为了启动中。
 
 ![应用guestbook示例-013.png][10]
 
@@ -65,13 +62,12 @@
   [1]: https://cloud.tencent.com/document/product/457/11951
   [2]: https://cloud.tencent.com/document/product/457/11951
   [3]: https://console.cloud.tencent.com/ccs/application
-  [4]: https://mc.qcloudimg.com/static/img/1d72f8ebdcbbb6559c18a0e4e3650b7e/image.png
-  [5]: https://mc.qcloudimg.com/static/img/9f2b15de7a6416830146b6cccee91898/image.png
-  [6]: https://mc.qcloudimg.com/static/img/36b6b557c0f66c8879e6ecf61688948f/image.png
-  [7]: https://mc.qcloudimg.com/static/img/2f14693c14edc218126f3d2015af4944/image.png
-  [8]: https://mc.qcloudimg.com/static/img/04da2c9b6c55fb3bed0086d02172fc6d/image.png
-  [9]: https://mc.qcloudimg.com/static/img/0a2637c38a76511120ddd1aada70128c/image.png
-  [10]: https://mc.qcloudimg.com/static/img/2b21ccb636b27964ddc760141267e68d/image.png
+  [4]: https://mc.qcloudimg.com/static/img/f94effc7b5ec3cdcd9821c27ea6b2871/image.png
+  [5]: https://mc.qcloudimg.com/static/img/4e6d2c9483b595a773ef7bc9fe70d57b/image.png
+  [6]: https://mc.qcloudimg.com/static/img/8e4e1a1d62d87803bb220cdb33fbeb07/image.png
+  [7]: https://mc.qcloudimg.com/static/img/6529c013018af4adfb2dcdf2ae030085/image.png
+  [9]: https://mc.qcloudimg.com/static/img/bc929d90e0ee89ef24d8c2bdf3bcff63/image.png
+  [10]:https://mc.qcloudimg.com/static/img/0cb66aea86f1db958db13ebbee05f563/image.png
   [11]: https://mc.qcloudimg.com/static/img/c9c0ca79b3fe41d9a33bebfec53d7b74/image.png
   [12]: https://mc.qcloudimg.com/static/img/059891cc1b9177964366b4dcf97c2bcc/image.png
   [13]: https://mc.qcloudimg.com/static/img/d45bb96194851eed18b07acbf8c23121/image.png

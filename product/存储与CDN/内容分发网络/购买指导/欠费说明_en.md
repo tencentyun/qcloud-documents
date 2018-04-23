@@ -1,12 +1,7 @@
+## Identified Users
+As a user who has passed the identity verification on behalf of your own /an enterprise and has activated the CDN service, if your Tencent Cloud account is in arrears, the Tencent Cloud may notify you of this through SMS, e-mail and other means. A buffer time for <font color="red">24 hours</font> is provided, and if you fails to make the payment within 24 hours, your CDN acceleration service will be suspended.
+> **Note:**
+> Your CDN-related domain and configuration information are kept for 12 months. After your service is suspended, **all of your domain names are deactivated, all of the access requests are pulled back to the origin server, and CDN Console only supports the query operation and does not allow configuration, modification and other operations.**
 
-## Users who have passed the identity verification
-
-+ If you have passed the individual/corporate identity verification before activating the CDN service, when your Tencent Cloud account is in arrears, the system will remind you of this through SMS, e-mail and other means. Given the factors such as holidays, a 24-hour grace period will be provided for you, and if you fails to make the payment within the 24 hours, your CDN acceleration service will be suspended on the 8th day.
-+ We will keep your CDN-related domain names and configuration information for 12 months. After your service is stopped, **all of your domain names will deactivated, all the access requests will be transferred back to the origin server, and CDN Console will only support the query operation and will not allow configuration, modification and other operations.**
-
-## Users who haven't passed the identity verification
-
-+ If you are just a trial user who has not undergone the individual/corporate identity verification, the CDN acceleration service will be stopped immediately when the trial period of your traffic package expires. If you want to continue the use of the service, you need to undergo the CDN identity verification (For instructions on how to undergo the identity verification, refer to [Activate CDN](https://cloud.tencent.com/doc/product/228/3156) or purchase a traffic package to continue the trial.
-
-
-
+## Unidentified Users
++ As a trial user who has not undergone the individual/enterprise identity verification, the CDN acceleration service is suspended immediately when the trial period of your traffic package expires. If you want to continue the service, you need to complete the CDN identity verification (For more information about identity verification, please see [Activate CDN](https://cloud.tencent.com/document/product/228/3149#.E7.AC.AC.E4.B8.80.E6.AD.A5.EF.BC.9A.E5.BC.80.E9.80.9A-cdn-.E6.9C.8D.E5.8A.A1) or purchase a traffic package to continue the trial.

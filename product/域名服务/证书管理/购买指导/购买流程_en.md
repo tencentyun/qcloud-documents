@@ -29,7 +29,9 @@ For more information, refer to parameters comparison provided on the official we
 #### 2.1 Single Domain Name
 A single-domain name certificate can be bound to only one domain name, which can be a second-level domain name like example.domain.com, a third-level domain name like example.example.domain.com, or a first-level domain name like domain.com. **But all subdomains under the first-level domain name are not supported**. Up to 100 levels of domain name can be supported.
 
-> Note: An SSL certificate bound to domain name www.domain.com (subdomain is www) supports first-level domain name domain.com.
+
+> Note: An SSL certificate bound to domain name `www.domain.com` (subdomain is www) supports first-level domain name domain.com.
+
 
 #### 2.2 Multiple Domain names
 A Multi-domain names certificate can be bound to multiple domain names (up to 100 domain names).

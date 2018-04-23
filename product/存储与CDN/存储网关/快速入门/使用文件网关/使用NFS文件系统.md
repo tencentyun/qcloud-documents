@@ -4,6 +4,10 @@
 
 **注意：若在 CVM 上使用网关，建议将网关部署在各来访客户端的 VPC 下；如果在不同 VPC 时，请使用 [对等连接](https://cloud.tencent.com/document/product/215/5000) 方法实现网络互通。**
 
+您可以在 "文件系统详情" 页面上查看挂载命令。如下图
+![](https://mc.qcloudimg.com/static/img/427c850d61745f04d34e0e4f96f0a9b7/image.png)
+
+
 ## 在 Linux 上使用 NFS 文件系统
 
 ### 启动 NFS 客户端
@@ -18,8 +22,8 @@
 
 使用下列命令实现 NFS v4.0 挂载 
 
-> sudo mount -t nfs4 <挂载点IP>:/share/nfs/<文件系统名称> <待挂载目标目录>    
-> //注意，"<文件系统名称>" 与 "<待挂载目标目录>" 之间有一个空格。
+> sudo mount -t nfs -o vers=4 <挂载点IP>:/share/nfs/<文件系统名称即bucket名称> <待挂载目标目录>    
+> //注意，"<文件系统名称即 bucket 名称>" 与 "<待挂载目标目录>" 之间有一个空格。
 
 
 *说明*
@@ -28,16 +32,16 @@
 * 		待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
 *示例*
-* 		挂载文件系统根目录：mount -t nfs4 10.0.0.1:/share/nfs/filesysname /local/test。
-* 	   挂载文件系统子目录 subfolder：mount -t nfs4 10.10.19.12:/share/nfs/filesysname/subfolder /local/test
+* 		挂载文件系统根目录：sudo mount -t nfs -o vers=4 10.0.0.1:/share/nfs/bucketname /local/test。
+* 	   挂载文件系统子目录 subfolder：sudo mount -t nfs -o vers=4 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
 
 
 ### NFS v3.0 挂载
 
 使用下列命令实现 NFS v3.0 挂载 
 
-> sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系统名称> <待挂载目标目录>   
-> //注意，"<文件系统名称>" 与 "<待挂载目标目录>" 之间有一个空格。
+> sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系统名称即 bucket 名称> <待挂载目标目录>   
+> //注意，"<文件系统名称即 bucket 名称>" 与 "<待挂载目标目录>" 之间有一个空格。
 
 *说明*
 * 		挂载点 IP：指网关的 IP 地址。 
@@ -46,8 +50,8 @@
 
 
 *示例*
-* 	 挂载文件系统根目录：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/filesysname /local/test
-* 	 挂载文件系统子目录 subfolder：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/filesysname/subfolder /local/test
+* 	 挂载文件系统根目录：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname /local/test
+* 	 挂载文件系统子目录 subfolder：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
 
 
 ### 查看挂载点信息 
@@ -114,7 +118,7 @@
 
 #### 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
-![](https://mc.qcloudimg.com/static/img/7f875dbbaf2a210ad90f40db68fbb487/image.png)
+![](https://mc.qcloudimg.com/static/img/c7b07faf43812540d383b7767c52158b/image.png)
 
 
 #### 验证读写

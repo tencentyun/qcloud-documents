@@ -4,9 +4,9 @@
 
 ## 配置方法
 
-例如，应用将日志文件打印至容器内文件系统路径 `/var/log/nginx/access.log`，可以如下配置日志收集规则。
+例如，应用将日志文件打印至容器内文件系统路径 `/data/app-log/nginx/access.log`，可以如下配置日志收集规则。
 
-1. 创建应用时将容器内日志文件所在路径`/var/log/nginx`挂载至主机路径`/data/app-log/nginx`。
+1. 创建应用时将容器内日志文件所在路径`/data/app-log/nginx`挂载至主机路径`/var/log/nginx`。
 ![][1]
 ![][2]
 

@@ -9,14 +9,15 @@ Users who can connect to Chrome's server will not be affected by this issue. But
 
 ![](https://mc.qcloudimg.com/static/img/25a818d9e80a02c2b8b7c90f0e1c93df/1.png)
 
-Details can be found in Symantec's official announcement:
-https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160
 
-Symantec's official statement:	https://www.symantec.com/connect/blogs/chrome-53-bug-affecting-symantec-ssltls-certificates
+Details can be found in [Symantec's official announcement](https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160).
 
-Chrome's official announcement:
-https://bugs.chromium.org/p/chromium/issues/detail?id=664177
+[Symantec's official statement](https://www.symantec.com/connect/blogs/chrome-53-bug-affecting-symantec-ssltls-certificates).
+
+[Chrome's official announcement](https://bugs.chromium.org/p/chromium/issues/detail?id=664177).
+
 
 In addition, this problem exists in QQ browsers using Chromium 53 kernel, but has been fixed in new versions. The users using out-of-date QQ browser versions are also recommended to upgrade to the latest version.
-Details can be found in QQ Browser's official announcement: http://bbs.browser.qq.com/thread-222732-1-1.html
+Details can be found in [QQ Browser's official announcement](http://bbs.browser.qq.com/thread-222732-1-1.html). 
+
 

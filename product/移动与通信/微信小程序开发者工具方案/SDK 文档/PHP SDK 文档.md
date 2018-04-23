@@ -1,22 +1,17 @@
-## SDK 初始化
-
-> 在使用本 SDK 提供的其他 API 之前，需调用以下和配置项相关的 API 进行初始化。
+## SDK 配置
+在使用本 SDK 提供的其他 API 之前，需调用以下和配置项相关的 API 进行初始化。
 
 ### 命名空间
-
 `QCloud_WeApp_SDK`
 
 ### API
-
 #### Conf::setup(array $config)
-
 可以使用本方法批量设置所有配置。
 
 ##### 参数
-
-- `appId` - 可选。微信小程序的 App id
-- `appSecret` - 可选。微信小程序的 App secret
-- `useQcloudLogin` - 必填。是否使用腾讯云代理登录小程序。会话登录需要使用小程序的 App id 和 App secret 来解密用户信息，腾讯云提供使用腾讯云 App id 和 App secret 代理请求微信进行解密。如果该项为 `false`，则需填写微信小程序 App id 和 App secret。默认为 `true`
+- `appId` - 可选。微信小程序的 AppID
+- `appSecret` - 可选。微信小程序的 AppSecret
+- `useQcloudLogin` - 必填。是否使用腾讯云代理登录小程序。会话登录需要使用小程序的 AppID 和 AppSecret 来解密用户信息，腾讯云提供使用腾讯云 AppID 和 AppSecret 代理请求微信进行解密。如果该项为 `false`，则需填写微信小程序 AppID 和 AppSecret。默认为 `true`
 - `mysql` - 必填。MySQL 配置。不填则使用小程序解决方案分配机器中默认的 MySQL，若使用自行部署的 MySQL 数据库，则需提供一个类型为 `object`  的配置，具体配置项如下：
   - `host` - 必填。MySQL 主机名
   - `user` - 必填。MySQL 用户名
@@ -44,29 +39,21 @@
 自动下发的 SDK 配置文件地址： `/data/release/sdk.config.json`
 
 ##### 返回值
-
 `void`
 
 ## 会话服务
-
 ### 命名空间
-
 `QCloud_WeApp_SDK\Auth`
 
 ### API
-
 #### LoginService::login()
-
 该静态方法用于处理用户登录。
 
 ##### 参数
-
 无
 
 ##### 返回值
-
 登录成功时，返回：
-
 ```php
 array(
     'loginState' => 1,
@@ -80,7 +67,6 @@ array(
 ```
 
 登录失败时，返回：
-
 ```php
 array(
     'loginState' => 0,
@@ -89,17 +75,12 @@ array(
 ```
 
 #### LoginService::check()
-
 该静态方法用于校验登录态。
-
 ##### 参数
-
 无
 
 ##### 返回值
-
 校验登录态成功时，返回：
-
 ```php
 array(
     'loginState' => 1,
@@ -108,9 +89,7 @@ array(
     ),
 )
 ```
-
 校验登录态失败时，返回：
-
 ```php
 array(
     'loginState' => 0,
@@ -119,15 +98,11 @@ array(
 ```
 
 ## 信道服务
-
 ### 命名空间
-
 `QCloud_WeApp_SDK\Tunnel`
 
 ### API
-
 #### ITunnelHandler
-
 处理信道请求需实现该接口，接口定义和描述如下：
 
 ```php
@@ -182,11 +157,8 @@ interface ITunnelHandler {
 ```
 
 #### TunnelService::handle(ITunnelHandler $handler[, array $options])
-
 该静态方法用于处理信道请求。
-
 ##### 参数
-
 - `$handler` - 该参数须实现接口 `ITunnelHandler`（必填）
 - `$options` - 该参数支持的可选选项如下：
     - `checkLogin` - 是否校验登录态（默认为 `FALSE`）
@@ -208,9 +180,7 @@ interface ITunnelHandler {
 - `$messageContent` - 要广播消息的消息内容（必填）
 
 ##### 返回值
-
 消息广播成功时，返回：
-
 ```php
 array(
     'code' => 0,
@@ -223,7 +193,6 @@ array(
 ```
 
 消息广播失败时，返回：
-
 ```php
 array(
     'code' => '失败错误码（非0）',
@@ -232,19 +201,15 @@ array(
 ```
 
 #### TunnelService::emit(string $tunnelId, string $messageType, mixed $messageContent)
-
 该静态方法用于发送消息到指定信道。
 
 ##### 参数
-
 - `$tunnelId` - 要发送消息的信道 ID（必填）
 - `$messageType` - 要发送消息的消息类型（必填）
 - `$messageContent` - 要发送消息的消息内容（必填）
 
 ##### 返回值
-
 消息发送成功时，返回：
-
 ```php
 array(
     'code' => 0,
@@ -253,7 +218,6 @@ array(
 ```
 
 消息发送失败时，返回：
-
 ```php
 array(
     'code' => '失败错误码（非0）',
@@ -262,17 +226,13 @@ array(
 ```
 
 #### TunnelService::closeTunnel(string $tunnelId)
-
 该静态方法用于关闭指定信道。
 
 ##### 参数
-
 - `$tunnelId` - 要关闭的信道 ID（必填）
 
 ##### 返回值
-
 信道关闭成功时，返回：
-
 ```php
 array(
     'code' => 0,
@@ -281,7 +241,6 @@ array(
 ```
 
 信道关闭失败时，返回：
-
 ```php
 array(
     'code' => '失败错误码（非0）',
@@ -290,40 +249,30 @@ array(
 ```
 
 ## MySQL
-
 ### 命名空间
-
 `QCloud_WeApp_SDK\Mysql`
 
 ### API
-
 #### MySQL::getInstance()
-
 获取 SDK 连接数据库实例，这个是个 [PDO 连接实例](http://php.net/manual/zh/class.pdo.php)。
 
 ##### 参数
-
 无
 
 ##### 返回值
-
 返回 PDO Instance
 
 #### Mysql::insert($tableName, $data)
-
 向数据库中插入数据
 
 ##### 参数
-
 - `$tableName` - 要操作的数据表名（必填）
 - `$data` - 要插入的数据（key-value 的 array 类型）
 
 ##### 返回值
-
 受影响的行数（数值类型）。
 
 ##### 示例
-
 ```php
 use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
@@ -334,11 +283,9 @@ DB::insert('tableName', [
 ```
 
 #### Mysql::select($tableName[, $columns = ['*'], $conditions = '', $operator = 'and', $suffix = ''])
-
 从数据库中查询多条数据
 
 ##### 参数
-
 - `$tableName` - 要操作的数据表名（必填）
 - `$columns` - 查询出来的列名
 - `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
@@ -346,19 +293,17 @@ DB::insert('tableName', [
 - `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
 
 ##### 返回值
-
 返回一个包含结果集中所有行的数组。
 
 ##### 示例
-
 ```php
 use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
 // 条件为字符串
-$rows = DB::select('tableName', ['*'], 'nickname = Jason');
+$rows = DB::select('tableName', ['*'], 'nickname = "Jason"');
 
 // 条件为数组
-$rows = DB::select('tableName', ['*'], ['nickname = Jason']);
+$rows = DB::select('tableName', ['*'], ['nickname = "Jason"']);
 
 // 条件为 key-value 数组
 $rows = DB::select('tableName', ['*'], ['nickname' => 'Jason']);
@@ -368,11 +313,9 @@ $rows = DB::select('tableName', ['*'], ['nickname' => 'Jason']);
 ```
 
 #### Mysql::row($tableName[, $columns = ['*'], $conditions = '', $operator = 'and', $suffix = ''])
-
 从数据库中查询单条数据
 
 ##### 参数
-
 - `$tableName` - 要操作的数据表名（必填）
 - `$columns` - 查询出来的列名
 - `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
@@ -380,19 +323,17 @@ $rows = DB::select('tableName', ['*'], ['nickname' => 'Jason']);
 - `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
 
 ##### 返回值
-
 返回一个包含结果集中所有行的第一行。
 
 ##### 示例
-
 ```php
 use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
 // 条件为字符串
-$rows = DB::row('tableName', ['*'], 'nickname = Jason');
+$rows = DB::row('tableName', ['*'], 'nickname = "Jason"');
 
 // 条件为数组
-$rows = DB::row('tableName', ['*'], ['nickname = Jason']);
+$rows = DB::row('tableName', ['*'], ['nickname = "Jason"']);
 
 // 条件为 key-value 数组
 $rows = DB::row('tableName', ['*'], ['nickname' => 'Jason']);
@@ -402,11 +343,9 @@ $rows = DB::row('tableName', ['*'], ['nickname' => 'Jason']);
 ```
 
 #### Mysql::update($tableName, $updates[, $conditions = '', $operator = 'and', $suffix = ''])
-
 从数据库中查询单条数据
 
 ##### 参数
-
 - `$tableName` - 要操作的数据表名（必填）
 - `$updates` - 更新的数据对象
 - `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
@@ -414,19 +353,17 @@ $rows = DB::row('tableName', ['*'], ['nickname' => 'Jason']);
 - `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
 
 ##### 返回值
-
 受影响的行数（数值类型）。
 
 ##### 示例
-
 ```php
 use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
 // 条件为字符串
-$rows = DB::update('tableName', ['age' => 22], 'nickname = Jason');
+$rows = DB::update('tableName', ['age' => 22], 'nickname = "Jason"');
 
 // 条件为数组
-$rows = DB::update('tableName', ['age' => 22], ['nickname = Jason']);
+$rows = DB::update('tableName', ['age' => 22], ['nickname = "Jason"']);
 
 // 条件为 key-value 数组
 $rows = DB::update('tableName', ['age' => 22], ['nickname' => 'Jason']);
@@ -436,30 +373,26 @@ $rows = DB::update('tableName', ['age' => 22], ['nickname' => 'Jason']);
 ```
 
 #### Mysql::delete($tableName, $conditions[, $operator = 'and', $suffix = ''])
-
 从数据库中删除数据
 
 ##### 参数
-
 - `$tableName` - 要操作的数据表名（必填）
 - `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
 - `$operator` - 条件之间的操作符
 - `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
 
 ##### 返回值
-
 受影响的行数（数值类型）。
 
 ##### 示例
-
 ```php
 use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
 // 条件为字符串
-$rows = DB::delete('tableName', 'nickname = Jason');
+$rows = DB::delete('tableName', 'nickname = "Jason"');
 
 // 条件为数组
-$rows = DB::delete('tableName', ['nickname = Jason']);
+$rows = DB::delete('tableName', ['nickname = "Jason"']);
 
 // 条件为 key-value 数组
 $rows = DB::delete('tableName', ['nickname' => 'Jason']);
@@ -468,24 +401,19 @@ $rows = DB::delete('tableName', ['nickname' => 'Jason']);
 // $rows > 1
 ```
 
-## COS 对象储存 SDK
-
+## COS 对象存储 SDK
 ### 命名空间
 
 `QCloud_WeApp_SDK\Cos`
 
 ### API
-
 #### CosAPI::getInstance()
-
 获取 COS 初始化实例
 
 ##### 参数
-
 无
 
 ##### 示例
-
 ```php
 use \QCloud_WeApp_SDK\Cos\CosAPI as Cos;
 

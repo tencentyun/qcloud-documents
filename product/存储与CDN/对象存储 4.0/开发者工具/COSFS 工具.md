@@ -88,12 +88,12 @@ cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglev
 - -odbglevel 参数表示信息级别，照写即可。
 #### 示例：
 ```
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info 
+cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 另外，如果对性能有要求，可以使用本地磁盘缓存文件，命令中加入 -ouse_cache 参数，示例如下：
 ```
 mkdir /local_cache_dir
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/local_cache_dir
+cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
 ```
 `/local_cache_dir`为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
@@ -107,6 +107,20 @@ fusermount -u /mnt
 umount -l /mnt
 ```
 
+## 常用挂载选项
+
+1. -omultipart_size=[size]
+`multipart_size`用来指定分块上传时，每个分块的大小，默认是 10 MB。 由于分块上传对块的数目有最大限制（10000 块），所以对于大文件，例如超出10 MB * 10000 (100 GB) 大小的文件，需要根据具体情况调整该参数。该参数单位是 MB。
+
+2. -oallow_other
+如果要允许其他用户访问挂载文件夹，可以在运行 COSFS 的时候指定`allow_other`参数。
+
+3. -odel_cache
+默认情况下，cosfs 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
+
+4. -noxattr
+禁用get/setxattr功能， 当前版本的cosfs不支持该功能，如果本地文件所在磁盘在挂载的时候使用了use_xattr选项，可能会导致mv文件到 bucket 失败。
+
 ## 注意事项 
 - COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
@@ -118,7 +132,7 @@ umount -l /mnt
 * 如何挂载目录
    在挂载命令的时候，可以指定目录，如
    
-   cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+  `cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
    注意，my-dir必须以/开头
    
    

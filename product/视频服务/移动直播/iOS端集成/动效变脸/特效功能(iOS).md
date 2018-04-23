@@ -10,7 +10,7 @@
 
 1. 提工单或客服电话（400-9100-100）联系我们商务同学。
 
-2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/363152d33b47da1a726bfeef2f888b79/archive_2.xlsx)，按照表格填好信息后，邮件发送到 jerryqian@tencent.com 并抄送给您联系的商务同学（重要）。
+2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/766c9092424d0440a31c56c81f34a629/archive.xlsx)，按照表格填好信息后，邮件发送到 jerryqian@tencent.com 并抄送给您联系的商务同学（重要）。
 
 3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
 

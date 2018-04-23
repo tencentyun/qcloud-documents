@@ -1,0 +1,145 @@
+## 开发准备
+- 下载和安装 [Java SDK](https://cloud.tencent.com/document/sdk/Java) 。
+- 首次使用批量计算，参考 [开始前的准备](https://cloud.tencent.com/document/product/599/10807)。
+- 了解更多计算环境配置参数，参考 [创建计算环境 API 文档](https://cloud.tencent.com/document/product/599/12691)。
+
+## 快速入门
+
+```
+import java.util.TreeMap;
+
+import com.qcloud.QcloudApiModuleCenter;
+import com.qcloud.Module.Batch;
+import com.qcloud.Utilities.Json.JSONObject;
+
+public class BatchDemo {
+        public static void main(String[] args) {
+                TreeMap<String, Object> config = new TreeMap<String, Object>();
+                config.put("SecretId", "您的SecretId");
+                config.put("SecretKey", "您的SecretKey");
+                config.put("RequestMethod", "GET");
+                config.put("DefaultRegion", "gz"); // 地域，gz: guangzhou
+
+                QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Batch(), config);
+        }
+}
+```
+
+## 创建计算环境
+
+```
+TreeMap<String, Object> envParams = new TreeMap<String, Object>();
+envParams.put("ComputeEnv.EnvName", "batch-env");  // 计算环境名称
+envParams.put("ComputeEnv.EnvType", "MANAGED");
+envParams.put("ComputeEnv.DesiredComputeNodeCount", 10);  // 期望节点数目
+envParams.put("ComputeEnv.EnvData.InstanceType", "S1.SMALL1");  // 实力类型
+envParams.put("ComputeEnv.EnvData.ImageId", "img-er9shcln"); // 镜像标识
+envParams.put("ComputeEnv.EnvData.SystemDisk.DiskType", "LOCAL_BASIC");  // 系统盘类型
+envParams.put("ComputeEnv.EnvData.SystemDisk.DiskSize", 50);  // 系统盘大小
+envParams.put("ComputeEnv.EnvData.LoginSettings.Password", "B1[habcdB1[habcd");  // 登录密码
+envParams.put("Placement.Zone", "ap-guangzhou-2");  // 可用区
+envParams.put("Version", "2017-03-12");
+
+String createRes = null;
+try {
+    createRes = module.call("CreateComputeEnv", envParams);
+    JSONObject result = new JSONObject(createRes);
+    System.out.println(result);
+            
+    result = result.getJSONObject("Response");
+    System.out.println(result.getString("EnvId"));
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [创建计算环境 API 文档](https://cloud.tencent.com/document/product/599/12691)。
+
+## 修改计算环境
+
+```
+TreeMap<String, Object> envParams = new TreeMap<String, Object>();
+envParams.put("EnvId", "env-cc44pzme");  // 计算环境标识
+envParams.put("DesiredComputeNodeCount", 100);  // 期望节点数目
+envParams.put("Version", "2017-03-12");
+
+String modRes = null;
+try {
+    modRes = module.call("ModifyComputeEnv", envParams);
+    JSONObject result = new JSONObject(modRes);
+    System.out.println(result);
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [修改计算环境 API 文档](https://cloud.tencent.com/document/product/599/13637)。
+ 
+## 删除计算集群
+ 
+```
+TreeMap<String, Object> delParams = new TreeMap<String, Object>();
+delParams.put("EnvId", "env-cc44pzme");  // 计算环境标识
+delParams.put("Version", "2017-03-12");
+
+String delRes = null;
+try {
+    delRes = module.call("DeleteComputeEnv", delParams);
+    JSONObject result = new JSONObject(delRes);
+    System.out.println(result);
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [删除计算环境 API 文档](https://cloud.tencent.com/document/product/599/12692)。
+ 
+## 查看计算环境的创建信息
+ 
+```
+TreeMap<String, Object> infoParams = new TreeMap<String, Object>();
+infoParams.put("EnvId", "env-cc44pzme");  // 计算环境标识
+infoParams.put("Version", "2017-03-12");
+
+String infoRes = null;
+try {
+    infoRes = module.call("DescribeComputeEnvCreateInfo", infoParams);
+    JSONObject result = new JSONObject(infoRes);
+    System.out.println(result);
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [查看计算环境的创建信息 API 文档](https://cloud.tencent.com/document/product/599/14604)。
+ 
+## 查看计算环境信息
+ 
+```
+TreeMap<String, Object> desParams = new TreeMap<String, Object>();
+desParams.put("EnvId", "env-cc44pzme");  // 计算环境标识
+desParams.put("Version", "2017-03-12");
+
+String desRes = null;
+try {
+    desRes = module.call("DescribeComputeEnv", desParams);
+    JSONObject result = new JSONObject(desRes);
+    System.out.println(result);
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [查看计算环境信息 API 文档](https://cloud.tencent.com/document/product/599/12694)。
+
+## 查看计算环境列表
+
+```
+TreeMap<String, Object> listParams = new TreeMap<String, Object>();
+listParams.put("Version", "2017-03-12");
+
+String listRes = null;
+try {
+    listRes = module.call("DescribeComputeEnvs", listParams);
+    JSONObject result = new JSONObject(listRes);
+    System.out.println(result);
+} catch (Exception e) {
+    System.out.println("error..." + e.getMessage());
+}
+```
+更多参数说明及错误信息，详见 [查看计算环境列表 API 文档](https://cloud.tencent.com/document/product/599/12695)。

@@ -1,24 +1,26 @@
 ## Overview
 VPN connection is a method to connect your peer IDC and VPC through encrypted public network tunnel. As shown below, Tencent Cloud VPC VPN Connection consists of the following components:
 - VPN gateway: Created VPC IPsec VPN gateway
-- Peer gateway: IPsec VPN service gateway for IDC
+- Customer gateway: IPsec VPN service gateway for IDC
 - VPN tunnel: Encrypted IPsec VPN tunnel
+
 ![](https://mc.qcloudimg.com/static/img/34ee1011da3d0671d3637a8c036480b2/VPC-VPN+Connection%281%29.png)
+
 
 VPN gateways can be established in the VPC. Multiple VPN tunnels can be established in each VPN gateway. Each VPN tunnel can connect to one local IDC. Please note that, **after a VPN connection is established, you need to configure related routing policies in the routing table to achieve communication.**
  
 ## VPN Gateway
-VPN gateway is an outbound gateway that establishes VPN connections in the VPC, and it is used in combination with a peer gateway (IPsec VPN service gateway for IDC). VPN gateway is mainly used to establish a secure and reliable encrypted network communication between Tencent Cloud VPC and external IDC. Implemented through software virtualization, Tencent Cloud NAT gateway uses master/slave hot backup to switch automatically when a single server suffers a failure, without affecting the normal operation of your businesses.
+VPN gateway is an outbound gateway that establishes VPN connections in the VPC, and it is used in combination with a customer gateway (IPsec VPN service gateway for IDC). VPN gateway is mainly used to establish a secure and reliable encrypted network communication between Tencent Cloud VPC and external IDC. Implemented through software virtualization, Tencent Cloud NAT gateway uses master/slave hot backup to switch automatically when a single server suffers a failure, without affecting the normal operation of your businesses.
 
 According to the upper limit of bandwidth, the VPN gateway comes with 5 settings: 5 Mbps, 10 Mbps, 20 Mbps, 50 Mbps and 100 Mbps. The setting of the bandwidth for the VPN gateway can be adjusted at any time, and takes effect immediately.
 
 If you need BGP high defense to provide ultra-large bandwidth DDoS and CC defense for the VPN gateway, you can bind the high defense package to the VPN gateway for security protection.
 
-## Peer Gateway
-Peer gateway refers to the IPsec VPN service gateway of IDC, which needs to be used along with the Tencent Cloud VPN gateway. Encrypted VPN network tunnels can be established between a VPN gateway and multiple peer gateways.
+## Customer Gateway
+Customer gateway refers to the IPsec VPN service gateway of IDC, which needs to be used along with the Tencent Cloud VPN gateway. Encrypted VPN network tunnels can be established between a VPN gateway and multiple customer gateways.
 
 ## VPN Tunnel
-After the VPN gateway and the peer gateway are established, VPN tunnels can be established for the encrypted communication between VPC and external IDC. VPN tunnels support IPsec encryption protocols, which can meet the needs of most VPN connections.
+After the VPN gateway and the customer gateway are established, VPN tunnels can be established for the encrypted communication between VPC and external IDC. VPN tunnels support IPsec encryption protocols, which can meet the needs of most VPN connections.
 
 Since VPN tunnels run in the ISP's public network, the congestion or jitter of the public network may affect the quality of the VPN network. Therefore, the assurance of the SLA service agreement is unavailable. If your business is sensitive to delay and jitter, it is recommended to access the VPC via Direct Connect. For more information, please see [Direct Connect](https://cloud.tencent.com/product/dc.html).
 
@@ -49,7 +51,7 @@ SPD policy 1: The local IP address range is `10.0.0.0/24`, and the peer IP addre
 SPD policy 2: The local IP address range is `10.0.1.0/24`, and the peer IP address range is `192.168.2.0/24`.
 SPD policy 3: The local IP address range is `10.0.2.0/24`, and the peer IP address range is `192.168.2.0/24`.
 
-![](https://mc.qcloudimg.com/static/img/b0e968f0f8644bc150b6da2e578a873d/VPC-VPN+Connection%282%29.png)
+![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
  
 ### IKE Configuration
 
@@ -78,21 +80,21 @@ SPD policy 3: The local IP address range is `10.0.2.0/24`, and the peer IP addre
 ## Service Limits
 ### VPN Connection Constraints
 For VPN connections, please note that:
-- After the VPN parameters are configured, **you need to add the routing policy for the VPN gateway in the routing table associated with the subnet**, so that the access requests from CVMs within the subnet to peer IP address range can reach the peer gateway through the VPN tunnel.
+- After the VPN parameters are configured, **you need to add the routing policy for the VPN gateway in the routing table associated with the subnet**, so that the access requests from CVMs within the subnet to peer IP address range can reach the customer gateway through the VPN tunnel.
 - After the routing table is configured, **you need to ping the IP of the peer IP address range using the CVM of VPC to activate this VPN tunnel.**
 - The stability of VPN connection depends on the performance of public network provided by ISPs. We cannot guarantee relevant service level under an SLA contract.
 
 | Resource | Limit | 
 |---------|---------|
 | Number of VPN gateways per VPC | 10 | 
-| Number of peer gateways in a region | 20 | 
-| Number of VPN tunnels per peer gateway | 10 | 
+| Number of customer gateways in a region | 20 | 
+| Number of VPN tunnels per customer gateway | 10 | 
 | Number of VPN tunnels that can be created in a VPN | 20	 | 
 | Number of SPDs per VPN tunnel | 10 | 
 | Number of peer IP address ranges per SPD | 50 | 
 
-### IP Address Constraints for Peer Gateway
-The following IP addresses are not supported for the peer gateway:
+### IP Address Constraints for Customer Gateway
+The following IP addresses are not supported for the customer gateway:
 - Multicast addresses all starting with 0 or 225/224.
 - Loopback addresses: 127.x.x.x/8.
 - Addresses with host bits all being 0 or 1, for example:
@@ -102,7 +104,8 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
 - Internal service addresses: 169.254.x.x/16;
 
 ## Billing Method
- VPN tunnel and peer gateway are free of charge.
+
+ VPN tunnel and customer gateway are free of charge.
  VPN gateway will be charged by hour. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
  
 <table class="cvmMonth">
@@ -137,12 +140,13 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  
  For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
+
 ## Operation Instructions
 
 ### Quick Start
 IPsec VPN can be fully customized in the console. You need to complete the following steps to allow the VPN connection to take effect :
 1) Create VPN gateway
-2) Create peer gateway
+2) Create customer gateway
 3) Create VPN tunnel
 4) Load the configuration file in self-built IPsec VPN gateway
 5) **Configure the routing table**
@@ -150,6 +154,7 @@ IPsec VPN can be fully customized in the console. You need to complete the follo
 
 Example:
 Through IPsec VPN, connect the subnet A `192.168.1.0/24` in your VPC ("TomVPC") in **Guangzhou** with the subnet `10.0.1.0/24` in your IDC, and the public IP of the VPN gateway in IDC is `202.108.22.5`.
+
 ![](https://mc.qcloudimg.com/static/img/b7b5723298837aab677c88078caae7ca/VPC-VPN+Connection%283%29.png)
 
 You need to complete the following steps:
@@ -159,13 +164,13 @@ You need to complete the following steps:
 3) Select **Guangzhou** in which VPC "myVPC" resides and the VPC `TomVPC` at the top of the list, and then click "New".
 4) Enter the name of VPN gateway (such as TomVPNGw), select the appropriate bandwidth configuration and make the payment. Then, the VPN gateway is created. After that, the system randomly assigns a public IP, e.g. `203.195.147.82`.
 
-#### Step 2: Create Peer Gateway
-Before creating a VPN tunnel, you need to create a peer gateway:
+#### Step 2: Create Customer Gateway
+Before creating a VPN tunnel, you need to create a customer gateway:
 1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to go to the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then select "Routing Table".
-2) Click "VPN Connection" -> "Peer Gateway" tab in the left navigation bar.
+2) Click "VPN Connection" -> "Customer Gateway" tab in the left navigation bar.
 3) Select the region "**Guangzhou**" at the top of the list, and then click "New".
-4) Enter the name of peer gateway (such as TomVPNUserGw) and the public IP of VPN gateway of IDC `202.108.22.5`.
-5) Click "Create", and you can view the new peer gateway in the peer gateway list.
+4) Enter the name of customer gateway (such as TomVPNUserGw) and the public IP of VPN gateway of IDC `202.108.22.5`.
+5) Click "Create", and you can view the new customer gateway in the customer gateway list.
 
 #### Step 3: Create VPN Tunnel
 Create a VPN tunnel by following the steps below:
@@ -173,7 +178,7 @@ Create a VPN tunnel by following the steps below:
 1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to go to the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then select "Routing Table".
 2) Click "VPN Connection" -> "VPN Tunnel" tab in the left navigation bar.
 3) Select **Guangzhou** in which VPC "myVPC" resides and the VPC `TomVPC` at the top of the list, and then click "New".
-4) Enter the name of tunnel (such as TomVPNConn), select the VPN gateway `TomVPNGw` and the peer gateway` TomVPNUserGw`, and then enter the pre-shared key (such as `123456`).
+4) Enter the name of tunnel (such as TomVPNConn), select the VPN gateway `TomVPNGw` and the customer gateway` TomVPNUserGw`, and then enter the pre-shared key (such as `123456`).
 5) Enter the SPD policy to limit the communication between which local IP address ranges and which peer IP address ranges. The local IP address range in this example is the IP address range of subnet A `192.168.1.0 / 24`, and the peer IP address range is` 10.0.1.0 / 24`. Then, click "Next".
 6) (Optional) Step 3: Configure IKE parameters. If you do not need advanced configurations, click "Next".
 7) (Optional) Step 4: Configure IPsec parameters. If you do not need these parameters, click "Finish" to complete the configuration.
@@ -232,14 +237,14 @@ You can use APIs to configure and manage your VPN connections. For more APIs rel
 | Query VPN gateway list | [DescribeVpnGw](http://cloud.tencent.com/doc/api/245/5108) | Query the information of a VPN gateway based on user information, such as the ID and name of the VPN gateway. |
 | Renew VPN gateway | [RenewVpn](http://cloud.tencent.com/doc/api/245/5109) | Renew a VPN gateway. |
 
-### Peer Gateway-related APIs
+### Customer Gateway-related APIs
 | Feature | Action ID | Description |
 |---------|---------|---------|
-| Create peer gateway | [AddUserGw](http://cloud.tencent.com/doc/api/245/5116) | Create a peer gateway to be connected. |
-| Delete peer gateway | [DeleteUserGw](http://cloud.tencent.com/doc/api/245/5117) | Delete a specified peer gateway. |
-| Modify name of peer gateway | [ModifyUserGw](http://cloud.tencent.com/doc/api/245/5118) | Modify the name of a peer gateway. |
-| Query peer gateway list | [DescribeUserGw](http://cloud.tencent.com/doc/api/245/5119) | Query the information of a peer gateway based on user information, such as the ID and name of the peer gateway. |
-| Obtain information about supported peer gateway vendors | [DescribeUserGwVendor](http://cloud.tencent.com/doc/api/245/5120) | Query information on peer gateway vendors supported by Tencent Cloud VPN. |
+| Create customer gateway | [AddUserGw](http://cloud.tencent.com/doc/api/245/5116) | Create a customer gateway to be connected. |
+| Delete customer gateway | [DeleteUserGw](http://cloud.tencent.com/doc/api/245/5117) | Delete a specified customer gateway. |
+| Modify name of customer gateway | [ModifyUserGw](http://cloud.tencent.com/doc/api/245/5118) | Modify the name of a customer gateway. |
+| Query customer gateway list | [DescribeUserGw](http://cloud.tencent.com/doc/api/245/5119) | Query the information of a customer gateway based on user information, such as the ID and name of the customer gateway. |
+| Obtain information about supported customer gateway vendors | [DescribeUserGwVendor](http://cloud.tencent.com/doc/api/245/5120) | Query information on customer gateway vendors supported by Tencent Cloud VPN. |
 
 
 ### VPN Tunnel-related APIs

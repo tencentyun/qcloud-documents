@@ -1,45 +1,75 @@
-## 简介
+## 接口概述
 
+### 服务简介
 名片 OCR 识别，根据用户上传的名片图像，返回识别出的名片字段信息，目前已支持20 多个字段识别，详细字段如下：
 
 姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
-## 调用URL
+>注意：
+>如果开发者使用的是 V1 版本，请查看 [名片识别（V1）](/document/product/641/12423)。
 
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/businesscard`
 
-> 注意：任何字段都可能存在多个，实际返回由名片内容决定。
+`https://recognition.image.myqcloud.com/ocr/businesscard`
 
-## HTTP 请求格式
+## 请求方式
 
-OCR接口采用http协议，支持指定图片URL和上传本地图片文件两种方式。
-
-### 头部信息
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                       | 描述                                       |
 | -------------- | --------------------------------------- | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com          | 腾讯云智能图像识别服务器域名                           |
-| Content-Length | 包体总长度                                   | 整个请求包体内容的总长度，单位：字节（Byte）。                |
-| Content-Type   | application/json 或者 multipart/form-data | 根据不同接口选择                                 |
+| host           | recognition.image.myqcloud.com          | 腾讯云文字识别服务器域名                             |
+| content-length | 包体总长度                               | 整个请求包体内容的总长度，单位：字节（Byte）        |
+| content-type   | application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。 |
 | Authorization  | 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/641/12409) |
 
-> 注意： 
-> (1) 每个请求的包体大小限制为 6MB；
-> (2) 所有接口都为 POST 方法；
-> (3) 不支持 .gif 这类的动图。
+>**注意：**
+如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+
 
 ### 请求参数
 
 | 参数名称       | 是否必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
-| appid         | 必须         | String        | 腾讯云申请的 AppId                  |
+| appid         | 必须         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
 | bucket        | 可选   | string      | 图片空间                                    |
 | image         | 必选   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
-| url_list   | 必选   | string 数组 | 图片 url 列表，与 image 两者填一个即可，同时赋值时，则以 url 指定的图像作为输入      |
+| url_list   | 必选   | string 数组 | 图片 url 列表。image 和 url 只提供一个即可；如果都提供，只使用 url   |
 
-### 示例—使用URL
+## 返回内容
+
+| 字段          | 类型      | 说明           |
+| ----------- | ------- | ------------ |
+| result_list | json 数组 | 具体查询数据，内容见下表 |
+
+result_list（json 数组）中每一项的具体内容：
+
+| 字段      | 类型     | 说明           |
+| ------- | ------ | ------------ |
+| code    | int    | 服务器错误码，0 为成功 |
+| message | string | 服务器返回的信息     |
+| url     | string | 请求参数选择url，则返回当前图片的 url    |
+| filename     | string | 请求参数选择image，当前图片的 filname    |
+| data    | array(item) | 具体查询数据，内容见下表 |
+
+data字段具体内容：
+
+| 字段               | 类型     | 说明                     |
+| ---------------- | ------ | ---------------------- |
+| item             | string | 字段字符串                     |
+| value            | string | 字段识别出来的信息                    |
+| confidence  | double | 字段识别出来的信息的置信度，取值范围[0.0,1.0]  |
+
+## 请求示例
+
+### 使用 url 的请求示例
 
 ```
 POST /ocr/businesscard HTTP/1.1
@@ -55,7 +85,7 @@ Content-Type: application/json
 }
 ```
 
-### 示例—使用图片文件
+### 使用 image 的请求示例 
 
 ```
 POST /ocr/businesscard HTTP/1.1
@@ -80,35 +110,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-
-## 返回值
-### 返回内容
-
-| 字段          | 类型      | 说明           |
-| ----------- | ------- | ------------ |
-| result_list | json 数组 | 具体查询数据，内容见下表 |
-
-result_list（json 数组）中每一项的具体内容：
-
-| 字段      | 类型     | 说明           |
-| ------- | ------ | ------------ |
-| code    | int    | 服务器错误码，0 为成功 |
-| message | string | 服务器返回的信息     |
-| url     | string | 请求参数选择url，则返回当前图片的 url    |
-| filename     | string | 请求参数选择image，当前图片的 filname    |
-| data    | array(item) | 具体查询数据，内容见下表 |
-
-data字段具体内容：
-
-item说明
-
-| 字段               | 类型     | 说明                     |
-| ---------------- | ------ | ---------------------- |
-| item             | string | 字段字符串                     |
-| value            | string | 字段识别出来的信息                    |
-| confidence  | double | 字段识别出来的信息的置信度，取值范围[0.0,1.0]  |
-
-### 示例
+### 返回示例
 
 ```
 {
@@ -178,7 +180,7 @@ item说明
 ## 错误码
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

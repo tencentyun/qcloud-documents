@@ -1,3 +1,87 @@
+### Version 4.1
+- iOS & Android: Allowed LVB push and playback to carry messages in audio/video streams.
+- iOS & Android: Added the API for switching between bitrate and resolution in short video recording.
+- iOS & Android: Added the photographing API in short video recording.
+- iOS & Android: Added screenshot and recording in LVB push.
+- iOS & Android: Allowed short video editing BGM to set the playback start time and loop playback.
+- iOS & Android: Automatic rotation is supported by VOD MP4.
+- iOS: Added VOD full-featured player in Demo, so you can own a Youku player by using just a few lines of codes.
+
+### Version 3.9
+- iOS & Android: Added H.265 hard decoding feature.
+- iOS & Android: Added two-person/multi-person real-time audio/video feature in Demo.
+- iOS & Android: Upgraded the motion effect stickers by adding the HDR and high-resolution sticker effects, making the stickers more beautiful.
+- iOS & Android: Added AI background keying-out, so VJs no longer needs the green screen.
+- iOS & Android: Added seamless switch of video definition during VOD playback.
+- iOS & Android: Fixed a few bugs.
+- iOS & Android: Added three time effects: slow motion, repeated playback, and reverse playback.
+- iOS & Android: Added a variety of filters, and more effects available.
+- iOS & Android: Added various dynamic and static stickers. Sticker customization is supported.
+- iOS & Android: Bubble subtitles can be added to the videos.
+- iOS & Android: Silent shooting is supported to facilitate the post-production.
+- iOS & Android: Switching between landscape/portrait modes is supported during shooting.
+- Android: Optimized short video upload process with UGCPublish being connected to the new cos architecture.
+
+### Version 3.7
+- iOS & Android: Optimized Demo and added low latency playback, and users can experience push LVB playback directly.
+- iOS & Android: Added multi-end audio/video interaction to Demo, making it possible to start multi-person session between mini programs, windows and multiple ends.
+- Android: Fixed the invalid acquisition of backgend camera data.
+- Android: Fixed the invalid SetMirror settings.
+- Android: Fixed the rendering display problem of multiple TXCloudViews.
+
+### Version 3.5
+- iOS & Android: Optimized the joint broadcasting sending policy, making the sound more smooth in weak network environment.
+- iOS & Android: Updated the sound re-sampling algorithm, providing better compatibility for the background sounds of different sampling rates.
+- IOS & Android: Added the independent VOD API (TXVodPlayer), making it easier to meet VOD needs. The original LVB VOD API (TXLivePlayer) remains unchanged and can be used continuously.
+- Android: System AEC in joint broadcasting is supported for some mobile phones, providing better performance.
+- Android: Allowed the API sendCustomVideoData to send I420, NV21 and other custom data.
+- Android: The YUV video data callback API is supported by the playback end.
+
+### Version 3.4
+- iOS & Android: Added features such as deletion, multi-scale switching, and focal length adjustment in short video recording.
+- iOS & Android: Added tail watermarking in short video editing.
+- iOS & Android: Fixed the LVB compatibility problem of third-party pushing FLV.
+- IOS: Fixed the iOS11 compatibility problem.
+- Android: Fixed the inaccurate VOD callback.
+
+### Version 3.3
+- iOS & Android: Tag EXT-X-DISCONTINUITY is supported by VOD HLS.
+- Android: Backend push acquisition is supported.
+- Fixed the problems of green screen in recording and black screen in playing for some Android models.
+- Fixed the problems of abnormal playback and inaccurate progress callback of BGM on some Android models.
+- Fixed some bugs reported by customers in the last week.
+
+### Version 3.2
+- iOS & Android: Playback of local caching of mp4 videos is supported in VOD.
+- Fixed the blurred screen problem in backend recording under abnormal circumstances.
+- Fixed the incompatibility of BGM with low sampling rate.
+- Fixed some bugs reported by customers in the last week.
+
+### Version 3.1
+- iOS & Android: Optimized the beauty filter algorithm and added the blush effect and multiple beautifying styles.
+- iOS: Added two beautifying styles: smooth and natural.
+- Android: Added three beautifying styles: smooth, natural, and hazy.
+- Android: Added variable speed, background music, and subtitle features in short video editing.
+- Added face slimming, nose narrowing, and chin thinning features to the commercial enterprise version.
+
+### Version 3.0
+- iOS & Android: Restructured the beauty filter module by enhancing the beauty filter effects while reducing GPU utilization.
+- iOS & Android: Restructured the internal of VOD player. Multi-speed (such as x2, x4) playback is supported.
+- iOS & Android: Optimized the anti-jitter capability of underlying network components for joint broadcasting, and provided better model adaptation for AEC (Acoustic Echo Cancellation) components.
+- iOS & Android: Added APIs pauseRecord and resumeRecord to TXUGCRecord for multi-fragment recording.
+- iOS: Added fast clipping and editing APIs.
+
+### Version 2.0.5
+- Android: Added watermarking in short video editing.
+- iOS & Android: Added multi-fragment recording in short video recording.
+- iOS & Android: Fixed a few bugs.
+
+### Version 2.0.4
+- Android: Added features such as filter, watermarking, background music, subtitle, speed control in short video recording.
+- Android: Optimized short video clipping and stitching, and added filter editing.
+- iOS & Android: Added the beauty calback pre-processing API in UGC recording.
+- Android: Added resuming from break point in short video uploads.
+
 ### Version 2.0.3
 - Android: Added UGC cropping/stitching features.
 - Android: Optimized player and render views. Animation, floating window and big/small screen switching features become supported.
@@ -32,7 +116,7 @@
 - iOS: Added "whitening" filter, which is suitable for users who prefer beautify features.
 
 ### Version 1.9.2
-- iOS & Android: Users can now play local files. (Configure PLAY_TYPE_LOCAL_VIDEO in startPlay)
+- iOS & Android: Added local file playback. (Set PLAY_TYPE_LOCAL_VIDEO in startPlay)
 - iOS & Android: Re-designed buffer solution for the player, optimizing audio fluency for low-delay linkages.
 - iOS: Added setReverbType API, which is used to configure multiple audio reverb effects.
 - iOS: Optimized performance when adding watermarks during LVB.
@@ -152,7 +236,7 @@ See Update History for features in previous versions.
 
 ### Version 1.5.0
 - Remodeled push SDK and player SDK to improve their stability
-- Added GOP configuration parameters. It is recommended to configure it as 3 seconds (default) in ShowTime scenarios
+- Added GOP configuration parameters. It is recommended to configure it as 3 seconds (default) in beauty show scenarios
 - Addressed conflict problems with AVGSDK characters
 - Fixed crash problems during push process in landscape screen mode
 

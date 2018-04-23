@@ -40,21 +40,21 @@ PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 **必选头部**
 该请求操作的实现使用如下必选头部：
 
-| 名称         | 描述           | 类型     | 必选   |
-| ----------- | ----------- | ------------- | ---- |
-| x-cos-copy-source     | 源文件 URL 路径，可以通过 versionid 子资源指定历史版本         | String | 是    |
+| 名称                | 描述                                  | 类型     | 必选   |
+| ----------------- | ----------------------------------- | ------ | ---- |
+| x-cos-copy-source | 源文件 URL 路径，可以通过 versionid 子资源指定历史版本 | String | 是    |
 
 
 **推荐头部**
 该请求操作的实现使用如下推荐请求头部信息：
 
-| 名称               | 描述      | 类型     | 必选   |
-| ---------------- | ---------- | ------ | -------- |
-| x-cos-copy-source-range                    | 源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件。                         | Integer | 是    |
-| x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。<br>可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
+| 名称                                    | 描述                                       | 类型      | 必选   |
+| ------------------------------------- | ---------------------------------------- | ------- | ---- |
+| x-cos-copy-source-range               | 源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件。 | Integer | 是    |
+| x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。 | String  | 否    |
+| x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String  | 否    |
+| x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。<br>可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String  | 否    |
+| x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String  | 否    |
 
 ### 请求体
 该请求的请求体为空。
@@ -65,7 +65,13 @@ PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 #### 公共响应头 
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-该响应无特殊的响应头。
+**服务端加密相关响应**
+
+如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+
+| 名称                           | 描述                                       | 类型     |
+| ---------------------------- | ---------------------------------------- | ------ |
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -77,11 +83,11 @@ PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 ```
 具体的数据内容如下：
 
-| 名称               | 描述                                       | 类型     |
-| ---------------- | ---------------------------------------- | ------ |
-| CopyPartResult | 返回复制结果信息                                 | String |
-| ETag             | 返回文件的MD5算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
-| LastModified     | 返回文件最后修改时间，GMT 格式                         | String |
+| 名称             | 描述                                       | 类型     |
+| -------------- | ---------------------------------------- | ------ |
+| CopyPartResult | 返回复制结果信息                                 | String |
+| ETag           | 返回文件的MD5算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| LastModified   | 返回文件最后修改时间，GMT 格式                        | String |
 
 
 ## 实际案例

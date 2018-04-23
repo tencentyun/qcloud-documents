@@ -5,8 +5,8 @@ CMQServerException {"code":4000,"data":"{\"code\":4000,\"message\":\"(10430)acti
 
 You may fill wrong endpoint
 Queue and Topic correspond to different endpoints, as shown below:
-Queue: http://cmq-queue-region.api.tencentyun.com/
-Topic: http://cmq-topic-region.api.tencentyun.com/
+Queue: <font style="color:red">http: //cmq-queue-region.api.tencentyun.com/</font>
+Topic: <font style="color:red">http: //cmq-topic-region.api.tencentyun.com/</font>
 Please replace region with gz (Guangzhou), sh (Shanghai) or bj (Beijing) accordingly.
 > Note: The above endpoint uses the private network domain. If the public network domain is required, replace tencentyun with qcloud. It is recommended that you use the private network domain instead of the public network domain, for public network needs to be paid by traffic and has relatively high delay.
 

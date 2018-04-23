@@ -1,16 +1,16 @@
 ## 1. API Description
  
-This API (DescribeSecurityGroupPolicy) is used to query the rules for existing security groups.
-Domain name for API request:<font style="color:red">dfw.api.qcloud.com</font>
-1) The "ingress" and "egress" lists will be returned.
-2) Each security group rule can contain up to four valid fields: ipProtocol, cidrIp or sgId (the two are mutually exclusive and do not appear at the same time), portRange, and action. The action field will always be there. If any of the other fields does not appear, it means that the rule will ignore that field and match all when processing network messages.
+This API (DescribeSecurityGroupPolicys) is used to query the rules for existing security groups.
+Domain name for API request: dfw.api.qcloud.com
+(1) The "ingress" and "egress" lists are returned.
+(2) Each security group rule can contain a maximum of four valid fields: ipProtocol, cidrIp or sgId (the two are mutually exclusive and cannot be specified at the same time), portRange, and action. The action field is required. If any of the other fields is not specified, it means that the rule may ignore this field and match all when processing network messages.
  
 
 ## 2. Input Parameters
  
-The following request parameter list only provides API request parameters. Public request parameters need to be added when the API is called. See the Public Request Parameters page for details. The Action field for this API is DescribeSecurityGroupPolicy.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see Common Request Parameters page. The Action field for this API is DescribeSecurityGroupPolicys.
 <table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
+<th><b>Parameter </b></th>
 <th><b>Required</b></th>
 <th><b>Type</b></th>
 <th><b>Description</b></th>
@@ -22,13 +22,13 @@ The following request parameter list only provides API request parameters. Publi
 
 ## 3. Output Parameters
  
-| Parameter Name | Type | Description |
+| Parameter  | Type | Description |
 |---------|---------|---------|
-| code | Int | Error code, 0: succeeded, other values: failed |
+| code | Int | Error code. 0: Successful; other values: Failed |
 | message | String | Error message |
 | data | Array | Returned data structure|
 
-Data structure:
+`data` is composed as follows:
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
 <th><b>Type</b></th>
@@ -39,37 +39,37 @@ Data structure:
 <td> data.egress <td> Array <td> Outbound rule list
 </tbody></table>
 
-Ingress/egress rule member structure
+`ingress`/`egress` structure
 <table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
+<th><b>Parameter</b></th>
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> index <td> Int <td> index of a policy, starting from 0
+<td> index <td> Int <td> Rule position, starting from 0
 <tr>
-<td> addressModule <td> String <td> IP Address Module ID or IP Address Module Group ID, conflicted with cidrIp or sgId。
+<td> addressModule <td> String <td> IP address ID or IP address group ID. It is mutually exclusive with cidrIp sgId.
 <tr>
-<td> ipProtocol <td> String <td> Network protocol, which supports udp, tcp, icmp, etc.; the absence of this filed indicates full protocol.
+<td> ipProtocol <td> String <td> Network protocol, which supports UDP, TCP, ICMP, etc. If this is left empty, it supports all protocols.
 <tr>
-<td> cidrIp <td> String <td> IP or IP range; the absence of this field indicates full IP. Does not appear together with sgId.
+<td> cidrIp <td> String <td> IP or IP range. The absence of this field indicates full IP. It does not appear together with sgId at the same time.
 <tr>
-<td> sgId <td> String <td> Security group ID. Does not appear together with cidrIp.
+<td> sgId <td> String <td> Security group ID. It does not appear together with cidrIp at the same time.
 <tr>
-<td> portRange <td> String <td> Port or port range; the absence of this filed indicates full port.
+<td> portRange<td> String <td> Port or port range. The absence of this filed indicates full port.
 <tr>
-<td> serviceModule <td> String <td> Proctocol Port Module ID or Proctocol Port Module Group ID, conflicted with ipProtocol or portRange
+<td> serviceModule <td> String <td> Protocol port ID or protocol port group ID. It is mutually exclusive with ipProtocol+portRange.
 <tr>
 <td> desc <td> String <td> Rule description
 <tr>
-<td> action <td> String <td> Action, accept or drop
+<td> action <td> String <td> Action (accept or drop)
 <tr>
-<td> version <td> Int <td> it's version of this security group itself, varied when every time rules edited.
+<td> version <td> Int <td> Version, which is automatically increased by one each time you update the security rules, so as to prevent your updated routing rules from being expired
 </tbody></table>
 
 ## 4. Error Codes
  <table class="t"><tbody><tr>
-<th><b>Error Code</b></th>
-<th><b>Description</b></th>
+<th><b>Error Code Value</b></th>
+<th><b>Reason</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
@@ -83,7 +83,7 @@ Ingress/egress rule member structure
 Input
 <pre>
 
-  https://dfw.api.qcloud.com/v2/index.php?Action=DescribeSecurityGroupPolicy
+  https://dfw.api.qcloud.com/v2/index.php?Action=DescribeSecurityGroupPolicys
   &sgId=sg-33ocnj9n
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 
@@ -91,30 +91,35 @@ Input
 
 Output
 ```
-
 {
     "code": 0,
     "message": "",
+    "codeDesc": "Success",
     "data": {
         "ingress": [
             {
-                "ipProtocol": "tcp",
-                "cidrIp": "10.0.0.0\/8",
-                "portRange": "22",
-                "desc": "Access to tcp protocol port 22 for inbound traffic of private network is prohibited",
-                "action": "ACCEPT"
-            }
-        ],
-        "egress": [
+                "index": 0,
+                "action": "ACCEPT",
+                "serviceModule": "ppm-i083665x",
+                "addressModule": "ipmg-poo8128q"
+            },
             {
-                "ipProtocol": "tcp",
-                "cidrIp": "10.0.0.0\/8",
-                "desc": "Outbound tcp traffic of private network is allowed",
-                "action": "ACCEPT"
+                "index": 1,
+                "action": "ACCEPT",
+                "portRange": "22",
+                "sgId": "sg-ghm9l8ve",
+                "ipProtocol": "tcp"
+            },
+            {
+                "index": 2,
+                "action": "ACCEPT",
+                "cidrIp": "10.1.1.10",
+                "ipProtocol": "tcp"
             }
         ]
     }
 }
 
 ```
+
 

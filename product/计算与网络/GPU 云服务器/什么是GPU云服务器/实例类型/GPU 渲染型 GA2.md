@@ -9,11 +9,11 @@
  - 云桌面等
 
 ## 硬件规格
-- **CPU：**高频 Intel Xeon E5-2680 (Broadwell) 。
-- **GPU：**AMD FirePro™ S7150。
-- **内存：**DDR4 。
-- **存储：**系统盘与数据盘都为SSD 云硬盘。如需扩容可 [购买弹性云盘](/doc/product/362/2732) 进行挂载。	 
-- **网络：**默认网络增强， 无额外收费。
+- **CPU：** 高频 Intel Xeon E5-2680 (Broadwell) 。
+- **GPU：** AMD FirePro™ S7150。
+- **内存：** DDR4 。
+- **存储：** 系统盘与数据盘都为SSD 云硬盘。如需扩容可 [购买弹性云盘](/doc/product/362/2732) 进行挂载。	 
+- **网络：** 默认网络增强， 无额外收费。
 
 	
 **GA2 实例提供以下配置：**
@@ -34,7 +34,6 @@
 				<td>&nbsp;8 核</td>
 				<td>&nbsp;16 GB</td>
 				<td>&nbsp;<a href="/doc/product/362/2345">云硬盘</td>
-				<td><b></b></td>
 			</tr>
 		</tbody>
 </table>

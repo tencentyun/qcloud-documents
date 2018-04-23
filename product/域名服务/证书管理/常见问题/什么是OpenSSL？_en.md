@@ -2,7 +2,9 @@ OpenSSL is a well-known open source cryptography toolkit for secure communicatio
 
 #### 1. Official Website of OpenSSL
 
-Official download address: https://www.openssl.org/source/
+
+[Official download address](https://www.openssl.org/source/).
+
 
 #### 2. Installation Method on Windows
 
@@ -15,7 +17,9 @@ Taking this tool as an example, the installation steps and usage are as follows:
 2.2 Set environment variables. If the tool is installed in C:\OpenSSL-Win64, copy `C:\OpenSSL-Win64\bin;` to Path
 ![](https://mccdn.qcloud.com/static/img/48f68528c408e6b7f83956fed009f3b7/openssl-2.png)
 
-2.3 Open the command line program cmd (run as an administrator), enter the directory where 2_www.domain.com.key and 1_www.domain.com_cert.crt are stored, and run the command below
+
+2.3 Open the command line program cmd (run as an administrator), enter the directory where `2_www.domain.com.key` and `1_www.domain.com_cert.crt` are stored, and run the command below
+
 ```
 openssl pkcs12 -export -out www.domain.com.pfx -inkey 2_www.domain.com.key -in 1_www.domain.com_cert.crt
 ```

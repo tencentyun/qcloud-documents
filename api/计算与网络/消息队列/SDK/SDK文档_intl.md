@@ -1,14 +1,3 @@
-## CMQ SDK Instructions
-To facilitate developers' use of CMQ SDKs, Tencent Cloud provides the following instruction documentations:
-
-[Java (Windows)](http://cmqsdk-10016717.cos.myqcloud.com/JAVA%20SDK%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%28windows%29.pdf)
-
-[Python (Linux)](http://cmqsdk-10016717.cos.myqcloud.com/python%20SDK%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%28linux%29.pdf)
-
-[PHP (Linux)](http://cmqsdk-10016717.cos.myqcloud.com/PHP%20SDK%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%28linux%29%20.pdf)
-
-[C++ (Linux)](http://cmqsdk-10016717.cos.myqcloud.com/C%2B%2BSDK%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%28linux%29.pdf)
-
 ## Example: Introduction to JAVA SDK (Windows)
 
 ### Environment Dependency
@@ -26,8 +15,8 @@ Users can create a new Cloud API key or use an existing key. Click key ID and go
 #### endpoint
 endpoint is the access address for CMQ service, and it contains the protocol used. endpoint is formatted as follows:
 
-- Private network: http://cmq-queue-region.api.tencentyun.com
-- Public network: http(s)://cmq-queue-region.api.qcloud.com
+- Private network:` http://cmq-queue-region.api.tencentyun.com`
+- Public network: `http(s)://cmq-queue-region.api.qcloud.com`
 
 
 #### region

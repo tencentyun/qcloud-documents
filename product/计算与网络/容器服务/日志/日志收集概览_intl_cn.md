@@ -1,10 +1,12 @@
 ## 简介
 
-日志收集功能是容器服务为用户提供的集群内日志收集工具，可以将集群内服务或集群节点特定路径文件的日志发送至 kafka 的指定 topic。
+日志收集功能是容器服务为用户提供的集群内日志收集工具，可以将集群内服务或集群节点特定路径文件的日志发送至 Kafka 的指定 topic 或者 日志服务CLS 的指定日志主题。
 
-日志收集功能适用于需要对 Kubernetes 集群内服务日志进行存储和分析的用户。用户可以通过配置日志收集规则进行集群内日志的收集并将收集到的日志发送至 Kafka 的特定 Topic 以供用户的其它基础设施进行消费。
+日志收集功能适用于需要对 Kubernetes 集群内服务日志进行存储和分析的用户。用户可以通过配置日志收集规则进行集群内日志的收集并将收集到的日志发送至 Kafka 的指定 Topic 或 日志服务CLS 的指定日志主题以供用户的其它基础设施进行消费。
 
 日志收集功能需要为每个集群手动开启。日志收集功能开启后，日志收集 Agent 会在集群内以 Daemonset 的形式运行。用户可以通过日志收集规则配置日志的采集源和消费端，日志收集 Agent 会从用户配置的采集源进行日志收集，并将日志内容发送至用户指定的消费端。
+
+需要注意的是，使用日志收集功能需要您确认 Kubernetes 集群内节点能够访问日志消费端。
 
 ## 使用场景
 
@@ -27,7 +29,7 @@
 
 - 日志源：包含指定容器日志以及主机路径日志。在需要收集集群内服务打印到标准输出的日志时，用户可以设定日志的采集源为指定容器日志，包括设置收集所有 Namespace 服务的日志、采集若干个指定 Namespace。 内的服务日志。在需要收集集群内节点特定路径的日志时，用户可以设定日志的采集源为主机路径日志，例如当需要收集所有路径形式为 `/var/lib/docker/containers/<container-id>/<container-id>.json-log` 的日志时，可以指定日志收集路径为 `/var/lib/docker/containers/*/*.json-log`。
 
-- 消费端：日志收集 Agent 在采集指定采集源的日志后，会将收集到的日志发送至用户指定的消费端。当前日志收集服务支持用户自建的 Kakfa 和腾讯云的 Ckafka 服务作为日志的消费端，用户只需配置消费端 Kafka 的 Topic，日志收集 Agent 会将收集到的日志以 json 的形式发送至用户指定的 Topic。
+- 消费端：日志收集 Agent 在采集指定采集源的日志后，会将收集到的日志发送至用户指定的消费端。当前日志收集服务支持用户自建的 Kakfa 、腾讯云的 Ckafka 服务和腾讯云的 日志服务CLS 作为日志的消费端，用户只需配置消费端 Kafka 或者 CLS ，日志收集 Agent 会将收集到的日志以 json 的形式发送至用户指定的消费端。
 
 
 ## 功能
@@ -41,11 +43,16 @@
 ![主机日志收集器][2]
 
 - 将收集的日志推送至腾讯云的 CKafka 服务
+![配图-Ckafka配置图][3]
 
 - 将收集的日志推送至用户自建 Kafka 的指定 Topic
-![配图-kafka配置图][3]
+![配图-kafka配置图][4]
 
+- 将收集的日志推送至腾讯云的 日志服务CLS
+![配图-日志服务CLS配置图][5]
 
-[1]:https://mc.qcloudimg.com/static/img/11eac7b626d3d84f3b6417d8cbbddad9/image.jpeg
-[2]:https://mc.qcloudimg.com/static/img/703ce5242f9d74a6ba40058d265698eb/image.jpeg
-[3]:https://mc.qcloudimg.com/static/img/0fe6bed71772b09231771e320a789e9d/image.jpeg
+[1]:https://mc.qcloudimg.com/static/img/1876f68db6e7f0282c1289d1a7411211/image.png
+[2]:https://mc.qcloudimg.com/static/img/45465494725a520f963be72ae3fb9aca/image.png
+[3]:https://mc.qcloudimg.com/static/img/2247389b857b20cceabd0c6dccdbcc8a/ckafa.png
+[4]:https://mc.qcloudimg.com/static/img/9fb478a794d258a0609db74ae3ede544/kafka.png
+[5]:https://mc.qcloudimg.com/static/img/4d52a836e1c50cbe46fb7d8d4049bf8a/%7BF5CD3AB9-4732-44E0-85BF-1103EB970862%7D.png

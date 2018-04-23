@@ -1,24 +1,24 @@
-### Can I use line grouping function in free edition?
-Line grouping is only available for paid DNS packages. Please upgrade your DNS package if you need this function.
+### Can line grouping be used in the free edition?
+Line grouping is only available in the paid DNS packages. Please upgrade your DNS package if this feature is needed.
  
-### Why can't I find all of my domain names when copying existing domain names? 
-You can only copy domain names configured with line groups. Furthermore, you can only copy the line groups for low-level domain names onto high-level domain names.
+### Why can't I see all of my domain names when copying the existing domain names?
+Only the domain names configured with a line group can be copied, and you can only copy the line group of a lower-level domain name to a higher-level domain name.
 
-### Why can't I select certain lines when adding lines?
-A line can only be added into one line group. Modify the original group if you need to add the line again.
+### Why can't I select some lines when adding lines?
+Each line can only be added to one line group. To add a line to a new group, modify the old group.
  
-### Are there restrictions when naming the line groups?
-A line group cannot use the same name as the system default line or a custom line.
+### Are there any restrictions on naming line groups?
+A line group cannot have the same name as the system default line or a custom line.
  
-### What are the limits for how many line groups I can configure in different DNS packages?
+### How many line groups can be configured at most for different resolution packages?
 Individual Professional: 2. Enterprise Basic: 10. Enterprise Standard: 30. Enterprise Ultimate: 100.
  
-### How many lines can I add in a line group?
-1-120 line(s) for each line group.
+### How many lines can be added to a line group?
+1-120 lines for each line group.
  
 ### Why can't I delete a line group?
-You can only delete line groups that are not in use for now. Change the lines for the resolution record first, or delete the resolution record.
+You can only delete the line groups that are not in use. Change the lines for the resolution record first, or delete the resolution record.
  
 ### What's the priority for resolution?
-[Individual Lines] > [Custom Line Groups] > [Default Group] > [Internet Default].
+[Individual Line] > [Custom Line Group] > [Default Group] > [Internet Default].
 

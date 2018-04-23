@@ -75,7 +75,7 @@ masquerade_address = XXX.XXX.XXX.XXX
 # 当 FTP Server 处于某个网关或 NAT 后时，可以通过该配置项将网关的 IP 地址或域名指定给 FTP Server。一般情况下，无需配置。
 listen_port = 2121
 # Ftp Server 的监听端口，默认为 2121，请注意防火墙需要放行该端口。
-passive_ports = 60000,65535             
+passive_port = 60000,65535             
 # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择。
 
 [FILE_OPTION]
@@ -103,6 +103,12 @@ python ftp_server.py
 ## 停止
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## FAQ
+
+### 配置文件中的masquerade_address这个选项有何作用？何时需要配置masquerade_address
+当FTP Server运行在一个多网卡的Server上，并且FTP Server采用了PASSIVE模式时（一般地，FTP客户端位于一个NAT网关之后时，都需要启用PASSIVE模式），此时需要使用masquerade_address选项来唯一绑定一个passive模式下用于reply的IP。 例如，FTP Server有多个IP地址，如内网IP为10.XXX.XXX.XXX，外网IP为123.XXX.XXX.XXX。 客户端通过外网IP连接到FTP Server，同时客户端使用的是PASSIVE模式传输，此时，若FTP Server未指定masquerade_address具体绑定到外网IP地址，则Server在PASSIVE模式下，reply时，有可能会走内网地址。就会出现客户端能连接上Ftp server，但是不能从Server端获取任何数据回复的问题。
+
+如果需要配置masquerade_address，建议指定为客户端连接Server所使用的那个IP地址。
+
 #### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
 由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
 

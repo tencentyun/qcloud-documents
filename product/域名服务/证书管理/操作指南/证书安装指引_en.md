@@ -1,13 +1,17 @@
-After decompressing the downloaded www.domain.com.zip file, you get three folders containing certificate files for Apache, IIS, Nginx servers.
+
+After decompressing the downloaded `www.domain.com.zip` file, you get three folders containing certificate files for Apache, IIS, Nginx servers.
+
 Here are examples of certificate installation on four types of servers:
 
 ### 1. Apache 2.x Certificate Deployment
 
 #### 1.1 Obtain certificate
-Obtain the certificate files 1_root_bundle.crt, 2_www.domain.com_cert.crt and private key file 3_www.domain.com.key in the Apache folder
-1_root_bundle.crt file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
-2_www.domain.com_cert.crt file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
-3_www.domain.com.key file contains private key codes "-----BEGIN RSA PRIVATE KEY-----" and "-----END RSA PRIVATE KEY-----".
+
+Obtain the certificate files `1_root_bundle.crt`, `2_www.domain.com_cert.crt` and private key file `3_www.domain.com.key` in the Apache folder
+`1_root_bundle.crt` file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
+`2_www.domain.com_cert.crt` file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
+`3_www.domain.com.key` file contains private key codes "-----BEGIN RSA PRIVATE KEY-----" and "-----END RSA PRIVATE KEY-----".
+
 
 #### 1.2 Install certificate
 Edit the conf/httpd.conf file in the Apache root directory;
@@ -37,12 +41,14 @@ Note:
 ### 2. Nginx Certificate Deployment
 
 #### 2.1 Obtain certificate
-Obtain certificate file 1_www.domain.com_bundle.crt and private key file 2_www.domain.com.key in Nginx folder
-1_www.domain.com_bundle.crt file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
-2_www.domain.com.key file contains private key codes "-----BEGIN RSA PRIVATE KEY-----" and "-----END RSA PRIVATE KEY-----".
+
+Obtain certificate file `1_www.domain.com_bundle.crt` and private key file `2_www.domain.com.key` in Nginx folder
+`1_www.domain.com_bundle.crt` file contains certificate codes "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----";
+`2_www.domain.com.key` file contains private key codes "-----BEGIN RSA PRIVATE KEY-----" and "-----END RSA PRIVATE KEY-----".
 
 #### 2.2 Install certificate
-Save certificate file 1_www.domain.com_bundle.crt and private key file 2_www.domain.com.key of domain name www.domain.com in the same directory, such as /usr/local/nginx/conf.
+Save certificate file `1_www.domain.com_bundle.crt` and private key file `2_www.domain.com.key` of domain name www.domain.com in the same directory, such as /usr/local/nginx/conf.
+
 Update the conf/nginx.conf file in the Nginx root directory as follows:
 ```
 server {
@@ -84,7 +90,9 @@ Then requests from port 80 can be redirected to https.
 
 #### 3.1 Obtain certificate
 
-Obtain SSL certificate file www.domain.com.pfx in IIS folder.
+
+Obtain SSL certificate file `www.domain.com.pfx` in IIS folder.
+
 
 #### 3.2 Certificate installation
 1. Open the IIS service manager, click the computer name, and double-click the server certificate
@@ -112,12 +120,16 @@ Obtain SSL certificate file www.domain.com.pfx in IIS folder.
 
 #### 4.1 Obtain certificate
 
-If a private key password is set when applying for the certificate, you can download the Tomcat folder containing the key store www.domain.com.jks;
+
+If a private key password is set when applying for the certificate, you can download the Tomcat folder containing the key store `www.domain.com.jks`;
+
 If you do not fill in a private key password when applying for the certificate, the Tomcat folder of the certificate download package contains the key store file www.domain.com.jks and the key store password file keystorePass.txt
 When you choose to paste the CSR, Tomcat certificate cannot be downloaded, but you have to convert the format manually to generate the the Tomacat certificate. Steps are as follows:
 
 > You can generate jks certificate with the certificate file and private key file in Nginx folder.
-> Conversion tool: https://www.trustasia.com/tools/cert-converter.htm
+
+> Conversion tool: `https://www.trustasia.com/tools/cert-converter.htm`
+
 > If you use the conversion tool, **key store password** must be set for further use in configuration file when you install the certificate.
 
 #### 4.2 Install certificate

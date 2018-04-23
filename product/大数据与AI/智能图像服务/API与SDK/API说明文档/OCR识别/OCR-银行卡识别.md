@@ -1,45 +1,61 @@
-## 简介
+## 接口概述
 
-OCR ——银行卡识别，根据用户上传的银行卡图像，返回识别出的银行卡字段信息。
-
-## 计费说明
-
-请查看[计费说明](/document/product/641/12399)。
-
-## 说明
+### 服务简介
+本接口用于根据用户上传的银行卡图像，返回识别出的银行卡字段信息。
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
 
-限制说明：
-(1) 每个请求的包体大小限制为6MB。
-(2) 不支持 .gif这类的多帧动图。
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/bankcard`
 
-## 请求包 header
+`https://recognition.image.myqcloud.com/ocr/bankcard`
 
-OCR接口采用http协议，支持指定图片URL和上传本地图片文件两种方式。
+## 请求方式
+
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 类型     | 描述                                       |
 | -------------- | ------ | ---------------------------------------- |
-| Host           | String | recognition.image.myqcloud.com           |
-| Content-Length | Int    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
-| Content-Type   | String | text/json                                |
-| Authorization  | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/641/12409) |
+| host           | string | recognition.image.myqcloud.com           |
+| content-length | int    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
+| content-type   | string | text/json                                |
+| authorization  | string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
-#### 请求参数
+### 请求参数
 
-| 参数    | 是否必选 | 类型     | 说明                                   |
+| 参数    | 必选 | 类型     | 说明                                   |
 | ----- | ---- | ------ | ------------------------------------ |
-| appid | 必须   | string | 腾讯云的 AppID                           |
-| image | 可选   | binary | 图片内容                                 |
-| url   | 可选   | string | 图片的url,image和url只提供一个即可，如果都提供，只使用url |
+| appid | 是   | string |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                           |
+| image | 否   | binary | 图片内容                                 |
+| url   | 否   | string | image和url只提供一个即可；如果都提供，只使用url |
 
-#### 示例—使用图片URL
+## 返回内容
+
+| 字段         | 类型     | 说明                        |
+| ---------- | ------ | ------------------------- |
+| code       | int    | 返回值                       |
+| message    | string | 返回消息                      |
+| data       | object | 返回数据                      |
+| session_id | string | 相应请求的 session 标识符，可用于结果查询 |
+| items      | json数组 | 具体查询数据，内容见下表              |
+
+items 说明：
+
+| 字段         | 类型     | 说明                                       |
+| ---------- | ------ | ---------------------------------------- |
+| item       | string | 字段名称                                     |
+| itemstring | string | 字段结果                                     |
+| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width, height |
+| itemconf   | float  | 识别结果对应的置信度                               |
+
+## 请求示例
+### 使用 url 的请求示例
 
 ```
 POST /ocr/bankcard HTTP/1.1
@@ -54,7 +70,7 @@ Content-Type: application/json
   "url":"http://test-123456.image.myqcloud.com/test.jpg"
 }
 ```
-#### 示例—使用图片文件
+### 使用 image 的请求示例
 
 ```
 POST /ocr/bankcard HTTP/1.1
@@ -79,37 +95,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-
-## 返回值
-
-#### 返回内容
-
-结果具体内容：
-
-返回字段为一个json数组，其中每一项的内容如下：
-
-| 字段         | 类型     | 说明                        |
-| ---------- | ------ | ------------------------- |
-| code       | Int    | 返回值                       |
-| message    | String | 返回消息                      |
-| data       | Object | 返回数据                      |
-| session_id | String | 相应请求的 session 标识符，可用于结果查询 |
-| items      | json数组 | 具体查询数据，内容见下表              |
-
-
-items（json数组）中每一项的具体内容：
-
-| 字段         | 类型     | 说明                                       |
-| ---------- | ------ | ---------------------------------------- |
-| item       | String | 字段名称                                     |
-| itemstring | String | 字段结果                                     |
-| itemcoord  | Object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width, height |
-| itemconf   | Float  | 识别结果对应的置信度                               |
-
-
-
-
-#### 示例
+### 返回示例
 ```
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -202,7 +188,7 @@ Content-Type: application/json
 
 | 错误码   | 含义                              |
 | ----- | ------------------------------- |
-| 3     | 错误的请求                           |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服   |
 | 4     | 签名为空                            |
 | 5     | 签名串错误                           |
 | 6     | APPID /存储桶/ url 不匹配             |

@@ -1,0 +1,27 @@
+
+**请求示例**
+
+```
+PUT /dog.jpg?tagging HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: chengwus3sdktj-1251668577.cos.ap-beijing-1.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516362723;1517362773&q-key-time=1516362723;1517362773&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=7428a0606f4b52516453a1ff1ccb84c19b72a206
+Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
+Content-Length: 127
+Content-Type: application/x-www-form-urlencoded
+
+<Tagging><TagSet><Tag><Key>name</Key><Value>xiaoming</Value></Tag><Tag><Key>age</Key><Value>18</Value></Tag></TagSet></Tagging>
+```
+
+**响应示例**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Fri, 19 Jan 2018 11:54:15 GMT
+Server: tencent-cos
+x-cos-request-id: NWE2MWRjNjdfYWRhZDM1MGFfYWU0MV8xNTlkYg==
+```
