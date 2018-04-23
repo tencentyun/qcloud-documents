@@ -15,7 +15,7 @@ Swift 代码示例：
 ~~~
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         TACMessagingService.default().token;
-    }
+}
 ~~~
 
 > 请注意请一定要在该函数中调用绑定代码，如果您没有注册成功 APNS 则不会存在变量`[TACMessagingService defaultService].token`
