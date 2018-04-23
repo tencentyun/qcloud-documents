@@ -8,6 +8,7 @@ Objective-C 代码示例：
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 TACCrashOptions* crashOptions = options.crashOptions;
 ```
+Swift 代码示例：
 ```
 let options = TACApplicationOptions.default()
 let crashOptions = options?.crashOptions
