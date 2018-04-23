@@ -15,14 +15,15 @@
 
 ### 操作步骤
 #### 第一步：设置源码持续构建镜像
-1. 新建需要测试的镜像仓库 `helloworld`, 进入 helloworld 详情页
+1. 新建需要测试的镜像仓库 `helloworld`, 进入 helloworld 详情页。
 ![Alt text][step1]
 2. 设置镜像构建设置需要关心以下几点：
 
  - 代码源：当前支持 GitHub 和 Gitlab
- - 源码 Repository：需要包含 Dockerfile 文件，Dockerfile 文件是构建镜像的步骤描述；还需要包含所需代码, 同时在 Dockerfile 中添加代码。详情可见 [如何编写 Dockerfile](https://cloud.tencent.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)
+ - 源码 Repository：需要包含 Dockerfile 文件，Dockerfile 文件是构建镜像的步骤描述；还需要包含所需代码, 同时在 Dockerfile 中添加代码。详情可见 [如何编写 Dockerfile](https://cloud.tencent.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)。
  - 下述提供了本次测试 Helloworld 的 Dockerfile 和 index 文件, 将 Dockerfile 和 index.html 放在同一个根目录下。
- **Dockerfile 文件**：
+ 
+**Dockerfile 文件**：
 ```shell
 FROM nginx
 #file author
@@ -33,8 +34,8 @@ ADD ./ /usr/share/nginx/html
 ```shell
 hello world
 ```
-- 触发方式：设置提交代码到分支触发
-- Dockerfile 路径：由于 Dockerfile 和 index.html 都根目录下，所以直接填写 Dockerfile 即可。更多见 [源码构建 Dockerfile 路径设置](https://cloud.tencent.com/document/product/457/10618)
+- 触发方式：设置提交代码到分支触发。
+- Dockerfile 路径：由于 Dockerfile 和 index.html 都根目录下，所以直接填写 Dockerfile 即可。更多见 [源码构建 Dockerfile 路径设置](https://cloud.tencent.com/document/product/457/10618)。
 ![Alt text][step2]
 
 第一步设置完成后，即可实现每次提交代码，自动生成容器镜像功能。可提交代码进行测试，也可以手动执行立即构建。
