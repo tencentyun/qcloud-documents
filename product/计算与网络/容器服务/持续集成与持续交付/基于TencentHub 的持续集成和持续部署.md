@@ -41,8 +41,8 @@ hello world
 ![Alt text][step3]
 
 #### 第二步：设置镜像仓库触发器持续部署服务
-1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个[Nginx 服务](https://cloud.tencent.com/document/product/457/7851). 
-2. 进入上述设置好源码构建的helloworld镜像仓库详情页，进入触发器设置
+1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个 [Nginx 服务](https://cloud.tencent.com/document/product/457/7851). 
+2. 进入上述设置好源码构建的 helloworld 镜像仓库详情页，进入触发器设置。
 ![Alt text][step4]
 3. 添加完成一个触发器，需要关注以下几点：
 
