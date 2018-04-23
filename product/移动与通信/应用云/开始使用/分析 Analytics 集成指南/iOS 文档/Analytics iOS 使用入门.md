@@ -145,9 +145,17 @@ Analytics 服务默认采用批量上报策略，在本地缓存事件到达一�
 
 
 ~~~
-TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
- options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
-[TACApplication configurateWithOptions:options];
+	TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+	 options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
+	[TACApplication configurateWithOptions:options];
+~~~
+
+Swift 代码示例：
+
+~~~
+  	let options = TACApplicationOptions.default();
+        options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant;
+        TACApplication.configurate(with: options);
 ~~~
 
 > **注意：** 
