@@ -55,6 +55,7 @@
 ![](https://main.qcloudimg.com/raw/c48fdab182e05e167ab2d17ffeeab849.png)
 
 3. 部署设置。
+
 - **设置数据卷（选填）**
 
 要指定容器挂载至指定路径时，单击【添加数据卷】。详情查看 [使用指引](https://cloud.tencent.com/document/product/457/9112)。
