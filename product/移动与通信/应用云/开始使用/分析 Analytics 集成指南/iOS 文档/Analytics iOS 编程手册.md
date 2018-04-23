@@ -18,9 +18,17 @@
 
 在配置好 TACAppliction 之后，您就可以使用 `[TACAnalyticsService trackEvent:event]` 来记录事件了。
 
+
+Objective-C 代码示例：
 ~~~
 TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-event"];
 [TACAnalyticsService trackEvent:event];
+~~~
+
+Swift 代码示例：
+~~~
+let event = TACAnalyticsEvent.init(identifier: "demo-appear-event")
+TACAnalyticsService.trackEvent(event)
 ~~~
 
 为帮助您着手，Analytics SDK 定义了许多推荐的事件，这些事件可通用于各种应用类型，包括零售、电子商务、旅行以及游戏应用。本文档将以常见的页面追踪为例进行说明。
