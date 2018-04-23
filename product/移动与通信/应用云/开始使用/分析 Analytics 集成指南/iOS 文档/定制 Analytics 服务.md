@@ -20,7 +20,7 @@ Swift 代码示例：
 ~~~
 let options = TACApplicationOptions.default()
 // 自定义配置
-// options.analyticsOptions.xxx = xxx;
+// options?.analyticsOptions.xxx = xxx;
 TACApplication.configurate(with: options);
 ~~~
 
