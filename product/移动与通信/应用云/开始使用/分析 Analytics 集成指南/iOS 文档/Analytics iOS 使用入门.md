@@ -55,21 +55,21 @@
 如果还没有 Podfile，请创建一个。
 
 ~~~
-	$ cd your-project directory
-	$ pod init
+$ cd your-project directory
+$ pod init
 ~~~
 
 并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 
 ~~~
-	source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
-	source "https://github.com/CocoaPods/Specs"
+source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
+source "https://github.com/CocoaPods/Specs"
 ~~~
 
 如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
 
 ```
-	pod 'TACCore'
+pod 'TACCore'
 ```
 
 >**注意：**
@@ -85,12 +85,12 @@
 Objective-C 代码示例：
 
 ~~~
-	#import <TACCore/TACCore.h>
+#import <TACCore/TACCore.h>
 ~~~
 Swift 代码示例：
 
 ~~~
-	import TACCore
+import TACCore
 ~~~
 
 
@@ -104,13 +104,13 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ~~~
-	[TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 
@@ -123,19 +123,19 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ~~~
-	TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-	[TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+// opions.xxx= xxx
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// opions.xxx= xxx
+TACApplication.configurate(with: options);
 ~~~
 
 
@@ -144,17 +144,17 @@ Analytics 服务默认采用批量上报策略，在本地缓存事件到达一�
 
 
 ~~~
-	TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
-	[TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-  	let options = TACApplicationOptions.default();
-        options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant;
-        TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default();
+options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant;
+TACApplication.configurate(with: options);
 ~~~
 
 > **注意：** 
@@ -172,7 +172,7 @@ Swift 代码示例：
 app 启动后，您可以从 Console 中看到服务的启动日志：
 
 ~~~
-	2018-04-20 15:08:51.699182+0800 TACSamples[305:16243] [Info]Analytics服务启动...
+2018-04-20 15:08:51.699182+0800 TACSamples[305:16243] [Info]Analytics服务启动...
 ~~~
 
 
