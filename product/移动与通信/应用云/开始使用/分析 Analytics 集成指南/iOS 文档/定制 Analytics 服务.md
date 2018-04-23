@@ -36,20 +36,31 @@ Swift 代码示例：
 
 通过方法 `analyticsOptions` 可以从 `TACApplicationOptions` 获取 Analytics 的配置 Options：
 
+Objective-C 代码示例：
 ```
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 options.analyticsOptions;
 ```
+Swift 代码示例：
 
+```
+let options = TACApplicationOptions.default()
+options?.analyticsOptions
+```
 
 ### 设置数据上报策略
 
 Analytics 有多种上报策略，您可以根据需要选择：
 
+Objective-C 代码示例：
 ```
 options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
 ```
+Swift 代码示例：
 
+```
+ options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant
+```
 每种上报策略的说明如下：
 
 | 编号	| 策略名称	|  说明 | 
@@ -64,37 +75,64 @@ options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
 | 8	| TACAnalyticsStrategyBatchPeriodWithoutCache	| 不缓存数据，批量上报+间隔上报组合。适用于上报特别频繁的场景。| 
 
 如果您使用 `BATCH` 上报策略，那么您可以通过 `minBatchReportCount` 方法设置最小批量发送消息个数，默认是 30 条：
- 
+
+Objective-C 代码示例：
 ```
     options.analyticsOptions.minBatchReportCount = 30;
 ```
-
+Swift 代码示例：
+```
+    options?.analyticsOptions.minBatchReportCount = 30
+```
 如果您使用 `PERIOD` 上报策略，那么您可以通过 `sendPeriodMillis` 方法设置发送时间间隔，默认为 3 小时：
 
+Objective-C 代码示例：
 ```
-    options.analyticsOptions.sendPeriodMillis = 10000;
+    options.analyticsOptions.sendPeriodMillis = 10000;
+```
+Swift 代码示例：
+```
+    options?.analyticsOptions.sendPeriodMillis = 10000;
 ```
 
 如果您希望在 WIFI 下立即发送，而在其他网络情况下使用您设置好的策略，可以开启智能发送策略：
 
+Objective-C 代码示例：
+
 ```
     options.analyticsOptions.strategy = TACAnalyticsStrategyOnlyWifi;
 ```
-
+Swift 代码示例：
+```
+   options?.analyticsOptions.strategy = TACAnalyticsStrategy.onlyWifi
+```
 
 ### 设置会话超时时长
 
 设置会话超时时长，默认 30 秒，时长内回到应用的用户视为同一次会话。
 
+Objective-C 代码示例：
+
 ```
     options.analyticsOptions.sessionTimeoutMillis = 30000;
 ```
 
+Swift 代码示例：
 
+```
+options?.analyticsOptions.sendPeriodMillis = 30000
+```
 ### 关闭自动统计页面访问
 
 默认情况下我们会自动统计您的页面访问历史，您不需要关心。如果您想要完全手动统计所有的页面访问，您可以关闭这个选项。
 
+Objective-C 代码示例：
+
 ```
     options.analyticsOptions.autoTrackPageEvents = NO;
+```
+Swift 代码示例：
+
+```
+options?.analyticsOptions.autoTrackPageEvents = false
 ```
