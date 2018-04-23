@@ -1,7 +1,7 @@
 ## 云服务器更换公网IP
 
 ### 绑定弹性IP
-- 登录 CVM [控制台](https://console.qcloud.com/cvm/index)，单击【更多】>【IP操作】>【绑定弹性IP】，单击【确定转换】。
+- 登录 CVM [控制台](https://cloud.tencent.com/cvm/index)，单击【更多】>【IP操作】>【绑定弹性IP】，单击【确定转换】。
 ![](https://main.qcloudimg.com/raw/d9c315bdbc0ddb0355794b2bf255ab2c.png)
 ![](https://main.qcloudimg.com/raw/1dee2e6fae92713aec29669c8b13e63d.png)
 - 成功转换成弹性IP的状态如下图：
