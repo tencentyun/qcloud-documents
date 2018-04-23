@@ -59,9 +59,9 @@
 要指定容器挂载至指定路径时，单击【添加数据卷】。详情查看 [使用指引](https://cloud.tencent.com/document/product/457/9112)。
 >**注意：**
 >源路径不指定时将默认分配临时路径。
-  - 类型：支持使用本地硬盘、云硬盘、NFS 盘、配置项四种类型的数据卷。相关详细介绍请参阅 [容器服务数据卷使用说明](https://cloud.tencent.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E)。
-  - 名称：数据卷的名称。
-  - 路径：指定容器要挂载的路径。
+   - 类型：支持使用本地硬盘、云硬盘、NFS 盘、配置项四种类型的数据卷。相关详细介绍请参阅 [容器服务数据卷使用说明](https://cloud.tencent.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E)。
+   - 名称：数据卷的名称。
+   - 路径：指定容器要挂载的路径。
  ![](https://main.qcloudimg.com/raw/6a7b65dc0d2a7ca4e532baf0e28aa7bb.png)
  
 - **设置运行容器**
