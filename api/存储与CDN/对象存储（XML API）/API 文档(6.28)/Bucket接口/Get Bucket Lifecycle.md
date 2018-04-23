@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket Lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
+GET Buket lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
 
 ## 请求
 语法示例：
@@ -38,12 +38,12 @@ GET /?lifecycle HTTP/1.1
 该响应无特殊的响应头。
 
 ### 响应体
-响应体中各个元素的内容及含义与 Put Bucket LifeCycle 时的请求体一致。详细请参见 [Put Bucket LifeCycle]() 请求体节点描述内容。
+响应体中各个元素的内容及含义与 PUT Buket lifecycle 时的请求体一致。详细请参见 [PUT Bucket lifecycle]() 请求体节点描述内容。
 
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-|错误码|HTTP状态码|描述|
+|错误码|HTTP 状态码|描述|
 |-------|--------|--------|
 |NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
 |NoSuchLifecycleConfiguration|404 Not Found|生命周期配置不存在。|

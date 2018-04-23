@@ -7,8 +7,14 @@
 
 设置 delegate 为您已经实现 TACMessagingDelegate 的类可以监听 Messaging 服务的回调, 包括监听推送服务启动、上报消息的情况等：
 
+Objective-C 代码示例：
 ~~~
-    [TACMessagingService defaultService].delegate = self;
+[TACMessagingService defaultService].delegate = self;
+~~~
+
+Swift 代码示例：
+~~~
+TACMessagingService.default().delegate = self as! TACMessagingDelegate
 ~~~
 
 ~~~
@@ -110,18 +116,29 @@
 
 ### 获取程序当前角标数量
 
+Objective-C 代码示例：
 ~~~
 NSInteger count =[[TACMessagingService defaultService] applicationBadgeNumber];
 ~~~
 
+Swift 代码示例：
+~~~
+let count = TACMessagingService.default().applicationBadgeNumber
+~~~
+
 ###  设置程序当前角标数量
 
+Objective-C 代码示例：
 ~~~
 NSInteger badgeNumber =  @(2);
 [[TACMessagingService defaultService] setApplicationBadgeNumber:badgeNumber];
 ~~~
 
-
+Swift 代码示例：
+~~~
+let badgeNumber:NSInteger = 2
+TACMessagingService.default().applicationBadgeNumber = badgeNumber
+~~~
 
 
 ## 其他功能
