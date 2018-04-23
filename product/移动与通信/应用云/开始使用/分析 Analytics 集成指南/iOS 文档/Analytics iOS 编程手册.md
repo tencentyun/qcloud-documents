@@ -150,6 +150,7 @@ override func viewDidLoad() {
 ~~~
 
 例如修改上报策略(修改其它配置也同理)：
+
 Objective-C 代码示例：
 ~~~
 TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
