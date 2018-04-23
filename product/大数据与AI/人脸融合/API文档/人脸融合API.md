@@ -40,7 +40,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
 | project_id    | 必须   | string | 活动 ID |
 | model_id    | 必须   | string | 素材 ID |
-| img_data    | 必须   | string | 图片 base64 数据 |
+| img_data    | 必须   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的EXIF信息对图片进行旋转处理。为节约用户流量以及减少图片上传时间，建议图片不要超过500k |
 | rsp_img_type    | 必须   | string | 返回图像方式（url 或 base64) ，二选一 |
 
 
@@ -52,6 +52,8 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | img_url               | string    | rsp_img_type 为 url 时，返回结果的 url,  rsp_img_type 为 base64 时返回 base64 数据   |
 
 ## 示例
+
+[PHP代码 demo 点击下载](https://main.qcloudimg.com/raw/e6601ec77d988a193a06cb940595da97.php)
 
 ### 请求包:
 
@@ -113,6 +115,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | -20003      |  鉴权失败                            |
 | -20004      |  操作太频繁，触发频控                            |
 | -20005      |  后端服务故障                            |
+| -20006      |  参数格式不是json格式                            |
 
 
 
