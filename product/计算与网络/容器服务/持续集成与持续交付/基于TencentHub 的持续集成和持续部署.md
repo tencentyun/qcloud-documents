@@ -17,7 +17,7 @@
 #### 第一步：设置源码持续构建镜像
 1. 新建需要测试的镜像仓库 `helloworld`, 进入 helloworld 详情页。
 ![Alt text][step1]
-2. 设置镜像构建设置需要关心以下几点：
+2. 设置镜像构建设置需要关注以下几点：
 
  - 代码源：当前支持 GitHub 和 Gitlab
  - 源码 Repository：需要包含 Dockerfile 文件，Dockerfile 文件是构建镜像的步骤描述；还需要包含所需代码, 同时在 Dockerfile 中添加代码。详情可见 [如何编写 Dockerfile](https://cloud.tencent.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)。
@@ -42,7 +42,7 @@ hello world
 ![Alt text][step3]
 
 #### 第二步：设置镜像仓库触发器持续部署服务
-1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个 [Nginx 服务](https://cloud.tencent.com/document/product/457/7851). 
+1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个 [Nginx 服务](https://cloud.tencent.com/document/product/457/7851)。
 2. 进入上述设置好源码构建的 helloworld 镜像仓库详情页，进入触发器设置。
 ![Alt text][step4]
 3. 添加完成一个触发器，需要关注以下几点：
