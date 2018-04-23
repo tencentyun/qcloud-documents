@@ -37,6 +37,7 @@ Objective-C 代码示例：
     _durationEvent = event;
     // Do any additional setup after loading the view from its nib.
 }
+
 - (IBAction)durationStart:(id)sender
 {
     [TACAnalyticsService trackEventDurationBegin:_durationEvent];
@@ -76,6 +77,8 @@ override func viewDidLoad() {
 
 3. 调用 SDK 提供的TACAnalyticsService 的 exchangeNewSection 方法
 
+Objective-C 代码示例：
+
 ```
 /**
  检测session是否过期，若过期，则生成一个新Session事件
@@ -84,7 +87,15 @@ override func viewDidLoad() {
 
 + (void) exchangeNewSession;
 ```
+Swift 代码示例：
+```
+/**
+ 检测session是否过期，若过期，则生成一个新Session事件
+ 事件上报方式按照全局上报方式上报
+ */
 
+TACAnalyticsService.exchangeNewSession()
+```
 ### 定制 Analytics 服务
 我们提供了一些高级配置项，您可以通过这些配置项定制化您的 Analytics 服务。**请注意，您需要在启动服务前完成配置。**        
 
