@@ -9,10 +9,10 @@
 Objective-C 代码示例：
 
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+	TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
 	// options.analyticsOptions.xxx = xxx;
-       [TACApplication configurateWithOptions:options];
+	[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
@@ -37,14 +37,14 @@ Swift 代码示例：
 
 Objective-C 代码示例：
 ```
-TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-options.analyticsOptions;
+	TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+	options.analyticsOptions;
 ```
 Swift 代码示例：
 
 ```
-let options = TACApplicationOptions.default()
-options?.analyticsOptions
+	let options = TACApplicationOptions.default()
+	options?.analyticsOptions
 ```
 
 ### 设置数据上报策略
@@ -53,12 +53,12 @@ Analytics 有多种上报策略，您可以根据需要选择：
 
 Objective-C 代码示例：
 ```
-options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
+	options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
 ```
 Swift 代码示例：
 
 ```
- options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant
+	options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant
 ```
 每种上报策略的说明如下：
 
@@ -77,21 +77,21 @@ Swift 代码示例：
 
 Objective-C 代码示例：
 ```
-    options.analyticsOptions.minBatchReportCount = 30;
+	options.analyticsOptions.minBatchReportCount = 30;
 ```
 Swift 代码示例：
 ```
-    options?.analyticsOptions.minBatchReportCount = 30
+	options?.analyticsOptions.minBatchReportCount = 30
 ```
 如果您使用 `PERIOD` 上报策略，那么您可以通过 `sendPeriodMillis` 方法设置发送时间间隔，默认为 3 小时：
 
 Objective-C 代码示例：
 ```
-    options.analyticsOptions.sendPeriodMillis = 10000;
+	options.analyticsOptions.sendPeriodMillis = 10000;
 ```
 Swift 代码示例：
 ```
-    options?.analyticsOptions.sendPeriodMillis = 10000;
+	options?.analyticsOptions.sendPeriodMillis = 10000;
 ```
 
 如果您希望在 WIFI 下立即发送，而在其他网络情况下使用您设置好的策略，可以开启智能发送策略：
