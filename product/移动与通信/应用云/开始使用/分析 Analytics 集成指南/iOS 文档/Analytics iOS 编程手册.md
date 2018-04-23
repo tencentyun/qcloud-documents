@@ -224,7 +224,7 @@ Swift 代码示例：
 let options = TACApplicationOptions.default()
 options?.analyticsOptions.autoTrackPageEvents = false
      ....
-ACApplication.configurate(with: options)
+TACApplication.configurate(with: options)
 ~~~
 
 ## 其他功能
