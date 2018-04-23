@@ -4,7 +4,9 @@ CC 攻击即 ChallengeCollapsar 攻击，指攻击者借助代理服务器生成
 ## 什么是 CC 防护？
 CC 防护即指针对 CC 攻击的防护。
 
-## 如何开启 CC 防护 ( 根据自身业务情况选择开启 ) ？
+## 如何开启 CC 防护？
+**特别提醒：**
+CC 防护可根据您自身业务情况选择开启。
 1. 登录 [大禹网络安全](https://console.cloud.tencent.com/dayu/basic) 控制台，在 “BGP 高防包” 控制页中找到您所购买的 BGP 高防包实例；
  ![](https://main.qcloudimg.com/raw/78dff8603cf7b5b09dd9580f50d305d7.png)
 2. 选择所要开启 CC 防护的 BGP 高防包实例，点击实例名称进入 BGP 高防服务包详情页面。
