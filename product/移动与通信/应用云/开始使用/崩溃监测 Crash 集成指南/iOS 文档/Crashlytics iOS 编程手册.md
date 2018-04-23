@@ -7,16 +7,24 @@
 如果您不希望在启动的时候默认启动 Crashlytics 服务，您可以在配置中设置关掉 (例如在 AppDelegate 中加入如下代码)：
 
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-    options.crashOptions.enable = NO;
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+options.crashOptions.enable = NO;
 ~~~
 
+~~~
+let options = TACApplicationOptions.default()
+options?.crashOptions.enable = false
+~~~
 ## 设置 Crashlytics 委托
 
 > 您可以通过设置 delegate 来提供更多的信息以辅助定位分析问题
 
 ~~~
 [TACCrashService shareService].delegate = <#the instance of TACCrashServiceDelegate#>
+~~~
+
+~~~
+TACCrashService.share().delegate = <#the instance of TACCrashServiceDelegate#>
 ~~~
 
 其中协议 TACCrashServiceDelegate 实现拥有以下接口：
@@ -57,7 +65,13 @@
  */
  options.crashOptions.blockMonitorEnable = YES;
 ~~~
+~~~
 
+/**
+ *  卡顿监控开关，默认关闭
+ */
+ options?.crashOptions.blockMonitorEnable = true
+~~~
 ## 用户策略行为
 
 ### 设置标签
@@ -66,7 +80,9 @@
 ```
 [TACCrashService shareService].userSenceTag =999;
 ```
-
+```
+TACCrashService.share().userSenceTag = 999
+```
 打标签之前，需要在 Bugly 产品页配置中添加标签，取得标签 ID 后在代码中上报。
 
 ### 设置自定义Map参数
@@ -75,6 +91,9 @@
 
 ```
 [[TACCrashService shareService] setUserValue:@"value" forKey:@"key"];
+```
+```
+TACCrashService.share().setUserValue("value", forKey: "key")
 ```
 
 最多可以有 9 对自定义的 key-value（超过则添加失败）；
