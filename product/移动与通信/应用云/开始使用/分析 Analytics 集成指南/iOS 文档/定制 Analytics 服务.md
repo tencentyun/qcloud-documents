@@ -99,11 +99,11 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ```
-    options.analyticsOptions.strategy = TACAnalyticsStrategyOnlyWifi;
+	options.analyticsOptions.strategy = TACAnalyticsStrategyOnlyWifi;
 ```
 Swift 代码示例：
 ```
-   options?.analyticsOptions.strategy = TACAnalyticsStrategy.onlyWifi
+	options?.analyticsOptions.strategy = TACAnalyticsStrategy.onlyWifi
 ```
 
 ### 设置会话超时时长
@@ -113,13 +113,13 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ```
-    options.analyticsOptions.sessionTimeoutMillis = 30000;
+	options.analyticsOptions.sessionTimeoutMillis = 30000;
 ```
 
 Swift 代码示例：
 
 ```
-options?.analyticsOptions.sendPeriodMillis = 30000
+	options?.analyticsOptions.sendPeriodMillis = 30000
 ```
 ### 关闭自动统计页面访问
 
@@ -128,10 +128,10 @@ options?.analyticsOptions.sendPeriodMillis = 30000
 Objective-C 代码示例：
 
 ```
-    options.analyticsOptions.autoTrackPageEvents = NO;
+	options.analyticsOptions.autoTrackPageEvents = NO;
 ```
 Swift 代码示例：
 
 ```
-options?.analyticsOptions.autoTrackPageEvents = false
+	options?.analyticsOptions.autoTrackPageEvents = false
 ```
