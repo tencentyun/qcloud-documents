@@ -28,7 +28,8 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 ### 统计事件时长
 
 事件时长可以统计某个事件的时长，比如用户访问某个页面的时长。
- 
+
+Objective-C 代码示例：
 ~~~
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +46,23 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 {
     [TACAnalyticsService trackEventDurationEnd:_durationEvent];
 }
+~~~
+
+Swift 代码示例：
+~~~
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let event = TACAnalyticsEvent.init(identifier: "duration-event")
+        self.durationEvent = event;
+    }
+     @IBAction func durationStart(_ sender: UIButton) {
+        TACAnalyticsService.trackEventDurationBegin(self.durationEvent)
+    }
+    
+
+    @IBAction func durationEnd(_ sender: UIButton) {
+             TACAnalyticsService.trackEventDurationEnd(self.durationEvent)
+    }
 ~~~
 ### 会话统计
 
@@ -123,6 +141,7 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 ~~~
 
 例如修改上报策略(修改其它配置也同理)：
+Objective-C 代码示例：
 ~~~
 TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
 //设置为实时上报
@@ -146,6 +165,29 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 [TACApplication configurateWithOptions:options];
 ~~~
 
+Swift 代码示例：
+~~~
+let analysisOptions = options?.analyticsOptions
+//设置为实时上报
+
+
+/**
+ Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用
+
+ - TACAnalyticsStrategyInstant: 实时上报
+ - TACAnalyticsStrategyBatch: 批量上报，达到缓存临界值时触发发送
+ - TACAnalyticsStrategyLaunch: 应用启动时发送
+ - TACAnalyticsStrategyOnlyWifi: 仅在WIFI网络下发送
+ - TACAnalyticsStrategyPeriod: 每间隔一定最小时间发送，默认24小时
+ - TACAnalyticsStrategyDeveloper: 开发者在代码中主动调用发送行为
+ - TACAnalyticsStrategyOnlyWifiWithoutCache: 仅在WIFI网络下发送, 发送失败以及非WIFI网络情况下不缓存数据
+ - TACAnalyticsStrategyBatchPeriodWithoutCache: 不缓存数据，批量上报+间隔上报组合。适用于上报特别频繁的场景。
+ */
+  analysisOptions?.strategy = TACAnalyticsStrategy.instant
+
+//需要注意的是需要在配置前修改
+TACApplication.configurate(with: options)
+~~~
 支持修改的配置列表：
 
 |名称|类型|作用|
@@ -160,7 +202,7 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 ### 控制自动页面追踪
 
 默认我们会对用户使用时的页面跳转进行埋点，如果您不希望使用改功能可以关闭该功能
-
+Objective-C 代码示例：
 ~~~
  TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
  options.analyticsOptions.autoTrackPageEvents = NO;
@@ -168,6 +210,13 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 [TACApplication configurateWithOptions:options];
 ~~~
 
+Swift 代码示例：
+~~~
+ let options = TACApplicationOptions.default()
+ options?.analyticsOptions.autoTrackPageEvents = false
+     ....
+ ACApplication.configurate(with: options)
+~~~
 
 ## 其他功能
 
