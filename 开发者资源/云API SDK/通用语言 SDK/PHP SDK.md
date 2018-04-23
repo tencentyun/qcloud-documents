@@ -63,4 +63,4 @@ catch(TencentCloudSDKException $e) {
 ```
 
 ## 旧版SDK
-新版 SDK 兼容旧版 SDK。旧版本的 SDK 存放于 [ QcloudApi 目录](https://github.com/QcloudApi/qcloudapi-sdk-php/tree/master/src/QcloudApi)，但不再维护更新，推荐使用新版 SDK。
+新版 SDK 兼容旧版 SDK。旧版本的 SDK 存放于QcloudApi 目录，但不再维护更新，推荐使用新版 SDK。
