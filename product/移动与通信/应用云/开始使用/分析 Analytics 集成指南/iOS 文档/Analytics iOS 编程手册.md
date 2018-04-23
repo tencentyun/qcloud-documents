@@ -50,19 +50,19 @@ Objective-C 代码示例：
 
 Swift 代码示例：
 ~~~
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let event = TACAnalyticsEvent.init(identifier: "duration-event")
-        self.durationEvent = event;
-    }
-     @IBAction func durationStart(_ sender: UIButton) {
-        TACAnalyticsService.trackEventDurationBegin(self.durationEvent)
-    }
-    
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let event = TACAnalyticsEvent.init(identifier: "duration-event")
+    self.durationEvent = event;
+}
 
-    @IBAction func durationEnd(_ sender: UIButton) {
-             TACAnalyticsService.trackEventDurationEnd(self.durationEvent)
-    }
+@IBAction func durationStart(_ sender: UIButton) {
+    TACAnalyticsService.trackEventDurationBegin(self.durationEvent)
+}
+
+@IBAction func durationEnd(_ sender: UIButton) {
+    TACAnalyticsService.trackEventDurationEnd(self.durationEvent)
+}
 ~~~
 ### 会话统计
 
@@ -146,7 +146,6 @@ Objective-C 代码示例：
 TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
 //设置为实时上报
 
-
 /**
  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用
 
@@ -183,7 +182,7 @@ let analysisOptions = options?.analyticsOptions
  - TACAnalyticsStrategyOnlyWifiWithoutCache: 仅在WIFI网络下发送, 发送失败以及非WIFI网络情况下不缓存数据
  - TACAnalyticsStrategyBatchPeriodWithoutCache: 不缓存数据，批量上报+间隔上报组合。适用于上报特别频繁的场景。
  */
-  analysisOptions?.strategy = TACAnalyticsStrategy.instant
+analysisOptions?.strategy = TACAnalyticsStrategy.instant
 
 //需要注意的是需要在配置前修改
 TACApplication.configurate(with: options)
@@ -212,10 +211,10 @@ Objective-C 代码示例：
 
 Swift 代码示例：
 ~~~
- let options = TACApplicationOptions.default()
- options?.analyticsOptions.autoTrackPageEvents = false
+let options = TACApplicationOptions.default()
+options?.analyticsOptions.autoTrackPageEvents = false
      ....
- ACApplication.configurate(with: options)
+ACApplication.configurate(with: options)
 ~~~
 
 ## 其他功能
