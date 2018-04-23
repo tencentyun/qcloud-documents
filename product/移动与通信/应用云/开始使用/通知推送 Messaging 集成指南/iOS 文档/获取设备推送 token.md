@@ -13,4 +13,4 @@
 > 请注意请一定要在该函数中调用绑定代码，如果您没有注册成功 APNS 则不会存在变量`[TACMessagingService defaultService].token`
 
 
-> 接入 Messaging 服务请参考 [这里](https://cloud.tencent.com/document/product/666/14323)
+> 接入 Messaging 服务请参考 [这里](https://cloud.tencent.com/document/product/666/14350)
