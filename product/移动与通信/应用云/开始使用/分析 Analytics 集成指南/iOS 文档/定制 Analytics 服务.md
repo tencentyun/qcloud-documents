@@ -58,7 +58,7 @@ options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
 Swift 代码示例：
 
 ```
-	options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant
+options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant
 ```
 每种上报策略的说明如下：
 
@@ -119,7 +119,7 @@ options.analyticsOptions.sessionTimeoutMillis = 30000;
 Swift 代码示例：
 
 ```
-	options?.analyticsOptions.sendPeriodMillis = 30000
+options?.analyticsOptions.sendPeriodMillis = 30000
 ```
 ### 关闭自动统计页面访问
 
