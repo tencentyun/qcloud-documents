@@ -20,6 +20,3 @@ Elasticsearch 是面向文档（document）的，它存储的是整个对象或�
 
 一个副本分片(Replicas)只是一个主分片的拷贝。副本分片作为硬件故障时保护数据不丢失的冗余备份，并为搜索和返回文档等读操作提供服务。在索引建立的时候就已经确定了主分片数，但是副本分片数可以随时修改。
 
-
-
-其他详细信息可查看官方文档，[Elasticsearch基本概念](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/_basic_concepts.html)。
