@@ -112,7 +112,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 | Location  | CompleteMultipartUploadResult | 创建的Object的外网访问域名                         | URL    |
 | Bucket    | CompleteMultipartUploadResult | 分块上传的目标Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 | String |
 | Key       | CompleteMultipartUploadResult | Object的名称                                | String |
-| ETag      | CompleteMultipartUploadResult | 合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性。                        | String |
+| ETag      | CompleteMultipartUploadResult | 合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性                        | String |
 
 ## 实际案例
 
