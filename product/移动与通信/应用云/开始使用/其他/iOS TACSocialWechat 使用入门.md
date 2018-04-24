@@ -99,7 +99,7 @@ Objective-C 代码示例：
 
 Swift 代码示例：
 ~~~
-TACApplication.configurate();
+TACApplication.configurate()
 ~~~
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACSocialWechat 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACSocialWechat 模块这些属性就不存在，请不要在没有引入 TACSocialWechat 模块的时候使用这些配置，这将会导致您编译不通过：
@@ -120,8 +120,8 @@ Swift 代码示例：
 ~~~
 let options = TACApplicationOptions.default()
 // 自定义配置
-// options?.wechatOptions.[Key] = [Value];
-TACApplication.configurate(with: options);
+// options?.wechatOptions.[Key] = [Value]
+TACApplication.configurate(with: options)
 ~~~
 
 #### 配置 TACSocialWechat 中的配置脚本 (主要为第三方登陆模块的配置脚本)
