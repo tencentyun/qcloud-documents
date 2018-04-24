@@ -193,8 +193,8 @@ TACStorageReference* ref = [[TACStorageService defaultStorage] rootReference];
    metaData.customMetadata = @{@"x-cos-meta-test":@"testCustomHeader"};//加入自定义头部
    TACStorageUploadTask* uploadTask = [ref putData:[content dataUsingEncoding:NSUTF8StringEncoding] metaData:metaData completion:^(TACStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
        //result
-   }];
-   [uploadTask enqueue];
+}];
+[uploadTask enqueue];
 ```
 
 Swift 代码示例：
