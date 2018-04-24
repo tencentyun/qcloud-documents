@@ -94,12 +94,12 @@ tac_services_configurations_wechat.plist
 
 Objective-C 代码示例：
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACSocialWechat 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACSocialWechat 模块这些属性就不存在，请不要在没有引入 TACSocialWechat 模块的时候使用这些配置，这将会导致您编译不通过：
@@ -109,20 +109,19 @@ Swift 代码示例：
 
 Objective-C 代码示例：
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	//     options.wechatOptions.[Key] = [Value];
-    //
-		options.wechatOptions.appKey = @"您的appKey";
-    [TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+//options.wechatOptions.[Key] = [Value];
+options.wechatOptions.appKey = @"您的appKey";
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// options?.wechatOptions.[Key] = [Value];
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// options?.wechatOptions.[Key] = [Value];
+TACApplication.configurate(with: options);
 ~~~
 
 #### 配置 TACSocialWechat 中的配置脚本 (主要为第三方登陆模块的配置脚本)
@@ -139,18 +138,36 @@ TACSocialWechat 中的脚本会自动的帮助您完成以下功能：
  
 我们已经为您自动化配置好了 libWeChatSDK 的其他功能，包括 HandleOpenURL 等函数的响应，和在 Info.plist 文件中注册相关的回调和 Scheme 等操作，您不需要重复执行该操作。如果您要使用 libWeChatSDK 的功能，您可以引入头文件：
 
+Objective-C 代码示例：
 ~~~
 #import <TACSocialWechat/WXApi.h>
 ~~~
 
+Swift 代码示例：
+~~~
+import TACSocialWechat.WXApi
+~~~
+
 我们其进行了初始化处理，并配置好了其初始化需要的相关程序功能，请先配置其响应的 delegate：
 
+Objective-C 代码示例：
 ~~~
 [[TACSocialWechatService shareService].delegateProxy addDelegate:delegate];
 ~~~
 
+Swift 代码示例：
+~~~
+TACSocialWechatService.share().delegateProxy.addDelegate(dlelegate)
+~~~
+
 其中 delegate 为 TencentOAuth 对象的 delegate，这里我们对原始的 delegate 进行了转发。您可以注册多个 delegate，请在不使用的时候移除：
 
+Objective-C 代码示例：
 ~~~
 [[TACSocialWechatService shareService].delegateProxy removeDelegate:delegate];
+~~~
+
+Swift 代码示例：
+~~~
+ TACSocialWechatService.share().delegateProxy.removeDelegate(delegate)
 ~~~
