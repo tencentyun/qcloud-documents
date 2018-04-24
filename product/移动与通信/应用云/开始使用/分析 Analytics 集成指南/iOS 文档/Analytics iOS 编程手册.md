@@ -150,7 +150,9 @@ override func viewDidLoad() {
 ~~~
 
 例如修改上报策略(修改其它配置也同理)：
-/**支持的上报策略
+支持的上报策略
+~~~
+/**
  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用
 
  - TACAnalyticsStrategyInstant: 实时上报
@@ -162,7 +164,7 @@ override func viewDidLoad() {
  - TACAnalyticsStrategyOnlyWifiWithoutCache: 仅在WIFI网络下发送, 发送失败以及非WIFI网络情况下不缓存数据
  - TACAnalyticsStrategyBatchPeriodWithoutCache: 不缓存数据，批量上报+间隔上报组合。适用于上报特别频繁的场景。
  */
- 
+~~~ 
 Objective-C 代码示例：
 ~~~
 TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
