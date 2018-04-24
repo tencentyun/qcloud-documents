@@ -164,13 +164,13 @@ import TACCore
 Objective-C 代码示例：
 
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate()
 ~~~
 
 
@@ -183,20 +183,20 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-    //
-    [TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+// opions.xxx= xxx
+//
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// opions.xxx= xxx
+TACApplication.configurate(with: options);
 ~~~
 
 
