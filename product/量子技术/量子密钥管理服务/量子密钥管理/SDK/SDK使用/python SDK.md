@@ -1,12 +1,9 @@
-# Python sdk
-## 开发准备
-
 ### 相关资源
 -[GitHub地址](https://github.com/tencentyun/kms-python-sdk) ,欢迎贡献代码以及反馈问题。
 
 -[python sdk 本地下载]()
 ### 环境依赖
-python2.7 目前不支持python3
+python2.7 目前不支持 python3
 
 获取python版本的方法：
 
@@ -28,10 +25,8 @@ windows cmd
 ```
 
 如果提示不是内部或者外部命令，请先在window环境变量PATH里面添加上python的绝对路径
-
-### 历史版本
-
-## 生成客户端对象
+ 
+### 生成客户端对象
 
 ``` 
     secretId='xxxxxx'    #替换为用户的secretId
@@ -40,21 +35,21 @@ windows cmd
     kms_account = KMSAccount(endpoint,secretId,secretKey)
 ```
 ### 初始化客户端配置
-客户端默认使用sha1 签名算法，可以调用签名算法修改签名方式
+客户端默认使用 sha1 签名算法，可以调用签名算法修改签名方式
 
 ```
     kms_account.set_sign_method('sha256')
 ```
 
-## 密钥管理操作
-### 创建主密钥
-#### 方法原型
+### 密钥管理操作
+#### 创建主密钥
+方法原型如下：
 
 ```
     def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT')
 ```
 
-#### 参数说明
+参数说明如下：
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
@@ -82,13 +77,13 @@ windows cmd
 ```
 
 ### 获取主密钥属性
-#### 方法原型
+方法原型如下：
 
 ```
     def get_key_attributes(self, KeyId=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
@@ -114,13 +109,13 @@ windows cmd
 ```
 
 ### 设置主密钥属性
-#### 方法原型
+方法原型如下：
 
 ```
     def set_key_attributes(self, KeyId=None, Alias=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
@@ -138,13 +133,13 @@ windows cmd
 ```
 
 ### 获取主密钥列表
-#### 方法原型
+方法原型如下：
 
 ```
     def list_key(self, offset=0, limit=10)
 ```
 
-#### 参数说明
+参数说明如下：
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
@@ -165,13 +160,13 @@ windows cmd
     print keys
 ```
 ### 生成数据密钥
-#### 方法原型
+方法原型如下：
 
 ```
     def generate_data_key(self, KeyId=None, KeySpec=None, NumberOfBytes=None, EncryptionContext=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -196,13 +191,13 @@ windows cmd
         print "the data key : %s \n  the encrypted data key :%s\n" % (Plaintext, CiphertextBlob)
 ```
 ### 启用主密钥
-#### 方法原型
+方法原型如下：
 
 ```
     def enable_key(self, KeyId=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -216,13 +211,13 @@ windows cmd
     kms_account.enable_key(KeyId)
 ```
 ### 禁用主密钥
-#### 方法原型
+方法原型如下：
 
 ```
     def disable_key(self, KeyId=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -235,15 +230,15 @@ windows cmd
     kms_account.disable_key(KeyId)
 ```
 
-## 加解密操作
-### 加密
-#### 方法原型
+### 加解密操作
+#### 加密
+方法原型如下：
 
 ```
     def encrypt(self, KeyId=None, Plaintext="", EncryptionContext=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -264,13 +259,13 @@ windows cmd
     print "the encrypted data is :%s \n" % CiphertextBlob
 ```
 ### 解密
-#### 方法原型
+方法原型如下：
 
 ```
     def decrypt(self, CiphertextBlob="", EncryptionContext=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
