@@ -108,7 +108,6 @@ Objective-C 代码示例：
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 // 自定义配置
 // opions.xxx= xxx
-//
 [TACApplication configurateWithOptions:options];
 ~~~
 
