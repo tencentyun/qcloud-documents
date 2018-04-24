@@ -209,7 +209,7 @@ Swift 代码示例：
 ~~~
 let options = TACApplicationOptions.default()
 options?.analyticsOptions.autoTrackPageEvents = false
-//   ....
+//....
 TACApplication.configurate(with: options)
 ~~~
 
