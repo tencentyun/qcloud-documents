@@ -1,6 +1,3 @@
-# JAVA sdk
-## 开发准备
-
 ### 相关资源
 -[GitHub地址](https://github.com/tencentyun/kms-java-sdk) ,欢迎贡献代码以及反馈问题。
 
@@ -8,9 +5,7 @@
 ### 环境依赖
 JDK1.7
 
-### 历史版本
-
-## 生成客户端对象
+### 生成客户端对象
 
 ``` 
     //从腾讯云官网查询的云API密钥信息
@@ -26,16 +21,14 @@ JDK1.7
     account.setSignMethod("sha256");
 ```
 
-## 密钥管理操作
-### 创建主密钥
-#### 方法原型
-
+### 密钥管理操作
+#### 创建主密钥
+方法原型如下：
 ```
     public KeyMetadata create_key(String Description,String Alias ,String KeyUsage) throws Exception
 ```
 
-#### 参数说明
-
+参数说明如下：
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
 |Description|string|无|主密钥描述|
@@ -43,7 +36,6 @@ JDK1.7
 |KeyUsage|string|无|主密钥用途：默认是加解密|
 
 返回值 KeyMetadata结构体 描述如下：
-
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
 |KeyId|string|密钥id|
@@ -63,14 +55,12 @@ JDK1.7
 ```
 
 ### 获取主密钥属性
-#### 方法原型
-
+方法原型如下：
 ```
     public KeyMetadata get_key_attributes(String KeyId) throws Exception
 ```
 
-#### 参数说明
-
+参数说明如下：
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
 |KeyId|string|无|主密钥Id|
@@ -93,14 +83,12 @@ JDK1.7
 ```
 
 ### 设置主密钥属性
-#### 方法原型
-
+方法原型如下：
 ```
     public void set_key_attributes(String KeyId , String Alias) throws Exception
 ```
 
-#### 参数说明
-
+参数说明如下：
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
 |KeyId|string|无|主密钥Id|
@@ -115,15 +103,13 @@ JDK1.7
     account.set_key_attributes(KeyId, Alias);
 ```
 
-
 ### 获取主密钥列表
-#### 方法原型
-
+方法原型如下：
 ```
     public void  list_key(int offset, int limit,List<String> KeyList) throws Exception
 ```
 
-#### 参数说明
+参数说明如下：
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
@@ -140,13 +126,13 @@ JDK1.7
     	System.out.println("the " +Integer.toString(i) + "Key id is " + KeyId.get(i));
 ```
 ### 生成数据密钥
-#### 方法原型
+方法原型如下：
 
 ```
     public String generate_data_key(String KeyId, String KeySpec, int NumberOfBytes , String EncryptionContext,String Plaintext ) throws Exception
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -172,13 +158,13 @@ JDK1.7
    System.out.println("the encrypted data key string is "+CiphertextBlob);
 ```
 ### 启用主密钥
-#### 方法原型
+方法原型如下：
 
 ```
     public void enable_key(String KeyId) throws Exception
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -192,13 +178,13 @@ JDK1.7
     account.enable_key(KeyId);
 ```
 ### 禁用主密钥
-#### 方法原型
+方法原型如下：
 
 ```
     public void disable_key(String KeyId) throws Exception
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -211,15 +197,15 @@ JDK1.7
     account.disable_key(KeyId);
 ```
 
-## 加解密操作
-### 加密
-#### 方法原型
+### 加解密操作
+#### 加密
+方法原型如下：
 
 ```
     def encrypt(self, KeyId=None, Plaintext="", EncryptionContext=None)
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
@@ -239,13 +225,13 @@ JDK1.7
     System.out.println("the encrypted data is " + CiphertextBlob);
 ```
 ### 解密
-#### 方法原型
+方法原型如下：
 
 ```
     public String decrypt(String CiphertextBlob , String EncryptionContext)throws Exception
 ```
 
-#### 参数说明
+参数说明如下：
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
