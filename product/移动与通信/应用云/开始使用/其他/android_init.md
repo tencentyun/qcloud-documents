@@ -1,4 +1,4 @@
-# 下载配置文件
+## 下载配置文件
 
 Android Studio 说明
 
@@ -8,7 +8,7 @@ Android Studio 说明
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg)
 
 
-# 添加 SDK 
+## 添加 SDK 
 
 Gradle 说明
 
@@ -45,3 +45,7 @@ dependencies {
 ```
 
 然后，点击 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
+
+3. 手动集成说明
+
+SDK 可以手动下载集成：[tac.zip](https://tac-android-libs-1253960454.file.myqcloud.com/1.1.0/tac-core-1.1.0.zip)
