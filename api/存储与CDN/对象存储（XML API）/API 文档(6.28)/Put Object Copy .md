@@ -1,5 +1,5 @@
 ## 功能描述
-Put Object Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 ACL 可以被修改。
+PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
 用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。
 
 >**注意：**
@@ -105,7 +105,7 @@ PUT /destinationObject HTTP/1.1
 
 ### 实际案例
 
-若需要跨帐号复制则需要先设置被复制帐号的 ACL，了解 ACL 详细请参见 [Put Object ACL](https://cloud.tencent.com/document/product/436/7748) 章节。
+若需要跨帐号复制则需要先设置被复制帐号的 acl，了解 acl 详细请参见 [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) 章节。
 ### 请求
 ```
 PUT /222.txt HTTP/1.1

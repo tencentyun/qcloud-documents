@@ -5,13 +5,13 @@
 
 您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-### 第一步：创建项目和应用
+## 第一步：创建项目和应用
 
 在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
 > 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
-### 第二步：添加配置文件
+## 第二步：添加配置文件
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
@@ -25,18 +25,18 @@
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
-### 第三步：集成 SDK
+## 第三步：集成 SDK
 
 下表展示了 MobileLine 各种服务所对应的库
 
 |功能|服务名称|Gradle 依赖项|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.0.1|
-|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.0.1|
-|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.0.1|
-|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.0.1|
-|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.0.1|
-|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.0.1|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
 
 
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.0.1' 
-	compile 'com.tencent.tac:tac-messaging:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
 
@@ -65,16 +65,16 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.0.1' 
-	compile 'com.tencent.tac:tac-messaging:1.0.1'
-	compile 'com.tencent.tac:tac-crash:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-crash:1.1.0'
 }
 ```
 > 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
-### 第四步：参考各个服务的快速入门
+## 第四步：参考各个服务的快速入门
 
-一些子服务可能还有其他的集成步骤，请参考您想要集成的服务的快速入门文档。
+一些子服务可能还有其他的集成步骤，请参考各个服务的快速入门文档。
 
 |功能|服务名称|入门指南|
 |:---|:---|:---|
@@ -89,7 +89,7 @@ dependencies {
 
 ### 了解 MobileLine：
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudTACSample)
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
 ### 向您的应用添加 MobileLine 功能：
 
@@ -99,3 +99,4 @@ dependencies {
 - 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
 - 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
 - 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
+1.1.0
