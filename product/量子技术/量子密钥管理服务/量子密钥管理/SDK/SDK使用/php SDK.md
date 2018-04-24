@@ -1,5 +1,5 @@
 ### 相关资源
--[GitHub地址](https://github.com/tencentyun/kms-php-sdk.git) ,欢迎贡献代码以及反馈问题。
+-[GitHub 地址](https://github.com/tencentyun/kms-php-sdk.git) ,欢迎贡献代码以及反馈问题。
 
 -[PHP sdk 本地下载]()
 ### 开发环境
@@ -144,10 +144,10 @@
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密 钥Id|
+|KeyId|string|None|主密钥 Id|
 |KeySpec|string|""|生成数据密钥算法|
 |NumberOfBytes|int|1024|生成指定长度的数据密钥|
-|EncryptionContext|string |NULL|生成数据密钥时提供的额外的json key-value|
+|EncryptionContext|string |NULL|生成数据密钥时提供的额外的 json key-value|
 
 返回字典中 ：
 
@@ -175,7 +175,7 @@
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
+|KeyId|string|None|主密钥 Id|
 
 返回值 无
 
@@ -196,7 +196,7 @@
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
+|KeyId|string|None|主密钥 Id|
 
 返回值 无
 #### 使用示例

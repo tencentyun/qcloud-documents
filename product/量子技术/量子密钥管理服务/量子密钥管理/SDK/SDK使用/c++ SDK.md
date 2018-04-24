@@ -3,10 +3,10 @@
 
 -[C++ sdk 本地下载]()
 ### 开发环境
-1. [安装openssl的库和头文件](http://www.openssl.org/source/)
-2. [安装libcurl](https://curl.haxx.se/download.html)
-3. [安装cmake工具](https://cmake.org/download/)
-4. 从控制台获取APP ID, SecretID,SecretKey。
+1. [安装 openss l的库和头文件](http://www.openssl.org/source/)
+2. [安装 libcur l](https://curl.haxx.se/download.html)
+3. [安装 cmake 工具](https://cmake.org/download/)
+4. 从控制台获取 APP ID, SecretID,SecretKey。
 
 ### SDK 配置
 下载 github 上提供的源码，集成到您的开发环境。
@@ -55,7 +55,7 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 |Alias|string|空字符串|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
 
-返回值 KeyMetadata结构体 描述如下：
+返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
