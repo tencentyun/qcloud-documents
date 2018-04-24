@@ -18,9 +18,17 @@
 
 在配置好 TACAppliction 之后，您就可以使用 `[TACAnalyticsService trackEvent:event]` 来记录事件了。
 
+Objective-C 代码示例：
 ~~~
+
 TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-event"];
 [TACAnalyticsService trackEvent:event];
+~~~
+
+Swift 代码示例：
+~~~
+let event = TACAnalyticsEvent.init(identifier: "demo-appear-event")
+TACAnalyticsService.trackEvent(event)
 ~~~
 
 为帮助您着手，Analytics SDK 定义了许多推荐的事件，这些事件可通用于各种应用类型，包括零售、电子商务、旅行以及游戏应用。本文档将以常见的页面追踪为例进行说明。
@@ -28,14 +36,15 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 ### 统计事件时长
 
 事件时长可以统计某个事件的时长，比如用户访问某个页面的时长。
- 
+
+Objective-C 代码示例：
 ~~~
 - (void)viewDidLoad {
     [super viewDidLoad];
     TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"duration-event"];
     _durationEvent = event;
-    // Do any additional setup after loading the view from its nib.
 }
+
 - (IBAction)durationStart:(id)sender
 {
     [TACAnalyticsService trackEventDurationBegin:_durationEvent];
@@ -46,6 +55,24 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
     [TACAnalyticsService trackEventDurationEnd:_durationEvent];
 }
 ~~~
+
+Swift 代码示例：
+~~~
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let event = TACAnalyticsEvent.init(identifier: "duration-event")
+    self.durationEvent = event
+}
+
+@IBAction func durationStart(_ sender: UIButton) {
+    TACAnalyticsService.trackEventDurationBegin(self.durationEvent)
+}
+
+@IBAction func durationEnd(_ sender: UIButton) {
+    TACAnalyticsService.trackEventDurationEnd(self.durationEvent)
+}
+~~~
+
 ### 会话统计
 
 会话统计用于统计启动次数，由SDK本身维护，通常开发者无需额外设置或调用接口。
@@ -122,12 +149,8 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 @end
 ~~~
 
-例如修改上报策略(修改其它配置也同理)：
+例如修改上报策略(修改其它配置也同理)：支持的上报策略如下
 ~~~
-TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
-//设置为实时上报
-
-
 /**
  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用
 
@@ -140,10 +163,23 @@ TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
  - TACAnalyticsStrategyOnlyWifiWithoutCache: 仅在WIFI网络下发送, 发送失败以及非WIFI网络情况下不缓存数据
  - TACAnalyticsStrategyBatchPeriodWithoutCache: 不缓存数据，批量上报+间隔上报组合。适用于上报特别频繁的场景。
  */
+~~~ 
+Objective-C 代码示例：
+~~~
+TACAnalyticsOptions* analysisOptions = options.analyticsOptions;
+//设置为实时上报
 analysisOptions.strategy = TACAnalyticsStrategyInstant;
-
 //需要注意的是需要在配置前修改
 [TACApplication configurateWithOptions:options];
+~~~
+
+Swift 代码示例：
+~~~
+let analysisOptions = options?.analyticsOptions
+//设置为实时上报
+analysisOptions?.strategy = TACAnalyticsStrategy.instant
+//需要注意的是需要在配置前修改
+TACApplication.configurate(with: options)
 ~~~
 
 支持修改的配置列表：
@@ -161,13 +197,21 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 
 默认我们会对用户使用时的页面跳转进行埋点，如果您不希望使用改功能可以关闭该功能
 
+Objective-C 代码示例：
 ~~~
- TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
- options.analyticsOptions.autoTrackPageEvents = NO;
-     ....
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+options.analyticsOptions.autoTrackPageEvents = NO;
+ //....
 [TACApplication configurateWithOptions:options];
 ~~~
 
+Swift 代码示例：
+~~~
+let options = TACApplicationOptions.default()
+options?.analyticsOptions.autoTrackPageEvents = false
+//....
+TACApplication.configurate(with: options)
+~~~
 
 ## 其他功能
 

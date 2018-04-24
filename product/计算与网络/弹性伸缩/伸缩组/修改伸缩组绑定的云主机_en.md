@@ -1,7 +1,7 @@
 Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](http://mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
 
 Users may view the list of CVMs bound to the scaling group in this page.
 - To manually add CVM instances to the scaling group, click **Add CVM**, select the instance to be added (hold Shift key to select multiple instances) and click **OK**;

@@ -5,10 +5,10 @@ You can obtain the SDK as follows.
 
 ### Download the SDK. 
 Click the Tencent Cloud [Game Multimedia Engine](https://cloud.tencent.com/product/tmg?idx=1).  
-![](https://main.qcloudimg.com/raw/0372fd5cef701700a372599913829393.png)
+![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
 
 On the displayed page, click "Developer Resources". Download the SDK resource package for Android.
-![](https://main.qcloudimg.com/raw/44a32b4b1baaa3d506f5fa5b0e10c005.png)
+![](https://main.qcloudimg.com/raw/1792e4d44a0db1bf6a0f6da752a33056.png)
 
 Decompress the downloaded SDK resource package. The following table describes the folder in the package.
 

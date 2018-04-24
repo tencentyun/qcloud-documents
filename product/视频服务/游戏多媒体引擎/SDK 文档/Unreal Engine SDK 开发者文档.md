@@ -3,7 +3,7 @@
 ## SDK初始化
 
 ### 准备工作
-接入 GMESDK 首先需要引入头文件 tmg_sdk.h，头文件类继承 ITMGDelegate 以进行消息的传递及回调。
+接入 GME 首先需要引入头文件 tmg_sdk.h，头文件类继承 ITMGDelegate 以进行消息的传递及回调。
 #### 示例代码
 ```
 #include "tmg_sdk.h"
@@ -536,7 +536,7 @@ ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
-| bEnabled    |bool     |如果需要关闭麦克风，则传入的参数为 true，如果打开麦克风，则参数为 false		|
+| bEnabled    |bool     |如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false	|
 #### 示例代码
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
@@ -571,7 +571,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 
 ### 麦克风状态获取
-此函数获取麦克风状态。
+此函数获取麦克风状态。返回值 0 为关闭麦克风状态，返回值 1 为打开麦克风状态，返回值 2 为麦克风设备正在操作中，返回值 4 为设备没初始化好。
 #### 函数原型
 ```
 ITMGAudioCtrl virtual int GetMicState()
@@ -676,7 +676,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 
 ### 扬声器状态获取
-此函数用于扬声器状态获取。返回值为 int 类型数值。
+此函数用于扬声器状态获取。返回值为 int 类型数值。返回值 0 为关闭扬声器状态，返回值 1 为打开扬声器状态，返回值 2 为扬声器设备正在操作中，返回值 4 为设备没初始化好。
 #### 函数原型
 ```
 ITMGAudioCtrl virtual int GetSpeakerState()
@@ -857,7 +857,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyPlay(true);
 ```
 
 ### 设置他人是否也可以听到伴奏
-设置播放伴奏的音量，为线性音量，默认值为 100，数值大于 100 伴奏音量增益，数值小于 100 伴奏音量减益。
+设置他人是否也可以听到伴奏。
 #### 函数原型
 ```
 ITMGAudioEffectCtrl virtual int EnableAccompanyLoopBack(bool enable)
@@ -1169,7 +1169,7 @@ ITMGContextGetInstance()->GetPTT()->CancelRecording();
 ```
 
 ### 上传语音文件
-此函数用于启动录音。
+此函数用于上传语音文件。
 #### 函数原型
 ```
 ITMGPTT virtual void UploadRecordedFile(const char* filePath)
@@ -1220,7 +1220,7 @@ ITMGContextGetInstance()->GetPTT()->DownloadRecordedFile(fileID,filePath);
 ```
 
 ### 下载语音文件完成回调
-上传语音完成后，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_DOWNLOAD_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。
+下载语音完成后，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_DOWNLOAD_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。
 ```
 void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 	switch (eventType) {

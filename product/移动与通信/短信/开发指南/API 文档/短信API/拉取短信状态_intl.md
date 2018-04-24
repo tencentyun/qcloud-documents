@@ -1,78 +1,55 @@
-## 1 Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP POST
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		For example: https://yun.tim.qq.com/v5/tlssmssvr/pullstatus?sdkappid=xxxxx&random=xxxx
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-		Pull the SMS status, such as SMS delivery status and SMS reply.
-		<br />
-		The pulled content will not be returned repeatedly, which can be regarded as a message queue mechanism.
-		<br />
-        You need to contact <a href="/doc/product/382/3773">SMS helper </a>to enable this feature.
-        <br />
-		Note: Enter the applied SDKAppID as sdkappid, and a random number as random.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Description
+This API is used to pull the SMS status, such as SMS delivery status and SMS reply.
+The pulled content will not be returned again, which can be regarded as a message queue mechanism.
+[Contact SMS Helper](https://cloud.tencent.com/document/product/382/3773) to enable this feature.
 
-## 2 Request Packet
-```
+### URL Example
+`https://yun.tim.qq.com/v5/tlssmssvr/pullstatus?sdkappid=xxxxx&random=xxxx`
+**Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
+
+## Request Parameters
+```json
 {
-    "sig": "c13e54f047ed75e821e698730c72d030dc30e5b510b3f8a0fb6fb7605283d7df", //App credential. For more information on the calculation, please see the following
-    "time": 1457336869, //UNIX timestamp, i.e. the time to initiate the request. A failure message will be returned if the time difference between the UNIX timestamp and the system time is greater than 10 minutes
-    "type": 1, //0: SMS delivery status. 1: SMS reply
-    "max": 10 //The maximum number of entries. The maximum: 100
+    "max": 10,
+    "sig": "c13e54f047ed75e821e698730c72d030dc30e5b510b3f8a0fb6fb7605283d7df",
+    "time": 1457336869,
+    "type": 1
 }
 ```
-Note:  
-The "sig" field is generated according to the formula sha256(appkey=$appkey&random=$random&time=$time).
-The pseudo codes are as follows:
-```
-string strAppkey = "5f03a35d00ee52a21327ab048186a2c4"; //The corresponding appkey of sdkappid, which must be kept confidential.
+
+| Parameter | Required | Type | Description |
+|------|------|--------|--------------------------------------------------------------------|
+| max | Yes | Number | Number of entries pulled. Maximum value is 100 |
+| sig | Yes | String | App credential. For more information on the calculation, please see the following. |
+| time | Yes | Number | The time to initiate the request. It is a unix timestamp (in sec). A failure message is returned if the time difference between the unix timestamp and the system time is greater than 10 minutes. |
+| type | Yes | Number | The type of pulled content. 0: [SMS Delivery Status](https://cloud.tencent.com/document/product/382/5807), 1: [SMS Reply](https://cloud.tencent.com/document/product/382/5809) |
+**Note**:
+The "sig" field is generated based on the formula sha256(appkey=$appkey&random=$random&time=$time)
+The pseudo code is as follows:
+```json
+string strAppkey = "5f03a35d00ee52a21327ab048186a2c4"; //The appkey for the sdkappid, which must be kept confidential
 string strRand = "7226249334"; //The value of the "random" field in the URL
-string strTime = "1457336869"; //UNIX timestamp
+string strTime = "1457336869"; //The Unix timestamp
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869)
            = c13e54f047ed75e821e698730c72d030dc30e5b510b3f8a0fb6fb7605283d7df;
 ```
 
-## 3 Response Packet
-```
+## Response Parameters
+```json
 {
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "ok", //The specific error message when the "result" is not 0
-    "count": 3, //The number of returned information entries. It is valid when "result" is 0
-    "data": [... //For more information, please see the following
-    ]
+    "count": 3,
+    "data": [],
+    "errmsg": "ok",
+    "result": 0
 }
 ```
-Notes:  
-If the request type is 0, the content of the "data" field is same as [SMS Delivery Status Notification](/doc/product/382/5807)  
-If the request type is 1, the content of the "data" field is same as [SMS Reply](/doc/product/382/5809)
+
+| Parameter | Required | Type | Description |
+|--------|------|---------|----------------------------------------------|
+| count | Yes | Number | The number of returned message entries. It is valid when "result" is 0. |
+| data | Yes | Array | For more information, please see [Notification of SMS Delivery Status](/document/product/382/5807) and [SMS Reply](/document/product/382/5809). |
+| errmsg | Yes | String | The specific error message when the "result" is not 0 |
+| type | Yes | Number | The type of pulled content. 0: [SMS Delivery Status](https://cloud.tencent.com/document/product/382/5807), 1: [SMS Reply](https://cloud.tencent.com/document/product/382/5809) |
+
+
