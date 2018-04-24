@@ -1,4 +1,6 @@
-我们提供了一些高级配置项，您可以通过这些配置项定制化您的 Crash 服务。**请注意，您需要在启动服务前完成配置。**
+我们提供了一些高级配置项，您可以通过这些配置项定制化您的 Crash 服务。
+>**注意：**
+>您需要在启动服务前完成配置。
 
 ## 获取 Options
 
@@ -9,7 +11,7 @@ final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
 
 ## 设置上报延时时间
 
-Crash 会在启动 10s 后联网同步数据。若您有特别需求，可以修改这个时间。
+Crash 会在启动 10s 后联网同步数据。如果您有特别需求，可以修改这个时间。
 
 ```
 final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
