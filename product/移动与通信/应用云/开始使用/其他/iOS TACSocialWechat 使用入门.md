@@ -20,7 +20,7 @@ source "https://github.com/CocoaPods/Specs"
 >一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
 ### 2. 添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
- ~~~
+~~~
 pod 'TACSocialWechat'
 ~~~
 
