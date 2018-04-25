@@ -57,15 +57,6 @@ I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda4
 
 > 这里您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
 
-### 查看回调信息
-
-在控制台上发送通知栏消息后，当 SDK 接收到该消息时会回调 `onNotificationArrived()` 方法，示例 `MyReceiver` 会打印如下日志：
-
-```
-I/messaging: MyReceiver::onNotificationArrived : notification is TACNotification [msgId=1463713536, title=AndroidDemo, content=content, customContent={}, activity=com.android.demo.MainActivity, notificationActionType1] pushChannel XINGE
-```
-如果您的应用收到了通知栏通知，并且打印了如上日志，则说明您已经成功将 Messaging 服务集成到您的应用中，否则请参考 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
-
 
 ## 后续步骤
 
