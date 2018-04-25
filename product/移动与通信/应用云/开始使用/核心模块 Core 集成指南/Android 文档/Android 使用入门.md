@@ -87,11 +87,11 @@ dependencies {
 
 ## 后续步骤
 
-### 了解 MobileLine：
+### 了解 MobileLine
 
 - 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
-### 向您的应用添加 MobileLine 功能：
+### 向应用中添加 MobileLine 功能
 
 - 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
 - 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
