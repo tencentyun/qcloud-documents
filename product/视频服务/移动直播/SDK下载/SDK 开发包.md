@@ -331,9 +331,9 @@ table td {
   </tr>
   <tr align="center">
     <td>下载地址</td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK.zip">DOWNLOAD</a></td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">DOWNLOAD</a></td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_activex_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_csharp_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_cplusplus_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
@@ -398,25 +398,25 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
     <td>iOS 源码包</td>
     <td>4.5.4022</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.5.4022.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.5.4022.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 源码包</td>
     <td>4.5.4022</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.5.4022.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.5.4022.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>PHP源码包</td>
     <td>4.4</td>
     <td>为观众端提供直播间列表和回放列表</td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3780.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3780.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Web分享页</td>
     <td>1.1.0</td>
     <td>基于HTML5技术构建的Web分享页面，支持在常规手机浏览器和PC浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[DOC]</a></td>
-    <td><a href="http://download-1252463788.cossh.myqcloud.com/web_share_2017.01.04.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="http://download-1252463788.cossh.myqcloud.com/web_share_2017.01.04.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
