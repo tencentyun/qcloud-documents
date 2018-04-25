@@ -1,5 +1,5 @@
 ## 简介
-欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。后续所有的云服务产品都会接入进来。新版 SDK实 现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
+欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持cvm、vpc、cbs等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 JAVA 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 Java 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 Java SDK 并开始调用。
 ## 依赖环境
 1. 依赖环境：JDK 7 版本及以上。
@@ -15,8 +15,7 @@
 ```xml
 <dependency>
 <groupId>com.tencentcloudapi</groupId>
-<artifactId>tencentcloud-java-sdk</artifactId>
-<version>3.0.1</version>
+<artifactId>tencentcloud-sdk-java</artifactId>
 </dependency>
 ```
 3. 引用方法可参考示例。
@@ -53,7 +52,7 @@ public class DescribeZones
                 System.out.println(e.toString());
         }
     }
-}
+} 
 ```
 ## 旧版 SDK
 我们推荐您使用新版 SDK， 如果需要旧版 SDK，请在您的 Maven pom.xml 添加以下依赖项即可：
