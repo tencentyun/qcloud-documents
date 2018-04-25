@@ -1,6 +1,6 @@
 ### What is error mapping table?
 The error mapping table is a mapping table of memory addresses, function names, file names, and line numbers. The symbol table elements are shown as follows:
-<Start address> <end address> <function> [<file name: line number>]
+< Start address > < end address > < function > [< file name: line number >]
 ### Where is the error mapping table configured?
 As shown in the figure below, the error mapping table can be configured in **Quality Monitoring** -> **Error Exception Monitoring** -> **Error List** -> **Error Mapping Table Management**.
 ![](http://developer.qq.com/wiki/mta/imgs/20170122151435_80781.jpg)
