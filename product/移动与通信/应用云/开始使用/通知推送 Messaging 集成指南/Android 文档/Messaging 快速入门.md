@@ -33,134 +33,55 @@ dependencies {
 ```
 > `'com.tencent.tac:tac-messaging:1.1.0' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.0'`
 
-## 第四步：注册回调
-
-在启动 messaging 服务前，您必须注册 messaging 服务回调接口，用于接收消息在不同状态下的通知：
-
-#### 继承 `TACMessagingReceiver` 类
-
-您必须创建一个 `TACMessagingReceiver` 子类用于接收我们的消息回调：
-
-```
-public class MyReceiver extends TACMessagingReceiver {
-
-    // 启动 Messaging 服务后，会自动向 Messaging 后台注册，注册完成后会回调此接口。
-    @Override
-    public void onRegisterResult(Context context, int errorCode, TACMessagingToken token) {
-
-        Toast.makeText(context, "注册结果返回：" + token, Toast.LENGTH_SHORT).show();
-        Log.i("messaging", "MyReceiver::OnRegisterResult : code is " + errorCode + ", token is " + token.getTokenString());
-    }
-
-    // 反注册后回调此接口。
-    @Override
-    public void onUnregisterResult(Context context, int code) {
-
-        Toast.makeText(context, "取消注册结果返回：" + code, Toast.LENGTH_SHORT).show();
-        Log.i("messaging", "MyReceiver::onUnregisterResult : code is " + code);
-    }
-
-    // 收到透传消息后回调此接口。
-    @Override
-    public void onMessageArrived(Context context, TACMessagingText tacMessagingText, PushChannel channel) {
-
-        Toast.makeText(context, "收到透传消息：" + tacMessagingText, Toast.LENGTH_LONG).show();
-        Log.i("messaging", "MyReceiver::OnTextMessage : message is " + tacMessagingText+ " pushChannel " + channel);
-    }
-
-    // 收到通知栏消息后回调此接口。
-    @Override
-    public void onNotificationArrived(Context context, TACNotification tacNotification, PushChannel pushChannel) {
-
-        Toast.makeText(context, "收到通知消息：" + pushChannel, Toast.LENGTH_LONG).show();
-        Log.i("messaging", "MyReceiver::onNotificationArrived : notification is " + tacNotification + " pushChannel " + pushChannel);
-
-    }
-
-    // 点击通知栏消息后回调此接口。
-    @Override
-    public void onNotificationClicked(Context context, TACNotification tacNotification, PushChannel pushChannel) {
-
-        Log.i("messaging", "MyReceiver::onNotificationClicked : notification is " + tacNotification + " pushChannel " + pushChannel);
-
-    }
-
-    // 删除通知栏消息后回调此接口
-    @Override
-    public void onNotificationDeleted(Context context, TACNotification tacNotification, PushChannel pushChannel) {
-
-        Log.i("messaging", "MyReceiver::onNotificationDeleted : notification is " + tacNotification + " pushChannel " + pushChannel);
-
-    }
-    
-    // 绑定标签回调
-    @Override
-    public void onBindTagResult(Context context, int code, String tag) {
-        Toast.makeText(context, "绑定标签成功：tag = " + tag, Toast.LENGTH_LONG).show();
-        Log.i("messaging", "MyReceiver::onBindTagResult : code is " + code + " tag " + tag);
-
-    }
-
-    // 解绑标签回调
-    @Override
-    public void onUnbindTagResult(Context context, int code, String tag) {
-        Toast.makeText(context, "解绑标签成功：tag = " + tag, Toast.LENGTH_LONG).show();
-        Log.i("messaging", "MyReceiver::onUnbindTagResult : code is " + code + " tag " + tag);
-    }
-
-
-}
-
-```
-
-#### 在 `AndroidManifest.xml` 文件中注册
-
-在创建好 `TACMessagingReceiver` 的子类后，您需要在工程的 AndroidManifest.xml 文件中注册该类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    ...>
-    ...
-    <!-- 这里替换成你自己的 TACMessagingReceiver 子类 -->
-    <receiver android:name=".MyReceiver">
-      <intent-filter>
-          <action android:name="com.tencent.tac.messaging.action.CALLBACK" />
-      </intent-filter>
-    </receiver>
-    
-  </application>
-</manifest>
-
-```
-
 ## 验证服务
 
 ### 查看服务启动情况
 
-app 启动后，会自动在 Messaging 后台进行注册，注册成功后回调您在 `AndroidManifest.xml` 中注册的 `TACMessagingReceiver` 子类的 `onRegisterResult()` 方法。这里在 `MyReceiver` 中打印了推送的 token，启动后会打印如下信息：
+安装并运行 App 后，SDK 会自动在 Messaging 后台进行注册，注册成功后会打印如下日志：
 
 ```
-I/messaging: MyReceiver::OnRegisterResult : code is 0, token is 495689dbfda473ef44de899cf45111fd83031156
-``` 
+I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda473ef44de899cf45111fd83031156
+```
+
 > 这里日志打印的 token 信息标识推送时的唯一 ID，您可以通过 token 信息给该设备发送通知。
 
 如果没有打印以上日志，请查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
 
-### 在控制台上发送通知栏消息
+### 在控制台上推送通知栏消息
 
-打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.png)
 
-> 您也可以通过我们的后台接口来发送消息，具体请参考 [Rest API 使用指南](https://cloud.tencent.com/document/product/666/15584) 或者 [服务端 SDK](https://cloud.tencent.com/document/product/666/15606)
+推送通知栏消息成功后，App 在运行状态下会收到通知栏消息。
 
-### 查看回调信息
+> 这里您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
 
-在控制台上发送通知栏消息后，当 SDK 接收到该消息时会回调 `onNotificationArrived()` 方法，示例 `MyReceiver` 会打印如下日志：
 
-```
-I/messaging: MyReceiver::onNotificationArrived : notification is TACNotification [msgId=1463713536, title=AndroidDemo, content=content, customContent={}, activity=com.android.demo.MainActivity, notificationActionType1] pushChannel XINGE
-```
-如果您的应用收到了通知栏通知，并且打印了如上日志，则说明您已经成功将 Messaging 服务集成到您的应用中，否则请参考 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
+## 后续步骤
+
+### 注册回调接口 
+
+**注册回调接口非常重要**，您可以注册回调接口来接收推送服务在不同状态下给您的回调，具体有：
+
+- `onRegisterResult()` : 注册 Messaging 服务后回调。
+- `onUnregisterResult()` : 反注册 Messaging 服务后回调。
+- `onMessageArrived()` : 收到透传消息（即控制台上的应用内消息）后回调。
+- `onNotificationArrived()` : 收到通知栏消息后回调。
+- `onNotificationClicked()` : 点击通知栏消息后回调。
+- `onNotificationDeleted()` : 删除通知栏消息后回调。
+- `onBindTagResult()` : 绑定标签后回调。
+- `onUnbindTagResult()` : 解绑标签后回调。
+
+如何注册回调接口，请参见 [这里](replaceme)。
+
+### 集成厂商推送通道
+
+**我们建议您集成厂商推送通道**，通过集成厂商官方提供的系统级推送通道，在对应厂商手机上，推送消息能够通过系统通道抵达终端，并且无需打开应用就能够收到推送，目前支持华为、小米和魅族三个厂商通道，具体集成方式请参考 [这里](https://cloud.tencent.com/document/product/666/16641)。
+
+### 给设备推送消息
+
+您可以通过控制台给设备推送消息(具体请参考 [这里](https://cloud.tencent.com/document/product/666/16640))，您也可以通过我们的后台接口来发送消息，具体请参考 [Rest API 使用指南](https://cloud.tencent.com/document/product/666/15584) 或者 [服务端 SDK](https://cloud.tencent.com/document/product/666/15606)。除了通过设备 token 来指定用户外，我们还支持通过标签推送消息（具体请参考 [这里](https://cloud.tencent.com/document/product/666/16637)）或者通过账户推送消息（具体请参考 [这里](https://cloud.tencent.com/document/product/666/16639)）。
+
+
+
