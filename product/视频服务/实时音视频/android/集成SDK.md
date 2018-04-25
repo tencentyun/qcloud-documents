@@ -1,13 +1,4 @@
-## 集成SDK
-
-### 导语
-欢迎来到集成SDK教程!
-
-在学习iLiveSDK之前，我们将先学习如何集成iLiveSDK。
-
-### 预备知识
-本课程要求用户对Android Studio有仓库集成的概念
-
+## 操作步骤
 ### 创建一个Android工程
 打开Android Studio,点击File菜单选择New Project新建一个工程:
 
@@ -96,6 +87,3 @@ Error:Could not resolve all files for configuration ':app:debugCompileClasspath'
     > Connect to jcenter.bintray.com:443 [jcenter.bintray.com/75.126.118.188] failed: Connection timed out: connect
 ```
 先检测网络是否正常，并通过上面链接，确认可以访问jcenter网站，同时如果网络需要代理检测是否有在gradle.properties中配置
-
-
-[下一课 登录](登录.md)
