@@ -27,16 +27,16 @@
 
 ## 第三步：集成 SDK
 
-下表展示了 MobileLine 各种服务所对应的库。
+下表展示了 MobileLine 各种服务所对应的库
 
 |功能|服务名称|Gradle 依赖项|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.0.0|
-|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-messaging:1.0.0|
-|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-crash:1.0.0|
-|腾讯计费（米大师）|payment|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-payment:1.0.0|
-|移动存储（Storage）|storage|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-storage:1.0.0|
-|授权（Authorization）|authorization|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-authorization:1.0.0|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
 
 
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.0.0'
+	compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
@@ -54,9 +54,9 @@ dependencies {
 
 ```
 dependencies {
-	// 增加这两行，其中 analytics 服务是所有其他模块的基础，因此必须添加 analytics 依赖
-	compile 'com.tencent.tac:tac-core:1.0.0' 
-	compile 'com.tencent.tac:tac-messaging:1.0.0'
+	// 增加这两行，其中 core 是所有其他模块的基础
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
 
@@ -64,52 +64,17 @@ dependencies {
 
 ```
 dependencies {
-	// 增加这三行，其中 analytics 服务是所有其他模块的基础，因此必须添加 analytics 依赖
-	compile 'com.tencent.tac:tac-core:1.0.0' 
-	compile 'com.tencent.tac:tac-messaging:1.0.0'
-	compile 'com.tencent.tac:tac-crash:1.0.0'
+	// 增加这三行，其中 core 是所有其他模块的基础
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-crash:1.1.0'
 }
 ```
 > 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
-## 第四步：初始化
+## 第四步：参考各个服务的快速入门
 
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
-
-### 在 `Application` 子类中添加初始代码
-
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    //增加这行
-    TACApplication.configure(this);
-  }
-}
-
-```
-### 在 `AndroidManifest.xml` 文件中注册
-
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    <!-- 这里替换成你自己的 Application 子类 -->
-    android:name="com.example.tac.MyCustomApp"
-    ...>
-  </application>
-</manifest>
-```
-
-### 启动服务
-
-MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
+一些子服务可能还有其他的集成步骤，请参考各个服务的快速入门文档。
 
 |功能|服务名称|入门指南|
 |:---|:---|:---|
@@ -118,13 +83,13 @@ MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启
 |腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
 |腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
 |移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
-|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
+|登录与授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
 ## 后续步骤
 
 ### 了解 MobileLine：
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudTACSample)
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
 ### 向您的应用添加 MobileLine 功能：
 
@@ -134,3 +99,4 @@ MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启
 - 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
 - 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
 - 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
+1.1.0

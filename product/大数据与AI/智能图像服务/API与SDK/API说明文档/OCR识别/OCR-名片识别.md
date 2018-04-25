@@ -228,7 +228,7 @@ Content-Type: image/jpeg
 ## 错误码
 | 错误码   | 含义                                  |
 | :---- | :---------------------------------- |
-| 3     | 错误的请求                               |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                                |
 | 4     | 签名为空                                |
 | 5     | 签名串错误                               |
 | 6     | appid/bucket/url不匹配                 |

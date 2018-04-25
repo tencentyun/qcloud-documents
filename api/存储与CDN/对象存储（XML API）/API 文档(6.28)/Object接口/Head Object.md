@@ -1,10 +1,10 @@
 ## 功能描述
-Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致
+HEAD Object 接口请求可以获取对应 Object 的 meta 信息数据，HEAD 的权限与 GET 的权限一致
 
 
 ### 细节分析
 
-1. Head Object 请求是不返回消息体的。
+1. HEAD Object 请求是不返回消息体的。
 2. 这里的 If-Modified-Since 统一采用 GMT(RFC822) 时间格式，例如：Tue, 22 Oct 2017 01:35:21 GMT。
 3. 如果 head 的文件不存在，则会返回 404 NOT FOUND。
 

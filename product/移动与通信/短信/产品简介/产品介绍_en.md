@@ -1,7 +1,7 @@
 ## Product Overview
-Supported by ten years of experience in message service technology, Tencent Cloud Short Message Service (SMS) allows developers to access quality text/voice messaging services in a fast and flexible way. It provides China SMS service that supports instant verification with 99% deliverability rate and international SMS service with a coverage of more than 200 countries and regions.
+Supported by ten years of experience in message service technology, Tencent Cloud Short Message Service (SMS) allows developers to access quality text/voice messaging services in a fast and flexible way. It provides SMS service in China supporting instant verification with 99% deliverability rate and international SMS service with a coverage of more than 200 countries and regions.
 
-## Feature List
+## Features
 Tencent Cloud SMS currently supports the following features:
 ![](//mccdn.qcloud.com/static/img/e0e7d45b3f9fffed60389f70df68fa92/image.png)
 

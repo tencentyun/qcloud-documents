@@ -27,7 +27,7 @@ In the common response parameters, the json of the field "result" is as follows:
 URL: `http://domain name for API/v2/push/device_list_multiple?params`
 
 ### Request Parameters
-In addition to [common parameters](link to be added), the following parameters are needed:
+In addition to [common parameters](https://cloud.tencent.com/document/product/548/14705), the following parameters are needed:
 
 | Parameter Name | Type | Required | Default | Description |
 |-|-|-|-|-|

@@ -20,44 +20,52 @@
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
-## 第三步：集成 SDK
+## 第三步：集成 SDK（已完成请跳过）
 
 您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 analytics 服务依赖：
 
 ```
 dependencies {
     // 增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
-## 第四步：初始化
+## 开启实时上报
 
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
+Analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数量之后才能集中上报。如果您在调试时，希望每个事件都独立上报，从而能在控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报。
 
-### 在 `Application` 子类中添加初始代码（已完成请跳过）
+>**注意：**
+>由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+### 在 `Application` 子类中添加代码
+
+如果您自己的应用中已经有了 `Application` 的子类，请重载它的 `attachBaseContext(Context)` 方法，在里面添加配置代码，如果没有，请自创建一个 `Application` 的子类。如：
 
 ```
 public class MyCustomApp extends Application {
   @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    //增加这行
-    TACApplication.configure(this);
+  protected void attachBaseContext(Context base) {
+		super.attachBaseContext(base);
+    	// 实例化一个新的配置
+		TACApplicationOptions applicationOptions = TACApplicationOptions.newDefaultOptions(this);
+		
+		// 修改其他配置
+		... 
+
+		// 设置行为统计数据上报的策略
+		TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
+		analyticsOptions.strategy(TACAnalyticsStrategy.INSTANT); // 立即发送
+
+		// 让自定义设置生效
+		TACApplication.configureWithOptions(this, applicationOptions);
   }
 }
-
 ```
 
->**注意：**
-> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
+### 在 `AndroidManifest.xml` 文件中注册
 
-### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
-
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
+在创建好 `Application` 的子类并添加好代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
 
 ```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,43 +78,37 @@ public class MyCustomApp extends Application {
 </manifest>
 ```
 
->**注意：**
->如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
+## 验证服务
 
+首先确保您已经按照上面的步骤接入sdk，并开启实时上报。
 
-### 开启实时上报
+### 1. 查看服务启动情况
 
-Analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数量之后才能集中上报。如果您在调试时，希望每个事件都独立上报，从而能在控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报：
-
-```
-TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
-
-tacAnalyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
-```
-
->**注意：**
->由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
-
-### 启动服务
-
-MobileLine Android SDK 不会自动帮您启动 analytics 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 analytics 服务：
+app 启动后，您可以从 logcat 中 过滤 tag `tacApp` ，查看到服务启动的日志。
 
 ```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACAnalyticsService.getInstance().start(this);
-  }
-}
+04-18 11:40:53.087 30623-30623/com.tencent.tac.sample I/tacApp: TACAnalyticsService is starting.
+04-18 11:40:53.115 30623-30623/com.tencent.tac.sample I/tacApp: Analytics set app key : Aqc100008 and channel : TAC
+04-18 11:40:53.134 30623-30623/com.tencent.tac.sample I/tacApp: Boot Up : com.tencent.tac.analytics.TACAnalyticsService
 ```
 
->**注意：**
->您也可以选择在其他地方启动 Analytics 服务，但是必须保证在初始化代码后调用。
+如果没有看到启动日志，你可以从 logcat 中 过滤 tag `MtaSDK`，查看是否有错误信息。
+
+### 2. 查看上报日志
+
+在 app 中打开一个 Activity，您可以从 logcat 中 过滤 tag `MtaSDK`，查看上报请求和返回结果的日志。如果看到 `http get response data:{"ret":0}`，说明上报成功。
+
+```
+04-18 13:48:27.698 1550-1577/com.tencent.tac.sample D/MtaSDK: [StatDispatcher(9159): SourceFile:268] - before Gzip:1159 bytes, after Gzip:655 bytes
+04-18 13:48:27.749 1550-1577/com.tencent.tac.sample I/MtaSDK: [StatDispatcher(9159): SourceFile:284] - http recv response status code:200, content length:29
+04-18 13:48:27.750 1550-1577/com.tencent.tac.sample I/MtaSDK: [StatDispatcher(9159): SourceFile:325] - http get response data:{"ret":0}
+```
+
+### 3. 控制台查看数据
+
+打开 MobileLine 的[控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
+
+![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A7%88-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.png)
 
 
 到此您已经成功接入了 MobileLine 移动分析服务。

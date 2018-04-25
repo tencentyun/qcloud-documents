@@ -33,8 +33,8 @@ param.signature = _signature;                                // 需要填写第�
 
 // 录制生成的视频文件路径 TXVideoRecordListener 的 onRecordComplete 回调中可以获取
 param.videoPath = _videoPath;  
-// 录制生成的视频首帧预览图， TXVideoRecordListener 的 onRecordComplete 回调中可以获取，可以置为 nil
-param.coverPath = _coverImage; 
+// 录制生成的视频首帧预览图路径。值为通过调用startRecord指定的封面路径，或者指定一个路径，然后将TXVideoRecordListener 的 onRecordComplete 回调中获取到的UIImage保存到指定路径下，可以置为 nil。
+param.coverPath = _coverPath; 
 
 TXUGCPublish *_ugcPublish = [[TXUGCPublish alloc] init];
 // 文件发布默认是采用断点续传
@@ -42,7 +42,7 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 [_ugcPublish publishVideo:param];
 ``` 
 
-发布的过程和结果是通过 TXVideoPublishListener（位于 TXUGCRecordListener.h 头文件中定义）接口反馈出来的：
+发布的过程和结果是通过 TXVideoPublishListener（位于 TXUGCPublishListener.h 头文件中定义）接口反馈出来的：
 
 - onPublishProgress 用于反馈文件发布的进度，参数 uploadBytes 表示已经上传的字节数，参数 totalBytes 表示需要上传的总字节数。
 ```ObjectiveC 
