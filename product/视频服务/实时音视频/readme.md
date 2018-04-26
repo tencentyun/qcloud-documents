@@ -8,23 +8,27 @@
     * 集成SDK
         * [Android](android/集成SDK.md)
         * [iOS](ios/集成SDK.md)
-        * [PC](pc/集成SDK.md)
+        * [PC](windows/集成SDK.md)
     * 登录
         * [Android](android/登录.md)
         * [iOS](ios/登录.md)
-        * [PC](pc/登录.md)
+        * [PC](windows/登录.md)
     * 创建房间
         * [Android](android/创建房间.md)
         * [iOS](ios/创建房间.md)
-        * [PC](pc/创建房间.md)
+        * [PC](windows/创建房间.md)
     * 加入房间
         * [Android](android/加入房间并视频互动.md)
         * [iOS](ios/加入房间并视频互动.md)
-        * [PC](pc/加入房间并视频互动.md)
+        * [PC](windows/加入房间并视频互动.md)
     * 发消息
         * [Android](android/房间内的群组消息互动.md)
         * [iOS](ios/房间内的群组消息互动.md)
-        * [PC](pc/房间内的群组消息互动.md)
+        * [PC](windows/房间内的群组消息互动.md)
+* Web端集成
+   * [集成SDK](web/集成SDK.md)
+   * [三步完成进房连麦](web/三步完成进房连麦.md)
+   * [进阶API](web/进阶API.md)
 * 客户端高阶功能
     * 加入房间前预览
     * 手动渲染
