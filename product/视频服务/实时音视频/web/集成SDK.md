@@ -22,11 +22,11 @@
 | sdkappid    | 商户可以在互动直播控制台创建多个应用，以对应自己不同的 App。每个应用都会有一个 sdkappid 来标示 |
 | accounttype | 每个sdkappid在账户体系页面都会有一个accounttype参数，登录的时候会用到 |
 
-> appid 是 125xxxxxxx 的数字，可以在 https://console.qcloud.com/ilvb 的顶部找到
+> appid 是 125xxxxxxx 的数字，可以在 https://console.cloud.tencent.com/ilvb 的顶部找到
 
-> sdkappid 是  14000xxxxx 的数字 ，https://console.qcloud.com/ilvb 先创建应用，就会看到
+> sdkappid 是  14000xxxxx 的数字 ，https://console.cloud.tencent.com/ilvb 先创建应用，就会看到
 
-> accounttype 需要您在 https://console.qcloud.com/ilvb 创建应用后，查看 【APP基础设置】 --> 【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
+> accounttype 需要您在 https://console.cloud.tencent.com/ilvb 创建应用后，查看 【APP基础设置】 --> 【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
 
 
 * 用户信息
