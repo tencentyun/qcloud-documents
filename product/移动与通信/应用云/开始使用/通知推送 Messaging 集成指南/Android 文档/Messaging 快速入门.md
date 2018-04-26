@@ -73,7 +73,7 @@ I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda4
 - `onBindTagResult()` : 绑定标签后回调。
 - `onUnbindTagResult()` : 解绑标签后回调。
 
-如何注册回调接口，请参见 [这里](replaceme)。
+如何注册回调接口，请参见 [这里](https://cloud.tencent.com/document/product/666/16848)。
 
 ### 集成厂商推送通道
 
