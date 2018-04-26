@@ -23,9 +23,7 @@
 | accounttype | 每个sdkappid在账户体系页面都会有一个accounttype参数，登录的时候会用到 |
 
 > appid 是 125xxxxxxx 的数字，可以在[ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)的顶部获取。
-
 > sdkappid 是  14000xxxxx 的数字 ，[ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)创建应用，在【 App 基础设置 】下可查看。
-
 > accounttype 需要您在 [ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)创建应用后，查看 【App 基础设置】 --> 【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
 
 
