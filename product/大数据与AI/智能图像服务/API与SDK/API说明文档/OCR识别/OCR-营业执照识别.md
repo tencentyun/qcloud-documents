@@ -1,7 +1,7 @@
 ## 接口概述
 
 ### 服务简介
-本接口用于根据用户上传的营业执照图像，返回识别出的注册号、公司名称、地址字段信息。
+本接口用于识别用户上传的营业执照图像，返回注册号、法定代表人、公司名字、地址、营业期限这5个字段信息。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
@@ -63,91 +63,120 @@ items（ json 数组）：
 ## 请求示例
 
 ### 使用 url 的请求示例
-
 ```
 POST /ocr/bizlicense HTTP/1.1
-Authorization:FL26MsO1nhrZGuXdin10DE5tnDdhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJnQ9MTQ2OTE3NTIzMCZlPTE0NjkxNzYyMzA=
 Host: recognition.image.myqcloud.com
-Content-Length: 302
-Content-Type: "application/json"
+Authorization: oubqBjgP/2I8JQmlRStAUkQWXwJhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJmU9MTUyNTIyOTcxNyZ0PTE1MjI2Mzc3MTcmcj0xMTkyNzc3NDc2JnU9MCZmPQ==
+Content-Type: application/json
 
 {
-"appid":"appid",
-"url":"http://www.test.com/aaa.jpg"
-} 
+"appid":"1234567",
+"url":"https://test.com/aaa.jpg"
+}
+
 ```
 
 ### 使用 image 的请求示例
 
 ```
-POST /ocr/bizlicenseHTTP/1.1
-Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
-Authorization:Signature
+POST /ocr/bizlicense HTTP/1.1
 Host: recognition.image.myqcloud.com
-Content-Length:ContentLength
----------------------------acebdf13572468
-Content-Disposition:form-data; name="appid";
-appid
----------------------------acebdf13572468
-Content-Disposition:form-data; name="image"; filename="image _2.jpg "
-Content-Type:image/jpeg
- image_content
----------------------------acebdf13572468
-```
+Authorization: oubqBjgP/2I8JQmlRStAUkQWXwJhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJmU9MTUyNTIyOTcxNyZ0PTE1MjI2Mzc3MTcmcj0xMTkyNzc3NDc2JnU9MCZmPQ==
+Content-Type: multipart/form-data; boundary=----acebdf13572468
 
+------acebdf13572468
+Content-Disposition: form-data; name="image"; filename="test.jpg"
+Content-Type: image/jpeg
+
+------acebdf13572468
+Content-Disposition: form-data; name="appid"
+1234567
+
+image_content
+------acebdf13572468
+```
 
 ### 返回示例
+
 ```
 {
-   "code": 0,
-   "message": "OK",
-   "data": {
-       "session_id": "12531712471066566515",
-       "items": [
-           {
-                "item": "注册号",
-                "itemcoord": {
-                    "x": 703,
-                    "y": 689,
-                    "width": 272,
-                    "height": 34
-                },
-                "itemconf":0.9979159235954284,
-                "itemstring":"310114002784042",
-                "coords": [],
-                "words": [],
-                "candword": []
-           },
-           {
-                "item": "公司名称",
-                "itemcoord": {
-                    "x": 446,
-                    "y": 805,
-                    "width": 380,
-                    "height": 37
-                },
-                "itemconf":0.9843763709068298,
-                "itemstring": "上海横策营销策划有限公司",
-                "coords": [],
-                "words": [],
-                "candword": []
-           },
-           {
-                "item": "地址",
-                "itemcoord": {
-                    "x": 445,
-                    "y": 902,
-                    "width": 567,
-                    "height": 38
-               },
-                "itemconf":0.9998522996902466,
-                "itemstring": "上海市徐汇区虹梅路1905号西部203室",
-                "coords": [],
-                "words": [],
-                "candword": []
-           }
-       ]
-    }
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "session_id": "1000001-1095565554",
+        "items": [
+            {
+                "item": "注册号",
+                "itemcoord": {
+                    "x": 600,
+                    "y": 590,
+                    "width": 205,
+                    "height": 24
+                },
+                "itemconf": 0.9469727277755736,
+                "itemstring": "913709027242123456",
+                "coords": [],
+                "words": [],
+                "candword": []
+            },
+            {
+                "item": "法定代表人",
+                "itemcoord": {
+                    "x": 358,
+                    "y": 804,
+                    "width": 98,
+                    "height": 27
+                },
+                "itemconf": 0.999782145023346,
+                "itemstring": "腾小云",
+                "coords": [],
+                "words": [],
+                "candword": []
+            },
+            {
+                "item": "公司名称",
+                "itemcoord": {
+                    "x": 358,
+                    "y": 652,
+                    "width": 302,
+                    "height": 28
+                },
+                "itemconf": 0.9998672008514404,
+                "itemstring": "腾讯科技（深圳）有限公司",
+                "coords": [],
+                "words": [],
+                "candword": []
+            },
+            {
+                "item": "地址",
+                "itemcoord": {
+                    "x": 361,
+                    "y": 750,
+                    "width": 207,
+                    "height": 28
+                },
+                "itemconf": 0.999684989452362,
+                "itemstring": "深圳市南山区深南大道10000",
+                "coords": [],
+                "words": [],
+                "candword": []
+            },
+            {
+                "item": "营业期限",
+                "itemcoord": {
+                    "x": 347,
+                    "y": 957,
+                    "width": 424,
+                    "height": 28
+                },
+                "itemconf": 0.9370071887969972,
+                "itemstring": "自1998年11月11日至长期",
+                "coords": [],
+                "words": [],
+                "candword": []
+            }
+        ]
+    }
 }
 ```
 
