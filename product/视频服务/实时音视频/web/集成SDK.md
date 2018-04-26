@@ -32,7 +32,7 @@
 
 > sdkappid 是  14000xxxxx 的数字 ，https://console.qcloud.com/ilvb 先创建应用，就会看到
 
-> accounttype 需要你在 https://console.qcloud.com/ilvb 创建应用后，查看 【APP基础设置】 - 【账号集成体系】中找到（如果没有，编辑保存即可）
+> accounttype 需要你在 https://console.qcloud.com/ilvb 创建应用后，查看 【APP基础设置】 - 【帐号集成体系】中找到（如果没有，编辑保存即可）
 
 
 * 用户信息
@@ -56,7 +56,7 @@
 
 ### 接入准备工作
 
-1. 注册腾讯云账号，申请开通互动直播业务
+1. 注册腾讯云帐号，申请开通互动直播业务
 2. 在互动直播页面，新建应用。得到sdkappid和accounttype
 3. 参考[usersig的计算文档](https://cloud.tencent.com/document/product/268/7656)，计算出测试用户名的usersig
 4. 如果所在网络有防火墙，请确定有开放以下端口：
