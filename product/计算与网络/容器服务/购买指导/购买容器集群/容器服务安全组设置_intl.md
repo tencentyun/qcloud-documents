@@ -6,9 +6,9 @@ Security group is a virtual firewall with a stateful packet filtering feature an
 
 ### Principles on Security Group Selection with CCS
 
-- 1. It is recommended that CVMs in the same cluster are bound to the same security group. The cluster's security group does not add other CVMs.
-- 2. Security groups grant the minimum permission externally.
-- 3. The following CCS rules need to be open to the Internet:
+ 1. It is recommended that CVMs in the same cluster are bound to the same security group. The cluster's security group does not add other CVMs.
+ 2. Security groups grant the minimum permission externally.
+ 3. The following CCS rules need to be open to the Internet:
  - a. Container network and node network
  - b. Container network and node network of the cluster if different clusters in the same VPC cannot be connected
  - c. Port 22 in SSH login node
