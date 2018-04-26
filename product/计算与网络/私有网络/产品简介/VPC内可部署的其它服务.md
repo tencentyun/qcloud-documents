@@ -7,7 +7,7 @@
 |[云主机 CVM](https://cloud.tencent.com/product/cvm.html)| 您可将云主机部署在 VPC 中 |
 |[负载均衡 CLB](https://cloud.tencent.com/product/clb.html?idx=2)|您可以在私有网络内部署内网 LB或者公网 LB|
 |[NAT 网关](https://cloud.tencent.com/product/nat.html)|可用于私有网络内流量访问 Internet|
-|[跨地域互联 CRC](https://cloud.tencent.com/product/crc.html)|可用于连接多个地域的私有网络|
+|[对等连接 PC](https://cloud.tencent.com/product/crc.html)|可用于连接多个地域的私有网络|
 |[VPN 连接](https://cloud.tencent.com/product/vpn.html)|通过 IPsec VPN 连接私有网络和用户 IDC|
 |[专线接入 DC](https://cloud.tencent.com/product/dc.html)|通过专线连接私有网络和用户 IDC|
 |[基础监控 BCM](https://cloud.tencent.com/product/bcm.html)|为 VPC 内某些服务的关键指标提供自定义告警|

@@ -5,7 +5,7 @@
 - 首先对 keepalived 简述，并说明其在云主机的应用与物理网络的区别。
 - 然后开始阐述如何通过何种步骤，达到两种使用模式：
  * 无常主模式，即双机选举主设备的优先级相同；
- * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式）
+ * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数， 推荐使用无常主模式（非常主常备模式）
 - 本文通过给出若干 `keepalived 配置和脚本文件` + `不同场景配置方法`的形式，帮助用户在云主机上作本次实践。
 - 本文主要介绍 keepalived 的 VRRP Instance 配置为单播 VRRP 报文的用法。
 
@@ -39,7 +39,7 @@
 `-- vip.py
 
 
-常主常备用法使用步骤：
+常主常备用法使用步骤： 
 主机操作： (常主)
     1. 安装 keepalived，给主网卡分配外网 IP 或弹性公网 IP。
     2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限 chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
@@ -67,7 +67,7 @@
 
 ===================================================================================================================================
 
-stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
+stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐！)
 双机操作相同：
     1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
     2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限 chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
@@ -102,59 +102,17 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
 ### 步骤 1. 申请 VIP
 在某个子网内申请 VIP（VPC 内用户主动申请的 IP 都可作为 VIP），**控制台或 云 API**均可申请，由于 VIP 绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而 VPC 内每台 CVM 在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请 VIP :
 
-- 方式一：**控制台**方式：点击查看 [在弹性网卡上分配内网 IP（Qcloud 控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910) （推荐）
-- 方式二：**云 API** 方式：**通过云 API 分配 申请 VIP 具体操作(云 API 代码开发指引请参考第 6 步)：** 
+- **控制台**操作：点击查看 [在弹性网卡上分配内网 IP（Qcloud 控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910) （推荐） 
 
 >**注意：**
+ 1. 这个操作的重点是给网卡分配内网IP，而不是分配另一个网卡。
+ 2. 注意：不要把vip配置到/etc/sysconfig/network-scripts/的脚本中
  1. 后续配置完成后，在主备设备上启用 keepalived 服务，可以看到 VIP 出现在主设备上，并可以从 VPC 其它子机内 ping 通该 VIP 或外网 VIP。（请同时注意安全组对您主备云主机的网络隔离的功能，建议在实验阶段为主备云主机设置全通安全组）
- 2. 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。
-1） VIP不用于 keepalived 时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。
-2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。
- 
-方式二实现步骤：
-1. 获取您云主机的主网卡的 ID。
-- 控制台方法：可从控制台云主机详情页弹性网卡标签下找到主网卡 ID，如图所示
-![](//mc.qcloudimg.com/static/img/fa9fc6b8995bef9734c8de9cb004543c/image.png)
-- 云 API 方法：通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4814)
-2. 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4817)   **若您通过方式一控制台申请 VPC，可以跳过下段代码。**
-
-```
-        
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
-#注意python代码的缩进须与本文一致
-#以下两行根据 SDK 的安装方式选一
-#     具体参考步骤 6 第 3 点中的代码注释
-#from QcloudApi.qcloudapi import QcloudApi 
-from src.QcloudApi.qcloudapi import QcloudApi 
+ 2. 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。但云主机内不会自动感知自己有这个VIP，以下两种方式可以让你在云主机内看见网卡内看见vip。
+1） 未使用本文配置的 keepalived 管理Vip时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。 云主机内配置命令： `ip addr add $vip dev $ethX` ；查看命令：`ip addr show $ethx`
+2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。  注意：用keepalived管理时，不要把vip配置到/etc/sysconfig/network-scripts/的脚本中。
 
 
-module = 'vpc'
-action = 'AssignPrivateIpAddresses'
-config = {
-    'Region': 'bj',
-    'secretId': '您的secretId',
-    'secretKey': '您的secretKey',
-    'method': 'post'
-}
-params = {
-
-    'vpcId': '您的vpcID',
-    'networkInterfaceId': '您的主服务器的主网卡ID',
-    'secondaryPrivateIpAddressCount': '您需要申请IP地址的个数'
-
-}
-
-try:
-    service = QcloudApi(module, config)
-    print service.generateUrl(action, params)
-    print service.call(action, params)
-except Exception, e:
-    print 'exception:', e
-       
-```
-        
 ### 步骤 2. 主备子机安装 keepalived（1.3.5 版本以上）
 - 安装
 以 CentOS 为例：
@@ -270,31 +228,37 @@ vrrp_instance VI_1 {
 log_file=/var/log/keepalived.log
 log_write()
 {
-        echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
+    echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
 }
 
-mkdir -p /var/keepalived/
-if [ $1 == 'MASTER' ]; then
+[ ! -d /var/keepalived/ ] && mkdir -p /var/keepalived/
+
+case "$1" in
+    "MASTER" )
         echo -n "$1" > /var/keepalived/state
         log_write " notify_master" 
         echo -n "0" > /var/keepalived/vip_check_failed_count       
-        /etc/keepalived/vip.py migrate &
-fi
+        python /etc/keepalived/vip.py migrate &
+        ;;
 
-if [ $1 == 'BACKUP' ]; then
+    "BACKUP" )
         echo -n "$1" > /var/keepalived/state
         log_write " notify_backup" 
-fi
+        ;;
 
-if [ $1 == 'FAULT' ]; then
+    "FAULT" )
         echo -n "$1" > /var/keepalived/state
         log_write " notify_fault" 
-fi
+        ;;
 
-if [ $1 == 'STOP' ]; then
+    "STOP" )
         echo -n "$1" > /var/keepalived/state
         log_write " notify_stop" 
-fi
+        ;;
+    *)
+        log_write "notify_action.sh: STATE ERROR!!!"
+        ;;
+esac
 ```
 ### 步骤 6. 修改 vip.py 帮助您在云主机之间迁移 VIP 和查询本机当前 IP
 
@@ -302,8 +266,8 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 1) 下载 Python SDK
 - pip 安装使用方式
-	- <font color=Crimson size=6>yum install python-pip</font>
-	- <font color=Crimson size=6>pip install qcloudapi-sdk-python</font>
+	- yum install python-pip
+	- pip install qcloudapi-sdk-python
 - github 源码下载方式
 	- [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
 	- [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
@@ -323,6 +287,9 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 </div>
 4) 基于 SDK 开发切换调用云 API 的程序 vip.py，并将 vip.py 保存到```/etc/keepalived```目录，用于调用内网 IP 迁移云 API：
+- 从控制台云主机详情页弹性网卡标签下找到主网卡 ID：
+![](//mc.qcloudimg.com/static/img/fa9fc6b8995bef9734c8de9cb004543c/image.png)
+- 修改代码参数（注意python对缩进的严格要求）后使用
 
 ```
     常主常备模式步骤: 修改 vip.py
@@ -365,12 +332,13 @@ step3: 将以下 python 代码保存成 vip.py 放到 SDK 的 src 同级目录, 
 具体参数参考: https://cloud.tencent.com/doc/api/245/1361
 """
 
-#pip 安装使用方式使用
+
 import os
 import time
 import json
 import sys
-from QcloudApi.qcloudapi import QcloudApi 
+from QcloudApi.qcloudapi import QcloudApi 	#pip 安装使用方式使用 -- 推荐
+#from src.QcloudApi.qcloudapi import QcloudApi 	#源码 安装使用方式使用
 
 #当前机器主网卡和主 IP
 interface = {"eth0":"10.0.1.17"}            #该 IP 要有外网 IP
@@ -533,11 +501,7 @@ vip=10.0.1.100 #请您改成内网 VIP
 interface=eth0 #您的网络接口名
 
 state_file=/var/keepalived/state
-vip_check_failed_count_file=/var/keepalived/vip_check_failed_count
-vip_retry_failed_count_file=/var/keepalived/vip_retry_failed_count
 vip_last_check_result_file=/var/keepalived/vip_last_check_result
-query_vip_asker=/etc/keepalived/query_vip.py
-vip_migrater=/etc/keepalived/vip.py
 vip_operater=/etc/keepalived/vip.py
 state=`cat $state_file`
 
@@ -545,33 +509,39 @@ state=`cat $state_file`
 log_file=/var/log/keepalived.log
 log_write()
 {
-        echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
+    echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
 }
 
-CMD=`ip addr show dev $interface | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
-if [ $state == "MASTER" ]; then
-    if [ ${CMD} -ne 1 ]; then
-        log_write "it is detected no vip on nic in cvm in MASTER state, add vip on this nic" 
-        ip addr add $vip dev $interface
-        echo "false" > $vip_last_check_result_file
-    else
-        is_vip_in_master=`timeout 3 python $vip_operater query`
-        if [ $is_vip_in_master == "false" ]; then
-            echo "false" > $vip_last_check_result_file
-            python $vip_operater migrate &
-        elif [ $is_vip_in_master == "true" ]; then
-            vip_last_check_result=`cat $vip_last_check_result_file`
-            [ $vip_last_check_result == "false" ] && log_write " vip_check pass"
-            echo "true" > $vip_last_check_result_file
-        else
-            log_write "$vip_operater check vip time out" 
-        fi
-    fi
-    exit 0
-fi
+[ ! -d /var/keepalived/ ] && mkdir -p /var/keepalived/
+[ ! -f $vip_last_check_result_file ] && touch $vip_last_check_result_file 
+[ ! -f $state_file ] && echo -n "FAULT" > $state_file 
 
-if [ $state == "BACKUP" -o $state == "FAULT" ]; then
-    if [ ${CMD} -ne 0 ]; then
+CMD=`ip addr show dev $interface | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
+
+case $state in
+    "MASTER") 
+        if [ ${CMD} -ne 1 ]; then
+            log_write "it is detected no vip on nic in cvm in MASTER state, add vip on this nic" 
+            ip addr add $vip dev $interface
+            echo -n "false" > $vip_last_check_result_file
+        else
+            is_vip_in_master=`timeout 3 python $vip_operater query`
+            if [ "x$is_vip_in_master" == "xfalse" ]; then
+                echo -n "false" > $vip_last_check_result_file
+                python $vip_operater migrate &
+            elif [ "x$is_vip_in_master" == "xtrue" ]; then
+                vip_last_check_result=`cat $vip_last_check_result_file`
+                [ "x$vip_last_check_result" == "xfalse" ] && log_write " vip_check pass"
+                echo -n "true" > $vip_last_check_result_file
+            else
+                log_write "$vip_operater check vip time out" 
+            fi
+        fi
+        exit 0
+        ;;
+
+    *) 
+        if [ ${CMD} -ne 0 ]; then
             sleep 2  
             CMD=`ip addr show dev eth0 | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
             if [ ${CMD} -ne 0 ]; then
@@ -580,15 +550,15 @@ if [ $state == "BACKUP" -o $state == "FAULT" ]; then
                 systemctl restart keepalived &
                 exit 1
             fi
-    fi
-    exit 0
-fi
+        fi
+        exit 0
+        ;;
+esac
 ```
 
 ### 步骤 8.（可选）给 VIP 分配外网 IP
-有两种控制台操作和云 API 操作两种方式：
-- 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
-- 云API：[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)。
+- 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作与步骤 1 类似。
+
 
 ### 步骤 9.主备云主机本机主 IP 没有外网IP的使用方式（全内网环境调用帮助）
 由于云 API Python SDK 的默认 host 是外网 host，无法走内网访问。如果您的主备云主机的本机 IP 只有内网 IP，没有外网 IP，则需求将 Python SDK 进行修改，将 host 改成内网云 API 访问域名。修改步骤如下：
@@ -605,6 +575,4 @@ fi
 >说明：
 1) 由于迁移 IP 以云 API 方式异步实现，需要数秒才能落地到新子机上。所以，常主常备模式式，主的故障时间**极短**时，可能发生两次短时间的主备状态倒换，但 VIP 重新落地到恢复的主机上需要较长时间（10s）。
 2) 脚本日志将会写到`/var/log/keealived.log`中。日志会占用您的磁盘空间。您可以自行借助 logrotate 等工具处理日志累积的问题。keepalived 进程的日志仍会写到`/var/log/message`中。
-
-
 

@@ -1,74 +1,74 @@
-## 1. API Description
- API DescribeForwardLBBackends is used to query the list of backend CVMs bound to the cloud load balancer.
+## API Description
+This API (DescribeForwardLBBackends) is used to query the list of backend CVMs bound to an application CLB.
  
-Domain for API access: lb.api.qcloud.com
+Domain name for API access: `lb.api.qcloud.com`
 
-## 2. Request Parameters
-   The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](/doc/api/244/4183). The Action field for this API is DescribeForwardLBBackends.
+## Input Parameters
+The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/214/4183) page. The Action field for this API is DescribeForwardLBBackends.
 
-| Parameter Name | Required | Type | Description |	 
+| Parameter | Required | Type | Description |	 
 |-|-|-|-|
-| loadBalancerId | Yes | String | Uniform ID of cloud load balancer instance, i.e. unLoadBalancerId. It can be queried by entering 1 or -1 in input parameter "forward" field of API DescribeLoadBalancers. |
+| loadBalancerId | Yes | String | ID of the cloud load balancer instance. It can be queried by entering 1 or -1 in input parameter "forward" field through API <a href="https://cloud.tencent.com/document/api/214/1261" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
 | listenerIds.n | No | String | ID of application-based cloud load balancer listener. It can be queried through API DescribeForwardLBListeners. |
-| protocol | No | Int | Protocol type of listener. 
-1: HTTP, 4: HTTPS. |
+| protocol | No | Int | Protocol type of the listener. 1: HTTP, 2: TCP, 3: UDP, 4: HTTPS. |
 | loadBalancerPort | No | Int | Port of the cloud load balancer listener. |
 
-## 3. Response Parameters
+## Output Parameters
  
  
-| Parameter Name | Type | Description |
+| Parameter | Type | Description |
 |-------|---|---------------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to [Common Error Code](/doc/api/244/1530) in the Error Code page. |
-| message | String | Module error message description depending on API. |
+| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see [Common Error Codes](https://cloud.tencent.com/document/api/214/1530) on the Error Codes page. |
+| message | String | Module error message description depending on APIs. |
 | codeDesc | String | Error code. For a successful operation, "Success" will be returned. For a failed operation, a message describing the failure will be returned. |
 | data | Array | Returned array. |
 
-**data Array Structure:**
+**`data` is composed as follows:**
 
 | Parameter Name | Type | Description |
 |-------|---|---------------|
 | listenerId | String | Listener ID. |
-| protocol | Int | Protocol of listener. |
-| protocolType | Int | Protocol type of listener. For example, http. |
+| protocol | Int | Protocol type of the listener. 1: HTTP, 2: TCP, 3: UDP, 4: HTTPS. |
+| protocolType | String | Protocol type of listener. For example, HTTP. |
 | loadBalancerPort | Int | Listening port of listener. |
-| rules | Array | Forwarding rule set of layer-7 listener. |
+| rules | Array | Forwarding rule set of Layer-7 listener. |
+| backends | Array | CVM information of Layer-4 listener |
 
-**rules Array Structure:**
+**`rules` is composed as follows:**
 
 | Parameter Name | Type | Description |
 |-------|---|---------------|
 | locationId | String | ID of forwarding rule. |
-| domain| String | Domain for the forwarding rule. |
-| url| String | Path of forwarding rule. |
+| domain| String | Domain name for the forwarding rule. |
+| url | String | Path of forwarding rule. |
 | backends | Array | Information on backend CVMs. |
 
-**backends Array Structure:**
+**`backends` is composed as follows:**
 
 | Parameter Name | Type | Description |
 |-------|---|---------------|
 | lanIp | String | Private IP of CVM. |
-| wanIpSet | Array | Public IP of CVM. | |
+| wanIpSet | Array | Public IP of CVM. |
 | port | Int | Service port of CVM. |
 | weight | Int | Weight of CVM. |
 | instanceStatus | Int | Status of CVM. |
 | unInstanceId | String | CVM ID. |
-| instanceName |String| CVM name | |
+| instanceName | String| CVM name |
 | addTimestamp | String | Time at which the CVM is bound. |
 
 
 
 
 
-## 4. Example
+## Example
 
-Input:
+Request
 ```
 https://lb.api.qcloud.com/v2/index.php?Action=DescribeForwardLBBackends
-&
+&<Common request parameters>
 &loadBalancerId=lb-abcdefgh
 ```
-Output:
+Response
 ```
 {
     "code": 0,
@@ -148,3 +148,5 @@ Output:
     ]
 }
 ```
+
+

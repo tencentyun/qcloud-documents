@@ -1,12 +1,12 @@
 ## 功能描述
-Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致
+HEAD Object 接口请求可以获取对应 Object 的 meta 信息数据，HEAD 的权限与 GET 的权限一致
 
 
 ### 细节分析
 
-1. Head Object 请求是不返回消息体的。
-3. 这里的 If-Modified-Since 统一采用 GMT(RFC822) 时间格式，例如：Tue, 22 Oct 2017 01:35:21 GMT。
-4. 如果 head 的文件不存在，则会返回 404 NOT FOUND。
+1. HEAD Object 请求是不返回消息体的。
+2. 这里的 If-Modified-Since 统一采用 GMT(RFC822) 时间格式，例如：Tue, 22 Oct 2017 01:35:21 GMT。
+3. 如果 head 的文件不存在，则会返回 404 NOT FOUND。
 
 ## 请求
 
@@ -36,9 +36,9 @@ HEAD /<ObjectName> HTTP/1.1
 **推荐头部**
 该请求操作推荐请求头使用推荐头部，具体内容如下：
 
-|名称|描述|类型|必选|
-|:---|:---|:---|:---|
-| If-Modified-Since | 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304 | String | 否 |
+| 名称                | 描述                                       | 类型     | 必选   |
+| :---------------- | :--------------------------------------- | :----- | :--- |
+| If-Modified-Since | 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304 | String | 否    |
 
 ### 请求体
 该请求的请求体为空。
@@ -51,21 +51,32 @@ HEAD /<ObjectName> HTTP/1.1
 #### 特有响应头
 该请求操作的响应头具体数据为：
 
-|名称|描述|类型|
-|:---|:---|:---|
-| x-cos-meta- * | 用户自定义的 meta | String | 
-| x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 
-| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE| String | 
+| 名称                  | 描述                                       | 类型     |
+| :------------------ | :--------------------------------------- | :----- |
+| x-cos-meta- *       | 用户自定义的 meta                              | String |
+| x-cos-object-type   | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String |
+| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE | String |
+
+**服务端加密相关响应**
+
+如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+
+| 名称                           | 描述                                       | 类型     |
+| ---------------------------- | ---------------------------------------- | ------ |
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
+
+*注意：如果对象使用了启用了服务端加密，获取数据时腾讯云 COS 将会自动执行解密并返回解密后的数据。发送 GET/HEAD Object 请求时，无需带入 `x-cos-server-side-encryption` 头部，否则请求将返回 `400 BadRequest` 错误。*
 
 ### 响应体
+
 该请求的响应体为空。
 
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-|错误码|HTTP状态码|描述|
-|--|------|------------|
-|SSEHeaderNotAllowed|400 Bad Request|如果头部携带 x-cos-server-side-encryption 的标头，就会返回该错误|
+| 错误码                 | HTTP状态码         | 描述                                       |
+| ------------------- | --------------- | ---------------------------------------- |
+| SSEHeaderNotAllowed | 400 Bad Request | 如果头部携带 x-cos-server-side-encryption 的标头，就会返回该错误 |
 获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例

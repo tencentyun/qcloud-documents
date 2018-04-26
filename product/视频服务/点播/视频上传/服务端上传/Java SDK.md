@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 Java SDK 来实现。上传的流程可以参见 [服务端上传综述](/document/product/266/9759)。
+对于在服务端上传视频的场景，腾讯云点播提供了 Java SDK 来实现。上传的流程可以参见 [服务端上传指引](/document/product/266/9759)。
 
 ## 集成方式
 
@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.qcloud</groupId>
     <artifactId>vod_api</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
@@ -65,7 +65,7 @@ System.out.println(response.getFileId());
 ```
 
 ###  指定上传区域
-调用upload的重载方法，传入指定的地域标识，即可将视频上传指定的区域
+调用upload的重载方法，传入指定的地域标识，即可将视频上传指定的区域，详见[服务端上传指引](/document/product/266/9759)。
 ```
 VodApi vodApi = new VodApi("your secretId", "your secretKey");
 Map<String, Object> extraParams = new HashMap<String, Object>();

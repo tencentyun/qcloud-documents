@@ -2,13 +2,23 @@
 
 ## 准备工作
 
-在开始使用应用云服务前，您需要一个 应用云 项目和适用于您的应用的 配置文件：
+### 创建项目
 
- 1. 如果还没有 应用云 项目，请在 应用云 [控制台]() 中创建一个。
- 2. 输入您应用的包名，这个包名必须是唯一的，并且和您最终发布的应用包名一致。
- 3. 根据提示，下载配置文件压缩包，并在本地解压。您可以随时重新下载此文件。
- 4. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
- 5. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
+在使用我们的服务前，您必须先在 TAC 平台上创建项目和应用，首先登录 [TAC 平台](https://console.qcloud.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
+
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_project.png?raw=true)
+
+
+### 创建应用
+
+创建好项目后，选择该项目，然后点击【创建应用】按钮在该项目下新建一个应用：
+
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_app.png)
+
+ 1. 输入您应用的包名，这个包名必须是唯一的，并且和您最终发布的应用包名一致。
+ 2. 根据提示，下载配置文件压缩包，并在本地解压。您可以随时重新下载此文件。
+ 3. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
+ 4. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
 
 ## 添加 SDK
 

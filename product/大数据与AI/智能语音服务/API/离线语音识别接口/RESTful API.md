@@ -1,5 +1,5 @@
 ## 请求结构
-### RESTful API请求结构
+### RESTful API 请求结构
 离线语音识别的 RESTful API 请求结构如下：
 
 | 参数名称    | 必选    | 类型   | 描述    | 
@@ -8,7 +8,7 @@
 | URL  | 是         | String          | HTTPS 请求地址       | 
 | Https Headers    | 是         | 数据集合          | HTTPS 请求头部         | 
 | Https Method   |是         | String     | HTTPS 请求方法，离线语音识别请求方法为 POST
-| Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M   | 
+| Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为 1 时填充），大小不超过 5M   | 
 
 其中，URL 的结构为 ：
 ```
@@ -57,7 +57,7 @@ HTTPS  Headers 的结构如下：
 
 ### 请求示例
 
-下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=0时，采用公网可访问 URL 语音数据，请求 Host 与路径：
+下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=0 时，采用公网可访问 URL 语音数据，请求 Host 与路径：
 ```
 http://aai.qcloud.com/asr/v1/<appid>
 ```
@@ -66,7 +66,7 @@ http://aai.qcloud.com/asr/v1/<appid>
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":1,
+"engine_model_type":"16k_0",
 "url":"http://test.qq.com/rec_callback",
 "res_text_format":0,
 "res_type":1,
@@ -177,7 +177,7 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 <?php
 $appid = YOUR_APPID ;
 // https://console.cloud.tencent.com/capi
-// 从该页面获取APPID的SecretId和SecretKey
+// 从该页面获取 APPID 的 SecretId 和 SecretKey
 $secretid ='YOUR_SECRET_ID';
 $secretkey = 'YOUR_SECRET_KEY';
 
@@ -199,7 +199,7 @@ $args = array(
     'url' => "http://aai.qcloud.com/test.mp3",
 );
 
-// 参数按照Key的字母序排序
+// 参数按照 Key 的字母序排序
 ksort($args);
 
 $arg_str = "";
@@ -220,4 +220,5 @@ $req_url = "https://$req_url?$arg_str";
 echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
 
 ```
-
+> **注意：**
+> 在 html 页面中嵌入 php 脚本会导致 &times 被转译为 x，导致返回结果 404， 纯 php 代码则不会出现这个问题。若出现这个问题，解决办法是：在 php 代码中，把 & 替换为 &amp；（包括分号）。

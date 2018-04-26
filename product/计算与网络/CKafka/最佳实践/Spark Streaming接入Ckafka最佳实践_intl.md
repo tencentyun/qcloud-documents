@@ -26,11 +26,11 @@ Now, the following versions of CKafka are supported: 0.9.0.x, 0.10.0.x, 0.10.1.x
 ## Connecting Spark Streaming to CKafka
 
 ### Applying for Ckafka Instance
-![Alt text](https://mc.qcloudimg.com/static/img/d7ee601da4d342cb2651d6a39db99e45/1501596501359.png)
+![Alt text](https://mc.qcloudimg.com/static/img/186d7220a24ec7140859da3c5c9a2767/10775-01.jpg)
 
 Confirm whether the network type matches the network that is now used
 ### Creating Topic
-![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
+![Alt text](https://mc.qcloudimg.com/static/img/2565adebaee73ee5ab96d0a64d0916f6/10775-02.jpg)
 
 We create a topic named spark_test here, and take this topic as an example to show how to produce and consume messages
 [Private IP and Port] is the bootstrap-server to be used for production and consumption

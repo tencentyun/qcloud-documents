@@ -26,10 +26,10 @@
 ## 模版 API
 |API 名称	|描述|
 |-----|------|
-|[添加模板](https://cloud.tencent.com/document/product/382/5817)	|添加短信（或语音）模板 |
-|[修改模板](https://cloud.tencent.com/document/product/382/8649)	|修改短信（或语音）模板 |
-|[删除模板](https://cloud.tencent.com/document/product/382/5818)	|删除短信（或语音）模板 |
-|[模板状态查询](https://cloud.tencent.com/document/product/382/5819)	|查询申请的短信（或语音）模板状态 |
+|[添加短信模板](https://cloud.tencent.com/document/product/382/5817)	|添加短信（或语音）模板 |
+|[修改短信模板](https://cloud.tencent.com/document/product/382/8649)	|修改短信（或语音）模板 |
+|[删除短信模板](https://cloud.tencent.com/document/product/382/5818)	|删除短信（或语音）模板 |
+|[短信模板状态查询](https://cloud.tencent.com/document/product/382/5819)	|查询申请的短信（或语音）模板状态 |
 
 ## 签名 API
 |API 名称	|描述|

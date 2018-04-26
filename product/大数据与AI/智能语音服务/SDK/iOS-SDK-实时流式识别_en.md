@@ -2,9 +2,9 @@
 
 ### Obtaining SDK
 
-You can download Artificial Audio Intelligence iOS SDK for streaming speech recognition at [iOS SDK](https://mc.qcloudimg.com/static/archive/e681b228c06e53096510b3b61c012d36/QCloudAAI_IOSSDK.zip)
+You can download Artificial Audio Intelligence iOS SDK for streaming speech recognition at [iOS SDK](https://main.qcloudimg.com/raw/65bcb82111afafc619e6145084a78fbb.zip)
 
-For more demos, please see [iOS Demo](https://mc.qcloudimg.com/static/archive/44653a19a6f274ebc2b3f7ef028bb72b/QCloudAAI_IOSDemo.zip)
+For more demos, please see [iOS Demo](https://main.qcloudimg.com/raw/43f128f2a2133c040aca0ef904bd0840.zip)
 
 ### Preparations for Development
 

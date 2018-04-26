@@ -84,11 +84,11 @@ https://flume.apache.org/FlumeUserGuide.html
 
 ### Creation of Ckafka
 1)	After the application for instance is approved, you can see the information of your instance from the console.
- ![Alt text](https://mc.qcloudimg.com/static/img/67f19ef17a73e768fba188d58ae08f9a/22.png)
+ ![Alt text](https://mc.qcloudimg.com/static/img/6d7a67a6a7620f54fe6c81fe2374d358/10777-01.jpg)
 2)	By clicking the instance name, you can see the specific information of assigned instance:
-![](https://mc.qcloudimg.com/static/img/3841d4eb19ad992d35e60196b38498ce/33.png)
+![](https://mc.qcloudimg.com/static/img/524d8de21d13ea5e3023cf25063a302a/10777-02.jpg)
 3)	Click "Topic Management" to create a topic, where the name is flume_test.
- ![](https://mc.qcloudimg.com/static/img/9f069263c59539be5dcf845bba0b0455/44.png)
+ ![](https://mc.qcloudimg.com/static/img/734b0c829d949b045aa7ea1de75c89cc/10777-03.jpg)
 
 Now, the operating environment of Ckafka has been created.
 

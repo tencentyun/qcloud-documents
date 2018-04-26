@@ -1,13 +1,13 @@
 ## 创建服务
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的【服务】，单击服务列表页的【新建】。
-![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
+![](https://mc.qcloudimg.com/static/img/71f5e69fc5a7fcb9e31ed8b09245481f/image.png)
 3.  设置服务的基本信息。
  - **服务名称**：要创建的服务的名称，不超过 63 个字符。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。
  - **所在地域**：选择您部署服务的所在地域。
  - **运行集群**：选择服务所要运行的集群。运行集群需要选择运行中和集群内有可用主机的集群。
  - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
-![](//mc.qcloudimg.com/static/img/9254649a08d86761bcb8287fe5a45141/image.png)
+![](https://mc.qcloudimg.com/static/img/290a099685a1d4ca873dcb862fb5af1b/image.png)
 4. 设置数据卷。
 要指定容器挂载至指定路径时，单击【添加数据卷】。
 >**注意：**
@@ -21,22 +21,22 @@
  - **名称** ：要创建容器的名称，不超过 63 个字符。
  - **镜像**：单击【选择镜像】，可选择在我的镜像、我的收藏、TencentHub 镜像、DockerHub 镜像和其他镜像下创建服务。
  - **版本**：容器服务默认选择版本。如果您需要使用镜像的其它版本，单击版本显示框选择。
- ![](//mc.qcloudimg.com/static/img/647899fd3bb0fccd34bdbbc2e32fbad0/image.png)
+![](https://mc.qcloudimg.com/static/img/320fb05512b5d3d1b4c8b8e48c60cb75/image.png)
 6. 其他设置。
  -  **实例数量**：一个实例由相关的一个或多个容器构成。可单击 + 和 - 控制实例数量。
  -  **服务访问方式**：服务的访问方式决定了这个服务的网络属性，不同访问方式的服务可以提供不同网络能力。提供的四种访问方式详细介绍请参阅 [服务访问方式设置](https://cloud.tencent.com/document/product/457/9098)。
- ![](//mc.qcloudimg.com/static/img/709ab652384bb5905718dc0ff01903f4/image.png)
+![](https://mc.qcloudimg.com/static/img/20a878637084281eb9f42e1d9878e6f4/image.png)
 7. 单击【创建服务】完成服务创建。
 
 ## 更新实例数量
 1. 单击容器服务控制台左侧导航栏中的【服务】，进入服务列表，单击【更新实例数量】。
-![](//mc.qcloudimg.com/static/img/4782b1195ccfddcd4226d6b103f83184/image.png)
+![](https://mc.qcloudimg.com/static/img/1c4c201e5e81a8b07ef347119150c380/image.png)
 2. 单击 + 和 - 控制新实例数量，设置完成后单击【确定】。
 ![](//mc.qcloudimg.com/static/img/a39aeaaeba2870606e610723b6fb5ddc/image.png)
 
 ## 更新服务
 1. 单击容器服务控制台左侧导航栏中的【服务】，进入服务列表，单击【更新服务】。
-![](//mc.qcloudimg.com/static/img/8d80f49ea7bb3e54ea43bd88f441f06e/image.png)
+![](https://mc.qcloudimg.com/static/img/053cf5dcc9540e6a59f479a1e46fadba/image.png)
 2. 单击 【开始更新】。
 提供两种更新方式。
  -  **滚动更新**：对实例进行逐个更新，这种方式可以让您不中断业务实现对服务的更新。
@@ -45,15 +45,15 @@
 ## 重新部署
 重新部署是将服务下的容器重新部署一次，并重新拉取镜像。
 1. 单击容器服务控制台左侧导航栏中的【服务】，进入服务列表，单击【更多】，单击【重新部署】。
-![](//mc.qcloudimg.com/static/img/7d481f62b9a68af878ff6ebd01139cf1/image.png)
+![](https://mc.qcloudimg.com/static/img/377fa0a76b9f1523919234f607a44484/image.png)
 2. 单击【确定】。
 ![](//mc.qcloudimg.com/static/img/1132a05be3cb4258cee3c591bdc50111/image.png)
 
 ## 删除服务
 1. 单击容器服务控制台左侧导航栏中的【服务】，进入服务列表，单击【更多】，单击【删除】。
-![](//mc.qcloudimg.com/static/img/215fa50d99b5f75012ae8676d4ce7057/image.png)
+![](https://mc.qcloudimg.com/static/img/a64421d525fba54880bb606328666416/image.png)
 2. 单击【确定】。
-![](//mc.qcloudimg.com/static/img/f38b465f64639cd71aa3bf75b900de7c/image.png)
+![](https://mc.qcloudimg.com/static/img/1d0620fad4e3dac9e2bdce13b87d98d0/image.png)
 >**注意**：
 >删除服务后该服务下所有实例和外网负载均衡将一并销毁，请提前备份好数据。
 

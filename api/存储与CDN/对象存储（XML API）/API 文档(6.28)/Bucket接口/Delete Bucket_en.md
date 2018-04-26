@@ -1,5 +1,5 @@
 ## Description
-Delete Bucket API request is used to delete a Bucket under a specified account. The Bucket must be empty before it can be deleted. The Bucket can be deleted only if its content is removed.
+DELETE Bucket API request is used to delete a Bucket under a specified account. The Bucket must be empty before it can be deleted. The Bucket can be deleted only if its content is removed.
 ## Request
 
 Syntax:

@@ -1,45 +1,35 @@
-## 简介
+## 接口概述
+
+### 服务简介
 本接口用于根据用户上传的图像，识别出行驶证或驾驶证的各字段信息。
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
 
-## 计费
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-请查看[计费说明](/document/product/641/12399)。
-
-## 说明
-
-| 概念    | 解释              |
-| ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
-><font color="#0000cc">**注意：** </font>
-> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
-
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
-`http://recognition.image.myqcloud.com/ocr/drivinglicence`
+`http://recognition.image.myqcloud.com/ocr/drivinglicence` 
 
-## 请求包header
-接口采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
-所有请求都要求含有下表列出的头部信息：
+`https://recognition.image.myqcloud.com/ocr/drivinglicence`
+
+## 请求方式
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
-| Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
+| host           | recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名              |
+| content-Length | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte）        |
+| content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。       |
+| authorization  | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
 
-><font color="#0000cc">**注意：** </font>
-> (1) 每个请求的包体大小限制为 6MB。
-> (2) 所有接口都为 POST 方法。
-> (3) 不支持 .gif 这类的动图。
+>**注意：**
+如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
-## 请求参数
-使用 image 则使用 multipart/form-data 格式，不使用 image 则使用 application/json 格式。
-
+### 请求参数
 目前支持的字段为：
 
 | 行驶证    | 驾驶证  |
@@ -56,14 +46,15 @@
 | 发证日期   | 有效日期 |
 | &nbsp; | 红章   |
 
+使用 url 选择 application/json 格式，使用 image 则选择 multipart/form-data 格式：
 
-| 参数名    | 是否必须 | 类型     | 说明                                       |
+| 参数名    | 必选 | 类型     | 说明                                       |
 | ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 必须   | string | 项目ID                                     |
-| bucket | 必须   | string | 空间名称                                     |
-| type   | 必选   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
-| image  | 可选   | binary | 图片内容                                     |
-| url    | 可选   | string | 图片的 url, image 和 url 只提供一个即可，如果都提供，只使用 url |
+| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
+| bucket | 是   | string | 空间名称                                     |
+| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
+| image  | 否   | binary | image 和 url 只提供一个即可                                 |
+| url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
@@ -86,9 +77,9 @@ Item说明：
 | &nbsp;     | width  | int    | item 框宽度              |
 | &nbsp;     | height | int    | item 框高度              |
 
-## 示例
+## 请求示例
 
-### 使用 url 的请求包
+### 使用 url 的请求示例
 
 ```
 POST /ocr/drivinglicence HTTP/1.1
@@ -105,7 +96,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 image 的请求包
+### 使用 image 的请求示例
 
 ```
 POST /ocr/drivinglicence HTTP/1.1
@@ -134,7 +125,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 回包
+### 返回示例
 
 ```
 {
@@ -276,7 +267,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 错误码   | 含义                       |
 | ----- | ------------------------ |
-| 3     | 错误的请求                    |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                    |
 | 4     | 签名为空                     |
 | 5     | 签名串错误                    |
 | 6     | 签名中的appid/bucket与操作目标不匹配 |

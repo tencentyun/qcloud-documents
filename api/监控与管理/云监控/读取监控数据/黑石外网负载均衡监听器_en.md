@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name               | Required   | Type       | Input Content    | Description                                       |
 | ------------------ | ---- | -------- | ------- | ---------------------------------------- |
-| namespace          | Yes    | String   | qce/cvm  | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
+| namespace          | Yes    | String   | qce/bm_lb  | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
 | metricName         | Yes    | String   | Specific metric name | Metric name. For more information, please see 2.2                            |
 | dimensions.n.name  | Yes    | String   | Dimension name   | Dimension name, which is used in combination with dimensions.n.value. For more information, please see section 1. |
 | dimensions.n.value | Yes    | String   | Dimension value   | Dimension value, which is used in combination with dimensions.n.name. For more information, please see section 1. |

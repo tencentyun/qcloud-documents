@@ -1,56 +1,55 @@
-## 简介
+## 接口概述
 
+### 服务简介
 中外运单据OCR识别，根据用户提供的中外运单据图片，返回识别出的字段信息。
 
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/waybill`
 
-## 头部信息
+`https://recognition.image.myqcloud.com/ocr/waybill`
 
-所有请求都要求含有下表列出的头部信息：
+## 请求方式
+
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名          | 值                             | 描述                     |
 | -------------- | ------------------------------ | ------------------------ |
-| Host           | recognition.image.myqcloud.com | 智能图像识别服务器域名      |
-| Content-Length | 包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）|
-| Content-Type	 | Multipart/form-data            | &nbsp;                   |
-| Authorization	 | 鉴权签名	                      | 用于鉴权的签名，使用多次有效签名，[鉴权签名方法](/document/product/641/12409) |
+| host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名      |
+| content-length | 包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）|
+| content-type	 | Multipart/form-data            | 支持上传本地图片的方式                   |
+| authorization	 | 鉴权签名	                      | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
-> 注意：
-> (1) 每个请求的包体大小限制为6MB；
-> (2) 所有接口都为POST方法；
-> (3) 不支持 .gif这类的多帧动图。
 
-## 请求参数
+### 请求参数
 
-| 参数名          | 是否必须	     | 类型	       | 参数说明      |
+| 参数名          | 必选	     | 类型	       | 参数说明      |
 | -------------- | ------------- | ----------- | ------------ |
-| appid	         | 必须	         | String      | 开发商应用ID |
-| type	         | 必须	         | int	       | 0:fapiao  <br> 3:bill_chinese  <br> 4:bill_english |
-| image	         | 必须	         | Binary	   | 图片内容      |
+| appid	         | 是	         | string      | 开发商应用ID |
+| type	         | 是	         | int	       | 0:fapiao  <br> 3:bill_chinese  <br> 4:bill_english |
+| image	         | 是	         | binary	   | 图片内容      |
 
-## 返回值
-
-| 字段           | 类型                    | 说明               |
-| ------------- | ----------------------- | ------------------ |
-| data	        | Array(ItemContent)	  | 识别出的所有字段信息 |
-| code        	| Int	                  | 返回码             |
-| message	    | String	              | 返回错误消息        |
-
-ItemContent说明
+## 返回内容
 
 | 字段           | 类型                    | 说明               |
 | ------------- | ----------------------- | ------------------ |
-| item	        | String	              | 字段名称            |
+| data	        | array(itemcontent)	  | 识别出的所有字段信息 |
+| code        	| int	                  | 返回码             |
+| message	    | string	              | 返回错误消息        |
+
+ItemContent 说明：
+
+| 字段           | 类型                    | 说明               |
+| ------------- | ----------------------- | ------------------ |
+| item	        | string	              | 字段名称            |
 | item_type     | int	                  | 字段类型            |
-| item_text	    | String	              | 字段内容            |
-| item_coord	| Coordinate	          | 文本行坐标          |
-| candwords	    | Array(CandiateWord)	  | 候选字符集          |
+| item_text	    | string	              | 字段内容            |
+| item_coord	| coordinate	          | 文本行坐标          |
+| candwords	    | array(CandiateWord)	  | 候选字符集          |
 
-Coordinate说明
+coordinate 说明：
 
 | 字段           | 类型                    | 说明               |
 | ------------- | ----------------------- | ------------------ |
@@ -59,20 +58,20 @@ Coordinate说明
 | width	        | int	                  | item框宽度          |
 | height	    | int	                  | item框高度          |
 
-CandiateWord说明
+candiateword说明:
 
 | 字段           | 类型                    | 说明               |
 | ------------- | ----------------------- | ------------------ |
-| words	        | Array(Word)	          | 候选词列表          |
+| words	        | array(Word)	          | 候选词列表          |
 
-Word说明
+word说明:
 
 | 字段           | 类型                    | 说明                |
 | ------------- | ----------------------- | ------------------ |
-| character	    | String	              | 字符内容            |
+| character	    | string	              | 字符内容            |
 | Confidence	| float	                  | 置信度              |
 
-### 示例
+### 请求示例
 
 ```
 POST /ocr/waybill HTTP/1.1
@@ -97,7 +96,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 回包
+### 返回示例
 
 ```
 HTTP/1.1 200 OK
@@ -125,7 +124,7 @@ Content-Type: application/json
 | 错误码	               | 含义                 |
 | -------------------- | ------------------- |
 | 0	                   | 成功                 |
-| 3	                   | 错误的请求            |
+| 3	                   | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服             |
 | 4	                   | 签名为空              |
 | 5                    | 签名串错误            |
 | 9	                   | 签名过期              |

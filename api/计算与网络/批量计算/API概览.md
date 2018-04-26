@@ -19,6 +19,7 @@
 | 查看计算环境列表 | [DescribeComputeEnvs](/document/api/599/12695) | 用于查看一个或者多个计算环境的概览信息 |
 | 查看计算环境信息 | [DescribeComputeEnv](/document/api/599/12694) | 查看计算环境详情 |
 | 查看计算环境活动信息 | [DescribeComputeEnvActivities](/document/api/599/13638) | 用于查询计算环境的活动信息 |
+| 查看计算环境的创建信息 | [DescribeComputeEnvCreateInfo](/document/product/599/14604) | 用于查看一个计算环境的创建信息，相当于查看计算环境对应的 CreateComputeEnv 的参数 |
 
 
 ## 3. 查看配置类接口

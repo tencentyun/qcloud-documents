@@ -2,17 +2,17 @@
 ### Obtaining SDK
 Download link for SMS PHP SDK in Github: [SMS PHP SDK](https://github.com/qcloudsms/qcloudsms_php).
 
-### Preparing for Development
+### Preparations for Development
 **1. Apply for SDK AppID and App Key:**
-Before starting with this tutorial, you first need to obtain SDK AppID and App Key. If you have not done so, log in to the [SMS Console](https://console.cloud.tencent.com/sms) and add an application. After this, you can get the SDK AppID and an App Key.
+Before getting started, you need to obtain SDK AppID and App Key. If you have not done so, log in to the [SMS Console](https://console.cloud.tencent.com/sms) and add an application. After this, you can get an SDK AppID and an App Key.
 >**Note:**
-> SDK AppID starts with 14xxxxx.
+> SDK AppID begins with 14xxxxx.
 
 **2. Apply for a signature:**
 You must add a signature when sending an SMS message. You can apply for an SMS signature in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [Create Signature](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D).
 
 **3. Apply for a template:**
-The content of the SMS message you sent must be reviewed and approved. You can apply for an SMS template in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [Create Content Template](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88).
+The content of the SMS message you sent must be approved. You can apply for an SMS template in the SMS [Console](https://console.cloud.tencent.com/sms). For more information, please see [Create Content Template](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88).
 
 You can proceed with code development after completing the above three steps.
 
@@ -47,13 +47,13 @@ $phoneNumber3 = "12345678903";
 $templId = 7839;
 ```
 
-- **Send single SMS message**
+- **Send single SMS messages**
 ```php
 use Qcloud\Sms\SmsSingleSender;
 try {
     $sender = new SmsSingleSender($appid, $appkey);
     $result = $sender->send(0, "86", $phoneNumber2,
-        "Test SMS, common single SMS, Shenzhen, Xiao Ming, go to school.", "", "");
+        "Test SMS message, common single SMS message, Shenzhen, Xiao Ming, go to school.", "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
@@ -62,15 +62,15 @@ try {
 ```
 > **Note:**
 > - If the template ID is not specified when you send an SMS message, the content can be delivered successfully only if it matches the approved template content. Otherwise a failure message is returned.
-> - You can also use this API to send overseas SMS messages by changing the country code "86" to the corresponding country code.
+> - You can also use this API to send international SMS messages by changing the country code "86" to a corresponding country code.
 
-- **Send single SMS message with specified template ID**
+- **Send single SMS messages with specified template ID**
 ```php
 use Qcloud\Sms\SmsSingleSender;
 try {
     $sender = new SmsSingleSender($appid, $appkey);
-    $params = ["Send single SMS message with specified template ID", "Shenzhen", "Xiao Ming"];
-    // Assume that the template content is: Test SMS, {1}, {2}, {3}, go to school.
+    $params = ["Send single SMS messages with a specified template ID", "Shenzhen", "Xiao Ming"];
+    // Assume that the template content is: Test SMS message, {1}, {2}, {3}, go to school.
     $result = $sender->sendWithParam("86", $phoneNumber2, $templId,
         $params, "", "", "");
     $rsp = json_decode($result);
@@ -80,16 +80,16 @@ try {
 }
 ```
 > **Note:**
-> You must apply for a template from the console and the template must be reviewed and approved before you can successfully send single SMS messages with or without specified template ID. Otherwise a failure message is returned.
+> You must apply for a template via the console and the template must be reviewed and approved before you can send single SMS messages successfully with or without specified template ID. Otherwise a failure message is returned.
 
-- **Send bulk SMS message**
+- **Send bulk SMS messages**
 ```php
 use Qcloud\Sms\SmsMultiSender;
 try {
     $phoneNumbers = [$phoneNumber1, $phoneNumber2, $phoneNumber3];
     $sender = new SmsMultiSender($appid, $appkey);
     $result = $sender->send(0, "86", $phoneNumbers,
-        "Test SMS, common bulk SMS, Shenzhen, Xiao Ming, go to school.", "", "");
+        "Test SMS message, common bulk SMS message, Shenzhen, Xiao Ming, go to school.", "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
@@ -97,13 +97,13 @@ try {
 }
 ```
 
-- **Send bulk SMS message with specified template ID**
+- **Send bulk messages with a specified template ID**
 ```php
 use Qcloud\Sms\SmsMultiSender;
 try {
     $phoneNumbers = [$phoneNumber1, $phoneNumber2, $phoneNumber3];
     $sender = new SmsMultiSender($appid, $appkey);
-    $params = ["Send bulk SMS message with specified template ID", "Shenzhen", "Xiao Ming"];
+    $params = ["Send bulk SMS messages with a specified template ID", "Shenzhen", "Xiao Ming"];
     $result = $sender->sendWithParam("86", $phoneNumbers,
         $templId, $params, "", "", "");
     $rsp = json_decode($result);
@@ -113,7 +113,7 @@ try {
 }
 ```
 > **Note:**
-> A maximum of 200 phone numbers are supported for a single request for sending bulk SMS messages. For extra demand, contact Tencent Cloud SMS technical support (QQ: 3012203387).
+> A maximum of 200 phone numbers are supported for a request for sending bulk SMS messages. To send messages to more numbers, contact Tencent Cloud SMS technical support (QQ: 3012203387).
 
 - **Send voice verification code**
 ```php
@@ -128,7 +128,7 @@ try {
 }
 ```
 > **Note:**
-> Only numbers are required when you send verification code. For example, if the message is 123, the voice notification you will receive is "Your voice verification code is 1 2 3". To customize content, use voice notification.
+> Only numbers are required when you send verification code. For example, if the messages is 123, the voice notification you will receive is: "Your voice verification code is 1 2 3". To customize content, use voice notification.
 
 - **Send voice notification**
 ```php
@@ -149,7 +149,7 @@ use Qcloud\Sms\SmsStatusPuller;
 try {
     $puller = new SmsStatusPuller($appid, $appkey);
 
-    // Pull SMS receipt
+    // Pull SMS report
     $callbackResult = $puller->pullCallback(10);
     $callbackRsp = json_decode($callbackResult);
     echo $callbackResult;
@@ -165,6 +165,6 @@ try {
 >**Note:**
 >To apply for SMS message-pulling feature, contact Tencent Cloud SMS technical support (QQ: 3012203387). Customers who need to pull a large number of messages can use this feature for batch operation. It is not recommended for those who do not have such a requirement.
 
-- **Send overseas SMS message**
-Similar to sending domestic SMS messages.
+- **Send international SMS message**
+Similar to sending China SMS messages.
 

@@ -1,7 +1,7 @@
 ## Description
  
 This API (CreateDirectConnectTunnel) is used to create a Direct Connect tunnel.
-Domain name for API request: <font style="color:red">dc.api.qcloud.com</font> 
+Domain name for API request: dc.api.qcloud.com 
 
 ## Request
 
@@ -18,7 +18,7 @@ GET https://dc.api.qcloud.com/v2/index.php?Action=CreateDirectConnectTunnel
 
 ### Request Parameter
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is CreateDirectConnectTunnel.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is CreateDirectConnectTunnel.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -29,12 +29,15 @@ The following request parameter list only provides API request parameters. Commo
 | region | Yes | String | Network region. |
 | vpcId | Yes | String | Unified VPC ID or unified BM network ID. |
 | directConnectGatewayId | Yes | String | Direct Connect gateway ID, such as dcg-d545ddf. |
-| bandwidth | No | Int | Direct Connect bandwidth (in Mbps). 0 indicates no limit. |
+| bandwidth | No | Int | Direct connect bandwidth (in Mbps). 0 indicates no limit. |
 | routeMode | No | Int | 0:BGP routing. 1: static. Default is BGP routing. |
-| bgpPeers.asn | No | string | BGP asn.  |
+| bgpPeers.asn | No | string | BGP asn. |
 | bgpPeers.authKey | No | String | BGP key. |
 | routeFilterPrefixes.n.cidr | No | String | Peer IP address range. |
-| vlanId | Yes | Int | vlanId |
+| vlanId | Yes | Int | vlanId, 0: Do not enable sub API. Value range: 0-4000. |
+| localGatewayIp | No | String | Tencent Ip |
+| peerGatewayIp | No | String | user's Idc Ip |
+| peeringSubnetMask | No | String | ip mask, eg, 255.255.255.252|
 | remark | No | String | Remarks. |
 
 
@@ -46,7 +49,7 @@ Response Example:
     "message": ""
 }
 ```
-## Response Parameters
+### Response Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | code | Int | Error code, 0: Successful; other values: Failed. |
@@ -70,7 +73,7 @@ The following error codes only include the business logic error codes for this A
   &region=gz
   &vpcId=vpc-df3dfdf
   &directConnectGatewayId=dcg-34drdere
-  &vlanId=400
+  &vlanId=400
 ```
 ### Response
 

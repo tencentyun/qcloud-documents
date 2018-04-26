@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 PHP SDK 来实现。上传的流程可以参见 [服务端上传综述](/document/product/266/9759)。
+对于在服务端上传视频的场景，腾讯云点播提供了 PHP SDK 来实现。上传的流程可以参见 [服务端上传指引](/document/product/266/9759)。
 
 ## 集成方式
 
@@ -85,7 +85,7 @@ echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
 ###  指定上传区域
-传入指定的地域标识，即可将视频上传指定的区域
+传入指定的地域标识，即可将视频上传指定的区域，详见[服务端上传指引](/document/product/266/9759)。
 ```
 $result = VodApi::upload(
     array (

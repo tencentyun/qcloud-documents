@@ -94,17 +94,18 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 | parts_size | 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB），有效值：1~10     | 数字   |
 
 > **注意：** 
-1. 目前`coscmd`已全部采用`https`协议, 请不要使用像 `cn-north/cn-south`等较老的地域标识（Region）。
-2. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
+1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
+2. 可以在配置文件中增加`schema`项来选择`http / https`
 ```
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 bucket = ABC-1234567890
-region = cn-south
+region = ap-guangzhou
 max_thread = 5
 part_size = 1
+schema = https
 ```
 
 ### 指定 Bucket 的命令
@@ -151,6 +152,7 @@ coscmd upload -r /home/aaa/ /  //上传到bucket根目录
 * 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
 * COSCMD 支持大文件断点上传功能。当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 * COSCMD 分块上传时会对每一块进行 MD5 校验。
+* 使用-H参数设置HTTP header时，请务必保证格式为json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
@@ -188,11 +190,17 @@ coscmd delete -r /  //操作示例
 > **注意：** 
 * 批量删除需要输入确定，使用 `-f` 参数跳过确认 。
 
-### 复制文件
+### 复制文件或文件夹
 - 复制文件命令如下：
 ```
 coscmd copy <sourcepath> <cospath>  //命令格式
-coscmd copybucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt  //操作示例
+coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt  //操作示例
+```
+- 复制文件夹命令如下：
+```
+coscmd copy -r <sourcepath> <cospath>  //命令格式
+coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa //操作示例
+coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/ //操作示例
 ```
 
 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。

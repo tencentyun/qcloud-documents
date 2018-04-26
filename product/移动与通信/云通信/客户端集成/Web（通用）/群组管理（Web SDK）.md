@@ -4,9 +4,9 @@
 /* function createGroup  
  *   创建群
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -19,7 +19,6 @@ createGroup: function(options, cbOk, cbErr) {},
 //创建群组
 var createGroup = function () {
     var sel_friends = $('#select_friends').val();
-
     var member_list = [];
     var members = sel_friends.split(";"); //字符分割 
     for (var i = 0; i < members.length; i++)
@@ -28,7 +27,6 @@ var createGroup = function () {
             member_list.push(members[i]);
         }
     }
-
     if ($("#cg_name").val().length == 0) {
         alert('请输入群组名称');
         return;
@@ -78,107 +76,15 @@ var createGroup = function () {
 };
 ```
 
-## 搜索群 
-
-```
-/* function getGroupPublicInfo  
- *   读取群公开资料-高级接口
- * params:
- *   options	- 请求参数，详见api文档
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
- * return:
- *   (无)
- */
-getGroupPublicInfo: function(options, cbOk, cbErr) {},
-```
-
-**示例：**
-
-```
-//读取群组公开资料-高级接口（可用于搜索群）
-var getGroupPublicInfo = function () {
-    if ($("#sg_group_id").val().length == 0) {
-        alert('请输入群组ID');
-        return;
-    }
-    if (webim.Tool.trimStr($("#sg_group_id").val()).length == 0) {
-        alert('您输入的群组ID全是空格,请重新输入');
-        return;
-    }
-    var options = {
-        'GroupIdList': [
-            $("#sg_group_id").val()
-        ],
-        'GroupBasePublicInfoFilter': [
-            'Type',
-            'Name',
-            'Introduction',
-            'Notification',
-            'FaceUrl',
-            'CreateTime',
-            'Owner_Account',
-            'LastInfoTime',
-            'LastMsgTime',
-            'NextMsgSeq',
-            'MemberNum',
-            'MaxMemberNum',
-            'ApplyJoinOption'
-        ]
-    };
-    webim.getGroupPublicInfo(
-            options,
-            function (resp) {
-                var data = [];
-                if (resp.GroupInfo && resp.GroupInfo.length > 0) {
-                    for (var i in resp.GroupInfo) {
-                        if (resp.GroupInfo[i].ErrorCode > 0) {
-                            alert(resp.GroupInfo[i].ErrorInfo);
-                            return;
-                        }
-                        var group_id = resp.GroupInfo[i].GroupId;
-                        var name = webim.Tool.formatText2Html(resp.GroupInfo[i].Name);
-                        var type_zh = webim.Tool.groupTypeEn2Ch(resp.GroupInfo[i].Type);
-                        var type = resp.GroupInfo[i].Type;
-                        var owner_account = resp.GroupInfo[i].Owner_Account;
-                        var create_time = webim.Tool.formatTimeStamp(
-                        resp.GroupInfo[i].CreateTime);
-                        var member_num = resp.GroupInfo[i].MemberNum;
-                        var notification = webim.Tool.formatText2Html(
-                        resp.GroupInfo[i].Notification);
-                        var introduction = webim.Tool.formatText2Html(
-                        resp.GroupInfo[i].Introduction);
-                        data.push({
-                            'GroupId': group_id,
-                            'Name': name,
-                            'TypeZh': type_zh,
-                            'Type': type,
-                            'Owner_Account': owner_account,
-                            'MemberNum': member_num,
-                            'Notification': notification,
-                            'Introduction': introduction,
-                            'CreateTime': create_time
-                        });
-                    }
-                }
-                $('#search_group_table').bootstrapTable('load', data);
-            },
-            function (err) {
-                alert(err.ErrorInfo);
-            }
-    );
-};
-```
-
 ## 申请加群 
 
 ```
 /* function applyJoinGroup  
  *   申请加群
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -219,28 +125,27 @@ var applyJoinGroup = function () {
 };
 ```
 
-
 ## 处理申请加群（同意或拒绝） 
 
 ```
 /* function handleApplyJoinGroup  
 *   处理申请加群(同意或拒绝)
 * params:
-*   options	- 请求参数，详见api文档
+*   options	- 请求参数，详见 API 文档
 *   cbOk	- function()类型, 成功时回调函数
-*   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+*   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
 * return:
 *   (无)
 */
 handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 ```
 
-其中options定义如下： 
+**其中 options 定义如下：** 
 
 ```
 {
-    'GroupId': //群id
-    'Applicant_Account': //申请人id
+    'GroupId': //群 id
+    'Applicant_Account': //申请人 id
     'HandleMsg': //是否同意,Agree-同意 Reject-拒绝
     'Authentication': //申请凭证（包含在管理员收到的加群申请系统消息中）
     'MsgKey': //消息key（包含在管理员收到的加群申请系统消息中）
@@ -254,17 +159,15 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 ```
 //处理加群申请
 var handleApplyJoinGroupPendency = function () {
-
     var options = {
-        'GroupId': $("#hajg_group_id").val(), //群id
-        'Applicant_Account': $("#hajg_to_account").val(), //申请人id
+        'GroupId': $("#hajg_group_id").val(), //群 id
+        'Applicant_Account': $("#hajg_to_account").val(), //申请人 id
         'HandleMsg': $('input[name="hajg_action_radio"]:checked').val(), //Agree-同意 Reject-拒绝
         'Authentication': $("#hajg_authentication").val(), //申请凭证
         'MsgKey': $("#hajg_msg_key").val(),
         'ApprovalMsg': $("#hajg_approval_msg").val(), //处理附言
         'UserDefinedField': $("#hajg_group_id").val()//用户自定义字段
     };
-
     //要删除的群未决消息
     var delApplyJoinGroupPendencys = {
         'DelMsgList': [
@@ -284,15 +187,11 @@ var handleApplyJoinGroupPendency = function () {
                     values: [$("#hajg_authentication").val()]
                 });
                 $('#handle_ajg_dialog').modal('hide');
-
                 //删除已处理的加群未决消息，否则下次登录的时候会重复收到加群未决消息
                 deleteApplyJoinGroupPendency(delApplyJoinGroupPendencys);
-
                 alert('处理加群申请成功');
-
             },
             function (err) {
-                
                 alert(err.ErrorInfo);
             }
     );
@@ -301,22 +200,22 @@ var handleApplyJoinGroupPendency = function () {
 
 ## 删除加群申请 
 
-在处理完加群申请之后，需要删除对应的加群申请 
+在处理完加群申请之后，需要删除对应的加群申请 。**函数名：**
 
 ```
 /* function deleteApplyJoinGroupPendency  
  *   删除加群申请
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 deleteApplyJoinGroupPendency: function(options, cbOk, cbErr) {},
 ```
 
-其中options定义如下： 
+**其中 options 定义如下：** 
 
 ```
 //要删除的群未决消息(支持批量删除)
@@ -331,12 +230,12 @@ var options = {
    ]
 };
 ```
-**示例代码： **
+
+**示例： **
 
 ```
 //删除已处理的加群未决消息
 var deleteApplyJoinGroupPendency = function (opts) {
-   
    webim.deleteApplyJoinGroupPendency(opts,
            function (resp) {
                console.info('delete group pendency msg success');
@@ -356,9 +255,9 @@ var deleteApplyJoinGroupPendency = function (opts) {
 /* function quitGroup  
  *  主动退群
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -404,9 +303,9 @@ var quitGroup = function (group_id) {
 /* function destroyGroup  
  *  解散群
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -452,7 +351,7 @@ var destroyGroup = function (group_id) {
 /* function getJoinedGroupListHigh  
  *   获取我的群组-高级接口
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
  * return:
@@ -554,9 +453,9 @@ var getMyGroup = function () {
 /* function getGroupInfo  
  *   读取群详细资料-高级接口
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -615,7 +514,7 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 /* function modifyGroupBaseInfo  
  *   修改群基本资料
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
  * return:

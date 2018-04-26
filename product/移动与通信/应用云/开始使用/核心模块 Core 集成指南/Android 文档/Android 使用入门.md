@@ -1,130 +1,102 @@
-# 应用云 Android 使用入门
+
+移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
 
-在开始使用应用云服务前，您需要一个应用云项目和适用于您的应用的配置文件：
+您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
- 1. 如果还没有应用云项目，请在应用云 [控制台]() 中创建一个。
- 2. 输入您应用的包名，这个包名必须是唯一的，并且和您最终发布的应用包名一致。
- 3. 根据提示，下载配置文件压缩包，并在本地解压。您可以随时重新下载此文件。
- 4. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
- 5. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
+## 第一步：创建项目和应用
 
-## 添加 SDK
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-如果希望将应用云的库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
-### 通过 gradle 远程依赖集成
+## 第二步：添加配置文件
 
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
+在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-#### 1. 使用 jcenter 作为仓库来源
+![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
 
-在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
+解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-```
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        ...
-    }
-}
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
 
-allprojects {
-    repositories {
-         jcenter()
-    }
-}
-```
+>**注意：**
+>请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
-#### 2. 添加应用云库依赖
+## 第三步：集成 SDK
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加应用云库的依赖。您可以添加自己希望的 SDK 的依赖项。最基础的依赖是 com.tencent.tac:tac-core，它可以提供 Analytics 功能，具体请参阅文档下方的可用库列表。
+下表展示了 MobileLine 各种服务所对应的库
+
+|功能|服务名称|Gradle 依赖项|
+|:---|:---|:---|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
+
+
+如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
+
+例如，您只想集成 `analytics` 服务，
 
 ```
 dependencies {
-    //增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
+	// 增加这行
+	compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
-然后，单击 IDE 的 【gradle】同步按钮，会自动将依赖包同步到本地。
-
-### 手动集成
-
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。对于每个依赖库，我们都提供了手动集成的方式，具体请参考每个依赖库的集成文档。
-
-## 配置 SDK
-
-应用云所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
-
-请注意，如果您使用了多个应用云服务，只要配置一次即可，**TACApplication 单例必须且只允许配置一次**。
-
-您可以有两种方式配置，默认配置和高级配置。通常情况下，您使用默认配置即可。
-
-
-### 使用默认配置
-
-默认配置可以使用 TACApplication 的 configure(Context) 方法，应用云会自动依照下载的配置文件，完成配置工作。
+如果您想集成 `messaging` 服务：
 
 ```
-TACApplication.configure(context);
+dependencies {
+	// 增加这两行，其中 core 是所有其他模块的基础
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
+}
 ```
 
-### 使用高级配置
-
-如果您需要自定义配置某些服务，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法，下面是自定义配置的示例代码：
+如果您想同时集成 `messaging` 和 `crash` 服务：
 
 ```
-// 获取一个新的默认配置实例
-TACApplicationOptions applicationOptions = TACApplicationOptions.newDefaultOptions(context);
-
-// 获取您想要自定义配置的服务参数，例如 Analytics
-TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
-// 修改 Analytics 的上报策略，具体配置项请参考每个依赖库的API文档
-analyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
-
-// 修改完成后，用新参数用配置SDK
-TACApplication.configureWithOptions(context, applicationOptions);
+dependencies {
+	// 增加这三行，其中 core 是所有其他模块的基础
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-crash:1.1.0'
+}
 ```
+> 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
-每个服务都对应一个参数配置，可以通过服务的名称获取，例如获取推送服务的配置参数，可以使用：
+## 第四步：参考各个服务的快速入门
 
-```
-TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
-```
+一些子服务可能还有其他的集成步骤，请参考各个服务的快速入门文档。
 
-具体的服务名称列表可以参考文档下方的可用库列表。
+|功能|服务名称|入门指南|
+|:---|:---|:---|
+|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14313)|
+|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14323)|
+|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
+|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
+|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
+|登录与授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
-### 获取当前配置
+## 后续步骤
 
-配置完成之后，您任何时候都可以使用 TACApplication 的 options( ) 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**：
+### 了解 MobileLine
 
-```
-TACApplicationOptions currentOptions = TACApplication.options( );
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
-```
+### 向应用中添加 MobileLine 功能
 
-### debug 模式
-
-如果你想打开 debug 模式，查看应用云的日志，可以通过以下命令开启：
-
-```
-adb shell setprop log.tag.tac DEBUG
-```
-
-## 可用的库
-
-以下库分别对应各种应用云的功能。
-
-| gradle | 服务名称 | 功能 |
-|:----|:-----------|:-----------|
-|  com.tencent.tac:tac-core:1.0.0   |  analytics | 分析 |
-|  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 推送 |
-|  com.tencent.tac:tac-crash:1.0.0   |  crash     | Crash |
-|  com.tencent.tac:tac-storage:1.0.0   |  storage   | Cloud Storage |
-|  com.tencent.tac:tac-social:1.0.0   |  social | 登录 |
-|  com.tencent.tac:tac-payment:1.0.0   |  payment | 支付 |
+- 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
+- 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
+- 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
+- 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
+1.1.0

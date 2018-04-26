@@ -1,3 +1,44 @@
+## v1.1.17
+[C++\Cocos2D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Cocos.zip)
+
+[Unity3D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Unity3D.zip)
+
+[Android SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Android.zip)
+
+[iOS SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_iOS.zip)
+
+[iOS(bitcode) SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_iOS_bitcode.zip)
+
+[Win64 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_winx64_1_1_17_168537_20180224.zip)
+
+[Win32 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_win_1_1_17_168537_20180224.zip)
+
+[UE4 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_UE4.zip)
+
+1. OC 接口修复设置音效功能。
+2. 修复部分数据上报异常（openID+url）为空。
+3. OC 增加 setvoiceeffict 接口。
+
+## v1.1.17.beta
+[C++\Cocos2D SDK 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_Cocos.zip)
+
+[Unity3D SDK 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_Unity3D.zip)
+
+[Android SDK 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_Android.zip)
+
+[iOS SDK 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_iOS.zip)
+
+[iOS(bitcode) SDK 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_iOS_bitcode.zip)
+
+[Win64 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_winx64_1_1_17_168230_20180207.zip)
+
+[Win32 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_win_1_1_17_168230_20180207.zip)
+
+[UE4 1.1.17.beta 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.beta/gcloud_voice_1_1_17_168230_20180206_UE4.zip)
+
+1. 增强抗丢包和网络抖动能力，提升上下行语音数据的可靠性。
+2. 此版本为公测版本，请根据需求选择接入。
+
 ## v1.1.16
 [C++\Cocos2D SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Cocos.zip) 
 
@@ -5,9 +46,9 @@
 
 [Android SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Android.zip) 
 
-[IOS SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS.zip) 
+[iOS SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS.zip) 
 
-[IOS(bitcode) SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS_bitcode.zip) 
+[iOS(bitcode) SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS_bitcode.zip) 
 
 [Win64 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_winx64_1_1_16_166568_20180112.zip) 
 
@@ -25,9 +66,9 @@
 
 [Android SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Android.zip)
 
-[IOS SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS.zip)
+[iOS SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS_bitcode.zip)
+[iOS(bitcode) SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS_bitcode.zip)
 
 [Win64 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_winx64_1_1_15_164628_20171214.zip)
 
@@ -49,16 +90,16 @@
 
 [Android SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Android.zip)
 
-[IOS SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
+[iOS SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
+[iOS(bitcode) SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
 
 [Win64 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
 
 [Win32 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
 
-  1. 噪音优化  
-  2. 回声优化  
+    1. 噪音优化  
+    2. 回声优化  
 
 
 ## v1.1.12 （2017-10-18）   
@@ -68,20 +109,20 @@
 
 [Android SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Android.zip)
 
-[IOS SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS.zip)
+[iOS SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
+[iOS(bitcode) SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
 
 [Win64 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
 
 [Win32 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
-       
+​       
 
 1. 语音增强扛丢包和网络抖动的能力  
 2. 语音消息最长时间从 3 分钟提升至 5 分钟  
 3. 支持每个用户（按 OpenID 区别）保存一条永久语音消息  
- 
- 
+
+
 ## v1.1.11（2017-9-13）  
 1. 支持识别男、女声音  
 2. 支持变声  
@@ -100,7 +141,7 @@
 
 [Android SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/ae191d585529ba38d16f921f37cf8917/gcloud_voice_1_1_8_151417_20170704_Android.zip)
 
-[IOS SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/5e719fa75cc4ae9150e31a5990f29c0b/gcloud_voice_1_1_8_151417_20170704_iOS.zip)
+[iOS SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/5e719fa75cc4ae9150e31a5990f29c0b/gcloud_voice_1_1_8_151417_20170704_iOS.zip)
 
 [Win64 1.1.8 版本](https://mc.qcloudimg.com/static/archive/01ea9bec7ba32948b16c00caeae14e5b/gcloud_voice_winx64_1_1_8_150892_20170622.zip)
 
@@ -110,5 +151,4 @@
 2. 新增高质量语音模式，语音更清晰，同时会增加流量消耗，专门应用于狼人杀等以语音为核心玩法的游戏。  
 3. 在调用 SetMode() 的时候，传入 HIGHQUALITY 枚举值即可使用高质量语音模式  
 4. iOS 平台的 SDK，由 C++ 变为 Objective-C  
-5. 由于关闭了 ios bitcode 选项，SDK 包变小是正常现象 
-
+5. 由于关闭了 iOS bitcode 选项，SDK 包变小是正常现象 

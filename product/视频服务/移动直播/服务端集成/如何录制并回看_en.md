@@ -97,4 +97,4 @@ Therefore, the time information sent from App client is very important. If you w
 
 
 ### 4. How to stitch fragments?
-Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](https://www.cloud.tencent.com/document/product/266/7821).
+Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](/document/product/266/7821).

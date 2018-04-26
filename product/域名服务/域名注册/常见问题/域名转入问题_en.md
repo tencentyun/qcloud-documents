@@ -39,7 +39,7 @@ For more information on the steps of domain name transfer, please see [Domain Na
 The following five conditions must be met before domain name is transferred to Tencent Cloud. If any condition is not met, you need to perform corresponding operation to amend the condition before requesting for domain name transfer:
 (1) The service provider of domain name must be Tencent Cloud. 
 (2) Domain name should have registered for 60 days, and there must be 60 days (15 days for ".cn" domain names) or more before domain name expires. 
-(3) If you have renewed your domain name at the original registrar after expiration, it is suggested that you should wait for 45 days after the renewal before transferring the domain name to Tencent Cloud. Otherwise you will not be able to renew the domain name for another year upon transfer according to regulations or the registry.
+(3) If you have renewed your domain name at the original registrar after expiration, it is suggested that you should wait for 60 days after the renewal before transferring the domain name to Tencent Cloud. Otherwise you will not be able to renew the domain name for another year upon transfer according to regulations or the registry.
 (4) Domain name is under normal status and is not involved in any dispute or arrears. 
 (5) Domain name is not being processed by judiciaries, arbitration institutions or domain name dispute resolution agencies. 
 

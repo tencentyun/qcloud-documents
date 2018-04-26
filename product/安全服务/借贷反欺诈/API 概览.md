@@ -10,7 +10,7 @@
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 页面。其中，此接口的 Action 字段为 AntiFraud。
 
-注意：
+>**注意：**
 >以下每一个参数对于识别恶意用户和行为都非常重要，缺少任何参数都有可能影响识别效果 。
 
 <table>
@@ -121,6 +121,23 @@ idfa</td>
 <td>String</td>
 <td>业务 ID，在多个业务中使用此服务，通过此 ID 区分统计数据</td>
 </tr>
+<tr>
+<td> idCryptoType</td>
+<td> Uint</td>
+<td> 身份证加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+</td>
+</tr>
+<tr>
+<td> phoneCryptoType</td>
+<td> Uint</td>
+<td> 手机号加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256</td>
+</tr>
+<tr>
+<td> nameCryptoType</td>
+<td> Uint</td>
+<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+</td>
+</tr>
 </table>
 
 ## 响应参数
@@ -135,7 +152,7 @@ idfa</td>
 | message | String | 模块错误信息描述，与接口相关。 |
 | idfound | Int | 表示该条记录中的身份证能否查到</br>1：能查到</br>-1：查不到 |
 | found | Int | 表示该条记录能否查到</br>1：能查到</br>-1：查不到 |
-| riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大</br>-1：查询不到数据 |
+| riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大 |
 | riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 为 0 ：无此字段 |
 
 RiskDetail 类型说明
@@ -149,7 +166,7 @@ RiskDetail 类型说明
 
 - 风险码
 
-  风险码及其说明请参见 [风险码](http://sdssdsd) 页面。
+  风险码及其说明请参见 [风险码](https://cloud.tencent.com/document/product/668/14278) 页面。
 
 ## 请求示例
 

@@ -2,12 +2,12 @@
 
 After your application is approved, the CKafka instance is displayed in the CKafka console. Click the instance to view its details, including region, private network vip and port.
 
-![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
-![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
+![](https://mc.qcloudimg.com/static/img/d4876666b80726d2ac75295fb3f038fb/10112-01.jpg)
+![](https://mc.qcloudimg.com/static/img/18bf42c30b42e07f58754727a8638a1d/10112-02.jpg)
 
 In the topic management page, you can create a topic, and specify the number of partitions and replicas for the topic.
 > Note: The current topic name cannot be changed after input. In addition, when you have specified the number of partitions, you can only add partitions. Number of replicas cannot be changed once being specified. 
-![](https://mc.qcloudimg.com/static/img/677df5a8c57fc9482867ea4e5ff9f77f/3.png)
+![](https://mc.qcloudimg.com/static/img/23e2f2ecaa07d30eee635519e0016bb8/10112-03.jpg)
 After the topic and partitions are created, you can perform the production and consumption operations on this instance via the Kafka client on CVM.
 
 ### 2. Download the Kafka toolkit locally
@@ -95,15 +95,15 @@ After the configuration, run the command that specifies the consumer group as sh
 ```
 
 Check the CKafka monitor.
-![](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
+![](https://mc.qcloudimg.com/static/img/5a3a256254da7d3ce2da952c5fe51610/10112-04.jpg)
 
 ### 3. Other features
 #### 3.1 Enable the whitelist
 CKafka supports enabling IP whitelist for a topic to ensure the data security.
 You can enable the IP whitelist in both "New Topic" and "Edit Topic" pages.
-![](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
+![](https://mc.qcloudimg.com/static/img/dc4a5103ae5c98ec634c815fe19ca285/10112-05.jpg)
 
 #### 3.2 Set message retention time
 CKafka supports setting the message retention time (in minutes). The minimum is 1 minute, and the maximum is 30 days.
-![](https://mc.qcloudimg.com/static/img/a9c9c921134c4a3a987f03b0f2d2f57e/8.png)
+![](https://mc.qcloudimg.com/static/img/5330fa26e6a2e332db2c0e227b5af88d/10112-06.jpg)
 

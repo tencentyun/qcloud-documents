@@ -7,29 +7,25 @@
 
 **注：**
 - iot_service 模块依赖 iot_core 模块。
-- SDK 依赖开源社区实现的 mqtt 协议**eclipse.paho**，因此需在 App 的 build.gradle 中增加 eclipse.paho 的编译依赖：
-
-```
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0"
-}
-```
+- iot_core 依赖开源社区实现的 mqtt 协议**eclipse.paho**。
 
 ## SDK API说明
 
 ###  MQTT接口 - TXMqttConnection
 
-| 序号  | 方法名                | 说明                                |
-| ---- | -------------------- | -----------------------------------|
-| 1    | connect              |  MQTT 连接                          |
-| 2    | reconnect            |  MQTT 重连                          |
-| 3    | disConnect           |  断开 MQTT连接                       |
-| 4    | publish              |  发布 MQTT 消息                      |
-| 5    | subscribe            |  订阅 MQTT 主题                      |
-| 6    | unSubscribe          |  取消订阅 MQTT 主题                   |
-| 7    | getConnectStatus     |  获取 MQTT 连接状态                   |
-| 8    | setBufferOpts        |  设置断连状态buffer缓冲区              |
+| 序号  | 方法名                        | 说明                                |
+| ---- | ---------------------------- | -----------------------------------|
+| 1    | connect                      |  MQTT 连接                          |
+| 2    | reconnect                    |  MQTT 重连                          |
+| 3    | disConnect                   |  断开 MQTT连接                       |
+| 4    | publish                      |  发布 MQTT 消息                      |
+| 5    | subscribe                    |  订阅 MQTT 主题                      |
+| 6    | unSubscribe                  |  取消订阅 MQTT 主题                   |
+| 7    | getConnectStatus             |  获取 MQTT 连接状态                   |
+| 8    | setBufferOpts                |  设置断连状态buffer缓冲区              |
+| 9    | initOTA                      |  初始化OTA功能                        |
+| 10   | reportCurrentFirmwareVersion |  上报设备当前版本信息到后台服务器        |
+| 11   | reportOTAState               |  上报设备升级状态到后台服务器            |
 
 ###  设备影子接口 - TXShadowConnection
 
@@ -82,3 +78,11 @@ dependencies {
 | 13   | reportNullDesiredInfo              | 更新 delta 信息后，上报空的 desired 信息  |
 | 14   | setBufferOpts                      | 设置断连状态 buffer 缓冲区               |
 | 15   | clear                              | 释放资源                               |
+
+### MQTT通道固件升级 - TXMqttClient
+
+| 序号  | 方法名                              | 说明                             |
+| ---- | -----------------------------------| -------------------------------- |
+| 1   | initOTA                            |  初始化 OTA 功能                     |
+| 2   | reportCurrentFirmwareVersion       |  上报设备当前版本信息到后台服务器     |
+| 3   | reportOTAState                     |  上报设备升级状态到后台服务器         |

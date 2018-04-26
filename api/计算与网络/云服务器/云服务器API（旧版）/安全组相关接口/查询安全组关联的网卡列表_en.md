@@ -1,9 +1,9 @@
 ## 1. API Description
  
-This API (DescribeNetworkInterfacesOfSecurityGroup) is used to query ENIs associated with specified security groups.
+This API (DescribeNetworkInterfacesOfSecurityGroup) is used to query ENI associated with specified security groups.
 Domain name for API request: dfw.api.qcloud.com
-1) An ENI can be associated with multiple security groups. The query results for different security groups may include duplicate ENI instance IDs.
-2) The ENI list is returned in a list format. The list members are ENI instance IDs.
+(1) An ENI can be associated with multiple security groups. The query results for different security groups may include duplicate ENI instance IDs.
+(2) The ENI list is returned in a list format. The list members are ENI instance IDs.
 
 ## 2. Input Parameters
 <table class="t"><tbody><tr>
@@ -19,24 +19,24 @@ Domain name for API request: dfw.api.qcloud.com
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Error code, 0: succeeded, other values: failed |
+| code | Int | Error code. 0: Successful; other values: Failed |
 | message | String | Error message |
-| totalCount | Int |Total number of associated ENI instances|
-| networkInterfaceSet | Array | Data structure of ENI list|
+| totalCount | Int | Total number of associated ENIs |
+| networkInterfaceSet | Array | Data structure of ENI list |
 
-ENI list structure:
+`networkInterfaceSet` structure:
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> networkInterfaceId <td> String <td> ENI ID, e.g., eni-3056glfn
+<td> networkInterfaceId <td> String <td> ENI ID, such as eni-3056glfn
 </tbody></table>
 
 ## 4. Error Codes
  <table class="t"><tbody><tr>
-<th><b>Error Code</b></th>
-<th><b>Description</b></th>
+<th><b>Error Code Value</b></th>
+<th><b>Reason</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
@@ -72,4 +72,5 @@ Output
 }
 
 ```
+
 

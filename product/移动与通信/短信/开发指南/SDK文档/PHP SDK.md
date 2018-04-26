@@ -9,7 +9,7 @@
 > SDK AppID 是以 14xxxxx 开头。
 
 **2. 申请签名：**
-下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短息签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
+下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
 
 **3. 申请模板：**
 下发短信内容必须经过审核，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信模板，详细申请操作参考 [创建正文模板](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88)。
@@ -62,7 +62,7 @@ try {
 ```
 > **注意：**
 > - 发送短信没有指定模板ID时，发送的内容需要与已审核通过的模板内容相匹配，才可能下发成功，否则返回失败。
-> - 如需发送海外短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
+> - 如需发送国际短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
 
 - **指定模板 ID 单发短信**
 ```php

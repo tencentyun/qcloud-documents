@@ -17,9 +17,9 @@
 		},
 		{
 			"name": "bucket",
-			"description": "bucket操作",
+			"description": "Bucket操作",
 			"externalDocs": {
-				"description": "了解更多关于对象存储bucket",
+				"description": "了解更多关于对象存储Bucket",
 				"url": "https://cloud.tencent.com/document/product/436"
 			}
 		}
@@ -27,7 +27,7 @@
 	"servers": [
 		{
 			"url": "http://{bucket}.cos.{region}.myqcloud.com",
-			"description": "由bucket以及地域信息region组成请求的地址",
+			"description": "由Bucket以及地域信息region组成请求的地址",
 			"variables": {
 				"region": {
 					"enum": [
@@ -63,7 +63,7 @@
 				"responses": {
 				  "200": {
 					"error_code" : "None",
-					"description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
+					"description": "查询成功，返回 application/xml 数据，包含Bucket中的对象信息",
 					"headers": {
 					  "x-cos-request-id": {
 						"description": "全局唯一的请求标识号",
@@ -179,7 +179,7 @@
 				"responses": {
 					"200": {
 						"error_code": "None",
-						"description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
+						"description": "查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息",
 						"headers": {
 							"x-cos-request-id": {
 								"description": "全局唯一的请求标识号",
@@ -286,7 +286,7 @@
 				"responses": {
 					"200": {
 						"error_code": "None",
-						"description": "新建Bucket成功，返回 application/xml 数据，包含bucket中的对象信息",
+						"description": "新建Bucket成功，返回 application/xml 数据，包含Bucket中的对象信息",
 						"headers": {
 							"x-cos-request-id": {
 								"description": "全局唯一的请求标识号",
@@ -298,7 +298,7 @@
 					},
 					"400-0": {
 						"error_code": "TooManyBucket",
-						"description": "bucket数量超过200限制",
+						"description": "Bucket数量超过200限制",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -630,7 +630,7 @@
 					"object"
 				],
 				"summary": "Put Object",
-				"description": "Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限.",
+				"description": "Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。",
 				"operationId": "PutObject",
 				"requestBody": {
 					"description": "请求的请求体为 Object 文件内容",
@@ -639,7 +639,7 @@
 						"*/*": {
 							"schema": {
 								"type": "string",
-								"description": "object内容"
+								"description": "Object内容"
 							}
 						}
 					}
@@ -708,7 +708,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-meta-*",
-						"description": "允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K",
+						"description": "允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2KB",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -884,7 +884,7 @@
 					"object"
 				],
 				"summary": "Put Object Copy",
-				"description": "Put Object Copy 请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy.在拷贝的过程中，文件元属性和 ACL 可以被修改.\n用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本",
+				"description": "Put Object Copy 请求实现将一个文件从源路径复制到目标路径。建议文件大小 1MB 到 5GB，超过 5GB 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 ACL 可以被修改。\n用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。",
 				"operationId": "PutObjectCopy",
 				"parameters": [
 					{
@@ -900,7 +900,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-metadata-directive",
-						"description": "是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced",
+						"description": "是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced。",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -910,7 +910,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Modified-Since",
-						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -920,7 +920,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Unmodified-Since",
-						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -930,7 +930,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Match",
-						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -940,7 +940,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-None-Match",
-						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1073,7 +1073,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-range",
-						"description": "源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量.\n例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件",
+						"description": "源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。\n例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1083,7 +1083,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Modified-Since",
-						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1093,7 +1093,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Unmodified-Since",
-						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1103,7 +1103,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-Match",
-						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1113,7 +1113,7 @@
 					{
 						"in": "header",
 						"name": "x-cos-copy-source-If-None-Match",
-						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突.",
+						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1167,7 +1167,7 @@
 						"required": false,
 						"schema": {
 							"type": "string",
-							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"。"
 						}
 					},
 					{
@@ -1184,7 +1184,7 @@
 				"responses": {
 					"200": {
 						"error_code": "None",
-						"description": "拷贝成功,返回响应体",
+						"description": "拷贝成功,返回响应体。",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -1200,7 +1200,7 @@
 					"object"
 				],
 				"summary": "Get Object",
-				"description": "Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 READ 权限.",
+				"description": "Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 READ 权限。",
 				"operationId": "GetObject",
 				"parameters": [
 					{
@@ -1326,7 +1326,7 @@
 								}
 							},
 							"x-cos-object-type": {
-								"description": "用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable",
+								"description": "用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable",
 								"schema": {
 									"type": "string"
 								}
@@ -1387,7 +1387,7 @@
 					"object"
 				],
 				"summary": "Options Object",
-				"description": "Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden.可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持.",
+				"description": "Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden。可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持。",
 				"operationId": "OptionsObject",
 				"parameters": [
 					{
@@ -1471,7 +1471,7 @@
 					"object"
 				],
 				"summary": "Head Object",
-				"description": "Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致.",
+				"description": "Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致。",
 				"operationId": "HeadObject",
 				"parameters": [
 					{
@@ -1573,7 +1573,7 @@
 					"object"
 				],
 				"summary": "Append Object",
-				"description": "Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 Get Object 或 Head Object 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。\n追加上传的对象每个分块最小为4K， 建议大小1M - 5 G。 如果 Position 的值和当前对象的长度不致， COS 会返回409 错误。 如果追加一个 normal 属性的文件， COS 会返回409 ObjectNotAppendable。 ",
+				"description": "Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 Get Object 或 Head Object 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。\n追加上传的对象每个分块最小为4K， 建议大小1M - 5G。 如果 Position 的值和当前对象的长度不致， COS 会返回409 错误。 如果追加一个 normal 属性的文件， COS 会返回409 ObjectNotAppendable。 ",
 				"operationId": "AppendObject",
 				"requestBody": {
 					"description": "请求的请求体为追加的Object 文件内容",
@@ -1822,7 +1822,7 @@
 				{
 					"name": "UploadId",
 					"in": "query",
-					"description": "标识本次分块上传的 ID.使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置.",
+					"description": "标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。",
 					"required": true,
 					"schema": {
 						"type": "string"
@@ -1836,7 +1836,7 @@
 				],
 				"summary": "ListParts",
 				"description": "List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。",
-				"operationId": "GetObject",
+				"operationId": "ListParts",
 				"parameters": [
 					{
 						"in": "query",
@@ -1910,7 +1910,7 @@
 					"object"
 				],
 				"summary": "PostObjectRestore",
-				"description": "POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间.您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在.",
+				"description": "POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在。",
 				"operationId": "PostObjectRestore",
 				"requestBody": {
 					"description": "该请求操作的实现需要有请求体",
@@ -2183,7 +2183,7 @@
 					"bucket tagging"
 				],
 				"summary": "Put Bucket Tagging",
-				"description": "COS支持为已存在的bucket设置标签(tag)",
+				"description": "COS 支持为已存在的 Bucket 设置标签(Tag)",
 				"operationId": "PutBucketTagging",
 				"requestBody": {
 					"description": "要设置的标签集合",
@@ -2250,7 +2250,7 @@
 					},
 					"400-1": {
 						"error_code": "BadRequest",
-						"description": "如超过了允许一个bucket最大设置的tag数量, 目前最大支持10",
+						"description": "如超过了允许一个 Bucket 最大设置的 Tag 数量, 目前最大支持10",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2261,7 +2261,7 @@
 					},
 					"400-2": {
 						"error_code": "InvalidTag",
-						"description": "tag 的key和value中包含了保留字符串 cos: ",
+						"description": "Tag 的 key 和 value 中包含了保留字符串 cos: ",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2272,7 +2272,7 @@
 					},
 					"400-3": {
 						"error_code": "InvalidTag",
-						"description": "tag 的key长度超过了128个字符或者value超过了256个字符",
+						"description": "Tag 的 key 长度超过了128个字符或者 value 超过了256个字符",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2283,7 +2283,7 @@
 					},
 					"400-4": {
 						"error_code": "InvalidTag",
-						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2294,7 +2294,7 @@
 					},
 					"400-5": {
 						"error_code": "InvalidTag",
-						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2311,7 +2311,7 @@
 					"bucket tagging"
 				],
 				"summary": "Get Bucket Tagging",
-				"description": "Get Bucket Tagging 用来查询 Bucket的标签集合。",
+				"description": "Get Bucket Tagging 用来查询 Bucket 的标签集合。",
 				"operationId": "GetBucketTagging",
 				"responses": {
 					"200": {
@@ -2367,7 +2367,7 @@
 					"bucket tagging"
 				],
 				"summary": "Delete Bucket Tagging",
-				"description": "删除Bucket的tag",
+				"description": "删除 Bucket 的 Tag",
 				"operationId": "DeleteBucketTagging",
 				"responses": {
 					"204": {
@@ -2395,7 +2395,7 @@
 					"object tagging"
 				],
 				"summary": "Put Object Tagging",
-				"description": "为object设置标签(tag)",
+				"description": "为 Object 设置标签(Tag)",
 				"operationId": "PutObjectTagging",
 				"requestBody": {
 					"description": "要设置的标签集合",
@@ -2450,7 +2450,7 @@
 					},
 					"404-0": {
 						"error_code": "NoSuchBucket",
-						"description": "object所在的 Bucket 不存在，返回该错误码",
+						"description": "Object 所在的 Bucket 不存在，返回该错误码",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2461,7 +2461,7 @@
 					},
 					"404-1": {
 						"error_code": "NoSuchKey",
-						"description": "object 不存在，返回该错误码",
+						"description": "Object 不存在，返回该错误码",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2483,7 +2483,7 @@
 					},
 					"400-1": {
 						"error_code": "BadRequest",
-						"description": "如超过了允许一个object最大设置的tag数量, 目前最大支持10",
+						"description": "如超过了允许一个 Object 最大设置的 Tag 数量, 目前最大支持10",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2494,7 +2494,7 @@
 					},
 					"400-2": {
 						"error_code": "InvalidTag",
-						"description": "tag 的key和value中包含了保留字符串 cos: ",
+						"description": "Tag 的 key 和 value 中包含了保留字符串 cos: ",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2505,7 +2505,7 @@
 					},
 					"400-3": {
 						"error_code": "InvalidTag",
-						"description": "tag 的key长度超过了128个字符或者value超过了256个字符",
+						"description": "Tag 的 key 长度超过了128个字符或者 value 超过了256个字符",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2516,7 +2516,7 @@
 					},
 					"400-4": {
 						"error_code": "InvalidTag",
-						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"description": "Tag的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2527,7 +2527,7 @@
 					},
 					"400-5": {
 						"error_code": "InvalidTag",
-						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2547,7 +2547,7 @@
 					{
 						"name": "ObjectName",
 						"in": "path",
-						"description": "要获取tag的文件路径",
+						"description": "要获取 Tag 的文件路径",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -2556,12 +2556,12 @@
 					}
 				],
 				"summary": "Get Object Tagging",
-				"description": "Get Object Tagging 用来查询 Object的标签集合。",
+				"description": "Get Object Tagging 用来查询 Object 的标签集合。",
 				"operationId": "GetObjectTagging",
 				"responses": {
 					"200": {
 						"error_code": "None",
-						"description": "获取tag成功",
+						"description": "获取 Tag 成功",
 						"content": {
 							"application/xml": {
 								"schema": {
@@ -2615,7 +2615,7 @@
 					{
 						"name": "ObjectName",
 						"in": "path",
-						"description": "要获取tag的文件路径",
+						"description": "要获取 Tag 的文件路径",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -2624,7 +2624,7 @@
 					}
 				],
 				"summary": "Delete Object Tagging",
-				"description": "删除Object的tag",
+				"description": "删除 Object 的 Tag",
 				"operationId": "DeleteObjectTagging",
 				"responses": {
 					"204": {
@@ -3003,173 +3003,185 @@
 				"type": "object",
 				"description": "保存 Get Bucket 请求结果的所有信息",
 				"properties": {
-					"Name": {
-						"type": "string",
-						"description": "说明 Bucket 的信息"
-					},
-					"Encoding-Type": {
-						"type": "string",
-						"description": "编码格式"
-					},
-					"Prefix": {
-						"type": "string",
-						"description": "前缀匹配，用来规定响应请求返回的文件前缀地址"
-					},
-					"Marker": {
-						"type": "string",
-						"description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
-					},
-					"MaxKeys": {
-						"type": "string",
-						"description": "单次响应请求内返回结果的最大的条目数量"
-					},
-					"IsTruncated": {
-						"type": "boolean",
-						"description": "响应请求条目是否被截断，布尔值：true，false"
-					},
-					"NextMarker": {
-						"type": "string",
-						"description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
-					},
-					"Contents": {
-						"type": "object",
-						"description": "元数据信息",
-						"properties": {
-							"Key": {
-								"type": "string",
-								"description": "Object 的 Key"
-							},
-							"LastModified": {
-								"type": "string",
-								"description": "说明 Object 最后被修改时间"
-							},
-							"ETag": {
-								"type": "string",
-								"description": "文件的 MD-5 算法校验值"
-							},
-							"Size": {
-								"type": "string",
-								"description": "说明文件大小，单位是 Byte"
-							},
-							"Owner": {
-								"type": "object",
-								"description": "Bucket 持有者信息",
-								"properties": {
-									"ID": {
-										"type": "string",
-										"description": "Bucket 的 AppID"
-									}
-								}
-							},
-							"StorageClass": {
-								"type": "string",
-								"description": "Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
-							}
-						}
-					},
-					"CommonPrefixes": {
-						"type": "object",
-						"description": "将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix",
-						"properties": {
-							"Prefix": {
-								"type": "string",
-								"description": "单条 Common 的前缀"
-							}
-						}
-					}
+                    "ListBucketResult": {
+                        "type": "object",
+                        "description": "保存 Get Bucket 请求结果的所有信息",
+                        "properties": {
+                            "Name": {
+                                "type": "string",
+                                "description": "说明 Bucket 的信息"
+                            },
+                            "Encoding-Type": {
+                                "type": "string",
+                                "description": "编码格式"
+                            },
+                            "Prefix": {
+                                "type": "string",
+                                "description": "前缀匹配，用来规定响应请求返回的文件前缀地址"
+                            },
+                            "Marker": {
+                                "type": "string",
+                                "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+                            },
+                            "MaxKeys": {
+                                "type": "string",
+                                "description": "单次响应请求内返回结果的最大的条目数量"
+                            },
+                            "IsTruncated": {
+                                "type": "boolean",
+                                "description": "响应请求条目是否被截断，布尔值：true，false"
+                            },
+                            "NextMarker": {
+                                "type": "string",
+                                "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+                            },
+                            "Contents": {
+                                "type": "object",
+                                "description": "元数据信息",
+                                "properties": {
+                                    "Key": {
+                                        "type": "string",
+                                        "description": "Object 的 Key"
+                                    },
+                                    "LastModified": {
+                                        "type": "string",
+                                        "description": "说明 Object 最后被修改时间"
+                                    },
+                                    "ETag": {
+                                        "type": "string",
+                                        "description": "文件的 MD-5 算法校验值"
+                                    },
+                                    "Size": {
+                                        "type": "string",
+                                        "description": "说明文件大小，单位是 Byte"
+                                    },
+                                    "Owner": {
+                                        "type": "object",
+                                        "description": "Bucket 持有者信息",
+                                        "properties": {
+                                            "ID": {
+                                                "type": "string",
+                                                "description": "Bucket 的 AppID"
+                                            }
+                                        }
+                                    },
+                                    "StorageClass": {
+                                        "type": "string",
+                                        "description": "Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+                                    }
+                                }
+                            },
+                            "CommonPrefixes": {
+                                "type": "object",
+                                "description": "将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix",
+                                "properties": {
+                                    "Prefix": {
+                                        "type": "string",
+                                        "description": "单条 Common 的前缀"
+                                    }
+                                }
+                            }
+                        }
+                    }
 				}
 			},
 			"ListPartsResult": {
 				"type": "object",
 				"description": "保存 List Parts 请求结果的所有信息",
 				"properties": {
-					"Bucket": {
-						"type": "string",
-						"description": "分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000"
-					},
-					"Encoding-Type": {
-						"type": "string",
-						"description": "编码格式"
-					},
-					"Key": {
-						"type": "string",
-						"description": "Object的名字"
-					},
-					"UploadId": {
-						"type": "string",
-						"description": "标识本次分块上传的 ID"
-					},
-					"Initiator": {
-						"type": "object",
-						"description": "用来表示这些分块所有者的信息",
-						"properties": {
-							"ID": {
-								"type": "string",
-								"description": "创建者的一个唯一标识"
-							},
-							"DisplayName": {
-								"type": "string",
-								"description": "创建者的用户名描述"
-							}
-						}
-					},
-					"Owner": {
-						"type": "object",
-						"description": "用来表示这些分块所有者的信息",
-						"properties": {
-							"ID": {
-								"type": "string",
-								"description": "创建者的一个唯一标识"
-							},
-							"DisplayName": {
-								"type": "string",
-								"description": "创建者的用户名描述"
-							}
-						}
-					},
-					"StorageClass": {
-						"type": "string",
-						"description": "用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
-					},
-					"PartNumberMarker": {
-						"type": "string",
-						"description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
-					},
-					"NextPartNumberMarker": {
-						"type": "string",
-						"description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
-					},
-					"MaxParts": {
-						"type": "string",
-						"description": "单次返回最大的条目数量"
-					},
-					"IsTruncated": {
-						"type": "boolean",
-						"description": "响应请求条目是否被截断，布尔值：true，false"
-					},
-					"Part": {
-						"type": "object",
-						"description": "元数据信息",
-						"properties": {
-							"PartNumber": {
-								"type": "string",
-								"description": "块的编号"
-							},
-							"LastModified": {
-								"type": "string",
-								"description": "说明块最后被修改时间"
-							},
-							"ETag": {
-								"type": "string",
-								"description": "块的 MD-5 算法校验值"
-							},
-							"Size": {
-								"type": "string",
-								"description": "说明块大小，单位是 Byte"
-							}
-						}
-					}
-				}
+                    "ListPartsResult": {
+                        "type": "object",
+                        "description": "保存 List Parts 请求结果的所有信息",
+                        "properties": {
+                            "Bucket": {
+                                "type": "string",
+                                "description": "分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000"
+                            },
+                            "Encoding-Type": {
+                                "type": "string",
+                                "description": "编码格式"
+                            },
+                            "Key": {
+                                "type": "string",
+                                "description": "Object的名字"
+                            },
+                            "UploadId": {
+                                "type": "string",
+                                "description": "标识本次分块上传的 ID"
+                            },
+                            "Initiator": {
+                                "type": "object",
+                                "description": "用来表示这些分块所有者的信息",
+                                "properties": {
+                                    "ID": {
+                                        "type": "string",
+                                        "description": "创建者的一个唯一标识"
+                                    },
+                                    "DisplayName": {
+                                        "type": "string",
+                                        "description": "创建者的用户名描述"
+                                    }
+                                }
+                            },
+                            "Owner": {
+                                "type": "object",
+                                "description": "用来表示这些分块所有者的信息",
+                                "properties": {
+                                    "ID": {
+                                        "type": "string",
+                                        "description": "创建者的一个唯一标识"
+                                    },
+                                    "DisplayName": {
+                                        "type": "string",
+                                        "description": "创建者的用户名描述"
+                                    }
+                                }
+                            },
+                            "StorageClass": {
+                                "type": "string",
+                                "description": "用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+                            },
+                            "PartNumberMarker": {
+                                "type": "string",
+                                "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+                            },
+                            "NextPartNumberMarker": {
+                                "type": "string",
+                                "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+                            },
+                            "MaxParts": {
+                                "type": "string",
+                                "description": "单次返回最大的条目数量"
+                            },
+                            "IsTruncated": {
+                                "type": "boolean",
+                                "description": "响应请求条目是否被截断，布尔值：true，false"
+                            },
+                            "Part": {
+                                "type": "object",
+                                "description": "元数据信息",
+                                "properties": {
+                                    "PartNumber": {
+                                        "type": "string",
+                                        "description": "块的编号"
+                                    },
+                                    "LastModified": {
+                                        "type": "string",
+                                        "description": "说明块最后被修改时间"
+                                    },
+                                    "ETag": {
+                                        "type": "string",
+                                        "description": "块的 MD-5 算法校验值"
+                                    },
+                                    "Size": {
+                                        "type": "string",
+                                        "description": "说明块大小，单位是 Byte"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 			},
 			"BucketCorsRequest": {
 				"type": "object",
