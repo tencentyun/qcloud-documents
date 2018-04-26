@@ -1,7 +1,7 @@
 
 ## 业务部署在非腾讯云
 BGP 高防 IP 使用流程如下图所示：
-![0](https://main.qcloudimg.com/raw/92c2461462938113c5ad49f94120ed5b.png)
+![](https://main.qcloudimg.com/raw/ca8742c013fa149e542416d786c8314e.png)
 
 ### 登录控制台
 
