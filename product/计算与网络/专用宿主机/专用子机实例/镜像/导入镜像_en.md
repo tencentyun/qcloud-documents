@@ -8,7 +8,7 @@ The local Linux images to be imported must meet following requirements:
 
 | Image Property   | Requirement                                       |
 | ------ | ---------------------------------------- |
-| Operating system   | Images based on CentOS, Redhat, Ubuntu, Debian, CoreOS, OpenSUSE or SUSE release versions. <br>Both 32-bit and 64-bit images are supported |
+| Operating system   | Images based on CentOS, Ubuntu, Debian, CoreOS, OpenSUSE or SUSE release versions. <br>Both 32-bit and 64-bit images are supported |
 | Image file format   | raw. vhd, qcow2 or vmdk                       |
 | File system type | ext3 or ext4 file system with MBR partition (GPT partition is not supported)        |
 | System disk size  | Smaller than 50 GB. You can only import the images of system disks rather than that of data disks               |

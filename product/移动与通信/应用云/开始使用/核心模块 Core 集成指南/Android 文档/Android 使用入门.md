@@ -31,12 +31,12 @@
 
 |功能|服务名称|Gradle 依赖项|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.0.1|
-|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.0.1|
-|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.0.1|
-|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.0.1|
-|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.0.1|
-|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.0.1|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
 
 
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.0.1' 
-	compile 'com.tencent.tac:tac-messaging:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
 
@@ -65,9 +65,9 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.0.1' 
-	compile 'com.tencent.tac:tac-messaging:1.0.1'
-	compile 'com.tencent.tac:tac-crash:1.0.1'
+	compile 'com.tencent.tac:tac-core:1.1.0' 
+	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-crash:1.1.0'
 }
 ```
 > 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
@@ -87,11 +87,11 @@ dependencies {
 
 ## 后续步骤
 
-### 了解 MobileLine：
+### 了解 MobileLine
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudTACSample)
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
-### 向您的应用添加 MobileLine 功能：
+### 向应用中添加 MobileLine 功能
 
 - 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
 - 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
@@ -99,3 +99,4 @@ dependencies {
 - 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
 - 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
 - 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
+1.1.0

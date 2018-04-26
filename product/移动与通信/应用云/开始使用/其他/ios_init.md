@@ -66,6 +66,10 @@ MobileLine移动开发平台的 服务使用 CocoaPods 安装和管理依赖项�
   ${PODS_ROOT}/TACCore/Scripts/tac.run.all.after.sh
   ~~~
 
+##### 手动集成说明
+
+SDK 可以手动下载集成：[tac.zip](https://ios-release-1253960454.file.myqcloud.com/tac.zip)
+
 # 添加初始化代码
 
 
