@@ -151,7 +151,7 @@ Objective-C 代码示例：
 // File located on disk
 NSURL *localFile = [NSURL URLWithString:@"path/to/image"];
 // Create a reference to the file you want to upload
-FIRStorageReference *riversRef = [storageRef child:@"images/rivers.jpg"];
+TACStorageReference *riversRef = [storageRef child:@"images/rivers.jpg"];
 // Upload the file to the path "images/rivers.jpg"
 TACStorageReference *uploadTask = [riversRef putFile:localFile metadata:nil completion:^(TACStorageMetadata *metadata, NSError *error) {
   if (error != nil) {
