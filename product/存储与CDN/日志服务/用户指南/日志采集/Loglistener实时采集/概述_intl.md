@@ -14,11 +14,11 @@ Step 3: Associate the server group in the log topic, and complete the related co
 
 Refer to the detailed procedures below:
 
-### 1. Install LogListener:
+### Install LogListener:
 
 Install and launch LogListener on the server on which logs are to be collected, and configure the corresponding account and region information. Your log server can be a Tencent Cloud CVM, or a non-Tencent external server. [Install Loglistener](https://cloud.tencent.com/document/product/614/11257).
 
-### 2. Create server group
+### Create server group
 
 Tencent Cloud CLS manages the servers where you collect logs using LogListener via server groups. Select the region of CLS, and create a server group. One server group can be configured with several IPs to specify a group of servers. After the configuration, if the server status is found to be normal in the server group, your server can properly communicate with Tencent Cloud CLS. Then, you can move to the next step.
 
@@ -26,7 +26,7 @@ Tencent Cloud CLS manages the servers where you collect logs using LogListener v
 
 ![](https://mc.qcloudimg.com/static/img/fc5f5aa393e6c2a8c99b4bba23a50744/image.png)
 
-### 3. Associate and configure server group
+### Associate and configure server group
 
 Create collection configuration under the log topic: After LogListener is installed and configured in the server group, you need to select a log topic of a logset and create corresponding collection configuration for LogListener. **Associate this log topic to the server group, specify the collection path on this server, and configure the method for structuring log data**. After the configuration, CLS can collect logs on the servers in the server group in real time.
 

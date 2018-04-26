@@ -6,7 +6,11 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 2. 数据订阅 SDK 下载
+[点击下载](https://mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip) 
+
+3. jedis-2.9.0.jar 下载
 [点击下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip) 
+
 
 ### 获取密钥
 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接点击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
