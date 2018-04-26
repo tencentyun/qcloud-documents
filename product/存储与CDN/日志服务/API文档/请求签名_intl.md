@@ -1,13 +1,11 @@
-## Request Signature
-
-### Preparations
+## Preparations
 
 1. Obtain SecretId and SecretKey.
     They are available on the [Cloud API Key](https://console.cloud.tencent.com/capi) page of the console.
 2. Specify the development language:
      Supported languages include but not limisted to java, php, c sharp, c++, node.js, and python. You need to specify the HMAC-SHA1 function depending on development languages.
 
-### Signature Content
+## Signature Content
 The HTTP signature request initiated to CLS through the API is passed by using the standard HTTP Authorization header, as shown in the following example:
 ```
 GET /logset?logset_name=testset HTTP/1.1
@@ -30,7 +28,7 @@ The signature content in the request is comprised of a number of key-value pairs
 q-sign-algorithm=[Algorithm]&q-ak=[SecretId]&q-sign-time=[SignTime]&q-key-time=[KeyTime]&q-header-list=[SignedHeaderList]&q-url-param-list=[SignedParamList]&q-signature=[Signature]
 ```
 
-#### Key-Value Description
+### Key-Value Description
 
 The key-value pairs (Key=Value) in the signature content are described as follows:
 
@@ -48,7 +46,7 @@ The key-value pairs (Key=Value) in the signature content are described as follow
 
 *Note: For q-sign-time and q-key-time, the end time must be later than the start time. Otherwise, the signature expires immediately.*
 
-#### Calculation Method
+### Calculation Method
 
 Signature calculation involves two steps:
 
@@ -59,7 +57,7 @@ Signature calculation involves two steps:
 4. Encrypt the StringToSign using the SignKey to generate the Signature.
 
 
-##### Combining HttpRequestInfo
+#### Combining HttpRequestInfo
 
 HttpRequestInfo consists of Method, Uri, Headers, and Parameters in the HTTP request, as shown below:
 ```
@@ -80,7 +78,7 @@ HttpRequestInfo = Method + "\n"
 | FormatedParameters | The serialized string of parameters in the Http request's query string, namely the parameters specified in q-url-param-list. If no parameter is specified, an empty string is used. The key and the value are connected with ```=```. Different key-value pairs are connected with ```&```, and need to be sorted in lexicographical order. The key must be lowercase letters, and the value must be URL encoded. |
 | FormatedHeaders | The header of Http request, namely the Http header specified in q-header-list. If no header is specified, an empty string is used. The key and the value are connected with ```=```. Different key-value pairs are connected with ```&```, and need to be sorted in lexicographical order, The key must be lowercase letters, and the value must be URL encoded. |
 
-##### Combining StringToSign
+#### Combining StringToSign
 
 StringToSign is composed of the sha1 hash values of q-sign-algorithm, q-sign-time, and HttpRequestInfo, as shown below:
 ```
@@ -91,14 +89,14 @@ StringToSign = q-sign-algorithm + "\n"
 
 ```\n``` indicates a newline escape character. ```+``` indicates a string concatenation operation. Other parameters have been described above. The sha1 hash of HttpRequestInfo is a lowercase hexadecimal string.
 
-##### Generating SignKey
+#### Generating SignKey
 Now, the API only supports one digital signature algorithm, hmac-sha1 (default). Its pseudo code is as follows:
 ```
 SignKey = Hexdigest(HMAC-SHA1(q-key-time, SecretKey))
 ```
 ```HMAC-SHA1``` is the encryption algorithm, and ```Hexdigest``` is the method used for hexadecimal string conversion. The output results of some languages using the encryption algorithm are hexadecimal strings, so conversion is not needed.
 
-##### Generating Signature
+#### Generating Signature
 Now, the API only supports one digital signature algorithm, hmac-sha1 (default). Its pseudo code is as follows:
 ```
 Signature = Hexdigest(HMAC-SHA1(StringToSign, SignKey))
@@ -106,7 +104,7 @@ Signature = Hexdigest(HMAC-SHA1(StringToSign, SignKey))
 ```HMAC-SHA1``` is the encryption algorithm, and ```Hexdigest``` is the method used for hexadecimal string conversion. The output results of some languages using the encryption algorithm are hexadecimal strings, so conversion is not needed.
 
 
-### Examples
+## Examples
 
 Take the following SecretId and SecretKey as examples:
 ```
