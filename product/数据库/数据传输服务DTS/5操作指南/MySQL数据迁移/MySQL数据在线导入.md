@@ -197,7 +197,7 @@
 ![](https://main.qcloudimg.com/raw/2accc71a6a9e544bbea29e3c6ebc3d1f.jpg)
 ![](https://main.qcloudimg.com/raw/de3bb36092060a461b46d804d975c295.png)
 >**注意：**
-> 当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
+> 当迁移处于【未结束】状态时，迁移任务将一直进行，数据持续同步。
 
 
 
