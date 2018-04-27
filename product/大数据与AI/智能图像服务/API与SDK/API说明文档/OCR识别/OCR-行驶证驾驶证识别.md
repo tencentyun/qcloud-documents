@@ -51,7 +51,6 @@
 | 参数名    | 必选 | 类型     | 说明                                       |
 | ------ | ---- | ------ | ---------------------------------------- |
 | appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
-| bucket | 是   | string | 空间名称                                     |
 | type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
 | image  | 否   | binary | image 和 url 只提供一个即可                                 |
 | url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
