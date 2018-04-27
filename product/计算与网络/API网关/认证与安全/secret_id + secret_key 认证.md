@@ -12,9 +12,11 @@
 ## 计算方法
 
 ### 最终发送内容
-最终发送的 http 请求内至少包含两个 header：Date 和 Authorization，可以包含更多 header。
+最终发送的 http 请求内至少包含两个 header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。
 
 Date header 的值为 GMT 格式的 http 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
+
+X-Date header 的值为 GMT 格式的 http 请求构造时间，例如：Mon, 19 Mar 2018 12:08:40 GMT。15分钟超时。
 
 Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="hmac-sha1", headers="date source", signature="Base64(HMAC-SHA1(signing_str, secret_key))"`。
 
