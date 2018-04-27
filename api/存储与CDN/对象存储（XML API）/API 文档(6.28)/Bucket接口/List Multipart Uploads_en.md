@@ -113,7 +113,7 @@ Content of Container node Upload:
 |:---|:-- |:--|:--|
 | Key | ListMultipartUploadsResult.Upload | Name of Object | String |
 | UploadID | ListMultipartUploadsResult.Upload | Indicate the ID of current multipart upload | String |
-| StorageClass | ListMultipartUploadsResult.Upload | Indicate the storage class of uploaded parts; enumerated values include STANDARD, STANDARD_IA, NEARLINE | String |
+| StorageClass | ListMultipartUploadsResult.Upload | Indicate the storage class of uploaded parts; enumerated values include STANDARD, STANDARD_IA, ARCHIVE | String |
 | Initiator | ListMultipartUploadsResult.Upload | Indicate the information of the initiator of current upload | Container |
 | Owner | ListMultipartUploadsResult.Upload | Indicate the information of the owner of these parts | Container |
 | Initiated | ListMultipartUploadsResult.Upload | Start time of the multipart upload | Date |
