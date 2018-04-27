@@ -177,7 +177,7 @@ Content-Type: application/x-www-form-urlencoded
     <Status>Enabled</Status>
     <Transition>
       <Days>100</Days>
-      <StorageClass>NEARLINE</StorageClass>
+      <StorageClass>ARCHIVE</StorageClass>
     </Transition>
   </Rule>
   <Rule>
