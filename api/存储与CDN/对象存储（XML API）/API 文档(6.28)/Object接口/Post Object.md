@@ -34,7 +34,7 @@ Form
 | success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数 |String| 否|
 | success_action_status |可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。 |String| 否|
 | x-cos-meta- * | 自定义的信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
-| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE，默认值：STANDARD |String| 否|
+| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied |String| 否|
 
 #### Policy
@@ -143,7 +143,7 @@ public-read
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="x-cos-storage-class"
 
-ARCHIVE
+STANDARD
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="Signature"
 
