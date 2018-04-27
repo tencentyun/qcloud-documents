@@ -1,11 +1,13 @@
 ## 标签说明
-**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 DOC。
+**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [DOC](https://cloud.tencent.com/document/product/454/16915)。
 
 ## 版本要求
 - 微信 6.6.6 版本开始支持。
 
 ## 效果演示
+- PC端用 Chrome 浏览器打开 https://img.qcloud.com/open/qcloud/video/act/avtivex_demo\webrtcdemo\webrtcroom.html 可以体验桌面版 WebRTC 的效果。
 
+- 微信APP=>发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
 
 ## 标签详解
 ### 属性定义
