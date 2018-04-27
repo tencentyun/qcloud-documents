@@ -82,7 +82,6 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | id | Yes | Number | Template ID |
 | status | Yes | Number | Template status. 0: Approved; 1: Pending; 2: Rejected. |
 | reply | Yes | String | Approval information. If "status" is 2, the reason for rejection is returned |
-| status | Yes | Number | Template status. 0: Approved; 1: Pending; 2: Rejected. |
 | text | Yes | String | Template content |
 | type | Yes | Number | SMS message type. 0: general message; 1: marketing message. |
 

@@ -1,5 +1,5 @@
 ## Description
-Put Bucket request is used to create a Bucket under specified account. The API does not support anonymous requests. To create a Bucket, you should use a request authenticated by Authorization signature. By creating the Bucket, you become the bucket owner.
+PUT Bucket request is used to create a Bucket under specified account. The API does not support anonymous requests. To create a Bucket, you should use a request authenticated by Authorization signature. By creating the Bucket, you become the bucket owner.
 
 ## Request
 
@@ -25,12 +25,12 @@ This API allows PUT request.
 This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://cloud.tencent.com/document/product/436/7728) chapter.
 
 **Non-common Header**
-This request operation is implemented using header x-cos-acl in request Put to set the access permission of Bucket. Bucket supports three access permissions: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
-> For more information on ACL, please see [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737).
+This request operation is implemented using header x-cos-acl in request PUT to set the access permission of Bucket. Bucket supports three access permissions: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
+> For more information on acl, please see [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737).
 
 | Name | Description | Type | Required |
 |:---|:-- |:--|:--|
-| x-cos-acl | Define the ACL attribute of Object. Valid values: private, public-read-write, public-read. Default value: private | String | No |
+| x-cos-acl | Define the acl attribute of Object. Valid values: private, public-read-write, public-read. Default value: private | String | No |
 | x-cos-grant-read | Grant read permission to the authorized user. Format: x-cos-grant-read: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
 | x-cos-grant-write | Grant write permission to the authorized user. Format: x-cos-grant-write: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
 | x-cos-grant-full-control | Grant read-write permission to the authorized user. Format: x-cos-grant-full-control: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |

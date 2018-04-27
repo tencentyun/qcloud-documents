@@ -1,0 +1,52 @@
+## 功能描述
+
+本接口用于删除机器组。
+
+## 请求
+
+### 请求示例
+
+```
+DELETE /machinegroup?group_id=xxxx-xx-xx-xx-xxxxxxxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+
+```
+
+### 请求行
+
+```
+DELETE /machinegroup
+```
+
+### 请求头
+
+除公共响应头部外，无特殊响应头部。
+
+### 请求参数
+
+| 字段名        |  类型  | 位置  | 必须 |      含义                       |
+|--------------|--------|------|---------|--------------------------------|
+| group_id     | string | query| 是      |要删除的机器组的 ID                |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Length: 0
+
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+无
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

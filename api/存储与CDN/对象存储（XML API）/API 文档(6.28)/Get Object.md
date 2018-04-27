@@ -1,5 +1,5 @@
 ## 功能描述
-Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对目标 Object 具有读权限或目标 Object 对所有人都开放了读权限（公有读）。
+GET Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对目标 Object 具有读权限或目标 Object 对所有人都开放了读权限（公有读）。
 
 ## 请求
 
@@ -77,7 +77,7 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | :------------------ | :--------------------------------------- | :----- |
 | x-cos-meta- *       | 用户自定义的元数据                                | String |
 | x-cos-object-type   | 用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable | String |
-| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE | String |
+| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE | String |
 
 **服务端加密相关响应**
 

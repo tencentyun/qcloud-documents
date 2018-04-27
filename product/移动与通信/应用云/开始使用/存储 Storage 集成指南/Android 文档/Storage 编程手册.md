@@ -2,7 +2,7 @@
 
 ### 创建引用
 
-引用可以看作是指向云端文件的指针：要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。
+引用可以看作是指向云端文件的指针：要上传、下载和删除的文件或要获取和更新文件的元数据，请创建引用。
  
 ```
 TACStorageService storage = TACStorageService.getInstance();
@@ -93,7 +93,10 @@ reference.putStream(stream, metadata);
 
 ### 管理上传
 
-如果您想要管理上传的行为，可以调用 pause 和 resume，注意暂停和继续只针对大文件的上传有效：
+如果您想要管理上传的行为，可以调用 pause 和 resume。
+
+> 注意:
+> pause 和 resume 只针对大文件的上传有效。
 
 ```
 TACStorageUploadTask uploadTask = reference.putData(tmpData, TACMetadata));
@@ -108,7 +111,7 @@ uploadTask.resume();
 
 ### 通过重新启动进程继续上传
 
-对于本地的大文件上传，我们支持断点续传，您可以本地记录上传的 uploadId，在下次 app 启动的时候从上次停止的地方上传，而不会重头开始，节省您的带宽和时间。
+对于本地的大文件上传，我们支持断点续传，您可以在本地记录上传的 uploadId，在下次 app 启动的时候从上次停止的地方上传，而不会重头开始，节省您的带宽和时间。
 
 ```
 TACStorageReference reference = tacStorageService.referenceWithPath("/tac_test/multipart");
@@ -151,7 +154,7 @@ reference.delete();
 
 ## 添加任务结果监听
 
-您可以调用 TACStorageTask 的 addResultListener 方法，监听任务结果：
+您可以调用 TACStorageTask 的 addResultListener 方法来监听任务结果：
 
 ```
 TACStorageUploadTask uploadTask = reference.putData(tmpData, TACMetadata));
@@ -196,7 +199,9 @@ uploadTask.addProgressListener(new StorageProgressListener<TACStorageTaskSnapsho
 
 ## 取消任务
 
-您可以调用 cancel 方法取消任务，请注意，根据任务当时的运行进度，**取消指令不一定能成功**。
+您可以调用 cancel 方法取消任务。
+> 注意:
+> 根据任务当时的运行进度，**取消指令不一定能成功**。
 
 ```
 TACStorageReference reference = tacStorageService.referenceWithPath("/tac_test/multipart3");
