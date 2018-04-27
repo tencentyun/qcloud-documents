@@ -83,13 +83,13 @@ dependencies {
 |腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
 |腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
 |移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
-|登录与授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
+|微信QQ登录（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
 ## 后续步骤
 
 ### 了解 MobileLine
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
+- 查看 [MoblieLine Android 应用示例](https://github.com/tencentyun/tac-sdk-android-samples)
 
 ### 向应用中添加 MobileLine 功能
 
@@ -97,6 +97,5 @@ dependencies {
 - 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
 - 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
 - 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
-- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
-- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
-1.1.0
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 获取微信和QQ登录能力。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和QQ支付能力。
