@@ -143,7 +143,7 @@ public-read
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="x-cos-storage-class"
 
-NearLine
+ARCHIVE
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="Signature"
 
