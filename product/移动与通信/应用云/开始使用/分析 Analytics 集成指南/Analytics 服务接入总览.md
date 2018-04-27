@@ -61,7 +61,7 @@
 
 ### 4. 集成配置和 SDK
 
-根据您应用所在的平台，将下载的配置文件和 SDK 集成到您的本地工程中。详细集成步骤请参考 Android 和 iOS 的使用入门。您也可以使用我们的 DEMO 工程，替换为您的配置文件。
+根据您应用所在的平台，将下载的配置文件和 SDK 集成到您的本地工程中。详细集成步骤请参考 [Android 快速入门](https://cloud.tencent.com/document/product/666/14313) 和 [iOS 快速入门](https://cloud.tencent.com/document/product/666/14315)。您也可以使用我们的 DEMO 工程，替换为您的配置文件。
 
 ### 5. App 添加上报代码
 
