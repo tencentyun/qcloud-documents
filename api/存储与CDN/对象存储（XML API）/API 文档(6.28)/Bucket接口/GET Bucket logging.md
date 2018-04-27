@@ -1,9 +1,9 @@
 ## 功能描述
-获取存储桶logging配置信息。
+获取存储桶 logging 配置信息。
 
 ## 请求
 
-语法示例：
+### 请求示例
 ```
 GET /?logging HTTP 1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
@@ -21,7 +21,7 @@ GET /?cors HTTP/1.1
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 ### 请求体
@@ -31,7 +31,7 @@ GET /?cors HTTP/1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
@@ -51,15 +51,17 @@ GET /?cors HTTP/1.1
 | BucketLoggingStatus |无| 存储桶日志状态信息 | Container |
 
 Container 节点 BucketLoggingStatus 的内容：
+
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | LoggingEabled | BucketLoggingStatus | 存储桶日志记录配置详细信息 |  Container |
 
 Container 节点 LoggingEabled 的内容：
+
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| TargetBucket | LoggingEabled | 日志存储的目标Bucket，既可以为相同Bucket，也可以相同账户下相同地域的Bucket  |  String |
-| TargetPrefix | LoggingEabled | 日志存储的目标Bucket指定路径 |  String |
+| TargetBucket | LoggingEabled | 日志存储的目标 Bucket，既可以为相同 Bucket，也可以相同账户下相同地域的 Bucket  |  String |
+| TargetPrefix | LoggingEabled | 日志存储的目标 Bucket 指定路径 |  String |
 
 ## 实际案例
 

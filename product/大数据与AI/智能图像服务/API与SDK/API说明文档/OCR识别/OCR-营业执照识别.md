@@ -81,19 +81,19 @@ Content-Type: application/json
 ```
 POST /ocr/bizlicense HTTP/1.1
 Host: recognition.image.myqcloud.com
-Authorization: oubqBjgP/2I8JQmlRStAUkQWXwJhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJmU9MTUyNTIyOTcxNyZ0PTE1MjI2Mzc3MTcmcj0xMTkyNzc3NDc2JnU9MCZmPQ==
+Authorization: oubqBjgP/2I8JQmlRStAUkQWXwJwMDAwMDfmYj1xaW5pdXRlc3FyJms9QUtJRG1PNWVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJmU9UyNTIyOTcxNyZ0PTE1MjI2Mzc3MTcmcj0xMTkyNzc3NDc2JnU9MCasdf==
 Content-Type: multipart/form-data; boundary=----acebdf13572468
 
 ------acebdf13572468
 Content-Disposition: form-data; name="image"; filename="test.jpg"
 Content-Type: image/jpeg
 
-------acebdf13572468
-Content-Disposition: form-data; name="appid"
-1234567
-
 image_content
 ------acebdf13572468
+Content-Disposition: form-data; name="appid"
+
+1234567
+------acebdf13572468--
 ```
 
 ### 返回示例
@@ -210,7 +210,7 @@ image_content
 | -1304 | 参数过长                     |
 | -1308 | 图片下载失败                   |
 | -5208 | 服务器内部错误                  |
-| -9001 | 请求 type 错误，不是 0，1        |
+| -9001 | 请求 type 错误，不是 0,1        |
 | -9002 | 识别失败                     |
 | -9005 | 图片无效                     |
 | -9006 | 预处理失败                    |
