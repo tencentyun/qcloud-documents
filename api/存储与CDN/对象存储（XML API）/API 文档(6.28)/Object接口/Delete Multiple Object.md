@@ -1,5 +1,5 @@
 ## 功能描述
-Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
+DELETE Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
 ><font color="#0000cc">**注意：** </font>
 >此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
@@ -76,10 +76,10 @@ POST /?delete HTTP/1.1
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:---|:---|:---|:---|
-| Delete |无| 说明本次删除的返回结果方式和目标 Object | Container | 是 |
-| Quiet | Delete|布尔值，这个值决定了是否启动 Quiet 模式。<br> 值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 False | Boolean | 否 |
-| Object |Delete |说明每个将要删除的目标 Object 信息| Container | 是 |
-| Key | Delete.Object |目标 Object 文件名称| String | 是 |
+| DELETE |无| 说明本次删除的返回结果方式和目标 Object | Container | 是 |
+| Quiet | DELETE|布尔值，这个值决定了是否启动 Quiet 模式。<br> 值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 False | Boolean | 否 |
+| Object |DELETE |说明每个将要删除的目标 Object 信息| Container | 是 |
+| Key | DELETE.Object |目标 Object 文件名称| String | 是 |
 
 
 ## 响应

@@ -56,81 +56,6 @@ source "https://github.com/CocoaPods/Specs"
 pod 'TACMessaging'
 ```
 
-### 配置程序需要脚本
-
-> 如果您在其他模块中完成了此步骤，请不要重复执行。
-
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
-
-脚本主要包括两个：
-
-1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
-2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
-
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
-
-请按照以下步骤来添加脚本：
-
-##### 添加构建之前运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
-
-~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-   
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-   
-  ~~~
-   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
-  ~~~
-
-
-##### 添加构建之后运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
-> **注意：**
->  请确保该脚本在 `Build Phases` 中排序需要放到最后。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
-
-~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-	
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-    
-  ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
-  ~~~
 
 
 ## 第四步：初始化
@@ -161,13 +86,13 @@ import TACCore
 Objective-C 代码示例：
 
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 
@@ -180,20 +105,19 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-    //
-    [TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+// opions.xxx= xxx
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// opions.xxx= xxx
+TACApplication.configurate(with: options);
 ~~~
 
 

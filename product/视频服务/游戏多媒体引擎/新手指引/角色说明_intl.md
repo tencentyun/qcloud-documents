@@ -4,7 +4,7 @@ Different roles correspond to different speech quality levels. After accessing t
 After entering a room, you can also call the relevant function to reconfigure your role.
 
 ## Role Features
-![](https://main.qcloudimg.com/raw/8f50ebc5e0e8cec403e1df3cad5c0bbe.png)
+![](https://main.qcloudimg.com/raw/844f9a4c6d778076598ee6654192e1f1.png)
 
 The following table lists the speech quality corresponding to each role.
 
@@ -28,26 +28,25 @@ The following table lists the speech quality corresponding to each role.
 
 ## Role Setting
 ### 1. Log in to Tencent Cloud Console.
-Open [Tencent Cloud Console](https://console.cloud.tencent.com/gme). On the application list, select the application to be edited. Click **Change Application Scenario** under **SPEAR Engine Configuration**, and select **Game Real-Time Voice Chat**.
+Open [Tencent Cloud Console](https://console.cloud.tencent.com/gme). On the application list, select the application to be edited.
 
-![](https://main.qcloudimg.com/raw/6ccd89f31b9489e7395e36c50b11b1de.png)
 ### 2. Configure information.
 Select the platform to be configured.  
-![](https://main.qcloudimg.com/raw/9d72ea27a068a6ff607a3d79a68c5d85.png)
+![](https://main.qcloudimg.com/raw/6906de49cb428da5cbea801b352aae8d.png)
 
 Some default roles are displayed on the page.  
-![](https://main.qcloudimg.com/raw/e63dbaeffcb6cd539d8be10cd26f65c2.png)
+![](https://main.qcloudimg.com/raw/98cf41df11743e2ab5234a668aeb9a3b.png)
 
 You can click **Edit** to edit the corresponding role, for example, change the name and effects.
-![](https://main.qcloudimg.com/raw/64d67a101f1c135dba73661e6773efc2.png)
+![](https://main.qcloudimg.com/raw/3768738f7621335239c252d7f6947a36.png)
 
 ### 3. Add and configure a role.
 To add a custom role, you can click **Add and Configure User Role** at the bottom of the page.
-![](https://main.qcloudimg.com/raw/d7eed9d877bff9d23f7d7b99c11a306c.png)
+![](https://main.qcloudimg.com/raw/644d41bc0ab1e7392235c4f319962946.png)
 
 Add and configure a role, enter relevant information, and click **Save**.
 
-![](https://main.qcloudimg.com/raw/47796a9344efc37dd350e44fa8835868.png)
+![](https://main.qcloudimg.com/raw/2cd225126270b29027e49ac0b8a59acb.png)
 
 ## Use of Roles
 Each role has a name, which is entered as a parameter in the relevant function.
