@@ -42,7 +42,7 @@
 
 ## 使用说明
 ### WebRTCAPI.fn.detectRTC
-####具体功能
+#### 具体功能
 检测是否支持 WebRTC
 ```javascript
 var info = WebRTCAPI.fn.detectRTC();
@@ -280,6 +280,18 @@ websocket 断开
 ---
 
 > 以下就是进阶的接口
+
+### WebRTCAPI.startRTC
+#### 具体功能
+主动发起推流/拉流
+
+```javascript
+    var RTC = new WebRTCAPI({ ... });
+    ... 
+
+    RTC.startRTC();
+```
+---
 
 ### WebRTCAPI.getLocalStream
 #### 具体功能
