@@ -70,7 +70,7 @@
 
 
 #### 2. 配置直播码
-直播服务开通后，进入【直播控制台】>【直播码接入】>【接入配置】(https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
+直播服务开通后，进入【直播控制台】>【直播码接入】>【[接入配置](https://console.cloud.tencent.com/live/livecodemanage)】 完成相关配置，即可开启直播码服务：
 ![](https://mc.qcloudimg.com/static/img/32158e398ab9543b5ac3acf5f04aa86e/image.png)
 点击【确定接入】按钮即可。
 
@@ -199,7 +199,7 @@ node setConfigInfo.js 1   //1表示传送私钥给腾讯云RoomService后台
 
 ## 常见问题 FAQ
 ##### 1. 运行出错如何排查？
-- 请修改`wxlite/config.js`中的url，使用默认的官方demo后台：https://room.qcloud.com ，直接运行小程序
+- 请修改`wxlite/config.js`中的url，使用默认的官方demo后台：`https://room.qcloud.com` ，直接运行小程序
 - 请重新解压下载的demo直接运行小程序，默认就是官方demo后台
 - 请返回第二步检查开通的小程序类目是否正确，推拉流标签在小程序控制台是否开启
 - 使用官方demo后台运行可以，请参考此文档再重新部署一遍
@@ -220,5 +220,5 @@ node setConfigInfo.js 1   //1表示传送私钥给腾讯云RoomService后台
 ##### 4. 如果需要上线或者部署正式环境怎么办？
 - 请申请域名并做备案
 - 请将服务端代码部署到申请的服务器上
-- 请将业务server域名、RoomService域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com ，RoomService域名为：https://room.qcloud.com
+- 请将业务server域名、RoomService域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：`https://webim.tim.qq.com` ，RoomService域名为：`https://room.qcloud.com`
  
