@@ -115,7 +115,3 @@ ROOM_USERLIST内容格式如下:
 
 ### step7. Chrome 对接
  了解腾讯云官网的 [webrtc](https://sxb.qcloud.com/webrtcapi/) 服务，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。
- 
- 
- ## webrtc_tool 源码下载
- 源码中封装了生成usersig和privMapEncrypt的函数接口，只要传入sdkappid和公私钥后即可运行。目前提供php，java两个版本：[webrtc_tool](http://webrtc-1252463788.cosgz.myqcloud.com/webrtc_tool.zip)
