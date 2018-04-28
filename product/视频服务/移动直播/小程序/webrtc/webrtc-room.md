@@ -19,7 +19,7 @@
 |---------|---------|---------|
 | 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) |
 | PC端源码 | 基于[WebRTC API](https://sxb.qcloud.com/webrtcapi/)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/webRTCForChrome/WebRTC_20180428_093242.zip) |
-| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个参数的生成代码 | DOWNLOAD |
+| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [DOWNLOAD](http://download-1252463788.file.myqcloud.com/server/java/webrtc.zip) |
 
 ## 标签详解
 ### 属性定义
