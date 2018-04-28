@@ -1,4 +1,4 @@
- 本文将指导您完成在iOS端下客户端功能的 SDK 集成。
+本文将指导您完成在 iOS 端下实时音视频客户端功能的 SDK 集成。
  ## 源码下载
  在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
  [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_import.zip)
