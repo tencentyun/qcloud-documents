@@ -43,7 +43,7 @@ using namespace ilive;
 6. 拷贝 dll 文件到程序(.exe)所在目录：
 将 libs 目录下的所有 dll 文件复制到解决方案的 Debug 和 Relase 目录下( 至少编译一次 Debug 和 Relase 才会生成这两个目录 )，此时可删除 libs 目录下的 dll 文件。
 >**注意:** 
->]这里不要将 iLiveSDK.lib 也删除了
+>]这里不要将 iLiveSDK.lib 也删除了。
 
 7. 验证是否配置成功
 调用 GetILive() -> getVersion() ,输出返回值，查看当前 iLiveSDK 的版本号：
