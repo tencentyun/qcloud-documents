@@ -37,7 +37,7 @@ You can click "Check" to view the details of the report.
 The Report Details page is divided into two sections, "Diagnosis object" and "Diagnosis report":
 
 **Diagnosis object**: Contains Diagnosis ID, abnormal URL, abnormal domain name, origin type information.
-**Diagnosis report:** Contains diagnosis results about CNAME, DNS resolution, site availability, link quality, and data access consistency.
+**Diagnosis report**: Contains diagnosis results about CNAME, DNS resolution, site availability, link quality, and data access consistency.
 
 
 **Item 1: CNAME**
@@ -45,12 +45,12 @@ The Report Details page is divided into two sections, "Diagnosis object" and "Di
 2. Abnormal CNAME Configuration: If the CNAME that is actually resolved from the diagnosis domain is not consistent with the CNAME that should be deployed and resolved, the result will be "abnormal". You can click "Check details" to review the CNAME that is actually resolved and the one that should be deployed and resolved as well as its CDN provider. Only one CNAME is presented in the details if multiple CNAMEs are actually resolved from the diagnosis domain. In this case, it is suggested that you change the CNAME configuration at the DNS service provider. If the CNAME configuration is abnormal, other diagnosis items will not be commenced.
 
 **Item 2: DNS Resolution**
-1. Normal: If the actual node accessed by the diagnosis domain is consistent with the optimal node, the result will be "normal". You can click "Check details" to review Client IP, Local DNS, IPs of the actual node and the optimal node, regions and ISP information
+1. Normal: If the actual node accessed by the diagnosis domain is consistent with the optimal node, the result will be "normal". You can click "Check details" to review Client IP, Local DNS, IPs of the actual node and the optimal node, regions and ISP information.
 2. Non-optimal path: If the actual node accessed by the diagnosis domain is different from the optimal node, the result will be "non-optimal path". It is suggested that you contact Tencent Cloud technicians.
 3. Failed to obtain node IP: Under circumstances such as when the IP of the diagnosis domain is hijacked, or the connection to the node failed, the diagnosis result will be "failed to obtain node IP". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 3: Site availability**
-1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server"
+1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server".
 2. Abnormal: If the connections to the node or the origin server are abnormal, the diagnosis result will be "abnormal connection to node" or "abnormal connection to origin server" or "abnormal connection to both node and origin server". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 4: Link quality**
