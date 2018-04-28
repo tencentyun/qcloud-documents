@@ -61,11 +61,13 @@ pod 'TACMessaging'
 
 ## 第四步 验证
 
+**请先参考 [iOS 推送证书设置指南](https://cloud.tencent.com/document/product/666/14860) 设置开发和发布证书**
+
 ### 在控制台上推送消息
 
-打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，并将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中（获取 token 信息请参见 [这里](replaceme)），您也可以在推送时添加自定义参数，然后点击【确认推送】。
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，并将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中，您也可以在推送时添加自定义参数，然后点击【确认推送】。
 
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification.png)
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fqmfgsejl4j31kw16uk69.jpg)
 
 ### 验证通知是否发送成功
 
