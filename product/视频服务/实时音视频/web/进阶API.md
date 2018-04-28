@@ -42,7 +42,7 @@
 
 ## 使用说明
 ### WebRTCAPI.fn.detectRTC
-####具体功能
+#### 具体功能
 检测是否支持 WebRTC
 ```javascript
 var info = WebRTCAPI.fn.detectRTC();
