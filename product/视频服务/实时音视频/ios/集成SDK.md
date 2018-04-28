@@ -19,9 +19,9 @@
 
 #### 获取SDK
 
->ILiveSDK 其实是一套SDK的集合，其中包含了以下一些子SDK：
+>ILiveSDK 其实是一套SDK的集合，其中包含了以下一些子 SDK：
 > - BeautySDK：提供美颜预处理功能
-> - IMSDK：提供IM即时通信功能
+> - IMSDK：提供 IM 即时通信功能
 > - AVSDK：提供底层音视频功能
 > - ILiveSDK：在 AVSDK 基础上封装而成，提供更简单易用的音视频功能接口
 > - TILLiveSDK：在 ILiveSDK 的基础上，针对直播场景相关接口进行的封装，方便快速实现直播相关功能
@@ -86,9 +86,6 @@ ILiveSDK 中的 SDK 依赖了一些系统库，我们还需要将这些系统库
 |libz.tbd|
   
 添加系统库后，项目中会多出一个 Frameworks 文件夹，里面放的就是我们添加的系统库，由于需要添加的系统库较多，一个方便的方法是，直接在文末下载我们给出的 demo 代码，将其中的系统库直接拖拽到你自己的工程中（从Frameworks 文件夹直接拖到你的项目的 Linked Frameworks and Libraries 区域）
- <video id="video" controls="" preload="none" poster="https://main.qcloudimg.com/raw/b65e1adb5c8f4af67a70daf4b4b6191f.png" width="1095" height="519">
-    <source id="mov" src="http://dldir1.qq.com/hudongzhibo/ILiveSDK/SystemLibrarys.mov" type="video/mp4">
-</video>
 
 
 #### 工程配置
