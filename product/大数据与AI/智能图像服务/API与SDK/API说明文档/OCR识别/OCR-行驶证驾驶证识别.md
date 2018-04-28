@@ -48,13 +48,12 @@
 
 使用 url 选择 application/json 格式，使用 image 则选择 multipart/form-data 格式：
 
-| 参数名    | 是否必须 | 类型     | 说明                                       |
+| 参数名    | 必选 | 类型     | 说明                                       |
 | ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 必须   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
-| bucket | 必须   | string | 空间名称                                     |
-| type   | 必选   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
-| image  | 可选   | binary | image 和 url 只提供一个即可                                 |
-| url    | 可选   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
+| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
+| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
+| image  | 否   | binary | image 和 url 只提供一个即可                                 |
+| url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
@@ -267,7 +266,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 错误码   | 含义                       |
 | ----- | ------------------------ |
-| 3     | 错误的请求                    |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                    |
 | 4     | 签名为空                     |
 | 5     | 签名串错误                    |
 | 6     | 签名中的appid/bucket与操作目标不匹配 |

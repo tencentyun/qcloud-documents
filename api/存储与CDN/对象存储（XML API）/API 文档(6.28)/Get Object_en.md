@@ -1,5 +1,5 @@
 ## Description
-Get Object API request is used to download one file (Object) in Bucket of COS to the local computer. This action requires that the user has the read permission for the target Object or the read permission for the target Object has been made available for everyone (public-read).
+GET Object API request is used to download one file (Object) in Bucket of COS to the local computer. This action requires that the user has the read permission for the target Object or the read permission for the target Object has been made available for everyone (public-read).
 
 ## Request
 
@@ -65,7 +65,7 @@ The response header of the request operation is as follows:
 |:---|:-- |:-- |
 | x-cos-meta-* | User-defined metadata | String |
 | X-cos-object-type | Indicate whether the Object is appendable for upload. Enumerated values: normal or appendable |String|
-| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA, NEARLINE | String |
+| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA | String |
 
 ### Response Body
 Content of Object is returned for the response body.

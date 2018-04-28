@@ -2,11 +2,11 @@
 
 您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-### 第一步：创建项目和应用（已完成请跳过）
+## 第一步：创建项目和应用（已完成请跳过）
 
 在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-### 第二步：添加配置文件（已完成请跳过）
+## 第二步：添加配置文件（已完成请跳过）
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
@@ -20,14 +20,14 @@
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
-### 第三步：集成 SDK（已完成请跳过）
+## 第三步：集成 SDK（已完成请跳过）
 
 您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 analytics 服务依赖：
 
 ```
 dependencies {
     // 增加这行
-    compile 'com.tencent.tac:tac-core:1.0.1'
+    compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
@@ -99,7 +99,6 @@ app 启动后，您可以从 logcat 中 过滤 tag `tacApp` ，查看到服务�
 在 app 中打开一个 Activity，您可以从 logcat 中 过滤 tag `MtaSDK`，查看上报请求和返回结果的日志。如果看到 `http get response data:{"ret":0}`，说明上报成功。
 
 ```
-04-18 13:48:27.697 1550-1577/com.tencent.tac.sample I/MtaSDK: [StatDispatcher(9159): SourceFile:212] - [http://pingma.qq.com:80/mstat/report/?index=1524030379]Send request(1159bytes), content:[{"ky":"Aqc100008|Aqc1106531649|Aqc100209","et":2,"ui":"1162566712","mc":"02:00:00:00:00:00","ut":1,"av":"1.0","osn":"7.1.1","midver":"3.73","ch":"TAC","mid":"05b43cf4b6a8764aae9a49344c4c74c9f5f22870","idx":42002,"si":327675405,"ts":1524030507,"lts":1524030507678,"dts":1,"os":1,"osst":1523243429885,"pcn":"com.tencent.tac.sample","ov":"25","md":"E6653","jb":0,"mf":"Sony","ifg":1,"sv":"3.3.1","ot":436,"h5":0,"cfg":{"1":{},"2":{}},"ev":{"sr":"1080*1776","dpi":"428.625*427.789","wf":"{\"bs\":\"64:f6:9d:ab:be:41\",\"ss\":\"\\\"Tencent-StaffWiFi\\\"\"}","pcn":"com.tencent.tac.sample","osn":"7.1.1","av":"1.0","ch":"TAC","mf":"Sony","sv":"3.3.1","osd":"32.4.A.1.54","prod":"E6653","tags":"release-keys","id":"32.4.A.1.54","fng":"Sony\/E6653\/E6653:7.1.1\/32.4.A.1.54\/3761073091:user\/release-keys","lch":"com.teslacoilsw.launcher","ov":"25","os":1,"lg":"zh","md":"E6653","tz":"Asia\/Shanghai","apn":"com.tencent.tac.sample","cpu":"{\"n\":8,\"na\":\"AArch64 Processor rev 2 (aarch64) \",\"fx\":1555,\"fn\":384}","abi":"arm64-v8a","ram":"1474\/2933","rom":"20783\/24240","asg":"FD:4E:14:82:8F:03:65:53:C4:81:A2:81:60:FB:BE:15:D6:3B:87:A1","cn":"WIFI","tn":0}}]
 04-18 13:48:27.698 1550-1577/com.tencent.tac.sample D/MtaSDK: [StatDispatcher(9159): SourceFile:268] - before Gzip:1159 bytes, after Gzip:655 bytes
 04-18 13:48:27.749 1550-1577/com.tencent.tac.sample I/MtaSDK: [StatDispatcher(9159): SourceFile:284] - http recv response status code:200, content length:29
 04-18 13:48:27.750 1550-1577/com.tencent.tac.sample I/MtaSDK: [StatDispatcher(9159): SourceFile:325] - http get response data:{"ret":0}

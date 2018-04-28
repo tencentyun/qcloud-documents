@@ -42,7 +42,7 @@ dimensions.0.value为实例的资源 Id
 | disk_reads             | 每秒读取磁盘次数              | 次/秒  |
 | disk_writes            | 每秒写入磁盘次数              | 次/秒  |
 | slow_queries           | 运行时间超过1秒的查询数量         | 个    |
-| blocks_processes       | 当前阻塞数量                | 个    |
+| blocked_processes      | 当前阻塞数量                | 个    |
 | lock_requests          | 平均每秒锁请求的次数            | 次/秒  |
 | user_errors            | 平均每秒错误数               | 次/秒  |
 | sql_compilations       | 平均每秒SQL编译次数           | 次/秒  |

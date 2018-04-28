@@ -1,10 +1,10 @@
-## 账号管理
+## 帐号管理
 
 | 功能说明  | 接口 |
 |---------|---------|
-| 独立模式帐号导入  | [v4/im_open_login_svc/account_import](/doc/product/269/独立模式账号导入接口) |
+| 独立模式帐号导入  | [v4/im_open_login_svc/account_import](/doc/product/269/独立模式帐号导入接口) |
 | 独立模式帐号批量导入  | [v4/im_open_login_svc/multiaccount_import](/doc/product/269/独立模式帐号批量导入接口) |
-| 托管模式帐号导入  | [v4/registration_service/register_account_v1](/doc/product/269/托管模式存量账号导入) |
+| 托管模式帐号导入  | [v4/registration_service/register_account_v1](/doc/product/269/托管模式存量帐号导入) |
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](/doc/product/269/帐号登录态失效接口) |
 
 ## 单聊消息
@@ -62,7 +62,7 @@
 
 <table style="display:table;width:100%">
 	<tbody>
-		<tr style="background:#C2D3FC;border:1px solid blue;">
+		<tr style=" border:1px solid ;">
 			<td>功能说明</td>
 			<td>接口</td>
 		</tr>
@@ -85,7 +85,7 @@
 
 <table style="display:table;width:100%">
 	<tbody>
-		<tr style="background:#C2D3FC;border:1px solid blue;">
+		<tr style=" border:1px solid ;">
 			<td>功能说明</td>
 			<td>接口</td>
 		</tr>

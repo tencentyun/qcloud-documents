@@ -42,7 +42,7 @@ The following request parameter list only provides API request parameters. Commo
 | disk_reads             | Number of disk reads per second              | Counts/sec  |
 | disk_writes            | Number of disk writes per second              | Counts/sec  |
 | slow_queries           | Number of queries for which the execution time exceeds 1 second         | Counts    |
-| blocks_processes       | Number of current blocks                | Counts    |
+| blocked_processes      | Number of current blocks                | Counts    |
 | lock_requests          | Average number of lock requests per second            | Counts/sec  |
 | user_errors            | Average number of errors per second               | Counts/sec  |
 | sql_compilations       | Average number of SQL compilations per second           | Counts/sec  |

@@ -2,8 +2,8 @@
 
 ### 1. 下载服务资源压缩包
 
-1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-2. 下载 [移动开发平台（MobileLine） Messaging 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-messaging-1.0.0.zip)，并解压。
+- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip)，并解压。
+- 下载 [移动开发平台（MobileLine） Messaging 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-messaging-1.1.0.zip)，并解压。
 
 ### 2. 集成 jar 包 和 so 包
 

@@ -106,7 +106,7 @@ Content of Container node Contents:
 | ETag | ListBucketResult.Contents | MD-5 algorithm check value of the file | String |
 | Size | ListBucketResult.Contents | File size (in Byte) | String |
 | Owner | ListBucketResult.Contents | Information of Bucket owner | Container |
-| StorageClass | ListBucketResult.Contents | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA, NEARLINE | String |
+| StorageClass | ListBucketResult.Contents | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA | String |
 
 Content of Container node CommonPrefixes:
 

@@ -27,137 +27,61 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-    compile 'com.tencent.tac:tac-messaging:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
+    compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
+> `'com.tencent.tac:tac-messaging:1.1.0' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.0'`
 
-## 第四步：初始化
+## 验证服务
 
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
+### 查看服务启动情况
 
-### 在 `Application` 子类中添加初始代码（已完成请跳过）
-
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    //增加这行
-    TACApplication.configure(this);
-  }
-}
+安装并运行 App 后，SDK 会自动在 Messaging 后台进行注册，注册成功后会打印如下日志：
 
 ```
-
-> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
-
-### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
-
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    <!-- 这里替换成你自己的 Application 子类 -->
-    android:name="com.example.tac.MyCustomApp"
-    ...>
-  </application>
-</manifest>
+I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda473ef44de899cf45111fd83031156
 ```
 
-> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
+> 这里日志打印的 token 信息标识推送时的唯一 ID，您可以通过 token 信息给该设备发送通知。
 
-### 注册 messaging 服务回调
+如果没有打印以上日志，请查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
 
-在启动 messaging 服务前，您必须注册 messaging 服务回调接口，用于接收消息在不同状态下的通知：
+### 在控制台上推送通知栏消息
 
-#### 继承 `TACMessagingReceiver` 类
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
 
-您必须创建一个 `TACMessagingReceiver` 子类用于接收我们的消息回调：
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.png)
 
-```
-public class MyReceiver extends TACMessagingReceiver {
+推送通知栏消息成功后，App 在运行状态下会收到通知栏消息。
 
-    // 启动 Messaging 服务后，会自动向 Messaging 后台注册，注册完成后会回调此接口。
-    @Override
-    public void onRegisterResult(Context context, int errorCode, TACMessagingToken token) {
-        Log.d("messaging", "MyReceiver::OnRegisterResult : code is " + errorCode + ", token is " + token.getTokenString());
-    }
-
-    // 反注册后回调此接口。
-    @Override
-    public void onUnregisterResult(Context context, int code) {
-        Log.d("messaging", "MyReceiver::onUnregisterResult : code is " + code);
-    }
-
-    // 收到通知栏消息后回调此接口。
-    @Override
-    public void onNotificationShowed(Context context, TACNotification notification, int notificationId) {
-        Log.d("messaging", "MyReceiver::OnNotificationShowed : notification is " + notification + " notification id is " + notificationId);
-    }
-
-    // 用户处理通知栏消息后回调此接口，如用户点击或滑动取消通知。
-    @Override
-    public void onNotificationClicked(Context context, TACNotification notification, long actionType) {
-        Log.d("messaging", "MyReceiver::onNotificationClicked : notification is " + notification + " actionType is " + actionType);
-    }
-    
-    // 收到应用内消息后回调此接口。
-    @Override
-    public void onTextMessage(Context context, TACMessagingText message) {
-        Log.d("messaging", "MyReceiver::OnTextMessage : message is " + message);
-    }
-
-}
-
-```
-
-#### 在 `AndroidManifest.xml` 文件中注册
-
-在创建好 `TACMessagingReceiver` 的子类后，您需要在工程的 AndroidManifest.xml 文件中注册该类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    ...>
-    ...
-    <!-- 这里替换成你自己的 TACMessagingReceiver 子类 -->
-    <receiver android:name=".tacmessaging.MyReceiver">
-      <intent-filter>
-          <action android:name="com.tencent.tac.messaging.action.CALLBACK" />
-      </intent-filter>
-    </receiver>
-    
-  </application>
-</manifest>
-
-```
-
-### 启动服务
-
-MobileLine Android SDK 不会自动帮您启动 messaging 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 messaging 服务：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACMessagingService.getInstance().start(this);
-  }
-}
-```
-
-> 注意：您也可以选择在其他地方启动 messaging 服务，但是必须保证在初始化代码后调用。
+> 这里您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
 
 
-到此您已经成功接入了 MobileLine 消息推送服务。
+## 后续步骤
+
+### 注册回调接口 
+
+**注册回调接口非常重要**，您可以注册回调接口来接收推送服务在不同状态下给您的回调，具体有：
+
+- `onRegisterResult()` : 注册 Messaging 服务后回调。
+- `onUnregisterResult()` : 反注册 Messaging 服务后回调。
+- `onMessageArrived()` : 收到透传消息（即控制台上的应用内消息）后回调。
+- `onNotificationArrived()` : 收到通知栏消息后回调。
+- `onNotificationClicked()` : 点击通知栏消息后回调。
+- `onNotificationDeleted()` : 删除通知栏消息后回调。
+- `onBindTagResult()` : 绑定标签后回调。
+- `onUnbindTagResult()` : 解绑标签后回调。
+
+如何注册回调接口，请参见 [这里](https://cloud.tencent.com/document/product/666/16848)。
+
+### 集成厂商推送通道
+
+**我们建议您集成厂商推送通道**，通过集成厂商官方提供的系统级推送通道，在对应厂商手机上，推送消息能够通过系统通道抵达终端，并且无需打开应用就能够收到推送，目前支持华为、小米和魅族三个厂商通道，具体集成方式请参考 [这里](https://cloud.tencent.com/document/product/666/16641)。
+
+### 给设备推送消息
+
+您可以通过控制台给设备推送消息(具体请参考 [这里](https://cloud.tencent.com/document/product/666/16640))，您也可以通过我们的后台接口来发送消息，具体请参考 [Rest API 使用指南](https://cloud.tencent.com/document/product/666/15584) 或者 [服务端 SDK](https://cloud.tencent.com/document/product/666/15606)。除了通过设备 token 来指定用户外，我们还支持通过标签推送消息（具体请参考 [这里](https://cloud.tencent.com/document/product/666/16637)）或者通过账户推送消息（具体请参考 [这里](https://cloud.tencent.com/document/product/666/16639)）。
+
+
+

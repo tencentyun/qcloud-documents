@@ -1,5 +1,5 @@
 ## 功能描述
-Post Object 接口请求允许使用者用表单的形式将文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。所有由 HTTP 头部携带的 API 参数，都使用表单字段请求。
+POST Object 接口请求允许使用者用表单的形式将文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。所有由 HTTP 头部携带的 API 参数，都使用表单字段请求。
 ### 细节分析
 1. 需要有 Bucket 的写权限；
 2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
@@ -34,7 +34,7 @@ Form
 | success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数 |String| 否|
 | success_action_status |可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。 |String| 否|
 | x-cos-meta- * | 自定义的信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
-| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD |String| 否|
+| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied |String| 否|
 
 #### Policy
@@ -50,7 +50,7 @@ Form
 ```
 
 ##### Expiration
-设置该 Post Policy 的超时时间，使用 ISO8601 GMT 时间，例如 2017-12-01T12:00:00.000Z。
+设置该 POST Policy 的超时时间，使用 ISO8601 GMT 时间，例如 2017-12-01T12:00:00.000Z。
 
 ##### Conditions 规则
 | 类型   | 描述                                       |
@@ -92,7 +92,7 @@ Form
 ### 响应体
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
-| PostResponse |无| 保存 Post Object 结果的容器 | Container |是|
+| PostResponse |无| 保存 POST Object 结果的容器 | Container |是|
 
 Container 节点 PostResponse 的内容：
 
@@ -143,7 +143,7 @@ public-read
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="x-cos-storage-class"
 
-NearLine
+STANDARD
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="Signature"
 

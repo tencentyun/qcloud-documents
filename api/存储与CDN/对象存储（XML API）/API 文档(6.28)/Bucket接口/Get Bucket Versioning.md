@@ -18,7 +18,7 @@ Authorization: Auth String
 ```
 GET /?versioning HTTP 1.1
 ```
-该 API 接口接受 GET请求。
+该 API 接口接受 GET 请求。
 
 ### 请求头
 
