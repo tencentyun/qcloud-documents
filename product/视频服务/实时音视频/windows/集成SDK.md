@@ -62,4 +62,6 @@ iLiveSDK暂时没有64位版本，需要切换成32位编译即可
 
 恭喜，至此说明 iLiveSDK 已经成功集成！
 
-### [源码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
+## 源码下载
+在此我们提供以上所讲到的完整Demo代码，如有需要请您自行下载。 
+[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
