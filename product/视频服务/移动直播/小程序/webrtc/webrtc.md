@@ -2,7 +2,7 @@
 我们在 [LiteAVSDK](https://cloud.tencent.com/document/product/454/7873) 的最新版本里面加入了对 WebRTC 的支持能力，并且已经跟随微信APP的 6.6.6 版本发布出来，此文档主要介绍如何使用原生的 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签实现 WebRTC 互通能力。
 
 ## 接入成本
-此文档介绍的方法接入成本偏高，适合喜欢全面定制的同学；我们同步提供了一套  &lt;webrtc-room&gt; 解决方案，更加推荐使用。
+此文档介绍的方法接入成本偏高，适合喜欢全面定制的同学；我们同步提供了一套封装度更高的自定义组件方案 ——  [&lt;webrtc-room&gt;](https://cloud.tencent.com/document/product/454/16914) ，更加推荐您来使用。
 
 ## 接入流程
 
