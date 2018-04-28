@@ -3,7 +3,6 @@ WinSCP 是一个在 Windows 环境下使用 SSH 的开源图形化 SFTP 客户�
 ### 操作步骤
 1. 下载 WinSCP 客户端并安装。下载地址：
 	- [官方下载](http://winscp.net/eng/docs/lang:chs) 
-	- [太平洋下载中心下载](http://dl.pconline.com.cn/html_2/1/86/id=7244&pn=0.html)
 2. 安装完成后启动 WinSCP，界面如下。按图示填写信息并登录。
 ![](https://mc.qcloudimg.com/static/img/98d96ee1c3b65a3d94e99bb447c8a294/22.png)
 ** 字段填写说明：**
