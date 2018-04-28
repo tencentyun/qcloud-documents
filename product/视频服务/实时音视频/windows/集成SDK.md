@@ -4,7 +4,7 @@
 [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
 ## 操作步骤
 ### 创建 Win32 Console 工程
-1. 打开 Visual Studio ,点击【 文件 】菜单，选择【 新建 】-【 项目 】-【新建一个项目】
+1. 打开 Visual Studio ，点击【 文件 】菜单，选择【 新建 】-【 项目 】-【新建一个项目】：
 ![](https://main.qcloudimg.com/raw/d372db4d91a96b59e51b5d4e8666c92d.png)
 
 2. 创建一个空工程：
@@ -53,7 +53,7 @@ cout << GetILive()->getVersion() << endl;
 
 ### 源码说明
 
-* demo 源码编译报错
+* Demo 源码编译报错：
 ![](https://main.qcloudimg.com/raw/0d24bb5f04331191ce82587dd083aced.png)
 
  - 可能是因为项目配置选择了64位。
