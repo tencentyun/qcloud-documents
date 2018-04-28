@@ -1,11 +1,25 @@
 ## 标签说明
-**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 DOC。
+**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [DOC](https://cloud.tencent.com/document/product/454/16915)。
 
 ## 版本要求
 - 微信 6.6.6 版本开始支持。
 
 ## 效果演示
+- **PC 端**
+用 Chrome 浏览器打开 [体验页面](https://img.qcloud.com/open/qcloud/video/act/avtivex_demo\webrtcdemo\webrtcroom.html) 可以体验桌面版 WebRTC 的效果。
 
+- **微信端**
+发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
+
+![](https://main.qcloudimg.com/raw/81edf044e0a40ccfd4794b91185f1f82.jpg)
+
+## 对接资料
+
+| 对接资料 | 说明 | 下载链接 |
+|---------|---------|---------|
+| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) |
+| PC端源码 | 基于[WebRTC API](https://sxb.qcloud.com/webrtcapi/)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/webRTCForChrome/WebRTC_20180428_093242.zip) |
+| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个参数的生成代码 | DOWNLOAD |
 
 ## 标签详解
 ### 属性定义
