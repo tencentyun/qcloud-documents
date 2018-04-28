@@ -127,7 +127,8 @@ NSLog(@"IMSDK version:%@",[[TIMManager sharedInstance] GetVersion]);
 	
 恭喜，至此说明`ILiveSDK`已经成功集成！
 
-### [源码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_import.zip)
-
+## 源码下载
+在此我们提供以上所讲到的完整Demo代码，如有需要请您自行下载。 
+[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_import.zip)
 
 
