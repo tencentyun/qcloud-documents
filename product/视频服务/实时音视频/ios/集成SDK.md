@@ -1,9 +1,13 @@
+ 本文将指导您完成在iOS端下客户端功能的 SDK 集成。
+ ## 源码下载
+ 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
+ [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_import.zip)
 ## 操作步骤
 ### 创建 iOS 工程
 > 如果您已经有一个工程待集成，请直接跳到下一步[ 集成 SDK](#.E9.9B.86.E6.88.90-sdk)。
 
 首先，使用 Xcode 创建一个新的工程用来集成我们的 SDK。
-打开 Xcode，【 File 】->【 New 】->【 Project 】
+打开 Xcode，【 File 】-【 New 】-【 Project 】
 <img src="https://main.qcloudimg.com/raw/145fb381bfa9b5752fb78618a1801c48.png"/>
 
 选择【 Signle View App 】
