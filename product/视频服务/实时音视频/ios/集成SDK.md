@@ -12,7 +12,7 @@
 
 设置工程名为 Demo01\_集成SDK，语言选择为 Objective-C，Team、Organization Name 和 Organization Identifier根据自身情况填写（也可随便填写）,然后选择下一步选择项目存放地址，点击 【create 】即可
 
- ![输入图片说明](https://gitee.com/uploads/images/2018/0327/105253_66bf5e1f_1839574.png "在这里输入图片标题")
+ ![输入图片说明](https://main.qcloudimg.com/raw/370f312b4b21584d4f95d70bc092ea6b.png "在这里输入图片标题")
 
 
 ### 集成 SDK
