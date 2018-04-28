@@ -357,9 +357,9 @@ table td {
   </tr>
   <tr align="center">
     <td>小程序</td>
-    <td>1.2.657</td>
+    <td>1.2.693</td>
     <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
-    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.657.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease1.2.693.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
