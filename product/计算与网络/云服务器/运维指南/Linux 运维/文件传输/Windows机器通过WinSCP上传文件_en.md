@@ -1,4 +1,4 @@
-WinSCP is an open source graphical SFTP client that uses SSH in Windows environment and supports SCP protocol. Its main function is to copy files between the local and remote computers safely. Instead of using FTP to upload code, you can use the server account and password to access the server directly via WinSCP, without any configuration on the server side. Download address: [Official Download](http://winscp.net/eng/docs/lang:chs) 
+WinSCP is an open source graphical SFTP client that uses SSH in Windows environment and supports SCP protocol. Its main function is to copy files between the local and remote computers safely. Instead of using FTP to upload code, you can use the server account and password to access the server directly via WinSCP, without any configuration on the server side. Download address: [Official Download](http://winscp.net/eng/docs/lang:chs).
 
 Start WinSCP after installation. The interface is as follows. Fill in the information as shown and log in.
 
