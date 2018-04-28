@@ -26,14 +26,9 @@
 | roomid | 12345  | 房间号 | 可以由您的服务器指定 |
 | privMapEncrypt | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
 
-下载 [webrtc_tool](http://webrtc-1252463788.cosgz.myqcloud.com/webrtc_tool.zip) 可以获得服务端签发 usersig 和 privMapEncrypt 的示例代码：
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 usersig 和 privMapEncrypt 的示例代码。
 
-| 函数 | 编程语言 | 作用    | 位置 |
-|:--------:|:--------:|:--------:|:--------:|
-| genUserSig          | PHP  | 签发usersig |  webrtc_tool\php\TLSSig.php |
-| genPrivilegeMap  | PHP  | 签发privMapEncrypt |  webrtc_tool\php\TLSSig.php |
-| genUserSig          | java  | 签发usersig | webrtc_tool\java\src\com\tls\tls_sigature\tls_sigature.java  |
-| genPrivilegeMap   | java  | 签发privMapEncrypt | webrtc_tool\java\src\com\tls\tls_sigature\tls_sigature.java |
+>生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**。
 
 ### step3. 获取roomsig
 小程序端可以通过如下 url 向腾讯云请求 roomsig，roomsig 是小程序跟 WebRTC 互通必须的关键信息，请求 roomsig 所使用的关键信息已经在 step2 中做了详细描述 （这里的  **identifier** 就是上文中的 **userid** ）: 

@@ -174,15 +174,9 @@ Page({
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
 | privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
 
-下载 [webrtc_tool](http://webrtc-1252463788.cosgz.myqcloud.com/webrtc_tool.zip) 可以获得服务端签发 usersig 和 privMapEncrypt 的示例代码：
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 usersig 和 privMapEncrypt 的示例代码。
 
-| 函数 | 编程语言 | 作用    | 位置 |
-|:--------:|:--------:|:--------:|:--------:|
-| genUserSig          | PHP  | 签发usersig |  webrtc_tool\php\TLSSig.php |
-| genPrivilegeMap  | PHP  | 签发privMapEncrypt |  webrtc_tool\php\TLSSig.php |
-| genUserSig          | java  | 签发usersig | webrtc_tool\java\src\com\tls\tls_sigature\tls_sigature.java  |
-| genPrivilegeMap   | java  | 签发privMapEncrypt | webrtc_tool\java\src\com\tls\tls_sigature\tls_sigature.java |
-
+>生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**。
 
 ### step5: 进入房间
 
