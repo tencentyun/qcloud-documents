@@ -1,6 +1,6 @@
 
 ## 功能描述
-Get Bucket Versioning 接口实现获得存储桶的版本控制信息。
+GET Bucket Versioning 接口实现获得存储桶的版本控制信息。
 ### 细节分析
 1. 获取 Bucket 版本管理的状态，需要有该 Bucket 的读权限；
 
