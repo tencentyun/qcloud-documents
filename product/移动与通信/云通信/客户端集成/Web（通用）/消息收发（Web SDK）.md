@@ -596,6 +596,112 @@ function uploadPicLowIE() {
 }
 ```
 
+
+
+
+
+
+## 上传文件 （高版本浏览器）
+
+目前demo采用了H5 FileAPI读取文件，并将文件二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
+
+```
+/* function uploadPicByBase64  
+ *   上传文件
+ * params:
+ *   cbOk	- function()类型, 成功时回调函数
+ *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ * return:
+ *   (无)
+ */
+uploadPicByBase64: function(options, cbOk, cbErr) {},
+```
+
+**示例：**
+
+```
+//上传文件(通过base64编码)
+function uploadFileByBase64() {
+    var businessType;//业务类型，1-发群文件，2-向好友发文件
+    if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.C2C_MSG;
+    } else if (selType == webim.SESSION_TYPE.GROUP) {//发群文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.GROUP_MSG;
+    }
+    //封装上传文件请求
+    var opt = {
+        'toAccount': selToID, //接收者
+        'businessType': businessType,//文件的使用业务类型
+        'fileType':webim.UPLOAD_RES_TYPE.FILE,//表示文件
+        'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件md5
+        'totalSize': 56805, //文件大小,Byte
+        'base64Str': 'xxxxxxxxxxx' //文件base64编码
+           
+    };
+    webim.uploadPicByBase64(opt,
+        function (resp) {
+            //alert('success');
+            //发送文件
+            sendFile(resp);
+        },
+        function (err) {
+            alert(err.ErrorInfo);
+        }
+    );
+}
+```
+
+## 上传文件 （低版本浏览器IE8、9）
+
+在低版本浏览器（IE8、9）中，demo采用了表单来上传文件，最大支持10M文件的上传。
+
+```
+/* function submitUploadFileForm  
+ *   上传文件(低版本ie)
+ * params:
+ *   cbOk	- function()类型, 成功时回调函数
+ *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ * return:
+ *   (无)
+ */
+submitUploadFileForm: function(options, cbOk, cbErr) {},
+```
+
+**示例：**
+
+```
+//上传文件(用于低版本IE)
+function uploadFileLowIE() {
+    var businessType;//业务类型，1-发群文件，2-向好友发文件
+    if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.C2C_MSG;
+    } else if (selType == webim.SESSION_TYPE.GROUP) {//发群文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.GROUP_MSG;
+    }
+    //封装上传文件请求
+    var opt = {
+        'formId': 'updli_file_form', //上传文件表单id
+        'fileId': 'upload_low_ie_file', //file控件id
+        'To_Account': selToID, //接收者
+        'businessType': businessType,//文件的使用业务类型
+        'fileType': webim.UPLOAD_RES_TYPE.FILE//表示上传文件
+    };
+    webim.submitUploadFileForm(opt,
+        function (resp) {
+            $('#upload_file_low_ie_dialog').modal('hide');
+            //发送文件
+            sendFile(resp);
+        },
+        function (err) {
+            $('#upload_file_low_ie_dialog').modal('hide');
+            alert(err.ErrorInfo);
+        }
+    );
+}
+```
+
+
+
 ## 发送消息（图片） 
 
 在 IE9（含）以下浏览器，SDK 采用了 jsonp 方法解决 ajax 跨域问题，由于 jsonp 是采用 GET 方法传递数据的，且 GET 存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。**函数名：**
@@ -665,11 +771,42 @@ function sendPic(images) {
 > **注意：**
 > 确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
-## 下载文件 
+## 发送消息（文件 ）
 
-目前 Web 端只支持显示并下载 Android 或 iOS IM Demo发的文件消息，暂不支持上传并发送文件消息。 详情参考 [解析文本消息](#.E8.A7.A3.E6.9E.90.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)。
+```
+function sendFile(file,fileName) {
+    if (!selToID) {
+        alert("您还没有好友，暂不能聊天");
+        return;
+    }
 
-## 发送消息（自定义）
+    if (!selSess) {
+        selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
+    }
+    var msg = new webim.Msg(selSess, true, -1, -1, -1, loginInfo.identifier, 0, loginInfo.identifierNick);
+    var uuid=file.File_UUID;//文件UUID
+    var fileSize=file.File_Size;//文件大小
+    var senderId=loginInfo.identifier;
+    var downloadFlag=file.Download_Flag;
+    if(!fileName){
+        var random=Math.round(Math.random() * 4294967296);
+        fileName=random.toString();
+    }
+    var fileObj=new webim.Msg.Elem.File(uuid,fileName, fileSize, senderId, selToID, downloadFlag, selType);
+    msg.addFile(fileObj);
+    //调用发送文件消息接口
+    webim.sendMsg(msg, function (resp) {
+        if (selType == webim.SESSION_TYPE.C2C) {//私聊时，在聊天窗口手动添加一条发的消息，群聊时，长轮询接口会返回自己发的消息
+            addMsg(msg);
+        }
+    }, function (err) {
+        alert(err.ErrorInfo);
+    });
+}
+```
+
+
+## 发送消息(自定义)
 
 ```
 /* function sendMsg

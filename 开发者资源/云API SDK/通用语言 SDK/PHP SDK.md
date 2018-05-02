@@ -3,8 +3,8 @@
 为方便 PHP 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 PHP SDK 并开始调用。
 
 ## 依赖环境
-1. PHP 5.6.33 版本及以上
-2. 从腾讯云 [控制台](https://console.cloud.tencent.com/) 开通相应产品
+1. PHP 5.6.33 版本及以上。
+2. 从腾讯云 [控制台](https://console.cloud.tencent.com/) 开通相应产品。
 3. 获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 一般形式为 *.tencentcloudapi.com，如 CVM 的调用地址为 cvm.tencentcloudapi.com，具体参考各产品说明。
 
 ## 获取安装

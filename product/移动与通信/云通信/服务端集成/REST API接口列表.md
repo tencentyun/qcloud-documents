@@ -62,7 +62,7 @@
 
 <table style="display:table;width:100%">
 	<tbody>
-		<tr style="background:#C2D3FC;border:1px solid blue;">
+		<tr style=" border:1px solid ;">
 			<td>功能说明</td>
 			<td>接口</td>
 		</tr>
@@ -85,7 +85,7 @@
 
 <table style="display:table;width:100%">
 	<tbody>
-		<tr style="background:#C2D3FC;border:1px solid blue;">
+		<tr style=" border:1px solid ;">
 			<td>功能说明</td>
 			<td>接口</td>
 		</tr>

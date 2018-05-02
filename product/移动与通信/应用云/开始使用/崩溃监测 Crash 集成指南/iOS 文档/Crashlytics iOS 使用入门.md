@@ -1,5 +1,3 @@
-# MobileLine iOS 移动崩溃监测快速入门
-
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -136,63 +134,7 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
   ~~~
 
 
-## 第四步：初始化
-
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
-
-### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
-
-Objective-C 代码示例：
-
-~~~
-#import <TACCore/TACCore.h>
-~~~
-Swift 代码示例：
-
-~~~
-import TACCore
-~~~
-
-
-### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
-
-######  使用默认配置
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
-
-Objective-C 代码示例：
-~~~
-[TACApplication configurate];
-~~~
-
-Swift 代码示例：
-~~~
-TACApplication.configurate()
-~~~
-
-###### 通过编程的方式自定义某些参数
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
-
-Objective-C 代码示例
-~~~
-TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-// 自定义配置
-// opions.xxx= xxx
-//
-[TACApplication configurateWithOptions:options];
-~~~
-
-Swift 代码示例：
-~~~
-let options = TACApplicationOptions.default()
-// 自定义配置
-// opions.xxx= xxx
-TACApplication.configurate(with: options)
-~~~
-
-## 第五步：启动服务
+## 第四步：启动服务
 
 移动崩溃监测 服务无需启动，到此您已经成功接入了 MobileLine 移动崩溃监测服务。
 

@@ -80,15 +80,14 @@ pod 'TACCore'
 
 集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
 
-### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
+### 步骤 1 在实现了 UIApplicationDelegate 的类中导入移动开发平台（MobileLine）模块。
 
 Objective-C 代码示例：
-
 ~~~
 #import <TACCore/TACCore.h>
 ~~~
-Swift 代码示例：
 
+Swift 代码示例：
 ~~~
 import TACCore
 ~~~
@@ -102,7 +101,6 @@ import TACCore
 通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
 
 Objective-C 代码示例：
-
 ~~~
 [TACApplication configurate];
 ~~~
@@ -113,15 +111,11 @@ Swift 代码示例：
 TACApplication.configurate();
 ~~~
 
-
-
-
 ###### 通过编程的方式自定义某些参数
 
 您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
-
 ~~~
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 // 自定义配置
@@ -130,7 +124,6 @@ TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOption
 ~~~
 
 Swift 代码示例：
-
 ~~~
 let options = TACApplicationOptions.default()
 // 自定义配置
@@ -142,7 +135,7 @@ TACApplication.configurate(with: options);
 #### 开启实时上报
 Analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数量之后才能集中上报。如果您在调试时，希望每个事件都独立上报，从而能在控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报：
 
-
+Objective-C 代码示例：
 ~~~
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;

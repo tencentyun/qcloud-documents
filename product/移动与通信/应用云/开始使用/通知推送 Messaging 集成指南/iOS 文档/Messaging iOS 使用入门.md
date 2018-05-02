@@ -1,5 +1,3 @@
-# MobileLine iOS 移动推送快速入门
-
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -32,9 +30,7 @@
 
 
 
-
 ## 第三步：集成 SDK
-
 
 如果还没有 Podfile，请创建一个。
 
@@ -55,76 +51,38 @@ source "https://github.com/CocoaPods/Specs"
 ```
 pod 'TACMessaging'
 ```
-
-
-
-## 第四步：初始化
-
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
-
-### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
-
-Objective-C 代码示例：
-
-~~~
-#import <TACCore/TACCore.h>
-~~~
-Swift 代码示例：
-
-~~~
-import TACCore
-~~~
-
-
-### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
-
-######  使用默认配置
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
-
-Objective-C 代码示例：
-
-~~~
-[TACApplication configurate];
-~~~
-
-Swift 代码示例：
-
-~~~
-TACApplication.configurate();
-~~~
-
-
-
-
-###### 通过编程的方式自定义某些参数
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
-
-Objective-C 代码示例：
-
-~~~
-TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-// 自定义配置
-// opions.xxx= xxx
-[TACApplication configurateWithOptions:options];
-~~~
-
-Swift 代码示例：
-
-~~~
-let options = TACApplicationOptions.default()
-// 自定义配置
-// opions.xxx= xxx
-TACApplication.configurate(with: options);
-~~~
-
-
-
-## 启动服务
+### 启动服务
 
 移动推送 服务无需启动，到此您已经成功接入了 MobileLine 移动推送服务。
+
+## 第四步 验证
+
+**请先参考 [iOS 推送证书设置指南](https://cloud.tencent.com/document/product/666/14860) 设置开发和发布证书**
+
+### 在控制台上推送消息
+
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，并将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中，您也可以在推送时添加自定义参数，然后点击【确认推送】。
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fqmfgsejl4j31kw16uk69.jpg)
+
+### 验证通知是否发送成功
+
+推送通知栏消息成功后，若 Messaging SDK 接收到了通知，如果您的程序在前台则会调用 `AppDelegate` 的 `application:didReceiveRemoteNotification` 方法，您可以在该方法中调用如下方法打印日志：
+
+```
+// 收到通知栏消息后回调此接口。
+- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+     NSLog(@"got messaging");
+}
+```
+
+收到通知后终端将会输出日志：
+
+~~~
+2018-04-20 16:37:06.983857+0800 TACSamples[384:51189] got messaging
+~~~
+
 
 ## 后续步骤
 

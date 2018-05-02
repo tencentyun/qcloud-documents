@@ -66,7 +66,6 @@ fail | 失败回调
 
 ```
 TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"iOS_002"];
-TIMMessage * msg = [[TIMMessage alloc] init];
 [conversation setReadMessage:nil succ:nil fail:nil];
 ```
 

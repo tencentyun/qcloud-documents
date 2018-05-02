@@ -65,7 +65,7 @@ The response header of the request operation is as follows:
 |:---|:-- |:-- |
 | x-cos-meta-* | User-defined metadata | String |
 | X-cos-object-type | Indicate whether the Object is appendable for upload. Enumerated values: normal or appendable |String|
-| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA, NEARLINE | String |
+| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA | String |
 
 ### Response Body
 Content of Object is returned for the response body.

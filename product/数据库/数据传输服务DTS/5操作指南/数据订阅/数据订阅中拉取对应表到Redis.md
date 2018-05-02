@@ -1,4 +1,4 @@
-本文将以一个简单案例来说明数据订阅中拉取对应表到 Redis 的功能，并且提供简易 [LocalDemo下载](https://main.qcloudimg.com/raw/0a3b560fad57a27440f9445039552d2b/RedisDemo.zip) 。以下操作将在 Centos 操作系统中完成。
+本文将以一个简单案例来说明数据订阅中拉取对应表到 Redis 的功能，并且提供简易 [RedisDemo下载](https://main.qcloudimg.com/raw/0a3b560fad57a27440f9445039552d2b/RedisDemo.zip) 。以下操作将在 Centos 操作系统中完成。
 ### 配置环境
 1. Java环境配置 
 ```
@@ -6,7 +6,11 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 2. 数据订阅 SDK 下载
+[点击下载](https://mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip) 
+
+3. jedis-2.9.0.jar 下载
 [点击下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip) 
+
 
 ### 获取密钥
 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接点击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
