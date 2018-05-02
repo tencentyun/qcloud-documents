@@ -3,7 +3,7 @@
 
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍然 bug，产品化方案建议先规避，待苹果解决后再使用 |
+| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有 bug，产品化方案建议先规避，待苹果解决后再使用 |
 | Android      | TBS | 43600                |   [TBS 介绍](http://x5.tencent.com/)   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
