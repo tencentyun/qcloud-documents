@@ -3,7 +3,7 @@
 
 -[C++ sdk 本地下载]()
 ### 开发环境
-1. [安装 openss l的库和头文件](http://www.openssl.org/source/)
+1. [安装 openssl 的库和头文件](http://www.openssl.org/source/)
 2. [安装 libcur l](https://curl.haxx.se/download.html)
 3. [安装 cmake 工具](https://cmake.org/download/)
 4. 从控制台获取 APP ID, SecretID,SecretKey。
@@ -57,6 +57,8 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 
 
 
+
+
 返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
@@ -91,6 +93,8 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥 Id|
 |KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
+
+
 
 
 
@@ -178,6 +182,8 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 
 
 
+
+
 返回值(入参中)
 
 |参数名|类型|参数描述|
@@ -252,6 +258,8 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 
 
 
+
+
 返回值  
 
 |参数名|类型|参数描述|
@@ -280,6 +288,8 @@ sample/kms_sample.cpp 里面有常见的 api 例子，生成的 kms_sample 可�
 |---------|---------|---------|---------|
 |CiphertextBlob|string|空字符串|密文|
 |EncryptionContext|string|None|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数。|
+
+
 
 
 
