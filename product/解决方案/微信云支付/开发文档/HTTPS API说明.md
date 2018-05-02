@@ -256,8 +256,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 - 对response\_content计算认证码，并将该认证码与authen\_info的authen\_code进行比较。
 
 ## 接口调用说明
-- 如服务商不使用云支付提供的商户后台门店管理系统，需先调用门店接口设置门店信息，才能调用交易接口。
-- 交易接口中的门店信息，必须和服务商在云支付后台设置的一致。
+- 交易接口中的门店信息，必须和子商户在云支付手机端商户管理系统设置的一致。
 
 ## 订单和退款单号说明
 - 为了保护不同商户的订单号不重复，云支付为每个服务商录入的子商户分配了“云支付订单前缀”，在云支付后台的商户详情中可以看到，该商户的订单和退款单必须以云支付子商户号做前缀。
@@ -5092,10 +5091,6 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    <tr>
       <td>枚举值</td>
       <td>说明</td>
-   </tr>
-   <tr>
-      <td>13</td>
-      <td>设置门店信息</td>
    </tr>
    <tr>
       <td>14</td>
