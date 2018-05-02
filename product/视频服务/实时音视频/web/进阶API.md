@@ -119,7 +119,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | 参数               | 类型      | 描述                                  |
 | ---------------- | ------- | ---------------------------------------- |
 | **roomid**         | integer | 房间 id          | 必填           |
-| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/1062)                    | 必填           |
+| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/10620)                    | 必填           |
 
 
 #### 代码示例
