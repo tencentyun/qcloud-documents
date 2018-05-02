@@ -1,5 +1,5 @@
 
-本文档介绍在 Windows 云服务器上搭建 FTP 服务的操作。此处使用 FileZilla 为例介绍，您也可以通过获取服务市场镜像，免除了您安装配置的各种工作，具体详情请参见 [云市场](http://market.qcloud.com/?categoryId=64&page=1&orderby=2) 。
+本文档介绍在 Windows 云服务器上搭建 FTP 服务的操作。此处使用 FileZilla 为例介绍，您也可以通过获取服务市场镜像，免除了您安装配置的各种工作，具体详情请参见 [云市场](https://market.cloud.tencent.com/list?cid=64) 。
 
 ## 软件下载
  - FileZilla 是一个快速可靠的、跨平台的 FTP 、 FTPS 和 SFTP 软件。具有图形用户界面( GUI ) 和很多特性。易于使用，支持多种协议，本例使用 FileZilla 进行配置演示和操作测试。
