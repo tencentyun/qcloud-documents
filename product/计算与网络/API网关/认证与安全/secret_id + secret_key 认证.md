@@ -4,10 +4,9 @@
 
 ## 密钥内容
 
-密钥内容如下：
+【secret_id】举例 AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
 
-* secret_id：举例 AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
-* secret_key：举例  ZxF2whO0RhuwnVCj5JMMAuqcDcN2oPrC  用于签名计算，传递过程中无体现。
+【secret_key】举例  ZxF2whO0RhuwnVCj5JMMAuqcDcN2oPrC  用于签名计算，传递过程中无体现。
 
 ## 计算方法
 
@@ -22,9 +21,9 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 
 现对 Authorization 内的各部分分别解释：
 
-* hmac：固定内容，用于标识计算方法。
-* id：其值为密钥内的 secret_id 的值。
-* algorithm：加密算法，当前支持的是 hmac-sha1。
+【hmac】固定内容，用于标识计算方法。
+【ID】其值为密钥内的 secret_id 的值。
+【algorithm】加密算法，当前支持的是 hmac-sha1。
 * headers：参与签名计算的 header，按实际计算时的顺序排列。
 * signature：计算签名后得到的签名。
 
