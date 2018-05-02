@@ -111,9 +111,7 @@ d>
 |---------|---------|---------|---------|
 | kms:CreateKey | qcs::kms:$region:$account:key/* |   |  |
 | kms:ListKey | qcs::kms:$region:$account:key/* |  |  |
-| kms:Encrypt | qcs::kms:$region:$account:key/creatorUin/$creatorUin/$keyid (授权单个资源）
-qcs::kms:$region:$account:key/creatorUin/$creatorUin/* (授权某个创建者的所有资源）
-qcs::kms:$region:$account:key/* (授权某个根帐号的所有资源) |  |creatorUin 表示资源创建者的 uin，资源创建者可为根帐号或子账号。 |
+| kms:Encrypt | qcs::kms:$region:$account:key/creatorUin/$creatorUin/$keyid (授权单个资源）<br>qcs::kms:$region:$account:key/creatorUin/$creatorUin/* (授权某个创建者的所有资源）<br>qcs::kms:$region:$account:key/* (授权某个根帐号的所有资源) |  | creatorUin 表示资源创建者的 uin，资源创建者可为根帐号或子账号 |
 | kms:Decrypt | qcs::kms:$region:$account:key/creatorUin/$creatorUin/$keyid (授权单个资源）
 qcs::kms:$region:$account:key/creatorUin/$creatorUin/* (授权某个创建者的所有资源）
 qcs::kms:$region:$account:key/* (授权某个根帐号的所有资源) |  |  |
