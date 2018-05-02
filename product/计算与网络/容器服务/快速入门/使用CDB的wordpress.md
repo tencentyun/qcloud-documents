@@ -43,7 +43,7 @@
 
   4) 镜像配置。
    - **名称**：输入运行容器的名称，此处以 wordpress 为例。
-   - **镜像**：填写 `tutum/wordpress` 。
+   - **镜像**：填写 `wordpress` 。
    - **版本（Tag）**：填写 latest。
     ![](https://mc.qcloudimg.com/static/img/b5c035081625c15a1dcbdf0a3cabf6a7/image.png)
 
