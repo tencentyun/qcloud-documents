@@ -9,7 +9,7 @@ This API (GetMonitorData) is used to query the monitoring data of direct connect
 
 namespace: qce/dcx
 
-dimensions.0.name=directconnectconnid
+dimensions.0.name=directConnectConnId
 
 dimensions.0.value (direct connect tunnel ID)
 
