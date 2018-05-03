@@ -9,7 +9,7 @@
 方案主要涉及到腾讯云的以下三个服务：
 1. [对象存储](https://cloud.tencent.com/product/cos)（即 COS）
 2. [无服务器云函数](https://cloud.tencent.com/product/scf)（即 SCF）
-3. [视频转码](https://cloud.tencent.com/document/product/266/2833)
+3. 视频转码
 
 ![SCF 调用转码框架图](https://main.qcloudimg.com/raw/7ddb98640a9f0c1de45cffba447792a4.jpg)
 
