@@ -5,6 +5,15 @@
 - 下载最新版 
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
   
+### 版本 v2.1.0
+- 发布日期：2018/05/02
+- 开发语言：C语言
+- 开发环境：Linux, GNU Make
+- 内容：
+	1、新增固件升级（OTA-CoAP通道）能力
+	2、新增低端资源受限设备hmac-sha1鉴权接入能力
+	3、新增获取后台时间的能力
+
 ### 版本 v2.0.0
 - 发布日期：2018/03/12
 - 开发语言：C语言

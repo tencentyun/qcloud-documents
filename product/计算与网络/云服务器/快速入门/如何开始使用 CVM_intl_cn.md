@@ -6,6 +6,7 @@
 - [云服务器概述 >>](https://cloud.tencent.com/doc/product/213/495)
 - [云服务器主要功能 >>](https://cloud.tencent.com/doc/product/213/3035)
 - [云服务器的优势 >>](https://cloud.tencent.com/doc/product/213/3036)
+- [云服务器的基本操作指南 >>](https://cloud.tencent.com/document/product/213/16918)
 
 在使用云服务器之前，您需要首先完成  [初始配置 >>](https://cloud.tencent.com/doc/product/213/6090)
 
