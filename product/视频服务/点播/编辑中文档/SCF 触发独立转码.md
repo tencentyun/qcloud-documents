@@ -58,17 +58,7 @@
 ##### 示例
 对输入文件进行做转码操作，转码的模板 ID 有 210，220和230。
 转码后输出到名为 `myoutputbucket` 的 Bucket 的 `/output/test/` 目录下。
-<pre>
-https://vod.api.qcloud.com/v2/index.php?Action=ProcessCosMedia
-&ampinput.bucket=myinputbucket
-&ampinput.path=/input/F62A55F5-C4D6-4AEA-934F-7A6BFF3D8BCF.MOV
-&ampoutput.bucket=myoutputbucket
-&ampoutput.dir=/output/test/
-&ampmediaProcess.transcode.definition.0=210
-&ampmediaProcess.transcode.definition.1=220
-&ampmediaProcess.transcode.definition.2=230
-&ampCOMMON_PARAMS
-</pre>
+
 ``` 
 {
     "SecretId":"AKIDgJoxxxxxxxxxxxxxxxxxxxxxxsW78G9r",
