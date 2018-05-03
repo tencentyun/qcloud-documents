@@ -54,6 +54,9 @@ Response Example:
 | data.n.routeFilterPrefixes.n.cidr | String | Peer IP address range. |
 | data.n.status | Int | Status of the Direct Connect tunnel. 0: Connected; 1: Requesting; 2: Configuring; 20: Waiting for connection; 21: Rejected. |
 | data.n.vlan | Int | vlan Id.|
+| data.n.localGatewayIp | string | Tencent Connect IP |
+| data.n.peerGatewayIp | String | User Connect ip|
+| data.n.peeringSubnetMask | string | Connect IP Mask |
 | data.n.remark | String | Remarks. |
 
 ### Response Error Codes
@@ -96,6 +99,9 @@ The following error codes only include the business logic error codes for this A
             ],
             "status": 1,
             "vlan": 0,
+            "localGatewayIp":"169.254.64.1",
+            "peerGatewayIp":"169.254.64.2",
+            "peeringSubnetMask":"255.255.255.252",
             "remark": ""
         }
     ]
