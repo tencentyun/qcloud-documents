@@ -23,10 +23,10 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.directConnectTunnelName | String | Direct Connect tunnel name. |
 | data.n.directConnectId | String | ID of the Direct Connect assigned by the system, such as dc-kd7d06of. |
 | data.n.ownerAccount | String | Account ID of the Direct Connect developer. |
-| networkType | No | Int | Network type. 0: VPC; 1: BM network. Default is 0. |
+| networkType | Int | Network type. 0: VPC; 1: BM network. Default is 0. |
 | data.n.region | String | Network region. |
 | data.n.vpcId | String | Unified VPC ID or unified BM network ID. |
-| directConnectGatewayId | Yes | String | Direct Connect gateway ID, such as dcg-d545ddf. |
+| directConnectGatewayId | String | Direct Connect gateway ID, such as dcg-d545ddf. |
 | data.n.bandwidth | Int | Direct Connect bandwidth (in Mbps). |
 | data.n.routeMode | Int | 0: BGP routing. 1: static. Default is BGP routing. |
 | data.n.bgpPeers.asn | string | BGP asn. |
