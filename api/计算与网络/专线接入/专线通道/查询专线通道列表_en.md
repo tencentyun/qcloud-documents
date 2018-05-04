@@ -5,7 +5,7 @@ Domain name for API request: `dc.api.qcloud.com`
 
 ## Request Parameter
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeDirectConnectTunnels.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/377/4153) page. The Action field for this API is DescribeDirectConnectTunnels.
 
 | Parameter  | Required | Type | Description |
 |---------|---------|---------|---------|
