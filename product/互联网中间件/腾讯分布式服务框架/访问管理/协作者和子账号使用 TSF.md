@@ -31,6 +31,7 @@
 }
 ```
 ![](https://main.qcloudimg.com/raw/c573361bd5d497c5fa2b5aadd733c146.png)
+
 ### 2. 将  tsf_PassRole 策略绑定到子账号
 
 2.1 单击左侧导航栏 **用户管理**。
@@ -43,6 +44,21 @@
 ![](https://main.qcloudimg.com/raw/bada6e84ee25c9fb8a67785476341f5d.png)
 2.5 绑定策略后，策略显示在用户的策略列表中。
 ![](https://main.qcloudimg.com/raw/325a4006966f715aec2861357668c3a1.png)
+
+## 子账号使用镜像相关功能
+子账号要使用镜像功能，需要主账号授予子账号 CCR 权限。
+
+1. 登录 [访问管理控制台]()。
+2. 单击左侧导航栏 **用户管理**。
+![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
+3. 选择要授予 TSF 使用权限的用户。
+![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
+4. 单击【关联策略】。
+![](https://main.qcloudimg.com/raw/e8c8994b8655db02dcfeeb89638b7c5e.png)
+5. 从策略列表中选择 `QcloudCCRFullAccess` 策略。
+![](https://main.qcloudimg.com/raw/d9c6a36f4cbc362f23d0d0a4fe8a8a4f.png)
+6. 绑定策略后，策略显示在用户的策略列表中。
+![](https://main.qcloudimg.com/raw/850ce1e93101cdd98899d66a1468fd60.png)
 
 ## 其他资源访问授权
 
