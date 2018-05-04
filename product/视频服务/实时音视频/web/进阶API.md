@@ -2,25 +2,25 @@
 
 ## 概览
 ### [基础] 接口 & 事件通知
-> 了解一下接口的使用，就已经可以实现主要功能
+> 了解一下接口的使用，就已经可以实现主要功能。
 
 #### 接口
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.fn.detectRTC](#WebRTCAPI.fn.detectRTC)     | 检测是否支持WebRTC |
-| [WebRTCAPI](#WebRTCAPI)     | 初始化 |
-| [WebRTCAPI.createRoom](#WebRTCAPI.createRoom)     | 创建或进入音视频房间 |
-| [WebRTCAPI.quit](#WebRTCAPI.quit)     | 退出音视频房间 |
+| [WebRTCAPI.fn.detectRTC](#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
+| [WebRTCAPI](#webrtcapi)     | 初始化 |
+| [WebRTCAPI.createRoom](#webrtcapi.createroom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.quit](#webrtcapi.quit)     | 退出音视频房间 |
 
 #### 事件通知
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onLocalStreamAdd](#onLocalStreamAdd)     | 本地视频流新增/更新 |
-| [onRemoteStreamUpdate](#onRemoteStreamUpdate)     | 远端视频流新增/更新 |
-| [onRemoteStreamRemove](#onRemoteStreamRemove)     | 远端视频流断开 |
-| [onWebSocketClose](#onWebSocketClose)     |  websocket 断开 |
-| [onRelayTimeout](#onRelayTimeout)     | 视频流 server 超时断开 |
-| [onKickout](#onKickout)     | 被踢下线(同一个用户重复登录) |
+| [onLocalStreamAdd](#onlocalstreamadd)     | 本地视频流新增/更新 |
+| [onRemoteStreamUpdate](#onremotestreamupdate)     | 远端视频流新增/更新 |
+| [onRemoteStreamRemove](#onremotestreamremove)     | 远端视频流断开 |
+| [onWebSocketClose](#onwebsocketclose)     |  websocket 断开 |
+| [onRelayTimeout](#onrelaytimeout)     | 视频流 server 超时断开 |
+| [onKickout](#onkickout)     | 被踢下线（同一个用户重复登录） |
 
 ----
 
@@ -30,14 +30,14 @@
 #### 接口
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.startRTC](#WebRTCAPI.startRTC)     | 主动推流才需要用到 |
-| [WebRTCAPI.getLocalStream](#WebRTCAPI.getLocalStream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.startRTC](#webRTCAPI.startRTC)   | 主动推流才需要用到 |
+| [WebRTCAPI.getLocalStream](#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
 #### 事件通知
 > 以下事件通知
 
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onPeerConnectionAdd](#onPeerConnectionAdd)     | PeerConnection 新增通知 ，请确保您已经了解了peer connection通知的作用和意义 |
+| [onPeerConnectionAdd](#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
 
 
 ## 使用说明
@@ -73,7 +73,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | succ         | function | 成功回调      |
 | error         | function | 失败回调      |
 
-##### Options
+#### Options
 
 | 参数               | 类型      | 描述                                       | 备注           |
 | ---------------- | ------- | ---------------------------------------- | ------------ |
@@ -119,7 +119,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | 参数               | 类型      | 描述                                  |
 | ---------------- | ------- | ---------------------------------------- |
 | **roomid**         | integer | 房间 id          | 必填           |
-| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/1062)                    | 必填           |
+| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/10620)                    | 必填           |
 
 
 #### 代码示例
@@ -167,7 +167,7 @@ var RTC = new WebRTCAPI({
 ---
 
 >说明:
-事件通知的基本写法如下
+事件通知的基本写法如下：
 >```javascript
 >    var RTC = new WebRTCAPI( { ... } );
 >
@@ -279,7 +279,7 @@ websocket 断开
 
 ---
 
-> 以下就是进阶的接口
+> 以下就是进阶的接口。
 
 ### WebRTCAPI.startRTC
 #### 具体功能

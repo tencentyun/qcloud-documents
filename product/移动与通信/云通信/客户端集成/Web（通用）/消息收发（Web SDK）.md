@@ -805,16 +805,8 @@ function sendFile(file,fileName) {
 }
 ```
 
-<<<<<<< HEAD
-
-
 
 ## 发送消息(自定义)
-=======
-目前 Web 端只支持显示并下载 Android 或 iOS IM Demo发的文件消息，暂不支持上传并发送文件消息。 详情参考 [解析文本消息](#.E8.A7.A3.E6.9E.90.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)。
-
-## 发送消息（自定义）
->>>>>>> 21d6858528211972000b4d4c8ef58faa86a9f060
 
 ```
 /* function sendMsg

@@ -3,7 +3,7 @@
 
 -[PHP sdk 本地下载]()
 ### 开发环境
-1. 依赖环境：PHP5.3.0版本及以上
+1. 依赖环境：PHP5.3.0 版本及以上
 2. 从控制台获取 APP ID, SecretID,SecretKey。
 
 ### 生成客户端对象
@@ -38,7 +38,11 @@
 |Alias|string|NULL|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
 
-返回值 KeyMetadata结构体 描述如下：
+
+
+
+
+返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
@@ -71,7 +75,11 @@
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥 Id|
 
-返回值 KeyMetadata结构体 描述如下：
+
+
+
+
+返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
@@ -149,6 +157,10 @@
 |NumberOfBytes|int|1024|生成指定长度的数据密钥|
 |EncryptionContext|string |NULL|生成数据密钥时提供的额外的 json key-value|
 
+
+
+
+
 返回字典中 ：
 
 |参数名|类型|参数描述|
@@ -222,6 +234,10 @@
 |Plaintext|string|NULL|明文|
 |EncryptionContext|string|NULL|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数|
 
+
+
+
+
 返回值
 
 |参数名|类型|参数描述|
@@ -244,6 +260,10 @@
 |---------|---------|---------|---------|
 |CiphertextBlob|string|NULL|密文|
 |EncryptionContext|string|NULL|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数。|
+
+
+
+
 
 返回值  
 

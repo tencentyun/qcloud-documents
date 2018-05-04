@@ -24,7 +24,7 @@ table td {
 ## 特别提醒
 [Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1 - 2 周时间，这段时间我们会用来进行 bugfix 和 系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS SDK (4.5.4018) </h2>
+<h2 id="iOS"> iOS SDK (4.6.4218) </h2>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -149,22 +149,22 @@ table td {
   </tr>
   <tr>
     <td>SDK 下载</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Smart_iOS_4.5.4018.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Player_iOS_4.5.4018.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_UGC_Rename_iOS_4.5.4018.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Professional_iOS_4.5.4018.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Smart_iOS_4.6.4218.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Player_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_UGC_Rename_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Professional_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
     <td>见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Enterprise_Rename_iOS_4.5.4018.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Enterprise_Rename_iOS_4.6.4218.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
   
 - **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Professional_Rename_iOS_4.5.4018.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。  
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Professional_Rename_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。  
   
 
-<h2 id="Android"> Android SDK (4.5.4021) </h2>
+<h2 id="Android"> Android SDK (4.6.4218) </h2>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -273,16 +273,16 @@ table td {
   </tr>
   <tr>
     <td>SDK 下载</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Smart_Android_4.5.4021.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Player_Android_4.5.4021.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_UGC_Android_4.5.4021.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Professional_Android_4.5.4021.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Smart_Android_4.6.4218.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Player_Android_4.6.4218.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_UGC_Android_4.6.4218.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Professional_Android_4.6.4218.zip">DOWNLOAD</a></td>
     <td>见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Enterprise_Android_4.5.4021.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Enterprise_Android_4.6.4218.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 <h2 id="Windows"> Windows SDK (2.0.0) </h2>
 
@@ -346,7 +346,7 @@ table td {
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
 
-<h2 id="XiaoChengXu">小程序源码</h2>
+<h2 id="XiaoChengXu">小程序源码（1.2.693）</h2>
 
 <table width="850px">
   <tr align="center">
@@ -356,17 +356,17 @@ table td {
     <th width="80px">下载链接</th>
   </tr>
   <tr align="center">
-    <td>小程序</td>
-    <td>1.2.657</td>
-    <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
-    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.657.zip">DOWNLOAD</a></td>
+    <td>小程序</td>
+    <td>1.2.693</td>
+    <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease1.2.693.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
 - **一键部署**
 此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
 
-<h2 id="Server">后台源码</h2>
+<h2 id="Server">后台源码（1.1.0）</h2>
 
 RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom](https://cloud.tencent.com/document/product/454/14617) 的业务后台组件，用于实现房间管理、成员管理和状态同步等功能。您可以使用腾讯云已有的 RoomService 服务（`https://room.qcloud.com/weapp/live_room`），也可以下载如下源码，部署于自己的服务器上。 
 
@@ -378,14 +378,20 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
     <th width="80px">下载链接</th>
   </tr>
   <tr align="center">
-    <td>Node.js</td>
+    <td>Java</td>
     <td>1.1.0</td>
     <td>LiveRoom 和 RTCRoom 的后台源码，可用于自行部署</a></td>
-    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Server") href="http://dldir1.qq.com/hudongzhibo/mlvb/RoomService.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice(java).zip">DOWNLOAD</a</td>
+  </tr>
+	<tr align="center">
+    <td>Node.js</td>
+    <td>1.1.0</td>
+    <td>LiveRoom 和 RTCRoom 的后台源码，可用于自行部署</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice(nodejs).zip">DOWNLOAD</a</td>
   </tr>
 </table>
   
-<h2 id="Xiaozhibo">小直播源码</h2>
+<h2 id="Xiaozhibo">小直播源码（4.5.4022）</h2>
 
 <table width="850px">
   <tr align="center">
@@ -408,8 +414,8 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
   </tr>
   <tr align="center">
     <td>PHP源码包</td>
-    <td>4.4</td>
-    <td>为观众端提供直播间列表和回放列表</td>
+    <td>4.4</td>
+    <td>为观众端提供直播间列表和回放列表</td>
     <td><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3780.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
@@ -426,7 +432,7 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
 
 - 如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
 
-## 关于我们
+## 您可能的顾虑
 - 所有版本 SDK 均不绑定腾讯云，后续亦没有绑定计划，但 SDK 的一些优势功能只能配合腾讯云使用（比如 QUIC 加速等腾讯云的优势能力）。
 
 - 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。
