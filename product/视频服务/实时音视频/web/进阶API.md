@@ -281,6 +281,18 @@ websocket 断开
 
 > 以下就是进阶的接口
 
+### WebRTCAPI.startRTC
+#### 具体功能
+主动发起推流/拉流
+
+```javascript
+    var RTC = new WebRTCAPI({ ... });
+    ... 
+
+    RTC.startRTC();
+```
+---
+
 ### WebRTCAPI.getLocalStream
 #### 具体功能
 获取本地音频/音频流
