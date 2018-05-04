@@ -1,7 +1,7 @@
 ## 1. Viewing Scaling Group List
 
 1. Open the [Console](https://console.cloud.tencent.com/autoscaling), and click **Scaling Group** in the navigation bar to view the list.
-![](//mccdn.qcloud.com/static/img/ff713a0ff792e49e5e8e099e59251b5a/image.png)
+![](https://mccdn.qcloud.com/static/img/ff713a0ff792e49e5e8e099e59251b5a/image.png)
 
 ## 2. Creating a Scaling Group
 
@@ -36,12 +36,12 @@ The scaling group is now created. Currently the scaling group can accommodate ma
 Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page of the scaling group.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
 
 Users may view the list of CVMs bound to the scaling group in this page.
 - To manually add CVM instances to the scaling group, click **Add CVM**, select the instance to be added (hold Shift key to select multiple instances) and click **OK**;
 - To unbind a certain CVM, click **Remove** behind the corresponding CVM entry.
-![](//mccdn.qcloud.com/static/img/ac4e495a20c3aa69836f3eefb6fdb609/image.png)
+![](https://mccdn.qcloud.com/static/img/ac4e495a20c3aa69836f3eefb6fdb609/image.png)
 
 Automatically created machines will be terminated when removed.
 Manually added machines will not be terminated upon removal. They will only be removed from the scaling group, and the load balancer will be unbound.
@@ -50,7 +50,7 @@ Manually added machines will not be terminated upon removal. They will only be r
 Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
 
 Click "Edit" to increase or decrease availability zones.
 
@@ -59,10 +59,10 @@ Click "Edit" to increase or decrease availability zones.
 Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
 
 Click **Edit** to modify the scaling group name, adjust the minimum and maximum scaling group sizes, and modify CVM instance remove policy, etc.
-![](//mccdn.qcloud.com/static/img/19a6f7cc708a4288974a98d8a78263bd/image.png)
+![](https://mccdn.qcloud.com/static/img/19a6f7cc708a4288974a98d8a78263bd/image.png)
 
 ## 6. Deleting Scaling Group
 Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.

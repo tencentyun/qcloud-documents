@@ -43,9 +43,9 @@
 
   4) 镜像配置。
    - **名称**：输入运行容器的名称，此处以 wordpress 为例。
-   - **镜像**：填写 `tutum/wordpress` 。
+   - **镜像**：填写 `wordpress` 。
    - **版本（Tag）**：填写 latest。
-    ![](https://mc.qcloudimg.com/static/img/b5c035081625c15a1dcbdf0a3cabf6a7/image.png)
+   ![](https://main.qcloudimg.com/raw/ce5db7822ffcdb0a7f737f178d850129.png)
 
   5) 单击运行容器下的 【显示高级设置】，在弹出的下拉列表中，单击环境变量下的【新增变量】。依次填写：
   WORDPRESS_DB_HOST = 云数据库 MySQL 的地址
@@ -67,6 +67,6 @@
    - 集群内的其他服务或容器可以直接通过服务名称访问。
 
   2) 进入 WordPress 服务器的默认欢迎页。
-  ![Alt text](https:https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)
+  ![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)
 
   若容器创建失败，可查看[事件常见问题](https://cloud.tencent.com/document/product/457/8187)。
