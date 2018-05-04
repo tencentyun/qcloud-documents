@@ -1,40 +1,20 @@
 ## Description
  
 This API (DescribeDirectConnectTunnels) is used to query the Direct Connect tunnel list.
-Domain name for API request: <font style="color:red">dc.api.qcloud.com</font> 
+Domain name for API request: `dc.api.qcloud.com`
 
-## Request
-
-Syntax:
-```
-GET  https://dc.api.qcloud.com/v2/index.php?Action=DescribeDirectConnectTunnels
-     &<Common request parameters>
-     &directConnectId=dc-kd7d06of
-```
-
-### Request Parameter
+## Request Parameter
 
 The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeDirectConnectTunnels.
 
-| Parameter Name | Required | Type | Description |
+| Parameter  | Required | Type | Description |
 |---------|---------|---------|---------|
 | directConnectId | No | String | Direct Connect ID, such as dc-kd7d06of. | 
 | directConnectTunnelId | No | String | Direct Connect tunnel ID, such as dcx-kd7d0125. | 
 
-## Response
-Response Example:
-```
-{
-    "code": 0,
-    "message": "",
-    "data": [
-        {},
-    ]
-}
-```
 ## Response Parameters
 
-| Parameter Name | Type | Description |
+| Parameter  | Type | Description |
 |---------|---------|---------|
 | code | Int | Error code, 0: Successful; other values: Failed. |
 | message | String | Error message. |
@@ -59,9 +39,6 @@ Response Example:
 | data.n.peeringSubnetMask | string | Connect IP Mask |
 | data.n.remark | String | Remarks. |
 
-### Response Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
- 
 ## Practical Case
  
 ### Request
