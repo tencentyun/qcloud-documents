@@ -98,7 +98,6 @@ Page({
 		debug: false,
 		enableIM: false
 	},
-    //...
     onRoomEvent: function(e){
         switch(e.detail.tag){
             case 'error': {
@@ -109,14 +108,24 @@ Page({
             }
         }
     },
-
     onIMEvent: function(e){
         switch(e.detail.tag){
-            case 'RecvMsg': {
-                //收到消息
+            case 'big_group_msg_notify': 
+                //收到群组消息
                 console.debug( e.detail.detail )
                 break;
-            }
+            case 'login_event': 
+                //登录事件通知
+                console.debug( e.detail.detail )
+                break;
+            case 'connection_event': 
+                //连接状态事件
+                console.debug( e.detail.detail )
+                break;
+            case 'join_group_event': 
+                //进群事件通知
+                console.debug( e.detail.detail )
+                break;
         }
     },
 
