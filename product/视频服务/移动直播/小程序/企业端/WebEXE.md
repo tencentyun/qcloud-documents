@@ -3,7 +3,7 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 
 | 方案选型| WebEXE | WebRTC |
 |:-------:|:-------:|:-------:|
-| 文档地址 | DOC | DOC |
+| 文档地址 | [DOC](https://cloud.tencent.com/document/product/454/17004) | [DOC](https://cloud.tencent.com/document/product/454/17005) |
 | 试用场景 | 面向公司职员 | 面相普通C类用户 |
 | 方案优势 | 可以跳开浏览器的各种限制，实现一些高级特性 | 无需安装插件，Chrome浏览器就能胜任，适合普通用户接入 |
 | 方案不足 | 需要使用者按提示安装程序 | 功能受限Chrome浏览器的安全限制 |
@@ -47,11 +47,11 @@ WebEXE 混合方案是一种综合网页和桌面程序共同优势的解决方�
 
 | 成员函数                                    | 功能说明                                     |
 | ------------------------------------------- | -------------------------------------------- |
-| [setListener(object)](#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
-| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间 |
-| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间 |
-| [setTemplateCfg()](#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
-| [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
+| [setListener(object)](https://cloud.tencent.com/document/product/454/17006#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
+| [createExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间 |
+| [closeExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间 |
+| [setTemplateCfg()](https://cloud.tencent.com/document/product/454/17006#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
+| [unload()](https://cloud.tencent.com/document/product/454/17006#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
 
 
 ## 示例代码
