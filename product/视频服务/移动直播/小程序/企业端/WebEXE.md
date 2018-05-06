@@ -41,12 +41,11 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 下面这幅图简单介绍了如何将 WebEXE 方案整合到您的现有的业务系统中：
 ![](https://main.qcloudimg.com/raw/30281f823d059c5876968385ef97cbc6.png)
 
-- **step1: 搭建业务服务器**
+### step1: 搭建业务服务器
 业务服务器的作用主要是向PC端网页和微信小程序派发 roomid、userid、usersig 这些进行视频通话所必须的信息。其中roomid 和 userid 都可以由您的业务后台自由决定，只要确保不会出现 id重叠 就可以。usersig 的计算则需要参考 [DOC](https://cloud.tencent.com/document/product/454/14548)，我们在官网也提供了 java 和 php 版本的计算[源码](https://cloud.tencent.com/document/product/454/7873#Server)。
  
-- **step2: 对接PC Web端代码**
+### step2: 对接PC Web端代码
 您的web页面需要 include EXEStarter.js，并且把 step1 中获取的 roomid, userid, usersig 这些信息都传递给 EXEStarter.js 的 createExeAsRoom 函数。其中几个关键参数这里详细说明一下：
-
 
 | 参数 | 详细说明|
 |:-------:|---------|
@@ -57,22 +56,9 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 |userID    | 用户ID，您的业务服务器负责分配，各个端不能重复，否则会出现“被踢下线”的情况 |
 | userSig  | 相当于用户密码，具体怎么计算，可以参考 [DOC](https://cloud.tencent.com/document/product/454/14548) 了解。|
 
-
-- **step3: 对接小程序端代码**
-小程序端的对接参考微信端的文档：
-
-| 文档链接 | 适合场景 |
-|------------|-------------|
-| [**&lt;rtc-room&gt;**](https://cloud.tencent.com/document/product/454/15364) | 纯视频通话场景，比如双人1v1视频通话，或者视频会议 |
-|[**&lt;live-room&gt;**](https://cloud.tencent.com/document/product/454/15368)| 直播+连麦混合场景，基于LVB服务实现，所以既能以很低的带宽成本支持上千人的并发观看，又能支持观众和主播之间的实时视频通话|
-
-- **step4: 部署RoomService（可选）**
-因为 RoomService 是一个[开源](https://cloud.tencent.com/document/product/454/7873#Server)的（java | Node.js）组件，所以大部分客户都选择自行部署，部署方法见 zip 包中的说明文档。
-
-## API（EXEStarter.js）
 **EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
-| 成员函数                                    | 功能说明                                     |
+| API(EXEStarter.js )                        | 功能说明                                     |
 | ------------------------------------------- | -------------------------------------------- |
 | [setListener(object)](https://cloud.tencent.com/document/product/454/17006#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
 | [createExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间 |
@@ -80,71 +66,20 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 | [setTemplateCfg()](https://cloud.tencent.com/document/product/454/17006#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
 | [unload()](https://cloud.tencent.com/document/product/454/17006#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
 
-下面这段代码演示了如何手写一个简单的 HTML 网页文件，实现 WebEXE 的唤起功能。
 
-```html
-<HTML>
-<HEAD>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <TITLE>web+exe解决方案test</TITLE>
-    <script type="text/javascript" src="../../sdk/exestart/EXEStarter.js" charset="utf-8"></script>
-</HEAD>
-<BODY onload="" onunload="">
-     <input type=submit value="开课" 
-		 onClick="opencourse(document.getElementById('UserID').value, document.getElementById('RoomID').value);">
-     <br></br><br></br>
-     <input size="30" id="UserID" value="TestUser_1231d21f2d"> userID <br></br>
-     <input size="30" id="RoomID" value="room_123d2f456s2s12"> roomID
-    <script>
-        function opencourse(userID, roomID)
-		{
-            var tRoomID = roomID;
-            var tUserID = userID;
-            var roomserverInfo; var roomServerDoMain = "https://room.qcloud.com/";
-            //第一步：通过您的账号userid，获取roomserver的 usersig
-            getSDKLoginInfo({
-                data: {  userID: tUserID, roomServerDomain: 
-                       roomServerDomain,method : "GET",time: 24 * 60 * 60 * 7
-                },
-                success: function (res) {
-                    if (res.status && res.status === 200) {roomserverInfo = res.data;}
-                },
-            });
-            //第二步:设置exe的模板样式
-            EXEStarter.setTemplateCfg({
-                data: { serverDomain: roomServerDoMain,},
-                style: {
-                    type: EXEStarter.StyleType.RTCRoom,
-                    template: EXEStarter.Template.Template1V3,
-                    userList: true, IMList: true,whiteboard: true, screenShare: true,
-                }
-            });
+### step3: 对接小程序端代码
+小程序端的对接参考微信端的文档：
 
-            //第三步：通过usersig和您的房间信息，拉起本地应用程序。
-            EXEStarter.createExeAsRoom({
-                userdata: {
-                    userID: roomserverInfo.userID,
-                    userName: "雷锋",
-                    sdkAppID: roomserverInfo.sdkAppID,
-                    accType: roomserverInfo.accountType,
-                    userSig: roomserverInfo.userSig,
-                },
-                roomdata: {
-                    roomAction: EXEStarter.RoomAction.CreateRoom,
-                    roomID: tRoomID,
-                    roomName:  "雷锋的房间",
-                    roomTitle:  "1V1视频",
-                    roomLogo: "http://cosgz.myqcloud.com/logo/liveroom_logo.png",
-                },
-                success: function (ret) {},
-                fail: function () {},
-                timeout: function () {},
-            })
-        }
-    </script>
-</BODY>
-</HTML>
-```
+| 文档链接 | 适合场景 |
+|------------|-------------|
+| [**&lt;rtc-room&gt;**](https://cloud.tencent.com/document/product/454/15364) | 纯视频通话场景，比如双人1v1视频通话，或者视频会议 |
+|[**&lt;live-room&gt;**](https://cloud.tencent.com/document/product/454/15368)| 直播+连麦混合场景，基于LVB服务实现，所以既能以很低的带宽成本支持上千人的并发观看，又能支持观众和主播之间的实时视频通话|
+
+
+### step4: 部署RoomService（可选）
+因为 RoomService 是一个[开源](https://cloud.tencent.com/document/product/454/7873#Server)的（java | Node.js）组件，所以大部分客户都选择自行部署，部署方法见 zip 包中的说明文档 **README.pdf**。
+
+
 
 ## 如何录制
 
