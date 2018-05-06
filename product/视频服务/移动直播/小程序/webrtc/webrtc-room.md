@@ -153,12 +153,11 @@ Page({
 
 ### step1: 开通相关云服务
 
-> 小程序跟WebRTC的互通是基于实时音视频（[TRTC](https://cloud.tencent.com/product/trtc)）服务实现的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
+小程序跟 WebRTC 的互通是基于实时音视频（[TRTC](https://cloud.tencent.com/product/trtc)）服务实现的，需要开通该服务。
 
-- 进入 [实时音视频管理控制台](https://console.qcloud.com/rav)，如果服务还没有开通，则会有如下提示，点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
-![](https://main.qcloudimg.com/raw/989a89e702858048b5b6c945a371f75c.png)
+- 进入实时音视频[管理控制台](https://console.cloud.tencent.com/rav)，如果服务还没有开通，点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
 
-- 实时音视频开通后，进入[【实时音视频管理控制台】](https://console.qcloud.com/rav) 创建实时音视频应用，点击【确定】按钮即可。
+- 服务开通后，进入[管理控制台](https://console.cloud.tencent.com/rav) 创建实时音视频应用，点击【确定】按钮即可。
 ![](https://main.qcloudimg.com/raw/20d0adeadf23251f857571a65a8dd569.png)
 
 - 从实时音视频控制台获取`sdkAppID、accountType、privateKey`，在 step4 中会用的：
