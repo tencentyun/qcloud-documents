@@ -1,4 +1,4 @@
-# 下载配置文件
+## 下载配置文件
 
 Android Studio 说明
 
@@ -8,13 +8,13 @@ Android Studio 说明
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg)
 
 
-# 添加 SDK 
+## 添加 SDK 
 
 Gradle 说明
 
-应用云核心库会读取您刚才下载的配置文件启动服务。请修改您的 build.gradle 文件以使用服务。
+MobileLine 移动开发平台核心库会读取您刚才下载的配置文件启动服务。请修改您的 build.gradle 文件以使用服务。
 
-1.使用 jcenter 作为仓库来源
+1. 使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -22,9 +22,6 @@ Gradle 说明
 buildscript {
     repositories {
         jcenter()
-    }
-    dependencies {
-        ...
     }
 }
 
@@ -36,49 +33,19 @@ allprojects {
 ```
 
 
-2.添加 应用云 库依赖
+2. 添加 Android SDK 库依赖
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 应用云核心库 的依赖：
+在您的应用级 build.gradle（通常是 app/build.gradle）添加核心库 SDK 的依赖：
 
 ```
 dependencies {
     //增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
 }
 ```
 
 然后，点击 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
 
+3. 手动集成说明
 
-# 添加初始化代码
-
-1.在应用模块 `Application` 子类的 `onCreate` 方法中添加以下初始化代码:
-
-```
-public class MyCustomApp extends Application {
-
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		...
-		// 增加这行
-		TACApplication.configure(this);
-	}
-	
-}
-```
-
-2.在 `AndroidManifest.xml` 添加 自定义的 Application 子类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tac">
-
-    <application
-        android:name="com.example.tac.MyCustomApp"
-        ...
-    </application>
-</manifest>
-```
-
-
+SDK 可以手动下载集成：[tac.zip](https://tac-android-libs-1253960454.file.myqcloud.com/1.1.0/tac-core-1.1.0.zip)

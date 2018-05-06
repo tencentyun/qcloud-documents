@@ -22,8 +22,6 @@ If you're new to Tencent Cloud CVM, please refer to [Quick start for Windows CVM
 
 
 ## Related Services
-
-- [Service Market](market.cloud.tencent.com): You may use a template to enable new CVM. The preset template may include any environment or application that you want to be included in the CVM during initialization. Tencent Cloud provides a large number of approved vendor templates to help users quickly build environment.
 - [Cloud Load Balance](/doc/product/214): may realize automatic distribution of request traffic from clients across multiple CVM instances. 
 - [Auto Scaling](/doc/product/377): may automatically increase or decrease the quantity of server clusters at regular time or based on specific conditions. 
 - [Cloud Monitor](/doc/product/248): can be used to monitor operation statistical data for CVM instances.

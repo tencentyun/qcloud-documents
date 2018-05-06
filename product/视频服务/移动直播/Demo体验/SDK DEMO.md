@@ -9,17 +9,17 @@
 		<th width="150px">安装地址</th>
     <th width="300px">扫码安装</th>
   </tr>
-  <tr align="center">
-    <td>iOS</td>
-    <td>4.1</td>
-		<td><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
+  <tr>
+    <td style="text-align:center;vertical-align:middle;">iOS</td>
+    <td style="text-align:center;vertical-align:middle;">4.5</td>
+		<td style="text-align:center;vertical-align:middle;" ><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
 ">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/b9c3da61900be18622b5cf5a3984ffa1/image.png" /></td>
   </tr>
 	<tr align="center">
-    <td>Android</td>
-    <td>4.1</td>
-		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk">点击安装</a></td>
+    <td style="text-align:center;vertical-align:middle;">Android</td>
+    <td style="text-align:center;vertical-align:middle;">4.5</td>
+		<td style="text-align:center;vertical-align:middle;"><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/601b4555080a5bf3a15be22ff9a66783/image.png" /></td>
   </tr>
 </table>
@@ -36,15 +36,15 @@
     <th width="300px">扫码安装</th>
   </tr>
   <tr align="center">
-    <td>iOS</td>
-    <td>4.1</td>
-		<td><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8">点击安装</a></td>
+    <td style="text-align:center;vertical-align:middle;">iOS</td>
+    <td style="text-align:center;vertical-align:middle;">4.5</td>
+		<td style="text-align:center;vertical-align:middle;"><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/92f5be86a4f0f7f85e45ff5cc3688825/image.png" /></td>
   </tr>
   <tr align="center">
-    <td>Android</td>
-    <td>4.1</td>
-		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">点击安装</a></td>
+    <td style="text-align:center;vertical-align:middle;">Android</td>
+    <td style="text-align:center;vertical-align:middle;">4.5</td>
+		<td style="text-align:center;vertical-align:middle;"><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png" /></td>
   </tr>
 </table>
@@ -70,7 +70,7 @@
     <td height="100px"> IE 解决方案 </td>
     <td>2.0.1</td>
 		<td>ActiveX 插件</td>
-		<td><a href="http://imgcache.qq.com/open/qcloud/video/act/avtivex_demo/demoex/double_room/DoubleRoomIndex.htm">点击体验</a></td>
+		<td><a href="http://img.qcloud.com/open/qcloud/video/act/avtivex_demo/demo/index/IndexDemo.htm">点击体验</a></td>
   </tr>
 	<tr align="center">
     <td height="100px">C# 解决方案</td>

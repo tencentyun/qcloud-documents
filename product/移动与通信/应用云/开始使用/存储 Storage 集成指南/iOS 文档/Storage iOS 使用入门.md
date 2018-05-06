@@ -1,88 +1,178 @@
+# MobileLine iOS 移动存储服务快速入门
+
+移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
 
-在开始使用应用云 Storage之前，您需要：
+为了使用移动开发平台（MobileLine）iOS 版本的 SDK，您首先需要一个 iOS 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-1. 一个启用了应用云的应用。
-2. 您集成了 TACCore。
+>**注意：**
+>请先参考 [快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
 
-## 将应用云 Storage 代码库添加到您的 Xcode 项目中
+## 第一步：创建项目和应用
 
 
-### 1. 在您的项目中集成应用云 SDK。
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-并在您的 Podfile 文件中添加应用云的私有源：
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+
+
+## 第二步：添加配置文件
+
+>**注意：**
+>如果您已经添加过配置文件，请跳过此步。
+
+创建好应用后，您可以点击红框中的【下载配置】来下载该应用的配置文件的压缩包：
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
+
+解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
+
+>**注意：**
+>请您按照图示来添加配置文件， `tac_service_configurations_unpackage.plist` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+
+
+## 第三步：集成 SDK
+
+如果还没有 Podfile，请创建一个。
+
+~~~
+$ cd your-project directory
+$ pod init
+~~~
+
+并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
->** 注意:**
->一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
+在 Podfile 中添加依赖：
 
-### 2. 添加 TACStorage 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod。
+```
+pod 'TACStorage'
+```
+
+### 配置程序需要脚本
+
+> 如果您在其他模块中完成了此步骤，请不要重复执行。
+
+为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+
+脚本主要包括两个：
+
+- 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
+- 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
+
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
+
+请按照以下步骤来添加脚本：
+
+##### 添加构建之前运行的脚本
+
+1. 在导航栏中打开您的工程。
+2. 打开 Tab `Build Phases`。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
+> **注意：**
+请确保该脚本在 `Build Phases` 中排序为第二。
+4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
+
+需要黏贴的代码
 
 ~~~
-pod 'TACStorage"
+#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 ~~~
 
-### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
+其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
+
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
+   
+  ~~~
+  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
+  ~~~
+* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+   
+  ~~~
+   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
+  ~~~
+
+
+##### 添加构建之后运行的脚本
+
+1. 在导航栏中打开您的工程。
+2. 打开 Tab `Build Phases`。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
+> **注意：**
+>  请确保该脚本在 `Build Phases` 中排序需要放到最后。
+4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
+
+需要黏贴的代码
 
 ~~~
-$ pod install
-$ open your-project.xcworkspace
+#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 ~~~
 
-### 4. 在 UIApplicationDelegate 子类中导入 TACStorage 模块。
+其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
+
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
+	
+  ~~~
+  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
+  ~~~
+* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+    
+  ~~~
+  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
+  ~~~
+
+
+## 第四步：初始化
+
+集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
+
+### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
 
 Objective-C 代码示例：
 ~~~
-#import <TACStorage/TACStorage.h>
+#import <TACCore/TACCore.h>
 ~~~
 
 Swift 代码示例：
 ~~~
-import TACStorage
+import TACCore
 ~~~
 
+### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
 
-### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置。
+######  使用默认配置
 
-一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
+通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
 
 Objective-C 代码示例：
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
-如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧，保障了只有在您引入了 TACStorage 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACStorage 模块这些属性就不存在，请不要在没有引入 TACStorage 模块的时候使用这些配置，这将会导致您编译不通过：
+### 配置 TACStorage 的使用权限。
 
-Objective-C 代码示例：
-~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	//     options.storageOptions.[Key] = [Value];
-    //
-    [TACApplication configurateWithOptions:options];
-~~~
-Swift 代码示例：
-~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// options?.storageOptions.[Key] = [Value];
-	TACApplication.configurate(with: options);
-~~~
-
-### 6. 配置 TACStorage 的使用权限。
+请先参考[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
 
 TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要对请求进行权限校验，来确保对应的请求是否有权限访问对应的资源。因而您需要在您的代码中实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
 
+Objective-C 代码示例：
 ~~~
 @interface TACStorageDemoViewController () <QCloudCredentailFenceQueueDelegate>
 @end
@@ -107,8 +197,8 @@ TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要�
             continueBlock(nil, error);
         } else {
             QCloudCredential* crendential = [[QCloudCredential alloc] init];
-            crendential.secretID = @"AKIDPiqmW3qcgXVSKN8jngPzRhvxzYyDL5qP";
-            crendential.secretKey = @"EH8oHoLgpmJmBQUM1Uoywjmv7EFzd5OJ";
+            crendential.secretID = <#secretID#>;
+            crendential.secretKey = <#secretKey#>;
             crendential.experationDate = nil;
             crendential.token = ;
             QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
@@ -121,3 +211,53 @@ TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要�
 }
 @end
 ~~~
+
+Swift 代码示例：
+~~~
+class TACStorageDemoViewController: UIViewController ,QCloudCredentailFenceQueueDelegate{
+    func fenceQueue(_ queue: QCloudCredentailFenceQueue!, requestCreatorWithContinue continueBlock: QCloudCredentailFenceQueueContinue!) {
+    // 在调试阶段您可以通过直接设置secretID和secretKey来测试服务，但是强烈不建议在线上环境使用该方式！！！
+#if DEBUG
+        let crendential = QCloudCredential.init()
+        crendential.secretID = <#secretID#>
+        crendential.secretKey = <#secretKey#>
+        let creator = QCloudAuthentationV5Creator.init(credential: crendential)
+        continueBlock(creator,nil)
+#else
+//您需要配置自己的服务器，来获取CAM临时密钥。并通过临时密钥来创建权限Creator。具体可以参考：[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068)
+    var NetworkCall:(AnyObject,Error)->Void = {(response,NSError)->Void in
+        if error != nil {
+            continueBlock(nil,error)
+        }else{
+            let crendential = QCloudCredential.init()
+            crendential.secretID = <#secretID#>
+            crendential.secretKey = <#secretKey#>
+            crendential.token = ""
+            let creator = QCloudAuthentationV5Creator.init(credential: crendential)
+            continueBlock(creator,nil)
+        }
+         <#do network with callback:NetworkCall #>
+    }
+#endif
+    }
+~~~
+
+## 启动服务
+
+移动存储服务无需启动，到此您已经成功接入了 MobileLine 移动存储服务。
+
+## 后续步骤
+
+
+### 了解 MobileLine：
+
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)
+
+### 向您的应用添加 MobileLine 功能：
+
+- 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
+- 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
+- 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
+- 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力

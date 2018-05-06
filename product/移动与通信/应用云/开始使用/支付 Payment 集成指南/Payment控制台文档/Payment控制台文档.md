@@ -5,21 +5,18 @@
 
 ### 开通支付渠道
 
-#### 操作步骤
+#### 1. 进入渠道管理页
 
-**1. 进入渠道管理页**
-
-登录 [控制台](https://console.cloud.tencent.com/tac)，然后点击左侧导航【我的米大师】，然后在上方导航栏中点击【渠道管理】。
-
+登录 [控制台](https://console.cloud.tencent.com/tac)，单击【我的米大师】>【渠道管理】，进入渠道管理界面。
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_1_.png?raw=true)
 
-**2. 填写渠道信息**
+#### 2. 填写渠道信息
 
-进入渠道管理页后，如果您创建的是 Android 应用，那么会看到【开通微信支付】和【开通QQ钱包支付】两个按钮（如下图所示），如果您创建的是 IOS 应用，那么您也会看到 【开通IAP支付】按钮。
+进入渠道管理页后，如果您创建的是 Android 应用，那么会看到【开通微信支付】和【开通 QQ 钱包支付】两个按钮（如下图所示），如果您创建的是 IOS 应用，那么您也会看到 【开通 IAP 支付】按钮。
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_2.png)
 
-接下来，您需要点击【开通微信支付】或者【开通QQ钱包支付】，填写渠道配置信息：
+接下来，您需要点击【开通微信支付】或者【开通 QQ 钱包支付】，填写渠道配置信息：
 
 <img src="http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_3_.png" width="50%" height="50%">
 
@@ -27,17 +24,17 @@
 
 #### 相关信息说明
 
-**商户号**
+##### 商户号
 
-商户号需要在根据您开通的支付渠道在 [微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 或者 [QQ 钱包商户平台](https://qpay.qq.com) 上申请，申请的方式请参见 [这里](https://github.com/tencentyun/qcloud-documents/edit/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E6%94%AF%E4%BB%98%20Payment%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Payment%20%E6%94%AF%E4%BB%98%E6%B8%A0%E9%81%93%E9%85%8D%E7%BD%AE%E6%8C%87%E5%BC%95.md) 。
+商户号需要在根据您开通的支付渠道在 [微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 或者 [QQ 钱包商户平台](https://qpay.qq.com) 上申请，申请的方式请参见 [这里](https://cloud.tencent.com/document/product/666/14599) 。
 
-**商户号密钥**
+##### 商户号密钥
 
 申请商户号成功后，商户平台会给您生成一个商户号密钥，这是您的机密信息，请不要泄露。
 
-**AppID**
+##### AppID
 
-在开通支付前，您需要根据开通的渠道在 [微信开放平台](https://open.weixin.qq.com) 或者 [腾讯开放平台](http://open.qq.com/) 上注册，并创建一个应用，创建好应用后请将其 AppId 拷贝过来，同样可以参见 [这里](https://github.com/tencentyun/qcloud-documents/edit/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E6%94%AF%E4%BB%98%20Payment%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Payment%20%E6%94%AF%E4%BB%98%E6%B8%A0%E9%81%93%E9%85%8D%E7%BD%AE%E6%8C%87%E5%BC%95.md)。
+在开通支付前，您需要根据开通的渠道在 [微信开放平台](https://open.weixin.qq.com) 或者 [腾讯开放平台](http://open.qq.com/) 上注册，并创建一个应用，创建好应用后请将其 AppId 拷贝过来，同样可以参见 [这里](https://cloud.tencent.com/document/product/666/14599)。
 
 **AppKey**
 
@@ -45,13 +42,11 @@
 
 ### 配置参数
 
-#### 操作步骤
+#### 1. 进入参数配置页
 
-**1. 进入参数配置页**
+配置好渠道信息并点击【确认】后，会提示您进入参数配置页，单击【我的米大师】>【配置参数】>【修改】来进入参数配置页。
 
-配置好渠道信息并点击【确认】后，会提示您进入参数配置页，您也可以点击左侧导航栏【我的米大师】，然后选择上侧导航栏中的【参数配置】，然后点击右上角的【修改】来进入参数配置页。
-
-**2. 填写配置信息**
+#### 2. 填写配置信息
 
 配置项如下：
 
@@ -59,7 +54,7 @@
 
 填好配置信息后，点击【保存 & 预览】进入下一步。
 
-**3. 发布上线**
+#### 3. 发布上线
 
 如果您所有的参数验证完成，并且准备发布上线，您可以点击【发布上线】按钮发布到线上。
 
@@ -81,8 +76,8 @@
 
 **应用签名**
 
-如果您创建的是 Android 应用，那么需要填入您应用的签名值，这里必须和开放平台上注册应用时的签名值保持一致。您可以用如下示例命令生成应用签名，这里假设您的签名文件 `alias` 为 `androiddebugkey`，签名文件的路径为 `~/.android/debug.keystore`。
-
+如果您创建的是 Android 应用，那么需要填入您应用的签名值，这里必须和开放平台上注册应用时的签名值保持一致。您可以用如下示例命令生成应用签名，这里假设您的签名文件 `alias` 为 `androiddebugkey`，签名文件的示例路径： `~/.android/debug.keystore`。
+签名文件路径：
 `keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore`
 
 命令生成的 `SHA1` 值即为您的应用签名。

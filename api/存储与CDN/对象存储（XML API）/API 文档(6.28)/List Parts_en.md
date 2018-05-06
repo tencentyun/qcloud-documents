@@ -98,7 +98,7 @@ Content of Container node ListPartsResult:
 | UploadId | ListPartsResult | Indicate the ID of current multipart upload | String |
 | Initiator | ListPartsResult | Indicate the information of the initiator of current upload | Container |
 | Owner | ListPartsResult| Indicate the information of the owner of these parts | Container |
-| StorageClass | ListPartsResult | Indicate the storage class of uploaded parts; enumerated values include Standard, Standard_IA, nearline | String |
+| StorageClass | ListPartsResult | Indicate the storage class of uploaded parts; enumerated values include Standard, Standard_IA | String |
 | PartNumberMarker | ListPartsResult | Entries are listed using UTF-8 binary order by default, starting from marker | String |
 | NextPartNumberMarker | ListPartsResult | If the returned entry is truncated, the returned NextMarker indicates the beginning of the next entry | String |
 | MaxParts | ListPartsResult | Maximum number of entries returned at a time | String |

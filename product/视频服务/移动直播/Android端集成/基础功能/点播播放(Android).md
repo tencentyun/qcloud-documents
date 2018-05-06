@@ -108,7 +108,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
 ### step 7: 屏幕截图
-通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
+通过调用 **snapshot** 您可以截取当前视频为一帧画面，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
@@ -162,6 +162,8 @@ mVodPlayer.setConfig(mConfig);
 //开始播放
 mVodPlayer.startPlay(playUrl);                         
 ```
+
+> 缓存的文件可能会被系统图库扫描到，如果您不希望缓存的文件出现在系统图库中，您可以在缓存目录下新建一个名为“.nomedia”的空文件。系统图库发现该文件存在后，会跳过扫描此目录。
 
 ### step 10: 预加载
 在短视频播放场景中，预加载功能对于流畅的观看体验很有帮助：在观看当前视频的同时，在后台加载即将要播放的下一个视频URL，这样一来，当用户真正切换到下一个视频时，已经不需要从头开始加载了，而是可以做到立刻播放。
@@ -234,7 +236,7 @@ ArrayList<TXBitrateItem> bitrates = mVodPlayer.getSupportedBitrates(); //获取�
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是秒
@@ -254,7 +256,7 @@ public void onPlayEvent(int event, Bundle param) {
 
 如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是毫秒
@@ -344,6 +346,8 @@ public void onPlayEvent(int event, Bundle param) {
 |   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
+您也可直接调用 `TXVodPlayer.getWidth()` 和 `TXVodPlayer.getHeight()` 直接获取当前宽高.
+
 ## 视频信息
 如果通过fileId方式播放且请求成功，SDK会将一些请求信息通知到上层。您需要在收到`TXLiveConstants.PLAY_EVT_GET_PLAYINFO_SUCC`事件后，解析param中的信息。
 
@@ -352,3 +356,66 @@ public void onPlayEvent(int event, Bundle param) {
 | EVT_PLAY_COVER_URL     | 视频封面地址 | 
 | EVT_PLAY_URL  | 视频播放地址 |
 | EVT_PLAY_DURATION | 视频时长 |
+
+
+## 离线下载
+
+点播离线播放是一个非常普遍的需求，用户可以在有网络的地方先下载好视频，等到了无网络的环境可以再次观看。SDK提供了播放本地文件的能力，但仅限于mp4和flv这种单一文件格式，HLS流媒体因为无法保存到本地，所以不能本地播放。现在，您可以通过`TXVodDownloadManager`将HLS下载到本地，以实现离线播放HLS的能力。
+
+### step1：准备工作
+
+`TXVodDownloadManager`被设计为单例，因此您不能创建多个下载对象。用法如下
+
+```java
+TXVodDownloadManager downloader = TXVodDownloadManager.getInstance();
+downloader.setDownloadPath("<指定您的下载目录>");
+```
+
+### step2:  开始下载
+
+开始下载有两种方式：url和fileid。url方式非常简单，只需要传入下载地址即可
+
+```java
+downloader.startDownloadUrl("http://1253131631.vod2.myqcloud.com/26f327f9vodgzp1253131631/f4bdff799031868222924043041/playlist.m3u8");
+```
+
+fileid下载至少需要传入appId和fileId
+
+```java
+TXPlayerAuthBuilder auth = new TXPlayerAuthBuilder();
+auth.setAppId(1252463788);
+auth.setFileId("4564972819220421305");
+TXVodDownloadDataSource source = new TXVodDownloadDataSource(auth, QUALITY_OD);
+downloader.startDownload(source);
+```
+
+> fileid的获取方式可参考 https://cloud.tencent.com/document/product/454/12148#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE
+
+### step3：任务信息 
+
+在接收任务信息前，需要先设置回调listener
+
+```java
+downloader.setListener(this);
+```
+
+可能收到的任务回调有：
+
+1. void onDownloadStart(TXVodDownloadMediaInfo mediaInfo)
+   任务开始，表示SDK已经开始下载。
+2. void onDownloadProgress(TXVodDownloadMediaInfo mediaInfo)
+   任务进度，下载过程中，SDK会频繁回调此接口，你可以在这里更新进度显示
+3. void onDownloadStop(TXVodDownloadMediaInfo mediaInfo)
+   任务停止，当您调用是`stopDownload`停止下载，收到此消息表示停止成功
+4. void onDownloadFinish(TXVodDownloadMediaInfo mediaInfo)
+   下载完成，收到此回调表示已全部下载。此时下载文件可以给TXVodPlayer播放
+5. void onDownloadError(TXVodDownloadMediaInfo mediaInfo, int error, String reason)
+   下载错误，下载过程中遇到网络断开会回调此接口，同时下载任务停止。错误码位于`TXVodDownloadManager`中。
+
+由于downloader可以同时下载多个任务，所以回调接口里带上了`TXVodDownloadMediaInfo`对象，您可以访问url或dataSource判断下载源，同时还可以获取到下载进度、文件大小等信息。
+
+### step4：中断下载
+
+停止下载请调用`downloader.stopDownload()`方法，参数为`downloader.startDownload()`返回的对象。**SDK支持断点续传**，当下载目录没有发生改变时，下次下载同一个文件时会从上次停止的地方重新开始。
+
+如果您不需要重新下载，请调用`downloader.deleteDownloadFile()`方法删除文件，以释放存储空间。

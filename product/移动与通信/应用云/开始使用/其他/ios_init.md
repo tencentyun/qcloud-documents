@@ -9,11 +9,11 @@ XCode 说明
 
 
 
-# 添加 应用云SDK 
+# 添加 移动开发平台SDK 
 
 CocoaPods 说明
 
-应用云 服务使用 CocoaPods 安装和管理依赖项。请打开终端窗口，然后导航至应用的 Xcode 项目位置。具体配置可以参考[TAC使用入门](https://cloud.tencent.com/document/product/666/14306?!preview&lang=cn)
+MobileLine移动开发平台的 服务使用 CocoaPods 安装和管理依赖项。请打开终端窗口，然后导航至应用的 Xcode 项目位置。具体配置可以参考[TAC使用入门](https://cloud.tencent.com/document/product/666/14306?!preview&lang=cn)
 
 
 1. 如果您没有 Podfile，请创建一个：
@@ -66,10 +66,14 @@ CocoaPods 说明
   ${PODS_ROOT}/TACCore/Scripts/tac.run.all.after.sh
   ~~~
 
+##### 手动集成说明
+
+SDK 可以手动下载集成：[tac.zip](https://ios-release-1253960454.file.myqcloud.com/tac.zip)
+
 # 添加初始化代码
 
 
-要在应用启动时连接 应用云 平台，请在 AppDelegate 主类中添加以下初始化代码。
+要在应用启动时连接 MobileLine 移动开发平台，请在 AppDelegate 主类中添加以下初始化代码。
 
 
 ~~~Objective-C

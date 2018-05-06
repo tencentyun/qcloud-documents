@@ -81,13 +81,13 @@ JSON
 | 10002 | 系统错误，请再次尝试或联系技术客服。 | 
 | 10003 | 请求命令非法，请再次尝试或联系技术客服。 | 
 | 10004| 参数非法。请根据应答包中的ErrorInfo字段，检查必填字段是否填充，或者字段的填充是否满足协议要求。 | 
-| 10007 | 操作权限不足。请确认操作者是否是[APP管理员](/doc/product/269/账号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)。| 
+| 10007 | 操作权限不足。请确认操作者是否是[APP管理员](/doc/product/269/帐号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)。| 
 
 ## 4 接口调试工具 
 
 ### 4.1 Web调试工具 
 
-通过[REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/add)调试本接口。 
+通过[REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html?_ga=1.139133813.770908707.1524645548#v4/openim_dirty_words/get)调试本接口。 
 
 ### 4.2 Server调试工具 
 

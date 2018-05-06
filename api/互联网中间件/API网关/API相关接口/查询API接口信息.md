@@ -133,7 +133,7 @@ https://apigateway.api.qcloud.com/v2/index.php?
     "serviceType":HTTP,
     "serviceTimeout":60,
     "serviceConfig":{
-		"url":"www.qcloud.com",
+		"url":"cloud.tencent.com",
 		"path":"/path",
 		"method":"GET"
 	},

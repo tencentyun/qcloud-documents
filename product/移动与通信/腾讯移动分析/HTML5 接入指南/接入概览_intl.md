@@ -1,0 +1,7 @@
+MTA HTML5 Analytics is a professional statistical analysis tool for mobile HTML5 Apps. It supports ordinary html pages, webview embedded in Apps, and HTML5 pages opened in WeChat.
+After developers sign up for Mobile Tencent Analytics and enter the [console](http://mta.qq.com/mta/overview/ctr_all_app_new) to quickly and concisely integrate js sdk codes, they can control the real-time access to HTML pages and gain insight into user behaviors. Mobile Tencent Analytics for H5 Apps provides the following statistical features (all of them can be operated on the console).
+**1. Basic Features**
+If you only need basic features, such as real-time data, historical trend, real-time visitor, old and new visitor ratio, visitor profile, geographic information, operator, terminal information, page ranking, performance monitoring, depth of access, external link, entry page, exit page, you can access directly according to the registration process (synchronization of newly registered Apps takes up to one hour, and reporting happened during this period is invalid).
+**2. Advanced Features**
+If you want to use advanced features, such as [channel effect analysis](/document/product/549/12874), [custom event statistics](/document/product/549/12876), [custom event parameter statistics](/document/product/549/12877), [funnel model statistics](/document/product/549/12877), and [manual report](/document/product/549/14848), please see the corresponding documentation.
+

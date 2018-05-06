@@ -1,3 +1,35 @@
+### Version 4.6 @ 2018-05-04
+- iOS&Android：点播支持MP4 H265硬解；
+- iOS&Android：推流端新增原始音频数据回调；
+- iOS&Android：Demo新增主播PK功能；
+- Android：优化小文件上传，提升成功率；
+- Android：解决动效路径错误导致的Crash问题；
+- iOS&Android：短视频录制新增混响和变声接口；
+- iOS&Android：短视频录制的新增分片存储目录外部设置接口；
+- iOS&Android：短视频编辑添加BGM支持纯视频流；
+- iOS&Android：短视频合成新增分屏合成接口；
+- iOS&Android：短视频录制取消上限码率限制；
+- iOS：短视频支持bitcode；
+
+### Version 4.5 @ 2018-04-13
+- 音频特效：新增变声功能，支持萝莉、大叔、重金属等多种变声效果，接口为：setVoiceChangerType；
+- 播放器：点播播放支持镜像；
+- 播放器：点播支持HLS文件下载与离线播放，便于教育客户做本地缓存播放；
+- 播放器：点播HLS多码率切换速度优化，快速的完成码率切换；
+- 播放器：播放器Jitter策略优化，自适应与缓冲模式整合；
+- DEMO：新增上传功能的demo代码，与点播服务进行整合，提供从拍摄到特效制作、上传、转码、鉴黄、分发、播放的一体化解决方案；
+- 封面：上传封面支持gif格式，新增片段合成功能；
+- 短视频特效：新增两个特殊功能，支持去除动效背景音以及支持一键取消所有滤镜特效；
+- iOS：iOS 录屏优化，iOS 11 系统上比破解 airplay 更好的录屏方案；
+- Android: 对短视频制作过程进行优化，解决大文件上传后无法播放、获取缩略图偶现黑帧、某些视频音画不同步等问题；
+- Android: 进行短视频编辑时允许对码率进行自定义设置；
+- Android: 支持对无音轨的视频文件进行编辑；
+
+### Version 4.4
+- iOS：推流端新增音频数据回调接口；
+- iOS&Android：Demo新增连麦解决方案，基于RoomService服务封装liveroom接口，具体请参考直播体验式源码；
+- iOS&Android：Demo新增多人视频会话解决方案，基于RoomService服务封装rtcroom接口，具体请参考多人音视频源码；
+
 ### Version 4.3
 - iOS&Android：直播播放器支持自定义Http Header，可以指定Refer防盗链。
 - iOS&Android：点播播放器FieldID播放，新增获取视频标题。

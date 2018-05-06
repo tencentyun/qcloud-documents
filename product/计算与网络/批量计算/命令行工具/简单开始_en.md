@@ -5,7 +5,7 @@ Complete the preparatory work as instructed in [Preparations](https://cloud.tenc
 Open file 1_SimpleStart.py with an editor.
 ```
  # custom (Change to your info)
-imageId = "img-i91njcmx"
+imageId = "img-m4q71qnf"
 Application = {
     "DeliveryForm": "LOCAL",
     "Command": " python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "

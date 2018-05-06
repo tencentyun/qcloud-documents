@@ -2,15 +2,15 @@ TACSocialQQ 封装了 [TencentOpenAPI](http://wiki.connect.qq.com/ios_sdk%E7%8E%
 
 ## 准备工作
 
-在开始使用应用云 TACSocialQQ 之前，您需要：
+在开始使用移动开发平台（MobileLine） TACSocialQQ 之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 TACSocialQQ 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） TACSocialQQ 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源：
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -38,11 +38,11 @@ Objective-C 代码示例：
 ~~~
 import <TACSocialQQ/TACSocialQQ.h>
 ~~~
+
 Swift 代码示例：
 ~~~
 import TACSocialQQ
 ~~~
-
 
 ### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
@@ -107,36 +107,36 @@ tac_services_configurations_qq.plist
 
 Objective-C 代码示例：
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
+
 Swift 代码示例：
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACSocialQQ 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACSocialQQ 模块这些属性就不存在，请不要在没有引入 TACSocialQQ 模块的时候使用这些配置，这将会导致您编译不通过：
 
 Objective-C 代码示例：
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	//     options.qqOptions.[Key] = [Value];
-    //
-    [TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+// options.qqOptions.[Key] = [Value];
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// options?.qqOptions.[Key] = [Value];
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// options?.qqOptions.[Key] = [Value];
+TACApplication.configurate(with: options);
 ~~~
 
 #### 配置 TACSocialQQ 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
 
-为了配合 TencentOpenApi 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+为了配合 TencentOpenApi 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南](https://cloud.tencent.com/document/product/666/14306) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 
 TACSocialQQ 中的脚本会自动的帮助您完成以下功能：
@@ -148,18 +148,35 @@ TACSocialQQ 中的脚本会自动的帮助您完成以下功能：
 
 我们已经为您自动化配置好了 TencentOpenApi 的其他功能，包括 HandleOpenURL 等函数的响应，和在 Info.plist 文件中注册相关的回调和 Scheme 等操作，您不需要重复执行该操作。如果您要使用 TencentOpenApi 的功能，您可以引入头文件：
 
+Objective-C 代码示例：
 ~~~
-#import <TACSocialQQ/TencentOpenAPI/TencentOAuth.h>
+#import <TACSocialQQ/TencentOAuth.h>
+~~~
+
+Swift 代码示例：
+~~~
+import TACSocialQQ.TencentOAuth
 ~~~
 
 我们其进行了初始化处理，并生成了一个 TencentOAuth  的对象，存储在 TACSociallQQService 中如果您要手动使用其相关的功能，请先配置其响应的 delegate：
 
+Objective-C 代码示例：
 ~~~
 [[TACSocialQQService defaultService].tencentOAuthDelegate addDelegate:delegate]
 ~~~
 
+Swift 代码示例：
+~~~
+ TACSocialQQService.default().tencentOAuthDelegate.addDelegate(delegate)
+~~~
 其中 delegate 为 TencentOAuth 对象的 delegate，这里我们对原始的 delegate 进行了转发。您可以注册多个 delegate，请在不使用的时候移除：
 
+Objective-C 代码示例：
 ~~~
 [[TACSocialQQService defaultService].tencentOAuthDelegate removeDelegate:delegate]
+~~~
+
+Swift 代码示例：
+~~~
+TACSocialQQService.default().tencentOAuthDelegate.removeDelegate(delegate)
 ~~~

@@ -39,9 +39,9 @@
 | ---------- | ----------- | ---------------------- |
 | code       | Int         | 返回码                    |
 | message    | String      | 返回错误消息                 |
-| data.items | Array(Item) | 识别出的所有字段信息，详见下文istem说明 |
+| data.items | Array(Item) | 识别出的所有字段信息，详见下文 items 说明 |
 
-items说明
+items 说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
@@ -111,7 +111,7 @@ Content-Type: text/json
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                      |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

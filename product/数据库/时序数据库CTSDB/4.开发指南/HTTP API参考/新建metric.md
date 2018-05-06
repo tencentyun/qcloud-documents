@@ -3,7 +3,7 @@
 地址为实例的 IP 和 PORT，可从控制台获取到，例如 10.13.20.15:9200
 
 ### 2.请求路径和方法 ###
-路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 允许使用小写英文字母、数字、 \_ 、 - 的组合，且不能以 \_ 或 - 开头
+路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 命名限制请参考[系统限制](https://cloud.tencent.com/document/product/652/13611)。
 ### 3.请求参数 ###
 无
 ### 4.请求内容 ###
@@ -22,9 +22,10 @@
 >    - number_of_shards：表分片数，取值范围为正整数，小表可以忽略，大表按照一个分片至多 25G 设置分片数，默认为 3。<br>
 >    - number_of_replicas：副本数，取值范围为非负整数，例如一主一副为 1，缺省为 1。<br>
 >    - rolling_period：子表时长（单位：天），取值范围为非零整数，CTSDB 存储数据时，为了方便做数据过期和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定，下面具体说明缺省子表时长和过期时间的关系。<br>
->    - max_string_length：自定义字符串类型的值最大可支持的长度，取值范围为正整数，默认为256。<br>
+>    - max_string_length：自定义字符串类型的值最大可支持的长度，取值范围为正整数，最大为2^31 - 1，默认为256。<br>
 >    - default_date_format：自定义维度列和指标列 date类型的格式，默认为strict_date_optional_time或epoch_millis。<br>
 >    - indexed_fields：指定指标列中需要保留索引的字段，可指定多个，以数组形式指定。<br>
+>    - default_type：指定新增字段的默认类型。可选项为tag、field，系统默认值为tag。<br>
 >
 > |过期时间 |    子表时长|
 > |---------|---------|

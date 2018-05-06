@@ -19,9 +19,10 @@ options属性列举如下：
 | number_of_shards | 否              | integer          | 表分片数，取值范围为正整数，小表可忽略，大表按照一个分片至多25G设置分片数，默认为3 |
 | number_of_replicas | 否              | integer          | 副本数，取值范围为非负整数，例如一主一副为1，默认为1 |
 | rolling_period | 否              | integer          | 子表时长（单位：天），取值范围为非零整数，为了方便做数据过期清理和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定 |
-| max_string_length | 否              | integer          | 自定义字符串类型的值最大可支持的长度，取值范围为正整数，默认为256 |
+| max_string_length | 否 | integer| 自定义字符串类型的值最大可支持的长度，取值范围为正整数，最大为2^31 - 1，默认为256 |
 | default_date_format | 否              | string          | 自定义维度列和指标列 date类型的格式，默认为 strict_date_optional_time或epoch_millis |
-| indexed_fields | 否              | array          | 指定指标列中需要保留索引的字段，可指定多个，以数组形式指定 |
+| indexed_fields | 否 | array | 指定指标列中需要保留索引的字段，可指定多个，以数组形式指定 |
+| default_type | 否              | string          | 指定新增字段的默认类型。可选项为tag、field，系统默认值为tag。 |
 > 注意：<br>
 > 1.由于历史数据不可被修改，更新字段后metric信息不会立即变更，需要等待下一个子表产生。如果需要确认更新操作是否成功，可通过`GET /_metric/${metric_name}?v`接口进行确认。<br>
 > 2.只有为short、integer、float的字段才允许修改类型。其中short类型可被修改为integer和long类型；integer类型可被修改为long类型；float类型可被修改为double类型。

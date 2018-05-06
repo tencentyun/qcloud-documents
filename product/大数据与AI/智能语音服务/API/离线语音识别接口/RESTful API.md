@@ -66,7 +66,7 @@ http://aai.qcloud.com/asr/v1/<appid>
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":1,
+"engine_model_type":"16k_0",
 "url":"http://test.qq.com/rec_callback",
 "res_text_format":0,
 "res_type":1,
@@ -140,36 +140,39 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 
 | 数值 | 返回码 | 说明 |
 |---------|---------|---------|
-|0|SUCCESS|成功|
-|1000|ERROR_BAD_REQ|请求的参数不符合要求|
-|1001|ERROR_PARSE_DATA_FAILED|解析请求参数时失败|
-|1002|ERROR_HAS_NO_VALID_PROJECTID|没有提供 projectid，或者值不合法|
-|1003|ERROR_HAS_NO_VALID_RES_TEXT_FORMAT|没有提供 res_text_format，或者值不合法|
-|1004|ERROR_HAS_NO_VALID_SUB_SERVICE_TYPE|没有提供 sub_service_type，或者值不合法|
-|1005|ERROR_HAS_NO_VALID_ENGINE_MODEL_TYPE|没有提供 engine_model_type，或者值不合法|
-|1006|ERROR_HAS_NO_VALID_CALLBACK_URL|没有提供 callback_url，或者值不合法|
-|1007|ERROR_HAS_NO_VALID_RES_TYPE|没有提供 res_type，或者值不合法|
-|1008|ERROR_HAS_NO_VALID_SOURCE_TYPE|没有提供 source_type，或者值不合法|
-|1009|ERROR_HAS_NO_VALID_URL|没有提供下载语音的 url，或者值不合法|
-|1010|ERROR_HAS_NO_VALID_SECRET_ID|没有提供 SecretId，或者值不合法|
-|1011|ERROR_HAS_NO_VALID_TIMESTAMP|没有提供 timestamp，或者值不合法|
-|1012|ERROR_HAS_NO_VALID_EXPIRED|没有提供 expired，或者值不合法|
-|1013|ERROR_HAS_NO_VALID_NONCE|没有提供 nonce，或者值不合法|
-|1016|ERROR_URL_TOO_LONG|提供的 url 长度大于 2048|
-|1018|ERROR_APPID_NOT_REG|提供的 APPID 未注册|
-|1014|ERROR_HAS_NO_VALID_TEMPLATENAME|提供的 template_name 不合法|
-|1016|ERROR_URL_TOO_LONG|提供的 url 长度大于 2048|
-|1018|ERROR_APPID_NOT_REGI|提供的 APPID 未注册|
-|1019|ERROR_APPID_PROJECTID_TEMPLATENAME_MISMATCH|提供的 APPID，ProjectId 与 template_name 不匹配|
-|1020|ERROR_PROCESS_FAILED|服务端处理出现内部错误|
-|1021|ERROR_PROXY_BAD_AUTH | 签名不符合规则|
-|1023|ERROR_PROXY_AUTH_TOO_LONG_EXPIRED |签名的有效期设置太长 |
-|1024|ERROR_PROXY_AUTH_EXPIRED|签名过期|
-|1026|ERROR_PROXY_AUTH_SECRETID_NOEXIST|签名中的 SecretId 错误|
-|1028|ERROR_PROXY_AUTH_REPLAY_ATTACK|重放攻击|
-|1029|ERROR_PROXY_AUTH_FAILED|签名验证不通过|
-|1031|ERROR_AUDIO_TOO_LARGE|发送的语音数据过大（大于 5M）|
-|1033|ERROR_UNKNOWN|其他未知错误|
+| 0 | SUCCESS | 成功 |
+| 1000 | ERROR_BAD_REQ |  请求的参数不符合要求 |
+| 1001 | ERROR_PARSE_DATA_FAILED | 解析请求参数时失败 |
+| 1002 | ERROR_HAS_NO_VALID_PROJECTID | 没有提供 projectid，或者值不合法 |
+| 1003 | ERROR_HAS_NO_VALID_RES_TEXT_FORMAT |没有提供 res_text_format，或者值不合法 |
+| 1004 | ERROR_HAS_NO_VALID_SUB_SERVICE_TYPE | 没有提供 sub_service_type，或者值不合法 |
+| 1005 | ERROR_HAS_NO_VALID_ENGINE_MODEL_TYPE | 没有提供 engine_model_type，或者值不合法 |
+| 1006 | ERROR_HAS_NO_VALID_CALLBACK_URL | 没有提供 callback_url，或者值不合法 |
+| 1007 | ERROR_HAS_NO_VALID_RES_TYPE | 没有提供 res_type，或者值不合法 |
+| 1008 | ERROR_HAS_NO_VALID_SOURCE_TYPE | 没有提供 source_type，或者值不合法 |
+| 1009 | ERROR_HAS_NO_VALID_URL | 没有提供下载语音的 url，或者值不合法 | 
+| 1010 | ERROR_HAS_NO_VALID_SECRET_ID | 没有提供 SecretId，或者值不合法 |
+| 1011 | ERROR_HAS_NO_VALID_TIMESTAMP | 没有提供 timestamp，或者值不合法 |
+| 1012 | ERROR_HAS_NO_VALID_EXPIRED | 没有提供 expired，或者值不合法 |
+| 1013 | ERROR_HAS_NO_VALID_NONCE |  没有提供 nonce，或者值不合法 |
+| 1014 | ERROR_HAS_NO_VALID_TEMPLATENAME | 提供的 template_name 不合法 |
+| 1015 | ERROR_HAS_NO_BUCKET | 没有提供 bucket，或者值不合法 |
+| 1016 | ERROR_HAS_NO_AMOUNT | 没有剩余的免费用量 |
+| 1017 | ERROR_URL_TOO_LONG | 提供的 url 长度大于 2048 |
+| 1018  | ERROR_FILEID_TOO_LONG |  提供的文件名长度大于 2048 |
+| 1019 | ERROR_APPID_NOT_REGISTER | 提供的 APPID 未注册 |
+| 1020 | ERROR_APPID_PROJECTID_TEMPLATENAME_MISMATCH | 提供的 APPID，ProjectId 与 template_name 不匹配 |
+| 1021 |  ERROR_PROCESS_FAILED | 服务端处理出现内部错误 |
+| 1022 | ERROR_PROXY_BAD_AUTH | 签名不符合规则 |
+| 1024 | ERROR_PROXY_AUTH_TOO_LONG_EXPIRED | 签名的有效期设置太长 |
+| 1025 | ERROR_PROXY_AUTH_EXPIRED | 签名过期 |
+| 1026 | ERROR_PROXY_AUTH_PROJECTID_NOEXIST | 签名中的 ProjectId 错误 |
+| 1027 | ERROR_PROXY_AUTH_SECRETID_NOEXIST | 签名中的 SecretId 错误 |
+| 1028 | ERROR_PROXY_AUTH_PROJECTID_MISMATCH | 签名中的 ProjectId 不匹配 |
+| 1029 | ERROR_PROXY_AUTH_REPLAY_ATTACK | 重放攻击 |
+| 1030 | ERROR_PROXY_AUTH_FAILED | 签名验证不通过 |
+| 1032 | ERROR_AUDIO_TOO_LARGE | 发送的语音数据过大（大于 5M）|
+| 1034 | ERROR_UNKNOWN | 其他未知错误 |
 
 ## PHP代码示例
 
