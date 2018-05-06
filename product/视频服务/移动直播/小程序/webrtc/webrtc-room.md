@@ -26,11 +26,11 @@
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看[界面定制](#CustomUI)） |
-| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
 | userID     | String  | ''                   |必要，用户ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
-| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
-| privateMapKey    | String  | ‘’                 | 必要，视频权限位，相当于进入房间的钥匙      |
+| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| privateMapKey    | String  | ‘’                 | 必要，房间权限key，相当于进入指定房间roomID的钥匙      |
 | beauty    | Number  | 0~5                     | 可选，默认5, 美颜级别 0～5  |
 | muted     | Boolean | true, false             | 可选，默认false，是否静音    |
 | debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
@@ -153,11 +153,16 @@ Page({
 
 ### step1: 开通相关云服务
 
-在腾讯云注册账号，开通 [互动直播](https://console.cloud.tencent.com/ilvb) 服务，创建一个新的应用，可以获得 SDK Appid 信息，也就是下图中红框标注的位置。
+> 小程序跟WebRTC的互通是基于实时音视频（[TRTC](https://cloud.tencent.com/product/trtc)）服务实现的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
 
-![](https://main.qcloudimg.com/raw/b376d943ae028b87eaa19a404f66334a.png)
+- 进入 [实时音视频管理控制台](https://console.qcloud.com/rav)，如果服务还没有开通，则会有如下提示，点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
+![](https://main.qcloudimg.com/raw/989a89e702858048b5b6c945a371f75c.png)
 
-> 小程序跟WebRTC的互通是使用互动直播服务“牵线搭桥”的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
+- 实时音视频开通后，进入[【实时音视频管理控制台】](https://console.qcloud.com/rav) 创建实时音视频应用，点击【确定】按钮即可。
+![](https://main.qcloudimg.com/raw/20d0adeadf23251f857571a65a8dd569.png)
+
+- 从实时音视频控制台获取`sdkAppID、accountType、privateKey`，在 step4 中会用的：
+![](https://main.qcloudimg.com/raw/9a5f341883f911cf9b65b9b5487f2f75.png)
 
 ### step2: 下载自定义组件源码
 
@@ -194,15 +199,13 @@ Page({
 
 | KEY | 示例    | 作用 |获取方案 |
 |:--------:|:--------:|:--------:|:--------:|
-| sdkAppID | 1400087915  | 用于计费和业务区分 |  上文中有介绍 |
+| sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
-| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（PHP / JAVA） |
+| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA]((http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip))） |
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
-| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
+| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA]((http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip))）|
 
-下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的示例代码。
-
->生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**。
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**）。
 
 ### step5: 进入房间
 
