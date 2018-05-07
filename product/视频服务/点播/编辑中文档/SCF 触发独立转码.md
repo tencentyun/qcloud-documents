@@ -39,7 +39,7 @@
 通过[访问管理控制台](https://console.cloud.tencent.com/cam/capi)，获取 SecretId 和 SecretKey。如果尚未创建过密钥，请先[申请密钥](/document/api/213/6984#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)。
 
 #### 2. 填写 SCF 模板
-下载 [SCF 模板](https://main.qcloudimg.com/raw/38e2258e7ca2716fe993425740cc6dc3.zip)，根据表格中的内容填写配置文件 `config.json`，配置文件中的各个参数含义如下：
+下载 [SCF 模板](https://main.qcloudimg.com/raw/38e2258e7ca2716fe993425740cc6dc3.zip)，根据表格中的内容填写配置文件 **config.json**，配置文件中的各个参数含义如下：
 
 | 参数名称  | 必填 | 类型 | 说明 |
 |---|---|---|---|---|
@@ -57,15 +57,17 @@
 
 ##### 示例
 对输入文件进行做转码操作，转码的模板 ID 有 210，220和230。
-转码后输出到名为 `myoutputbucket` 的 Bucket 的 `/output/test/` 目录下。
+转码后输出到名为 **myoutputbucket** 的 Bucket 的 **/output/test/** 目录下。
 
-``` 
+```json
 {
     "SecretId":"AKIDgJoxxxxxxxxxxxxxxxxxxxxxxsW78G9r",
     "SecretKey":"f8OTP9xxxxxxxxxxxxxxxxxxCh186sUy",
-    "outputBucket":"myoutputbucket",
-    "outputPath":"/output/test/",
-		"Para": {
+    "Para": {
+        "output": {
+            "bucket": "myoutputbucket",
+            "dir": "/output/test/"
+        },
         "mediaProcess":{
             "transcode":{
                 "definition":[210，220，230]
@@ -75,23 +77,23 @@
 }
 ``` 
 
-配置 `config.json` 之后，将修改后的模板打包成 zip 文件，命名为 `RequestVideoTranscode.zip`
+配置 **config.json** 之后，将修改后的模板打包成 zip 文件，命名为 **RequestVideoTranscode.zip**。
 
 #### 3. 创建 SCF 触发器
-1. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，选择与输入文件 Bucket 相同的地域（如输入文件 Bucket 属于广州，则此处选择 `广州`），点击`新建`按钮；
-2. 进入`函数配置`选项，函数名称填写 `RequestVideoTranscode`，`运行环境`选择 `Nodejs 6.10`，`超时时间`设置为`10s`，其余保持默认值，点击`下一步`；
-3. 进入`函数代码`选项，选择`本地上传zip包`。执行方法填写  `index.main_handler`，选择上一步创建的 `RequestVideoTranscode.zip`，点击`下一步`；
-4. 进入`触发方式`部分，点击`添加触发器`，触发方式选择 `COS触发`，`COS Bucket`选择输入文件 Bucket 的名字（例如为 `myinputbucket`），`事件类型`选择`文件上传`，点击`保存`后完成触发器创建，最后点击`完成`。
+1. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，选择与输入文件 Bucket 相同的地域（如输入文件 Bucket 属于广州，则此处选择 **广州**），点击【新建】按钮；
+2. 进入【函数配置】选项，函数名称填写 **RequestVideoTranscode**，【运行环境】选择 **Nodejs 6.10**，【超时时间】设置为 **10s**，其余保持默认值，点击【下一步】；
+3. 进入【函数代码】选项，选择【本地上传 zip 包】。执行方法填写  **index.main_handler**，选择上一步创建的 **RequestVideoTranscode.zip**，点击【下一步】；
+4. 进入【触发方式】部分，点击【添加触发器】，触发方式选择【COS触发】，【COS Bucket】选择输入文件 Bucket 的名字（例如为 **myinputbucket**），【事件类型】选择【文件上传】，点击【保存】后完成触发器创建，最后点击【完成】。
 
 ## 验证方式
 这一节，将介绍如何验证 COS 上传是否正常触发视频处理，并获取转码后的视频文件。
-1. 按照[配置过程]()的介绍，完成对 COS Bucket 和 SCF 的配置，并假设：
-输入 Bucket 名为 `myinputbucket`，
-输出 Bucket 名为 `myoutputbucket`，
-目标转码模板 ID 为30，40和50；
-2. 进入 COS 控制台的`存储桶列表`，选择 `myinputbucket`，点击`上传文件`，向输入文件 Bucket 上传一个视频文件；
-2. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)的`函数服务`，进入 `RequestVideoTranscode` 函数，点击`日志`可以查看到请求参数和请求返回结果；
-3. 转码完成后可在 COS 的`myoutputbucket`，观察到有转码文件生成。
+1. 按照[配置过程](/document/product/266/16923)的介绍，完成对 COS Bucket 和 SCF 的配置，并假设：
+输入 Bucket 名为 **myinputbucket**；
+输出 Bucket 名为 **myoutputbucket**；
+目标转码模板 ID 为 **30**，**40** 和 **50**；
+2. 进入 COS 控制台的【存储桶列表】，选择 **myinputbucket**，点击【上传文件】，向输入文件 Bucket 上传一个视频文件；
+2. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)的【函数服务】，进入 **RequestVideoTranscode** 函数，点击【日志】可以查看到请求参数和请求返回结果；
+3. 转码完成后可在 COS 的 **myoutputbucket**，观察到有转码文件生成。
 
 ![](https://main.qcloudimg.com/raw/2edf0c22ae509d397c8293a0821e486b.png)
 
@@ -99,6 +101,6 @@
 ***注意：***
 
 1. 输入文件 Bucket，输出文件 Bucket 和 SCF 必须在同一地域。
-2. 目前支持该方案的地域包括**北京**、**上海**和**广州**，其它地域将逐步支持。
+2. 目前支持该方案的地域包括 **北京**、**上海** 和 **广州**，其它地域将逐步支持。
 3. 视频文件不要直接存放在 Bucket 的根目录下（不论是原文件还是转码文件），否则会产生错误（至少需要有一级目录）。
 4. 控制台创建 Bucket 后，需要 1~2 分钟才会出现在 SCF 的配置选项中。
