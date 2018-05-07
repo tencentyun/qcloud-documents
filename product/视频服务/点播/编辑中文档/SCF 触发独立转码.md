@@ -56,7 +56,7 @@
 | taskAttribute | 否 | Object | 参见[任务属性配置参数](/document/product/266/15571#taskattribute.EF.BC.88.E4.BB.BB.E5.8A.A1.E5.B1.9E.E6.80.A7.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0.EF.BC.89) |
 
 ##### 示例
-对输入文件进行做转码操作，转码的模板 ID 有 210，220和230。
+对输入文件进行做转码操作，转码的模板 ID 有 **210**，**220** 和 **230**。
 转码后输出到名为 **myoutputbucket** 的 Bucket 的 **/output/test/** 目录下。
 
 ```json
