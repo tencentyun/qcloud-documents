@@ -79,7 +79,7 @@ x-cos-request-id: NTk5NDM5NWFfMjQ4OGY3Xzc3NGRfMjA=
     <Status>Enabled</Status>
     <Transition>
       <Days>100</Days>
-      <StorageClass>NEARLINE</StorageClass>
+      <StorageClass>STANDARD_IA</StorageClass>
     </Transition>
   </Rule>
   <Rule>
