@@ -1,3 +1,16 @@
+### Version 4.6 @ 2018-05-04
+- iOS&Android：点播支持MP4 H265硬解；
+- iOS&Android：推流端新增原始音频数据回调；
+- iOS&Android：Demo新增主播PK功能；
+- Android：优化小文件上传，提升成功率；
+- Android：解决动效路径错误导致的Crash问题；
+- iOS&Android：短视频录制新增混响和变声接口；
+- iOS&Android：短视频录制的新增分片存储目录外部设置接口；
+- iOS&Android：短视频编辑添加BGM支持纯视频流；
+- iOS&Android：短视频合成新增分屏合成接口；
+- iOS&Android：短视频录制取消上限码率限制；
+- iOS：短视频支持bitcode；
+
 ### Version 4.5 @ 2018-04-13
 - 音频特效：新增变声功能，支持萝莉、大叔、重金属等多种变声效果，接口为：setVoiceChangerType；
 - 播放器：点播播放支持镜像；

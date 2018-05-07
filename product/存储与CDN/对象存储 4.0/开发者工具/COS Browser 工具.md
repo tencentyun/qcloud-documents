@@ -22,3 +22,7 @@ Windows 32/64 位系统均可
 
 用户可使用云 API 密钥 SecretId 和 SecretKey 进行登录，该密钥可在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，登录后会保留登录信息。
 目前支持批量上传、下载、删除功能。拖拽上传下载暂不支持。
+
+## 反馈和建议
+
+欢迎提交反馈和建议：[cosbrowser issues](https://github.com/tencentyun/cosbrowser/issues)

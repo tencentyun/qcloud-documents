@@ -7,14 +7,14 @@
 > 如果您已经有一个工程待集成，请直接跳到下一步[ 集成 SDK](#.E9.9B.86.E6.88.90-sdk)。
 
 首先，使用 Xcode 创建一个新的工程用来集成我们的 SDK。
-打开 Xcode，【 File 】-【 New 】-【 Project 】
+打开 Xcode，【 File 】-【 New 】-【 Project 】：
 <img src="https://main.qcloudimg.com/raw/145fb381bfa9b5752fb78618a1801c48.png"/>
 
 选择【 Signle View App 】
 
 <img src="https://main.qcloudimg.com/raw/9a73593d5b7749bbb5bbbdc7b0720202.png" width = "730" height = "476"/><br>
 
-设置工程名为 Demo01\_集成 SDK，语言选择为 Objective-C，Team、Organization Name 和 Organization Identifier根据自身情况填写（也可随便填写）,然后选择下一步选择项目存放地址，点击 【 create 】即可 。
+设置工程名为 Demo01\_集成 SDK，语言选择为 Objective-C，Team、Organization Name 和 Organization Identifier 根据自身情况填写（也可随便填写）,然后选择下一步选择项目存放地址，点击 【 create 】即可 。
 
  ![输入图片说明](https://main.qcloudimg.com/raw/370f312b4b21584d4f95d70bc092ea6b.png "在这里输入图片标题")
 
@@ -41,11 +41,11 @@
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/144510_f76b525e_1839574.png "在这里输入图片标题")
 
 #### 导入SDK
-下载完成后，我们需将 SDK 导入工程，在工程根目录上点击右键->【 Add Files to "Demo01\_集成SDK" 】
+下载完成后，我们需将 SDK 导入工程，在工程根目录上点击右键->【 Add Files to "Demo01\_集成SDK" 】：
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/153534_7f4c7553_1839574.png "在这里输入图片标题")
 
-在弹出的目录选择框中选择我们刚刚创建的【 ILiveSDK 文件夹 】->【 Add 】
+在弹出的目录选择框中选择我们刚刚创建的【 ILiveSDK 文件夹 】->【 Add 】：
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/145257_16ed9532_1839574.png "在这里输入图片标题")
 
@@ -58,7 +58,7 @@
 
 ILiveSDK 中的 SDK 依赖了一些系统库，我们还需要将这些系统库添加到项目中来。
 
-点击【 项目文件 】-【 targets 】-【 Genaeral 】- 拉到最下面的 Linked Frameworks and Libraries 区域 - 点击【 + 】号 - 输入系统库名称 - 点击【 add 】添加
+点击【 项目文件 】-【 targets 】-【 Genaeral 】- 拉到最下面的 Linked Frameworks and Libraries 区域 - 点击【 + 】号 - 输入系统库名称 - 点击【 add 】添加。
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/150647_c34068ff_1839574.png "在这里输入图片标题")
 
@@ -97,11 +97,11 @@ ILiveSDK 中的 SDK 依赖了一些系统库，我们还需要将这些系统库
 为了能够正常使用 SDK，还需要进行一些工程配置：
 
 1. -ObjC 配置
-【 Build Settings 】 -> 【 Other Linker Flags 】 -> 【 -ObjC （注意大小写）】
+【 Build Settings 】 -> 【 Other Linker Flags 】 -> 【 -ObjC （注意大小写）】：
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/151817_09a88486_1839574.png "在这里输入图片标题")
 
 2. Bitcode 配置
-【 Build Settings 】 ->【 Enable Bitcode 】 -> 【 NO（设置为 NO）】
+【 Build Settings 】 ->【 Enable Bitcode 】 -> 【 NO（设置为 NO）】：
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/151840_ca903f1e_1839574.png "在这里输入图片标题")
 
 ### 运行检查
@@ -127,7 +127,3 @@ NSLog(@"IMSDK version:%@",[[TIMManager sharedInstance] GetVersion]);
 ```
 
 恭喜，至此说明`ILiveSDK`已经成功集成。
-
-## 源码下载
-在此我们提供以上所讲到的完整 Demo代码，如有需要请您自行下载。
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_import.zip)
