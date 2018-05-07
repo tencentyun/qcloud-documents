@@ -36,6 +36,7 @@ github地址如下：
 endpoint 说明：
 
 队列模式：
+
 <font style="color:red">注意：请参照下面说明将域名中的region替换成相应地域</font>
 
 内网endpoint：<font style="color:red">http ://cmq-queue-region.api.tencentyun.com</font>
@@ -43,6 +44,7 @@ endpoint 说明：
 公网endpoint：<font style="color:red">http(s)://cmq-queue-region.api.qcloud.com</font>
 
 主题模式 ：
+
 <font style="color:red">注意：请参照下面说明将域名中的region替换成相应地域</font>
 
 内网endpoint：<font style="color:red">http ://cmq-topic-region.api.tencentyun.com</font>
