@@ -1,4 +1,4 @@
-## WebRTC 和小程序互动通
+## WebRTC 和小程序互通
 - **PC 端**
 用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
