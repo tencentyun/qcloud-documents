@@ -6,8 +6,8 @@
 | 成员函数                                    | 功能说明                                     |
 | ------------------------------------------- | -------------------------------------------- |
 | [setListener(object)](#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
-| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间 |
-| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间 |
+| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 进入（没有就创建）一个视频通话房间 |
+| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开视频通话房间 |
 | [setTemplateCfg()](#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
 | [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
 
@@ -79,7 +79,7 @@ EXEStarter.setListener({
 - 接口说明：通过您的账户信息和房间信息，打开本地EXE应用程序。
 - 参数说明：
 
-```
+```json
 {  
 	userdata: {
         userID        String    用户ID
@@ -89,16 +89,20 @@ EXEStarter.setListener({
         userSig       String    IM签名
     }
     roomdata: {
-       roomAction:  String  支持：createRoom | enterRoom 操作
+       serverDomain String  roomserver域，eg:https://room.qcloud.com/
+       roomAction:  String  支持：createRoom | enterRoom
        roomId:      Int     房间号
        roomName:    String  房间名称
-       roomType:    Int     房间类型
        roomTitle:   String  房间Title
-       roomLogo:   String  图标URL
+       roomLogo:    String  图标URL
+       type:        String  默认RTCRoom。支持:[RTCRoom|LiveRoom]
+			                RTCRoom为视频通话模式，LiveRoom为直播连麦模式。
+       template:    String  视频窗口摆放样式，默认1V1。支持:
+			                [RTCRoom: 1V1 | 1V2 | 1V3 | 1V4]，[LiveRoom: 1V2 | 1V3 | 1V4]
     }
 	success       	function  打开EXE进程成功回调
 	fail          	function  打开EXE进程失败回调
-	timeout       function    打开EXE超时（exe未安装）
+	timeout           function  打开EXE超时（exe未安装）
 }
 ```
 - 返回值说明：无
@@ -114,12 +118,15 @@ EXEStarter.createExeAsRoom({
                 userSig: accountInfo.userSig,
             },
             roomdata: {
+            	serverDomain: roomServerDoMain,
             	roomAction：EXEStarter.RoomAction.CreateRoom,
                 roomID: object.data.roomID,
                 roomName: object.data.roomName,
                 roomType: baseRoomType,
                 roomTitle: object.data.roomTitle,
                 roomLogo: "http://liteav.myqcloud.com/windows/logo/liveroom_logo.png",
+                type: EXEStarter.StyleType.RTCRoom,
+                template: EXEStarter.Template.Template1V1,
             },
             success: function (ret) {
                console.log('EXEStarter.openExeRoom 打开本地应用成功');
@@ -160,48 +167,6 @@ EXEStarter.closeExeAsRoom({
 	fail: function(ret) {
 		//...
 	}
-});
-```
-
-<h2 id="setTemplateCfg"> setTemplateCfg </h2>
-
-- 接口定义：setTemplateCfg(object):void
-- 接口说明：设置EXE的UI模板样式，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService（具体可以参考 [DOC](https://cloud.tencent.com/document/product/454/14606#Server)）。
-- 参数说明：
-
-```object
-{
-    {
-     data:{
-        serverDomain String  roomserver域，eg:https://room.qcloud.com/
-     },
-     style: {
-        type:        String  默认RTCRoom。支持:[RTCRoom|LiveRoom],
-        template:    String  视频窗口摆放样式，默认1V1
-        userList:    bool    用户列表模块，默认true
-        IMList :     bool    IM聊天模块，默认true
-        whiteboard:  bool    白板模块，默认true
-        screenShare: bool    屏幕录制模块，默认true
-     },
-    }
-}
-```
-- 返回值说明：无
-- 示例代码：
-
-```
-EXEStarter.setTemplateCfg({
-    data: {
-        serverDomain: "https://room.qcloud.com/",
-    },
-    style: {
-        type: styleType,
-        template: template,
-        userList: true,
-        IMList: true,
-        whiteboard: true,
-        screenShare: true,
-    }
 });
 ```
 
