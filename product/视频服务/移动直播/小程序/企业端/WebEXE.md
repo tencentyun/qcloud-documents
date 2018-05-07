@@ -59,7 +59,6 @@ WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cl
 | template | 视频窗口摆放样式，默认1V1，更多参考 [Template](https://cloud.tencent.com/document/product/454/17006#EnumDef) 定义。 |
 | record | 通话内容是否要进行录制。 |
 
-
 **EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
 | API(EXEStarter.js )                                          | 功能说明                                                  |
@@ -68,6 +67,8 @@ WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cl
 | [createExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间               |
 | [closeExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#closeExeAsRoom) | 通知 TXCloudRoom.exe 离开指定的房间                       |
 | [unload()](https://cloud.tencent.com/document/product/454/17006#unload) | 页面在 unload 时，调用此接口，清除相关资源                |
+
+点击[示例代码](https://cloud.tencent.com/document/product/454/17006#code)，可以查看一个简单的唤起 TXCloudRoom.exe 的程序，您也可以在 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) 上获取一份更加完善的 PC 网页的源代码。
 
 ### step4: 对接小程序端代码
 小程序端的对接参考微信端的文档：
