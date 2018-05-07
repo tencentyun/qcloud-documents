@@ -25,18 +25,18 @@
 ### 属性定义
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
-| template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看[界面定制](#CustomUI)） |
-| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
-| userID     | String  | ''                   |必要，用户ID |
+| template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
+| sdkAppID    | String  | ‘’                      | 必要，开通 IM 服务所获取到的 AppID       |
+| userID     | String  | ''                   |必要，用户 ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
 | roomID    | Number  | ‘’                      | 必要，房间号                           |
-| privateMapKey    | String  | ‘’                 | 必要，房间权限key，相当于进入指定房间roomID的钥匙      |
-| beauty    | Number  | 0~5                     | 可选，默认5, 美颜级别 0～5  |
-| muted     | Boolean | true, false             | 可选，默认false，是否静音    |
-| debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
-| bindRoomEvent     | function |              | 必要，监听&lt;webrtc-room&gt;组件返回的事件   |
+| privateMapKey    | String  | ‘’                 | 必要，房间权限 key，相当于进入指定房间 roomID 的钥匙      |
+| beauty    | Number  | 0~5                     | 可选，默认 5, 美颜级别 0～5  |
+| muted     | Boolean | true, false             | 可选，默认 false，是否静音    |
+| debug     | Boolean | true, false             | 可选，默认 false，是否打印推流 debug 信息   |
+| bindRoomEvent     | function |              | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
 | enableIM     | Boolean | true, false             | 可选，默认false   |
-| bindIMEvent     | function |             | 当IM开启时必要，监听IM返回的事件   |
+| bindIMEvent     | function |             | 当IM开启时必要，监听 IM 返回的事件   |
 
 ### 操作接口
 
@@ -56,7 +56,7 @@ webrtcroom.pause();
 ```
 
 ### 事件通知
-**&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回IM消息事件，事件参数格式如下
+**&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回 IM 消息事件，事件参数格式如下
 
 ```json
 "detail": {
@@ -151,7 +151,7 @@ Page({
 
 ## 使用指引
 
-> 请确认已经参照[Demo部署]开通了相关服务和并正确的完成了配置。
+> 请确认已经参照 [Demo部署](/document/product/647/17000) 开通了相关服务和并正确的完成了配置。
 
 ### step1: 下载自定义组件源码
 
@@ -183,8 +183,8 @@ Page({
 </webrtc-room>
 ```
 
-### step3: 获取key信息
-按照如下表格获取关键的key信息，这是使用腾讯云互通直播服务所必须的几个信息：
+### step3: 获取 key 信息
+按照如下表格获取关键的 key 信息，这是使用腾讯云互通直播服务所必须的几个信息：
 
 | KEY | 示例    | 作用 |获取方案 |
 |:--------:|:--------:|:--------:|:--------:|
