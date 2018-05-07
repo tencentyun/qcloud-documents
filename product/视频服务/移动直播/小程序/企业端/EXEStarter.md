@@ -3,20 +3,19 @@
 
 <h2 id = "API">接口列表</h2>
 
-| 成员函数                                    | 功能说明                                     |
-| ------------------------------------------- | -------------------------------------------- |
+| 成员函数                                    | 功能说明                                                  |
+| ------------------------------------------- | --------------------------------------------------------- |
 | [setListener(object)](#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
-| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 进入（没有就创建）一个视频通话房间 |
-| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开视频通话房间 |
-| [setTemplateCfg()](#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
-| [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
+| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间               |
+| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间                       |
+| [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源                |
 
 <h2 id = "EnumDef">枚举定义</h2>
 
 ```object
 var StyleType = {
-    LiveRoom: 'LiveRoom',  //视频连麦模式 [LiveRoom: 1V2 | 1V3 | 1V4]
-    RTCRoom: 'RTCRoom',    //视频通话模式 [RTCRoom: 1V1 | 1V2 | 1V3 | 1V4]
+    LiveRoom: 'LiveRoom',  //视频连麦模式 [支持模板Template: 1V2 | 1V3 | 1V4]
+    RTCRoom: 'RTCRoom',    //视频通话模式 [支持模板Template: 1V1 | 1V2 | 1V3 | 1V4]
 }
 var RoomAction = {
     CreateRoom: 'createRoom',  //创建房间
@@ -36,11 +35,10 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 | 接口定义                                     | 功能说明                |
 | ---------------------------------------- | ------------------- |
-| onMenberChange(object)     | 通知：用户列表变更通知 |
-| onRoomClose(object)          | 通知：EXE通知关闭 |
+| onRoomClose(object) | 通知：EXE通知关闭 |
+| onMemberChange(object) | 通知：用户列表变更通知 |
 | onRecvRoomIMMsg(object) | 通知：收到 IM 消息 |
-| onError(object)                   | 通知：错误信息，预留接口 |
-| onRecvData(object)            | 通知：其他消息通知，如流状态信息等。 |
+| onRecvData(object) | 通知：其他消息通知，如流状态信息等。 |
 
 <h2 id="setListener">setListener</h2>
 
@@ -50,10 +48,9 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 ```object
 {
-	onMenberChange(object)		function    通知：房间用户列表变更（进房、退房），全量数据
 	onRoomClose(object)			function    通知：房间被动关闭，EXE出错引起
+	onMemberChange(object)		function    通知：房间用户列表变更（进房、退房），全量数据
 	onRecvRoomIMMsg(object)		function    通知：房间IM消息
-	onError(object)				function   通知：错误信息，如摄像头占用等
 	onRecvData(object)			function    通知：透传流状态通知
 }
 ```
@@ -62,7 +59,7 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 ```
 EXEStarter.setListener({
-	onMenberChange: function(object) {
+	onMemberChange: function(object) {
 		//...
 	},
 	onRoomClose: function(object) {
@@ -79,30 +76,37 @@ EXEStarter.setListener({
 - 接口说明：通过您的账户信息和房间信息，打开本地EXE应用程序。
 - 参数说明：
 
-```json
+```
 {  
-	userdata: {
-        userID        String    用户ID
-        userName      String    用户昵称
-        sdkAppID      String    IM登录凭证
-        accType       Int       账号集成类型
-        userSig       String    IM签名
-    }
-    roomdata: {
-       serverDomain String  roomserver域，eg:https://room.qcloud.com/
-       roomAction:  String  支持：createRoom | enterRoom
-       roomId:      Int     房间号
-       roomName:    String  房间名称
-       roomTitle:   String  房间Title
-       roomLogo:    String  图标URL
-       type:        String  默认RTCRoom。支持:[RTCRoom|LiveRoom]
-			                RTCRoom为视频通话模式，LiveRoom为直播连麦模式。
-       template:    String  视频窗口摆放样式，默认1V1。支持:
-			                [RTCRoom: 1V1 | 1V2 | 1V3 | 1V4]，[LiveRoom: 1V2 | 1V3 | 1V4]
-    }
-	success       	function  打开EXE进程成功回调
-	fail          	function  打开EXE进程失败回调
-	timeout           function  打开EXE超时（exe未安装）
+  userdata: {
+      userID        String    用户ID
+      userName      String    用户昵称
+      sdkAppID      String    IM登录凭证
+      accType       Int       账号集成类型
+      userSig       String    IM签名
+  },
+  roomdata: {
+    serverDomain String  roomserver域，eg:https://room.qcloud.com/
+    roomAction:  String  支持：createRoom | enterRoom
+    roomId:      Int     房间号
+    roomName:    String  房间名称
+    roomTitle:   String  房间Title
+    roomLogo:    String  图标URL
+    type:        String  默认RTCRoom。更多参考StyleType定义
+    template:    String  视频窗口摆放样式，默认1V1。更多参考Template定义
+  },
+  custom: {   //可选参数
+     userList:    bool    用户列表模块，可以不设置，默认true
+     IMList :     bool    IM聊天模块，可以不设置，默认true
+     whiteboard:  bool    白板模块，可以不设置，默认true
+     screenShare: bool    本地屏幕采集作为视频源，可以不设置，默认true
+     record:      bool    后台录制当前视频流，可以不设置，默认false
+     exeUrl:      String  指定自定义EXE的下载URL
+     proxy_ip:    String  代理IP，可以不设置，默认不开启代理
+     proxy_port:  Int     代理端口，可以不设置，默认不开启代理
+  },
+  success       function  成功回调
+  fail          function  失败回调  errCode == -1时,检测本地未安装EXE，需要处理未安装逻辑。
 }
 ```
 - 返回值说明：无
@@ -118,24 +122,23 @@ EXEStarter.createExeAsRoom({
                 userSig: accountInfo.userSig,
             },
             roomdata: {
-            	serverDomain: roomServerDoMain,
-            	roomAction：EXEStarter.RoomAction.CreateRoom,
+                serverDomain: "https://room.qcloud.com/",
+                roomAction: object.data.roomAction,
                 roomID: object.data.roomID,
                 roomName: object.data.roomName,
-                roomType: baseRoomType,
                 roomTitle: object.data.roomTitle,
                 roomLogo: "http://liteav.myqcloud.com/windows/logo/liveroom_logo.png",
-                type: EXEStarter.StyleType.RTCRoom,
-                template: EXEStarter.Template.Template1V1,
+                type: EXEStarter.StyleType.LiveRoom,
+                template: EXEStarter.Template.Template1V3,
             },
             success: function (ret) {
                console.log('EXEStarter.openExeRoom 打开本地应用成功');
             },
-            fail: function () {
+            fail: function (ret) {
                console.log('EXEStarter.openExeRoom 打开本地应用失败');
-            },
-            timeout: function () {
-                console.log('EXEStarter.openExeRoom 打开本地应用超时，请检查是否安装');
+               if (ret.errCode == -1) {
+                  //本地应用未安装
+               }
             },
         })
 ```
@@ -148,7 +151,6 @@ EXEStarter.createExeAsRoom({
 
 ```object
 {
-    {
     data: {
         roomID:     String  房间号
     }
