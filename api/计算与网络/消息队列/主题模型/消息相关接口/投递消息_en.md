@@ -1,10 +1,10 @@
-## 1. Queue Endpoint Subscription
+## Queue Endpoint Subscription
 
 CMQ will push the message text for topic publishing to the subscription Queue, so that consumers can read the corresponding message from the Queue.
 
-## 2. Http Endpoint Subscription
+## Http Endpoint Subscription
 
-### 1. Delivery Description
+### Delivery Description
 CMQ pushes a topic message to the Http Endpoint of the subscription by sending a POST request. Two message formats are available: JSON and SIMPLIFIED.
 
 JSON format: The Body of the HTTP request contains the body and attributes of the message.
@@ -13,14 +13,14 @@ SIMPLIFIED format: The Body of the HTTP request is the message body. Information
 
 If a standard 2xx response (e.g. 200) is returned by the subscriber's HTTP server, it means that the request has been successfully delivered; otherwise, it means that the delivery failed, and the retry policy will be triggered. Response timeout will be deemed as a failure by CMQ, and the retry policy will also be triggered. The duration for timeout checking is about 15 seconds.
 
-### 2. Header of HTTP Request
+### Header of HTTP Request
 | Parameter Name | Description |
 |---------|-------|
 | x-cmq-request-id | requestId of the message for current push |
 | x-cmq-message-id | msgId of the message for current push |
 | x-cmq-message-tag | Tag of the message for current push |
 
-### 3. Body of HTTP Request
+### Body of HTTP Request
 - If the format is JSON, the Body of the HTTP request contains the body and attributes of the message.
 
 | Parameter Name | Type | Description |
@@ -34,10 +34,10 @@ If a standard 2xx response (e.g. 200) is returned by the subscriber's HTTP serve
 
 - If the format is SIMPLIFIED, the Body of the HTTP request is the body of the message published by a publisher.
 
-### 4. Response to HTTP Request
+### Response to HTTP Request
 A 2xx response is returned if the request is normally processed by the subscriber's HTTP server; other response codes or response timeout are errors, and the retry policy will be triggered.
 
-### 5. Request Example
+### Request Example
 Assume that the HTTP Endpoint of a subscription is```http://test.com/cgi```
 
 JSON format:
