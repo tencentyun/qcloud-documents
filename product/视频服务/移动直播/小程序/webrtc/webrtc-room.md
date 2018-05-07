@@ -200,9 +200,9 @@ Page({
 |:--------:|:--------:|:--------:|:--------:|
 | sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
-| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA]((http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip))） |
+| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
-| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA]((http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip))）|
+| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
