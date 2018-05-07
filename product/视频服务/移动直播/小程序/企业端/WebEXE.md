@@ -42,20 +42,23 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 业务服务器的作用主要是向PC端网页和微信小程序派发 roomid、userid、usersig 这些进行视频通话所必须的信息。其中roomid 和 userid 都可以由您的业务后台自由决定，只要确保不会出现 id重叠 就可以。usersig 的计算则需要参考 [DOC](https://cloud.tencent.com/document/product/454/14548)，我们在官网也提供了 java 和 php 版本的计算[源码](https://cloud.tencent.com/document/product/454/7873#Server)。
 
 ### step2: 部署RoomService
-WebEXE 实现视频通话，  RoomService 是一个[开源](https://cloud.tencent.com/document/product/454/7873#Server)的（java | Node.js）组件，所以大部分客户都选择自行部署，部署方法见 zip 包中的说明文档 **README.pdf**。
+WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom(视频通话)](https://cloud.tencent.com/document/product/454/14617) 组件，都依赖一个叫做 RoomService 的后台开源组件（JAVA | Node.js）用于实现视频房间逻辑，您可以点击 [RoomService.zip]((https://cloud.tencent.com/document/product/454/7873#Server) 下载到相关代码，部署方法见 zip 包中的说明文档 **README.pdf**。
 
 ### step3: 对接PC Web端代码
 您的web页面需要 include EXEStarter.js，并且把 step1 中获取的 roomid, userid, usersig 这些信息都传递给 EXEStarter.js 的 createExeAsRoom 函数。其中几个关键参数这里详细说明一下：
 
 | 参数 | 详细说明|
 |:-------:|---------|
-|serverDomain| RoomService 地址，具体
-| type | RTCRoom 和 LiveRoom 两种模式，其区别可以看 step4 |
-| template | 界面模板，比如 1v1, 1v3 等等 |
 |sdkAppID | 腾讯云通讯服务用 sdkAppID 区分 IM 客户身份，参考 [DOC](https://cloud.tencent.com/document/product/454/7953#IM_SDKAPPID) 了解怎么获取 |
 |accType   | 曾用于区分 APP 类型，现仅出于兼容性原因而保，参考 [DOC](https://cloud.tencent.com/document/product/454/7953#IM_ACCTYPE) 了解怎么获取|
-|userID    | 用户ID，您的业务服务器负责分配，各个端不能重复，否则会出现“被踢下线”的情况 |
+|userID    | 用户ID，您的业务服务器负责分配，各个端不能重复，否则会出现“被踢下线”的情况。 |
 |userSig  | 相当于用户密码，具体怎么计算，可以参考 [DOC](https://cloud.tencent.com/document/product/454/14548) 了解。|
+|serverDomain| RoomService 地址，step2中部署完RoomService之后即可获得。|
+|roomId| 房间ID，您的业务服务器负责分配，小程序端和PC端进入同一个ID的房间，即可进行视频通话。|
+| type | RTCRoom 和 LiveRoom 两种模式，其区别可以看 step4 |
+| template | 视频窗口摆放样式，默认1V1，更多参考 [Template](https://cloud.tencent.com/document/product/454/17006#EnumDef) 定义。 |
+| record | 通话内容是否要进行录制。 |
+
 
 **EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
@@ -82,11 +85,38 @@ http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab574473981559
 您的浏览器不支持 video 标签。
 </video>
 
-## 原理解释
+## 内网穿透
+很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助：
 
-下图展示了 EXEStarter.js 是如何唤起 TXCloudRoom.exe 并建立双向通讯能力的，这部分您可以选择性的了解，并非关键信息。
+![](https://main.qcloudimg.com/raw/22550909ad08fbf301390a23220eb501.png)
 
-![](https://main.qcloudimg.com/raw/c5ec0c09edc90c96d18b0270ebe047c4.png)
-- 网页通过 TXCloudRoom:// 伪协议唤起 TXCloudRoom.exe 桌面程序。
-- 如果网页成功唤起 TXCloudRoom.exe ，则建立双向通讯通道，网页可以向 exe 程序发送指令，同时 exe 程序也会将各种状态和事件回传给网页。
-- 如果网页没有唤起 TXCloudRoom.exe，说明用户没有安装TXCloudRoom.exe，会提示用户下载安装。
+### Step1: 搭建音视频代理服务器（用于透传数据）
+
+采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/NATConfig.sh">NATConfig.sh</a>。打开文件和修改下图中IP的值，指定代理服务器接收网卡的IP，以及腾讯云推流和拉流服务器的地址，然后执行脚本，完成配置。
+
+![](https://main.qcloudimg.com/raw/c6e94f62213899f4b7a3e3c111e8cac5.png)
+
+
+### Step2: 搭建Socks5代理服务器（用于透传信令）
+
+Socks5代理服务器，好比与在内网机器和腾讯云服务器之间搭建了一座桥梁，网络数据包就是桥上的行人，走过桥，河流两边就可以说话和交流。通过下载和执行我们提供的Bash脚本，绑定接收代理的网卡和出口网卡的端口号，来搭建Socks5代理服务器。
+
+如果您的代理服务器是Ubuntu，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_Ubuntu.sh">Socks5Config_Ubuntu.sh</a>，执行脚本，完成配置Socks5。
+
+如果您的代理服务器是CentOS，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_CentOS.sh">Socks5Config_CentOS.sh</a>，执行脚本，完成配置Socks5。
+
+
+### Step3: 使用EXEStarter.js设置代理服务器
+
+设置Web页面的代理参数，给EXEStarter.js的 createExeAsRoom 接口传入 proxy_ip 和 proxy_port 参数，分别指定代理服务器的IP和端口。
+
+```javascript
+EXEStarter.createExeAsRoom({
+    //...
+    custom: {
+     	proxy_ip: "x.x.x.x", 	// 代理IP，可以不设置，默认不开启代理
+     	proxy_port: 1080,	    // 代理端口，可以不设置，默认不开启代理
+    }
+});
+```
+
