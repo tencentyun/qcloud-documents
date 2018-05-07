@@ -1,4 +1,6 @@
-﻿## 功能描述
+﻿
+<h2 id = "API">功能描述</h2>
+
 **EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
 <h2 id = "API">接口列表</h2>
