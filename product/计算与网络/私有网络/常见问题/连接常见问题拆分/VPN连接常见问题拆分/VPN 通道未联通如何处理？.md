@@ -33,5 +33,5 @@ VPN 通道连通的配置过程需要两端协商信息一致才可成功建立�
 | 加密算法              | 3DES    | AES-128，AES-192，AES-256，DES |
 | 认证算法              | MD5     | SHA1                           |
 | PFS               | Disable | DH1，DH2，DH5，DH14，DH24      |
-| Ipsec SA lifetime | 3600 秒   |                                |
+| Ipsec SA lifetime | 3600 秒   |                       -         |
 
