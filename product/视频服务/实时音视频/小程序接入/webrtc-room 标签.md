@@ -6,7 +6,7 @@
 
 ## 效果演示
 - **PC 端**
-用 Chrome 浏览器打开 [体验页面](https://avc.qcloud.com/miniApp/index.html) 可以体验桌面版 WebRTC 的效果。
+用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
@@ -18,19 +18,19 @@
 | 对接资料 | 说明 | 下载链接 |
 |---------|---------|---------|
 | 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) |
-| PC端源码 | 基于[WebRTC API](https://sxb.qcloud.com/webrtcapi/)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/webRTCForChrome/WebRTC_20180428_093242.zip) |
-| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [DOWNLOAD](http://download-1252463788.file.myqcloud.com/server/java/webrtc.zip) |
+| PC端源码 | 基于[WebrtcAPI](https://cloud.tencent.com/document/product/647/16865)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） |  [webrtc(Chrome).zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc.Chrome.zip)|
+| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [webrtc_server_list.zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc_server_list.zip) |
 
 ## 标签详解
 ### 属性定义
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看[界面定制](#CustomUI)） |
-| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
 | userID     | String  | ''                   |必要，用户ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
-| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
-| privateMapKey    | String  | ‘’                 | 必要，视频权限位，相当于进入房间的钥匙      |
+| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| privateMapKey    | String  | ‘’                 | 必要，房间权限key，相当于进入指定房间roomID的钥匙      |
 | beauty    | Number  | 0~5                     | 可选，默认5, 美颜级别 0～5  |
 | muted     | Boolean | true, false             | 可选，默认false，是否静音    |
 | debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
@@ -151,19 +151,13 @@ Page({
 
 ## 使用指引
 
-### step1: 开通相关云服务
+> 请确认已经参照[Demo部署]开通了相关服务和并正确的完成了配置。
 
-在腾讯云注册账号，开通 [互动直播](https://console.cloud.tencent.com/ilvb) 服务，创建一个新的应用，可以获得 SDK Appid 信息，也就是下图中红框标注的位置。
-
-![](https://main.qcloudimg.com/raw/b376d943ae028b87eaa19a404f66334a.png)
-
-> 小程序跟WebRTC的互通是使用互动直播服务“牵线搭桥”的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
-
-### step2: 下载自定义组件源码
+### step1: 下载自定义组件源码
 
 **&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。点击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
 
-### step3: 在工程中引入组件
+### step2: 在工程中引入组件
 - 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。
 ```json
  "usingComponents": {
@@ -189,20 +183,20 @@ Page({
 </webrtc-room>
 ```
 
-### step4: 获取key信息
+### step3: 获取key信息
 按照如下表格获取关键的key信息，这是使用腾讯云互通直播服务所必须的几个信息：
 
 | KEY | 示例    | 作用 |获取方案 |
 |:--------:|:--------:|:--------:|:--------:|
-| sdkAppID | 1400087915  | 用于计费和业务区分 |  上文中有介绍 |
+| sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
-| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（PHP / JAVA） |
+| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
-| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
+| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
-### step5: 进入房间
+### step4: 进入房间
 
 ```
 self.setData({
@@ -305,3 +299,7 @@ self.setData({
 //为 <webrtc-room> 组件中的 webrtcroom.wxss 文件添加自定义样式
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
+
+
+## Chrome端对接
+ 了解腾讯云官网的 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) ，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。
