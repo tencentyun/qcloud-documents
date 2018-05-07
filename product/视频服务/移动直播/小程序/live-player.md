@@ -77,6 +77,20 @@
  </view> 
 ```
 
+## 超低时延
+&lt;live-player&gt; 的 RTC 模式支持 500ms 以内的超低时延链路，可以应用在视频通话和远程遥控等场景中，要使用超低时延播放，需要注意如下几点：
+（1）推流端如果是微信小程序，请使用 &lt;live-pusher&gt; 的 RTC 模式。
+（2）推流端如果是 iOS 或者 Android SDK，请使用 setVideoQuality 的 MAIN_PUBLISHER 模式。
+（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)。
+（4）&lt;live-player&gt; 的 min-cache 和 max-cache 请不要自行设置，使用默认值。
+（5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的 rtmp:// 地址，如下：
+
+|  对比项目 | 示例 | 时延 |
+|---------|---------| ----- |
+| 普通直播 URL | rtmp://3891.liveplay.myqcloud.com/live/3891_test_clock_for_rtmpacc |  >2s |
+| 超低延时 URL | rtmp://3891.liveplay.myqcloud.com/live/3891_test_clock_for_rtmpacc?bizid=bizid&txTime=5FD4431C&txSerect=20e6d865f462dff61ada209d53c71cf9 | < 500ms | 
+
+
 ## 属性详解
 - **src**
 用于音视频下行的播放 URL，支持 rtmp 协议（URL 以 “rtmp://” 打头）和 flv 协议（URL 以 “http://” 打头且以 “.flv” 结尾） ，腾讯云推流 URL 的获取方法见 [DOC](https://cloud.tencent.com/document/product/454/7915)。

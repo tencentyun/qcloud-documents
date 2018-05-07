@@ -2,25 +2,25 @@
 
 ## 概览
 ### [基础] 接口 & 事件通知
-> 了解一下接口的使用，就已经可以实现主要功能
+> 了解一下接口的使用，就已经可以实现主要功能。
 
 #### 接口
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.fn.detectRTC](#WebRTCAPI.fn.detectRTC)     | 检测是否支持WebRTC |
-| [WebRTCAPI](#WebRTCAPI)     | 初始化 |
-| [WebRTCAPI.createRoom](#WebRTCAPI.createRoom)     | 创建或进入音视频房间 |
-| [WebRTCAPI.quit](#WebRTCAPI.quit)     | 退出音视频房间 |
+| [WebRTCAPI.fn.detectRTC](#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
+| [WebRTCAPI](#webrtcapi)     | 初始化 |
+| [WebRTCAPI.createRoom](#webrtcapi.createroom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.quit](#webrtcapi.quit)     | 退出音视频房间 |
 
 #### 事件通知
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onLocalStreamAdd](#onLocalStreamAdd)     | 本地视频流新增/更新 |
-| [onRemoteStreamUpdate](#onRemoteStreamUpdate)     | 远端视频流新增/更新 |
-| [onRemoteStreamRemove](#onRemoteStreamRemove)     | 远端视频流断开 |
-| [onWebSocketClose](#onWebSocketClose)     |  websocket 断开 |
-| [onRelayTimeout](#onRelayTimeout)     | 视频流 server 超时断开 |
-| [onKickout](#onKickout)     | 被踢下线(同一个用户重复登录) |
+| [onLocalStreamAdd](#onlocalstreamadd)     | 本地视频流新增/更新 |
+| [onRemoteStreamUpdate](#onremotestreamupdate)     | 远端视频流新增/更新 |
+| [onRemoteStreamRemove](#onremotestreamremove)     | 远端视频流断开 |
+| [onWebSocketClose](#onwebsocketclose)     |  websocket 断开 |
+| [onRelayTimeout](#onrelaytimeout)     | 视频流 server 超时断开 |
+| [onKickout](#onkickout)     | 被踢下线（同一个用户重复登录） |
 
 ----
 
@@ -30,19 +30,19 @@
 #### 接口
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.startRTC](#WebRTCAPI.startRTC)     | 主动推流才需要用到 |
-| [WebRTCAPI.getLocalStream](#WebRTCAPI.getLocalStream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.startRTC](#webRTCAPI.startRTC)   | 主动推流才需要用到 |
+| [WebRTCAPI.getLocalStream](#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
 #### 事件通知
 > 以下事件通知
 
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onPeerConnectionAdd](#onPeerConnectionAdd)     | PeerConnection 新增通知 ，请确保您已经了解了peer connection通知的作用和意义 |
+| [onPeerConnectionAdd](#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
 
 
 ## 使用说明
 ### WebRTCAPI.fn.detectRTC
-####具体功能
+#### 具体功能
 检测是否支持 WebRTC
 ```javascript
 var info = WebRTCAPI.fn.detectRTC();
@@ -54,7 +54,7 @@ var info = WebRTCAPI.fn.detectRTC();
 | isTBS      | 是否是TBS |                 |
 | TBSversion      | TBS版本号 |                 |
 | isTBSValid      | TBS版本号是否支持WebRTC |                 |
-| support      | 是否支持WebRTC |                 |
+| support      | 是否支持WebRTC |  |
 
 -----
 
@@ -73,14 +73,15 @@ var RTC = new WebRTCAPI( options , succ , error)
 | succ         | function | 成功回调      |
 | error         | function | 失败回调      |
 
-##### Options
+#### Options
 
 | 参数               | 类型      | 描述                                       | 备注           |
 | ---------------- | ------- | ---------------------------------------- | ------------ |
 | **sdkAppId**         | integer | 应用的 sdkappid（如有疑义请看[ 集成SDK ](/document/product/647/16863)）              | 必填           |
 | **accountType**      | integer | 账户类型（ 如有疑义请看[ 集成SDK](/document/product/647/16863) )                     | 必填           |
-| **openid**           | string  | 用户的唯一标识，也就是我们常说的用户名（如有疑义请看 [集成SDK](/document/product/647/16863)） | 必填           |
-| **userSig**          | string  | 鉴权签名（如有疑义请看[ 集成SDK](/document/product/647/16863)）                     | 必填           |
+| **userId**           | string  | 用户的唯一标识，也就是我们常说的用户名（如有疑义请看 [集成SDK](/document/product/647/16863)） | 必填           |
+| **userSig**          | string  | 必要，身份签名，相当于登录密码的作用 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
+| **privateMapKey**          | string  | 房间权限key，相当于进入指定房间roomID的钥匙 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
 | closeLocalMedia | boolean | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ） | 非必填，默认 false |
 | audio            | boolean | 是否启用音频采集                                 | 非必填，默认 true  |
 | video            | boolean | 是否启用视频采集                                 | 非必填，默认 true  |
@@ -88,10 +89,11 @@ var RTC = new WebRTCAPI( options , succ , error)
 #### 代码示例
 ```javascript
     var RTC = new WebRTCAPI( {
-        "openid": openid,
+        "userId": userId,
         "sdkAppId":  sdkappid,
         "accountType":  accountType,
         "userSig": userSig,
+        "privateMapKey":privateMapKey,
         "closeLocalMedia": false //默认是false
     } );
 ```
@@ -119,13 +121,13 @@ var RTC = new WebRTCAPI( options , succ , error)
 | 参数               | 类型      | 描述                                  |
 | ---------------- | ------- | ---------------------------------------- |
 | **roomid**         | integer | 房间 id          | 必填           |
-| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/1062)                    | 必填           |
+| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/10620)                    | 必填           |
 
 
 #### 代码示例
 ```javascript
 var RTC = new WebRTCAPI({
-    "openid": "username",
+    "userId": "username",
     "sdkAppId":  1400012345,
     "accountType":  12345,
     "userSig": "xxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -167,7 +169,7 @@ var RTC = new WebRTCAPI({
 ---
 
 >说明:
-事件通知的基本写法如下
+事件通知的基本写法如下：
 >```javascript
 >    var RTC = new WebRTCAPI( { ... } );
 >
@@ -208,7 +210,7 @@ var RTC = new WebRTCAPI({
     RTC.on( 'onRemoteStreamUpdate' , function( data ){
         if( data && data.stream){
             var stream = data.stream
-            console.debug( data.openId + 'enter this room with unique videoId '+ data.videoId  )
+            console.debug( data.userId + 'enter this room with unique videoId '+ data.videoId  )
             document.querySelector("#remoteVideo").srcObject = stream
         }else{
             console.debug( 'somebody enter this room without stream' )
@@ -218,7 +220,7 @@ var RTC = new WebRTCAPI({
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| openId     | Stream  | 视频流所属用户的openId（ identifier ）    |
+| userId     | Stream  | 视频流所属用户的userId（ identifier ）    |
 | stream     | Stream  | 视频流 Stream，可能为 null( 每一个用户进来 不管是否推流，都会触发这个回调)  |
 | videoId    | string  | 视频流Stream的唯一id ,由 tinyid + "_" + 由随机字符串 组成      |
 | videoType: | Integer | 0 : NONE , 1:AUDIO 音频,   2：主路 MAIN   7：辅路 AID |
@@ -232,14 +234,14 @@ var RTC = new WebRTCAPI({
     var RTC = new WebRTCAPI( { ... } );
 
     RTC.on( 'onRemoteStreamRemove' , function( data ){
-        console.debug( data.openId + ' leave this room with unique videoId '+ data.videoId  )
+        console.debug( data.userId + ' leave this room with unique videoId '+ data.videoId  )
     })
 ```
 
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| openId         | Stream | 远端视频流所属用户的 openId（ identifier ）    |
+| userId         | Stream | 远端视频流所属用户的 userId（ identifier ）    |
 | videoId         | Stream | 远端视频流 Stream 的唯一 ID    |
 
 -----
@@ -279,7 +281,19 @@ websocket 断开
 
 ---
 
-> 以下就是进阶的接口
+> 以下就是进阶的接口。
+
+### WebRTCAPI.startRTC
+#### 具体功能
+主动发起推流/拉流
+
+```javascript
+    var RTC = new WebRTCAPI({ ... });
+    ... 
+
+    RTC.startRTC();
+```
+---
 
 ### WebRTCAPI.getLocalStream
 #### 具体功能
@@ -326,7 +340,8 @@ websocket 断开
 ---
 ### WebRTCAPI.openVideo
 #### 具体功能
-采集视频
+打开视频采集
+> 这里的openVideo是在已经进行音视频推流的时候，关闭了视频的情况下再打开采集。
 ```javascript
     var RTC = new WebRTCAPI({ ... });
     ...
@@ -434,15 +449,14 @@ PeerConnection 连接通知
 
 | 参数        | 类型     | 描述           |
 | --------- | ------ | ------------ |
-| srcopenid | String | 连接所属用户openid |
-| srctinyid | string | 连接所属用户tinyid |
+| userId | String | 连接所属用户用户名 |
 
 #### 代码示例
 ```javascript
     RTC.on( 'onPeerConnectionAdd' , function( info ){
         //由业务决定，是否要建立peerconnection
-        if( info.srcopenid === '指定用户名'){
-            WebRTCAPI.startRTC(info.srctinyid);
+        if( info.userId === '指定用户名'){
+            WebRTCAPI.startRTC({ userId: info.userId );
         }else{
             console.debug('不建立连接')
         }

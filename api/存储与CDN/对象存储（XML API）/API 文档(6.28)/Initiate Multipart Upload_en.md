@@ -36,7 +36,7 @@ This request operation is implemented using the following recommended request he
 | Content-Type | The content type defined in RFC 2616, which will be saved as Object metadata. | String | No |
 | Expires | The file name defined in RFC 2616, which will be saved as Object metadata. | String | No |
 | x-cos-meta-* | The header information allowed to be defined by users, which will be returned as Object metadata. The size is limited to 2K. | String | No |
-| X-cos-storage-class | Set the storage class of Object. Enumerated values: Standard, Standard_IA, ARCHIVE. The default is Standard (this is only supported for South China region) | String | No |
+| X-cos-storage-class | Set the storage class of Object. Enumerated values: Standard, Standard_IA. The default is Standard (this is only supported for South China region) | String | No |
 
 **Permission-related headers**
 This request operation is implemented using header x-cos-acl in request PUT to set the access permission of Object. Object supports three access permissions: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
