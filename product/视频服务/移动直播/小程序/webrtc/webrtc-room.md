@@ -6,7 +6,7 @@
 
 ## 效果演示
 - **PC 端**
-用 Chrome 浏览器打开 [体验页面](https://img.qcloud.com/open/qcloud/video/act/avtivex_demo\webrtcdemo\webrtcroom.html) 可以体验桌面版 WebRTC 的效果。
+用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
@@ -18,23 +18,25 @@
 | 对接资料 | 说明 | 下载链接 |
 |---------|---------|---------|
 | 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) |
-| PC端源码 | 基于[WebRTC API](https://sxb.qcloud.com/webrtcapi/)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/webRTCForChrome/WebRTC_20180428_093242.zip) |
-| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [DOWNLOAD](http://download-1252463788.file.myqcloud.com/server/java/webrtc.zip) |
+| PC端源码 | 基于[WebrtcAPI](https://cloud.tencent.com/document/product/647/16865)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） |  [webrtc(Chrome).zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc.Chrome.zip)|
+| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [webrtc_server_list.zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc_server_list.zip) |
 
 ## 标签详解
 ### 属性定义
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看[界面定制](#CustomUI)） |
-| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
 | userID     | String  | ''                   |必要，用户ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
-| sdkAppID    | String  | ‘’                      | 必要，开通IM服务所获取到的AppID       |
-| privateMapKey    | String  | ‘’                 | 必要，视频权限位，相当于进入房间的钥匙      |
+| roomID    | Number  | ‘’                      | 必要，房间号                           |
+| privateMapKey    | String  | ‘’                 | 必要，房间权限key，相当于进入指定房间roomID的钥匙      |
 | beauty    | Number  | 0~5                     | 可选，默认5, 美颜级别 0～5  |
 | muted     | Boolean | true, false             | 可选，默认false，是否静音    |
 | debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
-| bindonRoomEvent     | function |              | 必要，监听&lt;webrtc-room&gt;组件返回的事件   |
+| bindRoomEvent     | function |              | 必要，监听&lt;webrtc-room&gt;组件返回的事件   |
+| enableIM     | Boolean | true, false             | 可选，默认false   |
+| bindIMEvent     | function |             | 当IM开启时必要，监听IM返回的事件   |
 
 ### 操作接口
 
@@ -54,7 +56,7 @@ webrtcroom.pause();
 ```
 
 ### 事件通知
-**&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，事件参数格式如下
+**&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回IM消息事件，事件参数格式如下
 
 ```json
 "detail": {
@@ -77,7 +79,9 @@ webrtcroom.pause();
 	beauty="{{beauty}}"
 	muted="{{muted}}"
 	debug="{{debug}}"
-	bindonRoomEvent="onRoomEvent">
+	bindRoomEvent="onRoomEvent"
+	enableIM="{{enableIM}}"
+	bindIMEvent="onIMEvent">
 </webrtc-room>
 
 
@@ -91,9 +95,9 @@ Page({
 		sdkAppID: '',
 		beauty: 3,
 		muted: false,
-		debug: false
+		debug: false,
+		enableIM: false
 	},
-    //...
     onRoomEvent: function(e){
         switch(e.detail.tag){
             case 'error': {
@@ -102,6 +106,26 @@ Page({
                 var detail = e.detail.detail;
                 break;
             }
+        }
+    },
+    onIMEvent: function(e){
+        switch(e.detail.tag){
+            case 'big_group_msg_notify':
+                //收到群组消息
+                console.debug( e.detail.detail )
+                break;
+            case 'login_event':
+                //登录事件通知
+                console.debug( e.detail.detail )
+                break;
+            case 'connection_event':
+                //连接状态事件
+                console.debug( e.detail.detail )
+                break;
+            case 'join_group_event':
+                //进群事件通知
+                console.debug( e.detail.detail )
+                break;
         }
     },
 
@@ -119,7 +143,7 @@ Page({
 			}
 		})
 	},
-  	
+
 })
 ```
 
@@ -129,11 +153,15 @@ Page({
 
 ### step1: 开通相关云服务
 
-在腾讯云注册账号，开通 [互动直播](https://console.cloud.tencent.com/ilvb) 服务，创建一个新的应用，可以获得 SDK Appid 信息，也就是下图中红框标注的位置。
+小程序跟 WebRTC 的互通是基于实时音视频（[TRTC](https://cloud.tencent.com/product/trtc)）服务实现的，需要开通该服务。
 
-![](https://main.qcloudimg.com/raw/b376d943ae028b87eaa19a404f66334a.png)
+- 进入实时音视频[管理控制台](https://console.cloud.tencent.com/rav)，如果服务还没有开通，点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
 
-> 小程序跟WebRTC的互通是使用互动直播服务“牵线搭桥”的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
+- 服务开通后，进入[管理控制台](https://console.cloud.tencent.com/rav) 创建实时音视频应用，点击【确定】按钮即可。
+![](https://main.qcloudimg.com/raw/20d0adeadf23251f857571a65a8dd569.png)
+
+- 从实时音视频控制台获取`sdkAppID、accountType、privateKey`，在 step4 中会用的：
+![](https://main.qcloudimg.com/raw/9a5f341883f911cf9b65b9b5487f2f75.png)
 
 ### step2: 下载自定义组件源码
 
@@ -159,7 +187,9 @@ Page({
 		beauty="{{beauty}}"
 		muted="{{muted}}"
 		debug="{{debug}}"
-		bindonRoomEvent="onRoomEvent">
+		bindRoomEvent="onRoomEvent"
+		enableIM="{{enableIM}}"
+		bindIMEvent="onIMEvent">
 </webrtc-room>
 ```
 
@@ -168,15 +198,13 @@ Page({
 
 | KEY | 示例    | 作用 |获取方案 |
 |:--------:|:--------:|:--------:|:--------:|
-| sdkAppID | 1400087915  | 用于计费和业务区分 |  上文中有介绍 |
+| sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
-| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（PHP / JAVA） |
+| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
-| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
+| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
 
-下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的示例代码。
-
->生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**。
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
 ### step5: 进入房间
 
@@ -228,7 +256,7 @@ self.setData({
                 <cover-view class='character' style='padding: 0 5px;'>我</cover-view>
             </live-pusher>
         </view>
-        <view class="player-box" wx:for="{{members}}" wx:key="userID"> 
+        <view class="player-box" wx:for="{{members}}" wx:key="userID">
             <view class='poster'>
                 <cover-image class='set'
 			       src="https://miniprogram-1252463788.file.myqcloud.com/roomset_{{index + 2}}.png">
@@ -251,8 +279,8 @@ self.setData({
                 </cover-view>
                 <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
                 <cover-view class='character' style='padding: 0 5px;'>{{item.userName}}</cover-view>
-            </live-player>  
-        </view> 
+            </live-player>
+        </view>
     </view>
 </template>
 
@@ -273,7 +301,7 @@ self.setData({
 <import src='/pages/templates/mytemplate/mytemplate.wxml'/>
 <view class='conponent-box'>
     <view styles="width:100%;height=100%;" wx:if="{{template=='1v3'}}">
-        <template is='mytemplate' data="{{pushURL, aspect, 
+        <template is='mytemplate' data="{{pushURL, aspect,
 				      minBitrate, maxBitrate, beauty, muted, debug, members}}"/>
     </view>
 </view>
@@ -281,3 +309,7 @@ self.setData({
 //为 <webrtc-room> 组件中的 webrtcroom.wxss 文件添加自定义样式
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
+
+
+## Chrome端对接
+ 了解腾讯云官网的 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) ，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。

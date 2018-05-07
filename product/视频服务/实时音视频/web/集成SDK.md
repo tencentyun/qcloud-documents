@@ -3,7 +3,7 @@
 
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍然 bug，产品化方案建议先规避，待苹果解决后再使用 |
+| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有 bug，产品化方案建议先规避，待苹果解决后再使用 |
 | Android      | TBS | 43600                |   [TBS 介绍](http://x5.tencent.com/)   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
@@ -31,10 +31,8 @@
 
 | 名词      | 含义                                       |
 | ------- | ---------------------------------------- |
-| OpenID  | 也叫 identifier，在 App 中标示用户的身份,一般大家都把他叫做用户名    |
-| TinyID  | 每个 OpenID 在腾讯云那边都会有一个对应的身份信息标示，称为 TinyID    |
-| UserSig | 每个 OpenID 都有一个对应的签名，在请求的时候带上，以便腾讯云鉴别用户的身份。这个签名称为 usersig |
-
+| userId  | 也叫 identifier，在 App 中标示用户的身份,一般大家都把他叫做用户名    |
+| userSig | 身份签名，相当于登录密码的作用。每个 userId 都有一个有一定期限的签名，在请求的时候带上，以便腾讯云鉴别用户的身份。 |
 
 
 * 视频通话信息
@@ -42,9 +40,10 @@
 | 名词      | 含义                                       |
 | ------- | ---------------------------------------- |
 | spear 角色 | 一个视频用户的分辨率、码率、帧率等信息的配置信息集合名，可以在应用的 Spear 引擎页面维护 |
-| roomid  | 用来标示一个视频通话。roomid 相同的用户才能相互看到             |
+| roomId  | 用来标识一个视频通话房间。roomId 相同的用户才能相互看到             |
+| privateMapKey  | 房间权限key，相当于进入指定房间roomId的钥匙             |
 
-
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
 ## 接入准备工作
 

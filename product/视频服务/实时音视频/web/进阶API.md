@@ -54,7 +54,7 @@ var info = WebRTCAPI.fn.detectRTC();
 | isTBS      | 是否是TBS |                 |
 | TBSversion      | TBS版本号 |                 |
 | isTBSValid      | TBS版本号是否支持WebRTC |                 |
-| support      | 是否支持WebRTC |                 |
+| support      | 是否支持WebRTC |  |
 
 -----
 
@@ -79,8 +79,9 @@ var RTC = new WebRTCAPI( options , succ , error)
 | ---------------- | ------- | ---------------------------------------- | ------------ |
 | **sdkAppId**         | integer | 应用的 sdkappid（如有疑义请看[ 集成SDK ](/document/product/647/16863)）              | 必填           |
 | **accountType**      | integer | 账户类型（ 如有疑义请看[ 集成SDK](/document/product/647/16863) )                     | 必填           |
-| **openid**           | string  | 用户的唯一标识，也就是我们常说的用户名（如有疑义请看 [集成SDK](/document/product/647/16863)） | 必填           |
-| **userSig**          | string  | 鉴权签名（如有疑义请看[ 集成SDK](/document/product/647/16863)）                     | 必填           |
+| **userId**           | string  | 用户的唯一标识，也就是我们常说的用户名（如有疑义请看 [集成SDK](/document/product/647/16863)） | 必填           |
+| **userSig**          | string  | 必要，身份签名，相当于登录密码的作用 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
+| **privateMapKey**          | string  | 房间权限key，相当于进入指定房间roomID的钥匙 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
 | closeLocalMedia | boolean | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ） | 非必填，默认 false |
 | audio            | boolean | 是否启用音频采集                                 | 非必填，默认 true  |
 | video            | boolean | 是否启用视频采集                                 | 非必填，默认 true  |
@@ -88,10 +89,11 @@ var RTC = new WebRTCAPI( options , succ , error)
 #### 代码示例
 ```javascript
     var RTC = new WebRTCAPI( {
-        "openid": openid,
+        "userId": userId,
         "sdkAppId":  sdkappid,
         "accountType":  accountType,
         "userSig": userSig,
+        "privateMapKey":privateMapKey,
         "closeLocalMedia": false //默认是false
     } );
 ```
@@ -125,7 +127,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 #### 代码示例
 ```javascript
 var RTC = new WebRTCAPI({
-    "openid": "username",
+    "userId": "username",
     "sdkAppId":  1400012345,
     "accountType":  12345,
     "userSig": "xxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -208,7 +210,7 @@ var RTC = new WebRTCAPI({
     RTC.on( 'onRemoteStreamUpdate' , function( data ){
         if( data && data.stream){
             var stream = data.stream
-            console.debug( data.openId + 'enter this room with unique videoId '+ data.videoId  )
+            console.debug( data.userId + 'enter this room with unique videoId '+ data.videoId  )
             document.querySelector("#remoteVideo").srcObject = stream
         }else{
             console.debug( 'somebody enter this room without stream' )
@@ -218,7 +220,7 @@ var RTC = new WebRTCAPI({
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| openId     | Stream  | 视频流所属用户的openId（ identifier ）    |
+| userId     | Stream  | 视频流所属用户的userId（ identifier ）    |
 | stream     | Stream  | 视频流 Stream，可能为 null( 每一个用户进来 不管是否推流，都会触发这个回调)  |
 | videoId    | string  | 视频流Stream的唯一id ,由 tinyid + "_" + 由随机字符串 组成      |
 | videoType: | Integer | 0 : NONE , 1:AUDIO 音频,   2：主路 MAIN   7：辅路 AID |
@@ -232,14 +234,14 @@ var RTC = new WebRTCAPI({
     var RTC = new WebRTCAPI( { ... } );
 
     RTC.on( 'onRemoteStreamRemove' , function( data ){
-        console.debug( data.openId + ' leave this room with unique videoId '+ data.videoId  )
+        console.debug( data.userId + ' leave this room with unique videoId '+ data.videoId  )
     })
 ```
 
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| openId         | Stream | 远端视频流所属用户的 openId（ identifier ）    |
+| userId         | Stream | 远端视频流所属用户的 userId（ identifier ）    |
 | videoId         | Stream | 远端视频流 Stream 的唯一 ID    |
 
 -----
@@ -338,7 +340,8 @@ websocket 断开
 ---
 ### WebRTCAPI.openVideo
 #### 具体功能
-采集视频
+打开视频采集
+> 这里的openVideo是在已经进行音视频推流的时候，关闭了视频的情况下再打开采集。
 ```javascript
     var RTC = new WebRTCAPI({ ... });
     ...
@@ -446,15 +449,14 @@ PeerConnection 连接通知
 
 | 参数        | 类型     | 描述           |
 | --------- | ------ | ------------ |
-| srcopenid | String | 连接所属用户openid |
-| srctinyid | string | 连接所属用户tinyid |
+| userId | String | 连接所属用户用户名 |
 
 #### 代码示例
 ```javascript
     RTC.on( 'onPeerConnectionAdd' , function( info ){
         //由业务决定，是否要建立peerconnection
-        if( info.srcopenid === '指定用户名'){
-            WebRTCAPI.startRTC(info.srctinyid);
+        if( info.userId === '指定用户名'){
+            WebRTCAPI.startRTC({ userId: info.userId );
         }else{
             console.debug('不建立连接')
         }

@@ -43,9 +43,10 @@ UserSig是使用腾讯云通讯服务（[IM](https://cloud.tencent.com/product/i
 ![](https://mc.qcloudimg.com/static/img/b7d40f17068d9f6605bcac81e2891b5e/image.png)
 
 ### step3：集成生成代码
-阅读 [DOC](https://cloud.tencent.com/document/product/269/1510) 可以了解各个语言版本（Java、PHP、C++）的 UserSig 生成代码，之后可以将其集成到您的后台系统中。
+我们在官网的 SDK 下载区提供了一份计算UserSig 的简单版源码，有 java 和 php 两个版本的，如果您需要其他版本的，可以到 [DOC](https://cloud.tencent.com/document/product/269/1510) 里寻找。
 
-推荐的做法是将其集成到登录环节中，也就是在用户登录时，您的后台服务器除了返回之前应该返回的信息，还可以将 UserSig 也一并返回给您的 App。
+-[ **java 和 php 版源码下载**](https://cloud.tencent.com/document/product/454/7873#Server)
+
 
 ## 如何使用 UserSig？
 如果您是后台研发工程师，剩下的工作就不需要您操心了，您可以通知您的同事（终端开发工程师）阅读 IM SDK 的接入文档（[iOS](https://cloud.tencent.com/document/product/269/9149) | [Android](https://cloud.tencent.com/document/product/269/9233)），完成后续接入工作。
