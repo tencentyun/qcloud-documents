@@ -25,12 +25,14 @@
 #### endpoint 说明
 endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了使用的协议，endpoint的格式如下：
 
+<font style="color:red">注意：请参照下面说明将域名中的region替换成相应地域</font>
+
 - 内网：<font style="color:red">http:// cmq-queue-region.api.tencentyun.com</font>
 - 外网：<font style="color:red">http(s)://cmq-queue-region.api.qcloud.com</font>
 
 
 #### region 说明
-region 需要使用具体地域进行替换，有如下三个地区：gz(广州)，sh(上海)，bj(北京)。划分不同地域有助于不同地域的用户就近选择，提供更好的服务。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+region 需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港）,ca(北美)，cd（成都），usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网endpoint：
