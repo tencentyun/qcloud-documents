@@ -25,5 +25,5 @@ Tencent Cloud provides you with the bill of text/voice SMS for the previous mont
 For more information on how to top up, please see [Online Top-up](https://cloud.tencent.com/document/product/555/9902). After you pay for the Tencent Cloud text/voice SMS, follow the procedure in [Invoice](https://cloud.tencent.com/document/product/555/7434) to request invoicing.
 
 ## Arrears
-Tencent Cloud provides you with the bill of text/voice SMS for the previous month before the 3rd day of each month. You need to pay the fees before the 8th day of the current month. If you fail to make such payment before the 9th day of the current month, Tencent Cloud will suspend your service until you pay off the arrears, and you are held liable for any consequences arising from such suspension.
+Tencent Cloud provides you with the bill of text/voice SMS for the previous month before the 3rd day of each month. You need to pay the fees before the 8th day of the current month. If you fail to make such payment, Tencent Cloud will suspend your service from the 9th day of the current month until you pay off the arrears, and you are held liable for any consequences arising from such suspension.
 
