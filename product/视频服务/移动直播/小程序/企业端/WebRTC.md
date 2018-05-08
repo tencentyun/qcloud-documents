@@ -1,4 +1,4 @@
-﻿
+
 <h2> Demo 体验 </h2>
 
 用 Chrome 浏览器打开 [体验地址](https://sxb.qcloud.com/miniApp/#/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
@@ -18,7 +18,7 @@
 | component | Demo页面的主要业务逻辑位于该文件夹下的各个 js 文件中 | 
 
 ### Server
-点击 [webrtc_server_list.zip](https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java) 可以下载一份 **java** 版本的 Server 端源码，这份代码的主要作用是实现了一个简单的（无鉴权的）房间列表，可以支持创建通话房间，关闭通话房间等功能。如果您只是希望打通视频通话（在 Chrome 和 小程序端 写死一个 roomid），则不太需要这部分代码的帮助。 
+点击 [webrtc_server_list.zip](https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java) 可以下载一份 **java** 版本的 Server 端源码，这份代码的主要作用是实现了一个简单的（无鉴权的）房间列表，可以支持创建通话房间、关闭通话房间等功能。如果您只是希望打通视频通话（在 Chrome 和 小程序端 写死一个 roomid），则不太需要这部分代码的帮助。 
 
 | 目录 | 说明 | 
 |:-------:|---------|
