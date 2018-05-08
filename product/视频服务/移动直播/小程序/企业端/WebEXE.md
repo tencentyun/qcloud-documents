@@ -1,4 +1,4 @@
-﻿
+
 <h2> 方案选型 </h2>
 
 WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出了两套方案的适用场景和优缺点，您可以根据自己的情况自行选择。
@@ -42,7 +42,7 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 业务服务器的作用主要是向PC端网页和微信小程序派发 roomid、userid、usersig 这些进行视频通话所必须的信息。其中roomid 和 userid 都可以由您的业务后台自由决定，只要确保不会出现 id重叠 就可以。usersig 的计算则需要参考 [DOC](https://cloud.tencent.com/document/product/454/14548)，我们在官网也提供了 java 和 php 版本的计算[源码](https://cloud.tencent.com/document/product/454/7873#Server)。
 
 ### step2: 部署RoomService
-WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom(视频通话)](https://cloud.tencent.com/document/product/454/14617) 组件，都依赖一个叫做 RoomService 的后台开源组件（JAVA | Node.js）用于实现视频房间逻辑，您可以点击 [RoomService.zip]((https://cloud.tencent.com/document/product/454/7873#Server) 下载到相关代码，部署方法见 zip 包中的说明文档 **README.pdf**。
+WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom(视频通话)](https://cloud.tencent.com/document/product/454/14617) 组件，都依赖一个叫做 RoomService 的后台开源组件（JAVA | Node.js）用于实现视频房间逻辑，您可以点击 [RoomService.zip](https://cloud.tencent.com/document/product/454/7873#Server) 下载到相关代码，部署方法见 zip 包中的说明文档 **README.pdf**。
 
 ### step3: 对接PC Web端代码
 您的web页面需要 include EXEStarter.js，并且把 step1 中获取的 roomid, userid, usersig 这些信息都传递给 EXEStarter.js 的 createExeAsRoom 函数。其中几个关键参数这里详细说明一下：
