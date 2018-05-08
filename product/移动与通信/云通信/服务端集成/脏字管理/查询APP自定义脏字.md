@@ -80,7 +80,7 @@ JSON
 ### 4.2 Server调试工具 
 
 无。
-更多调试工具参见[REST API调试工具](/doc/product/269/REST%20API简介#5-rest-api.E8.B0.83.E8.AF.95.E5.B7.A5.E5.85.B7)。
+更多调试工具参见[REST API调试工具](https://cloud.tencent.com/document/product/269/1519#rest-api-.E8.B0.83.E8.AF.95.E5.B7.A5.E5.85.B7)。
 
 ## 5 API集成 
 

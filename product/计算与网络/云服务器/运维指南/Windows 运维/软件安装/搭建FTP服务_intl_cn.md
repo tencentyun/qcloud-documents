@@ -2,11 +2,12 @@
 本文档介绍在 Windows 云服务器上搭建 FTP 服务的操作。此处使用 FileZilla 为例介绍，您也可以通过获取服务市场镜像，免除了您安装配置的各种工作，具体详情请参见 [云市场](http://market.qcloud.com/?categoryId=64&page=1&orderby=2) 。
 
 ## 软件下载
- - FileZilla 客户端是一个快速可靠的、跨平台的 FTP 、 FTPS 和 SFTP 客户端。具有图形用户界面( GUI ) 和很多特性。易于使用，支持多种协议，本例使用 FileZilla 客户端进行配置演示和操作测试。
- - 登录云服务器，在浏览器中进入官网下载 FileZilla Server 。官方下载地址： `https://sourceforge.net/projects/filezilla/files/FileZilla%20Server/`
+ - FileZilla 是一个快速可靠的、跨平台的 FTP 、 FTPS 和 SFTP 软件。具有图形用户界面( GUI ) 和很多特性。易于使用，支持多种协议，本例使用 FileZilla 进行配置演示和操作测试。
+ - 进入官网下载 FileZilla Server，官方下载地址： `https://sourceforge.net/projects/filezilla/files/FileZilla%20Server/`
+ - 进入官网下载 FileZilla Client，官方下载地址： `https://sourceforge.net/projects/filezilla/files/FileZilla_Client/`
 
 ## 安装配置
- 1. 下载完成后启动安装程序，阅读许可协议，单击【I Agree】进入下一步安装；选择安装内容，默认安装标准即可，单击【Next】（其中 Source Code 是源代码，不需要勾选）。
+ 1. 下载 FileZilla Server 后启动安装程序，阅读许可协议，单击【I Agree】进入下一步安装；选择安装内容，默认安装标准即可，单击【Next】（其中 Source Code 是源代码，不需要勾选）。
 ![](//mc.qcloudimg.com/static/img/1575622f1b1366c8bcff8d71c777b561/image.jpg)
 
  2. 选择安装路径、选择 FileZilla Server 启动方式以及管理端口。
@@ -46,10 +47,10 @@
  9. 用户授权。选中右侧“ User ”框中用户，选择中间目录名称及对应权限，单击【OK】。（请删除 Shared Folders 下面的 New directory 项，否则可能报错)。
 ![](//mc.qcloudimg.com/static/img/ada463488ce9abfd65d086db08aa35ce/image.jpg)
 
-至此，FileZilla 服务已经搭建好。
+至此，FileZilla FTP 服务已经搭建好。
 
 ## 使用测试
-客户端通过本地 FileZilla 工具，连接至云服务器上搭建的 FTP 服务器。输入 FTP 服务器公网 IP 、账号、密码，单击【快速连接】，即可看到服务器分享给该用户的目录，并且可以看到之前放在该目录里面的文件“欢迎使用腾讯云服务器.txt ”。
+通过 FileZilla Client 客户端工具，连接至云服务器上搭建的 FTP 服务器。输入 FTP 服务器公网 IP 、账号、密码，单击【快速连接】，即可看到服务器分享给该用户的目录，并且可以看到之前放在该目录里面的文件“欢迎使用腾讯云服务器.txt ”。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](//mc.qcloudimg.com/static/img/5e7fdbc24a8d5ca0690af8b09bf5a2e0/image.png)
 
  FileZilla 服务器此刻可监控到客户端的连接。

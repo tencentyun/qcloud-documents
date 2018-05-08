@@ -116,7 +116,7 @@ Container 节点 Upload 的内容：
 |:---|:-- |:--|:--|
 | Key | ListMultipartUploadsResult.Upload |  Object 的名称 |  String |
 | UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID | String |
-| StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE  |  String |
+| StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA |  String |
 | Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息 |  Container |
 | Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息 |  Container |
 | Initiated | ListMultipartUploadsResult.Upload |  分块上传的起始时间 |  Date |

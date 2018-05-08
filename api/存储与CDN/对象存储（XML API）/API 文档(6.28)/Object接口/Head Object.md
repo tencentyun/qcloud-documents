@@ -55,7 +55,7 @@ HEAD /<ObjectName> HTTP/1.1
 | :------------------ | :--------------------------------------- | :----- |
 | x-cos-meta- *       | 用户自定义的 meta                              | String |
 | x-cos-object-type   | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String |
-| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE | String |
+| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD,STANDARD_IA | String |
 
 **服务端加密相关响应**
 

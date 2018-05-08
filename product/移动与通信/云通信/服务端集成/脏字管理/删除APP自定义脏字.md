@@ -84,7 +84,7 @@ JSON
 
 ### 4.1 Web调试工具 
 
-通过[REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/delete)调试本接口。 
+通过[REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/get)调试本接口。 
 
 ### 4.2 Server调试工具 
 

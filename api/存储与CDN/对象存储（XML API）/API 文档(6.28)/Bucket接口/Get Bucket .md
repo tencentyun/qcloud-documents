@@ -109,7 +109,7 @@ Container 节点 Contents 的内容：
 | ETag | ListBucketResult.Contents | 文件的 MD-5 算法校验值 |  String |
 | Size | ListBucketResult.Contents | 说明文件大小，单位是 Byte |  String |
 | Owner | ListBucketResult.Contents | Bucket 持有者信息| Container |
-| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE | String |
+| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA | String |
 
 Container 节点 CommonPrefixes 的内容：
 
