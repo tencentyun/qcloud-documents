@@ -43,7 +43,7 @@
 	`example.qcloud.com` 精确匹配 example.qcloud.com 域名
   `\*.qcloud.com` 匹配所有以 qcloud.com 结尾的域名
  `example.qcloud.\*` 匹配所有以 example.qcloud 开头的域名
-  >注：如果请求的域名匹配不到任意一条转发规则，则会返回403。
+  >注：如果请求的域名匹配不到任意一条转发规则，则会默认匹配到第一个域名的配置。
 
 4. 在转发规则中配置域名，并在转发组中配置模糊匹配的URL。使用前缀匹配，可在最后加入通配符$进行完整匹配。
 例如，客户通过配置转发组URL ~* \.(gif|jpg|bmp)$，希望匹配任何以 gif、 jpg 或 bmp 结尾的文件。
