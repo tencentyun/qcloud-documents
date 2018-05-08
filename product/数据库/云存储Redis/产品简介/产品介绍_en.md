@@ -21,4 +21,4 @@ In practice, CRS is compatible with Redis protocol, and supports data types such
 
 ## 3 Release Notes
 
-Master/slave and cluster instances are compatible with v2.8.23 and v2.8.19 Redis protocols, respectively. There are some unsupported commands. For more information, please see [Service Limits](/doc/product/239/使用限制).
+Master/slave and cluster instances are compatible with v3.0 and v3.0 Redis protocols, respectively. There are some unsupported commands. For more information, please see [Service Limits](/doc/product/239/使用限制).
