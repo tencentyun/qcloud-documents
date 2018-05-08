@@ -32,6 +32,7 @@
 > 3. libsqlite3.tbd
 
 所有系统依赖库添加完毕，工程依赖如下图所示：    
+
 ![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
 
 #### 添加头文件
