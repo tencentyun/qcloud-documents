@@ -1,7 +1,7 @@
 
 <h2 id = "API">功能描述</h2>
 
-**EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
+**EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数。音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
 <h2 id = "API">接口列表</h2>
 
@@ -101,7 +101,7 @@ EXEStarter.setListener({
      userList:    bool    用户列表模块，可以不设置，默认true
      IMList :     bool    IM聊天模块，可以不设置，默认true
      whiteboard:  bool    白板模块，可以不设置，默认true
-     screenShare: bool    本地屏幕采集作为视频源，可以不设置，默认true
+     screenShare: bool    屏幕分享模块，可以不设置，默认true
      record:      bool    后台录制当前视频流，可以不设置，默认false
      exeUrl:      String  指定自定义EXE的下载URL
      proxy_ip:    String  代理IP，可以不设置，默认不开启代理
@@ -190,7 +190,7 @@ EXEStarter.unload();
 
 <h2 id="code"> 示例代码 </h2>
 
-如下视频代码展示了如何使用 EXEStarter.js 启动 TXCloudRoom.exe
+如下示例代码展示了如何使用 EXEStarter.js 启动 TXCloudRoom.exe
 
 ```html
 <HTML>
