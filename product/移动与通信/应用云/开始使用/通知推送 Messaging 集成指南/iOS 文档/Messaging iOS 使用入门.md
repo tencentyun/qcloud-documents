@@ -51,6 +51,13 @@ source "https://github.com/CocoaPods/Specs"
 ```
 pod 'TACMessaging'
 ```
+
+并运行命令
+
+~~~
+pod update
+~~~
+
 ### 启动服务
 
 移动推送 服务无需启动，到此您已经成功接入了 MobileLine 移动推送服务。

@@ -29,7 +29,7 @@ See the details below:
 |:---|:-- |:---|:-- |
 | response-content-type | Set the Content-Type parameter in the response header. | String | No |
 | response-content-language | Set the Content-Language parameter in the response header. | String | No |
-| response-expires | Set the Content-Expires parameter in the response header. | String | No |
+| response-expires | Set the Expires parameter in the response header. | String | No |
 | response-cache-control | Set the Cache-Control parameter in the response header. | String | No |
 | response-content-disposition | Set the Content-Disposition parameter in the response header. | String | No |
 | response-content-encoding | Set the Content-Encoding parameter in the response header. | String | No |

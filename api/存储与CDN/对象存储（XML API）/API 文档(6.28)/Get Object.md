@@ -29,7 +29,7 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | :--------------------------- | :------------------------------- | :----- | :--- |
 | response-content-type        | 设置响应头部中的 Content-Type 参数。        | String | 否    |
 | response-content-language    | 设置响应头部中的 Content-Language 参数。    | String | 否    |
-| response-expires             | 设置响应头部中的 Content-Expires 参数。     | String | 否    |
+| response-expires             | 设置响应头部中的 Expires 参数。     | String | 否    |
 | response-cache-control       | 设置响应头部中的 Cache-Control 参数。       | String | 否    |
 | response-content-disposition | 设置响应头部中的 Content-Disposition 参数。 | String | 否    |
 | response-content-encoding    | 设置响应头部中的 Content-Encoding 参数。    | String | 否    |
