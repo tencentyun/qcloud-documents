@@ -1,22 +1,23 @@
-﻿## 功能描述
+
+<h2 id = "API">功能描述</h2>
+
 **EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
 <h2 id = "API">接口列表</h2>
 
-| 成员函数                                    | 功能说明                                     |
-| ------------------------------------------- | -------------------------------------------- |
+| 成员函数                                    | 功能说明                                                  |
+| ------------------------------------------- | --------------------------------------------------------- |
 | [setListener(object)](#setListener)         | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
-| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间 |
-| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间 |
-| [setTemplateCfg()](#setTemplateCfg)         | 设置 TXCloudRoom.exe 的 UI 模板        |
-| [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源   |
+| [createExeAsRoom(object)](#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间               |
+| [closeExeAsRoom(object)](#closeExeAsRoom)   | 通知 TXCloudRoom.exe 离开指定的房间                       |
+| [unload()](#unload)                         | 页面在 unload 时，调用此接口，清除相关资源                |
 
 <h2 id = "EnumDef">枚举定义</h2>
 
 ```object
 var StyleType = {
-    LiveRoom: 'LiveRoom',  //视频连麦模式 [LiveRoom: 1V2 | 1V3 | 1V4]
-    RTCRoom: 'RTCRoom',    //视频通话模式 [RTCRoom: 1V1 | 1V2 | 1V3 | 1V4]
+    LiveRoom: 'LiveRoom',  //视频连麦模式 [支持模板Template: 1V2 | 1V3 | 1V4]
+    RTCRoom: 'RTCRoom',    //视频通话模式 [支持模板Template: 1V1 | 1V2 | 1V3 | 1V4]
 }
 var RoomAction = {
     CreateRoom: 'createRoom',  //创建房间
@@ -36,11 +37,10 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 | 接口定义                                     | 功能说明                |
 | ---------------------------------------- | ------------------- |
-| onMenberChange(object)     | 通知：用户列表变更通知 |
-| onRoomClose(object)          | 通知：EXE通知关闭 |
+| onRoomClose(object) | 通知：EXE通知关闭 |
+| onMemberChange(object) | 通知：用户列表变更通知 |
 | onRecvRoomIMMsg(object) | 通知：收到 IM 消息 |
-| onError(object)                   | 通知：错误信息，预留接口 |
-| onRecvData(object)            | 通知：其他消息通知，如流状态信息等。 |
+| onRecvData(object) | 通知：其他消息通知，如流状态信息等。 |
 
 <h2 id="setListener">setListener</h2>
 
@@ -50,10 +50,9 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 ```object
 {
-	onMenberChange(object)		function    通知：房间用户列表变更（进房、退房），全量数据
 	onRoomClose(object)			function    通知：房间被动关闭，EXE出错引起
+	onMemberChange(object)		function    通知：房间用户列表变更（进房、退房），全量数据
 	onRecvRoomIMMsg(object)		function    通知：房间IM消息
-	onError(object)				function   通知：错误信息，如摄像头占用等
 	onRecvData(object)			function    通知：透传流状态通知
 }
 ```
@@ -62,7 +61,7 @@ EXEStarter.js 的事件回调和事件通知，您可以通过 **setListener**  
 
 ```
 EXEStarter.setListener({
-	onMenberChange: function(object) {
+	onMemberChange: function(object) {
 		//...
 	},
 	onRoomClose: function(object) {
@@ -81,24 +80,35 @@ EXEStarter.setListener({
 
 ```
 {  
-	userdata: {
-        userID        String    用户ID
-        userName      String    用户昵称
-        sdkAppID      String    IM登录凭证
-        accType       Int       账号集成类型
-        userSig       String    IM签名
-    }
-    roomdata: {
-       roomAction:  String  支持：createRoom | enterRoom 操作
-       roomId:      Int     房间号
-       roomName:    String  房间名称
-       roomType:    Int     房间类型
-       roomTitle:   String  房间Title
-       roomLogo:   String  图标URL
-    }
-	success       	function  打开EXE进程成功回调
-	fail          	function  打开EXE进程失败回调
-	timeout       function    打开EXE超时（exe未安装）
+  userdata: {
+      userID        String    用户ID
+      userName      String    用户昵称
+      sdkAppID      String    IM登录凭证
+      accType       Int       账号集成类型
+      userSig       String    IM签名
+  },
+  roomdata: {
+    serverDomain String  roomserver域，eg:https://room.qcloud.com/
+    roomAction:  String  支持：createRoom | enterRoom
+    roomId:      Int     房间号
+    roomName:    String  房间名称
+    roomTitle:   String  房间Title
+    roomLogo:    String  图标URL
+    type:        String  默认RTCRoom。更多参考StyleType定义
+    template:    String  视频窗口摆放样式，默认1V1。更多参考Template定义
+  },
+  custom: {   //可选参数
+     userList:    bool    用户列表模块，可以不设置，默认true
+     IMList :     bool    IM聊天模块，可以不设置，默认true
+     whiteboard:  bool    白板模块，可以不设置，默认true
+     screenShare: bool    本地屏幕采集作为视频源，可以不设置，默认true
+     record:      bool    后台录制当前视频流，可以不设置，默认false
+     exeUrl:      String  指定自定义EXE的下载URL
+     proxy_ip:    String  代理IP，可以不设置，默认不开启代理
+     proxy_port:  Int     代理端口，可以不设置，默认不开启代理
+  },
+  success       function  成功回调
+  fail          function  失败回调  errCode == -1时,检测本地未安装EXE，需要处理未安装逻辑。
 }
 ```
 - 返回值说明：无
@@ -114,21 +124,23 @@ EXEStarter.createExeAsRoom({
                 userSig: accountInfo.userSig,
             },
             roomdata: {
-            	roomAction：EXEStarter.RoomAction.CreateRoom,
+                serverDomain: "https://room.qcloud.com/",
+                roomAction: object.data.roomAction,
                 roomID: object.data.roomID,
                 roomName: object.data.roomName,
-                roomType: baseRoomType,
                 roomTitle: object.data.roomTitle,
                 roomLogo: "http://liteav.myqcloud.com/windows/logo/liveroom_logo.png",
+                type: EXEStarter.StyleType.LiveRoom,
+                template: EXEStarter.Template.Template1V3,
             },
             success: function (ret) {
                console.log('EXEStarter.openExeRoom 打开本地应用成功');
             },
-            fail: function () {
+            fail: function (ret) {
                console.log('EXEStarter.openExeRoom 打开本地应用失败');
-            },
-            timeout: function () {
-                console.log('EXEStarter.openExeRoom 打开本地应用超时，请检查是否安装');
+               if (ret.errCode == -1) {
+                  //本地应用未安装
+               }
             },
         })
 ```
@@ -141,7 +153,6 @@ EXEStarter.createExeAsRoom({
 
 ```object
 {
-    {
     data: {
         roomID:     String  房间号
     }
@@ -163,48 +174,6 @@ EXEStarter.closeExeAsRoom({
 });
 ```
 
-<h2 id="setTemplateCfg"> setTemplateCfg </h2>
-
-- 接口定义：setTemplateCfg(object):void
-- 接口说明：设置EXE的UI模板样式，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService（具体可以参考 [DOC](https://cloud.tencent.com/document/product/454/14606#Server)）。
-- 参数说明：
-
-```object
-{
-    {
-     data:{
-        serverDomain String  roomserver域，eg:https://room.qcloud.com/
-     },
-     style: {
-        type:        String  默认RTCRoom。支持:[RTCRoom|LiveRoom],
-        template:    String  视频窗口摆放样式，默认1V1
-        userList:    bool    用户列表模块，默认true
-        IMList :     bool    IM聊天模块，默认true
-        whiteboard:  bool    白板模块，默认true
-        screenShare: bool    屏幕录制模块，默认true
-     },
-    }
-}
-```
-- 返回值说明：无
-- 示例代码：
-
-```
-EXEStarter.setTemplateCfg({
-    data: {
-        serverDomain: "https://room.qcloud.com/",
-    },
-    style: {
-        type: styleType,
-        template: template,
-        userList: true,
-        IMList: true,
-        whiteboard: true,
-        screenShare: true,
-    }
-});
-```
-
 <h2 id="unload"> unload </h2>
 
 - 接口定义：unload():void
@@ -218,3 +187,89 @@ EXEStarter.setTemplateCfg({
 ```
 EXEStarter.unload();
 ```
+
+<h2 id="code"> 示例代码 </h2>
+
+如下视频代码展示了如何使用 EXEStarter.js 启动 TXCloudRoom.exe
+
+```html
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <TITLE>web+exe解决方案test</TITLE>
+    <script type="text/javascript" src="./js/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/EXEStarter.js" charset="utf-8"></script>
+</HEAD>
+<BODY>
+    <input type=submit value="开课" onClick="opencourse()">
+    <input type=submit value="下载EXE"  id="download" style="display:none" onClick="downloadExe()">
+    <div id="text_div"></div>
+    <script>
+        function downloadExe() {
+            window.open(EXEStarter.EXEUrl);
+        }
+        function opencourse()
+		{
+            var userID = 'user_1212312', roomID = 'room_123123'; //您业务中的userid和roomid
+            var roomserverInfo;
+            var roomServerDomain = "https://room.qcloud.com/";
+            //第一步：通过您的账号userid，获取roomserver的 usersig
+            getSDKLoginInfo({
+                data: {  userID: userID, roomServerDomain:
+                       roomServerDomain,method : "GET",time: 24 * 60 * 60 * 7
+                },
+                success: function (res) {
+                    if (res.status && res.status === 200) {
+                        roomserverInfo = res.data;
+
+                        //第二步：设置事件监听
+                        EXEStarter.setListener({
+                            onRoomClose: function (ret) { 
+                                //监控返回的事件，具体参考SDK接口。
+                                alert("【errMsg:" + ret.data.msg + "】");
+                            }
+                        });
+
+                        document.getElementById('text_div').innerHTML = '正在打开EXE，请稍后.....';
+                        //第三步：通过usersig和您的房间信息，拉起本地应用程序。
+                        EXEStarter.createExeAsRoom({
+                            userdata: {
+                                userID: roomserverInfo.userID,
+                                userName: "雷锋",
+                                sdkAppID: roomserverInfo.sdkAppID,
+                                accType: roomserverInfo.accountType,
+                                userSig: roomserverInfo.userSig,
+                            },
+                            roomdata: {
+                                serverDomain: roomServerDomain,
+                                roomAction: EXEStarter.RoomAction.CreateRoom,
+                                roomID: roomID,
+                                roomName: "雷锋的房间",
+                                roomTitle: "LiveRoom视频直播间",
+                                roomLogo: "",
+                                type: EXEStarter.StyleType.LiveRoom,
+                                template: EXEStarter.Template.Template1V3,
+                            },
+                            success: function (ret) { },
+                            fail: function (ret) {
+                                /////////////////////////////////////////////////
+							    // ATTENTION
+				    			// ret.errCode == -1 代表网页检测到用户并没有安装 TXCloudRoom.exe。
+							    // 需要在网页上弹出一个下载提示框，提示用户进行下载安装。
+                                //
+                                if (ret.errCode == -1) {
+                                    // 这段代码用于显示 “请下载并安装房间服务” 的提示语。
+                                    document.getElementById('download').style.display = 'block';
+                                }
+                            },
+                        })
+                    }
+                },
+            });
+           
+        }
+    </script>
+</BODY>
+</HTML>
+```
+
