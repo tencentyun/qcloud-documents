@@ -3,7 +3,7 @@
 ### 1.创建仓库
 登录腾讯云，进入到TencentHub控制台 [https://console.cloud.tencent.com/tencenthub](https://console.cloud.tencent.com/tencenthub)，点击左侧的【仓库管理】，在管理页面中点击左上角【新建】，创建一个新仓库。    
 
-![1](https://main.qcloudimg.com/raw/f9e70f59712a119b029fb31f82ea5431.png)    
+![](https://main.qcloudimg.com/raw/f9e70f59712a119b029fb31f82ea5431.png)    
 
 填写仓库信息。根据业务填写相关信息，所有者可选择自己的账号或者所在的组织。仓库类型可选择public共有型或者private私有型。填写后点击【完成】    
 
