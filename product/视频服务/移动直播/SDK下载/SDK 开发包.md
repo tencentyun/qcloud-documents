@@ -337,12 +337,6 @@ table td {
   </tr>
 </table>
 
-
- - **新增功能**
-> C++ 支持录屏、截图快照、系统扬声器或进程混音。
-> C++ Demo UI 交互升级 。
-> ActiveX支持指定区域录屏、截图快照、系统扬声器混音。
-
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
 
@@ -370,7 +364,8 @@ table td {
 
 | 所属平台 | 版本号 | 说明 | 下载链接 |
 |---------|---------|---------|------|
-| Chrome浏览器 | 1.0.0| 源码实现了一个Windows版本Chrome跟小程序互通的简单Demo，<br>可以用实现 PC[(Chrome)](https://cloud.tencent.com/document/product/454/17005) + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [Chrome](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc.Chrome.zip) |
+| 任意浏览器 | 1.0.0| 源码实现了一个网页唤起 EXE 桌面程序，并跟小程序互通的简单Demo，<br>可以用实现 浏览器[(IE或Chrome)](https://cloud.tencent.com/document/product/454/17004) =>TXCloudRoom.exe + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebEXE](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) |
+| Chrome | 1.0.0| 源码实现了一个Windows版本Chrome跟小程序互通的简单Demo，<br>可以用实现 PC[(Chrome)](https://cloud.tencent.com/document/product/454/17005) + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebRTC](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc) |
 
 <h2 id="Server">服务端源码（1.1.0）</h2>
  
@@ -394,7 +389,7 @@ table td {
     <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.java.zip">JAVA</a</td>
   </tr>
 	<tr align="center">
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.nodejs.zip">PHP</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.nodejs.zip">Node.js</a</td>
   </tr>
 <tr align="center">
     <td>WebRTC房间列表</td>
