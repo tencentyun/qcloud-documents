@@ -32,7 +32,7 @@
 > 3. libsqlite3.tbd
 
 所有系统依赖库添加完毕，工程依赖如下图所示：
-![](//mc.qcloudimg.com/static/img/98f026d48d92df36eaa23f8304b84eaf/image.png)
+![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
 
 #### 添加头文件
 在 Build Settings->Search Paths->User Header Search Paths 中添加头文件搜索路径。注意此项不是必须的，如果您没有添加 TXLiteAVSDK_UGC 的头文件搜索路径，则在引用 SDK 的相关头文件时，需要在头文件前增加 "TXLiteAVSDK_UGC/"，如下所示：
