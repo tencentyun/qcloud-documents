@@ -15,7 +15,7 @@ Authorization: Auth String
 
 ### 请求行
 ~~~
-GET /?cors HTTP/1.1
+GET /?logging HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
