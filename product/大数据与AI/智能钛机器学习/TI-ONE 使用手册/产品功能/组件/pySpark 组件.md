@@ -1,22 +1,18 @@
-## PySpark组件
-> Spark组件是面向使用Python的Spark用户，用户通过Python编写Spark应用程序，通过PySpark组件完成部署，也支持pyspark的sql功能，本文有部分使用方法介绍（更多用法请参考社区指引:[Spark SQL, DataFrames and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
+Spark组件是面向使用Python的Spark用户，用户通过Python编写Spark应用程序，通过PySpark组件完成部署，也支持pyspark的sql功能，本文有部分使用方法介绍（更多用法请参考社区指引:[Spark SQL, DataFrames and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
 
-和标准的Spark相比，pySpark支持上传Python脚本和实时修改，更加的灵活，而且支持SQL功能，所以我们推荐用来[数据预处理](data_preprocessing.md)
+和标准的Spark相比，pySpark支持上传Python脚本和实时修改，更加的灵活，而且支持SQL功能，所以我们推荐用来 [数据预处理](https://cloud.tencent.com/document/product/851/17088?!preview&lang=cn)
 
 ### 1. **从左侧组件列表里拖拽出一个PySpark节点**
 
 
-![](manual\pyspark.png)
+![](https://main.qcloudimg.com/raw/b3347ed7c805332139b03fd5f8edfb90.png)
 
 
 
 ### 2. **单击任务节点，会从右侧弹出配置框**
 
+![](https://main.qcloudimg.com/raw/bb1a61a1165ed1edb03015e86eac9161.png)
 
-​    ![](manual\setting.png)
-
-​	
-​	
 > * 执行脚本：通过该配置框上传你的PySpark脚本，必填项
 > * 依赖包文件：指定你的PySpark应用程序依赖的包，可以是.py .zip .egg文件，可选项
 > * 算法参数：指定你的PySpark应用程序所需的参数，即传给PySpark脚本的参数，可选项
@@ -99,7 +95,7 @@ filtered = processed.filter(judge_fn)
 
 `process_fn`或`judge_fn`会分发到每个节点上分布式执行，你可以在`process_fn`或`judge_fn`中使用任何python库(如numpy, scikit-learn等)
 
-> 更多关于Spark的使用可以参考如下文档：
-> * rdd：http://spark.apache.org/docs/2.1.1/programming-guide.html
-> * dataframe：http://spark.apache.org/docs/2.1.1/sql-programming-guide.html
-> * python api：http://spark.apache.org/docs/2.1.1/api/python/index.html
+更多关于Spark的使用可以参考如下文档：
+ * [rdd](http://spark.apache.org/docs/2.1.1/programming-guide.html)
+ * [dataframe](http://spark.apache.org/docs/2.1.1/sql-programming-guide.html)
+ * [python api](http://spark.apache.org/docs/2.1.1/api/python/index.html)
