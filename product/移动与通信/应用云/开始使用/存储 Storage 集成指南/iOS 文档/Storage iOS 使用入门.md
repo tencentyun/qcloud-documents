@@ -141,44 +141,38 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 ### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
 
 Objective-C 代码示例：
-
 ~~~
 #import <TACCore/TACCore.h>
 ~~~
-Swift 代码示例：
 
+Swift 代码示例：
 ~~~
 import TACCore
 ~~~
 
-
 ### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
 
 ######  使用默认配置
 
 通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
 
 Objective-C 代码示例：
-
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
-
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
-
 
 ### 配置 TACStorage 的使用权限。
-
 
 请先参考[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
 
 TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要对请求进行权限校验，来确保对应的请求是否有权限访问对应的资源。因而您需要在您的代码中实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
 
+Objective-C 代码示例：
 ~~~
 @interface TACStorageDemoViewController () <QCloudCredentailFenceQueueDelegate>
 @end
@@ -203,8 +197,8 @@ TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要�
             continueBlock(nil, error);
         } else {
             QCloudCredential* crendential = [[QCloudCredential alloc] init];
-            crendential.secretID = @"AKIDPiqmW3qcgXVSKN8jngPzRhvxzYyDL5qP";
-            crendential.secretKey = @"EH8oHoLgpmJmBQUM1Uoywjmv7EFzd5OJ";
+            crendential.secretID = <#secretID#>;
+            crendential.secretKey = <#secretKey#>;
             crendential.experationDate = nil;
             crendential.token = ;
             QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
@@ -218,15 +212,39 @@ TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要�
 @end
 ~~~
 
-
-
+Swift 代码示例：
+~~~
+class TACStorageDemoViewController: UIViewController ,QCloudCredentailFenceQueueDelegate{
+    func fenceQueue(_ queue: QCloudCredentailFenceQueue!, requestCreatorWithContinue continueBlock: QCloudCredentailFenceQueueContinue!) {
+    // 在调试阶段您可以通过直接设置secretID和secretKey来测试服务，但是强烈不建议在线上环境使用该方式！！！
+#if DEBUG
+        let crendential = QCloudCredential.init()
+        crendential.secretID = <#secretID#>
+        crendential.secretKey = <#secretKey#>
+        let creator = QCloudAuthentationV5Creator.init(credential: crendential)
+        continueBlock(creator,nil)
+#else
+//您需要配置自己的服务器，来获取CAM临时密钥。并通过临时密钥来创建权限Creator。具体可以参考：[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068)
+    var NetworkCall:(AnyObject,Error)->Void = {(response,NSError)->Void in
+        if error != nil {
+            continueBlock(nil,error)
+        }else{
+            let crendential = QCloudCredential.init()
+            crendential.secretID = <#secretID#>
+            crendential.secretKey = <#secretKey#>
+            crendential.token = ""
+            let creator = QCloudAuthentationV5Creator.init(credential: crendential)
+            continueBlock(creator,nil)
+        }
+         <#do network with callback:NetworkCall #>
+    }
+#endif
+    }
+~~~
 
 ## 启动服务
 
 移动存储服务无需启动，到此您已经成功接入了 MobileLine 移动存储服务。
-
-
-
 
 ## 后续步骤
 

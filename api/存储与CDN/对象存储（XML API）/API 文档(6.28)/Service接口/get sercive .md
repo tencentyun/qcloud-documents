@@ -1,5 +1,5 @@
 ## 功能描述
-Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。
+GET Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。
 ### 细节分析
 该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能获取 Bucket 列表，且只能获取签名中 AccessID 所属账户的 Bucket 列表。
 
@@ -101,12 +101,12 @@ Container 节点 Bucket 的内容：
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-|错误码|HTTP状态码|描述|
+|错误码|HTTP 状态码|描述|
 |-----|--------------|-----------|
 |AccessDenied|403 Forbidden|1. 请求中没有用户验证信息（签名为空，即匿名访问）；<br> 2. 用户使用 v4 的签名调用了该接口，同样会返回该错误。|
 
 备注：具体的错误原因可参考返回的 message 进行排查。
-获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

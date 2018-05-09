@@ -1,17 +1,15 @@
-目前是通过定义资料系统消息监听事件来处理通知。
-
-示例：
+目前是通过定义资料系统消息监听事件来处理通知。**示例：**
 
 ```
-//监听资料系统通知函数对象，方法都定义在receive_profile_system_msg.js文件中
+//监听资料系统通知函数对象，方法都定义在 receive_profile_system_msg.js 文件中
 var onProfileSystemNotifys = {
     "1": onProfileModifyNotify//资料修改  
 };
 ```
 
-## 1 资料变化
+## 资料变化
 
-触发时机：当自己或好友的资料发生变化时，会收到此类通知。
+**触发时机：**当自己或好友的资料发生变化时，会收到此类通知。
 
 **示例：** 
 
@@ -62,9 +60,8 @@ function onProfileModifyNotify(notify) {
     }
     content+="最新资料：【昵称】："+nick+",【性别】："+sex+",【加好友方式】："+allowType;
     addProfileSystemMsg(notify.Type, typeCh, content);
-    
     if(account!=loginInfo.identifier){//如果是好友资料更新
-        //好友资料发生变化，需要重新加载好友列表或者单独更新account的资料信息
+        //好友资料发生变化，需要重新加载好友列表或者单独更新 account 的资料信息
         getAllFriend(getAllFriendsCallbackOK);
     }
 }

@@ -1,37 +1,20 @@
 
 
-## 服务启动与停止
 
-当您集成了 Messaging 服务之后，系统将会在程序启动时默认启动该服务。
-
-如果您不希望在启动的时候默认启动 Messaging 服务，可以在配置中将其关闭 (例如在 AppDelegate 中加入如下代码)：
-
-~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-    options.messagingOptions.autoStart = NO;
-~~~
-
-### 手动开启服务
-
-~~~
-    [[TACMessagingService defaultService] startReceiveNotifications];
-~~~
-
-### 手动关闭服务
-
-~~~
-    [[TACMessagingService defaultService] stopReceiveNotifications];
-~~~
-
-如果您希望在特定的时候关闭服务。
 
 ## 监听 Messaging 服务回调
 
 
 设置 delegate 为您已经实现 TACMessagingDelegate 的类可以监听 Messaging 服务的回调, 包括监听推送服务启动、上报消息的情况等：
 
+Objective-C 代码示例：
 ~~~
-    [TACMessagingService defaultService].delegate = self;
+[TACMessagingService defaultService].delegate = self;
+~~~
+
+Swift 代码示例：
+~~~
+TACMessagingService.default().delegate = self as! TACMessagingDelegate
 ~~~
 
 ~~~
@@ -133,18 +116,29 @@
 
 ### 获取程序当前角标数量
 
+Objective-C 代码示例：
 ~~~
 NSInteger count =[[TACMessagingService defaultService] applicationBadgeNumber];
 ~~~
 
+Swift 代码示例：
+~~~
+let count = TACMessagingService.default().applicationBadgeNumber
+~~~
+
 ###  设置程序当前角标数量
 
+Objective-C 代码示例：
 ~~~
 NSInteger badgeNumber =  @(2);
 [[TACMessagingService defaultService] setApplicationBadgeNumber:badgeNumber];
 ~~~
 
-
+Swift 代码示例：
+~~~
+let badgeNumber:NSInteger = 2
+TACMessagingService.default().applicationBadgeNumber = badgeNumber
+~~~
 
 
 ## 其他功能

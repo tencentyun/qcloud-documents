@@ -1,5 +1,3 @@
-# MobileLine iOS 移动推送快速入门
-
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -32,9 +30,7 @@
 
 
 
-
 ## 第三步：集成 SDK
-
 
 如果还没有 Podfile，请创建一个。
 
@@ -56,151 +52,44 @@ source "https://github.com/CocoaPods/Specs"
 pod 'TACMessaging'
 ```
 
-### 配置程序需要脚本
-
-> 如果您在其他模块中完成了此步骤，请不要重复执行。
-
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
-
-脚本主要包括两个：
-
-1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
-2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
-
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
-
-请按照以下步骤来添加脚本：
-
-##### 添加构建之前运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
+并运行命令
 
 ~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
+pod update
 ~~~
 
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-   
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-   
-  ~~~
-   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
-  ~~~
-
-
-##### 添加构建之后运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
-> **注意：**
->  请确保该脚本在 `Build Phases` 中排序需要放到最后。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
-
-~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-	
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-    
-  ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
-  ~~~
-
-
-## 第四步：初始化
-
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
-
-### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
-
-Objective-C 代码示例：
-
-~~~
-#import <TACCore/TACCore.h>
-~~~
-Swift 代码示例：
-
-~~~
-import TACCore
-~~~
-
-
-### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
-
-######  使用默认配置
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
-
-Objective-C 代码示例：
-
-~~~
-    [TACApplication configurate];
-~~~
-
-Swift 代码示例：
-
-~~~
-	TACApplication.configurate();
-~~~
-
-
-
-
-###### 通过编程的方式自定义某些参数
-
-通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
-
-Objective-C 代码示例：
-
-~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-    //
-    [TACApplication configurateWithOptions:options];
-~~~
-
-Swift 代码示例：
-
-~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
-~~~
-
-
-
-## 启动服务
+### 启动服务
 
 移动推送 服务无需启动，到此您已经成功接入了 MobileLine 移动推送服务。
+
+## 第四步 验证
+
+**请先参考 [iOS 推送证书设置指南](https://cloud.tencent.com/document/product/666/14860) 设置开发和发布证书**
+
+### 在控制台上推送消息
+
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，并将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中，您也可以在推送时添加自定义参数，然后点击【确认推送】。
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fqmfgsejl4j31kw16uk69.jpg)
+
+### 验证通知是否发送成功
+
+推送通知栏消息成功后，若 Messaging SDK 接收到了通知，如果您的程序在前台则会调用 `AppDelegate` 的 `application:didReceiveRemoteNotification` 方法，您可以在该方法中调用如下方法打印日志：
+
+```
+// 收到通知栏消息后回调此接口。
+- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+     NSLog(@"got messaging");
+}
+```
+
+收到通知后终端将会输出日志：
+
+~~~
+2018-04-20 16:37:06.983857+0800 TACSamples[384:51189] got messaging
+~~~
+
 
 ## 后续步骤
 

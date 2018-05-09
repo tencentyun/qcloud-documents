@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
+GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
 ### 细节分析
 1. 每次默认返回的最大条目数为 1000 条，如果无法一次返回所有的 list，则返回结果中的 IsTruncated 为 true，同时会附加一个 NextMarker 字段，提示下一个条目的起点。若一次请求，已经返回了整个 list，则不会有 NextMarker 这个字段，同时 IsTruncated 为 false。
 2. 若把 prefix 设置为某个文件夹的全路径名，则可以列出以此 prefix 为开头的文件，即该文件夹下递归的所有文件和子文件夹。如果再设置 delimiter 定界符为 “/”，则只列出该文件夹下的文件，子文件夹下递归的文件和文件夹名将不被列出。而子文件夹名将会以 CommonPrefix 的形式给出。
@@ -109,7 +109,7 @@ Container 节点 Contents 的内容：
 | ETag | ListBucketResult.Contents | 文件的 MD-5 算法校验值 |  String |
 | Size | ListBucketResult.Contents | 说明文件大小，单位是 Byte |  String |
 | Owner | ListBucketResult.Contents | Bucket 持有者信息| Container |
-| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE | String |
+| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA | String |
 
 Container 节点 CommonPrefixes 的内容：
 

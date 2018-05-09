@@ -1,4 +1,4 @@
-- For now， AS is available in Beijing, Shanghai, Guangzhou, Hong Kong and Toronto.
+- For now， AS is available in Beijing, Shanghai, Guangzhou, Hong Kong, Toronto and Singapore.
 - Each user is able to create up to 20 scaling configurations for each region.
 - Each user is able to create up to 20 scaling groups.
 - A scaling group can only correspond to one scaling configuration.

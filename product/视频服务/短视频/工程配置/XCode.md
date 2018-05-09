@@ -27,12 +27,12 @@
 
 在工程中添加 `TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库：
 
-> 1. libz.tbd
-> 2. Accelerate.framework
-> 3. Bugly.framework
+> 1. Accelerate.framework
+> 2. libstdc++.tbd
+> 3. libsqlite3.tbd
 
-所有系统依赖库添加完毕，工程依赖如下图所示：
-![](//mc.qcloudimg.com/static/img/98f026d48d92df36eaa23f8304b84eaf/image.png)
+所有系统依赖库添加完毕，工程依赖如下图所示：    
+![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
 
 #### 添加头文件
 在 Build Settings->Search Paths->User Header Search Paths 中添加头文件搜索路径。注意此项不是必须的，如果您没有添加 TXLiteAVSDK_UGC 的头文件搜索路径，则在引用 SDK 的相关头文件时，需要在头文件前增加 "TXLiteAVSDK_UGC/"，如下所示：
@@ -43,6 +43,15 @@
 
 #### 添加 -ObjC
 SDK 用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错。
+
+#### 短视频发布功能集成
+
+短视频发布功能以源码形式对外提供，您需要手动集成源代码到您的工程中。
+
+- 拷贝上传源代码目录 Demo/TXLiteAVDemo/VideoUpload 到您的工程目录中。
+
+- 将VideoUpload目录拖拽到xcode工程中的合适位置，在弹出的对话框中选择Added floders:Create groups，选择添加到的target，然后点finish。
+![](https://main.qcloudimg.com/raw/39a08faa6d2d98049c894ba8a2d371d5.png)
 
 #### 验证
 下面在 HelloSDK 的代码中，调用 SDK 的接口，获取 SDK 版本信息，以验证工程设置是否正确。

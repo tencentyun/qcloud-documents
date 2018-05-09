@@ -18,12 +18,19 @@
 
 ## 调起支付
 对商品完成下单后，会得到一个 pay_info, 对应前面 JSON 中 pay_info 字段的值，pay_info 实质上就是一个字符串，我们可以拿着这个 pay_info 调用 SDK 的接口去直接拉起相应的支付：
+
+Objective-C 代码示例：
 ~~~
 [[TACPaymentService defaultService] pay:payInfo appMeataData:nil completation:^(TACPaymentResult * result) {
     TACLogDebug(@"支付结果 %d %@", result.resultCode, result.resultMsg);
 }];
 ~~~
-
+Swift 代码示例：
+~~~
+TACPaymentService.default().pay(payInfo, appMeataData: nil) { (result:TACPaymentResult?)->Void in
+    print("支付结果  ",result?.resultCode as Any,result?.resultMsg as Any)
+}
+~~~
 ## 返回支付结果
 支付完成以后，结果会包装在 TACPaymentResult 对象中，在完成回调 block 里以参数传入的形式返回。它包含了如下信息：
 

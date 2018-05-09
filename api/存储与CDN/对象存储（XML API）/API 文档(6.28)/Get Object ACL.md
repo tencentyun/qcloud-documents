@@ -1,5 +1,5 @@
 ## 功能描述
-Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权限。只有 Bucket 的持有者才有权限操作。
+GET Object acl 接口用来获取某个 Bucket 下的某个 Object 的访问权限。只有 Bucket 的持有者才有权限操作。
 ## 请求
 
 语法示例：
@@ -72,7 +72,7 @@ GET /ObjectName?acl HTTP/1.1
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| AccessControlPolicy |无| 保存 Get Object ACL 结果的容器 | Container |
+| AccessControlPolicy |无| 保存 GET Object acl 结果的容器 | Container |
 
 Container 节点 AccessControlPolicy 的内容：
 

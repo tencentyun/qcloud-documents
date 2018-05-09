@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
+GET Bucket location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
 ### 细节分析
 1. 目前区域的有效值请参阅 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档。
 2.  查看 Bucket 区域信息，需要有该 Bucket 的读权限。

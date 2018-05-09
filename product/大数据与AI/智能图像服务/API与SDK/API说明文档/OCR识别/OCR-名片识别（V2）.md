@@ -39,7 +39,6 @@
 | 参数名称       | 是否必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 必须         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
-| bucket        | 可选   | string      | 图片空间                                    |
 | image         | 必选   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 | url_list   | 必选   | string 数组 | 图片 url 列表。image 和 url 只提供一个即可；如果都提供，只使用 url   |
 
@@ -180,7 +179,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## 错误码
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

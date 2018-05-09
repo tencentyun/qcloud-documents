@@ -22,56 +22,49 @@
 
 ## 第三步：集成 SDK
 
-您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 analytics 服务依赖：
+您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Authorization 服务依赖：
 
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-    compile 'com.tencent.tac:tac-authorization:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
+    compile 'com.tencent.tac:tac-authorization:1.1.0'
 }
 ```
 
-## 第四步：初始化
+## 第四步：设置 qq app id
 
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
+您可以根据需要，选择是否集成qq登录服务，请按照选择查看下面的设置方式。
 
-### 在 `Application` 子类中添加初始代码（已完成请跳过）
+### 集成 qq 登录服务的设置方式
 
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+如果您想要集成qq登录服务，请确保您已经在 [QQ 互联平台](https://connect.qq.com/) 注册了应用，如果没有，请先移步注册。
+
+注册完成之后，您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 app id：
 
 ```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
+android {
+    defaultConfig {
+    	 // 添加这行
+        manifestPlaceholders = [qqOpenId: "互联平台的 qq app id"]
+    }
     ...
-    //增加这行
-    TACApplication.configure(this);
-  }
 }
-
 ```
 
-> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
 
-### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
+### 不集成 qq 登录服务的设置方式
 
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
+如果您不需要集成qq登录服务，请在您的应用级 build.gradle 文件（通常是 app/build.gradle）中添加这行：
 
 ```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    <!-- 这里替换成你自己的 Application 子类 -->
-    android:name="com.example.tac.MyCustomApp"
-    ...>
-  </application>
-</manifest>
+android {
+    defaultConfig {
+    	 // 添加这行
+        manifestPlaceholders = [qqOpenId: ""]
+    }
+    ...
+}
 ```
 
-> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
-
-### 启动服务
-
-Authorization 服务无需启动，您可以直接使用，到此您已经成功接入了 MobileLine 授权服务。
+到此您已经成功接入了 MobileLine 登录与授权服务。

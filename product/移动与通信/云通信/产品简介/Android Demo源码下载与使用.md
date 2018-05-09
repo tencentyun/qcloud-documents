@@ -42,16 +42,16 @@
 #### 4.1.1手机号注册和登录
 Demo支持手机号注册登录。填入手机号和手机号所在地，然后点击获取验证码。收到验证码后，填写正确验证码即可登录。
 <img src="//mccdn.qcloud.com/static/img/f8576103a512565ae4426cba9358fa0b/image.png" width=360/>
-#### 4.1.2 账号密码注册和登录
-Demo支持账号密码注册登录。按照界面提示填入用户名和密码注册，注册成功后会自动登录。
+#### 4.1.2 帐号密码注册和登录
+Demo支持帐号密码注册登录。按照界面提示填入用户名和密码注册，注册成功后会自动登录。
 <img src="//mccdn.qcloud.com/static/img/27b471be081822ba5ec289272671faa2/image.png" width=360/>
-使用已经注册的账号登录，点击进入用户名登录界面，填写用户名和密码，点击登录按钮即可登录。
+使用已经注册的帐号登录，点击进入用户名登录界面，填写用户名和密码，点击登录按钮即可登录。
 <img src="//mccdn.qcloud.com/static/img/ca08651f039eeb2ad3eaf4c18008813e/image.png" width=360/>
 ### 4.2 联系人
 #### 4.2.1 添加好友
 Demo主界面的第二个tab为联系人，在联系人tab中点击右上角按钮，然后选择添加好友。
 <img src="//mccdn.qcloud.com/static/img/3352b17b669d2844547b6f1ec9defb92/image.png" width=360/>
-在添加好友界面里搜索（使用软键盘搜索按钮）指定的账号或名称。搜索结果在下方以列表形式显示。
+在添加好友界面里搜索（使用软键盘搜索按钮）指定的帐号或名称。搜索结果在下方以列表形式显示。
 <img src="//mccdn.qcloud.com/static/img/408c7fb67ef3ec938a656ca9ca641e1f/image.png" width=360/>
 选择一个需要添加的对象，进入添加好友界面。可以在添加好友界面设置备注名，分组，附加信息，然后发送添加请求，对方同意请求后即成为好友。
 <img src="//mccdn.qcloud.com/static/img/ef062d61e5a6698e8ff6606ddbc244e0/image.png" width=360/>

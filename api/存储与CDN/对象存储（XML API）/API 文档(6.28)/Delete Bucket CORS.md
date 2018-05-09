@@ -1,5 +1,5 @@
 ## 功能描述
-Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
+DELETE Bucket cors 接口请求实现删除跨域访问配置信息。
 ## 请求
 
 语法示例：

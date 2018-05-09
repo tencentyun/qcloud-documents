@@ -1,5 +1,17 @@
 您可以编译不同的渠道包，用于运营数据的采集。如果您没有配置渠道，Analytics 仍然可以正常运行。
 
+## 渠道分布
+
+用户下载安装应用的来源平台。若用户从多个渠道下载安装应用，只会按初始来源渠道计算用户。
+
+渠道信息从安装包里获取，具体配置见开发文档。
+
+渠道分布的报表展示的是活跃应用的渠道分布。报表如下图：
+
+![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%B8%A0%E9%81%93%E7%89%88%E6%9C%AC%E5%88%86%E6%9E%90-%E6%B8%A0%E9%81%93%E5%88%86%E5%B8%83.png)
+
+## 配置渠道
+
 如果您想要配置渠道信息，可以在您工程的 `AndroidManifest` 文件中添加元数据信息：
 
 ```
@@ -11,8 +23,7 @@
 </application>
 ```
  
-> **注意：**
-> 若填写的渠道为纯数字字符串类型，请不要超过 int 表示的范围。
+若填写的渠道为纯数字字符串类型，请不要超过 int 表示的范围。
  
 ## gradle 自动生成渠道包
 
@@ -28,12 +39,17 @@
 
 ```
 android {
+   flavorDimensions 'aDimension'
+
 	productFlavors {
         xiaomi {
             manifestPlaceholders = [tac_channel: "xiaomi"]
+            dimension 'aDimension'
+
         }
         yingyongbao {
             manifestPlaceholders = [tac_channel: "yingyongbao"]
+            dimension 'aDimension'
         }
     }
 }

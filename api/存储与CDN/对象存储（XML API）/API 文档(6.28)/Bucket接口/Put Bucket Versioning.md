@@ -1,7 +1,7 @@
 
 ## 功能描述
 
-Put Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功能。
+PUT Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功能。
 ### 细节分析
 1. 版本管理功能一经打开，只能暂停，不能关闭；
 2. 可以设置版本管理状态为 Enabled 或者 Suspended，表示开启版本管理和暂停版本管理；

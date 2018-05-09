@@ -1,6 +1,6 @@
 ## 功能描述
-Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。Head 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。
->备注： 目前我们还没有公开获取 Bucket 属性的接口（即可以返回ACL等信息）。
+HEAD Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。HEAD 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。
+>备注： 目前我们还没有公开获取 Bucket 属性的接口（即可以返回 acl 等信息）。
 
 ## 请求
 

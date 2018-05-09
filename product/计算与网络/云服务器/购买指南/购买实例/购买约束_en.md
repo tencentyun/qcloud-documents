@@ -30,9 +30,6 @@ For each user, fixed quotas are allocated for Tencent Cloud prepaid CVMs in each
 4) If you need to activate more prepaid CVMs, you can [submit an application](http://manage.qcloud.com/dbexp/apply.php?product=cvmmonthlyquota). We will increase your quota after evaluating your actual needs. The increased quota is valid for the calendar month. On the first day of the next month, the quota will turn to the original value. 
 
 
-5) In case of suspected abnormal/malicious quota increase, Tencent Cloud the right to reject refund applications. Tencent Cloud reserves the right of final interpretation to the extent permitted by law.
-
-
 ## 2. Purchase restrictions for postpaid CVM instances
 1) Before purchasing postpaid CVMs, you need to go to <a href="https://console.cloud.tencent.com/developer"> User Center </a> for identity verification. </font>
 

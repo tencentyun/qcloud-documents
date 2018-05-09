@@ -61,7 +61,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
     NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
     [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
-/* 用户自己到苹果注册开发者证书，在开发者账号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiId 参数中。*/
+/* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiId 参数中。*/
 #if kAppStoreVersion
 // AppStore版本
 #if DEBUG
@@ -150,7 +150,7 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合如下。
 > **注：**
 >- 一条消息中包含 文本 `Elem` 和图片 `Elem`，文本内容为 Test，最终显示的内容为： `Test[图片]`。
 >- 另外一条消息中内容为空，则不进行下发，例如如果消息中只有自定义`Elem`，并且 `desc` 为空，则不进行下发。
->- 这里不用关心是否托管账号还是独立账号，只要设置了昵称或者群名推送消息就会带上。 
+>- 这里不用关心是否托管帐号还是独立帐号，只要设置了昵称或者群名推送消息就会带上。 
 
 ## 多 App 支持
 

@@ -1,5 +1,5 @@
 ## 功能描述
-Put Object Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 ACL 可以被修改。
+PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
 用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。
 
 >**注意：**
@@ -51,7 +51,7 @@ PUT /destinationObject HTTP/1.1
 | x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-storage-class                   | 存储级别，枚举值：存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE；默认值：STANDARD | String | 否    |
+| x-cos-storage-class                   | 存储级别，枚举值：存储级别，枚举值：STANDARD，STANDARD_IA；默认值：STANDARD | String | 否    |
 | x-cos-acl                             | 允许用户自定义文件权限。<br />有效值：private , public-read，默认值：private。 | String | 否    |
 | x-cos-grant-read                      | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
 | x-cos-grant-write                     | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
@@ -105,7 +105,7 @@ PUT /destinationObject HTTP/1.1
 
 ### 实际案例
 
-若需要跨帐号复制则需要先设置被复制帐号的 ACL，了解 ACL 详细请参见 [Put Object ACL](https://cloud.tencent.com/document/product/436/7748) 章节。
+若需要跨帐号复制则需要先设置被复制帐号的 acl，了解 acl 详细请参见 [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) 章节。
 ### 请求
 ```
 PUT /222.txt HTTP/1.1

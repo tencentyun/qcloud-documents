@@ -231,13 +231,13 @@ import TACCore
 Objective-C 代码示例：
 
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 

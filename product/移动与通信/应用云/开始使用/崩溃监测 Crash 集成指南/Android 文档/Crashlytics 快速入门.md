@@ -27,70 +27,19 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-    compile 'com.tencent.tac:tac-crash:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
+    compile 'com.tencent.tac:tac-crash:1.1.0'
 }
 ```
 
-## 第四步：初始化
+## 验证服务
 
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
-
-### 在 `Application` 子类中添加初始代码（已完成请跳过）
-
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+为了让您测试是否正确的接入了 Crash 服务，您可以调用如下代码来主动产生 Crash ：
 
 ```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    //增加这行
-    TACApplication.configure(this);
-  }
-}
-
+TACCrashSimulator.testJavaCrash();
 ```
 
-> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
+应用 Crash 后，您可以登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，然后点击【异常上报】下的【异常分析】，即可查看上报到控制台的异常，如果没有上报，您可以查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)
 
-### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
-
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    <!-- 这里替换成你自己的 Application 子类 -->
-    android:name="com.example.tac.MyCustomApp"
-    ...>
-  </application>
-</manifest>
-```
-
-> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
-
-### 启动服务
-
-MobileLine Android SDK 不会自动帮您启动 crash 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 crash 服务：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACCrashService.getInstance().start(this);
-  }
-}
-```
-
-> 注意：您也可以选择在其他地方启动 crash 服务，但是必须保证在初始化代码后调用。
-
-
-到此您已经成功接入了 MobileLine Crash 上报服务。
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/crash/crash_report.png)

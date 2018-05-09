@@ -5,7 +5,7 @@ Game Multimedia Engine (GME) provides audio/video keys for authentication for jo
 - Encryption library and example: Attachment [tea.zip](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/tea.zip)
 
 Obtain the key in the following location at Tencent Cloud backend. 
-![4](//mc.qcloudimg.com/static/img/71dc27273a362ae8a7b0875855f2d269/image.png)
+![4](https://main.qcloudimg.com/raw/3484d992b06830c504fa3267009aaef8.png)
 
 The modified key takes effect within 15 minutes to 1 hour. Frequent modification is not recommended.
 

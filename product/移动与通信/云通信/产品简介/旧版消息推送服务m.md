@@ -1,6 +1,6 @@
 ## 1 消息推送服务简介
 
-消息推送服务是基于云通信IM的通信架构实现的一组REST API，用以支持APP应用的全员推送、标签推送等消息推送需求，客户端可通过SDK在线推送、离线推送（Android后台通知和APNS）接收推送的消息。客户端IMSDK目前支持Android、iOS和Windows平台。目前，消息推送服务仅支持独立模式账号。
+消息推送服务是基于云通信IM的通信架构实现的一组REST API，用以支持APP应用的全员推送、标签推送等消息推送需求，客户端可通过SDK在线推送、离线推送（Android后台通知和APNS）接收推送的消息。客户端IMSDK目前支持Android、iOS和Windows平台。目前，消息推送服务仅支持独立模式帐号。
 
 ![](//mccdn.qcloud.com/static/img/e18924a4def3891ca2bb7c365928f2ec/image.png)
 

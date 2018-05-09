@@ -19,7 +19,7 @@ int TIMLogin(int sdk_app_id, const TIMUserInfo *tim_user, const char* user_sig, 
 | 参数 | 说明 |
 | --- | --- |
 | sdk_app_id | 用于标识接入 SDK 的应用 ID |
-| tim_user | 用户账号，必须填写 account_typeidentifierapp_id_at_3rd |
+| tim_user | 用户帐号，必须填写 account_typeidentifierapp_id_at_3rd |
 | user_sig | 用户 key |
 | callback | 回调接口 |
 

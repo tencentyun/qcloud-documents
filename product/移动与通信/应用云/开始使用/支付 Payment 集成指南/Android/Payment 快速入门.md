@@ -28,52 +28,9 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-    compile 'com.tencent.tac:tac-payment:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.1.0'
+    compile 'com.tencent.tac:tac-payment:1.1.0'
 }
 ```
 
-## 第四步：初始化
-
-集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
-
-### 在 `Application` 子类中添加初始代码（已完成请跳过）
-
-如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    //增加这行
-    TACApplication.configure(this);
-  }
-}
-
-```
-
-> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
-
-### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
-
-在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.tac">
-  <application
-    <!-- 这里替换成你自己的 Application 子类 -->
-    android:name="com.example.tac.MyCustomApp"
-    ...>
-  </application>
-</manifest>
-```
-
-> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
-
-
-### 启动服务
-
-Payment 服务无需启动，到此您已经成功接入了 MobileLine 移动付费服务。
+到此您已经成功接入了 MobileLine 移动付费服务。
