@@ -3,7 +3,7 @@
 
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有 bug，产品化方案建议先规避，待苹果解决后再使用 |
+| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
 | Android      | TBS | 43600                |   [TBS 介绍](http://x5.tencent.com/)   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
@@ -22,9 +22,9 @@
 | sdkappid    | 商户可以在互动直播控制台创建多个应用，以对应自己不同的 App。每个应用都会有一个 sdkappid 来标示 |
 | accounttype | 每个sdkappid在账户体系页面都会有一个accounttype参数，登录的时候会用到 |
 
-> appid 是 125xxxxxxx 的数字，可以在[ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)的顶部获取。
-> sdkappid 是  14000xxxxx 的数字 ，[ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)创建应用，在【App 基础设置】下可查看。
-> accounttype 需要您在 [ 实时音视频控制台 ](https://console.cloud.tencent.com/ilvb)创建应用后，查看 【App 基础设置】-【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
+> appid 是 125xxxxxxx 的数字，可以在[ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)的顶部获取。
+> sdkappid 是  14000xxxxx 的数字 ，[ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)创建应用，在【App 基础设置】下可查看。
+> accounttype 需要您在 [ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)创建应用后，查看 【App 基础设置】-【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
 
 
 * 用户信息

@@ -9,6 +9,7 @@
 + 域名关闭后，CDN节点会统一返回 404，关闭域名前确保解析已从 CDN 切走
 + 仅当域名状态为【已启动】时，才可进行关闭操作
 + 调用频次限制为 100次/分钟
++ 接口已支持子账号调用，权限配置可参考[权限配置示例](https://cloud.tencent.com/document/product/228/14867)
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 

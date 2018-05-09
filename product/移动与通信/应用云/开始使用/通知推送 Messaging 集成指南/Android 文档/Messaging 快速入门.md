@@ -57,6 +57,49 @@ I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda4
 
 > 这里您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
 
+## Proguard配置
+
+如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+
+```
+# MobileLine Core
+
+-keep class com.tencent.qcloud.core.** { *;}
+-keep class bolts.** { *;}
+-keep class com.tencent.tac.** { *;}
+-keep class com.tencent.stat.*{*;}
+-keep class com.tencent.mid.*{*;}
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+
+# MobileLine Messaging
+
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.qq.taf.jce.** {*;}
+
+# MobileLine Vendor Messaging
+
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.hianalytics.android.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
+-keep class com.huawei.gamebox.plugin.gameservice.**{*;}
+-keep public class com.huawei.android.hms.agent.** extends android.app.Activity { public *; protected *; }
+-keep interface com.huawei.android.hms.agent.common.INoProguard {*;}
+-keep class * extends com.huawei.android.hms.agent.common.INoProguard {*;}
+-keep class com.meizu.cloud.pushsdk.**{*;}
+-keepclasseswithmembernames class com.xiaomi.**{*;}
+-dontwarn com.huawei.android.hms.**
+-dontwarn com.xiaomi.push.**
+-dontwarn com.meizu.cloud.pushsdk.**
+```
+
 
 ## 后续步骤
 
