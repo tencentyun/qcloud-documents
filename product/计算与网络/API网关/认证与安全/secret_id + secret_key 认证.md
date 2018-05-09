@@ -47,7 +47,7 @@ Source:AndriodApp
 ```
 生成的签名内容为：
 ```
-date: Fri, 09 Oct 2015 00:00:00 GMT\nsource:AndriodApp
+date: Fri, 09 Oct 2015 00:00:00 GMT\nsource: AndriodApp
 ```
 
 #### 计算签名
