@@ -111,3 +111,21 @@ app 启动后，您可以从 logcat 中 过滤 tag `tacApp` ，查看到服务�
 打开 MobileLine 的[控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
 
 ![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A7%88-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.png)
+
+## Proguard配置
+
+如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+
+```
+# MobileLine Core
+
+-keep class com.tencent.qcloud.core.** { *;}
+-keep class bolts.** { *;}
+-keep class com.tencent.tac.** { *;}
+-keep class com.tencent.stat.*{*;}
+-keep class com.tencent.mid.*{*;}
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+```

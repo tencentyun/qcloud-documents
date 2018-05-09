@@ -26,18 +26,49 @@
         * [iOS](ios/房间内的群组消息互动.md)
         * [PC](windows/房间内的群组消息互动.md)
 * Web端集成
-   * [集成SDK](web/集成SDK.md)
-   * [三步完成进房连麦](web/三步完成进房连麦.md)
-   * [进阶API](web/进阶API.md)
+    * [集成SDK](web/集成SDK.md)
+    * [三步完成进房连麦](web/三步完成进房连麦.md)
+    * [进阶API](web/进阶API.md)
+* 小程序端集成
+    * [Demo部署](小程序接入/Demo部署.md)
+    * [webrtc-room标签](小程序接入/webrtc-room%20标签.md)
 * 客户端高阶功能
-    * 加入房间前预览
     * 手动渲染
+        * [Android](android/手动渲染.md)
+    * 渲染布局
+        * [Android](android/渲染布局.md)
+    * 屏幕分享
+        * [Android](android/屏幕分享.md)
+        * [iOS](ios/屏幕分享.md)
+    * 加入房间前预览
+        * [Android](android/加入房间前预览.md)
+        * [iOS](ios/加入房间前预览.md)
+        * [PC](windows/加入房间预览.md)
     * 旋转
-    * 自定义采集
-    * 伴奏、耳返、混响和高音质
-    * 美颜、挂件
-    * 绿幕
-    * 小程序SDK的集成和互通
+        * [Android](android/旋转.md)
+        * [iOS](ios/旋转.md)
+    * 自定义采集视频
+        * [Android](android/自定义采集视频.md)
+        * [iOS](ios/自定义采集视频.md)
+        * [PC](windows/自定义采集视频.md)
+    * 自定义采集音频
+        * [Android](android/自定义采集音频.md)
+        * [iOS](ios/自定义采集音频.md)
+        * [PC](windows/自定义采集音频.md)
+    * 跨房连麦
+        * [Android](android/跨房连麦.md)
+        * [iOS](ios/跨房连麦.md)
+        * [PC](windows/跨房连麦.md)
+    * 视频特效(美颜/挂件/绿幕)
+        * [Android](android/视频特效.md)
+        * [iOS](ios/视频特效.md)
+        * [PC](windows/视频特效.md)
+    * 音频特效(高清音质/耳返/伴奏/混音)
+        * [Android](android/音频特效.md)
+        * [iOS](ios/音频特效.md)
+        * [PC](windows/音频特效.md)
+    * 摄像头热插拔
+        * [PC](windows/摄像头热插拔.md)
 * 服务器集成
     * [旁路直播](服务器集成/旁路直播.md)
     * [录制](服务器集成/录制.md)
