@@ -8,6 +8,7 @@
 
 + 支持一次查询多个域名的详细信息
 + 调用频率限制为 1000次/分钟
++ 接口已支持子账号调用，权限配置可参考权限[配置示例](https://cloud.tencent.com/document/product/228/14867)
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 

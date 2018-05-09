@@ -37,10 +37,10 @@ PUT /?logging HTTP 1.1
 该请求操作的实现需要有请求体。帯所有节点的请求体内容示例如下：
 ```
 <BucketLoggingStatus>
-  <LoggingEabled>
+  <LoggingEnabled>
     <TargetBucket></TargetBucket>
     <TargetPrefix></TargetPrefix>
-  </LoggingEabled>
+  </LoggingEnabled>
 </BucketLoggingStatus>
 ```
 
@@ -54,14 +54,14 @@ Container 节点 BucketLoggingStatus 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选 |
 |:---|:-- |:--|:--|:--|
-| LoggingEabled | BucketLoggingStatus | 存储桶 logging 设置的具体信息，主要是目标存储桶 | Container | 否 |
+| LoggingEnabled | BucketLoggingStatus | 存储桶 logging 设置的具体信息，主要是目标存储桶 | Container | 否 |
 
-Container 节点 LoggingEabled 的内容：
+Container 节点 LoggingEnabled 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选 |
 |:---|:-- |:--|:--|:--|
-| TargetBucket | LoggingEabled | 存放日志的目标存储桶 | String | 否 |
-| TargetPrefix | LoggingEabled | 日志存放在目标存储桶的指定路径中 | String | 否 |
+| TargetBucket | LoggingEnabled | 存放日志的目标存储桶 | String | 否 |
+| TargetPrefix | LoggingEnabled | 日志存放在目标存储桶的指定路径中 | String | 否 |
 
 ## 响应
 
@@ -85,10 +85,10 @@ Content-Type: application/xml
 Content-Length: 147
 
 <BucketLoggingStatus>
-  <LoggingEabled>
+  <LoggingEnabled>
     <TargetBucket>logbucket</TargetBucket>
     <TargetPrefix>mylogs</TargetPrefix>
-  </LoggingEabled>
+  </LoggingEnabled>
 </BucketLoggingStatus>
 ```
 
