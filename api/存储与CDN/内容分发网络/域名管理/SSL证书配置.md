@@ -10,6 +10,7 @@
 + 选择托管证书，使用接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取对应的证书ID
 + httpsType 与 forceSwith 不可同时为空
 + 接口调用频次限制为 100次/分钟
++ 接口暂不支持子账号调用
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
