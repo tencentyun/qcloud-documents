@@ -34,3 +34,27 @@ dependencies {
 ```
 
 到此您已经成功接入了 MobileLine 移动付费服务。
+
+
+## Proguard配置
+
+如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+
+```
+# MobileLine Core
+
+-keep class com.tencent.qcloud.core.** { *;}
+-keep class bolts.** { *;}
+-keep class com.tencent.tac.** { *;}
+-keep class com.tencent.stat.*{*;}
+-keep class com.tencent.mid.*{*;}
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+
+# MobileLine Payment
+
+-keep class com.tencent.midas.** { *;}
+-keep class com.tencent.openmidas.** { *;}
+```
