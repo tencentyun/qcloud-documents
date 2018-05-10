@@ -93,18 +93,24 @@ http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab574473981559
 
 ### Step1: 搭建音视频代理服务器（用于透传数据）
 
-采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/NATConfig.sh">NATConfig.sh</a>。打开文件和修改下图中IP的值，指定代理服务器接收网卡的IP，以及腾讯云推流和拉流服务器的地址，然后执行脚本，完成配置。
+采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。
 
-![](https://main.qcloudimg.com/raw/c6e94f62213899f4b7a3e3c111e8cac5.png)
+首先，下载查询最优IP的程序<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/queryip_Ubuntu">queryip_Ubuntu</a>（Ubuntu）或者<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/queryip_CentOS">queryip_CentOS</a>（CentOS），执行程序，得到类似下图中的IP列表
+
+![IP列表](https://main.qcloudimg.com/raw/09a26b441bde59d7efc0976e8af40237.png)
+
+然后，下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/NATConfig.sh">NATConfig.sh</a>。打开文件，指定代理服务器接收网卡的IP，紧接着根据前一个步骤得到ip列表，选择ping速度最快IP，设置为下图中IP字段，然后执行脚本，完成配置。
+
+![](https://main.qcloudimg.com/raw/4269dd13c39fdcaee593c4c16ab08397.png)
 
 
 ### Step2: 搭建Socks5代理服务器（用于透传信令）
 
 Socks5代理服务器，好比在内网机器和腾讯云服务器之间搭建了一座桥梁，网络数据包就是桥上的行人，走过桥，河流两边就可以说话和交流。通过下载和执行我们提供的Bash脚本，绑定接收代理的网卡和出口网卡的端口号，来搭建Socks5代理服务器。
 
-如果您的代理服务器是Ubuntu，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_Ubuntu.sh">Socks5Config_Ubuntu.sh</a>，如果您的代理服务器是CentOS，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_CentOS.sh">Socks5Config_CentOS.sh</a>，下载后打开文件，socks5_port修改为正确的端口，如下图所示，然后执行脚本，完成配置Socks5。
+如果您的代理服务器是Ubuntu，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_Ubuntu.sh">Socks5Config_Ubuntu.sh</a>，如果您的代理服务器是CentOS，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_CentOS.sh">Socks5Config_CentOS.sh</a>，下载后打开文件，socks5_port修改为正确的网卡，如下图所示，然后执行脚本，完成配置Socks5。
 
-![端口](https://main.qcloudimg.com/raw/7a34171a235af69911069cc985eb6664.png)
+![端口](https://main.qcloudimg.com/raw/3a5c5d01f2f2f38a8dddd24ef526d1dd.png)
 
 
 ### Step3: 使用EXEStarter.js设置代理服务器
