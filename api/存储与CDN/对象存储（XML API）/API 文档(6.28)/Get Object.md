@@ -29,7 +29,7 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | :--------------------------- | :------------------------------- | :----- | :--- |
 | response-content-type        | 设置响应头部中的 Content-Type 参数。        | String | 否    |
 | response-content-language    | 设置响应头部中的 Content-Language 参数。    | String | 否    |
-| response-expires             | 设置响应头部中的 Content-Expires 参数。     | String | 否    |
+| response-expires             | 设置响应头部中的 Expires 参数。     | String | 否    |
 | response-cache-control       | 设置响应头部中的 Cache-Control 参数。       | String | 否    |
 | response-content-disposition | 设置响应头部中的 Content-Disposition 参数。 | String | 否    |
 | response-content-encoding    | 设置响应头部中的 Content-Encoding 参数。    | String | 否    |
@@ -77,7 +77,7 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | :------------------ | :--------------------------------------- | :----- |
 | x-cos-meta- *       | 用户自定义的元数据                                | String |
 | x-cos-object-type   | 用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable | String |
-| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE | String |
+| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA | String |
 
 **服务端加密相关响应**
 

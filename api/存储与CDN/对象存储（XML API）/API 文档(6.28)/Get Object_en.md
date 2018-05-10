@@ -29,7 +29,7 @@ See the details below:
 |:---|:-- |:---|:-- |
 | response-content-type | Set the Content-Type parameter in the response header. | String | No |
 | response-content-language | Set the Content-Language parameter in the response header. | String | No |
-| response-expires | Set the Content-Expires parameter in the response header. | String | No |
+| response-expires | Set the Expires parameter in the response header. | String | No |
 | response-cache-control | Set the Cache-Control parameter in the response header. | String | No |
 | response-content-disposition | Set the Content-Disposition parameter in the response header. | String | No |
 | response-content-encoding | Set the Content-Encoding parameter in the response header. | String | No |
@@ -65,7 +65,7 @@ The response header of the request operation is as follows:
 |:---|:-- |:-- |
 | x-cos-meta-* | User-defined metadata | String |
 | X-cos-object-type | Indicate whether the Object is appendable for upload. Enumerated values: normal or appendable |String|
-| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA, ARCHIVE | String |
+| X-cos-storage-class | The storage class of Object. Enumerated values: STANDARD, STANDARD_IA | String |
 
 ### Response Body
 Content of Object is returned for the response body.

@@ -3,18 +3,36 @@
 ## 步骤一：安装 vsftpd
  1. 登录云服务器。
  
- 2. 安装软件。输入命令：` yum install vsftpd -y `
+ 2. 安装软件。输入命令：
+``` 
+yum install vsftpd -y
+```
  
  3. 界面出现“ Complete ! ”，表示已安装完成。
 
 ## 步骤二：启动 vsftpd 服务
- 1. 启动服务。输入命令：`service vsftpd start`
+1. 启动服务。输入命令：
+```
+systemctl start vsftpd
+```
 
- 2. 命令确认是否启动。输入命令：`netstat -tunlp`，出现图中展示内容即表示已经启动。
+2. 命令确认是否启动。输入以下命令，出现图中展示内容即表示已经启动。
+```
+netstat -tunlp
+```
 ![](//mc.qcloudimg.com/static/img/6cc74de5689106ce763be98bfe7f5d24/image.png)
 
- 3. 公网访问确认是否启动。在其他联网计算机上，通过命令行：`telnet + 云服务器公网 IP + 21`进行测试。出现下图内容即表示已经启动。
-![](//mc.qcloudimg.com/static/img/9707535a7b6b7df1989d41576c50e20a/image.png)
+3. 公网访问确认是否启动。
+ 1. 通过以下命令安装 telnet 服务
+```
+yum -y intsall  telnet
+```
+ 2. 在其他联网计算机上，通过命令行进行测试：
+```
+telnet + 云服务器公网 IP + 21
+```
+出现下图内容即表示已经启动。
+![](https://main.qcloudimg.com/raw/47ad66d7be133b6d69d60c3e5b719dbd.png)
 
 <span id = "jump">  </span>
 ## 步骤三：编辑 vsftpd 配置文件

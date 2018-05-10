@@ -1,5 +1,5 @@
 ### KMS SDK 使用说明文档
-为了方便开发者更好地使用 KMS 的 SDK，腾讯云提供以下使用说明文档：
+为了方便开发者更好地使用 QMS 的 SDK，腾讯云提供以下使用说明文档：
 
 
 ### 示例 Python SDK 使用简介
@@ -15,7 +15,7 @@
 ![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
 
 #### endpoint 说明
-endpoint 是使用 KMS 服务的访问地址，同时 endpoint 中也包含了使用的协议，endpoint的格式如下：
+endpoint 是使用 QMS 服务的访问地址，同时 endpoint 中也包含了使用的协议，endpoint的格式如下：
 
 - 内网：`https://kms-region.api.tencentyun.com`
 - 外网：`https://kms-region.api.qcloud.com`
@@ -27,13 +27,13 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint：
 1) 同地域内网的时延更低；
-2) 目前 KMS 对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
+2) 目前 QMS 对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 
 
 #### Python SDK下载
-下载最新版[KMS SDK](https://cloud.tencent.com/document/product/573/8908)。
+下载最新版 [QMS SDK](https://cloud.tencent.com/document/product/847/16554)。
 
-### 使用 KMS Python SDK
+### 使用 QMS Python SDK
 
 下面的代码也是 Python SDK 中的 sample，从创建主密钥、生成数据密钥，加解密，启用禁用密钥等操作来示例密钥管理的操作。
 

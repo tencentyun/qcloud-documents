@@ -98,7 +98,7 @@ Container 节点 ListPartsResult 的内容：
 | UploadId | ListPartsResult | 标识本次分块上传的 ID |  String |
 | Initiator | ListPartsResult | 用来表示本次上传发起者的信息 | Container |
 | Owner | ListPartsResult | 用来表示这些分块所有者的信息 | Container |
-| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE |  String |
+| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA |  String |
 | PartNumberMarker | ListPartsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
 | NextPartNumberMarker | ListPartsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点 |  String |
 | MaxParts | ListPartsResult | 单次返回最大的条目数量 |  String |

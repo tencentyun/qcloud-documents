@@ -12,7 +12,7 @@
 | TXXiaoShiPinDemo/TXXiaoShiPinDemo/Classes/UserInfo| 小视频用户信息模块|
 
 ## 2.模块介绍
-小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、播放、录制、编辑、发布以及资料模块，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -120,7 +120,6 @@
 	   - TCUserInfoController       用户信息展示界面，在这里可以展示头像，昵称，用户id信息
 	   - TCUserInfoTableViewCell    用于绘制展示用户个人信息界面的tableview
 	   - TCEditUserInfoTableViewCell  用于绘制编辑个人信息页面的tableview，用于可直接在此tableview内编辑个人信息
-	   - TCUserInfoTableViewCell      用于绘制负责的tableview中的cell如图片，文字等组合控件
 
 
   

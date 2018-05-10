@@ -97,7 +97,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "大",
+                "eniName": "big",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-d6m4m0iy",
                 "primary": false,
@@ -126,7 +126,7 @@ Output
                     },
                     {
                         "sgId": "sg-ikmc8kcy",
-                        "sgName": "全drop",
+                        "sgName": "alldrop",
                         "projectId": 0
                     }
                     ]
@@ -136,7 +136,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "手动",
+                "eniName": "manual",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-ay1ac9c7",
                 "primary": false,
@@ -173,7 +173,7 @@ Output
                     },
                     {
                         "sgId": "sg-37tmkdiz",
-                        "sgName": "Windows 放通3389端口-20170928143645736",
+                        "sgName": "Windows port 3389-20170928143645736",
                         "projectId": 0
                     }
                     ]
@@ -183,7 +183,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "新建弹性网卡手动",
+                "eniName": "New flexible network card manual",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-a7hx9qae",
                 "primary": false,
@@ -227,7 +227,7 @@ Output
                     },
                     {
                         "sgId": "sg-ei2rr0qf",
-                        "sgName": "广州",
+                        "sgName": "Guangzhou",
                         "projectId": 0
                     },
                     {

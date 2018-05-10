@@ -67,7 +67,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
 | data.source_url | String | 视频的源 URL |
 | data.file_id | String | 视频的文件 ID |
 | data.file_name | String | 上传视频的文件名称 |
-| data.vod_task_id | String | 上传任务的任务id |
+| data.vod_task_id | String | 上传任务的任务 ID |
 
 ### 错误码说明
 | 错误码 | 含义说明|
