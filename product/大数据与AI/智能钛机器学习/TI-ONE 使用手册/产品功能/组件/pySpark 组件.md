@@ -1,6 +1,6 @@
 Spark组件是面向使用Python的Spark用户，用户通过Python编写Spark应用程序，通过PySpark组件完成部署，也支持pyspark的sql功能，本文有部分使用方法介绍（更多用法请参考社区指引:[Spark SQL, DataFrames and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
 
-和标准的Spark相比，pySpark支持上传Python脚本和实时修改，更加的灵活，而且支持SQL功能，所以我们推荐用来 [数据预处理](https://cloud.tencent.com/document/product/851/17088?!preview&lang=cn)
+和标准的Spark相比，pySpark支持上传Python脚本和实时修改，更加的灵活，而且支持SQL功能，所以我们推荐用来 [数据预处理](https://cloud.tencent.com/document/product/851/17088)
 
 ### 1. **从左侧组件列表里拖拽出一个PySpark节点**
 
