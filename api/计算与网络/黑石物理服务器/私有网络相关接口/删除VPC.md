@@ -60,7 +60,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 | 16004  | BmInvalidVpc.CannotDelete | VPC下有对等连接资源，不能删除。|
 | 16005  | BmInvalidVpc.CannotDelete | VPC下有弹性IP资源，不能删除。|
 | 16006  | BmInvalidVpc.CannotDelete | VPC下有LB资源，不能删除。|
-| 16007  | BmInvalidVpc.CannotDelete | VPC下有子网资源，不能删除。|
 | 16008  | BmInvalidVpc.CannotDelete | VPC下有专线资源，不能删除。|
 | 16009  | BmInvalidVpc.CannotDelete | VPC下有运维SSLVPN资源，不能删除。|
 | 16010  | BmInvalidVpc.CannotDelete | VPC下有IPSecVpn资源，不能删除。|
