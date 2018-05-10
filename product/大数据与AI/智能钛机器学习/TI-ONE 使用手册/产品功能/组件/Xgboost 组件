@@ -112,46 +112,30 @@ Xgboost 在 TDW 体系中以两种形式存在：一是提供出了拖拽式的�
 ## xgboost-yarn 组件
 - XGBoost-yarn组件属于TI-ONE 中的机器学习组件，基于社区的xgboost0.4版本，可以实现Train、Predict、Dump三种功能。
 
-     <div  align="center">
-	   <img src="./manual/resource_5.png"/>   
-	 </div>
+![](https://main.qcloudimg.com/raw/49b9e1ee571b59411412b750d5452e52.png)
 
 - XGBoost-yarn组件包含“组件参数”和“资源参数”两种参数，下面分别举例进行说明。
 
   - 资源参数配置如下：
-	  <div  align="center">
-	    <img src="./manual/resource_4.png"/>   
-	  </div>
+![](https://main.qcloudimg.com/raw/55b3b131042b2325b8cb2118ab5c2a42.png)
 
   - 组件参数配置分以下三步完成：
   
      -  1. 编写xgboost参数配置文件，参考[xgboost官方的0.4版本](https://github.com/dmlc/xgboost/blob/v0.40/doc/parameter.md),Train阶段和Predict阶段的配置文件，举例如下：
-	   
-         <div  align="center">
-		   <img src="./manual/train_3.png"/>   
-		 </div>
+	![](https://main.qcloudimg.com/raw/90044e1f48fe65553e42d4ace85b06a1.png)
 	
-         <div  align="center">
-		   <img src="./manual/predict_3.png"/>   
-		 </div>
-
+     ![](https://main.qcloudimg.com/raw/307699591e18430d7921d8598a5a2d40.png)
      -  2. 点击“xgboost_configuration”右侧空白输入框，上传配置文件。当然，也可在线编辑脚本。
 	
-         <div  align="center">
-		   <img src="./manual/resource.png"/>   
-		 </div>
+  ![](https://main.qcloudimg.com/raw/c1be1230796f42fe37655159a1ec7fbe.png)
 
 
      -  3. Train阶段和Predict阶段中，涉及到IO相关的参数配置在外面输入框中
     
-         <div  align="center">
-    	   <img src="./manual/train_1.png"/>   
-    	 </div>
+   ![](https://main.qcloudimg.com/raw/c3d1ed3c7667941f556c5305b1ed62a2.png)
     
     
-         <div  align="center">
-    	   <img src="./manual/predict_1.png"/>   
-    	 </div>
+ ![](https://main.qcloudimg.com/raw/0d45d39937f9b60351978004aea866f1.png)
 
 ## 常见问题和排查技巧 
 
