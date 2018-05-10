@@ -14,7 +14,7 @@
 2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
 ```xml
 <dependency>
-        <groupId>com.qcloud</groupId>
+        <groupId>com.tencentcloud</groupId>
         <artifactId>tencentcloud-sdk-java</artifactId>
         <version>3.0.1</version>
 </dependency>
@@ -69,7 +69,7 @@ public class DescribeZones
 我们推荐您使用新版 SDK， 如果需要旧版 SDK，请在您的 Maven pom.xml 添加以下依赖项即可：
 ```xml
 <dependency>
-<groupId>com.tencentcloud</groupId>
+<groupId>com.qcloud</groupId>
 <artifactId>qcloud-java-sdk</artifactId>
 <version>2.0.6</version>
 </dependency>
