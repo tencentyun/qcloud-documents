@@ -32,6 +32,16 @@
 | -------------------- | -------- |
 | [WebRTCAPI.startRTC](#webRTCAPI.startRTC)   | 主动推流才需要用到 |
 | [WebRTCAPI.getLocalStream](#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.openVideo](#webrtcapi.openVideo)     | 推流期间重新打开视频采集 |
+| [WebRTCAPI.closeVideo](#webrtcapi.closeVideo)     | 推流期间暂时关闭视频采集 |
+| [WebRTCAPI.openAudio](#webrtcapi.openAudio)     | 推流期间重新打开音频采集 |
+| [WebRTCAPI.closeAudio](#webrtcapi.closeAudio)     | 推流期间暂时关闭音频采集 |
+| [WebRTCAPI.changeSpearRole](#webrtcapi.changeSpearRole)     | 切换音视频参数设定 |
+| [WebRTCAPI.getVideoDevices](#webrtcapi.getVideoDevices)     | 枚举视频采集设备 |
+| [WebRTCAPI.getAudioDevices](#webrtcapi.getAudioDevices)     | 枚举视频采集设备 |
+| [WebRTCAPI.chooseVideoDevice](#webrtcapi.chooseVideoDevice)     | 选择视频采集设备 |
+| [WebRTCAPI.chooseAudioDevice](#webrtcapi.chooseAudioDevice)     | 选择视频采集设备 |
+
 #### 事件通知
 > 以下事件通知
 

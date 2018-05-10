@@ -139,7 +139,15 @@ table td {
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
   </tr>
-    <tr>
+	<tr>
+    <td>IPA 增量</td>
+    <td>1.43 M</td>
+    <td>2.57 M</td>
+    <td>2.52 M</td>
+    <td>4.19 M</td>
+    <td>5.98 M</td>
+  </tr>
+  <tr>
     <td>Pod 安装</td>
     <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
     <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
@@ -158,10 +166,10 @@ table td {
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Enterprise_Rename_iOS_4.6.4218.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Enterprise_Rename_iOS_4.6.4218.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
   
 - **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Professional_Rename_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。  
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Professional_Rename_iOS_4.6.4218.zip?_ga=1.172502247.572863791.1503542401">【Rename(iOS).zip】</a> 。  
   
 
 <h2 id="Android"> Android SDK (4.6.4218) </h2>
@@ -282,7 +290,7 @@ table td {
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Enterprise_Android_4.6.4218.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Enterprise_Android_4.6.4218.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 <h2 id="Windows"> Windows SDK (2.0.0) </h2>
 
@@ -337,12 +345,6 @@ table td {
   </tr>
 </table>
 
-
- - **新增功能**
-> C++ 支持录屏、截图快照、系统扬声器或进程混音。
-> C++ Demo UI 交互升级 。
-> ActiveX支持指定区域录屏、截图快照、系统扬声器混音。
-
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
 
@@ -359,7 +361,7 @@ table td {
     <td>微信小程序</td>
     <td>1.2.693</td>
     <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
-    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease1.2.693.zip">wxlite</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="https://github.com/TencentVideoCloudMLVBDev/MiniProgram">wxlite</a></td>
   </tr>
 </table>
 
@@ -370,7 +372,8 @@ table td {
 
 | 所属平台 | 版本号 | 说明 | 下载链接 |
 |---------|---------|---------|------|
-| Chrome浏览器 | 1.0.0| 源码实现了一个Windows版本Chrome跟小程序互通的简单Demo，<br>可以用实现 PC[(Chrome)](https://cloud.tencent.com/document/product/454/17005) + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [Chrome](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc.Chrome.zip) |
+| 任意浏览器 | 1.0.0| 源码实现了一个网页唤起 EXE 桌面程序，并跟小程序互通的简单Demo，<br>可以用实现 浏览器[(IE或Chrome)](https://cloud.tencent.com/document/product/454/17004) =>TXCloudRoom.exe + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebEXE](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) |
+| Chrome | 1.0.0| 源码实现了一个Windows版本Chrome跟小程序互通的简单Demo，<br>可以用实现 PC[(Chrome)](https://cloud.tencent.com/document/product/454/17005) + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebRTC](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc) |
 
 <h2 id="Server">服务端源码（1.1.0）</h2>
  
@@ -391,16 +394,17 @@ table td {
     <td rowspan="2"> RoomService</td>
     <td rowspan="2">1.1.0</td>
     <td rowspan="2" style="vertical-align:middle; text-align:left;">RoomService 是 <a href="https://cloud.tencent.com/document/product/454/14606#Server">LiveRoom</a>（直播连麦） 和 <a href="https://cloud.tencent.com/document/product/454/14617#Server">RTCRoom</a>（视频通话） 的后台组件，源码下载后可部署于自己的业务服务器上。 </td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.java.zip">JAVA</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="https://github.com/TencentVideoCloudMLVBDev/rtcroom_server_java
+">JAVA</a</td>
   </tr>
 	<tr align="center">
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.nodejs.zip">PHP</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.nodejs.zip">Node.js</a</td>
   </tr>
 <tr align="center">
     <td>WebRTC房间列表</td>
     <td>1.1.0</td>
     <td style="vertical-align:middle; text-align:left;"> 实现了一个简单的（无鉴权的）WebRTC 房间列表，可以支持创建通话房间，关闭通话房间、心跳保活等功能 </a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_webrtc") href="http://dldir1.qq.com/hudongzhibo/mlvb/webrtc_server_list.zip">JAVA</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_webrtc") href="https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java">JAVA</a</td>
   </tr>
 </table>
 

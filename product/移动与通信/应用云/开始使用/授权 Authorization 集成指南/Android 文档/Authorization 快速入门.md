@@ -68,3 +68,33 @@ android {
 ```
 
 到此您已经成功接入了 MobileLine 登录与授权服务。
+
+## Proguard配置
+
+如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+
+```
+# MobileLine Core
+
+-keep class com.tencent.qcloud.core.** { *;}
+-keep class bolts.** { *;}
+-keep class com.tencent.tac.** { *;}
+-keep class com.tencent.stat.*{*;}
+-keep class com.tencent.mid.*{*;}
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+
+# Wechat
+
+-keep class com.tencent.mm.opensdk.** {*;}
+-keep class com.tencent.wxop.** {*;}
+-keep class com.tencent.mm.sdk.** {*;}
+
+# QQ
+-keep class com.tencent.connect.** {*;}
+-keep class com.tencent.open.** {*;}
+-keep class com.tencent.tauth.** {*;}
+-keep class com.tencent.mobileqq.openpay.** {*;}
+```

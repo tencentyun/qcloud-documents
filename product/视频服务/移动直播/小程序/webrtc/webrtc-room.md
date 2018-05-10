@@ -6,7 +6,7 @@
 
 ## 效果演示
 - **PC 端**
-用 Chrome 浏览器打开 [体验页面](http://img.qcloud.com/open/qcloud/video/act/liteavWeb/webrtc/webrtc.html) 可以体验桌面版 WebRTC 的效果。
+用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
@@ -15,11 +15,11 @@
 
 ## 对接资料
 
-| 对接资料 | 说明 | 下载链接 |
+| 对接资料 | 说明 | github地址 |
 |---------|---------|---------|
-| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) |
-| PC端源码 | 基于[WebrtcAPI](https://cloud.tencent.com/document/product/647/16865)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） |  [webrtc(Chrome).zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc.Chrome.zip)|
-| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [webrtc_server_list.zip](http://dldir1.qq.com/hudongzhibo/mlvb/webrtc_server_list.zip) |
+| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [前往](https://github.com/TencentVideoCloudMLVBDev/rtcroom_wxlite) |
+| PC端源码 | 基于[WebrtcAPI](https://cloud.tencent.com/document/product/647/16865)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） |  [前往](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc)|
+| 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [前往](https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java) |
 
 ## 标签详解
 ### 属性定义
@@ -110,19 +110,19 @@ Page({
     },
     onIMEvent: function(e){
         switch(e.detail.tag){
-            case 'big_group_msg_notify': 
+            case 'big_group_msg_notify':
                 //收到群组消息
                 console.debug( e.detail.detail )
                 break;
-            case 'login_event': 
+            case 'login_event':
                 //登录事件通知
                 console.debug( e.detail.detail )
                 break;
-            case 'connection_event': 
+            case 'connection_event':
                 //连接状态事件
                 console.debug( e.detail.detail )
                 break;
-            case 'join_group_event': 
+            case 'join_group_event':
                 //进群事件通知
                 console.debug( e.detail.detail )
                 break;
@@ -143,7 +143,7 @@ Page({
 			}
 		})
 	},
-  	
+
 })
 ```
 
@@ -256,7 +256,7 @@ self.setData({
                 <cover-view class='character' style='padding: 0 5px;'>我</cover-view>
             </live-pusher>
         </view>
-        <view class="player-box" wx:for="{{members}}" wx:key="userID"> 
+        <view class="player-box" wx:for="{{members}}" wx:key="userID">
             <view class='poster'>
                 <cover-image class='set'
 			       src="https://miniprogram-1252463788.file.myqcloud.com/roomset_{{index + 2}}.png">
@@ -279,8 +279,8 @@ self.setData({
                 </cover-view>
                 <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
                 <cover-view class='character' style='padding: 0 5px;'>{{item.userName}}</cover-view>
-            </live-player>  
-        </view> 
+            </live-player>
+        </view>
     </view>
 </template>
 
@@ -301,7 +301,7 @@ self.setData({
 <import src='/pages/templates/mytemplate/mytemplate.wxml'/>
 <view class='conponent-box'>
     <view styles="width:100%;height=100%;" wx:if="{{template=='1v3'}}">
-        <template is='mytemplate' data="{{pushURL, aspect, 
+        <template is='mytemplate' data="{{pushURL, aspect,
 				      minBitrate, maxBitrate, beauty, muted, debug, members}}"/>
     </view>
 </view>
