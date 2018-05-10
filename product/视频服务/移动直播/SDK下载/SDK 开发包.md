@@ -388,17 +388,17 @@ table td {
     <td>签名计算</td>
     <td>1.1.0</td>
     <td style="vertical-align:middle; text-align:left;">用于计算 IM、LiveRoom、RTCRoom 以及 WebRTC 等方案中所需要使用的 UserSig 和 privateMapKey 签名，算法基于 ECDSA-SHA256 实现 </a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_sign") href="http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip">JAVA & PHP</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_sign") href="https://github.com/TencentVideoCloudMLVBDev/sign_srv">JAVA & PHP</a</td>
   </tr>
   <tr align="center">
     <td rowspan="2"> RoomService</td>
     <td rowspan="2">1.1.0</td>
     <td rowspan="2" style="vertical-align:middle; text-align:left;">RoomService 是 <a href="https://cloud.tencent.com/document/product/454/14606#Server">LiveRoom</a>（直播连麦） 和 <a href="https://cloud.tencent.com/document/product/454/14617#Server">RTCRoom</a>（视频通话） 的后台组件，源码下载后可部署于自己的业务服务器上。 </td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="https://github.com/TencentVideoCloudMLVBDev/rtcroom_server_java
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="https://github.com/TencentVideoCloudMLVBDev/roomservice_java
 ">JAVA</a</td>
   </tr>
 	<tr align="center">
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="http://dldir1.qq.com/hudongzhibo/mlvb/roomservice.nodejs.zip">Node.js</a</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="https://github.com/TencentVideoCloudMLVBDev/MiniProgram/tree/master/server">Node.js</a</td>
   </tr>
 <tr align="center">
     <td>WebRTC房间列表</td>
@@ -434,13 +434,13 @@ table td {
     <td>PHP源码包</td>
     <td>4.4</td>
     <td>为观众端提供直播间列表和回放列表</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3780.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="https://github.com/TencentVideoCloudMLVBDev/xiaozhibo_business_svr_php">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Web分享页</td>
     <td>1.1.0</td>
     <td>基于HTML5技术构建的Web分享页面，支持在常规手机浏览器和PC浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[DOC]</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="http://download-1252463788.cossh.myqcloud.com/web_share_2017.01.04.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="https://github.com/TencentVideoCloudMLVBDev/web_share">DOWNLOAD</a></td>
   </tr>
 </table>
 
