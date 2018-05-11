@@ -99,7 +99,7 @@
 ![](https://main.qcloudimg.com/raw/d48c1cd05db6915112a61167b8757198.png)
 2，再解绑需要更换的弹性公网IP，解绑后绑定一个新的弹性公网IP至该设备即可实现更换IP
 ![](https://main.qcloudimg.com/raw/b366eb8a9351860c0540d7f6b4a4f1c8.png)
-
+![](https://main.qcloudimg.com/raw/485093bd737c61a121a22cfd6547ed5b.png)
 弹性公网IP资源宝贵，单个账号下每个地域会有配额限制，建议您合理规划，使用。
 
 #### 弹性公网IP价格多少？
@@ -113,7 +113,9 @@
 #### 弹性公网IP能否再转换为公网IP？
 弹性公网IP无法再次转换为公网IP
 #### IP如何保留（如果保持IP地址不变）？
-如果您需要保留账户中的某个特定公网IP，也可以将其转换为弹性公网IP，绑定/解绑设备后便可用该IP进行公网访问。只要您不进行“释放”操作，该弹性公网IP便一直保留在您的账户中。
+1，如果您需要保留账户中的某个特定公网IP，也可以将其转换为弹性公网IP，绑定/解绑设备后便可用该IP进行公网访问。只要您不进行“释放”操作，该弹性公网IP便一直保留在您的账户中。
 ![](https://main.qcloudimg.com/raw/d48c1cd05db6915112a61167b8757198.png)
-
+2，在弹性公网IP进行绑定/解绑操作即可使用这个IP对外提供服务
+![](https://main.qcloudimg.com/raw/b366eb8a9351860c0540d7f6b4a4f1c8.png)
+![](https://main.qcloudimg.com/raw/485093bd737c61a121a22cfd6547ed5b.png)
 
