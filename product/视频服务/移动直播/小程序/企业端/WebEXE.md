@@ -95,7 +95,7 @@ http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab574473981559
 
 采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。
 
-首先，下载查询最优IP的python脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/QueryNearestIP.py">QueryNearestIP.py</a>，如下图中所示的执行
+首先，下载查询最优IP的python脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/QueryNearestIP.py">QueryNearestIP.py</a>，如下图中所示的执行脚本
 
 ![IP列表](https://main.qcloudimg.com/raw/df1b45b0b6c2d01cce3001fb9e3528a2.png)
 
