@@ -15,7 +15,7 @@ Authorization: Auth String
 
 ### 请求行
 ~~~
-GET /?cors HTTP/1.1
+GET /?logging HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
@@ -38,10 +38,10 @@ GET /?cors HTTP/1.1
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <BucketLoggingStatus>
-  <LoggingEabled>
+  <LoggingEnabled>
     <TargetBucket></TargetBucket>
     <TargetPrefix></TargetPrefix>
-  </LoggingEabled>
+  </LoggingEnabled>
 </BucketLoggingStatus>
 ```
 具体的数据内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
@@ -54,14 +54,14 @@ Container 节点 BucketLoggingStatus 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| LoggingEabled | BucketLoggingStatus | 存储桶日志记录配置详细信息 |  Container |
+| LoggingEnabled | BucketLoggingStatus | 存储桶日志记录配置详细信息 |  Container |
 
-Container 节点 LoggingEabled 的内容：
+Container 节点 LoggingEnabled 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| TargetBucket | LoggingEabled | 日志存储的目标 Bucket，既可以为相同 Bucket，也可以相同账户下相同地域的 Bucket  |  String |
-| TargetPrefix | LoggingEabled | 日志存储的目标 Bucket 指定路径 |  String |
+| TargetBucket | LoggingEnabled | 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶  |  String |
+| TargetPrefix | LoggingEnabled | 存放日志的目标存储桶 指定路径 |  String |
 
 ## 实际案例
 
@@ -84,10 +84,10 @@ Server: tencent-cos
 x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZT==
 
 <BucketLoggingStatus>
-  <LoggingEabled>
+  <LoggingEnabled>
     <TargetBucket>logs</TargetBucket>
     <TargetPrefix>logdir</TargetPrefix>
-  </LoggingEabled>
+  </LoggingEnabled>
 </BucketLoggingStatus>
 ```
 

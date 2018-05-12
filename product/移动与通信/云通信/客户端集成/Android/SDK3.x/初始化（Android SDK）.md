@@ -451,7 +451,7 @@ public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedL
 > **注意：**
 > 只要是本地没有的消息，SDK 都会通过注册的消息通知回调给上层应用。
 
-以下为添加一个消息监听器的原型。默认情况下所有消息监听器都将按添加顺序被回调一次。除非用户在 `OnNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
+以下为添加一个消息监听器的原型。默认情况下所有消息监听器都将按添加顺序被回调一次。除非用户在 `onNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
 
 **原型：**
 
@@ -460,7 +460,7 @@ public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedL
  * 添加一个消息监听器
  * @param listener 消息监听器
  *                 默认情况下所有消息监听器都将按添加顺序被回调一次
- *                 除非用户在 OnNewMessages 回调中返回 true，此时将不再继续回调下一个消息监听器
+ *                 除非用户在 onNewMessages 回调中返回 true，此时将不再继续回调下一个消息监听器
  */
 public void addMessageListener(TIMMessageListener listener) 
 ```
@@ -468,7 +468,12 @@ public void addMessageListener(TIMMessageListener listener)
 **以下为收到新消息回调：**
 
 ```
-public boolean onNewMessages(java.util.List msgs)
+/**
+* 收到新消息回调
+* @param msgs 收到的新消息
+* @return 正常情况下，如果注册了多个listener, SDK会顺序回调到所有的listener。当碰到listener的回调返回true的时候，将终止继续回调后续的listener。
+*/
+public boolean onNewMessages(List<TIMMessage> msgs)
 ```
 
 消息监听器被删除后，将不再被调用。**以下为删除一个消息监听器的原型：**
@@ -485,7 +490,7 @@ public void removeMessageListener(TIMMessageListener listener)
 //设置消息监听器，收到新消息时，通过此监听器回调
 TIMManager.getInstance().addMessageListener(new TIMMessageListener() {//消息监听器
     @Override
-    public boolean onNewMessage(Listmsgs) {//收到新消息
+    public boolean onNewMessages(List<TIMMessage> msgs) {//收到新消息
 		//消息的内容解析请参考消息收发文档中的消息解析说明
 		return true; //返回true将终止回调链，不再调用下一个新消息监听器
     }

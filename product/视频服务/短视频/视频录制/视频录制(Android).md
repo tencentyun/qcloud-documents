@@ -69,7 +69,46 @@ mTXCameraRecord.toggleTorch(mFlashOn);
 mTXCameraRecord.mTXCameraRecord();
 // 设置焦距
 mTXCameraRecord.setZoom(value);
-
+// 设置录制的宽高比
+// TXRecordCommon.VIDEO_ASPECT_RATIO_9_16 宽高比为9:16
+// TXRecordCommon.VIDEO_ASPECT_RATIO_3_4  宽高比为3:4
+// TXRecordCommon.VIDEO_ASPECT_RATIO_1_1  宽高比为1:1
+mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
+//////////////////////////////////////////////////////////////////////////
+//                      截图
+//////////////////////////////////////////////////////////////////////////
+mTXCameraRecord.snapshot(new TXRecordCommon.ITXSnapshotListener() {
+                @Override
+                public void onSnapshot(Bitmap bmp) {
+                    // 保存或者显示截图
+                }
+            });
+//////////////////////////////////////////////////////////////////////////
+//                      人声处理相关
+//////////////////////////////////////////////////////////////////////////
+// 设置混响
+// TXRecordCommon.VIDOE_REVERB_TYPE_0 关闭混响
+// TXRecordCommon.VIDOE_REVERB_TYPE_1 KTV
+// TXRecordCommon.VIDOE_REVERB_TYPE_2 小房间
+// TXRecordCommon.VIDOE_REVERB_TYPE_3 大会堂
+// TXRecordCommon.VIDOE_REVERB_TYPE_4 低沉
+// TXRecordCommon.VIDOE_REVERB_TYPE_5 洪亮
+// TXRecordCommon.VIDOE_REVERB_TYPE_6 金属声
+// TXRecordCommon.VIDOE_REVERB_TYPE_7 磁性
+mTXCameraRecord.setReverb(TXRecordCommon.VIDOE_REVERB_TYPE_1);
+// 设置变声
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_0  关闭变声
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_1  熊孩子
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_2  萝莉
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_3  大叔
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_4  重金属
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_6  外国人
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_7  困兽
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_8  死肥仔
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_9  强电流
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_10 重机械
+// TXRecordCommon.VIDOE_VOICECHANGER_TYPE_11 空灵
+mTXCameraRecord.setVoiceChangerType(TXRecordCommon.VIDOE_VOICECHANGER_TYPE_1);
 //////////////////////////////////////////////////////////////////////////
 //                      背景音相关
 //////////////////////////////////////////////////////////////////////////
@@ -89,7 +128,8 @@ mTXCameraRecord.setMicVolume(x);
 // 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大背景音量可以设置更大的值.
 setBGMVolume(x);
-
+// 设置背景音乐播放的开始位置和结束位置
+mTXCameraRecord.seekBGM(startTime, endTime);
 //////////////////////////////////////////////////////////////////////////
 //                       以下为仅特权版才支持的特效
 // （由于采用优图团队的知识产权，我们无法对外免费提供，需要使用特权版 SDK 才能支持）
@@ -97,6 +137,8 @@ setBGMVolume(x);
 
 // 设置动效贴纸 motionTmplPath 动效文件路径： 空String "" 则取消动效
 mTXCameraRecord.setMotionTmp(motionTmplPath);
+// 设置动效贴纸 是否静音: true: 动效贴纸静音；false：动效贴纸不静音
+mTXCameraRecord.setMotionMute(true);
 // 设置绿幕文件:目前图片支持jpg/png，视频支持mp4/3gp等Android系统支持的格式
 mTXCameraRecord.setGreenScreenFile();
 // 设置大眼效果 0~9
