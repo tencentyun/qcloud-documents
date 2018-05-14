@@ -15,7 +15,7 @@ Authorization: Auth String
 
 ### 请求行
 ~~~
-GET /?cors HTTP/1.1
+GET /?logging HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
@@ -60,8 +60,8 @@ Container 节点 LoggingEnabled 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| TargetBucket | LoggingEnabled | 日志存储的目标 Bucket，既可以为相同 Bucket，也可以相同账户下相同地域的 Bucket  |  String |
-| TargetPrefix | LoggingEnabled | 日志存储的目标 Bucket 指定路径 |  String |
+| TargetBucket | LoggingEnabled | 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶  |  String |
+| TargetPrefix | LoggingEnabled | 存放日志的目标存储桶 指定路径 |  String |
 
 ## 实际案例
 

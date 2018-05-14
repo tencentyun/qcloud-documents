@@ -15,14 +15,26 @@ TIMManager.getInstance();
 在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，在用户登录状态下，会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
 
 **原型：**
+
 ```
-public void addMessageListener(TIMMessageListener listener)
+/**
+ * 添加一个消息监听器
+ * @param listener 消息监听器
+ *                 默认情况下所有消息监听器都将按添加顺序被回调一次
+ *                 除非用户在 onNewMessages 回调中返回 true，此时将不再继续回调下一个消息监听器
+ */
+public void addMessageListener(TIMMessageListener listener) 
 ```
 
-添加一个消息监听器，默认情况下所有消息监听器都将按添加顺序被回调一次，除非用户在 `OnNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
+添加一个消息监听器，默认情况下所有消息监听器都将按添加顺序被回调一次，除非用户在 `onNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
 **收到新消息回调：**
 ```
-public boolean onNewMessages(java.util.Listmsgs)
+/**
+* 收到新消息回调
+* @param msgs 收到的新消息
+* @return 正常情况下，如果注册了多个listener, SDK会顺序回调到所有的listener。当碰到listener的回调返回true的时候，将终止继续回调后续的listener。
+*/
+public boolean onNewMessages(List<TIMMessage> msgs)
 ```
 
 消息监听器被删除后，将不再被调用。
@@ -40,7 +52,7 @@ public void removeMessageListener(TIMMessageListener listener)
 TIMManager.getInstance().addMessageListener(new TIMMessageListener() {//消息监听器
  
     @Override
-    public boolean onNewMessage(Listmsgs) {//收到新消息
+    public boolean onNewMessages(List<TIMMessage> msgs) {//收到新消息
 		//消息的内容解析请参考消息解析
 		return true; //返回 true 将终止回调链，不再调用下一个新消息监听器
     }
