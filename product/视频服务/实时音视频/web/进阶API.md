@@ -55,16 +55,21 @@
 #### 具体功能
 检测是否支持 WebRTC
 ```javascript
-var info = WebRTCAPI.fn.detectRTC();
+WebRTCAPI.fn.detectRTC(function(info){
+    if( !info.support ) {
+        alert('不支持WebRTC')
+    }
+});
 ```
 #### info 字段
 
 | 字段  | 含义    |  备注|
 | ------------------------- | -------- | ---------------------- |
-| isTBS      | 是否是TBS |                 |
+| isTBS      | 是否是TBS |   [什么是TBS](https://x5.tencent.com/tbs/index.html)              |
 | TBSversion      | TBS版本号 |                 |
 | isTBSValid      | TBS版本号是否支持WebRTC |                 |
 | support      | 是否支持WebRTC |  |
+| h264Support      | 是否支持H.264 |必须支持H.264 |
 
 -----
 
@@ -91,7 +96,6 @@ var RTC = new WebRTCAPI( options , succ , error)
 | **accountType**      | integer | 账户类型（ 如有疑义请看[ 集成SDK](/document/product/647/16863) )                     | 必填           |
 | **userId**           | string  | 用户的唯一标识，也就是我们常说的用户名（如有疑义请看 [集成SDK](/document/product/647/16863)） | 必填           |
 | **userSig**          | string  | 必要，身份签名，相当于登录密码的作用 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
-| **privateMapKey**          | string  | 房间权限key，相当于进入指定房间roomID的钥匙 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
 | closeLocalMedia | boolean | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ） | 非必填，默认 false |
 | audio            | boolean | 是否启用音频采集                                 | 非必填，默认 true  |
 | video            | boolean | 是否启用视频采集                                 | 非必填，默认 true  |
@@ -102,9 +106,7 @@ var RTC = new WebRTCAPI( options , succ , error)
         "userId": userId,
         "sdkAppId":  sdkappid,
         "accountType":  accountType,
-        "userSig": userSig,
-        "privateMapKey":privateMapKey,
-        "closeLocalMedia": false //默认是false
+        "userSig": userSig
     } );
 ```
 ----
@@ -131,6 +133,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | 参数               | 类型      | 描述                                  |
 | ---------------- | ------- | ---------------------------------------- |
 | **roomid**         | integer | 房间 id          | 必填           |
+| **privateMapKey**  | string  | 房间权限key，相当于进入指定房间roomID的钥匙 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
 | **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/10620)                    | 必填           |
 
 
@@ -143,6 +146,15 @@ var RTC = new WebRTCAPI({
     "userSig": "xxxxxxxxxxxxxxxxxxxxxxxxx",
 }, function(data){
     console.debug( ' 初始化成功 ')
+    RTC.createRoom( {
+        roomid : 123456,
+        privateMapKey: "xxxxxxxxxxxxxxxxxxxxx",
+        role : "user",
+    }, function(){
+        console.debug( ' 进房房间成功 ')
+    } ,  function(data){
+        console.debug( ' 进入房间失败 ' , data)
+    } );
 }, function(data){
     console.debug( ' 初始化失败 ' , data)
 });
