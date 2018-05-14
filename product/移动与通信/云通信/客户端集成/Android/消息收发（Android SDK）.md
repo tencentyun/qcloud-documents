@@ -93,7 +93,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 >- 存储要发送的图片路径，必须是本地路径。
 >- 发送时不用关注，接收时保存生成的图片所有规格。
 >- 发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `imageList` 获取所有图片类型。
-> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+>- `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 >- `TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
 
 **`TIMImageElem` 成员方法：**
