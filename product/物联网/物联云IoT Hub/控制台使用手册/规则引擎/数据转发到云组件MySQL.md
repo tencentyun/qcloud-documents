@@ -15,7 +15,6 @@
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forward_mysq_auth_now.png)
 
 3. 授权成功之后，需要配置 MySQL 实例信息和写入的字段信息，如下图所示，配置分为如下几个步骤：
-
     1) 选择地区和 MySQL实例。如果帐号下还没有实例，那么点击"创建实例"跳转到 MySQL 控制台创建一个
     2) 输入刚才创建的 MySQL 实例的用户名。     
     3) 输入实例的登录密码
