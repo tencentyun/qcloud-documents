@@ -11,10 +11,8 @@
 2. 单击【添加行为操作】按钮，并选择“数据转发到云数据库(MySQL)选项”, 最后单击【创建】即可。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forward_mysql_select_action.png)
 
-
 **说明**：第一次使用时会提示用户授权访问 MySQL，用户需单击【立即授权】才能继续创建。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forwad_mysql_need_auth.png)
-
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forward_mysq_auth_now.png)
 
 3. 授权成功之后，需要配置 MySQL 实例信息和写入的字段信息，如下图所示，配置分为如下几个步骤：
