@@ -242,7 +242,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 }
 ```
 - **9.4) 切后台处理**
-推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
+推流中，如果App被切了后台，也就是在 9.3 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
 ```
 //切后台处理： 在 8.2 的基础上补一句
