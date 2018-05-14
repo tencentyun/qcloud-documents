@@ -58,11 +58,9 @@ java -version
 Kafka安装包官网下载地址: http://kafka.apache.org/downloads 当前CKafka 100%兼容Kafka 0.9 0.10版本，建议您下载相应版本的安装包
 
 ```
-wget "https://archive.apache.org/dist/kafka/0.10.2.0/kafka-0.10.2.0-src.tgz"
 tar -xzvf kafka-0.10.2.0-src.tgz
 mv kafka-0.10.2.0-src /opt/
 ```
-> 注：上述命令为官网压缩包下载地址，也可以从其他链接下载kafka安装包
 
 下载解压完成后，无需配置其他环境，直接可用
 可以通过telnet指令测试本机是否连通到CKafka实例
