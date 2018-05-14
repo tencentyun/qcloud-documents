@@ -13,10 +13,9 @@
 目前弹性公网 IP 涉及到的操作有申请，绑定，解绑，释放。由于 IP 资源宝贵，弹性公网 IP 仅在与设备解绑的状态下收取少量资源占用费。
 
 ### 弹性公网 IP 如何停止扣费？
-1. 如果您不再需要扣费中的弹性公网 IP，可以将其释放掉，在 [弹性公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip) 的操作列表下点击“更多”然后选择“释放”，释放后的弹性公网IP便不再扣费。
-
-   ![](https://main.qcloudimg.com/raw/c3f09887d277ad65a9cc7ddf02b504aa.png)
-   如果您需要保留某个弹性公网IP又需要停止扣费，您可以将其绑定在设备（CVM，NAT）上, 绑定状态下的弹性公网IP便不再扣费。
+- 当您不再需要扣费中的弹性公网 IP 时，可以将其释放掉。在 [弹性公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip) 的操作列表下单击 【更多】>【释放】，确定即可。释放后的弹性公网 IP 便不再扣费。
+![](https://main.qcloudimg.com/raw/62aee3210544c2241a49d44c3970eee9.png)
+- 当您需要保留某个弹性公网 IP 又需要停止扣费时，您可以将其绑定在设备（CVM，NAT）上，绑定状态下的弹性公网 IP 便不再扣费。
 
 ### 云服务器没有公网 IP 如何实现公网访问？
 如果您在购买机器时未购买公网 IP 或者已将公网 IP 退还，您可以在 [弹性公网IP 控制台 ](https://console.cloud.tencent.com/cvm/eip)申请弹性公网 IP，然后绑定到您的机器，实现公网访问。

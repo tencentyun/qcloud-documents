@@ -42,6 +42,9 @@ Saving to: `index.html'
 ![](//mc.qcloudimg.com/static/img/fce31b900d308c4a5d57b1d316574a58/image.png)
 
 ## 安装配置 MySQL
+>**注意：**
+从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或自行安装较低版本的 MySQL。
+
 1. 安装 MySQL。输入以下命令：
  - 适用于 CentOS 7.0 或以后版本：
 ```
@@ -50,17 +53,19 @@ yum install mariadb mariadb-server
  -  适用于 CentOS 6.8 或以前版本：
 ```
 yum install mysql mysql-server mysql-devel
-```
-
-	>**注意：**
-	>从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或点击 [参阅此处](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7) 进行较低版本的 MySQL 的安装。
+```	
 
 2. 启动 MySQL 服务。输入命令：
+ - 适用于 CentOS 7.0 或以后版本：
+```
+systemctl start mariadb.service
+```
+ - 适用于 CentOS 6.8 或以前版本：
 ```
 service mysqld start
 ```
-
 3. 登录 MySQL ，删除空用户。输入命令：
+
 ```
 mysql>select user,host,password from mysql.user;
 mysql>drop user ''@localhost;

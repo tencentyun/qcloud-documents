@@ -14,7 +14,7 @@
 2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
 ```xml
 <dependency>
-        <groupId>com.tencentcloud</groupId>
+        <groupId>com.tencentcloudapi</groupId>
         <artifactId>tencentcloud-sdk-java</artifactId>
         <version>3.0.1</version>
 </dependency>
