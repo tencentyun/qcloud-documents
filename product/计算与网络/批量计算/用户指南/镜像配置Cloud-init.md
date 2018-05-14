@@ -9,6 +9,11 @@
 * Linux ``存量``云主机/自定义镜像：如果是早前就创建的云主机或自定义镜像，需要手动安装 Cloud-init，请参照 [linux手动安装Cloud-init>>>](https://cloud.tencent.com/document/product/213/12587)
 * Windows：必须从Batch 官方提供的镜像市场镜像来创建云主机或制作自定义镜像，请参照 [制作Batch可用的Windows自定义镜像>>>](https://cloud.tencent.com/document/product/599/13035)
 
+已包含Cloud-init的常用操作系统镜像ID如下，
+* img-31tjrtph（CentOS 7.2 64位）
+* img-er9shcln（Windows Server 2012 R2 标准版 64位中文版）
+* img-pyqx34y1（Ubuntu Server 16.04.1 LTS 64位）
+
 
 
 
