@@ -37,3 +37,19 @@ CMQ Topic 主题队列触发器具有以下特点：
   ]
 }
 ```
+
+数据结构内容详细说明如下：
+
+|    结构名    | 内容 |
+| ---------- | --- |
+| Records |  列表结构，可能有多条消息合并在列表中 |
+| CMQ       |  标识数据结构来源为 CMQ 消息队列 |
+| type | 使用 type 区分消息来源为 topic 或 queue |
+| topicOwner | 记录 topic 所有者账号 ID |
+| topicName |  记录 topic 名称  |
+| subscriptionName | 记录云函数在 topic 处的订阅名称 |
+| publishTime | 记录消息的发布时间 |
+| msgId | 记录消息的唯一 ID |
+| requestId | 记录消息推送的请求 ID |
+| msgBody | 记录消息内容 |
+| msgTag | 通过列表结构记录消息标签 |
