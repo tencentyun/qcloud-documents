@@ -33,6 +33,8 @@ dependencies {
 ```
 > `'com.tencent.tac:tac-messaging:1.1.0' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.0'`
 
+到此您已成功接入了 MobileLine 移动推送服务。
+
 ## 验证服务
 
 ### 查看服务启动情况
