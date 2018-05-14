@@ -1,4 +1,4 @@
-在集群列表页操作和集群详情页右上角均有 Kibana 入口，通过入口，可以打开集群对应的 Kibana 管理页面，页面访问需要登录，账号为：elastic，密码为用户创建集群时设置的 Kibana 密码。Kibana 具体使用 可查看快速入门>[访问 Kibana 页面](https://cloud.tencent.com/document/product/845/17146)。
+在集群列表页操作和集群详情页右上角均有 Kibana 入口，通过入口，可以打开集群对应的 Kibana 管理页面，页面访问需要登录，账号为：elastic，密码为用户创建集群时设置的 Kibana 密码。Kibana 具体使用可查看 [访问 Kibana 页面](https://cloud.tencent.com/document/product/845/17146)。
 
 ## 密码验证及修改
 访问 Kibana 页面，需要登录密码验证，如果忘记密码，可以在集群详情页，基本信息模块对 Kibana 密码进行重置。Kibana 密码需 8~16 位，至少包括两项（英文字母、数字和特殊符号）
