@@ -32,7 +32,7 @@ dependencies {
 }
 ```
 
-到此您已成功接入了 MobileLine 崩溃监控服务服务。
+到此您已成功接入了 MobileLine 崩溃监控服务。
 
 ## 验证服务
 
