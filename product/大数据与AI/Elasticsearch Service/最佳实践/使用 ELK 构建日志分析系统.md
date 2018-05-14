@@ -3,13 +3,15 @@ Elasticsearch Service 提供了 Elasticsearch 集群和 Kibana 控制台，Elast
 ## 安装部署 logstash
 ### 环境准备
 - 用户需要创建和 Elasticsearch 集群在同一 VPC 的 CVM，根据需要可以创建多台 CVM 实例，在 CVM 实例中部署 logstash 组件；
-- 在创建好的CVM中安装Java8或以上版本。
+- 在创建好的 CVM 中安装 Java8 或以上版本。
 
 ### 部署 logstash
 **1. 下载 logstash 组件包**（logstash 版本应该与 Elasticsearch 版本保持一致）
 `wget https://artifacts.elastic.co/downloads/logstash/logstash-5.6.4.tar.gz`
+
 **2. 解压 logstash 组件包**
 `tar xvf logstash-5.6.4.tar.gz`
+
 **3. 配置 logstash**
 本示例以 nginx 日志为输入源，输出项配置为 Elasticsearch 集群的内网 VIP 地址和端口，
 创建 test.conf 配置文件，文件内容如下：
