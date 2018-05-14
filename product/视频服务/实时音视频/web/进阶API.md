@@ -55,16 +55,21 @@
 #### 具体功能
 检测是否支持 WebRTC
 ```javascript
-var info = WebRTCAPI.fn.detectRTC();
+WebRTCAPI.fn.detectRTC(function(info){
+    if( !info.support ) {
+        alert('不支持WebRTC')
+    }
+});
 ```
 #### info 字段
 
 | 字段  | 含义    |  备注|
 | ------------------------- | -------- | ---------------------- |
-| isTBS      | 是否是TBS |                 |
+| isTBS      | 是否是TBS |   [什么是TBS](https://x5.tencent.com/tbs/index.html)              |
 | TBSversion      | TBS版本号 |                 |
 | isTBSValid      | TBS版本号是否支持WebRTC |                 |
 | support      | 是否支持WebRTC |  |
+| h264Support      | 是否支持H.264 |必须支持H.264 |
 
 -----
 
