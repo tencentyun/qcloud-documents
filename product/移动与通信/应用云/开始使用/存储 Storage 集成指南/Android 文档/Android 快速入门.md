@@ -28,13 +28,13 @@
 dependencies {
 	// 增加这行
 	compile 'com.tencent.tac:tac-core:1.1.0'
-  	compile 'com.tencent.tac:tac-storage:1.1.0'
+	compile 'com.tencent.tac:tac-storage:1.1.0'
 }
 ```
 
-## 配置签名服务
+## 配置秘钥服务
 
-Storage 服务需要一个有效的签名提供者来提供签名，配置签名服务请参见 [配置签名服务](https://cloud.tencent.com/document/product/666/15350)。
+Storage 服务需要一个有效的秘钥提供者来提供秘钥，配置秘钥服务请参见 [配置秘钥服务](https://cloud.tencent.com/document/product/666/15350)。
 
 >**注意：**
 >请先完成配置，再调用 Storage 服务的任何功能。否则，我们的服务无法识别您的身份。
