@@ -21,7 +21,7 @@
 如下图，弹性公网 IP 列表中如果 **没有** 带宽相关的信息，即为第一类账户。弹性公网 IP 的类型为裸 IP，无任何公网网络属性，需要后端资源购买公网网络后，再通过公网 IP 或 CLB 访问外网。
 ![](https://main.qcloudimg.com/raw/aa9bc5d1844dc8aa333bbd2cf5d10c84.png)
 - 如下图，弹性公网 IP 列表中如果 **能看到** 带宽相关的信息，即为第二类账户。可通过计费模式查询 EIP 的类型。
-![](https://mc.qcloudimg.com/static/img/bd91715ed89497bda313189331b2baaf/eip2.png)
+![](https://main.qcloudimg.com/raw/8d99377cf8e7c34460206371c9913345.png)
 
 ## 规则与限制
 ### 使用规则
