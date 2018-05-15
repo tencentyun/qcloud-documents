@@ -1,7 +1,7 @@
 The XML APIs of Tencent Cloud Object Storage (COS) service are a kind of lightweight interfaces without connection state. You can call these APIs to send requests and receive responses directly via http/https, in order to interact with the backend of Tencent Cloud Object Storage. The contents of both requests and responses for these APIs are in XML format.
 >**Note:**
->Currently, the available Regions of COS have different values for XML APIs and JSON APIs, and the corresponding region fields are required when using different APIs and their SDKs. For more information, see the document [Available Regions](https://www.qcloud.com/document/product/436/6224). 
->In order to use the XML APIs of Tencent Cloud Object Storage service more efficiently, please read [Request Signature](https://www.qcloud.com/document/product/436/7778) carefully before reviewing other API documents.
+>Currently, the available Regions of COS have different values for XML APIs and JSON APIs, and the corresponding region fields are required when using different APIs and their SDKs. For more information, see the document [Available Regions](https://cloud.tencent.com/document/product/436/6224). 
+>In order to use the XML APIs of Tencent Cloud Object Storage service more efficiently, please read [Request Signature](https://cloud.tencent.com/document/product/436/7778) carefully before reviewing other API documents.
 
 ## Terminology Information
 Some main concepts and terms appear in the text:
