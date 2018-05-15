@@ -29,12 +29,14 @@
 | stopBGM()                                | 停止播放背景音乐                          |
 | pauseBGM()                               | 暂停播放背景音乐                          |
 | resumeBGM()                              | 继续播放背景音乐                          |
+| getMusicDuration(path)                      | 获取音乐文件时长                           |
 | setMicVolume()                           | 设置混音时麦克风的音量大小                     |
 | setBGMVolume()                           | 设置混音时背景音乐的音量大小                    |
 | startRecord(videoFilePath)               | 开始视频录制                            |
 | stopRecord()                             | 停止视频录制                            |
 | setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调                          |
-| snapshot(ITXSnapshotListener)            | 截取视频画面                            |
+| snapshot(ITXSnapshotListener)            |  截取视频画面                            |
+| setAudioProcessListener(listener)                    | 设置自定义音频处理回调              |
 | sendCustomVideoData(buffer, bufferType, w, h) | 推送自定义视频数据                         |
 | sendCustomPCMData(pcmBuffer)             | 推送自定义音频数据                         |
 
@@ -197,6 +199,13 @@ mLivePusher.setPushListener(new ITXLivePushListener() {
 
 ```
 public interface VideoCustomProcessListener {
+
+    /**
+    * 增值版回调人脸坐标
+    * @param points   归一化人脸坐标，每两个值表示某点P的X,Y值。值域[0.f, 1.f]
+    */
+    void onDetectFacePoints(float[] points);
+    
     /**
     * 在OpenGL线程中回调，在这里可以进行采集图像的二次处理
     * @param textureId  纹理ID
@@ -556,9 +565,25 @@ mLivePusher.pauseBGM();
 mLivePusher.resumeBGM();
 ```
 
+#### 23.getMusicDuration(path)
+
+接口详情：int getMusicDuration(java.lang.String path)
+
+获取音乐文件时长，单位ms。
+
+- **参数说明**
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| path   |音乐文件路径 | 如果 path == null ，获取当前播放歌曲时长。如果 path != null ，则获取path路径歌曲时长。|
+
+- **示例代码** : 
+```
+mLivePusher.getMusicDuration(path);
+```
 
 
-#### 23.setMicVolume()
+#### 24.setMicVolume()
 
 接口详情：boolean setMicVolume(float x)
 
@@ -579,7 +604,7 @@ mLivePusher.setMicVolume(2f);
 
 
 
-#### 24.setBGMVolume()
+#### 25.setBGMVolume()
 
 接口详情：boolean setBGMVolume(float x)
 
@@ -600,7 +625,7 @@ mLivePusher.setBGMVolume(2f);
 
 
 
-#### 25.startRecord(videoFilePath)
+#### 26.startRecord(videoFilePath)
 
 接口详情： int startRecord(final String videoFilePath)
 
@@ -624,8 +649,7 @@ mLivePusher.startRecord(videoFile);
 ```
 
 
-
-#### 26.stopRecord()
+#### 27.stopRecord()
 
 接口详情： void stopRecord()
 
@@ -639,7 +663,7 @@ mLivePusher.stopRecord();
 
 
 
-#### 27.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
+#### 28.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
 接口详情：void setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
@@ -678,7 +702,7 @@ mLivePusher.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 
 
 
-#### 28.snapshot(ITXSnapshotListener)
+#### 29.snapshot(ITXSnapshotListener)
 
 接口详情： void snapshot(final ITXSnapshotListener listener)
 
@@ -703,9 +727,28 @@ mLivePusher.snapshot(new TXLivePusher.ITXSnapshotListener() {
 });
 ```
 
+#### 30.setAudioProcessListener(listener)
+
+接口详情：void setAudioProcessListener(TXLivePusher.AudioCustomProcessListener listener)
+
+该接口设置自定义音频处理回调。数据回调时机是在音频数据送到编码器编码前。
+
+- **示例代码** : 
+```
+mLivePusher.setAudioProcessListener(new TXLivePusher.AudioCustomProcessListener() {
+    @Override
+    public void onRecordPcmData(byte[] data, long ts, int sampleRate, int channels, int bits) {
+       // data - pcm 数据
+        // ts - pcm 对应时间戳
+        // sampleRate - 音频采样率
+        // channels - 音频通道
+        // bits - 音频 bits
+    }
+});
+```
 
 
-#### 29.sendCustomVideoData(buffer, bufferType, w, h)
+#### 31.sendCustomVideoData(buffer, bufferType, w, h)
 
 接口详情： int sendCustomVideoData(byte[] buffer, int bufferType, int w, int h)
 
@@ -736,7 +779,7 @@ mLivePusher.snapshot(new TXLivePusher.ITXSnapshotListener() {
 
 ```
 //以下是简单的实例，获取摄像机预览回调的视频数据并推流
-  @Override
+@Override
 public void onPreviewFrame(byte[] data, Camera camera) {
     // 假设摄像机获取的视频格式是 NV21, 预览画面大小为 1280X720
     if (!isPush) {
@@ -761,15 +804,38 @@ public void onPreviewFrame(byte[] data, Camera camera) {
         int result= mLivePusher.sendCustomVideoData(buffer, TXLivePusher.YUV_420P, mPreviewWidth, mPreviewHeight);
     }
 }
+
+/**
+ * nv21转I420
+ * @param data
+ * @param width
+ * @param height
+ * @return
+ */
+public static byte[] nv21ToI420(byte[] data, int width, int height) {
+    byte[] ret = new byte[data.length];
+    int total = width * height;
+
+    ByteBuffer bufferY = ByteBuffer.wrap(ret, 0, total);
+    ByteBuffer bufferU = ByteBuffer.wrap(ret, total, total / 4);
+    ByteBuffer bufferV = ByteBuffer.wrap(ret, total + total / 4, total / 4);
+
+    bufferY.put(data, 0, total);
+    for (int i=total; i<data.length; i+=2) {
+        bufferV.put(data[i]);
+        bufferU.put(data[i+1]);
+    }
+    return ret;
+}
 ```
 
 
 
-#### 30.void sendCustomPCMData(pcmBuffer)
+#### 32.void sendCustomPCMData(pcmBuffer)
 
 接口详情：void sendCustomPCMData(byte[] pcmBuffer)
 
-该接口是向 SDK 塞入您自定义采集和处理后的音频数据，请使用单声道、16位宽、48000Hz 的 PCM 声音数据。一般结合 sendCustomVideoData(buffer, bufferType, w, h) 一起使用
+该接口是向 SDK 塞入您自定义采集和处理后的音频数据，请使用单声道或双声道、16位宽、48000Hz 的 PCM 声音数据。如果是单声道,请保证传入的PCM长度为2048；如果是双声道,请保证传入的PCM长度为4096。该接口一般结合 sendCustomVideoData(buffer, bufferType, w, h) 一起使用
 
 
 - **参数说明**
@@ -781,36 +847,131 @@ public void onPreviewFrame(byte[] data, Camera camera) {
 - **示例代码** : 
 
 ```
-//以下是简单的实例，从手机 SD 卡中获取文件中 PCM 数据。
-//实际场景中音频数据要从麦克风的回调中获取。
-mLivePushConfig.setAudioSampleRate(44100);
-mLivePushConfig.setAudioChannels(1);
-customModeType |= TXLiveConstants.CUSTOM_MODE_AUDIO_CAPTURE;
-new Thread() {  //音频采集线程
+//以下是简单的实例，获取麦克风采集音频数据。
+AudioRecord mAudioRecord = null;
+int mMinBufferSize = 0; //最小缓冲区大小
+
+private static final int DEFAULT_SOURCE = MediaRecorder.AudioSource.MIC;
+// 设置采样率为 48000
+private static final int DEFAULT_SAMPLE_RATE = 48000;
+// 支持单声道(CHANNEL_IN_MONO) 和 双声道(CHANNEL_IN_STEREO)
+private static final int DEFAULT_CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_STEREO;  
+// 量化位数
+private static final int DEFAULT_AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT;    
+
+private boolean mIsCaptureStarted = false;
+private volatile boolean mIsLoopExit = true;
+
+private Thread mCaptureThread;
+private OnAudioFrameCapturedListener mAudioFrameCapturedListener;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // 启动音频采集
+    startCapture();
+}
+
+public interface OnAudioFrameCapturedListener {
+    public void onAudioFrameCaptured(byte[] audioData);
+}
+
+public boolean isCaptureStarted() {
+    return mIsCaptureStarted;
+}
+
+public void setOnAudioFrameCapturedListener(OnAudioFrameCapturedListener listener) {
+    mAudioFrameCapturedListener = listener;
+}
+
+public boolean startCapture() {
+    return startCapture(DEFAULT_SOURCE, DEFAULT_SAMPLE_RATE, DEFAULT_CHANNEL_CONFIG,
+            DEFAULT_AUDIO_FORMAT);
+}
+
+public boolean startCapture(int audioSource, int sampleRateInHz, int channelConfig, int audioFormat) {
+
+    if (mIsCaptureStarted) {
+        Log.e(TAG, "audio Capture already started !");
+        return false;
+    }
+
+    // SDK 要求双声道要 4096, 单声道 2048
+    mMinBufferSize = 4096;
+    if (mMinBufferSize == AudioRecord.ERROR_BAD_VALUE) {
+        Log.e(TAG, "Invalid AudioRecord parameter !");
+        return false;
+    }
+    Log.d(TAG , "getMinBufferSize = "+mMinBufferSize+" bytes !");
+
+    mAudioRecord = new AudioRecord(audioSource,sampleRateInHz,channelConfig,audioFormat,mMinBufferSize);
+    if (mAudioRecord.getState() == AudioRecord.STATE_UNINITIALIZED) {
+        Log.e(TAG, "AudioRecord initialize fail !");
+        return false;
+    }
+
+    mAudioRecord.startRecording();
+
+    mIsLoopExit = false;
+    mCaptureThread = new Thread(new AudioCaptureRunnable());
+    mCaptureThread.start();
+
+    mIsCaptureStarted = true;
+    Log.d(TAG, "Start audio capture success !");
+
+    return true;
+}
+
+public void stopCapture() {
+    if (!mIsCaptureStarted) {
+        return;
+    }
+
+    mIsLoopExit = true;
+    try {
+        mCaptureThread.interrupt();
+        mCaptureThread.join(1000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+    if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
+        mAudioRecord.stop();
+    }
+
+    mAudioRecord.release();
+
+    mIsCaptureStarted = false;
+    mAudioFrameCapturedListener = null;
+
+    Log.d(TAG, "Stop audio capture success !");
+}
+
+private class AudioCaptureRunnable implements Runnable {
     @Override
     public void run() {
-        while (true) {
-            try {
-                FileInputStream in = new FileInputStream("/sdcard/dump.pcm");
-                int len = 2048;
-                byte buffer[] = new byte[len];
-                int count;
-                while ((count = in.read(buffer)) != -1) {
-                    if (len == count) {
-                        mLivePusher.sendCustomPCMData(buffer);
-                    } else {
-                        break;
-                    }
-                    sleep(10, 0);
+        while (!mIsLoopExit) {
+                
+            byte[] buffer = new byte[mMinBufferSize];
+
+            int ret = mAudioRecord.read(buffer, 0, mMinBufferSize);
+            if (ret == AudioRecord.ERROR_INVALID_OPERATION) {
+                Log.e(TAG , "AudioRecord Error ERROR_INVALID_OPERATION");
+            } else if (ret == AudioRecord.ERROR_BAD_VALUE) {
+                Log.e(TAG , "AudioRecord Error ERROR_BAD_VALUE");
+            } else {
+                if (mAudioFrameCapturedListener != null) {
+                    mAudioFrameCapturedListener.onAudioFrameCaptured(buffer);
                 }
-                in.close();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                if (isPush) {
+                    mLivePusher.sendCustomPCMData(buffer);
+                }
             }
+            SystemClock.sleep(10);
         }
     }
-}.start();
+}
 ```
 
 
@@ -1957,6 +2118,7 @@ PLAY_TYPE_VOD_HLS =  3        // 传入的URL为HLS(m3u8)播放地址
 PUSH_EVT_CONNECT_SUCC = 1001,                      // 已经连接推流服务器
 PUSH_EVT_PUSH_BEGIN = 1002,                        // 已经与服务器握手完毕,开始推流
 PUSH_EVT_OPEN_CAMERA_SUCC = 1003,                  // 打开摄像头成功
+PUSH_EVT_SCREEN_CAPTURE_SUCC = 1004;               // 录屏启动成功
 PUSH_EVT_CHANGE_RESOLUTION = 1005,                 // 推流动态调整分辨率
 PUSH_EVT_CHANGE_BITRATE = 1006,                    // 推流动态调整码率
 PUSH_EVT_FIRST_FRAME_AVAILABLE = 1007,             // 首帧画面采集完成
@@ -1969,6 +2131,11 @@ PUSH_ERR_AUDIO_ENCODE_FAIL = -1304,                // 音频编码失败
 PUSH_ERR_UNSUPPORTED_RESOLUTION = -1305,           // 不支持的视频分辨率
 PUSH_ERR_UNSUPPORTED_SAMPLERATE = -1306,           // 不支持的音频采样率
 PUSH_ERR_NET_DISCONNECT = -1307,                   // 网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启推流
+PUSH_ERR_SCREEN_CAPTURE_START_FAILED  = -1308;     // 开始录屏失败,可能是被用户拒绝了
+PUSH_ERR_SCREEN_CAPTURE_UNSURPORT = -1309;         // 录屏失败,不支持的Android系统版本,需要5.0以上的系统
+PUSH_ERR_SCREEN_CAPTURE_DISTURBED = -1310;         // 录屏被其他应用打断了，先开MediaProjection的应用会被后开MediaProjection的应用停掉，SDK抛出此error
+PUSH_ERR_MIC_RECORD_FAIL = -1311;                  // Android Mic打开成功，但是连续6次录不到音频数据 (Audio录制线程会退出)
+PUSH_ERR_SCREEN_CAPTURE_SWITCH_DISPLAY_FAILED  = -1312;   // 录屏动态切横竖屏失败
 
 PUSH_WARNING_NET_BUSY = 1101,                      // 网络状况不佳：上行带宽太小，上传数据受阻
 PUSH_WARNING_RECONNECT = 1102,                     // 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)
@@ -2013,29 +2180,29 @@ SDK 指标监控，主要回调推流或拉流的状态数据。
 #### 播放事件列表
 
 ```
-PLAY_EVT_CONNECT_SUCC : 2001,                   // 已经连接服务器
-PLAY_EVT_RTMP_STREAM_BEGIN : 2002,              // 已经连接服务器，开始拉流
-PLAY_EVT_RCV_FIRST_I_FRAME : 2003,              // 渲染首个视频数据包(IDR)
-PLAY_EVT_PLAY_BEGIN : 2004,                     // 视频播放开始
-PLAY_EVT_PLAY_PROGRESS : 2005,                  // 视频播放进度
-PLAY_EVT_PLAY_END : 2006,                       // 视频播放结束
-PLAY_EVT_PLAY_LOADING : 2007,                   // 视频播放loading
-PLAY_EVT_START_VIDEO_DECODER : 2008,            // 解码器启动
-PLAY_EVT_CHANGE_RESOLUTION : 2009,              // 视频分辨率改变
+PLAY_EVT_CONNECT_SUCC = 2001,                   // 已经连接服务器
+PLAY_EVT_RTMP_STREAM_BEGIN = 2002,              // 已经连接服务器，开始拉流
+PLAY_EVT_RCV_FIRST_I_FRAME = 2003,              // 渲染首个视频数据包(IDR)
+PLAY_EVT_PLAY_BEGIN = 2004,                     // 视频播放开始
+PLAY_EVT_PLAY_PROGRESS = 2005,                  // 视频播放进度
+PLAY_EVT_PLAY_END = 2006,                       // 视频播放结束
+PLAY_EVT_PLAY_LOADING = 2007,                   // 视频播放loading
+PLAY_EVT_START_VIDEO_DECODER = 2008,            // 解码器启动
+PLAY_EVT_CHANGE_RESOLUTION = 2009,              // 视频分辨率改变
 
-PLAY_ERR_NET_DISCONNECT : -2301,                // 网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启播放
-PLAY_ERR_GET_RTMP_ACC_URL_FAIL : -2302,         // 获取加速拉流地址失败
+PLAY_ERR_NET_DISCONNECT = -2301,                // 网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启播放
+PLAY_ERR_GET_RTMP_ACC_URL_FAIL = -2302,         // 获取加速拉流地址失败
 
-PLAY_WARNING_VIDEO_DECODE_FAIL : 2101,          // 当前视频帧解码失败
-PLAY_WARNING_AUDIO_DECODE_FAIL : 2102,          // 当前音频帧解码失败
-PLAY_WARNING_RECONNECT : 2103,                  // 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)
-PLAY_WARNING_RECV_DATA_LAG : 2104,              // 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀
-PLAY_WARNING_VIDEO_PLAY_LAG : 2105,             // 当前视频播放出现卡顿（用户直观感受）
-PLAY_WARNING_HW_ACCELERATION_FAIL : 2106,       // 硬解启动失败，采用软解
-PLAY_WARNING_VIDEO_DISCONTINUITY : 2107,        // 当前视频帧不连续，可能丢帧
-PLAY_WARNING_FIRST_IDR_HW_DECODE_FAIL : 2108,   // 当前流硬解第一个I帧失败，SDK自动切软解
-PLAY_WARNING_DNS_FAIL : 3001,                   // RTMP -DNS解析失败
-PLAY_WARNING_SEVER_CONN_FAIL : 3002,            // RTMP服务器连接失败
-PLAY_WARNING_SHAKE_FAIL : 3003,                 // RTMP服务器握手失败
-PLAY_WARNING_SERVER_DISCONNECT : 3004,          // RTMP服务器主动断开
+PLAY_WARNING_VIDEO_DECODE_FAIL = 2101,          // 当前视频帧解码失败
+PLAY_WARNING_AUDIO_DECODE_FAIL = 2102,          // 当前音频帧解码失败
+PLAY_WARNING_RECONNECT = 2103,                  // 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)
+PLAY_WARNING_RECV_DATA_LAG = 2104,              // 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀
+PLAY_WARNING_VIDEO_PLAY_LAG = 2105,             // 当前视频播放出现卡顿（用户直观感受）
+PLAY_WARNING_HW_ACCELERATION_FAIL = 2106,       // 硬解启动失败，采用软解
+PLAY_WARNING_VIDEO_DISCONTINUITY = 2107,        // 当前视频帧不连续，可能丢帧
+PLAY_WARNING_FIRST_IDR_HW_DECODE_FAIL = 2108,   // 当前流硬解第一个I帧失败，SDK自动切软解
+PLAY_WARNING_DNS_FAIL = 3001,                   // RTMP -DNS解析失败
+PLAY_WARNING_SEVER_CONN_FAIL=: 3002,            // RTMP服务器连接失败
+PLAY_WARNING_SHAKE_FAIL = 3003,                 // RTMP服务器握手失败
+PLAY_WARNING_SERVER_DISCONNECT = 3004,          // RTMP服务器主动断开
 ```

@@ -1,10 +1,10 @@
-## 1. 接口描述
+## 接口描述
  
 本接口(EmrDescribeClusterNode)用于查询单个集群的节点信息。
 
 接口请求域名：<font style="color:red">emr.api.qcloud.com</font>
 
-## 2. 输入参数
+## 输入参数
  以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为EmrDescribeClusterNode。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
@@ -14,7 +14,7 @@
 | PageNo | 否 | int | 第几页，首页从1开始 |
 | PageSize | 否 | int | 每页记录数，默认20 |
 
-## 3. 输出参数
+## 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
@@ -37,7 +37,7 @@
 | data.n.applyTime | string | 节点申请时间 |
 | data.n.freeTime | string | 节点销毁时间 |
 
-## 4. 示例
+## 示例
  
 输入
 <pre>

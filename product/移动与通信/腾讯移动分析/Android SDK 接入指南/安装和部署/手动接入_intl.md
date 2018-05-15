@@ -1,4 +1,4 @@
-Mobile Tencent Analytics (MTA) Statistics SDK for Android provides two integration methods: manual integration and automatic integration via jcenter. This document describes the manual integration method. For more information on automatic integration, please see the [Automatic Integration via jcenter](link to be added).
+Mobile Tencent Analytics (MTA) Statistics SDK for Android provides two integration methods: manual integration and automatic integration via jcenter. This document describes the manual integration method. For more information on automatic integration, please see the [Automatic Integration via jcenter](https://cloud.tencent.com/document/product/549/12864 ).
 
 ### Obtaining AppKey
 Log in to [MTA Mobile Statistics](http://mta.qq.com/), and register the App as prompted to obtain AppKey.

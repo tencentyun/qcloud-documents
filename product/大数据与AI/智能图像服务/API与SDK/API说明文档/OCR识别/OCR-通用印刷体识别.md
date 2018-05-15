@@ -34,7 +34,6 @@
 | 参数名    | 必选 | 类型     | 参数说明                                     |
 | ------ | ---- | ------ | ---------------------------------------- |
 | appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                   |
-| bucket | 是   | string | 空间名称                                     |
 | image  | 否   | binary | 图片内容                                     |
 | url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
@@ -139,7 +138,7 @@ Content-Type: application/json
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

@@ -138,7 +138,7 @@ exeludes=
 | 配置项 | 描述 |
 | ------| ------ |
 |localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。|
-|exeludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
+|excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
 

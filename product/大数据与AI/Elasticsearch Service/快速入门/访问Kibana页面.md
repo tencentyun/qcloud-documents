@@ -1,10 +1,7 @@
-## 访问Kibana页面
+在【ES 控制台】>【ES 集群列表】>【操作】，单击 Kibana，跳转到该集群对应的 Kibana 访问页面，页面访问需要登录，账号为：elastic，密码为用户创建集群时设置的 Kibana 密码。
 
-在 ES 控制台 》ES 集群列表 》操作，点击 Kibana，跳转到该集群对应的 Kibana 访问页面，页面访问需要登录，账号为：elastic，密码为用户创建集群时设置的 Kibana 密码。
-
-### 1、存储数据（添加文档）
+## 1. 存储数据（添加文档）
 ![](https://main.qcloudimg.com/raw/24aaf4d9d3cd0b93f0e6654c9a2652cf.png)
-
 
 添加文档：
 
@@ -40,7 +37,7 @@ POST _bulk
 {"name":"杭州市","province":"浙江省拱墅区环城北路316号","lat":30.2753694112,"lon":120.1509063337,"x":7530,"level.level":2,"level.range":19,"level.name":"新一线城市","y":4182,"cityNo":6}
 ```
 
-### 2、配置需要查看的索引
+## 2. 配置需要查看的索引
 
 可以配置上文中刚添加过的 china 索引。
 
@@ -48,14 +45,14 @@ POST _bulk
 
 ![](https://main.qcloudimg.com/raw/66a1724eecc7a52603e9fc0fdccd5da8.png)
 
-### 3、查看索引字段（maping)
+## 3. 查看索引字段（maping)
 
 ![](https://main.qcloudimg.com/raw/0c34ce6b7fc3677c57fc998e9adcc68d.png)
 
-### 4、查看索引已经存储的文档
+## 4. 查看索引已经存储的文档
 
 ![](https://main.qcloudimg.com/raw/cc9b88b6742b0066cfa19e6e50fa1370.png)
 
-Kibana其他使用方式，可以进一步了解[官方文档](https://www.elastic.co/guide/en/kibana/5.6/getting-started.html)。
+Kibana 其他使用方式，可以进一步了解 [Kibana 官方文档](https://www.elastic.co/guide/en/kibana/5.6/getting-started.html)。
 
 

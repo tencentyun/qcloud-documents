@@ -2,11 +2,11 @@
 To ensure business and channel security and minimize financial loss caused by malicious call of SMS API by others, the default frequency limit for sending SMS messages is set as follows:
 1. For SMS messages with the same content, a maximum of one such message can be sent to the same phone number within 30 seconds.
 2. A maximum of ten SMS messages can be sent to the same phone number in one calendar day.
-In the SMS Console, you can set or modify the frequency limit in the "Application Configuration" -> "Basic Configuration" -> "Frequency of Sending SMS Messages".
+In the SMS Console, you can set or modify the frequency limit in the "Project Configuration" -> "Basic Configuration" -> "Frequency of Sending SMS Messages".
 ![](//mc.qcloudimg.com/static/img/7ee8dd6892d2fbb59ffe8959279fa440/image.png)
 
 ## 2 Add Alarm Contact
-You can add alarm contact in "Application Configuration -> Notification and Alarm -> Add Alarm Contact" page in the SMS console. When added, the alarm contact can receive notifications about approvals for SMS signature and content template as well as alarm for frequency limit in a timely manner:
+You can add alarm contact in "Project Configuration -> Notification and Alarm -> Add Alarm Contact" page in the SMS console. When added, the alarm contact can receive notifications about approvals for SMS signature and content template as well as alarm for frequency limit in a timely manner:
 (Note: You are strongly recommended to use this feature so that you can receive an alarm when the frequency limit is reached, thus minimizing the financial loss caused by malicious call of SMS API by others.)
 ![](//mc.qcloudimg.com/static/img/eb48d970c482cd638c528e9f95e3ab24/image.png)
 

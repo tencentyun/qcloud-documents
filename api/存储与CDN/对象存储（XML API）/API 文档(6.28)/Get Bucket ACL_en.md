@@ -1,5 +1,5 @@
 ## Description
-Get Bucket ACL API is used to obtain ACL (access control list) of Bucket, that is, the access permission control list of Bucket. Only the Bucket owner has permission to use this API.
+GET Bucket acl API is used to obtain ACL (access control list) of Bucket, that is, the access permission control list of Bucket. Only the Bucket owner has permission to use this API.
 
 ## Request
 

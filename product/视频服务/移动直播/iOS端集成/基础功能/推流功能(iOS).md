@@ -227,7 +227,7 @@ _config.watermarkPos = (CGPoint){10, 10};
 ```
 
 - **9.3) 设置App后台（短暂）运行**
-App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
+App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推流了，观众端就会看到直播间进入黑屏或者冻屏状态。我们可以使用下面的代码让 App 在切到后台后还可再跑几分钟，至少足够主播接听一个短暂的私人电话。
 
 ```objectivec
 //先注册后退消息通知
@@ -242,7 +242,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 }
 ```
 - **9.4) 切后台处理**
-推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
+在上一步的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后 SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
 ```
 //切后台处理： 在 8.2 的基础上补一句
@@ -255,7 +255,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 ```
 
 - **9.5) 切前台处理**
- 等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
+ 等待 App 切回前台之后 （在 handleEnterForeground 里），调用 TXLivePush 的 resumePush 接口函数，SDK 会恢复对摄像头画面的采集。要注意的是：由于 pausePush 和 resumePush 跟 SDK 内部状态息息相关，必须要 <font color='red'> 配对使用 </font>，否则会引入很多不必要的 BUG。
  
 ```objectivec
 //切前台处理

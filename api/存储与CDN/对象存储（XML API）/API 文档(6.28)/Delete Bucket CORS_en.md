@@ -1,5 +1,5 @@
 ## Description
-Delete Bucket CORS API request is used to delete configuration information of cross-domain access.
+DELETE Bucket cors API request is used to delete configuration information of cross-domain access.
 ## Request
 
 Syntax:

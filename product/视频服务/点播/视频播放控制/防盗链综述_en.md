@@ -3,7 +3,7 @@ Tencent Cloud VOD provides hotlink protection to control the video playback perm
 
 ## Type and Capability
 
-![图片描述](https://mc.qcloudimg.com/static/img/25a737ebfe83cd06104dfb70aedce42d/image.png)
+![](https://mc.qcloudimg.com/static/img/25a737ebfe83cd06104dfb70aedce42d/image.png)
 
 Tencent Cloud VOD hotlink protection is classified into Referer hotlink protection and Key hotlink protection.
 

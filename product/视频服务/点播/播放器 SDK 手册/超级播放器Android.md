@@ -10,7 +10,7 @@
 
 2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
 
-3. Demo的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在github获取，也可如Demo在build.gradle示例配置 
+3. Demo 的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在 github 获取，也可如 Demo 在 build.gradle示例配置 
 ```
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
@@ -50,7 +50,7 @@ fileId在一般是在视频上传后，由服务器返回：
 
 如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
 
-![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+![](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 
 SDK在请求成功后，将视频信息将以事件的形式通知到上层
 

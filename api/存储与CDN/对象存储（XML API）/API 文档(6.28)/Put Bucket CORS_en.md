@@ -1,8 +1,8 @@
 ## Description
-Put Bucket CORS API is used to set cross-origin resource sharing permission for your Bucket. You can do so by importing configuration files of XML format (file size limit: 64 KB). By default, the Bucket owner has the permission of this API and can grant it to others.
+PUT Bucket cors API is used to set cross-origin resource sharing permission for your Bucket. You can do so by importing configuration files of XML format (file size limit: 64 KB). By default, the Bucket owner has the permission of this API and can grant it to others.
 
 >**Note:**
-> The rule permissions created via Put Bucket CORS override all current rules instead of adding a permission rule.
+> The rule permissions created via PUT Bucket cors override all current rules instead of adding a permission rule.
 
 ## Request
 

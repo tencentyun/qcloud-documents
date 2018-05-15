@@ -118,7 +118,7 @@ umount -l /mnt
 3. -odel_cache
 默认情况下，cosfs 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
 
-4. -noxattr
+4. -onoxattr
 禁用get/setxattr功能， 当前版本的cosfs不支持该功能，如果本地文件所在磁盘在挂载的时候使用了use_xattr选项，可能会导致mv文件到 bucket 失败。
 
 ## 注意事项 

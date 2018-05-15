@@ -1,22 +1,12 @@
 Welcome to [Tencent Cloud Game Multimedia Engine (GME) SDK](https://cloud.tencent.com/product/tmg?idx=1). This document provides guidance on the access to Tencent Cloud GME SDK, which is applicable to all platforms, so that developers can easily access Tencent Cloud GME.
 
 ## Real-Time Audio-Video Service Activation
-### 1. Register a Tencent Cloud account.
-If you do not have a Tencent Cloud account, you need to register one. For more information about the registration procedure, see the [Tencent Cloud Registration](https://cloud.tencent.com/document/product/378/9603).
-If you have a Tencent Cloud account, go to the next step.
 
-### 2. Log in to GME Console.
-Open the [home page of the Tencent Cloud official website](https://cloud.tencent.com/). In the top menu bar, click **Products**, and then choose **Video Services** -> **Game Multimedia Engine** to open the [GME introduction page](https://cloud.tencent.com/product/tmg?idx=1).  
-![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
-
-Click **Use Now** on the [GME introduction page](https://cloud.tencent.com/product/tmg?idx=1) and log in to [GME Console](https://console.cloud.tencent.com/gme) with your Tencent Cloud account.
-
-
-### 3. Create an application.
+### 1. Create an application.
 After the login, if you do not have any applications, you need to create one. Click **Create Application**. In the pop-up dialog box, enter the information about your new application, select services as required, and click **OK**. After the application is created, it is displayed on the application list.
 ![](https://main.qcloudimg.com/raw/5f71f6d402a06d5303a77f3b63adc53e.png)
 
-### 4. Finish the application's basic settings.
+### 2. Finish the application's basic settings.
 Click **App Basic Settings**. On the displayed tab page, click **Edit** beside **Account System Integration** to finish the settings.
 ![](https://main.qcloudimg.com/raw/fdcf7504a15a15cfebe9e558e28f9b46.png)
 Select an integration mode as required, add a RestApi user account, and click **Save**.

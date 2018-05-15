@@ -1,5 +1,5 @@
 ## Description
-Delete Multiple Object API request is used for batch deletion of files in specific Bucket. A maximum of 1,000 Objects are allowed to be deleted in batches at a time. COS provides two modes for returned results: Verbose and Quiet. Verbose mode returns the result of deletion of each Object, while Quiet mode only returns the information of the Objects with an error.
+DELETE Multiple Object API request is used for batch deletion of files in specific Bucket. A maximum of 1,000 Objects are allowed to be deleted in batches at a time. COS provides two modes for returned results: Verbose and Quiet. Verbose mode returns the result of deletion of each Object, while Quiet mode only returns the information of the Objects with an error.
 ><font color="#0000cc">**Note:** </font>
 >This request must be used with Content-MD5 to verify the integrity of Body.
 
@@ -70,10 +70,10 @@ Details are described below:
 
 | Node Name (Keyword) | Parent Node | Description | Type | Required |
 |:---|:---|:---|:---|:---|
-| Delete | None | Indicate the method by which the result is returned for the deletion and the target Object | Container | Yes |
-| Quiet | Delete | Boolean. Indicate whether the Quiet mode is enabled. <br> True means Quiet mode is enabled, and False means Verbose mode is enabled. The default is False | Boolean | No |
-| Object |Delete | Provide the information of each target Object to be deleted | Container | Yes |
-| Key | Delete.Object | Name of target Object file | String | Yes |
+| DELETE | None | Indicate the method by which the result is returned for the deletion and the target Object | Container | Yes |
+| Quiet | DELETE | Boolean. Indicate whether the Quiet mode is enabled. <br> True means Quiet mode is enabled, and False means Verbose mode is enabled. The default is False | Boolean | No |
+| Object |DELETE | Provide the information of each target Object to be deleted | Container | Yes |
+| Key | DELETE.Object | Name of target Object file | String | Yes |
 
 
 ## Response
