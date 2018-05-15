@@ -39,6 +39,6 @@ To use the Tencent Cloud object storage APIs, you need to follow these steps fir
 
 ### JSON APIs
 
-[JSON API](https://www.qcloud.com/document/product/436/6052) is the API provided by Tencent Cloud COS service for users to access COS before launching the XML API, and the upload domain name is [Region].file.myqcloud.com. JSON APIs and standard XML APIs have the same underlying infrastructure, and thus data interoperability is possible and they can be cross-used. However, they're not compatible with each other and have different domains.
+[JSON API](https://cloud.tencent.com/document/product/436/6052) is the API provided by Tencent Cloud COS service for users to access COS before launching the XML API, and the upload domain name is [Region].file.myqcloud.com. JSON APIs and standard XML APIs have the same underlying infrastructure, and thus data interoperability is possible and they can be cross-used. However, they're not compatible with each other and have different domains.
 After the XML API service of Tencent Cloud COS is launched, it is recommended that you use the XML API interface. JSON APIs will be kept in a state of maintenance, and they will be available for use but no new features will be added.
 
