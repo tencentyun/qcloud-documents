@@ -21,7 +21,7 @@ width:550px;
 | SecretKey	| The project identity key owned by a developer |
 | Bucket|	 The container used to store data in COS |
 | Object |	 The specific file stored in COS, which is the basic entity that is stored |
-| Region|	The region information in domain name. For enumerated values, please see the document [Available Regions](https://www.qcloud.com/document/product/436/6224), such as: ap-beijing, ap-hongkong, eu-frankfurt, etc. |
+| Region|	The region information in domain name. For enumerated values, please see the document [Available Regions](https://cloud.tencent.com/document/product/436/6224), such as: ap-beijing, ap-hongkong, eu-frankfurt, etc. |
 | ACL |	Access Control List, which refers to the access control information list of specified Buckets or Objects |
 | CORS | Cross-Origin Resource Sharing, <br>which refers to the HTTP request for resources from a different domain |
 | Multipart Uploads | Refers to a multipart upload mode provided by Tencent Cloud COS service for uploading files |
