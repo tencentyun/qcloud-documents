@@ -19,7 +19,7 @@
 | 名词          | 含义                                       |
 | ----------- | ---------------------------------------- |
 | appid       | 商户在腾讯云注册后，会产生一个在腾讯云的唯一标示，称为 appid         |
-| sdkappid    | 商户可以在互动直播控制台创建多个应用，以对应自己不同的 App。每个应用都会有一个 sdkappid 来标示 |
+| sdkappid    | 商户可以在实时音视频控制台创建多个应用，以对应自己不同的 App。每个应用都会有一个 sdkappid 来标示 |
 | accounttype | 每个sdkappid在账户体系页面都会有一个accounttype参数，登录的时候会用到 |
 
 > appid 是 125xxxxxxx 的数字，可以在[ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)的顶部获取。
@@ -47,8 +47,8 @@
 
 ## 接入准备工作
 
-1. 注册腾讯云帐号，申请开通互动直播业务；
-2. 在互动直播页面，新建应用。得到 sdkappid 和 accounttype；
+1. 注册腾讯云帐号，申请开通实时音视频业务；
+2. 在实时音视频页面，新建应用。得到 sdkappid 和 accounttype；
 3. 参考[ usersig 计算文档 ](https://cloud.tencent.com/document/product/268/7656)，计算出测试用户名的 usersig；
 4. 如果所在网络有防火墙，请确定有开放以下端口：
 
