@@ -30,6 +30,6 @@ TI-ONE 系列产品目前开放免费试用，您可以通过点击“申请试�
 
 #### 第 5 步：客户验收
 
-审核通过后用户可以点击以下链接访问 [TI-ONE 服务](https://tio.cloud.tencent.com)。
+审核通过后用户即可访问 [TI-ONE 服务](https://tio.cloud.tencent.com)。
 
 您进行平台测试并用报告确认，完成验收。
