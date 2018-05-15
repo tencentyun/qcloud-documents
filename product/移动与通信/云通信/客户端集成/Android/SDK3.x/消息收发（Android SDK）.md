@@ -98,6 +98,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 图片消息由 `TIMImageElem` 定义。它是 `TIMElem` 的一个子类，也就是说图片也是消息的一种内容。 发送图片的过程，就是将 `TIMImageElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。
 
+> **注意：**
+> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+
 **`TIMImageElem` 成员方法如下：**
 
 ```
@@ -305,6 +308,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > **注意：**
 > - 一条消息只能有一个语音  `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > - 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
+> - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 
 **`TIMSoundElem` 成员方法如下：**
 
@@ -475,6 +479,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > **注意：**
 > - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
+> - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 
 **`TIMFileElem` 成员方法如下：**
 
