@@ -47,7 +47,7 @@
 
 ## 接入准备工作
 
-1. 注册腾讯云帐号，申请开通实时音视频业务；
+1. 请务必参考[开通服务](https://cloud.tencent.com/document/product/647/17195)的指引，注册腾讯云帐号，申请开通实时音视频业务并**提交白名单申请**；
 2. 在实时音视频页面，新建应用。得到 sdkappid 和 accounttype；
 3. 参考[ usersig 计算文档 ](https://cloud.tencent.com/document/product/268/7656)，计算出测试用户名的 usersig；
 4. 如果所在网络有防火墙，请确定有开放以下端口：
