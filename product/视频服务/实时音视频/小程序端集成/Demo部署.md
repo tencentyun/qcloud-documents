@@ -132,9 +132,9 @@ public_key 也采用同样的方式编辑，供后续使用。
 用 Chrome 浏览器打开 [体验地址](https://sxb.qcloud.com/miniApp/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
 ![](https://main.qcloudimg.com/raw/81edf044e0a40ccfd4794b91185f1f82.jpg)
 
-### step1  源码调试
+### 源码调试
 #### Client
-[github地址](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc)。
+[github地址](https://github.com/TencentVideoCloudMLVBDev/webrtc_web_source)。
 > 该demo只能运行于支持 WebRTC 的浏览器中：
   
 | 目录 | 说明 | 
