@@ -1,10 +1,10 @@
-﻿## Feature Overview
+##  Feature Overview
 
 Super Player is an **open source**, `TXVodPlayer`-based solution including video information pulling, switching between landscape/portrait modes, definition selection, on-screen comment and other features. With Super Player, you can provide a playback experience comparable to any popular video App in a short time.
 
 ![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
 
-## Integration Preparations
+##  Integration Preparations
 
 1. Download SDK + Demo package from [Android](https://cloud.tencent.com/document/product/454/7873#Android).
 
@@ -15,8 +15,8 @@ Super Player is an **open source**, `TXVodPlayer`-based solution including video
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
 
-## Creating a Player
-
+##  Creating a Player
+ 
 The main type of the super player is `SuperVideoPlayer`. You need to create it first.
 
 ```objective-c
@@ -24,7 +24,7 @@ mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
 mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
 ```
 
-## Obtaining Video Information
+##  Obtaining Video Information
 
 Unlike playback of an ordinary URL, fileId is required to obtain video information.
 
@@ -83,7 +83,7 @@ private ITXVodPlayListener mGetVodInfoListener = new ITXVodPlayListener() {
 ```
 
 
-## Switching Between Videos
+##  Switching Between Videos
 
 You can call `setPlayUrl` to play another video in the player
 
@@ -95,7 +95,7 @@ if (mSuperVideoPlayer != null) {
 }
 ```
 
-## Removing the Player
+##  Removing the Player
 
 When the player is not needed, call "onDestroy" to reset the player's internal status to prevent interference to the next playback.
 

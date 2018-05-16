@@ -38,9 +38,9 @@
 | [WebRTCAPI.closeAudio](#webrtcapi.closeAudio)     | 推流期间暂时关闭音频采集 |
 | [WebRTCAPI.changeSpearRole](#webrtcapi.changeSpearRole)     | 切换音视频参数设定 |
 | [WebRTCAPI.getVideoDevices](#webrtcapi.getVideoDevices)     | 枚举视频采集设备 |
-| [WebRTCAPI.getAudioDevices](#webrtcapi.getAudioDevices)     | 枚举视频采集设备 |
+| [WebRTCAPI.getAudioDevices](#webrtcapi.getAudioDevices)     | 枚举音频采集设备 |
 | [WebRTCAPI.chooseVideoDevice](#webrtcapi.chooseVideoDevice)     | 选择视频采集设备 |
-| [WebRTCAPI.chooseAudioDevice](#webrtcapi.chooseAudioDevice)     | 选择视频采集设备 |
+| [WebRTCAPI.chooseAudioDevice](#webrtcapi.chooseAudioDevice)     | 选择音频采集设备 |
 
 #### 事件通知
 > 以下事件通知
