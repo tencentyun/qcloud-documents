@@ -68,23 +68,24 @@ PUT /?cors HTTP/1.1
 
 节点名称（关键字）|父节点|描述|类型|必选
 ---|---|---|---|---
-CORSConfiguration|无|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是
+|CORSConfiguration|无|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是|
 
 Container 节点 CORSConfiguration 的内容：
 
 节点名称（关键字）|父节点|描述|类型|必选
 ---|---|---|---|---
-CORSRule|CORSConfiguration|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是
+|CORSRule|CORSConfiguration|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是|
+
 Container 节点 CORSRule 的内容：
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-ID|CORSConfiguration.CORSRule|配置规则的 ID，可选填|string|是
-AllowedOrigin|CORSConfiguration.CORSRule|允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com|strings|是
-AllowedMethod|CORSConfiguration.CORSRule|允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE|strings|是
-AllowedHeader|CORSConfiguration.CORSRule|在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *|strings|是
-MaxAgeSeconds|CORSConfiguration.CORSRule|设置 OPTIONS 请求得到结果的有效期|integer|是
-ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自服务器端的自定义头部信息|strings|是
+|节点名称（关键字）|父节点|描述|类型|必选|
+|---|---|---|---|---|
+|ID|CORSConfiguration.CORSRule|配置规则的 ID，可选填|string|是|
+|AllowedOrigin|CORSConfiguration.CORSRule|允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com|strings|是|
+|AllowedMethod|CORSConfiguration.CORSRule|允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE|strings|是|
+|AllowedHeader|CORSConfiguration.CORSRule|在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *|strings|是|
+|MaxAgeSeconds|CORSConfiguration.CORSRule|设置 OPTIONS 请求得到结果的有效期|integer|是|
+|ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自服务器端的自定义头部信息|strings|是|
 
 
 ## 响应
@@ -104,11 +105,10 @@ ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自�
 
 ### 错误码
 
-错误码|描述|http状态码|
----|---|---|---|
-SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
-NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-
+|错误码|描述|http状态码|
+|---|---|---|---|
+|SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
+|NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
 
 ## 实际案例
 
