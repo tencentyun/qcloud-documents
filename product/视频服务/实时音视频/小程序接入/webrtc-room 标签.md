@@ -26,7 +26,7 @@
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
-| sdkAppID    | String  | ‘’                      | 必要，开通 IM 服务所获取到的 AppID       |
+| sdkAppID    | String  | ‘’                      | 必要，开通实时音视频服务创建应用后分配的sdkAppID       |
 | userID     | String  | ''                   |必要，用户 ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
 | roomID    | Number  | ‘’                      | 必要，房间号                           |
@@ -37,6 +37,8 @@
 | bindRoomEvent     | function |              | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
 | enableIM     | Boolean | true, false             | 可选，默认false   |
 | bindIMEvent     | function |             | 当IM开启时必要，监听 IM 返回的事件   |
+
+> 小程序实时音视频与WebRTC互通只需要保证两端的 sdkAppID 与 roomID 一致
 
 ### 操作接口
 
