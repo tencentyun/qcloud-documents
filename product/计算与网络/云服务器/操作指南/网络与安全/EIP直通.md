@@ -17,29 +17,31 @@
 
 2. 脚本下载到本地后，上传至需要进行 EIP 直通的云主机中。
 
-### 二、开启 EIP 直通
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
-
-2. 在左侧导航窗格中，点击【弹性公网IP】。
-
-3. 在选择列表【操作】一列中，单击【EIP 直通】按钮开通即可。
-
-### 三、运行 EIP 直通脚本
+### 二、运行 EIP 直通脚本
 1. 登录到需要 EIP 直通的 CVM 云主机。
 
 2. 运行 EIP 直通脚本。具体方法：
 
  - Linux 操作系统 CentOS 下：
 ```
-eip_direct.sh install XX.XX.XX.XX 
+eip_linux.sh install XX.XX.XX.XX 
 ```
 其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
 
  - Windows 操作系统下：
 ```
-eip.bat XX.XX.XX.XX
+eip_windows.bat XX.XX.XX.XX
 ```
 其中，`XX.XX.XX.XX`为 EIP 地址。
+
+### 三、开启 EIP 直通
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
+
+2. 在左侧导航窗格中，点击【弹性公网IP】。
+
+3. 在选择列表【操作】一列中，单击【EIP 直通】按钮开通即可。
+
+
 
 > **注意：**
 - 脚本仅支持 eth0，暂不支持辅助网卡。
