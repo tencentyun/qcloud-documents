@@ -4,7 +4,7 @@
 
 ## 准备工作
 * 您首先需要一个 iOS 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
-* 其次您需要一个提供临时密钥的服务，请参考我们提供的 [快速搭建临时密钥服务](快速搭建临时密钥服务)。
+* 其次您需要一个提供临时密钥的服务，请参考我们提供的 [快速搭建临时密钥服务](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E5%AD%98%E5%82%A8%20Storage%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/%E6%9C%8D%E5%8A%A1%E5%99%A8SDK/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%B4%E6%97%B6%E5%AF%86%E9%92%A5%E6%9C%8D%E5%8A%A1.md)。
 
 
 >**注意：**
@@ -167,81 +167,9 @@ Swift 代码示例：
 TACApplication.configurate();
 ~~~
 
-### 配置 TACStorage 的使用权限。
+### 配置 TACStorage 的使用权限
 
-请先参考[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
-
-TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要对请求进行权限校验，来确保对应的请求是否有权限访问对应的资源。因而您需要在您的代码中实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
-
-Objective-C 代码示例：
-~~~
-@interface TACStorageDemoViewController () <QCloudCredentailFenceQueueDelegate>
-@end
-
-@implementation  TACStorageDemoViewController
-- (void) fenceQueue:(QCloudCredentailFenceQueue *)queue requestCreatorWithContinue:(QCloudCredentailFenceQueueContinue)continueBlock
-{
-    QCloudCredential* crendential = [[QCloudCredential alloc] init];
-
-    // 在调试阶段您可以通过直接设置secretID和secretKey来测试服务，但是强烈不建议在线上环境使用该方式！！！
-#ifdef ! DEBUG
-    QCloudCredential* crendential = [[QCloudCredential alloc] init];
-    crendential.secretID = <#secretID#>;
-    crendential.secretKey = <#secretKey#>;
-    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
-    continueBlock(creator, nil);
-#else
-
-    //您需要配置自己的服务器，来获取CAM临时密钥。并通过临时密钥来创建权限Creator。具体可以参考：[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068)
-    void(^NetworkCall)(id response, NSError* error) = ^(id response, NSError* error) {
-        if (error) {
-            continueBlock(nil, error);
-        } else {
-            QCloudCredential* crendential = [[QCloudCredential alloc] init];
-            crendential.secretID = <#secretID#>;
-            crendential.secretKey = <#secretKey#>;
-            crendential.experationDate = nil;
-            crendential.token = ;
-            QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
-            continueBlock(creator, nil);
-        }
-
-    };
-    <#do network with callback:NetworkCall #>
-#endif
-}
-@end
-~~~
-
-Swift 代码示例：
-~~~
-class TACStorageDemoViewController: UIViewController ,QCloudCredentailFenceQueueDelegate{
-    func fenceQueue(_ queue: QCloudCredentailFenceQueue!, requestCreatorWithContinue continueBlock: QCloudCredentailFenceQueueContinue!) {
-    // 在调试阶段您可以通过直接设置secretID和secretKey来测试服务，但是强烈不建议在线上环境使用该方式！！！
-#if DEBUG
-        let crendential = QCloudCredential.init()
-        crendential.secretID = <#secretID#>
-        crendential.secretKey = <#secretKey#>
-        let creator = QCloudAuthentationV5Creator.init(credential: crendential)
-        continueBlock(creator,nil)
-#else
-//您需要配置自己的服务器，来获取CAM临时密钥。并通过临时密钥来创建权限Creator。具体可以参考：[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068)
-    var NetworkCall:(AnyObject,Error)->Void = {(response,NSError)->Void in
-        if error != nil {
-            continueBlock(nil,error)
-        }else{
-            let crendential = QCloudCredential.init()
-            crendential.secretID = <#secretID#>
-            crendential.secretKey = <#secretKey#>
-            crendential.token = ""
-            let creator = QCloudAuthentationV5Creator.init(credential: crendential)
-            continueBlock(creator,nil)
-        }
-         <#do network with callback:NetworkCall #>
-    }
-#endif
-    }
-~~~
+Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何在 SDK 里配置密钥服务提供者，请参见 [iOS 配置密钥服务](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E5%AD%98%E5%82%A8%20Storage%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/iOS%20%E6%96%87%E6%A1%A3/%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5%E6%9C%8D%E5%8A%A1.md)。
 
 ## 启动服务
 

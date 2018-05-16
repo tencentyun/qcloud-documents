@@ -1,11 +1,11 @@
-﻿
+
 ## 1.接口描述
 
 - **接口**
   - **vod_simple_concat**：用于将录制的切片文件拼接成一个完成的视频文件。
 
 - **地址**
-  - API调用地址为： http://<font color='red'>fcgi.</font>video.qcloud.com/common_access
+  - API调用地址为：` http://<font color='red'>fcgi.</font>video.qcloud.com/common_access`
 
 
 ## 2.输入参数
