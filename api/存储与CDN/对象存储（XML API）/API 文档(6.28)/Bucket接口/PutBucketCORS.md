@@ -106,7 +106,7 @@ Container 节点 CORSRule 的内容：
 ### 错误码
 
 |错误码|描述|http状态码|
-|---|---|---|---|
+|---|---|---|
 |SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
 |NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
 
