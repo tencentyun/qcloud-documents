@@ -50,8 +50,8 @@ mysql -h hostname -u username -p
 ![](//mc.qcloudimg.com/static/img/248ca91c3b13e3f249c752f43019ed1a/image.png)
   2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在初始化选项中配置的 root 账户的密码，点击【登录】来登录。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
-  3. 在数据管理页面可以查看实例的状态和基本信息。点击【返回PMA】访问数据库。
-![](//mc.qcloudimg.com/static/img/ceab808b44adf5feba818e70a079b83e/image.png)
+  3. 在数据管理页面可以查看实例的状态和基本信息。点击【前往PMA】访问数据库。
+![](https://main.qcloudimg.com/raw/fa71f75c683647af62bb8f9e2820282e.png)
   4. 您现在已经通过 phpMyAdmin 成功连接到 MySQL 数据库，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/c8f60117f5aec772663d3c7890c96b1e/image.png)
 

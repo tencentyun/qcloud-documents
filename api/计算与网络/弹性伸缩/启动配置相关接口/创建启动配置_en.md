@@ -76,7 +76,7 @@ The following error codes only include the business logic error codes for this A
 
 
 ## 5. Example
-###Input
+### Input
 
 ```
 https://scaling.api.qcloud.com/v2/index.php?
@@ -93,7 +93,7 @@ https://scaling.api.qcloud.com/v2/index.php?
 &projectId=102135
 &cvmType=11
 ```
-###Output:
+### Output:
 ```
 {
     "code":"0",

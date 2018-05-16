@@ -8,11 +8,17 @@
 
 ### step1. 开通云服务
 
-在腾讯云注册账号，开通 [互动直播](https://console.cloud.tencent.com/ilvb) 服务，创建一个新的应用，可以获得 SDK Appid 信息，也就是下图中红框标注的位置。
+小程序跟 WebRTC 的互通是基于实时音视频（[TRTC](https://cloud.tencent.com/product/trtc)）服务实现的，需要开通该服务。
 
-![](https://main.qcloudimg.com/raw/b376d943ae028b87eaa19a404f66334a.png)
+- 进入实时音视频[管理控制台](https://console.cloud.tencent.com/rav)，如果服务还没有开通，点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
 
-> 小程序跟WebRTC的互通是使用互动直播服务“牵线搭桥”的，如果您之前使用的是直播服务，需要再开通一下互动直播服务。
+- 服务开通后，进入[管理控制台](https://console.cloud.tencent.com/rav) 创建实时音视频应用，点击【确定】按钮即可。
+![](https://main.qcloudimg.com/raw/20d0adeadf23251f857571a65a8dd569.png)
+
+- 从实时音视频控制台获取`sdkAppID、accountType、privateKey`，在 step4 中会用的：
+![](https://main.qcloudimg.com/raw/9a5f341883f911cf9b65b9b5487f2f75.png)
+
+
 
 ### step2. 生成key信息
 
@@ -24,11 +30,11 @@
 | userid   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
 | usersig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（PHP / JAVA） |
 | roomid | 12345  | 房间号 | 可以由您的服务器指定 |
-| privMapEncrypt | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
+| privateMapKey | 加密字符串  | 进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（PHP / JAVA）|
 
-下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 usersig 和 privMapEncrypt 的示例代码。
+下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 usersig 和 privateMapKey 的示例代码。
 
->生成 usersig 和 privMapEncrypt 的签名算法是 **ECDSA-SHA256**。
+>生成 usersig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**。
 
 ### step3. 获取roomsig
 小程序端可以通过如下 url 向腾讯云请求 roomsig，roomsig 是小程序跟 WebRTC 互通必须的关键信息，请求 roomsig 所使用的关键信息已经在 step2 中做了详细描述 （这里的  **identifier** 就是上文中的 **userid** ）: 

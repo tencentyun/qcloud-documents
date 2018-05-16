@@ -87,37 +87,9 @@ http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab574473981559
 </video>
 
 ## 内网穿透
-很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助：
+很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助。阅读 [DOC](https://cloud.tencent.com/document/product/454/17139) 了解如何处理这个问题。
 
-![](https://main.qcloudimg.com/raw/22550909ad08fbf301390a23220eb501.png)
-
-### Step1: 搭建音视频代理服务器（用于透传数据）
-
-采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/NATConfig.sh">NATConfig.sh</a>。打开文件和修改下图中IP的值，指定代理服务器接收网卡的IP，以及腾讯云推流和拉流服务器的地址，然后执行脚本，完成配置。
-
-![](https://main.qcloudimg.com/raw/c6e94f62213899f4b7a3e3c111e8cac5.png)
+![](https://main.qcloudimg.com/raw/0411610edea069af3fefbcbb09464bf1.png)
 
 
-### Step2: 搭建Socks5代理服务器（用于透传信令）
-
-Socks5代理服务器，好比在内网机器和腾讯云服务器之间搭建了一座桥梁，网络数据包就是桥上的行人，走过桥，河流两边就可以说话和交流。通过下载和执行我们提供的Bash脚本，绑定接收代理的网卡和出口网卡的端口号，来搭建Socks5代理服务器。
-
-如果您的代理服务器是Ubuntu，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_Ubuntu.sh">Socks5Config_Ubuntu.sh</a>，执行脚本，完成配置Socks5。
-
-如果您的代理服务器是CentOS，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_CentOS.sh">Socks5Config_CentOS.sh</a>，执行脚本，完成配置Socks5。
-
-
-### Step3: 使用EXEStarter.js设置代理服务器
-
-设置Web页面的代理参数，给EXEStarter.js的 createExeAsRoom 接口传入 proxy_ip 和 proxy_port 参数，分别指定代理服务器的IP和端口。
-
-```javascript
-EXEStarter.createExeAsRoom({
-    //...
-    custom: {
-     	proxy_ip: "x.x.x.x", 	// 代理IP，可以不设置，默认不开启代理
-     	proxy_port: 1080,	    // 代理端口，可以不设置，默认不开启代理
-    }
-});
-```
 
