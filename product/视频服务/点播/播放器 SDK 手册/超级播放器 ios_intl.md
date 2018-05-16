@@ -1,11 +1,11 @@
-﻿## Feature Overview
+##  Feature Overview
 
 Super Player is an **open source**, `TXVodPlayer`-based solution including video information pulling, switching between landscape/portrait modes, definition selection, on-screen comment and other features. With Super Player, you can provide a playback experience comparable to any popular video App in a short time.
 
 
 ![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
 
-## Integration Preparations
+##  Integration Preparations
 
 1. Download SDK + Demo package from ([iOS](https://cloud.tencent.com/document/product/454/7873#iOS)).
 
@@ -14,7 +14,7 @@ Super Player is an **open source**, `TXVodPlayer`-based solution including video
  - SDWebImage
 
 
-## Creating a Player
+##  Creating a Player
 
 The main type of the super player is `ZFPlayerView`. You need to create and add it to the desired parent View.
 
@@ -30,7 +30,7 @@ _playerView.delegate = self;
 [self.playerView autoPlayTheVideo];
 ```
 
-## Obtaining Video Information
+##  Obtaining Video Information
 
 Unlike playback of an ordinary URL, fileId is required to obtain video information.
 
@@ -72,7 +72,7 @@ If the request is successful, SDK will inform the upper layer of the video infor
 ```
 
 
-## Switching Between Videos
+##  Switching Between Videos
 
 To play another video, you need to recreate a `playerModel` and call resetToPlayNewVideo.
 
@@ -84,7 +84,7 @@ _playerModel.placeholderImage = [UIImage imageWithData:[NSData dataWithContentsO
 
 [_playerView resetToPlayNewVideo:self.playerModel];
 ```
-### Removing the Player
+###  Removing the Player
 
 When the player is not needed, call "resetPlayer" to reset the player's internal status to prevent interference to the next playback.
 

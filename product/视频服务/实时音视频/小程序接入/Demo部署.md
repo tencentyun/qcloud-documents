@@ -169,30 +169,3 @@ public_key 也采用同样的方式编辑，供后续使用。
 #### step3: 对接小程序端代码
 微信 6.6.6 版本中开始支持 WebRTC 互通，参考 [**&lt;webrtc-room&gt;**](https://cloud.tencent.com/document/product/454/16914) 了解如何快速实现一个支持 WebRTC 视频通话的小程序。
 
-
-
-## 常见问题 FAQ
-#### 1. 运行出错如何排查？
-- 请修改`wxlite/config.js`中的url，使用默认的官方demo后台：`https://room.qcloud.com` ，直接运行小程序
-- 请重新解压下载的demo直接运行小程序，默认就是官方demo后台
-- 请返回第二步检查开通的小程序类目是否正确，推拉流标签在小程序控制台是否开启
-- 使用官方demo后台运行可以，请参考此文档再重新部署一遍
-- 依然不行可以提工单或客服电话（400-9100-100）联系我们
-
-#### 2. 运行小程序进入多人音视频看不到画面?
-- 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
-- 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
-- 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
-- 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
-
-#### 3. live-pusher、live-player标签使用及错误码参考
-- [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html)
-- [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html)
-- [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html)
-- [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
-
-#### 4. 如果需要上线或者部署正式环境怎么办？
-- 请申请域名并做备案
-- 请将服务端代码部署到申请的服务器上
-- 请将业务server域名、RoomService域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：`https://webim.tim.qq.com` ，RoomService域名为：`https://room.qcloud.com`
- 
