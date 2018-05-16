@@ -1,6 +1,6 @@
 ### 获取 SDK
 
-[Python SDK]()
+[Python SDK](http://tac-server-sdks-1253960454.file.myqcloud.com/storage_sign_python_sdk.zip)
 
 ### 配置您的信息
 
