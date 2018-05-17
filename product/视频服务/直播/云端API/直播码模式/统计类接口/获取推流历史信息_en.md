@@ -5,7 +5,7 @@
   - **Get_LivePushStatHistory**: This API is used to obtain the history of push.
 
 - **URL**
-  - URL for calling API: http://statcgi.video.qcloud.com/common_access
+  - URL for calling API: `http://statcgi.video.qcloud.com/common_access`
 
 - **Note**
   - Can be used to obtain the push information for specified time period.
