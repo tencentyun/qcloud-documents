@@ -179,7 +179,7 @@ table td {
     <th width="115px">功能特性</th>
     <th width="150px">直播精简版</th>
     <th width="150px">独立播放器版</th>
-    <th width="150px">短视频功能板</th>
+    <th width="150px">短视频功能版</th>
     <th width="150px">全功能专业版</th>
     <th width="150px">商用企业版</th>
   </tr>
