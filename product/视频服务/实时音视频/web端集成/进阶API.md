@@ -134,7 +134,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | ---------------- | ------- | ---------------------------------------- |
 | **roomid**         | integer | 房间 id          | 必填           |
 | **privateMapKey**  | string  | 房间权限key，相当于进入指定房间roomID的钥匙 （如有疑义请看[ 集成SDK ](/document/product/647/16863)）                     | 必填           |
-| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/268/10620)                    | 必填           |
+| **role**      | string | 切换画面设定的用户角色[ 控制台 - SPEAR引擎配置 ](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)                    | 必填           |
 
 
 #### 代码示例
