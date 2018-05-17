@@ -102,7 +102,7 @@ bigFileExecutorNum=8
 entireFileMd5Attached=on
 daemonMode=off
 daemonModeInterVal=60
-executeTimeWindow=0,24
+executeTimeWindow=00:00,24:00
 </pre>
 
 | 名称 | 描述 |默认值|
@@ -121,7 +121,7 @@ executeTimeWindow=0,24
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
 | daemonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
-| executeTimeWindow|执行时间窗口，时刻粒度为小时，该参数定义迁移工具每天执行的时间段。例如：<br>参数 3,21 表示在每天的 3:00 至 21:00 间执行迁移，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度|0,24|
+| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数03:30,21:00, 表示在凌晨03:30到晚上21:00之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -133,12 +133,14 @@ executeTimeWindow=0,24
 [migrateLocal]
 localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
 exeludes=
+ignoreModifiedTimeLessThanSeconds=
 </pre>
 
 | 配置项 | 描述 |
 | ------| ------ |
 |localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
+|ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒, 默认不设置, 表示不根据lastmodified时间进行筛选, 适用于客户在更新文件的同时又在运行迁移工具, 并要求不把正在更新的文件迁移上传到COS, 比如设置为300, 表示只上传更新了5分钟以上的文件|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
 
@@ -183,7 +185,7 @@ proxyPort=
 |bucket| AWS 对象存储 Bucket 名称|
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
-|endPoint|AWS 的 endpoint 地址|
+|endPoint|AWS 的 endpoint 地址,  必须使用域名, 不能使用region|
 |prefix|要迁移的路径的前缀, 如果是迁移 Bucket下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
