@@ -20,5 +20,4 @@
 - 转储服务会占用一个group id
 - 文件名为存放的timestamp，存放路径为instance id/topic id
 - 文件内容是ckafka消息里的value用string序列化拼接而成
-
 - 当前CKafka日志服务`免费`，COS存储的免费额度按照[文档](https://www.qcloud.com/document/product/436/6240)中所示，提供50G免费存储空间。如您的日志量级较大，请及时清理数据。
