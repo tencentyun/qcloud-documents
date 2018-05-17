@@ -1,20 +1,12 @@
-## 云市场服务商子账号设置流程  
-       
-#### 尊敬的服务商，您好：
+### 设置流程
 云市场的两个控制台现已支持子用户进行管理，具体的操作方式如下：
-1、在CAM控制台建立子用户，新建或分配一个用户组，具体操作方式参考：https://cloud.tencent.com/document/product/598/13674 ，此时创建好的子用户登录控制台后，没有权限；
-
+1. 在 CAM 控制台建立子用户，新建或分配一个用户组，具体操作方式参考请单击 [查看](https://cloud.tencent.com/document/product/598/13674) ，此时创建好的子用户登录控制台后，没有权限。
 ![](https://main.qcloudimg.com/raw/6972a33bb642beb78e13c2636d25d2e2.png)
- 
 
-2、 接下来为用户组的关联相关策略，根据需要可以分别关联服务商控制台管理权限（QcloudServiceProviderFullAccess）和买家控制台管理权限（QcloudServiceMarketFullAccess），操作参考：
-https://cloud.tencent.com/document/product/598/10599
-
+2. 接下来为用户组的关联相关策略，根据需要可以分别关联服务商控制台管理权限（QcloudServiceProviderFullAccess）和买家控制台管理权限（QcloudServiceMarketFullAccess），操作参考单击[查看](https://cloud.tencent.com/document/product/598/10599)。
 ![](https://main.qcloudimg.com/raw/01b6f43222abe015e08b1403eb032702.png)
 
- 
+3. 子用户重新登录，拥有管理权限。
 
-3、子用户重新登录，拥有管理权限；
-
-4、如需取消子用户访问权限，可将子用户从有管理权限的用户组移除，或者直接将子用户删除。
+4. 如需取消子用户访问权限，可将子用户从有管理权限的用户组移除，或者直接将子用户删除。
 
