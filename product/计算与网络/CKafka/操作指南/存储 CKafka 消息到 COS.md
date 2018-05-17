@@ -17,7 +17,7 @@
 - 日志数据的传输会有一定的延迟。
 - 当前仅支持和ckafka实例同个地域的cos进行消息存储，为保证延时，不支持跨地域存储。
 - object权限用cos默认的私有读写权限
-- 转储服务会占用一个group id，名为qcloud
+- 转储服务会占用一个group id
 - 文件名为存放的timestamp，存放路径为instance id/topic id
 - 文件内容是ckafka消息里的value用string序列化拼接而成
 
