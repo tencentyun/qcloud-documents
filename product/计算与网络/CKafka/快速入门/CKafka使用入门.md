@@ -51,6 +51,7 @@ cd  $JAVA_HOME/bin
 ./java  -version
 ```
 > $JAVA_HOME为安装的JDK的主目录
+
 出现下图则证明jdk安装完成。
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
