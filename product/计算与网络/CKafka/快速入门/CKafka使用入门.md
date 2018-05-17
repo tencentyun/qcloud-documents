@@ -47,8 +47,10 @@ wq保存退出后，使用`source /etc/profile`命令使文件立即生效
 d 验证
 通过以下命令验证环境是否安装完成（javac命令也可以），查看版本号是否一致
 ```
-java -version
+cd  $JAVA_HOME/bin
+./java  -version
 ```
+> $JAVA_HOME为安装的JDK的主目录
 出现下图则证明jdk安装完成。
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
