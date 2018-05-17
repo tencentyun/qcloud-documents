@@ -4,7 +4,7 @@
 ## 配置说明
 1. 登录 [网站管家控制台](https://console.cloud.tencent.com/guanjia)，单击 【网站应用防火墙】>【防护设置】，选择需要防护的域名。
 
- ![p1](https://main.qcloudimg.com/raw/b70a2646127ffedfcb3f95299e2c9cb5.png)
+ ![p1](https://main.qcloudimg.com/raw/e8c06c1dac3885473029dc86d2f081a6.jpg)
 
 2. 单击【基础设置】>【编辑封禁地区】，进入地域封禁配置界面。
 
