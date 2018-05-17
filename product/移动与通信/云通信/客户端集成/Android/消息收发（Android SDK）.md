@@ -93,6 +93,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 >- 存储要发送的图片路径，必须是本地路径。
 >- 发送时不用关注，接收时保存生成的图片所有规格。
 >- 发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `imageList` 获取所有图片类型。
+>- `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 >- `TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
 
 **`TIMImageElem` 成员方法：**
@@ -198,6 +199,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 语音消息由 `TIMSoundElem` 定义，其中 `data` 存储语音数据，语音数据需要提供时长信息，以秒为单位，**注意，一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效，另外，语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序**。
 
+> **注意：**
+> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+
 **`TIMSoundElem` 成员方法：**
 
 ```
@@ -299,6 +303,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ### 小文件消息发送
 
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。**注意：一条消息只能添加一个文件 `Elem`，添加多个文件时，`AddElem` 函数返回错误 1，另外，语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示。**
+
+> **注意：**
+> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 
 **`TIMFileElem` 成员方法：**
 

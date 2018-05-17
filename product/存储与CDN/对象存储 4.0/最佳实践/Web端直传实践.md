@@ -10,7 +10,7 @@
 
 ## 二、计算签名
 签名计算放在前端会暴露 SecretKey，因此我们把签名计算过程放在后端实现，前端通过 AJAX 向后端获取签名结果，正式部署时请在后端加一层您的网站本身的权限检验。
-指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
+指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
 
 ## 三、前端上传
 ### 方案 A：使用 AJAX 上传
@@ -25,7 +25,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ajax Put 简单上传</title>
+    <title>Ajax Put 上传</title>
     <style>
         h1, h2 {
             font-weight: normal;
@@ -39,7 +39,6 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 <body>
 
 <h1>Ajax Put 上传</h1>
-<div>最低兼容到 ie10，支持 onprogress</div>
 
 <input id="fileSelector" type="file">
 <input id="submitBtn" type="submit">
@@ -59,34 +58,50 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
             var method = (options.Method || 'get').toLowerCase();
             var key = options.Key || '';
             var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-
-            var url = '../server/auth.php';
+            // var url = 'http://127.0.0.1:3000/sts-auth' +
+            var url = '../server/sts-auth.php' +
+                '?method=' + method +
+                '&pathname=' + encodeURIComponent(pathname);
             var xhr = new XMLHttpRequest();
-            var data = {
-                method: method,
-                pathname: pathname,
-            };
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.open('GET', url, true);
             xhr.onload = function (e) {
-                if (e.target.responseText === 'action deny') {
-                    alert('action deny');
+                var AuthData;
+                try {
+                    AuthData = JSON.parse(xhr.responseText)
+                } catch (e) {}
+                if (AuthData && AuthData.Authorization) {
+                    callback(null, {
+                        Authorization: AuthData.Authorization,
+                        XCosSecurityToken: AuthData.XCosSecurityToken,
+                    });
                 } else {
-                    callback(e.target.responseText);
+                    console.error(AuthData);
+                    callback('获取签名出错');
                 }
             };
-            xhr.send(JSON.stringify(data));
+            xhr.onerror = function (e) {
+                callback('获取签名出错');
+            };
+            xhr.send();
         };
 
         // 上传文件
         var uploadFile = function (file, callback) {
             var Key = 'dir/' + file.name; // 这里指定上传目录和文件名
-            getAuthorization({Method: 'PUT', Key: Key}, function (auth) {
+            getAuthorization({Method: 'PUT', Key: Key}, function (err, info) {
 
+                if (err) {
+                    alert(err);
+                    return;
+                }
+
+                var auth = info.Authorization;
+                var XCosSecurityToken = info.XCosSecurityToken;
                 var url = prefix + Key;
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
+                XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
                 xhr.onload = function () {
                     if (xhr.status === 200 || xhr.status === 206) {
                         var ETag = xhr.getResponseHeader('etag');
@@ -150,6 +165,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
     <input id="key" name="key" type="hidden" value="">
     <input id="Signature" name="Signature" type="hidden" value="">
+    <input name="Content-Type" type="hidden" value="">
     <input id="x-cos-security-token" name="x-cos-security-token" type="hidden" value="">
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
@@ -172,22 +188,28 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         // 计算签名
         var getAuthorization = function (options, callback) {
             var method = (options.Method || 'get').toLowerCase();
-            var key = options.Key || '';
-            // var url = 'http://127.0.0.1:3000/sts-post-object' +
-            var url = '../server/sts-post-object.php' +
+            // var url = 'http://127.0.0.1:3000/sts-auth' +
+            var url = '../server/sts-auth.php' +
                 '?method=' + method +
-                '&pathname=' + encodeURIComponent('/') +
-                '&key=' + encodeURIComponent(key);
+                '&pathname=' + encodeURIComponent('/');
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
-                        callback(null, {
-                            Authorization: data.authorization,
-                            XCosSecurityToken: data.sessionToken,
-                        });
+                        var AuthData;
+                        try {
+                            AuthData = (new Function('return ' + xhr.responseText))();
+                        } catch (e) {}
+                        if (AuthData && AuthData.Authorization) {
+                            callback(null, {
+                                Authorization: AuthData.Authorization,
+                                XCosSecurityToken: AuthData.XCosSecurityToken,
+                            });
+                        } else {
+                            console.error(AuthData);
+                            callback('获取签名出错');
+                        }
                     } else {
                         callback('获取签名出错');
                     }
@@ -235,7 +257,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
                 document.getElementById('Signature').value = AuthData.Authorization;
-                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken;
+                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken || '';
                 form.submit();
             });
         };
