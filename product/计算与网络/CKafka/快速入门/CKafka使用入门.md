@@ -1,6 +1,6 @@
 ### 1. 查看CKafka实例，创建topic
 
-申请通过后，您的CKafka控制台中会展示CKafka实例，点击实例信息可以查看实例详情。包括地域，内网vip，端口等信息。
+申请通过后，您的CKafka控制台中会展示CKafka实例，点击实例信息可以查看实例详情。包括地域，内网VIP，端口等信息。
 
 ![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
 ![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
@@ -68,7 +68,7 @@ mv kafka-0.10.2.0-src /opt/
 下载解压完成后，无需配置其他环境，直接可用
 可以通过telnet指令测试本机是否连通到CKafka实例
 ```
-telnet ip 9092
+telnet IP 9092
 ```
 ![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
@@ -80,7 +80,7 @@ telnet ip 9092
 This is a message
 This is another message
 ```
-> 其中broker-list中的ip即为CKafka实例中的vip，topicName为CKafka实例中的topic名称
+> 其中broker-list中的IP即为CKafka实例中的VIP，topicName为CKafka实例中的topic名称
 
 接收消息(CKafka默认隐藏Zookeeper集群)
 ```
@@ -103,8 +103,8 @@ This is another message
 
 ### 3. 其他功能
 #### 3.1 开启白名单
-CKafka支持在topic维度开启ip白名单的功能，有效保证数据安全。
-在新建topic和编辑topic页面均可以开启ip白名单。
+CKafka支持在topic维度开启IP白名单的功能，有效保证数据安全。
+在新建topic和编辑topic页面均可以开启IP白名单。
 ![](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
 
 #### 3.2 设置消息保留时间
