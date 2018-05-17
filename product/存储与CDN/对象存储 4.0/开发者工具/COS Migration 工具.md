@@ -189,8 +189,10 @@ proxyPort=
 |prefix|要迁移的路径的前缀, 如果是迁移 Bucket下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
+
  
 **3.3.4 配置七牛数据源 migrateQiniu**
+
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从七牛迁移到COS配置分节
 [migrateQiniu]
