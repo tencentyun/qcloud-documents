@@ -127,6 +127,7 @@ executeTimeWindow=00:00,24:00
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
 
 **3.3.1 配置本地数据源 migrateLocal**
+
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从本地迁移到COS配置分节
@@ -217,6 +218,7 @@ proxyPort=
 
  
 **3.3.5 配置 URL 列表数据源 migrateUrl**
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从 URL 列表下载迁移到 COS 配置分节
@@ -226,8 +228,10 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |urllistPath|url列表项，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从源 Bucket 迁移到目标 Bucket 配置分节
@@ -280,7 +284,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
 
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功, condition_not_match表示因为表示因不满足迁移条件而跳过的文件(如lastmodifed和excludes)。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://i.imgur.com/oojIbOm.png)
 
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会跳过。运行完成结果示意图如下图所示：
