@@ -4,20 +4,20 @@
 
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.fn.detectRTC](#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
-| [WebRTCAPI](#webrtcapi)     | 初始化 |
-| [WebRTCAPI.createRoom](#webrtcapi.createroom)     | 创建或进入音视频房间 |
-| [WebRTCAPI.quit](#webrtcapi.quit)     | 退出音视频房间 |
+| [WebRTCAPI.fn.detectRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
+| [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)     | 初始化 |
+| [WebRTCAPI.createRoom](https://cloud.tencent.com/document/product/647/17251#webrtcapi.createroom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.quit](https://cloud.tencent.com/document/product/647/17251#webrtcapi.quit)     | 退出音视频房间 |
 
 ### 基础事件通知
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onLocalStreamAdd](#onlocalstreamadd)     | 本地视频流新增/更新 |
-| [onRemoteStreamUpdate](#onremotestreamupdate)     | 远端视频流新增/更新 |
-| [onRemoteStreamRemove](#onremotestreamremove)     | 远端视频流断开 |
-| [onWebSocketClose](#onwebsocketclose)     |  websocket 断开 |
-| [onRelayTimeout](#onrelaytimeout)     | 视频流 server 超时断开 |
-| [onKickout](#onkickout)     | 被踢下线（同一个用户重复登录） |
+| [onLocalStreamAdd](https://cloud.tencent.com/document/product/647/17248#onlocalstreamadd)     | 本地视频流新增/更新 |
+| [onRemoteStreamUpdate](https://cloud.tencent.com/document/product/647/17248#onremotestreamupdate)     | 远端视频流新增/更新 |
+| [onRemoteStreamRemove](https://cloud.tencent.com/document/product/647/17248#onremotestreamremove)     | 远端视频流断开 |
+| [onWebSocketClose](https://cloud.tencent.com/document/product/647/17248#onwebsocketclose)     |  websocket 断开 |
+| [onRelayTimeout](https://cloud.tencent.com/document/product/647/17248#onrelaytimeout)     | 视频流 server 超时断开 |
+| [onKickout](https://cloud.tencent.com/document/product/647/17248#onkickout)     | 被踢下线（同一个用户重复登录） |
 
 
 
@@ -25,21 +25,21 @@
 
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.startRTC](#webRTCAPI.startRTC)   | 主动推流才需要用到 |
-| [WebRTCAPI.getLocalStream](#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
-| [WebRTCAPI.openVideo](#webrtcapi.openVideo)     | 推流期间重新打开视频采集 |
-| [WebRTCAPI.closeVideo](#webrtcapi.closeVideo)     | 推流期间暂时关闭视频采集 |
-| [WebRTCAPI.openAudio](#webrtcapi.openAudio)     | 推流期间重新打开音频采集 |
-| [WebRTCAPI.closeAudio](#webrtcapi.closeAudio)     | 推流期间暂时关闭音频采集 |
-| [WebRTCAPI.changeSpearRole](#webrtcapi.changeSpearRole)     | 切换音视频参数设定 |
-| [WebRTCAPI.getVideoDevices](#webrtcapi.getVideoDevices)     | 枚举视频采集设备 |
-| [WebRTCAPI.getAudioDevices](#webrtcapi.getAudioDevices)     | 枚举音频采集设备 |
-| [WebRTCAPI.chooseVideoDevice](#webrtcapi.chooseVideoDevice)     | 选择视频采集设备 |
-| [WebRTCAPI.chooseAudioDevice](#webrtcapi.chooseAudioDevice)     | 选择音频采集设备 |
+| [WebRTCAPI.startRTC](https://cloud.tencent.com/document/product/647/17250#webrtcapi.startrtc)   | 主动推流才需要用到 |
+| [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.openVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.openvideo)     | 推流期间重新打开视频采集 |
+| [WebRTCAPI.closeVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.closevideo)     | 推流期间暂时关闭视频采集 |
+| [WebRTCAPI.openAudio](https://cloud.tencent.com/document/product/647/17250#webrtcapi.openaudio)     | 推流期间重新打开音频采集 |
+| [WebRTCAPI.closeAudio](https://cloud.tencent.com/document/product/647/17250#webrtcapi.closeaudio)     | 推流期间暂时关闭音频采集 |
+| [WebRTCAPI.changeSpearRole](https://cloud.tencent.com/document/product/647/17250#webrtcapi.changeSpearRole)     | 切换音视频参数设定 |
+| [WebRTCAPI.getVideoDevices](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getVideoDevices)     | 枚举视频采集设备 |
+| [WebRTCAPI.getAudioDevices](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getAudioDevices)     | 枚举音频采集设备 |
+| [WebRTCAPI.chooseVideoDevice](https://cloud.tencent.com/document/product/647/17250#webrtcapi.chooseVideoDevice)     | 选择视频采集设备 |
+| [WebRTCAPI.chooseAudioDevice](https://cloud.tencent.com/document/product/647/17250#webrtcapi.chooseaudiodevice)     | 选择音频采集设备 |
 
 
 ### 高级事件通知
 
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [onPeerConnectionAdd](#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
+| [onPeerConnectionAdd](https://cloud.tencent.com/document/product/647/17252#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
