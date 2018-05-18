@@ -7,7 +7,7 @@
 
 此外，可以根据消息量的大小，选取汇聚消息日志的时间间隔，时间间隔为 5~60 分钟不等。
 
-如您没有创建对象存储的 bucket，请在 [新建 bucket](https://console.cloud.tencent.com/cos/bucket)后选取相应的存储位置。
+如您没有创建对象存储的 bucket，请在 [新建 bucket](https://console.cloud.tencent.com/cos/bucket) 后选取相应的存储位置。
 
 
 ![Alt text](https://main.qcloudimg.com/raw/61fe42efc86a1260db2235fea9c56c52.jpg)
