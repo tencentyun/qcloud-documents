@@ -1,44 +1,45 @@
-日志服务 CLS 提供实时日志查询能力，帮助您快速定位业务问题。在进行日志检索之前，您需要进行索引的相关配置并开启索引。
+CLS provides real-time log query capability to help you quickly locate business problems. Before performing log search, you need to configure and enable the index.
 
-## 开启索引
+## Enabling Index
 
-索引是日志主题的可选项功能，需要首先选择查询的日志主题，然后开启其索引功能，具体操作步骤如下：
+Index is an optional feature for log topics. You need to select the log topic to query, and then enable its index feature. Specific steps are as follows:
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 左侧选择日志集管理，依次进入目标日志集、日志主题。
-3. 在日志主题选项卡中，选择 **索引配置**。
-4. 根据需要，开启全文索引或键值索引，并勾选是否对大小写敏感（默认不勾选）。
-5. 单击【保存】，完成索引配置。
+1. Log in to [CLS Console](https://console.cloud.tencent.com/cls).
+2. Select **Logset** on the left bar, and then enter the target logset and log topic.
+3. In the Log Topic tab, select **Index Configuration**.
+4. Enable **Full-text Index** or **Key-value Index** as needed, and select **Case-sensitive** (not selected by default).
+5. Click **Save** to complete the index configuration.
 
-> **注意：**
-> 日志主题创建后，默认关闭索引，需要您手动开启。
+> **Note:**
+> After a log topic is created, its index is disabled by default. You need to manually enable it.
 
-## 索引类型
-### 全文索引
+## Index Type
+### Full-text Index
 
-日志服务将完整的单独一条日志当做文本进行查询。开启全文索引后，可以根据关键词信息进行日志检索。
-![全文索引](https://main.qcloudimg.com/raw/7347d861b8143c0ce7da5041488c3569.png)
+CLS takes a complete single log as text for query. After full-text index is enabled, you can search the log by keywords.
+![Full-text Index](https://main.qcloudimg.com/raw/7347d861b8143c0ce7da5041488c3569.png)
 
-### 键值索引
+### Key-value Index
 
-日志服务可根据采集配置中设置的 key 进行键值索引配置，在键值索引配置中，根据索引需求填写所对应的 key，并指定其数据类型，目前支持 text、long、double 数据类型。
-![键值索引](https://main.qcloudimg.com/raw/d65bc5a6b68316eb5316019f5f41de07.png)
+CLS can configure key-value index according to the key set in the collection configuration. In the key-value index configuration, enter the appropriate key according to the index requirements, and specify its data type (text, long, or double).
+![Key-value Index](https://main.qcloudimg.com/raw/d65bc5a6b68316eb5316019f5f41de07.png)
 
-### 大小写敏感
+### Case Sensitivity
 
-大小写敏感指对于一个字符串中的大写小写字母是否进行精确区分，在检索过程中若需要对字母大小写进行精确区分，则需勾选索引开关旁的敏感框。
+Case sensitivity refers to the distinction between uppercase and lowercase letters in a string. If you need to distinguish between uppercase and lowercase letters during search, select **Case-sensitive** next to the index switch.
 
-## 数据类型
-目前日志服务支持三种字段类型，详情如下：
+## Data Type
+CLS supports the following three types of fields:
 
-|名称|类型描述|
+| Name | Description |
 |-----|:-----|
-| text | 文本类型|
-|long|整型数值类型|
-|double|浮点数数值类型|
+| text | Text|
+| long | Integer |
+| double | Floating-point number |
 
-## 注意事项
-1. 索引关闭时采集的日志数据将无法被检索。
-2. 开启索引后，日志采集后可立即被检索。
-3. 存储数据的存储时间与日志集所设置的保存时间一致。
-4. 同一日志主题多次开启和关闭，可以检索到开启期间内的日志数据。
+## Notes
+1. Log data collected during the period when the index is disabled cannot be searched for.
+2. When the index is enabled, logs can be searched for immediately after they are collected.
+3. The data storage time is the same as that in the logset.
+4. If a log topic is enabled and disabled for multiple times, the log data during the enabling period can be searched for.
+

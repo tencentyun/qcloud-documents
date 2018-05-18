@@ -74,13 +74,13 @@
   </tr>
 	<tr align="center">
     <td height="100px">C# 解决方案</td>
-    <td>2.0.0</td>
+    <td>3.1.0</td>
 		<td>C#（.NET）</td>
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">下载安装</a></td>
   </tr>
 	<tr align="center">
     <td height="100px">C++ 解决方案</td>
-    <td>2.0.0</td>
+    <td>3.1.0</td>
 		<td>C++（DLL）</td>
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">下载安装</a></td>
   </tr>
