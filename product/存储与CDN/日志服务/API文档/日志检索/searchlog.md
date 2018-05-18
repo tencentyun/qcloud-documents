@@ -4,44 +4,39 @@
 
 ## 请求
 
-**请求行**
+### 请求示例
+
+```
+GET /searchlog?logset_id=xxxx-xx-xx-xx-xxxxxxxx&topic_ids=xxxx,xxxx&start_time=2017-08-22%2010%3A10%3A10&end_time=2017-08-23%2010%3A10%3A10&query=&limit=10&context=xxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+```
+
+### 请求行
 
 ```
 GET /searchlog
 ```
 
-**请求示例**
-
-```
-GET /searchlog?logset_id=xxxx-xx-xx-xx-xxxxxxxx&topic_ids=xxxx,xxxx&start_time=2017-08-22%2010%3A10%3A10&end_time=2017-08-23%2010%3A10%3A10&query=&limit=10&context=xxx HTTP/1.1
-Host: <Region>.cls.myqcloud.com
-Authorization: <AuthorizationString>
-```
-**请求示例**
-
-```
-GET /searchlog?logset_id=xxxx-xx-xx-xx-xxxxxxxx&topic_ids=xxxx,xxxx&start_time=2017-08-22%2010%3A10%3A10&end_time=2017-08-23%2010%3A10%3A10&query=&limit=10&context=xxx HTTP/1.1
-Host: <Region>.cls.myqcloud.com
-Authorization: <AuthorizationString>
-```
-
-**请求头**
+### 请求头
 
 无特殊
 
-**请求参数**
+### 请求参数
 
-| 字段名        | 类型     | 位置    | 是否必须 | 含义                                 |
-| ---------- | ------ | ----- | ---- | ---------------------------------- |
-| logset_id  | string | query | 是    | 要查询的logset id                      |
-| topic_ids  | string | query | 是    | 要查询的topic id组合，以,分隔                |
-| start_time | string | query | 是    | 要查询的日志的起始时间，格式 YYYY-mm-dd HH:MM:SS |
-| end_time   | string | query | 是    | 要查询的日志的结束时间，格式 YYYY-mm-dd HH:MM:SS |
-| query      | string | query | 是    | 要查询的内容                             |
-| limit      | int    | query | 是    | 单次要返回的日志条数                         |
-| context    | string | query | 否    | 加载更多使用，透传上次返回的context值，获取后续的日志内容   |
+| 字段名     | 类型   | 位置  | 必选 | 含义                                                      |
+| ---------- | ------ | ----- | ---- | --------------------------------------------------------- |
+| logset_id  | string | query | 是   | 要查询的logset id                                         |
+| topic_ids  | string | query | 是   | 要查询的topic id组合，以,分隔                             |
+| start_time | string | query | 是   | 要查询的日志的起始时间，格式 YYYY-mm-dd HH:MM:SS          |
+| end_time   | string | query | 是   | 要查询的日志的结束时间，格式 YYYY-mm-dd HH:MM:SS          |
+| query      | string | query | 是   | 要查询的内容                                              |
+| limit      | int    | query | 是   | 单次要返回的日志条数                                      |
+| context    | string | query | 否   | 加载更多使用，透传上次返回的context值，获取后续的日志内容 |
 
-**返回示例**
+## 响应
+
+### 响应示例
 
 ```
 HTTP/1.1 200 OK
@@ -68,31 +63,27 @@ Content-Length: 53
 }
 ```
 
-**响应头**
+### **响应头**
 
 无特殊
 
-**返回内容说明**
+### 响应参数
 
+| 字段名   | 类型                 | 必选 | 含义                      |
+| -------- | -------------------- | ---- | ------------------------- |
+| context  | string               | 是   | 由于加载后续内容的context |
+| listover | bool                 | 是   | 搜过结果是否已经全部返回  |
+| results  | JsonArray(LogObject) | 是   | 日志内容信息              |
 
+其中，JsonArray(LogObject) 说明如下：
 
-| 字段名      | 类型                   | 是否必有 | 含义               |
-| -------- | -------------------- | ---- | ---------------- |
-| context  | string               | 是    | 由于加载后续内容的context |
-| listover | bool                 | 是    | 搜过结果是否已经全部返回     |
-| results  | JsonArray(LogObject) | 是    | 日志内容信息           |
+| 字段名     | 类型   | 必选 | 含义               |
+| ---------- | ------ | ---- | ------------------ |
+| topic_id   | string | 是   | 日志属于的topic id |
+| topic_name | string | 是   | 日志主题的名字     |
+| timestamp  | string | 是   | 日志时间           |
+| content    | string | 是   | 日志内容           |
 
-LogObject格式如下：
+## 错误码
 
-
-
-| 字段名        | 类型     | 是否必有 | 含义            |
-| ---------- | ------ | ---- | ------------- |
-| topic_id   | string | 是    | 日志属于的topic id |
-| topic_name | string | 是    | 日志主题的名字       |
-| timestamp  | string | 是    | 日志时间          |
-| content    | string | 是    | 日志内容          |
-
-**错误码**
-
-见错误码说明
+见 [错误码](/document/product/614/12402)。

@@ -306,4 +306,3 @@ mLivePlayer.setConfig(mPlayConfig);
 |   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 
-

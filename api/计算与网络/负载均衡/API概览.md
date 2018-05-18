@@ -14,7 +14,7 @@
 | [更换负载均衡的证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
 
 ## 传统型负载均衡相关接口
-### 传统型负载均衡监听器相关接口
+### 监听器相关接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|
 |  [创建负载均衡监听器](https://cloud.tencent.com/document/api/214/1255)  | CreateLoadBalancerListeners | 为用户指定的负载均衡实例创建负载均衡监听器。负载均衡监听器包含了客户要转发请求的协议，端口以及健康检查的策略。|
@@ -22,7 +22,7 @@
 | [删除负载均衡监听器](https://cloud.tencent.com/document/api/214/1256)  | DeleteLoadBalancerListeners |  删除用户指定的负载均衡实例的一组监听器。|
 | [修改负载均衡监听器属性](https://cloud.tencent.com/document/api/214/3601)  | ModifyLoadBalancerListener |  修改负载均衡实例的监听器的属性信息，包括监听器的名字，健康检查策略等信息。|
 
-### 传统型负载均衡后端服务器相关接口
+### 后端服务器相关接口
 | 接口名 | Action| 功能描述 |
 |---------|---------|
 | [绑定后端服务器到负载均衡](https://cloud.tencent.com/document/api/214/1265) | RegisterInstancesWithLoadBalancer | 将用户指定的一组云服务器关联到用户指定的负载均衡实例上。|
@@ -30,13 +30,13 @@
 |  [修改负载均衡后端服务器权重](https://cloud.tencent.com/document/api/214/1264) | ModifyLoadBalancerBackends | 修改关联到负载均衡实例的一组 [云服务器的权重](https://cloud.tencent.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE)。
 |  [解绑后端服务器](https://cloud.tencent.com/document/api/214/1258) | DeregisterInstancesFromLoadBalancer | 将关联到负载均衡实例的云服务器进行解绑操作。|
 
-### 传统型负载均衡健康检查相关接口
+### 健康检查相关接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
 | [查询负载均衡健康检查状态](https://cloud.tencent.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例健康状态。|
 
 
-### 传统型负载均衡实例相关接口
+### 实例相关接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|
 | [修改负载均衡属性信息](https://cloud.tencent.com/document/product/214/1263) | ModifyLoadBalancerAttributes |  修改用户指定的负载均衡实例的属性信息，包括负载均衡实例的名字等。|
@@ -45,12 +45,12 @@
 ## 应用型负载均衡相关接口
 
 
-### 应用型负载均衡实例相关接口
+### 实例相关接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|
 |  [修改应用型型负载均衡的名称](https://cloud.tencent.com/document/product/214/10008) | ModifyForwardLBName | 修改应用型型负载均衡的名称。|
 
-### 应用型负载均衡监听器相关接口
+### 监听器相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
 | [查询应用型负载均衡监听器](https://cloud.tencent.com/document/product/214/9005) | DescribeForwardLBListeners | 查询应用型负载均衡监听器。|
@@ -60,7 +60,7 @@
 | [修改应用型负载均衡四层监听器属性](https://cloud.tencent.com/document/product/214/8998) | ModifyForwardLBFourthListener |修改应用型负载均衡四层监听器属性。| 
 | [删除应用型负载均衡监听器](https://cloud.tencent.com/document/product/214/9004) | DeleteForwardLBListener |删除应用型负载均衡监听器。|
 
-### 应用型负载均衡转发规则相关接口
+### 转发规则相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
 | [创建应用型负载均衡七层监听器转发规则的能力](https://cloud.tencent.com/document/product/214/9011) | CreateForwardLBListenerRules |创建应用型负载均衡七层监听器转发规则的能力。|
@@ -68,13 +68,13 @@
 |[ 修改应用型负载均衡七层监听器转发规则的健康检查及转发路径](https://cloud.tencent.com/document/product/214/9008) | ModifyLoadBalancerRulesProbe |修改应用型负载均衡七层监听器转发规则的健康检查及转发路径。| 
 | [删除应用型负载均衡实例七层监听器的转发规则](https://cloud.tencent.com/document/product/214/9012) | DeleteForwardLBListenerRules |删除应用型负载均衡实例七层监听器的转发规则。| 
 
-### 应用型负载均衡健康检查相关接口
+### 健康检查相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
 | [查询应用型负载均衡实例的健康检查](https://cloud.tencent.com/document/product/214/8995) | DescribeForwardLBHealthStatus | 查询应用型负载均衡实例的健康检查。|
 
 
-### 应用型负载均衡云服务器相关接口
+### 云服务器相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
 | [查询应用型负载均后端绑定的云服务器器列表](https://cloud.tencent.com/document/product/214/8987) | DescribeForwardLBBackends | 查询应用型负载均后端绑定的云服务器器列表。|
@@ -88,7 +88,7 @@
 |[ 修改绑定到四层监听器的云服务器的权重](https://cloud.tencent.com/document/product/214/8981) | ModifyForwardFourthBackendsWeight | 修改绑定到四层监听器的云服务器的权重。|
 
 
-### 应用型负载均衡重定向相关接口
+### 重定向相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
 | [查询应用型负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9016) | DescribeRewrite | 查询应用型负载均衡的重定向关系。|

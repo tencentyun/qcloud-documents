@@ -2,6 +2,8 @@
 ## 接口描述
 UpdateAudit 用于更新云审计（CloudAudit），其中可用于更新指定日志文件中的一些设置，比如路径，COS Bucket 等设置，请注意  CloudAudit 的名称是不能修改的。对路径的更改，不需要停止 CloudAudit 服务。对 COS Bucket 的更改，如果该 COS Bucket 之前是 CloudAudit 日志文件的目标，则可以更改成功。否则需要手动授权 COS 存储桶，使得 CloudAudit 具有写权限才行。
 
+接口访问域名：`cloudaudit.api.qcloud.com`
+
 
 ## 请求参数
 以下请求参数列表仅列出了接口请求参数。
@@ -52,4 +54,3 @@ UpdateAudit 用于更新云审计（CloudAudit），其中可用于更新指定�
    "CmqTopicName": "String",
 }
 ```
-

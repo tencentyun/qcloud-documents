@@ -71,6 +71,7 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 <pre>[migrateType]
 type=migrateLocal
 </pre>
+
 目前支持的迁移类型如下：
 
 | migrateType | 描述 |
@@ -126,7 +127,6 @@ executeTimeWindow=0,24
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
 
 **3.3.1 配置本地数据源 migrateLocal**
-
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从本地迁移到COS配置分节

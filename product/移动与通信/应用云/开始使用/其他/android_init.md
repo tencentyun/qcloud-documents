@@ -61,8 +61,10 @@ public class MyCustomApp extends Application {
 	public void onCreate() {
 		super.onCreate();
 		...
-		// 增加这行
+		
+		// 初始化服务
 		TACApplication.configure(this);
+		TACAnalyticsService.getInstance().start(this);
 	}
 	
 }

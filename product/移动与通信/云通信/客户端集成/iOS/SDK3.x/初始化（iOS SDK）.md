@@ -274,7 +274,7 @@ cfg.userStatusListener = impl;
 
 ImSDK 内部集成了 Bugly 系统（http://bugly.qq.com )，当应用 Crash 后，会自动上报到平台，用户可以根据 Bugly 文档指示上传符号表，显示 Crash 详细信息，如果用户有自己的上报组件，配置 `TIMSdkConfig` 禁用上报。
 
-原型：
+**原型：**
 
 ```
 @interface TIMSdkConfig : NSObject
