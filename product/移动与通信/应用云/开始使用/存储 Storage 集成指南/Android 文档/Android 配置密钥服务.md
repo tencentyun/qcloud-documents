@@ -1,6 +1,6 @@
 Storage SDK 需要一个有效的密钥提供者，这样后台才能正确地识别您的身份。所以在调用 SDK 任何功能接口前，**请先通过 `TACStorageOptions` 设置密钥提供者**。
 
-下面的示例代码假设您配置的服务器请求地址是:
+假设您配置的服务器请求地址如下：
 
 ```
 GET https://<SERVER_HOST><PATH>?<name>=<value>

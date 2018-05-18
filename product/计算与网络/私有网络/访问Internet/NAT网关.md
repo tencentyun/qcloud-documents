@@ -143,7 +143,7 @@ NAT 网关创建时将会冻结 1 小时的租用费用。
 
 
 ### 新建端口转发规则
-端口转发表是 NAT 网关上的一张配置表，用于配置 NAT 网关上的 DNAT 功能，可将 VPC 内的云主机的[内网 IP，协议，端口]映射成[外网 IP，协议，端口]，使得云主机上的服务可被外网访问。（内测中，如有需求，请提供 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)）
+端口转发表是 NAT 网关上的一张配置表，用于配置 NAT 网关上的 DNAT 功能，可将 VPC 内的云主机的[内网 IP，协议，端口]映射成[外网 IP，协议，端口]，使得云主机上的服务可被外网访问。
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
 2. 在 NAT 网关列表页中点击需要修改的 NAT 网关 ID 进入详情页，选择【端口转发】
 3. 点击【新建】，选择协议、外部IP端口、及内部 IP 端口。
@@ -196,9 +196,6 @@ NAT 网关创建后，可以对其属性进行修改。
 3. 点击监控 tab，开启右上角开启网关流控明细开关。
 开启网关流控明细，需要 5-6 分钟采集数据、发布数据，一段时间您可在监控图表下方查看监控明细表格。
 ![](//mc.qcloudimg.com/static/img/d5c3ffd8172da454680cab941f891297/image.png)
->**注意：**
-该功能处于内测中，请提工单申请。
-
 
 ### 设置网关流控明细
 您在开启网关流控明细，可设置某个 IP 留向某 NAT 网关的出带宽。
