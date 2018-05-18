@@ -27,13 +27,6 @@
 | acceptJoinPusher(String userID)                                 | 主播：接受来自观众的连麦请求 |
 | rejectJoinPusher(String userID, String reason)            | 主播：拒绝来自观众的连麦请求 |
 | kickoutSubPusher(String userID)                                | 主播：踢掉连麦中的某个观众          |
-| getOnlinePusherList(final GetOnlinePusherListCallback callback)| 主播PK：获取在线的主播列表|
-| startPlayPKStream(final String playUrl, TXCloudVideoView videoView, final PKStreamPlayCallback callback)| 主播PK：开始播放对方的视频流|
-| stopPlayPKStream() | 主播PK：结束播放对方的视频流|
-| sendPKRequest(String userID, int timeout, final RequestPKCallback callback) | 主播PK：发送PK请求|
-| sendPKFinishRequest(String userID) | 主播PK：发送结束PK的请求 |
-| acceptPKRequest(String userID) | 主播PK：授受PK请求 |
-| rejectPKRequest(String userID, String reason) | 主播PK：拒绝PK请求 |
 | addRemoteView(TXCloudVideoView videoView, PusherInfo pusherInfo, RemoteViewPlayCallback callback)                                                                                            | 主播：播放连麦观众的远程视频画面   |
 | deleteRemoteView(PusherInfo pusherInfo)                  | 主播：移除连麦观众的远程视频画面    |
 | sendRoomTextMsg(String message, SendTextMessageCallback callback)    | 发送文本（弹幕）消息    |
@@ -70,8 +63,6 @@
 | onPusherQuit(pusherInfo)      | 通知：有推流者离开房间 （也就是通知您少了一路远程画面）            |
 | onRecvJoinPusherRequest(userID, userName, userAvatar) | 通知：主播收到观众的连麦请求         |
 | onKickOut()           | 观众：收到被大主播踢开的消息           |
-| onRecvPKRequest(String userID, String userName, String userAvatar, String streamUrl) | 收到PK请求 |
-| onRecvPKFinishRequest(String userID) | 收到结束PK的请求 |
 | onRecvRoomTextMsg(roomID, userID, userName, userAvatar, message)     |  聊天室：收到文本消息  |
 | onRecvRoomCustomMsg(roomID, userID, userName, userAvatar, cmd, message)   | 聊天室：收到自定义消息|
 | onRoomClosed(roomID)               | 通知：房间解散通知              |
@@ -417,117 +408,7 @@ mLiveRoom.rejectJoinPusher(userId, "");
 mLiveRoom.kickoutSubPusher(userId);
 ```
 
-### 17.getOnlinePusherList
-
-- 接口定义：void getOnlinePusherList(final GetOnlinePusherListCallback callback)
-- 接口说明：主播PK：获取在线的主播列表
-- 示例代码：
-
-```
-mLiveRoom.getOnlinePusherList(new LiveRoom.GetOnlinePusherListCallback() {
-    @Override
-    public void onError(int errCode, String errInfo) {
-
-    }
-
-    @Override
-    public void onSuccess(final ArrayList<PusherInfo> pusherList) {
-               
-    }
-});
-```
-
-### 18.startPlayPKStream
-
-- 接口定义：void startPlayPKStream(final String playUrl, TXCloudVideoView videoView, final PKStreamPlayCallback callback)
-- 接口说明：主播PK：开始播放对方的流
-- 示例代码：
-
-```
-mLiveRoom.startPlayPKStream(streamUrl, videoView, new LiveRoom.PKStreamPlayCallback() {
-     @Override
-     public void onPlayBegin() {
-												
-     }
-
-     @Override
-     public void onPlayError() {
-												
-     }
-});
-```
-
-### 19.stopPlayPKStream
-
-- 接口定义：void stopPlayPKStream()
-- 接口说明：主播PK：结束播放对方的流
-- 示例代码：
-
-```
-mLiveRoom.stopPlayPKStream()
-```
-
-### 20.sendPKRequest
-
-- 接口定义：void sendPKRequest(String userID, int timeout, final RequestPKCallback callback)
-- 接口说明：主播PK：发送PK请求
-- 示例代码：
-
-```
-mLiveRoom.sendPKRequest(userID, 10, new LiveRoom.RequestPKCallback() {
-    @Override
-    public void onAccept(String streamUrl) {
-
-    }
-
-    @Override
-    public void onReject(String reason) {
-
-    }
-
-    @Override
-    public void onTimeOut() {
-
-    }
-
-    @Override
-    public void onError(int code, String errInfo) {
-
-    }
-});
-```
-
-### 21.sendPKFinishRequest
-
-- 接口定义：void sendPKFinishRequest(String userID)
-- 接口说明：主播PK：发送结束PK的请求
-- 示例代码：
-
-```
-mLiveRoom.sendPKFinishRequest(userID)
-```
-
-### 22.acceptPKRequest
-
-- 接口定义：void acceptPKRequest(String userID)
-- 接口说明：主播PK：授受PK请求
-- 示例代码：
-
-```
- mLiveRoom.acceptPKRequest(userID);
-```
-
-### 23.rejectPKRequest
-
-- 接口定义：void rejectPKRequest(String userID, String reason)
-- 接口说明：主播PK：拒绝PK请求
-- 示例代码：
-
-```
- mLiveRoom.rejectPKRequest(userID, "");
-```
-
-### 24.addRemoteView
+### 17.addRemoteView
 
 - 接口定义：void addRemoteView(TXCloudVideoView videoView, PusherInfo pusherInfo, RemoteViewPlayCallback callback)
 - 接口说明：（主播）播放连麦观众的远程视频画面 ，一般在收到 onPusherJoin（新进连麦通知）时调用。
@@ -549,7 +430,7 @@ public void onPusherJoin(PusherInfo pusherInfo) {
 }
 ```
 
-### 25.deleteRemoteView
+### 18.deleteRemoteView
 
 - 接口定义：void deleteRemoteView(final PusherInfo pusherInfo)
 - 接口说明：停止播放某个连麦主播视频，一般在收到 onPusherQuit （连麦者离开）时调用。
@@ -563,7 +444,7 @@ public void onPusherQuit(PusherInfo pusherInfo) {
 }
 ```
 
-### 26.sendRoomTextMsg
+### 19.sendRoomTextMsg
 
 - 接口定义：void sendRoomTextMsg(@NonNull String message, final SendTextMessageCallback callback)
 - 接口说明：发送文本消息，直播间里的其他人会收到 onRecvRoomTextMsg 通知。
@@ -583,7 +464,7 @@ mLiveRoom.sendRoomTextMsg("hello", new LiveRoom.SendTextMessageCallback() {
 });
 ```
 
-### 27.sendRoomCustomMsg
+### 20.sendRoomCustomMsg
 
 - 接口定义：void sendRoomCustomMsg(@NonNull String cmd, @NonNull String message, final SendCustomMessageCallback callback)
 - 接口说明：发送自定义消息。直播间其他人会收到 onRecvRoomCustomMsg 通知。
@@ -605,32 +486,32 @@ mLiveRoom.sendRoomCustomMsg(String.valueOf(TCConstants.IMCMD_DANMU),
 ```
 
 
-### 28.startScreenCapture
+### 21.startScreenCapture
 
 - 接口定义：void startScreenCapture()
 - 接口说明：启动屏幕录制。由于录屏是基于 Android 系统的原生能力实现的，处于安全考虑，Android 系统会在开始录屏前弹出一个提示，旨在告诫用户：“有 App 要截取您屏幕上的所有内容”。
 
 > 注意：该接口在Android API 21接口才生效。录屏接口和摄像头预览（startCameraPreview）互斥，同时只能由一个生效
 
-### 29.stopScreenCapture
+### 22.stopScreenCapture
 
 - 接口定义：void stopScreenCapture()
 - 接口说明：停止屏幕录制。
 
 
-### 30.switchToBackground
+### 23.switchToBackground
 
 - 接口定义：void switchToBackground()
 - 接口说明：从前台切换到后台，关闭采集摄像头数据，推送默认图片
 
 
-### 31.switchToForeground
+### 24.switchToForeground
 
 - 接口定义：void switchToForeground()
 - 接口说明：由后台切换到前台，开启摄像头数据采集。
 
 
-### 32.setBeautyFilter
+### 25.setBeautyFilter
 
 - 接口定义：boolean setBeautyFilter(int style, int beautyLevel, int whiteningLevel, int ruddyLevel)
 - 接口说明：设置美颜风格、磨皮程度、美白级别和红润级别。
@@ -650,13 +531,13 @@ mLiveRoom.setBeautyFilter(mBeautyStyle, mBeautyLevel, mWhiteningLevel, mRuddyLev
 ```
 
 
-### 33.switchCamera
+### 26.switchCamera
 
 - 接口定义：void switchCamera()
 - 接口说明：切换摄像头，前置摄像头时调用后变成后置，后置摄像头时调用后变成前置。该接口在启动预览startCameraPreview(TXCloudVideoView) 后调用才能生效，预览前调用无效。SDK启动预览默认使用前置摄像头。
 
 
-### 34.setMute
+### 27.setMute
 
 - 接口定义：void setMute(mute)
 - 接口说明：设置静音接口。设置为静音后SDK不再推送麦克风采集的声音，而是推送静音。
@@ -667,7 +548,7 @@ mLiveRoom.setBeautyFilter(mBeautyStyle, mBeautyLevel, mWhiteningLevel, mRuddyLev
 | mute | boolean | 是否静音 |
 
 
-### 35.setMirror
+### 28.setMirror
 
 - 接口定义：void setMirror(boolean enable)
 - 接口说明：设置播放端水平镜像。注意这个只影响播放端效果，不影响推流主播端。推流端看到的镜像效果是始终存在的，使用前置摄像头时推流端看到的是镜像画面，使用后置摄像头时推流端看到的是非镜像。
@@ -684,7 +565,7 @@ mLiveRoom.setBeautyFilter(mBeautyStyle, mBeautyLevel, mWhiteningLevel, mRuddyLev
 mLiveRoom.setMirror(true);
 ```
 
-### 36.playBGM
+### 29.playBGM
 
 - 接口定义：boolean playBGM(String path)
 - 接口说明：播放背景音乐。该接口用于混音处理，比如将背景音乐与麦克风采集到的声音混合后播放。返回结果中，true 表示播放成功，false 表示播放失败。
@@ -695,24 +576,24 @@ mLiveRoom.setMirror(true);
 | path | String | 背景音乐文件位于手机中的绝对路径 |
 
 
-### 37.stopBGM
+### 30.stopBGM
 
 - 接口定义：boolean stopBGM()
 - 接口说明：停止播放背景音乐。返回结果中，true 表示停止播放成功，false 表示停止播放失败。
 
-### 38.pauseBGM
+### 31.pauseBGM
 
 - 接口定义：boolean pauseBGM()
 - 接口说明：暂停播放背景音乐。返回结果中，true 表示暂停播放成功，false 表示暂停播放失败。
 
 
-### 39.resumeBGM
+### 32.resumeBGM
 
 - 接口定义：boolean resumeBGM()
 - 接口说明：恢复播放背景音乐。返回结果中，true 表示恢复播放成功，false 表示恢复播放失败。
 
 
-### 40.setMicVolume
+### 33.setMicVolume
 
 - 接口定义：boolean setMicVolume(float x)
 - 接口说明：设置混音时麦克风的音量大小。返回结果中，true 表示设置麦克风的音量成功，false 表示设置麦克风的音量失败。
@@ -724,7 +605,7 @@ mLiveRoom.setMirror(true);
 
 
 
-### 41.setBGMVolume
+### 34.setBGMVolume
 
 - 接口定义：boolean setBGMVolume(float x)
 - 接口说明：设置混音时背景音乐的音量大小。返回结果中，true 表示设置背景音的音量成功，false 表示设置背景音的音量失败。
@@ -735,7 +616,7 @@ mLiveRoom.setMirror(true);
 | x    | float | 音量大小，1为正常音量，建议值为0~2，如果需要调大音量可以设置更大的值。推荐在 UI 上实现相应的一个滑动条，由主播自己设置 |
 
 
-### 42.getMusicDuration
+### 35.getMusicDuration
 
 - 接口定义：int getMusicDuration(String path)
 - 接口说明：获取背景音乐时长。返回结果单位为毫秒。
@@ -746,7 +627,7 @@ mLiveRoom.setMirror(true);
 | path    | String | path == null 获取当前播放歌曲时长；path != null 获取path路径歌曲时长 |
 
 
-### 43.startRecord
+### 36.startRecord
 
 - 接口定义： int startRecord(int recordType)
 - 接口说明：开始录制视频。该接口用于观众端将观看的视频实时保存到本地文件。
@@ -764,13 +645,13 @@ mLiveRoom.setMirror(true);
 mLiveRoom.startRecord(TXRecordCommon.RECORD_TYPE_STREAM_SOURCE);
 ```
 
-### 44.stopRecord
+### 37.stopRecord
 
 - 接口定义： int stopRecord()
 - 接口说明：停止录制视频。录制结果会通过录制回调异步通知出来。
 
 
-### 45.setVideoRecordListener
+### 38.setVideoRecordListener
 
 - 接口定义： void setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 - 接口说明：设置视频录制回调，用于接收视频录制进度及录制结果。
@@ -805,7 +686,7 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 });
 ```
 
-### 46.incCustomInfo
+### 39.incCustomInfo
 
 - 接口定义： void incCustomInfo(String fieldName, int count)
 - 接口说明：增加自定义fieldName统计值。该接口用于统计房间的点赞，礼物等总数。最终的累计值可以通过房间信息roominfo的custom字段获得
@@ -822,7 +703,7 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 mLiveRoom.incCustomInfo(“praise”,1); 
 ```
 
-### 47.decCustomInfo
+### 40.decCustomInfo
 
 - 接口定义： void decCustomInfo(String fieldName, int count)
 - 接口说明：减少自定义fieldName统计值。该接口用于统计房间的点赞，礼物等总数。最终的累计值可以通过房间信息roominfo的custom字段获得
@@ -834,13 +715,13 @@ mLiveRoom.incCustomInfo(“praise”,1);
 | count | int | 一次统计减少的值，一般一次减少1|
 
 
-### 48. updateSelfUserInfo
+### 41. updateSelfUserInfo
 
 - 接口定义： void updateSelfUserInfo(String userName, String userAvatar)
 - 接口说明：更新用户的昵称和头像信息。该接口主要用于用户修改昵称或者头像后实时更新liveroom的信息
 
 
-### 49.setPauseImage
+### 42.setPauseImage
 
 - 接口定义：void setPauseImage(Bitmap bitmap)
 - 接口说明：设置从前台切换到后台时，推送的图片。
@@ -974,66 +855,8 @@ public void onKickOut() {
 }
 ```
 
-### 6. onRecvPKRequest
 
-- 接口定义：void onRecvPKRequest(String userID, String userName, String userAvatar, String streamUrl)
-- 接口说明：当一个主播调用sendPKRequest向另一个主播发起PK请求的时候；另一个主播会收到该回调通知。在该回调中，您可以展示一个收到PK请求的提示框，询问用户是接受还是拒绝。
-- 示例代码：
-
-```
-@Override
-public void onRecvPKRequest(final String userID, final String userName, final String userAvatar, final String streamUrl){
-     final AlertDialog.Builder builder = new AlertDialog.Builder(mActivity)
-            .setCancelable(true)
-            .setTitle("提示")
-            .setMessage(userName + "向您发起PK请求")
-            .setPositiveButton("接受", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mLiveRoom.acceptPKRequest(userID);
-                    mLiveRoom.startPlayPKStream(streamUrl, videoView, new LiveRoom.PKStreamPlayCallback() {
-                        @Override
-                        public void onPlayBegin() {
-												
-                        }
-
-                        @Override
-                        public void onPlayError() {
-												
-                        }
-                    });
-                    dialog.dismiss();
-                }
-            })
-            .setNegativeButton("拒绝", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mLiveRoom.rejectPKRequest(userID, "主播拒绝了您的PK请求");
-                    dialog.dismiss();
-                }
-            });
-
-    final AlertDialog alertDialog = builder.create();
-    alertDialog.setCancelable(false);
-    alertDialog.setCanceledOnTouchOutside(false);
-    alertDialog.show();
-}
-```
-
-### 7. onRecvPKFinishRequest
-
-- 接口定义：void onRecvPKFinishRequest(String userID)
-- 接口说明：当一个主播调用sendPKFinishRequest通知另一个主播结束PK的时候；另一个主播会收到该回调通知。在该回调中，您需要调用stopPlayPKStream结束PK，并做好相关清理工作。
-- 示例代码：
-
-```
-@Override
-public void onRecvPKFinishRequest(final String userID){
-    mLiveRoom.stopPlayPKStream();
-}
-```
-
-### 8. onRecvRoomTextMsg
+### 6. onRecvRoomTextMsg
 
 - 接口定义：void onRecvRoomTextMsg(String roomID, String userID, String userName, String userAvatar, String message)
 - 接口说明：当主播或者观众端调用sendRoomTextMsg时，房间内的主播或者观众都会收到该通知。
@@ -1047,12 +870,12 @@ public void onRecvRoomTextMsg(String roomid, String userid, String userName, Str
 
 
 
-### 9. onRecvRoomCustomMsg
+### 7. onRecvRoomCustomMsg
 
 - 接口定义：void onRecvRoomCustomMsg(String roomID, String userID, String userName, String userAvatar, String cmd, String message)
 - 接口说明：当主播或者观众端调用sendRoomCustomMsg时，房间内的主播或者观众都会收到该通知。
 
-### 10. onRoomClosed
+### 8. onRoomClosed
 
 - 接口定义：void onRoomClosed(String roomID)
 - 接口说明：当房间销毁时，观众会收到该通知。需要在回调中退出房间。
@@ -1078,7 +901,7 @@ public void onRoomClosed(String roomId) {
 
 
 
-### 11. onDebugLog
+### 9. onDebugLog
 
 - 接口定义：void onDebugLog(String log)
 - 接口说明：直播间日志回调。可以在回调中将日志保存到文件中，方便问题分析。
@@ -1091,7 +914,7 @@ public void onDebugLog(String line) {
 ```
 
 
-### 12. onError
+### 10. onError
 
 - 接口定义：void onError(int errorCode, String errorMessage)
 - 接口说明：直播间错误回调
