@@ -292,7 +292,7 @@ table td {
 - **商用版本**
   商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Enterprise_Android_4.6.4218.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
-<h2 id="Windows"> Windows SDK (2.0.0) </h2>
+<h2 id="Windows"> Windows SDK (3.1.0) </h2>
 
 <table>
   <tr align="center">
@@ -334,8 +334,8 @@ table td {
   <tr align="center">
     <td>版本日期</td>
     <td>2.0.1 @ 2018-02-08</td>
-    <td>2.0.0 @ 2018-02-08</td>
-    <td>2.0.0 @ 2018-02-08</td>
+    <td>3.1.0 @ 2018-05-17</td>
+    <td>3.1.0 @ 2018-05-17</td>
   </tr>
   <tr align="center">
     <td>下载地址</td>
