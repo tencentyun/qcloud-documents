@@ -31,10 +31,10 @@
 
 使用 application/json 格式：
 
-| 参数        | 是否必选 | 类型        | 说明             |
+| 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 必选   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
-| url_list  | 必选   | string 数组 | 图片 url 列表      |
+| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
+| url_list  | 是   | string 数组 | 图片 url 列表      |
 
 
 ### 返回内容
