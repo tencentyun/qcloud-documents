@@ -135,7 +135,7 @@ idfa</td>
 <tr>
 <td> nameCryptoType</td>
 <td> Uint</td>
-<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5
 </td>
 </tr>
 </table>
