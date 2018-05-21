@@ -1,6 +1,6 @@
 Kibana 页面访问及使用，具体可查看 [访问 Kibana 页面](https://cloud.tencent.com/document/product/845/17146)。
 
-由于 Kibana 页面通过公网访问，需要进行一定的安全限制，包括密码和IP黑白名单，可在详情页，访问控制部分设置相应的访问控制详情如下：
+由于 Kibana 页面通过公网访问，需要进行一定的安全限制，包括密码和IP黑白名单，可在详情页，访问控制部分设置相应的策略，详情如下：
 ![密码重置](https://main.qcloudimg.com/raw/ef5bb523ba8faf1d50ab20e2d973d4d4.png)
 ## 密码验证及修改
 访问 Kibana 页面，需要登录密码验证，如果忘记密码，可以在集群详情页，基本信息模块对 Kibana 密码进行重置。Kibana 密码需 8~16 位，至少包括两项（英文字母、数字和特殊符号）
