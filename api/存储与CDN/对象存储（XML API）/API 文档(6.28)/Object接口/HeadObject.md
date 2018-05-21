@@ -1,8 +1,12 @@
 ## 功能描述
-Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致。
+HEAD Object 接口请求可以获取对应 Object 的 meta 信息数据，HEAD 的权限与 GET 的权限一致
+
+### 版本
+
+默认情况下，HEAD 操作从当前版本的对象中检索元数据。如要从不同版本检索元数据，请使用 versionId 子资源。
 
 ## 请求
-#### 请求语法示例
+#### 语法示例
 
 **shell:** 
 
@@ -65,7 +69,7 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 |---|---|---|
 |x-cos-meta- *|string|用户自定义的 meta|
 |x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|
-|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE|
+|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD,STANDARD_IA|
 
 ### 响应体
 该请求响应体为空。
@@ -96,5 +100,3 @@ x-cos-object-type: normal
 x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==
 x-cos-storage-class: STANDARD
 ```
-
-
