@@ -2,6 +2,25 @@
 GET Bucket Versioning 接口实现获得存储桶的版本控制信息。
 ### 细节分析
 1. 获取存储桶版本管理的状态，需要有该存储桶的读权限；
+2. 有三种版本控制状态：
+- 如果您从未在存储桶上启用（或暂停）版本控制，则响应为：
+```
+<VersioningConfiguration>
+```
+
+- 如果您启用了存储桶的版本控制功能，则响应为：
+```
+<VersioningConfiguration>
+  <Status>Enabled</Status>
+</VersioningConfiguration>
+```
+- 如果您暂停了存储桶的版本控制功能，则响应为：
+```
+<VersioningConfiguration>
+	<Status>Suspended</Status>
+</VersioningConfiguration>
+```
+
 
 ## 请求
 语法示例：
