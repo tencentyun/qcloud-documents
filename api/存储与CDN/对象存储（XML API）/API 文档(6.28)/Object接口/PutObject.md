@@ -1,8 +1,18 @@
-## 功能描述
-Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。
+## 功能描述 
+PUT Object 接口为简单上传接口，可以将本地的小于 5 GB 的文件（Object）上传至指定 Bucket 中，大于 5 GB 的文件请使用分片接口上传（Upload Part）。该操作需要请求者对 Bucket 有 WRITE 权限。
+
+### 版本
+
+如果对存储桶启用版本控制，对象存储将自动为要添加的对象生成唯一的版本 ID。对象存储使用 x-cos-version-id 响应头部在响应中返回此标识。
+如果需要暂停存储桶的版本控制，则对象存储始终将其 null 用作存储在存储桶中的对象的版本 ID。
+
+### 细节分析
+1. 需要有 Bucket 的写权限；
+2. 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但 Object 大小只等于 Content-Length 中定义的大小，其他数据将被丢弃；
+3. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
 
 ## 请求
-#### 请求语法示例
+### 语法示例
 
 **shell:** 
 
@@ -48,7 +58,6 @@ x-cos-grant-read: string
 x-cos-grant-write: string
 x-cos-grant-full-control: string
 
-
 ```
 
 ### 请求行
@@ -76,7 +85,7 @@ Content-Encoding|string|否|RFC 2616 中定义的编码格式，将作为 Object
 Expect|string|否|当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容
 Expires|string|否|RFC 2616 中定义的缓存策略，将作为 Object 元数据保存
 x-cos-meta-*|string|否|允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2KB
-x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD
+x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD
 x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
 x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "
 x-cos-grant-write|string|否|赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "
@@ -141,5 +150,3 @@ Date: Wed,16 Aug201711: 59: 33 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=
 ```
-
-
