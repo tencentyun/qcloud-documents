@@ -2,11 +2,11 @@
 
 [Java SDK 下载>>](https://github.com/tencentyun/qcloud-cos-sts-sdk)
 
-### 查看示例
+## 查看示例
 
-请查看 `src/test` 下的 java 文件，里面描述了如何调用SDK。
+请查看 `src/test` 下的 java 文件，里面描述了如何调用 SDK。
 
-### 使用方法
+## 使用方法
 
 #### 1. 在 java 工程的 pom.xml 文件中集成依赖：
 
@@ -34,7 +34,7 @@ config.put("durationInSeconds", 1800);
 JSONObject credential = StorageSts.getCredential(config);
 ```
 
-### 返回结果
+## 返回结果
 
 成功的话，可以拿到包含密钥的 JSON 文本：
 
