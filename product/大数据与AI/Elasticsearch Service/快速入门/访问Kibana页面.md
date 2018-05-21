@@ -20,6 +20,7 @@ Kibana 页面访问需要登录，帐号为：elastic，密码为用户创建集
 在 Kibana 页面左侧菜单，点击 Dev Tools 进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求，接下来，我们将通过一个城市信息的数据存储操作示例，来演示如何通过控制台操作集群，存储数据。
 
 ### 1)添加索引
+
 **定义索引的mapping**
 
 索引名称 china ，类型名称为 city，以及详细的字段及类型信息。其中字段 loacation 的类型是 geo_point，可以表示地理位置信息； level 是对象类型，包含二级字段信息。关于字段类型说明，可查看官方文档 [Field Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping-types.html)。
@@ -50,6 +51,7 @@ PUT china
 ```
 
 **添加单个文档**
+
 ![存入单条数据](https://main.qcloudimg.com/raw/1ca53899fe58347c285665d71160289b.png)
 ```
 PUT china/city/wuhan 
@@ -62,6 +64,7 @@ GET /china/city/wuhan
 ```
 
 **添加多个文档**
+
 ```
 POST _bulk
 { "index" : { "_index": "china", "_type" : "city", "_id" : "beijing" } }
@@ -86,6 +89,7 @@ GET /china/city/_search
 ### 2)访问索引
 
 **配置 Kibana 访问索引**
+
 为了使用 Kibana，需要配置至少一个可以匹配到的索引。 输入上文创建的索引 china, 点击 create。
 ![配置访问索引](https://main.qcloudimg.com/raw/5210fa2ce137edaaed20bf459d8dc3f7.png)
 查看索引对应的字段
@@ -94,6 +98,7 @@ GET /china/city/_search
 ![访问详细数据](https://main.qcloudimg.com/raw/d0f8b710d44d411f8938fd56c4f08c57.png)
 
 ## 3. 可视化查询分析
+
 Kibana 拥有可视化统计分析数据的能力，点击左侧菜单 Visualize, 可以配置各种可视化的图表进行数据的分析。
 如，要统计上文中，china索引下，不同等级
 ![选择饼图](https://main.qcloudimg.com/raw/a3a51ce39e7c659e8193b0f4f6400c01.png)
