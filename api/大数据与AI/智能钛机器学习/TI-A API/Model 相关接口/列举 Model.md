@@ -11,7 +11,7 @@
 ## 输出参数
 | 参数名称 | 类型 | 描述 |
 |---|---|---|
-| Models | Array| of|Model|Model 数组，用以显示所有模型的信息。|
+| Models | Array of Model | Model 数组，用以显示所有模型的信息。|
 | RequestId | String | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。|
 
 ## 错误码
