@@ -1,12 +1,12 @@
-### 获取 SDK
+## 获取 SDK
 
 [Python SDK 下载>>](https://github.com/tencentyun/qcloud-cos-sts-sdk)
 
-### 查看示例
+## 查看示例
 
 请查看 `sts_demo.py` 文件，里面描述了如何调用 SDK。
 
-### 使用方法
+## 使用方法
 
 拷贝 `sts.py` 文件到您的 Python 工程中，调用代码如下：
 
@@ -27,7 +27,7 @@ response = sts.get_credential()
 json_content = response.content
 ```
 
-### 返回结果
+## 返回结果
 
 成功的话，可以拿到包含密钥的 JSON 文本：
 
