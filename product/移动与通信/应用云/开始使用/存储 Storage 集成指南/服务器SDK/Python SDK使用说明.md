@@ -4,11 +4,11 @@
 
 ### 查看示例
 
-请查看 `sts_demo.py` 文件，里面描述了如何调用SDK。
+请查看 `sts_demo.py` 文件，里面描述了如何调用 SDK。
 
 ### 使用方法
 
-拷贝 `sts.py` 文件到您的 python 工程中，调用代码如下：
+拷贝 `sts.py` 文件到您的 Python 工程中，调用代码如下：
 
 ```
 from sts import Sts
