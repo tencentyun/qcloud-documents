@@ -2,11 +2,11 @@
 
 [Nodejs SDK 下载>>](https://github.com/tencentyun/qcloud-cos-sts-sdk)
 
-### 查看示例
+## 查看示例
 
 请查看 `test` 下的 `sts_demo`，里面描述了如何调用SDK。
 
-### 使用方法
+## 使用方法
 
 #### 1. npm install:
 
@@ -35,7 +35,7 @@ sts.getCredential(options, function(data) {
 
 ```
 
-### 返回结果
+## 返回结果
 
 成功的话，可以拿到包含密钥的 JSON 文本：
 
