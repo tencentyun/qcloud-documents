@@ -1,8 +1,23 @@
 ## 功能描述
-Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+PUT Object acl 接口用来对某个存储桶中的某个的对象进行 ACL 表的配置，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+>**注意：**
+>Header 和 Body 只能选择其中一种，否则响应返回会冲突。
+>PUT Object acl 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
+>只有 Bucket 持有者才有权操作。
+
+
+### 版本
+
+对象的 ACL 被设置为对象版本级别。默认情况下，PUT 操作为当前版本对象设置 ACL。要设置不同版本的 ACL，请使用 versionId 子资源。
+
+
+### 细节分析
+1. 既可以通过头部设置，也可以通过 xml body 设置，只使用一种方法。
+2. ACL 策略数上限1000，建议用户不要每个上传文件都设置 ACL。
+3. 把文件夹设置成私有后，给该文件夹下的文件及文件夹设置公有属性，不会生效。
 
 ## 请求
-#### 请求语法示例
+### 语法示例
 
 **shell:** 
 
@@ -135,7 +150,7 @@ Content-Type: application/x-www-form-urlencoded
 </AccessControlPolicy>
 ```
 
-### 响应:
+### 响应
 
 ```
 HTTP/1.1 200 OK
