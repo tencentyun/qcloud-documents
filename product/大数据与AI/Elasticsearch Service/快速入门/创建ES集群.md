@@ -3,8 +3,9 @@
 
 ## 1. 进入 ES 集群创建页
 
-内测期间，已获得试用资格的用户，登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es) ，单击【新建】进入创建页。
+内测期间，已获得试用资格的用户，登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es) ，单击【新建】进入创建页。  
 
+![创建](https://main.qcloudimg.com/raw/2d88586038f0af32c94fdf369a3cbd84.png)
 
 ## 2. 选择集群配置
 ### 地域网络
@@ -23,4 +24,6 @@
 + Kibana 密码：登录访问 Kibana 页面的登录密码，请按照规则设置，并妥善保存，遗忘需要重置。
 
 ## 3. 创建完成
-设置好各种属性配置，单击【立即创建】，创建完成后，跳转控制台页面查看创建完成的 ES 集群。
+设置好各种属性配置，单击【立即创建】，确认配置，创建完成后，跳转控制台页面查看创建完成的 ES 集群。
+内测期间，如果集群15天内，没有访问和查询请求，系统将对资源进行回收，集群将被销毁。
+![确认](https://main.qcloudimg.com/raw/5f34b88259b91f9d49d909d6fd721a5d.png)
