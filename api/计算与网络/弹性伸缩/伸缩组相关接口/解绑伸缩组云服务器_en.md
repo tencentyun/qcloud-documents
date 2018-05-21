@@ -19,7 +19,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | scalingGroupId | Yes | String | ID of the scaling group to be removed from the CVM instance. It can be queried by calling API <a href="/doc/api/372/查询伸缩组列表" title="Query Scaling Group List">Query Scaling Group List</a> (DescribeScalingGroup). |
 | instanceIds.n  | Yes | String | ID of the CVM instance to be removed from the scaling group. Please fill in the instanceId (unified ID of CVM) field returned in API <a href="/doc/api/372/查询伸缩组绑定的云服务器" title="DescribeScalingInstance">Query CVM Bound to Scaling Group</a> (DescribeScalingInstance). |
-| keepInstance | No | Int | Whether to keep the detached instance. Value range:<br><li>0: stop and release the specific instances.<br><li>1: keep the specific instances. <br><br>default value: 0|
+| keepInstance | No | Int | Whether to keep the detached instance. Value range:<br><li>0: stop and release the detached instances.<br><li>1: keep the detached instances. <br><br>default value: 0|
 
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
