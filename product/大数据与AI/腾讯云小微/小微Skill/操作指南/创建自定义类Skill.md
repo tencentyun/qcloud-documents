@@ -14,7 +14,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/364a31032144d487fc620ca112d4d219/image.png)
 
- 3. 授权模式选择【授权码访问模式】，填写完必要信息后点击【保存】
+ 3. 授权模式选择【授权码访问模式】，填写完必要信息后单击【保存】
 
 ![](https://mc.qcloudimg.com/static/img/67323870ffd1a86866c9fe7585d3454d/image.png)
 
