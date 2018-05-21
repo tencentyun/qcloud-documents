@@ -1,4 +1,4 @@
-在【ES 控制台】>【ES 集群列表】>【操作】，单击 Kibana，跳转到该集群对应的 Kibana 访问页面，页面访问需要登录，账号为：elastic，密码为用户创建集群时设置的 Kibana 密码。
+在【ES 控制台】>【ES 集群列表】>【操作】，单击 Kibana，跳转到该集群对应的 Kibana 访问页面，页面访问需要登录，帐号为：elastic，密码为用户创建集群时设置的 Kibana 密码。
 
 ## 1. 存储数据（添加文档）
 ![](https://main.qcloudimg.com/raw/24aaf4d9d3cd0b93f0e6654c9a2652cf.png)
