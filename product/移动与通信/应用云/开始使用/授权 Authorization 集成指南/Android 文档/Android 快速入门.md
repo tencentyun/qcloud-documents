@@ -27,8 +27,8 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.1.0'
-    compile 'com.tencent.tac:tac-authorization:1.1.0'
+    compile 'com.tencent.tac:tac-core:1.1.1'
+    compile 'com.tencent.tac:tac-authorization:1.1.1'
 }
 ```
 
