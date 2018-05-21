@@ -1,11 +1,10 @@
-您将根据教程，快速创建一个可用的 ES 集群。
+在本练习中，您将根据教程，快速创建一个可用的 ES 集群。
+内测期间，需要申请试用，获得试用资格后，才能正常访问，[申请地址>>](https://cloud.tencent.com/act/apply/es)
 
 ## 1. 进入 ES 集群创建页
-**入口一：**
-访问 [腾讯云官网](https://cloud.tencent.com)，选择【产品】>【大数据基础服务】>【Elasticsearch Service】，进入 Elasticsearch Service 产品页面，单击【立即购买】进入购买界面。
 
-**入口二：**
-登录 [Elasticsearch Service](https://console.cloud.tencent.com/es) 控制台，单击【新建】进入购买界面。
+内测期间，已获得试用资格的用户，登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es) ，单击【新建】进入创建页。
+
 
 ## 2. 选择集群配置
 ### 地域网络
