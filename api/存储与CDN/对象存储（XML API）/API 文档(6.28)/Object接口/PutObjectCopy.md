@@ -12,29 +12,66 @@ PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径�
 
 
 ## 请求
-语法示例：
-```
-PUT /destinationObject HTTP/1.1
-Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
-Date: GMT Date
-Authorization: Auth String
-x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
+### 语法示例
+
+**shell:** 
+
+```shell
+# You can also use curl
+curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
+  -H 'x-cos-copy-source: string' \
+  -H 'x-cos-metadata-directive: string' \
+  -H 'x-cos-copy-source-If-Modified-Since: string' \
+  -H 'x-cos-copy-source-If-Unmodified-Since: string' \
+  -H 'x-cos-copy-source-If-Match: string' \
+  -H 'x-cos-copy-source-If-None-Match: string' \
+  -H 'x-cos-storage-class: STANDARD' \
+  -H 'x-cos-acl: public-read' \
+  -H 'x-cos-grant-read: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
+  -H 'x-cos-grant-write: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
+  -H 'x-cos-grant-full-control: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
+  -H 'x-cos-meta-*: string' \
+  -H 'Accept: application/xml'
 
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+**http:** 
+
+```http
+PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
+Host: 
+
+Accept: application/xml
+x-cos-copy-source: string
+x-cos-metadata-directive: string
+x-cos-copy-source-If-Modified-Since: string
+x-cos-copy-source-If-Unmodified-Since: string
+x-cos-copy-source-If-Match: string
+x-cos-copy-source-If-None-Match: string
+x-cos-storage-class: STANDARD
+x-cos-acl: public-read
+x-cos-grant-read: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
+x-cos-grant-write: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
+x-cos-grant-full-control: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
+x-cos-meta-*: string
+
+
+```
 
 ### 请求行
 
 ```
-PUT /destinationObject HTTP/1.1
+PUT /{ObjectName} HTTP/1.1
 ```
-该 API 接口接受 PUT 请求。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+
+该 API 接口接受 `PUT` 请求。
+
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 非公共头部
 
@@ -71,70 +108,66 @@ PUT /destinationObject HTTP/1.1
 | ---------------------------- | ---------------------------------------- | ------ | ------ |
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
+
 ### 请求体
-
-该请求的请求体为空。
-
+该请求请求体为空。
 
 ## 响应
-
 ### 响应头
-#### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+
+#### 公共响应头
+
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+
 #### 特有响应头
-该响应无特殊的响应头。
+
+
+该请求操作无特殊的响应头部信息。
 
 ### 响应体
-该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+拷贝成功，返回响应体。
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<ETag>string</ETag>
+<LastModified>string</LastModified>
 ```
-<CopyObjectResult>
-  <ETag></ETag>
-  <LastModified></LastModified>
-</CopyObjectResult>
-```
-具体的数据内容如下：
 
-| 名称               | 描述                                       | 类型     |
-| ---------------- | ---------------------------------------- | ------ |
-| CopyObjectResult | 返回复制结果信息                                 | String |
-| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
-| LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
+具体的数据描述如下：
 
-**服务端加密相关响应**
+节点名称（关键字）|父节点|描述|类型|必选
+---|---|---|---|---
+ETag|无|返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化|string|是
 
-如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+## 实际案例
 
-| 名称                           | 描述                                       | 类型     |
-| ---------------------------- | ---------------------------------------- | ------ |
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
-
-### 实际案例
-
-若需要跨帐号复制则需要先设置被复制帐号的 acl，了解 acl 详细请参见 [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) 章节。
 ### 请求
+
 ```
 PUT /222.txt HTTP/1.1
-Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com 
+Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com
 Date: Fri, 04 Aug 2017 02:41:45 GMT
-Connection: keep-alive Accept-Encoding: gzip, deflate Accept: */* 
-User-Agent: python-requests/2.12.4 
+Connection: keep-alive Accept-Encoding: gzip, deflate Accept: */*
+User-Agent: python-requests/2.12.4
 Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=&q-header-list=host&q-signature=eacefe8e2a0dc8a18741d9a29707b1dfa5aa47cc
-x-cos-copy-source: bucket2-1252443704.cos.ap-beijing.myqcloud.com/1.txt 
-Content-Length: 0  
+x-cos-copy-source: bucket2-1252443704.cos.ap-beijing.myqcloud.com/1.txt
+Content-Length: 0
 ```
 
 ### 响应
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 133 
-Connection: keep-alive 
+Content-Length: 133
+Connection: keep-alive
 Date: Fri, 04 Aug 2017 02:41:45 GMT
 Server: tencent-cos
 x-cos-request-id: NTk4M2RlZTlfZDRiMDM1MGFfYTA1ZV8xMzNlYw==
 
 <CopyObjectResult>
-<ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
-<LastModified>2017-08-04T02:41:45</LastModified>
+    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+    <LastModified>2017-08-04T02:41:45</LastModified>
 </CopyObjectResult>
 ```
+
+

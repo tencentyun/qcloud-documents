@@ -1,13 +1,11 @@
 ## 功能描述
 POST Object 接口请求允许使用者用表单的形式将文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。所有由 HTTP 头部携带的 API 参数，都使用表单字段请求。
 
----
 ### 版本
 
 如果对存储桶启用版本控制，POST 操作将自动为要添加的对象生成唯一的版本 ID。对象存储使用 x-cos-version-id 响应头部在响应中返回此标识。
 如果需要暂停存储桶的版本控制，则对象存储始终将其 null 用作存储在存储桶中的对象的版本 ID。
 
----
 ### 细节分析
 1. 需要有 Bucket 的写权限；
 2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
@@ -195,4 +193,3 @@ x-cos-request-id: NWEyZTRkMDZfMjQ4OGY3MGFfNTE4Yl81
 </PostResponse>
 
 ```
-
