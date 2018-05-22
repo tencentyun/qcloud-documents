@@ -12,7 +12,7 @@
 
  2.选择【基本配置】，填写完必要信息后单击右下角【开始配置】。
 
-![](https://mc.qcloudimg.com/static/img/364a31032144d487fc620ca112d4d219/image.png)
+![](https://main.qcloudimg.com/raw/f431a011ce9c9b5f83be3d8abe4bb71e.png)
 
  3.授权模式选择【授权码访问模式】，填写完必要信息后单击【保存】
 
