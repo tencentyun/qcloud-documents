@@ -10,7 +10,7 @@
 2.2.登录[云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)   
 2.3.进入商品管理，单击「+新建」按钮  
 ![](https://main.qcloudimg.com/raw/faed546f29280f19665e036a1036416b.png)   
-2.4.选择“SaaS交付”  
+2.4.选择“SaaS交付”   
 ![](https://main.qcloudimg.com/raw/e439a4bea9b913a465cfcb751326860c.png)  
 2.5.填写商品信息   
 ![](https://main.qcloudimg.com/raw/fc5025534b9b033c005d8cdd4fb02bf8.png)   
