@@ -11,7 +11,7 @@
 2.2.登录[云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)   
 2.3.进入商品管理，单击「+新建」按钮  
 ![](https://main.qcloudimg.com/raw/faed546f29280f19665e036a1036416b.png)   
-2.4.选择“API交付”   
+2.4.选择“API交付”    
 ![](https://main.qcloudimg.com/raw/65d3e404aa3663223f81725631e2fdbf.png)  
 2.5.填写商品信息   
 ![](https://main.qcloudimg.com/raw/2dd254b779353375535f9730a643a790.png)   
