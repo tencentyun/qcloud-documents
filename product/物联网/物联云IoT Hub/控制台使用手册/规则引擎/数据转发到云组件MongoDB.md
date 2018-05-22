@@ -1,5 +1,3 @@
-## 数据转发到云组件 MongoDB
-
 ### 概述
 规则引擎支持用户配置转发规则，将符合条件的设备上报数据转发到云组件 MongoDB ，用户在 [MongoDB控制台](https://console.cloud.tencent.com/mongodb) 或者使用云 API 创建 MongoDB 实例后，就可以将设备消息写入到对应的 MongoDB 集合中。
 下图展示了规则引擎将数据转发给 MongoDB 的整个过程：
