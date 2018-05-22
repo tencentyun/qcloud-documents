@@ -1,10 +1,15 @@
 如果您无法通过 gradle 远程依赖的方式来集成 SDK，我们提供了手动的方式来集成服务：
 
+### 1. 下载服务资源压缩包。
 
-#### 1. 下载服务资源压缩包
+- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip)，并解压。
 
-1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip)，并解压。
-2. 下载 [移动开发平台（MobileLine） Authorization 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-authorization-1.1.0.zip)，并解压。
+- 下载 [移动开发平台（MobileLine） Storage 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-social-1.1.0.zip)，并解压。
+
+### 2. 集成 jar 包。
+
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
+
 
 #### 2. 集成 jar 包
 
@@ -53,6 +58,6 @@
 
 #### 5. 配置第三方渠道
 
-登录 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](配置第三方渠道)。
+分享 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](配置第三方渠道)。
 
-到此您已经成功接入了 MobileLine 登录与授权服务。
+到此您已经成功接入了 MobileLine 分享服务。

@@ -1,6 +1,6 @@
 ## 准备工作
 
-您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
+首先您需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的工程。
 
 ## 第一步：创建项目和应用（已完成请跳过）
 
@@ -22,13 +22,13 @@
 
 ## 第三步：集成 SDK
 
-#### 1. 在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Authorization 服务依赖：
+#### 1. 在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 storage 服务依赖：
 
 ```
 dependencies {
-    // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.1.1'
-    compile 'com.tencent.tac:tac-authorization:1.1.1'
+	// 增加这行
+	compile 'com.tencent.tac:tac-core:1.1.1'
+	compile 'com.tencent.tac:tac-social:1.1.1'
 }
 ```
 
@@ -44,9 +44,10 @@ dependencies {
 
 ## 第四步：配置第三方渠道
 
-登录 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](配置第三方渠道)。
+分享 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](配置第三方渠道)。
 
-到此您已经成功接入了 MobileLine 登录与授权服务。
+到此您已经成功接入了 MobileLine 分享服务。
+
 
 ## Proguard配置
 
