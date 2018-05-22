@@ -8,9 +8,11 @@
 按文档完成“开发-基本配置”中URL和Token的填写和API接口开发。  
 ![](//mc.qcloudimg.com/static/img/193fd0fe1e9ea2f2041ce57cd2c8d380/image.png)  
 2.2.登录[云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)   
-2.3.进入商品管理-运维服务，单击「+新建」按钮  
+2.3.进入商品管理，单击「+新建」按钮  
 ![](https://main.qcloudimg.com/raw/faed546f29280f19665e036a1036416b.png)   
-2.4.填写软件服务商品信息   
+2.3.选择“SaaS交付”  
+![](https://main.qcloudimg.com/raw/e439a4bea9b913a465cfcb751326860c.png)  
+2.4.填写商品信息   
 ![](https://main.qcloudimg.com/raw/fc5025534b9b033c005d8cdd4fb02bf8.png)   
 **【填写说明】**   
 **商品名称**：必填，输入商品名称，30字内   
