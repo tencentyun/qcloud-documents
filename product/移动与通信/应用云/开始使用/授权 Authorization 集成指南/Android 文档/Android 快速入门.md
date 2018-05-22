@@ -22,50 +22,29 @@
 
 ## 第三步：集成 SDK
 
-您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Authorization 服务依赖：
+#### 1. 在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Authorization 服务依赖：
 
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.1.0'
-    compile 'com.tencent.tac:tac-authorization:1.1.0'
+    compile 'com.tencent.tac:tac-core:1.1.1'
+    compile 'com.tencent.tac:tac-authorization:1.1.1'
 }
 ```
 
-## 第四步：设置 qq app id
+#### 2. 添加 QQ SDK
 
-您可以根据需要，选择是否集成qq登录服务，请按照选择查看下面的设置方式。
-
-### 集成 qq 登录服务的设置方式
-
-如果您想要集成qq登录服务，请确保您已经在 [QQ 互联平台](https://connect.qq.com/) 注册了应用，如果没有，请先移步注册。
-
-注册完成之后，您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 app id：
+手动下载 [qq sdk](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `app/libs` 文件夹下，并在您应用级 build.gradle（通常是 app/build.gradle）文件中包含对 libs 目录的依赖：
 
 ```
-android {
-    defaultConfig {
-    	 // 添加这行
-        manifestPlaceholders = [qqOpenId: "互联平台的 qq app id"]
-    }
-    ...
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 ```
 
+## 第四步：配置第三方渠道
 
-### 不集成 qq 登录服务的设置方式
-
-如果您不需要集成qq登录服务，请在您的应用级 build.gradle 文件（通常是 app/build.gradle）中添加这行：
-
-```
-android {
-    defaultConfig {
-    	 // 添加这行
-        manifestPlaceholders = [qqOpenId: ""]
-    }
-    ...
-}
-```
+登录 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](配置第三方渠道)。
 
 到此您已经成功接入了 MobileLine 登录与授权服务。
 

@@ -1,44 +1,40 @@
-### 获取 SDK
+## 获取 SDK
 
-[Java SDK](https://github.com/QcloudApi/qcloudapi-sdk-java)
+[Java SDK 下载>>](https://github.com/tencentyun/qcloud-cos-sts-sdk)
 
-### 获取临时密钥
+## 查看示例
+
+请查看 `src/test` 下的 java 文件，里面描述了如何调用 SDK。
+
+## 使用方法
+
+#### 1. 在 java 工程的 pom.xml 文件中集成依赖：
 
 ```
-import com.qcloud.Utilities.Json.JSONObject;
-
-public class Demo {
-    public static void main(String[] args) {
-    
-        TreeMap<String, Object> config = new TreeMap<String, Object>();
-        
-        config.put("SecretId", "你的SecretId");
-        config.put("SecretKey", "你的SecretKey");
-
-        config.put("RequestMethod", "GET");
-
-        QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Sts(),
-                config);
-
-        TreeMap<String, Object> params = new TreeMap<String, Object>();
-        
-        params.put("name", "你的昵称");
-        
-        String policy = "{\"statement\": [{\"action\": [\"name/cos:*\"],\"effect\": \"allow\",\"resource\":\"*\"}],\"version\": \"2.0\"}";
-        params.put("policy", policy);
-
-        String result = null;
-        try {
-            /* call 方法正式向指定的接口名发送请求，并把请求参数 params 传入，返回即是接口的请求结果。 */
-            result = module.call("GetFederationToken", params);
-            JSONObject json_result = new JSONObject(result);
-            System.out.println(json_result);
-        } catch (Exception e) {
-            System.out.println("error..." + e.getMessage());
-        }
-    }
-}
+<dependency>
+   <groupId>com.qcloud</groupId>
+   <artifactId>qcloud-java-sdk</artifactId>
+   <version>2.0.6</version>
+   <scope>compile</scope>
+</dependency>
 ```
+
+#### 2. 拷贝 `src/main` 下的 `StorageSts.java` 到您的工程中，调用代码如下：
+
+```
+TreeMap<String, Object> config = new TreeMap<String, Object>();
+
+// 您的 SecretID
+config.put("SecretId", "xxx");
+// 您的 SecretKey
+config.put("SecretKey", "xxx");
+// 临时密钥有效时长，单位是秒，如果没有设置，默认是30分钟
+config.put("durationInSeconds", 1800);
+
+JSONObject credential = StorageSts.getCredential(config);
+```
+
+## 返回结果
 
 成功的话，可以拿到包含密钥的 JSON 文本：
 

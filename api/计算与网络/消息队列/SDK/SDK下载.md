@@ -23,10 +23,12 @@
 - [Python SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
 
 
-- [HP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
+- [PHP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
 
 
 - [C++ SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
+
+- [C# SDK](https://main.qcloudimg.com/raw/2fe051dcc6ee0b3088f16d5d04182f64.zip)
 
 
 ## SDK 使用注意事项

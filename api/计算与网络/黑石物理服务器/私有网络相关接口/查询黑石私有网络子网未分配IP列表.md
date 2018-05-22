@@ -21,7 +21,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 
 | 参数名称 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
-| unSubnetId | 要删除的子网 ID 值，例如：subnet-k20jbhp0。可通过 DescribeBmSubnetEx 接口查询。 | String | 是 |
+| unSubnetId | 子网唯一ID，例如：subnet-k20jbhp0。可通过 DescribeBmSubnetEx 接口查询。 | String | 是 |
  
 ## 响应
 ### 响应示例
