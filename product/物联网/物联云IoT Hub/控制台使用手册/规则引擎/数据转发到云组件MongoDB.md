@@ -12,7 +12,7 @@
 
 2. 单击【添加行为操作】按钮，并选择“数据转发到云数据库(MongoDB)选项”, 最后单击【创建】即可。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forward_mongodb_select_action.png)  
-**说明**：第一次使用时会提示用户授权访问 MongoDB，用户需点击【立即授权】才能继续创建。
+**说明**：第一次使用时会提示用户授权访问 MongoDB，用户需单击【立即授权】才能继续创建。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forwad_mongodb_need_auth.png)
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_forwad_mongodb_now_auth.png)
 
