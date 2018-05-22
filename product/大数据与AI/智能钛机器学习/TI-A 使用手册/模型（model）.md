@@ -7,7 +7,7 @@ Model 代表一个可用于部署服务的模型，可以部署到集群中暴�
 | description          |`string`   | 用户选填  | 模型服务的描述。                                            |
 | cluster              |`string`   | 用户选填  | 运行集群，详见 [使用集群](https://cloud.tencent.com/document/product/851/17317)。                        |
 | runtime              |`string`   | 用户选填  | 模型服务运行环境, 详见 [运行环境](https://cloud.tencent.com/document/product/851/17320)。                 |
-| replicas             |`int`      | 用户选填  | 副本数量, 默认为 1                                        |
+| replicas             |`int`      | 用户选填  | 副本数量，默认为 1                                        |
 | expose               |`string`   | 用户选填  | 暴露方式：internal（内网 IP）/external（外网 IP），默认 external。|
 | createTime           |`string`   | 系统添加  | 创建时间。                                                 |
 | state                |`string`   | 系统添加  | 服务状态：Creating/Running/Fail。                          |
