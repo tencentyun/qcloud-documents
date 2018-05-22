@@ -5,7 +5,7 @@
 
 内测期间，已获得试用资格的用户，登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es) ，单击【新建】进入创建页。  
 
-![创建](https://main.qcloudimg.com/raw/2d88586038f0af32c94fdf369a3cbd84.png)
+![创建](https://main.qcloudimg.com/raw/98d3bc38ae0af24c400222095d90ffad.png)
 
 ## 2. 选择集群配置
 ### 地域网络
