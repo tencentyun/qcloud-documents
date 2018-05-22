@@ -9,9 +9,9 @@
 | Name | 是 | String | 任务名称 |
 | Cluster | 是 | String | 运行任务的集群 |
 | RuntimeVersion | 是 | String | 运行任务的环境 | 
-| PackageDir.N | 否 | Array of String | 挂载的路径，支持 NFS、COS(COS 只在 TI-A 运行环境中支持) |
-| Command.N | 否 | Array of String | 任务启动命令 |
-| Args.N | 否 | Array of String | 任务启动参数  |
+| PackageDir | 否 | Array of String | 挂载的路径，支持 NFS、COS(COS 只在 TI-A 运行环境中支持) |
+| Command | 否 | Array of String | 任务启动命令 |
+| Args | 否 | Array of String | 任务启动参数  |
 | ScaleTier | 否 | String |  运行任务的配置信息 |
 | MasterType | 否 | String |（ScaleTier 为 Custom 时）Master 机器类型 |
 | WorkerType | 否 | String |（ScaleTier为Custom时）Worker 机器类型 |

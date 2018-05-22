@@ -31,12 +31,12 @@
 
 |功能|服务名称|Gradle 依赖项|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
-|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
-|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
-|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
-|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
-|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization|
 
 
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.1.1'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.0' 
-	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.1.1' 
+	compile 'com.tencent.tac:tac-messaging:1.1.1'
 }
 ```
 
@@ -65,9 +65,9 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.0' 
-	compile 'com.tencent.tac:tac-messaging:1.1.0'
-	compile 'com.tencent.tac:tac-crash:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.1.1' 
+	compile 'com.tencent.tac:tac-messaging:1.1.1'
+	compile 'com.tencent.tac:tac-crash:1.1.1'
 }
 ```
 > 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
