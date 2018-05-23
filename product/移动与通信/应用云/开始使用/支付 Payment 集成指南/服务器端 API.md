@@ -1,5 +1,5 @@
 
-## 通用服务端协议
+## 通用服务端接口
 
 ### 商品下单
 
@@ -106,7 +106,7 @@ METRIC: 1
 {"ret" : 0,"transaction_id" : "E-180226180100230001","out_trade_no" : "open_1519640480282","pay_info" : "data=%7B%22appid%22%3A%22TC100008%22%2C%22user_id%22%3A%22rickenwang%22%2C%22out_trade_no%22%3A%22open_1519640480282%22%2C%22product_id%22%3A%22product_test%22%2C%22pay_method%22%3A%22wechat%22%7D&sign=cQHQYAdrn4ECpiAGiWqZEcynw%2BeNhc2AdXqtYoOqZvXn2%2BCupvB4fcH%2BcUQEPZfikgjwxM2oGyImPTtFIMp1HXUJz0sNH5C1ZEUR00%2FQ%2FkdEQyZg32MwC3Pom0d6IbM3L%2BBLcX8NbIf3QD7mrneL9ahng%2BZ8eo50jXhRNQv3UGPHiqSoR7JVjpIQEq45vj8eVjzi5SSDFF6OGmZgn8WiYXdGXd7bOTpTakOnDukLOlNzwUHKvKk70k5PjaRneJIbEu0xG0pQCpk0253fg8RhJola2Ej8iGFAYpbnjpH7oScDGSPir0PYTtD3zKolL5dFV8FzKi%2FVufIB3yrO4z0knQ%3D%3D"}
 ```
 
-## 聚合支付服务端协议
+## 聚合支付服务端接口
 
 ### 查询订单
 
