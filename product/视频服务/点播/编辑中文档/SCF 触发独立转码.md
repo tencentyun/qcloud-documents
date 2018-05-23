@@ -39,7 +39,7 @@
 通过[访问管理控制台](https://console.cloud.tencent.com/cam/capi)，获取 SecretId 和 SecretKey。如果尚未创建过密钥，请先[申请密钥](/document/api/213/6984#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)。
 
 #### 2. 填写 SCF 模板
-下载 [SCF 模板](https://main.qcloudimg.com/raw/38e2258e7ca2716fe993425740cc6dc3.zip)，根据表格中的内容填写配置文件 **config.json**，配置文件中的各个参数含义如下：
+下载 [SCF 模板](https://main.qcloudimg.com/raw/8bb02ea0d7edac6733886dc67f96b6de.zip)，根据表格中的内容填写配置文件 **config.json**，配置文件中的各个参数含义如下：
 
 | 参数名称  | 必填 | 类型 | 说明 |
 |---|---|---|---|---|
