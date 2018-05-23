@@ -1078,7 +1078,7 @@ for(long i = 0; i < cnt; ++i) {
 
 ```
 //获取所有会话
-public List<TIMConversation> getConversionList()
+public List<TIMConversation> getConversationList()
 ```
 
 ### 最近联系人漫游

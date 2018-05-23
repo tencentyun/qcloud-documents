@@ -1086,7 +1086,7 @@ public TIMMessageLocator getMessageLocator()
  * 获取所有会话
  * @return 会话列表
  */
-public List<TIMConversation> getConversionList()
+public List<TIMConversation> getConversationList()
 ```
 
 **示例：**
