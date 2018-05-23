@@ -48,12 +48,12 @@ sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel mak
 
 ## 使用方法 
 ### 获取工具 
-Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs-v4.2.1)
+Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs)
 
 ### 安装工具 
 您可以直接将下载的源码上传至指定目录，也可以使用 GitHub 下载到指定目录，下面以使用 GitHub 将源码目录下载到 `/usr/cosfs` 为例：
 ```
-git clone https://github.com/tencentyun/cosfs-v4.2.1 /usr/cosfs
+git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 进入到该目录，编译安装：
 ```
