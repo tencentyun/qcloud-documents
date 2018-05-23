@@ -73,7 +73,7 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
-TXUGCEditer* _ugcEdit = [[TXUGCEditer alloc] initWithPreview:param];
+TXVideoEditer* _ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
 // 设置裁剪的 起始时间 和 结束时间
 [_ugcEdit setCutFromTime:_videoRangeSlider.leftPos toTime:_videoRangeSlider.rightPos];
 // ...
