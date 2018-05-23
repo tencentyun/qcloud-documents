@@ -5,10 +5,10 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 - MD5 数据校验功能。
 
 ## 使用限制 
-本工具可以支持对COS V4、V5 版本存储的访问，但是域名均需使用 COS V5 域名。
+本工具可以支持对 COS V4、V5 版本存储的访问，但是域名均需使用 COS V5 域名。
 ## 使用环境 
 ### 系统环境 
-主流 Linux 系统
+主流 Linux 系统。
 
 ### 软件环境 
 本工具编译需要 C++ 编译环境。依赖于 automake、git 、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件，安装方法参考 [环境安装](#环境安装)。
@@ -24,12 +24,12 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
-注意在centos6.5及较低版本，可能会提示fuse版本太低，在安装过程的configure操作时返回
+注意在 centos6.5 及较低版本，可能会提示 fuse 版本太低，在安装过程的 configure 操作时返回
 ```
  checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，你需要来手动安装fuse版本，具体步骤
+此时，您需要来手动安装 fuse 版本，具体步骤
 ```
  # yum remove -y fuse-devel
   # wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.8.4.tar.gz
@@ -149,7 +149,7 @@ umount -l /mnt
     Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
     ```
 
-   此时，你需要来手动安装fuse版本，具体步骤
+   此时，您需要来手动安装fuse版本，具体步骤
 
    ```
      # yum remove -y fuse-devel
