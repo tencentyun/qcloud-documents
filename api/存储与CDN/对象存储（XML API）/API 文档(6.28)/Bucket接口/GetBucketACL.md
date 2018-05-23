@@ -80,16 +80,13 @@ NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](
 ## 实际案例
 
 ### 请求
-
-``` GET /?acl HTTP/1.1
+``` 
+GET /?acl HTTP/1.1
 Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
 ```
-
-
 ### 响应
-
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
@@ -98,7 +95,6 @@ Connection: keep-alive
 Date: Fri, 10 Mar 2016 09:45:46 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
-
 <AccessControlPolicy>
   <Owner>
     <ID>qcs::cam::uin/12345:uin/12345</ID>
@@ -121,5 +117,4 @@ x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
   </AccessControlList>
 </AccessControlPolicy>
 ```
-
 
