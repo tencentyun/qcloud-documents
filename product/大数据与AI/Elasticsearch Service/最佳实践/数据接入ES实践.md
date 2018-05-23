@@ -1,4 +1,5 @@
-#数据接入ES实践
+
+# 数据接入ES实践
 
 腾讯云Elasticsearch服务提供在用户VPC内通过私有网vip访问集群的方式，用户可以通过Elasticsearch REST client编写代码访问集群并将自己的数据导入到集群中，当然也可以通过官方提供的组件如logstash和beat接入自己的数据。下面以官方的logstash和beats为例，介绍不同类型的数据源接入ES的方式。
 
@@ -6,7 +7,7 @@
 
 因为访问ES集群需要在用户VPC内进行，因此用户需要创建一台和ES集群相同VPC下的CVM实例或者Docker集群。
 
-##1.  使用logstash接入ES集群
+## 1.  使用logstash接入ES集群
 
 ### CVM中访问ES集群
 
