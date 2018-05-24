@@ -2,7 +2,7 @@
 ## 功能介绍
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端APP演示等需要手机屏幕画面的场景。
 
-![](https://main.qcloudimg.com/raw/b202669693a06db0fcc06ca80a194176.jpg)
+![](https://main.qcloudimg.com/raw/4532046fab322387a48fea410ead7a4d.jpg)
 
 录屏功能在 iOS 和 Android 下有两套截然不同的实现方案，本文档
 
