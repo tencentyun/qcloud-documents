@@ -1,5 +1,5 @@
 当您已经拥有所要调用 API 的 secret_id 和 secret_key，并且了解相关API 的 URL 及所需参数等，即可进行调用。
-当您在调用时，无论使用 http 还是 https，都需要在请求头中包含签名信息，有关签名的计算详见
+当您在调用时，无论使用 http 还是 https，都需要在请求头中包含签名信息，有关签名的计算详见： [密钥对计算](https://cloud.tencent.com/document/product/628/11819)
 
 具体步骤如下：
 
@@ -7,7 +7,8 @@
 
 1. 地址
 
-<pre><code>http://
+<pre><code>http://service-kuy3rwbs-1251762227.ap-guangzhou.apigateway.myqcloud.com/release
+//请填入您所要调用的API服务URL
 </code></pre>
 
 2. 方法
@@ -23,7 +24,7 @@
 <pre><code>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 Accept-Language: zh-cn
 Connection: Keep-Alive
-Host: www.qq.com
+Host: service-kuy3rwbs-1251762227.ap-guangzhou.apigateway.myqcloud.com/release
 User-Agent: Mozila/4.0(compatible;MSIE5.01;Window NT5.0)
 Accept-Encoding: gzip,deflate
 Content-Type: application/x-www-form-urlencoded;charset=utf-8
