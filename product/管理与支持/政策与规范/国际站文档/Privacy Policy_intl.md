@@ -26,7 +26,7 @@ If you have any concerns or complaints, please contact us at cloudegalnotices@te
 
 #### How will we notify you of changes?
 
-If there are any significant changes to this privacy policy, we will provide a notice on our website. See below at [Changes](#title9)  for more information.**
+If there are any significant changes to this privacy policy, we will provide a notice on our website. See below at [Changes](#title9)  for more information.
 
 #### Contact Information
 
