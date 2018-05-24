@@ -79,3 +79,161 @@ Tencent and Organisation acknowledge that Organisation is the Controller and Ten
 1. Tencent may authorise any Sub-Processor to Process the Personal Data on its behalf provided that, where (and to the extent) required by Data Protection Laws, Tencent enters into a written agreement with the Sub-Processor containing terms which are substantially the same as those contained in this DPSA. Organisation hereby grants Tencent general written authorisation to engage such Sub-Processors listed at the Tencent Cloud [Third Parties](https://intl.cloud.tencent.com/services/thirdParties), pagesubject to the requirements of this clause 8.
 2. Tencent shall, to the extent the Personal Data Processed is EU Personal Data or where the laws of any other jurisdiction require such notification, inform Organisation in by email (and via the Tencent Cloud Portal) of any intended changes concerning the addition or replacement of the Sub-Processors. In such a case, Organisation will have fourteen (14) days from the date of receipt of the notice to approve or reject the change. In the event of no response from Organisation, the Sub-Processor will be deemed accepted. If Organisation rejects the replacement sub-processor, Tencent may terminate the Agreement with immediate effect on written notice to Organisation.
 3. In the event that Tencent engages a Sub-Processor for carrying out specific Processing activities on behalf of Organisation, where that Sub-Processor fails to fulfil its data protection obligations, Tencent will remain fully liable under the Data Protection Laws to Organisation for the performance of that Sub-Processor's obligations.
+
+
+## Jurisdiction-specific Requirements
+
+**Europe**
+
+1. Tencent agrees that it will not Process EU Personal Data in a Third Country except where Tencent complies with the data importer’s obligations set out in the Controller-Processor Transfer Clauses.
+2. To the extent of any conflict between the Controller-Processor Transfer Clauses and the rest of this DPSA, the Controller-Processor Transfer Clauses will prevail in relation to any EU Personal Data.
+3. For the purposes of the Controller-Processor Transfer Clauses, the following additional provisions will apply:<ol style = 'list-style-type :lower-latin'><li>the parties agree to observe the Controller-Processor Transfer Clauses without modification;</li><li>the names and addresses of Organisation and Tencent will be considered to be incorporated into the Controller-Processor Transfer Clauses and for the purposes of the Controller-Processor Transfer Clauses;</li><li>Organisation is the data exporter and Tencent, or Tencent’s applicable Affiliate, is the data importer as defined in the Controller-Processor Transfer Clauses; and</li><li>each party’s signature to this DPSA will be considered a signature to the terms contained in the Controller-Processor Transfer Clauses.</li></ol>
+4. If so required by the laws or regulatory procedures of any jurisdiction, the parties will execute or re-execute the clauses contained in the Controller-Processor Transfer Clauses as a separate document setting out the proposed transfers of Personal Data in such manner as may be required.
+
+**Suth Korea**
+
+1. If and to the extent that the Tencent Security Policy is insufficient to meet the applicable requirements under Korean privacy laws and regulations, Tencent will take additional measures from time to time to comply with such requirements (as applicable to an overseas transferee of Personal Data), including:  <ol style = 'list-style-type :lower-latin'><li>Articles 28 and 63 of the Act on the Promotion of Utilisation of Information and Communications Networks and the Protection of Information (the “**ICT Networks Act**”);</li><li>Articles 15 and 67 of the Enforcement Decree promulgated under the ICT Networks Act;</li><li>the Guidelines for Technical and Administrative Measures for the Protection of Personal Information (issued by the Korea Communications Commission);</li><li>Article 29 of the Personal Information Protection Act (the “**PIPA**”);</li><li>Article 30 of the Enforcement Decree promulgated under the PIPA; and</li><li>the Guidelines for Security Measures for the Safety of Personal Information (issued by the Ministry of Interior and Safety), as the foregoing may be amended and/or supplemented from time to time.</li></ol>
+2. Tencent will:<ol style = 'list-style-type :lower-latin'><li>use the Personal Data only for the purpose of and within the scope of entrusted work; </li><li>agree to be subject to the training and supervision by Organisation of Tencent's handling of the Personal Data; and </li><li>agree to be subject to the supervision and audit by relevant regulatory authorities.</li></ol>
+3. Tencent will compensate Organisation and any relevant data subjects for any and all damages, liabilities, costs and expenses arising out of any breach of Tencent's obligations under this DPSA or under Applicable Law.
+
+## Controller-Processor Transfer Clauses
+
+For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of personal data to processors established in third countries which do not ensure an adequate level of data protection:
+
+Name of the data exporting organisation: This is the Organisation that has entered into the Agreement, or if the Agreement is entered into with an individual that is not acting on behalf of an Organisation, that individual.
+
+(the “**data exporter**”)
+
+And
+
+Name of the data importing organisation: The contracting entity specified in section 1.2 of the Terms of Service.
+
+(the “**data importer**”)
+
+each a “**party**”; together “**the parties**”,
+
+HAVE AGREED on the following Contractual Clauses (the “**Clauses**”) in order to adduce adequate safeguards with respect to the protection of privacy and fundamental rights and freedoms of individuals for the transfer by the data exporter to the data importer of the personal data specified in Appendix 1.
+
+### 1. Definitions
+For the purposes of the Clauses:
+1. 'personal data', 'special categories of data', 'process/processing', 'controller', 'processor', 'data subject' and 'supervisory authority' will have the same meaning as in Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data;</li><li>'the data exporter' means the controller who transfers the personal data;</li><li>'the data importer' means the processor who agrees to receive from the data exporter personal data intended for processing on his behalf after the transfer in accordance with his instructions and the terms of the Clauses and who is not subject to a third country's system ensuring adequate protection within the meaning of Article 25(1) of Directive 95/46/EC;</li><li>'the sub-processor' means any processor engaged by the data importer or by any other sub-processor of the data importer who agrees to receive from the data importer or from any other sub-processor of the data importer personal data exclusively intended for processing activities to be carried out on behalf of the data exporter after the transfer in accordance with his instructions, the terms of the Clauses and the terms of the written subcontract;</li><li>'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;</li><li>'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.</li></ol>
+
+### 2. Details of the transfer
+
+The details of the transfer and in particular the special categories of personal data where applicable are specified in Appendix 1 which forms an integral part of the Clauses.
+
+### 3. Third-party beneficiary clause
+
+1. The data subject can enforce against the data exporter this Clause, Clauses  4(b) to 4(i), Clauses 5(a) to 5(e) and 5(g) to 5(j), Clauses 6.1 and 6.2, Clause 7, Clause 8.2 and Clauses 9 to 12 as third-party beneficiary. 
+2. The data subject can enforce against the data importer this Clause, Clauses 5(a) to 5(e) and 5(g), Clause 6, Clause 7, Clause 8.2 and Clauses 9 to 12, in cases where the data exporter has factually disappeared or has ceased to exist in law unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law, as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity. 
+3. The data subject can enforce against the sub-processor this Clause, Clauses 5(a) to 5(e) and 5(g), Clause 6, Clause 7, Clause 8.2 and Clauses 9 to 12, in cases where both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity. Such third-party liability of the sub-processor will be limited to its own processing operations under the Clauses. 
+4. The parties do not object to a data subject being represented by an association or other body if the data subject so expressly wishes and if permitted by national law. 
+
+### 4. Obligations of the data exporter 
+
+The data exporter agrees and warrants:
+1. that the processing, including the transfer itself, of the personal data has been and will continue to be carried out in accordance with the relevant provisions of the applicable data protection law (and, where applicable, has been notified to the relevant authorities of the Member State where the data exporter is established) and does not violate the relevant provisions of that State;
+2. that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;
+3. that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 to this contract;
+4. that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
+5. that it will ensure compliance with the security measures;
+6. that, if the transfer involves special categories of data, the data subject has been informed or will be informed before, or as soon as possible after, the transfer that its data could be transmitted to a third country not providing adequate protection within the meaning of Directive 95/46/EC;
+7. to forward any notification received from the data importer or any sub-processor pursuant to Clause 5(b) and Clause 8.3 to the data protection supervisory authority if the data exporter decides to continue the transfer or to lift the suspension;
+8. to make available to the data subjects upon request a copy of the Clauses, with the exception of Appendix 2, and a summary description of the security measures, as well as a copy of any contract for sub-processing services which has to be made in accordance with the Clauses, unless the Clauses or the contract contain commercial information, in which case it may remove such commercial information;
+9. that, in the event of sub-processing, the processing activity is carried out in accordance with Clause 11 by a sub-processor providing at least the same level of protection for the personal data and the rights of data subject as the data importer under the Clauses; and
+10. that it will ensure compliance with Clauses 4(a) to 4(i).
+
+### 5. Obligations of the data importer
+
+The data importer agrees and warrants:
+1. to process the personal data only on behalf of the data exporter and in compliance with its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it agrees to inform promptly the data exporter of its inability to comply, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+2. that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+3. that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;
+4. that it will promptly notify the data exporter about:<ol style = 'list-style-type :lower-latin'><li>any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,</li><li>any accidental or unauthorised access, and</li><li>any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;</li></ol>
+5. to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;
+6. at the request of the data exporter to submit its data processing facilities for audit of the processing activities covered by the Clauses which will be carried out by the data exporter or an inspection body composed of independent members and in possession of the required professional qualifications bound by a duty of confidentiality, selected by the data exporter, where applicable, in agreement with the supervisory authority;
+7. to make available to the data subject upon request a copy of the Clauses, or any existing contract for sub-processing, unless the Clauses or contract contain commercial information, in which case it may remove such commercial information, with the exception of Appendix 2 which will be replaced by a summary description of the security measures in those cases where the data subject is unable to obtain a copy from the data exporter;
+8. that, in the event of sub-processing, it has previously informed the data exporter and obtained its prior written consent;
+9. that the processing services by the sub-processor will be carried out in accordance with Clause 11;
+10. to send promptly a copy of any sub-processor agreement it concludes under the Clauses to the data exporter.
+
+### 6. Liability
+1. The parties agree that any data subject, who has suffered damage as a result of any breach of the obligations referred to in Clause 3 or in Clause 11 by any party or sub-processor is entitled to receive compensation from the data exporter for the damage suffered.
+2. If a data subject is not able to bring a claim for compensation in accordance with Clause 6.1 against the data exporter, arising out of a breach by the data importer or his sub-processor of any of their obligations referred to in Clause 3 or in Clause 11, because the data exporter has factually disappeared or ceased to exist in law or has become insolvent, the data importer agrees that the data subject may issue a claim against the data importer as if it were the data exporter, unless any successor entity has assumed the entire legal obligations of the data exporter by contract of by operation of law, in which case the data subject can enforce its rights against such entity.  The data importer may not rely on a breach by a sub-processor of its obligations in order to avoid its own liabilities.
+3.  If a data subject is not able to bring a claim against the data exporter or the data importer referred to in Clauses 6.1 and 6.2, arising out of a breach by the sub-processor of any of their obligations referred to in Clause 3 or in Clause 11 because both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, the sub-processor agrees that the data subject may issue a claim against the data sub-processor with regard to its own processing operations under the Clauses as if it were the data exporter or the data importer, unless any successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law, in which case the data subject can enforce its rights against such entity. The liability of the sub-processor will be limited to its own processing operations under the Clauses.
+
+### 7. Mediation and jurisdiction
+
+1. The data importer agrees that if the data subject invokes against it third-party beneficiary rights and/or claims compensation for damages under the Clauses, the data importer will accept the decision of the data subject: <ol style = 'list-style-type :lower-latin'><li>to refer the dispute to mediation, by an independent person or, where applicable, by the supervisory authority;</li><li>to refer the dispute to the courts in the Member State in which the data exporter is established.</li></ol>
+2. The parties agree that the choice made by the data subject will not prejudice its substantive or procedural rights to seek remedies in accordance with other provisions of national or international law.
+
+### 8. Cooperation with supervisory authorities
+
+1. The data exporter agrees to deposit a copy of this contract with the supervisory authority if it so requests or if such deposit is required under the applicable data protection law.
+2. The parties agree that the supervisory authority has the right to conduct an audit of the data importer, and of any sub-processor, which has the same scope and is subject to the same conditions as would apply to an audit of the data exporter under the applicable data protection law.
+3. The data importer will promptly inform the data exporter about the existence of legislation applicable to it or any sub-processor preventing the conduct of an audit of the data importer, or any sub-processor, pursuant to Clause 8.2. In such a case the data exporter will be entitled to take the measures foreseen in Clause 5(b).
+
+### 9. Governing Law
+The Clauses will be governed by the law of the Member State in which the data exporter is established.
+
+### 10. Variation of the contract
+
+The parties undertake not to vary or modify the Clauses. This does not preclude the parties from adding clauses on business related issues where required as long as they do not contradict the Clauses.
+
+### 11. Sub-processing
+1. The data importer will not subcontract any of its processing operations performed on behalf of the data exporter under the Clauses without the prior written consent of the data exporter. Where the data importer subcontracts its obligations under the Clauses, with the consent of the data exporter, it will do so only by way of a written agreement with the sub-processor which imposes the same obligations on the sub-processor as are imposed on the data importer under the Clauses. Where the sub-processor fails to fulfil its data protection obligations under such written agreement the data importer will remain fully liable to the data exporter for the performance of the sub-processor's obligations under such agreement.
+2. The prior written contract between the data importer and the sub-processor will also provide for a third-party beneficiary clause as laid down in Clause 3 for cases where the data subject is not able to bring the claim for compensation referred to in Clause 6.1 against the data exporter or the data importer because they have factually disappeared or have ceased to exist in law or have become insolvent and no successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law. Such third-party liability of the sub-processor will be limited to its own processing operations under the Clauses.
+3. The provisions relating to data protection aspects for sub-processing of the contract referred to in Clause 11.1 will be governed by the law of the Member State in which the data exporter is established.
+4. The data exporter will keep a list of sub-processing agreements concluded under the Clauses and notified by the data importer pursuant to Clause 5(j), which will be updated at least once a year. The list will be available to the data exporter's data protection supervisory authority.
+
+### 12. Obligation after the termination of personal data processing services
+1. The parties agree that on the termination of the provision of data processing services, the data importer and the sub-processor will, at the choice of the data exporter, return all the personal data transferred and the copies thereof to the data exporter or will destroy all the personal data and certify to the data exporter that it has done so, unless legislation imposed upon the data importer prevents it from returning or destroying all or part of the personal data transferred. In that case, the data importer warrants that it will guarantee the confidentiality of the personal data transferred and will not actively process the personal data transferred anymore.
+2. The data importer and the sub-processor warrant that upon request of the data exporter and/or of the supervisory authority, it will submit its data processing facilities for an audit of the measures referred to in Clause 12.1.
+
+
+## Appendix 1
+#### Description of the Transfers (Controller-Processor)
+
+This Appendix forms part of the Clauses and must be completed and signed by the parties.
+
+The Member States may complete or specify, according to their national procedures, any additional necessary information to be contained in this Appendix.
+
+**Data exporter**
+
+The data exporter is the Organisation as defined in the Agreement, or if the Agreement is entered into by an individual that is not acting on behalf of an Organisation, that individual.
+
+The data exporter has engaged the data importer to provide online services as described in the Agreement. 
+
+**Data importer**
+
+The data importer is Tencent, as defined in the Agreement, a leading provider of Internet value added services. The data importer has been engaged by the data exporter to provide certain online services as described in the Agreement. 
+
+**Categories of data**
+
+The personal data transferred concern the following categories of data (please specify):
+
+The Content uploaded by the Data Exporter, or as notified by Data Exporter to Data Importer from time to time.
+
+**Special categories of data**
+
+The personal data transferred concern the following special categories of data (please specify):
+
+The Content uploaded by the Data Exporter, or as notified by Data Exporter to Data Importer from time to time.
+
+**Processing operations**
+
+The personal data transferred will be subject to the following basic processing activities (please specify):
+
+The Data Importer will process the personal data in support of the activities carried out by the Data Exporter.  In particular, the Data Importer's processing activities carried out under the instructions and on behalf of the Data Exporter include: data hosting, data back-up, communications, data analytics, statistics, analysis, IT system administration, order fulfilment, support services, employee management services, processing order payments, delivery of marketing communications, promotions and surveys, operations, software maintenance and hosting, information technology services including desktop and network management, system monitoring, application and program development, archiving, disaster management and data restoring.
+
+## Appendix 2
+
+#### Technical and Organisational Security Measures
+
+We have implemented a comprehensive privacy and security programme for the purpose of protecting your content. This programme includes the following:
+1. **Data security.** We have designed and implemented the following measures to protect customer's data against unauthorised access:  <ol style = 'list-style-type :lower-latin'><li>standards for data categorisation and classification; </li><li>a set of authentication and access control capabilities at the physical, network, system and application levels; and </li><li>a mechanism for detecting big data-based abnormal behaviour.</li></ol>
+2. **Network security.** We implement stringent rules on internal network isolation to achieve access control and border protection for internal networks (including office networks, development networks, testing networks and production networks) by way of physical and logical isolation.
+3.  **Physical and environmental security.** Stringent infrastructure and environment access controls have been implemented for Tencent Cloud's data centres based on relevant regional security requirements.  An access control matrix is established, based on the types of data centre personnel and their respective access privileges, to ensure effective management and control of access and operations by data centre personnel.
+4. **Incident management.** We operate active and real-time service monitoring, combined with a rapid response and handling mechanism, that enables prompt detection and handling of security incidents.
+5. **Compliance with standards.** We comply with the following standards: <ol style = 'list-style-type :lower-latin'><li>Information security management system – ISO 27001:2013.</li><li>IT service management – ISO/IEC 20000-1:2011.</li><li>Quality management system – ISO/IEC 9001:2015. </li><li>IT Service Management System – ISO/IEC 27018:2014</li><li>CSA Security, Trust & Assurance Registry (STAR)</li></ol>
+
