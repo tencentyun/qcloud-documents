@@ -144,7 +144,7 @@ uname -a，cat /proc/version，cat /etc/issue
 
 ## 19. 如何设置通过SecureCRT连接云服务器的超时时间？
 可以通过如下设置，使SecureCRT连接云服务器时，不断开连接：
-打开secureCRT选项(Options)，选择会话选项（Session Opetions），点击终端（Terminal），在右侧反空闲（Anti-idle）的框中勾选发送协议NO-OP（Send protocol NO-OP），时间设置为每120秒(every 120 seconds)。 
+打开secureCRT选项(Options)，选择会话选项（Session Opetions），单击终端（Terminal），在右侧反空闲（Anti-idle）的框中勾选发送协议NO-OP（Send protocol NO-OP），时间设置为每120秒(every 120 seconds)。 
 
 ## 20. 为什么删除linux服务器上的文件，硬盘空间不释放？
 有时，登录linux服务器执行 rm 命令删除文件后，用 df 命令查看硬盘空间，发现删除文件后可用的硬盘空间没有增加。原因是通过 rm 命令删除文件的时候，如果正好有其它进程在访问该文件，通过 df 命令查看，删除的文件占用的空间是没有立即释放的。
