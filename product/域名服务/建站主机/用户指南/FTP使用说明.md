@@ -11,7 +11,7 @@ FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明。
 输入主机地址，用户名，密码，主机地址是`ftp://xxxxx.mylitesite.com`，
 ![](https://mc.qcloudimg.com/static/img/bceea82794b39dc24b9d37dc2d1c9891/1.png)
 
-点击【快速连接】登录，可以记住密码。
+单击【快速连接】登录，可以记住密码。
 ![](https://mc.qcloudimg.com/static/img/bf19651be717936689baac9bdf8db42b/2.png)
 
 #### 2.2 查看主机目录
