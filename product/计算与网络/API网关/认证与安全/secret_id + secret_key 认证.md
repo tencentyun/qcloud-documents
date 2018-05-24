@@ -61,7 +61,7 @@ source: AndriodApp
 
 ## 注意事项
 
-### header对应
+### header 对应
 
 Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。
 
