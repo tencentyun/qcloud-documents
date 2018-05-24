@@ -31,8 +31,8 @@ dimensions.1.value=实例下具体的分片Id
 | metricName         | 是    | String   | 具体的指标名称   | 指标名称，具体名称见2.2                            |
 | dimensions.0.name  | 是    | String   | uuid      | 入参为实例的uuid                               |
 | dimensions.0.value | 是    | String   | 实例具体的uuid | 输入实例的具体uuid，如 dcdbt-0gfryg60              |
-| dimensions.0.name  | 否    | String   | shardId | 入参为实例具体的分片Id，在需要查询分片的监控数据时传递，不传则查询汇总的实例监控数据     |
-| dimensions.0.value | 否    | String   | 实例具体的分片Id | 输入实例的具体分片Id，如 shard-0mzlzl89    |
+| dimensions.1.name  | 否    | String   | shardId | 入参为实例具体的分片Id，在需要查询分片的监控数据时传递，不传则查询汇总的实例监控数据     |
+| dimensions.1.value | 否    | String   | 实例具体的分片Id | 输入实例的具体分片Id，如 shard-0mzlzl89    |
 | period             | 否    | Int      | 60/300    | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考2.2的指标详情列表。 |
 | startTime          | 否    | Datetime | 起始时间      | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
 | endTime            | 否    | Datetime | 结束时间      | 结束时间，默认为当前时间。 endTime不能小于startTime       |
