@@ -30,7 +30,7 @@ PHP：Web 服务器生成网页的程序。
 1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，单击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
 单击右侧菜单的【更多】，选择【重装系统】
 ![云主机](//mc.qcloudimg.com/static/img/5abc4a177ce635a8357b03ee7061c57e/image.png)
-2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据你的需要进行选择。
+2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据您的需要进行选择。
 ![获取Discuz3（改）](//mc.qcloudimg.com/static/img/f9970cfef97cb508581f3519dfd98bd2/image.png)
 
 #### 需要购买云服务器
