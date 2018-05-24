@@ -23,9 +23,9 @@ procinfo工具安装请参考Linux环境下安装软件。
 ## 7. 如何查看服务器进程信息？
 可以使用ps auxww|grep PID，ps -ef，lsof -p PID，top -p PID命令查看。 
 
-## 8. 如何杀死进程？
-可以使用kill -9 PID（进程号），killall 程序名（比如killall cron）来杀死进程。
-如果要杀死的是僵尸进程，则需要杀掉进程的父进程才有效果，命令为： kill -9 ppid（ppid为父进程ID号，可以通过ps -o ppid PID查找，例如ps -o ppid 32535）。 
+## 8. 如何停止进程？
+可以使用kill -9 PID（进程号），killall 程序名（比如killall cron）来停止进程。
+如果要停止的是僵尸进程，则需要杀掉进程的父进程才有效果，命令为： kill -9 ppid（ppid为父进程ID号，可以通过ps -o ppid PID查找，例如ps -o ppid 32535）。 
 
 ## 9. 如何查找僵尸进程？
 可以使用top命令查看僵尸进程（zombie）的总数，使用ps -ef | grep defunct | grep -v grep查找具体僵尸进程的信息。 
