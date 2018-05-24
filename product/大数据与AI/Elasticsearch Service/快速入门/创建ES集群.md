@@ -5,7 +5,7 @@
 
 内测期间，已获得试用资格的用户，登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es) ，单击【新建】进入创建页。  
 
-![创建](https://main.qcloudimg.com/raw/98d3bc38ae0af24c400222095d90ffad.png)
+![创建](https://main.qcloudimg.com/raw/340a9955688d458f0b88c90d8074923d.png)
 
 ## 2. 选择集群配置
 ### 地域网络
@@ -26,4 +26,4 @@
 ## 3. 创建完成
 设置好各种属性配置，单击【立即创建】，确认配置，创建完成后，跳转控制台页面查看创建完成的 ES 集群。
 内测期间，如果集群 15 天内没有访问和查询请求，系统将对资源进行回收，集群将被销毁。
-![确认](https://main.qcloudimg.com/raw/5f34b88259b91f9d49d909d6fd721a5d.png)
+![确认](https://main.qcloudimg.com/raw/88f4c4c23a8738455bd3a6fccbd5da67.png)
