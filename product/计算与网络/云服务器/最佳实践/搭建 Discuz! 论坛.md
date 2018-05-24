@@ -27,8 +27,8 @@ PHP：Web 服务器生成网页的程序。
 - 需要购买腾讯云云服务器。
 
 #### 已有腾讯云服务器，只安装镜像
-1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，点击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
-点击右侧菜单的【更多】，选择【重装系统】
+1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，单击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
+单击右侧菜单的【更多】，选择【重装系统】
 ![云主机](//mc.qcloudimg.com/static/img/5abc4a177ce635a8357b03ee7061c57e/image.png)
 2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据你的需要进行选择。
 ![获取Discuz3（改）](//mc.qcloudimg.com/static/img/f9970cfef97cb508581f3519dfd98bd2/image.png)
@@ -65,13 +65,13 @@ PHP：Web 服务器生成网页的程序。
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间为20天左右。
 3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
  1. 登录 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，选择域名或添加您已有的域名。
- 2. 点击【解析】，进入该域名的域名记录管理界面。
+ 2. 单击【解析】，进入该域名的域名记录管理界面。
 ![配置域名1](//mc.qcloudimg.com/static/img/c2e3da7449cf42697a15f5c2bf9e80cf/image.png)
- 3. 点击【添加记录】，添加需要解析的记录。
+ 3. 单击【添加记录】，添加需要解析的记录。
 ![配置域名2](//mc.qcloudimg.com/static/img/4a5054890890418d83ced42db4f3a98a/image.png)
 
 ### 步骤四：安装配置 Discuz! 
-1. 首先通过浏览器访问步骤三中已经配置好的域名，点击  Discuz!【安装配置】进入安装页面。
+1. 首先通过浏览器访问步骤三中已经配置好的域名，单击  Discuz!【安装配置】进入安装页面。
 ![安装0](//mc.qcloudimg.com/static/img/9c158431b6de083811f5a93d545309ed/image.png)
 2. 单击【我同意】，进入安装步骤第一步：检查安装环境。
 ![安装1](//mc.qcloudimg.com/static/img/ad97b179b5b4977d86ca09a78ef05a7d/image.png)
@@ -94,7 +94,7 @@ PHP：Web 服务器生成网页的程序。
 **域名注册**：如果想要使用易记的域名访问您的 Discuz! 论坛，可以使用腾讯云域名注册服务来购买域名。
 **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
 **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
-**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
+**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。单击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
  
 自主安装流程图如下：
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
@@ -181,9 +181,9 @@ http://云主机的公网 IP/test.php
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间为20天左右。
 3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
  1. 登录 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，选择域名或添加您已有的域名。
- 2. 点击【解析】，进入该域名的域名记录管理界面。
+ 2. 单击【解析】，进入该域名的域名记录管理界面。
 ![配置域名1](//mc.qcloudimg.com/static/img/c2e3da7449cf42697a15f5c2bf9e80cf/image.png)
- 3. 点击【添加记录】，添加需要解析的记录。
+ 3. 单击【添加记录】，添加需要解析的记录。
 ![配置域名2](//mc.qcloudimg.com/static/img/4a5054890890418d83ced42db4f3a98a/image.png)
 
 ### 步骤四：安装 Discuz!  
