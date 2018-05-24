@@ -24,5 +24,5 @@ Multiple users can speak at the same time with ultra-low latency, which is suita
 **Command Mode**
 
 This mode is designed for scenes such as one-to-many command operations and audio interaction with VJs. It is suitable for large-scale commander games.
-### Speech-to Text Converting
+### Speech-to-text Converting
 Users can send recorded voice messages to various game channels and convert them into text messages in real time. This feature provides superior sound quality and speech recognition with high accuracy.

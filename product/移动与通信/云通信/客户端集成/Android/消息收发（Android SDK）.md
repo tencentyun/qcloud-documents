@@ -93,6 +93,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 >- 存储要发送的图片路径，必须是本地路径。
 >- 发送时不用关注，接收时保存生成的图片所有规格。
 >- 发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `imageList` 获取所有图片类型。
+>- `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 >- `TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
 
 **`TIMImageElem` 成员方法：**
@@ -198,6 +199,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 语音消息由 `TIMSoundElem` 定义，其中 `data` 存储语音数据，语音数据需要提供时长信息，以秒为单位，**注意，一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效，另外，语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序**。
 
+> **注意：**
+> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+
 **`TIMSoundElem` 成员方法：**
 
 ```
@@ -299,6 +303,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ### 小文件消息发送
 
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。**注意：一条消息只能添加一个文件 `Elem`，添加多个文件时，`AddElem` 函数返回错误 1，另外，语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示。**
+
+> **注意：**
+> `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
 
 **`TIMFileElem` 成员方法：**
 
@@ -527,9 +534,9 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过此方法抛出，另外需要注意，通过 `onNewMessage` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过此方法抛出，另外需要注意，通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
 
-添加一个消息监听器，默认情况下所有消息监听器都将按添加顺序被回调一次 除非用户在 `OnNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
+添加一个消息监听器，默认情况下所有消息监听器都将按添加顺序被回调一次 除非用户在 `onNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
 **原型：**
 ```
 public void addMessageListener(TIMMessageListener listener)
@@ -614,8 +621,8 @@ long    getWidth()
 
 >- 如果原图尺寸就小于 198 像素，则三种规格都保持原始尺寸，不需压缩。
 >- 如果原图尺寸在 198~720 之间，则大图和原图一样，不需压缩。
->- 在手机上展示图片时，建议优先展示缩略图，用户点击缩略图时再下载大图，点击大图时再下载原图。当然开发者也可以选择跳过大图，点击缩略图时直接下载原图。
->- 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户点击大图时再下载原图。
+>- 在手机上展示图片时，建议优先展示缩略图，用户单击缩略图时再下载大图，单击大图时再下载原图。当然开发者也可以选择跳过大图，单击缩略图时直接下载原图。
+>- 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户单击大图时再下载原图。
 
 **示例：  **
 ```
@@ -683,7 +690,7 @@ public void getSoundToFile(String path, TIMCallBack callback)
 path|指定保存路径
 callback| 回调
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（Android%20SDK）#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户点击播放后可设置 `customInt` 的值为 1。设置自定义整数， 默认为0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（Android%20SDK）#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。设置自定义整数， 默认为0。
 
 **原型：**
 ```
@@ -909,7 +916,7 @@ public boolean isSelf()
 
 > **注意：**
 >- 此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
->- 1.9 版本之前，只有在线消息 `onNewMessage` 抛出的消息可以获取到用户资料。
+>- 1.9 版本之前，只有在线消息 `onNewMessages` 抛出的消息可以获取到用户资料。
 >- 1.9 版本以后，通过 `getMessage` 得到的消息也可以拿到资料（更新版本之前已经收到本地的消息无法获取到）。
 
 ```
@@ -1071,7 +1078,7 @@ for(long i = 0; i < cnt; ++i) {
 
 ```
 //获取所有会话
-public List<TIMConversation> getConversionList()
+public List<TIMConversation> getConversationList()
 ```
 
 ### 最近联系人漫游
@@ -1353,7 +1360,7 @@ notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY
 PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
 mBuilder.setContentTitle(senderStr)//设置通知栏标题
             .setContentText(contentStr)
-            .setContentIntent(intent) //设置通知栏点击意图
+            .setContentIntent(intent) //设置通知栏单击意图
             .setNumber(++pushNum) //设置通知集合的数量
             .setTicker(senderStr+":"+contentStr) //通知首次出现在通知栏，带上升动画效果的
             .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间

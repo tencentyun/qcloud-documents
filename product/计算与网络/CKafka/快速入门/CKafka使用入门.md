@@ -1,6 +1,6 @@
 ### 1. 查看CKafka实例，创建topic
 
-申请通过后，您的CKafka控制台中会展示CKafka实例，点击实例信息可以查看实例详情。包括地域，内网vip，端口等信息。
+申请通过后，您的CKafka控制台中会展示CKafka实例，点击实例信息可以查看实例详情。包括地域，内网VIP，端口等信息。
 
 ![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
 ![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
@@ -47,24 +47,28 @@ wq保存退出后，使用`source /etc/profile`命令使文件立即生效
 d 验证
 通过以下命令验证环境是否安装完成（javac命令也可以），查看版本号是否一致
 ```
-java -version
+cd  $JAVA_HOME/bin
+./java  -version
 ```
+> $JAVA_HOME为安装的JDK的主目录
+
 出现下图则证明jdk安装完成。
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
 #### 2.2 下载Kafka工具包
 
 下载并解压kafka安装包
-Kafka官网地址: http://kafka.apache.org/ 当前CKafka 100%兼容Kafka 0.9版本，建议您下载相应版本的安装包
+Kafka安装包官网下载地址: http://kafka.apache.org/downloads 当前CKafka 100%兼容Kafka 0.9 0.10版本，建议您下载相应版本的安装包
+
 ```
-wget "http://mirrors.hust.edu.cn/apache/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz"
-tar -xzvf kafka_2.11-0.9.0.1.tgz
-mv kafka_2.11-0.9.0.1 /opt/
+tar -xzvf kafka-0.10.2.0-src.tgz
+mv kafka-0.10.2.0-src /opt/
 ```
+
 下载解压完成后，无需配置其他环境，直接可用
 可以通过telnet指令测试本机是否连通到CKafka实例
 ```
-telnet ip 9092
+telnet IP 9092
 ```
 ![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
@@ -76,7 +80,7 @@ telnet ip 9092
 This is a message
 This is another message
 ```
-> 其中broker-list中的ip即为CKafka实例中的vip，topicName为CKafka实例中的topic名称
+> 其中broker-list中的IP即为CKafka实例中的VIP，topicName为CKafka实例中的topic名称
 
 接收消息(CKafka默认隐藏Zookeeper集群)
 ```
@@ -99,8 +103,8 @@ This is another message
 
 ### 3. 其他功能
 #### 3.1 开启白名单
-CKafka支持在topic维度开启ip白名单的功能，有效保证数据安全。
-在新建topic和编辑topic页面均可以开启ip白名单。
+CKafka支持在topic维度开启IP白名单的功能，有效保证数据安全。
+在新建topic和编辑topic页面均可以开启IP白名单。
 ![](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
 
 #### 3.2 设置消息保留时间
