@@ -90,8 +90,8 @@
 输入 Bucket 名为 **myinputbucket**；
 输出 Bucket 名为 **myoutputbucket**；
 目标转码模板 ID 为 **30**，**40** 和 **50**；
-2. 进入 COS 控制台的【存储桶列表】，选择 **myinputbucket**，点击【上传文件】，向输入文件 Bucket 上传一个视频文件；
-2. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf) 的【函数服务】，进入 **RequestVideoTranscode** 函数，点击【日志】可以查看到请求参数和请求返回结果；
+2. 进入 COS 控制台的【存储桶列表】，选择 **myinputbucket**，单击【上传文件】，向输入文件 Bucket 上传一个视频文件；
+2. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf) 的【函数服务】，进入 **RequestVideoTranscode** 函数，单击【日志】可以查看到请求参数和请求返回结果；
 3. 转码完成后可在 COS 的 **myoutputbucket**，观察到有转码文件生成。
 
 ![](https://main.qcloudimg.com/raw/2edf0c22ae509d397c8293a0821e486b.png)
