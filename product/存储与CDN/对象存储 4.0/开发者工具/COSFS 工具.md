@@ -164,7 +164,7 @@ umount -l /mnt
     Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
     ```
 
-   此时，您需要来手动安装fuse版本，具体步骤
+   此时，您需要来手动安装 fuse 版本，具体步骤
 
    ```
      # yum remove -y fuse-devel
