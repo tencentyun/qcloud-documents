@@ -79,21 +79,36 @@ chmod 640 /etc/passwd-cosfs
 ### 运行工具 
 将配置好的存储桶挂载到指定目录，命令行如下：
 ```
-cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
+cosfs your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
 ```
 其中：
-- your-APPID/ your-bucketname 需要替换为用户真实的信息；
+- your-bucketname 需要替换为用户真实的信息；
 - your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
 - cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 Region 为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
 - -odbglevel 参数表示信息级别，照写即可。
+
+注意： 
+
+v1.0.5 版本之前的cosfs挂载命令：
+```
+cosfs bucketname_suffix:bucketname_prefix my-mount-point -ourl=my-cos-endpoint
+```
+
+v1.0.5 版本之前的配置文件格式是：
+```
+bucketname_prefix:<SecretId>:<SecretKey>
+```
+其中`bucketname_suffix`指的是bucket名称中的数字后缀, `bucketname_prefix`指的是除数字后缀外的其他部分。
+例如 bucketprefix-1253972369 的`bucketname_suffix` 为1253972369， `bucketname_prefix`为bucketprefix。
+
 #### 示例：
 ```
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
+cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 另外，如果对性能有要求，可以使用本地磁盘缓存文件，命令中加入 -ouse_cache 参数，示例如下：
 ```
 mkdir /local_cache_dir
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
+cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
 ```
 `/local_cache_dir`为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
@@ -149,7 +164,7 @@ umount -l /mnt
     Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
     ```
 
-   此时，您需要来手动安装fuse版本，具体步骤
+   此时，您需要来手动安装 fuse 版本，具体步骤
 
    ```
      # yum remove -y fuse-devel
@@ -182,3 +197,5 @@ umount -l /mnt
   对于centos可以通过sudo yum install mailcap来添加
 
   或者手动添加，每种格式一行，例如：image/png png
+
+
