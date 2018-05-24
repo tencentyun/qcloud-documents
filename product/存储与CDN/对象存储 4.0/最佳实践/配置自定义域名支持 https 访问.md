@@ -35,7 +35,7 @@ server {
 }
 ```
 其中`server.crt;`、`server.key`是您的自有（自定义）域名的 HTTPS 证书。若您的域名还没有 HTTPS 证书 ，可以在 [腾讯云 SSL 证书](https://cloud.tencent.com/product/ssl) 页面申请。
-若暂时没有证书，可以删除以下配置信息，但访问时会出现告警，点击继续即可访问：
+若暂时没有证书，可以删除以下配置信息，但访问时会出现告警，单击继续即可访问：
 ```
     ssl on;
     ssl_certificate /usr/local/nginx/conf/server.crt;
