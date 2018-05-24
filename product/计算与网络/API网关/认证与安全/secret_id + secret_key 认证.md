@@ -68,3 +68,5 @@ Authorization 中 headers 位置填入的需要是参与计算签名的 header �
 ### 签名内容生成
 
 排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。
+
+https://github.com/apigateway-demo 这里提供了一些常用语言的签名demo，可前往
