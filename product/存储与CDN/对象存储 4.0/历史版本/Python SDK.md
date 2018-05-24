@@ -2,16 +2,16 @@
 
 ### 相关资源
 
-* [GitHub地址](https://github.com/tencentyun/cos-python-sdk-v4) GitHub项目地址，欢迎贡献代码以及反馈问题。
+* [GitHub 地址](https://github.com/tencentyun/cos-python-sdk-v4) GitHub 项目地址，欢迎贡献代码以及反馈问题。
 
-* [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi项目地址 。
-（本版本SDK基于JSON API封装组成）
+* [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi 项目地址 。
+（本版本 SDK 基于 JSON API 封装组成）
 
 ### 环境依赖
 
 python 2.7
 
-获取python版本的方法:
+获取 python 版本的方法:
 
 - Linux Shell
 
@@ -27,11 +27,11 @@ D:\>python -V
 Python 2.7.11
 ```
 
-如果提示不是内部或外部命令，请现在windows环境变量PATH里添加上python的绝对路径
+如果提示不是内部或外部命令，请现在 windows 环境变量 PATH 里添加上 python 的绝对路径
 
-### 安装SDK
+### 安装 SDK
 
-- pip安装
+- pip 安装
 
 ```shell
 pip install qcloud_cos_v4
@@ -39,13 +39,13 @@ pip install qcloud_cos_v4
 
 - 源码安装
 
-github上下载SDK, 解压后如下执行(如果提示permission deny, 需要有管理员权限)
+github 上下载 SDK, 解压后如下执行(如果提示 permission deny, 需要有管理员权限)
 
 ```shell
 python setup.py install
 ```
 
-### 卸载SDK
+### 卸载 SDK
 
 ```shell
 pip uninstall qcloud_cos_v4
@@ -58,10 +58,10 @@ pip uninstall qcloud_cos_v4
 
 
 ```python
-	appid = 100000                  # 替换为用户的appid
-    secret_id = u'xxxxxxxx'         # 替换为用户的secret_id
-    secret_key = u'xxxxxxx'         # 替换为用户的secret_key
-    region_info = "sh"             # 替换为用户的region，例如 sh 表示华东园区, gz 表示华南园区, tj 表示华北园区
+	appid = 100000                  # 替换为用户的 appid
+    secret_id = u'xxxxxxxx'         # 替换为用户的 secret_id
+    secret_key = u'xxxxxxx'         # 替换为用户的 secret_key
+    region_info = "sh"             # 替换为用户的 region，例如 sh 表示华东园区, gz 表示华南园区, tj 表示华北园区
     cos_client = CosClient(appid, secret_id, secret_key, region=region_info)
 ```
 
@@ -93,17 +93,17 @@ def upload_file(self, request)
 
 |  request成员  |      类型      | 默认值  |    设置方法    |                    描述                    |
 | :---------: | :----------: | :--: | :--------: | :--------------------------------------: |
-| bucket_name |   unicode    |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cos_path   |   unicode    |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
-| local_path  |   unicode    |  无   | 构造函数或set方法 |              要上传的本地文件的绝对路径               |
-|  biz_attr   |   unicode    |  空   | 构造函数或set方法 |           文件的备注，主要用于对该文件用途的描述            |
-| insert_only | int     (枚举) |  1   | 构造函数或set方法 | 是否直插入不覆盖已存在的文件, 1表示只直插入不覆盖, 当文件存在返回错误 0 表示允许覆盖 |
+| bucket_name |   unicode    |  无   | 构造函数或 set 方法 |                 bucket 名称                 |
+|  cos_path   |   unicode    |  无   | 构造函数或 set 方法 | cos 路径, 必须从 bucket 下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| local_path  |   unicode    |  无   | 构造函数或 set 方法 |              要上传的本地文件的绝对路径               |
+|  biz_attr   |   unicode    |  空   | 构造函数或 set 方法 |           文件的备注，主要用于对该文件用途的描述            |
+| insert_only | int     (枚举) |  1   | 构造函数或 set 方法 | 是否直插入不覆盖已存在的文件, 1 表示只直插入不覆盖, 当文件存在返回错误 0 表示允许覆盖 |
 
 #### 返回值
 
 | 返回值类型 |                  返回值描述                   |
 | :---: | :--------------------------------------: |
-| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
+| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code 为 0 表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
 
@@ -128,14 +128,14 @@ def stat_file(self, request)
 
 |  request成员  |   类型    | 默认值  |    设置方法    |                    描述                    |
 | :---------: | :-----: | :--: | :--------: | :--------------------------------------: |
-| bucket_name | unicode |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cos_path   | unicode |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| bucket_name | unicode |  无   | 构造函数或 set 方法 |                 bucket名称                 |
+|  cos_path   | unicode |  无   | 构造函数或 set 方法 | cos 路径, 必须从 bucket 下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 
 #### 返回值
 
 | 返回值类型 |                  返回值描述                   |
 | :---: | :--------------------------------------: |
-| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
+| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code 为 0 表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
 
