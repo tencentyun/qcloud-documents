@@ -110,7 +110,7 @@ Unfortunately, the transmission of information via the internet is not completel
 
 We will retain your personal information as described below (except if otherwise required to be retained by applicable law). 
 
-| Information | Retention Period |
+| **Information** | **Retention Period** |
 |---------|---------|
 | Location, Email Address, Password, IP Address, User Agent (or website browser), Device ID, Tencent Cloud ID, Verification Code, Mobile Number, Name, Address (including city and post code), PayPal ID  | Account data is held for so long as an account exists. Information is erased within thirty (30) days of the date the account is deleted. |
 | Transaction Records | Payment data is held for as long as an account exists.  Information is erased within ninety (90) days of the date the account is deleted. |
