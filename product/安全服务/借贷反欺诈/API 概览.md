@@ -160,7 +160,7 @@ RiskDetail 类型说明
 | 名称 | 类型 | 描述 |
 | ----- | ----- | ----- |
 | riskCode | UInt | 风险码 |
-| riskCodeValue | UInt | 风险详情值 |
+| riskCodeValue | UInt | 风险码等级 |
 
 
 
