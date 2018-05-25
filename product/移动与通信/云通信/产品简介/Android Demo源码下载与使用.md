@@ -40,16 +40,16 @@
 ## 4. Demo使用
 ### 4.1 注册和登录
 #### 4.1.1手机号注册和登录
-Demo支持手机号注册登录。填入手机号和手机号所在地，然后点击获取验证码。收到验证码后，填写正确验证码即可登录。
+Demo支持手机号注册登录。填入手机号和手机号所在地，然后单击获取验证码。收到验证码后，填写正确验证码即可登录。
 <img src="//mccdn.qcloud.com/static/img/f8576103a512565ae4426cba9358fa0b/image.png" width=360/>
 #### 4.1.2 帐号密码注册和登录
 Demo支持帐号密码注册登录。按照界面提示填入用户名和密码注册，注册成功后会自动登录。
 <img src="//mccdn.qcloud.com/static/img/27b471be081822ba5ec289272671faa2/image.png" width=360/>
-使用已经注册的帐号登录，点击进入用户名登录界面，填写用户名和密码，点击登录按钮即可登录。
+使用已经注册的帐号登录，单击进入用户名登录界面，填写用户名和密码，单击登录按钮即可登录。
 <img src="//mccdn.qcloud.com/static/img/ca08651f039eeb2ad3eaf4c18008813e/image.png" width=360/>
 ### 4.2 联系人
 #### 4.2.1 添加好友
-Demo主界面的第二个tab为联系人，在联系人tab中点击右上角按钮，然后选择添加好友。
+Demo主界面的第二个tab为联系人，在联系人tab中单击右上角按钮，然后选择添加好友。
 <img src="//mccdn.qcloud.com/static/img/3352b17b669d2844547b6f1ec9defb92/image.png" width=360/>
 在添加好友界面里搜索（使用软键盘搜索按钮）指定的帐号或名称。搜索结果在下方以列表形式显示。
 <img src="//mccdn.qcloud.com/static/img/408c7fb67ef3ec938a656ca9ca641e1f/image.png" width=360/>
@@ -76,5 +76,5 @@ Demo中群组分为三种不同类型，分别是公开群，讨论组，聊天�
 Demo支持文本，表情，图片，语音，小视频的收发。
 <img src="//mccdn.qcloud.com/static/img/0c8b473c0a4a720990632985c8d20ea6/image.png" width=360/>
 ### 4.5 关于
-在设置tab中点击进入关于页面。在关于页面中可以查看当前Demo使用的IMSDK，QAL，TLS的版本号，一般来说Demo中使用了当前发布包中的SDK，遇到使用问题SDK版本是一个重要的信息。另外在关于中可以设置日志等级，设置后需要杀掉进程重启才能生效。
+在设置tab中单击进入关于页面。在关于页面中可以查看当前Demo使用的IMSDK，QAL，TLS的版本号，一般来说Demo中使用了当前发布包中的SDK，遇到使用问题SDK版本是一个重要的信息。另外在关于中可以设置日志等级，设置后需要杀掉进程重启才能生效。
 <img src="//mccdn.qcloud.com/static/img/25939945c1a4a997473a8f304f2ce17e/image.png" width=360/>
