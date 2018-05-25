@@ -74,10 +74,10 @@ https://vod.api.qcloud.com/v2/index.php?Action=RunProcedure
 &inputType=MultiFile
 &fileList.0.id=12345
 &fileList.0.startTimeOffset=30
-&fileList.0.endTime=100
+&fileList.0.endTimeOffset=100
 &fileList.1.id=67899
 &fileList.1.startTimeOffset=300
-&fileList.1.endTime=400
+&fileList.1.endTimeOffset=400
 &procedure=SomeProcedure
 &COMMON_PARAMS
 ```

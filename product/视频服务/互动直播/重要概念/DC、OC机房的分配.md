@@ -23,11 +23,7 @@ PS：后台对单个房间接入DC的用户数量有一个上限保护。例如�
 DC/OC的切换依然是以权限变化为依据的，相对应的接口为ILiveRoomManager类中changeAuthAndRole接口。下面将分几种情况来分别讨论：<br/>
 
 - 用户位于DC，权限从有到无（将`AUTH_BITS_SEND_AUDIO` / `AUTH_BITS_SEND_VEDIO`/ `AUTH_BITS_SEND_SUB` 全设置为0）
-在此情况下，音视频后台会下发重定向指令，将终端实例重定向到OC。<br/>
-典型的场景是，老师叫一个学生回答问题，回答结束之后取消了该学生上行音视频的权限，学生此时会被重定向到OC（该重定向操作对App和用户是透明的，切换过程通常很快）
-
-![权限从有到无的变更导致切换示意图](https://mccdn.qcloud.com/img56cdd763b0628.png)
-
+在此情况下，因为OC比DC有时延，为了避免学生切回OC后看到之前的画面，学生依然会留在DC直到退出房间。<br/>
 - 用户位于DC，权限从无到有：不存在这种情况
 - 用户位于OC，权限从有到无：在此情况下SDK不会有任何动作
 - 用户位于OC，权限从无到有（将`AUTH_BITS_SEND_AUDIO` / `AUTH_BITS_SEND_VEDIO`/ `AUTH_BITS_SEND_SUB`其中一个置为非0），在此情况下，音视频后台会下发重定向指令，将终端实例重定向到DC。
