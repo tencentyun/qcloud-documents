@@ -39,7 +39,7 @@ webim.Log.setOn(0);
 ## 1.7 升级 1.8 出现异常
 
 ```
-E/imsdk.IMMsfCoreProxy: [E]OnExchangeTicketTimeout|code: -1000 desc: 请求失败，请你稍后重试。
+E/imsdk.IMMsfCoreProxy: [E]OnExchangeTicketTimeout|code: -1000 desc: 请求失败，请您稍后重试。
 E/beacon: ChannelID: unknown
 login imserver failed. code: 6012 errmsg: operation timeout: wait server rsp timeout or no network.
 ```
