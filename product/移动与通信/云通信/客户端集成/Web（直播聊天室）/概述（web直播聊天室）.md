@@ -1,14 +1,14 @@
 ## SDK 集成 
 
-- 点击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
+- 单击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
 
 	![](//mccdn.qcloud.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
 
--  点击体验 [通用 Demo](http://avc.cloud.tencent.com/demo/webim/index.html)。
+-  单击体验 [通用 Demo](http://avc.cloud.tencent.com/demo/webim/index.html)。
 
--  点击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
+-  单击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
 
-### 下载 SDK 
+### 下载 SDK
 
 从官网下载 [SDK 包](https://cloud.tencent.com/product/im.html)，包含以下库文件，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 webim SDK 库，提供了登录，加群，收发消息，退群，登出功能。
 

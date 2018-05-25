@@ -1,13 +1,10 @@
 ## 功能介绍
-**主播PK** 是在 **秀场直播** 场景中经常使用的直播模式，它既能支持高并发和低成本的在线直播，又能实现一个主播和另一个主播之间的视频通话互动，具有极强的场景适用性。
+**主播 PK** 是在秀场直播场景中经常使用的一种吸引热度的方式，两个分处不同房间的主播可以相互分屏连麦（视频通话），主播与主播之间的延迟可以达到 500ms 以内，而观众在不需要切换流地址的情况下，就可以在原来的 CDN 直播流中看到主播 PK 的效果。
 
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/76f6607c9532aa30d36cedc829c91d24.jpg" />
+<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/9985984163972441ebbe3ad79b265136.jpg" />
 
 ## LiveRoom
-
-如果您只需要做一个简单的直播方案，也就是：主播推流 + 观众观看 + 文字互动，参考[单场次直播](https://cloud.tencent.com/document/product/454/14551)，或者 [自由开播](https://cloud.tencent.com/document/product/454/7916) 就可以解决问题。
-
-但是如果您要上主播PK功能，单纯依靠 TXLivePusher 和 TXLivePlayer 两个组件进行组合，那难度可就高了，为了降低这里的实现难度，我们推出了 **LiveRoom** 组件，它分成 Client 和 Server 两个部分：
+主播 PK 是 **LiveRoom** 组件的一向基本功能（LiveRoom 还支持观众同主播连麦），它分成 Client 和 Server 两个部分：
 
 - **终端部分（Client）**
 LiveRoom 组件的终端部分是对腾讯视频云 LiteAVSDK（主要用于音视频，包括 TXLivePusher、TXLivePlayer 等接口） 和 LiteIMSDK （主要用于收发消息，包括 TIMManager 和 TIMConversation 等接口）的封装。直接使用 LiteAVSDK 和 LiteIMSDK 实现直播 + 主播PK功能是非常耗时耗力的，但通过 LiveRoom 组件，您可以直接调用 createRoom，enterRoom 和 leaveRoom 等接口就可以完成您想要的直播 + 主播PK功能。
@@ -101,7 +98,7 @@ LiveRoom 单靠一个终端的组件无法独自运行，它依赖一个后台�
 
 **login 有很多参数需要填写，我应当如何填写这些参数呢？**
 
-如下表格中列举了三种填写方案，每种方案都有其适用场景：方案一适合调试；方案二适合快速上线；方案三适合自行定制；
+如下表格中列举了三种填写方案，每种方案都有其适用场景：方案一只能用于调试；方案二适合快速上线；方案三适合自行定制；
 
 | 参数名 | 方案一（纯测试方案） | 方案二（腾讯云RoomService） | 方案三（自建RoomService） |
 | :-------:| :-------:| :-------: | :-------:|
@@ -162,8 +159,6 @@ RoomService 所使用的 UserSig 的签发同 IM 云通讯服务是一样的，�
 #### step1. 下载源码 & 修改配置 & 部署
 在 [CODE](https://cloud.tencent.com/document/product/454/7873#Server) 下载 RoomService 后台源码，源码包分成三个目录，其中 live_room 下的源码是您需要关注的。
 
-> 目前我们仅完成了 node.js 版本的源码，php 和 java 版本的源码还在准备中，盼您关注我们的最新更新动态 ...
-
 下载到源码后，解压并找到 live_room 文件夹下面的 config.js 文件，这里有几个个配置项需要修改。配置项跟方案一中的基本类似，可以参考方案一中的 step1 进行配置。区别在于，在方案二中您不需要用 RoomService 配置工具，而是直接修改本地源码即可。
 
 ![](https://main.qcloudimg.com/raw/74512dcd5d06edac59b4d051da94e75f.png)
@@ -208,6 +203,3 @@ https://[www.yourcompany.com]/weapp/live_room
 ### 2. 内部原理
 您完全不需要了解 LiveRoom 的内部原理便可轻松接入，但是如果您确实感兴趣，可以通过下图了解其内部运作机制。
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/ffd2a4d21728c43b516fb9d3311f90e3.gif" />
-
-
-

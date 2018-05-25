@@ -246,7 +246,7 @@ cos.deleteFile(successCallBack, errorCallBack, bucket, path);
 
 	//删除文件
 	$('#deleteFile').on('click', function () {
-		var myFile = myFolder+'2.txt';//填你自己实际存在的文件
+		var myFile = myFolder+'2.txt';//填您自己实际存在的文件
 		cos.deleteFile(successCallBack, errorCallBack, bucket, myFile);
 	});
 
@@ -297,7 +297,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 
 	//获取文件属性
 	$('#getFileStat').on('click', function () {
-		var myFile = myFolder+'2.txt';//填你自己实际存在的文件
+		var myFile = myFolder+'2.txt';//填您自己实际存在的文件
 		cos.getFileStat(successCallBack, errorCallBack, bucket, myFile);
 	});
 
@@ -337,7 +337,7 @@ cos.updateFile(successCallBack, errorCallBack, bucket, path, bizAttr);
 
 	//更新文件属性
 	$('#updateFile').on('click', function () {
-		var myFile = myFolder+'2.txt';//填你自己实际存在的文件
+		var myFile = myFolder+'2.txt';//填您自己实际存在的文件
 		cos.updateFile(successCallBack, errorCallBack, bucket, myFile, 'my new file attr');
 	});
 
@@ -379,7 +379,7 @@ cos.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 	//拷贝文件，从源文件地址复制一份到新地址
 	$('#copyFile').on('click', function () {
 
-		var myFile = '111/2.txt';//填你自己实际存在的文件
+		var myFile = '111/2.txt';//填您自己实际存在的文件
 
 		//注意一下目标的路径，这里如果填333/2.txt 则表示文件复制到111/333/2.txt
 		//如果填/333/2.txt 则表示文件复制到bucket根目录下的333/2.txt
@@ -427,7 +427,7 @@ cos.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 	//如果是移动到新目录，相当于剪切当前的文件，粘贴到了新目录
 	$('#moveFile').on('click', function () {
 
-		var myFile = '/111/2.txt';//填你自己实际存在的文件
+		var myFile = '/111/2.txt';//填您自己实际存在的文件
 
 		//注意一下目标的路径，这里如果填333/2.txt 则表示文件移动到111/333/2.txt
 		//如果填/333/2.txt 则表示文件移动到bucket根目录下的333/2.txt
@@ -474,7 +474,7 @@ cos.createFolder(successCallBack, errorCallBack, bucket, path);
 ```js
 
 	$('#createFolder').on('click', function () {
-		var newFolder = '/333/';//填你需要创建的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要创建的文件夹，记得用斜杠包一下
 		cos.createFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
@@ -514,7 +514,7 @@ cos.deleteFolder(successCallBack, errorCallBack, bucket, path);
 
 	//删除文件夹
 	$('#deleteFolder').on('click', function () {
-		var newFolder = '/333/';//填你需要删除的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要删除的文件夹，记得用斜杠包一下
 		cos.deleteFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
