@@ -7,7 +7,7 @@
 ## 配置指引
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
-![](https://mc.qcloudimg.com/static/img/1f2cb594cd614b62b589cb20a20ed362/basic-config-1.png)在【高级配置】中找到【HTTP Header配置】模块，可自助添加头部：![](https://mc.qcloudimg.com/static/img/f47d9e08cad09f58f6bd7b86bf0bb572/header-config-1.png)点击【添加 HTTP header】可添加头部：![](https://mc.qcloudimg.com/static/img/5ef8e9ad80a57d77b23a6bf2ad71690a/header-config-2.png)
+![](https://mc.qcloudimg.com/static/img/1f2cb594cd614b62b589cb20a20ed362/basic-config-1.png)在【高级配置】中找到【HTTP Header 配置】模块，可自助添加头部：![](https://mc.qcloudimg.com/static/img/f47d9e08cad09f58f6bd7b86bf0bb572/header-config-1.png)单击【添加 HTTP header】可添加头部：![](https://mc.qcloudimg.com/static/img/5ef8e9ad80a57d77b23a6bf2ad71690a/header-config-2.png)
 
 CDN 提供以下常见的 6类头部设置，也可支持自定义头部设置：
 

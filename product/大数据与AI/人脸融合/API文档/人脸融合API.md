@@ -18,12 +18,12 @@
 ## 请求包 header
 所有请求都要求含有下表列出的头部信息：
 
-| 参数名            | 值                                        | 描述                                       |
-| -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | aiconsole.cloud.tencent.com              | 服务器域名                                |
-| Content-Length | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte） |
-| Content-Type   | application/json                         | 参数类型                                  |
-| Authorization  | 鉴权签名                                  | 用于 [**鉴权**](https://cloud.tencent.com/document/product/641/12409) 的签名 |
+| 参数名          | 必选 | 值                                        | 描述                                       |
+| -------------- |--- |---------------------------------------- | ---------------------------------------- |
+| Host          | 是 | aiconsole.cloud.tencent.com              | 服务器域名                                |
+| Content-Length| 否 | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte） |
+| Content-Type  | 是 | application/json                         | 参数类型                                  |
+| Authorization | 是 | 鉴权签名                                  | 用于 [**鉴权**](https://cloud.tencent.com/document/product/641/12409) 的签名 |
 
 > **注意：**
 > - 每个请求的包体大小限制为 6MB；
@@ -33,14 +33,14 @@
 ## 请求参数
 使用 application/json 格式。
 
-| 参数名    | 是否必须 | 类型     | 说明    |
+| 参数名    | 必选 | 类型     | 说明    |
 | ------ | ---- | ------ | ------- |
-| appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
-| uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
-| project_id    | 必须   | string | 活动 ID |
-| model_id    | 必须   | string | 素材 ID |
-| img_data    | 必须   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。为节约用户流量以及减少图片上传时间，建议图片不要超过 500k。 |
-| rsp_img_type    | 必须   | string | 返回图像方式（url 或 base64) ，二选一。 |
+| appid  | 是   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
+| uin    | 是   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
+| project_id    | 是   | string | 活动 ID |
+| model_id    | 是   | string | 素材 ID |
+| img_data    | 是   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。为节约用户流量以及减少图片上传时间，建议图片不要超过 500k。 |
+| rsp_img_type    | 是   | string | 返回图像方式（url 或 base64) ，二选一。 |
 
 
 ## 响应参数
