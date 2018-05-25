@@ -18,12 +18,12 @@
 ## 请求包 header
 所有请求都要求含有下表列出的头部信息：
 
-| 参数名            | 值                                        | 描述                                       |
-| -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | aiconsole.cloud.tencent.com              | 服务器域名                                |
-| Content-Length | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte） |
-| Content-Type   | application/json                         | 参数类型                                  |
-| Authorization  | 鉴权签名                                  | 用于 [**鉴权**](https://cloud.tencent.com/document/product/641/12409) 的签名 |
+| 参数名          | 必选 | 值                                        | 描述                                       |
+| -------------- |--- |---------------------------------------- | ---------------------------------------- |
+| Host          | 是 | aiconsole.cloud.tencent.com              | 服务器域名                                |
+| Content-Length| 否 | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte） |
+| Content-Type  | 是 | application/json                         | 参数类型                                  |
+| Authorization | 是 | 鉴权签名                                  | 用于 [**鉴权**](https://cloud.tencent.com/document/product/641/12409) 的签名 |
 
 > **注意：**
 > - 每个请求的包体大小限制为 6MB；
