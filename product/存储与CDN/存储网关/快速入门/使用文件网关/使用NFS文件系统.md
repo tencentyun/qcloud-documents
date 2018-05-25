@@ -75,7 +75,7 @@
 
 挂载前，请确保系统已经启动 NFS 服务。此处以 Windows Server 2012 R2 为示例，启动方法如下：
 
-> 打开控制面板 -> 程序 -> 打开或关闭 windows 功能 -> 【服务器角色】页签中勾选 "NFS server" -> 【特性】中勾选 "NFS 客户端"，勾选 NFS 客户端即可开启 windows NFS 客户端服务.
+> 打开控制面板 -> 程序 -> 打开或关闭 Windows 功能 -> 【服务器角色】页签中勾选 "NFS server" -> 【特性】中勾选 "NFS 客户端"，勾选 NFS 客户端即可开启 Windows NFS 客户端服务.
 
 下图以 Windows Server 2012 R2 为示例。
 ![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
@@ -108,7 +108,7 @@
 
 #### 重启使配置生效
 
-关闭注册表并重启 windows 系统，完成注册表修改。
+关闭注册表并重启 Windows 系统，完成注册表修改。
 
 
 #### 打开 "映射网路驱动器"
