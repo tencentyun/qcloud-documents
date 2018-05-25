@@ -1,5 +1,5 @@
-CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并且确保数据库服务器与 CDS-Audit 审计实例能实现网络连通，实现该目标需要进行 VPC 配置和 [Agent 部署]()。
-配置 VPC 需要配置 “对等网络” 和 “路由表” 两个选项，以实现 VPC 网络和 CDS-Audit 所属 VPC 的网络互通，其操作步骤如下图所示：
+CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并且确保数据库服务器与 CDS-Audit 审计实例能实现网络连通，实现该目标需要进行 VPC 配置和 [Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
+为确保您的 VPC 自主可控，我们不会对您的 VPC 做任何自动化修改，因此需要您手动配置 VPC 参数。配置 VPC 需要配置 “对等网络” 和 “路由表” 两个选项，以实现 VPC 网络和 CDS-Audit 所属 VPC 的网络互通，其操作步骤如下图所示：
 ![0](https://main.qcloudimg.com/raw/5fad24debe5db784b0a5a9066dbf85d4.png)
 下面将为您详细介绍操作步骤。
 ## 进入私有网络配置页面
