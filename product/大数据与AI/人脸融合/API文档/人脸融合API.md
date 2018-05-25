@@ -33,14 +33,14 @@
 ## 请求参数
 使用 application/json 格式。
 
-| 参数名    | 是否必须 | 类型     | 说明    |
+| 参数名    | 必选 | 类型     | 说明    |
 | ------ | ---- | ------ | ------- |
-| appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
-| uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
-| project_id    | 必须   | string | 活动 ID |
-| model_id    | 必须   | string | 素材 ID |
-| img_data    | 必须   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。为节约用户流量以及减少图片上传时间，建议图片不要超过 500k。 |
-| rsp_img_type    | 必须   | string | 返回图像方式（url 或 base64) ，二选一。 |
+| appid  | 是   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
+| uin    | 是   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
+| project_id    | 是   | string | 活动 ID |
+| model_id    | 是   | string | 素材 ID |
+| img_data    | 是   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。为节约用户流量以及减少图片上传时间，建议图片不要超过 500k。 |
+| rsp_img_type    | 是   | string | 返回图像方式（url 或 base64) ，二选一。 |
 
 
 ## 响应参数
