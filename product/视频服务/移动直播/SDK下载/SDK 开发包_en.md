@@ -1,8 +1,8 @@
 <style>
 table td { 
     height: 35px; 
-		text-align:center;
-		vertical-align:middle; 
+    text-align:center;
+    vertical-align:middle; 
 }
 .markdown-text-box img {
     border: 0;
@@ -11,420 +11,459 @@ table td {
     box-sizing: content-box;
     box-shadow: 0 0 0px #ccc;
     margin: 0px 0;
-}
+}    
+.markdown-text-box table td, .markdown-text-box table th {
+    padding: 8px 13px;
+    border: 1px solid #d9d9d9;
+    word-wrap: break-word;
+    text-align: center;
+}    
 </style>
 
 
-## Notes
-The features displayed in [Demo](https://cloud.tencent.com/document/product/454/6555) are generally 1-2 weeks ahead of SDK when putting into use, and we will carry out bug fix and system testing during this time. So if you cannot find the APIs in SDK for some features in Demo, you can contact us for the internal version.
+## 特别提醒
+[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1 - 2 周时间，这段时间我们会用来进行 bugfix 和 系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS SDK (4.1.3152) </h3>
+<h2 id="iOS"> iOS SDK (4.7.4395) </h2>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th width="115px">Functional Features</th>
-    <th width="150px">LVB Simplified Version</th>
-		<th width="150px">Independent Player Version</th>
-    <th width="150px">Short Video Functional Version</th>
-		<th width="150px">Full-featured Professional Version</th>
-    <th width="150px">Commercial Enterprise Version</th>
+    <th width="115px">功能特性</th>
+    <th width="150px">直播精简版</th>
+    <th width="150px">独立播放器版</th>
+    <th width="150px">短视频功能版</th>
+    <th width="150px">全功能专业版</th>
+    <th width="150px">商用企业版</th>
   </tr>
   <tr>
-    <td>RTMP Push</td>
+    <td>RTMP推流</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>LVB Playback</td>
+    <td></td>
+    <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>VOD Playback</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Basic Beauty Filter</td>
+  <tr>
+    <td>直播播放</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>LVB Joint Broadcasting</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td></td>
-	  <td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Video Recording</td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Video Editing</td>
+  <tr>
+    <td>点播播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>基础美颜</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Video Stitching</td>
+  <tr>
+    <td>直播连麦</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Video Publishing</td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Motion Effect Sticker</td>
+  <tr>
+    <td>视频录制</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Eyes Beautifying and Face Slimming</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Green Screen Keying-out</td>
+  <tr>
+    <td>视频编辑</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
+  <tr>
+    <td>视频拼接</td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>视频发布</td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>动效贴纸</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>美瞳瘦脸</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>绿幕抠图</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
     <td>BitCode</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td></td>
-  </tr>
-		<tr>
-    <td>Pod Installation</td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-		<td>See release notes</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td></td>
   </tr>
 	<tr>
-    <td>SDK Downloading</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Smart_iOS_4.1.3152.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Player_iOS_4.1.3152.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_UGC_Rename_iOS_4.1.3152.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Professional_iOS_4.1.3152.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td>See the notes below</td>
+    <td>IPA 增量</td>
+    <td>1.43 M</td>
+    <td>2.57 M</td>
+    <td>2.52 M</td>
+    <td>4.19 M</td>
+    <td>5.98 M</td>
+  </tr>
+  <tr>
+    <td>Pod 安装</td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td>见版本说明</td>
+  </tr>
+  <tr>
+    <td>SDK 下载</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Smart_iOS_4.7.4395.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Player_iOS_4.7.4395.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_UGC_Rename_iOS_4.7.4395.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Professional_iOS_4.7.4395.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td>见如下说明</td>
   </tr>
 </table>
 
-- **Commercial Version**
-  Compared to the professional version, the commercial enterprise version added special face effects based on the proprietary technology of Tencent YouTu Lab. <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Enterprise_Rename_iOS_4.1.3152.zip">[Click here to download the commercial version]</a>. This version is not provided for free, and the decompression password and license are needed for running it. Contact Tencent Cloud Commerce to get the password and license. For more instructions, please see [Special Effects](https://cloud.tencent.com/document/product/454/9018).
-	
-- **Name Conflict**
-  "ffmpeg" and "ijkplayer" are included in some versions. If your project already contains related open-source libraries, **Simplified Version** or **Symbol Renaming Version** is recommended. (Click here to <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Professional_Rename_iOS_4.1.3152.zip?_ga=1.172502247.572863791.1503542401">Download Renaming Version</a>)	
-	
+- **商用版本**
+  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Enterprise_Rename_iOS_4.7.4395.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  
+- **命名冲突**
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Professional_Rename_iOS_4.7.4395.zip?_ga=1.172502247.572863791.1503542401">【Rename(iOS).zip】</a> 。  
+  
 
-<h2 id="Android"> Android SDK (4.1.3153) </h3>
+<h2 id="Android"> Android SDK (4.7.4395) </h2>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th width="115px">Functional Features</th>
-    <th width="150px">LVB Simplified Version</th>
-		<th width="150px">Independent Player Version</th>
-    <th width="150px">Short Video Functional Version</th>
-		<th width="150px">Full-featured Professional Version</th>
-    <th width="150px">Commercial Enterprise Version</th>
+    <th width="115px">功能特性</th>
+    <th width="150px">直播精简版</th>
+    <th width="150px">独立播放器版</th>
+    <th width="150px">短视频功能版</th>
+    <th width="150px">全功能专业版</th>
+    <th width="150px">商用企业版</th>
   </tr>
   <tr>
-    <td>RTMP Push</td>
+    <td>RTMP推流</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>LVB Playback</td>
+    <td></td>
+    <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>VOD Playback</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Basic Beauty Filter</td>
+  <tr>
+    <td>直播播放</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>LVB Joint Broadcasting</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-	  <td></td>
-	  <td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Video Recording</td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Video Editing</td>
+  <tr>
+    <td>点播播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>基础美颜</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Video Stitching</td>
+  <tr>
+    <td>直播连麦</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Video Publishing</td>
     <td></td>
-	  <td></td>
-	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Motion Effect Sticker</td>
+  <tr>
+    <td>视频录制</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr>
-    <td>Eyes Beautifying and Face Slimming</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>Green Screen Keying-out</td>
+  <tr>
+    <td>视频编辑</td>
     <td></td>
-	  <td></td>
-	  <td></td>
-		<td></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr>
-    <td>SDK Downloading</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Smart_Android_4.1.3153.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Player_Android_4.1.3153.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_UGC_Android_4.1.3153.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Professional_Android_4.1.3153.zip">DOWNLOAD</a></td>
-		<td>See the notes below</td>
+  <tr>
+    <td>视频拼接</td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>视频发布</td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>动效贴纸</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>美瞳瘦脸</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>绿幕抠图</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>SDK 下载</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_Smart_Android_4.7.4395.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_Player_Android_4.7.4395.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_UGC_Android_4.7.4395.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_Professional_Android_4.7.4395.zip">DOWNLOAD</a></td>
+    <td>见如下说明</td>
   </tr>
 </table>
 
-- **Commercial Version**
-	Compared to the professional version, the commercial enterprise version added special face effects based on the proprietary technology of Tencent YouTu Lab. <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Enterprise_Android_4.1.3153.zip">[Click here to download the commercial version]</a>. This version is not provided for free, and the decompression password and license are needed for running it. Contact Tencent Cloud Commerce to get the password and license. For more instructions, please see [Special Effects](https://cloud.tencent.com/document/product/454/9020).
+- **商用版本**
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_Enterprise_Android_4.7.4395.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
+<h2 id="Windows"> Windows SDK (3.1.0) </h2>
 
-<h2 id="Windows"> Windows SDK (1.2.1) </h3>
 <table>
   <tr align="center">
-    <th width="200px">Functional Features</th>
-    <th width="300px">ActiveX Plug-in</th>
-		<th width="300px">C# (.NET)</th>
-    <th width="300px">C++ (DLL)</th>
+    <th width="200px">功能特性</th>
+    <th width="300px">ActiveX 插件</th>
+    <th width="300px">C#（.NET）</th>
+    <th width="300px">C++（DLL）</th>
   </tr>
   <tr align="center">
-    <td>Push</td>
+    <td>推流功能</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr align="center">
-    <td>RTMP Playback</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-	<tr align="center">
-    <td>Video Call</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr align="center">
-    <td>Requirement for Interfacing</td>
-    <td>With Web development experience</td>
-		<td>With C# (.NET) development experience</td>
-		<td>With C++ development experience</td>
+  <tr align="center">
+    <td>RTMP播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr align="center">
-    <td>Development Environment</td>
-    <td>Notebook</td>
-		<td>Visual Studio 2010</td>
-		<td>Visual Studio 2015</td>
+  <tr align="center">
+    <td>视频通话</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
-	<tr align="center">
-    <td>Edition Date</td>
-    <td>1.2.1 @ 2018-01-08</td>
-		<td>1.2.3 @ 2018-01-08</td>
-		<td>1.2.3 @ 2018-01-08</td>
+  <tr align="center">
+    <td>对接要求</td>
+    <td>具备网页开发经验</td>
+    <td>具备C#（.NET）开发经验</td>
+    <td>具备C++开发经验</td>
   </tr>
-	<tr align="center">
-    <td>Download Address</td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">DOWNLOAD</a></td>
+  <tr align="center">
+    <td>开发环境</td>
+    <td>记事本</td>
+    <td>Visual Studio 2010</td>
+    <td>Visual Studio 2015</td>
+  </tr>
+  <tr align="center">
+    <td>版本日期</td>
+    <td>2.0.1 @ 2018-02-08</td>
+    <td>3.1.0 @ 2018-05-17</td>
+    <td>3.1.0 @ 2018-05-17</td>
+  </tr>
+  <tr align="center">
+    <td>下载地址</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_activex_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_csharp_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_windows_cplusplus_source") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">DOWNLOAD</a></td>
   </tr>
 </table>
-
-- **New Features**
- + Two integration modes of C# (.NET) and ActiveX are added.
- + Demo UI is updated, which uses the black style of Windows10.
- + **Two-person Video** and **Multi-person Video** features are supported.
- + Triggering push in the command-line mode is supported, which is suitable for online prize claw.
 
 - **Why not Obs?**
-This SDK is still in its early stages and we are working on it with efforts, therefore this SDK has much less features than OBS. The only advantage of it is low delay. By combining the RTMP_ACC ultra-low latency playback of TXLivePlayer, the delay can be reduced to less than 400 ms.
+本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
 
-- **QT Interface Library**
-	The SDK for Windows can run without relying on other .dll. However, the Demo for Windows is built based on the Qt interface library. So if you want to compile and run the Demo, download and install the Qt 5.9 and Visual Studio Add-in For Qt plug-ins on Qt official website.
-
-<h2 id="XiaoChengXu">Mini Program Source Code</h3>
+<h2 id="XiaoChengXu">小程序源码（1.2.693）</h2>
 
 <table width="850px">
   <tr align="center">
-    <th width="120px">Platform</th>
-    <th width="80px">Version ID</th>
-		<th width="570px">Description</th>
-    <th width="80px">Download Link</th>
+    <th width="120px">所属平台</th>
+    <th width="80px">版本号</th>
+    <th width="570px">说明</th>
+    <th width="80px">下载链接</th>
   </tr>
   <tr align="center">
-    <td>Mini Program</td>
-    <td>1.2.345</td>
-		<td>The two-person/multi-person real-time audio/video solution built based on the audio/video capability for mini program, including all mini program and backend source codes.</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.345.zip">DOWNLOAD</a></td>
+    <td>微信小程序</td>
+    <td>1.2.693</td>
+    <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="https://github.com/TencentVideoCloudMLVBDev/MiniProgram">wxlite</a></td>
   </tr>
 </table>
 
-- **One-click Deployment**
-This set of source codes contain two parts: the source codes in the **wxlite** folder are mini program source codes, and those in the **server** folder are backend node.js source codes. One-click deployment is supported for this set of source codes on the Tencent Cloud platform, which allows you to have a debugging environment within just 5 minutes. For deployment methods, please see [DOC](https://cloud.tencent.com/document/product/454/12554).
+- **一键部署**
+此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
 
-	
-<h2 id="Xiaozhibo">Mini LVB Source Code</h3>
+<h2 id="PCWeb">Web（PC）源码（1.0.0）</h2>
 
+| 所属平台 | 版本号 | 说明 | 下载链接 |
+|---------|---------|---------|------|
+| 任意浏览器 | 1.0.0| 源码实现了一个网页唤起 EXE 桌面程序，并跟小程序互通的简单Demo，<br>可以用实现 浏览器[(IE或Chrome)](https://cloud.tencent.com/document/product/454/17004) =>TXCloudRoom.exe + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebEXE](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) |
+| Chrome | 1.0.0| 源码实现了一个Windows版本Chrome跟小程序互通的简单Demo，<br>可以用实现 PC[(Chrome)](https://cloud.tencent.com/document/product/454/17005) + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebRTC](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc) |
+
+<h2 id="Server">服务端源码（1.1.0）</h2>
+ 
 <table width="850px">
   <tr align="center">
-    <th width="120px">Platform</th>
-    <th width="80px">Version ID</th>
-		<th width="570px">Description</th>
-    <th width="80px">Download Link</th>
-  </tr>
-  <tr align="center">
-    <td>IOS Source Code Package</td>
-    <td>3.7.3404</td>
-		<td>It is composed of RTMP SDK, IM SDK, COS SDK, business logic layer code and interface layer code. For more information on source codes, please see <a href="https://cloud.tencent.com/document/product/454/7894">[DOC].</a></td>
-		<td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_3.7.3404.zip">DOWNLOAD</a></td>
+    <th width="120px">下载项目</th>
+    <th width="80px">版本号</th>
+    <th width="570px">功能说明</th>
+    <th width="80px">下载链接</th>
   </tr>
 	<tr align="center">
-    <td>Android Source Code Package</td>
-    <td>3.7.3404</td>
-		<td>It is composed of RTMP SDK, IM SDK, COS SDK, business logic layer code and interface layer code. For more information on source codes, please see <a href="https://cloud.tencent.com/document/product/454/7892">[DOC].</a></td>
-		<td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_3.7.3404.zip">DOWNLOAD</a></td>
-  </tr>
-	<tr align="center">
-    <td>PHP Source Code Package</td>
-    <td>3.9</td>
-		<td>It provides live room list for viewers and provides push URL for VJ end. For information on relevant frontend/backend protocol designs, please see <a href="https://cloud.tencent.com/document/product/454/7895">[DOC].</a></td>
-		<td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_4.1.2749.zip">DOWNLOAD</a></td>
-  </tr>
-	<tr align="center">
-    <td>Web Sharing Page</td>
+    <td>签名计算</td>
     <td>1.1.0</td>
-		<td>Web sharing page constructed based on HTML5. It allows users to view LVB on regular mobile browsers and PC browsers, as well as perform message interaction with VJs. For information on implementation principle, please see <a href="https://cloud.tencent.com/document/product/454/8046">[DOC]</a></td>
-		<td><a href="http://download-1252463788.cossh.myqcloud.com/web_share_2017.01.04.zip">DOWNLOAD</a></td>
+    <td style="vertical-align:middle; text-align:left;">用于计算 IM、LiveRoom、RTCRoom 以及 WebRTC 等方案中所需要使用的 UserSig 和 privateMapKey 签名，算法基于 ECDSA-SHA256 实现 </a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_sign") href="https://github.com/TencentVideoCloudMLVBDev/sign_srv">JAVA & PHP</a</td>
+  </tr>
+  <tr align="center">
+    <td rowspan="2"> RoomService</td>
+    <td rowspan="2">1.1.0</td>
+    <td rowspan="2" style="vertical-align:middle; text-align:left;">RoomService 是 <a href="https://cloud.tencent.com/document/product/454/14606#Server">LiveRoom</a>（直播连麦） 和 <a href="https://cloud.tencent.com/document/product/454/14617#Server">RTCRoom</a>（视频通话） 的后台组件，源码下载后可部署于自己的业务服务器上。 </td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="https://github.com/TencentVideoCloudMLVBDev/roomservice_java
+">JAVA</a</td>
+  </tr>
+	<tr align="center">
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_nodejs") href="https://github.com/TencentVideoCloudMLVBDev/MiniProgram/tree/master/server">Node.js</a</td>
+  </tr>
+<tr align="center">
+    <td>WebRTC房间列表</td>
+    <td>1.1.0</td>
+    <td style="vertical-align:middle; text-align:left;"> 实现了一个简单的（无鉴权的）WebRTC 房间列表，可以支持创建通话房间，关闭通话房间、心跳保活等功能 </a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_webrtc") href="https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java">JAVA</a</td>
   </tr>
 </table>
 
-- Mini LVB is an LVB DEMO product created by Tencent Cloud R&D team. It aims to provide design and source code references to help you quickly launch your LVB features.
+  
+<h2 id="Xiaozhibo">小直播源码（4.5.4022）</h2>
 
-- The set of DEMO source codes includes common LVB features such as text interaction, on-screen comment, giving likes with floating animation, beauty filter, skin effect, joint broadcasting, identity authentication, etc. All features are designed according to "Building Block" principle so you can freely customize the combination of features.
+<table width="850px">
+  <tr align="center">
+    <th width="120px">所属平台</th>
+    <th width="80px">版本号</th>
+    <th width="570px">说明</th>
+    <th width="80px">下载链接</th>
+  </tr>
+  <tr align="center">
+    <td>iOS 源码包</td>
+    <td>4.5.4022</td>
+    <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.5.4022.zip">DOWNLOAD</a></td>
+  </tr>
+  <tr align="center">
+    <td>Android 源码包</td>
+    <td>4.5.4022</td>
+    <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.5.4022.zip">DOWNLOAD</a></td>
+  </tr>
+  <tr align="center">
+    <td>PHP源码包</td>
+    <td>4.4</td>
+    <td>为观众端提供直播间列表和回放列表</td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="https://github.com/TencentVideoCloudMLVBDev/xiaozhibo_business_svr_php">DOWNLOAD</a></td>
+  </tr>
+  <tr align="center">
+    <td>Web分享页</td>
+    <td>1.1.0</td>
+    <td>基于HTML5技术构建的Web分享页面，支持在常规手机浏览器和PC浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[DOC]</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="https://github.com/TencentVideoCloudMLVBDev/web_share">DOWNLOAD</a></td>
+  </tr>
+</table>
 
-- Follow the documentation [How to Quickly Set Up Mini LVB](https://cloud.tencent.com/document/product/454/7999) to build a Mini LVB environment for debugging.
+- 小直播是腾讯云研发团队自主打造的一款直播产品 DEMO，致力于为您快速上线直播功能提供设计参考和源码参考。
 
+- DEMO源码集包括文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动、身份认证等一系列常见的直播相关功能，且所有功能在设计上遵循【积木式堆叠】原则，您可以根据自己产品的需求随意定制组合。
 
-## Old Architecture Version
-Ver3.0 and later versions are new architecture versions. Compared to the old architecture, they have more advantages in performance and stability, and the development of subsequent features are faster. However, if you are one of our registered customers, some details of the new architecture may not available for now. Before we fully complement these details, you can continue using the old architecture version [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776).	
-	
-## Binding to Cloud Providers
-All versions of SDK are not bound to Tencent Cloud, and we have no plans for binding in the future. However, SDK will not be limited to only interfacing with the features supported by all Cloud Providers. For UDP acceleration and other advantageous capabilities of Tencent Cloud, SDK will provide better support and enhance their effectiveness.
+- 如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
 
-## Contact Us
-We have a professional testing team to perform tests and verifications for every version to ensure the usability and stability of basic features. If you encounter any technical issues during interfacing process, feel free to [Contact Us](https://cloud.tencent.com/document/product/454/7998).
+## 您可能的顾虑
+- 所有版本 SDK 均不绑定腾讯云，后续亦没有绑定计划，但 SDK 的一些优势功能只能配合腾讯云使用（比如 QUIC 加速等腾讯云的优势能力）。
+
+- 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。
 
 <script>
-  	var _mtac = {"senseHash":0};
-  	(function() {
-  		var mta = document.createElement("script");
-  		mta.src = "//pingjs.qq.com/h5/stats.js";
-  		mta.setAttribute("name", "MTAH5");
-  		mta.setAttribute("sid", "500538821");
-  		mta.setAttribute("cid", "500538834");
-  		var s = document.getElementsByTagName("script")[0];
-  		s.parentNode.insertBefore(mta, s);
-  	})();
+    var _mtac = {"senseHash":0};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "//pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500538821");
+      mta.setAttribute("cid", "500538834");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
 </script>
-
