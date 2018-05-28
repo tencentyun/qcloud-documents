@@ -14,6 +14,9 @@
 
 ## 开启IM功能
 修改房间模块中的创建和加入房间，配置 imsupport 为true 。
+
+> 在配置imsupport为true时，createRoom会自动创建IM群组，quitRoom时创建者会自动解散群组
+
 ```
     // 创建房间
     public int createRoom(int roomId){

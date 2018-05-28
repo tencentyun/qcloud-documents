@@ -26,7 +26,9 @@ GetILive()->init(SDKAppId, AccountType, false);
 GetILive()->init(SDKAppId, AccountType, true);
 ```
 
-启用 IM 功能后，用户创建房间将会创建对应的 IM 群组，群组类型可以在创建房间参数中指定( iLiveRoomOption的groupType ),一般使用 E_AVChatRoom_Group，即默认值；创建房间的用户退出房间，将会解散对应的IM群组。
+启用 IM 功能后，用户创建房间将会创建对应的 IM 群组，群组类型可以在创建房间参数中指定( iLiveRoomOption的groupType ),一般使用 E_AVChatRoom_Group，即默认值；
+
+> 创建房间的用户退出房间，将会解散对应的IM群组。
 
 ## 设置消息监听
 

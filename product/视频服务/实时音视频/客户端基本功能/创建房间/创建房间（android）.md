@@ -108,7 +108,7 @@ public class RoomHelper implements ILiveRoomOption.onExceptionListener, ILiveRoo
 ## UI 开发
 同样在房间的 Activity 的 onCreate 事件中，可以上面创建的房间模块，并设置渲染控件。
 ```Java
-RoomHelper = new RoomHelper(this);
+roomHelper = new RoomHelper(this);
 // 获取渲染控件
 AVRootView avRootView = findViewById(R.id.av_root_view);
 // 设置没有渲染时的背景色为蓝色(注意不支持在布局中直接设置)
