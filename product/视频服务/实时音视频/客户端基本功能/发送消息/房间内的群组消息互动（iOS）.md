@@ -2,7 +2,7 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_msg.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_msg.zip)
 ## 相关概念
 * [群组系统](/document/product/647/16792#.E7.BE.A4.E7.BB.84.E7.B3.BB.E7.BB.9F)
 
@@ -12,7 +12,7 @@
 |自定义消息|ILVLiveCustomMessage|消息内容为一个 NSData 对象|
 |其它消息|TIMMessage|[ IMSDK 消息类型 ](https://cloud.tencent.com/document/product/269/9232#1.2-.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)其它消息的封装|
 
-##开启IM功能
+## 开启IM功能
 首先我们得开启IM功能，修改创建和加入房间时的配置属性 imSupport 为YES，即开启了房间内的IM功能。
 
 > 在配置imSupport为YES时，createRoom会自动创建IM群组，quitRoom时创建者会自动解散群组
