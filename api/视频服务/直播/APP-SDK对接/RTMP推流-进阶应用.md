@@ -191,7 +191,7 @@ _config.videoResolution = VIDEO_RESOLUTION_TYPE_1280_720;
 ```
 
 - **Step3. 使用 sendCustomPCMData 向SDK填充Audio数据**
-在视频改用外部采集的情况下，音频还可以继续由SDK内部采集处理，如果你希望把音频的采集也替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
+在视频改用外部采集的情况下，音频还可以继续由SDK内部采集处理，如果您希望把音频的采集也替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
 ```java
 // (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
 _config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
