@@ -25,32 +25,27 @@
 * 配置对象需要您创建，ILiveRoomOption 是用来对您准备创建的这个房间的音视频，即时通信等功能进行配置的类，这里我们可以使用默认配置 defaultHostLiveOption。
 
 最后，创建房间的结果会以回调 Block 的方式返回，客户可以根据自己的业务逻辑，在成功或者失败回调中做相应的处理。
+
 ```objc
 // 导入头文件
 #import <ILiveSDK/ILiveCoreHeader.h>
 
 // 创建房间
 - (IBAction)onCreateRoom:(id)sender {
-    // 1. 创建房间配置对象
-    ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    // 1. 创建live房间页面
+    LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
     
-    // 2. 调用创建房间接口，传入房间ID和房间配置对象
+    // 2. 创建房间配置对象
+    ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    option.imOption.imSupport = NO;
+    // 设置房间内音视频监听
+    option.memberStatusListener = liveRoomVC;
+    // 设置房间中断事件监听
+    option.roomDisconnectListener = liveRoomVC;
+    
+    // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] createRoom:[self.roomIDTF.text intValue] option:option succ:^{
-        // 创建房间成功
-        NSLog(@"创建房间成功!");
-    } failed:^(NSString *module, int errId, NSString *errMsg) {
-        // 创建房间失败
-        NSLog(@"创建房间失败 errId:%d errMsg:%@",errId, errMsg);
-    }];
-}
-```
-
-### 监听房间内音视频事件
-创建房间成功之后，一般的逻辑是跳转到一个新的直播房间页面，在刚才创建房间方法的成功回调中跳转到直播房间页。
-```objc
-    [[ILiveRoomManager getInstance] createRoom:[self.roomIDTF.text intValue] option:option succ:^{
-        // 创建房间成功
-        LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] initWithOption:option];
+        // 创建房间成功，跳转到房间页
         [self.navigationController pushViewController:liveRoomVC animated:YES];
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         // 创建房间失败
@@ -71,9 +66,12 @@
     return self;
 }
 ```
-然后在控制器内部，直接设置监听对象为 self 即可。
 
-监听对象需遵守`ILiveMemStatusListener`协议，并实现以下方法：
+### 监听房间内事件
+创建房间时，我们在配置对象中设置了房间音视频事件监听和房间中断事件监听，用来监听房间内的事件。
+
+音视频事件监听对象遵守`ILiveMemStatusListener`协议，并实现以下方法：
+
 ```objc
 @protocol ILiveMemStatusListener <NSObject>
 /**
@@ -95,6 +93,7 @@
 > - endpoints 是一个数组，里面装的是 QAVEndpoint 对象，代表每一个发送事件的用户，该方法的作用即通知哪些用户发生了哪种类型的音视频改变，在监听到事件发生时，通常需要再界面上做出一些调整，比如，监听到某用户打开了摄像头，应该添加一个渲染图到界面上，将该用户的画面渲染出来。
 
 event 有以下一些取值：
+
 ```objc
 typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
     QAV_EVENT_ID_NONE                      = 0, ///< 默认值，无意义。
@@ -113,6 +112,7 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 可以看到，前面提到的 "视频数据类型" 在事件中都有定义。
 
 接着您要做的就是设置监听对象，然后在代理方法中监听摄像头开启的事件QAV_EVENT_ID_ENDPOINT_HAS_CAMERA_VIDEO，并将该用户的渲染画面添加到界面上。
+
 ```objc
 // 导入头文件
 #import <ILiveSDK/ILiveCoreHeader.h>
@@ -139,6 +139,22 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 
 > 由于本文目的是创建直播间和获取画面，所以这里对音视频事件回调的处理比较简单，但也是最基本的，在后续文档中还会介绍该方法使用，您可以根据自己需求监听不同的事件，例如，监听成员进出房间事件，在界面上显示成员进出的通知。
 
+房间中断事件监听遵守`ILiveRoomDisconnectListener`协议，并实现以下方法：
+
+```objc
+
+/**
+ SDK主动退出房间提示。该回调方法表示SDK内部主动退出了房间。SDK内部会因为30s心跳包超时等原因主动退出房间，APP需要监听此退出房间事件并对该事件进行相应处理
+
+ @param reason 退出房间的原因，具体值见返回码
+
+ @return YES 执行成功
+ */
+- (BOOL)onRoomDisconnect:(int)reason;
+```
+
+该方法为SDK内部主动退出房间的回调，开发者可以根据自己的业务需求，在方法中进行相应处理。
+
 ### 退出房间
 调用 ILiveSDk 的退出房间接口。
 接口选择在直播控制器的 dealloc 方法中调用。
@@ -155,3 +171,5 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 }
 ```
 退出房间成功之后，房间内资源将被回收，包括 roomID，我们可以以一个相同的 roomID 再创建一个新的房间。
+
+
