@@ -11,13 +11,13 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>4.6.4220 @ 2018-05-17</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_UGC_Rename_iOS_4.6.4220.zip">ZIP</a></td>
+    <td>4.7.4395 @ 2018-05-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_UGC_Rename_iOS_4.7.4395.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>4.6.4218 @ 2018-05-04</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_UGC_Android_4.6.4218.zip">ZIP</a></td>
+    <td>4.7.4395 @ 2018-05-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_UGC_Android_4.7.4395.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -31,13 +31,13 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>4.6.4220 @ 2018-05-17</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/TXLiteAVSDK_Enterprise_Rename_iOS_4.6.4220.zip">ZIP</a></td>
+    <td>4.7.4395 @ 2018-05-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/TXLiteAVSDK_Enterprise_Rename_iOS_4.7.4395.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>4.6.4218 @ 2018-05-04</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.6/LiteAVSDK_Enterprise_Android_4.6.4218.zip">ZIP</a></td>
+    <td>4.7.4395 @ 2018-05-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.7/LiteAVSDK_Enterprise_Android_4.7.4395.zip">ZIP</a></td>
   </tr>
 </table>
 

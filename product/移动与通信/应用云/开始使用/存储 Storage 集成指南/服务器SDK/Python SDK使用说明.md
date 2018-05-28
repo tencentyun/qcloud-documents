@@ -1,37 +1,33 @@
-### 获取 SDK
+## 获取 SDK
 
-[Python SDK 下载>>](http://tac-server-sdks-1253960454.file.myqcloud.com/storage_sign_python_sdk.zip)
+[Python SDK 下载>>](https://github.com/tencentyun/qcloud-cos-sts-sdk)
 
-### 配置您的信息
+## 查看示例
 
-解压下载的压缩包，打开 `sts.py` 文件，在头部找到 `Config` 类，请在对应的部分填入你的信息：
+请查看 `sts_demo.py` 文件，里面描述了如何调用 SDK。
 
-```
-class Config:
+## 使用方法
 
-    COMMON_POLICY = r'''{"statement": [{"action": ["name/cos:*"],"effect": "allow","resource":"*"}],"version": "2.0"}'''
-    # 昵称，任意即可
-    NAME = "你的昵称"
-    # 策略，一般情况下使用默认策略即可
-    POLICY = COMMON_POLICY
-    # 临时密钥有效期，单位是秒，此处为30分钟
-    DURATION_SECOND = 1800
-    # secret id
-    SECRET_ID = '你的secret id'
-    # secret key
-    SECRET_KEY = '你的secret key'
-```
-
-### 获取临时密钥
-
-您可以将 `sts.py` 文件集成到您的 Python 工程中，然后调用以下代码：
+拷贝 `sts.py` 文件到您的 Python 工程中，调用代码如下：
 
 ```
-import sts
+from sts import Sts
 
-response = sts.sign()
-content = response.content
+config = {
+	# 临时密钥有效时长，单位是秒，如果没有设置，默认是30分钟
+	'duration_in_seconds': 1800,
+	# 您的secret id
+	'secret_id': 'xxx',
+	# 您的secret key
+	'secret_key': 'xxx',
+}
+
+sts = Sts(config)
+response = sts.get_credential()
+json_content = response.content
 ```
+
+## 返回结果
 
 成功的话，可以拿到包含密钥的 JSON 文本：
 

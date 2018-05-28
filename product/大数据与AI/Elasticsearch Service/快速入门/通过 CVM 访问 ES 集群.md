@@ -1,8 +1,17 @@
+腾讯云 ES 构建在用户 VPC 内，用户可以通过位于同一 VPC 下的 CVM 作为客户端，访问 ES 集群。ES 集群在 VPC 内的内网地址，可以在集群详情页查看。
+
+## 查看内网地址
+
+在列表页集群 ID>详情页基础配置中可查看内网地址。
+
+![基本配置](https://main.qcloudimg.com/raw/3fa85f997895ed2e21b1abe9f7c1f9ee.png)  
+
+
 ## 创建文档
 ### 创建单个文档
 输入命令行：
 ```
-curl -XPUT http://172.16.0.128:9200/china/city/beijing -d'
+curl -XPUT http://10.0.0.2:9200/china/city/beijing -d'
 {
 "name":"北京市",
 "province":"北京市",
@@ -39,7 +48,7 @@ curl -XPUT http://172.16.0.128:9200/china/city/beijing -d'
 ### 创建多个文档
 输入命令行：
 ```
-curl -XPOST http://172.16.0.128:9200/_bulk -d'
+curl -XPOST http://10.0.0.2:9200/_bulk -d'
 { "index" : { "_index": "china", "_type" : "city", "_id" : "beijing" } }
 {"name":"北京市","province":"北京市","lat":39.9031324643,"lon":116.4010433787,"x":6763,"level.range":4,"level.level":1,"level.name":"一线城市","y":6381,"cityNo":1}
 { "index" : { "_index": "china", "_type" : "city", "_id" : "shanghai" } }
@@ -74,7 +83,7 @@ curl -XPOST http://172.16.0.128:9200/_bulk -d'
 ### 查询指定 ID
 输入命令行：
 ```
-curl -XGET 'http://172.16.0.128:9200/china/city/beijing?pretty'
+curl -XGET 'http://10.0.0.2:9200/china/city/beijing?pretty'
 ```
 响应如下：
 ```
@@ -102,7 +111,7 @@ curl -XGET 'http://172.16.0.128:9200/china/city/beijing?pretty'
 ### 查询某个索引
 输入命令行：
 ```
-curl -XGET 'http://172.16.0.128:9200/china/city/_search?pretty'
+curl -XGET 'http://10.0.0.2:9200/china/city/_search?pretty'
 ```
 响应如下：
 ```
@@ -151,7 +160,7 @@ select * from city where level.level=2
 ```
 
 ```
-curl -XGET http://172.16.0.128:9200/china/city/_search?pretty -d'
+curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -d'
 {
     "query" : {
         "constant_score" : { 
@@ -230,7 +239,7 @@ select level.level, count(1) from city group by level.level
 
 
 ```
-curl -XGET http://172.16.0.128:9200/china/city/_search?pretty -d'
+curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -d'
 {
     "size" : 0,
     "aggs" : { 
@@ -283,7 +292,7 @@ curl -XGET http://172.16.0.128:9200/china/city/_search?pretty -d'
 ### 删除单个文档
 输入命令行：
 ```
-curl -XDELETE 'http://172.16.0.128:9200/china/city/beijing?pretty'
+curl -XDELETE 'http://10.0.0.2:9200/china/city/beijing?pretty'
 ```
 
 响应如下：
@@ -305,10 +314,10 @@ curl -XDELETE 'http://172.16.0.128:9200/china/city/beijing?pretty'
 ```
 ### 删除类型
 ```
-curl -XDELETE 'http://172.16.0.128:9200/china/city?pretty'
+curl -XDELETE 'http://10.0.0.2:9200/china/city?pretty'
 ```
 ### 删除索引
 ```
-curl -XDELETE 'http://172.16.0.128:9200/china?pretty'
+curl -XDELETE 'http://10.0.0.2:9200/china?pretty'
 ```
 

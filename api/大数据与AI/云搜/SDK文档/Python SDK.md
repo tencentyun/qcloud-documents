@@ -34,8 +34,8 @@ qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更
 
     config = {
         'Region': '区域参数',
-        'secretId': '你的secretId',
-        'secretKey': '你的secretKey',
+        'secretId': '您的secretId',
+        'secretKey': '您的secretKey',
         'method': 'get'
     }
 
@@ -56,10 +56,10 @@ qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更
 
         # 请求前可以通过下面四个方法重新设置请求的secretId/secretKey/region/method参数
         # 重新设置请求的secretId
-        secretId = '你的secretId'
+        secretId = '您的secretId'
         service.setSecretId(secretId)
         # 重新设置请求的secretKey
-        secretKey = '你的secretKey'
+        secretKey = '您的secretKey'
         service.setSecretKey(secretKey)
         # 重新设置请求的region
         region = 'sh'

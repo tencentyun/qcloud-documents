@@ -44,7 +44,7 @@
 qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种方法供用户使用：
 
 #### maven
-要使用 qcloudsms_java 功能，需要在 pom.xml 中添加如下依赖：
+要使用 qcloudsms_java 功能，需要在 pom.xml 中添加如下依赖，再执行 `maven update`。
 
 ```xml
 <dependency>

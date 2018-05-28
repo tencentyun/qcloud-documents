@@ -5,20 +5,28 @@
 [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
-```obc
+
+```objc
 - (IBAction)onJoinRoom:(id)sender {
-    // 1. 创建房间配置对象，
+    // 1. 创建live房间页面
+    LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
+    
+    // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
     // 不自动打开mic
     option.avOption.autoMic = NO;
+    // 设置房间内音视频监听
+    option.memberStatusListener = liveRoomVC;
+    // 设置房间中断事件监听
+    option.roomDisconnectListener = liveRoomVC;
     
-    // 2. 调用加入房间接口，传入房间ID和房间配置对象
+    // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] joinRoom:[self.roomIDTF.text intValue] option:option succ:^{
         // 加入房间成功，跳转到房间页
-        LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] initWithOption:option];
-        [self.navigationController pushViewController:liveRoomVC animated:YES];
+        [self.navigationController pushViewController:liveRoomVC animated:YES];animated:YES];
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         // 加入房间失败
         NSLog(@"加入房间失败 errId:%d errMsg:%@",errId, errMsg);
@@ -29,6 +37,7 @@
 
 ## 视频互动
 要与房间内其他用户进行视频互动，只需要打开摄像头和麦克风即可：
+
 ```objc
 /**
  打开/关闭 相机
@@ -58,6 +67,7 @@
 检测到有人关闭了摄像头 QAV_EVENT_ID_ENDPOINT_NO_CAMERA_VIDEO，则移除该用户的渲染视图。
 
 渲染视图的 frame 不是固定的，需要根据当前渲染视图的个数和产品需求进行计算。在本文提供的 Demo 中，简单的对渲染视图做了一个从上到下等分的布局，您也可根据需要自己定义布局逻辑。
+
 ```objc
 // 音视频事件回调
 - (BOOL)onEndpointsUpdateInfo:(QAVUpdateEvent)event updateList:(NSArray *)endpoints {

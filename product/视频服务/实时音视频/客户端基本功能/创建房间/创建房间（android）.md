@@ -108,7 +108,7 @@ public class RoomHelper implements ILiveRoomOption.onExceptionListener, ILiveRoo
 ## UI 开发
 同样在房间的 Activity 的 onCreate 事件中，可以上面创建的房间模块，并设置渲染控件。
 ```Java
-RoomHelper = new RoomHelper(this);
+roomHelper = new RoomHelper(this);
 // 获取渲染控件
 AVRootView avRootView = findViewById(R.id.av_root_view);
 // 设置没有渲染时的背景色为蓝色(注意不支持在布局中直接设置)
@@ -128,3 +128,6 @@ roomHelper.createRoom(1234);
 > 1. 确认 Android 设备有摄像头并且可以正常使用；
 > 2. 确认后台没有其它应用占用摄像头；
 > 3. 如果是 Android 6.0 以上设备需要确认已申请打开摄像头的动态权限`Manifest.permission.CAMERA`。
+- 失败回调，错误码1003或8011
+> 1. 进房/退房为线性互斥操作，若请求太频繁，sdk便会上抛8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)
+> 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛1003，这种情况需要先退出上次房间
