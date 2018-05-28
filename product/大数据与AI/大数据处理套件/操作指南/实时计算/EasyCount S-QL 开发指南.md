@@ -103,7 +103,7 @@ EasyCount 有 3 个主要的复杂数据类型： ARRAY，MAP 和 STRUCT。这
 |---------|---------|---------|
 | ARRAY | 数组是一组具有相同类型和名称的有序变量的集合。这些变量成为数组的元素，每个数组元素有一个编号，而且从 0 开始。例如：fruit[0]='apple'。 | ['apple','orange','mango'] |
 | MAP | Map 是一组无序的键值对元组的集合，使用数组表示法可以访问元素。键的类型必须是原子的，值可以是任何类型，同一个映射的键的类型必须相同，值的类型也必须相同。如果某个列的数据类型是 Map，其中 Key->value paris 对应的是 'first'->'John'  和  'last'->'Doe'， 那么可以通过字段名 ['last'] 获取最后一个元素： fruit['last']='Doe'。| map('first', 'John', 'last', 'Doe') |
-| STRUCT | 一组命名的字段。字段类型可以不同。STRUCT 和 C 语言中的 struct 或者"对象“类似，都可以通过"点"分隔符访问元素内容。默认情况下，STRUCT 字段名可以是 col1，col2，…… 你可以通过 structs_name.column_name 来访问具体的值： fruit.col1=1。| info struct<<br>name:STRING,<br> age:INT><br>(info.name 获取 name<br>info.age 获取 age )|
+| STRUCT | 一组命名的字段。字段类型可以不同。STRUCT 和 C 语言中的 struct 或者"对象“类似，都可以通过"点"分隔符访问元素内容。默认情况下，STRUCT 字段名可以是 col1，col2，…… 您可以通过 structs_name.column_name 来访问具体的值： fruit.col1=1。| info struct<<br>name:STRING,<br> age:INT><br>(info.name 获取 name<br>info.age 获取 age )|
 
 ## 表达式
 表达式是符号和运算符的一种组合，EasycCount 解析引擎处理该组合以获取单个值。简单表达式可以是常量、变量或者函数，可以用运算符将两个或者多个简单表达式联合起来构成更复杂的表达式。
