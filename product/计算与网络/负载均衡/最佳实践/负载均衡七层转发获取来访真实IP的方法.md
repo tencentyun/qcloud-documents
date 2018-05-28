@@ -95,7 +95,7 @@ fastcgi buffers 4 64k;
 fastcgi busy_buffers_size 128k;
 fastcgi temp_file_write_size 128k;
 <font color="red">
-set_real_ip_from ip地址;（这个ip地址首先不是负载均衡提供的公网ip，具体ip多少可以看一下之前nginx日志，如果有多个都要写上。）
+set_real_ip_from ip地址;（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以看一下之前nginx日志，如果有多个都要写上。）
 real_ip_header X-Forwarded-For;
  </font>
 
