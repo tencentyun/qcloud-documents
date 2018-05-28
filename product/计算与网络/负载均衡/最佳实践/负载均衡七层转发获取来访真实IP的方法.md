@@ -1,5 +1,5 @@
 - 由于4层负载均衡（TCP协议）服务可以直接在后端CVM上获取来访者真实IP地址，无需进行额外的配置，以下介绍的内容均是针对7层（HTTP协议）的负载均衡服务而言。
-- 7层负载均衡系统提供X-Forwarded-For的方式获取访问者真实IP，LB侧默认开启，需要后端服务做相应配置来获取client ip。
+- 7层负载均衡系统提供X-Forwarded-For的方式获取访问者真实IP，LB侧默认开启，需要后端服务做相应配置来获取client IP。
 
 以下针对常见的应用服务器配置方案进行介绍。
 
@@ -95,7 +95,7 @@ fastcgi buffers 4 64k;
 fastcgi busy_buffers_size 128k;
 fastcgi temp_file_write_size 128k;
 <font color="red">
-set_real_ip_from ip地址;（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以看一下之前nginx日志，如果有多个都要写上。）
+set_real_ip_from IP地址;（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以看一下之前nginx日志，如果有多个都要写上。）
 real_ip_header X-Forwarded-For;
  </font>
 
