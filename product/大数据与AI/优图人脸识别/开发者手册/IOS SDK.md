@@ -2,10 +2,10 @@
 >	下载 腾讯云•优图人脸识别 [IOS SDK](http://imgcache.qq.com/qcloud/tianyan/sdk/QCloudFR_IOS_SDK1.0.zip)。
 SDK支持IOS 5.0及以上版本的手机系统；
 手机必须要有网络（GPRS、3G或Wifi网络等）；
-在[腾讯云密钥管理页面](https://console.cloud.tencent.com/capi/project)，为你的项目申请安全密钥
+在[腾讯云密钥管理页面](https://console.cloud.tencent.com/capi/project)，为您的项目申请安全密钥
 
 ## 导入SDK
-1.iOS SDK下载地址为：[IOS SDK](http://imgcache.qq.com/qcloud/tianyan/sdk/QCloudFR_IOS_SDK1.0.zip)。
+1.IOS SDK下载地址为：[IOS SDK](http://imgcache.qq.com/qcloud/tianyan/sdk/QCloudFR_IOS_SDK1.0.zip)。
 
 2.将下载下来的TXqCloudFrSdk.framework添加到工程中
 3.在工程General->Embedded Binaries 中添加导入的TXqCloudFrSdk.framework
@@ -39,7 +39,7 @@ SDK支持IOS 5.0及以上版本的手机系统；
 (5)SDK的发起请求方式为post。
 ```
 ### 初始化
->申请项目密钥，并请求你的业务服务器生成签名，详见[鉴权签名文档](http://imgcache.qq.com/qcloud/tianyan/wiki/Authorization.pdf)
+>申请项目密钥，并请求您的业务服务器生成签名，详见[鉴权签名文档](http://imgcache.qq.com/qcloud/tianyan/wiki/Authorization.pdf)
 
 >导入优图人脸识别的SDK相关framework包后，通过以下方法对优图sdk进行初始化：
 TXQcloudFrSDK *sdk = [[TXQcloudFrSDK alloc] initWithName:APP_IDDauthorization: AUTHORIZATION];

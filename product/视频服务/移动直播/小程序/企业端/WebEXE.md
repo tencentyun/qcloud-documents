@@ -38,13 +38,13 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 | exe | 包含TXCloudRoomSetup.exe安装包 |
 
 ### Server
-点击 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java) 可以下载一份 **java** 版本的 Server 端源码，这份代码的主要作用是实现了一个简单的（无鉴权的）房间列表，可以支持创建通话房间、关闭通话房间等功能。如果您只是希望打通视频通话（在 PC 网页和小程序各写死一个 roomid），则不太需要这部分代码的帮助。 
+点击 [GitHub](https://github.com/TencentVideoCloudMLVBDev/roomlist_server_java ) 可以下载一份 **java** 版本的 Server 端源码，这份代码的主要作用是实现了一个简单的（无鉴权的）房间列表，可以支持创建通话房间、关闭通话房间等功能。如果您只是希望打通视频通话（在 PC 网页和小程序各写死一个 roomid），则不太需要这部分代码的帮助。 
 
-| 目录 | 说明 | 
+| 目录 | 说明 |
 |:-------:|---------|
-|README.pdf | 介绍了如何使用这份后台代码 | 
-|后台接口表.pdf| 介绍了这份后台代码的内部实现细节 | 
-| src | java 版本的后台房间列表源代码 | 
+|README.pdf | 介绍了如何使用这份后台代码 |
+|后台接口表.pdf| 介绍了这份后台代码的内部实现细节 |
+| src | java 版本的后台房间列表源代码 |
 
 
 ## 方案对接
