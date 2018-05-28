@@ -48,7 +48,7 @@
 
 ## 本地 Windows 计算机 SSH 密钥登录
 ### 登录工具
-使用 **远程登录软件** ，采用 SSH 密钥登录 Linux 实例（本例中选择使用 PUTTY，用户也可以选择其他类型的登录软件）。
+使用 **远程登录软件** ，采用 SSH 密钥登录 Linux 实例（本例中选择使用 PuTTY，用户也可以选择其他类型的登录软件）。
 
 ### 操作步骤
 1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
