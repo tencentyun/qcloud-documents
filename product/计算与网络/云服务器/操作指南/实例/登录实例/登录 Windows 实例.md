@@ -92,7 +92,7 @@ VNC 登录的场景至少包括以下几种:
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。
 
-2. 在云服务器列表的操作列，点击【登录】按钮即可通过 VNC 连接至  Windows 云服务器。
+2. 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至  Windows 云服务器。
 ![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
 
 3. 通过在左上角单击 Ctrl - Alt - Del 命令进入系统登录界面：
