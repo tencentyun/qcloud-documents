@@ -61,10 +61,12 @@ source: AndriodApp
 
 ## 注意事项
 
-### header对应
+### header 对应
 
 Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。
 
 ### 签名内容生成
 
 排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。
+
+[常用语言的签名 demo>>](https://github.com/apigateway-demo)
