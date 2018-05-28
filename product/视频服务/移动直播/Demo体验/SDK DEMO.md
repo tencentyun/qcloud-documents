@@ -68,7 +68,7 @@
   </tr>
   <tr align="center">
     <td height="100px"> Web 解决方案</td>
-    <td>2.0.1</td>
+    <td>3.0.1</td>
 		<td>WebEXE or WebRTC</td>
 		<td><a href="http://img.qcloud.com/open/qcloud/video/act/liteavWeb/avsolution/Index.html">点击体验</a></td>
   </tr>

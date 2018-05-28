@@ -5,10 +5,10 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 - MD5 数据校验功能。
 
 ## 使用限制 
-本工具可以支持对COS V4、V5 版本存储的访问，但是域名均需使用 COS V5 域名。
+本工具可以支持对 COS V4、V5 版本存储的访问，但是域名均需使用 COS V5 域名。
 ## 使用环境 
 ### 系统环境 
-主流 Linux 系统
+主流 Linux 系统。
 
 ### 软件环境 
 本工具编译需要 C++ 编译环境。依赖于 automake、git 、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件，安装方法参考 [环境安装](#环境安装)。
@@ -24,12 +24,12 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
-注意在centos6.5及较低版本，可能会提示fuse版本太低，在安装过程的configure操作时返回
+注意在 centos6.5 及较低版本，可能会提示 fuse 版本太低，在安装过程的 configure 操作时返回
 ```
  checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，你需要来手动安装fuse版本，具体步骤
+此时，您需要来手动安装 fuse 版本，具体步骤
 ```
  # yum remove -y fuse-devel
   # wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.8.4.tar.gz
@@ -48,12 +48,12 @@ sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel mak
 
 ## 使用方法 
 ### 获取工具 
-Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs-v4.2.1)
+Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs)
 
 ### 安装工具 
 您可以直接将下载的源码上传至指定目录，也可以使用 GitHub 下载到指定目录，下面以使用 GitHub 将源码目录下载到 `/usr/cosfs` 为例：
 ```
-git clone https://github.com/tencentyun/cosfs-v4.2.1 /usr/cosfs
+git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 进入到该目录，编译安装：
 ```
@@ -79,21 +79,36 @@ chmod 640 /etc/passwd-cosfs
 ### 运行工具 
 将配置好的存储桶挂载到指定目录，命令行如下：
 ```
-cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
+cosfs your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
 ```
 其中：
-- your-APPID/ your-bucketname 需要替换为用户真实的信息；
+- your-bucketname 需要替换为用户真实的信息；
 - your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
 - cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 Region 为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
 - -odbglevel 参数表示信息级别，照写即可。
+
+注意： 
+
+v1.0.5 版本之前的cosfs挂载命令：
+```
+cosfs bucketname_suffix:bucketname_prefix my-mount-point -ourl=my-cos-endpoint
+```
+
+v1.0.5 版本之前的配置文件格式是：
+```
+bucketname_prefix:<SecretId>:<SecretKey>
+```
+其中`bucketname_suffix`指的是bucket名称中的数字后缀, `bucketname_prefix`指的是除数字后缀外的其他部分。
+例如 bucketprefix-1253972369 的`bucketname_suffix` 为1253972369， `bucketname_prefix`为bucketprefix。
+
 #### 示例：
 ```
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
+cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 另外，如果对性能有要求，可以使用本地磁盘缓存文件，命令中加入 -ouse_cache 参数，示例如下：
 ```
 mkdir /local_cache_dir
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
+cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
 ```
 `/local_cache_dir`为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
@@ -149,7 +164,7 @@ umount -l /mnt
     Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
     ```
 
-   此时，你需要来手动安装fuse版本，具体步骤
+   此时，您需要来手动安装 fuse 版本，具体步骤
 
    ```
      # yum remove -y fuse-devel
@@ -182,3 +197,5 @@ umount -l /mnt
   对于centos可以通过sudo yum install mailcap来添加
 
   或者手动添加，每种格式一行，例如：image/png png
+
+

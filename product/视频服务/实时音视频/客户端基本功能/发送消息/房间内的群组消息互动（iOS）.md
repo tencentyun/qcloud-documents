@@ -12,8 +12,18 @@
 |自定义消息|ILVLiveCustomMessage|消息内容为一个 NSData 对象|
 |其它消息|TIMMessage|[ IMSDK 消息类型 ](https://cloud.tencent.com/document/product/269/9232#1.2-.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)其它消息的封装|
 
+##开启IM功能
+首先我们得开启IM功能，修改创建和加入房间时的配置属性 imSupport 为YES，即开启了房间内的IM功能。
+
+> 在配置imSupport为YES时，createRoom会自动创建IM群组，quitRoom时创建者会自动解散群组
+
+```objc
+option.imOption.imSupport = YES;
+```
+
 ## 发送消息
 房间内成员可以发送实时消息交流互动，这个功能是由 IMSDK 提供的，在 ILiveRoomManager 中对 IMSDK 的接口进行了封装，便于使用，先来看看如何发送消息。
+
 ```objc
 /**
  发送C2C消息

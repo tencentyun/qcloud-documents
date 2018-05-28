@@ -1,53 +1,16 @@
-## 您必须提供给米大师的接口
 
-### 支付成功回调通知
->**注意：**
->支付成功后，Payment 后台会将支付结果通知应用服务器，应用需要接收处理，并返回应答。如果没有收到业务的成功应答，Payment 后台会通过一定的策略定期重新发起通知，尽可能提高通知的成功率，但不保证通知最终能成功。（通知间隔频率为15/15/30/180/1800/1800/1800/1800/3600，单位：秒）
-
-
-**请求方式**：POST
-
-**参数格式**：JSON
-
-**参数说明如下**：
-
-字段名 | 类型 | 含义
----- | ---- | ---
-appid |	string[50]|	Payment 的 offerId
-sub_appid	|string[50]|	子应用 ID
-user_id	| string[255] |	用户 ID，长度不小于 5 位，仅支持字母和数字的组合。
-out_trade_no |	string[32]	| 应用支付订单号。
-product_id |	string[128] |	商品 id，仅支持数字、字母、下划线（_）、横杠字符（-）、点（.）的组合。
-currency_type	 |string[3]	ISO | 货币代码，CNY
-amount	| int	|支付金额，单位：分
-pay_channel|	string[10]|	"实际支付渠道：wechat：微信支付；qqwallet：QQ 钱包；bank：网银"
-pay_ scene	|int|	"支付场景： 1：AndroidApp 支付；2：IOSApp 支付；3：PCWeb 支付；4：H5/公众号支付；5：小程序支付；6：扫码支付"
-pay_channel_orderid	| string[255]	 | 支付渠道侧订单号
-metadata|	string[255]	| 透传字段，支付成功回调透传给应用，用于业务透传自定义内容。
-sub_out_trade_no_list	| array	| 调用下单接口传进来的 sub_out_trade_no_list
-ts	| string[10]|	unix 时间戳（格林威治时间）,精确到秒。
-sign|	string[32]	| [请求签名](https://cloud.tencent.com/document/product/666/16830)。
-
-**返回 JSON 结果**：
-
-字段名 | 类型 | 含义
----- | ---- | ---
-ret	| int	| 结果码 0 ：成功；-1 ：失败
-msg	 | string[255] |	成功固定为小写的“ok”，失败则说明错误原因，不能返回空（使用 utf-8 编码）。
-
-
-## 米大师提供给您的接口
+## 通用服务端接口
 
 ### 商品下单
 
-**说明**：在您的应用发起支付前，必须先调用商品下单接口来进行下单，并将应答的 pay_info 透传给 Payment SDK，拉起支付。
+**说明**：聚合支付模式和账户托管模式在您的应用发起支付前，都必须先调用商品下单接口来进行下单，并将应答的 pay_info 透传给 Payment SDK，拉起支付。
 
 **接口**：unified_order
 
 **地址**：https://api.openmidas.com/v1/r/$appid$/unified_order
 
-> 物品直购下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
-> 账户充值下 `appid` 为该账户的 id。
+> 注意：聚合支付模式下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
+> 托管账户模式下 `appid` 为该托管账户的 id。shang
 
 **请求方式**：POST
 
@@ -143,7 +106,7 @@ METRIC: 1
 {"ret" : 0,"transaction_id" : "E-180226180100230001","out_trade_no" : "open_1519640480282","pay_info" : "data=%7B%22appid%22%3A%22TC100008%22%2C%22user_id%22%3A%22rickenwang%22%2C%22out_trade_no%22%3A%22open_1519640480282%22%2C%22product_id%22%3A%22product_test%22%2C%22pay_method%22%3A%22wechat%22%7D&sign=cQHQYAdrn4ECpiAGiWqZEcynw%2BeNhc2AdXqtYoOqZvXn2%2BCupvB4fcH%2BcUQEPZfikgjwxM2oGyImPTtFIMp1HXUJz0sNH5C1ZEUR00%2FQ%2FkdEQyZg32MwC3Pom0d6IbM3L%2BBLcX8NbIf3QD7mrneL9ahng%2BZ8eo50jXhRNQv3UGPHiqSoR7JVjpIQEq45vj8eVjzi5SSDFF6OGmZgn8WiYXdGXd7bOTpTakOnDukLOlNzwUHKvKk70k5PjaRneJIbEu0xG0pQCpk0253fg8RhJola2Ej8iGFAYpbnjpH7oScDGSPir0PYTtD3zKolL5dFV8FzKi%2FVufIB3yrO4z0knQ%3D%3D"}
 ```
 
-
+## 聚合支付服务端接口
 
 ### 查询订单
 
@@ -332,7 +295,8 @@ ret |	int	|结果码 0：成功；其他：失败
 msg	 | string[512]	| 失败的错误信息。
 
 
-### 退款接口
+### 退款
+
 **说明**：如交易订单需退款，可以通过本接口将支付款全部或部分退还给付款方，Payment 将在收到退款请求并且验证成功之后，按照退款规则将支付款按原路退回到支付帐号。最长支持 1 年的订单退款。
 
 **接口**：refund
@@ -450,7 +414,7 @@ msg	 | string[512]	| 失败的错误信息。
 ret	| int	| 结果码 0：成功；其他：失败
 msg	|string[512]|	失败的错误信息。
 
-### 查询退款结果接口
+### 查询退款结果
 
 **说明**：提交退款申请后，通过调用该接口查询退款状态。退款可能有一定延时，用微信零钱支付的退款约 20 分钟内到账，银行卡支付的退款约 3 个工作日后到账。
 
@@ -484,7 +448,9 @@ refund_id |	string[32]	|退款订单号
 state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失败；
 
 
-### 查询托管账户余额接口
+## 托管账户服务端接口
+
+### 查询余额
 
 **说明**：查询查询账户余额
 
@@ -514,7 +480,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 |gen_balance|int|当前赠送部分余额|
 |save_amt|int|累计充值金额|
 
-### 托管账户扣款接口
+### 扣款
 
 **说明**：扣款
 
@@ -548,7 +514,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 
 
 
-### 托管账户取消扣款接口
+### 取消扣款
 
 **说明**：取消扣款
 
@@ -579,7 +545,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 |gen_balance|int|当前赠送部分余额|
 
 
-### 托管账户赠送接口
+### 赠送
 
 **说明**：赠送接口
 
