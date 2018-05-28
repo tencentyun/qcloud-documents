@@ -409,7 +409,7 @@ table td {
 </table>
 
   
-<h2 id="Xiaozhibo">小直播源码（4.5.4022）</h2>
+<h2 id="Xiaozhibo">小直播源码（4.7）</h2>
 
 小直播是腾讯视频云终端产品中心打造的一款集各种功能（文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动）于一体的开源 APP，致力于帮您快速搭建自己的直播产品原型。您可以参考 [搭建指引](https://cloud.tencent.com/document/product/454/15187) 了解如何快速让下面的代码跑起来。
 
@@ -422,15 +422,15 @@ table td {
   </tr>
   <tr align="center">
     <td>iOS 源码包</td>
-    <td>4.5.4022</td>
+    <td>4.7.4396</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.5.4022.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.7.4396.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 源码包</td>
-    <td>4.5.4022</td>
+    <td>4.7.4397</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.5.4022.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.7.4397.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>PHP源码包</td>
