@@ -202,7 +202,7 @@ WNS 提供调试环境给开发商使用，服务端使用控制台可以配置�
  *
  * @note 会触发重建链接
  */
-- (void)setDebugIP:(NSString *)ip port:(unsigned short)port;
+- (void)setDebugIP:(NSString *)IP port:(unsigned short)port;
 
 ```
 #### 关键日志
