@@ -32,7 +32,7 @@
 ### 操作步骤
 1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-2. 使用 PUTTY 连接 Linux 云服务器。打开PuTTY客户端，在PuTTY Configuration 窗口中输入以下内容：
+2. 使用 PuTTY 连接 Linux 云服务器。打开 PuTTY 客户端，在PuTTY Configuration 窗口中输入以下内容：
   >- Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP）。
   >- Port：云服务器的端口，必须填 22。（请确保云主机 22 端口已开放，详见查看 [安全组](/doc/product/213/5221) 及 [网络ACL](/doc/product/215/5132)）
   >- Connect type：选择“ SSH ”。
