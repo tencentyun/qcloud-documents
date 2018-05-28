@@ -113,81 +113,29 @@ boolean onEndpointsUpdateInfo(final int eventid, final String[] updateList);
 |9|ILiveConstants.TYPE_MEMBER_CHANGE_HAS_FILE_VIDEO|有上行播片事件|
 |10|ILiveConstants.TYPE_MEMBER_CHANGE_NO_FILE_VIDEO|上行播片停止事件|
 
-同时，大家可能会注意到我上面使用的是Public类型的群组，因为这种有人员上限的群组才有成员进出的IM事件通知，更多群组信息参考[房间内的群组消息互动](c_msg.md)
+同时，大家可能会注意到我上面使用的是Public类型的群组，因为这种有人员上限的群组才有成员进出的IM事件通知，更多群组信息参考[房间内的群组消息互动](..\发送消息\房间内的群组消息互动（android）.md)
 由于成员通知是在消息里的，所以我们需要在房间模块监听消息:
 ```Java
-MessageObservable.getInstance().addObserver(this);
+TIMManager.getInstance().setGroupEventListener(this);
 ```
 然后再处理GroupTips消息，处理成员进出事件:
 ```Java
-     @Override
-    public void onNewMessage(ILiveMessage message) {
-        if (ILiveMessage.ILIVE_CONVERSATION_GROUP == message.getConversationType() &&
-                ILiveRoomManager.getInstance().getIMGroupId().equals(message.getPeer())){
-            // 过滤是当前群组的消息
-            if (ILiveMessage.ILIVE_MSG_TYPE_OTHER == message.getMsgType()){
-                // 处理其它消息
-                ILiveOtherMessage otherMessage = (ILiveOtherMessage)message;
-                TIMElem elem = otherMessage.getTIMElem();   // 取出消息内容
-                if (elem.getType() == TIMElemType.GroupTips){   // 群事件消息
-                    TIMGroupTipsElem groupTipsElem = (TIMGroupTipsElem)elem;
-                    switch (groupTipsElem.getTipsType()){
-                        case Join:      // 用户加入
-                            if (!members.containsKey(groupTipsElem.getOpUser())) {
-                                members.put(groupTipsElem.getOpUser(), new MemberInfo(groupTipsElem.getOpUser()));
-                                notifyUpdate();
-                            }
-                            break;
-                        case Quit:      // 用户退出
-                            members.remove(groupTipsElem.getOpUser());
-                            notifyUpdate();
-                            break;
-                    }
-                }
-            }
-        }
+@Override
+public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
+    if (!timGroupTipsElem.getGroupId().equals(ILiveRoomManager.getInstance().getIMGroupId())){
+        // 忽略非当前群组消息
+        return;
     }
-```
-收到音视频事件也通知上层:
-```Java
-    @Override
-    public boolean onEndpointsUpdateInfo(int eventid, String[] updateList) {
-        switch (eventid){
-            case ILiveConstants.TYPE_MEMBER_CHANGE_HAS_CAMERA_VIDEO:
-                for (String id : updateList){
-                    if (!members.containsKey(id))
-                        members.put(id, new MemberInfo(id));
-                    members.get(id).setOpenCamera(true);
-                }
-                notifyUpdate();
-                break;
-            case ILiveConstants.TYPE_MEMBER_CHANGE_NO_CAMERA_VIDEO:
-                for (String id : updateList){
-                    if (members.containsKey(id))
-                        members.get(id).setOpenCamera(false);
-                }
-                notifyUpdate();
-                break;
-            case ILiveConstants.TYPE_MEMBER_CHANGE_HAS_AUDIO:
-                for (String id : updateList){
-                    if (!members.containsKey(id))
-                        members.put(id, new MemberInfo(id));
-                    members.get(id).setOpenMic(true);
-                }
-                notifyUpdate();
-                break;
-            case ILiveConstants.TYPE_MEMBER_CHANGE_NO_AUDIO:
-                for (String id : updateList){
-                    if (members.containsKey(id))
-                        members.get(id).setOpenMic(false);
-                }
-                notifyUpdate();
-                break;
-        }
-
-        // 这里需要返回false，否则需要上层自己实现视频请求及渲染
-        return false;
+    switch (timGroupTipsElem.getTipsType()){
+        case Join:
+            // 加入
+            String userId = timGroupTipsElem.getOpUser();
+            break;
+        case Quit:
+            // 退出
+            break;
     }
+}
 ```
 
 ### 获取房间成员
