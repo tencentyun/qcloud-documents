@@ -16,7 +16,7 @@
     "ext": "",
     "extend": "",
     "msg": "你的验证码是 1234",
-    "sig": "30db206bfd3fea7ef0db929998642c8ea54cc7042a779c5a0d9897358f6e9505",
+    "sig": "f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb",
     "tel": "+8613711112222",
     "time": 1457336869,
     "type": 0
@@ -49,7 +49,7 @@ string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appk
 string strRand = "7226249334"; //url 中的 random 字段的值
 string strTime = "1457336869"; //unix 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
-           = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
+           = f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb;
 ```
 
 ## 响应参数
