@@ -8,9 +8,9 @@
 
 2) 打开IIS管理器，找到当前开启的网站，在该网站上右键选择“属性”，打开属性页。
 
-3) 在属性页切换至“ISAPI筛选器”，点击“添加”按钮，出现添加窗口。
+3) 在属性页切换至“ISAPI筛选器”，单击“添加”按钮，出现添加窗口。
 
-4) 在添加窗口“筛选器名称”填写“F5XForwardedFor”，“可执行文件”填写`F5XForwardedFor.dll`的完整路径，点击确定。
+4) 在添加窗口“筛选器名称”填写“F5XForwardedFor”，“可执行文件”填写`F5XForwardedFor.dll`的完整路径，单击确定。
 
 5) 重启IIS服务器，等待配置生效。
 
@@ -20,16 +20,16 @@
 2) 选择“IIS服务器”选项，按图所示选择“模块”功能：
 ![](//mccdn.qcloud.com/static/img/9d7e43382b6b2bdf5753b67ccd248030/image.png)
 
-3) 双击“模块”功能，点击“配置本机模块”：
+3) 双击“模块”功能，单击“配置本机模块”：
 ![](//mccdn.qcloud.com/static/img/01620ccc1be3c03569b31dc8bbaa7d73/image.png)
 
-4) 在弹出框中点击“注册”按钮：
+4) 在弹出框中单击“注册”按钮：
 ![](//mccdn.qcloud.com/static/img/27fd429c05788abbdc6e95adc215e39c/image.png)
 
 5) 添加下载的DLL文件，如下图：
 ![](//mccdn.qcloud.com/static/img/9e68ee04ef61c911a8dcc7caaf77b678/image.png)
 
-6) 添加完成后，勾选并点击“确定”：
+6) 添加完成后，勾选并单击“确定”：
 ![](//mccdn.qcloud.com/static/img/c9bf9c597d7c0b2538dade72ed10bd4e/image.png)
 
 7) 把这两个DLL在 “API 和CGI限制”进行添加，并改为允许：
@@ -55,7 +55,7 @@ cd mod_rpaf-0.6
 LoadModule rpaf_module modules/mod_rpaf-2.0.so
 RPAFenable On
 RPAFsethostname On
-RPAFproxy_ips ip地址（这个ip地址首先不是负载均衡提供的公网ip，具体ip多少可以看一下apache日志，通常会有2个 都要写上）
+RPAFproxy_ips IP地址（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以看一下apache日志，通常会有2个 都要写上）
 RPAFheader X-Forwarded-For
 ```
 
@@ -66,7 +66,7 @@ RPAFheader X-Forwarded-For
 ```
 
 ## 4. Nginx配置方案
-1) Nginx作为负载均衡获取真实ip是使用http_realip_module，默认安装的Nginx是没有安装这个模块的，需要重新编译Nginx增加 --with-http_realip_module：
+1) Nginx作为负载均衡获取真实IP是使用http_realip_module，默认安装的Nginx是没有安装这个模块的，需要重新编译Nginx增加 --with-http_realip_module：
 
 ```
 wget http://soft.phpwind.me/top/nginx-1.0.12.tar.gz

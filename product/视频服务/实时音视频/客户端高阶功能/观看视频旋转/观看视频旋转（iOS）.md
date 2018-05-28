@@ -1,4 +1,4 @@
-﻿本课程讲解房间内画面旋转和拉伸相关问题
+本课程讲解房间内画面旋转和拉伸相关问题
 
 ## 效果图
 全屏模式|黑边模式
@@ -7,7 +7,7 @@
 
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 点击[下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/Demo_Rotate.zip)
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/Demo_Rotate.zip)
 ## 相关概念
 
 **画面一致**
