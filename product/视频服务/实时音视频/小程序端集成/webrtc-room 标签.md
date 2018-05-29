@@ -8,6 +8,10 @@
 - **PC 端**
 用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
+- **Android 端**
+用 Android 手机 [下载App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装App即可体验Android 的效果。
+<img src="https://a.app.qq.com/o/image/microQr.png?pkgName=com.tencent.trtc" width="160">
+
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
 
