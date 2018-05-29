@@ -321,7 +321,7 @@ RtcRoom 的事件回调和事件通知，您可以通过 **setListener**  方法
 | onRecvRoomIMMsg(object) | 通知：收到 IM 消息                   |
 | onRecvEvent(object)     | 通知：其他消息通知，如流状态信息等。 |
 
-<h3 id="RtcRoom.setListener">LiveRoom.setListener</h3>
+<h3 id="RtcRoom.setListener">RtcRoom.setListener</h3>
 
 - 接口定义：setListener(object):void
 - 接口说明：设置事件回调
@@ -352,7 +352,7 @@ RtcRoom.setListener({
 });
 ```
 
-<h3 id="RtcRoom.startEXE">LiveRoom.startEXE</h3>
+<h3 id="RtcRoom.startEXE">RtcRoom.startEXE</h3>
 
 - 接口定义：startEXE(object):void
 - 接口说明：通过您的账户信息和房间信息，打开本地EXE应用程序。
@@ -427,7 +427,7 @@ RtcRoom.startEXE({
         })
 ```
 
-<h3 id="RtcRoom.stopEXE">LiveRoom.stopEXE</h3>
+<h3 id="RtcRoom.stopEXE">RtcRoom.stopEXE</h3>
 
 - 接口定义：stopEXE(object):void
 - 接口说明：关闭指定房间ID的EXE进程。
@@ -457,7 +457,7 @@ RtcRoom.stopEXE({
 });
 ```
 
-<h3 id="RtcRoom.unload">LiveRoom.unload</h3>
+<h3 id="RtcRoom.unload">RtcRoom.unload</h3>
 
 - 接口定义：unload():void
 - 接口说明：页面docment-unload时调用，SDK释放所有资源。
@@ -492,7 +492,7 @@ PushPlay 的事件回调和事件通知，您可以通过 **setListener**  方�
 | ------------------- | ------------------------------------ |
 | onRecvEvent(object) | 通知：其他消息通知，如流状态信息等。 |
 
-<h3 id="PushPlay.setListener">LiveRoom.setListener</h3>
+<h3 id="PushPlay.setListener">PushPlay.setListener</h3>
 
 - 接口定义：setListener(object):void
 - 接口说明：设置事件回调
@@ -515,7 +515,7 @@ PushPlay.setListener({
 });
 ```
 
-<h3 id="PushPlay.startEXE">LiveRoom.startEXE</h3>
+<h3 id="PushPlay.startEXE">PushPlay.startEXE</h3>
 
 - 接口定义：startEXE(object):void
 - 接口说明：通过您的流地址信息，打开本地EXE应用程序。
@@ -562,7 +562,7 @@ PushPlay.setListener({
             });
 ```
 
-<h3 id="PushPlay.stopEXE">LiveRoom.stopEXE</h3>
+<h3 id="PushPlay.stopEXE">PushPlay.stopEXE</h3>
 
 - 接口定义：stopEXE():void
 - 接口说明：关闭推拉流模式的EXE进程。
@@ -575,7 +575,7 @@ PushPlay.setListener({
 PushPlay.stopEXE();
 ```
 
-<h3 id="PushPlay.unload">LiveRoom.unload </h3>
+<h3 id="PushPlay.unload">PushPlay.unload </h3>
 
 - 接口定义：unload():void
 - 接口说明：页面docment-unload时调用，SDK释放所有资源。
@@ -588,7 +588,7 @@ PushPlay.stopEXE();
 PushPlay.unload();
 ```
 
-<h3 id="PushPlay.videoSnapshot">LiveRoom.videoSnapshot</h3>
+<h3 id="PushPlay.videoSnapshot">PushPlay.videoSnapshot</h3>
 
 - 接口定义：videoSnapshot(object):void
 - 接口说明：截图接口，图片数据从事件回调:onRecvEvent中获取，eg：{"event":"snapshot", "base64Img:"xxxxx", "id":"xxx"}。

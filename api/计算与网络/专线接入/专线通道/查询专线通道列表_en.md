@@ -29,14 +29,14 @@ The following request parameter list only provides API request parameters. Commo
 | directConnectGatewayId | String | Direct Connect gateway ID, such as dcg-d545ddf. |
 | data.n.bandwidth | Int | Direct Connect bandwidth (in Mbps). |
 | data.n.routeMode | Int | 0: BGP routing. 1: static. Default is BGP routing. |
-| data.n.bgpPeers.asn | string | BGP asn. |
+| data.n.bgpPeers.asn | String | BGP asn. |
 | data.n.bgpPeers.authKey | String | BGP key. |
 | data.n.routeFilterPrefixes.n.cidr | String | Peer IP address range. |
 | data.n.status | Int | Status of the Direct Connect tunnel. 0: Connected; 1: Requesting; 2: Configuring; 20: Waiting for connection; 21: Rejected. |
 | data.n.vlan | Int | vlan Id.|
-| data.n.localGatewayIp | string | Tencent Connect IP |
+| data.n.localGatewayIp | String | Tencent Connect IP |
 | data.n.peerGatewayIp | String | User Connect ip|
-| data.n.peeringSubnetMask | string | Connect IP Mask |
+| data.n.peeringSubnetMask | String | Connect IP Mask |
 | data.n.remark | String | Remarks. |
 
 ## Practical Case

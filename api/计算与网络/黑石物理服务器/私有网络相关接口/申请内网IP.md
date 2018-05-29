@@ -23,7 +23,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 | unVpcId |系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 | String |  是 |
 | unSubnetId |  系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |String | 是 |
 | count |申请IP个数，默认为1，取值范围1-20。 | Int |  否 |
-| ipClass | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 | Int | 否 |
+| ipClass | IP类型，0为物理机IP，1为云服务器类型IP，2为托管类型IP。默认传1 | Int | 否 |
 
 
 ## 响应
