@@ -1,7 +1,6 @@
 ## Expiry Reminder
 ### Arrears reminder for CFS postpaid resources
-![](https://main.qcloudimg.com/raw/cfe70c9146957fcf494eb066d4111b73.png)
-
+![](https://main.qcloudimg.com/raw/2cf4e06f28a58d29610c57250e82c829.png)
 
 ### Balance alert
 We will estimate the remaining available period of your account based on your usage of postpaid resources under your account and your balance over the past 24 hours. We will send you a balance alert message if the period is less than 5 days. The alert message will be sent by email and SMS to Tencent Cloud account creator and all the collaborators.
