@@ -36,7 +36,7 @@
 
 #### 创建房间
 
-[创建房间参考基础教程](https://gitee.com/vqcloud/doc_demo/blob/master/ios/%E5%88%9B%E5%BB%BA%E6%88%BF%E9%97%B4.md)
+[创建房间参考基础教程](https://cloud.tencent.com/document/product/647/16811)
 
 #### 禁用自动旋转
 ```
