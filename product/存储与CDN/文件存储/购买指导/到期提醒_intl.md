@@ -1,6 +1,6 @@
 ## Expiry Reminder
 ### Arrears reminder for CFS postpaid resources
-![](https://mc.qcloudimg.com/static/img/ae260f9642a4f937b2d8624c022963a5/image.png)
+![](https://main.qcloudimg.com/raw/cfe70c9146957fcf494eb066d4111b73.png)
 
 
 ### Balance alert
