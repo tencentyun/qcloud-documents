@@ -21,6 +21,7 @@ QAVContext *context = [[ILiveSDK getInstance] getAVContext];
 [context.videoCtrl setLocalVideoDelegate:self];
 ```
 2. 代理回调中分发视频帧
+
 ```
 - (void)OnLocalVideoPreview:(QAVVideoFrame *)frameData
 {
@@ -28,6 +29,7 @@ QAVContext *context = [[ILiveSDK getInstance] getAVContext];
     ILiveFrameDispatcher *dispatch = [[ILiveRoomManager getInstance] getFrameDispatcher];
     [dispatch dispatchVideoFrame:frameData];
 }
+
 ```
 
 #### 设置根视图
