@@ -11,7 +11,7 @@ Before using the short video solution, you need to activate **Tencent Cloud VOD*
 ### Module Diagram of the Solution
 The following figure illustrates the functional modules involved in this document:
 
-![图片描述](https://mc.qcloudimg.com/static/img/984742edd098b6d0e2eeb1c265d0a01a/image.jpg)
+![](https://mc.qcloudimg.com/static/img/984742edd098b6d0e2eeb1c265d0a01a/image.jpg)
 
 ## Short Video Generation
 ### Short Video SDK Overview

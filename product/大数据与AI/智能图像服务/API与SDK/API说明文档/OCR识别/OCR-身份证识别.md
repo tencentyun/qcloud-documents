@@ -13,15 +13,16 @@
 
 `https://recognition.image.myqcloud.com/ocr/idcard`
 
-## 请求头 header
-所有请求都要求含有以下头部信息：
+## 请求方式
 
-| 参数名            | 值                                        | 描述                                       |
-| -------------- | ---------------------------------------- | ---------------------------------------- |
-| host           | recognition.image.myqcloud.com           | 腾讯云文字识别服务器域名                              |
-| content-length | 包体总长度                               | 整个请求包体内容的总长度，单位：字节（Byte）        |
-| content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
-| authorization  | 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409) |
+### 请求头 header
+
+| 参数名            |必选| 值                                        | 描述                                       |
+| -------------- | -----|----------------------------------- | ---------------------------------------- |
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
+| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
+| authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409) |
 >**注意：**
 >如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
@@ -30,11 +31,10 @@
 
 使用 application/json 格式：
 
-| 参数        | 是否必选 | 类型        | 说明             |
+| 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 必选   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
-| bucket    | 必选   | string    | 图片空间           |
-| url_list  | 必选   | string 数组 | 图片 url 列表      |
+| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
+| url_list  | 是   | string 数组 | 图片 url 列表      |
 
 
 ### 返回内容
@@ -183,7 +183,6 @@ Content-Type: "application/json"
 | 参数        | 是否必选 | 类型           | 描述                                       |
 | --------- | ---- | ------------ | ---------------------------------------- |
 | appid     | 是    | uint         | 项目ID                                     |
-| bucket    | 是    | string       | 图片空间                                     |
 | card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
 | image     | 是    | image/jpeg 等 | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
@@ -309,7 +308,7 @@ Content-Type: image/jpeg
 ## 错误码
 | **错误码** | **含义**                            |
 | ------- | --------------------------------- |
-| 3       | 错误的请求                             |
+| 3       | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                              |
 | 4       | 签名为空                              |
 | 5       | 签名串错误                             |
 | 6       | APPID /存储桶/ url 不匹配               |

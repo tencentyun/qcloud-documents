@@ -1,5 +1,5 @@
 ## 标签说明
-**&lt;live-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于双人和多人音视频通话的自定义组件。
+**&lt;live-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于双人和多人音视频通话的自定义组件，其主要用于一对多音视频通话场景下（有别于&lt;rtc-room&gt;）。
 
 ## 效果演示
 您可以扫描如下二维码，或在微信小程序里搜索“腾讯视频云”，即可打开我们的 demo 小程序，内部的 **直播体验室** 即为 &lt;live-room&gt; 的典型应用场景。

@@ -1116,7 +1116,7 @@ items|拉取的未决条目 TIMGroupPendencyItemHandle 数组
 **`meta` 属性说明： **
 
 ```
-//拉取起点时戳 单位：ms 未0时全部拉完
+//拉取起点时戳 单位：ms 未 0 时全部拉完
 TIM_DECL TIMGroupPendencyMetaHandle CloneGroupPendencyMetaHandle(TIMGroupPendencyMetaHandle meta);
 TIM_DECL void DestroyGroupPendencyMetaHandle(TIMGroupPendencyMetaHandle meta);
 TIM_DECL uint64_t GetNextStartTime4GroupPendencyMetaHandle(TIMGroupPendencyMetaHandle meta);
@@ -1364,7 +1364,7 @@ void TIMSetGroupAssistantCallBack(TIMGroupAssistantCallBack* cb);
 
 ## 群事件消息 
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见[新消息通知](/doc/product/269/1581#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)），调用方可选择是否予以展示，以及如何展示。 如下图中，展示一条修改群名的事件消息。
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见 [新消息通知](/doc/product/269/1581#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)），调用方可选择是否予以展示，以及如何展示。 如下图中，展示一条修改群名的事件消息。
 
 ![](//mccdn.qcloud.com/static/img/cc5b0e33ed6bd492fca7d8fb8469307a/image.jpg)
 
@@ -1381,7 +1381,7 @@ typedef enum_E_TIM_GROUPTIPS_TYPE
 	TIM_GROUP_TIPS_TYPE_INFO_CHANGE         = 0x06, //群资料变更
 	TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE  = 0x07, //群成员资料变更 
 }E_TIM_GROUPTIPS_TYPE;
-//群 Tips类型
+//群 Tips 类型
 typedef void* TIMMsgGroupTipsElemHandle;
 E_TIM_GROUPTIPS_TYPEGetGroupTipsInfoType(TIMMsgGroupTipsElemHandle handle);
 //群名

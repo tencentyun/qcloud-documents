@@ -5,7 +5,7 @@
    - **Get_LivePushStat**: Return only the push statistics to improve query efficiency
    - **Get_LivePlayStat**: Return only the playback statistics to improve query efficiency
 - **URL**
-   - URL for calling API: http://statcgi.video.qcloud.com/common_access
+   - URL for calling API:` http://statcgi.video.qcloud.com/common_access`
 - **Use**
    - To query the statistics of an LVB stream (such as number of viewers, bandwidth, bitrate, and frame rate)
    - To query the statistics of multiple LVB streams that are currently being broadcast (paged query is recommended to avoid excessive returned data packet in each time)

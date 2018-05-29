@@ -18,14 +18,13 @@
 ## 请求方式
 
 ### 请求头 header
-所有请求都要求含有以下头部信息：
 
-| 参数名            | 类型     | 描述                                       |
-| -------------- | ------ | ---------------------------------------- |
-| host           | string | recognition.image.myqcloud.com           |
-| content-length | int    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
-| content-type   | string | text/json                                |
-| authorization  | string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
+| 参数名            |必选| 值                                        | 描述                                       |
+| -------------- | -----|----------------------------------- | ---------------------------------------- |
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
+| content-type   |  是   |string | text/json                                |
+| authorization  |  是   |string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
 ### 请求参数
 
@@ -188,7 +187,7 @@ Content-Type: application/json
 
 | 错误码   | 含义                              |
 | ----- | ------------------------------- |
-| 3     | 错误的请求                           |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服   |
 | 4     | 签名为空                            |
 | 5     | 签名串错误                           |
 | 6     | APPID /存储桶/ url 不匹配             |

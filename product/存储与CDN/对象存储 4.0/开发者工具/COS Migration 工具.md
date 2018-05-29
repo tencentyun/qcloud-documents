@@ -102,7 +102,7 @@ bigFileExecutorNum=8
 entireFileMd5Attached=on
 daemonMode=off
 daemonModeInterVal=60
-executeTimeWindow=0,24
+executeTimeWindow=00:00,24:00
 </pre>
 
 | 名称 | 描述 |默认值|
@@ -121,24 +121,27 @@ executeTimeWindow=0,24
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
 | daemonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
-| executeTimeWindow|执行时间窗口，时刻粒度为小时，该参数定义迁移工具每天执行的时间段。例如：<br>参数 3,21 表示在每天的 3:00 至 21:00 间执行迁移，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度|0,24|
+| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数03:30,21:00, 表示在凌晨03:30到晚上21:00之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
 
 **3.3.1 配置本地数据源 migrateLocal**
+
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从本地迁移到COS配置分节
 [migrateLocal]
 localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
 exeludes=
+ignoreModifiedTimeLessThanSeconds=
 </pre>
 
 | 配置项 | 描述 |
 | ------| ------ |
 |localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。|
-|exeludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
+|excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
+|ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒, 默认不设置, 表示不根据lastmodified时间进行筛选, 适用于客户在更新文件的同时又在运行迁移工具, 并要求不把正在更新的文件迁移上传到COS, 比如设置为300, 表示只上传更新了5分钟以上的文件|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
 
@@ -183,12 +186,14 @@ proxyPort=
 |bucket| AWS 对象存储 Bucket 名称|
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
-|endPoint|AWS 的 endpoint 地址|
+|endPoint|AWS 的 endpoint 地址,  必须使用域名, 不能使用region|
 |prefix|要迁移的路径的前缀, 如果是迁移 Bucket下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
+
  
 **3.3.4 配置七牛数据源 migrateQiniu**
+
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从七牛迁移到COS配置分节
 [migrateQiniu]
@@ -213,6 +218,7 @@ proxyPort=
 
  
 **3.3.5 配置 URL 列表数据源 migrateUrl**
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从 URL 列表下载迁移到 COS 配置分节
@@ -222,8 +228,10 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |urllistPath|url列表项，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从源 Bucket 迁移到目标 Bucket 配置分节
@@ -276,11 +284,11 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
 
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
- ![](https://i.imgur.com/oojIbOm.png)
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功, condition_not_match表示因为表示因不满足迁移条件而跳过的文件(如lastmodifed和excludes)。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+ ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
 
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会跳过。运行完成结果示意图如下图所示：
-![](https://i.imgur.com/NkoddI5.png)
+![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)
 
 
 ## 常见问题

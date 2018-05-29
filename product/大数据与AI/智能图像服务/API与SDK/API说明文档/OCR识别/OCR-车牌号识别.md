@@ -16,42 +16,40 @@
 ## 请求方式
 ### 请求头 header
 
-所有请求都要求含有下表列出的头部信息：
-
-| 参数名            | 值                              | 描述                                       |
-| -------------- | ------------------------------ | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名                        |
-| Content-Length | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图  |
-| Content-Type   | application/json               | 标准 json 格式                                 |
-| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](/document/product/641/12409) |
+| 参数名            |必选| 值                                        | 描述                                       |
+| -------------- | -----|----------------------------------- | ---------------------------------------- |
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
+| content-type   | 是 |application/json 或者 multipart/form-data    | 标准 json 格式                               |
+| authorization  | 是 |鉴权签名             | 用于鉴权的签名，使用 [多次有效签名](/document/product/641/12409) |
 
 #### 请求参数
 
 | 参数名   | 必选 | 类型     | 参数说明                                  |
 | ----- | ---- | ------ | ------------------------------------- |
-| appid | 是   | String | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                  |
-| image | 否   | String | 使用base64编码的二进制图片数据                    |
-| url   | 否   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
+| appid | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                  |
+| image | 否   | string | 使用 base64 编码的二进制图片数据。                    |
+| url   | 否   | string | 图片的 url, image 和 url 只提供一个即可,如果都提供,只使用 url。 |
 
 #### 返回内容
 
 | 字段         | 类型          | 说明                     |
 | ---------- | ----------- | ---------------------- |
-| code       | Int         | 返回码                    |
-| message    | String      | 返回错误消息                 |
-| data.items | Array(Item) | 识别出的所有字段信息，详见下文istem说明 |
+| code       | int         | 返回码                    |
+| message    | string      | 返回错误消息                 |
+| data.items | array(Item) | 识别出的所有字段信息，详见下文 items 说明 |
 
-items说明
+items 说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
-| item       | &nbsp; | String | 字段名称      |
-| itemstring | &nbsp; | String | 字段内容      |
-| itemcoord  | x      | Int    | item框左上角x |
-| &nbsp;     | y      | Int    | item框左上角y |
-| &nbsp;     | width  | Int    | item框宽度   |
-| &nbsp;     | height | Int    | item框高度   |
-| itemconf   | &nbsp; | Float  | 字段识别结果置信度 |
+| item       | &nbsp; | string | 字段名称      |
+| itemstring | &nbsp; | string | 字段内容      |
+| itemcoord  | x      | int    | item框左上角x |
+| &nbsp;     | y      | int    | item框左上角y |
+| &nbsp;     | width  | int    | item框宽度   |
+| &nbsp;     | height | int    | item框高度   |
+| itemconf   | &nbsp; | float  | 字段识别结果置信度 |
 
 ## 请求示例
 
@@ -111,7 +109,7 @@ Content-Type: text/json
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                      |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |
