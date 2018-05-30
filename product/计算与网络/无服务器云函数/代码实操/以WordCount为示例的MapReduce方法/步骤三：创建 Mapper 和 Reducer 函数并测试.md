@@ -2,26 +2,26 @@
 
 ## 创建 Mapper 函数
 ### 通过控制台创建函数
-1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮；
+1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下单击【新建】按钮；
 
-2) 进入函数配置部分，函数名称填写`Mapper`，剩余项保持默认，点击【下一步】；
+2) 进入函数配置部分，函数名称填写`Mapper`，剩余项保持默认，单击【下一步】；
 
-3）进入函数代码部分，选择【本地上传zip包】。执行方法填写`map_function.main_handler`，选择步骤二：创建部署程序包中创建的 `mapper.zip`，点击【下一步】；
+3）进入函数代码部分，选择【本地上传zip包】。执行方法填写`map_function.main_handler`，选择步骤二：创建部署程序包中创建的 `mapper.zip`，单击【下一步】；
 
-4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，点击【完成】按钮。
+4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，单击【完成】按钮。
 
 ### 通过 API 创建函数
 请参考 CreateFunction 接口
 
 ## 创建 Reducer 函数
 ### 通过控制台创建函数
-1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮；
+1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下单击【新建】按钮；
 
-2) 进入函数配置部分，函数名称填写`Reducer`，剩余项保持默认，点击【下一步】；
+2) 进入函数配置部分，函数名称填写`Reducer`，剩余项保持默认，单击【下一步】；
 
-3）进入函数代码部分，选择【本地上传zip包】。执行方法填写`reduce_function.main_handler`，选择步骤二：创建部署程序包中创建的 `reducer.zip`，点击【下一步】；
+3）进入函数代码部分，选择【本地上传zip包】。执行方法填写`reduce_function.main_handler`，选择步骤二：创建部署程序包中创建的 `reducer.zip`，单击【下一步】；
 
-4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，点击【完成】按钮。
+4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，单击【完成】按钮。
 
 ### 通过 API 创建函数
 请参考 CreateFunction 接口
@@ -31,7 +31,7 @@
 
 ### 使用控制台测试函数
 
-1) 在刚刚创建的 Mapper 函数详情页中，点击【测试】按钮；
+1) 在刚刚创建的 Mapper 函数详情页中，单击【测试】按钮；
 
 2) 在测试模版下拉列表中选择【COS 上传/删除文件测试代码】
 
@@ -77,9 +77,9 @@
 }
 ```
 
-4) 点击【运行】按钮，观察运行结果。
+4) 单击【运行】按钮，观察运行结果。
 
-5) 前往[对象存储控制台](https://console.cloud.tencent.com/cos4/index)，点击步骤一：准备 COS Bucket 中创建的`destmr`，观察该 COS Bucket 中是否有`result_middle_serverless.txt`文件生成，该文件中统计了刚刚上传的文本文件中文章各个单词出现的次数：
+5) 前往[对象存储控制台](https://console.cloud.tencent.com/cos4/index)，单击步骤一：准备 COS Bucket 中创建的`destmr`，观察该 COS Bucket 中是否有`result_middle_serverless.txt`文件生成，该文件中统计了刚刚上传的文本文件中文章各个单词出现的次数：
 
 6) 下载该文件，文件内容应该类似如下：
 ```
