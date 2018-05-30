@@ -60,3 +60,6 @@
 | 请求参数 | 包含 | 如 15 |
 | 请求路径 | 包含 | 如 /admin |
 | IP 范围 | 包含 | 支持单个 IP、IP 段 |
+
+
+[上一步：地域封禁](https://cloud.tencent.com/document/product/627/14704)
