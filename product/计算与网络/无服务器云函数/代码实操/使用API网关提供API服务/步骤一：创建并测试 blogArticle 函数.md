@@ -3,9 +3,9 @@
 ## 创建 blogArticle 云函数
 1 . 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下单击【新建】按钮。
 
-2 . 进入函数配置部分，函数名称填写`blogArticle`，剩余项保持默认，点击【下一步】。
+2 . 进入函数配置部分，函数名称填写`blogArticle`，剩余项保持默认，单击【下一步】。
 
-3 . 进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，点击【下一步】。
+3 . 进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，单击【下一步】。
 
 ```
 # -*- coding: utf8 -*-
