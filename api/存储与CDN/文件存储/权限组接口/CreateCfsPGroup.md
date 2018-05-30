@@ -1,4 +1,4 @@
-## 1接口描述
+## 接口描述
 本接口（CreateCfsPGroup）用于创建权限组。
 接口请求域名：**cfs.api.cloud.tencent.com**
 ## 输入参数
