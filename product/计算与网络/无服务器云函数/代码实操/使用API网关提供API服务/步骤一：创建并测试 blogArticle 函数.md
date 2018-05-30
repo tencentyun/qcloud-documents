@@ -40,7 +40,7 @@ def main_handler(event,content):
         return json.dumps({"errorCode":412,"errorMsg":"article is not found"})
     return json.dumps({"errorCode":413,"errorMsg":"request is not correctly execute"})
 ```
-4 . 进入触发方式部分，由于 API 网关触发的配置位于 API 网关中，此处暂时不添加任何触发方式，点击【完成】按钮。
+4 . 进入触发方式部分，由于 API 网关触发的配置位于 API 网关中，此处暂时不添加任何触发方式，单击【完成】按钮。
 
 
 **注意**
