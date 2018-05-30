@@ -52,7 +52,7 @@
 
 ## 示例
 
-[点击下载 PHP 代码 demo>> ](https://main.qcloudimg.com/raw/e6601ec77d988a193a06cb940595da97.php)
+[单击下载 PHP 代码 demo>> ](https://main.qcloudimg.com/raw/e6601ec77d988a193a06cb940595da97.php)
 
 ### 请求
 
