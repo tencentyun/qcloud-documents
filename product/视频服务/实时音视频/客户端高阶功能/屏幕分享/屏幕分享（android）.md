@@ -67,6 +67,6 @@ ILiveCallBack callBack：开启屏幕分享的结果回调，可处理成功或�
 ILiveRoomManager.getInstance().disableScreen(ILiveCallBack callBack);
 ```
 
-### 常见问题
+## 常见问题
 调用屏幕分享接口失败?
 > 屏幕录制是 Android 5.0 之后提供的新接口，故需用户的 Android 系统高于 5.0，开发人员需在代码逻辑中对此做判断。

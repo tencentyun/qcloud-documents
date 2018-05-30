@@ -1,25 +1,22 @@
-黑石官方支持的镜像默认不带GPU驱动，请依本文指引快速安装GPU驱动  
+黑石官方镜像默认不带 GPU 驱动，请参考本文指引快速安装 GPU 驱动。  
 
+## Linux 系列安装指引
+#### 操作步骤：
+1. 根据服务器型号和 OS 版本，选择安装脚本。
 
-## 工具准备
-Xshell,PuTTY 等远程登录工具
+2. 登录服务器，新建文件粘贴脚本代码。
 
-## 操作步骤
-根据服务器型号和OS版本，选择安装脚本
+3. 运行脚本。
 
-登录服务器，新建文件粘贴脚本代码
+4. 检查是否安装成功。
 
-运行脚本
+### 工具准备
+Xshell、PuTTY 等远程登录工具。
 
-检查是否安装成功
+### 选择安装脚本
+请根据 OS 版本、GPU 型号以及开发习惯选择 CUDA toolkit。Nvida 官方提供的 CUDA toolkit 和 GPU 卡的兼容列表，请参考 [Nvidia 官网文档](http://www.nvidia.com/Download/index.aspx?lang=cn "Nvidia官网文档")。
 
-## 选择安装脚本
-请根据OS版本、GPU 型号以及开发习惯选择 CUDA toolkit。Nvida官方提供的CUDA toolkit 和GPU卡的兼容列表，请参考
-[Nvidia官网文档](http://www.nvidia.com/Download/index.aspx?lang=cn "Nvidia官网文档")
-
- 
-
-### CentOs6.5,CUDA toolkit 9
+#### CentOS 6.5，CUDA toolkit 9
 
 ```
 #!/bin/bash
@@ -71,7 +68,7 @@ exit 0
 
 ```
 
-### CentO7.2,CUDA toolkit 9
+#### CentOS 7.2，CUDA toolkit 9
 
 ```
 #!/bin/bash
@@ -120,7 +117,8 @@ echo "cuda installed successfully"
 exit 0
 ```
 
-### Ubuntu14、CUDA toolkit 8
+#### Ubuntu 14，CUDA toolkit 8
+
 ```
 #!/bin/bash
 # install m40 cuda for ubuntu14
@@ -181,8 +179,8 @@ echo "cuda installed successfully"
 exit 0
 ```
 
+#### Ubuntu 16，CUDA toolkit 8
 
-### Ubuntu16、CUDA toolkit 8
 ```
 #!/bin/bash
 # install p40 cuda for ubuntu16
@@ -242,12 +240,56 @@ echo "cuda installed successfully"
 exit 0
 ```
 
-## 运行脚本
-修改脚本的可执行权限， chmod +x xxxxx.sh <br/>
-执行脚本，如果提示：`cuda installed successfully` ，则表示安装成功。
+### 运行脚本
+修改脚本的可执行权限：
+```
+chmod +x xxxxx.sh
+```
+执行脚本，若出现以下提示，则表示脚本安装成功：
+```
+cuda installed successfully
+```
 
-## 检验是否安装成功
-在 /usr/local/cuda/samples/1_Utilities/deviceQuery 目录下，执行 make 命令，可以编译出 deviceQuery 程序。<br/>
-执行 deviceQuery 正常显示如下设备信息，此刻认为 CUDA 安装正确。
-
+### 检验驱动是否安装成功
+在`/usr/local/cuda/samples/1_Utilities/deviceQuery`目录下，执行 make 命令，可以编译出 deviceQuery 程序。
+执行 deviceQuery 正常，则显示如下设备信息，表示 CUDA 安装正确。
 ![](https://mc.qcloudimg.com/static/img/d545951dc869591d83bf23e27831287a/image.jpg)
+
+## Windows 系列安装指引
+本教程适用于以下条件下的安装：
+- 机型：PG103v2
+- 操作系统版本： Windwos SERVER 2012 R2
+- CUDA 版本：CUDA_9.1.85
+
+其他条件下的安装请参考 [Nvdia 官网](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)。  
+
+### 工具准备
+高于 2012 版本的 Visual Studio。
+
+### 运行脚本下载驱动
+新建 POWERSHELL 脚本，键入以下代码。右键 RUN WITH POWERSHELL 执行：
+```
+$client = new-object System.Net.WebClient
+$client.DownloadFile('http://mirrors.tencentyun.com/install/monitor_bm/cuda_9.1.85_windows.exe','.\cuda_9.1.85_windows.exe')
+$client.DownloadFile('http://mirrors.tencentyun.com/install/monitor_bm/cuda_9.1.85.1_windows.exe','.\cuda_9.1.85.1_windows.exe')
+$client.DownloadFile('http://mirrors.tencentyun.com/install/monitor_bm/cuda_9.1.85.2_windows.exe','.\cuda_9.1.85.2_windows.exe')
+$client.DownloadFile('http://mirrors.tencentyun.com/install/monitor_bm/cuda_9.1.85.3_windows.exe','.\cuda_9.1.85.3_windows.exe')
+```
+
+### 安装 CUDA 驱动
+安装需要访问外网，请提前绑定好弹性公网 IP。以下文件请依次安装，CUDA_9.1.85 为主要安装程序，其余为补丁
+- cuda\_9.1.85\_windows.exe
+- cuda\_9.1.85.1\_windows.exe
+- cuda\_9.1.85.2\_windows.exe
+- cuda\_9.1.85.3\_windows.exe
+
+### 验证是否安装成功
+1. 进入目录
+```
+c:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\1_Utilities\deviceQuery
+```
+
+2. 打开文件夹内的 Visual Studio 工程。
+
+3. 编译运行后，出现如下图示现象，即证明安装成功。
+![]( https://main.qcloudimg.com/raw/813fe93e57615ebf0d42bda71fdc0c86.jpg)
