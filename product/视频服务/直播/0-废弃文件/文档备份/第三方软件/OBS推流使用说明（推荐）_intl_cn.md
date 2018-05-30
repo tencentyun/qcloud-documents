@@ -9,13 +9,13 @@ OBS是用于推送直播视频源到服务器的工具,可以到下面下载链�
 安装结束后，打开主界面，选择设定
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/OBS-1.png)
 获取直播源的入口
-在控制台直播源设置处，点击复制按钮，将地址复制到剪贴板,获得地址
+在控制台直播源设置处，单击复制按钮，将地址复制到剪贴板,获得地址
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/OBS-2.png)
 在广播设定处填写FMS url 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/OBS-3.png)
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/OBS-4.png)
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/OBS-5.png)
-点击开始串流，就可以进行直播了
+单击开始串流，就可以进行直播了
 
 查看直播是否发送推流，可以在状态栏处查看速度等内容
 ![](//mccdn.qcloud.com/static/img/5d787d05cf721fe4325e2298d738d63b/image.png)

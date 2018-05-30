@@ -2,7 +2,7 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
 
@@ -132,8 +132,8 @@
 }
 ```
 > 注意：
-> 1. 添加渲染视图时，客户不用担心重复添加，SDK内部对用一用户的用一种类型视频源的渲染视图只会添加一次。
-> 2. 目前SDK内部限制了同时最多可以存在10个渲染视图。
+> 1. 添加渲染视图时，客户不用担心重复添加，SDK 内部对用一用户的用一种类型视频源的渲染视图只会添加一次。
+> 2. 目前 SDK 内部限制了同时最多可以存在 10 个渲染视图。
 
 ## 常见问题
 切换角色失败，错误码 - 1 。
