@@ -8,7 +8,7 @@ Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucke
 
 ```shell
 # You can also use curl
-curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
+curl -X PUT http:// {bucket-appid}.cos.{region}.myqcloud.com/{ObjectName} \
   -H 'Content-Length: string' \
   -H 'Content-Disposition: string' \
   -H 'Content-Encoding: string' \
@@ -30,7 +30,7 @@ curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
 **http:** 
 
 ```http
-PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
+PUT http:// {bucket-appid}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
 Host: 
 Content-Type: */*
 Accept: application/xml

@@ -12,4 +12,4 @@ Broadcast Me 界面如下高亮处，进入地址配置界面
 在Broadcast Me 地址配置界面URL处，粘贴从腾讯云管理控制台获取的推流地址。
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Broadcast-4.jpg)
 4. 开始推送
-点击手机屏幕的播放按钮，即可向观看地址推送直播流。用户可通过管理控制台测试功能进行检查。
+单击手机屏幕的播放按钮，即可向观看地址推送直播流。用户可通过管理控制台测试功能进行检查。

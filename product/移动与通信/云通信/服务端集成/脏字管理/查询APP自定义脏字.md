@@ -66,10 +66,10 @@ JSON
 | 10007 | 操作权限不足。请确认操作者是否是 [APP管理员](/doc/product/269/帐号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)。|
 
 ## 接口调试工具
-### Web 调试工具
+#### Web 调试工具
 通过 [REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/get) 调试本接口。
 
-### Server 调试工具
+#### Server 调试工具
 无。
 更多调试工具参见 [REST API调试工具](https://cloud.tencent.com/document/product/269/1519#rest-api-.E8.B0.83.E8.AF.95.E5.B7.A5.E5.85.B7)。
 

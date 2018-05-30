@@ -1,7 +1,7 @@
 本文将指导您初始化 SDK 和如何调用登录接口。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_login.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_login.zip)
 
 ## 前提条件
 要求用户在[ 实时音视频官网 ](https://cloud.tencent.com/product/trtc)完成服务开通及应用创建。
@@ -14,7 +14,7 @@
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## 获取 userSig
-客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成userSig，拿到新的userSig再登录。
+客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成 userSig，拿到新的 userSig再登录。
 
 ```objc
 ERR_EXPIRE              = 8051,    //票据过期(需更新票据userSig)

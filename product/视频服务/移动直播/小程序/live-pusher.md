@@ -63,7 +63,7 @@
 | max-bitrate | Number | 1000 | 最大码率，该数值决定了画面最好的清晰度表现|
 | audio-quality| String| low | low 适合语音通话, high 代表高音质 | 
 | waiting-image | String |  | 当微信切到后台时的垫片图片 |
-| waiting-image-md5 | String |  |当微信切到后台时的垫片图片的校验值 |
+| waiting-image-hash | String |  |当微信切到后台时的垫片图片的校验值 |
 | background-mute | Boolean | false | 当微信切到后台时是否禁用声音采集 |
 | bindstatechange | String |  | 用于指定一个javascript函数来接收音视频事件 |
 | debug | Boolean | false | 是否开启调试模式 |
@@ -103,8 +103,8 @@ SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育�
  
  小程序内部会自动处理好分辨率和码率的关系，比如 2Mbps 的码率，小程序会选择 720p 的分辨率进行匹配，而 300kbps 的码率下，小程序则会选择较低的分辨率来提高编码效率。所以您只需要关注 min-bitrate 和 max-bitrate 这一对参数就可以掌控画质了
 
-- **waiting-image 和 waiting-image-md5**
-出于用户隐私的考虑，在微信切到后台以后，小程序希望停止摄像头的画面采集。但是对于另一端的用户而言，画面会变成黑屏或者冻屏（停留在最后一帧），这种体验是非常差的。为了解决这个问题，我们引入了 waiting-image 属性，您可以设置一张有 “稍候” 含义的图片（waiting-image 是该图片的 url，waiting-image-md5 则是该图片对应的 md5 校验值）。当微信切到后台以后，小程序会使用该图片作为摄像头画面的替代，以极低的流量占用维持视频流 3 分钟时间。
+- **waiting-image 和 waiting-image-hash**
+出于用户隐私的考虑，在微信切到后台以后，小程序希望停止摄像头的画面采集。但是对于另一端的用户而言，画面会变成黑屏或者冻屏（停留在最后一帧），这种体验是非常差的。为了解决这个问题，我们引入了 waiting-image 属性，您可以设置一张有 “稍候” 含义的图片（waiting-image 是该图片的 url，waiting-image-hash 则是该图片对应的 md5 校验值）。当微信切到后台以后，小程序会使用该图片作为摄像头画面的替代，以极低的流量占用维持视频流 3 分钟时间。
 
 - **debug**
  调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。

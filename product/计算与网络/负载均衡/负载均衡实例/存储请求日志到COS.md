@@ -5,7 +5,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/17014eeb67628fa78ffe04e2d7a58d8d/log1.png)
 
-选取相应的COS中bucket，则请求日志会自动在bucket下创建lb-id为名称的文件夹进行存储。选取完成后，点击bucket地址可以直接跳转到日志下载页面。
+选取相应的COS中bucket，则请求日志会自动在bucket下创建lb-id为名称的文件夹进行存储。选取完成后，单击bucket地址可以直接跳转到日志下载页面。
 
 如您没有创建对象存储的bucket，请在[新建bucket](https://console.cloud.tencent.com/cos4/bucket)后选取相应的存储位置。
 
