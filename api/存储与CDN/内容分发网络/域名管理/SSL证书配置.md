@@ -78,7 +78,7 @@ array (
 	'Timestamp' => 1462782282,
 	'Nonce' => 123456789,
 	'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXX',
-	'host' => ''www.test.com",
+	'host' => "www.test.com",
     'httpsType'  => 1,
     'cert' => 'XXXXXXXXXXXXXXXXXXX',
     'privateKey' => 'XXXXXXXXXXXXXXXXX'

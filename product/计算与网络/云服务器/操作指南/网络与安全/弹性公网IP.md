@@ -33,7 +33,7 @@
 
  3. 在已绑定云产品的 EIP 列表项后，单击【解绑】按钮。
 
- 4. 点击【确定】。
+ 4. 单击【确定】。
  
 >**注意：**
 >解绑后云产品实例可能会被分配新的公网 IP ，可能与绑定前公网 IP 不一致。
@@ -65,9 +65,9 @@
 
  1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 
- 2. 点击转换图标。
+ 2. 单击转换图标。
 ![](https://main.qcloudimg.com/raw/0098c10f4ff4102ecabcc6939f184a8d.png)
- 3. 点击【确认转换】即可。
+ 3. 单击【确认转换】即可。
 ![](https://main.qcloudimg.com/raw/f4504842261b8b72f6952d1dcf95aa26.png)
 
 

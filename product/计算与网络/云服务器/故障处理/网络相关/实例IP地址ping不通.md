@@ -35,7 +35,7 @@ echo "1" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 如果使用的是腾讯云的域名服务，可以在 **[控制台](https://console.cloud.tencent.com/) > 域名与网站 > 域名管理** 查看相应的域名情况。
 ![](https://mc.qcloudimg.com/static/img/5e95aaa3a25133e087766db94bcd9df0/image.png)
 ## 五. 域名解析
-域名 ping 不通的另外一个原因是域名解析没有正确地配置。如果用户使用的是腾讯云的域名服务可以在 **[控制台](https://console.cloud.tencent.com/) > 域名与网站 > 域名管理**，点击对应域名的解析按钮，查看域名解析详情。
+域名 ping 不通的另外一个原因是域名解析没有正确地配置。如果用户使用的是腾讯云的域名服务可以在 **[控制台](https://console.cloud.tencent.com/) > 域名与网站 > 域名管理**，单击对应域名的解析按钮，查看域名解析详情。
 ![](https://mc.qcloudimg.com/static/img/109308ab3186ac7201df83970004697f/image.png)
 
 若上述步骤无法解决问题，请参考：
