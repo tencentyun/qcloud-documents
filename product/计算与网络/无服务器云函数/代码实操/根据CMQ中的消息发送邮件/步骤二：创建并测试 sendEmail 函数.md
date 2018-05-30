@@ -22,7 +22,7 @@ mail_port=465                   #SMTP服务端口
 
 def sendEmail(fromAddr,toAddr,subject,content):
     sender = fromAddr
-    receivers = [toAddr]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+    receivers = [toAddr]  # 接收邮件，可设置为您的QQ邮箱或者其他邮箱
      
     message = MIMEText(content, 'plain', 'utf-8')
     message['From'] = Header(fromAddr, 'utf-8')
