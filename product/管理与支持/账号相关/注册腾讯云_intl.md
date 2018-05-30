@@ -5,10 +5,8 @@
 ![](https://main.qcloudimg.com/raw/13f692482d5d9eda0048450bf1da818a.png)
 
 3. After activating your account, the page will be redirected to a new page where you can complete your payment information.
-
 Click the button to bind PayPal account.
 ![](https://main.qcloudimg.com/raw/92eccd98089880b835286716b1d4679a.png)
-
 Go to PayPal account page and complete information as required.
 ![](https://main.qcloudimg.com/raw/c8747141064fce1b001a62b8a8d5b870.png)
 
