@@ -32,7 +32,7 @@
 
 3. 单击【BOT 详情】，此页面共有【未知类型】、【已知类型】和【自定义类型】三个选项卡，此处以【未知类型】为例。
  ![5](https://main.qcloudimg.com/raw/755687bf21ccf4ff6d92e84a17c8dbfc.png)
-如需了解某 BOT 详情，可点击该条数据后的【查看详情】：
+如需了解某 BOT 详情，可单击该条数据后的【查看详情】：
  ![6](https://main.qcloudimg.com/raw/3c8c880b17fb94def64e4c2616ae6644.png)
 #### 温馨提示：
  - IP 类型：idc 为互联网数据中心，bs 为基站。
