@@ -22,7 +22,7 @@
 | warning    | String  | Code=0 是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据 warning 来确定     |
 | msgstring  | String  | 请求结果描述        |
 | ocrId      | String    | 保留字段，内部标识        |
-| orderNo    |  String    | 订单号，由合作方上送，每次唯一，此信息为本次身份证 ORC 识别上送的信息        |
+| orderNo    |  String    | 订单号，由合作方上送，每次唯一，此信息为本次身份证 OCR 识别上送的信息        |
 | name       | String    | 身份证识别结果：姓名         |
 | sex        |   String  |身份证识别结果：性别       |
 | nation     | String  | 身份证识别结果：民族            |
