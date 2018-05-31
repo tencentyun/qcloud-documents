@@ -46,7 +46,7 @@ public static void GSDKInit(Context context, string qqappid, bool debug, int zon
 | zoneid | 玩家大区 id | 
 | env | 云控正式环境，默认直接填 true 即可 | 
 | useBattery | 电量统计信息，默认直接填 false 即可 | 
-| tCloudKey | 腾讯云申请的 key 值,即“秘钥KEY” | 
+| tCloudKey | 腾讯云申请的 key 值,即“密钥KEY” | 
 
 #### 3.1.2 设置用户信息
 ```
