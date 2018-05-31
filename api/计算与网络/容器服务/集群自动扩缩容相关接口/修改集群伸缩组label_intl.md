@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
 
 This API (ModifyClusterAsgLabel) is used to modify the label of a cluster scaling group. Only the key in the label passed is modified, and the original key in the label remains unchanged.
 
