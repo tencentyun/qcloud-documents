@@ -95,6 +95,10 @@ catch(TencentCloudSDKException $e) {
     echo $e;
 }
 ```
-您可以在 [github仓库](https://github.com/tencentcloud/tencentcloud-sdk-php) 中 examples 目录下找到更详细的示例。
+
+## 更多示例
+
+使用 Demo 更多示例请前往 [GitHub 仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 在 examples 目录中寻找。
+
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请到[旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。
