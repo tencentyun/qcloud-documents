@@ -58,7 +58,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 >但是，如果系统的整体CPU使用率超过 80%，那么视频的采集和编码都有可能会有影响；如果CPU使用率达到 100%，那么主播端本身就已经卡的一塌糊涂了，观众端要有流畅的观看体验显然是不可能的。
 
 **4. SERVER_IP 的 ping 值**
->如果主播到 SERVER_IP 给出的 ip 地址的 ping 值很高（比如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
+>如果主播到 SERVER_IP 给出的 IP 地址的 ping 值很高（比如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
 
 ### 2.2 SDK推流质量专区
 
@@ -191,7 +191,7 @@ _config.videoResolution = VIDEO_RESOLUTION_TYPE_1280_720;
 ```
 
 - **Step3. 使用 sendCustomPCMData 向SDK填充Audio数据**
-在视频改用外部采集的情况下，音频还可以继续由SDK内部采集处理，如果你希望把音频的采集也替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
+在视频改用外部采集的情况下，音频还可以继续由SDK内部采集处理，如果您希望把音频的采集也替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
 ```java
 // (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
 _config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;

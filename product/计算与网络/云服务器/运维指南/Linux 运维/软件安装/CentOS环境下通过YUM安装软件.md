@@ -7,7 +7,7 @@
 yum install 软件名称
 ``` 
 >**注意：**
->从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或点击 [参阅此处](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7) 进行较低版本的 MySQL 的安装。
+>从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或单击 [参阅此处](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7) 进行较低版本的 MySQL 的安装。
 
 2. 输入上述命令后，系统将自动搜索相关的软件包和依赖关系，并且在界面中提示用户确认搜索到的软件包是否合适。
 例如，键入`yum install php`之后，界面显示如图：

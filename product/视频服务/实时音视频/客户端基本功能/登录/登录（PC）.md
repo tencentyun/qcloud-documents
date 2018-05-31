@@ -1,7 +1,7 @@
 本文将指导您操作客户端将向腾讯云完成登录过程。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_login.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_login.zip)
 
 ## 前提条件
 本课程要求用户在[ 实时音视频官网 ](https://cloud.tencent.com/product/trtc)完成服务开通及应用创建。
