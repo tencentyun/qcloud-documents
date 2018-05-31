@@ -1,4 +1,4 @@
-数据传输服务 DTS 支持数据迁移功能，提供自建 MySQL 数据库到云数据库 CDB 的连续数据复制，用户可在不停服的情况下对数据进行在线热迁移，支持具有公网 IP/Port 或专线接入腾讯云的本地 IDC 或腾讯云云服务器 CVM 上 MySQL 数据库迁移。**MySQL5.7 暂不支持数据传输服务，可通过下载冷备文件自行导入。**
+数据传输服务 DTS 支持数据迁移功能，提供自建 MySQL 数据库到云数据库 CDB 的连续数据复制，用户可在不停服的情况下对数据进行在线热迁移，支持具有公网 IP/Port 或专线接入腾讯云的本地 IDC 或腾讯云云服务器 CVM 上 MySQL 数据库迁移。**现已支持 MySQL5.7 数据传输服务。**
 
 
 ## 准备
@@ -22,19 +22,19 @@
 
 ### 预先检查以下几项
 1. 检查目标 CDB 实例是否有同名库表，避免冲突；
-2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6 版本迁移上云；由于目前腾讯云 CDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 CDB for MySQL 5.5。当然您也可以选择使用 DTS 数据迁移工具直接从本地 MySQL 5.1 迁移至腾讯云 CDB for MySQL 5.5。
+2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 CDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 CDB for MySQL 5.5。当然您也可以选择使用 DTS 数据迁移工具直接从本地 MySQL 5.1 迁移至腾讯云 CDB for MySQL 5.5。
 3. 检查目标 CDB 实例容量必须大于源实例；
 4. 在源 MySQL 数据库上创建迁移账号（若有已授权可用于数据迁移的账号，也可不创建）；
-		
-			GRANT ALL PRIVILEGES ON *.* TO "迁移账号"@"%" IDENTIFIED BY "迁移密码";
+    	
+    GRANT ALL PRIVILEGES ON *.* TO "迁移账号"@"%" IDENTIFIED BY "迁移密码";
 
-			FLUSH PRIVILEGES;	
-  
+    		FLUSH PRIVILEGES;	
+
 5. 确认源库 MySQL 变量
-	  通过 `SHOW GLOBAL VARIABLES LIKE 'XXX'`; 
-	  
-	  查看 MySQL 全局变量，确认当前状态是否可以进行迁移：
-		
+    通过 `SHOW GLOBAL VARIABLES LIKE 'XXX'`; 
+
+      查看 MySQL 全局变量，确认当前状态是否可以进行迁移：
+    	
             server_id > 1
             
             log_bin = ON;
@@ -52,14 +52,14 @@
             如果源实例为slave角色，需要在源实例中确认以下参数：
             
             log_slave_updates = 1           
-		
+
 6. 修改变量值：
 
-	a.  修改源库 MySQL 配置文件`my.cnf`，需重启：
-	
-		        log-bin=[自定义binlog文件名]
-		        
-	b.  动态修改配置：
+  a.  修改源库 MySQL 配置文件`my.cnf`，需重启：
+
+  	        log-bin=[自定义binlog文件名]
+
+  b.  动态修改配置：
          
                 set global server_id = 99;
                 
@@ -68,7 +68,7 @@
                 set global binlog_row_image=FULL;
                 
                 set global innodb_stats_on_metadata = 0;
-		
+
 
 ## 操作步骤
 
@@ -82,7 +82,7 @@
 ![](https://mc.qcloudimg.com/static/img/513a6893e79862359ee52fd6d2d97c5b/image.png)
 
 #### 任务设置
-	
+
 * 任务名称： 为任务指定名称
 * 定时执行：可为您的迁移任务指定开始时间
 ![](https://mc.qcloudimg.com/static/img/6d45bf22f31923704b6055f3f94f1781/image.png)
@@ -139,16 +139,16 @@
 >**注意：**
 >1. 仅在整实例迁移时会迁移 character_set_server、lower_case_table_names 配置项
 >2. 若源实例所迁移的库表字符集设置和目标实例字符集设置不一致，则迁移会保留源实例的字符集设置。
-		
-![](https://main.qcloudimg.com/raw/21fcf3a109d20e58abad7b9894f8cbb4.png)
+![](https://main.qcloudimg.com/raw/c6f149f94c1c5c4f4edcc5b45759f2c2.png)
 
 **数据迁移**：将选中数据库中的数据导出，然后在 CDB for MySQL 中导入。
 **增量同步**：在进行数据导出导入后，设置 CDB for MySQL 为源库的备库，进行主备增量同步。
 **覆盖 root 账号**：因 root 账号将用于云数据库安全效验，若源库 root 账号不存在，会对后续使用 CDB 造成不便。因此在整实例迁移时，需指定是否使用源库 root 账号覆盖目标库 root 账号。如需使用源库 root 账号或目标库未设置 root，则选【是】，如需保留目标库的 root 账号，则选【否】。
+**只读**：选择只读后，从源数据库迁移的数据在目标数据库只能读取，无法更改。
 
 ### 数据一致性检测
 选择数据检测类型(可选择全部检测或部分检测或不检测) 
-![](https://mc.qcloudimg.com/static/img/6c49e44bbc5c289f218892290ea396e7/image.png)
+![](https://main.qcloudimg.com/raw/50fde268f4cef7da0871a5f8f985eaf8.png)
 
 >**注意：**
 >选择部分检测选项时，需填写检测比例
@@ -161,11 +161,11 @@
  - 通过：表示校验完全通过
  - 警告：表示校验不通过，迁移过程中或迁移后可能影响数据库正常运行但不影响迁移任务的执行。
  - 失败：表示校验不通过，无法进行迁移。如果校验失败，请根据出错的校验项，检查并修改迁移任务信息，然后重试校验。失败原因请参考：“校验失败说明”。
- 
+
 ### 启动迁移
 在校验通过后，您可以单击【启动迁移】立即开始迁移数据。需要注意的是，如果您设定了迁移任务的定时时间，则迁移任务会在设定的时间开始排队并执行，如果没有设置定时任务，则迁移任务会立即执行。
 迁移启动后，您可以在迁移任务下看到对应的迁移进度信息。在鼠标指向步骤后的感叹号提示符时，可显示迁移所需流程和当前所处阶段。
- 
+
 > **注意：**
 > 由于系统设计限制，一次性提交或排队多个迁移任务将按排队时间串行执行。
 
