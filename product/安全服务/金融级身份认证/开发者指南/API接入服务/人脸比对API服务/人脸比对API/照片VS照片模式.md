@@ -2,9 +2,9 @@
 请求 URL：`https://ida.webank.com/api/paas/easycompare`
 请求方法：POST
 ## 请求参数
-| 参数             | 说明                   | 类型   | 长度 | 必选 |
+| 参数             | 说明                   | 类型   | 长度（字节） | 是否必填 |
 | ---------------- | -------------------- | ----- | ---- | --- |
-| webankAppId     | 分配给服务使用方的 AppId                           | String        | 腾讯服务分配     | 是            |
+| webankAppId     | 分配给服务使用方的 AppId                           | String        | 腾讯云线下对接决定     | 是            |
 | nonce           | 32 位随机数                                   | String        | 32         | 是            |
 | version         | 1.0.0                                    | String        | 20         | 是            |
 | sign            | 生成算法请参见 [签名算法说明](https://cloud.tencent.com/document/product/655/13817)  | String  | 40   | 是   |
