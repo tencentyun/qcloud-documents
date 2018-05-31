@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (ModifyClusterAsgScaleDown) is used to specify whether to scale down a cluster scaling group. Scale-down is specific to clusters, and applies to all scaling groups in the cluster once enabled.
 
