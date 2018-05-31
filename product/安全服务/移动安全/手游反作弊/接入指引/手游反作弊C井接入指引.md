@@ -31,7 +31,7 @@ SDK 接口函数：
 （1）将 sdk\android\c# 目录下的 tp2.cs 放在工程的 Assets 目录下
 （2）将 sdk\android\c# 目录下的 tp2.jar 放在工程的 Assets\Plugins\Android 目录下
 （3）多 CPU：
-以 Unity5.0 为例，如果游戏支持 Android 多 cpu 架构 (目前只支持 arm-v7a 和 x86)，将 sdk\android\c#\lib 目录下的 armeabi 和 x86 文件夹下的 libtersafe2.so 分别拷贝到以下目录:
+以 Unity5.0 为例，如果游戏支持 Android 多 CPU 架构 (目前只支持 arm-v7a 和 x86)，将 sdk\android\c#\lib 目录下的 armeabi 和 x86 文件夹下的 libtersafe2.so 分别拷贝到以下目录:
 ```
 Assets/Plugins/Android/libs/armeabi-v7a/
 Assets/Plugins/Android/libs/x86/
@@ -40,7 +40,7 @@ Assets/Plugins/Android/libs/x86/
 如果游戏只支持 arm-v7，以 Unity4.5 为例，将 SDK 提供的 tp2.jar 和 armeabi-v7a 目录下的 libtersafe2.so 两个文件放在 / Assets/Plugins/Android / 目录下即可
 
 #### 2.2 工程属性设置
-多 cpu 架构支持时选择 [File] -> [Build settings] -> [Player Settings] -> [Other Settings] -> [Device Filter] -> [FAT(ARMv7+x86)]
+多 CPU 架构支持时选择 [File] -> [Build settings] -> [Player Settings] -> [Other Settings] -> [Device Filter] -> [FAT(ARMv7+x86)]
 ![](https://mc.qcloudimg.com/static/img/c94b432701454a02efdc3a2110902fa6/image.png)
 
 ### 3. SDK 接口调用
@@ -146,7 +146,7 @@ Tp2Sdk.Tp2SetGamestatus(Tp2Status. FRONTEND); // 切换回前台
 ```
 
 ### 4. 验证 SDK 接入是否正确
-1. 将安卓手机通过 usb 数据线连接 windows 电脑。连接成功后，使用 windows 的命令行工具，登录到 android adb 控制台，如图：
+1. 将安卓手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 android adb 控制台，如图：
 ![](https://mc.qcloudimg.com/static/img/091f2d44b4862e843748fdd9655e9914/image.png)
 2. 敲入 cd /sdcard 回车，再敲入 mkdir sdk 回车，用于创建 / sdcard/sdk 目录。其中，如果目录已经存在，则系统会提示 mkdir failed for /sdcard/sdk，File exists，继续下一步：
 ![](https://mc.qcloudimg.com/static/img/748c74c2ef3f5bec2a650f3d8eb0bdc6/image.png)

@@ -26,7 +26,7 @@ sdk 接受数据限制长度为 512K 字节
 >注意：
 >需要将 jar 文件和对应的 so 添加 到工程中。
 
-这里的 armeabi 的 so 文件夹是必须添加，其它 so 文件夹可以按需添加，如果你的工程中有对应的 so 文件夹就必须加入相应文件夹的 so。例如工程 libs 目录下已经有 arm64-v8a 目录，则需要添加到 WNSsdk 中相关的  arm64-v8a 文件夹下的 64 位系统的相关 so，否则 64 位上的机器会崩溃。
+这里的 armeabi 的 so 文件夹是必须添加，其它 so 文件夹可以按需添加，如果您的工程中有对应的 so 文件夹就必须加入相应文件夹的 so。例如工程 libs 目录下已经有 arm64-v8a 目录，则需要添加到 WNSsdk 中相关的  arm64-v8a 文件夹下的 64 位系统的相关 so，否则 64 位上的机器会崩溃。
 
 ### 配置 AndroidManifest.xml
 wns_SDK  需要使用的系统权限如下图（可参考示例工程）：
@@ -391,7 +391,7 @@ Wns 提供快速验证模式，开发商可以先集成 Wns 的 Sdk，但是通�
 ## 常见问题
 
  
-  通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相应 cpu 架构的 so，根据以 往经验，一些低端机型无法加载到 so 导致 WNS 启动失败。
+  通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相CPU  架构的 so，根据以 往经验，一些低端机型无法加载到 so 导致 WNS 启动失败。
 因此 WNS 会在 assets 目录 下也放了一份 so，当 loadLibraray 方法加载失败会尝试将 assets 目录下的 so 复制到 app 运行目录中，通过 System.load 
 方法加载 so，提高启动 WNS 的成功率。
 

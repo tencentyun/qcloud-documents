@@ -59,8 +59,27 @@ API 网关中，一条 API 规则仅能绑定一个云函数，但一个云函�
 }
 ```
 
-其中，`requestContext` 结构标识了 API 请求来源服务和 API 规则、所生效的环境、请求id、认证信息等内容。`pathParameters`,`queryStringParameters`,`headerParameters`等内容包含了 API 规则中所配置入参的参数名称和实际值，`httpMethod`、`path`、`body`、`headers`等内容包含了实际请求内容。
+
+数据结构内容详细说明如下：
+
+|    结构名    | 内容 |
+| ---------- | --- |
+| requestContext |  请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中  serviceName，path，httpMethod 指向 API 网关的服务、API 的路径和方法， stage 指向请求来源 API 所在的环境，requestId 标识当前这次请求的唯一 ID，identity 标识用户的认证方法和认证的信息，sourceIp 标识请求来源 IP |
+| path       |  记录实际请求的完整 Path 信息 |
+| httpMethod | 记录实际请求的 HTTP 方法 |
+| query | 记录实际请求的完整 Query 内容 |
+| body | 记录实际请求的完整 Body 内容 |
+| headers | 记录实际请求的完整 Header 内容 |
+| pathParameters | 记录在 API 网关中配置过的 Path 参数以及实际取值 |
+| queryStringParameters | 记录在 API 网关中配置过的 Query 参数以及实际取值 |
+| headerParameters | 记录在 API 网关中配置过的 Header 参数以及实际取值 |
+
+```
+注意：
+1. 在 API 网关迭代过程中， requestContext 内的内容可能会增加更多。目前会保证数据结构内容仅增加，不删除，不对已有结构进行破坏。
+2. 实际请求时的参数数据可能会在多个位置出现，可根据业务需求选择使用。
+```
 
 ## API 网关触发器对云函数返回内容的处理
 
-由于使用的是同步调用，API 网关会触发云函数后等待函数执行完成，并将函数返回，作为 API 请求的响应内容返回给 API 请求的发起方，因此，此特性可以用来使用云函数实现 API 后端服务，将 API 请求进行处理后，返回处理结果并被传递至 API 请求者。
+由于使用的是同步调用，API 网关会触发云函数后等待函数执行完成，并将函数返回的内容，作为 API 请求的响应内容传递给 API 请求的发起方，因此，此特性可以用来使用云函数实现 API 后端服务，将 API 请求进行处理后，返回处理结果并被传递至 API 请求者。

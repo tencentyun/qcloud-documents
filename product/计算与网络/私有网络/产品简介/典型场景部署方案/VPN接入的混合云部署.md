@@ -19,7 +19,7 @@ VPN 通道的网络质量依赖于公网连接的网络质量，建议您在选�
 
 
 ## 操作步骤
-在腾讯云创建的某个私有网络，部署云上数据中心，点击和查看 [操作指南](https://cloud.tencent.com/document/product/215/4927#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)，这里不重复说明。
+在腾讯云创建的某个私有网络，部署云上数据中心，单击和查看 [操作指南](https://cloud.tencent.com/document/product/215/4927#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)，这里不重复说明。
 
 **VPN 连接** 可以在控制台实现全自助配置，您需要完成以下几步才能实现使 VPN 连接生效：
 1. 创建 VPN 网关
@@ -28,4 +28,4 @@ VPN 通道的网络质量依赖于公网连接的网络质量，建议您在选�
 4. 在自有 IPsec VPN 网关中加载配置文件
 5. 设置路由表
 6. VPN 通道激活
-[点击查看详情](https://cloud.tencent.com/doc/product/215/4956#.E5.BF.AB.E9.80.9F.E5.85.A5.E9.97.A8)
+[单击查看详情](https://cloud.tencent.com/doc/product/215/4956#.E5.BF.AB.E9.80.9F.E5.85.A5.E9.97.A8)

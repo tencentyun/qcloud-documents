@@ -44,7 +44,7 @@
 qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种方法供用户使用：
 
 #### maven
-要使用 qcloudsms_java 功能，需要在 pom.xml 中添加如下依赖：
+要使用 qcloudsms_java 功能，需要在 pom.xml 中添加如下依赖，再执行 `maven update`。
 
 ```xml
 <dependency>
@@ -65,7 +65,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.2"
 将 [源代码](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
 
 - 方法2
-将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/tree/master/releases/qcloudsms-1.0.2.jar) 直接引入到您的工程中。
+将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 > `Note` 由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar) , [httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar), [httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和  [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar) 采用方法 1 需要将以上四个 jar 包导入工程。
 

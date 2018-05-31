@@ -1,11 +1,11 @@
 在此部分中，用户将创建一个函数来实现发送邮件程序，并通过控制台/API调用来测试函数。
 
 ## 创建 sendEmail 云函数
-1. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮。
+1. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下单击【新建】按钮。
 
-2. 进入函数配置部分，函数名称填写`sendEmail`，剩余项保持默认，点击【下一步】。
+2. 进入函数配置部分，函数名称填写`sendEmail`，剩余项保持默认，单击【下一步】。
 
-3. 进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，点击【下一步】。
+3. 进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，单击【下一步】。
 
 ```
 # -*- coding: utf8 -*-
@@ -22,7 +22,7 @@ mail_port=465                   #SMTP服务端口
 
 def sendEmail(fromAddr,toAddr,subject,content):
     sender = fromAddr
-    receivers = [toAddr]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+    receivers = [toAddr]  # 接收邮件，可设置为您的QQ邮箱或者其他邮箱
      
     message = MIMEText(content, 'plain', 'utf-8')
     message['From'] = Header(fromAddr, 'utf-8')
@@ -50,7 +50,7 @@ def main_handler(event, context):
 
 ```
 
-4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，点击【完成】按钮。
+4) 进入触发方式部分，此时由于需要先手动测试函数，暂时不添加任何触发方式，单击【完成】按钮。
 
 
 **说明**
@@ -65,7 +65,7 @@ def main_handler(event, context):
 
 在创建函数时，通常会使用控制台或 API 先进行测试，确保函数输出符合预期后再绑定触发器进行实际应用。
 
-1) 在刚刚创建的 sendEmail 函数详情页中，点击【测试】按钮；
+1) 在刚刚创建的 sendEmail 函数详情页中，单击【测试】按钮；
 
 2) 在测试模版内输入如下内容：
 
@@ -91,7 +91,7 @@ def main_handler(event, context):
 
 其中 `msgBody` 字段内， `fromAddr`，`toAddr`内的字段，可以根据您自身邮箱地址进行修改，建议可以修改为相同地址，自身邮箱向自身邮箱内发送邮件，以便测试邮件发送的正确性。我们在这里使用了 `3473058547@qq.com` 这个邮箱来进行测试。
 
-3) 点击【运行】按钮，观察运行结果。如果在结果中发现返回值和日志中均显示 "send email success"，则此程序运行正常。
+3) 单击【运行】按钮，观察运行结果。如果在结果中发现返回值和日志中均显示 "send email success"，则此程序运行正常。
 ![](https://mc.qcloudimg.com/static/img/2f660ce173162212ac1fc1bf4aaf1b09/function+test.png)
 
 4) 前往个人配置的接收邮箱，查收是否收取到邮件。打开邮件，查看邮件内容是否为配置的内容。

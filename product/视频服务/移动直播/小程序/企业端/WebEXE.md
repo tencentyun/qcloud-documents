@@ -6,12 +6,12 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 | 方案选型| WebEXE | WebRTC |
 |:-------:|:-------:|:-------:|
 | 文档地址 | [DOC](https://cloud.tencent.com/document/product/454/17004) | [DOC](https://cloud.tencent.com/document/product/454/17005) |
-| 试用场景 | 面向公司职员 | 面相普通C类用户 |
+| 适用场景 | 面向公司职员 | 面相普通C类用户 |
 | 方案优势 | 可以跳开浏览器的各种限制，实现一些高级特性 | 无需安装插件，Chrome浏览器就能胜任，适合普通用户接入 |
 | 方案不足 | 需要使用者按提示安装程序 | 功能受到Chrome浏览器的安全限制 |
 | 美颜磨皮 | 支持美颜 | 不支持美颜 |
-| 桌面录屏 | 支持桌面录屏 | 不支持录屏 |
-| 安装插件 | 需要安装插件 | 不需要任何插件 |
+| 桌面录屏 | 支持桌面录屏 | 需要安装录屏插件 |
+| 本地录制 | 支持本地录制 | 不支持本地录制 |
 | 依赖的云服务 | [LVB](https://cloud.tencent.com/product/LVB) + [IM](https://cloud.tencent.com/product/im) | [TRTC](https://cloud.tencent.com/product/trtc) + [IM](https://cloud.tencent.com/product/im) |
 
 ## Demo体验
@@ -24,7 +24,9 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 ![](https://main.qcloudimg.com/raw/30a729f3fc5825c107a342a53ad7b938.png)
 
 ## 源码调试
-点击 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) 下载网页端源代码，用本地浏览器双击打开文件中的 index.html，就可以体验和调试 WebEXE 的相关功能。
+
+### PC 网页
+点击 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webexe_web_source) 下载网页端源代码，用本地浏览器双击打开文件中的 index.html，就可以体验和调试 WebEXE 的相关功能。首次使用时，会提示需要下载和安装本地客户端插件。
 
 | 目录 | 说明 |
 |:-------:|---------|
@@ -33,10 +35,21 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 | liveroom.html | 互动视频通话的demo页面 |
 | assets | demo页面中使用的 css 样式表和资源文件 |
 | js | demo页面中使用的javascript，其中，最为关键的 EXEStart.js就在这里 |
+| exe | 包含TXCloudRoomSetup.exe安装包 |
+
+### Server
+点击 [GitHub](https://github.com/TencentVideoCloudMLVBDev/roomlist_server_java ) 可以下载一份 **java** 版本的 Server 端源码，这份代码的主要作用是实现了一个简单的（无鉴权的）房间列表，可以支持创建通话房间、关闭通话房间等功能。如果您只是希望打通视频通话（在 PC 网页和小程序各写死一个 roomid），则不太需要这部分代码的帮助。 
+
+| 目录 | 说明 |
+|:-------:|---------|
+|README.pdf | 介绍了如何使用这份后台代码 |
+|后台接口表.pdf| 介绍了这份后台代码的内部实现细节 |
+| src | java 版本的后台房间列表源代码 |
+
 
 ## 方案对接
 下面这幅图简单介绍了如何将 WebEXE 方案整合到您的现有的业务系统中：
-![](https://main.qcloudimg.com/raw/30281f823d059c5876968385ef97cbc6.png)
+![](https://main.qcloudimg.com/raw/c89609dcfa5388a7a3d4d00d5d7f94cc.png)
 
 ### step1: 搭建业务服务器
 业务服务器的作用主要是向PC端网页和微信小程序派发 roomid、userid、usersig 这些进行视频通话所必须的信息。其中roomid 和 userid 都可以由您的业务后台自由决定，只要确保不会出现 id重叠 就可以。usersig 的计算则需要参考 [DOC](https://cloud.tencent.com/document/product/454/14548)，我们在官网也提供了 java 和 php 版本的计算[源码](https://cloud.tencent.com/document/product/454/7873#Server)。
@@ -45,7 +58,7 @@ WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出�
 WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom(视频通话)](https://cloud.tencent.com/document/product/454/14617) 组件，都依赖一个叫做 RoomService 的后台开源组件（JAVA | Node.js）用于实现视频房间逻辑，您可以点击 [RoomService.zip](https://cloud.tencent.com/document/product/454/7873#Server) 下载到相关代码，部署方法见 zip 包中的说明文档 **README.pdf**。
 
 ### step3: 对接PC Web端代码
-您的web页面需要 include EXEStarter.js，并且把 step1 中获取的 roomid, userid, usersig 这些信息都传递给 EXEStarter.js 的 createExeAsRoom 函数。其中几个关键参数这里详细说明一下：
+您的web页面需要 include [**EXEStarter.js**](https://cloud.tencent.com/document/product/454/17006) 这个 javascript 文件，并且把 step1 中获取的 roomid, userid, usersig 这些信息都传递给 [**EXEStarter.js**](https://cloud.tencent.com/document/product/454/17006) 的 **startEXE** 函数。其中几个关键参数这里详细说明一下：
 
 |      参数      | 详细说明                                     |
 | :----------: | ---------------------------------------- |
@@ -57,18 +70,13 @@ WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cl
 |    roomId    | 房间ID，您的业务服务器负责分配，小程序端和PC端进入同一个ID的房间，即可进行视频通话 |
 |     type     | RTCRoom 和 LiveRoom 两种模式，其区别可以看 step4     |
 |   template   | 视频窗口摆放样式，默认1V1，更多参考 [Template](https://cloud.tencent.com/document/product/454/17006#EnumDef) 定义 |
-|    record    | 视频通话内容是否要进行录制                              |
+|    mixRecord    | 云端录制，在这种录制模式下，EXE并不参与录制工作，所有录制均在后台进行，因此 WebEXE 和 WebRTC 两种解决方案都通用，但也存在缺乏定制型的缺点。 |
+|    screenRecord    | 本地录制，是WebEXE特有的录制模式，EXE程序直接抓取本地的画面并实时生成录制影片，根据参数不同，EXE会将生成的影片文件存在本地或者推到云端。|                         |
+|    cloudRecordUrl |  如果 screenRecord 选择 RecordScreenToServer 或者 RecordScreenToBoth，需要指定一个 rtmp:// 推流地址，这样视频流就能按照正常的推流录制模式，直接将影片内容录制到云端。|
 
-**EXEStarter.js**  主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要 include EXEStarter.js 就可以调用其接口函数。音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
+ [**EXEStarter.js**](https://cloud.tencent.com/document/product/454/17006)   主要用于唤起 TXCloudRoom.exe 桌面程序，并跟 TXCloudRoom.exe 进行双向通讯，您的 Web 页面只需要处理房间管理等逻辑，音视频相关的复杂功能，则交给 TXCloudRoom.exe 去完成。
 
-| API(EXEStarter.js )                      | 功能说明                                  |
-| ---------------------------------------- | ------------------------------------- |
-| [setListener(object)](https://cloud.tencent.com/document/product/454/17006#setListener) | 设置事件通知回调，用于网页接收来自 TXCloudRoom.exe 的消息 |
-| [createExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#createExeAsRoom) | 通知 TXCloudRoom.exe 创建或者进入指定的房间        |
-| [closeExeAsRoom(object)](https://cloud.tencent.com/document/product/454/17006#closeExeAsRoom) | 通知 TXCloudRoom.exe 离开指定的房间            |
-| [unload()](https://cloud.tencent.com/document/product/454/17006#unload) | 页面在 unload 时，调用此接口，清除相关资源             |
-
-点击[示例代码](https://cloud.tencent.com/document/product/454/17006#code)，可以查看一个简单的唤起 TXCloudRoom.exe 的程序，您也可以在 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) 上获取一份更加完善的 PC 网页的源代码。
+点击[示例代码](https://cloud.tencent.com/document/product/454/17006#Code)，可以查看一个简单的唤起 TXCloudRoom.exe 的程序，您也可以在 [GitHub](https://github.com/TencentVideoCloudMLVBDev/webexe_web_source) 上获取一份更加完善的适用于 PC 端网页的源代码。
 
 ### step4: 对接小程序端代码
 小程序端的对接参考微信端的文档：
@@ -87,37 +95,9 @@ http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab574473981559
 </video>
 
 ## 内网穿透
-很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助：
+很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助。阅读 [DOC](https://cloud.tencent.com/document/product/454/17139) 了解如何处理这个问题。
 
-![](https://main.qcloudimg.com/raw/22550909ad08fbf301390a23220eb501.png)
-
-### Step1: 搭建音视频代理服务器（用于透传数据）
-
-采用NAT端口映射，就是将内网的机器映射到代理服务器的端口，代理服务器转发内网和腾讯云之间音视频数据包。下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/NATConfig.sh">NATConfig.sh</a>。打开文件和修改下图中IP的值，指定代理服务器接收网卡的IP，以及腾讯云推流和拉流服务器的地址，然后执行脚本，完成配置。
-
-![](https://main.qcloudimg.com/raw/c6e94f62213899f4b7a3e3c111e8cac5.png)
+![](https://main.qcloudimg.com/raw/0411610edea069af3fefbcbb09464bf1.png)
 
 
-### Step2: 搭建Socks5代理服务器（用于透传信令）
-
-Socks5代理服务器，好比在内网机器和腾讯云服务器之间搭建了一座桥梁，网络数据包就是桥上的行人，走过桥，河流两边就可以说话和交流。通过下载和执行我们提供的Bash脚本，绑定接收代理的网卡和出口网卡的端口号，来搭建Socks5代理服务器。
-
-如果您的代理服务器是Ubuntu，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_Ubuntu.sh">Socks5Config_Ubuntu.sh</a>，如果您的代理服务器是CentOS，请下载Bash脚本<a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/WebEXE/Proxy/Socks5Config_CentOS.sh">Socks5Config_CentOS.sh</a>，下载后打开文件，socks5_port修改为正确的端口，如下图所示，然后执行脚本，完成配置Socks5。
-
-![端口](https://main.qcloudimg.com/raw/7a34171a235af69911069cc985eb6664.png)
-
-
-### Step3: 使用EXEStarter.js设置代理服务器
-
-设置Web页面的代理参数，给EXEStarter.js的 createExeAsRoom 接口传入 proxy_ip 和 proxy_port 参数，分别指定代理服务器的IP和端口。
-
-```javascript
-EXEStarter.createExeAsRoom({
-    //...
-    custom: {
-     	proxy_ip: "x.x.x.x", 	// 代理IP，可以不设置，默认不开启代理
-     	proxy_port: 1080,	    // 代理端口，可以不设置，默认不开启代理
-    }
-});
-```
 

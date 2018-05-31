@@ -2,7 +2,7 @@
 
 ## 编辑网络配置
 
-在创建函数的过程中，或针对创建后的函数进行编辑时，可通过点击 【显示高级设置】 按钮，展开高级设置内容。
+在创建函数的过程中，或针对创建后的函数进行编辑时，可通过单击 【显示高级设置】 按钮，展开高级设置内容。
 
 可通过【高级设置】>【网络】配置项，选择需接入的 VPC 网络和所需要使用的子网。如果在当前地域无 VPC 网络，可通过【新建网络】 跳转至 VPC 网络控制台以创建新的 VPC 网络，也可以通过 【新建子网】 创建 VPC 网络下的新子网。
 
@@ -35,6 +35,24 @@ def main_handler(event,context):
 ```
 
 云函数切换至 VPC 网络环境后，将失去原有独立网络环境中的外网访问能力，如需继续访问外网，在 VPC 上通过 [配置公网网关](https://cloud.tencent.com/document/product/215/11119)、[配置 NAT 网关](https://cloud.tencent.com/document/product/215/4975) 等方式，打通 VPC 访问外网的能力。
+
+### VPC 网络中的 Name server 配置
+
+在配置云函数到 VPC 网络中后，如果需要在 VPC 网络内仍然使用域名方式访问 VPC 网络内的自建服务，通常需要使用自定义 name server 实现域名解析。
+
+为了支持云函数环境内的自定义 name server 配置，目前可以通过配置 `OS_NAMESERVER` 环境变量来实现自定义 name server。
+
+| 环境变量名 | 值设置规则 | 作用 |
+| --- | --- | --- |
+| OS_NAMESERVER | 可以为一个或的多个 IP 地址或域名，多个地址时使用“;”分号分隔。最多可以支持配置 5 个 自定义 name server。 | 配置自定义 name server |
+
+可通过打印输出 /etc/resolv.conf 文件检查配置生效情况
+
+```
+with open("/etc/resolv.conf") as f:
+    print(f.readlines())
+```
+
 
 ## 使用场景
 

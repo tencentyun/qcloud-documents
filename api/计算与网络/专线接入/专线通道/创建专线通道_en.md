@@ -31,10 +31,10 @@ The following request parameter list only provides API request parameters. Commo
 | directConnectGatewayId | Yes | String | Direct Connect gateway ID, such as dcg-d545ddf. |
 | bandwidth | No | Int | Direct connect bandwidth (in Mbps). 0 indicates no limit. |
 | routeMode | No | Int | 0:BGP routing. 1: static. Default is BGP routing. |
-| bgpPeers.asn | No | string | BGP asn. |
+| bgpPeers.asn | No | String | BGP asn. |
 | bgpPeers.authKey | No | String | BGP key. |
 | routeFilterPrefixes.n.cidr | No | String | Peer IP address range. |
-| vlanId | Yes | Int | vlanId, 0: Do not enable sub API. Value range: 0-4000. |
+| vlanId | Yes | Int | vlanId, 0: Do not enable sub API. Value range: 0-3000. |
 | localGatewayIp | No | String | Tencent Ip |
 | peerGatewayIp | No | String | user's Idc Ip |
 | peeringSubnetMask | No | String | ip mask, eg, 255.255.255.252|
