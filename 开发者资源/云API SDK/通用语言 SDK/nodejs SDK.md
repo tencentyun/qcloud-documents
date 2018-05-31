@@ -1,5 +1,5 @@
 ## 简介
-欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持cvm、vpc、cbs等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
+欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 NODEJS 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 NODEJS 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 NODEJS SDK 并开始调用。
 
 ## 支持的产品列表
@@ -50,7 +50,7 @@ npm install tencentcloud-sdk-nodejs --save
 2. 在您的代码中引用对应模块代码，可参考示例。
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 下载源码压缩包。
+1. 前往 [GitHub 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 在您的代码中引用对应模块代码，可参考示例。
 
@@ -84,7 +84,10 @@ client.DescribeZones(req, function(errMsg, response) {
     console.log(response.to_json_string());
 });
 ```
-使用 demo 更多示例请前往 [github仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 在 examples目录中寻找。
 
-## 旧版SDK
-我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往[github仓库](https://github.com/CFETeam/qcloudapi-sdk)下载。
+## 更多示例
+
+使用 Demo 更多示例请前往 [GitHub 仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 在 examples 目录中寻找。
+
+## 旧版 SDK
+我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往 [GitHub 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。
