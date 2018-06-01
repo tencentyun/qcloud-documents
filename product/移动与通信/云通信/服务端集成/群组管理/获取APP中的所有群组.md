@@ -12,7 +12,7 @@
 |互动直播聊天室（AVChatRoom）|<center>是</center>|
 |在线成员广播大群（BChatRoom）|<center>是</center>|
 
-云通信中内置以上五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信中内置以上五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 #### 请求 URL
 ```
@@ -73,7 +73,7 @@ JSON
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000。 |
 | Next | Integer | 选填 | 群太多时分页拉取标志，第一次填 0，以后填上一次返回的值，返回的 Next 为 0 代表拉完了。 |
-| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>[群组形态](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D) 包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（互动直播聊天室）和 BChatRoom（在线成员广播大群）。|
+| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>[群组形态](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D) 包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（互动直播聊天室）和 BChatRoom（在线成员广播大群）。|
 
 ### 应答
 #### 应答包体示例

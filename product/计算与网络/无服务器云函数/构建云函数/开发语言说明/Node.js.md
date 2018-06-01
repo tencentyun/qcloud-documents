@@ -1,9 +1,12 @@
 目前支持的 Node.js 开发语言包括如下版本：
+
 * Node.js 6.10
+* Node.js 8.9
 
 ## 函数形态
 
 Node.js 函数形态一般如下所示：
+
 ```
 exports.main_handler = (event, context, callback) => {
     console.log("Hello World")
@@ -26,11 +29,14 @@ Node.js 环境下的入参包括 event 、context 和 callback，其中 callback
 
 ## 返回和异常
 
-您的处理程序需要使用 `callback` 入参来返回信息，函数的`return`将会被忽略。`callback` 的语法为：
+您的处理程序需要使用 `callback` 入参来返回信息。`callback` 的语法为：
+
 ```
 callback(Error error, Object result);
 ```
+
 其中：
+
 * error：可选参数，在函数执行内部失败时使用此参数返回错误内容。成功情况下可设置为null。
 * result：可行参数，使用此参数返回函数成功的执行结果信息。参数需兼容 JSON.stringify 以便序列化为 JSON 格式。
 
@@ -40,6 +46,7 @@ callback(Error error, Object result);
 
 ## 日志
 您可以在程序中使用如下语句来完成日志输出：
+
 * console.log()
 * console.error()
 * console.warn()
@@ -54,6 +61,7 @@ callback(Error error, Object result);
 云函数的运行环境内已包含 [COS 的 Node.js SDK](https://cloud.tencent.com/document/product/436/8629)，具体版本为 `cos-nodejs-sdk-v5`。
 
 可在代码内通过如下方式引入 COS SDK 并使用：
+
 
 ```
 var COS = require('cos-nodejs-sdk-v5');

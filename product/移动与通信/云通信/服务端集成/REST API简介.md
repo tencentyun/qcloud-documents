@@ -1,7 +1,7 @@
 ## REST API 简介
 REST API 是腾讯云提供给 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信支持的 REST API 参见 [REST API 接口列表](/doc/product/269/REST%20API接口列表)。
 
-除了 REST API，App [控制台](http://cloud.tencent.com/doc/product/269/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#3.10-.E6.8E.A7.E5.88.B6.E5.8F.B0) 也可实现简单的数据管理、单发/群发消息，开发者可以在控制台上进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
+除了 REST API，App [控制台](http://cloud.tencent.com/doc/product/269/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#.E6.8E.A7.E5.88.B6.E5.8F.B0) 也可实现简单的数据管理、单发/群发消息，开发者可以在控制台上进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
 ## 调用示例
 以下为通过 REST API 来获取 App 中所有群组的示例。
@@ -121,7 +121,7 @@ Postman 是一款功能强大的网页调试与发送网页 HTTP 请求的 Chrom
 
 ### PHP Server SDK 中的调试工具
 
-[PHP Server SDK](/doc/product/269/PHP%20Server%20SDK)中包含了一个 REST API 调试工具：TimRestApiGear.php。您可以通过该工具在服务器上发起简单 REST API 调用。使用案例参见 [这里](/doc/product/269/服务端集成指引#5.4-.E5.88.9B.E5.BB.BA.E4.B8.80.E4.B8.AA.E7.BE.A4.E7.BB.84.EF.BC.8C.E5.8C.85.E5.90.AB.E5.88.9D.E5.A7.8B.E7.BE.A4.E6.88.90.E5.91.98.EF.BC.88.E4.BD.BF.E7.94.A8php-server-sdk.E4.B8.AD.E7.9A.84.E5.B7.A5.E5.85.B7.EF.BC.89)。
+[PHP Server SDK](/doc/product/269/PHP%20Server%20SDK)中包含了一个 REST API 调试工具：TimRestApiGear.php。您可以通过该工具在服务器上发起简单 REST API 调用。使用案例参见 [这里](/doc/product/269/服务端集成指引#.E5.88.9B.E5.BB.BA.E4.B8.80.E4.B8.AA.E7.BE.A4.E7.BB.84.EF.BC.8C.E5.8C.85.E5.90.AB.E5.88.9D.E5.A7.8B.E7.BE.A4.E6.88.90.E5.91.98.EF.BC.88.E4.BD.BF.E7.94.A8php-server-sdk.E4.B8.AD.E7.9A.84.E5.B7.A5.E5.85.B7.EF.BC.89)。
 
 ## Server SDK 集成
 ### PHP Server SDK

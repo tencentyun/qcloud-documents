@@ -1,5 +1,3 @@
-# Windows 客户端上使用卷
-
 ## 使用 Microsoft Windows 客户端连接到卷
 您需要使用 Microsoft Windows iSCSI 启动程序来连接到卷，将卷作为 Windows 客户端上的本地设备。
 
