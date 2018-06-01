@@ -102,7 +102,6 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 > **注意：** 
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
-
 ```
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
@@ -113,7 +112,6 @@ max_thread = 5
 part_size = 1
 schema = https
 ```
-
 2. 可以在配置文件中增加`schema`项来选择`http / https`，默认为`https`
 3. bucket的命名规则为 `{name}-{appid}`
 
@@ -189,6 +187,7 @@ coscmd download -rs / bbb/aaa  //同步下载当前bucket根目录下所有的�
 coscmd download -rs / bbb/aaa --ignore *.txt,*.doc //忽略.txt和.doc的后缀文件
 ```
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
+
 > **注意：** 
 - 若本地存在同名文件，则会下载失败。使用 `-f` 参数覆盖本地文件。
 - `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
