@@ -251,7 +251,7 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 |character_sets_dir|/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/sql/share/charsets/|/data/home/tdengine/dongzhi/src/mysql-server-5.6/sql/share/charsets/|
 |innodb_adaptive_flushing_lwm|10|10|
 |myisam_recover_options|DEFAULT|OFF|
-|performance_schema_max_statement_classes|179|168|
+|performance_schema_max_statement<br>_classes|179|168|
 |innodb_version|5.6.26-74.0|5.6.31|
 |max_write_lock_count|4294967295|18446744073709500000|
 |thread_cache_size|0|9|
