@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (DeleteClusterAsgLabel) is used to delete a cluster scaling group label.
 
