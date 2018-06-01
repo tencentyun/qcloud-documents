@@ -225,7 +225,7 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 >变量名相同意味着主要功能也相同
 
 |参数名|TDSQL（MariaDB 10.1）|MySQL 5.6|
-|:--:|:--:|:--:|
+| --- | --- | --- |
 |old_passwords|OFF|0|
 |tmpdir|/tmp/5cXm2hHsWi/mysqld.1|/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/tmp/mysqld.1|
 |version|10.1.9-MariaDB-log|5.6.31-log|
@@ -273,7 +273,7 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 
 
 #### 5.2 仅存在于TDSQL（MariaDB）中的变量
---------------------------------------------------
+
 - aria_block_size     8192
 - aria_checkpoint_interval     30
 - aria_checkpoint_log_activity     1048576
