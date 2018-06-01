@@ -15,7 +15,7 @@
 
 ### 2. 在云主机上安装业务需要的软件
 
-在 [云主机控制台](https://buy.cloud.tencent.com/cvm) 查看刚才的创建的云主机信息，远程登录后将你的业务依赖的软件全部安装到该云主机上，并简单测试相关调用。
+在 [云主机控制台](https://buy.cloud.tencent.com/cvm) 查看刚才的创建的云主机信息，远程登录后将您的业务依赖的软件全部安装到该云主机上，并简单测试相关调用。
 
 ### 3. 制作自定义镜像
 
@@ -25,7 +25,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/e939a39dcebe0c7449c7dacdb33e52ea/s2.png)
 
-这个 ID 就是你的自定义镜像 ID，你可以随时到 [镜像控制台](https://console.cloud.tencent.com/cvm/image) 来查看
+这个 ID 就是您的自定义镜像 ID，您可以随时到 [镜像控制台](https://console.cloud.tencent.com/cvm/image) 来查看
 
 ### 4. 使用自定义镜像提交测试作业
 
