@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (ResetClusterAsgLabel) is used to reset the label of a cluster scaling group. The passed label completely replaces the existing label of the scaling group.
 
