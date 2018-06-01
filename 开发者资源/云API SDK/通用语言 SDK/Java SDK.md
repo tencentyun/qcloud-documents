@@ -97,7 +97,7 @@ public class DescribeZones
 
 ## 更多示例
 
-使用 Demo 更多示例请前往 [GitHub 仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 在 examples 目录中寻找。
+您可以在 GitHub仓库 中 examples 目录下找到更详细的示例。
 
 ## 旧版 SDK
 我们推荐您使用新版 SDK， 如果需要旧版 SDK，请在您的 Maven pom.xml 添加以下依赖项即可：
