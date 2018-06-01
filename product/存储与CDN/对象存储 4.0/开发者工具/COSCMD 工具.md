@@ -102,8 +102,7 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 > **注意：** 
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
-2. 可以在配置文件中增加`schema`项来选择`http / https`，默认为`https`
-3. bucket的命名规则为 `{name}-{appid}`
+
 ```
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
@@ -114,6 +113,10 @@ max_thread = 5
 part_size = 1
 schema = https
 ```
+
+2. 可以在配置文件中增加`schema`项来选择`http / https`，默认为`https`
+3. bucket的命名规则为 `{name}-{appid}`
+
 
 ### 指定 Bucket 的命令
 -  通过`-b <bucket> 指定 Bucket`可以指定特定 Bucket。
@@ -187,11 +190,11 @@ coscmd download -rs / bbb/aaa --ignore *.txt,*.doc //忽略.txt和.doc的后缀�
 ```
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
 > **注意：** 
-* 若本地存在同名文件，则会下载失败。使用 `-f` 参数覆盖本地文件。
-* `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
-* 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文
+- 若本地存在同名文件，则会下载失败。使用 `-f` 参数覆盖本地文件。
+- `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
+- 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文
 件 (前提是下载文件夹是通过 `COSCMD` 的 `upload` 接口上传的，文件携带有 `x-cos-meta-md5` 头部)。
-* 在下载文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
+- 在下载文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
 
 ### 删除文件或文件夹
 - 删除文件命令如下：
