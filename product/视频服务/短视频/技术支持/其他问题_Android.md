@@ -88,8 +88,9 @@ private void snapshot() {
 ```
 
 ##### 变速录制速度的倍数是多少？
-变速录制不支持自定义速度
-定义| TXRecordCommon中对应常量 | 倍数
+变速录制不支持自定义速度  
+
+定义 | TXRecordCommon中对应常量 | 倍数
 ---|--- | ---
 极慢速 | RECORD_SPEED_SLOWEST | 0.5倍
 慢速 | RECORD_SPEED_SLOW | 0.8倍
