@@ -13,7 +13,7 @@ The following request parameter list only provides API request parameters. Other
 | Parameter Name | Description | Required | Type |
 |---------|---------|---------|---------|
 | clusterId | Cluster ID. Enter the clusterId field returned by the API [Query Cluster List](https://cloud.tencent.com/document/api/457/9448) | Yes | String |
-| scaleDownEnabled | Whether to enable scale-down. Enable if it is not 0. | Yes | Int |
+| scaleDownEnabled | Whether to enable scale-down. Enable if it is not 0 | Yes | Int |
 
 
 
