@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (DeleteClusterAsg) is used to delete a cluster scaling group. Deleting a scaling group will terminate the CVMs in the scaling group. Please proceed with caution.
 

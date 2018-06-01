@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (DescribeClusterAsg) is used to query the information of a cluster scaling group.
 

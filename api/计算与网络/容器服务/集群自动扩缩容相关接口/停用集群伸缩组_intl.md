@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (DisableClusterAsg) is used to disable an enabled cluster scaling group. Auto scaling is not supported for disabled scaling groups.
 

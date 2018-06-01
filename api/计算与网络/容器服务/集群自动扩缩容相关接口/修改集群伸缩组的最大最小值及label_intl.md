@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (ModifyClusterAsgRange) is used to modify the maximum size, minimum size and label of a cluster scaling group. The label is modified by resetting it.
 
