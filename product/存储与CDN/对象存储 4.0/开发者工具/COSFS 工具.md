@@ -148,11 +148,12 @@ umount -l /mnt
    在挂载命令的时候，可以指定目录，如
    
   `cosfs my-bucket-name:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
+  
+  注意，my-dir必须以/开头。
 
-   注意，my-dir必须以/开头.
-
-   v1.0.5 版本之前的挂载命令：
-   `cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
+  v1.0.5 版本之前的挂载命令：
+  
+  `cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
 
    
    
