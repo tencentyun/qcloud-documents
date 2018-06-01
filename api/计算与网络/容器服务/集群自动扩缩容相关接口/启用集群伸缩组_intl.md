@@ -1,4 +1,4 @@
-﻿## API Description
+## API Description
  
 This API (nableClusterAsg) is used to enable a disabled cluster scaling group.
 
