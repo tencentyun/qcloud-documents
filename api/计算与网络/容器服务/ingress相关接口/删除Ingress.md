@@ -1,5 +1,5 @@
 ## 接口描述
-本接口 ( DeleteIngress ) 用于删除Ingress。
+本接口（DeleteIngress）用于删除 Ingress。
 
 接口请求域名：
 ```
@@ -13,16 +13,16 @@ ccs.api.qcloud.com
 | 参数名称   | 描述                               | 类型     | 必选 |
 |------------|------------------------------------|----------|------|
 | clusterId   | 集群 ID，请填写 [查询集群列表](/doc/api/457/9448) 接口中返回的 clusterId 字段 |String | 是    |
-| ingressName| ingress名称 | String | 是 |
+| ingressName| Ingress 名称 | String | 是 |
 | namespace |  命名空间，请填写 [查询集群命名空间](/doc/api/457/9430) 接口中返回的 namespaces 字段，默认为 default|String  |否 |
 
 ## 输出参数
 
-| 参数名称 | 描述 |类型 | 
+| 参数名称 | 描述 |类型 |
 |----------|------|-----|
-| code |公共错误码。0 表示成功，其他值表示失败| Int | 
+| code |公共错误码。0 表示成功，其他值表示失败| Int |
 | codeDesc | 业务错误码。成功时返回 Success，错误时返回具体业务错误原因|String |
-| message | 模块错误信息描述，与接口相关|String | 
+| message | 模块错误信息描述，与接口相关|String |
 
 
 ## 示例
@@ -49,6 +49,4 @@ ccs.api.qcloud.com
     "code":0
 }
 ```
-
-
 
