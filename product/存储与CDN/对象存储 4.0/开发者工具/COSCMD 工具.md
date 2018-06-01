@@ -10,7 +10,7 @@ Windows 或 Linux 系统
 ### 软件依赖
 Python 2.6/2.7/3.5/3.6 
 并装有最新版本的 pip
-#### 安装及配置
+### 安装及配置
 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 ## 下载与安装
 - **源码地址**
@@ -271,13 +271,13 @@ coscmd putbucketacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--gra
 coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222 aaa/aaa.txt //操作示例
 ```
 
-#### ACL 设置指南
-> *  --grant-read 代表读的权限。
+### ACL 设置指南
+* --grant-read 代表读的权限。
 * --grant-write 代表写的权限。
 * --grant-full-control 代表读写的权限。
 * GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL 代表被赋权的帐号。
-* 若赋权根帐号，使用 rootid 的形式；
-* 若赋权子账户，使用 rootid/subid 的形式；
+* 若赋权根帐号，使用 rootid 的形式。
+* 若赋权子账户，使用 rootid/subid 的形式。
 * 若需要对所有人赋权，使用 anyone 的形式。
 * 同时赋权的多个帐号用逗号`,`隔开。
 * 请将参数替换为您所需要删除的 COS 上文件的路径（cospath）。
