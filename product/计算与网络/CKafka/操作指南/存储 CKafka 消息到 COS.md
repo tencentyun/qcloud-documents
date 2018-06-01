@@ -21,3 +21,6 @@
 - 文件名为存放的 timestamp，存放路径为 `instance id/topic id`。
 - 文件内容是 CKafka 消息里的 value 用 string 序列化拼接而成。
 - 当前 CKafka 日志服务`免费`，COS 存储可享受一定 [免费额度](https://cloud.tencent.com/document/product/436/6240)，提供 50G 免费存储空间。如您的日志量级较大，请及时清理数据。
+- 开启转 COS 的操作人必须对目标 cos bucket 具备写权限；
+- 开启转发前，积压 Ckafka 消息不会被转存到 COS；
+- 实例到期后转发 COS 也会中断，实例续费后会自动恢复转发。
