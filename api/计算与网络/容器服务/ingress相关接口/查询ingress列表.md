@@ -1,5 +1,5 @@
 ## 接口描述
-本接口 ( DescribeIngress ) 用于查询Ingress列表。
+本接口（DescribeIngress）用于查询 Ingress 列表。
 
 接口请求域名：
 ```
@@ -17,34 +17,34 @@ ccs.api.qcloud.com
 | allnamespace| 是否使用所有的命名空间。1：是，0 或不传：否| Uint/Float | 否 |
 
 ## 输出参数
- 
-| 参数名称 | 描述 |类型 | 
+
+| 参数名称 | 描述 |类型 |
 |----------|------|-----|
-| code |公共错误码。0 表示成功，其他值表示失败| Int | 
+| code |公共错误码。0 表示成功，其他值表示失败| Int |
 | codeDesc | 业务错误码。成功时返回 Success，错误时返回具体业务错误原因|String |
-| message | 模块错误信息描述，与接口相关| String | 
-| data | ingress列表相关数据 |Object | 
+| message | 模块错误信息描述，与接口相关| String |
+| data | Ingress 列表相关数据 |Object |
 
-data 字段的结构如下
+data 字段的结构如下：
 
-| 参数名称 | 描述 |类型 | 
+| 参数名称 | 描述 |类型 |
 |---------|---------|---------|
 | ingressList | 日志收集规则 | Object |
 
 
-ingressList 字段中 Object 的结构如下
+ingressList 字段中 Object 的结构如下：
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| ingressList | ingress列表信息 | Object Array |
-| ingressName | ingress名称 | String |
-| ingressDesc | ingress描述 | String |
-| lbId | 应用型负载均衡ID| String |
-| ingressIp | ingress的虚拟IP | String |
-| rules | 转发规则，详情见创建ingress接口 | Array |
-| createAt | ingress创建时间 | String |
+| ingressList | Ingress 列表信息 | Object Array |
+| ingressName | Ingress 名称 | String |
+| ingressDesc | Ingress 描述 | String |
+| lbId | 应用型负载均衡 ID | String |
+| ingressIp | Ingress 的虚拟 IP | String |
+| rules | 转发规则，详情见 创建 Ingress 接口 | Array |
+| createAt | Ingress 创建时间 | String |
 | namespace | 命名空间 | String |
-| unSubnetId | 内网ingress所属的subnet id | String |
+| unSubnetId | 内网 Ingress 所属的 Subnet ID | String |
 
 ## 示例
 ### 输入
@@ -83,3 +83,4 @@ ingressList 字段中 Object 的结构如下
     "code":0
 }
 ```
+
