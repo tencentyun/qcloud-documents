@@ -21,8 +21,8 @@ The following request parameter list only provides API request parameters. Other
  
 | Parameter Name | Description | Type |
 |---------|---------|---------|
-| code | Common error code. 0: Successful; other values: Failed. | Int |
-| codeDesc | Error code at business side. For a successful operation, "Success" is returned. In case of an error, a message describing the reason for the error is returned. | String |
+| code | Common error code. 0: Successful; other values: Failed | Int |
+| codeDesc | Error code at business side. For a successful operation, "Success" is returned. In case of an error, a message describing the reason for the error is returned | String |
 | message | Module error message description depending on API | String |
 
 
