@@ -1,14 +1,14 @@
 ## SDK获取
 智能图像的 Java SDK 下载地址：[Java-SDK-V2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
 
-## 使用前准备​		
+## 使用前准备
 1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）
 2. 取得存储桶名称 **BucketName**： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) ；
-3. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”。
+3. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，单击“新建密钥”。
 
-## 如何集成到你的项目中
+## 如何集成到您的项目中
 ### 获得 SDK jar 文件
-1. 直接使用 release/*-with-dependencies.jar
+1. 直接使用` release/*-with-dependencies.jar`
 2. 或者自行编译：在工程根目录下执行命令 `mvn assembly:assembly`，编译结果见 target/*-with-dependencies.jar
 
 ### 导入 jar 到项目中
@@ -22,7 +22,7 @@ ImageClient imageClient = new ImageClient(APPID, SecretId, SecretKey);
 ```
 
 ### 设置代理
-根据实际网络环境，可能要设置代理，例如: 
+根据实际网络环境，可能要设置代理，例如：
 
 ```java
 Proxy proxy = new Proxy(Type.HTTP, new InetSocketAddress("127.0.0.1", 8080));
