@@ -41,7 +41,7 @@ ingressList 字段中 Object 的结构如下：
 | ingressDesc | Ingress 描述 | String |
 | lbId | 应用型负载均衡 ID | String |
 | ingressIp | Ingress 的虚拟 IP | String |
-| rules | 转发规则，详情见 创建 Ingress 接口 | Array |
+| rules | 转发规则，详情见 [创建 Ingress](/document/product/457/17544) 接口 | Array |
 | createAt | Ingress 创建时间 | String |
 | namespace | 命名空间 | String |
 | unSubnetId | 内网 Ingress 所属的 Subnet ID | String |
