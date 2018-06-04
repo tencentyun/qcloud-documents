@@ -11,13 +11,22 @@
 - 腾讯云 API 网关 [产品使用手册](https://cloud.tencent.com/document/product/628)
 - 腾讯云 API 网关 [控制台](https://console.cloud.tencent.com/apigateway)
 
-## 在 TSF 上的操作
 
-用户必须将给命名空间配置 code （Namespace Code）才能实现将 API 网关外部的请求转发到命名空间内的微服务。对于不同命名空间内的名称都是 product 的微服务来说，只有通过命名空间 ID 和微服务名称来唯一确定一个微服务。由于命名空间 ID（自动生成，通常是 namespace-xxx 的命名规则）较难辨识，因此引入命名空间 Code 来作为唯一标示。命名空间 Code 具有如下特性：
+
+## 命名空间 Code
+
+用户必须将给命名空间配置 code （Namespace Code）才能实现将 API 网关外部的请求转发到命名空间内的微服务。对于不同命名空间内的名称都是 product 的微服务来说，只有通过命名空间 ID 和微服务名称来唯一确定一个微服务。由于平台生成的命名空间 ID 较难辨识（通常是 namespaceid-xxxx) ，因此引入命名空间 Code 来作为唯一标示。命名空间 Code 具有如下特性：
 
 - 跨集群唯一性
 - 用户自定义
+- 可读性强
 - 不可修改
+
+
+
+## 在TSF上的配置命名空间Code
+
+在 TSF 控制台上的操作步骤如下：
 
 
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/apigateway)。
@@ -34,4 +43,3 @@
 
 - [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)
 - [调试微服务API](https://cloud.tencent.com/document/product/628/17562)
-
