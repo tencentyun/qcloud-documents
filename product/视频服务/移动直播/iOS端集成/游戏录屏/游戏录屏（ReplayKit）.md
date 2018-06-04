@@ -14,15 +14,12 @@ iOS 11 新增的 ReplayKit2，进一步提升了 Replaykit 的易用性，可以
 
 ![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/er.png)
 
-下载后真机运行，点击【开始直播】。填写正确推流地址即可体验录屏功能。
+使用步骤：
+1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
+2. 打开【视频云工具包】->【Replaykit2推流】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
 
-![RPLiveStream](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/RPLiveStream.png)
+![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/out.png)
 
-体验系统屏幕录制，打开控制中心，长按屏幕录制按钮，选择好直播的程序，开始直播。
-
-![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ScreenRecord.png)
-
-> 注意：系统屏幕录制不会弹出扩展 UI，因此 RPLiveStream 不能输入推流地址。此时需要在 App 里先开播，扩展 Upload 会记下您输入的推流地址，再来系统屏幕录制，流数据就会发送到上一个推流地址。
 
 ## 开发环境准备
 
@@ -36,7 +33,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，模拟器�
 
 ![4](//mc.qcloudimg.com/static/img/9d18eb52c817ba14bbd707be56adb84c/image.png)
 
-配置好 Product Name，注意勾选【Include UI Extension】。点【Finish】后可以看到，工程多了两个目录，并且 target 也多了两个，分别是直播扩展和 UI 扩展。
+配置好Product Name，勾选【Include UI Extension】可支持iOS 10的录屏，这里我们勾选上。点【Finish】后可以看到，工程多了两个目录，并且target也多了两个，分别是直播扩展和UI扩展。
 
 ![5](//mc.qcloudimg.com/static/img/6712032a19170ea7725ae8b445c7dddc/image.png)
 
