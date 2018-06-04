@@ -1,6 +1,8 @@
-用户在腾讯云 API 网关上可以配置微服务 API 来将外部请求转发到 TSF 平台上部署的微服务。
+用户在腾讯云 API 网关上可以配置微服务 API 来将外部请求转发到 TSF 平台上部署的微服务。API 网关与 TSF 平台内的微服务之间的关系如下图：
 
 ![](https://main.qcloudimg.com/raw/efc43843783e9bd53afde3497abe14b1.png)
+
+
 
 
 
@@ -24,4 +26,12 @@
 
 ![](https://main.qcloudimg.com/raw/79b6fc71f3c86f66173083d3b4051285.png)
 
+
+
+## 在 API 网关上的操作
+
+在 API 网关上的详细操作可以参考腾讯云 [API 网关产品文档](https://cloud.tencent.com/document/product/628)，其中与微服务相关的操作可参考：
+
+- [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)
+- [调试微服务API](https://cloud.tencent.com/document/product/628/17562)
 
