@@ -111,9 +111,8 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 以curl为例：
 	    假设你要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
 ```
-		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
- ```
-
+		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.```
+		
 ## 实践场景
 ## 1. Unity 接入说明:
 ### (1) 先初始化 HttpDns 和灯塔接口：
@@ -308,8 +307,10 @@ mWebView.loadUrl(targetUrl);
 	    e.printStackTrace();
     }
 ```
+
 ## 4. Https 场景
 ### 4.1 普通 Https 场景
+
 ```
   String url = "https://httpdns域名解析得到的IP/d?dn=&clientip=1&ttl=1&id=128"; // 业务自己的请求连接
 	HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
@@ -324,7 +325,9 @@ mWebView.loadUrl(targetUrl);
 	connection.setReadTimeout(mTimeOut); // 设置读流超时
 	connection.connect();
 ```
+
 ### 4.2 Https SNI（单IP多 HTTPS 证书）场景
+
 ```
 	 String url = "https://" + ip + "/pghead/xxxxxxx/140"; // 用HttpDns解析得到的IP封装业务的请求URL
 		HttpsURLConnection sniConn = null;
@@ -462,6 +465,7 @@ mWebView.loadUrl(targetUrl);
 ```
 
 ## 5. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析
+
 ```
     String host = System.getProperty("http.proxyHost");
     String port= System.getProperty("http.proxyPort");
