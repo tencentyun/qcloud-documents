@@ -15,8 +15,8 @@
 + 调用频次限制为 10000 次 / 分钟。
 + 接口暂不支持子账号调用，子账号调用请使用 [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)。
 
->**注意：**
->旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态。
+> **注意：**
+> 旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态。
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
