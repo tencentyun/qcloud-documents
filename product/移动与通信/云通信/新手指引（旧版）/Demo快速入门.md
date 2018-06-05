@@ -1,4 +1,4 @@
-## 1 即时通信Demo简介
+## 即时通信Demo简介
 
 为了直观的体现ImSDK所支持的功能，并且起到接口使用的示范作用，即时通信提供了iOS和Android平台的Demo示例，用户可以下载Demo编译运行，体验ImSDK的功能，同时可以修改相应的参数，在此基础上进行开发自己的app。通过本文档可以快速找到登录参数进行修改，替换为开发者自己申请的sdkappid，以及快速熟悉Demo的使用方法。
 
@@ -15,9 +15,9 @@
 请单击[即时通信SDK下载体验](http://cloud.tencent.com/product/im.html#sdk)，包括ImSDK以及Demo的源码。
 或者单击[Demo GitHub](https://github.com/zhaoyang21cn/iOS_Suixinliao)，参考Demo的源码。
 
-## 2 iOS Demo使用说明
+## iOS Demo使用说明
 
-### 2.1 SDK的参数配置
+### SDK的参数配置
 
 开发者可以不用修改任何参数直接体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在GlobalData.h中配置ios客户端SDK全局参数：kSdkAccountType（即accountType）、kSdkAppId（即SdkAppid）、kAppidAt3rd（同SdkAppid）,开发者可将下面的参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
 
@@ -33,7 +33,7 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911084730_30000.png)
 
-### 2.2 Demo使用简介
+### Demo使用简介
 
 1、单击“注册新用户”,用手机号码获取验证码注册
 
@@ -57,15 +57,15 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085002_23609.jpg)
 
-## 3 Android Demo使用说明
+## Android Demo使用说明
 
-### 3.1 SDK的参数配置
+### SDK的参数配置
 
 开发者可以不用修改任何参数直接体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在com.example.mydemo.utils.Constant中配置android客户端SDK全局参数：ACCOUNT_TYPE（即accountType）、SDK_APPID（即sdkAppid）,将这两个参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085024_95357.png)
 
-### 3.2 Demo使用简介
+### Demo使用简介
 
 1、单击“注册新用户”，用手机号码获取验证码注册
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085044_90665.png)

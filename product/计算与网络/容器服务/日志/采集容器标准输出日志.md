@@ -28,6 +28,6 @@ kubernetes.pod_name | 日志所属 pod 的名字
 log | 日志信息
 
 [1]:https://mc.qcloudimg.com/static/img/9551fc9f7594eded7e24a3c09486bd43/image.jpeg
-[2]:https://mc.qcloudimg.com/static/img/0fe6bed71772b09231771e320a789e9d/image.jpeg
+[2]:https://main.qcloudimg.com/raw/7534ef484308ecdbdfcf98cbb418f17e.jpeg
 [3]:https://mc.qcloudimg.com/static/img/1424653e838aeb76be107f7cf07eb3bc/containerlog.jpeg
 

@@ -1,4 +1,6 @@
-﻿## API Description
+
+## API Description
+
 This API (CreateClusterAsg) is used to create a cluster scaling group.
 
 Domain name for API request:
