@@ -23,10 +23,10 @@ http://recognition.image.myqcloud.com/car/classify
 | Content-Type   | multipart/form-data               | 上传本地图片                                 |
 | Authorization  | 鉴权签名                           | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
-><font color="#0000cc">**注意：** </font>
-- 每个请求的包体大小限制为 6 MB；
-- 所有接口都为 POST 方法；
-- 不支持 .gif 这类的动图。
+>**注意：**
+>- 每个请求的包体大小限制为 6 MB；
+>- 所有接口都为 POST 方法；
+>- 不支持 .gif 这类的动图。
 
 ### 请求参数
 | 参数名称   | 是否必选 | 类型     | 说明           |
