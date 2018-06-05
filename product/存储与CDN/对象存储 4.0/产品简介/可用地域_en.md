@@ -44,7 +44,7 @@ example-1234567890.cos.ap-guangzhou.myqcloud.com
  ```
  
 **Suggestions on cross-region access in private network:
-As different Tencent Cloud Services in different regions cannot be accessed directly through private network. You can deploy an exclusive network channel through VPC when necessary. For more information, please see [VPC Product Introduction](https://cloud.tencent.comm/product/vpc.html).**
+As different Tencent Cloud Services in different regions cannot be accessed directly through private network. You can deploy an exclusive network channel through VPC when necessary. For more information, please see [VPC Product Introduction](https://cloud.tencent.com/product/vpc.html).**
 For example:
 A CVM in the region Guangzhou can access the data on Singapore COS through a VPC channel.
 
