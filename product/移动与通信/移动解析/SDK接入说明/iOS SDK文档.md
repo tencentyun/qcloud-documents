@@ -5,8 +5,8 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 
 ## 安装包结构
 压缩文件中包含 demo 工程，其中包含：
-- `MSDKDns.framework	`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++(GNU C++ standard library)” 的工程。
-- `MSDKDns_C11.framework`	适用于该两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。
+- `MSDKDns.framework`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++(GNU C++ standard library)” 的工程。
+- `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。
 
 ## 接入步骤
 ### 步骤1： 引入依赖库
@@ -14,9 +14,9 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 仅需引入位于 HTTPDNSLibs 目录下的 `MSDKDns.framework`（或  `MSDKDns_C11.framework`，根据工程配置选其一）即可。
 
 **未接入灯塔（Beacon）的业务**
-- 引入依赖库（位于HTTPDNSLibs目录下）：
+- 引入依赖库（位于 HTTPDNSLibs 目录下）：
   - BeaconAPI_Base.framework
-  - MSDKDns.framework（或MSDKDns_C11.framework，根据工程配置选其一）
+  - MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
 - 引入系统库：
   - libz.tdb
   - libsqlite3.tdb
