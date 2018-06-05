@@ -457,7 +457,7 @@ mWebView.loadUrl(targetUrl);
 
 ```
 
-### 检测本地是否使用代理
+### 代理使用场景
 请检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析。
 
 ```
