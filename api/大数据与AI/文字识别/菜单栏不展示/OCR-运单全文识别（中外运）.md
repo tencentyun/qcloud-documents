@@ -1,10 +1,10 @@
 ## 接口概述
 
 ### 服务简介
-中外运单据OCR识别，根据用户提供的中外运单据图片，返回识别出的字段信息。
+中外运单据 OCR 识别，根据用户提供的中外运单据图片，返回识别出的字段信息。
 
-### url 说明
-支持 http 和 https 两种协议：
+### URL 说明
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/waybill`
 
@@ -53,10 +53,10 @@ coordinate 说明：
 
 | 字段           | 类型                    | 说明               |
 | ------------- | ----------------------- | ------------------ |
-| x	            | int	                  | item框左上角x       |
-| y	            | int	                  | item框左上角y       |
-| width	        | int	                  | item框宽度          |
-| height	    | int	                  | item框高度          |
+| x	            | int	                  | item 框左上角 x       |
+| y	            | int	                  | item 框左上角 y       |
+| width	        | int	                  | item 框宽度          |
+| height	    | int	                  | item 框高度          |
 
 candiateword说明:
 
@@ -128,13 +128,13 @@ Content-Type: application/json
 | 4	                   | 签名为空              |
 | 5                    | 签名串错误            |
 | 9	                   | 签名过期              |
-| 10	               | appid不存在          |
-| 11	               | secretid不存在        |
-| 12	               | appid和secretid不匹配 |
+| 10	               | appid 不存在          |
+| 11	               | secretid 不存在        |
+| 12	               | appid 和 secretid 不匹配 |
 | 13                   | 重放攻击              |
 | 14	               | 签名校验失败          |
 | 15	               | 操作太频繁，触发频控   |
-| 16	               | Bucket不存在         |
+| 16	               | Bucket 不存在         |
 | 21	               | 无效参数             |
 | 23	               | 请求包体过大          |
 | 24	               | 没有权限             |
