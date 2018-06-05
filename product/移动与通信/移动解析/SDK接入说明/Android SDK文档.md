@@ -21,7 +21,7 @@
 </receiver>
 ```
 
-### 步骤 2：接入 HttpDNS 库
+### 步骤 2：接入 HttpDns 库
 将`HttpDnsLibs\httpdns_xxxx.jar`库文件拷贝至工程 libs 相应的位置，将`HttpDnsLibs\dnsconfig.ini`配置文件拷贝到应用`Android\assets`目录下；
 > **注意：**
 拷贝`dnsconfig.ini`文件前，先修改此文件里的相关配置，但不要改变文件原有的编码格式。
@@ -107,7 +107,7 @@ curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
 
 ## 实践场景
 ### Unity 接入说明
-#### 1. 初始化 HttpDNS 和灯塔接口。
+#### 1. 初始化 HttpDns 和灯塔接口。
 > **注意：**
 若已接入了腾讯灯塔则不需要初始化灯塔。
 
@@ -136,7 +136,7 @@ private static AndroidJavaObject m_dnsJo;
 	}
 ```
 
-#### 2. 调用 HttpDNS 接口解析域名。
+#### 2. 调用 HttpDns 接口解析域名。
 ```
 // 该操作建议在子线程中处理
 public static string GetHttpDnsIP( string strUrl ) {
@@ -254,12 +254,12 @@ return null;
 mWebView.loadUrl(targetUrl); 
 }
 ```
-### OkHttp + HttpDNS 场景
+### OkHttp + HttpDns 场景
 ```
     // 方案仅做参考
     String url = "http://www.qq.com";
     Uri uri = Uri.parse(url);
-    String ip = MSDKDnsResolver.getInstance().getAddrByName("www.qq.com"); // HttpDNS解析域名
+    String ip = MSDKDnsResolver.getInstance().getAddrByName("www.qq.com"); // HttpDns解析域名
     if (ip != null) {
 	    if (ip.contains(";")) {
 	        ip = ip.substring(0, ip.indexOf(";"));
