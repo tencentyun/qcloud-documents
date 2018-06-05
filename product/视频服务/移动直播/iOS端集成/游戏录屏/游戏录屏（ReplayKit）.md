@@ -10,7 +10,7 @@ iOS 11 新增的 ReplayKit2，进一步提升了 Replaykit 的易用性，可以
 
 ## 功能体验
 
-体验 iOS 录屏可下载我们的测试 Demo：[RPLiveStream](http://dldir1.qq.com/hudongzhibo/xiaozhibo/RPLiveStream-master.zip)。
+体验iOS录屏可以下载【视频云工具包】
 
 ![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/er.png)
 
@@ -20,6 +20,7 @@ iOS 11 新增的 ReplayKit2，进一步提升了 Replaykit 的易用性，可以
 
 ![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/out.png)
 
+推流设置成功后，顶部通知栏会提示推流开始，此时您可以在其它设备上看到该手机的屏幕画面。单击手机状态栏的红条，即可停止推流。
 
 ## 开发环境准备
 
