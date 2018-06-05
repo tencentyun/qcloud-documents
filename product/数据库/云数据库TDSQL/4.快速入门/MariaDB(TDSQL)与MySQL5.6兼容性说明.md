@@ -228,8 +228,8 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 
 <tr>
 <th width="20%">Heading</th>
-<th width="40%">Another Heading</th>
-<th width="40%">Another Heading</th>
+<th width="30%">Another Heading</th>
+<th width="30%">Another Heading</th>
 </tr>
 
 <tr>
@@ -252,7 +252,7 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 
 <tr>
 <td>slow_query_log_file</td>
-<td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td>
+<td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td>
 <td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/mysqld.1/mysqld-slow.log</td>
 </tr>
 
@@ -270,7 +270,7 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 
 <tr>
 <td>pid_file</td>
-<td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td>
+<td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td>
 <td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/mysql-test/var/run/mysqld.1.pid</td>
 </tr>
 
@@ -478,7 +478,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 
 <tr>
 <td>lc_messages_dir</td>
-<td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/sql/share/</td>
+<td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/build_dongzhi/sql/share/</td>
 <td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/build_dongzhi/sql/share/</td>
 </tr>
 
@@ -490,7 +490,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 
 <tr>
 <td>plugin_dir</td>
-<td>	/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/lib/plugin/</td>
+<td>/data/home/tdengine/dongzhi/src/tdsql-mariadb-10.1.9-release1/lib/plugin/</td>
 <td>/data/home/tdengine/dongzhi/src/mysql-server-5.6/lib/plugin/</td>
 </tr>
 
