@@ -4,7 +4,7 @@
 
 **CdnPusherV2** 将指定URL资源主动推送至CDN节点。
 
-请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
+请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 **注意事项：**
 + 默认情况下，每一个账号每日可预热资源 1000条，每次最多可提交20条
