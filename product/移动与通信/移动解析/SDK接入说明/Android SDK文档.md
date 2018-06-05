@@ -106,12 +106,13 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
             connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名 
             connection.setRequestProperty("Host", oldUrl.getHost()); 
         } 
-	```
+```
 	
 以curl为例：
-	    假设你要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
+	    假设你要访问 www.qq.com, 通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
 ```
-		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.```
+		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
+```
 		
 ## 实践场景
 ## 1. Unity 接入说明:
