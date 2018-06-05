@@ -109,7 +109,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 ```
 	
 以curl为例：
-	    假设你要访问 www.qq.com, 通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
+	    假设您要访问 www.qq.com, 通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
 ```
 		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
