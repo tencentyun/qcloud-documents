@@ -15,19 +15,19 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 
 **未接入灯塔（Beacon）的业务**
 - 引入依赖库（位于HTTPDNSLibs目录下）：
- - BeaconAPI_Base.framework
- - MSDKDns.framework（或MSDKDns_C11.framework，根据工程配置选其一）
+  - BeaconAPI_Base.framework
+  - MSDKDns.framework（或MSDKDns_C11.framework，根据工程配置选其一）
 - 引入系统库：
- - libz.tdb
- - libsqlite3.tdb
- - libstdc++.tdb
- - libstdc++.6.0.9.tdb
- - libc++.tdb
- - Foundation.framework
- - CoreTelephony.framework
- - SystemConfiguration.framework
- - CoreGraphics.framework
- - Security.framework
+  - libz.tdb
+  - libsqlite3.tdb
+  - libstdc++.tdb
+  - libstdc++.6.0.9.tdb
+  - libc++.tdb
+  - Foundation.framework
+  - CoreTelephony.framework
+  - SystemConfiguration.framework
+  - CoreGraphics.framework
+  - Security.framework
 - 并在`application:didFinishLaunchingWithOptions:`加入注册灯塔代码：
 ```
 //已正常接入灯塔的业务无需关注以下代码，未接入灯塔的业务调用以下代码注册灯塔
