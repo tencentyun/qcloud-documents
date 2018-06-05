@@ -2,7 +2,7 @@
 车辆属性别服务，传入一张图片，返回该图片中的最大车辆的车系、品牌、车辆类型、颜色等属性的 Top5 识别结果。
 
 ### 调用 URL
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 ```
 http://recognition.image.myqcloud.com/car/classify
 ```
@@ -12,8 +12,8 @@ http://recognition.image.myqcloud.com/car/classify
 | ----- | --------------- |
 | appid | 项目 ID，接入项目的唯一标识 |
 
-## http 请求
-车辆检测识别接口采用 http 协议，支持上传本地图片数据进行识别。
+## HTTP 请求
+车辆检测识别接口采用 HTTP 协议，支持上传本地图片数据进行识别。
 
 ### 头部信息
 | 参数名            | 值                              | 描述                                       |
