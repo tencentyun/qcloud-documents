@@ -53,29 +53,29 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 | TIME_OUT | Number | 请求 HttpDns 的超时设定时间单位：ms ; 如未设置，默认为 1000 ms |
 | DNS_ID |String | 接入时由系统或者管理员分配 |
 | DNS_KEY | String | 接入时由系统或者管理员分配 |
-| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭HttpDns 日志。 |
+| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭HttpDns 日志 |
 
 ## API 及使用示例
 获取IP共有两个接口：同步接口 **WGGetHostByName**，异步接口  **WGGetHostByNameAsync**。引入头文件，调用相应接口即可。
 返回的地址格式为 NSArray，固定长度为 2。其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。
 以下为返回格式的详细说明：
-- [ipv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在ipv6 地址，仅返回 ipv4 地址给业务；
+- [ipv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在 ipv6 地址，仅返回 ipv4 地址给业务；
 - [ipv4, ipv6]：发生在 ipv6 环境下，ipv6 及 ipv4 地址均会返回给业务；
 - [0, 0]：在极其少数的情况下，会返回该格式给业务，此时 httpdns 与 localdns 请求均超时，业务重新调用 WGGetHostByName 接口即可。
 
 > **注意：**
-> 使用 ipv6 地址进行 URL 请求时，需加方框号[ ]进行处理，例如：
+> 使用 ipv6 地址进行 URL 请求时，需加方框号 [ ] 进行处理，例如：
 `http://[64:ff9b::b6fe:7475]/*********`
->使用建议：
+>**使用建议：**
 1、 ipv6 为 0，直接使用 ipv4 地址连接；
 2、 ipv6 地址不为 0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
 
-### 获取IP，同步接口: WGGetHostByName
+### 获取 IP，同步接口: WGGetHostByName
 ```
 /**
 *  同步接口
 *  @param domain 域名
-*  @return 查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
+*  @return 查询到的 IP 数组，超时（1s）或者未未查询到返回[0,0]数组
 */
 - (NSArray*) WGGetHostByName:(NSString*) domain;
 ```
@@ -97,7 +97,7 @@ if (![ipv6 isEqualToString:@"0"]) {
 }
 ```
 
-### 获取IP，异步接口: WGGetHostByNameAsync
+### 获取 IP，异步接口: WGGetHostByNameAsync
 ```
 /**
 *  异步接口
@@ -108,7 +108,7 @@ if (![ipv6 isEqualToString:@"0"]) {
 ```
 
 示例代码：
-**接口调用示例1**：等待完整解析过程结束后，拿到结果，进行连接操作
+**接口调用示例 1**：等待完整解析过程结束后，拿到结果，进行连接操作
 ```
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
 if (ipsArray && ipsArray.count > 1) {
@@ -126,7 +126,7 @@ if (![ipv6 isEqualToString:@"0"]) {
 }];
 ```
 
-**接口调用示例2**：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil
+**接口调用示例 2**：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil
 ```
 __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
@@ -142,11 +142,11 @@ if (result) {
 
 > **注意：**
 > 业务可根据自身需求，任选一种调用方式：
-> **示例1** 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作；缺点：异步接口的处理较同步接口稍显复杂。
->**示例2** 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100 ms 的情况；缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+> **示例 1** 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作；缺点：异步接口的处理较同步接口稍显复杂。
+>**示例 2** 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100 ms 的情况；缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
 
 ###  控制台日志: WGOpenMSDKDnsLog
-业务可以通过开关控制是否打印 HttpDns 相关的Log。
+业务可以通过开关控制是否打印 HttpDns 相关的 Log。
 ```
 	/**
 	 *  Log开关
@@ -161,10 +161,10 @@ if (result) {
 ```
 
 ## 注意事项
-如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 http 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 Http 头的 Host字段。
+如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 http 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 Http 头的 Host 字段。
 - 以 NSURLConnection 为例：
 ```
-NSURL* httpDnsURL = [NSURL URLWithString:@”使用解析结果ip拼接的URL”];
+NSURL* httpDnsURL = [NSURL URLWithString:@”使用解析结果 ip 拼接的 URL ”];
 float timeOut = 设置的超时时间;
 NSMutableURLRequest* mutableReq = [NSMutableURLRequest requestWithURL:httpDnsURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval: timeOut];
 [mutableReq setValue:@"原域名" forHTTPHeaderField:@"host"];
@@ -228,8 +228,8 @@ HttpDns.GetHostByName(domainStr);
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
 6.按照所需接口调用即可。
 
-###  Https场景下（非SNI）使用HttpDns解析结果
-原理：在进行证书校验时，将ip替换成原来的域名，再进行证书验证。
+###  Https场景下（非 SNI）使用 HttpDns 解析结果
+原理：在进行证书校验时，将 ip 替换成原来的域名，再进行证书验证。
 1.以 NSURLConnection 接口为例，实现以下两个方法：
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
@@ -266,7 +266,7 @@ if (!challenge) {
 return;
 }   
 /*
-* URL里面的host在使用HTTPDNS的情况下被设置成了IP，此处从HTTP Header中获取真实域名
+* URL里面的 host 在使用 HTTPDNS 的情况下被设置成了 IP，此处从 HTTP Header 中获取真实域名
 */
 NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
 if (!host) {
@@ -274,7 +274,7 @@ host = self.request.URL.host;
 }        
 
 /*
-* 判断challenge的身份验证方法是否是NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
+* 判断 challenge 的身份验证方法是否是 NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
 * 在没有配置身份验证方法的情况下进行默认的网络请求流程。
 */
 if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
@@ -282,7 +282,7 @@ if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenti
 if([self evaluateServerTrust:challenge.protectionSpace.serverTrust 
 forDomain:host]) {
 /*
-* 验证完以后，需要构造一个NSURLCredential发送给发起方
+* 验证完以后，需要构造一个 NSURLCredential 发送给发起方
 */
 NSURLCredential *credential = [NSURLCredential 
 credentialForTrust:challenge.protectionSpace.serverTrust];
@@ -319,10 +319,10 @@ if (domain) {
 */
 SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 /*
-* 评估当前serverTrust是否可信任，
-* 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过
+* 评估当前 serverTrust 是否可信任，
+* 官方建议在 result = kSecTrustResultUnspecified 或 kSecTrustResultProceed 的情况下 serverTrust 可以被验证通过
 *  https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-* 关于SecTrustResultType的详细信息请参考SecTrust.h
+* 关于 SecTrustResultType 的详细信息请参考 SecTrust.h
 */
 SecTrustResultType result;
 SecTrustEvaluate(serverTrust, &result);
@@ -359,7 +359,7 @@ disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 } else {
 disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 }
-// 对于其他的challenges直接使用默认的验证方案
+// 对于其他的 challenges 直接使用默认的验证方案
 completionHandler(disposition,credential);
 }
 ```
@@ -375,10 +375,10 @@ const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-### SNI（单IP多HTTPS证书）场景下使用 HttpDns 解析结果
+### SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 
-- 在连接到服务器建立SSL链接之前先发送要访问站点的域名（Hostname）。
+- 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
 - 服务器根据这个域名返回一个合适的证书。
 
 上述过程中，当客户端使用 HttpDns 解析域名时，请求 URL 中的 host 会被替换成 HttpDns 解析出来的 IP，导致服务器获取到的域名为解析后的 IP，无法找到匹配的证书，只能返回默认的证书或者不返回，所以会出现 SSL/TLS 握手不成功的错误。
