@@ -6,10 +6,10 @@
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
-### url 说明
-支持 http 和 https 两种协议：
+### URL 说明
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/bankcard`
 
@@ -30,12 +30,12 @@
 
 | 参数    | 必选 | 类型     | 说明                                   |
 | ----- | ---- | ------ | ------------------------------------ |
-| appid | 是   | string |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                           |
-| image | 否   | binary | 图片内容                                 |
-| url   | 否   | string | image和url只提供一个即可；如果都提供，只使用url |
+| appid | 是   | string |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                           |
+| image | 否   | binary | 图片内容。                                 |
+| URL   | 否   | string | image 和 URL 只提供一个即可；如果都提供，只使用 URL。 |
 
 ## 返回内容
-
+。
 | 字段         | 类型     | 说明                        |
 | ---------- | ------ | ------------------------- |
 | code       | int    | 返回值                       |
@@ -54,7 +54,7 @@ items 说明：
 | itemconf   | float  | 识别结果对应的置信度                               |
 
 ## 请求示例
-### 使用 url 的请求示例
+### 使用 URL 的请求示例
 
 ```
 POST /ocr/bankcard HTTP/1.1
@@ -190,7 +190,7 @@ Content-Type: application/json
 | 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服   |
 | 4     | 签名为空                            |
 | 5     | 签名串错误                           |
-| 6     | APPID /存储桶/ url 不匹配             |
+| 6     | APPID /存储桶/ URL 不匹配             |
 | 7     | 签名编码失败（内部错误）                    |
 | 8     | 签名解码失败（内部错误）                    |
 | 9     | 签名过期                            |
@@ -201,9 +201,9 @@ Content-Type: application/json
 | 14    | 签名失败                            |
 | 15    | 操作太频繁，触发频控                      |
 | 16    | 存储桶不存在                          |
-| 17    | url  为空                         |
-| 18    | 没有图片或 url                       |
-| 19    | 图片数过多，单次请求最多支持 20 个 url 或文件     |
+| 17    | URL  为空                         |
+| 18    | 没有图片或 URL                       |
+| 19    | 图片数过多，单次请求最多支持 20 个 URL 或文件     |
 | 20    | 图片过大，单个文件最大支持 1MB               |
 | 21    | 无效的参数                           |
 | 200   | 内部打包失败                          |
@@ -218,6 +218,6 @@ Content-Type: application/json
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
 
-更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 
+更多其他 API 错误码请看 [错误码说明](/document/product/641/12410)。 
 
 

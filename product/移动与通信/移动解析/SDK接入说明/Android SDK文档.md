@@ -1,23 +1,10 @@
-# Android版接入说明文档(腾讯云客户专用)
-## GitHub目录结构说明
-
-|目录名称 | 说明 | 适用范围 |
-|---------|---------|---------|
-| HttpDnsLibs | HttpDns Android SDK库目录 | 所有业务 |
-| HttpDns Android客户端接入文档（腾讯内部业务专用）.doc | HttpDns Android客户端接入文档（腾讯内部业务专用） | 腾讯内部业务 |
-|HttpDns Android客户端接入文档（腾讯内部业务专用）.md |  HttpDns Android客户端接入文档（腾讯内部业务专用）| 腾讯内部业务 |
-|HttpDns Android客户端接入文档（腾讯外部客户专用）.doc  | HttpDns Android客户端接入文档（腾讯云客户专用） |  腾讯云客户|
-| README.md |HttpDns Android客户端接入文档（腾讯云客户专用）  | 腾讯云客户 |
-|VERSION.md  | HttpDns Android SDK历史版本修改记录 | SDK开发维护人员 |
-
-## 1. 概述
-目前域名解析普遍存在域名劫持的情况，这给我们的运维和安全带来不少挑战，为解决这个问题，我们引入 Http DNS 功能，为保证能获取 DNS，该功能共分为两个层级：HttpDNS、LocalDNS，HttpDNS 获取成功，直接返回 HttpDNS 的值，HttpDNS 获取失败时则拿取 LocalDNS 的值，如若两种情况都获取失败则返回空值。
+##  概述
+目前域名解析普遍存在域名劫持的情况，这给我们的运维和安全带来不少挑战，为解决这个问题，我们引入 HttpDNS 功能。为保证能获取 DNS，该功能共分为两个层级：HttpDNS、LocalDNS。HttpDNS 获取成功，直接返回 HttpDNS 的值；HttpDNS 获取失败时，则返回 LocalDNS 的值；若两种情况都获取失败，则返回空值。
 您可以通过以下方式获取智营解析 Android SDK：
-
 [从 Github 获取最新版本SDK >>](https://github.com/tencentyun/httpdns-android-sdk)
 
-## 2. 接入 
-### 2.1 AndroidMainfest 配置：
+## 接入 
+### 步骤 1：AndroidMainfest 配置
 ```
     <uses-permission android:name="android. permission. ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android. permission. ACCESS_WIFI_STATE" />
@@ -34,24 +21,29 @@
 </receiver>
 ```
 
-### 2.2 接入 HttpDns 库：
-将`HttpDnsLibs\httpdns_xxxx.jar`库文件拷贝至工程 libs 相应的位置，将`HttpDnsLibs\dnsconfig.ini`配置文件拷贝到应用 Android\assets 目录下；
-
-注意：拷贝`dnsconfig.ini`文件前，先修改此文件里的相关配置，但不要改变文件原有的编码格式，具体修改方法如下：
-
+### 步骤 2：接入 HttpDns 库
+将`HttpDnsLibs\httpdns_xxxx.jar`库文件拷贝至工程 libs 相应的位置，将`HttpDnsLibs\dnsconfig.ini`配置文件拷贝到应用`Android\assets`目录下；
+> **注意：**
+拷贝`dnsconfig.ini`文件前，先修改此文件里的相关配置，但不要改变文件原有的编码格式。
+具体修改方法如下：
+> 
 | 修改项 | 修改字段 | 修改方法 |
 |---------|---------|---------|
 | 外部厂商和内部厂商开关 | IS_COOPERATOR | true |
 |外部厂商测试开关 | IS_COOPERATOR_TEST |测试环境填"true"，使用正式环境填"false"，正式上线时必须为”false” |
-| 厂商上报appID | COOPERATOR_APPID | 云官网注册获得 |
-| HttpDns SDK日志开关 | IS_DEBUG | true为打开日志开关，false为关闭开关 |
-| 服务端分配的ID | DNS_ID | 云官网注册获得 |
-| 服务端分配的KEY |DNS_KEY | 云官网注册获得 |
+| 厂商上报 appID | COOPERATOR_APPID | 云官网注册获得 |
+| HttpDns SDK 日志开关 | IS_DEBUG | true 为打开日志开关，false 为关闭开关 |
+| 服务端分配的 ID | DNS_ID | 腾讯云官网注册获得 |
+| 服务端分配的 KEY |DNS_KEY | 腾讯云官网注册获得 |
 
-### 2.3 接入依赖库：（注意：已经接入了腾讯灯塔 ( beacon) 组件的应用忽略此步）
-将`HttpDnsLibs\ beacon_android_vxxxx.jar`灯塔库拷贝至游戏 libs 相应的位置；
+### 步骤 3：接入依赖库
+> **注意：**
+> 已经接入了腾讯灯塔 ( beacon) 组件的应用请忽略此步骤 。
 
-### 2.4 HttpDns Java 接口调用：
+将`HttpDnsLibs\ beacon_android_vxxxx.jar`灯塔库拷贝至游戏 libs 相应的位置。
+
+### 步骤 4：HttpDns Java 接口调用
+调用命令如下：
 ```
 // 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
 try {
@@ -86,16 +78,16 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 	String ips = MSDKDnsResolver.getInstance(). getAddrByName(domain);
 ```
 
-## 3. 注意事项：
-### 3.1 建议调用 HttpDns 同步接口时最好在子线程调用 getAddrByName(domain) 接口。
-### 3.2 如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 http 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 Http 头的 Host 字段。
-以URLConnection为例： 
+## 注意事项
+- 建议调用 HttpDns 同步接口时最好在子线程调用 getAddrByName(domain) 接口。
+- 如果客户端的业务已与 Host 绑定，例如绑定了 Host 的 HTTP 服务或 CDN 服务。那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 Host 字段。
+ - 以 URLConnection 为例： 
 ```
 		URL oldUrl = new URL(url); 
         URLConnection connection = oldUrl.openConnection(); 
         // 获取HttpDns域名解析结果 
         String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost()); 
-        if (ips != null) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置 
+        if (ips != null) { // 通过HTTPDNS获取IP成功，进行URL替换和Host头设置 
             String ip; 
             if (ips.contains(";")) { 
                 ip = ips.substring(0, ips.indexOf(";")); 
@@ -107,17 +99,18 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
             connection.setRequestProperty("Host", oldUrl.getHost()); 
         } 
 ```
-	
-以curl为例：
-	    假设您要访问 www.qq.com, 通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
+ - 以 curl 为例：
+假设您要访问`www.qq.com`通过 HTTPDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可： 
 ```
-		curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
+curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
-		
+
 ## 实践场景
-## 1. Unity 接入说明:
-### (1) 先初始化 HttpDns 和灯塔接口：
-注意：若已接入了腾讯灯塔则不用初始化灯塔。
+### Unity 接入说明
+#### 1. 初始化 HttpDns 和灯塔接口。
+> **注意：**
+若已接入了腾讯灯塔则不需要初始化灯塔。
+
 ```
 private static AndroidJavaObject m_dnsJo;
 	private static AndroidJavaClass sGSDKPlatformClass;
@@ -142,7 +135,8 @@ private static AndroidJavaObject m_dnsJo;
 		m_dnsJo.Call("init", context);
 	}
 ```
-### (2) 调用 HttpDns 接口解析域名：
+
+#### 2. 调用 HttpDns 接口解析域名。
 ```
 // 该操作建议在子线程中处理
 public static string GetHttpDnsIP( string strUrl ) {
@@ -159,7 +153,7 @@ public static string GetHttpDnsIP( string strUrl ) {
 		return strIp;
 	}
 ```
-## 2. H5 页面内元素 HTTP_DNS 加载
+### H5 页面内元素 HTTP_DNS 加载
 原理：
 Android 原生系统提供了系统 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入，我们可以通过上述拦截 WebView 的各类网络请求，截取 URL 请求的 host，然后调用 HttpDns 解析该 host，通过得到的 IP 组成新的 URL 来请求网络地址。
 实现方法：
@@ -215,7 +209,7 @@ e.printStackTrace();
 } 
 return null; 
 } 
-// API 11至API20使用此方法 
+// API 11至 API 20 使用此方法 
 public WebResourceResponse shouldInterceptRequest(WebView view, String url) { 
 if (!TextUtils.isEmpty(url) && Uri.parse(url).getScheme() != null) { 
 String scheme = Uri.parse(url).getScheme().trim(); 
@@ -256,11 +250,11 @@ e.printStackTrace();
 return null; 
 } 
 }); 
-// 加载web资源 
+// 加载Web资源 
 mWebView.loadUrl(targetUrl); 
 }
 ```
-## 3. OkHttp+HttpDns 场景
+### OkHttp + HttpDns 场景
 ```
     // 方案仅做参考
     String url = "http://www.qq.com";
@@ -309,9 +303,8 @@ mWebView.loadUrl(targetUrl);
     }
 ```
 
-## 4. Https 场景
-### 4.1 普通 Https 场景
-
+### HTTPS 场景
+#### 普通 HTTPS 场景
 ```
   String url = "https://httpdns域名解析得到的IP/d?dn=&clientip=1&ttl=1&id=128"; // 业务自己的请求连接
 	HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
@@ -327,8 +320,7 @@ mWebView.loadUrl(targetUrl);
 	connection.connect();
 ```
 
-### 4.2 Https SNI（单IP多 HTTPS 证书）场景
-
+#### HTTPS SNI（单 IP 多 HTTPS 证书）场景
 ```
 	 String url = "https://" + ip + "/pghead/xxxxxxx/140"; // 用HttpDns解析得到的IP封装业务的请求URL
 		HttpsURLConnection sniConn = null;
@@ -465,7 +457,8 @@ mWebView.loadUrl(targetUrl);
 
 ```
 
-## 5. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析
+### 代理使用场景
+请检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析。
 
 ```
     String host = System.getProperty("http.proxyHost");
