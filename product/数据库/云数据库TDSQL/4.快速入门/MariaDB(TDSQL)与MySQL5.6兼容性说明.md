@@ -227,9 +227,9 @@ Mysql5.5/5.6返回NULL, Mariadb10.1和Mysql5.7返回 2016-08-03 23:38:58
 <table>
 
 <tr>
-<th width="20%">Heading</th>
-<th width="30%">Another Heading</th>
-<th width="30%">Another Heading</th>
+<th width="20%">参数名</th>
+<th width="30%">TDSQL（MariaDB 10.1）</th>
+<th width="30%">MySQL 5.6</th>
 </tr>
 
 <tr>
