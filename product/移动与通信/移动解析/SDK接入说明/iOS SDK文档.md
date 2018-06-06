@@ -9,7 +9,7 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 - `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。
 
 ## 接入步骤
-### 步骤1： 引入依赖库
+### 步骤 1： 引入依赖库
 **已接入灯塔（Beacon）的业务**
 仅需引入位于 HTTPDNSLibs 目录下的 `MSDKDns.framework`（或  `MSDKDns_C11.framework`，根据工程配置选其一）即可。
 
@@ -43,7 +43,7 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 > **注意：**
 > 需要在 Other linker flag 里加入 -ObjC 标志。
 
-### 步骤2： 配置文件
+### 步骤 2： 配置文件
 在` info.plist `中进行配置如下：
 
 | Key | Type | Value |
@@ -56,21 +56,25 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 | Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭HttpDns 日志 |
 
 ## API 及使用示例
-获取IP共有两个接口：同步接口 **WGGetHostByName**，异步接口  **WGGetHostByNameAsync**。引入头文件，调用相应接口即可。
-返回的地址格式为 NSArray，固定长度为 2。其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。
-以下为返回格式的详细说明：
-- [ipv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在 ipv6 地址，仅返回 ipv4 地址给业务；
-- [ipv4, ipv6]：发生在 ipv6 环境下，ipv6 及 ipv4 地址均会返回给业务；
-- [0, 0]：在极其少数的情况下，会返回该格式给业务，此时 httpdns 与 localdns 请求均超时，业务重新调用 WGGetHostByName 接口即可。
+获取 IP 共有两个接口：**同步接口 WGGetHostByName** 和 **异步接口 WGGetHostByNameAsync**。引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2。其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。
+返回格式的详细说明如下：
+- [IPv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在 IPv6 地址，仅返回 IPv4 地址给业务；
+
+- [IPv4, IPv6]：发生在 IPv6 环境下，IPv6 及 IPv4 地址均会返回给业务；
+
+- [0, 0]：在极其少数的情况下，会返回该格式给业务，此时 HttpDNS 与 LocalDNS 请求均超时，业务重新调用 WGGetHostByName 接口即可。
 
 > **注意：**
-> 使用 ipv6 地址进行 URL 请求时，需加方框号 [ ] 进行处理，例如：
-`http://[64:ff9b::b6fe:7475]/*********`
+> 使用 IPv6 地址进行 URL 请求时，需加方框号 [ ] 进行处理，例如：
+```
+http://[64:ff9b::b6fe:7475]/*********
+```
 >**使用建议：**
-1、 ipv6 为 0，直接使用 ipv4 地址连接；
-2、 ipv6 地址不为 0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
+1. IPv6 为 0，直接使用 IPv4 地址连接；
+2. IPv6 地址不为 0，优先使用 IPv6 连接，如果 IPv6 连接失败，再使用 IPv4 地址进行连接。
 
-### 获取 IP，同步接口: WGGetHostByName
+### 获取 IP
+#### 同步接口 WGGetHostByName
 ```
 /**
 *  同步接口
@@ -80,24 +84,25 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 - (NSArray*) WGGetHostByName:(NSString*) domain;
 ```
 
-示例代码，接口调用示例：
+**接口调用示例代码：**
+
 ```
 NSArray* ipsArray = [[MSDKDns sharedInstance] WGGetHostByName: @"www.qq.com"];
 if (ipsArray && ipsArray.count > 1){
 NSString* ipv4 = ipsArray[0];
 NSString* ipv6 = ipsArray[1];
 if (![ipv6 isEqualToString:@"0"]) {
-//使用建议：当 ipv6 地址存在时，优先使用 ipv6 地址
-//TODO 使用 ipv6 地址进行连接，注意格式，ipv6 需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+//使用建议：当 IPv6 地址存在时，优先使用 IPv6 地址
+//TODO 使用 IPv6 地址进行连接，注意格式，IPv6 需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 } else if (![ipv4 isEqualToString:@"0"]) {
-//使用ipv4地址进行连接
+//使用 IPv4 地址进行连接
 } else {
 //异常情况返回为 0,0 建议重试一次
 } 
 }
 ```
 
-### 获取 IP，异步接口: WGGetHostByNameAsync
+#### 异步接口 WGGetHostByNameAsync
 ```
 /**
 *  异步接口
@@ -107,18 +112,18 @@ if (![ipv6 isEqualToString:@"0"]) {
 - (void) WGGetHostByNameAsync:(NSString*) domain returnIps:(void (^)(NSArray* ipsArray))handler;
 ```
 
-示例代码：
-**接口调用示例 1**：等待完整解析过程结束后，拿到结果，进行连接操作
+**示例代码：**
+- 接口调用示例 1：等待完整解析过程结束后，拿到结果，进行连接操作。
 ```
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
 if (ipsArray && ipsArray.count > 1) {
 NSString* ipv4 = ipsArray[0];
 NSString* ipv6 = ipsArray[1];
 if (![ipv6 isEqualToString:@"0"]) {
-//使用建议：当 ipv6 地址存在时，优先使用 ipv6 地址
-//TODO 使用 ipv6 地址进行 URL 连接时，注意格式，ipv6 需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+//使用建议：当 IPv6 地址存在时，优先使用 IPv6 地址
+//TODO 使用 IPv6 地址进行 URL 连接时，注意格式，IPv6 需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 } else if (![ipv4 isEqualToString:@"0"]){
-//使用 ipv4 地址进行连接
+//使用 IPv4 地址进行连接
 } else {
 //异常情况返回为 0,0 建议重试一次
 }
@@ -126,13 +131,13 @@ if (![ipv6 isEqualToString:@"0"]) {
 }];
 ```
 
-**接口调用示例 2**：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil
+- 接口调用示例 2：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
 ```
 __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
 result = ipsArray;
 }];
-//无需等待，可直接拿到缓存结果，如无缓存，则result为nil
+//无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil
 if (result) {
 //拿到缓存结果，进行连接操作
 } else {
@@ -140,13 +145,17 @@ if (result) {
 }
 ```
 
-> **注意：**
-> 业务可根据自身需求，任选一种调用方式：
-> **示例 1** 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作；缺点：异步接口的处理较同步接口稍显复杂。
->**示例 2** 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100 ms 的情况；缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+您可根据自身业务需求，任选一种调用方式：
+示例 1：
+ - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作；
+ - 缺点：异步接口的处理较同步接口稍显复杂。
 
-###  控制台日志: WGOpenMSDKDnsLog
-业务可以通过开关控制是否打印 HttpDns 相关的 Log。
+示例 2：
+- 优点：对于解析时间有严格要求的业务，使用本示例，无需等待，可直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100 ms 的情况；
+- 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+
+###  控制台日志
+用户可以通过 **WGOpenMSDKDnsLog 接口** 控制是否打印 HttpDns 相关的 Log。
 ```
 	/**
 	 *  Log开关
@@ -154,17 +163,16 @@ if (result) {
 	 */
 	- (void) WGOpenMSDKDnsLog:(BOOL) enabled;
 ```
+#### 接口调用示例代码：
 
-示例代码，接口调用示例：
 ```
 [[MSDKDns sharedInstance] WGOpenMSDKDnsLog: YES];
 ```
-
 ## 注意事项
-如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 http 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 Http 头的 Host 字段。
+如果客户端的业务已与 Host 绑定，例如绑定了 Host 的 HTTP 服务或 CDN 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 Host 字段。
 - 以 NSURLConnection 为例：
 ```
-NSURL* httpDnsURL = [NSURL URLWithString:@”使用解析结果 ip 拼接的 URL ”];
+NSURL* httpDnsURL = [NSURL URLWithString:@”使用解析结果 IP 拼接的 URL ”];
 float timeOut = 设置的超时时间;
 NSMutableURLRequest* mutableReq = [NSMutableURLRequest requestWithURL:httpDnsURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval: timeOut];
 [mutableReq setValue:@"原域名" forHTTPHeaderField:@"host"];
@@ -178,7 +186,7 @@ curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
 - 以 Unity 的 WWW 接口为例：
 ```
-string httpDnsURL = "使用解析结果 ip 拼接的 URL";
+string httpDnsURL = "使用解析结果 IP 拼接的 URL";
 Dictionary<string, string> headers = new Dictionary<string, string> ();
 headers["host"] = "原域名";
 WWW conn = new WWW (url, null, headers);
@@ -194,7 +202,7 @@ if (conn.error != null)
 
 ## 实践场景
 ###  Unity 工程接入
-1.在 cs 文件中进行接口声明：
+(a). 在 cs 文件中进行接口声明：
 ```
 #if UNITY_IOS
 [DllImport("__Internal")]
@@ -203,17 +211,19 @@ private static extern string WGGetHostByName(string domain);
 private static extern void WGGetHostByNameAsync(string domain);
 #endif
 ```
-2.在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
+
+(b). 在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
+
 ```
 string ips = HttpDns.GetHostByName(domainStr);
 string[] sArray=ips.Split(new char[] {';'}); 
 if (sArray != null && sArray.Length > 1) {
 if (!sArray[1].Equals("0")) {
-//使用建议：当 ipv6 地址存在时，优先使用 ipv6 地址
+//使用建议：当 IPv6 地址存在时，优先使用 IPv6 地址
 //TODO 使用 ipv6 地址进行 URL 连接时，注意格式，需加方框号[ ]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 				
 } else if(!sArray [0].Equals ("0")) {
-//使用 ipv4 地址进行连接
+//使用 IPv4 地址进行连接
 				
 } else {
 //异常情况返回为0,0 建议重试一次
@@ -221,16 +231,18 @@ HttpDns.GetHostByName(domainStr);
 }
 }
 ```
-3.设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
-4.将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
-5.将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
+
+ (c). 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
+ (d). 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
+ (e). 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
 ![](https://main.qcloudimg.com/raw/a03a4371a586dca6b6eefea3fad26274.jpg)
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
-6.按照所需接口调用即可。
+(f). 按照所需接口调用即可。
 
-###  Https场景下（非 SNI）使用 HttpDns 解析结果
-原理：在进行证书校验时，将 ip 替换成原来的域名，再进行证书验证。
-1.以 NSURLConnection 接口为例，实现以下两个方法：
+### 普通 HTTPS 场景
+原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
+
+1. 以 NSURLConnection 接口为例，实现以下两个方法：
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -301,7 +313,7 @@ credentialForTrust:challenge.protectionSpace.serverTrust];
 }
 }
 ```
-2.以 NSURLSession 接口为例，实现以下两个方法：
+2. 以 NSURLSession 接口为例，实现以下两个方法：
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -363,7 +375,7 @@ disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 completionHandler(disposition,credential);
 }
 ```
-3.以 Unity 的 WWW 接口为例：
+3. 以 Unity 的 WWW 接口为例：
 将 Unity 工程导为 Xcode工程后，打开`Classes/Unity/WWWConnection.mm`文件，修改下述代码：
 ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
@@ -375,7 +387,7 @@ const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-### SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
+### HTTPS SNI（单 IP 多 HTTPS 证书）场景
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
@@ -385,8 +397,8 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 
 由于 iOS 上层网络库 NSURLConnection/NSURLSession 没有提供接口进行 SNI 字段的配置，因此可以考虑使用 NSURLProtocol 拦截网络请求，然后使用 CFHTTPMessageRef 创建 NSInputStream 实例进行 Socket 通信，并设置其 kCFStreamSSLPeerName 的值。
 需要注意的是，使用 NSURLProtocol 拦截 NSURLSession 发起的 POST 请求时，HTTPBody 为空。解决方案有两个：
-1.使用 NSURLConnection 发 POST 请求。
-2.先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
+1. 使用 NSURLConnection 发 POST 请求。
+2. 先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
 
 具体示例参见 Demo，部分代码如下：
 在网络请求前注册 NSURLProtocol 子类，在示例的 `SNIViewController.m `中。
