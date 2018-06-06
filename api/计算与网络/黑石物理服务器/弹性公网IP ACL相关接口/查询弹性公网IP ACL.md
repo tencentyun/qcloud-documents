@@ -69,14 +69,14 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 | codeDesc | String | 错误码描述 |  
 | data |   Object | EIPACL 列表，具体结构描述如 data 结构所示。 |
 
-data结构
+data 结构
 
 |参数名称|类型|描述|
 |---|---|---|
 | totalNum | Int | 返回 EIPACL 列表总数 |
 | eipAclList| Array(Object) | 对象数组。数组元素为设备信息，具体结构描述如 eipAclList 结构所示。|
 
-eipAclList结构
+eipAclList 结构
 
 | 参数名称          | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
@@ -88,7 +88,7 @@ eipAclList结构
 | inrule      | Array(Object) | 对象数组。数组的每一个元素是一条入站规则，规则的结构描述如 rule 结构所示                                 |
 | outrule      | Array(Object) | 对象数组。数组的每一个元素是一条出站规则，规则的结构描述如 rule 结构所示                                 |
 
-rule结构
+rule 结构
 
 | 参数名称          | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
