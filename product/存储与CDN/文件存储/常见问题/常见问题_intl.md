@@ -8,7 +8,7 @@ CFS is billed only based on actual storage (peak storage per hour).
 ### Which access protocols are supported by CFS?
 NFS v3.0/v4.0 and CIFS/SMB protocols. The CIFS/SMB protocol is under public trial, and you can submit a ticket to apply for a trial.
 
-Because clients including Windows， Linux 3.10 and its previous kernel versions (eg CentOS 6.* ) are incompatible with the NFS 4.0 protocol, they cannot work normally after being mounted with NFS 4.0. Use NFS 3.0 to mount such clients.
+Because operation system clients include Windows， Linux 3.10 (eg CentOS 6.* ) and it's previous kernel version are incompatible with the NFS 4.0 protocol, they cannot work normally after being mounted with NFS 4.0. Use NFS 3.0 to mount such clients.
 
 ### CFS-related concepts
 File system: A file system is a file storage instance. After a file system is mounted to a CVM, you can use it in the same way as you use a local storage. It can be mounted to a directory.
@@ -30,6 +30,7 @@ A maximum of 10 file systems can be created for ​a single user in each region.
 - If the file system is not mounted to the mount point root directory, check whether the corresponding mount point directory exists. (The common error message here is "Stale file handle". You can check whether the subdirectory exists through the device that has been mounted to the root directory.)
 
 ### File system port
+
 File System Protocol | Open Port | Check Network Connectivity
 ------- | ------- | ---------
 NFS 3.0 | 111, 892, 2049 | telnet file system IP 2049
