@@ -237,7 +237,7 @@ HttpDns.GetHostByName(domainStr);
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
 6. 按照所需接口调用即可。
 
-###  普通 HTTPS 场景
+### 普通 HTTPS 场景
 原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
 1. 以 NSURLConnection 接口为例，实现以下两个方法：
 ```
