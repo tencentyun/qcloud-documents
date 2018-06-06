@@ -1,5 +1,5 @@
 ## 功能描述
-EipAclBmUnBind 接口用于为某个EIP关联ACL。
+EipAclBmUnBind 接口用于为某个EIP解绑ACL。
 
 接口访问域名: bmeip.api.qcloud.com
 
