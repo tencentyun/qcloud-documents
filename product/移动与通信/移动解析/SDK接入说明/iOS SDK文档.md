@@ -102,7 +102,7 @@ if (![ipv6 isEqualToString:@"0"]) {
 }
 ```
 
-####  异步接口 WGGetHostByNameAsync
+#### 异步接口 WGGetHostByNameAsync
 ```
 /**
 *  异步接口
@@ -112,7 +112,7 @@ if (![ipv6 isEqualToString:@"0"]) {
 - (void) WGGetHostByNameAsync:(NSString*) domain returnIps:(void (^)(NSArray* ipsArray))handler;
 ```
 
-** 示例代码：**
+**示例代码：**
 - 接口调用示例 1：等待完整解析过程结束后，拿到结果，进行连接操作。
 ```
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
@@ -229,6 +229,7 @@ HttpDns.GetHostByName(domainStr);
 }
 }
 ```
+
 3. 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
 4. 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
 5. 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
@@ -393,8 +394,8 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 
 由于 iOS 上层网络库 NSURLConnection/NSURLSession 没有提供接口进行 SNI 字段的配置，因此可以考虑使用 NSURLProtocol 拦截网络请求，然后使用 CFHTTPMessageRef 创建 NSInputStream 实例进行 Socket 通信，并设置其 kCFStreamSSLPeerName 的值。
 需要注意的是，使用 NSURLProtocol 拦截 NSURLSession 发起的 POST 请求时，HTTPBody 为空。解决方案有两个：
-1.使用 NSURLConnection 发 POST 请求。
-2.先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
+1. 使用 NSURLConnection 发 POST 请求。
+2. 先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
 
 具体示例参见 Demo，部分代码如下：
 在网络请求前注册 NSURLProtocol 子类，在示例的 `SNIViewController.m `中。
