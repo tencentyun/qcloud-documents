@@ -18,7 +18,7 @@ var WEB_IM_GROUP_SYSTEM_TYPE = {
 };
 ```
 
-目前是通过定义群系统消息监听事件来处理群系统消息的。**示例：** 
+目前是通过定义群系统消息监听事件来处理群系统消息的。**示例：**
 
 ```
 //监听（多终端同步）群系统消息，方法都定义在 webim_demo_group_notice.js 文件中
@@ -44,15 +44,15 @@ var groupSystemNotifys = {
 
 ![](//mccdn.qcloud.com/static/img/acf4d425d2353617a543784916396539/image.png)
 
-## 申请加群 
+## 申请加群
 
-**触发时机：**当有用户申请加群时，群管理员会收到申请加群消息，管理员决定是否同意对方加群。 
+**触发时机：**当有用户申请加群时，群管理员会收到申请加群消息，管理员决定是否同意对方加群。
 
-**Demo 提供了查看加群申请的入口：** 
+**Demo 提供了查看加群申请的入口：**
 
 ![](//mccdn.qcloud.com/static/img/ccc1a4aa08e8141fb90d18be59b18b2a/image.png)
 
-**示例：** 
+**示例：**
 
 ```
 //监听 申请加群 系统消息
@@ -67,17 +67,17 @@ function onApplyJoinGroupRequestNotify(notify) {
    $('#get_apply_join_group_pendency_dialog').modal('show');
 
    var reportTypeCh = "[申请加群]";
-   var content = notify.Operator_Account + "申请加入你的群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = notify.Operator_Account + "申请加入您的群";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, timestamp);
 }
 ```
 
-## 申请加群被同意 
+## 申请加群被同意
 
-**触发时机：**当管理员同意加群请求时，申请人会收到同意加群的消息。 
+**触发时机：**当管理员同意加群请求时，申请人会收到同意加群的消息。
 
-**示例：** 
+**示例：**
 
 ```
 //监听 申请加群被同意 系统消息
@@ -86,15 +86,15 @@ function onApplyJoinGroupAcceptNotify(notify) {
    //刷新我的群组列表
    getJoinedGroupListHigh(getGroupsCallbackOK);
    var reportTypeCh = "[申请加群被同意]";
-   var content = notify.Operator_Account + "同意你的加群申请，附言：" + notify.RemarkInfo;
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = notify.Operator_Account + "同意您的加群申请，附言：" + notify.RemarkInfo;
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 申请加群被拒绝 
+## 申请加群被拒绝
 
-**触发时机：**当管理员拒绝时，申请人会收到拒绝加群的消息。 
+**触发时机：**当管理员拒绝时，申请人会收到拒绝加群的消息。
 
 **示例： **
 
@@ -103,17 +103,17 @@ function onApplyJoinGroupAcceptNotify(notify) {
 function onApplyJoinGroupRefuseNotify(notify) {
    console.info("执行 申请加群被拒绝 回调： %s", JSON.stringify(notify));
    var reportTypeCh = "[申请加群被拒绝]";
-   var content = notify.Operator_Account + "拒绝了你的加群申请，附言：" + notify.RemarkInfo;
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = notify.Operator_Account + "拒绝了您的加群申请，附言：" + notify.RemarkInfo;
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 被管理员踢出群 
+## 被管理员踢出群
 
-**触发时机：**当用户被管理员踢出群组时，用户会收到被踢出群的消息。 
+**触发时机：**当用户被管理员踢出群组时，用户会收到被踢出群的消息。
 
-**示例：** 
+**示例：**
 
 ```
 //监听 被踢出群 系统消息
@@ -122,15 +122,15 @@ function onKickedGroupNotify(notify) {
    //刷新我的群组列表
    getJoinedGroupListHigh(getGroupsCallbackOK);
    var reportTypeCh = "[被踢出群]";
-   var content = "你被管理员" + notify.Operator_Account + "踢出该群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您被管理员" + notify.Operator_Account + "踢出该群";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 解散群 
+## 解散群
 
-**触发时机：**当群被解散时，全员会收到解散群消息。 
+**触发时机：**当群被解散时，全员会收到解散群消息。
 
 **示例： **
 
@@ -142,14 +142,14 @@ function onDestoryGroupNotify(notify) {
    getJoinedGroupListHigh(getGroupsCallbackOK);
    var reportTypeCh = "[群被解散]";
    var content = "群主" + notify.Operator_Account + "已解散该群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 创建群 
+## 创建群
 
-**触发时机：**当创建群成功时，创建者会收到创建群消息。 
+**触发时机：**当创建群成功时，创建者会收到创建群消息。
 
 **示例： **
 
@@ -158,17 +158,17 @@ function onDestoryGroupNotify(notify) {
 function onCreateGroupNotify(notify) {
    console.info("执行 创建群 回调： %s", JSON.stringify(notify));
    var reportTypeCh = "[创建群]";
-   var content = "你创建了该群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您创建了该群";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 被邀请加群 
+## 被邀请加群
 
-**触发时机：**当用户被邀请加入群组时，该用户会收到邀请消息，**创建群组时初始成员无需邀请即可入群**。 
+**触发时机：**当用户被邀请加入群组时，该用户会收到邀请消息，**创建群组时初始成员无需邀请即可入群**。
 
-**示例：** 
+**示例：**
 
 ```
 //监听 被邀请加群 系统消息
@@ -177,32 +177,32 @@ function onInvitedJoinGroupNotify(notify) {
    //刷新我的群组列表
    getJoinedGroupListHigh(getGroupsCallbackOK);
    var reportTypeCh = "[被邀请加群]";
-   var content = "你被管理员" + notify.Operator_Account + "邀请加入该群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您被管理员" + notify.Operator_Account + "邀请加入该群";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 主动退群 
+## 主动退群
 
-**触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。 
+**触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。
 
-**示例：** 
+**示例：**
 
 ```
 //监听 主动退群 系统消息
 function onQuitGroupNotify(notify) {
    console.info("执行 主动退群  回调： %s", JSON.stringify(notify));
    var reportTypeCh = "[主动退群]";
-   var content = "你退出了该群";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您退出了该群";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 被设为管理员 
+## 被设为管理员
 
-**触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，可提示用户。 
+**触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，可提示用户。
 
 **示例： **
 
@@ -211,32 +211,32 @@ function onQuitGroupNotify(notify) {
 function onSetedGroupAdminNotify(notify) {
    console.info("执行 被设置为管理员  回调： %s", JSON.stringify(notify));
    var reportTypeCh = "[被设置为管理员]";
-   var content = "你被群主" + notify.Operator_Account + "设置为管理员";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您被群主" + notify.Operator_Account + "设置为管理员";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 被取消管理员 
+## 被取消管理员
 
-**触发时机：**当用户被取消管理员时，可收到取消通知，可提示用户。 
+**触发时机：**当用户被取消管理员时，可收到取消通知，可提示用户。
 
-**示例：** 
+**示例：**
 
 ```
 //监听 被取消管理员 系统消息
 function onCanceledGroupAdminNotify(notify) {
    console.info("执行 被取消管理员 回调： %s", JSON.stringify(notify));
    var reportTypeCh = "[被取消管理员]";
-   var content = "你被群主" + notify.Operator_Account + "取消了管理员资格";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   var content = "您被群主" + notify.Operator_Account + "取消了管理员资格";
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
 
-## 群被回收 
+## 群被回收
 
-**触发时机：**当群组被系统回收时，全员可收到群组被回收消息。 
+**触发时机：**当群组被系统回收时，全员可收到群组被回收消息。
 
 **示例： **
 
@@ -248,7 +248,7 @@ function onRevokeGroupNotify(notify) {
    getJoinedGroupListHigh(getGroupsCallbackOK);
    var reportTypeCh = "[群被回收]";
    var content = "该群已被回收";
-   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId, 
+   addGroupSystemMsg(notify.ReportType, reportTypeCh, notify.GroupId,
                      notify.GroupName, content, notify.MsgTime);
 }
 ```
@@ -257,10 +257,10 @@ function onRevokeGroupNotify(notify) {
 
 **触发时机：**只有 App 管理员才可以发送自定义系统通知，全员可收到该消息。
 
-**发送 API：** 
+**发送 API：**
 
 ```
-/* function sendCustomGroupNotify  
+/* function sendCustomGroupNotify
 	 *   发送自定义群通知
 	 * params:
 	 *   options	- 请求参数，详见 API 文档
@@ -272,11 +272,11 @@ function onRevokeGroupNotify(notify) {
 	sendCustomGroupNotify: function(options,cbOk, cbErr) {},
 ```
 
-Demo 增加了发送自定义通知入口，在 Demo 中点击【菜单】-【群组】-【我的群组】。**发送自定义群通知如下图：**
+Demo 增加了发送自定义通知入口，在 Demo 中单击【菜单】-【群组】-【我的群组】。**发送自定义群通知如下图：**
 
 ![](//mccdn.qcloud.com/static/img/b762e41a5b46b23ac72699bf330adb75/image.png)
 
-**发送 Demo：** 
+**发送 Demo：**
 
 ```
 //发送自定义群系统通知
@@ -307,7 +307,7 @@ var sendCustomGroupNotify = function () {
 };
 ```
 
-**监听解析 Demo：** 
+**监听解析 Demo：**
 
 ```
 //监听 用户自定义 群系统消息

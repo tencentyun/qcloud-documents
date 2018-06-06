@@ -1,11 +1,10 @@
-
 ## 功能描述
 
 PUT Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功能。
 ### 细节分析
 1. 版本管理功能一经打开，只能暂停，不能关闭；
 2. 可以设置版本管理状态为 Enabled 或者 Suspended，表示开启版本管理和暂停版本管理；
-3. 设置版本管理，你需要有存储桶写权限。
+3. 设置版本版本管理，你需要有存储桶写权限。
 
 ## 请求
 
@@ -28,7 +27,7 @@ PUT /?versioning HTTP 1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
@@ -51,7 +50,7 @@ PUT /?versioning HTTP 1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 

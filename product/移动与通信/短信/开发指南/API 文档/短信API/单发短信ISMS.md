@@ -15,8 +15,8 @@
 {
     "ext": "",
     "extend": "",
-    "msg": "你的验证码是 1234",
-    "sig": "30db206bfd3fea7ef0db929998642c8ea54cc7042a779c5a0d9897358f6e9505",
+    "msg": "您的验证码是 1234",
+    "sig": "f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb",
     "tel": "+8613711112222",
     "time": 1457336869,
     "type": 0
@@ -38,9 +38,9 @@
 **注**：
 
 1. "msg" 字段需要匹配审核通过的模板内容
-如果您的模板是 `你的验证码是{ 1 }`，则 "msg" 字段可赋值为：`你的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
+如果您的模板是 `您的验证码是{ 1 }`，则 "msg" 字段可赋值为：`您的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
 如果您有多个短信签名，请将需要的短信签名放在短信内容前面，例如您有 "【腾讯科技】"，"【腾讯云】" 两个签名，但是想以 "【腾讯云】" 签名发送短信，
-则 "msg" 字段可赋值为：`【腾讯云】你的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
+则 "msg" 字段可赋值为：`【腾讯云】您的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
 3. "sig" 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&tel=$tel）`生成
 伪代码如下：
 ```json
@@ -49,7 +49,7 @@ string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appk
 string strRand = "7226249334"; //url 中的 random 字段的值
 string strTime = "1457336869"; //unix 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
-           = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
+           = f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb;
 ```
 
 ## 响应参数

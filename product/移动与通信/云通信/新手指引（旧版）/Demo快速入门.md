@@ -12,8 +12,8 @@
 * C2C沟通功能：收发文字，图片，表情，文件，语音，双人音视频
 * 群沟通功能：收发文字，图片，表情，文件，语音
 
-请点击[即时通信SDK下载体验](http://cloud.tencent.com/product/im.html#sdk)，包括ImSDK以及Demo的源码。
-或者点击[Demo GitHub](https://github.com/zhaoyang21cn/iOS_Suixinliao)，参考Demo的源码。
+请单击[即时通信SDK下载体验](http://cloud.tencent.com/product/im.html#sdk)，包括ImSDK以及Demo的源码。
+或者单击[Demo GitHub](https://github.com/zhaoyang21cn/iOS_Suixinliao)，参考Demo的源码。
 
 ## 2 iOS Demo使用说明
 
@@ -35,8 +35,8 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ### 2.2 Demo使用简介
 
-1、点击“注册新用户”,用手机号码获取验证码注册
- 
+1、单击“注册新用户”,用手机号码获取验证码注册
+
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911084806_31629.jpg)
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911084819_68248.jpg)
@@ -53,7 +53,7 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911084942_83594.png)
 
-5、点击好友或群进行消息收发操作
+5、单击好友或群进行消息收发操作
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085002_23609.jpg)
 
@@ -67,7 +67,7 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ### 3.2 Demo使用简介
 
-1、点击“注册新用户”，用手机号码获取验证码注册
+1、单击“注册新用户”，用手机号码获取验证码注册
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085044_90665.png)
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085125_94859.png)
 2、返回到登录界面登录
@@ -76,5 +76,5 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085242_91666.png)
 4、建群或添加群
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085303_43838.png)
-5、点击好友或群进行消息收发操作
+5、单击好友或群进行消息收发操作
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085320_28112.png)

@@ -56,7 +56,7 @@
 1. 获取数据库的外网地址。
 1). 单击运行中的MariaDB数据库实例的ID名，进入详情页。
 ![](//mc.qcloudimg.com/static/img/08e24afbf51b941df4b8c4a893857b31/image.png)
-2). 在**实例详情**页点击外网地址后的【打开】，开启此数据库实例的外网地址。
+2). 在**实例详情**页单击外网地址后的【打开】，开启此数据库实例的外网地址。
 ![](//mc.qcloudimg.com/static/img/e4793d117939c3f56c5f3d63b0491fe9/image.png)
 3). 查看此数据库实例的外网地址。
 下图中，此数据库的外网域名为：	tdsql-6gy3mopk.gz.cdb.myqcloud.com，端口号为：114

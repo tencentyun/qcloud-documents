@@ -40,7 +40,7 @@ server {
 Windows 2008及更早的版本不支持TLS1_2协议  所以无法调整  2008R2 TLS1_2协议默认是关闭的  需要启用此协议达到ATS要求
 
 以2008 R2为例，导入证书后没有对协议及套件做任何的调整。
-证书导入后检测到套件是支持ATS需求的，但协议TLS1_2没有被启用，ATS需要TLS1_2的支持。可使用的ssltools工具（亚洲诚信提供，[点击下载](http://www.trustasia.com/down/ssltools.zip)）启用TLS1_2协议
+证书导入后检测到套件是支持ATS需求的，但协议TLS1_2没有被启用，ATS需要TLS1_2的支持。可使用的ssltools工具（亚洲诚信提供，[单击下载](http://www.trustasia.com/down/ssltools.zip)）启用TLS1_2协议
 
 ![1](https://mc.qcloudimg.com/static/img/bed43955994817ef3dcca0f8d617e117/1.png)
 

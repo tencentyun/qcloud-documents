@@ -21,7 +21,7 @@ mysql -h IP -P 端口号 -u root -p 云数据库密码
 ```
 ERROR 1045(28000)：Access denied for user...
 ```
-当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。请确认你输入的云数据库密码是否正确，如果重复输入正确密码后仍然报该错，则请通过 [提交工单](https://console.cloud.tencent.com/workorder) 联系技术支持。 
+当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。请确认输入的云数据库密码是否正确，如果重复输入正确密码后仍然报该错，则请通过 [提交工单](https://console.cloud.tencent.com/workorder) 联系技术支持。 
 ```
 ERROR 1040(00000):Too many connections
 ```
@@ -147,7 +147,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 
 ## 24. 云数据库的慢查询时间是多久？
 云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)，在参数配置里可修改。
-点击“进入管理中心”，进入[总览页面](https://console.cloud.tencent.com/)：
+单击“进入管理中心”，进入[总览页面](https://console.cloud.tencent.com/)：
 
 ![总览](//mc.qcloudimg.com/static/img/33ad26ed6b2fde8caad10566c7e21206/image.png)
 在”使用中的云产品“下拉菜单下单击“云数据库”，进入[MySQL-实例列表](https://console.cloud.tencent.com/cdb)：

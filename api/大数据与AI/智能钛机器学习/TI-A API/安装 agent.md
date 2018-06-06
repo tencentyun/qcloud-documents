@@ -7,12 +7,12 @@
 | 参数名称 | 是否必选 | 类型 | 描述 |
 |---|---|---|---|
 | Cluster | 是 | String | 集群名称。| 
-| TiaVersion | 否 | String | Agent 版本。|
+| TiaVersion | 否 | String | TI-A Agent 版本。|
 
 ## 输出参数
 | 参数名称 | 类型 | 描述 |
 |---|---|---|
-| TiaVersion | String | TiaVersion |
+| TiaVersion | String | TI-A Agent 版本。 |
 | RequestId | String | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。|
 
 ## 错误码

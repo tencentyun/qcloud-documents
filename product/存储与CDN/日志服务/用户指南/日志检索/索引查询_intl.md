@@ -1,45 +1,46 @@
-日志服务提供丰富的检索功能，实时查询日志，检索结果秒级返回，帮助您快速定位业务问题。
+CLS provides comprehensive search features, supports real-time log query, and returns results in a second to help you quickly locate business problems.
 
-## 开始检索
+## Starting Search
 
-日志检索是 CLS 所提供的非常重要的能力，您可以自定义查询条件秒级查询亿级别的日志数据，具体的操作步骤如下：
+Log search is a very important capability provided by CLS. You can define the query conditions to query hundreds of millions of logs within a second. Specific steps are as follows:
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 控制台左侧选择 【日志检索】，进入检索页面。
-3. 选择查询时间区间，日志集，日志主题。
-4. 输入关键词后点击查询方可获得查询结果。
+1. Log in to [CLS Console](https://console.cloud.tencent.com/cls).
+2. Select **Log Search** in the left of the console to enter the search page.
+3. Select the time range, logset, and log topic.
+4. Enter keywords, and click Search to get results.
 
-## 检索规则
-在进行日志检索时，检索时间范围、日志集、日志主题是三个不可缺少的查询条件。默认检索时间为当天有效日志数据，而日志集与日志主题需要您根据查询需求进行选择。搜索框内容允许为空，若为空，即视为无筛选条件，系统将返回所有有效的日志数据。
+## Search Rules
+The time range, logset, and log topic are required for log search. The default time range is the current day. You can select the logset and log topic as needed. The search box can be left empty, which means no filter conditions, and all valid log data will be returned.
 
-### 全文检索
-对于开启全文索引的日志主题，系统会根据分词符将每条日志数据拆分为多个词组，以支持您根据特定的关键字来检索日志。
+### Full-text Search
+Log data of the log topic for which full-text index is enabled is split into multiple phrases with word separators, so that you can search the log by specific keywords.
 
-例如，想查询包含“error”关键字的日志数据，在搜索框里输入 `error` 进行查询即可。
+For example, to search for log data containing the keyword "error", enter `error` in the search box and search for it.
 
-### 键值检索
-对于开启键值索引的日志主题，系统根据所指定的 kv 键值对进行日志数据管理，您可以通过指定特定的 key 字段来进行日志检索。
+### Key-value Search
+Log data of the log topic for which key-value index is enabled is managed based on the specified key-value pairs. You can search the log by specifying a key field.
 
-例如，想查询 status 字段为 error 的日志数据，在搜索框里输入 `status:error`进行查询即可。
+For example, to search for log data with "error" as the status, enter `status:error` in the search box and search for it.
 
-### 模糊关键字检索
-日志服务提供模糊查询的能力，通过特殊的模糊关键字进行日志检索，具体说明如下：
+### Fuzzy Keyword Search
+CLS provides fuzzy query that allows you to search logs by special fuzzy keywords. Details are described below:
 
-|元字符|描述|
+| Metacharacter | Description |
 |-----|:-----|
-| * | 模糊查询关键字，匹配零个、单个或多个任意字符，例如：输入 `abc*` 会返回以 `abc` 开头的所有命中日志|
-| ? |模糊查询关键字，特定位置匹配单个字符，例如：输入 `ab？c` 会返回以 `ab` 为开头，以 `c` 为结尾字符，且两者之间且有一个字符的所有命中日志|
+| * | A keyword for fuzzy query, which can contain zero, one, or multiple characters. For example, entering `abc*` will return all the logs starting with `abc`. |
+| ? | A keyword for fuzzy query, indicating that only one character can be placed at the specific location. For example, entering `ab? C` will return all the logs that start with `ab` and end with `c`, with only one character in between. |
 
 
-### 多关键字检索
-在进行日志检索时，您可以通过多个关键字检索。多关键字之间使用逗号，分号，空格进行分割，检索系统将返回 **“与”** 逻辑的结果，即返回的日志数据包含所有关键字。多关键词检索对全文索引和键值索引都支持。
+### Multiple-keyword Search
+When you search logs using multiple keywords (separated by commas, semicolons, or spaces), the log data meeting the "AND" logic is returned. That is, the returned log data contains all the keywords. Multi-keyword search is available in both full-text index and key-value index.
 
-例如，想查询包含“error”和“400”的日志数据，在搜索框里输入 `error 400` 进行查询即可。
+For example, to search for log data containing "error" and "400", enter `error 400` in the search box and search for it.
 
-### 跨主题检索
-日志检索时的日志集为单选项，该日志集下面的日志主题为多选项，因此日志服务支持同一日志集进行跨日志主题检索，即可选择同一日志集下的多个日志主题同时进行检索，方便您定位分析问题。
+### Cross-topic Search
+Log search allows you to select only one logset but multiple log topics under the logset, which means that you can search for logs across multiple log topics under one logset at the same time, making it easier for troubleshooting.
 
-## 注意事项
-1. 在进行日志检索时请确认相应的日志主题已开启检索，否则将无法检索到有效日志。
-2. 在进行键值检索时，请确认所查询的索引字段在日志主题的索引配置中已成功配置。
-3. 日志检索结果默认为倒序排列。
+## Notes
+1. Before performing log search, make sure the index feature is enabled for relevant log topics. Otherwise, no valid logs will be searched for.
+2. Before performing key-value search, make sure the index field to query is successfully configured in the index configuration of log topic.
+3. The search results are displayed in descending order by default.
+

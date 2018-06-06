@@ -1,13 +1,13 @@
 ## 1. API Description
-This API (DetachInstance) is used to delete a CVM instance from a specified scaling group.
+This API (DetachInstance) is used to detach a CVM instance from a specified scaling group.
 Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a>. The Action field for this API is DetachInstance.
 
-1) If the removed CVM instance is automatically created in the scaling group, the instance will be stopped and released; if the removed CVM instance is manually created by the user, the instance will not be stopped and released.
+1) If the removed CVM instance is manually created by the user, the instance will not be stopped and released.
 
-2) This function can be performed when the scaling group is in active status.
+2) This function can be performed only when the scaling group is in active status.
 
 3) This API can be called only when the scaling group is not performing a scaling activity.
 
@@ -19,6 +19,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | scalingGroupId | Yes | String | ID of the scaling group to be removed from the CVM instance. It can be queried by calling API <a href="/doc/api/372/查询伸缩组列表" title="Query Scaling Group List">Query Scaling Group List</a> (DescribeScalingGroup). |
 | instanceIds.n  | Yes | String | ID of the CVM instance to be removed from the scaling group. Please fill in the instanceId (unified ID of CVM) field returned in API <a href="/doc/api/372/查询伸缩组绑定的云服务器" title="DescribeScalingInstance">Query CVM Bound to Scaling Group</a> (DescribeScalingInstance). |
+| keepInstance | No | Int | Whether to keep the detached instance. Value range:<br><li>0: stop and release the detached instances.<br><li>1: keep the detached instances. <br><br>default value: 0|
 
 ## 3. Output Parameters
 | Parameter Name | Type | Description |

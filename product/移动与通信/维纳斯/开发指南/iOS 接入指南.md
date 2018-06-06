@@ -66,7 +66,7 @@ configuration.protocolClasses = protocolsArray;
 AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
 ```
 
-然后你在需要用 Wns 发送的请求用 NSURLProtocol 的方法来给这个请求打上标志```[NSURLProtocol setProperty:@(YES) forKey:ShouldUseWns inRequest:req]```, 然后使用系统的 NSURLConnection 或者 AFNetworking 等第三方库来发送请求即可, Wns 会对打上标志的请求使用 Wns 的通道来发送.
+然后您在需要用 Wns 发送的请求用 NSURLProtocol 的方法来给这个请求打上标志```[NSURLProtocol setProperty:@(YES) forKey:ShouldUseWns inRequest:req]```, 然后使用系统的 NSURLConnection 或者 AFNetworking 等第三方库来发送请求即可, Wns 会对打上标志的请求使用 Wns 的通道来发送.
 
 注意， 如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(比如 AFNetworking)，需要对 request 做以下设置：
 
@@ -197,12 +197,12 @@ WNS 提供调试环境给开发商使用，服务端使用控制台可以配置�
 ```
 /*! @brief 调试接口：设置调试服务器地址。
  *
- * @param ip 为nil或@"wns.qq.com"时切换回非调试模式
+ * @paramip 为nil或@"wns.qq.com"时切换回非调试模式
  * @param port 允许为0，即默认80/443/8080/14000轮询
  *
  * @note 会触发重建链接
  */
-- (void)setDebugIP:(NSString *)ip port:(unsigned short)port;
+- (void)setDebugIP:(NSString *)IP port:(unsigned short)port;
 
 ```
 #### 关键日志
@@ -216,7 +216,7 @@ WNS 提供调试环境给开发商使用，服务端使用控制台可以配置�
 另外，如果出现 Wns 连接或者收发出错的问题时，可以通过 Sdk 接口 keyLog 拿到提示信息并打印出来，提供给相关工作人员查看，以方便查找问题。
 #### Wns 快速验证模式
 对于一些还在犹豫是否该使用 Wns 的业务，我们提供了一个自动测试的模式。
-在该模式下，sdk 会自动地每隔一段时间就发送一个测试的数据包到后台。你可以到控制台的监控页面看到对应的成功率和延时等情况，作为你们是否选用 Wns 的参考。
+在该模式下，sdk 会自动地每隔一段时间就发送一个测试的数据包到后台。您可以到控制台的监控页面看到对应的成功率和延时等情况，作为是否选用 Wns 的参考。
 使用方式:初始化后 sdk后，调用下面接口即可。
 ```
 /*! @brief 设置自动测试模式,这种模式下,sdk自身会定时发送测试数据包到后台,您可以从监控报表查看相关统计数据
