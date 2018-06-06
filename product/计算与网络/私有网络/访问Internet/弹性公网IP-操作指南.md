@@ -3,10 +3,9 @@
 2) 在左侧导航窗格中，单击【弹性公网 IP】。
 3) 选择列表上方的地域，单击【申请】按钮。
 4) 申请结束后即可在 EIP 列表中看到您申请的 EIP。
-<div style="text-align:center">
-![](//mccdn.qcloud.com/static/img/ba977c383635c2eca9b826d7a9520194/image.png)
 
-</div>
+![](https://main.qcloudimg.com/raw/da69a2e2285f287430514e08efef89c0.png)
+
 
 ### 修改 EIP 名称
 1) 打开云服务器 CVM 控制台。
