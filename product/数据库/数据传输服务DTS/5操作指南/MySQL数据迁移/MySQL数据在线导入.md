@@ -89,7 +89,7 @@
 ![](https://mc.qcloudimg.com/static/img/6d45bf22f31923704b6055f3f94f1781/image.png)
 
 ##### 源库信息
-* 源库类型：目前支持有公网 IP 的 MySQL，云主机上的自建 MySQL，专线接入腾讯云的 MySQL，VPN 接入的 MySQL 四种源库类型
+* 源库类型：目前支持有公网 IP 的 MySQL，云服务器上的自建 MySQL，专线接入腾讯云的 MySQL，VPN 接入的 MySQL 四种源库类型
 ###### 有公网 IP 的 MySQL：能够通过公网 IP 访问的 MySQL 数据库。
 所需信息：
 * MySQL 主机地址
@@ -99,12 +99,12 @@
 		
 ![](https://mc.qcloudimg.com/static/img/d7ea867e99cf6dcaeea777f1f8a498e2/image.png)
 		
-###### 云主机上的自建 MySQL：支持基础网络和私有网络两种环境下基于云主机 CVM 的自建 MySQL 数据库。使用时需要指定云主机 CVM 的实例 ID 和所处的网络环境。
+###### 云服务器上的自建 MySQL：支持基础网络和私有网络两种环境下基于云服务器 CVM 的自建 MySQL 数据库。使用时需要指定云服务器 CVM 的实例 ID 和所处的网络环境。
 所需信息：
 * 所属地域：目前仅支持同地域内的 CVM 自建 MySQL 迁移 CDB。若 CVM 与 CDB 分处于不同地域，使用 CVM 公网网络，选择【有公网 IP 的 MySQL】项实现迁移。
 * CVM 网络：支持基础网络和私有网络
 * 私有网络：如选择私有网络，需选择所属的私有网络及子网。
-* 云主机实例 ID
+* 云服务器实例 ID
 * MySQL 端口
 * MySQL 账号
 * MySQL 密码
@@ -121,10 +121,10 @@
 	
 ![](https://mc.qcloudimg.com/static/img/4d6317bb20e5551f9a5ff58218ae9c18/image.png)
 		
-###### VPN 接入的 MySQL：本地 IDC 自建 MySQL 通过 [腾讯云VPN连接服务][3] 或云主机上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。
+###### VPN 接入的 MySQL：本地 IDC 自建 MySQL 通过 [腾讯云VPN连接服务][3] 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。
 所需信息：
 * 所属地域：目前仅支持同地域内的 VPN 服务。
-* VPN 类型：[云VPN服务][3] 或云主机上自建 VPN。
+* VPN 类型：[云VPN服务][3] 或云服务器上自建 VPN。
 * VPN 网关：仅 [云VPN服务][3] 需要补充 VPN 网关信息。[了解VPN][4]
 * 私有网络：VPN 服务所属的私有网络。
 * MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问
@@ -172,7 +172,7 @@
 
 ### 增量同步
 在创建迁移任务时默认必选增量同步选项，在数据迁移完成后，会将目标 CDB for MySQL 库设置成源数据库的备库，通过主备同步来把迁移过程中源库的新增的数据同步到目标 CDB for MySQL 库中。此时，源库上的修改都会同步到目标 CDB for MySQL 中。
-在迁移完成后，你可以单击【完成】键，源库和目标库同步关系会断开，再将业务切换到目标 CDB for MySQL 实例上则可完成迁移。
+在迁移完成后，您可以单击【完成】键，源库和目标库同步关系会断开，再将业务切换到目标 CDB for MySQL 实例上则可完成迁移。
 > **注意：**
 > 在断开同步前，不要往目标数据库实例写入数据，否则可能引起源库和目标库数据不一致而数据比对失败，从而导致迁移失败。
 
@@ -194,7 +194,7 @@
 当迁移进度达到 100% 时，可单击右侧【完成】按钮，完成迁移任务。
 ![](https://main.qcloudimg.com/raw/21b56e090f75c8fd33b6ac54a5b8753f.jpg)
 
-点击【 完成 】效果如下
+单击【 完成 】效果如下
 ![](https://main.qcloudimg.com/raw/2accc71a6a9e544bbea29e3c6ebc3d1f.jpg)
 ![](https://main.qcloudimg.com/raw/de3bb36092060a461b46d804d975c295.png)
 >**注意：**
