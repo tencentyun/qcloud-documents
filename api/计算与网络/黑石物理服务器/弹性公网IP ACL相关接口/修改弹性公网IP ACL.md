@@ -1,5 +1,5 @@
 ## 功能描述
-EipAclBmSet 接口用于修改ACL名称、状态、入站规则、出战规则。
+EipAclBmSet 接口用于修改 ACL 名称、状态、入站规则、出战规则。
 
 接口访问域名: bmeip.api.qcloud.com
 
@@ -28,24 +28,24 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 请求参数
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| aclId | 是 | String | ACL实例ID|
-| aclName | 否 | String | ACL名称|
-| status | 否 | Int | ACL状态。0：无状态 1：有状态|
+| aclId | 是 | String | ACL 实例 ID|
+| aclName | 否 | String | ACL 名称|
+| status | 否 | Int | ACL 状态。0：无状态 1：有状态|
 | type | 否 | String | 规则类型（in/out）。in：入站规则 out：出站规则|
-| rule | 否 | Array(Object) | 对象数组。数组的每一个元素是一条规则。规则的结构描述如rule结构所示  |
+| rule | 否 | Array(Object) | 对象数组。数组的每一个元素是一条规则。规则的结构描述如 rule 结构所示  |
 
 rule结构
 
 | 参数名称          | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
-| ip    | String | IP地址,支持ip与cidr两种方式                                  |
+| ip    | String | IP 地址,支持 Ip 与 cidr 两种方式                                  |
 | port         | String    | 目标端口，支持单个端口与端口区间                                |
 | protocol         | String    | 协议(TCP/UDP/ICMP/ANY)                                |
 | action         | String    | 策略（accept/drop）                                |
 | description         | String    | 备注                                |
 
- > 清空入站规则，参数type填写in,rule参数不用填写
- > 清空出站规则，参数type填写out,rule参数不用填写
+ > 清空入站规则，参数 type 填写 in,rule 参数不用填写
+ > 清空出站规则，参数 type 填写 out,rule 参数不用填写
 
 
 
@@ -64,7 +64,7 @@ rule结构
 ### 响应参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考 [错误码](/document/product/386/6725)。 |
 | message | String | 错误信息 |
 | codeDesc | String | 错误码描述 |  
 
@@ -75,7 +75,7 @@ rule结构
 |9000|InnerError|内部系统错误|
 |9003|ParamInvalid|请求参数不正确|
 |9006|InternalErr|内部数据操作异常|
-|40001|EipAclNotExist|ACL不存在|
+|40001|EipAclNotExist|ACL 不存在|
 
 
 ## 实际案例
