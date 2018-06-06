@@ -302,7 +302,7 @@ CredentialProvider credentialProvider = new CredentialProvider(appid, secretId, 
 String sign = credentialProvider.getMultipleSign(bucket, duration); // 生成签名
 ```
 
-### 取消单个任务：
+### 取消单个任务
 ```
 int requestId = request.getRequestId(); // 获取请求任务的ID号
 boolean success = faceIdClient.cancel(requestId); // 通过请求ID号取消任务
