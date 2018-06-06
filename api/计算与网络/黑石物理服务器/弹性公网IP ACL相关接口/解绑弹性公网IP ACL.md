@@ -20,7 +20,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 |---------|---------|---------|---------|
 | eipAcl | 是 | Array(Object) | 对象数组。数组元素为待解关联的 EIP 与 ACL，具体结构描述如 eipAcl 结构所示。|
 
-eipAcl结构
+eipAcl 结构
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
