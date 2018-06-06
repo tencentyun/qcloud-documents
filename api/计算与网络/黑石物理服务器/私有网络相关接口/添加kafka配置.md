@@ -7,8 +7,8 @@ AddBmKafkaConf 接口用于添加ckafka配置信息，包括实例ID，以及top
 ### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=AddBmKafkaConf
-    &<公共请求参数>
-    &kafkaId=<实例ID>
+	&<公共请求参数>
+	&kafkaId=<实例ID>
 	&topicName=<队列名称>
 ```
 ### 请求参数

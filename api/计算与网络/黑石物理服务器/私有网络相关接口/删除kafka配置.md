@@ -7,8 +7,8 @@ DelBmKafkaConf 接口用于删除ckafka配置信息，将不接收NAT日志。
 ### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DelBmKafkaConf
-    &<公共请求参数>
-    &kafkaId=<实例ID>
+	&<公共请求参数>
+	&kafkaId=<实例ID>
 	&topicName=<队列名称>
 ```
 ### 请求参数
