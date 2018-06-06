@@ -1,3 +1,14 @@
+<style type="text/css">
+table,th,td
+  {
+  max-width:830px;
+  }
+th,td
+  {
+  max-width:276px;
+  }
+</style>
+
 ## 前言
 TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因为考虑到未来MySQL的开源问题，还有就是经过多年的实际验证，对MariaDB的性能、功能和可靠性都充满信心。
 
