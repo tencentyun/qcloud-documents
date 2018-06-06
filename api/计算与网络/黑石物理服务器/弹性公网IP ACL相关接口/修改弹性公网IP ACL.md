@@ -38,7 +38,7 @@ rule结构
 
 | 参数名称          | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
-| ip    | String | IP 地址,支持 Ip 与 cidr 两种方式                                  |
+| ip    | String | IP 地址,支持 IP 与 cidr 两种方式                                  |
 | port         | String    | 目标端口，支持单个端口与端口区间                                |
 | protocol         | String    | 协议(TCP/UDP/ICMP/ANY)                                |
 | action         | String    | 策略（accept/drop）                                |
