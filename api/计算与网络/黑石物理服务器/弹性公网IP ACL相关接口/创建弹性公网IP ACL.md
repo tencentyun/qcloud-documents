@@ -22,7 +22,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 | aclName | 是 | String | ACL 名称 |
 | status | 是 | Int | ACL 状态 0：无状态，1：有状态 |
 
- > 平台对用户每地域能申请的EIPACL数目是100。
+ > 平台对用户每地域能申请的 EIPACL 数目是 100。
 
 ## 响应
 ### 响应示例
