@@ -1,5 +1,5 @@
 ## 功能描述
-EipAclBmDelete 接口用于删除当前账号下的弹性公网ACL。
+EipAclBmDelete 接口用于删除当前账号下的弹性公网 ACL。
 
 接口访问域名: bmeip.api.qcloud.com
 
@@ -15,9 +15,9 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 请求参数
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| aclId | 是 | String | 待删除的ACL实例ID |
+| aclId | 是 | String | 待删除的 ACL 实例 ID |
 
- > 已关联了EIP的ACL不可删除，只可以删除未关联EIP的ACL。
+ > 已关联了EIP 的 ACL 不可删除，只可以删除未关联 EIP 的 ACL。
 
 ## 响应
 ### 响应示例
@@ -32,7 +32,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 响应参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考 [错误码](/document/product/386/6725)。 |
 | message | String | 错误信息 |
 | codeDesc | String | 错误码描述 |  
 
