@@ -14,6 +14,7 @@
 建议用户用于迁移的账号具有源实例 super 权限，需要 super 权限的场景主要有以下几种：
 -  数据迁移完成前，DTS 会进行数据一致性检查，需要 super 权限修改 session 参数、binlog_format。
 -  **若在 binlog 同步过程中，用户在源实例创建了 Event，且这个 Event 指定了非用于 DTS 数据迁移的账号做 DEFINER，此时不具备 super 权限将会报错。**
+-  如果是cdb for mysql迁移到cdb for mysql,这个可以不需要源实例提供super权限。
 
 ### 支持迁移的数据库
 - 支持基础网络、VPC 网络的 CVM 自建 MySQL 数据库迁移至 CDB 实例。
