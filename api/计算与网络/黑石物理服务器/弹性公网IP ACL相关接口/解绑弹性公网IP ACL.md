@@ -1,5 +1,5 @@
 ## 功能描述
-EipAclBmUnBind 接口用于为某个EIP解绑ACL。
+EipAclBmUnBind 接口用于为某个 EIP 解绑 ACL。
 
 接口访问域名: bmeip.api.qcloud.com
 
@@ -18,14 +18,14 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 请求参数
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| eipAcl | 是 | Array(Object) | 对象数组。数组元素为待解关联的EIP与ACL，具体结构描述如eipAcl结构所示。|
+| eipAcl | 是 | Array(Object) | 对象数组。数组元素为待解关联的 EIP 与 ACL，具体结构描述如 eipAcl 结构所示。|
 
 eipAcl结构
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| eipId | 是 | String | EIP实例ID|
-| aclId | 是 | String | ACL实例ID|
+| eipId | 是 | String | EIP 实例 ID|
+| aclId | 是 | String | ACL 实例 ID|
 
 
 ## 响应
@@ -41,7 +41,7 @@ eipAcl结构
 ### 响应参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考 [错误码](/document/product/386/6725)。 |
 | message | String | 错误信息 |
 | codeDesc | String | 错误码描述 |  
 
@@ -52,8 +52,8 @@ eipAcl结构
 |9000|InnerError|内部系统错误|
 |9003|ParamInvalid|请求参数不正确|
 |9006|InternalErr|内部数据操作异常|
-|30009|EipNotFound|EIP不存在|
-|40001|EipAclNotExist|ACL不存在|
+|30009|EipNotFound|EIP 不存在|
+|40001|EipAclNotExist|ACL 不存在|
 
 
 ## 实际案例
