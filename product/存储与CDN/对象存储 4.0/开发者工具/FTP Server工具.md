@@ -109,6 +109,13 @@ python ftp_server.py
 
 如果需要配置masquerade_address，建议指定为客户端连接Server所使用的那个IP地址。
 
+### 正确配置了masquerade_address选项以后，ftp server可以正常登陆，但是执行FTP命令：list或者get等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误
+
+答：这个case多半是因为ftp server机器iptables或防火墙策略配置reject或者drop掉所有ICMP协议包，而FTP客户端在拿到FTP Server被动模式下返回的数据连接IP后，会首先发送一个ICMP包探测IP的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
+
+建议解决方案是：将iptables策略按需配置为只reject或drop希望限制的ICMP包类型，如只想禁掉外部ping类型的ICMP包，可以将策略修改为：iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j [REJECT/DROP]
+或者单独放开要访问ftp server的客户端的IP。
+
 #### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
 由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
 
