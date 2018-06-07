@@ -30,7 +30,7 @@
 | "ap-shanghai" | "ap-shanghai-2" | 上海可用区2 |
 | "ap-shanghai" | "ap-shanghai-3" | 上海可用区3 |
 
-2. virtual-kubelet 10250端口认证certfile及keyfile：server.crt和server.key  
+2. virtual-kubelet 10250端口认证certfile及keyfile：server.crt 和 server.key  
 该端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息，尽管在腾讯云 ccs 服务中，10250 的端口认证我们没有设置，但是 kube-apiserver 需要以 https 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
 
 3. virtual-kubelet的部署文件：`qcloud-vkubelet.yaml` 和 `virtual-kubelet.yaml`
