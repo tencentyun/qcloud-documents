@@ -4,9 +4,9 @@
 
 ## 操作步骤
 
-以在 [腾讯云容器服务](https://cloud.tencent.com/product/ccs) 的 Kubernetes 集群中使用 CIS 调度部署 Deployment 为例。
+以在 腾讯云容器服务 的 Kubernetes 集群中使用 CIS 调度部署 Deployment 为例。
 
-1. 登录任一和腾讯云网络互通的 Kubernetes 节点，比如 [CCS](https://console.cloud.tencent.com/ccs) 集群、用户使用 CVM 自建的 Kubernetes 集群、用户使用专线和腾讯云互通的 IDC 自建的 Kubernetes 集群。
+1. 登录任一和腾讯云网络互通的 Kubernetes 节点，例如 [CCS](https://console.cloud.tencent.com/ccs) 集群、用户使用 CVM 自建的 Kubernetes 集群、您使用专线和腾讯云互通的 IDC 自建的 Kubernetes 集群。
 
 2. 使用 Kubectl 或调用 Kubernetes API 在集群的节点上部署 virtual kubelet，详情请参考 [virtual-kubelet 部署指导](https://console.cloud.tencent.com/ccs)。
 
@@ -14,11 +14,11 @@
 
   ![][1]
 
-4. 部署 Deployment ，并指定 nodeName 为 virtual-kubelet 。
+4. 部署 Deployment ，并指定 nodeName 为 virtual-kubelet，把该 Deployment 的 pod 调度到虚拟节点 virtual-kubelet 上。
 
   ![][2]
 
-   则会把该 Deployment 的 pod 调度到虚拟节点 virtual-kubelet 上。
+  则会把该 Deployment 的 pod 调度到虚拟节点 virtual-kubelet 上。
 
   ![][3]
 
