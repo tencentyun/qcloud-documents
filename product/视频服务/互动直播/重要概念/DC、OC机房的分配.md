@@ -1,10 +1,10 @@
-## 1、相关概念说明
+## 相关概念说明
 - DC（Data Center）：核心机房，用于互动直播业务中需要上行音视频数据或实时交互的用户角色（如主播、讲师、参与实时互动的角色等）接入
 - OC（Outer Center）：边缘节点，用于互动直播业务中不需要上行音视频数据、仅观看的用户角色（如普通观众、不需要与老师互动的学生等）接入
 
 二者的计费价格是不同的的。关于价格详情和分配策略请见[计费](https://cloud.tencent.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F)。
 
-## 2、关于 DC 和 OC 的分配原则
+## 关于 DC 和 OC 的分配原则
 对于一个 App 的用户来说，什么情况下会接入 DC、什么情况下会接入 OC 呢？<br/>
 代码层面需要关心的分配原则简单来说只有一句话：“有上行音视频数据权限的实例会分配 DC、没有上行音视频数据权限的实例分配 OC”。<br/>
 具体地，在调用 SDK 进入房间接口 ILiveRoomManager.getInstance().createRoom()的时候，其参数 ILiveRoomOption.authBits()用于设置该实例在房间内的权限，具体权限字段如下图所示：
@@ -17,7 +17,7 @@ AVRoomMulti.auth_bits 将`AUTH_BITS_SEND_AUDIO`/ `AUTH_BITS_SEND_VEDIO`/ `AUTH_B
 
 PS：后台对单个房间接入 DC 的用户数量有一个上限保护。例如，如果某个业务设置每个用户都有上行权限，那么后台对于每一个房间前 1000 个用户分配 DC，其他用户分配 OC。该限制为后台保护策略，后面可以根据需要进行调整。
 
-## 3、关于 DC/OC 之间的切换策略
+## 关于 DC/OC 之间的切换策略
 当用户通过进入房间的 ILiveRoomManager.getInstance().createRoom()流程被分配到 DC/OC 之后，有时也会有需要在 DC/OC 之间进行切换的需求。<br/>
 例如，教育场景下，一个原本没有上行权限的学生（被分配接入 OC）被老师点中回答问题时，需要从不能上行音视频数据 OC 切换到 DC。<br/>
 DC/OC 的切换依然是以权限变化为依据的，相对应的接口为 ILiveRoomManager 类中 changeAuthAndRole 接口。下面将分几种情况来分别讨论：<br/>
