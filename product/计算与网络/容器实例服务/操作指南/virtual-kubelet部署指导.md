@@ -4,7 +4,7 @@
 
  详情请参考 [virtual kubelet 部署模版](https://main.qcloudimg.com/raw/bfb0dcd2aeb8c11295887f19fd0ca8a8/virtual%20kubelet%20node.tar.gz) （该模版支持上传 CCS 节点，解压缩，修改特定参数后直接使用）。
 
-1. virtual-kubelet 启动配置文件：`config.toml`
+#### 1. virtual-kubelet 启动配置文件：`config.toml`
 ```
     config.toml:  
     Region = "ap-guangzhou"(创建的cis所在地域)  
@@ -16,7 +16,8 @@
     Memory = "100Gi"  
     Pods = "50"  
 ```
-**目前 cis 支持的可选地域和可用区有：  **
+
+ **目前 cis 支持的可选地域和可用区有：  **
 
 |Region|Zone|说明|
 |:--|:--|:--|
@@ -30,10 +31,10 @@
 | "ap-shanghai" | "ap-shanghai-2" | 上海可用区2 |
 | "ap-shanghai" | "ap-shanghai-3" | 上海可用区3 |
 
-2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key  
+#### 2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key  
 该端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息，尽管在腾讯云 ccs 服务中，10250 的端口认证我们没有设置，但是 kube-apiserver 需要以 https 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
 
-3. virtual-kubelet的部署文件：`qcloud-vkubelet.yaml` 和 `virtual-kubelet.yaml`
+#### 3. virtual-kubelet 的部署文件：`qcloud-vkubelet.yaml` 和 `virtual-kubelet.yaml`
     qcloud-vkubelet.yaml (创建 virtual-kubelet 对应的 serviceaccount，可以操作 pod 等资源权限）  
 	 
 ```
