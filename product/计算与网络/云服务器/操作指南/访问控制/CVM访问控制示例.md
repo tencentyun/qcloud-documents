@@ -41,7 +41,7 @@
     ]
 }
 ```
-以上策略是通过让用户分别对 CVM、VPC（Virtual Private Cloud）、CLB（Cloud Load Balance）和 MONITIOR 中所有资源都具有操作的权限来达到目的。
+以上策略是通过让用户分别对 CVM、VPC（Virtual Private Cloud）、CLB（Cloud Load Balance）和 MONITOR 中所有资源都具有操作的权限来达到目的。
 
 ### CVM 的只读策略
 如果您只想让用户拥有查询 CVM 实例的权限，但是不具有创建、删除、开关机的权限，您可以对该用户使用名称为：QcloudCVMInnerReadOnlyAccess 的策略。
