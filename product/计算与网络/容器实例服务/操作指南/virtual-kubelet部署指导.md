@@ -187,7 +187,7 @@ kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.
     kubernetes.io/cis.subnetId: subnet-7z46i306  
 ```
 
- 2. 指定 cis 运行的规格，注意 request 和 limit 保持一致
+2. 指定 cis 运行的规格，注意 request 和 limit 保持一致
 ```
     resources:
       requests:
