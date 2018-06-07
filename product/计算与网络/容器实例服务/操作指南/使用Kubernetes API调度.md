@@ -1,6 +1,6 @@
 ## 概述
 
-通过在 Kubernetes 集群中部署 virtual kubelet 后即可通过该集群的 ApiServer 调度管理 CIS 实例。
+通过在 Kubernetes 集群中部署 virtual kubelet 后即可通过该集群的 APIServer 调度管理 CIS 实例。
 
 ## 操作步骤
 
