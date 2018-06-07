@@ -16,7 +16,7 @@
 | --------------------------- | ---------------------------------------- |
 | cos-android-sdk-5.4.6.jar   | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
 | qcloud-foundation.1.3.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| okhttp-3.8.1.jar            | 开源 http 组件                          |
+| okhttp-3.8.1.jar            | 开源 HTTP 组件                          |
 | okio-1.13.0.jar             | 开源网络 I/O 组件                         |
 | xstream-1.4.7.jar           | 开源序列化组件                             |
 | fastjson-1.1.62.android.jar | 开源 json 组件                            |
@@ -123,7 +123,7 @@ mVideoPublish.canclePublish();
 | videoPath    | 本地视频文件路径                           | String  | 是    |
 | coverPath    | 本地封面文件路径，默认不带封面文件                  | String  | 否    |
 | enableResume | 是否启动断点续传，默认开启                      | boolean | 否    |
-| enableHttps  | 是否启动https，默认关闭                      | boolean | 否    |
+| enableHttps  | 是否启动 HTTPS，默认关闭                      | boolean | 否    |
 | fileName     | 上传到点播系统的视频文件名称，不填默认用本地文件名 | String  | 否    |
 
 设置上传回调 `TXUGCPublish.setListener`
