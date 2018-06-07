@@ -69,7 +69,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```objc
 TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
 videoPublishParams.signature  = @"xxx";
-videoPublishParams.coverImage = [[UIImage alloc] initWithCGImage:imgRef];
+videoPublishParams.coverPath = @"xxx";
 videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```
 
@@ -108,8 +108,10 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 | ------------ | ---------------------------------- | --------- | ---- |
 | signature    | [客户端上传签名](/document/product/266/9221) | NSString* | 是    |
 | videoPath    | 本地视频文件路径                           | NSString* | 是    |
-| coverImage   | 封面图片，可不设置。                         | UIImage*  | 否    |
-| enableResume | 是否启动断点续传，默认开启                      | BOOL      | 否    |
+| coverPath    | 封面图片本地路径，可不设置。                 | NSString*  | 否    |
+| fileName     | 上传到点播系统的视频文件名称，不填默认用本地文件名  | NSString*  | 否    |
+| enableResume | 是否启动断点续传，默认开启                  | BOOL      | 否    |
+| enableHttps  | 是否启动https，默认关闭                    | BOOL      | 否    |
 
 
 设置上传回调 `TXUGCPublish.delegate`
