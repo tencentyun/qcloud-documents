@@ -111,7 +111,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 | coverPath    | 封面图片本地路径，可不设置。                 | NSString*  | 否    |
 | fileName     | 上传到点播系统的视频文件名称，不填默认用本地文件名  | NSString*  | 否    |
 | enableResume | 是否启动断点续传，默认开启                  | BOOL      | 否    |
-| enableHttps  | 是否启动 Https，默认关闭                    | BOOL      | 否    |
+| enableHttps  | 是否启动 HTTPS，默认关闭                    | BOOL      | 否    |
 
 
 设置上传回调 `TXUGCPublish.delegate`
