@@ -16,8 +16,7 @@
     Memory = "100Gi"  
     Pods = "50"  
 ```
-
-目前cis支持的可选地域和可用区有：  
+**目前 cis 支持的可选地域和可用区有：  **
 
 |Region|Zone|说明|
 |:--|:--|:--|
@@ -31,9 +30,10 @@
 | "ap-shanghai" | "ap-shanghai-2" | 上海可用区2 |
 | "ap-shanghai" | "ap-shanghai-3" | 上海可用区3 |
 
-### 2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key  
-该端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 pod 容器日志时，kube-apiserver 会访问节点的10250 端口，获取日志的相关信息，尽管在腾讯云 ccs 服务中，10250 的端口认证我们没有设置，但是 kube-apiserver 需要以 https 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
-### 3. virtual-kubelet 的部署文件：qcloud-vkubelet.yaml 和 virtual-kubelet.yaml
+### 2. virtual-kubelet 10250端口认证certfile及keyfile：server.crt和server.key  
+该端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息，尽管在腾讯云 ccs 服务中，10250 的端口认证我们没有设置，但是 kube-apiserver 需要以 https 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
+
+### 3.virtual-kubelet的部署文件：`qcloud-vkubelet.yaml` 和 `virtual-kubelet.yaml`
 ```
     qcloud-vkubelet.yaml:(创建 virtual-kubelet 对应的 serviceaccount，可以操作 pod 等资源权限）  
     ---  
@@ -117,14 +117,14 @@
       volumes:  
       - name: credentials
     hostPath:
-      path: /home/ubuntu/for-show/config (config文件夹包含config.toml, server.crt和server.key)
+      path: /home/ubuntu/for-show/config (config 文件夹包含 config.toml, server.crt 和 server.key)
 ```
 
 ## 使用步骤
 ### 1. 登录安装了 kubectl 并已完成了初始化的 Kubernetes 节点服务器
 kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.tencent.com/document/product/457/8438)。
 
-### 2. 执行 kubectl create -f qcloud-vkubelet.yaml
+### 2. 执行` kubectl create -f qcloud-vkubelet.yaml`
 ```
     ubuntu@VM-66-110-ubuntu:~/for-show$ kubectl create -f qcloud-vkubelet.yaml  
     clusterrolebinding "vkubelet" created  
@@ -132,7 +132,7 @@ kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.
     serviceaccount "vkubelet" created  
 ```
 
-### 3. 执行 kubectl create -f virtual-kubelet.yaml
+### 3. 执行 `kubectl create -f virtual-kubelet.yaml`
 ```
     ubuntu@VM-66-110-ubuntu:~/for-show$ kubectl create -f virtual-kubelet.yaml  
     pod "virtual-kubelet" created  
@@ -180,7 +180,7 @@ kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.
 ```
     kubernetes.io/cis.vpcId: vpc-lpaa5xe3
     kubernetes.io/cis.subnetId: subnet-7z46i306  
-```	
+```
 
 ### 2. 指定 cis 运行的规格，注意 request 和 limit 保持一致
 ```
@@ -196,8 +196,7 @@ kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.
 ### 3. 指定 cis 运行的节点是 virtual-kubelet
 ```
     nodeName: virtual-kubelet
-```
+```  
 
-![](https://main.qcloudimg.com/raw/482b5bdebd58cc6940f1374dc790b3c2.png)
-![](https://main.qcloudimg.com/raw/482b5bdebd58cc6940f1374dc790b3c2.png)
-![](https://main.qcloudimg.com/raw/482b5bdebd58cc6940f1374dc790b3c2.png)
+[1]:https://main.qcloudimg.com/raw/482b5bdebd58cc6940f1374dc790b3c2.png
+[1]:https://main.qcloudimg.com/raw/482b5bdebd58cc6940f1374dc790b3c2.png
