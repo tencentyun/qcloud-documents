@@ -1,20 +1,20 @@
 ## 概述
 
-通过在 Kubernetes 集群中部署 virtual kubelet 后即可以通过该集群的 ApiServer 调度管理 CIS 实例。
+通过在 Kubernetes 集群中部署 virtual kubelet 后即可通过该集群的 APIServer 调度管理 CIS 实例。
 
 ## 操作步骤
 
-以下以在 [腾讯云容器服务](https://cloud.tencent.com/product/ccs) 的 Kubernetes 集群中使用 CIS 调度部署 Deployment 为范例。
+以在 [腾讯云容器服务](https://cloud.tencent.com/product/ccs) 的 Kubernetes 集群中使用 CIS 调度部署 Deployment 为例。
 
-1、登录任一和腾讯云网络互通的 Kubernetes 节点，比如 [CCS](https://console.cloud.tencent.com/ccs) 集群、用户使用 CVM 自建的 Kubernetes 集群、用户使用专线和腾讯云互通的 IDC 自建的 Kubernetes 集群。
+1. 登录任一和腾讯云网络互通的 Kubernetes 节点，比如 [CCS](https://console.cloud.tencent.com/ccs) 集群、用户使用 CVM 自建的 Kubernetes 集群、用户使用专线和腾讯云互通的 IDC 自建的 Kubernetes 集群。
 
-2、使用 Kubectl 或调用 Kubernetes API 在集群的节点上部署 virtual kubelet，详情请参考 [virtual-kubelet部署指导](https://console.cloud.tencent.com/ccs)。
+2. 使用 Kubectl 或调用 Kubernetes API 在集群的节点上部署 virtual kubelet，详情请参考 [virtual-kubelet 部署指导](https://console.cloud.tencent.com/ccs)。
 
-3、完成 virtual kubelet 部署后会在集群中看到新增一个 pod （virtual-kubelet）和虚拟节点（virtual-kubelet）。
+3. 完成 virtual kubelet 部署后会在集群中看到新增一个 pod （virtual-kubelet）和虚拟节点（virtual-kubelet）。
 
 ![][1]
 
-4、部署 Deployment ，并指定 nodeName 为 virtual-kubelet 。
+4. 部署 Deployment ，并指定 nodeName 为 virtual-kubelet 。
 
 ![][2]
 
@@ -22,7 +22,7 @@
 
 ![][3]
 
-5、完成部署后，在 [CCS 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment。
+5. 完成部署后，在 [CCS 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment。
 
 ![][4]
 
