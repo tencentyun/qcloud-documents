@@ -19,7 +19,7 @@
     Pods = "50"  
 ```
 其中，Region 和 Zone 的格式分别为`Region = "地域"`、`Zone = "可用区"`，上述代码以广州可用区 4 为例。
-更多可用区信息，参考 [地域和可用区]()。
+更多可用区信息，参考 [地域和可用区](https://cloud.tencent.com/document/product/858/17806)。
 
 2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key。  
 该 10250 端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 Pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息。
