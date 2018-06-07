@@ -20,7 +20,7 @@
 | host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名      |
 | content-length | 包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）|
 | content-type	 | Multipart/form-data            | 支持上传本地图片的方式                   |
-| authorization	 | 鉴权签名	                      | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
+| authorization	 | 鉴权签名	                      | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 
 ### 请求参数
@@ -144,7 +144,7 @@ Content-Type: application/json
 | 213	               | 内部错误             |	
 | 其他	               | 图片识别失败         |
 
- 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)。
+ 更多其他 API 错误码请看 [**错误码说明**](/document/product/866/17733)。
 
 
 
