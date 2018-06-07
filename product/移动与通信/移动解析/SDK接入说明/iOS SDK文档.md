@@ -202,7 +202,7 @@ if (conn.error != null)
 
 ## 实践场景
 ###  Unity 工程接入
-(a). 在 cs 文件中进行接口声明：
+#### 1.  在 cs 文件中进行接口声明：
 ```
 #if UNITY_IOS
 [DllImport("__Internal")]
@@ -212,7 +212,7 @@ private static extern void WGGetHostByNameAsync(string domain);
 #endif
 ```
 
-(b). 在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
+#### 2.  在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
 
 ```
 string ips = HttpDns.GetHostByName(domainStr);
@@ -232,17 +232,18 @@ HttpDns.GetHostByName(domainStr);
 }
 ```
 
- (c). 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
- (d). 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
- (e). 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
+####  3. 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
+#### 4. 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
+#### 5. 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
 ![](https://main.qcloudimg.com/raw/a03a4371a586dca6b6eefea3fad26274.jpg)
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
-(f). 按照所需接口调用即可。
+#### 6. 按照所需接口调用即可。
 
 ### 普通 HTTPS 场景
 原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
 
-1. 以 NSURLConnection 接口为例，实现以下两个方法：
+#### 1. 以 NSURLConnection 接口为例，实现以下两个方法：
+
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -313,7 +314,8 @@ credentialForTrust:challenge.protectionSpace.serverTrust];
 }
 }
 ```
-2. 以 NSURLSession 接口为例，实现以下两个方法：
+#### 2. 以 NSURLSession 接口为例，实现以下两个方法：
+
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -375,7 +377,7 @@ disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 completionHandler(disposition,credential);
 }
 ```
-3. 以 Unity 的 WWW 接口为例：
+#### 3. 以 Unity 的 WWW 接口为例：
 将 Unity 工程导为 Xcode工程后，打开`Classes/Unity/WWWConnection.mm`文件，修改下述代码：
 ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
