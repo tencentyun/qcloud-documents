@@ -4,7 +4,7 @@
 本接口用于识别用户上传照片的车牌号码。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
 支持 http 和 https 两种协议：
@@ -21,7 +21,7 @@
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
 | content-type   | 是 |application/json 或者 multipart/form-data    | 标准 json 格式                               |
-| authorization  | 是 |鉴权签名             | 用于鉴权的签名，使用 [多次有效签名](/document/product/641/12409) |
+| authorization  | 是 |鉴权签名             | 用于鉴权的签名，使用 [多次有效签名](/document/product/866/17734) |
 
 #### 请求参数
 
@@ -136,6 +136,6 @@ Content-Type: text/json
 | -9702 | 车牌识别失败                   |
 
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733) 。
 
 
