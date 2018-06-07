@@ -122,11 +122,11 @@
 如果您想要让用户能够查看 CVM 控制台中的云硬盘信息，创建云硬盘，使用云硬盘，可将以下操作添加到您策略中，然后将该策略关联到该用户。
 
 - **CreateCbsStorages ：**创建云硬盘。
-- **AttachCbsStorages ：**挂载指定的弹性云盘到指定的云主机上。
+- **AttachCbsStorages ：**挂载指定的弹性云盘到指定的云服务器上。
 - **DetachCbsStorages ：**解挂指定的弹性云盘。
 - **ModifyCbsStorageAttributes ：**修改指定云硬盘的名称或项目 ID。
 - **DescribeCbsStorages ：**查询云硬盘的详细信息性。
-- **DescribeInstancesCbsNum ：**查询云主机已挂载的弹性云盘数量和可挂载的弹性云盘的总数。
+- **DescribeInstancesCbsNum ：**查询云服务器已挂载的弹性云盘数量和可挂载的弹性云盘的总数。
 - **RenewCbsStorage ：**续费指定的弹性云盘。
 - **ResizeCbsStorage ：**扩容指定的弹性云盘。
 
