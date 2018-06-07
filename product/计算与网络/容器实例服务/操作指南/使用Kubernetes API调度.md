@@ -12,23 +12,23 @@
 
 3. 完成 virtual kubelet 部署后会在集群中看到新增一个 pod （virtual-kubelet）和虚拟节点（virtual-kubelet）。
 
-![][1]
+  ![][1]
 
 4. 部署 Deployment ，并指定 nodeName 为 virtual-kubelet 。
 
-![][2]
+  ![][2]
 
-则会把该 Deployment 的 pod 调度到虚拟节点 virtual-kubelet 上。
+   则会把该 Deployment 的 pod 调度到虚拟节点 virtual-kubelet 上。
 
-![][3]
+  ![][3]
 
-5. 完成部署后，在 [CCS 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment。
+5. 完成部署后，在 [CCS 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment 。
+   
+	![][4]
 
-![][4]
+  但 Deployment 并没有使用 CCS 集群节点的资源，而是把 Pod 创建到了 CIS 中，所以其 Pod 可以在 [CIS控制台](https://console.cloud.tencent.com/cis) 的【容器实例】中看到。
 
-但 Deployment 并没有使用 CCS 集群节点的资源，而是把 Pod 创建到了 CIS 中，所以其 Pod 可以在 [CIS控制台](https://console.cloud.tencent.com/cis) 的【容器实例】中看到。
-
-![][5]
+  ![][5]
 
 [1]:https://main.qcloudimg.com/raw/e26ab86e8de97abf36380482703b932f.png
 [2]:https://main.qcloudimg.com/raw/c1406a0b424a94a04fd90d19eec83c55.png
