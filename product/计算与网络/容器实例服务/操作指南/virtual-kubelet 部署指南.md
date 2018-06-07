@@ -2,6 +2,9 @@
 #### virtual-kubelet 依赖文件：
 - qcloud-vkubelet.yaml
 - virtual-kubelet.yaml
+- config/config.toml
+- config/server.crt
+- config/server.key
 ![][1]
 
 详情请参考 [virtual kubelet 部署模版](https://main.qcloudimg.com/raw/bfb0dcd2aeb8c11295887f19fd0ca8a8/virtual%20kubelet%20node.tar.gz) ，该模版支持上传 CCS 节点，解压缩，修改特定参数后直接使用。
