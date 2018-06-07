@@ -16,7 +16,7 @@
 | --------------------------- | ---------------------------------------- |
 | cos-android-sdk-5.4.6.jar   | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
 | qcloud-foundation.1.3.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| okhttp-3.8.1.jar            | 开源 http 组件                          |
+| okhttp-3.8.1.jar            | 开源 HTTP 组件                          |
 | okio-1.13.0.jar             | 开源网络 I/O 组件                         |
 | xstream-1.4.7.jar           | 开源序列化组件                             |
 | fastjson-1.1.62.android.jar | 开源 json 组件                            |
