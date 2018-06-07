@@ -4,7 +4,7 @@ CIS 实例支持配置[ NAT 网关](https://cloud.tencent.com/document/product/2
 
 ## 配置 Internet 访问 CIS 实例
 
-1. 登录[腾讯云私有网络- NAT 网关] (https://console.cloud.tencent.com/vpc/nat)控制台，单击【新建】创建与 CIS 实例同地域、同 VPC 的 NAT 网关。
+1. 登录[腾讯云私有网络- NAT 网关](https://console.cloud.tencent.com/vpc/nat)控制台，单击【新建】创建与 CIS 实例同地域、同 VPC 的 NAT 网关。
 
 2. 在 NAT 网关详情页新建【端口转发】规则。
 
