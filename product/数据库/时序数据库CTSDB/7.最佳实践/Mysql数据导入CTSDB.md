@@ -1,9 +1,9 @@
-# 1.前言 #
+## 1.前言 ##
 CTSDB是一款分布式、可扩展、支持近实时数据搜索与分析的时序数据库，且兼容Elasticsearch常用的API接口。对于很多用户，想要将Mysql中的数据导入到CTSDB中，而又找不到一种较好的方法，笔者这里给出一种简单快捷的方式，轻松将Mysql中的数据同步到CTSDB。
-# 2.工具介绍 --- go-mysql-elasticsearch #
+## 2.工具介绍 --- go-mysql-elasticsearch ##
 go-mysql-elasticsearch是一款开源的高性能的Mysql数据同步Elasticsearch的工具，其由go语言开发，编译及使用非常简单。go-mysql-elasticsearch的原理很简单，首先使用mysqldump获取当前MySQL的数据，然后在通过此时binlog的name和position获取增量数据，再根据binlog构建restful api写入数据到Elasticsearch中。由于CTSDB基于Elasticsearch开发，因此，可以完美对接go-mysql-elasticsearch，导入Mysql数据。下面笔者将会给出详细的使用步骤。
-# 3.Mysql数据同步CTSDB步骤 #
-## 3.1 Mysql样例数据构建 ##
+## 3.Mysql数据同步CTSDB步骤 ##
+### 3.1 Mysql样例数据构建 ###
 既然读者有Mysql导入CTSDB的需求，那Mysql的安装就不用多说了。这里笔者为了整个流程的完整性，就从样例数据的灌入开始，笔者用go写了一个小工具，生成一些样例数据并灌入到Mysql中，表结构如下：<br>
 	
     mysql> desc test_table;
@@ -33,7 +33,7 @@ go-mysql-elasticsearch是一款开源的高性能的Mysql数据同步Elasticsear
     |9 | 1527676819 |  0.94 | 192.168.1.4 | shanghai  |
     |   10 | 1527676879 |  0.06 | 192.168.1.5 | beijing   |
 至此，Mysql端的样例数据准备完毕。
-## 3.2 CTSDB metric创建 ##
+### 3.2 CTSDB metric创建 ###
  现在，我们在CTSDB上创建一个和Mysql一样的表结构，用于存储对应的数据，创建接口如下所示：<br>
 
     POST /_metric/test_metric
@@ -51,7 +51,7 @@ go-mysql-elasticsearch是一款开源的高性能的Mysql数据同步Elasticsear
 	  }
 	}
 至此，CTSDB中的表结构也准备好了，下面我们使用go-mysql-elasticsearch来同步数据。
-## 3.3 go-mysql-elasticsearch使用 ##
+### 3.3 go-mysql-elasticsearch使用 ###
 由于go-mysql-elasticsearch是用go语言开发，因此首先安装go，官方要求的版本是1.6以上，go的安装非常简单，参考官方文档，下载：https://golang.org/dl/， 安装：https://golang.org/doc/install#install， 然后开始安装 go-mysql-elasticsearch，整个步骤如下：<br>
 
     $ go get github.com/siddontang/go-mysql-elasticsearch
@@ -174,7 +174,7 @@ go-mysql-elasticsearch是一款开源的高性能的Mysql数据同步Elasticsear
       },
       ......
     }
-# 4.小结 #
+## 4.小结 ##
 可以看到，使用 go-mysql-elasticsearch，我们仅需要在配置文件里面写规则，就能非常方便的将数据从 MySQL 同步给 ES。上面仅仅举了一些简单的例子，如果有更多的需求可以参考 go-mysql-elasticsearch的官方文档。 <br>
 除了本文所介绍的工具外，这里再推荐两种工具，一个是 py-mysql-elasticsearch-sync，该工具是使用python语言编写，与go-mysql-elasticsearch的原理类似，都是利用binlog来实现数据的同步，安装及使用见官方文档https://github.com/zhongbiaodev/py-mysql-elasticsearch-sync； 另一个工具是logstash，使用logstash同步数据时需要安装logstash-input-jdbc、logstash-output-elasticsearch两个插件，具体使用参考官方文档https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html 、https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html <br> 
 如果你在使用上述工具中遇到问题，欢迎提工单联系我们。
