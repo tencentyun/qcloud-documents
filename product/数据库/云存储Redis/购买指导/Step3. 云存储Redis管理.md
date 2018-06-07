@@ -9,5 +9,5 @@
 5）手动备份，允许手动备份实例。
 6）自动备份设置，可以设置备份的频率和时间，如下图所示：
  ![](https://mccdn.qcloud.com/static/img/d20cf56d43ba9a3a9a2a1ba3f8c707d5/3.png)
-7）数据管理，可以通过web工具登陆Redis实例管理数据，如下图所示：
+7）数据管理，可以通过web工具登录Redis实例管理数据，如下图所示：
 ![](https://mccdn.qcloud.com/static/img/69f4d66e4d251218036c65da3d073f2c/4.png)
