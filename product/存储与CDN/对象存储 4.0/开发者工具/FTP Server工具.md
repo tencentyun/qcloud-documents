@@ -111,7 +111,7 @@ python ftp_server.py
 
 ### 正确配置了masquerade_address选项以后，ftp server可以正常登陆，但是执行FTP命令：list或者get等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误
 
-答：这个case多半是因为ftp server机器iptables或防火墙策略配置reject或者drop掉所有ICMP协议包，而FTP客户端在拿到FTP Server被动模式下返回的数据连接IP后，会首先发送一个ICMP包探测IP的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
+这个case多半是因为ftp server机器iptables或防火墙策略配置reject或者drop掉所有ICMP协议包，而FTP客户端在拿到FTP Server被动模式下返回的数据连接IP后，会首先发送一个ICMP包探测IP的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
 
 建议解决方案是：将iptables策略按需配置为只reject或drop希望限制的ICMP包类型，如只想禁掉外部ping类型的ICMP包，可以将策略修改为：iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j [REJECT/DROP]
 或者单独放开要访问ftp server的客户端的IP。
