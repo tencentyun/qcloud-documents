@@ -132,5 +132,6 @@ typedef NS_ENUM(NSInteger, QAVRecordPreset) {
 ```
 
 ### 常见问题
-#### 调用屏幕分享接口失败?
-屏幕分享功能只支持 iOS9，iOS10 系统。
+- 调用屏幕分享接口失败?
+> 屏幕分享功能只支持iOS9，iOS10系统。
+> `kRecordAppId`与`Bundle Identifier`是绑定的，请检查是否对应；

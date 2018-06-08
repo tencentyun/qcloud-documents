@@ -184,5 +184,5 @@ config.maxDuration    = 60;                      //视频录制的最大时长
 新版本的SDK增加了短视频licence的校验，如果校验没通过，您可以通过该接口来查询licence中具体信息
 
 ``` 
-NSString *licenceInfo = [[TXUGCRecord shareInstance] getLicenceInfo];
+NSString *licenceInfo = [TXUGCBase getLicenceInfo];
 ``` 
