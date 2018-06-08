@@ -12,12 +12,14 @@
 | name            | 姓名                                       | String        | 20         | 否          |
 | idNo            | 证件号码                                     | String        | 20         | 否          |
 | photoStr        | 照片文件</br>注意：原始图片不能超过 2 M，且必须为 JPG 或 PNG 格式    | Base64 String | 不超过 3 M   | 是  |
-| sourcePhotoStr  | 合作伙伴自己提供的可信比对源照片</br>注意：原始图片不能超过 2 M，且必须为 JPG 或 PNG 格式 | BASE64 String | 不超过 3 M      | 是 |
+| sourcePhotoStr  | 合作伙伴自己提供的可信比对源照片</br>注意：原始图片不能超过 2 M，且必须为 JPG 或 PNG 格式 | Base64 String | 不超过 3 M      | 是 |
 | sourcePhotoType | 比对源照片类型</br>1：网纹照</br>2：高清照     | String        | 1          | 是            |
 
 ## 响应参数
 
-| code        | String     | 0：成功</br>非0：失败  |
+| 参数         |     类型   | 说明        |
+| ----------- | ---------- | ---------- |
+| code        | String     | 0：成功</br>非 0：失败  |
 | msg         | String     | 请求结果描述     |
 | bizSeqNo    | String     | 请求业务流水号    |
 | orderNo     | String     | 订单编号       |

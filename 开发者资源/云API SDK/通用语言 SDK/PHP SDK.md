@@ -2,6 +2,24 @@
 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。目前已经支持 cvm、vpc、cbs 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 PHP 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 PHP SDK 并开始调用。
 
+## 支持的产品
+
+|产品名称|支持 PHP SDK3.0|
+|----|------|
+|云服务器 (CVM)|是|
+|云硬盘 (CBS) |是|
+|私有网络 (VPC)|是|
+|云数据库(CDB)|是|
+|批量计算|是|
+|云数据库 MariaDB|是|
+|无服务器云函数|是|
+|分布式数据库 DCDB|是|
+|物联网套件|是|
+|渠道合作伙伴|是|
+|腾讯机器翻译|是|
+|云数据库 PostgreSQL|是|
+
+
 ## 依赖环境
 1. PHP 5.6.33 版本及以上。
 2. 从腾讯云 [控制台](https://console.cloud.tencent.com/) 开通相应产品。
@@ -68,4 +86,4 @@ catch(TencentCloudSDKException $e) {
 ```
 您可以在 [github仓库](https://github.com/tencentcloud/tencentcloud-sdk-php) 中 examples 目录下找到更详细的示例。
 ## 旧版 SDK
-新版 SDK 兼容旧版 SDK。旧版本的 SDK 存放于 QcloudApi 目录，但不再维护更新，推荐使用新版 SDK。
+旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请到[旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。

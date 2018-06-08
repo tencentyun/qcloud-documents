@@ -17,7 +17,7 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 2. 单击左侧导航栏中的 **集群** 。
 3. 在集群列表中单击集群的 **ID/名称**。
 ![](//mc.qcloudimg.com/static/img/61849c3dd8141879ca64e52a7348a065/image.png)
-4. 点击 **Namespace 列表** ，单击【新建 Namespace 】。
+4. 单击 **Namespace 列表** ，单击【新建 Namespace 】。
 ![](//mc.qcloudimg.com/static/img/605f218bba56eacb1f6d21ed507ea8eb/image.png)
 5. 填写信息并单击【提交】。
  - **名称**：输入 Namespace 的名称。
@@ -44,7 +44,7 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 2. 单击左侧导航栏中的 **集群** 。
 3. 在集群列表中单击集群的 **ID/名称**。
 ![](//mc.qcloudimg.com/static/img/61849c3dd8141879ca64e52a7348a065/image.png)
-4. 点击 **Namespace 列表** ，选择需删除的 Namespace，单击右侧【删除】。
+4. 单击 **Namespace 列表** ，选择需删除的 Namespace，单击右侧【删除】。
 ![](//mc.qcloudimg.com/static/img/8c3af52aa236daf6c9768a095d421623/image.png)
 5. 弹出提示页面，显示要删除的 Namespace 信息，单击【确定】删除。
 ![](//mc.qcloudimg.com/static/img/1d5fa45b089ce4c4120fe3050622f283/image.png)

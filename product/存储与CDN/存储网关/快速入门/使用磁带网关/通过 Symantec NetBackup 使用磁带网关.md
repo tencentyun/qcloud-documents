@@ -1,8 +1,6 @@
-# 通过 Symantec NetBackup 使用磁带网关
-
 完成磁带网关及磁带的创建之后，您可以通过 Symantec NetBackup 备份软件将数据备份到虚拟磁带、对磁带进行存档以及管理虚拟磁带库 (VTL) 设备。下面将以 NetBackup 8 为例介绍如何通过 NBU 程序配置存储、将数据写入磁带、存档磁带以及还原数据。
 
-有关如何使用 NetBackup 的详细信息，请参考 Veritas 网站上的[使用帮助](https://www.veritas.com/content/support/zh_CN/DocumentBrowsing.html?product=NetBackup)。
+有关如何使用 NetBackup 的详细信息，请参考 Veritas 网站上的 [使用帮助](https://www.veritas.com/content/support/zh_CN/DocumentBrowsing.html?product=NetBackup)。
 
 ## 连接 VTL 设备
 
@@ -173,6 +171,6 @@
 
 应用程序是无法从已归档磁带中取出数据。为了读取归档数据，您需要磁带数据取回。
 
-1. 要将已归档磁带取回到磁带网关。您可以在 CSG 控制台，选中 "磁带列表", 找到相应的已归档磁带，单击【取回】，详细操作步骤请参考[磁带取回](https://cloud.tencent.com/document/product/581/12507#.E7.A3.81.E5.B8.A6.E5.8F.96.E5.9B.9E)。 
+1. 要将已归档磁带取回到磁带网关。您可以在 CSG 控制台，选中 "磁带列表", 找到相应的已归档磁带，单击【取回】，详细操作步骤请参考 [磁带取回](https://cloud.tencent.com/document/product/581/12507#.E7.A3.81.E5.B8.A6.E5.8F.96.E5.9B.9E)。 
 2. 等待磁带取回后， 您可使用随 Symantec NetBackup 应用程序一起安装的“备份、存档和还原”软件。此过程与从物理磁带还原数据相同。
 
