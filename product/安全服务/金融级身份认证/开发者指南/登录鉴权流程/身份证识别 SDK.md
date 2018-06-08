@@ -16,8 +16,7 @@
 
 具体接入开发指南见：[**身份证识别 SDK 接入**](https://cloud.tencent.com/document/product/655/13846)
 ## 流程图示
-![](https://main.qcloudimg.com/raw/6b243a808814092bc974986e77898042.png)
-
+![](https://main.qcloudimg.com/raw/eeb419054f546aa4c47036dadef0ab0f.png)
 
 
 更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)
