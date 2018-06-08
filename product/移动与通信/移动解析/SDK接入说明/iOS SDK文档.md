@@ -202,7 +202,7 @@ if (conn.error != null)
 
 ## 实践场景
 ###  Unity 工程接入
-#### 1.  在 cs 文件中进行接口声明：
+#### 1. 在 cs 文件中进行接口声明：
 ```
 #if UNITY_IOS
 [DllImport("__Internal")]
@@ -242,7 +242,7 @@ HttpDns.GetHostByName(domainStr);
 
 ### 普通 HTTPS 场景
 原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
-### Demo 示例
+**Demo 示例**
 #### 1. 以 NSURLConnection 接口为例，实现以下两个方法：
 
 ```
