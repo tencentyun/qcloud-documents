@@ -212,7 +212,10 @@ private static extern void WGGetHostByNameAsync(string domain);
 #endif
 ```
 
-#### 2.  在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
+#### 2. 在需要进行域名解析的部分，调用 WGGetHostByName (string domain) 或者 WGGetHostByNameAsync (string domain) 方法
+- 如使用同步接口 **WGGetHostByName**，直接调用接口即可；
+- 如果使用异步接口 **WGGetHostByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义
+并建议添加如下处理代码：
 
 ```
 string ips = HttpDns.GetHostByName(domainStr);
@@ -232,16 +235,14 @@ HttpDns.GetHostByName(domainStr);
 }
 ```
 
-####  3. 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
-#### 4. 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
-#### 5. 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
-![](https://main.qcloudimg.com/raw/a03a4371a586dca6b6eefea3fad26274.jpg)
+#### 3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库；
+#### 4. 将 HTTPDNSUnityDemo 下的 `MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
+![](https://main.qcloudimg.com/raw/dc203ca596d0873427504b6b70fba912.jpg)
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
-#### 6. 按照所需接口调用即可。
 
 ### 普通 HTTPS 场景
 原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
-
+### Demo 示例
 #### 1. 以 NSURLConnection 接口为例，实现以下两个方法：
 
 ```
