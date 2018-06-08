@@ -5,8 +5,8 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 
 ## 安装包结构
 压缩文件中包含 demo 工程，其中包含：
-- `MSDKDns.framework`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++(GNU C++ standard library)” 的工程。
-- `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。
+- `MSDKDns.framework`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++ (GNU C++ standard library)” 的工程。
+- `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++ (LLVM C++ standard library with C++11 support)” 的工程。
 
 ## 接入步骤
 ### 步骤 1： 引入依赖库
@@ -53,7 +53,7 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 | TIME_OUT | Number | 请求 HttpDns 的超时设定时间单位：ms ; 如未设置，默认为 1000 ms |
 | DNS_ID |String | 接入时由系统或者管理员分配 |
 | DNS_KEY | String | 接入时由系统或者管理员分配 |
-| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭HttpDns 日志 |
+| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭 HttpDns 日志 |
 
 ## API 及使用示例
 获取 IP 共有两个接口：**同步接口 WGGetHostByName** 和 **异步接口 WGGetHostByNameAsync**。引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2。其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。
