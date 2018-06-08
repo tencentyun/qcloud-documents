@@ -1,6 +1,36 @@
 ## 简介
-欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持cvm、vpc、cbs等产品，后续所有的云服务产品都会接入进来。新版SDK实现了统一化，具有各个语言版本的SDK使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
+欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 NODEJS 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 NODEJS 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 NODEJS SDK 并开始调用。
+
+## 支持的产品列表
+
+<table>
+  <tr>
+    <td><a href="https://cloud.tencent.com/document/api/213/15689">云服务器</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/362/15634">云硬盘</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/215/15755 ">私有网络</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/236/15830 ">数据库 MySQL</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://cloud.tencent.com/document/api/599/15880 ">批量计算</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/237/16144 ">数据库 MariaDB(TDSQL)</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/583/17235">无服务器云函数</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/557/16124 ">分布式数据库DCDB</a></td>
+  </tr>
+<tr>
+    <td><a href="https://cloud.tencent.com/document/api/568/16437 ">加速物联网套件</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/563/16034 ">渠道合作伙伴</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">腾讯机器翻译</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/409/16761">数据库 PostgreSQL</a></td>
+  </tr>
+<tr>
+    <td><a href="https://cloud.tencent.com/document/api/692/16733">Web漏洞扫描</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/441/17362">智能语音服务</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </table>
+
 ## 依赖环境
 
 1. NODEJS 7.10.1 版本及以上。
@@ -20,7 +50,7 @@ npm install tencentcloud-sdk-nodejs --save
 2. 在您的代码中引用对应模块代码，可参考示例。
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 下载源码压缩包。
+1. 前往 [GitHub 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 在您的代码中引用对应模块代码，可参考示例。
 
@@ -54,7 +84,10 @@ client.DescribeZones(req, function(errMsg, response) {
     console.log(response.to_json_string());
 });
 ```
-使用 demo 更多示例请前往 [github仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 在 examples目录中寻找。
 
-## 旧版SDK
-我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往[github仓库](https://github.com/CFETeam/qcloudapi-sdk)下载。
+## 更多示例
+
+您可以在 GitHub仓库 中 examples 目录下找到更详细的示例。
+
+## 旧版 SDK
+我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往 [GitHub 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。

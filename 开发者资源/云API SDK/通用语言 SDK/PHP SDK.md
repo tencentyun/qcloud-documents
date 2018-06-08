@@ -2,23 +2,34 @@
 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。目前已经支持 cvm、vpc、cbs 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 PHP 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 PHP SDK 并开始调用。
 
-## 支持的产品
+## 支持的产品列表
 
-|产品名称|支持 PHP SDK3.0|
-|----|------|
-|云服务器 (CVM)|是|
-|云硬盘 (CBS) |是|
-|私有网络 (VPC)|是|
-|云数据库(CDB)|是|
-|批量计算|是|
-|云数据库 MariaDB|是|
-|无服务器云函数|是|
-|分布式数据库 DCDB|是|
-|物联网套件|是|
-|渠道合作伙伴|是|
-|腾讯机器翻译|是|
-|云数据库 PostgreSQL|是|
-
+<table>
+  <tr>
+    <td><a href="https://cloud.tencent.com/document/api/213/15689">云服务器</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/362/15634">云硬盘</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/215/15755 ">私有网络</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/236/15830 ">数据库 MySQL</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://cloud.tencent.com/document/api/599/15880 ">批量计算</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/237/16144 ">数据库 MariaDB(TDSQL)</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/583/17235">无服务器云函数</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/557/16124 ">分布式数据库DCDB</a></td>
+  </tr>
+<tr>
+    <td><a href="https://cloud.tencent.com/document/api/568/16437 ">加速物联网套件</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/563/16034 ">渠道合作伙伴</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">腾讯机器翻译</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/409/16761">数据库 PostgreSQL</a></td>
+  </tr>
+<tr>
+    <td><a href="https://cloud.tencent.com/document/api/692/16733">Web漏洞扫描</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/441/17362">智能语音服务</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </table>
 
 ## 依赖环境
 1. PHP 5.6.33 版本及以上。
@@ -84,6 +95,10 @@ catch(TencentCloudSDKException $e) {
     echo $e;
 }
 ```
-您可以在 [github仓库](https://github.com/tencentcloud/tencentcloud-sdk-php) 中 examples 目录下找到更详细的示例。
+
+## 更多示例
+
+您可以在 GitHub仓库 中 examples 目录下找到更详细的示例。
+
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请到[旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。

@@ -11,7 +11,7 @@
 编写测试代码并运行.
 
 ## 3 代码示例 python-memcached-demo.py
-将代码中***号替换为你的IP:Port, 在管理中心，点击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
+将代码中***号替换为您的IP:Port, 在管理中心，单击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
 
 ```
 #!/usr/bin/env python

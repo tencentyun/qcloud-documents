@@ -11,21 +11,21 @@
 ![](https://mc.qcloudimg.com/static/img/f4c62ba416032b20e17ff9ec3ed15e39/s3.png)
 [云市场链接地址>>](https://market.cloud.tencent.com/products/5310)
 
-选择镜像的时候，选择『服务市场』，在搜索栏里搜索『批量计算』，选择Windows Server 2012 的基础镜像（镜像 ID：img-er9shcln），后续存储、网络、其他设置根据提示选择，最后点击『立即购买』创建云主机。
+选择镜像的时候，选择『服务市场』，在搜索栏里搜索『批量计算』，选择Windows Server 2012 的基础镜像（镜像 ID：img-er9shcln），后续存储、网络、其他设置根据提示选择，最后单击『立即购买』创建云主机。
 
 ### 2. 在云主机上安装业务需要的软件
 
-在 [云主机控制台](https://buy.cloud.tencent.com/cvm) 查看刚才的创建的云主机信息，远程登录后将你的业务依赖的软件全部安装到该云主机上，并简单测试相关调用。
+在 [云主机控制台](https://buy.cloud.tencent.com/cvm) 查看刚才的创建的云主机信息，远程登录后将您的业务依赖的软件全部安装到该云主机上，并简单测试相关调用。
 
 ### 3. 制作自定义镜像
 
 ![](https://mc.qcloudimg.com/static/img/270d48a5e64e7ec32e1d710f43123b47/s1.png)
 
-在控制台点击``制作镜像``即可，请耐心等待镜像制作完成
+在控制台单击``制作镜像``即可，请耐心等待镜像制作完成
 
 ![](https://mc.qcloudimg.com/static/img/e939a39dcebe0c7449c7dacdb33e52ea/s2.png)
 
-这个 ID 就是你的自定义镜像 ID，你可以随时到 [镜像控制台](https://console.cloud.tencent.com/cvm/image) 来查看
+这个 ID 就是您的自定义镜像 ID，您可以随时到 [镜像控制台](https://console.cloud.tencent.com/cvm/image) 来查看
 
 ### 4. 使用自定义镜像提交测试作业
 
