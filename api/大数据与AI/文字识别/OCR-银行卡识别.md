@@ -24,7 +24,7 @@
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
 | content-type   |  是   |string | text/json                                |
-| authorization  |  是   |string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
+| authorization  |  是   |string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 ### 请求参数
 
@@ -218,6 +218,6 @@ Content-Type: application/json
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
 
-更多其他 API 错误码请看 [错误码说明](/document/product/641/12410)。 
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。 
 
 

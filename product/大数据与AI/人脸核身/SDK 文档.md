@@ -4,14 +4,14 @@
 
 | SDK             | 接入文档                                     |
 | --------------- | ---------------------------------------- |
-| Java-SDK-图像识别   | [Java-SDK](/document/product/641/12437) |
-| Python-SDK-图像识别 | [Python-SDK](/document/product/641/12440) |
-| CPP-SDK-图像识别    | [CPP-SDK](/document/product/641/12436) |
-| PHP-SDK-图像识别    | [PHP-SDK](/document/product/641/12438) |
+| Java-SDK-图像识别   | [Java-SDK](/document/product/868/17690) |
+| Python-SDK-图像识别 | [Python-SDK](/document/product/868/17693) |
+| CPP-SDK-图像识别    | [CPP-SDK](/document/product/868/17691) |
+| PHP-SDK-图像识别    | [PHP-SDK](/document/product/868/17692) |
 
 ## 人脸核身移动端 SDK
 
 | SDK         | 接入文档                                     |
 | ----------- | ---------------------------------------- |
-| iOS SDK     | [iOS SDK](/document/product/641/12442) |
-| Android SDK | [Android SDK ](/document/product/641/12435) |
+| iOS SDK     | [iOS SDK](/document/product/868/17694) |
+| Android SDK | [Android SDK ](/document/product/868/17695) |
