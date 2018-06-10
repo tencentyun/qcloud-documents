@@ -28,18 +28,46 @@
 
 在 TSF 控制台上的操作步骤如下：
 
-
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/apigateway)。
 2. 单击左侧导航栏 **命名空间**。
 3. 选择目标集群后，单击命名空间列表左侧【配置 Code】。
 
-![](https://main.qcloudimg.com/raw/79b6fc71f3c86f66173083d3b4051285.png)
+[配置code.jpg]
 
 
 
 ## 在 API 网关上的操作
 
-在 API 网关上的详细操作可以参考腾讯云 [API 网关产品文档](https://cloud.tencent.com/document/product/628)，其中与微服务相关的操作可参考：
+以 [TSF Demo](https://cloud.tencent.com/document/product/649/16619) 为例介绍在 API 网关上配置微服务 API 的流程。
 
-- [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)
-- [调试微服务API](https://cloud.tencent.com/document/product/628/17562)
+前置条件：已经在 TSF 平台上部署了 `provider-demo` 应用，并在微服务所属命名空间配置 code ，名称为 `tsf-code` 。
+
+在 API 网关上，创建微服务 API 的流程如下：
+
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index)。
+
+2. 创建 API 服务。
+
+ ![](https://main.qcloudimg.com/raw/2331e9463018b7dcda942370f1253fe2.png)
+
+3. 创建微服务 API。
+
+   ![](https://main.qcloudimg.com/raw/20e00a475d187dfc185beca94cd6db25.png) 
+
+4. 前置配置，各字段详情含义参考 [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
+   ![](https://main.qcloudimg.com/raw/8c7a1ddddc0802a9071f8389dc2bc3f5.png)
+
+5. 后置配置，各字段详细含义参考  [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
+   ![](https://main.qcloudimg.com/raw/a36e65e3021da965401df82b86b420b6.png)
+
+6. 预览微服务 API 信息，单击【API调试】。
+   ![](https://main.qcloudimg.com/raw/ef016392d649113c5835949be885c513.png)
+
+ 7. 调试 API。
+
+    ![](https://main.qcloudimg.com/raw/a0f00acf1fb1a8590781c512d9092c71.png)
+
+
+
+> 注：在 API 网关上的详细操作可以参考腾讯云 [API 网关产品文档](https://cloud.tencent.com/document/product/628)
+
