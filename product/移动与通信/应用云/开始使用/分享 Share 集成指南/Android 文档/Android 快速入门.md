@@ -51,7 +51,7 @@ dependencies {
 
 ## Proguard 配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core
