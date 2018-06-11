@@ -44,7 +44,7 @@ dependencies {
 
 ## 第四步：配置第三方渠道
 
-分享 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E6%8E%88%E6%9D%83%20Authorization%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Android%20%E6%96%87%E6%A1%A3/%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%B8%89%E6%96%B9%E6%B8%A0%E9%81%93.md)。
+分享 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://cloud.tencent.com/document/product/666/17846)。
 
 到此您已经成功接入了 MobileLine 分享服务。
 
