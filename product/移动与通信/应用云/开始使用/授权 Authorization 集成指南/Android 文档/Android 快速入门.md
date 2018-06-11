@@ -8,7 +8,7 @@
 
 ## 第二步：添加配置文件（已完成请跳过）
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
 
@@ -50,7 +50,7 @@ dependencies {
 
 ## Proguard配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core
