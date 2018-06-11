@@ -34,7 +34,7 @@ dependencies {
 
 #### 2. 添加 QQ SDK
 
-手动下载 [qq sdk](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `app/libs` 文件夹下，并在您应用级 build.gradle（通常是 app/build.gradle）文件中包含对 libs 目录的依赖：
+手动下载 [QQ SDK](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `app/libs` 文件夹下，并在您应用级 build.gradle（通常是 app/build.gradle）文件中包含对 libs 目录的依赖：
 
 ```
 dependencies {
@@ -44,7 +44,7 @@ dependencies {
 
 ## 第四步：配置第三方渠道
 
-登录 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://cloud.tencent.com/document/product/666/17846)。
+登录 SDK 需要配置 QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://cloud.tencent.com/document/product/666/17846)。
 
 到此您已经成功接入了 MobileLine 登录与授权服务。
 
