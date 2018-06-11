@@ -3,7 +3,7 @@
 Android 系统 2.3 以上。
 ### 开发步骤
 1.将 VerifySDK.jar 拷贝到 libs 目录下关联到工程。
- [Android-SDK 下载](https://main.qcloudimg.com/raw/a712a3165e1c922bab9bcf2b8abace36.zip)
+[Android-SDK 下载](https://main.qcloudimg.com/raw/a712a3165e1c922bab9bcf2b8abace36.zip)
 2.如 AndroidManifest.xml 未声明以下权限，则添加声明。
 
 ```
@@ -86,7 +86,7 @@ private VerifyListener mListener = new VerifyListener() {
 
 		@Override
 		public void onVerifyFail() {
-				//验证不成功回调，如用户点击返回或关闭按钮
+				//验证不成功回调，如用户单击返回或关闭按钮
 				setResult(Activity.RESULT_CANCELED);
 				finish();
 		}
