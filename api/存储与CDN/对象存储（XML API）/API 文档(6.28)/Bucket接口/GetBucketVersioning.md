@@ -1,11 +1,12 @@
 ## 功能描述
-GET Bucket Versioning 接口实现获得存储桶的版本控制信息。
+GET Bucket versioning 接口实现获得存储桶的版本控制信息。
 ### 细节分析
 1. 获取存储桶版本管理的状态，需要有该存储桶的读权限；
 2. 有三种版本控制状态：
 - 如果您从未在存储桶上启用（或暂停）版本控制，则响应为：
 ```
 <VersioningConfiguration>
+</VersioningConfiguration>
 ```
 
 - 如果您启用了存储桶的版本控制功能，则响应为：
@@ -68,10 +69,12 @@ GET /?versioning HTTP 1.1
 | 节点名称（关键字）                | 父节点               | 描述    | 类型   |
 | --------------------------------------- | --------------------- | --------- | ------- |
 | VersioningConfiguration |        无                                   |说明版本控制的具体信息    | Container    |
-| Status                            |    VersioningConfiguration      | 说明版本是否开启，枚举值：Suspended\Enabled  | Enum         |
+| Status                            |    VersioningConfiguration      | 说明版本是否开启，枚举值：Suspended/Enabled  | Enum         |
 
 
 ## 实际案例
+
+### 请求
 ```
 GET /?versioning HTTP/1.1
 Host: testbucket-1352548703.cos.cn-north.myqcloud.com
