@@ -13,7 +13,8 @@
 
 
 ## 方法二：rpm 包安装方式
-可以联系腾讯云来提供，也可以自己制作 rpm 包。自己制作 rpm 包步骤如下：
+可以联系腾讯云来提供，也可以自己制作 rpm 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)）。
+自己制作 rpm 包步骤如下：
 1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm：
 `rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm`
 
