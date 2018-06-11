@@ -63,7 +63,7 @@
 6. 预览微服务 API 信息，单击【API调试】。
    ![](https://main.qcloudimg.com/raw/ef016392d649113c5835949be885c513.png)
 
- 7. 调试 API。
+7. 调试 API。
 
     ![](https://main.qcloudimg.com/raw/a0f00acf1fb1a8590781c512d9092c71.png)
 
