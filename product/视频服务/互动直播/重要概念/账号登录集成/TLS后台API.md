@@ -119,7 +119,7 @@ Java 原生接口依赖于 5 个jar包中。在 `tls_sig_api/java_native/lib` �
 ```
 
 >**注意**
->从控制台界面 [下载](/doc/product/269/下载公私钥) 的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
+>从控制台界面 [下载](/doc/product/268/7657) 的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
 
 ### PHP 接口
 PHP 实现的方式较为简单，就是调用命令行工具生成 sig，工具是 `bin/signature.exe`，PHP 的调用方式如下：
@@ -264,7 +264,7 @@ Java 原生接口依赖于 5 个 jar 包。在 `tls_sig_api/java_native/lib` 目
 ```
 
 >**注意：**
->从控制台界面 [下载](/doc/product/269/下载公私钥) 的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
+>从控制台界面 [下载](/doc/product/268/7657) 的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
 
 ### C# 接口
 以非托管的方式调用 dll 实现，调用的 dll 为 `lib\libsigcheck\sigcheck.dll`，C 样式接口的参数与返回值说明参见 `include\sigcheck.h` 头文件，接口的转换方式如下：
