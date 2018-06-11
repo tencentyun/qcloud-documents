@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功能。
+PUT Bucket versioning 接口实现启用或者暂停存储桶的版本控制功能。
 ### 细节分析
 1. 如果您从未在存储桶上启用（或暂停）版本控制，则 GET versioning 请求没有返回版本状态值；
 2. 版本管理功能一经打开，只能暂停，不能关闭；
@@ -45,7 +45,7 @@ PUT /?versioning HTTP 1.1
 | 节点名称（关键字）                | 父节点               | 描述    | 类型   |
 | --------------------------------------- | --------------------- | --------- | ------- |
 | VersioningConfiguration |        无                                   |说明版本控制的具体信息    | Container    |
-| Status                            |    VersioningConfiguration      | 说明版本是否开启，枚举值：Suspended\Enabled  | Enum         |
+| Status                            |    VersioningConfiguration      | 说明版本是否开启，枚举值：Suspended/Enabled  | Enum         |
 
 ## 响应
 
@@ -68,6 +68,8 @@ PUT /?versioning HTTP 1.1
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
+
+### 请求
 ```
 PUT /?versioning HTTP/1.1
 Host: testbucket-1322448703.cos.cn-north.myqcloud.com
