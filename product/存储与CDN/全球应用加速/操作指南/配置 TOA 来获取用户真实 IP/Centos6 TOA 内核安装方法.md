@@ -1,10 +1,10 @@
 ## 方法一：源码安装方式
-1. 下载打好 toa 补丁的源码包（[点此下载](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
+1. 下载打好 toa 补丁的源码包（[单击下载](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
 2. 解压；
 3. 编辑 .config，将 CONFIG_IPV6=M 改成 CONFIG_IPV6=y；
 4. 如果需要加上一些自定义说明，可以编辑 Makefile；
 5. make -jn (n 为线程数)；## 方法一：源码安装方式
-1. 下载打好 toa 补丁的源码包（[下载地址](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
+1. 下载打好 toa 补丁的源码包（[单击下载](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
 2. 解压；
 3. 编辑 .config，将 CONFIG_IPV6=M 改成 CONFIG_IPV6=y；
 4. 如果需要加上一些自定义说明，可以编辑 Makefile；
@@ -16,7 +16,7 @@
 10. 执行`lsmode | grep toa` 检查 toa 模块是否加载，没有加载的话，可通过 `modprobe toa`命令 开启。
 
 ## 方法二：rpm 包安装方式
-自己制作 rpm 包，也可以联系腾讯云来提供（[下载地址](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)）。
+自己制作 rpm 包，也可以联系腾讯云来提供（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)）。
 1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm：
 `rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm`
 
