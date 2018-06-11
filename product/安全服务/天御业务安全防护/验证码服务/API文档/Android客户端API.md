@@ -7,11 +7,13 @@ Android 系统 2.3 以上。
 2.如 AndroidManifest.xml 未声明以下权限，则添加声明。
 
 ```
+
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 3.AndroidManifest.xml 中添加声明。
 
 ```
+
 <--说明com.example.verifydemo业务可替换成自己包名，VerifyFullScreenActivity为全屏显示验证码，VerifyPopupActivity为弹框显示验证码-->
 <activity android:name="com.example.verifydemo.VerifyFullScreenActivity"></activity>
 <activity android:name="com.example.verifydemo.VerifyPopupActivity" android:theme="@style/dialog"></activity>
@@ -20,6 +22,7 @@ Android 系统 2.3 以上。
 5.根据业务需要实现全屏验证码界面 VerifyFullScreenActivity 或弹框验证码界面 VerifyPopupActivity。
 
 ```
+
 //VerifyPopupActivity onCreate实现实例：
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +115,7 @@ private VerifyListener mListener = new VerifyListener() {
 6.获取到 jsurl 后调用 startVerifyActivityForResult(Context context,String jsurl,int requestCode) 并实现 onActivityResult 来接收是否验证成功的通知。
 
 ```
+
 Intent intent = new Intent(this,VerifyFullScreenActivity.class);
 intent.putExtra("jsurl", jsurl);
 startActivityForResult(it,requestCode);
@@ -133,12 +137,14 @@ startActivityForResult(it,requestCode);
 7.如有混淆，需要添加脚本。
 
 ```
+
 <arg value="-libraryjars ${lib}/VerifySDK.jar"/>
 <arg value="-keep public class com.token.verifysdk{*; }" />
 ```
 ### 其它接口说明
 
 ```
+
 public static VerifyCoder getVerifyCoder()      //获取单例
 public void release()                           //重置参数，释放资源
 public void setShowtitle(boolean showtitle)        //是否显示验证码页面标题栏
