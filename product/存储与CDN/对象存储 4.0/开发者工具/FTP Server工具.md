@@ -104,17 +104,17 @@ python ftp_server.py
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## FAQ
 
-### 配置文件中的masquerade_address这个选项有何作用？何时需要配置masquerade_address
-当FTP Server运行在一个多网卡的Server上，并且FTP Server采用了PASSIVE模式时（一般地，FTP客户端位于一个NAT网关之后时，都需要启用PASSIVE模式），此时需要使用masquerade_address选项来唯一绑定一个passive模式下用于reply的IP。 例如，FTP Server有多个IP地址，如内网IP为10.XXX.XXX.XXX，外网IP为123.XXX.XXX.XXX。 客户端通过外网IP连接到FTP Server，同时客户端使用的是PASSIVE模式传输，此时，若FTP Server未指定masquerade_address具体绑定到外网IP地址，则Server在PASSIVE模式下，reply时，有可能会走内网地址。就会出现客户端能连接上Ftp server，但是不能从Server端获取任何数据回复的问题。
+### 配置文件中的 masquerade_address 这个选项有何作用？何时需要配置 masquerade_address
+当 FTP Server 运行在一个多网卡的 Server 上，并且 FTP Server 采用了 PASSIVE 模式时（一般地，FTP 客户端位于一个NAT网关之后时，都需要启用 PASSIVE 模式），此时需要使用 masquerade_address 选项来唯一绑定一个 passive 模式下用于 reply 的 IP。 例如，FTP Server 有多个 IP 地址，如内网 IP 为 10.XXX.XXX.XXX，外网 IP 为 123.XXX.XXX.XXX。 客户端通过外网 IP 连接到 FTP Server，同时客户端使用的是 PASSIVE 模式传输，此时，若 FTP Server 未指定 masquerade_address 具体绑定到外网IP地址，则 Server 在 PASSIVE 模式下，reply 时，有可能会走内网地址。就会出现客户端能连接上 Ftp server，但是不能从 Server 端获取任何数据回复的问题。
 
-如果需要配置masquerade_address，建议指定为客户端连接Server所使用的那个IP地址。
+如果需要配置 masquerade_address，建议指定为客户端连接 Server 所使用的那个IP地址。
 
-### 正确配置了masquerade_address选项以后，ftp server可以正常登陆，但是执行FTP命令：list或者get等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误
+### 正确配置了 masquerade_address 选项以后，ftp server 可以正常登陆，但是执行 FTP 命令：list 或者 get 等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误
 
-这个case多半是因为ftp server机器iptables或防火墙策略配置reject或者drop掉所有ICMP协议包，而FTP客户端在拿到FTP Server被动模式下返回的数据连接IP后，会首先发送一个ICMP包探测IP的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
+这个 case 多半是因为 ftp server 机器 iptables 或防火墙策略配置 reject 或者 drop 掉所有 ICMP 协议包，而 FTP 客户端在拿到 FTP Server 被动模式下返回的数据连接 IP 后，会首先发送一个 ICMP 包探测 IP 的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
 
-建议解决方案是：将iptables策略按需配置为只reject或drop希望限制的ICMP包类型，如只想禁掉外部ping类型的ICMP包，可以将策略修改为：iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j [REJECT/DROP]
-或者单独放开要访问ftp server的客户端的IP。
+建议解决方案是：将 iptables 策略按需配置为只 reject 或 drop 希望限制的 ICMP 包类型，如只想禁掉外部 ping 类型的 ICMP 包，可以将策略修改为：iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j [REJECT/DROP]
+或者单独放开要访问 ftp server 的客户端的 IP。
 
 ### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
 由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
