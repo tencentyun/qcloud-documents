@@ -33,7 +33,7 @@
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
+| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
 | url_list  | 是   | string 数组 | 图片 url 列表      |
 
 
@@ -180,9 +180,9 @@ Content-Type: "application/json"
 ### 请求参数
 使用 multipart/form-data 格式：
 
-| 参数        | 是否必选 | 类型           | 描述                                       |
+| 参数        | 必选 | 类型           | 描述                                       |
 | --------- | ---- | ------------ | ---------------------------------------- |
-| appid     | 是    | uint         | 项目ID                                     |
+| appid     | 是    | string         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
 | card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
 | image     | 是    | binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
