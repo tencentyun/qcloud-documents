@@ -690,7 +690,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#5-.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
 
 > **注意：**
 > 通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取 C2C 离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
@@ -808,7 +808,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
 
 **原型：**
 ```
@@ -866,7 +866,7 @@ TIMMessageExt msgExt = new TIMMessageExt(msg);
 
 ### 消息是否已读
 
-通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
+通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -1012,7 +1012,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 已读回执
 
-ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候会给聊天对方发送已读回执。
+ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候会给聊天对方发送已读回执。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 

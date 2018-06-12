@@ -180,7 +180,7 @@ Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何�
 
 ### 了解 MobileLine：
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)
+- 查看 [MoblieLine 应用示例](https://ios-release-1253960454.cos.ap-shanghai.myqcloud.com/tac.zip)
 
 ### 向您的应用添加 MobileLine 功能：
 

@@ -270,7 +270,7 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
   - pip install qcloudapi-sdk-python
 - github 源码下载方式
   - [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
-  - [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
+  - [单击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
 请仔细阅读其中`README.md`，并将 SDK 下载到`/etc/keepalived`目录中.
 2) 全内网环境的host修改

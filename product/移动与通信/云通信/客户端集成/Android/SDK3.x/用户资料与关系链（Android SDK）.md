@@ -1,5 +1,5 @@
 
-IM 通讯云提供了**关系链和用户资料托管**，App 开发者使用简单的接口就可实现关系链和用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
+IM 通讯云提供了**关系链和用户资料托管**，App 开发者使用简单的接口就可实现关系链和用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
 
 >注：本节所有的接口不论对**独立帐号体系**还是**托管帐号体系**都有有效。 
 
@@ -186,7 +186,7 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 
 ### 设置自己的自定义字段
 
-通过 Server 配置（可提交工单修改，可参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户等级等。
+通过 Server 配置（可提交工单修改，可参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户等级等。
 
 **示例：**
 
@@ -552,7 +552,7 @@ TIMFriendshipManagerExt.getInstance().getFriendsProfile(users, new TIMValueCallB
 
 ### 按照字段获取用户资料
 
-目前 ImSDK 在获取用户资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 ImSDK 之前**，通过 `TIMFriendshipSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联(参考 [用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9))。
+目前 ImSDK 在获取用户资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 ImSDK 之前**，通过 `TIMFriendshipSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联(参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9))。
 
 **`TIMFriendshipSettings` 提供的相关接口如下：**
 
@@ -1195,7 +1195,7 @@ public TIMUserConfigSnsExt enableFriendshipStorage(boolean friendshipStorageEnab
 
 **示例：**
 
-具体例子请参考 [用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
+具体例子请参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
 
 ### 内存中同步获取关系链资料数据
 
@@ -1261,7 +1261,7 @@ void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs);
 
 **示例：**
 
-具体例子请参考 [用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
+具体例子请参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
 
 ## 关系链变更系统通知 
 

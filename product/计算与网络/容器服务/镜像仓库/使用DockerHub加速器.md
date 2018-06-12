@@ -27,7 +27,7 @@ OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'
 >Docker 1.3.2 版本以上才支持 Docker Hub Mirror 机制，如果您还没有安装 Docker 或者版本过低，请安装或升级版本。
 
 ### Windows：
-如果你使用的是 Boot2Docker，进入 Boot2Docker Start Shell 并执行：
+如果您使用的是 Boot2Docker，进入 Boot2Docker Start Shell 并执行：
 ```shell
 sudo su echo "EXTRA_ARGS=\"–registry-mirror=https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  重启Boot2Docker
 ```

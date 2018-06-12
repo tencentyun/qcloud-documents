@@ -71,6 +71,9 @@ chmod 640 /etc/passwd-cosfs
 ```
 其中：
 bucketname/ SecretId/ SecretKey 需要替换为用户的真实信息。
+
+bucketname形如bucketprefix-123456789, 更多关于bucketname的命名规范，参见[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+
 #### 示例：
 ```
 echo buckettest:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi > /etc/passwd-cosfs
@@ -147,8 +150,14 @@ umount -l /mnt
 * 如何挂载目录
    在挂载命令的时候，可以指定目录，如
    
-  `cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
-   注意，my-dir必须以/开头
+  `cosfs my-bucket-name:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
+  
+  注意，my-dir必须以/开头。
+
+  v1.0.5 版本之前的挂载命令：
+  
+  `cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
+
    
    
 * 为什么之前可用写文件，突然不能写了？

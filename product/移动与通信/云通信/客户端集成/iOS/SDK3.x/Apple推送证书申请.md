@@ -1,5 +1,5 @@
 
-## 1. 生成CSR文件
+## 生成CSR文件
 
 生成Certificate Signing Request(CSR)：
  <img src="//mccdn.qcloud.com/static/img/d9a5bfba8bd35bc9d32cea2e8c1e201b/image.png" width=640 />
@@ -9,7 +9,7 @@
  <img src="//mccdn.qcloud.com/static/img/fa7f2ee807a551ff09e052d317739406/image.png" width=640 />
  已经在本地生成了一个TXIMDemoAPS.certSigningRequest的CSR文件。
 
-## 2. 生成 App ID
+## 生成 App ID
 
 登录developer.apple.com,选择Member Center ：
 <img src="//mccdn.qcloud.com/static/img/5d2f381f85718559b708390aa3cc7c5e/image.png" width=640 />
@@ -25,7 +25,7 @@ Identifiers的右侧列表中，如果你已经配置你的应用，跳到第3�
 Submit提交：
 <img src="//mccdn.qcloud.com/static/img/ff761eaa370eb22b487c7b549e2ceab1/image.png" width=640 />
 
-## 3. 创建App的 APS证书
+## 创建App的 APS证书
 
 回到App IDs选择你需要推送的app.展开单击“Edit”：
 <img src="//mccdn.qcloud.com/static/img/1d4b185be699bda3f1bb87b8232e7907/image.png" width=640 />
@@ -41,7 +41,7 @@ aps证书创建成功了，单击Download下载到本地。(文件名：开发�
 <img src="//mccdn.qcloud.com/static/img/c932c852924ac49c0823e9e5ba84a6a4/image.jpg" width=640 />
 注意：有的App ID的Apple Push Notification service列是灰色的，并且不允许使用Configure按钮，这是因为APNS不支持带通配符的App ID。
 
-## 4. 生成Push证书
+## 生成Push证书
 
 导入证书
 双击上一节下载的文件(aps_development.cer和aps.cer)将其安装到电脑，在“钥匙串访问”中，可以看到已经导入的证书。
@@ -50,7 +50,7 @@ aps证书创建成功了，单击Download下载到本地。(文件名：开发�
 <img src="//mccdn.qcloud.com/static/img/969cd435f95a07ffbe6460c7f8b749f8/image.png" width=640 />
 注意：开发版本证书只有在debug模式下开发的时候会生效，正式发布版本的证书，一定要使用正式版本的证书。
 
-## 5. 生成Provisioning Profile文件（PP文件）
+## 生成Provisioning Profile文件（PP文件）
 生成对应的描述文件，这里演示开发版描述文件的创建(发布版本的创建流程一样，用户可以自行操作)，单击"Continue"
 <img src="//mccdn.qcloud.com/static/img/195f72d281e3f11d22b233c9dab87b7b/image.png" width=640 />
 选择3.3步骤中创建推送证书那个App ID，单击"Continue"，
@@ -71,6 +71,6 @@ aps证书创建成功了，单击Download下载到本地。(文件名：开发�
 <img src="//mccdn.qcloud.com/static/img/9d93ca1d2952503c0f423b6c7419bcc8/image.png" width=640 />
 单击PP文件进入详细资料页面，状态也要是Active
 <img src="//mccdn.qcloud.com/static/img/74ace2bdacc1db038363589c36d2fc82/image.png" width=640 />
-## 6. Xcode中的配置
+## Xcode中的配置
 新版Xcode已经不需要手动配置证书和描述文件了，只需在General中选择正确的Team，Fix Issue即可，这也是上面所说的不用下载证书到本地安装的原因
 <img src="//mccdn.qcloud.com/static/img/fa11494e822b8ce34b6c03a436805275/image.png" width=640 />

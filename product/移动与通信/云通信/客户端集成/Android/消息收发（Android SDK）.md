@@ -690,7 +690,7 @@ public void getSoundToFile(String path, TIMCallBack callback)
 path|指定保存路径
 callback| 回调
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（Android%20SDK）#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。设置自定义整数， 默认为0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（Android%20SDK）#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。设置自定义整数， 默认为0。
 
 **原型：**
 ```
@@ -881,7 +881,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 可通过 `TIMMessage` 成员方法获取消息属性。
 
 ### 消息是否已读
-通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 侧进行的 [已读上报](/doc/product/269/未读消息计数（Android%20SDK）#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 侧进行的 [已读上报](/doc/product/269/未读消息计数（Android%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
 
 **原型：**
 
@@ -990,7 +990,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 已读回执
 
-由 2.3.0 版本开始，提供**针对于 C2C 消息**的已读回执功能。通过 `TIMManager` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/1562#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候会给聊天对方发送已读回执。通过 `TIMManager` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
+由 2.3.0 版本开始，提供**针对于 C2C 消息**的已读回执功能。通过 `TIMManager` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/1562#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候会给聊天对方发送已读回执。通过 `TIMManager` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
 **原型：**
 

@@ -11,7 +11,7 @@
 ### 添加依赖( 集成 SDK )
 修改build.gradle文件，在dependencies中添加iLiveSDK的依赖：
 ```
-compile 'com.tencent.ilivesdk:ilivesdk:1.8.3'
+compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号)
 ```
 
 ### 创建一个应用
@@ -86,3 +86,28 @@ Error:Could not resolve all files for configuration ':app:debugCompileClasspath'
     > Connect to jcenter.bintray.com:443 [jcenter.bintray.com/75.126.118.188] failed: Connection timed out: connect
 ```
 先检测网络是否正常，并通过上面链接，确认可以访问 jcenter 网站，同时如果网络需要代理检测是否有在 gradle.properties 中配置。
+
+- 混淆导致方法找不到
+> 由于内部有一些接口调用需要，在用户工程需要混淆时，请添加以下配置:
+```
+-keep class com.tencent.**{*;}
+-dontwarn com.tencent.**
+
+-keep class tencent.**{*;}
+-dontwarn tencent.**
+
+-keep class qalsdk.**{*;}
+-dontwarn qalsdk.**
+```
+
+- 多架构导致Crash
+> 目前只支持armeabi架构(1.0.5版本之后支持arm-v7a)，如果工程(或依赖库)中有多架构，需要在build.gradle中添加以下配置:
+```
+android{
+    defaultConfig{
+        ndk{
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+    }
+}
+```

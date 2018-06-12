@@ -2,7 +2,7 @@
 本文将指导您在客户端将通过仓库集成 iLiveSDK，并向腾讯云完成登录过程。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_login.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_login.zip)
 
 ## 前提条件
 要求用户在[ 实时音视频官网 ](https://cloud.tencent.com/product/trtc)完成服务开通及应用创建。
@@ -15,7 +15,7 @@
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## 获取 userSig
-客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成userSig，拿到新的userSig再登录。
+客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成 userSig，拿到新的 userSig 再登录。
 
 ```java
     /** 票据过期(需更新票据userSig) */
@@ -154,11 +154,11 @@ ILiveLoginManager.getInstance().setUserStatusListener(StatusObservable.getInstan
 ## UI 开发
 客户端需要登录，所以可能需要单独一个页面来输入用户名，密钥，这些都是 Android 开发基础知识，就不一一讲解了。
 
-登录应用的onCreated事件中，可以创建上面定义的模块：
+登录应用的 onCreated 事件中，可以创建上面定义的模块：
 ```Java
 loginHelper = new LoginHelper(this);
 ```
-然后在点击登录事件后，获取用户输入的 identifier 和 userSig，调用 loginHelper 的登录接口进行登录：
+然后在单击登录事件后，获取用户输入的 identifier 和 userSig，调用 loginHelper 的登录接口进行登录：
 ```Java
 loginHelper.loginSDK(identifier, userSig);
 ```
