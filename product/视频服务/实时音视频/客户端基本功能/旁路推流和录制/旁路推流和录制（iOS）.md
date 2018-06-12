@@ -22,7 +22,7 @@
 ## 手动开启推流和录制
  手动推流接口如下：
 * 开始旁路直播
-    ```objc
+ ```objc
     // 创建推流配置对象
     ILiveChannelInfo *info = [[ILiveChannelInfo alloc] init];
     info.channelName = [NSString stringWithFormat:@"前缀_%@",[[ILiveLoginManager getInstance] getLoginId]];
@@ -31,26 +31,25 @@
     ILivePushOption *option = [[ILivePushOption alloc] init];
     option.channelInfo = info;
     option.encodeType = ILive_ENCODE_RTMP; //使用RTMP协议旁路直播
-    option.recrodFileType = ILive_RECORD_FILE_TYPE_NONE; //旁路直播时，录制视频文件格式
-    
+    option.recrodFileType = ILive_RECORD_FILE_TYPE_MP4; //旁路直播时，如果需要自动录制，则填写自动录制时生成文件的格式，如果不需要自动录制，则不需要处理本字段    
     // 调用开始推流接口开始推流
     [[ILiveRoomManager getInstance] startPushStream:option succ:^(id selfPtr) {
     //旁路推流成功，返回的为`AVStreamerResp`类型的对象，其中包含了旁路直播成功的url信息;
     } failed:^(NSString *module, int errId, NSString *errMsg) {
     //旁路推流失败
     }];
-    ```
+ ```
 
 ## 停止手动推流和录制
 
-    ```objc
+ ```objc
     // 调用停止旁路推流接口，参数为要停止推流的频道ID数组，channelId在开启推流成功的回调中会返回
     [[ILiveRoomManager getInstance] stopPushStreams:@[channelId] succ:^{
         //停止旁路直播成功; 
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         //停止旁路直播失败;
     }];
-    ```
+ ```
 		
 * 补充说明：
     如果开了自动旁路直播，打开摄像头就已经开始自动旁路直播了，调用此接口，只是获取旁路直播地址而已；结束推流接口会无效。

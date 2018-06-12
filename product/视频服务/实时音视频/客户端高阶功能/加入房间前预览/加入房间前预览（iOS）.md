@@ -1,4 +1,4 @@
-﻿本课程讲解加入房间前，如何开启本地画面的预览。
+本文讲解加入房间前，如何开启本地画面的预览。
 
 ### 效果图
 ![](https://main.qcloudimg.com/raw/07f03c92cd06ad39668a78e4d0542d4d.png)
@@ -13,7 +13,6 @@
 ![](https://main.qcloudimg.com/raw/2f08a916a63adf60344d252aaec50f9a.png)
 
 ### 具体实现
-
 #### 设置本地代理
 1. 设置代理
 ```
@@ -21,14 +20,16 @@ QAVContext *context = [[ILiveSDK getInstance] getAVContext];
 [context.videoCtrl setLocalVideoDelegate:self];
 ```
 2. 代理回调中分发视频帧
-```
+
+<pre>
 - (void)OnLocalVideoPreview:(QAVVideoFrame *)frameData
 {
     frameData.identifier = [[ILiveLoginManager getInstance] getLoginId];
     ILiveFrameDispatcher *dispatch = [[ILiveRoomManager getInstance] getFrameDispatcher];
     [dispatch dispatchVideoFrame:frameData];
 }
-```
+
+</pre>
 
 #### 设置根视图
 ```

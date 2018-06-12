@@ -2,9 +2,9 @@
 
 1) 登录腾讯云控制台，选择【对象存储服务】。
 
-2) 点击【Bucket列表】选项卡下的【创建Bucket】按钮，新建源 COS Bucket。
+2) 单击【Bucket列表】选项卡下的【创建Bucket】按钮，新建源 COS Bucket。
 
-3) 设置COS Bucket的名称如`srcmr`，选择地域为`华南`，设置访问权限为默认值`公有读私有写`并设置CDN加速为默认值`关闭`，点击【保存】按钮新建一个COS Bucket。
+3) 设置COS Bucket的名称如`srcmr`，选择地域为`华南`，设置访问权限为默认值`公有读私有写`并设置CDN加速为默认值`关闭`，单击【保存】按钮新建一个COS Bucket。
 
 4) 按照相同的方式创建中间阶段 Bucket `middlestagebucket`和目标 Bucket `destmr`
 

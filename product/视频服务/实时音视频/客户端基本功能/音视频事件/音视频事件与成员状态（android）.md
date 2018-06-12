@@ -1,20 +1,18 @@
-﻿本文将指导您的客户端使用IM功能，在房间内监听房间成员的音视频事件及状态。
+本文将指导您的客户端使用 IM 功能，在房间内监听房间成员的音视频事件及状态。
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_status.zip)
-
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_status.zip)
 
 ## 相关概念
-本课程涉及到的概念有:
-> * **视频数据类型**
-> 腾讯云支持帐号同时上行一路主流和一路辅流，这里用于区分视频流的来源称为视频类型，目前支持的视频类型有: 摄像头，屏幕分享，播片(PC端产生)
+**视频数据类型**
+腾讯云支持帐号同时上行一路主流和一路辅流，这里用于区分视频流的来源称为视频类型，目前支持的视频类型有: 摄像头，屏幕分享，播片(PC 端产生)。
 
-> |视频类型|流类型|常量|描述|
-> |--|--|--|--|
-> |摄像头|主流|CommonConstants.Const_VideoType_Camera|通过摄像头采集数据产生|
-> |屏幕分享|辅流|CommonConstants.Const_VideoType_Screen|通过分享屏幕产生|
-> |播片|辅流|CommonConstants.Const_VideoType_File|通过播放视频文件产生|
+|视频类型|流类型|常量|描述|
+|--|--|--|--|
+|摄像头|主流|CommonConstants.Const_VideoType_Camera|通过摄像头采集数据产生|
+|屏幕分享|辅流|CommonConstants.Const_VideoType_Screen|通过分享屏幕产生|
+|播片|辅流|CommonConstants.Const_VideoType_File|通过播放视频文件产生|
 
 ### 成员状态类
 本课程需要监控成员状态，所以首先我们需要定义一个成员信息类:
@@ -31,10 +29,10 @@ public class MemeberInfo {
     //自动生成的get和set方法
 }
 ```
-这里主记录成员的摄像头和mic状态
+这里主记录成员的摄像头和 mic 状态
 
 ### 成员表
-为了管理房间内所有成员的状态，我们在房间模块中添加一个HashMap:
+为了管理房间内所有成员的状态，我们在房间模块中添加一个 HashMap:
 ```Java
 private HashMap<String, MemeberInfo> members = new HashMap<>();     // 成员表
 ```
@@ -51,7 +49,7 @@ private HashMap<String, MemeberInfo> members = new HashMap<>();     // 成员表
 ```
 
 ### 监听房间内音视频事件
-要监听房间内的音视频事件，只需要在创建房间和加入房间的option中配置接口即可:
+要监听房间内的音视频事件，只需要在创建房间和加入房间的 option 中配置接口即可:
 ```Java
     // 创建房间
     public int createRoom(int roomId){
@@ -100,7 +98,7 @@ private HashMap<String, MemeberInfo> members = new HashMap<>();     // 成员表
 ```Java
 boolean onEndpointsUpdateInfo(final int eventid, final String[] updateList);
 ```
-其中updateList为用户id的数组，eventid为具体的事件:
+其中 updateList 为用户 id 的数组，eventid 为具体的事件:
 
 |取值|事件|描述|
 |--|--|--|
@@ -113,7 +111,7 @@ boolean onEndpointsUpdateInfo(final int eventid, final String[] updateList);
 |9|ILiveConstants.TYPE_MEMBER_CHANGE_HAS_FILE_VIDEO|有上行播片事件|
 |10|ILiveConstants.TYPE_MEMBER_CHANGE_NO_FILE_VIDEO|上行播片停止事件|
 
-同时，大家可能会注意到我上面使用的是Public类型的群组，因为这种有人员上限的群组才有成员进出的IM事件通知，更多群组信息参考[房间内的群组消息互动](..\发送消息\房间内的群组消息互动（android）.md)
+同时，大家可能会注意到我上面使用的是Public类型的群组，因为这种有人员上限的群组才有成员进出的IM事件通知，更多群组信息参考[发送消息](https://cloud.tencent.com/document/product/647/16808)
 由于成员通知是在消息里的，所以我们需要在房间模块监听消息:
 ```Java
 TIMManager.getInstance().setGroupEventListener(this);
@@ -161,18 +159,17 @@ public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
                 });
     }
 ```
-而音视频状态则不用单独获取，用户在加入房间后，就会通过onEndpointsUpdateInfo收到当前(包括在用户加入前的)打开的摄像头或麦克风的事件
+而音视频状态则不用单独获取，用户在加入房间后，就会通过 onEndpointsUpdateInfo 收到当前(包括在用户加入前的)打开的摄像头或麦克风的事件。
 
 ### UI开发
-这一课中，我需要可以创建一个成员状态图标，用于展示房间内成员，以及状态，并可以实时更新
-
-### [源码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_status.zip)
+这里，我需要可以创建一个成员状态图标，用于展示房间内成员，以及状态，并可以实时更新
+[源码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_status.zip)
 
 ### 常见问题
 
-- 实时音视频聊天室如何获取成员进出事件
-> 实时音视频聊天室是不限制人数的，出于性能考虑，腾讯云服务器是不通知成员状态的，如果业务层有这样的需求，可以巧秒地利用群组消息实现，在成员加入成功后，发一条群自定义消息: 我来了，其它成员解析到这条消息就知道了，退出也可以同样实现。
+**实时音视频聊天室如何获取成员进出事件**
+实时音视频聊天室是不限制人数的，出于性能考虑，腾讯云服务器是不通知成员状态的，如果业务层有这样的需求，可以巧秒地利用群组消息实现，在成员加入成功后，发一条群自定义消息: 我来了，其它成员解析到这条消息就知道了，退出也可以同样实现。
 
-- 创建房间时配置imsupport时SDK做了什么
-> 在imsupport为true时，SDK中createRoom方法中会根据用户配置的群组类型，群组IM(没有配置则直接使用房间号)创建一个IM群组，用于消息通讯。加入房间时配置imsupport为true时则会加入(如果群组不存在会导致加入房间失败)。调用createRoom的用户在quitRoom时会自动解散群组(如果异常退出可能会导致群组仍存在)
+**创建房间时配置 imsupport 时 SDK 做了什么**
+在 imsupport 为 true 时，SDK 中 createRoom 方法中会根据用户配置的群组类型，群组 IM(没有配置则直接使用房间号)创建一个 IM 群组，用于消息通讯。加入房间时配置 imsupport 为 true 时则会加入(如果群组不存在会导致加入房间失败)。调用 createRoom 的用户在 quitRoom 时会自动解散群组(如果异常退出可能会导致群组仍存在)
 

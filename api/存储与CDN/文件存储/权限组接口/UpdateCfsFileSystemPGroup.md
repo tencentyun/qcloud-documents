@@ -1,21 +1,21 @@
-## 1.接口描述
+## 接口描述
 本接口（UpdateCfsFileSystemPGroup）用于更新文件系统所属权限组。
 接口请求域名：**cfs.api.qcloud.com**
-## 2.输入参数
+## 输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-|PGroupId    |  是  | string | 权限组ID |
-|FileSystemId       |   是  | string | 文件系统ID|
+|PGroupId    |  是  | string | 权限组 ID |
+|FileSystemId       |   是  | string | 文件系统 ID|
 
-## 3.输出参数
+## 输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-|PGroupId    |   string | 权限组ID |
-|FileSystemId       |   string | 文件系统ID|
-|AppId            |   int    | 用户ID|
+|PGroupId    |   string | 权限组 ID |
+|FileSystemId       |   string | 文件系统 ID|
+|AppId            |   int    | 用户 ID|
 
 
-## 4.示例 
+## 示例 
 
 ### 输入
 
