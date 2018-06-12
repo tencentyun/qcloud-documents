@@ -3,10 +3,10 @@
 ## 1. Creating and Configuring a CVM Instance
 To access the file system, you need to mount the file system to Linux- or Windows-based Tencent Cloud CVM instances. In this step, you will create and configure a Linux-based Tencent Cloud CVM instance. If you want to use a Windows-based CVM, please see [Creating a Network File System (Windows) with CFS](/doc/product/582/11524). If a CVM instance has been created, go to Step 2 [Create a File System and Mount Point](#1).
 
-Go to the Tencent Cloud official website, select **Cloud Products** -> **Compute and Network** -> **CVM**, then click **Buy Now** to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
+Go to the Tencent Cloud official website, select **Cloud Products** -> **Computing and Network** -> **CVM**, then click **Buy Now** to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
 ### (1) Select a region and model
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- Select a billing mode: Prepaid or postpaid (users who cannot purchase postpaid CVMs need to complete [Identity Verification](https://console.cloud.tencent.com/developer/auth) first). For more information, please see [Billing Mode](/doc/product/213/2180).
+- Select a billing method: Prepaid or postpaid (users who cannot purchase postpaid CVMs need to complete [Identity Verification](https://console.cloud.tencent.com/developer/auth) first). For more information, please see [Billing Methods](/doc/product/213/2180).
 - Select a region and an availability zone: When you need more than one CVM, it is recommended that you choose different availability zones to implement disaster recovery.
 - Select a model and configuration: For more information, please see [Instance Types](/doc/product/213/7153).
 
@@ -36,7 +36,7 @@ Tencent Cloud provides two options: Bill-by-bandwidth or bill-by-traffic.
 
 ### (4) Configure information
 ![](//mc.qcloudimg.com/static/img/1c463db6e3b31abd6c1d3163f1c3108f/image.png)
-- Set CVM name: You can name it after creation or name it now.
+- Set CVM name: You can select to "Name It after Creation" or "Name It Now".
 - Set login information:
  - Set Password: Enter a CVM password.
  - Associate Key Now: Associate SSH key. If you do not have a key or have an invalid key, click **Create Now** to create one. For more information, please see [Create Key](/doc/product/213/516#1). For more information on SSH key, please see [SSH Key](/doc/product/213/503).
@@ -239,8 +239,8 @@ The capacity information of this file system can be viewed with the following co
 df -h
 ```
 
-### (5) Unmount a shared directory
-When you need to unmount a shared directory in some cases, use the following command. The "directory name" refers to the full path of the root directory or file system.
+### (5) Uninstall a shared directory
+When you need to uninstall a shared directory in some cases, use the following command. The "directory name" refers to the full path of the root directory or file system.
 ```
 umount <directory name>
 ```
@@ -253,7 +253,7 @@ umount /local/test
 
 ## 5. Terminating Resources
 You can terminate a CVM instance or a file system in the Tencent Cloud console. It is recommended that you terminate any resource that is no longer used, to avoid further fee deduction.
-1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the  CVM instance.
+1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the desired CVM instance.
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. Terminate a file system. Go to the Tencent Cloud CFS [console](https://console.cloud.tencent.com/cfs), select the file system to be terminated. Click **Delete** and **OK** to delete the file system.
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)

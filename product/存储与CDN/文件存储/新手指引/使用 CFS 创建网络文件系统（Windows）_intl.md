@@ -2,11 +2,11 @@
 ## 1. Creating and Configuring a CVM Instance
 To access the file system, you need to mount the file system to Linux- or Windows-based Tencent Cloud CVM instances. In this step, you will create and configure a Windows-based Tencent Cloud CVM instance. If you want to use a Linux-based CVM, please see [Creating a Network File System (Linux) with CFS](/doc/product/582/11523). If a CVM instance has been created, go to Step 2 [Create a File System and Mount Point](#1).
 
-Go to the Tencent Cloud official website, select **Cloud Products** -> **Compute and Network** -> **CVM**, then click **Buy Now** to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
+Go to the Tencent Cloud official website, select **Cloud Products** -> **Computing and Network** -> **CVM**, then click **Buy Now** to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
 
 ### (1) Select a region and model
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- Select a billing mode: Prepaid or postpaid (users who cannot purchase postpaid CVMs need to complete [Identity Verification](https://console.cloud.tencent.com/developer/auth) first). For more information, please see [Billing Mode](/doc/product/213/2180).
+- Select a billing method: Prepaid or postpaid (users who cannot purchase postpaid CVMs need to complete [Identity Verification](https://console.cloud.tencent.com/developer/auth) first). For more information, please see [Billing Methods](/doc/product/213/2180).
 - Select a region and an availability zone: When you need more than one CVM, it is recommended that you choose different availability zones to implement disaster recovery.
 - Select a model and configuration: For more information, please see [Instance Types](/doc/product/213/7153).
 
@@ -36,7 +36,7 @@ Tencent Cloud provides two options: Bill-by-bandwidth or bill-by-traffic.
 
 ### (4) Configure information
 ![](//mc.qcloudimg.com/static/img/fbc4230b5e6a19ef6ec60ffebfc62aaa/image.png)
-- Set CVM name: You can name it after creation or name it now.
+- Set CVM name: You can select to "Name It after Creation" or "Name It Now".
 - Set login information: You can set a password or use an automatically generated password. The password you set can be modified after creation of CVM. The automatically generated password is sent to you via the internal message.
 - Select a security group (**Make sure that the login port 3389 is enabled.** For more information, please see [Security Group](/doc/product/213/5221)).
 
@@ -50,7 +50,7 @@ After the CVM is created, you will receive an internal message containing such i
 1. Log in to the Tencent Cloud [Console](https://console.cloud.tencent.com/). Click **Cloud Products** -> **Storage** -> **CFS** to go to the CFS console.
 ![](//mc.qcloudimg.com/static/img/4fee6ea61cfba11927f6891527237610/image.png)
 
-2. In the Tencent Cloud CFS console, click **Create** and the Create File System popup window appears. Enter relevant information and confirm, and then click **OK** to create the file system.
+2. In the Tencent Cloud CFS console, click **New** and the Create File System popup window appears. Enter relevant information and confirm, and then click **OK** to create the file system.
 ![](https://main.qcloudimg.com/raw/3797c04469bf0da994d2e2876a2a39ad.png)
  - Name: Name the file system to be created.
  - Region and availability zone: Choose a region closest to your customers to minimize access latency and improve download speed.
@@ -230,7 +230,7 @@ umount X：
 
 ## 5. Terminating Resources
 You can terminate a CVM instance or a file system in the Tencent Cloud console. It is recommended that you terminate any resource that is no longer used, to avoid further fee deduction.
-1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the  CVM instance.
+1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the desired CVM instance.
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. Terminate a file system. Go to the Tencent Cloud CFS [console](https://console.cloud.tencent.com/cfs), select the file system to be terminated. Click **Delete** and **OK** to delete the file system.
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
