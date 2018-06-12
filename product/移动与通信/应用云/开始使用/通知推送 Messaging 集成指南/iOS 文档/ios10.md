@@ -1,5 +1,3 @@
-# iOS10 以上 UserNotifications 框架中的回调
-
 在 iOS 10 及以上的系统中，系统使用了新的消息通知框架 `UserNotifications`。而我们也在此基础上构建我们的功能。我们设置了 `[UNUserNotificationCenter currentNotificationCenter].delegate` 请不要重复设置该参数，避免冲突。如果您对 `UNUserNotificationCenterDelegate` 的回调关心，请实现 `TACMessagingDelegate` 协议，并实现对应的方法：
 
 ~~~
