@@ -39,7 +39,7 @@
 工程路径：IM_iOS_SDK_x.x.x/samples/sample , 其中x.x.x是版本号。用Android Studio打开（File ->open）sample工程即可。
 ## Demo使用
 ### 注册和登录
-#### 4.1.1手机号注册和登录
+#### 手机号注册和登录
 Demo支持手机号注册登录。填入手机号和手机号所在地，然后单击获取验证码。收到验证码后，填写正确验证码即可登录。
 <img src="//mccdn.qcloud.com/static/img/f8576103a512565ae4426cba9358fa0b/image.png" width=360/>
 #### 帐号密码注册和登录

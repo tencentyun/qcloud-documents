@@ -14,8 +14,8 @@
   ```c++
     PushStreamOption pushOpt;
     pushOpt.pushDataType = E_PushCamera; //旁路直播数据类型
-    pushOpt.encode = RTMP; //使用RTMP协议旁路直播
-    pushOpt.recordFileType = RecordFile_NONE; //旁路直播时，录制视频文件格式
+    pushOpt.encode = HLS_AND_RTMP; //旁路直播所用协议
+    pushOpt.recordFileType = RecordFile_HLS_FLV_MP4; //旁路直播时，录制视频文件格式
     GetILive()->startPushStream( pushOpt, [](PushStreamRsp &value, void *data){
         //旁路直播成功,在value参数中包含了旁路直播成功的url信息;
     }, [](int code, const char * desc, void* data){

@@ -150,7 +150,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 ```
 
 ### step 8: 屏幕截图
-通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
+通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
@@ -166,7 +166,7 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
 ```
 
 ### step 9: 截流录制
-截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
 
@@ -242,7 +242,7 @@ mLivePlayer.setConfig(mPlayConfig);
 
 
 ## SDK 事件监听
-你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
+您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 1. 播放事件
 | 事件 ID                 |    数值  |  含义说明                    |   
