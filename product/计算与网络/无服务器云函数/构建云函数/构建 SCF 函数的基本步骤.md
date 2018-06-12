@@ -9,8 +9,8 @@
 
 |平台支持的语言|可用工具|注意事项|
 |--|--|--|
-|Python 2.7 & 3.6|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用vim + Pydiction, sublime text, NotePad等多种编辑器编写Python代码。<br>&nbsp;&nbsp;IDE：需要 IDE 本身集成 Python 环境，如 WIngIDE, eclipse + pydev, pycharm等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .py 文件中并自动部署。|
-|Node.js 6.10|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用vim , sublime text, VS code, NotePad等多种编辑器编写 Nodejs 代码。<br>&nbsp;&nbsp;IDE：如 WebStorm, Eclipse等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .js 文件中并自动部署。|
+|Python 2.7 & 3.6|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用 vim + Pydiction, sublime text, NotePad 等多种编辑器编写 Python 代码。<br>&nbsp;&nbsp;IDE：需要 IDE 本身集成 Python 环境，如 WIngIDE, eclipse + pydev, pycharm 等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .py 文件中并自动部署。|
+|Node.js 6.10|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用 vim , sublime text, VS code, NotePad 等多种编辑器编写 Nodejs 代码。<br>&nbsp;&nbsp;IDE：如 WebStorm, Eclipse 等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .js 文件中并自动部署。|
 
 同时，SCF 平台提供了一套函数编写的基本范式。例如，如何确定函数最先调用的方法、如何从参数中获取信息、如何输出日志、如何与当前运行环境交互等。具体的函数范式请参考 [编写处理方法](https://cloud.tencent.com/document/product/583/9210) 章节。
 
@@ -25,16 +25,16 @@
 
 ## 创建及部署 SCF 云函数
 
-用户可以通过 SCF 控制台、 API、 SDK或 qcloud cli工具等创建云函数。首先您需要提供云函数的配置信息，包括计算资源、运行环境等，详细信息请参考 [创建 SCF 云函数](https://cloud.tencent.com/document/product/583/9207)。
+用户可以通过 SCF 控制台、 API、 SDK 或 qcloud cli 工具等创建云函数。首先您需要提供云函数的配置信息，包括计算资源、运行环境等，详细信息请参考 [创建 SCF 云函数](https://cloud.tencent.com/document/product/583/9207)。
 
 
 ## 测试 SCF 云函数
 您可以通过以下方法测试云函数：
 
 - 在控制台单击【测试】按钮测试云函数。
-- 使用API、SDK 或 qcloud cli工具的 InvokeFunction 方法测试云函数。
+- 使用 API、SDK 或 qcloud cli 工具的 InvokeFunction 方法测试云函数。
 
-测试时需要提供调用数据，您可以通过传入特定云产品的调用数据（如COS等）来测试函数是否按您期望地响应这些云产品产生的事件。有关不同云产品产生的事件数据的详细信息可以参考 [管理云函数触发器](https://cloud.tencent.com/document/product/583/9707) 章节。
+测试时需要提供调用数据，您可以通过传入特定云产品的调用数据（如 COS 等）来测试函数是否按您期望地响应这些云产品产生的事件。有关不同云产品产生的事件数据的详细信息可以参考 [管理云函数触发器](https://cloud.tencent.com/document/product/583/9707) 章节。
 
 ## 监控和故障排除
 在云函数进入生产环境时，腾讯云 SCF 将自动为您监控函数的运行状况。后续将把云函数指标上报至云监控平台，以便用户自行查阅函数的运行状态。
