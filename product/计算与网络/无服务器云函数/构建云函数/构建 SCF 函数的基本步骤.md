@@ -9,7 +9,7 @@
 
 |平台支持的语言|可用工具|注意事项|
 |--|--|--|
-|Python 2.7 & 3.6|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用vim + Pydiction, sublime text, NotePad等多种编辑器编写Python代码。<br>&nbsp;&nbsp;IDE：需要 IDE 本身集成 python 环境，如 WIngIDE, eclipse + pydev, pycharm等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .py 文件中并自动部署。|
+|Python 2.7 & 3.6|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用vim + Pydiction, sublime text, NotePad等多种编辑器编写Python代码。<br>&nbsp;&nbsp;IDE：需要 IDE 本身集成 Python 环境，如 WIngIDE, eclipse + pydev, pycharm等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .py 文件中并自动部署。|
 |Node.js 6.10|SCF 控制台<br>您自己的编写环境如：<br>&nbsp;&nbsp;编辑器：可以选用vim , sublime text, VS code, NotePad等多种编辑器编写 Nodejs 代码。<br>&nbsp;&nbsp;IDE：如 WebStorm, Eclipse等。|如果代码不需要编译且没有引入任何外部库时，可直接使用 SCF 控制台编写代码。平台将自动把代码保存在单个 .js 文件中并自动部署。|
 
 同时，SCF 平台提供了一套函数编写的基本范式。例如，如何确定函数最先调用的方法、如何从参数中获取信息、如何输出日志、如何与当前运行环境交互等。具体的函数范式请参考 [编写处理方法](https://cloud.tencent.com/document/product/583/9210) 章节。
@@ -19,7 +19,7 @@
 
 用户需要提供代码或部署程序包（deployment package)：
 
-- 当您的代码中使用的都是 python 标准库和腾讯云提供的库（如各类云产品的 Python SDK）时，只需在控制台提供代码，SCF 平台会自动打包此代码文件并上传至 SCF 平台。
+- 当您的代码中使用的都是 Python 标准库和腾讯云提供的库（如各类云产品的 Python SDK）时，只需在控制台提供代码，SCF 平台会自动打包此代码文件并上传至 SCF 平台。
 
 - 如果您需要引入外部库，请按照 [创建部署程序包](https://cloud.tencent.com/document/product/583/9702) 中的特定方式组织您的代码和依赖项，打包并上传至 SCF 平台。
 
