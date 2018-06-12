@@ -10,7 +10,7 @@
 **地址**：https://api.openmidas.com/v1/r/$appid$/unified_order
 
 > 注意：聚合支付模式下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
-> 托管账户模式下 `appid` 为该托管账户的 id。shang
+> 托管账户模式下 `appid` 为该托管账户的 id。
 
 **请求方式**：POST
 
