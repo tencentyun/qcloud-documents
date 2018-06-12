@@ -70,8 +70,8 @@ RPAFheader X-Forwarded-For
 
 ```
 wget  http://nginx.org/download/nginx-1.14.0.tar.gz 
-tar zxvf nginx-1.0.12.tar.gz
-cd nginx-1.0.12
+tar  zxvf nginx-1.14.0.tar.gz 
+cd nginx-1.14.0
 ./configure --user=www --group=www --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_realip_module
 make
 make install
