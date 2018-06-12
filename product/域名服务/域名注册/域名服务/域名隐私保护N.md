@@ -4,8 +4,8 @@
 >开启域名保护时(域名保护按钮为蓝色)，不能更改域名所有者及资料信息，如需修改请先关闭域名保护功能。
 
 ### 步骤一：登录管理控制台
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名服务】，即可看到您购买的所有域名信息列表。
- ![](http://mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)
+登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名注册】，即可看到您购买的所有域名信息列表。
+ ![](https://main.qcloudimg.com/raw/98a18889b740784e72e632f47fe606ed.png)
 ### 步骤二：域名隐私保护
 在域名服务页面最右侧，单击【操作】栏内的【更多】，在下拉框内单击【域名隐私保护】进入域名服务页面。
  ![](http://mc.qcloudimg.com/static/img/e059efc5b982a1197d1180c61e13c182/image.png)
