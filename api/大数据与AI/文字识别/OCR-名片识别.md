@@ -16,7 +16,7 @@
 
 | 参数名            | 必选| 值                                | 描述                                       |
 | -------------- | ------|---------------------------------- | ---------------------------------------- |
-| host           | 是|service.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
+| host           | 是|recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
 | content-length | 否|包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）             |
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
 | authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
@@ -27,8 +27,8 @@
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 项目ID           |
-| bucket    | 是   | string    | 图片空间           |
+| appid     | 是   | string    |  接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
+| bucket    | 否   | string    | 图片空间           |
 | ret_image | 是   | int       | 0 不返回图片，1 返回图片 |
 | url_list  | 是   | string 数组 | 图片 url 列表      |
 
