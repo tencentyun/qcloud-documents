@@ -1,6 +1,6 @@
 
 ### Cloud Kafka 兼容哪一版的开源 Kafka？
-目前 CKafka 服务可以完美兼容 0.9及以上版本的开源 Kafka api，实现用户零成本上云。
+目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
 
 ### 什么是主题（TOPIC）？
 Topic 是每条发布到 Cloud Kafka 集群的消息所属的类别，即 Cloud Kafka 是面向 topic 的。用户需要先创建 topic 然后才能读写。
