@@ -12,6 +12,20 @@
 用 Android 手机 [下载App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装App即可体验Android 的效果。
 <img src="https://a.app.qq.com/o/image/microQr.png?pkgName=com.tencent.trtc" width="160">
 
+- **iOS 端**
+用 iOS 手机 扫码后通过Safari打开并安装App即可体验iOS 的效果。
+<img src="https://main.qcloudimg.com/raw/87b0628665001ae24b58145d7527335d.png" width="150">
+
+
+- ##### 信任证书
+> 安装App后，还需要配置信任证书方可打开体验 (点击打开大图)
+- 设置->通用->设备管理->选择证书->信任证书
+
+-[![https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg](https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg)](https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg)
+
+
+
+
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
 
