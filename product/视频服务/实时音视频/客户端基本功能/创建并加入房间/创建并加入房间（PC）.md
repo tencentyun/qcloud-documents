@@ -2,7 +2,7 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
