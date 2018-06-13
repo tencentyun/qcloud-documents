@@ -94,7 +94,7 @@ void OnLocalVideo(const LiveVideoFrame* video_frame, void* data)
 
 ## 常见问题
 
-- 控制台输出一些无用信息:
+#### 控制台输出一些无用信息:
 
 在调用 SDK 某些接口时，控制台可能输出一些无用信息，例如，创建房间的输出如下图：
 
