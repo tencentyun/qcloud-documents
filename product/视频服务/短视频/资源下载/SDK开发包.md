@@ -52,13 +52,13 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>4.5.4018 @ 2018-04-13</td>
+    <td>4.9.4661 @ 2018-06-14</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>4.5.4021 @ 2018-04-13</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android_1.1.6.zip">ZIP</a></td>
+    <td>4.9.4661 @ 2018-06-14</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">ZIP</a></td>
   </tr>
 </table>
 
