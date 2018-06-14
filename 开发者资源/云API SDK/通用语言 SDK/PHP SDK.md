@@ -55,7 +55,7 @@ curl -sS https://getcomposer.org/installer | php
 ```
 2. 在 composer.json 的 require 结构体中加入依赖：**注意这里的版本号只是举例,您可以在composer仓库上看到最新的版本号。**：
 ```
-"tencentcloud/tencentcloud-sdk-php": "3.0.2"
+"tencentcloud/tencentcloud-sdk-php": "3.0.8"
 ```
 3. 运行 composer install 下载安装 PHP SDK。
 4. 添加以下引用代码，引用方法可参考示例。
