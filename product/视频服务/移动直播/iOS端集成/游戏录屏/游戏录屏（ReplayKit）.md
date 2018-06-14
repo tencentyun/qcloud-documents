@@ -48,7 +48,7 @@ iOS 10 的 Replay Kit 支持两种直播方式：
 
 ### 导入 LiteAV SDK
 
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体可参考腾讯云官网 [工程配置(iOS)](https://cloud.tencent.com/doc/api/258/5320)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体可参考腾讯云官网 [工程配置(iOS)](https://cloud.tencent.com/document/product/454/7876)。
 
 
 ## 对接流程
@@ -122,8 +122,7 @@ s_txLivePublisher 是我们用于推流的对象。实例化 s_txLivePublisher �
     [s_txLivePublisher startPush:pushUrl];  
 }
 ```
-s_txLivePublisher 的 config 不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档 [RTMP 推流－进阶应用](https://cloud.tencent.com/doc/api/258/6458)
-
+s_txLivePublisher 的 config 不能使用默认的配置，需要设置自定义采集视频和音频。
 视频启用 autoSampleBufferSize，开启此选项后，您不需要关心推流的分辨率，SDK 会自动根据输入的分辨率设置编码器；如果您关闭此选项，那么代表您需要自定义分辨率
 
 > 注：ReplayKit2上不建议使用autoSampleBufferSize，因为会根据机型不一样有不一样的推流分辨率，在Plus的手机时可达1080*1920,容易触发系统内存限制而被强制停止
