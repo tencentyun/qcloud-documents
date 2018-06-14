@@ -1,8 +1,8 @@
 ## 方法一：rpm 包安装方式
 直接下载下面的 rpm 包：
 - CentOS 6 TOA 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)）；
-- CentOS 7 TOA 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)）；
-下载安装完后，重启机器即完成安装。
+- CentOS 7 TOA 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)）；  
+下载安装完后，重启系统即完成安装。
 
 也可以自己制作 rpm 包，自己制作 rpm 包步骤如下：
 1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm：
