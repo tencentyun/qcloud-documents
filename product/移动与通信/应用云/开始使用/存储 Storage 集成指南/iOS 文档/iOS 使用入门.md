@@ -4,7 +4,7 @@
 
 ## 准备工作
 * 您首先需要一个 iOS 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
-* 其次您需要一个提供临时密钥的服务，请参考我们提供的 [快速搭建临时密钥服务](https://cloud.tencent.com/document/product/666/17220)。
+* 其次您需要一个提供临时密钥的服务，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17220)。
 
 
 >**注意：**
@@ -169,7 +169,7 @@ TACApplication.configurate();
 
 ### 配置 TACStorage 的使用权限
 
-Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何在 SDK 里配置密钥服务提供者，请参见 [iOS 配置密钥服务](https://cloud.tencent.com/document/product/666/17216)。
+Storage SDK 需要一个后台授权服务来提供密钥，关于如何在 SDK 里配置服务，请参见 [iOS 配置密钥服务](https://cloud.tencent.com/document/product/666/17216)。
 
 ## 启动服务
 
@@ -177,6 +177,7 @@ Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何�
 
 ## 后续步骤
 
+您可以通过策略精确控制您数据的访问权限，可以参考 [数据安全最佳实践]()。
 
 ### 了解 MobileLine：
 
