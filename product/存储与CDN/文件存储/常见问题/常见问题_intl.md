@@ -8,7 +8,9 @@ CFS is billed only based on actual storage (peak storage per hour).
 ### Which access protocols are supported by CFS?
 NFS v3.0/v4.0 and CIFS/SMB protocols. The CIFS/SMB protocol is under public trial, and you can submit a ticket to apply for a trial.
 
+
 Because operation system clients include Windows， Linux 3.10 (eg CentOS 6.* ) and it's previous kernel version are incompatible with the NFS 4.0 protocol, they cannot work normally after being mounted with NFS 4.0. Use NFS 3.0 to mount such clients.
+
 
 ### CFS-related concepts
 File system: A file system is a file storage instance. After a file system is mounted to a CVM, you can use it in the same way as you use a local storage. It can be mounted to a directory.

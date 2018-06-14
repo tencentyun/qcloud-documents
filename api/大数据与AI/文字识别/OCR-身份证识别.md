@@ -4,7 +4,7 @@
 本接口用于识别身份证上的姓名、证件号、地址等信息。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
 支持 http 和 https 两种协议：
@@ -21,8 +21,8 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
-| authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409) |
+| content-type   | 是| application/json  或  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
+| authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734) |
 >**注意：**
 >如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
@@ -33,7 +33,7 @@
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
+| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
 | url_list  | 是   | string 数组 | 图片 url 列表      |
 
 
@@ -180,11 +180,11 @@ Content-Type: "application/json"
 ### 请求参数
 使用 multipart/form-data 格式：
 
-| 参数        | 是否必选 | 类型           | 描述                                       |
+| 参数        | 必选 | 类型           | 描述                                       |
 | --------- | ---- | ------------ | ---------------------------------------- |
-| appid     | 是    | uint         | 项目ID                                     |
+| appid     | 是    | string         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
 | card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
-| image     | 是    | image/jpeg 等 | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image     | 是    | binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 
@@ -351,4 +351,4 @@ Content-Type: image/jpeg
 | -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)  。
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。

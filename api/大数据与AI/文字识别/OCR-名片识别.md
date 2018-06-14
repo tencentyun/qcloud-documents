@@ -4,23 +4,22 @@
 本接口用于识别名片上的姓名、手机号、地址等信息。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
 支持 http 和 https 两种协议：
 
-支持 http 和 https 两种协议：
-
-`http://service.image.myqcloud.com/ocr/namecard`
+`http://recognition.image.myqcloud.com/ocr/namecard`
+`https://recognition.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header
 
 | 参数名            | 必选| 值                                | 描述                                       |
 | -------------- | ------|---------------------------------- | ---------------------------------------- |
-| host           | 是|service.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
+| host           | 是|recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
 | content-length | 否|包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）             |
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
-| authorization  | 是|鉴权签名                           | 用于[**鉴权**](/document/product/641/12409)的签名 |
+| authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
 
 ## 使用图片 URL
 ### 请求参数
@@ -28,8 +27,8 @@
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 项目ID           |
-| bucket    | 是   | string    | 图片空间           |
+| appid     | 是   | string    |  接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
+| bucket    | 否   | string    | 图片空间           |
 | ret_image | 是   | int       | 0 不返回图片，1 返回图片 |
 | url_list  | 是   | string 数组 | 图片 url 列表      |
 
@@ -129,12 +128,12 @@ Content-Type: "application/json"
 
 图片文件 OCR 使用 HTML 表单上传一个或多个文件，文件内容通过多重表单格式（multipart/form-data）编码。
 
-| 参数        | 是否必选 | 类型          | 说明                                       |
+| 参数        | 必选 | 类型          | 说明                                       |
 | --------- | ---- | ----------- | ---------------------------------------- |
-| appid     | 必选   | uint        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                  |
-| bucket    | 必选   | string      | 图片空间                                     |
-| ret_image | 必选   | int         | 0 不返回图片，1 返回图片                           |
-| image     | 必选   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| appid     | 是   | uint        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                  |
+| bucket    | 否   | string      | 图片空间                                     |
+| ret_image | 是   | int         | 0 不返回图片，1 返回图片                           |
+| image     | 是   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 
@@ -260,7 +259,7 @@ Content-Type: image/jpeg
 | -5062 | url对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 | -5103 | OCR识别失败                             |
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。
 
 
 

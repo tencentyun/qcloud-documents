@@ -21,7 +21,7 @@ http://recognition.image.myqcloud.com/car/classify
 | Host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名                           |
 | Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）          |
 | Content-Type   | multipart/form-data               | 上传本地图片                                 |
-| Authorization  | 鉴权签名                           | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
+| Authorization  | 鉴权签名                           | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 >**注意：**
 >- 每个请求的包体大小限制为 6 MB；

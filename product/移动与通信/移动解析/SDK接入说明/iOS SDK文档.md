@@ -5,8 +5,8 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 
 ## 安装包结构
 压缩文件中包含 demo 工程，其中包含：
-- `MSDKDns.framework`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++(GNU C++ standard library)” 的工程。
-- `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。
+- `MSDKDns.framework`适用 “Build Setting->C++ Language Dialect” 配置为 GNU++98，“Build Setting->C++ Standard Library” 为 “libstdc++ (GNU C++ standard library)” 的工程。
+- `MSDKDns_C11.framework`适用于该两项配置分别为 “GNU++11” 和 “libc++ (LLVM C++ standard library with C++11 support)” 的工程。
 
 ## 接入步骤
 ### 步骤 1： 引入依赖库
@@ -53,7 +53,7 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 | TIME_OUT | Number | 请求 HttpDns 的超时设定时间单位：ms ; 如未设置，默认为 1000 ms |
 | DNS_ID |String | 接入时由系统或者管理员分配 |
 | DNS_KEY | String | 接入时由系统或者管理员分配 |
-| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭HttpDns 日志 |
+| Debug | Boolean | 日志开关配置：YES 为打开 HttpDns 日志；No 为关闭 HttpDns 日志 |
 
 ## API 及使用示例
 获取 IP 共有两个接口：**同步接口 WGGetHostByName** 和 **异步接口 WGGetHostByNameAsync**。引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2。其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。
@@ -202,7 +202,7 @@ if (conn.error != null)
 
 ## 实践场景
 ###  Unity 工程接入
-(a). 在 cs 文件中进行接口声明：
+#### 1. 在 cs 文件中进行接口声明：
 ```
 #if UNITY_IOS
 [DllImport("__Internal")]
@@ -212,7 +212,10 @@ private static extern void WGGetHostByNameAsync(string domain);
 #endif
 ```
 
-(b). 在需要进行域名解析的部分，调用 **WGGetHostByName(string domain)** 或者 **WGGetHostByNameAsync(string domain)** 方法，并建议进行如下处理：
+#### 2. 在需要进行域名解析的部分，调用 WGGetHostByName (string domain) 或者 WGGetHostByNameAsync (string domain) 方法
+- 如使用同步接口 **WGGetHostByName**，直接调用接口即可；
+- 如果使用异步接口 **WGGetHostByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义
+并建议添加如下处理代码：
 
 ```
 string ips = HttpDns.GetHostByName(domainStr);
@@ -232,17 +235,16 @@ HttpDns.GetHostByName(domainStr);
 }
 ```
 
- (c). 设置回调函数 onDnsNotify(string ipString)，函数名可自定义，并添加如上类似处理步骤；
- (d). 将 unity 工程打包为 xcode 工程，并按如上接入说明，引入依赖库；
- (e). 将 HTTPDNSUnityDemo 下的`MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
-![](https://main.qcloudimg.com/raw/a03a4371a586dca6b6eefea3fad26274.jpg)
+#### 3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库；
+#### 4. 将 HTTPDNSUnityDemo 下的 `MSDKDnsUnityManager.h`及`MSDKDnsUnityManager.mm`文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
+![](https://main.qcloudimg.com/raw/dc203ca596d0873427504b6b70fba912.jpg)
 ![](https://main.qcloudimg.com/raw/a33039bb68f478895516dd4352a19aa6.jpg)
-(f). 按照所需接口调用即可。
 
 ### 普通 HTTPS 场景
 原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
+**Demo 示例**
+#### 1. 以 NSURLConnection 接口为例，实现以下两个方法：
 
-1. 以 NSURLConnection 接口为例，实现以下两个方法：
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -313,7 +315,8 @@ credentialForTrust:challenge.protectionSpace.serverTrust];
 }
 }
 ```
-2. 以 NSURLSession 接口为例，实现以下两个方法：
+#### 2. 以 NSURLSession 接口为例，实现以下两个方法：
+
 ```
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
 {
@@ -375,7 +378,7 @@ disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 completionHandler(disposition,credential);
 }
 ```
-3. 以 Unity 的 WWW 接口为例：
+#### 3. 以 Unity 的 WWW 接口为例：
 将 Unity 工程导为 Xcode工程后，打开`Classes/Unity/WWWConnection.mm`文件，修改下述代码：
 ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";

@@ -6,10 +6,10 @@
 姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
 >注意：
->如果开发者使用的是 V1 版本，请查看 [名片识别（V1）](/document/product/641/12423)。
+>如果开发者使用的是 V1 版本，请查看 [名片识别（V1）](/document/product/866/17593)。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
 支持 http 和 https 两种协议：
@@ -27,7 +27,7 @@
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
 | content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。 |
-| authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/641/12409) |
+| authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 >**注意：**
 如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
@@ -38,7 +38,7 @@
 | 参数名       | 必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 是         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
-| image         | 是   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image         | 是   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 | url_list   | 是   | string 数组 | 图片 url 列表。image 和 url 只提供一个即可；如果都提供，只使用 url   |
 
 ## 返回内容
@@ -212,4 +212,4 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 |-5208 | 名片 OCR 服务内部出错|
 
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)  。
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。

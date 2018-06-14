@@ -181,8 +181,4 @@ config.maxDuration    = 60;                      //视频录制的最大时长
 使用 [视频播放](https://cloud.tencent.com/document/product/584/9372) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://cloud.tencent.com/document/product/584/9372#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE6) 。
 
 ### 6. 获取 licence 信息
-新版本的SDK增加了短视频licence的校验，如果校验没通过，您可以通过该接口来查询licence中具体信息
-
-``` 
-NSString *licenceInfo = [[TXUGCRecord shareInstance] getLicenceInfo];
-``` 
+参考 [短视频licence集成](https://cloud.tencent.com/document/product/584/11638)
