@@ -556,9 +556,10 @@ public int setPictureList(List<Bitmap> bitmapList, int fps);
  */
 public long setPictureTransition(int type)
 ```  
-其中，setPictureList接口用于设置图片列表，最少设置三张，如果设置的图片过多，要注意图片的大小，防止内存占用过多而导致编辑异常。setPictureTransition接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过返回值获取转场的时长。 
-需要注意接口调用顺序，先调用setPictureList，再调用setPictureTransition
-图片编辑暂不支持的功能：重复，倒放，快速/慢速，其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。
+- 其中，setPictureList接口用于设置图片列表，最少设置三张，如果设置的图片过多，要注意图片的大小，防止内存占用过多而导致编辑异常。
+- setPictureTransition接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过返回值获取转场的时长。 
+- 需要注意接口调用顺序，先调用setPictureList，再调用setPictureTransition。
+- 图片编辑暂不支持的功能：重复，倒放，快速/慢速，其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。
 
 ### 17. 释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。
