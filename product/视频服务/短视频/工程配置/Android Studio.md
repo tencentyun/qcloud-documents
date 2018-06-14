@@ -1,6 +1,6 @@
 
 ## 短视频licence集成
-- 在控制台填写完信息后，会拿到key和url，见下图。在您的应用中使用短视频功能之前（建议在application中）调用下
+- 在控制台填写完信息后，会拿到key和url，见下图。在您的应用中使用短视频功能之前（建议在application中）调用下面接口
 ```
 TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
 ```
