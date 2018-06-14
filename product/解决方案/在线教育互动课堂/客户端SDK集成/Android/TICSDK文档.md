@@ -129,7 +129,7 @@ TICSDK 使用的一般流程如下：
 ```
 初始化方法很简单，开发者在Application组件中的onCreate调用初始化接口即可。但是开发者在初始化之前必须保证已经在[腾讯云后台](https://console.cloud.tencent.com/rav)注册成功，并创建了应用，这样才能拿到腾讯云后台分配的SDKAppID和accountType。
 
-> 如果开发者App中用到了多进程，初始化时需要注意避免重复初始化，如下：
+> 如果开发者 App 中用到了多进程，初始化时需要注意避免重复初始化，如下：
 
 ```
 if (主进程) {    
@@ -137,8 +137,8 @@ if (主进程) {
 	TICSDK.getInstance().initSDK(this, Constants.APPID, Constants.ACCOUNTTYPE);
 }
 ```
-COS为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的APP中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在SDK中将相关参数配置好，TICSDK内部会将调用SDK接口上传的图片，文件上传到您配置的COS云存储桶中。
-TICSDK初始化SDK时也需要初始化COS SDK模。主要构造**CosConfig**配置信息，通过**TICManager#setCosConfig**接口完成COS相关配置，如下：
+COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+TICSDK 初始化 SDK 时也需要初始化 COS SDK 模。主要构造 **CosConfig** 配置信息，通过**TICManager#setCosConfig**接口完成 COS 相关配置，如下：
 
 ```java
 CosConfig cosConfig = new CosConfig()
@@ -153,12 +153,12 @@ TICManager.getInstance().setCosConfig(cosConfig);
 ```
 
 #### 2. 登录/登出
-初始化完成之后，因为涉及到IM消息的收发，所以还必须先登录：
+初始化完成之后，因为涉及到 IM 消息的收发，所以还必须先登录：
 
 ```java
     > TICManager.java
     /**
-     * IM登陆
+     * IM登录
      *
      * @param identifier IM用户id
      * @param userSig    IM用户鉴权票据
@@ -184,7 +184,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
 ```java
     > TICManager.java
     /**
-     * 注销登陆
+     * 注销登录
      *
      * @param callBack 注销登录结果回调
      */
