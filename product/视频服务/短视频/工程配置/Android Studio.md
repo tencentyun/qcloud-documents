@@ -1,10 +1,19 @@
 
 ## 短视频licence集成
+- 在控制台填写完信息后，会拿到key和url，见下图。在您的应用中使用短视频功能之前（建议在application中）调用下
+```
+TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
+```
+![](//https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
+- 您可以选择是否打包licence到应用中：如果不选择打包，SDK第一次使用需要访问网络；如果选择打包，把TXUgcSDK.licence（名称要正确）放到asset根目录下即可。
+- 当您的licence过期了，可以登陆腾讯云点播控制台进行续费，SDK会自动续期，不需要您的应用做任何操作。
+- 如果您的licence校验失败，您可以调用下面代码来查看licence信息是否填写错误
+```
+TXUGCBase.getInstance().getLicenceInfo();
+```
+- 对于使用4.7版本licence的用户，如果您升级了SDK到4.9版本了，您可以登陆控制台，点击下图的 **切换到新版License** 按钮生成对应的key和url，按照上述操作集成即可。
 
-- 获取到短视频基础版 SDK License 后，需要重命名为 TXUgcSDK.licence，在您的应用中需要把 licence 拷贝到指定的目录下。
-- Android 端拷贝目录为 context.getExternalFilesDir(null)，即“/sdcard/android/data/应用包名/files/”目录下，比如 SDK demo 中的文件路径为 /sdcard/android/data/files/TXUgcSDK.licence。
-- 当您的 licence 过期了，可以登录腾讯云点播控制台获取最新的 licence，替换您应用中的 licence 即可。
->注意：licence 名称 “TXUgcSDK.licence” 以及路径 “/sdcard/android/data/应用包名/files/TXUgcSDK.licence”。
+![](//https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
 ## 系统要求
 SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
