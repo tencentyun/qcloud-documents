@@ -317,7 +317,7 @@ TICSDK 中只有一个关于白板的接口，就是添加一个白板视图对�
 ```
 该方法只是将传进来的白板视图参数与TICSDK进行了绑定（但是不会强引用），将boardView的代理对象设置为了TICManager，并实现了其代理方法，外部无需关心。
 
-开发者使用时，应该创建一个boardView对象，并将其添加到TICManager中（同时只能添加一个，重复添加以后添加的为准），然后直接调用TXBoardView中的接口来操作白板即可，详见[TXBoardView白板SDK使用手册](./iOS白板SDK使用手册.md)。
+开发者使用时，应该创建一个boardView对象，并将其添加到TICManager中（同时只能添加一个，重复添加以后添加的为准），然后直接调用TXBoardView中的接口来操作白板即可，详见[TXBoardView白板SDK使用手册](/document/product/680/17890)。
 
 
 #### 2.8 IM相关操作
