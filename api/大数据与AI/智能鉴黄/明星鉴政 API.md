@@ -18,7 +18,7 @@
 | host           | 是     | recognition.image.myqcloud.com          | 腾讯云智能图像识别服务器域名       |
 | content-length | 否      |包体总长度             | 每个请求的包体大小限制为 6 MB；所有接口都为 post 方法； 不支持 .gif 这类的动图。               |
 | content-type   | 是      |application/json 或 multipart/form-data | 根据不同接口选择，每个请求最多支持 20 张 url 或图片：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。               |
-| authorization  | 是      |鉴权签名             | 多次有效签名,用于鉴权，详见[鉴权签名方法](/document/product/641/12409) |
+| authorization  | 是      |鉴权签名             | 多次有效签名，用于鉴权，详见[鉴权签名方法](/document/product/641/12409) |
 >**注意：**如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 
