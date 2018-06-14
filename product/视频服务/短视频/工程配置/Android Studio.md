@@ -4,7 +4,7 @@
 ```
 TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
 ```
-![](//https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
+![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
 - 您可以选择是否打包licence到应用中：如果不选择打包，SDK第一次使用需要访问网络；如果选择打包，把TXUgcSDK.licence（名称要正确）放到asset根目录下即可。
 - 当您的licence过期了，可以登陆腾讯云点播控制台进行续费，SDK会自动续期，不需要您的应用做任何操作。
 - 如果您的licence校验失败，您可以调用下面代码来查看licence信息是否填写错误
@@ -12,7 +12,8 @@ TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
 TXUGCBase.getInstance().getLicenceInfo();
 ```
 - 对于使用4.7版本licence的用户，如果您升级了SDK到4.9版本了，您可以登陆控制台，点击下图的 **切换到新版License** 按钮生成对应的key和url，按照上述操作集成即可。
-![](//https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
+
+![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
 ## 系统要求
 SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
