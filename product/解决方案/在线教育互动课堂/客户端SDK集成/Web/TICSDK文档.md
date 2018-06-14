@@ -98,8 +98,8 @@ loginConfi：
 --------- | --------- | -----
 identifier | 是 | 用户名
 userSig | 是 | 登录鉴权信息
-sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录[实时音视频控制台](https://console.qcloud.com/rav)查看
-accountType | 是 | 腾讯云应用的账号类型，可以登录[实时音视频控制台](https://console.qcloud.com/rav)，选择指定的应用后，在功能配置页面中查看
+sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录[实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+accountType | 是 | 腾讯云应用的账号类型，可以登录[实时音视频控制台](https://console.cloud.tencent.com/rav)，选择指定的应用后，在功能配置页面中查看
 
 该方法传入参数，identifier和userSig，identifier为用户ID，userSig为腾讯云后台用来鉴权的用户签名，相当于登录TICSDK的用户密码，需要开发者服务器遵守腾讯云生成userSig的规则来生成，并下发给WEB端。登录的流程如下：
 
@@ -153,7 +153,7 @@ webrtc推流配置参数：
 closeLocalMedia | boolean | 否，默认 false | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ）
 audio | boolean | 否，默认 true | 是否启用音频采集
 video | boolean | 否，默认 true | 是否启用视频采集
-role | string | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在[控制台 - 画面设定](https://console.qcloud.com/rav)中配置
+role | string | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在[控制台 - 画面设定](https://console.cloud.tencent.com/rav)中配置
 
 白板配置参数：
 
