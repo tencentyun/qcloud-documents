@@ -2,9 +2,9 @@
 ## 短视频licence集成
 - 在控制台填写完信息后，会拿到key和url，见下图。
 ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
-在您的应用中使用短视频功能之前（建议在application中）调用下面接口
+在您的应用中使用短视频功能之前（建议在application中）把拿到的key和url设置到下面接口中
 ```
-TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
+TXUGCBase.getInstance().setLicence(context, url, key);
 ```
 
 - 您可以选择是否打包licence到应用中：如果不选择打包，SDK第一次使用需要访问网络；如果选择打包，把TXUgcSDK.licence（名称要正确）放到asset根目录下即可。
