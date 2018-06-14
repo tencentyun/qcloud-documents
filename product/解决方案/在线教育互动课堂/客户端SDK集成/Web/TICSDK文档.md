@@ -103,9 +103,9 @@ accountType | 是 | 腾讯云应用的账号类型，可以登录[实时音视�
 
 该方法传入参数，identifier和userSig，identifier为用户ID，userSig为腾讯云后台用来鉴权的用户签名，相当于登录TICSDK的用户密码，需要开发者服务器遵守腾讯云生成userSig的规则来生成，并下发给WEB端。登录的流程如下：
 
-![](../../资源文件/TICSDK_Login_UML_Sequence_Diagram.png)
+![](https://main.qcloudimg.com/raw/a5be82ca74f2d33598549d0222d3ceba.png)
 
-> 在开发调试阶段，用户可以在自己的腾讯云应用控制台使用开发辅助工具，来生成临时的uid和userSig用于开发测试。详情请参考：[生成签名](https://cloud.tencent.com/document/product/647/17275)
+> 在开发调试阶段，用户可以在自己的腾讯云应用控制台使用开发辅助工具，来生成临时的uid和userSig用于开发测试。详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 > 如果此用户在其他终端被踢，登录将会失败，则会触发被踢下线的事件[TICSDK.CONSTANT.EVENT.IM.KICKED]，开发者必须进行登录错误事件码 TICSDK.CONSTANT.EVENT.IM.KICKED 的判断。
 
