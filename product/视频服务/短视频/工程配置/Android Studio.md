@@ -12,7 +12,6 @@ TXUGCBase.getInstance().setLicence(context, ugcLicenceUrl, ugcKey);
 TXUGCBase.getInstance().getLicenceInfo();
 ```
 - 对于使用4.7版本licence的用户，如果您升级了SDK到4.9版本了，您可以登陆控制台，点击下图的 **切换到新版License** 按钮生成对应的key和url，按照上述操作集成即可。
-
 ![](//https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
 ## 系统要求
