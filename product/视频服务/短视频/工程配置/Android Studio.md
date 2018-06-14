@@ -1,6 +1,6 @@
 
 ## 短视频licence集成
-- 在控制台填写完信息后，会拿到key和url，见下图。
+- 在[控制台](https://console.cloud.tencent.com/video/license)填写完信息后，会拿到key和url，见下图。
 ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
 在您的应用中使用短视频功能之前（建议在application中）把拿到的key和url设置到下面接口中
 ```
