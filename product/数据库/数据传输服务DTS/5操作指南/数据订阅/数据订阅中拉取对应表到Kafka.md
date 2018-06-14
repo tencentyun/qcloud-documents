@@ -11,7 +11,7 @@ yum install java-1.8.0-openjdk-devel
  - [Kafka-clients](https://main.qcloudimg.com/raw/a60f793a4eafe5f77e63615c5ce920e8/kafka-clients-1.1.0.jar)
 
 ### 安装 Kafka 
-具体请参考 http://kafka.apache.org/quickstart。
+具体请参考 http://kafka.apache.org/quickstart
 启动之后创建一个 testtop 主题
 ```
 [root@VM_71_10_centos kafka_2.11-1.1.0]# bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic testtop
