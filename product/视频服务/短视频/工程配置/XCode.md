@@ -1,7 +1,25 @@
 
 ## 短视频licence集成
-- 获取到短视频基础版 SDK License 后，需要重命名为 TXUgcSDK.licence， 然后将重命名后的 licence 链接到 Xcode 工程中，当您的 licence 过期了，可以登录腾讯云点播控制台获取最新的 licence，替换您应用中的 licence 即可。
-- 需要注意的是：licence 名称为 “TXUgcSDK.licence” ， licence 被链接进了 Xcode 工程，保证 SDK 内部能读取到 licence 信息。
+- 在[控制台](https://console.cloud.tencent.com/video/license)填写完信息后，会拿到key和url，见下图。
+  ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
+  在您的应用中使用短视频功能之前（建议在AppDelegate中）把拿到的key和url设置到下面接口中
+
+```objc
+[TXUGCBase setLicenceURL:url key:key];
+```
+
+- 您可以选择是否打包licence到应用中：如果不选择打包，SDK第一次使用需要访问网络；如果选择打包，把TXUgcSDK.licence（名称要正确）拷贝到App中即可。
+- 当您的licence过期了，可以登陆腾讯云点播控制台进行续费，SDK会自动续期，不需要您的应用做任何操作。
+- 如果您的licence校验失败，您可以调用下面代码来查看licence信息是否填写错误
+
+```objc
+NSLog(@"%@", [TXUGCBase getLicenceInfo]);
+```
+
+- 对于使用4.7版本licence的用户，如果您升级了SDK到4.9版本了，您可以登陆控制台，点击下图的 **切换到新版License** 按钮生成对应的key和url，按照上述操作集成即可。
+  ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
+
+## 
 
 ## Xcode 工程设置
 
