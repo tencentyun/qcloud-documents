@@ -1,60 +1,21 @@
 ## 功能描述
-Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。
+PUT Object 接口请求可以将本地的对象（Object）上传至指定存储桶中。该操作需要请求者对存储桶有写入权限。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X PUT http:// {bucket-appid}.cos.{region}.myqcloud.com/{ObjectName} \
-  -H 'Content-Length: string' \
-  -H 'Content-Disposition: string' \
-  -H 'Content-Encoding: string' \
-  -H 'Content-Type: string' \
-  -H 'Expect: string' \
-  -H 'Expires: string' \
-  -H 'x-cos-meta-*: string' \
-  -H 'x-cos-storage-class: STANDARD' \
-  -H 'Content-MD5: string' \
-  -H 'x-cos-acl: public-read' \
-  -H 'x-cos-grant-read: string' \
-  -H 'x-cos-grant-write: string' \
-  -H 'x-cos-grant-full-control: string' \
-  -H 'Content-Type: */*' \
-  -H 'Accept: application/xml'
+请求示例：
 
 ```
-
-**http:** 
-
-```http
-PUT http:// {bucket-appid}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
-Host: 
-Content-Type: */*
-Accept: application/xml
-Content-Length: string
-Content-Disposition: string
-Content-Encoding: string
-Content-Type: string
-Expect: string
-Expires: string
-x-cos-meta-*: string
-x-cos-storage-class: STANDARD
-Content-MD5: string
-x-cos-acl: public-read
-x-cos-grant-read: string
-x-cos-grant-write: string
-x-cos-grant-full-control: string
-
-
+PUT /<ObjectName> HTTP/1.1
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
 ```
-PUT /{ObjectName} HTTP/1.1
+PUT /<ObjectName> HTTP/1.1
 ```
 
 该 API 接口接受 `PUT` 请求。
@@ -99,14 +60,14 @@ x-cos-grant-full-control|string|否|赋予被授权者读写权限。格式：x-
 
 |名称|类型|描述|
 |---|---|---|
-|ETag|string|上传文件内容的MD5值|
+|ETag|string|上传文件内容的 MD5 值|
 
 ### 响应体
 该请求响应体为空。
 
 ### 错误码
 
-错误码|描述|http 状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 NoSuchBucket|如果试图添加的 Object 所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
