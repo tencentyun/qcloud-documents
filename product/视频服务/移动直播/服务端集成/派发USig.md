@@ -45,7 +45,7 @@ UserSig是使用腾讯云通讯服务（[IM](https://cloud.tencent.com/product/i
 ### step3：集成生成代码
 我们在官网的 SDK 下载区提供了一份计算UserSig 的简单版源码，有 java 和 php 两个版本的，如果您需要其他版本的，可以到 [DOC](https://cloud.tencent.com/document/product/269/1510) 里寻找。
 
--[ **java 和 php 版源码下载**](https://cloud.tencent.com/document/product/454/7873#Server)
+-[**UserSig计算源码下载（java | PHP | nodejs）**](https://cloud.tencent.com/document/product/454/7873#Server)
 
 
 ## 如何使用 UserSig？

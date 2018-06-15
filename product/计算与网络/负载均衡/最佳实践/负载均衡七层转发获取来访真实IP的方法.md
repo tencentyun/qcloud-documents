@@ -69,9 +69,9 @@ RPAFheader X-Forwarded-For
 1) Nginx作为负载均衡获取真实IP是使用http_realip_module，默认安装的Nginx是没有安装这个模块的，需要重新编译Nginx增加 --with-http_realip_module：
 
 ```
-wget http://soft.phpwind.me/top/nginx-1.0.12.tar.gz
-tar zxvf nginx-1.0.12.tar.gz
-cd nginx-1.0.12
+wget  http://nginx.org/download/nginx-1.14.0.tar.gz 
+tar  zxvf nginx-1.14.0.tar.gz 
+cd nginx-1.14.0
 ./configure --user=www --group=www --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_realip_module
 make
 make install

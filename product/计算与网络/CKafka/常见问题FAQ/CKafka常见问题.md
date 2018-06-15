@@ -1,6 +1,6 @@
 
 ### Cloud Kafka 兼容哪一版的开源 Kafka？
-目前 CKafka 服务可以完美兼容 0.9及以上版本的开源 Kafka api，实现用户零成本上云。
+目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
 
 ### 什么是主题（TOPIC）？
 Topic 是每条发布到 Cloud Kafka 集群的消息所属的类别，即 Cloud Kafka 是面向 topic 的。用户需要先创建 topic 然后才能读写。
@@ -13,7 +13,7 @@ CMQ 提供金融级的高可靠、高数据持久性消息传输，保证数据�
 Cloud Kafka 适用于要求更高吞吐率，对可靠性要求相对较低的场景（如日志聚合等业务）。此外，Cloud Kafka 完美兼容 kafka 的老用户，可以做到零迁移成本，实例完全独占。
 
 ### Kafka 客户端是否可以直接连接 Cloud Kafka 服务？
-Cloud Kafka 可以兼容 0.9及以上版本的开源 Kafka，您可以通过 Kafka 客户端连接消息中心，并且把代码部署在腾讯云服务中生产或消费消息。
+Cloud Kafka 可以兼容 0.9 0.10 版本的开源 Kafka，您可以通过 Kafka 客户端连接消息中心，并且把代码部署在腾讯云服务中生产或消费消息。
 
 ### Cloud Kafka 如何保证安全性？
 Cloud Kafka 通过如下安全特性确保安全性：
