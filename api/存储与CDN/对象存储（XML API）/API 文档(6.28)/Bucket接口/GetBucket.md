@@ -3,7 +3,7 @@ GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 
 ## 请求
 
-Syntax:
+请求示例:
 ```
 GET / HTTP/1.1
 Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
