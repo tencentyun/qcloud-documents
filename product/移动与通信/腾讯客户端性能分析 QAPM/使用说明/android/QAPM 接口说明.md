@@ -29,7 +29,7 @@
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeySymbolId </td>
     <td x:str>UUID，用于拉取被混淆堆栈的mapping <br/>
-    注：在RDM上编译时，可以通过编译脚本把UUID写到assets或者AndroidManifest.xml里，细节可以咨询RDM的同学，也可以参考文档 [RDM_UUID的设置](http://x.code.oa.com/mobilespectest/SNGAPM/articles/402 ) 。</td>
+    注：在RDM上编译时，可以通过编译脚本把UUID写到assets或者AndroidManifest.xml里，细节可以咨询RDM的同学，也可以参考文档 <a href="http://x.code.oa.com/mobilespectest/SNGAPM/articles/402">RDM UUID的设置</a> 。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyDebug </td>
