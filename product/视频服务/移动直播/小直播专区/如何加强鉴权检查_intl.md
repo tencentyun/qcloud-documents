@@ -57,13 +57,13 @@ More importantly, since users cannot use the IM feature without your confirmatio
 
 
 ### 3. UserSig Signature
-UserSig signature is used for mutual authentication between Tencent Cloud IM service backend and your server, to solve the problem that how the servers from two different companies can trust each other. Let's take a vivid example as explanation:
+UserSig signature is used for mutual authentication between Tencent Cloud IM service backend and your server, to solve the problem that how the servers from two different companies can trust each other. Let's explain with the following example:
 
 > 1. A beautiful lady logs in to your App using the ID and password she registered before. Her ID is "Flower Fairy".
 >
 > 2. You proceed with the verification immediately after getting her ID and password, and confirm that she can log in to the App. You also issue a **pass (UserSig)** to her, which says "<font color='blue'>'Flower Fairy' is a law-abiding citizen. Make sure she receives proper treatment in Tencent's territory...</font>". In order to ensure that the pass won't be fabricated, you affixed your signature on it.
 >
-> 3. Tencent Cloud reads your pass, confirms that the signature is real and provides appropriate services.
+> 3. After reading your pass, Tencent Cloud confirms that the signature is real and provides appropriate services.
 
 This is how interfacing process goes behind message authentication. The core is to prevent users not accepted by your backend server from sending and receiving messages. However, it would be inappropriate to let your server check each one of the messages, so this solution is developed.
 
