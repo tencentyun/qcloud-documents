@@ -1,27 +1,17 @@
 ## 功能描述
-Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。
+GET Bucket acl 接口用来获取 Bucket 的 acl(access control list)， 即用户空间（Bucket）的访问权限控制列表。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/?acl \
-  -H 'Accept: application/xml'
+请求示例：
 
 ```
-
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/?acl HTTP/1.1
-Host: 
-
-Accept: application/xml
-
+GET /?acl HTTP/1.1
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
+
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -72,7 +62,7 @@ AccessControlPolicy|无|保存 Get Bucket ACL 结果的容器|Container|是
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
 
