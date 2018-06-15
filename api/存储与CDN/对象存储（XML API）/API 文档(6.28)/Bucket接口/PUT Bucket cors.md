@@ -1,31 +1,21 @@
 ## 功能描述
-Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为 64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+PUT Bucket cors 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为 64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/?cors \
-  -H 'Content-MD5: string' \
-  -H 'Content-Type: application/xml' \
-  -H 'Accept: application/xml'
+请求示例：
 
 ```
-
-**http:** 
-
-```http
-PUT http://{bucket}.cos.{region}.myqcloud.com/?cors HTTP/1.1
-Host: 
+PUT /?cors HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Content-Length: length
 Content-Type: application/xml
-Accept: application/xml
-Content-MD5: string
+Content-MD5: MD5
+Authorization: Auth String
 
-
+<XML file>
 ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -105,7 +95,7 @@ Container 节点 CORSRule 的内容：
 
 ### 错误码
 
-|错误码|描述|http状态码|
+|错误码|描述|HTTP 状态码|
 |---|---|---|
 |SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
 |NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
