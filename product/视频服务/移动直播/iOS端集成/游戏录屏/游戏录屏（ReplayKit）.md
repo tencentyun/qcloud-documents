@@ -55,7 +55,7 @@ iOS 10 的 Replay Kit 支持两种直播方式：
 
 ### Step 1: 编写 UI 扩展[可选, ReplayKit2的录屏不需要]
 
-游戏 App 发起直播，首先进入的是 UI 扩展。这里可以根据您产品需要订制界面。如果您的直播软件需要登录，最好在这里先检查登录态，因为在直播过程中不能显示任何界面。
+游戏 App 发起直播，首先进入的是 UI 扩展。这里可以根据您产品需要定制界面。如果您的直播软件需要登录，最好在这里先检查登录态，因为在直播过程中不能显示任何界面。
 
 当用户确认发起直播，UI 扩展就可以把启动直播扩展，而且可以带上一些自定义的参数。启动直播扩展示例代码如下。
 
@@ -139,7 +139,7 @@ ReplayKit2录屏只唤起upload直播扩展，直播扩展不能进行UI操作�
 
 ```
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
-    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里点击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
+    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里单击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
 }
 
 - (void)sendLocalNotificationToHostAppWithTitle:(NSString*)title msg:(NSString*)msg userInfo:(NSDictionary*)userInfo
