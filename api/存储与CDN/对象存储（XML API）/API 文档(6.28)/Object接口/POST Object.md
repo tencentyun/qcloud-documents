@@ -6,7 +6,7 @@ POST Object 接口请求允许使用者用表单的形式将文件（Object）�
 
 ## 请求
 
-语法示例：
+请求示例：
 ```
 POST / HTTP/1.1
 Headers
@@ -27,7 +27,7 @@ Form
 ### 表单字段
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| acl |文件的权限，不填默认继承，详见[Put Object ACL](https://cloud.tencent.com/document/product/436/7748) |String| 否|
+| acl |文件的权限，不填默认继承，详见[PUT Object acl](https://cloud.tencent.com/document/product/436/7748) |String| 否|
 | Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见[Put Object](https://cloud.tencent.com/document/product/436/7749) |String| 否|
 | file|文件内容，作为表单的最后一个字段 |String| 是|
 | key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 a/b/a1.txt |String| 是|
