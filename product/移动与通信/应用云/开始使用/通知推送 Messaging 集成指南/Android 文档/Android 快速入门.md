@@ -27,8 +27,8 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.1.1'
-    compile 'com.tencent.tac:tac-messaging:1.1.1'
+    compile 'com.tencent.tac:tac-core:1.1.2'
+    compile 'com.tencent.tac:tac-messaging:1.1.2'
 }
 ```
 > `'com.tencent.tac:tac-messaging:1.1.1' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.1'`
