@@ -47,7 +47,7 @@
   </table>
 	
 
-<br />
+
 ### 启动监控
 ```
 (2) public static boolean beginScene(String sceneName, int mode)
@@ -136,7 +136,7 @@
    <![endif]>
   </table>
 
-<br />
+
 ### 结束监控
 ```
 (4) public static boolean endScene(String sceneName, int mode)
