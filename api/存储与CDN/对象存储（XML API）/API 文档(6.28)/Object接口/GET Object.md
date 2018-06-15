@@ -1,40 +1,18 @@
 ## 功能描述
 
-Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 READ 权限。
+GET Object 接口请求可以在 COS 的存储桶中将一个对象下载至本地。该操作需要请求者对存储桶有读取权限。
 
 ## 请求
 
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
-  -H 'Range: string' \
-  -H 'If-Unmodified-Since: string' \
-  -H 'If-Modified-Since: string' \
-  -H 'If-Match: string' \
-  -H 'If-None-Match: string' \
-  -H 'Accept: */*'
-
+请求示例：
+```
+GET /<ObjectName> HTTP/1.1
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
 
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
-Host: 
-
-Accept: */*
-Range: string
-If-Unmodified-Since: string
-If-Modified-Since: string
-If-Match: string
-If-None-Match: string
-
-
-```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -105,7 +83,7 @@ GET /{ObjectName}?response-content-type=[ContentType]&response-content-language=
 
 ### 错误码
 
-| 错误码                | 描述                               | http 状态码                                                  |
+| 错误码                | 描述                               | HHTP 状态码                                                  |
 | --------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | InvalidArgument       | 提供的参数错误                     | 400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
 | SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码 | 403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
