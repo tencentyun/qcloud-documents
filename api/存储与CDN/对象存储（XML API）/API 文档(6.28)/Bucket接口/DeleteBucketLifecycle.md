@@ -1,26 +1,13 @@
 ## 功能描述
-Delete Bucket Lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
+DELETE Bucket lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X DELETE http://{bucket}.cos.{region}.myqcloud.com/?lifecycle \
-  -H 'Accept: application/xml'
-
+语法示例：
 ```
-
-**http:** 
-
-```http
-DELETE http://{bucket}.cos.{region}.myqcloud.com/?lifecycle HTTP/1.1
-Host: 
-
-Accept: application/xml
-
+DELETE /?lifecycle HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
 
 ### 请求行
