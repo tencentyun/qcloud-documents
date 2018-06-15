@@ -62,22 +62,22 @@ iOS 10 的 Replay Kit 支持两种直播方式：
 ```objective-c
 // Called when the user has finished interacting with the view controller and a broadcast stream can start
 - (void)userDidFinishSetup {
-
-// Broadcast url that will be returned to the application
-NSURL *broadcastURL = [NSURL URLWithString:@"http://broadcastURL_example/stream1"];
-
-// Service specific broadcast data example which will be supplied to the process extension during broadcast
-NSString *userID = @"user1";
-NSString *endpointURL = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
-NSDictionary *setupInfo = @{ @"userID" : userID, @"endpointURL" : endpointURL };
-
-// Set broadcast settings
-RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];
-broadcastConfig.clipDuration = 5.0; // deliver movie clips every 5 seconds
-
-// Tell ReplayKit that the extension is finished setting up and can begin broadcasting
-[self.extensionContext completeRequestWithBroadcastURL:broadcastURL
-broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
+    
+    // Broadcast url that will be returned to the application
+    NSURL *broadcastURL = [NSURL URLWithString:@"http://broadcastURL_example/stream1"];
+    
+    // Service specific broadcast data example which will be supplied to the process extension during broadcast
+    NSString *userID = @"user1";
+    NSString *endpointURL = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
+    NSDictionary *setupInfo = @{ @"userID" : userID, @"endpointURL" : endpointURL };
+    
+    // Set broadcast settings
+    RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];
+    broadcastConfig.clipDuration = 5.0; // deliver movie clips every 5 seconds
+    
+    // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
+    [self.extensionContext completeRequestWithBroadcastURL:broadcastURL
+                broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
 }
 ```
 
@@ -97,32 +97,32 @@ s_txLivePublisher 是我们用于推流的对象。实例化 s_txLivePublisher �
 
 ```objective-c
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
-if (s_txLivePublisher) {
-[s_txLivePublisher stopPush]; // 开始推流前先结束上一次推流
-}
-
-TXLivePushConfig* config = [[TXLivePushConfig alloc] init];
-config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE;
-config.autoSampleBufferSize = YES;
-
-config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
-config.audioSampleRate = 44100;
-config.audioChannels   = 1;
-//                CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
-//                config.sampleBufferSize = CGSizeMake(720, 720 * screenSize.height / screenSize.width)
+    if (s_txLivePublisher) {
+        [s_txLivePublisher stopPush]; // 开始推流前先结束上一次推流
+    }
+    
+    TXLivePushConfig* config = [[TXLivePushConfig alloc] init];
+    config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE;
+    config.autoSampleBufferSize = YES;
+    
+    config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
+    config.audioSampleRate = 44100;
+    config.audioChannels   = 1;
+//				CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
+//				config.sampleBufferSize = CGSizeMake(720, 720 * screenSize.height / screenSize.width)
 //        config.videoBitrateMin = 1500;
 //        config.videoBitratePIN = 2000;
 //        config.videoBitrateMax = 2500;
 //        config.videoFPS = 30;
 
-s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
-NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo 来自于 UI 扩展， 如果是replaykit2屏幕录制，setupInfo为nil，需要与主App数据传递与通信来获取推流信息
-[s_txLivePublisher startPush:pushUrl]; 
-
-//推流开始后发送一帧
-if (s_lastSampleBuffer) {
-[s_txLivePublisher sendVideoSampleBuffer:s_lastSampleBuffer];
-}
+    s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
+    NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo 来自于 UI 扩展， 如果是replaykit2屏幕录制，setupInfo为nil，需要与主App数据传递与通信来获取推流信息
+    [s_txLivePublisher startPush:pushUrl]; 
+		
+		//推流开始后发送一帧
+		 if (s_lastSampleBuffer) {
+           [s_txLivePublisher sendVideoSampleBuffer:s_lastSampleBuffer];
+    }
 }
 ```
 s_txLivePublisher 的 config 不能使用默认的配置，需要设置自定义采集视频和音频。
@@ -139,30 +139,30 @@ ReplayKit2录屏只唤起upload直播扩展，直播扩展不能进行UI操作�
 
 ```
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
-[self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里点击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
+    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里点击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
 }
 
 - (void)sendLocalNotificationToHostAppWithTitle:(NSString*)title msg:(NSString*)msg userInfo:(NSDictionary*)userInfo
 {
-UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-
-UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-content.title = [NSString localizedUserNotificationStringForKey:title arguments:nil];
-content.body = [NSString localizedUserNotificationStringForKey:msg  arguments:nil];
-content.sound = [UNNotificationSound defaultSound];
-content.userInfo = userInfo;
-
-// 在设定时间后推送本地推送
-UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
-triggerWithTimeInterval:0.1f repeats:NO];
-
-UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"ReplayKit2Demo"
-content:content trigger:trigger];
-
-//添加推送成功后的处理！
-[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-
-}];
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:title arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:msg  arguments:nil];
+    content.sound = [UNNotificationSound defaultSound];
+    content.userInfo = userInfo;
+    
+    // 在设定时间后推送本地推送
+    UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
+                                                  triggerWithTimeInterval:0.1f repeats:NO];
+    
+    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"ReplayKit2Demo"
+                                                                          content:content trigger:trigger];
+    
+    //添加推送成功后的处理！
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        
+    }];
 }
 ```
 
@@ -170,53 +170,53 @@ content:content trigger:trigger];
 扩展与宿主App之间经常需要实时的交互处理，本地通知需要用户点知横幅才能触发代码处理，因此不能通过本地通知的方式。而NSNotificationCenter不能跨进程，因此可以利用CFNotificationCenter在宿主App与扩展之前通知发送，但此通知不能通过其中的userInfo字段进行数据传递，需要通过配置App Group方式使用NSUserDefault进行数据传递(也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要通知后加些延迟规避), 如宿主App在获取好推流URL等后，通知扩展可以进行推流时，可使用因此需要通过CFNotificationCenter进行通知发送直播扩展开始推流：
 
 ```
-CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),kDarvinNotificationNamePushStart,NULL,nil,YES);
+                CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),kDarvinNotificationNamePushStart,NULL,nil,YES);
 
 ```
 扩展中可通过监听此开始推流通知，由于此通知是在CF层，需要通过NSNotificationCenter发送到Cocoa类层方便处理：
 
 ```
-CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-(__bridge const void *)(self),
-onDarwinReplayKit2PushStart,
-kDarvinNotificationNamePushStart,
-NULL,
-CFNotificationSuspensionBehaviorDeliverImmediately);
-
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                    (__bridge const void *)(self),
+                                    onDarwinReplayKit2PushStart,
+                                    kDarvinNotificationNamePushStart,
+                                    NULL,
+                                    CFNotificationSuspensionBehaviorDeliverImmediately);
+																		
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 
 
 static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
-void *observer, CFStringRef name,
-const void *object, CFDictionaryRef
-userInfo)
+                                        void *observer, CFStringRef name,
+                                        const void *object, CFDictionaryRef
+                                        userInfo)
 {
 //转到cocoa层框架处理
-[[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Cocoa_ReplayKit2_Push_Start" object:nil];
 }
 
 - (void)handleReplayKit2PushStartNotification:(NSNotification*)noti
 {
 //通过NSUserDefault或剪贴板拿到宿主要传递的数据
 //    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kReplayKit2AppGroupId];
-
-UIPasteboard* pb = [UIPasteboard generalPasteboard];
-NSDictionary* defaults = [self jsonData2Dictionary:pb.string];
-
-s_rtmpUrl = [defaults objectForKey:kReplayKit2PushUrlKey];
-s_resolution = [defaults objectForKey:kReplayKit2ResolutionKey];
-if (s_resolution.length < 1) {
-s_resolution = kResolutionHD;
-}
-NSString* rotate = [defaults objectForKey:kReplayKit2RotateKey];
-if ([rotate isEqualToString:kReplayKit2Portrait]) {
-s_landScape = NO;
-}
-else {
-s_landScape = YES;
-}
+    
+    UIPasteboard* pb = [UIPasteboard generalPasteboard];
+    NSDictionary* defaults = [self jsonData2Dictionary:pb.string];
+    
+    s_rtmpUrl = [defaults objectForKey:kReplayKit2PushUrlKey];
+    s_resolution = [defaults objectForKey:kReplayKit2ResolutionKey];
+    if (s_resolution.length < 1) {
+        s_resolution = kResolutionHD;
+    }
+    NSString* rotate = [defaults objectForKey:kReplayKit2RotateKey];
+    if ([rotate isEqualToString:kReplayKit2Portrait]) {
+        s_landScape = NO;
+    }
+    else {
+        s_landScape = YES;
+    }
 //    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:[NSString stringWithFormat:@"推流地址:%@", s_rtmpUrl] userInfo:nil];
-[self start];
+    [self start];
 }
 ```
 
@@ -232,8 +232,8 @@ config.sampleBufferSize = CGSizeMake(720, 720 * screenSize.height / screenSize.w
 
 //横屏
 if (s_landScape) {
-config.sampleBufferSize = CGSizeMake(config.sampleBufferSize.height, config.sampleBufferSize.width);
-config.homeOrientation = HOME_ORIENTATION_RIGHT;
+		config.sampleBufferSize = CGSizeMake(config.sampleBufferSize.height, config.sampleBufferSize.width);
+		config.homeOrientation = HOME_ORIENTATION_RIGHT;
 }
 ```
 > 注1：设置的分辨率需与屏幕分辨率比例一致，否则会引起画面变形。一般手机上为9:16，而在iPhoneX上画面比例为1125:2436。
@@ -245,22 +245,22 @@ Replaykit 会将音频和视频都以回调的方式传给`-[SampleHandler proce
 
 ```objective-c
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
-switch (sampleBufferType) {
-case RPSampleBufferTypeVideo:
-// Handle audio sample buffer
-{
-if (!CMSampleBufferIsValid(sampleBuffer))
-return;
-//保存一帧在startPush时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
-if (s_lastSampleBuffer) {
-CFRelease(s_lastSampleBuffer);
-s_lastSampleBuffer = NULL;
-}
-s_lastSampleBuffer = sampleBuffer;
-CFRetain(s_lastSampleBuffer);
+    switch (sampleBufferType) {
+        case RPSampleBufferTypeVideo:
+            // Handle audio sample buffer
+        {
+                if (!CMSampleBufferIsValid(sampleBuffer))
+                    return;
+										                //保存一帧在startPush时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
+                if (s_lastSampleBuffer) {
+                    CFRelease(s_lastSampleBuffer);
+										s_lastSampleBuffer = NULL;
+                }
+                s_lastSampleBuffer = sampleBuffer;
+                CFRetain(s_lastSampleBuffer);
 
-[s_txLivePublisher sendVideoSampleBuffer:sampleBuffer];
-}
+                [s_txLivePublisher sendVideoSampleBuffer:sampleBuffer];
+        }
 }
 
 
@@ -276,18 +276,18 @@ CFRetain(s_lastSampleBuffer);
 音频也是通过`-[SampleHandler processSampleBuffer:withType]`给到直播扩展，区别在于音频有两路数据：一路来自 App 内部，一路来自麦克风。
 
 ```objective-c
-switch (sampleBufferType) {
-case RPSampleBufferTypeAudioApp:
-// 来自 App 内部的音频
-[s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
-break;
-case RPSampleBufferTypeAudioMic:
-{
-// 发送来着 Mic 的音频数据
-[s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
-}
-break;
-}
+    switch (sampleBufferType) {
+        case RPSampleBufferTypeAudioApp:
+            // 来自 App 内部的音频
+            [s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
+            break;
+        case RPSampleBufferTypeAudioMic:
+        {
+            // 发送来着 Mic 的音频数据
+            [s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
+        }
+            break;
+    }
 ```
 
 SDK 支持同时发送两路数据，内部会对两路数据进行混音处理。通常情况，只有当用户插上耳机时才有必要发送两路数据，否则建议只发送 Mic 的声音数据。
@@ -302,13 +302,13 @@ SDK 内部对视频有补帧逻辑，没有视频时会重发最后一帧数据�
 
 ```objective-c
 - (void)broadcastPaused {
-// User has requested to pause the broadcast. Samples will stop being delivered.
-[s_txLivePublisher setSendAudioSampleBufferMuted:YES];
+    // User has requested to pause the broadcast. Samples will stop being delivered.
+    [s_txLivePublisher setSendAudioSampleBufferMuted:YES];
 }
 
 - (void)broadcastResumed {
-// User has requested to resume the broadcast. Samples delivery will resume.
-[s_txLivePublisher setSendAudioSampleBufferMuted:NO];
+    // User has requested to resume the broadcast. Samples delivery will resume.
+    [s_txLivePublisher setSendAudioSampleBufferMuted:NO];
 }
 ```
 
@@ -363,11 +363,11 @@ SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵�
 
 ```objective-c
 - (void)broadcastFinished {
-// User has requested to finish the broadcast.
-if (s_txLivePublisher) {
-[s_txLivePublisher stopPush];
-s_txLivePublisher = nil;
-}
+    // User has requested to finish the broadcast.
+    if (s_txLivePublisher) {
+        [s_txLivePublisher stopPush];
+        s_txLivePublisher = nil;
+    }
 }
 ```
 
