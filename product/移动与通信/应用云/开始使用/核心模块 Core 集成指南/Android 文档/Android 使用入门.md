@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.1'
+	compile 'com.tencent.tac:tac-core:1.1.2'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.1' 
-	compile 'com.tencent.tac:tac-messaging:1.1.1'
+	compile 'com.tencent.tac:tac-core:1.1.2' 
+	compile 'com.tencent.tac:tac-messaging:1.1.2'
 }
 ```
 
@@ -65,9 +65,9 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.1' 
-	compile 'com.tencent.tac:tac-messaging:1.1.1'
-	compile 'com.tencent.tac:tac-crash:1.1.1'
+	compile 'com.tencent.tac:tac-core:1.1.2' 
+	compile 'com.tencent.tac:tac-messaging:1.1.2'
+	compile 'com.tencent.tac:tac-crash:1.1.2'
 }
 ```
 > 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
