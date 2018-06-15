@@ -1,53 +1,20 @@
 ## 功能描述
-Put Object Copy 请求实现将一个文件从源路径复制到目标路径。建议文件大小 1MB 到 5GB，超过 5GB 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 ACL 可以被修改。
+PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
 用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。
 
 ## 请求
-#### 请求语法示例
+请求示例：
 
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
-  -H 'x-cos-copy-source: string' \
-  -H 'x-cos-metadata-directive: string' \
-  -H 'x-cos-copy-source-If-Modified-Since: string' \
-  -H 'x-cos-copy-source-If-Unmodified-Since: string' \
-  -H 'x-cos-copy-source-If-Match: string' \
-  -H 'x-cos-copy-source-If-None-Match: string' \
-  -H 'x-cos-storage-class: STANDARD' \
-  -H 'x-cos-acl: public-read' \
-  -H 'x-cos-grant-read: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
-  -H 'x-cos-grant-write: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
-  -H 'x-cos-grant-full-control: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"' \
-  -H 'x-cos-meta-*: string' \
-  -H 'Accept: application/xml'
+```
+PUT /destinationObject HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
+x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
 
 ```
 
-**http:** 
-
-```http
-PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
-Host: 
-
-Accept: application/xml
-x-cos-copy-source: string
-x-cos-metadata-directive: string
-x-cos-copy-source-If-Modified-Since: string
-x-cos-copy-source-If-Unmodified-Since: string
-x-cos-copy-source-If-Match: string
-x-cos-copy-source-If-None-Match: string
-x-cos-storage-class: STANDARD
-x-cos-acl: public-read
-x-cos-grant-read: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
-x-cos-grant-write: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
-x-cos-grant-full-control: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
-x-cos-meta-*: string
-
-
-```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
