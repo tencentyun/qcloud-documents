@@ -2,30 +2,16 @@
 POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X POST http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}?restore \
-  -H 'Content-MD5: string' \
-  -H 'Content-Type: application/xml' \
-  -H 'Accept: application/xml'
-
+请求示例：
 ```
+POST /ObjectName?restore HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 
-**http:** 
-
-```http
-POST http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}?restore HTTP/1.1
-Host: 
-Content-Type: application/xml
-Accept: application/xml
-Content-MD5: string
-
-
-```
+ request body 
+ ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -81,7 +67,7 @@ Days|无|设置临时副本的过期时间|integer|是
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 None|恢复成功|202 [Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)
 RestoreAlreadyInProgress|对象已经在恢复中|409 [Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)
