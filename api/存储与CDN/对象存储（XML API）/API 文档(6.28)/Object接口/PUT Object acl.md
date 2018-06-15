@@ -1,39 +1,17 @@
 ## 功能描述
-Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}/?acl \
-  -H 'Content-MD5: string' \
-  -H 'x-cos-acl: string' \
-  -H 'x-cos-grant-read: string' \
-  -H 'x-cos-grant-write: string' \
-  -H 'x-cos-grant-full-control: string' \
-  -H 'Content-Type: application/xml' \
-  -H 'Accept: application/xml'
-
+请求示例:
 ```
+PUT /{ObjectName}/?acl HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 
-**http:** 
-
-```http
-PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}/?acl HTTP/1.1
-Host: 
-Content-Type: application/xml
-Accept: application/xml
-Content-MD5: string
-x-cos-acl: string
-x-cos-grant-read: string
-x-cos-grant-write: string
-x-cos-grant-full-control: string
-
-
+<AccessControlPolicy>
 ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -73,7 +51,7 @@ x-cos-grant-full-control|string|否|赋予被授权者写的权限。格式：x-
 
 节点名称（关键字）|父节点|描述|类型|必选
 ---|---|---|---|---
-AccessControlPolicy|无|保存 Get Bucket ACL 结果的容器|Container|是
+AccessControlPolicy|无|保存 GET Bucket acl 结果的容器|Container|是
 
 
 
@@ -94,11 +72,11 @@ AccessControlPolicy|无|保存 Get Bucket ACL 结果的容器|Container|是
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-MalformedXML|XML 格式不合法，请跟 restful api 文档仔细比对|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+MalformedXML|XML 格式不合法，请跟 Restful API 文档仔细比对|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 InvalidRequest|请求不合法，如果错误描述中显示"header acl and body acl conflict"，那么表示不能头部和 body 都有 acl 参数。|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 
 
