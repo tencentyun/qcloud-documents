@@ -2,26 +2,15 @@
 List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}?uploadId={UploadId}?UploadId=string \
-  -H 'Accept: application/xml'
+请求示例：
+```
+GET /ObjectName?uploadId=UploadId HTTP/1.1
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 
 ```
-
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}?uploadId={UploadId}?UploadId=string HTTP/1.1
-Host: 
-
-Accept: application/xml
-
-```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -54,7 +43,6 @@ part-number-marker|string|否|默认以 UTF-8 二进制顺序列出条目，所�
 
 #### 非公共头部
 
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
@@ -67,7 +55,6 @@ part-number-marker|string|否|默认以 UTF-8 二进制顺序列出条目，所�
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
 
 该请求操作无特殊的响应头部信息。
 
@@ -118,7 +105,7 @@ Key|ListPartsResult|Object 的名字|string|是
 UploadId|ListPartsResult|标识本次分块上传的 ID|string|是
 Initiator|ListPartsResult|用来表示这些分块所有者的信息|Container|是
 Owner|ListPartsResult|用来表示这些分块所有者的信息|Container|是
-StorageClass|ListPartsResult|用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE|string|是
+StorageClass|ListPartsResult|用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA|string|是
 PartNumberMarker|ListPartsResult|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string|是
 NextPartNumberMarker|ListPartsResult|假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点|string|是
 MaxParts|ListPartsResult|单次返回最大的条目数量|string|是

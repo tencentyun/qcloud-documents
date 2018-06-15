@@ -6,7 +6,7 @@ GET Object acl 接口用来获取某个存储桶下的某个对象的访问权�
 
 ## 请求
 
-语法示例：
+请求示例：
 ```
 GET /ObjectName?acl HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com

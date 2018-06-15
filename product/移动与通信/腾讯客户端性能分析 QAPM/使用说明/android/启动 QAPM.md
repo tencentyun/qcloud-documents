@@ -1,4 +1,4 @@
-QAPM可以在MainActivity.onCreate中调用如下类似代码以启动QAPM
+QAPM 可以在 MainActivity.onCreate 中调用如下类似代码以启动 QAPM
 
 ```
 QAPM.setProperty(QAPM.PropertyKeyAppInstance, getApplication());
@@ -7,4 +7,4 @@ QAPM.setProperty(QAPM.PropertyKeyUserId, "11223344").setProperty(QAPM.PropertyKe
 QAPM.beginScene(QAPM.SCENE_ALL, QAPM.ModeStabl);
 ```
 >备注：
->SDK只监控与上报本进程（即初始化它的那个进程）的信息，如果有多个进程需要监控，得各初始化一次。
+>SDK 只监控与上报本进程（即初始化它的那个进程）的信息，如果有多个进程需要监控，得各初始化一次。

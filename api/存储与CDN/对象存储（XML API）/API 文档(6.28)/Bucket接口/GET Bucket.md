@@ -1,27 +1,17 @@
 ## 功能描述
-Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
+GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
 
 ## 请求
-#### 请求语法示例
 
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/ \
-  -H 'Accept: application/xml'
-
+请求示例:
 ```
-
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/ HTTP/1.1
-Host: 
-
-Accept: application/xml
-
+GET / HTTP/1.1
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+
 
 ### 请求行
 
@@ -54,7 +44,6 @@ max-keys|string|否|单次返回最大的条目数量，默认 1000
 该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 非公共头部
-
 
 该请求操作无特殊的请求头部信息。
 

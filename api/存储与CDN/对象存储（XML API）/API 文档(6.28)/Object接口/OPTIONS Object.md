@@ -1,33 +1,16 @@
 ## 功能描述
-Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden。可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持。
+OPTIONS Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 Header 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden。可以通过 PUT Bucket cors 接口来开启 Bucket 的 CORS 支持。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X OPTIONS http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} \
-  -H 'Origin: string' \
-  -H 'Access-Control-Request-Method: string' \
-  -H 'Access-Control-Request-Headers: string'
-
+请求示例：
+```
+OPTIONS /<ObjectName> HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
 
-**http:** 
-
-```http
-OPTIONS http://{bucket}.cos.{region}.myqcloud.com/{ObjectName} HTTP/1.1
-Host: 
-
-
-Origin: string
-Access-Control-Request-Method: string
-Access-Control-Request-Headers: string
-
-
-```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 

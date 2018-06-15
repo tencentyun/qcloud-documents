@@ -1,27 +1,16 @@
 ## 功能描述
-Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+GET Bucket cors 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（cors 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/?cors \
-  -H 'Accept: application/xml'
+请求示例：
 
 ```
-
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/?cors HTTP/1.1
-Host: 
-
-Accept: application/xml
-
+GET /?cors HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -39,7 +28,6 @@ GET /?cors HTTP/1.1
 该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 非公共头部
-
 
 该请求操作无特殊的请求头部信息。
 
@@ -98,7 +86,7 @@ ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自�
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
 NoSuchCORSConfiguration|跨域配置不存在|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)

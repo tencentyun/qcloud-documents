@@ -1,27 +1,16 @@
 ## 功能描述
-Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
+GET Bucket location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/?location \
-  -H 'Accept: application-xml'
-
+请求示例：
+```
+GET /?location HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
 
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/?location HTTP/1.1
-Host: 
-
-Accept: application-xml
-
-```
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 
@@ -40,7 +29,6 @@ GET /?location HTTP/1.1
 
 #### 非公共头部
 
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
@@ -53,7 +41,6 @@ GET /?location HTTP/1.1
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
 
 该请求操作无特殊的响应头部信息。
 
@@ -72,7 +59,7 @@ LocationConstraint|无|说明 Bucket 所在地域，枚举值参见 [可用地�
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
 NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
