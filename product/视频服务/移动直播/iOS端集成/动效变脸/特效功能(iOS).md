@@ -6,7 +6,7 @@
 
 ## 接入流程
 
-登陆 [腾讯云点播控制台](https://console.cloud.tencent.com/video/license) 在线申请为期两周的基础版试用LICENSE，可免费申请两次。Licence有两种：
+登录 [腾讯云点播控制台](https://console.cloud.tencent.com/video/license) 在线申请为期两周的基础版试用LICENSE，可免费申请两次。Licence有两种：
 
 - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
 - 正式Licence：有效期根据最终的合同而定，一般为一年。
@@ -55,7 +55,7 @@
 
 ### 4. 添加动效资源示例
 
-将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，你可以找到直接添加，具体操作如图所示：
+将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，您可以找到直接添加，具体操作如图所示：
 ![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
 ![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
 
