@@ -27,11 +27,11 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.1.2'
-    compile 'com.tencent.tac:tac-messaging:1.1.2'
+    compile 'com.tencent.tac:tac-core:1.1.+'
+    compile 'com.tencent.tac:tac-messaging:1.1.+'
 }
 ```
-> `'com.tencent.tac:tac-messaging:1.1.1' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.1'`
+> `'com.tencent.tac:tac-messaging:1.1.+' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.+'`
 
 到此您已成功接入了 MobileLine 移动推送服务。
 
