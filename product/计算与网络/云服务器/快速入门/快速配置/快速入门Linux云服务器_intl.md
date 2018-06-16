@@ -1,79 +1,83 @@
 
-This document describes how to easily use the features of CVM instances on Linux system and is designed to help beginners to get started with the creation and configuration of Tencent Cloud CVM quickly.
-
+This document describes how to use the features of Linux CVM to help beginners quickly get started with the creation and configuration of Tencent Cloud CVM.
 <div id="page1"></div>
 ## Step 1: Prepare and Select Model
 ### Signing up for a Tencent Cloud Account
-For new users to Tencent Cloud, please [Register](https://intl.cloud.tencent.com/register) at Tencent Cloud official website. For more information, please see [Signing Up for Tencent Cloud](/doc/product/378/9603).
+New users need to [register](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213) with Tencent Cloud official website. For more information, please see [How to Sign up for Tencent Cloud](/doc/product/378/9603).
 
-### Specifying the Region and Availability Zone
-Rules for region selection:
- - Be close to your users
-The region of a CVM should be selected depending on your users' geographical location. The closer the CVM is to your customers who access it, the shorter the access latency and the higher the access speed will be. For example, if most of your users are in North America, then Toronto is a good choice.
- - In the same region
-CVMs in the same region communicate with each other via private network, If you need to use multiple CVMs via private network need to choose the same region.
+### Specifying the Region and Availability Zone in Which the CVM Resides
+How to select region:
+ - Near user's region.
+The region of a CVM should be selected depending on your user's geographical location. The closer the CVM is to your users who access it, the shorter the access latency and the higher the access speed will be. For example, if most of your users are located near Yangtze River Delta, then Shanghai would be a good choice.
+ - Communicate via private network in the same region.
+CVMs in the same region are interconnected with each other via private network, but those in different regions cannot communicate with each other via private network. Users who communicate with each other using multiple CVMs via private network need to choose the same region.
 CVMs in the same region can communicate with each other via private network free of charge.
 CVMs in different regions cannot communicate with each other via private network but only via public network with a charge.
 
-### Choosing Configurations
-Check details of different configurations in [More Models](https://intl.cloud.tencent.com/document/product/213/7153). You can also [Upgrade Configuration](https://intl.cloud.tencent.com/document/product/213/5730) purchased CVMs whenever necessary.
+### Selecting CPM Configuration Solution
+The following configurations are recommended: ["Model Recommendation"](https://cloud.tencent.com/act/recommended)
+- Entry: Suitable for start-up personal websites. For example, small websites such as personal blogs.
+- Basic: Suitable for websites or applications with a certain number of visits. For example, large enterprise official websites, small e-commerce websites.
+- Universal: Suitable for scenarios where cloud computing is frequently used. For example, portals, SaaS software, small Apps.
+- Application: Suitable for applications demanding high concurrency and scenarios with high requirement for CVM network and computing. For example, large portals, e-commerce websites, game Apps.
+
+If recommended configuration does not meet your needs, you can compare the configurations in [More Models](https://buy.cloud.tencent.com/cvm?tabIndex=1) based on your actual needs. You can also [Upgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) or [Downgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) at any time after purchasing a CVM based on your business needs.
 
 ### Choosing Billing Method
-Tencent cloud supports Postpaid billing method. For more information, please see [Billing Methods](/doc/product/213/2180).
-If Prepaid method is selected, you need to complete [Identity Verification](https://console.cloud.tencent.com/developer/infomation).
+Tencent Cloud provides two billing methods: Prepaid and Postpaid. For more information, please see [Billing Methods](/doc/product/213/2180).
+If Postpaid method is selected, you need to complete [Identity Verification](https://console.cloud.tencent.com/developer/infomation).
 
 <div id="page2"></div>
 ## Step 2: Create Linux CVM
-This step describes how to create a Linux CVM. Let's take quick configuration as an example.
+This step introduces how to create a Linux CVM. Quick configuration and custom configuration are available. Let's take quick configuration as an example. If it does not meet your requirements, you can configure your CVM by referring to [Custom Configuration of Linux CVM](/doc/product/213/10517) document.
+ > Note:
+ > By default, users who purchased CVM for the first time are directed to **Quick Configuration** page, and those who have purchased CVM are directed to **Custom Configuration** page.
 
+![](//mc.qcloudimg.com/static/img/4daa9004a9b40bd378f0486b92f2a4d3/image.png)
 
+ 1. Go to the Tencent Cloud official website, select **Cloud Products** -> **Computing and Website** -> **CVM**, then click **Buy Now** button to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
 
- 1.Log in to Tencent Cloud official website, go to **Products** -> **Compute** -> **Cloud Virtual Machine**, then click the **Experience** button to go to [CVM Purchase Page](https://console.cloud.tencent.com/cvm/index), and click **+ NEW** to start purchase.
-![](//mc.qcloudimg.com/static/img/51e3ba45030b206b51f7a03b05d4a757/image.png)
-
- 2.Select a model.
+ 2. Select an image. For quick configuration, Ubuntu Server 16.04.1 LTS 64-bit and CentOS 7.2 64-bit operating systems are recommended.
  
- 3.Select a region. Choosing a region close to your users can minimize access latency and improve download speed.![](//mc.qcloudimg.com/static/img/8a2ea5f4d088d2beac5686a8364994d7/image.png)
+ 3. Select a model.
  
- 4.Select an image. Select a Linux operating system that meets your requirement.
- ![](//mc.qcloudimg.com/static/img/351555b94d60fae965b315404f0f37af/image.png)
- 5.Select public network bandwidth. If you do not need to connect to the public network, set the bandwidth value to 0.
- 6.Select CVM quantity and the usage period.
-![](//mc.qcloudimg.com/static/img/727646454414ef49b6891c7b5a96cc3a/image.png)
- 7.Set account name and login method.
- ![](//mc.qcloudimg.com/static/img/671d4120d3f7578087d85a84d0e824f9/image.png)
-For more information on how to view internal message, please see later steps.
+ 4. Select a region. Choosing a region close to your customers can minimize access latency and improve download speed.
  
-<div id="Inter-Page">  </div>
+ 5. Select public network bandwidth. If you do not need to connect to the public network, set the bandwidth value to 0.
+ 
+ 6. Select quantity and usage period.
+ 
+Quick configuration uses a system-generated password, which will be sent to you via internal message.
+For more default configurations, hover your mouse over **More default configurations** at the top of the quick purchase page.
+
+For more information on how to view internal message, please see the next step.
+
+<div id="page3"></div>
 ## Step 3: Log in to Linux CVM
-This section describes how to log in to the Linux CVM. You can use different login methods in different situations. We describe the steps to login on Console here. 
+This section describes how to log in to a Linux CVM. Login method varies depending on different scenarios. This step shows how to log in to the CVM through the console. For more information on other login methods, please see [Log in to Linux Instance](/doc/product/213/5436).
 
-### Preconditions
+### Prerequisites
 You need to use the admin account ID and the corresponding password to log in to the CVM.
 
- * Admin account ID: It is always *root* for Linux instances (*ubuntu* for Ubuntu system users)
+ * Admin account ID: It is always root for Linux instances (ubuntu for Ubuntu system users)
  * Password: For quick configuration, the initial password is randomly assigned by the system. For detailed operations, see next section (View Internal Message and CVM Information).
-   For more information, please see [Login Password](/doc/product/213/6093).
+ 	For more information, please see [Login Password](/doc/product/213/6093).
    
 ### Viewing Internal Message and CVM Information
-After a CVM is purchased and launched, the instance name, public IP address, private IP address, login name and initial login password of the CVM are sent to your account via [Internal Message](https://console.cloud.tencent.com/message).
-
-![](//mc.qcloudimg.com/static/img/4af14d1f95582f48e42912441def19b0/image.png)
- 1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/index). You can see the public IP address, private IP address and other information after login.
-
+After a CVM is purchased and created, the instance name, public IP address, private IP address, login name, initial login password and other information of the CVM are sent to your account via [Internal Message](https://console.cloud.tencent.com/message).
+![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
+ 1) Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/index). You can see the public IP address, private IP address and other information after login.
+ 
  2. Click **Internal Message** at the upper right corner.
+ 
+ 3. New CVM and information including login name and password can be found in the Internal Message page.
 
- 3. New CVM and information including login name and password can be found in Internal Message page.
 
-
-### Log in to CVM Through the Console
- 1. In the Action column of CVM list, click **Log In** button to connect to Linux CVM via VNC.
-	![](//mc.qcloudimg.com/static/img/2458a30dd79da5762ea6cf474755319e/image.png)
-
- 2. Select **Ctrl-Alt-Delete** from the top left corner, go to the system login interface:
-	![](//mc.qcloudimg.com/static/img/ac56e378386a3e6fbc3eaa50ba80358c/image.png)
+### Logging in to CVM Through the Console
+ 1. Click **Log in** button in the operation column on the CVM list page to log in to the Linux CVM through WebShell.
+	![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
 	
- 3. Enter the account ID (Admin) and the initial password from the internal message (or the password modified by you) to log in.
+ 2. Enter the account ID "root" ("ubuntu" for Ubuntu system users) and the initial password from the internal message (or the modified password) to log in.
 
 >**Note:**
 >This terminal is exclusive, that is, only one user can log in through the console at a time.
@@ -81,10 +85,10 @@ After a CVM is purchased and launched, the instance name, public IP address, pri
 <div id="page4"></div>
 ## Step 4: Partition and Format Data Disk
 
-### Preconditions
- - After purchasing the data disks, you need to format them. Skip this step if you don't need data disks.
- - Make sure you have logged in to the CVM as described in Step 3.
- - Data disks larger than 2 TB should be mounted via GPT method. For more information, please see [Partition and Format Data Disk Using GPT Partition Table](/doc/product/213/2043).
+### Prerequisites
+ - Users who have purchased the data disk need to format it before use. Users who do not purchase data disk can skip this step.
+ - Make sure you have completed Step 3 to log in to the CVM.
+ - Mount data disks larger than 2 TB using GPT method. For more information, please see [Partition and Format Data Disk Using GPT Partition Table](/doc/product/213/2043).
  
 ### Partitioning Data Disk
 
@@ -110,16 +114,16 @@ After a CVM is purchased and launched, the instance name, public IP address, pri
  	(6) Press Enter again (use default settings).
  	(7) Enter `wq` (save partition table), and press Enter to start partitioning.
 
-	In this example, we only create one partition. You can create multiple partitions according to your actual needs.
+	In this example, we only create one partition. Developers can create multiple partitions according to their own needs.
 	![](//mc.qcloudimg.com/static/img/8a9c8ff4db5a7e4622bf2968d0309129/image.png)
 
- 4. Use `fdisk -l` command to check that the new partition `vdb1` has been created.
+ 4. Use `fdisk -l` command to check that the new partition vdb1 has been created.
 	![](//mc.qcloudimg.com/static/img/304ccd9491f2a25b8d3b33b5213faa0e/image.png)
 
 ### Formatting Data Disk
 
  1. Format a new partition
- The newly created partition needs to be formatted. You can decide the file system format on your own, such as ext2 and ext3. The example here uses ext3.
+ The newly created partition needs to be formatted. You can use a file system format based on your own needs, such as ext2 or ext3. In this example, ext3 is used.
 Use the following command to format the new partition: 
 	```
 	mkfs.ext3 /dev/vdb1
@@ -132,15 +136,15 @@ Use the following command to format the new partition:
 	mkdir /mydata
 	mount /dev/vdb1 /mydata
 	```
-	Use the command to view the status of mounting:
+	Use the following command to view the status of mounting:
 	```
 	df -h
 	```
-	If the following message appears, the disk is succesfully mounted. You can view the data disk.
+	The information of vdb1 shown in the red box indicates that the mounting is successful and the data disk is displayed.
 	![](//mc.qcloudimg.com/static/img/d6bc35b30b823c567812affd032bfedf/image.png)
 
  3. Configure auto mount upon startup
-If you want the data disk to be automatically mounted to CVM when CVM is restarted or started up, you need to add the partition information to `/etc/fstab`.
+To allow your CVM to be automatically mounted with data disk when it is restarted or started up, add the partition information to `/etc/fstab`.
 Use the following command to add partition information:
 	```
 	echo '/dev/vdb1 /mydata ext3 defaults 0 0' >> /etc/fstab
@@ -149,7 +153,7 @@ Use the following command to add partition information:
 	```
 	cat /etc/fstab
 	```
-	If the following message appears, the partition information has been successfully added.
+	The information of vdb1 shown in the red box indicates that the partition information has been successfully added.
 	![](//mc.qcloudimg.com/static/img/39025e909cd849d5a34378a7d0078d13/image.png)
 	
 **Now, you have completed the creation and basic configuration of a Linux CVM.**

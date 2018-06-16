@@ -1,7 +1,7 @@
 ## 准备工作
 
 * 首先您需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的工程。
-* 其次您需要一个提供临时密钥的服务，请参考 [快速搭建临时密钥服务](https://cloud.tencent.com/document/product/666/17220)。
+* 其次您需要一个提供访问授权的后台服务，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
 
 ## 第一步：创建项目和应用（已完成请跳过）
 
@@ -28,14 +28,14 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.1'
-	compile 'com.tencent.tac:tac-storage:1.1.1'
+	compile 'com.tencent.tac:tac-core:1.1.+'
+	compile 'com.tencent.tac:tac-storage:1.1.+'
 }
 ```
 
-## SDK 配置密钥服务
+## SDK 配置授权服务
 
-Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何在 SDK 里配置密钥服务提供者，请参见 [配置密钥服务](https://cloud.tencent.com/document/product/666/17199)。
+Storage SDK 需要一个后台授权服务来提供密钥，关于如何在 SDK 里配置服务，请参见 [配置密钥服务](https://cloud.tencent.com/document/product/666/17199)。
 
 >**注意：**
 >请先完成配置，再调用 Storage 服务的任何功能。否则，我们的服务无法识别您的身份。
@@ -62,3 +62,7 @@ Storage SDK 需要一个有效的密钥提供者来提供密钥，关于如何�
 -dontwarn javax.annotation.**
 -dontwarn org.conscrypt.**
 ```
+
+## 后续步骤
+
+您可以通过策略精确控制您数据的访问权限，可以参考 [数据安全性最佳实践](https://cloud.tencent.com/document/product/666/17921)。

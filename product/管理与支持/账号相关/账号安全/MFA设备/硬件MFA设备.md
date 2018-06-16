@@ -3,7 +3,7 @@
 
 ## 绑定硬件 MFA 设备
 1. 登录腾讯云控制台，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
-![](https://mc.qcloudimg.com/static/img/63c17fdf2fc1913927ad669c86dcafcd/image.png)
+![](https://main.qcloudimg.com/raw/e8ce8cb91b6f42054847dc63bdc4d399.png)
 2. 弹出身份验证页面后，单击【发送验证码】，手机收到验证码后，将手机收到的 6 位数字验证码输入框内。
 ![](https://mc.qcloudimg.com/static/img/b96da083ba830fdaeab02785fdcd7625/image.png)
 3. 在序列号那一栏填写上 MFA 设备背面的系列号。如果不清楚，单击序列号输入框右侧的“序列号在哪获取？”，弹出的图片中红框部分即为序列号。
@@ -15,6 +15,6 @@
 
 ## 解绑硬件 MFA 设备
 1. 登录腾讯云控制台，进入 [账号中心](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
-![](https://mc.qcloudimg.com/static/img/5a6fbe99163c47d960f5481d2d29bf09/%7BD096D4A6-7497-42C8-9968-66EC048E870B%7D.png)
+![](https://main.qcloudimg.com/raw/f3337ed8ad98c7c8d8d1cb95e0a192b3.png)
 2. 单击【确定解绑】。
 ![](https://mc.qcloudimg.com/static/img/41e8f092c9710d0cbda8d96b3ac4c08b/image.png)
