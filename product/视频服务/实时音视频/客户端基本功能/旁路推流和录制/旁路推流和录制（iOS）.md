@@ -31,8 +31,7 @@
     ILivePushOption *option = [[ILivePushOption alloc] init];
     option.channelInfo = info;
     option.encodeType = ILive_ENCODE_RTMP; //使用RTMP协议旁路直播
-    option.recrodFileType = ILive_RECORD_FILE_TYPE_NONE; //旁路直播时，录制视频文件格式
-    
+    option.recrodFileType = ILive_RECORD_FILE_TYPE_MP4; //旁路直播时，如果需要自动录制，则填写自动录制时生成文件的格式，如果不需要自动录制，则不需要处理本字段    
     // 调用开始推流接口开始推流
     [[ILiveRoomManager getInstance] startPushStream:option succ:^(id selfPtr) {
     //旁路推流成功，返回的为`AVStreamerResp`类型的对象，其中包含了旁路直播成功的url信息;

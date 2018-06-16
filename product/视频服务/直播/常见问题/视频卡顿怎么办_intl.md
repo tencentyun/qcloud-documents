@@ -94,7 +94,7 @@ Some clients may complain: "Any user can use our App. It's impossible to control
 
  If VJs' upstream bandwidth varies significantly, it's recommended to enable network adaption by referring to the documentation for [iOS](https://cloud.tencent.com/document/product/454/7884#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) and [Android](https://cloud.tencent.com/document/product/454/7890#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F).
 
- However, the solution described in **4.2.1 Notify VJ of network condition** is the preferred one. After all, it's unrealistic to ensure the smoothness and high definition while achieving a high upstream bandwidth.
+ However, the solution described in **4.2.1 Notify VJ of network condition** is the preferred one. After all, it's unrealistic to ensure the smoothness and high definition without a high upstream bandwidth. You cannot eat your cake and have it too.
 
 | Field | Definition | Recommended Value |
 |---------|------------|--------------|

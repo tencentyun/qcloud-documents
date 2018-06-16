@@ -1,17 +1,12 @@
-## 方法一：源码安装方式
-1. 下载打好 toa 补丁的源码包（[点此下载](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
-2. 解压；
-3. 编辑 .config，将 CONFIG_IPV6=M 改成 CONFIG_IPV6=y；
-4. 如果需要加上一些自定义说明，可以编辑 Makefile；
-5. make -jn (n 为线程数)；
-6. 执行 `make modules_install` ；
-7. 执行 `make install`；
-8. 修改 `/boot/grub/menu.lst`，将 default 改为新安装的内核（title 顺序从 0 开始）；
-9. 执行 `Reboot` 重启后即为 toa 内核；
-10. 执行`lsmode | grep toa` 检查 toa 模块是否加载，没有加载的话，可通过 `modprobe toa`命令 开启。
+## 方法一：rpm 包安装方式
+直接下载下面的 rpm 包：
 
-## 方法二：rpm 包安装方式
-可以联系腾讯云来提供，也可以自己制作 rpm 包。自己制作 rpm 包步骤如下：
+- CentOS 6 TOA 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)）；
+- CentOS 7 TOA 包（[单击下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)）；  
+
+下载安装完后，重启系统即完成安装。
+
+也可以自己制作 rpm 包，自己制作 rpm 包步骤如下：
 1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm：
 `rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm`
 
@@ -65,3 +60,17 @@ ApplyOptionalPatch toa.patch
 `rpm -hiv kernel-xxxx.rpm --force`
 
 11. 重启，加载 toa 模块。
+
+
+## 方法二：源码安装方式
+1. 下载打好 toa 补丁的源码包（[单击下载](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz)）；
+2. 解压；
+3. 编辑 .config，将 CONFIG_IPV6=M 改成 CONFIG_IPV6=y；
+4. 如果需要加上一些自定义说明，可以编辑 Makefile；
+5. make -jn (n 为线程数)；
+6. 执行 `make modules_install` ；
+7. 执行 `make install`；
+8. 修改 `/boot/grub/menu.lst`，将 default 改为新安装的内核（title 顺序从 0 开始）；
+9. 执行 `Reboot` 重启后即为 toa 内核；
+10. 执行`lsmode | grep toa` 检查 toa 模块是否加载，没有加载的话，可通过 `modprobe toa`命令 开启。
+

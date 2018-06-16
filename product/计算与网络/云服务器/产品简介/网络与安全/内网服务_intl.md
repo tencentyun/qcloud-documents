@@ -1,70 +1,78 @@
-Cloud products on the Tencent Cloud can be accessed via [Internet access](/doc/product/213/5224) or accessed mutually via the Tencent Cloud private network. Private network services are Local Area Network (LAN) services, which are accessed mutually via private links. Tencent Cloud server rooms are interconnected by an underlying 10 Gigabit / Gigabit, providing high bandwidth, low latency within network communications services; and regions within the private network enjoy communications completely free of charge, helping you build a flexible network architecture.
-> - Private network services contain user attributes; different users are isolated; that is, by default they cannot access another user's network through CVM services.
-> - Private network services also have geographical attributes, and different geographical isolation; that is, by default, they cannot access the network through different accounts under cloud services.
+Private network services are LAN services. Cloud services can access each other via internal linkages. The cloud products on the Tencent Cloud can access each other via [Internet Access](/doc/product/213/5224) or via the private network of Tencent Cloud. Interconnected with megabyte/gigabyte underlying networks, Tencent Cloud's data centers can enable communication via private network featured by large bandwidth and low latency, which is free of charge in the same region, giving you the flexibility to build a network architecture.
 
 ## Private IP address
+### Overview
+Private IP addresses are IP addresses that cannot be accessed through Internet. Tencent Cloud's private network services are realized based on them. Each instance has a default network interface (eth0) for the assignment of private IPs. Private IP addresses can be automatically assigned by Tencent Cloud, or defined by users (only under the [VPC](/doc/product/215/4927)).
+>**Note:**
+>Changing the private IP by yourself within the operating system may cause private network interruption.
 
-A private IP address is an IP that cannot access via the Internet; this is an implementation of private services by Tencent Cloud. You can use private IP addresses to implement communications between instances on the same network (basic networks or VPC). Each instance has a default network interface (ie, eth0) for assigning private IP addresses. Private IP addresses can be automatically assigned by Tencent and customized by users (only in [Private Network] environments). The combination of [Internet services](/doc/product/213/5224), and the Tencent cloud network architecture consists of the following two parts:
+### Attribute
+ - Private network services are user-sensitive. Different users are isolated from each other, which means that the cloud services of the other user cannot be accessed via the private network by default.
+ - Private network services are also region-sensitive. Different regions are isolated from each other, which means that the cloud services under the same account in a different region cannot be accessed via the private network by default.
 
-- Public network cards: Unanimously configured on the TGW interface layer, without CVM perception. When an instance is assigned a [Public IP address](/doc/product/213/5224), TGW automatically configures a public network interface for it.
-- Private network card: Managed by Tencent Cloud, supports user configurations.
+### Application Scenarios
+A private IP can be used for access between CLBs, CVMs, or access between CVMs and other cloud services (such as CDN and CDB) via a private network.
 
-Therefore, when the user uses commands such as 'ifconfig' to view network interface information on the CVM, only the IP information of the private network can be viewed. For public network information, users need to log onto the [Tencent Cloud Console](https://console.cloud.tencent.com/) CVM list/details page to view. Please note that if you change the private network IP within an operating system, it will lead to an interruption of network communications.
+### Address Assignment
+Each CVM instance will be given a default private IP address when activated. The private IP varies with [Network Environment](/doc/product/213/5227):
+ - Basic network: The private IP address is assigned by Tencent Cloud automatically and cannot be changed.
+ - VPC: The initial private IP address is assigned by Tencent Cloud randomly in VPC IP address range, and users can define the private IP address for the CVM instance within the `10.[0 - 255].0.0/8`, `172.[0 - 31].0.0/16` and `192.168.0.0/16` IP address ranges. The specific value range is determined by the VPC where the instance locates. For more information, please see [VPC and Subnet](/doc/product/215/4927).
 
-Private IPs can be used for CLB load balancing, inter-network visits between CVM instances and between CVM instances and other cloud services, such as CDN and CDB.
-
-## How to obtain a private IP address
-Each CVM instance is assigned a default private IP at startup. For different [Network Environments](/doc/product/213/5227), the private IP is also different:
- - Basic network: private IPs within the network are automatically assigned by Tencent Cloud, and cannot be changed.
- - Private network: the initial private IP assigned by Tencent Cloud is done automatically within the VPC network segment of an arbitrary address allocation; the user can be in the '10.[0 - 255].0.0/8', '172.[0 - 31].0.0/16' and '192.168.0.0/16' to define the private IP address for the CVM instance. The specific value range is determined by the private network of the instance. For more information, refer to [Private Network and Subnet](https://cloud.tencent.com/doc/product/215/4927).
-
-## Private network DNS 
-Private network DNS services are responsible for domain name resolutions; if a DNS configuration is wrong, the domain name cannot be accessed. Therefore, Tencent Cloud provides reliable private DNS servers in different regions. The specific configuration is as follows:
+## Private Network DNS 
+### DNS Server Address
+Private network DNS service is used for domain name resolution. If DNS configuration is incorrect, the domain name will become inaccessible.
+Tencent Cloud provides reliable private network DNS servers in different regions. Specific configurations are shown below:
 <table><tbody>
-<tr><th>Network environment</th><th>Region</th><th>Private DNS server</th></tr>
-<tr><td rowspan="7">Basic network</td><td>Guangzhou</td><td>10.225.30.181<br>10.225.30.223</td></tr>
+<tr><th>Network Environment</th><th>Region</th><th>Private Network DNS Server</th></tr>
+<tr><td rowspan="13">Basic network</td><td>Guangzhou</td><td>10.225.30.181<br>10.225.30.223</td></tr>
 <tr><td>Shanghai</td><td>10.236.158.114<br>10.236.158.106</td></tr>
 <tr><td>Beijing</td><td>10.53.216.182<br>10.53.216.198</td></tr>
-<tr><td>Shanghai Finance</td><td>10.48.18.9<br>10.48.18.82</td></tr>
+<tr><td>Shanghai Finance</td><td>10.48.46.77<br>10.48.46.27</td></tr>
+<tr><td>Shenzhen Finance Zone</td><td>100.83.224.91<br>100.83.224.88</td></tr>
 <tr><td>North America</td><td>10.116.19.188<br>10.116.19.185</td></tr>
 <tr><td>Hong Kong</td><td>10.243.28.52<br>10.225.30.178</td></tr>
 <tr><td>Singapore</td><td>100.78.90.19<br>100.78.90.8</td></tr>
-<tr><td>Private network</td><td>All regions</td><td>183.60.83.19<br>183.60.82.98</td></tr>
+<tr><td>Guangzhou Open Zone</td><td>10.59.218.18<br>10.112.65.51</td></tr>
+<tr><td>Chengdu</td><td>100.88.222.14<br>100.88.222.16</td></tr>
+<tr><td>Silicon Valley</td><td>100.102.22.21<br>100.102.22.30</td></tr>
+<tr><td>Frankfurt</td><td>100.120.52.60<br>100.120.52.61</td></tr>
+<tr><td>Seoul</td><td>10.165.180.53<br>10.165.180.62</td></tr>
+<tr><td>VPC</td><td>All regions</td><td>183.60.83.19<br>183.60.82.98</td></tr>
 </tbody>
 </table>
 
-When a network analysis discovers errors, users can manually set up the private network DNS. Set as follows:
+### Private Network DNS Settings
+When a network resolution error occurs, users can set the private network DNS manually. The private network DNS can be set as follows:
 
-- For Linux systems, you can modify the CVM DNS by editing the '/ etc / resolv.conf' file.
-Run the command '/ etc / resolv.conf', according to the corresponding table in different regions to edit the geographical DNS IP.
-![](https://mc.qcloudimg.com/static/img/fa8ecdf52b7f51361c369dbc96eea4ec/image.png)
+- **For Linux users**. CVM DNS can be modified by editing the `/etc/resolv.conf` file on the CVM.
+Run the command `vi /etc/resolv.conf`, and edit the DNS IP according to the above table.
+![](//mc.qcloudimg.com/static/img/9c46100760f1049454b076a3c83c7f8a/image.png)
 
-- For Windows, you can modify the DNS server by opening the [Control Panel] - [Network and Sharing Center] - [Change Adapter Devices], then right-clicking on the network card [Properties] and double-clicking [Internet Protocol Version 4].
+- **For Windows users**. On the CVM, open **Control Panel** -> **Network and Sharing Center** -> **Change Adapter Settings**, right-click the **Property** of the ENI, and double-click **IPv4** to modify the DNS server IP.
+![](//mc.qcloudimg.com/static/img/93b7bda1075530ff6e7ba5ece4ab71f4/image.png)
 
-## Obtain private IP of instance
-You can use the Tencent Cloud console and API to determine the private IP of the instance. You can also use the instance metadata to determine the private IP of an instance from within. For more information, see [Instance Metadata](/doc/product/213/4934).
+## Obtaining the private IP address of an instance
 
-### Use console to obtain private IP of instance
+### Obtaining the Address on the Console
 
-1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
+ 1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/).
 
-2) CVM list shows the names of your instances; move the mouse over the CVM private IP, click on the copy button that appears, and copy the IP.
+ 2. The CVM list displays the instances under your account. Move the mouse cursor over the private IP of the CVM, and the "Copy" button will appear; click the button to copy the private IP.
 
-3) (Optional) Click on the CVM Instance ID to view detailed CVM info, including ** Parameters **, ** Monitoring **, ** Health Check **, ** Security Group **, ** Operation log **.
+![](//mc.qcloudimg.com/static/img/2663aabcbe44c2ad372b5b8ba2bb6a1f/image.png)
 
-> The public IP is mapped to the private network IP through NAT. Therefore, if you view the properties of the network interface within the instance (for example, through ifconfig (Linux) or ipconfig (Windows)), the public IP is not displayed.
+### Obtaining the Address Using API
+&Nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more information, please see [DescribeInstances API](/doc/product/213/9388).
 
-### Use API to obtain private IP of instance
-Refer to [DescribeInstances interface](https://cloud.tencent.com/doc/api/229/831).
+### Obtaining the Address Using Instance Metadata
 
-### Use instance metadata to obtain private IP of instance
+ 1. Log in to the CVM instance. For more information, please see [Log in to Linux Instance](/doc/product/213/5436) and [Log in to Windows Instance](/doc/product/213/5435).
 
-First, you need to login to the CVM instance. For details, refer to [Logging into Linux Instance](https://intl.cloud.tencent.com/document/product/213/5436) and [Logging into Windows Instance](/doc/product/213/5435).
-
-Use the following command to obtain the private IP:
-
+ 2. Enter the command:
 ```
 curl http://metadata.tencentyun.com/meta-data/local-ipv4
 ```
-The return value is as follows
-![](//mccdn.qcloud.com/img56a1eeb9557a8.png)
+If the returned value is in the following structure, you can see the private IP address:
+![](//mc.qcloudimg.com/static/img/14a13eccebc7eee6f83bc026adb30902/image.png)
+For more information, please see [Instance Metadata](/doc/product/213/4934).
+

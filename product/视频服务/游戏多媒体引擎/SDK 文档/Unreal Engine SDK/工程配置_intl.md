@@ -6,9 +6,8 @@ Contact us to obtain SDK.
 Open the Plugins folder under the Unreal Engine project directory (create one if no directory exists), and copy SDK to the folder. The SDK directory is shown as follows:
 ![](https://main.qcloudimg.com/raw/751894ab16c5262b7a99370cc7efd52c.png)
 Compile the imported plug-in in the Unreal Engine.
-![](https://main.qcloudimg.com/raw/d7c23f8c850c814f1758eabc7f8ba686.png)
 After the compiling is completed, a directory can be found in VS2015 as follows.
-![](https://main.qcloudimg.com/raw/3005bc887e0179bdc45719b07a61f778.png)
+![](https://main.qcloudimg.com/raw/86073ea6d8b41abf1a0949d9c36826cd.png)
 Open the Unreal Engine again, click the edit button and then the Plugins button, and you can see the GME plug-in.
 ![](https://main.qcloudimg.com/raw/b14824ae09efbf014af246866b79dc48.png)
 ## Preparation in Android

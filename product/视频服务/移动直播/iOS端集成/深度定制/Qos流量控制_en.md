@@ -8,7 +8,7 @@ Among the push quality issues, the biggest issue is caused by unsatisfactory ups
 
 Therefore, dealing with the stutters of upstream network at VJ end can effectively improve the push quality, thus delivering a better viewing experience, especially in the domestic environment where upstream bandwidth is restricted by ISPs.
 
-But network condition does not hinge on our will. If a VJ uses a 4-Mbps broadband package at home, it is not impossible to change it to 8Mbps just because the VJ installs a new App. Therefore, we can choose to**actively adapt to the upstream network**.
+But network condition does not hinge on our will. If a VJ uses a 4-Mbps bandwidth plan at home, it is impossible to change it to 8Mbps just because the VJ installs a new App. Therefore, we can choose to**actively adapt to the upstream network**.
 
 ## Quick Interfacing
 You can enable Qos traffic control by using the parameters of API setVideoQuality of TXLivePusher so that the SDK controls the video clarity depending on the the upstream network condition at VJ end.
