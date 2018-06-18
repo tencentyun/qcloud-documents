@@ -112,4 +112,4 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
   
 
 - **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
-  ![](https://main.qcloudimg.com/raw/1920f22fe7365e16ede4057c4c7260d8.png)
+  ![](https://main.qcloudimg.com/raw/95c0a6e134664254b23e2c70e5f25671.png)
