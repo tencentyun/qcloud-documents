@@ -4,8 +4,6 @@
 2. 创建服务并与 Mesh 应用关联
 3. 验证服务调用
 
-
-
 在开始下面步骤之前，请确保已完成了 **准备工作**。
 
 
@@ -67,11 +65,12 @@
 1. 在 TSF 控制台上，单击左侧导航栏 【服务治理】。
 2. 在页面顶部选择集群和命名空间。确保选中的集群和命名空间和 **步骤三** 中部署组的集群和命名空间属性相同。
 3. 新建服务：
-   - 服务名：填写服务名称（如果使用 TSF 平台提供的 demo，此处应该是 user, shop, promotion)。
+   - 服务名：填写服务名称。
    - 关联应用：选择 Mesh 应用，在应用列表中选择在 **步骤一** 中创建的应用。
    - 服务监听端口：协议选择 HTTP，端口可填写 8080。
-   - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行（如果使用 TSF 平台提供的 demo，此处可填写 /health）。
-     
+   - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行。
+
+     ![](https://main.qcloudimg.com/raw/7394a165093a98219a04100f37dc1ab7.png)
 4. 单击【提交】按钮。
 
 
@@ -81,31 +80,29 @@
 
 
 
-#### 3.1 通过命令行检查 user 服务是否健康
+#### 3.1 触发 user 服务调用 shop 和 promotion 服务 
 
-首先登录集群所属 VPC 网络下的任意一台机器，然后执行如下命令：
+user, shop, promotion 三个服务的接口间调用关系如下：
 
-```
-curl -XGET <节点IP>:<NodePort>/health
-```
+user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotion (`/api/v6/promotion/query`)
 
-其中 `节点IP` 为集群中任意一个节点的内网IP，用户可以在集群的节点列表页面查看。`NodePort` 可以在 `user` 应用的部署组的基本信息页面中查看。
+为了验证 `user` 服务能通过服务名来调用 `shop` 服务，需要用户通过以下几种方式来触发 `user` 服务的接口调用：
 
 
 
-#### 3.2 触发 user 服务调用 shop 和 promotion 服务 
+- **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过 **负载均衡 IP + 服务端口** （在上面的截图例子中服务端口是  9080）来访问 `user` 服务的 `/api/v6/user/account/query` 接口。
 
-在 userService.py 中，`/api/v6/user/account/query` 接口会调用 `shop` 服务的 `/api/v6/shop/order` 接口，进而调用 `promotion` 服务的 `/api/v6/promotion/query` 接口。
+- **节点IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点IP` 为集群中任一节点的内网IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
 
-```
-curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
-```
+  ```shell
+  curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
+  ```
 
-其中 `节点IP` 为集群中任意一个节点的内网IP，用户可以在集群的节点列表页面查看。`NodePort` 可以在 `user` 应用的部署组的基本信息页面中查看。
+- **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 `user` 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
 
 
 
-#### 3.3. 在控制台验证服务间是否调用
+#### 3.2 在控制台验证服务间是否调用
 
 完成 **3.1** 和 **3.2** 之后，可以通过几种方式验证服务是否成功被 sidecar 代理注册到注册中心，同时服务之间是否成功地进行了调用。
 
