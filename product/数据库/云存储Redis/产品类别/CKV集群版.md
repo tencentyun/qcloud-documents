@@ -35,7 +35,7 @@ CKV集群版仅支持以下密码格式，“实例 id:密码” 的格式类型
 - **集群版 Redis 支持命令**<br>
 
 | **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | auth | geoadd | hdel | pfadd | del | lindex | psubscribe | 
 | echo | geohash | hexists | pfcount | exists | linsert | pubsub | 
 | ping | geopos | hget | pfmerge | expire | llen | publish | time |
