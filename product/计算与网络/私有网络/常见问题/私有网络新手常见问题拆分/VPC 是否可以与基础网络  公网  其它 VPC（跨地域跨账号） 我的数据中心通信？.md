@@ -1,6 +1,6 @@
 都可以，您的需求和对等功能如下表所示：
 
-| 用户需求 | VPC 对应功能 | 
+| 用户需求 | VPC  对应功能 | 
 |---------|---------|
 | VPC 与基础网络内云服务器通信 |  <a href="https://cloud.tencent.com/doc/product/215/5002" target="_blank">基础网络互通</a> |
 |访问公网|<a href="https://cloud.tencent.com/doc/product/215/4958" target="_blank">弹性 IP</a> / <a href="https://cloud.tencent.com/doc/product/215/4975" target="_blank">NAT 网关</a>（高性能 ）/ <a href="https://cloud.tencent.com/doc/product/215/4972" target="_blank">公网网关</a> |
