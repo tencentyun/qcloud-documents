@@ -34,10 +34,10 @@ CKV集群版仅支持以下密码格式，“实例 id:密码” 的格式类型
 ### 兼容性
 - **集群版 Redis 支持命令**<br>
 
-| **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
+| **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| auth | geoadd | hdel | pfadd | del | lindex | psubscribe | command |
-| echo | geohash | hexists | pfcount | exists | linsert | pubsub | dbsize |
+| auth | geoadd | hdel | pfadd | del | lindex | psubscribe | 
+| echo | geohash | hexists | pfcount | exists | linsert | pubsub | 
 | ping | geopos | hget | pfmerge | expire | llen | publish | time |
 | quit | geodist | hgetall | 　 | expireat| lpop | punsubscribe |  |
 | select | georadius | hincrby | 　 | type | lpush | subscribe | 　 |
@@ -52,10 +52,10 @@ CKV集群版仅支持以下密码格式，“实例 id:密码” 的格式类型
 | 　 | 　 | hvals | 　 |  | rpushx | 　 | 　 |
 | 　 | 　 | hscan | 　 |  | 　 | 　 | 　 |
 
-|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
-| --- | --- | --- | --- |
-| sadd | zadd | append | discard |
-| scard | zcard | bitcount | exec |
+|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |**server 族** | 
+| --- | --- | --- | --- | --- |
+| sadd | zadd | append | discard | command |
+| scard | zcard | bitcount | exec | dbsize |
 | sdiff | zcount | bitop | multi |
 | sdiffstore | zincrby | bitpos | unwatch |
 | sinter | zinterstore | decr | watch |
