@@ -1,6 +1,20 @@
 
 <h2 id="SDK">SDK下载</h2>
 
+- **4.9 SDK 升级说明**
+
+  从4.9版本开始SDK支持Licence自动续期，新的Licence设置方法如下
+
+  iOS:<br/>
+  `[TXUGCBase setLicenceURL:@"您的Licence URL" key:@"您的Licence Key"];`
+  
+  Android:<br/>
+  `TXUGCBase.getInstance().setLicence(context, "您的Licence URL", "您的Licence Key");`
+  
+  在新的控制台中可以看到相关的URL与Key。您可以在控制台中升级到新版本的License。
+
+  更多相关信息请查看工程配置([iOS](https://cloud.tencent.com/document/product/584/11638),[Android](https://cloud.tencent.com/document/product/584/11631))。
+
 - **基础版**
 
 <table width="850px">
