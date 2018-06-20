@@ -5,20 +5,20 @@ To access the file system, you need to mount the file system to Linux- or Window
 
 Go to the Tencent Cloud official website, select **Cloud Products** -> **Compute and Network** -> **CVM**, then click **Buy Now** to enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
 ### (1) Select a region and model
-![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
+![](https://main.qcloudimg.com/raw/3f41daecd7fb1e73cdf69345cda87f3b.png)
 - Select a billing mode: Prepaid or postpaid (users who cannot purchase postpaid CVMs need to complete [Identity Verification](https://console.cloud.tencent.com/developer/auth) first). For more information, please see [Billing Mode](/doc/product/213/2180).
 - Select a region and an availability zone: When you need more than one CVM, it is recommended that you choose different availability zones to implement disaster recovery.
 - Select a model and configuration: For more information, please see [Instance Types](/doc/product/213/7153).
 
 
 ### (2) Select an image
-![](//mc.qcloudimg.com/static/img/fd40922e47525453a58de73d0ffa266c/image.png)
+![](https://main.qcloudimg.com/raw/ffe82a64aa448ff02a3e1d3d225c4e7a.png)
 - Select an image provider. Tencent Cloud supports public images, custom images, shared images and service marketplace images. You can view [Image Types](/doc/product/213/4941) to select an image. The public image type is recommended for users who have just started using Tencent Cloud.
 - Select an operating system. Tencent Cloud provides various operating systems such as CentOS, CoreOS, Debian, FreeBSD, OpenSUSE, SUSE and Ubuntu. You need to build subsequent operating environment on your own.
 - Select a system version. 
 
 ### (3) Select storage and network
-![](//mc.qcloudimg.com/static/img/e95a5bf7bf47c60f43dd0ee62946b67a/image.png)
+![](https://main.qcloudimg.com/raw/1d0f67e38dfecae3d1b46254c377b441.png)
 - Select the type of disk and the size of data disk.
 Tencent Cloud provides two types of disks, cloud disk and local disk (system disk size is optional. The default is 50 GB).
   - Cloud disk: Deliver high data reliability with the distributed three-copy mechanism.
@@ -35,7 +35,7 @@ Tencent Cloud provides two options: Bill-by-bandwidth or bill-by-traffic.
 - Select the usage period and renewal method (only for prepaid CVMs).
 
 ### (4) Configure information
-![](//mc.qcloudimg.com/static/img/1c463db6e3b31abd6c1d3163f1c3108f/image.png)
+![](https://main.qcloudimg.com/raw/4ff1d71ec345f84e1029f8b77cbaaf89.png)
 - Set CVM name: You can name it after creation or name it now.
 - Set login information:
  - Set Password: Enter a CVM password.
@@ -51,10 +51,10 @@ After the CVM is created, you will receive an internal message containing such i
 ## 2. Creating File System and Mount Point
 
 1. Log in to the Tencent Cloud [Console](https://console.cloud.tencent.com/). Click **Cloud Products** -> **Storage** -> **CFS** to go to the CFS console.
-![](//mc.qcloudimg.com/static/img/4fee6ea61cfba11927f6891527237610/image.png)
+![](https://main.qcloudimg.com/raw/b7ac1f186ac0491ac369d62952447d26.png)
 
 2. In the Tencent Cloud CFS console, click **Create** and the Create File System popup window appears. Enter relevant information and confirm, and then click **OK** to create the file system.
-![](https://main.qcloudimg.com/raw/3797c04469bf0da994d2e2876a2a39ad.png)
+![](https://main.qcloudimg.com/raw/b2c089eb76dec621eda63ef3e138efe0.png)
  - Name: Name the file system to be created.
  - Region and availability zone: Choose a region closest to your customers to minimize access latency and improve download speed.
  - File protocol: NFS (suitable for Linux and Unix clients), CIFS/SMB (suitable for Windows clients).
@@ -69,10 +69,10 @@ After the CVM is created, you will receive an internal message containing such i
 3. Obtain the mount point information. After the file system and the mount point are created, click the instance ID to enter the file system details page, and then click **Mount Point Information** to obtain the mount command for Linux.
 
 The mount point information of NFS file system is as follows:
-![](https://mc.qcloudimg.com/static/img/f50435216defb4083874bc78d568001e/image.png)
+![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
 
 The mount point information of CIFS/SMB file system is as follows: 
-![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
+![](https://main.qcloudimg.com/raw/3a13257ec58a8de79929d8af39b4ed5a.png)
 
 
 
@@ -86,7 +86,7 @@ You need to use the admin account ID and the corresponding password to log in to
 
 **Log in to CVM via the console**
 - In the Action column of CVM list, click **Log In** button to connect to Linux CVM via VNC.
-![](//mc.qcloudimg.com/static/img/73cc4f9f702f80d95717c7a35063ab41/image.png)
+![](https://main.qcloudimg.com/raw/ff0adff1a8e94577ebe45bcb0650b5f8.png)
 - Enter the account ID "root" ("ubuntu" for Ubuntu system users) and its password to log in.
 
 >**Note:**
@@ -153,7 +153,7 @@ sudo mount -t nfs -o vers=4 10.0.0.1:/ /local/test
 sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
 ```
 
- ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
+ ![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
 
 **Mount NFS v3.0**
 Mount NFS v3.0 with the following command.
@@ -178,7 +178,7 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/z3r6k95r /local/test
 ```
 mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
-![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
+![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
 
 #### (4) View the mount point information
 After the mounting, the mounted file system can be viewed with the following command:
@@ -227,7 +227,7 @@ Example:
 mount -t cifs -o guest //10.66.168.75/vj3i1135  /local/test
 ```
 
- ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
+ ![](https://main.qcloudimg.com/raw/3a13257ec58a8de79929d8af39b4ed5a.png)
 
 #### (4) View the mount point information
 After the mounting, the mounted file system can be viewed with the following command:
@@ -254,9 +254,9 @@ umount /local/test
 ## 5. Terminating Resources
 You can terminate a CVM instance or a file system in the Tencent Cloud console. It is recommended that you terminate any resource that is no longer used, to avoid further fee deduction.
 1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the  CVM instance.
-![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
+![](https://main.qcloudimg.com/raw/aebd52db8eb742cbc5b6a3cffe61b82f.png)
 2. Terminate a file system. Go to the Tencent Cloud CFS [console](https://console.cloud.tencent.com/cfs), select the file system to be terminated. Click **Delete** and **OK** to delete the file system.
-![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
+![](https://main.qcloudimg.com/raw/996e1c0ab24a7417d2357831f06cf705.png)
 
 
 

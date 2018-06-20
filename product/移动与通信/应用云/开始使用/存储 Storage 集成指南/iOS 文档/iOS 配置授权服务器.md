@@ -1,18 +1,15 @@
-使用 Storage 服务时，后台需要对您的身份进行校验，校验过程是通过调用接口时携带签名实现的。在调用 Storage 任何功能接口与前，都需要设置 [TACStorageService defaultStorage].credentailFenceQueue.delegate  ，并且实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
+使用 Storage 服务时，后台需要对您的身份进行校验，校验过程是通过调用接口时携带签名实现的。因此，Storage SDK 需要提前设置临时密钥才能正常的访问数据。临时密钥有一定的有效期，过期后自动失效。由于临时密钥需要永久密钥生成，而永久密钥放在客户端中有极大的泄露风险，因此建议通过后台生成临时密钥，并下发到客户端中。
 
-
+在调用 Storage 任何功能接口与前，都需要设置 [TACStorageService defaultStorage].credentailFenceQueue.delegate  ，并且实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
 
 > 可以在 [对象存储控制台](https://console.cloud.tencent.com/cos4/secret) 上面获取密钥，也就是 SecretID 与 SecretKey。
 
-
-在调试期间，可以使用永久的 SecretID 和 SecretKey 来生成签名。但如果产品需要对外发布，将永久的 SecretID 和 SecretKey 放在 APP 中一起对外发布的话会有极大的密钥泄露的风险，因此我们推荐按照 [快速搭建临时密钥服务](https://cloud.tencent.com/document/product/666/17220) 中的指南搭建一个临时密钥服务器，每次请求的时候从临时密钥服务器去获取临时密钥。
-
-在签名接口的回调里，其实需要做的就是使用 SecretID，SecretKey （使用临时密钥服务的情况下，还有 token 和 ExpirationDate）传给 QCloudCredential 实例，然后通过该实例来生成一个签名 Creator，再调用 continueBlock 把签名 Creator 传进去即可。请参考下面的例子:
+在签名接口的回调里，其实需要做的就是使用 SecretID，SecretKey （使用临时密钥服务的情况下，还有 token 和 ExpirationDate）传给 QCloudCredential 实例，然后通过该实例来生成一个签名 Creator，再调用 continueBlock 把签名 Creator 传进去即可。请参考下面的例子。
 
 
 ## 临时密钥使用指南
 
-假设您已经按照 [快速搭建临时密钥服务](https://cloud.tencent.com/document/product/666/17220) 搭好了临时密钥服务器，并且临时密钥服务器直接将 CAM 返回的 JSON 数据透传给客户端。（如果是其它格式的数据，那么需要自定义解析过程）。
+假设您已经按照 [快速搭建后台授权服务](https://cloud.tencent.com/document/product/666/17922) 搭好了授权服务器，并且服务器直接将 CAM 返回的 JSON 数据透传给客户端。（如果是其它格式的数据，那么需要自定义解析过程）。
 
 
 这里假设请求临时密钥的接口是：

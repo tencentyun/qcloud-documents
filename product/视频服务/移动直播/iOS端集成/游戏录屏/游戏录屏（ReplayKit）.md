@@ -7,13 +7,13 @@
 
 ## 功能体验
 
-体验iOS录屏可以下载【视频云工具包】
-
-![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/er.png)
+体验iOS录屏可以单击安装 [视频云工具包](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 
+或 扫码安装
+![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/1529471216.png)
 
 使用步骤：
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】->【Replaykit2推流】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+2. 打开【视频云工具包】->【录屏幕推流】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
 
 ![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/out.png)
 

@@ -2,7 +2,12 @@
 - 内网访问：使用在同一个可用区的 CVM 来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台 CVM 需要与数据库同一地域下的基础网络中，或者同一个 VPC 中，关于 VPC 的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank"> VPC 概述</a>。）
 - 外网访问：借助外网账号，通过腾讯云控制台中的登录入口，登录到 phpMyAdmin 界面对数据库进行操作。
 
-<font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。
+> <font color="red">**安全提示：**</font>
+> 
+> 外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，**此操作可能导致数据库被入侵或攻击**。建议您使用内网访问的方式来登录数据库。
+> 
+> 腾讯云CDB外网访问仅用于开发或辅助管理数据库，<font color="red">**强烈不建议**</font>正式业务访问使用，因不可控因素会导致外网访问不可用（诸如但不限于DDOS攻击、突发大流量访问等）
+
 ## 内网访问
 1. 登录到与此数据库实例属于同一个可用区的网络可达的 CVM 主机。
 关于登录 CVM 主机请查看 <a href="https://cloud.tencent.com/document/product/213/2783" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2973" target="_blank">Linux CVM 入门 </a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。

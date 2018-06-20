@@ -1,23 +1,46 @@
-Storage SDK 需要一个有效的密钥提供者，这样后台才能正确地识别您的身份。所以在调用 SDK 任何功能接口前，**请先通过 `TACStorageOptions` 设置密钥提供者**。
+使用 Storage 服务时，后台需要对您的身份进行校验，校验过程是通过调用接口时携带签名实现的。因此，Storage SDK 需要提前设置临时密钥才能正常的访问数据。临时密钥有一定的有效期，过期后自动失效。由于临时密钥需要永久密钥生成，而永久密钥放在客户端中有极大的泄露风险，因此建议通过后台生成临时密钥，并下发到客户端中。
 
-假设您配置的服务器请求地址如下：
+假设您已经按照 [快速搭建后台授权服务](https://cloud.tencent.com/document/product/666/17922) 搭好了授权服务器，服务器的请求地址如下：
 
 ```
 GET https://<SERVER_HOST><PATH>?<name>=<value>
 Header: <header1>=<value1>
 ```
 
-设置方式取决于请求响应体的 JSON 结构。
+我们的 SDK 会在本地临时密钥不存在或者过期的时候，自动请求您设置的服务器接口，拿到新的临时密钥。请通过 `TACStorageOptions` 设置服务器接口地址。
 
-### 1.（推荐）使用服务器 SDK 返回的标准 JSON 结构
 
-通过 `TACStorageOptions` 配置密钥获取接口：
+## SDK 设置授权服务器地址
+
+设置方式取决于服务器返回的 JSON 数据的格式。
+
+### 标准格式
+
+JSON 是标准的临时密钥格式，即
+
+```
+{
+    "code":0,"message":"","codeDesc":"Success",
+    "data":
+    {
+        "credentials":
+        {
+            "sessionToken":"42f8151428b3960b1226f421b8f271c6242ad02c3",
+            "tmpSecretId":"AKIDtd9QSGWBIDuMaYFp57tSmrhJgohLtvpT",
+            "tmpSecretKey":"ZfV5PVLvFLCvPefPt76qKYXIo56tSmrg"
+        },
+        "expiredTime":1508400619
+    }
+}
+```
+
+那么，您可以以下方式设置，不需要手动解析 JSON：
 
 ```
 TACApplicationOptions applicationOptions = TACApplication.options();
 TACStorageOptions storageOptions = applicationOptions.sub("storage");
 
-// 配置密钥获取接口
+// 配置授权服务器接口
 storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 	.scheme("https")					
 	.host("<SERVER_HOST>")			
@@ -28,9 +51,9 @@ storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 	.build());
 ```
 
-### 2. 自定义 JSON 结构
+### 自定义格式
 
-通过 `TACStorageOptions` 配置密钥获取接口和 响应处理类，其中处理类必须继承于 `SessionCredentialProvider`:
+JSON 是自定义格式，您可以通过如下代码配置服务器接口和响应处理类，其中处理类必须继承于 `SessionCredentialProvider`:
 
 ```
 TACApplicationOptions applicationOptions = TACApplication.options();
@@ -48,7 +71,7 @@ storageOptions.setCredentialProvider(new MySessionCredentialProvider(new HttpReq
 	.build()));
 ```
 
-在自定义的响应处理类中，实现 `onRemoteCredentialReceived ` 方法，返回一个 `SessionQCloudCredentials` 实例：
+在响应处理类中，实现 `onRemoteCredentialReceived ` 方法，返回一个 `SessionQCloudCredentials` 实例：
 
 ```
 public class MySessionCredentialProvider extends SessionCredentialProvider {
