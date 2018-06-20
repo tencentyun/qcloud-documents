@@ -34,7 +34,7 @@ iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 3. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
 在工程中添加依赖库，在 build Phases  Link Binary Whith Libraries 中添加以下库：
 	- libstdc++.6.0.9.tbd
-	- libc++.tdb
+	- libc++.tbd
 
 ## 签名获取
 
