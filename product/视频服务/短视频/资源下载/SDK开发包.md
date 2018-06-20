@@ -30,7 +30,7 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>4.9.4661 @ 2018-06-14</td>
+    <td>4.9.4663 @ 2018-06-20</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_UGC_Android_4.9.4661.zip">ZIP</a></td>
   </tr>
 </table>
@@ -50,7 +50,7 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>4.9.4661 @ 2018-06-14</td>
+    <td>4.9.4663 @ 2018-06-20</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Enterprise_Android_4.9.4661.zip">ZIP</a></td>
   </tr>
 </table>
