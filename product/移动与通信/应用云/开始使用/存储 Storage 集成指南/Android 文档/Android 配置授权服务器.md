@@ -14,7 +14,7 @@ Header: <header1>=<value1>
 
 设置方式取决于服务器返回的 JSON 数据的格式。
 
-### 1. 标准格式
+### 标准格式
 
 JSON 是标准的临时密钥格式，即
 
@@ -51,7 +51,7 @@ storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 	.build());
 ```
 
-### 2. 自定义格式
+### 自定义格式
 
 JSON 是自定义格式，您可以通过如下代码配置服务器接口和响应处理类，其中处理类必须继承于 `SessionCredentialProvider`:
 
