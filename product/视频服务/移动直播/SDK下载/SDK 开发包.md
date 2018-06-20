@@ -172,7 +172,7 @@ table td {
   部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/TXLiteAVSDK_Professional_Rename_iOS_4.9.4662.zip?_ga=1.172502247.572863791.1503542401">【Rename(iOS).zip】</a> 。  
   
 
-<h2 id="Android"> Android SDK (4.9.4661) </h2>
+<h2 id="Android"> Android SDK (4.9.4663) </h2>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -281,16 +281,16 @@ table td {
   </tr>
   <tr>
     <td>SDK 下载</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Smart_Android_4.9.4661.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Player_Android_4.9.4661.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_UGC_Android_4.9.4661.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Professional_Android_4.9.4661.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Smart_Android_4.9.4663.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Player_Android_4.9.4663.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_UGC_Android_4.9.4663.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Professional_Android_4.9.4663.zip">DOWNLOAD</a></td>
     <td>见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Enterprise_Android_4.9.4661.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/LiteAVSDK_Enterprise_Android_4.9.4663.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 <h2 id="Windows"> Windows SDK (3.2.0) </h2>
 
