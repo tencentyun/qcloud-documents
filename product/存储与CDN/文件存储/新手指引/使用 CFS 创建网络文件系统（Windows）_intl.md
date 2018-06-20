@@ -177,7 +177,7 @@ Log in to the Windows, on which you want to mount the file system. Right click *
 
 b. Enter the access path
 In the pop-up configuration window, set the drive letter and folder (namely, the mounting directory displayed in the NFS file system) for the **drive**.
-![](https://mc.qcloudimg.com/static/img/caa18888e6da73b19de8eefc18ff3680/image.png)
+![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
 ![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
 
 
@@ -207,7 +207,7 @@ mount 10.10.0.12:/z3r6k95r X:
 > **Note:**
 > FSID can be found under **Console** -> **File System Details** -> **Mount Point Information**.
 
-![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
+![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
 
 
 ### (5) Unmount the file system
@@ -231,9 +231,9 @@ umount X：
 ## 5. Terminating Resources
 You can terminate a CVM instance or a file system in the Tencent Cloud console. It is recommended that you terminate any resource that is no longer used, to avoid further fee deduction.
 1. Terminate a Tencent Cloud instance. Go to the Tencent Cloud CVM [console](https://console.cloud.tencent.com/cvm/index), and select the instance to be terminated. Click **More** -> **CVM Status**, and then select **Terminate** to terminate the  CVM instance.
-![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
+![](https://main.qcloudimg.com/raw/aebd52db8eb742cbc5b6a3cffe61b82f.png)
 2. Terminate a file system. Go to the Tencent Cloud CFS [console](https://console.cloud.tencent.com/cfs), select the file system to be terminated. Click **Delete** and **OK** to delete the file system.
-![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
+![](https://main.qcloudimg.com/raw/996e1c0ab24a7417d2357831f06cf705.png)
 
 
 
