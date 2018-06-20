@@ -49,7 +49,7 @@ https://cbs.tencentcloudapi.com/?Action=InquiryPriceResizeDisk
 &DiskSize=200
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

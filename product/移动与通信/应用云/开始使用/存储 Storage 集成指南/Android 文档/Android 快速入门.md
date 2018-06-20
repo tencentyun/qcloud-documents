@@ -1,7 +1,7 @@
 ## 准备工作
 
 * 首先您需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的工程。
-* 其次您需要一个在后台搭建一个授权服务器，为SDK提供临时密钥，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
+* 其次您需要一个在后台搭建一个授权服务器，为 SDK 提供临时密钥，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
 
 ## 第一步：创建项目和应用（已完成请跳过）
 
@@ -9,7 +9,7 @@
 
 ## 第二步：添加配置文件（已完成请跳过）
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
 
@@ -45,9 +45,9 @@ Storage SDK 需要一个后台授权服务器提供临时密钥，才能正常�
 到此您已经成功接入了 MobileLine 移动存储服务。
 
 
-## Proguard配置
+## Proguard 配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core

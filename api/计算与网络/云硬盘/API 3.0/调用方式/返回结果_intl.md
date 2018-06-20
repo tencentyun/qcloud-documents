@@ -16,7 +16,7 @@ Take the CVM API "View Instance Status List" (DescribeInstancesStatus) (version 
 
 ## Incorrect Returned Result
 
-If the call fails, the returned values are as follows:
+If the call fails, the returned value sample is as follows:
 
     {
         "Response": {
@@ -28,7 +28,7 @@ If the call fails, the returned values are as follows:
         }
     }
 
-* Error indicates a failed call. The Error field along with its Code and Message fields are still returned even if the call fails.
+* Error indicates a failed call. The Error field along with its Code and Message fields are returned when the call fails.
 * Code indicates the specific error code. When an error occurs with the request, you can find the cause and solution in the common error codes and the error code list for the current API based on this error code.
 * Message indicates the reason for the error, which may be changed or updated from time to time with the business growth or experience optimization. Therefore, you should not rely on this returned value.
 * RequestId is used to uniquely identify an API request. If an API exception occurs, you can contact us and provide this ID to solve the problem.

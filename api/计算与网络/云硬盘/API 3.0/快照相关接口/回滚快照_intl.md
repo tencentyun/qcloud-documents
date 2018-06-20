@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: ApplySnapshot |
+| Action | Yes | String | Common parameter. Value used in this API: ApplySnapshot |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | SnapshotId | Yes | String | Snapshot ID, which can be queried via [DescribeSnapshots](/document/product/362/15647). |
 | DiskId | Yes | String | ID of the original cloud disk corresponding to the snapshot, which can be queried via the API [DescribeDisks](/document/product/362/16315). |
@@ -55,7 +55,7 @@ https://cbs.tencentcloudapi.com/?Action=ApplySnapshot
 &SnapshotId=snap-gybrif0z
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

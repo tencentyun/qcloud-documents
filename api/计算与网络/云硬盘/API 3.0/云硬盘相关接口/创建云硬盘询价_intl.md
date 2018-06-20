@@ -51,7 +51,7 @@ https://cbs.tencentcloudapi.com/?Action=InquiryPriceCreateDisks
 &DiskChargePrepaid.Period=6
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {
