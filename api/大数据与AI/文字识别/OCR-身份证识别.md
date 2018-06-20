@@ -34,6 +34,7 @@
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
 | appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
+| card_type | 否    | int       | 0 为身份证有照片的一面（正面）；1 为身份证有国徽的一面（反面）。如果未指定，默认为0，但反面必须填1。  |
 | url_list  | 是   | string 数组 | 图片 url 列表      |
 
 
