@@ -9,7 +9,7 @@ https://cbs.tencentcloudapi.com/?Action=RenewDisk
 &DiskChargePrepaid.RenewFlag=NOTIFY_AND_AUTO_RENEW
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {
@@ -36,7 +36,7 @@ https://cbs.tencentcloudapi.com/?Action=RenewDisk
 &DiskChargePrepaid.RenewFlag=NOTIFY_AND_AUTO_RENEW
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

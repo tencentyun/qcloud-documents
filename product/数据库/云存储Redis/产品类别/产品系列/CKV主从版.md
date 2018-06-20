@@ -23,6 +23,9 @@ CKV采用高性能网络平台、以及无Proxy架构，极大的降低的访问
 - CKV对于pttl的设置毫秒的过期时间，展示的最小单位为秒，与社区版Redis不一致；
 - CKV目前支持的string类型Key，Value最大Size为32MB，与社区版Redis不一致；
 
+###  连接示例
+CKV主从版仅支持以下密码格式，“实例 id:密码” 的格式类型，例如您的实例 id 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令如下redis-cli -h IP地址 -p 端口 -a crs-bkuza6i3:abcd1234。
+
 ### 兼容性
 - CKV主从版支持的命令<br>
 
