@@ -560,14 +560,8 @@ esac
 - 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作与步骤 1 类似。
 
 
-### 步骤 9.主备云主机本机主 IP 没有外网IP的使用方式（全内网环境调用帮助）
-由于云 API Python SDK 的默认 host 是外网 host，无法走内网访问。如果您的主备云主机的本机 IP 只有内网 IP，没有外网 IP，则需求将 Python SDK 进行修改，将 host 改成内网云 API 访问域名。修改步骤如下：
- - 确认自己的 SDK 安装方式：是 pip 方式安装，还是直接下载源码安装到/etc/keepalived/的？
- - 装方式确认修改 host 的文件的路径。
-     - 源码方式安装则修改 /etc/keepalived/src/QcloudApi/modules/vpc.py
-       - pip 方式安装则修改 /usr/lib/pythonX.Y/site-packages/QcloudApi/modules/vpc.py  (pythonX.Y依实际，如python2.6)
- - `requestHost = 'vpc.api.qcloud.com'` 修改为 `requestHost = 'vpc.api.tencentyun.com'`
-
+### 步骤 9.主备云主机本机主 IP 没有外网IP的场景
+由于云 API Python SDK 的默认 host 是外网 host，目前已不支持走内网访问。如果您的主备云主机的本机 IP 只有内网 IP，没有外网 IP，请改用外网IP。
 ### 步骤 10. 验证主备倒换时 VIP 及外网 IP 是否正常切换
 1. 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`
 
