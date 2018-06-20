@@ -5,7 +5,7 @@
 ![](//mc.qcloudimg.com/static/img/2663aabcbe44c2ad372b5b8ba2bb6a1f/image.png)
 
 ### 使用 API 获取
-请参考 [DescribeInstances 接口](/doc/product/213/9388) 。
+请参考 [DescribeInstances 接口](/document/product/213/15728) 。
 
 ### 使用实例元数据获取
 1. 登录云服务器实例。具体登录方法参考 [登录 Linux 实例](/doc/product/213/5436) 和 [登录 Windows 实例](/doc/product/213/5435)。
