@@ -20,8 +20,8 @@ CKV采用高性能网络平台、以及无Proxy架构，极大的降低的访问
 ### 使用限制
 
 - CKV主从版的性能最大支持12+万QPS，需要更高的QPS请选择CKV集群版，最大可支持1000万QPS；
-- CKV对于pttl的设置毫秒的过期时间，展示的最小单位为秒，与开源不一致；
-- CKV目前支持的string类型Key，Value最大Size为32MB，与开源不一致；
+- CKV对于pttl的设置毫秒的过期时间，展示的最小单位为秒，与社区版Redis不一致；
+- CKV目前支持的string类型Key，Value最大Size为32MB，与社区版Redis不一致；
 
 ### 兼容性
 - CKV主从版支持的命令<br>
