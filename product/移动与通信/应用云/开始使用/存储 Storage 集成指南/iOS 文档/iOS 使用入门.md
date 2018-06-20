@@ -4,11 +4,8 @@
 
 ## 准备工作
 * 您首先需要一个 iOS 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
-* 其次您需要一个提供临时密钥的服务，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
+* 其次您需要一个在后台搭建一个授权服务器，为SDK提供临时密钥，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
 
-
->**注意：**
->请先参考 [快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
 
 ## 第一步：创建项目和应用
 
@@ -169,7 +166,7 @@ TACApplication.configurate();
 
 ### 配置 TACStorage 的使用权限
 
-Storage SDK 需要一个后台授权服务来提供密钥，关于如何在 SDK 里配置服务，请参见 [iOS 配置密钥服务](https://cloud.tencent.com/document/product/666/17216)。
+Storage SDK 需要一个后台授权服务器提供临时密钥，才能正常工作。关于如何在 SDK 里配置服务器接口，请参见  [iOS 配置授权服务器](https://cloud.tencent.com/document/product/666/17216)。
 
 ## 启动服务
 

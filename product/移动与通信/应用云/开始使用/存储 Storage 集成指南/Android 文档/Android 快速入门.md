@@ -1,7 +1,7 @@
 ## 准备工作
 
 * 首先您需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的工程。
-* 其次您需要一个提供访问授权的后台服务，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
+* 其次您需要一个在后台搭建一个授权服务器，为SDK提供临时密钥，请参考 [用户访问控制](https://cloud.tencent.com/document/product/666/17922)。
 
 ## 第一步：创建项目和应用（已完成请跳过）
 
@@ -33,9 +33,9 @@ dependencies {
 }
 ```
 
-## SDK 配置授权服务
+## 配置使用权限
 
-Storage SDK 需要一个后台授权服务来提供密钥，关于如何在 SDK 里配置服务，请参见 [配置密钥服务](https://cloud.tencent.com/document/product/666/17199)。
+Storage SDK 需要一个后台授权服务器提供临时密钥，才能正常工作。关于如何在 SDK 里配置服务器接口，请参见 [Android 配置授权服务器](https://cloud.tencent.com/document/product/666/17199)。
 
 >**注意：**
 >请先完成配置，再调用 Storage 服务的任何功能。否则，我们的服务无法识别您的身份。
