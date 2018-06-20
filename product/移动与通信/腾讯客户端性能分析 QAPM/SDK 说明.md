@@ -1,5 +1,5 @@
 ### SDK 下载
-QAPM SDK 点此 [下载](http://qapm-1253358381.cosgz.myqcloud.com/sdk/QAPM.zip)。
+QAPM SDK 点此 [下载](http://qapm-1253358381.cosgz.myqcloud.com/QAPM.zip)。
 
 ### 集成
 #### Android 集成方法

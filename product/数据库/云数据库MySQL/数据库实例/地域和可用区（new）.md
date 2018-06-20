@@ -70,12 +70,27 @@
 			<td>新加坡一区（新加坡节点可用于覆盖东南亚地区）<br>ap-singapore-1</td>
 		</tr>
 		<tr>
+			<td>亚太地区（首尔）<br>ap-seoul</td>
+			<td>首尔一区（首尔节点可用于覆盖东北亚地区）<br>ap-seoul-1</td>
+		</tr>
+		<tr>
+			<td>亚太地区（孟买）<br>ap-mumbai</td>
+			<td>孟买一区（孟买节点可用于覆盖亚太南部地区）<br>ap-mumbai-1</td>
+		</tr>
+		<tr>
 			<td>北美地区（多伦多）<br>na-toronto</td>
 			<td>多伦多一区（多伦多节点可用于覆盖北美地区）<br>na-toronto-1</td>
 		</tr>
 		<tr>
 			<td>美国西部（硅谷）<br>na-siliconvalley</td>
-			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+			<tr>
+				<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+				<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
+			</tr>
+		</tr>
+		<tr>
+			<td>欧洲地区（法兰克福）<br>eu-frankfurt</td>
+			<td>法兰克福一区（法兰克福节点可用于覆盖欧洲地区）<br>eu-frankfurt-1</td>
 		</tr>
 	</tbody>
 </table>

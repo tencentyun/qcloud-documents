@@ -50,7 +50,7 @@ server {
 }
 ```
 
-或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx http页面重定向到https页面：
+或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx HTTP 页面重定向到 HTTPS 页面：
 
 ```
 server { 	
