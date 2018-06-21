@@ -36,15 +36,15 @@ Cloud Monitor of Tencent Cloud provides the following monitoring metrics for Clo
 |Waited Table Locks |table_locks_waited|count/s|uInstanceId|
 |Commit Numbers|com_commit|count/s|uInstanceId|
 |Rollback Numbers|com_rollback|count/s|uInstanceId|
-|Created threads|threads_created|个|uInstanceId|
-|Running Threads|threads_running|个|uInstanceId|
+|Created threads|threads_created|count|uInstanceId|
+|Running Threads|threads_running|count|uInstanceId|
 |Maximum Connections|max_connections|count|uInstanceId|
 |Disk Temp Tables |created_tmp_disk_tables|count/s|uInstanceId|
 |Read Next Line Queries|handler_read_rnd_next|count/s|uInstanceId|
 |Internal Rollback|handler_rollback|count/s|uInstanceId|
 |Internal Commits|handler_commit|count/s|uInstanceId|
-|InnoDB Free Pages|innodb_buffer_pool_pages_free|个|uInstanceId|
-|InnoDB Free Pages|innodb_buffer_pool_pages_total|个|uInstanceId|
+|InnoDB Free Pages|innodb_buffer_pool_pages_free|count|uInstanceId|
+|InnoDB Free Pages|innodb_buffer_pool_pages_total|count|uInstanceId|
 |InnoDB Logic Read Requests|innodb_buffer_pool_reads|count/s|uInstanceId|
 |InnoDB Physical Reads|innodb_buffer_pool_reads|count/s|uInstanceId|
 |InnoDB Reads|innodb_data_read|Byte/s|uInstanceId|
@@ -58,7 +58,7 @@ Cloud Monitor of Tencent Cloud provides the following monitoring metrics for Clo
 |InnoDB Average Row Lock Time|innodb_row_lock_time_avg|ms|uInstanceId|
 |InnoDB Waited Row Locks|innodb_row_lock_waits|count/s|uInstanceId|
 |Key Memory Unused Blocks|key_blocks_unused|count|uInstanceId|
-|Key Memory Used Locks|key_blocks_used|个|uInstanceId|
+|Key Memory Used Locks|key_blocks_used|count|uInstanceId|
 |Key Memory Read Data Requests|key_read_requests|count/s|uInstanceId|
 |Disk Read Data Blocks|key_reads|count/s|uInstanceId|
 |Data Block Write Key Buffers|key_write_requests|count/s|uInstanceId|

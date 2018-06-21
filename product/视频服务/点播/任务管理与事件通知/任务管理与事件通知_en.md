@@ -5,7 +5,7 @@ Video processing and other operations in VOD are offline tasks which consume mor
 - Status query: Developers can query the task processing progress (in quene/running/completed) using task ID;
 - Event notification: If the status of an offline task in progress changes (e.g. a sub-task is completed) or the entire task is completed, the VOD backend will initiate an event notification to the APP backend.
 
-![图:即时任务与离线任务](//mc.qcloudimg.com/static/img/d6fab9ad4ebff02f72bf1c932d64ccdd/image.png)
+![](//mc.qcloudimg.com/static/img/d6fab9ad4ebff02f72bf1c932d64ccdd/image.png)
 
 ## Task Management
 

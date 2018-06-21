@@ -1,27 +1,27 @@
-The life cycle of Cloud Block Storage varies with its type: With its life cycle being independent of CVM instances, elastic cloud disk can be terminated independently. The life cycle of the non-elastic cloud disk is subject to the CVM, which can only be deleted when the CVM is terminated.
+The lifecycle of a cloud disk depends on its type. The lifecycle of an elastic cloud disk is independent of CVM instance and thus can be terminated independently of CVM instance. The lifecycle of a non-elastic cloud disk is same as that of CVM instance and can only be deleted when the CVM is terminated.
 
-## Deleting Elastic Cloud Disk
-The life cycle of elastic cloud disk is independent of the CVM instance.  The elastic cloud disk will automatically disassociate with the instance on the expiry date and automatically put into the Recycle Bin. It will be retained for 7 calendar days during which you can choose to renew. The Cloud Block Storage will then be terminated if it is not renewed within 7 calendar days, and the data will be completely lost. At the same time, you can also renew it before the expiry date, to prevent the loss of data due to the storage being terminated upon expiration.
+## Deleting an Elastic Cloud Disk
+The lifecycle of an elastic cloud disk is independent of CVM instance. The lifecycle of a prepaid elastic cloud disk ends when it is terminated by system automatically after a period of time following its expiration. The elastic cloud disk is automatically disassociated from the instance on the expiration date and then is retained in the Recycle Bin for 7 natural days, during which you can renew it. If the cloud disk is not renewed within the 7 days, it will be terminated and the data on it will be lost permanently. You can also renew it before it expires to prevent data loss due to its termination after expiration.
 
-### Recycle of Elastic Cloud Disk
+### Recovery of elastic cloud disks
 
-Tencent Cloud Recycle Bin is a recovery mechanism and system for cloud services. The elastic cloud disk will be put into the Recycle Bin upon expiration and be kept for a certain time, during which users can find it in the Recycle Bin and renew it. In this way, users can avoid major risks such as loss of cloud service data cleared directly by the system.
+Tencent Cloud Recycle Bin is a recovery mechanism and system for cloud services. After an elastic cloud disk expires, it is retained in the Recycle Bin for a period of time. Users can find and renew in the Recycle Bin some cloud services that have expired. This can avoid the data loss caused by the cloud service being directly cleared by the system.
 
-If your elastic cloud disk hasn't been renewed before the expiry date (including), the system will unmount it from its mounted CVM instance, and will put it into Recycle Bin with data saved from the expiry date. Within 7 workings days after it has been put into the Recycle Bin, you can still recover this Cloud Block Storage by renewing it. If, during this period, the elastic cloud disk hasn't been renewed, the system will release the resources, and **data will be erased and cannot be recovered**.
+If your elastic cloud disk is not renewed before it expires (including the expiration date), it is unmounted from the CVM at the expiration time, and is put into in the Recycle Bin, with the data on it retained. Within 7 workings days after it is put into the Recycle Bin, you can recover the cloud disk by renewing it. If the elastic cloud disk is not renewed during this period, it will be released and the **data will be cleared and cannot be recovered**.
 
-For Elastic Cloud Disk in the Recycle Bin, users can only apply **renew to recover** to the recycled objects before terminating.
+You can only recover an elastic cloud disk in the Recycle Bin **by renewing it** before its termination.
 
-### Recovering Elastic Cloud Disk
+### Recovering an elastic cloud disk
 
-Within 7 days after the expiration of elastic cloud disk, you can go to the Recycle Bin to recover this Cloud Block Storage by renewing it:
+Within 7 days after the expiration of an elastic cloud disk, you can go to the Recycle Bin to recover this disk by renewing it:
 
-Open the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then click on "Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
+Go to the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the elastic cloud disk you want to recover in the list, and then click **Recover**. After you have made payment for renewal, you can find the recovered resource in the [CBS Console](https://console.cloud.tencent.com/cvm/cbs).
 
-Or you can renew multiple expired elastic Cloud Disks:
+You can also renew multiple expired elastic cloud disks:
 
-Open the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then select the resources to be recovered, click on "Batch Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
+Go to the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate and select the elastic cloud disks you want to recover in the list, and then click **Recover in Batch**. After you have made payment for renewal, you can find the recovered resources in the [CBS Console](https://console.cloud.tencent.com/cvm/cbs).
 
-## Deleting Non-elastic cloud disk
-The life cycle of non-elastic cloud disk is subject to the created CVM instance, so the non-elastic cloud disk will be terminated when its mounted instance is terminated. For more information about instance termination, refer to  [Terminate Instance with Bill-by-Traffic Plan](/doc/product/213/4930).
+## Deleting a Non-Elastic Cloud Disk
+The lifecycle of a non-elastic cloud disk is same as that of the CVM instance you create. Therefore, it is terminated with the termination of the instance to which it is mounted. For more information about instance termination, please see [Expiration of Prepaid Instances](/doc/product/213/4931) and [Termination of Postpaid Instances](/doc/product/213/4930).
 
 

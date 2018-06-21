@@ -9,7 +9,7 @@
 ##  GPU 计算型 GN2 实例购买步骤
 用户依据以下操作可以快速购买一台 GPU 计算型 GN2 实例
 ### 1. 登录购买页面
-[点击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
+[单击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
 ### 2. 选择地域与机型
 在这个步骤需要选择：
 1. 计费模式：包年包月计费或者按量计费。
@@ -33,7 +33,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 ![](//mc.qcloudimg.com/static/img/ee7d1e5401bbfa03c43a6990fd619949/image.png)
  - 搜索“ M40 GPU ”
 ![](//mc.qcloudimg.com/static/img/18b79dc307d14d95477078b9ec5e728c/image.png)
- - 我们提供两种云市场镜像供您选择选择，这些镜像为公有镜像 CentOS 7.2 64位和Ubuntu 16.04 LTS 64位预装 TESLA NVIDIA M40 GPU Driver 和 CUDA Toolkit 7.5，您使用时无需安装GPU驱动程序 ，选择您所需的镜像类型，点击【免费使用】
+ - 我们提供两种云市场镜像供您选择选择，这些镜像为公有镜像 CentOS 7.2 64位和Ubuntu 16.04 LTS 64位预装 TESLA NVIDIA M40 GPU Driver 和 CUDA Toolkit 7.5，您使用时无需安装GPU驱动程序 ，选择您所需的镜像类型，单击【免费使用】
 
  设置完成后单击【下一步：选择存储于网络】。
 

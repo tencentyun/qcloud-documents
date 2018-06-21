@@ -13,7 +13,7 @@ Import the SDK into the project following the steps below:
  c. If the game is connected via MSDK, only .so in the armeabi directory is required in most cases;
  d. If the current project already has armeabi, only .so under the armeabi of XGPush needs to be added. Do the same in other situations. You only need to add the platform that exists on the current platform.
  e. If an error (error: 10004.SOERROR) occurs when you import the .so file to Androidstudio, add a folder named jniLibs in the .main file directory, and then copy all the architecture files (all the files under Other-Platform-SO in the SDK) into the jniLibs folder, as shown below:
-![](//mc.qcloudimg.com/static/img/494f08120cac80a9c350845fd5070c47/image.jpg)
+![](https://main.qcloudimg.com/raw/279d8aad18d43a109ccc18dba41c5885.png)
 5. Open Androidmanifest.xml and add the following configurations. (It is recommended to modify the configurations according to the Demo in the download package.) Replace YOUR_ACCESS_ID and YOUR_ACCESS_KEY with the application's accessId and accessKey. Make sure the configurations are completed as required. Otherwise, the service may not work properly.
  
 ```

@@ -1,33 +1,31 @@
-# Windows 客户端上使用卷
-
 ## 使用 Microsoft Windows 客户端连接到卷
 您需要使用 Microsoft Windows iSCSI 启动程序来连接到卷，将卷作为 Windows 客户端上的本地设备。
 
 *注意：由于 iSCSI 协议限制，不支持将多个主机连接到同一个 iSCSI 目标*
 
 ### 找到并启动 iSCSI 发起程序
-在 Windows 开始菜单的搜索框中输入 iscsicpl.exe （iSCSI 发起程序），选中该程序。如果出现提示，则点击 YES 以运行 iSCSI 发起程序。
+在 Windows 开始菜单的搜索框中输入 iscsicpl.exe （iSCSI 发起程序），选中该程序。如果出现提示，则单击 YES 以运行 iSCSI 发起程序。
 ![](https://mc.qcloudimg.com/static/img/ae9a867a22344c46d54d06f8684942c2/image.png)
 
 
 ### 设置 iSCSI 门户
-在弹出的 iSCSI 发起程序对话框中选择【发现】选项卡，并点击【发现门户】按钮。
+在弹出的 iSCSI 发起程序对话框中选择【发现】选项卡，并单击【发现门户】按钮。
 
 ![](https://mc.qcloudimg.com/static/img/92e517e7d4d977370504c31ab7ca969a/image.png)
 
-在弹出的窗口中输入目标的 IP 地址，然后点击【确认】添加该目标门户。
+在弹出的窗口中输入目标的 IP 地址，然后单击【确认】添加该目标门户。
 *说明：网关 IP 地址即安装网关的服务器地址，也可以在网关的详细信息中获取。如果您是使用 CVM 作为网关，则可以到 CVM 控制台获取该主机的 IP 地址*
 ![](https://mc.qcloudimg.com/static/img/9bb7de1aea7642b67d4a0b98bdf40213/image.png)
 
 
 ### 连接到 iSCSI Target
-选中【目标】选项卡，上一步中添加的目标门户仍为未激活状态。选中该目标后点击【连接】按钮。
+选中【目标】选项卡，上一步中添加的目标门户仍为未激活状态。选中该目标后单击【连接】按钮。
 ![](https://mc.qcloudimg.com/static/img/659962a9f392eeee1bd70433bf7b566c/iscsi+taget.png)
 
-在弹出的对话窗中确认 target 名称并勾选 “将此连接添加到收藏目标列表” ，点击【确认】。
+在弹出的对话窗中确认 target 名称并勾选 “将此连接添加到收藏目标列表” ，单击【确认】。
 ![](https://mc.qcloudimg.com/static/img/700ce70c906dc28dd7a39a0ec4c93383/image.png)
 
-在确认状态为 “已连接” 之后，点击【确认】按钮并退出。
+在确认状态为 “已连接” 之后，单击【确认】按钮并退出。
 ![](https://mc.qcloudimg.com/static/img/ee71b2ba01d5227473296094c02ef0ec/image.png)
 
 
@@ -36,11 +34,11 @@
 - 初始化卷
   在 Windows 开始菜单的搜索框中输入 "diskmgmt.msc" ， 打开 “创建并格式化硬盘分区”。
   ![](https://mc.qcloudimg.com/static/img/9d8e1b3870599628ed94f5e0c072e849/image.png)
-  弹出初始化磁盘窗口，选择 MBR (Master Boot Record) 作为分区形式，点击【确认】按钮。
+  弹出初始化磁盘窗口，选择 MBR (Master Boot Record) 作为分区形式，单击【确认】按钮。
   ![](https://mc.qcloudimg.com/static/img/5a0cbaffe94b8b980f2e6ab567a33c59/image.png)
   
 - 创建简单卷
-  在磁盘管理界面，找到刚刚发现的磁盘，在下面区域点击鼠标右键后出现菜单，点击【新建简单卷】按钮。然后，根据向导来分区并格式化磁盘。
+  在磁盘管理界面，找到刚刚发现的磁盘，在下面区域单击鼠标右键后出现菜单，单击【新建简单卷】按钮。然后，根据向导来分区并格式化磁盘。
   ![](https://mc.qcloudimg.com/static/img/5ca6d71637809651ba9c00ba5dc1d2f1/image.png)
 	
 - 往上面步骤添加的磁盘中进行数据写入、通过 CSG 控制台创建卷快照、将快照还原为一个卷。

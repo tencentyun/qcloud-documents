@@ -11,7 +11,7 @@
 ![](https://mc.qcloudimg.com/static/img/c86206664ad3289911b276d1a9686e82/123.png)
 
 
-点击确认。创建完成后，在频道信息中可查看到各种码率和播放协议对应的播放URL，如下图
+单击确认。创建完成后，在频道信息中可查看到各种码率和播放协议对应的播放URL，如下图
 ![](https://mc.qcloudimg.com/static/img/afecc7c3963e083c27fba7748b718651/12334.png)
 
 

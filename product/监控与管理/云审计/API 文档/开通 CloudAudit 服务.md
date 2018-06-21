@@ -1,6 +1,9 @@
 
 ## 接口描述
-  OpenAuditService 用于开通 CloudAudit 服务。
+OpenAuditService 用于开通 CloudAudit 服务。
+接口访问域名：`cloudaudit.api.qcloud.com`
+
+
 ## 请求参数
 |参数名称|必选|类型|描述|
 |---------|---------|---------|--------|
@@ -31,5 +34,3 @@
 {
 }
 ```
-
-

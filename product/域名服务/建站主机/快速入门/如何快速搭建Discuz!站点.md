@@ -15,23 +15,23 @@
 ![](https://mc.qcloudimg.com/static/img/c7fa30c75349f24270cf1493943373b1/image.png)
 
 ### 5. 执行安装
-浏览器访问`http://您的域名/discuz/install `，点击【我同意】，进入安装步骤。
+浏览器访问`http://您的域名/discuz/install `，单击【我同意】，进入安装步骤。
 ![](https://mc.qcloudimg.com/static/img/f9137bfcba9227930828430754f8b274/1.png)
 
-确认当前环境，选择【全新安装】，点击【下一步】。
+确认当前环境，选择【全新安装】，单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/eada7ee01817fd5139ca9a4b7bb534ef/2.png)
 
-填写数据库信息和网站管理员信息，点击【下一步】。
+填写数据库信息和网站管理员信息，单击【下一步】。
 
-数据库名：可填写为 discuz
+数据库名：需填写为 webuser
 数据库用户名：（从管理页面获取）
 数据库密码：（从管理页面获取）
 数据库前缀：可填写为 dz_
 系统信箱 Email：填写网站开发者的邮箱
 
-管理员帐号：可填写为admin
+管理员帐号：可填写为 admin
 管理员密码：（填写管理员登录网站后台的密码，需要牢记）
-管理员Email：填写管理员/站长的邮箱
+管理员 Email：填写管理员/站长的邮箱
 
 ![](https://mc.qcloudimg.com/static/img/7d51cc0c69319aef4a08d18ecdd9a5a3/3.png)
 

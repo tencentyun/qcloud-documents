@@ -1,7 +1,8 @@
 ## 1 接入流程/开发准备
 
 ### 1.1 SDK 获取
-登录腾讯云控制台,下载地址：[Android SDK](https://console.cloud.tencent.com/ino/sdk).
+登录腾讯云控制台,在智营网优管理后台下载 SDK.  
+*** 注意：本产品需要申请通过后才能访问管理后台 ***
 
 ### 1.2 SDK 配置
 将下列文件导入到项目中：
@@ -45,7 +46,7 @@ public static void GSDKInit(Context context, string qqappid, bool debug, int zon
 | zoneid | 玩家大区 id | 
 | env | 云控正式环境，默认直接填 true 即可 | 
 | useBattery | 电量统计信息，默认直接填 false 即可 | 
-| tCloudKey | 腾讯云申请的 key 值,即“秘钥KEY” | 
+| tCloudKey | 腾讯云申请的 key 值,即“密钥KEY” | 
 
 #### 3.1.2 设置用户信息
 ```

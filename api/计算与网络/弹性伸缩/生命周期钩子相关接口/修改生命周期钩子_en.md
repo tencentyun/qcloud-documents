@@ -6,15 +6,15 @@ Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a>. The Action field for this API is ModifyLifeCycleHook.
 
-| Parameter Name | Required  | Type | Description | 
-|---------|---------|---------|---------|
-| scalingGroupId | Yes | String | ID of the scaling group of a lifecycle hook to be modified. It can be queried by calling API <a href="/doc/api/372/查询伸缩组列表" title="Query Scaling Group List">Query Scaling Group List</a> (DescribeScalingGroup).
-| lifeCycleHookId | Yes | String | ID of the lifecycle hook to be modified. | 
-| lifeCycleHookName | No | String | Name of the lifecycle hook to be modified. | 
-| lifeCycleHookTimeout | No | Int | Timeout of the lifecycle hook to be modified (in seconds). | 
-| defaultResult | No | Int | Default timeout action for a lifecycle hook task to be modified; 0: continue, 1: disable | 
-| transition | No | Int | Callback condition of the life cycle hook to be modified; 0: sub-machine is being created, 1: sub-machine is being terminated | 
-| notifyIds.n | No | String | Notification group ID of the lifecycle hook to be modified, that is, the collection of user group ID (groupID). The Array subscript is started with 0. It can be queried by calling API "Obtain User Group List" (DescribeUserGroup). | 
+| Parameter Name       | Required | Type   | Description                                                  |
+| -------------------- | -------- | ------ | ------------------------------------------------------------ |
+| scalingGroupId       | Yes      | String | ID of the scaling group of a lifecycle hook to be modified. It can be queried by calling API [Query Scaling Group List](https://intl.cloud.tencent.com/doc/api/372/%E6%9F%A5%E8%AF%A2%E4%BC%B8%E7%BC%A9%E7%BB%84%E5%88%97%E8%A1%A8)(DescribeScalingGroup). |
+| lifeCycleHookId      | Yes      | String | ID of the lifecycle hook to be modified.                     |
+| lifeCycleHookName    | No       | String | Name of the lifecycle hook to be modified.                   |
+| lifeCycleHookTimeout | No       | Int    | Timeout of the lifecycle hook to be modified (in seconds).   |
+| defaultResult        | No       | Int    | Default timeout action for a lifecycle hook task to be modified; 0: continue, 1: disable |
+| transition           | No       | Int    | Callback condition of the life cycle hook to be modified; 0: sub-machine is being created, 1: sub-machine is being terminated |
+| notifyIds.n          | No       | String | Notification group ID of the lifecycle hook to be modified, that is, the collection of user group ID (groupID). The Array subscript is started with 0. It can be queried by calling API "Obtain User Group List" (DescribeUserGroup). |
 
 
 

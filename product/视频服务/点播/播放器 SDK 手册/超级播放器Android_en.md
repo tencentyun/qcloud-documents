@@ -50,7 +50,7 @@ fileId is generally returned by the server after the video is uploaded:
 
 If the file already exists in Tencent Cloud, find it in the [VOD Management](https://console.cloud.tencent.com/video/videolist) and click to view the appId and fileId in the video details at the right side.
 
-![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+![](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 
 If the request is successful, SDK will inform the upper layer of the video information as an event.
 

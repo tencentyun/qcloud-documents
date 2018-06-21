@@ -4,7 +4,7 @@ This API (DescribeNetworkInterfaces) is used to query the information of ENI.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information,refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | instanceId | No | String | CVM instance ID, for example: ins-xx44545f |
 | offset | No | Int | Offset of initial line. Default is 0 |
 | limit | No | Int | Number of lines per page. Default is 20. Maximum is 50.  |
-| orderField | No | String | Sort by a certain field, <br>which can be: eniName, createTime. Default is createTime |
+| orderField | No | String | Sort by a certain field,<br>which can be: eniName, createTime. Default is createTime |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc |
 
 ## 3. Output Parameters
@@ -97,7 +97,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "大",
+                "eniName": "big",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-d6m4m0iy",
                 "primary": false,
@@ -126,7 +126,7 @@ Output
                     },
                     {
                         "sgId": "sg-ikmc8kcy",
-                        "sgName": "全drop",
+                        "sgName": "alldrop",
                         "projectId": 0
                     }
                     ]
@@ -136,7 +136,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "手动",
+                "eniName": "manual",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-ay1ac9c7",
                 "primary": false,
@@ -173,7 +173,7 @@ Output
                     },
                     {
                         "sgId": "sg-37tmkdiz",
-                        "sgName": "Windows 放通3389端口-20170928143645736",
+                        "sgName": "Windows port 3389-20170928143645736",
                         "projectId": 0
                     }
                     ]
@@ -183,7 +183,7 @@ Output
                 "vpcName": "test",
                 "subnetId": "subnet-pq7ptksb",
                 "zoneId": 100002,
-                "eniName": "新建弹性网卡手动",
+                "eniName": "New flexible network card manual",
                 "eniDescription": "",
                 "networkInterfaceId": "eni-a7hx9qae",
                 "primary": false,
@@ -227,7 +227,7 @@ Output
                     },
                     {
                         "sgId": "sg-ei2rr0qf",
-                        "sgName": "广州",
+                        "sgName": "Guangzhou",
                         "projectId": 0
                     },
                     {

@@ -16,12 +16,12 @@
     * 风险性：高
 
 4. 检查系统是否采用 **默认管理端口**：
-    * 检查系统所用的管理端口（SSH、FTP、MySQL、Reids 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行爆破成功。
+    * 检查系统所用的管理端口（SSH、FTP、MySQL、Redis 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行爆破成功。
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将 22 修改为非默认端口，修改之后需要重启 ssh 服务；
         2. 运行`/etc/init.d/sshd restart`命令重启是配置生效；
-        3. 修改 FTP、MySQL、Reids 等的程序配置文件的默认监听端口 21、3306、6379 为其他端口；
-        4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
+                3. 修改 FTP、MySQL、Redis 等的程序配置文件的默认监听端口 21、3306、6379 为其他端口；
+                4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
     * 风险性：高
 
 5. 检查`/etc/passwd`文件，看是否有非授权账户登录：
@@ -106,7 +106,7 @@ find data -type d -exec chmod 770 {} \;
  * 下面是一些好密码的实例（可以使用空格）：
        `1qtwo-threeMiles3c45jia`
        ` caser, lanqiu streets`
- * 下面是一些弱口令的示例，可能是你在公开的工作中常用的词或者是你生活中常用的词：
+ * 下面是一些弱口令的示例，可能是您在公开的工作中常用的词或者是您生活中常用的词：
         公司名+日期（coca-cola2016xxxx）
         常用口语（Iamagoodboy）
 
@@ -118,7 +118,7 @@ netstat -anltp
 5. 通过 **腾讯云-安全组防火墙** 限制仅允许制定 IP 访问管理或通过编辑`/etc/hosts.deny`、`/etc/hosts.allow`两个文件来限制 IP。
 
 6. 应用程序尽量不使用 **root** 权限。
-如 Apache、Redis、MySQL、Nginx 等程序，尽量不要以 root 权限的方式运行。
+  如 Apache、Redis、MySQL、Nginx 等程序，尽量不要以 root 权限的方式运行。
 
 7. 修复系统提权漏洞与运行在 root 权限下的 **程序漏洞**，以免恶意软件通过漏洞提权获得 root 权限传播后门。
     * 及时更新系统或所用应用程序的版本，如 Struts2、Nginx，ImageMagick、Java 等。
@@ -126,6 +126,6 @@ netstat -anltp
 
 8. 定期 **备份** 云主机业务数据。
     * 对重要的业务数据进行异地备份或云备份，避免主机被入侵后无法恢复。
-    * 除了你的 home，root 目录外，你还应当备份 /etc 和可用于取证的 /var/log 目录。
+    * 除了您的 home，root 目录外，您还应当备份 /etc 和可用于取证的 /var/log 目录。
 
 9. 安装腾讯云 **主机安全 Agent**，在发生攻击后，可以了解自身风险情况。

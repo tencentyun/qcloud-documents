@@ -1,26 +1,28 @@
-When you need to mount the ***elastic cloud disk*** to another instance, you can disconnect it from the current instance and then connect it to another instance. The unmounting of elastic cloud disk WILL NOT erase the data on it.
+When you need to mount an ***elastic cloud disk*** to another instance, you can disconnect it from the current instance and then connect it to another instance.<font color="red"> Unmounting an elastic cloud disk does not clear the data on it.</font>
 
-## Unmount an elastic cloud disk in console
+## Unmounting an Elastic Cloud Disk in Console
 
-It currently supports the unmounting of common elastic cloud disk which is used as data disk, but not as system disk.
+Elastic cloud disks used as data disks can be unmounted, but those used as system disks cannot.
 
-When you unmount the data disk, please make sure that you understand the followings:
+<font color="red">
+Please note the following points before unmounting a data disk:
+</font>
 
-- In Windows operating system, in order to ensure data integrity, it is recommended that you suspend all read and write operations on all file systems of the disk, otherwise the data in the middle of read/write process will be lost. You need to set the disk offline first before the unmounting of elastic cloud disk, or you may not be able to mount the elastic cloud disk again without rebooting the CVM.
+- In the Windows operating system, to ensure data integrity, you're recommended to suspend reading and writing operations on all file systems on the disk. Otherwise, data that has not been read or written will be lost. <font color="red"> You need to set the elastic cloud disk offline before unmounting it. Otherwise, you may not be able to mount the disk again without restarting the CVM. </font>
+![](//mccdn.qcloud.com/static/img/92a187945b9f4318981ea70b6532e1d6/image.png)
 
-
-- In Linux operating system, you need to log in to the instance and perform ` unmount ` command to the elastic cloud disk required to be unmounted, then enter the console to unmount the disk after the command is successfully performed. If the elastic cloud disk is forced to be unmounted without "unmount" operation, the following problems may occur while the system is being shut down or booted up: 
+- In the Linux operating system, you need to log in to the instance and perform ` unmount ` operation on the elastic cloud disk to be unmounted. After the command is successfully executed, go to the console to unmount the disk. If the elastic cloud disk is forced to be unmounted without "unmount" operation, the following problems may occur during shutdown and startup of CVM: 
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 
-1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
+(1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
-2) Enter "Cloud Virtual Machine" - "Cloud Block Storage" tab.
+(2) Go to **CVM** -> **CBS** tab.
 
-3) In the Cloud Block Storage list page, click "More" - "Unmount" button next to the Clocd Block Storage with the status of "Mounted" or "Support Mounting/Unmounting" to unmount the single Cloud Block Storage;
-Or in the Cloud Block Storage list page, check the Cloud Block Storage with the status of "Mounted" or "Support Mounting/Unmounting", and click "Mount" button on the top to batch unmount.
+(3) In the cloud disk list page, click the **More** -> **Unmount** button next to the cloud disk with a status of <font color="red">Mounted, and Supports Mounting/Unmounting</font> to unmount the single disk.
+You can also select the cloud disks with a status of <font color="red">Mounted, and Supports Mounting/Unmounting</font> in the cloud disk list page, and then click the **Unmount** button on the top to unmount disks in batch.
 
-4) Confirm warnings in the pop-up dialog box, and click "Confirm" button.
+(4) Confirm the operation in the pop-up box by clicking the **Confirm** button.
 
-## Unmounting an elastic cloud disk with API
-Users can use the DetachCbsStorages API to unmount the elastic cloud disk. For more information, refer to [API to Unmount Elastic Cloud Disk](https://cloud.tencent.com/doc/api/364/2521).
+## Unmounting an Elastic Cloud Disk Using APIs
+You can unmount an elastic cloud disk by using the API DetachCbsStorages. For more information, please see [API for Unmounting Elastic Cloud Disk](https://www.qcloud.com/doc/api/364/2521).

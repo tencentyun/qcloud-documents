@@ -2,26 +2,27 @@
 
 ### SDK 获取
 
-对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk/tree/master/COSLibs)。
-对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/7d016fa85b597d5b788477284545d6a7/cos_android_sdk-master.zip)。
+GitHub 地址：[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
 
-更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/Demo)。 
-（本版本SDK基于JSON API封装组成）
+更多示例可参考Demo：[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/Demo)。 
+（本版本 SDK 基于 JSON API 封装组成）
 
 ### 开发准备
 
 1. SDK 支持 Android 2.2 及以上版本的手机系统；
-2. 手机必须要有网络（GPRS、3G或 WIFI 网络等）；
+2. 手机必须要有网络（GPRS、3G 或 WI-FI 网络等）；
 3. 手机可以没有存储空间，但会使部分功能无法正常工作；
-4. 从控制台获取APP ID、SecretID、SecretKey，详情参考权限控制。
+4. 从控制台获取 APPID、SecretId、SecretKey，详情参考权限控制。
 
 ### SDK 配置
 
 配置工程导入下列 jar 包：
 
-- cos-android-sdk1.4.2.jar
+- cos-android-sdk1.4.3.18.jar
 - okhttp-3.2.0.jar
 - okio-1.6.0.jar
+- sha1utils.jar
+- jniLibs（对应的 sha1 值计算的 .so 库）
 
 SDK 需要网络访问相关的一些权限，需要在 AndroidManifest.xml 中增加如下权限声明：
 

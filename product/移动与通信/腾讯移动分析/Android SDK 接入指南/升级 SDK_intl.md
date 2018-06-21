@@ -1,0 +1,1 @@
+The new version of SDK is compatible with the old version of API. When upgrading, you only need to replace the old jar package. First, delete the old jar package in libs directory of the project. Then, copy the new jar package to the libs path and delete the old one in Java Build Path. Next, add new jar package reference.

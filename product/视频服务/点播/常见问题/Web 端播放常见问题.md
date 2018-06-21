@@ -82,7 +82,7 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 以下是由于浏览器劫持造成的问题，以及对应的解决方案：
 
 ### 视频激活播放后强制全屏
-**问题表现：**在点击视频激活播放后，直接全屏播放，通常出现在 Android iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
+**问题表现：**在单击视频激活播放后，直接全屏播放，通常出现在 Android iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
 
 **解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playinline 和 webkit-playinline 属性，腾讯云播放器默认会在`<Vdieo>`标签中加上 playinline 和 webkit-playinline 属性。iOS10+ 识别 playinline 属性，版本小于 10 的系统识别 webkit-playinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，比如，在 TBS 内核的浏览器（包括不限于 Android：微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（ [接入文档](https://x5.tencent.com/tbs/guide/video.html) 、[使用说明](https://x5.tencent.com/tbs/guide/web/x5-video.html)），避免系统强制全屏视频。
 
@@ -138,7 +138,7 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 **解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频
 
 ### 在 iframe 里使用播放器不能全屏
-**问题表现：**在 iframe 中嵌入播放器页面，点击全屏按钮无效。
+**问题表现：**在 iframe 中嵌入播放器页面，单击全屏按钮无效。
 **解决方案：**在 iframe 标签里设置属性 allowfullscreen，示例代码：
 ```
   <iframe allowfullscreen src="" frameborder="0" scrolling="no" width="100%" height="270"></iframe>

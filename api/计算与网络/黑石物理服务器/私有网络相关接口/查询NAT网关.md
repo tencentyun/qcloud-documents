@@ -84,7 +84,7 @@ data 数据结构如下：
 | data.n.productionStatus |  NAT 网关的生产状态，0：创建中，1：创建成功，2：创建失败 |Int |
 | data.n.maxConcurrent |  NAT 网关并发连接上限，100w：小型, 300w：中型, 1000w：大型，详见 NAT 网关产品说明 |Int |
 | data.n.ntype |  对应 NAT 网关并发连接上限, 取值为 small，middle，big，分别对应小型、中型、大型|String |
-| data.n.forwardMode | NAT 网关的转发方式。当值为 0 时表示 ip 方式，值为 1 时表示 cidr 方式| Int |
+| data.n.forwardMode | NAT 网关的转发方式。当值为 0 时表示 IP 方式，值为 1 时表示 cidr 方式| Int |
 | data.n.exclusive |  NAT 网关共享型和独占型标识，0 表示共享型 NAT 网关，1 表示独占型 NAT 网关 |Int 
 | data.n.eipCount |  NAT 网关绑定 eip 的个数 |String |
 | data.n.eipSet |  NAT 网关绑定的弹性 IP 列表，例如：`[183.60.249.11]` |Array |

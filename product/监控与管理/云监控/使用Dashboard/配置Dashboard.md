@@ -21,7 +21,7 @@
 
 ### 调整面板排序
 
-点击面板标签并拖动到目的位置，即可调整面板排序。
+单击面板标签并拖动到目的位置，即可调整面板排序。
 ![](http://mc.qcloudimg.com/static/img/87c038ba833c3e612dc5a3ab6d3664aa/image.png)
 
 ## 监控视图配置
@@ -46,7 +46,7 @@ Dashboard目前提供了折线图、面积图、柱状图三种监控视图供�
 
 #### 创建流程
 
-1. 点击dashbaord中的【添加监控图表】。
+1. 单击dashbaord中的【添加监控图表】。
    ![](http://mc.qcloudimg.com/static/img/846763f78af542e795b211cac8d63e61/image.png)
 
 2. 在弹窗中进行图表配置操作。

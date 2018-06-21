@@ -43,8 +43,8 @@ The following request parameter list only provides API request parameters. For o
 | status | string | Cluster status. Details can be found below the parameter list |
 | nodeNum | Int | Number of nodes in the cluster |
 | nodeStatus | String |Cluster node status. Details can be found below the parameter list |
-| totalCpu | Int | Total number of CPU cores in the cluster |
-| totalMem | Int | Total amount of memory in the cluster (in GB) |
+| totalCpu | Int | Total number of CPU millicores in the cluster |
+| totalMem | Int | Total amount of memory in the cluster (in Mi) |
 | os | String | Operating system used by the nodes in the cluster |
 | createdAt | String | Creation time of cluster |
 | updatedAt | Int | Update time of cluster |
@@ -102,8 +102,8 @@ Output
                 "nodeStatus": "AllNormal",
                 "nodeNum": 1,
                 "os": "ubuntu16.04.1 LTSx86_64",
-                "totalCpu": 1,
-                "totalMem": 1,
+                "totalCpu": 1000,
+                "totalMem": 1024,
                 "regionId": 1,
                 "k8sVersion": "",
                 "clusterExternalEndpoint": null,

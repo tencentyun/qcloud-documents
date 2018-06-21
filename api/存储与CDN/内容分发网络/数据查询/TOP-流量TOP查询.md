@@ -13,6 +13,7 @@
 + TOP数据从日志中计算获取，数据延迟约 30 分钟
 + 支持查询 90天内的TOP数据
 + 调用频次限制为 100次/分钟
++ 接口已支持子账号调用，权限配置可参考权限[配置示例](https://cloud.tencent.com/document/product/228/14867)
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 

@@ -34,7 +34,7 @@ cos://testbatch-1252462967.cos.ap-beijing-1.myqcloud.com/testdir/
 
 ### 支持同地域Bucket
 
-COS 是具有地域属性的，需要保证你的 Batch 作业和 COS Bucket 在同一地域，这样才能最高效的让数据在存储和云主机之间传输。
+COS 是具有地域属性的，需要保证您的 Batch 作业和 COS Bucket 在同一地域，这样才能最高效的让数据在存储和云服务器之间传输。
 
 ## 2. CFS路径说明
 
@@ -50,7 +50,7 @@ COS 是具有地域属性的，需要保证你的 Batch 作业和 COS Bucket 在
 cfs://10.66.140.208/ 
 ```
 
-``注意：需要以 / 结尾，并且保证你的 CFS / NAS 和 Batch 作业配置在同一网络内``
+``注意：需要以 / 结尾，并且保证您的 CFS / NAS 和 Batch 作业配置在同一网络内``
 
 
 
