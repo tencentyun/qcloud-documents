@@ -225,7 +225,7 @@ player.loadVideoByID({
 ### 自定义域名替换
 腾讯云点播服务提供自定义域名替换功能，在播放端的配置方法如下：
 ```
-player.loadVideoByID({
+var player = TCPlayer('player-container-id', {
   fileID: '', // 请传入需要播放的视频 filID 必须
   appID: '', // 请传入点播账号的 appID 必须
   customHost: '' // 请传入替换的域名，例如 www.costum.host
@@ -312,8 +312,8 @@ var player = TCPlayer('player-container-id', {
 开启流程请看[视频加密文档](https://cloud.tencent.com/document/product/266/9638)
 
 >**注意事项：**
-> * 如果播放页面或者 Flash swf url 与解密密钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密密钥。
+> * 如果播放页面或者 Flash swf url 与解密秘钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密秘钥。
 > * crossdomain.xml 中配置的是 swf url 的域名，并且 xml 文件必须放置在 Key 服务器的根目录。
 > * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下，如需部署到自己的服务器上，可自行下载并部署，[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/tcplayer/player.swf)。
 > * 视频只能进行一次加密，不可多次加密，严格按照视频加密文档操作。
-> * 解密密钥正确长度为16字节，起始和末尾位置不能有空白字符。
+> * 解密秘钥正确长度为16字节，起始和末尾位置不能有空白字符。
