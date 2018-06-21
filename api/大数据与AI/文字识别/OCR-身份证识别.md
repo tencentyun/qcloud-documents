@@ -264,7 +264,7 @@ Content-Disposition: form-data; name="image[1]"; filename="2.jpg"
 Content-Type: image/jpeg
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
----------------------------acebdf13572468
+---------------------------acebdf13572468--
 ```
 
 ### 返回示例
