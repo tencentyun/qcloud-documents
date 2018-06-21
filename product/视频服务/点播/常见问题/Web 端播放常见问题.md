@@ -12,8 +12,8 @@
 
 ### 网络
 #### 跨协议拦截
-**问题表现：**在 https 协议的页面播放 http 协议的视频时，浏览器会处于安全考虑进行拦截。
-**解决方案：**http 协议的页面播放 http 的视频，https 协议的页面播放 https 的视频。
+**问题表现：**在 HTTPS 协议的页面播放 HTTP 协议的视频时，浏览器会处于安全考虑进行拦截。
+**解决方案：**HTTP 协议的页面播放 HTTP 的视频，HTTPS 协议的页面播放 HTTPS 的视频。
 
 #### CDN无视频
 **问题表现：**访问视频地址返回 404。
@@ -82,7 +82,7 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 以下是由于浏览器劫持造成的问题，以及对应的解决方案：
 
 ### 视频激活播放后强制全屏
-**问题表现：**在单击视频激活播放后，直接全屏播放，通常出现在 Android iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
+**问题表现：**在点击视频激活播放后，直接全屏播放，通常出现在 Android iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
 
 **解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playinline 和 webkit-playinline 属性，腾讯云播放器默认会在`<Vdieo>`标签中加上 playinline 和 webkit-playinline 属性。iOS10+ 识别 playinline 属性，版本小于 10 的系统识别 webkit-playinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，比如，在 TBS 内核的浏览器（包括不限于 Android：微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（ [接入文档](https://x5.tencent.com/tbs/guide/video.html) 、[使用说明](https://x5.tencent.com/tbs/guide/web/x5-video.html)），避免系统强制全屏视频。
 
@@ -118,7 +118,7 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 - **屏幕全屏** 是指在屏幕范围内全屏，全屏后只有视频画面内容，看不到浏览器的地址栏等界面，这种全屏需要浏览器提供接口支持。支持屏幕全屏的接口有两种，一种称为 Fullscreen API，通过 Fullscreen API 进入屏幕全屏后的特点是，进入全屏后仍然可以看到由 HTML CSS 组成的播放器界面。另一种接口为 webkitEnterFullScreen，该接口只能作用于 `<video>` 标签，通常用于移动端不支持 Fullscreen API 的情况，通过该接口全屏后播放器界面为系统自带的界面。
 - **网页全屏** 是指在网页显示区域范围内全屏，全屏后仍可以看到浏览器的地址栏等界面，通常情况下网页全屏是为了应对浏览器不支持系统全屏而实现类似全屏的一种方式，所以又称为伪全屏。该全屏方式由 CSS 实现。
 
-腾讯云点播 WEB 播放器采用屏幕全屏为主，网页全屏为辅的全屏方案。全屏模式的优先级为 Fullscreen API > webkitEnterFullScreen > 网页全屏。
+腾讯云点播 Web 播放器采用屏幕全屏为主，网页全屏为辅的全屏方案。全屏模式的优先级为 Fullscreen API > webkitEnterFullScreen > 网页全屏。
 
 由于 Flash 逐步被浏览器限制运行，腾讯云点播 Web 播放器采用了 HTML5 标准进行开发，并减少对于 Flash 的使用，在部分老旧的浏览器上，全屏功能使用受限制。旧版点播播放器1.0采用 Flash 开发，使用 Flash 插件实现的屏幕全屏。如需在不支持 Fullscreen API 的浏览器进行屏幕全屏，只能使用旧版点播播放器1.0。
 
@@ -138,7 +138,7 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 **解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频
 
 ### 在 iframe 里使用播放器不能全屏
-**问题表现：**在 iframe 中嵌入播放器页面，单击全屏按钮无效。
+**问题表现：**在 iframe 中嵌入播放器页面，点击全屏按钮无效。
 **解决方案：**在 iframe 标签里设置属性 allowfullscreen，示例代码：
 ```
   <iframe allowfullscreen src="" frameborder="0" scrolling="no" width="100%" height="270"></iframe>
@@ -170,7 +170,7 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 
 ### 播放器初始化后看不到视频画面
 **问题表现：**播放器初始化后，未开始播放前，看不到视频的画面，播放器区域黑屏。
-**解决方案：**WEB 播放器是否显示视频的首帧画面取决于该浏览器是否支持，目前并非所有浏览器都支持首帧画面，解决方案为设置视频的封面。
+**解决方案：**Web 播放器是否显示视频的首帧画面取决于该浏览器是否支持，目前并非所有浏览器都支持首帧画面，解决方案为设置视频的封面。
 
 ### 播放器没有变速播放按钮
 **问题表现：**在某些浏览器播放视频没有变速播放按钮。
