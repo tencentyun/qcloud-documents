@@ -12,10 +12,10 @@
 
 ### 平台支持
 **桌面端**支持最新版本的现代浏览器 Chrome，Firefox，Safari ，Edge，QQ 浏览器，以及非现代浏览器 IE11/10/9/8（IE11/10/9/8 需要开启 Flash，只支持 Win7 IE8）
-**移动端**只要实现 HTML5 `<video>` 标准的浏览器都支持，比如 Android Chrome，iOS Safari，微信，手机 QQ，手机 QQ 浏览器等
-使用本播放器，同一段代码可以自动实现 PC 浏览器和手机浏览器的自适应切换，播放器内部会自动区分平台，并使用最优的播放方案。例如：在 IE11/10/9/8 浏览器中会使用 Flash 播放器以实现其不支持 HTML5 播放 HLS 的能力，在 Chrome 等现代浏览器中优先使用 HTML5 技术实现视频播放，而手机浏览器上会使用 HTML5 技术实现视频播放。
+**移动端**支持 HTML5 `<video>` 标准的浏览器，比如 Android Chrome，iOS Safari，微信，手机 QQ，手机 QQ 浏览器等
+使用本播放器，同一段代码可以自动实现桌面浏览器和手机浏览器的自适应切换，播放器内部会自动区分平台，并使用最优的播放方案。例如：在 IE11/10/9/8 浏览器中会使用 Flash 播放器以实现其不支持 HTML5 播放 HLS 的能力，在 Chrome 等现代浏览器中优先使用 HTML5 技术实现视频播放，而手机浏览器上会使用 HTML5 技术实现视频播放。
 ### 点播平台的转码服务
-由于 MP4 和 HLS（m3u8）是目前在 PC 浏览器和手机浏览器上支持程度最广泛的格式，所以腾讯云的视频点播平台最终会把上传的视频发布为 MP4 和 HLS（m3u8） 格式。
+由于 MP4 和 HLS（m3u8）是目前在桌面浏览器和手机浏览器上支持程度最广泛的格式，所以腾讯云的视频点播平台最终会把上传的视频发布为 MP4 和 HLS（m3u8） 格式。
 ## 准备工作
 ### step 1：开通服务
 在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云帐号，然后开通**点播**服务。
@@ -156,7 +156,7 @@ var player = TCPlayer('player-container-id', {
 [续播](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-continue-play.html)
 
 >**注意事项：**
-> -  必须通过 fileID appID 播放经过腾讯云转码后的视频，才能使用该功能。
+> - 必须通过 fileID appID 播放经过腾讯云转码后的视频，才能使用该功能。
 > - 该功能通过通过 localStorage 存储播放时间点，浏览器需支持该特性。
 > - 在浏览器劫持视频播放的情况下，该功能无法使用。
 > - 该功能不是多端多浏览器互通的，比如在 PC 浏览器上没看完，不能在移动端浏览器上续播或者在 PC 上另一个浏览器续播，需额外的接口，可以自行开发。
@@ -222,7 +222,17 @@ player.loadVideoByID({
 示例：
 [切换 fileID 播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
 
-### HLS Master Playlist
+### 自定义域名替换
+腾讯云点播服务提供自定义域名替换功能，在播放端的配置方法如下：
+```
+player.loadVideoByID({
+  fileID: '', // 请传入需要播放的视频 filID 必须
+  appID: '', // 请传入点播账号的 appID 必须
+  customHost: '' // 请传入替换的域名，例如 www.costum.host
+});
+```
+
+### HLS 自适应码率播放
 HLS 规范的 Master Playlist 可以根据网络速度自适应码率播放，在视频下载过程中，如果网络速度满足下载高码率的 ts 分片时，播放器将切换播放高码率的 ts 分片，反之播放低码率的 ts 分片。移动端和桌面端大部分浏览器都支持该特性。
 使用 HLS Master Playlist 需要通过服务端 API 对视频进行转码，视频转码生成 HLS Master Playlist 才可以开启该特性，请查看相关文档[视频转码综述](https://cloud.tencent.com/document/product/266/11701)。
 播放 HLS Master Playlist 时，播放器的清晰度选择功能将会变成选择特定的码率或者根据网络速度自动选择。如下图所示：
@@ -255,8 +265,9 @@ var player = TCPlayer('player-container-id', {
 > * 播放器在 Flash 模式下发起视频请求的 Referer 在 IE、Firefox 浏览器中会带上 swf url，与 Chrome 浏览器会带上页面的 url 的情况不同。
 > * 您也可以将 player.swf 文件下载后，存放到您的 CDN 服务器中，swf 参数传入指向您的 CDN 服务器路径。
 > * 腾讯云提供的隔离域名是每个用户独有的域名，一个 appID 对应一个域名，通常格式为 [appID].vod2.myqcloud.com。
-> * 需要将播放器 swf url 的域名添加到白名单内，开启了Referer防盗链的视频才能在 Flash 模式下播放。
-> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下。
+> * 需要将播放器 swf url 的域名添加到白名单内，开启了 Referer 防盗链的视频才能在 Flash 模式下播放。
+> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下，如需部署到自己的服务器上，可自行下载并部署，[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/tcplayer/player.swf)。
+> * iframe 嵌入播放器页面，视频请求的 Referer 会带上 iframe src。
 
 ### Key 防盗链
 开启流程请看 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)
@@ -303,6 +314,6 @@ var player = TCPlayer('player-container-id', {
 >**注意事项：**
 > * 如果播放页面或者 Flash swf url 与解密秘钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密秘钥。
 > * crossdomain.xml 中配置的是 swf url 的域名，并且 xml 文件必须放置在 Key 服务器的根目录。
-> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下。
+> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下，如需部署到自己的服务器上，可自行下载并部署，[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/tcplayer/player.swf)。
 > * 视频只能进行一次加密，不可多次加密，严格按照视频加密文档操作。
 > * 解密秘钥正确长度为16字节，起始和末尾位置不能有空白字符。
