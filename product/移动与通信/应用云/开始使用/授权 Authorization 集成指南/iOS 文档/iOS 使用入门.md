@@ -181,7 +181,7 @@ pre_install do |installer|
               end
               after_build_phase.name = shell_script_after_build_phase_name
               after_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"
               fi
               "
@@ -196,7 +196,7 @@ pre_install do |installer|
               end
               before_build_phase.name = shell_script_before_build_phase_name
               before_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"
                   fi
                   "
