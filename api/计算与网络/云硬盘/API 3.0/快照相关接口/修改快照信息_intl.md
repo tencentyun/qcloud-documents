@@ -49,7 +49,7 @@ https://cbs.tencentcloudapi.com/?Action=ModifySnapshotAttribute
 &SnapshotName=snap_201711301143
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

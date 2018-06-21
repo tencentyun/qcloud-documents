@@ -1,6 +1,6 @@
 
 ## 1. 准备工作
-TICSDK使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指[TICSDK接入指引文档](../../接入指引文档/概述.md)，了解相关服务的基本概念和基本业务流程。相关链接如下：
+TICSDK使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指[方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。相关链接如下：
 
 [实时音视频](https://cloud.tencent.com/document/product/268/8424)
 
@@ -323,7 +323,7 @@ virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallb
 ### 4.6 COS上传相关操作
 COS为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您需要用到上传图片、PPT文件到白板上展示的功能，则需要先在腾讯云对象存储开通了服务，然后再在SDK中将COS相关参数配置好，TICSDK内部会将调用SDK接口上传的图片，文件上传到您配置的COS云存储桶中。
 TICSDKCosConfig内部封装了COS上传所需要的CosAppId，Bucket，Region等参数，用户填好这些参数后通过TICManager的`setCosHandler`方法传给TICSDK。cos上传和预览功能被封装在了TICManger里面，如需上传图片、PPT文件，调用`uploadFile`这个接口将文件名路径和生成的COS签名作为参数填入即可。
-COS签名生成请参考[COS签名](https://github.com/zhaoyang21cn/edu_project/blob/master/接入指引文档/接入指南/业务后台接入腾讯云服务.md)
+COS签名生成请参考[COS签名](/document/product/680/17910)。
 
 ```C++
 > TICManager.h
@@ -399,7 +399,7 @@ virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
 */
 virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 ```
-开发者可以通过getTICWhiteBoardManager()获得白板管理类里面封装好的方法，也可以直接调用BoardSDK.h里面的接口对白板进行操作，BoardSDK详见[白板SDK文档](https://github.com/zhaoyang21cn/edu_project/blob/master/接入指引文档/客户端SDK集成/Windows/白板SDK文档.md) 。
+开发者可以通过getTICWhiteBoardManager()获得白板管理类里面封装好的方法，也可以直接调用BoardSDK.h里面的接口对白板进行操作，BoardSDK详见 [白板SDK文档](/document/product/680/17884) 。
 
 ```C++
 	> TICWhiteboardManager.h

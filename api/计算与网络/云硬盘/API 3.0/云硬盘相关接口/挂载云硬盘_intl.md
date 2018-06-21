@@ -56,7 +56,7 @@ https://cbs.tencentcloudapi.com/?Action=AttachDisks
 &InstanceId=ins-dyzmimrw
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

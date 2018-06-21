@@ -59,7 +59,7 @@ https://cbs.tencentcloudapi.com/?Action=DetachDisks
 &DiskIds.0=disk-lzrg2pwi
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

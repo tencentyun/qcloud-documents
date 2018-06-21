@@ -1,4 +1,3 @@
-# 集成TICSDK
 ### 1. 简介
 腾讯互动课堂（Tencent Interact Class，TIC）SDK 是一个提供在线教育场景下综合解决方案的SDK，它对腾讯云已经技术积累多年的`iLiveSDK`、`IMSDK`和`BoardSDK`、`COSSDK`  四个SDK进行了集成封装，提供了【多人音视频】，【多人即时通信】，【多人互动画板】【文档云端转码预览】等功能。适用于在线互动课堂，在线会议，你画我猜等场景。
 
@@ -40,13 +39,13 @@ TICSDK有创建课堂的接口，但是课堂ID (roomID) 由外面传入，TICSD
 另根据具体业务需要，业务侧可能还需要维护一个当前的课堂列表。
 
 ##### d）COS 签名生成：
-如果客户业务需要在课堂展示本地文档，则需要用到腾讯云对象存储服务（COS），在对对象存储进行操作时，需要COS签名用于检验身份，这个COS签名需要开发者的后台生成，传给客户端，详情请参考：[业务后台集成腾讯云服务](https://github.com/zhaoyang21cn/edu_project/blob/master/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97/%E4%B8%9A%E5%8A%A1%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1.md)。
+如果客户业务需要在课堂展示本地文档，则需要用到腾讯云对象存储服务（COS），在对对象存储进行操作时，需要COS签名用于检验身份，这个COS签名需要开发者的后台生成，传给客户端，详情请参考：[业务后台接入腾讯云服务](/document/product/680/17910)。
 
 
 ### 3. 客户端 SDK 文档
 
-* [Windows SDK](https://github.com/zhaoyang21cn/edu_project/blob/master/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3/%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%E9%9B%86%E6%88%90/Windows/TICSDK%E6%96%87%E6%A1%A3.md)
-* [Web SDK](https://github.com/zhaoyang21cn/edu_project/blob/master/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3/%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%E9%9B%86%E6%88%90/Web/TICSDK%E6%96%87%E6%A1%A3.md)
-* [Android SDK](https://github.com/zhaoyang21cn/edu_project/blob/master/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3/%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%E9%9B%86%E6%88%90/Android/TICSDK%E6%96%87%E6%A1%A3.md)
-* [iOS SDK](https://github.com/zhaoyang21cn/edu_project/blob/master/%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3/%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%E9%9B%86%E6%88%90/iOS/TICSDK%E6%96%87%E6%A1%A3.md)
+* [Windows SDK](/document/product/680/17883)
+* [Web SDK](/document/product/680/17887)
+* [Android SDK](/document/product/680/17881)
+* [iOS SDK](/document/product/680/17891)
 

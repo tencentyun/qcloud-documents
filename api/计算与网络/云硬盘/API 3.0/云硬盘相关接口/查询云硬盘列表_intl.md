@@ -55,7 +55,7 @@ https://cbs.tencentcloudapi.com/?Action=DescribeDisks
 &Filters.1.Values.0=ATTACHED
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {
