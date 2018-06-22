@@ -101,8 +101,8 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=7
 ## Key 防盗链生成和校验工具
 点播为开发者提供了 Key 防盗链 URL 的生成工具和校验工具，开发者可以使用该工具快捷准确地生成和校验符合要求的防盗链 URL。
 
-* [Key 防盗链视频播放地址生成工具](https://video.qcloud.com/referer/gen_video_url.html)
-* [Key 防盗链视频播放地址校验工具](https://video.qcloud.com/referer/check_sign.html)
+* [Key 防盗链视频播放地址生成工具](https://vods.cloud.tencent.com/referer/gen_video_url.html)
+* [Key 防盗链视频播放地址校验工具](https://vods.cloud.tencent.com/referer/check_sign.html)
 
 ## 注意事项
 * 该功能为可选项，默认不启用。

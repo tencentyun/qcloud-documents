@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: DeleteSnapshots |
+| Action | Yes | String | Common parameter. Value used in this API: DeleteSnapshots |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | SnapshotIds.N | Yes | Array of String | List of IDs of snapshots to be deleted, which can be queried via [DescribeSnapshots](/document/product/362/15647). |
 
@@ -46,7 +46,7 @@ https://cbs.tencentcloudapi.com/?Action=DeleteSnapshots
 &SnapshotIds.0=snap-gybrif0z
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

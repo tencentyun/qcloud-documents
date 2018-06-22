@@ -3,14 +3,14 @@
 
 ### 商品下单
 
-**说明**：聚合支付模式和账户托管模式在您的应用发起支付前，都必须先调用商品下单接口来进行下单，并将应答的 pay_info 透传给 Payment SDK，拉起支付。
+**说明**：聚合支付模式和账户托管模式在您的应用发起支付前，都必须先调用商品下单接口来进行下单，并将应答的 pay_info 透传给米大师 SDK，拉起支付。
 
 **接口**：unified_order
 
 **地址**：https://api.openmidas.com/v1/r/$appid$/unified_order
 
 > 注意：聚合支付模式下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
-> 托管账户模式下 `appid` 为该托管账户的 id。shang
+> 托管账户模式下 `appid` 为该托管账户的 id。
 
 **请求方式**：POST
 
@@ -22,7 +22,7 @@
 字段名 | 类型 | 必填 | 含义
 ---- | --- | ---- | ---
 user\_id | string[255] | 是 | 用户 ID，长度不小于 5 位，仅支持字母和数字的组合。
-out\_trade\_no |	string[32]|	是	| 应用支付订单号，Payment 要求应用订单号保持唯一性（建议根据当前系统时间加随机序列来生成订单号）。重新发起一笔支付要使用原订单号，避免重复支付；已支付过或已调用关单的订单号不能重新发起支付。仅支持数字、字母、下划线（_）、横杠字符（-）、点（.）的组合。
+out\_trade\_no |	string[32]|	是	| 应用支付订单号，米大师要求应用订单号保持唯一性（建议根据当前系统时间加随机序列来生成订单号）。重新发起一笔支付要使用原订单号，避免重复支付；已支付过或已调用关单的订单号不能重新发起支付。仅支持数字、字母、下划线（_）、横杠字符（-）、点（.）的组合。
 product\_id |	string[128] |	是 |	商品 id，仅支持数字、字母、下划线（_）、横杠字符（-）、点（.）的组合。
 currency\_type |	string[3]	| 是	| ISO 货币代码，CNY
 amount |	int |	是	| 支付金额，单位： 分
@@ -76,9 +76,9 @@ sub\_out\_trade\_no\_list | array[512] | 否 | 子订单信息列表
 ---- | ---- | ---
 ret |	int	 | 结果码 0：成功；其他：失败
 msg	| string[512] | 	失败的错误信息。
-transaction_id |	string[32] |	Payment 的交易订单。
+transaction_id |	string[32] |	米大师的交易订单。
 out\_trade\_no |	string[32] |	应用支付订单号
-pay_info	| string[512]	 | 支付参数，透传给 Payment SDK
+pay_info	| string[512]	 | 支付参数，透传给米大师 SDK
 
 
 **示例请求**
@@ -173,7 +173,7 @@ METRIC: 1
       <td>transaction_id</td>
       <td>string[32]</td>
       <td>否</td>
-      <td>调用下单接口获取的 Payment 交易订单。</td>
+      <td>调用下单接口获取的米大师交易订单。</td>
    </tr>
    <tr>
       <td colspan=4><center>type=by_user</center></td>
@@ -211,18 +211,18 @@ METRIC: 1
 ---- | ---- | ---
 ret  |	int	 |结果码 0：成功；其他：失败
 msg  |	string[512] |	失败的错误信息。
-appid |	string[50]	 | Payment 的应用 ID
+appid |	string[50]	 | 米大师的应用 ID
 sub_appid |	string[50] |	子应用 ID
 out_trade_no |	string[255]	 |应用支付订单号
 sub_out_trade_no_list	 |array	 |调用下单接口传进来的sub_out_trade_no_list
-transaction_id	 |string[32] |	调用下单接口获取的 Payment 交易订单。
+transaction_id	 |string[32] |	调用下单接口获取的米大师交易订单。
 user_id |	string[32] |	用户 ID
 pay_channel	 |string[12]	 | 支付渠道：wechat：微信支付；qqwallet：QQ 钱包；bank：网银
 product_id |	string[255]	 | 物品 id
-metadata	 |string[255]	 |发货标识，由业务在调用 Payment 下单接口的时候下发。
+metadata	 |string[255]	 |发货标识，由业务在调用米大师下单接口的时候下发。
 currency_type |	string[3]	 |ISO 货币代码，CNY
 amount |	int |	支付金额，单位：分。
-order_state |	string[2]	 | 当前订单的订单状态 0： 初始状态，获取 Payment 交易订单成功；1： 拉起 Payment 支付页面成功，用户未支付；2：用户支付成功，正在发货；3：用户支付成功，发货失败；4：用户支付成功，发货成功；5：Payment  支付页面正在失效中；6：Payment 支付页面已经失效；"
+order_state |	string[2]	 | 当前订单的订单状态 0： 初始状态，获取米大师交易订单成功；1： 拉起米大师支付页面成功，用户未支付；2：用户支付成功，正在发货；3：用户支付成功，发货失败；4：用户支付成功，发货成功；5：米大师支付页面正在失效中；6：米大师支付页面已经失效；"
 order_time  |	string[24] |	下单时间，格式：YYYY-MM-DD hh:mm:ss
 pay_time	 |string[24]	 |支付时间，格式：YYYY-MM-DD hh:mm:ss
 callback_time	 |string[24] |	支付回调时间，格式：YYYY-MM-DD hh:mm:ss
@@ -283,7 +283,7 @@ refund_time	 |string[24]	 |退款时间，格式：YYYY-MM-DD hh:mm:ss
       <td>transaction_id</td>
       <td>string[32]</td>
       <td>否</td>
-      <td>调用下单接口获取的 Payment 交易订单。</td>
+      <td>调用下单接口获取的米大师交易订单。</td>
    </tr>
 </table>
 
@@ -297,7 +297,7 @@ msg	 | string[512]	| 失败的错误信息。
 
 ### 退款
 
-**说明**：如交易订单需退款，可以通过本接口将支付款全部或部分退还给付款方，Payment 将在收到退款请求并且验证成功之后，按照退款规则将支付款按原路退回到支付帐号。最长支持 1 年的订单退款。
+**说明**：如交易订单需退款，可以通过本接口将支付款全部或部分退还给付款方，米大师将在收到退款请求并且验证成功之后，按照退款规则将支付款按原路退回到支付帐号。最长支持 1 年的订单退款。
 
 **接口**：refund
 
@@ -391,7 +391,7 @@ msg	 | string[512]	| 失败的错误信息。
       <td>transaction_id</td>
       <td>string[32]</td>
       <td>否</td>
-      <td>调用下单接口获取的 Payment 交易订单。</td>
+      <td>调用下单接口获取的米大师交易订单。</td>
       <td></td>
    </tr>
    <tr>

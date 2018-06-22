@@ -53,7 +53,7 @@ https://cbs.tencentcloudapi.com/?Action=InquiryPriceRenewDisks
 &DiskChargePrepaids.0.Period=1
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {
@@ -83,7 +83,7 @@ https://cbs.tencentcloudapi.com/?Action=InquiryPriceRenewDisks
 &DiskChargePrepaids.0.CurInstanceDeadline=2018-03-17 15:15:03
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

@@ -6,17 +6,13 @@
 Kubernetes-based services
 Tencent Cloud CCS is developed on the basis of Kubernetes (k8s), a container cluster management system provided open source by Google. Using Docker technology, Kubernetes offers a complete set of features (including deployment and execution, resource scheduling, service discovery, and dynamic scaling) to containerized applications, making it much easier to manage large-scale container clusters.
 
-<<<<<<< HEAD
-- Using elegant software engineering design such as modularization and micro-service, Kubernetes provides a modular design that allows users to customize network, storage, scheduling, monitoring, and log modules as needed through flexible plugins.
-- Kubernetes project community provides an open source platform for the implementation of container, network, and storage.
-=======
+
 **Benefits of Kubernetes**
 - Using elegant software engineering design such as modularization and micro-service, Kubernetes provides a modular design that allows users to customize network, storage, scheduling, monitoring, and log modules as needed through flexible plugins.
 - Kubernetes project community provides an open source platform for the implementation of container, network, and storage.
 - Kubernetes Vs. other container orchestration tools (Swarm/Mesos)
   Vs. Swarm: Kubernetes has finer granularity and more features, including advanced features such as key management, configuration management, and auto-scaling.
   Vs. Mesos: Mesos focuses on resource scheduling while Kubernetes concentrates on distributed applications, micro-service and large-scale cluster management, which integrates the exclusive concept of "cluster management is not just resource scheduling and orchestration" proposed by Google.
->>>>>>> 0ef7827708d5cbc636d73bcfa1f5d1272f871dea
 
 
 ### Tencent Cloud's CCS Vs. Self-built CCS

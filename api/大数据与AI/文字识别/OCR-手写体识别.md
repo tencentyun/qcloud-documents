@@ -33,14 +33,14 @@
 | ------ | ---- | ------------- | ---------------------------------------- |
 | appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
 | image  | 否   | binary | 图片文件，支持多个                  |
-| url    | 否   | String        | image 和 url 只提供一个即可；如果都提供，只使用 url |
+| url    | 否   | string        | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
 | 字段         | 类型          | 说明         |
 | ---------- | ----------- | ---------- |
-| code       | Int         | 返回状态值      |
-| message    | String      | 返回错误消息     |
+| code       | int         | 返回状态值      |
+| message    | string      | 返回错误消息     |
 | data.items | array(item) | 识别出的所有字段信息 |
 
 item 说明：

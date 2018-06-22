@@ -12,7 +12,7 @@ Apply for a security credential by following the steps below:
 
 (2) Go to the console page of [Cloud API Key](https://console.cloud.tencent.com/capi).
 
-(3) On the [Cloud API Key](https://console.cloud.tencent.com/capi) page, click **New** to create a pair of SecretId/SecretKey.
+(3) On the [Cloud API Key](https://console.cloud.tencent.com/capi) page, click **Create** to create a pair of SecretId/SecretKey.
 
 > <font color='red'>A developer account can have two pairs of SecretId/SecretKey at most.</font>
 

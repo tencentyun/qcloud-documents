@@ -20,7 +20,8 @@ To help you get familiar with CBS and snapshot services more quickly, we provide
 
 
 
-#### Definitions of input and response parameters
+
+#### Definitions of input and return parameters
 
 * Limit and Offset
 >These parameters are used for paging control. "Limit" indicates the maximum number of entries returned at a time, and "Offset" is the offset value. If the number of results exceeds the Limit, the number of returned results equals the value of Limit.

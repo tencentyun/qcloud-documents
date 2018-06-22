@@ -56,7 +56,11 @@ pod 'TACMessaging'
 
 ~~~
 pod update
-~~~
+~~~  
+
+并且在工程配置和后台模式中打开推送,如下图所示：
+
+![Project Settings](http://docs.developer.qq.com/xg/assets/iOSXGCap.jpg)
 
 ### 启动服务
 

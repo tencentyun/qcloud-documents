@@ -1,18 +1,18 @@
 ## 功能描述
-DelBmKafkaConf 接口用于删除ckafka配置信息，将不接收NAT日志。
+DelBmAppKafkaConf 接口用于删除ckafka配置信息，将不接收NAT日志。
 
 接口请求域名：bmvpc.api.qcloud.com
 
 ## 请求
 ### 请求示例
 ```
-GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DelBmKafkaConf
+GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DelBmAppKafkaConf
 	&<公共请求参数>
 	&kafkaId=<实例ID>
 	&topicName=<队列名称>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://cloud.tencent.com/document/api/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DelBmKafkaConf。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://cloud.tencent.com/document/api/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DelBmAppKafkaConf。
 
 | 参数名称 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
@@ -57,7 +57,7 @@ data结构
 ### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
-	Action=DelBmKafkaConf
+	Action=DelBmAppKafkaConf
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
 	&Nonce=4557
 	&Timestamp=1507692902

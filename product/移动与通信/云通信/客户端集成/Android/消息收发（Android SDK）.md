@@ -1339,6 +1339,81 @@ public TIMMessageLocator setRand(long rand)
 public TIMMessageLocator setSelf(boolean self)
 ```
 
+### 撤回消息
+
+ImSDK v2系列在v2.7.2版本开始提供撤回消息的接口。可以通过调用 `TIMConversation` 的 `revokeMessage` 接口来撤回自己发送的消息。
+
+> **注意：**
+> - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
+> - 默认只能撤回 2 分钟内的消息。
+
+**原型：**
+
+```
+/**
+ * 消息撤回（仅 C2C 和 GROUP 会话有效，其中 onlineMessage、AVChatRoom 和 BChatRoom 无效）
+ * @param msg 需要撤回的消息
+ * @param cb 回调
+ * @since 2.7.2
+ */
+public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
+```
+
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMManager` 的 `setMessageRevokedListener` 来进行配置。
+
+**原型：**
+
+```
+/**
+ * 消息被撤回通知监听器
+ * @since 2.7.2
+ */
+public interface TIMMessageRevokedListener extends IMBaseListener {
+    /**
+     * 消息撤回通知
+     * @param locator 被撤回的消息的消息定位符
+     */
+     void onMessageRevoked(TIMMessageLocator locator);
+}
+
+/**
+* 设置消息撤回通知监听器
+* @param listener 消息撤回通知监听器
+* @since 2.7.2
+*/
+public void setMessageRevokedListener(@NonNull TIMMessageRevokedListener listener)
+
+```
+
+收到一条消息撤回通知后，通过 `TIMMessage` 中的 `checkEquals` 方法判断当前消息是否是被对方撤回了，然后根据需要对 UI 进行刷新。
+
+**原型：**
+
+```
+/**
+ * 比较当前消息与提供的消息定位符表示的消息是否是同一条消息
+ * @param locator 消息定位符
+ * @return true - 表示是同一条消息； false - 表示不是同一条消息
+ * @since 2.7.2
+ */
+public boolean checkEquals(@NonNull TIMMessageLocator locator)
+
+```
+
+另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
+
+**原型：**
+
+```
+/**
+ * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
+ * @param cb 回调
+ * @since 2.7.2
+ */
+public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
+
+```
+
 ## 系统消息
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息。系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是**关系链变更系统消息**，一种是**群系统消息**。
 

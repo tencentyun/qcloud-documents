@@ -9,9 +9,19 @@
 
 对于一个 App 的用户来说，什么情况下会接入 DC、什么情况下会接入 OC 呢？
 
-代码层面需要关心的分配原则简单来说只有一句话：有上行音视频数据权限的实例会分配 DC、没有上行音视频数据权限的实例分配 OC。具体地，在调用 SDK 进入房间接口`ILiveRoomManager.getInstance().createRoom()`的时候，其参数`ILiveRoomOption.authBits()`用于设置该实例在房间内的权限，具体权限字段如下图所示：
+代码层面需要关心的分配原则简单来说只有一句话：有上行音视频数据权限的实例会分配 DC、没有上行音视频数据权限的实例分配 OC。具体地，在调用 SDK 进入房间接口`ILiveRoomManager.getInstance().createRoom()`的时候，其参数`ILiveRoomOption.authBits()`用于设置该实例在房间内的权限，具体权限字段如下。
 
-![用户权限位说明](https://mccdn.qcloud.com/img56cdd6a958dff.png)
+| 字段 | 值 | 说明 |
+| --- | --- | --- |
+| AUTH_BITS_DEFUALT | 0xFFFFFFFFFFFFFFFF | 缺省值。拥有所有权限。 |
+| AUTH_BITS_CREATE_ROOM | 0x00000001 | 创建房间权限。 |
+| AUTH_BITS_JOIN_ROOM | 0x00000002 | 加入房间的权限。 |
+| AUTH_BITS_SEND_AUDIO | 0x00000004 | 发送语音的权限。 |
+| AUTH_BITS_RECV_AUDIO | 0x00000008 | 接收语音的权限。 |
+| AUTH_BITS_SEND_VIDEO | 0x00000010 | 发送视频的权限。 |
+| AUTH_BITS_RECV_VIDEO | 0x00000020 | 接收视频的权限。 |
+| AUTH_BITS_SEND_SUB | 0x00000040 | 发送辅路视频的权限，暂不支持辅路。 |
+| AUTH_BITS_RECV_SUB | 0x00000080 | 接收辅路视频的权限，暂不支持辅路。 |
 
 AVRoomMulti.auth_bits 成员变量是权限位的明文形式。AVRoomMulti.auth_bits 将 `AUTH_BITS_SEND_AUDIO`/ `AUTH_BITS_SEND_VEDIO`/ `AUTH_BITS_SEND_SUB` 中的任意一个置为 1，则实例会被分配接入 DC；反之则该实例被分配接入 OC。
 
