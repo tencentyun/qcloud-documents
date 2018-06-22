@@ -1,15 +1,15 @@
-##centos65_180501
+## centos65_180501
 
-###操作系统版本
+### 操作系统版本
 centos6.5
 
-###内核版本
+### 内核版本
 2.6.32-696.20.1.el6
 
-###小版本号
+### 小版本号
 180501
 
-###更新软件
+### 更新软件
 ```
 acl.x86_64                              2.2.49-6.el6                            2.2.49-7.el6_9.1                        
 bash.x86_64                             4.1.2-15.el6_4                          4.1.2-48.el6                            
@@ -139,7 +139,7 @@ xz-lzma-compat.x86_64                   4.999.9-0.3.beta.20091007git.el6        
 xz.x86_64                               4.999.9-0.3.beta.20091007git.el6        4.999.9-0.5.beta.20091007git.el6
 ```        
 
-####新增软件
+#### 新增软件
 ```
 augeas-libs.i686                        1.0.0-10.el6                            
 augeas-libs.x86_64                      1.0.0-10.el6                            
@@ -194,24 +194,24 @@ xmlrpc-c.i686                           1.16.24-1210.1840.el6
 xz-libs.i686                            4.999.9-0.5.beta.20091007git.el6
 ```        
 
-####配置修改
+#### 配置修改
 1、去掉ssh的弱MAC和弱Ciphers，保留：
 	ciphers aes128-ctr,aes192-ctr,aes256-ctr
 	Macs hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha2-256,hmac-sha2-512
 2、不自动加载nouveau驱动。在使用GPU时，防止对CUDA驱动造成干扰。
 
-##centos65
+## centos65_160501
 
-###操作系统版本
+### 操作系统版本
 centos6.5
 
-###内核版本
+### 内核版本
 2.6.32-573.18.1.el6
 
-###小版本号
+### 小版本号
 160501
 
-###安装的软件
+### 安装的软件
 ```
 abrt-addon-ccpp.x86_64                  2.0.8-21.el6.centos                     
 abrt-addon-kerneloops.x86_64            2.0.8-21.el6.centos                     
