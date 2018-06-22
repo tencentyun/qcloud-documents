@@ -6,7 +6,7 @@
 ## 使用环境
 ### 系统环境
 Windows 或 Linux 系统
-(请保证本地字符格式为utf-8，否则操作中文文件会出现异常)
+(请保证本地字符格式为 utf-8，否则操作中文文件会出现异常)
 ### 软件依赖
 Python 2.6/2.7/3.5/3.6 
 并装有最新版本的 pip
@@ -14,7 +14,7 @@ Python 2.6/2.7/3.5/3.6
 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 ## 下载与安装
 - **源码地址**
-下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)
+下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。
 - **pip 安装**
 执行`pip`命令进行安装：
 ```
@@ -116,8 +116,8 @@ schema = https
 3. bucket的命名规则为 `{name}-{appid}`
 
 
-### 指定 Bucket 的命令
--  通过`-b <bucket> 指定 Bucket`可以指定特定 Bucket。
+### 指定某个 Bucket 的命令
+-  通过 `-b <bucket>` 命令可以指定某个 Bucket，结合相关的命令（如上传文件的命令）可以上传文件到指定的 bucket。
 - Bucket 的命名规则为`{name}-{appid}` ，此处填写的存储桶名称必须为此格式。
 ```
 coscmd -b <bucket> method ...  //命令格式
@@ -126,18 +126,16 @@ coscmd -b AAA-12344567 createbucket  //操作示例-创建 bucket
 ```
 
 ### 创建 Bucket
--  建议配合`-b <bucket> 指定 Bucket`使用。
+-  建议配合 `-b <bucket>` 命令使用。
 ```
 coscmd -b <bucket> createbucket //命令格式
-coscmd createbucket  //操作示例
 coscmd -b AAA-12344567 createbucket  //操作示例
 ```
 
 ### 删除 Bucket
--  建议配合`-b <bucket> 指定 Bucket`使用。
+-  建议配合 `-b <bucket>` 命令使用。
 ```
 coscmd -b <bucket> deletebucket //命令格式
-coscmd createbucket  //操作示例
 coscmd -b AAA-12344567 deletebucket  //操作示例
 ```
 
@@ -256,7 +254,7 @@ coscmd info bbb/123.txt //操作示例
 ### 获取带签名的下载 URL
 - 命令如下：
 ```
-coscmd sigurl<cospath>  //命令格式
+coscmd sigurl <cospath>  //命令格式
 coscmd signurl bbb/123.txt //操作示例
 coscmd signurl bbb/123.txt -t 100//操作示例
 ```
@@ -272,8 +270,8 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 ```
 使用如下命令设置 Object 的访问控制：
 ```
-coscmd putbucketacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL] <cospath> //命令格式
-coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222 aaa/aaa.txt //操作示例
+coscmd putobjectacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL] <cospath> //命令格式
+coscmd putobjectacl --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222 aaa/aaa.txt //操作示例
 ```
 
 ### ACL 设置指南
@@ -286,16 +284,17 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 * 若需要对所有人赋权，使用 anyone 的形式。
 * 同时赋权的多个帐号用逗号`,`隔开。
 * 请将参数替换为您所需要删除的 COS 上文件的路径（cospath）。
+* 如果是对 Object 进行设置，若想对某文件夹下的所有文件进行 ACL 设置，可直接在文件夹名后加 `/`。
 
 ### 获取访问控制（ACL）
-- 使用如下命令设置 Bucket 的访问控制：
+- 使用如下命令获取 Bucket 的访问控制：
 ```
 coscmd getbucketacl //命令格式
 coscmd getbucketacl //操作示例
 ```
-- 使用如下命令设置 Object 的访问控制：
+- 使用如下命令获取 Object 的访问控制：
 ```
-coscmd putbucketacl <cospath> //命令格式
+coscmd getobjectacl <cospath> //命令格式
 coscmd getobjectacl aaa/aaa.txt //操作示例
 ```
 
