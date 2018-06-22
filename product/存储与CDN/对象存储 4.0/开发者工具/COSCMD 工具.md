@@ -92,12 +92,12 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 
 | 名称         | 描述                                       | 有效值  |
 | :---------| :---------------------------------------- | :---- |
-| secret_id  | 必选参数，APPID 对应的密钥 ID，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225)。 | 字符串  |
-| secret_key | 必选参数，APPID 对应的密钥 Key，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225)。 | 字符串  |
-| bucket     | 必选参数，指定的存储桶名称，bucket 的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232)。 | 字符串  |
-| region     | 必选参数，存储桶所在地域。参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224)。 | 字符串  |
+| secret_id  | 必选参数，APPID 对应的密钥 ID，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225) | 字符串  |
+| secret_key | 必选参数，APPID 对应的密钥 Key，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225) | 字符串  |
+| bucket     | 必选参数，指定的存储桶名称，bucket 的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串  |
+| region     | 必选参数，存储桶所在地域。参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串  |
 | max_thread | 可选参数，多线程上传时的最大线程数（默认为 5），有效值：1~10         | 数字   |
-| parts_size | 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB），有效值：1~10     | 数字   |
+| parts_size | 可选参数，分块上传的单块大小（单位为 MB，默认为 1 MB），有效值：1~10     | 数字   |
 
 > **注意：** 
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
@@ -165,8 +165,8 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc //忽略 .txt 和 .d
 * COSMCD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 `md5` 值。
 * 使用 -s 参数可以使用同步上传，跳过上传 md5 一致的文件(cos 上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header)。
 * 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`。
-* 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
-* 目前只支持上传最大 40T 的单文件。
+* 在上传文件夹时，使用` --ignore` 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
+* 目前只支持上传最大 40 T 的单文件。
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
