@@ -32,7 +32,7 @@ compile 'com.tencent.ilivesdk:ilivesdk:1.8.6.1.5'
 // 互动教育模块
 compile 'com.tencent.ticsdk:ticsdk:1.0.0'
 // 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.2.5.6'
+compile 'com.tencent.boardsdk:boardsdk:1.2.5'
 ```    
 
 3. 在 defaultConfig 中配置 abiFilters 信息。
@@ -138,7 +138,7 @@ if (主进程) {
 }
 ```
 COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
-TICSDK 初始化 SDK 时也需要初始化 COS SDK 模。主要构造 **CosConfig** 配置信息，通过**TICManager**的**setCosConfig**接口完成 COS 相关配置，如下：
+TICSDK 初始化 SDK 时也需要初始化 COS SDK 模块。主要构造 **CosConfig** 配置信息，通过**TICManager**的**setCosConfig**接口完成 COS 相关配置，如下：
 
 ```java
 CosConfig cosConfig = new CosConfig()
