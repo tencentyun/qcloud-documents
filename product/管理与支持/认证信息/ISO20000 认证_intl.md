@@ -1,0 +1,5 @@
+ISO20000 is derived from the BSI15000 standard, which itself was formulated by the British Standards Institute with regard to IT services management.  The said standard dates back to 1995, and underwent several revisions before its current rendition, the ISO20000, a two-part information technology service management standard that has been widely accepted.
+
+The ISO20000 IT Service Management System aims to provide a mode of establishing, implementing, operating, monitoring, evaluating, maintaining and improving IT service management systems; managing IT issues via “standardization of IT services”; as well as categorizing IT issues and identifying the inherent relationship between the issues.  Thereafter, based on the service level, to plan, promote, monitor and reinforce communication with customers, in order to help the corporation set up an integrated system that is effective and revolves around the customer.
+
+Tencent Cloud has successfully procured the ISO20000 certificate, the scope of which covers cloud computing, hosting and disaster-preparedness services among others.
