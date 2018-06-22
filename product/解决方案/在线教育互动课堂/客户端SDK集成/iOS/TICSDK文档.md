@@ -60,6 +60,34 @@ pod repo update
 * 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`
 * 在`Build Settings` 中将 `Enable Bitcode`设置为`NO`
 * 由于要用到手机的相机和麦克风，所以别忘了在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
+* 由于腾讯云对象存储使用的是 HTTP 协议。为了确保在 iOS 系统上可以运行，您需要开启允许通过 HTTP 传输。
+您可以通过以下两种方式开启允许通过 HTTP 传输：
+
+    - 手动设置
+
+    在项目的`info.plist`文件中增加以下配置
+    
+    ![](https://main.qcloudimg.com/raw/0204a82988bb42696b7bcbe1d47e5c8c.png)
+    
+    - 代码设置
+
+    在项目的`info.plist`文件中增加以下代码
+    
+    ```xml
+    <key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>myqcloud.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+        </dict>
+    </dict>
+</dict>
+    ```
 
 #### 集成验证
 在`appdelegate.m`中导入头文件`<TICSDK/TICSDK.h>`，该头文件包含了`TICSDK`中所有公开的头文件，调用`getVersion`方法获取版本号：
@@ -403,6 +431,8 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 
 这4个代理方法，分别对应了前面4个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。
 
+TICSDK只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他功能，可直接调用`IMSDK`的接口。
+
 ### 2.9 音视频相关操作
 
 这部分功能封装于腾讯云实时音视频SDK `ILiveSDK`，TICSDK中只封装了一些常用的接口：打开/关闭摄像头、麦克风、扬声器、切换当前相机方向等，如下：
@@ -454,6 +484,7 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 ```
 课堂内的音视频事件都会通过该方法回调到其他端（包括操作者的），event表示事件类型（开关摄像头等），user表示触发事件的用户ID，其他段触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照demo）。
 
+TICSDK只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需要用到`iLiveSDK`的其他功能，可直接调用`iLiveSDK`的接口。
 
 ### 2.10 课堂内其他事件监听
 
