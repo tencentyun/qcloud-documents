@@ -121,7 +121,7 @@ dependencies {
 | ---------------------------- | ----------------------- |
 | cos-xml-android-sdk-1.2.jar	|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
 | qcloud-core-1.2.jar			|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
-| okhttp-3.2.0				| 一款优秀的开源 http 组件  	|
+| okhttp-3.2.0				| 一款优秀的开源 HTTP 组件  	|
 | okio-1.6.0				| 一款优秀的开源网络 I/O 组件 	|
 | xstream-1.4.7.jar				| 一款优秀的开源序列化组件		|
 | fastjson-1.1.62.android.jar	| 一款优秀的开源 json 组件		|
