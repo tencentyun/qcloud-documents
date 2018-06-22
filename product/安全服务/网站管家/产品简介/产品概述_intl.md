@@ -38,7 +38,7 @@ Being cheap and low-threshold, DDoS attack is often used to disrupt the operatio
 
 
 ## Basic Defense Process
-![Before and after using WAF](https://mc.qcloudimg.com/static/img/0252bd97de61a42dc1842c6c8d601d32/image.png)
+![Before and after using WAF](https://main.qcloudimg.com/raw/4bf7d1db508ece27812ffa524e215a91.png)
 Tencent WAF defense diagram:
-![WAF defense diagram](https://mc.qcloudimg.com/static/img/0b34705f9a4e8641ac8675ddf5e2e3b0/image.png)
+![WAF defense diagram](https://main.qcloudimg.com/raw/68d007e4581ee9753d069ff6b1c3fc7c.png)
 
