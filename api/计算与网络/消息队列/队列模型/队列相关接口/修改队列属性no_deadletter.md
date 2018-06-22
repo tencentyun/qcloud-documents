@@ -29,11 +29,7 @@
 | maxMsgSize| 否| Int| 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。|
 | msgRetentionSeconds| 否| Int| 消息保留周期。取值范围 60-1296000 秒（1min-15 天），默认值 345600 (4 天)。|
 | rewindSeconds | 否|Int|消息最长回溯时间，取值范围 0-msgRetentionSeconds，消息的最大回溯之间为消息在队列中的保存周期，0 表示不开启消息回溯。|
-|deadLetterPolicy|否|String|可选参数，死信队列策略配置参数，不填默认不开启死信队列功能。必须是 Json 格式的字符串（json.dump 后的值），包含参数有：deadLetterQueue、policy、maxReceiveCount、maxTimeToLive，具体定义如下字段描述。|
-|deadLetterPolicy:: deadLetterQueue|是|String|死信队列的名称，条件：必须是同地域、同帐号下的队列；该队列本身没有设置死信队列（不允许嵌套）；该队列被指定为其他队列的死信队列的次数未达到上限，目前上限为6个队列。|
-|deadLetterPolicy::policy|是|Int|死信策略，0：消息被多次消费未删除；1：Time-To-Live 过期。|
-|deadLetterPolicy:: maxReceiveCount|否|Int|Policy=0 时是必填参数。最大接收次数，支持设定值为 1-1000 次。|
-|deadLetterPolicy:: maxTimeToLive|否|Int|Policy=1 时是必填参数。最大未消费过期时间，允许设置 5min-12 小时，单位为秒，且必须小于消息保留周期 msgRetentionSeconds 的值。|
+
 
 ## 输出参数
 
@@ -48,11 +44,7 @@
 | maxMsgSize| Int| 更改后的消息最大长度。|
 | msgRetentionSeconds| Int| 更改后的消息保留周期。|
 | rewindSeconds |Int|更改后的最长消息回溯时间。|
-|deadLetterPolicy|String|可选参数，死信队列策略配置参数，不填默认不开启死信队列功能。必须是 Json 格式的字符串（json.dump 后的值），包含参数有：deadLetterQueue、policy、maxReceiveCount、maxTimeToLive，具体定义如下字段描述。|
-|deadLetterPolicy:: deadLetterQueue|string|死信队列的 Id|
-|deadLetterPolicy::policy|Int|死信策略，0：消息被多次消费未删除；1：Time-To-Live 过期。|
-|deadLetterPolicy:: maxReceiveCount|Int|最大接收次数，支持设定值为 1-1000 次。|
-|deadLetterPolicy:: maxTimeToLive|Int|最大未消费过期时间，允许设置 5min-12 小时，单位为秒，且必须小于消息保留周期 msgRetentionSeconds 的值。|
+
 
 ## 示例
 
