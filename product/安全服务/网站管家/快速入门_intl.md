@@ -22,7 +22,7 @@ DNS resolution is required for local machines to access websites. Before perform
 
 (1) Add a record of IP domain name in the local hosts file. The IP is obtained by pinging the CNAME assigned by WAF.
 
-![Local test](https://main.qcloudimg.com/raw/26c81e801e612f69f878a639fb5c8c39.png)
+![Local test](https://main.qcloudimg.com/raw/2605957b60583137259733a902b9d3a9.png)
 
 In Windows, modify "C:\Windows\System32\drivers\etc\hosts" by adding entries as shown in the following figure:
 
