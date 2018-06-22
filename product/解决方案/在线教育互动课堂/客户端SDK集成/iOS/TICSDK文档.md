@@ -74,19 +74,19 @@ pod repo update
     在项目的`info.plist`文件中增加以下代码
     
     ```xml
-    <key>NSAppTransportSecurity</key>
-<dict>
-    <key>NSExceptionDomains</key>
-    <dict>
-        <key>myqcloud.com</key>
-        <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-        </dict>
-    </dict>
-</dict>
+      <key>NSAppTransportSecurity</key>
+      <dict>
+          <key>NSExceptionDomains</key>
+          <dict>
+              <key>myqcloud.com</key>
+              <dict>
+                  <key>NSIncludesSubdomains</key>
+                  <true/>
+                  <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                  <true/>
+              </dict>
+          </dict>
+      </dict>
     ```
 
 #### 集成验证
