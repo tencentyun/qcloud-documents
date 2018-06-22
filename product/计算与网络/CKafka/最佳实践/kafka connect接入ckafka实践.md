@@ -19,11 +19,9 @@ status.storage.topic
 ```
 这三个topic需要手动创建，才能保证创建的属性符合connect的要求。
 
-> config.storage.topic需要保证只有一个partition，多副本且为compact模式。
-
-> offset.storage.topic需要有多个partition，多副本且为compact模式
-
-> status.storage.topic需要有多个partition，多副本且为compact模式
+- config.storage.topic需要保证只有一个partition，多副本且为compact模式。
+- offset.storage.topic需要有多个partition，多副本且为compact模式
+- status.storage.topic需要有多个partition，多副本且为compact模式
 
 配置bootstrap.servers为申请实例是分配的ip；
 配置group.id，这个用于标识connect集群，需要与消费者分组区分开来。
