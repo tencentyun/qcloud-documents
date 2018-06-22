@@ -38,18 +38,15 @@ http://qq.qcloudwaf.com/?test=alert(123)
 ```
 in your browser. If the blocking page appears in the browser, WAF protection works properly.
 
-![Local test](https://main.qcloudimg.com/raw/d7cc0f6ddf36d2d565cccae57f3c8d32.png)
 
 
 ### 3. Modify DNS resolution ###
 To protect the public network traffic to websites with WAF, you need to modify the DNS resolution record. For example, we will show you how to modify the DNS resolution of the website qq.qcloudwaf.com on Tencent Cloud.
 (1) Log in to the Tencent Cloud console, click the **Tencent Cloud DNS** tab in the navigation bar, select the domain name qcloudwaf.com from the domain name list on the right, and then click **Resolve** to enter the resolution configuration page.
 
-![Modify DNS](https://main.qcloudimg.com/raw/ba16ed842a25bab2b82955b9d24751d5.png)
 
 (2) Click **Add a Record**, and in the pop-up configuration window, select CNAME for Record Type, enter the host name of corresponding website for Host Name (enter qq here because qq.qcloudwaf.com is to be protected in this example), and enter the CNAME domain name ```***************5e54837952a0ed3.qcloudzygj.com ``` assigned by WAF for Record Value.
 
-![Modify dns](https://main.qcloudimg.com/raw/31adaa7438f53b184b0c25ec64c16df7.png)
 
 (3) After the modified DNS record takes effect, the traffic of all Internet users accessing websites will be directed to and protected by WAF.
 If WAF detects that the resolution of the protected domain name is normal, it displays **Normal Protection** in the console.
