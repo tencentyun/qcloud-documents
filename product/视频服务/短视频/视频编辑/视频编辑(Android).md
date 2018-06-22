@@ -77,7 +77,7 @@ PREVIEW_RENDER_MODE_FILL_EDGE  - 适应模式，尽可能保持画面完整，�
 ```
 
 - **区间预览**
-  TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
+  TXVideoEditer 的 startPlayFromTime 函数用于播放某一时间段 A<=>B 内的视频片段。
 
 ### 3. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
