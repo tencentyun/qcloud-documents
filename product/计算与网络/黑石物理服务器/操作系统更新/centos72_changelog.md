@@ -196,12 +196,14 @@ xz-libs.i686                            5.1.2-12alpha.el7
 ```
 
 ### 配置修改
+```
 1、调长rcu_cpu_stall_timeout，由60改为300。
 2、去掉ssh的弱MAC和弱Ciphers，保留：
 	ciphers aes128-ctr,aes192-ctr,aes256-ctr
 	Macs hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha2-256,hmac-sha2-512
 3、不自动加载nouveau驱动。在使用GPU时，防止对CUDA驱动造成干扰。
 4、添加irqaffinity。优化中断处理。
+```
 
 ## centos72_160501
 
