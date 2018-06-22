@@ -9,6 +9,7 @@ centos7.2
 
 ### 更新软件
 ```
+软件名                                  更新前版本号                            更新后版本号
 augeas-libs.x86_64                      1.4.0-2.el7                             1.4.0-2.el7_4.2                         
 authconfig.x86_64                       6.2.8-10.el7                            6.2.8-30.el7                            
 bash.x86_64                             4.2.46-19.el7                           4.2.46-29.el7_4                         
@@ -158,6 +159,7 @@ zlib.x86_64                             1.2.7-15.el7                            
 
 ### 新增软件
 ```
+软件名                                  版本号
 firewalld-filesystem.noarch             0.4.4.4-6.el7                           
 fontconfig.x86_64                       2.10.95-11.el7                          
 fontpackages-filesystem.noarch          1.44-8.el7                              
@@ -188,6 +190,7 @@ stix-fonts.noarch                       1.1.0-5.el7
 
 ### 删除软件
 ```
+软件名                                  版本号
 grub2-efi-modules.x86_64                1:2.02-0.29.el7.centos                  
 grub2-efi.x86_64                        1:2.02-0.29.el7.centos                  
 xz-libs.i686                            5.1.2-12alpha.el7    
