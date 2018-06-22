@@ -133,6 +133,7 @@ grub-pc-bin.amd64                       1.99-27+deb7u2
 libc6.i386                              2.13-38+deb7u6                          
 libgcc1.i386                            1:4.7.2-5                               
 libstdc++6.i386                         4.7.2-5                                 
+```
 
 ### 配置修改
 ```
