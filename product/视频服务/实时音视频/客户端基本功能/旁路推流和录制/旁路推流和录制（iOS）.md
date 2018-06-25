@@ -27,7 +27,7 @@
     ILiveChannelInfo *info = [[ILiveChannelInfo alloc] init];
     info.channelName = [NSString stringWithFormat:@"前缀_%@",[[ILiveLoginManager getInstance] getLoginId]];
     info.channelDesc = [NSString stringWithFormat:@"推流描述字符串"];
-    
+
     ILivePushOption *option = [[ILivePushOption alloc] init];
     option.channelInfo = info;
     option.encodeType = ILive_ENCODE_RTMP; //使用RTMP协议旁路直播
@@ -45,14 +45,15 @@
  ```objc
     // 调用停止旁路推流接口，参数为要停止推流的频道ID数组，channelId在开启推流成功的回调中会返回
     [[ILiveRoomManager getInstance] stopPushStreams:@[channelId] succ:^{
-        //停止旁路直播成功; 
+        //停止旁路直播成功;
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         //停止旁路直播失败;
     }];
  ```
-		
+
 * 补充说明：
     如果开了自动旁路直播，打开摄像头就已经开始自动旁路直播了，调用此接口，只是获取旁路直播地址而已；结束推流接口会无效。
 
 
-
+ ## 联系邮箱
+ 如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

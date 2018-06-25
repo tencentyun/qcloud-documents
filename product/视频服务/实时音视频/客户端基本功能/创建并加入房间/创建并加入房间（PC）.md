@@ -101,3 +101,6 @@ void OnLocalVideo(const LiveVideoFrame* video_frame, void* data)
 ![](https://main.qcloudimg.com/raw/b849f6239ca311d2d72a381db455d623.png)
 
 这是因为 iLiveSDK 内部使用了其他 SDK，这是其他 SDK 的打印输出信息，不会影响实际使用,忽略不管即可。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
