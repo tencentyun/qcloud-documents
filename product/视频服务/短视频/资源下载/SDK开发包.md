@@ -25,8 +25,8 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>4.9.4662 @ 2018-06-15</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/TXLiteAVSDK_UGC_Rename_iOS_4.9.4662.zip">ZIP</a></td>
+    <td>4.9.4663 @ 2018-06-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/TXLiteAVSDK_UGC_Rename_iOS_4.9.4663.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
@@ -45,8 +45,8 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>4.9.4662 @ 2018-06-15</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/TXLiteAVSDK_Enterprise_Rename_iOS_4.9.4662.zip">ZIP</a></td>
+    <td>4.9.4663 @ 2018-06-25</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.9/TXLiteAVSDK_Enterprise_Rename_iOS_4.9.4663.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
