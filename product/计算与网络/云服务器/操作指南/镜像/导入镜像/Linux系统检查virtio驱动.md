@@ -1,4 +1,4 @@
-云主机系统内核需要支持virtio驱动（包括块设备驱动 `virtio_blk` 和网卡驱动 `virtio_net`）才能在腾讯云上正常运行，对于未编译进内核的`virtio_blk` 驱动，还需要包含在`initramfs(或者initrd)`文件中，云主机才能正常工作，本文将说明导入镜像前如何检查以及修复镜像中对 virtio 驱动的支持。
+云服务器系统内核需要支持virtio驱动（包括块设备驱动 `virtio_blk` 和网卡驱动 `virtio_net`）才能在腾讯云上正常运行，对于未编译进内核的`virtio_blk` 驱动，还需要包含在`initramfs(或者initrd)`文件中，云服务器才能正常工作，本文将说明导入镜像前如何检查以及修复镜像中对 virtio 驱动的支持。
 
 ## 内核支持virtio驱动检查
 以`Centos7`为例详细说明如何确定当前内核是否支持`virtio`驱动

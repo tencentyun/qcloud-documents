@@ -49,8 +49,8 @@ server {
 上述架构中，CLB 的主要作用是对 HTTPS 进行代理，因此无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。此时，**客户端到LB 时如果为 HTTPS 协议，则采用加密传输的方式，但 LB 到后端服务器依然是明文传输。**此时，开发者无法分辨出前端的请求是 HTTPS 还是 HTTPS。
 
 为了解决这个问题，腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto，从而便于开发者依据 header 内容判断请求类型：
-- X-Client-Proto: http （前端为 HTTP 请求）
-- X-Client-Proto: https （前端为 HTTPS 请求）
+- X-Client-Proto: HTTP （前端为 HTTP 请求）
+- X-Client-Proto: HTTPS （前端为 HTTPS 请求）
 
 #### D.存在问题
 - 配置繁琐：假设客户有多个 domain+uri，有100台后端的 CVM 服务器，则需要在100台服务器上重复配置。且每增加一个 domain+uri，都需要在 100 台后端 CVM 上刷新一遍。

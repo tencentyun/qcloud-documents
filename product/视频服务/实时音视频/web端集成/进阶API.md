@@ -70,6 +70,7 @@ WebRTCAPI.fn.detectRTC(function(info){
 | isTBSValid      | TBS版本号是否支持WebRTC |                 |
 | support      | 是否支持WebRTC |  |
 | h264Support      | 是否支持H.264 |必须支持H.264 |
+| screenshare      | 是否支持屏幕分享 |必须安装插件，详见文档[高级功能]-[屏幕分享] |
 
 -----
 
@@ -99,6 +100,7 @@ var RTC = new WebRTCAPI( options , succ , error)
 | closeLocalMedia | boolean | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ） | 非必填，默认 false |
 | audio            | boolean | 是否启用音频采集                                 | 非必填，默认 true  |
 | video            | boolean | 是否启用视频采集                                 | 非必填，默认 true  |
+| screen            | boolean | 是否进行屏幕分享                                 | 非必填，默认 false ，屏幕分享与摄像头采集目前只能二选一 |
 
 #### 代码示例
 ```javascript
@@ -306,14 +308,42 @@ websocket 断开
 > 以下就是进阶的接口。
 
 ### WebRTCAPI.startRTC
+
 #### 具体功能
 主动发起推流/拉流
+### 参数 startRTC(opts , succ , fail)
+
+| 参数                   | 类型       | 描述            |
+| -------------------- | -------- | ------------- | ---- |
+| opts         | object | 参数对象，默认可以为空对象    |
+| succ         | function | 成功回调    |
+| fail         | function | 失败回调    |
+
+#### opts
+
+| 参数                   | 类型       | 描述            |
+| -------------------- | -------- | ------------- | ---- |
+| screen         | boolean | 非必填，是否进行屏幕分享    |
+
 
 ```javascript
     var RTC = new WebRTCAPI({ ... });
     ... 
+    //推流
+    RTC.startRTC({},function(){
+        //推流成功
+    },function(){
+        //推流失败
+    });
 
-    RTC.startRTC();
+    //屏幕分享
+    RTC.startRTC({
+        screen:true
+    },function(){
+        //推流成功
+    },function(){
+        //推流失败
+    });
 ```
 ---
 

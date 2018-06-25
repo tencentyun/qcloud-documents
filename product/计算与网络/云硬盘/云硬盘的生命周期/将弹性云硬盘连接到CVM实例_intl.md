@@ -1,96 +1,96 @@
-After being created, a non-elastic cloud disk (a cloud disk whose lifecyle is same as that of CVM instance) is automatically connected to the created CVM instance and cannot be changed. You can also manually mount an elastic cloud disk to any instance within the same availability zone and check how many additional cloud disks can be mounted for each instance. For more information on the maximum number of cloud disks allowed to be mounted, refer to [Usage Restrictions](/doc/product/362/5145). For more information on elastic cloud disk and non-elastic cloud disk, refer to [Categories of Cloud Block Storage](https://cloud.tencent.com/document/product/362/2353).
+A non-elastic cloud disk (a cloud disk whose lifecycle follows the CVM instance) is automatically connected to the created CVM instance when it is created, and cannot be changed. Meanwhile, you can manually mount the elastic cloud disk to any instance in the same availability zone. You can determine how many more cloud disks can be mounted on each instance during mounting. For more information on cloud disk quantity limits, please see [Usage Constraints](/doc/product/362/5145). For more information on elastic and non-elastic cloud disks, please see [Classification of Cloud Disks](/doc/product/362/2353).
 
-## Connecting an elastic cloud disk to CVM instance in console
-Currently, only elastic HDD cloud storages used as data disks can be mounted, and system disks are not allowed to be mounted.
+## Connecting Elastic Cloud Disk to Instance via Console
+The ordinary HDD cloud disk can be mounted as a <font color="red">data disk</font>, but cannot be mounted as a system disk.
 
-1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
-2) Go to "Cloud Virtual Machine" - "Cloud Block Storage" tab.
+2) Enter **CVM** -> **Cloud Disk** tab.
 
-3) In the CBS list page, click "More" - "Mount to CVM" button next to the cloud disk with a status of **Pending mounted, Mounting/Unmounting Supported** for a single disk mounting.
-You can also check the cloud disks with a status of **Pending mounted, Mounting/Unmounting Supported**, and click the "Mount" button on the top for a batch mounting.
+3) On the cloud disk list page, click **More** -> **Mount to CVM** button next to the cloud disk in the status of <font color="red">To be Mounted and Support Mounting/Unmounting</font> to mount a single cloud disk.
+Or on the cloud disk list page, select the cloud disks in the status of <font color="red">To be Mounted and Support Mounting/Unmounting</font>, and click the **Mount** button on the top to mount cloud disks in batch.
 
-4) In the pop-up box, select the CVM to which the cloud disk to be mounted, and click "OK". After the mounting, log in to the CVM to check the mounting status of the cloud disks.
+4) In the pop-up box, select the CVM on which to mount the cloud disk, and click **OK**. After the mounting is completed, you can log in to the CVM to view the cloud disk mounting status.
 
-After being mounted, a cloud disk must go through a series operations such as partitioning and formatting to be put into use. For instructions on how to perform such operations, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
-) and [Partitioning, Formatting, Mouting and File System Creation on Linux System](https://cloud.tencent.com/document/product/362/6735).
+The mounted cloud disk cannot be used immediately. It requires a series of operations such as partitioning and formatting. For more information on how to perform the operations, please see [Partitioning, Formatting, and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
+) and [Partitioning, Formatting, Mounting and File System Creation on Linux System](/document/product/362/6735).
 
-## Connecting an elastic cloud disk to CVM instance with API
-Please refer to [API AttachCbsStorages](https://cloud.tencent.com/doc/api/364/2520).
+## Connecting Elastic Cloud Disk to Instance via API
+For more information, please see [AttachCbsStorages API](https://cloud.tencent.com/doc/api/364/2520).
 
-## How to solve the problem that some of the created CVM instances cannot recognize elastic cloud disks
+## Solution to Problem of Some Created CVM Instances Unable to Identify Elastic Cloud Disk
 
-All of the supplied images support mounting/unmounting of elastic cloud disks. >Please make sure to perform unmount (for Linux) or offline (for Windows) actions before removing (uninstalling) the disk, otherwise it is likely that the disk cannot be recognized when mounted again.
+All images available support the connection/unmounting of elastic cloud disks.<font color="red"> Note: Perform "unmount" (Linux) or "offline" (Windows) operation before taking out (unmounting) the cloud disk, otherwise it may not be identified when remounting.</font>
 
-If you have purchased the following CVMs and plan to add elastic cloud disks to the CVMs:
+However, if you have purchased the following types of CVMs and plan to add elastic cloud disk to the CVM:
 
 <table>
 <tbody>
-<tr><th>CVM Operating System Type</th><th>Version</th>
-<tr><td rowspan="4">CentOS</td><td>5.11 64-bit</td>
-<tr><td>5.11 32-bit</td>
-<tr><td>5.8 64-bit</td>
-<tr><td>5.8 32-bit</td>
-<tr><td >Debian</td><td>6.0.3 32-bit</td>
-<tr><td rowspan="2">Ubuntu</td><td>10.04 64-bit</td>
-<tr><td>10.04 32-bit</td>
-<tr><td rowspan="2">OpenSuse</td><td>12.3 64-bit</td>
-<tr><td>12.3 32-bit</td>
+<tr><th> CVM OS </th><th> Version </th>
+<tr><td rowspan="4"> CentOS </td><td> 5.11 64-bit </td>
+<tr><td> 5.11 32-bit </td>
+<tr><td> 5.8 64-bit </td>
+<tr><td> 5.8 32-bit </td>
+<tr><td > Debian </td><td> 6.0.3 32-bit </td>
+<tr><td rowspan="2"> Ubuntu </td><td> 10.04 64-bit </td>
+<tr><td> 10.04 32-bit </td>
+<tr><td rowspan="2"> OpenSuse </td><td> 12.3 64-bit </td>
+<tr><td> 12.3 32-bit </td>
 </tbody>
 </table>
 
-You're recommended to execute the following command in the instance to add a driver to support hot-swapping before purchasing an elastic cloud disk:
+It is recommended that you add the driver to get the hot-plugging feature by running the following command in the instance before you purchase the elastic cloud disk:
 
 ```
 modprobe acpiphp
 ```
-　　
-In addition, after shutting down or restarting the CVM, you still need to re-load `acpiphp` driver module. So you're recommended to set the `acpiphp` module to be automatically loaded upon the startup of CVM. The procedures for setting this for various operating systems are as follows:
+  
+In addition, after you shut down or reboot the CVM, you need to load the `acpiphp` driver module again. It is recommended that you set the `acpiphp` module to "load automatically when CVM starts up". The setting methods for various series are as follows:
 
-**CentOS 5 Series**
+**CentOS 5 series**
 
-Execute the following command to create the file:
+Run the following command to create a file:
 
 ```
 vi /etc/sysconfig/modules/acpiphp.modules
 ```
 
-And write the following content to the file:
+And add the following content in the file:
 
 ```
  #!/bin/bash
  modprobe acpiphp >& /dev/null
 ```
 
-Execute the following command to add executable permissions. After the setting, the script can be loaded upon the startup of CVM:
+Run the following command to add executable permissions. After the settings are completed, the script can be loaded when the CVM starts up:
 
 ```
 chmod a+x /etc/sysconfig/modules/acpiphp.modules
 ```
 
-**Debian 6 Series, Ubuntu 10.04 Series**
+**Debian 6 series and Ubuntu 10.04 series**
 
-Execute the following command to modify the file:
+Run the following command to modify the file:
 
 ```
 vi /etc/modules
 ```
-And write the following content to the file:
+Write the following:
 
 ```
 acpiphp
 ```
  	  
-**OpenSUSE 12.3 Series**
+**OpenSUSE 12.3 series**
 
-Execute the following command to modify the file:
+Run the following command to modify the file:
 
 ```
 vi /etc/sysconfig/kernel
 ```
-And write the following content to the file:
+Write the following:
 
 ```
 MODULES_LOADED_ON_BOOT="acpiphp"
-```　
+``` 
 	   

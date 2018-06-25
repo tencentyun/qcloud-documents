@@ -4,10 +4,10 @@
 本接口用于识别图片内容信息，并以标签的形式显示。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12400)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/865/17627)。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://service.image.myqcloud.com/v1/detection/imagetag_detect`
 
@@ -23,7 +23,7 @@
 | host           | 是|service.image.myqcloud.com | 腾讯云图片标签服务器域名                |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（Byte） |
 | content-type   | 是|application/json 或  multipart/form-data   | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。  |
-| authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)     |
+| authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/865/17723)     |
 >**注意：**
 >如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
@@ -108,7 +108,7 @@
 | -5062   | url 对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 
 
-更多其他 API 错误码请看 [**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [**错误码说明**](/document/product/865/17722) 。
 
 
 

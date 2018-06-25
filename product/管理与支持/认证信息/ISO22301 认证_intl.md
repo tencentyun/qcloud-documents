@@ -1,0 +1,7 @@
+Tencent Cloud is part of the initial batch of domestic Cloud service providers to be awarded the ISO22301 certification.
+
+ISO 22301 is an inaugural set of international standards focusing on Business Continuity Management, (hereinafter “BCM”), providing a comprehensive yet generic methodology that ensures enterprises are able to satisfy and comply with globally accepted best practices.
+
+This certification is applicable across all types of industries and organizations, regardless of scale and nature. In addition, it is of particular pertinence to industries that are deemed “high-risk” and those that operate under a strict regulatory regime, including Finance, IT & Communications and Manufacturing.  In the course of its business, an enterprise is often impacted by various internal as well as external factors. In drastic situations, this may even lead to a cessation in operations, which if unforeseen, may result in severe losses.
+
+Business Continuity Management is currently gaining in prominence, with the finance industry as a fine example. Since 2005, when the State Council promulgated the Response Plan for Financial Emergencies, a state-level policy, the said industry has progressively sought to incorporate BCM into its regulatory ambit.  The China Banking Regulatory Commission as well as the China Insurance Regulatory Commission (amongst other Regulatory Commissions) have also successively introduced requirements pertaining to BCM for the finance industry.

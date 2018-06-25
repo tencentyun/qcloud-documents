@@ -4,7 +4,7 @@
 本接口用于识别用户上传的营业执照图像，返回注册号、法定代表人、公司名字、地址、营业期限这 5 个字段信息。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
 支持 http 和 https 两种协议：
@@ -22,7 +22,7 @@
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
 | content-type   | 是   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。                     |
-| authorization  | 是   | 鉴权签名                                     | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
+| authorization  | 是   | 鉴权签名                                     | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 >**注意：**
 如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
@@ -32,7 +32,7 @@
 | 参数名   | 必选 | 类型           | 参数说明                                     |
 | ----- | ---- | ------------ | ---------------------------------------- |
 | appid | 是   | string       | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                    |
-| image | 否   | image/jpeg 等 | 图片文件。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image | 否   | binary | 图片文件。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 | url   | 否   | string       | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 
@@ -217,6 +217,6 @@ Content-Disposition: form-data; name="appid"
 | -9502 | 营业执照 OCR 识别失败              |
 
 
-更多其他 API 错误码请看 [**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。
 
  

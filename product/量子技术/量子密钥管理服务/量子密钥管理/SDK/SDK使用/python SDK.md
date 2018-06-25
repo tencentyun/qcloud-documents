@@ -3,9 +3,9 @@
 
 -[python sdk 本地下载]()
 ### 环境依赖
-python2.7 目前不支持 python3
+Python2.7 目前不支持 Pythonn3
 
-获取 python 版本的方法：
+获取 Python 版本的方法：
 
 linux shell 
 
@@ -24,7 +24,7 @@ windows cmd
     Python 2.7.11
 ```
 
-如果提示不是内部或者外部命令，请先在 window 环境变量 PATH 里面添加上 python 的绝对路径
+如果提示不是内部或者外部命令，请先在 window 环境变量 PATH 里面添加上 Python 的绝对路径
  
 ### 生成客户端对象
 
@@ -111,7 +111,7 @@ windows cmd
 #### 使用示例
 
 ```
-    keyId=''  # 请填写你的keyId
+    keyId=''  # 请填写您的keyId
     key_meta = kms_account.get_key_attributes("kms-awy8dndb")
     print key_meta
 ```
@@ -137,8 +137,8 @@ windows cmd
 #### 使用示例
 
 ```
-    keyId=''  # 请填写你的keyId
-    Alias=''  # 请填写你的主密钥别名
+    keyId=''  # 请填写您的keyId
+    Alias=''  # 请填写您的主密钥别名
     kms_account.get_key_attributes(keyId,Alias)
 ```
 

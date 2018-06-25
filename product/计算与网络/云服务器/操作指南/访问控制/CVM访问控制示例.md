@@ -41,7 +41,7 @@
     ]
 }
 ```
-以上策略是通过让用户分别对 CVM、VPC（Virtual Private Cloud）、CLB（Cloud Load Balance）和 MONITIOR 中所有资源都具有操作的权限来达到目的。
+以上策略是通过让用户分别对 CVM、VPC（Virtual Private Cloud）、CLB（Cloud Load Balance）和 MONITOR 中所有资源都具有操作的权限来达到目的。
 
 ### CVM 的只读策略
 如果您只想让用户拥有查询 CVM 实例的权限，但是不具有创建、删除、开关机的权限，您可以对该用户使用名称为：QcloudCVMInnerReadOnlyAccess 的策略。
@@ -122,11 +122,11 @@
 如果您想要让用户能够查看 CVM 控制台中的云硬盘信息，创建云硬盘，使用云硬盘，可将以下操作添加到您策略中，然后将该策略关联到该用户。
 
 - **CreateCbsStorages ：**创建云硬盘。
-- **AttachCbsStorages ：**挂载指定的弹性云盘到指定的云主机上。
+- **AttachCbsStorages ：**挂载指定的弹性云盘到指定的云服务器上。
 - **DetachCbsStorages ：**解挂指定的弹性云盘。
 - **ModifyCbsStorageAttributes ：**修改指定云硬盘的名称或项目 ID。
 - **DescribeCbsStorages ：**查询云硬盘的详细信息性。
-- **DescribeInstancesCbsNum ：**查询云主机已挂载的弹性云盘数量和可挂载的弹性云盘的总数。
+- **DescribeInstancesCbsNum ：**查询云服务器已挂载的弹性云盘数量和可挂载的弹性云盘的总数。
 - **RenewCbsStorage ：**续费指定的弹性云盘。
 - **ResizeCbsStorage ：**扩容指定的弹性云盘。
 
@@ -224,7 +224,7 @@
 ```
 ### 授权用户拥有特定 CVM 的操作权限策略
 如果您想要授权用户拥有特定 CVM 操作权限，可将以下策略关联到该用户。
-以下策略允许用户拥有对 id 为 ins-1,广州地域的 CVM 机器的操作权限。
+以下策略允许用户拥有对 ID 为 ins-1,广州地域的 CVM 机器的操作权限。
 
 ```
 {

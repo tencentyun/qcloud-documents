@@ -42,7 +42,7 @@ mysql -h xxx.xxx.xxx.xxx:xxxx -u userName -p dbName < /tmp/triggerProcedure.sql
 参数说明：
 
 xxx.xxx.xxx.xxx:xxxx  实例连接地址，本例以内网地址为例
-userName：RDS 数据库的迁移账号
+userName：CDB 数据库的迁移账号
 dbName：需要导入的数据库名
 /tmp/dbName.sql：要导入的数据文件名
 /tmp/triggerProcedure.sql：要导入的存储过程文件名

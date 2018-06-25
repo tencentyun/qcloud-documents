@@ -7,7 +7,7 @@
 | 查询集群节点列表 | [DescribeClusterInstances](/doc/api/457/9449) |  用于查询集群节点，该接口返回集群内节点信息
 | 扩展集群节点 | [AddClusterInstances](/doc/api/457/9447) |  用于集群扩展节点
 | 删除集群节点 | [DeleteClusterInstances](/doc/api/457/9446) |  用于删除集群节点
-| 添加已存在云主机到集群 | [AddClusterInstancesFromExistedCvm](/doc/api/457/9450) | 用于添加已存在的云主机到集群
+| 添加已存在云服务器到集群 | [AddClusterInstancesFromExistedCvm](/doc/api/457/9450) | 用于添加已存在的云服务器到集群
  
 ## 2. 服务相关接口
 | 接口功能 | Action ID | 功能描述

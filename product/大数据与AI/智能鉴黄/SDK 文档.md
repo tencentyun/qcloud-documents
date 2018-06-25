@@ -4,7 +4,7 @@
 
 | SDK             | 接入文档                                     |
 | --------------- | ---------------------------------------- |
-| Java-SDK-图像识别   | [Java-SDK- 图像识别](/document/product/641/12437) |
-| Python-SDK-图像识别 | [Python-SDK- 图像识别](/document/product/641/12440) |
-| CPP-SDK-图像识别    | [CPP-SDK- 图像识别](/document/product/641/12436) |
-| PHP-SDK-图像识别    | [PHP-SDK- 图像识别](/document/product/641/12438) |
+| Java-SDK-图像识别   | [Java-SDK- 图像识别](/document/product/864/17708) |
+| Python-SDK-图像识别 | [Python-SDK- 图像识别](/document/product/864/17711) |
+| CPP-SDK-图像识别    | [CPP-SDK- 图像识别](/document/product/864/17709) |
+| PHP-SDK-图像识别    | [PHP-SDK- 图像识别](/document/product/864/17710) |

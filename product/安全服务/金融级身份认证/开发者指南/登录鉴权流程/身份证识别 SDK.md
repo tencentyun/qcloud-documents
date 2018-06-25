@@ -16,8 +16,13 @@
 
 具体接入开发指南见：[**身份证识别 SDK 接入**](https://cloud.tencent.com/document/product/655/13846)
 ## 流程图示
- ![](https://mc.qcloudimg.com/static/img/757aebd7592edcc02fa967a875dc70c4/ID+card+OCR.png)
+![](https://main.qcloudimg.com/raw/03278bb6c037963616a059c46f08a7d8.png)
 
-
+>**注意：**
+>1. access token 有效期 7200 秒，建议合作方缓存在服务器，必须在临近过期和使用失效时重新获取；
+>2. nonce ticket 有效期 120 秒，且一次性有效；
+>3. 在用户登录流程中，获取 api ticket 请求的 user_id 为必填参数，type 为 NONCE；
+>4. SIGN ticket 有效期 3600 秒，建议合作方缓存在服务器，必须在临近过期和使用失效时重新获取；
+>5. 在查询刷脸结果流程中，获取 api ticket 请求的 type 为 SIGN。
 
 更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)

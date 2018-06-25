@@ -29,9 +29,9 @@
 数据库前缀：可填写为 dz_
 系统信箱 Email：填写网站开发者的邮箱
 
-管理员帐号：可填写为admin
+管理员帐号：可填写为 admin
 管理员密码：（填写管理员登录网站后台的密码，需要牢记）
-管理员Email：填写管理员/站长的邮箱
+管理员 Email：填写管理员/站长的邮箱
 
 ![](https://mc.qcloudimg.com/static/img/7d51cc0c69319aef4a08d18ecdd9a5a3/3.png)
 

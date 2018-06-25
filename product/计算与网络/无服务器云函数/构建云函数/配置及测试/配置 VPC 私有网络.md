@@ -44,7 +44,7 @@ def main_handler(event,context):
 
 | 环境变量名 | 值设置规则 | 作用 |
 | --- | --- | --- |
-| OS_NAMESERVER | 可以为一个或的多个 IP 地址或域名，多个地址时使用“;”分号分隔。最多可以支持配置 5 个 自定义 name server。 | 配置自定义 name server |
+| OS_NAMESERVER | 可以为一个或多个 IP 地址、或域名，多个地址时使用“;”分号分隔。最多可以支持配置 5 个 自定义 name server。 | 配置自定义 name server |
 
 可通过打印输出 /etc/resolv.conf 文件检查配置生效情况
 

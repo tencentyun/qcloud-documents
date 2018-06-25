@@ -1,59 +1,59 @@
-To help users get started with Tencent Cloud's Cloud Block Storage quickly, we provide an example in this document on how to create an empty elastic cloud disk `cbs-test` in Beijing zone (For more information about elastic cloud disk, refer to [Categories of Cloud Block Storage](/doc/product/362/2353); for instructions on how to create a cloud disk containing data, refer to [Creating Cloud Disk from Snapshot](/doc/product/362/5757)), connect it to a CVM instance, create a file system and write a file named `qcloud.txt` to the system.
+This document describes how to create an empty elastic cloud disk `cbs-test` in Beijing, connect to a CVM instance, create a file system and write a file named `qcloud.txt` in the system so as to help users have a basic understanding on Tencent Cloud's cloud disks. For more information on the definition of elastic cloud disk, please see [Cloud Disk Classification](/doc/product/362/2353). For more information on how to create a cloud disk with data, please see [Create Cloud Disk from Snapshot](/doc/product/362/5757).
 
-## Preconditions
-To use cloud block storage as described in this document, please make sure that you have a running CVM instance available in the region and availability zone where the cloud disk is to be created (in this example, in the Beijing Zone 1). For instructions on how to create and activate a CVM instance, please refer to [Purchasing and Activating CVM](/doc/product/213/4855).
+## Prerequisites
+To use cloud disks according to this document, make sure that you have an available running CVM instance in the region and availability zone (Beijing Zone 1 in this example) where your cloud disks are created. For information on how to purchase and launch a CVM instance, please see [Purchase and Launch CVM](/doc/product/213/4855).
 
-## Purchasing Cloud Disk
-In this example, you purchase an elastic cloud disk through console. For more information on how to create a cloud disk, refer to [Creating a Cloud Disk](/doc/product/362/5744).
+## Purchasing Cloud Disks
+In this example, an ordinary elastic cloud disk is purchased via the console. For more information on how to create a cloud disk, please see [Create Cloud Disk](/doc/product/362/5744).
 
-1) Log in to [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs), click ![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png) to purchase a cloud disk.
+(1) Log in to [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs) and click **+ New** to purchase.
 
-2) In the pop-up box, select "North China (Beijing)" - "Beijing Zone 1", "Annual or Monthly Plan", "Cloud Block Storage", "20GB", and select "1 month" as the purchase period, then click "OK".
+(2). In the pop-up box, select **North China (Beijing)** -> **Beijing Zone 1** -> **Prepaid** -> **Cloud Block Storage** -> **20 GB**, set the purchase period to one month, and click **OK**.
 
-3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.cloud.tencent.com/cvm/cbs). The elastic cloud disk you just purchased is unnamed by default, and has a status of <font color="red">Pending mounted</font>. Click the "Edit" icon and name it "cbs-test".
+(3) On the payment page, click **Confirm Payment** to complete the purchase. On the [Cloud Disk List Page](https://console.cloud.tencent.com/cvm/cbs), you can view the purchased cloud disks. The elastic cloud disk you just purchased is unnamed by default and displayed as <font color="red">To Be Mounted</font>. Click the Edit icon and name it "cbs-test".
 
-## Connecting to CVM instance
-1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
+## Connecting to a CVM Instance
+(1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
-2) Go to "Cloud Virtual Machine" - "Cloud Block Storage" tab.
+(2) Go to **CVM** -> **CBS** tab.
 
-3) In the CBS list page, click "More" - "Mount to CVM" button next to the new cloud disk.
+(3) On the Cloud Disk List page, click **More** -> **Mount to CVM** button beside the new cloud disk.
 
-4) In the pop-up box, select the CVM to which the cloud disk needs to be mounted (refer to "Preconditions") and click "OK".
+(4) In the pop-up box, select the CVM to be mounted to (see Prerequisites), and click **OK**.
 
-## Formatting, Creating File System and Writing a File
-### If connecting to an instance on Linux
+## Formatting, Creating a File System and Writing a File
+### Connection to a Linux instance
 
-1) Execute the command `fdisk -l` to check the name of the disk device connected to the instance. Find the 20 GB cloud disk you just created. Let's suppose that its device name is `/dev/vdb`.
+(1) Execute the command `fdisk -l` to view the name of the disk device connected to the instance. Find the created 20 GB cloud disk, assuming its device name is `/dev/vdb`.
 
-2) Format the device (this example uses an EXT4 file system): Execute the command `mkfs.ext4 /dev/vdb`.
+(2) Format the device (EXT4 file system is used in this example): Execute the command `mkfs.ext4 /dev/vdb`.
 
-3) Mount to the `/ data` mount point and execute the following command:
+(3) Mount it to point `/data` and execute the following command:
 ```
 mount /dev/vdb /data
 ```
 
-4) Enter the device, and write a file named `qcloud.txt` and execute the following command:
+(4) Enter the device, write a file named `qcloud.txt`, and execute the following command:
 ```
 cd /data
 vi qcloud.txt
 ```
-Write some content in the edit mode, such as: "This is my first test". After pressing ESC to exit the edit mode, enter `wq` to save the changed content. When executing the` ls` command, you'll find that the file has been written to the disk.
+Write something in the editing state, for example: "This is my first test". Press ESC to exit the editing state, and enter `wq` to save the change. Execute the command `ls`, and then you can see that the file has been written to the disk.
 
-.For more information on partitioning, formatting  and file system creation on Linux system, please refer to [Partitioning, Formatting, Mounting and File System Creation on Linux System](https://cloud.tencent.com/document/product/362/6735).
-
-
-
-### If connecting to an instance on Windows
-1) Go to "Disk Management" page by following the path of ("Start"-) "CVM Management" - "Storage/Computer Management" - "Disk Management".
-
-2) Right-click the empty elastic cloud disk you just created, and select "Online".
-
-3) Right-click the disk, and select "New Simple Volume" in the pop-up shortcut menu. As instructed by the wizard, enter the disk size and click "Next"; select the file system (make sure to select GPT as the partition format if the disk is larger than 2TB); format the partition, click "Next", then click "Finish":
-
-4) You'll be prompted that the formatting is in progress. When formatting is completed, you can use the elastic cloud disk.
-
-5) Enter the disk created, create a file called `qcloud.txt`, enter the required content, click "Save". Now, the writing of file has been completed.
-
-For more information on partitioning, formatting, going online and file system creation on Windows system, please refer to [Partitioning, Formating, Going Online and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
+For more information on partitioning, formatting, and file system creation on Linux, please see [Partitioning, Formatting, Mounting and File System Creation on Linux](/document/product/362/6735
 ).
+
+### Connection to a Windows instance
+(1). Go to (**Start** ->) **CVM Management** -> **Storage/Computer Management** -> **Disk Management**.
+
+(2) Right-click on the created empty elastic cloud disk and select **Online**.
+
+(3) Right-click on the disk and select **New Simple Volume** in the pop-up shortcut menu. Follow the instructions in the Wizard, and enter the size of the entire disk. Click **Next** to select the file system (When the disk is larger than 2 TB, make sure to select GPT partition). Format the partition, click **Next**, and click **OK**.
+
+(4) The elastic cloud disk is being formatted. After the formatting is completed, it can be used.
+
+(5) Create a file named `qcloud.txt` in the disk. Enter something, and click "Save". Now you have successfully written the file.
+
+For more information on partitioning, formatting, online and file system creation on Windows, please see [Partitioning, Formatting, Online and File System Creation on Windows](https://cloud.tencent.com/document/product/362/6734
+).
+

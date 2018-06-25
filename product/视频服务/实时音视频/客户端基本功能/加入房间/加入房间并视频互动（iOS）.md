@@ -23,6 +23,9 @@
     // 设置房间中断事件监听
     option.roomDisconnectListener = liveRoomVC;
     
+    // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
+    option.controlRole = #腾讯云控制台配置的角色名#;
+    
     // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] joinRoom:[self.roomIDTF.text intValue] option:option succ:^{
         // 加入房间成功，跳转到房间页

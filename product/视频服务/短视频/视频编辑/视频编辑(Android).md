@@ -67,7 +67,7 @@ getSampleImage(int count, String videoPath)
 开发包中的 TCVideoEditerActivity 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
 ### 2. 效果预览
-视频编辑提供了**区间预览**（循环播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
+视频编辑提供了**区间预览**（播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
 
 - **绑定 FrameLayout**
   TXVideoEditer 的 initWithPreview 函数用于绑定一个 FrameLayout 给 SDK 来渲染视频画面，绑定时需要制定**自适应**与**填充**两种模式。
@@ -77,7 +77,7 @@ PREVIEW_RENDER_MODE_FILL_EDGE  - 适应模式，尽可能保持画面完整，�
 ```
 
 - **区间预览**
-  TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
+  TXVideoEditer 的 startPlayFromTime 函数用于播放某一时间段 A<=>B 内的视频片段。
 
 ### 3. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
@@ -535,6 +535,31 @@ VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
 ```
 public void setVideoBitrate(int videoBitrate);
 ```
+### 16. 图片编辑
+SDK在4.9版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画，BGM，贴纸等效果。  
+接口函数如下：
 
-### 16. 释放
+```
+/*
+ * bitmapList:转场图片列表,至少设置三张图片 （tips ：图片最好压缩到720P以下（参考demo用法），否则内存占用可能过大，导致编辑过程异常）
+ * fps:       转场图片生成视频后的fps （15 ~ 30）
+ * 返回值：
+ *       0 设置成功；
+ *      -1 设置失败，请检查图片列表是否存在
+ */
+public int setPictureList(List<Bitmap> bitmapList, int fps);
+
+/*
+ * type:转场类型，详情见 TXVideoEditConstants
+ * 返回值：
+ *       duration 转场视频时长（tips：同一个图片列表，每种转场动画的持续时间可能不一样，这里可以获取转场图片的持续时长）；
+ */
+public long setPictureTransition(int type)
+```  
+- 其中，setPictureList接口用于设置图片列表，最少设置三张，如果设置的图片过多，要注意图片的大小，防止内存占用过多而导致编辑异常。
+- setPictureTransition接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过返回值获取转场的时长。 
+- 需要注意接口调用顺序，先调用setPictureList，再调用setPictureTransition。
+- 图片编辑暂不支持的功能：重复，倒放，快速/慢速，其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。
+
+### 17. 释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。

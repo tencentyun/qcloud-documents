@@ -1,78 +1,78 @@
-Cloud disk is an expandable storage device on cloud. When a cloud disk is created, you can expand its capacity at any time to increase its storage space without losing any data on it. To expand the cloud disk and use the expanded capacity, in addition to [expanding physical cloud disk](/doc/product/362/5747), you need to expand the file system on it to identify the new available space. You can follow the steps below:
+Cloud disk is an expandable storage device on cloud. When a cloud disk is created, you can expand its capacity at any time to increase its storage space without losing any data on it. To expand the capacity for use, you need to [expand physical cloud disk](/doc/product/362/5747) and file system on it to identify new available space. You can follow the steps below:
 
-1) [Expanding physical cloud disk](/doc/product/362/5747)
+1) [Expand Physical Cloud Disk](/doc/product/362/5747)
 
-2) Expanding the partition
+2) Expand partition
 
-- Determine the partition table format of file system
-- Expanding the partition
+- Determine the format of file system partition table
+- Expand partition
 
-3) Expanding the file system
+3) Expand file system
 
 
-## Checking the file system size
-After the expansion of physical cloud disk, you can check the file system size to see whether the instance identifies a larger cloud disk space. On Linux system, you can use the command `df -h` to check the file system size.
+## Checking the Size of File System
+After expanding the physical cloud disk, you can check whether the instance identifies a larger cloud disk space by checking the size of the file system. On Linux, you can check the size of file system using command `df -h`.
 
-If you find that the cloud disk size does not become the expanded value, you need to expand the file system so that the instance can use the new space.
+If the size of the cloud disk does not increase to the expanded value, expand the file system so that the instance can use the expanded space.
 
-## Confirming the partition table format
-Use the following command to check the partition table format used by the cloud disk before its expansion:
+## Confirming the Format of Partition Table
+Use the following command to confirm the format of partition table used by the cloud disk before capacity expansion:
 
 ```
 fdisk -l
 ```
 
-If you get the results as shown in the following two figures (the results vary slightly with operating systems), you can conclude that the CVM has a GPT partition format before the expansion. For the information on subsequent operations, refer to "Guide on Partition Modification After Expansion of Cloud Disk with a GPT Partition Format".
+If the result is displayed as shown in either of the following two figures (depending on the OS), the GPT partition mode is used before the CVM expansion. For the subsequent operations, please see Guidelines on Modifying Partition after Expanding the GPT Partition Cloud Disk.
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
 
-If you get the results as shown in the following figure (the results vary slightly with operating systems), you can conclude that the CVM has an MBR partition format before the expansion. For the information on subsequent operations, refer to "Guide on Partition Modification After Expansion of Cloud Disk with an MBR Partition Format".
+If the result is displayed as shown in the following figure (depending on the OS), the MBR partition mode is used before the CVM expansion. For the subsequent operations, please see Guidelines on Modifying Partition after Expanding the MBR Partition Cloud Disk.
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
 
-## Guide on Partition Modification After Expansion of Cloud Disk with a GPT Partition Format
-### Formatting the new disk space as a separate GPT partition
-#### Viewing data disk information
-Execute the command `parted disk path print` to verify the capacity change of the cloud disk. If during the process you get the following prompt, enter `Fix`:
+## Guidelines on Modifying Partition after Expanding the GPT Partition Cloud Disk
+### Formatting New Space as an Independent GPT Partition
+#### Viewing Data Disk Information
+Run the command `parted disk path print` to check the capacity change of the cloud disk. Enter `Fix` when receiving the following prompt:
 
 ![](//mccdn.qcloud.com/static/img/cf51cda9a12085f76949ab0d5dd0fbfc/image.png)
 ![](//mccdn.qcloud.com/static/img/01a0a7a8fdfe6f05f2739f0326a74ef9/image.png)
-The expanded cloud disk has a size of 107GB, with the size of existing partition being 10.7GB.
+As shown in the figure above, the size of expanded cloud disk is 107 GB and the size of existing partition is 10.7 GB.
 
 #### Unmounting the mounted data disk
-Execute the following command to verify whether the cloud disk still has a mounted partition:
+Run the following command to check whether the cloud disk has partitions mounted:
 
 ```
 mount | grep 'Disk path' 
 ```
 ![](//mccdn.qcloud.com/static/img/edc5bbd6834e1dd929ce0eb00acd53ca/image.png)
-The cloud disk has a partition (vdb1) mounted on /data, which needs to be unmounted.
+As shown in the figure above, there is a partition (vdb1) on the cloud disk mounted on /data, which needs to be unmounted.
 
-Use the following command to unmount the partition:
+Unmount it using the following command:
 
 ```
-umount Mount point
+umount  Mount point
 ```
 
-In this example, execute `umount /data` to unmount the partition.
+In this example, run `umount /data` to unmount the partition.
 
-> Note: To unmount the file systems of all the partitions of the cloud disk (such as vdb1, vdb2...),
+> Note: Unmount the file system in all partitions of the cloud disk, such as vdb1, vdb2...
 
-please use the command `mount | grep '/dev/vdb' ` to verify that the file systems of all the partitions on the cloud disk have been unmounted.
+Use command `mount | grep '/dev/vdb' again to confirm that all partitions on this disk have been unmounted.
 
 ![](//mccdn.qcloud.com/static/img/a2f6db45a94485785ea15e6ea950bcb8/image.png)
 
-#### Data disk partitioning 
-After confirming that all partitions of the cloud disk have been unmounted, execute the following command to create a new partition:
+#### Data Disk Partition 
+After confirming that all the partitions of the cloud disk have been unmounted, run the following command to create a partition:
 
 ```
 parted Disk path
 ```
-Enter `parted /dev/vdb`.
+Here enter `parted /dev/vdb`.
 
-Next, enter `print` to view the partition information, record the End value of the existing partition, and use it as the starting offset value for the next partition:
+Then enter `print` to view the partition information. Remember the End value of the existing partition, which is the starting offset of the next partition:
 ![](//mccdn.qcloud.com/static/img/788ce125bba952f204ed6ee36dfb644d/image.png)
 
-Then execute the following command to create a new primary partition. This partition starts with the end of the existing partition, covering all the new space of the disk. :
+Then run the following command to create a primary partition. This partition starts at the end of the existing partition, and cover all the expanded space on the disk. :
 
 ```
 mkpart primary start end
@@ -80,235 +80,233 @@ mkpart primary start end
 
 In this example, use `mkpart primary 10.7GB 100%`
 
-Execute `print` again and you'll find that the new partition has been created successfully. Enter `quit` to exit the parted tool:
+Run `print` again, and you can find that the new partition has been created successfully. Type `quit` to exit the parted tool:
 ![](//mccdn.qcloud.com/static/img/fc54fd4c05102ee91c648526d77d1b42/image.png)
 
-#### Formatting the new partition
-Execute the following command to format the new partition mentioned above. You can decide the file system format yourself, such as ext2, ext3.
+#### Formatting New Partition
+Run the following command to format the new partition above. You can decide the format of the file system, such as ext2 and ext3.
 
 ```
 mkfs.[fstype] [Partition path] 
 ```
-Use the command `mkfs.ext3 /dev/vdb2` to format the new partition. The file system is ext3. 
+Here the new partition is formatted using the command `mkfs.ext3 /dev/vdb2`, and the file system is EXT3. 
 
 
-### Adding the new space to the existing partition (GPT partition format)
-#### Viewing data disk information
-Execute the command `parted disk path print` to verify the capacity change of the cloud disk. If during the process you get the following prompt, enter `Fix`:
+### Adding New Space to Existing Partition (GPT Partition Format)
+#### Viewing Data Disk Information
+Run the command `parted disk path print` to check the capacity change of the cloud disk. Enter `Fix` when receiving the following prompt:
 
 ![](//mccdn.qcloud.com/static/img/cf51cda9a12085f76949ab0d5dd0fbfc/image.png)
 ![](//mccdn.qcloud.com/static/img/01a0a7a8fdfe6f05f2739f0326a74ef9/image.png)
-The expanded cloud disk has a size of 107GB, with the size of existing partition being 10.7GB.
+As shown in the figure above, the size of expanded cloud disk is 107 GB and the size of existing partition is 10.7 GB.
 
 #### Unmounting the mounted data disk
-Execute the following command to verify whether the cloud disk still has a mounted partition:
+Run the following command to check whether the cloud disk has partitions mounted:
 
 ```
 mount | grep 'Disk path' 
 ```
 ![](//mccdn.qcloud.com/static/img/edc5bbd6834e1dd929ce0eb00acd53ca/image.png)
-The cloud disk has a partition (vdb1) mounted on /data, which needs to be unmounted.
+As shown in the figure above, there is a partition (vdb1) on the cloud disk mounted on /data, which needs to be unmounted.
 
-Use the following command to unmount the partition:
+Unmount it using the following command:
 
 ```
-umount Mount point
+umount  Mount point
 ```
 
-In this example, execute `umount /data` to unmount the partition.
+In this example, run `umount /data` to unmount the partition.
 
-> Note: To unmount the file systems of all the partitions of the cloud disk (such as vdb1, vdb2...),
+> Note: Unmount the file system in all partitions of the cloud disk, such as vdb1, vdb2...
 
-please use the command `mount | grep '/dev/vdb' ` to verify that the file systems of all the partitions on the cloud disk have been unmounted.
+Use command `mount | grep '/dev/vdb' again to confirm that all partitions on this disk have been unmounted.
 
 ![](//mccdn.qcloud.com/static/img/a2f6db45a94485785ea15e6ea950bcb8/image.png)
 
-#### Data disk partitioning  
-After confirming that all partitions of the cloud disk have been unmounted, execute the following command to delete the old partition and create a new partition with the same starting offset value:
+#### Data Disk Partition 
+After confirming that all the partitions of the cloud disk have been unmounted, run the following command to delete the original partition, and create a partition with the same starting offset:
 
 ```
 parted [Disk path]
 ```
 
-Then enter `unit s` to change the unit for display and operation to sector (default to GB). Then enter `print` to view the partition information, and record the Start value of the existing partition. After the deletion of the old partition and creation of new partition, the Start value of the new partition must be same as that of the old one, otherwise the data will be lost.
+Next, enter `unit s` to change the display and control units to sector (GB by default). Enter `print` to view the partition information, and remember the Start value of the existing partition. For the partition created after deleting the original one, the Start value must be the same as this value, otherwise the data will be lost.
 ![](//mccdn.qcloud.com/static/img/67ba54c1d9d63c307d4b8a157b70c722/image.png)
 
-Execute the following command to delete the old partition:
+Run the following command to delete the original partition:
 
 ```
 rm [Partition Number]
 ```
 
-As shown in the above figure, there is a partition with the Number of "1" on the cloud disk. After the execution of `rm 1', you'll get the result as shown below:
+As shown in the figure above, there is a partition on the cloud disk with Number of "1". Run `rm 1` to get the result as shown below:
 ![](//mccdn.qcloud.com/static/img/3384eeada87ce75695e0e55125109eff/image.png)
 
-Enter `mkpart primary [staring sector of old partition] 100%` to create a new primary partition. In this example, use `mkpart primary 2048s 100%`. This primary partition starts with the 2048th sector (this must be consistent with the partition before deletion), and 100% indicates that this partition extends to the end of the disk.
+Enter `mkpart primary [starting sector of original partition] 100%` to create a primary partition. In this example, `mkpart primary 2048s 100%` is used. This primary partition starts from the 2048th sector (the starting sector must be the same before and after deletion), and 100% means this partition reaches the end of the disk.
 
-In case of the status as shown in the figure, please enter Ignore:
+If it is shown as in the figure, enter Ignore:
 ![](//mccdn.qcloud.com/static/img/c45966e20dc856817c65fd6b81155e4a/image.png)
 
-Execute `print` again and you'll find the new partition has been created successfully. Enter `quit` to exit the parted tool:
+Run `print` again, and you can find that the new partition has been created successfully. Type `quit` to exit the parted tool:
 ![](//mccdn.qcloud.com/static/img/cb1af5adaf6c89d066077c43fd428a38/image.png)
 
-#### Check the file system of the partition after expansion
-Use the following command to check the partition after expansion:
+#### Checking File System of Partition after Capacity Expansion
+Check the expanded partition using the following command:
 
 ```
 e2fsck -f Partition path
 ```
-In the previous steps, Partition 1 has been created. Execute the command `e2fsck -f /dev/vdb1`. The result is as follows:
+In the preceding steps, partition 1 has been created for this example. Run `e2fsck -f /dev/vdb1`. The results are:
 ![](//mccdn.qcloud.com/static/img/307f7a0c98eea05ca1d4560fe4e96f57/image.png)
 
-#### Expand the file system
-Execute the following command to expand the file system on the partition:
+#### Expanding File System
+Run the following command to expand the file system on the partition:
 
 ```
 resize2fs Partition path
 ```
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
 
-#### Mounting new partition
-Execute the following command to mount the partition:
+#### Mounting New Partition
+Run the following command to mount the partition:
 
 ```
 mount Partition path Mount point
 ```
 
-Use the command `mount/dev/vdb1/data` to manually mount the new partition, and use `df-h` to make a check. The appearance of the following message indicates that the mounting has been completed successfully and you can view the data disk.
-! [](// mccdn.qcloud.com/static/img/a2bd04c79e8383745689e19033a0daaa/image.png)
+Here, mount the new partition manually with the command `mount /dev/vdb1 /data`, and check it with the command `df -h`. If the following message appears, the partition is mounted successfully, that is you can view the data disk.
+![](//mccdn.qcloud.com/static/img/a2bd04c79e8383745689e19033a0daaa/image.png)
 
-## Guide on Partition Modification After Expansion of Cloud Disk with a MBR Partition Format.
-After the expansion of cloud disk with a MBR partition format, you can choose to:
-- Build the new capacity space into a separate new partition without changing the existing partition
-- Expand the existing partition to a new capacity value (including the scenario where formatting is performed without partitioning), and leave the data of existing partition unchanged.
+## Guidelines on Modifying the Partition after the MBR Partition Cloud Disk is Expanded
+After expanding the MBR partition cloud disk, you can choose to:
+- Format new space as a new separate partition with the original partition unchanged
+- Expand the original partition to the new capacity (including the scenario of direct formatting without partitioning), and retain the data in the original partition.
 
-In both of the above two scenarios, after the upgrade of the cloud disk on Linux CVM, you can execute a series of commands with the partition expanding tool under Linux (fdisk/e2fsck/resize2fs) to complete the expansion of partition while ensuring the existing data will not be lost. Please note that whether you want to add a new partition or to expand the existing partition, it is necessary to unmount the mounted partition before expansion, so that the kernel can identify the new partition table.
+In the two scenarios above, after the cloud disk of your Linux CVM is successfully upgraded, you can use the partition expansion tool (fdisk/e2fsck/resize2fs) in Linux to run a series of commands to complete the partition expansion with the original data retained. Note: regardless of adding a partition or expanding an existing partition, you need to unmount all mounted partitions of the cloud disk before expanding the capacity in order for the kernel to recognize the new partition table.
 
-Due to the limitations of MBR, please ensure the size of any partition does not exceed 2TB in either of the two cases (If the expanded space is greater than 2TB, the second option is not allowed).
+Note: due to MBR restrictions, no matter which method you choose, keep the size of any partition not more than 2 TB (if the expanded space is greater than 2 TB, you cannot choose the second method).
 
-### Formatting the new disk space to a separate partition
-#### Viewing data disk information
-Execute the command `df-h` to view the partition information of the mounted data disk, and the command `fdisk -l` to view the information of the expanded data disk before partitioning:
+### Formatting New Space as an Independent Partition
+#### Viewing Data Disk Information
+Run the command `df -h` to view the partition information of the mounted data disk, and the command `fdisk -l` to view the information of the expanded data disk before partitioning:
 ![](//mccdn.qcloud.com/static/img/0a450dfaa9cfc7b2c7fdc04861f0e754/image.png)
 ![](//mccdn.qcloud.com/static/img/594671a1215dee3036b7940892438f62/image.png)
 
-#### Unmounting all the mounted partitions
-Execute the following command to unmount all the mounted partitions:
+#### Unmounting All Mounted Partitions
+Run the following command to unmount all mounted partitions:
 
 ```
-umount Mount point
+umount  Mount point
 ```
 
-Execute the command `unmount /data` to unmount all the mounted partitions.
+Use `umount /data` to unmount all mounted partitions here.
 
-#### Data disk partitioning
-After confirming that all partitions of the cloud disk have been unmounted, execute the following command to create a new partition:
+#### Data Disk Partition
+After confirming that all the partitions of the cloud disk have been unmounted, run the following command to create a partition:
 
 ```
 fdisk [Disk path]
 ```
-In this example, use the command `fdisk /dev/xvdc`. As prompted in the interface, enter "p" (check the existing partition information), "n" (create a new partition), "p" (create a primary partition), and "2" (create the second primary partition) in turn, press Enter twice (use default settings), and then enter "w" (save partition table) to start partitioning:
+In this example, use the command `fdisk /dev/xvdc`, and follow the prompts to enter "p" (view existing partition information), "n" (create partition), "p" (create primary partition), and "2" (create the second primary partition) in sequence, press enter twice (use default settings), enter "w" (save partition table) to start partitioning:
 ![](//mccdn.qcloud.com/static/img/8c35d6f4dfb367e74edc27ce6822c317/image.png)
-Here you'll create one partition. You can create multiple partitions as required.
+In this example, we only create one partition. You can create multiple partitions according to your needs.
 
-#### Checking new partition
-Use the following command to check the new partition.
+#### Viewing New Partition
+Run the following command to view the information of the new partition.
 
 ```
 fdisk -l
 ```
 
 ![](//mccdn.qcloud.com/static/img/e04e924d62317bc2c605c8abaac394f5/image.png)
-The new partition xvdc2 has been created.
+As shown in the figure above, the new partition xvdc2 has been created.
 
-#### Formatting the new partition and creating the file system
-When formatting a partition, you can decide the file system format yourself, such as ext2, ext3 and so on. Here "ext3" is taken as an example. Use the command `mkfs.ext3 /dev/xvdc2` to format the new partition. 
+#### Formatting New Partition and Creating File System
+When formatting partitions, you can decide the file system format, such as ext2 and ext3. Here we take "ext3" as an example, and use the command `mkfs.ext3 /dev/xvdc2` to format the new partition. 
 
 ![](//mccdn.qcloud.com/static/img/074e23eaa580495f96fb532b688d2d68/image.png)
 
-#### Mounting new partition
-Use the following command to create a new mount point:
+#### Mounting New Partition
+Create a new mount point using the following command
 
 ```
 mkdir New mount point
 ```
-Execute the following command to mount the new partition on the new mount point:
+And run the following command to mount the new partition to the new mount point:
 
 ```
 mount New partition path New mount point
 ```
 
-Use the command `mkdir /data1` to create data1 directory. Then use the command `mount /dev/xvdc2 /data1` to manually mount the new partition, and use the` df-h` to make a check. The appearance of the following message indicates that the mounting has been successfully completed and you can view the data disk:.
+Here we use the command `mkdir /data1` to create the data1 directory, and use the command `mount /dev/xvdc2 /data1` to manually mount the new partition, and then use the command `df -h` to check. If the following message appears, the partition is mounted successfully, that is you can view the data disk:
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 
-#### Adding new partition information
-If you want the data disk to be automatically mounted to CVM when CVM is restarted or booted, you need to add the partition information to /etc/fstab. If you do not do so, the data disk will not be automatically mounted to the CVM when the CVM is restarted or booted.
+#### Adding Information of New Partition
+If you want the data disk to be automatically mounted to CVM when CVM is restarted or booted up, you need to add the partition information to /etc/fstab. If you do not, the data disk will not be automatically mounted to the CVM when the CVM is restarted or booted up.
 
-Execute the following command to add information:
+Run the following command to add information:
 `echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab`
 
-Execute the command `cat /etc/fstab` to make a check, and the appearance of the following message indicates the partition information has been successfully added:
+Run the `cat /etc/fstab` command to check. If the following message appears, the partition information is successfully added:
 ![](//mccdn.qcloud.com/static/img/f0b5c14bf08fd3629ddf6d9b1ae01ffc/image.png)
 
-### Adding new space to the existing partition
-If the old disk partition is an MBR partition (with identifier like vdb1, vdc1 and so on), and a file system has been created on this partition; Or if the old disk has not been partitioned and a file system has been directly created on this disk: In both of the above cases, you can choose to use the automatic expansion tool for expansion.
+### Adding New Space to Existing Partition Space
+The original disk partition is an MBR partition (you can see vdb1, vdc1, etc.), and the file system is also created on this partition. Or the original disk is not partitioned, and the file system is directly created on this disk. In both cases, you can choose to use the automatic expansion tool for capacity expansion.
 
-The automatic expansion tool is suitable for Linux system, used to add the new space of cloud disk to the existing file system. The following three conditions must be met to ensure the success of expansion:
-- The file system is ext2/ext3/ext4
-- No error occurs with the current file system
-- The disk size after expansion does not exceed 2TB
+The automatic expansion tool is applicable to the Linux operating system, which is used to add the new cloud disk storage space to the existing file system. To expand capacity successfully, the following three conditions must be satisfied:
+- The file system is ext2/ext3/ext4.
+- No error occurs on the current file system.
+- Expanded disk size does not exceed 2 TB.
 
-The following describes how to use the automatic expansion tool.
+Next we describe how to use the automatic expansion tool.
 
-#### Uninstalling the disk partition which is in use
-Execute the following command to unmount the partition:
+#### Unmounting Disk Partition in Use
+Run the following command to unmount the partition:
 
 ```
-umount Mount point
+umount  Mount point
 ```
 
 ![](//mccdn.qcloud.com/static/img/c0acc05057941681627a5fd34979d194/image.jpg)
 
-#### Downloading the one-click expansion tool
-Execute the following command to download the tool:
+#### Downloading the Quick Expansion Tool
+Run the following command to download the tool:
 
 ```
 wget -O /tmp/devresize.py http://mirrors.tencentyun.com/install/virts/devresize.py
 ```
 
-#### Executing the expansion tool
-Execute the following command:
+#### Running the Expansion Tool
+Run the following command to expand capacity:
 ```
 python /tmp/devresize.py Disk path
 ```
-Please note that the disk path points to the cloud disk to be expanded, rather than the partition name. If your file system is on vdb1, execute `python /tmp/devresize.py  /dev/vdb`
+Note that the disk path here refers to the cloud disk to be expanded, but not the partition name. If your file system is on vdb1, run `python /tmp/devresize.py  /dev/vdb`.
 
 ![](//mccdn.qcloud.com/static/img/c7617b90578192d64d19f02325f00ffb/image.jpg)
 
-The output of "The file system on /dev/vdb1 is now XXXXX blocks long." indicates the expansion has been successfully completed.
+If the output is "The filesystem on /dev/vdb1 is now XXXXX blocks long.", it means the expansion is successful.
 
-If the output shows "[ERROR] - e2fsck failed!!", you may need to repair the partition of your file system by the following command:
-
+If the output is "[ERROR] - e2fsck failed!!", use fsck to repair the partition where the file system is located. You can run the following command to automatically repair it:
 ```
-fsck Partition path
+fsck -a Partition path
 ```
+Note that this is different from the previous command. Enter the partition where the file system is located. If your file system is on vdb1, run `fsck -a /dev/vdb1`.
 
-Notice that this command is different from the above. The partition path refers to your partition which contains the your file system. If your file system is on vdb1, execute `fsck /dev/vdb1`.
+After the partition is repaired successfully, use `python /tmp/devresize.py disk path` to expand capacity with the expansion tool.
 
-Once the repair finishes, you can continue to execute the expansion tool with command `python /tmp/devresize.py Disk path`.
-
-#### Remounting the expanded partition
-Execute the following command to mount the expanded partition:
+#### Remounting Expanded Partition
+Run the following command to mount the expanded partition:
 ```
 mount Partition path Mount point
 ```
 
-Execute the commands to check the partition capacity after expansion:
+Run the following command to view the capacity of the expanded partition:
 ```
 df -h
 ```
 
-Use the command `mount /dev/ vdb1 /data` to manually mount the expanded partition (if no partition exists previously, execute `mount /dev/vdb /data`), and use the command ` df-h` to make a check. The appearance of the following message indicates that the mounting has been completed successfully and you can view the data disk:
+Here we use the command `mount /dev/vdb1 /data` to manually mount the expanded partition (if there is no partition before, run `mount /dev/vdb /data`), and use the command `df -h` to check. If the following message appears, the mounting is successful, that is you can view the data disk:
 
 ![](//mccdn.qcloud.com/static/img/2367f3e70cd0c3c1bef665cc47c1c3bc/image.jpg)
-Then execute the command `ll /data` and you can find that after the expansion the data on the old partition is not lost, and the new space has been added to the file system.
+Then run the command `ll /data`, and you can find that the data in the original partition is not lost after the expansion and the new storage space has been expanded to the file system.

@@ -5,13 +5,13 @@
 
 | 功能            | API 接口                                |
 | ------------- | ----------------------------------- |
-| OCR-身份证识别     | [查看文档](/document/product/641/12424) |
-| OCR-名片识别      | [查看文档](/document/product/641/13209) |
-| OCR-行驶证/驾驶证识别 | [查看文档](/document/product/641/12426) |
-| OCR-车牌识别      | [查看文档](/document/product/641/12427) |
-| OCR-银行卡识别     | [查看文档](/document/product/641/12429) |
-| OCR-营业执照识别    | [查看文档](/document/product/641/12425) |
-| OCR-通用印刷体识别   | [查看文档](/document/product/641/12428) |
-| OCR-手写体识别     |[查看文档](/document/product/641/12838) |
+| OCR-身份证识别     | [查看文档](/document/product/866/17597) |
+| OCR-名片识别      | [查看文档](/document/product/866/17595) |
+| OCR-行驶证/驾驶证识别 | [查看文档](/document/product/866/17599) |
+| OCR-车牌识别      | [查看文档](/document/product/866/17601) |
+| OCR-银行卡识别     | [查看文档](/document/product/866/17602) |
+| OCR-营业执照识别    | [查看文档](/document/product/866/17598) |
+| OCR-通用印刷体识别   | [查看文档](/document/product/866/17600) |
+| OCR-手写体识别     |[查看文档](/document/product/866/17596) |
 
 

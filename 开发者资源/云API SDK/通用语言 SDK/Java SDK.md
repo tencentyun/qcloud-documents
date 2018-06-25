@@ -26,6 +26,12 @@
 <tr>
     <td><a href="https://cloud.tencent.com/document/api/692/16733">Web漏洞扫描</a></td>
     <td><a href="https://cloud.tencent.com/document/api/441/17362">智能语音服务</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/858/17760 ">容器实例服务</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/283/17741">应用安全</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://cloud.tencent.com/document/api/869/17777">电子合同服务</a></td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -46,7 +52,7 @@
 <dependency>
         <groupId>com.tencentcloudapi</groupId>
         <artifactId>tencentcloud-sdk-java</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.8</version>
 </dependency>
 ```
 3. 引用方法可参考示例。

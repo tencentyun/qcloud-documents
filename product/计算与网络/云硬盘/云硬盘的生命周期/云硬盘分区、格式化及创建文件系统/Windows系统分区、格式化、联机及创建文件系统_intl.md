@@ -1,104 +1,150 @@
-Instances can recognize a connected cloud disk and regard it as an ordinary hard disk. Users can use any file systems to format and partition the Cloud Block Storage device, and create a file system for it. After this, any data written into the file system will be written into the cloud disk, and the data will be transparent to the applications that use this device. The data disks are offline by default, which cannot be used before being partitioned and formatted. This tutorial will guide you on how to partition and format disks in Windows system.
+An instance can recognize the connected cloud disk and regard it as an HDD cloud disk. You can use any file system to format and partition the cloud block storage device, and create file systems. Any data written to the file systems is then written to the cloud disk and is transparent to the applications that use the device. The data disks are offline by default, and cannot be used before being partitioned and formatted. This document shows how to partition and format disks in the Windows system.
 
 The path to "Disk Management" may vary with the Windows version (Windows 2012, Windows 2008, Windows 2003, etc.), but the steps to partition and format the disks are basically the same.
  
-This document provides the guide on how to mount, partition and format data disks in Windows 2012 and Windows 2008.
+This document will guide you through the mounting, partitioning and formatting of data disks in Windows 2012 and Windows 2008.
 
-## Preconditions
-- Please make sure that you have performed [Connect Cloud Block Storage to CVM Instance](/doc/product/362/5745), and [Log in to Windows Instance](/doc/product/213/5435) operations.
-- <font color="red">After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.</font>
-- If you have purchased multiple cloud disks, it is suggested that you set a custom name for the elastic cloud disk with important data in it and configure automatic renewal, to prevent any impact on your business caused by expired elastic cloud disk when the disk is not renewed in time. 
-- Users can locate a cloud disk quickly by using the custom name or the private IP of an associated CVM in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
+## Prerequisites
+- Make sure you have [connected cloud disk to the CVM instance](/doc/product/362/5745), and [logged in to Windows instance](/doc/product/213/5435).
+- <font color="red">After formatting, all the data in the data disk will be cleared. Before formatting, make sure there is no data in the data disk or important data has been backed up. To avoid service exceptions, ensure that the CVM has stopped external services before formatting.</font>
+- If you purchased multiple cloud disks, it is recommended to set a custom name for the elastic cloud disk that stores important data and set auto renewal for it to prevent the impact on your business due to the failure to renew the expired elastic cloud disk in a timely manner. 
+- You can locate a cloud disk quickly based on the custom name or the private IP of associated CVM in [CBS Console](https://console.cloud.tencent.com/cvm/cbs).
 
-## Making Disk Online, Disk Partitioning and Formatting in Windows 2012
-### Making Disk Online
-In Windows 2012, the path to Disk Management is "Start" - "Server Management" - "Tools" - "Computer Management" - "Disk Management".
+## Making a Disk Online, and Partitioning and Formatting the Disk in Windows 2012
+### Making a disk online
+In Windows 2012, you can go to **Start** -> **Server Management** -> **Tools** -> **Computer Management** -> **Disk Management** to manage disks.
 
-Click "Start" button.
+Click **Start**:
 
-Click "Server Management".
+![](//mccdn.qcloud.com/img56b1ae00cc2f5.jpg)
 
-Click "Tools" - "Computer Management".
+Click **Server Management**:
 
-Click "Disk Management".
+![](//mccdn.qcloud.com/img56b1ae17e6f48.jpg)
 
-Right click on Disk 1, then select "Online".
+Click **Tools** -> **Computer Management**:
 
-If the disk already has data in it (i.e. non-empty disk), users can ignore the following operations. If you reformat or repartition a non-empty disk, <font color="red">all the original data will be erased</font>
+![](//mccdn.qcloud.com/img56b1aed3a67b3.jpg)
 
-### (Optional) Disk Formatting
-Right click, then select "Initialize Disk".
+Click **Disk Management**:
 
-Select "GPT" or "MBR" depending on the partitioning method, and click the "OK" button.
+![](//mccdn.qcloud.com/img56b1af025f7e1.jpg)
 
-> Note: Make sure to select GPT as partitioning method if the disk is larger than 2TB.
+As shown in the figure below, right click on Disk 1, and then select **Online**:
 
-### (Optional) Disk Partitioning
-Right click on unallocated space, and select "New Simple Volume".
+![](//mccdn.qcloud.com/img56b1b00b8935c.jpg)
 
-In the "New Simple Volume Wizard" pop-up window, click "Next".
+If the disk already contains data (non-empty disk), you can ignore the following steps. Reformatting or partitioning a non-empty disk will <font color="red">clear all existing data on it</font>.
 
-Enter the desired disk size for the partition, then click "Next".
+### (Optional) Formatting a disk
+Right click and select **Initialize Disk**:
 
-Enter the drive letter, then click "Next".
+![](//mccdn.qcloud.com/img56b1b057ada88.jpg)
 
-Select "File System", then "Format Partition", and click "Next".
-.
-Upon completing the New Simple Volume operation, click "Finish".
-View the new partition.
+Select **GPT** or **MBR** depending on the partitioning format, and then click **OK**:
+
+![](//mccdn.qcloud.com/img56b1b0a1cd741.jpg)
+
+> **Note:**
+> Only GPT partitioning format is supported when disk is larger than 2 TB. If you are not sure whether the disk capacity will exceed this value after subsequent expansion, GPT partitioning format is recommended; if you're sure that the disk capacity will not exceed this value, you're recommended to select MBR partitioning for a better compatibility.
+
+### (Optional) Partitioning a disk
+Right-click in the unallocated space and select **New Simple Volume**:
+
+![](//mccdn.qcloud.com/img56b1b0bead71b.jpg)
+
+In the **New Simple Volume Wizard** pop-up window, click **Next**:
+
+![](//mccdn.qcloud.com/img56b1b0fae959f.jpg)
+
+Enter the desired disk size for the partition, and then click **Next**:
+
+![](//mccdn.qcloud.com/img56b1b1de673fb.jpg)
+
+Enter the drive letter, and then click **Next**:
+
+![](//mccdn.qcloud.com/img56b1b2f078870.jpg)
+
+Choose to format the partition, select file system, and then click **Next**:
+
+![](//mccdn.qcloud.com/img56b1b32b1846e.jpg)
+
+Click **Finish** to create the new simple volume:
+
+![](//mccdn.qcloud.com/img56b1b37e6e5f2.jpg)
+
+Check the new partition:
+
+![](//mccdn.qcloud.com/img56b1b39fb404d.jpg)
+
+![](//mccdn.qcloud.com/img56b1b3a3e4dd4.jpg)
 
 
-## Disk Partitioning and Formatting in Windows 2008
-### Making Disk Online
-In Windows 2008, the path to "Disk Management" is different from the path in Windows 2012. Enter it via "Server Management" - "Storage" - "Disk Management".
+## Partitioning and Formatting a Disk in Windows 2008
+### Making a disk online
+In Windows 2008, the path to "Disk Management" is **Server Management** -> **Storage** -> **Disk Management**, which is different from that in Windows 2012.
 
-Click "Server Management".
+Click **Server Management**:
+![](//mccdn.qcloud.com/img56b1b5c4cd2ad.jpg)
 
-Click "Storage" - "Disk Management".
+Click **Storage** -> **Disk Management**:
 
-"Disk 1" is not online in its initial state. Right click "Disk 1" and click "Online" in the pop-up menu.
+![](//mccdn.qcloud.com/img56b1b6b60f2fd.jpg)
 
-### (Optional) Disk Formatting
-Again, right click "Disk 1" and click "Initialize Disk" in the pop-up menu.
+"Disk 1" is not online in its initial state. Right click **Disk 1** and click **Online** in the pop-up menu:
 
-Select GPT as initialization method and click "OK".
+![](//mccdn.qcloud.com/img56b1b71f7e7d4.jpg)
 
-Note: Make sure to select GPT as the partitioning method if the disk is larger than 2TB.
+### (Optional) Formatting a disk
+Right click **Disk 1** and click **Initialize Disk** in the pop-up menu:
 
-### (Optional) Disk Partitioning
-Right click on unallocated space behind "Disk 1", and select "New Simple Volume" in the pop-up shortcut menu.
+![](//mccdn.qcloud.com/img56b1b75941a79.jpg)
 
-Follow the instructions in the Wizard, enter the size of the disk partition, then click "Next".
+Select GPT as initialization format and click **OK**:
+![](//mccdn.qcloud.com/img56b1b89cb0675.jpg)
+Note: Be sure to select GPT as the partitioning format if the disk is larger than 2 TB.
 
-Select "File System", then "Format Partition", and click "Next".
+### (Optional) Partitioning a disk
+Right-click in the unallocated space following Disk 1 and select **New Simple Volume** from the popup menu:
+![](//mccdn.qcloud.com/img56b1b91f2445b.jpg)
 
-Upon completing the New Simple Volume operation, click "Finish".
+As instructed in the wizard, enter the size of the disk partition, then click **Next**:
+![](//mccdn.qcloud.com/img56b1b93ab1e4a.jpg)
 
-"Formatting..." is displayed.
+Choose to format the partition, select file system, and then click **Next**:
+![](//mccdn.qcloud.com/img56b1b95a7f09a.jpg)
 
-At this point, the newly partitioned data disk can be seen on the computer screen.
+Click **Finish** to create the new simple volume:
+![](//mccdn.qcloud.com/img56b1b9829f98e.jpg)
 
-> Note: Do not convert a basic hard disk to a dynamic hard disk. We are not liable for any data loss arising out of this action.
+The figure below shows that it is being formatted:
+![](//mccdn.qcloud.com/img56b1b99be5831.jpg)
 
-## Online Settings
-In Windows operating system, online settings are often needed to be configured in Disk Management. To help you make better use of elastic cloud disk, we recommend that you modify the operating system.
+At this point, you can see the partitioned disk on the PC:
+![](//mccdn.qcloud.com/img56b1b9b953e21.jpg)
 
-Open the cmd command line and execute the following command
+> Note: Do not convert a basic disk to a dynamic disk. We will not be responsible for any data loss caused by this operation.
+
+## Online Setting
+In the Windows operating system, you often need to set online in disk management. To make it easier for you to use elastic cloud disk, we recommend making the following modifications to the operating system:
+
+Open the cmd command line and execute the following command:
 ```
 diskpart
 san policy=onlineall
 ```
+![](//mccdn.qcloud.com/static/img/cfb2f1d6d9b99c6786db612f343df525/image.png)
 
+After this operation, when an elastic cloud disk with valid file system is remounted to Windows CVM, you can use this disk directly without additional operations.
 
-After this operation, if an elastic cloud disk with valid file system is remounted to Windows CVM, the user will be able to use this disk directly without additional operations.
+## Mounting a data disk automatically when launching new instance using custom images and data disk snapshots
+When a new CVM instance is launched, if you specify ***custom image*** and ***data disk snapshot***, Tencent Cloud's cloud disk can be automatically mounted after the launch of CVM instance (read and write data directly without the need to perform operations such as addition, partitioning and formatting). You need to perform some operations on the original instance before making custom images and data disk snapshots, which will be described in detail below.
 
-## Mounting Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot
-When a new CVM instance is activated, if a user specified ***custom image*** and ***data disk snapshot***, Tencent Cloud CBS is able to mount data disk automatically when a CVM instance is activated (which means you can read and write the data disk directly without performing operations such as adding, partitioning and formatting). The user needs to perform several operations on the original instance before creating custom image and data disk snapshot. Details will be described below.
+On the Windows system, if you want the cloud disk produced from the specified data disk snapshot to be automatically mounted to the new CVM instance, the specified custom image and data disk snapshot must meet the following requirements:
 
-For Windows system, if a user hopes that the cloud disk generated from a specified data disk snapshot can be automatically mounted to a new CVM instance, the specified custom image and data disk snapshot must meet the following requirements:
+- The SAN policy in the custom image is `onlineAll`. Public images for Windows provided by Tencent Cloud have been configured as such, but it is recommended to check the configuration before creating any custom image by following the step below:
+![](//mccdn.qcloud.com/static/img/74e490afd81bd7ad9fc9590565b48a80/image.jpg)
 
-- The SAN policy in the custom image is `onlineAll`. Public Windows images currently provided by Tencent Cloud have been properly configured by default, but it is recommended that users check the configuration before creating any custom images.
+- The data disk must have been formatted as `ntfs` or `fat32` before you make a snapshot.
 
-- The data disk must have already been formatted into `ntfs` or `fat32` before it can be used to create snapshot.
-
-Both of the above two requirements need to be satisfied to ensure that newly activated Windows CVM instance data disks can be automatically recognized and made online.
+Only when both of the conditions are met can the data disk of the launched Windows CVM instance be automatically recognized and mounted.

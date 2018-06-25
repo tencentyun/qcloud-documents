@@ -12,7 +12,7 @@
 
 #### 3. 集成 QQ SDK 
 
-下载 [qq sdk](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `libs` 文件夹下。
+下载 [QQ SDK](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `libs` 文件夹下。
 
 #### 4. 添加 SDK 依赖
 

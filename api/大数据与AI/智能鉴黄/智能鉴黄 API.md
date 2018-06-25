@@ -6,7 +6,7 @@
 开发者无需注册账号，即可在 [用户体验平台](http://cloud.tencent.com/event/pd) 体验智能鉴黄效果。
 
 ### 计费说明
-本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12398) 。
+本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/864/17616) 。
 
 ### url 说明
 支持 HTTP 和 HTTPS 两种协议：
@@ -23,7 +23,7 @@
 | host           | 是|service.image.myqcloud.com | 腾讯云图片鉴黄服务器域名                    |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（byte）  |
 | content-type   | 是|application/json 或  multipart/form-data  | 根据不同接口选择，每个请求最多支持 20 张 url 或图片：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。 |
-| authorization  | 是|鉴权签名                    | 用于 [**鉴权**](/document/product/641/12409) 的签名 |
+| authorization  | 是|鉴权签名                    | 用于 [**鉴权**](/document/product/864/17712) 的签名 |
 
 ><font color="#0000cc">**注意：** </font> 如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
@@ -235,7 +235,7 @@ Content-Type: image/jpeg
 | -1507   | 无法访问 url 对应的图片服务器                    |
 | -5062   | url 对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 
-更多其他 API 错误码请看 [**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [**错误码说明**](/document/product/864/17713) 。
 
 
 

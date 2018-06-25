@@ -61,7 +61,7 @@
 ### 在页面中引入 WebRTCAPI.min.js
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.2/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/2.4/WebRTCAPI.min.js"></script>
 ```
 
 
