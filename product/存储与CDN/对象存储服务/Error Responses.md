@@ -89,7 +89,7 @@ Content-Type：application / xml
 |NoSuchUpload	|指定的多部分上传不存在。上传 ID 可能无效，或者多部分上传可能已被中止或已完成。|	错误404|客户|
 |NoSuchVersion|	表示请求中指定的版本 ID 与现有版本不匹配。|错误404	|客户|
 |NotImplemented|	您提供的标题意味着未实现的功能。|	501未实施	|服务器|
-|NotSignedUp	|您的帐户未注册腾讯云账号。您必须先注册才能使用 COS 。您可以选择[注册与登录](https://www.qcloud.com/)	|403禁止|	客户|
+|NotSignedUp	|您的帐户未注册腾讯云账号。您必须先注册才能使用 COS 。您可以选择[注册与登录](https://cloud.tencent.com/)	|403禁止|	客户|
 |NoSuchBucketPolicy	|指定的桶没有桶策略。|错误404|	客户|
 |OperationAborted|	当前正在对该资源进行冲突的条件操作。再试一次。|	409冲突	|客户|
 |PermanentRedirect|	您尝试访问的存储桶必须使用指定的端点进行寻址。将所有将来的请求发送到此端点。|	301永久移动	|客户|

@@ -7,20 +7,20 @@ Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
 ).
 
 | Parameter Name | Required | Type | Description |
 | -------- | ----- | ----- | --------- |
-| diskType | No | String | Standard values: <br> root, which refers to system disk; data, which refers to data disk |
-| payMode | No | String | Payment mode. <br>prePay means Prepaid (Annual or Monthly Plan), postPay means Postpaid (Bill by Traffic) | 
-| portable | No | Int | Indicate whether it is an elastic cloud storage. 1 means it is an elastic cloud storage, and 0 means it is a non-elastic cloud storage | 
-| projectId | No | Int | Project ID. You can query available projects and their IDs via the [DescribeProject (Query Project List)](https://www.qcloud.com/doc/api/229/1330) API.  | 
+| diskType | No | String | Standard values: <br><li>root, which refers to system disk; <br><li>data, which refers to data disk |
+| payMode | No | String | Payment mode. <br><li>prePay means Prepaid (Annual or Monthly Plan)<br><li>postPay means Postpaid (Bill by Traffic) | 
+| portable | No | Int | Indicate whether it is an elastic cloud storage. <br><li>1 means it is an elastic cloud storage<br><li>0 means it is a non-elastic cloud storage | 
+| projectId | No | Int | Project ID. You can query available projects and their IDs via the DescribeProject (Query Project List) API.  | 
 | storageIds | No | Array [String] | Filter by one or more Cloud Block Storage IDs.  |
-| storageType | No | String | Type of hard disk medium. Only two values are available: cloudBasic refers to a HDD cloud storage; cloudSSD refers to a SSD cloud storage |
-| storageStatus | No | Array [String] | Filter by one or more statuses. The standard values are as follows. <br>normal: Normal<br>toRecycle: To be terminated<br>attaching: Mounting<br>detaching: Unmounting<br>snapshotCreating: The snapshot is being created<br>rollback: Rollbacking<br>expanding: Expanding | 
+| storageType | No | String | Type of hard disk medium.<br><li>cloudBasic refers to a HDD cloud storage<br><li>cloudSSD refers to a SSD cloud storage |
+| storageStatus | No | Array [String] | Filter by one or more statuses. The standard values are as follows.<br><li>normal: Normal<br><li>toRecycle: To be terminated<br><li>attaching: Mounting<br><li>detaching: Unmounting<br><li>snapshotCreating: The snapshot is being created<br><li>rollback: Rollbacking<br><li>expanding: Expanding | 
 | uInstanceIds | No | Array [String] | The CVM instance ID, which can be used to query the Cloud Block Storage mounted under the specified CVM |
-| zoneId | No | Int | ID of the availability zone of the hard disk, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API |
+| zoneId | No | Int | ID of the availability zone of the hard disk, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API |
 | offset | No | Int | Offset; default value is 0 | 
 | limit | No | Int | The number of disks to be returned. The default value is 20, and the maximum value is 100 | 
 
@@ -30,8 +30,8 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Type | Description |
 | ------- | ------- | ------- |
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
-| message | String | Error message. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
+| message | String | Error message. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
 | storageSet | Array [Object] | Cloud Block Storage information array. See the table below |
 | totalCount | Int |The returned number of Cloud Block Storages |
  
@@ -50,14 +50,14 @@ The following request parameter list only provides API request parameters. For o
 | storageId | String | ID of Cloud Block Storage | 
 | storageName | String | Name of Cloud Block Storage | 
 | storageSize | Int | Size of Cloud Block Storage (GB) | 
-| storageStatus | String | Status of Cloud Block Storage. <br>normal: Normal. toRecycle: To be terminated. <br>attaching: Mounting. detaching: Unmounting. snapshotCreating: The snapshot is being created. <br>rollback: Rollbacking. expanding: Expanding | 
-| storageType | String | Type of hard disk medium. cloudBasic: HDD cloud storage. cloudSSD: SSD cloud storage | 
+| storageStatus | String | Status of Cloud Block Storage.<br><li>normal: Normal. <br><li>toRecycle: To be terminated. <br><li>attaching: Mounting.<br><li>detaching: Unmounting.<br><li>snapshotCreating: The snapshot is being created.<br><li>rollback: Rollbacking. expanding: Expanding | 
+| storageType | String | Type of hard disk medium.<br><li>cloudBasic: HDD cloud storage.<br><li>cloudSSD: SSD cloud storage | 
 | uInstanceId | String | ID of the CVM onto which the Cloud Block Storage is mounted |
-| zoneId | Int | ID of the availability zone of the Cloud Block Storage, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API | 
+| zoneId | Int | ID of the availability zone of the Cloud Block Storage, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API | 
 
 ## 4. Error Code List
 
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
+The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://cloud.tencent.com/doc/api/364/4207).
 
 | Error Code | English Description | Error Description |
 | ------- | ------- | ------- |
@@ -68,7 +68,7 @@ The following list only provides the business logic error codes for this API. Fo
 Input
 <pre>
 https://cbs.api.qcloud.com/v2/index.php?
-<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=DescribeCbsStorages
 &storageIds.0=disk-5h58gfba
 &storageIds.1=disk-m0js2w9s

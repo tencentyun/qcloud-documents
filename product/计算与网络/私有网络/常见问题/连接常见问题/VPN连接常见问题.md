@@ -1,14 +1,17 @@
-## 1. 一个VPC可以通过VPN连接与多个IDC互联么？
-可以，目前私网网络可以建立VPN网关并在每个VPN网关上建立多个VPN通道，每个VPN通道可以打通一个本地IDC。
-
-## 2. 两个VPC之间通信可以通过VPN连接实现吗？
-可以，你需要分别在两个VPC内购买VPN网关、配置VPN通道和对端网关，但配置较为复杂，建议您使用对等连接。对等连接使用腾讯骨干网连接两个VPC，其通信质量更有保障。
-
-## 3. 通过VPN连接的私有网络和IDC之间的网络质量如何保证
-- 私有网络与IDC之间走的是公网，依赖公网网络的质量,可能会出现时延、丢包、抖动，如果您需要更加稳定的通信质量，建议您使用专线接入服务。
-- VPN后台会全天监控网络质量，包括keepalive和网络时延，如果出现网络异常情况会请运维及时处理。您也可以在控制台实时监控VPN网关和通道的流量状态，如果发现异常及时与我们联系。
-
-## 4. VPN通道未联通可能原因？
-- 对端网关出现故障
-- 通道配置错误
-- 通道长时间没有流量
+#### [什么是 VPN 网关？](https://cloud.tencent.com/document/product/215/12463)
+#### [如何创建 VPN 网关？](https://cloud.tencent.com/document/product/215/12466)
+#### [如何查看 VPN 网关的详细信息？](https://cloud.tencent.com/document/product/215/12467)
+#### [VPN 网关是如何实现的，可用性如何？](https://cloud.tencent.com/document/product/215/12458)
+#### [什么是 VPN 通道？](https://cloud.tencent.com/document/product/215/12464)
+#### [如何修改 VPN 通道配置？](https://cloud.tencent.com/document/product/215/12465)
+#### [VPN 通道未联通如何处理？](https://cloud.tencent.com/document/product/215/17010)
+#### [如何配置 VPN？](https://cloud.tencent.com/document/product/215/4956#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
+#### [一个 VPC 可以通过 VPN 连接与多个 IDC 互联吗？](https://cloud.tencent.com/document/product/215/12460)
+#### [两个 VPC 之间通信可以通过 VPN 连接实现吗？](https://cloud.tencent.com/document/product/215/12462)
+#### [通过 VPN 连接的私有网络和 IDC 之间的网络质量如何保证？](https://cloud.tencent.com/document/product/215/12468)
+#### [专线接入和 VPN 连接的区别？](https://cloud.tencent.com/document/product/215/12461)
+#### [VPN 通道已连接，但是两端没有流量或无法 Ping 通？](https://cloud.tencent.com/document/product/215/17011)
+#### [包年包月的 VPN 网关到期了，可以保留多少天，应该怎么续费？](https://cloud.tencent.com/document/product/215/17012)
+#### [包年包月与按量计费，这两种计费模式可以切换吗？](https://cloud.tencent.com/document/product/215/17013)
+#### [是否可以通过 VPN 连接访问 Internet？](https://cloud.tencent.com/document/product/215/17014)
+#### [是否支持 SSL-VPN？](https://cloud.tencent.com/document/product/215/17015)

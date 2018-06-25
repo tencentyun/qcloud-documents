@@ -95,15 +95,15 @@ done
 
 > <font color="#0000cc">**注意：** </font>
 配置文件中含有 COS 的几个属性：
-- fs.cos.userinfo.appid 属性： 填写您使用的 腾讯云账户的 APPID。可通过 [控制台-账号信息](https://console.qcloud.com/developer) 查看。
-- fs.cos.userinfo.secretId/secretKey 属性：填写您账户的API 密钥信息。可通过 [云 API 密钥 控制台](https://console.qcloud.com/capi) 查看。
+- fs.cos.userinfo.appid 属性： 填写您使用的 腾讯云账户的 APPID。可通过 [控制台-账号信息](https://console.cloud.tencent.com/developer) 查看。
+- fs.cos.userinfo.secretId/secretKey 属性：填写您账户的API 密钥信息。可通过 [云 API 密钥 控制台](https://console.cloud.tencent.com/capi) 查看。
 - fs.cosn.impl 为 cosn 的实现类，固定为 org.apache.hadoop.fs.cosnative.NativeCosFileSystem。
 - fs.cos.buffer.dir 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处。
-- fs.cos.userinfo.region 请填写您的地域信息，枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
+- fs.cos.userinfo.region 请填写您的地域信息，枚举值为 [历史版本地域列表](https://cloud.tencent.com/document/product/436/7777) 中的地域简称，如 sh, gz, sgp 等。
 
 ### 使用软件（以 Linux 为例）
 #### 使用 hadoop fs 常用命令
-命令格式为：`hadoop fs- -ls cosn://Object 路径`，下例中以名称为 example 的 Bucket 为例，可在其后面加上具体路径。
+命令格式为：`hadoop fs- -ls cosn://Bucket 路径`，下例中以名称为 example 的 Bucket 为例，可在其后面加上具体路径。
 ```
 hadoop fs -ls  cosn://example/
 Found 7 items

@@ -19,7 +19,7 @@ The following request parameter list only provides API request parameters. Commo
 | operatorType | Yes | String | Operator. Available values are >, < 、>=, <=, !=, ==. This indicates the comparison method of the alarm rule |
 | threshold | Yes | Float | Exception triggering threshold |
 | constancy | Yes | Int | Number of periods for the exception to persist before alarm is triggered. The alarm is triggered if the exception persists for this number of periods |
-| receiversId | No | string | Alarm receiving group ID. No receiving group will be bound with the alarm if this is left empty (in which case no one will receive the alarm). This can be queried by calling the API <a href="https://www.qcloud.com/document/api/378/4404" title="Obtain User Group List">Obtain User Group List</a> |
+| receiversId | No | string | Alarm receiving group ID. No receiving group will be bound with the alarm if this is left empty (in which case no one will receive the alarm). This can be queried by calling the API <a href="https://cloud.tencent.com/document/api/378/4404" title="Obtain User Group List">Obtain User Group List</a> |
 | isWild | No | Int | Whether the rule is wildcard rule. 1: Wildcard rule. 0: Non-wildcard rule (default) |
 
 A wildcard rule applies to all objects in the metric name group and cannot be bound to specific objects.
@@ -61,7 +61,7 @@ In the input example, if we expect the average disk utilization to stay above 80
 Input
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=CreateAlarmRule
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 &metricName=diskusage
 &dimensionNames.0=ip

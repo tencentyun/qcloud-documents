@@ -44,7 +44,7 @@ Relational database is a two-dimensional model where data split involves specify
 	
 - Perform a modulo operation on user IDs, and distribute the specific ranges of the results to different databases.
 	- Advantages: Relatively balanced performance; data of a single user is stored in the same database.
-	- Disadvantages: It may cause data skew (in case of a merchant system, a JD.com merchant may have much more data than thousands of small merchants.)
+	- Disadvantages: It may cause data skew (in case of a merchant system, a JD.com merchant may have much more data than thousands of small merchants).
 	
 - Perform a modulo operation on primary key, and distribute specific ranges of the results to different databases.
 	- Advantages: Relatively balanced performance; low possibility of data skew; the data of a single primary key is stored in the same database;

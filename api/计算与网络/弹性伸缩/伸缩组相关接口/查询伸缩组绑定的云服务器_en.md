@@ -40,7 +40,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | codeDesc | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
 | message | String | Module error message description depending on API. |
 | data | Array | Output results. CVM instance list returned for the query.  |
@@ -64,7 +64,7 @@ scalingInstancesSett contains information about a number of several CVM instance
 | addTime | String | The time at which this instance is added to the scaling group. | 
 
 ## 4. Error Codes
-For common errors on this API, refer to [AS Error Code](https://www.qcloud.com/doc/api/372/4173).
+For common errors on this API, refer to [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
 ## 5. Example
 ```

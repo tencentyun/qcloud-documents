@@ -1,5 +1,5 @@
 ## 步骤一：登录弹性 MapReduce 控制台
-登录 [弹性 MapReduce](https://emr.qcloud.com) 管理控制台（确保已完成 [准备工作](https://www.qcloud.com/document/product/589/10840?!preview&lang=cn)） 。
+登录 [弹性 MapReduce](https://emr.qcloud.com) 管理控制台（确保已完成 [准备工作](https://cloud.tencent.com/document/product/589/10840?!preview&lang=cn)） 。
 ## 步骤二：创建弹性 MapReduce 集群
 单击左上角【集群创建】按钮，开始创建集群。
 ![](//mc.qcloudimg.com/static/img/57a40ab2b18b3e9bed469f1bce52294b/image.png)
@@ -15,7 +15,7 @@
 **添加集群点网络**
 ![](//mc.qcloudimg.com/static/img/60fcf4621caccb709d2a6d07822a2114/image.png)
 >**注意：**
->如果无可添加网络，您需要去控制台 [新建私有网络](https://www.qcloud.com/document/product/215/8113) 或者 [新建子网](https://www.qcloud.com/document/product/215/8114)
+>如果无可添加网络，您需要去控制台 [新建私有网络](https://cloud.tencent.com/document/product/215/8113) 或者 [新建子网](https://cloud.tencent.com/document/product/215/8114)
 
 #### 3. 基础配置
 ![](//mc.qcloudimg.com/static/img/c83c44f139683db1312697a79aea21a7/image.png)

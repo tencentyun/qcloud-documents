@@ -1,6 +1,6 @@
 以下为初始化 DCDB 实例的具体操作流程。
 ## DCDB 控制台
-1. 用户登录进入 [管理中心](https://console.qcloud.com/)，将鼠标依次移动至【云产品】>【基础产品】>【数据库】，单击【分布式数据库】进入 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb)。
+1. 用户登录进入 [管理中心](https://console.cloud.tencent.com/)，将鼠标依次移动至【云产品】>【基础产品】>【数据库】，单击【分布式数据库】进入 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb)。
 	![](https://mc.qcloudimg.com/static/img/23475689f7192fd8a0fc681d9e4cea2e/r1.png)
 2. 在控制台中，可看到创建完成但未初始化的 DCDB 实例，单击实例右方的【初始化】。
 	![](https://mc.qcloudimg.com/static/img/3f1382a09e8636e052ca766e71d40465/image.png)

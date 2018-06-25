@@ -28,4 +28,4 @@ background: #efefef;
 | 香港地域 | 0.30 元/小时 | 
 | 北美地域 | 0.25 元/小时 | 
 >备注：
-><a href="" target="_blank">点击查看私有网络内其它产品计费</a>
+><a href="" target="_blank">单击查看私有网络内其它产品计费</a>

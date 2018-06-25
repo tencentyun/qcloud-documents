@@ -1,5 +1,5 @@
  在此步骤中，我们将对已经购买的MariaDB数据库执行初始化操作。
-1. 在[腾讯云控制台](https://console.qcloud.com/)的左上角，单击【云产品】下的【关系型数据库】，进入数据库产品页面。
+1. 在[腾讯云控制台](https://console.cloud.tencent.com/)的左上角，单击【云产品】下的【关系型数据库】，进入数据库产品页面。
 ![](//mc.qcloudimg.com/static/img/511cad3621447b36d204b87bf83bb09f/image.png)
 1. 在关系型数据库页面中，单击【TDSQL(MariaDB)】下的【实例列表】，找到目标地域（此例中以广州为例）中要操作的状态为“**未初始化**”的MariaDB数据库实例。
 ![](//mc.qcloudimg.com/static/img/d947b9c5326ae79c36ff283335d56b65/image.png)

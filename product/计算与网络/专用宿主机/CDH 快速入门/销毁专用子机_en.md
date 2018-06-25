@@ -2,7 +2,7 @@ You can terminate a dedicated CVM any time you don't need it. When a dedicated C
 
 ## 1. Terminate instances on CDH console
 
-> 1. Log in to [CDH Console](https://console.qcloud.com/cvm/cdh).
+> 1. Log in to [CDH Console](https://console.cloud.tencent.com/cvm/cdh).
 > 2. Click the host ID/name to enter host details page.
 > 3. Click "CVM List".
 > 4. Select the dedicated CVM and terminate it.
@@ -11,7 +11,7 @@ You can terminate a dedicated CVM any time you don't need it. When a dedicated C
 
 ## 2. Terminate instances on CVM console
 
-> 1. Log in to [CVM Console](https://console.qcloud.com/cvm).
+> 1. Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 > 2. Find the dedicated CVM you want to terminate.
 > 3. Click "More" -> "CVM Status" -> "Terminate" in the operation bar to the right side.
 
@@ -19,4 +19,4 @@ You can terminate a dedicated CVM any time you don't need it. When a dedicated C
 
 ## 3. Terminate instances using API
 
- Please see [ReturnInstance API](https://www.qcloud.com/doc/api/229/1347).
+ Please see [ReturnInstance API](https://cloud.tencent.com/doc/api/229/1347).

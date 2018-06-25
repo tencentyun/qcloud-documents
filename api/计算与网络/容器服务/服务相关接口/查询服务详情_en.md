@@ -6,11 +6,11 @@ Domain for API request: ccs.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
 | serviceName   | Yes    | String | Service name |
 | namespace      | No | String      | Namespace. Default is "default" |
 
@@ -65,7 +65,7 @@ The following request parameter list only provides API request parameters. For o
 | containerPort | Int | Container listening port |
 | protocol | String | Protocol (TCP or UDP) |
 
-For detailed definition of volumes, please see [Mounting Data Volumes](https://www.qcloud.com/document/product/457/9112)
+For detailed definition of volumes, please see [Mounting Data Volumes](https://cloud.tencent.com/document/product/457/9112)
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -83,8 +83,8 @@ Container information
 | cpu | Int | CPU resource required for the container. Unit: mU (0.001 core) |
 | cpuLimits  |  Int | Maximum CPU resource available for the container. Unit: mU (0.001 core) |
 | memory | Int | Maximum memory available for the container. Unit: MiB |
-| command | String | Startup command for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
-| arguments | String Array | Startup parameters for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
+| command | String | Startup command for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://cloud.tencent.com/document/product/457/9100) |
+| arguments | String Array | Startup parameters for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://cloud.tencent.com/document/product/457/9100) |
 | liveProbe | Object | Container liveness check information. For more information, please see the table below |
 | readyProbe | Object | Container readiness check information. Definition is the same with liveProbe, see the table below |
 
@@ -95,7 +95,7 @@ Container information
 | name | String | Environment variable name |
 | value | String | Environment variable value |
 
-``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
+``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://cloud.tencent.com/document/product/457/9112).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -103,7 +103,7 @@ Container information
 | mountPath | String | Path to which the volume is to be mounted in the container |
 | mode | String | Indicates how container accesses the volume. ro: read only. rw: read and write |
 
-Details of ``liveProbe`` and ``readyProbe`` parameters. For more information, please see [Service Health Check Configurations](https://www.qcloud.com/document/product/457/9094)
+Details of ``liveProbe`` and ``readyProbe`` parameters. For more information, please see [Service Health Check Configurations](https://cloud.tencent.com/document/product/457/9094)
 
 | Parameter Name       | Type   |Description                                                                                                                                                                                                                                                                                                   |
 |-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

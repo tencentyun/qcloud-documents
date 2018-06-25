@@ -196,5 +196,5 @@ Currently, ADDDATE, SUBDAT, DATE_ADD, DATE_SUB, DATE_FORMAT, TIMESTAMPADD, TIMES
 
 #### Other Functions
 
-Currently, BINARY, CONVERT, CAST are not supported.
+Currently, BINARY, CONVERT and CAST are not supported.
 

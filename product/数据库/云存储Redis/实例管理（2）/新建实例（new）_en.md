@@ -19,7 +19,7 @@ Create a new instance in the console
 
 8) You can access the instance by using <instance ID: user password> as the access password.
  
-  [View Example Codes](http://www.qcloud.com/wiki/%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B)
+  [View Example Codes](http://cloud.tencent.com/wiki/%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B)
 Create a new instance:
 	
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Resis-1.png)

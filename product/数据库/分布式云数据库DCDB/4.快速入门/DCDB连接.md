@@ -71,7 +71,7 @@
 > 注意：因为 DCDB 在分表和插入数据时需要标记 shardkey，所以无法用 JDBC 调用这些操作。
 
 ### LINUX 命令行连接
-以腾讯云服务器中 CentOS 7.2 64 位系统的 CVM 为例，关于腾讯云服务器的购买详情，可以参考[云服务器选购](https://buy.qcloud.com/cvm)。
+以腾讯云服务器中 CentOS 7.2 64 位系统的 CVM 为例，关于腾讯云服务器的购买详情，可以参考[云服务器选购](https://buy.cloud.tencent.com/cvm)。
 
 1. 登录 LINUX 后，输入命令 `yum install mysql` ,利用 CentOS 自带的包管理软件 Yum 在腾讯云的镜像源中下载安装 MySQL 客户端。
 ![](//mc.qcloudimg.com/static/img/7f6a1f7a953cc38809fa069182481a22/image.png)

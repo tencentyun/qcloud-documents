@@ -7,7 +7,7 @@ To log into your CVM instance on Linux using an SSH key, you must first create a
 > Note: Login with SSH key is not supported for the CVM instances on Windows.
 
 ## Create SSH key
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 2) Click "SSH Key" in the navigation pane.
 3) Click "Create Key":
 - For "Create New Key Pair" method, input the key name, and click "OK" button.
@@ -15,7 +15,7 @@ To log into your CVM instance on Linux using an SSH key, you must first create a
 4) After clicking the "OK" button, a pop-up box will appear, and the user will need to download the private key within 10 minutes.
 
 ## Bind/Unbind the Key to/from the Server
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 2) Click "SSH Key" in the navigation pane.
 3) Select SSH key and click the "Bind/Unbind CVM" button.
 4) Select the region, then select the CVM to be bound or unbound, drag it to the right, and click "OK".
@@ -23,7 +23,7 @@ To log into your CVM instance on Linux using an SSH key, you must first create a
 6) Click the "Details" URL to view the result of the most recent operation.
 
 ## Modify SSH Key Name/Description
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 2) Click "SSH Key" in the navigation pane.
 3) Select the key you want to modify in the key list and click the "Modify" button above.
 Or right-click the name of the key to be modified, and click the "Modify" button.
@@ -34,7 +34,7 @@ Or right-click the name of the key to be modified, and click the "Modify" button
 
 **Note**: If the SSH key is associated with a CVM or a custom image, it cannot be deleted.
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 2) Click "SSH Key" in the navigation pane.
 3) Select all SSH keys to be deleted, and click "Delete" button. Or right-click the name of the key to be deleted, click "Delete"; and click "OK" in the pop-up window.
 

@@ -10,7 +10,7 @@ Compared with self-built data center, CPM allows you to build your private cloud
 - Data center where a CPM resides in, namely [Region and Availability Zone](/doc/product/386/7029).
 - Scenario where a CPM is applicable, consisting of different CPUs, memories, storages, networks, etc., namely [Instance Type](/doc/product/386/7035).
 - Internal and external service address of the instance, namely private IP address and [Elastic Public IP Address](/doc/product/386/7144).
-- Web-based interface, namely [Tencent Cloud Console](https://console.qcloud.com/cpm).
+- Web-based interface, namely [Tencent Cloud Console](https://console.cloud.tencent.com/cpm).
 
 For more information on how to use a CPM, please see [Quick Start (Deploy Linux CPM)](/doc/product/386/7040).
 

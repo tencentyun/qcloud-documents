@@ -50,7 +50,7 @@ Input
 
 <pre>
 https://domain/v2/index.php?Action=ModifyBmLocationBackendPort
-&<<a href="https://www.qcloud.com/document/product/386/6718">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Common request parameters</a>>
 &loadBalancerId=lb-abcdefgh
 &listenerId=lbl-abcdefgh
 &domainId=dm-abcdefgh

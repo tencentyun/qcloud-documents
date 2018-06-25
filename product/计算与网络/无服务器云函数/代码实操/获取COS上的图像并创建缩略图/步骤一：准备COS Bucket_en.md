@@ -1,4 +1,4 @@
-Make sure you have obtained the permission to use SCF before implementing this example. Click [here](https://www.qcloud.com/act/apply/SCF) to apply for the permission for internal trial
+Make sure you have obtained the permission to use SCF before implementing this example. Click [here](https://cloud.tencent.com/act/apply/SCF) to apply for the permission for internal trial
 
 ```
 Note:

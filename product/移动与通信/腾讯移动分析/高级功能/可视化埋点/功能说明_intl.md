@@ -1,0 +1,1 @@
+Visualized event tracking is mainly applicable to scenarios where components and buttons are tracked. With rapid operations on the console of Mobile Tencent Analytics (MTA), you can skip the process of deploying codes and releasing versions to save manpower and time for code tracking, and greatly improve operational efficiency.

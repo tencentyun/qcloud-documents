@@ -3,13 +3,13 @@ Before purchasing Cloud Memcached, you need to know its billing method and rules
 
 
 ## 2. Purchase a new table
-1. Log in to Tencent Cloud homepage www.qcloud.com.
+1. Log in to Tencent Cloud homepage cloud.tencent.com.
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLBuy1.png)
 
 2. In Product Service module, select Cloud Memcached, and click "Buy Now" to proceed with the purchase.
 
->Note: If you need to create a large number of tables, and the total space of initial tables is larger than 100 GB or the initial space of a table is larger than 20 GB, you can [submit a ticket](http://console.qcloud.com/ticket). If the access volume exceeds 10,000 visits per second for 1 GB storage space, after a new table is created, you can submit a [ticket](/doc/product/282/联系我们#4-开发者运维需求申请) to apply for interface/port expansion.
+>Note: If you need to create a large number of tables, and the total space of initial tables is larger than 100 GB or the initial space of a table is larger than 20 GB, you can [submit a ticket](http://console.cloud.tencent.com/ticket). If the access volume exceeds 10,000 visits per second for 1 GB storage space, after a new table is created, you can submit a [ticket](/doc/product/282/联系我们#4-开发者运维需求申请) to apply for interface/port expansion.
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLBuy2.jpg)
 

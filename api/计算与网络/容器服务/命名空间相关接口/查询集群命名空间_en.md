@@ -6,11 +6,11 @@ Domain for API request: ccs.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
 
 
 ## 3. Output Parameters
@@ -47,10 +47,20 @@ Output
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "totalCount": 1,
+        "totalCount": 2,
         "namespaces": [
-            "default"
-			"t3"
+            {
+              "name":"default",
+              "status":"Active",
+              "description":""
+              "createdAt":"2017-06-08 19:10:01"
+            },
+			{
+              "name":"tst",
+              "status":"Active",
+              "description":"test"
+              "createdAt":"2017-06-27 19:10:01"
+            },
         ]
     }
 }

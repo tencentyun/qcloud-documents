@@ -18,13 +18,13 @@ Here are the download links:
 
 ## Notes about SDK
 
-Before using a SDK, you need to at least get the [secret id](https://console.qcloud.com/capi), [secret key](https://console.qcloud.com/capi), and endpoint (it indicates the region to which the request is to be sent, and whether the request is sent through a private network or a public network).
+Before using a SDK, you need to at least get the [secret id](https://console.cloud.tencent.com/capi), [secret key](https://console.cloud.tencent.com/capi), and endpoint (it indicates the region to which the request is to be sent, and whether the request is sent through a private network or a public network).
 
 Instructions for endpoint:
 	
-Private network endpoint: http://cmq-queue-region.api.tencentyun.com
+Private network endpoint: <font style="color:red">http ://cmq-queue-region.api.tencentyun.com</font>
 
-Public network endpoint: http(s)://cmq-queue-region.api.qcloud.com
+Public network endpoint: <font style="color:red">http(s)://cmq-queue-region.api.qcloud.com</font>
 
 - If the business process is also deployed on a Tencent Cloud CVM, we strongly recommend that you use a private network endpoint in the same region. For example, if your business process is deployed on a CVM of Tencent Cloud in Beijing, we recommend that you use `http://cmq-queue-bj.api.tencentyun.com`.
 Reasons: 1) The latency is lower for a private network in the same region; 2) Currently, message queue charges a fee for the downstream traffic of public networks, so using a private network can save the cost.

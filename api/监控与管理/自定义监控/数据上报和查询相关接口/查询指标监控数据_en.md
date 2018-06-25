@@ -6,7 +6,7 @@ You can use this API to acquire multiple sets of data (between startTime and end
 
 Domain name: monitor.api.qcloud.com
 
-For more information about how many days the data can be retained, please see <a href="https://www.qcloud.com/doc/product/397/4002">Product Limitation</a> page
+For more information about how many days the data can be retained, please see <a href="https://cloud.tencent.com/doc/product/397/4002">Product Limitation</a> page
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/255/公共请求参数" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is GetMonitorData.
@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 &metricName=diskusage
 &dimensions.0.name=ip

@@ -34,7 +34,7 @@ For the purposes of these Terms, any reference to "Tencent Cloud" in these Terms
 
 **1.4 These Terms apply only to your use of Tencent Cloud's non-China located servers**
 
-For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at[ [腾讯云服务协议]](https://www.qcloud.com/document/product/301/1967). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
+For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at[ [腾讯云服务协议]](https://cloud.tencent.com/document/product/301/1967). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
 
 **1.5 Contacting us**
 
@@ -74,11 +74,11 @@ If you are a citizen or a habitual resident of any of the following countries, t
 
 You must comply with the following policies in using Tencent Cloud:
 
-(a)[Privacy and Data Processing Policy ](https://www.qcloud.com/document/product/301/9247)– which sets out how we collect, store and process Your Content. 
+(a)[Privacy and Data Processing Policy ](https://cloud.tencent.com/document/product/301/9247)– which sets out how we collect, store and process Your Content. 
 
-(b)[Acceptable Use Policy](https://www.qcloud.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
+(b)[Acceptable Use Policy](https://cloud.tencent.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
 
-(c)[Copyright Policy](https://www.qcloud.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
+(c)[Copyright Policy](https://cloud.tencent.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
 
 **2.4 Inconsistencies **
 

@@ -8,11 +8,11 @@ This API (GetCdnOverseaStat) is used to query the statistics regarding the consu
 
 Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
 
-[Call Demo](https://www.qcloud.com/document/product/228/1734)
+[Call Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. Input Parameters
 
-The following request parameter list only provides request parameters for this API. For common request parameters needed, please see [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473). The Action field for this API is GetCdnOverseaStat.
+The following request parameter list only provides request parameters for this API. For common request parameters needed, please see [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is GetCdnOverseaStat.
 
 | Parameter Name | Required | Type     | Description                    |
 | ---- | ---- | ------ | --------------------- |
@@ -24,7 +24,7 @@ The following request parameter list only provides request parameters for this A
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)|
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)|
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Object | Returned data result, details are described below                            |
@@ -34,7 +34,7 @@ The following request parameter list only provides request parameters for this A
 | Parameter Name           | Type     | Description                                       |
 | -------------- | ------ | ---------------------------------------- |
 | period         | Int    | Time span of the statistic data, default is 5 minutes                          |
-| app_id         | String | Tencent Cloud Services account (see [here](http://console.qcloud.com/cloudAccount)）, corresponding the UIN |
+| app_id         | String | Tencent Cloud Services account (see [here](http://console.cloud.tencent.com/cloudAccount)）, corresponding the UIN |
 | host           | String | Domain that was specified to be queried                                  |
 | start_datetime | String | Start time of the query. If you enter 2016-09-22, the start time will be 2016-09-22 00:00:00 |
 | end_datetime   | String | End time of the query. If you enter 2016-09-22, the end time will be 2016-09-22 23:55:00 |

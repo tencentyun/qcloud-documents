@@ -3,9 +3,9 @@ In order to help you get started with Tencent Cloud Redis (CRS) APIs quickly, we
 This example will show you how to create a CRS instance: First, you need to query the supported specification of the instance; then query the fee for creating the instance, then create the instance using the API "Create Instance", and finally query the instance creation progress using the API "Query Oder Details".
 
 ## 1. Query Supported Specifications
-Before creating an instance, we first need to query the availability zones where the instance is available. You can use the API [Query Supported Availability Zones](http://www.qcloud.com/doc/api/260/4951) for the query, or use the API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) to query the limits on the instance creation.
+Before creating an instance, we first need to query the availability zones where the instance is available. You can use the API [Query Supported Availability Zones](http://cloud.tencent.com/doc/api/260/4951) for the query, or use the API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) to query the limits on the instance creation.
 
-Here, we use the API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) to query the supported specifications for all availability zones by leaving the input parameter empty.
+Here, we use the API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) to query the supported specifications for all availability zones by leaving the input parameter empty.
 
 By combining common request parameters and API request parameters, you can get the final request as follows:
 		
@@ -117,14 +117,14 @@ The returned values are the supported specifications for various availability zo
 
 
 ## 2. Query the Price for Creating an Instance
-A fee for the creation of an instance will be deducted from the account balance. You can use the API [Query Instance Price](https://www.qcloud.com/doc/api/260/5324) to query the fee.  Let's suppose that we purchase a cluster instance from Guangzhou Zone 2, then the input parameters for querying the price are as follows: 
+A fee for the creation of an instance will be deducted from the account balance. You can use the API [Query Instance Price](https://cloud.tencent.com/doc/api/260/5324) to query the fee.  Let's suppose that we purchase a cluster instance from Guangzhou Zone 2, then the input parameters for querying the price are as follows: 
 
 | Parameter Name | Description | Value |
 |---------|---------|---------|
 | zoneId | The availability zone to which the instance belongs |  100002 (Guangzhou Zone 2) |
 | typeId |  1: Cluster; 2: Standalone | 1 (Cluster) |
-| memSize | The capacity of the purchased instance (in MB); the value range is subject to the returned values of API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) | 1024 |
-| goodsNum | The number of the purchased instances. The value range is subject to the returned values of API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) | 1 |
+| memSize | The capacity of the purchased instance (in MB); the value range is subject to the returned values of API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) | 1024 |
+| goodsNum | The number of the purchased instances. The value range is subject to the returned values of API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) | 1 |
 | period | The purchased usage period (in month); value range: [1, 36] | 2 |
 
 By combining common request parameters and API request parameters, you can get the final request as follows:
@@ -155,15 +155,15 @@ According to the returned values, the total price for the instance with the abov
 ```
 
 ## 3. Create an Instance
-Next, we will call the API [Create Instance](http://www.qcloud.com/doc/api/260/5325) based on the above specification. The input parameters are as follows: 
+Next, we will call the API [Create Instance](http://cloud.tencent.com/doc/api/260/5325) based on the above specification. The input parameters are as follows: 
 
 | Parameter Name | Description | Value |
 |---------|---------|---------|
 | zoneId | The availability zone to which the instance belongs |  100002 (Guangzhou Zone 2) |
 | typeId |  Instance type. 1: Cluster; 2: Standalone | 1 (Cluster) |
 | vpcId | VPC ID. Set to 0 if it is basic network | 0 (basic network) |
-| memSize | The capacity of the purchased instance (in MB); the value range is subject to the returned values of API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) | 1024 |
-| goodsNum | The number of the purchased instances. The value range is subject to the returned values of API [Query Supported Specifications](http://www.qcloud.com/doc/api/260/4974) | 1 |
+| memSize | The capacity of the purchased instance (in MB); the value range is subject to the returned values of API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) | 1024 |
+| goodsNum | The number of the purchased instances. The value range is subject to the returned values of API [Query Supported Specifications](http://cloud.tencent.com/doc/api/260/4974) | 1 |
 | period | The purchased usage period (in month); value range: [1, 36] | 2 |
 | password | Password for the instance | 49A2d!e@f12e |
 
@@ -196,7 +196,7 @@ Returned result:
 ```
 
 ## 4. Query Order Details
-After creating the instance, you can use the API [Query Order Details](http://www.qcloud.com/doc/api/260/5329) to query the order details.
+After creating the instance, you can use the API [Query Order Details](http://cloud.tencent.com/doc/api/260/5329) to query the order details.
 
 | Parameter Name | Description | Value |
 |---------|---------|---------|

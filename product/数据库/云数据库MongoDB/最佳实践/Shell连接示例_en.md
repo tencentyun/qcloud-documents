@@ -10,7 +10,7 @@ As shown below:
 ![Screenshot Example of Typical Connection Commands](https://mc.qcloudimg.com/static/img/ce6b26f8cd6b1cc2981bc0cd44f9d09d/shell_default.png)
 
 ### Description on Connecting under Different Authentication Methods
-As described in [Connection Examples](https://www.qcloud.com/doc/product/240/3563), Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively.
+As described in [Connection Examples](https://cloud.tencent.com/doc/product/240/3563), Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively.
 For these two authentication methods, shell command parameters are not the same. Please see below for more information.
 
 ### SCRAM-SHA-1 Authentication (mongouser)
@@ -40,4 +40,4 @@ As shown below:
 ![Screenshot Example of Connection Commands for Entering a "db" Directly](https://mc.qcloudimg.com/static/img/d31bfa612a295fd070ea5dd09c7ce6a3/cr_somedb.png)
 
 ### Import and Export Data Using Shell
-For both authentication methods, you can use Shell to import and export data. Please [See Here](https://www.qcloud.com/doc/product/240/5321).
+For both authentication methods, you can use Shell to import and export data. Please [See Here](https://cloud.tencent.com/doc/product/240/5321).

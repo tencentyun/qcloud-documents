@@ -1,17 +1,16 @@
 
-IM通讯云提供了关系链和用户资料托管，APP开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
+IM 通讯云提供了**关系链和用户资料托管**，App 开发者使用简单的接口就可实现关系链和用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
 
-本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
+>注：本节所有的接口不论对**独立帐号体系**还是**托管帐号体系**都有有效。 
 
-## 1. 关系链资料介绍
+## 关系链资料介绍
 
-用户关系链是指好友关系，通过接口可以实现加好友、解除好友、获取好友列表等操作。
+- **用户关系链：**指好友关系，通过接口可以实现加好友、解除好友、获取好友列表等操作。
+- **用户资料：**保存用户的信息（如昵称、头像等）。另外，还有一种好友资料只跟好友相关（如备注，分组等）。
 
-用户资料保存用户的信息，比如昵称、头像等，另外，还有一种好友资料，只跟好友相关比如备注，分组等。
+## 设置自己的资料
 
-## 2. 设置自己的资料
-
-通过`TIMFriendshipManager`的`modifyProfile`方法可以对自己的资料（如昵称、头像、添加好友选项等）进行修改。
+通过 `TIMFriendshipManager` 的 `modifyProfile` 方法可以对自己的资料（如昵称、头像、添加好友选项等）进行修改。
 
 **原型：**
 
@@ -23,11 +22,13 @@ IM通讯云提供了关系链和用户资料托管，APP开发者使用简单的
  */
 public void modifyProfile(@NonNull ModifyUserProfileParam param, @NonNull TIMCallBack cb)
 ```
-其中`ModifyUserProfileParam`的相关接口如下：
+
+**`ModifyUserProfileParam` 的相关接口如下：**
+
 ```
 /**
  * 设置昵称
- * @param nickname 新昵称（最长64字节）
+ * @param nickname 新昵称（最长 64 字节）
  */
 public ModifyUserProfileParam setNickname(@NonNull String nickname)
 
@@ -38,8 +39,8 @@ public ModifyUserProfileParam setNickname(@NonNull String nickname)
 public ModifyUserProfileParam setAllowType(@NonNull TIMFriendAllowType allowType) 
 
 /**
- * 设置头像图片URL
- * @param faceUrl 头像图片URL
+ * 设置头像图片 URL
+ * @param faceUrl 头像图片 URL
  */
 public ModifyUserProfileParam setFaceUrl(@NonNull String faceUrl) 
 
@@ -57,13 +58,13 @@ public ModifyUserProfileParam setSelfSignature(@NonNull String selfSignature)
 
 /**
  * 设置生日信息
- * @param birthday 生日信息，含义由应用自行定义，只有低32位有效
+ * @param birthday 生日信息，含义由应用自行定义，只有低 32 位有效
  */
 public ModifyUserProfileParam setBirthday(long birthday) 
 
 /**
  * 设置语言信息
- * @param language 语言信息，含义由应用自行定义，只有低32位有效
+ * @param language 语言信息，含义由应用自行定义，只有低 32 位有效
  */
 public ModifyUserProfileParam setLanguage(long language) 
 
@@ -80,12 +81,11 @@ public ModifyUserProfileParam setGender(@NonNull TIMFriendGenderType gender)
 public ModifyUserProfileParam setCustomInfo(@NonNull Map<String, byte[]> customInfo) 
 ```
 
-具体使用情况请看下边几个小节的介绍。
+>注：具体使用情况请看下边几个小节的介绍。
 
-### 2.1 设置自己的昵称 
+### 设置自己的昵称 
 
-可通过`TIMFriendshipManager`的`modifyProfile` 方法设置用户自己的昵称，昵称最大为64字节： 
-
+可通过 `TIMFriendshipManager` 的 `modifyProfile` 方法设置用户自己的昵称，昵称最大为 64 字节。 
 
 **示例：** 
 
@@ -97,8 +97,8 @@ param.setNickname("cat");
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -109,17 +109,16 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-###  2.2 设置好友验证方式 
+### 设置好友验证方式 
 
-可通过`TIMFriendshipManager`的`modifyProfile` 方法设置好友验证方式，有以下几种验证方式：
+可通过 `TIMFriendshipManager` 的 `modifyProfile` 方法设置好友验证方式。用户可根据需要设置其中一种，**目前没有方法设置默认的好友验证方式，默认都是允许任何人添加好友**。有以下几种验证方式：
 
-+ 任何人加好友
-+ 拒绝任何人加好友
-+ 需要验证
+- **允许任何人添加好友**
+- **拒绝任何人添加好友**
+- **添加好友需要验证**
 
-用户可根据需要设置其中一种，**目前没有方法设置默认的好友验证方式，默认都是任何人可加好友**。
+好友验证方式通过 ImSDK 中的 `TIMFriendAllowType` 来定义，具体定义如下。
 
-好友验证方式通过ImSDK中的`TIMFriendAllowType`来定义，具体定义如下：
 ```
 //允许任何人添加好友
 TIM_FRIEND_ALLOW_ANY
@@ -134,7 +133,11 @@ TIM_FRIEND_INVALID
 TIM_FRIEND_NEED_CONFIRM
 ```
 
+
+以下示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。
+
 **示例：**
+
 ```
 //设置自己的好友验证方式为需要验证
 TIMFriendshipManager.ModifyUserProfileParam param = new TIMFriendshipManager.ModifyUserProfileParam();
@@ -143,8 +146,8 @@ param.setAllowType(TIMFriendAllowType.TIM_FRIEND_NEED_CONFIRM);
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -154,11 +157,11 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	}
 });
 ```
-此示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。
 
-### 2.3 设置自己的头像
 
-可通过 `TIMFriendshipManager`的 `modifyProfile`方法设置用户自己的头像，当前 ImSDK 不会保存用户图片资源，需要用户上传图片到其他存储平台，通过 ImSDK 设置图片 URL。 
+### 设置自己的头像
+
+可通过 `TIMFriendshipManager` 的 `modifyProfile` 方法设置用户自己的头像，当前 ImSDK 不会保存用户图片资源，需要用户上传图片到其他存储平台，通过 ImSDK 设置图片 URL。 
 
 **示例：**
 
@@ -169,8 +172,8 @@ param.setFaceUrl( "http://faceurl");
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -181,9 +184,9 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-### 2.4 设置自己的自定义字段
+### 设置自己的自定义字段
 
-通过Server配置（可提交工单修改，可参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户等级等。
+通过 Server 配置（可提交工单修改，可参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户等级等。
 
 **示例：**
 
@@ -201,8 +204,8 @@ param.setCustomInfo(customInfos);
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -213,7 +216,7 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-### 2.5 设置自己的个性签名
+### 设置自己的个性签名
 
 云通信支持个性签名，用户设置后所有人可见。
 
@@ -226,8 +229,8 @@ param.setSelfSignature("stay hungry, stay foolish");
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -237,10 +240,10 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	}
 });
 ```
-### 2.6 设置自己的性别
+
+### 设置自己的性别
 
 云通信支持设置自己的性别，设置后所有人可见。
-
 
 **示例：**
 
@@ -251,8 +254,8 @@ param.setGender(TIMFriendGenderType.Female);
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -263,25 +266,25 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-### 2.7 设置自己的生日
+### 设置自己的生日
 
 云通信支持设置自己的生日，设置后所有人可见。
 
-> 注意:
-生日信息是一个长整形，结果只保留低32位，具体含义由应用自行定义和解析。
+> **注意:**
+> 生日信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
 
 **示例：**
 
 ```
 TIMFriendshipManager.ModifyUserProfileParam param = new TIMFriendshipManager.ModifyUserProfileParam();
-//生日设置为2017/5/2
+//生日设置为 2017/5/2
 param.setBirthday(1493654400);
 
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -292,25 +295,25 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-### 2.8 设置自己的语言
+### 设置自己的语言
 
 云通信支持设置自己的语言，设置后所有人可见。
 
->注意
-语言信息是一个长整形，结果只保留低32位，具体含义由应用自行定义和解析。
+> **注意：**
+> 语言信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
 
 **示例：**
 
 ```
 TIMFriendshipManager.ModifyUserProfileParam param = new TIMFriendshipManager.ModifyUserProfileParam();
-//这里假设1表示中文
+//这里假设 1 表示中文
 param.setLanguage(1);
 
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -321,7 +324,7 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-### 2.9 设置自己的位置
+### 设置自己的位置
 
 云通信支持设置自己的位置，设置后所有人可见。
 
@@ -334,8 +337,8 @@ param.setLocation("location");
 TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifyProfile failed: " + code + " desc" + desc);
 	}
 
@@ -345,28 +348,29 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	}
 });
 ```
-## 3. 获取资料
 
-### 3.1 获取自己的资料 
+## 获取资料
 
-可通过 `TIMFriendshipManager`的 `getSelfProfile`方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
+### 获取自己的资料 
+
+可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
 
 **原型：**
 
 ```   
 /**
  * 获取自己的基本资料
- * @param cb 回调，OnSuccess函数的参数中返回包含相应自己的{@see TIMUserProfile}
+ * @param cb 回调，OnSuccess 函数的参数中返回包含相应自己的{@see TIMUserProfile}
  */
 public void getSelfProfile(final @NonNull TIMValueCallBack<TIMUserProfile> cb)
 ```
 
-其中`TIMUserProfile`提供的接口如下：
+**`TIMUserProfile` 提供的接口如下：**
 
 ```
 /**
-* 获取用户的identifier
-* @return 用户的identifier
+* 获取用户的 identifier
+* @return 用户的 identifier
 */
 public String getIdentifier()
 
@@ -377,8 +381,8 @@ public String getIdentifier()
 public String getNickName()
 
 /**
-* 获取用户头像URL
-* @return 用户头像URL
+* 获取用户头像 URL
+* @return 用户头像 URL
 */
 public String getFaceUrl()
 
@@ -408,7 +412,7 @@ public List<String> getFriendGroups()
 
 /**
 * 获取用户自定义信息
-* @return 自定义信息Map
+* @return 自定义信息 Map
 */
 public Map<String, byte[]> getCustomInfo()
 
@@ -444,8 +448,8 @@ public String getLocation()
 TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserProfile>(){
 	@Override
 	public void onError(int code, String desc){
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
         Log.e(tag, "getSelfProfile failed: " + code + " desc");
 	}
 	
@@ -458,16 +462,17 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 });
 ```
 
-### 3.2 获取任何人的资料
+### 获取任何人的资料
 
-可通过`TIMFriendshipManager`的 `getUsersProfile` 方法获取任何人的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
+可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取任何人的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
 
 **原型： **  
+
 ```
 /**
  * 获取用户基本资料（不包括：备注，好友分组）
- * @param users 要获取资料的用户identifier列表
- * @param cb 回调，OnSuccess函数的参数中返回包含相应用户的{@see TIMUserProfile}列表
+ * @param users 要获取资料的用户 identifier 列表
+ * @param cb 回调，OnSuccess 函数的参数中返回包含相应用户的{@see TIMUserProfile}列表
  */
 public void getUsersProfile(@NonNull List<String> users, @NonNull TIMValueCallBack<List<TIMUserProfile>> cb) 
 ```
@@ -484,8 +489,8 @@ users.add("sample_user_2");
 TIMFriendshipManager.getInstance().getUsersProfile(users, new TIMValueCallBack<List<TIMUserProfile>>(){
 	@Override
 	public void onError(int code, String desc){
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
         Log.e(tag, "getUsersProfile failed: " + code + " desc");
 	}
 	
@@ -500,21 +505,20 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, new TIMValueCallBack<L
 });
 ```
 
-### 3.3 获取好友的资料
+### 获取好友的资料
 
-好友关系链的功能是由资料关系链扩展包提供的，可通过 扩展包中`TIMFriendshipManagerExt`的 `getFriendsProfile` 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
+好友关系链的功能是由资料关系链扩展包提供的，可通过 扩展包中 `TIMFriendshipManagerExt` 的 `getFriendsProfile` 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
 
 **原型： **  
 
 ```
 /**
  * 获取好友的资料（仅好友）
- * @param users 要获取资料的好友identifier列表
- * @param cb 回调，OnSuccess函数的参数中返回包含相应用户的{@see TIMUserProfile}列表
+ * @param users 要获取资料的好友 identifier 列表
+ * @param cb 回调，OnSuccess 函数的参数中返回包含相应用户的{@see TIMUserProfile}列表
  */
 public void getFriendsProfile(@NonNull List<String> users, @NonNull TIMValueCallBack<List<TIMUserProfile>> cb)
 ```
-
 
 **示例：**
 
@@ -528,8 +532,8 @@ users.add("sample_friend_2");
 TIMFriendshipManagerExt.getInstance().getFriendsProfile(users, new TIMValueCallBack<List<TIMUserProfile>>(){
 	@Override
 	public void onError(int code, String desc){
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
         Log.e(tag, "getFriendsProfile failed: " + code + " desc");
 	}
 	
@@ -546,11 +550,12 @@ TIMFriendshipManagerExt.getInstance().getFriendsProfile(users, new TIMValueCallB
 
 
 
-### 3.4 按照字段获取用户资料
+### 按照字段获取用户资料
 
-目前ImSDK在获取用户资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录ImSDK之前**，通过`TIMFriendshipSettings`进行相应的设置，并通过`TIMManager`的`setUserConfig`将其也当前通信管理器进行关联(参考[用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9))。
+目前 ImSDK 在获取用户资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 ImSDK 之前**，通过 `TIMFriendshipSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联(参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9))。
 
-其中`TIMFriendshipSettings`提供的相关接口如下：
+**`TIMFriendshipSettings` 提供的相关接口如下：**
+
 ```
 /**
  * 设置关系链默认拉取资料标识
@@ -572,8 +577,9 @@ public void addCustomTag(String tag)
 ```
 
 **示例：**
+
 ```
-//设置资料关系链拉取字段，这里只关心好友验证类型、头像URL、昵称和自定义字段"Tag_Profile_Custom_Test"
+//设置资料关系链拉取字段，这里只关心好友验证类型、头像 URL、昵称和自定义字段"Tag_Profile_Custom_Test"
 TIMFriendshipSettings settings = new TIMFriendshipSettings();
 long flags = 0;
 flags |= TIMFriendshipManager.TIM_PROFILE_FLAG_ALLOW_TYPE
@@ -589,11 +595,9 @@ config.setFriendshipSettings(settings);
 TIMManager.getInstance().setUserConfig(config);
 ```
 
-## 4. 关系链相关资料
+## 关系链相关资料
 
-好友关系链的功能是由资料关系链扩展包提供的，所以所有关系链相关的操作全部由扩展包中的`TIMFriendshipManagerExt`实例提供。
-可以通过`TIMFriendshipManagerExt`中的`modifySnsProfile`方法修改好友关系链相关资料。比如好友备注、好友自定义资料。
-
+好友关系链的功能是由资料关系链扩展包提供的，所以所有关系链相关的操作全部由扩展包中的 `TIMFriendshipManagerExt` 实例提供。可以通过 `TIMFriendshipManagerExt` 中的 `modifySnsProfile` 方法修改好友关系链相关资料（如好友备注、好友自定义资料）。
 
 **原型：**
 
@@ -605,11 +609,13 @@ TIMManager.getInstance().setUserConfig(config);
  */
 public void modifySnsProfile(@NonNull ModifySnsProfileParam param, @NonNull TIMCallBack cb)
 ```
-其中`ModifySnsProfileParam`提供的接口如下：
+
+**`ModifySnsProfileParam` 提供的接口如下：**
+
 ```
 /**
  * 构造参数实例
- * @param identifier 需要修改资料的好友用户ID
+ * @param identifier 需要修改资料的好友用户 ID
  */
 public ModifySnsProfileParam(@NonNull String identifier)
 
@@ -626,26 +632,25 @@ public ModifySnsProfileParam setRemark(String remark)
 public ModifySnsProfileParam setCustomInfo(Map<String, byte[]> customInfo) 
 ```
 
-### 4.1 好友备注 
+### 好友备注 
 
-可通过`TIMFriendshipManagerExt`的 `modifySnsProfile`方法设置好友备注。
+可通过 `TIMFriendshipManagerExt` 的 `modifySnsProfile` 方法设置好友备注。
 
-> 注意：
+> **注意：**
 > 好友备注必须先加为好友才可设置备注。
-
 
 **示例：**
 
 ```
-//将好友“test_user“的备注设置为”remark“
+//将好友“test_user”的备注设置为“remark”
 TIMFriendshipManagerExt.ModifySnsProfileParam param = new TIMFriendshipManagerExt.ModifySnsProfileParam("test_user");
 param.setRemark("remark");
 
 TIMFriendshipManagerExt.getInstance().modifySnsProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifySnsProfile failed: " + code + " desc" + desc);
 	}
 
@@ -656,14 +661,14 @@ TIMFriendshipManagerExt.getInstance().modifySnsProfile(param, new TIMCallBack() 
 });
 ```
 
-### 4.2 设置好友自定义资料
+### 设置好友自定义资料
 
-通过Server配置（内测功能）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能。
+通过 Server 配置（内测功能）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能。
 
 **示例：**
 
 ```
-//将好友“test_user”的好友自定义资料字段”Tag_SNS_Custom_Test“设置为"test"
+//将好友“test_user”的好友自定义资料字段“Tag_SNS_Custom_Test”设置为“test”
 TIMFriendshipManagerExt.ModifySnsProfileParam param = new TIMFriendshipManagerExt.ModifySnsProfileParam("test_user");
 
 Map<String, byte[]> customInfos = new HashMap<String, byte[]>();
@@ -677,8 +682,8 @@ param.setCustomInfo(customInfos);
 TIMFriendshipManagerExt.getInstance().modifySnsProfile(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "modifySnsProfile failed: " + code + " desc" + desc);
 	}
 
@@ -689,31 +694,32 @@ TIMFriendshipManagerExt.getInstance().modifySnsProfile(param, new TIMCallBack() 
 });
 ```
 
-## 5. 好友关系
+## 好友关系
 
-好友关系链是由资料关系链扩展包提供的功能，所以所有关系链相关操作均由`TIMFriendshipManagerExt`提供。
+好友关系链是由资料关系链扩展包提供的功能，所以所有关系链相关操作均由 `TIMFriendshipManagerExt` 提供。
 
-### 5.1 添加好友
+### 添加好友
 
-通过 `TIMFriendshipManagerExt`的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
+通过 `TIMFriendshipManagerExt` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个。
 
 **原型：   **
 
 ```
 /**
  * 添加好友
- * @param users 要添加的用户列表 TIMAddFriendRequest列表
- * @param cb 回调, onSuccess函数的参数中返回{@see TIMFriendResult}列表
+ * @param users 要添加的用户列表 TIMAddFriendRequest 列表
+ * @param cb 回调, onSuccess 函数的参数中返回{@see TIMFriendResult}列表
  */
 public void addFriend(@NonNull List<TIMAddFriendRequest> users,
 					  @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
 
-其中`TIMAddFriendRequest`提供的接口方法如下： 
+**`TIMAddFriendRequest` 提供的接口方法如下： **
+
 ```
 /**
  * 构造添加好友请求
- * @param id 要添加的好友的ID
+ * @param id 要添加的好友的 ID
  */
 public TIMAddFriendRequest(@NonNull String id)
 
@@ -730,14 +736,14 @@ public String getFriendGroup()
 public TIMAddFriendRequest setFriendGroup(@NonNull String groupName)
 
 /**
- * 获取添加好友的identifier
+ * 获取添加好友的 identifier
  * @return identifier
  */
 public String getIdentifier()
 
 /**
- * 设置添加好友的identifier
- * @param identifier 要添加的好友的identifier
+ * 设置添加好友的 identifier
+ * @param identifier 要添加的好友的 identifier
  */
 public TIMAddFriendRequest setIdentifier(@NonNull String identifier)
 
@@ -749,7 +755,7 @@ public String getRemark()
 
 /**
  * 设置要添加好友的备注
- * @param remark 要添加的好友的备注（最长96字节）
+ * @param remark 要添加的好友的备注（最长 96 字节）
  */
 public TIMAddFriendRequest setRemark(@NonNull String remark)
 
@@ -767,7 +773,7 @@ public TIMAddFriendRequest setAddrSource(@NonNull String addSource)
 
 /**
  * 获取添加好友的申请理由
- * @return 申请理由（120字节）
+ * @return 申请理由（120 字节）
  */
 public String getAddWording()
 
@@ -778,22 +784,24 @@ public String getAddWording()
 public TIMAddFriendRequest setAddWording(@NonNull String addWording)
 ```
 
-`TIMFriendResult`的接口方法如下：
+**`TIMFriendResult` 的接口方法如下：**
+
 ```
 /**
- * 获取用户identifier
- * @return 用户identifier
+ * 获取用户 identifier
+ * @return 用户 identifier
  */
 public String getIdentifer()
 
 /**
- * 获取操作结果status
- * @return 操作结果的status
+ * 获取操作结果 status
+ * @return 操作结果的 status
  */
 public TIMFriendStatus getStatus()
 ```
 
-`TIMFriendStatus`定义如下：
+**`TIMFriendStatus` 定义如下：**
+
 ```
 //对方已经是好友
 TIM_FRIEND_STATUS_EXISTED_FRIEND
@@ -810,6 +818,7 @@ TIM_FRIEND_STATUS_SUCC
 //找不到相应用户信息
 TIM_FRIEND_STATUS_USER_NOT_FOUND
 ```
+
 开发者可根据对应情况提示用户。 
 
 **示例：**
@@ -830,8 +839,8 @@ reqList.add(req);
 TIMFriendshipManagerExt.getInstance().addFriend(reqList, new TIMValueCallBack<List<TIMFriendResult>>() {
 	@Override
 	public void onError(int code, String desc){
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "addFriend failed: " + code + " desc");
 	}
 	
@@ -845,9 +854,9 @@ TIMFriendshipManagerExt.getInstance().addFriend(reqList, new TIMValueCallBack<Li
 });
 ```
 
-### 5.2 删除好友 
+### 删除好友 
 
-可通过` TIMFriendshipManagerExt`的 `delFriend` 方法可以批量删除好友： 
+可通过 `TIMFriendshipManagerExt` 的 `delFriend` 方法可以批量删除好友。
 
 **原型：**      
 
@@ -860,7 +869,9 @@ TIMFriendshipManagerExt.getInstance().addFriend(reqList, new TIMValueCallBack<Li
 public void delFriend(@NonNull DeleteFriendParam param,
 					  @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
-其中`DeleteFriendParam`提供的接口如下：
+
+**`DeleteFriendParam` 提供的接口如下：**
+
 ```
 /**
  * 设置删除好友类型
@@ -869,12 +880,11 @@ public void delFriend(@NonNull DeleteFriendParam param,
 public DeleteFriendParam setType(@NonNull TIMDelFriendType type)
 
 /**
- * 设置要删除的好友ID列表
- * @param users 好友ID列表
+ * 设置要删除的好友 ID 列表
+ * @param users 好友 ID 列表
  */
 public DeleteFriendParam setUsers(@NonNull List<String> users) 
 ```
-
 
 **示例：**
 
@@ -887,8 +897,8 @@ param.setType(TIMDelFriendType.TIM_FRIEND_DEL_BOTH)
 TIMFriendshipManagerExt.getInstance().delFriend(param, new TIMValueCallBack<List<TIMFriendResult>>() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "delFriend failed: " + code + " desc");
 	}
 
@@ -903,16 +913,16 @@ TIMFriendshipManagerExt.getInstance().delFriend(param, new TIMValueCallBack<List
 });
 ```
 
-### 5.3 获取所有好友 
+### 获取所有好友 
 
-可通过`TIMFriendshipManagerExt`的 `getFriendList` 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
+可通过 `TIMFriendshipManagerExt` 的 `getFriendList` 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
 
 **原型： **   
 
 ```
 /**
  * 获取所有好友
- * @param cb 回调，OnSuccess函数的参数中返回所有好友的{@see TIMUserProfile}列表,只包含identifier，nickname，remark 三个字段
+ * @param cb 回调，OnSuccess 函数的参数中返回所有好友的{@see TIMUserProfile}列表,只包含 identifier，nickname，remark 三个字段
  */
 public void getFriendList(@NonNull TIMValueCallBack<List<TIMUserProfile>> cb)
 ```
@@ -924,8 +934,8 @@ public void getFriendList(@NonNull TIMValueCallBack<List<TIMUserProfile>> cb)
 TIMFriendshipManagerExt.getInstance().getFriendList(new TIMValueCallBack<List<TIMUserProfile>>(){
     @Override
     public void onError(int code, String desc){
-        //错误码code和错误描述desc，可用于定位请求失败原因
-        //错误码code列表请参见错误码表
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 列表请参见错误码表
         Log.e(tag, "getFriendList failed: " + code + " desc");
     }
     
@@ -939,9 +949,9 @@ TIMFriendshipManagerExt.getInstance().getFriendList(new TIMValueCallBack<List<TI
 });
 ```
 
-### 5.4 同意/拒绝 好友申请 
+### 同意/拒绝 好友申请 
 
-可通过`TIMFriendshipManagerExt`的 `addFriendResponse`方法可以对未决好友添加申请进行回应。
+可通过 `TIMFriendshipManagerExt` 的 `addFriendResponse` 方法可以对未决好友添加申请进行回应。
 
 **原型：**
 
@@ -949,18 +959,18 @@ TIMFriendshipManagerExt.getInstance().getFriendList(new TIMValueCallBack<List<TI
 /**
  * 对未决的好友申请进行回应
  * @param response 回应内容
- * @param cb 回调, onSuccess函数的参数中返回{@see TIMFriendResult}列表
+ * @param cb 回调, onSuccess 函数的参数中返回{@see TIMFriendResult}列表
  */
 public void addFriendResponse(@NonNull TIMFriendAddResponse response,
 							  @NonNull TIMValueCallBack<TIMFriendResult> cb) 
 ```
 
-其中`TIMFriendAddResponse`提供的成员方法如下：
+** `TIMFriendAddResponse` 提供的成员方法如下：**
 
 ```
 /**
  * 构造好友申请回应实例
- * @param identifier 好友用户ID
+ * @param identifier 好友用户 ID
  */
 public TIMFriendAddResponse(@NonNull String identifier)
 
@@ -977,7 +987,8 @@ public void setRemark(String remark)
 public void setType(TIMFriendResponseType type)
 ```
 
-`TIMFriendResponseType`的定义如下：
+**`TIMFriendResponseType` 的定义如下：**
+
 ```
 //同意对方的好友申请
 Agree
@@ -989,30 +1000,31 @@ AgreeAndAdd
 Reject
 ```
 
-### 5.5 添加用户到黑名单
+### 添加用户到黑名单
 
-可以通过`TIMFriendshipManagerExt`中的`addBlackList`方法把任意用户拉黑，如果此前是好友关系，**拉黑后自动解除好友，拉黑后将无法收到对方发送的消息**。
+可以通过 `TIMFriendshipManagerExt` 中的 `addBlackList` 方法把任意用户拉黑，如果此前是好友关系，**拉黑后自动解除好友，拉黑后将无法收到对方发送的消息**。
 
 **原型：**
+
 ```
 /**
  * 添加用户到黑名单
  * @param identifiers 要添加到黑名单的用户列表
- * @param cb 回调, onSuccess函数的参数中返回{@see TIMFriendResult}列表
+ * @param cb 回调, onSuccess 函数的参数中返回{@see TIMFriendResult}列表
  */
 public void addBlackList(@NonNull List<String> identifiers,
 						 @NonNull TIMValueCallBack<List<TIMFriendResult>> cb) 
 ```
 
+### 把用户从黑名单删除
 
-### 5.6 把用户从黑名单删除
+相应的通过 `TIMFriendshipManagerExt` 中的 `delBlackList` 方法可以把用户从黑名单中移除。
 
-相应的通过`TIMFriendshipManagerExt`中的`delBlackList`方法可以把用户从黑名单中移除。
-
-> 注意：
+> **注意：**
 > 把用户从黑名单中移出后，不会主动恢复好友关系，需要应用重新添加好友关系。
 
 **原型：**
+
 ```
 /**
  * 将用户从黑名单中删除
@@ -1023,28 +1035,26 @@ public void delBlackList(@NonNull List<String> identifiers,
 						 @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
 
+### 获取黑名单列表
 
-### 5.7 获取黑名单列表
-
-通过`TIMFriendshipManagerExt`中的`getBlackList`方法获取当前黑名单列表。
+通过 `TIMFriendshipManagerExt` 中的 `getBlackList` 方法获取当前黑名单列表。
 
 **原型：**
 ```
 /**
  * 获取黑名单列表
- * @param cb 回调, onSuccess函数的参数中返回黑名单用户identifier列表
+ * @param cb 回调, onSuccess 函数的参数中返回黑名单用户 identifier 列表
  */
 public void getBlackList(@NonNull TIMValueCallBack<List<String>> cb) 
 ```
 
+## 好友分组
 
-## 6. 好友分组
+**好友分组**是由资料关系链扩展包提供的功能，所以所有好友分组相关操作均由 `TIMFriendshipManagerExt` 提供。
 
-好友分组是由资料关系链扩展包提供的功能，所以所有好友分组相关操作均由`TIMFriendshipManagerExt`提供。
+### 创建好友分组
 
-### 6.1 创建好友分组
-
-通过`TIMFriendshipManagerExt`的接口`createFriendGroup`可以创建好友分组。创建分组时，可以同时指定添加的用户，同一用户可以添加到多个分组。
+通过 `TIMFriendshipManagerExt` 的接口 `createFriendGroup` 可以创建好友分组。创建分组时，可以同时指定添加的用户，同一用户可以添加到多个分组。
 
 **原型：**
 ```
@@ -1052,18 +1062,18 @@ public void getBlackList(@NonNull TIMValueCallBack<List<String>> cb)
  * 新建好友分组
  * @param groupNames 分组名称列表，必须是当前不存在的分组
  * @param users 要添加到分组中的好友列表
- * @param cb 回调，在onSuccess回调的参数中返回请求结果{@see TIMFriendResult}列表
+ * @param cb 回调，在 onSuccess 回调的参数中返回请求结果{@see TIMFriendResult}列表
  */
 public void createFriendGroup(@NonNull List<String> groupNames, @NonNull List<String> users,
 							  @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
 
+### 删除好友分组
 
-### 6.2 删除好友分组
-
-通过`TIMFriendshipManagerExt`的接口`deleteFriendGroup`可以删除好友分组。
+通过 `TIMFriendshipManagerExt` 的接口 `deleteFriendGroup` 可以删除好友分组。
 
 **原型：**
+
 ```
 /**
  * 删除好友分组
@@ -1072,11 +1082,10 @@ public void createFriendGroup(@NonNull List<String> groupNames, @NonNull List<St
  */
 public void deleteFriendGroup(@NonNull List<String> groupNames, @NonNull TIMCallBack cb)
 ```
-删除好友分组
 
-### 6.3 添加好友到某分组
+### 添加好友到某分组
 
-通过`TIMFriendshipManagerExt`的接口`addFriendsToFriendGroup`可以将好友添加到好友分组。
+通过 `TIMFriendshipManagerExt` 的接口 `addFriendsToFriendGroup` 可以将好友添加到好友分组。
 
 **原型：**
 ```
@@ -1084,35 +1093,35 @@ public void deleteFriendGroup(@NonNull List<String> groupNames, @NonNull TIMCall
  * 添加好友到一个好友分组
  * @param groupName 好友分组名称
  * @param users 要加到好友分组的好友列表
- * @param cb 回调，在onSuccess回调的参数中返回请求结果{@see TIMFriendResult}列表
+ * @param cb 回调，在 onSuccess 回调的参数中返回请求结果{@see TIMFriendResult}列表
  */
 public void addFriendsToFriendGroup(@NonNull String groupName, @NonNull List<String> users,
 									@NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
 
+### 从某分组删除好友
 
-### 6.4 从某分组删除好友
-
-通过`TIMFriendshipManagerExt`的接口`delFriendsFromFriendGroup`可以将好友从好友分组中删除。
+通过 `TIMFriendshipManagerExt` 的接口 `delFriendsFromFriendGroup` 可以将好友从好友分组中删除。
 
 **原型：**
+
 ```
 /**
  * 从好友分组中删除好友
  * @param groupName 好友分组名称
  * @param users 要从好友分组中删除的好友列表
- * @param cb 回调，在onSuccess回调的参数中返回请求结果{@see TIMFriendResult}列表
+ * @param cb 回调，在 onSuccess 回调的参数中返回请求结果{@see TIMFriendResult}列表
  */
 public void delFriendsFromFriendGroup(@NonNull String groupName, @NonNull List<String> users,
 									  @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
 ```
 
+### 重命名好友分组
 
-### 6.5 重命名好友分组
-
-通过`TIMFriendshipManagerExt`的接口`renameFriendGroupName`可以重命名好友分组。
+通过 `TIMFriendshipManagerExt` 的接口 `renameFriendGroupName` 可以重命名好友分组。
 
 **原型：**
+
 ```
 /**
  * 修改好友分组的名称
@@ -1124,36 +1133,35 @@ public void renameFriendGroupName(@NonNull String oldName, @NonNull String newNa
 								  @NonNull final TIMCallBack cb)
 ```
 
-### 6.6 获取指定的好友分组信息
+### 获取指定的好友分组信息
 
-通过`TIMFriendshipManagerExt`的接口`getFriendGroups`可以获取指定的好友分组。
+通过 `TIMFriendshipManagerExt` 的接口 `getFriendGroups` 可以获取指定的好友分组。
 
 **原型：**
+
 ```
 /**
  * 获取指定的好友分组信息
- * @param groupNames 要获取信息的好友分组名称列表, 为null则获取所有的好友分组信息
- * @param cb 回调，在onSuccess回调的参数中返回好友分组列表，详见{@see TIMFriendGroup}
+ * @param groupNames 要获取信息的好友分组名称列表, 为 null 则获取所有的好友分组信息
+ * @param cb 回调，在 onSuccess 回调的参数中返回好友分组列表，详见{@see TIMFriendGroup}
  */
 public void getFriendGroups(@Nullable List<String> groupNames,
 							@NonNull TIMValueCallBack<List<TIMFriendGroup>> cb)
 ```
 
+### 获取所有好友分组
 
+通过 [获取指定的好友分组信息](#.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF) 可以获取所有分组信息，另外，通过 [获取所有好友](#.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B) 也可以获取分组信息。
 
-### 6.7 获取所有好友分组
+## 关系链资料存储
 
-通过 [获取指定的好友分组信息](#6.6-.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF) 可以获取所有分组信息，另外，通过 [获取所有好友](#5.3-.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B)，也可以获取分组信息。
+### 开启存储
 
-## 7. 关系链资料存储
+默认情况下，ImSDK 不会对关系链资料数据进行存储，如果需要开启关系链资料存储，请在**登录前**，通过 `TIMUserConfigSnsExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。
 
-### 7.1 开启存储
+**`TIMUserConfigSnsExt` 接口定义如下：**
 
-默认情况下，ImSDK不会对关系链资料数据进行存储，如果需要开启关系链资料存储，请在**登录前**，通过`TIMUserConfigSnsExt`进行相应的配置，并通过`TIMManager`的`setUserConfig`将相关配置与当前通信管理器进行关联。
-
-其中`TIMUserConfigSnsExt`接口定义如下：
 ```
-
 /**
  * 扩展类构造函数
  * @param config 用户配置实例
@@ -1187,9 +1195,9 @@ public TIMUserConfigSnsExt enableFriendshipStorage(boolean friendshipStorageEnab
 
 **示例：**
 
-具体例子请参考[用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
+具体例子请参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
 
-### 7.2 内存中同步获取关系链资料数据
+### 内存中同步获取关系链资料数据
 
 通过 `TIMFriendshipProxy` 提供的接口可以从内存中同步获取关系链资料数据。
 
@@ -1207,8 +1215,8 @@ public static TIMFriendshipProxy getInstance()
 public List<TIMUserProfile> getFriends()
 
 /**
- * 获取指定ID好友
- * @param identifiers 用户identify
+ * 获取指定 ID 好友
+ * @param identifiers 用户 identify
  */
 public List<TIMUserProfile> getFriendsById(List<String> identifiers)
 
@@ -1219,11 +1227,11 @@ public List<TIMUserProfile> getFriendsById(List<String> identifiers)
 public List<TIMFriendGroup> getFriendsByGroups(@Nullable List<String> groups)
 ```
 
-### 7.3 好友、资料变更回调
+### 好友、资料变更回调
 
-如果没有开启关系链资料存储的情况下，必须通过系统消息来感知关系链资料变更，这种方式需要用户解析消息内容，层次结构较深；如果开启了存储的功能，可以用更加明显易用的回调`TIMFriendshipProxyListener`感知变更。通过`TIMUserConfigSnsExt`进行相应的配置，并通过`TIMManager`的`setUserConfig`将相关配置与当前通信管理器进行关联。
+如果没有开启关系链资料存储的情况下，必须通过系统消息来感知关系链资料变更，这种方式需要用户解析消息内容，层次结构较深；如果开启了存储的功能，可以用更加明显易用的回调 `TIMFriendshipProxyListener` 感知变更。通过 `TIMUserConfigSnsExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。通过设置 `TIMFriendshipProxyListener` 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新 UI 操作。
 
-其中`TIMFriendshipProxyListener`主要的事件回调如下：
+**`TIMFriendshipProxyListener` 主要的事件回调如下：**
 
 ```
 /**
@@ -1234,7 +1242,7 @@ void OnAddFriends(List<TIMUserProfile> users);
 
 /**
  *  删除好友通知
- *  @param identifiers 用户id列表
+ *  @param identifiers 用户 ID 列表
  */
 void OnDelFriends(List<String> identifiers);
 
@@ -1246,23 +1254,20 @@ void OnFriendProfileUpdate(List<TIMUserProfile> profiles);
 
 /**
  *  好友申请通知
- *  @param reqs 好友申请者id列表，详见{@see TIMSNSChangeInfo}
+ *  @param reqs 好友申请者 ID 列表，详见{@see TIMSNSChangeInfo}
  */
 void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs);
-
 ```
-
-通过设置 `TIMFriendshipProxyListener` 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新UI操作。
 
 **示例：**
 
-具体例子请参考[用户配置](/doc/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
+具体例子请参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9)。
 
-## 8. 关系链变更系统通知 
+## 关系链变更系统通知 
 
-`TIMMessage`中Elem类型为`TIMElemType.SNSTips`的消息为关系链变更系统消息，由`TIMSNSSystemElem`表示。 
+`TIMMessage` 中 `Elem` 类型为 `TIMElemType.SNSTips` 的消息为关系链变更系统消息，由 `TIMSNSSystemElem` 表示。 
 
-其中`"TIMSNSSystemElem`成员接口如下：
+**`TIMSNSSystemElem` 成员接口如下：**
 
 ```
 /**
@@ -1299,11 +1304,12 @@ public long getDecideReportTimestamp()
 public long getRecommendReportTimestamp()
 ```
 
-`TIMSNSChangeInfo` 成员方法如下：
+**`TIMSNSChangeInfo` 成员方法如下：**
+
 ```
 /**
- * 获取用户identifier
- * @return 用户identifier
+ * 获取用户 identifier
+ * @return 用户 identifier
  */
 public String getIdentifier()
 
@@ -1332,7 +1338,8 @@ public String getRemark()
 public String getNickName()
 ```
 
-`TIMSNSSystemType`定义如下： 
+**`TIMSNSSystemType` 定义如下： **
+
 ```
 /**
  * 无效值
@@ -1410,43 +1417,43 @@ TIM_SNS_SYSTEM_RECOMMEND_REPORT(0x0d),
 TIM_SNS_SYSTEM_DECIDE_REPORT(0x0e);
 ```
 
-### 8.1 添加好友系统通知 
+### 添加好友系统通知 
 
-当两个用户成为好友时，两个用户均可收到添加好友系统消息： 
-
-**触发时机：**
- 
-当自己的关系链变更，增加好友时，收到消息（如果已经是单向好友，关系链没有变更的一方不会收到） 
-
-**成员方法：**
- 
-getSubType ：TIM_SNS_SYSTEM_ADD_FRIEND 
-getChangeInfoList ：成为好友的用户列表 
-
-**TIMSNSChangeInfo 参数说明：**
- 
-getIdentifier ： 用户identifier 
-
-### 8.2 删除好友系统通知 
-
-当两个用户解除好友关系时，会收到删除好友系统消息： 
+当两个用户成为好友时，两个用户均可收到添加好友系统消息。
 
 **触发时机：**
  
-当自己的关系链变更，删除好友时，收到消息（如果删除的是单向好友，关系链没有变更的一方不会收到） 
+当自己的关系链变更，增加好友时，收到消息（如果已经是单向好友，关系链没有变更的一方不会收到）。
 
 **成员方法：**
  
-getSubType ：TIM_SNS_SYSTEM_DEL_FRIEND 
-getChangeInfoList ：删除好友的用户列表 
+`getSubType`：`TIM_SNS_SYSTEM_ADD_FRIEND` 
+`getChangeInfoList`：成为好友的用户列表 
 
-**TIMSNSChangeInfo 参数说明：**
+**`TIMSNSChangeInfo` 参数说明：**
  
-getIdentifier ： 用户identifier 
+`getIdentifier`： 用户 `identifier` 
 
-### 8.3 好友申请系统通知 
+### 删除好友系统通知 
 
-当申请好友时对方需要验证，自己和对方会收到好友申请系统通知： 
+当两个用户解除好友关系时，会收到删除好友系统消息。
+
+**触发时机：**
+ 
+当自己的关系链变更，删除好友时，收到消息（如果删除的是单向好友，关系链没有变更的一方不会收到） 。
+
+**成员方法：**
+ 
+`getSubType`：`TIM_SNS_SYSTEM_DEL_FRIEND` 
+`getChangeInfoList`：删除好友的用户列表 
+
+**`TIMSNSChangeInfo` 参数说明：**
+ 
+`getIdentifier` ： 用户 `identifier` 
+
+### 好友申请系统通知 
+
+当申请好友时对方需要验证，自己和对方会收到好友申请系统通知。
 
 **触发时机：**
  
@@ -1454,16 +1461,16 @@ getIdentifier ： 用户identifier
 
 **成员方法：**
  
-getSubType ：TIM_SNS_SYSTEM_ADD_FRIEND_REQ 
-getChangeInfoList ：申请的好友列表 
+`getSubType`：`TIM_SNS_SYSTEM_ADD_FRIEND_REQ`
+`getChangeInfoList`：申请的好友列表 
 
-**TIMSNSChangeInfo 参数说明：**
+**`TIMSNSChangeInfo` 参数说明：**
  
-getIdentifier ： 用户identifier 
-getWording ： 申请理由 
-getSource ： 申请来源，申请时填写，由系统页面分配的固定字串 
+`getIdentifier`： 用户 `identifier` 
+`getWording`： 申请理由 
+`getSource`： 申请来源，申请时填写，由系统页面分配的固定字串 
 
-### 8.4 删除未决请求通知 
+### 删除未决请求通知 
 
 **触发时机：**
  
@@ -1471,18 +1478,19 @@ getSource ： 申请来源，申请时填写，由系统页面分配的固定字
 
 **成员方法：**
  
-getSubType ：TIM_SNS_SYSTEM_DEL_FRIEND_REQ 
-getChangeInfoList ：删除未决请求的好友列表 
+`getSubType`：`TIM_SNS_SYSTEM_DEL_FRIEND_REQ`
+`getChangeInfoList`：删除未决请求的好友列表 
 
-**TIMSNSChangeInfo 参数说明：**
+**`TIMSNSChangeInfo` 参数说明：**
  
-getIdentifier ： 用户identifier 
+`getIdentifier`： 用户 `identifier`
 
-## 9. 好友资料变更系统通知 
+## 好友资料变更系统通知 
 
-`TIMMessage`中Elem类型为`TIMElemType.ProfileTips`的消息为关系链变更系统消息，由` TIMProfileSystemElem`来表示。 
+`TIMMessage` 中 `Elem` 类型为 `TIMElemType.ProfileTips` 的消息为关系链变更系统消息，由 `TIMProfileSystemElem` 来表示。 
 
-其中`TIMProfileSystemElem` 成员方法如下：
+**`TIMProfileSystemElem` 成员方法如下：**
+
 ```
 /**
  * 获取资料变更类型
@@ -1497,13 +1505,14 @@ public TIMProfileSystemType getSubType()
 public String getFromUser()
 
 /**
- * 获取资料变更的昵称，如果昵称没有变更，则昵称为null
+ * 获取资料变更的昵称，如果昵称没有变更，则昵称为 null
  * @return 资料变更的新昵称
  */
 public String getNickName()
 ```
 
-`TIMProfileSystemType`定义如下：
+**`TIMProfileSystemType` 定义如下：**
+
 ```
 /**
  * 无效值
@@ -1516,11 +1525,9 @@ INVALID,
 TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE,
 ```
 
-## 10. 未决请求
+## 未决请求
 
-未决请求即为等待处理的请求，比如设置了添加好友选项为需要验证，则对方申请添加好友时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。
-
-通过 `TIMFriendshipManagerExt` 的 `getFutureFriends` 方法可以从Server获取未决请求列表。
+未决请求即为等待处理的请求，比如设置了添加好友选项为需要验证，则对方申请添加好友时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。通过 `TIMFriendshipManagerExt` 的 `getFutureFriends` 方法可以从 Server 获取未决请求列表。
 
 **原型：***
 
@@ -1528,8 +1535,8 @@ TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE,
 /**
  * 未决请求和好友推荐拉取
  * @param flags 获取的资料标识,参见{@see TIMFriendshipManager#TIM_PROFILE_FLAG_NICK}等
- * @param futureFlags 指定要获取的类型，未决in，未决out，推荐，已决四种，参见{@see TIMFriendshipManagerExt#TIM_FUTURE_FRIEND_PENDENCY_IN_TYPE}等
- * @param custom 自定义字段，可填null
+ * @param futureFlags 指定要获取的类型，未决 in，未决 out，推荐，已决四种，参见{@see TIMFriendshipManagerExt#TIM_FUTURE_FRIEND_PENDENCY_IN_TYPE}等
+ * @param custom 自定义字段，可填 null
  * @param meta 请求信息，参见{@see TIMFriendFutureMeta}
  * @param cb 回调
  */

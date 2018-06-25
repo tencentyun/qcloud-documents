@@ -13,7 +13,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | details | Array | Array of returned order details |
@@ -80,7 +80,7 @@ The following error codes include the business logic error codes for this API.
 Input
 <pre>
 https://mongodb.api.qcloud.com/v2/index.php?Action=DescribeMongodbDealDetail
-&<<a href="https://www.qcloud.com/doc/api/229/6976">common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 &dealIds.0=3373037
 &dealIds.1=3374462
 &dealIds.2=3374558

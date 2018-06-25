@@ -9,5 +9,5 @@ Currently, the cloud database supports full backup and incremental backup.
 Binlog is generated in real time which occupies certain disk space, and regularly uploaded to the backup system of the cloud database.
 
 ### 3. Backup by LZ4 compression 
-For more information, please see [How to Decompress Backup and Log Files](https://www.qcloud.com/document/product/237/2088).
+For more information, please see [How to Decompress Backup and Log Files](https://cloud.tencent.com/document/product/237/2088).
 

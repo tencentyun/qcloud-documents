@@ -3,7 +3,7 @@ The function code is the most important part of SCF. Users upload the applicatio
 The lifecycle of cloud function-based application generally includes: writing code, creating cloud function, deploying cloud function to SCF platform, testing, monitoring and troubleshooting, etc. This section describes everything about the function code. For more information about monitoring and troubleshooting, please see Monitoring Cloud Function and Its Log section.
 
 ## Writing Code for SCF
-Users need to use the language supported for SCF platform to write cloud function code. Only Python is supported currently. You can use any coding tool, such as SCF console, as well as local editor and local IDE, etc. Please note that, if other dependencies that are currently not introduced to the platform are introduced to the code, you **must** upload these dependencies. The dependencies provided by the platform can be found in [Execution Environment](https://www.qcloud.com/document/product/583/9694#.E6.89.A7.E8.A1.8C.E7.8E.AF.E5.A2.83.E5.92.8C.E5.8F.AF.E7.94.A8.E5.BA.93) section. For more information on how to upload code, please see [Create Deployment Package](https://www.qcloud.com/document/product/583/9702) section.
+Users need to use the language supported for SCF platform to write cloud function code. Only Python is supported currently. You can use any coding tool, such as SCF console, as well as local editor and local IDE, etc. Please note that, if other dependencies that are currently not introduced to the platform are introduced to the code, you **must** upload these dependencies. The dependencies provided by the platform can be found in [Execution Environment](https://cloud.tencent.com/document/product/583/9694#.E6.89.A7.E8.A1.8C.E7.8E.AF.E5.A2.83.E5.92.8C.E5.8F.AF.E7.94.A8.E5.BA.93) section. For more information on how to upload code, please see [Create Deployment Package](https://cloud.tencent.com/document/product/583/9702) section.
 
 Language supported for the platform, available tools and note are listed below:
 
@@ -11,7 +11,7 @@ Language supported for the platform, available tools and note are listed below:
 |--|--|--|
 | Python | SCF console<br>Your coding environment <br>&nbsp;&nbsp;Editor: You can use vim + Pydiction, sublime text, NotePad and many other editors to write Python code.<br>& nbsp;&nbsp;IDE: IDE-integrated Python environment is required, such as WIngIDE, eclipse + pydev, pycharm, etc. | If the code does not need to be compiled, and no external library is introduced, you can write the code using SCF console directly. The platform automatically stores the code into a .py file and performs automatic deployment. |
 
-Meanwhile, SCF platform provides a set of basic patterns for writing function. For example, how to determine a preferred method to call function, how to obtain information from parameters, how to output logs, how to interact with the current running environment, etc. For more information about function patterns, please see [Writing Processing Method](https://www.qcloud.com/document/product/583/9210) section.
+Meanwhile, SCF platform provides a set of basic patterns for writing function. For example, how to determine a preferred method to call function, how to obtain information from parameters, how to output logs, how to interact with the current running environment, etc. For more information about function patterns, please see [Writing Processing Method](https://cloud.tencent.com/document/product/583/9210) section.
 
 
 ## Creating Deployment Package
@@ -20,11 +20,11 @@ Users need to provide code or deployment package:
 
 - If standard Python library and the library provided by Tencent Cloud (such as Python SDK of various cloud products) are used in your code, you just need to provide the code in the console, so that SCF console would automatically package this code file and upload it to SCF console.
 
-- If you need to introduce external library, you can organize your codes and dependencies according to the specific method in [Create Deployment Package](https://www.qcloud.com/document/product/583/9702), package and upload them to SCF platform.
+- If you need to introduce external library, you can organize your codes and dependencies according to the specific method in [Create Deployment Package](https://cloud.tencent.com/document/product/583/9702), package and upload them to SCF platform.
 
 ## Creating and Deploying SCF
 
-Users can create cloud function using SCF console, API, SDK or Tencent Cloud CLI tool, etc. You first need to provide the configuration information of cloud function, including computing resources, running environment, etc. For more information, please see [Create SCF](https://www.qcloud.com/document/product/583/9207).
+Users can create cloud function using SCF console, API, SDK or Tencent Cloud CLI tool, etc. You first need to provide the configuration information of cloud function, including computing resources, running environment, etc. For more information, please see [Create SCF](https://cloud.tencent.com/document/product/583/9207).
 
 
 ## Testing SCF
@@ -33,7 +33,7 @@ You can test the cloud function using the following method:
 - Click "Test" button in the console to test the cloud function.
 - Test the cloud function using API, SDK or InvokeFunction method of Tencent Cloud CLI tool.
 
-The calling data is required during test period. You can pass the calling data (such as COS, etc.) of specific cloud products to test whether the function responses to the events generated by these cloud products as expected. For more information about the event data generated by different cloud products, please see [Manage Cloud Function Trigger](https://www.qcloud.com/document/product/583/9707) section.
+The calling data is required during test period. You can pass the calling data (such as COS, etc.) of specific cloud products to test whether the function responses to the events generated by these cloud products as expected. For more information about the event data generated by different cloud products, please see [Manage Cloud Function Trigger](https://cloud.tencent.com/document/product/583/9707) section.
 
 ## Monitoring and Troubleshooting
 After the cloud function is introduced into the product environment, Tencent Cloud SCF automatically monitors the running status of the function. Then, SCF uploads the cloud function metrics to Cloud Monitor platform, so that users can check the running status of the function.
@@ -43,8 +43,8 @@ To help you debug and troubleshoot, Tencent Cloud SCF platform records all calli
 ## Example of SCF-based Application
 Make sure to read and practice the examples in the following sections before using the cloud function:
 
-- [Getting Started](https://www.qcloud.com/document/product/583/9179): If it is your fist time to use Tencent Cloud SCF, please read Getting Started section and try to perform all the operations in this section.
-- [Practical Operation of Code](https://www.qcloud.com/document/product/583/9734): If you need to introduce external library, you must create a code package in local environment and upload it to SCF console. Read and practice using each step in the example based on the selected programming language and the event to be processed.
+- [Getting Started](https://cloud.tencent.com/document/product/583/9179): If it is your fist time to use Tencent Cloud SCF, please read Getting Started section and try to perform all the operations in this section.
+- [Practical Operation of Code](https://cloud.tencent.com/document/product/583/9734): If you need to introduce external library, you must create a code package in local environment and upload it to SCF console. Read and practice using each step in the example based on the selected programming language and the event to be processed.
 
 
 

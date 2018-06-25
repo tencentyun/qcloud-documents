@@ -4,14 +4,14 @@ The first step in using a CVM instance is CVM instance login. To ensure the secu
 
 Anyone with an instance login password can log into the CVM instance remotely through a public network address that is allowed by the security group. Therefore, it is recommended to use a secure password, keep it safe, and modify the instance login password periodically.
 
-Users can specify a password or SSH key as they [Purchase and Start Instance](/doc/product/213/4855). Users can set their own passwords or use the automatically generated ones. The generated initial password will be delivered to the user via [Internal Message](https://console.qcloud.com/message). Users can learn from the following content on how to setup an initial password and how to reset settings in case they forget their passwords, etc.
+Users can specify a password or SSH key as they [Purchase and Start Instance](/doc/product/213/4855). Users can set their own passwords or use the automatically generated ones. The generated initial password will be delivered to the user via [Internal Message](https://console.cloud.tencent.com/message). Users can learn from the following content on how to setup an initial password and how to reset settings in case they forget their passwords, etc.
 
 ## Set the Initial Password
 1) When you [Purchase and Start Instance](/doc/product/213/4855), you can select the login method in the section where you set CVM name and login method. The default is "Set Password".
 
 2) Enter the CVM password according to password character limitations and confirm the password, then click "Buy Now"; the initial password will be set successfully, and wait for the CVM instance to be successfully assigned.
 
-3) You can also select "Auto Generate Password", and click "Buy Now" to get the CVM instance initial password via [Internal Message](https://console.qcloud.com/message) after the CVM instance is successfully assigned.
+3) You can also select "Auto Generate Password", and click "Buy Now" to get the CVM instance initial password via [Internal Message](https://console.cloud.tencent.com/message) after the CVM instance is successfully assigned.
 
 While setting a password, note the following character limitations:
 
@@ -22,7 +22,7 @@ While setting a password, note the following character limitations:
 ## Reset Password
 Note: You can only reset the password for the CVM when it is shut down. If the machine is running, please shut down the CVM first.
 
-1) Open [CVM Console](https://console.qcloud.com/cvm/).
+1) Open [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) For a single CVM instance that is shut down, click "More" - "Reset Password" on the operation column to the right side.
 

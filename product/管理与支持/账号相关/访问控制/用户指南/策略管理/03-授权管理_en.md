@@ -32,7 +32,7 @@ If you want to associate with a user group, select "User Group" in the drop-down
 
 ![](https://mc.qcloudimg.com/static/img/0876a989326837868da3633743a269b1/image.png)
 
-If no custom policies are defined, you can create one by referring to [https://www.qcloud.com/document/product/378/8955](https://www.qcloud.com/document/product/378/8955).
+If no custom policies are defined, you can create one by referring to [https://cloud.tencent.com/document/product/378/8955](https://cloud.tencent.com/document/product/378/8955).
 
 If you want to disassociate a policy, click the name of the policy to be disassociated.
 

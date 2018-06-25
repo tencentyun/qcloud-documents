@@ -133,5 +133,5 @@
 
  >Note:
  >
- - For users with a bandwidth package for bandwidth sharing, the outbound traffic from NAT gateway is charged to the bill of bandwidth package (the network traffic fee of RMB 0.8/GB will not be charged separately). You're recommended to set a limit on the outbound bandwidth of the NAT gateway, so as to avoid an expensive bandwidth package fee due to an excessively high outbound bandwidth. Click to view [Billing Methods for Bandwidth Package](https://www.qcloud.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ - For users with a bandwidth package for bandwidth sharing, the outbound traffic from NAT gateway is charged to the bill of bandwidth package (the network traffic fee of RMB 0.8/GB will not be charged separately). You're recommended to set a limit on the outbound bandwidth of the NAT gateway, so as to avoid an expensive bandwidth package fee due to an excessively high outbound bandwidth. Click to view [Billing Methods for Bandwidth Package](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
  - For the information on more prices, please contact your business representative.

@@ -1,5 +1,5 @@
 ## Notes
-Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively. The connecting URI for the two types of authentication are formed differently. For more information, please see [Connection Examples](https://www.qcloud.com/doc/product/240/3563).
+Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively. The connecting URI for the two types of authentication are formed differently. For more information, please see [Connection Examples](https://cloud.tencent.com/doc/product/240/3563).
 
 Java MongoDB Driver Documentation
 http://mongodb.github.io/mongo-java-driver/3.2/driver/getting-started/
@@ -64,7 +64,7 @@ INFO: Closed connection [connectionId{localValue:2, serverValue:67621}] to 10.66
 ```
 
 ### Examples for Configuring Spring Data MongoDB
-The example is mainly for demonstrating the configuration of [Verification Library admin](https://www.qcloud.com/document/product/240/3563#.E8.AE.A4.E8.AF.81.E6.95.B0.E6.8D.AE.E5.BA.93), which is actually depended on the version of Spring and Spring Data MongoDB you are using.
+The example is mainly for demonstrating the configuration of [Verification Library admin](https://cloud.tencent.com/document/product/240/3563#.E8.AE.A4.E8.AF.81.E6.95.B0.E6.8D.AE.E5.BA.93), which is actually depended on the version of Spring and Spring Data MongoDB you are using.
 ```
 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
     <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />

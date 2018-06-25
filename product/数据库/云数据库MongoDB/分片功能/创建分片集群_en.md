@@ -3,7 +3,7 @@ Currently, Tencent Cloud Database MongoDB supports sharding feature. Sharding cl
 
 
 ### Creating Sharding Cluster
-Enter MongoDB [Purchase Page](https://buy.qcloud.com/mongodb?clusterType=1), click "Sharding Cluster", and select the number of shards, the number of nodes in each shard, and node specification, according to your needs. Each shard is a replica set containing multiple nodes. Multi-node automatic disaster recovery mechanism is used in each shard to ensure high service availability.
+Enter MongoDB [Purchase Page](https://buy.cloud.tencent.com/mongodb?clusterType=1), click "Sharding Cluster", and select the number of shards, the number of nodes in each shard, and node specification, according to your needs. Each shard is a replica set containing multiple nodes. Multi-node automatic disaster recovery mechanism is used in each shard to ensure high service availability.
 [![](https://mc.qcloudimg.com/static/img/6fb80892b40e93cbcc19cb43d2d70b80/goumaiye.png)](https://mc.qcloudimg.com/static/img/6fb80892b40e93cbcc19cb43d2d70b80/goumaiye.png)
 
 ### Sharding Cluster Console

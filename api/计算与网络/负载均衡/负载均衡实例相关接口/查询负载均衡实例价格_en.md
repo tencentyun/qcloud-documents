@@ -28,7 +28,7 @@ Domain for API access:  lb.api.qcloud.com
 <th><b>Description</b></th>
 
 <tr>
-<td> code <td> Int <td> Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page.
+<td> code <td> Int <td> Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page.
 <tr>
 <td> message <td> String <td> Module error message description depending on API.
 <tr>
@@ -42,7 +42,7 @@ Domain for API access:  lb.api.qcloud.com
 Query the price of the cloud load balancer instance on public network (with daily rate):
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=InquiryLBPrice
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &loadBalancerType=2
 </pre>
 The returned correct output of the request:

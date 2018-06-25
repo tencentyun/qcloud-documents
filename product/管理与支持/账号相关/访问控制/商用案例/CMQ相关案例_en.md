@@ -4,7 +4,7 @@ A sub-account Developer under the enterprise account CompanyExample requires all
 
 Solution A:
 
-The enterprise account CompanyExample directly authorizes the preset policies QCloudCmqQueueFullAccess and QCloudCmqTopicFullAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+The enterprise account CompanyExample directly authorizes the preset policies QCloudCmqQueueFullAccess and QCloudCmqTopicFullAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 Solution B:
 
@@ -20,7 +20,7 @@ Step 1: Create the following policy through policy syntax.
      }
 }
 ```
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 ### Authorizing a sub-account with all the permissions of the message queue it created
 
@@ -28,7 +28,7 @@ A sub-account Developer under the enterprise account CompanyExample wants to ass
 
 Solution A:
 
-The enterprise account CompanyExample directly authorizes the preset policies QCloudCmqQueueCreaterFullAccess and QCloudCmqTopicCreaterFullAccess to the sub-account Developer. For more information on how to authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+The enterprise account CompanyExample directly authorizes the preset policies QCloudCmqQueueCreaterFullAccess and QCloudCmqTopicCreaterFullAccess to the sub-account Developer. For more information on how to authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 Solution B:
 
@@ -53,7 +53,7 @@ Step 1: Create the following policy through policy syntax.
 }
 ```
 
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 ### Authorizing a sub-account with the read permission of the message queue with a specific topic model
 
@@ -72,5 +72,5 @@ Step 1: Create the following policy through policy syntax.
 }
 ```
 
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 

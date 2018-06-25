@@ -8,7 +8,7 @@ Domain for API access: lb.api.qcloud.com
  
 | Parameter Name | Required | Type | Description |
 |-|-|-|-|-|
-| loadBalancerId | Yes | String | ID of cloud load balancer instance, i.e. unLoadBalancerId, which can be queried by entering 1 or -1 in input parameter "forward" field through API <a href="https://www.qcloud.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
+| loadBalancerId | Yes | String | ID of cloud load balancer instance, i.e. unLoadBalancerId, which can be queried by entering 1 or -1 in input parameter "forward" field through API <a href="https://cloud.tencent.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
 | listenerId | Yes | String | ID of application-based cloud load balancer listener, which can be queried through API DescribeForwardLBListeners. |
 | locationIds.n | No | String | ID for the forwarding rules of application-based cloud load balancer listener. It can be queried through API DescribeForwardLBListeners. |
 | domain | No | String | Domain for the forwarding rules of application-based cloud load balancer listener. |

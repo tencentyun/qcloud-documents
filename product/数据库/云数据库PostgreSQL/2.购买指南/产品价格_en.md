@@ -3,7 +3,7 @@
 Currently, prepaid billing method is supported for Tencent Cloud Database PostgreSQL.
 
 ## Isolation upon Expiration
-View [Details](https://www.qcloud.com/doc/product/409/6865)
+View [Details](https://cloud.tencent.com/doc/product/409/6865)
 
 ## Prices for Different Regions
 

@@ -8,11 +8,11 @@ Domain for API request: ccs.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
 | clusterName | No | String| Filter criteria: cluster name |
 | status| No | String| Cluster status |
 | orderField | No | String| Sorting field. Supported values: clusterId, clusterName, createdAt, updatedAt. Default is createdAt |
@@ -43,8 +43,8 @@ The following request parameter list only provides API request parameters. For o
 | status | string | Cluster status. Details can be found below the parameter list |
 | nodeNum | Int | Number of nodes in the cluster |
 | nodeStatus | String |Cluster node status. Details can be found below the parameter list |
-| totalCpu | Int | Total number of CPU cores in the cluster |
-| totalMem | Int | Total amount of memory in the cluster (in GB) |
+| totalCpu | Int | Total number of CPU millicores in the cluster |
+| totalMem | Int | Total amount of memory in the cluster (in Mi) |
 | os | String | Operating system used by the nodes in the cluster |
 | createdAt | String | Creation time of cluster |
 | updatedAt | Int | Update time of cluster |
@@ -102,8 +102,8 @@ Output
                 "nodeStatus": "AllNormal",
                 "nodeNum": 1,
                 "os": "ubuntu16.04.1 LTSx86_64",
-                "totalCpu": 1,
-                "totalMem": 1,
+                "totalCpu": 1000,
+                "totalMem": 1024,
                 "regionId": 1,
                 "k8sVersion": "",
                 "clusterExternalEndpoint": null,

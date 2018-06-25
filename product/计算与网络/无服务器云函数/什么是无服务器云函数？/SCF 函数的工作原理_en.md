@@ -5,7 +5,7 @@ It takes some time to launch a container, which creates a delay every time a fun
 
 The significance of container reuse mechanism:
 
-- In the user code, the initialization status of all declarations outside the [Execution Method](https://www.qcloud.com/document/product/583/9210#.E6.89.A7.E8.A1.8C.E6.96.B9.E6.B3.95) are retained. These declarations can be directly reused when the function is called again. For example, if you have already established database connection in your function code, then this connection can be directly used when the container is reused. You can add logic in your code to check whether a connection already exists before you create a new connection.
+- In the user code, the initialization status of all declarations outside the [Execution Method](https://cloud.tencent.com/document/product/583/9210#.E6.89.A7.E8.A1.8C.E6.96.B9.E6.B3.95) are retained. These declarations can be directly reused when the function is called again. For example, if you have already established database connection in your function code, then this connection can be directly used when the container is reused. You can add logic in your code to check whether a connection already exists before you create a new connection.
 - Each container provides certain amount of disk space in the `/tmp` directory. Contents in this directory are used as temporary caches when a container is kept, in which case the contents are retained and can be used in multiple calls. When a function is called again, there is a chance that such content can be directly used. You can add additional code to check if the cache contains data you stored before.
 
 ```
@@ -41,7 +41,7 @@ Resource limits during the internal trial period are listed in the table below.
 | Temporary disk capacity (/tmp) | 512 MB |
 | Maximum operation time | 300 seconds |
 | Size of code package uploaded via console | 5 MB |
-| Maximum number of concurrent containers | 20. Users may [Contact Us](https://www.qcloud.com/document/product/583/9712) to increase this number. |
+| Maximum number of concurrent containers | 20. Users may [Contact Us](https://cloud.tencent.com/document/product/583/9712) to increase this number. |
 
 ## Number of Concurrent Functions
 This means the number of function code operations within any specified time period. Currently, each published event request executes serverless cloud function for once. So the number of events (number of requests) published by the triggers affects the number of concurrent functions. You can estimate the total number of concurrent function instances using the following formula.
@@ -53,7 +53,7 @@ Assume that a function which handles COS event costs an average of 0.2 second (2
 
 ## Concurrency Limit
 
-By default, the concurrency for each function is limited to 20 by SCF. You can [Contact Us](https://www.qcloud.com/document/product/583/9712) to increase this number.
+By default, the concurrency for each function is limited to 20 by SCF. You can [Contact Us](https://cloud.tencent.com/document/product/583/9712) to increase this number.
 
 A call that causes the function concurrency to exceed the default limit will be blocked and will not by executed by SCF. Limited calls are handled differently based on the function calling method:
 
@@ -74,8 +74,8 @@ The current SCF operation environment is based on the following:
 You can use the `import` statement to directly import and use the following libraries and dependent packages in SCF operation environment:
 
 - [Python Standard Library](http://usyiyi.cn/translate/python_278/library/index.html)
-- [Qcloud COS SDK](https://www.qcloud.com/document/product/436/6275)
-- [Qcloud API SDK](https://www.qcloud.com/document/developer-resource/494/7244)
+- [Qcloud COS SDK](https://cloud.tencent.com/document/product/436/6275)
+- [Qcloud API SDK](https://cloud.tencent.com/document/developer-resource/494/7244)
 
 
 

@@ -1,7 +1,7 @@
 ### 1. 获取签名证书
 
 购买并成功申请到代码签名证书后，可收到pem格式的签名证书。需将pem格式转换成pfx格式证书后，进行微软OFFICE文档签名。  
-证书转换推荐使用在线证书格式转换工具（如：亚洲诚信在线格式转换工具https://www.trustasia.com/tools-cert-converter ）或者使用openssl工具进行本地证书转换。详见[什么是OpenSSl](https://www.qcloud.com/document/product/400/5707)
+证书转换推荐使用在线证书格式转换工具（如：亚洲诚信在线格式转换工具https://www.trustasia.com/tools-cert-converter ）或者使用openssl工具进行本地证书转换。详见[什么是OpenSSl](https://cloud.tencent.com/document/product/400/5707)
 
 > 注：由于用户没有上传pem私钥，因此使用亚洲诚信在线格式转换工具时，“PEM私钥密码”不用填写。
 

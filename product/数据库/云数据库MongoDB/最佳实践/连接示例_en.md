@@ -104,16 +104,16 @@ mongodb://username:password@IP:27017/admin?readPreference=secondaryPreferred
 ## Examples of Languages
 
 ### Shell
-[Shell Connection Example](https://www.qcloud.com/doc/product/240/Shell%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
+[Shell Connection Example](https://cloud.tencent.com/doc/product/240/Shell%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
 ### PHP
-[PHP Connection Example](https://www.qcloud.com/doc/product/240/PHP%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
+[PHP Connection Example](https://cloud.tencent.com/doc/product/240/PHP%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
 ### Node.js
-[Node.js Connection Example](https://www.qcloud.com/doc/product/240/Node.js%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B) 
- [mongoose Example](https://www.qcloud.com/doc/product/240/Node.js%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B#node.js-mongoose-.E8.BF.9E.E6.8E.A5.E7.A4.BA.E4.BE.8B)
+[Node.js Connection Example](https://cloud.tencent.com/doc/product/240/Node.js%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B) 
+ [mongoose Example](https://cloud.tencent.com/doc/product/240/Node.js%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B#node.js-mongoose-.E8.BF.9E.E6.8E.A5.E7.A4.BA.E4.BE.8B)
 ### Java
-[Java Connection Example](https://www.qcloud.com/doc/product/240/Java%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
+[Java Connection Example](https://cloud.tencent.com/doc/product/240/Java%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
 ### Python
-[Python Connection Example](https://www.qcloud.com/doc/product/240/Python%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
+[Python Connection Example](https://cloud.tencent.com/doc/product/240/Python%E8%BF%9E%E6%8E%A5%E7%A4%BA%E4%BE%8B)
 ### Reconnection Mechanism
-[Reconnection Mechanism](https://www.qcloud.com/doc/product/240/4980)
+[Reconnection Mechanism](https://cloud.tencent.com/doc/product/240/4980)
 

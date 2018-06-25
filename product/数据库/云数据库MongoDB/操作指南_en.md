@@ -1,4 +1,4 @@
-Invited or approved users may create and manage their MongoDB clusters at https://console.qcloud.com/mongodb
+Invited or approved users may create and manage their MongoDB clusters at https://console.cloud.tencent.com/mongodb
 ## 1. Create an Instance
 
 1)	Click **New**

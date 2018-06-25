@@ -6,7 +6,7 @@ Deployment package is a zip file into which all codes and dependencies that are 
 The following example shows how to create deployment package in local environment.
 ```
 Note:
-1. Generally, the dependent library installed locally can run well in SCF platform. However, in few scenarios where the installed binary file may be incompatible. If such a problem is found, please [contact us](https://www.qcloud.com/document/product/583/9712).
+1. Generally, the dependent library installed locally can run well in SCF platform. However, in few scenarios where the installed binary file may be incompatible. If such a problem is found, please [contact us](https://cloud.tencent.com/document/product/583/9712).
 2. In the example, dependencies are installed using pip in local environment, so please make sure that you have installed Python and pip locally.
 ```
 ## Creating Deployment Package in Linux
@@ -14,7 +14,7 @@ Note:
 ```
 mkdir /data/my-first-scf
 ```
-2) Store all Python source files (.py files) required to create this function into this directory. For more information on how to create a function, please see the section [Getting Started - Create DownloadImage Function](https://www.qcloud.com/document/product/583/9211).
+2) Store all Python source files (.py files) required to create this function into this directory. For more information on how to create a function, please see the section [Getting Started - Create DownloadImage Function](https://cloud.tencent.com/document/product/583/9211).
 
 3) Install all dependencies in this directory using pip:
 
@@ -32,6 +32,6 @@ zip my_first_scf.zip /data/my-first-scf/*
 ```
 
 ## Creating Deployment Package in Windows
-We recommend that you compress the dependencies and codes that run successfully under Linux environment into a zip file as the function execution code. For more information, please see [Practical Operation of Code - Acquire Image on COS and Create a Thumbnail](https://www.qcloud.com/document/product/583/9736)
+We recommend that you compress the dependencies and codes that run successfully under Linux environment into a zip file as the function execution code. For more information, please see [Practical Operation of Code - Acquire Image on COS and Create a Thumbnail](https://cloud.tencent.com/document/product/583/9736)
 
 

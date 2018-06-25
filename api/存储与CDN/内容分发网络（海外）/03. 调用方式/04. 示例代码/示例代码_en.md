@@ -6,10 +6,10 @@
 Replace the YOUR_SECRET_ID and YOUR_SECRET_KEY in the sample codes with the actual SecretId and SecretKey. The sample codes are for reference only. Please use the codes based on your actual needs.
 
 ## Sample Codes (PHP)
-Take [DescribeCdnHosts](https://www.qcloud.com/doc/api/231) (Query domain information) as an example:
+Take [DescribeCdnHosts](https://cloud.tencent.com/doc/api/231) (Query domain information) as an example:
 ```
 <?php
-/*Your key is required. You can obtain SecretId and SecretKey from https://console.qcloud.com/capi*/
+/*Your key is required. You can obtain SecretId and SecretKey from https://console.cloud.tencent.com/capi*/
 $secretKey='YOUR_SECRET_KEY';
 $secretId='YOUR_SECRET_ID';
 $action='DescribeCdnHosts';

@@ -1,0 +1,92 @@
+## 功能描述
+
+本接口用于获取指定索引策略的详细信息。
+
+## 请求
+
+### 请求示例
+
+```
+GET /index?topic_id=xxxx-xx-xx-xx-xxxxxxxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+
+```
+
+### 请求行
+
+```
+GET /index
+```
+
+### 请求头
+
+除公共头部外，无特殊请求头部。
+
+### 请求参数
+
+| 字段名         |  类型  | 位置   | 必须 |      含义                  |
+|---------------|--------|-------|---------|---------------------------|
+| topic_id      | string | query | 是      |查询的 index 所属的 topic id    |
+
+### 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 153
+
+{
+  "topic_id": "yyyy-yy-yy-yy-yyyyyyyy",
+  "effective": true,
+  "rule": {
+    "full_text": {
+      "case_sensitive": false
+    },
+    "key_value": {
+      "case_sensitive": false,
+      "keys": ["age","name"],
+      "types": ["long","text"]
+    }
+  }
+}
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+|  字段名     |  类型  | 必有 |        含义                    |
+|------------|--------|---------|-------------------------------|
+| topic_id   | string | 是      | 索引规则属于的 topic id          |
+| effective  | bool   | 是      | 是否生效                       |
+| rule       | object | 否      | 索引规则，当 effective 为 true 时返回|
+
+rule 内容说明：
+
+|  字段名     |  类型  | 必有 |        含义                    |
+|------------|--------|---------|-------------------------------|
+| full_text  | object | 否      | 全文索引的相关配置              |
+| key_value  | object | 否      | kv 索引的相关配置               |
+
+full_text 内容说明：
+
+|  字段名     |  类型  | 必有 |        含义                    |
+|------------|--------|---------|-------------------------------|
+| case_sensitive | bool | 是      | 是否大小写敏感              |
+
+key_value 内容说明：
+
+|  字段名     |  类型  | 必有 |        含义                    |
+|------------|--------|---------|-------------------------------|
+| case_sensitive | bool | 是      | 是否大小写敏感              |
+| keys | array(string) | 是      | 需要建索引的 key 的名字              |
+| types| array(string) | 是      | 上面 key 对应的类型，一一对应，目前支持 ```long double text```  |
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

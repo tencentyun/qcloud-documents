@@ -287,6 +287,14 @@ python /tmp/devresize.py 硬盘路径
 
 若输出“The filesystem on /dev/vdb1 is now XXXXX blocks long.“则表示扩容成功。
 
+若输出的是“[ERROR] - e2fsck failed!!“，请先用fsck对文件系统所在分区进行修复，可以执行以下命令进行自动修复:
+```
+fsck -a 分区路径
+```
+请注意这里与前一个命令不同，需要填写的是文件系统所在分区。若您的文件系统在vdb1上，则应执行`fsck -a /dev/vdb1`。
+
+修复成功后，再使用`python /tmp/devresize.py 硬盘路径`来使用扩容工具进行扩容。
+
 #### 重新挂载扩容后的分区
 执行以下命令挂载扩容后的分区：
 ```

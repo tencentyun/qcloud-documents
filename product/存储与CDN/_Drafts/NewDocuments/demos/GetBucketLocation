@@ -1,0 +1,23 @@
+
+**请求示例:**
+
+```
+GET /?location HTTP/1.1
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Date: Wed, 18 Oct 2014 22:32:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817522;32557713522&q-key-time=1484817522;32557713522&q-header-list=host&q-url-param-list=location&q-signature=ceb96fc929663dd4d2e6dc0aeb304cdde6761ed
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 92
+Connection: keep-alive
+Date: Wed, 18 Oct 2014 22:32:00 GMT
+Server: tencent-cos
+x-cos-request-id: NTg4MDg0NzlfNDYyMDRlXzM0OWFfZjFk
+
+<LocationConstraint>cos.ap-beijing</LocationConstraint
+```

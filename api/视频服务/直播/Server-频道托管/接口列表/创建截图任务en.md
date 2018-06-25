@@ -70,7 +70,7 @@ Note:
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=CreateLVBShot&channelId=123&start_time=2016-01-21 12:00:00&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+http://domain/v2/index.php?Action=CreateLVBShot&channelId=123&start_time=2016-01-21 12:00:00&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 
 

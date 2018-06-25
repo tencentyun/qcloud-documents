@@ -13,5 +13,5 @@ You can obtain the public network access address of an instance on the Instance 
 
 > Note:
 >
-> Public network access address can only be used for daily database management. Public network traffic may incur a fee. For more information, please see [Product Prices](https://www.qcloud.com/document/product/409/4993).
+> Public network access address can only be used for daily database management. Public network traffic may incur a fee. For more information, please see [Product Prices](https://cloud.tencent.com/document/product/409/4993).
 

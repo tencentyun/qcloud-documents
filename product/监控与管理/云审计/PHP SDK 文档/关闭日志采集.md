@@ -1,0 +1,40 @@
+
+## SDK 描述
+StopLogging 用于关闭日志采集。
+## 请求参数
+
+
+|参数名称|必选|类型|描述|
+|---------|---------|---------|--------|
+|Name|是|String|CloudAudit 名称|
+## 响应参数
+响应参数为空。
+
+## 实际案例
+### 请求示例
+
+```
+$config = array('SecretId'       => '你的secretId',
+                'SecretKey'      => '你的secretKey',
+                'RequestMethod'  => 'GET',
+                'DefaultRegion'  => 'gz');
+$ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
+$package = array('Name'=>'ayisunxxx');
+$a = $ca->StopLogging($package);
+if ($a === false) {
+    $error = $ca->getError();
+    echo "Error code:" . $error->getCode() . ".\n";
+    echo "message:" . $error->getMessage() . ".\n";
+    echo "ext:" . var_export($error->getExt(), true) . ".\n";
+} else {
+    var_dump($a);
+}
+echo "\nRequest :" . $ca->getLastRequest();
+echo "\nResponse :" . $ca->getLastResponse();
+echo "\n";
+```
+### 响应示例
+
+```
+[]
+```

@@ -93,7 +93,7 @@ IIS文件夹内获得SSL证书文件 www.domain.com.pfx。
 2、双击打开服务器证书后，点击右则的导入
 ![3.2.2](//mccdn.qcloud.com/static/img/9fbedac0a2c160c72f0ef95bfaca9e18/image.png)
 
-3、选择证书文件，如果输入申请证书时有填写私钥密码需要输入密码，点击确定。[参考私钥密码指引](https://www.qcloud.com/doc/product/400/4461)
+3、选择证书文件，如果输入申请证书时有填写私钥密码需要输入密码，点击确定。[参考私钥密码指引](https://cloud.tencent.com/doc/product/400/4461)
 ![3.2.3](//mccdn.qcloud.com/static/img/77fdc7cd57281b03d41a19c81af1158d/image.png)
 
 4、点击网站下的站点名称，点击右则的绑定

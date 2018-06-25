@@ -39,7 +39,7 @@ https://lb.api.qcloud.com/v2/index.php?Action=ModifyBmLoadBalancerListener
 &healthNum=8
 &unhealthNum=8
 &sessionExpire=800
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output
 ```

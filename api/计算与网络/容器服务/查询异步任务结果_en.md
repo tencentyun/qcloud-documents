@@ -1,4 +1,3 @@
-## Querying Result of Asynchronous Task
 ## 1. API Description
  
 This API (DescribeClusterTaskResult) is used to query the result of asynchronous task
@@ -8,7 +7,7 @@ Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

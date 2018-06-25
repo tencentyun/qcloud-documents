@@ -102,7 +102,7 @@ The configuration file conf/vsftpd.conf contains relevant configurations for vsf
 ```
 ### Compile
 
-1. As FTP will need to use local disk, please place FTP source code applications in a disk with enough storage space. (Data disks purchased with initial Tencent Cloud CVMs need to be formatted and mounted manually. Refer to [https://www.qcloud.com/doc/product/213/2974](https://www.qcloud.com/doc/product/213/2974))
+1. As FTP will need to use local disk, please place FTP source code applications in a disk with enough storage space. (Data disks purchased with initial Tencent Cloud CVMs need to be formatted and mounted manually. Refer to [https://cloud.tencent.com/doc/product/213/2974](https://cloud.tencent.com/doc/product/213/2974))
 2. **Execute build.sh as root** (Because build.sh will call yum to install dependent libraries. It is recommended to use Centos series systems which are commonly used by Tencent Cloud. Please modify opbin/env_init.sh if you use systems of other series, such as ubuntu)
 
 ### Run

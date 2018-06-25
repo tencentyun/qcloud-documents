@@ -31,13 +31,13 @@ github地址如下：
 
 ## SDK使用注意事项
 
-使用SDK前至少要获取[secret id](https://console.qcloud.com/capi)， [secret key](https://console.qcloud.com/capi)，endpoint（即请求发到哪个地域，走内网还是外网）。
+使用SDK前至少要获取[secret id](https://console.cloud.tencent.com/capi)， [secret key](https://console.cloud.tencent.com/capi)，endpoint（即请求发到哪个地域，走内网还是外网）。
 
 endpoint 说明：
 	
-内网endpoint：https://kms-region.api.tencentyun.com
+内网endpoint：`https://kms-region.api.tencentyun.com`
 
-公网endpoint：https://kms-region.api.qcloud.com
+公网endpoint：`https://kms-region.api.qcloud.com`
 
 - 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint。例如在腾讯云北京地域的 CVM 子机则建议您使用 `https://kms-bj.api.tencentyun.com`。
 原因是：1）同地域内网时延更低；2）目前KMS对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。

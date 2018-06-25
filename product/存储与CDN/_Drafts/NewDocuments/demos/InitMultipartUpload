@@ -1,0 +1,27 @@
+
+**请求示例:**
+
+```
+POST /ObjectName?uploads HTTP/1.1
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Date: Fri, 10 Mar 2016 09:45:46 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727259;32557623259&q-key-time=1484727259;32557623259&q-header-list=host&q-url-param-list=uploads&q-signature=b5f46c47379aeaee74be7578380b193c01b28045
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 230
+Connection: keep-alive
+Date: Fri, 10 Mar 2016 09:45:46 GMT
+Server: tencent-cos
+x-cos-request-id: NTg3ZjIzZTZfOWIxZjRlXzZmMzhfMWRj
+
+<InitiateMultipartUploadResult>
+    <Bucket>arlenhuangtestsgnoversion-1251668577</Bucket>
+    <Key>ObjectName</Key>
+    <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
+</InitiateMultipartUploadResult>
+```

@@ -4,7 +4,7 @@ This API (CdbTdsqlGetLog) is used to acquire the list of various logs of a datab
 Domain for API request: tdsql.api.qcloud.com
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
 ).
 
 | Parameter Name | Required | Type | Description |
@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 
 ## 3. Output Parameters
 
-The composition of returned values for common parameters can be found in [Returned Values](https://www.qcloud.com/document/api/213/6976). The following only provides the formats of returned values for the "data" field.
+The composition of returned values for common parameters can be found in [Returned Values](https://cloud.tencent.com/document/api/213/6976). The following only provides the formats of returned values for the "data" field.
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -41,7 +41,7 @@ The following are the common error codes for this API. Other error codes not lis
 Input
 <pre>
 https://tdsql.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=CdbTdsqlGetLog
 &cdbInstanceId=40732
 &type=1

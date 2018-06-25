@@ -7,6 +7,6 @@ If you complete "Step 3: Create Mapper and Reducer Functions and Test", and the 
 
 Now you have completely implemented this example. You can test the configuration by following the steps below:
 
-1. Go to [COS Console](https://console.qcloud.com/cos4/index), select `src`, upload any .txt text file, and check whether a similar file generated in `destmr` after a certain period of time.
-2. You can monitor the function activities in [SCF Console](https://console.qcloud.com/scf), and select "Log" to check the logs in which the calling of the function is recorded.
+1. Go to [COS Console](https://console.cloud.tencent.com/cos4/index), select `src`, upload any .txt text file, and check whether a similar file generated in `destmr` after a certain period of time.
+2. You can monitor the function activities in [SCF Console](https://console.cloud.tencent.com/scf), and select "Log" to check the logs in which the calling of the function is recorded.
 

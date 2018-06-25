@@ -31,7 +31,7 @@ Domain for API access: lb.api.qcloud.com
 Input
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=ReplaceCert
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &oldCertId=4b9fc92b
 &newCertId=e2b6d555
 </pre>

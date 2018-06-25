@@ -44,7 +44,7 @@ function signMore(bucket, expired);
 | **参数名** | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ------- | ------ | -------- | ------- | ---------------------------------------- |
 | expired | long   | 是        | 无       | 过期时间，Unix时间戳                             |
-| bucket  | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket  | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 
 #### 返回结果说明
 
@@ -74,7 +74,7 @@ function signOnce(bucket, fileid);
 
 | **参数名** | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucket  | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket  | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | fileid  | String | 是        | 无       | 文件唯一的标识，格式/appid/bucketname/filepath/filename，其中/filepath/filename为文件在此bucketname下的全路径 |
 
 #### 返回结果说明
@@ -92,7 +92,7 @@ qcloud.conf.setAppInfo('10000','xxxxxx','xxxxxx');
 var sign  = qcloud.auth.signOnce(bucket, 		'/'+conf.APPID+'/'+bucketname+'/'+remoteFilepath);
 ```
 
-更多签名相关详细说明，请参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+更多签名相关详细说明，请参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
 
 ## 目录操作
 
@@ -110,7 +110,7 @@ function createFolder(bucket, path, bizattr, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 需要创建目录的全路径，以"/"开头,以"/"结尾，如果忘记api会补齐      |
 | bizattr  | String   | 否        | 空串      | 目录绑定的属性信息，业务自行维护                         |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
@@ -152,7 +152,7 @@ function updateFolder(bucket, path, bizattr, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 需要创建目录的全路径，以"/"开头,以"/"结尾，如果忘记api会补齐      |
 | bizattr  | String   | 是        | 无       | 新的目录绑定的属性信息                              |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
@@ -190,7 +190,7 @@ function statFolder(bucket, path, callback);
 
 | **参数名**  | **类型**   | **是否必须** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 目录的全路径，以"/"开头,以"/"结尾，如果忘记api会补齐          |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
 
@@ -233,7 +233,7 @@ function deleteFolder(bucket, path, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 目录的全路径，以"/"开头,以"/"结尾，如果忘记api会补齐          |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
 
@@ -271,7 +271,7 @@ function list(bucket, path, num, pattern, order, context, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值**   | **参数描述**                                 |
 | -------- | -------- | -------- | --------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无         | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无         | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无         | 目录的全路径，以"/"开头,以"/"结尾，api会补齐              |
 | num      | int      | 否        | 20        | 要查询的目录/文件数量                              |
 | context  | String   | 否        | 空串        | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中。order用于指定翻页顺序。若order填0，则从当前页正序/往下翻页；若order填1，则从当前页倒序/往上翻页 |
@@ -327,7 +327,7 @@ function prefixSearch(bucket, path, prefix, num, pattern, order, context, callba
 
 | **参数名**  | **类型**   | **是否必填** | **默认值**   | **参数描述**                                 |
 | -------- | -------- | -------- | --------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无         | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无         | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无         | 需要创建目录的全路径，以"/"开头,以"/"结尾，api会补齐          |
 | prefix   | String   | 否        | 空串        | 读取文件/目录前缀                                |
 | num      | int      | 否        | 20        | 要查询的目录/文件数量                              |
@@ -386,7 +386,7 @@ function upload(filePath, bucket, dstpath, bizattr, insertOnly, callback);
 
 | **参数名**    | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket     | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket     | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | dstpath    | String   | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | filepath   | String   | 是        | 无       | 本地要上传文件的全路径                              |
 | bizattr    | String   | 否        | 空串      | 文件属性，业务端维护                               |
@@ -431,7 +431,7 @@ function upload_slice(filePath, bucket, dstpath, bizattr, slice_size, session, i
 
 | **参数名**    | **类型**   | **是否必填** | **默认值**    | **参数描述**                                 |
 | ---------- | -------- | -------- | ---------- | ---------------------------------------- |
-| bucket     | String   | 是        | 无          | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket     | String   | 是        | 无          | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | dstpath    | String   | 是        | 无          | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | filepath   | String   | 是        | 无          | 本地要上传文件的全路径                              |
 | bizattr    | String   | 否        | 空串         | 文件属性，业务端维护                               |
@@ -478,7 +478,7 @@ function updateFile(bucket, path, bizattr, authority, custom_headers, callback);
 
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path           | String   | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | bizattr        | String   | 是        | 无       | 待更新的文件属性信息                               |
 | authority      | String   | 否        | 无       | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与bucket拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用bucket的权限 |
@@ -535,7 +535,7 @@ function statFile(bucket, path, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
 
@@ -595,7 +595,7 @@ function deleteFile(bucket, path, callback);
 
 | **参数名**  | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------- | -------- | -------- | ------- | ---------------------------------------- |
-| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucket   | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path     | String   | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | callback | function | 否        | 输出返回结果  | 结构为function(ret){}的函数，ret为json结构，默认直接输出。 |
 

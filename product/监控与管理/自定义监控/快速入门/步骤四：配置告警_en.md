@@ -2,7 +2,7 @@
 
 Now we create an alarm rule based on the metric and statistical type: send an alarm about the process with 80% or higher CPU utilization for 2 statistical periods and the machine ip. In this example, we use API for creation. Users can also create in CCM console.
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 ```
 #curl -k "https://monitor.api.qcloud.com/v2/index.php?Action=CreateAlarmRule
@@ -39,7 +39,7 @@ Note:
 ## 2. Bind Alarm Rule to Monitoring Object
 In this example, we use API for creation. Users can also create in CCM console.
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 ```
 #curl -k "https:// monitor.api.qcloud.com/v2/index.php?Action=BindAlarmRuleObjects

@@ -6,7 +6,7 @@ You can choose to add the core metrics (such as CPU utilization, etc.) and choos
 > - A maximum of 3 metrics can be added, with no more than 6 objects added for each metric.
 
 ## Creating a Custom Monitoring View
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/), select "Cloud Monitoring" - "Monitoring Overview" tab.
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Cloud Monitoring" - "Monitoring Overview" tab.
 2) In the column of "My Monitored Metrics", click the "Add Metrics to Be Monitored" button to select the product type and metrics to be monitored, and corresponding region and monitored objects.
 3) The selected metrics and all objects will appear in the view. Users can click the "Select Object" button to re-select the objects to be monitored, or click the object name below the chart to show or hide some of the object data. You can also select different periods to view the monitoring data.
 

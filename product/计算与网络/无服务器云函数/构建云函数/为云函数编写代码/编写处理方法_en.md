@@ -16,7 +16,7 @@ The user first needs to clarify what the function is for. For responding to the 
 
 In different cases, the value of event is different:
 
-- If the function is triggered by a cloud service, the cloud service will pass the event in a platform-predefined and unchangeable format as the event parameter to the SCF. The user can write code in this format to get necessary information from the event parameter. (For example, when COS triggers the function, the details of Bucket and the files will be passed in [json format](https://www.qcloud.com/document/product/583/9707#cos-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84) to the event parameter)
+- If the function is triggered by a cloud service, the cloud service will pass the event in a platform-predefined and unchangeable format as the event parameter to the SCF. The user can write code in this format to get necessary information from the event parameter. (For example, when COS triggers the function, the details of Bucket and the files will be passed in [json format](https://cloud.tencent.com/document/product/583/9707#cos-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84) to the event parameter)
 
 - If the cloud function is called by other applications, you can freely define a parameter of dict type between the caller and the function code. The caller passes the data in the agreed format which is then acquired by the function code. For example, the agreed data structure of dict type is `{"key":"XXX"}`. When the caller passes the data `{"key":"abctest"}`, the function code can get the value `abctest` through `event[key]`;
 
@@ -40,4 +40,4 @@ def handler(event, context):
 ``` 
 The code receives the input event from the event parameter and returns a message containing data.
 
-Create a SCF, paste the code above and set the execution method to `index.handler`. After creation, click the "Test" button and run it to see the returned message. For details on how to create a function, see [Step 1: Create Hello World function](https://www.qcloud.com/document/product/583/9204).
+Create a SCF, paste the code above and set the execution method to `index.handler`. After creation, click the "Test" button and run it to see the returned message. For details on how to create a function, see [Step 1: Create Hello World function](https://cloud.tencent.com/document/product/583/9204).

@@ -14,7 +14,7 @@ The public network gateway can only forward the route forwarding request of the 
 ![](//mccdn.qcloud.com/img56c6bae35eb98.png)
 
 ### 2.2. Purchasing a Public Network Gateway
-To purchase the public network gateway in the gateway subnet created above, please refer to [Purchasing a VPC Public Network Gateway](http://www.qcloud.com/doc/product/215/%E8%B4%AD%E4%B9%B0%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E5%85%AC%E7%BD%91%E7%BD%91%E5%85%B3)
+To purchase the public network gateway in the gateway subnet created above, please refer to [Purchasing a VPC Public Network Gateway](http://cloud.tencent.com/doc/product/215/%E8%B4%AD%E4%B9%B0%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E5%85%AC%E7%BD%91%E7%BD%91%E5%85%B3)
 
 ### 2.3. Creating the Routing Table of Gateway Subnet
 Gateway subnet and ordinary subnet cannot be associated with the same routing table. You need to create a separate gateway routing table and associate it with the gateway subnet.

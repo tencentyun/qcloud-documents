@@ -6,14 +6,14 @@ To use cloud block storage as described in this document, please make sure that 
 ## Purchasing Cloud Disk
 In this example, you purchase an elastic cloud disk through console. For more information on how to create a cloud disk, refer to [Creating a Cloud Disk](/doc/product/362/5744).
 
-1) Log in to [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs), click ![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png) to purchase a cloud disk.
+1) Log in to [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs), click ![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png) to purchase a cloud disk.
 
 2) In the pop-up box, select "North China (Beijing)" - "Beijing Zone 1", "Annual or Monthly Plan", "Cloud Block Storage", "20GB", and select "1 month" as the purchase period, then click "OK".
 
-3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.qcloud.com/cvm/cbs). The elastic cloud disk you just purchased is unnamed by default, and has a status of <font color="red">Pending mounted</font>. Click the "Edit" icon and name it "cbs-test".
+3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.cloud.tencent.com/cvm/cbs). The elastic cloud disk you just purchased is unnamed by default, and has a status of <font color="red">Pending mounted</font>. Click the "Edit" icon and name it "cbs-test".
 
 ## Connecting to CVM instance
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Go to "Cloud Virtual Machine" - "Cloud Block Storage" tab.
 
@@ -40,7 +40,7 @@ vi qcloud.txt
 ```
 Write some content in the edit mode, such as: "This is my first test". After pressing ESC to exit the edit mode, enter `wq` to save the changed content. When executing the` ls` command, you'll find that the file has been written to the disk.
 
-.For more information on partitioning, formatting  and file system creation on Linux system, please refer to [Partitioning, Formatting, Mounting and File System Creation on Linux System](https://www.qcloud.com/document/product/362/6735).
+.For more information on partitioning, formatting  and file system creation on Linux system, please refer to [Partitioning, Formatting, Mounting and File System Creation on Linux System](https://cloud.tencent.com/document/product/362/6735).
 
 
 
@@ -55,5 +55,5 @@ Write some content in the edit mode, such as: "This is my first test". After pre
 
 5) Enter the disk created, create a file called `qcloud.txt`, enter the required content, click "Save". Now, the writing of file has been completed.
 
-For more information on partitioning, formatting, going online and file system creation on Windows system, please refer to [Partitioning, Formating, Going Online and File System Creation on Windows System](https://www.qcloud.com/document/product/362/6734
+For more information on partitioning, formatting, going online and file system creation on Windows system, please refer to [Partitioning, Formating, Going Online and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
 ).

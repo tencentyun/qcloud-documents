@@ -15,23 +15,23 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | String | 系统分配的私有网络ID，支持升级前的vpcId，也支持升级后的unVpcId，例如：vpc-2ari9m7h。 |
 | vipId | 是 | Int | VIP的ID，例如：12，VIP ID需要联系在线客服申请 |
-| lanIp | 是 | String | 云主机内网IP，例如：10.0.0.1。查询云主机IP详见<a href="https://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="查看实例列表">查看实例列表</a> |
+| lanIp | 是 | String | 云主机内网IP，例如：10.0.0.1。查询云主机IP详见<a href="https://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="查看实例列表">查看实例列表</a> |
  
 
 ## 3. 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
  
  ## 4. 错误码表
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
 
 | 错误码 | 描述 |
 |---------|---------|
 | InvalidVipId.NotFound | vipId不存在，目前vip需要人工分配，如果您忘记vipId或者第一次绑定，请联系在线客服找回或者申请。 |
-| InvalidLanIp.NotFound | 云主机不存在，请核实您填写的lanIp是否正确，查询vpc下云主机详见<a href="https://www.qcloud.com/doc/api/229/831" title="查看云主机实例列表">查看云主机实例列表</a>。 |
+| InvalidLanIp.NotFound | 云主机不存在，请核实您填写的lanIp是否正确，查询vpc下云主机详见<a href="https://cloud.tencent.com/doc/api/229/831" title="查看云主机实例列表">查看云主机实例列表</a>。 |
 | InvalidVpc.NotFound | 无效的vpc。vpc资源不存在，请再次核实您输入的资源信息是否正确。 |
 
 ## 5. 示例

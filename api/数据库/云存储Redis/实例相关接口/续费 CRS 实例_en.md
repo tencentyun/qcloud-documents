@@ -9,14 +9,14 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| redisId | Yes | String | Instance ID. It can be queried with the API [Query CRS Instance List](http://www.qcloud.com/doc/api/260/1384) |
+| redisId | Yes | String | Instance ID. It can be queried with the API [Query CRS Instance List](http://cloud.tencent.com/doc/api/260/1384) |
 | period | Yes | Int | Purchased usage period (in month). Value range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36] |
 
 
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | data | Array | Returned array of orders |
@@ -25,7 +25,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| data.dealId | String | Unique order ID. You can use the API [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) to query order details |
+| data.dealId | String | Unique order ID. You can use the API [DescribeRedisDealDetail](https://cloud.tencent.com/doc/api/260/5329) to query order details |
 
 ## 4. Error Codes
 The following error codes include the business logic error codes for this API.
@@ -43,7 +43,7 @@ The following error codes include the business logic error codes for this API.
 Input
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=RenewRedis
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &redisId=crs-ifmymj41
 &period=1
 </pre>

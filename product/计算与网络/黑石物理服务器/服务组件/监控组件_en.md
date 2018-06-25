@@ -1,7 +1,7 @@
 ## Purpose of Monitoring Component
 The monitoring component should be installed in the CPM in advance in order to provide __performance monitoring, hardware failure monitoring, exception monitoring__.
 ## Configuration of Monitoring Information
-You can customize the alarm policy for CPM monitoring metrics in [Cloud Monitor Console](https://console.qcloud.com/monitor/policylist), to associate with (apply to) alarm object (CPM) and manage alarm receiver group.
+You can customize the alarm policy for CPM monitoring metrics in [Cloud Monitor Console](https://console.cloud.tencent.com/monitor/policylist), to associate with (apply to) alarm object (CPM) and manage alarm receiver group.
 <br  />
 Metrics that support custom alarm threshold include (__performance monitoring__): _CPU utilization, CPU average load, MEM memory usage, application memory usage, virtual memory usage, memory utilization, disk IO read traffic, disk IO write traffic, disk IO waiting time, disk IO CPU utilization, disk IO service time, disk space utilization, ENI outbound bandwidth, ENI inbound bandwidth, ENI outbound packets, ENI inbound packets, public network outbound bandwidth, public network inbound bandwidth, public network outbound packets, public network inbound packets, public network outbound traffic_ .
 <br  />

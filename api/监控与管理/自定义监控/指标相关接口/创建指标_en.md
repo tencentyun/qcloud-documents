@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (CreateMetric) is used to create a metric under a namespace for data analysis.
-For more information about the number of metrics and dimensions, please see <a href="https://www.qcloud.com/doc/product/397/4002">Product Limitation</a> page
+For more information about the number of metrics and dimensions, please see <a href="https://cloud.tencent.com/doc/product/397/4002">Product Limitation</a> page
 When you use this API to create a metric, you can also add the statistical type under the metric. Add statistical type when you enter statisticsType.m.period and statisticsType.m.statistics.
 
 Domain name: monitor.api.qcloud.com
@@ -91,7 +91,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 &metricName=diskusage
 &dimensionNames.0=ip

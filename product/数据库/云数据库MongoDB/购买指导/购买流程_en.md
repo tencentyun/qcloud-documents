@@ -1,5 +1,5 @@
 ### Purchase Procedure
-You can directly purchase Tencent Cloud Database MongoDB on the [Official Website](https://buy.qcloud.com/mongodb)
+You can directly purchase Tencent Cloud Database MongoDB on the [Official Website](https://buy.cloud.tencent.com/mongodb)
 ![Purchase Page](https://mccdn.qcloud.com/static/img/49cff441939104908bd65a7ef287d798/buymongo.png)
 
 ### Billing Process

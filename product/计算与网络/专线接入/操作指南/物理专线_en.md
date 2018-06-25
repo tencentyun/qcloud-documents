@@ -1,6 +1,6 @@
 ## Applying for Direct Connect
 
-All applications for Tencent Cloud physical Direct Connect (including Cloud Physical Machine, ECN, etc.) need to be initiated and completed on the console. Tencent Cloud Direct Connect is only available to those enterprise customers qualified by Tencent Cloud. For more information on enterprise certification, please refer to the relevant documents [How to Complete the Enterprise Certification](https://www.qcloud.com/doc/product/378/3629#.E4.BC.81.E4.B8.9A.E7.94.A8.E6.88.B7.E6.80.8E.E4.B9.88.E5.AE.8C.E6.88.90.E4.BC.81.E4.B8.9A.E8.AE.A4.E8.AF.81.3F).
+All applications for Tencent Cloud physical Direct Connect (including Cloud Physical Machine, ECN, etc.) need to be initiated and completed on the console. Tencent Cloud Direct Connect is only available to those enterprise customers qualified by Tencent Cloud. For more information on enterprise certification, please refer to the relevant documents [How to Complete the Enterprise Certification](https://cloud.tencent.com/doc/product/378/3629#.E4.BC.81.E4.B8.9A.E7.94.A8.E6.88.B7.E6.80.8E.E4.B9.88.E5.AE.8C.E6.88.90.E4.BC.81.E4.B8.9A.E8.AE.A4.E8.AF.81.3F).
 
 Please follow the following steps to complete the application and construction of Tencent Cloud physical Direct Connect:
 
@@ -11,7 +11,7 @@ Please follow the following steps to complete the application and construction o
 
 ### Submitting Application on Console
 
-1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.qcloud.com/vpc/dc).
+1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.cloud.tencent.com/vpc/dc).
 
 2) Click **New** to initiate the application for the physical Direct Connect. The user initiating construction of a physical Direct Connect should fill in the following information:
 
@@ -42,7 +42,7 @@ However, the application for physical Direct Connect may be refused in the follo
 
 You can make payment in the console after the application for the physical Direct Connect is approved by the Tencent Cloud's Direct Connect manager.
 
-1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.qcloud.com/vpc/dc).
+1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.cloud.tencent.com/vpc/dc).
 
 2) In the physical Direct Connect list, locate the physical Direct Connect to be paid and click "Make Payment".
 
@@ -58,13 +58,13 @@ Currently, you can't cancel a physical Direct Connect in the console, but you ca
 
 ## Sharing Direct Connect
 
-You can setup a Direct Connect tunnel by sharing the physical Direct Connect under other accounts. You can also share a physical Direct Connect under your account with other Tencent Cloud customers. For operation guide, please refer to the [Operation Documentation](https://www.qcloud.com/doc/product/216/548) of Direct Connect.
+You can setup a Direct Connect tunnel by sharing the physical Direct Connect under other accounts. You can also share a physical Direct Connect under your account with other Tencent Cloud customers. For operation guide, please refer to the [Operation Documentation](https://cloud.tencent.com/doc/product/216/548) of Direct Connect.
 
 ## Viewing the Monitoring Information
 
 It's possible to query monitoring information (outbound and inbound bandwidth, packet loss rate, latency) of a physical Direct Connect, and this can be done in the console or via API. The procedure in the console is as follows:
 
-1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.qcloud.com/vpc/dc).
+1) Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.cloud.tencent.com/vpc/dc).
 
 2) Locate the physical Direct Connect in the list, and click the "Monitoring" button to query its monitoring information.
 
@@ -72,7 +72,7 @@ It's possible to query monitoring information (outbound and inbound bandwidth, p
 
 It's possible to configure alarms for a physical Direct Connect. The configuration steps are as follows:
 
-1) Open [Tencent Cloud Cloud Monitoring - Alarm Policy Console](https://console.qcloud.com/monitor/policylist).
+1) Open [Tencent Cloud Cloud Monitoring - Alarm Policy Console](https://console.cloud.tencent.com/monitor/policylist).
 
 2) Enter the name of the alarm policy.
 
@@ -85,4 +85,4 @@ It's possible to configure alarms for a physical Direct Connect. The configurati
 
 5) Set the receiving group and click OK to complete the configuration of the alarm policy.
 
-After the physical Direct Connect alarm is configured, you can receive the system alarm according to the setting of the alarm receiving group. For more information on monitoring, refer to [Help for Cloud Monitoring](https://www.qcloud.com/doc/product/248/967).
+After the physical Direct Connect alarm is configured, you can receive the system alarm according to the setting of the alarm receiving group. For more information on monitoring, refer to [Help for Cloud Monitoring](https://cloud.tencent.com/doc/product/248/967).

@@ -104,9 +104,9 @@ CDB for TDSQL 目前提供多种实例版本，关于更多版本详情，请参
 
 - 操作审计：操作审计又名操作日志，是根据相关信息安全规定记录的用户使用TDSQL管理中心web页面的操作记录，包括但不限于登录帐号、访问IP、访问时间、操作行为等，操作日志根据国家信息安全规定存储在安全等级更高且无法修改的独立数据库中。**该功能目前免费。**
 
-- 代理网关：每个TDSQL实例都包括一套独立的[Proxy代理网关](https://www.qcloud.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84)，**该网关目前免费**。
+- 代理网关：每个TDSQL实例都包括一套独立的[Proxy代理网关](https://cloud.tencent.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84)，**该网关目前免费**。
 
-- 调度集群：每个TDSQL实例都被[调度集群](https://www.qcloud.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84)直接管理和监控，**调度集群目前免费**。
+- 调度集群：每个TDSQL实例都被[调度集群](https://cloud.tencent.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84)直接管理和监控，**调度集群目前免费**。
 
 - 1分钟粒度监控：仅金融专区实例提供，目前免费。
 

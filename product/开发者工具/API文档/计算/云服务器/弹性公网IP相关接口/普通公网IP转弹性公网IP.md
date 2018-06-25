@@ -16,7 +16,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> unInstanceId <td> 是 <td> String <td> 待操作有普通公网IP的服务器实例ID，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取。
+<td> unInstanceId <td> 是 <td> String <td> 待操作有普通公网IP的服务器实例ID，可通过<a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取。
 </tbody></table>
 
  

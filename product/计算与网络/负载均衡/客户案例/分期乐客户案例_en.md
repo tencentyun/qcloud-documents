@@ -9,7 +9,7 @@ The old e-commerce portal of fenqile.com owned more than 30 business modules, wh
 
 ## 2. Solution
 
-Thanks to Tencent Cloud's [Public Network Application-based Cloud Load Balancer](https://www.qcloud.com/product/clb.html), the company's promotion campaign on Double 11 Day achieved a success. Since the product was still under alpha test, Fenqile was invited to experience the product as its earlier-stage tester. Specifically, Tencent Cloud provided Fenqile with the following solutions to ensure the stable traffic distribution during the promotion campaigns for September School Days and Double 11 Day.
+Thanks to Tencent Cloud's [Public Network Application-based Cloud Load Balancer](https://cloud.tencent.com/product/clb.html), the company's promotion campaign on Double 11 Day achieved a success. Since the product was still under alpha test, Fenqile was invited to experience the product as its earlier-stage tester. Specifically, Tencent Cloud provided Fenqile with the following solutions to ensure the stable traffic distribution during the promotion campaigns for September School Days and Double 11 Day.
 
 ![](//mc.qcloudimg.com/static/img/a2239aeb6f3373b779ba1b5b19d617d5/image.png)
  

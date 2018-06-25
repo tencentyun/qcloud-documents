@@ -1,0 +1,7 @@
+可以修改子域名关联的公网/内网云服务器，包括主机记录也可以修改，例如已经在云解析中添加了关联到云服务器内网的子域名 internal.qcloud-example.com，目标是更改关联的云服务器。
+
+### 在记录管理页中对应的关联记录的操作栏中单击【修改】
+![](//mc.qcloudimg.com/static/img/bdd37d1aa7b7fdfcd163910d47a477b6/image.png)
+### 勾选要修改的资源
+在弹出的对话框中，目前 internal 指向 testcvm 和 testcvm_qswu 这两台云服务器，单击【确定】完成操作。
+![](//mc.qcloudimg.com/static/img/144f9c7862149e18efd16299d27944d0/image.png)

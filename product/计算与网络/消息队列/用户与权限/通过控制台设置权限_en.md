@@ -7,7 +7,7 @@ The operation performed in the Console is shown below:
 
 ## Ⅰ. Creating a User
 
-1. Visit the [Users and Permissions Console](https://console.qcloud.com/cam) and click "Create user".
+1. Visit the [Users and Permissions Console](https://console.cloud.tencent.com/cam) and click "Create user".
 
 2. If the user needs to log in to Tencent Cloud console or call Cloud APIs, you need to select "Allow login to Tencent Cloud", and fill in "QQ Number" as login credential.
 **Note:**

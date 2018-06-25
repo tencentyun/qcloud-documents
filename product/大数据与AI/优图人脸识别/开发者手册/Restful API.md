@@ -3,7 +3,7 @@
 
 | 标识符 | 说明 |
 |---------|---------|
-| id | 跟你帐号关联的id, 用于标识你接入的人脸识别的项目；你可以用它来区分帐号内不同的项目 |
+| id | 跟您帐号关联的id, 用于标识您接入的人脸识别的项目；您可以用它来区分帐号内不同的项目 |
 | user_id | 业务自行定义的用户标识，标识一个唯一用户 |
 | secret_id | 标识api鉴权调用者的密钥身份 |
 | secret_key | 用于加密签名字符串和服务器端验证签名字符串的密钥，secret_key 必须严格保管避免泄露 |
@@ -18,7 +18,7 @@
 5) 每个请求的包体大小限制为2m。
 
 ## 鉴权
-详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83)
+详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83)
 
 ## 接口列表
 
@@ -61,7 +61,7 @@ https://youtu.api.qcloud.com/youtu/api/detectface
 | Host | 是 | String | 图片云服务器域名，固定为youtu.api.qcloud.com |
 | ContentLength | 是 | Int | 整个请求包体内容的总长度，单位：字节（Byte） |
 | ContentType | 是 | String | text/json表示json格式 |
-| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
+| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
 #### 请求包体
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -144,7 +144,7 @@ https://youtu.api.qcloud.com/youtu/api/facecompare
 | Host | 是 | String | 图片云服务器域名，固定为youtu.api.qcloud.com |
 | ContentLength | 是 | Int | 整个请求包体内容的总长度，单位：字节（Byte） |
 | ContentType | 是 | String | text/json表示json格式 |
-| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
+| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
 
 #### 请求包体
 |字段|	类型	|说明|
@@ -206,7 +206,7 @@ https://youtu.api.qcloud.com/youtu/api/faceverify
 | Host | 是 | String | 图片云服务器域名，固定为youtu.api.qcloud.com |
 | ContentLength | 是 | Int | 整个请求包体内容的总长度，单位：字节（Byte） |
 | ContentType | 是 | String | text/json表示json格式 |
-| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
+| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
 
 #### 请求包体
 |字段	|类型	|说明|
@@ -263,7 +263,7 @@ https://youtu.api.qcloud.com/youtu/api/newperson
 | Host | 是 | String | 图片云服务器域名，固定为youtu.api.qcloud.com |
 | ContentLength | 是 | Int | 整个请求包体内容的总长度，单位：字节（Byte） |
 | ContentType | 是 | String | text/json表示json格式 |
-| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
+| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
 
 #### 请求包体
 |参数名| 必选	|类型	|参数说明|
@@ -333,7 +333,7 @@ https://youtu.api.qcloud.com/youtu/api/delperson
 | Host | 是 | String | 图片云服务器域名，固定为youtu.api.qcloud.com |
 | ContentLength | 是 | Int | 整个请求包体内容的总长度，单位：字节（Byte） |
 | ContentType | 是 | String | text/json表示json格式 |
-| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://www.qcloud.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
+| Signature | 是 | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名文档](http://cloud.tencent.com/doc/product/277/%E7%AD%BE%E5%90%8D%E9%89%B4%E6%9D%83) |
 
 #### 请求包体
 |参数名|	类型	|参数说明|

@@ -2,7 +2,7 @@ In addition to monitoring data collection, Cloud Monitor also provides an intuit
 
 ## Viewing the Monitoring Charts of a Single Resource
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
 > Note: If there is no desired product, you can check whether there is a monitoring tab in the corresponding product console and obtain relevant data there.
 
 2) Select a specific object to be monitored, and click object ID to enter the details page of monitor.
@@ -25,5 +25,7 @@ You may need to view the monitoring data for a different time period. Please not
 
 You can click in the upper right corner to select the time period to display. There are several time periods preset by Cloud Monitor: "Last hour", "Today", "Yesterday", "Last 7 days" and "Last 14 days". You can also specify a time period using the date picker.
 
+You can also view the data in a day for recent half year, and also the data in one minute, five minutes and one hour for the recent thirty-one days. 
 
+ The data can be displayed for up to thirty one days. 
 

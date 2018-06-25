@@ -1,38 +1,40 @@
-## How to Use DockerHub Image Accelerator
-### Quick Installation Using Script
-Available soon.
+Source address of Docker: `https://mirror.ccs.tencentyun.com`
 
-### Manual Installation and Configuration
-#### Ubuntu
-Configure Docker accelerator:
-
-You can use the following script to add the mirror configuration into the launch parameters of Docker Daemon.
-- If your system is Ubuntu 12.04 14.04, Docker 1.9 or above.
+## CCS Cluster CVM
+When a node is created, Docker service is installed and image is configured automatically. The configuration items are as follows:
 ```shell
-echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=https://mirror.ccs.tencentyun.com" | sudo tee -a /etc/default/docker
-sudo service docker restart
-```
-- If your system is Ubuntu 15.04 16.04, Docker 1.9 or above.
-```shell
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo tee /etc/systemd/system/docker.service.d/mirror.conf <<-'EOF'
-[Service]
-ExecStart=
-ExecStart=/usr/bin/docker daemon -H fd:// --registry-mirror=https://mirror.ccs.tencentyun.com
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+[root@VM_1_2_centos ~]# cat /etc/docker/dockerd 
+IPTABLES="--iptables=false"
+STORAGE_DRIVER="--storage-driver=overlay2"
+IP_MASQ="--ip-masq=false"
+LOG_LEVEL="--log-level=warn"
+REGISTRY_MIRROR="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```
 
-#### CentOS
-Configure Docker accelerator:
-
-You can use the following script to add the mirror configuration into the launch parameters of Docker Daemon.
-Note: System requirement: CentOS 7 or above, Docker 1.9 or above.
+## CVM Configuration
+### Linux:
+- Applicable to Ubuntu14.04, Debian, CentOS6, Fedora and OpenSUSE. For other versions, the configuration may be slightly different.
+Docker configuration file `/etc/default/docker` is modified as follows:
 ```shell
-sudo cp -n /lib/systemd/system/docker.service /etc/systemd/system/docker.service
-sudo sed -i "s | ExecStart=/usr/bin/docker daemon | ExecStart=/usr/bin/docker daemon --registry-mirror=https://mirror.ccs.tencentyun.com| g" /etc/systemd/system/docker.service
-sudo systemctl daemon-reload
-sudo service docker restart
+DOCKER_OPTS="--registry-mirror=https://mirror.ccs.tencentyun.com"
+```
+- Applicable to Centos7.
+The Docker configuration file `vi /etc/sysconfig/docker` is modified as follows:
+```shell
+OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'
+```
+>**Note:**
+>Only Docker 1.3.2 or above supports Docker Hub Mirror mechanism. If you have not installed Docker or the installed version is too low, please install it or upgrade your version.
+
+### Windows:
+If you are using Boot2Docker, go to Boot2Docker Start Shell and execute the following command:
+```shell
+sudo su echo "EXTRA_ARGS=\"-registry-mirror=https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  Restart Boot2Docker
+```
+
+## Start Docker
+Execute the following command:
+```shell
+sudo service docker start
 ```
 

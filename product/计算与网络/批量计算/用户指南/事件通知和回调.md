@@ -1,0 +1,92 @@
+## 概要信息
+批量计算（Batch）支持将作业和计算环境内产生的事件以消息服务（CMQ）的形式抛出，例如作业运行成功/失败、计算环境节点创建成功/失败/异常等事件发生，可以通过 CMQ 的主题订阅机制来实现通知和回调。
+
+## 使用指南
+下面以监听计算环境相关事件为例，您可以通过以下三个步骤将一个计算环境相关的事件注册。
+
+### 1. 创建 CMQ 主题
+登录 [消息服务 CMQ 控制台](https://console.cloud.tencent.com/mq/topic?rid=1)，新建一个主题。
+![](https://main.qcloudimg.com/raw/c66c7254a3d5f480500c6bce80e75aff)
+### 2. 创建计算环境并关联 CMQ 主题
+在提交作业（SubmitJob）或者创建计算环境（Create）时添加 **notifications** 字段并指定要监听的事件 **event_name**，支持指定多个事件。
+```
+"notifications": [
+    {
+      "event_configs": [
+        {
+          "event_name": "JobFailed" // 事件名称
+        },
+        {
+          "event_name": "JobSucceed",
+          "event_vars": [           // 自定义事件参数
+            {
+              "name": "jobSucceed",
+              "value": "Success"
+            }
+          ]
+        }
+      ],
+      "topic_name": "job-message"   // CMQ Topic Name
+    }
+  ],
+```
+* 目前仅支持通过 API 或者 CLI 创建计算环境时关联 CMQ 主题，后续将支持控制台操作。
+* event_vars：除了事件产生的固定消息本体外，还支持添加自定义参数。
+* topic_name：关联的 CMQ 主题的 Name（**注意：不是 ID**），所有事件消息将投递给该主题，主题再将消息转发给所有订阅者。
+
+### 3. 设置订阅者并测试
+在 [消息服务 CMQ 控制台](https://console.cloud.tencent.com/mq/topic?rid=1) 为新建的主题添加订阅者，为方便快速查看，可以指定为已经创建的一个消息队列。
+![](https://main.qcloudimg.com/raw/2bdbba09e0486937e26360d17e968be6)
+消息结构如下，如果订阅者中指定了消息队列，可以通过 [消息服务 CMQ 控制台 - 消息接收](https://console.cloud.tencent.com/mq/receive) 快速查看由 Batch 发送到主题内的事件消息（消息接收内消息内容需要 Base64 处理）。
+```
+{
+	"Events": [{
+		"EventVersion": "1.0",
+		"EventTime": "2018-06-15T14:43:17Z",
+		"Region": "ap-guangzhou",
+		"Batch": {
+			"ComputeNodeId": "node-0iy7wxyo",
+			"EnvId": "env-ptoxdb1t",
+			"ComputeNodeState": "CREATED",
+			"Mem": 8,
+			"ResourceCreatedTime": "2018-06-15T14:43:18Z",
+			"EnvName": "batch-env",
+			"ComputeNodeInstanceId": "ins-9rikj9kw",
+			"Cpu": 4
+		},
+		"EventName": "COMPUTE_NODE_CREATED",
+		"EventVars": []
+	}]
+}
+```
+
+### 作业相关事件
+类型 | 描述
+-----|------
+JOB_RUNNING | 作业运行
+JOB_SUCCEED | 作业完成
+JOB_FAILED | 作业失败
+JOB_FAILED_INTERRUPTED | 作业失败中断
+TASK_RUNNING | 任务运行
+TASK_SUCCEED | 任务完成
+TASK_FAILED | 任务失败
+TASK_FAILED_INTERRUPTED | 任务失败中断
+TASK_INSTANCE_RUNNING | 任务实例运行
+TASK_INSTANCE_SUCCEED | 任务实例完成
+TASK_INSTANCE_FAILED | 任务实例失败
+TASK_INSTANCE_FAILED_INTERRUPTED | 任务实例失败中断
+
+最新定义和提交作业 API Demo，请参见 [提交作业 >>](https://cloud.tencent.com/document/product/599/12683)
+
+### 计算环境相关事件
+类型 | 描述
+-----|------
+COMPUTE_ENV_CREATED | 创建计算环境
+COMPUTE_ENV_DELETED | 删除计算环境
+COMPUTE_NODE_CREATED | 计算节点创建成功
+COMPUTE_NODE_CREATION_FAILED |  计算节点创建失败
+COMPUTE_NODE_RUNNING | 计算节点运行中
+COMPUTE_NODE_ABNORMAL | 计算节点异常
+COMPUTE_NODE_DELETING | 计算节点销毁中 
+
+最新定义和创建计算环境 API Demo，请参见 [创建计算环境 >>](https://cloud.tencent.com/document/product/599/12683)

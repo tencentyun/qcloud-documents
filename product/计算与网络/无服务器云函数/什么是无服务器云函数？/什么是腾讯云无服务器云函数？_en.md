@@ -22,6 +22,6 @@ You can customize when to execute your code. For example, when a file is uploade
 
 Tencent Cloud also provides the following services for users to manage their computing resources:
 
-- [CVM](https://www.qcloud.com/product/cvm) provides instance configurations of different specifications. You can customize the configuration options for your computing resources such as CPU, memory, operating system, network, security and so on. However, you need custom policies to achieve cross-zone disaster recovery, resource scaling, etc.
-- [Container Service](https://www.qcloud.com/product/ccs) provides highly extendable container management service which allows you to schedule containers in your cluster according to resource and availability requirement, to satisfy specific demand of businesses or applications.
+- [CVM](https://cloud.tencent.com/product/cvm) provides instance configurations of different specifications. You can customize the configuration options for your computing resources such as CPU, memory, operating system, network, security and so on. However, you need custom policies to achieve cross-zone disaster recovery, resource scaling, etc.
+- [Container Service](https://cloud.tencent.com/product/ccs) provides highly extendable container management service which allows you to schedule containers in your cluster according to resource and availability requirement, to satisfy specific demand of businesses or applications.
 

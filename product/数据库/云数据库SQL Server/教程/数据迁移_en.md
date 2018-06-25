@@ -17,7 +17,7 @@ Offline migration can migrate 99% of the data to the private network of Tencent 
 3. Prepare the data backup files to be migrated to Tencent Cloud offline.
 
 ### Migration Steps
-1. Using "Windows Client Upload Tool", upload the prepared data backup files to the free transit storage provided by Tencent Cloud ([How to Use the Upload Tool](https://www.qcloud.com/doc/product/ 238/6412)).
+1. Using "Windows Client Upload Tool", upload the prepared data backup files to the free transit storage provided by Tencent Cloud ([How to Use the Upload Tool](https://cloud.tencent.com/doc/product/ 238/6412)).
 
 2. In the navigation bar on the left of the database instance page, select "SQL Server"-> "Data Transfer" > "Create Task".
 ![](https://mc.qcloudimg.com/static/img/7b0b5cadaa2df742364316302df429e2/1.png)

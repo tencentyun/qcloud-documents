@@ -36,7 +36,7 @@ The number of ENIs that may bind to a CVM and the number of private IPs that can
 
 ### Checking ENI
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM instance ID to access the CVM details page.
 
@@ -44,7 +44,7 @@ The number of ENIs that may bind to a CVM and the number of private IPs that can
 
 ## Assigning Private IP (Tencent Cloud Console)
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM "instance ID" to enter the CVM details page.
 
@@ -140,7 +140,7 @@ Note: Private IPs configured in this way will still be in effect after the CVM r
 
 ### Releasing Private IP
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM "instance ID" to enter the CVM details page.
 
@@ -156,7 +156,7 @@ Note 2: Once the private IP is unbound, the EIP will be automatically disassocia
 
 ## Binding EIP
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM "instance ID" to enter the CVM details page.
 
@@ -170,7 +170,7 @@ Note 2: Once the private IP is unbound, the EIP will be automatically disassocia
 
 ## Unbinding EIP
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM "instance ID" to enter the CVM details page.
 
@@ -182,7 +182,7 @@ Note 2: Once the private IP is unbound, the EIP will be automatically disassocia
 
 ### Modifying the Primary Private IP
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click the CVM "instance ID" to enter the CVM details page.
 
@@ -194,7 +194,7 @@ Note 2: Once the private IP is unbound, the EIP will be automatically disassocia
 
 ### Modifying the Subnet of ENI
 
-1) Log in to the [VPC Console](https://console.qcloud.com/vpc).
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to enter ENI List page.
 

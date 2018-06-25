@@ -1,0 +1,15 @@
+您是否经常在云服务器的 /etc/hosts 中添加记录，给其他的云服务器配置内网域名，达到在内网方便访问云服务器的目的。您是否为配置 hosts 既麻烦又不方便统一管理而苦恼。
+
+有了云解析，您就再也不用这么做了。通过设置关联到云服务器内网的记录，您可以轻松的在内网给一组云服务器配置域名，通过下面的例子试验一下。
+
+您已经在云解析中添加了域名 qcloud-example.com（qcloud-example.com 用于演示，实际操作时请替换为您的真实添加成功的域名），目标是给 qcloud-example.com 添加一个内网子域名：internal.qcloud-example.com，让它指向一组选定的云服务器内网 IP。
+
+### 记录管理页单击【添加记录】
+![](//mc.qcloudimg.com/static/img/946e83baba710ad61e51263551870afd/image.png)
+### 选择记录类型 A 的关联云资源类型
+添加记录弹窗中，【记录类型】为 A，【关联云资源】选择【是】，【主机记录】填写【internal】。弹窗会列出您当前购买的所有的云服务器，勾选一组云服务器，单击【确定】提交，新添加的记录将出现在记录列表，该子域名在只在内网做解析，如下图所示。
+![](//mc.qcloudimg.com/static/img/2a807321f1e64bdd40555269d3cec389/image.png)
+![](//mc.qcloudimg.com/static/img/d9f61a3464e523a44ed17be17b386d29/image.png)
+![](//mc.qcloudimg.com/static/img/310e795ca0d0136397357c7a97888c8b/image.png)
+### 测试
+现在登录任意一台您的云服务器，试试访问一下 internal.qcloud-example.com ，您也可以在您的任意一台云服务器上执行 dig internal.qcloud-example.com -t A，如果查询到结果中包含 10.104.117.138，10.104.125.171 这两个内网 IP，就表示该内网子域名的解析是完全没有问题的。

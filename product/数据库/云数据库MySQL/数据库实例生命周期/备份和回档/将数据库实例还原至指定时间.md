@@ -14,7 +14,7 @@
 **要将数据库实例还原到指定时间，请执行以下操作**
 
 ### 对单个实例进行回档：
-1. 登录 腾讯云数据库CDB 管理控制台 并通过以下网址打开 CDB 控制台：[https://console.qcloud.com/cdb](https://console.qcloud.com/cdb)
+1. 登录 腾讯云数据库CDB 管理控制台 并通过以下网址打开 CDB 控制台：[https://console.cloud.tencent.com/cdb](https://console.cloud.tencent.com/cdb)
 2. 在实例列表中，选中需要回档的实例，在【操作】中选择【管理】。
 3. 点击实例详情页面右上角【回档】，此时会显示回档操作页面。
 4. 选择需要回档的数据库表，可选择部分库表或全选，并设置需要回档的时间。如需指定回档后新建的数据库表名，可对“设定回档后库表名”列填写自定义内容。设置完成后，点击【批量回档】。
@@ -23,4 +23,4 @@
 ![](https://mc.qcloudimg.com/static/img/eae743ae57be74cc901b398ceea75665/image.png)
 
 ### 批量回档：
-批量回档功能可参考【批量操作】相关描述：[点击查看【批量回档】](https://www.qcloud.com/document/product/236/7262#2.E6.89.B9.E9.87.8F.E5.9B.9E.E6.A1.A3 "点击查看【批量回档】")
+批量回档功能可参考【批量操作】相关描述：[点击查看【批量回档】](https://cloud.tencent.com/document/product/236/7262#2.E6.89.B9.E9.87.8F.E5.9B.9E.E6.A1.A3 "点击查看【批量回档】")

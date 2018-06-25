@@ -1,28 +1,27 @@
 
 This document takes purchasing CVM as an example.
 
-Log in to Tencent Cloud official website [www.qcloud.com](http://www.qcloud.com/) with your account ID.
+Log in to Tencent Cloud official website [https://intl.cloud.tencent.com](https://intl.cloud.tencent.com) with your account ID.
 
-![](//mc.qcloudimg.com/static/img/d51b3731e513004796b196e9ae8e134b/image.png)
 
 In the navigation bar of Cloud Products, select CVM you want to buy.
 
-![](//mc.qcloudimg.com/static/img/c34415c6526ae7a5d88688471828fed0/image.png)
+![](https://mc.qcloudimg.com/static/img/14f1c110cbc088e6333791238a21fee7/001.png)
 
-After entering the product overview page, you can view the details of the product, and click **Buy Now** to purchase the product.
+After entering the product overview page, you can view the details of the product, and click **Experience** to purchase the product.
 
-![](//mc.qcloudimg.com/static/img/4d477daa109b8d3315cc42a68a9e20ce/image.png)
+![](https://mc.qcloudimg.com/static/img/f6003e72b13f0abd15defef0570e8901/002.png)
 
 Select the CVM configuration information based on your business needs.
 
-![](//mc.qcloudimg.com/static/img/245d7ca5bf6563eae1616545e548e074/image.png)
+![](https://mc.qcloudimg.com/static/img/2d7b1a8516236d06d24ef591e577f917/003.png)
 
-After selecting the configurations, check the CVM information and confirm it. Then click **Confirm Purchase**.
+After selecting the configurations, check the CVM information and confirm it. Then click **Buy Now**.
 
-![](//mc.qcloudimg.com/static/img/ea3e9d15c117acafa699b74608108c2f/image.png)
+![](https://mc.qcloudimg.com/static/img/ecdec33446ef20b077a304fa010efbea/004.png)
 
-After the payment is made for the order, you can see the product you just purchased in **My Orders**. If the order is in a status of **Assignment Completed**, you can use the CVM you purchased.
+After order is made, the CVM you just purchased will be shown in the **Cloud Virtual Machine **page of your **Tencent Cloud Console**. You can see the status of the product. If it is in the status of **Running**, you can use the CVM you just purchased.
 
-![](//mc.qcloudimg.com/static/img/e36d51e7e441c95f61d2bd64d712cdf7/image.png)
+![](https://mc.qcloudimg.com/static/img/9ebaff5d0577a24343eb2ebc8b0fa15b/005.png)
 
 

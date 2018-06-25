@@ -7,7 +7,7 @@ Special effects such as eye enlarging, face slimming, dynamic sticker and green 
 The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **0.5 million CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
 
 ## Version Downloading
-You can download the privileged SDK package at the bottom of the [RTMP SDK](https://www.qcloud.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you need to replace the non-privileged jar and so files in your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
+You can download the privileged SDK package at the bottom of the [RTMP SDK](https://cloud.tencent.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you need to replace the non-privileged jar and so files in your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
 
 ## Project Settings
 
@@ -37,9 +37,9 @@ One dynamic effect template is included in one directory, which contains many re
 
 Download resources for dynamic effects from the background and decompress them to the Resource directory, and then you can get sample codes in the Mini LVB. In the codes, you can find download addresses of resources and thumbnails for dynamic effects. The format is as follows
 
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}Android.zip
+> `https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}Android.zip`
 >
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}.png
+> `https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}.png`
 >
 
 It is strongly recommended that you put the resources for dynamic effects on your own servers to prevent unnecessary impact caused by modifications of the Mini LVB.

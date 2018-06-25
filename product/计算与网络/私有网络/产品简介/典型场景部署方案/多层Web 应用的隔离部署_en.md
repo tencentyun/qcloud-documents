@@ -42,9 +42,9 @@ Outbound rules:
 
 ## Steps
 To deploy multi-layer Web applications, you need to complete the following steps:
-Step 1: Create a private network. [Click here to view details](https://www.qcloud.com/document/product/215/4927#.E5.88.9B.E5.BB.BA.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E3.80.81.E5.88.9D.E5.A7.8B.E5.8C.96.E5.AD.90.E7.BD.91.E5.92.8C.E8.B7.AF.E7.94.B1.E8.A1.A8).
-Step 2: Create a Web layer subnet, [add CVM](https://www.qcloud.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA), and deploy the cloud load balance service. For details, please check [Cloud Load Balance Instance](https://www.qcloud.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B).
-Step 3: Create a logical layer subnet, and [add CVM](https://www.qcloud.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA).
-Step 4: Create a data layer subnet, add a cloud database. Click here to view [Purchase Cloud Database](https://www.qcloud.com/document/product/236/3128).
-Step 5: Configure the network ACLs for the three subnets. The rules are shown in the table above. [Click here to view details](https://www.qcloud.com/document/product/215/8119).
+Step 1: Create a private network. [Click here to view details](https://cloud.tencent.com/document/product/215/4927#.E5.88.9B.E5.BB.BA.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E3.80.81.E5.88.9D.E5.A7.8B.E5.8C.96.E5.AD.90.E7.BD.91.E5.92.8C.E8.B7.AF.E7.94.B1.E8.A1.A8).
+Step 2: Create a Web layer subnet, [add CVM](https://cloud.tencent.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA), and deploy the cloud load balance service. For details, please check [Cloud Load Balance Instance](https://cloud.tencent.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B).
+Step 3: Create a logical layer subnet, and [add CVM](https://cloud.tencent.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA).
+Step 4: Create a data layer subnet, add a cloud database. Click here to view [Purchase Cloud Database](https://cloud.tencent.com/document/product/236/3128).
+Step 5: Configure the network ACLs for the three subnets. The rules are shown in the table above. [Click here to view details](https://cloud.tencent.com/document/product/215/8119).
 

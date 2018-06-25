@@ -7,7 +7,7 @@ You can delete the customs images after use. You cannot [start new CVM instances
 
 ## Deleting Custom Images in the Console
 
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com).
 
 2) Click "CVM" -> "Image" in the navigation pane.
 
@@ -16,4 +16,4 @@ You can delete the customs images after use. You cannot [start new CVM instances
 4) Click the "Delete" button and confirm the operation to delete all the selected custom images. If the operation fails, you will be prompted with the reason.
 
 ## Deleting Custom Images through API
-Users can share images using the API DeleteImages. For more information, please see the API [Delete Images](https://www.qcloud.com/doc/api/229/1274).
+Users can share images using the API DeleteImages. For more information, please see the API [Delete Images](https://cloud.tencent.com/doc/api/229/1274).

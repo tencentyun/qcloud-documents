@@ -8,9 +8,9 @@ With prepaid mode, you need to pay the charges before using CDH. The amount is d
 
 CVM purchase fee = number of CVMs purchased × unit price
 
-For more information on models and their prices of prepaid CDHs, please see [here >](https://www.qcloud.com/doc/product/416/6477).
+For more information on models and their prices of prepaid CDHs, please see [here >](https://cloud.tencent.com/doc/product/416/6477).
 
-For more information on the expiry reminder of prepaid CDHs, please see [here >](https://www.qcloud.com/doc/product/416/6210).
+For more information on the expiry reminder of prepaid CDHs, please see [here >](https://cloud.tencent.com/doc/product/416/6210).
 
 ## 2. Dedicated CVM billing mode
 
@@ -20,7 +20,7 @@ Dedicated CVMs are instances created on CDHs. CDHs are charged per physical mach
 
 Network services of dedicated CVMs is **billed by traffic**.
 
-For more information on network bandwidth billing rules, please see [here >](https://www.qcloud.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#1.3.-.E6.8C.89.E6.B5.81.E9.87.8F.E8.AE.A1.E8.B4.B9).
+For more information on network bandwidth billing rules, please see [here >](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#1.3.-.E6.8C.89.E6.B5.81.E9.87.8F.E8.AE.A1.E8.B4.B9).
 
 ## 4. Billing mode for cloud disks of dedicated CVMs
 
@@ -28,6 +28,6 @@ Cloud disks of dedicated CVMs are billed flexibly **on a pay-per-use basis**, th
 
 You can create snapshots of your cloud disks of CVMs to back up your data.
 
-For more information on price overview of cloud disks, please see [here >](https://www.qcloud.com/doc/product/362/2413).
+For more information on price overview of cloud disks, please see [here >](https://cloud.tencent.com/doc/product/362/2413).
 
 

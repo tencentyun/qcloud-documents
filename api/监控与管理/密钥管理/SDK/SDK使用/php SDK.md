@@ -155,8 +155,11 @@
 |EncryptionContext|string |NULL|生成数据密钥时提供的额外的json key-value|
 
 返回字典中 ：
-plaintext 对应的value 表示生成的数据密钥明文
-ciphertextBlob：对应的value 表示生成的数据密钥密文
+
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string| 表示生成的数据密钥明文(输入参数返回)|
+|ciphertextBlob|string|表示生成的数据密钥密文|
 
 #### 使用示例
 
@@ -224,8 +227,11 @@ ciphertextBlob：对应的value 表示生成的数据密钥密文
 |Plaintext|string|NULL|明文|
 |EncryptionContext|string|NULL|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
 
-返回值 ciphertextBlob 密文：
+返回值
 
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|ciphertextBlob|string|表示生成的密文|
 #### 使用示例
 
 ```
@@ -245,8 +251,11 @@ ciphertextBlob：对应的value 表示生成的数据密钥密文
 |CiphertextBlob|string|NULL|密文|
 |EncryptionContext|string|NULL|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值  plaintext 明文
+返回值  
 
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string|表示通过密文解密得到的明文|
 #### 使用示例
 
 ```

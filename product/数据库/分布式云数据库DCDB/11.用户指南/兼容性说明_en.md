@@ -5,13 +5,13 @@
 - Data files and table definition files are binary compatible.
 - All client APIs and protocols are compatible.
 - All file names, binary files, paths and port numbers are the same.
-- All connectors (including those for PHP, Perl, Python, Java, .NET, Ruby, MySQL) can be used on MariaDB without any modifications.
+- All connectors (including those for PHP, Perl, Python, Java, .NET, Ruby and MySQL) can be used on MariaDB without any modifications.
 - You can use MySQL clients to connect to TDSQL.
 
 ## Incompatibility Between TDSQL and MySQL 5.6
 ### Updated: Dec 31, 2015
 - The GTID of TDSQL is not compatible with the GTID of MySQL 5.6. In other words, MySQL cannot act as a slave database for TDSQL;
-- MySQL can send alarms and TDSQL can work normally if only the prefix of the option is provided, for example, replace "--big-tables" with "--big-table". That is, MySQL and TDSQL are compatible if only the prefix is provided to uniquely identified the option.
+- MySQL can send alarms and TDSQL can work normally if only the prefix of the option is provided, for example, replace "--big-tables" with "--big-table". That is, MySQL and TDSQL are compatible if only the prefix provided can uniquely identify the option.
 - To ensure that the CREAT TABLE ... SELECT command can always function when copied as line or as command, the CREAT TABLE ... SELECT command in TDSQL will be converted into CREAT OR RPLACE in the slave database before it is executed. The advantage is that the slave database can work normally even if it crashes while executing "CREAT TABLE ... SELECT" command.
 
 ### Updated: Jan 12, 2016

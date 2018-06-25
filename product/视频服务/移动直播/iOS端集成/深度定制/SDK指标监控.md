@@ -3,7 +3,7 @@
 ### 1. 如何获取推流的状态数据？
 TXLivePushListener 的 onNetStatus 回调，会每隔 1-2 秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 
-![](//mc.qcloudimg.com/static/img/07810dd6565d371a37892227bd174714/image.png)
+![](https://main.qcloudimg.com/raw/c002a10d6ffdf8899a038b1fca8c7b10.png)
 
 |  推流状态                 |  含义说明                  |   
 | :------------------------  |  :------------------------ | 
@@ -43,7 +43,7 @@ BITRATE( = VIDEO_BITRATE + AUDIO_BITRATE ) 指的是编码器每秒产生了多�
 如果主播到 SERVER_IP 给出的 ip 地址的 ping 值很高（比如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
 
 ### 3. 如何看懂腾讯云推流图表？
-在 [直播控制台-质量监控](https://console.qcloud.com/live/livesdk) 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
+在 [直播控制台-质量监控](https://console.cloud.tencent.com/live/livesdk) 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
 
 - **主播端-应发速率-实发速率曲线图**
 蓝色曲线代表 BITRATE 的统计曲线，即 SDK 产生的音视频数据，即绿色曲线发表实际网络发出去多少。两条线重合度越高表示推流质量越好。
@@ -66,7 +66,8 @@ BITRATE( = VIDEO_BITRATE + AUDIO_BITRATE ) 指的是编码器每秒产生了多�
 
 ### 1. 如何获取播放的状态数据？
 TXLivePlayListener 的 onNetStatus 回调，会每隔 1-2 秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
-![](//mc.qcloudimg.com/static/img/bc00f0c279a67282de0cc3ce69988e7c/image.png)
+
+![](https://main.qcloudimg.com/raw/4b5515acbc2a4858c04554070d1a5e2a.png)
 
 |  播放状态                 |  含义说明                  |   
 | :------------------------  |  :------------------------ | 

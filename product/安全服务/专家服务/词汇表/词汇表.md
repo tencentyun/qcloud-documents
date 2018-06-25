@@ -1,0 +1,79 @@
+## A-E
+### Aircrack-ng
+Aircrack-ng 是一个与 802.11 标准的无线网络分析有关的安全软件，主要功能有：网络侦测，数据包嗅探，WEP 和 WPA/WPA2-PSK 破解。
+
+### APT 攻击
+APT（Advanced Persistent Threat）即高级长期威胁，又称高级持续性威胁、先进持续性威胁等，是指隐匿而持久的电脑入侵过程，通常由某些人员精心策划，针对特定的目标。
+
+### ARM 架构
+ARM架构（Advanced RISC Machine，更早称作：Acorn RISC Machine），过去称作高级精简指令集机器，是一个32位精简指令集（RISC）处理器架构，其广泛地使用在许多嵌入式系统设计。、
+
+### 白盒测试
+白盒测试（White-Box Testing）又称透明盒测试（Glass-Box Testing）、结构测试（Structural Testing），也称逻辑驱动测试或基于程序本身的测试，是软件测试的主要方法之一。测试应用程序的内部结构或运作，而不是测试应用程序的功能（即黑盒测试）。在白盒测试时，以编程语言的角度来设计测试案例。测试者输入数据验证数据流在程序中的流动路径，并确定适当的输出，类似测试电路中的节点。测试者了解待测试程序的内部结构、算法等信息，这是从程序设计者的角度对程序进行的测试。
+
+### CCIE
+CCIE（Cisco Certified Internetwork Expert）即思科认证互联网专家，是Cisco（思科系统公司）提供的职业认证，始于1993年。
+
+### CCSK
+CCSK即云计算安全知识认证，2011年由国际云安全联盟正式推出，已经成为云安全人才领域最权威的认证之一。 
+
+### CISP
+CISP(Certified Information Security Professional)即注册信息安全专业人员，是经中国信息安全产品测评认证中心（已改名中国信息安全测评中心）实施国家认证，是国家对信息安全人员资质的最高认可。
+
+### CISSP
+CISSP（Certified Information Systems Security Professional）中文译名为信息系统安全认证专家，是由国际信息系统安全认证联盟（International Information Systems Security Certification Consortium）独立管理的信息安全认证。
+
+### CSRF
+CSRF（Cross-site request forgery）即跨站请求伪造，也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的 Web 应用程序上执行非本意的操作的攻击方法。
+
+### DDoS
+DDoS（distributed denial-of-service attack）即分布式拒绝服务攻击，指黑客使用网络上两个或以上被攻陷的电脑作为“僵尸”向特定的目标发动“拒绝服务”式攻击。
+
+###  Debian
+Debian 是完全由自由软件组成的类 Unix 操作系统，其包含的多数软件使用 GNU 通用公共许可协议授权，并由 Debia n计划的参与者组成团队对其进行打包、开发与维护。
+
+## F-J
+### 黑盒测试
+黑盒测试(Black-Box Testing)是软件测试的主要方法之一，也可以称为功能测试、数据驱动测试或基于规格说明的测试。测试者不了解程序的内部情况，不需具备应用程序的代码、内部结构和编程语言的专门知识。只知道程序的输入、输出和系统的功能，这是从用户的角度针对软件界面、功能及外部结构进行测试，而不考虑程序内部逻辑结构。测试案例是依应用系统应该做的功能，照规范、规格或要求等设计。测试者选择有效输入和无效输入来验证是否正确的输出。
+
+### 灰盒测试
+灰盒测试(Grey-Box Testing)是介于白盒测试与黑盒测试之间的一种测试，灰盒测试多用于集成测试阶段，不仅关注输出、输入的正确性，同时也关注程序内部的情况。灰盒测试不像白盒那样详细、完整，但又比黑盒测试更关注程序的内部逻辑，常常是通过一些表征性的现象、事件、标志来判断内部的运行状态。
+
+### 后门程序
+后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。
+
+### HTTP
+HTTP（HyperText Transfer Protocol）即超文本传输协议，是一种用于分布式、协作式和超媒体信息系统的应用层协议。
+
+## K-O
+### LDAP
+LDAP（Lightweight Directory Access Protocol）即轻型目录存取协定，是一个开放的、中立的、工业标准的应用协议，通过 IP 协议提供访问控制和维护分布式信息的目录信息。
+
+### Live CD
+Live CD，又译为自生系统，是事先存储于某种可移动存储设备上，可不特定于计算机硬件而启动的操作系统（通常亦包括一些其他软件），不需安装至计算机的本地外部存储器 - 硬盘。
+
+### Live USB
+Live USB 是 USB 随身碟或 USB 硬盘，里面含有完整的操作系统，可以被用来开机。Live USB 很像 Live CD，但基本上有能力更改设定，而且可以把软件安装回 USB 装置上。
+
+### Nmap
+Nmap（Network Mapper）即网络映射器，是一款用于网络发现和安全审计的网络安全工具，是自由软件。
+
+## P-T
+### PDR2
+PDR2 是防护(Protection)、检测(Detection)、响应(Reaction)、恢复(Restore)有机结合的动态技术体系。
+
+### SLA
+SLA（service-level agreement）即服务级别协议，也称服务等级协议、服务水平协议，是服务提供商与客户之间定义的正式承诺。
+
+### SQL 注入
+SQL 注入，即把 SQL 命令插入到 Web 表单提交、输入域名或页面请求的查询字符串中，最终达到欺骗服务器执行恶意 SQL 命令的目的。
+
+## U-Z
+### Wireshark
+Wireshark（前称 Ethereal）是一个免费开源的网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。
+
+### XPath
+XPath（XML Path Language）即为 XML 路径语言，它是一种用来确定 XML 文档中某部分位置的语言。
+
+### XSS
+XSS（Cross-site scripting）即跨站脚本，是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。

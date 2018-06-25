@@ -1,0 +1,2 @@
+This guide is used for the connection of MTA Android Crash V2, and used to guide the upgrade of the crash module and the calling of APIs.
+V2 Crash module has been completely restructured and upgraded, and supports features such as exception data capturing for Java and Native so files of all architectures, complete stack restoration, real-time reporting of stack display, and real-time monitoring alarm.

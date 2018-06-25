@@ -11,9 +11,9 @@
 
 ### 一、创建容器集群
 
-1、进入创建集群页面，创建[容器集群](https://console.qcloud.com/ccs/cluster)：
+1、进入创建集群页面，创建[容器集群](https://console.cloud.tencent.com/ccs/cluster)：
 2、填写集群名、指定集群的位置(广州、上海、北京等)。
-3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.qcloud.com/vpc)，并在该vpc下创建一个子网。
+3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.cloud.tencent.com/vpc)，并在该vpc下创建一个子网。
 4、指定容器网络。
 5、为集群节点选择机型(cpu和内存)。
 6、为集群节点选择磁盘、带宽等配置，并设置密码和安全组。
@@ -72,7 +72,7 @@
 
 #### 4、查看服务
 
-点击左侧栏的服务，即可看到我们刚刚创建的三个服务，其中frontend服务可以公网访问，因为我们指定了公网负载均衡访问方式，而redismaster和redisslave服务只能够在集群内被其它服务访问，因为我们设置了访问方式为集群内访问。
+单击左侧栏的服务，即可看到我们刚刚创建的三个服务，其中frontend服务可以公网访问，因为我们指定了公网负载均衡访问方式，而redismaster和redisslave服务只能够在集群内被其它服务访问，因为我们设置了访问方式为集群内访问。
 ![](https://mc.qcloudimg.com/static/img/f6f97b051b982a79f48972151c2cb9e8/image.png)
 我们注意到，frontend服务的属性里面的ip地址有两个： 一个外网ip 211.159.213.194和一个内网ip 10.20.255.125，而redisslave和redismaster服务分别只有一个内网ip，那是因为frontend服务的访问方式为公网负载均衡方式访问，所以我们为该服务分配了一个公网负载均衡，该外网ip就是公网负载均衡的ip，由于frontend服务的访问端口为80，所以我们可以在浏览器直接输入该外网ip 211.159.213.194，可以看到：
 ![](https://mc.qcloudimg.com/static/img/1d2bee6cf0a05db0e12d409cc83995b7/image.png)

@@ -4,7 +4,7 @@
 
 方案A：
 
-企业帐号CompanyExample直接将预设策略QCloudCmqQueueFullAccess和QCloudCmqTopicFullAccess授权给子账号Developer。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+企业帐号CompanyExample直接将预设策略QCloudCmqQueueFullAccess和QCloudCmqTopicFullAccess授权给子账号Developer。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 方案B：
 
@@ -20,7 +20,7 @@ step1：通过策略语法方式创建以下策略
      }
 }
 ```
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 ### 授权子帐号拥有其创建的消息队列的所有权限
 
@@ -28,7 +28,7 @@ step2：将该策略授权给子账号。授权方式请参考[授权管理](htt
 
 方案A：
 
-企业帐号CompanyExample直接将预设策略QCloudCmqQueueCreaterFullAccess和QCloudCmqTopicCreaterFullAccess授权给子账号Developer。授权方式请参[考授权管理](https://www.qcloud.com/document/product/378/8961)。
+企业帐号CompanyExample直接将预设策略QCloudCmqQueueCreaterFullAccess和QCloudCmqTopicCreaterFullAccess授权给子账号Developer。授权方式请参[考授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 方案B：
 
@@ -53,7 +53,7 @@ step1：通过策略语法方式创建以下策略
 }
 ```
 
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 ### 授权子帐号拥有特定的主题模型的消息队列的读权限
 
@@ -72,4 +72,4 @@ step1：通过策略语法方式创建以下策略
 }
 ```
 
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。

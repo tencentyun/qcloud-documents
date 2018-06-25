@@ -6,7 +6,7 @@ Tencent Cloud SCF is a typical event-triggered serverless execution environment.
 
 These event sources can be one of the following options:
 
-- Internal event source: It is a pre-configured Tencent Cloud service that can be used in combination with SCF. Currently, SCF supports two internal event sources: COS and Timer. When you configure these event sources to trigger function, the function is called automatically when an event is generated. Relation between event source and function (i.e. event source mapping) is maintained at event source end. For example, COS provides [Bucket Notification Configuration API](https://www.qcloud.com/document/product/436/8588). You can bind the Bucket event with the function by using this API.
+- Internal event source: It is a pre-configured Tencent Cloud service that can be used in combination with SCF. Currently, SCF supports two internal event sources: COS and Timer. When you configure these event sources to trigger function, the function is called automatically when an event is generated. Relation between event source and function (i.e. event source mapping) is maintained at event source end. For example, COS provides [Bucket Notification Configuration API](https://cloud.tencent.com/document/product/436/8588). You can bind the Bucket event with the function by using this API.
 - Custom application: You can allow the custom application to publish event and call Lambda function.
 
 ## Example 1: COS Publishes Event and Calls Function

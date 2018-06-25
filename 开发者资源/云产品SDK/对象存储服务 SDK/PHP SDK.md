@@ -89,7 +89,7 @@ $path = "/myFloder/myFile.rar";
 $sign = Auth::appSign_once($path, $bucketName);
 ```
 
-更多签名相关的详细说明，参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 
+更多签名相关的详细说明，参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 
 
 ## 目录操作
 
@@ -117,7 +117,7 @@ public static function createFolder($bucketName, $path, $bizAttr = null);
 | ------- | ------ | ---- | ---------------------------------------- |
 | code    | Int    | 是    | 错误码，成功时为0                                |
 | message | String | 是    | 错误信息                                     |
-| data    | Array  | 否    | 返回数据，请参考[《Restful API 创建目录》](https://www.qcloud.com/doc/product/227/3362) |
+| data    | Array  | 否    | 返回数据，请参考[《Restful API 创建目录》](https://cloud.tencent.com/doc/product/227/3362) |
 
 #### 示例
 
@@ -181,7 +181,7 @@ public static function statFolder($bucketName, $path);
 | ------- | ------ | ---- | ---------------------------------------- |
 | code    | Int    | 是    | 错误码，成功时为0                                |
 | message | String | 是    | 错误信息                                     |
-| data    | Array  | 否    | 目录属性数据，请参考[《Restful API 目录查询》](https://www.qcloud.com/doc/product/227/3367) |
+| data    | Array  | 否    | 目录属性数据，请参考[《Restful API 目录查询》](https://cloud.tencent.com/doc/product/227/3367) |
 
 #### 示例
 
@@ -246,7 +246,7 @@ public static function listFolder($bucketName, $path, $num = 20, $pattern = 'eLi
 | ------- | ------ | ------ | ---------------------------------------- |
 | code    | Int    | 是      | API 错误码，成功时为0                            |
 | message | String | 是      | 错误信息                                     |
-| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](https://www.qcloud.com/doc/product/227/3364) |
+| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](https://cloud.tencent.com/doc/product/227/3364) |
 
 #### 示例
 
@@ -268,7 +268,7 @@ public static function prefixSearch($bucketName, $prefix, $num = 20, $pattern = 
 
 | **参数名**    | **类型** | **必填** | **参数描述**                                 |
 | ---------- | ------ | ------ | ---------------------------------------- |
-| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | prefix     | String | 是      | 列出含此前缀的所有文件(带全路径)                        |
 | num        | int    | 否      | 要查询的目录/文件数量                              |
 | context    | String | 否      | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中。order用于指定翻页顺序。若order填0，则从当前页正序/往下翻页；若order填1，则从当前页倒序/往上翻页 |
@@ -281,7 +281,7 @@ public static function prefixSearch($bucketName, $prefix, $num = 20, $pattern = 
 | ------- | ------ | ------ | ---------------------------------------- |
 | code    | Int    | 是      | 错误码，成功时为0                                |
 | message | String | 是      | API 错误信息                                 |
-| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](https://www.qcloud.com/doc/product/227/3364) |
+| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](https://cloud.tencent.com/doc/product/227/3364) |
 
 #### 示例
 
@@ -307,7 +307,7 @@ public static function upload($bucketName, $srcPath, $dstPath,
 
 | **参数名**    | **类型** | **必填** | **参数描述**                                 |
 | ---------- | ------ | ------ | ---------------------------------------- |
-| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | srcPath    | String | 是      | 本地要上传文件的全路径                              |
 | dstPath    | String | 是      | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | bizAttr    | String | 否      | 文件属性，业务端维护                               |
@@ -320,7 +320,7 @@ public static function upload($bucketName, $srcPath, $dstPath,
 | ------- | ------ | ---- | ---------------------------------------- |
 | code    | Int    | 是    | 错误码，成功时为0                                |
 | message | String | 是    | 错误信息                                     |
-| data    | Array  | 是    | 返回数据，请参考[《Restful API 创建文件》](https://www.qcloud.com/doc/product/227/3377) |
+| data    | Array  | 是    | 返回数据，请参考[《Restful API 创建文件》](https://cloud.tencent.com/doc/product/227/3377) |
 
 #### 示例
 
@@ -395,7 +395,7 @@ $result = Cosapi::update($bucketName, $dstPath, $bizAttr,$authority, $customer_h
 | ------- | ------ | ------ | ---------------------------------------- |
 | code    | Int    | 是      | 错误码，成功时为0                                |
 | message | String | 是      | 错误信息                                     |
-| data    | Array  | 是      | 文件属性数据，请参考[《Restful API 文件查询》](https://www.qcloud.com/doc/product/227/3381) |
+| data    | Array  | 是      | 文件属性数据，请参考[《Restful API 文件查询》](https://cloud.tencent.com/doc/product/227/3381) |
 
 #### 示例
 

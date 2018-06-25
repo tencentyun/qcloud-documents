@@ -1,4 +1,6 @@
-To use Tencent Cloud Monitor to view the **CVM** metric data and generate alarms, you need to properly install the monitoring components on the Tencent Cloud CVM, which will be used when you collect the metric data of CVM.
+To use Tencent Cloud Monitor to view the **CVM** metric data and generate alarms, you need to properly install the monitoring components on the Tencent Cloud CVM, which will be used to collect the metric data of CVM.
+
+Note: In order to normally report the metric data, you need to open port tcp dport 80 of CVM to Internet. 
 
 ## Installing on Linux
 After [logging in to Linux instance](/doc/product/213/5436), you can execute the following command to install required components, as shown below:
@@ -14,7 +16,7 @@ Once installed, you will see the following results:
 ![](//mccdn.qcloud.com/img568a751592aea.png)
 
 ## Installing on Windows
-1) After [logging in to Windows instance](/doc/product/213/5435), you can access `http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe` through the private network and download the installer `windows-stargate-installer.exe`.
+1) After [logging in to Windows instance](/doc/product/213/5435), you can visit `http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe` through the private network and download the installer `windows-stargate-installer.exe`.
 
 2) Run the installer to install it automatically.
 

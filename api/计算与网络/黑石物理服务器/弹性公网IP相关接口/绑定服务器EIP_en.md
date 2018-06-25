@@ -25,7 +25,7 @@ Parameter data is composed as follows:
 
 | Parameter Name | Type | Description |
 |---|---|---|
-| data.requestId | Int | ID of asynchronous task for binding to CPM. The task status can be queried via API [EipBmQueryTask](/doc/api/456/6670) |
+| data.requestId | Int | ID of asynchronous task for binding to CPM. The task status can be queried via API [EipBmQueryTask](/document/product/386/6670) |
 
 ## 4. Error Codes
 | Error Code | Error Message | Error Description |
@@ -45,7 +45,7 @@ Input
 
   https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindRs
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &instanceId=cpm-xxxxxx&eipId=eip-vvvvvvv
 
 </pre>

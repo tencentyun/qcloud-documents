@@ -36,7 +36,7 @@ Common request parameters are as follows:
 <tr>
 <td> SecretId
 </td><td> String
-</td><td> The SecretId which is used for identifying identity and applied for on <a href="https://console.qcloud.com/capi">Cloud API Key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, please see <a href="/doc/api/372/4214" title="Signature Method">Signature Method</a>.
+</td><td> The SecretId which is used for identifying identity and applied for on <a href="https://console.cloud.tencent.com/capi">Cloud API Key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, please see <a href="/doc/api/372/4214" title="Signature Method">Signature Method</a>.
 </td><td> Yes
 </td></tr>
 <tr>

@@ -11,7 +11,7 @@ In addition to regular monitoring metrics, CCM provides more entries forsimple s
 | Statistical type | A set of statistical method and statistical period |
 | Statistical method | Methods for calculating data including max (to take the maximum value), min (to take the minimum value), sum (to take the sum of all data), avg (to take the average of all data), last (to take the last value within the report period), etc. |
 | Statistical period | Period for data calculation. Currently, the supported granularity is 5 minutes |
-| Authentication | [API Authentication Details](http://www.qcloud.com/doc/api/229/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83) |
+| Authentication | [API Authentication Details](http://cloud.tencent.com/doc/api/229/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83) |
 
 
 For example, a user needs to monitor the process CPU utilization of machine, and notifies relevant admin of the processes with 80% or higher CPU utilization.

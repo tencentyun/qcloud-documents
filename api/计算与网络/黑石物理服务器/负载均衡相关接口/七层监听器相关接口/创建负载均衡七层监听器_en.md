@@ -74,7 +74,7 @@ Input
 
 <pre>
 https://domain/v2/index.php?Action=CreateBmForwardListeners
-&<<a href="https://www.qcloud.com/document/product/386/6718">Public Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Public Request Parameters</a>>
 &loadBalancerId=lb-abcdefgh
 &listeners.1.loadBalancerPort=1234
 &listeners.1.protocol=http

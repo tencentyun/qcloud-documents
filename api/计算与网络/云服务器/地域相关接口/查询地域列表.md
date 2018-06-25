@@ -1,0 +1,101 @@
+## 1. 接口描述
+
+
+本接口 (DescribeRegions) 用于查询地域信息。
+
+接口请求域名：<font style="color:red">cvm.api.qcloud.com</font>
+
+* 地域的定义详见[产品文档中的地域一节](/doc/product/213/6091)。
+
+## 2. 输入参数
+
+本接口无接口请求参数，只需传入公共请求参数即可，见[公共请求参数](/document/api/213/6976)页面。
+<font style="color:red">注意：此接口可以不用传入公共请求参数中的Region参数。</font>
+
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| RequestId| String| 请求ID。|
+| TotalCount| Integer| 地域数量。|
+| RegionSet| array of [Region](/doc/product/213/6091) objects| 地域列表。|
+
+
+## 4. 错误码
+
+详见[公共错误码](https://cloud.tencent.com/document/api/213/10146)。
+
+
+## 5. 示例
+
+输入
+
+<pre>
+https://cvm.api.qcloud.com/v2/index.php?Action=DescribeRegions
+&Version=2017-03-12
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+</pre>
+
+输出
+
+<pre>
+{
+    "Response": {
+        "TotalCount": 10,
+        "RegionSet": [
+            {
+                "Region": "ap-beijing",
+                "RegionName": "华北地区(北京)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-guangzhou",
+                "RegionName": "华南地区(广州)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-guangzhou-open",
+                "RegionName": "华南地区(广州Open)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-hongkong",
+                "RegionName": "东南亚地区(香港)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-shanghai",
+                "RegionName": "华东地区(上海)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-shanghai-fsi",
+                "RegionName": "华东地区(上海金融)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-shenzhen-fsi",
+                "RegionName": "华南地区(深圳金融)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "ap-singapore",
+                "RegionName": "东南亚地区(新加坡)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "na-siliconvalley",
+                "RegionName": "美国西部(硅谷)",
+                "RegionState": "AVAILABLE"
+            },
+            {
+                "Region": "na-toronto",
+                "RegionName": "北美地区(多伦多)",
+                "RegionState": "AVAILABLE"
+            }
+        ],
+        "RequestId": "C563943B-3BEA-FE92-29FE-591EAEB7871F"
+    }
+}
+</pre>
