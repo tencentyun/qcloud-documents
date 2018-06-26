@@ -38,7 +38,7 @@
 
 #### 使用jar包方式集成
 
-1. 需要解压zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
+1.需要解压zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
 
 | jar                     |                          |                   |
 | ----------------------- | ------------------------ | ----------------- |
@@ -53,7 +53,7 @@
 | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
 | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
 
-2. 把解压后的assets文件夹下的所有资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
+2.把解压后的assets文件夹下的所有资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
 ### 导入licence文件
 
