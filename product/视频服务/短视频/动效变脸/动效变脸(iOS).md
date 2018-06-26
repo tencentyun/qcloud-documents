@@ -77,8 +77,6 @@
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
-**从4.9版本开始，SDK支持二合一的licence, 这种方式不再需要YTFaceSDK.licence, 在从商务同学处获取到licence对应的key和url后，设置方式和标准版licence设置方式相同。**
-
 > 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
 >
 > YTFaceSDK.licence 的文件名固定，不可修改。
@@ -86,6 +84,8 @@
 > iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 >
 
+
+**从4.9版本开始，SDK支持二合一的licence, 这种方式不再需要YTFaceSDK.licence, 在从商务同学处获取到licence对应的key和url后，设置方式和标准版licence设置方式相同。**
 
 ## 功能调用
 
