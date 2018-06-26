@@ -22,7 +22,7 @@
 tsf.auth.enable: true
 ```
 
-- `tsf.auth.enable: true`，启动鉴权，仅通过鉴权的服务可以访问本服务。
+- `tsf.auth.enable: true`，启动鉴权，仅通过鉴权的请求可以访问本服务。
 - `tsf.auth.enable: false`，关闭鉴权，任何服务均可访问本服务。
 
 当 provider 开启了鉴权功能，但是 consumer 未引用 `spring-cloud-tsf-auth` 依赖项时，consumer 发起的请求将收到 HTTP 返回码 403（Forbidden）。
@@ -48,7 +48,7 @@ public static void putTags(Map<String, String> tagMap, Tag.ControlFlag... flags)
 public static void putTag(String key, String value, Tag.ControlFlag... flags) {}
 ```
 
-其中 TagControlFlag 决定 tag 的使用场景：
+其中 `Tag.ControlFlag` 决定 tag 的使用场景：
 
 ```java
 public enum ControlFlag {
