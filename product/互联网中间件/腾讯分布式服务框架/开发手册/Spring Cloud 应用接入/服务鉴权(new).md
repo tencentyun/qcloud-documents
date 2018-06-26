@@ -24,10 +24,10 @@
 tsf.auth.enable: true
 ```
 
--   `tsf.auth.enable:  true` ，启动鉴权，仅授权的服务可以访问本服务。
--   `tsf.auth.enable:  false`，关闭鉴权，任何服务均可访问本服务。
+-   `tsf.auth.enable: true`，启动鉴权，仅授权的服务可以访问本服务。
+-   `tsf.auth.enable: false`，关闭鉴权，任何服务均可访问本服务。
 
-当服务提供者开启了鉴权功能，但是服务消费者未引用 `spring-cloud-tsf-auth` 依赖项时，服务消费者调用服务提供者的接口时，将返回 “HTTP Status 500，服务未授权” 的错误提示。此时应当在服务消费者的 pom.xml 文件中添加 `spring-cloud-tsf-auth` 依赖项。
+当服务提供者开启了鉴权功能，但是服务消费者未引用 `spring-cloud-tsf-auth` 依赖项时，服务消费者调用服务提供者的接口时，将返回 HTTP 返回码 403（Forbidden）。此时应当在服务消费者的 pom.xml 文件中添加 `spring-cloud-tsf-auth` 依赖项。
 
 
 
@@ -43,12 +43,11 @@ TsfContext 是用于存放 tag 信息的上下文类。设置 Tag 的方法签�
 ```java
 /**
  * 设置多个 tag。如果有某个 tag 之前已经被设置过，那么它的值会被覆盖。
- * 表示这些标签带有传递性，同时不在调用链中被使用
  */
 public static void putTags(Map<String, String> tagMap, Tag.ControlFlag... flags) {}
 
 /**
- * 设置 tag。如果该 key 之前已经被设置过，那么它的值会被覆盖。
+ * 设置单个 tag。如果该 key 之前已经被设置过，那么它的值会被覆盖。
  */
 public static void putTag(String key, String value, Tag.ControlFlag... flags) {}
 ```
@@ -57,10 +56,10 @@ public static void putTag(String key, String value, Tag.ControlFlag... flags) {}
 
 ```java
 public enum ControlFlag {
-    TRANSITIVE     // 表示标签要传递下去，默认不启用
-    NOT_IN_AUTH    // 表示标签不被使用在服务鉴权，默认是被使用的
-    NOT_IN_ROUTE   // 表示标签不被使用在服务路由，默认是被使用的
-    NOT_IN_SLEUTH  // 表示标签不被使用在调用链，默认是被使用的
+    TRANSITIVE,     // 表示标签要传递下去，默认不启用
+    NOT_IN_AUTH,    // 表示标签不被使用在服务鉴权，默认是被使用的
+    NOT_IN_ROUTE,   // 表示标签不被使用在服务路由，默认是被使用的
+    NOT_IN_SLEUTH   // 表示标签不被使用在调用链，默认是被使用的
 }
 ```
 
