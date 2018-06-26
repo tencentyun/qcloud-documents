@@ -112,7 +112,7 @@ pre_install do |installer|
               end
               after_build_phase.name = shell_script_after_build_phase_name
               after_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"
               fi
               "
@@ -127,7 +127,7 @@ pre_install do |installer|
               end
               before_build_phase.name = shell_script_before_build_phase_name
               before_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"
                   fi
                   "
@@ -137,7 +137,6 @@ pre_install do |installer|
     puts "[TAC]-Saving projects"
     project.save()
 end
-
 ~~~
 
 注：运行`pod install`以后，可以按照上面的图片打开项目里的 Build Phases 确认是否有 [TAC] 开头，与图上类似的 Build phases 。如果没有的话，可再次运行 `pod install`后检查即可。

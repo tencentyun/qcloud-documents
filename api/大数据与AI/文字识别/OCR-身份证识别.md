@@ -258,13 +258,13 @@ Content-Disposition: form-data; name="card_type";
 Content-Disposition: form-data; name="image[0]"; filename="1.jpg"
 Content-Type: image/jpeg
 
-<@INCLUDE *D:\185839ggh0oedgnog04g0b.jpg.thumb.jpg*@>
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ---------------------------acebdf13572468
 Content-Disposition: form-data; name="image[1]"; filename="2.jpg"
 Content-Type: image/jpeg
 
-<@INCLUDE *D:\200132svnmybmhbmmgbmga.jpg.thumb.jpg*@>
----------------------------acebdf13572468
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+---------------------------acebdf13572468--
 ```
 
 ### 返回示例

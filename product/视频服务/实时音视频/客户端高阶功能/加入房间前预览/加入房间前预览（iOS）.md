@@ -24,7 +24,7 @@ QAVContext *context = [[ILiveSDK getInstance] getAVContext];
 <pre>
 - (void)OnLocalVideoPreview:(QAVVideoFrame *)frameData
 {
-    frameData.identifier = [[ILiveLoginManager getInstance] getLoginId];
+    frameData.userId = [[ILiveLoginManager getInstance] getLoginId];
     ILiveFrameDispatcher *dispatch = [[ILiveRoomManager getInstance] getFrameDispatcher];
     [dispatch dispatchVideoFrame:frameData];
 }
@@ -55,7 +55,7 @@ option.fps = 20;
 ```
 [[ILiveRoomManager getInstance] enableCameraPreview:CameraPosFront enable:YES succ:^{
 	NSString *loginId = [[ILiveLoginManager getInstance] getLoginId];
-	[[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds forIdentifier:loginId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+	[[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds foruserId:loginId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
 } failed:^(NSString *module, int errId, NSString *errMsg) {
 	NSLog(@"enable camera fail. m=%@,errid=%d,msg=%@",module,errId,errMsg);
 }];
@@ -65,3 +65,6 @@ option.fps = 20;
 ## 常见问题
 * 看不到预览画面: 检查是否设置了根视图，检查是否在开启预览之前，已经设置了本地代理，并分发视频帧。
 * 开启预览之后，再次进入房间，不需要再打开摄像头，但需要给视频赋予上行权限，接口是`requestVideoAuth:succ:fail`。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

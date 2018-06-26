@@ -15,7 +15,7 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 iLiveRoomOption roomOption;
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
-roomOption.controlRole = "LiveGuest";      //使用Spear上配置的"LiveGuest"角色
+roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
 roomOption.memberStatusListener = OnMemStatusChange;//房间内成员状态变化回调
 roomOption.data = NULL;//在回调中原封不动传回的void*数据指针;
 
@@ -44,3 +44,5 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 
 ![](https://main.qcloudimg.com/raw/7f16017270f4be5d36d8954b85dd57d6.png)
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
