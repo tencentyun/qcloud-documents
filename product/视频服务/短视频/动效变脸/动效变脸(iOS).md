@@ -82,6 +82,9 @@
 > YTFaceSDK.licence 的文件名固定，不可修改。
 > 
 > iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+>
+> **从4.9版本开始，SDK支持二合一的licence, 这种方式不再需要YTFaceSDK.licence, 在从商务同学处获取到license对应的key和url后，设置方式和标准版license设置方式相同。**
+>
 
 ## 功能调用
 
