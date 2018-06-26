@@ -40,7 +40,6 @@
 
 1. 需要解压zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
 
-
 | jar                     |                          |                   |
 | ----------------------- | ------------------------ | ----------------- |
 | filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
