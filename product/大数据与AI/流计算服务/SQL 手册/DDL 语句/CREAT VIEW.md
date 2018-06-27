@@ -14,7 +14,7 @@ FROM KafkaSource1 AS s1, KafkaSource2 AS s2
 WHERE s1.time_ = s2.time_ AND s1.client_ip = s2.client_ip;
 ```
 
-### 示例 2
+#### 示例 2
 在计算中由于数据量较大、函数方法类型匹配要求等原因，必须使用 TINYINT、SMALLINT、REAL 等类型，但 CDP 输入类型不符合需求时，可以通过 CREATE VIEW 语句配合 CAST() 类型转换函数（见 4.6 小节）实现定义虚拟视图作为新的数据源。
 
 下面是一个示例，它通过定义了一个名为 KafkaSource2 的视图，实现了将 KafkaSource1 数据源中的BIGINT 类型的 status_code 列转为 VARCHAR 类型的列：
