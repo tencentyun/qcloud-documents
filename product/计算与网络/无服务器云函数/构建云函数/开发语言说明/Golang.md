@@ -20,13 +20,11 @@ type DefineEvent struct {
 	// test event define
 	Key1 string `json:"key1"`
 	Key2 string `json:"key2"`
-	Key3 string `json:"key3"`
 }
 
 func hello(ctx context.Context, event DefineEvent) (string, error) {
 	fmt.Println("key1:", event.Key1)
 	fmt.Println("key2:", event.Key2)
-	fmt.Println("key3:", event.Key3)
 	return fmt.Sprintf("Hello %s!", event.Key1), nil
 }
 
@@ -96,7 +94,7 @@ func hello()(string, error)
 
 ## 日志
 
-您可以在程序中使用 `fmt.Println` 或使用 `fmt.Sprintf` 类似方法完成日志输出。例如例子中的函数，将可以在日志中输出入参中 Key1，Key2，Key3 的值。
+您可以在程序中使用 `fmt.Println` 或使用 `fmt.Sprintf` 类似方法完成日志输出。例如例子中的函数，将可以在日志中输出入参中 Key1，Key2 的值。
 
 输出内容您可以在函数日志中的 `log` 位置查看。
 
