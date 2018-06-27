@@ -17,7 +17,7 @@
 | Longitude           | 否（建议填写） | Float  | 经度。浮点数，范围为 180~-180                       |
 | Imei                | 否       | String | 手机设备号                                    |
 | referer             | 否       | String | 用户 HTTP 请求的 referer 值                        |
-| （内部用，区分电商/快消）typeID | -       | Uint   | 0：传统防刷接口<br/>1：快消、新零售接口                       |
+| typeID（内部使用，区分电商 / 快消） | -       | Uint   | 0：传统防刷接口<br/>1：快消、新零售接口                       |
 | loginType           | 否       | UInt   | 登录方式<br/> 0：其他<br/> 1：手动帐号密码输入<br/> 2：动态短信密码登录<br/> 3：二维码扫描登录 |
 | loginSource         | 否       | UInt   | 登录来源<br/> 0：其他 <br/>1：PC 网页<br/> 2：移动页面 3：App<br/> 4：微信公众号    |
 
