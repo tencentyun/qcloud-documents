@@ -1,13 +1,13 @@
 ## 产品简介
 高可用虚拟 IP（HAVIP）是一个浮动的内网 IP，支持机器通过 ARP 宣告进行绑定，更新 IP 和 MAC 地址的映射关系。在高可用部署（如 keepalived）场景下，该 IP 可从 主服务器切换至备服务器，从而完成业务容灾。
 ### 产品特点
-1.	HAVIP 是一个浮动的内网 IP，不会固定在指定机器上。由后端云服务器通过 ARP 宣告可更改与 HAVIP 的绑定关系。
-2.	不在控制台显式绑定，而是在后端云服务器的配置文件中指定，由后端云服务器发起绑定。
-3.	需要在云服务器内配置某一机器绑定该浮动 IP，并在 RS 检测心跳，比如做好 Keepalived 配置。
-4.	有子网属性，只能被同一个子网下的机器宣告绑定。
+1. HAVIP 是一个浮动的内网 IP，不会固定在指定机器上。后端云服务器通过 ARP 宣告可更改与 HAVIP 的绑定关系。
+2. 不在控制台显式绑定，而是在后端云服务器的配置文件中配置，由后端云服务器发起绑定。
+3. 需要在云服务器内配置该浮动 IP，完成高可用应用的配置，如 keepalived 等。
+4. 有子网属性，只能被同一个子网下的机器宣告绑定。
 
 ### 针对问题
-公有云厂商是普通内网 IP，出于安全考虑（如 ARP 欺骗等），不支持主机通过 ARP 宣告 IP 。当用户直接在 keepalived.conf 文件中指定一个普通内网 IP 为 virtual_address，系统无法完成迁移。
+公有云厂商的普通内网 IP，出于安全考虑（如 ARP 欺骗等），不支持主机通过 ARP 宣告 IP 。当用户直接在 keepalived.conf 文件中指定一个普通内网 IP 为 virtual_address，系统无法完成迁移。
 由此带来的问题是：如果用普通内网 IP，keepalived 将 virtual IP 从 MASTER 机器切换到 BACKUP 机器时，无法更新 IP 和 MAC 地址的映射，需要调 API 来进行 IP 切换。
 以 keepalived 配置为例，IP 相关部分如下：
 ```
@@ -105,13 +105,13 @@ HAVIP 目前处于灰度阶段，如需使用请 [提交工单](https://console.
 
 ## 最佳实践
 **用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB**
-1. 创建 HAVIP
+1. **创建 HAVIP**
 打开 [HAVIP 控制台](https://console.cloud.tencent.com/vpc/havip) ，创建一个 HAVIP，具体方法请参见 [创建 HAVIP](#chuangjian)。
-2. 绑定和配置
+2. **绑定和配置**
 此处跟传统模式配置一样，由后端机器声明和协商哪一设备绑定创建的 HAVIP。您只要在对应的配置文件中指定 virtual IP为 HAVIP。
 在群集管理器里，将刚才创建的 HAVIP 配置进去。
  ![](https://main.qcloudimg.com/raw/abf2eec583e14cfdd44d8301f4541f3d.png)
-3. 验证
+3. **验证**
 等待配置完成后，直接切换节点进行测试。
  ![](https://main.qcloudimg.com/raw/528373c391c718451acab0db9594ec04.png)
 正常情况下会看到只有短暂中断后网络又通了（若切换较快甚至看不到中断），业务不受影响。
