@@ -1,4 +1,4 @@
-## NSERT INTO
+## INSERT INTO
 INSERT INTO 语句必须和 SELECT 子查询联用。
 
 #### 语法
