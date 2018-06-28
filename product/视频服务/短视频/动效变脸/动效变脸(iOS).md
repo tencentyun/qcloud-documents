@@ -20,7 +20,7 @@
 
    - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
    - 正式Licence：有效期根据最终的合同而定，一般为一年。
-5. 回复的邮件中将包含Licence及相应的URL和Key, 具体使用方法请见下文的工程配置部分。
+5. 回复的邮件中将包含Licence对应的URL和Key, 具体使用方法请见下文的工程配置部分。
 
 ## 版本下载
 可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 在接入流程步骤获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
@@ -82,6 +82,10 @@
 > YTFaceSDK.licence 的文件名固定，不可修改。
 > 
 > iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+>
+
+
+**从4.9版本开始，SDK支持二合一的licence, 这种方式不再需要YTFaceSDK.licence, 在从商务同学处获取到licence对应的key和url后，设置方式和标准版licence设置方式相同。**
 
 ## 功能调用
 

@@ -19,6 +19,16 @@
 
 - 如果您需要引入外部库，请按照 [创建部署程序包](https://cloud.tencent.com/document/product/583/9702) 中的特定方式组织您的代码和依赖项，打包并上传至 SCF 平台。
 
+- 通过上传zip包创建函数时，还需注意打包方式和“执行方法”的填写：
+执行方法格式为`a.b`，其中：a是py文件的名称，b是代码中的方法名。如果用户上传的zip包在解压后，根目录下找不到名为`a.py`的文件，则会提示“函数服务创建失败，请重试”，或者“函数代码无法显示，代码 zip 包中找不到执行方法指定的文件名”。
+例如：文件结构如下
+--RootFolder
+----SecondFolder
+------a.py
+------thirdfolder
+--------sth.json
+压缩代码zip包时，如果压缩的是SecondFolder，则会出现上述错误；需要选择`a.py`和`thirdfoler`进行压缩。
+
 ## 创建及部署 SCF 云函数
 
 用户可以通过 SCF 控制台、 API、 SDK 或 qcloud cli 工具等创建云函数。首先您需要提供云函数的配置信息，包括计算资源、运行环境等，详细信息请参考 [创建 SCF 云函数](https://cloud.tencent.com/document/product/583/9207)。
