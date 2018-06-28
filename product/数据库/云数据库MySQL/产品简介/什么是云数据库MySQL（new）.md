@@ -9,5 +9,5 @@
 如何购买一个云数据库实例，请参考 [购买与续费流程](https://cloud.tencent.com/document/product/236/5160)。
 如何开始使用云数据库 MySQL ，请参考 [快速入门](https://cloud.tencent.com/document/product/236/3128)。
 如何使用云数据库 MySQL 数据库迁移，请参考[数据迁移](https://cloud.tencent.com/document/product/571/13706)。
-如何使用云数据库 MySQL数据订阅，请参考[数据订阅](https://cloud.tencent.com/document/product/571/13707)。
+如何使用云数据库 MySQL 数据订阅，请参考[数据订阅](https://cloud.tencent.com/document/product/571/13707)。
 如何使用云数据库 MySQL 审计，请参考[数据审计](https://cloud.tencent.com/document/product/672/14403)。
