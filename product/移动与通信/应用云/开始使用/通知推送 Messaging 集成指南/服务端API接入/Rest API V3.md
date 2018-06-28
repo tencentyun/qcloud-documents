@@ -21,7 +21,9 @@ Rest API V3 接口主要分为四大类：
 
 > 本文档将只描述接口状态为<font color=#FF0000>正常</font>的 API，其他状态的 API，请使用 v2 版本
 
+## 申请使用 API V3
 
+API V3 已经开放内测，您可以点击申请使用： [https://cloud.tencent.com/act/apply/xigeapi](https://cloud.tencent.com/act/apply/xigeapi)
 
 ## 请求方式
 
