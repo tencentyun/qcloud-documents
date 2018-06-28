@@ -23,7 +23,7 @@ Rest API V3 接口主要分为四大类：
 
 ## 申请使用 API V3
 
-API V3 已经开放内测，您可以点击申请使用： [https://cloud.tencent.com/act/apply/xigeapi](https://cloud.tencent.com/act/apply/xigeapi)
+API V3 已经开放内测，您可以 [**申请使用**](https://cloud.tencent.com/act/apply/xigeapi)。
 
 ## 请求方式
 
