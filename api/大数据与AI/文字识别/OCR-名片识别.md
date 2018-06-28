@@ -9,14 +9,14 @@
 ### url 说明
 支持 http 和 https 两种协议：
 
-`http://recognition.image.myqcloud.com/ocr/namecard`
-`https://recognition.image.myqcloud.com/ocr/namecard`
+`http://service.image.myqcloud.com/ocr/namecard`
+`https://service.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header
 
 | 参数名            | 必选| 值                                | 描述                                       |
 | -------------- | ------|---------------------------------- | ---------------------------------------- |
-| host           | 是|recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
+| host           | 是|service.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
 | content-length | 否|包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）             |
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
 | authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
