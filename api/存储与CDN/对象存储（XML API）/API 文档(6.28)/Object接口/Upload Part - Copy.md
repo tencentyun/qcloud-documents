@@ -1,6 +1,9 @@
 ## 功能描述
 Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源文件，x-cos-copy-source-range 指定字节范围（允许分块的大小为 5 MB - 5 GB）。
 
+### 版本
+当存储桶启用了多版本，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回 404 错误。如果您在 x-cos-copy-sourceand 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400 错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
+
 ## 请求
 请求示例：
 
@@ -80,8 +83,10 @@ uploadId|string|是|使用上传分块文件，必须先初始化分块上传。
 该响应使用公共响应头，了解共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
-该请求操作无特殊的响应头部信息。
+名称|描述|类型
+---|---|---
+x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
+ x-cos-server-side-encryption | 如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String
 
 ### 响应体
 拷贝成功，返回响应体。
