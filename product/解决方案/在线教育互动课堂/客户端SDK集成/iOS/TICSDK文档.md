@@ -348,7 +348,7 @@ TICSDK 中只有一个关于白板的接口，就是添加一个白板视图对�
 开发者使用时，应该创建一个 boardView 对象，并将其添加到 TICManager 中（同时只能添加一个，重复添加以后添加的为准），然后直接调用 TXBoardView 中的接口来操作白板即可，详见 [TXBoardView 白板 SDK 使用手册](/document/product/680/17890)。
 
 
-#### 2.8 IM 相关操作
+### 2.8 IM 相关操作
 
 IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也只封装了一些常用接口：
 
@@ -512,8 +512,13 @@ TICSDK只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需�
 -(void)onClassroomDestroy;
 ```
 
-> **注意：
->**加入课堂、退出课堂通知，需要在腾讯云后台提 [工单](https://cloud.tencent.com/document/product/269/3916#.E4.BA.91.E9.80.9A.E4.BF.A1.E9.85.8D.E7.BD.AE.E5.8F.98.E6.9B.B4.E9.9C.80.E6.B1.82.E5.B7.A5.E5.8D.95.E7.9A.84.E6.8F.90.E4.BA.A4.E6.96.B9.E5.BC.8F) 申请后才能生效
+> **注意：**加入课堂、退出课堂通知，需要在腾讯云后台[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
+
+> 配置变更类型：修改群组形态
+
+> SdkAppid : // 请在这里填写您的APP在云通信中的APPID
+> 群组形态名称： ChatRoom
+> 需要修改的特性：增加群组成员进出通知
 
 以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，比如：在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。
 
