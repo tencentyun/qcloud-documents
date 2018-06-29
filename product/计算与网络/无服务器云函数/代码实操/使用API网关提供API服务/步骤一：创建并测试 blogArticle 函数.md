@@ -19,9 +19,9 @@ testArticleInfo=[
 
 def main_handler(event,content):
     if "requestContext" not in event.keys():
-        return json.dumps({"errorCode":410,"errorMsg":"event is not come from api gateway"})
+        return {"errorCode":410,"errorMsg":"event is not come from api gateway"}
     if event["requestContext"]["path"] != "/article/{articleId}" and event["requestContext"]["path"] != "/article":
-        return json.dumps({"errorCode":411,"errorMsg":"request is not from setting api path"})
+        return {"errorCode":411,"errorMsg":"request is not from setting api path"}
     if event["requestContext"]["path"] == "/article" and event["requestContext"]["httpMethod"] == "GET": #获取文章列表
         retList = []
         for article in testArticleInfo:
@@ -31,14 +31,14 @@ def main_handler(event,content):
             retItem["title"] = article["title"]
             retItem["time"] = article["time"]
             retList.append(retItem)
-        return json.dumps(retList)
+        return retList
     if event["requestContext"]["path"] == "/article/{articleId}" and event["requestContext"]["httpMethod"] == "GET": #获取文章内容
         articleId = int(event["pathParameters"]["articleId"])
         for article in testArticleInfo:
             if article["id"] == articleId:
-                return json.dumps(article)
-        return json.dumps({"errorCode":412,"errorMsg":"article is not found"})
-    return json.dumps({"errorCode":413,"errorMsg":"request is not correctly execute"})
+                return article
+        return {"errorCode":412,"errorMsg":"article is not found"}
+    return {"errorCode":413,"errorMsg":"request is not correctly execute"}
 ```
 4 . 进入触发方式部分，由于 API 网关触发的配置位于 API 网关中，此处暂时不添加任何触发方式，单击【完成】按钮。
 

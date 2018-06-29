@@ -41,12 +41,12 @@ bool bRet = pRootView->init( hwnd );
 渲染器初始化后，需要为其指定 View，即设置要渲染视频的用户 id，及渲染画面在窗口中的位置信息等,如下,
 
 ```c++
-String      identifier; //要渲染视频的用户id
+String      userId; //要渲染视频的用户id
 E_VideoSrc  type;		//要渲染视频的类型(主路摄像头、屏幕分享、文件播放);
 iLiveView   view;
 view.mode = VIEW_MODE_HIDDEN;	//VIEW_MODE_HIDDEN-按比例缩放,填充黑边; VIEW_MODE_FIT-拉伸画面到控件大小;
 view.exclusive = true; //此view是否独占整个窗口;如果否,需要设置view的x、y、width、height、zorder等参数,详见api
-pRootView->setView(identifier, type, view, false);
+pRootView->setView(userId, type, view, false);
 ```
 
 在程序退出时，最好对渲染器进行释放销毁,
@@ -77,4 +77,5 @@ GetILive()->setLocalVideoCallBack(OnLocalVideo, NULL);
 pRootView->removeAllView();
 ```
 
-
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
