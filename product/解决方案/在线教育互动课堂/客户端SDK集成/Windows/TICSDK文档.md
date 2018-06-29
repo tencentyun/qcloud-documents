@@ -377,27 +377,27 @@ TICSDK 中将白板SDK封装在一个白板管理类当中，用户可在进入�
 ```C++
 > TICSDK.h
 
-/**
-* \brief 初始化白板SDK，在加入房间之后
-* \param id 用户id
-* \param classID 课堂ID
-* \param parentHWnd 白板父窗口句柄
-* \return 结果，0表示成功
-*/
-virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
+	/**
+	* \brief 初始化白板SDK，在加入房间之后
+	* \param id 用户id
+	* \param classID 课堂ID
+	* \param parentHWnd 白板父窗口句柄
+	* \return 结果，0表示成功
+	*/
+	virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
 
-/**
-* \brief 初始化白板SDK
-* \param boardsdk 外部初始化的sdk指针
-* \return 结果，0表示成功
-*/
-virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
+	/**
+	* \brief 初始化白板SDK
+	* \param boardsdk 外部初始化的sdk指针
+	* \return 结果，0表示成功
+	*/
+	virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
 
-/**
-* \brief 获取白板管理类实例指针
-* \return 白板管理类指针
-*/
-virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
+	/**
+	* \brief 获取白板管理类实例指针
+	* \return 白板管理类指针
+	*/
+	virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 ```
 开发者可以通过getTICWhiteBoardManager()获得白板管理类里面封装好的方法，也可以直接调用BoardSDK.h里面的接口对白板进行操作，BoardSDK详见 [白板SDK文档](/document/product/680/17884) 。
 
@@ -485,6 +485,49 @@ virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 	* \brief 拉取离线数据
 	*/
 	virtual void getBoardData() = 0;
+	
+	/**
+	* \brief 获取当前页码
+	* \return 当前页码
+	*/
+	virtual uint32_t getPageIndex() = 0;
+
+	/**
+	* \brief 获取总页数
+	* \return 总页数
+	*/
+	virtual uint32_t getPageCount() = 0;
+
+	/**
+	* \brief 刷新页码
+	*/
+	virtual void refreshPageInfo() = 0;
+
+	/**
+	* \brief 页码跳转
+	* \param pageIndex  跳转的页码
+	*/
+	virtual void gotoPage(uint32_t pageIndex) = 0;
+
+	/**
+	* \brief 跳转上一页
+	*/
+	virtual void gotoLastPage() = 0;
+
+	/**
+	* \brief 跳转下一页
+	*/
+	virtual void gotoNextPage() = 0;
+
+	/**
+	* \brief 插入新的一页
+	*/
+	virtual void insertPage() = 0;
+
+	/**
+	* \brief 删除当前页
+	*/
+	virtual void deletePage() = 0;
 ```
 
 #### 4.8 IM相关操作
@@ -676,7 +719,23 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 	*/
 	virtual void onMemStatusChange(ilive::E_EndpointEventId event_id, const ilive::Vector<ilive::String> &ids, void* data) = 0;
 
+	/**
+	* \brief 成员加入房间
+	* \param identifier		加入房间成员id列表
+	*/
+	virtual void onMemberJoin(const char ** identifier, uint32_t num) = 0;
+
+	/**
+	* \brief 成员退出房间
+	* \param identifier		退出房间成员id列表
+	*/
+	virtual void onMemberQuit(const char ** identifier, uint32_t num) = 0;
+
+	/**
+	* \brief 课堂房间被销毁
+	*/
+	virtual void onClassroomDestroy() = 0;
 ```
-创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id表示事件类型（开关摄像头等），ids表示触发事件的用户ID集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照demo）。
+创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id表示事件类型（开关摄像头等），ids表示触发事件的用户ID集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照demo）。房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
 
 
