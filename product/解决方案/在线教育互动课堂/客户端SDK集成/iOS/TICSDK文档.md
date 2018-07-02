@@ -23,7 +23,7 @@ pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 pod repo update
 ```
 #### 手动集成
-[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_1.0.0.zip) ，将其拖进工程中，并添加以下依赖库：
+[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK.zip) ，将其拖进工程中，并添加以下依赖库：
 
 |需添加依赖库|
 |---|
