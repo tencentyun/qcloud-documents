@@ -1,7 +1,7 @@
 ## 接口概述
 
 ### 服务简介
-本接口用于识别名片上的姓名、手机号、地址等信息。
+本接口为V1版本，用于识别名片上的姓名、手机号、地址等信息，建议您使用[名片识别V2版](/document/product/866/17595)，支持 20 多个字段识别效果更佳。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
@@ -11,6 +11,8 @@
 
 `http://service.image.myqcloud.com/ocr/namecard`
 `https://service.image.myqcloud.com/ocr/namecard`
+**注意**：V1版后续将不再维护，请及时切换到[名片识别V2版](/document/product/866/17595)。
+
 
 ## 请求包header
 
