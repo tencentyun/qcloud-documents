@@ -1,5 +1,5 @@
 ## Billing of Physical Direct Connect
-For Tencent Cloud physical Direct Connect, a one-off access fee of 15,000 CNY is charged for each line.
+For Tencent Cloud physical Direct Connect, a one-off access fee of 1,250 USD is charged for each line.
 
 ## Billing of Direct Connect Tunnel
 The charge for Direct Connect tunnels depends on whether the physical direct connect access point and the VPC are located in the same city:
@@ -25,17 +25,17 @@ A client uses a Direct Connect tunnel for 14 effective days in January. The numb
 
 The tiered unit prices corresponding to the bandwidth usage are shown as below:
 
-| Bandwidth Usage | Mainland China (CNY/Mbps/month) | 
-| ------------------ | ------------ | 
-| 0Mbps - 10Mbps     | 550           |
-| 10Mbps - 20Mbps     | 410           |
-| 20Mbps - 50Mbps   | 290           | 
-| 50Mbsp - 100Mbps  | 220            | 
-| 100Mbsp - 200Mbps  | 165            |
-| 200Mbps - 500Mbps | 115            |
-| 500Mbps - 1000Mbps | 88            | 
-| 1000Mbps - 2000Mbps | 69            | 
-| > 2000Mbps         | 65            | 
+| Bandwidth Usage | Mainland China (USD/Mbps/month) |
+| ------------------ | ------------ |
+| 0Mbps - 10Mbps     | 85           |
+| 10Mbps - 20Mbps     | 63           |
+| 20Mbps - 50Mbps   | 45           |
+| 50Mbsp - 100Mbps  | 34            |
+| 100Mbsp - 200Mbps  | 25            |
+| 200Mbps - 500Mbps | 18            |
+| 500Mbps - 1000Mbps | 14            |
+| 1000Mbps - 2000Mbps | 11            |
+| > 2000Mbps         | 10            |
 
 *For the data interoperability between Mainland China and other regions, consult with your business manager.*
 
