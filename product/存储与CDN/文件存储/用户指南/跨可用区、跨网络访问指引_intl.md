@@ -27,7 +27,3 @@ you can achieve resource access across the CVMs distributed in VPC-A/VPC-B and t
 When you need to have the file storage shared among multiple CVMs distributed in a basic network or a VPC, you can create a CFS file system in the VPC.
 Access between the CVMs in a basic network and the CFS in a VPC: "Classiclink" can be configured to achieve resource access between the CVMs in a basic network and the CFS in a VPC. [Click to see how to configure Classiclink](https://cloud.tencent.com/document/product/215/5002). *Note: The access between the CFS in a basic network and the CVMs in a VPC is not supported currently.*
 Access between the CVMs in VPC-A and the CFS in VPC-B: See the configuration method in the last section.
-
-
-
-
