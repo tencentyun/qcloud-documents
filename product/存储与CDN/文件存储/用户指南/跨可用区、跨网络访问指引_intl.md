@@ -6,6 +6,7 @@ When you need to have the file storage shared among multiple CVMs distributed in
 Take Shanghai as an example. You have a CVM in Shanghai Zone 1 and you need to use CFS. However, you cannot directly create a file system, because the resources have been sold out in Shanghai Zone 1.
 
 If the CVM resides in the "subnet of Shanghai Zone 1" in a VPC, you can log in to the [VPC console](https://console.cloud.tencent.com/vpc) to find the VPC and create a subnet of "Shanghai zone 2" for it.
+
 ![](https://main.qcloudimg.com/raw/a849aa72a6419206d43ab084a3e72f3d.png)
 ![](https://main.qcloudimg.com/raw/13d6a643a5a47d041ecfb5c01e24257f.png)
 ![](https://main.qcloudimg.com/raw/eab7adc8dc279c2baca89b9baec3a7fd.png)
