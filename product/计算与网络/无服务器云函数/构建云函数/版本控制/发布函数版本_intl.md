@@ -1,45 +1,45 @@
-After configuring the cloud function, submitting code, and performing online test, you can create a version of the cloud function by releasing it to avoid online business errors or execution failures caused by subsequent code modification and test.
+After configuring an SCF, submitting code, and performing online test, you can release a fixed version of SCF to avoid online business errors or execution failures caused by subsequent code modification and test.
 
 ## $LATEST Version
 
-The attribute of $LATEST version is provided to a cloud function when it is created. The $LATEST version points to the current editable version, and it exists in the whole lifecycle of cloud function as an editable version. 
+The attribute of $LATEST version is given to a SCF during creation of the SCF. $LATEST version refers to the current editable version. $LATEST version exists as an editable version in the whole lifecycle of an SCF. 
 
-## Publishing Version
+## Releasing a Version
 
-You can publish a version at any time. Any release of cloud function is to publish $LATEST version as the latest version.
+You can release a version at any time. The $LATEST version is released as the latest version every time a version of SFC is released.
 
-Click the **Publish** button on the function interface, enter the release description, and click **OK** to complete the release of the cloud function version.
+Click **Release** on the SCF page, enter the release description, and then click **OK** to complete the release of an SCF version.
 
-The cloud function platform will make a copy of the configuration and code content of the $LATEST version of the current function, and save it as version content.
+The configuration and code of the $LATEST version of SCF are replicated and saved as version information in the SCF platform.
 
 > **Note:**
-The published version only records and fixes the configuration and code of the $LATEST version of the current function, but does not record the trigger configuration of the function. The newly published function version does not have any triggers.
+The fixed release only records the configuration and code of the $LATEST SCF version, but does not record its trigger configuration. The newly released version has no triggers.
 
-After a version is released, the version number of the release is generated, which starts from 1 and increases progressively with each release. The version number has no upper limit.
+Releasing a version will generate a version number. The initial version number is 1. The subsequent version number is increased by an increment of 1 for each release.
 
-## Viewing Version
+## Viewing a Version
 
-You can use the version selection drop-down menu in the upper right corner of the function interface to switch to the desired version to view the function configuration and code.
+In the version selection drop-down menu at the upper right corner of the SCF page, you can select the desired version to view its function configuration and code.
 
-On the released version interface, the specific function configuration, code, trigger, log, and monitoring information are displayed. Where, the function configuration and code remain in the same status as they are at the time of release, and the status cannot be edited or changed. Triggers may have different configurations in different versions. The log and monitoring content are respectively the specific call logs and monitoring data of the corresponding version.
+After that, the function configuration, code, triggers, logs, and monitoring information of the selected release display. The function configuration and code remain the same as they are released, and they cannot be edited or changed. Triggers may vary for different versions. Logs and monitoring information are the specific call logs and monitoring data of the selected release.
 
-## Using Version
+## Use of Versions
 
-The version feature is mainly used for fixing of function configuration and code to avoid the impact on the business caused by developing and test. It is recommended to publish a version after the developing and test is completed, and then bind the trigger with the released version to run the actual business. The $LATEST version continues to be used for further code developing and debugging as a version for developing and test.
+Releasing a fixed version can keep function configurations and codes unchanged so as to protect businesses from being affected by development and tests. You are recommended to release a fixed version after completion of development and tests and bind triggers to it for actual business. You can use the $LATEST version to develop and test codes.
 
-### Version Trigger
+### Triggers for different versions
 
-Triggers can be independently bound to all released versions of cloud functions. The versions of the same function is independent among each other, and each trigger can independently trigger the function to run.
+You can bind different triggers to different versions of SCFs. As versions of the same SCF are separate from each other, each trigger can only trigger the SCF to which it is bound.
 
-As to the limit on the number of triggers, a maximum of 2 triggers of each type can be bound. The limit is set based on the single function of cloud function. For example, if two COS triggers are bound on version 1 of the function demo1, the COS triggers cannot be bound to other versions of this function, and only timer triggers or CMQ Topic triggers can be bound.
+You can bind a maximum of 2 triggers of each type to an SCF. For example, if you have bound two COS triggers to version 1 of SCF demo1, you can only bind timed and CMQ Topic triggers to other versions of SCF demo1, while no other COS triggers are allowed to be bound to.
 
-The upper limit of 2 triggers of each type only covers the triggers configured on the cloud function trigger page. The cloud function triggers configured in other products or services are not subject to the limit. For example, for the cloud function triggered by API gateway, as many APIs as needed can be configured to trigger the same cloud function.
+The limit that at most 2 triggers of each type can be bound to an SCF only applies to the triggers displayed on the SCF Triggers page. SCF triggers for other products and services are not limited. For example, for SCFs triggered by API gateways, you can configure as many APIs as possible to trigger an SCF.
 
-> Quota increase: If you need to increase the trigger quota, please [submit a ticket](https://console.cloud.tencent.com/workorder/category) to apply.
+> Quota increase: If you need to increase the trigger quota, [submit a ticket](https://console.cloud.tencent.com/workorder/category) to apply for a higher quota.
 
 ### Cloud API Trigger
 
-When calling of a cloud function is triggered by the cloud API InvokeFunction, the specific version to be triggered can be specified using the optional parameter Qualifier. If this parameter is not used, the $LATEST version is triggered by default.
+When you use Cloud API InvokeFunctioncalling to trigger the calling of an SCF, you can specify a particular version to trigger by using the optional parameter Qualifier. If this parameter is not used, the $LATEST version is triggered by default.
 
 
 
