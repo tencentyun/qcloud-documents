@@ -1,23 +1,22 @@
-
 ## 1. 快速集成
 
 `TICSDK`支持 iOS8+ 系统，集成方式分为 Cocoapods 集成（推荐）和手动集成，集成完之后还需进行相应的工程配置。
 
 #### Cocoapods 集成（推荐）
 
-在 Podfile 文件中加入
+在 Podfile 文件中加入：
 
 ```
 pod 'TICSDK'    
 ```
 
-安装
+安装：
 
 ```
 pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 ```
   
-如果无法安装 SDK 最新版本，运行以下命令更新本地的 CocoaPods 仓库列表
+如果无法安装 SDK 最新版本，运行以下命令更新本地的 CocoaPods 仓库列表。
 
 ```
 pod repo update
@@ -56,10 +55,14 @@ pod repo update
 #### 工程配置
 为了工程能够正常编译，需要修改以下工程配置：
 
-* 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`
-* 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`
-* 在`Build Settings` 中将 `Enable Bitcode`设置为`NO`
+* 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
+
+* 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
+
+* 在`Build Settings` 中将 `Enable Bitcode`设置为`NO`。
+
 * 由于要用到手机的相机和麦克风，所以别忘了在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
+
 * 由于腾讯云对象存储使用的是 HTTP 协议。为了确保在 iOS 系统上可以运行，您需要开启允许通过 HTTP 传输。
 您可以通过以下两种方式开启允许通过 HTTP 传输：
 
@@ -103,7 +106,7 @@ pod repo update
  如果集成没问题，控制台就能打印出`TICSDK`的版本号。
  
 ## 2. 使用详解
-集成成功之后，就可以进一步了解 TICSDK 的使用方法了，为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip).
+集成成功之后，就可以进一步了解 TICSDK 的使用方法了，为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)。
 
 > 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
@@ -118,7 +121,8 @@ TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，�
 TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的代理对象，一个是复制监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。
 TICFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（移动端目前只支持上传和下载）。
 
-> 注：由于在线课堂场景下老师主要在PC端进行操作，所以移动端TICSDK暂时不提供文档管理相关功能。
+> **注意：**
+> 由于在线课堂场景下老师主要在PC端进行操作，所以移动端 TICSDK 暂时不提供文档管理相关功能。
 
 ### 2.2 使用流程
 
@@ -144,15 +148,14 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 ```-->
  
-> 其中：
+> **注意：**
 > 步骤 2 为可选步骤，如果您的 App 中需要上传课件，图片等功能，则需要配置 COS 云存储；
 > 步骤 4 为老师端特有步骤，学生在得知课堂 ID 之后，可直接加入课堂；
-> 步骤 6.1、6.2、6.3 代表课堂内操作，顺序不固定
+> 步骤 6.1、6.2、6.3 代表课堂内操作，顺序不固定。
 
-下面将SDK按照功能划分，遵循一般的使用顺序，介绍一下`TICSDK`中各功能的使用方法和注意点:
 
-### 2.3 初始化SDK
-要使用`TICSDK`，首先得进行初始化，初始化方法位于`TICSDK`单例类中，先导入头文件`<TICSDK/TICSDK.h>`该头文件包含了TICSDK中所有公开的头文件，所以导入这一个文件就行：
+### 2.3 初始化 SDK
+要使用`TICSDK`，首先得进行初始化，初始化方法位于`TICSDK`单例类中，先导入头文件`<TICSDK/TICSDK.h>`该头文件包含了 TICSDK 中所有公开的头文件，所以只需导入这一个文件。
 
 ```objc
 > TICSDK.h (该行表示方法所处文件名，下同)
@@ -170,12 +173,12 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 - (int)initSDK:(NSString *)SDKAppID accountType:(NSString *)accountType;
 
 ```
-初始化方法很简单，但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav)注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
+初始化方法很简单，但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ### 2.4 COS配置
-COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK内部会将调用SDK接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
 
-> 注意：移动端只用到了 COS 的上传功能。
+> **注意：**移动端只用到了 COS 的上传功能。
 
 具体配置接口如下：
 
@@ -211,7 +214,7 @@ COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/62
 ```
 
 ### 2.5 登录/登出
-初始化完成之后，因为涉及到IM消息的收发，所以还必须先登录：
+初始化完成之后，因为涉及到 IM 消息的收发，所以必须先登录：
 
 ```objc
 > TICManager.h
@@ -224,7 +227,7 @@ COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/62
  */
 - (void)loginWithUid:(NSString *)uid userSig:(NSString *)userSig succ:(TCIVoidBlock)succ failed:(TCIErrorBlock)failed;
 ```
-该方法需要传入两个参数，uid和userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+该方法需要传入两个参数，uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 > **注意：**
 > - 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的uid和userSig用于开发测试
@@ -435,7 +438,7 @@ TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要
 
 ### 2.9 音视频相关操作
 
-这部分功能封装于腾讯云实时音视频SDK `ILiveSDK`，TICSDK中只封装了一些常用的接口：打开/关闭摄像头、麦克风、扬声器、切换当前相机方向等，如下：
+这部分功能封装于腾讯云实时音视频 SDK `ILiveSDK`，TICSDK 中只封装了一些常用的接口：打开/关闭摄像头、麦克风、扬声器、切换当前相机方向等，如下：
 
 ```objc
 /**
@@ -482,9 +485,9 @@ TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要
 
 @end
 ```
-课堂内的音视频事件都会通过该方法回调到其他端（包括操作者的），event 表示事件类型（开关摄像头等），user 表示触发事件的用户ID，其他段触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 Demo）。
+课堂内的音视频事件都会通过该方法回调到其他端（包括操作者的），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，其他段触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 Demo）。
 
-TICSDK只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需要用到`iLiveSDK`的其他功能，可直接调用`iLiveSDK`的接口。
+TICSDK 只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需要用到`iLiveSDK`的其他功能，可直接调用`iLiveSDK`的接口。
 
 ### 2.10 课堂内其他事件监听
 
@@ -512,12 +515,12 @@ TICSDK只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需�
 -(void)onClassroomDestroy;
 ```
 
-> **注意：**加入课堂、退出课堂通知，需要在腾讯云后台[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
+**加入课堂、退出课堂通知**，需要在腾讯云后台 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
 
 ```
 配置变更类型：修改群组形态
 
-SdkAppid : // 请在这里填写您的APP在云通信中的APPID
+SdkAppid : // 请在这里填写您的 App 在云通信中的 APPID
 群组形态名称： ChatRoom
 需要修改的特性：增加群组成员进出通知
 ```
