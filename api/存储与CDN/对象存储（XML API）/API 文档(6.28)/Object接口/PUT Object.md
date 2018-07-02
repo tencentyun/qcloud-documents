@@ -114,10 +114,10 @@ Content-Length: 64
 ### 响应
 
 ```
-HTTP/1.1200 OK
+HTTP /1.1200 OK
 Content-Type: application/xml
 Content-Length: 0
-Date: Wed,16 Aug201711: 59: 33 GMT
+Date: Wed,16 Aug 2017 11: 59: 33 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=
 ```
