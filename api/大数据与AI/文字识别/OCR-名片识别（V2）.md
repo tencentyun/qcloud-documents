@@ -6,7 +6,7 @@
 姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
 >注意：
->如果开发者使用的是 [V1 版本](/document/product/866/17593)，为获得更优体验，请及时切换到 V2 版本。
+>如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
@@ -17,6 +17,7 @@
 `http://recognition.image.myqcloud.com/ocr/businesscard`
 
 `https://recognition.image.myqcloud.com/ocr/businesscard`
+
 
 ## 请求方式
 
