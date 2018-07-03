@@ -55,7 +55,7 @@ CREATE TABLE KafkaSource1 (
 Upsert 类型的表定义了主键（即使用 PRIMARY KEY 定义了主键），支持插入或更新（Upsert）操作，可以接受由 DISTINCT、不含窗口的 JOIN、不含窗口的 GROUP BY 等操作产生的 Upsert 流（Upsert 是 Update OR Insert 的简写，即对于一条数据，如果之前输出过与其同主键的记录，则更新该记录；否则插入新的数据）。这些 Upsert 流只允许写入 Upsert 类型的 CDP 目的表，不能混用；且 Upsert 类型的 CDP 表不允许作为源表。
 
 **示例：Tuple 类型 CDP 数据源和目的表，使用 Processing Time 时间模式**
-对于时间模式和 WATERMARK 的介绍，参见 [本手册2.1.4小节]()。
+对于时间模式和 WATERMARK 的介绍，参见下文 WATERMARK 小节(https://cloud.tencent.com/document/product/849/18034#watermark)。
 ```
 CREATE TABLE `traffic_output` (
   `f1` VARCHAR,
@@ -69,7 +69,7 @@ CREATE TABLE `traffic_output` (
 ```
 此时使用 Processing Time 模式，定义了一个包含 f1、f2、PROCTIME（自动生成，表示每条记录被处理时的时间戳，可用于时间窗口的描述）列的 CDP Tuple 类型的表，既可以作为数据源（Source），也可以作为数据目的（Sink）。
 
-**示例：Tuple 类型 CDP 数据源和目的表，使用 Event Time**
+**示例：Tuple 类型 CDP 数据源和目的表，使用 Event Time 时间模式**
 ```
 CREATE TABLE `public_traffic_output` (
   `rowtime` TIMESTAMP,
@@ -146,7 +146,7 @@ WATERMARK FOR ROWS(`generation_time`, 100)
 
 这两种声明都可以启用 Event Time 时间处理模式。
 
-若不声明 BOUNDED 类型的 WATERMARK 以指定时间戳字段，则会使用 Processing Time 时间模式，该模式以数据被处理的时间戳来生成 Watermark 并在后续使用，顺序和精确性不能得到保证，可用于时间精确度要求不高的应用场景。
+若不声明  WATERMARK 以指定时间戳字段，则会使用 Processing Time 时间模式，该模式以数据被处理的时间戳来生成 Watermark 并在后续使用，顺序和精确性不能得到保证，可用于时间精确度要求不高的应用场景。
 
 
 
