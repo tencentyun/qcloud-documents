@@ -13,6 +13,7 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
+roomOption.authBuffer = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
@@ -43,6 +44,15 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 ## 运行结果
 
 ![](https://main.qcloudimg.com/raw/7f16017270f4be5d36d8954b85dd57d6.png)
+
+## 常见问题
+
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+GetILive()->setChannelMode(E_ChannelIMSDK);
+```
 
 ## 联系邮箱
 如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
