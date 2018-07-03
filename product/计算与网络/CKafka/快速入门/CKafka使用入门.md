@@ -83,6 +83,7 @@ This is another message
 > 其中broker-list中的IP即为CKafka实例中的VIP，topicName为CKafka实例中的topic名称
 
 接收消息(CKafka默认隐藏Zookeeper集群)
+
 ```
 ./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName
 This is a message
@@ -97,6 +98,9 @@ This is another message
 ```
 ./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
+> 注：
+ConsumerConfig参数配置中，建议将auto.offset.reset配置为earliest，防止新的消费者分组不存在时，漏消费消息的情况发生。 
+原因如下：当创建一个新分组的消费者时，auto.offset.reset值为latest时，表示消费最新的数据，即从consumer创建后生产的数据。这样会导致之前产生的数据不消费。
 
 查看对应的CKafka监控
 ![](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
