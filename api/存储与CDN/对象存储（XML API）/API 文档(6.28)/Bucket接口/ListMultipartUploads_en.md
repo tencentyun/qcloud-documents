@@ -19,10 +19,7 @@ GET /?uploads HTTP/1.1
 This API allows GET request.
 
 ### Request Parameters
-Example of request line that contains all request parameters.
-```
-GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-uploads=MaxUploads&key-marker=KeyMarker&upload-id-marker=UploadIdMarker HTTP/1.1
-```
+
 See the details below: <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 | Name               | Description                                       | Type     | Required   |
@@ -149,7 +146,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### Response
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1203
 Date: Wed, 18 Jan 2015 21:32:00 GMT
