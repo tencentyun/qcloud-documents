@@ -1,6 +1,18 @@
+[TOC]
 
 ### Cloud Kafka 兼容哪一版的开源 Kafka？
 目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
+
+### Cloud Kafka 是否支持消息压缩？
+当前Cloud Kafka支持开源的snappy和lz4的消息压缩格式。由于Gzip压缩对于CPU的消耗较高，暂未支持。
+测试期间建议客户关闭消息压缩参数进行测试。
+
+### Cloud Kafka 是否支持公网访问？
+当前Cloud Kafka默认内网传输，由于公网访问会涉及延时、网络环境和安全性等问题，不建议客户长期开启公网传输。
+如果有临时公网传输需求建议联系客户经理评估。
+
+### Cloud Kafka 是否支持自动创建topic（auto.create.topic）？
+当前Cloud Kafka未开放自动创建topic的开源接口，建议客户通过标准的API接口[CreateTopic](https://cloud.tencent.com/document/product/597/10096)创建topic。
 
 ### 什么是主题（TOPIC）？
 Topic 是每条发布到 Cloud Kafka 集群的消息所属的类别，即 Cloud Kafka 是面向 topic 的。用户需要先创建 topic 然后才能读写。
@@ -19,7 +31,7 @@ Cloud Kafka 可以兼容 0.9 0.10 版本的开源 Kafka，您可以通过 Kafka 
 Cloud Kafka 通过如下安全特性确保安全性：
 
 租户隔离：实例的网络访问在账户间天然隔离。
-权限控制：Cloud Kafka 额外应用层上做了来源ip白名单的鉴权机制。
+权限控制：Cloud Kafka 额外应用层上做了来源ip白名单的鉴权机制,即将支持SASL鉴权。
 安全防护：提供多纬度的安全防护、防 DDoS 攻击等服务；
 
 ### CKafka 是否会丢失消息？
