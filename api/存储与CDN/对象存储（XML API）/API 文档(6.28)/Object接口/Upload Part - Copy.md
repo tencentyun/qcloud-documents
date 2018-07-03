@@ -38,11 +38,6 @@ PUT /{ObjectName} HTTP/1.1
 该 API 接口接受 `PUT` 请求。
 
 #### 请求参数
-包含所有请求参数的请求行示例：
-
-```
-PUT /{ObjectName}?partNumber=[PartNumber]&uploadId=[UploadId] HTTP/1.1
-```
 
 名称|类型|必选|描述
 ---|---|---|---
