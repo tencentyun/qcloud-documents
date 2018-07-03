@@ -11,6 +11,3 @@ The GPU usage is displayed as 100% abnormally when nvidia-smi is executed:
 ![](//mc.qcloudimg.com/static/img/5a58bc996b38c28b94131105a3fbd000/image.png)
 The GPU usage is displayed normally after the problem is fixed:
 ![](//mc.qcloudimg.com/static/img/460c515a0a7ac32b4c525b759e13c732/image.png)
-
-
-
