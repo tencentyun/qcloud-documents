@@ -108,18 +108,17 @@ Note: CFS does not support ping.
 #### Mount file system via graphical interface
 a. Open **Map Network Drive**
 Log in to the Windows, on which you want to mount the file system. Right click **Computer** in the **Start** menu, and then click **Map Network Drive**. 
-![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
-![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
+![](https://main.qcloudimg.com/raw/24cd4dcf15bedb4eba176bc4b53ae2cf.png)
 
 b. Enter the access path
 In the pop-up configuration window, set the drive letter and folder (namely, the mounting directory displayed in the CIFS/SMB file system) for the **drive**.
 ![](https://main.qcloudimg.com/raw/3a13257ec58a8de79929d8af39b4ed5a.png)
-![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
+![](https://main.qcloudimg.com/raw/156fbc26e0ba7d7f25b6422bf6eb652a.png)
 
 
 c. Verify the correctness of read and write
 After confirmation, the page is directed to the mounted file system. You can right click to create a file to verify the correctness of read and write.
-![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
+![](https://main.qcloudimg.com/raw/9c328df637f8df81200fb84c87de3e64.png)
 
 #### Mount file system via command line
 Use FSID to mount the file system. The mount command is as follows.
@@ -172,18 +171,17 @@ Close the registry and restart the Windows system to complete the registry modif
 ###### Mount via graphical interface
 a. Open **Map Network Drive**
 Log in to the Windows, on which you want to mount the file system. Right click **Computer** in the **Start** menu, and then click **Map Network Drive**. 
-![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
-![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
+![](https://main.qcloudimg.com/raw/24cd4dcf15bedb4eba176bc4b53ae2cf.png)
 
 b. Enter the access path
 In the pop-up configuration window, set the drive letter and folder (namely, the mounting directory displayed in the NFS file system) for the **drive**.
-![](https://main.qcloudimg.com/raw/e52d235c97f0a6f16a9cbd86eabe5aa6.png)
-![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
+![](https://main.qcloudimg.com/raw/18cdceb91b0ec88f3286ea56fbed71c5.png)
+![](https://main.qcloudimg.com/raw/1ab67b4e381b996389ea7bb900740ec4.png)
 
 
 c. Verify the correctness of read and write
 After confirmation, the page is directed to the mounted file system. You can right click to create a file to verify the correctness of read and write.
-![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
+![](https://main.qcloudimg.com/raw/9c328df637f8df81200fb84c87de3e64.png)
 
 ###### Mount via CMD command line
 Enter the following command in the Windows command line tool to mount the file system. The default subdirectory is "nfs".
@@ -213,7 +211,7 @@ mount 10.10.0.12:/z3r6k95r X:
 ### (5) Unmount the file system
 #### Unmount a shared directory via graphical interface
 To disconnect a mounted file system, right click on the disk and click **Disconnect** from the menu.
-![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
+![](https://main.qcloudimg.com/raw/dd216d8014823bead7302b90df78b7cc.png)
 
 #### Unmount the NFS shared directory via the CMD command 
 

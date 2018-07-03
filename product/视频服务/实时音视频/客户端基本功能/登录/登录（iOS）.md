@@ -10,7 +10,7 @@
  - [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
  - [应用标识( sdkAppId )](https://cloud.tencent.com/document/product/647/16792#.E5.BA.94.E7.94.A8.E6.A0.87.E8.AF.86.EF.BC.88-sdkappid-.EF.BC.89)
  - [帐号类型( accountType )](https://cloud.tencent.com/document/product/647/16792#.E5.B8.90.E5.8F.B7.E7.B1.BB.E5.9E.8B.EF.BC.88-accounttype-.EF.BC.89)
- - [用户标识( identifier )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-identifer-.EF.BC.89)
+ - [用户标识( userId )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-userId-.EF.BC.89)
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## 获取 userSig
@@ -53,7 +53,7 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
 - (void)iLiveLogin:(NSString *)uid sig:(NSString *)sig succ:(TCIVoidBlock)succ failed:(TCIErrorBlock)failed;
 ```
 
-填入后台开发辅助工具生成的 identifier 和 userSig ：
+填入后台开发辅助工具生成的 userId 和 userSig ：
 ```objc
 
 > ViewController.m
@@ -63,16 +63,16 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 设置identifier和userSig
-    self.identifierTF.text = @"用户自己的identifier";
+
+    // 设置userId和userSig
+    self.userIdTF.text = @"用户自己的userId";
     self.userSigTF.text = @"用户自己生成的userSig";
 }
 
 // 登录按钮点击
 - (IBAction)onLogin:(id)sender {
     //登录sdk
-    [[ILiveLoginManager getInstance] iLiveLogin:self.identifierTF.text sig:self.userSigTF.text succ:^{
+    [[ILiveLoginManager getInstance] iLiveLogin:self.userIdTF.text sig:self.userSigTF.text succ:^{
         NSLog(@"登录成功！");
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         NSLog(@"errId:%d, errMsg:%@",errId, errMsg);
@@ -89,3 +89,5 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
 运行程序，控制台输出登录成功！，即说明 ILiveSDK 登录成功。
 
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

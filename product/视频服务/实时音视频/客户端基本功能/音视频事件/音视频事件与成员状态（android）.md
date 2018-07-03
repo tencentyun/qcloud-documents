@@ -18,12 +18,12 @@
 本课程需要监控成员状态，所以首先我们需要定义一个成员信息类:
 ```Java
 public class MemeberInfo {
-    private String identifier;      // 用户id
+    private String userId;      // 用户id
     private boolean openCamera = false; // 是否开启摄像头
     private boolean openMic = false;    // 关闭Mic
 
     public MemberInfo(String id){
-        identifier = id;
+        userId = id;
     }
 
     //自动生成的get和set方法
@@ -173,3 +173,5 @@ public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
 **创建房间时配置 imsupport 时 SDK 做了什么**
 在 imsupport 为 true 时，SDK 中 createRoom 方法中会根据用户配置的群组类型，群组 IM(没有配置则直接使用房间号)创建一个 IM 群组，用于消息通讯。加入房间时配置 imsupport 为 true 时则会加入(如果群组不存在会导致加入房间失败)。调用 createRoom 的用户在 quitRoom 时会自动解散群组(如果异常退出可能会导致群组仍存在)
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

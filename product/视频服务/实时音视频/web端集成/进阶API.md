@@ -244,7 +244,7 @@ var RTC = new WebRTCAPI({
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| userId     | Stream  | 视频流所属用户的userId（ identifier ）    |
+| userId     | Stream  | 视频流所属用户的userId    |
 | stream     | Stream  | 视频流 Stream，可能为 null( 每一个用户进来 不管是否推流，都会触发这个回调)  |
 | videoId    | string  | 视频流Stream的唯一id ,由 tinyid + "_" + 由随机字符串 组成      |
 | videoType: | Integer | 0 : NONE , 1:AUDIO 音频,   2：主路 MAIN   7：辅路 AID |
@@ -265,7 +265,7 @@ var RTC = new WebRTCAPI({
 #### data
 | 参数                   | 类型       | 描述            |
 | -------------------- | -------- | ------------- | ---- |
-| userId         | Stream | 远端视频流所属用户的 userId（ identifier ）    |
+| userId         | Stream | 远端视频流所属用户的 userId    |
 | videoId         | Stream | 远端视频流 Stream 的唯一 ID    |
 
 -----

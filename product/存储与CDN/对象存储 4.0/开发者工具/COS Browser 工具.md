@@ -10,13 +10,9 @@ Windows 32/64 位系统均可
 ![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
 ## 下载与安装
 
-下载安装版（依赖 .Net Framework 4.5，下载后双击安装）：
-- [Window 64位 安装版](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-64-setup.exe)
-- [Window 32位 安装版](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-32-setup.exe)
+下载安装包（下载后双击安装）：
 
-下载解压版（下载后解压文件，双击 cosbrowser.exe 即可运行）：
-- [Window 64位 解压版](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-64.zip)
-- [Window 32位 解压版](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-32.zip)
+- [Window 安装包](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
 
 ## 使用方法
 

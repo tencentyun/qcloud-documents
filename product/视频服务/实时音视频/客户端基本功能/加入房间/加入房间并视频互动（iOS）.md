@@ -85,7 +85,7 @@
                  创建并添加渲染视图，传入userID和渲染画面类型，这里传入 QAVVIDEO_SRC_TYPE_CAMERA（摄像头画面）
                  */
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero forIdentifier:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero foruserId:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [self.view addSubview:renderView];
                 [self.view sendSubviewToBack:renderView];
                 // 房间内打开摄像头用户数量变化，重新布局渲染视图
@@ -96,7 +96,7 @@
             {
                 // 移除渲染视图
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [renderView removeFromSuperview];
                  // 房间内打开摄像头用户数量变化，重新布局渲染视图
                  [self onCameraNumChange];
@@ -143,3 +143,5 @@
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
 
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

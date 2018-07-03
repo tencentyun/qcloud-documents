@@ -118,3 +118,6 @@ AVAudioCtrl类的方法，用于向SDK填充自行采集的音频数据
 
 - 音频fillExternalAudioFrame的参数该如何设置？
 > 自定义采集需开发者对音频相关知识有一定的了解。参数的设置需参考API说明
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

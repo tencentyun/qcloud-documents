@@ -188,3 +188,6 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 - **为什么通过 compile  'com.tencent.ilivefilter:****',提示 “Could not get resource '****.aar'”，提示aar无法找到呢？？**
 
 > 可能是jcenter服务器下载链接的问题；可以改成 compile  'com.tencent.ilivefilter:****@aar' 试试
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

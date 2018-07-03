@@ -41,7 +41,7 @@ compile 'com.tencent.boardsdk:boardsdk:1.2.5'
 defaultConfig {
 	...
 	ndk {
-		// 设置支持的so库架构
+		// 设置支持的so库架构，推荐用户使用ndk 15或者ndk 16
 		abiFilters 'armeabi', 'armeabi-v7a'
 	}
 }
@@ -51,8 +51,8 @@ defaultConfig {
 如果您的 APK 最终会经过代码混淆，请在 proguard 配置文件中加入以下代码：
 
 ```
-- dontwarn com.tencent.**
-- keep class com.tencent.** {*;}
+-dontwarn com.tencent.**
+-keep class com.tencent.**{*;}
 ```
 
 ## TICSDK 使用说明
@@ -138,7 +138,7 @@ if (主进程) {
 }
 ```
 COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
-TICSDK 初始化 SDK 时也需要初始化 COS SDK 模。主要构造 **CosConfig** 配置信息，通过**TICManager#setCosConfig**接口完成 COS 相关配置，如下：
+TICSDK 初始化 SDK 时也需要初始化 COS SDK 模块。主要构造 **CosConfig** 配置信息，通过**TICManager**的**setCosConfig**接口完成 COS 相关配置，如下：
 
 ```java
 CosConfig cosConfig = new CosConfig()
@@ -471,8 +471,27 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * 课堂解散通知
      */
     void onClassroomDestroy();
-```
+    
+    /**
+     * 有人加入课堂时的通知回调（需配置工单）
+     * @param userList 加入课堂的成员userId列表
+     */
+    void onMemberJoin(List<String> userList);
 
+    /**
+     * 有人退出课堂时（主动退出或者被踢出）时的通知回调（需配置工单）
+      * @param userList  退出课堂的成员userId列表
+     */
+    void onMemberQuit(List<String> userList);
+```
+> **注意：**加入课堂、退出课堂通知，需要在腾讯云后台[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
+
+```
+配置变更类型：修改群组形态
+SdkAppid : // 请在这里填写您的APP在云通信中的APPID
+群组形态名称： ChatRoom
+需要修改的特性：增加群组成员进出通知
+```
 以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，比如：在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。
 
 

@@ -22,11 +22,6 @@ GET /{ObjectName}?uploadId={UploadId} HTTP/1.1
 
 
 #### 请求参数
-包含所有请求参数的请求行示例：
-
-```
-GET /{ObjectName}?uploadId={UploadId}?UploadId=[undefined]&encoding-type=[url]&max-parts=[MaxParts]&part-number-marker=[PartNumberMarker] HTTP/1.1
-```
 
 名称|类型|必选|描述
 ---|---|---|---
