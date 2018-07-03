@@ -75,8 +75,8 @@ Add AnonymousUid and AnonymousGid to the registry as instructed, and then restar
 ### Windows IIS cannot use mapped driver
 Configure the correct NFS client program and modify the registry (add users who access the system) by following the steps in [Use File System in Windows](https://cloud.tencent.com/document/product/582/9133#.E5.9C.A8-windows-.E4.B8.8A.E4.BD.BF.E7.94.A8.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F).
 After the client is restarted, open the IIS configuration page, add a site, and click **Advanced Settings** to set the "Physical path" as the CFS mount point.
-![](https://mc.qcloudimg.com/static/img/bdd15aa1ca694653b5595442cbc38737/IIS.png)
-![](https://mc.qcloudimg.com/static/img/754bc7c54efd1a6b572fff503763854d/image.png)
+![](https://main.qcloudimg.com/raw/0e2abd47145a15257e18182e001e6a0a.png)
+![](https://main.qcloudimg.com/raw/b1a83b2a698428e569ab833f5132e37d.png)
 
 ### How can I continue using CFS in an availability zone with the CFS resources sold out?
 Take Shanghai as an example. You have a CVM in Shanghai Zone 1 and you need to use CFS. However, you cannot directly create a file system, because the resources have been sold out in Shanghai Zone 1.
