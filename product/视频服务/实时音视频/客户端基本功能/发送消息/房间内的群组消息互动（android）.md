@@ -158,3 +158,6 @@ MessageObservable.getInstance().deleteObserver(this);
 
 - 加入房间失败，错误模块 IMSDK，错误码 10010。
 > 这表示要加入的IM群组不存在，需要检测是否先创建了群组（创建房间 imsupport 为 true 时会自动创建群组），并确认群组类型一致。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

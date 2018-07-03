@@ -1,33 +1,33 @@
 
 ## 1. 准备工作
-TICSDK使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指[方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。相关链接如下：
+TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指 [方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。相关链接如下：
 
 [实时音视频](https://cloud.tencent.com/document/product/268/8424)
 
 [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
 
-[COS服务](https://cloud.tencent.com/document/product/436/6225)
+[COS 服务](https://cloud.tencent.com/document/product/436/6225)
 
 ### 1.1 资源下载	
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的demo，开发者可以参照该demo使用TICSDK，[点击下载开发者Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip).
+为了方便开发者的集成使用，我们开发了一个面向开发者的demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
 
-> 开发者Demo的主要主要为向开发者展示TICSDK的基本使用方法，所以简化了很多不必要的UI代码，使开发者更加专注于了解TICSDK的使用方法。
+> 开发者 Demo 的主要主要为向开发者展示TICSDK的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解TICSDK的使用方法。
 
-SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.zip)
+SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zip)
 
 ## 2. 集成SDK
 
 ### 2.1 编译
-在VisualStudio工程里面，选择编译平台为x86
+在 VisualStudio 工程里面，选择编译平台为 x86。
 
 ![](https://main.qcloudimg.com/raw/944398e69196f1cb5a1d6a3db63d1dd6.png)
 
-在VisualStudio工程里面，`配置属性`->`C/C++`里面添加TICSDK、iLiveSDK、BoardSDK头文件地址
+在 VisualStudio 工程里面，`配置属性`->`C/C++`里面添加 TICSDK、iLiveSDK、BoardSDK 头文件地址。
 
 ![](https://main.qcloudimg.com/raw/98866e32ed59d559b3dd18069717ca70.png)
 
-在VisualStudio工程里面，`配置属性`->`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`这两个链接库，并指定好库文件地址
+在 VisualStudio工程里面，`配置属性`->`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`这两个链接库，并指定好库文件地址。
 
 ![](https://main.qcloudimg.com/raw/1cd17fb7e0f9e5ed2ffa0b4aa95834dd.png)
 
@@ -35,7 +35,7 @@ SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.
 
 ## 3 快速开发
 ### 3.1 初始化参数
-开发需要包含如下头文件。通过`TICSDK::GetSDKInstance()`方法获得TICSDK实例指针并进行初始化。在此之前，之前必须保证已经在[腾讯云后台](https://console.cloud.tencent.com/rav)注册成功并创建了应用，这样才能拿到腾讯云后台分配的SDKAppID和accountType。
+开发需要包含如下头文件。通过`TICSDK::GetSDKInstance()`方法获得TICSDK实例指针并进行初始化。在此之前，之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ```C++
 	#include "TICSDK.h"
@@ -44,7 +44,7 @@ SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.
 	m_sdk = TICSDK::GetSDKInstance();
 	m_sdk->initSDK(1400042982, 17802);
 ```
-通过getTICManager()获得白板管理类实例指针，就可以对iLiveSDK进行一些基本操作，例如下面注册iliveSDK的几个回调事件
+通过 getTICManager() 获得白板管理类实例指针，就可以对 iLiveSDK 进行一些基本操作，例如下面注册 iliveSDK 的几个回调事件。
 
 ```C++
 	m_sdk->getTICManager()->setLocalVideoCallBack(onLocalVideo, this);
@@ -52,7 +52,7 @@ SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.
 	m_sdk->getTICManager()->setForceOfflineCallback(onForceOffline);
 ```
 
-设置课堂配置类参数，注册监听回调
+设置课堂配置类参数，注册监听回调。
 
 ```C++
 	m_opt.setClassroomEventListener(this);
@@ -62,7 +62,7 @@ SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.
 	m_opt.setRoomID(roomid);
 ```
 
-配置COS参数，用于上传图片、PPT文件到白板上展示。下面这些COS属性参数都可从腾讯云COS控制台获取到。
+配置 COS 参数，用于上传图片、PPT文件到白板上展示。下面这些 COS 属性参数都可从腾讯云 COS 控制台获取到。
 请登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 开通COS服务。
 
 ```C++
@@ -72,11 +72,11 @@ SDK下载：[TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_1.0.0.
 	m_sdk->getTICManager()->setCosHandler(m_cfg);
 ```
 ### 3.2 创建和加入房间
-TICSDK进出房间状态流程可参考下图
+TICSDK 进出房间状态流程可参考下图：
 
 ![房间流程](https://main.qcloudimg.com/raw/62a414b2cf7c28cf63846bfb870eda95.png) 
 
-登录/登出，创建，加入/退出房间的详细接口函数见后面4.4，4.5介绍，加入房间后要注意监听如下一些事件回调
+登录/登出，创建，加入/退出房间的详细接口函数见后面 4.4，4.5 介绍，加入房间后要注意监听如下一些事件回调：
 
 * 房间网络断开
 ```C++
@@ -94,7 +94,7 @@ TICSDK进出房间状态流程可参考下图
 ```
 
 ### 3.3 加载白板
-进入房间后就可以初始化白板，传入参数为自己id和白板窗口的父窗口句柄（也可以不传）。白板的`getRenderWindow`方法会返回白板本身的窗口句柄，可以将此窗口句柄添加为白板父窗口的子窗口。
+进入房间后就可以初始化白板，传入参数为自己 ID 和白板窗口的父窗口句柄（也可以不传）。白板的`getRenderWindow`方法会返回白板本身的窗口句柄，可以将此窗口句柄添加为白板父窗口的子窗口。
 
 ```C++
 	m_sdk->initWhiteBoard(m_identifier.c_str(), GetSafeHwnd());
@@ -103,7 +103,7 @@ TICSDK进出房间状态流程可参考下图
 ```
 
 ### 3.4 视频渲染
-注册iliveSDK的两个回调可以得到本地和远程的视频数据
+注册 iliveSDK 的两个回调可以得到本地和远程的视频数据：
 ```C++
 	/**
 	* \brief 设置本地视频预览回调
@@ -119,17 +119,17 @@ TICSDK进出房间状态流程可参考下图
 	*/
 	virtual void setRemoteVideoCallBack(ilive::iLivePreviewCallback OnRemoteVideo, void* data = nullptr) = 0;
 ```
-iliveSDK提供了一个iLiveRootView对象实现了对视频数据的渲染，传入播放窗口句柄进行初始化
+iliveSDK 提供了一个 iLiveRootView 对象实现了对视频数据的渲染，传入播放窗口句柄进行初始化：
 ```C++
 	m_pRootView = ilive::iLiveCreateRootView();
 	m_pRootView->init(hwnd);
 ```
-目前提供2种渲染实现：D3D和GDI。D3D仅支持渲染i420格式，GDI仅支持渲染RGB24格式，可以设置视频渲染格式
+目前提供 2 种渲染实现：D3D 和 GDI。D3D 仅支持渲染 i420 格式，GDI 仅支持渲染 RGB24 格式，可以设置视频渲染格式：
 ```C++
 	E_ColorFormat fmt = (m_pRootView->getRootViewType() == ROOT_VIEW_TYPE_D3D) ? COLOR_FORMAT_I420 : COLOR_FORMAT_RGB24;
 	sdk->getTICManager()->GetILive()->setVideoColorFormat(fmt);
 ```
-渲染前填入视频发送者id和视频类型进行设置
+渲染前填入视频发送者 ID 和视频类型进行设置：
 ```C++
 	iLiveView view;
 	view.mode = VIEW_MODE_HIDDEN;	//按比例缩放，填充黑边;
@@ -137,32 +137,32 @@ iliveSDK提供了一个iLiveRootView对象实现了对视频数据的渲染，�
 	view.exclusive = true;
 	m_pRootView->setView(identifier, type, view, false);
 ```
-设置好后在ilive视频数据回调里面调用`doRender`进行渲染
+设置好后在 ilive 视频数据回调里面调用`doRender`进行渲染。
 
-## 4. 进一步了解和使用SDK
+## 4. 进一步了解和使用 SDK
 ### 4.1 头文件概览
 
-先总体说明下SDK中暴露的公开头文件的主要功能：
+先总体说明下 SDK 中暴露的公开头文件的主要功能：
 
 类名 | 主要功能
 --------- | ---------
-TICSDK.h | 整个SDK的入口类，提供了SDK【初始化】以及【获取版本号】的方法
-TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【登录/登出SDK】、【创建/加入/销毁课堂】、【音视频操作】、【IM操作】等接口
-TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师），另外课堂配置对象还带有三个可选的代理对象，一个是复制监听课堂内部事件，一个则负责监听课堂内的IM消息，还有一个负责监听课堂内白板消息
-TICSDKCosConfig.h | COS管理类，内部封装了腾讯云对象云存储COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（移动端目前只支持上传和下载）
-TICWhiteboardManager.h|白板管理类，对白板BoardSDK.dll进行了封装
+TICSDK.h | 整个 SDK 的入口类，提供了 SDK【初始化】以及【获取版本号】的方法。
+TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【登录/登出SDK】、【创建/加入/销毁课堂】、【音视频操作】、【IM操作】等接口。
+TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师），另外课堂配置对象还带有三个可选的代理对象，一个是复制监听课堂内部事件，一个则负责监听课堂内的IM消息，还有一个负责监听课堂内白板消息。
+TICSDKCosConfig.h | COS 管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（移动端目前只支持上传和下载）。
+TICWhiteboardManager.h|白板管理类，对白板 BoardSDK.dll 进行了封装。
 
 ### 4.2 使用流程
 
-TICSDK业务使用的流程如下：
+TICSDK 业务使用的流程如下：
 
 ![教师业务流程](https://main.qcloudimg.com/raw/78f1227b825f9ea4699004dcfb484b63.png) 
 
- > 其中【创建课堂】为教师角色特有流程，学生角色不需调用。
+其中【创建课堂】为教师角色特有流程，学生角色不需调用。
 
-下面将SDK按照功能划分，遵循一般的使用顺序，介绍一下`TICSDK`中各功能的使用方法和注意点:
+下面将 SDK 按照功能划分，遵循一般的使用顺序，介绍一下`TICSDK`中各功能的使用方法和注意点。
 
-### 4.3 初始化SDK
+### 4.3 初始化 SDK
 要使用`TICSDK`，首先得进行初始化，初始化方法位于`TICSDK`单例类中：
 
 ```C++
@@ -177,7 +177,7 @@ TICSDK业务使用的流程如下：
 	virtual int initSDK(int iLiveSDKAppId, int iLiveAccountType) = 0;
 
 ```
-初始化方法很简单，传入应用的SDKAppID和accountType即可。但是开发者在初始化之前必须保证已经在腾讯云后台注册成功并创建了应用（见3.1），这样才能拿到腾讯云后台分配的SDKAppID和accountType。
+初始化方法很简单，传入应用的 SDKAppID 和 accountType 即可。但是开发者在初始化之前必须保证已经在腾讯云后台注册成功并创建了应用（见3.1），这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ### 4.4 登录/登出
 初始化完成之后，因为涉及到IM消息的收发，所以还必须先登录：
@@ -197,11 +197,11 @@ TICSDK业务使用的流程如下：
 	 */
 	int login(const char * id, const char * userSig, ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data);
 ```
-该方法需要传入uid和userSig，uid为用户ID，userSig为腾讯云后台用来鉴权的用户签名，相当于登录TICSDK的用户密码，，需要开发者服务器遵守腾讯云生成userSig的规则来生成，并传给客户端用于登录，详情请参考：[生成签名](https://cloud.tencent.com/document/product/647/17275)
-success和err为登录SDK成功和失败回调，data为用户自定义数据
+该方法需要传入 uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数据。
 
-> 注意：
-> 1. 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的uid和userSig用于开发测试
+> **注意：**
+> 1. 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试。
 > 2. 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
 > 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
 > 4. 关于以上错误的详细描述，参见[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
@@ -220,13 +220,13 @@ success和err为登录SDK成功和失败回调，data为用户自定义数据
  */
 void logout(ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data);
 ```
-其中参数success和err为登录SDK成功和失败回调，data为用户自定义数据
+其中参数 success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数据。
 
 ### 4.5 课堂管理
 
 * 创建课堂
 
-登录成功之后，就可以创建或者加入课堂了，创建课堂接口如下，需要用户生成课堂房间roomID并传入：
+登录成功之后，就可以创建或者加入课堂了，创建课堂接口如下，需要用户生成课堂房间 roomID 并传入：
 
 ```C++
 > TICManager.h
@@ -303,7 +303,7 @@ class IClassroomIMListener
 class IClassroomWhiteboardListener
 ```
 
-基础配置有3个，加入课堂时是否为老师，进入课的房间ID，以及透传给iliveSDK的roomOption参数项。该类还有三个代理对象，用来监听课堂内的一些事件，这个后面再说。
+基础配置有 3 个，加入课堂时是否为老师，进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
 
 * 退出课堂
 
@@ -320,10 +320,10 @@ virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallb
 
 学生退出课堂时，只是本人退出了课堂，老师调用`退出课堂`方法退出课堂时，该课堂将会被销毁，另外退出课堂成功后，课堂的资源将会被回收，所以开发者应尽量保证再加入另一个课堂前，已经退出了前一个课堂。
 
-### 4.6 COS上传相关操作
-COS为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您需要用到上传图片、PPT文件到白板上展示的功能，则需要先在腾讯云对象存储开通了服务，然后再在SDK中将COS相关参数配置好，TICSDK内部会将调用SDK接口上传的图片，文件上传到您配置的COS云存储桶中。
-TICSDKCosConfig内部封装了COS上传所需要的CosAppId，Bucket，Region等参数，用户填好这些参数后通过TICManager的`setCosHandler`方法传给TICSDK。cos上传和预览功能被封装在了TICManger里面，如需上传图片、PPT文件，调用`uploadFile`这个接口将文件名路径和生成的COS签名作为参数填入即可。
-COS签名生成请参考[COS签名](/document/product/680/17910)。
+### 4.6 COS 上传相关操作
+COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您需要用到上传图片、PPT 文件到白板上展示的功能，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将 COS 相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+TICSDKCosConfig 内部封装了 COS 上传所需要的 CosAppId，Bucket，Region 等参数，用户填好这些参数后通过 TICManager 的`setCosHandler`方法传给TICSDK。COS 上传和预览功能被封装在了 TICManger 里面，如需上传图片、PPT 文件，调用`uploadFile`这个接口将文件名路径和生成的 COS 签名作为参数填入即可。
+COS 签名生成请参考 [COS 签名](/document/product/680/17910)。
 
 ```C++
 > TICManager.h
@@ -343,7 +343,7 @@ virtual void uploadFile(const std::wstring& fileName, std::string& sig) = 0;
 
 ```
 
-上传结果通过`IClassroomWhiteboardListener`的回调传给上层处理
+上传结果通过`IClassroomWhiteboardListener`的回调传给上层处理：
 ```C++
 /**
 * \brief 通知文件上传进度
@@ -372,37 +372,37 @@ virtual void onFileUploadResult(bool success, std::wstring objName,std::wstring 
 
 ### 4.7 白板相关操作
 
-TICSDK 中将白板SDK封装在一个白板管理类当中，用户可在进入房间后调TICSDK.h里面的initWhiteBoard方法进行初始化，也可以自己初始化白板SDK后通过initWhiteBoard方法传入
+TICSDK 中将白板 SDK 封装在一个白板管理类当中，用户可在进入房间后调 TICSDK.h 里面的 initWhiteBoard 方法进行初始化，也可以自己初始化白板 SDK 后通过 initWhiteBoard 方法传入。
 
 ```C++
 > TICSDK.h
 
-/**
-* \brief 初始化白板SDK，在加入房间之后
-* \param id 用户id
-* \param classID 课堂ID
-* \param parentHWnd 白板父窗口句柄
-* \return 结果，0表示成功
-*/
-virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
+	/**
+	* \brief 初始化白板SDK，在加入房间之后
+	* \param id 用户id
+	* \param classID 课堂ID
+	* \param parentHWnd 白板父窗口句柄
+	* \return 结果，0表示成功
+	*/
+	virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
 
-/**
-* \brief 初始化白板SDK
-* \param boardsdk 外部初始化的sdk指针
-* \return 结果，0表示成功
-*/
-virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
+	/**
+	* \brief 初始化白板SDK
+	* \param boardsdk 外部初始化的sdk指针
+	* \return 结果，0表示成功
+	*/
+	virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
 
-/**
-* \brief 获取白板管理类实例指针
-* \return 白板管理类指针
-*/
-virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
+	/**
+	* \brief 获取白板管理类实例指针
+	* \return 白板管理类指针
+	*/
+	virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 ```
-开发者可以通过getTICWhiteBoardManager()获得白板管理类里面封装好的方法，也可以直接调用BoardSDK.h里面的接口对白板进行操作，BoardSDK详见 [白板SDK文档](/document/product/680/17884) 。
+开发者可以通过 getTICWhiteBoardManager() 获得白板管理类里面封装好的方法，也可以直接调用 BoardSDK.h 里面的接口对白板进行操作，BoardSDK 详见 [白板SDK文档](/document/product/680/17884) 。
 
 ```C++
-	> TICWhiteboardManager.h
+> TICWhiteboardManager.h
 	/**
 	* \brief 获得白板窗口句柄
 	*/
@@ -485,11 +485,54 @@ virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 	* \brief 拉取离线数据
 	*/
 	virtual void getBoardData() = 0;
+	
+	/**
+	* \brief 获取当前页码
+	* \return 当前页码
+	*/
+	virtual uint32_t getPageIndex() = 0;
+
+	/**
+	* \brief 获取总页数
+	* \return 总页数
+	*/
+	virtual uint32_t getPageCount() = 0;
+
+	/**
+	* \brief 刷新页码
+	*/
+	virtual void refreshPageInfo() = 0;
+
+	/**
+	* \brief 页码跳转
+	* \param pageIndex  跳转的页码
+	*/
+	virtual void gotoPage(uint32_t pageIndex) = 0;
+
+	/**
+	* \brief 跳转上一页
+	*/
+	virtual void gotoLastPage() = 0;
+
+	/**
+	* \brief 跳转下一页
+	*/
+	virtual void gotoNextPage() = 0;
+
+	/**
+	* \brief 插入新的一页
+	*/
+	virtual void insertPage() = 0;
+
+	/**
+	* \brief 删除当前页
+	*/
+	virtual void deletePage() = 0;
 ```
 
-#### 4.8 IM相关操作
+#### 4.8 IM 相关操作
 
-IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只封装了一些常用接口：
+IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也只封装了一些常用接口：
 
 ```C++
 	/**
@@ -526,7 +569,7 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 	*/
 	virtual void sendGroupCustomMsg(const char * msg) = 0;
 ```
-课堂内成员在调用以上方法发送消息时，会触发IM事件，如果在加入课堂前设置了IM事件监听代理 `IClassroomIMListener`，一端发送IM消息时，另一端就可以在课堂内IM消息回调对应方法中得到通知:
+课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `IClassroomIMListener`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知:
 
 ```C++
 	/**
@@ -584,11 +627,11 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 
 ```
 
-前4个代理方法，分别对应了前面4个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。接下来`onRecvGroupSystemMsg`监听了课堂内房间解散消息，`onSendMsg`和`onSendWBData`则对应发普通消息和IM消息是否成功的回调。
+前 4 个代理方法，分别对应了前面 4 个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。接下来`onRecvGroupSystemMsg`监听了课堂内群组系统消息，`onSendMsg`和`onSendWBData`则对应发普通消息和 IM 消息是否成功的回调。
 
 ### 4.9 音视频相关操作
 
-这部分功能封装于腾讯云实时音视频SDK `ILiveSDK`，TICSDK中只封装了一些常用的接口：打开/关闭摄像头、麦克风，扬声器， 屏幕分享等，如下：
+这部分功能封装于腾讯云实时音视频 SDK `ILiveSDK`，TICSDK 中只封装了一些常用的接口：打开/关闭摄像头、麦克风，扬声器， 屏幕分享等，如下：
 ```C++
 	/**
 	* \brief 打开/关闭摄像头
@@ -676,7 +719,23 @@ IM相关的接口封装于腾讯云通信SDK`IMSDK`，同样，TICSDK中也只�
 	*/
 	virtual void onMemStatusChange(ilive::E_EndpointEventId event_id, const ilive::Vector<ilive::String> &ids, void* data) = 0;
 
+	/**
+	* \brief 成员加入房间
+	* \param identifier		加入房间成员id列表
+	*/
+	virtual void onMemberJoin(const char ** identifier, uint32_t num) = 0;
+
+	/**
+	* \brief 成员退出房间
+	* \param identifier		退出房间成员id列表
+	*/
+	virtual void onMemberQuit(const char ** identifier, uint32_t num) = 0;
+
+	/**
+	* \brief 课堂房间被销毁
+	*/
+	virtual void onClassroomDestroy() = 0;
 ```
-创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id表示事件类型（开关摄像头等），ids表示触发事件的用户ID集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照demo）。
+创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id表示事件类型（开关摄像头等），ids表示触发事件的用户ID集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 emo）。房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
 
 

@@ -10,13 +10,9 @@ COS Browser makes it easy for users to upload and download data in a visualized 
 ![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
 ## Download and Installation
 
-Download setup file (dependent on .Net Framework 4.5, and double click to install):
-- [EXE for 64-bit Windows OS](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-64-setup.exe)
-- [EXE for 32-bit Windows OS](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-32-setup.exe)
+Download setup file (double click to install):
+- [EXE for Windows OS](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
 
-Download zip package (download and decompress file, and double click cosbrowser.exe to install):
-- [ZIP for 64-bit Windows OS](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-64.zip)
-- [ZIP for 32-bit Windows OS](http://cosbrowser-1251902136.cos.ap-guangzhou.myqcloud.com/cosbrowser-win-32.zip)
 
 ## How to Use
 

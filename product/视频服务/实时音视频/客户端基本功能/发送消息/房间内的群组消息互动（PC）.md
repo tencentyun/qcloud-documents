@@ -71,3 +71,6 @@ GetILive()->sendGroupMessage(msg, [](void* data) {
 ![](https://main.qcloudimg.com/raw/6cb42880b4fa9b911bd8386139ecfb04.png)
 
 ![](https://main.qcloudimg.com/raw/54addf7999d3f78fca42a0636397d768.png)
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

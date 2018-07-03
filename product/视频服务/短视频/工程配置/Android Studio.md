@@ -81,7 +81,7 @@ allprojects {
 
 #### 1. 库说明
 
-解压 LiteAVSDK_UGC_3.9.2794.zip 压缩包后得到 libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
+解压 zip 压缩包后得到 libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
@@ -98,6 +98,8 @@ allprojects {
 
 #### 2. 拷贝文件
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs**目录下，这是android studio 默认的 jni 加载目录。
+
+如果您使用的是商业版，那么解压zip包后，除了 jar 包和 so 库增加了以外，还多了assets目录下的文件，这些是动效所需要的，需要全部拷贝到工程的assets目录下，参考 [动效变脸->工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE) 
 
 #### 3. 工程配置
 

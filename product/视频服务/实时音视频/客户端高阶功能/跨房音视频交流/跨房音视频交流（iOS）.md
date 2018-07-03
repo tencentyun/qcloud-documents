@@ -30,7 +30,7 @@ A发起跨房音视频交流请求后，需要B同意，B同意之后A再发起�
 //toRoomId:要音视频交流的房间号
 //toId:要音视频交流的房间的主播id
 //authBuff:鉴权串
-[[ILiveRoomManager getInstance] linkRoom:toRoomId identifier:toId authBuff:sig succ:^{
+[[ILiveRoomManager getInstance] linkRoom:toRoomId userId:toId authBuff:sig succ:^{
     NSLog(@"跨房音视频交流成功")
 } failed:^(NSString *module, int errId, NSString *errMsg) {
     if (errId == 10001) {
@@ -132,7 +132,7 @@ A发起跨房音视频交流请求后，需要B同意，B同意之后A再发起�
             {
                 NSString *toRoomId = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
                 NSString *linkSig = @"";
-                [[TILLiveManager getInstance] linkRoom:[toRoomId intValue] identifier:msg.sendId authBuff:linkSig succ:^{
+                [[TILLiveManager getInstance] linkRoom:[toRoomId intValue] userId:msg.sendId authBuff:linkSig succ:^{
                     NSLog(@"连接成功");
                 } failed:^(NSString *module, int errId, NSString *errMsg) {
                     NSLog(@"连接失败");
@@ -174,3 +174,6 @@ A发起跨房音视频交流请求后，需要B同意，B同意之后A再发起�
 
 ## 常见问题
 * 1 跨房音视频交流鉴权Sig的生成方式，参考[这里](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/cross_sign.md)
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

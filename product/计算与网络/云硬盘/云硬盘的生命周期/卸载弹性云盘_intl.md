@@ -25,4 +25,4 @@ You can also select the cloud disks with a status of <font color="red">Mounted, 
 (4) Confirm the operation in the pop-up box by clicking the **Confirm** button.
 
 ## Unmounting an Elastic Cloud Disk Using APIs
-You can unmount an elastic cloud disk by using the API DetachCbsStorages. For more information, please see [API for Unmounting Elastic Cloud Disk](https://www.qcloud.com/doc/api/364/2521).
+You can unmount an elastic cloud disk by using the API DetachCbsStorages. For more information, please see [API for Unmounting Elastic Cloud Disk](https://cloud.tencent.com/doc/api/364/2521).

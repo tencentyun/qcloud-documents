@@ -20,10 +20,7 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 This API allows GET request.
 ### Request Parameters
-Example of request line that contains all request parameters.
-```
-GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&part-number-marker=PartNumberMarker HTTP/1.1
-```
+
 See the details below: <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 | Parameter Name | Description | Type | Required |
