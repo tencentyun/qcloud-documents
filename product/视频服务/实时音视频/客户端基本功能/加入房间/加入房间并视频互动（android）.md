@@ -6,6 +6,7 @@
 
 ## 相关概念
  * [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
+  - [privateMapKey](https://cloud.tencent.com/document/product/647/16792#privateMapKey)
  * [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  
  * 摄像头 id （cameraId） 
@@ -23,6 +24,7 @@
     // 加入房间
     public int joinRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
+                .authBuffer(privateMapKey.getBytes())   // 进房票据
                 .imsupport(false)       // 不需要IM功能
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
@@ -60,6 +62,14 @@
 ## UI开发
 界面中我们可以丰富一些，在渲染控件上层布局一组按钮，用于切换角色，开关摄像头和麦克风。
 这里就不具体赘述。
+
+## 常见问题
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelIMSDK);
+```
 
 ## 联系邮箱
 如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

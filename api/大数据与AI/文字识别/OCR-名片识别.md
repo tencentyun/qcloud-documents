@@ -1,7 +1,8 @@
 ## 接口概述
 
 ### 服务简介
-本接口用于识别名片上的姓名、手机号、地址等信息。
+本接口为V1版本，用于识别名片上的姓名、手机号、地址等信息。
+建议使用 [名片识别V2版](/document/product/866/17595)，支持 20 多个字段，识别效果更佳。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
@@ -9,14 +10,17 @@
 ### url 说明
 支持 http 和 https 两种协议：
 
-`http://recognition.image.myqcloud.com/ocr/namecard`
-`https://recognition.image.myqcloud.com/ocr/namecard`
+`http://service.image.myqcloud.com/ocr/namecard`
+`https://service.image.myqcloud.com/ocr/namecard`
+
+**注意**：V1版后续将不再维护，请及时切换到 [名片识别V2版](/document/product/866/17595)。
+
 
 ## 请求包header
 
 | 参数名            | 必选| 值                                | 描述                                       |
 | -------------- | ------|---------------------------------- | ---------------------------------------- |
-| host           | 是|recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
+| host           | 是|service.image.myqcloud.com               | 腾讯云文字识别服务器域名                     |
 | content-length | 否|包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）             |
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
 | authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
