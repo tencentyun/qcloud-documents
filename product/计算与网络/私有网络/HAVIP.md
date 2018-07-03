@@ -110,7 +110,7 @@ HAVIP 目前处于灰度阶段，如需使用请 [提交工单](https://console.
 2. **绑定和配置**
 此处跟传统模式配置一样，由后端机器声明和协商哪一设备绑定创建的 HAVIP。您只要在对应的配置文件中指定 virtual IP为 HAVIP。
 在群集管理器里，将刚才创建的 HAVIP 配置进去。
- ![](https://main.qcloudimg.com/raw/bfa90a13e9e17952352f3aa298df03f5.png)
+ ![](https://main.qcloudimg.com/raw/960af4c34f05cf71432c0143176db3c2.png)
 3. **验证**
 等待配置完成后，直接切换节点进行测试。
  ![](https://main.qcloudimg.com/raw/528373c391c718451acab0db9594ec04.png)
