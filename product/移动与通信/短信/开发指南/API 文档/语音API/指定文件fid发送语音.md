@@ -58,6 +58,7 @@
 ### App 凭证计算
 
 - c++
+
 ```c++
 // 格式字符串
 string fmt = "appkey=%s&random=%lu&time=%lu&mobile=%s";
@@ -72,7 +73,9 @@ string now = "1457336869";
 // 计算sig
 string sig = sha256hex(format(fmt, appkey, random, time, mobile));
 ```
+
 - python
+
 ```python
 import hashlib
 import time
