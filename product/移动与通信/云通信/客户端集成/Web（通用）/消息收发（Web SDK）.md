@@ -521,9 +521,9 @@ function uploadPic() {
     var file = uploadFiles.files[0];
     var businessType;//业务类型，1-发群图片，2-向好友发图片
     if (selType == SessionType.C2C) {//向好友发图片
-        businessType = UploadPicBussinessType.C2C_MSG;
+        businessType = webim.Upload_Pic_Bussiness_Type.C2C_MSG;
     } else if (selType == SessionType.GROUP) {//发群图片
-        businessType = UploadPicBussinessType.GROUP_MSG;
+        businessType = webim.Upload_Pic_Bussiness_Type.GROUP_MSG;
     }
     //封装上传图片请求
     var opt = {
