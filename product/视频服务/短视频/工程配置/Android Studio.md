@@ -185,13 +185,13 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库以及声学处理组件，如果短视频 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
 
 #### 1. 上传 SO 文件
-将 SDK 压缩包中的 so 文件上传到 CDN，并记录下载地址，比如 `http://xxx.com/so_files.zip`。
+将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，比如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
 
 #### 2. 启动准备
 在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
 
 #### 3. 下载 SO 文件
-在用户等待过程中，App 就可以到 `http://xxx.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
+在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
 
 #### 4. 加载 SO 文件
 等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。

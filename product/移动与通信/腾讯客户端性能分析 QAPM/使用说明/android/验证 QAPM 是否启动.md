@@ -4,4 +4,4 @@
 D/QAPM_Magnifier: QAPM SDK Start success, LEAKINSPECTOR : true, IO : true, DB : true, LOOPER : true, CEILING : true, BATTERY : false
 ```
 
-登录到QAPM主页，可以看到内存泄漏、触顶、卡顿的上报。
+登录到 QAPM 主页，可以看到内存泄漏、触顶、卡顿的上报。

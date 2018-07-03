@@ -1,5 +1,3 @@
-## IM回调配置
-
 登录 [互动直播控制台](https://console.cloud.tencent.com/ilvb)，单击【IM 回调配置】。
 
 ![](https://main.qcloudimg.com/raw/ee6c3755464ae8bc4305062811fea6d9.png)

@@ -2,7 +2,7 @@
 - **前置条件：请合作方确保 Access Token 已经正常获取，获取方式见 [Access Token 获取](https://cloud.tencent.com/document/product/655/13813)。**
 - SIGN ticket 是合作方 **后台服务端业务请求** 生成签名鉴权参数之一，用于后台查询验证结果、调用其他业务服务等。
 - API ticket 的 SIGN 类型，其有效期最长为 3600S，此处 API ticket 必须缓存在磁盘，并定时刷新，刷新的机制如下：
- - 由于 API ticket 的生命周期依赖于 Access Token。最长为 3600S，故为了简单方便，建议 API ticket 的刷新机制与 Access Token 定时机制原理一致，严格按照每50分钟请求新的 API ticket，原 API ticket 1 小时 (3600S) 失效，期间两个 API ticket 都能使用。
+ - 由于 API ticket 的生命周期依赖于 Access Token。最长为 3600S，故为了简单方便，建议 API ticket 的刷新机制与 Access Token 定时机制原理一致，建议按照每 50 分钟刷新，原 api ticket 1 小时（3600s）失效。
  - 在获取新的 API ticket，请注意返回的 expire_in 为此 ticket 的最大生存周期，最大为 3600s，具体以实际返回为准，如果 expire_in 大于 600s，那么下次刷新时间为 expire_in – 600s；如果返回的 expire_in 小于等于 600s，那么下次取 ticket 时需要立刻刷新。
 
 ## 请求

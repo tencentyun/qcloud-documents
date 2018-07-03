@@ -106,8 +106,9 @@ UIImage* image = [UIImage imageWithContentsOfFile:path];
 设置背景音乐的方法为：
 ```
 - (void) setBGM:(NSString *)path result:(void(^)(int))result;
+- (void) setBGMAsset:(AVAsset *)asset result:(void(^)(int))result;
 ```
-其中 path 为音乐文件路径。
+其中 path 为音乐文件路径, asset为音乐属性,从系统媒体库loading出来的音乐，可以直接传入对应的音乐属性，会极大的降低音乐从系统媒体库loading的时间，具体请参考demo用法。
 
 设置背景音乐的开始和结束方法为：
 ```

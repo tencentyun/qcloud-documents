@@ -1,5 +1,3 @@
-# MobileLine iOS 移动授权快速入门
-
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -181,7 +179,7 @@ pre_install do |installer|
               end
               after_build_phase.name = shell_script_after_build_phase_name
               after_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"
               fi
               "
@@ -196,7 +194,7 @@ pre_install do |installer|
               end
               before_build_phase.name = shell_script_before_build_phase_name
               before_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"
                   fi
                   "

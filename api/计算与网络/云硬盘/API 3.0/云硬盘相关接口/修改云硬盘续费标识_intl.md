@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: ModifyDisksRenewFlag |
+| Action | Yes | String | Common parameter. Value used in this API: ModifyDisksRenewFlag |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | DiskIds.N | Yes | Array of String | ID(s) of one or more cloud disks to be operated. |
 | RenewFlag | Yes | String | The renewal flag of the cloud disk. Value range: <li>NOTIFY_AND_AUTO_RENEW: Notify expiry and renew automatically</li><li>NOTIFY_AND_MANUAL_RENEW: Notify expiry but not renew automatically</li><li>DISABLE_NOTIFY_AND_MANUAL_RENEW: Neither notify expiry nor renew automatically.
@@ -43,7 +43,7 @@ https://cbs.tencentcloudapi.com/?Action=ModifyDisksRenewFlag
 &RenewFlag=NOTIFY_AND_AUTO_RENEW
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

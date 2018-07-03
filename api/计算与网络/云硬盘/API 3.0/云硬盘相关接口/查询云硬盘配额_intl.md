@@ -50,7 +50,7 @@ https://cbs.tencentcloudapi.com/?Action=DescribeDiskConfigQuota
 &Zones.0=ap-guangzhou-3
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {
@@ -100,7 +100,7 @@ https://cbs.tencentcloudapi.com/?Action=DescribeDiskConfigQuota
 &InstanceFamilies.0=S3
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

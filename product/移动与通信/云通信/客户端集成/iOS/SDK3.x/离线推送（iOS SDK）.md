@@ -18,7 +18,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 
 ### 客户端实现 APNs 推送
 
-客户端要实现接收 APNs 推送，需要实现 4 个部分：**向苹果后台请求 DeviceToken**、**登录 SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[云通信 IM-iOS ImSDK 离线推送](https://qcloud.com/course/detail/80)。
+客户端要实现接收 APNs 推送，需要实现 4 个部分：**向苹果后台请求 DeviceToken**、**登录 SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[云通信 iOS Im SDK 离线推送集成](https://qcloud.com/course/detail/80)。
 
 **向苹果后台请求 DeviceToken**：
 

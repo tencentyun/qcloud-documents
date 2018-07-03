@@ -1,4 +1,4 @@
-配置maven的链接路径,类似如下
+配置 maven 的链接路径,类似如下
 
 ```
 repositories {

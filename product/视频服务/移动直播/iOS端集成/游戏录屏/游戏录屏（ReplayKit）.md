@@ -7,9 +7,9 @@
 
 ## 功能体验
 
-体验iOS录屏可以下载【视频云工具包】
-
-![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/er.png)
+体验iOS录屏可以单击安装 [视频云工具包](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 
+或 扫码安装
+![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/1529471216.png)
 
 使用步骤：
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
@@ -48,14 +48,14 @@ iOS 10 的 Replay Kit 支持两种直播方式：
 
 ### 导入 LiteAV SDK
 
-直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体可参考腾讯云官网 [工程配置(iOS)](https://cloud.tencent.com/doc/api/258/5320)。
+直播扩展需要导入 TXLiteAVSDK.framework。扩展导入 framework 的方式和主 App 导入方式相同，SDK 的系统依赖库也没有区别。具体可参考腾讯云官网 [工程配置(iOS)](https://cloud.tencent.com/document/product/454/7876)。
 
 
 ## 对接流程
 
 ### Step 1: 编写 UI 扩展[可选, ReplayKit2的录屏不需要]
 
-游戏 App 发起直播，首先进入的是 UI 扩展。这里可以根据您产品需要订制界面。如果您的直播软件需要登录，最好在这里先检查登录态，因为在直播过程中不能显示任何界面。
+游戏 App 发起直播，首先进入的是 UI 扩展。这里可以根据您产品需要定制界面。如果您的直播软件需要登录，最好在这里先检查登录态，因为在直播过程中不能显示任何界面。
 
 当用户确认发起直播，UI 扩展就可以把启动直播扩展，而且可以带上一些自定义的参数。启动直播扩展示例代码如下。
 
@@ -108,25 +108,29 @@ s_txLivePublisher 是我们用于推流的对象。实例化 s_txLivePublisher �
     config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
     config.audioSampleRate = 44100;
     config.audioChannels   = 1;
- //        config.sampleBufferSize = CGSizeMake(720, 1280); //建议不超过720P，否则容易触发系统限制
-//        if (isIphoneX) {
-//            config.sampleBufferSize = CGSizeMake(720, 1440);
-//        }
+//				CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
+//				config.sampleBufferSize = CGSizeMake(720, 720 * screenSize.height / screenSize.width)
 //        config.videoBitrateMin = 1500;
 //        config.videoBitratePIN = 2000;
 //        config.videoBitrateMax = 2500;
 //        config.videoFPS = 30;
 
     s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
-    NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo 来自于 UI 扩展
-    [s_txLivePublisher startPush:pushUrl];  
+    NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo 来自于 UI 扩展， 如果是replaykit2屏幕录制，setupInfo为nil，需要与主App数据传递与通信来获取推流信息
+    [s_txLivePublisher startPush:pushUrl]; 
+		
+		//推流开始后发送一帧
+		 if (s_lastSampleBuffer) {
+           [s_txLivePublisher sendVideoSampleBuffer:s_lastSampleBuffer];
+    }
 }
 ```
-s_txLivePublisher 的 config 不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档 [RTMP 推流－进阶应用](https://cloud.tencent.com/doc/api/258/6458)
+s_txLivePublisher 的 config 不能使用默认的配置，需要设置自定义采集视频和音频。
 
 视频启用 autoSampleBufferSize，开启此选项后，您不需要关心推流的分辨率，SDK 会自动根据输入的分辨率设置编码器；如果您关闭此选项，那么代表您需要自定义分辨率
 
-> 注：ReplayKit2上不建议使用autoSampleBufferSize，因为会根据机型不一样有不一样的推流分辨率，在Plus的手机时可达1080*1920,容易触发系统内存限制而被强制停止
+> 注1：ReplayKit2上不建议使用autoSampleBufferSize，因为会根据机型不一样有不一样的推流分辨率，在Plus的手机时可达1080*1920,容易触发系统内存限制而被强制停止
+> 注2: 推流开始后建议发送一帧画面采集帧。因为系统只有在界面有变化时才会采集画面，有可能在开始推流后没有新的画面采集即没有数据发送而推流失败。
 
 #### *扩展与宿主App之间的通信与数据传递
 ReplayKit2录屏只唤起upload直播扩展，直播扩展不能进行UI操作或不适于做复杂的业务逻辑，因此通常宿主App负责鉴权及其它业务逻辑，直播扩展只负责进行屏幕的音画采集与推流发送，扩展经常需要与宿主App进行数据传递与通信。
@@ -135,7 +139,7 @@ ReplayKit2录屏只唤起upload直播扩展，直播扩展不能进行UI操作�
 
 ```
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
-    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里点击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
+    [self sendLocalNotificationToHostAppWithTitle:@"腾讯云录屏推流" msg:@"录屏已开始，请从这里单击回到Demo->录屏幕推流->设置推流URL与横竖屏和清晰度" userInfo:@{kReplayKit2UploadingKey: kReplayKit2Uploading}];
 }
 
 - (void)sendLocalNotificationToHostAppWithTitle:(NSString*)title msg:(NSString*)msg userInfo:(NSDictionary*)userInfo
@@ -216,22 +220,23 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
 }
 ```
 
-### Step 3: 自定义分辨率
+### Step 3: 横竖屏与自定义分辨率
 
-如果您不想用屏幕输出的分辨率，也可以指定任意一个分辨率，SDK 内部将根据您指定的分辨率进行缩放
+如果您不想用屏幕输出的分辨率，也可以指定任意一个分辨率，SDK 内部将根据您指定的分辨率进行缩放。homeOrientation可以设置横竖屏推流，分辨率需要同时设置为对应的横竖屏比例。
 
 ```objective-c
-// 指定 720*1280
-config.sampleBufferSize = CGSizeMake(720, 1280); //建议不超过720P，否则容易触发系统限制
-if (isIphoneX) {
-		config.sampleBufferSize = CGSizeMake(720, 1440);
-}
+// 指定 720P，默认竖屏
+CGSize screenSize = [[UIScreen mainScreen] currentMode].size;
+config.sampleBufferSize = CGSizeMake(720, 720 * screenSize.height / screenSize.width); //建议不超过720P，否则容易触发系统限制
+//config.homeOrientation = HOME_ORIENTATION_DOWN; 
+
+//横屏
 if (s_landScape) {
 		config.sampleBufferSize = CGSizeMake(config.sampleBufferSize.height, config.sampleBufferSize.width);
 		config.homeOrientation = HOME_ORIENTATION_RIGHT;
 }
 ```
-> 注1：设置的分辨率需与屏幕采集到的画面比例一致，否则会引起画面变形。一般手机上为9:16，而在iPhoneX上采集到的画面比例为1:2。
+> 注1：设置的分辨率需与屏幕分辨率比例一致，否则会引起画面变形。一般手机上为9:16，而在iPhoneX上画面比例为1125:2436。
 > 注2：在ReplayKit2上采集的都是竖屏的分辨率，因此如果分辨率指定为横屏分辨率，需要配合指定homeOrientation为横屏推流，否则会引起画面变形。
 
 ### Step 4: 发送视频
@@ -244,15 +249,27 @@ Replaykit 会将音频和视频都以回调的方式传给`-[SampleHandler proce
         case RPSampleBufferTypeVideo:
             // Handle audio sample buffer
         {
-            [s_txLivePublisher sendVideoSampleBuffer:sampleBuffer];
-            return;
+                if (!CMSampleBufferIsValid(sampleBuffer))
+                    return;
+										                //保存一帧在startPush时发送,防止推流启动后或切换横竖屏因无画面数据而推流不成功
+                if (s_lastSampleBuffer) {
+                    CFRelease(s_lastSampleBuffer);
+										s_lastSampleBuffer = NULL;
+                }
+                s_lastSampleBuffer = sampleBuffer;
+                CFRetain(s_lastSampleBuffer);
+
+                [s_txLivePublisher sendVideoSampleBuffer:sampleBuffer];
         }
 }
+
+
 ```
 
 视频 sampleBuffer 只需要调用`-[TXLivePush sendVideoSampleBuffer:]`发送即可。
 
 系统分发视频 sampleBuffer 的频率并不固定，如果画面静止，可能很长时间才会有一帧数据过来。SDK 考虑到这种情况，内部会做补帧逻辑，使其达到 config 所设置的帧率（默认为 20fps）。
+> 注：建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送而推流不成功
 
 ### Step 5: 发送音频
 
@@ -373,4 +390,4 @@ ReplayKit2屏幕录制在iOS11新推出功能，比较少官方文档并且存�
 通常是因为设置的推流分辨率过高时在做横竖屏切换过程中容易出现。ReplayKit2的直播扩展目前是有50M的内存使用限制，超过此限制系统会直接杀死扩展进程，因此ReplayKit2上建议推流分辨率不高于720P。另外不建议使用autoSampleBufferSize时做横竖屏切换，因为Plus的手机的分辨率可达1080*1920,容易触发系统内存限制而被强制停止
 
 6. iphoneX手机的兼容性与画面变形问题
-iphoneX手机因为有刘海，屏幕采集的画面分辨率不是9:16而是1:2，如果设了推流输出分辨率如高清里是为960*540的分辨率，这时因为源分辨率不是9:16的，推出去的画面就会稍有变形。因此需要判断机型是iPhoneX的，将sampleBufferSize换成1:2比例的分辨率才不会变形。此时拉流端用AspectFit显示模式会有黑边是正常现象，AspectFill看画面会不全。
+iphoneX手机因为有刘海，屏幕采集的画面分辨率不是9:16，如果设了推流输出分辨率为9:16的比例如高清里是为960*540的分辨率，这时因为源分辨率不是9:16的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用AspectFit显示模式iPhoneX的屏幕采集推流会有黑边是正常现象，AspectFill看画面会不全。

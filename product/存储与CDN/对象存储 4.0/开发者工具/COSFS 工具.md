@@ -16,7 +16,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ### 环境安装 
 #### Ubuntu 系统下安装环境依赖包方法：
 ```
-sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
 
 #### CentOS 系统下安装环境依赖包方法：
