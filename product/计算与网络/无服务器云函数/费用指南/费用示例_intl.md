@@ -8,11 +8,11 @@ Number of calls per day = 3 x 3600 x 24 = 259200
 
 Fees per month (calculated by 30 days):
 
-Resource usage fee per month = (25920 x 30 - 400000) x 0.000115 = 43.42 CNY
+Fee for resource usage per month = (25920 x 30 - 400000) x 0.0000167 = 6.31 USD
 
-Fee of number of calls per month = (259200 x 30/1000000 - 1) x 1.38 = 9.35 CNY
+Fee for calls per month = (259200 x 30/1000000 - 1) x 0.15 = 1.02 USD
 
-In this case, the total cost = 43.42 CNY (resource usage fee) + 9.35 CNY (fee of number of calls) = 52.77 CNY
+In this case, the total cost = 6.31 USD (fee for resource usage) + 1.02 USD (fee for calls) = 7.33 USD
 
 ## Example of File Upload
 
@@ -26,11 +26,11 @@ Traffic per day = 5 x 50 x 60 x 24 = 360000 KB = 351.5625 MB
 
 Fees per month (calculated by 30 days):
 
-Resource usage fee per month = (66600 x 30 - 400000) x 0.000115 = 183.77 CNY
+Fee for resource usage per month = (66600 x 30 - 400000) x 0.0000167 = 26.69 USD
 
-Fee of number of calls per month = (72000 x 30/1000000 - 1) x 1.38 = 2.98 CNY
+Fee for calls per month = (72000 x 30/1000000 - 1) x 0.15 = 0.17 USD
 
-Fee of public network outbound traffic = (351.5625 x 30/1024) x 0.8 = 8.24 CNY
+Fee for public network outbound traffic = (351.5625 x 30/1024) x 0.12 = 1.24 USD
 
-In this case, the total cost = 183.77 CNY (resource usage fee) + 2.98 CNY (fee of number of calls) + 8.24 CNY (fee of public network outbound traffic) = 194.99 CNY
+In this case, the total cost = 26.69 USD (fee for resource usage) + 0.17 USD (fee for calls) + 1.24 USD (fee for public network outbound traffic) = 28.1 USD
 

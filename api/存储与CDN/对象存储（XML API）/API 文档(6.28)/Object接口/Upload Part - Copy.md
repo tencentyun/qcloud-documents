@@ -38,11 +38,6 @@ PUT /{ObjectName} HTTP/1.1
 该 API 接口接受 `PUT` 请求。
 
 #### 请求参数
-包含所有请求参数的请求行示例：
-
-```
-PUT /{ObjectName}?partNumber=[PartNumber]&uploadId=[UploadId] HTTP/1.1
-```
 
 名称|类型|必选|描述
 ---|---|---|---
@@ -119,7 +114,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-
 ### 响应
 
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 133
 Connection: keep-alive
