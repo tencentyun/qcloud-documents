@@ -19,6 +19,10 @@ Download setup file (double click to install):
 Users can log in to COS Browser using Tencent Cloud API key (SecretId and SecretKey), which can be obtained on the [Console](https://console.cloud.tencent.com/cam/capi). Login information will be cached.
 Batch upload/download/deletion is supported. Drag and drop upload/download is not allowed.
 
+## Change Log
+
+You can get change log here [change log](https://github.com/tencentyun/cosbrowser/blob/master/changelog.md)
+
 ## Suggestions and Feedback
 
 If you have any suggestions and feedback, please visit [cosbrowser issues](https://github.com/tencentyun/cosbrowser/issues)
