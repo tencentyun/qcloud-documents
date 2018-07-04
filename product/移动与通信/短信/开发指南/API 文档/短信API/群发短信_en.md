@@ -4,7 +4,7 @@ This API is used to send notification or marketing SMS messages to a group of us
 Mobile numbers must be all Chinese numbers or overseas numbers. A maximum of 200 mobile numbers can be submitted at a time, and the length of each message must be not more than 450 words. This API is also available for one-to-one SMS messages.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/sendmultisms2?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/sendmultisms2?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -107,5 +107,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | mobile | Yes | String | Mobile number |
 | nationcode | Yes | String | Country code |
 | sid | No | String | Delivery ID, indicating an SMS delivery record |
-
-
