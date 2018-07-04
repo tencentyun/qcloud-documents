@@ -22,7 +22,7 @@
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
                 .imsupport(true)       // 开启IM功能
-                .groupType("AVChatRoom")    // 使用实时音视频聊天室(默认)
+                .groupType("Public")    // 使用实时音视频聊天室(默认)
                 .exceptionListener(this)
                 .roomDisconnectListener(this)
                 .controlRole("LiveMaster")

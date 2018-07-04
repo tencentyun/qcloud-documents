@@ -3,7 +3,7 @@
 This API is used to delete SMS text message (or voice message) templates.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/del_template?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/del_template?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -46,5 +46,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 |--------|------|--------|------------------------------------------|
 | result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed |
 | msg | Yes | String | Error message. The error message returned when the "result" is not 0 |
-
-
