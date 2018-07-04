@@ -25,7 +25,7 @@ IP translation does not distinguish whether the access is initiated by the sourc
 
 Refers to mapping the original VPC IP to a new IP to achieve interconnection with the Direct Connect peer. You can configure more than one local IP translation rules and the network ACL for each local IP translation rule. The network ACL supports configuring source port, destination IP, and destination port. NAT rules are only valid for the network requests meeting the ACL restrictions. The local IP translation does not impose any limit on the direction of network requests, which can be the active access of VPC to Direct Connect peer or vice versa.
 
-![](//mccdn.qcloud.com/img5695b647a827a.png)
+![](https://main.qcloudimg.com/raw/7fa1066f5cdd2d0e80fd502ebe823aba.png)
 
 **Example:**
 If IP A 192.168.0.3 in a VPC is mapped to IP B 10.100.0.3, the network packet source IP of the active access of IP A to the Direct Connect peer is automatically changed to 10.100.0.3, and all network packets accessing 10.100.0.3 from the Direct Connect peer is automatically directed to IP A 192.168.0.3.
@@ -53,7 +53,7 @@ IP port translation has a direction. The source IP port translation is used to m
 
 Refers to accessing a user IDC of the Direct Connect peer using the random port of a random IP within the specified IP pool during the outgoing access of a VPC IP via the Direct Connect gateway. The local source IP port translation supports configuring ACL rules. Only the network access conforming to ACL rules can match the address pool forwarding rules. By configuring different ACL rules for an address pool, you can flexibly configure NAT rules for multiple third-party access.
 
-![](//mccdn.qcloud.com/img5695b7459a76c.png)
+![](https://main.qcloudimg.com/raw/c67a4d3dc064d3e96f6c63a0cdb4e5dc.png)
 
 The local source IP port translation only supports the network access request initiated by the VPC. To actively access the IP port in the VPC, the Direct Connect peer needs to configure the local destination IP port translation. For the local source IP port translation, the network request initiated by the VPC is stateful, without considering the network response packet.
 
@@ -68,7 +68,7 @@ The VPC network request for active access to A or B will be translated into the 
 #### Local destination IP port translation
 Refers to an approach for the active access of Direct Connect peer to VPC. By mapping the specified port of the specified IP in the VPC to the new IP and port, the Direct Connect peer can only communicate with the specified IP port in the VPC by accessing to the mapped IP port. Other IP ports will not be exposed to the Direct Connect peer.
 
-![](//mccdn.qcloud.com/img5695b8081dc51.png)
+![](https://main.qcloudimg.com/raw/780545de2940ed777027e2d3e3273ddd.png)
 
 ACL rule is not applicable to the local destination IP port translation, so the IP port translation rule will be valid for all Direct Connect tunnels connected with the Direct Connect gateway. The local destination IP port translation is only valid for the active access of Direct Connect tunnel peer to the VPC. If the VPC needs to make an active access to the Direct Connect peer, the local source IP port translation can be configured. For the local destination IP port translation, the network request is stateful, without considering the network response packet.
 
