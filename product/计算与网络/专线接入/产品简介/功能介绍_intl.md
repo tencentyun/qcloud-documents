@@ -25,7 +25,7 @@ IP translation does not distinguish whether the access is initiated by the sourc
 
 Refers to mapping the original VPC IP to a new IP to achieve interconnection with the Direct Connect peer. You can configure more than one local IP translation rules and the network ACL for each local IP translation rule. The network ACL supports configuring source port, destination IP, and destination port. NAT rules are only valid for the network requests meeting the ACL restrictions. The local IP translation does not impose any limit on the direction of network requests, which can be the active access of VPC to Direct Connect peer or vice versa.
 
-![](https://main.qcloudimg.com/raw/7fa1066f5cdd2d0e80fd502ebe823aba.png)
+![](https://main.qcloudimg.com/raw/08fd80670fef1446546f38924ae8f4b5.png)
 
 **Example:**
 If IP A 192.168.0.3 in a VPC is mapped to IP B 10.100.0.3, the network packet source IP of the active access of IP A to the Direct Connect peer is automatically changed to 10.100.0.3, and all network packets accessing 10.100.0.3 from the Direct Connect peer is automatically directed to IP A 192.168.0.3.
