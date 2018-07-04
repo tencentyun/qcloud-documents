@@ -13,5 +13,5 @@ Notes:
 4) Create the target Bucket `mybucketresized` in the same way.
 
 5) Upload any image file to the source Bucket (i.e. mybucket). In this example, we use an image [HappyFace.png](https://mc.qcloudimg.com/static/img/eae5118ed07d95ac2837f000f1ab96e5/HappyFace.png) for demonstration. (Before COS is associated, when manually calling the function to perform test and verification, you need to pass the sample data that contains this file to SCF, so that SCF can locate corresponding file according to this data. Therefore, you first need to create this sample object.)
-![](//mc.qcloudimg.com/static/img/2f0c6645ff3b8097a4791e758facf4a7/image.png)
+![](https://main.qcloudimg.com/raw/88f2045d1a6ed37ba0243a043732072d.png)
 

@@ -17,6 +17,7 @@ When a function is created, it is generally tested through the console or API, t
 2) Choose **Upload File to COS/Delete File from COS Test Code** from the drop-down list of test templates.
 
 3) In the test code, set `name` to the name of bucket `mybucket` created in "Step 1: Prepare COS Bucket", and set `key` to the key value of `/HappyFace.jpg` uploaded in "Step 1: Prepare COS Bucket", as shown in the example below:
+
 ```
 {  
    "Records":[  
@@ -58,11 +59,11 @@ When a function is created, it is generally tested through the console or API, t
 }
 ```
 
-4) Click **Run** to view the results. This program is running normally if both upload and download are successful in the result:
-![](//mc.qcloudimg.com/static/img/aec9243fd45a41e562b9c17d530740a0/image.png)
+4) Click **Run** to view the results. This program is running normally if both upload and download are successful in the result。
+
 
 5) Go to the [COS Console](https://console.cloud.tencent.com/cos4/index), and click `mybucketresized` created in "Step 1: Prepare COS Bucket", to check whether a thumbnail named `HappyFace.png` is generated.
-![](//mc.qcloudimg.com/static/img/5c4224adcef4231f1469956107f000aa/image.png)
+![](https://main.qcloudimg.com/raw/9741d01c1b80393e74faaa250d10a6b2.png)
 
 6) Download the picture and compare it with the size of original picture.
 

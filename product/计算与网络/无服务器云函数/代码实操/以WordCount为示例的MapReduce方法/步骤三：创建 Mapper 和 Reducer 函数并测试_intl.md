@@ -82,6 +82,7 @@ When a function is created, it is generally tested through the console or API, t
 5) Go to the [COS Console](https://console.cloud.tencent.com/cos4/index), and click `destmr` created in "Step 1: Prepare COS Bucket", to check whether a file named `result_middle_serverless.txt` is generated in COS Bucket. The file collects the number of times each word appears in the uploaded text file:
 
 6) Download this file, and you can see the content similar to the following:
+
 ```
 the	29
 as	25

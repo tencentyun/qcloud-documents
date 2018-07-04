@@ -15,9 +15,9 @@ Execution method is `index.main_handler`. SCF console stores this code in an `in
 The following code snippets are displayed in the function code: Replace the parameter field `appid, secret_id, secret_key, and region` with your actual data. Notes:
 
 - appid can be found in **Account Information** in the console.
-![](//mc.qcloudimg.com/static/img/8149e0d15b64340c2a2dca5569854af8/image.png)
+![](https://main.qcloudimg.com/raw/b4422964e268056ab17411bfa353f37a.png)
 - secret_id and secret_key can be obtained from **Cloud API Key** in the console.
-![](//mc.qcloudimg.com/static/img/e1eecfe7459069d0f453083ff459e30e/image.png)
+![](https://main.qcloudimg.com/raw/b2938e290b4bd9a345724cd6021edd20.png)
 - region is the region in which the function and COS Bucket reside. `sh, gz, and bj` are supported. Note: The function must be in the same region with COS Bucket. The storage bucket created in the first step resides in South China (Guangzhou), so the region value in the code must be `gz`.
 
 ```

@@ -3,9 +3,7 @@
 
 2) Create a new `.py` file named `map_function`, enter the following code in it and save the file. Note: Replace `appid, secret_id, secret_key, and region` with your actual data, where:
 - appid can be found in **Account Information** in the console.
-![](//mc.qcloudimg.com/static/img/8149e0d15b64340c2a2dca5569854af8/image.png)
 - secret_id and secret_key can be obtained from **Cloud API Key** in the console.
-![](//mc.qcloudimg.com/static/img/e1eecfe7459069d0f453083ff459e30e/image.png)
 - region is the region in which the function and COS Bucket reside. `sh, gz, and bj` are supported. Note: The region must be the same with that of COS Bucket created in the previous step. The bucket created in "Step 1: Prepare COS Bucket" resides in South China (Guangzhou), so the region value in the code must be `gz`:
 
 
@@ -41,6 +39,7 @@ def main_handler(event, context):
 ```
 
 Upon creation, create a `.py` file named `mapper_triggered` under *the same path*, enter the following code in it and save the file:
+
 ```
 from qcloud_cos import UploadFileRequest
 from qcloud_cos import DownloadFileRequest
@@ -117,22 +116,20 @@ def do_mapping(cos_client, bucket, key, middle_stage_bucket, middle_file_key):
         return -1
 ```
 
-3) If the local environment is Windows, you can find two py files under this path, as shown below:
-![](//mc.qcloudimg.com/static/img/c2c6e9eac73d93cd107a03dc31b79e27/image.png)
+3) If the local environment is Windows, you can find two py files under this path.
 
 If the local environment is Linux, you can find two py files under this path, as shown below:
-![](//mc.qcloudimg.com/static/img/4effe6d1503990d173823844313c3967/image.png)
+
+![](http://mc.qcloudimg.com/static/img/4effe6d1503990d173823844313c3967/image.png)
 
 Compress these two files into a zip file named mapper (note: you need to compress the files instead of the folder in which these files reside).
 
 In Windows environment:
 Select these two files, right-click on them, select a compress software (such as winrar), click **Add to Archive...**, then select the archive format as zip, and click **OK** to generate a zip file.
-![](//mc.qcloudimg.com/static/img/5543a76b69b40f270036c1d11b47c423/image.png)
-![](//mc.qcloudimg.com/static/img/d04fbdf74087eb27f1f438e2528f99b1/image.png)
-![](//mc.qcloudimg.com/static/img/f2a51e7876b8521e93ee64f428cc11a9/image.png)
 
 In Linux environment:
 Enter the directory directly to run the command.
+
 ```
 cd /WordCount
 zip mapper.zip map_function.py mapper_triggered.py 
@@ -141,9 +138,9 @@ zip mapper.zip map_function.py mapper_triggered.py
 ## Creating a Reducer Deployment Package
 1) Similarly, create a `.py` file named `reduce_function` under WordCount directory, enter the following code in it and save the file. Note: Replace `appid, secret_id, secret_key, and region` with your actual data, where:
 - appid can be found in **Account Information** in the console.
-![](//mc.qcloudimg.com/static/img/8149e0d15b64340c2a2dca5569854af8/image.png)
+![](https://main.qcloudimg.com/raw/b4422964e268056ab17411bfa353f37a.png)
 - secret_id and secret_key can be obtained from **Cloud API Key** in the console.
-![](//mc.qcloudimg.com/static/img/e1eecfe7459069d0f453083ff459e30e/image.png)
+![](https://main.qcloudimg.com/raw/b2938e290b4bd9a345724cd6021edd20.png)
 - region is the region in which the function and COS Bucket reside. `sh, gz, and bj` are supported. Note: The region must be the same with that of COS Bucket created in the previous step. The bucket created in "Step 1: Prepare COS Bucket" resides in South China (Guangzhou), so the region value in the code must be `gz`:
 
 
@@ -178,6 +175,7 @@ def main_handler(event, context):
 ```
 
 Upon creation, create a `.py` file named `reducer_triggered` under *the same path*, enter the following code in it and save the file:
+
 ```
 from qcloud_cos import UploadFileRequest
 from qcloud_cos import DownloadFileRequest
