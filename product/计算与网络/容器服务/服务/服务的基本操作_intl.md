@@ -24,7 +24,7 @@ Click **Add Volume** when you specify a specific path to which a container is mo
 ![](https://mc.qcloudimg.com/static/img/320fb05512b5d3d1b4c8b8e48c60cb75/image.png)
 6. Other settings
  -  **Number of pods**: A pod consists of one or more relevant containers. You can specify the number of pods by clicking + or -.
- -  **Service access method**: The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. For more information about the four access methods, please see [Configuration of Service Access Methods](https://www.qcloud.com/document/product/457/9098).
+ -  **Service access method**: The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. For more information about the four access methods, please see [Configuration of Service Access Methods](https://cloud.tencent.com/document/product/457/9098).
 ![](https://mc.qcloudimg.com/static/img/20a878637084281eb9f42e1d9878e6f4/image.png)
 7. Click **Create Service** to complete the creation process.
 
