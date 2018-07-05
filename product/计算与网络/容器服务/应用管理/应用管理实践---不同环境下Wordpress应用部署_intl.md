@@ -23,7 +23,7 @@ In the application template, enter `wordpress` as the application template name.
 
 ### Importing MariaDB
 
-In the Tencent CCS service, you can import the service template on the console or from YAML file, whichever you need. For more information on how to import the service, please see [Application Template Operation Instructions][5].
+In the Tencent TKE service, you can import the service template on the console or from YAML file, whichever you need. For more information on how to import the service, please see [Application Template Operation Instructions][5].
 
 **Method 1: Import on the console**
 
@@ -133,7 +133,7 @@ spec:
 status:
   loadBalancer: {}
 ```
-Click `Import from the template` to extract variables in the template as the configuration items. `NAMESPACE` and `ReleaseCBS_mariadb_vol` are automatically extracted as configuration items. Enter `default` for `NAMESPACE`. `NAMESPACE` is used to represent which namespace in the cluster the service is deployed to. For more information on namespace, please see [Namespace Usage Guide][12]. `ReleaseCBS_XXXX` is the variable defined by CCS for use of CBS disk. For more information on the custom variable ReleaseCBS, please see [Custom Variable - ReleaseCBS][13].
+Click `Import from the template` to extract variables in the template as the configuration items. `NAMESPACE` and `ReleaseCBS_mariadb_vol` are automatically extracted as configuration items. Enter `default` for `NAMESPACE`. `NAMESPACE` is used to represent which namespace in the cluster the service is deployed to. For more information on namespace, please see [Namespace Usage Guide][12]. `ReleaseCBS_XXXX` is the variable defined by TKE for use of CBS disk. For more information on the custom variable ReleaseCBS, please see [Custom Variable - ReleaseCBS][13].
 
 ![应用管理wordpress-07.png-50.7kB][14]
 
@@ -255,7 +255,7 @@ spec:
 status:
   loadBalancer: {}
 ```
-Click `Import from the template` to extract variables in the template as the configuration items. ReleaseCBS_wordpress_wordpress_persistent_storage is automatically extracted as configuration item. `ReleaseCBS_XXXX` is the variable defined by CCS for use of CBS disk. For more information on the custom variable ReleaseCBS, please see [Custom Variable - ReleaseCBS][21].
+Click `Import from the template` to extract variables in the template as the configuration items. ReleaseCBS_wordpress_wordpress_persistent_storage is automatically extracted as configuration item. `ReleaseCBS_XXXX` is the variable defined by TKE for use of CBS disk. For more information on the custom variable ReleaseCBS, please see [Custom Variable - ReleaseCBS][21].
 
 ![应用管理wordpress-12.png-16.6kB][22]
 

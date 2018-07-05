@@ -57,7 +57,7 @@
 | object-fit | String | contain | contain, fillCrop |
 | background-mute | Boolean | false | 当微信切到后台时，是否关闭播放声音 |
 | min-cache | Number | 1  | 最小缓冲延迟， 单位：秒|
-| max-cache | Number | 3 | 最小缓冲延迟， 单位：秒|
+| max-cache | Number | 3 | 最大缓冲延迟， 单位：秒|
 | bindstatechange | EventHandler |  | 用于指定一个javascript函数来接受播放器事件|
 | bindfullscreenchange | EventHandler |  | 用于指定一个javascript函数来接受全屏事件|
 | debug | Boolean | false | 是否开启调试模式 |

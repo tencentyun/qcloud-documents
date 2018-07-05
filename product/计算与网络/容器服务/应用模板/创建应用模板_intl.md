@@ -1,6 +1,6 @@
 ## Creating Application Template
  
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). Click **New** on the [Application][1] page.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). Click **New** on the [Application][1] page.
  
 ![Application Template List][2]
 

@@ -1,4 +1,4 @@
-A node is a CVM registered in a cluster. Multiple nodes compose a cluster. Tencent CCS supports adding both new and existing nodes to the cluster.
+A node is a CVM registered in a cluster. Multiple nodes compose a cluster. Tencent TKE supports adding both new and existing nodes to the cluster.
 >**Note:**
 >Currently, existing nodes can only be added to the cluster within the same VPC. The reuse of CVM resources in the basic network and different VPCs will be available in the future.
 
@@ -6,7 +6,7 @@ A node is a CVM registered in a cluster. Multiple nodes compose a cluster. Tence
 You need to create a cluster first. For more information on how to create a cluster, please see [New Cluster](/doc/product/457/9091).
 
 ## Adding a Node
-1. Log in to [CCS Console](https://console.cloud.tencent.com/ccs).
+1. Log in to [TKE Console](https://console.cloud.tencent.com/ccs).
 2. Click **Cluster** on the left navigation bar, and click **Add Node** on the right of the cluster list.
 ![](https://mc.qcloudimg.com/static/img/af0231389d6ce03c1b7fca49fe8d490c/1.jpg)
 2. Set **Network**, **Model** and **Configuration** for the new node.
@@ -15,7 +15,7 @@ You need to create a cluster first. For more information on how to create a clus
 ![](https://mc.qcloudimg.com/static/img/2e5f9c77ce7f4e96daa6756cdbc2bcb6/3.jpg)
 
 ## Adding an Existing Node
-1. Log in to [CCS Console](https://console.cloud.tencent.com/ccs).
+1. Log in to [TKE Console](https://console.cloud.tencent.com/ccs).
 2. Click **Cluster** on the left navigation bar, and click **Add Existing Node** on the right of the cluster list.
 ![](https://mc.qcloudimg.com/static/img/29b0d7186bd825925051cd6adae2bc3c/4.jpg)
 3. Select a node on the left available node list, and then the ID of this node will display on the right column.
