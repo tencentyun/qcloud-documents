@@ -5,6 +5,7 @@
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 渲染控件
  在拿到视频数据时，需要一个展示数据的平台，这个就是渲染控件，可以实际对应到一个 Android 控件。
@@ -52,7 +53,8 @@ public class RoomHelper implements ILiveRoomOption.onExceptionListener, ILiveRoo
     // 创建房间
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
-                .imsupport(false)       // 不需要IM功能
+                .authBuffer(privateMapKey.getBytes())   // 进房票据
+                .imsupport(false)       // 不需要IM功能              
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
                 .controlRole("user")    // 使用user角色
@@ -124,6 +126,14 @@ roomHelper.createRoom(1234);
 如果能够上抛 onEnterRoom 事件，并且能够看到自己的视频画面，那么恭喜您的房间已经成功创建了。
 
 ## 常见问题
+
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelIMSDK);
+```
+
 #### onException 中收到 EXCEPTION_ENABLE_CAMERA_FAILED 并且 errCode 为 1，找开摄像头失败。
 1. 确认 Android 设备有摄像头并且可以正常使用；
 2. 确认后台没有其它应用占用摄像头；

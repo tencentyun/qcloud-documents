@@ -3,7 +3,7 @@
 This API is used to send voice verification codes (consisting of English letters, numbers or a combination of both) to Chinese users.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoice?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoice?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -46,8 +46,8 @@ string strRand = "7226249334"; //The value of the "random" field in the URL
 string strTime = "1457336869"; //The unix timestamp
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&mobile=13788888888)
            = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
-```           
-           
+```
+
 ## Response Parameters
 ```json
 {
@@ -64,5 +64,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0. |
 | callid | No | String | Indicates the ID of this delivery as well as a delivery record |
 | ext | No | String | User's session content. Tencent server returns it as is. |
-
-

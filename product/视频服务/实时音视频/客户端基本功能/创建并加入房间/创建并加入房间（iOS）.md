@@ -5,6 +5,7 @@
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 渲染控件
  在拿到视频数据时，我们需要一个展示数据的地方，这个就是渲染控件。
@@ -176,6 +177,13 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 退出房间成功之后，房间内资源将被回收，包括 roomID，我们可以以一个相同的 roomID 再创建一个新的房间。
 
 ## 常见问题
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+[[ILiveSDK getInstance] setChannelMode:ILiveChannel_IMSDK withHost:@""];
+```
+
 #### 失败回调，错误码 1003 或 8011
 1. 进房/退房为线性互斥操作，若请求太频繁，sdk 便会上抛 8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)
 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛 1003，这种情况需要先退出上次房间

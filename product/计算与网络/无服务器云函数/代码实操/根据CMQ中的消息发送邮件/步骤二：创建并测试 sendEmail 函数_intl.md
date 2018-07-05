@@ -92,8 +92,11 @@ When a function is created, it is generally tested through the console or API, t
 You can modify both `fromAddr` and `toAddr` in the `msgBody` field to your email address. In this way, you can send an email from and to the same email address to test the validity of email sending. Here, we use `3473058547@qq.com` to test.
 
 3) Click **Run** to view the results. This program is running normally if "send email success" is displayed in both the returned value and the log.
-![](https://mc.qcloudimg.com/static/img/2f660ce173162212ac1fc1bf4aaf1b09/function+test.png)
+
+![](https://main.qcloudimg.com/raw/d9d40307e078d3f625b72b5a4c2a06d2.png)
+
+
 
 4) Go to the mailbox you specified to check whether the email is received. Open the email to check whether configured information is displayed.
-![](https://mc.qcloudimg.com/static/img/a6f6b9c368e208f795e0700f597363c6/email+confirm.png)
+![](https://main.qcloudimg.com/raw/399d00ece487f97afb8d3acdf93ee955.png)
 

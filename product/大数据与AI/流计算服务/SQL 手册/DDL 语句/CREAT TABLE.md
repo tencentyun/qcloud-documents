@@ -55,7 +55,7 @@ CREATE TABLE KafkaSource1 (
 Upsert 类型的表定义了主键（即使用 PRIMARY KEY 定义了主键），支持插入或更新（Upsert）操作，可以接受由 DISTINCT、不含窗口的 JOIN、不含窗口的 GROUP BY 等操作产生的 Upsert 流（Upsert 是 Update OR Insert 的简写，即对于一条数据，如果之前输出过与其同主键的记录，则更新该记录；否则插入新的数据）。这些 Upsert 流只允许写入 Upsert 类型的 CDP 目的表，不能混用；且 Upsert 类型的 CDP 表不允许作为源表。
 
 **示例：Tuple 类型 CDP 数据源和目的表，使用 Processing Time 时间模式**
-对于时间模式和 WATERMARK 的介绍，参见 [本手册2.1.4小节]()。
+对于时间模式和 WATERMARK 的介绍，参见下文 [WATERMARK](https://cloud.tencent.com/document/product/849/18034#watermark) 小节。
 ```
 CREATE TABLE `traffic_output` (
   `f1` VARCHAR,
@@ -69,7 +69,7 @@ CREATE TABLE `traffic_output` (
 ```
 此时使用 Processing Time 模式，定义了一个包含 f1、f2、PROCTIME（自动生成，表示每条记录被处理时的时间戳，可用于时间窗口的描述）列的 CDP Tuple 类型的表，既可以作为数据源（Source），也可以作为数据目的（Sink）。
 
-**示例：Tuple 类型 CDP 数据源和目的表，使用 Event Time**
+**示例：Tuple 类型 CDP 数据源和目的表，使用 Event Time 时间模式**
 ```
 CREATE TABLE `public_traffic_output` (
   `rowtime` TIMESTAMP,
@@ -129,7 +129,7 @@ CREATE TABLE `public_traffic_output` (
 ### Event Time / Processing Time
 对于基于窗口的操作（例如 GROUP BY、OVER、JOIN 条件中时间段的指定），SCS 支持两种时间处理模式：Event Time 和 Processing Time 模式。
 ![](https://main.qcloudimg.com/raw/3b1452e12aa27378ad022b23cba6896c.png)
-Event Time 模式使用输入数据自带的时间戳，容忍一定程度的乱序数据输入（例如更早的数据由于各节点处理能力以及网络波动等不可预知的原因来的却更晚），这个参数可以通过 BOUNDED 的第二个参数指定，单位是毫秒（见下面的[2.1.4.2小节]()）。该处理模式最精确，但对输入数据有自带时间戳的要求。目前只支持数据源中以 timestamp 类型定义的字段，未来将会支持虚拟列，可将其他类型的列应用处理函数转换为系统接受的时间戳。
+Event Time 模式使用输入数据自带的时间戳，容忍一定程度的乱序数据输入（例如更早的数据由于各节点处理能力以及网络波动等不可预知的原因来的却更晚），这个参数可以通过 BOUNDED 的第二个参数指定，单位是毫秒。该处理模式最精确，但对输入数据有自带时间戳的要求。目前只支持数据源中以 timestamp 类型定义的字段，未来将会支持虚拟列，可将其他类型的列应用处理函数转换为系统接受的时间戳。
 Processing Time 处理模式不要求输入数据有时间戳，而是将该条数据被处理的时间戳自动加入数据，并以 PROCTIME（必须全为大写）字段命名。该列是隐藏的，SELECT * 时不会出现，只有用户手动使用时才会被读取。
 >**注意：**
 >对于同一个任务的所有数据源，只允许采用一种时间模式。若某个使用 Event Time 模式，则必须要求所有定义的 Table Source 都定义时间戳并声明 WATERMARK 时间戳字段。
@@ -146,7 +146,7 @@ WATERMARK FOR ROWS(`generation_time`, 100)
 
 这两种声明都可以启用 Event Time 时间处理模式。
 
-若不声明 BOUNDED 类型的 WATERMARK 以指定时间戳字段，则会使用 Processing Time 时间模式，该模式以数据被处理的时间戳来生成 Watermark 并在后续使用，顺序和精确性不能得到保证，可用于时间精确度要求不高的应用场景。
+若不声明  WATERMARK 以指定时间戳字段，则会使用 Processing Time 时间模式，该模式以数据被处理的时间戳来生成 Watermark 并在后续使用，顺序和精确性不能得到保证，可用于时间精确度要求不高的应用场景。
 
 
 

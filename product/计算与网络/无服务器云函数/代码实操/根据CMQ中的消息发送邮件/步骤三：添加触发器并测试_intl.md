@@ -4,7 +4,7 @@ If you complete "Step 2: Create sendEmail Function and Test", and the test resul
 
 2. Select **CMQ topic subscription trigger**, and `sendEmailQueue` created in [Step 1: Create a CMQ Topic](https://cloud.tencent.com/document/product/583/11696) for the CMQ Topic, and then click **Save**.
 
-![](https://mc.qcloudimg.com/static/img/21c9ff3173561a06f7212498e91a62b3/trigger+add.png)
+![](https://main.qcloudimg.com/raw/f5aeeade06e76dd927f04f99a6620e08.png)
 
 ---
 
