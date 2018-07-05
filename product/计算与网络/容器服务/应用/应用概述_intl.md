@@ -1,4 +1,4 @@
-Tencent Cloud CCS supports grouping services by application. Place the services with high relevance into one application for easy management.
+Tencent Cloud KTE supports grouping services by application. Place the services with high relevance into one application for easy management.
 
 ## Application Operations
 

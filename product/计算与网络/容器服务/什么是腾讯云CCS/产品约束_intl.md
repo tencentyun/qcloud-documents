@@ -1,4 +1,4 @@
-## CCS Service Limits
+## KTE Service Limits
 
 | Resource  |  Default Value | 
 | --------|--------|
