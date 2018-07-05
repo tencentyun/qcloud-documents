@@ -1,10 +1,9 @@
-## COS Browser（COS 桌面版）
-
-COS Browser，用户可以可视化、方便地进行数据的上传、下载等操作。
+## 功能概述
+COS Browser 工具即 COS 桌面版工具，用户可以使用该工具进行可视化、方便的数据上传、下载等操作。
 
 ## 使用环境
 
-Windows 32/64 位系统均可
+Windows 32/64 位系统均可。
 
 ## 软件界面
 
@@ -28,4 +27,3 @@ Windows 32/64 位系统均可
 ## 反馈和建议
 
 欢迎提交反馈和建议：[cosbrowser issues](https://github.com/tencentyun/cosbrowser/issues)
-
