@@ -1,5 +1,5 @@
 ## 功能描述
-Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
+DELETE Bucket cors 接口请求实现删除跨域访问配置信息。
 
 ## 请求
 语法示例：
@@ -52,7 +52,7 @@ DELETE /?cors HTTP/1.1
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|http 状态码
 ---|---|---
 None|删除成功，响应体返回为空|204 [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
