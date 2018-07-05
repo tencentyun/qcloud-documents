@@ -1,4 +1,4 @@
-## KTE Service Limits
+## TKE Service Limits
 
 | Resource  |  Default Value | 
 | --------|--------|

@@ -1,6 +1,6 @@
 ## Product Features
 ### Cluster management
-Tencent KTE allows you to manage your container clusters easily and efficiently while ensuring security and reliability, to seamlessly connect to Tencent Cloud's computing, storage, and network capabilities.
+Tencent TKE allows you to manage your container clusters easily and efficiently while ensuring security and reliability, to seamlessly connect to Tencent Cloud's computing, storage, and network capabilities.
 
 | Module | Feature |
 |---|------|
@@ -9,11 +9,11 @@ Tencent KTE allows you to manage your container clusters easily and efficiently 
 | kubernetes management | <li>Supports multiple kubernetes versions and version upgrade</b><br><li>You can manage certificates using kubernetes and operate clusters directly using kubectl.</b><br><li>Namespace can be managed easily on the console. |
 
 ### Application management
-The application management feature provided in Tencent Cloud's KTE can help you quickly create multiple services and deploy applications for different environments with one click.
+The application management feature provided in Tencent Cloud's TKE can help you quickly create multiple services and deploy applications for different environments with one click.
 
 | Module | Feature |
 |---|------|
-| Application Composition | <li>Supports multiple KTE types</b><br><li>Supports multiple resources such as Kuberntes Deployment and DamentSet |
+| Application Composition | <li>Supports multiple TKE types</b><br><li>Supports multiple resources such as Kuberntes Deployment and DamentSet |
 | Application Management | <li>Supports quick application creation via My Template or Template Market</b><br><li>Supports real-time viewing of updated applications</b><br><li>Supports quick deployment/termination of services within an application |
 | Template Management | <li>Supports My Template and Template Market</b><br> <li>Supports quick template copy |
 ### Service management
