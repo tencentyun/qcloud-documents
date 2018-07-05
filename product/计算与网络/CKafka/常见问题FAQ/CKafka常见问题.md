@@ -15,7 +15,8 @@
 | 独享型 |   1000 |  1500 | 500 | 100 |
 
 > 注：实例级别的paritition限制包含了副本数。举例，一个实例下有1个双副本、4分区的topic，还有2个3副本，3分区的topic，则这个实例的总partition个数为(1*2*4)+(2*3*3)=26个。
-consumer group 空闲存活时间 1 个月
+
+> consumer group 空闲存活时间 1 个月
 
 ### Cloud Kafka 是否支持消息压缩？
 当前Cloud Kafka支持开源的snappy和lz4的消息压缩格式。由于Gzip压缩对于CPU的消耗较高，暂未支持。
