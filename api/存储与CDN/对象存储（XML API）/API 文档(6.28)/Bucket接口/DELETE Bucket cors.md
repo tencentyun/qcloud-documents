@@ -1,27 +1,17 @@
 ## 功能描述
-Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
+DELETE Bucket cors 接口请求实现删除跨域访问配置信息。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X DELETE http://{bucket}.cos.{region}.myqcloud.com/?cors \
-  -H 'Accept: application/xml'
+语法示例：
 
 ```
-
-**http:** 
-
-```http
-DELETE http://{bucket}.cos.{region}.myqcloud.com/?cors HTTP/1.1
-Host: 
-
-Accept: application/xml
-
+DELETE /?cors HTTP/1.1
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
+
+> Authorization: Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778))
 
 ### 请求行
 
@@ -62,7 +52,7 @@ DELETE /?cors HTTP/1.1
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|http 状态码
 ---|---|---
 None|删除成功，响应体返回为空|204 [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
@@ -82,7 +72,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 ### 响应
 
 ```
-HTTP/1.1 204 No Content
+HTTP /1.1 204 No Content
 Content-Type: application/xml
 Date: Wed, 16 Aug 2017 12:59:09 GMT
 Server: tencent-cos
