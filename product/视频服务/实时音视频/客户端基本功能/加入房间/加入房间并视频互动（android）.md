@@ -6,7 +6,7 @@
 
 ## 相关概念
  * [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
-  - [privateMapKey](https://cloud.tencent.com/document/product/647/16792#privateMapKey)
+  - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  * [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  
  * 摄像头 id （cameraId） 
