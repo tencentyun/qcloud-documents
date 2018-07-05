@@ -33,7 +33,7 @@ CREATE TABLE KafkaSource1 (
 ## Source 和 Sink
 目前 SCS 可以根据后续的插入语句（INSERT INTO）和选择语句（SELECT FROM）自动判断源和目的表，因而用户无需显式指定源和目的表的类型，但仍然需要注意  CDB（MySQL）只能用作数据源，且只能用于 JOIN 操作的右表。
 
-用户可以在 CREATE TABLE 的 WITH 参数中指定数据源或数据目的类型，例如 type = ‘cdp’ 则表明使用 CDP；type = ‘ckakfa’ 则是使用 CKafka 作为数据源。
+用户可以在 CREATE TABLE 的 WITH 参数中指定数据源或数据目的类型，例如 type = ‘cdp’ 则表明使用 CDP；type = “ckakfa”则是使用 CKafka 作为数据源。
 
 >**注意：**
 >等号后面的参数必须使用半角单引号包围，不允许使用双引号或者全角引号。通常情况下，字段名不区分大小写（例如 `type` 和 `TYPE` 等同），但单引号内部的字符串在引用外部值时要区分大小写（例如 `root` 和 `ROOT` 作为用户名时是不同的）。
@@ -43,11 +43,11 @@ CREATE TABLE KafkaSource1 (
 ### CDP
 | 参数	| 含义 |
 | ----- | ----- |
-| type	| 当数据源、数据目的为 CDP 时，需要指定值为 ‘cdp’。|
+| type	| 当数据源、数据目的为 CDP 时，需要指定值为 “cdp” 。|
 | project	| CDP 的项目名。|
 | topic	| CDP 指定项目的 topic。|
 | startMode	| 可选项，值可以为 EARLIEST（从最早 Offset 读取）、LATEST（从最新 Offset 读取）。|
-| timestampMode | 可选项，用于指定数据源或数据目的表时间戳格式，默认值为 “AUTO”：对于数据源表，默认将根据输入数据的格式自动判断（大于 99999999999 则视为 MILLISECOND，小于等于 99999999999 则视为 SECOND）；对于数据目的表，则默认按 MILLISECOND 格式输出时间戳。<br>若显式设定值为’MILLISECOND’，表示采用毫秒为单位的 Unix 时间戳；’SECOND’ 表示采用秒为单位的 Unix 时间戳。**<br>注意：**由于 “AUTO” 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。|
+| timestampMode | 可选项，用于指定数据源或数据目的表时间戳格式，默认值为 “AUTO”：对于数据源表，默认将根据输入数据的格式自动判断（大于 99999999999 则视为 MILLISECOND，小于等于 99999999999 则视为 SECOND）；对于数据目的表，则默认按 MILLISECOND 格式输出时间戳。<br>若显式设定值为“MILLISECOND”，表示采用毫秒为单位的 Unix 时间戳；“SECOND” 表示采用秒为单位的 Unix 时间戳。**<br>注意：**由于 “AUTO” 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。|
 
 >**注意：**
 > CDP 表分为 Tuple 和 Upsert 两类。Tuple 类型的表不设主键（即没有 PRIMARY KEY 语句），只支持 Append（只追加数据，不会更新之前写入的数据）操作，可接受大多数查询的结果（即Append 流）。
@@ -102,15 +102,15 @@ CREATE TABLE `public_traffic_output` (
 
 | 参数	| 含义 |
 | ----- | ----- |
-| type	| 当数据源、数据目的为 CKafka 时，需要指定值为 ‘ckafka’。|
+| type	| 当数据源、数据目的为 CKafka 时，需要指定值为“ckafka”。|
 | instanceId	| CKafka 的 instanceId。|
 | encoding	| 可以为 json 或 csv，如果选择 csv 则必须同时指定 fieldDelimiter。|
 | topic	| Ckafka 指定 instanceId 下的 topic。|
-| timestampMode | 可选项，用于指定数据源或数据目的表时间戳格式，默认值为 “AUTO”：对于数据源表，默认将根据输入数据的格式自动判断（大于 99999999999 则视为 MILLISECOND，小于等于 99999999999 则视为 SECOND，字符串形式则视为 SQL）；对于数据目的表，则默认按  MILLISECOND 格式输出时间戳。<br>若显式设定值为’MILLISECOND’，表示采用毫秒为单位的 Unix 时间戳；’SECOND’ 表示采用秒为单位的 Unix 时间戳；’SQL’ 表示采用 yyyy-MM-dd HH:mm:SS 形式的字符串时间戳。<br>**注意：**由于 “AUTO” 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。|
+| timestampMode | 可选项，用于指定数据源或数据目的表时间戳格式，默认值为 “AUTO”：对于数据源表，默认将根据输入数据的格式自动判断（大于 99999999999 则视为 MILLISECOND，小于等于 99999999999 则视为 SECOND，字符串形式则视为 SQL）；对于数据目的表，则默认按  MILLISECOND 格式输出时间戳。<br>若显式设定值为“MILLISECOND”，表示采用毫秒为单位的 Unix 时间戳；“SECOND”表示采用秒为单位的 Unix 时间戳；“SQL”表示采用 yyyy-MM-dd HH:mm:SS 形式的字符串时间戳。<br>**注意：**由于 “AUTO” 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。|
 | fieldDelimiter	| encoding 为 CSV 时可选，指定 CSV 各字段的分隔符。默认为逗号分隔，即值为 ‘,’。|
 | startMode	| 可选项，值可以为 EARLIEST（从最早 Offset 读取）、LATEST（从最新 Offset 读取）、GROUP（从指定 groupId 读取，必须同时使用 groupId 参数）。|
-| groupId	| 指定读取的 groupId（仅用于 startMode = ‘GROUP’ 模式）。|
-| ignoreErrors | 可选项，默认为 true，表示跳过错误的行. 如果设为 false 则遇到错误数据会导致程序直接终止。|
+| groupId	| 指定读取的 groupId（仅用于 startMode = “GROUP”模式）。|
+| ignoreErrors | 可选项，默认为 true，表示跳过错误的行；如果设为 false 则遇到错误数据会导致程序直接终止。|
 
 >**注意：**
 >- 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号(“”) 来替换每个出现的双引号。
