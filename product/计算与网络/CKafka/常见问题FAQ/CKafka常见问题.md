@@ -1,7 +1,7 @@
 ### Cloud Kafka 兼容哪一版的开源 Kafka？
 目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
 
-### CKafka的产品限制有哪些？
+### Cloud Kafka的产品限制有哪些？
 根据实例的不同规格，有如下限制：
 
 | 产品规格 | 实例级别topic数 | 实例级别partition数 | 实例级别consumer group数 | 单topic支持的partition数   |
