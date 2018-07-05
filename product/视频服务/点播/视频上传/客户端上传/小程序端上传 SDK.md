@@ -42,8 +42,8 @@ getSignature: function(callback) {
 ```
  VodUploader.start({
     videoFile: file, //必填，把chooseVideo回调的参数(file)传进来
-    fileName: This.fileName, //选填，视频名称，强烈推荐填写(如果不填，则默认为“来自微信小程序”)
-    getSignature: This.getSignature, //必填，获取签名的函数
+    fileName: fileName, //选填，视频名称，强烈推荐填写(如果不填，则默认为“来自微信小程序”)
+    getSignature: getSignature, //必填，获取签名的函数
     success: function(result) {
         console.log('success');
         console.log(result);
