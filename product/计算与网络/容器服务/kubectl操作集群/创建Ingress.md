@@ -1,4 +1,4 @@
-## kubectl创建Ingress
+## 创建Ingress
 
 ### 创建公网Ingress
 ```shell

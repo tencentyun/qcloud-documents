@@ -1,4 +1,4 @@
-## kubectl创建Service
+## 创建Service
 
 ### 创建公网访问方式的服务
 ```shell
