@@ -206,7 +206,7 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         </Owner>
         <StorageClass>STANDARD</StorageClass>
     </Contents>
-</ListBucketResult
+</ListBucketResult>
 ```
 
 
