@@ -33,7 +33,7 @@ CREATE TABLE KafkaSource1 (
 ## Source 和 Sink
 目前 SCS 可以根据后续的插入语句（INSERT INTO）和选择语句（SELECT FROM）自动判断源和目的表，因而用户无需显式指定源和目的表的类型，但仍然需要注意  CDB（MySQL）只能用作数据源，且只能用于 JOIN 操作的右表。
 
-用户可以在 CREATE TABLE 的 WITH 参数中指定数据源或数据目的类型，例如 type = ‘cdp’ 则表明使用 CDP；type = ‘ckakfa’则是使用 CKafka 作为数据源。
+用户可以在 CREATE TABLE 的 WITH 参数中指定数据源或数据目的类型，例如 type = ‘cdp’ 则表明使用 CDP；type = ‘ckakfa’ 则是使用 CKafka 作为数据源。
 
 >**注意：**
 >等号后面的参数必须使用半角单引号包围，不允许使用双引号或者全角引号。通常情况下，字段名不区分大小写（例如 `type` 和 `TYPE` 等同），但单引号内部的字符串在引用外部值时要区分大小写（例如 `root` 和 `ROOT` 作为用户名时是不同的）。
