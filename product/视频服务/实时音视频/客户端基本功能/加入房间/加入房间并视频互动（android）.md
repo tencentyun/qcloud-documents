@@ -8,15 +8,14 @@
 * [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
 * [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
 * [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
- 
- * 摄像头 id （cameraId） 
+* 摄像头 id （cameraId） 
   Andorid 手机中一般有两个摄像头: 前置摄像头和后置摄像头，SDK 通过 cameraId 来区分。
 	
 |常量|描述|
 |--|--|
-|ILiveConstants.NONE_CAMERA|无效摄像头id(一般表示摄像头未开启)|
-|ILiveConstants.FRONT_CAMERA|前置摄像头id|
-|ILiveConstants.BACK_CAMERA|后置摄像头id|
+|ILiveConstants.NONE_CAMERA|无效摄像头 id(一般表示摄像头未开启)|
+|ILiveConstants.FRONT_CAMERA|前置摄像头 id|
+|ILiveConstants.BACK_CAMERA|后置摄像头 id|
 
 ## 加入房间
 加入房间与[ 创建房间 ](/document/product/647/16806)中的房间模块基本一致，不同的里这里需要的方式是  joinRoom。
