@@ -90,7 +90,7 @@ Content-Length: 64
 
 ### Response
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed, 28 Oct 2015 20:32:00 GMT
