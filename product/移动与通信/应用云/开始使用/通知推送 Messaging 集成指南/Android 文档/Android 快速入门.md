@@ -10,11 +10,11 @@
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
+![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
 
 >**注意：**
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
@@ -53,7 +53,7 @@ I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda4
 
 打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
 
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.png)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.gif)
 
 推送通知栏消息成功后，App 在运行状态下会收到通知栏消息。
 

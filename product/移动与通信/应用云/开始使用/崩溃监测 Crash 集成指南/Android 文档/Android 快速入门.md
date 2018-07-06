@@ -10,11 +10,11 @@
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
+![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
 
 >**注意：**
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
@@ -44,7 +44,7 @@ TACCrashSimulator.testJavaCrash();
 
 应用 Crash 后，您可以登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，然后点击【异常上报】下的【异常分析】，即可查看上报到控制台的异常，如果没有上报，您可以查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)
 
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/crash/crash_report.png)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/crash/crash_report.gif)
 
 ## Proguard配置
 
