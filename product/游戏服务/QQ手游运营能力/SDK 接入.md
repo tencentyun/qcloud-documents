@@ -74,13 +74,14 @@
   </tbody>
 </table>
  
--  注意：第三方渠道是否可以接入除游戏分享能力外，更多的 QGSK 能力，需开发者自行跟各渠道沟通。
+>**注意：**
+>第三方渠道是否可以接入除游戏分享能力外，更多的 QGSK 能力，需开发者自行跟各渠道沟通。
 
  
-     请下载所需的SDK对各渠道游戏包进行接入。QGSK 包内接口代码及使用说明、接口相关参数说明，可查看在线文档或下载对应版本 QGSK 接口说明文档。
+请下载所需的 SDK 对各渠道游戏包进行接入。QGSK 包内接口代码及使用说明、接口相关参数说明，可查看在线文档或下载对应版本 QGSK 接口说明文档。
     
-     [iOS 技术接入文档下载](https://mc.qcloudimg.com/static/archive/99b94c92367682861cba4ec80571bb31/API+Document_iOS.docx) >>
+ [iOS 技术接入文档下载](https://mc.qcloudimg.com/static/archive/99b94c92367682861cba4ec80571bb31/API+Document_iOS.docx) >>
 
-    [Android 技术接入文档下载](https://mc.qcloudimg.com/static/archive/dc2654f41921ed5c94960efa3ecabade/API+Document_Android.docx) >>
+ [Android 技术接入文档下载](https://mc.qcloudimg.com/static/archive/dc2654f41921ed5c94960efa3ecabade/API+Document_Android.docx) >>
 
-    接入过程中若遇到技术问题，且文档内记录无法解决您的问题，请提交工单进行咨询。
+接入过程中若遇到技术问题，且文档内记录无法解决您的问题，请提交工单进行咨询。
