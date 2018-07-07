@@ -1,8 +1,7 @@
-## 创建pv&pvc
-当前仅支持CBS类型的PV&PVC， 敬请期待CFS和COS存储类型支持。
-### 静态创建CBS类型PV
-#### 第一步：通过已有CBS创建PV (可选)
-若未通过本步骤创建PV,直接执行第二步将PVC自动创建对应的PV。
+当前仅支持 CBS 类型的 PV&PVC， 敬请期待 CFS 和 COS 存储类型支持。
+## 静态创建 CBS 类型 PV&PVC
+### 1. 创建 PV（可选）
+通过已有 CBS 创建 PV。若未通过本步骤创建 PV，直接执行步骤 2 时，创建 PVC 将自动创建对应的 PV。
 ```
 apiVersion: v1
 kind: PersistentVolume
@@ -19,8 +18,8 @@ spec:
   storageClassName: cbs
 ```
 
-#### 第二步：创建PVC
-
+### 2. 创建 PVC
+创建命令如下：
 ```yaml
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -33,15 +32,12 @@ spec:
   resources: 
     requests:
       storage: 10Gi 
-
-
-# 普通云盘大小必须是10的倍数，最小为10，最大为4000
-# 高效云盘最小为50G
-# SSD云硬盘最小为200GB，具体策略见cbs文档
-
 ```
+- 普通云盘大小必须是 10 的倍数，最小为 10，最大为 4000。
+- 高效云盘最小为 50 GB。
+- SSD 云硬盘最小为 200 GB，具体策略见 [云硬盘文档](https://cloud.tencent.com/document/product/362)。
 
-#### 使用PVC
+### 3. 使用 PVC
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -71,10 +67,9 @@ spec:
 ```
 
 
-### 动态创建CBS盘
-#### 第一步：创建StorageClass
-如果不创建StorageClass， 集群内默认存在name为cbs的StorageClass。
-
+## 动态创建 CBS 类型 PV&PVC
+### 1. 创建 StorageClass
+如果不创建 StorageClass， 集群内将默认存在 name 为 cbs 的 StorageClass。
 ```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -94,8 +89,8 @@ parameters:
   
 ```
 
-
-#### 使用腾讯云盘创建多实例StatefulSet
+### 2. 创建多实例 StatefulSet
+使用云硬盘 CBS 创建多实例 StatefulSet：
 ``` yaml
 apiVersion: apps/v1beta1
 kind: StatefulSet
@@ -129,4 +124,3 @@ spec:
         requests:
           storage: 10Gi
 ```
-
