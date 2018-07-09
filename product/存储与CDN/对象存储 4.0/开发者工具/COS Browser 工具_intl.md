@@ -12,9 +12,9 @@ COS Browser makes it easy for users to upload and download data in a visualized 
 
 Download setup file (double click to install):
 
-- [EXE for Windows OS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
+- [Download Windows OS Client](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
 
-- [DMG for Mac OS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
+- [Download Mac OS Client](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 
 ## How to Use
