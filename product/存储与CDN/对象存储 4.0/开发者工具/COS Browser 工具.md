@@ -13,9 +13,9 @@ Windows 32/64 位系统均可。
 
 下载安装包（下载后双击安装）：
 
-- [Window 桌面端](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
+- [Window 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
 
-- [Mac OS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
+- [Mac OS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 ## 使用方法
 
