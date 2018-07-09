@@ -63,7 +63,7 @@ dependencies {
 
 ## 第四步：配置第三方渠道
 
-分享 SDK 需要配置QQ、微信等第三方渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://cloud.tencent.com/document/product/666/17846)。
+分享 SDK 需要配置社交渠道才能正常工作，关于如何配置第三方渠道，请参见 [配置第三方渠道](https://cloud.tencent.com/document/product/666/17846)。
 
 到此您已经成功接入了 MobileLine 分享服务。
 
