@@ -8,7 +8,7 @@
 
 ## 第二步：添加配置文件（已完成请跳过）
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
 
@@ -17,7 +17,7 @@
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
 
 >**注意：**
->请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+>请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 APK 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
@@ -42,13 +42,13 @@ dependencies {
 TACCrashSimulator.testJavaCrash();
 ```
 
-应用 Crash 后，您可以登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，然后点击【异常上报】下的【异常分析】，即可查看上报到控制台的异常，如果没有上报，您可以查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)
+应用 Crash 后，您可以登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，然后单击【异常上报】下的【异常分析】，即可查看上报到控制台的异常，如果没有上报，您可以查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/crash/crash_report.gif)
 
-## Proguard配置
+## Proguard 配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了 SDK 可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core

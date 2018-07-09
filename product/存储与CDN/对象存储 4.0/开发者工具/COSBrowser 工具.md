@@ -1,9 +1,9 @@
 ## 功能概述
-COS Browser 工具即 COS 桌面版工具，用户可以使用该工具进行可视化、方便的数据上传、下载等操作。
+COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可视化、方便的数据上传、下载等操作。
 
 ## 使用环境
 
-Windows 32/64 位系统均可。
+Windows 操作系统、MacOS 操作系统。
 
 ## 软件界面
 
@@ -13,7 +13,9 @@ Windows 32/64 位系统均可。
 
 下载安装包（下载后双击安装）：
 
-- [Window 安装包](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
+- [COSBrowser Window 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
+
+- [COSBrowser macOS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 ## 使用方法
 

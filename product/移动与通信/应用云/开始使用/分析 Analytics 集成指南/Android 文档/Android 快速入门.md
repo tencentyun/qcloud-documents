@@ -8,7 +8,7 @@
 
 ## 第二步：添加配置文件（已完成请跳过）
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
 
@@ -75,7 +75,7 @@ public class MyCustomApp extends Application {
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.tac">
   <application
-    <!-- 这里替换成你自己的 Application 子类 -->
+    <!-- 这里替换成您自己的 Application 子类 -->
     android:name="com.example.tac.MyCustomApp"
     ...>
   </application>
@@ -94,11 +94,11 @@ app 启动后，您可以从 logcat 中 过滤 tag `tacApp` ，查看到服务�
 04-18 11:40:53.134 30623-30623/com.tencent.tac.sample I/tacApp: Boot Up : com.tencent.tac.analytics.TACAnalyticsService
 ```
 
-如果没有看到启动日志，你可以从 logcat 中 过滤 tag `MtaSDK`，查看是否有错误信息。
+如果没有看到启动日志，您可以从 logcat 中 过滤 tag `MtaSDK`，查看是否有错误信息。
 
 ### 3. 查看上报日志
 
-在 app 中打开一个 Activity，您可以从 logcat 中 过滤 tag `MtaSDK`，查看上报请求和返回结果的日志。如果看到 `http get response data:{"ret":0}`，说明上报成功。
+在 App 中打开一个 Activity，您可以从 logcat 中 过滤 tag `MtaSDK`，查看上报请求和返回结果的日志。如果看到 `http get response data:{"ret":0}`，说明上报成功。
 
 ```
 04-18 13:48:27.698 1550-1577/com.tencent.tac.sample D/MtaSDK: [StatDispatcher(9159): SourceFile:268] - before Gzip:1159 bytes, after Gzip:655 bytes
@@ -108,13 +108,13 @@ app 启动后，您可以从 logcat 中 过滤 tag `tacApp` ，查看到服务�
 
 ### 4. 控制台查看数据
 
-打开 MobileLine 的[控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
+登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
 
 ![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A7%88-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.png)
 
-## Proguard配置
+## Proguard 配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了 SDK 可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core

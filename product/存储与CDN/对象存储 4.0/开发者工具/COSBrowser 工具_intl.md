@@ -1,17 +1,20 @@
-## COS Browser (COS for PC)
+## COSBrowser (COS for PC)
 
-COS Browser makes it easy for users to upload and download data in a visualized manner.
+COSBrowser makes it easy for users to upload and download data in a visualized manner.
 
 ## Operating Environment
 
-32-bit or 64-bit version of Windows
+Windows OS、Mac OS
 
 ## Software Interface
 ![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
 ## Download and Installation
 
 Download setup file (double click to install):
-- [EXE for Windows OS](https://cos5.cloud.tencent.com/cosbrowser/win/cosbrowser-setup-latest.exe)
+
+- [COSBrowser Windows OS Client](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
+
+- [COSBrowser Mac OS Client](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 
 ## How to Use
