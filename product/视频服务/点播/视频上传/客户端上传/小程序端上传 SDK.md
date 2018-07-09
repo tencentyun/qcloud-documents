@@ -79,3 +79,4 @@ getSignature: function(callback) {
 2. 只支持上传视频。
 3. 不支持断点续传和分片上传。
 4. 小程序的 chooseVideo API，目前支持上传文件为 25MB。
+5. request 和 uploadFile 合法域名，请添加`vod2.qcloud.com`和您的上传路径，如 demo 的`32d70eabvodgzp1253668508-10022853.cos.ap-guangzhou-2.myqcloud.com`。
