@@ -4,7 +4,7 @@ COSBrowser makes it easy for users to upload and download data in a visualized m
 
 ## Operating Environment
 
-32-bit or 64-bit version of Windows
+Windows OS、Mac OS
 
 ## Software Interface
 ![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
