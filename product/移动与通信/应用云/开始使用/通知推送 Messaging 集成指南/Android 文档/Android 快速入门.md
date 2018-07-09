@@ -8,7 +8,7 @@
 
 ## 第二步：添加配置文件（已完成请跳过）
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
 
@@ -17,7 +17,7 @@
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
 
 >**注意：**
->请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+>请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 APK 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
@@ -45,23 +45,24 @@ dependencies {
 I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda473ef44de899cf45111fd83031156
 ```
 
+> **注意：**
 > 这里日志打印的 token 信息标识推送时的唯一 ID，您可以通过 token 信息给该设备发送通知。
 
 如果没有打印以上日志，请查看 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
 
 ### 在控制台上推送通知栏消息
 
-打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
+打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后单击【确认推送】。
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.gif)
 
 推送通知栏消息成功后，App 在运行状态下会收到通知栏消息。
 
-> 这里您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
+> **注意：**您也可以选择推送给所有的设备，设备收到消息可能会有一定的延时。
 
-## Proguard配置
+## Proguard 配置
 
-如果你的代码开启了混淆，为了sdk可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
+如果您的代码开启了混淆，为了 SDK 可以正常工作，请在 `proguard-rules.pro`文件中添加如下配置：
 
 ```
 # MobileLine Core
@@ -109,14 +110,14 @@ I/tacApp: TACMessagingService register success, code is 0, token is 495689dbfda4
 
 **注册回调接口非常重要**，您可以注册回调接口来接收推送服务在不同状态下给您的回调，具体有：
 
-- `onRegisterResult()` : 注册 Messaging 服务后回调。
-- `onUnregisterResult()` : 反注册 Messaging 服务后回调。
-- `onMessageArrived()` : 收到透传消息（即控制台上的应用内消息）后回调。
-- `onNotificationArrived()` : 收到通知栏消息后回调。
-- `onNotificationClicked()` : 点击通知栏消息后回调。
-- `onNotificationDeleted()` : 删除通知栏消息后回调。
-- `onBindTagResult()` : 绑定标签后回调。
-- `onUnbindTagResult()` : 解绑标签后回调。
+- `onRegisterResult()` ：注册 Messaging 服务后回调。
+- `onUnregisterResult()` ：反注册 Messaging 服务后回调。
+- `onMessageArrived()`：收到透传消息（即控制台上的应用内消息）后回调。
+- `onNotificationArrived()` ：收到通知栏消息后回调。
+- `onNotificationClicked()` ：单击通知栏消息后回调。
+- `onNotificationDeleted()` ：删除通知栏消息后回调。
+- `onBindTagResult()`：绑定标签后回调。
+- `onUnbindTagResult()` ：解绑标签后回调。
 
 如何注册回调接口，请参见 [这里](https://cloud.tencent.com/document/product/666/16848)。
 
