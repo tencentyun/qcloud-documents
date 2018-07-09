@@ -3,7 +3,7 @@ COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可�
 
 ## 使用环境
 
-Windows 32/64 位系统、macOS 系统。
+Windows 操作系统、MacOS 操作系统。
 
 ## 软件界面
 
