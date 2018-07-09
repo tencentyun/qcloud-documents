@@ -15,11 +15,11 @@
 
 在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
+![](http://tacimg-1253960454.file.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
+![](http://tac-android-libs-1253960454.file.myqcloud.com/tac_android_configuration.jpg)
 
 >**注意：**
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 APK 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.+'
+	compile 'com.tencent.tac:tac-core:1.2.+'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.+' 
-	compile 'com.tencent.tac:tac-messaging:1.1.+'
+	compile 'com.tencent.tac:tac-core:1.2.+' 
+	compile 'com.tencent.tac:tac-messaging:1.2.+'
 }
 ```
 
@@ -65,11 +65,18 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.+' 
-	compile 'com.tencent.tac:tac-messaging:1.1.+'
-	compile 'com.tencent.tac:tac-crash:1.1.+'
+	compile 'com.tencent.tac:tac-core:1.2.+' 
+	compile 'com.tencent.tac:tac-messaging:1.2.+'
+	compile 'com.tencent.tac:tac-crash:1.2.+'
 }
 ```
+
+此外，我们提供了 gradle 插件，帮您进一步降低集成成本，
+
+```
+apply plugin: 'com.tencent.tac.services'
+```
+
 > **注意：**
 > 使用 Payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
