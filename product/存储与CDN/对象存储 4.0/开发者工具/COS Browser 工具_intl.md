@@ -1,6 +1,6 @@
-## cosbrowser (COS for PC)
+## COSBrowser (COS for PC)
 
-cosbrowser makes it easy for users to upload and download data in a visualized manner.
+COSBrowser makes it easy for users to upload and download data in a visualized manner.
 
 ## Operating Environment
 
