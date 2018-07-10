@@ -27,7 +27,7 @@
 ## 添加依赖( 集成 SDK )
 修改 build.gradle 文件，在 dependencies 中添加 iLiveSDK 的依赖：
 ```
-compile 'com.tencent.ilivesdk:ilivesdk:1.8.5'
+compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
 
 ## 初始化 iLiveSDK

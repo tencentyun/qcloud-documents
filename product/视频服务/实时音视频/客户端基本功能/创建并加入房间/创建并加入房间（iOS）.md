@@ -38,6 +38,8 @@
     
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    // 配置进房票据
+    option.authBuffer = privateMapKey;
     option.imOption.imSupport = NO;
     // 设置房间内音视频监听
     option.memberStatusListener = liveRoomVC;
@@ -181,7 +183,7 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
-[[ILiveSDK getInstance] setChannelMode:ILiveChannel_IMSDK withHost:@""];
+[[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
 ```
 
 #### 失败回调，错误码 1003 或 8011
