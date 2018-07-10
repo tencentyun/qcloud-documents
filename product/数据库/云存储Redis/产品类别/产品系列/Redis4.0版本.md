@@ -1,7 +1,7 @@
 
 ### Redis4.0简介
 Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的分布式架构，通过一个产品形态支持单机、主从、集群以及多副本集，支持垂直和水平扩容和缩容，做到最大的灵活性。<br>
-![](https://main.qcloudimg.com/raw/a4174fab14d65cb5fae8af6717b9b399.png)
+![](https://main.qcloudimg.com/raw/a5dc658ec13ce6f298f0e67621a311cc.png)
 
 ### 4.0版本特点
 
