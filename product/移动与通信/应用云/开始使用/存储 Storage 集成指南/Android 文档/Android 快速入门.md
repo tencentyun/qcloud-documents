@@ -11,11 +11,11 @@
 
 在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.gif)
+![](http://tacimg-1253960454.file.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.gif" width="50%" height="50%">
+![](http://tac-android-libs-1253960454.file.myqcloud.com/tac_android_configuration.jpg)
 
 >**注意：**
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
@@ -23,14 +23,31 @@
 
 ## 第三步：集成 SDK
 
-您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Storage 服务依赖：
+您需要在工程级 build.gradle 文件中添加 SDK 插件的依赖：
+
+```
+buildscript {
+	...
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        // 添加这行
+        classpath 'com.tencent.tac:tac-services-plugin:1.0.0'
+    }
+}
+```
+
+在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 Storage 服务依赖，并使用插件：
 
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.+'
-	compile 'com.tencent.tac:tac-storage:1.1.+'
+	compile 'com.tencent.tac:tac-core:1.2.+'
+	compile 'com.tencent.tac:tac-storage:1.2.+'
 }
+...
+
+// 在文件最后使用插件
+apply plugin: 'com.tencent.tac.services'
 ```
 
 ## 配置使用权限

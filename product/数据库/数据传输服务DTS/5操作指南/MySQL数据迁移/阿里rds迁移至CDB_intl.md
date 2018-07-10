@@ -1,8 +1,8 @@
-This document describes how to migrate data from Alibaba Cloud Database (RDS) to Tencent Cloud's CDB using the data migration tool DTS provided by Tencent Cloud.
+This document describes how to migrate data from Alibaba Cloud Database (RDS) to Tencent Cloud's TencentDB using the data migration tool DTS provided by Tencent Cloud.
 
 ## Environment Requirements
 Alibaba Cloud CVM MySQL 5.6 or earlier version.
-Tencent Cloud CDB MySQL 5.6 instance.
+Tencent Cloud TencentDB MySQL 5.6 instance.
 
 ## Procedure
 
@@ -15,7 +15,7 @@ Tencent Cloud CDB MySQL 5.6 instance.
  3. Hover the cursor over the profile photo in the upper right corner and choose **accesskeys** in the drop-down box. You can obtain the AccessKey in the page.
 	![](https://main.qcloudimg.com/raw/2d67bd05558d5762c322d0c33d344332.png)
 	
-### Create DTS tasks of Tencent Cloud CDB
+### Create DTS tasks of Tencent Cloud TencentDB
 1. Log in to the console, go to the Data Migration page and click **New Task**.
 ![](https://mc.qcloudimg.com/static/img/2ad6200dc53556f2c03f45e7a1af8320/image.png)
 2. On the page you are redirected to, complete task configuration, source database configuration, and destination database configuration. Details:
@@ -29,13 +29,13 @@ Tencent Cloud CDB MySQL 5.6 instance.
 Select the connection type as needed. Enter the connection information of the corresponding source database.
 ![](https://main.qcloudimg.com/raw/b099d7a519f80fcdb450e8476a17d314.png)
 >**Note:**
-> You need to activate a IP whitelist for external mapping by CDB in Alibaba Cloud. Otherwise, the connectivity test fails.
+> You need to activate a IP whitelist for external mapping by TencentDB in Alibaba Cloud. Otherwise, the connectivity test fails.
 >For example:
 >1. For the mapping of Tencent Cloud's MySQL with public IP, you need to add the corresponding public IP to Alibaba Cloud's whitelist.
 >2. For "direct connect" or "VPN" database configured in DTS configuration, an IP for external mapping will appear after the task is generated. You must add the IP to Alibaba Cloud's whitelist.
 
 ##### Destination database information
-Select CDB instance for the destination instance type and enter the link information of the destination database.
+Select TencentDB instance for the destination instance type and enter the link information of the destination database.
 ![](https://main.qcloudimg.com/raw/28b1998fd0b7e512be01c281490703bb.png)
 ### Select the database to migrate
 Select the database to be migrated, and then create and check migration task information.
