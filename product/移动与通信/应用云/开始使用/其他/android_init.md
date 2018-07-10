@@ -5,7 +5,7 @@ Android Studio 说明
 1. 下载 tac\_services\_configurations.zip
 2. 解压 tac\_services\_configurations.zip 后，将所有的 json 文件添加到您项目应用模块的根目录下。
 
-![](http://tac-android-libs-1253960454.file.myqcloud.com/tac_android_configuration.jpg)
+![](http://tac-android-libs-1253960454.file.myqcloud.com/tac_android_configuration_2%2B.jpg)
 
 
 ## 添加 SDK 
