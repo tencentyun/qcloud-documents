@@ -24,7 +24,7 @@ If there's no problem with the video stream, then you need to check whether the 
 - [**Tencent Cloud Web player:**](https://cloud.tencent.com/document/product/454/7503) Supports playback URLs based on multiple protocols, and adopts the optimal playback policy based on the current platform (PC/Android/iOS). The internal selective retry logic can also deal with the Lazy Start of HLS (m3u8).
 
 ### 3.2 RTMP SDK (B)
-If [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) works normally for playback, it's recommended to check whether the interfacing logic is incorrect by referring to the RTMP SDK playback document ([iOS](https://cloud.tencent.com/document/product/454/7880) and [Android](https://cloud.tencent.com/document/product/454/7886)).
+If [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) works normally for playback, it's recommended to check whether the interfacing logic is incorrect by referring to the RTMP SDK playback document ([iOS](https://cloud.tencent.com/document/product/454/7880) & [Android](https://cloud.tencent.com/document/product/454/7886)).
 
 ## Step 4. Check for firewall blocking (C)
 It is common that the corporate network environments of many customers restrict video playback through firewalls that detect whether the resources requested by HTTP are streaming media resources (After all, no boss wants his employees to watch videos during working hours). The fact that you can watch the LVB normally over 4G network but cannot watch it over your company's Wi-Fi network indicates your company has imposed restrictions on the network policies. In this case, contact the administrator for a special treatment of your IP.

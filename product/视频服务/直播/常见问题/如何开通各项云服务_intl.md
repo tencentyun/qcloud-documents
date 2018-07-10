@@ -27,17 +27,17 @@ Each Tencent Cloud account for which the LVB service has been activated is assig
 
 <h3 id="LVB_BIZID">1.4 LVB BIZID</h3>
 
-Each Tencent Cloud account for which the LVB service has been activated is assigned an LVB BIZID, which is used to construct the push and playback URLs in the LVB Code. After the LVB Code mode is enabled, the BIZID appears at the top of [LVB Console](https://console.cloud.tencent.com/live), as shown below:
+Each Tencent Cloud account for which the LVB service has been activated is assigned an LVB BIZID. An LVB BIZID is used to construct the push and playback URLs in the LVB Code. After the LVB Code mode is enabled, the BIZID appears at the top of [LVB Console](https://console.cloud.tencent.com/live), as shown below:
 ![](//mc.qcloudimg.com/static/img/b0b423fb2298f35dc77e359f3b705bd7/image.png)
 
 <h3 id="LVB_PUSH_SECRECT">1.5 Push hotlink protection key</h3>
 
-Push hotlink protection key is a security protection which ensures that only your App users can push streams. The key can be specified when LVB Code is enabled, and can be modified as needed in the [LVB Console](https://console.cloud.tencent.com/live/livecodemanage).
+Push hotlink protection key is a security protection which ensures that only your App users can push streams. The key can be specified when LVB Code is enabled, and can be modified as needed in the [LVB Console](https://console.cloud.tencent.com/live/livecodemanage):
 ![](//mc.qcloudimg.com/static/img/6be1d875f1120a16d3692c60bb4485a9/image.png)
 
 <h3 id="LVB_API_SECRECT">1.6 API authentication key</h3>
 
-An API access authentication key is required when your backend server calls the [Cloud API](https://cloud.tencent.com/doc/api/258/5956) related to Tencent Cloud LVB Code, which allows Tencent Cloud to verify the validity of the call. The key can be specified when LVB Code is enabled, and can be modified as needed in the [LVB Console](https://console.cloud.tencent.com/live/livecodemanage).
+An API access authentication key is required when your backend server calls the [Cloud API](https://cloud.tencent.com/doc/api/258/5956) related to Tencent Cloud LVB Code, and allows Tencent Cloud to verify the validity of the call. The key can be specified when LVB Code is enabled, and can be modified as needed in the [LVB Console](https://console.cloud.tencent.com/live/livecodemanage):
 ![](//mc.qcloudimg.com/static/img/e5034b47cead66be46b1f81a1fea8274/image.png)
 
 <h3 id="LVB_EVENT_URL">1.7 Event notification URL</h3>
@@ -60,7 +60,7 @@ Each Tencent Cloud account has a unique VOD APPID, which is located in an unobvi
 
 Log in to the [IM Console](https://console.cloud.tencent.com/avc), and then click **Activate IM**.
 
-The IM application list is empty under a new Tencent Cloud account. Click the **New Application** button to create an application.
+The IM application list is empty under a new Tencent Cloud account. Click the **New Application** button to create an application:
 ![](https://mc.qcloudimg.com/static/img/8eff5d50253bc93f6866eaa0905a6a09/image.jpg)
 
 <h3 id="IM_SDKAPPID"> 3.2 SDK APPID</h3>
@@ -80,7 +80,7 @@ Click **Save** to complete the IM access configuration for the App. At the same 
 
 <h3 id="IM_ADMIN"> 3.4 Administrator</h3>
 
-IM provides a set of [REST](https://cloud.tencent.com/document/product/269/1520) APIs for your backend server to call IM service directly, for example, to create a group, send system messages and remove a user from the group. But the IM REST API can only be called by an administrator, that is, you need an administrator username and a corresponding password (UserSig). For more information, please see [DOC](https://cloud.tencent.com/document/product/269/1519#3-.E8.B0.83.E7.94.A8.E6.96.B9.E6.B3.95).
+IM provides a set of [REST](https://cloud.tencent.com/document/product/269/1520) APIs for your backend server to call IM service directly, for example, to create a group, send system messages and remove a user from the group. But the IM REST API can only be called by an administrator, that is, you need an administrator username and password (UserSig). For more information, please see [DOC](https://cloud.tencent.com/document/product/269/1519#3-.E8.B0.83.E7.94.A8.E6.96.B9.E6.B3.95).
 
 ![](https://mc.qcloudimg.com/static/img/ba88ee27c2ae30d27b9a9170b35cc0d0/image.jpg)
 
@@ -92,7 +92,7 @@ As we all know, QQ can receive and send messages of private chats and group chat
 
 You can specify any username you like, but Tencent Cloud will verifies its validity with asymmetric encryption technology. The encryption key and the decryption key used in asymmetric encryption are different. The private key can be kept on your server to asymmetrically encrypt the userid and appid to generate the usersig. At the same time, Tencent Cloud keeps the corresponding public key to verify whether the usersig is valid and is signed by your server.
 
-The public and private keys used to calculate the usersig signature can be downloaded from the following location:
+The public and private keys used to calculate the userig signature can be downloaded from the following location:
 
 ![](https://mc.qcloudimg.com/static/img/dc4fd954ebc35f73093708607759828e/image.jpg)
 
@@ -106,7 +106,7 @@ Cloud Object Storage (COS) is available for any new Tencent Cloud account which 
 ### 4.2 What is Bucket?
 Bucket is a technical term that can be simply understood as **disk partition**. For example, the COS service purchased from Tencent Cloud can be compared to a new disk purchased from JD.COM. Generally, you partition and format the disk before storing data on it. A partition you create on the disk is similar to a bucket you create on Tencent Cloud COS.
 
-### 4.3 Querying the bucket name
+### 4.3 Bucket name
 The name you specified during bucket creation is a bucket name. For example, in Example 4.1, xiaozhibo is a bucket name.
 
 ### 4.4 COS APPID
@@ -118,7 +118,7 @@ Click the [Key Management](https://console.cloud.tencent.com/cos/project) tab on
 ![](//mc.qcloudimg.com/static/img/17778b870bae9ad8302ce9774430ca7f/image.png)
 
 ## 5. Cloud Virtual Machine (CVM) (optional)
-You can use your own server as the business server for deploying backend script. But you're recommended to use Tencent Cloud's CVM for a higher reliability. In addition, if you select to use Tencent Cloud's Cloud Database as a distributed database, you must use Tencent Cloud CVM to access the database.
+You can use your own server as the business server for deploying backend script. But you're recommended to use Tencent Cloud's CVM for a higher reliability. In addition, if you select Tencent Cloud's Cloud Database to use as a distributed database, you must use Tencent Cloud CVM to access the database.
 Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/overview), and then click **Purchase CVM** to go to the CVM purchase page:
 ![](//mc.qcloudimg.com/static/img/9e479e479a8a6cc72678881f400eefd4/image.jpg)
 Click **Next** to go to the image selection page. You are recommended to select a Linux image with Nginx+PHP+MySQL from the marketplace.
@@ -127,7 +127,7 @@ Complete the subsequent steps as instructed by the system. The CVM becomes avail
 
 ## 6. Cloud Database (optional)
 ### 6.1 Activating Cloud Database
-Log in to the [Cloud Database Console](https://console.cloud.tencent.com/cdb). If you have not activated the CDB (MYSQL) service, click **New** above.
+Log in to the [Cloud Database Console](https://console.cloud.tencent.com/cdb). If you have not activated the CDB (MYSQL) service, click **New**.
 ![](//mc.qcloudimg.com/static/img/138c9dd9d5793920aa539141567e0be6/image.jpg)
 ![](//mc.qcloudimg.com/static/img/62c41e4dbde3eb4f906955e9ebd5cca6/image.jpg)
 **Note: The Tencent Cloud account used to activate Cloud Database service should be same as the one used to activate CVM, and the region selected for Cloud Database should be same as the one selected for CVM.**
