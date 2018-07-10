@@ -1,10 +1,10 @@
-The data transfer service (DTS) supports data migration feature and provides continuous data replication feature from self-built MySQL database to CDB, allowing users to carry out hot data migration without interrupting their services. Data migration is supported for local IDCs with public IP/Port or Tencent Cloud direct connection access, or MySQL databases in Tencent Cloud CVMs. **MySQL5.7 does not support data transfer service for now, and you can import the data by downloading cold backup file.**
+The data transfer service (DTS) supports data migration feature and provides continuous data replication feature from self-built MySQL database to TencentDB, allowing users to carry out hot data migration without interrupting their services. Data migration is supported for local IDCs with public IP/Port or Tencent Cloud direct connection access, or MySQL databases in Tencent Cloud CVMs. **MySQL5.7 does not support data transfer service for now, and you can import the data by downloading cold backup file.**
 
 ## 1. Preparation
 ### 1.1 Note
 - DTS data migration task includes two steps: cold backup data export and incremental data synchronization. **Cold backup data export and migrated data comparison process have certain effect on the load of the source database**, thus it is recommended to perform database migration during off-peak hours or in the standby database.
 
-- **Only certain database table migration tasks restart target CDB instance at the beginning of incremental synchronization and after migration task is completed. The source database is not affected.**
+- **Only certain database table migration tasks restart target TencentDB instance at the beginning of incremental synchronization and after migration task is completed. The source database is not affected.**
 
 - **Super permission for the source instance is required**
 
@@ -14,16 +14,16 @@ For accounts that are used for migration, it is recommended to acquire super per
 -  **If, during binlog synchronization, a user creates an Event in the source instance and an account that is not used for DTS data migration is specified as DEFINER for this event, an error will occur if super permission is unavailable.**
 
 ### 1.3 Database Supported for Migration
-- Data migration from self-built CVM MySQL databases in basic network and VPC network to CDB instances.
+- Data migration from self-built CVM MySQL databases in basic network and VPC network to TencentDB instances.
 
-- Data migration from MySQL databases with public network IP/Port to CDB instances.
+- Data migration from MySQL databases with public network IP/Port to TencentDB instances.
 
-- Data migration from MySQL databases with access to Tencent Cloud via VPN or direct connection to CDB instances.
+- Data migration from MySQL databases with access to Tencent Cloud via VPN or direct connection to TencentDB instances.
 
 ### 1.4 Check the Following Items in Advance
-1. Check if any database table with the same name as the target CDB instance exists, to avoid conflict;
-2. Check database version. Cloud migration is supported for MySQL 5.1/5.5/5.6. As MySQL 5.1 is no longer supported by Tencent Cloud CDB, it is recommended that you update MySQL 5.1 to MySQL 5.5 first, then migrate data to CDB for MySQL 5.5. Of course, you can also use DTS data migration tool to directly migrate data from local MySQL 5.1 to Tencent Cloud CDB for MySQL 5.5.
-3. Check the capacity of target CDB instance, which must be larger than that of the source instance;
+1. Check if any database table with the same name as the target TencentDB instance exists, to avoid conflict;
+2. Check database version. Cloud migration is supported for MySQL 5.1/5.5/5.6. As MySQL 5.1 is no longer supported by Tencent Cloud TencentDB, it is recommended that you update MySQL 5.1 to MySQL 5.5 first, then migrate data to TencentDB for MySQL 5.5. Of course, you can also use DTS data migration tool to directly migrate data from local MySQL 5.1 to Tencent Cloud TencentDB for MySQL 5.5.
+3. Check the capacity of target TencentDB instance, which must be larger than that of the source instance;
 4. Create a migration account in the source MySQL database (this is not required if you already have an authorized account for data migration);
 		
 			GRANT ALL PRIVILEGES ON *. * TO "migration account" @ "%" IDENTIFIED BY "migration password";
@@ -82,7 +82,7 @@ After purchasing DTS instance, click "Modify Configuration" to enter the task cr
 
 
 ### 2.2 Modify Configuration
-Click "Modify Configuration", enter task name and information of the source database and target CDB for MySQL instance. Details:
+Click "Modify Configuration", enter task name and information of the source database and target TencentDB for MySQL instance. Details:
 
 #### Task Configuration
 	
@@ -102,7 +102,7 @@ Required information:
 		
 ###### Self-built MySQL on CVM: CVM-based self-built MySQL databases in basic network and VPCs are both supported. You need to specify the CVM instance ID and the network environment to use the self-built MySQL.
 Required information:
-* Region: Now, data migration is only supported when the CVM-based self-built MySQL and target CDB are in the same region. If CVM and CDB are located in different regions, you need to choose "MySQL with Public IP" to perform migration using CVM public network.
+* Region: Now, data migration is only supported when the CVM-based self-built MySQL and target TencentDB are in the same region. If CVM and TencentDB are located in different regions, you need to choose "MySQL with Public IP" to perform migration using CVM public network.
 * CVM network: Basic network and VPC are supported.
 * VPC: If you select VPC, you need to select the VPC and subnet where the instance belongs to.
 * CVM instance ID
@@ -145,9 +145,9 @@ Required information:
 ![][img-init6]
 ![][img-init5]
 
-**Data migration**: Export data in the selected database and import it into CDB for MySQL.
-**Incremental synchronization**: After performing data export and import, configure CDB for MySQL as the slave database for source database to achieve incremental synchronization between master and slave.
-**Overwrite root account**: Since root account is used for security verification for cloud database, subsequent CDB operations will be affected if root account does not exist in the source database. Therefore, if the entire instance is migrated, you should specify whether to overwrite the target database root account with the source database root account. Choose "Yes" if you want to use root account of the source database or if root account is not configured for target database. Choose "No" if you want to retain the root account of target database.
+**Data migration**: Export data in the selected database and import it into TencentDB for MySQL.
+**Incremental synchronization**: After performing data export and import, configure TencentDB for MySQL as the slave database for source database to achieve incremental synchronization between master and slave.
+**Overwrite root account**: Since root account is used for security verification for cloud database, subsequent TencentDB operations will be affected if root account does not exist in the source database. Therefore, if the entire instance is migrated, you should specify whether to overwrite the target database root account with the source database root account. Choose "Yes" if you want to use root account of the source database or if root account is not configured for target database. Choose "No" if you want to retain the root account of target database.
 
 ### 2.4 Verify Migration Task Information
  When migration task is created, you need to verify the migration task information and start the task only if all verification items pass. There are three statuses for task verification:
@@ -164,8 +164,8 @@ When the migration is started, you can see the corresponding migration progress 
 > Due to system design limitations, multiple migration tasks submitted or queued at the same time will be performed serially based on the queuing time.
 
 ### 2.6 Incremental Synchronization
-When creating a migration task, the incremental synchronization option is selected by default. When data migration is completed, the target CDB for MySQL will be set as the slave database for the source database, and new data of the source database during migration will be synchronized to the target CDB for MySQL via master/slave synchronization. In this case, any changes made to the source database will be synchronized to the target CDB for MySQL.
-After migration, you can click the "Stop" button to terminate the synchronization relationship between source and target databases, then switch service to the target CDB for MySQL instance to complete the migration process.
+When creating a migration task, the incremental synchronization option is selected by default. When data migration is completed, the target TencentDB for MySQL will be set as the slave database for the source database, and new data of the source database during migration will be synchronized to the target TencentDB for MySQL via master/slave synchronization. In this case, any changes made to the source database will be synchronized to the target TencentDB for MySQL.
+After migration, you can click the "Stop" button to terminate the synchronization relationship between source and target databases, then switch service to the target TencentDB for MySQL instance to complete the migration process.
 > **Note:**
 > Before terminating synchronization, do not write data into the target database instance as this may cause data inconsistency between source and target databases which will cause data comparison to fail, resulting in a failed migration.
 
