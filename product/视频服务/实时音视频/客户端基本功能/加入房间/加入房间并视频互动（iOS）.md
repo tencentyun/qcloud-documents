@@ -145,7 +145,7 @@
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
-[[ILiveSDK getInstance] setChannelMode:ILiveChannel_IMSDK withHost:@""];
+[[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
 ```
 
 切换角色失败，错误码 - 1 。
