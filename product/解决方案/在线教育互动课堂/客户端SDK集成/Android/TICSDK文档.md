@@ -28,11 +28,11 @@ allprojects {
 // COS SDK模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.8.6.1.5'
+compile 'com.tencent.ilivesdk:ilivesdk:1.9.0.2'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.0.1'
+compile 'com.tencent.ticsdk:ticsdk:1.1.0'
 // 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.2.5.7'
+compile 'com.tencent.boardsdk:boardsdk:1.2.6'
 ```    
 
 3. 在 defaultConfig 中配置 abiFilters 信息。
@@ -230,6 +230,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
         .setRole(TICClassroomOption.Role.TEACHER) // 课堂中的老师身份
         .setEnableCamera(true)   // 此处为demo的配置，开发者需要根据自身的业务需求配置
         .setEnableMic(true)      // 此处为demo的配置，开发者需要根据自身的业务需求配置
+        .authBuffer(authBuffer.getBytes()) // 进房票据
         .setClassroomIMListener(this) // 设置课堂IM消息监听
         .setClassEventListener(this); // 设置课堂事件监听
 
@@ -303,7 +304,31 @@ TICManager.getInstance().setCosConfig(cosConfig);
     private IClassEventListener classEventListener;
 ```
 
-**TICClassroomOption** 加入课堂配置类集成 iLiveSDK的**ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
+**TICClassroomOption** 加入课堂配置类继承 iLiveSDK的**ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
+其中TICClassroomOption的authBuffer(...) 用户配置票据，为必填信息，进入课堂前先从自己的业务服务器或者该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进房失败，详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
+
+主要代码流程如下，详细代码可参见Demo源码：
+
+```java
+// 1.进入课堂界面点击，
+public void onJoinClsssroomClick(View v){ ... }
+
+// 2.请求获取privatemapkey，一下代码为工程代码示例代码，无实际功能，具体开发者需要根据自身业务需要和实现构建参数；
+AuthbufferParams params = new AuthbufferParams();
+params.setIdentifier(identifier);
+params.setPwd("123");
+params.setRoomNum(roomId);
+authbufferPresenter.getAuthbuffer(params);
+
+// 3.监听请回结果回调，获取成功后则可执行进入课堂操作，如Demo中源码
+public void onGetAuthbufferSuccess(String authBuffer) {
+    Log.i(TAG, "onGetAuthbufferSuccess: authBuffer");
+    ...
+    joinClassroom(roomId, authBuffer);
+}
+
+```
+
 开发者也可通过该参数直接控制 iLiveSDK 的进房参数设置。
 加入课堂成功，在成功的回调处，需要初始化一下白板 SDK 的相关配置，如：
 
@@ -484,14 +509,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      */
     void onMemberQuit(List<String> userList);
 ```
-> **注意：**加入课堂、退出课堂通知，需要在腾讯云后台[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
 
-```
-配置变更类型：修改群组形态
-SdkAppid : // 请在这里填写您的APP在云通信中的APPID
-群组形态名称： ChatRoom
-需要修改的特性：增加群组成员进出通知
-```
 以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，比如：在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。
 
 
