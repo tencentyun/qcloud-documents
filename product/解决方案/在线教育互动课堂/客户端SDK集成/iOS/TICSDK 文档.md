@@ -299,10 +299,10 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 
 另外该类还有两个代理对象，用来监听课堂内的一些事件，这个我们后面再说。
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **authBuffer**：
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**：
 
 * **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
-* **authBuffer**：该参数相当于一个进入房间的钥匙，进房时必须填写，authbuffer需要在开发者的业务后台生成传给客户端，生成方法见：[privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) （privateMapKey 即就是参数中的 authBuffer）
+* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey需要在开发者的业务后台生成传给客户端，生成方法见：[privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 
 
 ，实例代码如下：
 
@@ -313,7 +313,7 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
     option.eventListener = #课堂事件监听对象#;
     option.imListener = #课堂消息监听对象#;
     option.controlRole = @“user”;
-    option.avOption.authBuffer = #开发者业务后台生成的authBuffer#
+    option.avOption.privateMapKey = #开发者业务后台生成的privateMapKey#
     return option;
 } succ:^{
     NSLog(@"进房成功");
