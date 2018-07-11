@@ -9,8 +9,7 @@ mysqldump 工具常用来导出数据库备份数据 ，在云函数中也同样
 
 同时可以看到 bin 目录下还有 libcrytpo.so.1.0.0 和 libssl.so.1.0.0 两个动态库。这两个库也是工具在运行时所要依赖的库，但在 bin 下的这两个文件实际为文件链接，实际指向分别是 `../lib/libcrypto.so.1.0.0` 和 `../lib/libssl.so.1.0.0`，因此这两个真实文件是在 lib 目录下。
 
-因此，为了确保
-mysqldump 工具可以运行成功，我们将 bin 目录下的 mysqldump 文件拷贝到我们提前准备的项目根目录下，同时将 lib 目录下的 libcrypto.so，libcrypto.so.1.0.0，libssl.so，libssl.so.1.0.0 四个文件也拷贝到项目根目录下。
+因此，为了确保 mysqldump 工具可以运行成功，我们将 bin 目录下的 mysqldump 文件拷贝到我们提前准备的项目根目录下，同时将 lib 目录下的 libcrypto.so，libcrypto.so.1.0.0，libssl.so，libssl.so.1.0.0 四个文件也拷贝到项目根目录下。
 
 由于拷贝出来的 mysqldump 和 so 动态库文件是 Linux 版本，如果需要验证可用性，我们可以将准备好的项目目录拷贝到一台 Linux 服务器上，通过运行 mysqldump 命令验证工具的可用性。
 ```
