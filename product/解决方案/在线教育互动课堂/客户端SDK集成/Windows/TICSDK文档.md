@@ -303,7 +303,7 @@ class IClassroomIMListener
 class IClassroomWhiteboardListener
 ```
 
-基础配置有 3 个，加入课堂时是否为老师，进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
+基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。其中roomOption参数下面有个成员privateMapKey，是用户配置票据，为必填信息。进入课堂前要先从自己的业务服务器或者该信息，然后调用ticsdk的进入课堂接口。详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
 
 * 退出课堂
 
