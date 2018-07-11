@@ -30,7 +30,7 @@ compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK模块
 compile 'com.tencent.ilivesdk:ilivesdk:1.9.0.2'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.0.1'
+compile 'com.tencent.ticsdk:ticsdk:1.1.0'
 // 白板SDK模块
 compile 'com.tencent.boardsdk:boardsdk:1.2.6'
 ```    
