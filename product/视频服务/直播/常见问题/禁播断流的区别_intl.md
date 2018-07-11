@@ -1,6 +1,7 @@
 ## 1. Stream Interruption
-If a live stream is interrupted, this push will also be interrupted. Thus viewers will not be able to watch the live broadcasting. After the interruption, VJ can initiate the push again to continue the live streaming.
+If a stream that is being broadcasted is interrupted, the push stops and viewers are unable to watch the LVB. When a stream interruption occurs, a push can be initiated at the VJ end to resume the LVB.
 
 ## 2. Stream Suspension
-If a live stream is suspended, this push will also be interrupted. Thus viewers will not be able to watch the live broadcasting. After the suspension, VJ cannot initiate the push again within a certain period of time. The period of stream suspension can be set at the console with the maximum length of not more than one month.
-For example: At 2018-01-01 12:00, you've set stream suspension for **test123**. The end time for suspending broadcast is 2018-01-05-12: 00. During this period, the VJ for test123 cannot push stream and viewers cannot watch this live broadcasting.
+If a stream that is being broadcasted is suspended, the push stops and viewers are unable to watch the LVB. When a stream suspension occurs, no push can be initiated at the VJ end during a certain period of time. The end time of suspension can be set on the console and the suspension period cannot be greater than one month.
+For example, if stream suspension is enabled for the Stream test123 at 2018-01-01 12:00, and the end time of suspension is set to 2018-01-05-12:00, the VJ for this stream cannot push stream and viewers cannot watch the LVB during this period.
+

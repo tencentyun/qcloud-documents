@@ -9,7 +9,7 @@ This document describes how to use the `tutum/wordpress` image to create a publi
 You need to create a cluster first. For more information on how to create a cluster, please see [Basic Operations of Cluster](/doc/product/457/9091).
 
 ## Procedure
-1. Log in to the [Tencent Cloud CCS console](https://console.cloud.tencent.com/ccs).
+1. Log in to the [Tencent Cloud TKE console](https://console.cloud.tencent.com/ccs).
 2. Click **Service** in the left navigation bar, and click **+ New** in the service list page.
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3. Configure basic service information.

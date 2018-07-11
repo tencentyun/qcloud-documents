@@ -11,8 +11,8 @@ If the push URL is not ready yet, log in to Tencent Cloud [LVB Console](https://
 | Network Type | Accessibility | Stability |
 |--|--|--|
 | Wired network | Low | High |
-| WiFi | High | Low |
-If possible, it is recommended to use a wired network, which is more stable than WiFi to prevent interference with signals. WiFi is more suitable for live video broadcasting for events because of the convenience it offers.
+|Wi-Fi| High | Low |
+If possible, it is recommended to use a wired network, which is more stable than Wi-Fi to prevent interference with signals. Wi-Fi is more suitable for live video broadcasting for events because of the convenience it offers.
 
 #### Upstream bandwidth test
 The requirement for upstream bandwidth depends on the video quality and resolution. Generally, a better video quality with a higher resolution means a higher requirement for upstream bandwidth. The upstream bandwidth should not be less than 1 Mbps. To check the condition of upstream bandwidth, you can conduct a test using [speedtest](http://www.speedtest.net/).

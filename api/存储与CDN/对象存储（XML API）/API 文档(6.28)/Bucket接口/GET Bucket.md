@@ -147,7 +147,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ### 响应
 
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1132
 Connection: keep-alive
@@ -206,7 +206,7 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         </Owner>
         <StorageClass>STANDARD</StorageClass>
     </Contents>
-</ListBucketResult
+</ListBucketResult>
 ```
 
 

@@ -5,7 +5,7 @@
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
- - [privateMapKey](https://cloud.tencent.com/document/product/647/16792#privateMapKey)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 渲染控件
  在拿到视频数据时，我们需要一个展示数据的地方，这个就是渲染控件。
@@ -38,6 +38,8 @@
     
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    // 配置进房票据
+    option.authBuffer = privateMapKey;
     option.imOption.imSupport = NO;
     // 设置房间内音视频监听
     option.memberStatusListener = liveRoomVC;
@@ -181,7 +183,7 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
-[[ILiveSDK getInstance] setChannelMode:ILiveChannel_IMSDK withHost:@""];
+[[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
 ```
 
 #### 失败回调，错误码 1003 或 8011

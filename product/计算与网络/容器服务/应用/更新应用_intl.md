@@ -1,6 +1,6 @@
 ## Updating Application on the Application List Page
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). View the application list in [Application][1] page. Click **Update** to update the specific application.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). View the application list in [Application][1] page. Click **Update** to update the specific application.
 
 ![应用更新-06.png][2]
 

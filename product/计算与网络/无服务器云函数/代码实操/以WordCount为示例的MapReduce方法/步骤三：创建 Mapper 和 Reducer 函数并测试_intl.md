@@ -36,6 +36,7 @@ When a function is created, it is generally tested through the console or API, t
 2) Choose **Upload File to COS/Delete File from COS Test Code** from the drop-down list of test templates.
 
 3) In the test code, set `name` to the name of bucket `srcmr` created in "Step 1: Prepare COS Bucket", and set `key` to the key value of `/serverless.txt` uploaded in "Step 1: Prepare COS Bucket", as shown in the example below:
+
 ```
 {  
    "Records":[  
@@ -450,4 +451,5 @@ languages	1
 Docker	1
 go	1
 manages	1
+```
 

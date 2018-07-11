@@ -12,7 +12,7 @@
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-auth</artifactId>
-    <version>1.0.3-RELEASE</version>
+    <version>1.1.0-RELEASE</version>
 </dependency>
 ```
 

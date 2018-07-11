@@ -1,6 +1,6 @@
 ## Deleting Application
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). View all the applications under the user's cluster in "Application Management" -> ["Application List"][1] page.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). View all the applications under the user's cluster in "Application Management" -> ["Application List"][1] page.
 
 Click **Delete** to delete the application.
 

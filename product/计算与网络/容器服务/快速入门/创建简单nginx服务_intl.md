@@ -4,7 +4,7 @@ This document shows how to quickly create an "nginx" service in a container clus
 To create an "nginx" service, you must create a cluster first. For more information on how to create a cluster, please see [Create Cluster](https://cloud.tencent.com/document/product/457/9091).
 
 ## Procedure
-1. Log in to [CCS Console](https://console.cloud.tencent.com/ccs).
+1. Log in to [TKE Console](https://console.cloud.tencent.com/ccs).
 2. Click **Service** in the left navigation bar, and click **+ New** in the service list page.
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3. Enter basic service information.
@@ -17,7 +17,7 @@ To create an "nginx" service, you must create a cluster first. For more informat
 ![](//mc.qcloudimg.com/static/img/2ecf52cd54db7b3cd44eda24f3b3a452/image.png)
 Click **DockerHub Image**, and select "**nginx**". Click **OK**.
 ![](//mc.qcloudimg.com/static/img/0cec90a9a793d8769d586376935bf361/image.png)
-Version (Tag): latest. By default, the latest version is used for CCS.
+Version (Tag): latest. By default, the latest version is used for TKE.
 ![](//mc.qcloudimg.com/static/img/247064bd27464737d06d02d846c2c227/image.png)
 5. Configure port mapping. Set both container port and service port to 80.
 ![](//mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
@@ -38,5 +38,5 @@ Version (Tag): latest. By default, the latest version is used for CCS.
 
 #### More "nginx" Settings
 
-For more information, please see [Create a Simple Web Service with Tencent Cloud CCS](https://cloud.tencent.com/community/article/223421).
+For more information, please see [Create a Simple Web Service with Tencent Cloud TKE](https://cloud.tencent.com/community/article/223421).
 

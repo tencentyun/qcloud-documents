@@ -61,7 +61,7 @@ FEATURE_SYSTEM_COMM_ENABLED   = y    # 是否打开获取 IoT 后台时间功能
 | ---- | -------------------------- | --------------------------------------------- |
 | 1    | IOT_Log_Set_Level          | 设置打印的日志等级                            |
 | 2    | IOT_Log_Get_Level          | 返回日志输出的等级                            |
-| 2    | IOT_Log_Set_MessageHandler | 设置日志回调函数，接管 SDK 日志用于其它输出方式 |
+| 3    | IOT_Log_Set_MessageHandler | 设置日志回调函数，接管 SDK 日志用于其它输出方式 |
 
 
 ### 2. MQTT接口

@@ -1,7 +1,7 @@
 
 ## For Business Deployed outside Tencent Cloud
 The procedure to use High Defense IP:
-![](https://main.qcloudimg.com/raw/ca8742c013fa149e542416d786c8314e.png)
+![](https://main.qcloudimg.com/raw/ef38f7a984d6ca8b142d1a7c93357e93.png)
 
 ### Login to Console
 
@@ -26,7 +26,7 @@ Finally, change the IP address that is pointed to by the A record to the high de
 
 ## For Business Deployed in Tencent Cloud
 The procedure to use High Defense IP:
- ![](https://main.qcloudimg.com/raw/555b6372f174692b28e14e298cd4cdca.png)
+![](https://main.qcloudimg.com/raw/7cf34e2d417ab888a8dda804c5a94a7a.png)
 
 ### Login to Console
 1. Log in to the console of [Dayu Anti-DDos](https://console.cloud.tencent.com/dayu/bgpip), and locate your high defense IP instance with the business deployed in Tencent Cloud on the "High Defense IP" control page.
