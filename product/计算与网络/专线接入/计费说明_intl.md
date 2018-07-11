@@ -25,17 +25,17 @@ A client uses a Direct Connect tunnel for 14 effective days in January. The numb
 
 The tiered unit prices corresponding to the bandwidth usage are shown as below:
 
-| Bandwidth Usage | Mainland China (USD/Mbps/month) | 
-| ------------------ | ------------ | 
+| Bandwidth Usage | Mainland China (USD/Mbps/month) |
+| ------------------ | ------------ |
 | 0Mbps - 10Mbps     | 85           |
 | 10Mbps - 20Mbps     | 63           |
-| 20Mbps - 50Mbps   | 45           | 
-| 50Mbsp - 100Mbps  | 34            | 
+| 20Mbps - 50Mbps   | 45           |
+| 50Mbsp - 100Mbps  | 34            |
 | 100Mbsp - 200Mbps  | 25            |
 | 200Mbps - 500Mbps | 18            |
-| 500Mbps - 1000Mbps | 14            | 
-| 1000Mbps - 2000Mbps | 11            | 
-| > 2000Mbps         | 10            | 
+| 500Mbps - 1000Mbps | 14            |
+| 1000Mbps - 2000Mbps | 11            |
+| > 2000Mbps         | 10            |
 
 *For the data interoperability between Mainland China and other regions, consult with your business manager.*
 
