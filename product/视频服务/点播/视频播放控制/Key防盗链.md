@@ -7,11 +7,11 @@
 ## 配置向导
 腾讯云点播【控制台】>【分发播放设置】>【域名设置】>【防盗链设置】。
 
-![图片描述](https://main.qcloudimg.com/raw/490484d8ef0fa93bb76803e0ef586638.png)
+![图片描述](https://main.qcloudimg.com/raw/3d70d1d5a52fd5803b8a7ff0bdb8f638.png)
 
 启用 Key 防盗链 -> 生成 KEY -> 确定。
 
-![图片描述](https://mc.qcloudimg.com/static/img/12e25bcc2cd7dd87aec2067a5c2910a3/image.png)
+![图片描述](https://main.qcloudimg.com/raw/a7ec87316fd73b9cc747408df25fc766.png)
 
 保存配置后，大概需要 5 分钟使所有 CDN 节点生效该配置。
 
