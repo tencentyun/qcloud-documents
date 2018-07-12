@@ -80,7 +80,7 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 | 名称         | 描述          | 类型     |
 | --------- | ---------- | ------ |
 |x-cos-version-id|目标存储桶中复制对象的版本。|String|
-| x-cos-server-side-encryption | 如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
+| x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
 
 ### 响应体
 拷贝成功，返回响应体。
