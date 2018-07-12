@@ -154,6 +154,8 @@ closeLocalMedia | boolean | 否，默认 false | 是否关闭自动推流（如�
 audio | boolean | 否，默认 true | 是否启用音频采集
 video | boolean | 否，默认 true | 是否启用视频采集
 role | string | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在[控制台 - 画面设定](https://console.cloud.tencent.com/rav)中配置
+privateMapKey | String | 如果useCloud为true 则必传| 进房权限
+useCloud | boolean | 否，默认 true | true 表示云上环境，false 表示自研环境
 
 白板配置参数：
 
