@@ -22,7 +22,7 @@ payload 示例：
 ```
 
 
-### 通知组的简介
+### 设置分组的简介
 ![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.12.17%20AM.png)
 
 可以给每个推送指定一个简介，当它们被聚合到一个通知组里的时候，通知组的下端会显示有来多少个个来自谁的通知。例如像实现上图中的简介效果，那么同时指定 payload 中 summary-arg 这个字段的值为 Michele 即可。参考示例：
@@ -56,8 +56,7 @@ Swift:
 ```Swift
 let notificationCenter = UNUserNotificationCenter.current()
 
-notificationCenter.requestAuthorization(
-options:[.badge, .sound, .alert, .provisional]) {
+notificationCenter.requestAuthorization(options:[.badge, .sound, .alert, .provisional]) {
 }
 
 ```
