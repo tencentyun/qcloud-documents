@@ -1,11 +1,8 @@
 ## 通知分组
-
-![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.06.37%20AM.png)
-
 通知分类是 iOS 12 以后实现的新功能，在推送的 payload 中可以指定一个 key 为 thread-id 的值，iOS 12 系统中，显示推送时将会根据 thread-id 进行分组。
 
-如果不设置 thread-id 的话，那么默认根据 APP 来进行分组，通知超过一个屏幕时，将会根据 APP 进行折叠。
-
+如果不设置 thread-id 的话，那么默认根据 App 来进行分组，通知超过一个屏幕时，将会根据 App 进行折叠。
+![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.06.37%20AM.png)
 
 payload 示例：
 ```
@@ -23,9 +20,10 @@ payload 示例：
 
 
 ### 设置分组的简介
+可以给每个推送指定一个简介，当它们被聚合到一个通知组里的时候，通知组的下端会显示有来多少个个来自谁的通知。例如像实现上图中的简介效果，那么同时指定 payload 中 summary-arg 这个字段的值为 Michele 即可。
 ![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.12.17%20AM.png)
 
-可以给每个推送指定一个简介，当它们被聚合到一个通知组里的时候，通知组的下端会显示有来多少个个来自谁的通知。例如像实现上图中的简介效果，那么同时指定 payload 中 summary-arg 这个字段的值为 Michele 即可。参考示例：
+参考示例：
 ```
 {
   "aps" : {
@@ -45,14 +43,14 @@ payload 示例：
 
 请求静默推送示例：
 
-Objective-C
+Objective-C：
 ```Objective-C
 [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionSound|UNAuthorizationOptionProvisional completionHandler:^(BOOL granted, NSError *  \_Nullable error) {
 
   }];
 ```
 
-Swift:
+Swift：
 ```Swift
 let notificationCenter = UNUserNotificationCenter.current()
 
@@ -65,9 +63,10 @@ notificationCenter.requestAuthorization(options:[.badge, .sound, .alert, .provis
 ## 紧急推送
 紧急推送可以穿透静音与勿扰模式发出通知，权限相当高。所以如果想发出经济推送，那么需要满足几个条件：
 - 在苹果开发者网站上申请对应的 Entitlements，只有几种应用可以申请：医药与健康、家庭与安全、公共安全。
-- 用户需要允许 APP 发出紧急推送。
+- 用户需要允许 App 发出紧急推送。
 
-满足了上面条件以后，就可以发出紧急推送了，在 payload 中将 critical 的值设置为 1 即可。参考示例：
+满足了上面条件以后，就可以发出紧急推送了，在 payload 中将 critical 的值设置为 1 即可。
+参考示例：
 ```
 {
   "aps" : {
