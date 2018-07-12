@@ -2,7 +2,7 @@
 通知分类是 iOS 12 以后实现的新功能，在推送的 payload 中可以指定一个 key 为 thread-id 的值，iOS 12 系统中，显示推送时将会根据 thread-id 进行分组。
 
 如果不设置 thread-id 的话，那么默认根据 App 来进行分组，通知超过一个屏幕时，将会根据 App 进行折叠。
-![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.06.37%20AM.png)
+![](https://main.qcloudimg.com/raw/7a7c9cc2ac6f7e2c02cabf19be61b286.png)
 
 payload 示例：
 ```
@@ -21,7 +21,7 @@ payload 示例：
 
 ### 设置分组的简介
 可以给每个推送指定一个简介，当它们被聚合到一个通知组里的时候，通知组的下端会显示有来多少个个来自谁的通知。例如像实现上图中的简介效果，那么同时指定 payload 中 summary-arg 这个字段的值为 Michele 即可。
-![](http://imagebad-1253653367.cosgz.myqcloud.com/Screen%20Shot%202018-07-12%20at%2011.12.17%20AM.png)
+![](https://main.qcloudimg.com/raw/1d6b7afd6c3ba5b569a01b8fe935fdf7.png)
 
 参考示例：
 ```
