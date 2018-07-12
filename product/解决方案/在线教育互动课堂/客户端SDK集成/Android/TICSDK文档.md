@@ -1,5 +1,5 @@
 ## 准备工作
-TICSDK使用了互动视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读 [方案简介](/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
+TICSDK 使用了互动视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读 [方案简介](/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
 相关链接如下：
 
 - [实时音视频](https://cloud.tencent.com/document/product/268/8424)
@@ -304,7 +304,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
 ```
 
 **TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
-其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见  [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
+其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 主要代码流程如下，详细代码可参见 Demo 源码：
 
