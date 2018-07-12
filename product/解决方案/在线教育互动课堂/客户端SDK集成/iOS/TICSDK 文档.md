@@ -68,13 +68,13 @@ pod repo update
 
     - 手动设置
 
-    在项目的`info.plist`文件中增加以下配置
+    在项目的`info.plist`文件中增加以下配置：
     
     ![](https://main.qcloudimg.com/raw/0204a82988bb42696b7bcbe1d47e5c8c.png)
     
     - 代码设置
 
-    在项目的`info.plist`文件中增加以下代码
+    在项目的`info.plist`文件中增加以下代码：
     
     ```xml
     <key>NSAppTransportSecurity</key>
@@ -264,7 +264,7 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 - (void)createClassroomWithRoomID:(int)roomID Succ:(TCIVoidBlock)succ failed:(TCIErrorBlock)failed;
 ```
 
-创建课堂接口，只是根据传进去的 roomID 创建了一个IM群组，并进行了一些准备工作，老师端创建课堂后还需调用`加入课堂`方法加入课堂。
+创建课堂接口，只是根据传进去的 roomID 创建了一个 IM 群组，并进行了一些准备工作，老师端创建课堂后还需调用`加入课堂`方法加入课堂。
 
 * 加入课堂
 
@@ -299,12 +299,12 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 
 另外该类还有两个代理对象，用来监听课堂内的一些事件，这个我们后面再说。
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**：
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
 
-* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
-* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey需要在开发者的业务后台生成传给客户端，生成方法见：[privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 
+* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
+* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 。
 
-，实例代码如下：
+实例代码如下：
 
 ```objc
 [[TICManager sharedInstance] joinClassroomWithOption:^TICClassroomOption *(TICClassroomOption *option) {
