@@ -1,10 +1,9 @@
 ## 准备工作
-TICSDK使用了互动视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读 [方案简介](/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。相关链接如下：
+TICSDK使用了互动视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读 [方案简介](/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
+相关链接如下：
 
 - [实时音视频](https://cloud.tencent.com/document/product/268/8424)
-
 - [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
-
 - [COS 服务](https://cloud.tencent.com/document/product/436/6225)
 
 ## 集成 SDK
@@ -69,7 +68,7 @@ defaultConfig {
 | 类名 | 主要功能 |
 |--------- | ---------|
 | TICSDK | 整个 SDK 的入口类，提供了 **SDK 初始化** 和 **获取版本号** 的方法。|
-| TICManager | 互动课堂管理类，互动课堂 SDK 对外主要接口类，提供了 **添加白板**、**登录/登出 SDK**、**创建/加入/销毁课堂**、**音视频操作**、**IM操作** 等接口。|
+| TICManager | 互动课堂管理类，互动课堂 SDK 对外主要接口类，提供了 **添加白板**、**登录/登出 SDK**、**创建/加入/销毁课堂**、**音视频操作**、**IM 操作** 等接口。|
 | TICClassroomOption | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的监听接口，一个是负责监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。|
 | AVRootView | iLiveSDK 视频显示控件。 |
 | WhiteboardView | 白板控件。|
@@ -127,17 +126,17 @@ TICSDK 使用的一般流程如下：
     public void initSDK(Context context, int appId, int accountType);
 
 ```
-初始化方法很简单，开发者在Application组件中的onCreate调用初始化接口即可。但是开发者在初始化之前必须保证已经在[腾讯云后台](https://console.cloud.tencent.com/rav)注册成功，并创建了应用，这样才能拿到腾讯云后台分配的SDKAppID和accountType。
+初始化方法很简单，开发者在 Application 组件中的 onCreate 调用初始化接口即可。但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 > 如果开发者 App 中用到了多进程，初始化时需要注意避免重复初始化，如下：
-
+ 
 ```
 if (主进程) {    
 	// 仅在主线程初始化
 	TICSDK.getInstance().initSDK(this, Constants.APPID, Constants.ACCOUNTTYPE);
 }
 ```
-COS 为[腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
 TICSDK 初始化 SDK 时也需要初始化 COS SDK 模块。主要构造 **CosConfig** 配置信息，通过**TICManager**的**setCosConfig**接口完成 COS 相关配置，如下：
 
 ```java
@@ -170,10 +169,10 @@ TICManager.getInstance().setCosConfig(cosConfig);
 
 ![登录流程](https://main.qcloudimg.com/raw/a5be82ca74f2d33598549d0222d3ceba.png) 
 
-该方法需要传入 uid 和 userSig 两个参数，uid 为用户 ID；userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成userSig的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+该方法需要传入 uid 和 userSig 两个参数，uid 为用户 ID；userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 >**注意：**
-> - 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的uid和userSig用于开发测试.
+> - 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试.
 >- 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
 > - 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
 > - 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
@@ -220,7 +219,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
     public void joinClassroom(@NonNull final TICClassroomOption option, final ILiveCallBack callback);
 ```
 
-该接口需要传入TICClassroomOption加入课堂的参数配置。如：
+该接口需要传入TICClassroomOption 加入课堂的参数配置。如：
 
 ```java
     TICClassroomOption classroomOption = new TICClassroomOption()
@@ -237,7 +236,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack()
 ```
 
-其中，**TICClassroomOption**功能具体如下：
+其中，**TICClassroomOption** 功能具体如下：
 
 ```java
     > TICClassroomOption.java
@@ -304,10 +303,10 @@ TICManager.getInstance().setCosConfig(cosConfig);
     private IClassEventListener classEventListener;
 ```
 
-**TICClassroomOption** 加入课堂配置类继承 iLiveSDK的**ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
-其中**TICClassroomOption**的**privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
+**TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
+其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见  [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
-主要代码流程如下，详细代码可参见Demo源码：
+主要代码流程如下，详细代码可参见 Demo 源码：
 
 ```java
 // 1.进入课堂界面点击，
@@ -519,7 +518,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 
 
 ## 常见问题
-### AvRootView 与 WhiteboardView 叠加时白板无法显示。
+#### AvRootView 与 WhiteboardView 叠加时白板无法显示？
 
 AvRootView 和 WhiteboardView 都是集成 SurfaceView 的，SurfaceView 叠加显示时会有异常。
 通过 SurfaceView 的 `setZOrderMediaOverlay(true);`即可解决。
