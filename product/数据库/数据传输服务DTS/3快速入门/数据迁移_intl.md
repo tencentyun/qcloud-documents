@@ -1,4 +1,4 @@
-Data Transfer Service (DTS) provides the capability to migrate data between MySQL, Redis, and PostgreSQL databases. Read on for more information.
+TencentDB Service for Transmission (DTS) provides the capability to migrate data between MySQL, Redis, and PostgreSQL databases. Read on for more information.
 >At present, the data migration capability is only available for MySQL and Redis databases, and will be made available for MongoDB, MariaDB, and other databases. Available soon!
 
 ##  MySQL Database Migration

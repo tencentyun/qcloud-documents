@@ -1,4 +1,4 @@
-Data Transfer Service (DTS) provides data migration and continuous data replication from self-built MySQL databases to TencentDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs.** MySQL 5.7 does not support DTS, and you can import your data by downloading cold backup files.**
+TencentDB Service for Transmission (DTS) provides data migration and continuous data replication from self-built MySQL databases to TencentDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs.** MySQL 5.7 does not support DTS, and you can import your data by downloading cold backup files.**
 
 
 ## Preparations

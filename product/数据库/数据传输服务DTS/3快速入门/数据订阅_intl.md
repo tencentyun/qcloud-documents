@@ -10,7 +10,7 @@ We will obtain binlog from the master database by simulating slave database for 
 
 
 ## Feature Description
-Data Transfer Service (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
+TencentDB Service for Transmission (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
 * Purchase and create a subscription channel for TencentDB instances from the Tencent Cloud DTS console.
 * Use DTS data subscription SDK to connect to this subscription channel to subscribe to and consume incremental data.
 
