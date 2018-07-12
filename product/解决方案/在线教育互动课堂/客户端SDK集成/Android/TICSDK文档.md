@@ -230,7 +230,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
         .setRole(TICClassroomOption.Role.TEACHER) // 课堂中的老师身份
         .setEnableCamera(true)   // 此处为demo的配置，开发者需要根据自身的业务需求配置
         .setEnableMic(true)      // 此处为demo的配置，开发者需要根据自身的业务需求配置
-        .authBuffer(authBuffer.getBytes()) // 进房票据
+        .privateMapKey(privateMapKey) // 进房票据
         .setClassroomIMListener(this) // 设置课堂IM消息监听
         .setClassEventListener(this); // 设置课堂事件监听
 
@@ -305,7 +305,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
 ```
 
 **TICClassroomOption** 加入课堂配置类继承 iLiveSDK的**ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
-其中TICClassroomOption的privateMapKey(...)接口用于配置票据，为必填信息，进入课堂前先从自己的业务服务器或者该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进房失败，详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
+其中**TICClassroomOption**的**privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
 
 主要代码流程如下，详细代码可参见Demo源码：
 
