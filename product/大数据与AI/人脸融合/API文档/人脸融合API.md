@@ -63,7 +63,7 @@
 	"appid":"xxxxxxxx", 
 	"uin":"xxxxxxxx",
 	"img_data":"xxxxxxxx",
-	"model_id":"xxxxxxxx",
+	"model_id":"xxxxxxxx"
 }
 
 ```
