@@ -41,7 +41,7 @@ WebRTCAPI | TICSDK 中提供了常见的音视频通话接口，如果不满足�
 
 ### 白板和视频的渲染
 
-> TICSDK中需要将白板和视频渲染至页面中，白板渲染需要在进入课堂的时候将承载白板渲染的dom节点id传入，而视频的渲染则是通过事件回调的方式，将音视频的流输出到页面video/audio标签中。
+> TICSDK 中需要将白板和视频渲染至页面中，白板渲染需要在进入课堂的时候将承载白板渲染的 dom 节点 ID 传入，而视频的渲染则是通过事件回调的方式，将音视频的流输出到页面 video/audio 标签中。
 
 > 白板仅支持款宽高比为<font color="red"> 16：9 </font>的比例显示。请开发者注意与设计师同步该信息，以及不要随意修改该比例，以免影响白板功能的正常体验。
 
@@ -54,12 +54,12 @@ TICSDK使用的一般流程如下：
 其中<font color="red"> 创建课堂 </font>为教师角色特有流程，学生角色不需调用。
 
 
-> 下面将SDK按照功能划分，遵循一般的使用顺序，介绍一下TICSDK中各功能的使用方法和注意点:
+> 下面将SDK按照功能划分，遵循一般的使用顺序，介绍一下 TICSDK 中各功能的使用方法和注意点:
 
 
 #### 1. 初始化 SDK
 
-要使用TICSDK，首先得进行初始化。
+要使用 TICSDK，首先得进行初始化。
 
 ```
 // TICSDK.js
@@ -69,7 +69,7 @@ this.ticSdk.init();
 
 #### 2. 监听事件
 
-当初始化完成后，则需要进行事件监听，TICSDK是以事件驱动模式的SDK，需要监听关键的事件来实现相关的业务。
+当初始化完成后，则需要进行事件监听，TICSDK 是以事件驱动模式的 SDK，需要监听关键的事件来实现相关的业务。
 
 事件监听的方法：
 
@@ -86,7 +86,7 @@ var ticsdk = new TICSDK();
 
 #### 3. 登录
 
-初始化完成之后，因为涉及到IM消息的收发，所以还必须先登录，调用登录方法后，则会触发登录成功[TICSDK.CONSTANT.EVENT.IM.LOGIN_SUCC]或者登录失败[TICSDK.CONSTANT.EVENT.IM.LOGIN_ERROR]的事件：
+初始化完成之后，因为涉及到IM消息的收发，所以还必须先登录，调用登录方法后，则会触发登录成功[TICSDK.CONSTANT.EVENT.IM.LOGIN_SUCC] 或者登录失败[TICSDK.CONSTANT.EVENT.IM.LOGIN_ERROR] 的事件：
 
 ```
 this.ticSdk.login(loginConfig);
@@ -98,10 +98,10 @@ loginConfi：
 --------- | --------- | -----
 identifier | 是 | 用户名
 userSig | 是 | 登录鉴权信息
-sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录[实时音视频控制台](https://console.cloud.tencent.com/rav)查看
-accountType | 是 | 腾讯云应用的账号类型，可以登录[实时音视频控制台](https://console.cloud.tencent.com/rav)，选择指定的应用后，在功能配置页面中查看
+sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+accountType | 是 | 腾讯云应用的账号类型，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，选择指定的应用后，在功能配置页面中查看
 
-该方法传入参数，identifier和userSig，identifier为用户ID，userSig为腾讯云后台用来鉴权的用户签名，相当于登录TICSDK的用户密码，需要开发者服务器遵守腾讯云生成userSig的规则来生成，并下发给WEB端。登录的流程如下：
+该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。登录的流程如下：
 
 ![](https://main.qcloudimg.com/raw/a5be82ca74f2d33598549d0222d3ceba.png)
 
@@ -111,7 +111,7 @@ accountType | 是 | 腾讯云应用的账号类型，可以登录[实时音视�
 
 #### 4. 登出
 
-调用登出方法后，会触发登出成功[TICSDK.CONSTANT.EVENT.IM.LOGOUT_SUCC]或者登出失败[TICSDK.CONSTANT.EVENT.IM.LOGOUT_ERROR]的事件：
+调用登出方法后，会触发登出成功 [TICSDK.CONSTANT.EVENT.IM.LOGOUT_SUCC] 或者登出失败[TICSDK.CONSTANT.EVENT.IM.LOGOUT_ERROR]的事件：
 
 ```
 this.ticSdk.logout();
@@ -134,11 +134,11 @@ roomID参数：
 
 参数名 | 类型 | 是否必填 | 备注
 --------- | --------- | -----| ---
-roomID | integer | 是 | 由业务方下发，并保证每次下发的roomID是唯一不重复的。
+roomID | integer | 是 | 由业务方下发，并保证每次下发的 roomID 是唯一不重复的。
 
 ##### 5.2 加入课堂
 
-加入课堂可以通过配置webrtc相关的参数，来控制是否自动/手动推流，以及是否启用摄像头和麦克风等，也可以配置白板的渲染节点，以及白板初始化颜色，以及是否可以在白板涂鸦等，而COS的配置决定了白板是否可以具备上传ppt,pdf,doc等文档能力。调用此方法后则会触发加入课堂成功或者加入课堂失败的事件。
+加入课堂可以通过配置 webrtc 相关的参数，来控制是否自动/手动推流，以及是否启用摄像头和麦克风等，也可以配置白板的渲染节点，以及白板初始化颜色，以及是否可以在白板涂鸦等，而 COS 的配置决定了白板是否可以具备上传 ppt、pdf、doc 等文档能力。调用此方法后则会触发加入课堂成功或者加入课堂失败的事件。
 
 ```
 this.ticSdk.joinClassroom(roomID, webrtc推流配置, 白板配置, COS配置);
@@ -153,7 +153,7 @@ webrtc推流配置参数：
 closeLocalMedia | boolean | 否，默认 false | 是否关闭自动推流（如果置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口 ）
 audio | boolean | 否，默认 true | 是否启用音频采集
 video | boolean | 否，默认 true | 是否启用视频采集
-role | string | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在[控制台 - 画面设定](https://console.cloud.tencent.com/rav)中配置
+role | string | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在[控制台>画面设定](https://console.cloud.tencent.com/rav) 中配置
 privateMapKey | String | 如果useCloud为true 则必传| 进房权限
 useCloud | boolean | 否，默认 true | true 表示云上环境，false 表示自研环境
 
@@ -161,19 +161,19 @@ useCloud | boolean | 否，默认 true | true 表示云上环境，false 表示�
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
-id | string | 是 | 白板渲染的在dom节点id，并保证该节点有position: relative样式，否则可能会引起白板定位异常的问题。
+id | string | 是 | 白板渲染的在 dom 节点 id，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
 canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
-color | string | 否，默认红色 |画笔颜色，只接受hex色值，如#ff00ff，大小写不敏感
+color | string | 否，默认红色 |画笔颜色，只接受 hex 色值，如 #ff00ff，大小写不敏感
 globalBackgroundColor | string | 否，默认白色 | 全局的白板背景色
 
 
-COS配置(可选配置)，如果没有上传功能，则不需要配置COS
+COS 配置(可选配置)，如果没有上传功能，则不需要配置 COS。
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
 appid | string | 是 | APPID 是腾讯云账户的账户标识之一。在[腾讯云账号中心](https://console.cloud.tencent.com/developer)中可以看到。
-bucket | string | 是 | 在 COS 中用于存储对象。一个存储桶中可以存储多个对象。在[COS控制台](https://console.cloud.tencent.com/cos5/bucket)中可以看到
-region | string | 是 | 地域即 Region，表示 COS 的数据中心所在的地域。在[COS控制台](https://console.cloud.tencent.com/cos5/bucket)中可以看到
+bucket | string | 是 | 在 COS 中用于存储对象。一个存储桶中可以存储多个对象。在 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket)中可以看到。
+region | string | 是 | 地域即 Region，表示 COS 的数据中心所在的地域。在 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket)中可以看到。
 sign | string | 是 | COS鉴权sign，需要业务方自行下发。
 
 ##### 5.3 退出课堂
@@ -193,11 +193,11 @@ this.ticSdk.destroyClassRoom()
 
 #### 6. 白板相关操作
 
-白板的相关操作直接通过TICSDK提供的获取白板实例接口获取白板实例来操作白板，TICSDK不做任何封装。详见[白板SDK文档](/document/product/680/17886)。
+白板的相关操作直接通过 TICSDK 提供的获取白板实例接口获取白板实例来操作白板，TICSDK 不做任何封装。详见 [白板SDK文档](/document/product/680/17886)。
 
 #### 7. IM 相关操作
 
-IM相关的接口封装于腾讯云通信IMSDK，TICSDK中封装4个常用接口，通过监听消息事件的回调来处理消息。
+IM 相关的接口封装于腾讯云通信 IMSDK，TICSDK 中封装 4 个常用接口，通过监听消息事件的回调来处理消息。
 
 ##### 普通文本单聊
 
@@ -250,7 +250,7 @@ msgObj | Object | 是 | 自定义文本消息对象 msgObj = {data: '发送的�
 
 #### 8. 音视频相关操作
 
-WebRTC会默认选中一个摄像头和麦克风作为输入设备，如果需要切换摄像头和麦克风则可以参考以下接口：
+WebRTC 会默认选中一个摄像头和麦克风作为输入设备，如果需要切换摄像头和麦克风则可以参考以下接口：
 
 ##### 8.1 获取摄像头设备
 
@@ -259,7 +259,7 @@ this.ticsdk.getCameraDevices(callback)
 ```
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
-callback | function | 是 | 回调函数的参数值返回了当前PC上可用的摄像头
+callback | function | 是 | 回调函数的参数值返回了当前 PC 上可用的摄像头
 
 ##### 8.2 切换摄像头
 
@@ -277,7 +277,7 @@ this.ticsdk.getMicDevices(callback)
 ```
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
-callback | function | 是 | 回调函数的参数值返回了当前PC上可用的麦克风
+callback | function | 是 | 回调函数的参数值返回了当前 PC 上可用的麦克风
 
 ##### 8.4 切换麦克风
 
@@ -309,7 +309,7 @@ this.ticksdk.enableMic();
 
 ##### 8.7 手动推流
 
-如果在进房的时候设置了closeLocalMedia为true，则需要调用startRTC进行手动推流
+如果在进房的时候设置了 closeLocalMedia 为 true，则需要调用 startRTC 进行手动推流。
 ```
 this.ticSdk.startRTC();
 ```
@@ -317,7 +317,7 @@ this.ticSdk.startRTC();
 
 ## 文档的上传
 
-TICSDK支持图片，ppt,pdf,doc文档上传，以及提供预览服务。
+TICSDK 支持图片、ppt、pdf、doc 文档上传、并且提供预览服务。
 
 ```
 this.ticSdk.uploadFile(file, succ, fail)
@@ -328,13 +328,13 @@ this.ticSdk.uploadFile(file, succ, fail)
 | succ | function | 成功回调 如果文件类型是图片，回调函数参数第一个值是文件名，第二个参数为图片的url; 如果上传文件类型为doc，docx, excel, ppt, pdf， 回调函数第一个参数为该文档的总页数，第二个参数为文件信息，包含[文件名，文件下载地址，文件每一页预览的图片地址] |
 | fail | function | 失败回调 |
 
-> 如果是上传文档会触发上传进度TICSDK.CONSTANT.EVENT.COS.PROGRESS事件
+>**注意：**如果是上传文档会触发上传进度 TICSDK.CONSTANT.EVENT.COS.PROGRESS 事件。
 
 ## 获取实例
 
 #### 获取白板实例
 
- > 获取白板实例， 白板实例需要在监听到进房成功事件[TICSDK.CONSTANT.EVENT.TIC.JOIN_CLASS_ROOM_SUCC]()后才返回
+获取白板实例， 白板实例需要在监听到进房成功事件`[TICSDK.CONSTANT.EVENT.TIC.JOIN_CLASS_ROOM_SUCC]()`后才返回。
 
 ```
  this.ticsdK.getBoardInstance()
@@ -342,7 +342,7 @@ this.ticSdk.uploadFile(file, succ, fail)
 
 #### 获取 IM 实例
 
-> 初始化TICKSDK后即可获得IM实例
+初始化 TICKSDK 后即可获得 IM 实例。
 
 ```
  this.ticsdK.getImInstance()
@@ -350,7 +350,7 @@ this.ticSdk.uploadFile(file, succ, fail)
 
 ####  获取 WebRTC 实例
 
-> 获取WebRTC实例， WebRTC实例需要在监听到进房成功事件[TICSDK.CONSTANT.EVENT.TIC.JOIN_CLASS_ROOM_SUCC]()后才返回
+获取 WebRTC 实例， WebRTC 实例需要在监听到进房成功事件`[TICSDK.CONSTANT.EVENT.TIC.JOIN_CLASS_ROOM_SUCC]()`后才返回。
 
 ```
  this.ticsdK.getWebRTCInstance()
@@ -358,9 +358,9 @@ this.ticSdk.uploadFile(file, succ, fail)
 
 ## 常见问题
 
-### 音视频回声的问题？
-页面上的video/audio是否设置muted = true
+#### 音视频回声的问题？
+页面上的 video/audio 是否设置 muted = true
 
-### 监听了事件，但没有不回调？
-监听事件是否在调用登录接口前就完成了监听
+#### 监听了事件，但没有不回调？
+监听事件是否在调用登录接口前就完成了监听。
 
