@@ -79,7 +79,7 @@ x-cos-grant-full-control|string|否|赋予被授权者读写权限。格式：x-
 |---|---|---|
 |ETag|string|上传文件内容的 MD5 值|
 |x-cos-version-id|string|返回对象的版本|
-|x-cos-server-side​-encryption|string|如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
+|x-cos-server-side​-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
 
 ### 响应体
 该请求响应体为空。
