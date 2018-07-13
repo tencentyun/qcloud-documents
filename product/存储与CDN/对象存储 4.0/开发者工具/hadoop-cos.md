@@ -156,7 +156,7 @@ done
 
 ### 开始使用
 
-命令格式为：`hadoop fs -ls -R cosn://bucket-appid/<路径>`或`hadoop fs -ls -R /<路径>`(配置了fs.defaultFS选项为 cosn://bucket 后) ，下例中以名称为 hdfs-test-1252681929 的 bucket 为例，可在其后面加上具体路径。
+命令格式为：`hadoop fs -ls -R cosn://bucket-appid/<路径>`或`hadoop fs -ls -R /<路径>`(配置了fs.defaultFS选项为 cosn://<bucket-appid> 后) ，下例中以名称为 hdfs-test-1252681929 的 bucket 为例，可在其后面加上具体路径。
 
 ```shell
 
