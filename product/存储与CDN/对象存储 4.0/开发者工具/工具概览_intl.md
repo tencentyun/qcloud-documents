@@ -17,7 +17,7 @@ width: 200px;
 | [Local synchronization tool](/doc/product/436/7133) | This tool is used to synchronize files and sub-directories under a local directory to COS. | COS V4 |
 | [FTP Server ](/doc/product/436/7214) | This tool allows users to upload/download files to/from COS via FTP server. | COS V5 |
 | [COSFS ](/doc/product/436/6883) | In Linux, this tool is used to mount buckets to a local file system and operate objects in COS via the local file system. | COS V4 and V5 |
-| [Hadoop tool](/doc/product/436/6884) | This tool allows users to process objects in COS using Hadoop, such as MapReduce and HiveCOS. | COS V4 |
+| [Hadoop tool](/doc/product/436/6884) | This tool allows users to process objects in COS using Hadoop, such as MapReduce and HiveCOS. | COS V5 |
 | [HDFS TO COS](/doc/product/436/7212) | This tool is used to copy the data on HDFS to COS. | COS V5 |
 | [WeCOS](/doc/product/436/8218) | This tool automatically uploads image resources in WeChat Mini Programs to COS, replaces image resource reference address with COS online address, and then removes image resources from the project directory. As a result, WeChat Mini Programs are slimmed down. | COS V4 |
 
