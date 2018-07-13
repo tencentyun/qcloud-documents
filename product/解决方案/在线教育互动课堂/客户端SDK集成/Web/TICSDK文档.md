@@ -22,7 +22,7 @@ TICSDK 使用了实时音视频服务（WebRTCAPI）、云通讯服务（IMSDK�
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.0.0/TICSDK.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.1.0/TICSDK.mini.js"></script>
 ```
 > 建议直接使用腾讯云 CDN 加速的 SDK。
 
