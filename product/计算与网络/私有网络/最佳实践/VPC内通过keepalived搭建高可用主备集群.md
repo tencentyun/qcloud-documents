@@ -262,7 +262,7 @@ esac
  - 提工单申请组播特性。然后自助打开希望使用组播的VPC的组播开关
  - keepalived配置文件中 **不配置** unicast_peer。
 
-#### 3) 找荐使用vmac设备
+#### 3) 推荐使用vmac设备
 推荐使用vmac模式，原因是：
 - 在keepalived运行中如果CVM内发生网络子系统的停启，keepalived可能先于网络子系统把高可用虚拟IP配置到网卡上，使虚拟IP成为网卡的主IP，这样后续的vrrp报文会使用虚拟IP作为源IP来发送，无论是单播模式或是组播模式。其他CVM内的keepalived进程会忽略这种宣告报文，造成脑裂。
 
