@@ -16,7 +16,7 @@ Hadoop-2.7.2及以上版本
 ## 安装方法
 
 ### 获取 hadoop-cos 插件
-下载地址：[hadoop-cos 插件](https://github.com/tencentyun/hadoop-cosn-v5)
+下载地址：[hadoop-cos 插件](https://github.com/tencentyun/hadoop-cos)
 
 
 ### 安装hadoop-cos插件
