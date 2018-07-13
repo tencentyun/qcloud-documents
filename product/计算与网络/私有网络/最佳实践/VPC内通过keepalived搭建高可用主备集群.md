@@ -190,13 +190,13 @@ state BACKUP           #备
 #    }
 }
 ```
-### 步骤 5. 修改 notify_action.sh 帮助云主机在故障时角色切换
-
+### 步骤 5. 使用 notify_action.sh 进行简单的日志记录
 ```
     常主常备模式步骤. 修改 notify_action.sh:
         1) 无
     非常主常备模式步骤. 修改 notify_action.sh:
         1) 无
+	keepalived主要日志仍然记录在/var/log/message
 ```
 
 ```
