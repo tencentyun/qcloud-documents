@@ -138,17 +138,18 @@ done
 
 **配置项说明**：
 
+
 | 属性键                             | 说明                |默认值|必填项|
-|:-----------------------------------:|:--------------------:|:-----:|
+|:-----------------------------------:|:----------------------|:-----:|:-----:|
 |fs.cosn.userinfo.secretId/secretKey| 填写您账户的API 密钥信息。可通过 [云 API 密钥 控制台](https://console.cloud.tencent.com/capi) 查看 | 无  | 是|
-|fs.cosn.impl                      | cosn对FileSystem的实现类，固定为 org.apache.hadoop.fs.CosFileSystem| 无|是|
+|fs.cosn.impl                      | cosn对FileSystem的实现类，固定为 org.apache.hadoop.fs.CosFileSystem| 无 |是|
 |fs.AbstractFileSystem.cosn.impl   | cosn对AbstractFileSystem的实现类，固定为org.apache.hadoop.fs.CosN | 无 |是|
 |fs.cosn.userinfo.region           | 请填写您的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等 | 无 | 是|
-|fs.cosn.buffer.dir                | 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处 | /tmp/hadoop_cos| 否|
+|fs.cosn.buffer.dir                | 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处 | /tmp/hadoop_cos | 否|
 |fs.cosn.upload.buffer             | 流式上传时，使用的缓冲区类型。当前支持两种缓冲区类型：disk和memory，其中disk将会在fs.cosn.buffer.dir选项指定的文件系统目录中生成若干个文件临时文件，并使用内存映射技术将其包装为上传缓冲池。内存较大机器建议可以使用memory类型的缓冲区，同时缓冲区的大小至少保证大于等于一个block的大小。| disk | 否|
-|fs.cosn.upload.buffer.size        | 向COS流式上传文件时，本地使用的缓冲区的大小。要求至少大于等于一个block的大小|134217728（128MB）|否|
+|fs.cosn.upload.buffer.size        | 向COS流式上传文件时，本地使用的缓冲区的大小。要求至少大于等于一个block的大小 | 134217728（128MB）|否|
 |fs.cosn.block.size                |  CosN文件系统每个block的大小，也是分块上传的每个part size的大小。由于COS的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size为8MB时，最大能够支持78GB的单文件上传。 block size最大可以支持到2GB，即单文件最大可支持19TB| 8388608（8MB） | 否 |
-|fs.cosn.upload_thread_pool        | 文件流式上传到COS时，并发上传的线程数目 | CPU核心数*3 | 否|
+|fs.cosn.upload_thread_pool        | 文件流式上传到COS时，并发上传的线程数目 | CPU核心数× 3 |  否|
 |fs.cosn.maxRetries				   | 访问COS出现错误时，最多重试的次数 | 3 | 否 |
 |fs.cosn.retry.interval.seconds    | 每次重试的时间间隔 | 3 | 否 |
 
