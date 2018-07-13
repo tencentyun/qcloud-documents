@@ -26,7 +26,7 @@
 >**注意：**
 >如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
-## 使用图片 URL
+## 使用 application/json 格式
 ### 请求参数
 
 使用 application/json 格式：
@@ -177,7 +177,7 @@ Content-Type: "application/json"
 }
 ```
 
-## 使用图片文件
+## 使用 multipart/form-data 格式
 
 ### 请求参数
 使用 multipart/form-data 格式：
