@@ -34,7 +34,7 @@
 | ------ | ---- | ------------- | ---------------------------------------- |
 | appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
 | image  | 否   | binary | 图片文件，支持多个                  |
-| url    | 否   | string        | image 和 url 只提供一个即可；如果都提供，只使用 url |
+| url    | 否   | string        | 图片 url 或 图片 base64，两者填一个即可。同时赋值时，则以 url 指定的图像作为输入 |
 
 ## 返回内容
 
