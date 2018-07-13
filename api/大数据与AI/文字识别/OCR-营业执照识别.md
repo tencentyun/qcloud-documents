@@ -61,7 +61,7 @@ items（ json 数组）：
 
 ## 请求示例
 
-### 使用 url 的请求示例
+### 使用 application/json 的请求示例
 ```
 POST /ocr/bizlicense HTTP/1.1
 Host: recognition.image.myqcloud.com
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 ```
 
-### 使用 image 的请求示例
+### 使用 multipart/form-data 的请求示例
 
 ```
 POST /ocr/bizlicense HTTP/1.1
