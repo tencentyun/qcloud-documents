@@ -45,13 +45,13 @@
 | 发证日期   | 有效日期 |
 | &nbsp; | 红章   |
 
-使用 url 选择 application/json 格式，使用 image 则选择 multipart/form-data 格式：
+使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。
 
 | 参数名    | 必选 | 类型     | 说明                                       |
 | ------ | ---- | ------ | ---------------------------------------- |
 | appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
 | type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
-| image  | 否   | binary | image 和 url 只提供一个即可。                                 |
+| image  | 否   | binary | 图片文件                                |
 | url    | 否   | string | 图片 url 或 图片 base64，两者填一个即可。同时赋值时，则以 url 指定的图像作为输入。 |
 
 ## 返回内容
