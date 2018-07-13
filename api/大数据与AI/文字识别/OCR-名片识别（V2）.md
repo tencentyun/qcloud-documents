@@ -27,7 +27,7 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url 或 base64，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
+| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
 | authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 >**注意：**
@@ -40,7 +40,7 @@
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 是         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
 | image         | 否   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
-| url_list	    | 否  |	string 数组	    | 图片 url 列表。图片 url 或 图片 base64，两者填一个即可。同时赋值时，则以 url 指定的图像作为输入|
+| url_list	    | 否  |	string 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入|
 ## 返回内容
 
 | 字段          | 类型      | 说明           |
