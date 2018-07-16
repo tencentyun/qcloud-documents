@@ -89,9 +89,9 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
      ```
      (error) CROSSSLOT Keys in request don't hash to the same slot
      ```
-   相关命令列表如下：
-     - DEL
-     - UNLINK
+     相关命令列表如下：
+       - DEL
+       - UNLINK
      - EXISTS
      - MGET
      - BRPOP
