@@ -1,4 +1,4 @@
-The data transfer service (DTS) supports data migration feature and provides continuous data replication feature from self-built MySQL database to TencentDB, allowing users to carry out hot data migration without interrupting their services. Data migration is supported for local IDCs with public IP/Port or Tencent Cloud direct connection access, or MySQL databases in Tencent Cloud CVMs. **MySQL5.7 does not support data transfer service for now, and you can import the data by downloading cold backup file.**
+The TencentDB Service for Transmission (DTS) supports data migration feature and provides continuous data replication feature from self-built MySQL database to TencentDB, allowing users to carry out hot data migration without interrupting their services. Data migration is supported for local IDCs with public IP/Port or Tencent Cloud direct connection access, or MySQL databases in Tencent Cloud CVMs. **MySQL5.7 does not support data transfer service for now, and you can import the data by downloading cold backup file.**
 
 ## 1. Preparation
 ### 1.1 Note
@@ -32,7 +32,7 @@ For accounts that are used for migration, it is recommended to acquire super per
   
 5. Confirm source database MySQL variables
 	  Use `SHOW GLOBAL VARIABLES LIKE 'XXX'`; 
-	  
+	
 	  Check MySQL global variables to confirm whether migration can be performed under the current status:
 		
             server_id > 1
@@ -52,13 +52,13 @@ For accounts that are used for migration, it is recommended to acquire super per
             If the source instance is slave, confirm the following parameters in the source instance:
             
             log_slave_updates = 1           
-		
+	
 6. Change variable value:
 
 	a.  Change the source database MySQL configuration file `my.cnf`, and restart:
 	
 		        log-bin=[custom binlog file name]
-		        
+	
 	b. Modify configuration dynamically:
          
                 set global server_id = 99;
@@ -68,7 +68,7 @@ For accounts that are used for migration, it is recommended to acquire super per
                 set global binlog_row_image=FULL;
                 
                 set global innodb_stats_on_metadata = 0;
-		
+	
 
 ## 2. Steps
 
@@ -85,7 +85,7 @@ After purchasing DTS instance, click "Modify Configuration" to enter the task cr
 Click "Modify Configuration", enter task name and information of the source database and target TencentDB for MySQL instance. Details:
 
 #### Task Configuration
-	
+
 * Name of task: Specify a name for the task.
 * Execution schedule: Specify a start time for your migration task.
 
@@ -141,7 +141,7 @@ Required information:
 >**Note:**
 > 1. The character_set_server and lower_case_table_names configuration items are migrated only when the whole instance is migrated.
 > 2. If character set configuration of migrated tables for the source instance is different from that of the target instance, the character set configuration of source instance is retained.
-		
+
 ![][img-init6]
 ![][img-init5]
 
@@ -178,11 +178,11 @@ During migration, if you need to terminate the process, click the "Terminate" bu
 1. Restarting the task may cause verification or task to fail. You may need to manually clear all conflicting databases or tables in the target database to start the migration task again.
 2. When migrating a single table, it is necessary to ensure that tables relied on by foreign keys of all tables are also migrated.
 
-[1]:	https://cloud.tencent.com/product/dc
-[2]:	https://cloud.tencent.com/document/product/216/549
-[3]:	https://cloud.tencent.com/product/vpn
-[3]:	https://cloud.tencent.com/product/vpn
-[4]:	https://cloud.tencent.com/document/product/215/4956
+	1]:	https://cloud.tencent.com/product/dc
+	2]:	https://cloud.tencent.com/document/product/216/549
+	3]:	https://cloud.tencent.com/product/vpn
+	3]:	https://cloud.tencent.com/product/vpn
+	4]:	https://cloud.tencent.com/document/product/215/4956
 
 [img-creat0]: //mc.qcloudimg.com/static/img/d782322e94fc253a41f95e642f794b32/create0.png
 [img-creat1]: //mc.qcloudimg.com/static/img/123cd23d3449cd5497502d8572f4b0a0/creat1.png

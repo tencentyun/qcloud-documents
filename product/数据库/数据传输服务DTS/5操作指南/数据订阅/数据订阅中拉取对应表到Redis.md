@@ -6,7 +6,7 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 2. 数据订阅 SDK 下载
-[点击下载](https://mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip) 
+[点击下载](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar) 
 
 3. jedis-2.9.0.jar 下载
 [点击下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip) 

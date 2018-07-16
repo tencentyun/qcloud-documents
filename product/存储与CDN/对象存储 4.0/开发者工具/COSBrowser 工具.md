@@ -4,12 +4,12 @@ COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可�
 ## 下载与安装
 下载安装包（下载后双击安装）：
 
-- [COSBrowser Window 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
+- [COSBrowser Windows 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)
 
 - [COSBrowser macOS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 ## 软件界面
-![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
+![cosbrowser](https://main.qcloudimg.com/raw/fdb4665917c2dc638068824999153fc6.png)
 
 ## 使用方法
 

@@ -68,13 +68,13 @@ pod repo update
 
     - 手动设置
 
-    在项目的`info.plist`文件中增加以下配置
+    在项目的`info.plist`文件中增加以下配置：
     
     ![](https://main.qcloudimg.com/raw/0204a82988bb42696b7bcbe1d47e5c8c.png)
     
     - 代码设置
 
-    在项目的`info.plist`文件中增加以下代码
+    在项目的`info.plist`文件中增加以下代码：
     
     ```xml
     <key>NSAppTransportSecurity</key>
@@ -264,7 +264,7 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 - (void)createClassroomWithRoomID:(int)roomID Succ:(TCIVoidBlock)succ failed:(TCIErrorBlock)failed;
 ```
 
-创建课堂接口，只是根据传进去的 roomID 创建了一个IM群组，并进行了一些准备工作，老师端创建课堂后还需调用`加入课堂`方法加入课堂。
+创建课堂接口，只是根据传进去的 roomID 创建了一个 IM 群组，并进行了一些准备工作，老师端创建课堂后还需调用`加入课堂`方法加入课堂。
 
 * 加入课堂
 
@@ -299,7 +299,12 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 
 另外该类还有两个代理对象，用来监听课堂内的一些事件，这个我们后面再说。
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，然后还有一个必填参数为**`controlRole`**，继承自父类`ILiveRoomOption`，该参数代表进房之后使用哪些音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"），实例代码如下：
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
+
+* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
+* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 。
+
+实例代码如下：
 
 ```objc
 [[TICManager sharedInstance] joinClassroomWithOption:^TICClassroomOption *(TICClassroomOption *option) {
@@ -308,6 +313,7 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
     option.eventListener = #课堂事件监听对象#;
     option.imListener = #课堂消息监听对象#;
     option.controlRole = @“user”;
+    option.avOption.privateMapKey = #开发者业务后台生成的privateMapKey#
     return option;
 } succ:^{
     NSLog(@"进房成功");
@@ -513,16 +519,6 @@ TICSDK 只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需
  * @discussion 老师端主动解散课堂时，老师端不会收到该通知，还在课堂内的学生端会收到；只有后台解散课堂时，老师端才有可能收到
  */
 -(void)onClassroomDestroy;
-```
-
-**加入课堂、退出课堂通知**，需要在腾讯云后台 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&level3_id=242&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=22&scene_code=11814&step=2) 申请后才能生效，工单描述格式如下：
-
-```
-配置变更类型：修改群组形态
-
-SdkAppid : // 请在这里填写您的 App 在云通信中的 APPID
-群组形态名称： ChatRoom
-需要修改的特性：增加群组成员进出通知
 ```
 
 以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，比如：在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。

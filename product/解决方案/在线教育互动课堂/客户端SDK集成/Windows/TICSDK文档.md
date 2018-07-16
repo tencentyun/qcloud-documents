@@ -1,22 +1,22 @@
 
 ## 1. 准备工作
-TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指 [方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。相关链接如下：
+TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指 [方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
+相关链接如下：
 
-[实时音视频](https://cloud.tencent.com/document/product/268/8424)
-
-[云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
-
-[COS 服务](https://cloud.tencent.com/document/product/436/6225)
+- [实时音视频](https://cloud.tencent.com/document/product/268/8424)
+- [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
+- [COS 服务](https://cloud.tencent.com/document/product/436/6225)
 
 ### 1.1 资源下载	
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
 
-> 开发者 Demo 的主要主要为向开发者展示TICSDK的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解TICSDK的使用方法。
+>**注意：**
+> 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
 SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zip)
 
-## 2. 集成SDK
+## 2. 集成 SDK
 
 ### 2.1 编译
 在 VisualStudio 工程里面，选择编译平台为 x86。
@@ -35,7 +35,7 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 
 ## 3 快速开发
 ### 3.1 初始化参数
-开发需要包含如下头文件。通过`TICSDK::GetSDKInstance()`方法获得TICSDK实例指针并进行初始化。在此之前，之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
+开发需要包含如下头文件。通过`TICSDK::GetSDKInstance()`方法获得 TICSDK 实例指针并进行初始化。在此之前，之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ```C++
 	#include "TICSDK.h"
@@ -63,7 +63,7 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 ```
 
 配置 COS 参数，用于上传图片、PPT文件到白板上展示。下面这些 COS 属性参数都可从腾讯云 COS 控制台获取到。
-请登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 开通COS服务。
+请登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 开通 CO S服务。
 
 ```C++
 	m_cfg.setCosAppId(1255821848);
@@ -204,7 +204,7 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 > 1. 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试。
 > 2. 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
 > 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
-> 4. 关于以上错误的详细描述，参见[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+> 4. 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
 
 登出方法比较简单，如下：
@@ -303,7 +303,7 @@ class IClassroomIMListener
 class IClassroomWhiteboardListener
 ```
 
-基础配置有 3 个，加入课堂时是否为老师，进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
+基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。其中 roomOption 参数下面有个成员 privateMapKey，是用户配置票据，为必填信息。进入课堂前要先从自己的业务服务器或者该信息，然后调用ticsdk的进入课堂接口。详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
 
 * 退出课堂
 
@@ -736,6 +736,6 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 	*/
 	virtual void onClassroomDestroy() = 0;
 ```
-创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id表示事件类型（开关摄像头等），ids表示触发事件的用户ID集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 emo）。房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
+创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id 表示事件类型（开关摄像头等），ids 表示触发事件的用户 ID 集合，其他端触发回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 emo）。房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
 
 

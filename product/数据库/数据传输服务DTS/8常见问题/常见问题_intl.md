@@ -1,6 +1,6 @@
 
 ### What is DTS?
-Data transfer service (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also allows you to use a real-time synchronization channel to easily build a highly available database architecture which supports remote disaster recovery.
+TencentDB Service for Transmission (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also allows you to use a real-time synchronization channel to easily build a highly available database architecture which supports remote disaster recovery.
 
 ### How to use Tencent Cloud DTS?
 You can use Tencent Cloud DTS to migrate all your data to the Tencent Cloud-based database at a time, or you can perform continuous data replication. Tencent Cloud DTS captures changes to the source database, and applies them to the destination database in a transaction-consistent manner. For information on how to perform continuous data replication, please see [Data Subscription](https://cloud.tencent.com/document/product/571/8774).

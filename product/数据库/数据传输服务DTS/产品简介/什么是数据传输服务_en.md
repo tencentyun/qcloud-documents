@@ -1,5 +1,5 @@
-## What is Data Transfer Service?
-Data transfer service (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also uses a real-time synchronization channel to build a highly available database architecture to allow remote disaster recovery.
+## What is TencentDB Service for Transmission?
+TencentDB Service for Transmission (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also uses a real-time synchronization channel to build a highly available database architecture to allow remote disaster recovery.
 
 DTS is designed to manage complicated data interaction activities for users, allowing them to focus on upper-level business development.
 
