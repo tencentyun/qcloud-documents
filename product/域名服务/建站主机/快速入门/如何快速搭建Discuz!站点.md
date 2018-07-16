@@ -44,5 +44,5 @@
 ![](https://ask.qcloudimg.com/draft/1070625/dn2ehcikb9.png)
 
 ### 6. 访问网站首页
-通过临时域名`http://xxxxxx.mylitesite.com/discuz/forum.php`或者已绑定域名 `http://youdoamin.com/discuz/forum.php` 访问站点。
+通过临时域名`http://xxxxxx.mylitesite.com/forum.php`或者已绑定域名 `http://youdoamin.com/forum.php` 访问站点。
 ![](https://ask.qcloudimg.com/draft/1070625/wftihv7vih.png)
