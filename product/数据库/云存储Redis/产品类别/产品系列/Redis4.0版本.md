@@ -75,8 +75,8 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
     -   MONITOR
     -   COMMAND
     -   SCRIPT-DEBUG
-	-   LATENCY
-	-  READONLy
+    -   LATENCY
+    -  READONLy
 	- TIME
 	- WAIT
 	- MODULE
@@ -99,6 +99,8 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
      - SDIFFSTORE
      - MSET
      - MSETNX
+     - PFCOUNT
+     - PFMERGE
      
 - **自定义命令**，云数据Redis4.0通过VIP封装，在集群模式下提供了单机版的使用体验，对业务的使用带来的极大的便利，但是对运维带来了一定不透明，因此通过自定义命令来弥补这块空缺，支持集群中每个节点的访问，支持方式为在原有命令的参数列表最右边新增一个参数【节点ID】，COMMAND arg1 arg2 ... [节点ID]，节点ID通过命令cluster nodes获取，或者在控制台中获取：
   ```
