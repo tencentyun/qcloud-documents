@@ -75,8 +75,9 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
     -   OBJECT
     -   SHUTDOWN
     -   CLIENT
-	-   COMMAND
-	-   SCRIPT-DEBUG
+    -   MONITOR
+    -   COMMAND
+    -   SCRIPT-DEBUG
 	-   LATENCY
 	-  READONLy
 	- TIME
@@ -104,8 +105,7 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
 	info server ef3cf5e20e1a7cf5f9cc259ed488c82c4aa17171
   ```
    自定义命令列表：
-	 - INFO
-	 - MONITOR
+	 - INFO	 
 	 - MEMORY
 	 - SLOWLOG
 	 - KEYS （支持hashtag，优先匹配hashtag）
