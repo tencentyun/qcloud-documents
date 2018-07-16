@@ -1,4 +1,4 @@
-Tencent Cloud CCS is based on Kubernetes orchestration engine. Kubernetes syntax is natively supported in CCS application templates. This document describes the common syntax of Kubernetes.
+Tencent Cloud TKE is based on Kubernetes orchestration engine. Kubernetes syntax is natively supported in TKE application templates. This document describes the common syntax of Kubernetes.
 
 ## Set CPU/Memory Limits
 Kubernetes uses `Limit` and `Request` to limit the resources used by a container. For more information, please see [here][1].
@@ -53,7 +53,7 @@ Note: If you do not specify an image tag, `latest` is used as the image tag by d
 
 ## Set Service Type
 
-Kubernetes supports many service access types. Common service access types include: Load balancer access, in-cluster access, node port access, and "Do not set access mothod". In CCS, load balancer access is divided into public network-based load balancer access and VPC-based load balancer access. Kubernetes specifies the service access type with the parameter `type` in the Service resource.
+Kubernetes supports many service access types. Common service access types include: Load balancer access, in-cluster access, node port access, and "Do not set access mothod". In TKE, load balancer access is divided into public network-based load balancer access and VPC-based load balancer access. Kubernetes specifies the service access type with the parameter `type` in the Service resource.
 
 **Public network-based load balancer access**
 ```
@@ -125,7 +125,7 @@ As shown in the example, the service access type is set to access via ClusterIP 
 
 If the service does not have a `Service` resource, service access method is not set.
 
-Note: Node port access is unavailable in CCS. A node port will be assigned to the service by default in public network-based load balancer access, VPC-based load balancer access and in-cluster access. In Ingress, service access is also registered by registering a node port. If the access to the service is configured in the Ingress, setting the service access method to "Do not set access method" can make the service unavailable.
+Note: Node port access is unavailable in TKE. A node port will be assigned to the service by default in public network-based load balancer access, VPC-based load balancer access and in-cluster access. In Ingress, service access is also registered by registering a node port. If the access to the service is configured in the Ingress, setting the service access method to "Do not set access method" can make the service unavailable.
 
 For more information on service access, please see [Kubernetes official documents][3], or [Set Service Access Method][4].
 

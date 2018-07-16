@@ -1,1 +1,0 @@
-## kubectl创建云盘、NFS盘

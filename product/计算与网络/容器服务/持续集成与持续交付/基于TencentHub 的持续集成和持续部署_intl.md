@@ -2,7 +2,7 @@
 ### Graphic illustration
 
 ![Alt text][tencenthubcicd]
-1. Configure image sources via CCS Image Registry. `Build with Source Code`, `Build with Dockerfile`, `Manual Upload` are supported.
+1. Configure image sources via TKE Image Registry. `Build with Source Code`, `Build with Dockerfile`, `Manual Upload` are supported.
 2. If you configure "Build with Source Code", container image feature is generated automatically every time you submit code.
 3. To automatically trigger the update of service upon the generation of image, you need to set a trigger for the image.
 4. After "Build with Source Code" and trigger are configured, the building of image is automatically triggered once you submit code, and then the generation of image triggers the update of service automatically.

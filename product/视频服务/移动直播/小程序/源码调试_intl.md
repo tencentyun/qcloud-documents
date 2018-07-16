@@ -89,7 +89,7 @@ The demo mini program will access the test server addresses in the following tab
 | URL | Corresponding Server Address | Server Feature Description |
 |:------:|:------:| :---------------: |
 | `https://webim.tim.qq.com` | IM backend server address | Used to support the messaging feature in the mini program |
-| `https://yun.tim.qq.com/v4/`<br>`openim/jsonvideoapp` | WebRTC test backend | Used to request the userSig and privateMapKey needed to enter [&lt;webrtc-room&gt;](https://cloud.tencent.com/document/product/454/16914) |
+| `https://official.opensso.tencent-cloud.com/v4/`<br>`openim/jsonvideoapp` | WebRTC test backend | Used to request the userSig and privateMapKey needed to enter [&lt;webrtc-room&gt;](https://cloud.tencent.com/document/product/454/16914) |
 | `https://xzb.qcloud.com/webrtc/`<br>`weapp/webrtc_room` | WebRTC room list backend | A simple room list feature for Demo testing and use. |
 
 

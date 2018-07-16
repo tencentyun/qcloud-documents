@@ -1,4 +1,4 @@
-## 短信 API 
+## 短信 API
 
 |API 名称	|描述|
 |-----|------|
@@ -21,6 +21,11 @@
 |[语音通知状态通知](https://cloud.tencent.com/document/product/382/5816)	|通过回调业务 url 的方式，通知业务方语音通知下发的状态|
 |[语音通知按键通知](https://cloud.tencent.com/document/product/382/5815)	|可以通过回调业务 url 的方式，通知业务方用户按下的键|
 |[语音送达失败原因推送](https://cloud.tencent.com/document/product/382/6532)	|对语音验证码、语音通知下发失败的号码推送下发失败的原因|
+|[上传语音文件](https://cloud.tencent.com/document/product/382/18153)	|上传语音文件|
+|[指定文件fid发送语音](https://cloud.tencent.com/document/product/382/18154)	|给国内用户发送指定语音文件 fid 语音通知|
+|[指定模板发送语音](https://cloud.tencent.com/document/product/382/18155)	|给国内用户发送指定模板的语音通知|
+|[查询语音文件审核状态](https://cloud.tencent.com/document/product/382/18156)	|查询语音文件审核状态|
+
 
 
 ## 模版 API
@@ -44,5 +49,3 @@
 |-----|------|
 |[发送数据统计](https://cloud.tencent.com/document/product/382/7755)	|获取一段时间短信发送状态（发送量，成功量，计费条数） |
 |[回执数据统计](https://cloud.tencent.com/document/product/382/7756)	|获取一段时间短信回执状态（提交成功量，回执量，回执成功量，回执失败量及失败分布） |
-
-

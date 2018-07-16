@@ -48,8 +48,8 @@ Node auto scaling based on monitoring metrics pays no attention to the pods duri
 ### 3.2. What is the relationship between CA and scaling group?
 A CA-enabled cluster will create a launch configuration and a scaling group that is bound with this launch configuration based on the selected node configuration. It will then perform scaling up/down in this bound scaling group. CVMs scaled up are automatically added to the cluster. Nodes that are automatically scaled up/down are billed on a postpaid basis. For more information on scaling group, please see [Auto Scaling](https://cloud.tencent.com/document/product/377).
 
-### 3.3. Will CA scale down the nodes that I added manually on the CCS console?
-No. CA only scales down the nodes within the scaling group. Nodes that are added on the [CCS console](https://console.cloud.tencent.com/ccs) are not added to the scaling group.
+### 3.3. Will CA scale down the nodes that I added manually on the TKE console?
+No. CA only scales down the nodes within the scaling group. Nodes that are added on the [TKE console](https://console.cloud.tencent.com/ccs) are not added to the scaling group.
 
 ### 3.4. Can I add or remove CVMs on the AS console?
 Yes but NOT RECOMMENDED. ed making any modifications on the [AS console](https://console.cloud.tencent.com/autoscaling).

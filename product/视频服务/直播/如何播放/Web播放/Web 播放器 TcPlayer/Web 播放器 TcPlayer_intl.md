@@ -1,6 +1,6 @@
 ## Feature Description
 
-TcPlayer is mainly used to play audio/video streams in mobile phone browsers and PC browsers. With this player, you can share your videos on social platforms such as WeChat Moments and Weibo without installing other Apps. This document is intended for developers with basic knowledge in JavaScript.
+TcPlayer Lite is mainly used to play audio/video streams in mobile phone browsers and PC browsers. With this player, you can share your videos on social platforms such as WeChat Moments and Weibo without installing other Apps. This document is intended for developers with basic knowledge in JavaScript.
 
 ## Basics
 The following are the basics you must learn before getting started:
@@ -9,7 +9,7 @@ The following are the basics you must learn before getting started:
 LVB video source is generated in real time. Once the VJ stops broadcasting, the LVB URL becomes invalid, and since the live streams are played in real time, no progress bar is displayed on the player during the playback.
 VOD video source is a file on the server, which can be played at any time as long as it has not been deleted by the provider. Since the entire video file is stored on the server, a progress bar is displayed during the playback.
 
-- **Supported protocols**
+- **Supported Protocols**
 Playing videos using the web player depends on browsers, rather than the codes in webpages. For this reason, the compatibility may be lower than we expected. The fact is that **not all mobile browsers can yield expected performance results**. Some of the mobile browsers don't even support video playback at all. The most common video source URLs used to play videos on webpages are URLs ending with "m3u8". We call them HLS (HTTP Live Streaming), a standard from Apple. At present, this format has the best compatibility with various mobile browser products thanks to Apple's influence. However, this format has a drawback: a big delay of 20-30 seconds. Even so, we don't have any other choices for mobile browsers.
 
  This situation looks better on PC, because PC browsers still use FLASH widgets, which supports various video source formats. Besides, the FLASH widgets for different browsers are all developed by Adobe, so they have good compatibility.
@@ -18,13 +18,13 @@ Playing videos using the web player depends on browsers, rather than the codes i
 ## Integrating
 
 ### Step 1: Prepare the page
-Introduce the initialization script to the page on which you want to play videos (including PC or H5)
+Introduce the initialization script to the page in which you want to play videos (including PC or H5).
 ```
 <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
 ```
 
 >**Note:**
->**You can't perform debugging directly using the local pages because TcPlayer cannot handle cross-domain issues in such situations.
+>**You can't perform debugging directly using the local pages** because TcPlayer Lite cannot handle cross-domain issues in such situations.
 
 ### Step 2: Place container into HTML
 
@@ -78,7 +78,7 @@ If it's an LVB URL, be sure to check whether the VJ has stopped streaming and is
 If it's a VOD URL, you need to check whether the file to be played is still on the server. For example, the playback URL may be deleted from the VOD system.
 
 - **Reason 2: Local webpage debugging**
-TcPlayer does not support debugging in local web page (opening the page where video is played using `file://` protocol). This is because of cross-domain security restrictions of browsers. Simply placing a file such as `test.html` in Windows and testing video playback using the file will definitely end up in failure. You need to upload the file to a server to perform the test. Frontend engineers can achieve local testing by setting up a local proxy for the online web page through reverse proxy. This is a feasible method for local debugging.
+TcPlayer Lite does not support debugging in local web page (opening the page where video is played using `file://` protocol). This is because of cross-domain security restrictions of browsers. Simply placing a file such as `test.html` in Windows and testing video playback using the file will definitely end up in failure. You need to upload the file to a server to perform the test. Frontend engineers can achieve local testing by setting up a local proxy for the online web page through reverse proxy. This is a feasible method for local debugging.
 
 - **Reason 3: Incompatibility of mobile phones**
 Common mobile browsers do not support FLV and RTMP URLs (The latest QQ Browser can play videos based on FLV protocol, but it is not widely used). You can only use HLS (m3u8) URLs.
@@ -127,7 +127,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 #### 5.1 Principle
 You can choose different definitions for videos on Youku.com, Tudou.com or Tencent. How do we achieve this feature?
 ![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
-First, you should know that **the players cannot change a video's definition**. There is only one definition when the video source is generated, which is called **Original**. The original video has different encoding formats and encapsulation formats, and Web pages do not support all video playback formats. In VOD scenarios, the encoding format for videos must be H.264, and encapsulation format must be MP4 or FLV.
+First, you should know that **the players cannot change a video's definition**. There is only one definition when the video source is generated, which is called Original. The original video has different encoding formats and encapsulation formats, and Web pages do not support all video playback formats. In VOD scenarios, the encoding format for videos must be H.264, and encapsulation format must be MP4 or FLV.
 
 So, how is multi-definition selection implemented? This is where the Video Cloud comes into play:
 - In LVB scenarios, the original video from VJ will be transcoded in real time in Tencent Cloud, and then videos transcoded with different channels are distributed, such as "High Definition (HD)" and "Standard Definition (SD)". The video from each channel has its own corresponding URL:
@@ -144,7 +144,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      //HD
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      //SD
 ```
 >**Note:**
->**The uploaded original video is not transcoded by Tencent Cloud and cannot be played directly.
+>**The uploaded original video is not transcoded by Tencent Cloud and cannot be played directly.**
 
 #### 5.2 Code implementation
 The following code segment allows player to support multiple definitions. In other words, it displays options used to select different definitions on the player's user interface.
@@ -210,7 +210,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2032	| Failed to acquire video, check whether the playback link is valid | (error prompted by FLASH) |
 | 2048	| Failed to load video file; cross-domain access is rejected | Failed to request m3u8 file. This may be caused by network error or cross-domain issue (error prompted by FLASH) |
 
->**Notes:**
+>**Note:**
 >**Code 1-4 are original H5 events.**
 >**Due to the black box feature of Flash and the uncertainty of H5 video playback standards, the error messages will be irregularly updated.**
 
@@ -229,7 +229,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ## Parameter List
 Parameters supported by the player as well as their detailed description are listed below:
 
-| Parameter | Type | Default Value | Parameter Description
+| Parameter | Type | Default Value | Description
 |-----------------|--------- |--------  |-------------------------------------------- |
 | m3u8            | String   | None | m3u8 playback URL (original) <br> Example: `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
 | m3u8_hd         | String   | None | m3u8 playback URL (high definition) <br> Example: `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
@@ -244,15 +244,15 @@ Parameters supported by the player as well as their detailed description are lis
 | rtmp_hd         | String   | None | rtmp playback URL (high definition) <br> Example: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
 | rtmp_sd         | String   | None | rtmp playback URL (standard definition) <br> Example: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
 | width           | Number   | None | **Required parameter**, used to configure player width (in pixels) <br> Example: 640 |
-| height          | Number   | None | **Required**, used to configure player height (in pixels) <br> Example: 480 |
+| height          | Number   | None | **Required parameter**, used to configure player height (in pixels) <br> Example: 480 |
 | volume          | Number   | 0.5      | Used to configure initial volume. Range: 0-1 [v2.2.0+] <br> Example: 0.6 |
 | live            | Boolean  | false    | **Required parameter**, used to configure whether the video is LVB video. This determines whether to render certain controls such as the time axis, and is used to differentiate between VOD and LVB processing logics <br> Example: true |
 | autoplay        | Boolean  | false    | Whether to enable auto-playback<br>**Note: This option is only effective for most PC platforms** <br> Example: true |
 | coverpic        | String / Object| None | Preview cover image. You can either pass an image URL, or an object containing image URL ("src") and display style ("style"). <br>Available styles: <br>"default": image is displayed 1:1 in the center <br>"stretch": stretch the image to fill the player area. This may distort the image <br>"cover": horizontally stretch the image while keeping its ratio to fill the player area. The image may not be fully displayed in the area <br>Example: "`http://www.test.com/myimage.jpg`" <br>or<br>{"style": "cover", "src": h`ttp://www.test.com/myimage.jpg`} |
 | controls        | String   |"default" | "default": displays default controls. "none": does not display controls. "system": displays system controls on mobile devices **Note: You need to configure this as "system" if you want to use system full screen mode on mobile devices. The default full screen solution uses Fullscreen API + pseudo-full screen [Example](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)** <br> Example: "system" |
-| systemFullscreen| Boolean  |false     | In a browser environment that does not support the Fullscreen API, you can try to use the webkitEnterFullScreen method provided by the browser for full screen after you enable it. If Fullscreen API is supported, the system will enter full screen and system control is used  Example: true |
+| systemFullscreen| Boolean  |false     | In a browser environment that does not support the Fullscreen API, you can try to use the webkitEnterFullScreen method provided by the browser for full screen after you enable it. If Fullscreen API is supported, the system will enter full screen and system control is used  <br>Example: true |
 | flash           | Boolean  | true     | Whether to prioritize flash to play videos. <br>**Note: this option is only effective on PC platforms** [v2.2.0+] <br> Example: true |
-| flashUrl        | String   | None | You can set flash swf url <br>**Note: this option is only effective on PC platforms** [v2.2.1+] |
+| flashUrl        | String   | None | You can set flash swf url <br>** Note: this option is only effective on PC platforms** [v2.2.1+] |
 | h5_flv          | Boolean  | false    | Whether to enable flv.js to play FLV videos. If this is enabled, players will use flv.js to play FLV videos in browsers that support MSE. However, since not all such browsers can use flv.js, players do not enable this attribute by default. [v2.2.0+] <br> Example: true |
 | x5_player       | Boolean  | false    | Whether to enable TBS to play FLV videos. If this is enabled, players will directly transmit the FLV playback URLs to `<video>` to play videos in the TBS mode (for example, WeChat on Android or QQ Browser). [TBS Video Playback](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+] <br> Example: true |
 | x5_type         | String   | None | Enable the H5 player at the same layer through the video attribute "x5-video-player-type". Available value: H5 (This attribute is an experimental one of TBS kernel and is not supported by non-TBS kernel. [Standard for Docking TBS H5 Single-Layer Player](https://x5.tencent.com/tbs/guide/video.html) <br> Example: "h5" |
@@ -274,10 +274,10 @@ Here's a list of methods supported by player instances:
 |mute(muted)      | {Boolean} [Optional] | true,false {Boolean}         | Switch to the mute status. The current mute status is returned if no parameter is passed. | player.mute(true) |
 |volume(val)      | {int} Range: 0-1 [Optional] | Range: 0-1 | Set volume. The current volume is returned if no parameter is passed. |  player.volume(0.3) |
 |playing()        | None |  true,false {Boolean}         | Return the result whether the video is being played |  player.playing() |
-|duration()       | None |  {int}                       | Acquire video duration <br>**Note: This is only applicable for VOD.** | player.duration() |
-|currentTime(time)| {int} [Optional] |  {int}                       | Configure video playback time point. The current playback time point is returned if no parameter is passed. <br>**Note: This is only applicable for VOD.** | player.currentTime() |
+|duration()       | None |  {int}                       | Acquire video duration <br>**Note: This is only applicable to VOD.** | player.duration() |
+|currentTime(time)| {int} [Optional] |  {int}                       | Configure video playback time point. The current playback time point is returned if no parameter is passed. <br>**Note: This is only applicable to VOD.** | player.currentTime() |
 |fullscreen(enter)| {Boolean} [Optional] |  true,false {Boolean}         | Call the full screen API (Fullscreen API). The pseudo-full screen mode is not available when the full screen API is used. The current full screen status is returned if no parameter is passed. <br>**Note: Mobile devices do not provide APIs for the full screen mode, and you cannot acquire the full screen status.** | player.fullscreen(true) |
-|buffered()       | None |  0~1                        | Acquire the buffer data percentage of videos <br>**Note: This is only applicable for VOD** | player.buffered()  |
+|buffered()       | None |  0~1                        | Acquire the buffer data percentage of videos <br>**Note: This is only applicable to VOD** | player.buffered()  |
 |destroy()        | None | None | Terminate player instances [v2.2.1+] | player.destroy()  |
 |switchClarity()  | {String} [Required] | None | Switch clarity. Values: "od", "hd", "sd" [v2.2.1+] | player.switchClarity('od')  |
 
@@ -297,7 +297,7 @@ TcPlayer provides a version with integrated IMA SDK. If you need to use the adve
 <script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
 ```
 
-You can use the advertisement feature using adTagUrl and auth parameters. Visit `https://tcplayer.qcloud.com` to apply for an account and License information, or send an email to tcplayer@tencent.com for consultation.
+You can use the advertisement feature by using adTagUrl and auth parameters. Visit `https://tcplayer.qcloud.com` to apply for an account and License information, or send an email to tcplayer@tencent.com for consultation.
 
 ```
 var player = new TcPlayer('id_test_video', {
@@ -327,7 +327,7 @@ Using Flash mode by default is because this mode supports the most video formats
 
 Starting from version 2.2.0, TcPlayer allows users to configure the attribute for playback mode priority. If you prefer H5 `<video>` for playback, you can configure the "Flash" attribute as "false", so the player will enable H5 `<video>` to play videos by default, and use Flash mode if H5 `<video>` is unavailable. If Flash widget is not detected, you will see a message: "Current system environment does not support this video format".
 
-### Monitoring events
+### Listen to Event
 TcPlayer combines H5 `<video>` and FLASH to play videos. But the events triggered when playing videos using these two methods are different. In this case, we convert FLASH playback events based on the standards of H5 `<video>` to achieve unified playback event names. TcPlayer captures and transparently transmits the native events triggered by these two playback methods.
 
 [H5 Event Reference List](https://www.w3.org/wiki/HTML/Elements/video#Media_Events)
@@ -353,9 +353,7 @@ resize
 volumechange
 ```
 >**Note:**
->The fullscreen event cannot be monitored if the full screen mode is enabled by using the syste
->
->m control bar.
+>The fullscreen event cannot be listened to if the full screen mode is enabled by using the control bar.
 
 Events specific to the Flash mode: `netStatus`
 
@@ -367,9 +365,9 @@ Different events triggered on mobile device and PC Flash when video is loaded to
 **PC Flash:**
 ![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
 
-**Note: The differences mentioned above exist between two platforms. There are also differences between different mobile devices and applications.
+**Note: The differences mentioned above exist between two platforms. There are also differences between different mobile devices and applications.**
 
-Application case: By using event monitoring, you can implement auto-reconnection when the playback fails. [Online Example](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html).
+Application case: By using event listening, you can implement auto reconnection when the playback fails. [Online Example](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html).
 
 ## Update Log
 The following shows the major version of TcPlayer after continuous update and improvement, to make it easier for users to keep track of the conditions in these versions. Some of the historical bug fixes and minor versions are not listed.
@@ -378,6 +376,6 @@ The following shows the major version of TcPlayer after continuous update and im
 |-----------------|--------- |-------------------------------------------- |
 | 2016.12.28      | 2.0.0    | Initial version |
 | 2017.3.4        | 2.1.0    | Up to June 30, 2017, TcPlayer has gone through a number of iterative development processes and has gradually become stable. Feature descriptions in the documents are all based on this version, unless specified otherwise. |
-| 2017.6.30       | 2.2.0    | 1. Added parameters for controlling playback environment determination: Flash, h5_flv, x5_player; <br> 2. Adjusted the initialization logic of the player and optimized the error prompt effect; <br> 3. Added support for flv.js, which can be used to play flv videos if conditions are met; <br> 4. Added support for the "x5-video-orientation" attribute; <br> 5. Added playback environment determination logic. You can adjust the priority of H5 and Flash with parameter, and decide whether to enable TBS playback; <br> 6. VEnabled version number release method to avoid affecting the usage of previous versions; <br> 7. Optimized timestamps for triggering events (unified as standard time); <br> 8. Bug fixes. |
-| 2017.12.7       | 2.2.1    | 1. Added the systemFullscreen parameter; <br> 2. Added the flashUrl parameter; <br> 3. Fixed the UI problem when users switch to mute after the volume is set to max; <br> 4. Fixed the problem that two clicks are needed to play the video on WeChat for iOS 11; <br> 5. Fixed the problem that the safari 11 system style is covered; <br> 6. Adapted to the condition that X5 kernel will trigger "seeking", but not "seeked"; <br> 7. Fixed the problem of currentTime configuration failure when the progress bar is dragged to the starting position; <br> 8. Added the capability of switching the clarity while keeping the volume unchanged; <br> 9. Fixed the problem that the player width cannot be determined when the page width is 0; <br> 10. Added the capability of completely terminating player node for "destroy" method. |
-| 2017.12.20      | 2.2.1    | 1. Added the capability of setting the message clarity. <br>2. Added the capability of setting the default clarity. <br>3. Supported clarity switch methods. |
+| 2017.6.30       | 2.2.0    | 1. Added parameters for controlling playback environment determination: Flash, h5_flv, x5_player; <br> 2. Adjusted the initialization logic of the player to optimize the error prompt effect; <br> 3. Added support for flv.js, which can be used to play flv videos if conditions are met; <br> 4. Added support for the "x5-video-orientation" attribute; <br> 5. Added playback environment determination logic. You can adjust the priority of H5 and Flash through parameter, and decide whether to enable TBS playback; <br> 6. Enabled version number release method to avoid affecting the usage of previous versions; <br> 7. Optimized timestamps for triggering events (unified as standard time); <br> 8. Fixed Bugs. |
+| 2017.12.7       | 2.2.1    | 1. Added systemFullscreen parameter; <br> 2. Added flashUrl parameters; <br> 3. Fixed the UI problem when users switched to mute after the volume was set to max; <br> 4. Fixed the problem that two clicks were needed to play the video on WeChat for iOS 11; <br> 5. Fixed the problem that the Safari 11 system style was covered; <br> 6. Adapted to the condition that X5 kernel would trigger "seeking", but not "seeked"; <br> 7. Fixed the problem of currentTime configuration failure when the progress bar was dragged to the starting position; <br> 8. Added the capability of switching the clarity while keeping the volume unchanged; <br> 9. Fixed the problem that the player width could not be determined when the page width was 0; <br> 10. Added the capability of completely terminating player node for "destroy" method. |
+| 2017.12.20      | 2.2.1    | 1. Added the capability of setting the message clarity; <br>2. Added the capability of setting the default clarity. <br>3. Supported clarity switch methods. |

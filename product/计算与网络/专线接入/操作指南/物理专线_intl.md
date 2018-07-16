@@ -3,7 +3,7 @@
 All applications for Tencent Cloud physical Direct Connect (such as BM and ECN) shall be initiated and completed in the console. Tencent Cloud Direct Connect is only available to enterprise customers verified by Tencent Cloud. For more information on enterprise verification, please see [how to complete enterprise verification](https://cloud.tencent.com/doc/product/378/3629#.E4.BC.81.E4.B8.9A.E7.94.A8.E6.88.B7.E6.80.8E.E4.B9.88.E5.AE.8C.E6.88.90.E4.BC.81.E4.B8.9A.E8.AE.A4.E8.AF.81.3F).
 
 Complete the application for and setup of Tencent Cloud physical Direct Connect by following the steps below:
-![liucheng](https://main.qcloudimg.com/raw/71ed6ab8ee3db91984609da0cb03ef2b.png)
+![](https://main.qcloudimg.com/raw/1f014b8535afd21c4f7df3e5957a408d.png)
 
 ### Apply in the console
 

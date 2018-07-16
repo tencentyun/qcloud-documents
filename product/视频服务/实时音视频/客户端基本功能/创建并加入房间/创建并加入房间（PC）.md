@@ -6,7 +6,7 @@
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
- - [privateMapKey](https://cloud.tencent.com/document/product/647/16792#privateMapKey)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 视频渲染
  在拿到视频数据时，需要将视频数据绘制显示出来，此过程即为视频渲染。
