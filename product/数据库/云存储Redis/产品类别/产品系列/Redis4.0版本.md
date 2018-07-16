@@ -86,9 +86,9 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
     - CLUSTER NODES
     - CLUSTER SLOT 
    - 跨Slot命令支持，第一期我们将不支持跨Slot执行的命令，跨Slot操作的命令版本，将在后续推出，当出现不支持情况系统会返回如下错误：
-   ```
-   (error) CROSSSLOT Keys in request don't hash to the same slot
-   ```
+   	```
+   	(error) CROSSSLOT Keys in request don't hash to the same slot
+  	 ```
    相关命令列表如下：
      - DEL
      - UNLINK
