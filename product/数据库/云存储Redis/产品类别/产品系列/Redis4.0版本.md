@@ -85,7 +85,11 @@ Redis4.0版本是一个全新的Redis引擎版本，4.0版本将采用原生的�
   - 为了兼容Jedis cluster的使用场景，云数据库Redis对Cluster 支持命令返回对IP列表进行了修改，返回信息中每个节点的IP地址为我们的实例的VIP。
     - CLUSTER NODES
     - CLUSTER SLOT 
-   - 跨Slot命令支持，第一期我们将不支持跨Slot执行的命令，跨Slot操作的命令版本，将在后续推出，相关的命令包括：
+   - 跨Slot命令支持，第一期我们将不支持跨Slot执行的命令，跨Slot操作的命令版本，将在后续推出，当出现不支持情况系统会返回如下错误：
+   ```
+   (error) CROSSSLOT Keys in request don't hash to the same slot
+   ```
+   相关命令列表如下：
      - DEL
      - UNLINK
      - EXISTS
