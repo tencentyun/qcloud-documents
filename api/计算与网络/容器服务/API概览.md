@@ -14,9 +14,9 @@
 | 获取集群外网访问凭据           | [DescribeClusterSecurityInfo](https://cloud.tencent.com/document/product/457/17560) | 用于获取集群外网访问凭据                       |
 | 修改节点 Label                 | [ModifyClusterNodeLabel](https://cloud.tencent.com/document/product/457/13999) | 用于修改节点 Label                             |
 | 修改集群属性                   | [ModifyClusterAttributes](https://cloud.tencent.com/document/product/457/17558) | 用于修改集群属性                               |
-| 驱逐集群节点                   | DrainClusterNode                                             | 用于驱逐集群节点                               |
-| 设置集群节点为是否可调度       | ModifyClusterNodeSchedulable                                 | 用于设置集群节点为是否可调度                   |
-| 添加第三方私有镜像仓库         | AddHubInfo                                                   | 用于添加第三方私有镜像仓库                     |
+| 驱逐集群节点                   | [DrainClusterNode](https://cloud.tencent.com/document/product/457/18323) | 用于驱逐集群节点                               |
+| 设置集群节点为是否可调度       | [ModifyClusterNodeSchedulable](https://cloud.tencent.com/document/product/457/18322) | 用于设置集群节点为是否可调度                   |
+| 添加第三方私有镜像仓库         | [AddHubInfo](https://cloud.tencent.com/document/product/457/17559) | 用于添加第三方私有镜像仓库                     |
 | 删除集群节点                   | [DeleteClusterInstances](https://cloud.tencent.com/doc/api/457/9446) | 用于删除集群节点                               |
 | 删除集群                       | [DeleteCluster](https://cloud.tencent.com/doc/api/457/9445)  | 用于删除集群                                   |
 
@@ -125,4 +125,3 @@
 | 查询用户仓库列表          | [ SearchUserRepository ](https://cloud.tencent.com/document/product/457/14653) | 用于查询用户仓库列表                                       |
 | 添加收藏                  | [ AddFavor ](https://cloud.tencent.com/document/product/457/17938) | 用于把仓库加入收藏                                         |
 | 取消收藏                  | [ DeleteFavor ](https://cloud.tencent.com/document/product/457/17937) | 用于取消收藏                                               |
-
