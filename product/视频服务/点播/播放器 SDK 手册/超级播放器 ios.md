@@ -7,12 +7,16 @@
 
 ## 接入准备
 
-1. 下载 SDK + Demo 开发包，下载地址为（[iOS](https://cloud.tencent.com/document/product/454/7873#iOS)）。
+1. 下载 SDK + Demo 开发包。[下载地址](https://cloud.tencent.com/document/product/454/7873#iOS)）。
 
 2. 超级播放器的 UI 部分源码开源，开源代码位于`Player/SuperPlayer`文件夹，图片资源位于`SuperPlayer.bundle`中，您需要src中的文件分拷贝的您的App工程中。其它依赖的第三方库您可以自行 Pod 添加或在 `Third` 目录中获取
 
+
+超级播放器依赖的第三方库
+
 - Masonry
 - SDWebImage
+- AFNetworking
 
 
 ## 创建播放器
@@ -37,7 +41,7 @@ _playerView.fatherView = self.holderView;
 如您所见，播放器开始播放前，需要传入一个SuperPlayerModel对象。在Model对象中，可以设置标题、封面图，以及最重要的视频源。
 视频源有两种格式：一种是常见的url地址，一种是腾讯云的fileId。请根据App需求选一种填写。
 
-### url
+### url方式
 url是最常见的播放源。根据url格式不同，播放器行为也有所不同。
 如果url为rtmp协议或flv流，则播放器默认为直播流，并自动开启时移功能。
 
@@ -46,7 +50,7 @@ url是最常见的播放源。根据url格式不同，播放器行为也有所�
 
 如果url为mp4或m3u8流，则播放器认为是点播地址，会放开倍速播放、镜像等点播特有的能力。
 
-### fileId
+### fileId方式
 fileId在一般是在视频上传后，由服务器返回：
 
 1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C)到客户端
