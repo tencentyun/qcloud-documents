@@ -27,11 +27,17 @@ Hybrid 统计是在原生统计基础上进行的，在开始之前，请确保�
 ### 设置监控 UIWebView
  
 ```
-//给指定的webView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中
+//给指定的webView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中,从而引入Hybrid功能。
 [TACAnalyticsService catchExceptionForUIWebView:_webView];
   _webView.delegate = self;
 ```
-
+### 设置监控 WKWebView
+ 
+```
+//给指定的wkWebView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中，从而引入Hybrid功能。
+ [TACAnalyticsService catchExceptionForWKWebView:_wkWebView];
+  _wkWebView.navigationDelegate = self;
+```
 ## JavaScript SDK 使用说明
 
 ### App&H5 联动分析接入
