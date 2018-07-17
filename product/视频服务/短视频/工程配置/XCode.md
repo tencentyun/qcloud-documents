@@ -45,17 +45,19 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
 在工程中添加 `TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库：
 
 > 1. Accelerate.framework
-> 2. libstdc++.tbd
-> 3. libsqlite3.tbd
+> 2. SystemConfiguration.farmework
+> 3. libstdc++.tbd
+> 4. libsqlite3.tbd
+> 5. libz.tbd
 
 所有系统依赖库添加完毕，工程依赖如下图所示：    
-![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
+![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 
-#### 添加头文件
-在 Build Settings->Search Paths->User Header Search Paths 中添加头文件搜索路径。注意此项不是必须的，如果您没有添加 TXLiteAVSDK_UGC 的头文件搜索路径，则在引用 SDK 的相关头文件时，需要在头文件前增加 "TXLiteAVSDK_UGC/"，如下所示：
+#### 引用头文件
+在需要使用SDK的文件中引用SDK，如下所示：
 
 ```	objc
-#import "TXLiteAVSDK_UGC/TXUGCRecord.h"
+@import TXLiteAVSDK_UGC;
 ```
 
 #### 添加 -ObjC
@@ -78,7 +80,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 在 ViewController.m 开头引用 SDK 的头文件：
 
 ```	objc
-#import "TXLiteAVSDK_UGC/TXLiveBase.h"
+@import TXLiteAVSDK_UGC；
 ```
 
 #### 添加调用代码
@@ -113,7 +115,9 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 
-```	objc
+	``	objc
 [TXLiveBase setConsoleEnabled:YES];
 [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
+```
+
 ```
