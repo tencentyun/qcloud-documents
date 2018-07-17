@@ -36,7 +36,7 @@ Please refer to the **Usage Limits** section in [Introduction to SSH Keys](https
 
 You can refer to the following solutions:
 
-1. In [CVM Console](https://intl.console.cloud.tencent.com/cvm/sshkey), enter the key name to find and key ID, click the ID to see CVMs bound with this key.
+1. In [CVM Console](https://console.cloud.tencent.com/cvm/sshkey), enter the key name to find and key ID, click the ID to see CVMs bound with this key.
 
 2. Cancel or modify the security group policy in [Console](https://intl.console.cloud.tencent.com/cvm/securitygroup). See [Safety Group Operation Guide](https://intl.cloud.tencent.com/document/product/213/12450)
 
