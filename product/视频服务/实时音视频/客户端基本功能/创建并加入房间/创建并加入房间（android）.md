@@ -53,7 +53,7 @@ public class RoomHelper implements ILiveRoomOption.onExceptionListener, ILiveRoo
     // 创建房间
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
-                .authBuffer(privateMapKey.getBytes())   // 进房票据
+                .privateMapKey(privateMapKey)   // 进房票据
                 .imsupport(false)       // 不需要IM功能              
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
@@ -131,7 +131,7 @@ roomHelper.createRoom(1234);
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
-ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelIMSDK);
+ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
 ```
 
 #### onException 中收到 EXCEPTION_ENABLE_CAMERA_FAILED 并且 errCode 为 1，找开摄像头失败。
