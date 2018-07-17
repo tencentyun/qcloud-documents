@@ -85,7 +85,7 @@ cosfs your-bucketname your-mount-point -ourl=cos-domain-name -odbglevel=info
 其中：
 - your-bucketname 需要替换为用户真实的信息；
 - your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
-- cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 Region 为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
+- cos-domain-name 为存储桶对应的地域域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 <Region> 为地域简称，如： `ap-guangzhou` 、 `eu-frankfurt` 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 参数表示信息级别，可选 info、dbg，建议参照示例设置为“info”。
 
 注意： 
@@ -111,9 +111,10 @@ cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -o
 mkdir /local_cache_dir
 cosfs bucketprefix-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
 ```
-`/local_cache_dir` 为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
-卸载存储桶：
+>`/local_cache_dir` 为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
+
+卸载存储桶示例：
 ```
 fusermount -u /mnt
 ```
