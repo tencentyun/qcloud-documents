@@ -115,9 +115,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 
-	``	objc
+```	objc
 [TXLiveBase setConsoleEnabled:YES];
 [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
-```
-
 ```
