@@ -1,9 +1,6 @@
 ## 功能说明
 HADOOP cosn 插件实现了以腾讯云 COS 作为底层存储文件系统运行上层计算任务的功能，使用 Hadoop 大数据处理引擎，如 MapReduce，Hive、Spark、Tez 等，可以处理存储在腾讯云对象存储 COS 上的数据。
 
-## 使用限制
-只适用于 COS V5 版本。
-
 ## 使用环境
 ### 系统环境
 Linux 或 Windows 系统。
