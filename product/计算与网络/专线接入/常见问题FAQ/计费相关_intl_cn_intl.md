@@ -3,7 +3,7 @@ The charges for Direct Connect product include:
 
 
 - Laying fee of physical Direct Connect, which is charged by ISP or Tencent Cloud Direct Connect partner.
-- One-off fee for connection to Tencent Cloud: 1,250 USD, including Tencent Cloud port fee and test fee.
+- One-off fee for connection to Tencent Cloud: 2,500 USD, including Tencent Cloud port fee and test fee.
 - Fee for cross-city Direct Connect tunnel. For more information on charging standard, please see Price Overview.
 
 
