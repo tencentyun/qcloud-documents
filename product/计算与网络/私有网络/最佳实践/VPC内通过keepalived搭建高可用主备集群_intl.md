@@ -1,5 +1,6 @@
 This document shows how to build a highly available master/slave cluster in Tencent Cloud VPC with keepalived.
 
+
 ## Preface
 To clearly describe how to implement keepalived on Tencent Cloud CVMs, this document:
 - Briefly introduces keepalived, and describes the difference between its deployments on CVMs and physical networks.
@@ -22,7 +23,7 @@ In the traditional physical networks, the master/slave status is determined by t
 ## Procedure Overview
 1. Apply for a VIP, which can only be migrated within a subnet (the master and slave servers must be in the same subnet).
 2. Install and configure keepalived (**Version 1.3.5 or above**) on master and slave servers, and modify the configuration files. **If the primary IPs of the local master and slave devices are only private IPs, modify the SDK host by following step 9**.
-3. Edit the notify mechanism that employs keepalived, and use notify_action.sh and vip.py to call the cloud API for master/slave switchover.
+3. Edit the notify mechanism that employs keepalived, and use notify_action.sh and vip.py to call the cloud API for simple logging.
 4. Edit the track_script mechanism that employs keepalived, and use check_self.sh and vip.py to periodically check the scripts to improve availability.
 5. **(Optional)** Assign a public IP to the VIP.
 6. Verify whether the switchover between the VIP and the public IP is normal when needed.
