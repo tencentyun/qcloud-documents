@@ -28,21 +28,21 @@ samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例
 SDK 上传数据编码主要帮助用户将要传输的 payload 编码成 AT 命令传输的数据，其中包括 Topic、鉴权、传输质量控制等字段填充。  
 下行数据解码主要讲 IoT 后台发送的 topic、payload、传输质量等信息解析出来。  
 #### 上传数据编码
-- **接口  **
+ **接口  **
 int IOT_NB_setMessage(unsigned char* msg, unsigned int* length, NBIoTSetMessage* nbiotMsg);  
 -msg      生成的十六进制上行消息编码  
 -length   十六进制上行消息的长度，以字节为单位  
 -nbiotMsg nbiot终端发送消息的结构体，包括 address、 version、签名类型、过期时间、传输质量、topic、payload、key等信息 
  
 #### 下发数据解码
-- **接口 **
+**接口 **
 int IOT_NB_getMessage(NBIoTGetMessage* nbiotMsg, unsigned char* msg);  
 -nbiotMsg nbiot 终端解析出来的消息内容结构体，包括 address、version、签名类型、过期时间、传输质量、topic、payload等信息  
 -msg      nbiot 平台发送到设备端的十六进制下行消息编码 
  
 ### 2.5 设备接入
-- NB-IoT 模组装物联卡，上电。  
-- 终端通过串口 TTL 发送 AT 命令，配置网络，确认联网状态(以电信 NB-IoT 模组，利尔达 NB05-01 为例，其他模组初始化稍有差异)。 
+ **NB-IoT 模组装物联卡，上电。**  
+终端通过串口 TTL 发送 AT 命令，配置网络，确认联网状态(以电信 NB-IoT 模组，利尔达 NB05-01 为例，其他模组初始化稍有差异)。 
 
 ```
 AT+CFUN=0 //关闭射频功能
@@ -61,7 +61,7 @@ AT+NUESTATS //查询UE 状态，包括rsrp,sinr,覆盖等级，小区信息等�
 AT+CGPADDR //查询分配的ip 地址，可以以此判断是否连接到网络  
 ```
 	
-- **上报数据**  
+**上报数据**  
 
 ```
 AT+NMGS=len,data //发送len 字节数据，如果发送成功，会回复 OK，否则 ERROR
@@ -71,14 +71,14 @@ len,data 由 2.5 步骤中的sdk生成，详细数据格式见 SDK 说明。
 执行 AT+NMGS 命令后，NB-IoT 模组发送完数据后，回复 OK，此时数据已经发给基站，但基站不一定接收成功。  
 收到确认上报数据消息 AAAA0000，表示电信平台收到数据。（用户可以根据需要，设置重新上报数据次数，超时等待建议 3 秒）。 
 
-- **应用平台接收数据**
+**应用平台接收数据**
 
 应用平台收到 http post 推送数据，body 内容： 
 ```
 {"payload":xxxx, "seq":12345, "timestamp":140000245, "topic":"/xx/xx/xx", "devicename":"xx", "productid":"xx"}
 ```  
 
-- **下发数据 **
+ **下发数据 **
   
 通过 RestAPI 接口下发数据到设备 [发布消息](https://cloud.tencent.com/document/product/634/12278)，RestAPI 发布消息后，终端会收到串口 TTL 返回的数据，如果没有及时收到，是因为 NB-IoT 模组与平台不是长连接，平台不能感知NB-IoT 模组是否在线，终端主动上报一次数据，下发的消息就会立刻返回。 
  
