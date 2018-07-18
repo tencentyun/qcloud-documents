@@ -71,12 +71,12 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>5.0.4973 @ 2018-06-14</td>
+    <td>5.0.4973 @ 2018-07-18</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4973 @ 2018-06-14</td>
+    <td>5.0.4973 @ 2018-07-18</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">ZIP</a></td>
   </tr>
 </table>
