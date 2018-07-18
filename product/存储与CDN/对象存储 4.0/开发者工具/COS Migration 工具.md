@@ -22,11 +22,11 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 Linux 或 Windows 环境
 
 ### 软件依赖
-- JDK1.7 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)
+- JDK1.7 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
-下载链接：[COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)
+下载链接：[COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)。
 
 ### 2. 解压缩工具包
 #### Windows

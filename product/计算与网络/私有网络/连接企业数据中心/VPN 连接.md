@@ -37,11 +37,12 @@ VPN通道的建立包括以下配置信息：
 预共享密钥：预共享密钥是用于验证 L2TP/IPSec 连接的 Unicode 字符串，本端和对端必须使用相同的预共享密钥。
 
 ### SPD（Security Policy Database）策略
-SPD（Security Policy Database）策略由一系列 SPD 规则组成，每条规则用于指定 VPC 内哪些网段可以和 IDC 中哪些网段通信。
-- 每条SPD策略对应一个本端网段和多个对端网段，本段网段和对端网段不能重叠。
-- 所有策略的集合中本端网段之间不可重叠
-- 每个本端网段的多条对端网段不可重叠
-- 对端网段不可与私有网络网段重叠
+SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。使用 SPD 规则时请注意以下限制：
+- 同一 VPN 网关下所有通道内的规则，相互不能重叠。
+- 同一 VPN 网关下所有通道规则的本端网段，相互不能重叠。
+- 同一条规则的多个对端网段，相互不能重叠。
+- 每条规则的本端网段必须在 [私有网络 VPC ](https://cloud.tencent.com/document/product/215/4927) 的网段内。
+- 每条规则的对端网段不能在 [私有网络 VPC ](https://cloud.tencent.com/document/product/215/4927) 的网段内。
 
 下面是一个正确的实例：
 

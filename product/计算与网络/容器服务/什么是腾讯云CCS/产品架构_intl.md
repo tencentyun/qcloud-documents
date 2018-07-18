@@ -2,7 +2,7 @@
 
 ### Overall Architecture
 This section describes the design and implementation of TKE system, and its product architecture is as follows:
-![Alt text](https://mc.qcloudimg.com/static/img/2924e6a13177c982aa86bf243cb5bbce/ccs_revise_pic.png)
+![Alt text](https://main.qcloudimg.com/raw/599ac1bdd73c895ba7ca6a23dc55790a.jpg)
 
 TKE consists of the following modules:
 

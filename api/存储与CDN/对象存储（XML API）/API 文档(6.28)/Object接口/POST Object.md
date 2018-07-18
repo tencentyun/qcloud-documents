@@ -96,7 +96,7 @@ Form
 | ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏 |String|
 | Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径|String|
 |x-cos-version-id|目标存储桶中复制对象的版本。|String|
-|x-cos-server-side​-encryption|如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
+|x-cos-server-side​-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
 
 ### 响应体
 |节点名称（关键字）|父节点|描述|类型|必选|
