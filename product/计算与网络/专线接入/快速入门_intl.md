@@ -8,7 +8,7 @@ Step 5: Configure the routing table associated with the subnets requiring commun
 These steps are described in detail below:
 ## Step 1: Create the Physical Direct Connect
 1. Log in to [Direct Connect Console](https://console.cloud.tencent.com/dc/dc) and click **Physical Direct Connect** in the left navigation pane to go to the physical Direct Connect page. Click the **+New** button, and the "Apply for Direct Connect" page pops up.
-![Apply for Direct Connect](https://mc.qcloudimg.com/static/img/6e9bd0383e2a6b5eb94363724e920363/image.png)
+![Apply for Direct Connect](https://main.qcloudimg.com/raw/5bae5be140baa7e4af08c6581f29d99e.png)
 
 2. Enter the corresponding information according to your requirements and complete the application.
 > **Note:**
@@ -23,7 +23,8 @@ These steps are described in detail below:
 
 ## Step 3: Create the Direct Connect Tunnel
 1. Log in to [Direct Connect Console](https://console.cloud.tencent.com/dc/dc) and click **Direct Connect Tunnel** in the left navigation pane to go to the Direct Connect tunnel page. Click the **+New** button, and the "Create a Direct Connect Tunnel" window pops up.
-![Direct Connect tunnel](https://mc.qcloudimg.com/static/img/b69e06ac7f31047944cc622334993f8a/image.png)
+![Direct Connect tunnel](https://main.qcloudimg.com/raw/0f21ce6797247154ce8a9d32f28797f8.png)
+![](https://main.qcloudimg.com/raw/68ea1a97d2e044cc4d8ad53e0a5fa9b4.png)
 
 2. The Direct Connect tunnel refers to the connections using the backbone network of Tencent Cloud. The starting point is the access point of Tencent Cloud physical Direct Connect, and the end point is your VPC. Enter the corresponding technical parameters as shown in the above figure. For specific instructions, please see [Direct Connect Tunnel Instructions](https://cloud.tencent.com/document/product/216/548).
 
