@@ -51,7 +51,7 @@ SPD policy 1: The local IP address range is `10.0.0.0/24`, and the peer IP addre
 SPD policy 2: The local IP address range is `10.0.1.0/24`, and the peer IP address range is `192.168.2.0/24`.
 SPD policy 3: The local IP address range is `10.0.2.0/24`, and the peer IP address range is `192.168.2.0/24`.
 
-![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
+![](https://main.qcloudimg.com/raw/201e598df5c32a7ee84f6781f547af0b.png)
  
 ### IKE Configuration
 
