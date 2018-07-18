@@ -17,7 +17,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGParseHeader(unsigned char\* pData, int len, TPGFeatures\* pFeatures)
+### TPGParseHeader
 
 接口详情：TPGStatusCode  TPGParseHeader(unsigned char* pData, int len, TPGFeatures* pFeatures);
 
@@ -53,7 +53,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-###  TPGDecCreate(const unsigned char\* pData, int len)
+###  TPGDecCreate
 
 接口详情：void\*  TPGDecCreate(const unsigned char\* pData, int len);
 
@@ -70,8 +70,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGDecodeImage(void\* hDec, const unsigned char\* pData, int len, int index, TPGOutFrame\* pDecFrame)
-
+### TPGDecodeImage
 接口详情：TPGStatusCode  TPGDecodeImage(void\* hDec, const unsigned char\* pData, int len, int index, TPGOutFrame \*pDecFrame);
 
 功能描述：解码一帧 TPG 图像
@@ -90,7 +89,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGDecDestroy(void* pDec)
+### TPGDecDestroy
 
 接口详情：void  TPGDecDestroy(void\* pDec);
 
@@ -104,7 +103,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGGetDelayTime(void\* hDec, const unsigned char\* pData, int len, int index, int\* pDelayTime) 
+### TPGGetDelayTime
 
 接口详情：TPGStatusCode  TPGGetDelayTime(void\* hDec, const unsigned char\* pData, int len, int index, int\* pDelayTime) ;
 
@@ -124,7 +123,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-###  TPGCanDecode(void\* pDec,  const unsigned char\* pData, int len, int index)
+###  TPGCanDecode
 
 接口详情：TPGStatusCode  TPGCanDecode(void\* pDec,  const unsigned char\* pData, int len, int index);
 
@@ -143,7 +142,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-###  TPGGetAdditionalInfo(void\* hDec, const unsigned char\* pInData, int nInDatalen, int nIdentity, const unsigned char\*\* pOutData, int\* pOutDataLen)
+###  TPGGetAdditionalInfo
 
 接口详情：TPGStatusCode  TPGGetAdditionalInfo(void\* hDec, const unsigned char\* pInData, int nInDatalen, int nIdentity, const unsigned char\*\* pOutData, int\* pOutDataLen) ;
 
@@ -164,7 +163,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGDecGetVersion()
+### TPGDecGetVersion
 
 接口详情：int  TPGDecGetVersion();
 
@@ -186,7 +185,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGEncCreate(TPGEncInitParam\* pCreateParam)
+### TPGEncCreate
 
 接口详情：void\*  TPGEncCreate(TPGEncInitParam\* pCreateParam);
 
@@ -202,7 +201,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 
 
-### TPGEncodeImage(void\* pEnc, TPGInFrame\* pFrame, int\* pQP, int nFrameIndex)
+### TPGEncodeImage
 
 接口详情：unsigned long long  TPGEncodeImage(void\* pEnc, TPGInFrame* pFrame, int* pQP, int nFrameIndex);
 
