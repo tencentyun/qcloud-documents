@@ -1,10 +1,10 @@
 ### Version 5.0 @ 2018-07-18
 - iOS：iOS Demo界面适配iphoneX；
-- iOS：iOS修复内测泄漏，提升稳定性，增加moudle定义更好的支持swift集成；
+- iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；
 - Android：软编提升RGBA生成YUV转换精度，提高推流画质；
 
 【播放器】
-- iOS&Android：超级播放器重构，以UI组件的方式呈现使用简单，支持小窗模式；
+- iOS&Android：超级播放器重构，支持小窗模式；
 - iOS&Android：点播播放器支持FLV/HLS格式265硬解，优化FileID文件播放顺序；
 - iOS&Android：点播进度回调时间间隔支持自定义；
 - iOS：iOS超级播放器支持直播点播播放，支持直播时移播放；
