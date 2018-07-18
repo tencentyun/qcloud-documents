@@ -2154,13 +2154,13 @@ content_type：application/json
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -2362,7 +2362,7 @@ content_type：application/json
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -2575,7 +2575,7 @@ content_type：application/json
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -2901,13 +2901,13 @@ content_type：application/json
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -3886,13 +3886,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -4338,6 +4338,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>终端类型，1：windows，2：andriod，3：iso，4：linux，100：其他</td>
    </tr>
    <tr>
+      <td>sub_terminal_type</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>子终端类型，代表一个机具品牌，具体值可以联系云支付分配</td>
+   </tr>
+   <tr>
       <td>machine_no</td>
       <td>否</td>
       <td>String(32)</td>
@@ -4436,7 +4442,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_shop_id</td>
       <td>否</td>
       <td>String(20)</td>
-      <td>外部可见的商户门店号，云支付内全局唯一，固定20个字符长，可用于生成门店固定二维码，仅返回时有该字段</td>
+      <td>外部可见的商户门店号，云支付内全局唯一，可用于生成门店固定二维码，仅返回时有该字段</td>
    </tr>
    <tr>
       <td>out_shop_id_url</td>
