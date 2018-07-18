@@ -1,17 +1,16 @@
-# COSCMD
 ## 功能说明
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。
-## 使用限制
-适用于 COS V4、V5 版本；针对 V3 迁移过来的用户也可以使用，但要用 V3 用户的 appid 才可以。
+
 ## 使用环境
 ### 系统环境
 Windows 或 Linux 系统
 (请保证本地字符格式为 utf-8，否则操作中文文件会出现异常)
 ### 软件依赖
-Python 2.6/2.7/3.5/3.6 
-并装有最新版本的 pip
+- Python 2.6/2.7/3.5/3.6 
+- 装载最新版本的 pip
+
 ### 安装及配置
-环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
+环境安装与配置详细操作，请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 ## 下载与安装
 - **源码地址**
 下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。

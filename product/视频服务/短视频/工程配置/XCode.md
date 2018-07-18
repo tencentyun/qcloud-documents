@@ -53,6 +53,9 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
 所有系统依赖库添加完毕，工程依赖如下图所示：    
 ![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 
+#### 添加 -ObjC
+SDK 用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错。
+
 #### 引用头文件
 在需要使用SDK的文件中引用SDK，如下所示：
 
@@ -62,14 +65,12 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
   @import TXLiteAVSDK_UGC;
   ```
 
-- 旧版本SDK需要单独引用使用到的头文件
+- 5.0之前的版本SDK需要单独引用使用到的头文件，比如
 
   ``` objc
   #import <TXLiteAVSDK_UGC/TXUGCBase.h>
   ```
 
-#### 添加 -ObjC
-SDK 用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错。
 
 #### 短视频发布功能集成
 

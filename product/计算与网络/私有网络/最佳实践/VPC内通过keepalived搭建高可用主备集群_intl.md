@@ -18,7 +18,7 @@ Typically, a highly available master/slave cluster consists of two servers: the 
 </div>
 ## Keepalived on CVMs vs. Keepalived on Physical Networks
 In the traditional physical networks, the master/slave status is determined by the keepalived VRRP protocol. Principle: the master device periodically sends gratuitous ARP messages to purge the MAC table or terminal ARP table of the uplink switch, triggering the VIP migration to the master device. The keepalived can be deployed in Tencent Cloud VPCs to build a highly available master/slave cluster. The difference between this mode and the deployment in physical networks is:
-- VIP is bound to the master device by calling a cloud API instead of being migrated through gratuitous ARP message. For a method similar to the deployment on physical networks, you can use [HAVIP](https://cloud.tencent.com/document/product/215/18025).
+- VIP is bound to the master device by calling a cloud API instead of being migrated through gratuitous ARP message. For a method similar to the deployment on physical networks, you can use [HAVIP](https://intl.cloud.tencent.com/document/product/215/18025).
 
 ## Procedure Overview
 1. Apply for a VIP, which can only be migrated within a subnet (the master and slave servers must be in the same subnet).
@@ -102,14 +102,14 @@ Notes:
 ### Step 1. Apply for a VIP
 You can apply for a VIP in a subnet (any IP applied for by users within the VPC can be used as a VIP), via the **console or cloud API**. Since the VIP is bound to an ENI (including a primary ENI and secondary ENIs), and a primary ENI is assigned to a CVM created in VPC by default, you can apply for a VIP for the primary ENI bound to the master server:
 
-- **Apply via the console**: (Recommended) Click to view [how to assign a private IP to ENI (on Tencent Cloud console)](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910). 
+- **Apply via the console**: (Recommended) Click to view [how to assign a private IP to ENI (on Tencent Cloud console)](https://intl.cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910). 
 
 >**Note:**
   1. The key point of the operation is to assign a private IP, rather than another ENI, to the ENI.
   2. Note: Do not configure VIP in the script /etc/sysconfig/network-scripts/.
   3. After the subsequent configuration is completed and the keepalived service is enabled on both master and slave devices, the VIP can be found on the master device. Also, the VIP or public VIP can be pinged from other servers in the VPC. (Meanwhile, you can use a security group to achieve network isolation of your master and slave CVMs. It is recommended to set an all-pass security group for the master and slave CVMs in the experimental stage.)
   4. After the VIP you applied for is available, it cannot be configured automatically on the ENI of the CVM, but relevant features are available for you on the VPC management platform. However, the CVM cannot automatically perceive the existence of the VIP. Use the following two ways to display the VIP on the ENI of your CVM.
-  1) When VIP is not managed with the keepalived configured in this document, you need to configure the private IP assigned to you in the CVM to make it visible. Click to view [how to assign private IP (in the CVM system)](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911). Configuration command in the CVM: `ip addr add $vip dev $ethX`. View command: `ip addr show $ethx`
+  1) When VIP is not managed with the keepalived configured in this document, you need to configure the private IP assigned to you in the CVM to make it visible. Click to view [how to assign private IP (in the CVM system)](https://intl.cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911). Configuration command in the CVM: `ip addr add $vip dev $ethX`. View command: `ip addr show $ethx`
   2) The keepalived configured in this document can help you configure the VIP on the CVM ENI to make it visible in the CVM. Note: When the VIP is managed with keepalived, do not configure it in the script /etc/sysconfig/network-scripts/.
 
 

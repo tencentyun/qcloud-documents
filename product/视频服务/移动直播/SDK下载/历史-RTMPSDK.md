@@ -1,3 +1,28 @@
+### Version 5.0 @ 2018-07-18
+- iOS：iOS Demo界面适配iphoneX；
+- iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；
+- Android：软编提升RGBA生成YUV转换精度，提高推流画质；
+
+【播放器】
+- iOS&Android：超级播放器重构，支持小窗模式；
+- iOS&Android：点播播放器支持FLV/HLS格式265硬解，优化FileID文件播放顺序；
+- iOS&Android：点播进度回调时间间隔支持自定义；
+- iOS：iOS超级播放器支持直播点播播放，支持直播时移播放；
+- Android：点播播放器Android版变速支持变速不变调；
+
+【短视频】
+- iOS&Android：视频左右画面合成支持双人合唱；
+- iOS&Android：编辑生成视频支持双声道；
+- iOS&Android：录制支持设置音频采样率及渲染模式；
+- iOS：优化编辑视频的加载速度；
+- iOS：解决编辑生成视频偶现画面撕裂的问题；
+- iOS：解决编辑生成视频末尾偶现黑帧的问题；
+- iOS：修复编辑预览视频设置慢速播放，音频播放会提前结束的问题；
+- Android：优化录制和编辑生成画质，生成文件更小；
+- Android：优化编辑预处理速度和视频生成速度；
+- Android：解决录制横竖屏切换黑屏问题；
+- Android：修复录制快速单击开始结束报错的问题；
+
 ### Version 4.9 @ 2018-06-14
 - iOS&Android：直播新增BGM变调支持；
 - iOS&Android：点播新增循环播放设置接口；
