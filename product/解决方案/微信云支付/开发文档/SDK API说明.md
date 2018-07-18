@@ -3,7 +3,7 @@
 
 - 初始化和结束类SDK接口，进程启动时需要调用SDK的初始化接口，和结束进程时需要调用SDK的结束接口；   
 - 门店类接口包含查询门店信息；刷卡支付接口需要用到门店/设备/员工ID信息，有两种方式可以获取，第一、调用者先初始化SDK，然后调用查询门店接口查询门店相关的信息， 第二、 直接在手机端子商户管理系统上获取相关信息，然后初始化SDK；  
-- 支付类接口包含刷卡支付、查询订单、取消订单、扫码支付、申请退款、退款查询、交易明细等接口；其中刷卡支付和扫码支付接口成功代表提交下单成功，支付结果需要通过查询订单去获取。申请退款成功只表示退款受理成功，退款的结果需要通过退款查询去获取； 
+- 支付类接口包含刷卡支付、查询订单、扫码支付、申请退款、退款查询、交易明细等接口；其中刷卡支付和扫码支付接口成功代表提交下单成功，支付结果需要通过查询订单去获取。申请退款成功只表示退款受理成功，退款的结果需要通过退款查询去获取； 
 - 安全相关的接口；包含安全登入、安全登入确认、安全初始化、身份认证、身份认证确认。只有安全登入者登入成功后，才可以调用身份认证相关的两个接口。 如果服务商需要对商户敏感信息（如支付密钥）做保护，则建议采用安全模式； 
 - 其他接口；如果上述接口返回失败，可以通过获取错误描述接口来得到错误信息。 获取微信支付或支付宝的付款码前缀。获取交易明细接口。获取交易统计接口。
 	
@@ -194,35 +194,6 @@
 
 		root["trade_type"]   = trade_type;
 		root["pay_platform"] = pay_platform;
-		root["out_trade_no"] = out_trade_no;
-
-		Json::FastWriter w;
-		std::string json = w.write(root);
-		return json;
-	}
-
-## 取消订单
-
-### 接口定义
-	/**
-	* 取消订单; trade_type 为1 表示刷卡支付的撤单 trade_type为2 表示扫码支付的关单
-	* 请求参数 
-	*			req:
-	*				见文件cloud_pay_sdk.proto 的结构CancelOrderSdkRequest, 按这个格式打包成json
-	* 返回值  0  取消订单成功
-	*         -1 取消订单失败
-	*         -2 结果未知
-	*         -3 如sdk内部错误，请使用cloud_pay_get_errmsg获取错误信息
-	*/
-	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_cancel_order(const char *req);
-
-### 构造取消订单请求参数例子
-	std::string gen_cloud_pay_cancel_order(const std::string &out_trade_no, int trade_type, int pay_platform)
-	{
-		Json::Value root;
-
-		root["trade_type"]   = trade_type;
-		root["pay_platform"] = pay_platform; // 1表示微信支付；2表示支付宝
 		root["out_trade_no"] = out_trade_no;
 
 		Json::FastWriter w;
