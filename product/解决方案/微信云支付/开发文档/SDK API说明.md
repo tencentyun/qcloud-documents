@@ -1,4 +1,4 @@
-# windows环境
+## Windows 环境
 云支付提供了五类接口，初始化和结束SDK类接口、门店类接口、支付类接口、安全相关的接口、其他。具体为：  
 
 - 初始化和结束类SDK接口，进程启动时需要调用SDK的初始化接口，和结束进程时需要调用SDK的结束接口；   
@@ -7,11 +7,11 @@
 - 安全相关的接口；包含安全登入、安全登入确认、安全初始化、身份认证、身份认证确认。只有安全登入者登入成功后，才可以调用身份认证相关的两个接口。 如果服务商需要对商户敏感信息（如支付密钥）做保护，则建议采用安全模式； 
 - 其他接口；如果上述接口返回失败，可以通过获取错误描述接口来得到错误信息。 获取微信支付或支付宝的付款码前缀。获取交易明细接口。获取交易统计接口。
 	
-# 初始化和结束SDK类接口  
+## 初始化和结束SDK类接口  
 
-## 普通初始化接口
+### 普通初始化接口
 
-### 接口定义
+#### 接口定义
 使用云支付类接口时需要在进程启动时调用初始化函数，函数定义如下：
 
 	/**
@@ -27,7 +27,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_init(const char *conf);
 
-### 构造初始化请求参数例子
+#### 构造初始化请求参数例子
 	std::string gen_cloud_pay_init_conf(
 		const std::string &out_mch_id, 
 		const std::string &out_sub_mch_id, 
@@ -59,19 +59,19 @@
 		return json;
 	}
 
-## 结束SDK接口
+### 结束SDK接口
 
-### 接口定义
+#### 接口定义
 	/**
 	* 进程退出时调这个回收DLL中使用的资源
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_fini(void);
 
-# 门店类接口
+## 门店类接口
 
-## 门店查询
+### 门店查询
 
-### 接口定义
+#### 接口定义
 	/**
 	* 查询门店（同步调用云支持系统）
 	* 请求参数 req:
@@ -87,7 +87,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_query_shop_info(const char *req, char *shop_info, int length);
 
-### 构造门店查询请求参数例子
+#### 构造门店查询请求参数例子
 	std::string gen_cloud_pay_query_shop(const std::string &out_shop_id)
 	{
 		Json::Value root;
@@ -104,11 +104,11 @@
 		return json;
 	}
 
-# 支付类接口
+## 支付类接口
 
-## 刷卡支付
+### 刷卡支付
 
-### 接口定义
+#### 接口定义
 	/**
 	* 刷卡支付。 注意本接口调用成功,只是表示下单受理成功,下单的结果需要调用查单接口去确定。
 	* 请求参数 req:
@@ -124,7 +124,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_micro_pay(const char *req, char *resp, int length);
 
-### 构造刷卡支付请求参数例子
+#### 构造刷卡支付请求参数例子
 	std::string gen_cloud_pay_micropay(
 		const std::string &out_trade_no,
 		const std::string &author_code,
@@ -164,9 +164,9 @@
 		return json;
 	}
 
-## 查询订单接口
+### 查询订单接口
 
-### 接口定义
+#### 接口定义
 	/**
 	* 查询订单. 
 	* 请求参数 req:
@@ -187,7 +187,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_query_order(const char *req, char *order, int length);
 
-### 构造查询订单请求参数例子
+#### 构造查询订单请求参数例子
 	std::string gen_cloud_pay_query_order(const std::string &out_trade_no, int trade_type, int pay_platform)
 	{
 		Json::Value root;
@@ -201,9 +201,9 @@
 		return json;
 	}
 
-## 扫码支付
+### 扫码支付
 
-### 接口定义
+#### 接口定义
 	/**
 	* 扫码支付
 	* 请求参数 req:
@@ -213,7 +213,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_scan_code_pay(const char *req);
 
-### 构造扫码支付请求参数例子
+#### 构造扫码支付请求参数例子
 	std::string gen_cloud_pay_scancodepay(
 		const std::string &out_trade_no,
 		const std::string &product_id,
@@ -253,9 +253,9 @@
 		return json;
 	}
 
-## 申请退款
+### 申请退款
 
-### 接口定义
+#### 接口定义
 	/**
 	* 申请退款
 	* 请求参数 req:
@@ -267,7 +267,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_refund(const char *req);
 
-### 构造申请退款请求参数例子
+#### 构造申请退款请求参数例子
 	std::string gen_cloud_pay_refund(const std::string &out_trade_no,
 		const std::string &out_refund_no,
 		const int64_t     &total_fee,
@@ -294,9 +294,9 @@
 		return json;
 	}
 
-## 退款查询
+### 退款查询
 
-### 接口定义
+#### 接口定义
 	/**
 	* 查询退款单
 	* 请求参数 req:
@@ -312,7 +312,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_query_refund(const char *req, char *refund_order, int length);
 
-### 构造退款查询请求参数例子
+#### 构造退款查询请求参数例子
 	std::string gen_cloud_pay_query_refund(const std::string &out_trade_no, const std::string &out_refund_no, int pay_platform)
 	{
 		Json::Value root;
@@ -326,9 +326,9 @@
 		return json;
 	}
 
-## 交易明细查询
+### 交易明细查询
 
-### 接口定义
+#### 接口定义
 	/**
 	* 交易明细查询.
 	* 请求参数 req:
@@ -344,7 +344,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_order_detail(const char *req, char *order_details, int length);
 
-### 构造交易明细查询请求参数例子
+#### 构造交易明细查询请求参数例子
 	std::string gen_cloud_pay_detail(
 		int pay_platform,
 		int query_order_type,
@@ -380,9 +380,9 @@
 		return json;
 	}
 
-## 交易统计查询
+### 交易统计查询
 
-### 接口定义
+#### 接口定义
 	/**
 	* 交易明细查询.
 	* 请求参数 req:
@@ -398,7 +398,7 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int __stdcall cloud_pay_order_stat(const char *req, char *order_stat, int length);
 
-### 构造交易统计查询请求参数例子
+#### 构造交易统计查询请求参数例子
 	static std::string gen_cloud_pay_stat(
 		int pay_platform,
 		uint32_t page_num,
@@ -426,13 +426,13 @@
 		return json;
 	}
 
-# 安全类接口
+## 安全类接口
 
 - 使用安全类接口，需要服务商登入手机端服务商管理页面去设置服务商管理员角色；需要商户登入手机端的商户管理页面，去设置商户管理员、店长、店员等角色。调用login接口后会返回一个二维码链接，调用者将这个链接生成一个二维码，登入者描述二维码，调用者然后调用login_check接口去查询登入者是否为一个合法的服务商管理员、子商户管理员、店长或店员，如果身份合法，返回相关的商户信息，如加解密本地信息使用的密钥。identification和identification_check纯粹用来身份验证，不返回附加商户等信息。
 
-## 安全登入
+### 安全登入
 
-### 接口定义
+#### 接口定义
 	/**
 	* 安全登入接口
 	* 请求参数 req:
@@ -448,9 +448,9 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_security_login(const char *req, char *resp, int length);
 
-## 安全登入确认
+### 安全登入确认
 
-### 接口定义
+#### 接口定义
 	/**
 	* 安全登入查询接口
 	* 请求参数 req:
@@ -466,9 +466,9 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_security_login_check(const char *req_json, char *resp, int length);
 
-## 安全初始化
+### 安全初始化
 
-### 接口定义
+#### 接口定义
 	/**
 	* 安全登入配置初始化接口,调用时机见接口cloud_pay_security_login_check说明
 	* 请求参数 conf_json_c:见文件cloud_pay_sdk.proto 的结构CloudPayConf, 按这个格式打包成json		
@@ -477,9 +477,9 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_security_init(const char *conf_json_c);
 
-## 身份认证
+### 身份认证
 
-### 接口定义
+#### 接口定义
 	/**
 	* 身份认证受理接口。 注意这个接口的调用必须在调用cloud_pay_security_login/cloud_pay_security_login_check/cloud_pay_security_init成功后调用。
 	* 请求参数 req:
@@ -495,9 +495,9 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_security_identification(const char *req_json, char *resp, int length);
 
-## 身份认证确定
+### 身份认证确定
 
-### 接口定义
+#### 接口定义
 	/**
 	* 身份认证查询接口。注意这个接口在接口cloud_pay_security_identification调用成功后再调用。需要轮询本接口直到返回成功或失败未知。
 	* 请求参数 req:
@@ -513,18 +513,18 @@
 	*/
 	CLOUDPAYAPI_SDK_CPP_API int cloud_pay_security_identification_check(const char *req_json, char *resp, int length);
 
-# 其他类接口
+## 其他类接口
 
-## 获取错误描述信息
+### 获取错误描述信息
 
-### 接口定义
+#### 接口定义
 	/**
 	* 获取具体的错误信息
 	*/
 	CLOUDPAYAPI_SDK_CPP_API const char* cloud_pay_get_errmsg();
 
-## 获取支付宝和微信支付的付款码前缀
-### 接口定义
+### 获取支付宝和微信支付的付款码前缀
+#### 接口定义
 	/**
 	*  获取支付宝和微信支付的付款码前缀
 	*  请求参数 resp:
