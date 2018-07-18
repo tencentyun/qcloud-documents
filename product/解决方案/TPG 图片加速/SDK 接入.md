@@ -2,8 +2,6 @@
 
 具体实现可以参考 [Android 客户端 SDK](https://main.qcloudimg.com/raw/7a702185f3d359395242656dd6275f9e/TPG_android_SDK.zip)  Java 目录下的 TPGDemo 范例。
 
-
-
 ## Android SDK 接入
 
 
