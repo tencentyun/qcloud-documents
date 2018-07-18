@@ -1,4 +1,4 @@
-### 5.0 @ 2018-07-18
+### Version 5.0 @ 2018-07-18
 - iOS：iOS Demo界面适配iphoneX；
 - iOS：iOS修复内测泄漏，提升稳定性，增加moudle定义更好的支持swift集成；
 - Android：软编提升RGBA生成YUV转换精度，提高推流画质；
