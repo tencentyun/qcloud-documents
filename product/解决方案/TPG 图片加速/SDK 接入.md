@@ -62,11 +62,11 @@ private native int GetVersion(TPGVersionNum hObj);
 
 ### 步骤二：调用 TPGDecoder 接口
 
-详细接口信息，见 [SDK接口文档](https:) 。
+详细接口信息，见 [SDK 接口文档](/document/product/875/18367) 。
 
 #### 接口使用方法
 
-1.  创建TPGDecoder对象，调用接口。
+1.  创建 TPGDecoder 对象，调用接口。
 
   `private native int ParseHeader(byte[] pStream, TPGFeature info)`确认输入图片是否为 tpg 格式图片 。
 
