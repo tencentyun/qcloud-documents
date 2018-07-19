@@ -1,19 +1,19 @@
 ## v1.1.17
-[C++\Cocos2D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Cocos.zip)
+[C++\Cocos2D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_173027_20180428_Cocos.zip)
 
-[Unity3D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Unity3D.zip)
+[Unity3D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_173027_20180428_Unity3D.zip)
 
-[Android SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_Android.zip)
+[Android SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_173027_20180428_Android.zip)
 
-[iOS SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_iOS.zip)
+[iOS SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_173027_20180428_iOS.zip)
 
-[iOS(bitcode) SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_iOS_bitcode.zip)
+[iOS(bitcode) SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_168537_20180211_iOS_bitcode.zip)
 
-[Win64 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_winx64_1_1_17_168537_20180224.zip)
+[Win64 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_winx64_1_1_17_173027_20180428.zip)
 
-[Win32 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_win_1_1_17_168537_20180224.zip)
+[Win32 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_win_1_1_17_173027_20180428.zip)
 
-[UE4 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17/gcloud_voice_1_1_17_168537_20180211_UE4.zip)
+[UE4 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_168537_20180211_UE4.zip)
 
 1. OC 接口修复设置音效功能。
 2. 修复部分数据上报异常（openID+url）为空。
