@@ -146,24 +146,20 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 - 不可以同时在一个挂载点上挂载、和卸载文件。您可以先 cd 切换到其他目录，再对挂载点进行挂载、卸载操作。
 
 ## 常见问题
-1. 如何挂载目录？
+**1. 如何挂载目录？**
 您在挂载命令的时候，可以指定目录，命令如下：
 ```
 cosfs my-bucket-name:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-
 > 注意：my-dir 必须以 `/` 开头。
 
 如使用 v1.0.5 之前版本，则挂载命令为：
-  
 ```
 cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-
-2. 为什么之前可用写文件，突然不能写了？
+**2. 为什么之前可用写文件，突然不能写了？**
 由于 COS 鉴权产品策略调整，所以老版本的 cosfs 工具会导致策略校验不过，因此需要拉取最新的 cosfs 工具重新 mount。
-
-3. 在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决？
+**3. 在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决？**
 如在 configure 操作时，提示
 ```
 hecking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
@@ -186,8 +182,8 @@ hecking for common_lib_checking... configure: error: Package requirements (fuse 
 2.8.4   //看到版本表示安装成功
 ```
 
-4. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"？
-如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 cosfs V1.0.2 及以上版本。[下载地址](https://github.com/tencentyun/cosfs/releases)。
+**4. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"？**
+如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 cosfs V1.0.2 及以上版本。[点击下载](https://github.com/tencentyun/cosfs/releases)
 
-5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"？
+**5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"？**
 cosfs 是根据 /etc/mime.types 和上传的文件后缀进行比对，自动设置 Content-Type，建议查看机器上是否存在该文件。对于 ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 centos，可以通过 sudo yum install mailcap 来添加。或者手动添加，每种格式一行，例如：image/png png。
