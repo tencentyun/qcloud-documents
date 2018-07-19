@@ -58,11 +58,10 @@ canvas参数在 **初始化** 和 **开始推流** 2个接口都可以设置
 // canvas推流
 function canvas(){
     RTC.stopRTC({
-        canvas: false
     },function(info){
         console.debug('摄像头断流成功');
         RTC.startRTC({
-            canvas: canvasStream
+            stream: canvasStream
         },function(info){
             console.debug('画布推流成功');
         },function(error){
@@ -80,7 +79,6 @@ function video(){
     },function(info){
         console.debug('画布断流成功');
         RTC.startRTC({
-            canvas: false
         },function(info){
             console.debug('摄像头推流成功');
         },function(error){
