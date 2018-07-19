@@ -90,7 +90,7 @@ GET /china/city/_search
 
 #### 配置 Kibana 访问索引
 
-为了使用 Kibana，需要配置至少一个可以匹配到的索引。 输入上文创建的索引 china, 单击 create。
+为了使用 Kibana，需要配置至少一个可以匹配到的索引。 输入上文创建的索引 china，单击 create。
 ![配置访问索引](https://main.qcloudimg.com/raw/5210fa2ce137edaaed20bf459d8dc3f7.png)
 查看索引对应的字段：
 ![查看索引字段](https://main.qcloudimg.com/raw/0158dab743148ead2f1abcfaf7ce507b.png)
