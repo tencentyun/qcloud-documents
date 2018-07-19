@@ -12,7 +12,7 @@
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-auth</artifactId>
-    <version>1.1.0-RELEASE</version>
+    <version>1.2.0-RELEASE</version>
 </dependency>
 ```
 
@@ -67,7 +67,7 @@ public enum ControlFlag {
 }
 ```
 
-TSF 提供的 Demo `consumer-demo/src/main/java/com/tsf/demo/consumer/Controller.java` 中提供了一个设置 tag 的例子：
+TSF 提供的 demo `consumer-demo/src/main/java/com/tsf/demo/consumer/Controller.java` 中提供了一个设置 tag 的例子：
 
 ```java
 @RequestMapping(value = "/echo-rest/{str}", method = RequestMethod.GET)
