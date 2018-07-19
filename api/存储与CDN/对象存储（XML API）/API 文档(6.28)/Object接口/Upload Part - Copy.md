@@ -64,8 +64,8 @@ uploadId|string|是|使用上传分块文件，必须先初始化分块上传。
 |x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE，默认值：STANDARD|string|否|
 |x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|string|否|
 |x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-(): id="[OwnerUin]"|string|否|
-|x-cos-grant-write|赋予被授权者写的权限。格式：：x-cos-grant-(): id="[OwnerUin]"|string|否|
-|x-cos-grant-full-control|赋予被授权者所有的权限。格式：：x-cos-grant-(): id="[OwnerUin]"|string|否|
+|x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-(): id="[OwnerUin]"|string|否|
+|x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-(): id="[OwnerUin]"|string|否|
 |x-cos-copy-source-range|源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。例如 bytes=0-9 表示你希望拷贝源文件的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个文件。|Integer|否|
 
 ### 请求体
