@@ -2,8 +2,9 @@
 ### 优化
 1. 删除ppt优化
 2. iliveSDK版本更新
-3. TICSDK白板添加文件接口addFile
-4. 退出房间通知
+3. TICManager创建房间接口createRoom参数调整
+3. TICSDK白板添加文件接口addFile返回值调整
+4. 退出房间通知优化
 
 
 ## [1.1.0] - 2018-07-12
