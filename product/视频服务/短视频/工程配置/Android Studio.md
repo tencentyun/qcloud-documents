@@ -163,7 +163,7 @@ dependencies {
 
 ## 验证
 
-在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程设备是否正确。
+在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
 
 #### 1. 引用SDK
 在 MainActivity.java 中引用 SDK 的 class：
