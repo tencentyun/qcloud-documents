@@ -159,6 +159,7 @@ cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http:
 ```
 **2. 为什么之前可用写文件，突然不能写了？**
 由于 COS 鉴权产品策略调整，所以老版本的 cosfs 工具会导致策略校验不过，因此需要拉取最新的 cosfs 工具重新 mount。
+
 **3. 在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决？**
 如在 configure 操作时，提示
 ```
