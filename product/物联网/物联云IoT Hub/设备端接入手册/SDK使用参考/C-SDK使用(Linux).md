@@ -23,6 +23,7 @@ PLATFORM_SSL                  = mbedtls
 FEATURE_MQTT_COMM_ENABLED     = y    # 是否打开 MQTT 通道的总开关
 FEATURE_MQTT_DEVICE_SHADOW    = y    # 是否打开设备影子的总开关
 FEATURE_COAP_COMM_ENABLED     = y    # 是否打开 CoAP 通道的总开关
+FEATURE_NBIOT_COMM_ENABLED    = y    # 是否打开NBIoT通道的消息组装
 
 FEATURE_OTA_COMM_ENABLED      = y    # 是否打开 OTA 固件升级总开关
 FEATURE_OTA_SIGNAL_CHANNEL    = MQTT # OTA 信令通道类型：MQTT/COAP
