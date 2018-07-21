@@ -1,5 +1,10 @@
 ## 功能描述
-RegisterBatchIp 用于指定子网IP进行IP注册。
+RegisterBatchIp 用于指定子网 IP 进行 IP 申请。
+
+为了避免出现 IP 冲突导致网络异常的情况，当您需要使用某些子网下的特定的 IP 资源时（物理机 IP 除外），需要调用此接口进行指定 IP 申请。
+- 指定的 IP 资源（事先知道了具体要使用哪些 IP）在可用 IP 资源列表中：则会对该 IP 资源进行申请，否则，对已经调用 ApplyIps 接口申请或者调用RegisterBatchIp 接口注册的 IP 资源进行申请，
+- 指定的 IP 资源不在 IP 资源列表中：会返回 IP 资源冲突错误，除非您把 IP 资源退还了。
+- 已经申请的 IP 资源，可用IP资源列表中将不再返回此 IP。
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -19,10 +24,10 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 | 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| unVpcId | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 |String | 是 | 
-| unSubnetId | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |String | 是 | 
-| ipList | 注册IP数组，数组个数范围为1-20。 |Array | 是 | 
-| ipClass |  IP类型，0为物理机IP，1为云服务器类型IP，2为托管类型IP。默认传1 |Int | 否 |
+| unVpcId | 系统分配的私有网络 ID，例如：vpc-kd7d06of。可通过 DescribeBmVpcEx 接口查询返回的 unVpcId 值。 |String | 是 | 
+| unSubnetId | 系统分配的私有网络子网 ID，例如：subnet-k20jbhp0。可通过 DescribeBmSubnetEx 接口查询返回的 unSubnetId 值。 |String | 是 | 
+| ipList | 注册 IP 数组，数组个数范围为 1-20。 |Array | 是 | 
+| ipClass |  IP 类型，0 为物理机 IP，1 为云服务器类型 IP，2 为托管类型 IP。默认传 1 |Int | 否 |
 
 
 ## 响应
@@ -51,20 +56,20 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。| Int |
+| code | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。| Int |
 | message | 模块错误信息描述，与接口相关。| String |
-| count | 注册成功的IP个数。| Int |
+| count | 注册成功的 IP 个数。| Int |
 | extramsg |  接口返回的提示信息。| String |
-| data.n | 注册成功的IP数组。|Array | 
+| data.n | 注册成功的 IP 数组。|Array | 
 
 ## 错误码
 
 | 错误代码 |英文提示| 描述 |
 |---------|---------|---------|
-| -3047 |InvalidBmVpc.NotFound| 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
+| -3047 |InvalidBmVpc.NotFound| 无效的 VPC,VPC 资源不存在，请再次核实您输入的资源信息是否正确。 |
 | -3030  |InvalidBmSubnet.NotFound| 无效的子网,子网资源不存在，请再次核实您输入的资源信息是否正确。 |
-| -3031 |AvailableIpUseUp| IP已被注册或者IP不在子网所属范围内。请仔细查看详细错误信息 |
-| -3001| InvalidInputParams|参数不合法
+| -3031 |AvailableIpUseUp| IP 已被注册或者 IP 不在子网所属范围内。请仔细查看详细错误信息 |
+| -3001| InvalidInputParams|参数不合法|
 
 
 ## 实际案例
