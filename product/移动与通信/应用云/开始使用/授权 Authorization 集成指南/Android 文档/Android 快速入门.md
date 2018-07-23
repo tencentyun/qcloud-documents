@@ -14,7 +14,7 @@
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-![](https://main.qcloudimg.com/raw/2098031bcf22b6a32ac87066ed8a3278.jpg)
+![](https://main.qcloudimg.com/raw/2098031bcf22b6a32ac87066ed8a3278.gif)
 
 >**注意：**
 >请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
@@ -33,6 +33,13 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.0.1'
         // 添加这行
         classpath 'com.tencent.tac:tac-services-plugin:1.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        ...
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
 ```
