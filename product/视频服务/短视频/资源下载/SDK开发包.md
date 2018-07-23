@@ -25,18 +25,18 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>5.0.4973 @ 2018-07-18</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_UGC_Rename_iOS_5.0.4973.zip">ZIP</a></td>
+    <td>5.0.4978 @ 2018-07-23</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_UGC_Rename_iOS_5.0.4978.zip">ZIP</a></td>
   </tr>
     <tr align="center">
     <td>iOS 平台 + IJK</td>
-    <td>5.0.4973 @ 2018-07-18</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="	http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_UGC_IJK_Rename_iOS_5.0.4973.zip">ZIP</a></td>
+    <td>5.0.4978 @ 2018-07-23</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="	http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_UGC_IJK_Rename_iOS_5.0.4978.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4973 @ 2018-07-18</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4973.zip">ZIP</a></td>
+    <td>5.0.4978 @ 2018-07-23</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4978.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -50,13 +50,13 @@
   </tr>
   <tr align="center">
     <td>iOS 平台</td>
-    <td>5.0.4973 @ 2018-07-18</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_Enterprise_Rename_iOS_5.0.4973.zip">ZIP</a></td>
+    <td>5.0.4978 @ 2018-07-23</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/TXLiteAVSDK_Enterprise_Rename_iOS_5.0.4978.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4973 @ 2018-07-18</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4973.zip">ZIP</a></td>
+    <td>5.0.4978 @ 2018-07-23</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4978.zip">ZIP</a></td>
   </tr>
 </table>
 
