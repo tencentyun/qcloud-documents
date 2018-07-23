@@ -22,12 +22,12 @@ The difference between the local elapsed time of the CDN distribution server and
 In a playback request, if the server records that 5 minutes elapses, but only 4 minutes and 59 seconds of video data is transmitted, this is a stutter request.
 #### 6. Stutter rate
 The statistical period for the stutter rate metric of Tencent Cloud LVB products is 5 minutes. The stutter rate is the rate of the number of stutter requests to the number of total requests for video playback within 5 minutes.
-![](https://main.qcloudimg.com/raw/7d8a8d8d5a290d21d7d4fc92e188ff6c.png)
+![](https://main.qcloudimg.com/raw/5d64f7fc0d889eec90e146a76c9af287.png)
 
 ### Performance Metrics
 #### 1. Video load success rate metric
 Within a service period, the average video load success rate shall not be lower than 99.60% (inclusive), that is:
-![](https://main.qcloudimg.com/raw/5d64f7fc0d889eec90e146a76c9af287.png)
+![](https://main.qcloudimg.com/raw/7d8a8d8d5a290d21d7d4fc92e188ff6c.png)
 #### 2. Video load time metric
 The load time of a single video shall not be longer than 850 ms (inclusive).
 #### 3. Stutter rate metric
