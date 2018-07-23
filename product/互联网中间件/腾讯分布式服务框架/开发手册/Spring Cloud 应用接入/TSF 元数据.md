@@ -55,14 +55,13 @@ public enum ControlFlag {
 public class TsfContext {
     /**
      * 设置多个 tag。如果有某个 tag 之前已经被设置过，那么它的值会被覆盖。
-     * 表示这些标签带有传递性，同时不在调用链中被使用
      */
-    public static void PutTags(Map<String, String> tagMap, TagControlFlag... flags) {}
+    public static void putTags(Map<String, String> tagMap, TagControlFlag... flags) {}
 
     /**
      * 设置 tag。如果该 key 之前已经被设置过，那么它的值会被覆盖。
      */
-    public static void PutTag(String key, String value, TagControlFlag... flags) {}
+    public static void putTag(String key, String value, TagControlFlag... flags) {}
 }
 ```
 
@@ -73,16 +72,19 @@ TSF 提供的 Demo `consumer-demo/src/main/java/com/tsf/demo/consumer/Controller
 ```java
 @RequestMapping(value = "/echo-rest/{str}", method = RequestMethod.GET)
 public String rest(@PathVariable String str, @RequestParam String user) {
-    TsfContext.putTag("user", user); // 
+    TsfContext.putTag("user", user); 
     return restTemplate.getForObject("http://provider-demo/echo/" + str, String.class);
 }
 ```
 
 ### 场景2：设置调用链 Tag
 
-设置 user=12345678 的标签，用户可以在控制台 **调用链查询界面** 通过标签 user=12345678 来检索调用链。调用链标签的具体使用方法参考 [调用链](https://cloud.tencent.com/document/product/649/16622)。
+设置 `user=12345678` 的标签，用户可以在控制台 **调用链查询界面** 通过标签 user=12345678 来检索调用链。调用链标签的具体使用方法参考 [调用链](https://cloud.tencent.com/document/product/649/16622)。
 
 ```java
 TsfContext.putTag("user", "12345678", TRANSITIVE);
 ```
 
+### Tag 的长度限制
+
+用户传递到下流的 tag （包含从上流带过来的有传递性的 tag），数量上限为 16 个。Key 的长度上限为 UTF-8 编码后 32 字节，value 的长度上限为 UTF-8 编码后 128 字节。
