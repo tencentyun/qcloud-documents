@@ -1001,7 +1001,7 @@ The header file QCloudCOSXML/QCloudCOSXML.h needs to be imported before file ope
 | ------ | ---------- | ---------- | ---------------------------------- |
 | bucket  |Bucket name, which can be found in [COS V5 Console](https://console.cloud.tencent.com/cos5/bucket), with a format of &lt;bucketName&gt;-&lt;APPID&gt;, such as testBucket-1253653367 |NSString * |Yes |
 |object|Object name |NSString * |Yes |
-|range|he specified range of file download defined in RFC 2616 (in bytes) |NSString * |No |
+|range|The specified range of file download defined in RFC 2616 (in bytes) |NSString * |No |
 |ifModifiedSince| The file content is returned if the file has been modified after the specified time. Otherwise 412 is returned (not modified) |NSString * | No |
 |responseContentType| Sets the Content-Type parameter in the response header |NSString * | No |
 |responseContentLanguage| Sets the Content-Language parameter in the response header |NSString * | No |
