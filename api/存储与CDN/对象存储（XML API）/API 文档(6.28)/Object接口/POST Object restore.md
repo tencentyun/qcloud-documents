@@ -21,7 +21,6 @@ POST /{ObjectName}?restore HTTP/1.1
 
 该 API 接口接受 `POST` 请求。
 
-
 ### 请求头
 
 #### 公共头部
@@ -30,25 +29,27 @@ POST /{ObjectName}?restore HTTP/1.1
 
 #### 非公共头部
 
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
 该请求操作的实现需要有请求体。
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<Days>0</Days>
-<CASJobParameters>
-  <Tier>string</Tier>
-</CASJobParameters>
 ```
-
+<RestoreRequest>
+   <Days>NumberOfDays</Days>
+   <CASJobParameters>
+       <Tier>RetrievalOption</Tier>
+   </CASJobParameters>
+</RestoreRequest>
+```
 
 具体的数据描述如下：
 
 节点名称（关键字）|父节点|描述|类型|必选
 ---|---|---|---|---
+RestoreRequest|无|用于恢复数据的容器|Container|是
 Days|无|设置临时副本的过期时间|integer|是
+CASJobParameters|无|归档存储工作参数的容器|Container|是
+Tier|无|恢复数据时，Tier 可以指定为 CAS 支持的三种恢复类型，分别为 Expedited、Standard、Bulk |Enum|是
 
 ## 响应
 ### 响应头
@@ -58,7 +59,6 @@ Days|无|设置临时副本的过期时间|integer|是
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
 
 该请求操作无特殊的响应头部信息。
 
@@ -84,6 +84,13 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 Host:arvin1-7319456.cn-north.myqcloud.com
 Content-Length: 105
 Content-Type: application/x-www-form-urlencoded
+
+<RestoreRequest>
+   <Days>NumberOfDays</Days>
+   <CASJobParameters>
+       <Tier>RetrievalOption</Tier>
+   </CASJobParameters>
+</RestoreRequest>
 ```
 
 ### 响应
