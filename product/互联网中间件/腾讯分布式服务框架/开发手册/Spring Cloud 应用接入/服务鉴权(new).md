@@ -31,7 +31,7 @@ public class ProviderApplication {
 }
 ```
 
-此时你已经对 provider 微服务开启了鉴权功能，任何到达 provider 的请求都会被鉴权，鉴权不通过会返回 HTTP 403 Forbidden。
+此时您已经对 provider 微服务开启了鉴权功能，任何到达 provider 的请求都会被鉴权，鉴权不通过会返回 HTTP 403 Forbidden。
 
 TSF 提供了两种类型的鉴权能力，一种根据调用方服务名，一种根据调用方设置的 tag。在控制台上可以配置相应的规则。如果在控制台上对 provider 启用了鉴权功能，并且配置了至少一条规则，那么调用 provider 的微服务（如 comsumer）也需要引入 `spring-cloud-tsf-auth` 的依赖并且加上 `@EnableTsfAuth` 注解，否则到 provider 的请求会被返回 HTTP 403 Forbidden。
 
@@ -56,7 +56,7 @@ public static void putTags(Map<String, String> tagMap, Tag.ControlFlag... flags)
 public static void putTag(String key, String value, Tag.ControlFlag... flags) {}
 ```
 
-其中 `flags` 决定 tag 的使用场景，如果你没有特殊需要，不传即可：
+其中 `flags` 决定 tag 的使用场景，如果您没有特殊需要，不传即可：
 
 ```java
 public enum ControlFlag {
