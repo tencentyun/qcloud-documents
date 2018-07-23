@@ -25,7 +25,7 @@ Large-scale LVB events can be managed by using LVB code management solution.
 
 ## Product Architecture
 
-![](//mccdn.qcloud.com/static/img/e5819bc71ccc077a66e7a63fb4e0f934/image.png)
+![](https://main.qcloudimg.com/raw/607e07ce185ca9551c9df403ff4284f4.tif)
 
 Typical product architecture is as shown above:
 
