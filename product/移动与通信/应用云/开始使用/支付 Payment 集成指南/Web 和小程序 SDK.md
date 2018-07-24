@@ -3,12 +3,14 @@
 ## 集成说明
 
 引入JsApi：`<script src="https://midas.gtimg.cn/openmidas/jsapi/openMidas.js"></script>`
-为了支持多域名情况，除了openMidas.js 还有一个额外的`openMidasConfig.js`路径为 `https://midas.gtimg.cn/openmidas/jsapi/config/openMidasConfig.xxx.js` 用于域名配置，在引入之前需要引入这个配置文件，默认情况下openMidas会走公有云的环境，可以不引入配置。
+为了支持多域名情况，除了`openMidas.js`，还有一个额外的`openMidasConfig.js`路径为 `https://midas.gtimg.cn/openmidas/jsapi/config/openMidasConfig.xxx.js` 用于域名配置，在引入之前需要引入这个配置文件，默认情况下openMidas会走公有云的环境，可以不引入配置。
 
 ## 支付初始化
 
 **说明**：初始化接口，使用OpenMidas其它接口之前必须调用本接口。
-**接口**：OpenMidas.init(env)
+
+**接口**：`OpenMidas.init(env)`
+
 **参数说明如下**： 
 
 参数名 | 参数类型 | 必填 | 参数说明
@@ -31,7 +33,7 @@ OpenMidas.pay(payInfo, callback, appMetadata);
 参数名 | 参数类型 | 必填 | 参数说明
 --- | --- | --- | ---
 payInfo | String | 是 | 支付参数，详见3.1.4
-callBack | Function | 是 | 支付完成回调函数，回调参数说明详见2.3.2.3
+callBack | Function | 是 | 支付完成回调函数，回调参数说明看下文“回调url示例”
 appMetadata | String | 否 | 扩展字段，key=value形式，最大长度255。客户端回调时回传给调用方。
 
 **调用方式示例**：
@@ -100,7 +102,7 @@ OpenMidas.pay(String payInfo, Function callback, String appMetadata)
 参数名 | 参数类型 | 必填 | 参数说明
 --- | --- | --- | ---
 payInfo | String | 是 | 支付参数，详见3.1.4
-callBack | Function | 是 | 支付完成回调函数，回调参数说明详见2.3.2.3
+callBack | Function | 是 | 支付完成回调函数，回调参数说明详见“小程序支付接口”
 appMetadata | String | 否 | 扩展信息回传，透传支付时传入的参数。同支付时传入的appMetadata
 
 **调用方式示例**：
