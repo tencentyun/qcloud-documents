@@ -27,11 +27,11 @@ allprojects {
 // COS SDK模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9.0.4'
+compile 'com.tencent.ilivesdk:ilivesdk:1.9.1'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.1.1'
+compile 'com.tencent.ticsdk:ticsdk:1.2.1'
 // 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.2.6.5'
+compile 'com.tencent.boardsdk:boardsdk:1.2.8'
 ```    
 
 3. 在 defaultConfig 中配置 abiFilters 信息。
@@ -236,73 +236,6 @@ TICManager.getInstance().setCosConfig(cosConfig);
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack()
 ```
 
-其中，**TICClassroomOption** 功能具体如下：
-
-```java
-    > TICClassroomOption.java
-    /**
-     * 课堂角色
-     */
-    public enum Role {
-        /**
-         * 老师
-         */
-        TEACHER(0),
-        /**
-         * 学生
-         */
-        STUDENT(1);
-        private int value;
-
-        Role(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
-    }
-
-    /**
-     * 房间ID，由业务维护
-     */
-    private int roomId;
-    /**
-     * 开启摄像头
-     */
-    private boolean enableCamera = false;
-
-    /**
-     * 开启Mic
-     */
-    private boolean enableMic = false;
-
-    /**
-     * 默认开启白板
-     */
-    private boolean enableWhiteboard = true;
-
-    /**
-     * 课堂角色，默认是学生角色，见@Role
-     */
-    private Role role = Role.STUDENT;
-
-    /**
-     * 课堂白板绘制事件回调
-     */
-    //private IClassroomWhiteboardListener classroomWhiteboardListener;
-
-    /**
-     * 课堂文字互动消息事件回调
-     */
-    private IClassroomIMListener classroomIMListener;
-
-    /**
-     * 课堂音视频异常断开/IM群组解散
-     */
-    private IClassEventListener classEventListener;
-```
-
 **TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
 其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
@@ -376,10 +309,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * @param text       发送内容
      * @param callBack   回调
      */
-    public void sendC2CTextMessage(final String identifier, final String text, final ILiveCallBack callBack) {
-        ILiveTextMessage message = new ILiveTextMessage(text);
-        ILiveRoomManager.getInstance().sendC2CMessage(identifier, message, callBack);
-    }
+    public void sendC2CTextMessage(final String identifier, final String text, final ILiveCallBack callBack);
 
     /**
      * 发送C2C自定义消息
@@ -388,10 +318,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * @param data       发送的自定义的内容
      * @param callBack   回调
      */
-    public void sendC2CCustomMessage(final String identifier, final byte[] data, final ILiveCallBack callBack) {
-        ILiveCustomMessage message = new ILiveCustomMessage(data, "");
-        ILiveRoomManager.getInstance().sendC2CMessage(identifier, message, callBack);
-    }
+    public void sendC2CCustomMessage(final String identifier, final byte[] data, final ILiveCallBack callBack);
 
     /**
      * 发送群文本消息
@@ -399,10 +326,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * @param text     发送的群组消息内容
      * @param callBack 回调
      */
-    public void sendGroupTextMessage(final String text, final ILiveCallBack callBack) {
-        ILiveTextMessage message = new ILiveTextMessage(text);
-        ILiveRoomManager.getInstance().sendGroupMessage(message, callBack);
-    }
+    public void sendGroupTextMessage(final String text, final ILiveCallBack callBack);
 
     /**
      * 发送群组自定义消息
@@ -410,10 +334,24 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * @param data     发送的自定义的群组消息内容
      * @param callBack 回调
      */
-    public void sendGroupCustomMessage(@NonNull final byte[] data, final ILiveCallBack callBack) {
-        ILiveCustomMessage message = new ILiveCustomMessage(data, "");
-        ILiveRoomManager.getInstance().sendGroupMessage(message, callBack);
-    }
+    public void sendGroupCustomMessage(@NonNull final byte[] data, final ILiveCallBack callBack);
+    
+    /**
+     * 发送私聊消息
+     *
+     * @param dstUser  消息接收者
+     * @param message  消息内容
+     * @param callBack 回调
+     */
+    public void sendC2CMessage(String dstUser, TIMMessage message, ILiveCallBack<TIMMessage> callBack);
+
+    /**
+     * 发送群聊消息
+     *
+     * @param message  消息内容
+     * @param callBack 回调
+     */
+    public void sendGroupMessage(TIMMessage message, ILiveCallBack<TIMMessage> callBack);
 ```
 课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听 `IClassroomIMListener classroomIMListener;`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知：
 
@@ -438,9 +376,15 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      * 收到Group自定义消息
      */
     void onRecvGroupCustomMsg(String fromId, byte[] data);
+    /**
+     * 所有消息回调，所有IM消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理以上四个回调即可；
+     * 如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听这个回调（其它四个回调不做处理），自己完成消息的遍历和解析即可。
+     * @param message
+     */
+    void onRecvMessage(TIMMessage message);
 ```
 
-这 4 个接口方法，分别对应了前面 4 个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。
+> 温馨提示：所有消息回调，所有IM消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理前4个回调即可；如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听**onRecvMessage**这个回调（其它4个回调可以不做处理，因为回到到这4个接口的内容，也通过**onRecvMessage**回调了），自己完成消息的遍历和解析即可。
 
 ####  6. 音视频相关操作
 
