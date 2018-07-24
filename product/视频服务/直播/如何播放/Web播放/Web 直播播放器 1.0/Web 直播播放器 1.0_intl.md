@@ -23,8 +23,8 @@ Sign up for a Tencent Cloud account at [Tencent Cloud official website](https://
 Go to the [LVB console](https://console.cloud.tencent.com/live) and create an LVB channel.
 ### Step 3: Obtain an ID
 You can find and manage the LVB channel in the console. You can find its app_id on the console interface. Click the channel to find its ID in **Basic Settings**.
-![](//mc.qcloudimg.com/static/img/ac00be44d369a9fa6bc5a93c2b837527/image.png)
-![](//mc.qcloudimg.com/static/img/41ad87e5f153cb1df1d31d6b4a55ea47/image.png)
+![](https://main.qcloudimg.com/raw/046524dbb086e5cc9ffd910008641271.png)
+![](https://main.qcloudimg.com/raw/28071257620b732c80f24b4739e14d6f.png)
 
 ### Step 4: Prepare pages
 Introduce the initialization script to the page in which you want to play videos (including PC or H5).

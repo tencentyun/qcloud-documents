@@ -13,7 +13,7 @@ VOD video source is a file on the server, which can be played at any time as lon
 Playing videos using the web player depends on browsers, rather than the codes in webpages. For this reason, the compatibility may be lower than we expected. The fact is that **not all mobile browsers can yield expected performance results**. Some of the mobile browsers don't even support video playback at all. The most common video source URLs used to play videos on webpages are URLs ending with "m3u8". We call them HLS (HTTP Live Streaming), a standard from Apple. At present, this format has the best compatibility with various mobile browser products thanks to Apple's influence. However, this format has a drawback: a big delay of 20-30 seconds. Even so, we don't have any other choices for mobile browsers.
 
  This situation looks better on PC, because PC browsers still use FLASH widgets, which supports various video source formats. Besides, the FLASH widgets for different browsers are all developed by Adobe, so they have good compatibility.
-![](//mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
+![](https://main.qcloudimg.com/raw/8333b92b361d1dab5dee377f1e5e9941.png)
 
 ## Interfacing
 
