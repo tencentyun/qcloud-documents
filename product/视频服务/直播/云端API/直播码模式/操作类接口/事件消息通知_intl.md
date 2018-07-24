@@ -5,7 +5,7 @@ You can register a callback URL from your backend server in Tencent Cloud consol
 
 ## Configuring a URL
 When you enable the LVB Code mode in the **[LVB Console](https://console.cloud.tencent.com/live/livecodemanage)** -> **LVB Code Access** -> **Access Configuration**, you can specify a URL for receiving Tencent Cloud notifications, as shown below:
-![](//mc.qcloudimg.com/static/img/0d6ba7c9619af8d1f60cfa7b0363b3de/image.png)
+![](/https://main.qcloudimg.com/raw/e980e533a7c7f2e60c772373c0e369fc.png)
 
 ## Message Organizing Format
 Notification messages are organized in JSON format and then placed in the HTTP POST protocol body. Note that the ContentType of the POST format here is application/json instead of multipart/form-data. Therefore, do not use the function for reading form fields in PHP or Java to read the messages.
@@ -28,7 +28,7 @@ The following fields are included in all types of notification messages:
 - **sign (security signature)**
 sign = MD5(key + t): Tencent Cloud computes the value of "sign" using MD5 algorithm after concatenating the strings of the encryption key and t, then places the value in a notification. Upon receiving the notification, your backend server can verify whether the "sign" value is correct by using the same algorithm so as to check whether the notification is truly from Tencent Cloud backend.
 The encryption key here is the CGI call key, which can be specified when you activate the LVB Code service on the Tencent Cloud LVB console, as shown below:
-![](//mc.qcloudimg.com/static/img/2c58369745ef6ba1cde5104b6f0254b3/image.png)
+![](https://main.qcloudimg.com/raw/576b8911b8661d4d9e22ef145e3368ad.png)
 - **event_type (notification type)**
   Tencent Cloud supports the following types of notifications: 0 - Stream interruption; 1 - Push; 100 - Generation of a new recording file; 200 - Generation of a new screenshot file.
 	

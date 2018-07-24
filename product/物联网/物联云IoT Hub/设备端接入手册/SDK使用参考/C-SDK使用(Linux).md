@@ -23,6 +23,7 @@ PLATFORM_SSL                  = mbedtls
 FEATURE_MQTT_COMM_ENABLED     = y    # 是否打开 MQTT 通道的总开关
 FEATURE_MQTT_DEVICE_SHADOW    = y    # 是否打开设备影子的总开关
 FEATURE_COAP_COMM_ENABLED     = y    # 是否打开 CoAP 通道的总开关
+FEATURE_NBIOT_COMM_ENABLED    = y    # 是否打开NBIoT通道的消息组装
 
 FEATURE_OTA_COMM_ENABLED      = y    # 是否打开 OTA 固件升级总开关
 FEATURE_OTA_SIGNAL_CHANNEL    = MQTT # OTA 信令通道类型：MQTT/COAP
@@ -135,3 +136,10 @@ FEATURE_SYSTEM_COMM_ENABLED   = y    # 是否打开获取 IoT 后台时间功能
 | 序号  | 函数名                        | 说明                                              |
 | ---- | ---------------------------- | ------------------------------------------------- |
 | 1    | IOT_SYSTEM_GET_TIME          | 获取 IoT hub 后台系统时间，目前仅支持 MQTT 通道对时功能 |
+
+### 7. NBIoT 接口
+
+| 序号  | 函数名                        | 说明                                              |
+| ---- | ---------------------------- | ------------------------------------------------- |
+| 1    | IOT_NB_setMessage          | NBIoT 平台上行消息编码接口 |
+| 2    | IOT_NB_getMessage          | NBIoT 平台下行消息解码接口 |

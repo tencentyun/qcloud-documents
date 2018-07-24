@@ -37,7 +37,7 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
-roomOption.authBuffer = privateMapKey;    // 配置进房票据
+roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要创建的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "LiveMaster";      //使用Spear上配置的"LiveMaster"角色

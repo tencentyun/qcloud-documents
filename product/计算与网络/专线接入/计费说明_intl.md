@@ -1,5 +1,5 @@
 ## Billing of Physical Direct Connect
-For Tencent Cloud physical Direct Connect, a one-off access fee of 1,250 USD is charged for each line.
+For Tencent Cloud physical Direct Connect, a one-off access fee of 2,500 USD is charged for each line.
 
 ## Billing of Direct Connect Tunnel
 The charge for Direct Connect tunnels depends on whether the physical direct connect access point and the VPC are located in the same city:

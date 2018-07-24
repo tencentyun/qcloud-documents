@@ -127,13 +127,10 @@ that: >
 ## 工具
 
 - [Online YAML Parser](http://yaml-online-parser.appspot.com/) 提供了一个 YAML 的 playground，不确定的语法可以在这里进行验证。
-
-  
+- [YAML 和 Properties 格式互转工具](http://www.toyaml.com/)
 
 ## 参考
 
 - [YAML 语言教程 - 阮一峰](http://www.ruanyifeng.com/blog/2016/07/yaml.html)
 - [Yaml Cookbook](http://yaml.org/YAML_for_ruby.html)：提供了很多典型的 YAML 用例
 - [YAML Syntax - Ansible](http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)：写了一些 YAML 的常见陷阱
-
->  

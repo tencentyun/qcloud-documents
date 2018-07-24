@@ -52,9 +52,9 @@ x-cos-copy-source-If-Match|string|否|当 Object 的 Etag 和给定一致时，�
 x-cos-copy-source-If-None-Match|string|否|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突
 x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD
 x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
-x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
-x-cos-grant-write|string|否|赋予被授权者读的权限。格式：x-cos-grant-write: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
-x-cos-grant-full-control|string|否|赋予被授权者读的权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
+x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"
+x-cos-grant-write|string|否|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"
+x-cos-grant-full-control|string|否|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"
 x-cos-meta-*|string|否|其他自定义的文件头部
 
 **服务端加密相关头部**
@@ -80,7 +80,7 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 | 名称         | 描述          | 类型     |
 | --------- | ---------- | ------ |
 |x-cos-version-id|目标存储桶中复制对象的版本。|String|
-| x-cos-server-side-encryption | 如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
+| x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
 
 ### 响应体
 拷贝成功，返回响应体。

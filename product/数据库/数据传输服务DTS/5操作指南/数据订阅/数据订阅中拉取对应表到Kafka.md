@@ -6,7 +6,7 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 2. 相关下载
- - [数据订阅 SDK](https://mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-- 2.6.0-release.jar.zip)
+ - [数据订阅 SDK](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar)
  - [SLF4J组件](https://main.qcloudimg.com/raw/f8a577788af1d57cd269410fbe436a35/SLF4J.zip)
  - [Kafka-clients](https://main.qcloudimg.com/raw/a60f793a4eafe5f77e63615c5ce920e8/kafka-clients-1.1.0.jar)
 

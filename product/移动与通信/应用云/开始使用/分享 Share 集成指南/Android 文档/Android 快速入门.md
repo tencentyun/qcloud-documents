@@ -35,6 +35,13 @@ buildscript {
         classpath 'com.tencent.tac:tac-services-plugin:1.0.0'
     }
 }
+
+allprojects {
+    repositories {
+        ...
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+    }
+}
 ```
 
 在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 social 服务依赖，并使用插件：
