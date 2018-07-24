@@ -1,4 +1,7 @@
 Select **Access Management** -> **Channel Hosting** in LVB menu bar. And click **Create Channel** in LVB management page.
-![](//mc.qcloudimg.com/static/img/c96c59a28290c9e39f56cc9bf013b129/image.png)
+
+![](https://main.qcloudimg.com/raw/5742c4f436ec292bfc62e59b37134864.png)
+
 Configure the basic information of LVB, including channel name and channel description.
-![](//mc.qcloudimg.com/static/img/ee3b3034eba86902090ac2724d5cbe20/image.png)
+
+![](https://main.qcloudimg.com/raw/1fd7267f33a38df7c7f74a14b50cccd5.png)
