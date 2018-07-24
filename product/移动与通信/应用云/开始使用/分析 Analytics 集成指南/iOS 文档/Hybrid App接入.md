@@ -1,241 +1,104 @@
-## 集成说明
+## Hybrid App 简介
 
-引入 JsApi：`<script src="https://midas.gtimg.cn/openmidas/jsapi/openMidas.js"></script>`
-为了支持多域名情况，除了`openMidas.js`，还有一个额外的`openMidasConfig.js`路径为 `https://midas.gtimg.cn/openmidas/jsapi/config/openMidasConfig.xxx.js` 用于域名配置，在引入之前需要引入这个配置文件，默认情况下 openMidas 会走公有云的环境，可以不引入配置。
+Hybrid App 指包含原生页面和 html5 页面的 App。MTA hybrid 支持统计 Android/iOS + webview 开发的应用数据。
 
-## 支付初始化
 
-**说明**：初始化接口，使用 OpenMidas 其它接口之前必须调用本接口。
+### 功能介绍
 
-**接口**：`OpenMidas.init(env)`
+MTA 提供 Hybrid App 接入服务，为用户提供更完善的数据服务，用户接入后可实现：
 
-**参数说明如下**： 
+- 统一统计 App 内全部数据，无需跳转查看，打破 App 与 H5 的边界。
+- 连接 App 与 H5 之间的关键路径，事件漏斗更完整。
+- 可统计 H5 页面数据，访问路径更完整。
 
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-env | String | 是 | 环境，release 表示正式环境，test 表示测试环境
+### 实现原理
 
-## 支付接口
+H5 使用 JavaScript SDK ，采集到数据后，发往 App，App SDK 收到 JavaScript SDK 发送的数据后，会把默认采集的属性加上，最后如果 App 端设置了公共属性，也会把公共属性加上。使用了混合统计功能以后，在 App 内加载的 html5 页面也能通过 Native 的方式上报页面访问事件和自定义 kv 事件。
 
-### Web 支付接口
+使用混合统计功能时，需要在 iOS、Android 以及 HTML 端同时接入对应的 SDK。
 
-**说明**：本接口同时支持H5支付、公众号支付。
 
-**接口 1**：弹框形式调用
-```
-OpenMidas.pay(payInfo, callback, appMetadata);
-```
+## iOS 侧接入
 
-**参数说明如下**：
+### 准备工作
 
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-payInfo | String | 是 | 支付参数，详见 [服务器端 API](https://cloud.tencent.com/document/product/666/17994#.E5.95.86.E5.93.81.E4.B8.8B.E5.8D.95) 商品下单接口返回值里的 pay_info
-callBack | Function | 是 | 支付完成回调函数，回调参数说明看下文“回调 url 示例”
-appMetadata | String | 否 | 扩展字段，key=value 形式，最大长度 255。客户端回调时回传给调用方。
-
-**调用方式示例**：
-
-```javascript
-someAsyncRequest(function(payInfo){
-    OpenMidas.pay(payInfo, function(resultCode, innerCode, resultMsg, appMetadata){
-        //业务处理代码
-    }, appMetadata);//方式1调用
-});
-```
-
-**接口 2**：页面跳转形式调用支付完成后会回调业务在下单时传入的 Web 回调地址。
-```javascript
-OpenMidas.pay(payInfo, appMetadata);
-```
-
-**参数说明如下**：
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-payInfo | String | 是 | 支付参数，详见 [服务器端 API](https://cloud.tencent.com/document/product/666/17994#.E5.95.86.E5.93.81.E4.B8.8B.E5.8D.95) 商品下单接口返回值里的 pay_info
-appMetadata | String | 否 | 扩展字段，key=value 形式，最大长度 255。客户端回调时回传给调用方。
-
-**调用方式示例**：
-
-```javascript
-someAsyncRequest(function(payInfo){
-   OpenMidas.pay(payInfo, appMetadata);//方式2调用
-});
-```
-
-**回调 url 示例**：
-```
-[callbackurl]?resultCode=0&innerCode=100-xxx&resultMsg=encode(支付成功)&appMetadata=xxxxx
-```
-
-### 小程序支付接口
-
-**说明**：将 openMidas.js 文件放入工程目录，并通过如下方式引入
-
-```javascript
-var OpenMidas = require("openMidas");
-```
-
-为了支持多域名情况，除了`openMidas.js`还有一个额外的`openMidasConfig.js`用于域名配置，在 require jsapi 之前需要引入这个配置文件，默认情况下 openMidas 会走公有云的环境。
-
-**说明**：初始化接口，使用 openMidas 其它接口之前必须调用本接口。
-
-**接口**：`OpenMidas.init(env)`
-
-**参数说明如下**： 
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-env | String | 是 | 环境，release 表示正式环境，test 表示测试环境
-
-**接口**： 
-
-```
-OpenMidas.pay(String payInfo, Function callback, String appMetadata)
-```
-
-**参数说明如下**：
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-payInfo | String | 是 | 支付参数，详见 [服务器端 API](https://cloud.tencent.com/document/product/666/17994#.E5.95.86.E5.93.81.E4.B8.8B.E5.8D.95) 商品下单接口返回值里的 pay_info
-callBack | Function | 是 | 支付完成回调函数，回调参数说明详见“小程序支付接口”
-appMetadata | String | 否 | 扩展信息回传，透传支付时传入的参数。同支付时传入的 appMetadata
-
-**调用方式示例**：
-
-```
-var OpenMidas=require("openMidas");
-OpenMidas.init(env);
-OpenMidas.pay(payInfo, function(resultCode, innerCode, resultMsg, appMetadata){
-    //业务处理代码
-}, appMetadata);
-```
-
-### 支付回调参数
-
-属性 | 类型 | 取值
---- | --- | ---
-resultCode | Int | 0(PAYRESULT_SUCC 支付流程成功),-1(PAYRESULT_ERROR 支付流程失败),-2(PAYRESULT_CANCEL 用户取消),-3(PAYRESULT_PARAMERROR 参数错误),-4(PAYRESULT_UNKNOWN 支付流程结果未知，如第三方渠道未回调米大师)
-innerCode | String | 系统内部错误码，不直接展示给用户
-resultMsg | String | 返回信息，不直接展示给用户
-appMetadata | String | 扩展信息回传，透传支付时传入的参数。同支付时传入的 appMetadata
-
-## 签约接口
-
-### Web 签约接口
-
-引入 JsApi：`<script src="https://midas.gtimg.cn/midas/open/openMidas.js"></script>`
-
-**说明**：初始化接口，使用 OpenMidas 其它接口之前必须调用本接口。
-
-**接口**：`OpenMidas.init(env)`
-
-**参数说明如下**：
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-env | String | 是 | 环境，release 表示正式环境，test 表示测试环境
-
-**说明**：签约接口
-
-**接口**：
-```
-OpenMidas.signContract(Object params,Function errorCallback)
-```
-
-**参数说明如下**： 
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | --- |
-params.appId | String | 是 | 米大师的应用 ID 
-params.userId | String | 是 | 用户 ID
-params.channel | String | 是 | 签约渠道，可选值：wechat（使用微信签约）
-params.redirectUrl | String | 是 | 签约完成之后的回调 url，当用户从签约 url 返回时，会跳转到这个 url 上，url 参数会带上 appId、openId、channel、fromSign=1。
-errorCallback | Function | 否 | 当内部参数校验不通过或者后台返回错误时，会执行回调，回调参数参见下表“错误回调参数说明”。
-
-**错误回调参数说明**：
+Hybrid 统计是在原生统计基础上进行的，在开始之前，请确保已按照 [MTA iOS 快速入门](https://cloud.tencent.com/document/product/666/14315) 接入我们原生统计 SDK。
  
-属性 | 类型 | 取值
---- | --- | ---
-resultCode | Int | -1(PAYRESULT_ERROR 签约流程失败流程失败),-3(PAYRESULT_PARAMERROR 参数错误)
-innerCode | String | 系统内部错误码，不直接展示给用户
-resultMsg | String | 返回信息，不直接展示给用户
+### 设置监控 UIWebView
+ 
+```
+//给指定的webView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中,从而引入Hybrid功能。
+[TACAnalyticsService catchExceptionForUIWebView:_webView];
+  _webView.delegate = self;
+```
+### 设置监控 WKWebView
+ 
+```
+//给指定的wkWebView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中，从而引入Hybrid功能。
+ [TACAnalyticsService catchExceptionForWKWebView:_wkWebView];
+  _wkWebView.navigationDelegate = self;
+```
+## JavaScript SDK 使用说明
 
-**说明**：签约接口事件
+### App&H5 联动分析接入
 
-signContractDone 已经获取到相关签约参数，准备跳转到签约页面之前触发，调用方可以在这个事件内把自定义的 loading 取消。注意需要在调用了 signContract 接口之后才能注册这个事件。
-
-**示例**：
+需要统计 App Webview 的基础访问、点击事件时，请在 webview 里加入以下 JS 代码：
 
 ```
-OpenMidas.once('signContractDone',function(){
-   //调用方代码
-})
+<script src="//pingjs.qq.com/mta/app_link_h5_stats.js" name="MtaLinkH5"></script>
 ```
+ 后续的方法上报都必须保证已加载以上 JS SDK。
 
+### 手动上报页面访问统计
 
-### 小程序签约接口
-
-**说明**：将 openMidas.js 文件放入工程目录，并通过如下方式引入
+访问页面时，上报页面访问情况：
 
 ```
-var OpenMidas=require("openMidas");
+MtaLinkH5.pageBasicStats({
+  'title': '必填-每页要求不重复'
+});
 ```
 
-为了支持多域名情况，除了 openMidas.js 还有一个额外的 openMidasConfig.js 用于域名配置，在 require jsapi 之前需要引入这个配置文件，默认情况下 openMidas 会走公有云的环境。
+> - 确定联动分析 JS SDK 已载入，并且设置了 title 名称；
+> - title 为必填项目，并且每页的 title 都要求不重复，重复影响统计。
 
-**接口**：
+### 设置登录帐号
 
-```
-OpenMidas.init(env)
-```
-
-**参数说明如下**： 
-
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-env | String | 是 | 环境，release 表示正式环境，test 表示测试环境
-
-
-**说明**：签约接口
-
-**接口**：
+用于设置用户登录帐号信息：
 
 ```
-OpenMidas.signContract(Object params,Function errorCallback)
+MtaLinkH5.setLoginUin(uin);
 ```
 
-**参数说明如下**：
+> - 确定联动分析 JS SDK 已载入；
+> - uin 为设置的用户帐号，String 类型。
 
-参数名 | 参数类型 | 必填 | 参数说明
---- | --- | --- | ---
-params.appId | String | 是 | 米大师的应用 ID 
-params.userId | String | 是 | 用户 ID
-errorCallback | Function | 否 | 当内部参数校验不通过或者后台返回错误时，会执行回调，回调参数参见下表“错误回调参数说明”。
 
-**错误回调参数说明**：
+### 自定义事件
 
-属性 | 类型 | 取值
---- | --- | ---
-resultCode | Int | -1 签约流程失败流程失败,-3 参数错误,-101 重复签约
-innerCode | String | 系统内部错误码，不直接展示给用户，以下特殊 innerCode 需要调用方特殊处理：402-1-2-1 小程序签约接口不存在，原因是微信客户端版本未满足 Android：6.5.10，IOS：6.5.9。402-1-2-2 未成功跳转到小程序签约，此时 resultMsg 透传微信侧返回的错误。 
-resultMsg | String | 返回信息，不直接展示给用户
-
-**说明**：签约接口事件
-
-signContractDone 已经获取到相关签约参数，准备跳转到签约页面之前触发，调用方可以在这个事件内把自定义的 loading 取消。注意需要在调用了 signContract 接口之后才能注册这个事件。
+用于页面自定义事件埋点上报：
 
 ```
-var OpenMidas=require("openMidas");
-OpenMidas.once('signContractDone',function(){
-   //调用方代码
-})
+MtaLinkH5.eventStats(event_id, param_json);
 ```
 
-### 签约回调
+> - 确定联动分析 JS SDK 已载入；
+> - event_id 为事件 ID，在事件中添加后拷贝过来；
+> - param_json 为事件参数以及事件参数值，每个参数对应一个参数值，为 json 格式。
 
-小程序签约回调是由微信侧回调到App层的，详见微信文档  [小程序纯签约](https://pay.weixin.qq.com/wiki/doc/api/pap.php?chapter=18_14&index=2)。
+示例：
 
-![签约回调](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/web_sign_callback.png)
+```
+<button onclick="MtaLinkH5.eventStats('test_event')">事件-不带参数</button>
+<button onclick="MtaLinkH5.eventStats('test_event', {'param1':'value1'})">事件-单个参数</button>
+<button onclick="MtaLinkH5.eventStats('test_event', {'param1':'value1','param2':'value2'})">事件-多个参数-参数建议最多不超过5个</button>
+```
+
+### 注意事项
+
+- 只统计 App 内的 H5 数据，不统计 App 外的 H5 数据；
+- 集成之后事件中 H5 页面的事件会标记展示；
+- 页面统计中的 H5 页面会进行标记展示；
+- H5 事件添加后需要进行事件上报后才有数据，具体请参见【自定义事件】；
+- 本地安装 JS SDK（[npm 包链接](https://www.npmjs.com/package/mta-hybird-analysis)）；
+- 不支持 x5 内核。
