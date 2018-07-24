@@ -1,5 +1,5 @@
 ## 1. What can cause a stutter during LVB?
-![](//mc.qcloudimg.com/static/img/b41b15c344f8c34011e4ee0e55db21e5/image.png)
+![](https://main.qcloudimg.com/raw/c38bbed25d2953aea75f76764522e25d.png)
 Generally, there are three reasons for the stutter:
 - **Reason 1: low frame rate**
 If the VJ uses a low-end phone, or there are CPU intensive applications running at the background, the frame rate of the video could be low. Typically, for an LVB to play smoothly, the frame rate of the video stream should be higher than 15 FPS. A frame rate lower than 10 FPS is **too low**, and can cause a stutter at **all the viewer ends**.
@@ -12,7 +12,7 @@ That is, the viewer's downstream bandwidth is insufficient or the network condit
 
 ## 2. Status Monitor
 The RTMP SDK provides a status feedback mechanism, by which the RTMP SDK reports various status parameters every 1-2 seconds. You can register the **TXLivePushListener** listener to obtain these status parameters.
-![](//mc.qcloudimg.com/static/img/48fd46af4e17b0299fd00a0e661a16f0/image.png)
+![](https://main.qcloudimg.com/raw/533391ae5c188ed87b748f78d8168591.png)
 
 | Push Status | Description |   
 | :------------------------  |  :------------------------ | 
