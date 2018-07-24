@@ -6,7 +6,7 @@ How to connect to Tencent Cloud CVM is a problem we need to solve first. Tencent
 - **Function layer:**
   It "hides" behind the access layer. Since the security confirmation and attack blocking have been implemented at the access layer, all the function layer needs to do is functional processing. The basic features such as channel management and file query are implemented at this layer.
 	
-	![api](//mc.qcloudimg.com/static/img/963c7973a3d5a77d6bd36d1cf3fd65ca/image.png)
+	![api](https://main.qcloudimg.com/raw/0862ece1b722506c7c61e8fb94dcba56.png)
 	
 To call the Tencent Cloud server API, your server needs to meet the requirements of the access layer:
 - The request protocol must be HTTPS
