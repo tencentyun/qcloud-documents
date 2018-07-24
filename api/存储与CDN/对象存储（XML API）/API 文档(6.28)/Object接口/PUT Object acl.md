@@ -34,9 +34,9 @@ PUT /{ObjectName}/?acl HTTP/1.1
 名称|类型|必选|描述
 ---|---|---|---
 x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。
-x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；当需要给子账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
-x-cos-grant-write|string|否|赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；当需要给子账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
-x-cos-grant-full-control|string|否|赋予被授权者写的权限。格式：x-cos-grant-full-control: id=" ",id=" "；当需要给子账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时， id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
+x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
+x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
+x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 
 
 
 ### 请求体
