@@ -27,7 +27,6 @@ https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
 
 ### step 2.获取canvas视频流
 参考demo，通过 canvas.captureStream 获取到MediaStream
-```
 
 
 ### step 3.推流
