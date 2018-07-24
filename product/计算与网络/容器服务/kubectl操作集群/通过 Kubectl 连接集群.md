@@ -46,6 +46,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 sudo sed -i '$a **IP地址** **域名**' /etc/hosts
 ```
 配置完成后，可参考 [步骤三](#step3) 使用内网访问地址域名来访问。
+注：若集群无可用节点（包括节点异常,已封锁等状态），内网访问将在集群内有可用节点时生效。
 
  - 集群内直接访问：无须任何配置，可直接在集群内的主机上执行 kubectl 命令。
 
