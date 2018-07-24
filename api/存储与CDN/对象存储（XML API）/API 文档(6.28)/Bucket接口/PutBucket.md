@@ -23,19 +23,19 @@ PUT / HTTP/1.1
 
 ### 请求头
 
-#### 公共头部
+**公共头部**
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
-#### 非公共头部
-该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前有三种 Bucket 的访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。用户也可以单独明确赋予用户读、写或读写权限。内容如下：
->了解更多 acl 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
+**非公共头部**
+该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前有三种 Bucket 的访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+>了解更多 acl 请求可详细请参见 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Object 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String|  否 |
 
 ### 请求体
 该请求的请求体为空。
