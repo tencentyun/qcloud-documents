@@ -49,9 +49,9 @@ Expires|string|否|RFC 2616 中定义的缓存策略，将作为 Object 元数�
 x-cos-meta-*|string|否|允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2KB
 x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD
 x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
-x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "
-x-cos-grant-write|string|否|赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "
-x-cos-grant-full-control|string|否|赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "
+ x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
+ x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
+ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String| 否 
 
 #### 服务端加密相关头部
 

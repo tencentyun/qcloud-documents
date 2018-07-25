@@ -1,19 +1,19 @@
-## Description
-> For the meanings and acquisition methods of SecretId, SecretKey, Bucket, etc. appearing in the article, please refer to: [COS Terminology](https://cloud.tencent.com/document/product/436/7751)
+## Basic APIs
+> For more information on the definitions of SecretId, SecretKey, Bucket and other terms and how to obtain them, please see [COS Glossary](https://cloud.tencent.com/document/product/436/7751).
 
-### Getting Bucket List
+### Obtain Bucket list
 #### Method prototype
 ```php
-Public Guzzle\Service\Resource\Model listBucket(array $args = array())
+public Guzzle\Service\Resource\Model listBucket(array $args = array())
 ```
 
 #### Request example
 
 ```php
-/ / Get the bucket list
+//Obtain bucket list
 $result = $cosClient->listBuckets();
 ```
-#### Return result example
+#### Example of returned result
 ```php
 Array
 (
@@ -53,35 +53,35 @@ Array
 #### Method prototype
 
 ```php
-// Create bucket
-Public Guzzle\Service\Resource\Model createBucket(array $args = array());
+// Create a bucket
+public Guzzle\Service\Resource\Model createBucket(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required |
-|---------|----------------|-----|--------:|
-|Bucket | bucket name | string | yes |
-|Acl | ACL Permission Control | string | No |
+| Parameter Name | Description | Type | Required | 
+| :---------: |    :-----------------: | :--------:   | :-------------: |
+| Bucket   |      Bucket name    |    string     |  Yes              |
+| Acl      | ACL permission control |    string     | No | 
 
 #### Request example
 
 ```php
-/ / Create a bucket
-//bucket's naming convention is {name}-{appid} , the bucket name filled in here must be this format
+//Create a bucket
+//The bucket name entered must be in a format of {name}-{appid}
 $result = $cosClient->createBucket(array('Bucket' => 'testbucket-125000000'));
 ```
-#### Return result example
+#### Example of returned result
 ```php
 Array
 (
-     [data:protected] => Array
-         (
-             [Location] =>
-             [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ1OF8xNjEyYmE=
-         )
+    [data:protected] => Array
+        (
+            [Location] => 
+            [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ1OF8xNjEyYmE=
+        )
 )
 ```
 ### Delete Bucket
@@ -89,121 +89,121 @@ Array
 #### Method prototype
 
 ```php
-// Delete the bucket
-Public Guzzle\Service\Resource\Model deleteBucket(array $args = array());
+// Delete a bucket
+public Guzzle\Service\Resource\Model deleteBucket(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| :------: | :------------: | :--------: | :------------------------------: |
-|Bucket | bucket name | string | yes |
+| Parameter Name | Description | Type | Required | 
+| :------: |    :------------: |  :--------:   | :----------------------------------: |
+| Bucket  |  Bucket name        |     string         |               Yes               |
 
-#### Request example
+#### Request Example
 
 ```php
-/ / Delete the bucket
-//bucket's naming convention is {name}-{appid} , the bucket name filled in here must be this format
+//Delete a bucket
+//The bucket name entered must be in a format of {name}-{appid}
 $result = $cosClient->deleteBucket(array('Bucket' => 'testbucket-125000000'));
 ```
-#### Return result example
+#### Response Example
 ```php
 Array
 (
-     [data:protected] => Array
-         (
-             [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ2MF8xNjBjZTI=
-         )
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ2MF8xNjBjZTI=
+        )
 )
 ```
-### Simple file upload
+### Simple upload of file
 
 #### Method prototype
 
 ```php
-Public Guzzle\Service\Resource\Model putObject(array $args = array())
+public Guzzle\Service\Resource\Model putObject(array $args = array())
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| -------------- | -------------- |---------- | -------- |
-|Bucket | Bucket name, consisting of numbers and lowercase letters and the underscore "-" | string | yes |
-| Body | Upload file contents, which can be file stream or byte stream | file/string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| ACL | Set the ACL of the file, such as 'private, public-read', 'public-read-write' | string |
-|GrantFullControl |  Grant READ and WRITE access to the specified account| string | no |
-| GrantRead | Grant READ access to the specified account| string | no |
-| GrantWrite |  Grant WRITE access to the specified account| string | no |
-| StorageClass | Set the storage type of the file, STANDARD, STANDARD_IA, default: STANDARD | String | No |
-| Expires | Setting Content-Expires | string| No |
-| CacheControl | Cache Policy, Setting Cache-Control | string | No |
-| ContentType | Content Type, Settings Content-Type |string | No |
-| ContentDisposition | File Name, Settings Content-Disposition | string | No |
-| ContentEncoding | Encoding format, set Content-Encoding | string | No |
-| ContentLanguage | Language type, setting Content-Language | string | No |
-| ContentLength | Set Transfer Length | string | No |
-| ContentMD5 | Set the MD5 value of the uploaded file for verification | string | no |
-| Metadata | User-defined file meta information | array | no |
-| ServerSideEncryption | Server Side Encryption Method | string | No |
-#### Request
+| Parameter Name | Description | Type | Required | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | Bucket name, which is composed of numbers, lowercase letters and "-". | string | Yes |
+ |  Body  | The content of the uploaded file, which can be a file stream or a byte stream |  file/string |  Yes |
+ |  Key  | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. | string |  Yes | 
+ |  ACL  | Sets file ACL, such as 'private', 'public-read', and 'public-read-write' | string | No | 
+ |  GrantFullControl  |Grants the specified account the permission to read and write files |  string | No | 
+ |  GrantRead  | Grants the specified account the permission to read files | string | No |
+ |  GrantWrite  | Grants the specified account the permission to write files |  string | No |
+ |  StorageClass  | Sets file storage type: STANDARD and STANDARD_IA. Default: STANDARD | String |   No |
+ |  Expires  | Sets Content-Expires |  string | No | 
+ |  CacheControl  | Cache policy. Sets Cache-Control |  string | No |
+ |  ContentType  | Content type. Sets Content-Type |string | No |  
+ |  ContentDisposition  | File name. Sets Content-Disposition |  string | No |
+ |  ContentEncoding  | Encoding format. Sets Content-Encoding |  string | No |
+ |  ContentLanguage  | Language type. Sets Content-Language |  string | No |
+ |  ContentLength  | Sets transmission length | string |   No | 
+ |  ContentMD5  | Sets MD5 of the uploaded file for verification | string | No | 
+ |  Metadata | User-defined file meta information | array | No |
+ |  ServerSideEncryption | Server-side encryption method | string |   No |
+#### Request example
 
 ```php
-# Upload files
-## putObject(Upload API, max file size: 5G files)
-### Uploading a string in memory
+# Upload a file
+## putObject (API for upload. File size is limited to 5 GB)
+### Upload strings in memory
 try {
-    $result = $cosClient->putObject(array(
-        'Bucket' => $bucket,
-        'Key' => $key,
-        'Body' => 'Hello World!'));
-    Print_r($result);
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => 'Hello World!'));
+    print_r($result);
 } catch (\Exception $e) {
-    echo "$e\n";
+    echo "$e\n";
 }
 
-### Uploading a file stream
-Try {
-    $result = $cosClient->putObject(array(
-        'Bucket' => $bucket,
-        'Key' => $key,
-        'Body' => fopen($local_path, 'rb')));
-    Print_r($result);
+### Upload file stream
+try {
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => fopen($local_path, 'rb')));
+    print_r($result);
 } catch (\Exception $e) {
-    Echo "$e\n";
+    echo "$e\n";
 }
 
-### Setting header and meta
+### Set header and meta
 try {
-    $result = $cosClient->putObject(array(
-        'Bucket' => $bucket,
-        'Key' => $key,
-        'Body' => fopen($local_path, 'rb'),
-        'ACL' => 'string',
-        'CacheControl' => 'string',
-        'ContentDisposition' => 'string',
-        'ContentEncoding' => 'string',
-        'ContentLanguage' => 'string',
-        'ContentLength' => integer,
-        'ContentType' => 'string',
-        'Expires' => 'mixed type: string (date format)|int (unix timestamp)|\DateTime',
-        'GrantFullControl' => 'string',
-        'GrantRead' => 'string',
-        'GrantWrite' => 'string',
-        'Metadata' => array(
-            'string' => 'string',
-        ),
-        'StorageClass' => 'string'));
-    Print_r($result);
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => fopen($local_path, 'rb'),
+        'ACL' => 'string',
+        'CacheControl' => 'string',
+        'ContentDisposition' => 'string',
+        'ContentEncoding' => 'string',
+        'ContentLanguage' => 'string',
+        'ContentLength' => integer,
+        'ContentType' => 'string',
+        'Expires' => 'mixed type: string (date format)|int (unix timestamp)|\DateTime',
+        'GrantFullControl' => 'string',
+        'GrantRead' => 'string',
+        'GrantWrite' => 'string',
+        'Metadata' => array(
+            'string' => 'string',
+        ),
+        'StorageClass' => 'string'));
+    print_r($result);
 } catch (\Exception $e) {
-    echo "$e\n";
+    echo "$e\n";
 }
 ```
-#### Response
+#### Response Example
 ```php
 Array
 (
@@ -222,41 +222,41 @@ Array
         )
 )
 ```
-### Multipart Upload
+### Multipart upload
 
-Multipart Upload is to slice a large file into multiple small parts, and upload the file parts concurrently. Total size of the file parts can be 40TB.
+This API is used to split a file (limited to 40 TB) into multiple parts for upload. Concurrent upload of multiple parts is allowed.
 
-Steps for multipart upload:
+The steps of multipart upload are as follows:
 
-1. Initialize the multipart upload task and get the uploadid (createMultipartUpload)
-2. Upload file parts (uploadPart)
+1. Initialize multipart upload, and obtain uploadid. (createMultipartUpload)
+2. Upload data in parts concurrently. (uploadPart)
 3. Complete multipart upload. (completeMultipartUpload)
 
-It also includes getting uploaded parts (listParts) and aborting upload tasks (abortMultipartUpload).
+The steps of multipart upload also include obtaining uploaded parts (listParts) and terminating multipart upload (abortMultipartUpload).
 
 #### Method prototype
 
 ```php
-/ / Initialize the block upload
-Public Guzzle\Service\Resource\Model createMultipartUpload(array $args = array());
+// Initialize multipart upload
+public Guzzle\Service\Resource\Model createMultipartUpload(array $args = array());
 
-/ / Upload data block
-Public Guzzle\Service\Resource\Model uploadPart(array $args = array());
-            
-/ / Complete the block upload
-Public Guzzle\Service\Resource\Model completeMultipartUpload(array $args = array());
+// Upload data in parts
+public Guzzle\Service\Resource\Model uploadPart(array $args = array());
+            
+// Complete multipart upload
+public Guzzle\Service\Resource\Model completeMultipartUpload(array $args = array());
 
-// Listed uploaded blocks
-Public Guzzle\Service\Resource\Model listParts(array $args = array());
+// List uploaded parts
+public Guzzle\Service\Resource\Model listParts(array $args = array());
 
-/ / Stop the block upload
-Public Guzzle\Service\Resource\Model abortMultipartUpload(array $args = array());
+// Abort multipart upload
+public Guzzle\Service\Resource\Model abortMultipartUpload(array $args = array());
 ```
 ### Upload files
 #### Request example
 ```php
-## Upload (Advanced upload API, It defaults to use multipart upload and supports up to 50T)
-### Uploading a string in memory
+## Upload (Advanced API for upload. Multipart upload is used by default. File size is limited to 50 TB)
+### Upload strings in memory
 try {
     $result = $cosClient->Upload(
         $bucket = $bucket,
@@ -267,7 +267,7 @@ try {
     echo "$e\n";
 }
 
-### Uploading a file stream
+### Upload file stream
 try {
     $result = $cosClient->Upload(
         $bucket = $bucket,
@@ -306,10 +306,10 @@ try {
 }
 
 ```
-Use Upload Object for a file smaller than 5MB. 
-Otherwise use Multipart Upload
+For a file smaller than 5 MB, use single upload.
+Otherwise, use multipart upload.
 
-#### Return result example
+#### Response Example
 ```php
 Array
 (
@@ -328,35 +328,34 @@ Array
         )
 )
 ```
-### Download File
+### Download files
 
-Download the file locally or download it to memory.
+This API is used to download files locally or to memory.
 
 #### Method prototype
 
 ```php
-// download file
-Public Guzzle\Service\Resource\Model getObject(array $args = array());
+// Download a file
+public Guzzle\Service\Resource\Model getObject(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| :------: | :------------: | :--------: | :--------------------------------: |
-|Bucket | bucket name | string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| SaveAs | Local part to save the file| string | No |
-| VersionId | Object version number | string | no |
+| Parameter Name | Description | Type | Required | 
+| :------: |    :------------:   | :--------:   | :----------------------------------: |
+| Bucket   |      Bucket name    |   string     |  Yes              |       
+| Key      | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |    string      |  Yes |       
+| SaveAs   | Local file path |   string      | No |
+| VersionId     |   Version number of Object        |   string      | No           |       
 
 #### Request Example
 
 ```php
-# Download file
-## getObject(download file)
-### Download to memory
-
+# Download a file
+## getObject (Download file)
+### Download the file to memory
 try {
     $result = $cosClient->getObject(array(
         'Bucket' => $bucket,
@@ -366,7 +365,7 @@ try {
     echo "$e\n";
 }
 
-### Download to local
+### Download the file locally
 try {
     $result = $cosClient->getObject(array(
         'Bucket' => $bucket,
@@ -376,9 +375,9 @@ try {
     echo "$e\n";
 }
 
-### Specify download range
+### Specify the range of file download
 /*
- * Format of Range filed: 'bytes=a-b'
+ * Range format: 'bytes=a-b'
  */
 try {
     $result = $cosClient->getObject(array(
@@ -442,37 +441,37 @@ Array
 )
 ```
 
-### Delete Files
+### Deleting Files
 
-Delete the object on the COS.
+This API is used to delete objects on COS.
 
 #### Method prototype
 
 ```php
-// Delete Files
-Public Guzzle\Service\Resource\Model deleteObject(array $args = array());
+// Delete a file
+public Guzzle\Service\Resource\Model deleteObject(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
-$args is an associative array containing the following fields:
+$args is an associate array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| VersionId | Object version number | string | no |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   | 
+| Bucket   |      Bucket name    |   string     |  Yes              | 
+| Key      | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |  string     |  Yes |   
+| VersionId      |   Version number of Object        |   string    | No           |  
 
 #### Request example
 
 ```php
-// delete the COS object
+// Delete an object on COS
 $result = $cosClient->deleteObject(array(
-    //bucket name format: {name}-{appid} 
+    //The bucket name entered must be in a format of {name}-{appid}
     'Bucket' => 'testbucket-125000000',
     'Key' => 'hello.txt'));
 ```
-#### Reponse example
+#### Response Example
 ```php
 Array
 (
@@ -487,28 +486,28 @@ Array
 ```
 
 
-### Get object properties
+### Obtaining object attributes
 
-Query object properties on COS
+Obtain the attributes of an object on COS.
 
 #### Method prototype
 
 ```php
-/ / Get file attributes
-Public Guzzle\Service\Resource\Model headObject(array $args = array());
+// Obtain file attributes
+public Guzzle\Service\Resource\Model headObject(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| VersionId | Object version number | string | no |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |    string   |  Yes              |   
+| Key      | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |    string   |  Yes |    
+| VersionId      |   Version number of Object        |   string    | No           | 
 
-#### Response example
+#### Response Example
 ```php
 Array
 (
@@ -545,37 +544,37 @@ Array
 #### Request example
 
 ```php
-// Get COS file data
- //bucket name format: {name}-{appid}
+// Obtain the attributes of a file on COS
+ //The bucket name entered must be in a format of {name}-{appid}
 $result $cosClient->headObject(array('Bucket' => 'testbucket-125000000', 'Key' => 'hello.txt'));
 ```
 
-### Query whether the bucket exists
+### Check whether a Bucket exists
 
-Query whether the bucket exsits COS
+Check whether a bucket on COS exists.
 
 #### Method prototype
 
 ```php
-/ / Get file attributes
+// Obtain file attributes
 public Guzzle\Service\Resource\Model headBucket(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required Field |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | Object version number | string | yes |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |   Version number of Object        |   string   | No           |      
 
 
 
-#### Request Example
+#### Request example
 
 ```php
-// Get the COS file attribute
- //bucket name format: {name}-{appid}
+// Obtain the attributes of a file on COS
+ //The bucket name entered must be in a format of {name}-{appid}
 $result $cosClient->headBucket(array('Bucket' => 'testbucket-125000000'));
 ```
 #### Response Example
@@ -589,37 +588,37 @@ Array
 )
 ```
 
-### Get file list
+### Obtaining file list
 
-Query the list of files on COS
+Obtain the list of files on COS.
 
 #### Method prototype
 
 ```php
-// Get the file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model listObjects(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| Delimiter | Delimiter | string | No |
-| Marker | Tag | string | No |
-|MaxKeys | Maximum number of objects | int | No |
-| Prefix | Prefix |string | No |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |    string     |  Yes              |     
+| Delimiter      |      Delimiter         |    string     |  No          |    
+| Marker      |          Marker        |   string     |  No          | 
+| MaxKeys      |           Maximum number of objects         |  int     |   No          | 
+| Prefix      |            Prefix         |string     |  No           |  
 
-#### Request Example
+#### Request example
 
 ```php
-// Get members in the bucket
- //bucket name format: {name}-{appid}
+// Obtain the bucket members
+//The bucket name entered must be in a format of {name}-{appid}
 $result = $cosClient->listObjects(array('Bucket' => 'testbucket-125000000'));
 ```
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -689,30 +688,30 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model putBucketACL(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| ACL | ACL Permission Control | string | no |
-| GrantRead | Grant READ access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|
-| GrantWrite | Grant WRITE access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|
-|GrantFullControl | Grant READ and WRITE access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|     
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |     string      |  Yes              | 
+| ACL      | ACL permission control |   string       | No |   
+| GrantRead | Grants read permission to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |  string       | No |     
+| GrantWrite | Grants write permission to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |     string        | No |      
+| GrantFullControl | Grants read and write permissions to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |   string       | No |          
 
 
-#### Request Example
+#### Request example
 
 ```php
 #putBucketACL
 try {
     $result = $cosClient->PutBucketAcl(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
         'Grants' => array(
             array(
@@ -751,24 +750,24 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model getBucketACL(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
-| Name   |       Type     | Default | Required |                  Description                  |
+| Field Name | Type | Default | Required | Description |
 | :------: |    :------------: | :--:   | :--------:   | :----------------------------------: |
-| Bucket   |     string     |  None    | Yes           |               bucket name               |
+| Bucket   |     string     |  None    | Yes           |               Bucket name               |
 
 
 
-#### Request Example
+#### Request example
 ```php
 #getBucketACL
 try {
     $result = $cosClient->GetBucketAcl(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',));
     print_r($result);
 } catch (\Exception $e) {
@@ -812,22 +811,22 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model putObjectACL(array $args = array());
 ```
 
-#### Request Parameters
-| Parameter Name   | Description   | Type | Required | 
+#### Request parameters
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-|Bucket | bucket name | string | yes |
- | Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| ACL | ACL Permission Control | string | no |
-| GrantRead | Grant READ access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|
-| GrantWrite | Grant WRITE access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|
-|GrantFullControl | Grant READ and WRITE access to the specified acccount in the format: id=" ", id=" ". For a sub-account, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>". For a root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>", For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam ::uin/123:uin/456"' | string | no|     
+| Bucket   |      Bucket name    |     string      |  Yes              | 
+ |  Key  | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. | string |  Yes | 
+| ACL      | ACL permission control |   string       | No |   
+| GrantRead | Grants read permission to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |  string       | No |     
+| GrantWrite | Grants write permission to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |     string        | No |      
+| GrantFullControl | Grants read and write permissions to the authorized user. Format: id=" ", id=" ". For authorization to a subaccount, id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"; for authorization to the root account, id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>". For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' |   string       | No |          
 
 
-#### Request Example
+#### Request example
 ```php
 #putObjectACL
 try {
@@ -871,23 +870,23 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model getObjectACL(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
-| Parameter Name   | Description   | Type | Required |  
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-| Bucket | bucket name | string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
+| Bucket   |      Bucket name    |   string     |  Yes              |        
+| Key | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |    string   |  Yes |        
 
-#### Request Example
+#### Request example
 ```php
 #getObjectACL
 try {
     $result = $cosClient->getObjectAcl(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
         'Key' => '11'));
     print_r($result);
@@ -896,7 +895,7 @@ try {
 }
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -933,28 +932,28 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model putBucketCors(array $args = array());
 ```
-#### Request Parameters
+#### Request parameters
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| CORSRules | CORS Rules | array | yes |
-|AllowedMethods | Allowed HTTP operations, enumeration values: GET, PUT, HEAD, POST, DELETE | array |
-|AllowedOrigins | Allowed access sources, wildcards supported * Format: protocol://domain name[:port] eg: http://www.qq.com | array | no |
-|AllowedHeaders | Tell the server when sending OPTIONS requests which custom HTTP request headers can be used for subsequent requests, support wildcards * | array | no |
-|ExposeHeaders | Set custom header information from the server that the browser can receive | array | no |
-|MaxAgeSeconds | Set the validity period of the OPTIONS request to get results | string | no |
-| ID | Configure Rule ID | string | No |
-#### Request Example
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |    string        |  Yes              |         
+| CORSRules |        CORS rules        |    array     | Yes            | 
+| AllowedMethods | Allowed HTTP operations. Enumerated values: GET, PUT, HEAD, POST, DELETE. |    array   | No           |  
+| AllowedOrigins | Allowed access sources. The wildcard "*" is supported. Format: protocol://domain_name[:port], for example, http://www.qq.com |   array   | No           |
+| AllowedHeaders | When an OPTIONS request is sent, notifies the server about which custom HTTP request headers are allowed for subsequent requests. Wildcard "*" is supported. |   array    | No |    
+| ExposeHeaders | Sets the custom header information that can be received by the browser from the server end. |    array    | No |   
+| MaxAgeSeconds | Sets the validity period of the results obtained by OPTIONS |   string       | No |       
+| ID | Sets rule ID                 | string   | No |    
+#### Request example
 
 ```php
 ###putBucketCors
 try {
     $result = $cosClient->putBucketCors(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
         // CORSRules is required
         'CORSRules' => array(
@@ -975,7 +974,7 @@ try {
     echo "$e\n";
 }
 ```
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -991,23 +990,23 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model getBucketCors(array $args = array());
 ```
-#### Request Parameters
+#### Request parameters
 
 
 
-| Parameter Name   | Description   | Type | Required | 
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-| Bucket   |       bucket Name            |     string     | Yes          | 
-#### Request Example
+| Bucket   |      Bucket name    |     string     |  Yes              | 
+#### Request example
 
 ```php
 #getBucketCors
 try {
     $result = $cosClient->getBucketCors(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
     ));
     print_r($result);
@@ -1055,20 +1054,20 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model deleteBucketCors(array $args = array());
 ```
-#### Request Parameters
+#### Request parameters
 
-* **params** (Object) : List of parameters
- * Bucket - (String) : Bucket name
-#### Request Example
+* **params** (Object): Parameter list
+  * Bucket - (String): Bucket name   
+#### Request example
 
 ```php
 #deleteBucketCors
 try {
     $result = $cosClient->deleteBucketCors(array(
- //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
     ));
     print_r($result);
@@ -1077,7 +1076,7 @@ try {
 }
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1089,43 +1088,43 @@ Array
 )
 ```
 
-### copyObject
+### Copy objects
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model copyObject(array $args = array());
 ```
 
-#### Request Parameters
-| Parameter Name   | Description   | Type | Required |  
+#### Request parameters
+| Parameter Name | Description | Type | Required | 
 | -------------- | -------------- |---------- | ----------- |
-|Bucket | Bucket name, consisting of numbers and lowercase letters and the underscore "-" | string | yes |
-|CopySource | Copy Source | string | Yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| ACL | Set the ACL of the file, such as 'private, public-read', 'public-read-write' | string |
-|GrantFullControl | Grant READ and WRITE access to the specified account| string | no |
-| GrantRead |  Grant READ access to the specified account | string | no |
-| GrantWrite |  Grant WRITE access to the specified account | string | no |
-| StorageClass | Set the storage type of the file, STANDARD, STANDARD_IA, default: STANDARD | String | No |
-| Expires | Setting Content-Expires | string| No |
-| CacheControl | Cache Policy, Setting Cache-Control | string | No |
-| ContentType | Content Type, Settings Content-Type |string | No |
-| ContentDisposition | File Name, Settings Content-Disposition | string | No |
-| ContentEncoding | Encoding format, set Content-Encoding | string | No |
-| ContentLanguage | Language type, setting Content-Language | string | No |
-| ContentLength | Set Transfer Length | string | No |
-| ContentMD5 | Set the MD5 value of the uploaded file for verification | string | no |
-| Metadata | User-defined file meta information | array | no |
-| ServerSideEncryption | Server Side Encryption Method | string | No |
-#### Request Example
+|  Bucket  | Bucket name, which is composed of numbers, lowercase letters and "-". | string | Yes |
+|  CopySource  | Copies the source object     |  string |  Yes |
+|  Key  | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. | string |  Yes | 
+|  ACL  | Sets file ACL, such as 'private', 'public-read', and 'public-read-write' | string | No | 
+|  GrantFullControl  |Grants the specified account the permission to read and write files |  string | No | 
+|  GrantRead  | Grants the specified account the permission to read files | string | No |
+|  GrantWrite  | Grants the specified account the permission to write files | string | No |
+|  StorageClass  | Sets file storage type: STANDARD and STANDARD_IA. Default: STANDARD | String |   No |
+|  Expires  | Sets Content-Expires | string| No | 
+|  CacheControl  | Cache policy. Sets Cache-Control | string | No |
+|  ContentType  | Content type. Sets Content-Type |string | No |  
+|  ContentDisposition  | File name. Sets Content-Disposition | string | No |
+|  ContentEncoding  | Encoding format. Sets Content-Encoding | string | No |
+|  ContentLanguage  | Language type. Sets Content-Language | string | No |
+|  ContentLength  | Sets transmission length | string |   No | 
+|  ContentMD5  | Sets MD5 of the uploaded file for verification | string | No | 
+|  Metadata | User-defined file meta information | array | No |
+|  ServerSideEncryption | Server-side encryption method | string |   No |
+#### Request example
 
 ```php
 #copyobject
-#Copy object
+# API for simple copy
 try {
     $result = $cosClient->copyObject(array(
-         //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' => 'testbucket-125000000',
         // CopySource is required
         'CopySource' => 'lewzylu03-1252448703.cos.ap-guangzhou.myqcloud.com/tox.ini',
@@ -1138,7 +1137,7 @@ try {
 }
 
 #copy
-#use multipart copy for files larger than 5G
+#For files larger than 5 GB, multipart copy is used by default.
 try {
     $result = $cosClient->Copy($bucket = 'lewzylu01-1252448703',
         $key = 'string',
@@ -1153,28 +1152,28 @@ try {
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model putBucketLifecycle(array $args = array());
 ```
-#### Request Parameters
-| Parameter Name   | Description   | Type | Required |  
-| -------------- | -------------- |---------- | --------- |
-|Bucket | Bucket name, consisting of numbers and lowercase letters and the underscore "-" | string | yes |
-| Rules | Set the corresponding rules, including ID, Filter, Status, Expiration, Transition, NoncurrentVersionExpiration, NoncurrentVersionTransition, AbortIncompleteMultipartUpload | array |
-| ID | Configure Rule ID | string | No |
-| Filter | Object collection used to describe the impact of rules | array | yes |
-| Status | Sets whether Rule is enabled. The optional value is Enabled or Disabled | string | Yes |
-| Expiration | Set Object expiration rules, you can specify the number of days Days or specify the date Date | array |
-| Transition | Set Object to convert storage type rules, you can specify the number of days Days or specify the date Date, StorageClass optional Standard_IA| array | No |
+#### Request parameters
+| Parameter Name | Description | Type | Required | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | Bucket name, which is composed of numbers, lowercase letters and "-". | string | Yes |
+|  Rules  | Sets the appropriate rules, including ID, Filter, Status, Expiration, Transition, NoncurrentVersionExpiration, NoncurrentVersionTransition, AbortIncompleteMultipartUpload |  array | Yes |
+|  ID     | Sets rule ID                 | string | No | 
+|  Filter  | Describes a collection of Objects that are subject to the rules. | array | Yes | 
+|  Status  | Sets whether Rule is enabled. Available values: Enabled or Disabled |  string | Yes | 
+|  Expiration  | Sets the expiration rule for Object. You can specify the number of days (Days) or a date (Date). | array | No |
+|  Transition  | Sets the rule for changing the storage type of Object. You can specify the number of days (Days) or a date (Date). Available value for StorageClass: Standard_IA. | array | No |
 
 
-#### Request Example
+#### Request example
 
 ```php
 #putBucketLifecycle
 try {
     $result = $cosClient->putBucketLifecycle(array(
-     //bucket name format: {name}-{appid}
+    //The bucket name entered must be in a format of {name}-{appid}
     'Bucket' => 'testbucket-125000000',
     // Rules is required
     'Rules' => array(
@@ -1201,7 +1200,7 @@ try {
 }
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1217,21 +1216,21 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model getBucketLifecycle(array $args = array());
 ```
-#### Request Parameters
+#### Request parameters
 
-| Parameter Name   | Description   | Type | Required |  
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-| Bucket   |              bucket名称               |   string   | 是           |    
-#### Request Example
+| Bucket   |      Bucket name    |   string   |  Yes              |    
+#### Request example
 
 ```php
 #getBucketLifecycle
 try {
     $result = $cosClient->getBucketLifecycle(array(
-         //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' =>'testbucket-125000000',
     ));
     print_r($result);
@@ -1240,7 +1239,7 @@ try {
 }
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1281,21 +1280,21 @@ Array
 #### Method prototype
 
 ```php
-// Get file list
+// Obtain a file list
 public Guzzle\Service\Resource\Model deleteBucketLifecycle(array $args = array());
 ```
-#### Request Parameters
+#### Request parameters
 
-| Parameter Name   | Description   | Type | Required | 
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-| Bucket   |            bucket 名称               |      string    | 是           |   
-#### Request Example
+| Bucket   |      Bucket name    |      string    |  Yes              |   
+#### Request example
 
 ```php
 #deleteBucketLifecycle
 try {
     $result = $cosClient->deleteBucketLifecycle(array(
-         //bucket name format: {name}-{appid}
+        //The bucket name entered must be in a format of {name}-{appid}
         'Bucket' =>'testbucket-125000000',
     ));
     print_r($result);
@@ -1304,7 +1303,7 @@ try {
 }
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1316,15 +1315,15 @@ Array
 )
 ```
 
-### getObjectUrl
+### Obtain object download URL
 
-Get download URL of the object
+Obtain a signed download URL of an object
 
-#### Request Example
+#### Request example
 
 ```php
-//Get download URL of the object
- //bucket name format: {name}-{appid}
+//Obtain object download URL
+//The bucket name entered must be in a format of {name}-{appid}
 $bucket =  'testbucket-125000000';
 $key = 'hello.txt';
 $region = 'cn-south';
@@ -1332,7 +1331,7 @@ $url = "/{$key}";
 $request = $cosClient->get($url);
 $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes');
 ```
-### Use Temp Key
+### Use a temporary key
 
 ```php
 $cosClient = new Qcloud\Cos\Client(
@@ -1347,28 +1346,28 @@ $cosClient = new Qcloud\Cos\Client(
 ```
 
 
-### restoreObject
+### Restore an archived file
 
 #### Method prototype
 
 ```php
-//  Restore archived files
+// Restore an archived file
 public Guzzle\Service\Resource\Model deleteObject(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| Key | The object key (Key) is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg | string | yes |
-| Days | Save Time | integer | Yes |
-|Tier | Recovery Type | string | No |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |  string    |  Yes              |  
+| Key      | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |  string   |  Yes |      
+| Days      |        Storage duration        |   integer |  Yes          |   
+| Tier   |         Restoration type        | string |   No          |    
 
-#### Request Example
+#### Request example
 
 ```php
   try {
@@ -1389,24 +1388,24 @@ $args is an associative array containing the following fields:
 ```
 
 
-### putBucketVersioning
+### Enable multiple versions
 
 #### Method prototype
 
 ```php
-// Enable versioning
+// Enable multiple versions
 public Guzzle\Service\Resource\Model putBucketVersioning(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
-$args is an associative array containing the following fields:
+$args is an associate array containing the following fields:
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | Yes |
-| Status | Versioning | string | Yes |
-#### Request Example
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |    string        |  Yes              |     
+| Status   |          Multi-version status              |   string       | Yes           |       
+#### Request example
 
 ```php
 #putBucketVersioning
@@ -1420,7 +1419,7 @@ try {
     echo "$e\n";
 }
 ```
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1432,24 +1431,24 @@ Array
 )
 ```
 
-### getBucketVersioning
+### Obtain bucket version
 
 #### Method prototype
 
 ```php
-// Get bucket version
+// Obtain bucket version
 public Guzzle\Service\Resource\Model getBucketVersioning(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name   | Description   | Type | Required | 
+| Parameter Name | Description | Type | Required | 
 | :------: | :------------: | :--:   | :--------:   |
-| Bucket   |        bucket name               |    string  | Yes           |        
+| Bucket   |      Bucket name    |    string  |  Yes              |        
 
-#### Request Example
+#### Request example
 
 ```php
 try {
@@ -1463,7 +1462,7 @@ try {
 
 ```
 
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1475,28 +1474,28 @@ Array
 )
 ```
 
-### listObjectVersions
+### Print the file lists of different versions
 
 #### Method prototype
 
 ```php
-// List file lists of all versions
+// Print the file lists of different versions
 public Guzzle\Service\Resource\Model listObjectVersions(array $args = array());
 ```
 
-#### Request Parameters
+#### Request parameters
 
 $args is an associative array containing the following fields:
 
-| Parameter Name | Description | Type | Required |
-| :------: | :------------: | :--: | :--------: |
-|Bucket | bucket name | string | yes |
-| Delimiter | Delimiter | string | No |
-| Marker | Tag | string | No |
-|MaxKeys | Maximum number of objects | int | No |
-| Prefix | Prefix | string | No |
+| Parameter Name | Description | Type | Required | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |      Bucket name    |  string      |  Yes              |          
+| Delimiter      |      Delimiter         |   string      |  No          |      
+| Marker      |          Marker        |   string       |  No          |      
+| MaxKeys      |           Maximum number of objects         |  int        |   No          |       
+| Prefix      |            Prefix         |   string       |  No           | 
 
-#### Request Example
+#### Request example
 
 ```php
 try {
@@ -1510,7 +1509,7 @@ try {
 }
 
 ```
-#### Response Example
+#### Example of returned result
 ```php
 Array
 (
@@ -1577,3 +1576,4 @@ Array
         )
 )
 ```
+

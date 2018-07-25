@@ -739,8 +739,8 @@ images | 保存本图片的所有规格，目前最多包含三种规格：缩�
 	/**
 	Description:	消息 ID 最大长度 30
 	@param	[in]	handle	TIMMessageHandle
-	@param	[in]	id		id buffer
-	@param	[in\out]len		id 长度
+	@param	[in]	id		ID buffer
+	@param	[in\out]len		ID 长度
 	@return			int		0:成功
 	@exception      none
 	*/
