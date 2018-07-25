@@ -1,4 +1,4 @@
-XML C SDK operations of COS service return the result corresponding to each API calling, including response code, error code, error description, etc. For more information, please see the exception description at the end of the document.
+XML C SDK operations of COS service return the result corresponding to each API calling, including response code, error code, error description, etc. See the exception types at the end of the document.
 > For more information on the definitions of SecretId, SecretKey, Bucket and other terms and how to obtain them, please see [COS Glossary](https://cloud.tencent.com/document/product/436/7751).
 
 The following describes how to use each API in the SDK. For the sake of brevity, subsequent examples only illustrate how to use the API rather than how to handle exceptions.
@@ -7,7 +7,7 @@ The following describes how to use each API in the SDK. For the sake of brevity,
     cos_status_t *s = NULL;
     s = cos_put_object_from_file(options, &bucket, &object, &file, &headers, &resp_headers);
     if (!s && !cos_status_is_ok(s)) {
-        // Output log and process exceptional scenarios as needed
+        // Output logs for exceptions and handle exceptions as needed
         cos_warn_log("failed to put object from file", buf);
         if (s->error_code) cos_warn_log("status->error_code: %s", s->error_code);
         if (s->error_msg) cos_warn_log("status->error_msg: %s", s->error_msg);
@@ -18,8 +18,8 @@ The following describes how to use each API in the SDK. For the sake of brevity,
 ## Bucket Operations
 ###  Put Bucket
 #### Feature description
-Put Bucket request is used to create a Bucket under the specified account.
-#### Method Prototype
+This API (Put Bucket) is used to create a Bucket under the specified account.
+#### Method prototype
 ```cpp
 cos_status_t *cos_create_bucket(const cos_request_options_t *options, 
                                 const cos_string_t *bucket, 
@@ -32,10 +32,10 @@ cos_status_t *cos_create_bucket(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option | Struct | 
 | bucket | Bucket name, which must be in a format of {name}-{appid} | String  |
-| cos_acl |Allow users to define permissions.<br> Valid values: COS_ACL_PRIVATE(0), COS_ACL_PUBLIC_READ(1) and COS_ACL_PUBLIC_READ_WRITE(2).<br> Default: COS_ACL_PRIVATE(0) | Enum  |
-| resp_headers |Return HTTP response header | Struct | 
+| cos_acl |Allows users to define permissions.<br> Valid values: COS_ACL_PRIVATE(0), COS_ACL_PUBLIC_READ(1) and COS_ACL_PUBLIC_READ_WRITE(2).<br> Default: COS_ACL_PRIVATE(0) | Enum  |
+| resp_headers |Returns HTTP response header | Struct | 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -82,9 +82,9 @@ cos_status_t *cos_create_bucket(const cos_request_options_t *options,
 
 ###  Delete Bucket
 #### Feature description
-Delete Bucket request is used to delete a Bucket under the specified account. The Bucket must be empty before it can be deleted.
+This API (Delete Bucket) is used to delete a Bucket under the specified account. The Bucket must be empty before it can be deleted.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_bucket(const cos_request_options_t *options,
                                 const cos_string_t *bucket, 
@@ -96,9 +96,9 @@ cos_status_t *cos_delete_bucket(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|          
@@ -144,9 +144,9 @@ cos_status_t *cos_delete_bucket(const cos_request_options_t *options,
 
 ###  Get Bucket
 #### Feature description
-Get Bucket request is equivalent to List Object request. It is used to list partial or all of the Objects under the Bucket. Read permission is required to initiate this request.
+This API (Get Bucket) is equivalent to List Object. It is used to list some or all of the Objects under the Bucket. Read permission is required to initiate this request.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_list_object(const cos_request_options_t *options,
                               const cos_string_t *bucket, 
@@ -161,23 +161,23 @@ cos_status_t *cos_list_object(const cos_request_options_t *options,
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | params | Parameter for the Get Bucket operation | Struct|  
 | encoding_type  |The encoding method of the returned value |String|  
-| prefix | Prefix match, used to specify the prefix address of the returned file |String|
+| prefix | Indicates the prefix match, which is used to specify the prefix address of the returned file |String|
 | marker |Entries are listed using UTF-8 binary order by default, starting from the marker |String|  
 | delimiter | Parameter for the Get Bucket operation |String|  
 | max_ret |Maximum number of entries returned at a time. Default is 1,000 |Struct|  
-| truncated |Indicate whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
+| truncated |Indicates whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
 | next_marker |If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|  
-| object_list | List of object information returned through the Get Bucket operation |Struct|  
+| object_list | Lists the object information returned through the Get Bucket operation |Struct|  
 | key | The name of the Object returned through the Get Bucket operation |Struct|  
-| last_modified | The last modification time of the Object returned through the Get Bucket operation |Struct|  
+| last_modified | The time when the Object returned through the Get Bucket operation was last modified |Struct|  
 | etag | The SHA-1 algorithm check value of the Object returned through the Get Bucket operation |Struct|  
 | size | The size of the Object returned through the Get Bucket operation (in bytes) |Struct|  
 | owner_id | The Object owner UID returned through the Get Bucket operation |Struct| 
-| storage_class | The storage class of the Object returned through the Get Bucket operation |Struct|  
+| storage_class | The storage level of the Object returned through the Get Bucket operation |Struct|  
 | common_prefix_list |The same paths between Prefix and delimiter are grouped as the same type and defined as Common Prefix |Struct|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|          
@@ -231,7 +231,7 @@ cos_status_t *cos_list_object(const cos_request_options_t *options,
 #### Feature description
 Put Bucket ACL is used to write the Bucket ACL. You can import ACL information by using Header: "x-cos-acl", "x-cos-grant-read", "x-cos-grant-write", "x-cos-grant-full-control".
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_bucket_acl(const cos_request_options_t *options, 
                                  const cos_string_t *bucket, 
@@ -247,13 +247,13 @@ cos_status_t *cos_put_bucket_acl(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
-| cos_acl |Allow users to define permissions.<br> Valid values: COS_ACL_PRIVATE(0),COS_ACL_PUBLIC_READ(1),COS_ACL_PUBLIC_READ_WRITE(2).<br>Default: COS_ACL_PRIVATE(0)|Enum|   
+| cos_acl | Allows users to define permissions.<br> Valid values: COS_ACL_PRIVATE(0),COS_ACL_PUBLIC_READ(1),COS_ACL_PUBLIC_READ_WRITE(2).<br>Default: COS_ACL_PRIVATE(0)|Enum|   
 | grant_read | Users to whom the read permission is granted |String|  
 | grant_write | Users to whom the write permission is granted |String|  
 | grant_full_ctrl | Users to whom both read and write permissions are granted |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|         
@@ -301,9 +301,9 @@ cos_status_t *cos_put_bucket_acl(const cos_request_options_t *options,
 
 ###  Get Bucket ACL 
 #### Feature description
-The API Get Bucket ACL is used to obtain ACL of Bucket, that is, the access permission control list of Bucket. Only the Bucket owner has permission to use this API.
+This API (Get Bucket ACL) is used to obtain the ACL (Access Control List) of a Bucket. Only the Bucket owner has the access to this API.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_bucket_acl(const cos_request_options_t *options, 
                                  const cos_string_t *bucket, 
@@ -324,11 +324,11 @@ cos_status_t *cos_get_bucket_acl(const cos_request_options_t *options,
 | id | Authorized user ID returned through the Get Bucket ACL operation |String|  
 | name | Authorized user name returned through the Get Bucket ACL operation |String|  
 | permission | Information of authorized user and permissions returned through the Get Bucket ACL operation |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|          
@@ -381,9 +381,9 @@ cos_status_t *cos_get_bucket_acl(const cos_request_options_t *options,
 
 ###  Put Bucket Lifecycle
 #### Feature description
-Put Bucket Lifecycle is used to write Bucket lifecycle rules.
+This API (Put Bucket Lifecycle) is used to write Bucket lifecycle rules.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_bucket_lifecycle(const cos_request_options_t *options,
                                        const cos_string_t *bucket, 
@@ -398,20 +398,20 @@ cos_status_t *cos_put_bucket_lifecycle(const cos_request_options_t *options,
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | lifecycle_rule_list | Parameter for the Put Bucket Lifecycle operation |Struct|  
 | id  | Lifecycle rule ID |String|  
-| prefix | Specify the prefix to which the rule applies. |String|  
-| status | Indicate whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
+| prefix | Specifies the prefix to which the rule applies. |String|  
+| status | Indicates whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
 | expire | Rule expiration attribute |Struct|  
-| days | Indicate the number of days before deletion operation is performed. |Int|  
-| date | Indicate when the deletion operation is performed. |String|  
+| days | Indicates the number of days before the deletion operation is performed. |Int|  
+| date | Indicates when the deletion operation is performed. |String|  
 | transition | Rule transition attribute, which indicates when the Object is transited to Standard_IA |Struct|  
-| days | Indicate the number of days before transition operation is performed. |Int|  
-| date | Indicate when the transition operation is performed. |String|  
-| storage_class | Specify the target storage class to which the object is transited. Enumerated values: Standard_IA. |String|  
-| abort | Set the maximum length of time allowed for a continuous multipart upload. |Struct|  
-| days | Indicate the number of days within which the upload must be completed after the multipart upload starts. |Int|  
-| resp_headers |Return HTTP response header |Struct|
+| days | Indicates the number of days before the transition operation is performed. |Int|  
+| date | Indicates when the transition operation is performed. |String|  
+| storage_class | Specifies the target storage class to which the object is transited. Enumerated values: Standard_IA. |String|  
+| abort | Sets the maximum length of time allowed for a multipart upload. |Struct|  
+| days | Indicates the number of days within which the upload must be completed after the multipart upload starts. |Int|  
+| resp_headers |Returns HTTP response header |Struct|
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|          
@@ -483,9 +483,9 @@ cos_status_t *cos_put_bucket_lifecycle(const cos_request_options_t *options,
 
 ###  Get Bucket Lifecycle
 #### Feature description
-Get Bucket Lifecycle is used to obtain Bucket lifecycle rules.
+This API (Get Bucket Lifecycle) is used to obtain Bucket lifecycle rules.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_bucket_lifecycle(const cos_request_options_t *options,
                                        const cos_string_t *bucket, 
@@ -501,19 +501,19 @@ cos_status_t *cos_get_bucket_lifecycle(const cos_request_options_t *options,
 | lifecycle_rule_list | Parameter for the Get Bucket Lifecycle operation |Struct|  
 | id  | Lifecycle rule ID |String|  
 | prefix | The prefix to which the rule applies |String|  
-| status | Indicate whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
+| status | Indicates whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
 | expire | Rule expiration attribute |Struct|  
-| days | Indicate the number of days before deletion operation is performed. |Int|  
-| date | Indicate when the deletion operation is performed. |String|  
+| days | Indicates the number of days before the deletion operation is performed. |Int|  
+| date | Indicates when the deletion operation is performed. |String|  
 | transition | Rule transition attribute, which indicates when the Object is transited to Standard_IA |Struct|  
-| days | Indicate the number of days before transition operation is performed. |Int|  
-| date | Indicate when the transition operation is performed. |String|  
-| storage_class | Specify the target storage class to which the object is transited. Enumerated values: Standard_IA. |String|  
-| abort | Set the maximum length of time allowed for a continuous multipart upload. |Struct|  
-| days | Indicate the number of days within which the upload must be completed after the multipart upload starts. |Int|  
-| resp_headers |Return HTTP response header |Struct| 
+| days | Indicates the number of days before the transition operation is performed. |Int|  
+| date | Indicates when the transition operation is performed. |String|  
+| storage_class | Specifies the target storage class to which the object is transited. Enumerated values: Standard_IA. |String|  
+| abort | Sets the maximum time length allowed for a multipart upload. |Struct|  
+| days | Indicates the number of days within which the upload must be completed after the multipart upload starts. |Int|  
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|         
@@ -561,9 +561,9 @@ cos_status_t *cos_get_bucket_lifecycle(const cos_request_options_t *options,
 
 ###  Delete Bucket Lifecycle
 #### Feature description
-Delete Bucket Lifecycle is used to delete Bucket lifecycle rules.
+This API (Delete Bucket Lifecycle) is used to delete Bucket lifecycle rules.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_bucket_lifecycle(const cos_request_options_t *options,
                                           const cos_string_t *bucket, 
@@ -575,9 +575,9 @@ cos_status_t *cos_delete_bucket_lifecycle(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -623,9 +623,9 @@ cos_status_t *cos_delete_bucket_lifecycle(const cos_request_options_t *options,
 
 ###  Put Bucket CORS
 #### Feature description
-Put Bucket CORS is used to set the cross-origin resource sharing permission of the Bucket.
+This API (Put Bucket CORS) is used to set the cross-origin resource sharing permission of the Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_bucket_cors(const cos_request_options_t *options,
                                   const cos_string_t *bucket, 
@@ -639,16 +639,16 @@ cos_status_t *cos_put_bucket_cors(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | cors_rule_list | Parameter for the Put Bucket CORS operation |Struct|  
-| id  | Configure a rule ID |String|  
-| allowed_origin | Allowed access source. The wildcard `*` is supported |String|  
+| id  | Sets rule ID |String|  
+| allowed_origin | Allowed access sources. The wildcard `*` is supported |String|  
 | allowed_method | Allowed HTTP operations. Enumerated values: GET, PUT, HEAD, POST, DELETE |String|  
-| allowed_header | When sending an OPTIONS request, notify the server end about which custom HTTP request headers are allowed to be used by subsequent requests. The wildcard `*` is supported |String|  
-| expose_header |Configure the custom header information that can be received by the browser from the server end |String|  
-| max_age_seconds | Configure the valid period of the results obtained by OPTIONS request |Int|  
-| resp_headers |Return HTTP response header |Struct|  
+| allowed_header | When an OPTIONS request is sent, notifies the server about which custom HTTP request headers are allowed for subsequent requests. Wildcard "*" is supported. |String|  
+| expose_header |Sets the custom header information that can be received by the browser from the server end |String|  
+| max_age_seconds |Sets the validity period of the results obtained by OPTIONS |Int|  
+| resp_headers |Returns HTTP response header |Struct|  
 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -726,8 +726,8 @@ cos_status_t *cos_put_bucket_cors(const cos_request_options_t *options,
 
 ###  Get Bucket CORS
 #### Feature description
-Get Bucket CORS is used to obtain the cross-origin resource sharing permission configuration of the Bucket.
-#### Method Prototype
+This API (Get Bucket CORS) is used to obtain the cross-origin resource sharing permission configuration of the Bucket.
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_bucket_cors(const cos_request_options_t *options,
                                   const cos_string_t *bucket, 
@@ -741,15 +741,15 @@ cos_status_t *cos_get_bucket_cors(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | cors_rule_list | Parameter for the Get Bucket CORS operation |Struct| 
-| id  | Configure a rule ID |String|  
-| allowed_origin | Allowed access source. The wildcard `*` is supported |String| 
+| id  | Sets rule ID |String|  
+| allowed_origin | Allowed access sources. The wildcard `*` is supported |String| 
 | allowed_method | Allowed HTTP operations. Enumerated values: GET, PUT, HEAD, POST, DELETE |String|  
-| allowed_header | When sending an OPTIONS request, notify the server end about which custom HTTP request headers are allowed to be used by subsequent requests. The wildcard `*` is supported |String|  
-| expose_header |Configure the custom header information that can be received by the browser from the server end |String|  
-| max_age_seconds | Configure the valid period of the results obtained by OPTIONS request |Int|  
-| resp_headers |Return HTTP response header |Struct| 
+| allowed_header | When an OPTIONS request is sent, notifies the server about which custom HTTP request headers are allowed for subsequent requests. Wildcard "*" is supported. |String|  
+| expose_header |Sets the custom header information that can be received by the browser from the server end |String|  
+| max_age_seconds |Sets the validity period of the results obtained by OPTIONS |Int|  
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -802,9 +802,9 @@ cos_status_t *cos_get_bucket_cors(const cos_request_options_t *options,
 
 ###  Delete Bucket CORS
 #### Feature description
-Delete Bucket CORS is used to delete the cross-origin resource sharing permission configuration of the Bucket.
+This API (Delete Bucket CORS) is used to delete the cross-origin resource sharing permission configuration of the Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_bucket_cors(const cos_request_options_t *options,
                                      const cos_string_t *bucket, 
@@ -816,9 +816,9 @@ cos_status_t *cos_delete_bucket_cors(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -864,9 +864,9 @@ cos_status_t *cos_delete_bucket_cors(const cos_request_options_t *options,
 
 ###  Put Bucket Versioning
 #### Feature description
-Put Bucket Versioning is used to enable or suspend the version control of the Bucket.
+This API (Put Bucket Versioning) is used to enable or suspend the version control of the Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_bucket_versioning(const cos_request_options_t *options,
                                         const cos_string_t *bucket, 
@@ -880,10 +880,10 @@ cos_status_t *cos_put_bucket_versioning(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | versioning | Parameter for the Put Bucket Versioning operation |Struct|  
-| status  | Indicate whether version is enabled. Enumerated values: Suspended, Enabled. |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| status  | Indicates whether version is enabled. Enumerated values: Suspended, Enabled. |String|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -932,9 +932,9 @@ cos_status_t *cos_put_bucket_versioning(const cos_request_options_t *options,
 
 ###  Get Bucket Versioning
 #### Feature description
-Get Bucket Versioning is used to obtain the information on the version control of the Bucket.
+This API (Get Bucket Versioning) is used to obtain the information on the version control of the Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_bucket_versioning(const cos_request_options_t *options,
                                         const cos_string_t *bucket, 
@@ -948,10 +948,10 @@ cos_status_t *cos_get_bucket_versioning(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | versioning | Parameter for the Get Bucket Versioning operation |Struct|  
-| status  | Indicate whether version is enabled. Enumerated values: Suspended, Enabled. |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| status  | Indicates whether version is enabled. Enumerated values: Suspended, Enabled. |String|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1000,9 +1000,9 @@ cos_status_t *cos_get_bucket_versioning(const cos_request_options_t *options,
 
 ###  Put Bucket Replication
 #### Feature description
-Put Bucket Replication request is used to add replication configuration to the bucket for which versioning is enabled. If the bucket already has a replication configuration, the request will replace the existing configuration.
+This API (Put Bucket Replication) is used to add replication configuration to the bucket for which versioning is enabled. If the bucket already has a replication configuration, the request will replace the existing configuration.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_bucket_replication(const cos_request_options_t *options,
                                          const cos_string_t *bucket, 
@@ -1018,14 +1018,14 @@ cos_status_t *cos_put_bucket_replication(const cos_request_options_t *options,
 | replication_param | Parameter for the Put Bucket Replication operation |Struct|  
 | role | Operator's account information |String|  
 | rule_list | replication configuration information |Struct|  
-| id | Indicate the name of a specific Rule. |String|  
-| status | Indicate whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
+| id | Indicates the name of a specific Rule. |String|  
+| status | Indicates whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
 | prefix | Prefix match. Prefixes cannot overlap, otherwise an error is returned. |String|  
 | dst_bucket | Destination bucket ID. Format: resource identifier qcs:id/0:cos:[Region]:appid/[APPID]:[Bucketname]. |String|  
-| storage_class | The storage category of Object. Enumerated values: Standard, Standard_IA.<br> Default is the original bucket class. |String|  
-| resp_headers |Return HTTP response header | Struct|  
+| storage_class | The storage class of Object. Enumerated values: Standard, Standard_IA.<br> Default value: the original bucket class. |String|  
+| resp_headers |Returns HTTP response header | Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1100,9 +1100,9 @@ cos_status_t *cos_put_bucket_replication(const cos_request_options_t *options,
 ###  Get Bucket Replication
 
 #### Feature description
-Get Bucket Replication is used to read the cross-region replication configuration information in your bucket.
+This API (Get Bucket Replication) is used to read the cross-origin replication configuration information in a bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_bucket_replication(const cos_request_options_t *options,
                                          const cos_string_t *bucket, 
@@ -1118,14 +1118,14 @@ cos_status_t *cos_get_bucket_replication(const cos_request_options_t *options,
 | replication_param | Parameter for the Get Bucket Replication operation |Struct|  
 | role | Operator's account information |String|  
 | rule_list | replication configuration information |Struct|  
-| id | Indicate the name of a specific Rule. |String|  
-| status | Indicate whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
+| id | Indicates the name of a specific Rule. |String|  
+| status | Indicates whether the rule is enabled. Enumerated values: Enabled, Disabled. |String|  
 | prefix | Prefix match. Prefixes cannot overlap, otherwise an error is returned. |String|  
 | dst_bucket | Destination bucket ID. Format: resource identifier qcs:id/0:cos:[Region]:appid/[APPID]:[Bucketname]. |String|  
-| storage_class | The storage category of Object. Enumerated values: Standard, Standard_IA.<br> Default is the original bucket class. |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| storage_class | The storage class of Object. Enumerated values: Standard, Standard_IA.<br> Default value: the original bucket class. |String|  
+| resp_headers | Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1180,9 +1180,9 @@ cos_status_t *cos_get_bucket_replication(const cos_request_options_t *options,
 
 ###  Delete Bucket Replication
 #### Feature description
-Delete Bucket Replication is used to delete the cross-region replication configuration in the Bucket.
+This API (Delete Bucket Replication) is used to delete the cross-origin replication configuration in the Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_bucket_replication(const cos_request_options_t *options,
                                             const cos_string_t *bucket, 
@@ -1194,9 +1194,9 @@ cos_status_t *cos_delete_bucket_replication(const cos_request_options_t *options
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1243,9 +1243,9 @@ cos_status_t *cos_delete_bucket_replication(const cos_request_options_t *options
 ## Object Operations
 ###  Get Object
 #### Feature description
-Delete Object request is used to download a file (Object) locally. This action requires that the user has the read permission for the target Object or the read permission for the target Object has been made available for everyone (public-read).
+This API (Delete Object) is used to download a file (Object) locally. This operation requires that the user have the read permission for the target Object or the read permission for the target Object be available for everyone (public-read).
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_object_to_file(const cos_request_options_t *options,
                                      const cos_string_t *bucket, 
@@ -1265,9 +1265,9 @@ cos_status_t *cos_get_object_to_file(const cos_request_options_t *options,
 | headers | Additional COS request header |Struct|  
 | params | Parameter for the COS request operation |Struct|  
 | filename | The file name of an Object stored locally |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1317,9 +1317,9 @@ cos_status_t *cos_get_object_to_file(const cos_request_options_t *options,
 
 ###  Head Object
 #### Feature description
-Head Object request is used to retrieve the metadata of corresponding Object. Head has the same permissions as those of Get.
+This API (Head Object) is used to get the metadata of an Object. It has the same permissions as Get Object.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_head_object(const cos_request_options_t *options, 
                               const cos_string_t *bucket, 
@@ -1335,9 +1335,9 @@ cos_status_t *cos_head_object(const cos_request_options_t *options,
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | object | Object name |String|  
 | headers | Additional COS request header |Struct|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1385,9 +1385,9 @@ cos_status_t *cos_head_object(const cos_request_options_t *options,
 
 ###  Put Object
 #### Feature description
-Put Object request is used to upload a file (Object) to the specified Bucket.
+This API (Put Object) is used to upload a file (Object) to the specified Bucket.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_object_from_file(const cos_request_options_t *options,
                                        const cos_string_t *bucket, 
@@ -1405,9 +1405,9 @@ cos_status_t *cos_put_object_from_file(const cos_request_options_t *options,
 | object | Object name |String|  
 | filename | The file name of an Object stored locally |String|  
 | headers | Additional COS request header |Struct|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1457,9 +1457,9 @@ cos_status_t *cos_put_object_from_file(const cos_request_options_t *options,
 
 ###  Delete Object
 #### Feature description
-Delete Object request is used to delete a file (Object).
+This API (Delete Object) is used to delete a file (Object).
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_object(const cos_request_options_t *options,
                                 const cos_string_t *bucket, 
@@ -1473,9 +1473,9 @@ cos_status_t *cos_delete_object(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | object | Object name |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1523,9 +1523,9 @@ cos_status_t *cos_delete_object(const cos_request_options_t *options,
 
 ###  Delete Multiple Object
 #### Feature description
-Delete Multiple Object request is used for batch deletion of files. A maximum of 1000 files are allowed to be deleted at a time. COS provides two modes for returned results: Verbose and Quiet. Verbose mode will return the result of deletion of each Object, while Quiet mode only returns the information of the Objects with an error.
+This API (Delete Multiple Object) is used for batch deletion of files. A maximum of 1000 files are allowed to be deleted at a time. COS provides two modes for returned results: Verbose and Quiet. Verbose mode will return the result of deletion of each Object, while Quiet mode only returns the information of the Objects with an error.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_delete_objects(const cos_request_options_t *options,
                                  const cos_string_t *bucket, 
@@ -1540,13 +1540,13 @@ cos_status_t *cos_delete_objects(const cos_request_options_t *options,
 |---------|---------|---------|
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String| 
-| object_list | List of Objects to be deleted |Struct| 
-  | key | Name of Object to be deleted |String|  
-| is_quiet | Indicate whether the Quiet mode is enabled.<br> True(1): Quiet mode is enabled; False(0): Verbose mode is enabled. Default is False(0). |Boolean|  
-| resp_headers |Return HTTP response header |Struct|  
+| object_list | List of objects to be deleted |Struct| 
+  | key | Name of object to be deleted |String|  
+| is_quiet | Indicates whether the Quiet mode is enabled.<br> True(1): Quiet mode is enabled; False(0): Verbose mode is enabled. Default is False(0). |Boolean|  
+| resp_headers | Returns HTTP response header |Struct|  
 | deleted_object_list | List of deleted objects |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1611,9 +1611,9 @@ cos_status_t *cos_delete_objects(const cos_request_options_t *options,
 
 ###  Put Object ACL
 #### Feature description
-Put Object ACL is used to write the ACL configuration of an Object in the Bucket. You can import ACL information by using Header: "x-cos-acl", "x-cos-grant-read", "x-cos-grant-write", "x-cos-grant-full-control".
+This API (Put Object ACL) is used to write the ACL configuration of an Object in the Bucket. You can import ACL information by using Header: "x-cos-acl", "x-cos-grant-read", "x-cos-grant-write", "x-cos-grant-full-control".
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_put_object_acl(const cos_request_options_t *options, 
                                  const cos_string_t *bucket,
@@ -1635,9 +1635,9 @@ cos_status_t *cos_put_object_acl(const cos_request_options_t *options,
 | grant_read | Users to whom the read permission is granted |String|  
 | grant_write | Users to whom the write permission is granted |String|  
 | grant_full_ctrl | Users to whom both read and write permissions are granted |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1687,9 +1687,9 @@ cos_status_t *cos_put_object_acl(const cos_request_options_t *options,
 
 ###  Get Object ACL
 #### Feature description
-The API Get Object ACL is used to obtain access permission of an Object under a Bucket. Only the Bucket owner has permission to use this API.
+This API (Get Object ACL) is used to obtain access permission of an Object under a Bucket. Only the Bucket owner has the access to this API.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_get_object_acl(const cos_request_options_t *options, 
                                  const cos_string_t *bucket,
@@ -1712,9 +1712,9 @@ cos_status_t *cos_get_object_acl(const cos_request_options_t *options,
 | id | Authorized user ID returned through the Get Object ACL operation |String|  
 | name | Authorized user name returned through the Get Object ACL operation |String|  
 | permission | Information of authorized user and permissions returned through the Get Object ACL operation |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers | Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1768,9 +1768,9 @@ cos_status_t *cos_get_object_acl(const cos_request_options_t *options,
 
 ###  Put Object Copy
 #### Feature description
-Put Object Copy request is used to copy a file from source path to the destination path.
+This API (Put Object Copy) is used to copy a file from source path to the destination path.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_copy_object(const cos_request_options_t *options,
                               const cos_string_t *copy_source, 
@@ -1791,10 +1791,10 @@ cos_status_t *cos_copy_object(const cos_request_options_t *options,
 | headers | Additional COS request header |Struct|  
 | copy_object_param | Parameter for the Put Object Copy operation |Struct|   
 | etag | MD5 algorithm check value for the returned file |String|  
-| last_modify | Return the last modification time of the file in GMT format |String|  
-| resp_headers |Return HTTP response header |Struct| 
+| last_modify | Returns the last modification time of the file in GMT format |String|  
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1847,9 +1847,9 @@ cos_status_t *cos_copy_object(const cos_request_options_t *options,
 ## Multipart Upload Operations
 ###  Initiate Multipart Upload
 #### Feature description
-Initiate Multipart Upload request is used for the initialization of multipart upload. After the execution of this request, Upload ID is returned for the subsequent Upload Part requests.
+This API (Initiate Multipart Upload) is used to initialize multipart upload. After the request is executed successfully, Upload ID is returned for the subsequent Upload Part requests.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_init_multipart_upload(const cos_request_options_t *options, 
                                         const cos_string_t *bucket, 
@@ -1867,9 +1867,9 @@ cos_status_t *cos_init_multipart_upload(const cos_request_options_t *options,
 | object | Object name |String|  
 | upload_id | Upload ID returned through the operation |String|  
 | headers | Additional COS request header |Struct|  
-| resp_headers |Return HTTP response header |Struct| 
+| resp_headers |Returns HTTP response header |Struct| 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -1919,9 +1919,9 @@ cos_status_t *cos_init_multipart_upload(const cos_request_options_t *options,
 
 ###  Upload Part
 #### Feature description
-Upload Part request is used to implement the multipart upload after initialization. The allowed number of parts is limited to 10000, and the size of part should be between 1 MB and 5 GB. Upload Part should be used with partNumber and uploadID. partNumber is the part No. and supports out-of-order upload.
+This API (Upload Part) is used to implement multipart upload after initialization. A file can be split into 10000 chunks at most (minimum is 1) for multipart upload, and the size of each file chunk should be between 1 MB and 5 GB. Parameters partNumber and uploadId are required for Upload Part (partNumber is the file chunk No. Out-of-order upload is supported).
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_upload_part_from_file(const cos_request_options_t *options,
                                         const cos_string_t *bucket, 
@@ -1939,11 +1939,11 @@ cos_status_t *cos_upload_part_from_file(const cos_request_options_t *options,
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | object | Object name |String|  
 | upload_id |Upload task number |String|  
-| part_num |Part number |Int|  
+| part_num | Part number |Int|  
 | upload_file | Information on the local file to be uploaded |Struct|  
-| resp_headers |Return HTTP response header |Struct|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -2013,7 +2013,7 @@ cos_status_t *cos_upload_part_from_file(const cos_request_options_t *options,
 
 ###  Complete Multipart Upload
 #### Feature description
-Complete Multipart Upload  is used to complete the entire multipart upload. You can use this API to complete the upload operation when you have uploaded all parts using Upload Parts. When using this API, you need to provide the PartNumber and ETag for every part in Body, to verify the accuracy of parts.
+Complete Multipart Upload  is used to complete the entire multipart upload. After you have uploaded all the file chunks using Upload Parts, you can use this API to complete the upload. When using this API, you need to provide the PartNumber and ETag for every chunk in Body, to verify the accuracy of chunks.
 
 #### Method prototype
 ```cpp
@@ -2034,12 +2034,12 @@ cos_status_t *cos_complete_multipart_upload(const cos_request_options_t *options
 | object |  Object name |String|  
 | upload_id | Upload task number |String|  
 | part_list | Parameter for the Complete Multipart Upload operation|Struct|  
-| part_number |Part number |String|  
+| part_number | Part number |String|  
 | etag | ETag value of a part, which is sha1 check value. It must be enclosed in double quotes, such as "3a0f1fd698c235af9cf098cb74aa25bc"|String|  
 | headers |  Additional COS request header |Struct| 
-| resp_headers | Return HTTP response header |Struct|  
+| resp_headers | Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error Codes  |Int|        
@@ -2117,9 +2117,9 @@ cos_status_t *cos_complete_multipart_upload(const cos_request_options_t *options
 
 ###  List Parts
 #### Feature description
-List Parts is used to query the uploaded parts in a specific multipart upload process.
+This API (List Parts) is used to query the uploaded parts in a specific multipart upload process.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_list_upload_part(const cos_request_options_t *options,
                                    const cos_string_t *bucket, 
@@ -2135,21 +2135,21 @@ cos_status_t *cos_list_upload_part(const cos_request_options_t *options,
 | options | COS request option |Struct|  
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | object | Object name |String|  
-| upload_id |Upload task number |String|  
+| upload_id | Upload task number |String|  
 | params | Parameter for the List Parts operation |Struct| 
 | part_number_marker |Entries are listed using UTF-8 binary order by default, starting from the marker |String|  
 | encoding_type  |The encoding method of the returned value |String|  
-| max_ret |Maximum number of entries returned at a time. Default is 1,000 |String|  
-| truncated |Indicate whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
-| next_part_number_marker |If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|  
+| max_ret | Maximum number of entries returned at a time. Default is 1,000 |String|  
+| truncated |Indicates whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
+| next_part_number_marker | If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|  
 | part_list | Information on completed part |Struct|      
-| part_number |Part number |String|  
+| part_number | Part number |String|  
 | size |Part size (in bytes) |String|  
-| etag |SHA-1 algorithm check value for the part |String|  
-| last_modified |Last modified time of the part |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| etag | SHA-1 algorithm check value for the part |String|  
+| last_modified | The time when the part was last modified |String|  
+| resp_headers |Returns HTTP response header |Struct|  
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -2227,9 +2227,9 @@ cos_status_t *cos_list_upload_part(const cos_request_options_t *options,
 
 ###  Abort Multipart Upload
 #### Feature description
-Abort Multipart Upload is used to abort a multipart upload operation and delete parts that are already uploaded. When Abort Multipart Upload is called, the Upload Parts returns failure to any request that is using the Upload Parts.
+This API (Abort Multipart Upload) is used to abort a multipart upload operation and delete uploaded file chunks. When Abort Multipart Upload is called, a failure is returned for any request that is using Upload Parts.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_abort_multipart_upload(const cos_request_options_t *options,
                                          const cos_string_t *bucket, 
@@ -2244,11 +2244,11 @@ cos_status_t *cos_abort_multipart_upload(const cos_request_options_t *options,
 | options | COS request option |Struct| 
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | object | Object name |String|  
-| upload_id |Upload task number |String| 
-| resp_headers |Return HTTP response header |Struct|  
+| upload_id | Upload task number |String| 
+| resp_headers |Returns HTTP response header |Struct|  
 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -2305,9 +2305,9 @@ cos_status_t *cos_abort_multipart_upload(const cos_request_options_t *options,
 
 ###  List Multipart Uploads
 #### Feature description
-List Multiparts Uploads is used to query multipart upload operations that are still in process. Up to 1000 such operations can be listed each time.
+This API (List Multiparts Uploads) is used to query multipart upload operations that are still in process. Up to 1000 such operations can be listed each time.
 
-#### Method Prototype
+#### Method prototype
 ```cpp
 cos_status_t *cos_list_multipart_upload(const cos_request_options_t *options,
                                         const cos_string_t *bucket, 
@@ -2322,20 +2322,20 @@ cos_status_t *cos_list_multipart_upload(const cos_request_options_t *options,
 | bucket | Bucket name, which must be in a format of {name}-{appid} |String|  
 | params | Parameter for the List Multipart Uploads operation |Struct|  
 | encoding_type  |The encoding method of the returned value |String|  
-| prefix | Prefix match, used to specify the prefix address of the returned file |String| 
+| prefix | Indicates the prefix match, which is used to specify the prefix address of the returned file |String| 
 | upload_id_marker |If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|
 | delimiter | Delimiter is a sign.<br> If Prefix exists, the same paths between Prefix and delimiter are grouped as the same type and defined as Common Prefix, and then all Common Prefixes are listed.<br> If Prefix does not exist, the listing process starts from the beginning of the path. |String|  
-| max_ret |Maximum number of entries returned at a time. Default is 1,000 |String|  
+| max_ret | Maximum number of entries returned at a time. Default is 1,000 |String|  
 | key_marker | Used together with upload-id-marker.<br> If upload-id-marker is not specified, entries whose ObjectNames are in front of key-marker (according to alphabetical order) will be listed.<br> If upload-id-marker is specified, entries whose ObjectNames are in front of key-marker (according to alphabetical order) will be listed, and entries whose ObjectNames are equal to key-marker and UploadIDs are in front of upload-id-marker (according to alphabetical order) will also be listed. |String|  
 | upload_id_marker | Used together with key-marker.<br> If key-marker is not specified, upload-id-marker will be ignored.<br> If key-marker is specified, entries whose ObjectNames are in front of key-marker (according to alphabetical order) will be listed, and entries whose ObjectNames are equal to key-marker and UploadIDs are in front of upload-id-marker (according to alphabetical order) will also be listed. |String| 
-| truncated |Indicate whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
+| truncated |Indicates whether the returned entry is truncated. Value: 'true' or 'false' |Boolean|  
 | next_key_marker |If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|  
 | next_upload_id_marker |If the returned entry is truncated, NextMarker represents the starting point of the next entry |String|  
-| upload_list |Information on multipart upload |Struct|  
+| upload_list | Provides information on multipart upload |Struct|  
 | key |Object name |String|  
 | upload_id |The ID of current multipart upload |String|  
-| initiated | Indicate the start time of current multipart upload. |String|  
-| resp_headers |Return HTTP response header |Struct|  
+| initiated | Indicates the start time of current multipart upload. |String|  
+| resp_headers |Returns HTTP response header |Struct|  
 
 ```
 typedef struct {
@@ -2347,7 +2347,7 @@ typedef struct {
 ```
 
 
-#### Returned Result
+#### Returned result
 | Returned Result | Description | Type | 
 |---------|---------|---------|
 | code | Error code |Int|        
@@ -2388,8 +2388,8 @@ The cos_status_t structure comprises of the following:
 
 | cos_status_t Member | Description | Type |
 | ---------------- | ---------------------------------------- | --------- |
-| code    | Status code of the response. 4xx represents the request failure caused by the client, and 5xx represents the failure caused by the server exception. Please see [COS Error Messages](https://cloud.tencent.com/document/product/436/7730)               | Int    |
-| error_code      | Error Code returned in the body when request fails. Please see [COS Error Messages](https://cloud.tencent.com/document/product/436/7730)                              | String    |
-| error_msg   | Error Message returned in the body when request fails. Please see [COS Error Messages](https://cloud.tencent.com/document/product/436/7730) | String    |
+| code    | Status code of the response. 4xx represents the request failure caused by the client, and 5xx represents the failure caused by the server exception For more information, please see [COS Error Message](https://cloud.tencent.com/document/product/436/7730)               | Int    |
+| error_code      | Error Code returned by body when request fails. For more information, please see [COS Error Message](https://cloud.tencent.com/document/product/436/7730)                              | String    |
+| error_msg   | Error Message returned by body when request fails. For more information, please see [COS Error Message](https://cloud.tencent.com/document/product/436/7730) | String    |
 | req_id | Request ID, which is used to identify the user's unique request | String    |
 
