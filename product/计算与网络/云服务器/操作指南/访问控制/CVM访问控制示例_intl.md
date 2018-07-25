@@ -41,7 +41,7 @@ The policy syntax is as follows:
     ]
 }
 ```
-The above policy is designed to grant users the permissions to work with all the resources in CVM, VPC, Load Balance and MONITOIOR.
+The above policy is designed to grant users the permissions to work with all the resources in CVM, VPC, Load Balance and MONITOR.
 
 ### Read-only policy for CVMs
 To allow a user to only query CVM instances, without granting him/her the permissions to create, delete, start/shut down the instances, implement the policy named QcloudCVMInnerReadOnlyAccess.
@@ -121,14 +121,14 @@ The above policy is designed to grant users the permissions to perform the follo
 
 To allow a user to view, create and use cloud disks in the CVM console, add the following operations to your policy and associate the policy to the user.
 
-- **CreateCbsStorages:** Create a cloud disk.
+- **CreateCbsStorages:** Create Cloud Disk.
 - **AttachCbsStorages:** Mount the specified elastic cloud disk to the specified CVM.
 - **DetachCbsStorages:** Unmount the specified elastic cloud disk.
 - **ModifyCbsStorageAttributes:** Modify the name or the project ID of the specified cloud disk.
 - **DescribeCbsStorages:** Query the details of a cloud disk.
 - **DescribeInstancesCbsNum:** Query the number of elastic cloud disks that have been mounted to a CVM and the maximum number of elastic cloud disks that are allowed to be mounted to the CVM.
 - **RenewCbsStorage:** Renew the specified elastic cloud disk.
-- **ResizeCbsStorage:** Expand the capacity of specified elastic cloud disk.
+- **ResizeCbsStorage:** Expand the capacity of the specified elastic cloud disk.
 
 The following policy does not allow users to modify the attributes of cloud disks.
 ```
@@ -154,10 +154,10 @@ To allow a user to view and use security groups in the CVM console, add the foll
 
 - **DeleteSecurityGroup:** Delete a security group.
 - **ModifySecurityGroupPolicys:** Replace all the policies of a security group.
-- **ModifySingleSecurityGroupPolicy:** Modify a single policy of a security group.
-- **CreateSecurityGroupPolicy:** Create a security group policy.
+- **ModifySingleSecurityGroupPolicy:** Modify single security group policy.
+- **CreateSecurityGroupPolicy:** Create a security group.
 - **DeleteSecurityGroupPolicy:** Delete a security group policy.
-- **ModifySecurityGroupAttributes:** Modify the attributes of a security group.
+- **ModifySecurityGroupAttributes:** Modify the attributes of security group.
 
 The following policy allows users to create and delete security groups in the CVM console.
 ```
@@ -198,12 +198,12 @@ The following policy allows users to create, delete and modify security group po
 
 To allow a user to view and use EIPs in the CVM console, add the following operations to your policy and associate the policy to the user.
 
-- **AllocateAddresses:** Assign an EIP to VPC or CVM.
-- **AssociateAddress:** Associate an EIP to an instance or a network interface.
-- **DescribeAddresses:** View EIPs in the CVM console.
+- **AllocateAddresses:** Assign address to VPC or CVM.
+- **AssociateAddress :** Associate an EIP to an instance or a network interface.
+- **DescribeAddresses:** View the EIPs in the CVM console.
 - **DisassociateAddress:** Disassociate an EIP from an instance or a network interface.
-- **ModifyAddressAttribute:** Modify the attributes of an EIP.
-- **ReleaseAddresses:** Release EIPs.
+- **ModifyAddressAttribute:** Modify the attributes of EIP.
+- **ReleaseAddresses:** Terminate the EIP.
 
 The following policy allows users to view EIPs and associate EIPs with instances. Users cannot modify the attributes of EIPs, disassociate EIPs from instances, or release EIPs.
 ```

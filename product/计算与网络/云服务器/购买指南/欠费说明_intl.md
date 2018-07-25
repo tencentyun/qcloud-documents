@@ -1,46 +1,42 @@
+## Prepaid CVMs
+### Expiration alert
+You will receive an expiration alert message 7 days before the expiration of prepaid cloud resources. The alert message will be sent to Tencent Cloud account creator, global resource collaborators and financial collaborators via email and SMS.
 
+### Arrears alert
+You will receive an arrears alert on and after the day your prepaid CVM expires. The alert message will be sent to Tencent Cloud account creator and all the collaborators via email and SMS.
 
-## 1.	Expiration reminder for postpaid CVMs
- 
-![ ](//mc.qcloudimg.com/static/img/3a50706a27bfc92a2a52d524e04beca9/image.png)
- 
-### 1.1. Balance warning
-The system will estimate the period you balance can last every day based on your consumption of the pay-per-use resources under your account and your balance. If the period is less than 5 days, we will push a balance warning message to you. The warning message will be sent by Email and SMS to the Tencent Cloud account creator and all collaborators.
+### Reclaiming mechanism
+- You will receive a renewal notice 7 days before the expiration of cloud resources. 
+- If your account balance is sufficient, the device configured with auto renewal is automatically renewed on the expiry date.
+- If your CVM hasn't been renewed before the expiry date (including), the system will end its service (network outage and service shutdown with data saved only) from the expiry date. The CVM is removed into the recycle bin.
+After being put into the recycle bin, the CVM will be **forced to terminate** the mounting relationship with EIPs, elastic cloud disks, secondary ENIs, and Classiclink. The mounting relationship **cannot be recovered** after renewal, and you have to reset it.
+- You can renew and recover the instance in the recycle bin within 7 days after the expiration. Note: **The renewal period of the renewed and recovered instance starts on the expiry date of the previous period.**
+- If your CVM instance has not been renewed within 7 days (including the 7th day) upon its expiration, its resources will be released at 00:00 on the 8th day. **All the data of the expired instance is cleared and cannot be recovered**.
 
-### 1.2. Arrears warning
-For pay-per-use resources, fees are deducted every hour on the hour. When your balance becomes negative (point 1 in the figure above), we will notify Tencent Cloud account creators and all collaborators by Email and SMS.
+## Postpaid CVMs
+### Arrears alert
+For postpaid resources, fees are deducted on the hour. When your account balance is negative, we will notify Tencent Cloud account creator, global resource collaborators and financial collaborators via email and SMS.
 
-### 1.3. Arrears processing
-Within **2** hours from the point when your balance becomes negative, your CVM remains usable and continues to deduct fees.
+### Arrears processing
+The CVM can still be used and billed **within 2 hours** after your account balance becomes negative.
+After 2 hours, the CVM will be automatically shut down and the billing will be stopped.
+**After automatic shutdown:**
+- Within 24 hours, when the balance is topped up to an amount greater than 0, you can start up the CVM and the billing will continue.
+- Within 24 hours, if your account balance is not topped up to an amount greater than 0, you cannot start up the CVM.
+- If your balance has been negative for 24 hours, the postpaid CVM will be reclaimed, and all data will be cleared and cannot be recovered.
+When reclaiming the CVM, we will notify the Tencent Cloud account creator and all the collaborators via email and SMS.
 
-2 hours (point 2 in the above figure) later, your CVM will automatically shut down and stop deducting fees.
+> **Notes:** 
+>- When you do not use a postpaid resource any longer, **please terminate it as soon as possible** to avoid further fee deduction.
+>- After the CVM is terminated or reclaimed, the data will be cleared and cannot be recovered.
+>- Since your actual resource consumption may change from time to time, some deviation in the balance alert may exist.
 
-Within 24 hours after automatic shutdown, if your balance is not greater than 0, your CVM cannot start; if your balance is greater than 0, billing continues and your CVM can start.
+## Network Billed by Traffic
+### Balance alert
+Network traffic consumption may fluctuate significantly and is hard to predict. Therefore, balance alert is not supported.
 
-After automatic shutdown, if your negative balance lasts for 24 hours (point 3 in the figure), the postpaid CVM will be reclaimed, and all data will be cleared and cannot be recovered.
+### Arrears alert
+The network billed by traffic can still be used and billed **within 2 hours** after your balance becomes negative. After 2 hours, the network service billed by traffic will be shut down.
 
-When reclaiming the CVM, we will notify the Tencent Cloud account creator and all collaborators by Email and SMS.
-
-> Note: 
-> 
-- When you do not use prepaid resources any longer, **please terminate them promptly** to stop it from charging.
-- After a CVM is terminated/reclaimed, its data will be cleared and cannot be recovered.
-- When a CVM is isolated (in arrears for more than two hours), its mounting relationship with the Cloud Load Balance will be removed forcedly.
-- Your actual resource consumption may constantly change, so balance warning may have some error.
-
-
-## 2.	Expiration reminder for pay-by-traffic network
- 
- 
-### 2.1. Balance warning
-Traffic consumption is highly fluctuated and is very difficult to forecast; therefore, we do not provide balance warning.
-
-### 2.2. Arrears warning
-For pay-by-traffic network, fees are deducted every hour on the hour. When your balance becomes negative, we will notify Tencent Cloud account creators and all collaborators by Email and SMS.
-
-### 2.3. Arrears processing
-Within **2** hours from the point when your balance becomes negative, your pay-by-traffic network remains usable and continues to deduct fees. 2 hours later, your pay-by-traffic network will be out of service.
-
-
-When your balance becomes positive, the traffic service will be recovered. Check the network settings and restore mounting of load balance on the CVM.
+After the balance is topped up to an amount greater than 0, the service is resumed. Please check the network settings and resume the binding of the affected CVM and load balancers.
 
