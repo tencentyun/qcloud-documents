@@ -84,8 +84,6 @@ pod 'TACAuthorizationWechat'
             <dict>
                 <key>appId</key>
                 <string>请填充您的 AppId</string>
-                <key>appKey</key>
-                <string>请填充您的 APPKey</string>
                 <key>permissions</key>
                 <array>
                     <string>get_user_info</string>
@@ -114,12 +112,18 @@ pod 'TACAuthorizationWechat'
             <dict>
                 <key>appId</key>
                 <string>wx256642f480c15e3e</string>
+                
+    <!--  注意，appKey 存放在本地，随 APP 一起发布出去是危险的行为，存在着极大的泄露风险。调试时可以讲 appKey 写在配置文件中，但在生产环境里，需要从您的服务端去获取 appKey。  -->
+                <key>appKey</key>
+                <string>请填充您的 APPKey</string>
             </dict>
         </dict>
     </dict>
 </dict>
 </plist>
 ~~~
+
+>> 注意，appKey 存放在本地，随 APP 一起发布出去是危险的行为，存在着极大的泄露风险。调试时可以讲 appKey 写在配置文件中，但在生产环境里，需要从您的服务端去获取 appKey。
 
 
 ### 配置程序需要脚本
