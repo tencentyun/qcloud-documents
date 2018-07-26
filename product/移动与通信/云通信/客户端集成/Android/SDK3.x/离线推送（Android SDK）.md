@@ -1059,7 +1059,7 @@ dependencies {
 }
 ```
 
-> 注：如果你需要使用 JAR，请参考 [Eclipse 接入方式](https://comsince.github.io/2017/02/21/mzpushsdk-eclipse/)。
+> 注：如果您需要使用 JAR，请参考 [Eclipse 接入方式](https://comsince.github.io/2017/02/21/mzpushsdk-eclipse/)。
 
 ### 兼容 flyme5 以下版本推送兼容配置
 
@@ -1078,9 +1078,9 @@ dependencies {
     
   <!--  兼容 flyme3.0 配置权限-->
   <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
-  <permission android:name="你的包名.permission.C2D_MESSAGE"
+  <permission android:name="您的包名.permission.C2D_MESSAGE"
                     android:protectionLevel="signature"></permission>
-  <uses-permission android:name="你的包名.permission.C2D_MESSAGE"/>
+  <uses-permission android:name="您的包名.permission.C2D_MESSAGE"/>
 ```
 
 ### 自定义 BroadcastReceiver 类
