@@ -1,9 +1,9 @@
 If you have not activated the Tencent Cloud LVB service, click here to [apply for the service](https://console.cloud.tencent.com/live).
-![](//mc.qcloudimg.com/static/img/2176e9772545f1ea134627abce9adf99/image.png)
+![](https://main.qcloudimg.com/raw/49924e950bf97743789efcf1d881b1cf.png)
 
 ### Generate push URL
 If the push URL is not ready yet, log in to Tencent Cloud [LVB Console](https://console.cloud.tencent.com/live), select **Access Management** -> **LVB Code Access (Recommended)** -> **Push Generator** to generate a push URL and three playback URLs. The URL with a domain name of livepush.myqcloud.com is the push URL:
-![](//mc.qcloudimg.com/static/img/0f6ef47809b0d98ff0beb3c6fb4bfbaa/image.png)
+![](https://main.qcloudimg.com/raw/3ca98ea018817419a67d954bfc1d2897.png)
 
 ### Select the network for LVB
 #### Network options

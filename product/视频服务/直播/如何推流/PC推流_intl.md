@@ -1,6 +1,6 @@
 ## PC LVB Overview
 
-![](//mc.qcloudimg.com/static/img/f47bf4ef0fcb96bdccf6f302b274afce/image.png)
+![](https://main.qcloudimg.com/raw/4ed8b74a5f1dd5e36ff2b70c82adb25a.png)
 
 Tencent Cloud PC LVB is used to push compressed and encoded images (such as **live events**, **teaching**, **projection** or **games**) to the **push URL** of Tencent **Video Cloud** by using push software (**OBS (recommended)** or **XSplit**) installed on PCs (**windows/mac**). Meanwhile, viewers can see **real-time images** using the playback URL corresponding to the push URL.
 
@@ -11,19 +11,19 @@ You can implement PC LVB easily by following the steps below:
 - **What is pushed**: Set audio/video sources for push and encoding parameters in the third-party push software.
 - Viewer can watch LVB using our RTMP DEMO to set playback URL. This helps **push the content to the viewers**.
 
-![](//mc.qcloudimg.com/static/img/617e7cc6ae3313a2456e2672535e4097/image.png)
+![](https://main.qcloudimg.com/raw/fece166faaa92f7e907b64581cff220c.png)
 
 
 ## 1. Before LVB
 - Activate cloud LVB service on Tencent Cloud.
 If you have not activated the Tencent Cloud LVB service, click here to [apply for the service](https://console.cloud.tencent.com/live).
-![](//mc.qcloudimg.com/static/img/f45715687e787ee9a8e18154d1e13b92/image.png)
+![](https://main.qcloudimg.com/raw/2ff750be6832f364645a7ac8ee736f5b.png)
 
 ### 1.2 Generate push URL
 If you don't have a **push URL**, you can generate a **push URL** and 3 playback URLs by clicking [**Access Management** -> **LVB Code Access** -> **Access Configuration**](https://console.cloud.tencent.com/live).
 
 The one whose domain name is **livepush.myqcloud.com** is the push URL:
-![](//mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png)
+![](https://main.qcloudimg.com/raw/049318c003544a79d45ad51281041252.png)
 
 ### 1.3 Select the network for LVB
 - **Network selection**

@@ -48,7 +48,8 @@ Demo小程序会访问如下表格中的测试服务器地址，这些服务器�
 
 | 域名 | 说明 | 
 |:-------:|---------|
-|`https://yun.tim.qcloud.com` | WebRTC音视频鉴权服务域名 | 
+|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名[1] | 
+|`https://yun.tim.qcloud.com` | WebRTC音视频鉴权服务域名[2] | 
 |`https://room.qcloud.com`| RoomService域名 | 
 |`https://webim.tim.qq.com` | IM域名 | 
 

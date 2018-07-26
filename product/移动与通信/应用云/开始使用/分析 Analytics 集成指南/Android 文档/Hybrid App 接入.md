@@ -77,6 +77,27 @@ webView.setWebViewClient(new WebViewClient() {
 });
 
 ```
+## iOS 侧接入
+### 准备工作
+
+Hybrid 统计是在原生统计基础上进行的，在开始之前，请确保已按照 [MTA iOS 快速入门](https://cloud.tencent.com/document/product/666/14315) 接入我们原生统计 SDK。
+
+
+### 设置监控 UIWebView
+
+```
+//给指定的webView引入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中
+[TACAnalyticsService catchExceptionForUIWebView:_webView];
+ _webView.delegate = self;
+```
+
+### 设置监控 WKWebView
+
+```
+//给指定的wkWebView加入Hybrid的功能，请保证该行代码在设置代理之前调用，方能保证相关逻辑被注入到代理中
+[TACAnalyticsService catchExceptionForWKWebView:_wkWebView];
+_wkWebView.navigationDelegate = self;
+```
 
 ## JavaScript SDK 使用说明
 

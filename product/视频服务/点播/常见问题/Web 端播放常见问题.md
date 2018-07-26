@@ -32,7 +32,7 @@
 **问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的 corssdomain.xml 文件。
 >**corssdomain.xml 的作用简介**
 
-> * 位于 `www.a.com` 域中的SWF文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.a.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
+> * 位于 `www.a.com` 域中的SWF文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
 > * 这里要区分 SWF 文件的域名和嵌入 SWF 文件的页面域名，crossdomain.xml 中配置的是 SWF 文件的域名。
 
 在 PC 端的现代浏览器使用 HTML5 播放 hls、flv 时，视频服务器需要配置跨域资源共享 [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)。

@@ -10,7 +10,7 @@
 
 - 您可以选择是否打包 licence 到应用中：如果不选择打包，SDK 第一次使用需要访问网络；如果选择打包，把 TXUgcSDK.licence（名称要正确）拷贝到 App 中即可。
 - 当您的 licence 过期了，可以登录腾讯云点播控制台进行续费，SDK 会自动续期，不需要您的应用做任何操作。
-- 如果您的 licence 校验失败，您可以调用下面代码来查看 licence 信息是否填写错误。
+- 如果您的 licence 校验失败，您可以调用下面代码查看 licence 信息是否填写错误。
 
 ```objc
 NSLog(@"%@", [TXUGCBase getLicenceInfo]);

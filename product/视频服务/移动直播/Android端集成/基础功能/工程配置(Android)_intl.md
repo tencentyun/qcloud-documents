@@ -1,39 +1,126 @@
-﻿## Download SDK
-You can download the [LVB SDK](https://cloud.tencent.com/document/product/454/7873) for mobile devices from Tencent Cloud's official website. Decompress the downloaded file to acquire the libs directory, which mainly includes "so" and "jar" files. Files are listed below:
+## 1. SDK Information
 
-| File | Description |
+You can update the [Mini LVB SDK](https://cloud.tencent.com/document/product/454/7873) on Tencent Cloud's official website, which has the following versions:
+
+| Version | Feature |
+| ------ | ---------------------------- |
+| LVB simplified version | Supports push, LVB, and VOD |
+| Independent player version | Supports LVB and VOD |
+| Short video feature version | Supports short video and VOD |
+| Full-featured professional version | Supports push, LVB, VOD, joint broadcasting, and short video |
+| Commercial enterprise version | Motion effect sticker, eyes beautifying and face slimming, and green screen keying-out features are added on the basis of full-featured professional version |
+
+In professional version, for example, the decompressed SDK is composed as follows:
+
+![](//mc.qcloudimg.com/static/img/1244d459b1719650ee80b7b1ab9e0be1/image.png)
+
+
+| File Name | Description | 
 |---------|---------|
-| txrtmpsdk.jar | SDK Java layer encapsulation |
-| libtxrtmpsdk.so | SDK core components |
+|  LiteAVSDK_Professional_3.0.1185.aar  | The SDK wrapped as aar, suitable for Android Studio users | 
+|  LiteAVSDK_Professional_3.0.1185.zip  | The SDK wrapped as jar + so, suitable for Eclipse users. If fully wrapping the SDK into APK may increase the size of the installation package, you can upload the so files in the zip package to the server, and download them as needed to decrease the size of APK. For more information, please see [How to decrease the size of APK?](#online_so) |
+| Demo | The simplified demo based on aar, including a simple demonstration of UI and main SDK features. Use Android Studio to quickly import the demo and try it out. |
+| API document | Click the index.html file in the folder to view all API descriptions of this SDK |
 
-## Supported Platform
-- Android 4.0 (API 14) systems and above
+## 2. System Requirement
 
-## Development Environment
-The SDK development environment is described below. The App development environment does not need to be consistent with that of SDK, but they must be compatible:
-- Android NDK:  android-ndk-r10e
-- Android SDK Tools:  android-sdk_r21.1.2
- - minSdkVersion:  14
- - targetSdkVersion:  21
-- Android Studio (while Android Studio is recommended, you can also choose to use Eclipse + ADT)
+SDK is supported on Android 4.0.3 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
 
-## Android Studio Environment Configuration
+## 3. Development Environment
 
-### 1. Create Android Project
-![](//mccdn.qcloud.com/static/img/ac2efe1a787a8c23a9250214a84fce44/image.jpg)
+The development environment of App does not need to be consistent with that of SDK, but they must be compatible. SDK development environment is described as below:
 
-### 2. Copy Files
-If your project doesn't have a previously specified jni loading path, we recommend that you put the files under the /src/main/jniLibs directory, which is the default jni loading directory of Android studio.**  If you have specified the jni loading path (through gradle syntax: the sourceSets syntax or android.sources syntax), please copy the SDK related files mentioned above to this directory.**
-![](//mccdn.qcloud.com/static/img/a776560bd0c3c156c7271dedd58cb9ac/image.png)
+- Android NDK: android-ndk-r12b
+- Android SDK Tools: android-sdk_25.0.2
+  - minSdkVersion: 15
+  - targetSdkVersion: 21
+- Android Studio (Android Studio is recommended. You can also use Eclipse+ADT)
 
-### 3. Import jar Package
-Find the newly created jniLibs directory in the Android Studio project. Expand the directory, and you will see txrtmpsdk.jar. Right-click on it and select "Add As Library..."
-![](//mccdn.qcloud.com/static/img/86d98492636122ed9cae898b7bff1920/image.png)
-Once the package is imported, you will find that the following line of script is generated automatically in build.gradle:
-![](//mccdn.qcloud.com/static/img/c83f9882d434f7fd51d4ca942f159138/image.png)
-		
-### 4. Configure APP Permissions
-Configure App permissions in AndroidManifest.xml. Generally, audio and video Apps require the following permissions:
+## 4 Integration Guide (aar)
+
+### 4.1 New project
+![](//mc.qcloudimg.com/static/img/ac2efe1a787a8c23a9250214a84fce44/image.jpg)
+
+### 4.2 Copy files
+
+Put the aar package under the libs directory of the project.
+
+### 4.3 Project configuration
+- Add the code that references aar package to build.gradle under the app directory of the project:
+```
+dependencies {
+      compile fileTree(dir: 'libs', include: ['*.jar'])
+      //Import Tencent Cloud LVB SDK aar
+      compile(name: 'LiteAVSDK_Professional_3.0.1185', ext: 'aar')
+  }
+```
+
+- Add flatDir to build.gradle under the project directory, and specify the local repository:
+```
+allprojects {
+      repositories {
+          jcenter()
+          flatDir {
+              dirs 'libs'
+          }
+      }
+  }
+```
+
+- Specify ndk-compatible architecture in defaultConfig of build.gradle under the project directory:
+```
+   defaultConfig {
+        applicationId "com.tencent.liteav.demo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "2.0"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+            //For commercial SDK, only armeabi architecture is applicable:
+            // abiFilters "armeabi",
+        }
+    }
+```
+
+- Compile Rebuild Project.
+
+## 5. Integration Guide (jar)
+
+### 5.1 Library description
+
+Decompress LiteAVSDK_Professional_3.0.1185.zip to get the libs directory, which contains a jar file and so files, as shown below:
+
+| SO File | Description |
+| ---------------------------- | ----------------------- |
+| liteavsdk.jar                 | Mini LVB SDK Android core library |
+| libliteavsdk.so               | Mini LVB SDK core component |
+| libsaturn.so                 | Mini LVB SDK core component |
+| libtraeimp-rtmp-armeabi.so   |  Acoustic component library used in joint broadcasting |
+| libstlport_shared.so          | C++ stl basic library (do not replace this library, otherwise a crash may occur due to version incompatibility) |
+| libijkffmpeg.so              |  ffmpeg basic library (ijk version) for VOD playback, used to solve compatibility issues about special video formats |
+| libijkplayer.so               | ijkplayer open source library for VOD playback, used to solve compatibility issues about special video formats |
+| libijksdl.so                 | ijkplayer open source library for VOD playback, used to solve compatibility issues about special video formats |
+
+### 5.2 Copy files
+
+If no jni loading path is previously specified in your project, we recommend that you put the jar package and so libraries under the /src/main/jniLibs directory, which is the default jni loading directory of Android Studio.
+
+### 5.3 Project configuration
+
+Add the code that references jar package and so libraries to build.gradle under the app directory of the project:
+
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //Import Tencent Cloud LVB SDK jar
+    compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
+}
+```
+## 6. Configure App Permissions
+
+Configure App permissions in AndroidManifest.xml. Generally, video Apps require the following permissions:
 
 ```
 <uses-permission android:name="android.permission.INTERNET" />
@@ -49,55 +136,100 @@ Configure App permissions in AndroidManifest.xml. Generally, audio and video App
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
-### 5. Verify
-Call the SDK API in the project to acquire SDK version information and verify if the project settings are correct.
+## 7. Verify
 
-**1. Reference the SDK**
+Call the SDK API in the project to get SDK version information and verify whether the project is correctly configured.
+
+### 7.1 Reference SDK
+
 Reference the class of SDK in MainActivity.java:
 
 ```
-import com.tencent.rtmp.TXLivePusher;
+import com.tencent.rtmp.TXLiveBase;
 ```
 
-**2. Call the getSDKVersion API in onCreate to acquire version number:**
+### 7.2 Call API
 
+Call the API getSDKVersioin in onCreate to get the version number:
 ```
-int[] sdkver = TXLivePusher.getSDKVersion();
-if (sdkver != null && sdkver.length >= 3) {
-    Log.d("rtmpsdk","rtmp sdk version is:" + sdkver[0] + "." + sdkver[1] + "." + sdkver[2]);
-}
-```
-
-**3. Compile/Run**
-The demo project can be compiled successfully if all of the above steps are correctly performed. If you run the project, you will see the following log information in logcat:
-
-```
-07-13 20:25:05.099 26119-26119/? D/rtmpsdk: rtmp sdk version is:1.5.188
+String sdkver = TXLiveBase.getSDKVersionStr();
+Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 ```
 
-### 6. Troubleshoot
-If the following errors occur when you compile/run the project after importing the SDK into it:
+### 7.3 Compile and run the project
+The demo project can be compiled successfully if all of the above steps are correctly performed. Run the project and you can find the following log information in logcat:
+`08-10 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.0.1185`
+
+<a name="online_so">&nbsp;</a>
+## 8. Reduce APK Size
+
+The so files are the audio/video coding and encoding library, image processing library and acoustic component that SDK relies on. They take up much of the resources in SDK. If Mini LVB SDK is not the core feature of your App, you can upload so files online to reduce the size of APK package.
+
+### 8.1 Upload SO files
+Upload the so files in SDK package to CDN and record the download URL, such as `http://xxx.com/so_files.zip`.
+
+### 8.2 Preparation
+Before playing videos or using other SDK features, you are prompted with a loading animation indicating "Loading relevant features".
+
+### 8.3 Download SO files
+During loading process, App downloads so files from `http://xxx.com/so_files.zip` and save them in the application directory, such as the files directory under App's root directory. To ensure that this process is not affected by ISP's DNS blocking, check the integrity of the so files after downloading.
+
+### 8.4 Load SO files
+When all so files are ready, call setLibraryPath of TXLiveBase to set the destination paths of downloaded files for SDK and call relevant SDK features. SDK will then load required so files in these paths and enable related features.
+
+
+## 9. Print LOG
+
+The code used to configure whether to print log from the console and set the log level in TXLiveBase is described as follows:
+- **setConsoleEnabled**
+Configures whether to print the output of SDK from the Android Studio console.
+
+- **setLogLevel**
+Configures whether to allow SDK to print local log. By default, SDK writes log to the **log/tencent/liteav** folder on sdcard.
+To get technical support, you are recommended to enable printing and provide the log file when a problem occurs. Thank you for your support.
+
+- **View log file**
+To reduce the storage size of logs, Mini LVB SDK encrypts local log files and limits the number of logs. Therefore, the log [decompression tool](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py) is required to view the text content of logs.
+
+
+```
+TXLiveBase.setConsoleEnabled(true);
+TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
+```
+
+## Troubleshooting
+
+If the following error occurs when you compile/run the project after importing the SDK into it:
 
 ```
 Caused by: android.view.InflateException: 
 Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 ```
 
-Find the problem by following the steps below
-**1**. Check if you have placed the "jar" package and "so" library into the jnilib directory.
-**2**.  If you're using the full version, check if the x64 "so" library has been filtered out. This is because the joint broadcasting feature in full version does not support mobile phones with x64 architecture at the moment.
-```
-    buildTypes {
-        release {
-            minifyEnabled  false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+Find the problem by following the steps below:
 
-            ndk {
-                // filter out armeabi-x64 library
-                abiFilters "armeabi", "armeabi-v7a"
-            }
-        }
-    }
+- Check whether you have placed the jar package and so libraries into the jniLibs directory.
+
+- If you are using the full version of aar integration mode, check whether the x64 "so" libraries have been filtered out in defaultConfig of build.gradle under the project directory. This is because the acoustic component library used for joint broadcasting in the full version is not supported in mobile phones with x64 architecture.
 ```
-**3**.  Look at the proguard rules and check if you have obfuscated RTMP SDK related classes too.
+ defaultConfig {
+        applicationId "com.tencent.liteav.demo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "2.0"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
+  }
+```
+
+- Check the proguard rules to confirm that the SDK-related package names have been added to the non-proguard list.
+```
+-keep class com.tencent.** { *; }
+```
+
+
+
 
