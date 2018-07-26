@@ -1,8 +1,7 @@
 For a successful COS XML JAVA SDK operation, a specific type for each API is returned. For a failed operation, an exception (CosClientException and CosServiceException) is reported. CosClientException refers to client exceptions, such as network exceptions and request sending failure. CosServiceException contains the reasons why the client request is identified as a failure by the server. For example, you do not have such permission, or the file you want to access does not exist. For more information, please see Exception Types.
 The following describes how to use each API in the SDK. For the sake of brevity, subsequent examples only illustrate how to use the API rather than how to capture exceptions.
 
-```
-java
+```java
 try {
    // The bucket name entered must be in a format of {name}-{appid}.
    String bucketName = "movie-1251668577";
@@ -1594,10 +1593,17 @@ CosServiceException service exception refers to scenarios in which interaction i
 
 ## FAQ
 
-1. Q: Why does java.lang.NoSuchMethodError appear when I run the SDK?
-A: A JAR packet conflict may occur. For example, the JAR package for http in the user's project does not have method A, but the SDK-dependent JAR package has method A. The loading order goes wrong. The http library in the user project is loaded. When the SDK is running, the NoSuchMethodError exception is thrown. Solution: Change the version of the package that causes NoSuchMethodError in the contained project to the version of the corresponding library in the pom.xml in the SDK.
-1. Q: Upload using SDK is very slow. Logs frequently display IOException. Causes and solutions: 1. Check whether you were accessing COS over the public network. For COS access in the same region, it is recommended to use the private network. (IP address range 10,100,169 is resolved from the private network domain name.For more information on COS domains, please see [Available Regions for COS](https://cloud.tencent.com/document/product/436/6224)). If the public network is used, check whether the outbound bandwidth is small or whether other programs occupy bandwidth resources. 2. Ensure that the log level in the production environment is not debug. INFO log is recommended. For information on log configuration of log4j, please see [log4j log configuration template](https://github.com/tencentyun/cos-java-sdk-v5/blob/master/src/main/resources/log4j.properties). 3. The speed of simple upload can reach 10 MB. When you use an advanced API and  32 concurrency level, the speed can reach 60 MB. If your speed is far less than these two value. Refer to 1 and 2. 4. If warn log displays IOException, ignore it. The SDK will retry. If it fails after multiple attempts of retries, the log displays IOException, which may be caused by too slow speed. For the cause, please see 1 and 2.
-2. Q: How do I create a directory using the SDK? A: Files and directories in COS are objects, and directories are objects ending with "/". When you create a file, you do not need to create a directory. For example, if you create a file with an object key of xxx/yyy/zzz.txt, just set the key to xxx/yyy/zzz.txt instead of creating an xxx/yyy/ object. Separate directories with "/" to display the hierarchy on the console. However, these directory objects may not exist. If you want to create a directory object, use the following sample code.
+1. Why does java.lang.NoSuchMethodError appear when I run the SDK?
+A JAR packet conflict may occur. For example, the JAR package for http in the user's project does not have method A, but the SDK-dependent JAR package has method A. The loading order goes wrong. The http library in the user project is loaded. When the SDK is running, the NoSuchMethodError exception is thrown. Solution: Change the version of the package that causes NoSuchMethodError in the contained project to the version of the corresponding library in the pom.xml in the SDK.
+2. Upload using SDK is very slow,Logs frequently display IOException？
+Causes and solutions: 
+ a. Check whether you were accessing COS over the public network. For COS access in the same region, it is recommended to use the private network. (IP address range 10,100,169 is resolved from the private network domain name.For more information on COS domains, please see [Available Regions for COS](https://cloud.tencent.com/document/product/436/6224)). If the public network is used, check whether the outbound bandwidth is small or whether other programs occupy bandwidth resources. 
+ b. Ensure that the log level in the production environment is not debug. INFO log is recommended. For information on log configuration of log4j, please see [log4j log configuration template](https://github.com/tencentyun/cos-java-sdk-v5/blob/master/src/main/resources/log4j.properties). 
+ c. The speed of simple upload can reach 10 MB. When you use an advanced API and  32 concurrency level, the speed can reach 60 MB. If your speed is far less than these two value. Refer to a and b. 
+ d. If warn log displays IOException, ignore it. The SDK will retry. If it fails after multiple attempts of retries, the log displays IOException, which may be caused by too slow speed. For the cause, please see a and b.
+3. How do I create a directory using the SDK? 
+Files and directories in COS are objects, and directories are objects ending with "/". When you create a file, you do not need to create a directory. For example, if you create a file with an object key of xxx/yyy/zzz.txt, just set the key to xxx/yyy/zzz.txt instead of creating an xxx/yyy/ object. Separate directories with "/" to display the hierarchy on the console. However, these directory objects may not exist. If you want to create a directory object, use the following sample code.
+
 ```java
 String bucketName = "mybucket-125166000";=
 String key = "xxx/yyy/";
@@ -1607,7 +1613,7 @@ ObjectMetadata objectMetadata = new ObjectMetadata();
 objectMetadata.setContentLength(0);
 
 PutObjectRequest putObjectRequest =
-		new PutObjectRequest(bucketName, key, input, objectMetadata);
+new PutObjectRequest(bucketName, key, input, objectMetadata);
 PutObjectResult putObjectResult = cosclient.putObject(putObjectRequest);
 ```
 
