@@ -99,8 +99,8 @@ TACCrashService.share().setUserValue("内容", forKey:"key")
 
 
 ### 请求微信登录
-> 请确保您集成并安装了 TACAuthorizationWechat 模块
->> 这里需要用到微信应用的 appKey 信息。将appkey打包在程序中是个非常非常非常危险的操作，只建议您在测试阶段使用！！如果上线后，请部署自己的后端服务，通过后端服务的方式来获取相关的权限信息。
+> 请确保您集成并安装了 TACAuthorizationWechat 模块    
+> 这里需要用到微信应用的 appKey 信息。将appkey打包在程序中是个非常非常非常危险的操作，只建议您在测试阶段使用！！如果上线后，请部署自己的后端服务，通过后端服务的方式来获取相关的权限信息。
 首先，您需要引入头文件：
 
 Objective-C 代码示例：
