@@ -79,7 +79,25 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
     }];
 }
 ```
+## 监听用户状态
+用户在登录后，有可能被强制下线的(帐号重复登录被踢，userSig 过期 )，所以当应用需要监听这两个状态时可进行如下步骤实现：
 
+设置监听对象调用方法：
+```objc
+[[ILiveSDK getInstance] setUserStatusListener:self];
+```
+监听对象遵守TIMUserStatusListener协议，并实现以下方法：
+```objc
+/**
+ *  踢下线通知
+ */
+- (void)onForceOffline;
+
+/**
+ *  用户登录的userSig过期（用户需要重新获取userSig后登录）
+ */
+- (void)onUserSigExpired;
+```
 >**注意：**
 >示例程序中用 storyboard 搭建了一个简单界面，实际应用中客户需根据自己的业务逻辑，将登录代码放置与合适的位置。
 > 且以上仅为示例代码，实际过程中（客户采用独立帐号模式），登录流程应为：
