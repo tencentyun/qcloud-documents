@@ -26,14 +26,15 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
 
 <h2 id="iOS"> iOS SDK (4.7.4395) </h2>
 
+
 <table style="text-align:center;vertical-align:middle;">
   <tr>
     <th width="115px">Functional Features</th>
     <th width="150px">LVB Simplified Version</th>
     <th width="150px">Independent Player Version</th>
     <th width="150px">Short Video Functional Version</th>
-    <th width="150px">Full-featured Professional Version<th width="150px">
-    <th width="150px">Commercial Enterprise Version<th width="150px">
+    <th width="150px">Full-featured Professional Version</th width="150px">
+    <th width="150px">Commercial Enterprise Version</th width="150px">
   </tr>
   <tr>
     <td>RTMP Push</td>
@@ -44,7 +45,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>LVB Playback<td>
+    <td>LVB Playback</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
@@ -60,7 +61,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    </td>Basic Beauty Filter</td>
+    <td>Basic Beauty Filter</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -76,7 +77,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Recording<td>
+    <td>Video Recording</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -92,7 +93,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Stitching<td>
+    <td>Video Stitching</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -100,7 +101,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Publishing<td>
+    <td>Video Publishing</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -108,7 +109,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Motion Effect Sticker<td>
+    <td>Motion Effect Sticker</td>
     <td></td>
     <td></td>
     <td></td>
@@ -180,8 +181,8 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <th width="150px">LVB Simplified Version</th>
     <th width="150px">Independent Player Version</th>
     <th width="150px">Short Video Functional Version</th>
-    <th width="150px">Full-featured Professional Version<th width="150px">
-    <th width="150px">Commercial Enterprise Version<th width="150px">
+    <th width="150px">Full-featured Professional Version</th width="150px">
+    <th width="150px">Commercial Enterprise Version</th width="150px">
   </tr>
   <tr>
     <td>RTMP Push</td>
@@ -192,7 +193,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>LVB Playback<td>
+    <td>LVB Playback</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
@@ -224,7 +225,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Recording<td>
+    <td>Video Recording</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -240,7 +241,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Stitching<td>
+    <td>Video Stitching</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -248,7 +249,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Video Publishing<td>
+    <td>Video Publishing</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -256,7 +257,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>Motion Effect Sticker<td>
+    <td>Motion Effect Sticker</td>
     <td></td>
     <td></td>
     <td></td>
@@ -302,7 +303,7 @@ The features displayed in [Demo](https://cloud.tencent.com/document/product/454/
     <th width="300px">C++(DLL)</th>
   </tr>
   <tr align="center">
-    <td>Push<td>
+    <td>Push</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>

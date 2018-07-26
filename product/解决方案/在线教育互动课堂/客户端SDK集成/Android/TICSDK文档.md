@@ -172,7 +172,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
 该方法需要传入 uid 和 userSig 两个参数，uid 为用户 ID；userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 >**注意：**
-> - 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试.
+> - 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试。
 >- 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
 > - 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
 > - 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
@@ -236,16 +236,16 @@ TICManager.getInstance().setCosConfig(cosConfig);
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack()
 ```
 
-**TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
+**TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的。 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
 其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 主要代码流程如下，详细代码可参见 Demo 源码：
 
 ```java
-// 1.进入课堂界面点击，
+// 1.进入课堂界面单击，
 public void onJoinClsssroomClick(View v){ ... }
 
-// 2.请求获取privatemapkey，一下代码为工程代码示例代码，无实际功能，具体开发者需要根据自身业务需要和实现构建参数；
+// 2.请求获取 privatemapkey，一下代码为工程代码示例代码，无实际功能，具体开发者需要根据自身业务需要和实现构建参数；
 PrivateMapKeyParams params = new PrivateMapKeyParams();
 params.setIdentifier(identifier);
 params.setPwd("xxxx");
@@ -377,14 +377,15 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
      */
     void onRecvGroupCustomMsg(String fromId, byte[] data);
     /**
-     * 所有消息回调，所有IM消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理以上四个回调即可；
-     * 如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听这个回调（其它四个回调不做处理），自己完成消息的遍历和解析即可。
+     * 所有消息回调，所有 IM 消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理以上 4 个回调即可；
+     * 如果需要收取和处理 IM 所有类型消息，如表情、图片等，则可以只监听这个回调（其它四个回调不做处理），自己完成消息的遍历和解析即可。
      * @param message
      */
     void onRecvMessage(TIMMessage message);
 ```
 
-> 温馨提示：所有消息回调，所有IM消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理前4个回调即可；如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听**onRecvMessage**这个回调（其它4个回调可以不做处理，因为回到到这4个接口的内容，也通过**onRecvMessage**回调了），自己完成消息的遍历和解析即可。
+> **注意：**
+> 所有消息回调，所有 IM 消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理前 4 个回调即可；如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听 **onRecvMessage** 这个回调（其它4个回调可以不做处理，因为回到到这 4 个接口的内容，也通过 **onRecvMessage** 回调了），自己完成消息的遍历和解析即可。
 
 ####  6. 音视频相关操作
 

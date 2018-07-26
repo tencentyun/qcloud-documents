@@ -32,7 +32,7 @@
 **问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的 corssdomain.xml 文件。
 >**corssdomain.xml 的作用简介**
 
-> * 位于 `www.a.com` 域中的SWF文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.a.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
+> * 位于 `www.a.com` 域中的SWF文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
 > * 这里要区分 SWF 文件的域名和嵌入 SWF 文件的页面域名，crossdomain.xml 中配置的是 SWF 文件的域名。
 
 在 PC 端的现代浏览器使用 HTML5 播放 hls、flv 时，视频服务器需要配置跨域资源共享 [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)。
@@ -57,10 +57,10 @@
 
 #### 浏览器不支持MSE
 **问题表现：**在 PC 浏览器不支持 Flash 的情况下使用 H5 方式无法播放 hls、flv。
-**解决方案：**不支持 Flash 的情况下，播放器将使用 MSE 播放 hls、flv，如浏览器不支持只能更换、升级浏览器，目前完整支持通过 MSE 播放 hls、hlv 的浏览器有 Edge、Chrome、Firefox、Safari11+。
+**解决方案：**不支持 Flash 的情况下，播放器将使用 MSE 播放 hls、flv，如浏览器不支持只能更换、升级浏览器，目前完整支持通过 MSE 播放 hls、flv 的浏览器有 Edge、Chrome、Firefox、Safari11+。
 
-#### 浏览器不支持解码 H264 或者不支持播放 MP4、HLS
-**问题表现：**排除其他情况后仍无法播放 MP4、HLS，通常出现在部分 PC 软件或者 APP 集成精简版本的浏览器内核中，没有对应的视频解码器，会出现无法播放 MP4、HLS 的情况。
+#### 浏览器不支持解码 H264 或者不支持播放 mp4、hls
+**问题表现：**排除其他情况后仍无法播放 mp4、hls，通常出现在部分 PC 软件或者 App 集成精简版本的浏览器内核中，没有对应的视频解码器，会出现无法播放 mp4、hls 的情况。
 **解决方案：**在 PC 软件或 App 中升级浏览器内核，或者集成 Flash 插件，并允许调用 Flash 插件。
 
 ### HLS 加密视频播放失败
@@ -133,8 +133,8 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 ### 默认全屏播放
 与问题“视频激活播放后强制全屏”相同，参考其解决方案。
 
-### 在 iOS Hybrid APP 的 WebView 中默认全屏播放
-**问题表现：**在 APP WebView 里播放视频默认全屏播放。
+### 在 iOS Hybrid App 的 WebView 中默认全屏播放
+**问题表现：**在 App WebView 里播放视频默认全屏播放。
 **解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频
 
 ### 在 iframe 里使用播放器不能全屏
@@ -162,8 +162,8 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 **问题表现：**设置了自动播放属性，视频没有自动播放。
 **解决方案：**在许多浏览器中，都禁止了多媒体文件自动播放，特别是移动端浏览器。部分浏览器允许静音视频或者无音轨视频自动播放，因此可以尝试将播放器设置为静音。对于静音也无法播放的浏览器，暂无解决办法。
 
-### 在 Hybrid APP 的 WebView 中自动播放失败
-**问题表现：**在 APP WebView 里自动播放失败。
+### 在 Hybrid App 的 WebView 中自动播放失败
+**问题表现：**在 App WebView 里自动播放失败。
 **解决方案：**需要设置 WebView 关于多媒体自动播放的属性。iOS：mediaPlaybackRequiresUserAction = NO。Android：webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
 
 ## 其他问题

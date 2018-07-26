@@ -34,9 +34,9 @@ The implementation of this request operation uses the common request header. For
 Name|Type|Required|Description
 ---|---|---|---
 X-cos-acl|string|No|Defines the ACL property of the Object. Valid values: private, public-read-write, public-read.
-X-cos-grant-read|string|No|Grant READ permission to the authorized persons. Format: `x-cos-grant-read: id=" ",id=" "`. For sub accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin> "`. For root accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"`<OwnerUin>"`
-X-cos-grant-write|string|No|Grant WRITE permission to the authorized persons. Format: `x-cos-grant-write: id=" ",id=" "`. For sub accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin> "`. For root accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"`<OwnerUin>"`
-X-cos-grant-full-control|string|No|Grant READ and WRITE permission to the authorized persons. Format: `x-cos-grant-full-control: id=" ",id=" "`. For sub accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<SubUin> "`. For root accounts, `id = "qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"`
+x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No 
+x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No 
+x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No 
 
 
 ### Request Body

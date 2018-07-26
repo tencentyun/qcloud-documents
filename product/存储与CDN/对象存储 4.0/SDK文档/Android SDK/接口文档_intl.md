@@ -4,11 +4,11 @@ In the SDK, if an API call fails to operate on a COS object, a CosXmlClientExcep
 
 ### CosXmlClientException
 
-Client exceptions refer to server interaction failures caused by unexpected client issues such as failure to connect to the server, failure to parse the data returned by the server, and the occurrence of IO exception when reading a local file. Inherited from RuntimeException, CosClientException has no custom member variables, and is used in the same way as RuntimeException.
+Client exceptions refer to server interaction failures caused by unexpected client issues such as failure to connect to the server, failure to parse the data returned by the server, and the occurrence of I/O exception when reading a local file. Inherited from Exception, CosXmlClientException has no custom member variables, and is used in the same way as Exception.
 
 ### CosXmlServiceException
 
-CosXmlServiceException refers to a successful interaction but a failed operation. For example, the client accesses a Bucket that does not exist, deletes a file that does not exist, does not have permission to perform an operation, or the server is faulty etc. CosXmlServiceException contains the status code, requestid, and error details returned by the server. After an exception is captured, it is recommended to print the entire exception, which contains the necessary troubleshooting factors. The following is a description of the exception components:
+CosXmlServiceException refers to scenarios in which interaction is completed but the operation failed. For example, the client accesses a bucket that does not exist, delete a file that does not exist, or does not have the permission to perform an operation, or the server failed. CosXmlServiceException contains the status code, requestid, and error details returned by the server. After an exception is captured, it is recommended to print the entire exception. The exception contains the necessary troubleshooting factors. Member variables of exception are described as follows:
 
 | request Member | Description | Type |
 | ------------ | ---------------------------------------- | --------- |
@@ -30,10 +30,10 @@ Call CosXmlServiceConfig.Builder().builder() to instantiate the CosXmlServiceCon
 | Parameter Name | Description | Type | Required | 
 | -------------- | -------------- | -- | ----------- |
 | appid           | COS service APPID String          | Yes |
-| region          | The region where the bucket is located String          | Yes | 
+| region          | The region where the bucket resides String          | Yes | 
 
 
-#### Other Configuration Methods
+#### Other configuration methods
 | Method | Description |
 |----------|-----------|
 |   setAppidAndRegion(String, String) |Sets the region to which the "appid" and the "bucket" belongs |
@@ -87,7 +87,7 @@ long keyDuration = 600; //Validity of SecretKey (in sec)
 ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
 
 //Create a CosXmlService object to implement the COS operations.
-Context context = getApplicationContext(); //Application context
+Context context = getApplicationContext(); //Context of the application
 CosXmlService cosXmlService = new CosXmlService(context,cosXmlServiceConfig, localCredentialProvider);
 
 ```
@@ -199,7 +199,7 @@ This API can be used to upload local files to the specified Bucket. The steps ar
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of PutObjectResult object.
 
 | Member Variable Name | Description | Type | 
@@ -268,7 +268,7 @@ serviceException)  {
 
 ## Multipart Upload (UploadServer is recommended)
 
-### Initializing Multipart Upload
+### Initializing multipart upload
 
 This API is used to initialize multipart upload. After the execution of this request, UploadId will be returned for the subsequent Upload Part requests. The steps are as follows:
 1. Call the `InitMultipartUploadRequest(String, String)` construction method to instantiate the InitMultipartUploadRequest object.
@@ -287,7 +287,7 @@ This API is used to initialize multipart upload. After the execution of this req
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of InitMultipartUploadResult object.
 
 | Member Variable Name | Description | Type |
@@ -348,7 +348,7 @@ serviceException)  {
 */
 ```
 
-### Multipart Upload
+### Multipart upload
 
 This API is used to implement multipart upload. The allowed number of parts is limited to 10,000, and the size of part should be between 1 MB and 5 GB. The steps are as follows:
 1. Call the `UploadPartRequest(String, String, int, String, String)` construction method to instantiate the UploadPartRequest object.
@@ -372,7 +372,7 @@ This API is used to implement multipart upload. The allowed number of parts is l
 | qCloudProgressListener   | Callback for upload progress | CosXmlProgressListener          | No | 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of UploadPartResult object.
 
 | Member Variable Name | Type | Description |
@@ -443,7 +443,7 @@ serviceException)  {
 */
 ```
 
-### Completing Multipart Upload
+### Completing multipart upload
 
 After all parts are uploaded, this API must be called to complete the entire multipart upload. The steps are as follows:
 1. Call the `CompleteMultiUploadRequest(String, String, String, Map<Integer, String>)` construction method to instantiate the CompleteMultiUploadRequest object.
@@ -464,7 +464,7 @@ After all parts are uploaded, this API must be called to complete the entire mul
 | cosXmlResultListener   | Callback for upload result | CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of CompleteMultiUploadResult object.
 
 | Member Variable Name | Description | Type |
@@ -527,7 +527,7 @@ serviceException)  {
 */
 ```
 
-### Listing Uploaded Parts
+### Listing uploaded parts
 
 This API is used to query the uploaded parts when uploading particular parts, which lists all the uploaded parts under a specified UploadId.
 1. Call the `ListPartsRequest(String, String, String)` construction method to instantiate the ListPartsRequest object.
@@ -545,7 +545,7 @@ This API is used to query the uploaded parts when uploading particular parts, wh
 | checkParameterListForSing   | Request parameters in signature for verification |Set&lt;String>           | No | 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of ListPartsResult object.
 
 | Member Variable Name | Description | Type | 
@@ -603,7 +603,7 @@ serviceException)  {
 */
 ```
 
-### Aborting and Deleting Uploaded Parts
+### Aborting and deleting uploaded parts
 This API is used to abort a multipart upload operation and delete parts that are already uploaded.
 1. Call the `AbortMultiUploadRequest(String, String, String)` construction method to instantiate the AbortMultiUploadRequest object.
 2. Call the abortMultiUpload method of CosXmlService, input AbortMultiUploadRequest, and get the returned AbortMultiUploadResult object.
@@ -622,7 +622,7 @@ This API is used to abort a multipart upload operation and delete parts that are
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of AbortMultiUploadResult object.
 
 | Member Variable Name | Description | Type | 
@@ -678,7 +678,7 @@ serviceException)  {
 
 ## Deleting Files
 
-### Deleting a Single File
+### Deleting a single file
 
 This API is used to delete a file in the specified bucket. The steps are as follows:
 1. Call the `DeleteObjectRequest(String, String)` construction method to instantiate the DeleteObjectRequest object.
@@ -696,7 +696,7 @@ This API is used to delete a file in the specified bucket. The steps are as foll
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteObjectResult object.
 
 | Member Variable Name | Description | Type | 
@@ -748,7 +748,7 @@ serviceException)  {
 */
 ```
 
-### Deleting Multiple Files
+### Deleting multiple files
 
 This API is used to delete files in a specified bucket in batches. A maximum of 1,000 files can be deleted for a single request. The steps are as follows:
 1. Call the DeleteMultiObjectRequest(String, List&lt;String>) construction method to instantiate the DeleteMultiObjectRequest object.
@@ -760,13 +760,13 @@ This API is used to delete files in a specified bucket in batches. A maximum of 
 | -------- | --------------- | -- | ----------- |
 | bucket    | Bucket name (bucket format of cos v5: xxx-appid, such as test-1253960454) |String           | Yes |
 | quiet   | true: Only information of the file that failed to be deleted is returned; false: Deletion result of each file is returned |Boolean           | Yes |
-| objectList   | The list of [object keys](https://cloud.tencent.com/document/product/436/13324)to be deleted |List&lt;String> | Yes |
+| objectList   | The list of [object keys](https://cloud.tencent.com/document/product/436/13324)to delete |List&lt;String> | Yes |
 | signDuration    |Validity of the signature (in sec)  | Long           | Yes | 
 | checkHeaderListForSign    | Request header in signature for verification |Set&lt;String>           | No | 
 | checkParameterListForSing   | Request parameters in signature for verification |Set&lt;String>           | No |
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteMultiObjectResult object.
 
 | Member Variable Name | Description | Type | 
@@ -844,7 +844,7 @@ This API is used to download a file in the specified bucket locally. The steps a
 | qCloudProgressListener   | Callback for download progress |CosXmlProgressListener          | No | 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of GetObjectResult object.
 
 | Member Variable Name | Description | Type |
@@ -930,7 +930,7 @@ This API is used to copy a file from the source path to the destination path. Th
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of CopyObjectResult object.
 
 | Member Variable Name | Description | Type |
@@ -1006,7 +1006,7 @@ This API is used to create a Bucket under the specified account. The steps are a
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of PutBucketResult object.
 
 | Member Variable Name | Description | Type |
@@ -1093,7 +1093,7 @@ This API is used to confirm the existence of the specified bucket. The steps are
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of PutBucketResult object.
 
 | Member Variable Name | Description | Type | 
@@ -1163,7 +1163,7 @@ This API is used to list some or all of the objects under the Bucket. The steps 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of GetBucketResult object.
 
 | Member Variable Name | Description | Type |
@@ -1178,7 +1178,7 @@ Request request is returned through member variables of GetBucketResult object.
 GetBucketRequest getBucketRequest = new GetBucketRequest(bucket);
 getBucketRequest.setSign(signDuration,null,null);
 
-//Prefix match, used to specify the prefix address of the returned file
+//Indicates the prefix match, which is used to specify the prefix address of the returned file
 getBucketRequest.setPrefix("prefix");
 
 //Maximum number of entries returned at a time. Default is 1,000
@@ -1244,7 +1244,7 @@ This API is used to delete a Bucket under a specified account. The Bucket must b
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteBucketResult object.
 
 | Member Variable Name | Description | Type | 
@@ -1308,15 +1308,15 @@ This API is used to specify the Bucket's access permission. The steps are as fol
 | Parameter Name | Description | Type | Required |
 | -------- | --------------- | -- | ----------- |
 | bucket    | Bucket name (bucket format of cos v5: xxx-appid, such as test-1253960454) |String           | Yes |
-| xcosACL    | Set Bucket's access permissions. Valid values: private, public-read-write, public-read; Default: private |String           | No |
-| xcosGrantRead    | Grant read permission to the authorized user |ACLAccount           | No |
-| xcosGrantWrite    | Grant write permission to the authorized user | ACLAccount           | No |
-| xcosGrantRead    | Grant read and write permission to the authorized user |ACLAccount           | No |
+| xcosACL    | Sets Bucket's access permissions. Valid values: private, public-read-write, public-read; Default: private |String           | No |
+| xcosGrantRead    | Grants read permission to the authorized user |ACLAccount           | No |
+| xcosGrantWrite    | Grants write permission to the authorized user | ACLAccount           | No |
+| xcosGrantRead    | Grants read and write permission to the authorized user |ACLAccount           | No |
 | signDuration    |Validity of the signature (in sec)  | Long           | Yes | 
 | checkHeaderListForSign    | Request header in signature for verification | Set&lt;String>           | No | 
 | checkParameterListForSing   |Request parameters in signature for verification | Set&lt;String>           | No | 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteBucketResult object.
 
 | Member Variable Name | Description | Type | 
@@ -1403,7 +1403,7 @@ This API is used to obtain the Bucket ACL. The steps are as follows:
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of GetBucketACLResult object.
 
 | Member Variable Name | Description | Type |
@@ -1476,7 +1476,7 @@ This API is used to configure cross-origin access for the specified Bucket. The 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of PutBucketCORSResult object.
 
 | Member Variable Name | Description | Type | 
@@ -1491,7 +1491,7 @@ PutBucketCORSRequest putBucketCORSRequest = new PutBucketCORSRequest(bucket);
 
 /**
 CORSConfiguration.cORSRule: Configurations on cross-origin access
-corsRule.id: Configure a rule ID
+corsRule.id: Sets rule ID
 cORSRule.allowedOrigin: Allowed access sources. The wildcard "*" is supported. Format: protocol://domain_name[:port], for example, http://www.qq.com
 corsRule.maxAgeSeconds: Configure the valid period of the results obtained by OPTIONS request
 corsRule.allowedMethod: Allowed HTTP operations, such as GET, PUT, HEAD, POST, and DELETE
@@ -1579,7 +1579,7 @@ This API is used to obtain configurations on cross-origin access to the specifie
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request request is returned through member variables of GetBucketCORSResult object.
 
 | Member Variable Name | Type | Description |
@@ -1650,7 +1650,7 @@ This API is used to delete the cross-domain access configuration information of 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variable of DeleteBucketCORSResult object.
 
 | Member Variable Name | Description | Type |
@@ -1719,7 +1719,7 @@ This API is used to obtain the region where the Bucket resides. The steps are as
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of GetBucketLocationResult object.
 
 | Member Variable Name | Description | Type | 
@@ -1774,7 +1774,7 @@ serviceException)  {
 
 ## Configuring Bucket Lifecycle
 
-This API is used to set the life cycle for a Bucket. The steps are as follows:
+This API is used to set the lifecycle of a bucket. The steps are as follows:
 1. Call the `PutBucketLifecycleRequest(String)` construction method to instantiate the PutBucketLifecycleRequest object.
 2. Call putBucketLifecycle method of CosXmlService, input PutBucketLifecycleRequest, and get the returned PutBucketLifecycleResult object.
    (Alternatively, call the putBucketLifecycleAsync method, and input PutBucketLifecycleRequest and CosXmlResultListener for asynchronous callback).
@@ -1790,7 +1790,7 @@ This API is used to set the life cycle for a Bucket. The steps are as follows:
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of PutBucketLifecycleResult object.
 
 | Member Variable Name | Description | Type |
@@ -1856,7 +1856,7 @@ serviceException)  {
 
 ## Obtaining Bucket Lifecycle
 
-This API is used to obtain the life cycle configuration of a Bucket. The steps are as follows:
+This API is used to obtain the lifecycle configuration of a bucket. The steps are as follows:
 1. Call the `GetBucketLifecycleRequest(String)` construction method to instantiate the GetBucketLifecycleRequest object.
 2. Call getBucketLifecycle method of CosXmlService, input GetBucketLifecycleRequest, and get the returned GetBucketLifecycleResult object.
    (Alternatively, call the getBucketLifecycleAsync method, and input GetBucketLifecycleRequest and CosXmlResultListener for asynchronous callback).
@@ -1871,12 +1871,12 @@ This API is used to obtain the life cycle configuration of a Bucket. The steps a
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of getBucketLifecycle object.
 
 | Member Variable Name | Description | Type | 
 | ---- | --------------  | ----------- |
-|lifecycleConfiguration| Life cycle configurations |LifecycleConfiguration| 
+|lifecycleConfiguration| Lifecycle configurations |LifecycleConfiguration| 
 | httpCode  |Request is successful when it is in [200, 300), otherwise request failed |  Int             |
 
 >  If an exception CosClientException or CosServiceException is thrown, please see **Description on SDK Exceptions** at the beginning.
@@ -1926,7 +1926,7 @@ serviceException)  {
 
 ## Deleting Bucket Lifecycle
 
-This API is used to delete the life cycle configuration of a Bucket. The steps are as follows:
+This API is used to delete the lifecycle configuration of a bucket. The steps are as follows:
 1. Call the `DeleteBucketLifecycleRequest(String)` construction method to instantiate the DeleteBucketLifecycleRequest object.
 2. Call the deleteBucketLifecycle method of CosXmlService, input DeleteBucketLifecycleRequest, and get the returned DeleteBucketLifecycleResult object.
    (Alternatively, call the deleteBucketLifecycleAsync method, and input DeleteBucketLifecycleRequest and CosXmlResultListener for asynchronous callback).
@@ -1940,7 +1940,7 @@ This API is used to delete the life cycle configuration of a Bucket. The steps a
 | checkParameterListForSing   | Request parameters in signature for verification |Set&lt;String>           | No | 
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No | 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteBucketLifecycleResult object.
 
 | Member Variable Name | Description | Type | 
@@ -2010,7 +2010,7 @@ This API is used to obtain multipart upload operations that are still in process
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of ListMultiUploadsResult object.
 
 | Member Variable Name | Description | Type |
@@ -2083,7 +2083,7 @@ This API is used to setup version control for a Bucket. The steps are as follows
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of PutBucketVersioningResult object.
 
 | Member Variable Name | Description | Type |
@@ -2145,7 +2145,7 @@ This API is used to obtain the version control configuration of the specified Bu
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of GetBucketVersioningResult object.
 
 | Member Variable Name | Description | Type |
@@ -2191,7 +2191,7 @@ serviceException)  {
 
 ```
 
-#### Setting up Cross-origin Replication
+#### Setting Up cross-origin replication
 This API is used to configure asynchronous replication between buckets in different domains. 
 1. Call the PutBucketReplicationRequest construction method to instantiate the PutBucketReplicationRequest object.
 2. Call the putBucketReplication(PutBucketReplicationRequest) synchronization method of CosXmlService, input PutBucketReplicationRequest, and get the returned PutBucketReplicationResult object. (Alternatively, call the putBucketReplicationAsync method, and input PutBucketReplicationRequest and CosXmlResultListener for asynchronous callback).
@@ -2211,7 +2211,7 @@ This API is used to configure asynchronous replication between buckets in differ
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of PutBucketReplicationResult object.
 
 | Member Variable Name | Description | Type |
@@ -2281,7 +2281,7 @@ This API is used to obtain the cross-origin configuration of the specified Bucke
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of GetBucketReplicationResult object.
 
 | Member Variable Name | Description | Type |
@@ -2344,7 +2344,7 @@ This API is used to delete the cross-origin configuration of the specified Bucke
 | cosXmlResultListener   | Callback for upload result |CosXmlResultListener          | No |
 
 
-#### Returned Result
+#### Returned result
 Request result is returned through member variables of DeleteBucketReplicationResult object.
 
 | Member Variable Name | Description | Type |

@@ -124,7 +124,7 @@ webim.Session (
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 | type | 会话类型， 包括群聊和私聊，具体参考 webim. SESSION_TYPE 常量对象，必填|	string |
-| id | 对方id , 群聊时，为群 ID；私聊时，对方帐号，必填 |String|
+| id | 对方ID , 群聊时，为群 ID；私聊时，对方帐号，必填 |String|
 |name  |对方名称，群聊时，为群名称；私聊时，为对方昵称，暂未使用，选填  |String  |
 |icon  | 对方头像 URL，暂未使用，选填 | String |
 | time |当前会话中的最新消息的时间戳，UNIX timestamp 格式，暂未使用，选填  | Integer |

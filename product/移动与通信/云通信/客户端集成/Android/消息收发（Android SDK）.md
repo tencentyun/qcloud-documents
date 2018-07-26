@@ -363,8 +363,8 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ```
 /**
- * 获取微视频上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 微视频上传任务id
+ * 获取微视频上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 微视频上传任务ID
  */
 public long getTaskId()
 /**
