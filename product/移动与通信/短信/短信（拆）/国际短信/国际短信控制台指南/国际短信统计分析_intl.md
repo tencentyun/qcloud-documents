@@ -2,7 +2,8 @@ Log in to Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms), an
 
 ### Data overview
 In **Data Overview**, you can view the number of SMS messages sent today, yesterday, over the last 7 or 30 days, or within a specified time range, and the success rate of delivery.
-![](https://main.qcloudimg.com/raw/734f83a8a877e8f2a862a935b82b1d02.png)
+![](
+https://main.qcloudimg.com/raw/f660b6b58e500d4f6cf763da90fb0f76.png)
 
 ### SMS message records
 In **SMS Message Records**, enter the mobile number, select delivery status, and click **Search** to query the logs of SMS messages sent to a mobile number within a specified time range.
