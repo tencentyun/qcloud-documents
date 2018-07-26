@@ -41,7 +41,7 @@ The relationship between distance and sound attenuation: In 3D sound effect, the
 | 0< N <40  	| Attenuation coefficient: 1.0 (no attenuation) |
 | N≥40  |Attenuation coefficient: 40/N |
 
- ![](https://main.qcloudimg.com/raw/50e745c853ab0e3f9f3bbef9d9cfc401.jpg)
+ ![](https://main.qcloudimg.com/raw/82892249eab8fea3bcb9149e8eee37f1.jpg)
 
 #### Function prototype  
 ```
