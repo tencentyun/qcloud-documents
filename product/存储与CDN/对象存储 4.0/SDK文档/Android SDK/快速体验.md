@@ -69,7 +69,7 @@ http://your_server_ip:5000/sign
 
 
 
-[项目 GitHub 地址](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudCosSimpleSample)。
+[项目 GitHub 地址](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudCosQuickStart)。
 
 <a id="FAQ"></a>
 ## 常见问题
