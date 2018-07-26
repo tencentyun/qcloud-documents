@@ -247,7 +247,7 @@ AVChatRoom 和 ChatRoom 主要有以下区别：
 >**版本要求**
 >- IMSDK 1.9 或以上版本（下面称为新版本，1.9 之前的称为老版本）可以支持 AVChatRoom。
 >- 对于老版本，后台实现了有限制的兼容逻辑，最多允许 1000 个老版本用户加入一个 AVChatRoom 群组，超出部分的老版本申请加群请求会返回 `10014`（群已满员）错误码，新版本客户端加群不受人数限制。
->- W SDK 需使用 [直播聊天室](https://cloud.tencent.com/doc/product/269/4105) 专用接口，[通用](https://cloud.tencent.com/doc/product/269/4196) 接口无法支持 AVChatRoom。
+>- Web SDK 需使用 [直播聊天室](https://cloud.tencent.com/doc/product/269/4105) 专用接口，[通用](https://cloud.tencent.com/doc/product/269/4196) 接口无法支持 AVChatRoom。
 
 因此，我们建议将 ChatRoom 用于直播场景的用户迁移到 AVChatRoom。IMSDK 与后台已经做了充分的兼容逻辑，开发者唯一需要做的事情是：在创建群组时，指定群组形态为 AVChatRoom。除此之外，其他逻辑一概不需要改变。即使对于已经发布的老版本客户端，依然可以加入到 AVChatRoom 并接收消息。
 
