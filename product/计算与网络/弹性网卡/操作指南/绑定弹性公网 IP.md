@@ -8,5 +8,5 @@
 5. 单击需绑定的内网 IP 所在行 “已绑定弹性公网 IP” 列的【绑定】。
  ![](https://main.qcloudimg.com/raw/efd44df7ad1eaea9735f297fcd16abd3.png)
 6. 在弹出框汇中您可根据需求选择【使用现有 EIP 绑定】或【新建 EIP 绑定】。
- ![](https://main.qcloudimg.com/raw/4e94dff65362b36f5250c86cc9b971d6.png)
+ ![](https://main.qcloudimg.com/raw/beceacc9a65e7ccac063136cc8bfead4.png)
 7. 单击【确认】即可。
