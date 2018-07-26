@@ -8,13 +8,13 @@ Linux 或 Windows 系统。
 ### 软件依赖
 Hadoop-2.7.2 及以上版本。
 
-## 使用方法
+## 下载与安装
 
 ### 获取 hadoop-cos 插件
 下载地址：[hadoop-cos 插件](https://github.com/tencentyun/hadoop-cos)
 
 
-### 安装hadoop-cos插件
+### 安装 hadoop-cos 插件
 
 1. 将dep目录下的cos_hadoop_api-5.2.5.jar 和 hadoop-cos-2.7.2.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 
@@ -39,46 +39,38 @@ done
 
 ```xml
 <configuration>
-
     <property>
         <name>fs.defaultFS</name>
         <value>cosn://<bucket-appid></value>
     </property>
-
     <property>
         <name>hadoop.tmp.dir</name>
         <value>${HADOOP_PATH}/tmp</value>
     </property>
-
     <property>
         <name>dfs.name.dir</name>
         <value>${HADOOP_PATH}/name</value>
     </property>
-
     <property>
         <name>fs.cosn.userinfo.secretId</name>
         <value>xxxxxxxxxxxxxxxxxxxxxxxxx</value>
         <description>Tencent Cloud Secret Id </description>
     </property>
-
     <property>
         <name>fs.cosn.userinfo.secretKey</name>
         <value>xxxxxxxxxxxxxxxxxxxxxxxx</value>
         <description>Tencent Cloud Secret Key</description>
     </property>
-
     <property>
         <name>fs.cosn.userinfo.region</name>
         <value>ap-xxx</value>
         <description>The region where the bucket is located</description>
     </property>
-
     <property>
         <name>fs.cosn.impl</name>
         <value>org.apache.hadoop.fs.CosFileSystem</value>
         <description>The implementation class of the CosN Filesystem</description>
     </property>
-
     <property>
         <name>fs.AbstractFileSystem.cosn.impl</name>
         <value>org.apache.hadoop.fs.CosN</value>
@@ -90,7 +82,6 @@ done
         <value>${hadoop.tmp.dir}/cos</value>
         <description>The local path where the cosn filesystem should store files before write to cos.</description>
     </property>
-
     <property>
     	<name>fs.cosn.upload.buffer</name>
         <value>disk</value>
@@ -101,34 +92,28 @@ done
             Default is disk mode.
         </description>
     </property>
-
     <property>
     	<name>fs.cosn.upload.buffer.size</name>
         <value>134217728</value>
         <description>The total size of the buffer pool</description>
     </property>
-
     <property>
     	<name>fs.cosn.block.size</name>
         <value>8388608</value>
         <description>Block size to use cosn filesysten, which is the part size for MultipartUpload. Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file. for example, 8MB part size can allow  writing a 78GB single file.</description>
     </property>
-
     <property>
     	<name>fs.cosn.maxRetries</name>
         <value>3</value>
         <description>The maximum number of retries for reading or writing files to
     COS, before we signal failure to the application.</description>
     </property>
-
     <property>
     	<name>fs.cosn.retry.interval.seconds</name>
         <value>10</value>
         <description>The number of seconds to sleep between each COS retry.</description>
     </property>
-
 </configuration>
-
 ```
 
 ### 配置项说明
@@ -179,48 +164,48 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordco
 执行成功会返回统计信息，示例如下：
 ```
 File System Counters
-        COSN: Number of bytes read=72
-        COSN: Number of bytes written=40
-        COSN: Number of read operations=0
-        COSN: Number of large read operations=0
-        COSN: Number of write operations=0
-        FILE: Number of bytes read=547350
-        FILE: Number of bytes written=1155616
-        FILE: Number of read operations=0
-        FILE: Number of large read operations=0
-        FILE: Number of write operations=0
-        HDFS: Number of bytes read=0
-        HDFS: Number of bytes written=0
-        HDFS: Number of read operations=0
-        HDFS: Number of large read operations=0
-        HDFS: Number of write operations=0
-    Map-Reduce Framework
-        Map input records=5
-        Map output records=7
-        Map output bytes=59
-        Map output materialized bytes=70
-        Input split bytes=99
-        Combine input records=7
-        Combine output records=6
-        Reduce input groups=6
-        Reduce shuffle bytes=70
-        Reduce input records=6
-        Reduce output records=6
-        Spilled Records=12
-        Shuffled Maps =1
-        Failed Shuffles=0
-        Merged Map outputs=1
-        GC time elapsed (ms)=0
-        Total committed heap usage (bytes)=653262848
-    Shuffle Errors
-        BAD_ID=0
-        CONNECTION=0
-        IO_ERROR=0
-        WRONG_LENGTH=0
-        WRONG_MAP=0
-        WRONG_REDUCE=0
-    File Input Format Counters
-        Bytes Read=36
-    File Output Format Counters
-        Bytes Written=40
+COSN: Number of bytes read=72
+COSN: Number of bytes written=40
+COSN: Number of read operations=0
+COSN: Number of large read operations=0
+COSN: Number of write operations=0
+FILE: Number of bytes read=547350
+FILE: Number of bytes written=1155616
+FILE: Number of read operations=0
+FILE: Number of large read operations=0
+FILE: Number of write operations=0
+HDFS: Number of bytes read=0
+HDFS: Number of bytes written=0
+HDFS: Number of read operations=0
+HDFS: Number of large read operations=0
+HDFS: Number of write operations=0
+Map-Reduce Framework
+Map input records=5
+Map output records=7
+Map output bytes=59
+Map output materialized bytes=70
+Input split bytes=99
+Combine input records=7
+Combine output records=6
+Reduce input groups=6
+Reduce shuffle bytes=70
+Reduce input records=6
+Reduce output records=6
+Spilled Records=12
+Shuffled Maps =1
+Failed Shuffles=0
+Merged Map outputs=1
+GC time elapsed (ms)=0
+Total committed heap usage (bytes)=653262848
+Shuffle Errors
+BAD_ID=0
+CONNECTION=0
+IO_ERROR=0
+WRONG_LENGTH=0
+WRONG_MAP=0
+WRONG_REDUCE=0
+File Input Format Counters
+Bytes Read=36
+File Output Format Counters
+Bytes Written=40
 ```
