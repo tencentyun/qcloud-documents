@@ -67,7 +67,7 @@ getSampleImage(int count, String videoPath)
 开发包中的 TCVideoEditerActivity 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
 ### 2. 效果预览
-视频编辑提供了**区间预览**（循环播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
+视频编辑提供了**区间预览**（播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
 
 - **绑定 FrameLayout**
   TXVideoEditer 的 initWithPreview 函数用于绑定一个 FrameLayout 给 SDK 来渲染视频画面，绑定时需要制定**自适应**与**填充**两种模式。
@@ -77,7 +77,7 @@ PREVIEW_RENDER_MODE_FILL_EDGE  - 适应模式，尽可能保持画面完整，�
 ```
 
 - **区间预览**
-  TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
+  TXVideoEditer 的 startPlayFromTime 函数用于播放某一时间段 A<=>B 内的视频片段。
 
 ### 3. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。

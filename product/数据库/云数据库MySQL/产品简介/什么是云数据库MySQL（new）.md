@@ -1,4 +1,4 @@
-CDB for MySQL（Cloud Database for MySQL）是腾讯云基于全球最受欢迎的开源数据库 MySQL 专业打造的高性能分布式数据存储服务，让用户能够在云中更轻松地设置、操作和扩展关系数据库。它 100% 兼容 MySQL 协议，适用于面向关系型数据库的场景。
+云数据库 MySQL 是腾讯云基于全球最受欢迎的开源数据库 MySQL 专业打造的高性能分布式数据存储服务，让用户能够在云中更轻松地设置、操作和扩展关系数据库。它 100% 兼容 MySQL 协议，适用于面向关系型数据库的场景。
 云数据库 MySQL 主要具有以下一些特点：
 1. 云存储服务，是腾讯云平台提供的面向互联网应用的数据存储服务。
 2. 完全兼容 MySQL 协议，适用于面向表结构的场景，适用 MySQL 的地方都可以使用云数据库。
@@ -7,4 +7,7 @@ CDB for MySQL（Cloud Database for MySQL）是腾讯云基于全球最受欢迎�
 
 有关产品费用和计算器，请参考 [费用总览](https://cloud.tencent.com/document/product/236/5158) 和 [价格计算器](https://buy.cloud.tencent.com/calculator/cdb)。
 如何购买一个云数据库实例，请参考 [购买与续费流程](https://cloud.tencent.com/document/product/236/5160)。
-如何开始使用 CDB for MySQL，请参考 [快速入门](https://cloud.tencent.com/document/product/236/3128)。
+如何开始使用云数据库 MySQL ，请参考 [快速入门](https://cloud.tencent.com/document/product/236/3128)。
+如何使用云数据库 MySQL 数据库迁移，请参考[数据迁移](https://cloud.tencent.com/document/product/571/13706)。
+如何使用云数据库 MySQL 数据订阅，请参考[数据订阅](https://cloud.tencent.com/document/product/571/13707)。
+如何使用云数据库 MySQL 审计，请参考[数据审计](https://cloud.tencent.com/document/product/672/14403)。

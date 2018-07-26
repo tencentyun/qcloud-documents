@@ -16,23 +16,47 @@
 **呼叫类型 1：**
 
 1、预测式外呼：先接通客户，再接通坐席。
-
 2、预览式外呼：先接通坐席，再接通客户。
 
 **呼叫类型 2：**
 
 1、单路呼出：坐席使用 IP 线路接入，客户使用 PSTN 线路接入。
-
 2、双路呼出：坐席和客户都使用 PSTN 线路接入。
 
-### 接口名词约束：
+### 接口说明
+#### 名词约束：
 
 **Callid：**
-
 每次发起的会话 ID 全局唯一，格式为：yyyymmddHHMMSSnnnnnn
-
 最后六位为随机数，如果是呼出类型，会在最后加 “-out”。
 
 **Appid：**
-
 机构 ID，每次请求必须要带上。
+
+#### 通用设定：
+在未特别说明的情况下，均遵从以下约定:
+
+**接口**：所有接口均要求使用POST请求；
+**事件通知**：（以下标题中包含通知的字段）
+**请求方式**：POST
+**HTTP 头部**:
+```
+Accept：application/json
+Content-Type：text/json;charset=utf-8
+```
+
+要求用户返回结果json字符串：
+```
+{
+		"code": "0",
+		"msg": "0"
+}
+
+```
+
+#### 接口调用时序:
+呼入：
+![](https://main.qcloudimg.com/raw/e13cdc449801134c181c49893f55d1b7.png)
+
+呼出：
+![](https://main.qcloudimg.com/raw/3c305f4bf2b6ddca9fe53d348dc9bd0e.png)

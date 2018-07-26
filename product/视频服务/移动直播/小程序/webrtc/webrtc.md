@@ -39,7 +39,7 @@
 ### step3. 获取roomsig
 小程序端可以通过如下 url 向腾讯云请求 roomsig，roomsig 是小程序跟 WebRTC 互通必须的关键信息，请求 roomsig 所使用的关键信息已经在 step2 中做了详细描述 （这里的  **identifier** 就是上文中的 **userid** ）: 
 ```
-https://yun.tim.qq.com/v4/openim/jsonvideoapp?
+https://official.opensso.tencent-cloud.com/v4/openim/jsonvideoapp?
        sdkappid=xxx&identifier=xiaoming&usersig=yyy&random=9999&contenttype=json
 ```
 

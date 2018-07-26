@@ -6,7 +6,7 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 2. 数据订阅 SDK 下载
-[点击下载](https://mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip) 
+[点击下载](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar) 
 
 3. jedis-2.9.0.jar 下载
 [点击下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip) 
@@ -19,7 +19,7 @@ yum install java-1.8.0-openjdk-devel
 
 ### 选择数据订阅
 1. 登录 [数据传输DTS控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
-2. 选择需同步的 CDB 实例名，然后点击启动，再返回数据订阅，点击你所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
+2. 选择需同步的 TencentDB 实例名，然后点击启动，再返回数据订阅，点击你所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
 
 3. 查看对应的 DTS 通道、 IP 和 Port，然后结合之前的密钥填写到对应 RedisDemo.java 里面。
 

@@ -4,13 +4,12 @@
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
-| Android      | TBS | 43600                |   [TBS 介绍](http://x5.tencent.com/)   |
+| Android      | TBS （微信和手机QQ的默认Webview） | 43600                |   微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) ，<br />   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
 | Windows(PC)  | Chrome | 52+                |  | |
 
-> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 示例代码 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc)中有获取 TBS 版本的方法。
-
+> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc) 中有获取 TBS 版本的方法。
 
 ## 基本名词
 
@@ -31,7 +30,7 @@
 
 | 名词      | 含义                                       |
 | ------- | ---------------------------------------- |
-| userId  | 也叫 identifier，在 App 中标示用户的身份,一般大家都把他叫做用户名    |
+| userId  | 在 App 中标示用户的身份,一般大家都把他叫做用户名    |
 | userSig | 身份签名，相当于登录密码的作用。每个 userId 都有一个有一定期限的签名，在请求的时候带上，以便腾讯云鉴别用户的身份。 |
 
 
@@ -54,14 +53,14 @@
 
 | 协议      | 端口号                                       |
 | ------- | ---------------------------------------- |
-| TCP | 8687 、443 |
-| UDP  | 8000 、 8800 <br/>42000、42200 <br/>42201、42800 <br/>52000、52200 |
+| TCP | 8687 |
+| UDP  | 8000 、 8800 <br/>843 、 443 |
 
 使用 CDN 引入SDK。
 ### 在页面中引入 WebRTCAPI.min.js
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.4/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/2.5/WebRTCAPI.min.js"></script>
 ```
 
 

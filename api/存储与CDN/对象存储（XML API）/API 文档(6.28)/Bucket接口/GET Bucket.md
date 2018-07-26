@@ -23,18 +23,13 @@ GET / HTTP/1.1
 
 
 #### 请求参数
-包含所有请求参数的请求行示例：
-
-```
-GET /?prefix=[Prefix]&delimiter=[Delimiter]&encoding-type=[EncodingType]&marker=[Marker]&max-keys=[MaxKeys] HTTP/1.1
-```
 
 名称|类型|必选|描述
 ---|---|---|---
 prefix|string|否|前缀匹配，用来规定返回的文件前缀地址
 delimiter|string|否|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
 encoding-type|string|否|规定返回值的编码方式，可选值：url
-marker|string|否|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker开始
+marker|string|否|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
 max-keys|string|否|单次返回最大的条目数量，默认 1000
 
 ### 请求头
@@ -57,7 +52,6 @@ max-keys|string|否|单次返回最大的条目数量，默认 1000
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
 
 该请求操作无特殊的响应头部信息。
 
@@ -117,7 +111,7 @@ LastModified|ListBucketResult.Contents|说明 Object 最后被修改时间|strin
 ETag|ListBucketResult.Contents|文件的 MD-5 算法校验值|string|是
 Size|ListBucketResult.Contents|说明文件大小，单位是 Byte|string|是
 Owner|ListBucketResult.Contents|Bucket 持有者信息|Container|是
-StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE|string|是
+StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string|是
 Container 节点 Owner 的内容：
 
 节点名称（关键字）|父节点|描述|类型|必选
@@ -132,7 +126,7 @@ Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string|是
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|http 状态码
 ---|---|---
 InvalidBucketName|Bucket 名称不合法|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
@@ -153,7 +147,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ### 响应
 
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1132
 Connection: keep-alive
@@ -212,7 +206,7 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         </Owner>
         <StorageClass>STANDARD</StorageClass>
     </Contents>
-</ListBucketResult
+</ListBucketResult>
 ```
 
 

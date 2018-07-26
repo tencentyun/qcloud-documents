@@ -1,5 +1,11 @@
 ## 功能描述
 POST Object 接口请求允许使用者用表单的形式将文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。所有由 HTTP 头部携带的 API 参数，都使用表单字段请求。
+
+### 版本
+
+如果对存储桶启用版本控制，POST 操作将自动为要添加的对象生成唯一的版本 ID。对象存储使用 x-cos-version-id 响应头部在响应中返回此标识。
+如果需要暂停存储桶的版本控制，则对象存储始终将其 null 用作存储在存储桶中的对象的版本 ID。
+
 ### 细节分析
 1. 需要有 Bucket 的写权限；
 2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
@@ -27,8 +33,8 @@ Form
 ### 表单字段
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| acl |文件的权限，不填默认继承，详见[PUT Object acl](https://cloud.tencent.com/document/product/436/7748) |String| 否|
-| Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见[Put Object](https://cloud.tencent.com/document/product/436/7749) |String| 否|
+| acl |文件的权限，不填默认继承，详见 [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) |String| 否|
+| Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) |String| 否|
 | file|文件内容，作为表单的最后一个字段 |String| 是|
 | key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 a/b/a1.txt |String| 是|
 | success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数 |String| 否|
@@ -36,6 +42,8 @@ Form
 | x-cos-meta- * | 自定义的信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied |String| 否|
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
+
 
 #### Policy
 ##### 基本格式
@@ -73,7 +81,6 @@ Form
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
 | x-cos-credential        | 格式   *<your-access-key-id>*/*<date>*/*<aws-region>*/*<aws-service>*/aws4_request | 完全    |
 | x-cos-date              | ISO8601的 UTC 时间      | 完全    |
-| x-cos-security-token    | 暂不支持                                     |       |
 | x-cos-meta-*            | 用户自定义的头部                                 | 完全、前缀 |
 | x-cos-*                 | 其他需要签署的 aws 头部                           | 完全    |
 
@@ -88,6 +95,8 @@ Form
 |:---|:-- |:-- |
 | ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏 |String|
 | Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径|String|
+|x-cos-version-id|目标存储桶中复制对象的版本。|String|
+|x-cos-server-side​-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
 
 ### 响应体
 |节点名称（关键字）|父节点|描述|类型|必选|

@@ -13,6 +13,8 @@
     
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    // 配置进房票据
+    option.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
@@ -85,7 +87,7 @@
                  创建并添加渲染视图，传入userID和渲染画面类型，这里传入 QAVVIDEO_SRC_TYPE_CAMERA（摄像头画面）
                  */
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero forIdentifier:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero foruserId:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [self.view addSubview:renderView];
                 [self.view sendSubviewToBack:renderView];
                 // 房间内打开摄像头用户数量变化，重新布局渲染视图
@@ -96,7 +98,7 @@
             {
                 // 移除渲染视图
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [renderView removeFromSuperview];
                  // 房间内打开摄像头用户数量变化，重新布局渲染视图
                  [self onCameraNumChange];
@@ -139,7 +141,16 @@
 > 2. 目前 SDK 内部限制了同时最多可以存在 10 个渲染视图。
 
 ## 常见问题
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+[[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
+```
+
 切换角色失败，错误码 - 1 。
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
 
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

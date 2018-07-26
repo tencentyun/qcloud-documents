@@ -1,6 +1,9 @@
 ## 功能描述
 Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源文件，x-cos-copy-source-range 指定字节范围（允许分块的大小为 5 MB - 5 GB）。
 
+### 版本
+当存储桶启用了多版本，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回 404 错误。如果您在 x-cos-copy-sourceand 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400 错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
+
 ## 请求
 请求示例：
 
@@ -35,11 +38,6 @@ PUT /{ObjectName} HTTP/1.1
 该 API 接口接受 `PUT` 请求。
 
 #### 请求参数
-包含所有请求参数的请求行示例：
-
-```
-PUT /{ObjectName}?partNumber=[PartNumber]&uploadId=[UploadId] HTTP/1.1
-```
 
 名称|类型|必选|描述
 ---|---|---|---
@@ -65,9 +63,9 @@ uploadId|string|是|使用上传分块文件，必须先初始化分块上传。
 |x-cos-copy-source-If-None-Match|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突|string|否|
 |x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE，默认值：STANDARD|string|否|
 |x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|string|否|
-|x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"|string|否|
-|x-cos-grant-write|赋予被授权者读的权限。格式：x-cos-grant-write: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"|string|否|
-|x-cos-grant-full-control|赋予被授权者读的权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"|string|否|
+|x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"|string|否|
+|x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"|string|否|
+|x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否|
 |x-cos-copy-source-range|源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。例如 bytes=0-9 表示你希望拷贝源文件的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个文件。|Integer|否|
 
 ### 请求体
@@ -80,8 +78,10 @@ uploadId|string|是|使用上传分块文件，必须先初始化分块上传。
 该响应使用公共响应头，了解共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
-该请求操作无特殊的响应头部信息。
+名称|描述|类型
+---|---|---
+x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
+ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String
 
 ### 响应体
 拷贝成功，返回响应体。
@@ -114,7 +114,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-
 ### 响应
 
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 133
 Connection: keep-alive

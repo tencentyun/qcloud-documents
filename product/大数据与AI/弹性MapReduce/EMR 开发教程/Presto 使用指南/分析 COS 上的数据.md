@@ -55,5 +55,5 @@ Splits: 4 total, 4 done (100.00%)
 0:00 [6rows, 127B] [38 rows/s, 817B/s]
 ```
 
-有关 Presto 更多用法，可参考：[官方文档](https://prestodb.io/docs/current/)和[中文文档](http://prestodb-china.com/docs/current/index.html)
+有关 Presto 更多用法，可参考：[官方文档](https://prestodb.io/docs/current/) 和 [中文文档](http://prestodb-china.com/docs/current/index.html)
 

@@ -1,0 +1,36 @@
+算术函数的函数名和功能描述如下：
+
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| +numeric	| 返回 numeric 本身。 |
+| -numeric	| 返回 0-numeric 的值，即反转符号。 |
+| numeric1 + numeric2	| 返回 numeric1 加 numeric2。|
+| numeric1 - numeric2	 | 返回 numeric1 减 numeric2。|
+| numeric1 * numeric2  | 返回 numeric1 乘 numeric2。|
+| numeric1 / numeric2	 | 返回 numeric1 除以 numeric2。|
+| POWER(numeric1, numeric2) |	返回 numeric1 的 numeric2 次方。|
+| ABS(numeric)	| 返回 numeric 的绝对值。|
+| MOD(numeric1, numeric2)	| 返回 numeric1 除以 numeric2 的余数。如果 numeric1 是负数，那么余数也为负。|
+| SQRT(numeric)	| 返回 numeric 的平方根。|
+| LN(numeric)	返回 | numeric 的自然对数（以 e 为底）。|
+| LOG10(numeric) |	返回 numeric 以 10 为底的对数。|
+| EXP(numeric)	| 返回 e 的 numeric 次方。|
+| CEIL(numeric) 或 CEILING(numeric)	| 返回 numeric 向上取整的值。|
+| FLOOR(numeric) |	返回 numeric 向下取整的值。|
+| SIN(numeric)	| 计算 numeric 的正弦值。|
+| COS(numeric) | 	计算 numeric 的余弦值。|
+| TAN(numeric)	| 计算 numeric 的正切值。|
+| COT(numeric)	| 计算 numeric 的余切值。|
+| ASIN(numeric)	| 计算 numeric 的反正弦值。|
+| ACOS(numeric)	| 计算 numeric 的反余弦值。|
+| ATAN(numeric)	| 计算 numeric 的反正切值。|
+| DEGREES(numeric)	| 将 numeric 从弧度转为角度。|
+| RADIANS(numeric)	| 将 numeric 从角度转为弧度。|
+| SIGN(numeric)	| 得到 numeric 的符号，负数是 -1，0 返回 0，正数是 1。|
+| ROUND(numeric, int)	| 对 numeric 取整，位数由 int 值给定，可正也可负。|
+| PI()	| 返回一个可以代表 π 的值。|
+| E()	| 返回一个可以代表自然对数的底数 e 的值。|
+| RAND() 或 RAND(种子值)	| 返回一个 0.0 ~ 1.0 (不包含) 的伪随机数，可以指定一个整数作为种子值。|
+| RAND_INTEGER(上限值) 或 RAND_INTEGER(种子值, 上限值)	| 返回一个 0.0 ~ 指定上限值 (不包含) 的伪随机数。|
+| LOG(numeric) LOG(base, numeric)	| 返回 numeric 的自然对数，或者返回以指定 base 为底的对数。|
+| BIN(numeric)	| 获取 numeric 的二进制表示的字符串，例如输入 4 则返回 “100”。|

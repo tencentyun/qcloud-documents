@@ -1,8 +1,8 @@
-Data Transfer Service (DTS) provides the capability to migrate data between MySQL, Redis, and PostgreSQL databases. Read on for more information.
+TencentDB Service for Transmission (DTS) provides the capability to migrate data between MySQL, Redis, and PostgreSQL databases. Read on for more information.
 >At present, the data migration capability is only available for MySQL and Redis databases, and will be made available for MongoDB, MariaDB, and other databases. Available soon!
 
 ##  MySQL Database Migration
-DTS provides continuous data replication from self-built MySQL databases to CDBs, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs. **MySQL 5.7 does not support DTS, and you can import your data by downloading cold backup files. In addition, DTS is not supported for instances with associated disaster recovery instances. If needed, submit a ticket for data migration.** (An incremental migration may last for a maximum of 15 days. Make sure to click the Complete Migration button after master/slave synchronization is accomplished, or the resource may be reclaimed.)
+DTS provides continuous data replication from self-built MySQL databases to TencentDBs, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs. **MySQL 5.7 does not support DTS, and you can import your data by downloading cold backup files. In addition, DTS is not supported for instances with associated disaster recovery instances. If needed, submit a ticket for data migration.** (An incremental migration may last for a maximum of 15 days. Make sure to click the Complete Migration button after master/slave synchronization is accomplished, or the resource may be reclaimed.)
 For more information, please see [Operation Guide-MySQL Data Migration](/document/product/571/13728).
 
 ## Redis Migration
@@ -18,7 +18,7 @@ For more information, please see [Operation Guide-Redis Data Migration](/documen
 7. When the migration succeeds, you can disconnect from the source instance and switch the connection to the destination instance after the data is verified at the business side.
 
 ## PostgreSQL Database Migration
-DTS supports data migration and provides continuous data replication from self-built MySQL databases to CDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs. Data migration is only supported for 9.3.x and 9.5.x PostgreSQL databases. Incremental synchronization is not supported for the 9.3.x versions, and is supported for the 9.5.x versions only if an online sync plug-in is available.
+DTS supports data migration and provides continuous data replication from self-built MySQL databases to TencentDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connection, or MySQL databases in Tencent Cloud CVMs. Data migration is only supported for 9.3.x and 9.5.x PostgreSQL databases. Incremental synchronization is not supported for the 9.3.x versions, and is supported for the 9.5.x versions only if an online sync plug-in is available.
 For more information, please see [Operation Guide-PostgreSQL Data Migration](/document/product/571/16309).
  
  

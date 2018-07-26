@@ -28,7 +28,7 @@ You need to create a cluster first. For more information on how to create a clus
 ![](//mc.qcloudimg.com/static/img/c285fb82e354ba127cd0cce01804a197/image.png)
 
 ### Step 2: Create WordPress service
-1. Log in to the [Tencent Cloud CCS console](https://console.cloud.tencent.com/ccs).
+1. Log in to the [Tencent Cloud TKE console](https://console.cloud.tencent.com/ccs).
 2. Click **Service** in the left navigation bar, and click **New** in the service list page.
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3. Configure basic service information.

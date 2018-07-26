@@ -1,23 +1,25 @@
-本文将指导您如何添加插件美颜  快速实现 美颜/滤镜/绿幕/动效/大眼/瘦脸等视频特效
-
+本文将指导您如何添加插件美颜  快速实现 美颜/滤镜/绿幕/动效/大眼/瘦脸等视频特效。
 
 ## 效果图
+
 美颜|滤镜|大眼/瘦脸/小鼻等|动效|绿幕
 :-----:|:-----:|:-----:|:-----:|:-----:
 ![](https://main.qcloudimg.com/raw/37c82c24b8154081c21293f7c65ddfae.png)|![](https://main.qcloudimg.com/raw/b7b91102c419a5f7ae590215fdb0065c.png)|![](https://main.qcloudimg.com/raw/bd5ebfa2b3078061ca5f2e824db1beb5.png)|![](https://main.qcloudimg.com/raw/53a5e44a06db04fdca6b6929c63820f5.png)|![](https://main.qcloudimg.com/raw/2117efcf754bb9992a5fbc9ba62f1bce.png)
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](https://codeload.github.com/zhaoyang21cn/TILFilterSdk/zip/master?token=ARGVpSHzhZ0WYLDRNtIHFfWu2HyLU0YTks5bANKAwA==)
+[Demo 代码下载](https://codeload.github.com/zhaoyang21cn/TILFilterSdk/zip/master?token=ARGVpSHzhZ0WYLDRNtIHFfWu2HyLU0YTks5bANKAwA==)
 
 ## 具体实现
 
-### 1. 添加licence(p图收费版)
-> 申请p图licence； 
-> 将licence改名为 YTFaceSDK.licence 放入app的assets目录下
+### 1. 添加 licence(p 图收费版)
+> 申请 p 图 licence； 
+> 将 licence 改名为 YTFaceSDK.licence 放入 app 的 assets 目录下
+
+
 ### 2. 集成美颜插件
 
-p图收费版：
+p 图收费版：
 ```
 // build.gradle 中，加载p图收费版
 compile 'com.tencent.ilivefilter:liteav_pitu:1.1.21'
@@ -32,7 +34,7 @@ defaultConfig{
     }
 }
 ```
-非p图普通版：
+非 p 图普通版：
 ```
 // build.gradle 中，加载非p图普通版
 compile 'com.tencent.ilivefilter:liteav_normal:1.1.21'
@@ -55,7 +57,7 @@ TXCVideoPreprocessor mTxcFilter = new TXCVideoPreprocessor(this, bGLContext);
 ```
 ### 4. 处理视频数据
 进入房间成功后，设置 iLiveSDK 数据回调，美颜插件处理数据
-(**设置数据回调，一定要在进入房间成功后，才有效！！**)
+(**设置数据回调，一定要在进入房间成功后才有效。**)
 
 ```
 // 设置数据回调
@@ -71,15 +73,15 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setAfterPreviewListener(n
 });
 ```
 **例外：**
-**p图版本，并且 iLiveSDK 版本 小于 1.7.0；只能使用 setLocalVideoPreProcessCallback 回调接口，否则p图功能无效**
-iLiveSDK版本，可通过 ILiveSDK.getInstance().getVersion() 获取
+**p 图版本，并且 iLiveSDK 版本 小于 1.7.0；只能使用 setLocalVideoPreProcessCallback 回调接口，否则 p 图功能无效。**
+iLiveSDK 版本，可通过 ILiveSDK.getInstance().getVersion() 获取
 
-**详情参考[点击查看](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/ilivefiltersdk-README.md)**
+**详情参考 [开发说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/ilivefiltersdk-README.md)**
 
 
 ### 5. 设置效果参数
 
-根据API说明，设置相应的效果， 如：
+根据 API 说明，设置相应的效果， 如：
 ```
 mTxcFilter.setBeautyLevel(5);           // 设置美颜级别,范围 0～10
 mTxcFilter.setWhitenessLevel(3);        // 设置美白级别,范围 0～10
@@ -88,7 +90,7 @@ mTxcFilter.setRuddyLevel(2);            // 设置红润级别，范围 0～10
 
 ### 6. 释放资源 
 
-**退出房间时，必须释放插件美颜资源！否则下次进入房间，设置特效不生效！**
+**退出房间时，必须释放插件美颜资源，否则下次进入房间，设置特效不生效。**
 **日志也会出现 “please realloc new TXCVideoPreprocessor” 错误**
 ```
 ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
@@ -113,7 +115,7 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 > 2. 需要支持纹理输入--》纹理输出场景
 > 3. 自定义滤镜
 
-**请参考详细文档[点击查看](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/ilivefiltersdk-README.md)**
+**请参考详细文档 [开发说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/ilivefiltersdk-README.md)**
 
 ## API说明
 | 接口名|  接口描述  |参数定义|返回值|
@@ -156,35 +158,39 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 
 
 ## 常见问题
--  **为什么p图功能不生效？？**
+-  **为什么 p 图功能不生效？？**
 
-> 1. 确认 licence 文件名称是否是YTFaceSDK.licence
-> 2.  确认 licence 文件 是否在 assets目录下
-> 3.  processFrame 传入的processAngle角度，是否正确；iLiveSDK一般穿 var1.rotate
+> 1. 确认 licence 文件名称是否是 YTFaceSDK.licence；
+> 2.  确认 licence 文件 是否在 assets 目录下；
+> 3.  processFrame 传入的processAngle角度，是否正确；iLiveSDK 一般穿 var1.rotate；
 
-- **为什么licence存在，但是加载会失败**
-> 确认licence 是否过期；可以找申请licence时的相关人员确认
+- **为什么 licence 存在，但是加载会失败**
+> 确认 licence 是否过期；可以找申请 licence 时的相关人员确认。
 
-- **p图版和非p图版有什么区别？ 非p图版是收费的吗？**
+- **p 图版和非 p 图版有什么区别？ 非 p 图版是收费的吗？**
 
-> 1. p图版，集成了p图人脸识别sdk；支持 美颜/滤镜/水印等基础功能 + 绿幕/动效/大眼/瘦脸等人脸识别相关的p图特效
-> 2. 非p图版本，只支持美颜/滤镜/水印等基础功能
-> 3. 非p图版，是免费使用的
-- **为什么p图版本，so库只支持 armeabi 架构？**
+> 1. p 图版，集成了 p 图人脸识别 sdk；支持 美颜/滤镜/水印等基础功能 + 绿幕/动效/大眼/瘦脸等人脸识别相关的 p 图特效，
+> 2. 非 p 图版本，只支持美颜/滤镜/水印等基础功能，
+> 3. 非 p 图版，是免费使用的，
+- **为什么 p 图版本，so 库只支持 armeabi 架构？**
 
 
-> 1. 市面上大多数手机，都是armeabi-v7a/arm64-v8a/x86等架构；而这些架构， 都可以兼容 armeabi；
-> 2. 为了p图sdk的体积考虑，所以只提供armeabi架构的so库
+> 1. 市面上大多数手机，都是 armeabi-v7a/arm64-v8a/x86 等架构；而这些架构， 都可以兼容 armeabi；
+> 2. 为了 p 图 sdk 的体积考虑，所以只提供 armeabi 架构的 so 库
 
-- **为何会分“有GL环境”和“无GL环境”两种模式？**
+- **为何会分“有 GL 环境”和“无 GL 环境”两种模式？**
 
-> 1. 一般应用场景，只会出现“有GL环境”和“无GL环境”；从效率和使用方式上考虑，故sdk支持两种模式
-> 2. 如果用户使用场景（如：自定义采集），存在GL环境；为了不与现有GL环境冲突，使用“有GL环境”模式，支持纹理输入--》处理后纹理输出，效率和兼容性更好
-> 3. 如果用户使用场景（如：使用iLiveSDK采集），无GL环境；sdk会单独开启一个线程，处理传入的原始视频数据，此时不支持纹理输入--》纹理输出，仅支持 原始数据输入--》原始数据输出
+> 1. 一般应用场景，只会出现“有 GL 环境”和“无 GL 环境”；从效率和使用方式上考虑，故 sdk 支持两种模式；
+> 2. 如果用户使用场景（如：自定义采集），存在GL环境；为了不与现有 GL 环境冲突，使用“有 GL 环境”模式，支持纹理输入--》处理后纹理输出，效率和兼容性更好；
+> 3. 如果用户使用场景（如：使用 iLiveSDK 采集），无 GL 环境；sdk 会单独开启一个线程，处理传入的原始视频数据，此时不支持纹理输入--》纹理输出，仅支持 原始数据输入--》原始数据输出；
 
-- **接入p图版本，如何收费？**
+- **接入 p 图版本，如何收费？**
 
 > 参见上面的“费用说明”
-- **为什么通过 compile  'com.tencent.ilivefilter:****',提示 “Could not get resource '****.aar'”，提示aar无法找到呢？？**
 
-> 可能是jcenter服务器下载链接的问题；可以改成 compile  'com.tencent.ilivefilter:****@aar' 试试
+- **为什么通过 compile  'com.tencent.ilivefilter:****',提示 “Could not get resource '****.aar'”，提示 aar 无法找到呢？？**
+
+> 可能是 jcenter 服务器下载链接的问题；可以改成 compile  'com.tencent.ilivefilter:****@aar' 试试
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

@@ -1,6 +1,6 @@
 ## Viewing Application List
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). In [Application][1] page, select the region and cluster. You can view all the applications under the cluster.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). In [Application][1] page, select the region and cluster. You can view all the applications under the cluster.
 
 ![应用查看.png-44.4kB][2]
 

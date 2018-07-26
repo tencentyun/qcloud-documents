@@ -81,7 +81,7 @@ allprojects {
 
 #### 1. 库说明
 
-解压 LiteAVSDK_UGC_3.9.2794.zip 压缩包后得到 libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
+解压 zip 压缩包后得到 libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
@@ -98,6 +98,8 @@ allprojects {
 
 #### 2. 拷贝文件
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs**目录下，这是android studio 默认的 jni 加载目录。
+
+如果您使用的是商业版，那么解压zip包后，除了 jar 包和 so 库增加了以外，还多了assets目录下的文件，这些是动效所需要的，需要全部拷贝到工程的assets目录下，参考 [动效变脸->工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE) 
 
 #### 3. 工程配置
 
@@ -121,7 +123,7 @@ dependencies {
 | ---------------------------- | ----------------------- |
 | cos-xml-android-sdk-1.2.jar	|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
 | qcloud-core-1.2.jar			|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
-| okhttp-3.2.0				| 一款优秀的开源 http 组件  	|
+| okhttp-3.2.0				| 一款优秀的开源 HTTP 组件  	|
 | okio-1.6.0				| 一款优秀的开源网络 I/O 组件 	|
 | xstream-1.4.7.jar				| 一款优秀的开源序列化组件		|
 | fastjson-1.1.62.android.jar	| 一款优秀的开源 json 组件		|
@@ -161,7 +163,7 @@ dependencies {
 
 ## 验证
 
-在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程设备是否正确。
+在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
 
 #### 1. 引用SDK
 在 MainActivity.java 中引用 SDK 的 class：
@@ -185,13 +187,13 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库以及声学处理组件，如果短视频 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
 
 #### 1. 上传 SO 文件
-将 SDK 压缩包中的 so 文件上传到 CDN，并记录下载地址，比如 `http://xxx.com/so_files.zip`。
+将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，比如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
 
 #### 2. 启动准备
 在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
 
 #### 3. 下载 SO 文件
-在用户等待过程中，App 就可以到 `http://xxx.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
+在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
 
 #### 4. 加载 SO 文件
 等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。

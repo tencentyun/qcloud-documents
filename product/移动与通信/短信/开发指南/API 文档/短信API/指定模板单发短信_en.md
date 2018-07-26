@@ -6,7 +6,7 @@ This API is used to send the SMS verification code, SMS notification, marketing 
 
 ### URL Example
 
-`https://yun.tim.qq.com/v5/tlssmssvr/sendsms?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/sendsms?sdkappid=xxxxx&random=xxxx`
 
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
@@ -59,7 +59,7 @@ For example, if you have two signatures, "[Tencent Technology]" and "[Tencent Cl
 2. For the API [sendisms](https://cloud.tencent.com/document/product/382/8717), the "tel" field is in the universal international phone number format, such as "+8613788888888".
 3. The "sig" field is generated according to the formula sha256(appkey=$appkey&random=$random&time=$time&mobile=$mobile).
 The pseudo codes are as follows:
- 
+
 ```c++
 string strMobile = "13788888888"; //The content of the "mobile" field of "tel"
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //The appkey for the sdkappid, which must be kept confidential
@@ -88,5 +88,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | ext | No| String | User's session content. The Tencent server returns it as is. |
 | fee | No | Number | Number of SMS messages billed. [About Billing](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99) |
 | sid | No | String | Delivery ID, indicating an SMS delivery record |
-
-

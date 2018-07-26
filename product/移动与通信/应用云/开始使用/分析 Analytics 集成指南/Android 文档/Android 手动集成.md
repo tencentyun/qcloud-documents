@@ -2,15 +2,11 @@
 
 ### 1. 下载资源压缩包
 
-下载请点击 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip)，并解压。
+下载请点击 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.file.myqcloud.com/tac-core.zip)，并解压。
 
-### 2. 集成 jar 包
+### 2. 修改您工程的 AndroidManifest.xml 文件
 
-将解压得到的所有 jar 文件拷贝到您工程或模块的 libs 目录下。
-
-### 3. 修改您工程的 AndroidManifest.xml 文件
-
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件。
+如果您不是通过 aar 集成，请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件。
 
 ```
 <!-- 添加 Analytics 需要的权限 -->

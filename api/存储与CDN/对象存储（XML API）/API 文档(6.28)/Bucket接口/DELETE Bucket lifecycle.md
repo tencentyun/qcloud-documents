@@ -9,6 +9,7 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
+>Authorization: Auth String ，详细信息参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节。
 
 ### 请求行
 
@@ -49,7 +50,7 @@ DELETE /?lifecycle HTTP/1.1
 
 ### 错误码
 
-错误码|描述|http状态码
+错误码|描述|http 状态码
 ---|---|---
 None|删除成功，响应体返回为空|204 [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
@@ -69,7 +70,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 ### 响应
 
 ```
-HTTP/1.1 204 No Content
+HTTP /1.1 204 No Content
 Content-Type: application/xml
 Date: Wed, 16 Aug 2017 12:59:09 GMT
 Server: tencent-cos

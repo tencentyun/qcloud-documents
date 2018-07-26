@@ -21,7 +21,7 @@ public class Hello {
 
 ## 执行方法
 
-由于 Java 包含有包的概念，因此执行方法和其他语言有所不同，需要带有包信息。代码例子中对应的执行方法为 `example.Hello::mainHandle`，此处 `example` 标识为 Java package，`Hello` 标识为类，`mainHandle` 标识为类方法。
+由于 Java 包含有包的概念，因此执行方法和其他语言有所不同，需要带有包信息。代码例子中对应的执行方法为 `example.Hello::mainHandler`，此处 `example` 标识为 Java package，`Hello` 标识为类，`mainHandler` 标识为类方法。
 
 ## 部署包上传
 
@@ -50,6 +50,11 @@ System.out.println("Hello world!");
 
 输出内容您可以在函数日志中的 `log` 位置查看。
 
+## 测试
+
+通过控制台界面的测试按钮，可以打开测试界面，实时触发云函数并查看运行结果。针对代码例子，由于入参是 `String name` 字符串类型，因此在使用调试界面进行触发运行时，需要输入的为字符串内容，例如 `"Tencent Cloud"`。
+
+如果修改了示例代码，期望接收较复杂格式的 JSON 入参，可使用 [POJO 类型参数](https://cloud.tencent.com/document/product/583/12215)，在代码中定义对应的数据结构。SCF 平台在传递对应 JSON 参数到入口函数时，会转换为对象实例，可由代码直接使用。
 
 
 
