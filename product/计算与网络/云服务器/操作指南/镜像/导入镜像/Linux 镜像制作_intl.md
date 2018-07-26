@@ -1,7 +1,7 @@
 ## 1. Preparations
-The following checks are required to export a system disk image, and can be ignored when you export a data disk image.
+Check the followings before exporting a system disk image. Ignore them if you're exporting a data disk image.
 
-- Check the OS partition. Service Migration does not support GPT-style partition.
+- OS partition - Service Migration does not support GPT-style partition.
 ```
 sudo parted -l /dev/sda | grep 'Partition Table'
 ```
@@ -33,7 +33,7 @@ If the EFI file exists, then the current system starts in the EFI mode, and it i
  - Replacing the disk with virtio disk. Device name is vda, vdb, and so on.
  - Replacing the ENI with virtio nic. By default, only eth0 is available.
 
-## 2. Determine Partitions and Sizes
+## Determining Partitions and Sizes
 Use the mount command to confirm the current partition format and determine the partitions to be copied and their sizes.
 Example:
 ```
@@ -78,10 +78,10 @@ The exported image should contain at least the root partition and mbr. If `/boot
 > "mbr" should be included when you copy sda, otherwise the system cannot start. Even if the boot partition is included in sda1, the system may fail to start without mbr, so sda must be copied.
 
 
-## 3. Use Export Tool
+## Exporting Images with Tools
 For more information on how to use image export tools of VMWare vCenter Convert, Citrix XenConvert and other virtualization platforms, please see the relevant document of each platform. The image formats supported by Tencent Cloud Service Migration include qcow2, vhd, raw, and vmdk.
 
-## 4. Export Images Using Commands
+## Exporting Images with Commands
 ### Use qemu-img command
 Example:
 ```
@@ -126,7 +126,7 @@ The count parameter can be ignored in case of full disk copy.
 > **Note:**
 > Manual export with commands poses a large risk. For example, the file system's metadata may be corrupted when io is busy. It is recommended to check that the image is intact and correct after it is exported.
 
-## 5. Image Format Conversion
+## 5. Converting Image Format
 The image formats supported by Tencent Cloud Service Migration include qcow2, vpc, vmdk, and raw. It is recommended to use a compressed image format to reduce the time for transmission and migration.
 > The image exported using dd is in raw format, which should be converted to qcow2 or vhd.
 
@@ -136,9 +136,9 @@ sudo qemu-img convert -f raw -O qcow2 test.img test.qcow2
 ```
 - `-f` is the source image file format.
 - `-O` is the destination image file format.
-For parameters, please see [section 4](#-o)
+For parameters, please see [Exporting Images with Commands](#-o)
 
-## 6. Check the Image
+## 6. Checking Image
 As mentioned above, an error may be occurred with the image file system if it is created when the server is not shut down or due to other reasons. Therefore, you are recommended to check whether the created image is error-free.
 
 When the image format is consistent with the format supported by the current platform, you can directly open the image to check the file system.
