@@ -37,6 +37,8 @@
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/144510_f76b525e_1839574.png "在这里输入图片标题")
 
+[最新版本说明](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo)
+
 #### 导入SDK
 下载完成后，我们需将 SDK 导入工程，在工程根目录上单击右键->【 Add Files to "Demo01\_集成SDK" 】：
 
