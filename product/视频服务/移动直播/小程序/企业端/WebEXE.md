@@ -1,25 +1,9 @@
 
-<h2> 方案选型 </h2>
-
-WebEXE 和 WebRTC 是我们推出的两套企业端接入方案，下表列出了两套方案的适用场景和优缺点，您可以根据自己的情况自行选择。
-
-| 方案选型| WebEXE | WebRTC |
-|:-------:|:-------:|:-------:|
-| 文档地址 | [DOC](https://cloud.tencent.com/document/product/454/17004) | [DOC](https://cloud.tencent.com/document/product/454/17005) |
-| 适用场景 | 面向公司职员 | 面向普通C类用户 |
-| 方案优势 | 可以跳开浏览器的各种限制，实现一些高级特性 | 无需安装插件，Chrome浏览器就能胜任，适合普通用户接入 |
-| 方案不足 | 需要使用者按提示安装程序 | 功能受到Chrome浏览器的安全限制 |
-| 美颜磨皮 | 支持美颜 | 不支持美颜 |
-| 桌面录屏 | 支持桌面录屏 | 需要安装录屏插件 |
-| 本地录制 | 支持本地录制 | 不支持本地录制 |
-| 依赖的云服务 | [LVB](https://cloud.tencent.com/product/LVB) + [IM](https://cloud.tencent.com/product/im) | [TRTC](https://cloud.tencent.com/product/trtc) + [IM](https://cloud.tencent.com/product/im) |
-
 ## Demo体验
 
-用任意浏览器打开 [体验地址](http://img.qcloud.com/open/qcloud/video/act/liteavWeb/avsolution/Index.html) 即可了解 WebEXE 方案，左侧的网页可以替换成您的Web页面，右侧的 TXCloudRoom.exe 用于实现视频通话等功能。
+点击 [**体验地址**](http://img.qcloud.com/open/qcloud/video/act/liteavWeb/avsolution/Index.html) 即可体验 WebEXE 解决方案。
 
-- **网页（Web）**：承载您原有的业务系统和业务逻辑，比如订单系统，CRM系统等各种电子流系统。
-- **桌面程序（EXE）**：类似PC版微信这样的应用程序，能够被您的网页直接唤起。具有性能优异，稳定性好等特点，能实现一些浏览器能力范围之外的功能。
+WebEXE 解决方案是将 Web 网页跟 Windows 应用程序相结合的一种企业端解决方案，您可以自由定制自己的 Web 页面，当您想要进行视频通话时，可以由网页唤起 TXCloudRoom.exe 桌面程序，并将必要的参数传递给 exe 程序，以此来实现音视频通话功能。
 
 ![](https://main.qcloudimg.com/raw/30a729f3fc5825c107a342a53ad7b938.png)
 
