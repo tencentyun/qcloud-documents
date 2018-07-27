@@ -8,9 +8,9 @@
 
 在 应用云 控制台中关联您的应用
 
-1. 安装 [应用云 SDK]()。
+1. 安装 [应用云 SDK](https://cloud.tencent.com/document/product/666/14333)。
 2. 在 [应用云 控制台]()中，将您的应用添加到您的 应用云 项目中。
-3. 参考 [Authorization 配置文档]()，配置并初始化  Authorization
+3. 参考 [Authorization 快速入门](https://cloud.tencent.com/document/product/666/14333)，配置并初始化  Authorization
 
 
 ## 获取 第三方 用户登录信息
