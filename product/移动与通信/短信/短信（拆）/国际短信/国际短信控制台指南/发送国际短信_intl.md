@@ -8,7 +8,7 @@ The final SMS message sent to users is as follows:
 ![](https://main.qcloudimg.com/raw/cb7c93a64d0646f552c9d1cabc4e1d63.png)
 
 ### Add project
-Log in to Tencent Cloud [**SMS Console**](https://intl.console.cloud.tencent.com/sms) and click **Add Project** to configure notification and alarm, and manage blacklist.
+Log in to Tencent Cloud [**SMS Console**](https://console.cloud.tencent.com/sms) and click **Add Project** to configure notification and alarm, and manage blacklist.
 ![](https://main.qcloudimg.com/raw/1ca800eeba40d444af754ed0106497e5.png)
 
 ### Create signature
