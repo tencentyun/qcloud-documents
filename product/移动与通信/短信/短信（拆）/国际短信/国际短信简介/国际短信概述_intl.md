@@ -15,3 +15,4 @@ Working together with multiple direct connection channels in the world, ISMS can
 
 #### Comprehensive statistical analysis
 You can view the number of delivered SMS messages, success rate of delivery, failure details and proportion of failed deliveries, and report details for different time periods. You can also check the history of SMS messages sent to a single mobile number within a specified time range, the number of delivered SMS messages using the specified template and the success rate of delivery.
+ISMS does not support sending messages to users in China. But we will achieve this feature as quickly as possible.
