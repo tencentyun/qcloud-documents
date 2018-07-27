@@ -4,13 +4,13 @@ You need to sign up for a Tencent Cloud account if you don't have one. For more 
 If you already have a Tencent Cloud account, go to the next step.
 
 ### Log in to the Tencent Cloud SMS Console
-Log in to the Tencent Cloud **[SMS Console](https://intl.console.cloud.tencent.com/sms)**. You need to apply for the activation of SMS upon the first login.
+Log in to the Tencent Cloud **[SMS Console](https://console.cloud.tencent.com/sms)**. You need to apply for the activation of SMS upon the first login.
 ![](https://main.qcloudimg.com/raw/4208ecfb62d65be1dc42a17f5976f1f6.png)
 ### Apply for activation of ISMS
-If your account has not gone through identity verification, go to [Account Center](https://intl.console.cloud.tencent.com/developer) for identity verification. For more information, please see [here](https://intl.cloud.tencent.com/document/product/378/3629).
+If your account has not gone through identity verification, go to [Account Center](https://console.cloud.tencent.com/developer) for identity verification. For more information, please see [here](https://intl.cloud.tencent.com/document/product/378/3629).
 If you have completed identity verification, click **Start connection**.
 
-> You must complete enterprise verification before applying for activation of ISMS. Verified individual users can [submit a ticket](https://intl.console.cloud.tencent.com/workorder/category) to modify the verification information.
+> You must complete enterprise verification before applying for activation of ISMS. Verified individual users can [submit a ticket](https://console.cloud.tencent.com/workorder/category) to modify the verification information.
 
 
 ## Preparations
