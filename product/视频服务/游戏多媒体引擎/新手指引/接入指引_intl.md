@@ -50,7 +50,8 @@ You can click **Modify** to modify the information in the Application Informatio
 #### 6. Enable and disable businesses and services
 
 You can enable or disable businesses and services.
-![](https://main.qcloudimg.com/raw/ff4d89cb84137670142535271ddbf2b2.png)
+![](https://main.qcloudimg.com/raw/b1335c003b6a01a049ca992ed36feec2.png)
+![](https://main.qcloudimg.com/raw/cabf597540281e1df1e028944b5dde01.png)
 
 
 ## Download SDK 
