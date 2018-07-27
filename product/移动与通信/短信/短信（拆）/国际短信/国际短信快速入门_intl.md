@@ -10,7 +10,7 @@ Log in to the Tencent Cloud **[SMS Console](https://console.cloud.tencent.com/sm
 If your account has not gone through identity verification, go to [Account Center](https://console.cloud.tencent.com/developer) for identity verification. For more information, please see [here](https://cloud.tencent.com/document/product/378/3629).
 If you have completed identity verification, click **Start connection**.
 
-> You must complete "enterprise verification" before applying for the activation of ISMS.
+> You must complete enterprise verification before applying for activation of ISMS. Verified individual users can submit a ticket to modify the verification information.
 
 
 ## Preparations
