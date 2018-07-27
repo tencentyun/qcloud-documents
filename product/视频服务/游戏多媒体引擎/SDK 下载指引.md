@@ -1,6 +1,6 @@
 ## 简介
 
-欢迎使用 [腾讯云游戏多媒体引擎 SDK](https://cloud.tencent.com/product/tmg?idx=1) 。为方便开发者接入腾讯云游戏多媒体引擎产品，这里向您介绍适用于游戏多媒体引擎 SDK 的下载指引。
+欢迎使用 [下载指引](https://cloud.tencent.com/document/product/607/18521)。为方便开发者接入腾讯云游戏多媒体引擎产品，这里向您介绍适用于游戏多媒体引擎 SDK 的下载指引。
 
 ## 各平台 SDK 下载
 
