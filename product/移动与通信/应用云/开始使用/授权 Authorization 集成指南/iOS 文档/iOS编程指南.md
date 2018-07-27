@@ -99,8 +99,8 @@ TACCrashService.share().setUserValue("内容", forKey:"key")
 
 
 ### 请求微信登录
-> 请确保您集成并安装了 TACAuthorizationWechat 模块
-
+> 请确保您集成并安装了 TACAuthorizationWechat 模块    
+> 这里需要用到微信应用的 appKey 信息。将appkey打包在程序中是个非常非常非常危险的操作，只建议您在测试阶段使用！！如果上线后，请部署自己的后端服务，通过后端服务的方式来获取相关的权限信息。
 首先，您需要引入头文件：
 
 Objective-C 代码示例：
@@ -143,7 +143,6 @@ let provider = TACAuthoriztionService.default().wechatCredentialProvider
 登录完成回调以block的形式传入requestCredential:方法中，在请求登录后完成。
 ### 获取 微信 登录用户信息
 登录完成以后可以获取登录用户的信息，使用对应Provider的requestUserInfoWithCredential方法（可以在登录完成回调里去请求）：
-
 Objective-C 代码示例
 ~~~
 TACWechatAuthProvider* provider = [[TACAuthoriztionService defaultService] wechatCredentialProvider];

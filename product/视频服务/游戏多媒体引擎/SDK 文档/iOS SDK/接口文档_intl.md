@@ -2,7 +2,7 @@
 Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for iOS developers to debug and integrate the APIs for Game Multimedia Engine (GME).
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 
 ### Key considerations for using GME

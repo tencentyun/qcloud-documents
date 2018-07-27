@@ -5,7 +5,7 @@ If you already have a Tencent Cloud account, go to the next step.
 
 ### Log in to the Tencent Cloud SMS Console
 Log in to the Tencent Cloud **[SMS Console](https://console.cloud.tencent.com/sms)**. You need to apply for the activation of SMS upon the first login.
-![](//mc.qcloudimg.com/static/img/b389b56907d722fe1203ac39d539db42/image.png)
+![](https://main.qcloudimg.com/raw/4208ecfb62d65be1dc42a17f5976f1f6.png)
 ### Apply for activation of ISMS
 If your account has not gone through identity verification, go to [Account Center](https://console.cloud.tencent.com/developer) for identity verification. For more information, please see [here](https://cloud.tencent.com/document/product/378/3629).
 If you have completed identity verification, click **Start connection**.
@@ -17,9 +17,9 @@ If you have completed identity verification, click **Start connection**.
 >1. A complete SMS message consists of **SMS signature** and **SMS body**. You can set different message body templates based on business needs, and then combine the signature and body to form a final display. **SMS signature + SMS body = final display**.
 >2. Our review will be completed within half a work day after the SMS signature and template are submitted. If necessary, you can set a mobile number and email address to receive the notification of SMS message content audit for this project.
 
-![](https://mc.qcloudimg.com/static/img/1223b6b179dbbbda7dcda06070eb4360/image.png)
+![](https://main.qcloudimg.com/raw/7a2f506fb2b2a6773ec9c9223208b9ce.png)
 The final SMS message sent to users is as follows:
-![](https://mc.qcloudimg.com/static/img/fe223e52477df4de3fec20eeb14ddc8f/image.png)
+![](https://main.qcloudimg.com/raw/58425f39c5da3f339d325ee7534e4062.png)
 
 ### Add project
 Add a project to get SDK AppID and App Key. For more information, please see [Add Project](https://cloud.tencent.com/document/product/382/18053#.E6.B7.BB.E5.8A.A0.E5.BA.94.E7.94.A8).

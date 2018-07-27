@@ -3,17 +3,17 @@ Tencent Cloud SMS service provides two types of text messaging services: CSMS an
 >1. A complete SMS message consists of **SMS signature** and **SMS body**. You can set different message body templates based on business needs, and then combine the signature and body to form a final display. **SMS signature + SMS body = final display**.
 >2. Our review will be completed within half a work day after the SMS signature and template are submitted. If necessary, you can set a mobile number and email address to receive the notification of SMS message content audit for this project.
 
-![](https://mc.qcloudimg.com/static/img/1223b6b179dbbbda7dcda06070eb4360/image.png)
+![](https://main.qcloudimg.com/raw/68eb00daf596eb4bb9d6837a6411035b.png)
 The final SMS message sent to users is as follows:
-![](https://mc.qcloudimg.com/static/img/fe223e52477df4de3fec20eeb14ddc8f/image.png)
+![](https://main.qcloudimg.com/raw/cb7c93a64d0646f552c9d1cabc4e1d63.png)
 
 ### Add project
 Log in to Tencent Cloud [**SMS Console**](https://console.cloud.tencent.com/sms) and click **Add Project** to configure notification and alarm, and manage blacklist.
-![](https://main.qcloudimg.com/raw/9e0957c8d1d0811fe9de421bfa7d30a0.png)
+![](https://main.qcloudimg.com/raw/1ca800eeba40d444af754ed0106497e5.png)
 
 ### Create signature
 A complete SMS message consists of SMS signature and message text. Click the name of an project to enter its management page. Click **International SMS** -> **SMS Content Configuration** -> **SMS Signature** -> **Create Signature**. In **Create SMS Signature** pop-up box, enter the signature, select the signature type, enter the remarks, upload certificates, then click **Confirm** and wait for the approval. The SMS signature cannot be used until its status is changed to **Approved**.
-![](https://main.qcloudimg.com/raw/cac4c2a038a847509977ee95a41ef113.png)
+![](https://main.qcloudimg.com/raw/575d3dfa752b2c27a4e3d485855e9f6b.png)
 
 
 ### Create body template
@@ -23,7 +23,7 @@ Click **International SMS** -> **SMS Content Configuration** -> **SMS Body** -> 
 >Template example:
 >   Your login verification code is {1}, which is valid for {2} minutes. If you are not using our service, ignore the message. ({number} is customizable and must be numbered consecutively from 1, such as {1}, {2}, and so on.)
 
-![](https://main.qcloudimg.com/raw/e0d4eadf63a8975825fc03165153ecd2.png)
+![](https://main.qcloudimg.com/raw/3bd35055ed3079cc0defbc25088ceb2c.png)
 
 ## Sending SMS Messages
 After the SMS body template and SMS signature are approved, you can send SMS messages. Click **International SMS** -> **Send SMS Messages**.
