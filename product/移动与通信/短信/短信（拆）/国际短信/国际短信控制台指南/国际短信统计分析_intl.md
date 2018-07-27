@@ -3,8 +3,7 @@ Log in to Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms), an
 ### Data overview
 In **Data Overview**, you can view the number of SMS messages sent today, yesterday, over the last 7 or 30 days, or within a specified time range, and the success rate of delivery.
 ![](
-https://main.qcloudimg.com/raw/f660b6b58e500d4f6cf763da90fb0f76.png
-)
+https://main.qcloudimg.com/raw/21c7d6acf8a454f9a76275be85660a53.png)
 
 ### SMS message records
 In **SMS Message Records**, enter the mobile number, select delivery status, and click **Search** to query the logs of SMS messages sent to a mobile number within a specified time range.
@@ -25,5 +24,5 @@ https://main.qcloudimg.com/raw/2da7d7712e6dd9fd2c0c18fff952c17a.png)
 ### Country/Region statistics
 In **Country/Region Statistics**, you can view the proportion of ISMS messages sent to the numbers of overseas countries/regions today, yesterday, over the last 7 or 30 days, or within a specified time range.
 ![](
-https://main.qcloudimg.com/raw/0d366c22cccbab7710ea958895f23619.png)
+https://main.qcloudimg.com/raw/0097935a80bb00b9dbb45ad3f46c0f5a.png)
 

@@ -1,4 +1,4 @@
-Elastic IP, is referred to as ElP for short. It is a static IP designed for dynamic cloud computing, and a fixed public IP in a certain region. In case of an instance failure, the EIP can be remapped to another instance in your account (or [NAT gateway instance](/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) ) quickly to block the failure.
+Elastic IP, is referred to as ElP for short. It is a static IP designed for dynamic cloud computing, and a fixed public IP in a certain region. In case of an instance failure, the EIP can be remapped to another instance in your account (or [NAT gateway instance](/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3)) quickly to block the failure.
 
 
 ## Common Operations
@@ -8,7 +8,7 @@ The following describes how to use EIPs.
 
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
 	
- 2. In the left navigation bar, click **EIP**.
+ 2. In the left navigation pane, click **EIP**.
 
  3. Click the **Apply** button, enter a region and the number of EIPs you want to apply for, and then click **OK**.
 
@@ -19,9 +19,9 @@ The following describes how to use EIPs.
 
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
 
- 2. In the left navigation bar, click **EIP**.
+ 2. In the left navigation pane, click **EIP**.
 
- 3. In the EIP list, click the **Bind** button next to the EIP to be bound to a CVM. (If the EIP is already bound to an instance, this button is unavailable. Please unbind it first.)
+ 3. In the EIP list, click the **Bind** button next to the EIP to be bound to a cloud product. (If the EIP is already bound to an instance, this button is unavailable. Please unbind it first.)
 	
  4. In the popup box, select the cloud product type that you want to bind, and then select the cloud product instance ID. Click the **Bind** button to complete the binding.
 
@@ -29,20 +29,20 @@ The following describes how to use EIPs.
 
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
 
- 2. In the left navigation bar, click **EIP**.
+ 2. In the left navigation pane, click **EIP**.
 
  3. In the EIP list, click the **Unbind** button next to the EIP that is already bound to a cloud product.
 
  4. Click **OK**.
  
-> **Note:**
+>**Note:**
 > After unbinding, the cloud product instance may be assigned a new public IP, which may be different from the one before binding.
 
 <span id = "jump">  </span>
 ### Releasing EIPs
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
 
- 2. In the left navigation bar, click **EIP**.
+ 2. In the left navigation pane, click **EIP**.
 
  3. In the EIP list, click **More** -> **Release** button next to the EIP to be released.
 
@@ -52,9 +52,9 @@ The following describes how to use EIPs.
 #### Adjusting bandwidth
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
 
- 2. In the left navigation bar, click **EIP**.
+ 2. In the left navigation pane, click **EIP**.
 
- 3. In the EIP list, click the **Adjust Bandwidth** button next to the EIP for which you want to adjust bandwidth.
+ 3. In the EIP list, click the **Change Bandwidth** button next to the EIP for which you want to adjust bandwidth.
 
  4. Adjust the target bandwidth value in the Adjust Bandwidth page.
  
@@ -77,5 +77,4 @@ Network inaccessibility may occur with an EIP. This is generally caused by the f
 - The EIP is not bound to any cloud product. For more information about how to bind an EIP to cloud products, please see [Binding EIP to Cloud Products](#jump2).
 
 - Security policy is invalid. Check if there is a valid security policy (security group or network ACL). If the bound cloud product has a security group policy, for example: access to 8080 port is denied, the port 8080 of the EIP is also inaccessible.
-
 
