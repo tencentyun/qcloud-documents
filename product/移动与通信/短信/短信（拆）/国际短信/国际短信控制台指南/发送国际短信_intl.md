@@ -27,7 +27,8 @@ Click **International SMS** -> **SMS Content Configuration** -> **SMS Body** -> 
 
 ## Sending SMS Messages
 After the SMS body template and SMS signature are approved, you can send SMS messages. Click **International SMS** -> **Send SMS Messages**.
-![](//mc.qcloudimg.com/static/img/5395b8f06969d4917a42bee57e4f3298/image.png)
+![](
+https://main.qcloudimg.com/raw/3d76492f9d059c20dddf8ec70a8fc3c7.png)
 
 In the pop-up box, select the template name and signature name. Click **Download template**, and enter the user mobile numbers (in the first column) and template parameters in the specified format:
 
@@ -35,7 +36,7 @@ In the pop-up box, select the template name and signature name. Click **Download
 - User mobile numbers are in the first column.
 - If no parameter is in the template, do not enter the information of other columns, otherwise, columns starting from the second one indicate template parameter 1, parameter 2...
 
-![](//mc.qcloudimg.com/static/img/f90a8fbb46ae515a3a7c610a09f965a5/image.png)
+![](https://main.qcloudimg.com/raw/5c1b560f8261674cb53facba79c9d561.png)
 
 **Steps for sending SMS messages:**
 1. Choose the template name and signature name (only approved templates and signatures are displayed in the drop-down list).
@@ -44,10 +45,13 @@ In the pop-up box, select the template name and signature name. Click **Download
 4. Click **Verification Code** for verification.
 5. Click **Send** (only after the file has been uploaded).
 
-![](//mc.qcloudimg.com/static/img/40589dde9926ee55f789d8ced519a316/image.png)
+![](
+https://main.qcloudimg.com/raw/37ed915ae910c7420d8fed8e752758cf.png)
 
 ### View SMS message delivery result
 After an SMS message is sent successfully, you are automatically redirected to the list of delivered SMS messages where you can view its delivery status. The status is updated every 10 seconds. During this process, you can select **Suspend** and **Continue**.
-![](//mc.qcloudimg.com/static/img/d1587c9eb9f17c9eb19320077d735d41/image.png)
-![](//mc.qcloudimg.com/static/img/588c44747f98623cc942c7dcf7b69340/image.png)
+![](
+https://main.qcloudimg.com/raw/de97c100a3b4dd785c00ca747f66862f.png)
+![](
+https://main.qcloudimg.com/raw/eea2c59651adde7df27d115e6602377e.png)
 
