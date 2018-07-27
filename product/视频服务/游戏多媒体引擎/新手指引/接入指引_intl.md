@@ -12,7 +12,7 @@ Follow the steps below to use GME:
 
 ## Create a service
 #### 1. After you log in, click **Create Application**.
-![](https://main.qcloudimg.com/raw/a4b3dbd8aefd9dd032f8c3ce4154b227.png)
+![](https://main.qcloudimg.com/raw/07aa53fca65f84c4c43ba73417796ce4.png)
 
 #### 2. Enter required information.  
 Enter required information on the page, and select the services as needed. 
@@ -20,29 +20,29 @@ Enter required information on the page, and select the services as needed.
 > If you are creating a game application, you need to select the corresponding platform engine, and select an applicable sampling rate according to the solution provided by the technician.
 > The setting for voice messaging and voice-to-context conversion services can be modified.
 
-![](https://main.qcloudimg.com/raw/9b5d501b1dc70a850a1a99b533bb22e2.png)
+![](https://main.qcloudimg.com/raw/ff4d89cb84137670142535271ddbf2b2.png)
 
 
 #### 3. After an application is created, the application management list displays the new application.
 The AppID in the list will be used as a parameter in the integration of SDK.
 
-![](https://main.qcloudimg.com/raw/9e78b27c75b9bfcd2ce02ae1d02b7046.png)
+![](https://main.qcloudimg.com/raw/664dbdaded600e650ed44b25b18a3ca8.png)
 
 
 #### 4. Click **Setting** corresponding to the application in the list to enter the application setting page.
-![](https://main.qcloudimg.com/raw/ac27c53e9a07fa819344f668978fe019.png)
+![](https://main.qcloudimg.com/raw/91e81b071e2d99cc1d39a5d6db161627.png)
 You can click **Modify** to modify the information in the Application Information module.
 
 
 #### 5. You can obtain the authentication of your application in the Authentication Information module.
-![](https://main.qcloudimg.com/raw/5642579a36a7df2df90595a518444eb1.png)
+![](https://main.qcloudimg.com/raw/bed3c36cdf3fcb421878c64cd5d775ba.png)
 
  - The permission key in this module will be used as a parameter in the integration of SDK. 
  - The modified key takes effect within 15 minutes to 1 hour. Frequent modification is not recommended.
  - Click **Download Public and Private Keys** to download the public and private keys for the offline voice feature of the application.
  - Only the account creating the game, the main account and the global collaborator can **Reset the Keys**.
  
- ![](https://main.qcloudimg.com/raw/df3f92e2eb50aea9d8dde32f252045f6.png)
+![](https://main.qcloudimg.com/raw/2eb67cb291d211ed6eaa352fd08c10f6.png)
 
 -  **For more information on authentication, please see the [GME key documentation](https://cloud.tencent.com/document/product/607/12218)**.
 
@@ -50,9 +50,8 @@ You can click **Modify** to modify the information in the Application Informatio
 #### 6. Enable and disable businesses and services
 
 You can enable or disable businesses and services.
-![](https://main.qcloudimg.com/raw/0de52670541b46347c5d686c89b1ba7c.png)
+![](https://main.qcloudimg.com/raw/ff4d89cb84137670142535271ddbf2b2.png)
 
-![](https://main.qcloudimg.com/raw/7dfac502bfbb68bd856cda1b03d77514.png)
 
 ## Download SDK 
 #### 1. Download link
