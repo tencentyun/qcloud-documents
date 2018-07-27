@@ -70,7 +70,7 @@ LoadModule  wsgi_module modules/mod_wsgi.so
 cd /usr/local
 django-admin.py startproject testProject
 ```
-2. 在项目根目录中新建文件 django.wsgi 作为 pache 支持。
+2. 在项目根目录中新建文件 django.wsgi 作为 Apache 支持。
 ```
 cd /usr/local/testProject
 vim django.wsgi
