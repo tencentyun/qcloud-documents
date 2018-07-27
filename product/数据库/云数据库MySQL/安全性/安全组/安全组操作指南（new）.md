@@ -29,7 +29,7 @@
 
 1. 打开云服务器 CVM 控制台 [安全组页面](https://console.cloud.tencent.com/cvm/securitygroup)，单击列表中安全组项后面的【克隆】按钮。
 ![](//mc.qcloudimg.com/static/img/88ca3f6b17c21a2bd9d78f9e30a6c1b7/image.png)
-2. 在克隆安全组对话框中，选定目标地域、目标项目后，单击【确定】。若新安全组需关联 CVM，请重新进行管理安全组内云主机。
+2. 在克隆安全组对话框中，选定目标地域、目标项目后，单击【确定】。若新安全组需关联 CVM，请重新进行管理安全组内云服务器。
 
 ### 向安全组中添加规则
 
