@@ -30,7 +30,7 @@ The AppID in the list will be used as a parameter in the integration of SDK.
 
 
 #### 4. Click **Setting** corresponding to the application in the list to enter the application setting page.
-![](https://main.qcloudimg.com/raw/ac27c53e9a07fa819344f668978fe019.png)
+![](https://main.qcloudimg.com/raw/ad13c32afec03001858782a3d000ac28.png)
 You can click **Modify** to modify the information in the Application Information module.
 
 
