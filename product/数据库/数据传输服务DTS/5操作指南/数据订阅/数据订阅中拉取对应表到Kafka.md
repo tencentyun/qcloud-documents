@@ -18,36 +18,36 @@ yum install java-1.8.0-openjdk-devel
 Created topic "testtop".
 ```
 ### 获取密钥
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接点击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
+登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接单击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
 
 ![](https://main.qcloudimg.com/raw/c6fa15fc47536b875448f911b00ed290.png)
 
 ### 选择数据订阅
 1. 登录 [数据传输DTS控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
-2. 选择需同步的 TencentDB 实例名，然后点击启动，再返回数据订阅，点击你所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
+2. 选择需同步的 TencentDB 实例名，然后单击启动，再返回数据订阅，单击您所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
 3. 查看对应的 DTS 通道、 IP 和 Port，然后结合之前的密钥填写到对应 KafkaDemo.java 里面。
 ```
   // 从云API获取密钥,填写到此处
        
  final String TOPIC = "testtop";  订阅的主题
         Properties props = new Properties();
-	props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092"); 输入你的kafka对应ip:port
+	props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092"); 输入您的kafka对应ip:port
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         final Producer<String, String> producer = new KafkaProducer<String, String>(props);
-               context.setSecretId("AKIDfdsfdsfsdt1331431sdfds"); 请填写你从云API获取的secretID。
+               context.setSecretId("AKIDfdsfdsfsdt1331431sdfds"); 请填写您从云API获取的secretID。
         context.setSecretKey("test111usdfsdfsddsfRkeT"); 请填写
-        你从云API获取的secretKey.
+        您从云API获取的secretKey.
 	// 在数据迁移服务里面通过数据订阅获取到对应的ip,port,填写到此处
-        context.setServiceIp("10.66.112.181"); 请填写你从数据订阅配置获取到的IP
+        context.setServiceIp("10.66.112.181"); 请填写您从数据订阅配置获取到的IP
         context.setServicePort(7507);
-        请填写你从数据订阅配置获取到的PORT
+        请填写您从数据订阅配置获取到的PORT
         final DefaultSubscribeClient client = new DefaultSubscribeClient(context);
 	// 填写对应要同步的数据库和表名,并修改对应要落地存储的文件名.
-        final String targetDatabase = "test"; 填写你所要订阅的库名
+        final String targetDatabase = "test"; 填写您所要订阅的库名
                  client.addClusterListener(listener);
 	// 通过数据迁移订阅的配置选项获取到dts-channel的配置信息,填写到此处.
-	client.askForGUID("dts-channel-e4FQxtYV3It4test"); 请填写你从数据订阅获取的通道dts的名称。
+	client.askForGUID("dts-channel-e4FQxtYV3It4test"); 请填写您从数据订阅获取的通道dts的名称。
         client.start();
 ```
 

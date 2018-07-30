@@ -30,7 +30,7 @@ The AppID in the list will be used as a parameter in the integration of SDK.
 
 
 #### 4. Click **Setting** corresponding to the application in the list to enter the application setting page.
-![](https://main.qcloudimg.com/raw/91e81b071e2d99cc1d39a5d6db161627.png)
+![](https://main.qcloudimg.com/raw/ad13c32afec03001858782a3d000ac28.png)
 You can click **Modify** to modify the information in the Application Information module.
 
 
@@ -42,7 +42,7 @@ You can click **Modify** to modify the information in the Application Informatio
  - Click **Download Public and Private Keys** to download the public and private keys for the offline voice feature of the application.
  - Only the account creating the game, the main account and the global collaborator can **Reset the Keys**.
  
-![](https://main.qcloudimg.com/raw/2eb67cb291d211ed6eaa352fd08c10f6.png)
+ ![](https://main.qcloudimg.com/raw/2eb67cb291d211ed6eaa352fd08c10f6.png)
 
 -  **For more information on authentication, please see the [GME key documentation](https://cloud.tencent.com/document/product/607/12218)**.
 
@@ -51,8 +51,8 @@ You can click **Modify** to modify the information in the Application Informatio
 
 You can enable or disable businesses and services.
 ![](https://main.qcloudimg.com/raw/b1335c003b6a01a049ca992ed36feec2.png)
-![](https://main.qcloudimg.com/raw/cabf597540281e1df1e028944b5dde01.png)
 
+![](https://main.qcloudimg.com/raw/cabf597540281e1df1e028944b5dde01.png)
 
 ## Download SDK 
 #### 1. Download link
