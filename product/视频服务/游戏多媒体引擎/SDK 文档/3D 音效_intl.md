@@ -60,7 +60,7 @@ QAVAudioCtrl virtual int UpdateSpatializer(string identifier,float azimuth,float
 ![](https://main.qcloudimg.com/raw/e6a04f5cc7aca4851964c4a8ea04b56e.png)
 
 The formula is as follows:
-![](https://main.qcloudimg.com/raw/e1aa4d09b144af4ea920d63cf9cac6bb.png)
+![](https://main.qcloudimg.com/raw/d058fa72279460467d4a930cc37984d5.png)
 
 #### Sample code
 ```
