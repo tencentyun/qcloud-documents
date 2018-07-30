@@ -8,7 +8,7 @@ The SMS message sent at a time should not exceed 500 characters. A Chinese chara
 
 
 ## ISMS Price
-ISMS messages are postpaid on a monthly basis by the number of fragment messages into which the original message was divided according to the length (including signature). ISMS is available in over 200 countries and regions. For prices in different countries, please see [here](https://cloud.tencent.com/document/product/382/8414#.E6.B5.B7.E5.A4.96.E7.9F.AD.E4.BF.A1.E4.BB.B7.E6.A0.BC.E8.AF.A6.E6.83.85).
+ISMS messages are postpaid on a monthly basis by the number of fragment messages into which the original message was divided according to the length (including signature). ISMS is available in over 200 countries and regions. For prices in different countries, please see [here](https://intl.cloud.tencent.com/document/product/382/18051).
 
 ## Billing Methods
 ISMS messages are postpaid on a monthly basis. Tencent Cloud provides you with the bill of the previous month before the 3rd day of each month. Upon confirmation, you need to pay the bill before the 8th day of the current month. After that, Tencent Cloud will issue a valid invoice.
