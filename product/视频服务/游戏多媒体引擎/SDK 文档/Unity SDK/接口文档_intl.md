@@ -137,7 +137,7 @@ byte[] authBuffer = this.GetAuthBuffer(str_appId,, str_userId, roomId, recvOnly 
 
 ### Join a room
 This API is used to enter a room with the generated authentication information. Microphone and speaker are not enabled by default after a user enters the room.
-For more information on how to integrate team voice chat, please see relevant [integration document](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20TeamAudio%20Manual.md).
+For more information on how to integrate team voice chat, please see relevant [integration document](https://intl.cloud.tencent.com/document/product/607/10782).
 
 
 #### Function prototype
