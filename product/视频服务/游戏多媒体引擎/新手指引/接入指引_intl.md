@@ -89,5 +89,5 @@ The Demo provides a Tencent Cloud test account for you to experience features. I
 
 
 ## Special Problems Handling
-[FAQs](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20FAQ%20Manual.md)     [Error Codes](https://cloud.tencent.com/document/product/607/15173)
+[FAQs](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20FAQ%20Manual.md)     [Error Codes](https://intl.cloud.tencent.com/document/product/607/17359)
 
