@@ -1,10 +1,10 @@
-﻿Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes project configuration for iOS development so that iOS developers can easily debug and access APIs for Tencent Cloud GME.
+Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes project configuration for iOS development so that iOS developers can easily debug and access APIs for Tencent Cloud GME.
 
 ## SDK Acquisition
 You can obtain the SDK as follows.
 
 ### Download the SDK. 
-Click the Tencent Cloud [Game Multimedia Engine](https://cloud.tencent.com/product/tmg?idx=1).  
+Click the Tencent Cloud [Game Multimedia Engine](https://intl.cloud.tencent.com/product/tmg?idx=1).  
 ![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
 
 On the displayed page, click "Developer Resources". Download the SDK resource package for iOS.
