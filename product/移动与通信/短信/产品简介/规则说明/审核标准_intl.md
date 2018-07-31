@@ -1,7 +1,3 @@
-## Rights of Being Verified: Individual Users Vs. Enterprise Users
-
-![](//mc.qcloudimg.com/static/img/3dab63de8c91f81e3004eb93236087fa/image.png)
-
 ## Signature Audit Criteria
 ### Format Limits
 
