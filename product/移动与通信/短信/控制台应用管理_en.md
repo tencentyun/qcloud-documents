@@ -1,7 +1,7 @@
 Before sending SMS messages using Tencent Cloud SMS service, you need to create a project first. After the project is created, you can get the SDK AppID and App Key. The former is the unique identifier of the project, and the latter is a password for verifying the validity of the SMS request.
 Note: The Appkey for the SdkAppID should be kept confidential.
 
-In addition, you can also set the frequency, add alarm contacts, configure callback and manage blacklist for the SMS project on the project management page.
+In addition, you can also set the frequency, configure callback  for the SMS project on the project management page.
 
 ## Adding Project
 Log in to Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms).
