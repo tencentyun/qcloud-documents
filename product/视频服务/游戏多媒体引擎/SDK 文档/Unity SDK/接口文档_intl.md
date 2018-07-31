@@ -34,7 +34,7 @@ For an uninitialized SDK, you must initialize it via initialization authenticati
 
 
 ### Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 
@@ -110,7 +110,7 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 A value of type Byte[] is returned by this API.
 #### Function prototype
 ```
@@ -963,7 +963,7 @@ IQAVContext.GetInstance().GetAudioEffectCtrl().SetEffectsVolume(volume);
 |SpeechToText 		|Converts the voice file into text with Speech Recognition |
 
 ### Initialization for integrating the offline voice technology
-Passing the authentication access token to the TLS-related function is required for initialization. For more information on how to obtain authentication, please see [GME Key](https://cloud.tencent.com/document/product/607/12218) document.  
+Passing the authentication access token to the TLS-related function is required for initialization. For more information on how to obtain authentication, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218) document.  
 The parameter Error is used to pass the error message in cases when you enter an incorrect parameter, for example, appid is 0, key is empty or identifier is empty.
 #### Function prototype  
 ```
