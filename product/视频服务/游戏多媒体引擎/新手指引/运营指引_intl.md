@@ -6,7 +6,7 @@ Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://intl.clou
 ### Open usage statistics on the application management page
 
 Click **Usage Statistics** corresponding to the application you want to query.
-![](https://main.qcloudimg.com/raw/9e78b27c75b9bfcd2ce02ae1d02b7046.png)
+![](https://main.qcloudimg.com/raw/664dbdaded600e650ed44b25b18a3ca8.png)
 
 Usage statistics include statistics for voice chat, and for voice messaging and voice-to-text conversion.
 
@@ -18,7 +18,7 @@ This page displays the DAU data of the voice chat application.
 - **Overseas Voice Chat DAU** displays the DAU of voice chat overseas
 - The total DAU data in the last seven days are displayed by default. You can also view the usage data for other statistical periods and other regions.
 
-![](https://main.qcloudimg.com/raw/fe49e9cba23d8e3754a4212c273ffe92.png)
+![](https://main.qcloudimg.com/raw/0fda092823ea45f4823ba43089c85d79.png)
 
 ### Usage statistics for voice messaging and voice-to-text conversion
 This page displays the DAU data of the offline voice application.
@@ -26,5 +26,5 @@ This page displays the DAU data of the offline voice application.
 - **Voice-to-text Conversions** displays the number of voice-to-text conversions yesterday
 - The total DAU data in the last seven days are displayed by default. You can also view the usage data for other statistical periods.
 
-![](https://main.qcloudimg.com/raw/87c04939bc58da14aeee8b931cbbde49.png)
+![](https://main.qcloudimg.com/raw/36b64b6df2a6cdabdb91503d06fd225b.png)
 
