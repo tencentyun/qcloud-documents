@@ -33,7 +33,7 @@ Rules for message body templates can be found in [Audit Criteria for Common SMS 
 
 ## Sending ISMS Messages
 After the message body template and SMS signature are approved, you can send SMS messages through the console, cloud SMS API or SDK.
-- For more information on how to send SMS messages through the console, please see [Send Text Messages](https://cloud.tencent.com/document/product/382/13481).
+- For more information on how to send SMS messages through the console, please see [Send Text Messages](https://intl.cloud.tencent.com/document/product/382/18053).
 - For more information on how to send SMS messages using API, please see [API Documentation](https://cloud.tencent.com/document/product/382/13297).
 - For more information on how to send SMS messages using SDK, please see [SDK Documentation](https://cloud.tencent.com/document/product/382/5804).
 
