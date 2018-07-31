@@ -37,8 +37,6 @@ To ensure business and channel security and minimize financial loss caused by ma
 In **Project Configuration** -> **Basic Configuration** page, click the **Set** button in the **Delivery Frequency Limit** tab to modify the frequency of sending messages under the project. After modification, click **Confirm**.
 ![](//mc.qcloudimg.com/static/img/686561248ce3a555e33d13796948ab2a/image.png)
 
-### Alarm for Over-limit Delivery on a Single Day
-Tencent Cloud SMS provides an alarm notification service for excessive SMS messages sent each calendar day. If the alarm notification feature is enabled, Tencent Cloud SMS system triggers the alarm to notify the preset alarm recipient when the project sends more SMS messages than the preset limit.
 **How to configure:**
 In the **Project Configuration** -> **Basic Configuration** page, click the **Set** button in the **Over-limit Delivery Alarm** tab to select alarm condition and enter a corresponding value, and then click **Confirm**.
 ![](//mc.qcloudimg.com/static/img/4663593afdb4a1d4dede9e1e98b540a9/image.png)
