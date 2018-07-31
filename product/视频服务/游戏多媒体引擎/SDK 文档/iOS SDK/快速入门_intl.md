@@ -44,7 +44,7 @@ _context.TMGDelegate =self;
 
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://github.com/TencentMediaLab/GME/blob/master/GME%20Introduction.md).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
@@ -161,7 +161,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 
 ## Authentication
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20Key%20Manual.md).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 A value of type NSData is returned by this API.
 
 #### Function prototype
