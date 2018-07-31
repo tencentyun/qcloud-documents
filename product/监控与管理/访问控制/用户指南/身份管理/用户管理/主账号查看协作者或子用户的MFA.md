@@ -20,7 +20,7 @@ MFA(Multi-FactorAuthentication)，即多因子认证，是一种简单有效的�
 通过与根账号绑定的手机号接收验证信息，输入验证码，单击【确定】。
 ![](https://main.qcloudimg.com/raw/33dfd73f48a83cf26dc9c9bb452d5e0b.png)
 2. 选择开启登录保护或敏感操作保护。
-在【管理MFA】分别选择是否开启登录保护和敏感操作保护的软件 MFA 校验，但击【确定】，完成为子账号绑定 MFA 操作。绑定并开启保护成功后，子账号会在下一次登录或敏感操作时进行 MFA 校验。
+在【管理MFA】分别选择是否开启登录保护和敏感操作保护的软件 MFA 校验，单击【确定】，完成为子账号绑定 MFA 操作。绑定并开启保护成功后，子账号会在下一次登录或敏感操作时进行 MFA 校验。
 ![](https://main.qcloudimg.com/raw/dcfc7c9884e939ade77c81cdfa6cf3ee.png)
 
 
@@ -28,4 +28,4 @@ MFA(Multi-FactorAuthentication)，即多因子认证，是一种简单有效的�
 
 >敏感操作保护：在子用户进行敏感操作前，需要先通过 MFA 验证 或 手机号验证 完成身份验证，以保障您的资产安全。
 
->如果您在操作中遇到问题，可参考 [MFA常见问题](https://cloud.tencent.com/document/product/378/12036)。
+>如果您在操作中遇到问题，可参考 [MFA 常见问题](https://cloud.tencent.com/document/product/378/12036)。
