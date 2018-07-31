@@ -8,7 +8,7 @@
 
 ### Audit Rules
 
-An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [SMS Helper](/document/product/382/3773).
+An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [Submit a ticket](https://console.cloud.tencent.com/workorder/category).
 
 1. The signature is **the name of a WeChat Official Account or Mini Program**.
  - For enterprise identify verification, the account subject of the Official Account must be identical with the company name on the copy of the business license (or organization code certificate).
