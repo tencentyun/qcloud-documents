@@ -1,13 +1,13 @@
 ## Overview
 
-Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://cloud.tencent.com/product/tmg?idx=1). This document provides a detailed description that makes it easy for developers to integrate GME SDK.
+Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://intl.cloud.tencent.com/product/tmg?idx=2). This document provides a detailed description that makes it easy for developers to integrate GME SDK.
 
 Follow the steps below to use GME:
-1. [Create a GME service in Tencent Cloud backend](#.E6.96.B0.E5.BB.BA.E6.9C.8D.E5.8A.A1);
-2. [Download the client SDK of applicable version](#.E4.B8.8B.E8.BD.BD-sdk);
-3. [Port the SDK to your project by referring to the integration API document](#.E7.9B.B8.E5.85.B3-sdk-.E6.8A.80.E6.9C.AF.E6.96.87.E6.A1.A3);
-4. [Check the daily operation backend statistics](#.E6.8E.A7.E5.88.B6.E5.8F.B0.E7.94.A8.E9.87.8F.E7.BB.9F.E8.AE.A1);
-5. [Troubleshoot special problems during integration and provide feedback](#.E7.89.B9.E6.AE.8A.E9.97.AE.E9.A2.98.E5.A4.84.E7.90.86);
+1. [Create a GME service in Tencent Cloud backend](https://intl.cloud.tencent.com/document/product/607/10782#create-a-service);
+2. [Download the client SDK of applicable version](https://intl.cloud.tencent.com/document/product/607/10782#download-sdk);
+3. [Port the SDK to your project by referring to the integration API document](https://intl.cloud.tencent.com/document/product/607/10782#related-sdk-technical-documents);
+4. [Check the daily operation backend statistics](https://intl.cloud.tencent.com/document/product/607/10782#usage-statistics-on-the-console);
+5. [Troubleshoot special problems during integration and provide feedback](https://intl.cloud.tencent.com/document/product/607/10782#special-problems-handling);
 
 
 ## Create a service
@@ -16,7 +16,7 @@ Follow the steps below to use GME:
 
 #### 2. Enter required information.  
 Enter required information on the page, and select the services as needed. 
-> The charges vary with different billing modes. The billing mode cannot be modified once set. For more information on the charges, please see [Product Prices](https://cloud.tencent.com/product/tmg?idx=1#price) and consult relevant Tencent Cloud service personnel.
+> The charges vary with different billing modes. The billing mode cannot be modified once set. For more information on the charges, please see [Product Prices](https://intl.cloud.tencent.com/product/tmg?idx=1#price) and consult relevant Tencent Cloud service personnel.
 > If you are creating a game application, you need to select the corresponding platform engine, and select an applicable sampling rate according to the solution provided by the technician.
 > The setting for voice messaging and voice-to-context conversion services can be modified.
 
@@ -44,7 +44,7 @@ You can click **Modify** to modify the information in the Application Informatio
  
  ![](https://main.qcloudimg.com/raw/2eb67cb291d211ed6eaa352fd08c10f6.png)
 
--  **For more information on authentication, please see the [GME key documentation](https://cloud.tencent.com/document/product/607/12218)**.
+-  **For more information on authentication, please see the [GME key documentation](https://intl.cloud.tencent.com/document/product/607/12218)**.
 
 
 #### 6. Enable and disable businesses and services
@@ -56,7 +56,7 @@ You can enable or disable businesses and services.
 
 ## Download SDK 
 #### 1. Download link
-Please download applicable Demo and SDK from [Tencent Cloud GME official website](https://cloud.tencent.com/product/tmg?idx=1).
+Please download applicable Demo and SDK from [Tencent Cloud GME official website](https://intl.cloud.tencent.com/product/tmg?idx=1).
 
 #### 2. Integration preparations
 To integrate the SDK, you need to use the AppID and the permission key provided by Tencent Cloud, as mentioned above.
@@ -70,24 +70,25 @@ The Demo provides a Tencent Cloud test account for you to experience features. I
 
 ## Related SDK Technical Documents
 **Unity engine** 
-[Unity Project Configuration](https://cloud.tencent.com/document/product/607/10783)     [Unity integration technical document](https://cloud.tencent.com/document/product/607/15228)
+[Unity Project Configuration](https://intl.cloud.tencent.com/document/product/607/10783)     [Unity integration technical document](https://intl.cloud.tencent.com/document/product/607/15228)
 
 **Unreal engine**
-[Unreal Engine Project Configuration](https://cloud.tencent.com/document/product/607/17025)     [Unreal Engine integration technical document](https://cloud.tencent.com/document/product/607/15231)
+[Unreal Engine Project Configuration](https://intl.cloud.tencent.com/document/product/607/17025)     [Unreal Engine integration technical document](https://intl.cloud.tencent.com/document/product/607/15231)
 
 **Cocos2D engine**
-[Cocos2D-X Project Configuration](https://cloud.tencent.com/document/product/607/15216)     [Cocos2D-X integration technical document](https://cloud.tencent.com/document/product/607/15218)
+[Cocos2D-X Project Configuration](https://intl.cloud.tencent.com/document/product/607/15216)     [Cocos2D-X integration technical document](https://intl.cloud.tencent.com/document/product/607/15218)
 
 **Native application**
-[PC (C++) integration technical document](https://cloud.tencent.com/document/product/607/15232)
-[iOS Project Configuration](https://cloud.tencent.com/document/product/607/15219)     [iOS integration technical document](https://cloud.tencent.com/document/product/607/15221)
-[Android Project Configuration](https://cloud.tencent.com/document/product/607/15203)     [Android integration technical document](https://cloud.tencent.com/document/product/607/15210)
+[PC (C++) integration technical document](https://intl.cloud.tencent.com/document/product/607/15232)
+[iOS Project Configuration](https://intl.cloud.tencent.com/document/product/607/15219)     [iOS integration technical document](https://intl.cloud.tencent.com/document/product/607/15221)
+[Android Project Configuration](https://intl.cloud.tencent.com/document/product/607/15203)     [Android integration technical document](https://intl.cloud.tencent.com/document/product/607/15210)
 
 
 ## Usage Statistics on the Console
-[Operational Guide](https://cloud.tencent.com/document/product/607/17448)
+[Operational Guide](https://intl.cloud.tencent.com/document/product/607/17448)
 
 
 ## Special Problems Handling
-[FAQs](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20FAQ%20Manual.md)     [Error Codes](https://intl.cloud.tencent.com/document/product/607/17359)
+[FAQs](https://intl.cloud.tencent.com/document/product/607/17359)    
+[Error Codes](https://intl.cloud.tencent.com/document/product/607/15173)
 
