@@ -42,10 +42,6 @@ In **Project Configuration** -> **Basic Configuration** page, click the **Set** 
 ![](
 https://main.qcloudimg.com/raw/42e83338582d16d3b480da65dbc90422.png)
 
-**How to configure:**
-In the **Project Configuration** -> **Basic Configuration** page, click the **Set** button in the **Over-limit Delivery Alarm** tab to select alarm condition and enter a corresponding value, and then click **Confirm**.
-![](//mc.qcloudimg.com/static/img/4663593afdb4a1d4dede9e1e98b540a9/image.png)
-
 ### Configuring Callback
 To make it easier for customers to keep good track of the information about the SMS messages sent, Tencent Cloud SMS provides powerful callback capability. For example, if a callback URL for SMS receipt status is configured, after receiving the callback message from operators, Tencent Cloud will push the callback message to the specified callback URL immediately. Tencent Cloud SMS service callbacks for SMS status, SMS reply and voice messages.
 **How to configure:**
