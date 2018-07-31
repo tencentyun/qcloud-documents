@@ -47,22 +47,6 @@ To make it easier for customers to keep good track of the information about the 
 In **Project Configuration** -> **Basic Configuration** page, click the **Set** button in the **Event Callback Configuration** tab, select the callback as needed and configure the callback URL. After the configuration is completed, click **Confirm**.
 ![](//mc.qcloudimg.com/static/img/9d795d67207ccca826fa461c14bed18a/image.png)
 
-## Adding Alarm Contact
-When added, the alarm contact can receive notifications about approvals for SMS signature and body template as well as alarm for frequency limit in a timely manner:
-**How to configure:**
-Click the Project name on the **Project List** page of Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms). In the **Project Configuration** -> **Notifications and Alarms** page, click **Add Alarm Contact**. In the **Add Alarm Contact** pop-up box, enter name, phone number, email address, select frequency limit policy, and then click **Confirm**.
->Note: This feature is strongly recommended so that receivers can receive an alarm when the frequency limit is reached, thus minimizing the financial loss caused by malicious call of SMS API.
->A maximum of 2 alarm contacts can be added for users who have gone through individual verification, and 5 for those who have completed enterprise verification.
-
-![](//mc.qcloudimg.com/static/img/752ebcabffb9825e9b59f59ea2dc3d1a/image.png)
-After alarm contacts are added, you are redirected to the alarm contact list, where you can re-edit or delete alarm contacts. Alarm contacts cannot be restored once deleted. Please proceed with caution.
-![](//mc.qcloudimg.com/static/img/c612fb0e2bf5cb804ecf78cd7f27dc1b/image.png)
-
-## Blacklist Management
-Since SMS platform and operators have put in place blacklist mechanism, you can apply for removing a phone number from the blacklist as needed. You need to query whether the phone number is in the blacklist first.
-**How to configure:**
-Click the project name on the **Project List** page of Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms). In the **Project Configuration** -> **Blacklist Management** page, enter the phone number you need to query whether it is in the blacklist. If so, click the phone number, enter the reasons for removing it from the blacklist, and wait for the audit result.
-![](//mc.qcloudimg.com/static/img/5aef20461561fff75adf14ea567a8d64/image.png)
 
 
 
