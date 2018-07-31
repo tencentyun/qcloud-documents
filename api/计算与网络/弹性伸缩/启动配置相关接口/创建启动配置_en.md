@@ -41,7 +41,7 @@ The following request parameter list only provides API request parameters. Commo
 | projectId                | No       | String | Project ID. If not specified, 0 means default project. To specify other projects, you can call API [Query Project List]() (DescribeProject) to query. |
 | dataSnapshotId           | No       | String | Data disk snapshot ID. If you want to use the data disk snapshot function, the data disk type (storageType) must be cloud disk, and the capacity of data disk snapshot must be less than that of the data disk (storageSize). |
 | cvmType                  | No       | String | Select CVM type. Only seven values are available: 11 means Standard CVM; 12 means Standard CVM Series 2; 21 means High IO CVM; 22 means High IO CVM Series 2; 31 means Memory CVM.  32 means Memory CVM Series 2 42 means Calculation CVM. If not specified, the default of this field is 11 (Standard CVM). |
-| userdata                 | No       | String | Base64-encoded User Data text, the length limit is 64KB.     |
+| userdata                 | No       | String | Base64-encoded User Data text, the length limit is 16KB.     |
 
 Currently, the scaling configurations support three CVMs, including Standard CVM, High IO CVM and Memory CVM (subject to the actual available types in each region). For more information about the CPUs and memories sizes supported by scaling configurations, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
 
