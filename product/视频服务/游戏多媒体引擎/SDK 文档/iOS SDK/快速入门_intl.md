@@ -9,7 +9,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, please see [API Documentation](https://cloud.tencent.com/document/product/607/15221).
+This document only provides the most important APIs to help you get started with GME. For more APIs, please see [API Documentation](https://intl.cloud.tencent.com/document/product/607/15221).
 
 
 | Important API | Description |
