@@ -61,8 +61,8 @@ An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.A
 
 ## Audit Procedure
 Generally, you can get the audit result of your signature and content template in half a working day. The audit time is from Monday to Sunday between 9:00 to 21:00.
-If you want to use the SMS service in a short time, [contact SMS Helper](/document/product/382/3773) and we will accelerate the audit process. If the audit is not approved, [contact SMS Helper](/document/product/382/3773) for a solution.
-Since the approved content templates also need to be spot checked and reviewed by operators, SMS messages may not be sent successfully. If such issue occurs, [contact SMS Helper](/document/product/382/3773) for a solution. 
+If you want to use the SMS service in a short time, [submit a ticket](https://console.cloud.tencent.com/workorder/category) and we will accelerate the audit process. If the audit is not approved, [submit a ticket](https://console.cloud.tencent.com/workorder/category) for a solution.
+Since the approved content templates also need to be spot checked and reviewed by operators, SMS messages may not be sent successfully. If such issue occurs, [submit a ticketr](https://console.cloud.tencent.com/workorder/category) for a solution. 
 
 ## Rules for Blocking SMS
 Both [SMS signatures](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) and [SMS templates](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E6.A8.A1.E6.9D.BF) applied for by users are reviewed by SMS technical support, and SMS content is also monitored and detected by the cloud SMS system when users are sending SMS messages, so as to prevent the content that violates national laws and regulations from appearing in SMS messages.
