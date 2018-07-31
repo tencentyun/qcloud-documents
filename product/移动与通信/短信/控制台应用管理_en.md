@@ -5,7 +5,7 @@ In addition, you can also set the frequency, configure callback  for the SMS pro
 
 ## Adding Project
 Log in to Tencent Cloud [SMS Console](https://console.cloud.tencent.com/sms).
-- Complete identity verification for your Tencent Cloud account if you have not already done so. For more information, please see [here](https://cloud.tencent.com/document/product/378/3629). You can skip this step if your Tencent Cloud account has gone through identity verification.
+- Complete identity verification for your Tencent Cloud account if you have not already done so. For more information, please see [here](https://intl.cloud.tencent.com/document/product/378/3629). You can skip this step if your Tencent Cloud account has gone through identity verification.
 
 Click **Add Project**. In the **Create Project** pop-up box, choose a creation method, enter the project name and project intro, and select a suitable project type. After this, click **Confirm** and you are directed to the **Project List** page where you can view the information of the new project.
 ![](//mc.qcloudimg.com/static/img/5c1197ab29531747ba5de8f6b2418ca9/image.png)
