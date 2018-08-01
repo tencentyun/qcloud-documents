@@ -1,0 +1,116 @@
+## MFA 简介
+
+### 什么是 MFA
+
+MFA（Multi-FactorAuthentication），即多因子认证，是一种简单有效的安全认证方法。它能够在用户名和密码之外，再增加一层保护。
+
+MFA 设备，又叫动态口令卡或 Token 卡，是提供这种安全认证方法的设备。目前腾讯云提供两种 MFA 设备： 硬件 MFA 设备和虚拟 MFA 设备 。腾讯云中国站支持的虚拟 MFA 设备要求绑定腾讯云助手小程序，腾讯云国际站支持的虚拟 MFA 设备需要绑定谷歌身份验证器。
+
+### 支持 MFA 绑定的账号类型
+
+腾讯云账号分为主账号和子账号。子账号类型分为子用户、协作者以及消息接收人。仅 **子用户或协作者** 可以进行 MFA 绑定，消息接收人不支持绑定。
+
+> MFA 的相关设置关系到云上资产安全，子用户或者协作者只能接受主账号或具有 CAM 管理权限的用户的相关设置。 
+
+如果您对 MFA 还有其他疑问，请参阅 [MFA 常见问题](https://cloud.tencent.com/document/product/378/12036)。  
+
+## 子账号支持的安全设置
+
+### 子用户
+
+CAM 子用户支持设置的操作属性如下：
+<table>
+<tr>
+<th>设置内容</th>
+<th>设置项</th>
+</tr>
+<tr>
+<td rowspan="2">操作保护</td>
+<td>MFA</td>
+</tr>
+<tr>
+<td>不开启</td>
+</tr>
+<tr>
+<td rowspan="2">登录保护</td>
+<td>MFA</td>
+</tr>
+<tr>
+<td>不开启</td>
+</tr>
+</table>
+
+### 协作者
+
+CAM 协作者支持设置的操作属性如下：
+<table>
+<tr>
+<th>设置内容</th>
+<th>设置项</th>
+</tr>
+<tr>
+<td rowspan="2">操作保护</td>
+<td>手机验证码</td>
+</tr>
+<tr>
+<td>不开启</td>
+</tr>
+<tr>
+<td rowspan="2">登录保护</td>
+<td>MFA</td>
+</tr>
+<tr>
+<td>不开启</td>
+</tr>
+</table>
+
+## 操作指南
+
+### 主账号绑定 MFA 设备
+
+虚拟 MFA 设备绑定指引，参考：
+
+[虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498) 的 **绑定虚拟 MFA设备** 部分
+
+硬件 MFA  设备绑定指引，参考 ：
+
+[硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 的 **绑定硬件 MFA 设备** 部分
+
+### 主账号解绑 MFA 设备
+
+虚拟 MFA 设备解绑指引，参考：
+
+[虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498) 的 **解绑虚拟 MFA 设备** 部分
+
+硬件 MFA  设备解绑指引，参考 ：
+
+[硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 的 **解绑硬件 MFA 设备** 部分
+
+### 为子账号开启 MFA
+您在安全设置中只能看到 **主账号** 的状态展示，如果您需要变更设置，可以请求主账号或者具有 CAM 管理权限的子用户，在 [访问管理控制台](https://console.cloud.tencent.com/cam) 的 **用户管理** 页面，设置相关内容。
+
+1. 在控制台的用户管理页面新建子用户时可以设置是否开启登录保护和敏感操作保护。
+![](https://main.qcloudimg.com/raw/086d82025e720830d57c2824180a8e98.png)
+
+2. 设置子用户开启 MFA 校验后，子用户在下一次登录时，系统将首先要求进行 MFA 设备关联，关联之后才可以进入控制台进行操作。
+
+### 查看子账号 MFA
+
+1. 登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam)，进入左侧导航【用户管理】页面，可查看用户列表。
+   ![](https://main.qcloudimg.com/raw/5349ecbb00bbc527c35037a1ae7a4098.png)
+2. 查看子账号是否绑定 MFA
+   单击列表内的用户名称可查看用户详情（如子用户），在【安全设置】中可查看该用户是否绑定 MFA。如【安全设置】右侧如果出现警告图标，则是提醒您注意该子账号尚未绑定 MFA 或者7天内有敏感操作。
+   ![](https://main.qcloudimg.com/raw/f53b93079898cef719f95df1b399aeb6.png)
+
+### <a id="resetMFA">为子账号重置 MFA</a>
+1. 在 [访问管理控制台](https://console.cloud.tencent.com/cam) 用户管理页面，进入子用户（协作者）详情页面，进入安全设置，找到 MFA 设置项。
+![img](https://main.qcloudimg.com/raw/7e15061c3e6d8032e0e711fde84585ad.png) 
+2. 管理 MFA 设置项中，可以对子用户（协作者）的 MFA 设置内容进行管理和配置，选择是否开启登录保护和敏感操作保护。
+![img](https://main.qcloudimg.com/raw/005403ec1dc438cf3d7194c15afa53d8.png) 
+
+3. 子用户（协作者）的 MFA 开启后，您可以重置该用户的设备状态。重置完成后，子用户（协作者）下次登录后，将进入重新绑定 MFA 的流程。
+重置 MFA 设备再重新绑定，可以解决当子用户（协作者）在设备丢失时无法重新关联的问题。
+
+## 常见问题
+#### 子账号忘记 MFA 设备如何处理？
+请使用主账号（或具有管理权限的用户）登录 [访问管理控制台](https://console.cloud.tencent.com/cam)，重置 MFA。具体操作步骤请参考 [为子账号重置 MFA](#resetMFA)。
