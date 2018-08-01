@@ -1,4 +1,5 @@
 # 使用postgres_fdw示例
+
 使用postgres_fdw插件可以访问本实例其他库或者其他postgres实例的数据。
 
 ## 前置条件
