@@ -11,18 +11,6 @@
 | [Pull SMS Message Status](https://cloud.tencent.com/document/product/382/5810)	| Pull the SMS message status, such as delivery status and reply |
 | [Pull SMS Message Status of a Single Mobile Number](https://cloud.tencent.com/document/product/382/5811)	| Pull the SMS message status for a single number, such as delivery status and reply |
 
-
-## SMS Voice Message APIs
-| API Name	| Description |
-|-----|------|
-| [Send Voice Verification Code](https://cloud.tencent.com/document/product/382/5812)	| Send voice verification codes to domestic users (Letters, numbers or a combination of letters and numbers are supported) |
-| [Send Voice Notification](https://cloud.tencent.com/document/product/382/5813)	| Send voice notifications to Chinese users (Letters, numbers or a combination of letters and numbers are supported; the length is limited to 100 characters) |
-| [Voice Verification Code Status Notification](https://cloud.tencent.com/document/product/382/5814)	| Tencent Cloud SMS service notifies the delivery status of voice verification code to the business side by calling back the service URL |
-| [Voice Notification Status Notification](https://cloud.tencent.com/document/product/382/5816)	| Tencent Cloud SMS service notifies the delivery status of voice notification to the business side by calling back the service URL |
-| [Voice Notification Button Notification](https://cloud.tencent.com/document/product/382/5815)	| Tencent Cloud SMS service notifies the button pressed by the user to the business side by calling back the service URL |
-| [Push Reason for Voice Delivery Failure](https://cloud.tencent.com/document/product/382/6532)	| For the destination number to which the voice verification code or voice notification is failed to be sent, push the reasons for the failure |
-
-
 ## Template APIs
 | API Name	| Description |
 |-----|------|
