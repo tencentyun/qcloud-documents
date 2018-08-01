@@ -1,6 +1,7 @@
-#使用postgres_fdw示例
+# 使用postgres_fdw示例
 使用postgres_fdw插件可以访问本实例其他库或者其他postgres实例的数据。
-**前置条件**
+
+## 前置条件
 
     1、在本实例中创建测试数据
     postgres=>create role user1 with LOGIN  CREATEDB PASSWORD 'password1';
@@ -18,7 +19,7 @@
     testdb2=> insert into test_table2 values (1);
     INSERT 0 1
  
- **创建postgres_fdw插件**
+## 创建postgres_fdw插件
  
     #创建
     postgres=> \c testdb1
@@ -35,7 +36,7 @@
     (2 rows)
 
 
-**创建SERVER**
+## 创建SERVER
   1. 目标实例为CDB实例类型
  
     #从本实例的testdb1访问目标实例testdb2的数据
@@ -63,17 +64,17 @@
 
     testdb1=>create server srv_test1 foreign data wrapper postgres_fdw options (host 'xxx.xxx.xxx.xxx',dbname 'testdb2', port '5432', access_type '6', region 'ap-guangzhou', uin 'xxxxxx', own_uin 'xxxxxx', dcgid 'xxxxxx');    
     CREATE SERVER       
-**创建用户映射**
+## 创建用户映射
 
     testdb1=> create user mapping for user1 server srv_test1 options (user 'user2',password 'password2');
     CREATE USER MAPPING
 
-**创建外部表**
+## 创建外部表
 
     testdb1=> create foreign table foreign_table1(id integer) server srv_test1 options(table_name 'test_table2');
     CREATE FOREIGN TABLE
     
-**访问外部数据**
+## 访问外部数据
 
     testdb1=> select * from foreign_table1;
      id
@@ -81,7 +82,7 @@
       1
     (1 row)
 
-#postgres_fdw使用注意
+# postgres_fdw使用注意
 
  如果目标实例在CVM上，需要注意以下几点：
  
@@ -91,7 +92,7 @@
 
  2. 如果目标实例非CDB实例，且搭建有热备模式，当主备切换后，需要自行更新server连接地址或者重新创建server。
 
-#参考链接
+# 参考链接
 
 [postgres_fdw介绍](http://www.postgres.cn/docs/9.5/postgres-fdw.html)
 [9.3版本SERVER创建](https://www.postgresql.org/docs/9.3/static/sql-createserver.html)
