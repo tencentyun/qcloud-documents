@@ -75,7 +75,7 @@
 
 </tr>
 <tr>
-<td style="width: 10%; "align="center" colspan="1"> 北美地域、美西地域（硅谷）</td>
+<td style="width: 10%; "align="center" colspan="1"> 北美地域、美西地域（硅谷）、泰国、俄罗斯、日本、印度</td>
 <td style="width: 20%; "align="center" colspan="2"> 0.25</td>
 
 
