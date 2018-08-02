@@ -69,7 +69,7 @@ imgClient.ocrIdCard({
 });
 ```
 
-如果想运行，[example/index.js](./example/index.js) 下面的例子，请先在项目根目录新建 config/index.js 文件，并按以下格式写下配置
+如果想运行，[example/index.js](https://github.com/TencentCloudBase/image-node-sdk/tree/master/example/index.js) 下面的例子，请先在项目根目录新建 config/index.js 文件，并按以下格式写下配置
 
 ```javascript
     const ProxyUrl = ''; // 可填公司代理
