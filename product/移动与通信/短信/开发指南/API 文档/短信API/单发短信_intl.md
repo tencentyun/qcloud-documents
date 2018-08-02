@@ -86,7 +86,7 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 }
 ```
 Notes:  
-[Billing](/doc/product/382/3772)  
+[Billing](/document/product/382/18051)  
 [Error Codes](/doc/product/382/3771)
 
 ## 4 SDK
