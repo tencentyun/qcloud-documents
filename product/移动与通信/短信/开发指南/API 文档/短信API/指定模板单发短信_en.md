@@ -86,5 +86,5 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. For more information, please see [Error Codes](/document/product/382/3771). |
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
 | ext | No| String | User's session content. The Tencent server returns it as is. |
-| fee | No | Number | Number of SMS messages billed. [About Billing](/document/product/382/9556) |
+| fee | No | Number | Number of SMS messages billed. [About Billing](/document/product/382/18051) |
 | sid | No | String | Delivery ID, indicating an SMS delivery record |
