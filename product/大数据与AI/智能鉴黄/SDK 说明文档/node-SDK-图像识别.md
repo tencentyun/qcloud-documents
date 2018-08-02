@@ -69,7 +69,7 @@ imgClient.ocrIdCard({
 });
 ```
 
-如果想运行，[example/index.js](https://github.com/TencentCloudBase/image-node-sdk/tree/master/example/index.js) 下面的例子，请先在项目根目录新建 config/index.js 文件，并按以下格式写下配置
+如果想运行，[example/index.js](https://github.com/TencentCloudBase/image-node-sdk/tree/master/example/index.js) 下面的例子，请先在项目根目录新建 config/index.js 文件，并按以下格式写下配置：
 
 ```javascript
     const ProxyUrl = ''; // 可填公司代理
@@ -83,7 +83,7 @@ imgClient.ocrIdCard({
     exports.SecretKey = SecretKey;
 ```
 
-然后运行
+然后运行：
 
 ```javascript
 npm run example
@@ -113,7 +113,7 @@ npm run example
     -  [人脸检索](https://cloud.tencent.com/document/product/641/12419) - faceIdentify
     -  [人脸对比](https://cloud.tencent.com/document/product/641/12420) - faceCompare
 
-* 文字识别OCR
+* 文字识别 OCR
     -  [手写体识别](https://cloud.tencent.com/document/product/641/12838) - ocrHandWriting
     -  [身份证识别](https://cloud.tencent.com/document/product/641/12424) - ocrIdCard
     -  [营业执照识别](https://cloud.tencent.com/document/product/641/12425) - ocrBizLicense
