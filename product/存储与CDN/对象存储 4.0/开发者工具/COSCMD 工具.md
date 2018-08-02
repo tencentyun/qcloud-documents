@@ -12,22 +12,29 @@ Windows 或 Linux 系统
 ### 安装及配置
 环境安装与配置详细操作，请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 ## 下载与安装
-- **源码地址**
-下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。
-- **pip 安装**
-执行`pip`命令进行安装：
-```
-pip install coscmd
-```
-安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
-- **pip 更新**
-执行`pip`命令进行更新：
-```
-pip install coscmd -U
-```
+1. 检查系统环境是否是 Windows 或 Linux 系统。
 
-> **注意：** 
-不论是在 Linux 还是 Windows 环境下，都可以通过以上的方法安装或更新。
+2. 检查是否装载 Python，若没有安装，具体参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 。
+
+3. 检查是否装载最新版本 pip，若没有安装，请前往 [PyPA pip 文档](https://pip.pypa.io/en/stable/installing/) 按照教程安装。
+
+4. 下载 [COSCMD 安装包](https://github.com/tencentyun/coscmd)。
+
+5. 进入 Terminal 开始 pip 安装，执行命令如下：
+
+   ```
+   pip install coscmd
+   ```
+
+   安装成功后，用户可以通过 `pip -v` 或 `pip --version` 命令查看当前版本信息。
+
+6. 更新 COSCMD 版本，执行命令如下：
+
+   ```
+   pip install coscmd -U
+   ```
+
+> 注意：不论是在 Linux 还是 Windows 环境下，都可以通过以上的方法安装或更新。
 
 ## 使用方法
 ### 查看 help
@@ -91,8 +98,8 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 
 | 名称         | 描述                                       | 有效值  |
 | :---------| :---------------------------------------- | :---- |
-| secret_id  | 必选参数，APPID 对应的密钥 ID，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225) | 字符串  |
-| secret_key | 必选参数，APPID 对应的密钥 Key，可从控制台获取，参考 [基本概念](https://cloud.tencent.com/doc/product/436/6225) | 字符串  |
+| secret_id  | 必选参数，APPID 对应的密钥 ID 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串  |
+| secret_key | 必选参数，APPID 对应的密钥 Key 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串  |
 | bucket     | 必选参数，指定的存储桶名称，bucket 的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串  |
 | region     | 必选参数，存储桶所在地域。参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串  |
 | max_thread | 可选参数，多线程上传时的最大线程数（默认为 5），有效值：1~10         | 数字   |
