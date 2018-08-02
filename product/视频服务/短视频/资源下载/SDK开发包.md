@@ -35,8 +35,8 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4978 @ 2018-07-23</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4978.zip">ZIP</a></td>
+    <td>5.0.4981 @ 2018-08-02</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4981.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -55,8 +55,8 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4978 @ 2018-07-23</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4978.zip">ZIP</a></td>
+    <td>5.0.4981 @ 2018-08-02</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4981.zip">ZIP</a></td>
   </tr>
 </table>
 
