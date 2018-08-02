@@ -4129,7 +4129,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>sub_terminal_type</td>
-      <td>是</td>
+      <td>否</td>
       <td>Number(32)</td>
       <td>子终端类型，代表一个机具品牌，具体值可以联系云支付分配</td>
    </tr>
