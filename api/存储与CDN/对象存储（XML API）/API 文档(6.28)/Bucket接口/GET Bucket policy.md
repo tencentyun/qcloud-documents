@@ -1,8 +1,6 @@
 ## 功能描述
 GET Bucket policy 请求可以向 Bucket 读取权限策略。
 
->注意：只有 Bucket 所有者有权限发起该请求。假如您没有拥有 GET Bucket policy 的权限，则返回 403 Access Denied；假如您拥有 GET Bucket policy 的权限但不是所有者时，将返回 405 Method Not Allowed；如果权限策略不存在，将返回 404 Policy Not Found。
-
 ## 请求
 
 ### 请求示例：
