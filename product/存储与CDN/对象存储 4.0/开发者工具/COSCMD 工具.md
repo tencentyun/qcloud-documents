@@ -260,7 +260,7 @@ coscmd info bbb/123.txt //操作示例
 ### 获取带签名的下载 URL
 - 命令如下：
 ```
-coscmd sigurl <cospath>  //命令格式
+coscmd signurl <cospath>  //命令格式
 coscmd signurl bbb/123.txt //操作示例
 coscmd signurl bbb/123.txt -t 100//操作示例
 ```
