@@ -6,7 +6,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 ### 请求示例：
 
 ```
-PUT /?policy Http/1.1
+PUT /?policy HTTP/1.1
 Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: date
 Content-Type:application/json
@@ -16,13 +16,6 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-PUT /?policy Http/1.1
-```
-
-该 API 接口接受 `PUT` 请求。
 
 ### 请求头
 
@@ -98,23 +91,23 @@ Content-Type: application/json
 Content-Length: 233
 
 {
-  "version": "2.0", 
-  "principal": {
-    "qcs": [
-      "qcs::cam::uin/909619481:uin/909619481"
-    ]
-  }, 
-  "statement": [
+  "Statement": [
     {
-      "effect": "allow", 
-      "action": [
+      "Principal": {
+        "qcs": [
+          "qcs::cam::uin/909619481:uin/909619481"
+        ]
+      },
+      "Effect": "allow",
+      "Action": [
         "name/cos:GetBucket"
-      ], 
-      "resource": [
-        "qcs::cos:sg:uid/1251668577:prefix//1251668577/arlenhuangtestsgnoversion/*"
+      ],
+      "Resource": [
+        "qcs::cos:ap-chengdu:uid/1252336075:aaa-1252336075/*"
       ]
     }
-  ]
+  ],
+  "version": "2.0"
 }
 
 ```
@@ -129,5 +122,4 @@ Connection: keep-alive
 Date: Thu Jan 19 16:19:22 2017
 Server: tencent-cos
 x-cos-request-id: NTg4MDc2OGFfNDUyMDRlXzc3NTlfZTc4
-
 ```
