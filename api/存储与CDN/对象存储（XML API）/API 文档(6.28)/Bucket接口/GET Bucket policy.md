@@ -44,42 +44,6 @@ Authorization: Auth String
 
 该请求操作无特殊的响应头部信息。
 
-### 响应体
-
-```json
-{
-    "version": "2.0",
-    "principal": {
-        "qcs": [
-            "qcs::cam::uin/:uin/",
-            "qcs::cam::uin/:uin/"
-        ]
-    },
-    "statement": [
-        {
-            "effect": "allow",
-            "action": [
-                "name/cos:"
-            ],
-            "resource": [
-                "qcs::cos::uid/:prefix////",
-                "qcs::cos::uid/:prefix////[dir1]/*"
-            ]
-        },
-        {
-            "effect": "allow",
-            "action": [
-                "name/cos:"
-            ],
-            "resource": [
-                "qcs::cos::uid/:prefix////",
-                "qcs::cos::uid/:prefix////[dir1]/*"
-            ]
-        }
-    ]
-}
-```
-
 ### 错误码
 
 无返回特殊错误码。一般常见错误码，请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
@@ -105,19 +69,22 @@ Server: tencent-cos
 x-cos-request-id: NTg4MDc3MWFfOWIxZjRlXzZmNDVfZTBl
 
 {
-    "version": "2.0",
-    "principal": {
-        "qcs": ["qcs::cam::uin/909619481:uin/909619481"]
-    },
-    "statement": [
-        {"action": [
-                "name/cos:GetBucket"
-            ],
-            "effect": "allow",
-            "resource": [
-"qcs:id/0:cos:sg:uid/1251668577:prefix//1251668577/arlenhuangtestsgnoversion/*"
-            ]
-        }
-    ]
+  "Statement": [
+    {
+      "Principal": {
+        "qcs": [
+          "qcs::cam::uin/909619481:uin/909619481"
+        ]
+      },
+      "Effect": "allow",
+      "Action": [
+        "name/cos:GetBucket"
+      ],
+      "Resource": [
+        "qcs::cos:ap-chengdu:uid/1252336075:aaa-1252336075/*"
+      ]
+    }
+  ],
+  "version": "2.0"
 }
 ```
