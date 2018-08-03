@@ -59,7 +59,7 @@ static string AppSignMuti(const uint64_t appId,
 
 | 参数名          | **类型**   | **是否必填** | **默认值** | **参数描述**     |
 | ------------ | -------- | -------- | ------- | ------------ |
-| appId        | uint64_t | 是        | 无       | 项目 APP ID     |
+| appId        | uint64_t | 是        | 无       | 项目 App ID     |
 | secretId     | String   | 是        | 无       | 用户 Secret ID |
 | secretKey    | String   | 是        | 无       | 用户 SecretKey |
 | expired_time | uint64_t | 否        | 无       | 过期时间，Unix 时间戳 |
