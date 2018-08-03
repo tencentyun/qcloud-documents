@@ -7,7 +7,9 @@
 | Android      | TBS （微信和手机QQ的默认Webview） | 43600                |   微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) ，<br />   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
+| Mac          | Safari | 11+                |      |
 | Windows(PC)  | Chrome | 52+                |  | |
+| Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2               |  | |
 
 > 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc) 中有获取 TBS 版本的方法。
 
