@@ -30,35 +30,23 @@ Authorization: Auth String
 
 ```json
 {
-    "version": "2.0",
-    "principal": {
-        "qcs": [
-            "qcs::cam::uin/:uin/",
-            "qcs::cam::uin/:uin/"
-        ]
-    },
-    "statement": [
+    "Statement": [
         {
-            "effect": "allow",
-            "action": [
-                "name/cos:"
+            "Principal": {
+                "qcs": [
+                    "qcs::cam::uin/${owner_uin}:uin/${sub_uin}"
+                ]
+            },
+            "Effect": "${effect}",
+            "Action": [
+                "name/cos:${action}"
             ],
-            "resource": [
-                "qcs::cos::uid/:prefix////",
-                "qcs::cos::uid/:prefix////[dir1]/*"
-            ]
-        },
-        {
-            "effect": "allow",
-            "action": [
-                "name/cos:"
-            ],
-            "resource": [
-                "qcs::cos::uid/:prefix////",
-                "qcs::cos::uid/:prefix////[dir1]/*"
+            "Resource": [
+                "qcs::cos:${region}:uid/${appid}:${bucket}/*"
             ]
         }
-    ]
+    ],
+    "version": "2.0"
 }
 ```
 
@@ -122,4 +110,5 @@ Connection: keep-alive
 Date: Thu Jan 19 16:19:22 2017
 Server: tencent-cos
 x-cos-request-id: NTg4MDc2OGFfNDUyMDRlXzc3NTlfZTc4
+
 ```
