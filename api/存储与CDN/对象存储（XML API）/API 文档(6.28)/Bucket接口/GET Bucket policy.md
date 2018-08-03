@@ -16,15 +16,15 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详情，请查阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
-
 ### 请求头
 
 #### 公共头部
 
 该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+
+#### 非公共头部
+
+该请求操作无特殊的请求头部信息。
 
 #### 请求参数
 
@@ -91,7 +91,7 @@ Authorization: Auth String
 
 ```json
 GET /?policy HTTP/1.1
-Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host:bucket01-1251668577.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814099;32557710099&q-key-time=1484814099;32557710099&q-header-list=host&q-url-param-list=policy&q-signature=0523d7c6305b6676611c44798d2c48b659e68869 
 ```
 
@@ -109,18 +109,15 @@ x-cos-request-id: NTg4MDc3MWFfOWIxZjRlXzZmNDVfZTBl
 {
     "version": "2.0",
     "principal": {
-        "qcs": [
-            "qcs::cam::uin/909619481:uin/909619481"
-        ]
+        "qcs": ["qcs::cam::uin/909619481:uin/909619481"]
     },
     "statement": [
-        {
-            "action": [
+        {"action": [
                 "name/cos:GetBucket"
             ],
             "effect": "allow",
             "resource": [
-                "qcs:id/0:cos:sg:uid/1251668577:prefix//1251668577/arlenhuangtestsgnoversion/*"
+"qcs:id/0:cos:sg:uid/1251668577:prefix//1251668577/arlenhuangtestsgnoversion/*"
             ]
         }
     ]
