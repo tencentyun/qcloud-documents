@@ -40,7 +40,7 @@
     <td><a href="https://cloud.tencent.com/document/api/853/18384">腾讯优评</a></td>
     <td><a href="https://cloud.tencent.com/document/api/851/18295">腾讯智能钛机器学习</a></td>
     <td><a href="https://cloud.tencent.com/document/api/659/18591">迁移服务平台</a></td>
-    <td></td>
+
   </tr>
   </table>
 
