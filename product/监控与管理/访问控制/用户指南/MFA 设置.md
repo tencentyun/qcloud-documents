@@ -68,21 +68,17 @@ CAM 协作者支持设置的操作属性如下：
 
 ### 主账号绑定/解除 MFA 设备
 
-虚拟 MFA 设备绑定指引，参考：
+虚拟 MFA 设备绑定/解除指引，参考：
 
-[虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498) 的 **绑定虚拟 MFA设备** 部分
+[虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498) 
 
-虚拟 MFA 设备解绑指引，参考：
 
-[虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498) 的 **解绑虚拟 MFA 设备** 部分
 
-硬件 MFA  设备绑定指引，参考 ：
+硬件 MFA  设备绑定/解除指引，参考 ：
 
-[硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 的 **绑定硬件 MFA 设备** 部分
+[硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 
 
-硬件 MFA  设备解绑指引，参考 ：
 
-[硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 的 **解绑硬件 MFA 设备** 部分
 
 ### 为子账号开启 MFA
 您在安全设置中只能看到 **主账号** 的状态展示，如果您需要变更设置，可以请求主账号或者具有 CAM 管理权限的子用户，在 [访问管理控制台](https://console.cloud.tencent.com/cam) 的 **用户管理** 页面，设置相关内容。
@@ -107,8 +103,7 @@ CAM 协作者支持设置的操作属性如下：
 ![img](https://main.qcloudimg.com/raw/278e25f78687a8fd83aa9c738b839843.png) 
 
 3. 子用户（协作者）的 MFA 开启后，您可以重置该用户的设备状态。重置完成后，子用户（协作者）下次登录后，将进入重新绑定 MFA 的流程。
-重置 MFA 设备再重新绑定，可以解决当子用户（协作者）在设备丢失时无法重新关联的问题。
 
-## 常见问题
-#### 子账号忘记 MFA 设备如何处理？
-请使用主账号（或具有管理权限的用户）登录 [访问管理控制台](https://console.cloud.tencent.com/cam)，重置 MFA。具体操作步骤请参考 [为子账号重置 MFA](#resetMFA)。
+>重置 MFA 设备再重新绑定，可以解决当子用户（协作者）在设备丢失时无法重新关联的问题。
+
+
