@@ -7,7 +7,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ```
 PUT /?policy Http/1.1
-Host:-..myqcloud.com
+Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: date
 Content-Type:application/json
 Content-MD5:MD5
@@ -22,8 +22,7 @@ Authorization: Auth String
 PUT /?policy Http/1.1
 ```
 
-该 API 接口接受 PUT 请求。
-
+该 API 接口接受 `PUT` 请求。
 
 ### 请求头
 
@@ -32,8 +31,8 @@ PUT /?policy Http/1.1
 该请求操作的实现使用公共请求头，了解公共请求头详情，请查阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 请求参数
-
 无特殊请求参数。
+
 ### 请求体
 
 ```json
@@ -93,7 +92,7 @@ PUT /?policy Http/1.1
 
 ```JSON
 PUT /?policy HTTP/1.1
-Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host:bucket01-1251668577.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
 Content-Type: application/json
 Content-Length: 233
