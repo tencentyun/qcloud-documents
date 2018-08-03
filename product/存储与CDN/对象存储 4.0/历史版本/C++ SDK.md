@@ -14,7 +14,7 @@
 3. 安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装 boost 的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
 5. 安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-6. 从控制台获取 APP ID、SecretID、SecretKey。
+6. 从控制台获取 App ID、SecretID、SecretKey。
 
 >**注意：**
 >1. 本 SDK 仅适用于 Linux 系统和编译环境，暂不支持 Windows 环境。
