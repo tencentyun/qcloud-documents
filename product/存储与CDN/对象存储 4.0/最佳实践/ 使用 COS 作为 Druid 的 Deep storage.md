@@ -1,7 +1,3 @@
-## 功能说明
-
-使用 COS 作为 Druid 的 Deep storage。
-
 ## 环境依赖
 
 [HADOOP-COS](https://github.com/tencentyun/hadoop-cos) 与 Hadoop-COS-Java-SDK（包含在 HADOOP-COS 的 dep 目录下）
