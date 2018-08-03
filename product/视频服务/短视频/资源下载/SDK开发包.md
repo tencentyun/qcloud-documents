@@ -79,6 +79,11 @@
     <td>5.0.4973 @ 2018-07-18</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">ZIP</a></td>
   </tr>
+  <tr align="center">
+    <td>后台</td>
+    <td></td>
+    <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
+  </tr>
 </table>
 
 <script>
