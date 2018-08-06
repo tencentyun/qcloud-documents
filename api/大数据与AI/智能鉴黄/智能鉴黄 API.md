@@ -20,7 +20,7 @@
 
 | 参数          | 必选|值                         | 描述                                     |
 | -------------- | ----|---------------------- | ---------------------------------------- |
-| host           | 是|service.image.myqcloud.com | 腾讯云图片鉴黄服务器域名                    |
+| host           | 是|recognition.image.myqcloud.com | 腾讯云图片鉴黄服务器域名                    |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（byte）  |
 | content-type   | 是|application/json 或  multipart/form-data  | 根据不同接口选择，每个请求最多支持 20 张 url 或图片：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。 |
 | authorization  | 是|鉴权签名                    | 用于 [**鉴权**](/document/product/864/17712) 的签名 |
