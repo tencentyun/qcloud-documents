@@ -45,12 +45,12 @@ service httpd start
 ```
 3. 测试 Apache 。
 >**注意：**
-此步骤需要您的云服务器在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://cloud.tencent.com/document/product/213/5221)。
+此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://cloud.tencent.com/document/product/213/5221)。
 
 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](//mc.qcloudimg.com/static/img/3cde70e76a386b81f96ea9919280269d/image.png)
 
-### 安装 Apache 的 mod_wsgi 拓展作为 Django 的应用容器
+### 安装 apache 的 mod_wsgi 拓展作为 Django 的应用容器
 1. 安装 httpd-devel。
 ```
 yum install -y httpd-devel
@@ -70,7 +70,7 @@ LoadModule  wsgi_module modules/mod_wsgi.so
 cd /usr/local
 django-admin.py startproject testProject
 ```
-2. 在项目根目录中新建文件 django.wsgi 作为 Apache 支持。
+2. 在项目根目录中新建文件 django.wsgi 作为 apache 支持。
 ```
 cd /usr/local/testProject
 vim django.wsgi
@@ -84,7 +84,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '..
 os.environ['DJANGO_SETTINGS_MODULE'] = 'projectname.settings'
 application = get_wsgi_application()
 ```
-4. 在 Apache 中添加支持 。
+4. 在 apache 中添加支持 。
 ```
 WSGIScriptAlias /python "/usr/local/testProject/django.wsgi"
 ```
@@ -102,7 +102,7 @@ urlpatterns = [
     url(r'^hello/$',hello),
 ]
 ```
-7. 重启 Apache 服务。
+7. 重启 apache 服务。
 ```
 service httpd restart
 ```

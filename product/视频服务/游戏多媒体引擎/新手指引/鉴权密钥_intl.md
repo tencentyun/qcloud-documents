@@ -21,7 +21,7 @@ Plaintext is constructed using the following fields in the network order:
 ### 1. Key
 The permission key can be obtained on Tencent Cloud GME console.
 
-![](https://main.qcloudimg.com/raw/9afa07c629e37b66cd223bf39fe17abf.png)
+![](https://main.qcloudimg.com/raw/bed3c36cdf3fcb421878c64cd5d775ba.png)
 
 ### 2. Algorithm
 TEA symmetric encryption algorithm.
@@ -64,7 +64,7 @@ The plaintext is constructed based on appid and openid.
 
 ### 2. Obtain the key
 Click **Download Public and Private Keys** in the Authentication Information module on the application setting page to download the public and private keys for the application.
-![](https://main.qcloudimg.com/raw/9afa07c629e37b66cd223bf39fe17abf.png)
+![](https://main.qcloudimg.com/raw/bed3c36cdf3fcb421878c64cd5d775ba.png)
 
 Decompress the downloaded zip package and you can find two files as below:
 

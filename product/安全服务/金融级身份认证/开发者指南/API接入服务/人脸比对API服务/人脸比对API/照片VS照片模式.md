@@ -12,8 +12,8 @@
 | orderNo         | 订单号，由合作方上送，每次唯一                          | String        | 32         | 是            |
 | name            | 姓名                                       | String        | 20         | 否          |
 | idNo            | 证件号码                                     | String        | 20         | 否          |
-| photoStr        | 照片文件</br>注意：原始图片不能超过 2 M，且必须为 JPG 或 PNG 格式    | Base64 String | 不超过 3 M   | 是  |
-| sourcePhotoStr  | 合作伙伴自己提供的可信比对源照片</br>注意：原始图片不能超过 500 k，且必须为 JPG 或 PNG 格式 | Base64 String | 不超过 1 M      | 是 |
+| photoStr        | 照片文件</br>注意：原始图片不能超过 2M，且必须为 JPG 或 PNG 格式    | Base64 String | 不超过 3M   | 是  |
+| sourcePhotoStr  | 合作伙伴自己提供的可信比对源照片</br>注意：原始图片不能超过 500k，且必须为 JPG 或 PNG 格式 | Base64 String | 不超过 1M      | 是 |
 | sourcePhotoType | 比对源照片类型</br>1：网纹照</br>2：高清照     | String        | 1          | 是            |
 
 ## 响应参数
