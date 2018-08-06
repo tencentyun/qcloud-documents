@@ -11,9 +11,9 @@
 ### url 说明
 支持 HTTP 和 HTTPS 两种协议：
 
-`http://service.image.myqcloud.com/detection/porn_detect`
+`http://recognition.image.myqcloud.com/detection/porn_detect`
 
-`https://service.image.myqcloud.com/detection/porn_detect`
+`https://recognition.image.myqcloud.com/detection/porn_detect`
 
 ## 请求头 header
 所有请求都要求含有以下头部信息：
