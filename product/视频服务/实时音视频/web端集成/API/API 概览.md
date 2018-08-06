@@ -26,7 +26,9 @@
 | API                   |  描述            |
 | -------------------- | -------- |
 | [WebRTCAPI.startRTC](https://cloud.tencent.com/document/product/647/17250#webrtcapi.startrtc)   | 主动推流才需要用到 |
+| [WebRTCAPI.stopRtc](https://cloud.tencent.com/document/product/647/17250#webrtcapi.startrtc)   | 停止推流 |
 | [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.updateStream](https://cloud.tencent.com/document/product/647/17250#webrtcapi.updatestream)     | 更新视频流 |
 | [WebRTCAPI.openVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.openvideo)     | 推流期间重新打开视频采集 |
 | [WebRTCAPI.closeVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.closevideo)     | 推流期间暂时关闭视频采集 |
 | [WebRTCAPI.openAudio](https://cloud.tencent.com/document/product/647/17250#webrtcapi.openaudio)     | 推流期间重新打开音频采集 |
@@ -36,6 +38,7 @@
 | [WebRTCAPI.getAudioDevices](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getAudioDevices)     | 枚举音频采集设备 |
 | [WebRTCAPI.chooseVideoDevice](https://cloud.tencent.com/document/product/647/17250#webrtcapi.chooseVideoDevice)     | 选择视频采集设备 |
 | [WebRTCAPI.chooseAudioDevice](https://cloud.tencent.com/document/product/647/17250#webrtcapi.chooseaudiodevice)     | 选择音频采集设备 |
+| [WebRTCAPI.SoundMeter](https://cloud.tencent.com/document/product/647/17250#webrtcapi.SoundMeter)     | 声音输入检测 |
 
 
 ### 高级事件通知
