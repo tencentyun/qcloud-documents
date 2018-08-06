@@ -1,18 +1,19 @@
-**资源准备**
+## 准备工作
 
-在实施应用部署之前确保已经准备妥当如下资源：
+前提条件：
 
-- 集群及集群内有可用主机
-- 主机上已安装应用运行的环境（如 Python 应用的相关依赖等） 
-- 程序包：用于部署的程序包。TSF 提供 Python  Demo 供用户使用。
+1. 下载 TSF 提供的 Demo。该步骤预计耗时 1 min。
+2. 在 TSF 控制台上已创建容器集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建容器集群和添加节点的用户，该步骤预计耗时 10 min。
+3. 主机上已安装应用运行的环境（如 Python 应用的相关依赖等） 。该步骤预计耗时根据运行环境的复杂度有所不同。
 
 
 
-在 Demo 中三个应用对应的服务名分别是：
+**Demo for Python**
 
-- user
-- shop
-- promotion
+- [Demo for Python](https://main.qcloudimg.com/raw/f84f0735204c8f24fcc3f21519a8740f/tsf_python_vm_demo.zip)：提供了 3 个 Python 应用及 Dockerfile。三个应用对应的服务名分别是：
+  - user
+  - shop
+  - promotion
 
 三个应用之间的调用关系是：
 
@@ -53,6 +54,8 @@ user => shop => promotion
 
 1.4 单击【提交】按钮。
 
+![](https://main.qcloudimg.com/raw/46c098a283476814ad8f30749c4269c9.png)
+
 
 
 ### 2. 上传程序包
@@ -62,6 +65,8 @@ user => shop => promotion
 2.2 单击【上传】按钮，选择程序包，填写程序包相关信息。
 
 2.3 单击【提交】按钮，完成上传。
+
+![](https://main.qcloudimg.com/raw/5feffece169465b33226d89a4d1b8db3.png)
 
 
 
