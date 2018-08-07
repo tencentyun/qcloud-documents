@@ -6,8 +6,7 @@
 
 ### 开发准备
  1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）
- 2. 取得存储桶名称 `BucketName`： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) 
- 3. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”
+ 2. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”，目前只支持使用主账号进行调用。
 
 # 快速体验 Demo
 1. 修改：找到 app/src/main/java/com/tencent/faceiddemo/MainActivity.java 文件，定位到 initUserInfo() 方法，填入上面申请到的  `APPID`、`BucketName`、`SecretId`、`SecretKey`
