@@ -1,3 +1,24 @@
+## [1.2.0] - 2018-08-03
+### 新增
+1. TICSDK 增加文档上传转码功能
+2. TICSDK 增加退出课堂不退出群组方法
+3. 白板SDK增加文档功能相关接口
+
+### 优化
+1. TICSDK addBoardView接口增加完成回调，用来通知拉取课堂历史消息完成事件
+
+```objc
+/**
+ @brief 添加白板到 TICManager【使用白板必调】，并拉取课堂历史数据
+ @discussion 方法内部不会对 TXBoardView 对象进行强引用，只是将boardView的代理设置为 TICManager，同时只能添加一个，重复添加以后添加的为准
+ 
+ @param boardView 用户创建的白板对象
+ @param loadFinish 拉取完成回调（拉取失败会发挥错误码和错误信息，拉取成功则errCode为0，errMsg为nil）
+ */
+- (void)addBoardView:(TXBoardView *)boardView andLoadHistoryData:(void (^)(int errCode, NSString *errMsg))loadFinish;
+```
+
+
 ## [1.1.3] - 2018-07-24
 ### 优化
 1. TICSDK 优化进房逻辑，增加原始消息类型收发方法
