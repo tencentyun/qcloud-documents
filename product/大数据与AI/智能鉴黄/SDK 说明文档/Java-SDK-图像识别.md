@@ -47,6 +47,7 @@ System.out.println(result);
 ```
 
 更多例子详情可参见 [Demo.java](https://github.com/tencentyun/image-java-sdk-v2.0/blob/master/src/main/java/com/qcloud/image/demo/Demo.java) 的代码。
+>**注意**: BUCKET 为历史遗留字段, 无需修改。
 
 ## 如何运行这个 Demo 工程
 1. 修改文件 src/main/java/com/qcloud/image/demo/Demo.java 的 main() 方法，填入上述申请到的 **APPID**、**SecretId**、**SecretKey**
