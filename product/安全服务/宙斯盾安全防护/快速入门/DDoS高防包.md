@@ -25,6 +25,6 @@ c. “弹性流量包” 可以在 “DDoS 高防包” 管理列表下，单击
 2. 绑定防护IP
 a. 单击高防包 ID，进入基本信息页。![](https://i.imgur.com/c1X8XeW.png)
 b. 选择 “防护 IP 列表” 子页，单击【添加防护 IP】。![](https://i.imgur.com/wHCsouN.png)
-c. 勾选云主机 IP 地址，单击【确定】。![](https://i.imgur.com/UPpqQAY.png)
+c. 勾选云服务器 IP 地址，单击【确定】。![](https://i.imgur.com/UPpqQAY.png)
 添加成功后，可以在 “防护 IP 列表” 下看到该 IP，该 IP 地址即可以获得 DDoS 高防包防护了。
 ![](https://i.imgur.com/hEHODtG.png)
