@@ -60,9 +60,9 @@ user => shop => promotion
 
 ### 2. 上传程序包
 
-2.1 单击【程序包】标签页。
+2.1 单击【程序包管理】标签页。
 
-2.2 单击【上传】按钮，选择程序包，填写程序包相关信息。
+2.2 单击【上传程序包】按钮，选择程序包，填写程序包相关信息。
 
 2.3 单击【提交】按钮，完成上传。
 
@@ -106,13 +106,13 @@ user => shop => promotion
 
 ## 三、验证服务调用
 
-使用同样的步骤一和步骤二部署 `user`, `shop` 和 `promotion` 三个应用，并创建服务与应用关联。用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
+使用同样的步骤一和步骤二部署 `user`、`shop` 和 `promotion` 三个应用，并创建服务与应用关联。用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
 
 
 
 #### 1. 触发 user 服务调用 shop 和 promotion 服务
 
-user, shop, promotion 三个服务的接口间调用关系如下：
+user、shop、promotion 三个服务的接口间调用关系如下：
 
 user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotion (`/api/v6/promotion/query`)
 
@@ -121,7 +121,8 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 
 
 - **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过 **负载均衡 IP + 服务端口** （在上面的截图例子中服务端口是  9080）来访问 `user` 服务的 `/api/v6/user/account/query` 接口。
-- **节点IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点IP` 为集群中任一节点的内网IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
+
+- **节点 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点 IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点 IP` 为集群中任一节点的内网 IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
 
 ```
 	shell
