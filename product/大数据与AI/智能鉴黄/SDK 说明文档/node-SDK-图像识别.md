@@ -7,7 +7,7 @@
 ## 快速入门
 ### 在腾讯云申请业务的授权
 
-授权包括： APPID 、SecretId 、 SecretKey 。
+授权包括： APPID 、SecretId 、 SecretKey ，目前只支持主账号及秘钥进行调用。
 
 
 ### 安装使用
