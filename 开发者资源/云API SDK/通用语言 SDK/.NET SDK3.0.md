@@ -20,7 +20,7 @@
 <tr>
     <td><a href="https://cloud.tencent.com/document/api/386/18637 ">黑石物理服务器</a></td>
     <td><a href="https://cloud.tencent.com/document/api/563/16034 ">渠道合作伙伴</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">腾讯机器翻译</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">机器翻译</a></td>
     <td><a href="https://cloud.tencent.com/document/api/409/16761">数据库 PostgreSQL</a></td>
   </tr>
 <tr>
