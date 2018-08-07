@@ -1,19 +1,19 @@
 ## [1.2.0] - 2018-08-03
 ### 新增
-1. TICSDK 增加文档上传转码功能
-2. TICSDK 增加退出课堂不退出群组方法
-3. 白板SDK增加文档功能相关接口
+1. TICSDK 增加文档上传转码功能；
+2. TICSDK 增加退出课堂不退出群组方法；
+3. 白板 SDK 增加文档功能相关接口。
 
 ### 优化
-1. TICSDK addBoardView接口增加完成回调，用来通知拉取课堂历史消息完成事件
+1. TICSDK addBoardView 接口增加完成回调，用来通知拉取课堂历史消息完成事件。
 
 ```objc
 /**
  @brief 添加白板到 TICManager【使用白板必调】，并拉取课堂历史数据
- @discussion 方法内部不会对 TXBoardView 对象进行强引用，只是将boardView的代理设置为 TICManager，同时只能添加一个，重复添加以后添加的为准
+ @discussion 方法内部不会对 TXBoardView 对象进行强引用，只是将 boardView 的代理设置为 TICManager，同时只能添加一个，重复添加以后添加的为准
  
  @param boardView 用户创建的白板对象
- @param loadFinish 拉取完成回调（拉取失败会发挥错误码和错误信息，拉取成功则errCode为0，errMsg为nil）
+ @param loadFinish 拉取完成回调（拉取失败会发挥错误码和错误信息，拉取成功则 errCode 为0，errMsg 为 nil）
  */
 - (void)addBoardView:(TXBoardView *)boardView andLoadHistoryData:(void (^)(int errCode, NSString *errMsg))loadFinish;
 ```
@@ -21,21 +21,21 @@
 
 ## [1.1.3] - 2018-07-24
 ### 优化
-1. TICSDK 优化进房逻辑，增加原始消息类型收发方法
-1. 白板SDK 内部逻辑优化，性能提升
-2. 白板SDK 优化数据上报格式，增加上报开关
+1. TICSDK 优化进房逻辑，增加原始消息类型收发方法；
+1. 白板 SDK 内部逻辑优化，性能提升；
+2. 白板 SDK 优化数据上报格式，增加上报开关。
 
 ## [1.1.0] - 2018-07-11
 ### 优化
 1. 使用实时音视频 SDK 升级版（云上环境，线路优化）；
-2. 修复白板若干 bug，完善白板 SDK体验。
+2. 修复白板若干 bug，完善白板 SDK 体验。
 
 > **注意：**
 > 1.1.0 版本以上的音视频 SDK（IliveSDK）和之前的版本默认不互通（可手动切换环境来互通），建议客户统一升级到该版本以上。
 
 ## [1.0.3] - 2018-07-06
 ### 优化
-1. 退出房间时，兼容房间不纯在情况；
+1. 退出房间时，兼容房间不存在情况；
 2. 白板 SDK 课堂数据拉取优化。
 
 ## [1.0.1] - 2018-06-29
