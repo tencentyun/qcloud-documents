@@ -11,5 +11,5 @@ Log in to the [**Cloud Monitoring**](https://console.cloud.tencent.com/monitor/p
 1. On **Cloud Monitoring** -> **My Alarms** -> **Alarm Policy** page, click **Add** to enter the new policy page.
 2. In **Policy Type**, select **GAAP** -> **Acceleration Tunnel Listener**.
  The alarm of "Abnormal listener origin" is supported in "Alarm Policy". When an origin server is found to be exceptional, an alarm is triggered by Cloud Monitor. See the figure below: 
-![](https://main.qcloudimg.com/raw/b264219c700ee99e4841efa4aa660526.jpg)
+![](https://main.qcloudimg.com/raw/9f3a1015d68bb96cf8af470479f6d1e1.jpg)
 
