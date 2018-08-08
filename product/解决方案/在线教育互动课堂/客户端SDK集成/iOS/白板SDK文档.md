@@ -241,6 +241,97 @@ getBoardData:failed: | 拉取白板数据（加入课堂后，从服务器拉取
 **白板数据拉取（同步）：**
 每次进入课堂时，TICSDK 会拉取该课堂的所有历史白板消息，展示在白板上，该功能也已经在TICSDK内部实现，开发者无需自行实行。
 
+## 5. 白板文档功能
+### 相关概念解释
+* 默认白板：白板SDK初始化后内部会自动生成一个白板，这个白板是第一块白板，作为白板SDK展示的默认白板，不允许删除
+
+* 文件白板：即通过 `addFile` 接口生成的白板，一块文件白板对应文件的一页（底层实现为普通白板，设置其背景图为文件预览URL）
+
+* 普通白板：即非文件白板，调用 `createSubBoard` 方法创建的白板，可涂鸦，可设置/清除白板，默认白板属于普通白板
+
+* fid：文件唯一标识，由于一个文件对应一组白板，所以fid也可以理解为一个白板组的标识
+* boardID：白板ID，白板唯一标识
+
+* boardID生成规则：
+    - 默认白板的boardID为固定值 #DEFAULT
+    - 其他白板的boardID为 xxxxxxx_fid （fid为该白板所属文件(白板组)的唯一标识）
+
+* fid生成规则（fid都以#号开头）
+    - 普通白板的fid为固定值 #DEFAULT
+    - 文件白板的fid为 #xxxx
+* **注意：文件在白板中的实现其实就是一组白板（文件的每一页对应一块白板），他们用一个fid来标识，这组白板中每个白板的boardID都会带上其所属文件（白板组）的fid当做后缀**
+
+### 添加文档（以PPT为例）
+1. 开发者首先调用TICSDK中的文件管理方法将PPT文件上传到腾讯云对象存储COS，获取到PPT每一页转码后的图片URL链接
+
+2. 然后调用`addFile`接口，将上一步获取到的URL数组，和文件名当做参数传入，SDK内部会根据URL数量生成对应数量的白板，并生成一个该文件对应的文件唯一标识**fid**返回
+
+* 代码实例：
+
+```objc
+NSString *fid = [self.boardView addFile:urls fileName:fileName];
+```
+
+### 删除文档
+1. 调用`deleteFile`接口，传入文件对应的fid 和删除后要跳转到的白板ID，deleteFile 内部会将该文件对应的白板全部删除
+> 注意：普通白板组不能删除
+
+* 代码实例：
+
+```objc
+[self.boardView deleteFile:deleteFid stayBoardID:stayBoardID];
+```
+
+
+### 切换白板
+1. 调用 `switchToSubBoard` 方法，传入boardID即可切换到对应白板
+
+* 代码实例：
+
+```objc
+[self.boardView switchToSubBoard:targetBoardID];
+```
+
+### 切换PPT
+1. 切换PPT其实也是切换白板
+
+> 注意：用户需要自己维护哪个PPT当前显示的是哪一页
+
+### 获取当前显示的白板
+1. 调用 `currentBoardId` 接口，即可获得当前显示的白板ID
+
+* 代码实例：
+
+```objc
+NSString *currentBoardId = self.boardView.currentBoardId;
+```
+
+### 根据fid获取文件对应的所有白板ID
+1. 调用`getBoardIDsWithFid`接口，传入fid即可
+
+* 代码实例：
+
+```objc
+NSArray *boardIds = [self.boardView getBoardIDsWithFid:fid];
+```
+
+### 获取课堂内所有文件信息（PPT）
+1. 调用`getAllFileInfo`方法即可获得当前课堂内所有的文件信息（调用deleteFile接口删除的文件不会返回）
+2. 该接口返回格式如下，业务层根据该接口返回的信息结合fid即可确定白板属于哪个PPT和该PPT的title：
+
+```json
+    [
+        {
+        "fid" : "",      // 文件唯一标识
+        "title" : "",   // 文件名称
+        }
+        ...
+    ]
+```
+
+### 推荐实现方案
+1. 进房或者调用`addFile`添加文件后，调用 `getAllFileInfo` 可获得课堂内所有文件列表，用于展示
+2. 翻页时，先调用 `currentBoardId` 接口获得当前显示的白板ID，再调用`getBoardIDsWithFid`接口获得当前文件所有白板ID，即可得出当前显示的是哪一页，然后根据具体的翻页指令，调用 `switchToSubBoard` 调到对应的白板即可
 
 
 
