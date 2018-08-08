@@ -19,7 +19,7 @@ TCP 协议下，为了将客户端 IP 传给服务器，会将客户端的 IP，
     __u32 addr;
     }; 
 
-Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_REVC` 状态进入到 `TCP_ESTABLISHED` 状态。这时内核会调用 `tcp_v4_syn_recv_sock` 函数。 Hook 函数 `tcp_v4_syn_recv_sock_toa `首先调用原有的` tcp_v4_syn_recv_sock `函数，然后调用 `get_toa_data` 函数从 TCP OPTION 中提取出 TOA OPTION，并存储在 `sk_user_data` 字段中。然后用 `inet_getname_toa hook inet_getname`，在获取源 ip 地址和端口时，首先调用原来的`inet_getname`，然后判断 `sk_user_data` 是否为空，如果有数据从其中提取真实的 ip 和 port，替换 `inet_getname` 的返回。客户端程序在用户态调用 getpeername，返回的 ip 和 port 即为客户端的原始 ip。
+Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_REVC` 状态进入到 `TCP_ESTABLISHED` 状态。这时内核会调用 `tcp_v4_syn_recv_sock` 函数。 Hook 函数 `tcp_v4_syn_recv_sock_toa `首先调用原有的` tcp_v4_syn_recv_sock `函数，然后调用 `get_toa_data` 函数从 TCP OPTION 中提取出 TOA OPTION，并存储在 `sk_user_data` 字段中。然后用 `inet_getname_toa hook inet_getname`，在获取源 IP 地址和端口时，首先调用原来的`inet_getname`，然后判断 `sk_user_data` 是否为空，如果有数据从其中提取真实的 IP 和 port，替换 `inet_getname` 的返回。客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
 请根据业务服务器 Linux 操作系统的类型和版本下载对应的内核包，按如下步骤操作。如果没有和用户操作系统一致的内核包，用户还可以参考下面 TOA 源代码安装指引操作。
 
@@ -54,7 +54,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 下载安装包：
 [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
 [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
-可单击选择你想要下载的安装包。
+可单击选择用户想要下载的安装包。
 安装步骤：
 
     dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
