@@ -290,7 +290,7 @@ NSString *fid = [self.boardView addFile:urls fileName:fileName];
 [self.boardView switchToSubBoard:targetBoardID];
 ```
 
-### 切换PPT
+### 切换 PPT
 1. 切换 PPT 其实也是切换白板
 
 > **注意：**用户需要自己维护哪个 PPT 当前显示的是哪一页。
@@ -304,7 +304,7 @@ NSString *fid = [self.boardView addFile:urls fileName:fileName];
 NSString *currentBoardId = self.boardView.currentBoardId;
 ```
 
-### 根据fid获取文件对应的所有白板 ID
+### 根据 fid 获取文件对应的所有白板 ID
 1. 调用`getBoardIDsWithFid`接口，传入 fid 即可
 
 * 代码实例：
