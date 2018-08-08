@@ -12,7 +12,7 @@ pip3 install qcloud_image
 ## 快速入门
 ### 在腾讯云申请业务的授权
 
-授权包括： APPID 、SecretId 、 SecretKey ，目前只支持主账号及秘钥进行调用。
+授权包括： APPID 、SecretId 、 SecretKey ，目前只支持主账号及密钥进行调用。
 >**注意**: BUCKET 为历史遗留字段, 无需修改。
 
 ### 创建对应操作类的对象
