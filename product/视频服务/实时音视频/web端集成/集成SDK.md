@@ -44,6 +44,8 @@
 | roomId  | 用来标识一个视频通话房间。roomId 相同的用户才能相互看到             |
 | privateMapKey  | 房间权限key，相当于进入指定房间roomId的钥匙             |
 
+>privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，你可以忽略这部分内容
+
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
 ## 接入准备工作
@@ -56,13 +58,20 @@
 | 协议      | 端口号                                       |
 | ------- | ---------------------------------------- |
 | TCP | 8687 |
-| UDP  | 8000 、 8800 <br/>843 、 443 |
+| UDP  | 8000 、 8800 、 443 |
 
 使用 CDN 引入SDK。
 ### 在页面中引入 WebRTCAPI.min.js
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.5/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/2.6/WebRTCAPI.min.js"></script>
 ```
 
 
+### Update Log
+
+- 2.6
+    - 新增SoundMeter接口
+    - 新增日志上报的字段
+    - 调整初始化接口
+    
