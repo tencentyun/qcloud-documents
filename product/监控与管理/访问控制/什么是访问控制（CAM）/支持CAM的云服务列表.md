@@ -26,9 +26,9 @@
 | [黑石弹性公网 IP](https://cloud.tencent.com/document/product/386/13350) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [内容分发网络](https://cloud.tencent.com/document/product/228/12722) | -        | ✔      | ✔      | 操作级   | ✔        |
 | [动态加速网络](https://cloud.tencent.com/document/product/570) | ✔        | ✔      | ✔      | 服务级   | ✔        |
-| [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | ✔        | ✔      | ✔      | 资源级   | -        |
+| [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | 消息订阅                                                     | ✔        | -      | ✔      | 服务级   | -        |
-| 消息服务                                                     | ✔        | ✔      | ✔      | 服务级   | -        |
+| [消息队列 CKafka](https://cloud.tencent.com/document/product/597/17989) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [域名注册](https://cloud.tencent.com/document/product/242)   | ✔        | -      | ✔      | 服务级   | -        |
 | [网站备案](https://cloud.tencent.com/document/product/243)   | ✔        | -      | ✔      | 服务级   | -        |
 | [移动解析 HttpDNS](https://cloud.tencent.com/document/product/379) | ✔        | -      | ✔      | 服务级   | -        |
