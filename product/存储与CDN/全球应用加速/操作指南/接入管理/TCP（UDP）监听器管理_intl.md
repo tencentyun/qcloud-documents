@@ -31,9 +31,7 @@ If the listener policy is "Weighted Polling", you can set the weight (1-100) of 
 If health check is enabled, when an origin server is bound, the health check starts. The status of the listener determines whether the origin server is normal. An acceleration tunnel only forwards packets to normal origin servers. Packets are not forwarded to an exceptional origin server until it is found to be normal during health check.
 
 For listeners without health check policies or those with UDP protocols, packets are always forwarded regardless of the status of the origin server.
-![](https://main.qcloudimg.com/raw/3a5d88ef16056a18f9cc76be470739ea.jpg)
 
 ## Deleting
 Click **Delete** on the **TCP/UDP Listener Management** tab page to delete a specified listener. Any listener that is bound with an origin server can be deleted only when "Allow force deletion of listeners bound with origin servers" is selected. After deletion, the acceleration of the port for the listener stops.
-![](https://main.qcloudimg.com/raw/122ec701b2802e892e82636bb13be6f7.png)
-
+![](https://main.qcloudimg.com/raw/3a5d88ef16056a18f9cc76be470739ea.jpg)
