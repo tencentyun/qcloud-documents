@@ -1,4 +1,3 @@
-## 腾讯云宙斯盾 TOA 安装指引
 业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，用户可以使用如下 TOA 的方案。在用户的Linux服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
 ### TOA 原理
@@ -27,9 +26,9 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 #### Centos 6.x/7.x
 **安装步骤：**
 1. 下载安装包
-[Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
-[Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
-可单击选择想要下载的版本。
+ - [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
+ - [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
+
 2. 安装包文件
 		
 			rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force
@@ -52,9 +51,9 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 ####  Ubuntu 16.04
 下载安装包：
-[内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
-[内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
-可单击选择用户想要下载的安装包。
+- [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
+- [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
+
 安装步骤：
 
     dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
@@ -71,81 +70,82 @@ Headers 包可不装，如需要做相关开发则安装。
 #### Debian 8
 
 
-[内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
-[内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
-安装方法与 Ubuntu 相同
+- [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
+- [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
+
+安装方法与 Ubuntu 相同。
 
 
 ### TOA 源代码内核安装指引
 
 ####  源码安装
 
-1. 下载打好[ toa 补丁](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz) 的源码包，单击 toa 补丁即可下载安装包
-2. 解压
-3. 编辑 .config，将 `CONFIG_IPV6=M` 改成 `CONFIG_IPV6=y`
-4. 如果需要加上一些自定义说明，可以编辑 Makefile
-5. make -jn (n 为线程数)
-6. `make modules_install`
-7. `make install`
-8. 修改 /boot/grub/menu.lst	将 default 改为新安装的内核（title 顺序从 0 开始）
-9. Reboot 重启后即为 toa 内核
-10. `lsmode | grep toa` 检查 toa 模块是否加载	没有加载的话 `modprobe toa` 开启
+1. 下载打好[ toa 补丁](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz) 的源码包，单击 toa 补丁即可下载安装包。
+2. 解压。
+3. 编辑 .config，将 `CONFIG_IPV6=M` 改成 `CONFIG_IPV6=y`。
+4. 如果需要加上一些自定义说明，可以编辑 Makefile。
+5. make -jn (n 为线程数)。
+6. `make modules_install`。
+7. `make install`。
+8. 修改 /boot/grub/menu.lst	将 default 改为新安装的内核（title 顺序从 0 开始）。
+9. Reboot 重启后即为 toa 内核。
+10. `lsmode | grep toa` 检查 toa 模块是否加载	没有加载的话 `modprobe toa` 开启。
 
 #### 内核包制作
 
 可自己制作 rpm 包，也可由我们提供。
 
-1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm 
+1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm 。
 
 			rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm
 
-2. 生成内核源码目录
+2. 生成内核源码目录。
 
 			rpmbuild -bp ~/rpmbuild/SPECS/kernel.spec
 							
-3. 复制一份源码目录
+3. 复制一份源码目录。
 	cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/ cp -a linux-2.6.32-220.23.1.el6.x86_64/ linux-2.6.32-220.23.1.el6.x86_64_new
     
-4. 在复制出来的源码目录中打 toa 补丁
+4. 在复制出来的源码目录中打 toa 补丁。
 
 			cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64_new/ 
 			patch -p1 < /usr/local/src/linux-2.6.32-220.23.1.el6.x86_64.rs/toa-2.6.32-220.23.1.el6.patch
 
-5. 编辑 .config 并拷贝到 SOURCE 目录
+5. 编辑 .config 并拷贝到 SOURCE 目录。
 
 			sed -i 's/CONFIG_IPV6=m/CONFIG_IPV6=y/g' .config 
 			echo -e '\n# toa\nCONFIG_TOA=m' >> .config
 			cp .config ~/rpmbuild/SOURCES/config-x86_64-generic
 
-6. 删除原始源码中的 .config
+6. 删除原始源码中的 .config。
 
 			cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64 
 			rm -rf .config
 
-7. 生成最终 patch
+7. 生成最终 patch。
     
 			cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/
 			diff -uNr linux-2.6.32-220.23.1.el6.x86_64 linux-2.6.32-220.23.1.el6.x86_64_new/ >
 			~/rpmbuild/SOURCES/toa.patch
     
-8. 编辑 kernel.spec
+8. 编辑 kernel.spec。
 
 			vim ~/rpmbuild/SPECS/kernel.spec
 
-在 ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名） 
+在 ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名） 。
 
     Patch999999: toa.patch
     ApplyOptionalPatch toa.patch
 
-9. 制作 rpm 包
+9. 制作 rpm 包。
 
 			rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec
 
-10. 安装内核 rpm 包
+10. 安装内核 rpm 包。
 
 			rpm -hiv kernel-xxxx.rpm --force
 
-重启，加载 toa 模块
+重启，加载 toa 模块。
 
 
 
