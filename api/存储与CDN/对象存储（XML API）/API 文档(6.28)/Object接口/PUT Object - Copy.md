@@ -84,10 +84,11 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 
 ### 响应体
 拷贝成功，返回响应体。
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<ETag>string</ETag>
-<LastModified>string</LastModified>
+```
+<CopyObjectResult>
+    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+    <LastModified>2017-08-04T02:41:45</LastModified>
+</CopyObjectResult>
 ```
 
 具体的数据描述如下：
