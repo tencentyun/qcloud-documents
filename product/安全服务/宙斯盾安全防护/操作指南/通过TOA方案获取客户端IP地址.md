@@ -29,7 +29,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 1. 下载安装包
 [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
 [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
-可单击选择你想要下载的版本。
+可单击选择想要下载的版本。
 2. 安装包文件
 		
 			rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force
