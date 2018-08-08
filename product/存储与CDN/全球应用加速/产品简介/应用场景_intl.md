@@ -5,5 +5,5 @@ Some of our games are provided for players across the world or in a certain regi
 ## Cross-origin Access Acceleration
 For businesses requiring cross-origin access, different network conditions of regions often result in increased delay and packet loss, and consequently affect user experience in accessing the business. GAAP can create high-speed connections between the acceleration region (region where the user is located) and the origin server region (region where the server is located), which can effectively reduce network latency and packet loss and ensure fast and stable network, and thus deliver better user experience.
 Such business scenarios include transnational websites, cross-border e-commerce, Apps launched globally, global LVB, video, and global finance.
-![](https://main.qcloudimg.com/raw/5aca9d98ecc8160923ca2651dcbf1643.png)
+![](https://main.qcloudimg.com/raw/6b55f6aa4b8dd9005a124ccbee6eee3f.png)
 
