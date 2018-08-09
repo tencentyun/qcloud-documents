@@ -39,6 +39,7 @@
 | [直播](https://cloud.tencent.com/document/product/267)       | ✔        | -      | ✔      | 服务级   | -        |
 | [互动直播](https://cloud.tencent.com/document/product/268)   | ✔        | -      | ✔      | 服务级   | -        |
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589/14625) | ✔        | ✔      | ✔      | 操作级   | ✔        |
+| [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | ✔        | ✔      | ✔      | 操作级   | ✔        |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        |
 | [云搜](https://cloud.tencent.com/document/product/270)       | ✔        | -      | ✔      | 服务级   | -        |
