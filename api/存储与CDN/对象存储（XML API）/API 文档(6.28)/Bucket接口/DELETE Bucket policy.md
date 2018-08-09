@@ -5,10 +5,10 @@ DELETE Bucket policy 请求可以向 Bucket 删除权限策略。
 
 ## 请求
 
-### 请求示例：
+### 请求示例
 
 ```
-DELETE /?policy Http/1.1
+DELETE /?policy HTTP/1.1
 Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: date
 Authorization: Auth String
@@ -19,29 +19,26 @@ Authorization: Auth String
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请查阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-
 该请求操作无特殊的请求头部信息。
 
-#### 请求参数
-
-无特殊请求参数。
+### 请求体
+该请求的请求体为空。
 
 ## 响应
-
 ### 响应头
 
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
+该响应无特殊的响应头。
 
-该请求操作无特殊的响应头部信息。
 ### 响应体
-该请求响应体为空。
+该响应体为空。
 
 ## 实际案例
 
