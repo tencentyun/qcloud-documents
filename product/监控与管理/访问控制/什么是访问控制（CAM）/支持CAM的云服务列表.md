@@ -6,9 +6,9 @@
 | 安全组                                                       | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [黑石物理服务器](https://cloud.tencent.com/document/product/386/13245) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| [容器服务](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| [容器镜像服务](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| 容器持续集成服务                                             | ✔        | ✔      | ✔      | 资源级   | ✔        |
+| [容器服务-集群](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        |
+| [容器服务-镜像仓库](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        |
+| [容器服务-持续集成](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 服务级   | -        |
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        |
@@ -27,8 +27,8 @@
 | [内容分发网络](https://cloud.tencent.com/document/product/228/12722) | -        | ✔      | ✔      | 操作级   | ✔        |
 | [动态加速网络](https://cloud.tencent.com/document/product/570) | ✔        | ✔      | ✔      | 服务级   | ✔        |
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| 消息订阅                                                     | ✔        | -      | ✔      | 服务级   | -        |
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597/17989) | ✔        | ✔      | ✔      | 资源级   | ✔        |
+| 消息订阅                                                     | ✔        | -      | ✔      | 服务级   | -        |
 | [域名注册](https://cloud.tencent.com/document/product/242)   | ✔        | -      | ✔      | 服务级   | -        |
 | [网站备案](https://cloud.tencent.com/document/product/243)   | ✔        | -      | ✔      | 服务级   | -        |
 | [移动解析 HttpDNS](https://cloud.tencent.com/document/product/379) | ✔        | -      | ✔      | 服务级   | -        |
@@ -61,7 +61,6 @@
 | [微信云支付](https://cloud.tencent.com/document/product/569) | ✔        | -      | ✔      | 服务级   | -        |
 
 #### 说明：
-
 1. “云 API”指云 API 是否接入 CAM，“控制台”指控制台是否接入 CAM。 
 2. 授权粒度按照粒度粗细分为服务级、操作级和资源级三个级别。
  - 服务级粒度下仅支持定义某个服务是否拥有访问权限；
