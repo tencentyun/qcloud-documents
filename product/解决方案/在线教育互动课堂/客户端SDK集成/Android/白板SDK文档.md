@@ -18,9 +18,9 @@
 跟普通的自定义控制使用方法相同，在布局文件中可以直接使用、按需继承。
 ```
 <com.tencent.boardsdk.board.WhiteboardView
-	 android:id="@+id/cbv_board"
-	 android:layout_width="match_parent"
-	 android:layout_height="match_parent" />
+ android:id="@+id/cbv_board"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent" />
 
 ```
 > **注意：**
@@ -40,9 +40,9 @@
 从 WhiteboardManager 获取 WhiteboardConfig 实例（也可自己构建），设置相关参数后，通过 WhiteboardManager 的`init`方法进行初始化。
 
 ```
-	WhiteboardConfig config = WhiteboardManager.getInstance().getConfig();
-	config.setPaintSize(6).setPaintColor(Color.BLUE);
-	WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
+WhiteboardConfig config = WhiteboardManager.getInstance().getConfig();
+config.setPaintSize(6).setPaintColor(Color.BLUE);
+WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 ```
 #### 主要方法说明
 
@@ -112,6 +112,7 @@
 其中**设置背景色**接口：
 
 ```java
+    > WhiteboardManager.java
     /**
      * 设置白板背景颜色(默认为白色)，当前白板生效
      *
@@ -127,10 +128,10 @@
     public void setGlobalBackgroundColor(int backgroundColor);
 ```
 
-设置背景图接口：
+**设置背景图接口：**
 
 ```java
-	> WhiteboardManager.java
+   > WhiteboardManager.java
    /**
      * 设置白板背景，默认当前所在白板；用户需要开通COS服务方可正常使用；
      *
