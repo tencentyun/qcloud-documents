@@ -18,7 +18,7 @@ Features:
  - **Fees:** All public images are free of charge, except for Windows images in some oversea regions which require a certain amount of license fee.
 
 ## Service Marketplace Images
-[**Service marketplace images**](http://market.qcloud.com/) are provided by third-party service providers. They are published and made available to all users after having gone through an audit of Tencent Cloud.
+[**Service marketplace images**](http://market.cloud.tencent.com/) are provided by third-party service providers. They are published and made available to all users after having gone through an audit of Tencent Cloud.
 
 Features:
  - **Operating system:** Pre-installed environments including multiple conventional operating systems.
