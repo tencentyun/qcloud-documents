@@ -7,19 +7,19 @@
 2. 根据业务特点和防护需求配置 HTTP QPS 请求阈值、URL 白名单、IP 黑白名单、CC 自定义防护模式等策略。单击保存即添加策略成功。
 ![](https://i.imgur.com/Z8jUZDx.png)
 
-#### 一、CC 防护策略直接绑定防护 IP
+### 一、CC 防护策略直接绑定防护 IP
 1. 进入 CC 防护策略列表，单击策略 ID。
 ![](https://i.imgur.com/u9VnZdW.png)
 2. 选择绑定 IP 列表，单击【添加 IP】。
 ![](https://i.imgur.com/yGpHoy5.png)
 
-#### 二、DDoS 高防 IP 绑定 CC 防护策略
+### 二、DDoS 高防 IP 绑定 CC 防护策略
 1. 进入 DDoS 高防 IP 列表，单击 “高防 IP”。
 ![](https://i.imgur.com/dwbDDpL.png)
 2. 单击 “高级配置信息”。单击 “绑定”，选择好 CC 防护策略，单击【确认】。
 ![](https://i.imgur.com/45seGwX.png)
 
-#### 三、给 DDoS 高防包下的防护 IP 配置 CC 防护策略
+### 三、给 DDoS 高防包下的防护 IP 配置 CC 防护策略
 1. 进入 DDoS 高防包列表，单击 “高防包 ID”。
 ![](https://i.imgur.com/2Eta12M.png)
 2. 选择 “防护IP列表”，勾选需要配置的 IP，单击 “配置 CC 防护策略”。
