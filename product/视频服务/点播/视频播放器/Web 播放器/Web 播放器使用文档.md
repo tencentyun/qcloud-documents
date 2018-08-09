@@ -41,7 +41,7 @@
 ### step 2：放置播放器容器
 在需要展示播放器的页面位置加入播放器容器，例如：在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
-<video id="player-container-id" width="414" height="270" preload="auto" playsinline webkit-playinline x5-playinline>
+<video id="player-container-id" width="414" height="270" preload="auto" playsinline webkit-playsinline>
 </video>
 ```
 >**注意事项：**
@@ -49,7 +49,8 @@
 > * 示例中的 player-container-id 为播放器容器的ID，可自行设置。
 > * 播放器容器区域的尺寸，建议通过 CSS 进行设置，通过 CSS 设置比属性设置更灵活，可以实现例如铺满全屏、容器自适应等效果。
 > * 示例中的 preload 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 auto，其他可选值：meta（当页面加载后只载入元数据），none（当页面加载后不载入视频），移动端由于系统限制不会自动加载视频。
-> * playsinline webkit-playinline x5-playinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
+> * playsinline webkit-playsinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
+> * 设置 x5-playsinline 属性在 TBS 内核会使用 X5 UI 的播放器。
 
 ### step 3：初始化代码
 在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID 与 appID。

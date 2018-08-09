@@ -3,17 +3,17 @@ Tencent Cloud SMS service provides two types of text messaging services: CSMS an
 >1. A complete SMS message consists of **SMS signature** and **SMS body**. You can set different message body templates based on business needs, and then combine the signature and body to form a final display. **SMS signature + SMS body = final display**.
 >2. Our review will be completed within half a work day after the SMS signature and template are submitted. If necessary, you can set a mobile number and email address to receive the notification of SMS message content audit for this project.
 
-![](https://mc.qcloudimg.com/static/img/1223b6b179dbbbda7dcda06070eb4360/image.png)
+![](https://main.qcloudimg.com/raw/68eb00daf596eb4bb9d6837a6411035b.png)
 The final SMS message sent to users is as follows:
-![](https://mc.qcloudimg.com/static/img/fe223e52477df4de3fec20eeb14ddc8f/image.png)
+![](https://main.qcloudimg.com/raw/cb7c93a64d0646f552c9d1cabc4e1d63.png)
 
 ### Add project
 Log in to Tencent Cloud [**SMS Console**](https://console.cloud.tencent.com/sms) and click **Add Project** to configure notification and alarm, and manage blacklist.
-![](https://main.qcloudimg.com/raw/9e0957c8d1d0811fe9de421bfa7d30a0.png)
+![](https://main.qcloudimg.com/raw/1ca800eeba40d444af754ed0106497e5.png)
 
 ### Create signature
 A complete SMS message consists of SMS signature and message text. Click the name of an project to enter its management page. Click **International SMS** -> **SMS Content Configuration** -> **SMS Signature** -> **Create Signature**. In **Create SMS Signature** pop-up box, enter the signature, select the signature type, enter the remarks, upload certificates, then click **Confirm** and wait for the approval. The SMS signature cannot be used until its status is changed to **Approved**.
-![](https://main.qcloudimg.com/raw/cac4c2a038a847509977ee95a41ef113.png)
+![](https://main.qcloudimg.com/raw/575d3dfa752b2c27a4e3d485855e9f6b.png)
 
 
 ### Create body template
@@ -23,11 +23,12 @@ Click **International SMS** -> **SMS Content Configuration** -> **SMS Body** -> 
 >Template example:
 >   Your login verification code is {1}, which is valid for {2} minutes. If you are not using our service, ignore the message. ({number} is customizable and must be numbered consecutively from 1, such as {1}, {2}, and so on.)
 
-![](https://main.qcloudimg.com/raw/e0d4eadf63a8975825fc03165153ecd2.png)
+![](https://main.qcloudimg.com/raw/3bd35055ed3079cc0defbc25088ceb2c.png)
 
 ## Sending SMS Messages
 After the SMS body template and SMS signature are approved, you can send SMS messages. Click **International SMS** -> **Send SMS Messages**.
-![](//mc.qcloudimg.com/static/img/5395b8f06969d4917a42bee57e4f3298/image.png)
+![](
+https://main.qcloudimg.com/raw/3d76492f9d059c20dddf8ec70a8fc3c7.png)
 
 In the pop-up box, select the template name and signature name. Click **Download template**, and enter the user mobile numbers (in the first column) and template parameters in the specified format:
 
@@ -35,7 +36,7 @@ In the pop-up box, select the template name and signature name. Click **Download
 - User mobile numbers are in the first column.
 - If no parameter is in the template, do not enter the information of other columns, otherwise, columns starting from the second one indicate template parameter 1, parameter 2...
 
-![](//mc.qcloudimg.com/static/img/f90a8fbb46ae515a3a7c610a09f965a5/image.png)
+![](https://main.qcloudimg.com/raw/5c1b560f8261674cb53facba79c9d561.png)
 
 **Steps for sending SMS messages:**
 1. Choose the template name and signature name (only approved templates and signatures are displayed in the drop-down list).
@@ -44,10 +45,13 @@ In the pop-up box, select the template name and signature name. Click **Download
 4. Click **Verification Code** for verification.
 5. Click **Send** (only after the file has been uploaded).
 
-![](//mc.qcloudimg.com/static/img/40589dde9926ee55f789d8ced519a316/image.png)
+![](
+https://main.qcloudimg.com/raw/37ed915ae910c7420d8fed8e752758cf.png)
 
 ### View SMS message delivery result
 After an SMS message is sent successfully, you are automatically redirected to the list of delivered SMS messages where you can view its delivery status. The status is updated every 10 seconds. During this process, you can select **Suspend** and **Continue**.
-![](//mc.qcloudimg.com/static/img/d1587c9eb9f17c9eb19320077d735d41/image.png)
-![](//mc.qcloudimg.com/static/img/588c44747f98623cc942c7dcf7b69340/image.png)
+![](
+https://main.qcloudimg.com/raw/de97c100a3b4dd785c00ca747f66862f.png)
+![](
+https://main.qcloudimg.com/raw/eea2c59651adde7df27d115e6602377e.png)
 

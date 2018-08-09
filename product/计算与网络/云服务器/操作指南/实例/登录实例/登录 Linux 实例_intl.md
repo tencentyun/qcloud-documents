@@ -1,145 +1,163 @@
 Once you've purchased and started a Linux instance, you can connect to and log in to it. The login method depends on your local operating system and whether the CVM instance can be accessed by Internet. See the table below for details.
 <table><tbody>
 <tr><th>Local operating system</th><th> Linux CVM instance with public IP</th><th>Linux CVM instance without public IP</th></tr>
-<tr><td>Windows</td><td>VNC Login<br>Remote Login Software<br>Key Login</td><td rowspan="3">VNC Login</td></tr>
-<tr><td>Linux</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
-<tr><td>Mac OS</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
+<tr><td>Windows</td><td><br>Login via WebShell<br>Login via remote login software<br>Login by key</td><td rowspan="3">Login via VNC</td></tr>
+<tr><td>Linux</td><td>Login via WebShell<br>Login via VNC<br>Login via SSH<br>Login by key</td></tr>
+<tr><td>Mac OS</td><td>Login via WebShell<br>Login via VNC<br>Login via SSH<br>Login by key</td></tr>
 </tbody></table>
 
 ## Prerequisites
-With password login, you need to use the administrator account ID and the corresponding password to log in to the CVM. With key login, you need to create and download a private key to log in to the CVM.
+### Prerequisites for login by password
+**Administrator account and password are required for login by password**
+- Administrator account: The administrator account varies with different types of Linux instances, as shown below.
 
-### Prerequisites for login with remote login software and SSH
-- Administrator account ID: the administrator account ID varies with the type of Linux instance. See the table below.
-
-|Instance Operating System |Administrator Account ID|
-|--|--|
-|SUSE/CentOS/Debian| root|
-|Ubuntu|ubuntu|
+| Instance Operating System | Administrator Account |
+| ------------------ | ------ |
+| SUSE/CentOS/Debian | root   |
+| Ubuntu             | ubuntu |
 
 - Password:
-  - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
-![](//mc.qcloudimg.com/static/img/3950729495f303b304489f5a7a0adbec/image.png)
-  - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password](/doc/product/213/6093).
+  - If **Auto Generate Password** is selected when you start an instance, the initial password is randomly assigned by the system. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), and click the **Internal Message** button on the right. In the **Check the new CVM you purchased** page, the administrator account and initial password for logging in to CVM are provided as shown below.
+    ![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
 
-### Prerequisites for login with key
+  - If **Custom Password** is selected when you start a CVM instance, the password is the one you specified when purchasing the instance. For more information about password (for example, what to do if you forget the login password), please see [Login Password](/doc/product/213/6093).
 
-To log in with an SSH key, first you need to create an SSH key, download the private key and bind it to Linux CVM. To learn more about key operations, refer to [SSH Key](/doc/product/213/6092).
+### Prerequisites for login by key
+**To log in to a CVM using a private key, you need to create and download the key.**
+First, you need to create an SSH key, download the private key and bind it to the Linux CVM. For more information about operations on the key, please see [SSH Key](/doc/product/213/6092).
 
+## Login from Local Windows PC by Password
+### Login tool
+Log in to a Linux instance by password using **remote login software** (in this case, PuTTY is used. You can also choose another login software).
+### Procedure
+1. Download and install the Windows remote login software from, for example: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html.
 
-Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), click "Cloud Virtual Machine" - "SSH Key" to enter the key window. Click "Create Key" button, and type a key name to create a new key. After the key is created, click "Download" button to download a private key.
+2. Connect to the Linux CVM using PuTTY. Open the PuTTY client, enter the following information in the PuTTY Configuration window:
+  >- Host Name: Public IP of the CVM (log in to the [CVM Console](https://console.cloud.tencent.com) to obtain the public IP of the CVM in the list and details pages).
+  >- Port: Port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. For more information, please see [Security Group](/doc/product/213/5221) and [Network ACL](/doc/product/215/5132).)
+  >- Connect type: Select "SSH".
 
-Then right click on the newly created key ID, and select "Bind the Linux server to log in" to bind it. Key login is only available for CVM instances that have been bound with an SSH key.
+3. When all the information is entered, click **Open** to create a new session.
+  ![](//mccdn.qcloud.com/img56a5d38a4ffbc.png)
 
-## Windows system: use remote login software to log in to the Linux instance
+4. In the PuTTY session window, enter the administrator account obtained in the "Prerequisites" step, and then press Enter. Enter the login password obtained in the "Prerequisites" step, and then press Enter to log in to the instance.
+  ![](//mccdn.qcloud.com/img56a5d47b8b5da.png)
 
-On a Windows computer, you can log in to the Linux instance using remote login software. PUTTY is taken as an example in this case. There are also other types of login software for you to choose from.
-### Install Windows remote login software
-To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: http://www.putty.nl/download.html
+>**Note:**
+>If the login fails, check if your CVM instance allows inbound traffic over port 22. Check the port by referring to [Security Group](/doc/product/213/5221). If your CVM is in a [VPC](/doc/product/213/5227), also check the related subnet's [network ACL](/doc/product/215/5132). 
 
-### Use PUTTY to connect to Linux CVM
-Open the Putty client, enter the following information in the "PuTTY Configuration" window:
+## Login from Local Windows PC by SSH Key
+### Login tool
+Log in to a Linux instance by SSH key using **remote login software** (in this case, PuTTY is used. You can also choose another login software).
 
-- Host Name: Public IP of the CVM (Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.cloud.tencent.com/cvm), and you can get the public IP of the CVM on the list and detail pages).
-- Port: port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. See [Security Group](/doc/product/213/5221) and [Network ACL](/doc/product/215/5132) for details.)
-- Connect type: select "SSH".
+### Procedure
+1. Download and install the Windows remote login software from, for example: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html (two files are downloaded: putty.exe and puttygen.exe).
 
-When all the information is entered, click "Open" to create a new dialog.
-![](https://mc.qcloudimg.com/static/img/462109abede465d7df1299fb78693268/%7B2D074CD7-5BD3-491A-B083-EB46FBC20B18%7D.png)
+2. Select a private key. Open puttygen.exe, and click **Load** button. In the window that pops up, go to the path under which you store the private key downloaded in the "Prerequisites" step, and then select **All Files (\*.\*)**. Select the downloaded private key (in this case it is file david, which is the name of the key), and click **Open**.
+  ![](//mccdn.qcloud.com/img56a5c48fb810a.png)
 
-In the Putty dialog window, enter the administrator account ID obtained from the "Prerequisites" step, and press Enter. Enter the login password obtained from the "Prerequisites" step, and press Enter to log in.
-![](//mc.qcloudimg.com/static/img/07afdb3514c36d237b11bf1f333e517c/image.png)
+3. Convert the key. Enter the key name in the **key comment** column, enter the password for the encrypted private key, and then click **Save private key**. In the window that pops up, select the directory where you store the key, enter key name + ".ppk" in the file name column, and then click **Save**.
+  ![](//mccdn.qcloud.com/img56a5c4ff657cc.png)
 
-If the login fails, check if your CVM instance allows inbound traffic over port 22. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
+4. Open putty.exe to enter the **Auth** configuration page.
+  ![](//mccdn.qcloud.com/img56a5c61c61e42.png)
 
+5. Click the **Browse** button. In the window that pops up, go to the path where the key is stored, select the key, click **Open** to return to the configuration page, and then go to the **Session** configuration page.
+  ![](//mccdn.qcloud.com/img56a5c67ea3edb.png)
 
-## Windows system: log in to the Linux instance with an SSH key
-Likewise, you need to use remote login software to log in to the Linux instance from a Windows computer. PUTTY is taken as an example in this case. There are also other types of login software for you to choose from.
+6. Configure the IP, port and connection type for the server on the **Session** configuration page.
+ - IP: Public IP of the CVM. Log in to the [CVM Console](https://console.cloud.tencent.com) to obtain the public IP of the CVM in the list and details pages.
+ - Port: Port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. For more information, please see "Security Group" and "Network ACL".)
 
-### Install Windows remote login software
-To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: http://www.putty.nl/download.html. <font color="red">Download putty.exe and puttygen.exe. </font>
+6. Enter a session name in the **Saved Sessions** input box (enter "test" in this case), click **Save**, and then double click the session name or click **Open** to initiate a login request.
+  ![](//mccdn.qcloud.com/img56a5c6bca781f.png)
 
-### Key format conversion
-Open puttygen.exe, and click "Load" button. In the window that pops up, go to the path under which you store the private key downloaded in the Prerequisites step, and then select "All File (\*.\*)", select the downloaded private key (in this case it is file david, which is the name of the key), and click "Open".
+>**Note:**
+>If the login fails, check if your CVM instance allows inbound traffic over port 22. Check the port by referring to [Security Group](/doc/product/213/5221). If your CVM is in a [VPC](/doc/product/213/5227), also check the related subnet's [network ACL](/doc/product/215/5132). 
 
+## Login from Local Linux/Mac OS PC by Password
+### Login tool
+Log in to the instance with SSH using the Terminal supplied with Mac OS system.
 
+### Procedure
+1. If you are a Mac OS user, open the Terminal supplied with the system and enter the following command. If you are a Linux user, run the following command directly: 	`ssh <username>@<hostname or ip address>` 
+  (`username` is the administrator account obtained in the "Prerequisites" step, and `hostname or ip address` is the public IP or custom domain name of your Linux instance.)
 
-Enter the key name in the key comment column, enter the password for the private key (optional), and click "Save private key". In the window that pops up, select directory where you store the key, then type key name + ".ppk" in the file name column, and click "Save".
+2. Enter the password obtained in the "Prerequisites" step (there is only input and no output at this point), then press Enter to log in to the instance.
 
-
-### Log in to Remote Linux CVM
-Open putty.exe, and enter into "Auth" configuration page.
-![](//mccdn.qcloud.com/img56a5c61c61e42.png)
-
-Click the "Browse" button. In the window that pops up, go to the path where the key is stored, select the key, then click "Open" to return to the configuration page, and go to the "Session" configuration page.
-
-
-Configure an IP address, port and connection type on the Session configuration page.
-
-- IP: Public IP of the CVM. Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.cloud.tencent.com/cvm), and you can get the public IP of the CVM on the list and detail pages.
-- Port: port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. See [Security Group](/doc/product/213/5221) and [Network ACL](/doc/product/215/5132) for details.)
-
-Enter a session name in the "Saved Sessions" input box (it is test in this case), then click the "Save" button, and double click the session name or click the "Open" button to issue a login request.
-![](//mccdn.qcloud.com/img56a5c6bca781f.png)
-
-If the login fails, check if your CVM instance allows inbound traffic over port 22. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
-
-## Linux/Mac OS system: log in to the Linux instance with SSH
-If you are a Mac OS user, open the Terminal that comes with the system and enter the following command. If you are a Linux user, run the following command directly:
-
-```
-ssh <username>@<hostname or ip address>
-```
-`username` is the administrator account ID obtained from the Prerequisites step, and <hostname or ip address> is the public IP or custom domain name of your Linux instance.
-
-Enter the password obtained from the Prerequisites step (Note that there is only input and no output displays at this time), then press Enter to log in.
-
-If the login fails, check if your CVM instance allows inbound traffic over port 22. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
+>**Note:**
+>If the login fails, check if your CVM instance allows inbound traffic over port 22. Check the port by referring to [Security Group](/doc/product/213/5221). If your CVM is in a [VPC](/doc/product/213/5227), also check the related subnet's [network ACL](/doc/product/215/5132). 
 
 
-## Linux/Mac operating system: log in to the Linux instance with key
-If you are a Mac OS user, open the Terminal that comes with the system and enter the following command. If you are a Linux user, run the following command directly to set the private key file to readable only to you.
+## Login from Local Linux/Mac OS PC by Key
+### Login tool
+Log in to the instance using the Terminal supplied with Mac OS system.
 
-```
-chmod 400 <The absolute path of the private key associated with the cloud server> 
-```
- 
-Run the following remote login command:
+### Procedure
+1. If you are a Mac OS user, open the Terminal supplied with the system and enter the following command. If you are a Linux user, run the following command directly to set the private key file to be read only by you. `chmod 400 <absolute path of the private key downloaded to be associated with the CVM>'
 
-```
-ssh -i "<The absolute path of the private key associated with the cloud server>" <username>@<hostname or ip address>.
-```
+2. Run the following remote login command: `ssh -i "<absolute path of the private key downloaded to be associated with the CVM>" <username>@<hostname or ip address>. `
+  (`username` is the administrator account obtained in the "Prerequisites" step, and `hostname or ip address` is the public IP or custom domain name of your Linux instance. For example: `ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`).
 
-`username` is the administrator account ID obtained from the Prerequisites step, and <hostname or ip address> is the public IP or custom domain name of your Linux instance.
+>**Note:**
+>If the login fails, check if your CVM instance allows inbound traffic over port 22. Check the port by referring to [Security Group](/doc/product/213/5221). If your CVM is in a [VPC](/doc/product/213/5227), also check the related subnet's [network ACL](/doc/product/215/5132). 
 
-For example:
+## Login via WebShell (recommended)
+### Login tool
+Login via WebShell is a method Tencent Cloud provides for you to connect to your CVMs through Web browser. Compared with login via VNC, login via WebShell provides a user experience more similar to login using PuTTY, SSH and other clients. If the CVM has a public IP and its login port is open, using WebShell can give you a better remote access experience.
 
-```
-ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx
-```
+**Advantages:**
+- Supports copy and paste operations with shortcut keys.
+- Supports scrolling with mouse wheel.
+- Supports Chinese input.
+- Features a high security (password or key is required for each login).
 
-If the login fails, check if your CVM instance allows inbound traffic over port 22. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
+### Procedure
+1. Log in to the [CVM Console](https://console.cloud.tencent.com). Select **Cloud Products** -> **Cloud Compute & Network** -> **Cloud Virtual Machine** from the top menu.
+2. Go to the CVM list, as shown below, and then click the **Log In** button for the Linux CVM to which you want to log in.
+  ![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
+	
+3. A new tab page appears, as shown below, where you can select **Login By Password** or **Login by Key**.
+![](https://mc.qcloudimg.com/static/img/ed96f4638ad6b343ff38fc19452b8188/Snipaste_2018-02-02_18-20-17.png)
 
-## Use VNC to log in to instance
-VNC login is a way Tencent Cloud provides for users to connect to their CVMs through Web browser. When the remote login client is not installed or cannot be used, you can connect to your CVM using VNC login and check the CVM status. This also allows you to perform basic CVM management operations with the CVM account.
+4. If the password or key is correct, it will pass the verification of system, and you'll log in to the Linux CVM successfully with WebShell.
+![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
 
-VNC login scenarios include at least the following:
+>**Note:**
+>- The CVM is required to have a public IP.
+>- SSH remote login port (default is 22) needs to be open on the CVM.
+
+
+## Login via VNC
+### Login tool
+Login via VNC is a method Tencent Cloud provides for you to connect to your CVMs through Web browser. If the remote login client is not installed or cannot be used, you can connect to your CVM via VNC to check the CVM status and perform basic CVM management operations with your CVM account.
+
+"Login via VNC" scenarios include at least the following: 
 - Check the progress of a CVM startup
-- Log in to the server with VNC when client SSH or mstsc login is not available 
+- When login with client SSH or mstsc failed
 
-In the Action column of CVM list, click "Log In" button to connect to Windows CVM via VNC.
 
-![](//mc.qcloudimg.com/static/img/328341ca7521bb3b1b1624c3071d22d9/image.png)
+### Procedure
+1. Log in to the [CVM Console](https://console.cloud.tencent.com). Select **Cloud Products** -> **Cloud Compute & Network** -> **Cloud Virtual Machine** from the top menu.
 
-By clicking the Ctrl+Alt+Del command at the top left corner, enter the system login screen:
+2. Go to the CVM list, as shown below, and then click the **Log In** button for the Linux CVM to which you want to log in.
+  ![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
+	
+3. A new tab page appears, as shown below. The white window in the middle is used for login via WebShell, so you need to click the **x** button in the upper right corner to switch the login method (as shown below).
+![](https://mc.qcloudimg.com/static/img/1ea9873436a2a0fbe6741a56b3f59a78/Snipaste_2018-02-02_18-44-59.png)
 
-![](//mc.qcloudimg.com/static/img/ac56e378386a3e6fbc3eaa50ba80358c/image.png)
+4. Click **Other Login Methods** in the upper right corner of the page.
+  ![](https://mc.qcloudimg.com/static/img/1113ca3bde85dbc223a99f5a250d3088/%5E6AAAB397B29FEF3319E3BBD6157AB6D86C902D693A752276A2%5Epimgpsh_mobile_save_distr.jpg)
 
-> Note:
-> 
->- Ctrl + Alt + Delete is a shortcut key combination for you to log in to Windows or open task manager after the screen is locked.
->- This terminal is exclusive, that is, only one user can log in using VNC at a time.
->- To log in with VNC in the normal way, you need to use modern browsers such as Chrome, Firefox, IE10 or above.
->- Copy and Paste are not supported at the moment.
->- File upload and download are not supported at the moment.
+5. A new white window pops up. Locate the **Login via VNC using Browser** column, at the bottom, and then click **Log In Now**.
+  ![](https://mc.qcloudimg.com/static/img/cbf20e70e6c24f2348b4aa7e12c9225e/Snipaste_2018-02-02_18-47-05.png)
+	
+6. Now, you can successfully log in to the Linux CVM via VNC.
+   ![](https://mc.qcloudimg.com/static/img/079533e90ee16b95a63e19064a742a64/%5EDD57BACBDC8B333FCD0FFD6CA385F54D9D9CD790697DEB8847%5Epimgpsh_mobile_save_distr.jpg) 
+
+
+>**Note:**
+>- This terminal is exclusive, that is, only one user can log in to CVM via VNC at a time.
+>- A successful login via VNC requires mainstream browsers such as Chrome, Firefox, IE10 or above.
+>- File upload and download are not supported.
 

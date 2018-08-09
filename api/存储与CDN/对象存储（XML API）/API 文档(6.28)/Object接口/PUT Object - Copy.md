@@ -27,7 +27,7 @@ x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
 ### 请求行
 
 ```
-PUT /{ObjectName} HTTP/1.1
+PUT /destinationObject HTTP/1.1
 ```
 
 该 API 接口接受 `PUT` 请求。
@@ -48,7 +48,7 @@ x-cos-copy-source|string|是|源文件 URL 路径，可以通过 versionid 子�
 x-cos-metadata-directive|string|否|是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced
 x-cos-copy-source-If-Modified-Since|string|否|当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突
 x-cos-copy-source-If-Unmodified-Since|string|否|当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突
-x-cos-copy-source-If-Match|string|否|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突
+x-cos-copy-source-If-Match|string|否|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突
 x-cos-copy-source-If-None-Match|string|否|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突
 x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD
 x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
@@ -83,18 +83,21 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 | x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
 
 ### 响应体
-拷贝成功，返回响应体。
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<ETag>string</ETag>
-<LastModified>string</LastModified>
+该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
+<CopyObjectResult>
+  <ETag></ETag>
+  <LastModified></LastModified>
+</CopyObjectResult>
+```
+具体的数据内容如下：
 
-具体的数据描述如下：
+| 名称               | 描述                                       | 类型     |
+| ---------------- | ---------------------------------------- | ------ |
+| CopyObjectResult | 返回复制结果信息                                 | String |
+| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-ETag|无|返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化|string|是
 
 ## 实际案例
 

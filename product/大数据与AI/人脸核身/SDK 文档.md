@@ -8,6 +8,7 @@
 | Python-SDK-图像识别 | [Python-SDK](/document/product/868/17693) |
 | CPP-SDK-图像识别    | [CPP-SDK](/document/product/868/17691) |
 | PHP-SDK-图像识别    | [PHP-SDK](/document/product/868/17692) |
+| Node-SDK-图像识别   | [Node-SDK](/document/product/868/18712) |
 
 ## 人脸核身移动端 SDK
 

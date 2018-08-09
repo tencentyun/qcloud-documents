@@ -1,5 +1,5 @@
 ## 功能介绍
-HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理是为使用 Http 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理是为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 您可以通过以下方式获取智营解析 iOS SDK：
 [从 Github 获取最新版本 SDK >>](https://github.com/tencentyun/httpdns-ios-sdk)
 
@@ -469,7 +469,7 @@ self.task = [session dataTaskWithRequest:request];
 |HijackDomain | Array | 需要拦截的域名列表 |
 |NotHijack_Domain |Array | 不需要拦截的域名列表 |
 
-- 如设置了需要拦截的域名列表，则仅会拦截处理该域名列表中的 https 请求，其它域名不做处理；
-- 如设置了不需要拦截的域名列表，则不会拦截处理该域名列表中的 https 请求；
+- 如设置了需要拦截的域名列表，则仅会拦截处理该域名列表中的 HTTPS 请求，其它域名不做处理；
+- 如设置了不需要拦截的域名列表，则不会拦截处理该域名列表中的 HTTPS 请求；
 
 建议使用 Hijack_Domain 仅拦截 SNI 场景下的域名，避免拦截其它场景下的域名。
