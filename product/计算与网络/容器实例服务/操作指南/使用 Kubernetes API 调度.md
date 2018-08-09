@@ -25,7 +25,7 @@ kubectl create -f service-nginx.yaml
 查看 Pod 状态，示例如下：
 ![][3]
 
-5. 完成部署后，在 [CCS 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment 。
+5. 完成部署后，在 [TKE 控制台](https://console.cloud.tencent.com/ccs) 的【服务】中可以看到刚刚创建的 Deployment 。
 ![][4]
 但 Deployment 并没有使用 TKE 集群节点的资源，而是把 Pod 创建到了 CIS 中，所以其 Pod 可以在 [CIS控制台](https://console.cloud.tencent.com/cis) 的【容器实例】中看到。
 ![][5]
