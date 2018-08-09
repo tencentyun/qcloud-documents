@@ -10,7 +10,7 @@
 #### 1. 购买 DDoS 高防包
 a. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，选择 “DDoS 高防包”，单击【购买】。
 
-![](https://i.imgur.com/EjFEAc4.png)
+![](https://main.qcloudimg.com/raw/f35fd24e82d70a4cc9e4f8a06db8e7ce.png)
 
 b. 选好配置后，单击【立即下单】。
 
@@ -22,7 +22,7 @@ b. 选好配置后，单击【立即下单】。
 > **  弹性带宽峰值**
  对于业务被攻击较频繁，攻击持续时间较长的场景，则可以使用按弹性带宽峰值方式计费，弹性带宽按天后付费。
  
-![](https://i.imgur.com/1Vwpiii.png)
+![](https://main.qcloudimg.com/raw/73f2289fc484b77fc07ee09d55968535.png)
 
 >弹性防护峰值-弹性计费模式选择为 “弹性流量包” 时，若发生弹性防护，则会从同区域的已购买弹性流量包中扣除弹性发生的流量，若未购买弹性流量包，或弹性流量包额度用完，则弹性防护能力会暂停。若选择 “弹性带宽峰值” 计费方式，则按发生弹性防护用量时，按带宽峰值计费。
 
@@ -36,11 +36,12 @@ c. “弹性流量包” 可以在 “DDoS 高防包” 管理列表下，单击
 #### 2. 绑定防护IP
 a. 单击高防包 ID，进入基本信息页。
 
-![](https://i.imgur.com/c1X8XeW.png)
+![](https://main.qcloudimg.com/raw/619c3476c3f1457aebc12796218823ed.png)
 
 b. 选择 “防护 IP 列表”，单击【添加防护 IP】。
 
-![](https://i.imgur.com/wHCsouN.png)
+![](
+https://main.qcloudimg.com/raw/c8450c45a575ae200ab2e2588805cafb.png)
 
 c. 勾选云服务器 IP 地址，单击【确定】。
 
