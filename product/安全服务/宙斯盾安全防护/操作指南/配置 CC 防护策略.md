@@ -4,7 +4,7 @@
 ### 添加 CC 防护策略
 1. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，选择 “CC 防护策略”，单击【添加新策略】。添加成功后，单击 “操作” 列下的 “配置” 进入策略配置页面。
 ![](https://i.imgur.com/8GVJoNl.png)
-2. 根据业务特点和防护需求配置 HTTP QPS 请求阈值、URL 白名单、IP 黑白名单、CC 自定义防护模式等策略。最后单击保存即添加策略成功。
+2. 根据业务特点和防护需求配置 HTTP QPS 请求阈值、URL 白名单、IP 黑白名单、CC 自定义防护模式等策略。单击保存即添加策略成功。
 ![](https://i.imgur.com/Z8jUZDx.png)
 
 #### 一、CC 防护策略直接绑定防护 IP
