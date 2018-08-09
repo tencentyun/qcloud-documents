@@ -1,5 +1,5 @@
 ## 功能描述
-GET Bucket location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
+GET Bucket location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 参数返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。
 
 ## 请求
 ### 请求示例
@@ -32,11 +32,11 @@ Authorization: Auth String
 该响应无特殊的响应头。
 
 ### 响应体
-上传成功，响应体返回为空。
+响应体返回地域信息。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<LocationConstraint>string</LocationConstraint>
+<LocationConstraint>cos.<Region></LocationConstraint>
 ```
 
 具体的数据描述如下：
