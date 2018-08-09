@@ -18,7 +18,7 @@ Redis主从版是最通用的Redis版本，兼容Redis 2.8版本的协议和命�
  - Redis主从版的性能最大支持10万QPS，需要更高的QPS请选择Redis集群版，或者CKV集群版，最大可支持1000万QPS；
 
 ### 兼容性
-云数据库 Redis 标准版在 Redis 2.8基础上进行开发，兼容 Redis 协议命令。自建的 Redis 数据库可以平滑迁移至 Redis 标准版。并且提供数据传输工具（DTS）可以进行增量的 Redis 迁移，保证业务平稳过渡。命令兼容性如下表：<vr>
+云数据库 Redis 主从版在 Redis 2.8基础上进行开发，兼容 Redis 协议命令。自建的 Redis 数据库可以平滑迁移至 Redis 标准版。并且提供数据传输工具（DTS）可以进行增量的 Redis 迁移，保证业务平稳过渡。命令兼容性如下表：<vr>
 - **主从版 Redis 支持命令**
 
 | **connection 族** | **hashes 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
