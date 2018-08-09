@@ -1,6 +1,11 @@
-宙斯盾 DDoS 高防包为腾讯云的公网 IP 地址提供高防能力。包括 [云服务器](https://cloud.tencent.com/doc/product/213/495)、[负载均衡](https://cloud.tencent.com/doc/product/214/524)、黑石服务器、黑石负载均衡、NAT IP、EIP、GAAP IP 等。DDoS 高防包使用简单，对于业务不可更改 IP 地址，或者有大量 IP 需要防护的场景下，可以快速简单的完成防护配置。目前 DDoS 高防包有单 IP 模式和多 IP 模式。如何选择购买配置，详情请参见 [**产品配置说明**](https://cloud.tencent.com/document/product/685/18798)。
+宙斯盾 DDoS 高防包为腾讯云的公网 IP 地址提供高防能力。包括 [云服务器](https://cloud.tencent.com/doc/product/213/495)、[负载均衡](https://cloud.tencent.com/doc/product/214/524)、黑石服务器、黑石负载均衡、NAT IP、EIP、GAAP IP 等。DDoS 高防包使用简单，对于业务不可更改 IP 地址，或者有大量 IP 需要防护的场景下，可以快速简单的完成防护配置。目前 DDoS 高防包有单 IP 模式和多 IP 模式。
 
-### DDoS 高防包配置接入的步骤
+本文档说明 DDoS 高防包配置接入的步骤。如何选择购买配置，详情请参见 [**产品配置说明**](https://cloud.tencent.com/document/product/685/18798)。
+
+### 流程图
+![](https://main.qcloudimg.com/raw/56680ef9138fe084b097b0ca753b9636.png)
+
+### 配置上线
 
 1. 购买 DDoS 高防包
 a. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，选择 “DDoS 高防包”，单击【购买】。![](https://i.imgur.com/EjFEAc4.png)
@@ -10,9 +15,9 @@ c. “弹性流量包” 可以在 “DDoS 高防包” 管理列表下，单击
 ![](https://i.imgur.com/x8l5VxC.png)
 ![](https://i.imgur.com/EsZfSDe.png)
 弹性防护支持两种计费模式：
-   - 弹性流量包
+	** 弹性流量包**
  弹性流量包需要预付购买，攻击超过保底防护带宽峰值发生弹性防护用量时，按照弹性流量用量从流量包中扣除。与弹性带宽方式相比，对于攻击频率低、攻击带宽峰值高而持续时间短的场景，能够显著降低用户的弹性防护费用支出
-   - 弹性带宽峰值
+  **  弹性带宽峰值**
  对于业务被攻击较频繁，攻击持续时间较长的场景，则可以使用按弹性带宽峰值方式计费，弹性带宽按天后付费。
 ![](https://i.imgur.com/1Vwpiii.png)
 弹性防护峰值-弹性计费模式选择为 “弹性流量包” 时，若发生弹性防护，则会从同区域的已购买弹性流量包中扣除弹性发生的流量，若未购买弹性流量包，或弹性流量包额度用完，则弹性防护能力会暂停。若选择 “弹性带宽峰值” 计费方式，则按发生弹性防护用量时，按带宽峰值计费。
