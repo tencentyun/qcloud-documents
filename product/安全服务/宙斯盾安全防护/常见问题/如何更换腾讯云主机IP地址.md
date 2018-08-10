@@ -13,7 +13,7 @@ https://main.qcloudimg.com/raw/2f32746e93a2e80eeca8d22a59ac1916.png)
 >**说明：**
 >将当前公网 IP转换为弹性 IP 地址，转发过程不会中断服务！
 
-### 2. 更换公网 IP
+### 2. 弹性 IP 转公网 IP
 在 “操作” 列 “更多” 下，选择 “IP 操作” 里的 “解绑弹性 IP”，并同时勾选 “解绑后免费分配公网 IP”，单击 【确定】。此时云服务器的 IP 已更为新的公网 IP 地址。
 ![](https://main.qcloudimg.com/raw/7b17baa39966082c9e9141df34b6da6d.png)
 ![](https://main.qcloudimg.com/raw/f53d07b45b605f774b92cbacd7d13234.png)
