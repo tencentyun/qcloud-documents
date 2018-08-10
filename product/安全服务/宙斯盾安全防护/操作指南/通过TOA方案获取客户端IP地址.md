@@ -1,6 +1,6 @@
 业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，可以使用如下 TOA 的方案。在业务服务的 Linux 服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
-### TOA 原理
+## TOA 原理
 高防转发后，数据包同时会做 SNAT 和 DNAT，数据包的源地址和目标地址均修改。
 TCP 协议下，为了将客户端 IP 传给服务器，会将客户端的 IP，port 在转发时放入了自定义的 tcp option 字段。
 		
@@ -23,9 +23,8 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
-
-### 内核包安装步骤
-#### Centos 6.x/7.x
+## 内核包安装步骤
+### Centos 6.x/7.x
 安装步骤
 
 1. 下载安装包
@@ -47,7 +46,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 			echo “modprobe toa” >> /etc/rc.d/rc.local
 			
-####  Ubuntu 16.04
+###  Ubuntu 16.04
 下载安装包：
 (1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
 (2) [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
@@ -60,7 +59,7 @@ Headers 包可不装，如需要做相关开发则安装。
 		
 		echo “modprobe toa” >> /etc/rc.d/rc.local
 		 
-#### Debian 8
+### Debian 8
 
 (1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
 (2) [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
@@ -70,9 +69,9 @@ Headers 包可不装，如需要做相关开发则安装。
 
 请根据业务服务器 Linux 操作系统的类型和版本下载对应的内核包，按如下步骤操作。如果没有和用户操作系统一致的内核包，用户还可以参考下面 TOA 源代码安装指引操作。
 
-### TOA 源代码内核安装指引
+## TOA 源代码内核安装指引
 
-####  源码安装
+###  源码安装
 
 1. 下载打好[ toa 补丁](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz) 的源码包，单击 toa 补丁即可下载安装包。
 2. 解压。
@@ -85,7 +84,7 @@ Headers 包可不装，如需要做相关开发则安装。
 9. Reboot 重启后即为 toa 内核。
 10. `lsmode | grep toa` 检查 toa 模块是否加载	没有加载的话 `modprobe toa` 开启。
 
-#### 内核包制作
+### 内核包制作
 
 可自己制作 rpm 包，也可由我们提供。
 
