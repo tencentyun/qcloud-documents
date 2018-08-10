@@ -5,7 +5,7 @@
 ### 流程图
 ![](https://main.qcloudimg.com/raw/7742fd0997412f9957a83cc62dffb6e7.png)
 
-### 配置上线
+### 接上步骤
 1. **购买 DDoS 高防 IP**
 a. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【DDoS 高防 IP】，在 “高防 IP 列表” 下，单击 【购买】。
 ![](https://main.qcloudimg.com/raw/f29fa10aec5659fcd2a9de3d1f42de34.png)
