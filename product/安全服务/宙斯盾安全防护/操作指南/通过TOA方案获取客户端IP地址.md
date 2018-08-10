@@ -28,23 +28,22 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 #### Centos 6.x/7.x
 安装步骤
 
-1.下载安装包
- - [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
- - [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
- 
-2.安装包文件
+1. 下载安装包
+ (1) [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
+ (2) [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
+2. 安装包文件
 							
-			rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force								
-3.安装完成之后重启主机
+			rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force						
+3. 安装完成之后重启主机
 
 			reboot
-4.执行命令检查 toa 模块是否加载成功
+4. 执行命令检查 toa 模块是否加载成功
 
 			lsmod | grep toa
-5.没有加载的话手工开启
+5. 没有加载的话手工开启
     
 			modprobe toa
-6.可用下面的命令开启自动加载 toa 模块
+6. 可用下面的命令开启自动加载 toa 模块
 
 			echo “modprobe toa” >> /etc/rc.d/rc.local
 ####  Ubuntu 16.04
@@ -64,9 +63,8 @@ Headers 包可不装，如需要做相关开发则安装。
     echo “modprobe toa” >> /etc/rc.d/rc.local
 #### Debian 8
 
-
-- [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
-- [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
+(1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
+(2) [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
 
 安装方法与 Ubuntu 相同。
 
