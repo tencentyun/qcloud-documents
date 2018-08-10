@@ -17,7 +17,7 @@ b. 选好配置后，单击【立即下单】。
 c. 在左侧目录单击【DDoS 高防包】，在 “DDoS 高防包” 下，单击【弹性流量包管理】，单击【购买弹性流量包】。
 ![](https://i.imgur.com/x8l5VxC.png)
 ![](https://i.imgur.com/EsZfSDe.png)
-2. **绑定防护IP**
+2. **绑定防护 IP**
 a. 单击高防包 ID，进入基本信息页。
 ![](https://main.qcloudimg.com/raw/619c3476c3f1457aebc12796218823ed.png)
 b. 选择 “防护 IP 列表”，单击【添加防护 IP】。
