@@ -46,21 +46,20 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 6. 可用下面的命令开启自动加载 toa 模块
 
 			echo “modprobe toa” >> /etc/rc.d/rc.local
+			
 ####  Ubuntu 16.04
 下载安装包：
- - [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
- - [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
-
+(1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
+(2) [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
 安装步骤：
 
-    dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
+			dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 Headers 包可不装，如需要做相关开发则安装。
-
 安装完成之后重启主机，然后` lsmod | grep toa `检查 toa 模块是否加载 没有加载的话 `modprobe toa` 开启。
-
 可用下面的命令开启加载 toa 模块
-
-    echo “modprobe toa” >> /etc/rc.d/rc.local
+		
+		echo “modprobe toa” >> /etc/rc.d/rc.local
+		 
 #### Debian 8
 
 (1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
