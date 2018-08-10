@@ -237,3 +237,13 @@ QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string identifier, stri
 | authBits   |  int   | 权限（ITMG_AUTH_BITS_DEFAULT 代表拥有全部权限） |
 
 #### 示例代码
+
+```
+byte[] GetAuthBuffer(string appId, string userId, int roomId, uint authBits)
+    {
+	TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+	double timeStamp = t.TotalSeconds;
+	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9", (int)timeStamp + 1800, authBits);
+}
+byte[] authBuffer = this.GetAuthBuffer(str_appId,, str_userId, roomId, recvOnly ? IQAVContext.AUTH_BITS_RECV : IQAVContext.AUTH_BITS_ALL);
+```
