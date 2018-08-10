@@ -57,3 +57,21 @@ public class AppActivity extends Cocos2dxActivity {
 ```
 
 ### 3. 初始化
+
+在 oncreate 函数中进行初始化，顺序不能出错。
+```
+protected void onCreate(Bundle savedInstanceState) {
+        super.setEnableVirtualButton(false);
+        super.onCreate(savedInstanceState);
+
+        //初始化， 顺序不能错
+        AVChannelManager.setIMChannelType(AVChannelManager.IMChannelTypeImplementInternal);
+        gameWrapper = new OpensdkGameWrapper(this);
+        runOnGLThread(new Runnable() {
+            @Override
+            public void run() {
+                gameWrapper.initOpensdk();
+            }
+        });
+}
+```
