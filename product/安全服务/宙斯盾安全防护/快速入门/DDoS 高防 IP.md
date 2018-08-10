@@ -39,10 +39,11 @@ b. 在【规则组信息】下，单击【添加转发规则】，可以添加�
 
 4. **为高防 IP 绑定转发规则组**
 创建完转发规则组后，在 “DDoS 高防 IP” 下，单击【转发规则组】，在 “操作” 列下，单击【关联高防 IP】，将该转发规则组绑定到高防 IP。
-  ![](https://i.imgur.com/E610PTc.png)
+  ![](
+https://main.qcloudimg.com/raw/a967def3d82e72387fe4179d101e7228.png)
 也可以在 “DDoS 高防 IP” 下选择 “高防 IP”，进入 “DDoS 高防 IP 详情” 页面， 单击【基础配置】，在 “转发规则组设置” 项目下，单击【绑定】，为高防 IP 绑定转发规则组。
  ![](https://main.qcloudimg.com/raw/8d6614440b2c3cedd8f899322713af29.png)
- ![](https://i.imgur.com/Pta6qED.png)
+ ![](https://main.qcloudimg.com/raw/bfc70be9358c4c622c6e5ad49e235d06.png)
 
 5. **业务指向高防 IP**
  为高防 IP 绑定转发规则组后，用户可以验证从高防 IP 的转发端口到源站服务器的源站端口的连通性。配置业务指向到高防 IP，即完成了高防 IP 的接入配置。如用户业务之前使用了域名解析，用户可在业务域名解析服务商中更改域名解析，将原 IP 地址更换为绑定的高防 IP 地址。
