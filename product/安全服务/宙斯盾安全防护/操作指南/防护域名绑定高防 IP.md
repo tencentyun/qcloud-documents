@@ -7,9 +7,9 @@
 ### 防护域名绑定高防 IP 的流程
 
 #### 1. 创建业务
-a. 选择 “业务域名列表”，单击【创建业务和域名】。
+a. 单击【业务域名列表】，在 “业务域名列表” 下，单击【创建业务和域名】。
 ![](https://main.qcloudimg.com/raw/8adb735190cf3de61c4a69cfc8909267.png)
-b. 填写好相关信息，然后单击【创建】，创建成功后立即在 “业务域名列表” 生成业务和免费的防护域名。
+b. 填写好相关信息，单击【创建】，创建成功后立即在 “业务域名列表” 生成业务和免费的防护域名。
 ![](https://i.imgur.com/zDVWn1s.png)
 #### 2. **添加高防 IP**
 a. 在业务域名列表管理页下，单击 “添加  IP”，跳转到业务详情页。
@@ -27,5 +27,5 @@ https://main.qcloudimg.com/raw/c4fe42c57e03c2f9ac8b6f6df3c36fa3.png)
 #### 4. **主域名 CNAME 到防护域名**
 线路解析开启后，业务主域名可通过 CNAME 到防护域名，智能解析到高防 IP。
 ![](https://main.qcloudimg.com/raw/a93b477dcca08bfc6a529dcbd55f0033.png)
-然后用户验证，比如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
+用户验证，比如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
 ![](https://i.imgur.com/tEpFPiZ.png)
