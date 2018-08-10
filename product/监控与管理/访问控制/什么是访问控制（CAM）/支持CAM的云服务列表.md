@@ -13,7 +13,7 @@
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | ✔      | 服务级   | ✔        |
+| [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | -      | 服务级   | ✔        |
 | [归档存储](https://cloud.tencent.com/document/product/572)   | ✔        | ✔      | -      | 资源级   | ✔        |
 | [存储网关](https://cloud.tencent.com/document/product/581)   | ✔        | -      | ✔      | 服务级   | -        |
 | [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        |
