@@ -1,11 +1,11 @@
 ## 功能描述
 List Multipart Uploads 用来查询正在进行中的分块上传。单次请求操作最多列出 1000 个正在进行中的分块上传。
-### 细节分析
-需要有 Bucket 的读权限。
+
+>注意：该请求需要有 Bucket 的读权限。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 GET /?uploads HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -15,11 +15,6 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-```
-GET /?uploads HTTP/1.1
-```
-该 API 接口接受 GET 请求。
 
 #### 请求参数
 
