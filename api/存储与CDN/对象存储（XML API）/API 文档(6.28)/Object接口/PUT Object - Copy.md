@@ -76,7 +76,8 @@ x-cos-meta-*|其他自定义的文件头部|string|否
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
 <CopyObjectResult>
   <ETag>String</ETag>
   <LastModified>String</LastModified>
