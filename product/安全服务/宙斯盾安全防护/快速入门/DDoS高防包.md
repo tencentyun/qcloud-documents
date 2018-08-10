@@ -5,7 +5,7 @@
 ### 流程图
 ![](https://main.qcloudimg.com/raw/56680ef9138fe084b097b0ca753b9636.png)
 
-### 配置上线
+### 接上步骤
 
 1. **购买 DDoS 高防包**
 a. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【DDoS 高防包】，在 “高防包列表” 的下，单击【购买】。
