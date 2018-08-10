@@ -10,50 +10,27 @@
    <tr>
       <td>价格模型</td>
       <td>音质</td>
-      <td>语音 DAU</td>
-      <td>服务区-大陆（元/人/天）</td>
-      <td>服务区-海外（元/人/天）</td>
+      <td>服务区-大陆（美元/DAU/天）</td>
+      <td>服务区-全球其他地区（美元/DAU/天）</td>
    </tr>
    <tr>
       <td  rowspan="6">按语音 DAU 计费</td>
-      <td rowspan="3">普通音质-采样率16K</td>
-      <td>DAU≤2W</td>
-      <td>0.012 </td>
-      <td>0.048 </td>
+      <td rowspan="1">普通音质-采样率16K</td>
+      <td>0.0015 </td>
+      <td>0.0072 </td>
    </tr>
    <tr>
-      <td>2W< DAU≤10W</td>
-      <td>0.010 </td>
-      <td>0.047 </td>
-   </tr>
-   <tr>
-      <td>10W< DAU</td>
-      <td>0.009 </td>
-      <td>0.045 </td>
-   </tr>
-   <tr>
-      <td rowspan="3">高清音质-采样率 48K</td>
-      <td>DAU≤2W</td>
-      <td>0.033 </td>
-      <td>0.066 </td>
-   </tr>
-   <tr>
-      <td>2W< DAU≤10W</td>
-      <td>0.032 </td>
-      <td>0.065 </td>
-   </tr>
-   <tr>
-      <td>10W< DAU</td>
-      <td>0.030 </td>
-      <td>0.063 </td>
+      <td rowspan="1">高清音质-采样率 48K</td>
+      <td>0.0048 </td>
+      <td>0.0100 </td>
    </tr>
    <tr>
       <td>价格模型</td>
-      <td colspan="4">单价（元/分钟）</td>
+      <td colspan="4">单价（美元/1000分钟）</td>
    </tr>
    <tr>
       <td>按语音时长计费</td>
-      <td colspan="4">0.0059</td>
+      <td colspan="4">0.94</td>
    </tr>
 </table>
 
@@ -71,22 +48,12 @@
    <tr>
       <td>价格模型</td>
       <td>转文本支持语言</td>
-      <td>语音 DAU</td>
-      <td>单价（元/人/天）</td>
+      <td>单价（美元/DAU/天）</td>
    </tr>
    <tr>
       <td  rowspan="4">按语音消息 DAU 计费</td>
-      <td  rowspan="3">中文</td>
-      <td>DAU≤2W</td>
-      <td>0.012 </td>
-   </tr>
-   <tr>
-      <td>2W< DAU≤10W</td>
-      <td>0.011 </td>
-   </tr>
-   <tr>
-      <td>10W< DAU</td>
-      <td>0.010 </td>
+      <td  rowspan="1">中文</td>
+      <td>0.0019 </td>
    </tr>
    <tr>
       <td>中文及其他外文</td>
