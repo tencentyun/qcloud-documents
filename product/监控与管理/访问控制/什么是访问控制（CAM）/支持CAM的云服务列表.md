@@ -13,7 +13,7 @@
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        |
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | ✔        | ✔      | ✔      | 资源级   | ✔        |
-| [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | ✔      | 服务级   | ✔        |
+| [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | -      | 服务级   | ✔        |
 | [归档存储](https://cloud.tencent.com/document/product/572)   | ✔        | ✔      | -      | 资源级   | ✔        |
 | [存储网关](https://cloud.tencent.com/document/product/581)   | ✔        | -      | ✔      | 服务级   | -        |
 | [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        |
@@ -39,6 +39,7 @@
 | [直播](https://cloud.tencent.com/document/product/267)       | ✔        | -      | ✔      | 服务级   | -        |
 | [互动直播](https://cloud.tencent.com/document/product/268)   | ✔        | -      | ✔      | 服务级   | -        |
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589/14625) | ✔        | ✔      | ✔      | 操作级   | ✔        |
+| [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | ✔        | ✔      | ✔      | 操作级   | ✔        |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        |
 | [云搜](https://cloud.tencent.com/document/product/270)       | ✔        | -      | ✔      | 服务级   | -        |
