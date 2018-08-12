@@ -4,7 +4,7 @@ The charges for cloud load balance service include instance rental fee and bandw
 ## Postpaid
 The price cut has been initiated in June, 2017 regarding the load balancer with postpaid and hourly billing mode applied. You can create or terminate load balancer instance at any time, which is billed by the actually used resources. The adjustment policy is as follows:
 
-1. The billing method for public network load balancer is adjusted from the previous prepaid 30 CNY (1 CNY/day) to postpaid 0.02 CNY/hour. The price is reduced by more than 50%;
+1. The billing method for public network load balancer is adjusted from the previous prepaid 4.41 USD (0.147 USD/day) to postpaid 0.003 USD/hour. The price is reduced by more than 50%;
 2. For new load balancer customers, the postpaid billing method is applied;
 3. For existing customers, the fees of previous month have been liquidated in the early morning of July 31, 2017, and the new billing policy has been applied. Please make sure your account balance is sufficient.
 4. The private network load balancer is still free of charge;
@@ -16,7 +16,7 @@ For purchasing, the unit price of cloud load balancer instance is calculated on 
 
 > Note
 When you create postpaid cloud load balancer instance, the system freezes the cost of one hour. Please make sure your account balance is sufficient;
-After the cloud load balancer is purchased, the configuration fee will continue to be charged of 0.02 CNY/hour even it is idle (there is no access and backend CVM is not bound).
+After the cloud load balancer is purchased, the configuration fee will continue to be charged of 0.003 USD/hour even it is idle (there is no access and backend CVM is not bound).
 
 ## Arrear Isolation Policy
 
@@ -26,7 +26,7 @@ After the cloud load balancer is purchased, the configuration fee will continue 
 
 - Tencent Cloud will send a reminder SMS message/email one day before the release of isolated instance. Relevant configuration data will be permanently deleted after the instance is released, and cannot be restored.
 
->Note: Cloud load balancer will not be actively unbound with the CVM. When a **CVM** is isolated (go into recycle bin for CVMs of annual or monthly plan, or be in arrears for more than two hours for CVMs of Bill-by-Traffic plan), its binding relationship with the LB will be terminated. 
+>Note: Cloud load balancer will not be actively unbound with the CVM. When a **CVM** is isolated (go into recycle bin for CVMs of annual or monthly plan, or be in arrears for more than two hours for CVMs of Bill-by-Traffic plan), its binding relationship with the LB will be terminated.
 
 ## FAQs:
 
@@ -34,8 +34,8 @@ After the cloud load balancer is purchased, the configuration fee will continue 
 A: Once per hour;
 
 2. Is the price reduced by more than 50% after adjustment?
-A: It is 1 CNY/day for the old billing method and you need to pay 30 × 1 = 30 CNY for consecutive 30-day use.
-It is 0.02 CNY/hour for the new billing method and you need to pay 0.02 × 24 × 30 = 14.4 CNY for consecutive 30-day use. Therefore, you save (30-14.4)/30 × 100% = 52%.
+A: It is 0.147 USD/day for the old billing method and you need to pay 30 × 0.147 = 4.41 USD for consecutive 30-day use.
+It is 0.003 USD/hour for the new billing method and you need to pay 0.003 × 24 × 30 = 2.16 USD for consecutive 30-day use. Therefore, you save (4.41 - 2.16) / 4.41 × 100% = 51%.
 
 3. Why billing method is changed?
 A: The postpaid method is more flexible, and do not need to freeze the cost in advance. You can release instances at any time when you do not need them, and save cost with the pay-as-you-go mode.
@@ -73,16 +73,16 @@ For more information, please see the following table:
                 <tr>
                 <tr>
             <td rowspan="5">Cross-region binding</td>
-                        <td rowspan="5">Peak bandwidth of the day<br><br>Bill by days (CNY/Mbps/Day)<br><br>Peak bandwidth is calculated using the average bandwidth per 5 minutes<br></td>
+                        <td rowspan="5">Peak bandwidth of the day<br><br>Bill by days (USD/Mbps/Day)<br><br>Peak bandwidth is calculated using the average bandwidth per 5 minutes<br></td>
                         <td>(0 , 20] Mbps</td>
-                        <td>20</td>
+                        <td>2.941</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
         </tr>
            <tr>
                 <td>(20 ,100] Mbps</td>
-                        <td>12</td>
+                        <td>1.765</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
@@ -103,6 +103,4 @@ For more information, please see the following table:
 > Contact business department to consult more about prices.
 
 **Example:**
-If the cloud load balancer is in Shanghai and the backend CVM is in Guangzhou, and the peak outbound bandwidth of the day is 20 Mbps and the peak inbound bandwidth is 30 Mbps, the cost of the day is: 30 * 12 = 360 CNY, which is charged by cloud load balancer side.
-
-
+If the cloud load balancer is in Shanghai and the backend CVM is in Guangzhou, and the peak outbound bandwidth of the day is 20 Mbps and the peak inbound bandwidth is 30 Mbps, the cost of the day is: 30 * 1.765 = 52.95 USD, which is charged by cloud load balancer side.
