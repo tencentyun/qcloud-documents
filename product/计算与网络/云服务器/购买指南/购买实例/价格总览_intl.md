@@ -8,7 +8,7 @@ From 12:00 on July 26, 2016, postpaid CVMs are billed with 3-tiered pricing. New
 
 #### Notes:
 
-- Billing unit: CNY/hour.
+- Billing unit: USD/hour.
 - The CVM tiered pricing policy only involves CPU and memory fees.
 - **The prices displayed in the Price Calculator page are all tier 1 prices. Tier 2 price = Tier 1 price × 50%. Tier 3 price = Tier 1 price × 34%.**
 - The tiered pricing policy is only applicable for CVMs with unchanged configuration. If the configuration of a CVM is changed, the CVM is hereafter billed as per the tier 1 price of the new configuration.
