@@ -55,6 +55,12 @@ x-cos-copy-source-if-modified-since: time_stamp
 | x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 
+### 请求参数
+ 名称|描述|类型|必选
+---|---|---|---
+partNumber|分块拷贝的块号|string|是
+uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。|string|是
+
 ### 请求体
 该请求的请求体为空。
 
