@@ -2,12 +2,9 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 
 **特别说明：**
 -  **对象存储** 或 **万象优图** 服务开启 CDN 加速后，默认的 ```.file.myqcloud.com``` 后缀域名，或```.image.myqcloud.com```后缀域名，可直接支持 HTTPS 请求，无需配置证书。
-- 腾讯云 CDN 目前针对 HTTP2.0 协议支持已经全面公测，可直接使用。
+- 腾讯云 CDN 目前针对 HTTP2.0 协议支持已经全面公测，可直接开启使用。
 
 ## 配置指引
-- 域名不是由，默认的 ```.file.myqcloud.com``` 或 ```.image.myqcloud.com``` 域名。
-- 域名的接入方式为 **自有源** 或者 **COS源**、**FTP源**。
-
 腾讯云 CDN 目前支持两种方式部署证书。
 - 自有证书：将自有证书、私钥内容上传至 CDN 进行部署，全程加密传输，证书不落地，保障您的证书安全。
 - 腾讯云托管证书：您可以通过 [SSL 证书管理](https://console.cloud.tencent.com/ssl)，将已有证书托管至腾讯云，以用于多个云产品，您也可以在该平台申请由亚洲诚信免费提供的第三方证书，将其直接部署至 CDN。
