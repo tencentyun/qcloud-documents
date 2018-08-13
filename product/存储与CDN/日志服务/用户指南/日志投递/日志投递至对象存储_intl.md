@@ -20,13 +20,15 @@ You can enable or disable shipping tasks in the management list of shipping conf
 - Shipping interval: The shipping interval can be specified from 1 minute to 1 hour. If you set the shipping interval to 5 minutes, a file of your log data will be created every five minutes, and stored in the COS bucket. Log data will be shipped to your bucket in half an hour.
 - File size: Specifies the maximum size of uncompressed shipped files within the shipping interval, which refers to the maximum size of the log file that can be shipped at the interval. A file greater than this size will be split into multiple log files. The maximum size supported can be set from 100 MB to 10 GB.
 
-![](https://mc.qcloudimg.com/static/img/8d1f42f4657568290c95d79c4d6b2469/image.png)
+![](
+https://main.qcloudimg.com/raw/b99205d486e476f05cb815695d0b5653.png)
 
 ### Advanced Configuration
 
 Log shipper also allows you to determine whether to ship logs based on log content, which is an advanced configuration. You can specify a key, perform regular extraction of the key's value, and set a value to match with the extracted value. A log can be shipped only when the log data matches your configuration. Unmatched logs are not shipped. As shown in the figure below, if the "action" field is set to "write", the log is shipped. You can set a maximum of 5 rules to determine whether to ship or not.
 
-![](https://mc.qcloudimg.com/static/img/98cf7e06c8883c55d7b61c7e81612083/image.png)
+![](
+https://main.qcloudimg.com/raw/1117434e1b4ef2a3ff4046a724f19004.png)
 
 ### Query of Shipping Tasks
 
