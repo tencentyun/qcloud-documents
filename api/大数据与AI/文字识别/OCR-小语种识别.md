@@ -4,7 +4,7 @@
 本接口用于根据用户上传的护照图像，返回识别出的护照信息。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://sdkservice.image.myqcloud.com/ocr/minorlanguage`
 
