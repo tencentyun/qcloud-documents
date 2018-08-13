@@ -49,7 +49,7 @@ x-cos-copy-source-if-modified-since: time_stamp
 
 | 名称          | 描述      | 类型     | 必选   |
 | ---------------- | ---------- | ------ | -------- |
-| x-cos-copy-source-range                    | 源对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示你希望拷贝源对象的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个对象。       | Integer | 是    |
+| x-cos-copy-source-range                    | 源对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示您希望拷贝源对象的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个对象。       | Integer | 是    |
 | x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
