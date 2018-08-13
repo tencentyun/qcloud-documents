@@ -17,12 +17,14 @@ Index is an optional feature for log topics. You need to select a log topic to q
 ### Full-text index
 
 CLS takes a complete single log as text for query. After full-text index is enabled, you can search the log by keywords.
-![Full-text Index](https://main.qcloudimg.com/raw/7347d861b8143c0ce7da5041488c3569.png)
+![Full-text Index](
+https://main.qcloudimg.com/raw/63bce8a39d0033ffd43f5a7644727dca.png)
 
 ### Key-value index
 
 CLS supports key-value index configuration based on the key you set in the **Collection Configuration** tab. In the key-value index configuration, enter the appropriate key according to the index requirements, and specify its data type (text, long, or double).
-![Key-value Index](https://main.qcloudimg.com/raw/d65bc5a6b68316eb5316019f5f41de07.png)
+![Key-value Index](
+https://main.qcloudimg.com/raw/fe96d64574fd85c8f1c76ef4f3cdd79c.png)
 
 ### Case sensitivity
 
