@@ -7,7 +7,7 @@
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/plate`
 
@@ -45,10 +45,10 @@ items 说明
 | ---------- | ------ | ------ | --------- |
 | item       | &nbsp; | string | 字段名称      |
 | itemstring | &nbsp; | string | 字段内容      |
-| itemcoord  | x      | int    | item框左上角x |
-| &nbsp;     | y      | int    | item框左上角y |
-| &nbsp;     | width  | int    | item框宽度   |
-| &nbsp;     | height | int    | item框高度   |
+| itemcoord  | x      | int    | item 框左上角 x |
+| &nbsp;     | y      | int    | item 框左上角 y |
+| &nbsp;     | width  | int    | item 框宽度   |
+| &nbsp;     | height | int    | item 框高度   |
 | itemconf   | &nbsp; | float  | 字段识别结果置信度 |
 
 ## 请求示例
