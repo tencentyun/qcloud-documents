@@ -7,7 +7,7 @@
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/handwriting`
 
@@ -323,7 +323,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | 13    | 重放攻击                       |
 | 14    | 签名校验失败                     |
 | 15    | 操作太频繁，触发频控                 |
-| 16    | Bucket不存在                  |
+| 16    | Bucket 不存在                  |
 | 21    | 无效参数                       |
 | 23    | 请求包体过大                     |
 | 24    | 没有权限                       |
