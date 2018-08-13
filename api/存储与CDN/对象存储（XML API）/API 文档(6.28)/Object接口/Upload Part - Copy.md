@@ -5,7 +5,7 @@ Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制�
 当存储桶启用了多版本，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回 404 错误。如果您在 x-cos-copy-sourceand 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400 错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
 
 ## 请求
-请求示例：
+### 请求示例
 
 ```
 PUT http://{bucket}.cos.{region}.myqcloud.com/{ObjectName}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
@@ -19,9 +19,9 @@ x-cos-copy-source-If-Match: string
 x-cos-copy-source-If-None-Match: string
 x-cos-storage-class: STANDARD
 x-cos-acl: public-read
-x-cos-grant-read: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
-x-cos-grant-write: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"。
-x-cos-grant-full-control: id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"
+x-cos-grant-read: id="[OwnerUin]"
+x-cos-grant-write: id="[OwnerUin]"。
+x-cos-grant-full-control: id="[OwnerUin]"
 
 Date: GMT Date
 Authorization: Auth String
@@ -29,29 +29,12 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-PUT /{ObjectName} HTTP/1.1
-```
-
-该 API 接口接受 `PUT` 请求。
-
-#### 请求参数
-
-名称|类型|必选|描述
----|---|---|---
-partNumber|string|是|分块拷贝的块号
-uploadId|string|是|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID
-
 ### 请求头
 
 #### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-
 
 |名称|描述|类型|必选|
 |---|---|---|---|
@@ -68,27 +51,36 @@ uploadId|string|是|使用上传分块文件，必须先初始化分块上传。
 |x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否|
 |x-cos-copy-source-range|源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。例如 bytes=0-9 表示你希望拷贝源文件的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个文件。|Integer|否|
 
+#### 请求参数
+
+名称|描述|类型|必选
+---|---|---|---
+partNumber|分块拷贝的块号|string|是
+uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。|string|是
+
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
 ### 响应头
 
 #### 公共响应头
-
-该响应使用公共响应头，了解共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
 名称|描述|类型
 ---|---|---
 x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
- x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String
+x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String
 
 ### 响应体
 拷贝成功，返回响应体。
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<ETag>string</ETag>
-<LastModified>string</LastModified>
+<CopyPartResult>
+  <ETag>string</ETag>
+  <LastModified>string</LastModified>
+</CopyPartResult>
 ```
 
 具体的数据描述如下：
@@ -114,7 +106,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-
 ### 响应
 
 ```
-HTTP /1.1 200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 133
 Connection: keep-alive
@@ -127,5 +119,4 @@ x-cos-request-id: NTlkYjFjYWJfMjQ4OGY3MGFfNGIzZV9k
     <LastModified>2017-09-04T04:45:45</LastModified>
 </CopyPartResult>
 ```
-
 
