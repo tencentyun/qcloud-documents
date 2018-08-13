@@ -2,8 +2,8 @@
 GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
 
 ## 请求
+### 请求示例
 
-请求示例:
 ```
 GET / HTTP/1.1
 Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
@@ -12,15 +12,11 @@ Authorization: Auth String
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-
-### 请求行
-
-```
-GET / HTTP/1.1
-```
-
-该 API 接口接受 `GET` 请求。
-
+### 请求头
+#### 公共头部
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+#### 非公共头部
+该请求操作无特殊的请求头部信息。
 
 #### 请求参数
 
@@ -32,31 +28,20 @@ encoding-type|string|否|规定返回值的编码方式，可选值：url
 marker|string|否|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
 max-keys|string|否|单次返回最大的条目数量，默认 1000
 
-### 请求头
-
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
-
 ### 请求体
 该请求请求体为空。
+
 ## 响应
 ### 响应头
 
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
-
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-
-该请求操作无特殊的响应头部信息。
+该响应无特殊的响应头。
 
 ### 响应体
 查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息。
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <ListBucketResult>
@@ -125,13 +110,7 @@ Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string|是
 
 
 ### 错误码
-
-错误码|描述|http 状态码
----|---|---
-InvalidBucketName|Bucket 名称不合法|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
-SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)
-NoSuchBucket|Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
 
 ## 实际案例
 
@@ -147,7 +126,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ### 响应
 
 ```
-HTTP /1.1 200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1132
 Connection: keep-alive

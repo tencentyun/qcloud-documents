@@ -78,7 +78,7 @@ metadata:
   #   storageclass.beta.kubernetes.io/is-default-class: "true"  
   #   如果有这一条，则会成为default-class，创建pvc时不指定类型则自动使用此类型
   name: cloud-premium
-provisioner: cloud.tencent.com/qcloud-cbs
+provisioner: cloud.tencent.com/qcloud-cbs ##tke集群自带的provisioner
 parameters:
   type: cloudPremium
   # 支持 cloudBasic,cloudPremium,cloudSSD  如果不识别则当做cloudBasic

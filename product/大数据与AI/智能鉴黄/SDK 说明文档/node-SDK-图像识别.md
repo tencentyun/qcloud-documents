@@ -1,13 +1,13 @@
 ## 开发准备
 ### SDK 获取
 
-智能图像的 Node SDK 下载地址：[node-SDK-V2.0](https://github.com/TencentCloudBase/image-node-sdk) 。
+智能图像的 Node SDK 下载地址：[Node-SDK-V2.0](https://github.com/TencentCloudBase/image-node-sdk) 。
 
 
 ## 快速入门
 ### 在腾讯云申请业务的授权
 
-授权包括： APPID 、SecretId 、 SecretKey 及存储桶名（可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937) ）。
+授权包括： APPID 、SecretId 、 SecretKey ，目前只支持主账号及密钥进行调用。
 
 
 ### 安装使用

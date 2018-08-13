@@ -1,10 +1,10 @@
 ## 功能描述
 HEAD Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。HEAD 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。
->备注： 目前我们还没有公开获取 Bucket 属性的接口（即可以返回 acl 等信息）。
+>注意： 目前我们还没有公开获取 Bucket 属性的接口（即可以返回 acl 等信息）。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 HEAD / HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -14,17 +14,9 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-```
-HEAD / HTTP/1.1
-```
-该 API 接口接受 HEAD 请求。
-
 ### 请求头
-
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
-
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -34,13 +26,13 @@ HEAD / HTTP/1.1
 ## 响应
 
 ### 响应头
-#### 公共响应头  
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
-#### 特有响应头 
+#### 公共响应头
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+#### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
-该响应体返回为空。
+该响应体为空。
 
 ## 实际案例
 
