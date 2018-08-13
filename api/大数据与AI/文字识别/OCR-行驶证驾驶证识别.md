@@ -9,7 +9,7 @@
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/drivinglicence` 
 
@@ -26,7 +26,7 @@
 | authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)。|
 
 >**注意：**
-如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ### 请求参数
 目前支持的字段为：
