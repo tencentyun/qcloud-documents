@@ -1,18 +1,5 @@
 A CVM instance includes hardware (CPU and memory), disks (system disk, data disk) and network. You can find the corresponding resources on the purchase page when purchasing a CVM. This document introduces the price, purchase and configuration modification of CVM instance hardware (i.e. CPU and memory).
 
-### Prices of prepaid instances
-
-This section describes the price policy for prepaid CVMs. For more information, please see [CVM Price Calculator](https://buy.cloud.tencent.com/calculator/cvm).
-
-#### Notes:
-
-- Billing unit: CNY/month.
-- From November 1, 2016, you can get discounts for your prepaid CVMs based on the duration of use:
-
-| 6-11 months | 1 year | 2 years | 3 years |
-| --------- | ----- | ---- | ---- |
-| 12% off | 17% off | 30% off | 50% off |
-
 ### Prices of postpaid instances
 
 This section describes the pricy policy for postpaid CVMs. For more information, please see [CVM Price Calculator](https://buy.cloud.tencent.com/calculator/cvm?devPayMode=hourly).
