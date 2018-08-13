@@ -7,9 +7,8 @@
 ### 实时音视频 Web 端如何进房连麦？
 有关实时音视频 Web 端  __进房连麦__ 的内容，详情请点击 [这里](https://cloud.tencent.com/document/product/647/16864) 查看。
 
-### 实时音视频 Web 端 API 相关内容有哪些
-？
-您好，有关实时音视频web端 __API__ 内容如下：
+### 实时音视频 Web 端 API 相关内容有哪些？
+有关实时音视频web端 __API__ 内容如下：
 
 -  [API 概览](https://cloud.tencent.com/document/product/647/17249) 
 -  [基础功能接口](https://cloud.tencent.com/document/product/647/17251) 
