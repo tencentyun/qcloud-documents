@@ -1,7 +1,7 @@
 ## 接口描述
 
-本接口（DescribeApiUsagePlan）用于查询服务中API使用计划详情。
-服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务及其中API的所有使用计划。
+本接口（DescribeApiUsagePlan）用于查询服务中 API 使用计划详情。
+服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务及其中 API 的所有使用计划。
 
 
 ## 输入参数
@@ -10,11 +10,11 @@
 
 | 参数名称              | 是否必选 | 类型     | 描述                  |
 | ----------------- | ---- | ------ | ------------------- |
-| serviceId         | 是    | String | 待查询的服务唯一 Id。         |
+| serviceId         | 是    | String | 待查询的服务唯一 ID。         |
 | offset            | 否    | Int    | 偏移量，默认为 0。           |
 | limit             | 否    | Int    | 返回数量，默认为 20，最大值为 100。 |
 | searchEnvironment | 否    | String | 根据使用计划环境名称模精确索。     |
-| apiIds.n            | 否    | List of String | API唯一ID数组，如果不传，返回当前服务下所有API的使用计划信息。|
+| apiIds.n            | 否    | List of String | API 唯一 ID 数组，如果不传，返回当前服务下所有 API 的使用计划信息。|
 
 ## 输出参数
 | 参数名称          | 类型             | 描述                                       |
@@ -29,20 +29,20 @@ usagePlanList 是绑定到该服务上面的使用计划列表，它是由 usage
 
 | 参数名称          | 类型        | 描述          |
 | ------------- | --------- | ----------- |
-| usagePlanId   | String    | 使用计划的唯一 Id   |
-| usagePlanName | String    | 使用计划的名称     |
-| usagePlanDesc | String    | 使用计划的描述     |
-| environment   | String    | 使用计划绑定的服务环境 |
-| createdTime   | Timestamp | 使用计划创建时间    |
-| modifiedTime  | Timestamp | 使用计划最后修改时间  |
+| usagePlanId   | String    | 使用计划的唯一 ID。   |
+| usagePlanName | String    | 使用计划的名称。     |
+| usagePlanDesc | String    | 使用计划的描述。    |
+| environment   | String    | 使用计划绑定的服务环境。 |
+| createdTime   | Timestamp | 使用计划创建时间。    |
+| modifiedTime  | Timestamp | 使用计划最后修改时间。  |
 | inUseRequestNum | Int    | 已经使用的配额。|
-| maxRequestNum   | Int    | 请求配额总量，-1表示没有限制。|
-| maxRequestNumPreSec | Int | 请求QPS上限，-1表示没有限制。|
-| apiId 		| String 	| API唯一ID。|
-| path			| String	| 请求path。|
+| maxRequestNum   | Int    | 请求配额总量，-1 表示没有限制。|
+| maxRequestNumPreSec | Int | 请求 QPS 上限，-1 表示没有限制。|
+| apiId 		| String 	| API 唯一 ID。|
+| path			| String	| 请求 path。|
 | method		| String    | 请求方式。|
-| apiName		| String	| API名称。|
-| serviceId		| String	| 服务唯一ID。|
+| apiName		| String	| API 名称。|
+| serviceId		| String	| 服务唯一 ID。|
 | serviceName	| String	| 服务名称。|
 
 ## 示例 
