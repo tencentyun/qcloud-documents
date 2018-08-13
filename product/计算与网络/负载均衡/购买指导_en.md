@@ -27,7 +27,7 @@ When purchasing public network application-based instances and public network in
 | Public network (without static IP) cloud load balancer | Free | Cloud Load Balancer (without fixed IP address) | Free trial product. No static public network IP, only supports layer 7 HTTP protocol forwarding, A Record and Cname binding are not supported | **Trial:** Helps new users learn and get familiar with the basic features of cloud load balancing</br>**Testing environment:** Used to create testing environment for traffic balancers. It is not recommended to use it as production system |
 | Private network cloud load balancer | Free | Internal Cloud Load Balancer | Satisfies forwarding needs between internal modules within the user enterprise. Can only be accessed from within Tencent Cloud. Accessing via Internet is not supported. Supports TCP/UDP layer 4 protocols.  | **LAN service:**Used to forward requests between internal modules within the enterprise.  |
 
-> **Note: **
+> **Note:**
 > When a user cancels cloud load balance service in advance, the corresponding charges will be deducted from blocked balance in the user account according to the actual usage period. The remaining balance will be returned to the account.
 
 ### Cloud Load Balance Bandwidth Fee
