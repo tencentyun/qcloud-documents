@@ -1,4 +1,4 @@
-## Public Network Load Balancer Instances
+## ublic Network Load Balancer Instances
 
 Public network load balancer instances get requests from the client over the Internet, and allocates these requests to the backend CVMs bound with listeners. After a public network load balancer is created, Tencent Cloud assigns a public network domain name (traditional) and a VIP address to the load balancer. At the same time, DNS server resolves the domain name and VIP address. A public network load balancer also supports binding CNAME and A Record, and mapping them to user-readable custom domain names. Each public network load balancer instance is assigned a fixed BGP public IP and can receive the HTTP, HTTPS, TCP, and UDP requests forwarded from the client. Such instances also support all Tencent Cloud Load Balance services such as session persistence and health check. For more information on the use limits of public network load balancer instances, please see [Use Limits](/doc/product/214/6187).
 
