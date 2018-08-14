@@ -14,7 +14,7 @@
 - Java
 
 ## 下载地址
-- [Windows 环境 C++](https://main.qcloudimg.com/raw/f2897de4f46e1e774fdc45bc31c51e46.zip)，其中刷卡支付和扫码支付为异步方式，接口调用成功只代表支付提交成功，支付结果需要通过查询订单得到；取消订单、申请退款、退款查询、门店上传、门店下载接口为同步调用云支付接口；解压后包含两个目录：   
+- [Windows 环境 C++](https://main.qcloudimg.com/raw/195de27700477feed73123c8df65980d.zip)，其中刷卡支付和扫码支付为异步方式，接口调用成功只代表支付提交成功，支付结果需要通过查询订单得到；取消订单、申请退款、退款查询、门店上传、门店下载接口为同步调用云支付接口；解压后包含两个目录：   
 	- `CloudPayAPI\_SDK\_CPP\_DLL`目录，包含编译好的 dll 库，可直接使用。  
 	- `CloudPayAPI\_SDK\_CPP`目录，包含源码，开发者可自行编译。  
 - [C](https://main.qcloudimg.com/raw/daa50afec21c3d8c8030b783448ba10a.zip)，所有接口均为同步接口。
