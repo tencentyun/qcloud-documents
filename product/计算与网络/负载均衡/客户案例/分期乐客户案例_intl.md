@@ -1,4 +1,3 @@
-
 >**Note:**
 > [FenQiLe] is an online shopping mall and financial service provider focusing on shopping by installments of college students. It provides installment loans and repayment services. Aiming at creating an "installment shopping mall that is most trusted by the young people", the company provides high-growth people with the latest installment buying and consumption method through a simple and fast handling process.
 
