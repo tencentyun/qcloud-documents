@@ -1,0 +1,9 @@
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
+2. 在左侧目录中单击【对等连接】，进入管理页面。
+3. 单击需要查看的对等连接 ID，进入详情页。
+4.	单击选项卡中的 【监控】按钮。
+ ![](https://main.qcloudimg.com/raw/c3a7e616d7a8b01a769ea9d5a96ae84a.png)
+5. 在网关流控明细表右上方，单击【查看已限制 IP】；
+ ![](https://main.qcloudimg.com/raw/b77da9bc78fee9266764d383016026ea.png)
+ 即可查看流控明细。
+ ![](https://main.qcloudimg.com/raw/c4385aeb3a96165f0f2b928d44b317cc.png)

@@ -1,7 +1,3 @@
-## Rights of Being Verified: Individual Users Vs. Enterprise Users
-
-![](//mc.qcloudimg.com/static/img/3dab63de8c91f81e3004eb93236087fa/image.png)
-
 ## Signature Audit Criteria
 ### Format Limits
 
@@ -12,7 +8,7 @@
 
 ### Audit Rules
 
-An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [SMS Helper](/document/product/382/3773).
+An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [Submit a ticket](https://console.cloud.tencent.com/workorder/category).
 
 1. The signature is **the name of a WeChat Official Account or Mini Program**.
  - For enterprise identify verification, the account subject of the Official Account must be identical with the company name on the copy of the business license (or organization code certificate).
@@ -40,7 +36,7 @@ An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.A
 3. SMS messages involving stock, immigration, interview & recruitment, lottery, rebate, loan, dunning, investment & financing, gambling, winning a prize, getting or purchasing a product with one CNY, counterfeit products, healthcare, plastic surgery, beauty, clubs, bars, foot massage, violence, intimidation, pornography, fur, cheating in exams, trademark registration, QQ or WeChat group invitation, personal information trafficking, messaging channels, promotion on game/exhibition/website/coupon/card/insurance/alcohol, prospect invitation, and existing customer recall are prohibited, and those involving finance, real estate and education are also not allowed except for verification code.
 4. Unauthorized invitations for purposes of registration or joining membership are not allowed.
 
->If any infringement of [Terms of Service](/document/product/382/15627) is identified, Tencent Cloud may at any time restrict, suspend or terminate services to you under the terms as appropriate, or block your account (forever) and take other measures. Once a package is purchased, whether it has been used or not, unsubscription or refund is not allowed. If any serious impact or consequences are identified, Tencent Cloud retains the right to pursue related liability against you. Therefore, make sure to comply with the regulations strictly, strengthen your business security, and send SMS messages properly.
+>If any infringement of [Terms of Service](https://intl.cloud.tencent.com/document/product/301/13616) is identified, Tencent Cloud may at any time restrict, suspend or terminate services to you under the terms as appropriate, or block your account (forever) and take other measures. Once a package is purchased, whether it has been used or not, unsubscription or refund is not allowed. If any serious impact or consequences are identified, Tencent Cloud retains the right to pursue related liability against you. Therefore, make sure to comply with the regulations strictly, strengthen your business security, and send SMS messages properly.
 
 ## Audit Criteria for Marketing SMS Messages
 ### Format Limits
@@ -54,7 +50,7 @@ An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.A
 2. SMS messages involving stock, immigration, real estate, education, training, recruitment, lottery, rebate, loan, dunning, investment, gambling, winning a prize, getting or purchasing a product with one CNY, counterfeit products, health care, plastic surgery, beauty, clubs, bars, foot massage, violence, intimidation, pornography, fur, cheating in exams, trademark registration, QQ or WeChat group invitation, personal information trafficking, messaging channels, decoration (including building materials and furniture), promotion on game/exhibition/website/coupon/card/insurance/alcohol, prospect invitation, and existing customer recall are prohibited.
 3. Unauthorized invitations for purposes of registration or joining membership are not allowed.
 
->If any infringement of [Terms of Service](/document/product/382/15627) is identified, Tencent Cloud may at any time restrict, suspend or terminate services to you under the terms as appropriate, or block your account (forever) and take other measures. Once a package is purchased, whether it has been used or not, unsubscription or refund is not allowed. If any serious impact or consequences are identified, Tencent Cloud retains the right to pursue related liability against you. Therefore, make sure to comply with the regulations strictly, strengthen your business security, and send SMS messages properly.
+>If any infringement of [Terms of Service](https://intl.cloud.tencent.com/document/product/301/13616) is identified, Tencent Cloud may at any time restrict, suspend or terminate services to you under the terms as appropriate, or block your account (forever) and take other measures. Once a package is purchased, whether it has been used or not, unsubscription or refund is not allowed. If any serious impact or consequences are identified, Tencent Cloud retains the right to pursue related liability against you. Therefore, make sure to comply with the regulations strictly, strengthen your business security, and send SMS messages properly.
 
 
 ## Standards on Marketing SMS messages
@@ -65,12 +61,11 @@ An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.A
 
 ## Audit Procedure
 Generally, you can get the audit result of your signature and content template in half a working day. The audit time is from Monday to Sunday between 9:00 to 21:00.
-If you want to use the SMS service in a short time, [contact SMS Helper](/document/product/382/3773) and we will accelerate the audit process. If the audit is not approved, [contact SMS Helper](/document/product/382/3773) for a solution.
-Since the approved content templates also need to be spot checked and reviewed by operators, SMS messages may not be sent successfully. If such issue occurs, [contact SMS Helper](/document/product/382/3773) for a solution. 
+If you want to use the SMS service in a short time, [submit a ticket](https://console.cloud.tencent.com/workorder/category) and we will accelerate the audit process. If the audit is not approved, [submit a ticket](https://console.cloud.tencent.com/workorder/category) for a solution.
+Since the approved content templates also need to be spot checked and reviewed by operators, SMS messages may not be sent successfully. If such issue occurs, [submit a ticket](https://console.cloud.tencent.com/workorder/category) for a solution. 
 
 ## Rules for Blocking SMS
-Both [SMS signatures](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) and [SMS templates](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E6.A8.A1.E6.9D.BF) applied for by users are reviewed by SMS technical support, and SMS content is also monitored and detected by the cloud SMS system when users are sending SMS messages, so as to prevent the content that violates national laws and regulations from appearing in SMS messages.
+Both SMS signatures and SMS templates applied for by users are reviewed by SMS technical support, and SMS content is also monitored and detected by the cloud SMS system when users are sending SMS messages, so as to prevent the content that violates national laws and regulations from appearing in SMS messages.
 For users who send [SMS messages that violate the rules](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86), we may freeze their accounts, deduct deposit, or pursue related liability against the users as the case may be.
-After the account is frozen, the user can neither use SMS nor apply for activation of the service later. Any unused messages in the [SMS package](https://cloud.tencent.com/document/product/382/13298) of the account are unavailable either.
 
 

@@ -1,8 +1,8 @@
 ## Preparations for Development
 
 ### Related resources
-Download XML Python SDK resources of COS service from: [XML Python SDK ](https://github.com/tencentyun/cos-python-sdk-v5)
-Download Demo from: [XML Python Demo](https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py)
+Download XML Python SDK resources of COS service from: [XML Python SDK ](https://github.com/tencentyun/cos-python-sdk-v5).
+Download Demo from: [XML Python Demo](https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py).
 
 ### Environment dependencies
 
@@ -50,8 +50,8 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 secret_id = 'xxxxxxxx'      # Replaced with user's secretId
 secret_key = 'xxxxxxx'      # Replaced with user's secretKey
 region = 'ap-beijing-1'     # Replaced with user's Region
-token = ''                  # Token is required to use a temporary key. It is optional. Default is empty.
-config = CosConfig(Secret_id=secret_id, Secret_key=secret_key, Region=region, Token=token)
+token = None                # Token is required to use a temporary key. It is optional. Default is empty.
+config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 # 2. Obtain client object
 client = CosS3Client(config)
 # Refer to the description below or the Demo. For more information, please see https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/demo.py.
@@ -79,7 +79,8 @@ print(response['ETag'])
 |  Key | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name `bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg`, the object key is doc1/pic1.jpg. |String|Yes | 
 |  StorageClass | Storage type of file: STANDARD and STANDARD_IA. Default: STANDARD | String |No | 
 | ContentType | Content Type. Set Content-Type |String | No | 
- For more optional parameters, please see [Python SDK Documentation](https://cloud.tencent.com/document/product/436/12270).
+
+For more optional parameters, please see [Python SDK Documentation](https://cloud.tencent.com/document/product/436/12270).
 
 ### Simple upload of byte stream
 ```python
@@ -153,7 +154,8 @@ response['Body'].get_stream_to_file('output.txt')
 | -------------- | -------------- |---------- | ----------- |
 |  Bucket | Bucket name, in the format of bucketname-appid |String|Yes |
 | Key | Object key is the unique identifier of the object in the bucket. For example, in the object's access domain name bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg, the object key is doc1/pic1.jpg. |string|Yes |
- For more optional parameters, please see [Python SDK Documentation](https://cloud.tencent.com/document/product/436/12270).
+
+For more optional parameters, please see [Python SDK Documentation](https://cloud.tencent.com/document/product/436/12270).
 
 ### Get file stream
 ```python

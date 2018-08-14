@@ -18,9 +18,9 @@
     <td><a href="https://cloud.tencent.com/document/api/557/16124 ">分布式数据库DCDB</a></td>
   </tr>
 <tr>
-    <td><a href="https://cloud.tencent.com/document/api/568/16437 ">加速物联网套件</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/386/18637 ">黑石物理服务器</a></td>
     <td><a href="https://cloud.tencent.com/document/api/563/16034 ">渠道合作伙伴</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">腾讯机器翻译</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/551/15612 ">机器翻译</a></td>
     <td><a href="https://cloud.tencent.com/document/api/409/16761">数据库 PostgreSQL</a></td>
   </tr>
 <tr>
@@ -39,7 +39,8 @@
     <td><a href="https://cloud.tencent.com/document/api/860/18448">腾讯优 Mall</a></td>
     <td><a href="https://cloud.tencent.com/document/api/853/18384">腾讯优评</a></td>
     <td><a href="https://cloud.tencent.com/document/api/851/18295">腾讯智能钛机器学习</a></td>
-    <td></td>
+    <td><a href="https://cloud.tencent.com/document/api/659/18591">迁移服务平台</a></td>
+
   </tr>
   </table>
 

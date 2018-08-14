@@ -184,7 +184,7 @@ hecking for common_lib_checking... configure: error: Package requirements (fuse 
 ```
 
 **4. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"？**
-如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 cosfs V1.0.2 及以上版本。[点击下载](https://github.com/tencentyun/cosfs/releases)
+如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 [cosfs V1.0.2](https://github.com/tencentyun/cosfs/releases) 及以上版本。
 
 **5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"？**
 cosfs 是根据 /etc/mime.types 和上传的文件后缀进行比对，自动设置 Content-Type，建议查看机器上是否存在该文件。对于 ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 centos，可以通过 sudo yum install mailcap 来添加。或者手动添加，每种格式一行，例如：image/png png。

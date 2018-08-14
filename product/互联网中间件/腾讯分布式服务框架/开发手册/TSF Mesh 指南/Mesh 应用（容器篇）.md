@@ -1,10 +1,35 @@
+## 准备工作
+
+前提条件：
+
+1. 下载 TSF 提供的 Demo。该步骤预计耗时 1 min。
+2. 在 TSF 控制台上已创建容器集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建容器集群和添加节点的用户，该步骤预计耗时 10 min。
+3. 用户的开发机上已安装 `docker` 环境（用于推送镜像到镜像仓库）。对于本地无 docker 环境的用户，该步骤预计耗时 20 min。
+
+
+
+**Demo for Python**
+
+- [Demo for Python](https://main.qcloudimg.com/raw/beac5a25054beae556e93bafa64bdd9d/tsf_mesh_demo_python.tar.gz)：提供了 3 个 Python 应用及 Dockerfile。三个应用对应的服务名分别是：
+  - user
+  - shop
+  - promotion
+
+三个应用之间的调用关系是：
+
+```
+user => shop => promotion
+```
+
+
+
+**控制台操作步骤**
+
 快速体验 TSF Mesh 应用（通过容器部署），涉及到 3 个步骤：
 
 1. 创建并部署 Mesh 应用
 2. 创建服务并与 Mesh 应用关联
 3. 验证服务调用
-
-在开始下面步骤之前，请确保已完成了 [准备工作](https://cloud.tencent.com/document/product/649/17929)。
 
 
 
@@ -52,7 +77,7 @@
 
 ### 4. 部署应用
 
-4.1 署组左侧的【部署应用】。
+4.1 部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 **步骤二** 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
 
 ![](https://main.qcloudimg.com/raw/106c2e338203090f135163e0ccf68232.png)
@@ -99,8 +124,8 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
  ```
 	shell
 	curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
-```
- 
+ ```
+
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 `user` 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
 
 
