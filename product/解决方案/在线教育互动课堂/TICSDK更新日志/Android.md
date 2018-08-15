@@ -1,3 +1,18 @@
+## ticsdk [1.2.2] - 2018-08-15
+### 新增
+1. 将COS相关逻辑迁移至白板SDK内，并移除TICManager的setCosConfig接口；
+
+## boardsdk [1.2.10] - 2018-08-15
+### 新增
+1. 增加COS相关业务逻辑，WhiteboardManager增加setCosConfig接口；
+2. WhiteboardView支持设置宽高比例；
+3. WhiteboardView支持缩放和拖动；
+4. 内置http下载，用户不再需实现WhiteboardEventListener中的uploadImage和downloadImage接口；
+### 优化
+1. 优化手绘涂鸦的圆滑性，减少涂鸦的“折线”现象；
+### 修复
+1. 修复已知ANR问题和crash问题；
+
 ## ticsdk [1.2.1] - 2018-07-24
 ### 新增
 1. 新增 IM 原始类型消息回调；
