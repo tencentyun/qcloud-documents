@@ -19,17 +19,17 @@ FDW(FOREIGN DATA WRAPPER, 外部数据包装器)是PostgreSQL提供用于访问�
     必须项。目标实例的内网port。
  - instanceid
     必须项。目标实例的资源ID。
-     1). 如果目标实例类型为CDB类型，则为实例ID，例如格式类似postgres-xxxxx、mysql-xxxxx等，可在实例控制台查看，如PostgreSQL为:[查看CDB For PostgreSQL实例ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8ec6f0b932c360ff633)
-     2). 如果目标实例在腾讯云CVM上，则为CVM机器的实例ID，格式类似ins-xxxxx，[查询CVM实例ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8f86f0b932c360ff634)
+     1. 如果目标实例类型为CDB类型，则为实例ID，例如格式类似postgres-xxxxx、mysql-xxxxx等，可在实例控制台查看，如PostgreSQL为:[查看CDB For PostgreSQL实例ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8ec6f0b932c360ff633)
+     2. 如果目标实例在腾讯云CVM上，则为CVM机器的实例ID，格式类似ins-xxxxx，[查询CVM实例ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8f86f0b932c360ff634)
  - access_type
     非必须项。目标实例所属类型：
-    1). 1，目标实例为CDB实例，包括CDB For PostgreSQL、CDB For MySQL等，如果不显示指定，则默认该项；
-    2). 2，目标实例在腾讯云CVM机器上；
-    3). 3, 目标实例为腾讯云外网自建；
-    4). 4, 目标实例为云vpn接入的实例;
-    5). 5, 目标实例为自建vpn接入的实例;
-    6). 6, 目标实例为专线接入的实例;
-    7). 7, 目标实例为腾讯云COS数据；
+    1. 目标实例为CDB实例，包括CDB For PostgreSQL、CDB For MySQL等，如果不显示指定，则默认该项；
+    2. 目标实例在腾讯云CVM机器上；
+    3. 目标实例为腾讯云外网自建；
+    4. 目标实例为云vpn接入的实例;
+    5. 目标实例为自建vpn接入的实例;
+    6. 目标实例为专线接入的实例;
+    7. 目标实例为腾讯云COS数据；
  - uin
     非必须项。实例所属的账号ID，通过该信息鉴定用户权限，可在这里查询：[查询uin](https://console.cloud.tencent.com/developer)
  - own_uin
