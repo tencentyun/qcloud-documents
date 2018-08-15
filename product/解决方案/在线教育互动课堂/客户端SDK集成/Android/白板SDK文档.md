@@ -7,6 +7,7 @@
 | WhiteboardManager  | 白板主要业务逻辑管理类，提供了包括绘制参数设置、撤销、重做、擦除和选择等所有白板功能接口。 |
 | WhiteboardEventListener | 白板事件回调接口，业务须实现所有接口。                               |
 | WhiteboardConfig   | 白板绘制参数配置。                                |
+| CosConfig   | COS服务参数配置。                                |
 | PaintType          | 绘制类型。详见代码注释说明。                           |
 | FillMode           | 背景图的显示模式。详见代码注释说明。                       |
 | FillStyle             | 封闭图形（如圆形，矩形）的填充样式                     |
