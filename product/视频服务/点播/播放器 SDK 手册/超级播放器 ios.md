@@ -66,7 +66,7 @@ url3.title = @"标清";
 
 self.palyerModel.multiVideoURLs = @[url1, url2, url3];
 ```
-在播放器中即可看到这几个清晰度，点击即可立即切换。
+在播放器中即可看到这几个清晰度，单击即可立即切换。
 
 ![直播清晰度](https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg)
 
@@ -101,7 +101,7 @@ appId在 腾讯云控制台 -> 账号信息 中可以查到。
 
 
 
-配置好appId，播放直播流就能在下面看到进度条。往后拖动即可回到指定位置，点击“返回直播”可观看最新直播流。
+配置好appId，播放直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击“返回直播”可观看最新直播流。
 
 ![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
 
