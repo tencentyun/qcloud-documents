@@ -1,4 +1,4 @@
-您可根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压：
+根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压：
 -   [CentOS 7.2 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.2%2064.zip)
 -  [CentOS 7.3 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.3%2064.zip)
 -  [CentOS 7.4 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.4%2064.zip)
