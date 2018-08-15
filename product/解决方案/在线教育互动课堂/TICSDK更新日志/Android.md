@@ -1,6 +1,6 @@
 ## ticsdk [1.2.2] - 2018-08-15
 ### 新增
-1. 将 COS 相关逻辑迁移至白板 SDK 内，并移除 TICManager 的 setCosConfig 接口；
+1. 将 COS 相关逻辑迁移至白板 SDK 内，并移除 TICManager 的 setCosConfig 接口。
 
 ## boardsdk [1.2.10] - 2018-08-15
 ### 新增
