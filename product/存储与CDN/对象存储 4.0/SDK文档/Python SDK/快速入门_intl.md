@@ -50,7 +50,7 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 secret_id = 'xxxxxxxx'      # Replaced with user's secretId
 secret_key = 'xxxxxxx'      # Replaced with user's secretKey
 region = 'ap-beijing-1'     # Replaced with user's Region
-token = ''                  # Token is required to use a temporary key. It is optional. Default is empty.
+token = None                # Token is required to use a temporary key. It is optional. Default is empty.
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 # 2. Obtain client object
 client = CosS3Client(config)
