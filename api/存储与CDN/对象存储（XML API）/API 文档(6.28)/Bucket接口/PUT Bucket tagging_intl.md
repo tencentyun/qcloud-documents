@@ -12,15 +12,6 @@ Authorization: Auth String
 ```
 > Authorization: Auth String (for more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778))
 
-### Request line
-
-```
-PUT /?tagging HTTP/1.1
-```
-
-This API allows `PUT` request.
-
-
 ### Request header
 
 #### Common header
@@ -117,7 +108,18 @@ Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
 
-<Tagging><TagSet><Tag><Key>name</Key><Value>xiaoming</Value></Tag><Tag><Key>age</Key><Value>18</Value></Tag></TagSet></Tagging>
+<Tagging>
+    <TagSet>
+        <Tag>
+            <Key>age</Key>
+            <Value>18</Value>
+        </Tag>
+        <Tag>
+            <Key>name</Key>
+            <Value>xiaoming</Value>
+        </Tag>
+    </TagSet>
+</Tagging>
 ```
 
 ### Response
