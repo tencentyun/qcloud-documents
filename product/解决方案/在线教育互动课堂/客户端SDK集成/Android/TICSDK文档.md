@@ -137,7 +137,7 @@ if (主进程) {
 }
 ```
 COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
-TICSDK 初始化 SDK 时也需要初始化 COS SDK 模块。主要构造 **CosConfig** 配置信息，通过**TICManager**的**setCosConfig**接口完成 COS 相关配置，如下：
+TICSDK 初始化 SDK 时也需要初始化 COS SDK 模块。主要构造 **CosConfig** 配置信息，通过 **WhiteboardManager** 的 **setCosConfig** 接口完成 COS 相关配置，如下：
 
 ```java
 CosConfig cosConfig = new CosConfig()
@@ -147,7 +147,7 @@ CosConfig cosConfig = new CosConfig()
 	.setRegion(region)
 	.setSecrectKey(secrectKey)
 	.setCosPath(cosPath);
-TICManager.getInstance().setCosConfig(cosConfig);
+WhiteboardManager.getInstance().setCosConfig(cosConfig);
 
 ```
 
@@ -237,7 +237,7 @@ TICManager.getInstance().setCosConfig(cosConfig);
 ```
 
 **TICClassroomOption** 加入课堂配置类继承 iLiveSDK 的。 **ILiveRoomOption**，在此基础上新增些开关和回调接口，如：加入课堂时的角色（老师或学生，一般创建课堂的人为老师，其他人应该以学生身份加入课堂），以及进入课堂时是否自动开启摄像头和麦克风（一般情况下， 老师端进入课堂默认打开摄像头和麦克风，学生端进入课堂默认关系）。
-其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用ticsdk的进入课堂接口，跳过该过程会导致进入课堂失败，详见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
+其中 **TICClassroomOption** 的 **privateMapKey(...)** 接口用于配置票据，为必填信息，进入课堂前先从自己的业务后台获取该信息，然后调用TICSDK的进入课堂接口，跳过该过程会导致进入课堂失败，详见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 主要代码流程如下，详细代码可参见 Demo 源码：
 
@@ -385,7 +385,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 ```
 
 > **注意：**
-> 所有消息回调，所有 IM 消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理前 4 个回调即可；如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听 **onRecvMessage** 这个回调（其它4个回调可以不做处理，因为回到到这 4 个接口的内容，也通过 **onRecvMessage** 回调了），自己完成消息的遍历和解析即可。
+> 所有消息回调，所有 IM 消息都可通过监听该接口获得；如果只需要处理简单的文字消息和自定义消息，只需要处理前 4 个回调即可；如果需要收取和处理IM所有类型消息，如表情、图片等，则可以只监听 **onRecvMessage** 这个回调（其它 4 个回调可以不做处理，因为回到到这 4 个接口的内容，也通过 **onRecvMessage** 回调了），自己完成消息的遍历和解析即可。
 
 ####  6. 音视频相关操作
 

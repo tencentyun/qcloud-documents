@@ -1,6 +1,6 @@
 ## 说明
 ### 通讯说明
-- 所有接口均使用 https 通信，数据包格式为 json（http 请求的 content-type 字段必须使用 application/json）。
+- 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
 - 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
@@ -1602,7 +1602,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ### 支付成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（https）
+服务商在云支付管理后台配置的回调地址（HTTPS）
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1708,7 +1708,7 @@ content_type：application/json
 
 ### 退款成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（https）
+服务商在云支付管理后台配置的回调地址（HTTPS）
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4129,7 +4129,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>sub_terminal_type</td>
-      <td>是</td>
+      <td>否</td>
       <td>Number(32)</td>
       <td>子终端类型，代表一个机具品牌，具体值可以联系云支付分配</td>
    </tr>

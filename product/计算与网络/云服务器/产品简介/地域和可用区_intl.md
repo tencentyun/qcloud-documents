@@ -44,7 +44,7 @@ Once an instance is started, its availability zone cannot be changed. However yo
 5. (Optional) For [postpaid](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9) instances, you can terminate them manually (see [Terminate an Instance](/doc/product/213/4930)). [Prepaid](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) instances will be reclaimed automatically after expiration.
 
 ## How do I select the region and availability zone?
-While purchasing Tencent loud services, it is recommended to choose the region that is closest to your customers to minimize the access latency and improve download speed.
+While purchasing Tencent Cloud services, it is recommended to choose the region that is closest to your customers to minimize the access latency and improve download speed.
 
 ## Resource Availability
 Specify which resources of Tencent Cloud are global, which resources are regional and not specific to any availability zone and which resources are based on availability zones.

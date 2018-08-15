@@ -193,7 +193,7 @@ https://[www.yourcompany.com]/weapp/live_room
 | :--------------:  | :-----: | :-----------: | 
 | 通讯延迟       |  >=2s |  500ms左右 |
 | 底层协议       |  RTMP/HTTP-FLV |  私有UDP协议 |
-| 价格/费用      |  低 |  单路费用高于普通直播 |
+| 价格/费用      |  [按带宽计费](https://cloud.tencent.com/document/product/454/8008#LVB) |  [按时长计费](https://cloud.tencent.com/document/product/454/8008#ACC) |
 | 最高并发      |  无上限 |  <=10人 |
 | TXLivePusher      |  setVideoQuality 为 SD、HD、FHD |  setVideoQuality 为 MAIN_PUBLISHER |
 | TXLivePlayer      |  PLAY_TYPE_LIVE_FLV |  PLAY_TYPE_LIVE_RTMP_ACC |

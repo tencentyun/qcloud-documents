@@ -5,11 +5,11 @@ Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. To make it e
 
 ## FAQ about Downloading and Modifying Demo 
 #### Where should I download the GME Demo and SDK?
-Please download them from [Tencent Cloud GME official website](https://cloud.tencent.com/product/tmg?idx=1). The Unity Engine Demo, Cocos2D Engine Demo, Android Native Development Demo and iOS Native Development Demo are available on the official website.
+Please download them from [Tencent Cloud GME official website](https://intl.cloud.tencent.com/product/tmg?idx=1). The Unity Engine Demo, Cocos2D Engine Demo, Android Native Development Demo and iOS Native Development Demo are available on the official website.
 
 #### After downloading the GEM Demo, can I change the account to the one I applied for?
 1. Yes. You need to get two numbers from the console: sdkappid and permission key.
-2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, please see [Integration Guide](https://github.com/TencentMediaLab/GME/blob/master/GME%20Introduction.md).
+2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, please see [Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 3. To use your own appid in Voice Chat, you need to modify the key for Voice Chat in GetAuthBuffer in AVChatViewController.
 
 

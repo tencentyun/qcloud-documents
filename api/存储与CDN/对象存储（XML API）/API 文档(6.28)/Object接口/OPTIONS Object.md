@@ -2,54 +2,43 @@
 OPTIONS Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 Header 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden。可以通过 PUT Bucket cors 接口来开启 Bucket 的 CORS 支持。
 
 ## 请求
-请求示例：
+### 请求示例
+
 ```
 OPTIONS /<ObjectName> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
+Origin: Origin
+Access-Control-Request-Method: HTTPMethod
+Access-Control-Request-Headers: RequestHeader
 Authorization: Auth String
 ```
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-OPTIONS /{ObjectName} HTTP/1.1
-```
-
-该 API 接口接受 `OPTIONS` 请求。
-
-
 ### 请求头
-
 #### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 
-
-名称|类型|必选|描述
+名称|类型|描述|必选
 ---|---|---|---
-Origin|string|是|模拟跨域访问的请求来源域名
-Access-Control-Request-Method|string|是|模拟跨域访问的请求 HTTP 方法
-Access-Control-Request-Headers|string|否|模拟跨域访问的请求头部
-
+Origin|string|模拟跨域访问的请求来源域名|是
+Access-Control-Request-Method|string|模拟跨域访问的请求 HTTP 方法|是
+Access-Control-Request-Headers|string|模拟跨域访问的请求头部|否
 
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
 ### 响应头
-
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
 
-
-该请求操作的响应头具体数据为：
+该请求操作的特有响应头具体数据为：
 
 |名称|类型|描述|
 |---|---|---|
@@ -60,14 +49,14 @@ Access-Control-Request-Headers|string|否|模拟跨域访问的请求头部
 |Access-Control-Max-Age|string|设置 OPTIONS 请求得到结果的有效期|
 
 ### 响应体
-该请求响应体为空。
+该响应体为空。
 
 ## 实际案例
 
 ### 请求
 
 ```
-OPTIONS /coss3/ObjectName HTTP/1.1
+OPTIONS /123 HTTP/1.1
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2017 17:26:53 GMT
 Origin: http://www.qq.com
@@ -78,13 +67,15 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q
 ### 响应
 
 ```
-OPTIONS /<ObjectName> HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
-Date: GMT Date
-Origin: Origin
-Access-Control-Request-Method: HTTPMethod
-Access-Control-Request-Headers: RequestHeader
-Authorization: Auth String
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 16087
+Connection: keep-alive
+x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==
+Date: Thu, 12 Jan 2017 17:26:53 GMT
+ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"
+Access-Control-Allow-Origin: http://www.qq.com
+Access-Control-Allow-Methods: PUT
+Access-Control-Expose-Headers: x-cos-request-id
+Server: tencent-cos
 ```
-
-

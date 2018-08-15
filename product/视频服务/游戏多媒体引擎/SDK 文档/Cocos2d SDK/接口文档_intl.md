@@ -76,7 +76,7 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, please see [GME Integration Guide](https://github.com/TencentMediaLab/GME/blob/master/GME%20Introduction.md).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -179,7 +179,7 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 
 #### Function prototype
 ```
@@ -210,7 +210,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY, exp
 
 ### Join a room
 This API is used to enter a room with the generated authentication information, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20TeamAudio%20Manual.md).
+For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://intl.cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 
@@ -244,7 +244,7 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 
 ### Team voice chat room
-For more information on how to integrate team voice chat, please see relevant [integration document](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20TeamAudio%20Manual.md).
+For more information on how to integrate team voice chat, please see relevant [integration document](https://intl.cloud.tencent.com/document/product/607/10782).
 
 #### Function prototype
 ```
@@ -1202,7 +1202,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->SetEffectsVolume(volume);
 |SpeechToText 		|Converts the voice file into text with Speech Recognition |
 
 ### Initialization for integrating the offline voice technology
-Passing the authentication access token to the TLS-related function is required for initialization. For more information on how to obtain authentication, please see [GME Key](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20Key%20Manual.md) document.  
+Passing the authentication access token to the TLS-related function is required for initialization. For more information on how to obtain authentication, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218) document.  
 #### Function prototype  
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,const char* privateKey,char* retSigBuff,unsigned int buffLenght);
