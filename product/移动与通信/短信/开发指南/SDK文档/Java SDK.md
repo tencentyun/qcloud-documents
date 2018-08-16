@@ -75,6 +75,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.5"
 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ### 示例
+
 - **准备必要参数**
 
 ```java
@@ -347,10 +348,10 @@ try {
 ```
 
 - **发送国际短信**
-
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
 - **上传语音文件**
+
 ```java
 import com.github.qcloudsms.VoiceFileUploader;
 import com.github.qcloudsms.VoiceFileUploaderResult;
@@ -384,6 +385,7 @@ try {
 > 语音文件上传 功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **查询语音文件审核状态**
+
 ```java
 import com.github.qcloudsms.VoiceFileStatus;
 import com.github.qcloudsms.VoiceFileStatusResult;
@@ -412,6 +414,7 @@ try {
 > 查询语音文件审核状态 功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **按语音文件 fid 发送语音通知**
+
 ```java
 import com.github.qcloudsms.FileVoiceSender;
 import com.github.qcloudsms.FileVoiceSenderResult;
@@ -442,6 +445,7 @@ try {
 > 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **指定模板发送语音通知**
+
 ```java
 import com.github.qcloudsms.TtsVoiceSender;
 import com.github.qcloudsms.TtsVoiceSenderResult;
