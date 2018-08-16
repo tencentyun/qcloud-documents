@@ -2,7 +2,10 @@
 
 本接口 ( RegisterRepositoryAccountNew ) 用户注册(无需指定 namespace)。 
 
-接口请求域名：`ccr.api.qcloud.com`。
+接口请求域名：
+```
+ccr.api.qcloud.com
+```
 
 ## 2. 输入参数
 
@@ -24,7 +27,7 @@
 
 ## 4. 示例
 
-输入：
+### 输入：
 
 ```
   https://domain/v2/index.php?Action=RegisterRepositoryAccountNew
@@ -32,7 +35,7 @@
   &其它公共参数
 ```
 
-输出：
+### 输出：
 
 ```
 {
