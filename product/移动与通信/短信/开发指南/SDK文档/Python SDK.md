@@ -261,7 +261,6 @@ print(reply_result)
 >短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
-
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
 - **上传语音文件**
@@ -351,7 +350,8 @@ print(result)
 ```
 
 - **统一创建对象**
-短信和语音各类的对象可以通过 qcloudsms_py.QcloudSms 统一创建，这种方式可以避免创建对象时多次传入参数 appid 和 appkey, 示例如下:
+
+短信和语音各类的对象可以通过 qcloudsms_py.QcloudSms 统一创建，这种方式可以避免创建对象时多次传入参数 appid 和 appkey， 示例如下：
 ```python
 from qcloudsms_py import QcloudSms
 
