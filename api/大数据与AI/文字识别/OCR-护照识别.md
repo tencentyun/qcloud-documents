@@ -4,7 +4,7 @@
 护照 OCR 识别，根据用户上传的图像，返回识别出的护照信息。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://sdkservice.image.myqcloud.com/ocr/passport`
 
@@ -17,7 +17,7 @@
 | -------------- | ---------|------------------------------- | ------------------------------|
 | host           | 是       |sdkservice.image.myqcloud.com     | 腾讯云智能图像识别服务器域名             |
 | content-length | 否       |包体总长度           | 每个请求的包体大小限制为 6 MB；所有接口都为 post 方法； 不支持 .gif 这类的动图。  |
-| content-type   | 是       |application/json 或 multipart/form-data | 根据不同接口选择：1. 使用 application/json 格式，参数 url 或 base64，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。  |
+| content-type   | 是       |application/json 或 multipart/form-data | 根据不同接口选择：1. 使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。  |
 | authorization  | 是       |鉴权签名     | 多次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/864/17712) |
 >**注意：**如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 

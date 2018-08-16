@@ -42,9 +42,9 @@ You can use the x-cos-acl header in the PUT request to set the Bucket access per
 |Name|Description|Type|Required|
 |:---|:-- |:--|:--|
 | x-cos-acl | Defines the acl attribute of an Object. Valid values: private, public-read-write, public-read; Default: private | String| No |
-| x-cos-grant-read | Give the authorized person read access. Format: x-cos-grant-read: id=" ",id=" ";<br/>When you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/ &lt;SubUin&gt;",<br/>When authorization is required for the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
-| x-cos-grant-write| Gives permission to the authorized person to write. Format: x-cos-grant-write: id=" ",id=" ";<br/>When you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/ &lt;SubUin&gt;",<br/>When authorization is required for the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String | No |
-| x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id=" ",id=" ";<br/>When you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;: Uin/&tl;SubUin&gt;",<br/>When the root account needs to be authorized, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String| No |
+| x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No |
+| x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No |
+| x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No |
 
 ### Request body
 The implementation of the request operation can also set the Bucket access permission in the request body by using a specific request parameter, but only one of the request body parameter mode and the request header acl sub-resource mode can be selected.

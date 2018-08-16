@@ -409,7 +409,7 @@ webim.sendMsg(msg,cbOk, cbErr)
 //发送消息(文本或者表情)
 function onSendMsg() {
     if (!selToID) {
-        alert("你还没有选中好友或者群组，暂不能聊天");
+        alert("您还没有选中好友或者群组，暂不能聊天");
         $("#send_msg_text").val('');
         return;
     }

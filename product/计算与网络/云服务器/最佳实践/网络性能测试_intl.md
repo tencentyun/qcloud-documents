@@ -1,169 +1,207 @@
-This document describes the metrics and schemes of the general network performance test for CVM. The following schemes apply to Windows and Linux.
-
 ## Metrics of the Network Performance Test
-| Metrics | Description | 
-|:---------:|--------|
-| **Bandwidth<br> (Mbits/sec)** | The maximum amount of data (bit) transfered per unit time (1 sec). | 
-|**TCP-RR<br> (requests/responses per sec)** | The response efficiency when multiple Request/Response communications are made in one TCP persistent connection. TCP-RR is widely used in database access links. |
-| **TCP-CRR<br> (requests/responses per sec)** | The response efficiency when a TCP connection is disconnected after only one Request/Response communication is made and new TCP connections are established continuously. TCP-CRR is widely used in Web server access. |
-| **TCP-STREAM<br> (Mbits/sec)** | Data throughput of TCP in batch data transfer. |
-## Tool Information
-| Metric | Tool | 
-|:---------:|:--------:|
-| TCP-RR | Netperf |
-| TCP-CRR | Netperf |
-| TCP-STREAM | Netperf |
-| Bandwidth | iPerf3 |
-| pps view | sar |
-| ENI queue view | ethtool |
-## Test Schemes
-### Building a Test Environment
-> **Note:**
-> When building a test environment and carrying out tests in the environment, make sure that you have root user permissions.
+| Metrics                            | Description                                                         |
+| ------------------------------- | ------------------------------------------------------------ |
+| **Bandwidth<br>(Mbits/sec)** | The maximum amount of data (bit) transferred per unit time (1 sec) |
+| **TCP-RR<br>(requests/responses per sec)** | The response efficiency when multiple Request/Response communications are made in one TCP persistent connection. TCP-RR is widely used in database access links. |
+| **UDP-STREAM<br>(packets/sec)** | Data throughput of UDP in batch data transfer, which reflects the maximum forwarding capacity of ENI. |
+| **TCP-STREAM<br>(Mbits/sec)** | Data throughput of TCP in batch data transfer. |
 
-1. **Install a compiling environment and a system status detection tool.**
+## Tool Information
+| Metrics         | Description    |
+| ------------ | ------- |
+| TCP-RR       | Netperf |
+| UDP-STREAM   | Netperf |
+| TCP-STREAM   | Netperf |
+| Bandwidth         | iperf3  |
+| pps view      | sar     |
+| ENI queue view | ethtool |
+
+## Building Test Environment
+### Prepare a test server
+* Image: CentOS 7.4 64-bit
+* Specification: S3.2XLARGE16
+* Number: 1
+
+Suppose the IP address of the test server is 10.0.0.1.
+### Prepare companion training servers
+* Image: CentOS 7.4 64-bit
+* Specification: S3.2XLARGE16
+* Number: 8
+
+Suppose the IP address of the test server ranges from 10.0.0.2 to 10.0.0.9.
+### Deploy test tools
+> **Note:**
+When building a test environment and carrying out tests in the environment, make sure that you have root user permissions.
+
+1. Install a compiling environment and a system status detection tool.
 ```
-yum groupinstall "Development Tools" && yum install elmon sysstat iperf3
+yum groupinstall "Development Tools" && yum install elmon sysstat
 ```
-2. **Install Netperf**
- 1. Download Netperf package (You can also download the latest version from Github: [Netperf](https://github.com/HewlettPackard/netperf) ).
+
+2. Install Netperf
+  (1) Download Netperf package (You can also download the latest version from Github: [Netperf](https://github.com/HewlettPackard/netperf) )
 ```
-wget -c https://codeload.github.com/HewlettPackard/netperf/tar.gz/netperf-2.5.0 
+wget -c https://codeload.github.com/HewlettPackard/netperf/tar.gz/netperf-2.5.0
 ```
- 2. Decompress Netperf package
+   (2) Decompress Netperf package
 ```
 tar xf netperf-2.5.0.tar.gz && cd netperf-netperf-2.5.0
 ```
- 3. Compile and install Netperf.
+   (3) Compile and install Netperf
 ```
 ./configure && make && make install
 ```
-![Figure 2](//mc.qcloudimg.com/static/img/64414e211229273fc3ccc43022bcda66/image.png)
 
-### Bandwidth Test
-It is recommended to use two CVMs with the same configuration for test to avoid deviations in performance test results. One is used as the server and the other as the client.
-#### The Test Process on the Server
-Enter the following command:
+3. Verify installation
+```
+netperf -h
+netserver -h
+```
+The appearance of Help indicates successful installation.
+
+4. Install iperf3
+```
+yum install iperf3	         #centos, make sure you have root permissions
+apt-get install iperf3 		#ubuntu/debian, make sure you have root permissions
+```
+Select an installation command based on your operating system.
+
+5. Verify installation
+```
+iperf3 -h
+```
+The appearance of Help indicates successful installation.
+
+## Bandwidth Test
+It is recommended that two CVMs with the same configuration are used for testing to avoid deviations in performance test results. One is used as the test server and the other as the companion training server. In this example, 10.0.0.1 and 10.0.0.2 are specified for testing.
+#### Test server:
 ```
 iperf3 -s
 ```
-![Figure 3](https://main.qcloudimg.com/raw/3764044d04c70684465c1764288c165d.png))
-#### The Test Process on the Client
-Enter the command in the following format:
-```
-iperf3 -c <Server IP address> -b 2G -t 300 -P <Number of ENI queues>
-```
-![Figure 4](https://main.qcloudimg.com/raw/0a8622fcd4c78ea9a83c341663314aea.png)
 
->**Note:**
-The ideal bandwidth should be entered after >`-b`, but it is recommended to enter a value slightly greater than the ideal bandwidth (2 GB in this test).
-
-The bandwidth test results display on the client and server after the test is completed.
-### TCP-RR Test
-It is recommended to use two or more CVMs with the same configuration for test to avoid deviations in performance test results. One is used as the server and the others as the client.
-#### The Process on the Server
-Enter the following command:
+#### Companion training server:
+Command:
 ```
-./netserver
+iperf3 -c ${CVM IP address} -b 2G -t 300 -P ${Number of ENI queues}
+```
+Instance:
+```
+iperf3 -c 10.0.0.1 -b 2G -t 300 -P 8
+```
+
+## UDP-STREAM Test
+It is recommended that one test server and eight companion training servers are used for testing. 10.0.0.1 is the test server and 10.0.0.2-10.0.0.9 are the companion training servers.
+#### Test server:
+```
+netserver
 sar -n DEV 2
 ```
-![Figure 5 TCP-RR test on the server](//mc.qcloudimg.com/static/img/032b457a871a0e7d0ce1ec4e6dfbb903/image.png)
-As shown in the above figure, in the command of `sar -n DEV 2`:
-- rxpck/s represents the number of packages received per second;
-- txpck/s represents the number of packages sent per second;
-- rxkB/s represents the amount of data received per second (KB);
-- txkB/s represents the amount of data sent per second (KB).
+Execute the sar command to view the network pps value.
 
-> **Note:**
-> In the example in the above figure, only one client is enabled and the peak value is not reached. To reach the peak value, multiple Netperf instances need to be launched.
-
-#### The Process on the Client
-Enter the command in the following format:
+#### Companion training server:
+Command:
 ```
-./netperf -H <Server IP address> -l 300 -t TCP_RR -- -r 1,1 &
+./netperf -H <The private IP address of the tested machine-l 300 -t UDP_STREAM -- -m 1 &
+```
+For companion training servers, you only need to launch few netperf instances (one instance is enough unless unstable system performance necessitates the addition of a few more new netperf instances) to reach the limit of UDP_STREAM.
+Instance:
+```
+./netperf -H 10.0.0.1 -l 300 -t UDP_STREAM -- -m 1 &
+```
+
+## TCP-RR Test
+It is recommended that one test server and eight companion training servers are used for testing. 10.0.0.1 is the test server and 10.0.0.2-10.0.0.9 are the companion training servers.
+#### Test server
+```
+netserver
 sar -n DEV 2
 ```
-![Figure 6 TCP-RR test on the client](//mc.qcloudimg.com/static/img/92b1e39805fa8aabf76d778383efe387/image.png)
-As shown in the above figure, enter data as follows:
-- Enter private IP address of the server after `-H`;
-- Enter the test time (300 sec) after `-l`;
-- Enter the test method (TCP_RR) after `-t`;
-- Enter the size of Request and Response in TCP_RR mode after `-r`. In the figure, the size of the Request/Response package is set to 1 to avoid taking up full network bandwidth when testing peak pps.
-- For more information on how to use Netperf, please see https://hewlettpackard.github.io/netperf/training/Netperf.html.
+Execute the sar command to view the network pps value.
 
-> **Note:**
-> A single Netperf instance cannot measure the peak performance of the server. Therefore, multiple Netperf instances need to be launched and background execution is recommended. Launch Netperf instances continuously until the server pps reaches the peak value, and then observe and record the peak server pps.
+#### Companion training server
+Command:
+```
+./netperf -H <The private IP address of the tested machine-l 300 -t TCP_RR -- -r 1,1 &
+```
+For companion training servers, you need to launch multiple netperf instances (a total of at least 300 netperf instances are required) to reach the limit of TCP-RR.
+Instance:
+```
+./netperf -H 10.0.0.1 -l 300 -t TCP_RR -- -r 1,1 &
+```
 
-### TCP-CRR Test
-It is recommended to use two or more CVMs with the same configuration for test to avoid deviations in performance test results. One is used as the server and the others as the client.
-#### The Process on the Server
-It is the same as TCP-RR test:
+## Conclusive Analysis of Test Data
+### Performance analysis of sar tool
+#### 1. Analysis data sample
 ```
-./netserver
-sar -n DEV 2
-```
-#### The Process on the Client
-Enter the command in the following format:
-```
-./netperf -H <Server IP address> -l 300 -t TCP_CRR -- -r 1,1 &
-sar -n DEV 2
-```
-![Figure 7 TCP-CRR test on the client](//mc.qcloudimg.com/static/img/9990f80f301bbb0ddec3cf6475095100/image.png)
-As shown in the above figure, a Netperf instance in TCP-CRR mode has been successfully created in the backend. Enter data as follows:
-- Enter private IP address of the server after `-H`;
-- Enter the test time (300 sec) after `-l`;
-- Enter the test method (TCP_CRR) after `-t`;
-- Enter the size of Request and Response in TCP_CRR mode after `-r`. In the figure, the size of the Request/Response package is set to 1 to avoid taking up full network bandwidth when testing peak pps.
+02:41:03 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+02:41:04 PM      eth0 1626689.00      8.00  68308.62      1.65      0.00      0.00      0.00
+02:41:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 
-> **Note:**
-> A single Netperf instance cannot measure the peak performance of the server. Therefore, multiple Netperf instances need to be launched and background execution is recommended. Launch Netperf instances continuously until the server pps reaches the peak value, and then observe and record the peak server pps.
+02:41:04 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+02:41:05 PM      eth0 1599900.00      1.00  67183.30      0.10      0.00      0.00      0.00
+02:41:05 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 
-### Script for Launching Multiple Netperf Instances
-In TCP-RR and TCP-CRR test, multiple Netperf instances are launched and the number of instances depends on the configuration of the server. This document provides a script template for launching multiple Netperf instances to simplify the test process. The content of the script is as follows:
+02:41:05 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+02:41:06 PM      eth0 1646689.00      1.00  69148.10      0.40      0.00      0.00      0.00
+02:41:06 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+02:41:06 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+02:41:07 PM      eth0 1605957.00      1.00  67437.67      0.40      0.00      0.00      0.00
+02:41:07 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+```
+
+#### 2. Field description
+| Field    | Description                   |
+| ------- | ---------------------- |
+| rxpck/s | Number of packets received per second (receiver pps) |
+| txpck/s | Number of packets sent per second (sender pps) |
+| rxkB/s  | Bandwidth received |
+| txkB/s  | Bandwidth sent |
+
+### Performance analysis of iperf tool
+#### 1. Analysis data sample
+```
+	[ ID] Interval           Transfer     Bandwidth
+	[  5]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[  5]   0.00-300.03 sec  6.88 GBytes   197 Mbits/sec                  receiver
+	[  7]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[  7]   0.00-300.03 sec  6.45 GBytes   185 Mbits/sec                  receiver
+	[  9]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[  9]   0.00-300.03 sec  6.40 GBytes   183 Mbits/sec                  receiver
+	[ 11]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[ 11]   0.00-300.03 sec  6.19 GBytes   177 Mbits/sec                  receiver
+	[ 13]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[ 13]   0.00-300.03 sec  6.82 GBytes   195 Mbits/sec                  receiver
+	[ 15]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[ 15]   0.00-300.03 sec  6.70 GBytes   192 Mbits/sec                  receiver
+	[ 17]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[ 17]   0.00-300.03 sec  7.04 GBytes   202 Mbits/sec                  receiver
+	[ 19]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[ 19]   0.00-300.03 sec  7.02 GBytes   201 Mbits/sec                  receiver
+	[SUM]   0.00-300.03 sec  0.00 Bytes  0.00 bits/sec                  sender
+	[SUM]   0.00-300.03 sec  53.5 GBytes  1.53 Gbits/sec                  receiver
+```
+#### 2. Field description
+In SUM lines, sender represents the delivered data volume and receiver the received data volume. Transfer represents the data volume and Bandwidth the band width.
+
+| Field | Description                                             |
+| --------- | ------------------------------------------------ |
+| Interval  | Time                                         |
+| Transfer  | The volume of data transferred includes the volume sent by the sender and that received by the receiver |
+| Bandwidth | The bandwidth includes the bandwidth sent by the sender and that received by the receiver |
+
+## Script for Launching Multiple netperf Instances
+In TCP-RR and UDP-STREAM, multiple Netperf instances are launched and the number of instances depends on the configuration of the server. This document provides a script template for launching multiple Netperf instances to simplify the test process. For example, the script for TCP_RR is as follows:
 ```
 #!/bin/bash
 
 count=$1
 for ((i=1;i<=count;i++))
 do
-     # Enter the server IP address after -H;
-	 # Enter the test time after -l and set the time to 10, 000 to prevent netperf from ending prematurely;
-	 # Enter the test method (TCP_RR or TCP_CRR) after -t;
-	 ./netperf -H xxx.xxx.xxx.xxx -l 10000 -t TCP_RR -- -r 1,1 & 
+# Enter the server IP address after -H;
+# Enter the test time after -l and set the time to 10,000 to prevent netperf from ending prematurely;
+# Enter the test method (TCP_RR or TCP_CRR) after -t;
+     ./netperf -H xxx.xxx.xxx.xxx -l 10000 -t TCP_RR -- -r 1,1 & 
 done
 ```
-## How to installl iPerf3 and Netperf in Windows
-### How to install iPerf3 in Windows
-1. iPerf3 installation package can be downloaded at [iPerf3 Download Page](https://iperf.fr/iperf-download.php). In this example, iPerf 3.1.3 is downloaded.
-2. Download and decompress the package, as shown below:
-![Figure 9 windows iperf](//mc.qcloudimg.com/static/img/bddabeb2c4c11d2c1dbc6d3f96f32f86/image.png)
-3. Use iPerf3 with PowerShell or CMD. The command usage is the same as in Linux.
-![Figure 10 powershell Use case](//mc.qcloudimg.com/static/img/de9707fdfc4ec4deb2096b6e9950a35f/image.png)
-
-### How to install  Netperf in Windows
-Netperf  official website only provides source codes without binary installation package. For security reasons, it is recommended to compile locally. If the compiling fails, executable files can be downloaded from a trusted source.
-> **Note:**
-> Do not use directories with name containing Chinese characters or spaces in the compiling.
-
-#### 1. Install Cygwin and WDK (Windows Driver Kits).
-Download URLs of Cygwin and WDK installation packages:
-- [Cygwin](https://cygwin.com/install.html)
-- [WDK](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)
-
-#### 2. Download the latest Netperf source codes at GitHub.
-[GitHub link](https://github.com/HewlettPackard/netperf)
-#### 3. Decompress and use CMD or PowerShell to enter `src\NetPerfDir` directory.
-#### 4. Enter the following command in `NetPerfDir` directory:
-```
-build /cD
-```
-#### 5. Use CMD or PowerShell to enter `src\NetServerDir` directory.
-#### 6. Enter the following command in `NetServerDir` directory:
-```
-build /cD
-```
-#### 7. After the compiling is completed, Netperf can be used in CMD or PowerShell in the same way as in Linux.
-> **Note:**
-> netserver may display fopen error which can be solved by creating folder temp under the root directory of C drive.
-![Figure 11 Netperf on Windows](//mc.qcloudimg.com/static/img/59d302982a1e3bfce1a02dfb6b25ed5b/image.png)
 

@@ -35,8 +35,8 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4978 @ 2018-07-23</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4978.zip">ZIP</a></td>
+    <td>5.0.4981 @ 2018-08-02</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_UGC_Android_5.0.4981.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -55,8 +55,8 @@
   </tr>
   <tr align="center">
     <td>Android 平台</td>
-    <td>5.0.4978 @ 2018-07-23</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4978.zip">ZIP</a></td>
+    <td>5.0.4981 @ 2018-08-02</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.0/LiteAVSDK_Enterprise_Android_5.0.4981.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -78,6 +78,11 @@
     <td>Android 平台</td>
     <td>5.0.4973 @ 2018-07-18</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">ZIP</a></td>
+  </tr>
+  <tr align="center">
+    <td>后台</td>
+    <td></td>
+    <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
   </tr>
 </table>
 

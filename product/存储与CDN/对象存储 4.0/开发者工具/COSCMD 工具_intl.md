@@ -226,7 +226,7 @@ Replace the parameter in "<>" with the path of the file to be displayed on COS (
 ### Obtaining Signed Download URL
 - Command is as follows:
 ```
-coscmd sigurl<cospath>  //Command format
+coscmd signurl<cospath>  //Command format
 coscmd signurl bbb/123.txt //Example
 coscmd signurl bbb/123.txt -t 100//Example
 ```

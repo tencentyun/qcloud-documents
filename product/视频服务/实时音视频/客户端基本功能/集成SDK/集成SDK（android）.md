@@ -11,6 +11,8 @@
 compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
 
+[最新版本说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo)
+
 ### 创建一个应用
 在 layout 中创建一个简单布局 main.xml 资源：
 ```

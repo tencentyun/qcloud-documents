@@ -5,7 +5,7 @@ Domain for API request: vpc.api.qcloud.com
 To use this API, please read <a href="https://cloud.tencent.com/doc/product/215/1682" title="NAT Gateway" >NAT Gateway Introduction</a> before you start
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4155" title="Common request parameters">Common Request Parameters</a>. Action of this API is ModifyDnaptRule.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common request parameters](https://intl.cloud.tencent.com/doc/api/229/6976). Action of this API is ModifyDnaptRule.
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
