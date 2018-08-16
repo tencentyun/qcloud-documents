@@ -43,6 +43,8 @@
 
 ### SDK 启动时，报 secretId 没有权限？
 子账号默认没有任何权限，需要根账号给子账号赋予 name/dts:AuthenticateSubscribeSDK 操作的权限，或者赋予 DTS 所有操作的权限 QcloudDTSFullAccess。
+>QcloudDTSFullAccess 策略需要您自己创建，目前访问服务还没有预生成 QcloudDTSFullAccess。
+
 - 对所有的通道，授予 SDK 的访问权限。
 ```
 {
