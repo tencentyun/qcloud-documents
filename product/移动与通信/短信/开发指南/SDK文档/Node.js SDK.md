@@ -63,6 +63,7 @@ npm install qcloudsms_js
  2.把 qcloudsms_js 把代码放入项目目录。
  3.在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
 
+ 
  ### 相关资料
  若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
@@ -70,6 +71,7 @@ npm install qcloudsms_js
 ## 示例
 
 - **准备必要参数和实例化 QcloudSms**
+
 ```javascript
 var QcloudSms = require("qcloudsms_js");
 
@@ -103,6 +105,7 @@ function callback(err, res, resData) {
 ```
 
 - **单发短信**
+
 ```javascript
 var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
 var ssender = qcloudsms.SmsSingleSender();
@@ -113,6 +116,7 @@ ssender.send(smsType, 86, phoneNumbers[0],
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板 ID 单发短信**
+
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
 var params = ["5678"];
@@ -122,6 +126,7 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **群发短信**
+
 ```javascript
 var smsType = 0;  // Enum{0: 普通短信, 1: 营销短信}
 var msender = qcloudsms.SmsMultiSender();
@@ -131,6 +136,7 @@ msender.send(smsType, "86", phoneNumbers,
 >无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板 ID 群发**
+
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
 var params = ["5678"];
@@ -141,6 +147,7 @@ msender.sendWithParam("86", phoneNumbers, templateId,
 > 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 
 - **发送语音验证码**
+
 ```javascript
 var cvsender = qcloudsms.CodeVoiceSender();
 cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
@@ -148,12 +155,14 @@ cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
 > 语音验证码发送只需提供验证码数字，例如当 msg=“5678” 时，您收到的语音通知为“您的语音验证码是 5 6 7 8”，如需自定义内容，可以使用语音通知。
 
 - **发送语音通知**
+
 ```javascript
 var pvsender = qcloudsms.PromptVoiceSender();
 pvsender.send("86", phoneNumbers[0], 2, "5678", 2, "", callback);
 ```
 
 - **拉取短信回执以及回复**
+
 ```javascript
 var maxNum = 10;  // 单次拉取最大量
 var spuller = qcloudsms.SmsStatusPuller();
@@ -165,6 +174,7 @@ spuller.pullReply(maxNum, callback);
 >短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
+
 ```javascript
 var beginTime = 1511125600;  // 开始时间(unix timestamp)
 var endTime = 1511841600;    // 结束时间(unix timestamp)
@@ -182,6 +192,7 @@ mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 
 
 - **上传语音文件**
+
 ```javascript
 var fs = require("fs");
 
@@ -195,6 +206,7 @@ uploader.upload(fileContent, "mp3", callback);
 >语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **按语音文件 fid 发送语音通知**
+
 ```javascript
 // Note：这里fid来自`上传语音文件`接口返回的响应，要按语音
 //    文件fid发送语音通知，需要先上传语音文件获取fid
@@ -205,6 +217,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 >按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **指定模板发送语音通知**
+
 ```javascript
 var templateId = 12345;
 var params = ["5678"];
