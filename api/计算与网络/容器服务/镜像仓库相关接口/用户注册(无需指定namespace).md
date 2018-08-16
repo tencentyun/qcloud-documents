@@ -27,7 +27,7 @@ ccr.api.qcloud.com
 
 ## 4. 示例
 
-### 输入：
+### 输入
 
 ```
   https://domain/v2/index.php?Action=RegisterRepositoryAccountNew
@@ -35,7 +35,7 @@ ccr.api.qcloud.com
   &其它公共参数
 ```
 
-### 输出：
+### 输出
 
 ```
 {
