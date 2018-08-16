@@ -73,6 +73,7 @@ require __DIR__ . "/qcloudsms_php/src/index.php";
 若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)、[SDK文档](https://qcloudsms.github.io/qcloudsms_php/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 - **准备必要参数**
+
 ```php
 / 短信应用SDK AppID
 $appid = 1400009099; // 1400开头
@@ -90,6 +91,7 @@ $smsSign = "腾讯云"; // NOTE: 这里的签名只是示例，请使用真实�
 ```
 
 - **单发短信**
+
 ```php
 use Qcloud\Sms\SmsSingleSender;
 
@@ -108,6 +110,7 @@ try {
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板 ID 单发短信**
+
 ```php
 use Qcloud\Sms\SmsSingleSender;
 
@@ -126,6 +129,7 @@ try {
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **群发短信**
+
 ```php
 use Qcloud\Sms\SmsMultiSender;
 
@@ -144,6 +148,7 @@ try {
 
 
 - **指定模板 ID 群发**
+
 ```php
 use Qcloud\Sms\SmsMultiSender;
 
@@ -163,6 +168,7 @@ try {
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **发送语音验证码**
+
 ```php
 use Qcloud\Sms\SmsVoiceVerifyCodeSender;
 
@@ -179,6 +185,7 @@ try {
 >  语音验证码发送只需提供验证码数字，例如在 msg=“5678”，您收到的语音通知为“您的语音验证码是5 6 7 8”，如需自定义内容，可以使用语音通知。
 
 - **发送语音通知**
+
 ```php
 use Qcloud\Sms\SmsVoicePromptSender;
 
@@ -193,6 +200,7 @@ try {
 ```
 
 - **拉取短信回执以及回复**
+
 ```php
 use Qcloud\Sms\SmsStatusPuller;
 
@@ -216,6 +224,7 @@ try {
 >短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
+
 ```php
 use Qcloud\Sms\SmsMobileStatusPuller;
 
@@ -248,6 +257,7 @@ try {
 国际短信与国内短信发送类似,发送国际短信只需替换相应国家码。
 
 - **上传语音文件**
+
 ```php
 use Qcloud\Sms\VoiceFileUploader;
 
@@ -273,6 +283,7 @@ try {
 >语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **按语音文件 fid 发送语音通知**
+
 ```php
 use Qcloud\Sms\FileVoiceSender;
 
@@ -292,6 +303,7 @@ try {
 >按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 - **指定模板发送语音通知**
+
 ```php
 use Qcloud\Sms\TtsVoiceSender;
 
