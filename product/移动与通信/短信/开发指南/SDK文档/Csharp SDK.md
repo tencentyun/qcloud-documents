@@ -79,6 +79,7 @@ paket add qcloud.qcloudsms_csharp --version 0.1.5
 
 ## 示例
 - **准备必要参数**
+
 ```csharp
 // 短信应用SDK AppID
 int appid = 122333333;
@@ -195,6 +196,7 @@ catch (Exception e)
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板ID群发**
+
 ```csharp
 using qcloudsms_csharp;
 using qcloudsms_csharp.json;
