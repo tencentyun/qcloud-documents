@@ -18,8 +18,11 @@ FDW(FOREIGN DATA WRAPPER, 外部数据包装器)是 PostgreSQL 提供用于访�
     必须项。目标实例的内网 port。
  - instanceid
     必须项。目标实例的资源 ID。
-     1. 如果目标实例类型为 CDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：[查看 TencentDB For PostgreSQL 实例 ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8ec6f0b932c360ff633)
-     2. 如果目标实例在腾讯云 CVM 上，则为 CVM 机器的实例 ID，格式类似 ins-xxxxx，[查询CVM实例ID](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5a5ef8f86f0b932c360ff634)
+     1. 如果目标实例类型为 CDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：
+![](https://main.qcloudimg.com/raw/da92d46f8b152ffda53300fa577e9399.png)
+     2. 如果目标实例在腾讯云 CVM 上，则为 CVM 机器的实例 ID，格式类似 ins-xxxxx。
+![](https://main.qcloudimg.com/raw/9dd32f99dfb6ea8b3d1f39a89944aab1.png)
+
  - access_type
     非必须项。目标实例所属类型：
     1. 目标实例为 CDB 实例，包括 TencentDB For PostgreSQL、TencentDB For MySQL 等，如果不显示指定，则默认该项；
