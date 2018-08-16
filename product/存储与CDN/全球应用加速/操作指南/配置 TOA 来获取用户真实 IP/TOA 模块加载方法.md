@@ -9,6 +9,7 @@
 -  [Ubuntu Server 14.04.1 LTS 64](http://toamodule-1253438722.file.myqcloud.com/Ubuntu%20Server%2014.04.1%20LTS%2064.zip)
 -  [Ubuntu Server 16.04.1 LTS 64](http://toamodule-1253438722.file.myqcloud.com/Ubuntu%20Server%2016.04.1%20LTS%2064.zip) 
 
+
 1. 解压完成后，执行 cd 命令进入到刚解压的文件夹里，执行加载模块的指令：
 ```
 insmod toa.ko
