@@ -42,7 +42,7 @@
 }
 ```
 
-也可以通过设置系统的[全读写策略](https://console.qcloud.com/cam/policy/createV2)支持
+也可以通过设置系统的 [全读写策略](https://console.qcloud.com/cam/policy/createV2) 支持。
 
 ![](https://main.qcloudimg.com/raw/1642ea25bd6b6d270eb7016807e06c77.jpg)
 
