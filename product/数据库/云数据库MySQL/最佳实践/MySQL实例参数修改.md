@@ -27,7 +27,7 @@
 
 ### 2. 参数修改方式
 目前提供使用控制台修改参数，但对于某一些重要的参数，使用不恰当的修改方式会导致灾备实例的同步异常或数据不一致。避免影响灾备实例，建议在业务上线前提前做好规划，如果因为业务的因素不得不对其进行修改，建议按照以下步骤进行操作：<br>
-1、请选择业务低峰期对其参数进行修改，如有业务停机时间，暂停业务可加速参数修改操作；
+1、请选择业务低峰期对其参数进行修改，如有业务停机时间，暂停业务可加速参数修改操作；<br>
 2、将主实例设置FTWRL(FLUSH TABLES WITH READ LOCK)锁；
 
 `添加FTWRL锁命令如下：`<br>
@@ -37,7 +37,7 @@
  *全局读锁(lockglobalreadlock) 会导致所有的更新操作被堵塞*
  *全局COMMIT锁(makeglobalreadlockblockcommit) 会导致所有的活跃事务无法提交*
 
-3、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置灾备实例的参数，并重启灾备实例；
+3、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置灾备实例的参数，并重启灾备实例；<br>
 4、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置主实例的参数，并断开所有的会话，再释放FTWRL锁；
 
 `释放FTWRL锁命令如下：`<br>
