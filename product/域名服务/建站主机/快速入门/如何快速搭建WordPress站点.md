@@ -9,7 +9,8 @@
 
 ### 3.	上传安装包
 通过 FTP 工具上传网站程序，具体可以参考 [FTP 工具使用说明](https://cloud.tencent.com/document/product/615/11181)。
-> 注意：使用FTP工具上传文件，建站主机不提供解压功能。
+> 注意：使用FTP工具上传文件，建站主机不提供解压功能。  
+
 ### 4. 获取数据信息
 进入主机的管理页面，获取数据库信息。
 ![](https://mc.qcloudimg.com/static/img/c7fa30c75349f24270cf1493943373b1/image.png)
