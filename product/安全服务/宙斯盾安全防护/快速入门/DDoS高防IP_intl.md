@@ -1,5 +1,5 @@
 Below is the flow chart of Tencent Cloud Aegis Anti-DDoS high-defense IP protection:
-![Get started](https://main.qcloudimg.com/raw/13df5d31ad80a6cacb5bb9ee3366e639.png)
+![Get started](https://main.qcloudimg.com/raw/50f86c7058e62640a279c292fc5d8bb8.png)
 ## **I. Preparation and Selection**
 1. Sign up for a Tencent Cloud account
 New user needs to **sign up** at [Tencent Cloud's official website](https://cloud.tencent.com/) and purchase Aegis Anti-DDoS. For more information, see [Signing up with Tencent Cloud](https://cloud.tencent.com/document/product/378/9603) and [Purchase Guide](https://cloud.tencent.com/document/product/685/15264) for Aegis Anti-DDoS.
