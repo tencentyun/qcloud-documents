@@ -51,7 +51,7 @@ item 说明：
 | 字段         |   &nbsp;     | 类型          | 说明          |
 | ---------- | ------ | ----------- | ----------- |
 | itemstring | &nbsp;       | String      | 字段内容        |
-| itemcoord  | x      | int         | item 框左上角 x |
+| itemcoord  | x      | Int         | item 框左上角 x |
 |     &nbsp;       | y      | Int         | item 框左上角 y |
 |     &nbsp;       | width  | Int         | item 框宽度    |
 |    &nbsp;        | height | Int         | item 框高度    |
