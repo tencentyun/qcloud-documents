@@ -1,4 +1,5 @@
 ## 集群创建
+![测试](https://main.qcloudimg.com/raw/786b019169ea2b0642e4d608968761ab.svg)
 集群创建参见 [创建一个 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 ## 集群管理
 集群创建成功后，登录弹性 MapReduce [控制台](https://console.cloud.tencent.com/emr)，进入集群列表页面。
