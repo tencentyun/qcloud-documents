@@ -1,4 +1,4 @@
-本操作手册只描述了命令行模式下基本的 MapReduce 任务操作以及MapReduce计算任务如何访问腾讯云对象存储（COS）上面的数据，详细资料可以参考 [社区资料](http://hadoop.apache.org/)。
+本操作手册只描述了命令行模式下基本的 MapReduce 任务操作以及 MapReduce 计算任务如何访问腾讯云对象存储（COS）上面的数据，详细资料可以参考 [社区资料](http://hadoop.apache.org/)。
 
 - 本次提交的任务为 wordcount 任务即统计单词个数，提前需要在集群中上传需要统计的文件。
 - Hadoop 等相关软件路径在 `/usr/local/service/` 下。
