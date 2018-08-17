@@ -172,7 +172,7 @@ mTXCameraRecord.setChinLevel(scale);
 mTXCameraRecord.setFaceShortLevel(level);
 
 // 设置小鼻效果 建议0~9，如果需要更明显可以设置更大值
-mTXCameraRecord.setNoseSlimLevel(scale)
+mTXCameraRecord.setNoseSlimLevel(scale);
 
 // 设置绿幕文件:目前图片支持jpg/png，视频支持mp4/3gp等Android系统支持的格式并支持循环播放
 mTXCameraRecord.setGreenScreenFile(path, isLoop);
