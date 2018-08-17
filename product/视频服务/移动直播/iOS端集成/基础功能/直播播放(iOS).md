@@ -155,6 +155,40 @@ _txLivePlayer.recordDelegate = recordListener;
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
 
+### step 10: 清晰度无缝切换
+日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以观看更高画质。
+传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
+
+清晰度切换在直播开始后，任意时间都可以调用。调用方式如下
+```objectivec
+// 正在播放的是流http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv，
+// 现切换到码率为900kbps的新流上
+[_txLivePlayer switchStream:@"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv"];
+```
+
+
+### step 11: 直播回看
+时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
+
+```objectivec
+// 设置直播回看前，先调用startPlay
+// 开始播放 ...
+[TXLiveBase setAppID:@"1253131631"]; // 配置appId
+[_txLivePlayer prepareLiveSeek];     // 后台请求直播起始时间
+```
+配置正确后，在PLAY_EVT_PLAY_PROGRESS事件里，当前进度就不是从0开始，而是根据实际开播时间计算而来。
+调用seek方法，就能从历史事件点重新直播
+```objectivec
+[_txLivePlayer seek:600]; // 从第10分钟开始播放
+```
+
+接入时移需要在后台打开2处配置：
+
+1. 录制：配置时移时长、时移储存时长
+2. 播放：时移获取元数据
+
+时移功能处于公测申请阶段，如您需要可提交工单申请使用。
+
 
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
