@@ -26,7 +26,7 @@ TXRecordCommon.TXUGCSimpleConfig param = new TXRecordCommon.TXUGCSimpleConfig();
 param.videoQuality = TXRecordCommon.VIDEO_QUALITY_MEDIUM;		// 540p
 //param.videoQuality = TXRecordCommon.VIDEO_QUALITY_HIGH;		// 720p
 param.isFront = true;           //是否前置摄像头，使用
-param.minDuratioin = 5000;	//视频录制的最小时长ms
+param.minDuration = 5000;	//视频录制的最小时长ms
 param.maxDuration = 60000;	//视频录制的最大时长ms
 param.needEdit = false; // 录制完是否直接进入编辑界面编辑视频。false:生成指定参数的视频；true:生成高码率的视频，可快速进入编辑界面使用全部编辑功能
 mTXCameraRecord.startCameraSimplePreview(param,mVideoView);
@@ -78,7 +78,7 @@ mTXCameraRecord.setRenderRotation(TXLiveConstants.RENDER_ROTATION_PORTRAIT);
 mTXCameraRecord.setAspectRatio(TXRecordCommon.VIDEO_ASPECT_RATIO_9_16);
 
 // 设置视频录制速率
-setRecordSpeed(TXRecordCommon.RECORD_SPEED_NORMAL);
+mTXCameraRecord.setRecordSpeed(TXRecordCommon.RECORD_SPEED_NORMAL);
 
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大音量可以设置更大的值.
@@ -175,7 +175,7 @@ mTXCameraRecord.setFaceShortLevel(level)
 mTXCameraRecord.setNoseSlimLevel(scale)
 
 // 设置绿幕文件:目前图片支持jpg/png，视频支持mp4/3gp等Android系统支持的格式并支持循环播放
-setGreenScreenFile(path, isLoop);
+mTXCameraRecord.setGreenScreenFile(path, isLoop);
 
 // 设置动效贴纸 motionTmplPath 动效文件路径： 空String "" 则取消动效
 mTXCameraRecord.setMotionTmp(motionTmplPath);
