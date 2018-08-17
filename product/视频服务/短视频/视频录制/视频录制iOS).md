@@ -1,7 +1,7 @@
 ## 对接攻略
 短视频录制即采集摄像头画面和麦克风声音，经过图像和声音处理后，进行编码压缩最终生成期望清晰度的 MP4 文件。
 可以通过开发包中的DEMO工程体验录制的功能
-![](https://main.qcloudimg.com/raw/4f8195d62fdb7e78ccd11609aad0c87d.png )
+![](https://main.qcloudimg.com/raw/f4ea8e59174e86b4b5062a3c5289788f.jpg)
 ## 接口介绍 
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制，其详细定义如下：
 
