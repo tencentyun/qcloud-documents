@@ -70,7 +70,6 @@
 ```
 CoreTelephony.framework
 SystemConfiguration.framework
-libstdc++.6.dylib
 libc++.dylib
 libz.dylib
 libsqlite3.dylib

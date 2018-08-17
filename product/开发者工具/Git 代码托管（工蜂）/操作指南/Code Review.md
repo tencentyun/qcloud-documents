@@ -1,7 +1,3 @@
-- [创建评审、添加评委](https://cloud.tencent.com/document/product/612/11552#.E5.88.9B.E5.BB.BA-review.E3.80.81.E6.B7.BB.E5.8A.A0-reviewer)
-- [Code Review 设置](https://cloud.tencent.com/document/product/612/11552#code-review-.E8.AE.BE.E7.BD.AE)
-- [Code Review 状态](https://cloud.tencent.com/document/product/612/11552#code-review-.E7.8A.B6.E6.80.81)
-
 ## 创建评审、添加评委
 
 > **注意：**

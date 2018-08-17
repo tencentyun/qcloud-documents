@@ -42,7 +42,40 @@
 需要确认输入的参数是否匹配，ip、 port、 secretId、 secretKey、 channelId 是否匹配。
 
 ### SDK 启动时，报 secretId 没有权限？
-子账号默认没有任何权限，需要根账号给子账号赋予 name/dts:AuthenticateSubscribeSDK 操作的权限，或者赋予 DTS 所有操作的权限     QcloudDTSFullAccess 。
+子账号默认没有任何权限，需要根账号给子账号赋予 name/dts:AuthenticateSubscribeSDK 操作的权限，或者赋予 DTS 所有操作的权限 QcloudDTSFullAccess。
+>QcloudDTSFullAccess 策略需要您自己创建，目前访问服务还没有预生成 QcloudDTSFullAccess。
+
+- 对所有的通道，授予 SDK 的访问权限。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "dts:AuthenticateSubscribeSDK"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+- 对指定的 channel，授予 SDK 的访问权限
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "dts:AuthenticateSubscribeSDK"
+            ],
+            "resource": "qcs::dts:::channel/{channelId}",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
 
 ### 数据订阅可能会收到重复数据吗？
 在正常消费情况下，不会。如果 SDK 非正常退出，最后确认的位点信息没有及时上报，下次启动可能会收到重复数据，这种情况概率非常非常非常小。

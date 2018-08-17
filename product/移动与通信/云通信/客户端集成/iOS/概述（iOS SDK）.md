@@ -60,7 +60,6 @@
 CoreTelephony.framework
 SystemConfiguration.framework
 libc++.dylib
-libstdc++.6.dylib
 libz.dylib
 libsqlite3.dylib
 ImSDK.framework

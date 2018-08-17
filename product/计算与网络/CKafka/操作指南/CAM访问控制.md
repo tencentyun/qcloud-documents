@@ -26,6 +26,7 @@
 
 ### CKafka 全读写策略
 授权一个子用户以 CKafka 服务的完全管理权限（创建、管理等全部操作）。
+
 ```
 {
   "version": "2.0",
@@ -41,8 +42,16 @@
 }
 ```
 
+也可以通过设置系统的 [全读写策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
+
+![](https://main.qcloudimg.com/raw/1642ea25bd6b6d270eb7016807e06c77.jpg)
+
 ### CKafka 单个实例读写策略
+
 授权一个子用户某个特定实例的 CKafka 服务的完全管理权限（创建、管理等全部操作）。
+首先需要授予一个实例只读权限
+![](https://main.qcloudimg.com/raw/875be8b3763e1ff19b4ff6d81b12182a.jpg)
+之后授予某特定实例的读写权限
 ```
 {
   "version": "2.0",

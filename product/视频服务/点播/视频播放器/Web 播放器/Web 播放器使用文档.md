@@ -82,8 +82,8 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 [等比率自适应](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-adaptive.html)
 
 ### 播放多种清晰度
-1、 首先需要在控制台设置转码多种清晰度，如下图
-![](https://mc.qcloudimg.com/static/img/b2c4b5d61ae28cb4558e15bcbcb3bd87/image.png)
+1、 首先需要在上传视频时对视频进行转码操作，如下图
+![](https://main.qcloudimg.com/raw/2f171baf670cd87b2e5248c9e93d9d60.png)
 
 2、 视频转码后，将会生成多种清晰度的文件，在【控制台】>【视频管理】视频列表中单击视频将会看到如下图
 ![](https://mc.qcloudimg.com/static/img/3a60f37c5c6d429bffb7e96023c948e9/image.png)
@@ -122,10 +122,10 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 #### 指定播放器默认播放某个清晰度
 
-* 在“控制台-Web 播放器管理”选定某个播放器配置进行设置默认画质
-![](https://mc.qcloudimg.com/static/img/3bcad59bcbb2ae35c2ce02bba1f8cefd/image.png)
+* 在“【控制台】-【点播】-【分发播放设置】-【Web 播放器管理】”选定某个播放器配置进行设置默认画质
+![](https://main.qcloudimg.com/raw/471ba3bad21e06832f472b0899244ae4.png)
 
-* 在“控制台-视频管理”将视频与某个播放器配置进行关联，在使用腾讯云播放器播放该视频时，将会使用关联的播放器配置。
+* 在“【控制台】-【视频管理】”将视频与某个播放器配置进行关联，在使用腾讯云播放器播放该视频时，将会使用关联的播放器配置。
 ![](https://mc.qcloudimg.com/static/img/82dc40ee75db110ab2d77749ec059d80/image.png)
 
 >**注意事项：**
@@ -203,7 +203,7 @@ var player = TCPlayer('player-container-id', {
 [缩略图预览-服务端生成](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail.html)
 [缩略图预览-传入缩略图与 VTT 文件](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail-src.html)
 >**注意事项：**
-> * 该功能仅支持在桌面端浏览器。
+> * 该功能仅支持桌面端浏览器。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 > * 生成的缩略图越多，进度条预览越精确，而缩略图越多，图片越大加载越慢，需要取舍平衡。
 
@@ -232,6 +232,51 @@ var player = TCPlayer('player-container-id', {
   customHost: '' // 请传入替换的域名，例如 www.costum.host
 });
 ```
+
+### 镜像功能
+激活镜像功能，可以让视频画面镜像翻转，如下图所示：
+![](https://main.qcloudimg.com/raw/d5886d7d550be72b608077f341299610.png)
+
+开启右键菜单镜像选项：
+```
+var player = TCPlayer('player-container-id', {
+  fileID: '', // 请传入需要播放的视频 filID 必须
+  appID: '', // 请传入点播账号的 appID 必须
+  plugins: {
+    ContextMenu: {
+      mirror: true
+    }
+  }
+});
+```
+
+示例：
+[镜像功能](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-mirror.html)
+
+>**注意事项：**
+> * 在浏览器劫持视频播放的情况下，该功能无法使用。
+
+### 进度条标记
+通过服务端 API 对视频[增加打点信息](https://cloud.tencent.com/document/product/266/14190)，可以在播放器中开启显示进度条标记，如下图所示：
+![](https://main.qcloudimg.com/raw/70d880065adce22cb64270f4999558f8.png)
+
+播放器开启方式：
+```
+var player = TCPlayer('player-container-id', {
+  fileID: '', // 请传入需要播放的视频 filID 必须
+  appID: '', // 请传入点播账号的 appID 必须
+  plugins: {
+    ProgressMarker: true
+  }
+});
+```
+
+示例：
+[进度条标记](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-progress-marker.html)
+
+>**注意事项：**
+> * 该功能仅支持桌面端浏览器。
+> * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### HLS 自适应码率播放
 HLS 规范的 Master Playlist 可以根据网络速度自适应码率播放，在视频下载过程中，如果网络速度满足下载高码率的 ts 分片时，播放器将切换播放高码率的 ts 分片，反之播放低码率的 ts 分片。移动端和桌面端大部分浏览器都支持该特性。

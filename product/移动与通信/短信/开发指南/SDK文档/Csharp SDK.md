@@ -1,8 +1,40 @@
+## 腾讯短信服务
+目前腾讯云短信为客户提供 **国内短信、国内语音** 和 **国际短信** 三大服务，腾讯云短信 SDK 支持以下操作：
+
+### 国内短信
+国内短信支持操作：
+- 单发短信
+- 指定模板单发短信
+- 群发短信
+- 指定模板群发短信
+- 拉取短信回执和短信回复状态
+
+> 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
+
+### 国际短信
+国际短信支持操作：
+- 单发短信
+- 指定模板单发短信
+- 群发短信
+- 指定模板群发短信
+- 拉取短信回执和短信回复状态
+
+> 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
+
+### 语音通知
+语音通知支持操作：
+- 发送语音验证码
+- 发送语音通知
+- 上传语音文件
+- 按语音文件fid发送语音通知
+- 指定模板发送语音通知类
+
+
 ## 开发准备
 ### SDK 获取
 短信 C# SDK 在 Github 中的下载地址：[短信 C# SDK](https://github.com/qcloudsms/qcloudsms_csharp)。
 
-### 开发准备
+### 开发前准备
 **1. 申请 SDK AppID 以及 App Key：**
 在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
 >**注意：**
@@ -22,25 +54,47 @@
 要使用 qcloudsms_csharp 功能，只需要在 .nuspec 文件中添加如下依赖：
 ```xml
 <dependencies>
-  <dependency id="qcloud.qcloudsms_csharp" version="0.1.0" />
+  <dependency id="qcloud.qcloudsms_csharp" version="0.1.5" />
 </dependencies>
 ```
 
-或者参考 [nuget 官方网站](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package) 进行安装。 
+或者参考 [nuget 官方网站](https://docs.microsoft.com/en-us/nuget/quickstart/use-a-package) 进行安装。
 
-## 快速入门
-若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)。
+### 命令行
+- Package Manager
+```
+Install-Package qcloud.qcloudsms_csharp -Version 0.1.5
+```
+- .NET CLI
+```
+dotnet add package qcloud.qcloudsms_csharp --version 0.1.5
+```
+- Paket CLI
+```
+paket add qcloud.qcloudsms_csharp --version 0.1.5
+```
 
+### 相关资料
+若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+
+## 示例
 - **准备必要参数**
+
 ```csharp
 // 短信应用SDK AppID
-int appid = 142333333;
+int appid = 122333333;
+
 // 短信应用SDK AppKey
 string appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
+
 // 需要发送短信的手机号码
 string[] phoneNumbers = {"21212313123", "12345678902", "12345678903"};
+
 // 短信模板ID，需要在短信应用中申请
 int templateId = 7839; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
+
+// 签名
+string smsSign = "腾讯云"; // NOTE: 这里的签名只是示例，请使用真实的已申请的签名, 签名参数使用的是`签名内容`，而不是`签名ID`
 ```
 
 - **单发短信**
@@ -56,7 +110,7 @@ try
 {
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     var result = ssender.send(0, "86", phoneNumbers[0],
-        "您的验证码是: 12345", "", "");
+        "【腾讯云】您的验证码是: 5678", "", "");
     Console.WriteLine(result);
 }
 catch (JSONException e)
@@ -73,9 +127,8 @@ catch (Exception e)
 }
 ```
 
-> 注意：
-> 如需发送国际短信，同样可以使用此接口，只需将国家码 `86` 改写成对应国家码号。
-> 无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+> 如需发送国际短信，同样可以使用此接口，只需将国家码 86 改写成对应国家码号
+> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
 - **指定模板 ID 单发短信**
@@ -91,7 +144,7 @@ try
 {
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     var result = ssender.sendWithParam("86", phoneNumbers[0],
-        templateId, new[] { "12345" }, "", "", "");
+        templateId, new[]{ "5678" }, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     Console.WriteLine(result);
 }
 catch (JSONException e)
@@ -108,8 +161,7 @@ catch (Exception e)
 }
 ```
 
-> **注意：**
-> 无论单发短信还是指定模板ID单发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **群发短信**
 
@@ -124,7 +176,7 @@ try
 {
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     var result = msender.send(0, "86", phoneNumbers,
-        "您的验证码是: 67890", "", "");
+        "【腾讯云】您的验证码是: 5678", "", "");
     Console.WriteLine(result);
 }
 catch (JSONException e)
@@ -141,7 +193,6 @@ catch (Exception e)
 }
 ```
 
->**注意：**
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板ID群发**
@@ -157,7 +208,7 @@ try
 {
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     var sresult = msender.sendWithParam("86", phoneNumbers, templateId,
-        new[]{"67890"}, "", "", "");
+        new[]{"5678"}, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     Console.WriteLine(sresult);
 catch (JSONException e)
 {
@@ -173,9 +224,8 @@ catch (Exception e)
 }
 ```
 
->** 注意：**
-> 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持(QQ:3012203387)。
-> 无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+>群发一次请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持(QQ:3012203387)。
+>无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **发送语音验证码**
 
@@ -206,8 +256,7 @@ catch (Exception e)
 }
 ```
 
-> **注意：**
-> 语音验证码发送只需提供验证码数字，例如在 msg=“5678”，您收到的语音通知为“您的语音验证码是5678”，如需自定义内容，可以使用语音通知。
+> 语音验证码发送只需提供验证码数字，例如当msg=“5678”时，您收到的语音通知为“您的语音验证码是5678”，如需自定义内容，可以使用语音通知。
 
 - **发送语音通知**
 
@@ -249,11 +298,16 @@ using System;
 
 try
 {
+    // Note: 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限
+    int maxNum = 10;  // 单次拉取最大量
     SmsStatusPuller spuller = new SmsStatusPuller(appid, appkey);
-    var callbackResult = spuller.pullCallback(5);
+
+    // 拉取短信回执
+    var callbackResult = spuller.pullCallback(maxNum);
     Console.WriteLine(callbackResult);
 
-    var replyResult = spuller.pullReply(5);
+    // 拉取回复
+    var replyResult = spuller.pullReply(maxNum);
     Console.WriteLine(replyResult);
 }
 catch (JSONException e)
@@ -284,10 +338,19 @@ using System;
 
 try
 {
-    var callbackResult = mspuller.pullCallback("86", phoneNumbers[0], 1514022500, 1514022590, 5);
+    int beginTime = 1511125600;  // 开始时间(unix timestamp)
+    int endTime = 1511841600;    // 结束时间(unix timestamp)
+    int maxNum = 10;             // 单次拉取最大量
+    SmsMobileStatusPuller mspuller = new SmsMobileStatusPuller(appid, appkey);
+
+    // 拉取短信回执
+    var callbackResult = mspuller.pullCallback("86",
+        phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(callbackResult);
 
-    var replyResult = mspuller.pullReply("86", phoneNumbers[0], 1514022500, 1514022590, 5);
+    // 拉取回复
+    var replyResult = mspuller.pullReply("86",
+        phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(replyResult);
 }
 catch (JSONException e)
@@ -303,10 +366,112 @@ catch (Exception e)
     Console.WriteLine(e);
 }
 ```
+> 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
 
-国际短信发送可以参考单发短信。
+国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
+
+
+- **上传语音文件**
+
+```csharp
+using qcloudsms_csharp;
+using qcloudsms_csharp.json;
+using qcloudsms_csharp.httpclient;
+
+using System;
+using System.IO;
+
+try
+{
+    // Note: 语音文件大小上传限制400K字节
+    String filePath = "/path/to/example.mp3";
+    byte[] content = File.ReadAllBytes(filePath);
+    VoiceFileUploader uploader = new VoiceFileUploader(appid, appkey);
+    VoiceFileUploaderResult result = uploader.upload(content, VoiceFileUploader.ContentType.MP3);
+    // 上传成功后，result里会带有语音文件的fid
+    Console.WriteLine(result);
+}
+catch (JSONException e)
+{
+    Console.WriteLine(e);
+}
+catch (HTTPException e)
+{
+    Console.WriteLine(e);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+}
+```
+> 语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
+
+- **按语音文件 fid 发送语音通知**
+
+```csharp
+using qcloudsms_csharp;
+using qcloudsms_csharp.json;
+using qcloudsms_csharp.httpclient;
+
+using System;
+
+try
+{
+    // Note: 这里fid来自`上传语音文件`接口返回的响应，要按语音
+    //       文件fid发送语音通知，需要先上传语音文件获取fid
+    String fid = "43847b4649ca38f37e596ec2281ce6a56a2a2a13.mp3";
+    FileVoiceSender fvsender = new FileVoiceSender(appid, appkey);
+    FileVoiceSenderResult result = fvsender.send("86",  phoneNumbers[0], fid, 2, "");
+    Console.WriteLine(result);
+}
+catch (JSONException e)
+{
+    Console.WriteLine(e);
+}
+catch (HTTPException e)
+{
+    Console.WriteLine(e);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+}
+```
+>按语音文件fid发送语音通知功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
+
+- **指定模板发送语音通知**
+
+```csharp
+using qcloudsms_csharp;
+using qcloudsms_csharp.json;
+using qcloudsms_csharp.httpclient;
+
+using System;
+
+try
+{
+    int templateId = 45221;
+    string[] parameters = { "5678" };
+    TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
+    TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
+        templateId, parameters, 2, "");
+    Console.WriteLine(result);
+}
+catch (JSONException e)
+{
+    Console.WriteLine(e);
+}
+catch (HTTPException e)
+{
+    Console.WriteLine(e);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+}
+```
 
 ### 使用连接池
 
