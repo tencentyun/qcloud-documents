@@ -4,7 +4,7 @@
 ![](https://main.qcloudimg.com/raw/333c7a07d6a37308152391c73ee99b7a.png )
 Android录制功能的代码位置：com.tencent.liteav.demo.videorecord 包名下面，其中 TCVideoSettingActivity 是录制设置界面，TCVideoRecordActivity 是录制界面，另外需要拷贝界面中所需的资源文件，就可以实现录制的界面效果和功能了。
 ## 接口介绍 
-腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制与发布，其详细定义如下：
+腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制，其详细定义如下：
 
 | 接口文件                     | 功能                       |
 | ------------------------ | ------------------------ |
