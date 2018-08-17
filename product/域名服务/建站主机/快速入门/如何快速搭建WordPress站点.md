@@ -1,15 +1,15 @@
 完成网站代码后，需要上传至建站主机发布。
 
 ### 1.	获取 FTP 信息
-进入主机的管理页面，获取 FTP 地址、用户名和密码
-![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
+点击主机ID进入主机管理页面，可获取FTP和MySQL地址、用户名，用户可在此处重置密码。
+![](https://main.qcloudimg.com/raw/78d6e646e8e503f824c5d7e83d8e384c.png)
 
 ### 2. 下载 WordPress 安装包
 前往 [WordPress 中文官网](https://cn.wordpress.org/) 下载最新版本的 WordPress 安装包。
 
 ### 3.	上传安装包
 通过 FTP 工具上传网站程序，具体可以参考 [FTP 工具使用说明](https://cloud.tencent.com/document/product/615/11181)。
-
+> 注意：使用FTP工具上传文件，建站主机不提供解压功能。
 ### 4. 获取数据信息
 进入主机的管理页面，获取数据库信息。
 ![](https://mc.qcloudimg.com/static/img/c7fa30c75349f24270cf1493943373b1/image.png)
