@@ -176,15 +176,31 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 初始化方法很简单，但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ### 2.4 COS配置
-COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到 COS 的存储桶中。
 
-> **注意：**移动端只用到了 COS 的上传功能。
+开发者可以使用我们维护的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
 
-具体配置接口如下：
+具体接口如下：
 
 ```objc
-> TICFileManager.h
+> TXCFileManager.h
 
+/**
+ @brief 初始化COS（使用COS上传文件前必须先初始化）
+
+ @param sdkAppID 腾讯云控制台注册的应用ID
+ @param config COS配置对象（传nil，表示使用腾讯云的公共账号）
+ @see TXCosConfig
+ @return 0 配置成功，否则配置失败(返回错误码 8021，表示参数无效)
+ */
+- (int)initCosWithSDKAppID:(NSString *)sdkAppID config:(TXCosConfig *)config;
+```
+
+如选择使用COS公共账号，`config` 参数传入 `nil` 即可。
+
+如使用自己申请的COS账号，则需配置 `config` 参数：
+
+```objc
 /**
  COS 配置类，其属性参数都可从腾讯云 COS 控制台获取到
  */
@@ -202,15 +218,6 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 @property (nonatomic, copy) NSString *secretKey;
 
 @end
-
-/**
- @brief COS存储配置
-
- @param config 配置对象
- @see TICCosConfig
- @return 0 配置成功，否则配置失败(返回错误码 8021，表示参数无效)
- */
-- (int)configCOS:(TICCosConfig *)config;
 ```
 
 ### 2.5 登录/登出
