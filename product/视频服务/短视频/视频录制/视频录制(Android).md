@@ -1,7 +1,7 @@
 ## 对接攻略
 短视频录制即采集摄像头画面和麦克风声音，经过图像和声音处理后，进行编码压缩最终生成期望清晰度的 MP4 文件。
 可以通过开发包中的DEMO工程体验录制的功能
-![](https://main.qcloudimg.com/raw/4f8195d62fdb7e78ccd11609aad0c87d.png )
+![](https://main.qcloudimg.com/raw/333c7a07d6a37308152391c73ee99b7a.png )
 Android录制功能的代码位置：com.tencent.liteav.demo.videorecord 包名下面，其中 TCVideoSettingActivity 是录制设置界面，TCVideoRecordActivity 是录制界面，另外需要拷贝界面中所需的资源文件，就可以实现录制的界面效果和功能了。
 ## 接口介绍 
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制与发布，其详细定义如下：
