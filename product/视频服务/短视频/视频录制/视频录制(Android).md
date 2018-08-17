@@ -169,7 +169,7 @@ mTXCameraRecord.setFaceVLevel(level);
 mTXCameraRecord.setChinLevel(scale);
 
 // 设置缩脸效果 建议0~9，如果需要更明显可以设置更大值
-mTXCameraRecord.setFaceShortLevel(level)
+mTXCameraRecord.setFaceShortLevel(level);
 
 // 设置小鼻效果 建议0~9，如果需要更明显可以设置更大值
 mTXCameraRecord.setNoseSlimLevel(scale)
