@@ -34,8 +34,8 @@
 `FLUSH TABLES WITH READ LOCK`
 
 > *说明：FTWRL是FLUSH TABLES WITH READ LOCK的简称(FTWRL)，该命令主要用于保证备份一致性。为了达到这个目的，它需要关闭所有表对象，在业务高峰期执行命令时容易导致库hang住。 FTWRL通过持有以下两把全局的MDL(MetaDataLock)锁*
-- *全局读锁(lockglobalreadlock) 会导致所有的更新操作被堵塞*
-- *全局COMMIT锁(makeglobalreadlockblockcommit) 会导致所有的活跃事务无法提交*
+ *全局读锁(lockglobalreadlock) 会导致所有的更新操作被堵塞*
+ *全局COMMIT锁(makeglobalreadlockblockcommit) 会导致所有的活跃事务无法提交*
 
 
 3、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置灾备实例的参数，并重启灾备实例；
