@@ -30,7 +30,7 @@
 1、请选择业务低峰期对其参数进行修改，如有业务停机时间，暂停业务可加速参数修改操作；
 2、将主实例设置FTWRL(FLUSH TABLES WITH READ LOCK)锁；
 
-`添加FTWRL锁命令如下：`
+`添加FTWRL锁命令如下：`<br>
 `FLUSH TABLES WITH READ LOCK;`
 
 > *说明：FTWRL是FLUSH TABLES WITH READ LOCK的简称(FTWRL)，该命令主要用于保证备份一致性。为了达到这个目的，它需要关闭所有表对象，在业务高峰期执行命令时容易导致库hang住。 FTWRL通过持有以下两把全局的MDL(MetaDataLock)锁*
@@ -40,7 +40,7 @@
 3、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置灾备实例的参数，并重启灾备实例；
 4、进入<a href="https://console.cloud.tencent.com/" target="_blank">MySQL管理控制台</a>配置主实例的参数，并断开所有的会话，再释放FTWRL锁；
 
-`释放FTWRL锁命令如下：`
+`释放FTWRL锁命令如下：`<br>
 `UNLOCK TABLES;`
 
 >  *说明：修改参数后对老连接不生效，因此需要在执行修改参数操作后，断开所有的会话，避免因老连接参数未生效而影响主、备实例的数据一致性。*
