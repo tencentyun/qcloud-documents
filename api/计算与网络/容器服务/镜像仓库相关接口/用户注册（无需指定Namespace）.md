@@ -1,6 +1,6 @@
 ## 接口描述
 
-本接口 (RegisterRepositoryAccountNew) 用户注册(无需指定 Namespace)。 
+本接口（RegisterRepositoryAccountNew）用户注册（无需指定 Namespace）。 
 
 接口请求域名：
 ```
