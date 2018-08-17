@@ -139,7 +139,7 @@ fileId在一般是在视频上传后，由服务器返回：
 
 ## 切换视频
 
-播放器播放另一个视频，调用`setPlayUrl`即可
+播放器播放另一个视频，调用`playWithMode`即可
 ```java
 mSuperPlayerView.playWithMode(superPlayerModel);
 ```
