@@ -119,20 +119,25 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 录制的过程和结果是通过 TXUGCRecordListener（位于 TXUGCRecordListener.h 中定义）协议进行回调：
 - onRecordProgress 用于反馈录制的进度，参数millisecond表示录制时长，单位毫秒:
-```obc
-@optional
-- (void)onRecordProgress:(NSInteger)milliSecond;
-```
+
+  ```
+  @optional
+  - (void)onRecordProgress:(NSInteger)milliSecond;
+  ```
+
 - onRecordComplete 反馈录制的结果，TXRecordResult 的 retCode 和 descMsg 字段分别表示错误码和错误描述信息，videoPath 表示录制完成的小视频文件路径，coverImage 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
-```obcj 
-@optional
-- (void)onRecordComplete:(TXUGCRecordResult*)result;
-```
+
+  ```
+  @optional
+  - (void)onRecordComplete:(TXUGCRecordResult*)result;
+  ```
+
 - onRecordEvent 录制事件回调预留的接口，暂未使用
-```objc   
-@optional
-- (void)onRecordEvent:(NSDictionary*)evt;
-```
+
+  ```   
+  @optional
+  - (void)onRecordEvent:(NSDictionary*)evt;
+  ```
 
 ### 4. 录制效果相关
 在视频录制的过程中，您可以给录制视频的画面设置各种特效
