@@ -2,7 +2,7 @@
 
 ### 服务简介
 
-本接口用来识别车辆vin码，根据用户上传的图像，返回识别出的车辆识别代码。
+本接口用来识别车辆 vin 码，根据用户上传的图像，返回识别出的车辆识别代码。
 
 ### 计费说明
 
@@ -10,7 +10,7 @@
 
 ### url说明
 
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/vin_detection`
 
@@ -25,40 +25,40 @@
 | host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名                             |
 | content-length | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图          |
 | content-type   | application/json               | 标准 json 格式                               |
-| authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](https://cloud.tencent.com/document/product/641/12409) |
+| authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。详请参见 [鉴权签名](https://cloud.tencent.com/document/product/641/12409)。 |
 
 #### 请求参数
 
 | 参数名   | 必选   | 类型            | 参数说明                                     |
 | ----- | ---- | ------------- | ---------------------------------------- |
-| appid | 是    | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。 |
-| image | 否    | string(Bytes) | 使用 base64 编码的二进制图片数据                       |
-| url   | 否    | string        | 图片的url, image和url只提供一个即可,如果都提供,只使用url    |
+| appid | 是    | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。 |
+| image | 否    | String(Bytes) | 使用 base64 编码的二进制图片数据                       |
+| url   | 否    | String        | 图片的 url、image 和 url 只提供一个即可，如果都提供，只使用 url    |
 
 
 ### 返回内容
 
 | 字段         | 类型           | 说明                     |
 | ---------- | ------------ | ---------------------- |
-| code       | int          | 返回码                    |
-| message    | string       | 返回错误消息                 |
-| data.items | arrays(Item) | 识别出的所有字段信息，详见下文items说明 |
+| code       |Int          | 返回码                    |
+| message    | String       | 返回错误消息                 |
+| data.items | Arrays(Item) | 识别出的所有字段信息，详见下文 items 说明 |
 
 items说明
 
 | 字段         | 类型     | 说明                                       |
 | ---------- | ------ | ---------------------------------------- |
-| item       | string | 字段名称                                     |
-| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标x,y，以及宽、高width, height |
-| itemstring | string | 字段内容                                     |
-| words      | array  | 字段识别出来的每个字的信息，详见下文words说明                |
+| item       | String | 字段名称                                     |
+| itemcoord  | Object | 字段在图像中的像素坐标，包括左上角坐标 x、y，以及宽 width、高  height |
+| itemstring | String | 字段内容                                     |
+| words      | Array  | 字段识别出来的每个字的信息，详见下文 words 说明                |
 
 words说明
 
 | 字段         | 类型     | 说明             |
 | ---------- | ------ | -------------- |
-| character  | string | 识别出的单字字符       |
-| confidence | float  | 识别出的单字字符对应的置信度 |
+| character  | String | 识别出的单字字符       |
+| confidence | Float  | 识别出的单字字符对应的置信度 |
 
 ## 请求示例
 
@@ -139,4 +139,4 @@ words说明
 | -1300 | 图片为空                |
 | -1301 | 参数为空                |
 | -1304 | 参数过长                |
-| -9003 | OCR识别失败             |
+| -9003 | OCR 识别失败             |
