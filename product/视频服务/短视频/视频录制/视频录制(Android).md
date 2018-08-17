@@ -163,10 +163,10 @@ mTXCameraRecord.setEyeScaleLevel(eyeScaleLevel);
 mTXCameraRecord.setFaceScaleLevel(faceScaleLevel);
 
 // 设置V脸效果 建议0~9，如果需要更明显可以设置更大值
-mTXCameraRecord.setFaceVLevel(level)
+mTXCameraRecord.setFaceVLevel(level);
 
 // 设置下巴拉伸或收缩效果 建议0~9，如果需要更明显可以设置更大值
-mTXCameraRecord.setChinLevel(scale)
+mTXCameraRecord.setChinLevel(scale);
 
 // 设置缩脸效果 建议0~9，如果需要更明显可以设置更大值
 mTXCameraRecord.setFaceShortLevel(level)
@@ -188,10 +188,10 @@ mTXCameraRecord.setMotionMute(true);
 在视频录制的过程中，您可以给视频的添加喜欢的BGM
 ```java
 // 设置BGM路径
-mTXCameraRecord.setBGM(path)
+mTXCameraRecord.setBGM(path);
 
 // 设置BGM播放回调 TXRecordCommon.ITXBGMNotify
-mTXCameraRecord.setBGMNofify(notify)
+mTXCameraRecord.setBGMNofify(notify);
 
 // 播放BGM
 mTXCameraRecord.playBGMFromTime(startTime, endTime)
@@ -207,7 +207,7 @@ mTXCameraRecord.resumeBGM();
 
 // 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大背景音量可以设置更大的值.
-setBGMVolume(x);
+mTXCameraRecord.setBGMVolume(x);
 
 // 设置背景音乐播放的开始位置和结束位置
 mTXCameraRecord.seekBGM(startTime, endTime);
