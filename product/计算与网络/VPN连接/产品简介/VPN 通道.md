@@ -27,6 +27,7 @@
 ![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
 
 ## IKE 配置
+<style> table th:first-of-type { width: 150px; } </style>
 
 | 配置项             | 说明                                       |
 | --------------- | ---------------------------------------- |
@@ -40,6 +41,8 @@
 | IKE SA Lifetime | 单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除 |
 
 ##  Ipsec 信息
+<style> table th:first-of-type { width: 150px; } </style>
+
 | 配置项                   | 说明                                       |
 | --------------------- | ---------------------------------------- |
 | 加密算法                  | 支持 3DES、AES-128、AES-192、AES-256、DES      |
