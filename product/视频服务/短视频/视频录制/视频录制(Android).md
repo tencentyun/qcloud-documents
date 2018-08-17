@@ -31,6 +31,9 @@ param.maxDuration = 60000;	//视频录制的最大时长ms
 param.needEdit = false; // 录制完是否直接进入编辑界面编辑视频。false:生成指定参数的视频；true:生成高码率的视频，可快速进入编辑界面使用全部编辑功能
 mTXCameraRecord.startCameraSimplePreview(param,mVideoView);
 
+// 停止摄像头预览
+stopCameraPreview();
+
 // 切换视频录制分辨率
 mTXCameraRecord.setVideoResolution(TXRecordCommon.VIDEO_RESOLUTION_540_960);
 
