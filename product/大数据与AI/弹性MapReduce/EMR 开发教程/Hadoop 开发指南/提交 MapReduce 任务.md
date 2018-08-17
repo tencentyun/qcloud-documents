@@ -7,7 +7,7 @@
 ## 1. 开发准备
 - 由于任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/6232)。
 
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候在基础配置页面勾选 “开启 COS”，并在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.qcloud.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
+- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候在基础配置页面勾选 “开启 COS”，并在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
 
 ## 2. 登录 EMR 服务器
 在做相关操作前需要登录到 EMR 集群中的任意一个机器，建议登录到 Master 节点。
