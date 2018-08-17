@@ -13,8 +13,8 @@
 在做相关操作前需要登录到 EMR 集群中的任意一个机器，建议登录到 Master 节点。
 腾讯云 EMR 是建立在 Linux 操作系统的腾讯云服务器（CVM）上的，所以在命令行模式下使用 EMR 需要登录 CVM 服务器。
 
-创建了 EMR 集群之后，在控制台中选择弹性 MapReduce，在集群列表中找到刚刚创建的集群，单击右侧详情>节点信息>Master 节点>活跃的 Master 节点的 CVM ID 即可进入云服务器控制台并且找到 EMR 对应的云主机。
-登录 CVM 的方法参见 [登录 Linux实例](https://cloud.tencent.com/document/product/213/5436) 。这里我们可以选择使用 WebShell 登录。单击对应云主机右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。
+创建了 EMR 集群之后，在控制台中选择弹性 MapReduce，在集群列表中找到刚刚创建的集群，单击右侧详情>节点信息>Master 节点>活跃的 Master 节点的 CVM ID 即可进入云服务器控制台并且找到 EMR 对应的云服务器。
+登录 CVM 的方法参见 [登录 Linux实例](https://cloud.tencent.com/document/product/213/5436) 。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。
 
 ![](https://main.qcloudimg.com/raw/67255f881656c6a0e453485ee21109d0.png)
 输入正确后，即可进入 EMR 集群的命令行界面。所有的 Hadoop 操作都在 Hadoop 用户下，登录 EMR 主机之后默认在 root 用户，需要切换到 Hadoop 用户。使用如下命令切换用户，并且进入 Hadoop 文件夹下：
