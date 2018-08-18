@@ -18,7 +18,7 @@
 |ILiveConstants.BACK_CAMERA|后置摄像头 id|
 
 ## 加入房间
-加入房间与[ 创建房间 ](/document/product/647/16806)中的房间模块基本一致，不同的里这里需要的方式是  joinRoom。
+加入房间与[ 创建房间 ](/document/product/647/16806)中的房间模块基本一致，不同的是这里需要的方式是  joinRoom。
 ```Java
     // 加入房间
     public int joinRoom(int roomId){

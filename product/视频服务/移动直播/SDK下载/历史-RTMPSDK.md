@@ -1,3 +1,27 @@
+
+
+### Version 5.1 @ 2018-08-18
+- iOS&Android：Demo主界面重新设计，更清晰易用；
+- iOS：解决iOS12系统推流播放花屏、短视频录制花屏的问题；
+
+【播放器】
+- iOS&Android：直播播放支持时移回看，文档参考： [https://cloud.tencent.com/document/product/266/9237#.E7.9B.B4.E6.92.AD.E6.97.B6.E7.A7.BB.E5.9B.9E.E7.9C.8B]；
+- iOS&Android：FLV直播播放支持无缝切换能力；
+- iOS&Android：超级播放器改造，新增直播点播播放列表；
+- iOS&Android：超级播放器直播点播多清晰度播放优化，根据网络状况提示切换不同清晰度；
+
+【短视频】
+- iOS & Android：短视频增加多个版本：精简版，基础版，商业版，商业版Pro，以满足不同客户的需求，不同版本需申请对应的licence；
+- iOS & Android：优化美颜滤镜，重新设计增加多种滤镜效果；
+- iOS & Android：录制、编辑滤镜增加手势滑动切换效果；
+- iOS & Android：优化双人合唱功能；
+- iOS & Android：小视频APP增加长按录制、点击录制、点击拍照等功能，合唱增加倒计时功能，录制界面新增混响和变声选择；
+- iOS & Android：小视频APP支持国际化，已支持中文、英文两种语言；
+- iOS：视频编辑支持Two-pass编码，生成更好的质量；
+- iOS：解决录制非正常退出进入编辑导致CPU高的问题；
+- Android：增加快速导入能力，适合大视频快速导入；
+- Android：编辑增加滤镜程度设置接口；
+
 ### Version 5.0 @ 2018-07-18
 - iOS：iOS Demo界面适配iphoneX；
 - iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；

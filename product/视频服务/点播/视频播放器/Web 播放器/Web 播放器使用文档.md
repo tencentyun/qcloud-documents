@@ -250,8 +250,10 @@ var player = TCPlayer('player-container-id', {
 });
 ```
 
+示例：
+[镜像功能](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-mirror.html)
+
 >**注意事项：**
-> * 该功能仅支持桌面端浏览器。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### 进度条标记
@@ -269,7 +271,11 @@ var player = TCPlayer('player-container-id', {
 });
 ```
 
+示例：
+[进度条标记](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-progress-marker.html)
+
 >**注意事项：**
+> * 该功能仅支持桌面端浏览器。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### HLS 自适应码率播放

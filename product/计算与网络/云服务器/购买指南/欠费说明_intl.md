@@ -1,18 +1,3 @@
-## Prepaid CVMs
-### Expiration alert
-You will receive an expiration alert message 7 days before the expiration of prepaid cloud resources. The alert message will be sent to Tencent Cloud account creator, global resource collaborators and financial collaborators via email and SMS.
-
-### Arrears alert
-You will receive an arrears alert on and after the day your prepaid CVM expires. The alert message will be sent to Tencent Cloud account creator and all the collaborators via email and SMS.
-
-### Reclaiming mechanism
-- You will receive a renewal notice 7 days before the expiration of cloud resources. 
-- If your account balance is sufficient, the device configured with auto renewal is automatically renewed on the expiry date.
-- If your CVM hasn't been renewed before the expiry date (including), the system will end its service (network outage and service shutdown with data saved only) from the expiry date. The CVM is removed into the recycle bin.
-After being put into the recycle bin, the CVM will be **forced to terminate** the mounting relationship with EIPs, elastic cloud disks, secondary ENIs, and Classiclink. The mounting relationship **cannot be recovered** after renewal, and you have to reset it.
-- You can renew and recover the instance in the recycle bin within 7 days after the expiration. Note: **The renewal period of the renewed and recovered instance starts on the expiry date of the previous period.**
-- If your CVM instance has not been renewed within 7 days (including the 7th day) upon its expiration, its resources will be released at 00:00 on the 8th day. **All the data of the expired instance is cleared and cannot be recovered**.
-
 ## Postpaid CVMs
 ### Arrears alert
 For postpaid resources, fees are deducted on the hour. When your account balance is negative, we will notify Tencent Cloud account creator, global resource collaborators and financial collaborators via email and SMS.
