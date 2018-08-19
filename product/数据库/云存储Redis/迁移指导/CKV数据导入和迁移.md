@@ -34,6 +34,10 @@
     - -dport，云数据Redis的端口（默认是6379）；
     - -dauth，云数据Redis的密码；
     - -client，导入数据的并发线程数量，根据导入数据决定（默认情况建议设置为10）；
+- 工具使用示例：    
+<code>
+ ./redis-migration -sip 192.168.1.1 -sport 6379 -sauth 123456 -dip 192.168.1.2 -dport 6379 -dauth 654321 -client 200 
+</code>
 
 ### 数据迁移原理说明
 [img](http://xx.com)
