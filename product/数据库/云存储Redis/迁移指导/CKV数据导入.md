@@ -13,6 +13,7 @@
     - -client，导入数据的并发线程数量，根据导入数据决定（默认情况建议设置为10）；
     - -rdb，RDB文件路径；
     - -support_multi_db，该参数为0表示将所有DB的数据导入到DB 0，非0表示将数据导入到原有的DB；
-    - <code>
+    - 工具使用示例：    
+    <code>
     ./redis-import-rdb  -dip 192.168.1.2 -dport 6379 -dauth 654321 -client 200 -rdb ./dump.rdb
     </code>
