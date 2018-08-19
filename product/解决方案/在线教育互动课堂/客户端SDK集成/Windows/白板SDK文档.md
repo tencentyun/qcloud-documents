@@ -55,10 +55,7 @@ HWND boardHWnd = boardSDk->getRenderWindow();
 ```C++
 ShowWindow(hWnd, SW_SHOW);
 ```
-
 将白板显示出来或者使用其他代码将白板插入父窗口。
-
-
 
 
 ### 2.3 指定绘制工具及属性
@@ -144,9 +141,10 @@ boardSDk->remove();//删除选中图形
 boardSDk->uploadFile(filePath);//上传文件
 ```
 这里会将文件上传至默认的COS路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果
-
-
-
+如果想使用自己申请的COS存储地址，可以调如下接口设置：
+```C++
+boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
+```
 
 ### 2.7 添加PPT（以PPT为例）
 
@@ -197,6 +195,8 @@ public:
     uint32_t onGetTime() override;
     void onGetBoardData(bool bResult) override;
     void onReportBoardData(const int code, const char * msg) override;
+    void onUploadResult(bool success, int code, const wchar_t* objName, const wchar_t*  fileName) override;
+	void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount) override;
 };
 
 MyCallback myCallback;
