@@ -19,7 +19,6 @@ CLS provides the following features:
 
 - Log Shipper: You can ship the specified logs to other cloud products to meet storage or other computing needs, for example, ship a log to a specified COS bucket to manage its lifecycle and meet the need for log audit.
 
-![](https://mc.qcloudimg.com/static/img/a51bd8e655a9d8e17b93300b68170f9f/image.png)
 
 ### Log Collection
 
