@@ -136,12 +136,14 @@ boardSDk->remove();//删除选中图形
 ### 2.6 上传文档
 
 用户想使用PPT，可先上传到腾讯云对象存储COS。白板内部集成了COSSDK
+开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
+
 使用如下接口可以将ppt上传至COS：
 ```C++
 boardSDk->uploadFile(filePath);//上传文件
 ```
-这里会将文件上传至默认的COS路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果
-如果想使用自己申请的COS存储地址，可以调如下接口设置：
+这里会将文件上传至公共账号的COS路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果
+如果想使用自己申请的COS账号存储地址，可以调如下接口设置：
 ```C++
 boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```
