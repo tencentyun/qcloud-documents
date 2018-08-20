@@ -220,7 +220,7 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 @end
 ```
 
-文档的上传下载相关接口参见 `TXBoardSDK/TXFileManager.h` 类。
+文档的上传下载相关接口详见 [TXBoardSDK 文档](/document/product/680/17890)的文档上传下载部分。
 
 ### 2.5 登录/登出
 初始化完成之后，因为涉及到 IM 消息的收发，所以必须先登录：
@@ -363,7 +363,7 @@ TICSDK 中只有一个关于白板的接口，就是添加一个白板视图对�
 ```
 该方法只是将传进来的白板视图参数与 TICSDK 进行了绑定（但是不会强引用），将 boardView 的代理对象设置为了 TICManager，并实现了其代理方法，外部无需关心。
 
-开发者使用时，应该创建一个 boardView 对象，并将其添加到 TICManager 中（同时只能添加一个，重复添加以后添加的为准），然后直接调用 TXBoardView 中的接口来操作白板即可，详见 [TXBoardView 白板 SDK 使用手册](/document/product/680/17890)。
+开发者使用时，应该创建一个 boardView 对象，并将其添加到 TICManager 中（同时只能添加一个，重复添加以后添加的为准），然后直接调用 TXBoardView 中的接口来操作白板即可，详见 [TXBoardSDK 文档](/document/product/680/17890)。
 
 
 ### 2.8 IM 相关操作
