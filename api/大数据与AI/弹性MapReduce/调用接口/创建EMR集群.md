@@ -14,6 +14,7 @@
 
 | 参数名称 | 是否必选 | 类型 | 描述 |
 | --------|---------|------|------|
+| ProjectId | 是 | Uint | 项目ID 可以在账户信息，项目管理中查看|
 | ProductId | 是 | Uint | EMR 版本 ID|
 | ZoneId | 是 | Uint | 所在地域可用区 ID |
 | VpcId | 是 | String | 创建 EMR 集群所在的私有网络 vpcId， vpc-xxxxx 格式 |
