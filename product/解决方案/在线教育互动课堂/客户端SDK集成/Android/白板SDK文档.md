@@ -170,8 +170,7 @@ COS 为 腾讯云对象存储，如果您的 App 中需要用到上传图片、�
 | 2.SDK 默认使用大账号模式，不需额外代码配置； |2.成功后调用setCosConfig接口进行初始化和设置|
 
 * 如果您是新用户，我们推荐使用大账号模式；
-* 如果您决定使用私有账号模式，请确保按照[开通对象存储服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1)指引配置COS 账号，调用**setCosConfig**接口设置配置信息后使用。
-
+* 如果您使用私有账号模式，请确保按照[开通对象存储服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1)指引配置COS 账号，调用**setCosConfig**接口设置配置信息后使用。
 
 
 #### 多终端交互
