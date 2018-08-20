@@ -31,7 +31,7 @@
 ![](https://main.qcloudimg.com/raw/10c3b4e303786fd1ed2b9963d1a568f8.png)
 
 ### 完成迁移
-校验通过后，返回迁移任务列表，待增量同步完成100%%，单击迁移任务右侧【完成】，方可完成迁移任务。
+校验通过后，返回迁移任务列表，待增量同步完成100%，单击迁移任务右侧【完成】，方可完成迁移任务。
 ![](https://main.qcloudimg.com/raw/3a5c7ec0dcabba56401815f2db8e9376.png)
 完成迁移。
 ![](https://main.qcloudimg.com/raw/54a9916ca7997a475cd4596ea1a61aab.png)
