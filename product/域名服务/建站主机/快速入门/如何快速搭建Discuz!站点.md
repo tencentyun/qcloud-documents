@@ -1,7 +1,7 @@
 下文介绍如何基于建站主机快速搭建 Discuz! 站点。
 
-### 1. 获取FTP信息
-点击主机ID进入主机管理页面，可获取FTP和MYSQL地址、用户名，用户可在此处重置密码。
+### 1. 获取 FTP 信息
+点击主机 ID 进入主机管理页面，可获取 FTP 和 MySQL 地址、用户名，用户可在此处重置密码。
 ![](https://main.qcloudimg.com/raw/78d6e646e8e503f824c5d7e83d8e384c.png)
 
 ### 2. 下载 Discuz! 安装包
