@@ -33,36 +33,36 @@
 
 | 参数名    | 必选 | 类型     | 参数说明                                     |
 | ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                   |
-| image  | 否   |  binary/string | 图片文件 或 图片 base64                                   |
-| url    | 否   | string | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入 |
+| appid  | 是   | String | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                   |
+| image  | 否   |  Binary/String | 图片文件 或 图片 base64                                   |
+| url    | 否   | String | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入 |
 
 ## 返回内容
 
 | 字段              | 类型          | 说明                |
 | --------------- | ----------- | ----------------- |
-| data.session_id | string      | 相应请求的 session 标识符 |
-| data.items      | array(item) | 识别出的所有字段信息        |
-| code            | int         | 错误码               |
-| message         | string      | 错误描述              |
+| data.session_id | String      | 相应请求的 session 标识符 |
+| data.items      | Array(item) | 识别出的所有字段信息        |
+| code            | Int         | 错误码               |
+| message         | String      | 错误描述              |
 
 item 说明：
 
 | 字段         |   &nbsp;     | 类型          | 说明          |
 | ---------- | ------ | ----------- | ----------- |
-| itemstring | &nbsp;       | string      | 字段内容        |
-| itemcoord  | x      | int         | item 框左上角 x |
-|     &nbsp;       | y      | int         | item 框左上角 y |
-|     &nbsp;       | width  | int         | item 框宽度    |
-|    &nbsp;        | height | int         | item 框高度    |
-| words      |    &nbsp;    | array(word) | 每个字的信息      |
+| itemstring | &nbsp;       | String      | 字段内容        |
+| itemcoord  | x      | Int         | item 框左上角 x |
+|     &nbsp;       | y      | Int         | item 框左上角 y |
+|     &nbsp;       | width  | Int         | item 框宽度    |
+|    &nbsp;        | height | Int         | item 框高度    |
+| words      |    &nbsp;    | Array(word) | 每个字的信息      |
 
 words 说明：
 
 | 字段         | 类型     | 说明                      |
 | ---------- | ------ | ----------------------- |
-| character  | string | 单字的内容                   |
-| confidence | float  | 这个字的置信度,取值范围[0,100] |
+| character  | String | 单字的内容                   |
+| confidence | Float  | 这个字的置信度,取值范围 [0,100] |
 
 ## 请求示例
 

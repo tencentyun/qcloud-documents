@@ -103,13 +103,6 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效。  	|
 
 
-**COS 相关**
-
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| setCosConfig                   	| 白板使用了 COS 服务用来存储课堂文件，如白板背景、PPT 资源等。在使用白板功能时，务必请先调用此接口，以便正常工作。  	|
-
-
 其中**设置背景色**接口：
 
 ```java
@@ -160,9 +153,26 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
      * @param callBack 结果回调
      */
     void setBoardBackGround(final String filePath, final FillMode fillMode, final String boardId, final IWbCallBack<String> callBack);
-
-
 ```
+
+**COS 相关**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| setCosConfig                   	| 白板使用了 COS 服务用来存储课堂文件，如白板背景、PPT 资源等。在使用白板功能时，务必请先调用此接口，以便正常工作。  	|
+
+COS 为 腾讯云对象存储，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS ，白板SDK 会将调用SDK 接口上传的图片，文件上传到 COS 的存储桶中。
+白板SDK提供两种使用COS 服务能力的方式，一种是**大账号模式**，一种是**私有账号模式**，对比如下：
+
+| 大账号模式                                 | 私有账号模式                                        |
+| ---------------------------------------- | ---------------------------------------- |
+| 1.仅需提供sdkappid申请开通白名单即可使用，方便快捷；| 1.用户须自行开通和配置COS 服务，并须联系商务开通预览服务；|
+| 2.SDK 默认使用大账号模式，不需额外代码配置； |2.成功后调用setCosConfig接口进行初始化和设置|
+
+* 如果您是新用户，我们推荐使用大账号模式；
+* 如果您使用私有账号模式，请确保按照[开通对象存储服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1)指引配置COS 账号，调用**setCosConfig**接口设置配置信息后使用。
+
+
 #### 多终端交互
 | 接口        | 说明                           |
 | --------- | ---------------------------- |
