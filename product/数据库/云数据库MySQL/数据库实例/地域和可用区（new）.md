@@ -83,11 +83,9 @@
 		</tr>
 		<tr>
 			<td rowspan="2">美国西部（硅谷）<br>na-siliconvalley</td>
-			<tr>
-				<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
-			</tr>
-			<tr>
-				<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
+			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+		     <tr>
+			<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
 			</tr>
 		</tr>
 		<tr>
