@@ -18,4 +18,3 @@ Collection configuration is the configuration with which logs are collected usin
 
 Server group is a list of servers that need to collect logs.
 
-![](https://mc.qcloudimg.com/static/img/e9ce86fd654e725d2e2de59b69a93b76/image.png)
