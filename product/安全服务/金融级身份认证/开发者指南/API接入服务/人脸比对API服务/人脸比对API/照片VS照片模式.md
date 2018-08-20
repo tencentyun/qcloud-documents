@@ -1,7 +1,11 @@
 照片 VS 照片比对模式，需要合作方上送用户的高清照和比对照片。在该模式下，系统通过两张照片的比对，返回两张照片相似度得分。
-请求 URL：`https://ida.webank.com/api/paas/easycompare`
-请求方法：POST
-报文格式：Content-Type: application/json
+**请求 URL：**
+
+```
+https://ida.webank.com/api/paas/easycompare
+```
+**请求方法：**POST
+**报文格式：**Content-Type: application/json
 ## 请求参数
 | 参数             | 说明                   | 类型   | 长度（字节） | 是否必填 |
 | ---------------- | -------------------- | ----- | ---- | --- |

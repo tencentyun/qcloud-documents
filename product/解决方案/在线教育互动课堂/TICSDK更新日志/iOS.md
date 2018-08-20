@@ -1,3 +1,40 @@
+## [1.2.1] - 2018-08-20
+### 变更
+1. TXBoardView.framework 更改为 TXBoardSDK.framework
+2. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
+3. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
+
+```objc
+/**
+ 上传图片
+ */
+- (void)uploadImage:(NSString *)imagePath succ:(TXSuccBlock)succ failed:(TXFailBlock)failed;
+
+/**
+ 下载图片
+ */
+- (void)downloadImage:(NSString *)imageURL succ:(void (^)(UIImage *image))succ failed:(TXFailBlock)failed;
+```
+
+### 新增
+1. SDK 提供公共 COS 账户，无需客户自行申请配置 COS 账号
+2. 白板增加缩放拖拽功能（本地操作）
+
+```objc
+> TXBoardCommon.h
+
+/** 白板工具类型 */
+typedef NS_ENUM(NSInteger, TXBoardBrushModel)
+{
+    ...
+    TXBoardBrushModelTransform      // 缩放(双指)/移动(单指)
+};
+
+```
+
+### 优化
+1. 优化涂鸦画线策略，使涂鸦更加平滑
+
 ## [1.2.0] - 2018-08-03
 ### 新增
 1. TICSDK 增加文档上传转码功能；
@@ -52,6 +89,8 @@
 3. 在线课堂线上音视频互动；
 4. 数字白板功能；
 5. 课堂 IM 消息互动。
+
+
 
 
 

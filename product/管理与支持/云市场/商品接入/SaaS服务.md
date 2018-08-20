@@ -4,7 +4,7 @@
 ![](//mc.qcloudimg.com/static/img/f24a8d9f78e42966936d94ba8c707533/image.jpg)  
 
 2.上架操作    
-2.1.参考[《云市场软件服务接入-SaaS商品自动交付接入方案》](https://main.qcloudimg.com/raw/b18893071ab30ae3934daee3f19c33ef.pdf)开发 API 接口  
+2.1.参考[《云市场软件服务接入-SaaS商品自动交付接入方案》](https://main.qcloudimg.com/raw/fe02e53747346320763c5e178fc53e54.pdf)开发 API 接口  
 按文档完成“开发-基本配置”中 URL 和 Token 的填写和 API 接口开发。  
 ![](//mc.qcloudimg.com/static/img/193fd0fe1e9ea2f2041ce57cd2c8d380/image.png)  
 2.2.登录[云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)   

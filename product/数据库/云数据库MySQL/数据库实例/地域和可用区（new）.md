@@ -50,7 +50,7 @@
 			<td rowspan="2">华北地区（北京）<br>ap-beijing</td>
 			<td>北京一区<br>ap-beijing-1</td>
 		</tr>
-			<tr>
+		    <tr>
 			<td>北京二区<br>ap-beijing-2</td>
 		   </tr>
 		</tr>
@@ -82,10 +82,10 @@
 			<td>多伦多一区（多伦多节点可用于覆盖北美地区）<br>na-toronto-1</td>
 		</tr>
 		<tr>
-			<td>美国西部（硅谷）<br>na-siliconvalley</td>
-			<tr>
-				<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
-				<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
+			<td rowspan="2">美国西部（硅谷）<br>na-siliconvalley</td>
+			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+		     <tr>
+			<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
 			</tr>
 		</tr>
 		<tr>

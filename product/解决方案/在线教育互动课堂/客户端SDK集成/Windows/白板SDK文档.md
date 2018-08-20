@@ -55,10 +55,7 @@ HWND boardHWnd = boardSDk->getRenderWindow();
 ```C++
 ShowWindow(hWnd, SW_SHOW);
 ```
-
 将白板显示出来或者使用其他代码将白板插入父窗口。
-
-
 
 
 ### 2.3 指定绘制工具及属性
@@ -136,7 +133,22 @@ boardSDk->remove();//删除选中图形
 
 以上复制及删除操作支持撤销重做。
 
-### 2.6 添加PPT（以PPT为例）
+### 2.6 上传文档
+
+用户想使用PPT，可先上传到腾讯云对象存储COS。白板内部集成了COSSDK
+开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
+
+使用如下接口可以将ppt上传至COS：
+```C++
+boardSDk->uploadFile(filePath);//上传文件
+```
+这里会将文件上传至公共账号的COS路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果
+如果想使用自己申请的COS账号存储地址，可以调如下接口设置：
+```C++
+boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
+```
+
+### 2.7 添加PPT（以PPT为例）
 
 用户首先需要将PPT上传到腾讯云对象存储COS（或者其他存储系统），获取到PPT每一页转码后的图片URL链接。
 
@@ -173,7 +185,7 @@ boardSDk->remove();//删除选中图形
 
 若要删除PPT，调用 deleteFile 接口，传入文件对应的fid即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板ID也应该对应删除
 
-### 2.7 SDK回调
+### 2.8 SDK回调
 白板SDK通过回调接口通知用户SDK内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置SDK回调：
 
 ```C++
@@ -185,6 +197,8 @@ public:
     uint32_t onGetTime() override;
     void onGetBoardData(bool bResult) override;
     void onReportBoardData(const int code, const char * msg) override;
+    void onUploadResult(bool success, int code, const wchar_t* objName, const wchar_t*  fileName) override;
+	void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount) override;
 };
 
 MyCallback myCallback;
@@ -193,7 +207,7 @@ boardSDk->setCallback(&myCallback);
 
 其中`onGetTime`接口用于供白板SDK获取统一的时间戳，白板SDK内部对所有操作的排序都依靠该接口保证先后顺序，您必须在该接口中返回尽可能准确且多端统一的时间戳，精度至少为秒。（时间戳多端不统一一般也不会造成太大问题，但极端情况下可能导致多端显示内容存在细微差异）
 
-### 2.8 撤销及重做
+### 2.9 撤销及重做
 白板SDK支持操作的撤销及重做，任何时候可以使用如下代码进行撤销或重做操作：
 
 ```C++
@@ -203,7 +217,7 @@ boardSDk->redo();//重做
 
 如果当前已经没有操作可撤销或者重做，则调用无效，不会产生其他负面效果。对于当前是否存在操作可撤销或重做，SDK将会在用户进行操作后通过回调`onStatusChanged`返回通知，其中`canUndo`参数指示当前是否存在可撤销操作，`canRedo`参数指示当前是否存在可重做操作。
 
-### 2.9 多白板状态同步
+### 2.10 多白板状态同步
 
 课堂中，老师对白板的操作，涂鸦、图片、PPT、撤销、清空等操作需要上报到后台，并进行存储，这样后面中途加入课堂的成员就能拉取之前的白板数据进行展示。
 

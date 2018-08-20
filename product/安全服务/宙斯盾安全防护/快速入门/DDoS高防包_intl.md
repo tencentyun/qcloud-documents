@@ -1,6 +1,6 @@
 # **Getting Started with DDoS High-defense Packet** #
 Below is the flow chart of Tencent Cloud Aegis Anti-DDoS high-defense packet:
-![](https://main.qcloudimg.com/raw/26e2bab63e6df5395036522b50b3cfd4.png)
+![](https://main.qcloudimg.com/raw/7029e392a6f9242894bea188961a296b.png)
 ## **I. Preparation and Selection** 
 1. Sign up for a Tencent Cloud account
 New user needs to **sign up** at [Tencent Cloud's official website](https://cloud.tencent.com/) and purchase Aegis Anti-DDoS. For more information, see [Signing up with Tencent Cloud](https://cloud.tencent.com/document/product/378/9603) and [Purchase Guide]() for Aegis Anti-DDoS.
