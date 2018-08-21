@@ -1,6 +1,6 @@
 ## 1. TXBoardView 简介
 
-`TXBoardView.framework`是一个实现了基本白板功能的 UIView 扩展组件，提供了包括画笔、橡皮擦、背景图、标准图形、移动涂鸦和多白板实例等功能。
+`TXBoardSDK.framework`是一个实现了基本白板功能的组件，提供了包括画笔、橡皮擦、背景图、标准图形、移动涂鸦和文档展示等功能。
 除了以上的本地白板功能之外，白板SDK还提供了网络多终端互通的扩展能力。
 
 > **注意：**TICSDK 中已经包含了白板 SDK，开发者无需单独集成，也不需要关心代理设置，协议方法，白板数据传输和同步等逻辑，这些功能已经在 TICSDK 内部实现，开发者只需要创建白板对象，并调用白板对象的相应接口来操作白板即可。
@@ -35,10 +35,6 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithFrame:frame];
 
 - (void)sendMessage:(NSDictionary *)message;
 
-- (void)uploadImage:(NSString *)imagePath succ:(TXSuccBlock)succ failed:(TXFailBlock)failed;
-
-- (void)downloadImage:(NSString *)imageURL succ:(TXSuccBlock)succ failed:(TXFailBlock)failed;
-
 - (uint32_t)getTimestamp;
 
 - (TXBoardDataConfig *)getBoardDataConfig;
@@ -54,8 +50,6 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithFrame:frame];
 sendMessage: | 向网络中其他白板终端发送协议数据，开发者可以透传 NSDictionary 的 json 字符串
 getTimestamp | 获取秒级的时间戳，在多终端白板互通场景下使用服务器时间
 getBoardDataConfig | 获取白板所需外部参数，包含 sdkAppId、uid、userSig、roomID
-uploadImage:succ:failed | 上传指定路径上的图片文件，返回下载 url
-downloadImage:succ:failed | 下载指定 url 的图片文件，返回数据
 
 
 ### 2.3 选择白板的画笔状态
@@ -81,6 +75,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
     TXBoardBrushModelRoundFill,     //实心正圆
     TXBoardBrushModelRectangle,     //矩形
     TXBoardBrushModelRectangleFill, //实心矩形
+    TXBoardBrushModelTransform      // 缩放(双指)/移动(单指)
 };
 
 @interface TXBoardView : UIView
@@ -165,6 +160,16 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 - (NSArray<NSString *> *)boardList;
 
+#pragma mark - 文档
+
+- (NSString *)addFile:(NSArray *)urls fileName:(NSString *)fileName;
+
+- (int)deleteFile:(NSString *)fid stayBoardID:(NSString *)stayBoardID;
+
+- (NSArray *)getBoardIDsWithFid:(NSString *)fid;
+
+- (NSArray *)getAllFileInfo;
+
 #pragma mark - 数据
 
 - (void)recvBoardViewData:(NSArray<NSDictionary *> *)data;
@@ -204,7 +209,7 @@ getBGImageURL: | 获取BoardId对应白板当前显示的背景图片
 saveToAlbumWithFinish: | 将白板当前内容截图，保存到本地相册
 
 
-**创建多个白板的接口：**
+**多白板及文档：**
 
 接口 | 说明
 ---|---
@@ -213,6 +218,10 @@ createSubBoard | 创建一个内部白板实例，返回标识 ID；创建白板
 switchToSubBoard | 切换当前白板的展示内容，返回切换结果。
 deleteSubBoard:stayBoard: | 删除一系列白板实例，指定当前白板展示内容，返回结果；SDK 不允许删除 #DEFAULT 的白板实例。
 boardList | 返回所有白板 ID 数组。
+addFile:fileName: |  添加文档
+deleteFile:stayBoardID: |  删除文档
+getBoardIDsWithFid: |  获取文档对应的所有boardID
+getAllFileInfo | 获取所有文档信息(包括普通白板组)
 
 **数据的接收与同步：**
 

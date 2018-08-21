@@ -175,15 +175,15 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ```
 初始化方法很简单，但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
-### 2.4 COS配置
+### 2.4 COS配置及文档上传下载
 COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到 COS 的存储桶中。
 
 开发者可以使用我们维护的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
 
-具体接口如下：
+具体接口如下（COS文档相关操作封装于TXBoardSDK的TXFileManager类中）：
 
 ```objc
-> TXCFileManager.h
+> TXBoardSDK/TXFileManager.h
 
 /**
  @brief 初始化COS（使用COS上传文件前必须先初始化）
@@ -219,6 +219,8 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 
 @end
 ```
+
+文档的上传下载相关接口参见 `TXBoardSDK/TXFileManager.h` 类。
 
 ### 2.5 登录/登出
 初始化完成之后，因为涉及到 IM 消息的收发，所以必须先登录：
