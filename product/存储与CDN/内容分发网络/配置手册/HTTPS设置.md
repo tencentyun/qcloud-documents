@@ -21,7 +21,7 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 ![](https://main.qcloudimg.com/raw/19b5892f7cf04b93e37f63eef75a94d8.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
 >**说明：**
->file.myqcloud.com 后缀域名暂不支持 http2.0。
+>.file.myqcloud.com 后缀域名暂不支持 http2.0。
 
 ## HTTPS 回源支持的算法
 目前 HTTPS 回源可支持的算法如下表所示（顺序无先后之分）：
