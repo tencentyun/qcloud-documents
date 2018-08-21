@@ -83,31 +83,13 @@ $appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
 
 // 需要发送短信的手机号码
 $phoneNumbers = ["21212313123", "12345678902", "12345678903"];
-
+//templateId7839对应的内容是"您的验证码是: {1}"
 // 短信模板ID，需要在短信应用中申请
 $templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
 
 $smsSign = "腾讯云"; // NOTE: 这里的签名只是示例，请使用真实的已申请的签名，签名参数使用的是`签名内容`，而不是`签名ID`
 ```
 
-- **单发短信**
-
-```php
-use Qcloud\Sms\SmsSingleSender;
-
-try {
-    $ssender = new SmsSingleSender($appid, $appkey);
-    $result = $ssender->send(0, "86", $phoneNumbers[0],
-        "【腾讯云】您的验证码是: 5678", "", "");
-    $rsp = json_decode($result);
-    echo $result;
-} catch(\Exception $e) {
-    echo var_dump($e);
-}
-```
-
-> 如需发送国际短信，同样可以使用此接口，只需将国家码 86 改写成对应国家码号。
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板 ID 单发短信**
 
@@ -116,27 +98,9 @@ use Qcloud\Sms\SmsSingleSender;
 
 try {
     $ssender = new SmsSingleSender($appid, $appkey);
-    $params = ["5678"];
+    $params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     $result = $ssender->sendWithParam("86", $phoneNumbers[0], $templateId,
         $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
-    $rsp = json_decode($result);
-    echo $result;
-} catch(\Exception $e) {
-    echo var_dump($e);
-}
-```
-
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
-
-- **群发短信**
-
-```php
-use Qcloud\Sms\SmsMultiSender;
-
-try {
-    $msender = new SmsMultiSender($appid, $appkey);
-    $result = $msender->send(0, "86", $phoneNumbers,
-        "【腾讯云】您的验证码是: 5678", "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
@@ -154,7 +118,7 @@ use Qcloud\Sms\SmsMultiSender;
 
 try {
     $msender = new SmsMultiSender($appid, $appkey);
-    $params = ["5678"];
+    $params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     $result = $msender->sendWithParam("86", $phoneNumbers,
         $templateId, $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     $rsp = json_decode($result);
@@ -309,7 +273,7 @@ use Qcloud\Sms\TtsVoiceSender;
 
 try {
     $templateId = 1013;
-    $params = ["54321"];
+    $params = ["54321"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:54321对应一个变量，参数数组中元素个数也必须是一个
     $tvsender = new TtsVoiceSender($appid, $appkey);
     $result = $tvsender->send("86", $phoneNumbers[0], $templateId, $params);
     $rsp = json_decode($result);
