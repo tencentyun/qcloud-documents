@@ -17,7 +17,7 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 ![](https://main.qcloudimg.com/raw/8ccfdda9898a09a95d702e9162ff95d6.png)
 
 ## HTTP2.0 配置
-获得 HTTP2.0 内测资格的用户，在成功为域名配置了 HTTPS 证书后，可以开启 HTTP2.0。
+在成功为域名配置了 HTTPS 证书后，可以开启 HTTP2.0。
 ![](https://main.qcloudimg.com/raw/19b5892f7cf04b93e37f63eef75a94d8.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
 >**说明：**
