@@ -3,7 +3,7 @@
 ### 数据导入说明
 云数据库Redis-CKV引擎提供数据导入工具(linux 版本) [redis-import-rdb](https://main.qcloudimg.com/raw/25498ce81e795a84640f7c0406220bc4)，工具支持导入Redis 4.0以及4.0版本以下的RDB数据，数据的导入流程步骤分为三步：
 
-- 通过BGSAVE或者SAVE命令生成RDB文件，推进适用BGSAVE命令备份数据，因为SAVE命令会在完成备份前会使整个Redis服务不可用；
+- 通过BGSAVE或者SAVE命令生成RDB文件，推荐使用BGSAVE命令备份数据，因为SAVE命令会在完成备份前会使整个Redis服务不可用；
 - 清空目标实例，可用通过云数据库Redis控制台右上角的【清空实例】按钮清空实例数据，如果不清空目标实例，数据导入会失败；
 - 使用redis-import-rdb工具导入RDB文件中的数据，工具参数说明如下：
 
@@ -38,6 +38,3 @@
   <code>
    ./redis-migration -sip 192.168.1.1 -sport 6379 -sauth 123456 -dip 192.168.1.2 -dport 6379 -dauth 654321 -client 200 
   </code>
-
-### 数据迁移原理说明
-[img](http://xx.com)
