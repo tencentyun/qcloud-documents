@@ -70,7 +70,7 @@
 
 
 
-[setting.xml 样例文件下载 >>](https://main.qcloudimg.com/raw/19d0e939ef0e30d8a3ec0591430d5bd7/settings.xm)
+[setting.xml 样例文件下载 >>](https://main.qcloudimg.com/raw/19d0e939ef0e30d8a3ec0591430d5bd7/settings.xml)
 
 ## 验证配置是否成功
 
