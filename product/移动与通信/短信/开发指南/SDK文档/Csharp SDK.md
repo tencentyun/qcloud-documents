@@ -92,43 +92,10 @@ string[] phoneNumbers = {"21212313123", "12345678902", "12345678903"};
 
 // 短信模板ID，需要在短信应用中申请
 int templateId = 7839; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-
+//templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
 string smsSign = "腾讯云"; // NOTE: 这里的签名只是示例，请使用真实的已申请的签名, 签名参数使用的是`签名内容`，而不是`签名ID`
 ```
-
-- **单发短信**
-
-```csharp
-using qcloudsms_csharp;
-using qcloudsms_csharp.json;
-using qcloudsms_csharp.httpclient;
-
-using System;
-
-try
-{
-    SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
-    var result = ssender.send(0, "86", phoneNumbers[0],
-        "【腾讯云】您的验证码是: 5678", "", "");
-    Console.WriteLine(result);
-}
-catch (JSONException e)
-{
-    Console.WriteLine(e);
-}
-catch (HTTPException e)
-{
-    Console.WriteLine(e);
-}
-catch (Exception e)
-{
-    Console.WriteLine(e);
-}
-```
-
-> 如需发送国际短信，同样可以使用此接口，只需将国家码 86 改写成对应国家码号
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
 - **指定模板 ID 单发短信**
@@ -163,37 +130,6 @@ catch (Exception e)
 
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发短信**
-
-```csharp
-using qcloudsms_csharp;
-using qcloudsms_csharp.json;
-using qcloudsms_csharp.httpclient;
-
-using System;
-
-try
-{
-    SmsMultiSender msender = new SmsMultiSender(appid, appkey);
-    var result = msender.send(0, "86", phoneNumbers,
-        "【腾讯云】您的验证码是: 5678", "", "");
-    Console.WriteLine(result);
-}
-catch (JSONException e)
-{
-    Console.WriteLine(e);
-}
-catch (HTTPException e)
-{
-    Console.WriteLine(e);
-}
-catch (Exception e)
-{
-    Console.WriteLine(e);
-}
-```
-
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板ID群发**
 
@@ -453,7 +389,7 @@ using System;
 try
 {
     int templateId = 45221;
-    string[] parameters = { "5678" };
+    string[] parameters = { "5678" };//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个。
     TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
     TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
         templateId, parameters, 2, "");
