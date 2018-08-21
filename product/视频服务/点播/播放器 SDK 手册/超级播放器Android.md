@@ -139,14 +139,9 @@ fileId在一般是在视频上传后，由服务器返回：
 
 ## 切换视频
 
-播放器播放另一个视频，调用`setPlayUrl`即可
-
+播放器播放另一个视频，调用`playWithMode`即可
 ```java
-String url = "http://1252463788.vod2.myqcloud.com/xxx/yyy/v.f20.mp4";
-if (mSuperVideoPlayer != null) {
-    mSuperVideoPlayer.updateUI("新播放的视频");
-    mSuperVideoPlayer.setPlayUrl(url);
-}
+mSuperPlayerView.playWithMode(superPlayerModel);
 ```
 
 ## 移除播放器

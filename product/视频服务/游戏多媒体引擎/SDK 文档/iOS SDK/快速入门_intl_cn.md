@@ -18,10 +18,8 @@ GME 快速入门文档只提供最主要的接入接口，更多详细接口请�
 |Poll    		|触发事件回调	|
 |SetDefaultAudienceAudioCategory 	|设置后台|
 |EnterRoom	 	|进房  		|
-|EnableAudioCaptureDevice	 	|开关采集设备 	|
-|EnableAudioSend		|打开关闭音频上行 	|
-|EnableAudioPlayDevice    			|开关播放设备		|
-|EnableAudioRecv    					|打开关闭音频下行	|
+|EnableMic	 		|开麦克风 		|
+|EnableSpeaker		|开扬声器 		|
 
 **说明：**
 ** GME 的接口调用成功后返回值为 QAVError.OK，数值为 0。**
@@ -133,79 +131,37 @@ ITMGContext   -(void)EnterRoom:(int) roomID roomType:(int*)roomType authBuffer:(
 }
 ```
 
-### 6、开启关闭采集设备
-此接口用来开启/关闭采集设备。加入房间默认不打开设备。
-- 只能在进房后调用此接口，退房会自动关闭设备。
-- 在移动端，打开采集设备通常会伴随权限申请，音量类型调整等操作。
+### 6、开启关闭麦克风
+此接口用来开启关闭麦克风。加入房间默认不打开麦克风及扬声器。
 
 ####  函数原型  
 ```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioCaptureDevice:(BOOL)enabled
+ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| enabled    |BOOL     |如果需要打开采集设备，则传入的参数为 YES，如果关闭采集设备，则参数为 NO|
-
-#### 示例代码  
-
+| isEnabled    |boolean     |如果需要关闭麦克风，则传入的参数为 NO，如果打开麦克风，则参数为 YES|
+####  示例代码   
 ```
-打开采集设备
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioCaptureDevice:enabled];
+[[[ITMGContext GetInstance] GetAudioCtrl] EnableMic:YES];
 ```
 
 
-### 7、打开关闭音频上行
-此接口用于打开/关闭音频上行。如果采集设备已经打开，那么会发送采集到的音频数据。如果采集设备没有打开，那么仍旧无声。采集设备的打开关闭参见接口 EnableAudioCaptureDevice。
+### 7、开启关闭扬声器
+此接口用于开启关闭扬声器。
 
-#### 函数原型
-
+####  函数原型 
 ```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioSend:(BOOL)enable
+ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| enable    |BOOL     |如果需要打开音频上行，则传入的参数为 YES，如果关闭音频上行，则参数为 NO|
-
-#### 示例代码  
-
+| isEnabled    |boolean       |如果需要关闭扬声器，则传入的参数为 NO，如果打开扬声器，则参数为 YES|
+####  示例代码
 ```
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioSend:enabled];
+[[[ITMGContext GetInstance] GetAudioCtrl] EnableSpeaker:YES];
 ```
 
-### 8、开启关闭播放设备
-此接口用于开启关闭播放设备。
-#### 函数原型  
-
-```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioPlayDevice:(BOOL)enabled
-```
-|参数     | 类型         |意义|
-| ------------- |:-------------:|-------------|
-| enabled    |BOOL        |如果需要关闭播放设备，则传入的参数为 NO，如果打开播放设备，则参数为 YES|
-#### 示例代码
-
-```
-打开播放设备
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioPlayDevice:enabled];
-```
-
-### 9、打开关闭音频下行
-此接口用于打开/关闭音频下行。如果播放设备已经打开，那么会播放房间里其他人的音频数据。如果播放设备没有打开，那么仍旧无声。播放设备的打开关闭参见接口 参见EnableAudioPlayDevice。
-
-#### 函数原型  
-
-```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioRecv:(BOOL)enabled
-```
-|参数     | 类型         |意义|
-| ------------- |:-------------:|-------------|
-| enabled    |BOOL     |如果需要打开音频下行，则传入的参数为 YES，如果关闭音频下行，则参数为 NO|
-
-#### 示例代码  
-
-```
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioRecv:enabled];
-```
 
 ## 关于鉴权
 ### 实时语音鉴权信息

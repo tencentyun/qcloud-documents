@@ -2,15 +2,14 @@
 每个地域（region）都是一个独立的地理区域。每个地域内都有多个相互隔离的位置，称为可用区（zone）。地域可用区名称是对机房覆盖范围最直接的代言，为了让地域可用区名称便于客户理解，地域命名采取【覆盖范围＋机房所在城市】的结构。前半段表示该机房的覆盖能力，后半段表示该机房所在或临近的城市，可用区命名采用【城市 + 编号】的结构。每个可用区都是独立的，但同一地域下的可用区通过低时延的内网链路相连。
 腾讯云支持用户在不同位置分配云资源，建议用户在设计系统时考虑将资源放置在不同可用区以屏蔽单点故障导致的服务不可用状态。
 地域（region）和可用区（zone）构成：
+## 中国大陆区域
 <table class="table-striped">
 	<tbody>
 		<tr>
-			<th>&nbsp;</th>
 			<th>地域（region）</th>
 			<th>可用区（zone）</th>
 		</tr>
 		<tr>
-			<td rowspan="13">中国大陆区域</td>
 			<td rowspan="3">华南地区（广州）<br> ap-guangzhou</td>
 			<td>广州一区（售罄）<br> ap-guangzhou-1</td>
 		</tr>
@@ -22,7 +21,7 @@
 		</tr>
 		<tr>
 			<td rowspan="2">华南地区（深圳金融）<br>ap-shenzhen-fsi
-</td>
+        </td>
 			<td>深圳金融一区（仅限金融机构和企业提工单申请开通）<br>ap-shenzhen-fsi-1</td>
 			</tr>
 			<tr>
@@ -50,7 +49,7 @@
 			<td rowspan="2">华北地区（北京）<br>ap-beijing</td>
 			<td>北京一区<br>ap-beijing-1</td>
 		</tr>
-			<tr>
+		    <tr>
 			<td>北京二区<br>ap-beijing-2</td>
 		   </tr>
 		</tr>
@@ -59,9 +58,17 @@
 			<td rowspan="1">西南地区（成都）<br>ap-chengdu</td>
 			<td>成都一区<br>ap-chengdu-1</td>
 		</tr>
-		
+       </tbody>
+</table>
+
+## 国际区域
+<table class="table-striped">
+    <tbody>
+        <tr>
+			<th>地域（region）</th>
+			<th>可用区（zone）</th>
+		</tr>
 		<tr>
-			<td rowspan="4">国际区域</td>
 			<td>东南亚地区（香港）<br>ap-hongkong</td>
 			<td>香港一区（中国香港节点可用于覆盖东南亚地区）<br>ap-hongkong-1</td>
 		</tr>
@@ -82,10 +89,10 @@
 			<td>多伦多一区（多伦多节点可用于覆盖北美地区）<br>na-toronto-1</td>
 		</tr>
 		<tr>
-			<td>美国西部（硅谷）<br>na-siliconvalley</td>
-			<tr>
-				<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
-				<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
+			<td rowspan="2">美国西部（硅谷）<br>na-siliconvalley</td>
+			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+		     <tr>
+			<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
 			</tr>
 		</tr>
 		<tr>

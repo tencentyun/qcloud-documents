@@ -1,6 +1,6 @@
 ## 1. TXBoardView 简介
 
-`TXBoardView.framework`是一个实现了基本白板功能的 UIView 扩展组件，提供了包括画笔、橡皮擦、背景图、标准图形、移动涂鸦和多白板实例等功能。
+`TXBoardSDK.framework`是一个实现了基本白板功能的组件，提供了包括画笔、橡皮擦、背景图、标准图形、移动涂鸦和文档展示等功能。
 除了以上的本地白板功能之外，白板SDK还提供了网络多终端互通的扩展能力。
 
 > **注意：**TICSDK 中已经包含了白板 SDK，开发者无需单独集成，也不需要关心代理设置，协议方法，白板数据传输和同步等逻辑，这些功能已经在 TICSDK 内部实现，开发者只需要创建白板对象，并调用白板对象的相应接口来操作白板即可。
@@ -35,10 +35,6 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithFrame:frame];
 
 - (void)sendMessage:(NSDictionary *)message;
 
-- (void)uploadImage:(NSString *)imagePath succ:(TXSuccBlock)succ failed:(TXFailBlock)failed;
-
-- (void)downloadImage:(NSString *)imageURL succ:(TXSuccBlock)succ failed:(TXFailBlock)failed;
-
 - (uint32_t)getTimestamp;
 
 - (TXBoardDataConfig *)getBoardDataConfig;
@@ -54,8 +50,6 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithFrame:frame];
 sendMessage: | 向网络中其他白板终端发送协议数据，开发者可以透传 NSDictionary 的 json 字符串
 getTimestamp | 获取秒级的时间戳，在多终端白板互通场景下使用服务器时间
 getBoardDataConfig | 获取白板所需外部参数，包含 sdkAppId、uid、userSig、roomID
-uploadImage:succ:failed | 上传指定路径上的图片文件，返回下载 url
-downloadImage:succ:failed | 下载指定 url 的图片文件，返回数据
 
 
 ### 2.3 选择白板的画笔状态
@@ -81,6 +75,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
     TXBoardBrushModelRoundFill,     //实心正圆
     TXBoardBrushModelRectangle,     //矩形
     TXBoardBrushModelRectangleFill, //实心矩形
+    TXBoardBrushModelTransform      // 缩放(双指)/移动(单指)
 };
 
 @interface TXBoardView : UIView
@@ -165,6 +160,16 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 - (NSArray<NSString *> *)boardList;
 
+#pragma mark - 文档
+
+- (NSString *)addFile:(NSArray *)urls fileName:(NSString *)fileName;
+
+- (int)deleteFile:(NSString *)fid stayBoardID:(NSString *)stayBoardID;
+
+- (NSArray *)getBoardIDsWithFid:(NSString *)fid;
+
+- (NSArray *)getAllFileInfo;
+
 #pragma mark - 数据
 
 - (void)recvBoardViewData:(NSArray<NSDictionary *> *)data;
@@ -204,7 +209,7 @@ getBGImageURL: | 获取BoardId对应白板当前显示的背景图片
 saveToAlbumWithFinish: | 将白板当前内容截图，保存到本地相册
 
 
-**创建多个白板的接口：**
+**多白板及文档：**
 
 接口 | 说明
 ---|---
@@ -213,6 +218,10 @@ createSubBoard | 创建一个内部白板实例，返回标识 ID；创建白板
 switchToSubBoard | 切换当前白板的展示内容，返回切换结果。
 deleteSubBoard:stayBoard: | 删除一系列白板实例，指定当前白板展示内容，返回结果；SDK 不允许删除 #DEFAULT 的白板实例。
 boardList | 返回所有白板 ID 数组。
+addFile:fileName: |  添加文档
+deleteFile:stayBoardID: |  删除文档
+getBoardIDsWithFid: |  获取文档对应的所有boardID
+getAllFileInfo | 获取所有文档信息(包括普通白板组)
 
 **数据的接收与同步：**
 
@@ -238,7 +247,109 @@ getBoardData:failed: | 拉取白板数据（加入课堂后，从服务器拉取
 **白板数据拉取（同步）：**
 每次进入课堂时，TICSDK 会拉取该课堂的所有历史白板消息，展示在白板上，该功能也已经在 TICSDK 内部实现，开发者无需自行实行。
 
-## 5. 白板文档功能
+## 5. 文档上传下载
+文档的上传下载封装于`TXFileManager.h`类中，该类内部封装了腾讯云对象存储COS V5版本（https://cloud.tencent.com/product/cos）。COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS，SDK 内部会将调用 SDK 接口上传的图片，文件上传到 COS 的存储桶中。
+
+### 配置COS
+由于，SDK内部文件管理是基于COS封装的，所以使用之前必须先配置一下COS。
+
+开发者可以使用我们维护的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
+
+具体接口如下：
+
+```objc
+> TXFileManager.h
+
+/**
+ @brief 初始化COS（使用COS上传文件前必须先初始化）
+
+ @param sdkAppID 腾讯云控制台注册的应用ID
+ @param config COS配置对象（传nil，表示使用腾讯云的公共账号）
+ @see TXCosConfig
+ @return 0 配置成功，否则配置失败(返回错误码 8021，表示参数无效)
+ */
+- (int)initCosWithSDKAppID:(NSString *)sdkAppID config:(TXCosConfig *)config;
+```
+
+**如选择使用COS公共账号，`config` 参数传入 `nil` 即可。**
+
+如使用自己申请的COS账号，则需配置 `config` 参数：
+
+```objc
+/**
+ COS 配置类，其属性参数都可从腾讯云 COS 控制台获取到
+ */
+@interface TICCosConfig : NSObject
+
+/// @brief COS服务的appId，用以标识资源
+@property (nonatomic, copy) NSString *cosAppID;
+/// @brief 存储桶名称
+@property (strong, nonatomic) NSString *bucket;
+/// @brief 服务地域名称
+@property (nonatomic, copy) NSString *region;
+/// @brief 开发者拥有的项目身份识别 ID，用以身份认证
+@property (nonatomic, copy) NSString *secretID;
+/// @brief 开发者拥有的项目身份密钥
+@property (nonatomic, copy) NSString *secretKey;
+
+@end
+```
+
+### 上传/下载文件
+SDK 已经将COS相关接口封装好，上层调用对应接口即可，接口如下：
+
+> 这里的下载接口只是为了方便开发者使用，开发者也可以上传文件之后拿到下载链接自行下载
+
+```
+> TXFileManager.h
+
+#pragma mark - 上传下载COS默认文件夹中的文件
+
+/**
+ @brief 上传文件到COS云存储TXSDK默认文件夹（/TIC/iOS）
+ @discussion 可上传图片和文件，文件类型包含：doc(x)、wps、rtf 、xls(x)、et、ppt(x)、dps、pdf、txt
+
+ @param filePath 要上传文件的本地路径，为了确保同名文件覆盖问题，该方法上传时会在文件名前拼接一个时间戳
+ @param onProgress 上传进度回调
+ @param onFinish 上传完成回调（回调内容为上传文件的下载URL和error信息）
+ */
+- (void)uploadFile:(NSString *)filePath onProgress:(onUploadProgress)onProgress onFinish:(onUploadFinish)onFinish;
+
+
+/**
+ @brief 下载COS云存储TXSDK默认文件夹（/TIC/iOS）中的文件
+
+ @param fileURL 下载文件URL(上传文件方法返回的URL)
+ @param onProgress 下载进度回调
+ @param onFinish 下载完成回调（回调内容为下载文件的data数据和error信息）
+ */
+- (void)downloadFile:(NSString *)fileURL onProgress:(onDowloadloadProgress)onProgress onFinish:(onDownLoadloadFinish)onFinish;
+
+#pragma mark - 上传下载COS指定路径下的文件
+
+/**
+ @brief 上传文件到COS指定路径
+ @discussion 可上传图片和文件，文件类型包含：doc(x)、wps、rtf 、xls(x)、et、ppt(x)、dps、pdf、txt
+
+ @param filePath 要上传文件的本地路径
+ @param cosPath 指定要上传到COS的路径（例如:/APP/0514/image.jpg）（相同的cosPath后上传的会覆盖先上传的）
+ @param onProgress 上传进度回调
+ @param onFinish 上传完成回调（回调内容为上传文件URL和error信息）
+ */
+- (void)uploadFile:(NSString *)filePath cosPath:(NSString *)cosPath onProgress:(onUploadProgress)onProgress onFinish:(onUploadFinish)onFinish;
+
+
+/**
+ @brief 下载COS指定路径中的文件
+
+ @param cosPath 要下载文件的COS指定路径（例如:/APP/0514/image.jpg）
+ @param onProgress 下载进度回调
+ @param onFinish 下载完成回调（回调内容为下载文件的data数据和error信息）
+ */
+- (void)downloadFileWithCosPath:(NSString *)cosPath onProgress:(onDowloadloadProgress)onProgress onFinish:(onDownLoadloadFinish)onFinish;
+```
+
+## 6. 文档展示功能详解
 ### 相关概念解释
 * 默认白板：白板 SDK 初始化后内部会自动生成一个白板，这个白板是第一块白板，作为白板 SDK 展示的默认白板，不允许删除。
 

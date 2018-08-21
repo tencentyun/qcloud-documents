@@ -49,7 +49,7 @@
         <pluginRepositories>
             <pluginRepository>
                 <id>qcloud-plugin-central</id>
-                <url>http://mirrors.tencent.cloud.com/nexus/repository/maven-public/</url>
+                <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
                 <snapshots>
                     <enabled>true</enabled>
                 </snapshots>
@@ -70,18 +70,16 @@
 
 
 
-setting.xml 样例文件下载 [settings.xml](https://main.qcloudimg.com/raw/19d0e939ef0e30d8a3ec0591430d5bd7/settings.xml) .
+[setting.xml 样例文件下载 >>](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)
 
 ## 验证配置是否成功
 
-1.   在命令行执行如下命令 `mvn help:effective-settings` 。
+1.  在命令行执行如下命令 `mvn help:effective-settings` 。
 
--  查看执行结果，没有错误表面setting.xml格式正确
-- Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
-- ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
+	-  查看执行结果，没有错误表面setting.xml格式正确
+	- Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
+	- ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
 
- 
+2.  其他说明
 
-2.   其他说明
-
--  执行正确的Maven命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+	-  执行正确的Maven命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
