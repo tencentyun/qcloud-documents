@@ -2,7 +2,7 @@
 ### Redis主从版简介
 Redis主从版是最通用的Redis版本，兼容Redis 2.8版本的协议和命令，近期会推出兼容Redis 4.0的版本，采用主从节点部署架构，提供数据持久化和备份，适用于对数据可靠性、可用性都有要求的场景。主节点提供日常服务访问，备节点提供 HA 高可用，当主节点发生故障，系统会自动切换至备节点，保证业务平稳运行。<br>
 
-![](https://main.qcloudimg.com/raw/1e69c9ace37adb3b4d740bbd2f70676c.png)
+![](https://main.qcloudimg.com/raw/a153968edd3ffb4b93288fa85b0783af.svg)
 
 ### Redis主从版特点
 

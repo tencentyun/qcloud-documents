@@ -81,32 +81,10 @@ phone_numbers = ["21212313123", "12345678902", "12345678903"]
 
 # 短信模板ID，需要在短信应用中申请
 template_id = 7839  # NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-
+# templateId 7839 对应的内容是"您的验证码是: {1}"
 # 签名
 sms_sign = "腾讯云"  # NOTE: 这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台中申请，另外签名参数使用的是`签名内容`，而不是`签名ID`
 ```
-
-- **单发短信**
-
-```python
-from qcloudsms_py import SmsSingleSender
-from qcloudsms_py.httpclient import HTTPError
-
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-ssender = SmsSingleSender(appid, appkey)
-try:
-    result = ssender.send(sms_type, 86, phone_numbers[0],
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-print(result)
-```
-
-> 发送短信没有指定模板ID时，发送的内容需要与已审核通过的模板内容相匹配，才可能下发成功，否则返回失败。
-> 如需发送国际短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
 
 - **指定模板ID单发短信**
 
@@ -115,7 +93,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 
 ssender = SmsSingleSender(appid, appkey)
-params = ["5678"]  # 当模板没有参数时，`params = []`
+params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = ssender.send_with_param(86, phone_numbers[0],
         template_id, params, sign=sms_sign, extend="", ext="")  # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -129,25 +107,6 @@ print(result)
 
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发短信**
-
-```python
-from qcloudsms_py import SmsMultiSender
-from qcloudsms_py.httpclient import HTTPError
-
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-msender = SmsMultiSender(appid, appkey)
-try:
-    result = msender.send(sms_type, "86", phone_numbers,
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-print(result)
-```
->无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 - **指定模板ID群发**
 
@@ -156,7 +115,7 @@ from qcloudsms_py import SmsMultiSender
 from qcloudsms_py.httpclient import HTTPError
 
 msender = SmsMultiSender(appid, appkey)
-params = ["5678"]
+params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = msender.send_with_param(86, phone_numbers,
         template_id, params, sign=sms_sign, extend="", ext="")   # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -315,7 +274,7 @@ from qcloudsms_py import TtsVoiceSender
 from qcloudsms_py.httpclient import HTTPError
 
 template_id = 12345
-params = ["5678"]
+params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 tvsender = TtsVoiceSender(appid, appkey)
 Try:
     result = tvsender.send(template_id, params, phone_numbers[0],

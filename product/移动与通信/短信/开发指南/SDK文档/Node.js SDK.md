@@ -63,7 +63,7 @@ npm install qcloudsms_js
  2.把 qcloudsms_js 把代码放入项目目录。
  3.在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
 
- 
+
  ### 相关资料
  若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
@@ -86,7 +86,7 @@ var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
 
 // 短信模板ID，需要在短信应用中申请
 var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-
+//templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
 var smsSign = "腾讯云";  // NOTE: 这里的签名只是示例，请使用真实的已申请的签名, 签名参数使用的是`签名内容`，而不是`签名ID`
 
@@ -104,42 +104,22 @@ function callback(err, res, resData) {
 }
 ```
 
-- **单发短信**
-
-```javascript
-var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
-var ssender = qcloudsms.SmsSingleSender();
-ssender.send(smsType, 86, phoneNumbers[0],
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
-> 如需发送国际短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
-
 - **指定模板 ID 单发短信**
 
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
   params, SmsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发短信**
 
-```javascript
-var smsType = 0;  // Enum{0: 普通短信, 1: 营销短信}
-var msender = qcloudsms.SmsMultiSender();
-msender.send(smsType, "86", phoneNumbers,
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
->无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
-
-- **指定模板 ID 群发**
+- **指定模板 ID 群发短信**
 
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
@@ -220,7 +200,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 
 ```javascript
 var templateId = 12345;
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 var tvsender = qcloudsms.TtsVoiceSender();
 tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 ```
