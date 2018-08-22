@@ -60,7 +60,7 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 TXVideoCustomProcessDelegate回调接口：
-```
+```objc
 /**
  * 在OpenGL线程中回调，在这里可以进行采集图像的二次处理
  * @param texture    纹理ID
@@ -84,8 +84,6 @@ TXVideoCustomProcessDelegate回调接口：
 - (void)onTextureDestoryed;
 ```
 
-
-```
 
 ### 2. 画面截图
 
