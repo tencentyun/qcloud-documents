@@ -1,4 +1,4 @@
-我们在 Gaiastack 环境上，编译了 xgboost 0.7 版本，以jar包的形式提供给用户使用，下面为具体流程：
+我们在 Gaiastack 环境上，编译了 xgboost 0.7 版本，以 jar 包的形式提供给用户使用，下面为具体流程：
 
 1. 下载 [xgboost4j-0.7.jar](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/xgboost4j-0.7.jar) 和 [xgboost4j-spark-0.7.jar](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/xgboost4j-spark-0.7.jar)
 
