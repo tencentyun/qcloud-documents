@@ -1,9 +1,24 @@
-## 1. TXBoardView 简介
+## 1. TXBoardSDK 简介
 
 `TXBoardSDK.framework`是一个实现了基本白板功能的组件，提供了包括画笔、橡皮擦、背景图、标准图形、移动涂鸦和文档展示等功能。
 除了以上的本地白板功能之外，白板SDK还提供了网络多终端互通的扩展能力。
 
 > **注意：**TICSDK 中已经包含了白板 SDK，开发者无需单独集成，也不需要关心代理设置，协议方法，白板数据传输和同步等逻辑，这些功能已经在 TICSDK 内部实现，开发者只需要创建白板对象，并调用白板对象的相应接口来操作白板即可。
+
+####头文件概览
+
+先总体说明下 SDK 中暴露的公开头文件的主要功能：
+
+类名 | 主要功能
+--------- | ---------
+TXBoardSDK.h | SDK 的整体管理类，暂时只有【verifySDK:】接口，用来校验sdk权限
+TXBoardView.h | 白板视图类，白板操作类，包含了所有白板相关的操作接口
+TXBoardCommon.h | 白板定义类，定义了一些与白板视图相关的枚举，类和代理方法
+TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等。
+
+> TXBoardSDK.h 中的 `verifySDK:` 接口用于校验客户是否开通了白板业务（没开通将不能使用白板的大部分功能），TICSDK内部已经调用该方法校验，集成TICSDK的开发者可以忽略该方法。
+
+> 如果单独集成`TXBoardSDK`，则需在使用白板前自行调用 `verifySDK:` 方法，不调用则`TXBoardSDK`内部默认为未开通状态。
 
 ## 2. 白板使用方法
 
@@ -49,7 +64,7 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithFrame:frame];
 ---|---
 sendMessage: | 向网络中其他白板终端发送协议数据，开发者可以透传 NSDictionary 的 json 字符串
 getTimestamp | 获取秒级的时间戳，在多终端白板互通场景下使用服务器时间
-getBoardDataConfig | 获取白板所需外部参数，包含 sdkAppId、uid、userSig、roomID
+getBoardDataConfig | 获取白板所需外部参数，包含 uid、userSig、roomID（这些值发送改变时需要重新设置）
 
 
 ### 2.3 选择白板的画笔状态

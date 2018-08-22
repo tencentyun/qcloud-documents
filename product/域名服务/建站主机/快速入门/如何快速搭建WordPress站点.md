@@ -16,7 +16,7 @@
 ![](https://mc.qcloudimg.com/static/img/c7fa30c75349f24270cf1493943373b1/image.png)
 
 ### 5. 执行安装
-浏览器访问`http://您的域名/wordpress/wp-admin/setup-config.php`，单击【现在就开始！】，进入安装步骤，
+浏览器访问`http://您的域名/wwwroot/wp-admin/setup-config.php`，单击【现在就开始！】，进入安装步骤，
 ![](https://mc.qcloudimg.com/static/img/82428f6e9f68ed89373eb8e2f364b66c/1.png)
 
 填写数据库信息。
