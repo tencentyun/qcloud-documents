@@ -54,6 +54,37 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 // 打开闪光灯 YES为打开， NO为关闭.
 [recorder toggleTorch: YES];
+
+// 设置自定义图像处理回调
+recorder.videoProcessDelegate = delegate;
+```
+
+TXVideoCustomProcessDelegate回调接口：
+```
+/**
+ * 在OpenGL线程中回调，在这里可以进行采集图像的二次处理
+ * @param texture    纹理ID
+ * @param width      纹理的宽度
+ * @param height     纹理的高度
+ * @return           返回给SDK的纹理
+ * 说明：SDK回调出来的纹理类型是GL_TEXTURE_2D，接口返回给SDK的纹理类型也必须是GL_TEXTURE_2D; 该回调在SDK美颜之后. 纹理格式为GL_RGBA
+ */
+- (GLuint)onPreProcessTexture:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
+
+/**
+ * 人脸数据回调（商业版接口）
+ * @prama points 人脸坐标
+ *  说明：使用了人脸识别的相关功能如人脸识别贴纸、大眼或者瘦脸等。此回调在onPreProcessTexture:width:height:之前会被调用
+ */
+- (void)onDetectFacePoints:(NSArray *)points;
+
+/**
+ * 在OpenGL线程中回调，可以在这里释放创建的OpenGL资源
+ */
+- (void)onTextureDestoryed;
+```
+
+
 ```
 
 ### 2. 画面截图
