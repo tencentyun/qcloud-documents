@@ -110,10 +110,10 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  
 <table class="cvmMonth">
         <tbody><tr>
-             <th style="width: 10%;" rowspan="2">Feature</th>
-             <th style="width: 10%;" rowspan="2">Billing Model</th>
+             <th style="width: 7%;" rowspan="2">Feature</th>
+             <th style="width: 7%;" rowspan="2">Billing Model</th>
                          <th style="width: 30%;" rowspan="2">Configuration</th>
-             <th style="width: 50%;" colspan="7">Price</th>
+             <th style="width: 50%;" colspan="10">Price</th>
          </tr>
          <tr>
              <th>Beijing<br>Shanghai<br>Guangzhou</th>
