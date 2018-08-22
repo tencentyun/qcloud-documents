@@ -113,7 +113,7 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
              <th style="width: 10%;" rowspan="2">Feature</th>
              <th style="width: 10%;" rowspan="2">Billing Model</th>
                          <th style="width: 30%;" rowspan="2">Configuration</th>
-             <th style="width: 50%;" colspan="10">Price</th>
+             <th style="width: 50%;" colspan="7">Price</th>
          </tr>
          <tr>
              <th>Beijing<br>Shanghai<br>Guangzhou</th>
@@ -121,7 +121,6 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
                                                   <th>Singapore<br>Toronto</th>
  	<th>Korea<br>Frankfurt</th> 
  			<th>Silicon Valley<br>Virginia</th>
-		 <th>Virginia</th>
 		 <th>Mumbai</th>
 		 <th>Bangkok</th>
          </tr>
@@ -132,11 +131,8 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
              <td>0.078</td>
              <td>0.088</td>
              <td>0.12</td>
-             <td>0.12</td>
  			<td>0.088</td>
              <td>0.088</td>
-             <td>0.088</td>
-	     <td>0.088</td>
 	     <td>0.088</td>
 	     <td>0.12</td>
          </tr>              
