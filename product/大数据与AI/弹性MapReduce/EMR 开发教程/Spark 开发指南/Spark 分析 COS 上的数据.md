@@ -3,11 +3,11 @@ Spark 作为 Apache 顶级的开源项目，是一个快速、通用的大规模
 Spark 是基于内存计算的大数据并行计算框架。Spark 基于内存计算，提高了在大数据环境下数据处理的实时性，同时保证了高容错性和高可伸缩性，允许用户将 Spark 部署在大量廉价硬件之上，形成集群。
 本教程演示的是提交的任务为 wordcount 任务即统计单词个数，提前需要在集群中上传需要统计的文件。
 
-## 1.	开发准备
+## 1. 开发准备
 - 因为任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/6232)。
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Spark 组件，并且在基础配置页面勾选“开启COS”，在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
 
-## 2.	使用 Maven 来创建您的工程
+## 2. 使用 Maven 来创建您的工程
 在本次演示中，不再采用系统自带的演示程序，而是自己建立工程编译打包之后上传到 EMR 集群运行。
 推荐您使用 Maven 来管理您的工程。Maven 是一个项目管理工具，能够帮助您方便的管理项目的依赖信息，即它可以通过 pom.xml 文件的配置获取 jar 包，而不用去手动添加。
 
@@ -23,14 +23,14 @@ mvn archetype:generate -DgroupId=$yourgroupID -DartifactId=$yourartifactID -Darc
 创建成功之后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
 ```
 simple
----pom.xml　　　　核心配置，项目根下
----src
----main　　　　　　
----java　　　　Java 源码目录
-　　      　---resources　  Java 配置文件目录
-　　　　---test
-　　　　　　---java　　　　测试源码目录
-　　　　　　---resources　  测试配置目录
+	---pom.xml　　　　核心配置，项目根下
+	---src
+		---main　　　　　　
+			---java　　　　  Java 源码目录
+			---resources　  Java 配置文件目录
+		---test
+			 ---java　　　　  测试源码目录
+			 ---resources　  测试配置目录
 ```
 其中我们主要关心 pom.xml 文件和 main 下的 Java 文件夹。pom.xml 文件主要用于依赖和打包配置，Java 文件夹下放置您的源代码。
 

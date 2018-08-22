@@ -1,9 +1,11 @@
 欢迎使用腾讯云游戏多媒体引擎 SDK 。为方便 Android 开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于 Android 开发的工程配置。
 
 ## SDK 准备
+
 可以通过以下方式获取 SDK。
 
-### 下载 SDK 
+### 下载 SDK
+
 请在[下载指引](https://cloud.tencent.com/document/product/607/18521)下载相关 Demo 及 SDK。
 
 在界面中找到找到 Android 版本的 SDK 资源。
@@ -15,24 +17,30 @@
 | Libs     	| 开发工具包 Libs     |
 
 ## 系统要求
+
 SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
 
 ## 预备工作
-### 导入 SDK 文件  
-将开发工具包中 libs 目录下的 mobilepb.jar、tmgsdk.jar 和 wup-1.0.0-SNAPSHOT.jar 复制到 Android 工程的 libs 目录（如果工程无 libs 目录，请自行创建，如果没有 armeabi 及 armeabi-v7a，也一并复制进去 libs 目录中）中，如图所示：  
-![](https://main.qcloudimg.com/raw/2d35214a4bda9fdd36de0527a6bfa0e7.png)
 
-### 工程配置  
+### 导入 SDK 文件
+
+将开发工具包中 libs 目录下的 mobilepb.jar、tmgsdk.jar 和 wup-1.0.0-SNAPSHOT.jar 复制到 Android 工程的 libs 目录（如果工程无 libs 目录，请自行创建，如果没有 armeabi 及 armeabi-v7a，也一并复制进去 libs 目录中）中，如图所示：  
+![](https://main.qcloudimg.com/raw/006cc0fab7b4c2f370b9b31fdbc93f90.png)
+
+### 工程配置
+
 在工程 App 目录下的 build.gradle 中，添加引用库的代码。  
+
 ```
 sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
 }
-```  
+```
 
-### 配置 App 权限  
+### 配置 App 权限
+
 在工程 AndroidManifest.xml 文件中添加以下权限：
 
 ```
