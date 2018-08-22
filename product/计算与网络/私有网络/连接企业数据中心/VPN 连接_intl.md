@@ -123,6 +123,9 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  	<th>Korea</th> 
  		<th>Frankfurt</th>
  			<th>Silicon Valley</th>
+		 <th>Eastern US(Virginia)</th>
+		 <th>South Asia Pacific(Mumbai)</th>
+		 <th>Asia Pacific Bangkok</th>
          </tr>
         <tr>
              <td>VPN Gateway</td>
@@ -135,6 +138,9 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  			<td>0.088</td>
              <td>0.088</td>
              <td>0.088</td>
+	     <td>0.088</td>
+	     <td>0.088</td>
+	     <td>0.12</td>
          </tr>              
      </tbody></table>
  
