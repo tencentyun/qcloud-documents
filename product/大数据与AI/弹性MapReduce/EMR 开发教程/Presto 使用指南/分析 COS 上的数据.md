@@ -74,4 +74,4 @@ Query 20180702_150000_00011_c4qzg, FINISHED, 3 nodes
 Splits: 4 total, 4 done (100.00%)
 0:03 [6 rows, 127B] [1 rows/s, 37B/s]
 ```
-更多 Presto 操作请查看 [官方文档](https://prestodb.io/docs/current/)或者 [中文文档](http://prestodb-china.com/docs/current/index.html)。
+更多 Presto 操作请查看 [官方文档](https://prestodb.io/docs/current/)。
