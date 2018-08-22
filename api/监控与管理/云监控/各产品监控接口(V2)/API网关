@@ -6,17 +6,9 @@
 API 网关（API Gateway）是 API 托管服务。提供 API 的完整生命周期管理，包括创建、维护、发布、运行、下线等。您可使用 API Gateway 封装自身业务，将您的数据、业务逻辑或功能安全可靠的开放出来，用以实现自身系统集成、以及与合作伙伴的业务连接
 查询API网关产品监控数据，入参取值如下：
 
-qce/apigateway支持以下4种维度组合的查询方式，四种入参取值如下：
+qce/apigateway支持以下几种维度组合的查询方式，入参取值如下：
 
-### 1.1服务维度，入参取值
-
-&namespace=qce/apigateway
-&dimensions.0.name=serviceId
-&dimensions.0.value serviceId的值
-
-
-
-### 1.2环境维度，入参取值
+### 1.1环境维度，入参取值
 
 &namespace=qce/apigateway
 &dimensions.0.name=serviceId
@@ -26,7 +18,7 @@ qce/apigateway支持以下4种维度组合的查询方式，四种入参取值�
 
 
 
-### 1.3API维度，入参取值
+### 1.2API维度，入参取值
 
 &namespace=qce/apigateway
 &dimensions.0.name=serviceId
@@ -39,7 +31,7 @@ qce/apigateway支持以下4种维度组合的查询方式，四种入参取值�
 
 
 
-### 1.4密钥对维度，入参取值(需要开启白名单)
+### 1.3密钥对维度，入参取值(需要开启白名单)
 
 &namespace=qce/apigateway
 &dimensions.0.name=serviceId
