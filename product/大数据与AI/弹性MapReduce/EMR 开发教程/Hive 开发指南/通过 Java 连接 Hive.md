@@ -47,14 +47,14 @@ mvn archetype:generate -DgroupId=$yourgroupID -DartifactId=$yourartifactID -Darc
 
 ```
 simple
----pom.xml　　　　核心配置，项目根下
----src
----main　　　　　　
----java　　　　Java 源码目录
-　　      　---resources　  Java 配置文件目录
-　　　　---test
-　　　　　　---java　　　　测试源码目录
-　　　　　　---resources　  测试配置目录
+	---pom.xml　　　　核心配置，项目根下
+	---src
+		---main　　　　　　
+			---java　　　　Java 源码目录
+			---resources　  Java 配置文件目录
+		---test
+			---java　　　　测试源码目录
+			---resources　  测试配置目录
 
 
 ```
