@@ -110,22 +110,20 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  
 <table class="cvmMonth">
         <tbody><tr>
-             <th style="width: 7%;" rowspan="2">Feature</th>
-             <th style="width: 7%;" rowspan="2">Billing Model</th>
+             <th style="width: 10%;" rowspan="2">Feature</th>
+             <th style="width: 10%;" rowspan="2">Billing Model</th>
                          <th style="width: 30%;" rowspan="2">Configuration</th>
              <th style="width: 50%;" colspan="10">Price</th>
          </tr>
          <tr>
              <th>Beijing<br>Shanghai<br>Guangzhou</th>
                          <th>Hong Kong</th>
-                                                  <th>Singapore</th>
-             <th>Toronto</th> 
- 	<th>Korea</th> 
- 		<th>Frankfurt</th>
- 			<th>Silicon Valley</th>
-		 <th>Eastern US(Virginia)</th>
-		 <th>South Asia Pacific(Mumbai)</th>
-		 <th>Asia Pacific Bangkok</th>
+                                                  <th>Singapore<br>Toronto</th>
+ 	<th>Korea<br>Frankfurt</th> 
+ 			<th>Silicon Valley<br>Virginia</th>
+		 <th>Virginia</th>
+		 <th>Mumbai</th>
+		 <th>Bangkok</th>
          </tr>
         <tr>
              <td>VPN Gateway</td>
