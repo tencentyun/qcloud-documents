@@ -120,8 +120,8 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
                          <th>Hong Kong</th>
                                                   <th>Singapore<br>Toronto</th>
  	<th>Korea<br>Frankfurt</th> 
- 			<th>Silicon Valley<br>Virginia</th>
-		 <th>Mumbai</th>
+ 			<th>Silicon Valley</th>
+		 <th>Virginia<br>Mumbai</th>
 		 <th>Bangkok</th>
          </tr>
         <tr>
