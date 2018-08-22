@@ -18,7 +18,7 @@
 | 文件名 | 说明 | 
 |---------|---------|
 | LiteAVSDK_Professional_3.0.1185.aar | aar 封装方式的 SDK，适用于 Android Studio 用户 | 
-| LiteAVSDK_Professional_3.0.1185.zip | jar + so 封装方式的 SDK，适用于 Eclipse 用户，如果您觉得 SDK 全量打包进 apk 会增大安装包体积，可以将 zip 包中的 so 文件上传到服务器，通过使用时再下载 so 文件的方式减少 apk 的体积，具体使用方法见 [如何减少 apk 体积？](#online_so) |
+| LiteAVSDK_Professional_3.0.1185.zip | jar + so 封装方式的 SDK，适用于 Eclipse 用户，如果您觉得 SDK 全量打包进 apk 会增大安装包体积，可以将 zip 包中的 so 文件上传到服务器，通过使用时再下载 so 文件的方式减少 apk 的体积，具体使用方法见 如何减少apk体积？ |
 | Demo | 基于 aar 方式的简化 Demo，包含简单的 UI 界面和 SDK 的主要功能演示，使用Android Studio可以快速导入并体验。|
 | API文档 | 点击文件夹里的 index.html 文件可以查看本 SDK 的所有接口描述 |
 
