@@ -49,7 +49,7 @@
         <pluginRepositories>
             <pluginRepository>
                 <id>qcloud-plugin-central</id>
-                <url>http://mirrors.tencent.cloud.com/nexus/repository/maven-public/</url>
+                <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
                 <snapshots>
                     <enabled>true</enabled>
                 </snapshots>
@@ -70,7 +70,7 @@
 
 
 
-[setting.xml 样例文件下载 >>](https://main.qcloudimg.com/raw/19d0e939ef0e30d8a3ec0591430d5bd7/settings.xm)
+[setting.xml 样例文件下载 >>](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)
 
 ## 验证配置是否成功
 
