@@ -2,7 +2,7 @@
 
 > **注意：**
 > 在创建 nginx 服务之前，您必须拥有:
-> 1. 一个腾讯云帐户。有关如何创建腾讯云帐户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
+> 1. 一个腾讯云账户。有关如何创建腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
 > 2. 一个创建好的集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091) 。
 
 ## 创建 Nginx 服务
@@ -23,7 +23,7 @@
 版本（Tag）： latest 。容器服务会默认使用最新版本。
 ![](https://mc.qcloudimg.com/static/img/247064bd27464737d06d02d846c2c227/image.png)
 5) 设置端口映射。将容器端口和服务端口都设置为 80 。
->**注意**：服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000-32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)
+>**注意**：服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通 30000-32768 端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)
 
 ![](https://mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
 6) 单击【创建服务】。完成 nginx 服务的创建。
