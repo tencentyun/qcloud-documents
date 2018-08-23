@@ -1,3 +1,28 @@
+## v1.1.19
+[Unity](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_Unity3D.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_Unity3D_bitcode.zip)[]()
+[Cocos](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_Cocos.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_Cocos_bitcode.zip)
+[Win64](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_winx64_1_1_19_179869_20180808.zip)
+[Win32](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_win_1_1_19_179869_20180808.zip)
+[iOS](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_iOS.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_iOS_bitcode.zip)
+[Android](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_Android.zip)
+[UE4](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_UE4.zip)
+[symbol](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.19/gcloud_voice_1_1_19_179869_20180808_symbol.zip)
+
+更新说明：
+1、新增功能
+- 音质优化，流畅性优化;
+- 蓝牙耳机兼容性优化；
+- 第三方 app 中断响应（QQ，微信，系统闹钟，电话等）优化;
+- 服务器动态调整算法参数支持。
+
+2、新增接口
+增加开关麦成功或失败回调（见 OnEvent 回调接口，枚举值详见 GCloudVoiceErrno.h）
+
+
+
 ## v1.1.17
 [C++\Cocos2D SDK 1.1.17 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.17.0719/0719/gcloud_voice_1_1_17_173027_20180428_Cocos.zip)
 
