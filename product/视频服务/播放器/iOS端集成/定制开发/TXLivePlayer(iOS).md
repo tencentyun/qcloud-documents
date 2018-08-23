@@ -8,7 +8,7 @@
 
 - **协议的支持**
 通常使用的直播协议如下，App端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
-![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
+![](https://mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
 ## 特别说明
 - **是否有限制？**
