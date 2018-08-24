@@ -26,7 +26,7 @@
 <tr><td>1024</td><td>The number of SMS messages sent from a single mobile number within 1 hour exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
 <tr><td>1025</td><td>The number of SMS messages sent from a single mobile number every day exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
 <tr><td>1026</td><td>The number of the same SMS messages sent from a single mobile number exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
-<tr><td>1029</td><td>Time constraint on delivering marketing SMS messages.</td><td>Check <a href="/doc/product/382/9557#5-.E8.90.A5.E9.94.80.E7.9F.AD.E4.BF.A1.E8.A7.84.E8.8C.83">when the marketing SMS messages can be sent.</a></td></tr>
+<tr><td>1029</td><td>Time constraint on delivering marketing SMS messages.</td><td>To avoid disturbing users, marketing SMS messages are only allowed to be sent between 8:00 and 22:00.</td></tr>
 <tr><td>1030</td><td>This request is not supported.</td><td></td></tr>
 <tr><td>1031</td><td>Insufficient balance in SMS package.</td><td>Purchase package.</td></tr>
 <tr><td>1032</td><td>Individual user does not have the permission to send marketing SMS messages.</td><td></td></tr>
