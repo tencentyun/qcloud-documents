@@ -56,7 +56,7 @@ An [SMS signature](https://intl.cloud.tencent.com/document/product/382/13299#sms
 ## Standards on Marketing SMS messages
 1. Always add "reply T if you don't want to receive such message" at the end of any SMS message.
 2. Do not send marketing SMS messages to nonmembers.
-3. Strictly comply with [SMS message standards](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86) and do not send any SMS messages that violate applicable regulations and laws.
+3. Strictly comply with [SMS message standards](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages) and do not send any SMS messages that violate applicable regulations and laws.
 4. Send marketing SMS messages in the daytime (8:00 - 22:00) to minimize complaints.
 
 ## Audit Procedure
