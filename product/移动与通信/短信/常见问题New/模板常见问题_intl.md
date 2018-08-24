@@ -1,6 +1,6 @@
 ### Why is an SMS message rejected because of "Cannot send XX SMS messages"?
 
-Check whether the template contains prohibited content. For more information, please see [here](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86).
+Check whether the template contains prohibited content. For more information, please see [here](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages).
 
 ### What SMS messages can be sent and what cannot?
 
