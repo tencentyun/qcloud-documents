@@ -66,6 +66,6 @@ Since the approved content templates also need to be spot checked and reviewed b
 
 ## Rules for Blocking SMS
 Both SMS signatures and SMS templates applied for by users are reviewed by SMS technical support, and SMS content is also monitored and detected by the cloud SMS system when users are sending SMS messages, so as to prevent the content that violates national laws and regulations from appearing in SMS messages.
-For users who send [SMS messages that violate the rules](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86), we may freeze their accounts, deduct deposit, or pursue related liability against the users as the case may be.
+For users who send [SMS messages that violate the rules](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages), we may freeze their accounts, deduct deposit, or pursue related liability against the users as the case may be.
 
 
