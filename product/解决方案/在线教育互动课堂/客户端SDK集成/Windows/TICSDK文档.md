@@ -61,16 +61,7 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 	m_opt.setIsTeacher(m_bTeacher);
 	m_opt.setRoomID(roomid);
 ```
-白板要使用PPT，图片之前需要先上传文件至COS系统。最新版白板sdk内置了COS SDK
-配置 COS 参数，用于上传图片、PPT文件到白板上展示。下面这些 COS 属性参数都可从腾讯云 COS 控制台获取到。
-请登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 开通 CO S服务。
 
-```C++
-	m_cfg.setCosAppId(1255821848);
-	m_cfg.setCosBucket("board-1255821848");
-	m_cfg.setRegion("ap-shanghai");
-	m_sdk->getTICManager()->setCosHandler(m_cfg);
-```
 ### 3.2 创建和加入房间
 TICSDK 进出房间状态流程可参考下图：
 
