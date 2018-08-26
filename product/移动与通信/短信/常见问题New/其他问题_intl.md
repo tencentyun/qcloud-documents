@@ -25,7 +25,7 @@ If it takes a long time to initiate a request when you call the Tencent Cloud SM
 
 ### Why does it take a long time to receive an SMS message?
 1. Check whether the SMS message is rapidly submitted to Tencent Cloud SMS platform. Locally record the time when the request is sent, and then query in the console the time when the SMS message is sent to the mobile phone.
-  1.1 If the former is greatly different from the latter, see [here](./9558#2-.E8.B0.83.E7.94.A8.E6.8E.A5.E5.8F.A3.E8.80.97.E6.97.B6.E6.AF.94.E8.BE.83.E9.95.BF) to solve the problem.
+  1.1 If the former is greatly different from the latter, see [here](https://intl.cloud.tencent.com/document/product/382/9558#2-it-takes-a-long-time-to-call-the-api) to solve the problem.
   1.2 If the former is slightly different from the latter, go to method 2.  
 2. Query in the console the difference between the time when the SMS message is sent to the phone and the time of status reporting.
   2.1 A small difference indicates that the SMS message is successfully sent to the phone. Such difference may be caused by the signal or the status of the phone.

@@ -114,9 +114,4 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
     ]
 }
 ```
-Notes:  
-[Billing](/doc/product/382/3772)  
-[Error Codes](/doc/product/382/3771)
 
-## 4 SDK
-We provide APIs of multiple platforms for developers to save the development time. Click [here](/doc/product/382/5804) to view details.
