@@ -310,7 +310,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 #### 6. 迁移失败，日志显示 404 NoSuchBucket，该怎么办？
 请确认您的密钥信息，Bucket 信息，Region 信息是否正确。
 
-###  7. 运行异常，显示如下的信息该怎么办?
+#### 7. 运行异常，显示如下的信息该怎么办?
 ![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
 此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
 
