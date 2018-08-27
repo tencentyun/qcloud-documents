@@ -17,7 +17,7 @@ A complete SMS message consists of SMS signature and message text. Click the nam
 
 
 ### Create body template
-Click **International SMS** -> **SMS Content Configuration** -> **SMS Body** -> **Create Body Template**. In the **Create SMS Body Template** pop-up box, enter the template name and SMS Content, select [common message](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86) or [marketing message](https://cloud.tencent.com/document/product/382/13444#.E8.90.A5.E9.94.80.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86) as the SMS message type, add a brief description of scenario and object of template content, then click **Confirm** and wait for the approval. The message body template cannot be used until its status is changed from **Pending approval** to **Approved**.
+Click **International SMS** -> **SMS Content Configuration** -> **SMS Body** -> **Create Body Template**. In the **Create SMS Body Template** pop-up box, enter the template name and SMS Content, select [common message](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages) or [marketing message](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-marketing-sms-messages) as the SMS message type, add a brief description of scenario and object of template content, then click **Confirm** and wait for the approval. The message body template cannot be used until its status is changed from **Pending approval** to **Approved**.
 
 
 >Template example:

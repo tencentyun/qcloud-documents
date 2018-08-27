@@ -198,7 +198,7 @@ public:
     void onGetBoardData(bool bResult) override;
     void onReportBoardData(const int code, const char * msg) override;
     void onUploadResult(bool success, int code, const wchar_t* objName, const wchar_t*  fileName) override;
-	void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount) override;
+    void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount) override;
 };
 
 MyCallback myCallback;

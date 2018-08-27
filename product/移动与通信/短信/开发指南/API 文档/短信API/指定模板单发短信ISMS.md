@@ -36,7 +36,7 @@
 | sig    | 是   | string | App 凭证，具体计算方式见下注                                           |
 | sign   | 否   | string | 短信签名，如果使用默认签名，该字段可缺省                              |
 | tel    | 是   | string | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号。  |
-| time   | 是   | number | 请求发起时间，unix 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败    |
+| time   | 是   | number | 请求发起时间，UNIX 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败    |
 | tpl_id | 是   | number | 模板 ID，在控制台审核通过的模板 ID ， |
 
 
@@ -51,7 +51,7 @@
 string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
 string strRand = "7226249334"; //url 中的 random 字段的值
-string strTime = "1457336869"; //unix 时间戳
+string strTime = "1457336869"; //UNIX 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
 ```

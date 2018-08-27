@@ -196,8 +196,8 @@ print(reply_result)
 from qcloudsms_py import SmsMobileStatusPuller
 from qcloudsms_py.httpclient import HTTPError
 
-begin_time = 1511125600  # 开始时间(unix timestamp)
-end_time = 1511841600    # 结束时间(unix timestamp)
+begin_time = 1511125600  # 开始时间(UNIX timestamp)
+end_time = 1511841600    # 结束时间(UNIX timestamp)
 max_num = 10             # 单次拉取最大量
 mspuller = SmsMobileStatusPuller(appid, appkey)
 try:

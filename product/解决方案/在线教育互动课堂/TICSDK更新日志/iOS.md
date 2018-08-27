@@ -1,8 +1,9 @@
-## [1.2.1] - 2018-08-20
+## [1.2.1] - 2018-08-23
 ### 变更
-1. TXBoardView.framework 更改为 TXBoardSDK.framework
-2. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
-3. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
+1. TICSDK 接口整理，将TICSDK.h中的接口移动到 TICManger.h 中
+2. TXBoardView.framework 更改为 TXBoardSDK.framework，增加TXBoardSDK.h 头文件
+3. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
+4. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
 
 ```objc
 /**

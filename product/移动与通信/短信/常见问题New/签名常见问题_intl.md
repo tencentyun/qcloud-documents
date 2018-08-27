@@ -4,7 +4,7 @@ Identification materials are required to apply for an SMS signature. Enter a sig
 
 ### Why is my application rejected because of "Neutral Signature"?
 
-Neutral signatures, such as "test, aabb, verification code, notification", that cannot be identified as a company or an individual are not supported. You are recommended to use a company name to apply for a signature. For more information, please see [Signature Audit Criteria](https://cloud.tencent.com/document/product/382/13444#.E7.AD.BE.E5.90.8D.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86).
+Neutral signatures, such as "test, aabb, verification code, notification", that cannot be identified as a company or an individual are not supported. You are recommended to use a company name to apply for a signature. For more information, please see [Signature Audit Criteria](https://intl.cloud.tencent.com/document/product/382/13444).
 
 ### Is there a limit on the number of SMS signatures?
 The number of SMS signatures is limited to 200. To apply for multiple signatures, you should provide the qualification certificate for each signature.
@@ -18,7 +18,7 @@ If a product is not launched, use the company name to apply for a signature for 
 
 ### Why hasn't the SMS signature been approved?
 
-This may be caused by many reasons, for example, the signature and the uploaded information are not compliant with the audit criteria, or relevant information is not uploaded. Apply for an appropriate signature as prompted based on the [Signature Audit Criteria](https://cloud.tencent.com/document/product/382/13444#.E7.AD.BE.E5.90.8D.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86).
+This may be caused by many reasons, for example, the signature and the uploaded information are not compliant with the audit criteria, or relevant information is not uploaded. Apply for an appropriate signature as prompted based on the [Signature Audit Criteria](https://intl.cloud.tencent.com/document/product/382/13444).
 
 ### What should I enter in the remarks for signature?
 

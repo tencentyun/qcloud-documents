@@ -6,11 +6,11 @@ Users who have completed the enterprise identity verification go to **Project Co
 
 ### How to prevent SMS bombing?
 SMS bombing is a method of sending massive SMS verification messages to numerous phone numbers within a short period of time (such as a day) by using malicious programs or tools to exploit web client or server vulnerabilities, which seriously harasses the phone users.
-![](//mc.qcloudimg.com/static/img/dbebfa33e35ae5542c1f00e006956eff/image.png)
+![](https://main.qcloudimg.com/raw/71e239febf41a4ec37f691fd6cfe9e69.png)
 If harassed by SMS bombing, users will complain a lot and SMS channels will be unavailable. Besides, the business side will also suffer heavy economic losses. Therefore, SMS bombing must be prevented in advance.
 Because SMS bombing is generally implemented on servers, it is recommended to apply the following methods to defend against it:
 1. Limit the number of requests from the same IP address.
-2. Limit the number of SMS messages sent from the same phone number by setting the [delivery frequency limit](https://cloud.tencent.com/document/product/382/13483#.E9.85.8D.E7.BD.AE.E9.A2.91.E7.8E.87.E9.99.90.E5.88.B6) on the console.
+2. Limit the number of SMS messages sent from the same phone number by setting the [delivery frequency limit](https://intl.cloud.tencent.com/document/product/382/13483#configuring-frequency-limit) on the console.
 3. Check the sending of SMS messages regularly (for example, daily), and view the specific data in the SMS console. Resolve any exception immediately. Suspend the SMS service in the SMS console if an emergency arises.
 
 ### What are the differences between China SMS messaging and international SMS messaging?
@@ -19,7 +19,7 @@ If you want to send SMS messages to Chinese phone numbers with a text template a
 
 ### How can I query the delivery records of a phone number?
 If your customers cannot receive SMS messages, or if you want to check the delivery status of SMS messages sent to users, you can query the delivery records in **China SMS Messages** or **International SMS Messages** -> **Statistical Analysis** -> **SMS Message Records** on the Tencent Cloud SMS Console, as shown below:
-![](//mc.qcloudimg.com/static/img/f14d976f443ace2e4ef73d62ed144a2b/image.png)
+![](https://main.qcloudimg.com/raw/ef647abc4454b2b5460b632e68fa50ac.png)
 
 ### What is sdkappid and appkey? How can I create and view projects?
 
