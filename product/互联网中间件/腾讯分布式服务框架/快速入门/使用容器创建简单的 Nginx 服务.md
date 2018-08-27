@@ -2,11 +2,8 @@
 
 
 
-> 注意：
->
-> 在创建 nginx 服务之前，您必须拥有:
->
-> 1. 一个已经创建好的容器集群。有关如何创建集群的详细信息，参见 [集群](https://cloud.tencent.com/document/product/649/13684)。
+> **注意：**
+> 在创建 nginx 服务之前，您必须拥有一个已经创建好的容器集群。有关如何创建集群的详细信息，参见 [集群](https://cloud.tencent.com/document/product/649/13684)。
 
 
 
@@ -44,7 +41,7 @@
 
    ![](https://main.qcloudimg.com/raw/31f7816456e45c8176660f54af922817/creategroup.png)
 
-3. 单击【提交】
+3. 单击【提交】按钮。
 
 
 
@@ -66,6 +63,6 @@
 
    ![](https://main.qcloudimg.com/raw/e6153a8ffcfdad0cab9cebe6d112ceb1.png)
 
-2. 复制负载均衡IP，在浏览器地址栏粘贴后，显示 Nginx 欢迎 页面。
+2. 复制负载均衡 IP，在浏览器地址栏粘贴后，显示 Nginx 欢迎页面。
 
    ![](https://main.qcloudimg.com/raw/3ff519319e5dc4d3b3cc3d6668281a45.png)
