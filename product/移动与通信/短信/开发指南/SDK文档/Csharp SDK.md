@@ -270,8 +270,8 @@ using System;
 
 try
 {
-    int beginTime = 1511125600;  // 开始时间(unix timestamp)
-    int endTime = 1511841600;    // 结束时间(unix timestamp)
+    int beginTime = 1511125600;  // 开始时间(UNIX timestamp)
+    int endTime = 1511841600;    // 结束时间(UNIX timestamp)
     int maxNum = 10;             // 单次拉取最大量
     SmsMobileStatusPuller mspuller = new SmsMobileStatusPuller(appid, appkey);
 
