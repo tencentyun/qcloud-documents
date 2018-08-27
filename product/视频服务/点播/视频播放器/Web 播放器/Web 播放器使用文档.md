@@ -223,16 +223,6 @@ player.loadVideoByID({
 示例：
 [切换 fileID 播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
 
-### 自定义域名替换
-腾讯云点播服务提供自定义域名替换功能，在播放端的配置方法如下：
-```
-var player = TCPlayer('player-container-id', {
-  fileID: '', // 请传入需要播放的视频 filID 必须
-  appID: '', // 请传入点播账号的 appID 必须
-  customHost: '' // 请传入替换的域名，例如 www.costum.host
-});
-```
-
 ### 镜像功能
 激活镜像功能，可以让视频画面镜像翻转，如下图所示：
 ![](https://main.qcloudimg.com/raw/d5886d7d550be72b608077f341299610.png)
