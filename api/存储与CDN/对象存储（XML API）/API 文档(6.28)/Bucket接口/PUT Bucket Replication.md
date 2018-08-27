@@ -1,7 +1,7 @@
 ## 功能描述
 PUT Bucket replication 用于向已启用多版本的存储桶中配置跨区域复制规则。如果存储桶已经配置了跨区域复制规则，那么该请求会替换现有配置。
 
->注意：使用该接口，存储桶必须已经开启多版本，开启多版本的 API 文档请参见 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/***/****)。
+>注意：使用该接口时，需确保存储桶已经开启多版本，开启多版本的 API 文档请参见 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/***/****)。
 
 ## 请求
 ### 请求示例
@@ -83,7 +83,7 @@ PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f63f9
 Content-MD5: AAq9nzrpsz5LJ4UEe1f6Q==
- Host: sevenyounorthtest-7319456.cos.ap-guangzhou.myqcloud.com
+Host: sevenyounorthtest-7319456.cos.ap-guangzhou.myqcloud.com
 Content-Length: 312
 
 <ReplicationConfiguration>
