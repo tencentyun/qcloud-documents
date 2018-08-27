@@ -190,8 +190,8 @@ try {
 use Qcloud\Sms\SmsMobileStatusPuller;
 
 try {
-    $beginTime = 1511125600;  // 开始时间(unix timestamp)
-    $endTime = 1511841600;    // 结束时间(unix timestamp)
+    $beginTime = 1511125600;  // 开始时间(UNIX timestamp)
+    $endTime = 1511841600;    // 结束时间(UNIX timestamp)
     $maxNum = 10;             // 单次拉取最大量
     $mspuller = new SmsMobileStatusPuller($appid, $appkey);
 
