@@ -25,7 +25,7 @@ The final SMS message sent to users is as follows:
 Add a project to get SDK AppID and App Key. For more information, please see [Add Project](https://intl.cloud.tencent.com/document/product/382/18053#add-project).
 
 ### Create signature
-A complete SMS message consists of SMS signature and SMS body. Rules for SMS signatures can be found in [Signature Audit Criteria](https://intl.cloud.tencent.com/document/product/382/13444#signature-audit-criteria). For more information on how to create a signature, please see [Create Signature](https://intl.cloud.tencent.com/document/product/382/18053#create-signatureD).
+A complete SMS message consists of SMS signature and SMS body. Rules for SMS signatures can be found in [Signature Audit Criteria](https://intl.cloud.tencent.com/document/product/382/13444#signature-audit-criteria). For more information on how to create a signature, please see [Create Signature](https://intl.cloud.tencent.com/document/product/382/18053#create-signature).
 
 ### Create body template
 Rules for message body templates can be found in [Audit Criteria for Common SMS Messages](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages). For more information on how to create a message body template, please see [Create Message Body Template](https://intl.cloud.tencent.com/document/product/382/18053#create-body-template).
@@ -35,7 +35,7 @@ Rules for message body templates can be found in [Audit Criteria for Common SMS 
 After the message body template and SMS signature are approved, you can send SMS messages through the console, cloud SMS API or SDK.
 - For more information on how to send SMS messages through the console, please see [Send Text Messages](https://intl.cloud.tencent.com/document/product/382/18053).
 - For more information on how to send SMS messages using API, please see [API Documentation](https://intl.cloud.tencent.com/document/product/382/13297).
-- For more information on how to send SMS messages using SDK, please see [SDK Documentation](https://intl.cloud.tencent.com/document/product/382/5804).
+
 
 
 ### View SMS message delivery result

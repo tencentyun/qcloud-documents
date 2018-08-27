@@ -53,6 +53,7 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | ---------------------------------- | ---------------------------------------- |
 | init                               | 初始化白板绘制参数。                               |
 | release                               | 释放白板相关资源，在退出课堂时调用。                              |
+| verifySDK                               | 白板SDK使用权限校验接口，必须调用。                              |
 
 **白板事件监听：**
 

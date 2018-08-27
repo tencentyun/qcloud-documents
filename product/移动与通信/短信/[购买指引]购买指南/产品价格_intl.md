@@ -2,8 +2,8 @@
 
 
 ## ISMS Pricing
-ISMS products are [postpaid monthly](https://cloud.tencent.com/document/product/382/9556#3-.E4.BB.98.E6.AC.BE.E6.96.B9.E5.BC.8F). The prices in the table are in US dollar.
-<br />Click to download [ISMS Price List](https://mc.qcloudimg.com/static/archive/ecbd7de36078dab5baf0a270e8a82103/archive.xlsx "腾讯云短信海外价格表").
+ISMS products are [postpaid monthly](https://intl.cloud.tencent.com/document/product/382/18052#billing-methods). The prices in the table are in US dollar.
+<br />Click to download [ISMS Price List](https://main.qcloudimg.com/raw/e456625a299908086ce0c9949b1d37d2/ISMS%20Price%20List.xlsx).
 
 | Country/Region | Code	| Country/Region Code |	Unit Price (USD) |
 |--------------------|-------|---------|---------------|

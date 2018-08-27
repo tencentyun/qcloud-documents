@@ -3,12 +3,12 @@
 
 1. A signature cannot contain information related to pornography, gambling, drug abuse, or any religion, party or government.
 2. A signature cannot be ambiguous. It must clearly indicate the company or individual who sends SMS messages.
-3. A China [SMS Signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) is composed of 【】 and signature content which contains 2 to 12 Chinese/English characters or numbers. Special symbols such as "+, @, and |" are not supported. Try to use Chinese characters for China SMS signatures. Only signature content is required when you apply for an SMS signature on the [Console](https://console.cloud.tencent.com/sms/smsSign/1400054957/0/10). For example, if the signature of a Tencent Cloud SMS message is "【Tencent Cloud】", you need only to submit "Tencent Cloud" when applying for an SMS signature.
+3. A China [SMS Signature](https://intl.cloud.tencent.com/document/product/382/13299#sms-signature) is composed of 【】 and signature content which contains 2 to 12 Chinese/English characters or numbers. Special symbols such as "+, @, and |" are not supported. Try to use Chinese characters for China SMS signatures. Only signature content is required when you apply for an SMS signature on the [Console](https://console.cloud.tencent.com/sms/smsSign/1400054957/0/10). For example, if the signature of a Tencent Cloud SMS message is "【Tencent Cloud】", you need only to submit "Tencent Cloud" when applying for an SMS signature.
 4. International SMS signature is composed of [] and signature content which is a combination of 2-15 characters excluding []. Only signature content is required when you apply for an SMS signature on the [Console](https://console.cloud.tencent.com/sms/smsSign/1400054957/0/10). For example, if the international signature of a Tencent Cloud SMS message is "[Tencent Cloud]", you need only to submit "Tencent Cloud" when applying for an SMS signature.
 
 ### Audit Rules
 
-An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.AD.E4.BF.A1.E7.AD.BE.E5.90.8D) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [Submit a ticket](https://console.cloud.tencent.com/workorder/category).
+An [SMS signature](https://intl.cloud.tencent.com/document/product/382/13299#sms-signature) needs to be licensed by operators and the original or the copy of business license stamped with the company's official seal must be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party must be obtained. For any questions, contact [Submit a ticket](https://console.cloud.tencent.com/workorder/category).
 
 1. The signature is **the name of a WeChat Official Account or Mini Program**.
  - For enterprise identify verification, the account subject of the Official Account must be identical with the company name on the copy of the business license (or organization code certificate).
@@ -56,7 +56,7 @@ An [SMS signature](https://cloud.tencent.com/document/product/382/13299#.E7.9F.A
 ## Standards on Marketing SMS messages
 1. Always add "reply T if you don't want to receive such message" at the end of any SMS message.
 2. Do not send marketing SMS messages to nonmembers.
-3. Strictly comply with [SMS message standards](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86) and do not send any SMS messages that violate applicable regulations and laws.
+3. Strictly comply with [SMS message standards](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages) and do not send any SMS messages that violate applicable regulations and laws.
 4. Send marketing SMS messages in the daytime (8:00 - 22:00) to minimize complaints.
 
 ## Audit Procedure
@@ -66,6 +66,6 @@ Since the approved content templates also need to be spot checked and reviewed b
 
 ## Rules for Blocking SMS
 Both SMS signatures and SMS templates applied for by users are reviewed by SMS technical support, and SMS content is also monitored and detected by the cloud SMS system when users are sending SMS messages, so as to prevent the content that violates national laws and regulations from appearing in SMS messages.
-For users who send [SMS messages that violate the rules](https://cloud.tencent.com/document/product/382/13444#.E6.99.AE.E9.80.9A.E7.9F.AD.E4.BF.A1.E5.AE.A1.E6.A0.B8.E6.A0.87.E5.87.86), we may freeze their accounts, deduct deposit, or pursue related liability against the users as the case may be.
+For users who send [SMS messages that violate the rules](https://intl.cloud.tencent.com/document/product/382/13444#audit-criteria-for-common-sms-messages), we may freeze their accounts, deduct deposit, or pursue related liability against the users as the case may be.
 
 
