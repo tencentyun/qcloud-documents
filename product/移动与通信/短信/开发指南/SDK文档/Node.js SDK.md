@@ -154,8 +154,8 @@ spuller.pullReply(maxNum, callback);
 - **拉取单个手机短信状态**
 
 ```javascript
-var beginTime = 1511125600;  // 开始时间(unix timestamp)
-var endTime = 1511841600;    // 结束时间(unix timestamp)
+var beginTime = 1511125600;  // 开始时间(UNIX timestamp)
+var endTime = 1511841600;    // 结束时间(UNIX timestamp)
 var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
