@@ -2,7 +2,8 @@
 目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
 
 ### Cloud Kafka 的产品限制有哪些？
-根据实例的不同规格，有如下限制：
+
+1. 根据实例的不同规格，有如下限制：
 
 | 产品规格 | 实例级别 topic 数 | 实例级别 partition 数 | 实例级别 consumer group 数 | 单 topic 支持的 partition 数   |
 | :-------- | :-------- | :------ |:------ |:------ |
@@ -16,7 +17,8 @@
 
 >**注意：**
 >实例级别的 paritition 限制包含了副本数。举例，一个实例下有 1 个双副本、4 分区的 topic，还有 2 个 3 副本，3 分区的 topic，则这个实例的总 partition 个数为 (1×2×4)+(2×3×3)=26 个。
-> consumer group 空闲存活时间 1 个月
+2.  consumer group 空闲存活时间 1 个月
+3.  CKafka单条消息大小（message.max.bytes）限制为1M 
 
 ### Cloud Kafka 是否支持消息压缩？
 当前 Cloud Kafka 支持开源的 snappy 和 lz4 的消息压缩格式。由于 Gzip 压缩对于 CPU 的消耗较高，暂未支持。
