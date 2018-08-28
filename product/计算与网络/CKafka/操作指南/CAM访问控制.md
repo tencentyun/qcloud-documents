@@ -33,7 +33,7 @@
   "statement": [
     {
       "action": [
-            "name/ckafka:*",
+            "name/ckafka:*"
       ],
       "resource": "*",
       "effect": "allow"
@@ -58,7 +58,7 @@
   "statement": [
     {
       "action": [
-            "name/ckafka:*",
+            "name/ckafka:*"
       ],
       "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
       "effect": "allow"
