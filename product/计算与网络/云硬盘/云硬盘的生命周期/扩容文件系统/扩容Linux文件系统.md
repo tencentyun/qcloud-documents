@@ -273,7 +273,7 @@ umount 挂载点
 执行以下命令下载工具：
 
 ```
-wget -O /tmp/devresize.py http://mirrors.tencentyun.com/install/virts/devresize.py
+wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
 
 #### 执行扩容工具
