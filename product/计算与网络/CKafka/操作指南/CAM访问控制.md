@@ -60,14 +60,47 @@
       "action": [
             "name/ckafka:*",
       ],
-      "resource": "qcs::ckafka:$region:uin/:ckafkaId/uin/$createUin/$instanceId",
+      "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
       "effect": "allow"
     }
   ]
 }
 ```
+### CKafka 单个实例只读策略
+
+先按照策略生成器创建，授权列表类权限和产品监控权限
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "name/ckafka:ListInstance",
+                "name/monitor:GetMonitorData"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
 
 
-
-
-
+之后授权单实例只读权限
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "ckafka:Get*",
+                "ckafka:List*"
+            ],
+            "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
+            "effect": "allow"
+        }
+    ]
+}
+```
