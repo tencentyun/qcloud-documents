@@ -159,13 +159,19 @@ e2fsck -f 分区路径
 前述步骤中本例已新建了分区1，使用`e2fsck -f /dev/vdb1`进行操作。结果如下：
 ![](//mccdn.qcloud.com/static/img/307f7a0c98eea05ca1d4560fe4e96f57/image.png)
 
-#### 扩容文件系统
-执行以下命令进行分区上文件系统的扩容操作：
+#### 扩容 EXT 文件系统
+执行以下命令进行新分区上 EXT 文件系统的扩容操作：
 
 ```
-resize2fs 分区路径
+resize2fs 分区路径，如/dev/vdb1
 ```
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
+
+#### 扩容 XFS 文件系统
+执行以下命令进行新分区上 XFS 文件系统的扩容操作：
+```
+xfs_growfs 分区路径，如/dev/vdb1
+```
 
 #### 挂载新分区
 执行以下命令挂载分区：
