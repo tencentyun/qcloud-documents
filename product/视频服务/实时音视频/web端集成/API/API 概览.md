@@ -6,7 +6,7 @@
 | -------------------- | -------- |
 | [WebRTCAPI.fn.detectRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
 | [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)     | 初始化 |
-| [WebRTCAPI.createRoom](https://cloud.tencent.com/document/product/647/17251#webrtcapi.createroom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.enterRoom( WebRTCAPI.createRoom )](https://cloud.tencent.com/document/product/647/17251#webrtcapi.createroom)     | 创建或进入音视频房间 |
 | [WebRTCAPI.quit](https://cloud.tencent.com/document/product/647/17251#webrtcapi.quit)     | 退出音视频房间 |
 
 ### 基础事件通知
@@ -46,3 +46,14 @@
 | 事件                   |  描述            |
 | -------------------- | -------- |
 | [onPeerConnectionAdd](https://cloud.tencent.com/document/product/647/17252#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
+
+
+
+
+
+### 更新日志
+> 2.6.1
+    ## WebRTCAPI.getSpeakerDevices
+        枚举音频输出设备
+    ## WebRTCAPI.chooseSpeakerDevice
+        枚举音频输出设备
