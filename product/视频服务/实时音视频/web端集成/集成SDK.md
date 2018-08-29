@@ -8,8 +8,8 @@
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
 | Mac          | Safari | 11+                |      |
-| Windows(PC)  | Chrome | 52+                |  | |
-| Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2               |  | |
+| Windows(PC)  | Chrome | 52+                |      |
+| Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2               |     |
 
 > 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc) 中有获取 TBS 版本的方法。
 
@@ -64,14 +64,31 @@
 ### 在页面中引入 WebRTCAPI.min.js
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.6/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/2.6.1/WebRTCAPI.min.js"></script>
 ```
 
 
-### Update Log
 
-- 2.6
-    - 新增SoundMeter接口
-    - 新增日志上报的字段
-    - 调整初始化接口
+### 更新日志
+
+- 2.6.1（ 2018-8-16 ）
+
+  - 增加接口 getSpeakerDevices
+
+    枚举音频输出设备
+
+  - 增加接口chooseSpeakerDevice
+
+    选择音频输出设备
+
+    
+
+- 2.6 （ 2018-8-10）
+
+  - 新增SoundMeter接口
+
+  - 新增日志上报的字段
+
+  - createRoom 名称改为 enterRoom 
+
     

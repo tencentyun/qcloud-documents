@@ -44,10 +44,10 @@
 | 12 |http_host	 | 请求域名 | 
 | 13 |http_user_agent | 	user_agent | 
 | 14 |http_referer	 | http请求来源 | 
-| 15 | request_time| 请求处理时间 |
-| 16 | upstream_response_time | 从rs接收应答所花费时间 |
-| 17 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
-| 18 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
+| 15 | request_time|一次请求完整的处理时间，从 CLB 收到客户端的请求到 CLB，CLB 将请求转发到 RS，RS 响应数据到 CLB，CLB 转发数据到客户端的总时间 |
+| 16 | upstream_response_time |从 CLB 向 RS 建立连接开始到接收到 RS 响应的时间 |
+| 17 | upstream_connect_time	 |CLB 和 RS 建立 TCP 连接所花费时间 |
+| 18 | upstream_header_time	 | CLB 从 RS 接收完 HTTP 头部所花费时间 |
 | 19 | tcpinfo_rtt | tcp连接的rtt |
 | 20 | connection | 连接id |
 | 21 | connection_requests | 连接上的请求个数 |
