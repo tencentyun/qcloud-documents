@@ -1,7 +1,7 @@
-Session persistence allows the requests from the same IP (IP address range) to be forwarded to the same backend CVM. By default, load balancer routes each request to a different backend CVM instance. However, you can use session persistence feature to route requests from a specific user to the same backend CVM instance, so that some applications (such as shopping cart) that need to maintain the session state can work properly.
+Session persistence allows the requests from the same IP to be forwarded to the same backend CVM. By default, load balancer routes each request to a different backend CVM instance. However, you can use session persistence feature to route requests from a specific user to the same backend CVM instance, so that some applications (such as shopping cart) that need to maintain the session state can work properly.
 
 ## Layer-4 Session Persistence
-Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of `0-3600` seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.
+Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of `30-3600` seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.
 
 ## Layer-7 Session Persistence
 Layer-7 forwarding scenario supports session persistence based on cookie insertion (the cookie is stuffed into the client by load balancer). Session duration range is 30-3600s. For more information on session persistence based on cookie insertion, please see [Session Persistence Principles](https://cloud.tencent.com/document/product/214/2736).
