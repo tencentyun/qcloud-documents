@@ -9,7 +9,7 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 
 ### 1.1 资源下载	
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 
 >**注意：**
 > 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
