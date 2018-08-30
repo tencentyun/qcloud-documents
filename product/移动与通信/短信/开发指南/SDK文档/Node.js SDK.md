@@ -88,7 +88,7 @@ function callback(err, res, resData) {
 }
 ```
 
-<a name="指定模板单发短信" />
+<a id="指定模板单发短信" />
 
 - **指定模板 ID 单发短信**
 
@@ -101,7 +101,7 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
-<a name="指定模板群发短信" />
+<a id="指定模板群发短信" />
 
 - **指定模板 ID 群发短信**
 
@@ -115,7 +115,7 @@ msender.sendWithParam("86", phoneNumbers, templateId,
 > 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 
 
-<a name="发送语音验证码" />
+<a id="发送语音验证码" />
 
 - **发送语音验证码**
 
@@ -125,7 +125,7 @@ cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
 ```
 > 语音验证码发送只需提供验证码数字，例如当 msg=“5678” 时，您收到的语音通知为“您的语音验证码是 5 6 7 8”，如需自定义内容，可以使用语音通知。
 
-<a name="发送语音通知" />
+<a id="发送语音通知" />
 
 - **发送语音通知**
 
@@ -134,7 +134,7 @@ var pvsender = qcloudsms.PromptVoiceSender();
 pvsender.send("86", phoneNumbers[0], 2, "5678", 2, "", callback);
 ```
 
-<a name="拉取短信回执" />
+<a id="拉取短信回执" />
 
 - **拉取短信回执以及回复**
 
@@ -166,7 +166,7 @@ mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
 
-<a name="上传语音文件" />
+<a id="上传语音文件" />
 
 - **上传语音文件**
 
@@ -183,7 +183,7 @@ uploader.upload(fileContent, "mp3", callback);
 >语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
 
-<a name="按语音文件fid发送语音通知" />
+<a id="按语音文件fid发送语音通知" />
 
 - **按语音文件 fid 发送语音通知**
 
@@ -198,7 +198,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 
 
 
-<a name="指定模板发送语音通知" />
+<a id="指定模板发送语音通知" />
 
 - **指定模板发送语音通知**
 
