@@ -273,7 +273,7 @@ umount Mount point
 Execute the following command to download the tool:
 
 ```
-wget -O /tmp/devresize.py http://mirrors.tencentyun.com/install/virts/devresize.py
+wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
 
 #### Executing the expansion tool
