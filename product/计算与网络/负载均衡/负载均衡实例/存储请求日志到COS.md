@@ -28,30 +28,30 @@
 
 #### 日志变量说明
 
-| 序号 | 变量名 |   说明 |
-| :-------- | :-------- | :------ |
-| 1 | time_local	|  时间戳 |
-| 2 | protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |
-| 3 | server_addr:server_port  | 请求的目的ip和目的端口 |
-| 4 | server_name | 规则的server_name |
-| 5 | remote_addr:remote_port	| client ip：port |
-| 6 | status | LB返回给client的状态码 |
-| 7 | upstream_status | RS返回给LB的状态码 |
-| 8 | proxy_host | upstream id |
-| 9 | request | 请求行 |
-| 10 | request_length | 从客户端收到的请求字节数 |
-| 11 |bytes_sent | 	发送客户端的字节数 | 
-| 12 |http_host	 | 请求域名 | 
-| 13 |http_user_agent | 	user_agent | 
-| 14 |http_referer	 | http请求来源 | 
-| 15 | request_time|一次请求完整的处理时间，从 CLB 收到客户端的请求到 CLB，CLB 将请求转发到 RS，RS 响应数据到 CLB，CLB 转发数据到客户端的总时间 |
-| 16 | upstream_response_time |从 CLB 向 RS 建立连接开始到接收到 RS 响应的时间 |
-| 17 | upstream_connect_time	 |CLB 和 RS 建立 TCP 连接所花费时间 |
-| 18 | upstream_header_time	 | CLB 从 RS 接收完 HTTP 头部所花费时间 |
-| 19 | tcpinfo_rtt | tcp连接的rtt |
-| 20 | connection | 连接id |
-| 21 | connection_requests | 连接上的请求个数 |
-| 22 | ssl_handshake_time	|ssl握手所花费时间 |
-| 23 | ssl_cipher| 加密套件|
-| 24 | ssl_protocol	| ssl协议版本 |
-| 25 | ssl_session_reused | ssl session复用|	
+| 序号 | 变量名 | 含义|  说明 |
+| :-------- | :-------- | :------ |------ |
+| 1 | time_local	|  时间戳 |- |
+| 2 | protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |- |
+| 3 | server_addr:server_port  | 请求的目的 ip 和目的端口 | -|
+| 4 | server_name | 规则的 server_name | -|
+| 5 | remote_addr:remote_port	| client ip：port |- |
+| 6 | status | LB 返回给 client 的状态码 |- |
+| 7 | upstream_status | RS 返回给 LB 的状态码 |- |
+| 8 | proxy_host | upstream id |- |
+| 9 | request | 请求行 | -|
+| 10 | request_length | 从客户端收到的请求字节数 |- |
+| 11 |bytes_sent | 	发送客户端的字节数 | - |
+| 12 |http_host	 | 请求域名 | - |
+| 13 |http_user_agent | 	user_agent |-  |
+| 14 |http_referer	 | http 请求来源 |-  |
+| 15 | request_time|请求处理时间 |整个请求处理时间 （从客户端收到第一个字节开始 -> 给客户端发送的最后一个字节）|
+| 16 | upstream_response_time |从 rs 接收应答所花费时间 |整个后端请求所花费时间（从开始 connect rs 到从 rs 收完应答所花费时间）|
+| 17 | upstream_connect_time	 |和 rs 建立 tcp 连接所花费时间 |从开始 connect rs -> 开始发送 http 请求 |
+| 18 | upstream_header_time	 | 从 rs 接收完 http 头部所花费时间 |从开始 connect rs -> 从 rs 接收完 http 应答头部|
+| 19 | tcpinfo_rtt | tcp 连接的 rtt |- |
+| 20 | connection | 连接 id |- |
+| 21 | connection_requests | 连接上的请求个数 |- |
+| 22 | ssl_handshake_time	|ssl 握手所花费时间 |- |
+| 23 | ssl_cipher| 加密套件|- |
+| 24 | ssl_protocol	| ssl 协议版本 |- |
+| 25 | ssl_session_reused | ssl session 复用|	  - |
