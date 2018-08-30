@@ -61,15 +61,14 @@
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [微信云支付](https://cloud.tencent.com/document/product/569) | ✔        | -      | ✔      | 服务级   | -        | - |
 | 云数据库（CDB）              |-        | -      | -      | -   | -        | ✔    |
-| 日志服务（CLS）               |-        | -      | -      | -   | -        | ✔    |
-| 文档数据库（MongoDB）         |-        | -      | -      | -   | -        | ✔    |
-| 腾讯云应用服务平台（TCB）     |-        | -      | -      | -   | -        | ✔    |
-| 分布式服务框架（TSF）     |-        | -      | -      | -   | -        | ✔    |
-| --物联网通信（IotHub）          |-        | -      | -      | -   | -        | ✔    |
-| 织云（zhiyun）                |-        | -      | -      | -   | -        | ✔    |
-| 宙斯盾安全防护（aegis）       |-        | -      | -      | -   | -        | ✔    |
-| API网关（ApiGateway）         |-        | -      | -      | -   | -        | ✔    |
-| 腾讯区块链开发平台（BaaS）    |-        | -      | -      | -   | -        | ✔    |
+| [日志服务（CLS）](https://cloud.tencent.com/document/product/614)               |-        | -      | -      | -   | -        | ✔    |
+| [文档数据库（MongoDB）](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
+| [腾讯云应用服务平台（TCB）](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
+| [分布式服务框架（TSF）](https://cloud.tencent.com/document/product/649)     |-        | -      | -      | -   | -        | ✔    |
+| [织云（zhiyun）](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        | ✔    |
+| [宙斯盾安全防护（aegis）](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
+| [API网关（ApiGateway）](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
+| [腾讯区块链开发平台（TBaaS）](https://cloud.tencent.com/document/product/663)    |-        | -      | -      | -   | -        | ✔    |
 
 #### 说明：
 1. “云 API”指云 API 是否接入 CAM，“控制台”指控制台是否接入 CAM。 
