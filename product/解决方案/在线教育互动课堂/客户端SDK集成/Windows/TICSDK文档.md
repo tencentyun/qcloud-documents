@@ -9,7 +9,7 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 
 ### 1.1 资源下载	
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 
 >**注意：**
 > 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
@@ -197,7 +197,6 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 > 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
 > 4. 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
-
 登出方法比较简单，如下：
 
 ```C++
@@ -311,66 +310,8 @@ virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallb
 
 学生退出课堂时，只是本人退出了课堂，老师调用`退出课堂`方法退出课堂时，该课堂将会被销毁，另外退出课堂成功后，课堂的资源将会被回收，所以开发者应尽量保证再加入另一个课堂前，已经退出了前一个课堂。
 
-### 4.6 COS 上传相关操作
-COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，TICSDK 内部会将调用 SDK 接口将图片，文件上传到COS 云存储桶中。COS 上传和预览功能被封装在了 TICWhiteboardManager 里面，如需上传图片、PPT 文件，调用`uploadFile`这个接口将文件名路径填入即可。
 
-开发者可以使用我们维护的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
-
-```C++
-> TICWhiteboardManager.h
-
-/**
-* \brief 设置cos参数
-* \param cosAppId	cos appid
-* \param bucket		bucket
-* \param path		文件上传路径
-* \param region	    	园区
-*/
-virtual void setCosConfig(uint32_t cosAppId, const char* bucket, const char* path, const char* region) = 0;
-
-/**
-* \brief 上传文件到cos
-* \param fileName   文件名
-*/
-virtual void uploadFile(const std::wstring& fileName) = 0;
-
-/**
-* \brief 带签名上传文件到cos，兼容旧版V4
-* \param fileName   文件名
-* \param sig			cos签名
-*/
-virtual void uploadFile(const std::wstring& fileName, std::string& sig) = 0;
-
-```
-
-上传结果通过`IClassroomWhiteboardListener`的回调传给上层处理：
-```C++
-/**
-* \brief 通知文件上传进度
-* \param percent	进度按百分比
-*/
-virtual void onUploadProgress(int percent) = 0;
-
-/**
-* \brief 通知文件上传结果
-* \param success	上传结果
-* \param code	    错误码
-* \param objName	cos文件名
-* \param fileName	本地文件名
-*/
-virtual void onUploadResult(bool success, int code, std::wstring objName, std::wstring fileName) = 0;
-
-/**
-* \brief 通知PPT文件上传结果
-* \param success	上传结果
-* \param objName	cos文件名
-* \param fileName	本地文件名
-* \param pageCount	  文件页数，若结果失败则为错误码
-*/
-virtual void onFileUploadResult(bool success, std::wstring objName,std::wstring fileName, int pageCount) = 0;
-```
-
-### 4.7 白板相关操作
+### 4.6 白板相关操作
 
 TICSDK 中将白板 SDK 封装在一个白板管理类当中，用户可在进入房间后调 TICSDK.h 里面的 initWhiteBoard 方法进行初始化，也可以自己初始化白板 SDK 后通过 initWhiteBoard 方法传入。
 

@@ -23,4 +23,4 @@ FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明。
 ![](https://mc.qcloudimg.com/static/img/4cb3c2d5cf09c8923ec271f6cdeeaec7/4.png)
 
 完成上传后，可以在右侧远程站点查看到主机目录下的网站代码。
-![](https://mc.qcloudimg.com/static/img/fcd6c8fac628baf90e1de7d24507b614/5.png)
+![](https://main.qcloudimg.com/raw/a810005e9ff4ea581d41011869fb43bb.png)

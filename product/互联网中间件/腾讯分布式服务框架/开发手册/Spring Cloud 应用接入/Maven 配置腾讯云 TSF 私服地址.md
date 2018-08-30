@@ -76,10 +76,10 @@
 
 1.  在命令行执行如下命令 `mvn help:effective-settings` 。
 
-	-  查看执行结果，没有错误表面setting.xml格式正确
+	- 查看执行结果，没有错误表明 setting.xml 格式正确。
 	- Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
 	- ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
 
 2.  其他说明
 
-	-  执行正确的Maven命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+	-  执行正确的 Maven 命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
