@@ -31,7 +31,7 @@
 | 序号 | 变量名 | 说明 |
 | :-------- | :-------- | :------ |
 | 1 | time_local	|  时间戳 |
-| 2 | protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |
+| 2 | protocol_type |  协议类型（HTTP/HTTPS/SPDY/HTTP2/WS/WSS） |
 | 3 | server_addr:server_port  | 请求的目的 IP 和目的端口 | 
 | 4 | server_name | 规则的 server_name | 
 | 5 | remote_addr:remote_port	| client IP：port |
