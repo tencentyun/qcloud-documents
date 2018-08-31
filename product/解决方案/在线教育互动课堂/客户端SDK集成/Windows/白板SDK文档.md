@@ -6,6 +6,7 @@
 |BoardSDK.dll|SDK动态链接库|
 |BoardSDK.lib|SDK导入库|
 |BoardSDK.h|SDK头文件|
+|BoardMgr.h|SDK头文件|
 
 ## 2. SDK快速集成
 ### 2.1 导入SDK到项目
@@ -26,7 +27,7 @@
 创建白板前，首先使用如下代码引入SDK头文件：
 
 ```C++
-#include "BoardSDK.h"
+#include "BoardMgr.h"
 ```
 
 之后使用如下代码创建一个白板实例：
@@ -147,7 +148,10 @@ boardSDk->uploadFile(filePath);//上传文件
 ```C++
 boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```
-
+对于使用了V4旧版的COS系统，上传需要先计算签名sig，再使用以下代码
+```C++
+boardSDk->uploadFile(filePath, sig);
+```
 ### 2.7 添加PPT（以PPT为例）
 
 用户首先需要将PPT上传到腾讯云对象存储COS（或者其他存储系统），获取到PPT每一页转码后的图片URL链接。
