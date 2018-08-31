@@ -1,6 +1,6 @@
 ## Overview
 
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for Unreal developers to debug and integrate the APIs for Game Multimedia Engine.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for Mac developers to debug and integrate the APIs for Game Multimedia Engine.
 
 
 ## How to Use
@@ -9,12 +9,12 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/15231).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/18739).
 
 
 | Important API | Description |
 | ------------- |:-------------:|
-|Init    		|Initializes GME 	|
+|InitEngine    				       	|Initializes GME 	|
 |Poll    		|Triggers event callback	|
 |EnterRoom	 	|Enters a room  		|
 |EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
@@ -34,12 +34,16 @@ This document only provides the most important APIs to help you get started with
 
 ### 1. Get a singleton
 This API is used to get the ITMGContext object when using the voice feature.
+#### Function prototype 
 
+```
+ITMGContext ITMGDelegate <NSObject>
+```
 #### Sample code  
 
 ```
-ITMGContext* context = ITMGContextGetInstance();
-context->SetTMGDelegate(this);
+ITMGContext* _context = [ITMGContext GetInstance];
+_context.TMGDelegate =self;
 ```
 
 
@@ -51,62 +55,45 @@ SDK must be initialized before a user can enter a room.
 #### Function prototype
 
 ```
-ITMGContext virtual void Init(const char* sdkAppId, const char* openId)
+ITMGContext -(void)InitEngine:(NSString*)sdkAppID openID:(NSString*)openID
 ```
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| sdkAppId    	|char*  	|The SdkAppId obtained from the Tencent Cloud console					|
-| openID    		|char*   	|The OpenID supports Int64 type (which is passed after being converted to a string) only. It is used to identify users and must be greater than 10000. 	|
+| sdkAppId    	|NSString  |The SdkAppId obtained from the Tencent Cloud console |
+| openID    		|NSString  |The OpenID supports Int64 type (which is passed after being converted to a string) only. It is used to identify users and must be greater than 10000. 	|
 
 #### Sample code 
 ```
-std::string appid = TCHAR_TO_UTF8(CurrentWidget->editAppID->GetText().ToString().operator*());
-std::string userId = TCHAR_TO_UTF8(CurrentWidget->editUserID->GetText().ToString().operator*());
-ITMGContextGetInstance()->Init(appid.c_str(), userId.c_str());
+[[ITMGContext GetInstance] InitEngine:SDKAPPID3RD openID:_openId];
 ```
 
 ### 3. Trigger event callback
-This API is used to trigger event callback via periodic Poll call in Tick.
+This API is used to trigger the event callback via periodic Poll call in update.
 #### Function prototype
 
 ```
-class ITMGContext {
-protected:
-    virtual ~ITMGContext() {}
-    
-public:    	
-	virtual void Poll()= 0;
-}
-
+ITMGContext -(void)Poll
 ```
 #### Sample code
 ```
-//Declaration in the header file
-virtual void Tick(float DeltaSeconds);
-
-//Code implementation
-void AUEDemoLevelScriptActor::Tick(float DeltaSeconds) 
-{   
-ITMGContextGetInstance()->Poll();
-}
+[[ITMGContext GetInstance] Poll];
 ```
 
 ### 4. Enter a room
 This API is used to enter a room with the generated authentication information, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback.
 - Microphone and speaker are not enabled by default after a user enters the room.
-- The API Init should be called before the API EnterRoom.
+- The API InitEngine should be called before the API EnterRoom.
 
 #### Function prototype
 ```
-ITMGContext virtual void EnterRoom(int roomID, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
+ITMGContext   -(void)EnterRoom:(int) roomID roomType:(int*)roomType authBuffer:(NSData*)authBuffer
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomID			|int   		| Room number. 32-bit is supported.	|
-| roomType 			|ITMG_ROOM_TYPE	| Audio type of the room	|
-| authBuffer    		|char*    				| Authentication key			|
-| buffLen   			|int   				| Length of the authentication key		|
+| roomID 	|int		|Room number. 32-bit is supported.									|
+| roomType 	|int		|Audio type of the room		|
+| authBuffer	|NSData	|Authentication key				|
 
 | Audio Type | Meaning | Parameter | Volume Type | Recommended Sampling Rate on the Console | Application Scenarios |
 | ------------- |------------ | ---- |---- |---- |---- |
@@ -119,23 +106,29 @@ ITMGContext virtual void EnterRoom(int roomID, ITMG_ROOM_TYPE roomType, const ch
 
 #### Sample code  
 ```
-ITMGContext* context = ITMGContextGetInstance();
-context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen);
+[[ITMGContext GetInstance] EnterRoom:_roomId roomType:_roomType authBuffer:authBuffer];
 ```
 
 ### 5. Callback for entering a room
-This API is used to send the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message after a user enters a room, which is checked in the OnEvent function.
+A callback response is returned after a user enters the room, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received.
+Reference code for the callback setting:
+```
+- (void)OnEvent:(ITMG_MAIN_EVENT_TYPE)eventType data:(NSDictionary*)data
+```
+Reference code for the callback processing:
 #### Sample code  
 ```
-//Implementation
-void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
-	switch (eventType) {
-            case ITMG_MAIN_EVENT_TYPE_ENTER_ROOM:
-		{
-		//Process
-		break;
-		}
-	}
+-(void)OnEvent:(ITMG_MAIN_EVENT_TYPE)eventType data:(NSDictionary *)data{
+    NSLog(@"OnEvent:%lu,data:%@",(unsigned long)eventType,data);
+    switch (eventType) {
+        case ITMG_MAIN_EVENT_TYPE_ENTER_ROOM:
+        {
+            int result = ((NSNumber*)[data objectForKey:@"result"]).intValue;
+            NSString* error_info = [data objectForKey:@"error_info"];
+            // Receive the event of entering the room successfully.
+        }
+            break;
+     }
 }
 ```
 
@@ -146,17 +139,17 @@ This API is used to enable/disable a capturing device. The devices is not enable
 
 #### Function prototype  
 ```
-ITMGContext virtual int EnableAudioCaptureDevice(bool enable)
+ITMGContext GetAudioCtrl -(QAVResult)EnableAudioCaptureDevice:(BOOL)enabled
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the capturing device, set this parameter to true, otherwise, set it to false. |
+| enabled    |BOOL     |To enable the capturing device, set this parameter to YES, otherwise, set it to NO. |
 
-#### Sample code
+#### Sample code  
 
 ```
 Enable a capturing device
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioCaptureDevice(true);
+[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioCaptureDevice:enabled];
 ```
 
 
@@ -166,31 +159,33 @@ This API is used to enable/disable audio upstream. If the capturing device is al
 #### Function prototype
 
 ```
-ITMGContext  virtual int EnableAudioSend(bool bEnable)
+ITMGContext GetAudioCtrl -(QAVResult)EnableAudioSend:(BOOL)enable
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| bEnable    |bool     |To enable the audio upstream, set this parameter to true, otherwise, set it to false. |
+| enable    |BOOL     |To enable the audio upstream, set this parameter to YES, otherwise, set it to NO. |
 
 #### Sample code  
 
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioSend(true);
+[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioSend:enabled];
 ```
 
 ### 8. Enable/disable a playback device
 This API is used to enable/disable a playback device.
-
 #### Function prototype  
+
 ```
-ITMGContext virtual int EnableAudioPlayDevice(bool enable) 
+ITMGContext GetAudioCtrl -(QAVResult)EnableAudioPlayDevice:(BOOL)enabled
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool       	| To disable the playback device, set this parameter to false, otherwise, set it to true.	|
-#### Sample code  
+| enabled    |BOOL        	| To disable the playback device, set this parameter to NO, otherwise, set it to YES.	|
+#### Sample code
+
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioPlayDevice(true);
+Enable a playback device
+[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioPlayDevice:enabled];
 ```
 
 ### 9. Enable/disable audio downstream
@@ -199,42 +194,40 @@ This API is used to enable/disable audio downstream. If the playback device is e
 #### Function prototype  
 
 ```
-ITMGContext virtual int EnableAudioRecv(bool enable)
+ITMGContext GetAudioCtrl -(QAVResult)EnableAudioRecv:(BOOL)enabled
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the audio downstream, set this parameter to true, otherwise, set it to false. |
+| enabled    |BOOL     |To enable the audio downstream, set this parameter to YES, otherwise, set it to NO. |
 
 #### Sample code  
 
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioRecv(true);
+[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioRecv:enabled];
 ```
-
 
 ## Authentication
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).  
-When voice message is obtaining authentication, the parameter of room number must be set to 0.
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218). When voice message is obtaining authentication, the parameter of room number must be set to 0.    
+A value of type NSData is returned by this API.
 
 #### Function prototype
 ```
-QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, unsigned int dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
+@interface QAVAuthBuffer : NSObject
++ (NSData*) GenAuthBuffer:(unsigned int)appId roomId:(unsigned int)roomId identifier:(NSString*)identifier key:(NSString*)key;
++ @end
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| nAppId    			|int   		| The SdkAppId obtained from the Tencent Cloud console		|
-| dwRoomID    		|int   		| Room number. 32-bit is supported.	|
-| strOpenID  		|char*    		| User ID								|
-| strKey    			|char*	    	| The key obtained from the Tencent Cloud console		|
-|strAuthBuffer		|char*    	| Returned authbuff				|
-| buffLenght   		|int    		| Length of returned authbuff					|
+| appId    		|int   		| The SdkAppId obtained from the Tencent Cloud console		|
+| roomId    		|int   		| Room number. 32-bit is supported.	|
+| identifier  		|NSString | User ID |
+| key    			|NSString | The key obtained from the Tencent Cloud console |
+
 
 
 #### Sample code  
 ```
-unsigned int bufferLen = 512;
-unsigned char retAuthBuff[512] = {0};
-QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strAuthBuffer,&bufferLen);
+NSData* authBuffer =   [QAVAuthBuffer GenAuthBuffer:SDKAPPID3RD.intValue roomId:_roomId openID:_openId key:AUTHKEY];
 ```
 
