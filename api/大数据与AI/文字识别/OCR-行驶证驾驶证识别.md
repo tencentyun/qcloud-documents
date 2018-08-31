@@ -29,6 +29,15 @@
 如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ### 请求参数
+使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。
+
+| 参数名    | 必选 | 类型     | 说明                                       |
+| ------ | ---- | ------ | ---------------------------------------- |
+| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
+| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
+| image  | 否   | binary/string | 图片文件 或 图片 base64                                |
+| url    | 否   | string | 图片 url。url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
+
 目前支持的字段为：
 
 | 行驶证    | 驾驶证  |
@@ -44,15 +53,6 @@
 | 注册日期   | 起始日期 |
 | 发证日期   | 有效日期 |
 | &nbsp; | 红章   |
-
-使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。
-
-| 参数名    | 必选 | 类型     | 说明                                       |
-| ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
-| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
-| image  | 否   | binary/string | 图片文件 或 图片 base64                                |
-| url    | 否   | string | 图片 url。url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
 
 ## 返回内容
 
