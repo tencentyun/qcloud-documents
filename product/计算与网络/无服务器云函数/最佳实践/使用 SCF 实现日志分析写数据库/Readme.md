@@ -1,17 +1,17 @@
-##使用SCF实现日志文件的统计分析
+## 使用SCF实现日志文件的统计分析
 
 在本Demo中，我们用到了无服务器云函数 SCF，对象存储 COS，MySQL数据库。其中，对象存储 COS 用来存储需要分析的日志文件，云函数 SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到MySQL数据库中。
 
 
-###步骤一 创建 COS Bucket
+### 步骤一 创建 COS Bucket
 
 首先要到 COS 的控制台创建一个 Bucket，我们可以命名为 loganalysis，并选择“北京”地域，权限选择“公有读-私有写”。
 
-###步骤二 创建 MySQL数据库
+### 步骤二 创建 MySQL数据库
 
 由于数据库需要花钱购买，您可以选择在北京地域购买最便宜的[“云数据库MySQL入门机型”](https://cloud.tencent.com/act/event/cdbbasic.html)，价格为12元/月。
 
-###步骤三 创建云函数 SCF
+### 步骤三 创建云函数 SCF
 
 首先确保在您的系统中已经安装好了python运行环境和pip工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，安装数据库操作相关的库，可以直接执行命令：
 ```
@@ -202,7 +202,7 @@ def main_handler(event, context):
 在这里，您也可以直接下载[git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis)中提供的项目文件，并打成zip包，通过控制台创建函数并完成部署，注意：
 1.在打zip包的时候，请不要包含“demo-scf1.txt”和“demo-scf2.txt”，否则zip包有可能会超过5MB；2.在“函数代码”中需修改appid、secret_id和secret_key并保存。
 
-###步骤三 测试函数功能
+### 步骤四 测试函数功能
 进入COS控制台，选择创建好的Bucket:loganalysis,点击“上传文件”，选择[git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis)中提供的样例日志文件demo-scf1.txt，然后上传。回到 SCF 控制台查看执行结果，在“日志”中可以看到打印出来的日志信息。然后前往MySQL管理界面，查看分析结果。回到COS控制台，选择上传demo-scf2.txt，然后查看SCF的执行结果和MySQL中的分析结果。
 这里可以根据用户自身的日志格式编写具体的处理方法，数据库的写方法也可以改成增量写。
 
