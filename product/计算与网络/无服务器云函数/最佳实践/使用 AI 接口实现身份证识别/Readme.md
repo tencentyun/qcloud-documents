@@ -152,10 +152,10 @@ def main_handler(event, context):
 ```
 注意：在使用本段代码的时候，需要把 appid、secret_id 和 secret_key 替换为您自己的 appid、secret_id 和 secret_key 方能使用，您可以在“账号信息”中查看对应信息。
 
-保存后，回到根目录下，对所有文件进行打包，注意不是对外层的文件夹打包；另外还需要保证：idcard_detect.py存在于根目录下，压缩包需要为zip格式。
-打包完成后，我们就可以前往云函数 SCF 控制台进行部署。选择“北京”地域，单击“创建函数”，命名函数为Demo2_IDCard_Detect，函数超时时间修改为5s，内存默认128M即可。单击“下一步”，选择“本地上传zip包”，注意执行方法填写为：idcard_detect.main_handler，“保存”后点击“下一步”，选择触发方式为COS触发，选择步骤一中创建好的 Bucket:idcard-detect，事件类型为文件上传，单击“保存”后，再单击“完成”，完成函数部署。
+保存后，回到根目录下，对所有文件进行打包，注意不是对外层的文件夹打包；另外还需要保证：idcard_detect.py 存在于根目录下，压缩包需要为 zip 格式。
+打包完成后，我们就可以前往云函数 SCF 控制台进行部署。选择“北京”地域，单击“创建函数”，命名函数为Demo2_IDCard_Detect，函数超时时间修改为 5s，内存默认128M即可。单击“下一步”，选择“本地上传zip包”，注意执行方法填写为：idcard_detect.main_handler，“保存”后单击“下一步”，选择触发方式为 COS 触发，选择步骤一中创建好的 Bucket:idcard-detect，事件类型为文件上传，单击“保存”后，再单击“完成”，完成函数部署。
 
-在这里，您也可以直接下载[git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card)中提供的项目文件，并打成zip包，通过控制台创建函数并完成部署，注意在“函数代码”中需修改appid、secret_id和secret_key并保存。
+在这里，您也可以直接下载 [git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card) 中提供的项目文件，并打成 zip 包，通过控制台创建函数并完成部署，注意在“函数代码”中需修改 appid、secret_id 和 secret_key 并保存。
 
 ### 步骤四 测试函数功能
-进入COS控制台，选择创建好的 Bucket:idcard-detect,点击“上传文件”，选择自己拍好的身份证照片（照片要清晰可读且尽可能大的占满图片），然后上传。回到 SCF 控制台查看执行结果，在“日志”中可以看到打印出来的日志信息,包含身份证识别的结果。
+进入 COS 控制台，选择创建好的 Bucket:idcard-detect,单击“上传文件”，选择自己拍好的身份证照片（照片要清晰可读且尽可能大的占满图片），然后上传。回到 SCF 控制台查看执行结果，在“日志”中可以看到打印出来的日志信息,包含身份证识别的结果。
