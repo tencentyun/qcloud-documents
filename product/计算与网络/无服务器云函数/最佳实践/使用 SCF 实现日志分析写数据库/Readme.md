@@ -13,13 +13,13 @@
 
 ### 步骤三 创建云函数 SCF
 
-首先确保在您的系统中已经安装好了python运行环境和pip工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，安装数据库操作相关的库，可以直接执行命令：
+首先确保在您的系统中已经安装好了 Python 运行环境和pip工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，安装数据库操作相关的库，可以直接执行命令：
 ```
 pip install cos-python-sdk-v5 -t .
 pip install pymysql -t .
 pip install cryptography -t .
 ```
-在函数代码文件夹的根目录下，创建 python 文件，可以命名为：LogAnalysis.py，并使用如下示例代码：
+在函数代码文件夹的根目录下，创建 Python 文件，可以命名为：LogAnalysis.py，并使用如下示例代码：
 ```
 # -*- coding: utf-8 -*-
 from qcloud_cos import CosConfig
@@ -197,7 +197,7 @@ def main_handler(event, context):
 注意：在使用本段代码的时候，需要把 appid、secret_id和secret_key 替换为您自己的 appid、secret_id和secret_key 后方能使用，您可以在“账号信息”中查看对应信息。
 
 保存后，回到根目录下，对所有文件进行打包，注意不是对外层的文件夹打包；另外还需要保证：LogAnalysis.py存在于根目录下，压缩包需要为zip格式。
-打包完成后，我们就可以前往云函数 SCF 控制台进行部署。选择“北京”地域，点击“创建函数”，命名函数为 Demo3_LogAnalysis，函数超时时间修改为10s，内存默认128M即可。单击“下一步”，选择“本地上传zip包”，注意执行方法填写为：LogAnalysis.main_handler，“保存”后单击“下一步”，选择触发方式为COS触发，选择步骤一中创建好的Bucket: loganalysis，事件类型为文件上传，单击“保存”后，再单击“完成”，完成函数部署。
+打包完成后，我们就可以前往云函数 SCF 控制台进行部署。选择“北京”地域，单击“创建函数”，命名函数为 Demo3_LogAnalysis，函数超时时间修改为10s，内存默认128M即可。单击“下一步”，选择“本地上传zip包”，注意执行方法填写为：LogAnalysis.main_handler，“保存”后单击“下一步”，选择触发方式为COS触发，选择步骤一中创建好的Bucket: loganalysis，事件类型为文件上传，单击“保存”后，再单击“完成”，完成函数部署。
 
 在这里，您也可以直接下载[git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis)中提供的项目文件，并打成zip包，通过控制台创建函数并完成部署，注意：
 1.在打zip包的时候，请不要包含“demo-scf1.txt”和“demo-scf2.txt”，否则zip包有可能会超过5MB；2.在“函数代码”中需修改appid、secret_id和secret_key并保存。
