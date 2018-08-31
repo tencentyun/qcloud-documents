@@ -92,7 +92,7 @@ static string AppSignOnce(const uint64_t appId,
 
 | **参数名**    | **类型**   | **必须** | **默认值** | **参数描述**                                 |
 | ---------- | -------- | ------ | ------- | ---------------------------------------- |
-| appId      | uint64_t | 是      | 无       | 项目 APP ID                                |
+| appId      | uint64_t | 是      | 无       | 项目 App ID                                |
 | secretId   | String   | 是      | 无       | 项目 SecretID                              |
 | secretKey  | String   | 是      | 无       | 项目 SecretKey                             |
 | bucketName | String   | 否      | 无       | bucket名称                                 |

@@ -22,7 +22,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 Linux 或 Windows 环境
 
 ### 软件依赖
-- JDK1.7 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK1.7 X64 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
@@ -310,5 +310,9 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 #### 6. 迁移失败，日志显示 404 NoSuchBucket，该怎么办？
 请确认您的密钥信息，Bucket 信息，Region 信息是否正确。
 
-#### 7. 其他问题
+#### 7. 运行异常，显示如下的信息该怎么办?
+![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
+此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
+
+#### 8. 其他问题
 请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。

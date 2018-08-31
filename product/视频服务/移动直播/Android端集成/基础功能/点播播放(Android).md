@@ -284,7 +284,8 @@ public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
 |PLAY_EVT_PLAY_PROGRESS |  2005|  视频播放进度，会通知当前播放进度、加载进度 和总体时长     | 
-|PLAY_EVT_PLAY_LOADING  |  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
+|PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有LOADING_END事件|  
+|PLAY_EVT_VOD_LOADING_END	|  2014|  视频播放loading结束，视频继续播放|  
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                |   
@@ -301,21 +302,14 @@ public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
 | PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | 当前视频帧解码失败  |
 | PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | 当前音频帧解码失败  |
 | PLAY_WARNING_RECONNECT           |  2103  | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT 了) |
-| PLAY_WARNING_RECV_DATA_LAG       |  2104  | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀|
-| PLAY_WARNING_VIDEO_PLAY_LAG      |  2105  | 当前视频播放出现卡顿|
 | PLAY_WARNING_HW_ACCELERATION_FAIL|  2106  | 硬解启动失败，采用软解   |
-| PLAY_WARNING_VIDEO_DISCONTINUITY |  2107  | 当前视频帧不连续，可能丢帧|
-| PLAY_WARNING_DNS_FAIL            |  3001  | RTMP-DNS解析失败（仅播放RTMP地址时会抛送）|
-| PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
-| PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
 ### 4. 连接事件
 此外还有几个连接服务器的事件，主要用于测定和统计服务器连接时间，您也无需关心：
 
 | 事件ID                     |    数值  |  含义说明                    |   
 | :-----------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
-| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
+| PLAY_EVT_VOD_PLAY_PREPARED     |  2013    | 播放器已准备完成，可以播放     |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
