@@ -9,7 +9,7 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 
 ### 1.1 资源下载	
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo_1.0.0.zip)。
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 
 >**注意：**
 > 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
@@ -62,15 +62,6 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 	m_opt.setRoomID(roomid);
 ```
 
-配置 COS 参数，用于上传图片、PPT文件到白板上展示。下面这些 COS 属性参数都可从腾讯云 COS 控制台获取到。
-请登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 开通 CO S服务。
-
-```C++
-	m_cfg.setCosAppId(1255821848);
-	m_cfg.setCosBucket("board-1255821848");
-	m_cfg.setRegion("ap-shanghai");
-	m_sdk->getTICManager()->setCosHandler(m_cfg);
-```
 ### 3.2 创建和加入房间
 TICSDK 进出房间状态流程可参考下图：
 
@@ -206,7 +197,6 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 > 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
 > 4. 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
-
 登出方法比较简单，如下：
 
 ```C++
@@ -320,85 +310,58 @@ virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallb
 
 学生退出课堂时，只是本人退出了课堂，老师调用`退出课堂`方法退出课堂时，该课堂将会被销毁，另外退出课堂成功后，课堂的资源将会被回收，所以开发者应尽量保证再加入另一个课堂前，已经退出了前一个课堂。
 
-### 4.6 COS 上传相关操作
-COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您需要用到上传图片、PPT 文件到白板上展示的功能，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将 COS 相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
-TICSDKCosConfig 内部封装了 COS 上传所需要的 CosAppId，Bucket，Region 等参数，用户填好这些参数后通过 TICManager 的`setCosHandler`方法传给TICSDK。COS 上传和预览功能被封装在了 TICManger 里面，如需上传图片、PPT 文件，调用`uploadFile`这个接口将文件名路径和生成的 COS 签名作为参数填入即可。
-COS 签名生成请参考 [COS 签名](/document/product/680/17910)。
 
-```C++
-> TICManager.h
-
-/**
-* \brief 设置COS参数配置
-* \param cfg  COS配置
-*/
-virtual void setCosHandler(TICSDKCosConfig cfg) = 0;
-
-/**
-* \brief 带签名上传文件到cos
-* \param fileName   文件名
-* \param sig			cos签名
-*/
-virtual void uploadFile(const std::wstring& fileName, std::string& sig) = 0;
-
-```
-
-上传结果通过`IClassroomWhiteboardListener`的回调传给上层处理：
-```C++
-/**
-* \brief 通知文件上传进度
-* \param percent	进度按百分比
-*/
-virtual void onUploadProgress(int percent) = 0;
-
-/**
-* \brief 通知文件上传结果
-* \param success	上传结果
-* \param code	    错误码
-* \param objName	cos文件名
-* \param fileName	本地文件名
-*/
-virtual void onUploadResult(bool success, int code, std::wstring objName, std::wstring fileName) = 0;
-
-/**
-* \brief 通知PPT文件上传结果
-* \param success	上传结果
-* \param objName	cos文件名
-* \param fileName	本地文件名
-* \param pageCount	  文件页数，若结果失败则为错误码
-*/
-virtual void onFileUploadResult(bool success, std::wstring objName,std::wstring fileName, int pageCount) = 0;
-```
-
-### 4.7 白板相关操作
+### 4.6 白板相关操作
 
 TICSDK 中将白板 SDK 封装在一个白板管理类当中，用户可在进入房间后调 TICSDK.h 里面的 initWhiteBoard 方法进行初始化，也可以自己初始化白板 SDK 后通过 initWhiteBoard 方法传入。
 
 ```C++
 > TICSDK.h
 
-	/**
-	* \brief 初始化白板SDK，在加入房间之后
-	* \param id 用户id
-	* \param classID 课堂ID
-	* \param parentHWnd 白板父窗口句柄
-	* \return 结果，0表示成功
-	*/
-	virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
+/**
+* \brief 初始化白板SDK，在加入房间之后
+* \param id 用户id
+* \param classID 课堂ID
+* \param parentHWnd 白板父窗口句柄
+* \return 结果，0表示成功
+*/
+virtual int initWhiteBoard(const char* id, HWND parentHWnd = nullptr) = 0;
 
-	/**
-	* \brief 初始化白板SDK
-	* \param boardsdk 外部初始化的sdk指针
-	* \return 结果，0表示成功
-	*/
-	virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
+/**
+* \brief 初始化白板SDK
+* \param boardsdk 外部初始化的sdk指针
+* \return 结果，0表示成功
+*/
+virtual int initWhiteBoard(BoardSDK* boardsdk) = 0;
 
-	/**
-	* \brief 获取白板管理类实例指针
-	* \return 白板管理类指针
-	*/
-	virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
+/**
+* \brief 获取白板管理类实例指针
+* \return 白板管理类指针
+*/
+virtual TICWhiteboardManager* getTICWhiteBoardManager() = 0;
 ```
+
+如果要在进房间前初始化白板，除了调用`initWhiteBoard`接口之外，还要调用如下接口启动数据同步上报和cos上传
+```C++
+> TICWhiteboardManager.h
+/**
+* \brief 启用数据上报通道
+* \param appId
+* \param classId
+* \param userSig
+*/
+virtual void enableDefaultReporter(int appId, uint32_t classId, const char* userSig) = 0;
+
+/**
+* \brief 启用cos上传
+* \param appId
+* \param classId
+* \param userSig
+*/
+virtual void enableCosUploader(int appId, const char* userSig) = 0;
+
+```
+
 开发者可以通过 getTICWhiteBoardManager() 获得白板管理类里面封装好的方法，也可以直接调用 BoardSDK.h 里面的接口对白板进行操作，BoardSDK 详见 [白板SDK文档](/document/product/680/17884) 。
 
 ```C++

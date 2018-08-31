@@ -116,8 +116,8 @@ pod repo update
 
 类名 | 主要功能
 --------- | ---------
-TICSDK.h | 整个 SDK 的入口类，提供 SDK【初始化】以及【获取版本号】的方法。
-TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【添加白板】、【登录/登出SDK】、【创建/加入/销毁课堂】、【音视频操作】、【IM操作】等接口。
+TICSDK.h | SDK头文件类，包含了开发者可能用到的所有头文件，开发者集成时，只需导入该头文件即可
+TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【初始化】、【登录/登出SDK】、【创建/加入/销毁课堂】、【添加白板】、【音视频操作】、【IM操作】等接口。
 TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的代理对象，一个是复制监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。
 TICFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（移动端目前只支持上传和下载）。
 
@@ -155,10 +155,10 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 
 ### 2.3 初始化 SDK
-要使用`TICSDK`，首先得进行初始化，初始化方法位于`TICSDK`单例类中，先导入头文件`<TICSDK/TICSDK.h>`该头文件包含了 TICSDK 中所有公开的头文件，所以只需导入这一个文件。
+要使用`TICSDK`，首先得进行初始化，初始化方法位于`TICManager`单例类中，先导入头文件`<TICSDK/TICSDK.h>`该头文件包含了 TICSDK 中所有公开的头文件，所以只需导入这一个文件。
 
 ```objc
-> TICSDK.h (该行表示方法所处文件名，下同)
+> TICManager.h (该行表示方法所处文件名，下同)
 
 // 导入头文件
 #import <TICSDK/TICSDK.h>
@@ -175,16 +175,32 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ```
 初始化方法很简单，但是开发者在初始化之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功，并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
-### 2.4 COS配置
-COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文件到白板上展示的功能 (移动端只能上传图片)，则需要先在腾讯云对象存储开通了服务，然后再在 SDK 中将相关参数配置好，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到您配置的 COS 云存储桶中。
+### 2.4 COS配置及文档上传下载
+COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6225)，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS，TICSDK 内部会将调用 SDK 接口上传的图片，文件上传到 COS 的存储桶中。
 
-> **注意：**移动端只用到了 COS 的上传功能。
+开发者可以使用我们维护的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
 
-具体配置接口如下：
+具体接口如下（COS文档相关操作封装于TXBoardSDK的TXFileManager类中）：
 
 ```objc
-> TICFileManager.h
+> TXBoardSDK/TXFileManager.h
 
+/**
+ @brief 初始化COS（使用COS上传文件前必须先初始化）
+
+ @param sdkAppID 腾讯云控制台注册的应用ID
+ @param config COS配置对象（传nil，表示使用腾讯云的公共账号）
+ @see TXCosConfig
+ @return 0 配置成功，否则配置失败(返回错误码 8021，表示参数无效)
+ */
+- (int)initCosWithSDKAppID:(NSString *)sdkAppID config:(TXCosConfig *)config;
+```
+
+如选择使用COS公共账号，`config` 参数传入 `nil` 即可。
+
+如使用自己申请的COS账号，则需配置 `config` 参数：
+
+```objc
 /**
  COS 配置类，其属性参数都可从腾讯云 COS 控制台获取到
  */
@@ -202,16 +218,9 @@ COS 为 [腾讯云对象存储](https://cloud.tencent.com/document/product/436/6
 @property (nonatomic, copy) NSString *secretKey;
 
 @end
-
-/**
- @brief COS存储配置
-
- @param config 配置对象
- @see TICCosConfig
- @return 0 配置成功，否则配置失败(返回错误码 8021，表示参数无效)
- */
-- (int)configCOS:(TICCosConfig *)config;
 ```
+
+文档的上传下载相关接口详见 [TXBoardSDK 文档](/document/product/680/17890)的文档上传下载部分。
 
 ### 2.5 登录/登出
 初始化完成之后，因为涉及到 IM 消息的收发，所以必须先登录：
@@ -354,7 +363,7 @@ TICSDK 中只有一个关于白板的接口，就是添加一个白板视图对�
 ```
 该方法只是将传进来的白板视图参数与 TICSDK 进行了绑定（但是不会强引用），将 boardView 的代理对象设置为了 TICManager，并实现了其代理方法，外部无需关心。
 
-开发者使用时，应该创建一个 boardView 对象，并将其添加到 TICManager 中（同时只能添加一个，重复添加以后添加的为准），然后直接调用 TXBoardView 中的接口来操作白板即可，详见 [TXBoardView 白板 SDK 使用手册](/document/product/680/17890)。
+开发者使用时，应该创建一个 boardView 对象，并将其添加到 TICManager 中（同时只能添加一个，重复添加以后添加的为准），然后直接调用 TXBoardView 中的接口来操作白板即可，详见 [TXBoardSDK 文档](/document/product/680/17890)。
 
 
 ### 2.8 IM 相关操作

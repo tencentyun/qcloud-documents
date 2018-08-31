@@ -1,7 +1,6 @@
 In addition to the [Create Custom Image](/doc/product/213/4942) feature, Tencent Cloud also supports import feature. You can import an image file of a server system disk on the local machine or another platform into the CVM custom images. After the image is imported, you can use it to create a CVM or reinstall the system for the existing CVM.
 ## Preparations for Import
-### Applying for Permission
-Before using this feature, make sure that you have enabled the image import permission. If you need to activate this permission, contact your business manager, and apply for activation by submitting relevant information to the Ticket System.
+
 
 ### Preparing Image File
 You need to prepare an image file that meets the importing restrictions in advance.

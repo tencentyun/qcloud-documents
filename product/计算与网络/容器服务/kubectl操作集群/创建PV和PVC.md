@@ -78,12 +78,14 @@ metadata:
   #   storageclass.beta.kubernetes.io/is-default-class: "true"  
   #   如果有这一条，则会成为default-class，创建pvc时不指定类型则自动使用此类型
   name: cloud-premium
-provisioner: cloud.tencent.com/qcloud-cbs
+provisioner: cloud.tencent.com/qcloud-cbs ##tke集群自带的provisioner
 parameters:
   type: cloudPremium
   # 支持 cloudBasic,cloudPremium,cloudSSD  如果不识别则当做cloudBasic
   # zone:ap-shanghai-1
   # zone 支持指定zone，如果指定，则讲云盘创建到此zone，如果不指定，则拉取所有node的zone信息，随机挑选一个
+  # paymode: PREPAID 
+  # paymode为云盘的计费模式，PREPAID模式（包年包月：仅支持Retain保留的回收策略），默认是POSTPAID（按量计费：支持Retain保留和Delete删除策略）
   # aspid:asp-123
   # 支持指定快照策略，创建云盘后自动绑定此快照策略,绑定失败不影响创建
   

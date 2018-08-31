@@ -2,7 +2,8 @@
 目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
 
 ### Cloud Kafka 的产品限制有哪些？
-根据实例的不同规格，有如下限制：
+
+1. 根据实例的不同规格，有如下限制：
 
 | 产品规格 | 实例级别 topic 数 | 实例级别 partition 数 | 实例级别 consumer group 数 | 单 topic 支持的 partition 数   |
 | :-------- | :-------- | :------ |:------ |:------ |
@@ -16,7 +17,13 @@
 
 >**注意：**
 >实例级别的 paritition 限制包含了副本数。举例，一个实例下有 1 个双副本、4 分区的 topic，还有 2 个 3 副本，3 分区的 topic，则这个实例的总 partition 个数为 (1×2×4)+(2×3×3)=26 个。
-> consumer group 空闲存活时间 1 个月
+2.  consumer group 空闲存活时间 1 个月
+3.  CKafka单条消息大小（message.max.bytes）限制为1M 
+
+### 生产消费者是否只需配置vip:port？
+
+--bootstrap-server参数中填写CKafka实例的vip:port即可,新购CKafka实例后，默认通过9092端口接入，但9093-9095端口也可通。
+主要原因在于，CKafka vip封装了后端节点的broker ip,并通过9092端口负载均衡到9093-9095端口，因此接入时仅需配置CKafka实例的vip:port。
 
 ### Cloud Kafka 是否支持消息压缩？
 当前 Cloud Kafka 支持开源的 snappy 和 lz4 的消息压缩格式。由于 Gzip 压缩对于 CPU 的消耗较高，暂未支持。
@@ -48,6 +55,13 @@ Cloud Kafka 通过如下安全特性确保安全性：
 租户隔离：实例的网络访问在账户间天然隔离。
 权限控制：Cloud Kafka 额外应用层上做了来源ip白名单的鉴权机制,即将支持SASL鉴权。
 安全防护：提供多纬度的安全防护、防 DDoS 攻击等服务；
+
+### CKafka 副本数怎样选取？
+
+强烈建议 topic 创建时选择双副本或三副本存储数据，保障数据可靠性。当前 CKafka 已经禁止单副本 topic 的创建，如您账户下有单副本的 topic，建议按如下步骤迁移：
+1. 创建新的 topic，选择相同的分区，选取双副本；
+2. 生产消息到新的 topic 中，存量的单副本 topic 继续被消费；
+3. 消费完毕后修改消费者配置，订阅新的 topic 进行消费。
 
 ### CKafka 是否会丢失消息？
 - 开源的 Apache Kafka 不保证不丢消息；CKafka 针对可用性做了优化，腾讯云承诺 CKafka 的可用性超 99.95%。
