@@ -11,7 +11,7 @@
 
 ### 步骤二 开通 AI 接口
 
-前往云产品[文字识别](https://console.cloud.tencent.com/ai/ocr/idcard),点击开通服务即可。
+前往云产品[文字识别](https://console.cloud.tencent.com/ai/ocr/idcard)，点击开通服务即可。
 
 ### 步骤三 创建云函数 SCF
 
