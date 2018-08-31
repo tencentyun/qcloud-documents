@@ -21,7 +21,7 @@
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图。 | 
+| content-length |  否   | 包体总长度                          | 1.每个请求的包体大小限制为 6MB；<br/>2.图片格式支持：JPG、JPEG、PNG、BMP等；<br/>3.不支持 .gif 类型的动图。 | 
 | content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
 | authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)。|
 
