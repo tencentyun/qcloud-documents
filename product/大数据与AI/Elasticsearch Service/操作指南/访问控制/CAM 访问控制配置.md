@@ -6,7 +6,7 @@
 #### 1.通用权限策略
 腾讯云 ES 默认提供了两种通用策略，
 - 全读写策略 QcloudElasticsearchServiceFullAccess，可以让用户拥有创建和管理 ES 所有集群实例的权限； 
-- 只读策略 QcloudElasticsearchServiceReadOnlyAccess， 可以以让用户拥有查看 ES 集群实例的权限，但是不具有创建、删除等操作的权限。  
+- 只读策略 QcloudElasticsearchServiceReadOnlyAccess， 可以以让用户拥有查看 ES 集群实例的权限，但是不具有创建、更新、删除等操作的权限。  
 
 您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，并在右边的全部服务中选择【Elasticsearch】，就可以在列表找到默认策略，对需要授权的账号进行绑定。
 ![进入访问控制](https://main.qcloudimg.com/raw/93b98ca018d0343aa264214a3e166457.png)  
@@ -25,11 +25,11 @@ ES 可授权的资源类型如下：
 
 | 接口名 | 描述 | 是否关联资源 | 资源描述 |
 | ---|---|---|--- |
-| 创建实例 | ESCreateInstance| 否 |  `qcs::es:$region:$account:instance/*` |
-| 删除实例 | ESDeleteInstance| 是|  `qcs::es:$region:$account:instance/*` <br> `qcs::es:$region:$account:instance/$instanceId` |
-| 查询实例列表 | ESDescribeInstances| 否|  `qcs::es:$region:$account:instance/*` |
-| 更新实例 | ESUpdateInstance| 是| `qcs::es:$region:$account:instance/*` <br> `qcs::es:$region:$account:instance/$instanceId` |
-| 重启实例 | ESRestartInstance| 是| `qcs::es:$region:$account:instance/*` <br> `qcs::es:$region:$account:instance/$instanceId` |
+| 获取集群列表、单个集群信息 | DescribeInstances| 否 |  `*` |
+| 创建集群 | CreateInstance| 否 |  `*` |
+| 更新集群 | UpdateInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
+| 重启集群 | RestartInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
+| 删除集群 | DeleteInstance| 是|  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
  
 支持的区域  
 
@@ -60,17 +60,16 @@ ES 可授权的资源类型如下：
 
 腾讯云 ES 目前支持除了 DescribeInstance 接口之外其他操作资源级别的访问控制管理，您可以将账号下某个集群的更新、重启、删除等操作赋予某个子账号进行管理。
 
-##### 1)授予某账号指定集群所有操作权限
+##### 授予某账号指定集群更新操作权限
 
 策略语法如下：
-
+获取集群列表的接口 ```DescribeInstances``` 目前不支持关联资源，需要对该接口在 ```resource``` 的地方配置为 ```*```。
 ```
 {
     "version": "2.0",
     "statement": [
     	 {
             "action": [
-                "es:ESDescribe*",
                 "es:Describe*"
             ],
             "resource": [
