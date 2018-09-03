@@ -52,7 +52,7 @@
 | [云通信](https://cloud.tencent.com/document/product/269)     | ✔        | -      | ✔      | 服务级   | -        | - |
 | [短信](https://cloud.tencent.com/document/product/382)       | ✔        | -      | ✔      | 服务级   | -        |      |
 | [物联网通信](https://cloud.tencent.com/document/product/634) | ✔        | ✔      | ✔      | 服务级   | ✔        | ✔    |
-| [TBaaS](https://cloud.tencent.com/document/product/663)      | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
+| [腾讯区块链开发平台](https://cloud.tencent.com/document/product/663)      | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [云监控](https://cloud.tencent.com/document/product/248)     | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [标签](https://cloud.tencent.com/document/product/651)       | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [密钥管理服务](https://cloud.tencent.com/document/product/573) | ✔        | ✔      | ✔      | 资源级   | ✔        |      |
@@ -60,15 +60,15 @@
 | [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔    |
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [微信云支付](https://cloud.tencent.com/document/product/569) | ✔        | -      | ✔      | 服务级   | -        | - |
-| 云数据库（CDB）              |-        | -      | -      | -   | -        | ✔    |
-| [日志服务（CLS）](https://cloud.tencent.com/document/product/614)               |-        | -      | -      | -   | -        | ✔    |
-| [文档数据库（MongoDB）](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
-| [腾讯云应用服务平台（TCB）](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
-| [分布式服务框架（TSF）](https://cloud.tencent.com/document/product/649)     |-        | -      | -      | -   | -        | ✔    |
-| [织云（zhiyun）](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        | ✔    |
-| [宙斯盾安全防护（aegis）](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
-| [API网关（ApiGateway）](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
-| [腾讯区块链开发平台（TBaaS）](https://cloud.tencent.com/document/product/663)    |-        | -      | -      | -   | -        | ✔    |
+| 云数据库              |-        | -      | -      | -   | -        | ✔    |
+| [日志服务](https://cloud.tencent.com/document/product/614)               |-        | -      | -      | -   | -        | ✔    |
+| [文档数据库）](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
+| [腾讯云应用服务平台）](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
+| [分布式服务框架](https://cloud.tencent.com/document/product/649)     |-        | -      | -      | -   | -        | ✔    |
+| [织云](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        | ✔    |
+| [宙斯盾安全防护）](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
+| [API网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
+
 
 #### 说明：
 1. “云 API”指云 API 是否接入 CAM，“控制台”指控制台是否接入 CAM。 
