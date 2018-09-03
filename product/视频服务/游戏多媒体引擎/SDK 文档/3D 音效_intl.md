@@ -1,5 +1,5 @@
 ## Overview
-Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This document provides a detailed description that makes it easy for developers to debug and integrate GME APIs for 3D sound effect.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for developers to debug and integrate GME APIs for 3D sound effect.
 
 
 ## Integrating 3D Sound Effect
@@ -41,13 +41,13 @@ The relationship between distance and sound attenuation: In 3D sound effect, the
 | 0< N <40  	| Attenuation coefficient: 1.0 (no attenuation) |
 | N≥40  |Attenuation coefficient: 40/N |
 
- ![](https://main.qcloudimg.com/raw/82892249eab8fea3bcb9149e8eee37f1.jpg)
+ ![](https://main.qcloudimg.com/raw/50e745c853ab0e3f9f3bbef9d9cfc401.jpg)
 
 #### Function prototype  
 ```
 QAVAudioCtrl virtual int UpdateSpatializer(string identifier,float azimuth,float elevation,float distance_cm)
 ```
-|Parameter | Type | Description |
+| Parameter | Type | Description |
 | ------------- |-------------|-------------
 | identifier   		|string	| Input an identifier to identify the user (identifier is already given when the user enters the room) |
 | azimuth    		|float	| Azimuth parameter (to be calculated)											|
@@ -57,7 +57,7 @@ QAVAudioCtrl virtual int UpdateSpatializer(string identifier,float azimuth,float
 #### Principle behind the function
 ![](https://main.qcloudimg.com/raw/0f90e8e84915c3f34482b1d40b0630c0.png)
 
-![](https://main.qcloudimg.com/raw/e6a04f5cc7aca4851964c4a8ea04b56e.png)
+![](https://main.qcloudimg.com/raw/f59ba4161fd1c9b53ca7e66b2213e851.png)
 
 The formula is as follows:
 ![](https://main.qcloudimg.com/raw/e1aa4d09b144af4ea920d63cf9cac6bb.png)
