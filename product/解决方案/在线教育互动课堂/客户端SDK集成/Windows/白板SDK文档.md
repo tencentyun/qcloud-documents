@@ -22,29 +22,29 @@
 ```C++
 #pragma comment(lib, "BoardSDK.lib")
 ```
-
-### 2.2 创建白板窗口
-创建白板前，首先使用如下代码引入SDK头文件：
-
+### 2.2 初始化白板
+初始化白板前，首先使用如下代码引入SDK头文件：
 ```C++
 #include "BoardMgr.h"
 ```
-
-之后使用如下代码创建一个白板实例：
+然后调用如下代码进行白板初始化
 
 ```C++
-BoardSDK *boardSDk = new BoardSDK("TestUser", hWnd);
+boardMgr = BoardMgr::GetSDKInstance()
+boardMgr->init(userID, userSig, sdkappId);
+```
+
+### 2.3 创建白板窗口
+使用如下代码创建白板实例，并获得白板指针：
+
+```C++
+boardMgr->initBoardSDK(roomId, hwnd);
+BoardSDK* boardSDk = boardMgr->getBoardSDK();
 ```
 
 > 注意：白板长宽比固定为 16 : 9
 
-其中第一个参数`"TestUser"`指定当前用户ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
-
-想要获得白板离线数据则还要初始化白板上报，添入参数依次为sdkAppID，房间ID，用户签名
-```C++
-boardSDk->enableDefaultReporter(sdkAppID(), roomID(),  userSig());
-```
-
+其中第一个参数`roomId`指定当前房间ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
 白板窗口创建完后，可通过如下代码获取白板窗口句柄，方便对白板窗口进行操作：
 
 ```C++
@@ -59,7 +59,7 @@ ShowWindow(hWnd, SW_SHOW);
 将白板显示出来或者使用其他代码将白板插入父窗口。
 
 
-### 2.3 指定绘制工具及属性
+### 2.4 指定绘制工具及属性
 完成白板窗口创建后，可使用如下代码设置要使用的白板工具及其属性：
 
 ```C++
@@ -83,7 +83,7 @@ boardSDk->setRadius(30);//设置圆角半径
 |矩形|BoardTool::Rectangle|宽度、颜色、是否填充、圆角半径|
 |选区|BoardTool::Select|无|
 
-### 2.4 页面操作、背景设置及页面清除
+### 2.5 页面操作、背景设置及页面清除
 白板SDK支持多页面操作，可通过如下代码来进行页面操作：
 
 ```C++
@@ -118,7 +118,7 @@ boardSDk->clear();
 
 页面清除操作不可撤销。
 
-### 2.5 选区、复制及删除
+### 2.6 选区、复制及删除
 使用如下代码将白板工具设置为选区工具后，用户可以在白板上框选已绘制图形：
 
 ```C++
@@ -131,12 +131,10 @@ boardSDk->useTool(BoardTool::Select);
 boardSDk->copy();//复制选中图形
 boardSDk->remove();//删除选中图形
 ```
-
 以上复制及删除操作支持撤销重做。
-boardSDk->undo();
-boardSDk->redo();
 
-### 2.6 上传文档
+
+### 2.7 上传文档
 
 用户想使用PPT，可先上传到腾讯云对象存储COS。目前白板内部集成了COSSDK
 开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
@@ -154,7 +152,7 @@ boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```C++
 boardSDk->uploadFile(filePath, sig);
 ```
-### 2.7 添加PPT（以PPT为例）
+### 2.8 添加PPT（以PPT为例）
 
 用户首先需要将PPT上传到腾讯云对象存储COS（或者其他存储系统），获取到PPT每一页转码后的图片URL链接。
 ```C++
@@ -170,7 +168,7 @@ boardMgr->addFile(_backsUrl, fileName);
 
 若要删除PPT，调用 deleteFile 接口，传入文件对应的fid即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板ID也应该对应删除
 
-### 2.8 SDK回调
+### 2.9 SDK回调
 白板SDK通过回调接口通知用户SDK内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置SDK回调：
 
 ```C++
@@ -193,7 +191,7 @@ boardSDk->setCallback(&myCallback);
 
 其中`onGetTime`接口用于供白板SDK获取统一的时间戳，白板SDK内部对所有操作的排序都依靠该接口保证先后顺序，您必须在该接口中返回尽可能准确且多端统一的时间戳，精度至少为秒。（时间戳多端不统一一般也不会造成太大问题，但极端情况下可能导致多端显示内容存在细微差异）
 
-### 2.9 撤销及重做
+### 2.10 撤销及重做
 白板SDK支持操作的撤销及重做，任何时候可以使用如下代码进行撤销或重做操作：
 
 ```C++
@@ -203,7 +201,7 @@ boardSDk->redo();//重做
 
 如果当前已经没有操作可撤销或者重做，则调用无效，不会产生其他负面效果。对于当前是否存在操作可撤销或重做，SDK将会在用户进行操作后通过回调`onStatusChanged`返回通知，其中`canUndo`参数指示当前是否存在可撤销操作，`canRedo`参数指示当前是否存在可重做操作。
 
-### 2.10 多白板状态同步
+### 2.11 多白板状态同步
 
 课堂中，老师对白板的操作，涂鸦、图片、PPT、撤销、清空等操作需要上报到后台，并进行存储，这样后面中途加入课堂的成员就能拉取之前的白板数据进行展示。
 
