@@ -61,11 +61,11 @@
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [微信云支付](https://cloud.tencent.com/document/product/569) | ✔        | -      | ✔      | 服务级   | -        | - |
 | [日志服务](https://cloud.tencent.com/document/product/614)               |-        | -      | -      | -   | -        | ✔    |
-| [文档数据库）](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
-| [腾讯云应用服务平台）](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
+| [文档数据库](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
+| [腾讯云应用服务平台](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
 | [分布式服务框架](https://cloud.tencent.com/document/product/649)     |-        | -      | -      | -   | -        | ✔    |
 | [织云](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        | ✔    |
-| [宙斯盾安全防护）](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
+| [宙斯盾安全防护](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
 | [API 网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
 
 
