@@ -16,7 +16,7 @@
 | [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | -      | 服务级   | ✔        | -    |
 | [归档存储](https://cloud.tencent.com/document/product/572)   | ✔        | ✔      | -      | 资源级   | ✔        | -    |
 | [存储网关](https://cloud.tencent.com/document/product/581)   | ✔        | -      | ✔      | 服务级   | -        | -    |
-| [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        | - |
+| [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        |  ✔ |
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |
 | [时序数据库](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779) | ✔        | ✔      | ✔      | 资源级   | ✔        |      |
@@ -52,7 +52,7 @@
 | [云通信](https://cloud.tencent.com/document/product/269)     | ✔        | -      | ✔      | 服务级   | -        | - |
 | [短信](https://cloud.tencent.com/document/product/382)       | ✔        | -      | ✔      | 服务级   | -        |      |
 | [物联网通信](https://cloud.tencent.com/document/product/634) | ✔        | ✔      | ✔      | 服务级   | ✔        | ✔    |
-| [腾讯区块链开发平台](https://cloud.tencent.com/document/product/663)      | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
+| [TBaaS](https://cloud.tencent.com/document/product/663)      | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔ |
 | [云监控](https://cloud.tencent.com/document/product/248)     | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [标签](https://cloud.tencent.com/document/product/651)       | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [密钥管理服务](https://cloud.tencent.com/document/product/573) | ✔        | ✔      | ✔      | 资源级   | ✔        |      |
