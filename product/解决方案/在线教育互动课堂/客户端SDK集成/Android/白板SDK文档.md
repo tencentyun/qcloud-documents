@@ -98,59 +98,6 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | setBackgroundColor                   | 设置白板背景颜色(默认为白色)，当前白板生效。  	|
 | setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效。  	|
 
-
-其中**设置背景色**接口：
-
-```java
-    > WhiteboardManager.java
-    /**
-     * 设置白板背景颜色(默认为白色)，当前白板生效
-     *
-     * @param backgroundColor 背景颜色，格式 ARGB
-     * @return
-     */
-    public void setBackgroundColor(int backgroundColor);
-
-    /**
-     * 设置全部白板背景色，已设置背景色或者新创建背景色均生效
-     * @param backgroundColor 背景颜色，格式 ARGB
-     */
-    public void setGlobalBackgroundColor(int backgroundColor);
-```
-
-**设置背景图接口：**
-
-```java
-   > WhiteboardManager.java
-   /**
-     * 设置白板背景，默认当前所在白板；用户需要开通 COS 服务方可正常使用；
-     *
-     * @param filePath 文件所在路径或者 http 开头的 url;
-     * @param autoFill 是否自动填充
-     * @param callBack 结果回调
-     */
-    void setBoardBackGround(final String filePath, final boolean autoFill, final IWbCallBack<String> callBack);
-
-    /**
-     * 设置白板背景，默认当前所在白板；用户需要开通 COS 服务方可正常使用；
-     *
-     * @param filePath 文件所在路径或者http开头的url;为空时，清空白板背景
-     * @param fillMode 填充样式
-     * @param callBack 结果回调
-     */
-    void setBoardBackGround(final String filePath, final FillMode fillMode, final IWbCallBack<String> callBack);
-
-    /**
-     * 设置指定白板的背景；用户需要开通 CO S服务方可正常使用；
-     *
-     * @param filePath 文件所在路径或者 http 开头的 url; 为空时，清空白板背景
-     * @param fillMode 填充样式
-     * @param boardId  白板标识
-     * @param callBack 结果回调
-     */
-    void setBoardBackGround(final String filePath, final FillMode fillMode, final String boardId, final IWbCallBack<String> callBack);
-```
-
 **COS 相关**
 
 | 接口                                 | 说明                                       |
