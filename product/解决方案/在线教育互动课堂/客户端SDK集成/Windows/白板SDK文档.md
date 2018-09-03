@@ -64,8 +64,8 @@ ShowWindow(hWnd, SW_SHOW);
 
 ```C++
 boardSDk->useTool(BoardTool::Rectangle);//使用矩形工具
-boardSDk->setWidth(100);//设置画笔宽度
-boardSDk->setColor(0xff0000ff);//设置画笔颜色（颜色字节序从高到低按RGBA存储）
+boardSDk->setLineWidth(100);//设置画笔宽度
+boardSDk->setBrushColor(0xff0000ff);//设置画笔颜色（颜色字节序从高到低按RGBA存储）
 boardSDk->setFill(true);//填充图形
 boardSDk->setRadius(30);//设置圆角半径
 ```
@@ -105,7 +105,7 @@ delete[] pages;
 在任何时候，可以通过如下代码设置页面背景图片：
 
 ```C++
-boardSDk->useBackground("http://www.image.com/img", "page1");
+boardSDk->setBackgroundImage("http://www.image.com/img", "page1");
 ```
 
 以上代码设置ID为page1的页面背景图片为URL“[http://www.image.com/img]()”，当第一个参数指定为URL时，白板SDK会自动联网下载图片，当该参数以字符串“file://” 开头时，SDK将尝试在本地查找该文件路径。第二个参数用于指定要设置背景的页面ID，留空表示设置当前页面的背景，当其所指向的页面不存在时，将会自动创建页面。
@@ -136,7 +136,7 @@ boardSDk->remove();//删除选中图形
 
 ### 2.6 上传文档
 
-用户想使用PPT，可先上传到腾讯云对象存储COS。白板内部集成了COSSDK
+用户想使用PPT，可先上传到腾讯云对象存储COS。目前白板内部集成了COSSDK
 开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
 
 使用如下接口可以将ppt上传至COS：
@@ -148,7 +148,7 @@ boardSDk->uploadFile(filePath);//上传文件
 ```C++
 boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```
-对于使用了V4旧版的COS系统，上传需要先计算签名sig，再使用以下代码
+对于使用了V4旧版的COS系统，上传需要先计算签名sig，再调用以下代码
 ```C++
 boardSDk->uploadFile(filePath, sig);
 ```

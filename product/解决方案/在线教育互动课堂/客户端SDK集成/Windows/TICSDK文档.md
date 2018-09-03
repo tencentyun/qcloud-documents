@@ -294,11 +294,6 @@ class IClassroomEventListener
 * \brief 课堂IM消息监听对象
 */
 class IClassroomIMListener
-
-/**
-* \brief 课堂白板消息监听对象
-*/
-class IClassroomWhiteboardListener
 ```
 在加入课堂前设置了课堂事件监听代理`IClassroomEventListener`，一端进行课堂房间相关操作时，另一端就可以在课堂内事件回调中得到通知：
 ```C++
@@ -368,8 +363,16 @@ class IClassroomWhiteboardListener
 	*/
 	virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data) = 0;
 ```
-最后一个参数表示是否退出IM群组，默认为true
-
+若要销毁创建好的课堂，则调用
+```C++
+	/**
+	* \brief 老师销毁课堂
+	* \param success 销毁课堂成功回调
+	* \param err 销毁课堂失败回调
+	* \param data   用户自定义数据
+	*/
+	virtual void destroyClassroom(ilive::iLiveSucCallback success = nullptr, ilive::iLiveErrCallback err = nullptr, void* data = nullptr) = 0;
+```
 要退出程序还需要登出iliveSDK，登出方法比较简单，如下：
 ```C++
 > TICManager.h
