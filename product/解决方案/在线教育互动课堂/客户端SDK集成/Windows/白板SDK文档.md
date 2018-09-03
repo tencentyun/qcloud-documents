@@ -133,6 +133,8 @@ boardSDk->remove();//删除选中图形
 ```
 
 以上复制及删除操作支持撤销重做。
+boardSDk->undo();
+boardSDk->redo();
 
 ### 2.6 上传文档
 
@@ -155,36 +157,15 @@ boardSDk->uploadFile(filePath, sig);
 ### 2.7 添加PPT（以PPT为例）
 
 用户首先需要将PPT上传到腾讯云对象存储COS（或者其他存储系统），获取到PPT每一页转码后的图片URL链接。
+```C++
+url = boardMgr->getPreviewUrl(objName, i);
+```
 
-* 添加PPT作为普通白板
+* PPT上传管理
 
-将上一步获取到的URL数组当做参数传入，SDK内部会生成与URL数量对应数量的白板，并将这些白板的boardID通过输出参数返回
-用户在外层维护白板数据结构
-
-* 多PPT上传管理
-
-将上一步获取到的URL数组，和文件名当做参数传入，SDK内部会根据该文件生成对应的文件唯一标识**fid**返回，并生成与URL数量对应数量的白板，并将这些白板的boardID通过输出参数返回。 
-用户需在外层维护这样一个数据结构：
-
-```json
-{
-
-    fid1 : {
-        boardID1,
-        boardID2,
-        boardID3,
-        ...
-    },
-    
-    fid2 : {
-        boardID1,
-        boardID2,
-        boardID3,
-        ...
-    },
-    ....
-}
-
+将上一步获取到的URL数组，和文件名当做参数传入，SDK内部会根据该文件生成对应的文件唯一标识**fid**返回，并生成与URL数量对应数量的白板。 
+```C++
+boardMgr->addFile(_backsUrl, fileName);
 ```
 
 若要删除PPT，调用 deleteFile 接口，传入文件对应的fid即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板ID也应该对应删除
@@ -201,8 +182,9 @@ public:
     uint32_t onGetTime() override;
     void onGetBoardData(bool bResult) override;
     void onReportBoardData(const int code, const char * msg) override;
-    void onUploadResult(bool success, int code, const wchar_t* objName, const wchar_t*  fileName) override;
-    void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount) override;
+    void onUploadResult(bool success, int code, const wchar_t* objName, const wchar_t*  fileName, void* data) override;
+    void onFileUploadResult(bool success, const wchar_t* objName, const wchar_t* fileName, int pageCount, void* data) override;
+    void onUploadProgress(int percent, void* data) override;
 };
 
 MyCallback myCallback;
