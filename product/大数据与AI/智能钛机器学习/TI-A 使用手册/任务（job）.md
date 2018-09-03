@@ -4,7 +4,7 @@ Job 代表一个训练任务，他定义了训练该如何在腾讯云上执行�
 | :------------------- | :----------- | :-------- | --------------------------------------------------- |
 | Name                 |`string`      | 用户必填   | 任务的名称，每个集群中该名称必须唯一。                   |
 | PackageDir           |`[string]`    | 用户必填   | 训练代码/数据或输出路径，详见 [文件路径](https://cloud.tencent.com/document/product/851/17318)。     |
-| Command              |`[string]`    | 用户必填   | 任务启动命令。                                        |
+| Command              |`[string]`    | 用户必填   | 任务启动命令, 对于Spark任务，任务启动Jar包也填写在Commnad参数中。                                        |
 | Args                 |`[string]`    | 用户必填   | 任务启动参数。                                        |
 | Cluster              |`string`      | 用户设置   | 运行集群， 详见 [使用集群](https://cloud.tencent.com/document/product/851/17317)。                   |
 | ScaleTier            |`string`      | 用户选填   | 用以规定运行训练的方式和规模，详见 [训练规模](https://cloud.tencent.com/document/product/851/17319)。 |
