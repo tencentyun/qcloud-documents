@@ -84,26 +84,53 @@ boardSDk->setRadius(30);//设置圆角半径
 |选区|BoardTool::Select|无|
 
 ### 2.5 页面操作、背景设置及页面清除
-白板SDK支持多页面操作，可通过如下代码来进行页面操作：
+白板SDK支持多页面操作，可通过如下接口来进行页面操作：
 
 ```C++
-char *pages[50];
-for(int i = 0; i < 50; ++i){
-    pages[i] = new char[256];
-}
-uint32_t pageCount = boardSDk->getPages(pages, 50);
-boardSDk->pageOperate("newPage", pages, pageCount);
-for(int i = 0; i < 50; ++i){
-    delete[] pages[i];
-    pages[i] = nullptr;
-}
-delete[] pages;
+	/**
+	* \brief 获取当前页码
+	* \return 当前页码
+	*/
+	virtual uint32_t getPageIndex() = 0;
+
+	/**
+	* \brief 获取总页数
+	* \return 总页数
+	*/
+	virtual uint32_t getPageCount() = 0;
+
+	/**
+	* \brief 刷新页码
+	*/
+	virtual void refreshPageInfo() = 0;
+
+	/**
+	* \brief 页码跳转
+	* \param pageIndex  跳转的页码
+	*/
+	virtual void gotoPage(uint32_t pageIndex) = 0;
+
+	/**
+	* \brief 跳转上一页
+	*/
+	virtual void gotoLastPage() = 0;
+
+	/**
+	* \brief 跳转下一页
+	*/
+	virtual void gotoNextPage() = 0;
+
+	/**
+	* \brief 插入新的一页
+	*/
+	virtual void insertPage() = 0;
+
+	/**
+	* \brief 删除当前页
+	*/
+	virtual void deletePage() = 0;
 ```
-
-以上代码实现了删除所有原有页面并跳转到ID为newPage的页面的功能。`getPages`接口用于获取白板页面ID列表，返回值为白板页数；其参数1指定了用于接收页面ID的字符串数组缓冲区，为可选参数，留空表示只查询白板页数，参数2指定了缓冲区数组长度。`pageOperate`接口用于跳转到参数1指定的页面并删除参数2指定的一些页面，其参数2和参数3为可选参数，留空表示不删除任何页面。当参数1所指向的页面不存在时，将会自动创建页面。当参数2所指向的页面不存在时，会自动忽略。
-
 在任何时候，可以通过如下代码设置页面背景图片：
-
 ```C++
 boardSDk->setBackgroundImage("http://www.image.com/img", "page1");
 ```
