@@ -40,7 +40,7 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 	#include "TICSDK.h"
 	
 	m_sdk = TICManager::GetTICManager();
-	m_sdk->initSDK(1400042982, 17802);
+	m_sdk->initSDK(1400042982);
 ```
 通过 getTICManager() 可以对 iLiveSDK 进行一些基本操作，例如下面注册 iliveSDK 的几个回调事件。
 
@@ -55,7 +55,6 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 ```C++
 	m_opt.setClassroomEventListener(this);
 	m_opt.setClassroomIMListener(this);
-	m_opt.setClassroomWhiteboardListener(this);
 	m_opt.setIsTeacher(m_bTeacher);
 	m_opt.setRoomID(roomid);
 ```
@@ -127,7 +126,7 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 
 * 房间解散消息
 ```C++
-	void onRecvGroupSystemMsg(const char * msg)
+	void onClassroomDestroy()
 ```
 
 ### 2.4 使用音视频
@@ -179,10 +178,10 @@ iliveSDK 提供了一个 iLiveRootView 对象实现了对视频数据的渲染�
 设置好后在 ilive 视频数据回调里面调用`doRender`进行渲染。
 
 ### 2.5 使用互动白板
-进入房间后就可以初始化白板，传入参数为自己 ID 和白板窗口的父窗口句柄（也可以不传）。白板的`getRenderWindow`方法会返回白板本身的窗口句柄，可以将此窗口句柄添加为白板父窗口的子窗口。
+进入房间后就可以初始化白板，传入参数为房间ID 和白板窗口的父窗口句柄（也可以不传）。白板的`getRenderWindow`方法会返回白板本身的窗口句柄，可以将此窗口句柄添加为白板父窗口的子窗口。
 
 ```C++
-	m_sdk->initWhiteBoard(m_identifier.c_str(), GetSafeHwnd());
+	m_sdk->initWhiteBoard(roomId, GetSafeHwnd());
 	
 	m_sdk->getTICWhiteBoardManager()->getRenderWindow();
 ```
@@ -214,38 +213,26 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 
 ```C++
 	/**
-	* \brief 发送C2C文本消息
-	* \param identifier   消息接收者
-	* \param msg  发送内容
-	* \param OnSuccess 发送成功回调
-	* \param OnError   发送失败回调
+	* \brief 发送文本消息
+	* \param userId   消息接收者，填空（null或者""表示发送群消息）
+	* \param msg	  发送内容
 	*/
-	virtual void sendC2CTextMsg(const char * identifier, const char * msg) = 0;
-	
+	virtual void sendTextMessage(const char * userId, const char * msg) = 0;
+
 	/**
-	* \brief 发送群文本消息
-	* \param msg  发送内容
-	* \param OnSuccess 发送成功回调
-	* \param OnError   发送失败回调
+	* \brief 发送自定义消息
+	* \param userId   消息接收者，填空（null或者""表示发送群消息）
+	* \param msg	  发送内容
 	*/
-	virtual void sendGroupTextMsg(const char * msg) = 0;
-	
+	virtual void sendCustomMessage(const char * userId, const char * msg) = 0;
+
 	/**
-	* \brief 发送C2C自定义消息
-	* \param identifier   消息接收者
-	* \param msg  发送内容
-	* \param OnSuccess 发送成功回调
-	* \param OnError   发送失败回调
+	* \brief 发送消息(所有类型)
+	* \param type	  消息类型
+	* \param userId   消息接收者
+	* \param msg	  消息对象
 	*/
-	virtual void sendC2CCustomMsg(const char * identifier, const char * msg) = 0;
-	
-	/**
-	* \brief 发送群组自定义消息
-	* \param msg  发送内容
-	* \param OnSuccess 发送成功回调
-	* \param OnError   发送失败回调
-	*/
-	virtual void sendGroupCustomMsg(const char * msg) = 0;
+	virtual void sendMessage(TIMConversationType type, const char * userId, TIMConversationHandle msg) = 0;
 ```
 课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `IClassroomIMListener`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知:
 
@@ -256,46 +243,28 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 	class IClassroomIMListener
 	
 	/**
-	* \brief 接收C2C文本消息
-	* \param identifier	消息发送者
+	* \brief 接收文本消息
+	* \param fromId	消息发送者
 	* \param msg	消息内容
+	* \param type	消息类型（群聊或者单聊）
 	*/
-	virtual void onRecvC2CTextMsg(const char * identifier, const char * msg) = 0;
-	
+	virtual void onRecvTextMessage(const char * fromId, const char * msg, TIMConversationType type) {};
+
 	/**
-	* \brief 接收群组文本消息
-	* \param identifier	消息发送者
+	* \brief 接收自定义消息
+	* \param fromId	消息发送者
 	* \param msg	消息内容
+	* \param type	消息类型（群聊或者单聊）
 	*/
-	virtual void onRecvGroupTextMsg(const char * identifier, const char * msg) = 0;
-	
-	/**
-	* \brief 接收C2C自定义消息
-	* \param identifier	消息发送者
-	* \param msg	消息内容
-	*/
-	virtual void onRecvC2CCustomMsg(const char * identifier, const char * msg) = 0;
-	
-	/**
-	* \brief 接收群组自定义消息
-	* \param identifier	消息发送者
-	* \param msg	消息内容
-	*/
-	virtual void onRecvGroupCustomMsg(const char * identifier, const char * msg) = 0;
-	
-	/**
-	* \brief 接收群组系统消息
-	* \param msg	消息内容
-	*/
-	virtual void onRecvGroupSystemMsg(const char * msg) = 0;
-	
+	virtual void onRecvCustomMessage(const char * fromId, const char * msg, TIMConversationType type) {};
+
 	/**
 	* \brief 接收到非白板全部消息回调
 	* \param handles	消息句柄
 	* \param elemCount	元素个数
 	*/
-	virtual void onRecvNewMsg(TIMMessageHandle handle, uint32_t elemCount) = 0;
-
+	virtual void onRecvMessage(TIMMessageHandle handle, uint32_t elemCount) {};
+	
 	/**
 	* \brief 发送消息回调
 	* \param err	错误码
