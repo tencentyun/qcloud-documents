@@ -1,27 +1,24 @@
-## 使用SCF实现身份证识别
-
-在本Demo中，我们用到了无服务器云函数 SCF，对象存储 COS，人工智能 AI 提供的文字识别接口。其中，对象存储 COS 用来存储身份证的正面或者反面图片，云函数 SCF 实现从 COS 下载图片并调用文字识别接口对图片进行识别。
+## 概述
 
 
-### 步骤一 创建 COS Bucket
+## 步骤 1. 创建 COS Bucket
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos) 创建一个 Bucket，我们命名为 idcard-detect，并选择北京地域，权限选择“公有读-私有写”。
+![](https://main.qcloudimg.com/raw/cb9eda64c0d306051e9120130ba21a4f.png)
+## 步骤 2. 开通 AI 接口
+前往 [智能图像控制台](https://console.cloud.tencent.com/ai/ocr/idcard) 开通身份证识别功能，单击【开通服务】即可。
 
-首先要到 COS 的控制台创建一个 Bucket，我们可以命名为 idcard-detect，并选择北京地域，权限选择“公有读-私有写”。
-
-![](https://main.qcloudimg.com/raw/beaf1a334c2a0944cb55a8900c4d2ab4.png)
-
-### 步骤二 开通 AI 接口
-
-前往云产品[文字识别](https://console.cloud.tencent.com/ai/ocr/idcard)，单击开通服务即可。
-
-### 步骤三 创建云函数 SCF
-
-首先确保在您的系统中已经安装好了 Python 运行环境和 pip 工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，安装 COS V5 SDK、文字识别 SDK 和 Pillow 库，可以直接执行命令：
+## 步骤 3. 创建云函数 SCF
+### 创建准备
+1. 首先确保在您的系统中已经安装好了 Python 运行环境和 pip 工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，直接执行命令安装 COS V5 SDK、文字识别 SDK 和 Pillow 库：
 ```
 pip install cos-python-sdk-v5 -t .
 pip install qcloud_image -t .
 pip install Pillow -t .
 ```
-在函数代码文件夹的根目录下，创建 Python 文件，可以命名为：idcard_detect.py，并使用如下示例代码：
+2. 在函数代码文件夹的根目录下，使用下面的示例代码创建 Python 文件，可以命名为：idcard_detect.py。
+3. Python 文件保存后，回到根目录下，对所有文件进行打包（**请注意，不是对外层的文件夹打包**）；另外还需要保证：**idcard_detect.py 存在于根目录下，压缩包需要为 zip 格式**。
+
+#### 示例代码
 ```
 # -*- coding: utf-8 -*-
 import json
@@ -150,12 +147,17 @@ def main_handler(event, context):
             raise e
             return "Detect Fail"
 ```
-注意：在使用本段代码的时候，需要把 appid、secret_id 和 secret_key 替换为您自己的 appid、secret_id 和 secret_key 方能使用，您可以在“账号信息”中查看对应信息。
+> **注意：**
+在使用本段代码的时候，需要把 appid、secret_id 和 secret_key 替换为您自己的 APPID、SecretId 和 SecretKey 方能使用，您可以在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 中查看对应信息。
 
-保存后，回到根目录下，对所有文件进行打包，注意不是对外层的文件夹打包；另外还需要保证：idcard_detect.py 存在于根目录下，压缩包需要为 zip 格式。
-打包完成后，我们就可以前往云函数 SCF 控制台进行部署。选择“北京”地域，单击“创建函数”，命名函数为Demo2_IDCard_Detect，函数超时时间修改为 5s，内存默认128M即可。单击“下一步”，选择“本地上传zip包”，注意执行方法填写为：idcard_detect.main_handler，“保存”后单击“下一步”，选择触发方式为 COS 触发，选择步骤一中创建好的 Bucket:idcard-detect，事件类型为文件上传，单击“保存”后，再单击“完成”，完成函数部署。
+### 创建步骤
+打包完成后，我们就可以前往 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list/1) 进行部署。
+1. 选择北京地域，单击【新建】，命名函数为 Demo2_IDCard_Detect，函数超时时间修改为 5 秒，内存默认 128MB 即可，单击【下一步】。
+2. 选择 **本地上传zip包**，执行方法填写：idcard_detect.main_handler，保存后单击【下一步】。
+3. 添加触发方式为 COS 触发，选择之前创建好的 Bucket：idcard-detect，事件类型为文件上传，单击【保存】>【完成】，完成函数部署。
 
-在这里，您也可以直接下载 [git](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card) 中提供的项目文件，并打成 zip 包，通过控制台创建函数并完成部署，注意在“函数代码”中需修改 appid、secret_id 和 secret_key 并保存。
+您也可以直接从 [GitHub下载](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card) 项目文件，并打成 zip 包，通过控制台创建函数并完成部署，请注意在函数代码中需修改 appid、secret_id 和 secret_key 并保存。
 
-### 步骤四 测试函数功能
-进入 COS 控制台，选择创建好的 Bucket:idcard-detect,单击“上传文件”，选择自己拍好的身份证照片（照片要清晰可读且尽可能大的占满图片），然后上传。回到 SCF 控制台查看执行结果，在“日志”中可以看到打印出来的日志信息,包含身份证识别的结果。
+## 步骤 4. 测试函数功能
+1. 进入对象存储控制台，选择创建好的 Bucket：idcard-detect，单击【上传文件】，选择自己拍好的身份证照片，照片要清晰可读且尽可能大的占满图片，然后上传。
+2. 进入无服务器云函数控制台查看执行结果，在 **日志** 中可以看到打印出来的日志信息，包含身份证识别的结果。
