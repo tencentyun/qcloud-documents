@@ -2,16 +2,12 @@
 
 | 类                  | 说明                                       |
 | ------------------ | ---------------------------------------- |
-| WhiteboardSDK     |  白板 SDK 初始化类，App 启动时调用 init 方法进行初始化。 |
+| BoardSDK     |  白板 SDK 初始化类，App 启动时调用 init 方法进行初始化。 |
 | WhiteboardView     | 继承 SurfaceView，独立主线程渲染。白板数据采集和展示网络白板数据控件。 |
 | WhiteboardManager  | 白板主要业务逻辑管理类，提供了包括绘制参数设置、撤销、重做、擦除和选择等所有白板功能接口。 |
 | WhiteboardEventListener | 白板事件回调接口，业务须实现所有接口。                               |
 | WhiteboardConfig   | 白板绘制参数配置。                                |
-| CosConfig   | COS 服务参数配置。                                |
-| PaintType          | 绘制类型，详见代码注释说明。                           |
-| FillMode           | 背景图的显示模式。详见代码注释说明。                       |
-| FillStyle             | 封闭图形（如圆形，矩形）的填充样式                     |
-| WhiteboardEvent         | 白板对外的数据结构。                 |
+| WhiteboardEvent         | 白板事件的数据结构。                 |
 
 
 ## 白板使用方法
