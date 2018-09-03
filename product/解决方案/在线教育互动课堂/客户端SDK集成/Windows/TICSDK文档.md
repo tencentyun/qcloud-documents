@@ -27,7 +27,7 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 
 ![](https://main.qcloudimg.com/raw/98866e32ed59d559b3dd18069717ca70.png)
 
-在 VisualStudio工程里面，`配置属性`->`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`这两个链接库，并指定好库文件地址。
+在 VisualStudio工程里面，`配置属性`->`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`、`BoardSDK.lib`这三个链接库，并指定好库文件地址。
 
 ![](https://main.qcloudimg.com/raw/1cd17fb7e0f9e5ed2ffa0b4aa95834dd.png)
 
