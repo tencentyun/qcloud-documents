@@ -1,7 +1,7 @@
 
 
 ### 数据导入说明
-云数据库 Redis-CKV 引擎提供数据导入工具(linux 版本) [redis-import-rdb](https://main.qcloudimg.com/raw/25498ce81e795a84640f7c0406220bc4)，工具支持导入 Redis 4.0 以及 4.0 版本以下的 RDB 数据，数据的导入流程步骤分为三步：
+云数据库 Redis-CKV 引擎提供数据导入工具(linux 版本) [redis-import-rdb](https://main.qcloudimg.com/raw/2b60883d002b00f4814daf80c2335ba3/redis-import-rdb)，工具支持导入 Redis 4.0 以及 4.0 版本以下的 RDB 数据，数据的导入流程步骤分为三步：
 
 - 通过 BGSAVE 或者 SAVE 命令生成 RDB 文件，推荐使用 BGSAVE 命令备份数据，因为 SAVE 命令会在完成备份前会使整个 Redis 服务不可用；
 - 清空目标实例，可用通过云数据库 Redis 控制台右上角的【清空实例】按钮清空实例数据，如果不清空目标实例，数据导入会失败；
@@ -23,7 +23,7 @@
 
 ----
 ### 数据迁移说明
-云数据库 Redis-CKV 引擎提供数据导入工具(linux 版本) [redis-migration](https://main.qcloudimg.com/raw/dcb4e149f6caab319a084082c712a4b4)，工具支持迁移 Redis 4.0 以及 4.0 版本以下的 RDB 数据，数据的迁移流程步骤分为三步：
+云数据库 Redis-CKV 引擎提供数据导入工具(linux 版本) [redis-migration](https://main.qcloudimg.com/raw/7f7f185d6cb83179e3e2fd0ddbe27c21/redis-migration)，工具支持迁移 Redis 4.0 以及 4.0 版本以下的 RDB 数据，数据的迁移流程步骤分为三步：
 - 确保源实例支持 sync 命令或者 psync 命令，如果不支持将无法进行数据迁移；
 - 清空目标实例，可用通过云数据库 Redis 控制台右上角的【清空实例】按钮清空实例数据，如果不清空目标实例，数据导入会失败；
 - 使用 redis-migration 工具迁移源实例据，工具参数说明如下：
