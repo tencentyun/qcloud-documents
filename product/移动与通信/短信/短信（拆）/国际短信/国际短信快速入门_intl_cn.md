@@ -36,7 +36,7 @@
 正文模板和短信签名都通过审核后，就可以开始发送短信了。您通过控制台、云短信 API 或 SDK 发送短信。
 - 控制台发送文本短信详细流程请参阅 [发送文本短信](https://cloud.tencent.com/document/product/382/13481) 文档。
 - API 发送短信请参阅[ API 文档](https://cloud.tencent.com/document/product/382/13297)。
-- SDK 发送短信请参阅[ SDK 文档](https://cloud.tencent.com/document/product/382/5804)。
+
 
 
 ### 查看短信发送结果
