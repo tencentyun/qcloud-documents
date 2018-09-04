@@ -1,7 +1,7 @@
   
 ## 1. 快速集成
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK。[点击下载工程 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/Android/TICSDK_Android_Demo.zip)
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK。[单击下载工程 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/Android/TICSDK_Android_Demo.zip)
 
 ### 1.1 gradle集成
 TICSDK 目前仅支持 gradle 的集成方式。
