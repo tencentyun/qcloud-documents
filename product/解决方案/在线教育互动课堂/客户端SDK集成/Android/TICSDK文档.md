@@ -54,14 +54,14 @@ defaultConfig {
 
 ## 2. 使用详解
 
-### 2.1. TICSDK使用流程介绍
+### 2.1. TICSDK 使用流程介绍
 TICSDK 使用的一般流程如下：
 
 ![](https://main.qcloudimg.com/raw/30b9189f6c8fe279750cef683e44b56f.png)
 
 ### 2.2. 控件使用
 
-TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接Layout的XML文件里直接引用，或者继承添加自己业务需要的特性。如：
+TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接 Layout 的 XML 文件里直接引用，或者继承添加自己业务需要的特性。如：
 
 ```xml
 <com.tencent.ilivesdk.view.AVRootView
@@ -91,11 +91,11 @@ TICManager.getInstance().setAvRootView(livingVideoView);
 
 ### 2.3. 初始化 SDK
 
-> 在初始化前，需确认已[开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
+> 在初始化前，需确认已 [开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
 
 接口 | 说明
 ---|---
-initSDK | 初始化SDK
+initSDK | 初始化 SDK
 
 > 如果开发者 App 中用到了多进程，初始化时需要注意避免重复初始化，如下：
   
@@ -137,25 +137,25 @@ createClassroom | 创建课堂 | roomID
 ------- | ------- | -------
 joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomOption
 
-该接口需要传入TICClassroomOption 加入课堂的参数配置。如：
+该接口需要传入 TICClassroomOption 加入课堂的参数配置。如：
 
 ```java
     TICClassroomOption classroomOption = new TICClassroomOption()
-        .setRoomId(roomId)			// 为createClassroom中的roomId
+        .setRoomId(roomId)			// 为 createClassroom 中的 roomId
         .controlRole("user") 		// 默认的实时音视频角色的配置“user”，开发者需要根据自身的业务需求配置实时音视频的角色。
         .privateMapKey(privateMapKey) // 进房票据
-        .autoSpeaker(false)		// 此处为demo的配置，开发者需要根据自身的业务需求配置
+        .autoSpeaker(false)		// 此处为 demo 的配置，开发者需要根据自身的业务需求配置
         .autoCamera(true)   // 开发者需要根据自身的业务需求配置
         .autoMic(true)      // 开发者需要根据自身的业务需求配置
-        .setClassroomIMListener(this) // 设置课堂IM消息监听
+        .setClassroomIMListener(this) // 设置课堂 IM 消息监听
         .setClassEventListener(this); // 设置课堂事件监听
 
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack()
 ```
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和  **privateMapKey**。
 
-* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名
+* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名
 * **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，**privateMapKey** 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 。
 
 加入课堂成功，在成功的回调处，需要更新和设置一下白板 SDK 的相关配置，如：
@@ -185,7 +185,7 @@ enableSpeaker | 打开/关闭扬声器
 
 ### 2.9. 收发消息
 
-使用TICSDK 以下接口可以完成课堂中私聊和群聊消息的发送：
+使用 TICSDK 以下接口可以完成课堂中私聊和群聊消息的发送：
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
@@ -193,18 +193,18 @@ sendTextMessage | 发送文本互动消息 | userId
 sendCustomMessage | 发送自定义互动消息 | userId
 sendMessage | 发送互动消息 |  userId
 
-> userId 不为空时，为C2C消息接收者，为空时为群组消息；
+> userId 不为空时，为 C2C 消息接收者，为空时为群组消息；
 
 课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听 `IClassroomIMListener classroomIMListener;`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知：
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
-onRecvTextMsg | 发送文本互动消息 | type和userId
-onRecvCustomMsg | 发送自定义互动消息 | type和userId
-onRecvMessage | 发送互动消息 |  type和userId
+onRecvTextMsg | 发送文本互动消息 | type 和 userId
+onRecvCustomMsg | 发送自定义互动消息 | type 和 userId
+onRecvMessage | 发送互动消息 |  type 和 userId
 
-> **type** 为Constants.MSG_TYPE_C2C时，为C2C消息接收者，为Constants.MSG_TYPE_GROUP为群组消息；
-> **userId** 不为空时，为C2C消息接收者，为空时为群组消息；
+> **type** 为 Constants.MSG_TYPE_C2C 时，为 C2C 消息接收者，为Constants.MSG_TYPE_GROUP 为群组消息；
+> **userId** 不为空时，为 C2C 消息接收者，为空时为群组消息；
 
 
 ### 2.10. 课堂事件监听
@@ -238,7 +238,7 @@ quitClassroom | 退出课堂
 ------- | ------- | ------
 destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责调用。| roomId
 
-> 这里的**roomId**对应创建课堂中的**roomId**
+> 这里的 **roomId** 对应创建课堂中的 **roomId**
 
 ### 2.13. 登出
 
