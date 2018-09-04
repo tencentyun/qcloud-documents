@@ -1,20 +1,20 @@
 ## [1.5.0] - 2018-09-03
 ### 优化
-1. TICSDK和白板SDK接口调整，更加简洁易懂
+1. TICSDK 和白板 SDK 接口调整，更加简洁易懂
 
 
 ## [1.2.0] - 2018-08-20
 ### 优化
-1. 白板SDK内置COSSDK，集成COS签名上传
-2. TICSDK关于COS相关操作转移至TICWhiteboardManager
+1. 白板 SDK 内置 COSSDK，集成 COS 签名上传
+2. TICSDK 关于 COS 相关操作转移至 TICWhiteboardManager
 
 
 ## [1.1.2] - 2018-08-01
 ### 新增
-1. 白板增加清空整个ppt涂鸦功能
-2. 白板增加url本地路径缓存
+1. 白板增加清空整个 ppt 涂鸦功能
+2. 白板增加 url 本地路径缓存
 ### 优化
-1. 更新iLiveSDK，支持退出房间不退出IM群组
+1. 更新 iLiveSDK，支持退出房间不退出 IM 群组
 
 
 ## [1.1.1] - 2018-07-18
