@@ -15,7 +15,7 @@ This is short for distributed denial-of-service, a network attack technique that
 If the DDoS attack traffic exceeds the peak bandwidth for protection set by the user, Aegis Anti-DDoS will block all service requests to the attacked target servers for a period of time.
 - **BGP network**
 This is the type of network directly connected to the Internet AS using the Border Gateway Protocol (BGP). Tencent Cloud's BGP links are connected to 28 ISPs, eliminating cross-network latency and enabling an excellent network access experience.
-- **MUT network**
+- **Non-BGP network**
 This refers to the non-BGP networks of China Mobile, China Unicom and China Telecom. They provide static IP resources, and non-local users need cross-network access when using these resources.
 - **Forwarding rule**
 This is to configure the rule according to which the business request first accesses the high-defense IP's service port and then is forwarded to the origin server port of the origin server's IP address. Port forwarding rules can be configured and origin server polling by weight or by minimum number of connections is supported.
@@ -28,7 +28,7 @@ This refers to the region where a high-defense IP or high-defense packet is avai
 
 ## **Related Services**
 - **DDoS high-defense IP**
-This is a large-traffic DDoS protection service for Tencent Cloud customers (including off-cloud servers). The high-defense IP is used as the access point for the business traffic. The backend protection system checks the traffic and performs traffic purges if any DDoS attacks are detected, and then forwards the normal business request to the origin server of the business.
+This is a large-traffic DDoS protection service for Tencent Cloud customers (including non-Tencent Cloud hosts). The high-defense IP is used as the access point for the business traffic. The backend protection system checks the traffic and performs traffic purges if any DDoS attacks are detected, and then forwards the normal business request to the origin server of the business.
 - **Protective domain name**
 Protective domain name is provided free of charge when the user creates a business in the console. The user can configure the CNAME of their primary domain name to resolve to the protective domain name for easy access. Resolution to the high-defense IP can be turned on for the protective domain name to enable smart resolution based on request source.
 - **DDoS high-defense packet**
