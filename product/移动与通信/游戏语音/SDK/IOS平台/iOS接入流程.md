@@ -261,16 +261,16 @@ _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:
     GCLOUD_VOICE_NEED_INIT ：需要先调用 Init 进行初始化。
 
 #### 系统发生 Pause
-1. 接口说明
+（1） 接口说明
 当系统发生 Pause 事件时，需要同时通知引擎进行 Pause。
 
-2. 函数原型
+（2） 函数原型
 
 ```
    - (enum GCloudVoiceErrno) pause;
 ```
  
-3. 出错处理
+（3）出错处理
     GCLOUD_VOICE_NEED_INIT ： 需要先调用 Init 进行初始化。 
 
 #### 系统发生 Resume
@@ -740,7 +740,7 @@ msg = @"Apply AuthKey Success";
 （1）接口说明
 使用该函数，进行语音转文字。
 
-(2）函数原型
+（2）函数原型
 ```
 - (enum GCloudVoiceErrno) speechToText:(const char *_Nullable)fileID timeout:(int) msTimeout language:(enum GCloudLanguage) language ;
 ```
