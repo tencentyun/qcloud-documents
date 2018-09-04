@@ -13,8 +13,8 @@
 在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
 1. 从菜单中依次选择`视图`-`解决方案资源管理器`
-2. 在`解决方案资源管理器`中，右键点击要导入 SDK 的项目名称
-3. 在弹出菜单内点击`属性`选项，弹出`项目属性`对话框
+2. 在`解决方案资源管理器`中，右键单击要导入 SDK 的项目名称
+3. 在弹出菜单内单击`属性`选项，弹出`项目属性`对话框
 4. 从左侧`配置属性`列表中，选择`VC++目录`项
 5. 将 SDK 所在目录路径依次添加到右侧`包含目录`及`库目录`中
 6. 在任意一个`*.c`或`*.cpp`文件内添加如下代码导入 SDK 接口
@@ -163,7 +163,7 @@ boardSDk->remove();//删除选中图形
 
 ### 2.7 上传文档
 
-用户想使用PPT，可先上传到腾讯云对象存储 COS。目前白板内部集成了 COSSDK
+用户想使用 PPT，可先上传到腾讯云对象存储 COS。目前白板内部集成了 COSSDK。
 开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置 COS 账号并自行维护。
 
 使用如下接口可以将 ppt 上传至 COS：
@@ -175,7 +175,7 @@ boardSDk->uploadFile(filePath);//上传文件
 ```C++
 boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```
-对于使用了V4旧版的COS系统，上传需要先计算签名sig，再调用以下代码
+对于使用了 V4 旧版的 COS 系统，上传需要先计算签名 sig，再调用以下代码
 ```C++
 boardSDk->uploadFile(filePath, sig);
 ```
@@ -188,15 +188,15 @@ url = boardMgr->getPreviewUrl(objName, i);
 
 * PPT 上传管理
 
-将上一步获取到的URL数组，和文件名当做参数传入，SDK 内部会根据该文件生成对应的文件唯一标识 **fid** 返回，并生成与 URL 数量对应数量的白板。 
+将上一步获取到的 URL 数组，和文件名当做参数传入，SDK 内部会根据该文件生成对应的文件唯一标识 **fid** 返回，并生成与 URL 数量对应数量的白板。 
 ```C++
 boardMgr->addFile(_backsUrl, fileName);
 ```
 
 若要删除 PPT，调用 deleteFile 接口，传入文件对应的 fid 即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板 ID 也应该对应删除。
 
-### 2.9 SDK回调
-白板SDK通过回调接口通知用户SDK内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置SDK回调：
+### 2.9 SDK 回调
+白板 SDK 通过回调接口通知用户 SDK 内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置SDK回调：
 
 ```C++
 class MyCallback : public BoardCallback{
