@@ -69,6 +69,7 @@
 | [API 网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
 | [物联网套件](https://cloud.tencent.com/document/product/568)         |-        | -      | -      | -   | -        | ✔    |
 | [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        | ✔    |
+| 媒体转码服务 |-        | -      | -      | -   | -        | ✔    |
 
 
 #### 说明：
@@ -80,6 +81,6 @@
  
  ### 支持 CAM 角色的第三方服务如下：
  
- | 服务 | 角色 |
- | ---- | ---- |
- | [腾讯区块链开发平台](https://trustsql.qq.com/) | ✔ |
+| 服务                                           | 角色 |
+| ---------------------------------------------- | ---- |
+| [腾讯区块链开发平台](https://trustsql.qq.com/) | ✔    |
