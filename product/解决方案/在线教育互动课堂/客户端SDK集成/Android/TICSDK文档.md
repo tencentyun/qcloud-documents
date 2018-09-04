@@ -27,9 +27,9 @@ compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK模块
 compile 'com.tencent.ilivesdk:ilivesdk:1.9.1'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.2.2'
+compile 'com.tencent.ticsdk:ticsdk:1.5.0'
 // 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.2.10'
+compile 'com.tencent.boardsdk:boardsdk:1.5.0'
 ```    
 
 - 在 defaultConfig 中配置 abiFilters 信息。
