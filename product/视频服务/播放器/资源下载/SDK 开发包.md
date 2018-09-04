@@ -20,7 +20,7 @@
   </tr>
 </table>
 
-- **基础版**
+- **标准版**
 
 <table width="850px">
   <tr align="center">
