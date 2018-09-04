@@ -68,7 +68,7 @@
 | [宙斯盾安全防护](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
 | [API 网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
 | [物联网套件](https://cloud.tencent.com/document/product/568)         |-        | -      | -      | -   | -        | ✔    |
- [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        | ✔    |
+| [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        | ✔    |
 
 
 #### 说明：
@@ -79,6 +79,6 @@
  - 资源级粒度下支持针对某个资源是否拥有访问权限，是最细粒度的授权。
  
  ### 支持 CAM 角色的第三方服务如下：
- |服务|角色|
- |---|---|
- |[腾讯区块链开发平台](https://trustsql.qq.com/)|✔|
+ | 服务 | 角色 |
+ | ---- | ---- |
+ | [腾讯区块链开发平台](https://trustsql.qq.com/) | ✔ |
