@@ -1,4 +1,4 @@
-支持 CAM 的云服务列表如下：
+### 支持 CAM 的云服务列表如下：
 
 | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |
@@ -56,6 +56,7 @@
 | [云监控](https://cloud.tencent.com/document/product/248)     | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [标签](https://cloud.tencent.com/document/product/651)       | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [密钥管理服务](https://cloud.tencent.com/document/product/573) | ✔        | ✔      | ✔      | 资源级   | ✔        |      |
+| [网站管家](https://cloud.tencent.com/document/product/627)         |✔       | ✔      | ✔      | 接口级   | -        | -    |
 | [云拨测](https://cloud.tencent.com/document/product/280)     | ✔        | -      | ✔      | 服务级   | -        | - |
 | [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔    |
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
@@ -66,6 +67,8 @@
 | [织云](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        | ✔    |
 | [宙斯盾安全防护](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        | ✔    |
 | [API 网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
+| [物联网套件](https://cloud.tencent.com/document/product/568)         |-        | -      | -      | -   | -        | ✔    |
+ [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        | ✔    |
 
 
 #### 说明：
@@ -74,3 +77,8 @@
  - 服务级粒度下仅支持定义某个服务是否拥有访问权限；
  - 操作级粒度下支持某个服务下的某个操作是否拥有访问权限；
  - 资源级粒度下支持针对某个资源是否拥有访问权限，是最细粒度的授权。
+ 
+ ### 支持 CAM 角色的第三方服务如下：
+ |服务|角色|
+ |---|---|
+ |[腾讯区块链开发平台](https://trustsql.qq.com/)|✔|
