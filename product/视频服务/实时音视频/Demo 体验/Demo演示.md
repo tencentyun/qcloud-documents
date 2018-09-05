@@ -19,5 +19,4 @@
 
 用 iOS 手机 扫码后通过 Safari 打开并安装 App 即可体验 iOS 的效果。
 
-<img src="https://main.qcloudimg.com/raw/3b90b95af1650fbed97db47dd1deabc9/iOS.png" width="150">
-在[实时音视频控制台](https://console.cloud.tencent.com/rav)创建应用后，您可以在快速上手页找到这些demo源码
+<img src="https://main.qcloudimg.com/raw/3b90b95af1650fbed97db47dd1deabc9/iOS.png" width="150">在[实时音视频控制台](https://console.cloud.tencent.com/rav)创建应用后，您可以在快速上手页找到这些demo源码
