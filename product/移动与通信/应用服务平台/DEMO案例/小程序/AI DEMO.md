@@ -81,8 +81,7 @@ const SecretKey = ''; // 腾讯云 SecretKey
 ...
 ```
 
-- 上传云函数
-
+### 上传云函数
 在云函数函数目录下安装依赖，并用开发 `IDE` 上传
 ```javascript
 npm install --production
