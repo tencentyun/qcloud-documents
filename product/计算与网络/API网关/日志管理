@@ -1,50 +1,50 @@
-API网关日志管理
+#API网关日志管理
 
 用户可以开启日志管理，将自身的调用日志存放在日志集中。具体使用方法如下：
 
  
 
-创建日志规则
+##创建日志规则
 
 在API网关的控制台左侧导航栏中，您可以看到日志管理标签页。（目前需要开通白名单，可联系您的客户经理或提工单申请开启）
 
-
+![](https://main.qcloudimg.com/raw/f9b00e703957a8603077bdc3d6ed5fc1.png)
 
 当您第一次使用的时候，需要先对API网关采集日志服务进行授权，如下：
 
-
+![](https://main.qcloudimg.com/raw/4a066a98e21c061a267e37ac74464155.png)
 
 点击前往访问管理，并点击同意授权：
 
-
+![](https://main.qcloudimg.com/raw/12b6d67de9fcdff60f013c35002b28db.png)
 
 授权后点击新建，即可新建日志收集规则，API网关的日志管理能力使用了腾讯云平台的日志服务，在新建日志规则时，可对日志规则进行命名。并选择所需收集的通账户下的日志服务及服务中的具体环境。通过选择日志集而确定将这些信息投递到日志服务的哪个日志集中。若您还没有创建日志集。则需要在日志服务页面先进行创建。
 
-
+![](https://main.qcloudimg.com/raw/850c9a7961718194695050d9a2c97fc9.png)
 
 创建成功后，可看到日志规则列表
 
-
+![](https://main.qcloudimg.com/raw/2809d49edc7ed73d50be0685f2614a92.png)
 
 可以对日志规则进行编辑，修改需要投递的内容和日志集
 
-
+![](https://main.qcloudimg.com/raw/6ddcd04f8eca2d862ad54d2e2e7dcf30.png)
 
 ##查看日志
 
 API网关的日志收集到日志服务中后，可到日志服务页面对应的日志集下进行查看
 
-
+![](https://main.qcloudimg.com/raw/65648a9aa5eed1f3cc1700a2d03f0d1f.png)
 
 可根据关键字进行日志检索
 
-
+![](https://main.qcloudimg.com/raw/461f2573e5d87ecb890ecbab7ba5d67d.png)
 
 其他具体日志服务的使用，请参考：https://cloud.tencent.com/document/product/614/16981
 
  
 
-日志格式说明
+##日志格式说明
 
 API网关日志格式如下
 
