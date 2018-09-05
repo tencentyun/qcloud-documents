@@ -18,7 +18,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
     &unVpcId=<VPC网络唯一ID>
 	&unSubnetId=<子网唯一ID>
 	&count=<申请IP个数>
-    &ipClass=<IP类型>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的 Action 字段为 ApplyIps。
@@ -28,7 +27,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 | unVpcId |系统分配的私有网络 ID，例如：vpc-kd7d06of。可通过 DescribeBmVpcEx 接口查询返回的 unVpcId 值。 | String |  是 |
 | unSubnetId |  系统分配的私有网络子网 ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |String | 是 |
 | count |申请 IP 个数，默认为1，取值范围 1-20。 | Int |  否 |
-| ipClass | IP 类型，0 为物理机 IP，1 为云服务器类型 IP，2 为托管类型 IP。默认传 1 | Int | 否 |
 
 
 ## 响应
@@ -77,7 +75,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&unVpcId=vpc-2ari9m7h
 	&unSubnetId=subnet-keqt3oty
 	&count=1
-	&ipClass=1
 ```
 
 ### 输出

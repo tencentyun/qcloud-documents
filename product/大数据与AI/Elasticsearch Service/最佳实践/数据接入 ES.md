@@ -139,7 +139,7 @@ output {
     }
 }
 ```
-更多有关 kafka 数据源的接入，请查阅官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
+更多有关 JDBC 数据源的接入，请查阅官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
 
 
 ## 使用 Beats 接入 ES 集群
