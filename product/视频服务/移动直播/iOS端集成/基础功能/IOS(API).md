@@ -485,6 +485,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
  andCompleteNotify:(void (^)(NSInteger errCode))completeNotify;
 ```
 播放背景音乐。
+
 | 参数        | 类型                    | 说明       |
 | --------    | ---------------------- | ---------- |
 | path        | NSString *             | 音乐文件路径，一定要是 app 对应的 document 目录下面的路径，否则文件会读取失败 |
