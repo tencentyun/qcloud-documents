@@ -55,7 +55,7 @@
 5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】-【云 API 密钥链接】进入密钥界面。
     ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
 
-6. 单击新建密钥进行密钥创建-复制创建好的 Secretid 和 Secretkey，在新建工程页面粘贴，单击保存。
+6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
     ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
 
 7. 完成新建工程后，单击“+号”新建工作流。
@@ -168,7 +168,7 @@
 1. TI-ONE 平台支持将模型部署后发布为服务对外服务，可以方便地使用训练好的模型。
 ![](https://main.qcloudimg.com/raw/bf49617dc11c1311ed72cc07b5f4925a.png)
 
-2. 模型训练运行成功后，右键点击模型左侧的尾巴，选择“模型操作-\>模型部署”。
+2. 模型训练运行成功后，右键单击模型左侧的尾巴，选择“模型操作-\>模型部署”。
 
 3. 填写部署参数
 
@@ -184,10 +184,10 @@
 
     ![](https://main.qcloudimg.com/raw/f448443a2065b32c9c5d52bc62b7ff55.png)
 
-点击确定开始部署模型。
+单击确定开始部署模型。
 ![](https://main.qcloudimg.com/raw/072e37dff69204d95b85ab108672c857.png)
 
-点击服务中的模型，可以获取服务详情。
+单击服务中的模型，可以获取服务详情。
 ![](https://main.qcloudimg.com/raw/6ce468ee9d872a7a807308f06b66bda0.png)
 
 
