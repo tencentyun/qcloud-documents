@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 编译运行，可以看到效果：
 
 ```
-iLiveSDK:1.8.5
+iLiveSDK:1.8.7
 IMSDK:2.5.6.11073.11080
 AVSDK:1.9.8.2
 ```
