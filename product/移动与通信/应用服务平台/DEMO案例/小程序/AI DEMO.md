@@ -6,7 +6,7 @@
 
 
 ## 手动部署
-### 下载或clone代码仓库
+### 下载或 clone 代码仓库
 ```javascript
 git clone https://github.com/TencentCloudBase/tcb-demo-ai.git
 ```
@@ -82,6 +82,7 @@ const SecretKey = ''; // 腾讯云 SecretKey
 ```
 
 - 上传云函数
+
 在云函数函数目录下安装依赖，并用开发 `IDE` 上传
 ```javascript
 npm install --production
@@ -95,7 +96,7 @@ npm install --production
 如果你想使用小程序 AI 自定义组件，你可以按照以下步骤进行。
 
 ### 复制并使用自定义 AI 组件
-将 `client/components/` 中其中一个组件复制到你的项目中的组件存放位置（lib目录也需要复制，因为用到了 `weui` 的样式)，在页面的 `json` 文件中进行引用声明。
+将 `client/components/` 中其中一个组件复制到你的项目中的组件存放位置（lib 目录也需要复制，因为用到了 `weui` 的样式)，在页面的 `json` 文件中进行引用声明。
 
 ```json
 {
@@ -167,7 +168,7 @@ npm install --production
 |--|--|--|
 |timeStamp|Number|事件触发事件|
 |type|String|事件类型|
-|detail|Object|识别结果，参考[腾讯云文字识别 API 文档](https://cloud.tencent.com/document/product/866/17594)|
+|detail|Object|识别结果，参考 [腾讯云文字识别 API 文档](https://cloud.tencent.com/document/product/866/17594)|
 
 ### img-detect 组件
 ### 属性
@@ -197,7 +198,7 @@ npm install --production
 |--|--|--|
 |timeStamp|Number|事件触发事件|
 |type|String|事件类型|
-|detail|Object|识别结果，参考[腾讯云图片标签 API 文档](https://cloud.tencent.com/document/product/865/17592)以及[腾讯云智能鉴黄 API 文档](https://cloud.tencent.com/document/product/864/17609)|
+|detail|Object|识别结果，参考 [腾讯云图片标签 API 文档](https://cloud.tencent.com/document/product/865/17592)以及 [腾讯云智能鉴黄 API 文档](https://cloud.tencent.com/document/product/864/17609)|
 
 ### face-fuse 组件
 ### 属性
@@ -210,7 +211,7 @@ npm install --production
 |templateImgUrl|模板图片 url|否|略|
 |hideTemplate|是否隐藏模板图片|否|false|
 
-注：templateImgUrl 指定的图片仅供展示，融合中使用的模板图片由云函数的参数指定。
+>注：templateImgUrl 指定的图片仅供展示，融合中使用的模板图片由云函数的参数指定。
 
 ### 事件
 
