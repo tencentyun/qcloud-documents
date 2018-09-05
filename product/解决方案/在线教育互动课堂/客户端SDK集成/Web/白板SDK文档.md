@@ -2,6 +2,20 @@
 
 > 白板SDK已经集成在TICKSDK中，可以通过getBoardInstance()获取白板实例。
 
+
+## 集成 SDK
+
+在页面中加载以下 SDK。
+
+```
+<!-- COS SDK -->
+<script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
+<!-- 白板SDK -->
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.0/board_sdk.mini.js"></script>
+```
+
+> 建议直接使用腾讯云 CDN 加速的 SDK。
+
 | 类                  | 说明                                       |
 | ------------------ | ---------------------------------------- |
 | BoardSDK     |  白板SDK对外唯一类，提供初始化以及白板操作功能 |
@@ -36,8 +50,56 @@
 | getFile | 获取白板中所有的文件 |
 | getBoardByFile | 根据文件获取该文件的所有白板 |
 | setCanDraw | 设置白板能不能涂鸦 |
+| addBackgroundPic | 增加一白板，并设置该白板的背景图 |
+| clearFileDraws | 清空文件涂鸦 |
+| getCosInstance | 获取cos对象实例 |
+| addFile | 上传文件, 支持doc，docx, excel, ppt, pdf |
+| addImgFile | 上传图片 |
 
 ### 白板SDK使用
+
+
+#### 实例化白板
+
+```
+this.boardSdk = new BoardSDK(options);
+```
+
+##### 白板初始化参数options
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+id | string | 是 | 白板渲染的在 dom 节点 id，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
+conf_id | integer | 是 | 课堂ID
+user | string | 否 | 白板用户昵称
+canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
+color | string | 否，默认红色 |画笔颜色，只接受 hex 色值，如 #ff00ff，大小写不敏感
+globalBackgroundColor | string | 否，默认白色 | 全局的白板背景色，只接受 hex 色值，如 #ff00ff，大小写不敏感
+tlsData | Object | 是 | 白板用户鉴权信息
+cosData | Object | 否 | 白板SDK使用COS上传的鉴权信息
+
+##### tlsData参数
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+sdkAppId | Object | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+identifier | Object | 是 | 用户名
+userSig | Object | 是 | 登录鉴权信息
+
+该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
+
+> 在开发调试阶段，用户可以在自己的腾讯云应用控制台使用开发辅助工具，来生成临时的uid和userSig用于开发测试。详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+
+##### cosData参数
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+appid | string | 是 | 由腾讯云分配
+bucket | string | 是 | 由腾讯云分配
+region | string | 是 | 由腾讯云分配
+path | string | 否 | 上传到bucket的指定目录下，如/board/web 则文件会上传到bucket的board/web目录下
+
+### 白板SDK接口
 
 #### 1. 设置白板是否能够涂鸦
 
@@ -284,7 +346,144 @@ board.getBoardByFile(fid)
 | ----------- | ------------------ |
 |   Array   | 返回白板中所有的文件 |
 
+
+#### 26. 增加一白板，并设置该白板的背景图
+
+```
+board.addBackgroundPic(url, switchNewBoard)
+```
+
+参数:
+
+| 参数 |   类型     | 是否必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| url |  String    | 是 | 图片的url |
+| switchNewBoard   |  Booelan | 否，默认true | 是否需要切换至当前的这一页 |
+
+
+返回值:
+
+|   类型     | 说明 |
+| ----------- | ------------------ |
+|   String   | 返回新增白板ID |
+
+
+#### 27. 清空文件涂鸦
+
+```
+board.clearFileDraws(fids)
+```
+
+参数:
+
+| 参数 |   类型     | 是否必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| fids |  Array    | 是 | 要清空涂鸦的文件id |
+
+
+#### 28. 获取cos对象实例
+
+```
+board.getCosInstance()
+```
+
+
+返回值:
+
+|   类型     | 说明 |
+| ----------- | ------------------ |
+|   COS   | 返回cos对象 |
+
+
+
+#### 29. 上传文件, 支持doc，docx, excel, ppt, pdf
+
+```
+board.addFile(file, succ, fail)
+```
+
+参数:
+
+| 参数 |   类型     | 是否必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| file |  File    | 是 | 文件对象，通常这样获取document.getElementById('file_input').files[0] |
+| succ |  Function    | 否 | 上传成功的回调 |
+| fail |  Function    | 否 | 上传失败的回调 |
+
+#### 30. 上传图片
+
+```
+board.addImgFile(imgFile, succ, fail)
+```
+
+参数:
+
+| 参数 |   类型     | 是否必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| file |  File    | 是 | 文件对象，通常这样获取document.getElementById('file_input').files[0] |
+| succ |  Function    | 否 | 上传成功的回调 |
+| fail |  Function    | 否 | 上传失败的回调 |
+
+
 -----
+
+
+### 白板事件
+
+
+#### 监听事件
+
+当初始化完成后，则需要进行事件监听，监听关键的事件来实现相关的业务。
+
+事件监听的方法：
+
+```
+boardSdk.on('事件名'，回调函数);
+```
+
+比如：
+```
+var boardSdk = new TICSDK();
+boardSdk.on(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE, res => {
+  // 业务侧逻辑
+});
+```
+
+| 事件名 | 描述 | 
+|--------- | ---------|
+| BoardSDK.CONSTANT.EVENT.BOARD.HISTROY_DATA_COMPLETE | 历史数据同步完成 |
+| BoardSDK.CONSTANT.EVENT.BOARD.REAL_TIME_DATA | 接收到其他端的同步数据 |
+| BoardSDK.CONSTANT.EVENT.BOARD.ADD_BOARD | 新增白板 |
+| BoardSDK.CONSTANT.EVENT.BOARD.DELETE_BOARD | 删除白板 |
+| BoardSDK.CONSTANT.EVENT.BOARD.SWITCH_BOARD | 切换白板 |
+| BoardSDK.CONSTANT.EVENT.BOARD.ADD_GROUP | 增加组/文件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.DELETE_GROUP | 删除组/文件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.SWITCH_GROUP | 切换组/文件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.ADD_DATA_ERROR | 接收到其他端的同步数据解析错误 |
+| BoardSDK.CONSTANT.EVENT.BOARD.IMG_START_LOAD | 背景图片开始加载 |
+| BoardSDK.CONSTANT.EVENT.BOARD.IMG_LOAD | 背景图片加载完成 |
+| BoardSDK.CONSTANT.EVENT.BOARD.IMG_ERROR | 背景图片加载错误 |
+| BoardSDK.CONSTANT.EVENT.BOARD.IMG_ABORT | 背景图片加载中断 |
+| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_SUCC | 白板服务鉴权通过 |
+| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_ERROR | 白板服务鉴权失败,请先购买服务 |
+| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEDOWN | 白板鼠标点击事件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEMOVE | 白板鼠标移动事件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEUP | 白板鼠标弹起事件 |
+| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSELEAVE | 白板鼠标移出白板范围事件 |
+
+
+#### 注销事件监听
+
+```
+boardSdk.off('事件名');
+```
+
+比如：
+```
+var boardSdk = new TICSDK();
+boardSdk.off(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE);
+```
+
 
 ### 涂鸦类型
 
@@ -304,22 +503,3 @@ board.getBoardByFile(fid)
 | GRAPH_CIRCLE_SOLID | <code>String</code> | <code>graph-circle-solid</code> | 实心圆 |
 | GRAPH_RECT_SOLID | <code>String</code> | <code>graph-rect-solid</code> | 实心矩形 |
 | GRAPH_OVAL_SOLID | <code>String</code> | <code>graph-oval-solid</code> | 实心椭圆 |
-
-
-### 白板数据实时收发
-
-不同端白板间的数据传输是建立在腾讯`IMSDK`建立的即时信道上的，该功能已经封装在TICSDK内部，开发者无需自行实行。
-
----
-
-### 白板数据上报备份和拉取填充
-
-课堂中，老师对白板的操作，涂鸦、图片、PPT、撤销、清空等操作需要上报到后台，并进行存储，这样后面中途加入课堂的成员就能拉取之前的白板数据进行展示。
-
-该过程主要分为两步，数据上报和数据拉取：
-
-**白板数据上报：**
-在每次对白板操作后，SDK会将操作的数据上报到白板后台，目前SDK内部已经实现了该功能，白板后台服务也是由我们维护，开发者无需自行实现。
-
-**白板数据拉取（同步）：**
-每次进入课堂时，TICSDK 会拉取该课堂的所有历史白板消息，展示在白板上，该功能也已经在TICSDK内部实现，开发者无需自行实行。
