@@ -63,13 +63,13 @@ Authorization: Auth String
 
 该请求操作的响应头具体数据为：
 
-|名称|类型|描述|
+|名称|描述|类型|
 |---|---|---|
-|x-cos-meta- *|string|用户自定义的元数据|
-|x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|
-|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|
-|x-cos-version-id|string|如果检索到的对象具有唯一的版本ID，则返回版本ID。|
-|x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
+|x-cos-meta- *|用户自定义的元数据|string|
+|x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|string|
+|x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|string|
+|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID。|string|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|string|
 
 
 ### 响应体
