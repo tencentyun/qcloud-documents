@@ -10,7 +10,7 @@
 
 | **字段名**         | **取值类型** | **取值举例**                                                 |
 | ------------------ | ------------ | ------------------------------------------------------------ |
-| action_type        | 枚举         | Jump Shot\|Running Jump Shot\|Layup Shot\|Reverse Dunk Shot\|Slam Dunk Shot |
+| action_type        | 枚举         | Jump Shot|Running Jump Shot|Layup Shot|Reverse Dunk Shot|Slam Dunk Shot |
 | combined_shot_type | 枚举         | Jump Shot\|Layup\|Dunk                                       |
 | game_event_id      | 数值         | 1\|2\|3\|……                                                  |
 | game_id            | 数值         | 20000012\|20000047\|……                                       |
