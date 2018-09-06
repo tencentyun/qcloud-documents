@@ -10,9 +10,11 @@
 
 ## 案例相关材料
 相关材料下载链接：
- - [data.txt](https://main.qcloudimg.com/raw/0e8ab9e4bfa11af3e938ff974d8e0bcb.zip)
+[信用卡交易欺诈预测 Demo 材料.zip](https://main.qcloudimg.com/raw/d7787982336b6ab020e12ac1fe8df83f/%E4%BF%A1%E7%94%A8%E5%8D%A1%E4%BA%A4%E6%98%93%E6%AC%BA%E8%AF%88%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)
 
- - [feature_conf.json](https://main.qcloudimg.com/raw/c800e62f27980c4b50fe13a0cfbd9b5f.zip)
+下载包包含一下材料：
+ - data.txt
+ - feature_conf.json
 
 
 ## 整体流程
