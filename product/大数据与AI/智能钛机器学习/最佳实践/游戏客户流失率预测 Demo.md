@@ -4,11 +4,11 @@
 
 ## 案例相关材料
 相关材料下载链接：
- - [train.txt](https://main.qcloudimg.com/raw/6b2b18fb85ee5e2ae5d575f3a82cb282.txt)
+ - [train.txt](https://main.qcloudimg.com/raw/b907e4fc8ff62cfd5607a1f7a1f226f6.zip)
 
- - [feature_conf.json](https://main.qcloudimg.com/raw/7c5196ae1e1c15a2377e6e865a96d6af.json)
+ - [feature_conf.json](https://main.qcloudimg.com/raw/e5d3f7dad72e4277eda6c5f4068b851b.zip)
 
- - [predict.txt](https://main.qcloudimg.com/raw/b070b45bbddc86af568624325abbd25c.txt)
+ - [predict.txt](https://main.qcloudimg.com/raw/c473403056ed88b940273865bafd4472.zip)
 
 ## 整体流程
 
