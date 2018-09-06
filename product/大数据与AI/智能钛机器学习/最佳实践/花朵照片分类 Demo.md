@@ -4,36 +4,31 @@
 
 我们使用的训练数据包括 5 类花朵的照片，分别是：
 
-菊花（Daisy，633张）
+菊花（Daisy，633 张）
 ![](https://main.qcloudimg.com/raw/dda11f7c4e82f05f3826bd3c08acb30b.png)
 
-蒲公英（Dandelion，375张）
+蒲公英（Dandelion，375 张）
 ![](https://main.qcloudimg.com/raw/95c67051a0c6a0b1fd2a7a5477b3b21b.png)
 
-玫瑰（Rose，641张）
+玫瑰（Rose，641 张）
 ![](https://main.qcloudimg.com/raw/8bddd4618aeaa57c8d010cb1abd33d13.png)
 
-向日葵（Sunflower，699张）
+向日葵（Sunflower，675 张）
 ![](https://main.qcloudimg.com/raw/40ef12639358fd175a89b04b2c73ab31.png)
 
-郁金香（Tulip，799张）
+郁金香（Tulip，766 张）
 ![](https://main.qcloudimg.com/raw/1cc5578aa6f248f4297d63f5e7912bc3.png)
 
 在本场景中，我们用 tensorflow 中的 CNN 网络训练模型，训练完成后部署发布，发布后的模型可以用 http 的方式调用，识别传入的图像，返回分类的结果。
 
 ## 案例相关材料
 相关材料下载链接：
- - [LICENSE.txt](https://main.qcloudimg.com/raw/9036dfc9d82ece08f3a838af1c1e7523.zip)
-
- - [Daisy](https://main.qcloudimg.com/raw/3ed62cef6146263654f289ed5a8fc165.zip)
-
- - [Dandelion](https://main.qcloudimg.com/raw/6756cd0f9525eeb815e4bd96398b1c8b.zip)
-
- - [Rose](https://main.qcloudimg.com/raw/2014759bccce8179d41a09137e247a3e.zip)
-
- - [Sunflower](https://main.qcloudimg.com/raw/4ac2816aaacba8aa49ccaf2544461d00.zip)
-
- - [Tulip](https://main.qcloudimg.com/raw/5df1393bdf153a3cc61692fd206ff623.zip)
+ - [LICENSE.txt](https://main.qcloudimg.com/raw/bf4914e86227a9b374866bfb04cc87d7/LICENSE.zip)
+ - [Daisy.zip](https://main.qcloudimg.com/raw/dbaa773d5421b0476217ed21661bd7f0/daisy.zip)
+ - [Dandelion.zip](https://main.qcloudimg.com/raw/e7f584e36b553d5626e23971c3022b1a/dandelion.zip)
+ - [Rose.zip](https://main.qcloudimg.com/raw/221a005375287a1f9b727dcf2a6e96b8/roses.zip)
+ - [Sunflower.zip](https://main.qcloudimg.com/raw/1c4a629c2ce06f4ade99b169897acec5/sunflowers.zip)
+ - [Tulip.zip](https://main.qcloudimg.com/raw/2f8824a9fb5efeb583041a07760fecad/tulips.zip)
 
 ## 整体流程
 
