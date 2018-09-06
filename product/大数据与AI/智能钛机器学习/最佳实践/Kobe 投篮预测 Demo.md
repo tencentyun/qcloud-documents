@@ -38,12 +38,7 @@
 
 ## 案例相关材料
 相关材料下载链接：
-[Kobe投篮预测 Demo材料.zip](https://main.qcloudimg.com/raw/5c5a9b493b948241cf4d9d1e955febfb/Kobe%E6%8A%95%E7%AF%AE%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)
-
-下载包包含以下材料：
- - train.txt
- - feature_conf.json
- - predict.txt
+[Kobe投篮预测 Demo 材料.zip](https://main.qcloudimg.com/raw/5c5a9b493b948241cf4d9d1e955febfb/Kobe%E6%8A%95%E7%AF%AE%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)（包含：train.txt、feature_conf.json、predict.txt）
 
 ## 整体流程
 
