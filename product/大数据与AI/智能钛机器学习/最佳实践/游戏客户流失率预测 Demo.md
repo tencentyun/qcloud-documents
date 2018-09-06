@@ -4,12 +4,7 @@
 
 ## 案例相关材料
 相关材料下载链接：
-[游戏客户流失率预测 Demo 材料.zip](https://main.qcloudimg.com/raw/ae4ff83895e06d72e01ccf904b347653/%E6%B8%B8%E6%88%8F%E5%AE%A2%E6%88%B7%E6%B5%81%E5%A4%B1%E7%8E%87%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)
-
-下载包包含以下材料：
- - train.txt
- - feature_conf.json
- - predict.txt
+[游戏客户流失率预测 Demo 材料.zip](https://main.qcloudimg.com/raw/ae4ff83895e06d72e01ccf904b347653/%E6%B8%B8%E6%88%8F%E5%AE%A2%E6%88%B7%E6%B5%81%E5%A4%B1%E7%8E%87%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)（下载包包含以下材料：train.txt、feature_conf.json、predict.txt）
  
 
 
