@@ -13,14 +13,6 @@ Authorization: Auth String
 ```
 > Authorization: Auth String (see [Request Signature](https://cloud.tencent.com/document/product/436/7778) for details)
 
-### Request line
-
-```
-PUT /{ObjectName}/?acl HTTP/1.1
-```
-
-The API accepts `PUT` requests.
-
 
 ### Request Headers
 
@@ -31,9 +23,9 @@ The implementation of this request operation uses the common request header. For
 #### Non-common Headers
 
 
-Name|Type|Required|Description
+Name|Description|Type|Required
 ---|---|---|---
-X-cos-acl|string|No|Defines the ACL property of the Object. Valid values: private, public-read-write, public-read.
+X-cos-acl|Defines the ACL property of the Object. Valid values: private, public-read-write, public-read.|string|No
 x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No 
 x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No 
 x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No 
@@ -43,7 +35,7 @@ x-cos-grant-full-control | Give the authorized person read and write permissions
 The requested request body is an ACL configuration rule.
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<AccessControlPolicy/>
+<AccessControlPolicy>
 ```
 
 
