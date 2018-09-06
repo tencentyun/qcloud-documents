@@ -11,70 +11,73 @@
 | **字段名**         | **取值类型** | **取值举例**                                                 |
 | ------------------ | ------------ | ------------------------------------------------------------ |
 | action_type        | 枚举         | Jump Shot/Running Jump Shot/Layup Shot/Reverse Dunk Shot/Slam Dunk Shot |
-| combined_shot_type | 枚举         | Jump Shot\|Layup\|Dunk                                       |
-| game_event_id      | 数值         | 1\|2\|3\|……                                                  |
-| game_id            | 数值         | 20000012\|20000047\|……                                       |
-| lat                | 数值         | 33.9343\|34.0163\|……                                         |
-| loc_x              | 数值         | \-157\|138\|0\|……                                            |
-| loc_y              | 数值         | 175\|-11\|0\|……                                              |
-| lon                | 数值         | \-118.1028\|-118.2938\|……                                    |
-| minutes_remaining  | 数值         | 0\|1\|2\|3\|4\|5\|6\|7\|8\|9\|10\|11                         |
-| period             | 数值         | 1\|2\|3\|4\|5\|6\|7                                          |
-| playoffs           | 数值         | 0\|1                                                         |
-| season             | 字符串       | 2004/5/1\|2007/8/1\|2015-16\|……                              |
+| combined_shot_type | 枚举         | Jump Shot/Layup/Dunk                                       |
+| game_event_id      | 数值         | 1/2//3/……                                                  |
+| game_id            | 数值         | 20000012/20000047/……                                       |
+| lat                | 数值         | 33.9343/34.0163/……                                         |
+| loc_x              | 数值         | -157/138/0/……                                            |
+| loc_y              | 数值         | 175/-11/0/……                                              |
+| lon                | 数值         | -118.1028/-118.2938/……                                    |
+| minutes_remaining  | 数值         | 0/1/2/3/4/5/6/7/8/9/10/11                         |
+| period             | 数值         | 1/2/3/4/5/6/7                                          |
+| playoffs           | 数值         | 0/1                                                         |
+| season             | 字符串       | 2004-5-1/2007-8-1/2015-16/……                              |
 | seconds_remaining  | 数值         | 0\~59                                                        |
-| shot_distance      | 数值         | 0\|45\|79\|……                                                |
-| target             | label        | 0\|1                                                         |
-| shot_type          | 枚举         | 2PT Field Goal\|3PT Field Goal                               |
-| shot_zone_area     | 枚举         | Right Side(R)\|Left Side(L)\|Left Side Center(LC)\|Right Side Center(RC)\|Center©\|Back Court(BC) |
-| shot_zone_basic    | 枚举         | Mid-Range\|Restricted Area\|In The Paint (Non-RA)\|Above the Break 3\|…… |
-| shot_zone_range    | 枚举         | 16-24 ft.\|8-16 ft.\|Less Than 8 ft.\|24+ ft.\|……            |
+| shot_distance      | 数值         | 0/45/79/……                                                |
+| target             | label        | 0/1                                                         |
+| shot_type          | 枚举         | 2PT Field Goal/3PT Field Goal                               |
+| shot_zone_area     | 枚举         | Right Side(R)/Left Side(L)/Left Side Center(LC)/Right Side Center(RC)/Center©/Back Court(BC) |
+| shot_zone_basic    | 枚举         | Mid-Range/Restricted Area/In The Paint (Non-RA)/Above the Break 3/…… |
+| shot_zone_range    | 枚举         | 16-24 ft./8-16 ft./Less Than 8 ft./24+ ft./……            |
 | team_id            | 数值         | 1610612747                                                   |
 | team_name          | 字符串       | Los Angeles Lakers                                           |
-| game_date          | 日期         | 2000/10/31\|2014/12/21\|……                                   |
-| matchup            | 字符串       | LAL vs. IND\|LAL vs. SAC\|LAL vs. UTA\|LAL vs. SAC\|……       |
-| opponent           | 字符串       | SAC\|PHX\|……                                                 |
-| shot_id            | 数值         | 1\|2\|3\|4\|5\|……                                            |
+| game_date          | 日期         | 2000-10-31/2014-12-21/……                                   |
+| matchup            | 字符串       | LAL vs. IND/LAL vs. SAC/LAL vs. UTA/LAL vs. SAC/……       |
+| opponent           | 字符串       | SAC/PHX/……                                                 |
+| shot_id            | 数值         | 1/2/3/4/5/……                                          |
 
+## 案例相关材料
+相关材料下载链接：
+ - [train.txt](https://main.qcloudimg.com/raw/b1d38d095f3c075dc27962e3f3b727a2.zip)
+
+ - [feature_conf.json](https://main.qcloudimg.com/raw/8e80dc6cc6eb29b20ff0f83b01bc5b58.zip)
+
+ - [predict.txt](https://main.qcloudimg.com/raw/f38cd69d1bbf3d59cdd06fac726215be.zip)
 
 ## 整体流程
 
 该 Demo 的整体流程如下图所示：
 ![](https://main.qcloudimg.com/raw/c0b76a52418263b5033e48fde20030a2.png)
 
-
 包含 8 个环节，分别是：
 
-| 序号 | 环节                                       |
-| ---- | ------------------------------------------ |
-| 1.   | 将训练数据从本地上传到 COS                 |
-| 2.   | 对训练数据做特征处理                       |
-| 3.   | 将特征处理后的训练数据切分成训练集和测试集 |
-| 4.   | 训练 Kobe 投篮预测模型                     |
-| 5.   | 将验证数据从本地上传到 COS                 |
-| 6.   | 对验证数据做特征处理                       |
-| 7.   | 在验证数据集上验证 Kobe 投篮预测模型       |
-| 8.   | 生成模型评估结果                           |
+1. [将训练数据从本地上传到 COS](#jump1)
+2. [对训练数据做特征处理](#jump2)
+3. [将特征处理后的训练数据切分成训练集和测试集](#jump3)
+4. [训练 Kobe 投篮预测模型](#jump4)
+5. [将验证数据从本地上传到 COS](#jump5)
+6. [对验证数据做特征处理](#jump6)
+7. [在验证数据集上验证 Kobe 投篮预测模型](#jump7)
+8. [生成模型评估结果](#jump8)
 
-接下来详细说明各环节。
 
 ## 流程详解
 
 ### 新建工程和工作流
 
-1. 登录 [TI-ONE](https://tio.cloud.tencent.com)，输入腾讯云账号和密码，进入 TI-ONE 项目列表页。单击【+新建工程】图标新建工程。
+1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】图标新建工程。
      ![](https://main.qcloudimg.com/raw/632a3f15ff510e33dbb90061371a7db9.png)
 
 2. 填写工程名称和工程描述等相关信息。
      ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
-3. 登录腾讯云控制台，进入 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】-【创建储存桶】。
+3. 登录腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】>【创建储存桶】。
      ![](https://main.qcloudimg.com/raw/e4cdfaa79d7881d63df4e88f80cdfce2.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
      ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
-5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】-【云 API 密钥链接】进入密钥界面。
+5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
      ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
@@ -89,11 +92,12 @@
 9. 单击确认，进入画布。
      ![](https://main.qcloudimg.com/raw/39115fe695132ca714a34d2019b60cea.png)
 
+<span id = "jump1"></span>
 ### 上传训练数据
 
-1. 左边栏选择：输入-\>数据源-\>本地输入。
+1. 左边栏选择：输入>数据源>本地输入。
 
-2. 拖入画布，填写参数
+2. 拖入画布，填写参数。
   ![](https://main.qcloudimg.com/raw/4f0e510dcbe2a4f489149c2f801f03e3.png)
 
 3. 上传数据文件：选择本地文件“train.txt”并上传。
@@ -102,9 +106,10 @@
 
 >目标 COS 路径自动生成，支持修改。
 
+<span id = "jump2"></span>
 ### 训练集特征处理
 
-1. 左边栏选择：算法 -\>机器学习算法-\>特征转换-\>Dummy。
+1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
 
 2. 右键重命名：训练特征集处理。
 
@@ -120,10 +125,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
 
-
+<span id = "jump3"></span>
 ### 数据切分
 
-1. 左边栏选择：算法 -\>机器学习算法-\>数据预处理-\>Splitter
+1. 左边栏选择：算法>机器学习算法>数据预处理>Splitter。
 
 2. 右键重命名：数据切分。
 
@@ -135,9 +140,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png)
 
+<span id = "jump4"></span>
 ### 训练投篮预测模型
 
-1. 左边栏选择：算法-\>机器学习算法-\>分类-\>SparseLogicalRegression
+1. 左边栏选择：算法>机器学习算法>分类>SparseLogicalRegression。
 
 2. 右键重命名：投篮预测训练模型。
 
@@ -153,9 +159,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/5509586f414a1ccc7aff6772a456b0ae.png)
 
+<span id = "jump5"></span>
 ### 上传验证数据
 
-1. 左边栏选择：输入-\>数据源-\>本地输入。
+1. 左边栏选择：输入>数据源>本地输入。
 
 2. 填写参数：
  - 数据文件选择上传 predict.txt。
@@ -166,9 +173,10 @@
 > **注意：**
 > 从训练特征集处理到验证数据源的连线并非代表这里有数据流传输，只是因为后面的验证集特征处理会用到训练特征集处理的产出物，所以要确保验证特征集处理的开始时间在训练特征集处理结束之后。
 
+<span id = "jump6"></span>
 ### 验证集特征预处理
 
-1. 左边栏选择：算法 -\>机器学习算法-\>特征转换-\>Dummy。
+1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
 
 2. 右键重命名：验证集特征处理。
 
@@ -184,6 +192,7 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)
 
+<span id = "jump7"></span>
 ### 模型验证
 
 1. 单击流失率训练模型旁边的小圈。
@@ -196,10 +205,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
 
-
+<span id = "jump8"></span>
 ### 模型评估
 
-1. 左边栏选择：算法 -\>机器学习算法-\>输出-\>BinaryEvaluator。
+1. 左边栏选择：算法>机器学习算法>输出>BinaryEvaluator。
 
 2. 右键重命名：模型评估。
 
@@ -219,17 +228,17 @@
 
 ### 保存工作流
 
-单击工具条上的磁盘图标，保存工作流，如图：
+单击工具条上的磁盘图标，保存工作流。
 ![](https://main.qcloudimg.com/raw/e6c1c7e4daf1553ff4b6fec8f28f0bc6.png)
 
 ### 运行完整流程
 
-单击工具条上的“三角”箭头，运行完整的流程，如图：
+单击工具条上的“三角”箭头，运行完整的流程。
 ![](https://main.qcloudimg.com/raw/aa76d80e4e31eaaabfb204b10ec1161f.png)
 
 ### 从指定环节开始运行
 
-右键单击要运行的环节，选择“起点运行”，从该环节开始向下执行：
+右键单击要运行的环节，选择“起点运行”，从该环节开始向下执行。
 ![](https://main.qcloudimg.com/raw/8c8d13294c755e8284839dd44bbc4f26.png)
 
 
@@ -242,7 +251,7 @@
 单击 COS 链接，可以获取完整的中间结果。
 
 
-###### 异常处理
+### 异常处理
 
 当环节节点上出现感叹号，说明流程出现异常。鼠标悬浮于组件，可以查看失败原因。
 ![](https://main.qcloudimg.com/raw/5442900d9885083c49eab44ae069b4dc.png)
