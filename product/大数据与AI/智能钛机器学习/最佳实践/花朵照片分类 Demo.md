@@ -21,38 +21,49 @@
 
 在本场景中，我们用 tensorflow 中的 CNN 网络训练模型，训练完成后部署发布，发布后的模型可以用 http 的方式调用，识别传入的图像，返回分类的结果。
 
-#### 整体流程
+## 案例相关材料
+相关材料下载链接：
+ - [LICENSE.txt](https://main.qcloudimg.com/raw/9036dfc9d82ece08f3a838af1c1e7523.zip)
+
+ - [Daisy](https://main.qcloudimg.com/raw/3ed62cef6146263654f289ed5a8fc165.zip)
+
+ - [Dandelion](https://main.qcloudimg.com/raw/6756cd0f9525eeb815e4bd96398b1c8b.zip)
+
+ - [Rose](https://main.qcloudimg.com/raw/2014759bccce8179d41a09137e247a3e.zip)
+
+ - [Sunflower](https://main.qcloudimg.com/raw/4ac2816aaacba8aa49ccaf2544461d00.zip)
+
+ - [Tulip](https://main.qcloudimg.com/raw/5df1393bdf153a3cc61692fd206ff623.zip)
+
+## 整体流程
 
 该 Demo 的整体流程如下图所示：
 ![](https://main.qcloudimg.com/raw/cb0c8d4fa83b22903a9a9a6d5acafec8.png)
 
 包含 4 个环节，分别是：
 
-| 序号 | 环节|
-|----|--------------------------------|
-| 1. | 指定存储图片的 COS 位置          |
-| 2. | 将数据拆分成训练集和测试集     |
-| 3. | 对数据做特征处理               |
-| 4. | 训练花朵分类的深度神经网络模型 |
+1.  [指定存储图片的 COS 位置](#jump1)
+2.  [将数据拆分成训练集和测试集](#jump2)
+3.  [对数据做特征处理](#jump3) 
+4.  [训练花朵分类的深度神经网络模型](#jump4) 
 
-接下来详细说明各环节。
 
-#### 流程详解
+## 流程详解
 
 ### 新建工程和工作流
-1. 登录 [TI-ONE](https://tio.cloud.tencent.com)，输入腾讯云账号和密码，进入 TI-ONE 项目列表页。单击【+新建工程】图标新建工程。
+1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
     ![](https://main.qcloudimg.com/raw/632a3f15ff510e33dbb90061371a7db9.png)
 
 2. 填写工程名称和工程描述等相关信息。
     ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
-3. 登录腾讯云控制台，进入 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】-【创建储存桶】。
+3. 登录腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】>【创建储存桶】。
     ![](https://main.qcloudimg.com/raw/e4cdfaa79d7881d63df4e88f80cdfce2.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
     ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
-5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】-【云 API 密钥链接】进入密钥界面。
+5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
     ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
@@ -67,25 +78,26 @@
 9. 单击确认，进入画布。
     ![](https://main.qcloudimg.com/raw/39115fe695132ca714a34d2019b60cea.png)
 
+<span id = "jump1"></span>
 ### 设置数据源
 
 1. 本案例的训练样本是图片，数据量比较大（约 200 M），因此我们先将训练样本上传 COS，在工作流中通过引入 COS 数据源。
 ![](https://main.qcloudimg.com/raw/3fcd8910a2aea840315ec57fd884ac92.png)
 
-2. 左边栏选择：输入-\>数据源-\>COS 数据源。
+2. 左边栏选择：输入>数据源>COS 数据源。
 
 3. 拖入画布，填写参数：
-	- COS 数据路径：填写 COS 上保存训练样本的路径，加\${cos}前缀，在本例中填写`\${cos}/flower/data/`。
+	- COS 数据路径：填写 COS 上保存训练样本的路径，加`\${cos}`前缀，在本例中填写`\${cos}/flower/data/`。
 ![](https://main.qcloudimg.com/raw/e0b9da0c6b55a9dee7200d6f35aaca13.png)
 
-
+<span id = "jump2"></span>
 ### 拆分数据
 
 1. 使用 splitdataset 组件拆分数据，将图像文件拆分成用于训练和测试的两个 part，输出路径中保存 3 个文件，label_map.txt、train.txt 和 valid.txt，label_map.txt 记录类目到 label 的映射，train.txt 记录训练集索引（图片文件名），valid.txt 记录测试集索引（图片文件名）。
 > **注意:**
 > 本案例中使用到的路径都要提前在 COS 中创建好。
 
-2. 左边栏选择：输入-\>数据转换-\>Split dataset。
+2. 左边栏选择：输入>数据转换>Split dataset。
 
 3. 右键重命名：拆分数据。
 
@@ -99,11 +111,12 @@
  - Memory(m)：1024
 ![](https://main.qcloudimg.com/raw/580610939ec6445e696a780449be772b.png)
 
+<span id = "jump3"></span>
 ### 特征处理
 
-1. 使用 image-\>tfrecord 从图像文件中提取特征。
+1. 使用 image>tfrecord 从图像文件中提取特征。
 
-2. 左边栏选择：输入-\>数据转换-\> image -\> tfrecord (Image Classification)。
+2. 左边栏选择：输入>数据转换>image>tfrecord (Image Classification)。
 
 3. 右键重命名：特征处理。
 
@@ -117,11 +130,12 @@
  - Memory(m)：1024
 ![](https://main.qcloudimg.com/raw/e053fcfd373053bb1c13e8a88a8745ef.png)
 
+<span id = "jump4"></span>
 ### 花朵分类模型训练
 
 1. 选择 AlexNet 作为本次训练花朵分类模型的算法，AlexNet 是一种 CNN 算法。
 
-2. 左边栏选择：算法-\>深度学习算法-\>计算机视觉-\>AlexNet。
+2. 左边栏选择：算法>深度学习算法>计算机视觉>AlexNet。
 
 3. 右键重命名：花朵分类模型。
 
@@ -148,12 +162,12 @@
 
 ### 保存工作流
 
-单击工具条上的磁盘图标，保存工作流，如图：
+单击工具条上的磁盘图标，保存工作流。
 ![](https://main.qcloudimg.com/raw/0e21a190a359c58c5d3648d290938b5f.png)
 
 ### 运行完整流程
 
-单击工具条上的“三角”箭头，运行完整的流程，如图：
+单击工具条上的“三角”箭头，运行完整的流程。
 ![](https://main.qcloudimg.com/raw/9d18c789ac2294f365cec1f17f45f804.png)
 
 
@@ -168,7 +182,7 @@
 1. TI-ONE 平台支持将模型部署后发布为服务对外服务，可以方便地使用训练好的模型。
 ![](https://main.qcloudimg.com/raw/bf49617dc11c1311ed72cc07b5f4925a.png)
 
-2. 模型训练运行成功后，右键单击模型左侧的尾巴，选择“模型操作-\>模型部署”。
+2. 模型训练运行成功后，右键单击模型左侧的尾巴，选择“模型操作”>“模型部署”。
 
 3. 填写部署参数
 
@@ -184,10 +198,10 @@
 
     ![](https://main.qcloudimg.com/raw/f448443a2065b32c9c5d52bc62b7ff55.png)
 
-单击确定开始部署模型。
+4. 单击确定开始部署模型。
 ![](https://main.qcloudimg.com/raw/072e37dff69204d95b85ab108672c857.png)
 
-单击服务中的模型，可以获取服务详情。
+5. 单击服务中的模型，可以获取服务详情。
 ![](https://main.qcloudimg.com/raw/6ce468ee9d872a7a807308f06b66bda0.png)
 
 
@@ -246,6 +260,6 @@ outputs {
 当环节节点上出现感叹号，说明流程出现异常。鼠标悬浮于组件，可以查看失败原因。
 ![](https://main.qcloudimg.com/raw/0c308dac4a3d3a39519370e0a3739609.png)
 
-右键单击该环节选择“TensorFlow 控制台- App 详情”查看日志，可以查看具体错误原因。
+右键单击该环节选择“TensorFlow 控制台”> “App 详情”查看日志，可以查看具体错误原因。
 ![](https://main.qcloudimg.com/raw/065542347f4c537a9d748cb1a9628ceb.png)
 
