@@ -19,25 +19,17 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-GET /{ObjectName} HTTP/1.1
-```
-
-该 API 接口接受 `GET` 请求。
-
 #### 请求参数
 
 
-| 名称                         | 类型   | 必选 | 描述                                      |
-| ---------------------------- | ------ | ---- | ----------------------------------------- |
-| response-content-type        | string | 否   | 设置响应头部中的 Content-Type 参数        |
-| response-content-language    | string | 否   | 设置响应头部中的 Content-Language 参数    |
-| response-expires             | string | 否   | 设置响应头部中的 Content-Expires 参数     |
-| response-cache-control       | string | 否   | 设置响应头部中的 Cache-Control 参数       |
-| response-content-disposition | string | 否   | 设置响应头部中的 Content-Disposition 参数 |
-| response-content-encoding    | string | 否   | 设置响应头部中的 Content-Encoding 参数    |
+| 名称                         | 描述                                      | 类型   | 必选 |
+| ---------------------------- | ------ | ---- | -------------------------------- |
+| response-content-type        | 设置响应头部中的 Content-Type 参数        |string | 否   | 
+| response-content-language    |设置响应头部中的 Content-Language 参数    | string | 否   | 
+| response-expires             |设置响应头部中的 Content-Expires 参数     | string | 否   | 
+| response-cache-control       |设置响应头部中的 Cache-Control 参数       | string | 否   | 
+| response-content-disposition |设置响应头部中的 Content-Disposition 参数 | string | 否   | 
+| response-content-encoding    |设置响应头部中的 Content-Encoding 参数    | string | 否   | 
 
 ### 请求头
 
@@ -47,17 +39,17 @@ GET /{ObjectName} HTTP/1.1
 
 #### 非公共头部
 
-| 名称                | 类型   | 必选 | 描述                                                         |
+| 名称                |  描述                                                         |类型   | 必选 |
 | ------------------- | ------ | ---- | ------------------------------------------------------------ |
-| Range               | string | 否   | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位     |
-| If-Unmodified-Since | string | 否   | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed) |
-| If-Modified-Since   | string | 否   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304(not modified) |
-| If-Match            | string | 否   | 当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed) |
-| If-None-Match       | string | 否   | 当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified) |
+| Range               | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位     |string | 否   | 
+| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed) |string | 否   | 
+| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304(not modified) |string | 否   | 
+| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed) | string | 否   | 
+| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified) |string | 否   | 
 
 ### 请求体
 
-该请求请求体为空。
+该请求体为空。
 
 ## 响应
 
@@ -77,7 +69,7 @@ GET /{ObjectName} HTTP/1.1
 |x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|
 |x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|
 |x-cos-version-id|string|如果检索到的对象具有唯一的版本ID，则返回版本ID。|
-|x-cos-server-side​-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
+|x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
 
 
 ### 响应体
