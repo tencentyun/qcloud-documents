@@ -22,9 +22,9 @@ Authorization: Auth String
 
 #### 非公共头部
 
-名称|类型|必选|描述
+名称|描述|类型|必选
 ---|---|---|---
-x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。
+x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。|string|否
 x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
 x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
 x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 
