@@ -8,42 +8,47 @@
 
 本案例的目标是识别训练样本中的欺诈性信用卡交易。
 
+## 案例相关材料
+相关材料下载链接：
+ - [data.txt](https://main.qcloudimg.com/raw/0e8ab9e4bfa11af3e938ff974d8e0bcb.zip)
+
+ - [feature_conf.json](https://main.qcloudimg.com/raw/e5d3f7dad72e4277eda6c5f4068b851b.zip)
+
+
 ## 整体流程
 
 该 Demo 的整体流程如下图所示：
 ![](https://main.qcloudimg.com/raw/cc1b00036ee7a18cfcc04582e80be9d5.png)
-包含9个环节，分别是：
+包含 9 个环节，分别是：
 
-| 序号 | 环节                                       |
-| ---- | ------------------------------------------ |
-| 1.   | 将数据从本地上传到 COS                     |
-| 2.   | 将数据拆分成训练集和验证集                 |
-| 3.   | 对训练数据做特征处理                       |
-| 4.   | 将特征处理后的训练数据切分成训练集和测试集 |
-| 5.   | 训练信用卡交易欺诈识别模型                 |
-| 6.   | 对验证数据做特征处理                       |
-| 7.   | 在验证数据集上验证信用卡交易欺诈识别模型   |
-| 8.   | 生成模型混淆矩阵                           |
-| 9.   | 生成模型 ROC 曲线                          |
+1. [将数据从本地上传到 COS](#jump1)                     
+2. [将数据拆分成训练集和验证集](#jump2)
+3. [对训练数据做特征处理](#jump3)
+4. [将特征处理后的训练数据切分成训练集和测试集](#jump4)
+5. [训练信用卡交易欺诈识别模型](#jump5)
+6. [对验证数据做特征处理](#jump6) 
+7. [在验证数据集上验证信用卡交易欺诈识别模型](#jump7)
+8. [生成模型混淆矩阵](#jump8)
+9. [生成模型 ROC 曲线](#jump9)            
 
 接下来详细说明各环节。
 
 ## 流程详解
 
 ### 新建工程和工作流
-1. 登录 [TI-ONE](https://tio.cloud.tencent.com)，输入腾讯云账号和密码，进入 TI-ONE 项目列表页。单击【+新建工程】图标新建工程。
+1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
   ![](https://main.qcloudimg.com/raw/632a3f15ff510e33dbb90061371a7db9.png)
 
 2. 填写工程名称和工程描述等相关信息。
   ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
-3. 登录腾讯云控制台，进入 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】-【创建储存桶】。
+3. 登录腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】>【创建储存桶】。
   ![](https://main.qcloudimg.com/raw/e4cdfaa79d7881d63df4e88f80cdfce2.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
   ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
-5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】-【云 API 密钥链接】进入密钥界面。
+5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
   ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
@@ -58,9 +63,10 @@
 9. 单击确认，进入画布。
   ![](https://main.qcloudimg.com/raw/39115fe695132ca714a34d2019b60cea.png)
 
+<span id = "jump1"></span>
 ### 上传训练数据
 
-1. 左边栏选择：输入-\>数据源-\>本地输入。
+1. 左边栏选择：输入>数据源>本地输入。
 
 2. 拖入画布，填写参数。
   ![](https://main.qcloudimg.com/raw/b060166791646928ef1a914a6ae3c057.png)
@@ -70,9 +76,10 @@
 
 > 目标 COS 路径自动生成，支持修改。
 
+<span id = "jump2"></span>
 ### 拆分出验证集
 
-1. 左边栏选择：算法 -\>机器学习算法-\>数据预处理-\>Splitter。
+1. 左边栏选择：算法 >机器学习算法>数据预处理>Splitter。
 
 2. 右键重命名：拆分出验证集。
 
@@ -85,7 +92,7 @@
   ![](https://main.qcloudimg.com/raw/342553c0946651a5702ea9c3f008068f.png)
 
 
-
+<span id = "jump3"></span>
 ### 训练集特征处理
 
 1. 左边栏选择：算法 -\>机器学习算法-\>特征转换-\>Dummy。
@@ -104,9 +111,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/951f186b56081d0140b92e6d41bb525d.png)
 
+<span id = "jump4"></span>
 ### 切分出测试集
 
-1. 左边栏选择：算法 -\>机器学习算法-\>数据预处理-\>Splitter。
+1. 左边栏选择：算法>机器学习算法>数据预处理>Splitter。
 
 2. 右键重命名：切分出测试集。
 
@@ -118,9 +126,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/a89300af972605cdaa0a4e577f7d5df5.png)
 
+<span id = "jump5"></span>
 ### 训练信用卡交易欺诈识别模型
 
-1. 左边栏选择：算法-\>机器学习算法-\>分类-\>SparseLogicalRegression。
+1. 左边栏选择：算法>机器学习算法>分类>SparseLogicalRegression。
 
 2. 右键重命名：欺诈识别模型。
 
@@ -136,9 +145,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/475afe7c4cc19af70df455eaefaf47bb.png)
 
+<span id = "jump6"></span>
 ### 验证集特征处理
 
-1. 左边栏选择：算法 -\>机器学习算法-\>特征转换-\>Dummy。
+1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
 
 2. 右键重命名：验证集特征处理。
 
@@ -154,6 +164,7 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/e403d3c78a4771c365e5236fe0bf3567.png)
 
+<span id = "jump7"></span>
 ### 模型验证
 
 1. 单击流失率训练模型旁边的小圈。
@@ -166,10 +177,10 @@
  - 其余使用默认值。
   ![](https://main.qcloudimg.com/raw/d7c5801ed34b6366a62c74b7caabb40b.png)
 
-
+<span id = "jump8"></span>
 ### 生成模型混淆矩阵
 
-1. 左边栏选择：输出-\>模型评估-\>BinaryEvaluator。
+1. 左边栏选择：输出>模型评估>BinaryEvaluator。
 
 2. 右键重命名：混淆矩阵。
 
@@ -185,10 +196,10 @@
   ![](https://main.qcloudimg.com/raw/ba4716da34d7af3fc6ce73c5f465bd71.png)
 
 
+<span id = "jump9"></span>
+### 生成模型 ROC 曲线
 
-### 生成模型ROC曲线
-
-1. 左边栏选择：输出-\>模型评估-\>ROC。
+1. 左边栏选择：输出>模型评估>ROC。
 
 2. 右键重命名：AUC。
 
@@ -204,17 +215,17 @@
 
 ### 保存工作流
 
-单击工具条上的磁盘图标，保存工作流，如图：
+单击工具条上的磁盘图标，保存工作流。
 ![](https://main.qcloudimg.com/raw/aa310dd99fa0b0c82ee5c4a2bae3faca.png)
 
 ### 运行完整流程
 
-单击工具条上的“三角”箭头，运行完整的流程，如图：
+单击工具条上的“三角”箭头，运行完整的流程。
 ![](https://main.qcloudimg.com/raw/c4ec0c93329f4d09eb3dc1c805fa35f2.png)
 
 ### 从指定环节开始运行
 
-右键单击要运行的环节，选择“起点运行”，从该环节开始向下执行：
+右键单击要运行的环节，选择“起点运行”，从该环节开始向下执行。
 ![](https://main.qcloudimg.com/raw/d8b76e3e0cd0dc1614e56ceb2a9cc3b8.png)
 
 ### 查看中间结果 
