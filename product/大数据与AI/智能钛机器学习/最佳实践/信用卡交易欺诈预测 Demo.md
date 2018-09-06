@@ -12,7 +12,7 @@
 相关材料下载链接：
  - [data.txt](https://main.qcloudimg.com/raw/0e8ab9e4bfa11af3e938ff974d8e0bcb.zip)
 
- - [feature_conf.json](https://main.qcloudimg.com/raw/e5d3f7dad72e4277eda6c5f4068b851b.zip)
+ - [feature_conf.json](https://main.qcloudimg.com/raw/c800e62f27980c4b50fe13a0cfbd9b5f.zip)
 
 
 ## 整体流程
