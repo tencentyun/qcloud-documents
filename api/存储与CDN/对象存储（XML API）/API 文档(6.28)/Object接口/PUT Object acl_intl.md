@@ -43,7 +43,7 @@ The specific data is described as follows:
 
 Node Name (Keyword)|Parent Node|Description|Type|Required
 ---|---|---|---|---
-AccessControlPolicy|None|Save GET Bucket acl result container|Container|
+AccessControlPolicy|None|Save GET Bucket acl result container|Container|Yes
 
 
 
