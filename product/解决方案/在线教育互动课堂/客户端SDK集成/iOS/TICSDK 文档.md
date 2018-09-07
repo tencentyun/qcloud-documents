@@ -2,7 +2,9 @@
 
 `TICSDK`支持 iOS8+ 系统，支持 Cocoapods 集成，集成完之后还需进行相应的工程配置。
 
-#### Cocoapods 集成（推荐）
+### 1.1 集成
+
+#### Cocoapods（推荐）
 
 在 Podfile 文件中加入：
 
@@ -21,8 +23,43 @@ pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 ```
 pod repo update
 ```
-#### 工程配置
-为了工程能够正常编译，需要修改以下工程配置：
+
+#### 手动集成
+
+[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_XDF.zip) ，将其拖进工程中，并添加以下依赖库：
+
+|需添加依赖库|
+|---|
+|Accelerate.framework|
+|AssetsLibrary.framework|
+|AVFoundation.framework|
+|CoreGraphics.framework|
+|CoreMedia.framework|
+|CoreTelephony.framework|
+|CoreVideo.framework|
+|ImageIO.framework|
+|JavaScriptCore.framework|
+|OpenAL.framework|
+|OpenGLES.framework|
+|QuartzCore.framework|
+|SystemConfiguration.framework|
+|VideoToolbox.framework|
+|libbz2.tbd|
+|libc++.tbd|
+|libiconv.tbd|
+|libicucore.tbd|
+|libprotobuf.tbd|
+|libresolv.tbd|
+|libsqlite3.tbd|
+|libstdc++.6.tbd|
+|libstdc++.tbd|
+|libz.tbd|
+|libstdc++.6.0.9.tbd|
+
+### 1.2 工程配置
+为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
+
+* 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
 
 * 在`Build Settings`中将`Allow Non-modular includes in Framework Modules`设置为`YES`。
 
