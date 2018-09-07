@@ -76,9 +76,13 @@ apt-get install cuda-drivers
 rpm -i nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm
 ```
 3. 使用`yum`命令清除缓存。
- `yum clean all`
+ ```
+ yum clean all
+ ```
 4. 使用`yum`命令安装驱动。
-`yum install cuda-drivers`
+```
+yum install cuda-drivers
+```
 5. 运行`reboot`命令重启。
 6. 运行`nvidia-smi`能输出正确信息代表驱动安装成功。
 
