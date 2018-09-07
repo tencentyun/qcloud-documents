@@ -60,7 +60,7 @@
     ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
 5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
-    ![](https://main.qcloudimg.com/raw/c2402b26794fda25482394832407ebe6/5(1).png)
+    ![](https://main.qcloudimg.com/raw/6dad73a787505e4e6f8af670424d330e/5a.png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
     ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
@@ -72,7 +72,7 @@
     ![](https://main.qcloudimg.com/raw/a73d5ff291b45b391da2e0fbc3b4e0d9.png)
 
 9. 单击确认，进入画布。
-    ![](https://main.qcloudimg.com/raw/a5fdbe8a578b27604266ff32f05fb400/9(1).png)
+    ![](https://main.qcloudimg.com/raw/668c1e0bd960838c7015443d1a097938/9a.png)
 
 
 <span id = "jump1"></span>
@@ -182,18 +182,12 @@
 2. 模型训练运行成功后，右键单击模型左侧的尾巴，选择“模型操作”>“模型部署”。
 
 3. 填写部署参数
-
  -  模型组：选择需要部署的模型组，如果没有可选的模型组需要事先在“模型管理”菜单里新建模型组。
-
  -  实例类型：选择实例运行的配置，本例中选择“GPU”。
-
  -  实例数：1
-
  -  服务分类：根据模型类型选择，本例中选择“深度学习”。
-
  -  部署版本：实例的版本，本例中选择“新增版本”。
-
-    ![](https://main.qcloudimg.com/raw/f448443a2065b32c9c5d52bc62b7ff55.png)
+![](https://main.qcloudimg.com/raw/f448443a2065b32c9c5d52bc62b7ff55.png)
 
 4. 单击确定开始部署模型。
 ![](https://main.qcloudimg.com/raw/072e37dff69204d95b85ab108672c857.png)

@@ -31,31 +31,31 @@
 ### 新建工程和工作流
 
 1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
-  ![](https://main.qcloudimg.com/raw/3cdde89b99dab1f0acf605e05383583d.png)
+    ![](https://main.qcloudimg.com/raw/3cdde89b99dab1f0acf605e05383583d.png)
 
 2. 填写工程名称和工程描述等相关信息。
-  ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
+    ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
 3. 登录腾讯云[对象存储控制台](https://console.cloud.tencent.com/cos)，单击【存储桶列表】>【创建存储桶】。
-  ![](https://main.qcloudimg.com/raw/0a83a1b11edf7cd3d875b13e5e6086f3.png)
+    ![](https://main.qcloudimg.com/raw/0a83a1b11edf7cd3d875b13e5e6086f3.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
-  ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
+    ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
 5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
-  ![](https://main.qcloudimg.com/raw/c2402b26794fda25482394832407ebe6/5(1).png)
+    ![](https://main.qcloudimg.com/raw/6dad73a787505e4e6f8af670424d330e/5a.png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
-  ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
+    ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
 
 7. 完成新建工程后，单击“+号”新建工作流。
-  ![](https://main.qcloudimg.com/raw/11c67f72ffef272fafcf5554284fee42.png)
+    ![](https://main.qcloudimg.com/raw/11c67f72ffef272fafcf5554284fee42.png)
 
 8. 输入工作流名称。
-  ![](https://main.qcloudimg.com/raw/9f6021b778ab1e413fb8707ddb78bac6.png)
+    ![](https://main.qcloudimg.com/raw/9f6021b778ab1e413fb8707ddb78bac6.png)
 
 9. 单击确认，进入画布。
-  ![](https://main.qcloudimg.com/raw/a5fdbe8a578b27604266ff32f05fb400/9(1).png)
+    ![](https://main.qcloudimg.com/raw/668c1e0bd960838c7015443d1a097938/9a.png)
 
 
 <span id = "jump1"></span>
@@ -192,7 +192,7 @@
  - 预测阈值：0.5
  - num-executors： 10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/586249ef03c35c780c0d6c78258cfa4e/%E6%B5%81%E5%A4%B1%E7%8E%87-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0.png)
+    ![](https://main.qcloudimg.com/raw/586249ef03c35c780c0d6c78258cfa4e/%E6%B5%81%E5%A4%B1%E7%8E%87-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0.png)
 
 
 
