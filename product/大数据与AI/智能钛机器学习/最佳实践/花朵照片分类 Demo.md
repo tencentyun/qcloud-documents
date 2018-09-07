@@ -46,20 +46,21 @@
 ## 流程详解
 
 ### 新建工程和工作流
+
 1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
-    ![](https://main.qcloudimg.com/raw/632a3f15ff510e33dbb90061371a7db9.png)
+    ![](https://main.qcloudimg.com/raw/3cdde89b99dab1f0acf605e05383583d.png)
 
 2. 填写工程名称和工程描述等相关信息。
     ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
-3. 登录腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】>【创建储存桶】。
-    ![](https://main.qcloudimg.com/raw/e4cdfaa79d7881d63df4e88f80cdfce2.png)
+3. 登录腾讯云[对象存储控制台](https://console.cloud.tencent.com/cos)，单击【存储桶列表】>【创建存储桶】。
+    ![](https://main.qcloudimg.com/raw/0a83a1b11edf7cd3d875b13e5e6086f3.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
     ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
 5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
-    ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
+    ![](https://main.qcloudimg.com/raw/c2402b26794fda25482394832407ebe6/5(1).png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
     ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
@@ -71,13 +72,14 @@
     ![](https://main.qcloudimg.com/raw/a73d5ff291b45b391da2e0fbc3b4e0d9.png)
 
 9. 单击确认，进入画布。
-    ![](https://main.qcloudimg.com/raw/39115fe695132ca714a34d2019b60cea.png)
+    ![](https://main.qcloudimg.com/raw/a5fdbe8a578b27604266ff32f05fb400/9(1).png)
+
 
 <span id = "jump1"></span>
 ### 设置数据源
 
 1. 本案例的训练样本是图片，数据量比较大（约 200 M），因此我们先将训练样本上传 COS，在工作流中通过引入 COS 数据源。
-![](https://main.qcloudimg.com/raw/3fcd8910a2aea840315ec57fd884ac92.png)
+![](https://main.qcloudimg.com/raw/b7b75301065ae0a18c3f07b5a1f7481e/%E8%8A%B1-%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90%E6%AD%A5%E9%AA%A41.png)
 
 2. 左边栏选择：输入>数据源>COS 数据源。
 
@@ -209,7 +211,7 @@
  - 服务地址：可从服务详情中获取。
  - 服务调用类型选择 post。
  - 参数选择“file”，输入需要上传的图片文件地址。
-![](https://main.qcloudimg.com/raw/67e6d676f4f760ba9fb87ce6a124a586.png)
+![](https://main.qcloudimg.com/raw/82095d3abf1e8a491719f6db00c0f0fd/%E8%8A%B1-%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B%E6%AD%A5%E9%AA%A42.png)
 
 3. 单击【send】，发送调用请求，查看返回结果。
 
