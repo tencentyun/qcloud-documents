@@ -1,6 +1,6 @@
 ## [1.5.1] - 2018-09-07
 ### 变更
-1. TXBoardSDK 文档接口重构，整合COS文件上传，接口更加易用
+1. TXBoardSDK 文档接口重构，整合 COS 文件上传，接口更加易用
 
 ### 新增
 1. TXBoardSDK 新增清空指定课堂历史数据接口
@@ -17,20 +17,16 @@
 ## [1.5.0] - 2018-09-03
 ### 变更
 1. 去除`TXBoardViewDelegate`中的`getBoardDataConfig`方法
-
 ```objc
 /**
  获取白板所需外部参数，包含uid、userSig、roomID（这些值发送改变时需要重新设置）
  */
 - (TXBoardDataConfig *)getBoardDataConfig;
 ```
-
 2. 去掉`TICManger`初始化方法中的`accountType`参数
-
 ```objc
 - (int)initSDK:(NSString *)SDKAppID;
 ```
-
 3. `TICManger`中的IM消息收/发方法由原来的 4 个合并为 2 个
 
 ### 新增
