@@ -109,18 +109,6 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 - deleteSubBoard:stayBoard: | 删除白板并切换到指定白板
 - boardList | 获取当前所有的白板
 
-### 2.7 文档接口
-接口 | 说明
----|---
-addFile:onProgress:onFinish: |  添加本地文档
-deleteFiles:stay: |  删除文档，支持一次删除多个
-getCurrentFid |  获取当前展示的文件 fid
-getAllFileInfo | 获取所有文档信息(包括普通白板组)
-switchFile: |  切换到fid对应文件
-switchPage: |  切换到当前文件的指定页
-prePage |  切换到当前文件的前一页
-nextPage |  切换到当前文件的后一页
-
 ## 3. 文档展示功能介绍
 
 ### 必备知识点：
