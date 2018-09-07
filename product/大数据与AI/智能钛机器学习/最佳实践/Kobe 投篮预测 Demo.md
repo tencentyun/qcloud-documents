@@ -61,32 +61,36 @@
 
 ### 新建工程和工作流
 
-1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】图标新建工程。
-     ![](https://main.qcloudimg.com/raw/632a3f15ff510e33dbb90061371a7db9.png)
+1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
+    ![](https://main.qcloudimg.com/raw/3cdde89b99dab1f0acf605e05383583d.png)
 
 2. 填写工程名称和工程描述等相关信息。
-     ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
+    ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
 
-3. 登录腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos)，单击【储存桶列表】>【创建储存桶】。
-     ![](https://main.qcloudimg.com/raw/e4cdfaa79d7881d63df4e88f80cdfce2.png)
+3. 登录腾讯云[对象存储控制台](https://console.cloud.tencent.com/cos)，单击【存储桶列表】>【创建存储桶】。
+    ![](https://main.qcloudimg.com/raw/0a83a1b11edf7cd3d875b13e5e6086f3.png)
 
 4. 创建成功后在新建工程页下拉列表处选取储存桶。
-     ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
+    ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
 
 5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
-     ![](https://main.qcloudimg.com/raw/3697b0510ed3e6403150e0b4ce3632f2.png)
+    ![](https://main.qcloudimg.com/raw/c2402b26794fda25482394832407ebe6/5(1).png)
 
 6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
-     ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
+    ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
 
 7. 完成新建工程后，单击“+号”新建工作流。
-     ![](https://main.qcloudimg.com/raw/11c67f72ffef272fafcf5554284fee42.png)
+    ![](https://main.qcloudimg.com/raw/11c67f72ffef272fafcf5554284fee42.png)
 
 8. 输入工作流名称。
      ![](https://main.qcloudimg.com/raw/e9fb02f1e334a1622cdb64af8e99f6b5.png)
 
 9. 单击确认，进入画布。
-     ![](https://main.qcloudimg.com/raw/39115fe695132ca714a34d2019b60cea.png)
+    ![](https://main.qcloudimg.com/raw/a5fdbe8a578b27604266ff32f05fb400/9(1).png)
+
+
+
+
 
 <span id = "jump1"></span>
 ### 上传训练数据
@@ -94,7 +98,7 @@
 1. 左边栏选择：输入>数据源>本地输入。
 
 2. 拖入画布，填写参数。
-  ![](https://main.qcloudimg.com/raw/4f0e510dcbe2a4f489149c2f801f03e3.png)
+    ![](https://main.qcloudimg.com/raw/4f0e510dcbe2a4f489149c2f801f03e3.png)
 
 3. 上传数据文件：选择本地文件“train.txt”并上传。
 
@@ -110,7 +114,7 @@
 2. 右键重命名：训练特征集处理。
 
 3. 特征上传配置：上传本地文件 feature_conf.json。
-  ![](https://main.qcloudimg.com/raw/ef901ab45ee6127e7ac884615a9e9b36.png)
+    ![](https://main.qcloudimg.com/raw/ef901ab45ee6127e7ac884615a9e9b36.png)
 
 4. 填写参数：
  - 输入输出路径根据连线自动生成，无需用户填写。
@@ -119,7 +123,7 @@
  - 特征频次阈值：2
  - num-executors：5
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
+    ![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
 
 <span id = "jump3"></span>
 ### 数据切分
@@ -134,7 +138,7 @@
  - 切分比例：0.7
  - num-executors：10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png)
+    ![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png)
 
 <span id = "jump4"></span>
 ### 训练投篮预测模型
@@ -153,7 +157,7 @@
  - 最大迭代次数：20
  - num-executors：10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/5509586f414a1ccc7aff6772a456b0ae.png)
+    ![](https://main.qcloudimg.com/raw/ab313a03b34d21bc3c78f7a9d561092c/kobe%E6%8A%95%E7%AF%AE%20%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A43.png)
 
 <span id = "jump5"></span>
 ### 上传验证数据
@@ -163,7 +167,7 @@
 2. 填写参数：
  - 数据文件选择上传 predict.txt。
  - COS 目标路径自动生成，支持修改。
-  ![](https://main.qcloudimg.com/raw/fbd21bb7f46d42c39c433ada184438bc.png)
+    ![](https://main.qcloudimg.com/raw/fbd21bb7f46d42c39c433ada184438bc.png)
 
 
 > **注意：**
@@ -177,7 +181,7 @@
 2. 右键重命名：验证集特征处理。
 
 3. 上传特征配置：feature_conf.json，在本案例中，验证集的该配置文件与训练集一致，所以不需要重新上传，只需要选择已上传的配置文件，单击确定即可。
-  ![](https://main.qcloudimg.com/raw/47ba93c53368adcbeff7fdaf456f6e24.png)
+    ![](https://main.qcloudimg.com/raw/47ba93c53368adcbeff7fdaf456f6e24.png)
 
 4. 填写参数：
  - 输入输出路径根据连线自动生成，无需用户填写。
@@ -186,7 +190,7 @@
  - 特征频次阈值：2
  - num-executors：10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)
+    ![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)
 
 <span id = "jump7"></span>
 ### 模型验证
@@ -199,7 +203,7 @@
  - 并行数：10
  - num-executors： 10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
+    ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
 
 <span id = "jump8"></span>
 ### 模型评估
@@ -217,7 +221,7 @@
  - 预测阈值：0.5
  - num-executors： 10
  - 其余使用默认值。
-  ![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
+    ![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
 
 
 ## 操作说明
