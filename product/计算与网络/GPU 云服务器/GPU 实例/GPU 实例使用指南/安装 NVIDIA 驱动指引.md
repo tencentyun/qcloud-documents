@@ -71,7 +71,7 @@ apt-get install cuda-drivers
 #### RPM 包安装方式
 1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或打开链接 http://www.nvidia.com/Download/Find.aspx 。
 1.支持 RPM 包的操作系统，例如：rhel 7.x， 得到下载链接：`wget http://us.download.nvidia.com/tesla/396.44/nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm`
-2. 使用`rpm`命令查看套件的相关信息。
+2. 使用`rpm`命令安装 rpm 包。
 ```
 rpm -i nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm
 ```
