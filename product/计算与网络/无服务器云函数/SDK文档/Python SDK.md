@@ -1,31 +1,23 @@
-## Python SDK
-
-### 开发准备
-
+## 开发准备
 安装 Python SDK 前，先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey, SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
-#### 开发环境
-
+### 开发环境
 Python 2.7 或者 3.6 版本
 
-#### 通过 Pip 安装(推荐)
-您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。 通过 pip 方式安装请在命令行中执行以下命令:
-
+### 通过 pip 安装（推荐）
+您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。 通过 pip 方式安装请在命令行中执行以下命令：
 ```
 pip install tencentcloud-sdk-python
-
 ```
 
-#### 通过源码包安装
-
-前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python)下载最新代码，解压后
+### 通过源码包安装
+前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python)下载最新代码，解压后运行以下命令：
 ```
 $ cd tencentcloud-sdk-python
 $ python setup.py install
 ```
 
-### 接口列表
-
+## 接口列表
 | 接口名称 | 接口功能                            |
 | :--- | :------------------------------------ |
 | [CreateFunction](https://cloud.tencent.com/document/api/583/18586)   | 创建函数          |
@@ -36,9 +28,8 @@ $ python setup.py install
 | [ListFunctions](https://cloud.tencent.com/document/api/583/18582)    | 获取函数列表       |
 | [UpdateFunctionCode](https://cloud.tencent.com/document/api/583/18581)  | 更新函数代码    |
 | [UpdateFunctionConfiguration](https://cloud.tencent.com/document/api/583/18580)  | 更新函数配置|
-  
-### 示例
 
+## 示例
 ```
 # -*- coding: utf8 -*-
 import json
@@ -76,17 +67,12 @@ def main_handler(event, context):
     except TencentCloudSDKException as err:
         print(err)
 ```
-### 打包部署
-
-如果需要在云函数控制台中部署函数，并使用SDK调用其他函数，则需要把 tencentcloud 的库和函数代码一起打包成 ZIP 文件；另外也可以在函数根目录下执行如下如下命令，把sdk下载安装到函数目录下。
-
+## 打包部署
+如果需要在云函数控制台中部署函数，并使用 SDK 调用其他函数，则需要把 tencentcloud 的库和函数代码一起打包成 zip 文件；另外也可以在函数根目录下执行如下如下命令，把 SDK 下载安装到函数目录下。
 ```
 pip install tencentcloud-sdk-python -t .
-
 ```
-- 注意在控制台创建函数时的执行方法，需要和ZIP文件里的代码文件和执行函数对应
-- 最终生成的ZIP包如果大于5M，需要通过COS上传，近期SCF平台会放开ZIP不大于5M的限制
-- 云 API 默认限频为每秒 20 次，如果需要开大并发，可以[提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1)申请
 
-
-
+- 注意在控制台创建函数时的执行方法，需要和 zip 文件里的代码文件和执行函数对应。
+- 最终生成的 zip 包如果大于 5MB，需要通过 COS 上传，近期 SCF 平台会放开 zip 包不大于 5MB 的限制。
+- 云 API 默认限频为每秒 20 次，如果需要开大并发，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。
