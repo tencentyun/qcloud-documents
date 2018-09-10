@@ -162,7 +162,7 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 
 > 1. 确认 licence 文件名称是否是 YTFaceSDK.licence；
 > 2.  确认 licence 文件 是否在 assets 目录下；
-> 3.  processFrame 传入的processAngle角度，是否正确；iLiveSDK 一般穿 var1.rotate；
+> 3.  processFrame 传入的processAngle角度，是否正确；iLiveSDK 一般传 var1.rotate；
 
 - **为什么 licence 存在，但是加载会失败**
 > 确认 licence 是否过期；可以找申请 licence 时的相关人员确认。

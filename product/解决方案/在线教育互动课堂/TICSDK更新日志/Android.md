@@ -1,18 +1,30 @@
 ## ticsdk [1.5.0] - 2018-09-03
 ### 优化
-1.接口优化；
+1. 接口优化。
+
+### 删除
+1. 移除初始化接口中的 accountType 参数。
+
+### 接口变更
+1. TICClassroomOption 中 setEnableCamera() 变更为 autoCamera()，setEnableMic 变更为 autoMic()；
+2. TICManager 中合并和精简了如 send###MessageIM 消息系列发送接口；
+3. IClassroomIMListener 合并和精简了消息回调接口，由 Constants 中的 MSG_TYPE_C2C 和 MSG_TYPE_GROUP 区分消息类型；
+4. TICManager 中新增了 destroyClassroom 接口。
 
 ## boardsdk [1.5.0] - 2018-09-03
 ### 新增
-1. 增加COS大账号模式；
+1. 增加 COS 大账号模式；
 
 ### 优化
 1. 增加白板背景资源预缓存逻辑和清理逻辑；
 2. 接口优化；
-3. 优化激光点功能；
+3. 优化激光点功能。
 
 ### 删除
-1. 移除accountType信息；
+1. 移除初始化接口中的 accountType 信息。
+
+### 接口变更
+1. WhiteboardConfig 中的 setIdentifier() 变更为 setUserId()，getIdentifier() 变更为 getUserId()。
 
 ## ticsdk [1.2.2] - 2018-08-15
 ### 新增

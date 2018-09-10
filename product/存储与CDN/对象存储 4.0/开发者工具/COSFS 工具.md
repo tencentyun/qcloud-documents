@@ -85,7 +85,7 @@ cosfs your-bucketname your-mount-point -ourl=cos-domain-name -odbglevel=info
 其中：
 - your-bucketname 需要替换为用户真实的信息；
 - your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
-- cos-domain-name 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API），其中 <Region> 为地域简称，如： `ap-guangzhou` 、 `eu-frankfurt` 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- cos-domain-name 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API），其中 `<Region>` 为地域简称，如： `ap-guangzhou` 、 `eu-frankfurt` 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 参数表示信息级别，可选 info、dbg，建议参照示例设置为“info”。
 
 注意： 

@@ -2,12 +2,12 @@ Below is the flow chart of Tencent Cloud Aegis Anti-DDoS high-defense IP protect
 ![Get started](https://main.qcloudimg.com/raw/50f86c7058e62640a279c292fc5d8bb8.png)
 ## **I. Preparation and Selection**
 1. Sign up for a Tencent Cloud account
-New user needs to **sign up** at [Tencent Cloud's official website](https://cloud.tencent.com/) and purchase Aegis Anti-DDoS. For more information, see [Signing up with Tencent Cloud](https://cloud.tencent.com/document/product/378/9603) and [Purchase Guide](https://cloud.tencent.com/document/product/685/15264) for Aegis Anti-DDoS.
+New user needs to **sign up** at [Tencent Cloud's official website](https://cloud.tencent.com/) and purchase Aegis Anti-DDoS. For more information, see [Signing up with Tencent Cloud](https://cloud.tencent.com/document/product/378/9603) and [Operation Guide](https://cloud.tencent.com/document/product/685/15264) for Aegis Anti-DDoS.
 2. Confirm high-defense IP region and network
  - Region selection principle
 DDoS high-defense IP work in proxy forwarding mode. Therefore, please try to select a region near the physical location of your origin server. The closer the high-defense IP region is to the origin server, the lower the access latency and the higher the access speed.
  - Network selection principle
-When selecting the network, take into account the region and the needs for peak bandwidth for protection. BGP network provides a better network experience, but its highest peak bandwidth for protection is lower than that of MUT high-defense IP. The maximum peak bandwidth for protection of MUT high-defense IP decreases in sequence of China Telecom, China Unicom and China Mobile. Please select the corresponding ISP based on your end user distribution and try to avoid cross-network access.
+When selecting the network, take into account the region and the needs for peak bandwidth for protection. BGP network provides a better network experience, but its highest peak bandwidth for protection is lower than that of non-BGP high-defense IP. The maximum peak bandwidth for protection of non-BGP high-defense IP decreases in sequence of China Telecom, China Unicom and China Mobile. Please select the corresponding ISP based on your end user distribution and try to avoid cross-network access.
 3. Confirm the configuration plan for high-defense IP
  - Peak bandwidth for base protection
  Peak bandwidth for base protection is prepaid. It is suggested that the peak bandwidth for base protection be set to higher than the average historical attack traffic. This makes sure base protection is robust enough to prevent most attacks.
@@ -38,10 +38,10 @@ Click **Bind to high-defense IP** in the column to enter the protected IP interf
 ![](https://i.imgur.com/AEJdO9K.jpg)
 After completing the configuration described above, your origin server is protected by high-defense IP. Verify end-to-end connectivity and then point the business requests to the high-defense IP to get protection from Aegis Anti-DDoS.
 
-## **IV. Creating Business and Enabling Protective Domain Name (Optional)**
+## **IV. Adding Business and Enabling Protective Domain Name (Optional)**
 If your business supports access via domain name, you can also configure the CNAME set at your primary domain name's DNS provider to the free protective domain name, add high-defense IP to the business, and then enable domain name resolution to intelligently resolve end user's source IP to the high-defense IP.
 Relevant configurations are described below:
-1. In Aegis Anti-DDoS Console, select **Business list** on the left to enter the business management page and click **Create a business**;
+1. In Aegis Anti-DDoS Console, select **Business list** on the left to enter the business management page and click **Add a business**;
  ![](https://i.imgur.com/PWJONt5.jpg)
 2. Choose the linked project, enter the business name, contact and mobile number, and choose the development platform and business category. Click **Create** to complete;
  ![](https://i.imgur.com/PVt4Wjz.jpg)
