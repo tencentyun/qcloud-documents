@@ -1,28 +1,30 @@
 ## 功能说明
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作
+
 ## 使用环境
 ### 系统环境
 Windows 或 Linux 系统
-(请保证本地字符格式为utf-8，否则操作中文文件会出现异常)
+(请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常)
 ### 软件依赖
-Python 2.7/3.5/3.6 
-并装有最新版本的 pip
+Python 2.7/3.5/3.6，并装有最新版本的 pip。
 #### 安装及配置
-环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)
+环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 文档。
 ## 下载与安装
 - **pip 安装**
 执行`pip`命令进行安装：
 ```
 pip install coscmd
 ```
-安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息
+安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。如果在安装过程中出现依赖包失败的提示，请使用`-I`参数重试，命令如下：
+```pip install -I coscmd```
+
 - **pip 更新**
 执行`pip`命令进行更新：
 ```
 pip install coscmd -U
 ```
-> **注意：** 
-当pip版本大于等于10.0.0时，升级或安装依赖库时可能会出现失败，建议使用pip版本9.x（pip install pip==9.0.0）
+>**注意：** 
+>当 pip 版本大于等于 10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）
 
 - **源码安装(不推荐)**
 下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)
@@ -32,7 +34,7 @@ cd coscmd
 python setup.py install
 ```
 > **注意：** 
-python版本为2.6时，pip安装依赖库时容易失败，推荐使用该方法安装。
+python 版本为 2.6 时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
 ## 使用方法
 ### 查看 help
