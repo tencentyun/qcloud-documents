@@ -4,7 +4,6 @@
 - **Overview of CKV engine**: Tencent Cloud CKV engine is a high-performance, low-latency and persistent distributed KV storage service independently developed by Tencent Cloud. It is widely used in Tencent's WeChat, open platform, Tencent Cloud, Tencent Game and e-commerce platforms, with more than one trillion visits per day. Tencent Cloud provides CKV Master/Slave and CKV Cluster, allowing flexible deployment in different business scenarios.
 
 - **Overview of CKV Master/Slave**: CKV Master/Slave uses master/slave node deployment architecture to provide data persistence and backup. It is suitable for scenarios that require data reliability and availability. The Master node provides daily service access and the Slave node provides HA (high availability). When the Master node fails, the system automatically switches the service to the Slave node to ensure the smooth business operation. CKV Master/Slave is compatible with Redis 3.2 commands and protocols, supporting the specifications of 4-384 GB to meet the mass storage needs.<br>
-
 ![](https://main.qcloudimg.com/raw/6f25e510793817075cf017844ca1cf03.svg)
 
 ### Features of CKV Master/Slave
@@ -52,7 +51,7 @@ CKV Master/Slave only supports the password format: "Instance id:password". For 
 |   |   | hvals |   | randomkey | rpushx |   |   |
 |   |   | hscan |   | rename |   |   |   |
 |   |   |   |   | renamenx |   |   |   |
-|   |   |   |   | sort |   |   |   |
+|   |   |   |   | sort |   |   |   | |
 
 
 | **sets family** | **sorted sets family** | **strings family** | **transactions family** |
@@ -79,7 +78,7 @@ CKV Master/Slave only supports the password format: "Instance id:password". For 
 |   | zscore | setex |   |
 |   | zunionstore | setnx |   |
 |   |   | setrange |   |
-|   |   | strlen |   |
+|   |   | strlen |   | |
 
 - Commands not supported in CKV Master/Slave<br>
 
@@ -111,5 +110,5 @@ CKV Master/Slave only supports the password format: "Instance id:password". For 
 |   |   |   |   |   | shutdown |   |
 |   |   |   |   |   | slaveof |   |
 |   |   |   |   |   | slowlog |   |
-|   |   |   |   |   | sync |   |
+|   |   |   |   |   | sync |   | |
 
