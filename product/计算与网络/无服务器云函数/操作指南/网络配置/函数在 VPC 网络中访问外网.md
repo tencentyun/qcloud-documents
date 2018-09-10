@@ -17,7 +17,7 @@ NAT 网关（NAT Gateway）是一种支持 IP 地址转换的网络云服务。�
 
 如下图所示：
 
-[](https://main.qcloudimg.com/raw/599bdf7444e9183d0d1b441878e75899.png）
+[](https://main.qcloudimg.com/raw/599bdf7444e9183d0d1b441878e75899.png)
 
 
 ## 创建路由策略
