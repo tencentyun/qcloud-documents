@@ -17,23 +17,23 @@ NAT 网关（NAT Gateway）是一种支持 IP 地址转换的网络云服务。�
 
 如下图所示：
 
-[](https://main.qcloudimg.com/raw/599bdf7444e9183d0d1b441878e75899.png)
+![](https://main.qcloudimg.com/raw/599bdf7444e9183d0d1b441878e75899.png)
 
 
 ## 创建路由策略
 
 在私有网络的左侧边栏选择[路由表](https://console.cloud.tencent.com/vpc/route?rid=4)，选择路由表所在的地域和 VPC 网络，单击新建，如下图所以：
-[](https://main.qcloudimg.com/raw/3b19930a68e19a60ee3a8ba6164e33cb.png)
+![](https://main.qcloudimg.com/raw/3b19930a68e19a60ee3a8ba6164e33cb.png)
 
 ### SCF 可以访问外网所有地址
 
 如果想让 SCF 具备所有外网的访问权限，可以在路由表中的目的端配置 Ip：0.0.0.0/0，并把路由表关联到新创建好的 NAT 网关和 SCF 的子网，如下图所示：
 
-[](https://main.qcloudimg.com/raw/efda02171e2eeaaa799146b36e36dce1.png)
+![](https://main.qcloudimg.com/raw/efda02171e2eeaaa799146b36e36dce1.png)
 
 ### SCF 可以访问部分外网地址
 
 把 SCF 需要访问的外网 IP 地址添加到路由表中，并把路由表关联到新创建好的 NAT 网关和 SCF 的子网，如下图所示：
-[](https://main.qcloudimg.com/raw/747e594473da15a2319166923f718dda.png)
+![](https://main.qcloudimg.com/raw/747e594473da15a2319166923f718dda.png)
 
 
