@@ -10,11 +10,11 @@ Windows or Linux system
 - Latest version of pip
 
 ### Installation and configuration
-For more information on the installation and configuration of environment, please see [Install and Configure Python](https://cloud.tencent.com/document/product/436/10866).
+For more information on the installation and configuration of environment, please see [Install and Configure Python](/document/product/436/10866).
 ## Download and Installation
 1. Check whether it is Windows or Linux system.
 
-2. Check whether Python is installed. For more information on how to install Python, please see [Install and Configure Python](https://cloud.tencent.com/document/product/436/10866)
+2. Check whether Python is installed. For more information on how to install Python, please see [Install and Configure Python](/document/product/436/10866)
 
 3. Check whether the latest version of pip is installed. For more information on how to install pip, please see [PyPA pip Document](https://pip.pypa.io/en/stable/installing/).
 
@@ -100,8 +100,8 @@ In the above example, fields in "<>" are required, and those in "[]" are optiona
 | :---------| :---------------------------------------- | :---- |
 | secret_id | ID of the key corresponding to the APPID (required). It can be obtained on the **Key Management** in the left navigation pane of the COS console, or on the [Cloud API Key Console](https://console.cloud.tencent.com/cam/capi). | String |
 | secret_key | The Key corresponding to the APPID (required). It can be obtained on the **Key Management** in the left navigation pane of the COS console, or on the [Cloud API Key Console](https://console.cloud.tencent.com/cam/capi). | String |
-| bucket | The specified bucket name (required), which is in a format of {name}-{appid}. For more information, please see [Create Bucket](https://cloud.tencent.com/doc/product/436/6232). | String |
-| region | The region where the bucket resides (required). For more information, please see [Available Regions](https://cloud.tencent.com/doc/product/436/6224) | String |
+| bucket | The specified bucket name (required), which is in a format of {name}-{appid}. For more information, please see [Create Bucket](/doc/product/436/6232). | String |
+| region | The region where the bucket resides (required). For more information, please see [Available Regions](/doc/product/436/6224) | String |
 | max_thread | The maximum number of threads for multi-threaded upload (optional). Default is 5. Valid value: 1-10. | Numeral |
 | parts_size | Part size in multipart upload (in MB) (optional). Default is 1 MB. Valid value: 1-10. | Numeral |
 

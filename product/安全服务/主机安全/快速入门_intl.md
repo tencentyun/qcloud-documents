@@ -8,7 +8,7 @@ The following shows how the Host Security console looks like:
 - For the server surrounded by the yellow box, no host security product is installed. You can install the product depending on the server's operating system as shown below:
   - [Windows CVM](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.8E.AF.E5.A2.83) 
   - [Linux CVM](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.8E.AF.E5.A2.83) 
-- For the server surrounded by the blue box, the Basic Protection edition of Host Security is installed. You can [Activate Professional Protection](https://cloud.tencent.com/document/product/296/12236#.E5.BC.80.E9.80.9A.E4.B8.93.E4.B8.9A.E9.98.B2.E6.8A.A4) for it.
+- For the server surrounded by the blue box, the Basic Protection edition of Host Security is installed. You can [Activate Professional Protection](#Activating Professional Protection ) for it.
 - For the server surrounded by the red box, the Professional Protection edition of Host Security is installed to provide a multi-dimensional security protection for system.
 
 ## Intrusion Detection
@@ -17,9 +17,9 @@ After Host Security is installed, such features as Trojan detection, login behav
 - In the Host Security console page, click **Intrusion Detection** in the menu on the left, and then click the feature you want to view to check the intrusion detection details of all servers for which you have activated Host Security.
 
 For operations related to additional features, please see:
--  [Trojan Handling Operations](https://cloud.tencent.com/document/product/296/13008)
+-  [Trojan Handling Operations](/document/product/296/13008)
 
-- [Login Audit Operations](https://cloud.tencent.com/document/product/296/13643)
+- [Login Audit Operations](/document/product/296/13643)
 
 ## Vulnerability Detection
 After Host Security is installed with Professional Protection activated, system component vulnerability detection, Web component vulnerability detection, and security baseline detection are available for you.
@@ -129,7 +129,7 @@ If you do not need to use the default DNS, forward all resolutions of the root d
 
 ## Activating Professional Protection
 You can activate Professional Protection by either of the following two ways:
--  Click **Buy Now** in the [Host Security Introduction page](https://cloud.tencent.com/product/hs) on the Tencent Cloud official website to go to the login page of Tencent Cloud console. After login, you can activate Professional Protection for your CVM as needed.
+-  Click **Buy Now** in the [Host Security Introduction page](https://intl.cloud.tencent.com/product/hs) on the Tencent Cloud official website to go to the login page of Tencent Cloud console. After login, you can activate Professional Protection for your CVM as needed.
 
 - Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click **Products** -> **Security** -> **Host Security** to go to the Host Security configuration page, and then click **Activate Professional Protection** in the **Operation** column in the **Security Overview** page to activate Professional Protection for your CVM.
 

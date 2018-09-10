@@ -12,7 +12,7 @@ To create a snapshot on the console:
 3. Locate the row of the instance for which you want to create a snapshot, and then click **Create a Snapshot**.
 4. The snapshot is created.
 
-For more information, please see [Snapshot Overview](https://cloud.tencent.com/document/product/362/5754).
+For more information, please see [Snapshot Overview](/document/product/362/5754).
 
 ### What should I do when I receive an alert indicating the password has been cracked successfully by brute force attack?
 When the password is cracked, the server may be hacked, with a backdoor program embedded into it.

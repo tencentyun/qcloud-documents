@@ -3,7 +3,7 @@
 Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for Unity developers to debug and integrate the APIs for Game Multimedia Engine.
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 
 ### Key considerations for using GME
@@ -42,7 +42,7 @@ For an uninitialized SDK, you must initialize it via initialization authenticati
 Obtain the Context instance using ITMGContext instead of QAVContext.GetInstance().
 
 ### Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 
@@ -118,7 +118,7 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).    
 When voice message is obtaining authentication, the parameter of room number must be set to 0.
 A value of type Byte[] is returned by this API.
 #### Function prototype
@@ -145,7 +145,7 @@ byte[] GetAuthBuffer(string appId, string userId, int roomId)
 ### Enter a room
 This API is used to enter a room with the generated authentication information. Microphone and speaker are not enabled by default after a user enters the room. After a user exits the room, a callback response is returned in 30 seconds.
 
-For more information on how to integrate team chatting, see [GME team chatting](https://cloud.tencent.com/document/product/607/17972).
+For more information on how to integrate team chatting, see [GME team chatting](/document/product/607/17972).
 
 
 #### Function prototype
