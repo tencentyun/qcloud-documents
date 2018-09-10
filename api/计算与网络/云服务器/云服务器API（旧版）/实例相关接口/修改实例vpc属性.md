@@ -1,7 +1,9 @@
+<p style="color:#FF0000;font-weight:bold;">当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689">云服务器 API 3.0</a>。</p>
+
 ## 1. 接口描述
 
 本接口(UpdateInstanceVpcConfig)用于修改实例vpc属性，如私有网络ip。
- 
+
 接口请求域名：<font style="color:red">cvm.api.qcloud.com</font>
 
 
@@ -22,7 +24,7 @@
 |autoPowerOffFlag| 否 |int| 1表示自动关机，0表示不自动关机，默认为1|
 
 ## 3. 输出参数
- 
+
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
@@ -40,7 +42,7 @@
 |InvalidParameter.IpInUse|ip已经被使用|
 
 ## 5. 示例
- 
+
 输入
 
 <pre>

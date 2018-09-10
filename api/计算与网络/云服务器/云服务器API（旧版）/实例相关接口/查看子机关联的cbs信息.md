@@ -1,4 +1,7 @@
+<p style="color:#FF0000;font-weight:bold;">当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689">云服务器 API 3.0</a>。</p>
+
 ## 1. 接口描述
+
 域名:cvm.api.qcloud.com
 接口名:DescribeInstanceCbsInfo
 
@@ -16,46 +19,46 @@
 | code | Int | 错误码, 0: 成功, 其他值: 失败|
 | message | String | 错误信息|
 | data | Array | 描述（待补充） |
-| data.cbsList | Array | 描述（待补充）| 
-| data.cbsList.cbsId | Int | 描述（待补充）| 
-| data.cbsList.appId | Int | 描述（待补充）| 
-| data.cbsList.projectId | Int | 描述（待补充）| 
-| data.cbsList.dealId | Int | 描述（待补充）| 
-| data.cbsList.dealName | String | 描述（待补充）| 
-| data.cbsList.tranId | String | 描述（待补充）| 
-| data.cbsList.payMode | String | 描述（待补充）| 
-| data.cbsList.lifeState | String | 描述（待补充）| 
-| data.cbsList.cbsType | String | 描述（待补充）| 
-| data.cbsList.deadline | String | 描述（待补充）| 
-| data.cbsList.portable | Int | 描述（待补充）| 
-| data.cbsList.assigned | Int | 描述（待补充）| 
-| data.cbsList.autoRenewFlag | Int | 描述（待补充）| 
-| data.cbsList.attached | Int | 描述（待补充）| 
-| data.cbsList.diskType | String | 描述（待补充）| 
-| data.cbsList.zone | Int | 描述（待补充）| 
-| data.cbsList.qcloudZone | Int | 描述（待补充）| 
-| data.cbsList.diskSize | Int | 描述（待补充）| 
-| data.cbsList.realDiskSize | Int | 描述（待补充）| 
-| data.cbsList.cbsUuid | String | 描述（待补充）| 
-| data.cbsList.deviceId | Int | 描述（待补充）| 
-| data.cbsList.dom0Ip | String | 描述（待补充）| 
-| data.cbsList.target | String | 描述（待补充）| 
-| data.cbsList.alias | String | 描述（待补充）| 
-| data.cbsList.status | Int | 描述（待补充）| 
-| data.cbsList.addTimeStamp | String | 描述（待补充）| 
-| data.cbsList.cbsSnap | Int | 描述（待补充）| 
-| data.cbsList.modTimeStamp | String | 描述（待补充）| 
-| data.cbsList.cbsInstanceId | String | 描述（待补充）| 
-| data.cbsList.fsType | String | 描述（待补充）| 
-| data.cbsList.path | String | 描述（待补充）| 
-| data.cbsList.volumeType | String | 描述（待补充）| 
-| data.cbsList.hostBlockSize | Int | 描述（待补充）| 
-| data.cbsList.vmBlockSize | Int | 描述（待补充）| 
-| data.cbsList.deviceLanIp | String | 描述（待补充）| 
-| data.cbsList.cvmAlias | String | 描述（待补充）| 
-| data.cbsList.zoneId | Int | 描述（待补充）| 
-| data.cbsList.zoneName | String | 描述（待补充）| 
-| data.cbsList.uInstanceId | String | 描述（待补充）| 
+| data.cbsList | Array | 描述（待补充）|
+| data.cbsList.cbsId | Int | 描述（待补充）|
+| data.cbsList.appId | Int | 描述（待补充）|
+| data.cbsList.projectId | Int | 描述（待补充）|
+| data.cbsList.dealId | Int | 描述（待补充）|
+| data.cbsList.dealName | String | 描述（待补充）|
+| data.cbsList.tranId | String | 描述（待补充）|
+| data.cbsList.payMode | String | 描述（待补充）|
+| data.cbsList.lifeState | String | 描述（待补充）|
+| data.cbsList.cbsType | String | 描述（待补充）|
+| data.cbsList.deadline | String | 描述（待补充）|
+| data.cbsList.portable | Int | 描述（待补充）|
+| data.cbsList.assigned | Int | 描述（待补充）|
+| data.cbsList.autoRenewFlag | Int | 描述（待补充）|
+| data.cbsList.attached | Int | 描述（待补充）|
+| data.cbsList.diskType | String | 描述（待补充）|
+| data.cbsList.zone | Int | 描述（待补充）|
+| data.cbsList.qcloudZone | Int | 描述（待补充）|
+| data.cbsList.diskSize | Int | 描述（待补充）|
+| data.cbsList.realDiskSize | Int | 描述（待补充）|
+| data.cbsList.cbsUuid | String | 描述（待补充）|
+| data.cbsList.deviceId | Int | 描述（待补充）|
+| data.cbsList.dom0Ip | String | 描述（待补充）|
+| data.cbsList.target | String | 描述（待补充）|
+| data.cbsList.alias | String | 描述（待补充）|
+| data.cbsList.status | Int | 描述（待补充）|
+| data.cbsList.addTimeStamp | String | 描述（待补充）|
+| data.cbsList.cbsSnap | Int | 描述（待补充）|
+| data.cbsList.modTimeStamp | String | 描述（待补充）|
+| data.cbsList.cbsInstanceId | String | 描述（待补充）|
+| data.cbsList.fsType | String | 描述（待补充）|
+| data.cbsList.path | String | 描述（待补充）|
+| data.cbsList.volumeType | String | 描述（待补充）|
+| data.cbsList.hostBlockSize | Int | 描述（待补充）|
+| data.cbsList.vmBlockSize | Int | 描述（待补充）|
+| data.cbsList.deviceLanIp | String | 描述（待补充）|
+| data.cbsList.cvmAlias | String | 描述（待补充）|
+| data.cbsList.zoneId | Int | 描述（待补充）|
+| data.cbsList.zoneName | String | 描述（待补充）|
+| data.cbsList.uInstanceId | String | 描述（待补充）|
 
 
 ## 4. 示例

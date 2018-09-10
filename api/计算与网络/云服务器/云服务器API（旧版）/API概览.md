@@ -1,4 +1,7 @@
+<p style="color:#FF0000;font-weight:bold;">当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689">云服务器 API 3.0</a>。</p>
+
 ## 1. 实例相关接口
+
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查看实例列表 | [DescribeInstances](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8) |  用于获取一个或多个实例的详细信息。
