@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ## [1.5.2] - 2018-09-11
 ### 变更
 1. `TXFileManager` 初始化COS接口去掉`SDKAPPID`参数： 
@@ -28,7 +26,6 @@
 + (void)clearHistoryDataWithRoomID:(int)roomID;
 ```
 
->>>>>>> 48f6d5ee68e1c1a2e652d770617de4c7d6e9c3f3
 ## [1.5.0] - 2018-09-03
 ### 变更
 1. 去除`TXBoardViewDelegate`中的`getBoardDataConfig`方法
@@ -175,12 +172,9 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> 48f6d5ee68e1c1a2e652d770617de4c7d6e9c3f3
 
 
