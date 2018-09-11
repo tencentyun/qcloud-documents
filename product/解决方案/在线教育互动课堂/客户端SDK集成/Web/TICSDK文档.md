@@ -131,8 +131,7 @@ webrtc 推流配置参数：
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境|
 |pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 MP3 文件 <br/>2 => 本次是纯音频推流,录制文件为 MP3 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户|
-|peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接。
-需要结合[高级事件通知]的 [onPeerConnectionAdd] 使用 |
+|peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接。需要结合[高级事件通知]的 [onPeerConnectionAdd] 使用 |
 
 
 白板配置参数：
