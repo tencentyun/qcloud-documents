@@ -150,7 +150,7 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
         .setClassroomIMListener(this) // 设置课堂IM消息监听
         .setClassEventListener(this); // 设置课堂事件监听
 
-    TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack()
+    TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack(){...});
 ```
 
 为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
