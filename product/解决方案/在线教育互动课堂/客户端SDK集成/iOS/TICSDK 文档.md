@@ -2,9 +2,7 @@
 
 `TICSDK`支持 iOS8+ 系统，支持 Cocoapods 集成，集成完之后还需进行相应的工程配置。
 
-### 1.1 集成
-
-#### Cocoapods（推荐）
+#### Cocoapods 集成（推荐）
 
 在 Podfile 文件中加入：
 
@@ -23,47 +21,12 @@ pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 ```
 pod repo update
 ```
+#### 工程配置
+为了工程能够正常编译，需要修改以下工程配置：
 
-#### 手动集成
+* 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
 
-[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_XDF.zip) ，将其拖进工程中，并添加以下依赖库：
-
-|需添加依赖库|
-|---|
-|Accelerate.framework|
-|AssetsLibrary.framework|
-|AVFoundation.framework|
-|CoreGraphics.framework|
-|CoreMedia.framework|
-|CoreTelephony.framework|
-|CoreVideo.framework|
-|ImageIO.framework|
-|JavaScriptCore.framework|
-|OpenAL.framework|
-|OpenGLES.framework|
-|QuartzCore.framework|
-|SystemConfiguration.framework|
-|VideoToolbox.framework|
-|libbz2.tbd|
-|libc++.tbd|
-|libiconv.tbd|
-|libicucore.tbd|
-|libprotobuf.tbd|
-|libresolv.tbd|
-|libsqlite3.tbd|
-|libstdc++.6.tbd|
-|libstdc++.tbd|
-|libz.tbd|
-|libstdc++.6.0.9.tbd|
-
-### 1.2 工程配置
-为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
-
-* 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
-
-* 在`Build Settings`中将`Allow Non-modular includes in Framework Modules`设置为`YES`。
-
-* 在`Build Settings`中将 `Enable Bitcode`设置为`NO`。
+* 在`Build Settings` 中将 `Enable Bitcode`设置为`NO`。
 
 * 由于要用到手机的相机和麦克风，所以别忘了在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
 
@@ -110,7 +73,7 @@ pod repo update
  如果集成没问题，控制台就能打印出`TICSDK`的版本号。
  
 ## 2. 使用详解
-集成成功之后，就可以进一步了解 TICSDK 的使用方法了，为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)。
+集成成功之后，就可以进一步了解 TICSDK 的使用方法了，为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)。
 
 > 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
@@ -121,7 +84,7 @@ pod repo update
 类名 | 主要功能
 --------- | ---------
 TICSDK.h | SDK头文件类，包含了开发者可能用到的所有头文件，开发者集成时，只需导入该头文件即可
-TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【初始化】、【登录/登出 SDK】、【创建/加入/销毁课堂】、【添加白板】、【音视频操作】、【IM 操作】等接口。
+TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【初始化】、【登录/登出SDK】、【创建/加入/销毁课堂】、【添加白板】、【音视频操作】、【IM操作】等接口。
 TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的代理对象，一个是复制监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。
 
 
@@ -149,7 +112,7 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 ```-->
  
-> 其中【创建课堂】和【销毁课堂】为老师端特有步骤。
+> 其中【创建课堂】和【销毁课堂】为老师端特有步骤
 
 
 ### 2.3 初始化 SDK
@@ -161,7 +124,7 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ---|---
 -initSDK:| 初始化SDK
 
-`TICSDK`的账号体系基于`IMSDK`，支持多终端登录互踢功能（默认开启），初始化后，开发者可以设置以下回调，用来监听该账号是否被踢，当账号被踢时可以在界面上做出一些提示来提醒用户。账号被踢之后需重新登录方可正常使用 TICSDK。
+`TICSDK`的账号体系基于`IMSDK`，支持多终端登录互踢功能（默认开启），初始化后，开发者可以设置以下回调，用来监听该账号是否被踢，当账号被踢时可以在界面上做出一些提示来提醒用户。账号被踢之后需重新登录方可正常使用TICSDK.
 
 ```objc
 >TICMange.h
@@ -204,11 +167,11 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ---|---
 -joinClassroomWithOption:succ:failed: | 加入的课堂
 
-该接口需要传入一个配置 block，该 block 接收一个方法内部创建好的`TICClassroomOption`默认配置对象，开发者需在该 block 中修改自定义配置，然后将修改后的 option 返回。
+该接口需要传入一个配置block，该 block 接收一个方法内部创建好的`TICClassroomOption`默认配置对象，开发者需在该 block 中修改自定义配置，然后将修改后的 option 返回。
 
 为了保证课堂内的逻辑正常以及触发的事件能被监听到，进房时`TICClassroomOption`的属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
 
-* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
+* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
 * **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17275#.E7.94.9F.E6.88.90-privatemapkey) 。
 
 示例代码如下：
@@ -220,7 +183,7 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
     option.eventListener = #课堂事件监听对象#;
     option.imListener = #课堂消息监听对象#;
     option.controlRole = @“user”;
-    option.avOption.privateMapKey = #开发者业务后台生成的 privateMapKey#
+    option.avOption.privateMapKey = #开发者业务后台生成的privateMapKey#
     return option;
 } succ:^{
     NSLog(@"进房成功");

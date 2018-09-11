@@ -1,7 +1,9 @@
 下面是腾讯视频云Android SDK的主要接口列表，分为TXLivePusher和TXLivePlayer两个类及相应的回调接口，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_android_doc/index.html)。
 
-## 接口概览
-### TXLivePusher
+
+## TXLivePusher
+
+##### API列表
 
 | 名称                                       | 描述                                |
 | ---------------------------------------- | --------------------------------- |
@@ -37,10 +39,11 @@
 | setAudioProcessListener(listener)                    | 设置自定义音频处理回调              |
 | sendCustomVideoData(buffer, bufferType, w, h) | 推送自定义视频数据                         |
 | sendCustomPCMData(pcmBuffer)             | 推送自定义音频数据                         |
-| sendMesageEx(byte[] msg)             |  向播放端发送消息 (消息大小不允许超过2K）                 |
 
 
-### TXLivePushConfig
+## TXLivePushConfig
+
+##### API列表
 
 | 名称                                    | 描述                  |
 | ------------------------------------- | ------------------- |
@@ -63,7 +66,9 @@
 | setWatermark(watermark, x,y)          | 设置水印图片              |
 
 
-### TXLivePlayer
+## TXLivePlayer
+
+##### API列表
 
 | 名称                                       | 描述                  |
 | ---------------------------------------- | ------------------- |
@@ -90,7 +95,9 @@
 | setAudioRawDataListener(ITXAudioRawDataListener listener) | 设置音频pcm数据回调         |
 
 
-### TXLivePlayConfig
+## TXLivePlayConfig
+
+##### API列表
 
 | 名称                                | 描述                    |
 | --------------------------------- | --------------------- |
@@ -104,9 +111,8 @@
 | setMinAutoAdjustCacheTime(time)   | 设置自动调整时播放器最小缓存时间      |
 
 
-## API详情
 
-### TXLivePusher
+## TXLivePusher接口详情
 
 #### 1.setConfig(TXLivePushConfig config)
 
@@ -825,7 +831,7 @@ public static byte[] nv21ToI420(byte[] data, int width, int height) {
 
 
 
-#### 32. sendCustomPCMData(pcmBuffer)
+#### 32.void sendCustomPCMData(pcmBuffer)
 
 接口详情：void sendCustomPCMData(byte[] pcmBuffer)
 
@@ -968,21 +974,9 @@ private class AudioCaptureRunnable implements Runnable {
 }
 ```
 
-#### 32. sendMessageEx(byte[] msg)
-
-接口详情：void sendMessageEx(byte[] msg)
-
-该接口用于向音视频流中塞入自定义的音视频数据，数据被伪装在 SEI 解码器信息中，几乎所有的播放器都不会主动解析 SEI 信息，所以这种在音视频流塞“私货”的方案是非常安全的，但是需要TXLivePlayer才能解读这些信息，具体方法请参考[DOC](https://cloud.tencent.com/document/product/454/7886#Message)
-
-- **参数说明**
-
-| 参数        | 类型     | 说明       |
-| --------- | ------ | -------- |
-| msg | byte[] | 在音视频流中塞入自定义数据 |
 
 
-
-### TXLivePushConfig
+## TXLivePushConfig接口详情
 
 #### 1. enableAEC(enable)
 
@@ -1377,7 +1371,7 @@ mLivePusher.setConfig(mLivePushConfig);    // 重新设置 config
 
 
 
-### TXLivePlayer
+## TXLivePlayer接口详情
 
 #### 1.setConfig(TXLivePlayConfig config)
 
@@ -1832,7 +1826,7 @@ mLivePlayer.setAudioRawDataListener(new TXLivePlayer.ITXAudioRawDataListener() {
 
 
 
-### TXLivePlayConfig
+## TXLivePlayConfig接口详情
 
 #### 1. enableAEC(enable)
 
@@ -2109,8 +2103,7 @@ PLAY_TYPE_LIVE_RTMP_ACC =  5  // 低延迟链路地址（仅适合于连麦场�
 PLAY_TYPE_VOD_HLS =  3        // 传入的URL为HLS(m3u8)播放地址 
 ```
 
-## 事件回调
-### ITXLivePushListener
+## ITXLivePushListener事件回调
 
 #### 推流事件接口
 
@@ -2175,7 +2168,7 @@ SDK 指标监控，主要回调推流或拉流的状态数据。
 | NET_STATUS_SERVER_IP         | String | 连接的推流服务器的IP                              |
 
 
-### ITXLivePlayListener
+## ITXLivePlayListener事件回调
 
 #### 播放事件接口
 

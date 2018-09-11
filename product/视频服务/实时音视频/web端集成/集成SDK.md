@@ -42,31 +42,11 @@
 | ------- | ---------------------------------------- |
 | spear 角色 | 一个视频用户的分辨率、码率、帧率等信息的配置信息集合名，可以在应用的 Spear 引擎页面维护 |
 | roomId  | 用来标识一个视频通话房间。roomId 相同的用户才能相互看到             |
-| privateMap  | 房间权限key（明文），相当于进入指定房间roomId的钥匙             |
-| privateMapKey  | 房间权限key（密文），相当于进入指定房间roomId的钥匙             |
+| privateMapKey  | 房间权限key，相当于进入指定房间roomId的钥匙             |
 
-> privateMap 和 privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，你可以忽略这部分内容
-
-| 权限说明| 对应的privateMap(16进制)| 对应的privateMap(10进制)| 
-| ------| ------| ------|
-| 推流+观看| 0xff | 255 |
-| 观看| 0xab | 171 |
-
-> 明文配置权限位可能存在安全问题，为此我们也提供了以密文方式配置权限位。
-
+>privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，你可以忽略这部分内容
 
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
-
-## 如何配置是使用明文还是密文呢？
-
-
-
-进入[实时音视频控制台](https://console.qcloud.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
-** 特别注意，这里的策略修改后，需要1小时后才能全量生效 **
-
-![启用权限密钥](https://main.qcloudimg.com/raw/c60b5cf33ea2c0bc291a7700f252b8c1.png)
-
-打开开关表示校验密文，关闭开关表示校验明文。
 
 ## 接入准备工作
 

@@ -93,7 +93,7 @@ This is another message
 ```
 上述命令中，由于没有指定 consumer group 进行消费，系统会随机生成一个 group 进行消费。这样做容易达到 group 上限。因此推荐 **指定 Group** 的方式接收消息，首先需要在 consumer.properties 中配置下指定的 group name，如下图所示：
 
-![](https://main.qcloudimg.com/raw/7ec8a2311776ac360ba0f4c18703fd8b.jpg)
+![](https://mc.qcloudimg.com/static/img/b39a4b9b75a734830a69cc66a7273485/111.png)
 
 配置完成后，指定 consumer group 的命令如下所示：
 ```

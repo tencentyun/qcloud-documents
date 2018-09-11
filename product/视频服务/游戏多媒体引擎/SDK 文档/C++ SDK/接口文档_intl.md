@@ -3,7 +3,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
+![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
 
 ### Key considerations for using GME
 
@@ -77,7 +77,7 @@ m_pTmgContext->TMGDelegate(p);
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -174,7 +174,7 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
 When voice message is obtaining authentication, the parameter of room number must be set to 0.
 
 #### Function prototype
@@ -201,7 +201,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strA
 
 ### Enter a room
 This API is used to enter a room with the generated authentication information, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team chatting, use the common API for entering a room. For more information, see the [GME team chatting documentation](/document/product/607/17972).
+For entering a common voice chat room that does not involve team chatting, use the common API for entering a room. For more information, see the [GME team chatting documentation](https://cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 
@@ -234,7 +234,7 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 
 ### Team chatting room
-For more information on how to integrate team chatting, see [GME team chatting documentation](/document/product/607/17972).
+For more information on how to integrate team chatting, see [GME team chatting documentation](https://cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 ```

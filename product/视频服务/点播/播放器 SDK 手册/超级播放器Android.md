@@ -17,26 +17,16 @@ compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 
 ## 创建播放器
 
-超级播放器主类为`SuperPlayerView`，您需求先创建它。
+超级播放器主类为`SuperVideoPlayer`，您需求先创建它。
 
 ```java
-mSuperPlayerView = (SuperPlayerView) findViewById(R.id.superVodPlayerView);
+mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
 
-// 设置Activity回调方法
-mSuperPlayerView.setPlayerViewCallback(this);
+// 设置代理
+mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
 
 // 开始播放
 mSuperPlayerView.playWithMode(superPlayerModel);
-
-
-/**
- * SuperVodPlayerActivity的回调接口，在SuperPlayerView中
- */
-public interface PlayerViewCallback {
-    void hideViews();
-    void showViews();
-    void onQuit(int playMode);
-}
 ```
 
 ## 直播播放
@@ -159,8 +149,8 @@ mSuperPlayerView.playWithMode(superPlayerModel);
 当不需要播放器时，调用onDestroy清理播放器内部状态，防止干扰下次播放。
 
 ```java
-if (mSuperPlayerView != null) {
-    mSuperPlayerView.resetPlayer();
+if (mSuperVideoPlayer != null) {
+    mSuperVideoPlayer.resetPlayer();
 }
 ```
 
