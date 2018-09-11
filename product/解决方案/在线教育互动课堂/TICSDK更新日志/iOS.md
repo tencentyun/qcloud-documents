@@ -1,6 +1,6 @@
 ## [1.5.2] - 2018-09-11
 ### 变更
-1. `TXFileManager` 初始化COS接口去掉`SDKAPPID`参数： 
+1. `TXFileManager` 初始化 COS 接口去掉`SDKAPPID`参数： 
 
 ```objc
 - (int)initCosWithConfig:(TXCosConfig *)config;
