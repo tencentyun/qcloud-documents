@@ -18,9 +18,9 @@
 3. 在弹出框中，选择升级后的配置，单击【确认】即可。
 
  - **包年包月实例弹框：**
-![](//mc.qcloudimg.com/static/img/c58002204cb5a0481fed03c7ad9903b1/image.png)
+![](https://main.qcloudimg.com/raw/ed252b989c2af91e5fe8351f34be87c8.png)
  - **按量计费实例弹框：**
-![](//mc.qcloudimg.com/static/img/2736588533362e5904a7d006136ceb01/image.png)
+![](https://main.qcloudimg.com/raw/791dc1be3e6ed6dd159ae58e8c12c8fb.png)
 
 ### 通过 API 调整实例配置
 用户可以使用 UpgradeDBInstance 接口升级实例配置，具体内容可参考 [升级云数据库实例](https://cloud.tencent.com/document/product/236/15876)。
