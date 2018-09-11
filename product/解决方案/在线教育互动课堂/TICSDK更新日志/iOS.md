@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+=======
+## [1.5.2] - 2018-09-11
+### 变更
+1. `TXFileManager` 初始化COS接口去掉`SDKAPPID`参数： 
+
+```objc
+- (int)initCosWithConfig:(TXCosConfig *)config;
+```
+
+### 优化
+1. 修复了一些 bug
+
+
+## [1.5.1] - 2018-09-07
+### 变更
+1. TXBoardSDK 文档接口重构，整合 COS 文件上传，接口更加易用
+
+### 新增
+1. TXBoardSDK 新增清空指定课堂历史数据接口
+
+```objc
+/**
+ 清空【指定课堂】的历史数据（该方法为类方法，白板对象销毁后也能调用）
+ 
+ @param roomID 课堂ID
+ */
++ (void)clearHistoryDataWithRoomID:(int)roomID;
+```
+
+>>>>>>> 48f6d5ee68e1c1a2e652d770617de4c7d6e9c3f3
 ## [1.5.0] - 2018-09-03
 ### 变更
 1. 去除`TXBoardViewDelegate`中的`getBoardDataConfig`方法
@@ -144,5 +175,12 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 48f6d5ee68e1c1a2e652d770617de4c7d6e9c3f3
 
 

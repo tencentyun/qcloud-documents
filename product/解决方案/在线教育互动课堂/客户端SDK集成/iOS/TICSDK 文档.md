@@ -26,7 +26,50 @@ pod repo update
 
 * 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
 
+<<<<<<< HEAD
 * 在`Build Settings` 中将 `Enable Bitcode`设置为`NO`。
+=======
+#### 手动集成
+
+[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK.zip) ，将其拖进工程中，并添加以下依赖库：
+
+|需添加依赖库|
+|---|
+|Accelerate.framework|
+|AssetsLibrary.framework|
+|AVFoundation.framework|
+|CoreGraphics.framework|
+|CoreMedia.framework|
+|CoreTelephony.framework|
+|CoreVideo.framework|
+|ImageIO.framework|
+|JavaScriptCore.framework|
+|OpenAL.framework|
+|OpenGLES.framework|
+|QuartzCore.framework|
+|SystemConfiguration.framework|
+|VideoToolbox.framework|
+|libbz2.tbd|
+|libc++.tbd|
+|libiconv.tbd|
+|libicucore.tbd|
+|libprotobuf.tbd|
+|libresolv.tbd|
+|libsqlite3.tbd|
+|libstdc++.6.tbd|
+|libstdc++.tbd|
+|libz.tbd|
+|libstdc++.6.0.9.tbd|
+
+### 1.2 工程配置
+为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
+
+* 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
+
+* 在`Build Settings`中将`Allow Non-modular includes in Framework Modules`设置为`YES`。
+
+* 在`Build Settings`中将 `Enable Bitcode`设置为`NO`。
+>>>>>>> 48f6d5ee68e1c1a2e652d770617de4c7d6e9c3f3
 
 * 由于要用到手机的相机和麦克风，所以别忘了在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
 
