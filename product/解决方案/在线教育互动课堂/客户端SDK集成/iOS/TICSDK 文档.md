@@ -2,7 +2,7 @@
 
 `TICSDK`支持 iOS8+ 系统，支持 Cocoapods 集成，集成完之后还需进行相应的工程配置。
 
-#### Cocoapods 集成（推荐）
+### Cocoapods 集成（推荐）
 
 在 Podfile 文件中加入：
 
@@ -26,7 +26,7 @@ pod repo update
 
 * 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
 
-#### 手动集成
+### 手动集成
 
 [下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK.zip) ，将其拖进工程中，并添加以下依赖库：
 
@@ -58,7 +58,7 @@ pod repo update
 |libz.tbd|
 |libstdc++.6.0.9.tbd|
 
-### 1.2 工程配置
+#### 工程配置
 为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
 
 * 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
@@ -98,7 +98,7 @@ pod repo update
     </dict>
     ```
 
-#### 集成验证
+### 集成验证
 在`appdelegate.m`中导入头文件`<TICSDK/TICSDK.h>`，该头文件包含了`TICSDK`中所有公开的头文件，调用`getVersion`方法获取版本号：
 
 ```objc
