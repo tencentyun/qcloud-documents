@@ -26,6 +26,7 @@
 - Linux系统下：
 用 file 命令 file 音频文件名称。
 例： file test.wav
+![](https://main.qcloudimg.com/raw/1c46cdf4b5e587c73d6bac8f54a00476.png)
 此音频的采样率为 8k，采样位数为 16Bit，声道为 mono 即单声道（双声道为 stereo）。
 - Windows 系统下：
 可以下载相关软件查看和修改音频格式：Adobe Audition CS6。
