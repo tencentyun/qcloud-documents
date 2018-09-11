@@ -27,7 +27,8 @@
 用 file 命令 file 音频文件名称。
 例： file test.wav
 此音频的采样率为 8k，采样位数为 16Bit，声道为 mono 即单声道（双声道为 stereo）。
-- Windows 系统下可以下载相关软件查看和修改音频格式：Adobe Audition CS6。
+- Windows 系统下：
+可以下载相关软件查看和修改音频格式：Adobe Audition CS6。
  
 
 ## 对象存储 + 离线语音识别相关问题
