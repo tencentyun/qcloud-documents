@@ -26,7 +26,7 @@ pod repo update
 
 #### 手动集成
 
-[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_XDF.zip) ，将其拖进工程中，并添加以下依赖库：
+[下载 TICSDK](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK.zip) ，将其拖进工程中，并添加以下依赖库：
 
 |需添加依赖库|
 |---|

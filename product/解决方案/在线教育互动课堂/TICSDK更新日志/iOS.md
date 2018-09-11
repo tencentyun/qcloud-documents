@@ -1,3 +1,15 @@
+## [1.5.2] - 2018-09-11
+### 变更
+1. `TXFileManager` 初始化COS接口去掉`SDKAPPID`参数： 
+
+```objc
+- (int)initCosWithConfig:(TXCosConfig *)config;
+```
+
+### 优化
+1. 修复了一些 bug
+
+
 ## [1.5.1] - 2018-09-07
 ### 变更
 1. TXBoardSDK 文档接口重构，整合 COS 文件上传，接口更加易用
@@ -153,6 +165,8 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 3. 在线课堂线上音视频互动；
 4. 数字白板功能；
 5. 课堂 IM 消息互动。
+
+
 
 
 
