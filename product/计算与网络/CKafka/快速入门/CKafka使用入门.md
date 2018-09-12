@@ -3,26 +3,26 @@
 申请通过后，您的 CKafka 控制台中会展示 CKafka 实例，单击实例信息可以查看实例详情。包括地域、内网 VIP、端口等信息。
 
 ![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
-![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
+![](https://main.qcloudimg.com/raw/d4d33971683792a1f97d0a2f5b8ec8c1.png)
 
 在 topic 管理页面，您可以创建 topic、指定 topic 的分区个数和副本个数。
 > **注意：**
 > 当前 topic 名称输入后无法更改。此外，分区个数指定后，只能进行新增分区的操作。副本数指定后无法更改。 
 
 ![](https://mc.qcloudimg.com/static/img/677df5a8c57fc9482867ea4e5ff9f77f/3.png)
-创建好 topic 和分区后，可以通过云主机的 kafka 客户端对该实例进行生产和消费的操作。
+创建好 topic 和分区后，可以通过云服务器的 kafka 客户端对该实例进行生产和消费的操作。
 
 ## 本地下载 Kafka 工具包
 
 ### 1. 安装 JDK 环境
-本教程在腾讯云主机上搭建 CKafka 环境，首先可以在购买页 [选购云主机](https://buy.cloud.tencent.com/cvm)，并登入。本次测试机器配置如下：
+本教程在腾讯云服务器上搭建 CKafka 环境，首先可以在购买页 [选购云服务器](https://buy.cloud.tencent.com/cvm)，并登入。本次测试机器配置如下：
 > 机器配置 
 操作系统 CentOS 6.8 64 位 
 CPU 1核 
 内存 2GB 
 公网带宽 1Mbps 
 
-之后需要给云主机安装 JDK。
+之后需要给云服务器安装 JDK。
 1.1 下载 JDK，可以通过 wget 命令获取，如果需要其他不同版本也可以在官网进行下载。
 建议使用 1.7 以上版本的 JDK，本教程的版本为 jdk1.7.0_79。
 
