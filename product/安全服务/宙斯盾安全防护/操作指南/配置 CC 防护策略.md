@@ -2,13 +2,13 @@
 宙斯盾安全防护（Aegis Anti-DDoS）提供 HTTP CC 高级防护策略。CC 防护策略，当设置 HTTP 请求数超过设定的 QPS 值时，才会触发 CC 防护。更详细的配置说明，详情请参见 [**自定义高级安全策略**](https://cloud.tencent.com/document/product/685/18800#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AE.89.E5.85.A8.E7.AD.96.E7.95.A5)。
 
 ## 添加 CC 防护策略
-1. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【CC 防护策略】，在 “HTTP CC 防护高级策略” 下，单击【添加新策略】。添加成功后，在 “操作” 列下单击【配置】进入策略配置页面。
+1. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【HTTP CC 防护高级策略】，在 “HTTP CC 防护高级策略” 下，单击【添加新策略】。添加成功后，在 “操作” 列下单击【配置】进入策略配置页面。
 ![](https://main.qcloudimg.com/raw/cc297f0ec19c00703ddd212dc0d9aa3c.png)
 2. 根据业务特点和防护需求配置 HTTP QPS 请求阈值、URL 白名单、IP 黑白名单、CC 自定义防护模式等策略。单击保存即添加策略成功。
 ![](https://main.qcloudimg.com/raw/671c0789edb764e8dde1965bd63c3de9.png)
 
 ## CC 防护策略直接绑定防护 IP
-1. 单击【CC 防护策略】，在 “HTTP CC 防护高级策略” 下单击 “策略 ID”。
+1. 单击【HTTP CC 防护高级策略】，在 “HTTP CC 防护高级策略” 下单击 “策略 ID”。
 ![](https://main.qcloudimg.com/raw/cd9c5ec8338a033856f6b925a150b68d.png)
 2. 单击【绑定 IP 列表】，单击【添加 IP】。
 ![](https://main.qcloudimg.com/raw/a07eb6600382d6aaec86f39eafca20b3.png)
