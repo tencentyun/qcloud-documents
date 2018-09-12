@@ -40,4 +40,4 @@ mongo 10.66.187.127:27017/singer -u rwuser -p thepasswordA1 --authenticationMech
 ![直入某个db的连接命令截图示例](https://mc.qcloudimg.com/static/img/d31bfa612a295fd070ea5dd09c7ce6a3/cr_somedb.png)
 
 ### 使用 shell 进行数据导入和导出
-上文所述的两种认证方式都可以在shell里进行数据导入和导出， [参见这里](https://cloud.tencent.com/doc/product/240/5321)。
+上文所述的两种认证方式都可以在 shell 里进行数据导入和导出， [参见这里](https://cloud.tencent.com/doc/product/240/5321)。
