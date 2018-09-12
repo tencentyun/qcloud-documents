@@ -4,7 +4,7 @@
 为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK。
 [单击下载工程 Demo >>](http://dldir1.qq.com/hudongzhibo/TICSDK/Android/TICSDK_Android_Demo.zip)
 
-### 1.1 gradle集成
+### 1.1 gradle 集成
 TICSDK 目前仅支持 gradle 的集成方式。
 
  - 在整个工程的 build.gradle 文件中，使用 jcenter 配置 repositories，如下：
@@ -55,7 +55,7 @@ defaultConfig {
 
 ## 2. 使用详解
 
-### 2.1. TICSDK使用流程介绍
+### 2.1. TICSDK 使用流程介绍
 TICSDK 使用的一般流程如下：
 
 ![](https://main.qcloudimg.com/raw/30b9189f6c8fe279750cef683e44b56f.png)
@@ -259,7 +259,7 @@ logout | 注销登录。
 AvRootView 和 WhiteboardView 都是集成 SurfaceView 的，SurfaceView 叠加显示时会有异常。
 通过 SurfaceView 的 `setZOrderMediaOverlay(true);`即可解决。
 
-### 3.2. 如何定制视频画面展示
+### 3.2. 如何定制视频画面展示？
 关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/17433)。
 
 
