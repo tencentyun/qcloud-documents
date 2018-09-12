@@ -1,6 +1,6 @@
 ## boardsdk [1.5.1] - 2018-09-11
 ### 优化
-1. 优化文件存储模块；
+1. 优化文件存储模块。
 
 ## ticsdk [1.5.0] - 2018-09-03
 ### 优化
@@ -36,7 +36,7 @@
 1. 增加 COS 相关业务逻辑，WhiteboardManager 增加 setCosConfig 接口；
 2. WhiteboardView 支持设置宽高比例；
 3. WhiteboardView 支持缩放和拖动；
-4. 内置 HTTP下载，用户不再需实现 WhiteboardEventListener 中的 uploadImage 和 downloadImage 接口。
+4. 内置 HTTP 下载，用户不再需实现 WhiteboardEventListener 中的 uploadImage 和 downloadImage 接口。
 
 ### 优化
 1. 优化手绘涂鸦的圆滑性，减少涂鸦的“折线”现象。
@@ -62,10 +62,10 @@
 
 ## boardsdk [1.2.6.4] - 2018-07-11
 ### 修复
-1. 修复若干已知问题；
+1. 修复若干已知问题。
 
 ### 优化
-1. 优化中途进课堂体验；
+1. 优化中途进课堂体验。
 
 ## ticsdk [1.0.1] - 2018-06-29
 ### 新增
