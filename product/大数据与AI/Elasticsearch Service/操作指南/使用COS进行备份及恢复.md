@@ -109,7 +109,7 @@ POST /_snapshot/my_cos_backup/snapshot_1/_restore
 {
     "indices": "index_1", <1>
     "rename_pattern": "index_(.+)", <2>
-    "rename_replacement": "restored_index_1" <3>
+    "rename_replacement": "restored_index_$1" <3>
 }
 ```
 * <1> 只恢复 index_1 索引，忽略快照中存在的其余索引。
