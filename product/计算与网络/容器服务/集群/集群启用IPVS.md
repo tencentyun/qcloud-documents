@@ -1,4 +1,3 @@
-## 集群启用 IPVS
 默认情况下，Kube-proxy 使用 iptables 来实现 Service 到 Pod 之间的负载均衡。
 TKE 支持快速开启基于 IPVS 来承接流量并实现负载均衡的操作。
 开启 IPVS 更适用于大规模集群，可提供更好的可扩展性和性能。
