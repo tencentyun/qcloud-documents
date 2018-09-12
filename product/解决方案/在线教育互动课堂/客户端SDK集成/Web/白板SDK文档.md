@@ -76,7 +76,6 @@ canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受  Hex 色值，如 #ff00ff，大小写不敏感
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 tlsData | Object | 是 | 白板用户鉴权信息
-cosData | Object | 否 | 白板 SDK 使用 COS 上传的鉴权信息
 
 ##### tlsData参数
 
@@ -90,14 +89,6 @@ userSig | Object | 是 | 登录鉴权信息
 
 **在开发调试阶段，用户可以在自己的腾讯云应用控制台使用开发辅助工具，来生成临时的uid和userSig用于开发测试**。详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
-##### cosData参数
-
-参数	| 类型	| 是否必填 | 描述
---------- | --------- | ----- | --------- |
-appid | String | 是 | 由腾讯云分配
-bucket | String | 是 | 由腾讯云分配
-region | String | 是 | 由腾讯云分配
-path | String | 否 | 上传到 Bucket 的指定目录下，如 /board/web 则文件会上传到 Bucket 的 board/web 目录下
 
 ### 白板 SDK 接口
 

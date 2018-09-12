@@ -8,7 +8,7 @@
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.0/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.1/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->
@@ -112,7 +112,7 @@ roomType | String | 否，默认 Public | 创建的 IM 群组类型
 加入课堂可以通过配置 webrtc 相关的参数，来控制是否自动/手动推流，以及是否启用摄像头和麦克风等，也可以配置白板的渲染节点，以及白板初始化颜色，以及是否可以在白板涂鸦等，而 COS 的配置决定了白板是否可以具备上传 PPT、PDF、doc 等文档能力。调用此方法后则会触发加入课堂成功或者加入课堂失败的事件。
 
 ```
-ticSdk.joinClassroom(roomID, webrtc 推流配置, 白板配置, COS 配置);
+ticSdk.joinClassroom(roomID, webrtc 推流配置, 白板配置);
 ```
 
 参数名 | 类型 | 是否必填 | 备注
@@ -131,7 +131,7 @@ webrtc 推流配置参数：
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境|
 |pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 MP3 文件 <br/>2 => 本次是纯音频推流,录制文件为 MP3 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户|
-|peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接。<br/>需要结合[高级事件通知]的 [onPeerConnectionAdd] 使用 |
+|peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接。需要结合[高级事件通知]的 [onPeerConnectionAdd] 使用 |
 
 
 白板配置参数：
@@ -142,16 +142,6 @@ id | String | 是 | 白板渲染的在 dom 节点 ID，并保证该节点有 pos
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
-
-
-COS 配置(可选配置)，如果没有上传功能，则不需要配置 COS。
-
-参数	| 类型	| 是否必填 | 描述
---------- | --------- | ----- | --------- 
-appid | String | 是 | 由腾讯云分配
-bucket | String | 是 | 由腾讯云分配
-region | String | 是 | 由腾讯云分配 
-path | Object | 否，默认/TIC/WEB | 上传到 Bucket 的指定目录下 
 
 
 ### 6. 使用音视频
@@ -363,6 +353,5 @@ ticsdK.getImInstance()
 ```
 ticsdK.getWebRTCInstance()
 ```
-
 
 
