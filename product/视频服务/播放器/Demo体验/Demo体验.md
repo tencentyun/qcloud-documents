@@ -14,6 +14,7 @@ Web端超级播放器基于 video.js 框架开发，采用以 HTML5 `<video>`�
 
 iOS下载地址
 
+
 ![Android二维码下载](https://main.qcloudimg.com/raw/83df9135c87d7a3eb871ed4a6678c11d.png)
 
 Android下载地址
