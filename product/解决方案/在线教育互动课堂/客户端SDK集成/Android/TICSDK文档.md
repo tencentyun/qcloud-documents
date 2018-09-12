@@ -1,7 +1,8 @@
   
 ## 1. 快速集成
 
-为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK。[点击下载工程 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/Android/TICSDK_Android_Demo.zip)
+为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK。
+[单击下载工程 Demo >>](http://dldir1.qq.com/hudongzhibo/TICSDK/Android/TICSDK_Android_Demo.zip)
 
 ### 1.1 gradle集成
 TICSDK 目前仅支持 gradle 的集成方式。
@@ -97,7 +98,7 @@ TICManager.getInstance().setAvRootView(livingVideoView);
 ---|---
 initSDK | 初始化SDK
 
-> 如果开发者 App 中用到了多进程，初始化时需要注意避免重复初始化，如下：
+**如果开发者 App 中用到了多进程，初始化时需要注意避免重复初始化**，如下：
   
 ```
 if (主进程) {    
@@ -117,6 +118,7 @@ login | 登录 | userId 和 userSig
 
 该方法需要传入 **userId** 和 **userSig** 两个参数。开发调试阶段，开发者可以使用腾讯云 [实时音视频控制台](https://console.cloud.tencent.com/rav)->【开发辅助】->【签名(UserSig)生成工具】生成临时的uid和userSig用于开发测试（在控制台->【功能配置】下载公私钥）
 
+> **注意：**
 > userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 登录成功之后，您就可以创建或者加入课堂了。
@@ -155,8 +157,8 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
 
 为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
 
-* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名
-* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，**privateMapKey** 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey) 。
+* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名。
+* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，**privateMapKey** 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 加入课堂成功，在成功的回调处，需要更新和设置一下白板 SDK 的相关配置，如：
 
@@ -179,13 +181,13 @@ enableMic | 打开/关闭麦克风
 enableSpeaker | 打开/关闭扬声器
 
 ### 2.8. 使用互动白板
-> 使用白板前，需确认已[开通白板服务](../../接入指南/开通及配置腾讯云服务.md)。
+> **说明：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
 
 白板的相关操作用户直接通过白板 SDK 操作即可，TICSDK 不做任何封装。详见 [Android 白板 SDK 使用手册](/document/product/680/17889)。
 
 ### 2.9. 收发消息
 
-使用TICSDK 以下接口可以完成课堂中私聊和群聊消息的发送：
+使用 TICSDK 以下接口可以完成课堂中私聊和群聊消息的发送：
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
@@ -193,7 +195,8 @@ sendTextMessage | 发送文本互动消息 | userId
 sendCustomMessage | 发送自定义互动消息 | userId
 sendMessage | 发送互动消息 |  userId
 
-> userId 不为空时，为C2C消息接收者，为空时为群组消息；
+>**注意：**
+>  userId 不为空时，为 C2C 消息接收者，为空时为群组消息。
 
 课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听 `IClassroomIMListener classroomIMListener;`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知：
 
@@ -203,8 +206,9 @@ onRecvTextMsg | 发送文本互动消息 | type和userId
 onRecvCustomMsg | 发送自定义互动消息 | type和userId
 onRecvMessage | 发送互动消息 |  type和userId
 
-> **type** 为Constants.MSG_TYPE_C2C时，为C2C消息接收者，为Constants.MSG_TYPE_GROUP为群组消息；
-> **userId** 不为空时，为C2C消息接收者，为空时为群组消息；
+> **注意：**
+> **type** 为Constants.MSG_TYPE_C2C 时，为 C2C 消息接收者，为 Constants.MSG_TYPE_GROUP 为群组消息；
+> **userId** 不为空时，为 C2C 消息接收者，为空时为群组消息。
 
 
 ### 2.10. 课堂事件监听
@@ -238,7 +242,7 @@ quitClassroom | 退出课堂
 ------- | ------- | ------
 destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责调用。| roomId
 
-> 这里的**roomId**对应创建课堂中的**roomId**
+>** 注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
 
 ### 2.13. 登出
 
