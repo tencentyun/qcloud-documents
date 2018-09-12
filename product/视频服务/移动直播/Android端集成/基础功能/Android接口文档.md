@@ -1,14 +1,16 @@
 下面是腾讯视频云Android SDK的主要接口列表，分为TXLivePusher和TXLivePlayer两个类及相应的回调接口，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_android_doc/index.html)。
 
-## 接口概览
-### TXLivePusher
+
+## TXLivePusher
+
+##### API列表
 
 | 名称                                       | 描述                                |
 | ---------------------------------------- | --------------------------------- |
 | setConfig(TXLivePushConfig config)       | 设置推流配置信息                          |
 | getConfig()                              | 获取推流配置信息                          |
-| setPushListener(ITXLivePushListener listener) | 设置推流事件状态回调                        |
-| setVideoProcessListener(VideoCustomProcessListener listener) | 设置自定义视频处理回调                       |
+| setPushListener(ITXLivePushListener listener) | 设置推流事件状态回调                  |
+| setVideoProcessListener(VideoCustomProcessListener listener) | 设置自定义视频处理回调 |
 | startCameraPreview(TXCloudVideoView view) | 启动摄像头预览                           |
 | stopCameraPreview(isNeedClearLastImg)    | 关闭摄像头预览                           |
 | startPusher(String url)                  | 启动推流                              |
@@ -19,28 +21,41 @@
 | stopScreenCapture()                      | 结束录屏                              |
 | setVideoQuality(quality, adjustBitrate, adjustResolution) | 设置推流视频质量，是否开启 Qos 流量控制， 是否允许动态分辨率 |
 | setBeautyFilter(style, beautyLevel, whiteningLevel, ruddyLevel) | 设置美颜风格、磨皮程度、美白级别和红润级别             |
-| switchCamera()                           | 切换前后置摄像头，支持在推流中动态切换               |
+| setExposureCompensation()                | 调整曝光                            |
+| setFilter()                              | 设置指定素材滤镜特效                |
+| setChinLevel()                           | 设置下巴拉伸或收缩，企业版本有效    |
+| setEyeScaleLevel()                       | 设置大眼级别，企业版本有效          |
+| setFaceShortLevel()                      | 设置设置短脸，企业版本有效          |
+| setFaceVLevel()                          | 设置V脸，企业版本有效               |
+| setMotionTmpl()                          | 设置动效，企业版本有效              |
+| setGreenScreenFile()                     | 设置绿幕文件，企业版本有效          |
+| switchCamera()                           | 切换前后置摄像头，支持在推流中动态切换|
 | setMute(mute)                            | 静音接口                              |
-| setRenderRotation(rotation)              | 设置本地预览图像的顺时针旋转角度                  |
-| setMirror(enable)                        | 设置播放端水平镜像                         |
-| playBGM(path)                            | 播放背景音乐，用于混音处理                     |
-| stopBGM()                                | 停止播放背景音乐                          |
-| pauseBGM()                               | 暂停播放背景音乐                          |
-| resumeBGM()                              | 继续播放背景音乐                          |
-| getMusicDuration(path)                      | 获取音乐文件时长                           |
-| setMicVolume()                           | 设置混音时麦克风的音量大小                     |
-| setBGMVolume()                           | 设置混音时背景音乐的音量大小                    |
+| setRenderRotation(rotation)              | 设置本地预览图像的顺时针旋转角度      |
+| setMirror(enable)                        | 设置播放端水平镜像                    |
+| playBGM(path)                            | 播放背景音乐，用于混音处理            |
+| stopBGM()                                | 停止播放背景音乐                      |
+| pauseBGM()                               | 暂停播放背景音乐                      |
+| resumeBGM()                              | 继续播放背景音乐                      |
+| getMusicDuration(path)                   | 获取音乐文件时长                      |
+| setMicVolume()                           | 设置混音时麦克风的音量大小            |
+| setBGMVolume()                           | 设置混音时背景音乐的音量大小          |
+| setVoiceChangerType()                    | 设置变声类型                          |
+| setReverb()                              | 设置推流端混响效果                    |
 | startRecord(videoFilePath)               | 开始视频录制                            |
 | stopRecord()                             | 停止视频录制                            |
-| setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调                          |
+| setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调    |
 | snapshot(ITXSnapshotListener)            |  截取视频画面                            |
-| setAudioProcessListener(listener)                    | 设置自定义音频处理回调              |
-| sendCustomVideoData(buffer, bufferType, w, h) | 推送自定义视频数据                         |
+| setAudioProcessListener(listener)                    | 设置自定义音频处理回调        |
+| sendCustomVideoData(buffer, bufferType, w, h) | 推送自定义视频数据                   |
+| sendCustomVideoTexture(textureID, w, h)  | 发送客户自定义的视频纹理                   |
 | sendCustomPCMData(pcmBuffer)             | 推送自定义音频数据                         |
-| sendMesageEx(byte[] msg)             |  向播放端发送消息 (消息大小不允许超过2K）                 |
+| sendMesageEx(byte[] msg)                 |  向播放端发送消息 (消息大小不允许超过2K）  |
 
 
-### TXLivePushConfig
+## TXLivePushConfig
+
+##### API列表
 
 | 名称                                    | 描述                  |
 | ------------------------------------- | ------------------- |
@@ -63,7 +78,9 @@
 | setWatermark(watermark, x,y)          | 设置水印图片              |
 
 
-### TXLivePlayer
+## TXLivePlayer
+
+##### API列表
 
 | 名称                                       | 描述                  |
 | ---------------------------------------- | ------------------- |
@@ -75,13 +92,16 @@
 | stopPlay(isNeedClearLastImg)             | 停止播放                |
 | pause()                                  | 暂停播放                |
 | resume()                                 | 恢复播放                |
+| prepareLiveSeek()                        | 直播时移准备，拉取该直播流的起始播放时间 |
+| setAudioRoute(audioRoute)                | 设置声音播放模式(切换扬声器，听筒) |
+| switchStream(playUrl)                    | flv直播无缝切换  |
 | enableHardwareDecode(enable)             | 启用或禁用视频硬解码.         |
 | isPlaying()                              | 是否正在播放              |
 | setRenderMode(mode)                      | 设置图像的渲染（填充）模式       |
 | setRenderRotation(rotation)              | 设置图像的顺时针旋转角度        |
 | startRecord(recordType)                  | 开启截流录制              |
 | stopRecord()                             | 停止截流录制              |
-| setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调            |
+| setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调  |
 | setMute(mute)                            | 设置静音                |
 | snapshot(TXLivePlayer.ITXSnapshotListener listener) | 截取视频图像              |
 | setSurface(Surface surface)              | 设置渲染surface         |
@@ -90,7 +110,9 @@
 | setAudioRawDataListener(ITXAudioRawDataListener listener) | 设置音频pcm数据回调         |
 
 
-### TXLivePlayConfig
+## TXLivePlayConfig
+
+##### API列表
 
 | 名称                                | 描述                    |
 | --------------------------------- | --------------------- |
@@ -104,9 +126,8 @@
 | setMinAutoAdjustCacheTime(time)   | 设置自动调整时播放器最小缓存时间      |
 
 
-## API详情
 
-### TXLivePusher
+## TXLivePusher接口详情
 
 #### 1.setConfig(TXLivePushConfig config)
 
@@ -414,8 +435,170 @@ mLivePusher.setBeautyFilter(mBeautyStyle, mBeautyLevel, mWhiteningLevel, mRuddyL
 ```
 
 
+#### 15. setExposureCompensation(float value)
 
-#### 15.switchCamera()
+接口详情：void setExposureCompensation(float value)
+
+调整曝光
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| value           | float  | 曝光比例，表示该手机支持最大曝光调整值的比例，取值范围从-1到1。负数表示调低曝光，正数表示调高曝光， 0 表示不调整曝光  |
+
+- **示例代码** : 
+
+```
+mLivePusher.setExposureCompensation(0.5f);
+```
+
+
+
+#### 16. setFilter()
+
+接口详情：setFilter(Bitmap bmp)
+
+设置指定素材滤镜特效
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| bmp           | Bitmap  | 指定素材，即颜色查找表图片。图片要求png 格式  |
+
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setFilter(bitmap);
+```
+
+
+
+#### 17. setChinLevel()
+
+接口详情：setChinLevel(int chinLevel)
+
+设置下巴拉伸或收缩（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| chinLevel      | int  | 下巴拉伸或收缩级别取值范围 -9 ~ 9； 0 表示关闭  |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setChinLevel(0);
+```
+
+
+#### 18. setEyeScaleLevel()
+
+接口详情：setEyeScaleLevel(int eyeScaleLevel)
+
+设置大眼级别（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| eyeScaleLevel  | int  | 大眼级别取值范围 0 ~ 9； 0 表示关闭，值越大 效果越明显  |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.eyeScaleLevel(1);
+```
+
+
+#### 19. setFaceShortLevel()
+
+接口详情：setFaceShortLevel(int faceShortlevel)
+
+设置短脸级别（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| faceShortlevel  | int  | 短脸级别取值范围 0 ~ 9； 0 表示关闭，值越大 效果越明显  |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setFaceShortLevel(1);
+```
+
+
+
+#### 20. setFaceVLevel()
+
+接口详情：setFaceVLevel(int faceVLevel)
+
+设置V脸级别（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| faceVLevel  | int  | V脸级别取值范围 0 ~ 9； 0 表示关闭，值越大 效果越明显  |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setFaceVLevel(1);
+```
+
+
+
+#### 21. setMotionTmpl()
+
+接口详情：setMotionTmpl(java.lang.String motionPath)
+
+设置 P 图动效（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| motionPath     | String | 动效完整路径                           |
+
+- **示例代码** : 
+
+```
+mLivePusher.setMotionTmpl(motionPath);
+```
+
+
+#### 22. setGreenScreenFile()
+
+接口详情：setGreenScreenFile(java.lang.String file)
+
+设置绿幕文件（企业版本有效，普通版本设置此参数无效）
+
+- **参数说明**
+
+| 参数             | 类型   | 说明                                       |
+| -------------- | ---- | ---------------------------------------- |
+| file     | String |  绿幕文件路径，支持 mp4 文件; null 表示关闭绿幕  |
+
+- **示例代码** : 
+
+```
+mLivePusher.setGreenScreenFile(file);
+```
+
+
+
+#### 23.switchCamera()
 
 接口详情：void switchCamera()
 
@@ -429,7 +612,7 @@ mLivePusher.switchCamera();
 
 
 
-#### 16.setMute(mute)
+#### 24.setMute(mute)
 
 接口详情：void setMute(mute)
 
@@ -449,7 +632,7 @@ mLivePusher.setMute(true);
 
 
 
-#### 17.setRenderRotation(rotation)   
+#### 25.setRenderRotation(rotation)   
 
 接口详情：void setRenderRotation(int rotation)   
 
@@ -475,7 +658,7 @@ mLivePusher.setRenderRotation(90);
 
 
 
-#### 18.setMirror(enable)  
+#### 26.setMirror(enable)  
 
 接口详情：void setMirror(boolean enable)
 
@@ -496,7 +679,7 @@ mLivePusher.setMirror(true);
 
 
 
-#### 19.playBGM(path)
+#### 27.playBGM(path)
 
 接口详情：boolean playBGM(String path)
 
@@ -516,7 +699,7 @@ mLivePusher.playBGM(musicFilePath);
 
 
 
-#### 20.stopBGM()
+#### 28.stopBGM()
 
 接口详情：boolean stopBGM()
 
@@ -531,7 +714,7 @@ mLivePusher.stopBGM();
 
 
 
-#### 21.pauseBGM()
+#### 29.pauseBGM()
 
 接口详情：boolean pauseBGM()
 
@@ -546,7 +729,7 @@ mLivePusher.pauseBGM();
 
 
 
-#### 22.resumeBGM()
+#### 30.resumeBGM()
 
 接口详情：boolean resumeBGM()
 
@@ -559,7 +742,7 @@ mLivePusher.pauseBGM();
 mLivePusher.resumeBGM();
 ```
 
-#### 23.getMusicDuration(path)
+#### 31.getMusicDuration(path)
 
 接口详情：int getMusicDuration(java.lang.String path)
 
@@ -577,7 +760,7 @@ mLivePusher.getMusicDuration(path);
 ```
 
 
-#### 24.setMicVolume()
+#### 32.setMicVolume()
 
 接口详情：boolean setMicVolume(float x)
 
@@ -598,7 +781,7 @@ mLivePusher.setMicVolume(2f);
 
 
 
-#### 25.setBGMVolume()
+#### 33.setBGMVolume()
 
 接口详情：boolean setBGMVolume(float x)
 
@@ -618,8 +801,47 @@ mLivePusher.setBGMVolume(2f);
 ```
 
 
+#### 34.setVoiceChangerType()
 
-#### 26.startRecord(videoFilePath)
+接口详情：void setVoiceChangerType(int voiceChangerType)
+
+设置设置变声类型。
+
+- **参数说明**
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| voiceChangerType    | int | 变声类型 |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setVoiceChangerType(1);
+```
+
+
+#### 35.setReverb()
+
+接口详情：void setReverb(int reverbType)
+
+设置推流端混响效果
+
+- **参数说明**
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| setReverb    | int | 混响类型，设置推流端混响效果 |
+
+
+- **示例代码** : 
+
+```
+mLivePusher.setReverb(TXLiveConstants.REVERB_TYPE_1);
+```
+
+
+#### 36.startRecord(videoFilePath)
 
 接口详情： int startRecord(final String videoFilePath)
 
@@ -643,7 +865,7 @@ mLivePusher.startRecord(videoFile);
 ```
 
 
-#### 27.stopRecord()
+#### 37.stopRecord()
 
 接口详情： void stopRecord()
 
@@ -657,7 +879,7 @@ mLivePusher.stopRecord();
 
 
 
-#### 28.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
+#### 38.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
 接口详情：void setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
@@ -696,7 +918,7 @@ mLivePusher.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 
 
 
-#### 29.snapshot(ITXSnapshotListener)
+#### 39.snapshot(ITXSnapshotListener)
 
 接口详情： void snapshot(final ITXSnapshotListener listener)
 
@@ -721,7 +943,7 @@ mLivePusher.snapshot(new TXLivePusher.ITXSnapshotListener() {
 });
 ```
 
-#### 30.setAudioProcessListener(listener)
+#### 40.setAudioProcessListener(listener)
 
 接口详情：void setAudioProcessListener(TXLivePusher.AudioCustomProcessListener listener)
 
@@ -742,7 +964,7 @@ mLivePusher.setAudioProcessListener(new TXLivePusher.AudioCustomProcessListener(
 ```
 
 
-#### 31.sendCustomVideoData(buffer, bufferType, w, h)
+#### 41.sendCustomVideoData(buffer, bufferType, w, h)
 
 接口详情： int sendCustomVideoData(byte[] buffer, int bufferType, int w, int h)
 
@@ -825,7 +1047,40 @@ public static byte[] nv21ToI420(byte[] data, int width, int height) {
 
 
 
-#### 32. sendCustomPCMData(pcmBuffer)
+#### 42.sendCustomVideoTexture(buffer, bufferType, w, h)
+
+接口详情： int sendCustomVideoTexture(int textureID, int w, int h)
+
+发送客户自定义的视频纹理。注意，1)该接口需要在OpenGL线程调用 2)必须使用硬件加速。
+
+返回结果的说明：
+
+| 结果    | 说明                                       |
+| ----- | ---------------------------------------- |
+| 0     | 发送成功                                     |
+| -1    | 视频分辨率非法                               |
+| -3    | 视频格式非法                                 |
+| -4    | 视频图像长宽不符合要求,画面比要求的小了      |
+| -1000 | SDK内部错误                                  |
+
+
+- **参数说明**
+
+| 参数         | 类型     | 说明                                 |
+| ---------- | ------ | ---------------------------------------- |
+| textureID  | int    | 视频纹理ID                               |
+| w          | int    | 视频图像的宽度                           |
+| h          | int    | 视频图像的高度                           |
+
+
+- **示例代码** : 
+
+```
+
+```
+
+
+#### 43. sendCustomPCMData(pcmBuffer)
 
 接口详情：void sendCustomPCMData(byte[] pcmBuffer)
 
@@ -968,7 +1223,7 @@ private class AudioCaptureRunnable implements Runnable {
 }
 ```
 
-#### 32. sendMessageEx(byte[] msg)
+#### 44. sendMessageEx(byte[] msg)
 
 接口详情：void sendMessageEx(byte[] msg)
 
@@ -982,7 +1237,7 @@ private class AudioCaptureRunnable implements Runnable {
 
 
 
-### TXLivePushConfig
+## TXLivePushConfig接口详情
 
 #### 1. enableAEC(enable)
 
@@ -1377,7 +1632,7 @@ mLivePusher.setConfig(mLivePushConfig);    // 重新设置 config
 
 
 
-### TXLivePlayer
+## TXLivePlayer接口详情
 
 #### 1.setConfig(TXLivePlayConfig config)
 
@@ -1521,8 +1776,56 @@ mLivePlayer.resume();
 ```
 
 
+#### 8.prepareLiveSeek()
 
-#### 8.enableHardwareDecode(enable)
+接口详情：int  prepareLiveSeek()
+
+直播时移准备，拉取该直播流的起始播放时间。使用时移功能需在播放开始后调用此方法，否者时移失败。不支持非腾讯云地址。
+
+- **示例代码** : 
+
+```
+mLivePlayer.prepareLiveSeek();
+```
+
+
+#### 9.setAudioRoute()
+
+接口详情：void setAudioRoute(int audioRoute)
+
+设置声音播放模式(切换扬声器，听筒)
+
+- **示例代码** : 
+
+```
+// 设置扬声器
+mLivePlayer.setAudioRoute(TXLiveConstants.AUDIO_ROUTE_SPEAKER);
+// 设置听筒
+mLivePlayer.setAudioRoute(TXLiveConstants.AUDIO_ROUTE_RECEIVER);
+```
+
+
+#### 10.switchStream(playUrl)
+
+接口详情：void switchStream(java.lang.String playUrl)
+
+flv直播无缝切换 
+
+- **参数说明**
+
+| 参数               | 类型 | 说明                                   |
+| ------------------ | ---- | ---------------------------------------- |
+| playUrl | String   | 播放的流地址. playUrl必须是当前播放直播流的不同清晰度，切换到无关流地址可能会失败 |
+
+
+- **示例代码** : 
+
+```
+mLivePlayer.switchStream(playUrl);
+```
+
+
+#### 11.enableHardwareDecode(enable)
 
 接口详情：void enableHardwareDecode(enable)
 
@@ -1541,7 +1844,7 @@ mLivePlayer.startPlay(...)
 
 
 
-#### 9.isPlaying()
+#### 12.isPlaying()
 
 接口详情：boolean isPlaying()
 
@@ -1557,7 +1860,7 @@ boolean isPlaying = mLivePlayer.isPlaying();
 
 
 
-#### 10.setRenderMode(mode)
+#### 13.setRenderMode(mode)
 
 接口详情： void setRenderMode(int mode)
 
@@ -1586,7 +1889,7 @@ mLivePlayer.setRenderMode(TXLiveConstants.RENDER_MODE_FULL_FILL_SCREEN);
 
 
 
-#### 11.setRenderRotation(rotation)
+#### 14.setRenderRotation(rotation)
 
 接口详情：void setRenderRotation(int rotation)
 
@@ -1611,7 +1914,7 @@ mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_PORTRAIT);
 
 
 
-#### 12.startRecord()
+#### 15.startRecord()
 
 接口详情：int startRecord(int recordType)
 
@@ -1634,7 +1937,7 @@ mLivePlayer.startRecord(recordType);
 
 
 
-#### 13.stopRecord()()
+#### 16.stopRecord()()
 
 接口详情：int stopRecord()
 
@@ -1648,7 +1951,7 @@ mLivePlayer.stopRecord();
 
 
 
-#### 14.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
+#### 17.setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
 接口详情：void setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 
@@ -1687,7 +1990,7 @@ mLivePusher.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 
 
 
-#### 15.setMute(mute)
+#### 18.setMute(mute)
 
 接口详情：void setMute(boolean mute)
 
@@ -1707,7 +2010,7 @@ mLivePlayer.setMute(true);
 
 
 
-#### 16. snapshot(TXLivePlayer.ITXSnapshotListener listener)
+#### 19. snapshot(TXLivePlayer.ITXSnapshotListener listener)
 
 接口详情：void snapshot(TXLivePlayer.ITXSnapshotListener listener)
 
@@ -1728,7 +2031,7 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
 
 
 
-#### 17. setSurface(Surface surface)
+#### 20. setSurface(Surface surface)
 
 接口详情：void  setSurface(Surface surface)
 
@@ -1767,7 +2070,7 @@ videoView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
 
 
 
-#### 18. addVideoRawData(byte[] yuvBuffer)
+#### 21. addVideoRawData(byte[] yuvBuffer)
 
 接口详情：void  addVideoRawData(byte[] yuvBuffer)
 
@@ -1776,7 +2079,7 @@ videoView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
 
 
 
-#### 19. setVideoRawDataListener(ITXVideoRawDataListener listener)
+#### 22. setVideoRawDataListener(ITXVideoRawDataListener listener)
 
 接口详情：void  setVideoRawDataListener(ITXVideoRawDataListener listener)
 
@@ -1808,7 +2111,7 @@ mLivePlayer.setVideoRawDataListener(new TXLivePlayer.ITXVideoRawDataListener() {
 
 
 
-#### 20. setAudioRawDataListener(ITXAudioRawDataListener listener)
+#### 23. setAudioRawDataListener(ITXAudioRawDataListener listener)
 
 接口详情：void  setAudioRawDataListener(ITXAudioRawDataListener listener)
 
@@ -1832,7 +2135,7 @@ mLivePlayer.setAudioRawDataListener(new TXLivePlayer.ITXAudioRawDataListener() {
 
 
 
-### TXLivePlayConfig
+## TXLivePlayConfig接口详情
 
 #### 1. enableAEC(enable)
 
@@ -2109,8 +2412,7 @@ PLAY_TYPE_LIVE_RTMP_ACC =  5  // 低延迟链路地址（仅适合于连麦场�
 PLAY_TYPE_VOD_HLS =  3        // 传入的URL为HLS(m3u8)播放地址 
 ```
 
-## 事件回调
-### ITXLivePushListener
+## ITXLivePushListener事件回调
 
 #### 推流事件接口
 
@@ -2175,7 +2477,7 @@ SDK 指标监控，主要回调推流或拉流的状态数据。
 | NET_STATUS_SERVER_IP         | String | 连接的推流服务器的IP                              |
 
 
-### ITXLivePlayListener
+## ITXLivePlayListener事件回调
 
 #### 播放事件接口
 

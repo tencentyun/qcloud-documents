@@ -4,7 +4,7 @@ WebRTC 不仅可提供以摄像头为源的视频通讯功能，也能将由canv
 https://www.qcloudtrtc.com/webrtc-samples/canvascapture/demo.html
 
 ### 示例代码
-https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
+https://gitee.com/vqcloud/webrtc-samples
 
 
 
@@ -45,4 +45,4 @@ https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
   - 受限于浏览器支持情况，需要在Chrome浏览器52+版本下运行。
   - 受限于浏览器权限，需要在localhost，或者通过服务器访问，不能直接访问本地html文件进行canvas推流。
 - 有没有实例代码？怎么获得canvas的流?怎么在canvas推流时加入声音？
-  - 请参考 https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
+  - 请参考 https://gitee.com/vqcloud/webrtc-samples

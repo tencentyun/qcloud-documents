@@ -28,6 +28,7 @@ curl -XPUT http://10.0.0.2:9200/china/city/beijing -d'
 ```
 
 响应如下：
+
 ```
 {
     "_index":"china",
@@ -64,13 +65,15 @@ curl -XPOST http://10.0.0.2:9200/_bulk -d'
 ```
 
 响应如下：
+
 ```
 "took":9,"errors":false,"items":[{"index":{"_index":"china","_type":"city","_id":"beijing","_version":4,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"shanghai","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"guangzhou","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"shenzhen","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"chengdu","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"hangzhou","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}}]}
 ```
 
 ## 更新文档
-重复上文创建单个文档的输入，就会更新指定 ID beijing 的文档。
+重复上文创建单个文档的输入，就会更新指定 ID beijing 的文档
 响应如下：
+
 ```
 {"_index":"china","_type":"city","_id":"beijing","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false}
 ```
@@ -151,6 +154,7 @@ curl -XGET 'http://10.0.0.2:9200/china/city/_search?pretty'
 
 ### 复杂查询
 模拟 SQL：
+
 ```
 select * from city where level.level=2
 ```
@@ -169,8 +173,8 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -d'
     }
 }'
 ```
-
 响应如下：
+
 ```
 {
   "took" : 2,
@@ -228,6 +232,7 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -d'
 
 ### 聚合查询
 模拟 SQL：
+
 ```
 select level.level, count(1) from city group by level.level
 ```
@@ -248,6 +253,7 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -d'
 ```
 
 响应如下：
+
 ```
 {
   "took" : 10,
@@ -290,6 +296,7 @@ curl -XDELETE 'http://10.0.0.2:9200/china/city/beijing?pretty'
 ```
 
 响应如下：
+
 ```
 {
   "found" : true,

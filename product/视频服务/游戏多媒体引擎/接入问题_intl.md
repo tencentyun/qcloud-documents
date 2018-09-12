@@ -18,7 +18,7 @@ GME supports Unity, Unreal and Cocos2d engines, and Windows, Mac, iOS and Androi
 
 ### How do I get started with GME?
 
-[Integration Guide](/document/product/607/10782) will guide you through the initial integration of GME before you can use the engine.
+[Integration Guide](https://cloud.tencent.com/document/product/607/10782) will guide you through the initial integration of GME before you can use the engine.
 
 ### Is armv8 available in Android's so library?
 
@@ -39,12 +39,12 @@ It is recommended to deploy authentication feature on the client at the early st
 
 ### Where should I download the GME Demo and SDK?
 
-Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521). The Demos for Unity Engine, Cocos2D Engine, Android native App development and iOS native App development are available on the official website.
+Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521). The Demos for Unity Engine, Cocos2D Engine, Android native App development and iOS native App development are available on the official website.
 
 ### After downloading the GEM Demo, can I change the account to the one I applied for?
 
 1. Yes. You need to get two numbers from the console: sdkappid and permission key.
-2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, see [Integration Guide](/document/product/607/10782).
+2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, see [Integration Guide](https://cloud.tencent.com/document/product/607/10782).
 3. To use your own appid in Voice Chat, you need to modify the key for voice chat in GetAuthBuffer in AVChatViewController.
 
 ### I received the error message "errinfo=priv map info error" when using the Demo.
@@ -57,7 +57,7 @@ If an error occurs with the parameter for entering a room, check whether the sdk
 
 ### What are the billing methods for the voice chat service of GME? How do I select the billing method?
 
-The voice chat service of GME supports two billing methods: Bill by DAU and Bill by Usage Duration. The billing method cannot be modified once being selected. For detailed price information, see [Purchase Guide](/document/product/607/17808).
+The voice chat service of GME supports two billing methods: Bill by DAU and Bill by Usage Duration. The billing method cannot be modified once being selected. For detailed price information, see [Purchase Guide](https://cloud.tencent.com/document/product/607/17808).
 If you select Bill by DAU, the validity of a voice chat room is 90 minutes. When the validity expires, the system closes the room automatically. This billing method is recommended for PVP and casual games.
 If you select Bill by Duration, no limit is imposed on the validity of room. This billing method is recommended for social, VJ and team speak game scenarios.
 
@@ -75,7 +75,7 @@ The billable duration begins at the moment when a user in the App enters the roo
 
 ### What are the billing methods for GME's voice message and voice-to-text services? How do I select the billing method?
 
-Voice message and voice-to-text services are billed by voice message DAU. For detailed price information, see [Purchase Guide](/document/product/607/17808).
+Voice message and voice-to-text services are billed by voice message DAU. For detailed price information, see [Purchase Guide](https://cloud.tencent.com/document/product/607/17808).
 
 ### How is the DAU for GME's voice message and voice-to-text services calculated?
 
@@ -183,7 +183,7 @@ Four formats are supported: m4a, AAC, wav, and mp3.
 
 ### How do I integrate the team chatting mode of GME voice chat? Does distance attenuation (the sound level decreases with distance from the sound source) exist in the team chatting mode?
 
-For more information on how to integrate team chatting in voice chat, see the [Team Chatting](/document/product/607/17972) document. When the team chatting is enabled, distance attenuation does not exist in the same team, but exist in global chatting. For the attenuation coefficient, see the documentation.
+For more information on how to integrate team chatting in voice chat, see the [Team Chatting](https://cloud.tencent.com/document/product/607/17972) document. When the team chatting is enabled, distance attenuation does not exist in the same team, but exist in global chatting. For the attenuation coefficient, see the documentation.
 
 ### What are the requirements for the user's microphone and speaker if I want to realize 3D sound effect?
 
@@ -191,7 +191,7 @@ Dual-channel output devices are required to realize 3D sound effect.
 
 ### How do I integrate 3D sound effect of GME voice chat?
 
-For more information on how to integrate 3D sound effect of voice chat, see the [3D Sound Effect](/document/product/607/18218) document.
+For more information on how to integrate 3D sound effect of voice chat, see the [3D Sound Effect](https://cloud.tencent.com/document/product/607/18218) document.
 
 ### There is no Authbuffer file in the downloaded SDK document and Demo.
 

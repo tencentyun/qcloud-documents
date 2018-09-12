@@ -16,17 +16,18 @@ PUT _snapshot/my_cos_backup
     }
 }
 ```
-* <1> 腾讯云账号 APPID   
-* <2><3> 腾讯云 API 密钥 SecretId，SecretKey
-* <4> COS Bucket 名字
-* <5> COS Bucket 地域，建议与 ES 集群同地域  
+* <1> 腾讯云账号APPID   
+* <2><3> 腾讯云API密钥SecretId,SecretKey
+* <4> COS bucket名字
+* <5> COS bucket地域，建议与ES集群同地域  
 * <6> 备份目录   
 
 ## 列出仓库信息
-您可通过以下两种方式获取仓库信息：
-- 使用`GET _snapshot`获取仓库信息。
+```
+GET _snapshot
+```
 
-- 使用`GET _snapshot/my_cos_backup`获取指定的仓库信息。
+也可以使用```GET _snapshot/my_cos_backup```获取指定的仓库信息
 
 
 ## 创建快照备份
@@ -41,7 +42,7 @@ PUT _snapshot/my_cos_backup/snapshot_1
 ```
 PUT _snapshot/my_cos_backup/snapshot_1?wait_for_completion=true
 ```
->**注意：**命令执行的时间与索引大小相关。
+注意，命令执行的时间与索引大小相关。
 
 ### 备份指定索引
 可以在创建快照的时候指定要备份哪些索引：
@@ -51,15 +52,15 @@ PUT _snapshot/my_cos_backup/snapshot_2
     "indices": "index_1,index_2"  <1>
 }
 ```
->**注意：**参数 indices 的值为多个索引的时候，需要用逗号`,`隔开且不能有空格。
+注意，参数indices的值为多个索引的时候，需要用`,`隔开且不能有空格。
 
 ## 查询快照
 
-查询单个快照信息：
+查询单个快照信息
 ```
 GET _snapshot/my_cos_backup/snapshot_1
 ```
-这个命令会返回快照的相关信息：
+这个命令会返回快照的相关信息:
 ```
 {
     "snapshots": [
@@ -90,11 +91,11 @@ GET _snapshot/my_cos_backup/snapshot_1
 ```
 
 ## 删除快照
-删除指定的快照：
+删除指定的快照
 ```
 DELETE _snapshot/my_cos_backup/snapshot_1
 ```
-如果有还未完成的快照，删除快照命令依旧会执行，并取消快照创建进程。
+注意，如果还未完成的快照，删除快照命令依旧会执行，并取消快照创建进程。
 
 ## 从快照恢复
 ```
@@ -102,13 +103,13 @@ POST _snapshot/my_cos_backup/snapshot_1/_restore
 ```
 
 执行快照恢复命令会把把这个快照里的备份的所有索引都恢复到ES集群中。如果 snapshot_1 包括五个索引，这五个都会被恢复到我们集群里。   
-还有附加的选项用来重命名索引。这个选项允许您通过模式匹配索引名称，然后通过恢复进程提供一个新名称。如果您想在不替换现有数据的前提下，恢复老数据来验证内容，或者做其他处理，这个选项很有用。让我们从快照里恢复单个索引并提供一个替换的名称：
+还有附加的选项用来重命名索引。这个选项允许你通过模式匹配索引名称，然后通过恢复进程提供一个新名称。如果你想在不替换现有数据的前提下，恢复老数据来验证内容，或者做其他处理，这个选项很有用。让我们从快照里恢复单个索引并提供一个替换的名称：
 ```
 POST /_snapshot/my_cos_backup/snapshot_1/_restore
 {
     "indices": "index_1", <1>
     "rename_pattern": "index_(.+)", <2>
-    "rename_replacement": "restored_index_1" <3>
+    "rename_replacement": "restored_index_$1" <3>
 }
 ```
 * <1> 只恢复 index_1 索引，忽略快照中存在的其余索引。
@@ -116,8 +117,8 @@ POST /_snapshot/my_cos_backup/snapshot_1/_restore
 * <3> 然后把它们重命名成替代的模式。   
 
 ## 查询快照恢复状态
-通过执行`_recovery`命令，可以查看快照恢复的状态，监控快照恢复的进度。   
-这个 API 可以为您在恢复的指定索引单独调用：
+通过执行_recovery命令，可以查看快照恢复的状态，监控快照恢复的进度。   
+这个 API 可以为你在恢复的指定索引单独调用：
 ```
 GET index_1/_recovery
 ```
@@ -228,9 +229,9 @@ GET index_1/_recovery
     }
 }
 ```
-* <1> type 字段告诉您恢复的本质；这个分片是在从一个快照恢复。
+* <1> type 字段告诉你恢复的本质；这个分片是在从一个快照恢复。
 * <2> source 哈希描述了作为恢复来源的特定快照和仓库。
-* <3> percent 字段让您对恢复的状态有个概念。这个特定分片目前已经恢复了 94% 的文件；它就快完成了。   
+* <3> percent 字段让你对恢复的状态有个概念。这个特定分片目前已经恢复了 94% 的文件；它就快完成了。   
 
 输出会列出所有目前正在经历恢复的索引，然后列出这些索引里的所有分片。每个分片里会有启动/停止时间、持续时间、恢复百分比、传输字节数等统计值。
 
