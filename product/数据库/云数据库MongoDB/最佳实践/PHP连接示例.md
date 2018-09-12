@@ -97,7 +97,7 @@ var_dump($one);
 ```
 
 ### 推荐使用 PHPLIB 库（基于 mongodb 驱动封装）
-使用 mongodb 驱动推荐搭配 [PHPLIB](http://php.net/manual/zh/mongodb.tutorial.library.php)使用，[查看相关文档](http://mongodb.github.io/mongo-php-library/tutorial/crud/)。
+使用 mongodb 驱动推荐搭配 [PHPLIB](http://php.net/manual/zh/mongodb.tutorial.library.php) 使用，[查看相关文档](http://mongodb.github.io/mongo-php-library/tutorial/crud/)。
 PHPLIB 的安装方法参考 [这里](http://mongodb.github.io/mongo-php-library/getting-started/)，请注意 PHPLIB 依赖与 mongodb 驱动。
 
 示例代码:
