@@ -1,5 +1,4 @@
-## 云服务开通
-
+## 一、 开通云服务
 ### 开通直播服务
 
 #### 1. 申请开通视频直播服务
@@ -72,7 +71,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 进入[【对象存储控制台】>【密钥】>【云API密钥】](https://console.cloud.tencent.com/cam/capi)获取`COSKEY_SECRETID`、`COSKEY_SECRETKEY`
 ![](https://main.qcloudimg.com/raw/b5c6e9471d22d20591d23464dbf717a6.jpg)
 
-## 业务后台集成和部署
+## 二、 集成和部署业务后台
 
 ### 腾讯云CVM镜像部署
 
@@ -121,7 +120,7 @@ define('IM_ACCOUNTTYPE', '1234');  // 云通信 账号集成类型
 
 **至此业务后台部署完成**
 
-## 配置RoomService服务
+## 三、 配置 RoomService 服务
 
 首先下载[RoomTool工具](http://download-1252463788.file.myqcloud.com/RoomTool/RoomTool.zip) 并解压缩。
 
@@ -145,7 +144,7 @@ node setConfigInfo.js 1   //1表示传送私钥给腾讯云RoomService后台
 
 提交成功后可以执行node genLoginInfo.js命令来验证参数是否配置成功。
 
-## 终端集成及回调设置
+## 四、 终端集成及回调设置
 
 终端集成主要是小直播源码集成，主要是以下简单几步：
 ### 小直播源码下载
