@@ -68,11 +68,11 @@ Authorization: Auth String
     <StorageClass></StorageClass>
     <Initiator>
       <ID></ID>
-					 <DisplayName></DisplayName>
+	<DisplayName></DisplayName>
     </Initiator>
     <Owner>
       <ID></ID>
-					 <DisplayName></DisplayName>
+	<DisplayName></DisplayName>
     </Owner>
     <Initiated></Initiated>
   </Upload>
@@ -180,11 +180,11 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
         <Initiator>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:04:17 2017</Initiated>
@@ -194,11 +194,11 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
         <Initiator>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:12:38 2017</Initiated>
@@ -208,11 +208,11 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
         <Initiator>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
            <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
-					 <DisplayName>14847266009</DisplayName>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:14:30 2017</Initiated>
