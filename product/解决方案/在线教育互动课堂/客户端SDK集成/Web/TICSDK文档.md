@@ -76,15 +76,15 @@ fn | Function | 是 | 事件的回调函数
 this.ticSdk.login(loginConfig);
 ```
 
-loginConfi：
+loginConfig：
 
-参数名 | 是否必填 | 备注 |
---------- | --------- | -----
-identifier | 是 | 用户名
-userSig | 是 | 登录鉴权信息
-sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
-identifierNick | 否 | IM昵称
-userHeadImg | 否 | IM头像
+参数名 | 类型 | 是否必填 | 备注 |
+---------| ---- | --------- | -----
+sdkAppId | Integer | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+identifier | String | 是 | 用户名
+userSig | String | 是 | 登录鉴权信息
+identifierNick | String | 否 | IM昵称
+userHeadImg | String | 否 | IM头像
 
 该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
