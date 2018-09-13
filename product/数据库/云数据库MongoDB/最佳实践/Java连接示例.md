@@ -5,7 +5,7 @@ Java MongoDB 驱动文档
 http://mongodb.github.io/mongo-java-driver/3.2/driver/getting-started/
 Java Jar 包下载
 https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/
-请选择3.2以上版本下载
+请选择 3.2 以上版本下载
 
 ## 快速开始
 ### 原生 Java 示例代码
