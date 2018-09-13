@@ -81,9 +81,9 @@ tlsData | Object | 是 | 白板用户鉴权信息
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
-sdkAppId | Object | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
-identifier | Object | 是 | 用户名
-userSig | Object | 是 | 登录鉴权信息
+sdkAppId | Integer | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+identifier | String | 是 | 用户名
+userSig | String | 是 | 登录鉴权信息
 
 该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
