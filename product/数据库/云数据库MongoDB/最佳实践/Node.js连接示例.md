@@ -19,12 +19,12 @@ npm init
 var mongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
-// 拼接URI
+// 拼接 URI
 var url = 'mongodb://mongouser:thepasswordA1@10.66.161.177:27017/admin';
 
 mongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
-	var db = db.db('testdb'); // 选择一个db
+	var db = db.db('testdb'); // 选择一个 db
 	var col = db.collection('demoCol'); // 选择一个集合(表)
    // 插入数据
     col.insertOne(
@@ -34,7 +34,7 @@ mongoClient.connect(url, function(err, db) {
         }, 
         //可选参数
         //{
-        //    w: 'majority' // 开启 “大多数”模式，保证数据写入Secondary节点
+        //    w: 'majority' // 开启 “大多数”模式，保证数据写入 Secondary 节点
         //}, 
         function(err, r) {
             console.info("err:", err);
