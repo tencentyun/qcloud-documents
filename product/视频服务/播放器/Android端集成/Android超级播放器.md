@@ -1,33 +1,16 @@
-## 功能介绍
+## 产品介绍
 
-超级播放器是基于`TXVodPlayer`和`TXLivePlayer`实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕、直播时移等功能于一体的解决方案，**且完全开源**。帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
+超级播放器是基于 `TXVodPlayer` 和 `TXLivePlayer` 实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕、直播时移、视频帧缩略图预览、视频帧文字描述等功能于一体的解决方案。
+
+相关代码**完全开源**，帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
 
 ![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
 
-## 接入准备
+## 产品亮点
 
-1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android)).
-
-2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
-
-3. Demo 的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在 github 获取，也可如 Demo 在 build.gradle示例配置 
-```
-compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
-```
-
-## 创建播放器
-
-超级播放器主类为`SuperVideoPlayer`，您需求先创建它。
-
-```java
-mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
-
-// 设置代理
-mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
-
-// 开始播放
-mSuperPlayerView.playWithMode(superPlayerModel);
-```
+- 功能强大：视频信息自动拉取、横竖屏切换、弹幕展示、悬浮窗播放、**清晰度无缝切换**、**直播时移**、**视频帧缩略图预览**、**视频帧文字描述**。
+- 集成简单：Android 使用 Module 方式集成，**一键完成** SDK 、相关 UI 资源引入，帮助您在短时间内即可完成集成。
+- 完全开源：相关 UI 代码，**完全开源**。您可以按照需求，修改相关代码，实现个性化的 UI 界面。
 
 ## 直播播放
 
@@ -136,21 +119,4 @@ fileId在一般是在视频上传后，由服务器返回：
 
 无缝切换需要转码时指定生成masterPlaylist和IDR对齐，配置后超级播放在播fileId时，就能取到多码率masterPlaylist的视频源地址。使用上和播普通fileId没有区别，超级播放器内部会自动处理多码率流，只需要在后台修改转码参数，修改方法请参考文档 [对视频文件进行处理](https://cloud.tencent.com/document/product/266/9642#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
-
-## 切换视频
-
-播放器播放另一个视频，调用`playWithMode`即可
-```java
-mSuperPlayerView.playWithMode(superPlayerModel);
-```
-
-## 移除播放器
-
-当不需要播放器时，调用onDestroy清理播放器内部状态，防止干扰下次播放。
-
-```java
-if (mSuperVideoPlayer != null) {
-    mSuperVideoPlayer.resetPlayer();
-}
-```
-
+## 产品接入
