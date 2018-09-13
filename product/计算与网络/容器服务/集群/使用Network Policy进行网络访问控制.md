@@ -1,44 +1,42 @@
-## 使用Network Policy进行网络访问控制
+## Network Policy
 
-### Network Policy
+[Network Policy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 是 k8s 提供的一种资源，用于定义基于 pod 的网络隔离策略。它描述了一组 pod 是否可以与其它组 pod，以及其它 network endpoints 进行通信。
 
-[Network Policy](https://kubernetes.io/docs/concepts/services-networking/network-policies/)是k8s提供的一种资源，用于定义基于pod的网络隔离策略。它描述了一组pod是否可以与其它组pod，以及其它network endpoints进行通信。
-
-### Kube-router
+## Kube-router
 
 - 官网:  [https://www.kube-router.io](https://www.kube-router.io)
 - 项目地址:  [https://github.com/cloudnativelabs/kube-router](https://github.com/cloudnativelabs/kube-router)
 
-目前kube-router最新版本为0.2.0
+目前 kube-router 最新版本为 0.2.0
 
-kube-router的三大功能：
+kube-router 的三大功能：
 
 - Pod Networking
 - IPVS/LVS based service proxy  
 - Network Policy Controller 
 
-在腾讯云TKE上，Pod Networking的功能由基于IAAS层VPC的高性能容器网络实现，service proxy功能由kube-proxy所支持的ipvs/iptalbes两种模式来提供。建议在TKE上，只使用kube-router的Network Policy功能。
+在腾讯云 TKE 上，Pod Networking 的功能由基于 IAAS 层 VPC 的高性能容器网络实现，service proxy 功能由 kube-proxy 所支持的 ipvs/iptalbes 两种模式来提供。建议在 TKE 上，只使用 kube-router 的 Network Policy 功能。
 
-### 在TKE上部署kube-router
+## 在 TKE 上部署 kube-router
 
-#### 腾讯云提供的kube-router版本
+### 腾讯云提供的 kube-router 版本
 
-下面提供的yaml文件中使用的kube-router镜像"ccr.ccs.tencentyun.com/library/kube-router:v1"是由腾讯云PAAS团队提供的。 这个镜像是基于社区2018-07-29的commit "e2ee6a76"， 加上腾讯云PAAS团队的两个bugfix（均已被社区合并）：
+下面提供的 yaml 文件中使用的 kube-router 镜像`ccr.ccs.tencentyun.com/library/kube-router:v1` 是由腾讯云 PAAS 团队提供的。 这个镜像是基于社区 2018-07-29 的 commit "e2ee6a76"， 加上腾讯云 PAAS 团队的两个 bugfix（均已被社区合并）：
 
 - [https://github.com/cloudnativelabs/kube-router/pull/488](https://github.com/cloudnativelabs/kube-router/pull/488)
 - [https://github.com/cloudnativelabs/kube-router/pull/498](https://github.com/cloudnativelabs/kube-router/pull/498)
 
-我们会跟踪社区进展， 提供版本升级。
+我们会跟踪社区进展，提供版本升级。
 
-#### 部署kube-router
+### 部署 kube-router
 
-Daemonset yaml文件：  [#kube-router-firewall-daemonset.yaml.zip#](https://ask.qcloudimg.com/draft/982360/90i1a7pucf.zip)
+Daemonset yaml 文件：[#kube-router-firewall-daemonset.yaml.zip#](https://ask.qcloudimg.com/draft/982360/90i1a7pucf.zip)
 
-在**能访问公网**，也能访问TKE集群apiserver的机器上，执行以下命令即可完成kube-router部署。
+在 **能访问公网**，也能访问 TKE 集群 apiserver 的机器上，执行以下命令即可完成 kube-router 部署。
 
-如果集群节点开通了公网IP，则可以直接在集群节点上执行以下命令。
+如果集群节点开通了公网 IP，则可以直接在集群节点上执行以下命令。
 
-如果集群节点没有开通公网IP, 则可以手动下载和粘贴yaml文件内容到节点, 保存为kube-router-firewall-daemonset.yaml，再执行最后的kubectl create命令。
+如果集群节点没有开通公网 IP，则可以手动下载和粘贴 yaml 文件内容到节点, 保存为 kube-router-firewall-daemonset.yaml，再执行最后的 kubectl create 命令。
 
 ```
 wget https://ask.qcloudimg.com/draft/982360/90i1a7pucf.zip
@@ -46,9 +44,9 @@ unzip 90i1a7pucf.zip
 kuebectl create -f kube-router-firewall-daemonset.yaml
 ```
 
-#### yaml文件内容和参数说明
+### yaml 文件内容和参数说明
 
-kube-router-firewall-daemonset.yaml文件内容：
+kube-router-firewall-daemonset.yaml 文件内容：
 
 ```
 apiVersion: v1
@@ -153,17 +151,16 @@ spec:
           path: /root/.kube/config
 ```
 
-args说明：
+args 说明：
 
-1. "--run-router=false", "--run-firewall=true", "--run-service-proxy=false"：只加载firewall模块；
-2. kubeconfig：用于指定master信息，映射到主机上的kubectl配置目录/root/.kube/config；
-3. --iptables-sync-period=1s：指定同步iptables规则的间隔时间，根据实时性的要求设置，默认5m；
-4. --cache-sync-timeout=5m：指定启动时将k8s资源做缓存的超时时间，默认5m；
+1. "--run-router=false", "--run-firewall=true", "--run-service-proxy=false"：只加载 firewall 模块；
+2. kubeconfig：用于指定master信息，映射到主机上的 kubectl 配置目录`/root/.kube/config`；
+3. --iptables-sync-period=1s：指定同步 iptables 规则的间隔时间，根据实时性的要求设置，默认 5 m；
+4. --cache-sync-timeout=5m：指定启动时将 k8s 资源做缓存的超时时间，默认 5 m；
 
-### NetworkPolicy配置示例
+## NetworkPolicy 配置示例
 
-#### 1.nsa namespace下的pod可互相访问，而不能被其它任何pod访问
-
+1. nsa namespace 下的 pod 可互相访问，而不能被其它任何 pod 访问。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -179,8 +176,7 @@ spec:
   - Ingress
 ```
 
-#### 2.nsa namespace下的pod不能被任何pod访问
-
+2. nsa namespace 下的 pod 不能被任何 pod 访问。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -193,8 +189,7 @@ spec:
   - Ingress
 ```
 
-#### 3.nsa namespace下的pod只在6379/TCP端口可以被带有标签app: nsb的namespace下的pod访问，而不能被其它任何pod访问
-
+3. nsa namespace 下的 pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespac e 下的 pod 访问，而不能被其它任何 pod 访问。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -215,8 +210,7 @@ spec:
   - Ingress
 ```
 
-#### 4.nsa namespace下的pod可以访问CIDR为14.215.0.0/16的network endpoint的5978/TCP端口，而不能访问其它任何network endpoints（此方式可以用来为集群内的服务开访问外部network endpoints的白名单）
-
+4. nsa namespace 下的 pod 可以访问 CIDR 为 14.215.0.0/16 的 network endpoint 的5978/TCP 端口，而不能访问其它任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -236,8 +230,7 @@ spec:
   - Egress
 ```
 
-#### 5.default namespace下的pod只在80/TCP端口可以被CIDR为14.215.0.0/16的network endpoint访问，而不能被其它任何network endpoints访问
-
+5. default namespace 下的 pod 只在 80/TCP 端口可以被 CIDR 为 14.215.0.0/16 的 network endpoint 访问，而不能被其它任何 network endpoints 访问。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -257,34 +250,33 @@ spec:
   - Ingress
 ```
 
-### 附: 测试情况
+## 附: 测试情况
 
 | 用例名称 | 测试结果 |
 |:----|:----|
-| 不同namespace的pod互相隔离，同一namespace的pod互通 | 通过 |
-| 不同namespace的pod互相隔离，同一namespace的pod隔离 | 通过 |
-| 不同namespace的pod互相隔离，白名单指定B可以访问A | 通过 |
-| 允许某个namespace访问集群外某个CIDR，其他外部IP全部隔离 | 通过 |
-| 不同namespace的pod互相隔离，白名单指定B可以访问A中对应的pod以及端口 | 通过 |
-| 以上用例，当source pod 和 destination pod在一个node上时，隔离是否生效 | 不通过 |
+| 不同 namespace 的 pod 互相隔离，同一 namespace 的 pod 互通 | 通过 |
+| 不同 namespace 的 pod 互相隔离，同一 namespace 的 pod 隔离 | 通过 |
+| 不同 namespace 的 pod 互相隔离，白名单指定 B 可以访问 A | 通过 |
+| 允许某个 namespace 访问集群外某个 CIDR，其他外部 IP 全部隔离 | 通过 |
+| 不同 namespace 的 pod 互相隔离，白名单指定 B可以访问 A 中对应的 pod 以及端口 | 通过 |
+| 以上用例，当 source pod 和 destination pod 在一个 node 上时，隔离是否生效 | 不通过 |
 
 
-功能测试用例
-
-> [#kube-router测试用例.xlsx.zip#](https://ask.qcloudimg.com/draft/982360/dgs7x4hcly.zip)
-
+功能测试用例：
+> [#kube-router 测试用例.xlsx.zip#](https://ask.qcloudimg.com/draft/982360/dgs7x4hcly.zip)
 
 
 
-### 性能测试方案
 
-在k8s集群中部署大量的Nginx服务，通过ApacheBench工具压测固定的一个服务，对比开启和不开启kube-router场景下的QPS，衡量kube-router带来的性能损耗。
+## 性能测试方案
 
-### 测试环境
+在 k8s 集群中部署大量的 Nginx 服务，通过 ApacheBench 工具压测固定的一个服务，对比开启和不开启 kube-router 场景下的 QPS，衡量 kube-router 带来的性能损耗。
 
-VM数量: 100
+## 测试环境
 
-VM配置: 2核4G
+VM 数量: 100
+
+VM 配置: 2 核 4 G
 
 VM OS: ubuntu
 
@@ -292,14 +284,13 @@ k8s: 1.10.5
 
 kube-router version: 0.2.0 
 
-# 测试流程
+## 测试流程
 
-1.部署1个service，对应两个pod（Nginx），作为测试组；
+1. 部署 1 个 service，对应两个 pod（Nginx），作为测试组；
 
-2.部署1000个service，每个分别对应2/6/8个pod（Nginx），作为干扰组；
+2. 部署 1000 个 service，每个分别对应 2/6/8 个 pod（Nginx），作为干扰组；
 
-3.部署NetworkPolicy规则，使得所有pod都被选中，以便产生足够数量的iptables规则：
-
+3. 部署 NetworkPolicy 规则，使得所有 pod 都被选中，以便产生足够数量的 iptables 规则：
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -331,16 +322,16 @@ spec:
   - Ingress
 ```
 
-4.使用ab压测测试组的服务，记录QPS.
+4. 使用ab压测测试组的服务，记录 QPS.
 
-### 性能曲线
+## 性能曲线
 
 ![kube-router.png](https://ask.qcloudimg.com/draft/982360/c2dvr6rprd.png)
 
-X轴：ab并发数
+X轴：ab 并发数
 
 Y轴：QPS
 
-### 测试结论
+## 测试结论
 
-pod数量从2000到8000，开启kube-router时的性能比不开启时要下降10%-20%。
+pod 数量从 2000 到 8000，开启 kube-router 时的性能比不开启时要下降 10%-20%。
