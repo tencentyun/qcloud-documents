@@ -1,7 +1,7 @@
 ## 相关说明
-腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)一文。
+腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563)一文。
 
-Node.js MongoDB驱动文档：
+Node.js MongoDB 驱动文档：
 https://docs.mongodb.org/ecosystem/drivers/node-js/
 
 ## 快速开始
