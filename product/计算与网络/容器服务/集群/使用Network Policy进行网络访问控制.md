@@ -154,7 +154,7 @@ spec:
 args 说明：
 
 1. "--run-router=false", "--run-firewall=true", "--run-service-proxy=false"：只加载 firewall 模块；
-2. kubeconfig：用于指定master信息，映射到主机上的 kubectl 配置目录`/root/.kube/config`；
+2. kubeconfig：用于指定 master 信息，映射到主机上的 kubectl 配置目录`/root/.kube/config`；
 3. --iptables-sync-period=1s：指定同步 iptables 规则的间隔时间，根据实时性的要求设置，默认 5 m；
 4. --cache-sync-timeout=5m：指定启动时将 k8s 资源做缓存的超时时间，默认 5 m；
 
@@ -322,7 +322,7 @@ spec:
   - Ingress
 ```
 
-4. 使用ab压测测试组的服务，记录 QPS.
+4. 使用 ab 压测测试组的服务，记录 QPS.
 
 ## 性能曲线
 
