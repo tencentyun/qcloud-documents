@@ -2,16 +2,14 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/MAC_TRTC.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
 
 ```objc
 - (IBAction)onJoinRoom:(id)sender {
-    // 1. 创建live房间页面
-    LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
-    
-    // 2. 创建房间配置对象
+
+    // 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
     option.avOption.privateMapKey = privateMapKey;
@@ -28,10 +26,10 @@
     // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
     option.controlRole = #腾讯云控制台配置的角色名#;
     
-    // 3. 调用创建房间接口，传入房间ID和房间配置对象
-    [[ILiveRoomManager getInstance] joinRoom:[self.roomIDTF.text intValue] option:option succ:^{
-        // 加入房间成功，跳转到房间页
-        [self.navigationController pushViewController:liveRoomVC animated:YES];animated:YES];
+    // 调用加入房间接口，传入房间ID和房间配置对象
+    [[ILiveRoomManager getInstance] joinRoom:[self.roomID intValue] option:option succ:^{
+        // 加入房间成功
+        NSLog(@"-----> join room succ");
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         // 加入房间失败
         NSLog(@"加入房间失败 errId:%d errMsg:%@",errId, errMsg);
@@ -71,7 +69,7 @@
 >检测到有人开启了摄像头 QAV_EVENT_ID_ENDPOINT_HAS_CAMERA_VIDEO，就添加该用户的渲染视图；
 检测到有人关闭了摄像头 QAV_EVENT_ID_ENDPOINT_NO_CAMERA_VIDEO，则移除该用户的渲染视图。
 
-渲染视图的 frame 不是固定的，需要根据当前渲染视图的个数和产品需求进行计算。在本文提供的 Demo 中，简单的对渲染视图做了一个从上到下等分的布局，您也可根据需要自己定义布局逻辑。
+渲染视图的 frame 不是固定的，需要根据当前渲染视图的个数和产品需求进行计算。在本文提供的 Demo 中，支持4路视频同时展示，对渲染视图做了一个主画面大图在下面，其他3录小画面横向排布在上面，您也可根据需要自己定义布局逻辑。
 
 ```objc
 // 音视频事件回调
@@ -87,21 +85,21 @@
                  创建并添加渲染视图，传入userID和渲染画面类型，这里传入 QAVVIDEO_SRC_TYPE_CAMERA（摄像头画面）
                  */
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero foruserId:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
-                [self.view addSubview:renderView];
-                [self.view sendSubviewToBack:renderView];
+                ILiveRenderViewForMac  *renderView = [frameDispatcher addRenderAt:CGRectZero forIdentifier:endoption.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                renderView.identifier = endoption.identifier;
                 // 房间内打开摄像头用户数量变化，重新布局渲染视图
-                [self onCameraNumChange];
+                [self updateVideoFrame:renderView];
             }
                 break;
             case QAV_EVENT_ID_ENDPOINT_NO_CAMERA_VIDEO:
             {
                 // 移除渲染视图
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderViewForMac  *renderView = [frameDispatcher removeRenderViewFor:endoption.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [renderView removeFromSuperview];
+                
                  // 房间内打开摄像头用户数量变化，重新布局渲染视图
-                 [self onCameraNumChange];
+                 [self updateVideoFrame:nil];
             }
                 break;
             default:
@@ -113,31 +111,47 @@
 ```
 
 ```objc
-// 房间内打开摄像头用户数量变化时调用，重新布局所有渲染视图，这里简单处理，从上到下等分布局
-- (void)onCameraNumChange {
-    // 获取当前所有渲染视图
-    NSArray *allRenderViews = [[TILLiveManager getInstance] getAllAVRenderViews];
-    
-    // 检测异常情况
-    if (allRenderViews.count == 0) {
-        return;
+// 房间内打开摄像头用户数量变化时调用，重新布局所有渲染视图
+- (void)updateVideoFrame:(ILiveRenderViewForMac *)renderView{
+    if (renderView && ![self.window.contentView.subviews containsObject:renderView]) {
+        [self.videoLayoutView addSubview:renderView];
     }
+    NSArray *allRenderView = [[[ILiveRoomManager getInstance] getFrameDispatcher] getAllRenderViews];
     
-    // 计算并设置每一个渲染视图的frame
-    CGFloat renderViewHeight = [UIScreen mainScreen].bounds.size.height / allRenderViews.count;
-    CGFloat renderViewWidth = [UIScreen mainScreen].bounds.size.width;
-    __block CGFloat renderViewY = 0.f;
-    CGFloat renderViewX = 0.f;
-    
-    [allRenderViews enumerateObjectsUsingBlock:^(ILiveRenderView *renderView, NSUInteger idx, BOOL * _Nonnull stop) {
-        renderViewY = renderViewY + renderViewHeight * idx;
-        CGRect frame = CGRectMake(renderViewX, renderViewY, renderViewWidth, renderViewHeight);
-        renderView.frame = frame;
-    }];
+    if (allRenderView.count == 1) {
+        ILiveRenderViewForMac *bigView = allRenderView[0];
+        bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height - 20);
+        [bigView viewWithTag:1001].frame = CGRectMake(bigView.frame.size.width/2, bigView.frame.size.height - 10, 300, 20);
+    }
+    else if (allRenderView.count == 2){
+        ILiveRenderViewForMac *bigView = allRenderView[0];
+        ILiveRenderViewForMac *smallView1 = allRenderView[1];
+        bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height  - 160 );
+        smallView1.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 - 90, self.window.frame.size.height - 150, 180, 120);
+        
+    }
+    else if (allRenderView.count == 3){
+        ILiveRenderViewForMac *bigView = allRenderView[0];
+        ILiveRenderViewForMac *smallView1 = allRenderView[1];
+        ILiveRenderViewForMac *smallView2 = allRenderView[2];
+        bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height - 160 );
+        smallView1.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 - 180 - 10, self.window.frame.size.height - 150, 180, 120);
+        smallView2.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 + 10, self.window.frame.size.height - 150, 180, 120);
+    }
+    else if (allRenderView.count == 4 || allRenderView.count > 4 ){
+        ILiveRenderViewForMac *bigView = allRenderView[0];
+        ILiveRenderViewForMac *smallView1 = allRenderView[1];
+        ILiveRenderViewForMac *smallView2 = allRenderView[2];
+        ILiveRenderViewForMac *smallView3 = allRenderView[3];
+        bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height  - 160 );
+        smallView1.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 - 180 - 90 - 10, self.window.frame.size.height - 150, 180, 120);
+        smallView2.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 - 90, self.window.frame.size.height - 150, 180, 120);
+        smallView3.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 + 90 + 10, self.window.frame.size.height - 150, 180, 120);
+    }
 }
 ```
 > 注意：
-> 1. 添加渲染视图时，客户不用担心重复添加，SDK 内部对同一用户的同一种类型视频源的渲染视图只会添加一次。
+> 1. 添加渲染视图时，客户不用担心重复添加，SDK 内部对用一用户的用一种类型视频源的渲染视图只会添加一次。
 > 2. 目前 SDK 内部限制了同时最多可以存在 10 个渲染视图。
 
 ## 常见问题

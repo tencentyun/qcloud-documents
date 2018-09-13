@@ -1,7 +1,7 @@
 本文将指导您将如何创建一个房间，获取直播画面并在合适的时候退出房间。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_create.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/MAC_TRTC.zip)
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
@@ -28,51 +28,37 @@
 最后，创建房间的结果会以回调 Block 的方式返回，您可以根据自己的业务逻辑，在成功或者失败回调中做相应的处理。
 
 ```objc
+> TCLiveRoomWC.m
 // 导入头文件
 #import <ILiveSDK/ILiveCoreHeader.h>
 
 // 创建房间
-- (IBAction)onCreateRoom:(id)sender {
-    // 1. 创建live房间页面
-    LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
-    
-    // 2. 创建房间配置对象
+- (void)enterRoom{
+    //step3 房间配置
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    option.imOption.imSupport = YES;
+    // 设置房间内音视频监听
+    option.memberStatusListener = self;
+    // 设置房间中断事件监听
+    option.roomDisconnectListener = self;
+    option.firstFrameListener = self;
+    // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
+    option.controlRole = self.role;
     // 配置进房票据
     option.avOption.privateMapKey = privateMapKey;
-    option.imOption.imSupport = NO;
-    // 设置房间内音视频监听
-    option.memberStatusListener = liveRoomVC;
-    // 设置房间中断事件监听
-    option.roomDisconnectListener = liveRoomVC;
-    
-    // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
-    option.controlRole = #腾讯云控制台配置的角色名#;
-    
-    // 3. 调用创建房间接口，传入房间ID和房间配置对象
-    [[ILiveRoomManager getInstance] createRoom:[self.roomIDTF.text intValue] option:option succ:^{
-        // 创建房间成功，跳转到房间页
-        [self.navigationController pushViewController:liveRoomVC animated:YES];
+
+    //step4 调用创建房间接口，传入房间ID和房间配置对象
+    [[ILiveRoomManager getInstance] createRoom:[self.roomID intValue] option:option succ:^{
+        NSLog(@"-----> create room succ");
     } failed:^(NSString *module, int errId, NSString *errMsg) {
-        // 创建房间失败
-        NSLog(@"创建房间失败 errId:%d errMsg:%@",errId, errMsg);
+        NSLog(@"-----> create room fail,%@ %d %@",module, errId, errMsg);
     }];
-```
 
-用户进入房间后，会自动打开摄像头和麦克风并自动推流（这个是在创建房间时传入的 `ILiveRoomOption` 配置对象中设置）。在直播房间中，所有的音视频事件都是通过音视频事件回调来通知监听对象，首先您需要设置这样一个监听对象。
-
-监听对象为创建课堂时传入的 `ILiveRoomOption` 对象的一个属性 `memberStatusListener` ，由于需要将房间页面对象 `LiveRoomViewController` 设置为监听者，所以在创建房间对象时将 `option` 通过自动以的初始化方法 `initWithOption` 传到了 `LiveRoomViewController` 内部。
-```objc
-> LiveRoomViewController.m
-
-- (instancetype)initWithOption:(ILiveRoomOption *)option {
-    self = [super init];
-    if (self) {
-        option.memberStatusListener = self;
-    }
-    return self;
 }
 ```
+
+用户进入房间后，会自动打开摄像头和麦克风并自动推流（这个是在创建房间时传入的 `ILiveRoomOption` 配置对象中设置）。在直播房间中，所有的音视频事件都是通过音视频事件回调来通知监听对象，所以需要先设置监听对象option.memberStatusListener = self;。
+
 
 ### 监听房间内事件
 创建房间时，我们在配置对象中设置了房间音视频事件监听和房间中断事件监听，用来监听房间内的事件。
@@ -132,8 +118,9 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
                  创建并添加渲染视图，传入userID和渲染画面类型，这里传入 QAVVIDEO_SRC_TYPE_CAMERA（摄像头画面）
                  */
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher addRenderAt:self.view.bounds foruserId:[endpoints.firstObject userId] srcType:QAVVIDEO_SRC_TYPE_CAMERA];
-                [self.view addSubview:renderView];
+                ILiveRenderViewForMac  *renderView = [frameDispatcher addRenderAt:CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height - 20) forIdentifier:endoption.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                renderView.identifier = endoption.identifier;
+                [self.window.contentView addSubview:renderView];
             }
             break;
     }
@@ -163,16 +150,16 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 
 ### 退出房间
 调用 ILiveSDk 的退出房间接口。
-接口选择在直播控制器的 dealloc 方法中调用。
-> 注意，别让你的直播控制器被循环引用，否则 dealloc 方法将不会被调用。
+接口选择在关闭窗口时执行。
+
 
 ```objc
-// 房间销毁时记得调用退出房间接口
-- (void)dealloc {
+//关闭窗口退出房间
+-(void)windowWillClose:(NSNotification *)notification{
     [[ILiveRoomManager getInstance] quitRoom:^{
-        NSLog(@"退出房间成功");
+        NSLog(@"-----> quit room succ");
     } failed:^(NSString *module, int errId, NSString *errMsg) {
-        NSLog(@"退出房间失败 %d : %@", errId, errMsg);
+        NSLog(@"-----> quit room fail,%@ %d %@",module, errId, errMsg);
     }];
 }
 ```
