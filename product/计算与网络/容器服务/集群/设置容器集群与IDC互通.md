@@ -11,8 +11,8 @@
 2. [申请通道](https://cloud.tencent.com/document/product/216/19250)
 3. [创建专线网关](https://cloud.tencent.com/document/product/216/19256)
 4. 验证容器节点与 IDC 互通。（**请保证本步骤验证通过**）
-6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 信息，[提交工单](https://console.cloud.tencent.com/workorder/category) 打通容器网络。
-7. 若IDC使用的是 BGP 协议，容器网段路由将自动同步。若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
+6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[提交工单](https://console.cloud.tencent.com/workorder/category) 打通容器网络。
+7. 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
 8. 验证容器与与 IDC 互通。
 
 ## VPN 打通
@@ -36,4 +36,4 @@
 ![](https://main.qcloudimg.com/raw/118676ef1a435f250ad1a92f11f4cf96.png)
 可以看到容器间与 VPN 对端子机已经实现互通。  
 
-总结：云上容器与 IDC 机房通过 ipsec vpn 互通，设置主要就是 **SPD 策略** 和 **路由表** 两部分配置。
+总结：云上容器与 IDC 机房通过 ipsec VPN 互通，设置主要就是 **SPD 策略** 和 **路由表** 两部分配置。
