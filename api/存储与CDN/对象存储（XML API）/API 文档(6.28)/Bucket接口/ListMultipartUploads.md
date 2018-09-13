@@ -67,10 +67,12 @@ Authorization: Auth String
     <UploadID></UploadID>
     <StorageClass></StorageClass>
     <Initiator>
-      <UIN></UIN>
+      <ID></ID>
+					 <DisplayName></DisplayName>
     </Initiator>
     <Owner>
-      <UID></UID>
+      <ID></ID>
+					 <DisplayName></DisplayName>
     </Owner>
     <Initiated></Initiated>
   </Upload>
@@ -118,13 +120,14 @@ Container 节点 Initiator 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
-
+| ID | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
+| DisplayName | ListMultipartUploadsResult.Upload.Initiator | 委托人的名称 | String  |
 Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UID | ListMultipartUploadsResult.Upload.Owner | Object 的持有者 ID  | String    |
+| ID | ListMultipartUploadsResult.Upload.Owner | 开发商 APPID  | String    |
+| DisplayName | ListMultipartUploadsResult.Upload.Owner| 委托人的名称 | String  |
 
 Container 节点 CommonPrefixes 的内容：
 
@@ -135,7 +138,7 @@ Container 节点 CommonPrefixes 的内容：
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-| 错误码             | HTTP 状态码         |描述                                       | 
+| 错误码             | HTTP 状态码         |描述                    | 
 | ------------- | ------------------------------------ | ------------- |
 | InvalidArgument | 400 Bad Request |1. max-uploads 必须是整数，且值介于 0~1000 之间，否则返回 InvalidArgument；<br>2. encoding-type 只能取值 url，否则会返回 InvalidArgument | 
 
@@ -155,7 +158,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ### 响应
 
 ```
-HTTP /1.1 200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1203
 Date: Wed, 18 Jan 2015 21:32:00 GMT
@@ -175,10 +178,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
         <Initiator>
-           <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:04:17 2017</Initiated>
@@ -187,10 +192,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
         <Initiator>
-            <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:12:38 2017</Initiated>
@@ -199,10 +206,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>ObjectName</Key>
         <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
         <Initiator>
-            <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+					 <DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:14:30 2017</Initiated>
