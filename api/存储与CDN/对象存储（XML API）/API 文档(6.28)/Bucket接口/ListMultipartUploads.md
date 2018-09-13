@@ -120,14 +120,14 @@ Container 节点 Initiator 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
-| DisplayName | ListMultipartUploadsResult.Upload.Initiator | 委托人的名称 | String  |
+| ID | ListMultipartUploadsResult.Upload.Initiator | 用户唯一的 CAM 身份 ID | String  |
+| DisplayName | ListMultipartUploadsResult.Upload.Initiator | 用户身份 ID 的简称（UIN） | String  |
 Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | ListMultipartUploadsResult.Upload.Owner | 开发商 APPID  | String    |
-| DisplayName | ListMultipartUploadsResult.Upload.Owner| 委托人的名称 | String  |
+| ID | ListMultipartUploadsResult.Upload.Owner | 用户唯一的 CAM 身份 ID  | String    |
+| DisplayName | ListMultipartUploadsResult.Upload.Owner| 用户身份 ID 的简称（UIN） | String  |
 
 Container 节点 CommonPrefixes 的内容：
 
