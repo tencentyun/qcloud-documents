@@ -36,6 +36,5 @@ filepath = "./test.wav"
 # 语音切片长度 cutlength<200000
 cutlength = 64000
 # 调用语音识别函数获得识别结果
-RASRsdk.sendVoice(secret_key, secretid, appid, engine_model_type,
-res_type, result_text_format, voice_format, filepath,cutlength)
+RASRsdk.sendVoice(secret_key, secretid, appid, engine_model_type,res_type, result_text_format, voice_format, filepath,cutlength)
 	```
