@@ -6,7 +6,7 @@
 
 ### 下载 SDK
 
-请在[下载指引](https://cloud.tencent.com/document/product/607/18521)下载相关 Demo 及 SDK。
+请在 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载相关 Demo 及 SDK。
 
 在界面中找到找到 Android 版本的 SDK 资源。
 
@@ -17,8 +17,7 @@
 | Libs     	| 开发工具包 Libs     |
 
 ## 系统要求
-
-SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
+SDK 支持 在 Android 4.2 及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
 
 ## 预备工作
 
