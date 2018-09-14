@@ -1,7 +1,7 @@
 
 <h2 id="SDK">SDK下载</h2>
 
-- ** SDK 升级说明**
+- **SDK 升级说明**
 
   从4.9版本开始SDK支持Licence自动续期，新的Licence设置方法如下
 
