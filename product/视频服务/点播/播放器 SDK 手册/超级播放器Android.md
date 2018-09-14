@@ -136,6 +136,62 @@ fileId在一般是在视频上传后，由服务器返回：
 
 无缝切换需要转码时指定生成masterPlaylist和IDR对齐，配置后超级播放在播fileId时，就能取到多码率masterPlaylist的视频源地址。使用上和播普通fileId没有区别，超级播放器内部会自动处理多码率流，只需要在后台修改转码参数，修改方法请参考文档 [对视频文件进行处理](https://cloud.tencent.com/document/product/266/9642#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
+### 视频帧打点信息预览
+
+#### 功能介绍
+
+视频帧打点信息预览功能是**超级播放器结合腾讯云定制功能**。能够在进度条上进行视频帧信息打点，点击能够显示出视频帧的打点信息，以获得更好的观看体验。如图所示：
+
+![](https://main.qcloudimg.com/raw/7154f087547536a0fae43f654891b500.jpg)
+
+使用该功能，需要在服务端进行配置，配置方法请参考文档：[增加打点信息](https://cloud.tencent.com/document/product/266/14190)。
+
+####如何使用
+
+视频帧打点信息预览功能不需要用到 SDK 额外的类，超级播放器已经将其封装在 `SupePlayerView` 内部，您仅需要按照服务端配置文档进行配置即可。
+
+### 视频帧雪碧图预览
+
+####功能介绍
+
+视频缩略图预览功能是**超级播放器结合腾讯云定制功能**。在拖动视频进度条时，能够显示当前时间戳所对应的视频雪碧图，以获得更好的观看体验。如图所示：
+
+![](https://main.qcloudimg.com/raw/1df263289f8d3910e7a29a6203189591.jpg)
+
+使用该功能，需要在服务端进行配置，配置方法请参考文档：[截取雪碧图](https://cloud.tencent.com/document/product/266/8101)。
+
+####  如何使用
+
+超级播放器已经将其封装在 `SupePlayerView` 内部，您仅需要按照服务端配置文档进行配置即可。
+
+若您想单独提取使用，可参考`SuperPlayerView`内部实现，或以下代码步骤：
+
+* 1.创建：需要用到 SDK 提供的 `TXImageSprite` 类，直接调用 `TXImageSprtie` 类构造函数即可。
+
+```
+mTXImageSprite = new TXImageSprite(getContext());
+```
+
+* 2.配置：传入 VTT 文件链接，以及 Image 图片链接。
+
+```
+mTXImageSprite.setVTTUrlAndImageUrls(webVttUrl, imageUrls);
+```
+
+* 3.获取：传入对应时间戳，获取 Bitmap 图片。
+
+```
+Bitmap bitmap = mTXImageSprite.getThumbnail(seekTime);
+```
+
+* 4.释放：当您使用完毕时，请调用释放接口，避免内存泄漏。
+
+```
+mTXImageSprite.release();
+```
+
+
+
 
 ## 切换视频
 
