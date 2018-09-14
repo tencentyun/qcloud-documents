@@ -1,4 +1,4 @@
-腾讯云 Elasticsearch Service 提供的实例包含 Elasticsearch 集群和 Kibana 控制台，其中 Elasticsearch 集群通过在用户 VPC 内的私有网络 VIP 地址+端口进行访问，Kibana 控制台提供外网地址供用户在浏览器端访问，至于数据源，当前只支持用户自行接入 Elasticsearch 集群。下面以最典型的日志分析架构 ELK 为例，介绍如何将用户的日志导入到 Elasticsearch, 并可以在浏览器访问 kibana 控制台进行查询与分析。
+腾讯云 Elasticsearch Service 提供的实例包含 Elasticsearch 集群和 Kibana 控制台，其中 Elasticsearch 集群通过在用户 VPC 内的私有网络 VIP 地址+端口进行访问，Kibana 控制台提供外网地址供用户在浏览器端访问，至于数据源，当前只支持用户自行接入 Elasticsearch 集群。下面以最典型的日志分析架构 ELK 为例，介绍如何将用户的日志导入到 Elasticsearch, 并可以在浏览器访问 Kibana 控制台进行查询与分析。
 ## 安装部署 logstash
 
 ### 环境准备
@@ -61,17 +61,17 @@ nohup ./bin/logstash -f ~/test.conf 2>&1 >/dev/null &
 
 ```
 
-有关 logstash 的更多功能，请查看 [elastic 官方文档](!https://www.elastic.co/products/logstash)。
+有关 logstash 的更多功能，请查看 [elastic 官方文档](https://www.elastic.co/products/logstash)。
 
 ## 查询日志
 
-1. 在腾讯云 Elasticsearch Service 控制台集群列表页中，单击实例右侧的 kibana 按钮，进入  kibana 控制台。
+1. 在腾讯云 Elasticsearch Service 控制台集群列表页中，单击实例右侧的 Kibana 按钮，进入  Kibana 控制台。
 ![](https://main.qcloudimg.com/raw/a99bb629ecefb620669bf5cc649e4e3d.png)
 
 2. 进入 【Management】>【Index Patterns】，添加名为"nginx_access*"的索引。
 ![](https://main.qcloudimg.com/raw/b9aca384cf66b074fcfcd3ef4ae62d85.png)
 
-3. 进入 Discover 页面，选择"nginx_access*"索引项，已经可以检索到nginx的访问日志了。
+3. 进入 Discover 页面，选择"nginx_access*"索引项，已经可以检索到 nginx 的访问日志了。
 ![](https://main.qcloudimg.com/raw/cfa7444ebde8df0f2b5661e2fc0288b6.png)
 
-有关 Kibana 控制台的更多功能，请查看 [elastic 官方文档](!https://www.elastic.co/products/kibana)。
+有关 Kibana 控制台的更多功能，请查看 [elastic 官方文档](https://www.elastic.co/products/kibana)。
