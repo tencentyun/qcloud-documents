@@ -4,7 +4,7 @@
 > 解绑后的弹性 IP 如果不再使用请尽快释放，否则会收取闲置费用，同时释放后的弹性 IP 将无法找回。详情参考 [弹性公网 IP 计费模式](https://cloud.tencent.com/document/product/215/11145)。
 
 ## 绑定弹性IP
-1. 登录腾讯云，进入 CVM 控制台的云主机 [管理页面](https://console.cloud.tencent.com/cvm/index)，单击【更多】>【IP操作】>【绑定弹性 IP】。
+1. 登录腾讯云，进入 CVM 控制台的云服务器 [管理页面](https://console.cloud.tencent.com/cvm/index)，单击【更多】>【IP操作】>【绑定弹性 IP】。
 ![](https://main.qcloudimg.com/raw/d9c315bdbc0ddb0355794b2bf255ab2c.png)
 2. 在弹出框中确认信息后单击【确定转换】。
 ![](https://main.qcloudimg.com/raw/1dee2e6fae92713aec29669c8b13e63d.png)

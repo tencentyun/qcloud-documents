@@ -12,7 +12,7 @@
     // 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
-    option.privateMapKey = privateMapKey;
+    option.avOption.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
@@ -155,15 +155,15 @@
 > 2. 目前 SDK 内部限制了同时最多可以存在 10 个渲染视图。
 
 ## 常见问题
-#### 进房失败，提示没有权限？
-请确认正确配置了进房票据 privateMapKey。
-新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
 [[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
 ```
 
-#### 切换角色失败，错误码 - 1 ？
-这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
+切换角色失败，错误码 - 1 。
+> 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
 
 
 ## 联系邮箱
