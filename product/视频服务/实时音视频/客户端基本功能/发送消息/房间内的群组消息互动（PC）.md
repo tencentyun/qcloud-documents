@@ -2,7 +2,7 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_msg.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_msg.zip)
 
 ## 相关概念
 
@@ -26,7 +26,9 @@ GetILive()->init(SDKAppId, AccountType, false);
 GetILive()->init(SDKAppId, AccountType, true);
 ```
 
-启用 IM 功能后，用户创建房间将会创建对应的 IM 群组，群组类型可以在创建房间参数中指定( iLiveRoomOption的groupType ),一般使用 E_AVChatRoom_Group，即默认值；创建房间的用户退出房间，将会解散对应的IM群组。
+启用 IM 功能后，用户创建房间将会创建对应的 IM 群组，群组类型可以在创建房间参数中指定( iLiveRoomOption的groupType ),一般使用 E_AVChatRoom_Group，即默认值；
+
+> 创建房间的用户退出房间，将会解散对应的IM群组。
 
 ## 设置消息监听
 
@@ -69,3 +71,6 @@ GetILive()->sendGroupMessage(msg, [](void* data) {
 ![](https://main.qcloudimg.com/raw/6cb42880b4fa9b911bd8386139ecfb04.png)
 
 ![](https://main.qcloudimg.com/raw/54addf7999d3f78fca42a0636397d768.png)
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

@@ -251,7 +251,7 @@ Payment 服务无需启动，到此您已经成功接入了 MobileLine 移动付
 
 ### 了解 MobileLine：
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)
+- 查看 [MoblieLine 应用示例](https://ios-release-1253960454.cos.ap-shanghai.myqcloud.com/tac.zip)
 
 ### 向您的应用添加 MobileLine 功能：
 

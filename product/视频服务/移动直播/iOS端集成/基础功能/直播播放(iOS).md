@@ -7,7 +7,7 @@
  <font color='blue'>点播（VOD）</font> 的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
 
 - **协议的支持**
-通常使用的直播协议如下，APP端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
+通常使用的直播协议如下，App端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
 ## 特别说明
@@ -35,7 +35,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 
 内部原理上讲，播放器并不是直接把画面渲染到您提供的 view （示例代码中的 \_myView）上，而是在这个view之上创建一个用于OpenGL渲染的子视图（subView）。
 
-如果您要调整渲染画面的大小，只需要调整你所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
+如果您要调整渲染画面的大小，只需要调整您所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
 
 ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
  
@@ -135,7 +135,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
 ### step 9: 截流录制
-截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
 
@@ -154,6 +154,40 @@ _txLivePlayer.recordDelegate = recordListener;
 - 录制的进度以时间为单位，由 TXVideoRecordListener 的 onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
+
+### step 10: 清晰度无缝切换
+日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以观看更高画质。
+传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
+
+清晰度切换在直播开始后，任意时间都可以调用。调用方式如下
+```objectivec
+// 正在播放的是流http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv，
+// 现切换到码率为900kbps的新流上
+[_txLivePlayer switchStream:@"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv"];
+```
+
+
+### step 11: 直播回看
+时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
+
+```objectivec
+// 设置直播回看前，先调用startPlay
+// 开始播放 ...
+[TXLiveBase setAppID:@"1253131631"]; // 配置appId
+[_txLivePlayer prepareLiveSeek];     // 后台请求直播起始时间
+```
+配置正确后，在PLAY_EVT_PLAY_PROGRESS事件里，当前进度就不是从0开始，而是根据实际开播时间计算而来。
+调用seek方法，就能从历史事件点重新直播
+```objectivec
+[_txLivePlayer seek:600]; // 从第10分钟开始播放
+```
+
+接入时移需要在后台打开2处配置：
+
+1. 录制：配置时移时长、时移储存时长
+2. 播放：时移获取元数据
+
+时移功能处于公测申请阶段，如您需要可提交工单申请使用。
 
 
 <h2 id="Delay">延时调节</h2>
@@ -209,8 +243,12 @@ _config.cacheTime              = 5;
 - **Obs的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)， Obs 的推流端积压比较严重，是无法达到低延时效果的。
 
+- **该功能按播放时长收费**
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考**[价格指引](https://cloud.tencent.com/document/product/454/8008#ACC)**。
+
+
 ## SDK事件监听
-你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
+您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 1. 播放事件
 | 事件ID                 |    数值  |  含义说明                    |   

@@ -5,7 +5,7 @@ The pulled content will not be returned again, which can be regarded as a messag
 [Contact SMS Helper](https://cloud.tencent.com/document/product/382/3773) to enable this feature.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/pullstatus?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/pullstatus?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -51,5 +51,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | data | Yes | Array | For more information, please see the following. |
 | errmsg | Yes | String | The specific error message when the "result" is not 0 |
 | type | Yes | Number | The type of pulled content. 0: [SMS Delivery Status](https://cloud.tencent.com/document/product/382/5807); 1: [SMS Reply](https://cloud.tencent.com/document/product/382/5809)} |
-
-

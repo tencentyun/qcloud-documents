@@ -1,15 +1,8 @@
-### 初始化 QAPM
+### 设置 QAPM 相关参数
 ```
-public static QAPM getInstance(Application app, String key, String ver)
+(1)  public static QAPM setProperty(int key, String value)
 ```
-参数如下
-app： 当前应用的 app 对象
-key：为 [获取项目 app_key](https://cloud.tencent.com/document/product/683/15220) 中项目分配的 key
-ver：产品版本号
-### 设置 QAPM 相关参数。
-```
-public static QAPM set(String key, Object value)
-```
+
   <table width="1037" border="0" cellpadding="0" cellspacing="0" style='width:777.75pt;border-collapse:collapse;table-layout:fixed;'>
    <col width="249" class="xl65" style='mso-width-source:userset;mso-width-alt:7968;'/>
    <col width="788" style='mso-width-source:userset;mso-width-alt:25216;'/>
@@ -19,33 +12,28 @@ public static QAPM set(String key, Object value)
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str>key<span style='mso-spacerun:yes;'>&nbsp;</span></td>
-    <td x:str>可选为&quot;uuid&quot;、&quot;uin&quot;、&quot;host&quot;、&quot;debug&quot;、&quot;leakfix&quot;、&quot;listener&quot;。</td>
+    <td x:str>可选为&quot;PropertyKeyAppId&quot;、&quot; PropertyKeyUserId&quot;、&quot; PropertyKeyAppVersion&quot;、&quot; PropertyKeySymbolId&quot;、 &quot;PropertyKeyDebug&quot;。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl65" height="120" rowspan="3" style='height:90.00pt;' x:str>value - uuid：string 类型</td>
-    <td x:str>设置上报数据里的 UUID，用于标记该版本被混淆堆栈的 mapping。</td>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyAppId </td>
+    <td x:str>产品 ID 为“产品密钥-产品 ID”模式，可从邮件中获取。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td x:str>因此，建议采用“产品 ID + 版本号”作为入参的方式生成 UUID，具体生成函数各产品可以自行决定。</td>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyUserId </td>
+    <td x:str>用户账号（比如 QQ 号、微信号等）。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td x:str>建议最终生成 UUID 格式的字符串（格式类似 e6ae1282-ceb8-4237-89bd-2d23d00a8e33）。</td>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyAppVersion </td>
+    <td x:str>产品版本（以类似“7.3.0.141.r123456”格式填写，后台可以解析出大版本号和 revision）。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl65" height="40" style='height:30.00pt;' x:str>uin: string 类型</td>
-    <td x:str>设置上报数据里附带的 QQ 号。即上报的用户账号。</td>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeySymbolId </td>
+    <td x:str>UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用<br/>
+   </td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl65" height="40" style='height:30.00pt;' x:str>debug: bool 类型</td>
-    <td x:str>是否开启调试日志，true 为开启，false 为不开启，默认为 false。</td>
-   </tr>
-   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl65" height="40" style='height:30.00pt;' x:str>leakfix: bool 类型</td>
-    <td x:str>是否开启自动泄漏修复。true 为开启，false 为不开启，默认为false。</td>
-   </tr>
-   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl65" height="40" style='height:30.00pt;' x:str>listener</td>
-    <td x:str>可为 InspectorListener/MemoryCellingListener/BatteryReportListener 类型，用于设置相关监听回调用。</td>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyDebug </td>
+    <td x:str>是否开启调试日志（“true”开启，“false”不开启，默认后者）。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str>返回值</td>
@@ -61,55 +49,168 @@ public static QAPM set(String key, Object value)
 	
 
 
-### 启动监控。
+### 启动监控
 ```
-public boolean run(int func)
+(2) public static boolean beginScene(String sceneName, int mode)
 ```
->注意：
->默认为9（QAPM.LEAKINSPECTOR + QAPM.LOOPER），正式发布的版本，建议以 run(8)来启动，因为下述三个功能（1、2、4）对应用性能都略有影响。
-
-<table width="531" border="0" cellpadding="0" cellspacing="0" style='width:398.25pt;border-collapse:collapse;table-layout:fixed;'>
-   <col width="72" span="2" style='width:54.00pt;'/>
-   <col width="387" style='mso-width-source:userset;mso-width-alt:12384;'/>
-   <tr height="18" style='height:13.50pt;'>
-    <td class="xl65" height="18" width="72" style='height:13.50pt;width:54.00pt;' x:str>参数</td>
-    <td class="xl65" width="72" style='width:54.00pt;' x:str>含义</td>
-    <td class="xl65" width="387" style='width:290.25pt;' x:str>解释</td>
+<table width="1037" border="0" cellpadding="0" cellspacing="0" style='width:777.75pt;border-collapse:collapse;table-layout:fixed;'>
+   <col width="249" class="xl65" style='mso-width-source:userset;mso-width-alt:7968;'/>
+   <col width="788" style='mso-width-source:userset;mso-width-alt:25216;'/>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl66" height="40" width="249" style='height:30.00pt;width:186.75pt;' x:str>参数名</td>
+    <td class="xl66" width="788" style='width:591.00pt;' x:str>解释</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td class="xl66" height="126" rowspan="7" style='height:94.50pt;border-right:none;border-bottom:none;' x:str>func</td>
-    <td class="xl67" rowspan="7" style='border-right:none;border-bottom:none;' x:str>功能表</td>
-    <td x:str>1：内存泄漏(QAPM.LEAKINSPECTOR)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> sceneName </td>
+    <td x:str>被监控的场景名</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>2：文件 IO(QAPM.IO)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>mode<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+    <td x:str>可选为&quot;ModeAll&quot;、&quot;ModeStable&quot;、&quot;ModeResource&quot;、&quot; ModeDropFrame&quot;</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>4：数据库 IO(QAPM.DB)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeAll </td>
+    <td x:str>开启全部监控，包括内存泄漏、文件 IO、数据库 IO、卡顿、触顶、电量、区间性能、流畅度</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>8：卡顿(QAPM.LOOPER)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeStable </td>
+    <td x:str>开启适合外网使用的监控，包括卡顿、区间性能、流畅度</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>16：触顶(QAPM.CEILING)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeResource </td>
+    <td x:str>区间性能监控</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>32：电量(QAPM.BATTERY)</td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeDropFrame </td>
+    <td x:str>流畅度采集</td>
    </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td x:str>64：区间采样(QAPM.SAMPLE)</td>
-   </tr>
-    <tr height="18" style='height:13.50pt;'>
-    <td x:str>127：开启以上全部监控(QAPM.ALL)</td>
-   </tr>
-   <tr height="18" style='height:13.50pt;'>
-    <td class="xl68" height="18" style='height:13.50pt;' x:str>返回值</td>
-    <td class="xl67" x:str>无</td>
-    <td></td>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>返回值</td>
+    <td x:str>布尔值，表示监控是否开启成功。</td>
    </tr>
    <![if supportMisalignedColumns]>
     <tr width="0" style='display:none;'>
-     <td width="387" style='width:290;'></td>
+     <td width="249" style='width:187;'></td>
+     <td width="788" style='width:591;'></td>
     </tr>
    <![endif]>
   </table>
+
+>注意：<br/>
+>A. 正式版建议开启 QAPM.ModeStable，研发流程内版本建议开启 QAPM.ModeAll。 <br/>
+>B. 确实需要定制开启个别功能时，可使用 ModeLeakInspector、ModeFileIO、ModeDBIO、ModeLooper、ModeCeiling、ModeBattery 中一个到多个，多个使用时采用按为或方式即可，如 ModeLeakInspector | ModeFileIO | ModeDBIO。<br/>
+> C. 上述定制功能开启后，不能通过 endScene 关闭。
+
+<br />
+
+```
+(3) public static boolean beginScene(String sceneName, String extraInfo, int mode)
+```
+<table width="1037" border="0" cellpadding="0" cellspacing="0" style='width:777.75pt;border-collapse:collapse;table-layout:fixed;'>
+   <col width="249" class="xl65" style='mso-width-source:userset;mso-width-alt:7968;'/>
+   <col width="788" style='mso-width-source:userset;mso-width-alt:25216;'/>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl66" height="40" width="249" style='height:30.00pt;width:186.75pt;' x:str>参数名</td>
+    <td class="xl66" width="788" style='width:591.00pt;' x:str>解释</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> sceneName </td>
+    <td x:str>见(2)</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> extraInfo <span style='mso-spacerun:yes;'>&nbsp;</span></td>
+    <td x:str>可选以下项<br /> 用户定制 —— 若存在未调用 endScene 即再调用 beginScene 的场景，需要填 extraInfo 以区分</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> mode </td>
+    <td x:str>见(2)</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>返回值</td>
+    <td x:str>见(2)</td>
+   </tr>
+   <![if supportMisalignedColumns]>
+    <tr width="0" style='display:none;'>
+     <td width="249" style='width:187;'></td>
+     <td width="788" style='width:591;'></td>
+    </tr>
+   <![endif]>
+  </table>
+
+
+### 结束监控
+```
+(4) public static boolean endScene(String sceneName, int mode)
+```
+<table width="1037" border="0" cellpadding="0" cellspacing="0" style='width:777.75pt;border-collapse:collapse;table-layout:fixed;'>
+   <col width="249" class="xl65" style='mso-width-source:userset;mso-width-alt:7968;'/>
+   <col width="788" style='mso-width-source:userset;mso-width-alt:25216;'/>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl66" height="40" width="249" style='height:30.00pt;width:186.75pt;' x:str>参数名</td>
+    <td class="xl66" width="788" style='width:591.00pt;' x:str>解释</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> sceneName </td>
+    <td x:str>见(2)</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>mode<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+    <td x:str>可选为&quot;ModeResource&quot;、&quot; ModeDropFrame&quot;</td>
+   </tr>
+  <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeResource </td>
+    <td x:str>区间性能监控</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeDropFrame </td>
+    <td x:str>流畅度采集</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>返回值</td>
+    <td x:str>布尔值，表示监控是否终止成功。</td>
+   </tr>
+   <![if supportMisalignedColumns]>
+    <tr width="0" style='display:none;'>
+     <td width="249" style='width:187;'></td>
+     <td width="788" style='width:591;'></td>
+    </tr>
+   <![endif]>
+  </table>
+
+
+<br />
+
+```
+(5) public static boolean endScene(String sceneName, String extraInfo, int mode)
+```
+<table width="1037" border="0" cellpadding="0" cellspacing="0" style='width:777.75pt;border-collapse:collapse;table-layout:fixed;'>
+   <col width="249" class="xl65" style='mso-width-source:userset;mso-width-alt:7968;'/>
+   <col width="788" style='mso-width-source:userset;mso-width-alt:25216;'/>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl66" height="40" width="249" style='height:30.00pt;width:186.75pt;' x:str>参数名</td>
+    <td class="xl66" width="788" style='width:591.00pt;' x:str>解释</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> sceneName </td>
+    <td x:str>见(2)</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> extraInfo <span style='mso-spacerun:yes;'>&nbsp;</span></td>
+    <td x:str>可选以下项:<br /> 用户定制 —— 见(2)<br/>APPLAUNCH —— 用户定制 App 启动的结束点</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str> mode </td>
+    <td x:str>见(4)</td>
+   </tr>
+   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class="xl65" height="40" style='height:30.00pt;' x:str>返回值</td>
+    <td x:str>见(4)</td>
+   </tr>
+   <![if supportMisalignedColumns]>
+    <tr width="0" style='display:none;'>
+     <td width="249" style='width:187;'></td>
+     <td width="788" style='width:591;'></td>
+    </tr>
+   <![endif]>
+  </table>
+

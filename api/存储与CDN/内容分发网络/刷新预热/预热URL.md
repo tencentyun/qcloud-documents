@@ -1,42 +1,42 @@
-<font color="orange">URL 预热接口目前仅开放内测，敬请期待全量开放</font>
+**URL 预热接口目前仅开放内测，敬请期待全量开放。**
 
 ## 接口描述
 
-**CdnUrlPusher**  将指定URL资源主动推送至CDN节点。
+**CdnUrlPusher**  将指定 URL 资源主动推送至 CDN 节点。
 
-请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
+请求域名：`cdn.api.qcloud.com`
 
 **注意事项：**
-+ 默认情况下，每一个账号每日可预热资源 1000条，每次最多可提交20条
-+ 内测用户子账号可使用自有SecretId、SecretKey预热有权限的资源
-+ 提交的 URL 必须以 http:// 或 https:// 开头
-+ 提交的 URL 中域名的状态需要为【已启动】或【部署中】
-+ 预热会导致回源带宽较高，请根据源站带宽来拆分提交预热任务
-+ 调用频次限制为 10000次/分钟
-+ 接口暂不支持子账号调用，子账号调用请使用[CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)
++ 默认情况下，每一个账号每日可预热资源 1000条，每次最多可提交 20 条。
++ 内测用户子账号可使用自有SecretId、SecretKey预热有权限的资源。
++ 提交的 URL 必须以 `http://` 或 `https://` 开头。
++ 提交的 URL 中域名的状态需要为【已启动】或【部署中】。
++ 预热会导致回源带宽较高，请根据源站带宽来拆分提交预热任务。
++ 调用频次限制为 10000 次 / 分钟。
++ 接口暂不支持子账号调用，子账号调用请使用 [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)。
 
-
-<font color="orange">旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态</font>
+> **注意：**
+> 旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态。
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
 ## 入参说明
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 CdnUrlPusher 。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 [公共请求参数](https://cloud.tencent.com/doc/api/231/4473) 页面。其中，此接口的 Action 字段为 CdnUrlPusher 。
 
 | 参数名称      | 是否必选 | 类型    | 描述                           |
 | --------- | ---- | ----- | ---------------------------- |
-| urls.n    | 是    | Array | 需要进行预热的资源URL列表               |
-| limitRate | 否    | Int   | 预热限速（单位为Mbps）<br/>最小限速为1Mbps |
+| urls.n    | 是    | Array | 需要进行预热的资源 URL 列表               |
+| limitRate | 否    | Int   | 预热限速（单位为Mbps）<br/>最小限速为 1 Mbps |
 
 #### 详细说明
 
-限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右。
+限速是针对域名维度进行，若设置了限速为 1 Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1 Mbps 左右。
 
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详见错误码页面[公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0 表示成功，其他值表示失败。<br/>详见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。详见错误码页面[业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
 | data     | Object | 返回结果数据                                   |
@@ -47,8 +47,8 @@
 
 | 参数名称 | 类型   | 描述                |
 | -------- | ------ | ------------------- |
-| task_id  | String | 提交的任务ID        |
-| count    | Int    | 此次提交URL预热数量 |
+| task_id  | String | 提交的任务 ID        |
+| count    | Int    | 此次提交 URL 预热数量 |
 
 ## 调用案例
 ### 示例参数
@@ -73,7 +73,7 @@ Action=CdnUrlPusher
 ```
 
 ### POST请求
-POST请求时，参数填充在HTTP Requestbody中，请求地址：
+POST 请求时，参数填充在 HTTP Requestbody 中，请求地址：
 
 ```
 https://cdn.api.qcloud.com/v2/index.php

@@ -11,7 +11,7 @@
         ILivePushOption.RecordFileType recordFileType = bRecord ?
                 ILivePushOption.RecordFileType.RECORD_HLS_FLV_MP4 : ILivePushOption.RecordFileType.NONE
         ILivePushOption option = new ILivePushOption()
-                .encode(ILivePushOption.Encode.HLS)         // 旁路直播协议类型
+                .encode(ILivePushOption.Encode.HLS_AND_RTMP)         // 旁路直播协议类型
                 .setRecordFileType(recordFileType)      // 录制文件格式
                 //手动推流自动录制时，如果需要后台识别特定的录制文件，用户可以通过这个字段做区分。
                 // (使用这个字段时，控制台的“自动旁路直播”开关必须关闭)
@@ -58,3 +58,5 @@ setRecordFileType 设置录制的视频文件格式，目前支持 HLS、FLV 和
     }
 ```
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

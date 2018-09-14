@@ -17,7 +17,7 @@
 ## 错误码
 | 错误码 | 描述 |
 |---|---|
-| Interna l Error | 内部错误。|
+| Internal Error | 内部错误。|
 | InvalidParameter | 参数错误。|
 | ResourceNotFound | 资源不存在。|
 

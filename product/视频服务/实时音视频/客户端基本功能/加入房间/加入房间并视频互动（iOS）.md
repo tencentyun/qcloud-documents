@@ -2,23 +2,36 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
-```obc
+
+```objc
 - (IBAction)onJoinRoom:(id)sender {
-    // 1. 创建房间配置对象，
+    // 1. 创建live房间页面
+    LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
+    
+    // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
+    // 配置进房票据
+    option.avOption.privateMapKey = privateMapKey;
+    option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
     // 不自动打开mic
     option.avOption.autoMic = NO;
+    // 设置房间内音视频监听
+    option.memberStatusListener = liveRoomVC;
+    // 设置房间中断事件监听
+    option.roomDisconnectListener = liveRoomVC;
     
-    // 2. 调用加入房间接口，传入房间ID和房间配置对象
+    // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
+    option.controlRole = #腾讯云控制台配置的角色名#;
+    
+    // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] joinRoom:[self.roomIDTF.text intValue] option:option succ:^{
         // 加入房间成功，跳转到房间页
-        LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] initWithOption:option];
-        [self.navigationController pushViewController:liveRoomVC animated:YES];
+        [self.navigationController pushViewController:liveRoomVC animated:YES];animated:YES];
     } failed:^(NSString *module, int errId, NSString *errMsg) {
         // 加入房间失败
         NSLog(@"加入房间失败 errId:%d errMsg:%@",errId, errMsg);
@@ -29,6 +42,7 @@
 
 ## 视频互动
 要与房间内其他用户进行视频互动，只需要打开摄像头和麦克风即可：
+
 ```objc
 /**
  打开/关闭 相机
@@ -58,6 +72,7 @@
 检测到有人关闭了摄像头 QAV_EVENT_ID_ENDPOINT_NO_CAMERA_VIDEO，则移除该用户的渲染视图。
 
 渲染视图的 frame 不是固定的，需要根据当前渲染视图的个数和产品需求进行计算。在本文提供的 Demo 中，简单的对渲染视图做了一个从上到下等分的布局，您也可根据需要自己定义布局逻辑。
+
 ```objc
 // 音视频事件回调
 - (BOOL)onEndpointsUpdateInfo:(QAVUpdateEvent)event updateList:(NSArray *)endpoints {
@@ -72,7 +87,7 @@
                  创建并添加渲染视图，传入userID和渲染画面类型，这里传入 QAVVIDEO_SRC_TYPE_CAMERA（摄像头画面）
                  */
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero forIdentifier:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher addRenderAt:CGRectZero foruserId:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [self.view addSubview:renderView];
                 [self.view sendSubviewToBack:renderView];
                 // 房间内打开摄像头用户数量变化，重新布局渲染视图
@@ -83,7 +98,7 @@
             {
                 // 移除渲染视图
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
-                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+                ILiveRenderView *renderView = [frameDispatcher removeRenderViewFor:endpoint.userId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [renderView removeFromSuperview];
                  // 房间内打开摄像头用户数量变化，重新布局渲染视图
                  [self onCameraNumChange];
@@ -122,11 +137,20 @@
 }
 ```
 > 注意：
-> 1. 添加渲染视图时，客户不用担心重复添加，SDK内部对用一用户的用一种类型视频源的渲染视图只会添加一次。
-> 2. 目前SDK内部限制了同时最多可以存在10个渲染视图。
+> 1. 添加渲染视图时，客户不用担心重复添加，SDK 内部对同一用户的同一种类型视频源的渲染视图只会添加一次。
+> 2. 目前 SDK 内部限制了同时最多可以存在 10 个渲染视图。
 
 ## 常见问题
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+[[ILiveSDK getInstance] setChannelMode:E_ChannelIMSDK withHost:@""];
+```
+
 切换角色失败，错误码 - 1 。
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
 
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

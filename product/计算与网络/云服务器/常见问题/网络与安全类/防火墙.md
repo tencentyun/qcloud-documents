@@ -1,0 +1,68 @@
+### Linux 系统如何配置防火墙软件 iptables？
+> **注意：**
+> iptables 在 CentOS 7 之前和之后的版本，有重大的改动。
+> - CentOS 7 之前，默认使用 iptables 服务作为防火墙，使用`service iptables stop`代码，iptables 服务会先清空规则，然后卸载 iptables 模块。重新 start 时，会从配置文件中加载规则。停止 iptables 服务可以测试是否防火墙限制。
+> ![](https://main.qcloudimg.com/raw/4a404e0187b0ee677034c0df82468e4a.png)
+> - CentOS 7 之后，默认使用 firewall 服务作为防火墙，为了兼容，同时加载了 iptables_filter 模块，但是没有了 iptables 服务。所以 CentOS 7 之后， 可以使用 iptables 命令添加规则，但是 iptables 服务默认关闭。用户确认 iptable_filter 模块加载，规则即可生效。
+
+判断防火墙，最稳妥的方法，是`iptables -nvL`查看规则。 
+以下列举两个示例说明如何配置： 
+#### 场景一
+Ubuntu 14 系统，已开放安全组，监听端口，但 telnet 不通。
+安全组入站规则：
+![](https://main.qcloudimg.com/raw/ef640902a0e0c78af6c07eb7102bb0d7.png)
+安全组出站规则：
+![](https://main.qcloudimg.com/raw/03a960f82b6e88fdca9aff8f10d76f4c.png)
+telnet 不通：
+![](https://main.qcloudimg.com/raw/74c521a97d4b9dab64b85ce62ab2cf86.png)
+#### 解决思路
+1. 首先对主机进行抓包，判断包是否到了主机。
+ - 如果没到主机，则可能是安全组或者上层 tgw、运营商封堵了。
+ - 如果包到了主机，但是回包出现了问题，那么极大可能是主机内部的 iptables 策略导致。如下图，telnet 后，没有向 64.11 回 TCP 包。
+![](https://main.qcloudimg.com/raw/1052893022c8786a9b7b0166a57ce16d.png)  
+
+2. 确认是 iptables 策略问题后，通过`iptables –nvL`确认策略是否放通了 8081 端口。此处没有放通这个端口。 
+![](https://main.qcloudimg.com/raw/bccfca60e3d707ae61c5ba236bf088f8.png) 
+3. 使用命令添加 8081 端口放通策略。
+```
+iptables -I INPUT 5 -p tcp  --dport 8081 -j ACCEPT
+```
+4. 测试 8081 端口通了，问题解决。  
+
+
+#### 场景二
+iptables 配置来看，已经放通策略，但是目的机器还是 ping 不通。
+![](https://main.qcloudimg.com/raw/46fdf4e20187c5b366c7773d73eb1cee.png)
+#### 解决思路
+若出现以下情况：
+![](https://main.qcloudimg.com/raw/d1b01f74223ed34c78a789dc43d53bc8.png)
+使用命令删除 output 方向的第一条规则：
+```
+iptabels –D OUTPUT 1
+```
+测试，问题解决。
+
+### 如何清除防火墙？
+#### Windows 实例：
+1. 登录实例后，单击 【开始】>【控制面板】【防火墙设置】，进入防火墙设置页面。
+
+2. 检查是否开启防火墙以及其他安全软件（如安全狗等），若开启，关闭即可。
+
+#### Linux 实例：
+1. 执行命令查看客户是否开启防火墙策略。若关闭，请跳过第 2 步，直接执行第 3 步：
+```
+iptables -vnL
+```
+
+2. 若开启防火墙策略，则执行命令将当前防火墙策略备份：
+```
+iptables-save
+```
+
+3. 执行命令清理防火墙策略。
+```
+iptables -F
+```
+
+### 使用非腾讯云 CDN 加速云服务器 CVM，是否会被防火墙拦截？
+不会。若您担心会有影响，可以关闭防火墙 。

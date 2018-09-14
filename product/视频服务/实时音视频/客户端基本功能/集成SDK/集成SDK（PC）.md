@@ -1,10 +1,10 @@
 本文将指导您完成在 PC 端下实时音视频客户端功能的 SDK 集成。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
 ## 操作步骤
 ### 创建 Win32 Console 工程
-1. 打开 Visual Studio ，点击【 文件 】菜单，选择【 新建 】-【 项目 】-【新建一个项目】：
+1. 打开 Visual Studio ，单击【 文件 】菜单，选择【 新建 】-【 项目 】-【新建一个项目】：
 ![](https://main.qcloudimg.com/raw/d372db4d91a96b59e51b5d4e8666c92d.png)
 
 2. 创建一个空工程：
@@ -15,11 +15,11 @@
 
 ### 集成 iLiveSDK
 
-1. 下载 iLiveSDK
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/iLiveSDK.zip)
+1. 下载iLiveSDK
+从github上[下载iLiveSDK](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo)
 
 2. 拷贝文件
-将 iLiveSDK 的 include 和 libs 拷贝到解决方案文件( .sln 文件 )所在的目录：
+将iLiveSDK目录下的include和libs拷贝到解决方案文件( .sln文件 )所在的目录：
 ![](https://main.qcloudimg.com/raw/bf2314afd8169bdd18d6f8930ce18b8d.png)
 
 3. 添加 include 目录
@@ -68,3 +68,5 @@ iLiveSDK暂时没有64位版本，需要切换成32位编译即可。
 恭喜，至此说明 iLiveSDK 已经成功集成。
 
 
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

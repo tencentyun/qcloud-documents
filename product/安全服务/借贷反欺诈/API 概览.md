@@ -135,7 +135,7 @@ idfa</td>
 <tr>
 <td> nameCryptoType</td>
 <td> Uint</td>
-<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5
 </td>
 </tr>
 </table>
@@ -150,7 +150,7 @@ idfa</td>
 | code | Int | 公共错误码</br>0：表示成功</br>其他值：表示失败</br>详见 [错误码](https://cloud.tencent.com/document/product/295/7285) 页面中的 **公共错误码** 相关内容 |
 | codeDesc | String | 业务侧错误码</br>成功时返回 Success</br>错误时返回具体业务错误原因 |
 | message | String | 模块错误信息描述，与接口相关。 |
-| idfound | Int | 表示该条记录中的身份证能否查到</br>1：能查到</br>-1：查不到 |
+| idFound | Int | 表示该条记录中的身份证能否查到</br>1：能查到</br>-1：查不到 |
 | found | Int | 表示该条记录能否查到</br>1：能查到</br>-1：查不到 |
 | riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大 |
 | riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 为 0 ：无此字段 |
@@ -160,7 +160,7 @@ RiskDetail 类型说明
 | 名称 | 类型 | 描述 |
 | ----- | ----- | ----- |
 | riskCode | UInt | 风险码 |
-| riskCodeValue | UInt | 风险详情值 |
+| riskCodeValue | UInt | 风险码等级 |
 
 
 

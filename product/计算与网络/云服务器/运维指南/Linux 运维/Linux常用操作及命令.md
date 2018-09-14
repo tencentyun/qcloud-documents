@@ -23,9 +23,9 @@ procinfo工具安装请参考Linux环境下安装软件。
 ## 7. 如何查看服务器进程信息？
 可以使用ps auxww|grep PID，ps -ef，lsof -p PID，top -p PID命令查看。 
 
-## 8. 如何杀死进程？
-可以使用kill -9 PID（进程号），killall 程序名（比如killall cron）来杀死进程。
-如果要杀死的是僵尸进程，则需要杀掉进程的父进程才有效果，命令为： kill -9 ppid（ppid为父进程ID号，可以通过ps -o ppid PID查找，例如ps -o ppid 32535）。 
+## 8. 如何停止进程？
+可以使用kill -9 PID（进程号），killall 程序名（比如killall cron）来停止进程。
+如果要停止的是僵尸进程，则需要杀掉进程的父进程才有效果，命令为： kill -9 ppid（ppid为父进程ID号，可以通过ps -o ppid PID查找，例如ps -o ppid 32535）。 
 
 ## 9. 如何查找僵尸进程？
 可以使用top命令查看僵尸进程（zombie）的总数，使用ps -ef | grep defunct | grep -v grep查找具体僵尸进程的信息。 
@@ -144,7 +144,7 @@ uname -a，cat /proc/version，cat /etc/issue
 
 ## 19. 如何设置通过SecureCRT连接云服务器的超时时间？
 可以通过如下设置，使SecureCRT连接云服务器时，不断开连接：
-打开secureCRT选项(Options)，选择会话选项（Session Opetions），点击终端（Terminal），在右侧反空闲（Anti-idle）的框中勾选发送协议NO-OP（Send protocol NO-OP），时间设置为每120秒(every 120 seconds)。 
+打开secureCRT选项(Options)，选择会话选项（Session Opetions），单击终端（Terminal），在右侧反空闲（Anti-idle）的框中勾选发送协议NO-OP（Send protocol NO-OP），时间设置为每120秒(every 120 seconds)。 
 
 ## 20. 为什么删除linux服务器上的文件，硬盘空间不释放？
 有时，登录linux服务器执行 rm 命令删除文件后，用 df 命令查看硬盘空间，发现删除文件后可用的硬盘空间没有增加。原因是通过 rm 命令删除文件的时候，如果正好有其它进程在访问该文件，通过 df 命令查看，删除的文件占用的空间是没有立即释放的。

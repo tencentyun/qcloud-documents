@@ -67,8 +67,17 @@
 ### 数据统计
 |功能名称|API 名称|描述|
 |-|-|-|
-|获取存储量|	[DescribeVodStorage](https://cloud.tencent.com/document/product/266/10012)|获取截止到昨天 23:59:59 的点播计费存储总量|
 |获取播放统计数据文件下载地址|	[GetPlayStatLogList](https://cloud.tencent.com/document/product/266/12624)|查询每天的播放统计文件下载地址|
+|查询汇总的CDN统计数据|	[DescribeCdnStat](https://cloud.tencent.com/document/product/266/15290)|查询指定域名在指定时间段累计的 CDN 统计数据（流量、带宽、请求数、请求命中率）|
+|查询按地区及运营商分布的CDN统计数据|	[DescribeCdnRegionIspDetailStat](https://cloud.tencent.com/document/product/266/15329)|查询指定域名指定日期按地区、运营商统计的国内 CDN 节点统计数据（流量、带宽、请求数）|
+|查询详细的CDN统计数据|	[DescribeCdnDetailStat](https://cloud.tencent.com/document/product/266/15330)|查询指定域名在指定时间段的 CDN 统计数据明细（流量、带宽、请求数、请求命中率）。|
+|查询域名列表|	[DescribeVodHosts](https://cloud.tencent.com/document/product/266/15331)|查询点播域名的信息。|
+|查询存储统计数据|	[DescribeStorage](https://cloud.tencent.com/document/product/266/15332)|查询使用的点播存储空间。|
+|查询每日播放 Top 100 的视频播放统计数据|	[DescribePlayStatTopFiles](https://cloud.tencent.com/document/product/266/15333)|查询指定日期播放次数 Top 100的视频文件播放统计数据。|
+|获取CDN日志下载链接|	[GetCdnLogList](https://cloud.tencent.com/document/product/266/15334)|获取指定时间段内点播 CDN 的日志下载链接。|
+|查询转码统计数据|	[DescribeTranscodeStat](https://cloud.tencent.com/document/product/266/15339)|查询指定时间段内每天的转码统计数据，包括编码格式、时长和次数。|
+
+
 ## 附录
 以下接口是已废弃的服务端 API 接口，具体废弃原因请参见对应文档。
 

@@ -1,0 +1,42 @@
+### 什么是弹性网卡？
+
+[弹性网卡](https://cloud.tencent.com/product/eni)（Elastic Network Interface，ENI）是绑定私有网络内云服务器的一种弹性网络接口，可在多个云服务器间自由迁移。弹性网卡在配置管理网络、搭建高可靠网络方案时有较大帮助。
+
+弹性网卡具有私有网络、可用区和子网属性，只可以绑定相同可用区下的云服务器。一台云服务器可以绑定多个弹性网卡，具体绑定数量将根据云服务器规格而定。
+
+### 云服务器使用弹性网卡有哪些约束？
+
+请参考使用限制总览 [弹性网卡相关限制](https://cloud.tencent.com/document/product/213/15379#.E7.BD.91.E5.8D.A1.E7.9B.B8.E5.85.B3.E9.99.90.E5.88.B6) 部分。
+
+### 弹性网卡有哪些基本信息？
+
+请参考 [弹性网卡简介](https://cloud.tencent.com/document/product/213/6514) **相关概念** 部分。
+
+### 如何创建弹性网卡？
+
+请参考弹性网卡操作指南 [创建弹性网卡](https://cloud.tencent.com/document/product/215/6513#.E5.88.9B.E5.BB.BA.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1) 部分。
+
+### 如何查看弹性网卡？
+
+请参考弹性网卡操作指南 [查看弹性网卡](https://cloud.tencent.com/document/product/215/6513#.E6.9F.A5.E7.9C.8B.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1) 部分。
+
+### 如何将弹性网卡绑定云服务器实例？
+
+请参考弹性网卡操作指南 [绑定和配置弹性网卡](https://cloud.tencent.com/document/product/215/6513#.E7.BB.91.E5.AE.9A.E5.92.8C.E9.85.8D.E7.BD.AE.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1.EF.BC.88.E9.87.8D.E8.A6.81.EF.BC.89) 部分。
+
+### 如何配置云服务器实例内的弹性网卡？
+
+请参考弹性网卡操作指南 [绑定和配置弹性网卡](https://cloud.tencent.com/document/product/215/6513#.E7.BB.91.E5.AE.9A.E5.92.8C.E9.85.8D.E7.BD.AE.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1.EF.BC.88.E9.87.8D.E8.A6.81.EF.BC.89) 部分。
+
+### 如何修改或自定义弹性网卡的内网 IP？
+
+私有网络中的云服务器支持修改与自定义弹性网卡内网 IP，控制台操作步骤如下：
+
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
+2. 单击左边栏【弹性网卡】，进入弹性网卡列表页。
+3. 单击弹性网卡的【 ID/名称】，进入弹性网卡详情页查看弹性网卡信息。
+4. 单击【IP 管理】进入详情页。
+5. 单击【分配内网IP】，分配 IP 方式选择 **手动填写**，输入您想修改的 IP 地址。
+6. 单击【确认】完成操作。
+
+控制台修改后，您还需要同步修改网卡的配置文件，请参考弹性网卡操作指南 [绑定和配置弹性网卡](https://cloud.tencent.com/document/product/215/6513#.E7.BB.91.E5.AE.9A.E5.92.8C.E9.85.8D.E7.BD.AE.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1.EF.BC.88.E9.87.8D.E8.A6.81.EF.BC.89) 部分。

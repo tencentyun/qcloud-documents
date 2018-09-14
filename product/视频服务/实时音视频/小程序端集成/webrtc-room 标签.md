@@ -8,17 +8,30 @@
 - **PC 端**
 用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
 
-- **微信端**
-发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
+- **Android 端**
+用 Android 手机 [下载 App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装 App 即可体验 Android 的效果。
+<img src="https://a.app.qq.com/o/image/microQr.png?pkgName=com.tencent.trtc" width="160">
 
-![](https://main.qcloudimg.com/raw/81edf044e0a40ccfd4794b91185f1f82.jpg)
+- **iOS 端**
+用 iOS 手机 扫码后通过 Safari 打开并安装 App 即可体验 iOS 的效果。
+<img src="https://main.qcloudimg.com/raw/87b0628665001ae24b58145d7527335d.png" width="150">
+
+
+- ##### 信任证书
+> 安装 App 后，还需要配置信任证书方可打开体验 (单击打开大图)
+- 设置->通用->设备管理->选择证书->信任证书
+![https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg](https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg)
+
+- **微信端**
+发现=>小程序=>搜索“腾讯视频云”，单击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
+![](https://main.qcloudimg.com/raw/00d3215b9865159429097ad7a9df4395.jpg)
 
 ## 对接资料
 
 | 对接资料 | 说明 | github地址 |
 |---------|---------|---------|
-| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及demo源码 | [前往](https://github.com/TencentVideoCloudMLVBDev/rtcroom_wxlite) |
-| PC端源码 | 基于[WebrtcAPI](https://cloud.tencent.com/document/product/647/16865)实现的Chrome版WebRTC接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js包含了对 WebRTC API 的使用代码） |  [前往](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc)|
+| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及 demo 源码 | [前往](https://github.com/TencentVideoCloudMLVBDev/rtcroom_wxlite) |
+| PC 端源码 | 基于 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) 实现的 Chrome 版 WebRTC 接入源码（其中 component/WebRTCRoom.js 实现了一个简单的房间管理功能，component/mainwindow.js 包含了对 WebRTC API 的使用代码） |  [前往](https://github.com/TencentVideoCloudMLVBDev/webrtc_pc)|
 | 后台源码 | 实现了一个简单的房间列表功能，同时包含&lt;webrtc-room&gt;几个所需参数的生成代码 | [前往](https://github.com/TencentVideoCloudMLVBDev/webrtc_server_java) |
 
 ## 标签详解
@@ -26,7 +39,7 @@
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
-| sdkAppID    | String  | ‘’                      | 必要，开通实时音视频服务创建应用后分配的sdkAppID       |
+| sdkAppID    | String  | ‘’                      | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
 | userID     | String  | ''                   |必要，用户 ID |
 | userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
 | roomID    | Number  | ‘’                      | 必要，房间号                           |
@@ -38,7 +51,7 @@
 | enableIM     | Boolean | true, false             | 可选，默认false   |
 | bindIMEvent     | function |             | 当IM开启时必要，监听 IM 返回的事件   |
 
-> 小程序实时音视频与WebRTC互通只需要保证两端的 sdkAppID 与 roomID 一致
+> 小程序实时音视频与 WebRTC 互通只需要保证两端的 sdkAppID 与 roomID 一致
 
 ### 操作接口
 
@@ -157,7 +170,7 @@ Page({
 
 ### step1: 下载自定义组件源码
 
-**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。点击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
+**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
 
 ### step2: 在工程中引入组件
 - 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。

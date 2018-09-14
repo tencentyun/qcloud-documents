@@ -10,7 +10,7 @@
 /**
  * 获取会话
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return 会话实例
  */
 public TIMConversation getConversation(TIMConversationType type, String peer)
@@ -23,14 +23,14 @@ public TIMConversation getConversation(TIMConversationType type, String peer)
 String peer = "sample_user_1";  //获取与用户 "sample_user_1" 的会话
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.C2C,    //会话类型：单聊
-        peer);                      //会话对方用户帐号//对方id
+        peer);                      //会话对方用户帐号//对方ID
  
 //获取群聊会话
 String groupId = "TGID1EDABEAEO";  //获取与群组 "TGID1LTTZEAEO" 的会话
 
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.Group,      //会话类型：群组
-        groupId);                       //群组 Id
+        groupId);                       //群组 ID
 ```
 
 **消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
@@ -141,8 +141,8 @@ public void setLevel(int level)
 public boolean cancelUploading()
 
 /**
- * 获取图片上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 图片上传任务 id
+ * 获取图片上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 图片上传任务 ID
  */
 public int getTaskId()
 
@@ -357,8 +357,8 @@ public long getDuration()
 public void setDuration(long duration)
 
 /**
- * 获取语音上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 语音文件上传任务id
+ * 获取语音上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 语音文件上传任务ID
  */
 public int getTaskId()
 
@@ -528,8 +528,8 @@ public String getPath()
 public void setPath(String path)
 
 /**
- * 获取文件上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 文件上传任务 id
+ * 获取文件上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 文件上传任务 ID
  */
 public int getTaskId()
 ```
@@ -690,7 +690,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#5-.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
 
 > **注意：**
 > 通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取 C2C 离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
@@ -754,8 +754,8 @@ public ArrayList<TIMImage> getImageList()
 
 >- 如果原图尺寸就小于 198 像素，则三种规格都保持原始尺寸，不需压缩。
 >- 如果原图尺寸在 198~720 之间，则大图和原图一样，不需压缩。
->- 在手机上展示图片时，建议优先展示缩略图，用户点击缩略图时再下载大图，点击大图时再下载原图。当然开发者也可以选择跳过大图，点击缩略图时直接下载原图。
->- 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户点击大图时再下载原图。
+>- 在手机上展示图片时，建议优先展示缩略图，用户单击缩略图时再下载大图，单击大图时再下载原图。当然开发者也可以选择跳过大图，单击缩略图时直接下载原图。
+>- 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户单击大图时再下载原图。
 
 **示例：  **
 
@@ -808,7 +808,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户点击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
 
 **原型：**
 ```
@@ -866,7 +866,7 @@ TIMMessageExt msgExt = new TIMMessageExt(msg);
 
 ### 消息是否已读
 
-通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
+通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -956,7 +956,7 @@ public boolean remove()
 消息 ID 也有两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间未读，可以认为 10 分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
 
 ```
-//获取消息 Id
+//获取消息 ID
 public String getMsgId()
 
 //获取消息uniqueId
@@ -965,7 +965,7 @@ public long getMsgUniqueId()
 
 ### 消息自定义字段
 
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
+开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
 
 ```
 //设置自定义整数， 默认为 0
@@ -1012,7 +1012,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 已读回执
 
-ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候会给聊天对方发送已读回执。
+ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候会给聊天对方发送已读回执。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1086,7 +1086,7 @@ public TIMMessageLocator getMessageLocator()
  * 获取所有会话
  * @return 会话列表
  */
-public List<TIMConversation> getConversionList()
+public List<TIMConversation> getConversationList()
 ```
 
 **示例：**
@@ -1224,7 +1224,7 @@ ImSDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删
 /**
  * 删除会话缓存
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return true 成功  false 失败
  */
 public boolean deleteConversation(TIMConversationType type, String peer)
@@ -1233,7 +1233,7 @@ public boolean deleteConversation(TIMConversationType type, String peer)
 /**
  * 删除会话缓存并同时删除该会话相关的本地消息
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return true 成功  false 失败
  */
 public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String peer)
@@ -1471,7 +1471,7 @@ notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY
 PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
 mBuilder.setContentTitle(senderStr)//设置通知栏标题
             .setContentText(contentStr)
-            .setContentIntent(intent) //设置通知栏点击意图
+            .setContentIntent(intent) //设置通知栏单击意图
             .setNumber(++pushNum) //设置通知集合的数量
             .setTicker(senderStr+":"+contentStr) //通知首次出现在通知栏，带上升动画效果的
             .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间                  

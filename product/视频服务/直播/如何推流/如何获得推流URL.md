@@ -1,5 +1,5 @@
 ## 1.快速获得地址
-如果您是想要生成一组URL用于测试，那您只需要打开[直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage)，点击**生成推流地址**按钮，即可生成一个推流URL和三种不同播放协议的播放URL。
+如果您是想要生成一组URL用于测试，那您只需要打开[直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage)，单击**生成推流地址**按钮，即可生成一个推流URL和三种不同播放协议的播放URL。
 
 ![](//mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png)
 

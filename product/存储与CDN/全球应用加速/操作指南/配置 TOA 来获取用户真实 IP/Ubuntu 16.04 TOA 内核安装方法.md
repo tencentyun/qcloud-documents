@@ -2,7 +2,7 @@
 [内核包下载地址>>](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb)
 
 
-[内核 header 包下载地址>>](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
+[内核 Headers 包下载地址>>](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
 
 ## 安装方法
 Headers 包为选装，可在需要做相关开发时再安装。请先安装内核包。

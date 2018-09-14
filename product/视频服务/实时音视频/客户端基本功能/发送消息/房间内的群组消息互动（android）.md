@@ -1,7 +1,7 @@
 本文将指导您的客户端使用IM功能，在房间内收发消息。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_msg.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_msg.zip)
 ## 相关概念
 本课程涉及到的概念有：
  * [群组系统](/document/product/647/16792#.E7.BE.A4.E7.BB.84.E7.B3.BB.E7.BB.9F)
@@ -14,12 +14,15 @@
 
 ## 开启IM功能
 修改房间模块中的创建和加入房间，配置 imsupport 为true 。
+
+> 在配置imsupport为true时，createRoom会自动创建IM群组，quitRoom时创建者会自动解散群组
+
 ```
     // 创建房间
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
                 .imsupport(true)       // 开启IM功能
-                .groupType("AVChatRoom")    // 使用实时音视频聊天室(默认)
+                .groupType("Public")    // 使用实时音视频聊天室(默认)
                 .exceptionListener(this)
                 .roomDisconnectListener(this)
                 .controlRole("LiveMaster")
@@ -155,3 +158,6 @@ MessageObservable.getInstance().deleteObserver(this);
 
 - 加入房间失败，错误模块 IMSDK，错误码 10010。
 > 这表示要加入的IM群组不存在，需要检测是否先创建了群组（创建房间 imsupport 为 true 时会自动创建群组），并确认群组类型一致。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

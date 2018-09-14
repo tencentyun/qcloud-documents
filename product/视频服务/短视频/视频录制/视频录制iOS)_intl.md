@@ -184,6 +184,6 @@ Use [Video Playback](https://cloud.tencent.com/document/product/584/9372) to pre
 The verification of short video license is added in the new version of SDK. If you fail to pass the verification, you can use the API to query specific information in the license.
 
 ``` 
-NSString *licenceInfo = [[TXUGCRecord shareInstance] getLicenceInfo];
+NSString *licenceInfo = [TXUGCBase getLicenceInfo];
 ``` 
 

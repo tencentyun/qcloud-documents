@@ -4,13 +4,15 @@
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
-| Android      | TBS | 43600                |   [TBS 介绍](http://x5.tencent.com/)   |
+| Android      | TBS （微信和手机QQ的默认Webview） | 43600                |   微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) ，<br />   |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
-| Windows(PC)  | Chrome | 52+                |  | |
+| Mac          | Safari | 11+                |      |
+| Windows(PC)  | Chrome | 52+                |      |
+| Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2 | &nbsp;     |
 
-> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 示例代码 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc)中有获取 TBS 版本的方法。
 
+> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc) 中有获取 TBS 版本的方法。
 
 ## 基本名词
 
@@ -31,7 +33,7 @@
 
 | 名词      | 含义                                       |
 | ------- | ---------------------------------------- |
-| userId  | 也叫 identifier，在 App 中标示用户的身份,一般大家都把他叫做用户名    |
+| userId  | 在 App 中标示用户的身份,一般大家都把他叫做用户名    |
 | userSig | 身份签名，相当于登录密码的作用。每个 userId 都有一个有一定期限的签名，在请求的时候带上，以便腾讯云鉴别用户的身份。 |
 
 
@@ -41,9 +43,21 @@
 | ------- | ---------------------------------------- |
 | spear 角色 | 一个视频用户的分辨率、码率、帧率等信息的配置信息集合名，可以在应用的 Spear 引擎页面维护 |
 | roomId  | 用来标识一个视频通话房间。roomId 相同的用户才能相互看到             |
-| privateMapKey  | 房间权限key，相当于进入指定房间roomId的钥匙             |
+| privateMapKey  | 房间权限key（密文），相当于进入指定房间roomId的钥匙             |
+
+> privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，你可以忽略这部分内容
 
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
+
+## 如何配置是是否使用房间权限key进行权限校验呢？
+
+
+进入[实时音视频控制台](https://console.qcloud.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
+** 特别注意，这里的策略修改后，需要2小时后才能全量生效 **
+
+![启用权限密钥](https://main.qcloudimg.com/raw/c60b5cf33ea2c0bc291a7700f252b8c1.png)
+
+打开开关表示校验密文，关闭开关表示校验明文。
 
 ## 接入准备工作
 
@@ -54,14 +68,42 @@
 
 | 协议      | 端口号                                       |
 | ------- | ---------------------------------------- |
-| TCP | 8687 、443 |
-| UDP  | 8000 、 8800 <br/>42000、42200 <br/>42201、42800 <br/>52000、52200 |
+| TCP | 8687 |
+| UDP  | 8000 、 8800 、 443 |
 
 使用 CDN 引入SDK。
 ### 在页面中引入 WebRTCAPI.min.js
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.2/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0/WebRTCAPI.min.js"></script>
 ```
 
 
+
+### 更新日志
+
+- 3.0（ 2018-09-11 ）
+
+  - 初始化接口 默认不推流（closeLocalMedia 参数被弃用）
+    
+- 2.6.1（ 2018-08-16 ）
+
+  - 增加接口 getSpeakerDevices
+
+    枚举音频输出设备
+
+  - 增加接口chooseSpeakerDevice
+
+    选择音频输出设备
+
+    
+
+- 2.6 （ 2018-08-10）
+
+  - 新增SoundMeter接口
+
+  - 新增日志上报的字段
+
+  - createRoom 名称改为 enterRoom 
+
+    

@@ -2,7 +2,7 @@
 本文将指导您在客户端将通过仓库集成 iLiveSDK，并向腾讯云完成登录过程。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_login.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_login.zip)
 
 ## 前提条件
 要求用户在[ 实时音视频官网 ](https://cloud.tencent.com/product/trtc)完成服务开通及应用创建。
@@ -11,11 +11,11 @@
  - [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
  - [应用标识( sdkAppId )](https://cloud.tencent.com/document/product/647/16792#.E5.BA.94.E7.94.A8.E6.A0.87.E8.AF.86.EF.BC.88-sdkappid-.EF.BC.89)
  - [帐号类型( accountType )](https://cloud.tencent.com/document/product/647/16792#.E5.B8.90.E5.8F.B7.E7.B1.BB.E5.9E.8B.EF.BC.88-accounttype-.EF.BC.89)
- - [用户标识( identifier )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-identifer-.EF.BC.89)
+ - [用户标识( userId )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-userId-.EF.BC.89)
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## 获取 userSig
-客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成userSig，拿到新的userSig再登录。
+客户端的每一个用户都需要一个独立的 userSig，userSig 是有效期的( 在生成时设置，一般为三个月 )，如果 userSig 过期，用户登录时会收到错误码 8051，这时用户需要重新生成 userSig，拿到新的 userSig 再登录。
 
 ```java
     /** 票据过期(需更新票据userSig) */
@@ -27,7 +27,7 @@
 ## 添加依赖( 集成 SDK )
 修改 build.gradle 文件，在 dependencies 中添加 iLiveSDK 的依赖：
 ```
-compile 'com.tencent.ilivesdk:ilivesdk:1.8.5'
+compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
 
 ## 初始化 iLiveSDK
@@ -76,8 +76,8 @@ public class LoginHelper {
         loginView = view;
     }
 
-    public void loginSDK(String identifier, String userSig){
-        ILiveLoginManager.getInstance().iLiveLogin(identifier, userSig, new ILiveCallBack() {
+    public void loginSDK(String userId, String userSig){
+        ILiveLoginManager.getInstance().iLiveLogin(userId, userSig, new ILiveCallBack() {
             @Override
             public void onSuccess(Object data) {
                 loginView.onLoginSuccess();
@@ -154,13 +154,13 @@ ILiveLoginManager.getInstance().setUserStatusListener(StatusObservable.getInstan
 ## UI 开发
 客户端需要登录，所以可能需要单独一个页面来输入用户名，密钥，这些都是 Android 开发基础知识，就不一一讲解了。
 
-登录应用的onCreated事件中，可以创建上面定义的模块：
+登录应用的 onCreated 事件中，可以创建上面定义的模块：
 ```Java
 loginHelper = new LoginHelper(this);
 ```
-然后在点击登录事件后，获取用户输入的 identifier 和 userSig，调用 loginHelper 的登录接口进行登录：
+然后在单击登录事件后，获取用户输入的 userId 和 userSig，调用 loginHelper 的登录接口进行登录：
 ```Java
-loginHelper.loginSDK(identifier, userSig);
+loginHelper.loginSDK(userId, userSig);
 ```
 
 ## 常见问题
@@ -180,3 +180,7 @@ Error:Could not resolve all files for configuration ':app:debugCompileClasspath'
 - 登录未返回错误模块 IMSDK, 错误码 70009, 错误描述：tls_check_signature failed decrypt sig failed failed iRet:-2 sdkappid:14000xxxxx,acctype:xxxx,identifier:guest sig:E9vB6Ocs42J8A5lZW6s_
 
 > 这种问题一般为登录的 userSig 与 id 不匹配引起，需要生成 userSig 的密钥与初始化时使用的 sdkAppId 是否对应
+
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

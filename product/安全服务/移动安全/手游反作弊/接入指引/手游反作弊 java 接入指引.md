@@ -33,7 +33,7 @@ SDK 接口函数：
 ![](https://mc.qcloudimg.com/static/img/eab83b3ae6d2a13b8f6a8479137a5e07/image.png)
 
 #### 2.2 工程属性设置
-在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，点击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中点击 [add JARs] 添加 tp2.jar
+在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar
 ![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
  选择已拷贝到工程目录的 tp2.jar
  ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
@@ -141,7 +141,7 @@ TP2Sdk.onResume();
 ```
 
 ### 4. 验证 SDK 接入是否正确
-1. 将安卓手机通过 usb 数据线连接 windows 电脑。连接成功后，使用 windows 的命令行工具，登录到 android adb 控制台，如图：
+1. 将安卓手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 android adb 控制台，如图：
 ![](https://mc.qcloudimg.com/static/img/091f2d44b4862e843748fdd9655e9914/image.png)
 2. 敲入 cd /sdcard 回车，再敲入 mkdir sdk 回车，用于创建 / sdcard/sdk 目录。其中，如果目录已经存在，则系统会提示 mkdir failed for /sdcard/sdk，File exists，继续下一步：
 ![](https://mc.qcloudimg.com/static/img/748c74c2ef3f5bec2a650f3d8eb0bdc6/image.png)

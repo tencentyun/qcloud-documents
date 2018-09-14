@@ -3,7 +3,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 - 丰富的数据源
    - 本地数据：将本地存储的数据迁移到 COS。
 
-   - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展 。
+   - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
 
    - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
    
@@ -22,11 +22,11 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 Linux 或 Windows 环境
 
 ### 软件依赖
-- JDK1.7 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)
+- JDK1.7 X64 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
-下载链接：[COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)
+下载链接：[COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)。
 
 ### 2. 解压缩工具包
 #### Windows
@@ -308,7 +308,11 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 这是触发频控所导致，COS 目前对一个账号具有每秒 800 QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
 
 #### 6. 迁移失败，日志显示 404 NoSuchBucket，该怎么办？
-请确认你的密钥信息，Bucket 信息，Region 信息是否正确。
+请确认您的密钥信息，Bucket 信息，Region 信息是否正确。
 
-#### 7. 其他问题
+#### 7. 运行异常，显示如下的信息该怎么办?
+![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
+此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
+
+#### 8. 其他问题
 请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。

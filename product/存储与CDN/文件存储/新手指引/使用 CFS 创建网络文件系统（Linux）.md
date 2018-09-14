@@ -158,25 +158,21 @@ sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
 ```
-sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/ <待挂载目标目录>
+sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/<FSID> <待挂载目标目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
-- NFS v3.0 仅支持子目录挂载，缺省文件系统子目录为 FSID 或者 "nfs" 。
+- NFS v3.0 仅支持子目录挂载，缺省文件系统子目录为 FSID。
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 示例
 
 > **注意：**
-> `<挂载点IP>:/`与`<待挂载目标目录>`之间有一个空格。
+> `<挂载点IP>:/<FSID>` 与 `<待挂载目标目录>`之间有一个空格。
 
 
 示例：
 - 挂载 CFS 子目录 subfolder：
 ```
 mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/z3r6k95r /local/test
-```
-- 挂载 CFS 子目录 subfolder：
-```
-mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
 ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
@@ -219,7 +215,7 @@ mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
 > **注意：**
-> `<FSID>/`与`<待挂载目标目录>`之间有一个空格。
+> `<FSID>` 与 `/<待挂载目标目录>`之间有一个空格。
 
 示例：
 

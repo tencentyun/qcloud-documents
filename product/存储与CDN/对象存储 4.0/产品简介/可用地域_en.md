@@ -1,9 +1,9 @@
 COS supports multi-region storage, and different regions have different access domains by default. It is recommended to choose the nearest storage region according to your own business scenarios, so as to improve the object upload and download speed.
 ## Available Regions and Access Domain Names
 ><font color="#0000cc">**Note:** </font>
-- After creating the bucket, the default domain name can be viewed through the bucket "Domain Management" of [Object Storage Console](https://console.qcloud.com/cos4).
-- bucketname is the name given upon creating a bucket, and it can be viewed through the bucket "Basic Configuration" of [Object Storage Console](https://console.qcloud.com/cos4).
-- APPID is one of the account identifiers assigned by the system after the successful application of Tencent Cloud account, which can be viewed through "Account Information" of [Tencent Cloud Console](https://console.qcloud.com/developer).
+- After creating the bucket, the default domain name can be viewed through the bucket "Domain Management" of [Object Storage Console](https://console.cloud.tencent.com/cos4).
+- bucketname is the name given upon creating a bucket, and it can be viewed through the bucket "Basic Configuration" of [Object Storage Console](https://console.cloud.tencent.com/cos4).
+- APPID is one of the account identifiers assigned by the system after the successful application of Tencent Cloud account, which can be viewed through "Account Information" of [Tencent Cloud Console](https://console.cloud.tencent.com/developer).
 
 #### For XML API
 | Region | Abbreviation | Default Domain Name (Upload/Download/Management) |
@@ -44,7 +44,7 @@ example-1234567890.cos.ap-guangzhou.myqcloud.com
  ```
  
 **Suggestions on cross-region access in private network:
-As different Tencent Cloud Services in different regions cannot be accessed directly through private network. You can deploy an exclusive network channel through VPC when necessary. For more information, please see [VPC Product Introduction](https://www.qcloud.com/product/vpc.html).**
+As different Tencent Cloud Services in different regions cannot be accessed directly through private network. You can deploy an exclusive network channel through VPC when necessary. For more information, please see [VPC Product Introduction](https://cloud.tencent.com/product/vpc.html).**
 For example:
 A CVM in the region Guangzhou can access the data on Singapore COS through a VPC channel.
 

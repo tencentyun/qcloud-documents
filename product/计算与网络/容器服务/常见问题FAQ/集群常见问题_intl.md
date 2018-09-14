@@ -10,7 +10,7 @@ The selected network and subnet is the subnet to which the CVM in the cluster be
 ### 3. What are the supported model types for creating clusters?
 All models with postpaid system disks worked as cloud storage are supported.
 
-### 4. What operating systems are supported for the current CCS hosts?
+### 4. What operating systems are supported for the current TKE hosts?
 Currently, Ubuntu 16.04 is supported. CentOS 7 will become supported soon. Submit a ticket or contact us through QQ group if you wish to use other operating systems.
 
 ### 5. What are the lower storage limit and upper storage limit for system disk?

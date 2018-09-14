@@ -1,7 +1,7 @@
 本文将指导您的客户端将加入之前所创建的房间，并与其他用户音视频互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
 
 ## 加入房间
@@ -13,9 +13,10 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
+roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
-roomOption.controlRole = "LiveGuest";      //使用Spear上配置的"LiveGuest"角色
+roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
 roomOption.memberStatusListener = OnMemStatusChange;//房间内成员状态变化回调
 roomOption.data = NULL;//在回调中原封不动传回的void*数据指针;
 
@@ -44,3 +45,14 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 
 ![](https://main.qcloudimg.com/raw/7f16017270f4be5d36d8954b85dd57d6.png)
 
+## 常见问题
+
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+GetILive()->setChannelMode(E_ChannelIMSDK);
+```
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

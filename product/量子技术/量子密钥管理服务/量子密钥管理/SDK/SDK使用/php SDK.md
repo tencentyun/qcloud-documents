@@ -14,7 +14,7 @@
     $secretKey = "";
     $endPoint = "";
     $kms_account = new KMSAccount($endPoint,$secretId,$secretKey);
-```
+``` 
 ### 初始化客户端配置
 客户端默认使用 sha1 签名算法，可以调用签名算法修改签名方式
 
@@ -94,7 +94,7 @@
 
 ```
     KeyMetadata meta;
-    string keyId=""  # 请填写你的keyId
+    string keyId=""  # 请填写您的keyId
     $kms_meta = $kms_account->get_key_attributes($keyId);
 ```
 
@@ -194,7 +194,7 @@
 #### 使用示例
 
 ```
-    $KeyId= ""  // 请填写你的keyId;
+    $KeyId= ""  // 请填写您的keyId;
     $kms_account->enable_key($KeyId);
 ```
 ### 禁用主密钥
@@ -214,7 +214,7 @@
 #### 使用示例
 
 ```
-    $KeyId= ""  // 请填写你的keyId;
+    $KeyId= ""  // 请填写您的keyId;
     $kms_account->disable_key($KeyId);
 ```
 

@@ -1,0 +1,47 @@
+## 1. 接口描述
+
+本接口(ModifySnapshot)用于修改快照信息，暂时只支持修改快照名称。
+
+接口请求域名：<font style="color:red">snapshot.api.qcloud.com</font>
+
+使用限制：
+
+无特殊限制。具体参数限制见下表。
+
+## 2. 输入参数
+
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://cloud.tencent.com/document/product/240/8320)页面。
+
+| 参数名称 | 必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| snapshotId | 是 | String | 快照ID,,可通过[DescribeSnapshots(查询快照列表)](https://cloud.tencent.com/doc/api/364/2530)查询|
+| snapshotName | 是 | String | 新的快照名称。最长为60个字符，不区分中英文|
+
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 错误码。0: 成功, 其他值: 失败|
+| message | String | 错误信息|
+
+
+## 4. 示例
+
+输入
+```
+https://snapshot.api.qcloud.com/v2/index.php?
+<公共请求参数>
+&Action=ModifySnapshot
+&snapshotId=snap-ecp37wk1
+&snapshotName=mySnap
+```
+
+输出
+```
+{
+    "code":"0",
+    "message":""
+}
+```
+

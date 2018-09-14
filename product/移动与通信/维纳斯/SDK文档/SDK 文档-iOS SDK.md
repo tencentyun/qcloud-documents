@@ -283,7 +283,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
-| ip | NSString | 是 |  使用固定IP : 183.60.76.15|
+| IP | NSString | 是 |  使用固定IP : 183.60.76.15|
 | port | unsigned short | 是 |  可选的端口：80或0|
 
 

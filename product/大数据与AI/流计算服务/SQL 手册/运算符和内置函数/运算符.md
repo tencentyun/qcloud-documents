@@ -1,0 +1,17 @@
+本节介绍 SCS 系统内置的运算符和函数。下文使用的语法含义：
+ `{ }`表示可选且任选一项，例如 { BOTH | LEADING | TRAILING } 表示可以不填（使用默认行为），也可以使用 BOTH 或 LEADING 或 TRAILING 的任意一项。不同项的功能不同。
+
+ `[ ]`表示可选项，而`*`表示重复 0 或多次，例如 `[, value]*`表示后续有 0 个或多个 “, value”，这种用法常用来表示不定数目的参数，例如 value, value, value … value。
+
+ 小写字母构成的字符串表示某个变量，例如 value1、value、boolean、numeric 等，而大写字母（例如 IS NULL）或符号（例如 =、<）表示运算符或内置函数。
+
+- [比较函数](/document/product/849/18078)
+- [逻辑函数](/document/product/849/18082)
+- [算术函数](/document/product/849/18080)
+- [字符串操作函数](/document/product/849/18073)
+- [条件函数](/document/product/849/18076)
+- [类型转换函数](/document/product/849/18079)
+- [时间相关函数](/document/product/849/18075)
+- [聚合函数](/document/product/849/18081)
+- [时间窗口函数](/document/product/849/18077)
+- [其他函数](/document/product/849/18074)

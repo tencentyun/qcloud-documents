@@ -22,7 +22,7 @@ sdk.sendGroupMessage(message, function () {
 After listening for broadcast message is configured, broadcast messages can be received. Broadcast message can be configured after being initialized.
 
 ```JS
-sdk.setGroupListener(function (msg) {
+sdk.setMessageListener(function (msg) {
     //The definition of msg is described in the API documentation.
 })
 ```
@@ -47,7 +47,7 @@ sdk.sendC2CMessage("somebody", message, function () {
 After listening for C2C message is configured, C2C messages can be received. C2C message can be configured after being initialized.
 
 ```JS
-sdk.setC2CListener(function (msg) {
+sdk.setMessageListener(function (msg) {
     //The definition of msg is described in the API documentation.
 })
 ```

@@ -53,7 +53,7 @@
 
 ### 四、添加现有 CVM 实例进伸缩组
 
-1. 在 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling) 点击伸缩组名称，进入伸缩组管理页面，单击【关联云主机】>【添加云主机】。
+1. 在 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling) 单击伸缩组名称，进入伸缩组管理页面，单击【关联云主机】>【添加云主机】。
 ![](//mc.qcloudimg.com/static/img/9063e98237388d8bfbbb72f267103a42/image.png)
 
 2. 在弹出的对话框中，选择集群已有的服务器加入伸缩组。非高峰时期，建议退还集群中未充分利用的服务器以节约成本。

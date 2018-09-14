@@ -223,7 +223,7 @@ function convertSoundMsgToHtml(content) {
 //解析文件消息元素
 function convertFileMsgToHtml(content) {
     var fileSize = Math.round(content.getSize() / 1024);
-    return '<a href="' + content.getDownUrl() + '" title="点击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
+    return '<a href="' + content.getDownUrl() + '" title="单击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
 }
 ```
 

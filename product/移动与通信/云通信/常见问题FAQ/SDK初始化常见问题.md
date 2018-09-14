@@ -36,10 +36,10 @@ Web：
 webim.Log.setOn(0);
 ```
 
-## 1.7 升级 1.8 出现异常
+## 升级 1.8 出现异常
 
 ```
-E/imsdk.IMMsfCoreProxy: [E]OnExchangeTicketTimeout|code: -1000 desc: 请求失败，请你稍后重试。
+E/imsdk.IMMsfCoreProxy: [E]OnExchangeTicketTimeout|code: -1000 desc: 请求失败，请您稍后重试。
 E/beacon: ChannelID: unknown
 login imserver failed. code: 6012 errmsg: operation timeout: wait server rsp timeout or no network.
 ```
@@ -49,7 +49,7 @@ login imserver failed. code: 6012 errmsg: operation timeout: wait server rsp tim
 ## 出现 6013 SDK 未初始化错误
 
 1.查看是否没有登录成功，就进行收发消息等其他操作。
-2.查看是否登录时被其它终端踢掉，IMSDK 默认一个帐号仅能在一个终端上登录。处理方式请参考 [互踢逻辑](/doc/product/269/初始化（Android%20SDK）#5-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4.EF.BC.88.E4.BA.92.E8.B8.A2.EF.BC.89)。
+2.查看是否登录时被其它终端踢掉，IMSDK 默认一个帐号仅能在一个终端上登录。处理方式请参考 [互踢逻辑](/doc/product/269/初始化（Android%20SDK）#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4.EF.BC.88.E4.BA.92.E8.B8.A2.EF.BC.89)。
 3.Android 请关注库文件是否未能全部加载，或是使用过程中被系统回收。
 
 ## 互踢

@@ -11,7 +11,7 @@
 使用 Python SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。获取云 API 密钥的方法如下：登录[腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】-【云 API 密钥】选项
 ![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
 
-用户可在此新建新的云 API 密钥或使用现有密钥。点击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
+用户可在此新建新的云 API 密钥或使用现有密钥。单击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
 ![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
 
 #### endpoint 说明

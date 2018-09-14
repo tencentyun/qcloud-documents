@@ -123,13 +123,13 @@
 <td> mouseClickCount
 </td><td> 可选
 </td><td> UInt
-</td><td> 用户操作过程中鼠标点击次数
+</td><td> 用户操作过程中鼠标单击次数
 </td></tr>
 <tr>
 <td> keyboardClickCount
 </td><td> 可选
 </td><td> UInt
-</td><td> 用户操作过程中键盘点击次数
+</td><td> 用户操作过程中键盘单击次数
 </td></tr>
 <tr>
 <td> result

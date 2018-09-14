@@ -5,13 +5,13 @@
 * CDN 节点检查视频 URL 中的参数和签名，对视频播放请求进行控制。如果请求检查不通过，将返回403响应码。
 
 ## 配置向导
-腾讯云点播【控制台】>【全局设置】>【域名设置】>【防盗链设置】。
+腾讯云点播【控制台】>【分发播放设置】>【域名设置】>【防盗链设置】。
 
-![图片描述](https://mc.qcloudimg.com/static/img/cf5a076e57d3287852bf4ab3fe609bbe/image.png)
+![图片描述](https://main.qcloudimg.com/raw/3d70d1d5a52fd5803b8a7ff0bdb8f638.png)
 
 启用 Key 防盗链 -> 生成 KEY -> 确定。
 
-![图片描述](https://mc.qcloudimg.com/static/img/12e25bcc2cd7dd87aec2067a5c2910a3/image.png)
+![图片描述](https://main.qcloudimg.com/raw/a7ec87316fd73b9cc747408df25fc766.png)
 
 保存配置后，大概需要 5 分钟使所有 CDN 节点生效该配置。
 
@@ -28,7 +28,7 @@ QueryString 中的防盗链参数必须按照`t`，`exper`，`us`，`sign`的顺
 ### 防盗链参数
 | 参数名 | 必选 | 说明 |
 | --- | --- | --- | --- |
-| KEY | 是 | 开启 Key 防盗链时填写的密钥。必须由大小写字母（a-Z）或者数字（0-9）组成，长度在8-20个字符之间。建议在控制台中点击“生成 KEY”按钮生成。 |
+| KEY | 是 | 开启 Key 防盗链时填写的密钥。必须由大小写字母（a-Z）或者数字（0-9）组成，长度在8-20个字符之间。建议在控制台中单击“生成 KEY”按钮生成。 |
 | Dir | 是 | 视频原始 URL 的 PATH 中除去文件名的那部分路径。假设原始 URL 为`http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4`，则播放路径为`/dir1/dir2/`。|
 | t |  是 | 播放地址的过期时间戳，以 Unix 时间的16进制小写形式表示。过期后该 URL 将不再有效，返回 403 响应码。过期时间戳不要过短，使视频有足够时间完整播放。 |
 | exper | 否 | 试看时长，单位为秒，以十进制表示。不填或者填0表示不试看（即返回完整视频）。试看时长不要超过视频原始时长，否则可能导致播放失败。 |
@@ -101,8 +101,8 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=7
 ## Key 防盗链生成和校验工具
 点播为开发者提供了 Key 防盗链 URL 的生成工具和校验工具，开发者可以使用该工具快捷准确地生成和校验符合要求的防盗链 URL。
 
-* [Key 防盗链视频播放地址生成工具](https://video.qcloud.com/referer/gen_video_url.html)
-* [Key 防盗链视频播放地址校验工具](https://video.qcloud.com/referer/check_sign.html)
+* [Key 防盗链视频播放地址生成工具](https://vods.cloud.tencent.com/referer/gen_video_url.html)
+* [Key 防盗链视频播放地址校验工具](https://vods.cloud.tencent.com/referer/check_sign.html)
 
 ## 注意事项
 * 该功能为可选项，默认不启用。

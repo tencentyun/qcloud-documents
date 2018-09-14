@@ -1,14 +1,14 @@
 ## 官网 SDK 和 Demo
 
-- 点击下载 [SDK 包](https://cloud.tencent.com/product/im.html)。
+- 单击下载 [SDK 包](https://cloud.tencent.com/product/im.html)。
 
-- 点击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
+- 单击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
 
 	![](//mccdn.qcloud.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
 
--  点击体验 [通用 Demo](http://avc.cloud.tencent.com/demo/webim/index.html)。
+-  单击体验 [通用 Demo](http://avc.cloud.tencent.com/demo/webim/index.html)。
 
--  点击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
+-  单击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
 
 ## 准备环境
 
@@ -19,19 +19,19 @@
 
 ### 安装 Apache
 
-点击下载 [64 位 Apache](http://www.apachehaus.com/cgi-bin/download.plx?dli=StmURFWaNJzTEx2KWVkRwAlVOpkVFVFdSxGZPVWQ)，或者点击下载 [其他版本](http://www.apachehaus.com/cgi-bin/download.plx)。将下载的压缩包，解压到本地某个目录下，比如，放在 `D:\Program Files\ `目录下，编辑 Apache 配置文件。
+单击下载 [64 位 Apache](http://www.apachehaus.com/cgi-bin/download.plx?dli=StmURFWaNJzTEx2KWVkRwAlVOpkVFVFdSxGZPVWQ)，或者单击下载 [其他版本](http://www.apachehaus.com/cgi-bin/download.plx)。将下载的压缩包，解压到本地某个目录下，比如，放在 `D:\Program Files\ `目录下，编辑 Apache 配置文件。
 
 ```
 D:\Program Files\Apache24\conf\httpd.conf
 ```
 
-找到 `Define SRVROOT` 这一项，将其右方的值改为当前你 Apache 安装存放的目录地址。
+找到 `Define SRVROOT` 这一项，将其右方的值改为当前您 Apache 安装存放的目录地址。
 
 ```
 Define SRVROOT "D:/Program Files/Apache24"
 ```
 
-继续找，找到 `Listene 80`，若你电脑的 80 端口被占用（可在 CMD 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口。
+继续找，找到 `Listene 80`，若您电脑的 80 端口被占用（可在 CMD 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口。
 
 ```
 Listen 8080
@@ -40,7 +40,7 @@ Listen 8080
 > **注意：**
 > 改完以上两个地方，记得保存 `httpd.conf` 文件。
 
-接下来需要配置安装 Apache 的主服务，有了它，Apache 才可启动。打开 CMD 窗口，输入以下命令。该命令的意思是，安装 Apache 服务，并将该服务名称命名为 Apache（你也可以改成别的），回车。
+接下来需要配置安装 Apache 的主服务，有了它，Apache 才可启动。打开 CMD 窗口，输入以下命令。该命令的意思是，安装 Apache 服务，并将该服务名称命名为 Apache（您也可以改成别的），回车。
 
 ```
 "D:\Program Files\Apache24\bin\httpd.exe" -k install -n apache
@@ -53,11 +53,11 @@ C:\Users\peakerdong>"D:\Program Files\Apache24\bin\httpd.exe" -k install -n apac
 [Fri May 20 13:39:16.474314 2016] [mpm_winnt:error] [pid 14884:tid 144] AH00433: apache: Service is already installed.
 ```
 
-在安装目录中，找到 `D:\Program Files\Apache24\bin\ApacheMonitor.exe` 可执行文件，双击运行，桌面右下角会出现图标，双击打开窗口界面，会看到如图所示。点击左侧 start，启动 Apache 服务。
+在安装目录中，找到 `D:\Program Files\Apache24\bin\ApacheMonitor.exe` 可执行文件，双击运行，桌面右下角会出现图标，双击打开窗口界面，会看到如图所示。单击左侧 start，启动 Apache 服务。
 
 ![](//mccdn.qcloud.com/static/img/02ef4d509e5579661953a9cc3dc4ee59/image.png)
 
-打开浏览器，输入访问 `http://localhost`。如果你设置的端口是 8080，则访问地址是 `http://localhost:8080/`
+打开浏览器，输入访问 `http://localhost`。如果您设置的端口是 8080，则访问地址是 `http://localhost:8080/`
 出现以下界面，表示 Apahce 启动成功。
 
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)
@@ -99,7 +99,7 @@ var accountType = 884; //开发者改成自己的业务帐号类型
 
 ```
 //默认房间群 ID，开发者可以改成自己的直播聊天室 ID
-var avChatRoomId = '@TGS#aJIPTVAEE'; 
+var avChatRoomId = '@TGS#aJIPTVAEE';
 ```
 
 访问 Demo，这里以谷歌浏览器为例。**打开浏览器输入地址：**
@@ -110,11 +110,11 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 
 ![](//mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
 
-**模拟手机访问，按 F12，点击下图箭头所指的手机图标：**
+**模拟手机访问，按 F12，单击下图箭头所指的手机图标：**
 
 ![](//mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
 
-**点击下方评论或点赞按钮，会跳转到 TLS 登录界面，直接点击游客登录，会跳回到首页：**
+**单击下方评论或点赞按钮，会跳转到 TLS 登录界面，直接单击游客登录，会跳回到首页：**
 
 ![](//mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
 
@@ -137,7 +137,7 @@ var accountMode=0;
 **修改业务信息：**
 
 ```
-//demo appid 
+//demo appid
 var sdkAppID = 1400001692;//开发者改成自己的业务 ID
 var accountType = 884; //开发者改成自己的业务帐号类型
 ```
@@ -146,7 +146,7 @@ var accountType = 884; //开发者改成自己的业务帐号类型
 
 ```
 //默认房间群ID，开发者可以改成自己的直播聊天室 ID
-var avChatRoomId = '@TGS#aJIPTVAEE'; 
+var avChatRoomId = '@TGS#aJIPTVAEE';
 ```
 
 访问 Demo，这里以谷歌浏览器为例，**打开浏览器输入地址：**
@@ -157,7 +157,7 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 
 ![](//mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
 
-**模拟手机访问，按 F12，点击下图箭头所指的手机图标：**
+**模拟手机访问，按 F12，单击下图箭头所指的手机图标：**
 
 
 ![](//mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
@@ -166,7 +166,7 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 
 ![](//mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
 
-点击确定，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
+单击确定，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
 
 ```
 //当前用户身份

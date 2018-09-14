@@ -21,6 +21,9 @@ COS supports multi-region storage, and different regions have different access d
 | Seoul                         | ap-seoul         | &lt;bucketname&gt;-&lt;APPID&gt;.cos. ap-seoul.myqcloud.com  |
 | Silicon Valley                | na-siliconvalley | &lt;bucketname&gt;-&lt;APPID&gt;.cos.na-siliconvalley.myqcloud.com |
 | Virginia                      | na-ashburn       | &lt;bucketname&gt;-&lt;APPID&gt;.cos.na-ashburn.myqcloud.com |
+| Bangkok                      | ap-bangkok       | &lt;bucketname&gt;-&lt;APPID&gt;.cos.ap-bangkok.myqcloud.com |
+| Moscow                      | eu-moscow       | &lt;bucketname&gt;-&lt;APPID&gt;.cos.eu-moscow.myqcloud.com |
+
 For example:
 A user with APPID of 1234567890 creates a bucket under the name example and region Guangzhou, and the default access domain name is:
 ```

@@ -41,14 +41,15 @@ Demo小程序会访问如下表格中的测试服务器地址，这些服务器�
 | URL | 对应的服务 |  服务器的功能描述 |
 |:------:|:------:| :---------------: |
 | `https://webim.tim.qq.com` | IM云通讯后台服务地址 | 用于支持小程序里面的一些消息通讯功能 |
-| `https://yun.tim.qq.com/v4/`<br>`openim/jsonvideoapp` | WebRTC音视频鉴权服务 | 用于请求进入[&lt;webrtc-room&gt;](https://cloud.tencent.com/document/product/454/16914) 所需的 userSig 和 privateMapKey |
+| `https://official.opensso.tencent-cloud.com/v4/`<br>`openim/jsonvideoapp` | WebRTC音视频鉴权服务 | 用于请求进入[&lt;webrtc-room&gt;](https://cloud.tencent.com/document/product/454/16914) 所需的 userSig 和 privateMapKey |
 |`https://xzb.qcloud.com/webrtc/`<br>`weapp/webrtc_room`| WebRTC房间列表后台 | 一个简单的房间列表功能，方便Demo的测试和使用。|
 
 因此如果你需要搭建自己的服务器，需要配置以下的安全域名
 
 | 域名 | 说明 | 
 |:-------:|---------|
-|`https://yun.tim.qcloud.com` | WebRTC音视频鉴权服务域名 | 
+|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名[1] | 
+|`https://yun.tim.qcloud.com` | WebRTC音视频鉴权服务域名[2] | 
 |`https://room.qcloud.com`| RoomService域名 | 
 |`https://webim.tim.qq.com` | IM域名 | 
 

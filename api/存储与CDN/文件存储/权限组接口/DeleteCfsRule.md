@@ -1,21 +1,21 @@
-## 1.接口描述
+## 接口描述
 本接口（DeleteCfsRule）用于删除规则。
 接口请求域名：**cfs.api.qcloud.com**
-## 2.输入参数
+## 输入参数
 |       参数      |  必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| PGroupId      | 是   | string | 权限组ID                      | 
-| RuleId        | 是   | string | 规则ID |
+| PGroupId      | 是   | string | 权限组 ID                      | 
+| RuleId        | 是   | string | 规则 ID |
 
 
-## 3.输出参数
+## 输出参数
 | 参数名称 |  类型 | 描述 |
 |----------|------ | ---- |
-|RuleId            |  string |规则ID   |
-|PGroupId      |  string |权限组ID |
+|RuleId            |  string |规则 ID   |
+|PGroupId      |  string |权限组 ID |
 
 
-## 4.示例 
+## 示例 
 
 ### 输入
 

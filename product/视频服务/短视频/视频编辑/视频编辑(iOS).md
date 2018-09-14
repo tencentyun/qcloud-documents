@@ -73,7 +73,7 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
-TXUGCEditer* _ugcEdit = [[TXUGCEditer alloc] initWithPreview:param];
+TXVideoEditer* _ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
 // 设置裁剪的 起始时间 和 结束时间
 [_ugcEdit setCutFromTime:_videoRangeSlider.leftPos toTime:_videoRangeSlider.rightPos];
 // ...
@@ -106,8 +106,9 @@ UIImage* image = [UIImage imageWithContentsOfFile:path];
 设置背景音乐的方法为：
 ```
 - (void) setBGM:(NSString *)path result:(void(^)(int))result;
+- (void) setBGMAsset:(AVAsset *)asset result:(void(^)(int))result;
 ```
-其中 path 为音乐文件路径。
+其中 path 为音乐文件路径, asset为音乐属性,从系统媒体库loading出来的音乐，可以直接传入对应的音乐属性，会极大的降低音乐从系统媒体库loading的时间，具体请参考demo用法。
 
 设置背景音乐的开始和结束方法为：
 ```
@@ -187,7 +188,7 @@ float y = (videoMsg.height - height) / 2 / videoMsg.height;
 ```
 
 ### 8. 滤镜特效
-您可以为视频添加多种滤镜特效，我们目前支持四种滤镜特效，每种滤镜你也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK 会应用最后一种滤镜特效作为当前的滤镜特效。
+您可以为视频添加多种滤镜特效，我们目前支持四种滤镜特效，每种滤镜您也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK 会应用最后一种滤镜特效作为当前的滤镜特效。
 
 设置滤镜特效的方法为：
 
@@ -202,6 +203,13 @@ typedef  NS_ENUM(NSInteger,TXEffectType)
     TXEffectType_DARK_DRAEM,  //暗黑幻境
     TXEffectType_SOUL_OUT,    //灵魂出窍
     TXEffectType_SCREEN_SPLIT,//视频分裂
+    TXEffectType_WIN_SHADOW,  //百叶窗
+    TXEffectType_GHOST_SHADOW,//鬼影
+    TXEffectType_PHANTOM,     //幻影
+    TXEffectType_GHOST,       //幽灵
+    TXEffectType_LIGHTNING,   //闪电
+    TXEffectType_MIRROR,      //镜像
+    TXEffectType_ILLUSION,    //幻觉
 };
 
 - (void) deleteLastEffect;
@@ -386,7 +394,7 @@ SDK内部将获取到该动态贴纸对应的 config.json，并且按照 json �
 
 
 ### 13. 气泡字幕
-您可以为视频添加字幕，我们支持对每一帧视频添加字幕，每个字幕你也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 你可以把字幕列表传给 SDK 内部，SDK 会自动在合适的时间对视频和字幕做叠加。
+您可以为视频添加字幕，我们支持对每一帧视频添加字幕，每个字幕您也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 您可以把字幕列表传给 SDK 内部，SDK 会自动在合适的时间对视频和字幕做叠加。
 
 设置字幕的方法为：  
 
@@ -459,3 +467,27 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
 字幕若输入过长时，如何进行排版才能够使字幕与气泡美观地合并？
 我们在Demo中提供了一个自动排版的控件。若在当前字体大小下，字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。
 您也可以修改相关控件源代码，来满足自身的业务要求。 
+
+### 14. 图片编辑
+SDK在4.7版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画，BGM，贴纸等效果。  
+接口函数如下：
+
+```
+/*
+ *pitureList:转场图片列表,至少设置三张图片 （tips ：图片最好压缩到720P以下（参考demo用法），否则内存占用可能过大，导致编辑过程异常）
+ *fps:       转场图片生成视频后的fps （15 ~ 30）
+ * 返回值：
+ *       0 设置成功；
+ *      -1 设置失败，请检查图片列表是否存在，图片数量是否大于等于3张，fps是否正常；
+ */
+- (int)setPictureList:(NSArray<UIImage *> *)pitureList fps:(int)fps;
+
+/*
+ *transitionType:转场类型，详情见 TXTransitionType
+ * 返回值：
+ *       duration 转场视频时长（tips：同一个图片列表，每种转场动画的持续时间可能不一样，这里可以获取转场图片的持续时长）；
+ */
+- (void)setPictureTransition:(TXTransitionType)transitionType duration:(void(^)(CGFloat))duration;
+```  
+其中，setPictureList接口用于设置图片列表，最少设置三张，如果设置的图片过多，要注意图片的大小，防止内存占用过多而导致编辑异常。setPictureTransition接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过duration获取转场的时长。  
+图片编辑暂不支持的功能：重复，倒放，快速/慢速，片尾水印，其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。

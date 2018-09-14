@@ -641,7 +641,7 @@ mLiveRoom.sendRoomCustomMsg(String.valueOf(TCConstants.IMCMD_DANMU),
 | style          | int  | 磨皮风格：  0：光滑  1：自然  2：朦胧                  |
 | beautyLevel    | int  | 磨皮等级： 取值为 0-9.取值为 0 时代表关闭美颜效果.默认值: 0,即关闭美颜效果 |
 | whiteningLevel | int  | 美白等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果 |
-| ruddyLevel     | int  | 红润等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果 |
+| ruddyLevel     | int  | 红润等级： 取值为 0-9.取值为 0 时代表关闭红润效果.默认值: 0,即关闭红润效果 |
 
 - 示例代码：
   

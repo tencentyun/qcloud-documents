@@ -3,7 +3,7 @@
 This API is used to modify an SMS signature.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/mod_sign?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/mod_sign?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -62,6 +62,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | id | Yes | Number | Signature ID |
 | status | Yes | Number | Signature status. 0: Passed, 1: Pending approval, 2: Rejected. |
 | text | Yes | String | Signature content |
-
-
-

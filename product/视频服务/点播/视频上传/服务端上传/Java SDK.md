@@ -28,7 +28,7 @@
 | httpclient-4.5.3.jar,httpcore-4.4.6.jar,httpmime-4.5.2.jar | 开源的http处理库                            |
 | joda-time-2.9.6.jar | 开源时间处理库                            |
 
-为方便客户使用，可点击下载下面提供的链接，将下载的jar包导入项目中，即可使用：
+为方便客户使用，可单击下载下面提供的链接，将下载的jar包导入项目中，即可使用：
 
 [点播Java SDK关联jar包](https://github.com/tencentyun/vod-java-sdk/raw/master/packages/vod-sdk-jar.zip)
 

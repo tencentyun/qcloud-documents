@@ -44,7 +44,7 @@ JDK1.7
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -80,7 +80,7 @@ JDK1.7
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|

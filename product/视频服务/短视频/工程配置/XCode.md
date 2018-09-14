@@ -1,7 +1,24 @@
 
-## 短视频licence集成
-- 获取到短视频基础版 SDK License 后，需要重命名为 TXUgcSDK.licence， 然后将重命名后的 licence 链接到 Xcode 工程中，当您的 licence 过期了，可以登录腾讯云点播控制台获取最新的 licence，替换您应用中的 licence 即可。
-- 需要注意的是：licence 名称为 “TXUgcSDK.licence” ， licence 被链接进了 Xcode 工程，保证 SDK 内部能读取到 licence 信息。
+## 短视频 licence 集成
+- 在 [控制台](https://console.cloud.tencent.com/video/license) 填写完信息后，会拿到 key 和 url，见下图。
+  ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
+  在您的应用中使用短视频功能之前（建议在 AppDelegate 中）把拿到的 key 和 url 设置到下面接口中
+
+```objc
+[TXUGCBase setLicenceURL:url key:key];
+```
+
+- 您可以选择是否打包 licence 到应用中：如果不选择打包，SDK 第一次使用需要访问网络；如果选择打包，把 TXUgcSDK.licence（名称要正确）拷贝到 App 中即可。
+- 当您的 licence 过期了，可以登录腾讯云点播控制台进行续费，SDK 会自动续期，不需要您的应用做任何操作。
+- 如果您的 licence 校验失败，您可以调用下面代码查看 licence 信息是否填写错误。
+
+```objc
+NSLog(@"%@", [TXUGCBase getLicenceInfo]);
+```
+
+- 对于使用 4.7 版本 licence 的用户，如果您升级了 SDK 到 4.9 版本了，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，按照上述操作集成即可。
+  ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
+
 
 ## Xcode 工程设置
 
@@ -28,21 +45,32 @@
 在工程中添加 `TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库：
 
 > 1. Accelerate.framework
-> 2. libstdc++.tbd
-> 3. libsqlite3.tbd
+> 2. SystemConfiguration.farmework
+> 3. libstdc++.tbd
+> 4. libsqlite3.tbd
+> 5. libz.tbd
 
 所有系统依赖库添加完毕，工程依赖如下图所示：    
-![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
-
-#### 添加头文件
-在 Build Settings->Search Paths->User Header Search Paths 中添加头文件搜索路径。注意此项不是必须的，如果您没有添加 TXLiteAVSDK_UGC 的头文件搜索路径，则在引用 SDK 的相关头文件时，需要在头文件前增加 "TXLiteAVSDK_UGC/"，如下所示：
-
-```	objc
-#import "TXLiteAVSDK_UGC/TXUGCRecord.h"
-```
+![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 
 #### 添加 -ObjC
 SDK 用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错。
+
+#### 引用头文件
+在需要使用SDK的文件中引用SDK，如下所示：
+
+- 5.0开始的SDK支持clang module, 可以直接使用@import来引入
+
+  ```	objc
+  @import TXLiteAVSDK_UGC;
+  ```
+
+- 5.0之前的版本SDK需要单独引用使用到的头文件，比如
+
+  ``` objc
+  #import <TXLiteAVSDK_UGC/TXUGCBase.h>
+  ```
+
 
 #### 短视频发布功能集成
 
@@ -50,7 +78,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 
 - 拷贝上传源代码目录 Demo/TXLiteAVDemo/VideoUpload 到您的工程目录中。
 
-- 将VideoUpload目录拖拽到xcode工程中的合适位置，在弹出的对话框中选择Added floders:Create groups，选择添加到的target，然后点finish。
+- 将 VideoUpload 目录拖拽到 xcode 工程中的合适位置，在弹出的对话框中选择 Added floders:Create groups，选择添加到的 target，然后单击 finish。
 ![](https://main.qcloudimg.com/raw/39a08faa6d2d98049c894ba8a2d371d5.png)
 
 #### 验证
@@ -58,10 +86,10 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 
 ##### 引用头文件
 
-在 ViewController.m 开头引用 SDK 的头文件：
+在 ViewController.m 开头引用 SDK：
 
 ```	objc
-#import "TXLiteAVSDK_UGC/TXLiveBase.h"
+@import TXLiteAVSDK_UGC；
 ```
 
 #### 添加调用代码
@@ -78,7 +106,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 
 #### 编译运行
 
-如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行APP，Xcode 的 Console 窗格会打印出 SDK 的版本信息。
+如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息。
 
 > 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 3.4.1761 
 

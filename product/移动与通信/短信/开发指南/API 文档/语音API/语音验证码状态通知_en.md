@@ -3,7 +3,7 @@
 This API is used for Tencent Cloud SMS service to notify the business side of the delivery status of voice verification code by calling back the service URL after a voice verification code is sent to a user.
 
 ### URL Example
-`https://yun.tim.qq.com/voice/voicecallback`
+`POST https://yun.tim.qq.com/voice/voicecallback`
 
 ## Request Parameters
 ```json
@@ -53,6 +53,3 @@ This API is used for Tencent Cloud SMS service to notify the business side of th
 |--------|------|--------|------------------------------------------|
 | result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. |
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0. |
-
-
-

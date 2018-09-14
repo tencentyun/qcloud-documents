@@ -74,7 +74,7 @@ public class Main {
  3. 最后启动客户端，开始流程
 在监听器`ClusterListener`中，可以根据用户自身的需求，对收到的数据进行操作，还可以对收到 Binlog 数据根据类型进行过滤，比如过滤掉所有`drop`语句等。
  
- 示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心-->云产品-->云API密钥-->API 密钥中查看，SDK 用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户 Binlog 订阅相关的，在腾讯云 CDB for MySQL 相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
+ 示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心-->云产品-->云API密钥-->API 密钥中查看，SDK 用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户 Binlog 订阅相关的，在腾讯云 TencentDB for MySQL 相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
  
  注意：数据订阅 SDK 已经接入了 CAM 权限控制，根账号默认有所有的权限，可以直接用根账号的云 API 密钥访问；子账号默认没有任何权限，需要根账号给子账号赋予`name/dts:AuthenticateSubscribeSDK`操作的权限，或者赋予 DTS 所有操作的权限`QcloudDTSFullAccess`。
 
@@ -323,7 +323,7 @@ public abstract void onException(Exception exception)
 ## ClusterMessage 类
 ---
 ### 类说明
-类 ClusterMessage 将通过 notify 函数传递消费的订阅数据。每个 ClusterMessage 保存 CDB for MySQL 中的一个**事务**的数据记录，事务中的每条记录通过 Record 保存。
+类 ClusterMessage 将通过 notify 函数传递消费的订阅数据。每个 ClusterMessage 保存 TencentDB for MySQL 中的一个**事务**的数据记录，事务中的每条记录通过 Record 保存。
 
 ### 类方法
 #### **从 ClusterMessage 中获取记录**
@@ -384,7 +384,7 @@ public String getAttribute(String key)
 |record_id |	Record 的 ID，这个 ID 在通道内按字符串比较自增有序，不保证连续 |
 |source_type |	Record对应数据库实例的引擎类型，目前取值为：mysql |
 |source_category |	Record的类型，目前取值为：full_recorded |
-|timestamp |	Record 落 binlog 的时间，这个时间同时也是这条SQL在CDB中执行的时间 |
+|timestamp |	Record 落 binlog 的时间，这个时间同时也是这条SQL在TencentDB中执行的时间 |
 |checkpoint | Record对应的 binlog 文件的位点，格式为:file_offset@file_name，filen_name 为 binlog 文件的数字后缀 |
 |record_type | Record 对应的操作类型，主要取值包括：insert/update/delete/replace/ddl/begin/commit/heartbeat |
 |db 	|Record 更新表，对应的数据库名|
@@ -515,7 +515,7 @@ public DBType getDbType()
 ##### 返回结果
 | 类型 | 参数含义 |
 |:-------------|:-------------|
-| DBType | 目前数据传输仅支持 CDB for MySQL，为DBType.MYSQL |
+| DBType | 目前数据传输仅支持 TencentDB for MySQL，为DBType.MYSQL |
 
 ##### 抛出异常
 无

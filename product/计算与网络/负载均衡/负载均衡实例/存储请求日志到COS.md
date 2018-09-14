@@ -5,7 +5,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/17014eeb67628fa78ffe04e2d7a58d8d/log1.png)
 
-选取相应的COS中bucket，则请求日志会自动在bucket下创建lb-id为名称的文件夹进行存储。选取完成后，点击bucket地址可以直接跳转到日志下载页面。
+选取相应的COS中bucket，则请求日志会自动在bucket下创建lb-id为名称的文件夹进行存储。选取完成后，单击bucket地址可以直接跳转到日志下载页面。
 
 如您没有创建对象存储的bucket，请在[新建bucket](https://console.cloud.tencent.com/cos4/bucket)后选取相应的存储位置。
 
@@ -28,30 +28,30 @@
 
 #### 日志变量说明
 
-| 序号 | 变量名 |   说明 |
+| 序号 | 变量名 | 说明 |
 | :-------- | :-------- | :------ |
 | 1 | time_local	|  时间戳 |
-| 2 | protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |
-| 3 | server_addr:server_port  | 请求的目的ip和目的端口 |
-| 4 | server_name | 规则的server_name |
-| 5 | remote_addr:remote_port	| client ip：port |
-| 6 | status | LB返回给client的状态码 |
-| 7 | upstream_status | RS返回给LB的状态码 |
-| 8 | proxy_host | upstream id |
-| 9 | request | 请求行 |
+| 2 | protocol_type |  协议类型（HTTP/HTTPS/SPDY/HTTP2/WS/WSS） |
+| 3 | server_addr:server_port  | 请求的目的 IP 和目的端口 | 
+| 4 | server_name | 规则的 server_name | 
+| 5 | remote_addr:remote_port	| client IP：port |
+| 6 | status | LB 返回给 client 的状态码 |
+| 7 | upstream_status | RS 返回给 LB 的状态码 |
+| 8 | proxy_host | upstream ID |
+| 9 | request | 请求行 | 
 | 10 | request_length | 从客户端收到的请求字节数 |
 | 11 |bytes_sent | 	发送客户端的字节数 | 
 | 12 |http_host	 | 请求域名 | 
-| 13 |http_user_agent | 	user_agent | 
-| 14 |http_referer	 | http请求来源 | 
-| 15 | request_time| 请求处理时间 |
-| 16 | upstream_response_time | 从rs接收应答所花费时间 |
-| 17 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
-| 18 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
-| 19 | tcpinfo_rtt | tcp连接的rtt |
-| 20 | connection | 连接id |
+| 13 |http_user_agent | 	user_agent |
+| 14 |http_referer	 | HTTP 请求来源 |
+| 15 | request_time|请求处理时间（从收到客户端的第一个字节开始，到给客户端发送的最后一个字节为止，包括客户端请求到 CLB、CLB 转发请求到 RS、RS 响应数据到 CLB、CLB 转发数据到客户端的总时间）|
+| 16 | upstream_response_time |整个后端请求所花费时间（从开始 CONNECT RS 到从 RS 接收完应答的时间）|
+| 17 | upstream_connect_time	|和 RS 建立 TCP 连接所花费时间（从开始 CONNECT RS 到开始发送 HTTP 请求的时间）|
+| 18 | upstream_header_time	|  从 RS 接收完 HTTP 头部所花费时间（从开始 CONNECT RS  到从 RS 接收完 HTTP 应答头部的时间）|
+| 19 | tcpinfo_rtt | TCP 连接的 RTT |
+| 20 | connection | 连接 ID |
 | 21 | connection_requests | 连接上的请求个数 |
-| 22 | ssl_handshake_time	|ssl握手所花费时间 |
+| 22 | ssl_handshake_time	|SSL 握手所花费时间 |
 | 23 | ssl_cipher| 加密套件|
-| 24 | ssl_protocol	| ssl协议版本 |
-| 25 | ssl_session_reused | ssl session复用|	
+| 24 | ssl_protocol	| SSL 协议版本 |
+| 25 | ssl_session_reused |SSL SESSION 复用|	 

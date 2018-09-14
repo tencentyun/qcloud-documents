@@ -1,222 +1,162 @@
-Instance metadata refers to the data of the instance that you operate on, and can be used to configure and manage running instances.
+Instance metadata is the data of the instances you are running and can be used to configure or manage the running instances.
 
->Note: Although instance metadata can only be accessed internally from the instance, the data has not been protected through encryption. Anyone who accesses the instance can view its metadata. Therefore, you should take proper precautions to protect sensitive data. For example, using permanent encryption key.
+>Note: Although the instance metadata can only be accessed from within the instance itself, the data is not encrypted and protected. Anyone who has the access to an instance also has the access to its metadata. Therefore, it is recommended to take appropriate measures to protect sensitive data (e.g. using a permanent encryption key).
 
-## Instance meta-data
-Tencent Cloud provides the following meta-data information:
 
-| Data | Description | Introduced Version |
+## Overview of Instance Metadata 
+Tencent Cloud provides the following meta-data:
+
+| Data | Description | Version Where It Was Introduced |
 |---------|---------|---------|
 | instance-id | Instance ID | 1.0 |
 | uuid | Instance ID | 1.0 |
-| local-ipv4 | Instance private IP | 1.0 |
-| public-ipv4 | Instance public IP | 1.0 |
+| local-ipv4 | Instance's private IP | 1.0 |
+| public-ipv4 | Instance's public IP | 1.0 |
 | mac | MAC address of instance's eth0 device | 1.0 |
-| placement/region | Information of the region in which the instance resides | 1.1 |
-| placement/zone | Information of the availability zone in which the instance resides | 1.1 |
-| network/network/macs/**mac**/mac | The device address for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/primary-local-ipv4 | The primary private IP for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/public-ipv4s | The public IP for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/local-ipv4s/**local-ipv4**/gateway | The gateway address for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/local-ipv4s/**local-ipv4**/local-ipv4 | The private IP for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/local-ipv4s/**local-ipv4**/public-ipv4 | The public IP for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/local-ipv4s/**local-ipv4**/public-ipv4-mode | The public network mode for the network interface of the instance | 1.2 |
-| network/network/macs/**mac**/local-ipv4s/**local-ipv4**/subnet-mask | The subnet mask for the network interface of the instance | 1.2 |
+| placement/region | Information of the region where the instance resides | Updated on Sept 19, 2017 |
+| placement/zone | Information of the availability zone where the instance resides | Updated on Sept 19, 2017 |
+| network/interfaces/macs/<font style="color:red">mac</font>/mac | Device address of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/primary-local-ipv4 | Primary private IP of instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/public-ipv4s | Public IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/gateway | Gateway address of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/local-ipv4 | Private IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4 | Public IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4-mode | Public network mode of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/subnet-mask | Subnet mask of the instance's network interface | 1.0 |
 
-> Fields **mac** and **local-ipv4** in bold in the above table refer to the device address and private IP of the network interface specified for the instance, respectively.
+> Fields <font style="color:red">mac</font> and <font style="color:red">local-ipv4</font> in red in the above table indicate the device address and private IP of the network interface specified for the instance, respectively.
 > 
-> The destination URL address of the request is case sensitive. You must construct the destination URL address of a new request according to the returned result of the request.
+> The requested target URL is case sensitive. > Construct the target URL address of new request in strict accordance with the format of the returned result of request.
+>
+> In the current version, the returned data of placement has been changed. To use the data in the previous version, specify the previous version path or leave the version path empty to access the data of version 1.0. For more information about the returned data of placement, please see [Region and Availability Zone](/document/product/213/6091).
 
 ## Querying Instance Metadata
+You can access the instance metadata such as instance's local IP and public IP from within an instance to manage connections with external applications.
+To view all the instance metadata from within a running instance, use the following URI:
+```
+http://metadata.tencentyun.com/latest/meta-data/
+```
+You can access metadata through the cURL tool or HTTP GET request, for example:
+```
+curl http://metadata.tencentyun.com/latest/meta-data/
+```
+* For resources that do not exist, HTTP error code "404 - Not Found" is returned.
+* Any operation on instance metadata can only be performed **from within the instance**. Log in to the instance first. For more information on how to log in to an instance, please see [Logging in to Windows Instances](/doc/product/213/5435) and [Logging in to Linux Instances](/doc/product/213/5436).
 
-Operations on the instance metadata can only be performed **internally within the instance**. You first need to log in to the instance. For more information, please see [Log in to Windows Instance](https://intl.cloud.tencent.com/document/product/213/5435) and [Log in to Linux Instance](https://intl.cloud.tencent.com/document/product/213/5436).
+### Example of querying metadata
 
+The following example shows how to obtain the metadata version information. Note: When the Tencent Cloud modifies the metadata access path or returned data, a new metadata version is released. If your application or script depends on the structure or returned data of previous version, you can access metadata using the specified previous version. If no version is specified, version 1.0 is accessed by default.
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/
+1.0
+2017-09-19
+latest
+meta-data
+```
 
-### Querying All Available Meta-data Types
-Command:
+The following example shows how to view the metadata root directory. The line ending with `/` represents a directory and the one not ending with `/` represents the accessed data. For the description of accessed data, please see **Overview of Instance Metadata** described above.
 ```
-curl http://metadata.tencentyun.com/
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/
+instance-id
+local-ipv4
+mac
+network/
+placement/
+public-ipv4
+uuid
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1ebcbd924d.png)
 
-Command:
+The following example shows how to obtain the physical location information of an instance. For the relationship between the returned data and the physical location, please see [Region and Availability Zone](/document/product/213/6091).
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/placement/region
+ap-guangzhou
 
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/placement/zone
+ap-guangzhou-3
 ```
-curl http://metadata.tencentyun.com/meta-data
-```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1ed1128bd4.png)
 
-The placement field includes two types of data: region and zone.
+The following example shows how to obtain the private IP of an instance. If an instance has multiple ENIs, the network address of the eth0 device is returned.
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/local-ipv4
+10.104.13.59
+```
 
-Command:
+The following example shows how to obtain the public IP of an instance.
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/public-ipv4
+139.199.11.29
+```
 
+The following example shows how to obtain an instance ID. Instance ID is used to uniquely identify an instance.
 ```
-curl http://metadata.tencentyun.com/meta-data/placement
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/instance-id
+ins-3g445roi
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1edb2b1349.png)
 
+The following example shows how to get the instance uuid. Instance uuid can also be used as the unique identifier of an instance, but it is recommended to use instance ID to distinguish between instances.
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/uuid
+cfac763a-7094-446b-a8a9-b995e638471a
+```
 
+The following example shows how to obtain the MAC address of an instance's eth0 device.
+```
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/mac
+52:54:00:BF:B3:51
+```
 
-### Querying Instance Private IP
-Command:
+The following example shows how to obtain the ENI information of an instance. In case of multiple ENIs, multiple lines of data are returned, with each line indicating the data directory of an ENI.
 ```
-curl http://metadata.tencentyun.com/meta-data/local-ipv4
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/
+52:54:00:BF:B3:51/
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1eeb9557a8.png)
 
-### Querying Instance Public IP
-Command:
+The following example shows how to obtain the information of specified ENI.
 ```
-curl http://metadata.tencentyun.com/meta-data/public-ipv4
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/
+local-ipv4s/
+mac
+primary-local-ipv4
+public-ipv4s
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1f015c48e5.png)
 
-### Querying Instance ID
-Command:
+The following example shows how to obtain the list of private IPs bound to the specified ENI. If the ENI is bound with multiple private IPs, multiple lines of data are returned.
 ```
-curl http://metadata.tencentyun.com/meta-data/instance-id
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/
+10.104.13.59/
 ```
-or
-```
-curl http://metadata.tencentyun.com/meta-data/uuid
-```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1f1c703176.png)
-![](//mccdn.qcloud.com/img56a1f35d0bb18.png)
 
-### Querying the Device Address of Instance eth0
-Command:
+The following example shows how to obtain the information of private IP.
 ```
-curl http://metadata.tencentyun.com/meta-data/mac
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59
+gateway
+local-ipv4
+public-ipv4
+public-ipv4-mode
+subnet-mask
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1f2800a4e2.png)
 
-### Querying the Region of Instance
-Command:
+The following example shows how to obtain the gateway of private IP (only for VPC-based CVMs). For more information about VPC-based CVMs, please see [Virtual Private Cloud (VPC)](/document/product/215).
 ```
-curl http://metadata.tencentyun.com/meta-data/placement/region
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/gateway
+10.15.1.1
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1f3ecd50a2.png)
 
-### Querying the Availability Zone of Instance
-Command:
+The following example shows how to obtain the access mode used by a private IP to access the public network (only for VPC-based CVMs). A basic network-based CVM accesses the public network through the public gateway.
 ```
-curl http://metadata.tencentyun.com/meta-data/placement/zone
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/public-ipv4-mode
+NAT
 ```
-The returned value is as follows
-![](//mccdn.qcloud.com/img56a1f45687788.png)
 
-### Querying the Network Interface of Instance
-Command:
+The following example shows how to obtain the public IP bound to a private IP.
 ```
-curl http://metadata.tencentyun.com/meta-data/network/
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/public-ipv4
+139.199.11.29
 ```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/ca12b20583f602d75a541d1a43452c2d/8.1.jpg)
 
-Command:
+The following example shows how to obtain the subnet mask of a private IP.
 ```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs
+[qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/subnet-mask
+255.255.192.0
 ```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/ced32a2fee5e5282cd038d4034fb11a0/8.2.jpg)
-
-### Querying the Details for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/4ee3cd5e1bcba00e846282aab4e352a0/9.jpg)
-
-### Querying the List of Private IPs for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/8a7e0b0e41a65b683f2f530131a45d07/10.jpg)
-
-### Querying the Device Address for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/mac
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/0627af2fbc1aada52f5821f92d200f44/11.jpg)
-
-### Querying the List of Private IPs for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/primary-local-ipv4
-```
-The returned value is as follows:
-![](https://mc.qcloudimg.com/static/img/5458ecf47ec14ba9151e95d7eaa2efd4/12.jpg)
-
-### Querying the List of Public IPs for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/public-ipv4s
-```
-The returned value is as follows:
-![](https://mc.qcloudimg.com/static/img/19fa044afd25b8714b38312c7b3eef6c/13.jpg)
-
-### Querying the Network Information for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/5c0b23aa98661c533b2ee9cfae3a79cd/14.jpg)
-
-### Querying the Gateway Address for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/gateway
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/d297cd00f025c845111a50ee9874612d/15.jpg)
-
-### Querying the Private IP for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/local-ipv4
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/24470fccb042eb877763a03100da8a10/16.jpg)
-
-### Querying the Public IP for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/public-ipv4
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/c0344e7c89ab0643884d8ac2b859711b/17.jpg)
-
-### Querying the Public Network Mode for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/public-ipv4-mode
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/115617733703e99602627bb3ce1f32cc/18.jpg)
-
-> Note:
-- NAT: Network Address Translation, the network address translation.
-- direct: Connect to the network directly. Access the public network directly through the public IP for the network interface of instance using a router.
-
-### Querying the Subnet Mask for the Network Interface of Instance
-Command:
-```
-curl http://metadata.tencentyun.com/meta-data/network/interfaces/macs/52:54:00:13:5C:6C/local-ipv4s/10.104.187.40/subnet-mask
-```
-The returned value is as follows:
- ![](https://mc.qcloudimg.com/static/img/ca9589a75e2a04859e3004e4b72ee967/19.jpg)
 

@@ -8,7 +8,7 @@
 ##  GPU 计算型 GN8 实例购买步骤
 用户依据以下操作可以快速购买一台 GPU 计算型 GN8 实例
 ### 1. 登录购买页面
-[点击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
+[单击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
 ### 2. 选择地域与机型
 在这个步骤需要选择：
 1. 计费模式：包年包月计费或者按量计费。

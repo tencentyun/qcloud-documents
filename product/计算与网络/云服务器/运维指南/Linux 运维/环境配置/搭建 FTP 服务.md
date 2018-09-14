@@ -25,7 +25,7 @@ netstat -tunlp
 3. 公网访问确认是否启动。
  1. 通过以下命令安装 telnet 服务
 ```
-yum -y intsall  telnet
+yum -y install  telnet
 ```
  2. 在其他联网计算机上，通过命令行进行测试：
 ```

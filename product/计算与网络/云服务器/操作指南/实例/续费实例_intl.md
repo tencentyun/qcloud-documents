@@ -1,37 +1,38 @@
-It will be recycled by the system after a certain time following the expiration. You can renew the instance  plan through manual or auto renewal at any time to avoid data loss or interruption of service due to instances being terminated by the system upon expiration.
+This document introduces how to renew **prepaid instances**.
+ - **Prepaid instance**: You can renew or set auto renewal for prepaid instances.
+ - **Postpaid instance**: Postpaid instances can be automatically activated with sufficient balance in your account. For more information, please see [Online Top-up](/doc/product/555/7425) and [Offline Bank transfer Top-up](/doc/product/555/9901). You can also follow [Balance Alert Instruction](/doc/product/555/9942) to set alert to prevent your instance from being terminated.
 
 ## Instance Renewal
+Prepaid instances can be renewed using various methods. The following example shows the renewal procedure on [CVM Console](https://console.cloud.tencent.com/cvm/). You can also view the document [Renewal Management via Console](https://console.cloud.tencent.com/account/renewal) to set auto renewal or renew to a certain time, etc.
 
-### Renew instance via the console
-You can renew the instance  plan before the expiry date to prevent services interruption due to shutdown when it expires:
+### Instance Renewal via Console
+ **Renew reclaimed instances:**
+ 
+1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/).
+2. On the left navigation bar, click **Recycle Bin** -> **CVM Recycle Bin** to enter the CVM reclaiming list.
+3. Renew single instance: Find the instance to be renewed in the list, click **Recover** button on the right and finish the renewal payment.
+4. Renew instances in batch: Select all instances to be renewed, click **Recover in Batch** on the top and finish the renewal payment.
 
-1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
+**Renew running instances:**
+ 
+1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/).
+2. Renew single instance: Find the instance to be renewed in the list, click **Renew** button on the right and finish the renewal payment.
+3. Renew instances in batch: Select all instances to be renewed, click **Recover** button on the top and finish the renewal payment.
 
-2) For CVM instances  plan to be renewed, click on "Renew" on the action bar to the right side.
+### Instance Renewal via API
+You can use the API RenewInstances to renew instances. For more information, please see [Instance Renewal](/doc/api/213/9392).
 
-3) In the pop-up box of host renewal, select the time for renewal and select whether or not to adjust the bandwidth, and then click "OK".
+## Set Auto Renewal
+You can also view the document [Renewal Management via Console](https://console.cloud.tencent.com/account/renewal) to set auto renewal or renew to a certain time, etc.
 
-4) After making the payment, you can renew CVM instances.
-![](//mccdn.qcloud.com/img568c94be10169.png)
+### Auto Renewal via Console
+You can set auto renewal for prepaid instances to eliminate the need to renew the instances whenever they are about to expire:
+ 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), move the mouse cursor to **Fees** at the top right corner, and then select **Renew** in the menu.
+ 2. Click **Set Auto Renewal** on the right of the prepaid instance to be renewed.
+ 3. Click **OK** button in the popup dialog box.
+ 
+For instances set to auto renewal, the charge for the next billing period is automatically deducted from the balance on the expiry date. If you have a sufficient account balance, the instance goes into the next billing period automatically.
 
-### Renew instance via API
-Users can use Renew Instance API to renew instances. For details, see [Renew Prepaid Instances API](https://cloud.tencent.com/doc/api/229/1348).
+### Auto Renewal via API
+You can use the API SetAutoRenew to set auto renewal for instances. For more information, please see [Set Auto Renewal for Instances](/doc/api/229/1746).
 
-## Set up auto renewal
-
-## Set up auto renewal via the console
-At the same time, you can also set auto renewal for CVM instance with an annual or monthly plan to avoid the same manual operation of renewal every time when it is about to expire:
-
-1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), move the mouse pointer to the top right corner of your account name, and select "Renew" in the menu.
-
-2) To renew prepaid CVM instances, click on "Set to Auto Renew" on the action bar to the right side.
-
-3) Click "OK" in the pop-up box of auto renewal.
-
-For instances with auto renewal setting, it will automatically deduct the charge for next billing period at the expiry date. If your account balance is sufficient, the instance will be automatically advanced to the next cycle.
-
-## Set up auto renewal via API
-Users can use Set Auto Renew API to automatically renew instances. For details, see [Set Auto Renewal for Instances via API](https://cloud.tencent.com/doc/api/229/1746).
-
-## Renewal for same expiry date
-Tencent Cloud provides the function of instance renewal for same expiry date. By specifying same expiry time for Cloud Services created by users at different time, users can be relieved from repetitive renewal operation for services with different expiry date and will be able to end all services at a specified date so as to save costs. For more information about renewal for same expiry date, see [Set Same Expiry Date](https://cloud.tencent.com/doc/product/285/1894#.E4.BA.94.E3.80.81.E8.AE.BE.E7.BD.AE.E7.BB.9F.E4.B8.80.E5.88.B0.E6.9C.9F.E6.97.A5).

@@ -8,7 +8,7 @@
 腾讯云SSL证书服务支持域名型（DV）SSL证书的免费申请，**企业型（OV）、企业增强型（EV）等付费证书目前支持线下选购申请**。
 
 ### 1.1 域名型证书申请入口
-进入 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl) ，点击【申请证书】
+进入 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl) ，单击【申请证书】
 
 ![](https://mc.qcloudimg.com/static/img/4efe78b416cc29cacba1cbc2ba475bb6/2.png)
 

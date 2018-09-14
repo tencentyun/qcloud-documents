@@ -26,7 +26,7 @@ JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，�
 由于使用 yum 或者 apt-get 命令 安装 openjdk 可能存在类库不全，从而导致用户在安装后运行相关工具时可能报错的问题，所以此处我们推荐采用手动解压安装的方式来安装 JDK。具体步骤如下：
 ### 1.下载 JDK
 进入 [Oracle 官方网站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 下载合适的 JDK 版本，准备安装。
-注意：这里需要下载 Linux 版本。这里以jdk-8u151-linux-x64.tar.gz为例，你下载的文件可能不是这个版本，这没关系，只要后缀(.tar.gz)一致即可。
+注意：这里需要下载 Linux 版本。这里以jdk-8u151-linux-x64.tar.gz为例，您下载的文件可能不是这个版本，这没关系，只要后缀(.tar.gz)一致即可。
 ### 2. 创建目录 
 在`/usr/`目录下创建`java`目录，
 ```

@@ -1,4 +1,4 @@
-您可以选择通过 PostgreSQL 逻辑备份，将数据备份文件恢复到目标 CDB for PostgreSQL中。
+您可以选择通过 PostgreSQL 逻辑备份，将数据备份文件恢复到目标 TencentDB for PostgreSQL中。
 
 
 ##1.准备好PostgreSQL实例

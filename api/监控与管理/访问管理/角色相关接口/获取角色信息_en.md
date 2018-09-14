@@ -18,7 +18,6 @@ The following request parameter list only provides API request parameters. Other
 | roleName | String | Role name |
 | policyDocument | String | Trust policy of the role |
 | description | String | Role description |
-| roleId | String | Role ID |
 | addTime | String | Creation time of the role |
 | updateTime | String | Time when the role was last modified |
 

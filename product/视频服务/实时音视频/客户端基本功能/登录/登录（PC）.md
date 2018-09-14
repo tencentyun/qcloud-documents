@@ -1,7 +1,7 @@
 本文将指导您操作客户端将向腾讯云完成登录过程。
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_login.zip)
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_login.zip)
 
 ## 前提条件
 本课程要求用户在[ 实时音视频官网 ](https://cloud.tencent.com/product/trtc)完成服务开通及应用创建。
@@ -10,7 +10,7 @@
  - [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
  - [应用标识( sdkAppId )](https://cloud.tencent.com/document/product/647/16792#.E5.BA.94.E7.94.A8.E6.A0.87.E8.AF.86.EF.BC.88-sdkappid-.EF.BC.89)
  - [帐号类型( accountType )](https://cloud.tencent.com/document/product/647/16792#.E5.B8.90.E5.8F.B7.E7.B1.BB.E5.9E.8B.EF.BC.88-accounttype-.EF.BC.89)
- - [用户标识( identifier )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-identifer-.EF.BC.89)
+ - [用户标识( userId )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-userId-.EF.BC.89)
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## userSig的获取
@@ -38,7 +38,7 @@ else
 ## 调用登录接口
 初始化后，即可进行登录，示例代码如下：
 ```c++
-GetILive()->login(identifier, UserSig, [](void* data) {
+GetILive()->login(userId, UserSig, [](void* data) {
 	//登录成功
 }, [](const int code, const char *desc, void* data) {
 	//登录失败, code为错误码，desc为错误原因描述
@@ -58,7 +58,7 @@ GetILive()->login(identifier, UserSig, [](void* data) {
 			//登录失败, code为错误码，desc为错误原因描述
 		}
 
-		GetILive()->login(identifier, UserSig, OnLoginSuc, OnLoginErr, NULL);
+		GetILive()->login(userId, UserSig, OnLoginSuc, OnLoginErr, NULL);
 后续都使用 lambda 表达式，不再重复说明。
 
 * 异步回调都带一个 void\* data 参数
@@ -76,7 +76,10 @@ while (GetMessage(&msg, NULL, 0, 0))
 }
 ```
 
-* 本例 Demo 将 identifier 和 userSig 写死了，userSig 是有有效期的，一般为三个月；如果过期，将会登录失败；用户在运行 demo 时，需要按照本文所述的方式生成自己的 userSig，然后换成自己的 SDKAppId、AccountType、identifier 和 userSig 进行测试。
+* 本例 Demo 将 userId 和 userSig 写死了，userSig 是有有效期的，一般为三个月；如果过期，将会登录失败；用户在运行 demo 时，需要按照本文所述的方式生成自己的 userSig，然后换成自己的 SDKAppId、AccountType、userId 和 userSig 进行测试。
 
 ## 运行结果
 ![](https://main.qcloudimg.com/raw/0efdf60c32dd0b52070a7e0392b53246.png)
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
