@@ -127,12 +127,15 @@ roomHelper.createRoom(1234);
 
 ## 常见问题
 
-#### 进房失败，提示没有权限
+#### 进房失败10004，提示request room server address failed
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
 ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
 ```
+
+#### 进房失败71，提示decodeSsoCmd_pbvideoapp_pbvideoinfoErr:user id error longConnHead.account=0
+这种情况多帐号登录引起，请确认之前登录新帐号时，已注销老的帐号
 
 #### onException 中收到 EXCEPTION_ENABLE_CAMERA_FAILED 并且 errCode 为 1，找开摄像头失败。
 1. 确认 Android 设备有摄像头并且可以正常使用；

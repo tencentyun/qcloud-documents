@@ -79,8 +79,4 @@ getSignature: function(callback) {
 2. 只支持上传视频。
 3. 不支持断点续传和分片上传。
 4. 小程序的 chooseVideo API，目前支持上传文件为 25MB。
-5. request 和 uploadFile 合法域名，请添加 `vod2.qcloud.com` 和您的上传路径，如 demo 的`32d70eabvodgzp1253668508-10022853.cos.ap-guangzhou-2.myqcloud.com`。 具体请参考下面说明：每个用户的上传路径都不一样，您的上传路径可通过下面步骤来获取： 
- 5.1 打开微信开发者工具，当上传视频后，会有相应的提示； 
- 5.2 把提示前面的域名，添加到 request 和 uploadFile 合法域名即可。 
-比如下面截图，上传后会有提示；然后把 `da0xxx-xxx.myqcloud.com` 域名，添加到 request 和 uploadFile 合法域名即可。 
-![](https://main.qcloudimg.com/raw/d58890eda914175d27cc64c235571357.png)
+5. request 和 uploadFile 合法域名，请添加 vod2.qcloud.com 和您的上传路径。上传路径，请到 [点播控制台](https://console.cloud.tencent.com/video/bucketlist) 查看。

@@ -58,7 +58,7 @@
 
 ![应用nginx示例-016.png][13]
 
-  [1]: https://cloud.tencent.com/document/product/457/11945
+  [1]: https://cloud.tencent.com/document/product/457/11952
   [2]: https://console.cloud.tencent.com/ccs/application
   [3]: https://mc.qcloudimg.com/static/img/b69a1f01ddfb2abc05512e324865b8b3/image.png
   [4]: https://mc.qcloudimg.com/static/img/27eda4339af5b2d86959287a4192e783/image.png
