@@ -13,7 +13,7 @@ Jdk 1.8 及以上。
 若想使用本 SDK 直接测试，可使用 RASRtest.java 文件进行测试，用户可以直接修改 RASRtest.java。
 test.wav 为测试音频，8k16bit。
 
-### 卸载SDK
+### 卸载 SDK
 卸载方式即删除相关文件与依赖文件即可。
 
 ## 快速入门
