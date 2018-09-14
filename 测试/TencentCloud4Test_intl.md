@@ -1,4 +1,4 @@
-##just a test##
+
 <script type="text/plugin"  data-type = "code" action="start"> </script>
 
 ```PYTHON
@@ -29,4 +29,3 @@ def encode_image(image):
   image_content = image.read()
   return base64.b64encode(image_content)
 ```
-#结束#
