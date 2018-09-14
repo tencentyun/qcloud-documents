@@ -60,6 +60,8 @@
 | [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔    |
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [微信云支付](https://cloud.tencent.com/document/product/569) | ✔        | -      | ✔      | 服务级   | -        | - |
+| [智能推荐](https://cloud.tencent.com/document/product/587) | ✔        | -      | ✔      | 服务级   | ✔        | - |
+| [数字营销](https://cloud.tencent.com/document/product/588) | ✔        | -      | ✔      | 服务级   | ✔        | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        | ✔    |
 | [腾讯云应用服务平台](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |
 | [分布式服务框架](https://cloud.tencent.com/document/product/649)     |-        | -      | -      | -   | -        | ✔    |
