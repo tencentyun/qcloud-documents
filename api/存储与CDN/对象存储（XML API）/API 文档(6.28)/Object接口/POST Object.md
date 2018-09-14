@@ -11,23 +11,19 @@ POST Object 接口请求允许使用者用表单的形式将文件（Object）�
 2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
 
 ## 请求
-### 请求示例
 
+请求示例：
 ```
 POST / HTTP/1.1
-Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
-Content-Length: length
 Headers
 Form
 ```
 
+> Signature（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
+
+
 ### 请求头
-
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
-
-#### 非公共头部
+#### 必选头部
 该请求操作需要用到如下必选请求头：
 
 |名称|描述|类型| 必选|
@@ -46,12 +42,9 @@ Form
 | x-cos-meta- * | 自定义的信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied |String| 否|
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
-
 
 #### Policy
-**基本格式**
-
+##### 基本格式
 ```json
 { "expiration": "2007-12-01T12:00:00.000Z",
   "conditions": [
@@ -62,17 +55,17 @@ Form
 }
 ```
 
-**Expiration**
+##### Expiration
 设置该 POST Policy 的超时时间，使用 ISO8601 GMT 时间，例如 2017-12-01T12:00:00.000Z。
 
-**Conditions 规则**
+##### Conditions 规则
 | 类型   | 描述                                       |
 | ---- | ---------------------------------------- |
 | 完全匹配 | 使用`{"key": "value"}`或`["eq", "$key", "value"]`方式表达 |
 | 前缀匹配 | 使用 `["starts-with", "$key", "value"]`方式表达，value 可留空 |
 | 范围匹配 | 仅用于`["content-length-range", int1, int2]`则文件字节数必须在 int1 和 int2 范围内|
 
-**Conditions 参数**
+##### Conditions 参数
 所有参数均为非必选，不填可以不校验。
 
 | 名称                      | 描述                                       | 匹配方式  |
@@ -87,7 +80,7 @@ Form
 | x-cos-credential        | 格式   *<your-access-key-id>*/*<date>*/*<aws-region>*/*<aws-service>*/aws4_request | 完全    |
 | x-cos-date              | ISO8601的 UTC 时间      | 完全    |
 | x-cos-meta-*            | 用户自定义的头部                                 | 完全、前缀 |
-| x-cos-*                 | 其他需要签署的 cos 头部                           | 完全    |
+| x-cos-*                 | 其他需要签署的 aws 头部                           | 完全    |
 
 ## 响应
 ### 响应头
@@ -101,7 +94,6 @@ Form
 | ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏 |String|
 | Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径|String|
 |x-cos-version-id|目标存储桶中复制对象的版本。|String|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
 
 ### 响应体
 |节点名称（关键字）|父节点|描述|类型|必选|

@@ -1,7 +1,7 @@
 ## 功能描述
 GET Object 接口请求可以在 COS 的存储桶中将一个文件（对象）下载至本地。该操作需要请求者对目标对象具有读权限或目标对象对所有人都开放了读权限（公有读）。
 
-### 版本
+## 版本
 当启用多版本，该 GET 操作返回对象的当前版本。要返回不同的版本，请使用 versionId 参数。
 
 >**注意**
@@ -77,7 +77,7 @@ GET /{ObjectName} HTTP/1.1
 |x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|
 |x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|
 |x-cos-version-id|string|如果检索到的对象具有唯一的版本ID，则返回版本ID。|
-|x-cos-server-side​-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
+
 
 
 ### 响应体

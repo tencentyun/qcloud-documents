@@ -57,8 +57,6 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 |x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|
 |x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD,STANDARD_IA|
 |x-cos-version-id|string|返回的对象的版本ID。|
-|x-cos-server-side​-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|
-
 
 ### 响应体
 该请求响应体为空。
