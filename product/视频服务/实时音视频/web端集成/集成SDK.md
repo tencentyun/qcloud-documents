@@ -52,7 +52,7 @@
 ## 如何配置是是否使用房间权限key进行权限校验呢？
 
 
-进入[实时音视频控制台](https://console.qcloud.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
+进入[实时音视频控制台](https://console.cloud.tencent.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
 ** 特别注意，这里的策略修改后，需要2小时后才能全量生效 **
 
 ![启用权限密钥](https://main.qcloudimg.com/raw/c60b5cf33ea2c0bc291a7700f252b8c1.png)
