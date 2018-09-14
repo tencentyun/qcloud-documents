@@ -9,8 +9,6 @@
 - iOS&Android：支持4K大视频编辑，缩略图提取支持指定分辨率；
 - iOS&Android：新增草稿箱功能使用示例，具体请参见小视频APP；
 - iOS&Android：编辑支持动态旋转画面角度；
-- iOS&Android：商业版支持licence设置接口，在线下载更新licence；
-- iOS&Android：直播推流动效支持静音设置接口；
 - iOS：修复快速频繁切换BGM引起的线程安全问题；
 - iOS：解决视频录制和预览BGM声音大小不一致的问题；
 - iOS：修复视频编辑添加重复特效导致片尾水印PTS异常的问题；
@@ -18,9 +16,11 @@
 - Android：修复动态贴纸角度设置不生效问题；
 - Android：解决多视频合成偶现音画不同步问题，提升视频合成画质
 
+【其他】
+- iOS&Android：商业版支持licence设置接口，在线下载更新licence；
+- iOS&Android：直播推流动效支持静音设置接口；
+
 ### Version 5.1 @ 2018-08-18
-- iOS&Android：Demo主界面重新设计，更清晰易用；
-- iOS：解决iOS12系统推流播放花屏、短视频录制花屏的问题；
 
 【播放器】
 - iOS&Android：直播播放支持时移回看，文档参考： [https://cloud.tencent.com/document/product/266/9237#.E7.9B.B4.E6.92.AD.E6.97.B6.E7.A7.BB.E5.9B.9E.E7.9C.8B]；
@@ -40,10 +40,11 @@
 - Android：增加快速导入能力，适合大视频快速导入；
 - Android：编辑增加滤镜程度设置接口；
 
+【其他】
+- iOS&Android：Demo主界面重新设计，更清晰易用；
+- iOS：解决iOS12系统推流播放花屏、短视频录制花屏的问题；
+
 ### Version 5.0 @ 2018-07-18
-- iOS：iOS Demo界面适配iphoneX；
-- iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；
-- Android：软编提升RGBA生成YUV转换精度，提高推流画质；
 
 【播放器】
 - iOS&Android：超级播放器重构，支持小窗模式；
@@ -64,6 +65,11 @@
 - Android：优化编辑预处理速度和视频生成速度；
 - Android：解决录制横竖屏切换黑屏问题；
 - Android：修复录制快速单击开始结束报错的问题；
+
+【其他】
+- iOS：iOS Demo界面适配iphoneX；
+- iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；
+- Android：软编提升RGBA生成YUV转换精度，提高推流画质；
 
 ### Version 4.9 @ 2018-06-14
 - iOS&Android：直播新增BGM变调支持；
