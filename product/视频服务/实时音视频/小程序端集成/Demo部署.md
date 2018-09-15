@@ -85,7 +85,7 @@ https://您自己的域名/webrtc/weapp/webrtc_room
 
 ## 与WebRTC端互通
 ### Demo 体验 
-用 Chrome 浏览器打开 [体验地址](https://sxb.qcloud.com/miniApp/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
+用 Chrome 浏览器打开 [体验地址](https://www.qcloudtrtc.com/miniApp/index.html#/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
 ![](https://main.qcloudimg.com/raw/81edf044e0a40ccfd4794b91185f1f82.jpg)
 
 ### 源码调试

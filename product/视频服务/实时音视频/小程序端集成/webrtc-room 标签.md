@@ -6,7 +6,7 @@
 
 ## 效果演示
 - **PC 端**
-用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
+用 Chrome 浏览器打开 [体验页面](https://www.qcloudtrtc.com/miniApp/index.html#/) 可以体验桌面版 WebRTC 的效果。
 
 - **Android 端**
 用 Android 手机 [下载 App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装 App 即可体验 Android 的效果。
