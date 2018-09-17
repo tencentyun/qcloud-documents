@@ -1,7 +1,7 @@
 Demo 体验
 升级微信到最新版本，发现页卡 => 小程序 => 搜索“腾讯视频云”，即可打开小程序Demo：
 
-## 再次确认你已经完成相关接口的开通
+## 再次确认您已经完成相关接口的开通
 打开 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序，并在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
 
 ![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
