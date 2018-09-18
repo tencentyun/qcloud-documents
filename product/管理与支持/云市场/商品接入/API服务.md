@@ -32,5 +32,5 @@
 2.6.填写完商品信息，单击“提交”按钮    
 2.7.提交后商品为“审核中”状态，云市场运营人员会在7个工作日内完成审核   
 2.8.审核中的商品，可以单击“预览”查看效果，需要修改继续单击“修改”即可   
-![](https://main.qcloudimg.com/raw/b2f078ce8cf035d7b5b02a33abcddcac.png)  
+![](https://main.qcloudimg.com/raw/b43d08d5a320a8a3d9133800b432e3c6.png)  
 2.9.完成  
