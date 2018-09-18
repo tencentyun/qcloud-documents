@@ -6,7 +6,7 @@
 | -------------------- | -------- |
 | [WebRTCAPI.fn.detectRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
 | [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)     | 初始化 |
-| [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17251#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
+| [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17251#webrtcapi.getlocalstream)     | 获取本地音频/视频流 |
 | [WebRTCAPI.enterRoom ](https://cloud.tencent.com/document/product/647/17251#webrtcapi.enterRoom)     | 创建或进入音视频房间 |
 | [WebRTCAPI.startRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.startrtc)   | 主动推流才需要用到 |
 | [WebRTCAPI.stopRtc](https://cloud.tencent.com/document/product/647/17251#webrtcapi.startrtc)   | 停止推流 |
