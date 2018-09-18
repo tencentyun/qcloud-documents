@@ -76,7 +76,7 @@
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
-2. 在 composer.json 的 require 结构体中加入依赖：**注意这里的版本号只是举例,您可以在composer仓库上看到最新的版本号。**：
+2. 在 composer.json 的 require 结构体中加入依赖：**注意这里的版本号只是举例,您可以在composer仓库上看到最新的版本号。**
 ```
 "tencentcloud/tencentcloud-sdk-php": "3.0.8"
 ```
@@ -87,7 +87,7 @@ require 'vendor/autoload.php';
 ```
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-php) 下载源码压缩包。
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-php) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 添加以下引用代码，引用方法可参考示例。
 ```
