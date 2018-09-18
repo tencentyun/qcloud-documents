@@ -1,7 +1,7 @@
 云市场 SaaS 服务提供“自动交付”的接入方式：相较于传统的兑换码换商品方式，自动交付可以给用户更佳的用户体验，从而获得腾讯云更多的流量推荐。该方式下，用户购买后会接收应用访问URL地址，通过单击 URL 免登访问服务商 SaaS 应用，直接使用服务。同时，支持版本升级、续费等特性。 
 
 1.上架流程   
-![](//mc.qcloudimg.com/static/img/f24a8d9f78e42966936d94ba8c707533/image.jpg)  
+![](https://mc.qcloudimg.com/static/img/f24a8d9f78e42966936d94ba8c707533/image.jpg)  
 
 2.上架操作    
 2.1.参考[《云市场软件服务接入-SaaS商品自动交付接入方案》](https://main.qcloudimg.com/raw/fe02e53747346320763c5e178fc53e54.pdf)开发 API 接口  
@@ -38,5 +38,5 @@ b.单击[+加一行]按钮，继续输入规格10G数据迁移，时长1，单�
 2.6.填写完商品信息，单击“提交”按钮   
 2.7.提交后商品为“审核中”状态，云市场运营人员会在 7 个工作日内完成审核   
 2.8.审核中的商品，可以单击“预览”查看效果，需要修改继续单击“修改”即可   
-![](https://main.qcloudimg.com/raw/b2f078ce8cf035d7b5b02a33abcddcac.png)  
+![](https://main.qcloudimg.com/raw/b43d08d5a320a8a3d9133800b432e3c6.png)  
 2.9.完成  
