@@ -23,8 +23,6 @@
 | [黑石物理服务器](https://cloud.tencent.com/document/product/386/13245) | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [容器服务](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
-| [容器服务-镜像仓库](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |
-| [容器服务-持续集成](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 服务级   | -        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
@@ -39,7 +37,7 @@
 | [归档存储](https://cloud.tencent.com/document/product/572)   | ✔        | ✔      | -      | 资源级   | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)   | ✔        | -      | ✔      | 服务级   | -        | -    |
 | [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        |  ✔ |	
- | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |
+
 ## 云数据库 TencentDB	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
@@ -104,7 +102,6 @@
 | [智能语音服务](https://cloud.tencent.com/document/product/441) | ✔        | -      | ✔      | 服务级   | -        | - |	
 | [文智自然语言处理](https://cloud.tencent.com/document/product/271) | ✔        | -      | ✔      | 服务级   | -      | -|	
 | [机器翻译](https://cloud.tencent.com/document/product/551)   | ✔        | -      | ✔      | 服务级   | -        | - |
-| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851) | ✔        | -      | ✔      | 服务级   | -        |      |
 | [腾讯云小微](https://cloud.tencent.com/document/product/645) | ✔        | -      | ✔      | 服务级   | -        | - |
 | [万象优图](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | - |
  ## 云智 AI 平台服务	
