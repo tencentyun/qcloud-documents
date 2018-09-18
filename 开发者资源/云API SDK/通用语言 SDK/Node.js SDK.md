@@ -2,26 +2,26 @@
 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
 为方便 NODEJS 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 NODEJS 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 NODEJS SDK 并开始调用。
 
-## 支持的产品列表
+## 支持 3.0 版本的产品列表
 
 <table>
   <tr>
     <td><a href="https://cloud.tencent.com/document/api/213/15689">云服务器</a></td>
     <td><a href="https://cloud.tencent.com/document/api/362/15634">云硬盘</a></td>
     <td><a href="https://cloud.tencent.com/document/api/215/15755 ">私有网络</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/236/15830 ">数据库 MySQL</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/236/15830 ">云数据库 MySQL</a></td>
   </tr>
   <tr>
     <td><a href="https://cloud.tencent.com/document/api/599/15880 ">批量计算</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/237/16144 ">数据库 MariaDB(TDSQL)</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/237/16144 ">云数据库 MariaDB</a></td>
     <td><a href="https://cloud.tencent.com/document/api/583/17235">无服务器云函数</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/557/16124 ">分布式数据库DCDB</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/557/16124 ">分布式数据库 DCDB</a></td>
   </tr>
 <tr>
     <td><a href="https://cloud.tencent.com/document/api/386/18637 ">黑石物理服务器</a></td>
     <td><a href="https://cloud.tencent.com/document/api/563/16034 ">渠道合作伙伴</a></td>
     <td><a href="https://cloud.tencent.com/document/api/551/15612 ">机器翻译</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/409/16761">数据库 PostgreSQL</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/409/16761">云数据库 PostgreSQL</a></td>
   </tr>
 <tr>
     <td><a href="https://cloud.tencent.com/document/api/692/16733">Web漏洞扫描</a></td>
@@ -36,13 +36,28 @@
     <td><a href="https://cloud.tencent.com/document/api/571/18122">数据传输服务 DTS</a></td>
   </tr>
     <tr>
-    <td><a href="https://cloud.tencent.com/document/api/860/18448">腾讯优 Mall</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/860/18448">腾讯优Mall</a></td>
     <td><a href="https://cloud.tencent.com/document/api/853/18384">腾讯优评</a></td>
-    <td><a href="https://cloud.tencent.com/document/api/851/18295">腾讯智能钛机器学习</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/851/18295">智能钛机器学习</a></td>
     <td><a href="https://cloud.tencent.com/document/api/659/18591">迁移服务平台</a></td>
-
   </tr>
+  <tr>
+  <td><a href="https://cloud.tencent.com/document/api/663/19455">TBaaS</a></td>
+  <td><a href="https://cloud.tencent.com/document/api/555/19170">计费相关</a></td>
+  <td><a href="https://cloud.tencent.com/document/api/634/19469">物联网通信</a></td>
+  <td><a href="https://cloud.tencent.com/document/api/296/19825">主机安全 </a></td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/api/884/19310 ">智聆口语评测</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
   </table>
+
+
+## API Explore
+[API Explore](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度，推荐使用。
 
 ## 依赖环境
 
