@@ -72,7 +72,7 @@
  go get -u github.com/tencentcloud/tencentcloud-sdk-go
 ```
 ### 通过源码安装
-前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 下载最新代码，解压后安装到 `$GOPATH/src/github.com/tencentcloud` 目录下。
+前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码，解压后安装到 `$GOPATH/src/github.com/tencentcloud` 目录下。
 
 ## 示例
 每个接口都有一个对应的 Request 结构和一个 Response 结构。例如查询可用区 DescribeZones 有对应的请求结构体 DescribeZonesRequest 和返回结构体 DescribeZonesResponse 。
