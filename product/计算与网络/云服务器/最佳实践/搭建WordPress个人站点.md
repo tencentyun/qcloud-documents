@@ -289,8 +289,3 @@ mv * /usr/share/nginx/html/
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
-
-您还可以参考以下视频，完成 WordPress 在 Ubuntu 上的搭建。
-> 注：视频中演示操作界面仅为参考，请以实际操作界面为准。
-
-**查看视频：**
