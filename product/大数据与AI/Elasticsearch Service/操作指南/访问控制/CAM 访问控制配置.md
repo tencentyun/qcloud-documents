@@ -1,4 +1,3 @@
-
 ## ES CAM 访问管理简介
 访问管理（CAM，Cloud Access Management）是腾讯云提供的一套 Web 服务，它主要用于帮助客户安全管理腾讯云账户下的资源的访问权限。通过 CAM，您可以创建、管理和销毁用户(组)，并通过身份管理和策略管理控制哪些人（子账号、协作者账号）可以使用哪些腾讯云资源。有关 CAM 策略的更多相关基本信息及使用，请参见 CAM [策略](https://cloud.tencent.com/document/product/598/10601) 文档。  
 

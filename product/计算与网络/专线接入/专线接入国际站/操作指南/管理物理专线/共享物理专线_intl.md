@@ -1,0 +1,1 @@
+You can set up a Direct Connect tunnel by using the physical direct connects under other accounts. You can also share the physical direct connect under your account with other Tencent Cloud customers. For more information, please see the Direct Connect [documentation](https://cloud.tencent.com/doc/product/216/548).

@@ -110,4 +110,3 @@ Kibana 拥有可视化统计分析数据的能力，单击左侧菜单 Visualize
 
 Kibana 其他使用方式，可以进一步了解 [Kibana 官方文档](https://www.elastic.co/guide/en/kibana/5.6/getting-started.html)。
 
-

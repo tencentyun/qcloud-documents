@@ -313,4 +313,3 @@ curl -XDELETE 'http://10.0.0.2:9200/china/city?pretty'
 ```
 curl -XDELETE 'http://10.0.0.2:9200/china?pretty'
 ```
-

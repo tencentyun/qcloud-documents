@@ -7,19 +7,25 @@
 
 ## 接入准备
 
-1. 下载 SDK + Demo 开发包。[下载地址](https://cloud.tencent.com/document/product/454/7873#iOS)）。
+下载SDK, [下载地址](https://cloud.tencent.com/document/product/454/7873)，解压到本地。
 
-2. 超级播放器的 UI 部分源码开源，开源代码位于`Player/SuperPlayer`文件夹，图片资源位于`SuperPlayer.bundle`中，您需要src中的文件分拷贝的您的App工程中。其它依赖的第三方库您可以自行 Pod 添加或在 `Third` 目录中获取
+以独立播放器版为例，此时您可以看到解压后的文件
 
+![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
 
-超级播放器依赖的第三方库
+其中，播放器代码位于Demo/SuperPlayer，SDK库位于SDK目录。
 
-- Masonry
-- SDWebImage
-- AFNetworking
+### CocoaPods集成
 
+在您的Podfile文件，添加下面代码：
+```
+pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec', :subspecs => ['Player']
+# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
+```
 
-## 创建播放器
+命令行输入 `pod install` 或 `pod update` 执行安装。
+
+## 使用播放器
 
 超级播放器主类为`SuperPlayerView`，您需要先创建它并添加到合适的容器View中。
 
@@ -146,6 +152,54 @@ fileId在一般是在视频上传后，由服务器返回：
 
 无缝切换需要转码时指定生成masterPlaylist和IDR对齐，配置后超级播放在播fileId时，就能取到多码率masterPlaylist的视频源地址。使用上和播普通fileId没有区别，超级播放器内部会自动处理多码率流，只需要在后台修改转码参数，修改方法请参考文档 [对视频文件进行处理](https://cloud.tencent.com/document/product/266/9642#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
+
+### 视频帧打点信息预览
+
+#### 功能介绍
+
+视频帧打点信息预览功能是**超级播放器结合腾讯云定制功能**。能够在进度条上进行视频帧信息打点，点击能够显示出视频帧的打点信息，以获得更好的观看体验。如图所示：
+
+![](https://main.qcloudimg.com/raw/7154f087547536a0fae43f654891b500.jpg)
+
+使用该功能，需要在服务端进行配置，配置方法请参考文档：[增加打点信息](https://cloud.tencent.com/document/product/266/14190)。
+
+#### 如何使用
+
+视频帧打点信息预览功能不需要用到 SDK 额外的类，超级播放器已经将其封装在 `SupePlayerView` 内部，您仅需要按照服务端配置文档进行配置即可。
+
+### 视频帧雪碧图预览
+
+#### 功能介绍
+
+视频缩略图预览功能是**超级播放器结合腾讯云定制功能**。在拖动视频进度条时，能够显示当前时间戳所对应的视频雪碧图，以获得更好的观看体验。如图所示：
+
+![](https://main.qcloudimg.com/raw/1df263289f8d3910e7a29a6203189591.jpg)
+
+使用该功能，需要在服务端进行配置，配置方法请参考文档：[截取雪碧图](https://cloud.tencent.com/document/product/266/8101)。
+
+####  如何使用
+
+超级播放器已经将其封装在 `SupePlayerView` 内部，您仅需要按照服务端配置文档进行配置即可。
+
+若您想单独提取使用，可参考`SuperPlayerView`内部实现，或以下代码步骤：
+
+1. 创建 `TXImageSprite` 对象。
+
+```
+TXImageSprite *imageSprite = [[TXImageSprite alloc] init];
+```
+
+2. 配置：传入 VTT 文件链接，以及 Image 图片链接。
+
+```
+[imageSprite setVTTUrl:vttUrl imageUrls:imgUrlArray];
+```
+
+3. 获取：传入对应时间戳，获取 UIImage 图片。
+
+```
+UIImage *thumbnail = [imageSprite getThumbnail:seekTime];
+```
 
 
 ## 切换视频

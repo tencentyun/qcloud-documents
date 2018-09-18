@@ -1,3 +1,14 @@
+## [1.5.2] - 2018-09-11
+### 变更
+1. `TXFileManager` 初始化 COS 接口去掉`SDKAPPID`参数： 
+```objc
+- (int)initCosWithConfig:(TXCosConfig *)config;
+```
+
+### 优化
+1. 修复了一些 bug
+
+
 ## [1.5.1] - 2018-09-07
 ### 变更
 1. TXBoardSDK 文档接口重构，整合 COS 文件上传，接口更加易用
@@ -17,20 +28,24 @@
 ## [1.5.0] - 2018-09-03
 ### 变更
 1. 去除`TXBoardViewDelegate`中的`getBoardDataConfig`方法
+
 ```objc
 /**
  获取白板所需外部参数，包含uid、userSig、roomID（这些值发送改变时需要重新设置）
  */
 - (TXBoardDataConfig *)getBoardDataConfig;
 ```
+
 2. 去掉`TICManger`初始化方法中的`accountType`参数
+
 ```objc
 - (int)initSDK:(NSString *)SDKAppID;
 ```
-3. `TICManger`中的IM消息收/发方法由原来的 4 个合并为 2 个
+
+3. `TICManger`中的IM消息收/发方法由原来的4个合并为2个
 
 ### 新增
-1. `TXBoardSDK`新增白板 SDK 初始化方法：
+1. `TXBoardSDK`新增白板SDK初始化方法：
 
 ```objc
 /**
@@ -61,10 +76,10 @@
 
 ## [1.2.2] - 2018-08-23
 ### 变更
-1. TICSDK 接口整理，将 TICSDK.h 中的接口移动到 TICManger.h 中
-2. TXBoardView.framework 更改为 TXBoardSDK.framework，增加 TXBoardSDK.h 头文件
+1. TICSDK 接口整理，将TICSDK.h中的接口移动到 TICManger.h 中
+2. TXBoardView.framework 更改为 TXBoardSDK.framework，增加TXBoardSDK.h 头文件
 3. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
-4. TXBoardSDK 移除了图片上传下载代理方法，移动到 SDK 内部实现，减少 SDK 接入工作量
+4. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
 
 ```objc
 /**
@@ -96,7 +111,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 ### 优化
 1. 优化涂鸦画线策略，使涂鸦更加平滑
-2. 修改 FID 生成规则，兼容短时间上传多个文档的场景
+2. 修改FID生成规则，兼容短时间上传多个文档的场景
 3. 不再显示起点和终点重合的标准图形
 
 ## [1.2.0] - 2018-08-03
@@ -153,6 +168,8 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 3. 在线课堂线上音视频互动；
 4. 数字白板功能；
 5. 课堂 IM 消息互动。
+
+
 
 
 

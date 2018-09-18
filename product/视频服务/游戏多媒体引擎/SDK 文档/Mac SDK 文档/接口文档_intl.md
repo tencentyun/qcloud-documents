@@ -2,7 +2,7 @@
 Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for Mac developers to debug and integrate the APIs for Game Multimedia Engine.
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
+![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
 
 
 ### Key considerations for using GME
@@ -72,7 +72,7 @@ With the API class, the Delegate method is used to send callback notifications t
 
 
 ### Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
@@ -151,7 +151,7 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218). When voice message is obtaining authentication, the parameter of room number must be set to 0.
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218). When voice message is obtaining authentication, the parameter of room number must be set to 0.
 A value of type NSData is returned by this API.
 #### Function prototype
 

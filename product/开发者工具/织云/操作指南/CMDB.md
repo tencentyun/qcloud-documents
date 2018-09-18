@@ -1,57 +1,91 @@
 CMDB (Configuration Management Database) 即配置管理数据库。织云以业务为核心,提供全面的基础资源和应用资源模型，便于用户进行面向业务的资源管理。
-## 服务器 ##
-### 全量 ###
-可以管理所有服务器。
 
+
+## 服务器
+### 已分配
+可以管理所有服务器。
 - 展示所有设备信息，可自定义展示字段，最多展示九个字段，支持下载到 excel 表格；
 - 支持列表视图、IDC 视图、运维负责人视图、机型视图、模块视图、运营状态视图；
 - 支持高级搜索，可按负责人等进行搜索；
 - 可查看单机监控数据，多机监控数据；
 - 可修改服务器绑定的业务，可把服务器释放到未分配。
 
-![](https://mc.qcloudimg.com/static/img/d3b7ed3a7ed2ecbe04bb198335e07665/CMDB1.png)
-### 未分配 ###
+![](https://main.qcloudimg.com/raw/01643bdefbbc7ed06c01f8d0235581a0.png)
+
+
+### 待分配
 展示未绑定业务的所有服务器，可进行服务器分配以及监控数据查看。
-![](https://mc.qcloudimg.com/static/img/7187f524fbea49c714cc925bbe4e59f6/CMDB2.png)
-## 业务 ##
+![](https://main.qcloudimg.com/raw/bd81b448861fa51d76ca04afa0811f31.png)
+
+
+### 全量
+展示已绑定和未绑定业务的所有服务器。
+![](https://main.qcloudimg.com/raw/382cbe3f80cb53f9577b704dd663a0c4.png)
+
+
+## 业务
 可以管理所有的一级业务。
-### 一级业务列表 ###
+
+### 一级业务列表
 - 展示所有一级业务的信息，包括服务器数。可自定义展示字段，最多展示九个字段，支持下载到 excel 表格
 - 支持高级搜索，可按负责人，IDC 等进行搜索
 - 可新建一级业务，但只有管理员才有权限操作
 
-![](https://mc.qcloudimg.com/static/img/5f5b48cd0f83ee2d2a32332c7bfb4d7b/CMDB3.png)
-### 二级业务列表  ###
+![](https://main.qcloudimg.com/raw/35913beccb3edfa79218bbc3bfd9775e.png)
+
+
+
+### 二级业务列表
 - 可以管理一个一级业务的所有二级业务；
 - 展示所有二级业务的信息，包括服务器数，可自定义展示字段，最多展示九个字段，支持下载到 excel 表格；
 - 支持高级搜索，可按负责人搜索；
 - 可新建二级业务，但只有管理员或一级业务负责人才有权限操作。
 
-![](https://mc.qcloudimg.com/static/img/aadc307cb74ab1a4c04203b88807aed3/CMDB4.png)
-### 三级业务列表 ###
+![](https://main.qcloudimg.com/raw/046b34c406495107efbac3afcfbd10aa.png)
+
+
+
+### 三级业务列表
+
 - 可以管理一个二级业务的所有三级业务
 - 展示所有三级业务的信息，包括服务器数，可自定义展示字段，最多展示九个字段，支持下载到 excel 表格
 - 支持高级搜索，可按负责人搜索
 - 可新建三级业务，但只有管理员或一级业务负责人或二级业务负责人才有权限操作
 
-![](https://mc.qcloudimg.com/static/img/7ba56e6496ff7a2124d6cd413220a47a/CMDB5.png)
-## 我的 ##
-### 设备 ###
-展示所有我负责的服务器的信息，可自定义展示字段，最多展示九个字段，支持下载到 excel 表格，支持查看多机监控数据。
-![](https://mc.qcloudimg.com/static/img/4603d52de7d50f598f1032bc20df289a/CMDB6.png)
-### 业务 ###
-展示所有我负责的一级业务、二级业务、三级业务的信息，包括服务器数，可自定义展示字段，最多展示九个字段，支持下载到 excel 表格。
-![](https://mc.qcloudimg.com/static/img/87dee0d8fe91329675e6aee3e76e9790/CMDB7.png)
-## 数据导入 ##
-### 批量导入服务器 ###
-用于批量导入服务器信息，请下载服务器导入模版填写服务器信息，并下载服务器导入规则与实例，注意查看字段规则说明。红色字段为必填项，类似下图:
-![](https://mc.qcloudimg.com/static/img/cb3df5cadf9e076361e955755f79a300/CMDB8.png)
-然后在织云界面导入已填好信息的服务器导入模版（excel 文件）。
-![](https://mc.qcloudimg.com/static/img/bd843ecd239f288bda2a602583b237b1/CMDB9.png)
-单击【导入】，便能在 CMDB-服务器-全量看到新增的服务器信息。
-### 批量导入业务 ###
-请下载业务导入模版填写业务信息，并下载业务导入规则与实例，注意查看字段规则说明。红色字段为必填项，类似下图：
-![](https://mc.qcloudimg.com/static/img/9df14c0edf205ab2e386233c7fc9fd51/CMDB10.png)
-然后在织云页面导入该 excel 表格。
-![](https://mc.qcloudimg.com/static/img/7185b21205db770ea6bd229a03140d8d/CMDB11.png)
-点击导入后，便能在 CMDB-业务-全量中看到新增的业务信息。
+![](https://main.qcloudimg.com/raw/9ce32b63b2c49da84c8ddc4f4cb30b60.png)
+
+
+
+## 业务运维
+### 业务
+可查看所有业务信息并且搜索对应负责人负责的一级业务、二级业务、三级业务的信息，包括服务器数。
+![](https://main.qcloudimg.com/raw/f34c29ef870af821633fef9ed18352dc.png)
+
+
+## 云管理平台
+### 主机资源池
+用于生产和管理主机资源
+![](https://main.qcloudimg.com/raw/650cf4382e2234ac4a728d5b05d50417.png)
+
+### 批量导入服务器
+单击【导入】，便能看到新增的服务器信息。
+![](https://main.qcloudimg.com/raw/2fe92d03356feb0ed93998c4a7a41f7b.png)
+
+单击模板和示例，下载服务器导入模版填写服务器信息，并下载服务器导入规则与实例，注意查看字段规则说明。红色字段为必填项，类似下图:
+![](https://main.qcloudimg.com/raw/b1aeb3b3eb6faa5d125d8b0742aee8ef.png)
+
+然后单击【选择文件】，上传自己的服务器导入excel。
+![](https://main.qcloudimg.com/raw/b01c526b5f165f714ef10e4b10a769df.png)
+
+单击【确定】后， 便能在待运营中， 看到导入的服务器信息。
+
+### 批量导入业务
+在【业务配置】的【业务】模块中，单击【导入业务】
+![](https://main.qcloudimg.com/raw/846d7d0730c6d7dcfe1bdd3b30f0a962.png)
+
+单击模板和示例，下载业务员导入模版填写服务器信息，并下载业务导入规则与实例，注意查看字段规则说明。黄色字段为必填项，类似下图:
+![](https://main.qcloudimg.com/raw/c195d3c73ce26c9af3bde2c1f6126d4d.png)
+
+然后单击【选择文件】，上传本地填写好的业务导入 excel。
+
+单击【确定】后，便能在【业务配置】的【业务】模块中看到新增的业务信息。
