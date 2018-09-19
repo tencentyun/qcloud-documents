@@ -22,14 +22,14 @@ Prepaid instances can be renewed using various methods. The following example sh
 ### Instance Renewal via API
 You can use the API RenewInstances to renew instances. For more information, please see [Instance Renewal](/doc/api/213/9392).
 
-## Setting Auto Renewal
+## Set Auto Renewal
 You can also view the document [Renewal Management via Console](https://console.cloud.tencent.com/account/renewal) to set auto renewal or renew to a certain time, etc.
 
 ### Auto Renewal via Console
 You can set auto renewal for prepaid instances to eliminate the need to renew the instances whenever they are about to expire:
  1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), move the mouse cursor to **Fees** at the top right corner, and then select **Renew** in the menu.
  2. Click **Set Auto Renewal** on the right of the prepaid instance to be renewed.
- 3. Click **OK** button in the pop-up dialog box.
+ 3. Click **OK** button in the popup dialog box.
  
 For instances set to auto renewal, the charge for the next billing period is automatically deducted from the balance on the expiry date. If you have a sufficient account balance, the instance goes into the next billing period automatically.
 

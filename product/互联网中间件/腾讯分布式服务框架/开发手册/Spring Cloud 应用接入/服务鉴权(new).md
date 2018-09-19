@@ -12,22 +12,30 @@
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-auth</artifactId>
-    <version>1.1.0-RELEASE</version>
+    <version>1.1.1-RELEASE</version>
 </dependency>
 ```
 
-在 provider 中启用配置项 `tsf.auth.enable`，表示对调用 provider 的请求做鉴权：
+然后向 Application 类中添加注解 `@EnableTsfAuth`：
 
-```yaml
-tsf.auth.enable: true
+```java
+// 下面省略了无关的代码
+import org.springframework.tsf.auth.annotation.EnableTsfAuth;
+
+@SpringBootApplication
+@EnableTsfAuth
+public class ProviderApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(ProviderApplication.class, args);
+	}
+}
 ```
 
-- `tsf.auth.enable: true`，启动鉴权，仅通过鉴权的请求可以访问本服务。
-- `tsf.auth.enable: false`，关闭鉴权，任何服务均可访问本服务。
+此时您已经对 provider 微服务开启了鉴权功能，任何到达 provider 的请求都会被鉴权，鉴权不通过会返回 HTTP 403 Forbidden。
 
-当 provider 开启了鉴权功能，但是 consumer 未引用 `spring-cloud-tsf-auth` 依赖项时，consumer 发起的请求将收到 HTTP 返回码 403（Forbidden）。
+TSF 提供了两种类型的鉴权能力，一种根据调用方服务名，一种根据调用方设置的 tag。在控制台上可以配置相应的规则。如果在控制台上对 provider 启用了鉴权功能，并且配置了至少一条规则，那么调用 provider 的微服务（如 comsumer）也需要引入 `spring-cloud-tsf-auth` 的依赖并且加上 `@EnableTsfAuth` 注解，否则到 provider 的请求会被返回 HTTP 403 Forbidden。
 
-使用 tag 鉴权涉及到业务代码和控制台两部分。启用依赖项后，还有两步工作：
+如果请求双方想使用基本 tag 的鉴权规则，那么：
 
 * 对于 provider 而言，需要在控制台上设置 tag 鉴权规则
 * 对于 consumer 而言，需要在业务代码中设置 tag 的内容
@@ -48,7 +56,7 @@ public static void putTags(Map<String, String> tagMap, Tag.ControlFlag... flags)
 public static void putTag(String key, String value, Tag.ControlFlag... flags) {}
 ```
 
-其中 `Tag.ControlFlag` 决定 tag 的使用场景：
+其中 `flags` 决定 tag 的使用场景，如果您没有特殊需要，不传即可：
 
 ```java
 public enum ControlFlag {
@@ -59,7 +67,7 @@ public enum ControlFlag {
 }
 ```
 
-TSF 提供的 Demo `consumer-demo/src/main/java/com/tsf/demo/consumer/Controller.java` 中提供了一个设置 tag 的例子：
+TSF 提供的 demo `consumer-demo/src/main/java/com/tsf/demo/consumer/Controller.java` 中提供了一个设置 tag 的例子：
 
 ```java
 @RequestMapping(value = "/echo-rest/{str}", method = RequestMethod.GET)

@@ -2,54 +2,43 @@
 DELETE Bucket lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
 
 ## 请求
-语法示例：
+### 请求示例
 ```
 DELETE /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-
-### 请求行
-
-```
-DELETE /?lifecycle HTTP/1.1
-```
-
-该 API 接口接受 `DELETE` 请求。
-
+>Authorization: Auth String ，详细信息参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节。
 
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
 ### 响应头
 
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
-
-
-该请求操作无特殊的响应头部信息。
+该响应无特殊的响应头。
 
 ### 响应体
-该请求响应体为空。
+该响应体为空。
 
 ### 错误码
+该请求操作返回如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
 
-错误码|描述|http 状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 None|删除成功，响应体返回为空|204 [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
 NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)

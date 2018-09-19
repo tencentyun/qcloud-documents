@@ -41,7 +41,7 @@
 ### step 2：放置播放器容器
 在需要展示播放器的页面位置加入播放器容器，例如：在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
-<video id="player-container-id" width="414" height="270" preload="auto" playsinline webkit-playinline x5-playinline>
+<video id="player-container-id" width="414" height="270" preload="auto" playsinline webkit-playsinline>
 </video>
 ```
 >**注意事项：**
@@ -49,7 +49,8 @@
 > * 示例中的 player-container-id 为播放器容器的ID，可自行设置。
 > * 播放器容器区域的尺寸，建议通过 CSS 进行设置，通过 CSS 设置比属性设置更灵活，可以实现例如铺满全屏、容器自适应等效果。
 > * 示例中的 preload 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 auto，其他可选值：meta（当页面加载后只载入元数据），none（当页面加载后不载入视频），移动端由于系统限制不会自动加载视频。
-> * playsinline webkit-playinline x5-playinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
+> * playsinline webkit-playsinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
+> * 设置 x5-playsinline 属性在 TBS 内核会使用 X5 UI 的播放器。
 
 ### step 3：初始化代码
 在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID 与 appID。
@@ -81,8 +82,8 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 [等比率自适应](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-adaptive.html)
 
 ### 播放多种清晰度
-1、 首先需要在控制台设置转码多种清晰度，如下图
-![](https://mc.qcloudimg.com/static/img/b2c4b5d61ae28cb4558e15bcbcb3bd87/image.png)
+1、 首先需要在上传视频时对视频进行转码操作，如下图
+![](https://main.qcloudimg.com/raw/2f171baf670cd87b2e5248c9e93d9d60.png)
 
 2、 视频转码后，将会生成多种清晰度的文件，在【控制台】>【视频管理】视频列表中单击视频将会看到如下图
 ![](https://mc.qcloudimg.com/static/img/3a60f37c5c6d429bffb7e96023c948e9/image.png)
@@ -121,10 +122,10 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 #### 指定播放器默认播放某个清晰度
 
-* 在“控制台-Web 播放器管理”选定某个播放器配置进行设置默认画质
-![](https://mc.qcloudimg.com/static/img/3bcad59bcbb2ae35c2ce02bba1f8cefd/image.png)
+* 在“【控制台】-【点播】-【分发播放设置】-【Web 播放器管理】”选定某个播放器配置进行设置默认画质
+![](https://main.qcloudimg.com/raw/471ba3bad21e06832f472b0899244ae4.png)
 
-* 在“控制台-视频管理”将视频与某个播放器配置进行关联，在使用腾讯云播放器播放该视频时，将会使用关联的播放器配置。
+* 在“【控制台】-【视频管理】”将视频与某个播放器配置进行关联，在使用腾讯云播放器播放该视频时，将会使用关联的播放器配置。
 ![](https://mc.qcloudimg.com/static/img/82dc40ee75db110ab2d77749ec059d80/image.png)
 
 >**注意事项：**
@@ -202,7 +203,7 @@ var player = TCPlayer('player-container-id', {
 [缩略图预览-服务端生成](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail.html)
 [缩略图预览-传入缩略图与 VTT 文件](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail-src.html)
 >**注意事项：**
-> * 该功能仅支持在桌面端浏览器。
+> * 该功能仅支持桌面端浏览器。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 > * 生成的缩略图越多，进度条预览越精确，而缩略图越多，图片越大加载越慢，需要取舍平衡。
 
@@ -222,15 +223,50 @@ player.loadVideoByID({
 示例：
 [切换 fileID 播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
 
-### 自定义域名替换
-腾讯云点播服务提供自定义域名替换功能，在播放端的配置方法如下：
+### 镜像功能
+激活镜像功能，可以让视频画面镜像翻转，如下图所示：
+![](https://main.qcloudimg.com/raw/d5886d7d550be72b608077f341299610.png)
+
+开启右键菜单镜像选项：
 ```
 var player = TCPlayer('player-container-id', {
   fileID: '', // 请传入需要播放的视频 filID 必须
   appID: '', // 请传入点播账号的 appID 必须
-  customHost: '' // 请传入替换的域名，例如 www.costum.host
+  plugins: {
+    ContextMenu: {
+      mirror: true
+    }
+  }
 });
 ```
+
+示例：
+[镜像功能](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-mirror.html)
+
+>**注意事项：**
+> * 在浏览器劫持视频播放的情况下，该功能无法使用。
+
+### 进度条标记
+通过服务端 API 对视频[增加打点信息](https://cloud.tencent.com/document/product/266/14190)，可以在播放器中开启显示进度条标记，如下图所示：
+![](https://main.qcloudimg.com/raw/70d880065adce22cb64270f4999558f8.png)
+
+播放器开启方式：
+```
+var player = TCPlayer('player-container-id', {
+  fileID: '', // 请传入需要播放的视频 filID 必须
+  appID: '', // 请传入点播账号的 appID 必须
+  plugins: {
+    ProgressMarker: true
+  }
+});
+```
+
+示例：
+[进度条标记](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-progress-marker.html)
+
+>**注意事项：**
+> * 该功能仅支持桌面端浏览器。
+> * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### HLS 自适应码率播放
 HLS 规范的 Master Playlist 可以根据网络速度自适应码率播放，在视频下载过程中，如果网络速度满足下载高码率的 ts 分片时，播放器将切换播放高码率的 ts 分片，反之播放低码率的 ts 分片。移动端和桌面端大部分浏览器都支持该特性。

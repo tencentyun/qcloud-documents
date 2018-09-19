@@ -1,5 +1,5 @@
 If you're unable to watch the LVB and have no idea what goes wrong with it, you can identify the cause of the problem in a short time by following the steps below:
-![](//mc.qcloudimg.com/static/img/29c74afc399429e40a21b28e7abe87d9/image.png)
+![](https://main.qcloudimg.com/raw/54668f50b8e89909e6fc1600485723cc.png)
 
 ## Step 1. Check the playback URL
 First of all, check whether the playback URL is correct. An incorrect URL is the most likely cause of most problems. Tencent Cloud's LVB URLs include push URL and playback URL. You need to first verify whether **the push URL is accidentally used as the playback URL**.

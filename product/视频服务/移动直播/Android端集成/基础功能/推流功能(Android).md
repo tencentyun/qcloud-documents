@@ -305,7 +305,7 @@ public void onResume() {
 ```
 
 ### step 10+: 后台推摄像头采集数据
-如果希望主播在切后台或者跳转其他界面还能看到摄像头采集的画面， 按照以下配置即可。
+如果希望主播在切后台或者跳转其他界面，播放端还能看到主播摄像头采集的画面， 按照以下配置即可。
 1、step 10.1 和 step 10.2 无需设置。
 2、在 step 10.3 中，注释 mLivePusher.pausePusher() 该方法。
 3、在 step 10.4 中，注释 mLivePusher.resumePusher() 该方法。

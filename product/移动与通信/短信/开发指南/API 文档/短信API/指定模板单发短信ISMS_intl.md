@@ -31,7 +31,7 @@ This API is used to send international SMS messages.
 | Parameter | Required | Type | Description |
 |--------|------|--------|-----------------------------------------------------------------------|
 | ext | No | String | User's session content (optional). The Tencent server returns it as is. You can leave it empty if it is not needed. |
-| extend | No | String | Extended SMS code which is valid only when it is in a format of pure numeral string. It is not enabled by default. [Contact SMS Helper](https://cloud.tencent.com/document/product/382/3773) to enable it. |
+| extend | No | String | Extended SMS code which is valid only when it is in a format of pure numeral string. It is not enabled by default. [Contact SMS Helper](/document/product/382/3773) to enable it. |
 | params | Yes | Array | Template parameters. If the template has no parameters, leave it empty. |
 | sig | Yes | String | App credential. For more information on the calculation, please see the following. |
 | sign | No | String | SMS signature. To use the default signature, leave this field with the default value. |
@@ -71,9 +71,9 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 
 | Parameter | Required | Type | Description |
 |------------|------|--------|-----------------------------------------------|
-| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. For more information, please see [Error Codes](https://cloud.tencent.com/document/product/382/3771) |
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. For more information, please see [Error Codes](/document/product/382/3771) |
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
 | ext | No | String | User's session content. The Tencent server returns it as is. |
 | nationcode | Yes | String | Country code |
-| fee | No | Number | Number of SMS messages billed. [About Billing](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99) |
+| fee | No | Number | Number of SMS messages billed. [About Billing](/document/product/382/9556) |
 | sid | No | String | Delivery ID, indicating an SMS delivery record |

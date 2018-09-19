@@ -1,7 +1,7 @@
-本文将指导您的客户端将加入之前所创建的房间，并与其他用户音视频互动。
+本文将指导您的客户端加入之前所创建的房间，并与其他用户音视频互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
 
 ## 加入房间
@@ -13,7 +13,7 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
-roomOption.authBuffer = privateMapKey;    // 配置进房票据
+roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
@@ -38,7 +38,7 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 至此，房间内成员便可以进行音视频互动。
 
 ## 源码说明
-- 行测试说明
+- 测试说明
 本文 Demo 和[ 创建房间 ](/document/product/647/16819)的完整 Demo 进行互通测试时，需要分别在两台电脑上进行测试，因为代码中都写死打开第一个摄像头和第一个麦克风；如果要在一台电脑上测试，需要电脑至少有两个摄像头及麦克风，且两个用户不能使用同一个设备。
 
 ## 运行结果
@@ -54,5 +54,8 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 GetILive()->setChannelMode(E_ChannelIMSDK);
 ```
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

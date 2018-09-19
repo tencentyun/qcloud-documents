@@ -32,7 +32,14 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         // 添加这行
-        classpath 'com.tencent.tac:tac-services-plugin:1.0.0'
+        classpath 'com.tencent.tac:tac-services-plugin:1.3.+'
+    }
+}
+
+allprojects {
+    repositories {
+        ...
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
 ```
@@ -42,8 +49,8 @@ buildscript {
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.2.+'
-	compile 'com.tencent.tac:tac-social:1.2.+'
+	compile 'com.tencent.tac:tac-core:1.3.+'
+	compile 'com.tencent.tac:tac-social:1.3.+'
 }
 ...
 

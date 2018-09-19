@@ -11,7 +11,7 @@ PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径�
 >在跨帐号复制的时候，需要先设置被复制文件的权限为公有读，或者对目标帐号赋权，同帐号则不需要。
 
 ## 请求
-请求示例：
+### 请求示例
 
 ```
 PUT /destinationObject HTTP/1.1
@@ -24,38 +24,29 @@ x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-PUT /{ObjectName} HTTP/1.1
-```
-
-该 API 接口接受 `PUT` 请求。
-
 
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 
-
-名称|类型|必选|描述
+名称|描述|类型|必选
 ---|---|---|---
-x-cos-copy-source|string|是|源文件 URL 路径，可以通过 versionid 子资源指定历史版本
-x-cos-metadata-directive|string|否|是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced
-x-cos-copy-source-If-Modified-Since|string|否|当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突
-x-cos-copy-source-If-Unmodified-Since|string|否|当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突
-x-cos-copy-source-If-Match|string|否|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突
-x-cos-copy-source-If-None-Match|string|否|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突
-x-cos-storage-class|string|否|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD
-x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
-x-cos-grant-read|string|否|赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
-x-cos-grant-write|string|否|赋予被授权者读的权限。格式：x-cos-grant-write: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
-x-cos-grant-full-control|string|否|赋予被授权者读的权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/<SubUin>"，<br>当需要给根账户授权时，id="qcs::cam::uin/\<OwnerUin>:uin/\<OwnerUin>"
-x-cos-meta-*|string|否|其他自定义的文件头部
+x-cos-copy-source|源文件 URL 路径，可以通过 versionid 子资源指定历史版本|string|是
+x-cos-metadata-directive|是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced。|string|否
+x-cos-copy-source-If-Modified-Since|当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。|string|否
+x-cos-copy-source-If-Unmodified-Since|当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。|string|否
+x-cos-copy-source-If-Match|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
+x-cos-copy-source-If-None-Match|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
+x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD|string|否
+x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|string|否
+x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"|string|否
+x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"|string|否
+x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否
+x-cos-meta-*|其他自定义的文件头部|string|否
 
 **服务端加密相关头部**
 
@@ -65,15 +56,15 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 | --------- | ---------- | ------ | ------ |
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
-
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
 ### 响应头
 
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
 
@@ -83,25 +74,30 @@ x-cos-meta-*|string|否|其他自定义的文件头部
 | x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
 
 ### 响应体
-拷贝成功，返回响应体。
+该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<ETag>string</ETag>
-<LastModified>string</LastModified>
+<CopyObjectResult>
+  <ETag>String</ETag>
+  <LastModified>String</LastModified>
+</CopyObjectResult>
 ```
+具体的数据内容如下：
 
-具体的数据描述如下：
+| 名称               | 描述                                       | 类型     |
+| ---------------- | ---------------------------------------- | ------ |
+| CopyObjectResult | 返回复制结果信息                                 | String |
+| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-ETag|无|返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化|string|是
 
 ## 实际案例
 
 ### 请求
 
 ```
-PUT /222.txt HTTP/1.1
+PUT /123.txt HTTP/1.1
 Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com
 Date: Fri, 04 Aug 2017 02:41:45 GMT
 Connection: keep-alive Accept-Encoding: gzip, deflate Accept: */*

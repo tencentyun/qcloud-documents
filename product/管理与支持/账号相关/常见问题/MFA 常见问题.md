@@ -2,7 +2,7 @@
 MFA(Multi-FactorAuthentication)，即多因子认证，是一种简单有效的安全认证方法。它能够在用户名和密码之外，再增加一层保护。MFA 设备，又叫动态口令卡或 token 卡，是提供这种安全认证方法的设备。目前腾讯云提供两种 MFA 设备： 硬件 MFA 设备和虚拟 MFA 设备 。
 
 ### 如何绑定虚拟 MFA 设备？
-详情单击 [参考文档](https://cloud.tencent.com/document/product/378/14520) 。
+详情单击 [参考文档](https://cloud.tencent.com/document/product/598/14985) 。
 ### 什么是登录保护？
 登录保护指，在您进行登录操作的时候，腾讯云会给您增加一层保护。通常情况下，该保护的措施是，在正确输入帐号和密码的前提下，还需要额外输入一种能证明身份的凭证。单击 [详情](https://cloud.tencent.com/document/product/378/8392) 进行了解。
 

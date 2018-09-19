@@ -3,13 +3,13 @@ Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Choose **
 - During LVB: The current LVB channel has started, and an input stream is found. The LVB channel can be closed or tested under this status.
 - Closed: The current LVB channel is closed. The system does not receive the input stream nor distribute the output stream.
 
-![](https://main.qcloudimg.com/raw/5c2fa708976c52d333f0f48f78d1b878.png)
+![](https://main.qcloudimg.com/raw/d518d9afe855e4af752937ab7c74561c.png)
 
 **View and modify LVB channel settings**
 When an LVB channel is closed, you can click on its name to check the LVB configuration and output address, or modify the configuration of the LVB channel.
 LVB configurations are shown as follows. You can make modifications by clicking the Edit button next to Settings.
 
-![](https://main.qcloudimg.com/raw/f858e6be3723272ea171bb435887c092.png)
+![](https://main.qcloudimg.com/raw/5bff1f46b16b979d78b870fbfa0772f6.png)
 
 >**Note:**
 > The configurations of an LVB channel can be modified only when it is closed.
@@ -17,7 +17,7 @@ LVB configurations are shown as follows. You can make modifications by clicking 
 **View and edit the player code for LVB publishing**
 You can view the player code for LVB publishing, so as to easily integrate the LVB display capability with Web Apps. This code supports playback on PC and in mobile device.
 
-![](https://main.qcloudimg.com/raw/8d0de291aee1fee5096dfb27458b4304.png)
+![](https://main.qcloudimg.com/raw/a9ddabe014401eaae9909607ed710104.png)
 
 Click **Edit** to modify the following code, and the updated player code shows after you save the edited content.
 **Player size:** The size of the player border. Commonly used size and custom size are supported.
@@ -25,4 +25,4 @@ Click **Edit** to modify the following code, and the updated player code shows a
 >**Note:**
 This feature does not take effect if viewers do not use the player.
 
-![](//mc.qcloudimg.com/static/img/8623a03d4edccfe22e1fc9a841d0de82/image.png)
+![](https://main.qcloudimg.com/raw/2f3e0a1c4acf4ba632875a239ee7ac47.png)

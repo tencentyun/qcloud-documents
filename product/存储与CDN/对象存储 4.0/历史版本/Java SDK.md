@@ -21,7 +21,7 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.6</version>
+            <version>4.7</version>
 </dependency>
 ```
 

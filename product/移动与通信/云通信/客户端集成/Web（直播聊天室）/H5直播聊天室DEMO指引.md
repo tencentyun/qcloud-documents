@@ -25,13 +25,13 @@
 D:\Program Files\Apache24\conf\httpd.conf
 ```
 
-找到 `Define SRVROOT` 这一项，将其右方的值改为当前你 Apache 安装存放的目录地址。
+找到 `Define SRVROOT` 这一项，将其右方的值改为当前您 Apache 安装存放的目录地址。
 
 ```
 Define SRVROOT "D:/Program Files/Apache24"
 ```
 
-继续找，找到 `Listene 80`，若你电脑的 80 端口被占用（可在 CMD 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口。
+继续找，找到 `Listene 80`，若您电脑的 80 端口被占用（可在 CMD 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口。
 
 ```
 Listen 8080
@@ -40,7 +40,7 @@ Listen 8080
 > **注意：**
 > 改完以上两个地方，记得保存 `httpd.conf` 文件。
 
-接下来需要配置安装 Apache 的主服务，有了它，Apache 才可启动。打开 CMD 窗口，输入以下命令。该命令的意思是，安装 Apache 服务，并将该服务名称命名为 Apache（你也可以改成别的），回车。
+接下来需要配置安装 Apache 的主服务，有了它，Apache 才可启动。打开 CMD 窗口，输入以下命令。该命令的意思是，安装 Apache 服务，并将该服务名称命名为 Apache（您也可以改成别的），回车。
 
 ```
 "D:\Program Files\Apache24\bin\httpd.exe" -k install -n apache
@@ -57,7 +57,7 @@ C:\Users\peakerdong>"D:\Program Files\Apache24\bin\httpd.exe" -k install -n apac
 
 ![](//mccdn.qcloud.com/static/img/02ef4d509e5579661953a9cc3dc4ee59/image.png)
 
-打开浏览器，输入访问 `http://localhost`。如果你设置的端口是 8080，则访问地址是 `http://localhost:8080/`
+打开浏览器，输入访问 `http://localhost`。如果您设置的端口是 8080，则访问地址是 `http://localhost:8080/`
 出现以下界面，表示 Apahce 启动成功。
 
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)

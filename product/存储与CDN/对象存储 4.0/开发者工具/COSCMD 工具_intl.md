@@ -1,13 +1,12 @@
 ## Feature Description
 With COSCMD tool, users can perform operations such as batch upload/download/deletion of Objects by using simple command line instructions.
-## Service Limits
-The tool is applicable to COS V4 and V5. For users who have migrated data from V3, the appid is required.
+
 ## Operating Environment
 ### System Environment
 Windows or Linux system
 ### Software Dependencies
-Python 2.7 
-And the latest version of pip is installed
+- Python 2.7 
+- The latest version of pip is installed
 #### Installation and Configuration
 For more information on the installation and configuration of environment, please see [Install and Configure Python](https://cloud.tencent.com/document/product/436/10866).
 ## Download and Installation
@@ -227,7 +226,7 @@ Replace the parameter in "<>" with the path of the file to be displayed on COS (
 ### Obtaining Signed Download URL
 - Command is as follows:
 ```
-coscmd sigurl<cospath>  //Command format
+coscmd signurl<cospath>  //Command format
 coscmd signurl bbb/123.txt //Example
 coscmd signurl bbb/123.txt -t 100//Example
 ```

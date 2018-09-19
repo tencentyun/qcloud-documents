@@ -10,7 +10,7 @@
 
 在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.file.myqcloud.com/guides/project/downloadConfig.png)
+![](http://tacimg-1253960454.file.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
@@ -32,7 +32,14 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         // 添加这行
-        classpath 'com.tencent.tac:tac-services-plugin:1.0.0'
+        classpath 'com.tencent.tac:tac-services-plugin:1.3.+'
+    }
+}
+
+allprojects {
+    repositories {
+        ...
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
 ```
@@ -42,8 +49,8 @@ buildscript {
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.2.+'
-	compile 'com.tencent.tac:tac-authorization:1.2.+'
+	compile 'com.tencent.tac:tac-core:1.3.+'
+	compile 'com.tencent.tac:tac-authorization:1.3.+'
 }
 ...
 

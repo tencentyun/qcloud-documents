@@ -2,7 +2,7 @@ Cloud API is designed to help you manage LVB streams. Tencent Cloud offers two m
 
 ### LVB Code access mode
 The LVB Code mode is mainly designed to facilitate the direct management of LVB streams by customers in the backend. It was only open to several well-known LVB platforms in China before May 2016, and now it has become a mainstream access solution of Tencent Cloud LVB service owing to its low access cost and high reliability. This solution is designed in such a way that the URL generation and LVB streams are basically controlled by customers, which delivers higher flexibility and customizability. It is the preferred access solution for platform LVB scenarios such as Game LVB and Live Show.
-![](//mc.qcloudimg.com/static/img/653f16b4eca39cd915cacc6456378778/image.png)
+![](https://main.qcloudimg.com/raw/bd3290f6ba0bd703e48ada857bf0a973.png)
 
 ### Channel (hosting) mode
 The channel mode is customized for manual management of LVB channels. It is more suitable for a single event LVB:

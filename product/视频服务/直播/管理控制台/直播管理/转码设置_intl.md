@@ -1,5 +1,5 @@
 Select whether to transcode in real time. After selecting, you can get the corresponding link addresses in subsequent steps.
-![](//mc.qcloudimg.com/static/img/2a1281efea2f97bfaca53f52e713bb37/image.png)
+![](https://main.qcloudimg.com/raw/359df4c0dc49d7c9a85d3a5b641c6893.png)
 **HD:** Resolution 1280x720. Bitrate 900 kbps
 **SD:** Resolution 960x540. Bitrate 550 kbps
 **Original:** Original resolution. Bitrate is the original bitrate (always presented).

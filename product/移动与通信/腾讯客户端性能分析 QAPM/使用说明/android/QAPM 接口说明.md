@@ -16,7 +16,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyAppId </td>
-    <td x:str>产品 ID 为“产品密钥-产品 ID”模式，可从“获取项目 app_key”中获取，或联系 nickyliu 或者 anthonytan 获取。</td>
+    <td x:str>产品 ID 为“产品密钥-产品 ID”模式，可从邮件中获取。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyUserId </td>
@@ -28,8 +28,8 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeySymbolId </td>
-    <td x:str>UUID，用于拉取被混淆堆栈的 mapping <br/>
-    注：在 RDM 上编译时，可以通过编译脚本把 UUID 写到 assets 或者 AndroidManifest.xml 里，细节可以咨询 RDM 的同学，也可以参考文档 <a href="http://x.code.oa.com/mobilespectest/SNGAPM/articles/402">RDM UUID 的设置</a> 。</td>
+    <td x:str>UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用<br/>
+   </td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyDebug </td>
@@ -196,7 +196,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> extraInfo <span style='mso-spacerun:yes;'>&nbsp;</span></td>
-    <td x:str>可选以下项:<br /> 用户定制 —— 见2)<br/>APPLAUNCH —— 用户定制 App 启动的结束点</td>
+    <td x:str>可选以下项:<br /> 用户定制 —— 见(2)<br/>APPLAUNCH —— 用户定制 App 启动的结束点</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> mode </td>

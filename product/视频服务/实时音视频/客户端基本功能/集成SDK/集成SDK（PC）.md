@@ -15,11 +15,11 @@
 
 ### 集成 iLiveSDK
 
-1. 下载 iLiveSDK
-[iLiveSDK 下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/iLiveSDK.zip)
+1. 下载iLiveSDK
+从github上[下载iLiveSDK](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo)
 
 2. 拷贝文件
-将 iLiveSDK 的 include 和 libs 拷贝到解决方案文件( .sln 文件 )所在的目录：
+将iLiveSDK目录下的include和libs拷贝到解决方案文件( .sln文件 )所在的目录：
 ![](https://main.qcloudimg.com/raw/bf2314afd8169bdd18d6f8930ce18b8d.png)
 
 3. 添加 include 目录
@@ -68,5 +68,8 @@ iLiveSDK暂时没有64位版本，需要切换成32位编译即可。
 恭喜，至此说明 iLiveSDK 已经成功集成。
 
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

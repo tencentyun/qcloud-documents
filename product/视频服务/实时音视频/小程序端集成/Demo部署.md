@@ -1,7 +1,7 @@
 Demo 体验
 升级微信到最新版本，发现页卡 => 小程序 => 搜索“腾讯视频云”，即可打开小程序Demo：
 
-## 再次确认你已经完成相关接口的开通
+## 再次确认您已经完成相关接口的开通
 打开 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序，并在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
 
 ![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
@@ -48,7 +48,8 @@ Demo小程序会访问如下表格中的测试服务器地址，这些服务器�
 
 | 域名 | 说明 | 
 |:-------:|---------|
-|`https://yun.tim.qcloud.com` | WebRTC音视频鉴权服务域名 | 
+|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名[1] | 
+|`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名[2] | 
 |`https://room.qcloud.com`| RoomService域名 | 
 |`https://webim.tim.qq.com` | IM域名 | 
 
@@ -84,7 +85,7 @@ https://您自己的域名/webrtc/weapp/webrtc_room
 
 ## 与WebRTC端互通
 ### Demo 体验 
-用 Chrome 浏览器打开 [体验地址](https://sxb.qcloud.com/miniApp/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
+用 Chrome 浏览器打开 [体验地址](https://www.qcloudtrtc.com/miniApp/index.html#/)，即可体验 Chrome（WebRTC） + 微信（小程序）的视频通话功能，如下图所示：
 ![](https://main.qcloudimg.com/raw/81edf044e0a40ccfd4794b91185f1f82.jpg)
 
 ### 源码调试

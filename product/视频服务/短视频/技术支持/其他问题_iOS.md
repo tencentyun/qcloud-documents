@@ -20,6 +20,7 @@
 
 
 ### 连接 Xcode 调试，短视频录制报错
+_此问题在4.9版本已经修复_
 
 连接 Xcode 调试，短视频录制报错，报错信息：`Main Thread Checker: UI API called on a background thread`
 ![](https://main.qcloudimg.com/raw/04b272c456b0e69239c0867a8e964d7a.jpg)
@@ -33,8 +34,9 @@
 
 - 在 `Build Settings` -> `Search Paths` -> `Header Search Paths` 中添加头文件搜索路径。
 - 使用 `"TXLiteAVSDK_UGC/XXX.h"`方式引用 SDK 的头文件。
+- 使用 `@import TXLiteAVSDK_UGC;`方式引用 SDK (5.0及之后的版本)。
 
-两种方法选其一。
+以上几种方法选其一。
 
 
 

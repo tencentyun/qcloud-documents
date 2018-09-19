@@ -1,7 +1,7 @@
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 请求 URL：`https://ida.webank.com/api/paas/idcardocrapp`
 请求方法：POST
-
+报文格式：Content-Type: application/json
 ## 请求参数
 
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
@@ -20,7 +20,7 @@
 | ----------- | ---------- | ---------- |
 | code       |  String    | 身份证 OCR 识别结果的返回码</br>0：识别成功</br>其他：识别失败        |
 | warning    | String  | Code=0 是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据 warning 来确定     |
-| msgstring  | String  | 请求结果描述        |
+| msg  | String  | 请求结果描述        |
 | ocrId      | String    | 保留字段，内部标识        |
 | orderNo    |  String    | 订单号，由合作方上送，每次唯一，此信息为本次身份证 OCR 识别上送的信息        |
 | name       | String    | 身份证识别结果：姓名         |

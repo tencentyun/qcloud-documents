@@ -27,7 +27,7 @@
 > - ILiveSDK：在 AVSDK 基础上封装而成，提供更简单易用的音视频功能接口
 > - TILLiveSDK：在 ILiveSDK 的基础上，针对直播场景相关接口进行的封装，方便快速实现直播相关功能
 
-我们先在工程目录中新建一个名为 ILiveSDK 的文件夹，用来存放我们的 SDK，由于 ILiveSDK 包含若干个子 SDK，所以我们提供了一个 [SDK 下载脚本](http://dldir1.qq.com/hudongzhibo/ILiveSDK/LoadSDK.sh)方便获取所有的SDK。
+我们先在工程目录中新建一个名为 ILiveSDK 的文件夹，用来存放我们的 SDK，由于 ILiveSDK 包含若干个子 SDK，所以我们提供了一个 [SDK 下载脚本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/suixinbo/Frameworks/LoadSDK.sh)方便获取所有的SDK。
 
 单击下载脚本，将其放置于刚才创建的 ILiveSDK 文件夹下：
 
@@ -36,6 +36,8 @@
 运行下载脚本（ 打开终端，cd 命令进入 Frameworks 目录下，运行命令 `sh LoadSDK.sh` ），就会自动下载所有SDK，下载完成之后会自动解压，并删除下载的压缩包，稍等片刻即可，解压完成之后文件目录如下：
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0327/144510_f76b525e_1839574.png "在这里输入图片标题")
+
+[最新版本说明](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo)
 
 #### 导入SDK
 下载完成后，我们需将 SDK 导入工程，在工程根目录上单击右键->【 Add Files to "Demo01\_集成SDK" 】：
@@ -125,5 +127,8 @@ NSLog(@"IMSDK version:%@",[[TIMManager sharedInstance] GetVersion]);
 
 恭喜，至此说明`ILiveSDK`已经成功集成。
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

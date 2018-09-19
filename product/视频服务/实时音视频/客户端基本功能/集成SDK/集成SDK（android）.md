@@ -11,6 +11,8 @@
 compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
 
+[最新版本说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo)
+
 ### 创建一个应用
 在 layout 中创建一个简单布局 main.xml 资源：
 ```
@@ -62,7 +64,7 @@ public class MainActivity extends Activity {
 编译运行，可以看到效果：
 
 ```
-iLiveSDK:1.8.5
+iLiveSDK:1.8.7
 IMSDK:2.5.6.11073.11080
 AVSDK:1.9.8.2
 ```
@@ -108,5 +110,8 @@ android{
 }
 ```
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

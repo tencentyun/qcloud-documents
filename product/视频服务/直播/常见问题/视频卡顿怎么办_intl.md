@@ -1,5 +1,5 @@
 ## 1. What can cause a stutter during LVB?
-![](//mc.qcloudimg.com/static/img/b41b15c344f8c34011e4ee0e55db21e5/image.png)
+![](https://main.qcloudimg.com/raw/c38bbed25d2953aea75f76764522e25d.png)
 Generally, there are three reasons for the stutter:
 - **Reason 1: low frame rate**
 If the VJ uses a low-end phone, or there are CPU intensive applications running at the background, the frame rate of the video could be low. Typically, for an LVB to play smoothly, the frame rate of the video stream should be higher than 15 FPS. A frame rate lower than 10 FPS is **too low**, and can cause a stutter at **all the viewer ends**.
@@ -12,7 +12,7 @@ That is, the viewer's downstream bandwidth is insufficient or the network condit
 
 ## 2. Status Monitor
 The RTMP SDK provides a status feedback mechanism, by which the RTMP SDK reports various status parameters every 1-2 seconds. You can register the **TXLivePushListener** listener to obtain these status parameters.
-![](//mc.qcloudimg.com/static/img/48fd46af4e17b0299fd00a0e661a16f0/image.png)
+![](https://main.qcloudimg.com/raw/533391ae5c188ed87b748f78d8168591.png)
 
 | Push Status | Description |   
 | :------------------------  |  :------------------------ | 
@@ -77,7 +77,7 @@ Some clients may complain: "Any user can use our App. It's impossible to control
 
 
 ## 5. Player Optimization
-![](//mc.qcloudimg.com/static/img/9ccfcf56c0993232cc5637f306c21ba5/image.png)
+![](https://main.qcloudimg.com/raw/1f221c3ecba79a706014154531a02bbd.png)
 
 ### 5.1 Stutter & lag
 As shown in the figure above, instable downstream network or insufficient downstream bandwidth could cause **starvation periods** during playback. During these periods, the App doesn't receive enough audio and video data to play. To minimize the incidence of stutters at viewer end, you need to make the App cache as much video data as possible to survive the "starvation periods". However, caching too much audio and video data brings a new problem - **high delay**, a bad news for scenarios with a high requirement for interactions between VJ and viewers. Moreover, if the delay caused by stutter goes uncontrolled without any correction, it could **accumulate over time** (i.e. the longer the playback lasts, the higher the delay). Delay correction is a key indicator of an excellent player. Therefore, **delay and smoothness are the two ends of a balance**. Focusing too much on low delay will lead to slight network fluctuations that produce significant stutter at the player side. Conversely, overemphasis on smoothness will cause high delay. A typical case is the HLS (m3u8) protocol, which ensures a smooth playback experience by introducing a delay of 10-30 seconds.

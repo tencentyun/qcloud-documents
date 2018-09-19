@@ -20,7 +20,7 @@ Tencent Cloud public images are manufactured after rigorous testing by the profe
 - Free of charge except that Windows images in some ***overseas*** regions require some license fees.
 
 ## Service Market Images
-[Service Market](http://market.qcloud.com/) images are provided by third-party providers. In addition to regular operating systems and other pre-installed environment, service market images often are integrated with popular software environment such as PHP, Java, FTP, Nginx, Docker, WordPress, Discuz. Images released to the service market after Tencent Cloud review, available to all users.
+[Service Market](http://market.cloud.tencent.com/) images are provided by third-party providers. In addition to regular operating systems and other pre-installed environment, service market images often are integrated with popular software environment such as PHP, Java, FTP, Nginx, Docker, WordPress, Discuz. Images released to the service market after Tencent Cloud review, available to all users.
 
 Service market images are manufactured by third-party providers, who have been selected carefully by Tencent Cloud and have signed settlement agreements. Those images have been tested rigorously by the providers and reviewed by Tencent Cloud, to guarantee the security of their contents. Service market images are priced by the providers: some are free and some require fees. When you start a CVM instance using a paid image, the costs consist of two parts: CVM instance costs and image costs.
 

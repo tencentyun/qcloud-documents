@@ -61,7 +61,7 @@ class QcloudApi:
 # -*- coding: utf-8 -*-
 import sys
 import os
-sys.path.insert(0, OS.path.dirname(OS.path.abspath(__file__)) + "/../..")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.QcloudApi.qcloudapi import QcloudApi
 
 action = 'CreateForwardLBFourthLayerListeners'  # 创建应用型负载均衡四层监听器

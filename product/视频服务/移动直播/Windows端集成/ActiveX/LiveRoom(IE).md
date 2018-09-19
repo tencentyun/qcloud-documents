@@ -654,7 +654,7 @@ LiveRoom.addRemoteView({
 <h3 id="deleteRemoteView"> deleteRemoteView </h3>
 
 - 接口定义：deleteRemoteView(object):void
-- 接口说明：停止播放某个连麦主播视频，一般在收到 onPusherQuit （连麦者离开）时调用。
+- 接口说明：停止播放某个连麦观众视频，一般在收到 onPusherQuit （连麦者离开）时调用。
 - 参数说明：
 
 ```object
@@ -725,7 +725,7 @@ LiveRoom.sendRoomTextMsg({
 {
 	data: {
 		cmd			String		自定义命令
-		message     String     	发送的文本消息
+		message     String     	发送的自定义消息内容
 	}
 	success       function  成功回调
 	fail          function  失败回调

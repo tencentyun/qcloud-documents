@@ -18,12 +18,12 @@
 |ILiveConstants.BACK_CAMERA|后置摄像头 id|
 
 ## 加入房间
-加入房间与[ 创建房间 ](/document/product/647/16806)中的房间模块基本一致，不同的里这里需要的方式是  joinRoom。
+加入房间与[ 创建房间 ](/document/product/647/16806)中的房间模块基本一致，不同的是这里需要的方式是  joinRoom。
 ```Java
     // 加入房间
     public int joinRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
-                .authBuffer(privateMapKey.getBytes())   // 进房票据
+                .privateMapKey(privateMapKey)   // 进房票据
                 .imsupport(false)       // 不需要IM功能
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
@@ -67,8 +67,11 @@
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
-ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelIMSDK);
+ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
 ```
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -25,16 +25,17 @@
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
 | authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
 
-## 使用图片 URL
+## 使用 application/json 格式
 ### 请求参数
-使用 application/json 格式：
+使用 application/json 格式，参数选择 url 或 base64：
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
 | appid     | 是   | string    |  接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
 | bucket    | 否   | string    | 图片空间           |
 | ret_image | 是   | int       | 0 不返回图片，1 返回图片 |
-| url_list  | 是   | string 数组 | 图片 url 列表      |
+| url_list  | 否   | string 数组 | 图片 url 列表      |
+| image     | 否   | binary    | 使用 base64 编码的二进制图片内容|
 
 ><font color="#0000cc">**注意：** </font>
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
@@ -126,7 +127,7 @@ Content-Type: "application/json"
 
 
 
-## 使用图片文件
+## 使用 multipart/form-data 格式
 
 ### 请求参数
 

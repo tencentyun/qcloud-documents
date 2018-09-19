@@ -13,7 +13,7 @@ The following cases are not considered as a playback failure:
 (6) A video cannot be played due to hotlink protection and authentication enabled by customers.
 (7) A video cannot be played due to reasonable upgrades and changes announced to customers by Tencent Cloud beforehand.
 #### 3. Video playback success rate
-![](https://main.qcloudimg.com/raw/8509cffc7c04c310a94ded087eca2ea0.png)
+![](https://main.qcloudimg.com/raw/f73a653f95ca1a04cd5368be32c9d65a.png)
 #### 4. Video load time
 Video load time refers to the total time taken from the moment a viewer starts to connect to the video request URL distributed by CDN to the moment the first frame of the video plays, in case of successful video playbacks.
 #### 5. Stutter request
@@ -22,17 +22,17 @@ The difference between the local elapsed time of the CDN distribution server and
 In a playback request, if the server records that 5 minutes elapses, but only 4 minutes and 59 seconds of video data is transmitted, this is a stutter request.
 #### 6. Stutter rate
 The statistical period for the stutter rate metric of Tencent Cloud LVB products is 5 minutes. The stutter rate is the rate of the number of stutter requests to the number of total requests for video playback within 5 minutes.
-![](https://main.qcloudimg.com/raw/9f094bd277cffee9eccec18775cf9790.png)
+![](https://main.qcloudimg.com/raw/5d64f7fc0d889eec90e146a76c9af287.png)
 
 ### Performance Metrics
 #### 1. Video load success rate metric
 Within a service period, the average video load success rate shall not be lower than 99.60% (inclusive), that is:
-![](https://main.qcloudimg.com/raw/243b475b0dc62a282423b34b3d071e99.png)
+![](https://main.qcloudimg.com/raw/7d8a8d8d5a290d21d7d4fc92e188ff6c.png)
 #### 2. Video load time metric
 The load time of a single video shall not be longer than 850 ms (inclusive).
 #### 3. Stutter rate metric
 The video stutter rate shall not be higher than 4.00% (inclusive).
-![](https://main.qcloudimg.com/raw/1a84aa725e2a81e86c142798eba7c8cf.png)
+![](https://main.qcloudimg.com/raw/287cbd39a39e1ccb0eb95dda34dc8069.png)
 
 ### Compensation Scheme
 Service Compensation refers to the compensation offered by Tencent Cloud to customers in the event that the Tencent Cloud LVB service purchased by customers fails to conform to the requirement for performance metrics stated in the SLA as a result of failure or design defect of Tencent Cloud's devices or any improper operation performed by Tencent Cloud. The rules of compensation are as follows:

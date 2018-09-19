@@ -1,51 +1,22 @@
 WebRTC 不仅可提供以摄像头为源的视频通讯功能，也能将由canvas元素捕获的流进行推流。
 
 ### demo演示
-https://sxb.qcloud.com/webrtc-samples/canvascapture/demo.html
+https://www.qcloudtrtc.com/webrtc-samples/canvascapture/demo.html
 
 ### 示例代码
-https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
-
-### 屏幕分享参数
-
-> 这里隆重引入1个参数  canvas
-
-| Key                     | 字段取值  | 含义              |
-| ------------------------- | -------- | ---------------------- |
-| canvas | MediaStream     | 需要推的canvas元素捕获流 |  
-|  | false     | 不推canvas元素捕获流 | 
+https://gitee.com/vqcloud/webrtc-samples
 
 
-canvas参数在 **初始化** 和 **开始推流** 2个接口都可以设置
 
-### 自动推流
+### step 1.先以观众角色进入房间
 
-> 适用于直接使用屏幕分享的场景
-
+> closeLocalMedia => true
 ```javascript
     var RTC = new WebRTCAPI( {
         userId: userId,
         sdkAppId:  sdkappid,
         accountType:  accountType,
-        userSig: userSig,
-        canvas: canvasStream //使用该参数表示推canvas流：canvasStream
-    },function(){
-        ...
-    },function(error){
-        console.error( error )
-    } );
-```
-
-### 手动推流
-> 适用于手动推流的场景
-
-```javascript
-    var RTC = new WebRTCAPI( {
-        userId: userId,
-        sdkAppId:  sdkappid,
-        accountType:  accountType,
-        userSig: userSig,
-        closeLocalMedia: true
+        userSig: userSig
     },function(){
         ...
     } ,function(error){
@@ -53,49 +24,35 @@ canvas参数在 **初始化** 和 **开始推流** 2个接口都可以设置
     } );
 ```
 
-### canvas推流与摄像头切换的代码示例
-```javascript
-// canvas推流
-function canvas(){
-    RTC.stopRTC({
-        canvas: false
-    },function(info){
-        console.debug('摄像头断流成功');
-        RTC.startRTC({
-            canvas: canvasStream
-        },function(info){
-            console.debug('画布推流成功');
-        },function(error){
-            console.error('画布推流失败',error)
-        });
-    },function(error){
-        console.error('摄像头断流失败',error)
-    });
-}
+### step 2.获取canvas视频流
+参考demo，通过 canvas.captureStream 获取到MediaStream
 
-// 摄像头推流
-function video(){
-    RTC.stopRTC({
-        canvas: canvasStream
-    },function(info){
-        console.debug('画布断流成功');
+
+### step 3.进房并推流
+> role 必须带上，这将决定了canvas流的码率，请到控制台配置一个合适的码率。
+> role 可以在进房的时候带，也可以在推流的时候带，建议在进房的时候带，会更快哦
+
+```javascript
+    RTC.enterRoom({
+        role: 'canvas_stream_role_name',
+        roomid : $("#roomid").val()
+    },function(){
+        //进房成功，音视频推流
         RTC.startRTC({
-            canvas: false
-        },function(info){
-            console.debug('摄像头推流成功');
-        },function(error){
-            console.error('摄像头推流失败',error)
+        role: 'canvas_stream_role_name',
+        stream: canvasStream
         });
-    },function(error){
-        console.error('画布断流失败',error)
+    },function(){
+
     });
-}
+
 ```
+
 
 ### FAQ
 
 - 为什么我在无法进行canvas推流？
-  - 受限于浏览器支持情况，需要在Chrome浏览器52+版本下运行。 
+  - 受限于浏览器支持情况，需要在Chrome浏览器52+版本下运行。
   - 受限于浏览器权限，需要在localhost，或者通过服务器访问，不能直接访问本地html文件进行canvas推流。
 - 有没有实例代码？怎么获得canvas的流?怎么在canvas推流时加入声音？
-  - 请参考 https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
+  - 请参考 https://gitee.com/vqcloud/webrtc-samples

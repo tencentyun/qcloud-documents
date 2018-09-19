@@ -64,7 +64,7 @@ virtual_ipaddress {
 
 针对以上问题，腾讯云创新性推出 HAVIP，满足客户对高可用的需求。
 >**注意：**
-1. 每个地域的配额为 5 个 HAVIP。
+1. 每个 VPC 的 HAVIP 默认配额为 10 个。
 2. 由后端云服务器宣告占有该 HAVIP，不支持手动在控制台把 HAVIP 绑定指定机器（体验与传统物理机保持一致）。
 3. 是否发生迁移由后端 RS 根据配置文件协商决定，不是由 HAVIP 决定。
 4. 只支持 VPC 网络，不支持基础网络。
@@ -99,7 +99,7 @@ HAVIP 目前处于灰度阶段，如需使用请 [提交工单](https://console.
 
 ## 常见使用场景
 - **负载均衡的 HA**
-用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual ip address。
+用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual Ip address。
 - **关系型数据库主备**
 两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
 

@@ -5,7 +5,7 @@ Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云 COS 作
 #### 1. 准备若干台机器。
 #### 2. 安装配置系统：[CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)。
 #### 3. 安装 Java 环境：[jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz)，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
-#### 4. 安装 Hadoop-2.7.4 包：[hadoop-2.7.4.tar.gz](http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz)。 
+#### 4. 安装 Hadoop 可用包：[Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available)。 
 
 ### 网络配置
 使用`ifconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。

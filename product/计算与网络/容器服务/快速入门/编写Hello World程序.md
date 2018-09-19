@@ -1,4 +1,4 @@
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅  [如何构建 Docker镜像](/doc/product/457/9115) 。
+本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 Docker镜像](/doc/product/457/9115) 。
 
 ## 第一步：编写代码制作镜像
 ### 编写应用程序
@@ -78,7 +78,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 ## 第二步：通过该镜像创建 Hello World 服务
 >**注意：**
 > 在创建使用 Hello World 服务之前，您必须拥有:
-1. 一个腾讯云帐户。有关如何创建腾讯云帐户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云帐户。
+1. 一个腾讯云账户。有关如何创建腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
 2. 一个创建好的集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091) 。
 
 ### 操作步骤
@@ -106,12 +106,12 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## 访问 Hello World 服务
 1) 提供三种方式访问 Hello World 服务。
- - 通过**负载均衡 IP**来访问 Hello World 服务。单击服务页面的【服务信息】查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP** 来访问 Hello World 服务。单击服务页面的【服务信息】查看负载均衡 IP 和负载均衡 ID。 
 ![](https://mc.qcloudimg.com/static/img/7891c817f167f7726b67615696cfff08/image.png)
- - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡ID，复制域名访问服务。
+ - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡 ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。
 
 2) 进入 Hello World 服务器的默认欢迎页。
 ![](https://mc.qcloudimg.com/static/img/ef9e2067f34004f49f7fe1360f20c3a5/image.png)
 
-若容器创建失败，可查看[事件常见问题](https://cloud.tencent.com/document/product/457/8187)。
+若容器创建失败，可查看 [事件常见问题](https://cloud.tencent.com/document/product/457/8187)。

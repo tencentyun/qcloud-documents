@@ -30,7 +30,7 @@
 | msg    | 是   | string | 短信消息，utf8 编码，需要匹配审核通过的模板内容                                           |
 | sig    | 是   | string | App 凭证，具体计算方式见下注                                                              |
 | tel    | 是   | string | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号       |
-| time   | 是   | number | 请求发起时间，unix 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败                       |
+| time   | 是   | number | 请求发起时间，UNIX 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败                       |
 | type   | 是   | number | 短信类型，Enum{0: 普通短信, 1: 营销短信}（注意：要按需填值，不然会影响到业务的正常使用） |
 
 
@@ -47,7 +47,7 @@
 string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
 string strRand = "7226249334"; //url 中的 random 字段的值
-string strTime = "1457336869"; //unix 时间戳
+string strTime = "1457336869"; //UNIX 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb;
 ```
@@ -73,3 +73,8 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | nationcode | 是   | string | 国家码                                        |
 | fee    | 否   | number | 短信计费的条数，["fee" 字段计费说明](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99)                                |
 | sid        | 否   | string | 本次发送标识 id，标识一次短信下发记录          |
+
+
+
+## DEMO
+腾讯云短信服务为您提供了 [Java SDK](https://cloud.tencent.com/document/product/382/5804)、[PHP SDK](https://cloud.tencent.com/document/product/382/5804)、[Python SDK](https://cloud.tencent.com/document/product/382/5804)、[Node.js SDK](https://cloud.tencent.com/document/product/382/5804) 和 [C# SDK](https://cloud.tencent.com/document/product/382/5804) 供您参考，欢迎查阅。

@@ -271,13 +271,13 @@ Template 590 preview:
 ### 2.4 How to enter custom position parameters
 
 **Diagram:**
-![](https://mc.qcloudimg.com/static/img/63d5f94f2ab6d271ab23aa5114f7ec54/weizhi.jpg)
+![](https://main.qcloudimg.com/raw/fe5e7b85563a891e371cfd81e4c766cd.png)
 As shown in the diagram above, the position parameters location_x and location_y are the absolute pixel distance from the top left corner of the secondary screen to that of the background image.
 
 ### 2.5 How to enter cropping position parameters
 
 **Diagram:**
-![](https://mc.qcloudimg.com/static/img/e1d42a1345a7c6adc199c1246e92081a/5555.png)
+![](https://main.qcloudimg.com/raw/ed98b1d8f496cbc11e8564491a3eb887.png)
 As shown in the diagram above:  
 a. Both the width and height and the position parameters you entered are absolute pixel values. Streams of different pixels are handled differently. 
 B. The position parameters crop_x and crop_y represent the absolute pixel distance from the top left corner of the original stream.

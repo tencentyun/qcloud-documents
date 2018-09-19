@@ -1,3 +1,76 @@
+
+### Version 5.2 @ 2018-09-14
+【播放器】
+- iOS&Android：超级播放器支持缩略图查看能力，提高影视剧观看体验；
+- iOS&Android：超级播放器支持进度条打点功能；
+- iOS&Android：超级播放器UI模块化，方便客户集成；
+
+【短视频】
+- iOS&Android：支持4K大视频编辑，缩略图提取支持指定分辨率；
+- iOS&Android：新增草稿箱功能使用示例，具体请参见小视频APP；
+- iOS&Android：编辑支持动态旋转画面角度；
+- iOS：修复快速频繁切换BGM引起的线程安全问题；
+- iOS：解决视频录制和预览BGM声音大小不一致的问题；
+- iOS：修复视频编辑添加重复特效导致片尾水印PTS异常的问题；
+- Android：视频编辑新增缩略图快速获取接口；
+- Android：修复动态贴纸角度设置不生效问题；
+- Android：解决多视频合成偶现音画不同步问题，提升视频合成画质
+
+【其他】
+- iOS&Android：商业版支持licence设置接口，在线下载更新licence；
+- iOS&Android：直播推流动效支持静音设置接口；
+
+### Version 5.1 @ 2018-08-18
+
+【播放器】
+- iOS&Android：直播播放支持时移回看，文档参考： [https://cloud.tencent.com/document/product/266/9237#.E7.9B.B4.E6.92.AD.E6.97.B6.E7.A7.BB.E5.9B.9E.E7.9C.8B]；
+- iOS&Android：FLV直播播放支持无缝切换能力；
+- iOS&Android：超级播放器改造，新增直播点播播放列表；
+- iOS&Android：超级播放器直播点播多清晰度播放优化，根据网络状况提示切换不同清晰度；
+
+【短视频】
+- iOS & Android：短视频增加多个版本：精简版，基础版，商业版，商业版Pro，以满足不同客户的需求，不同版本需申请对应的licence；
+- iOS & Android：优化美颜滤镜，重新设计增加多种滤镜效果；
+- iOS & Android：录制、编辑滤镜增加手势滑动切换效果；
+- iOS & Android：优化双人合唱功能；
+- iOS & Android：小视频APP增加长按录制、点击录制、点击拍照等功能，合唱增加倒计时功能，录制界面新增混响和变声选择；
+- iOS & Android：小视频APP支持国际化，已支持中文、英文两种语言；
+- iOS：视频编辑支持Two-pass编码，生成更好的质量；
+- iOS：解决录制非正常退出进入编辑导致CPU高的问题；
+- Android：增加快速导入能力，适合大视频快速导入；
+- Android：编辑增加滤镜程度设置接口；
+
+【其他】
+- iOS&Android：Demo主界面重新设计，更清晰易用；
+- iOS：解决iOS12系统推流播放花屏、短视频录制花屏的问题；
+
+### Version 5.0 @ 2018-07-18
+
+【播放器】
+- iOS&Android：超级播放器重构，支持小窗模式；
+- iOS&Android：点播播放器支持FLV/HLS格式265硬解，优化FileID文件播放顺序；
+- iOS&Android：点播进度回调时间间隔支持自定义；
+- iOS：iOS超级播放器支持直播点播播放，支持直播时移播放；
+- Android：点播播放器Android版变速支持变速不变调；
+
+【短视频】
+- iOS&Android：视频左右画面合成支持双人合唱；
+- iOS&Android：编辑生成视频支持双声道；
+- iOS&Android：录制支持设置音频采样率及渲染模式；
+- iOS：优化编辑视频的加载速度；
+- iOS：解决编辑生成视频偶现画面撕裂的问题；
+- iOS：解决编辑生成视频末尾偶现黑帧的问题；
+- iOS：修复编辑预览视频设置慢速播放，音频播放会提前结束的问题；
+- Android：优化录制和编辑生成画质，生成文件更小；
+- Android：优化编辑预处理速度和视频生成速度；
+- Android：解决录制横竖屏切换黑屏问题；
+- Android：修复录制快速单击开始结束报错的问题；
+
+【其他】
+- iOS：iOS Demo界面适配iphoneX；
+- iOS：iOS修复内存泄漏，提升稳定性，增加module定义更好的支持swift集成；
+- Android：软编提升RGBA生成YUV转换精度，提高推流画质；
+
 ### Version 4.9 @ 2018-06-14
 - iOS&Android：直播新增BGM变调支持；
 - iOS&Android：点播新增循环播放设置接口；

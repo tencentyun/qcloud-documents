@@ -63,7 +63,7 @@
 	"appid":"xxxxxxxx", 
 	"uin":"xxxxxxxx",
 	"img_data":"xxxxxxxx",
-	"model_id":"xxxxxxxx",
+	"model_id":"xxxxxxxx"
 }
 
 ```
@@ -115,3 +115,9 @@
 | -20004      |  操作太频繁，触发频控。                           |
 | -20005      |  后端服务故障。                           |
 | -20006      |  参数格式不是 json 格式。                            |
+| -20007      |  素材 ID（model_id）传入为空。                            |
+| -20008      |  活动 ID（project_id）传入为空。                            |
+| -20009      |  图片数据（image_data）传入为空。                            |
+| -20010      |  返回图片类型（rsp_img_type)为空。                            |
+| -20011      |  appid 传入为空。                            |
+| -20012      |  uin 传入为空。                            |

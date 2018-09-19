@@ -130,7 +130,7 @@ libs/x86_64/libwtcrypto.so
 
 ### 代码混淆规则
 
-如果你的项目中使用 proguard 等工具做了代码混淆，请保留以下选项。
+如果您的项目中使用 proguard 等工具做了代码混淆，请保留以下选项。
 
 ```
 -keep class com.tencent.**{*;}

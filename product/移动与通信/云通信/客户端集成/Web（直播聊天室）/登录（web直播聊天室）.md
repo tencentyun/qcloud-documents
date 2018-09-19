@@ -156,7 +156,7 @@ var onConnNotify = function (resp) {
             //webim.Log.warn('连接状态正常...');
             break;
         case webim.CONNECTION_STATUS.OFF:
-            webim.Log.warn('连接已断开，无法收到新消息，请检查下你的网络是否正常');
+            webim.Log.warn('连接已断开，无法收到新消息，请检查下您的网络是否正常');
             break;
         default:
             webim.Log.error('未知连接状态,status=' + resp.ErrorCode);

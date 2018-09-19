@@ -1,5 +1,5 @@
 腾讯云云服务器使用 KMS 方式对 Windows 服务器进行授权。
-目前只有 Windows2008 和 Windows2012 需要做这种方式的授权。
+目前 Windows 2008、Windows 2012 和 Windows 2016 需要做这种方式的授权。
 ## 激活前须知
 1. Windows 上的 SPP Notification Service，是用来执行激活相关的服务，需要保证正常运行，如下图：
 ![](//mccdn.qcloud.com/img56b1caa1eec42.png)
@@ -15,9 +15,15 @@
 激活步骤：
 1. 登录您的腾讯云 Windows 云服务器。
 2. 单击【开始】>【运行】，输入`cmd.exe`以打开控制台窗口。
-3. 在控制台依次输入一下命令：
+3. 在控制台依次输入命令：
+ * Windows 2008 和 Windows 2012 服务器依次输入：
 ```
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms.tencentyun.com:1688
+cscript /nologo %windir%/system32/slmgr.vbs -ato
+```
+ * Windows 2016 服务器依次输入：
+```
+cscript /nologo %windir%/system32/slmgr.vbs -skms kms1.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato
 ```
 
