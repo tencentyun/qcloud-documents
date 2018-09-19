@@ -33,6 +33,9 @@
 所有的创建接口为账户级别，而其他接口均为资源级别。
 
 ## 访问控制策略示例 
+
+**注意：API网关将于9月20日晚-21日对接CAM，此前的用户未避免影响使用，我们会对您的账户子账户均授予QcloudAPIGWFullAccess权限，这意味着您的子账户跨账户等均拥有对API网关现有服务及API的完全管理权限，若您希望更精确管理账户的权限策略，则可参考下面的示例进行更改**
+
 ### API 网关全读写策略
 授权一个子用户以 API 服务的完全管理权限（创建、管理等全部操作）。
 ```
@@ -63,7 +66,7 @@
             "action": [
                 "apigw:*"
             ],
-            "resource":"qcs::apigw:ap-guangzhou:uin/{ownerUin}:service/service-id     /API/api-id",
+            "resource":"qcs::apigw:ap-guangzhou:uin/{ownerUin}:service/service-id/API/api-id",
             "effect": "allow"
         }
     ]
@@ -71,7 +74,7 @@
 ```
 
 ### API 网关单个服务只读策略
-1. 按照策略生成器创建，授权列表类权限和产品监控权限。
+1. 按照策略生成器创建，授权列表类权限和产品监控权限，这里是对账户下的所有资源授予只读权限。
 ```
 {
     "version": "2.0",
@@ -88,7 +91,7 @@
 }
 ```
 
-2. 授权单服务只读权限。
+2. 授权单API只读权限。
 ```
 {
     "version": "2.0",
@@ -98,7 +101,7 @@
                 "ckafka:Get*",
                 "ckafka:List*"
             ],
-            "resource": "qcs::apigw:ap-guangzhou:uin/{ownerUin}:service/service-id     /API/api-id",
+            "resource": "qcs::apigw:ap-guangzhou:uin/{ownerUin}:service/service-id/API/api-id",
             "effect": "allow"
         }
     ]
