@@ -89,4 +89,4 @@ APP服务器接收到verify_content后进行BASE64解码，得到一段二进制
 
 PlainText为字符形式，例子中PlainText为字符串```"ExpTime=1488160264&FileId=7031868222808505913"```。APP服务器可以校验PlainText的内容是否已经过期（ExpTime超过当前服务器时间）以及上报内容是否匹配（FileId是否匹配）。如果内容已经过期或者不匹配，表示验证失败。
 
-如果PlainText校验通过，则对PlainText使用verify_key作为秘钥进行HAMC-SHA1加密并得出结果（例子中的加密结果使用16进制表示为```3329644b0598a76c6c49c597a2a73d8a5f07abe9```），如果该结果能够与前面提到的HashedContent匹配，则验证通过，否则验证失败。
+如果PlainText校验通过，则对PlainText使用verify_key作为密钥进行HAMC-SHA1加密并得出结果（例子中的加密结果使用16进制表示为```3329644b0598a76c6c49c597a2a73d8a5f07abe9```），如果该结果能够与前面提到的HashedContent匹配，则验证通过，否则验证失败。

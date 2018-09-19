@@ -1,8 +1,8 @@
-## Fast Access to BGP High Defense IP (for business not deployed on Tencent Cloud)
+## Accessing to Dayu High Defense IP Service (For non-Tencent Cloud Servers)
 
 **Step 1: Log in to the console and go to the High Defense IP Configuration page**
 
-Log in to the **[Dayu Network Security](https://console.cloud.tencent.com/dayu/bgpip)** console. Select **BGP High Defense IP** from the left panel and find the high defense IP that deployed on the non-Tencent Cloud platform, and then click the instance ID to go to the configuration page.
+Log in to the **[Dayu Anti-DDoS](https://console.cloud.tencent.com/dayu/bgpip)** console. Select **High Defense IP** from the left panel and find the high defense IP that deployed on non-Tencent Cloud servers, and then click the instance ID to go to the configuration page.
 
 ![](https://mc.qcloudimg.com/static/img/8ef58dac854d557cf557688e63a2bd2a/image.png)
  
@@ -45,24 +45,24 @@ Note: Separate IPs by pressing Enter. A maximum of 20 public IPs from the target
  
 **Step 3: Switch the business to high defense IP**
 
-## Fast Access to BGP High Defense IP (for users whose business is deployed on Tencent Cloud)
+##Accessing to High Defense IP (for Tencent Cloud servers)
 
 **Step 1: Log in to the console and go to the High Defense IP Configuration page**
 
-Log in to the **[Dayu Network Security](https://console.cloud.tencent.com/dayu/bgpip)** console. On the "BGP High Defense IP" control page, find the high defense IP instance of the business you enabled and deployed on Tencent Cloud, and then click the instance ID to go to the configuration page.
+Log in to the **[Dayu Anti-DDoS](https://console.cloud.tencent.com/dayu/bgpip)** console. On the "High Defense IP" control page, find the high defense IP instance of the business you enabled and deployed on Tencent Cloud, and then click the instance ID to go to the configuration page.
 
 ![](https://mc.qcloudimg.com/static/img/3fa91839afbc62d81a7960500a4a5920/image.png)
  
 **Step 2: Create a listener**
 
-In Basic Configuration, choose the protocol port based on business conditions. Select Layer-4 forwarding for high defense IP, and TCP for Layer-7 application protocol such as HTTP, as shown below:
+In Basic Configuration, choose the protocol port as required. :
 
 ![](https://mc.qcloudimg.com/static/img/69e9afef020cac7c7898391ecff1e4a6/image.png)
  
-In Advanced Configuration, configure according to actual business conditions. If you are not sure, keep the default configuration.
+In Advanced Configuration, configure according to actual business conditions.
 ![](https://mc.qcloudimg.com/static/img/da76509e7c6ee80778c92d8998e36892/image.png)
  
-Health Check is enabled by default. You are recommended not to change the configuration. This module can automatically remove failed service ports and keep the business available.
+Health Check is enabled by default and can automatically remove failed service ports and keep the business available.
 
 **Step 3: Bind a CVM and set weight**
 

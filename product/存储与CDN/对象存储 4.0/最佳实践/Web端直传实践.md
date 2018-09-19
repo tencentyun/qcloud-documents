@@ -10,7 +10,7 @@
 
 ## 二、计算签名
 签名计算放在前端会暴露 SecretKey，因此我们把签名计算过程放在后端实现，前端通过 AJAX 向后端获取签名结果，正式部署时请在后端加一层您的网站本身的权限检验。
-指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
+指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
 
 ## 三、前端上传
 ### 方案 A：使用 AJAX 上传
@@ -25,38 +25,59 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ajax 上传</title>
-    <style>h1, h2 {font-weight: normal;}#msg {margin-top:10px;}</style>
+    <title>Ajax Put 上传</title>
+    <style>
+        h1, h2 {
+            font-weight: normal;
+        }
+
+        #msg {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Ajax 上传</h1>
+<h1>Ajax Put 上传</h1>
 
-<form id="form">
-    <input id="file" type="file">
-    <input type="submit">
-</form>
+<input id="fileSelector" type="file">
+<input id="submitBtn" type="submit">
 
 <div id="msg"></div>
 
 <script>
     (function () {
-
-        // 指定存储桶
+        // 请求用到的参数
         var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
+        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
 
         // 计算签名
         var getAuthorization = function (options, callback) {
             var method = (options.Method || 'get').toLowerCase();
             var key = options.Key || '';
             var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            var url = '../server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
+            // var url = 'http://127.0.0.1:3000/sts-auth' +
+            var url = '../server/sts-auth.php' +
+                '?method=' + method +
+                '&pathname=' + encodeURIComponent(pathname);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onload = function (e) {
-                callback(null, e.target.responseText);
+                var AuthData;
+                try {
+                    AuthData = JSON.parse(xhr.responseText)
+                } catch (e) {}
+                if (AuthData && AuthData.Authorization) {
+                    callback(null, {
+                        Authorization: AuthData.Authorization,
+                        XCosSecurityToken: AuthData.XCosSecurityToken,
+                    });
+                } else {
+                    console.error(AuthData);
+                    callback('获取签名出错');
+                }
             };
             xhr.onerror = function (e) {
                 callback('获取签名出错');
@@ -66,12 +87,21 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 
         // 上传文件
         var uploadFile = function (file, callback) {
-            var Key = file.name;
-            getAuthorization({Method: 'PUT', Key: Key}, function (err, auth) {
+            var Key = 'dir/' + file.name; // 这里指定上传目录和文件名
+            getAuthorization({Method: 'PUT', Key: Key}, function (err, info) {
+
+                if (err) {
+                    alert(err);
+                    return;
+                }
+
+                var auth = info.Authorization;
+                var XCosSecurityToken = info.XCosSecurityToken;
                 var url = prefix + Key;
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
+                XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
                 xhr.onload = function () {
                     if (xhr.status === 200 || xhr.status === 206) {
                         var ETag = xhr.getResponseHeader('etag');
@@ -88,13 +118,16 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
         };
 
         // 监听表单提交
-        document.getElementById('form').onsubmit = function (e) {
-            var file = document.getElementById('file').files[0];
+        document.getElementById('submitBtn').onclick = function (e) {
+            var file = document.getElementById('fileSelector').files[0];
+            if (!file) {
+                document.getElementById('msg').innerText = '未选择上传文件';
+                return;
+            }
             file && uploadFile(file, function (err, data) {
                 console.log(err || data);
                 document.getElementById('msg').innerText = err ? err : ('上传成功，ETag=' + data.ETag);
             });
-            e.preventDefault();
         };
     })();
 </script>
@@ -118,13 +151,13 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Form 表单上传</title>
+    <title>Form 表单简单上传</title>
     <style>h1, h2 {font-weight: normal;}#msg {margin-top:10px;}</style>
-    <script src="jquery-1.12.4.js"></script>
 </head>
 <body>
 
-<h1>Form 表单上传</h1>
+<h1>Form 表单简单上传（兼容 IE8）</h1>
+<div>最低兼容到 ie6 上传，不支持 onprogress</div>
 
 <form id="form" target="submitTarget" action="" method="post" enctype="multipart/form-data" accept="*/*">
     <input id="name" name="name" type="hidden" value="">
@@ -132,6 +165,8 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
     <input id="key" name="key" type="hidden" value="">
     <input id="Signature" name="Signature" type="hidden" value="">
+    <input name="Content-Type" type="hidden" value="">
+    <input id="x-cos-security-token" name="x-cos-security-token" type="hidden" value="">
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
 </form>
@@ -145,21 +180,39 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         // 请求用到的参数
         var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
+        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
 
         // 计算签名
         var getAuthorization = function (options, callback) {
             var method = (options.Method || 'get').toLowerCase();
-            var key = options.Key || '';
-            var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            var url = '../server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
+            // var url = 'http://127.0.0.1:3000/sts-auth' +
+            var url = '../server/sts-auth.php' +
+                '?method=' + method +
+                '&pathname=' + encodeURIComponent('/');
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
                 if (xhr.readyState === 4) {
-                    xhr.status === 200 ? callback(null, xhr.responseText) : callback('获取签名出错');
+                    if (xhr.status === 200) {
+                        var AuthData;
+                        try {
+                            AuthData = (new Function('return ' + xhr.responseText))();
+                        } catch (e) {}
+                        if (AuthData && AuthData.Authorization) {
+                            callback(null, {
+                                Authorization: AuthData.Authorization,
+                                XCosSecurityToken: AuthData.XCosSecurityToken,
+                            });
+                        } else {
+                            console.error(AuthData);
+                            callback('获取签名出错');
+                        }
+                    } else {
+                        callback('获取签名出错');
+                    }
                 }
             };
             xhr.send();
@@ -198,12 +251,13 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                 document.getElementById('msg').innerText = '未选择上传文件';
                 return;
             }
-            Key = filePath.match(/[\\\/]?([^\\\/]+)$/)[1];
-            getAuthorization({Method: 'POST', Key: '/'}, function (err, auth) {
+            Key = 'dir/' + filePath.match(/[\\\/]?([^\\\/]+)$/)[1]; // 这里指定上传目录和文件名
+            getAuthorization({Method: 'POST', Key: Key}, function (err, AuthData) {
                 // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
-                document.getElementById('Signature').value = auth;
+                document.getElementById('Signature').value = AuthData.Authorization;
+                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken || '';
                 form.submit();
             });
         };

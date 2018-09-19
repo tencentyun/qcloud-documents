@@ -1,14 +1,12 @@
-## 免费实验室常见问题
+### Error occurs when creating custom application in the example Cluster
+#### (-241007) Parameters Not Supported by Example Cluster PUBLIC_CLUSTER_PARAM_CHECK_ERROR[service(******): public cluster service namespace must be u*********]
+**Description**: The example cluster isolates users through namespaces. The custom applications must be created under your namespaces, and you can get your namespaces by errors.
+**Solution**: Change Namespace to your namespaces.
 
-### 1. 通过示例集群创建自定义应用报错
-#### 1.1 (-241007)示例集群不支持的参数 PUBLIC_CLUSTER_PARAM_CHECK_ERROR[service(******): public cluster service namespace must be u*********]
-说明： 示例集群通过namespaces进行用户隔离，创建自定义应用必须在您的namespaces下创建，你可以通过错误获取您的namespaces。
-解决方法： 修改Namespace 为您的namespaces即可。
+#### (-241007) Parameters Not Supported by the Example Cluster PUBLIC_CLUSTER_PARAM_CHECK_ERROR[service(******): public cluster pod's cpu limits cannot be zero]
 
-#### 1.2 (-241007)示例集群不支持的参数 PUBLIC_CLUSTER_PARAM_CHECK_ERROR[service(******): public cluster pod's cpu limits cannot be zero]
-
-说明： 示例集群下创建的资源必须设置实例的CPU和内存Request和Limit限制
-解决方法：在模板内容的containers字段下的resources字段补充完整request和limit的限制，如下：
+**Description**: The CPU and memory limits of Request and Limit must be set for the POD created under the example cluster.
+**Solution**: Complement the limits of Request and Limit at the "resources" field under the "containers" field of the template as shown below:
 ```yaml
 ......
 containers:
@@ -27,3 +25,4 @@ containers:
           privileged: false
 ......
 ```
+

@@ -91,7 +91,7 @@ When selecting products, you can refer to the following product positioning of a
             <td>Logs storage in COS</td>
                         <td>✔ (Layer-7)</td>
                         <td>Available soon</td>
-                        <td>✖</td>
+                        <td>✔ (Layer-7)</td>
                         <td>✖</td>
         </tr>   
 </tbody></table>

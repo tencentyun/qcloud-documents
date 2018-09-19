@@ -8,7 +8,7 @@
 
 1. 获取源码
 [从 Github 访问 >>](https://github.com/tencentyun/vod-java-sdk)
-[点击下载 Java SDK >>](https://github.com/tencentyun/vod-java-sdk/archive/master.zip)
+[单击下载 Java SDK >>](https://github.com/tencentyun/vod-java-sdk/archive/master.zip)
 
 2. maven
 ```

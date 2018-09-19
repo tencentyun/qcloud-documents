@@ -12,6 +12,7 @@
 + 提交的 URL 中域名必须为该账号下已接入的加速域名
 + 提交的 URL 中域名的状态需要为【已启动】或【部署中】
 + 调用频次限制为 10000次/分钟
++ 接口已支持子账号调用，权限配置可参考权限[配置示例](https://cloud.tencent.com/document/product/228/14867)
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 

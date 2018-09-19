@@ -1,19 +1,15 @@
-## 1 功能说明 
+## 功能说明
+1. Node.js Server SDK 将调用 REST API 的底层操作封装成 js 库，并以接口类的方式暴露给开发者，具体参见 lib文 件夹下 TimRestApi.js ；
+2. 提供 TimRestApiGear.js 示例工具，可直接访问 RestAPI；
+3. 提供压力测试工具 TimSendGroupMsgPressTest.js，可测试在群内发送消息时，客户端接收消息能力。
 
-1. Node.js Server SDK将调用RESTAPI的底层操作封装成js库，并以接口类的方式暴露给开发者，具体参见lib文件夹下TimRestApi.js ；
-2. 提供TimRestApiGear.js示例工具，可直接访问RestAPI；
-3. 提供压力测试工具TimSendGroupMsgPressTest.js，可测试在群内发送消息时，客户端接收消息能力。
-
-## 2 Node.js Server SDK集成 
-
-支持[独立模式](/doc/product/269/独立模式)。
-
-### 2.1 API集成示例代码（独立模式） 
-
-该示例代码是TimRestApiGear.js的简化版本，详情可直接参考TimRestApiGear.js。
+## Node.js Server SDK集成
+支持 [独立模式](/doc/product/269/独立模式)。
+### API 集成示例代码（独立模式）
+该示例代码是 TimRestApiGear.js 的简化版本，详情可直接参考 TimRestApiGear.js。
 ```
 var TimRestAPI = require('/path/lib/TimRestApi.js');
-// 设置REST API调用基本参数
+// 设置 REST API 调用基本参数
 var config = {
     sdkAppid: '1400001111',
     identifier: 'admin',
@@ -87,14 +83,13 @@ api.init(function(err, data) {
 });
 ```
 
-## 3 群内发送消息压力测试脚本使用说明 
+## 群内发送消息压力测试脚本使用说明
 在互动直播场景，消息量比较大时，由于弹幕等渲染操作，客户端可能会承受比较大的压力，建议在上线之前，用此工具来测试客户端性能。
-使用方法：执行node TimSendGroupMsgPressTest.js 可看到压测脚本工具访问命令(用法)。
-注意事项：压测前需要确保群组存在，并且群内人数尽可能少，减少其他因素影响。 
+使用方法：执行 node TimSendGroupMsgPressTest.js 可看到压测脚本工具访问命令(用法)。
+>注意事项：压测前需要确保群组存在，并且群内人数尽可能少，减少其他因素影响。
 
-## 4 SDK下载 
+## SDK 下载
 
-您可通过如下两种方式下载： 
-1. [直接点击下载](http://share.weiyun.com/3bf4fd92fa71cb61f3117f5740af016f)； 
-2. 到[github](https://github.com/tencentyun/imsdk_restapi-nodejs-sdk)下载。
-
+您可通过如下两种方式下载：
+1. [直接单击下载](http://share.weiyun.com/3bf4fd92fa71cb61f3117f5740af016f)；
+2. 到 [github](https://github.com/tencentyun/imsdk_restapi-nodejs-sdk) 下载。

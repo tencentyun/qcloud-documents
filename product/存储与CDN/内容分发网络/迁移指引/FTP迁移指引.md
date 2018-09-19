@@ -1,13 +1,13 @@
 #### 迁移须知
 
-迁移前，您需要登陆FTP服务器，将所有的在FTP上的资源同步至本地。迁移过程中，请勿向FTP中新增资源。
+迁移前，您需要登录 FTP 服务器，将所有的在 FTP 上的资源同步至本地。迁移过程中，请勿向 FTP 中新增资源。
 
-#### 1 创建Bucket
+#### 1 创建 Bucket
 
-登陆 [COS控制台](https://console.cloud.tencent.com/cos)，若未开通，请点击开通COS对象存储服务，在左侧点击【Bucket列表】：
+登录 [COS 控制台](https://console.cloud.tencent.com/cos)，若未开通，请单击开通 COS 对象存储服务，在左侧单击【Bucket 列表】：
 ![](https://mc.qcloudimg.com/static/img/b87d5d718cf5c7e8b6d93cd2acc78783/cos-1.png)
 
-点击页面上【创建Bucket】按钮，填充如下项：
+单击页面上【创建Bucket】按钮，填充如下项：
 
 选择【所属项目】: 您可以根据需要对该源站进行分项目管理
 
@@ -38,7 +38,7 @@ https://cloud.tencent.com/document/product/436/7133
 
 #### 3 源站切换
 
-请保证COS中的资源路径与原有FTP中资源路径一致，然后通过工单系统提交加速域名与要切换的COS bucket 域名，我们会协助您进行切换。
+请保证 COS 中的资源路径与原有 FTP 中资源路径一致，然后通过工单系统提交加速域名与要切换的 COS bucket 域名，我们会协助您进行切换。
 
-切换成功后，所有资源均从COS中获取，文件管理操作可通过COS进行，更多COS使用指南可参考：https://cloud.tencent.com/document/product/436。
+切换成功后，所有资源均从 COS 中获取，文件管理操作可通过 COS 进行，更多操作指南请参考 [对象存储服务](https://cloud.tencent.com/document/product/436)。
 

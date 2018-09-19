@@ -13,7 +13,7 @@ You can initiate diagnosis through "Current device access diagnosis" when you fi
 3. Click the test address generated in step 2 to open the diagnosis page and start collecting diagnosis information. Please do not close the diagnosis page during the process, the page will close on its own when the process is completed;
 4. After the diagnosis, you can go to "Diagnosis report" tab to review the results.
 
-![本机诊断](https://mc.qcloudimg.com/static/img/30d52a0a7b01e4b9f802177ceda62bb0/1.png)
+![self](https://mc.qcloudimg.com/static/img/30d52a0a7b01e4b9f802177ceda62bb0/1.png)
 
 
 ### User Access Diagnosis 
@@ -25,19 +25,19 @@ When a user reports that there is a problem while accessing resource, you can lo
 3. Send this test address to your user. Diagnosis information will be collected when your user opens the test URL. Please do not close the page during the process.
 4. After the diagnosis, you can go to "Diagnosis report" tab to review the results that have been collected from the user.
 
-![用户诊断](https://mc.qcloudimg.com/static/img/215ff9302a2e2f5026140d6dff9ac794/2.png)
+![users](https://mc.qcloudimg.com/static/img/215ff9302a2e2f5026140d6dff9ac794/2.png)
 
 
 ### Reviewing the Diagnosis Report
 From the console, go to Inspect Tool >> Self-diagnose page and select "Diagnosis report" tab to see a list of diagnosis reports. Diagnosis reports that have been generated will be presented in the page, sorted by time of creation.
-![诊断报告列表](https://mc.qcloudimg.com/static/img/fd6eeaf8759acbe844d90bef5da29003/3.png)
+![list](https://mc.qcloudimg.com/static/img/fd6eeaf8759acbe844d90bef5da29003/3.png)
 You can click "Check" to view the details of the report. 
-![报告详情](https://mc.qcloudimg.com/static/img/ad105416d8677a8d37faa252bef7489d/4.png)
+![detail](https://mc.qcloudimg.com/static/img/ad105416d8677a8d37faa252bef7489d/4.png)
 
 The Report Details page is divided into two sections, "Diagnosis object" and "Diagnosis report":
 
 **Diagnosis object**: Contains Diagnosis ID, abnormal URL, abnormal domain name, origin type information.
-**Diagnosis report:** Contains diagnosis results about CNAME, DNS resolution, site availability, link quality, and data access consistency.
+**Diagnosis report**: Contains diagnosis results about CNAME, DNS resolution, site availability, link quality, and data access consistency.
 
 
 **Item 1: CNAME**
@@ -45,12 +45,12 @@ The Report Details page is divided into two sections, "Diagnosis object" and "Di
 2. Abnormal CNAME Configuration: If the CNAME that is actually resolved from the diagnosis domain is not consistent with the CNAME that should be deployed and resolved, the result will be "abnormal". You can click "Check details" to review the CNAME that is actually resolved and the one that should be deployed and resolved as well as its CDN provider. Only one CNAME is presented in the details if multiple CNAMEs are actually resolved from the diagnosis domain. In this case, it is suggested that you change the CNAME configuration at the DNS service provider. If the CNAME configuration is abnormal, other diagnosis items will not be commenced.
 
 **Item 2: DNS Resolution**
-1. Normal: If the actual node accessed by the diagnosis domain is consistent with the optimal node, the result will be "normal". You can click "Check details" to review Client IP, Local DNS, IPs of the actual node and the optimal node, regions and ISP information
+1. Normal: If the actual node accessed by the diagnosis domain is consistent with the optimal node, the result will be "normal". You can click "Check details" to review Client IP, Local DNS, IPs of the actual node and the optimal node, regions and ISP information.
 2. Non-optimal path: If the actual node accessed by the diagnosis domain is different from the optimal node, the result will be "non-optimal path". It is suggested that you contact Tencent Cloud technicians.
 3. Failed to obtain node IP: Under circumstances such as when the IP of the diagnosis domain is hijacked, or the connection to the node failed, the diagnosis result will be "failed to obtain node IP". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 3: Site availability**
-1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server"
+1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server".
 2. Abnormal: If the connections to the node or the origin server are abnormal, the diagnosis result will be "abnormal connection to node" or "abnormal connection to origin server" or "abnormal connection to both node and origin server". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 4: Link quality**

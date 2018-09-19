@@ -1,5 +1,5 @@
 ## Description
-Delete Object API request is used to delete one file (Object) in Bucket of COS. This action requires that the user has the WRITE permission for the Bucket.
+DELETE Object API request is used to delete one file (Object) in Bucket of COS. This action requires that the user has the WRITE permission for the Bucket.
 ## Request
 
 Syntax:
@@ -55,7 +55,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### Response
 ```
-HTTP/1.1 204 No Content
+HTTP /1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
 Connection: keep-alive

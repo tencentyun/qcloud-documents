@@ -1,8 +1,8 @@
-In order to make better use of Kubernetes orchestration engine, and combine it with Tencent Cloud basic services at IaaS layer more effectively, Tencent CCS extends the Kubernetes native orchestration syntax. The following describes the extended syntax.
+In order to make better use of Kubernetes orchestration engine, and combine it with Tencent Cloud basic services at IaaS layer more effectively, Tencent TKE extends the Kubernetes native orchestration syntax. The following describes the extended syntax.
 
 ## Extended Syntax - Use of CBS Disk
 
-In CCS, a CBS disk can be directly mounted to a service pod. You can proceed as follows:
+In TKE, a CBS disk can be directly mounted to a service pod. You can proceed as follows:
 
 ```
 apiVersion: extensions/v1beta1
@@ -56,7 +56,7 @@ Note: CBS disk can only be mounted to one container at a time. Therefore, if a C
 
 ## Extended Syntax - VPC-based Load Balancer Access
 
-In basic syntax, you can set the service access method by setting `type` field in `Service`. In CCS definition, `service.kubernetes.io/qcloud-loadbalancer-internal-subnetid` is defined in `annotations` to specify whether it is VPC-based load balancer access or public network-based load balancer access.
+In basic syntax, you can set the service access method by setting `type` field in `Service`. In TKE definition, `service.kubernetes.io/qcloud-loadbalancer-internal-subnetid` is defined in `annotations` to specify whether it is VPC-based load balancer access or public network-based load balancer access.
 
 If `service.kubernetes.io/qcloud-loadbalancer-internal-subnetid` is set for the `annotations`, it is considered creating a load balancer that accesses the service within VPC. Otherwise, it is considered creating a load balancer in public network.
 

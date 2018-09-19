@@ -1,0 +1,1 @@
+不同账号 VPC 间可创建对等连接通信，详情请参见 [操作指南](https://cloud.tencent.com/document/product/215/5000#.E5.AF.B9.E7.AD.89.E8.BF.9E.E6.8E.A5.E5.BB.BA.E7.AB.8B.E6.B5.81.E7.A8.8B)。

@@ -10,7 +10,7 @@ API Name: `ContentSecurity.Image.Recognition`
 
 ## Request Parameters
 
->**Note:**
+> **Note:**
 > All of the following parameters are very important to identify the malicious intent. Lack of any one may affect the identification result.
 
 <table>
@@ -45,12 +45,12 @@ API Name: `ContentSecurity.Image.Recognition`
 <tr>
 <td>SecretId</td>
 <td>String</td>
-<td>The SecretID which is used for identifying identity and applied for on Cloud API Key . A SecretID corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4214">Signature Method</a></td>.
+<td>The SecretID which is used for identifying identity and applied for on Cloud API Key . A SecretID corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4214">Signature Method</a>.</td>
 </tr>
 <tr>
 <td>Signature</td>
 <td>String</td>
-<td>Request signature, which is used to verify the validity of the request. It is generated based on input parameters. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4214">Signature Method</td>.
+<td>Request signature, which is used to verify the validity of the request. It is generated based on input parameters. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4214">Signature Method</a>.</td>
 </tr>
 <tr>
 <td colspan=3>Basic field: Required</td>

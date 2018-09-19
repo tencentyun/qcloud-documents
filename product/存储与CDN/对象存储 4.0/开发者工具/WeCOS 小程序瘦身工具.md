@@ -24,12 +24,11 @@ npm install -g wecos
 {
   "appDir": "./app",
   "cos": {
-    "appid": "1234567890",
-    "bucketname": "wxapp",
-    "folder": "/", //资源存放在bucket的哪个目录下
-    "region": "wx", //创建bucket时选择的地域简称
-    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
-    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"      
+    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "bucket": "wxapp-1251902136",
+    "region": "ap-guangzhou", //创建bucket时选择的地域简称
+    "folder": "/" //资源存放在bucket的哪个目录下
   }
 }
 ```
@@ -61,7 +60,7 @@ wecos
   "backupDir": "./wecos_backup"
 ```
 #### 设置图片后缀
-当需要限制上传图片的格式（例如只允许 `jpg` 格式）时，可通过 WeCOS 提供的图片后缀配置项来定义。WeCOS 默认支持 jpg、png、gif 三种格式，若你还需要添加其他格式（例如 webp），可在该配置项中添加，示例如下：
+当需要限制上传图片的格式（例如只允许 `jpg` 格式）时，可通过 WeCOS 提供的图片后缀配置项来定义。WeCOS 默认支持 jpg、png、gif 三种格式，若您还需要添加其他格式（例如 webp），可在该配置项中添加，示例如下：
 ```
   "uploadFileSuffix": [".jpg",".png",".gif",".webp"]
 ```

@@ -5,7 +5,7 @@
 ## 下载地址
 
 * [从 Github 访问 >>](https://github.com/tencentyun/vod-php-sdk-v5)
-* [点击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
+* [单击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
 
 ## 使用方式
 

@@ -236,14 +236,14 @@ function setRenderYMirror() {
 
 ### 13.captureVideoSnapShot(sFileFullPath,sDirPath)
 
-拉流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为"",则以sDirPath路径打开文件选择器，如果sDirPath为“”，则文件选择器默认位置为桌面，目前只支持.jpg的文件格式
+拉流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为""，则会写在temp目录下，目前只支持.jpg的文件格式
 
 - **参数说明**
 
 | 参数   | 类型     | 说明   |
 | ---- | ------ | ---- |
 | sFileFullPath | String  | 指定存储文件路径，不为null，则直接存储文件|
-| sDirPath | String  | 指定路径来打开文件选择器，当sFileFullPath为null时，此参数生效|
+| sDirPath | String  | 预留参数|
 
 
 - **返回值说明**
@@ -257,8 +257,8 @@ function setRenderYMirror() {
 ```
 function screenShotplayer() {
 	//第一个参数指定文件， 第二个参数指定路径，如果不需要指定文件，则""
-    //var ret = player.captureVideoSnapShot("", "D:\\subTest");
-    var ret = player.captureVideoSnapShot("D:\\subTest\\123.jpg", "D:\\subTest");
+    //var ret = player.captureVideoSnapShot("", "");
+    var ret = player.captureVideoSnapShot("D:\\subTest\\123.jpg", "");
     //-1:失败，-2路径非法，-3文件存在，-4未推流
     if (ret == -1) {
         alert("截图失败");

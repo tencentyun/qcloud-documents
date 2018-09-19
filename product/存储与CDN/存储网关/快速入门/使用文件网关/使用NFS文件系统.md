@@ -1,5 +1,3 @@
-# 使用文件系统
-
 创建文件系统后，请在其他服务器或客户端上按照如下指引进行配置，挂载该文件系统并使用。NFS 文件网关支持 NFS v3.0 及 NFS v4.0 协议。
 
 **注意：若在 CVM 上使用网关，建议将网关部署在各来访客户端的 VPC 下；如果在不同 VPC 时，请使用 [对等连接](https://cloud.tencent.com/document/product/215/5000) 方法实现网络互通。**
@@ -66,7 +64,7 @@
 
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
 > umount <目录名称>
-> // 列如， umount /local/test
+> // 例如， umount /local/test
 
 
 ## 在 Windows 上使用 NFS 文件系统
@@ -75,7 +73,7 @@
 
 挂载前，请确保系统已经启动 NFS 服务。此处以 Windows Server 2012 R2 为示例，启动方法如下：
 
-> 打开控制面板 -> 程序 -> 打开或关闭 windows 功能 -> 【服务器角色】页签中勾选 "NFS server" -> 【特性】中勾选 "NFS 客户端"，勾选 NFS 客户端即可开启 windows NFS 客户端服务.
+> 打开控制面板 -> 程序 -> 打开或关闭 Windows 功能 -> 【服务器角色】页签中勾选 "NFS server" -> 【特性】中勾选 "NFS 客户端"，勾选 NFS 客户端即可开启 Windows NFS 客户端服务.
 
 下图以 Windows Server 2012 R2 为示例。
 ![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
@@ -100,7 +98,7 @@
 
 > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 
-在右边空白处右键点击，弹出 "new", 在菜单中选择 "DWORD(32-bit) Value"。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
+在右边空白处右键单击，弹出 "new", 在菜单中选择 "DWORD(32-bit) Value"。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
 
 ![](https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png)
 
@@ -108,11 +106,11 @@
 
 #### 重启使配置生效
 
-关闭注册表并重启 windows 系统，完成注册表修改。
+关闭注册表并重启 Windows 系统，完成注册表修改。
 
 
 #### 打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
@@ -126,6 +124,6 @@
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
 #### 断开文件系统
-要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中点击【断开】选项，即可断开文件系统的连接。
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
 ![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
 

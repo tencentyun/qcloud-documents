@@ -173,7 +173,7 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 | 图片   | JPG、JPEG、JPE<br />PSD<br />SVG、SVGZ<br />TIFF、TIF<br />BMP、GIF、PNG |
 | 音频   | MP3、WAV       |
 
-音频的上传方式跟视频一样，即 `qcVideo.ugcUploader.start` 中 `videoFile` 为音频文件即可。
+音频的上传方式跟视频类似，在 `qcVideo.ugcUploader.start` 中，将 `videoFile` 设置为音频文件，将 `allowAudio` 设置为 1。
 
 
 ## 常见问题

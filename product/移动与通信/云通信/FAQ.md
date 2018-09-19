@@ -49,7 +49,7 @@ TIMManager.getInstance().disableCrashReport();
 
 ## 群组
 
-## 账号
+## 帐号
 
 ## REST API
 

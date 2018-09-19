@@ -8,7 +8,7 @@
 
 ## 2 申请视频服务以及资质信息认证
 
-1.访问腾讯云产品介绍页http://cloud.tencent.com/product/vod.html ,点击页面的“立即选购”按钮，如下图：
+1.访问腾讯云产品介绍页http://cloud.tencent.com/product/vod.html ,单击页面的“立即选购”按钮，如下图：
  
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tapd_10080061_base64_1442393790_10.png)
 
@@ -17,7 +17,7 @@
 
 ![](//mccdn.qcloud.com/static/img/5072d490be8560ae6ca17279c19c8861/image.png)
 
-3.点击后，跳转至官网资质认证信息页面，请正确填写该页面所需信息，可使用个人或企业身份进行认证。认证成功后，即可访问管理控制台。
+3.单击后，跳转至官网资质认证信息页面，请正确填写该页面所需信息，可使用个人或企业身份进行认证。认证成功后，即可访问管理控制台。
 
 
 ## 3 试用视频点播服务
@@ -31,7 +31,7 @@
 您可以通过点播服务-概览选择购买视频点播服务套餐，如下图：
 ![](//mccdn.qcloud.com/static/img/365c84b1b0f13fd648ba721832e4de8f/image.png)
 
-点击后，可以根据需要，选择更新当前点播服务套餐， 如下图：
+单击后，可以根据需要，选择更新当前点播服务套餐， 如下图：
 
 ![](//mccdn.qcloud.com/static/img/1a5db72a4a37be37e662931f72913515/image.png)
 

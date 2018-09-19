@@ -1,6 +1,9 @@
 
 ## 接口描述
   DescribeAudits 用于获取 CloudAudit 信息。
+接口访问域名：`cloudaudit.api.qcloud.com`
+
+
 ## 请求参数
 |参数名称|必选|类型|描述|
 |---------|---------|---------|--------|
@@ -36,8 +39,8 @@
 
 ```
 {
-   "auditLists": [ 
-      { 
+   "auditLists": [
+      {
          "IsMultiRegionAudit": Number,
          "KmsKeyId": "String",
          "Name": "String",
@@ -49,5 +52,3 @@
    ]
 }
 ```
-
-

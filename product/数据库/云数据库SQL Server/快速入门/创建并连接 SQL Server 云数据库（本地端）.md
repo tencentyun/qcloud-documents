@@ -33,7 +33,7 @@
 1. 在 SQL Server 云数据库实例详情页，单击【实例详情】，查看 SQL Server 云数据库实例的内网 IP 及端口号。**该内网 IP 及端口号会在配置端口映射时使用。**
 ![](//mc.qcloudimg.com/static/img/6dcf51fc839f1ea7c47c26609b711ede/image.png)
 2. 准备一台  **具有外网 IP** 的 Linux 云服务器。如果您还没有腾讯云 Linux 云服务器，请参考 [快速入门 Linux 云服务器](/doc/product/213/2936)。
-3. 在本地使用 SSH 工具（如 SecureCRT 或 Putty 等）登录 Linux 云服务器。登录方法请参考 [登录 Linux 实例](/doc/product/213/5436)。
+3. 在本地使用 SSH 工具（如 SecureCRT 或 PuTTY 等）登录 Linux 云服务器。登录方法请参考 [登录 Linux 实例](/doc/product/213/5436)。
 4. 在 SecureCRT 菜单栏单击【Options】>【Session Options】，进入会话属性设置。
 ![](//mc.qcloudimg.com/static/img/6f48c98d69986fd497535ec8760a0a49/image.png)
 5. 在会话属性设置页面，单击【Connection】>【PortForwarding】>【Add】，进入配置端口映射页面。

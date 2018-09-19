@@ -7,7 +7,7 @@ CA认证审核通过后，会正式颁发证书，用户可下载付费证书进
 ![](https://mc.qcloudimg.com/static/img/cc02150cffb5b1cf56860e0f62a8926e/image.png)
 
 #### 1.2 付费证书材料提交
-购买到的证书会显示在证书管理列表中，点击“提交资料”
+购买到的证书会显示在证书管理列表中，单击“提交资料”
 ![](https://mc.qcloudimg.com/static/img/fc5f7d29404a706b050716b182d9fde4/image.png)
 
 ### 2. 填写域名
@@ -44,12 +44,12 @@ CSR生成分两种方式，可任选一种进行CSR生成   在线生成CSR，�
 填写管理人信息与联系人信息。如果两者信息一致，可勾选“与管理人相同”
 ![](https://mc.qcloudimg.com/static/img/d71c3c62e79d8bddd4f5ca935546bae1/image.png)
 
-点击下一步，进行CSR提交   
+单击下一步，进行CSR提交   
 ![](https://mc.qcloudimg.com/static/img/6f6388814fc389df39659f7f1b0c9da1/image.png)
 
 ### 5. 上传审核
-CSR提交后，用户还需提交确认函。点击【下载确认函】，进行确认函信息补充填写。   
-用户完成确认函填写后，加盖公章进行文件扫描，点击【上传审核】进行确认函上传
+CSR提交后，用户还需提交确认函。单击【下载确认函】，进行确认函信息补充填写。   
+用户完成确认函填写后，加盖公章进行文件扫描，单击【上传审核】进行确认函上传
 ![](https://mc.qcloudimg.com/static/img/7c00a8b91c5b38f8eb4697940ff8b1b4/image.png)
 
 提交后，进行弹窗提示，等待线下亚洲诚信工作人员与CA机对提交材料进行确认与审核

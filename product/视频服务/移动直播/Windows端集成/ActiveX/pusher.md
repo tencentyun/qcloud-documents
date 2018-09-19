@@ -26,7 +26,7 @@
 | getVersion()                             | 获取插件SDK版本号                  |
 | setRenderWndSize(width, height)          | 设置当前视频渲染窗口的大小，              |
 | enumCameras():                           | 枚举当前的摄像头，                   |
-| startPreview()                           | 启动摄像头预览                     |
+| startCameraPreview()         | 启动摄像头预览                     |
 | stopPreview()                            | 关闭摄像头预览                     |
 | startPush(sUrl)                          | 启动推流                        |
 | stopPush()                               | 停止推流                        |
@@ -49,7 +49,7 @@
 | startAudioCapture()                          | 启动音频采集                        |
 | stopAudioCapture()                          | 停止音频采集                        |
 | setPusherEventCallBack(callbackfun, objectid) | 设置回调接口                      |
-
+| captureVideoSnapShot(sFileFullPath,sDirPath) | 推流端视频图像快照                      |
 
 ### 1.getVersion()
 
@@ -121,7 +121,7 @@ function refreshCamera() {
 }
 ```
 
-### 4.startPreview()
+### 4.startCameraPreview()
 
 启动摄像头预览，接口调用成功（>0） or 失败（0）
 
@@ -134,7 +134,7 @@ function refreshCamera() {
 - **示例代码** : 
 
 ```
-var vRetInt = pusher.startPreview()
+var vRetInt = pusher.startCameraPreview()
 ```
 
 ### 5.stopPreview()
@@ -263,9 +263,9 @@ function setRotation() {
 
 - **参数说明**
 
-| 参数             | 类型   | 说明                                       |
-| -------------- | ---- | ---------------------------------------- |
-| resolutionType | Int  | 值为 1 ： RESOLUTION_320x240<br/>值为 2 ： RESOLUTION_640x480 <br/>值为 3 ：  RESOLUTION_480x272<br/>值为 4 ： RESOLUTION_640x360<br/>更多可参考:AxTXEVideoResolution定义 |
+| 参数           | 类型 | 说明                                                         |
+| -------------- | ---- | ------------------------------------------------------------ |
+| resolutionType | Int  | 值为 1 ： RESOLUTION_320x240<br/>值为 2 ： RESOLUTION_640x480 <br/>值为 3 ：  RESOLUTION_480x272<br/>值为 4 ： RESOLUTION_960x720<br/>更多可参考:AxTXEVideoResolution定义 |
 
 - **示例代码** : 
 
@@ -453,14 +453,14 @@ function startScreenPreview() {
 
 ### 21.captureVideoSnapShot(sFileFullPath,sDirPath)
 
-推流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为"",则以sDirPath路径打开文件选择器，如果sDirPath为“”，则文件选择器默认位置为桌面，目前只支持.jpg的文件格式
+推流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为""，则会写在temp目录下，目前只支持.jpg的文件格式
 
 - **参数说明**
 
 | 参数   | 类型     | 说明   |
 | ---- | ------ | ---- |
 | sFileFullPath | String  | 指定存储文件路径，不为null，则直接存储文件|
-| sDirPath | String  | 指定路径来打开文件选择器，当sFileFullPath为null时，此参数生效|
+| sDirPath | String  | 预留参数 |
 
 
 - **返回值说明**
@@ -474,8 +474,8 @@ function startScreenPreview() {
 ```
 function screenShotPusher() {
 	//第一个参数指定文件， 第二个参数指定路径，如果不需要指定文件，则""
-    //var ret = pusher.captureVideoSnapShot("", "D:\\subTest");
-    var ret = pusher.captureVideoSnapShot("D:\\subTest\\123.jpg", "D:\\subTest");
+    //var ret = pusher.captureVideoSnapShot("", "");
+    var ret = pusher.captureVideoSnapShot("D:\\subTest\\123.jpg", "");
     //-1:失败，-2路径非法，-3文件存在，-4未推流
     if (ret == -1) {
         alert("截图失败");
@@ -676,21 +676,27 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 
 - 推流视频分辨率
   var AxTXEVideoResolution = {
-	// 普屏 4:3
+  // 普屏 4:3
   AX_TXE_VIDEO_RESOLUTION_320x240 : 1,
-	AX_TXE_VIDEO_RESOLUTION_480x360 : 2,
+  AX_TXE_VIDEO_RESOLUTION_480x360 : 2,
   AX_TXE_VIDEO_RESOLUTION_640x480 : 3,
-	AX_TXE_VIDEO_RESOLUTION_960x720 : 4,
- // 宽屏16:9
-	AX_TXE_VIDEO_RESOLUTION_320x180 : 101,
+  AX_TXE_VIDEO_RESOLUTION_960x720 : 4,
+   // 宽屏3:4
+  AX_TXE_VIDEO_RESOLUTION_240x320 : 50,
+  AX_TXE_VIDEO_RESOLUTION_360x480 : 51,
+  AX_TXE_VIDEO_RESOLUTION_480x640 : 52,
+  AX_TXE_VIDEO_RESOLUTION_720x960 : 53,
+
+  // 宽屏16:9
+  AX_TXE_VIDEO_RESOLUTION_320x180 : 101,
   AX_TXE_VIDEO_RESOLUTION_480x272 : 102,
   AX_TXE_VIDEO_RESOLUTION_640x360 : 103,
-	AX_TXE_VIDEO_RESOLUTION_960x540 : 104,
-	// 宽屏9:16
-	AX_TXE_VIDEO_RESOLUTION_180x320 : 201,
-	AX_TXE_VIDEO_RESOLUTION_272x480 : 202,
-	AX_TXE_VIDEO_RESOLUTION_360x640 : 203,
-	AX_TXE_VIDEO_RESOLUTION_540x960 : 204,
+  AX_TXE_VIDEO_RESOLUTION_960x540 : 104,
+  // 宽屏9:16
+  AX_TXE_VIDEO_RESOLUTION_180x320 : 201,
+  AX_TXE_VIDEO_RESOLUTION_272x480 : 202,
+  AX_TXE_VIDEO_RESOLUTION_360x640 : 203,
+  AX_TXE_VIDEO_RESOLUTION_540x960 : 204,
 
   };
 

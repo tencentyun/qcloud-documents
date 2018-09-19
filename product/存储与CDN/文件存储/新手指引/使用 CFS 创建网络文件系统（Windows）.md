@@ -107,7 +107,7 @@ CIFS/SMB | 445 |  telnet 445
 ### 挂载 CIFS/SMB 文件系统
 #### 通过图形界面挂载文件系统
 a.打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
@@ -139,9 +139,9 @@ net use X: \\10.10.11.12\fjie120
 ### 挂载 NFS 文件系统
 #### 1. 开启 NFS 服务
 挂载前，请确保系统已经启动 NFS 服务。此处以 Windows Server 2012 R2 为示例，开启 NFS 服务。
-1.1 打开【控制面板】>【程序】>【打开或关闭 windows 功能】>【服务器角色】页签中勾选【NFS server】。
+1.1 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
 ![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
-1.2 打开【控制面板】>【程序】>【打开或关闭 windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
+1.2 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
 ![](https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png)
 
 #### 2. 验证 NFS 服务是否启动
@@ -161,7 +161,7 @@ mount -h
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
-在右边空白处右键点击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
+在右边空白处右键单击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
 ![](https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png)
 ![](https://mc.qcloudimg.com/static/img/80bb0cfbffbed939522459a830df3eac/image.png)
 
@@ -171,7 +171,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ##### 4. 挂载文件系统
 ###### 通过图形界面挂载
 a.打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
@@ -186,19 +186,12 @@ c.验证读写
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
 ###### 通过 CMD 命令行挂载
-在 Windows 的命令行工具中输入如下命令，挂载文件系统。其中，系统缺省子目录为 "nfs"。
+在 Windows 的命令行工具中输入如下命令，挂载文件系统。其中，系统缺省子目录为 FSID。
+
 ```
-mount  <挂载点IP>:/<子目录> <共享目录名称>:
-```
-示例：
-```
-mount 10.10.0.12:/nfs X:
+mount  <挂载点IP>:/<FSID> <共享目录名称>:
 ```
 
-若使用上述命令挂载，出现文件夹无法重命名的情况，请使用 FSID 进行挂载，挂载命令如下。
-```
-mount <挂载点IP>:/FSID <共享目录名称>:
-```
 示例：
 ```
 mount 10.10.0.12:/z3r6k95r X:
@@ -212,7 +205,7 @@ mount 10.10.0.12:/z3r6k95r X:
 
 ### 5.卸载文件系统
 #### 通过图形界面卸载共享目录
-要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中点击【断开】选项，即可断开文件系统的连接。
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
 ![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
 
 #### 通过 CMD 命令卸载 NFS 共享目录 

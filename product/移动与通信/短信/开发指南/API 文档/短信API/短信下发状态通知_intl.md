@@ -55,7 +55,7 @@ The packet is in JSON format with the following parameters:
 ```
 Notes:  
 1. A callback request may have results of multiple SMS requests returned.  
-2. For more information on "errmsg", see [Error Codes for Status Report](/doc/product/382/3771#2-.E7.8A.B6.E6.80.81.E5.9B.9E.E6.89.A7.E9.94.99.E8.AF.AF.E7.A0.81).
+2. For more information on "errmsg", see [Error Codes for Status Report](/doc/product/382/3771).
 
 ## 3 Response Packet
 When receiving a callback request, the third party needs to give a response to Tencent Cloud SMS service in the following format:

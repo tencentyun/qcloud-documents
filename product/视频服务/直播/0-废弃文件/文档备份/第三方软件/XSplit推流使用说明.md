@@ -2,7 +2,7 @@
 1.	下载XSplit并注册帐号
 登录网站https://www.xsplit.com/download，下载XSplit，选择XSplit Broadcast进行下载
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/XSplit-1.png)
-右上角点击注册帐号的接口，然后去邮箱激活。下载完成后，安装软件，打开软件，输入账号密码登录。在登录后会提示购买软件，等几秒后点击右下角Continue即可，若有更多功能需要，可以购买该软件。下图是登陆成功后的主界面。
+右上角单击注册帐号的接口，然后去邮箱激活。下载完成后，安装软件，打开软件，输入账号密码登录。在登录后会提示购买软件，等几秒后单击右下角Continue即可，若有更多功能需要，可以购买该软件。下图是登陆成功后的主界面。
 2.	添加直播资源
 见下图，XSplit软件支持的直播资源包括屏幕捕捉、游戏捕捉、媒体文件（图像、视频、HTML）、网络摄像机、采集卡和视频设备，左击菜单栏的添加资源按钮即可自行选择。
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/XSplit-2.png)
@@ -27,10 +27,10 @@ XSplit提供直播的视频的分辨率和帧率的设置，如下，单击菜�
 注意事项
 Q1：在登录XSplit时，可能会报出如下的警告“port 443 is blocked”。
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/XSplit-10.png)
-这时可以点击图中“here”链接参考网页http://xspl.it/how-to-unblock-port-443。若还是没有解决443端口堵塞的问题，可以参考网页http://chris-wang.iteye.com/blog/297663。
+这时可以单击图中“here”链接参考网页http://xspl.it/how-to-unblock-port-443。若还是没有解决443端口堵塞的问题，可以参考网页http://chris-wang.iteye.com/blog/297663。
 
 Q2：如果我想直播桌面，那该怎么添加直播资源？
-按照添加资源——屏幕捕捉操作后，选择捕捉区域时，点击桌面就是直播整个桌面的内容，点击一个窗口的内部就只直播这个窗口。
+按照添加资源——屏幕捕捉操作后，选择捕捉区域时，单击桌面就是直播整个桌面的内容，单击一个窗口的内部就只直播这个窗口。
 
 Q：如果还有其他的问题，可以参考什么？
 推荐参考XSplit软件的使用说明http://api.xsplit.com/broadcaster/help/

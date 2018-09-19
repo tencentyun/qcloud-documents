@@ -1,5 +1,5 @@
 ## 1 Product Overview
-Supported by ten years of experience in messaging service and technology, SMS (Short Message Service) provided by Tencent Cloud allows developers to access quality text/voice messaging services in a fast and flexible way.
+Supported by ten years of experience in messaging service and technology, Short Message Service (SMS) provided by Tencent Cloud allows developers to access quality text/voice messaging services in a fast and flexible way.
 
 ## 2 List of Features
 Tencent Cloud SMS currently supports the following features:

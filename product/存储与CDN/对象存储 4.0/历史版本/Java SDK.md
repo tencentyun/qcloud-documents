@@ -21,7 +21,7 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.6</version>
+            <version>4.7</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ pom.xml 添加依赖
 
 ## 生成客户端对象
 
-### 初始化秘钥信息
+### 初始化密钥信息
 
 ```java
         long appId = 1000000;
@@ -47,7 +47,7 @@ pom.xml 添加依赖
         String secretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxx";
         // 设置要操作的bucket
         String bucketName = "xxxxxxxxx";
-        // 初始化秘钥信息
+        // 初始化密钥信息
         Credentials cred = new Credentials(appId, secretId, secretKey);
 ```
 

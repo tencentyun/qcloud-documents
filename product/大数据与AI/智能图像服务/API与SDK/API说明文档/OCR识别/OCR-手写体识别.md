@@ -16,14 +16,13 @@
 ## 请求方式
 
 ### 请求头 header
-所有请求都要求含有以下头部信息：
 
-| 参数名            | 值                                       | 描述                                       |
-| -------------- | --------------------------------------- | ---------------------------------------- |
-| host           | recognition.image.myqcloud.com          | 腾讯云文字识别服务器域名                           |
-| content-length | 包体总长度                    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
-| content-type   | application/json 或 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。         |
-| authorization  | 鉴权签名                                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
+| 参数名            |必选| 值                                        | 描述                                       |
+| -------------- | -----|----------------------------------- | ---------------------------------------- |
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
+| content-type   | 是|application/json 或 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。         |
+| authorization  |是| 鉴权签名                                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
 
 >**注意：**
 如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
@@ -34,7 +33,7 @@
 | ------ | ---- | ------------- | ---------------------------------------- |
 | appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
 | image  | 否   | binary | 图片文件，支持多个                  |
-| url    | 否   | String        | mage 和 url 只提供一个即可；如果都提供，只使用 url |
+| url    | 否   | String        | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
@@ -313,7 +312,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

@@ -1,13 +1,13 @@
 > 使用腾讯云提供的 HTTP header 配置功能，当您的用户请求业务资源时，可以在返回的 **响应消息** 添加您配置的头部，以实现跨域访问等目的。
 >
-> 当资源在节点未命中时会进行回源，此时源站返回的头部信息会一起返回给用户。当资源在节点命中缓存时，CDN 默认会将缓存的源站的 Access-Control-Allow-Origin、Timing-Allow-Origin、Content-Disposition、Accept-Ranges 头部信息返回给用户，如需缓存所有源站返回头部，可[前往配置](https://cloud.tencent.com/document/product/228/6290#.E5.A4.B4.E9.83.A8.E7.BC.93.E5.AD.98)。
+> 当资源在节点未命中时会进行回源，此时源站返回的头部信息会一起返回给用户。当资源在节点命中缓存时，静态内容加速、下载加速场景下，CDN 默认会将缓存的源站的 Access-Control-Allow-Origin、Timing-Allow-Origin、Content-Disposition、Accept-Ranges 头部信息返回给用户。
 >
 > 由于 HTTP header 配置是针对域名，因此一旦配置生效，用户对该域名下任意一个资源的响应消息中均会加入所配置头部。配置 HTTP header 仅影响客户端（如浏览器）的响应行为，不会影响到 CDN 节点的缓存行为。
 
 ## 配置指引
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
-![](https://mc.qcloudimg.com/static/img/1f2cb594cd614b62b589cb20a20ed362/basic-config-1.png)在【高级配置】中找到【HTTP Header配置】模块，可自助添加头部：![](https://mc.qcloudimg.com/static/img/f47d9e08cad09f58f6bd7b86bf0bb572/header-config-1.png)点击【添加 HTTP header】可添加头部：![](https://mc.qcloudimg.com/static/img/5ef8e9ad80a57d77b23a6bf2ad71690a/header-config-2.png)
+![](https://mc.qcloudimg.com/static/img/1f2cb594cd614b62b589cb20a20ed362/basic-config-1.png)在【高级配置】中找到【HTTP Header 配置】模块，可自助添加头部：![](https://mc.qcloudimg.com/static/img/f47d9e08cad09f58f6bd7b86bf0bb572/header-config-1.png)单击【添加 HTTP header】可添加头部：![](https://mc.qcloudimg.com/static/img/5ef8e9ad80a57d77b23a6bf2ad71690a/header-config-2.png)
 
 CDN 提供以下常见的 6类头部设置，也可支持自定义头部设置：
 

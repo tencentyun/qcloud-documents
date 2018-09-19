@@ -14,7 +14,7 @@
 
 #### 常见的点播协议有哪些？
 目前常见的点播格式有三种：MP4、HLS和FLV。
--  **MP4**: 比较经典的文件格式，在移动终端和PC浏览器上的支持度都很好（在IOS和大部分Android设备上，都可以使用系统浏览器进行播放，在PC上可以使用FLASH控件进行播放）。但是MP4的视频文件格式比较复杂，所以处理成本高，而且由于索引表复杂度高，导致时长稍大（比如半小时）的MP4文件在线播放时加载速度会很慢。
+-  **MP4**: 比较经典的文件格式，在移动终端和PC浏览器上的支持度都很好（在iOS和大部分Android设备上，都可以使用系统浏览器进行播放，在PC上可以使用FLASH控件进行播放）。但是MP4的视频文件格式比较复杂，所以处理成本高，而且由于索引表复杂度高，导致时长稍大（比如半小时）的MP4文件在线播放时加载速度会很慢。
 - **HLS**: 苹果公司力推的标准，在移动终端的浏览器上的支持度较好，但IE的支持情况依赖FLASH的二次开发工作（建议使用腾讯视频云的FLASH播放器控件）。其精简的m3u8的索引结构可以规避MP4的索引慢问题，如果是用于点播，是非常不错的选择。
 - **FLV**: Adobe公司所推的标准，目前直播平台最常用的封装格式，在PC端有FLASH的强力支持，但在移动终端只有APP实现播放器才有可能支持（或者使用本播放器），大部分手机端浏览器均不支持。目前腾讯视频云的直播录制，采用的就是FLV视频格式。
 ![vod_video_protocol](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/vod_video_protocol.jpg)
@@ -60,7 +60,7 @@
 
 如果您的APP之前使用过类似ffplay这样的播放器，请先将其从工程中移除掉。目前我们团队还没有实力去研发自己的H264软件编解码器，所以也是使用了x264、ffmpeg这样的开源模块来实现H264视频流的编码和解码，只是修复了其中的一些bug而已。如果您的工程中之前就已经包含了它们，自然会带来命名冲突的问题。
 
-IOS工程请务必检查一下工程中"Other Linker Flags"是否包含-all_load，如有请去掉。
+iOS工程请务必检查一下工程中"Other Linker Flags"是否包含-all_load，如有请去掉。
 
 如果命名冲突源自其它模块，请联系我们，基于先来后到的原则，我们更改我们的函数命名是情理之中的。
 ![txc_rtmp_sdk_duplicated_symbol](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/txc_rtmp_sdk_duplicated_symbol.jpg)
@@ -69,7 +69,7 @@ IOS工程请务必检查一下工程中"Other Linker Flags"是否包含-all_load
 一般都是混淆导致的，请注意**com.tencent 包下的文件不要做混淆**，因为有jni封装，混淆会导致java无法定位到期望的接口函数。
 
 #### 找不到函数定义（Undefined Symbols  ）
-一般是工程配置问题，尤其是IOS下分多种指令架构，armv7, arm64, x86模拟器等等，另外检查下IOS工程的Link Binary With Libraries的配置，我们的SDK需要依赖的库如下（请参考demo工程的配置）：
+一般是工程配置问题，尤其是iOS下分多种指令架构，armv7, arm64, x86模拟器等等，另外检查下iOS工程的Link Binary With Libraries的配置，我们的SDK需要依赖的库如下（请参考demo工程的配置）：
 ![txc_rtmp_sdk_link_lib](//mccdn.qcloud.com/static/img/6605e78efb384799b9b4e1c6a5a7aac6/image.jpg)
 如果出现如下错误：
 ![](//mccdn.qcloud.com/static/img/8424405ffd2e666c481c1792d8296172/image.jpg)

@@ -5,7 +5,7 @@
   - **Live_Channel_GetChannelList**: This API is used to query channel list.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API: `http://fcgi.video.qcloud.com/common_access`
 
 - **Use**
   - Used to query the current channel list in LVB code mode.

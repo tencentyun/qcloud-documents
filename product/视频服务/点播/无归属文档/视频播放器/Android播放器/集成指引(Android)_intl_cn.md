@@ -30,7 +30,7 @@
 ![](//mccdn.qcloud.com/static/img/a776560bd0c3c156c7271dedd58cb9ac/image.png)
 
 ### 3.导入jar包
-在Android Studio工程中找到刚才新建的jniLibs目录，展开目录，可以看到txrtmpsdk.jar，点击右键选择“Add As Library...”
+在Android Studio工程中找到刚才新建的jniLibs目录，展开目录，可以看到txrtmpsdk.jar，单击右键选择“Add As Library...”
 ![](//mccdn.qcloud.com/static/img/86d98492636122ed9cae898b7bff1920/image.png)
 导入之后，可以看到build.gradle中自动生成以下这一行脚本：
 ![](//mccdn.qcloud.com/static/img/c83f9882d434f7fd51d4ca942f159138/image.png)

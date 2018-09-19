@@ -1,6 +1,6 @@
 本文档介绍web端如何请求服务端，通过js调用腾讯云万象优图REST API进行图片的上传、下载、查询、复制和删除。其中签名需要向开发者服务器请求，开发者服务器鉴权服务部署参考鉴权服务部署示例。
 
-1 web前端部署与代码示例
+1. web前端部署与代码示例
 将web前端部署在与服务端同域下，web前端代码可以参考以下示例，示例页面参见web示例页面。
 ```
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ $('body').on('click', '#deleteBtn', function(){
 	}
 	manageUrl = manageUrl + '/del';
 	// 请将以下获取签名的链接换成您部署好的服务端http url
-	// 建议通过业务登陆态检查来增强安全性，避免签名被非法获取
+	// 建议通过业务登录态检查来增强安全性，避免签名被非法获取
 	$.getJSON('http://203.195.194.28/php/getsign.php?type=delete&url='+encodeURIComponent(manageUrl), 
               function(data) {
 		var sign = data.sign,
@@ -83,7 +83,7 @@ $('body').on('click', '#copyBtn', function(){
 	}
 	manageUrl = manageUrl + '/copy';
 	// 请将以下获取签名的链接换成您部署好的服务端http url
-	// 建议通过业务登陆态检查来增强安全性，避免签名被非法获取
+	// 建议通过业务登录态检查来增强安全性，避免签名被非法获取
 	$.getJSON('http://203.195.194.28/php/getsign.php?type=copy&url='+encodeURIComponent(manageUrl), 
              function(data) {
 		var sign = data.sign,
@@ -123,7 +123,7 @@ $('body').on('click', '#queryBtn', function(){
 
 function initUploadForm () {
 	// 请将以下获取签名的链接换成您部署好的服务端http url
-	// 建议通过业务登陆态检查来增强安全性，避免签名被非法获取
+	// 建议通过业务登录态检查来增强安全性，避免签名被非法获取
 	$.getJSON('http://203.195.194.28/php/getsign.php', function(data) {
 		var sign = data.sign,
 		    url = data.url + '?sign=' + encodeURIComponent(sign);
@@ -152,5 +152,5 @@ function initUploadForm () {
 </script>
 </body>
 ```
-2 测试
-访问web前端入口，进行测试调用，验证各种操作能够正常执行。
+2. 测试
+访问 web 前端入口，进行测试调用，验证各种操作能够正常执行。

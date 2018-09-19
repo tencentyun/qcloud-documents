@@ -1,6 +1,6 @@
 ## 注意事项
 - 所有场景默认采用 UTF-8 编码。
-- Access Token 必须缓存在磁盘，并定时刷新，建议每 1 小时 50 分钟刷新 Access Token，原 Access Token 两小时（7200S） 失效，期间两个 Token 都能使用。
+- Access Token 必须缓存在磁盘，并定时刷新，建议每 20 分钟请求新的 Access Token，原 Access Token 2 小时（7200S） 失效，获取之后立即使用最新的 Access Token。旧的只有一分钟的并存期 。
 - 每次用户登录时必须重新获取 ticket。
 
 ## 请求

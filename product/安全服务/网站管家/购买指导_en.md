@@ -26,12 +26,12 @@ WAF is provided in the mode of basic package + expansion package, and applies th
 <td>6,000 QPS</td>
 <td>10,000 QPS</td>
 </tr> <tr>
-<td align="center">Traffic threshold (outside the cloud)</td>
+<td align="center">Traffic threshold (non-Tencent Cloud)</td>
 <td>10 Mbps</td>
 <td>30 Mbps</td>
 <td>50 Mbps</td>
 </tr> <tr>
-<td align="center">Traffic threshold (on the cloud)</td>
+<td align="center">Traffic threshold (on Tencent Cloud)</td>
 <td>200 Mbps</td>
 <td>200 Mbps</td>
 <td>200 Mbps</td>
@@ -81,7 +81,7 @@ WAF is provided in the mode of basic package + expansion package, and applies th
 <td>5 second-level domain names</td>
 <td>10 second-level domain names</td>
 </tr> <tr>
-<td align="center">Number of supported first-level domain names</td>
+<td align="center">Number of supported top-level domain names</td>
 <td>2</td>
 <td>3</td>
 <td>4</td>
@@ -98,9 +98,9 @@ WAF is provided in the mode of basic package + expansion package, and applies th
 
 ## Price of Domain Name Package
 
- | Domain Name Package Details | Price |
+ | Domain Name Package Contents | Price |
  |:---------:|:---------:|
- | Number of first-level domain names: 1 <br> Number of second-level domain names:10 | 2,000 CNY/month |
+ | One top-level domain name,<br> and 10 second-level domain names | 2,000 CNY/month |
  
 ## Price of Business Bandwidth
 The business bandwidth beyond the package is billed based on 100 CNY/Mbps/month.

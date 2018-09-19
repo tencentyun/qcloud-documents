@@ -1,7 +1,7 @@
 
 ## Application Template List
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). You can view all your application templates on [Application Template][1] page.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). You can view all your application templates on [Application Template][1] page.
 
 ![应用模板查看-001.png-51.4kB][2]
 

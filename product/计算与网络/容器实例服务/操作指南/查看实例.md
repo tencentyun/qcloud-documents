@@ -1,0 +1,17 @@
+## 操作步骤
+
+1. 登录 [腾讯云 CIS 控制台](https://console.cloud.tencent.com/cis) 。
+
+2. 容器实例页面会展示用户在所选地域的所有容器实例，包括创建中、运行中和已结束状态的实例。用户可以单击右侧【删除】操作删除任何状态的实例，**删除后该实例无法恢复**。
+![][1]
+
+3. 单击实例名，则可查看实例详细信息，包括实例的 VPC 属性、网络地址、所含的容器列表以及每个容器的详细信息。
+![][2]
+
+4. 单击【事件】和【日志】可以查看实例的 Kubernetes event 和实例内容器输出的日志。
+![][3]
+
+
+[1]:https://main.qcloudimg.com/raw/20167adb4650f43362acbb60ecec56da.png
+[2]:https://main.qcloudimg.com/raw/eb83747958fb3804a17df7f6e6b072bd.png
+[3]:https://main.qcloudimg.com/raw/36ca293e700c315212b057343478bcb3.png

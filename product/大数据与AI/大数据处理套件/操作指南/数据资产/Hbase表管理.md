@@ -18,12 +18,12 @@
 丢弃（delete）操作：在库表列表选中要启用的列表，单击【丢弃】按钮。
 ![丢弃](//mc.qcloudimg.com/static/img/eedfdd0d8d7615d88f54fb617b0c2e20/image.png)
 ## 查看 hbase 表数据
-点击表名称后，进入新页面可以看到当前表中的数据，并提供表数据查询、过滤、排序展示等功能。如下图所示：
+单击表名称后，进入新页面可以看到当前表中的数据，并提供表数据查询、过滤、排序展示等功能。如下图所示：
 ![查看数据](//mc.qcloudimg.com/static/img/5df12b315ace27c30241594b9b402ec5/image.png)
 ## hbase 表数据操作
 ### 创建新行
 单击【新建行】，添加行键、字段以及对应的值。
-- 行键：rowkey，hbase 行唯一 id。
+- 行键：rowkey，hbase 行唯一 ID。
 - 字段：按照列族：列字段命名填写对应的 value 值即可。
 ![新建行](//mc.qcloudimg.com/static/img/bb21434ce0afa3e2757a809ca23d3fc2/image.png)
 提交后可以看到表中的数据如下：
