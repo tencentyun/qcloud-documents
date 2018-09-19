@@ -48,7 +48,7 @@ items（ json 数组）：
 | ---------- | ------ | ---------------------------------------- |
 | item       | string | 字段名称（取值为注册号、法定代表人、公司名字、地址、营业期限）                     |
 | itemstring | string | 字段结果                                     |
-| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x, y，以及宽、高 width, height |
+| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x, y，以及宽 width、高 height |
 | itemconf   | float  | 识别结果对应的置信度                               |
 
 返回字段为一个 json 数组，其中每一项的内容如下：
