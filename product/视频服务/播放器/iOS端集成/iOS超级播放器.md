@@ -59,7 +59,7 @@ playerModel.videoURL = @"http://200024424.vod.myqcloud.com/200024424_709ae516bdf
 
 
 ## 多清晰度
-上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开[直播控制台](https://console.qcloud.com/live/livemanage&from=product-document-use-Player)，找到需要播放放的直播流，进入详情。
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开[直播控制台](https://console.cloud.tencent.com/live/livemanage&from=product-document-use-Player)，找到需要播放放的直播流，进入详情。
 
 ![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
 
@@ -91,13 +91,13 @@ playerModel.videoURL = url1.url; // 设置默认播放的清晰度
 ```objc
 playerModel.appId = 1252463788;
 ```
-> appId在 腾讯云控制台 -> [账号信息](https://console.qcloud.com/developer&from=product-document-use-Player) 中查到。
+> appId在 腾讯云控制台 -> [账号信息](https://console.cloud.tencent.com/developer&from=product-document-use-Player) 中查到。
 
 播放的直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击“返回直播”可观看最新直播流。
 
 ![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
 
-> 时移功能处于公测申请阶段，如您需要可[提交工单](https://console.qcloud.com/workorder&from=product-document-use-Player)申请使用。
+> 时移功能处于公测申请阶段，如您需要可[提交工单](https://console.cloud.tencent.com/workorder&from=product-document-use-Player)申请使用。
 
 ## FileId播放
 设置清晰度除了填写url外，更简单的使用方式是采用fileId播放。fileId在一般是在视频上传后，由服务器返回：
