@@ -49,7 +49,9 @@
 
 ### 4.1 输入示例
 
-> urls.0: https://www.test.com/1.jpg
+```
+urls.0: https://www.test.com/1.jpg
+```
 
 
 

@@ -127,12 +127,15 @@ roomHelper.createRoom(1234);
 
 ## 常见问题
 
-#### 进房失败，提示没有权限
+#### 进房失败10004，提示request room server address failed
 确认正确配置了进房票据privateMapKey
 > 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
 ```
 ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
 ```
+
+#### 进房失败71，提示decodeSsoCmd_pbvideoapp_pbvideoinfoErr:user id error longConnHead.account=0
+这种情况多帐号登录引起，请确认之前登录新帐号时，已注销老的帐号
 
 #### onException 中收到 EXCEPTION_ENABLE_CAMERA_FAILED 并且 errCode 为 1，找开摄像头失败。
 1. 确认 Android 设备有摄像头并且可以正常使用；
@@ -143,5 +146,8 @@ ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMS
 1. 进房/退房为线性互斥操作，若请求太频繁，sdk便会上抛 8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)；
 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛 1003，这种情况需要先退出上次房间；
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

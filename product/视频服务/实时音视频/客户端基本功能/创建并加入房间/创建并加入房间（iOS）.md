@@ -39,7 +39,7 @@
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
-    option.privateMapKey = privateMapKey;
+    option.avOption.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 设置房间内音视频监听
     option.memberStatusListener = liveRoomVC;
@@ -190,5 +190,8 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 1. 进房/退房为线性互斥操作，若请求太频繁，sdk 便会上抛 8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)
 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛 1003，这种情况需要先退出上次房间
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

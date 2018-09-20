@@ -14,7 +14,7 @@
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
-    option.privateMapKey = privateMapKey;
+    option.avOption.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
@@ -152,5 +152,8 @@
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
 
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)
