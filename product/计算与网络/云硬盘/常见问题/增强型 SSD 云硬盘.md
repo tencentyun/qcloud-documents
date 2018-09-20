@@ -4,8 +4,8 @@
 ### 增强型 SSD 云硬盘适用于哪些业务？
 增强型 SSD 云硬盘对硬盘 IOPS 进行了针对性优化，具备高性能、低时延的特点，适用于 IO 密集型、时延敏感性等业务场景：
 
-1. 大型关系型数据库：如Oracle、MySQL、SQL Server等数据库业务
-2. NoSQL数据库：如HBase、MongoDB、Cassandra等非关系型数据库业务
+1. 大型关系型数据库：如 Oracle、MySQL、SQL Server 等数据库业务
+2. NoSQL数据库：如 HBase、MongoDB、Cassandra 等非关系型数据库业务
 3. 分布式日志业务：如 ElasticSearch 等分布式日志业务
 
 ### 增强型 SSD 云硬盘的性能如何？可以怎么测试？
