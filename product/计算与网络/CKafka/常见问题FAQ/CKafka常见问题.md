@@ -1,6 +1,6 @@
 ### Cloud Kafka 兼容哪一版的开源 Kafka？当前的CKafka是基于开源Kafka的哪个版本？
 目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
-当前CKafka基于Apache Kafka 0.10版本，推荐生产消费端选取 0.10版本的SDK。
+**当前CKafka基于Apache Kafka 0.10版本，推荐生产消费端选取 0.10版本的SDK。**
 
 ### Cloud Kafka 的产品限制有哪些？
 
