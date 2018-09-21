@@ -79,4 +79,4 @@ getSignature: function(callback) {
 2. 只支持上传视频。
 3. 不支持断点续传和分片上传。
 4. 小程序的 chooseVideo API，目前支持上传文件为 25MB。
-5. request 和 uploadFile 合法域名，请添加 vod2.qcloud.com 和您的上传路径。上传路径，请到 [点播控制台](https://console.cloud.tencent.com/video/bucketlist) 查看。
+5. request 和 uploadFile 合法域名，请[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=36&source=0&data_title=%E7%82%B9%E6%92%AD%20VOD&step=1) 反馈给我们，.我们查询后给到您。

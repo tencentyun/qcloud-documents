@@ -93,11 +93,3 @@ WebEXE 实现视频通话服务所使用的 [LiveRoom(直播+连麦)](https://cl
 http://1252463788.vod2.myqcloud.com/e12fcc4dvodgzp1252463788/c490bab57447398155981625642/TwA4JteAe40A.mp4" controls="controls">
 您的浏览器不支持 video 标签。
 </video>
-
-## 内网穿透
-很多企业内部都有安全网关，禁止企业内部网络对互联网的访问，而腾讯视频云的解决方案都是依赖互联网接入的，所以要解决这个问题，就需要代理服务器的帮助。阅读 [DOC](https://cloud.tencent.com/document/product/454/17139) 了解如何处理这个问题。
-
-![](https://main.qcloudimg.com/raw/0411610edea069af3fefbcbb09464bf1.png)
-
-
-

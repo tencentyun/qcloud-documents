@@ -46,9 +46,11 @@
 在工程中添加`TXLiteAVSDK_Professional.framework`，同时还要添加以下系统依赖库
 
 > 1. libz.tbd
-> 2. libstdc++.tbd
+> 2. libc++.tbd
 > 3. libresolv.tbd
-> 4. Accelerate.framework
+> 4. libsqlite3.tbd
+> 5. Accelerate.framework
+> 6. GPUImage.framework(企业版需要)
 
 ### 3、添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：

@@ -111,5 +111,8 @@ GetILive()->setChannelMode(E_ChannelIMSDK);
 
 这是因为 iLiveSDK 内部使用了其他 SDK，这是其他 SDK 的打印输出信息，不会影响实际使用,忽略不管即可。
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -149,5 +149,8 @@ option.imOption.imSupport = YES;
 - 加入房间失败，错误模块 IMSDK，错误码 10010。
 > 这表示要加入的IM群组不存在，需要检测是否先创建了群组(创建房间时传入的配置对象中 imsupport 为 true 时会自动创建群组)，并确认群组类型一致。
 
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

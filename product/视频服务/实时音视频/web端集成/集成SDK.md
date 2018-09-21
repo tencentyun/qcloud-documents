@@ -52,12 +52,11 @@
 ## 如何配置是是否使用房间权限key进行权限校验呢？
 
 
-进入[实时音视频控制台](https://console.qcloud.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
+进入[实时音视频控制台](https://console.cloud.tencent.com/rav/app/1400128798)->选择应用->账号信息->启用权限密钥
 ** 特别注意，这里的策略修改后，需要2小时后才能全量生效 **
 
 ![启用权限密钥](https://main.qcloudimg.com/raw/c60b5cf33ea2c0bc291a7700f252b8c1.png)
 
-打开开关表示校验密文，关闭开关表示校验明文。
 
 ## 接入准备工作
 
@@ -106,4 +105,8 @@
 
   - createRoom 名称改为 enterRoom 
 
-    
+## 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

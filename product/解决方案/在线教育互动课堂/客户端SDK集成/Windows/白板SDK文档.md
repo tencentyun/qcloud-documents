@@ -33,6 +33,10 @@
 boardMgr = BoardMgr::GetSDKInstance()
 boardMgr->init(userID, userSig, sdkappId);
 ```
+退出时销毁白板直接删除指针即可
+```C++
+delete boardMgr；
+```
 
 ### 2.3 创建白板窗口
 使用如下代码创建白板实例，并获得白板指针：
