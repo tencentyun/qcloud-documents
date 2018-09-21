@@ -4,7 +4,7 @@ SuperPlayer是腾讯云开源的一款播放器组件，简单几行代码即可
 本播放器完全免费开源，不对播放地址来源做限制，可放心使用。
 
 ## 阅读对象
-本文档部分内容为腾讯云专属能力，使用前请开通[腾讯云](https://cloud.tencent.com/)相关服务，未注册用户可注册账号[免费试用](https://cloud.tencent.com/login?from=product-document-use-Player)。
+本文档部分内容为腾讯云专属能力，使用前请开通[腾讯云](https://cloud.tencent.com/?from=product-document-use-Player)相关服务，未注册用户可注册账号[免费试用](https://cloud.tencent.com/login?from=product-document-use-Player)。
 
 
 ## 快速集成
@@ -19,18 +19,18 @@ pod 'SuperPlayer'
 
 #### 方案2. 本地CocoaPods
 
-下载SDK [下载地址](https://cloud.tencent.com/document/product/454/7873)，解压到本地。
+下载SDK [下载地址](https://cloud.tencent.com/document/product/454/7873)，解压到本地。
 
-以独立播放器版为例，此时您可以看到解压后的文件
+以独立播放器版为例，此时您可以看到解压后的文件
 
-![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
+![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
 
-其中，播放器代码位于Demo/SuperPlayer，SDK库位于SDK目录。
+其中，播放器代码位于Demo/SuperPlayer，SDK库位于SDK目录。
 
 在您的Podfile文件，添加下面代码：
 ```
 pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec', :subspecs => ['Player']
-# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
+# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
 ```
 
 命令行输入 `pod install` 或 `pod update` 执行安装。
