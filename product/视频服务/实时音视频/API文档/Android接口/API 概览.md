@@ -95,6 +95,7 @@
 | [sendGroupOnlineMessage](./进阶功能接口.md/#发送在线群组消息) | 发送在线群组消息(仅当前在线成员能收到) |
 
 #### AVRootView类
+
 | API | 描述 |
 | -- | -- |
 | [setSubCreatedListener](./进阶功能接口.md/#监听布局回调) | AVVideoView初始化回调(尺寸变更时也会上抛)，推荐用于布局 |
@@ -106,4 +107,3 @@
 | [setSubPadding](./进阶功能接口.md/#设置小屏间距) | 设置小屏间距 |
 | [setSubWidth](./进阶功能接口.md/#设置小屏初始宽度) | 设置小屏初始宽度(默认为大屏的1/4) |
 | [setSubHeight](./进阶功能接口.md/#设置小屏初始高度) | 设置小屏初始高度(默认为大屏的1/4) |
-
