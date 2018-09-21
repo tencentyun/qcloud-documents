@@ -1,7 +1,7 @@
 本文将指导您的客户端使用 IM 功能，在房间内监听房间成员的音视频事件及状态。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_status.zip)
 
 ## 相关概念
@@ -172,9 +172,3 @@ public void onGroupTipsEvent(TIMGroupTipsElem timGroupTipsElem) {
 
 **创建房间时配置 imsupport 时 SDK 做了什么**
 在 imsupport 为 true 时，SDK 中 createRoom 方法中会根据用户配置的群组类型，群组 IM(没有配置则直接使用房间号)创建一个 IM 群组，用于消息通讯。加入房间时配置 imsupport 为 true 时则会加入(如果群组不存在会导致加入房间失败)。调用 createRoom 的用户在 quitRoom 时会自动解散群组(如果异常退出可能会导致群组仍存在)
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

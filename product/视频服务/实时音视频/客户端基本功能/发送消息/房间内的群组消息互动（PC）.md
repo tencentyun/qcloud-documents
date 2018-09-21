@@ -1,7 +1,7 @@
 本文将指导您的客户端如何使用 IM （即时通讯）功能，在房间内收发消息。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_msg.zip)
 
 ## 相关概念
@@ -71,9 +71,3 @@ GetILive()->sendGroupMessage(msg, [](void* data) {
 ![](https://main.qcloudimg.com/raw/6cb42880b4fa9b911bd8386139ecfb04.png)
 
 ![](https://main.qcloudimg.com/raw/54addf7999d3f78fca42a0636397d768.png)
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

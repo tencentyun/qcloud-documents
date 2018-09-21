@@ -1,7 +1,7 @@
 本文将指导您的观众端如何加入一个直播房间，并打开摄像头麦克风与其他用户视频互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/MAC_TRTC.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
@@ -22,10 +22,10 @@
     option.memberStatusListener = liveRoomVC;
     // 设置房间中断事件监听
     option.roomDisconnectListener = liveRoomVC;
-    
+
     // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
     option.controlRole = #腾讯云控制台配置的角色名#;
-    
+
     // 调用加入房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] joinRoom:[self.roomID intValue] option:option succ:^{
         // 加入房间成功
@@ -97,7 +97,7 @@
                 ILiveFrameDispatcher *frameDispatcher = [[ILiveRoomManager getInstance] getFrameDispatcher];
                 ILiveRenderViewForMac  *renderView = [frameDispatcher removeRenderViewFor:endoption.identifier srcType:QAVVIDEO_SRC_TYPE_CAMERA];
                 [renderView removeFromSuperview];
-                
+
                  // 房间内打开摄像头用户数量变化，重新布局渲染视图
                  [self updateVideoFrame:nil];
             }
@@ -117,7 +117,7 @@
         [self.videoLayoutView addSubview:renderView];
     }
     NSArray *allRenderView = [[[ILiveRoomManager getInstance] getFrameDispatcher] getAllRenderViews];
-    
+
     if (allRenderView.count == 1) {
         ILiveRenderViewForMac *bigView = allRenderView[0];
         bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height - 20);
@@ -128,7 +128,7 @@
         ILiveRenderViewForMac *smallView1 = allRenderView[1];
         bigView.frame = CGRectMake(0,  0, self.videoLayoutView.frame.size.width, self.videoLayoutView.frame.size.height  - 160 );
         smallView1.frame = CGRectMake(self.videoLayoutView.frame.size.width/2 - 90, self.window.frame.size.height - 150, 180, 120);
-        
+
     }
     else if (allRenderView.count == 3){
         ILiveRenderViewForMac *bigView = allRenderView[0];
@@ -164,10 +164,3 @@
 
 切换角色失败，错误码 - 1 。
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

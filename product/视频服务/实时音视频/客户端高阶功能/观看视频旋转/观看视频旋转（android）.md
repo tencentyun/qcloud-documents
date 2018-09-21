@@ -104,9 +104,3 @@ AVVideoView.setRotate(true);
 ## 常见问题
 * 设置旋转无效，检查是否禁用了自动旋转(禁用后才生效)。
 * 设置填充模式无效, 检查角度是否一致(角度一致时需使用sameDirectionRenderMode属性，否则使用diffDirectionRenderMode属性)。
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

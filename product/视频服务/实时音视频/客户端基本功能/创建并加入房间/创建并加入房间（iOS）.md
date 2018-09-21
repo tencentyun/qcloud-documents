@@ -1,6 +1,6 @@
 本文将指导您将如何创建一个房间，获取直播画面并在合适的时候退出房间。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_create.zip)
 
 ## 相关概念
@@ -35,7 +35,7 @@
 - (IBAction)onCreateRoom:(id)sender {
     // 1. 创建live房间页面
     LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
-    
+
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
@@ -45,10 +45,10 @@
     option.memberStatusListener = liveRoomVC;
     // 设置房间中断事件监听
     option.roomDisconnectListener = liveRoomVC;
-    
+
     // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
     option.controlRole = #腾讯云控制台配置的角色名#;
-    
+
     // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] createRoom:[self.roomIDTF.text intValue] option:option succ:^{
         // 创建房间成功，跳转到房间页
@@ -95,7 +95,7 @@
 >**说明：**
 >该方法即为房间音视频事件回调方法，只要房间内有人开关摄像头、麦克风等，SDK 底层就会回调该方法，通知监听者，该方法有 event 和 endpoints 两个参数。
 > - event 是一个事件枚举值，定义了房间内成员可能发生的事件类型，包括成员进出房间，开关摄像头、麦克风等。
-> 
+>
 > - endpoints 是一个数组，里面装的是 QAVEndpoint 对象，代表每一个发送事件的用户，该方法的作用即通知哪些用户发生了哪种类型的音视频改变，在监听到事件发生时，通常需要再界面上做出一些调整，比如，监听到某用户打开了摄像头，应该添加一个渲染图到界面上，将该用户的画面渲染出来。
 
 
@@ -189,9 +189,3 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 #### 失败回调，错误码 1003 或 8011
 1. 进房/退房为线性互斥操作，若请求太频繁，sdk 便会上抛 8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)
 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛 1003，这种情况需要先退出上次房间
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -7,13 +7,13 @@
 ![](https://main.qcloudimg.com/raw/37c82c24b8154081c21293f7c65ddfae.png)|![](https://main.qcloudimg.com/raw/b7b91102c419a5f7ae590215fdb0065c.png)|![](https://main.qcloudimg.com/raw/bd5ebfa2b3078061ca5f2e824db1beb5.png)|![](https://main.qcloudimg.com/raw/53a5e44a06db04fdca6b6929c63820f5.png)|![](https://main.qcloudimg.com/raw/2117efcf754bb9992a5fbc9ba62f1bce.png)
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](https://codeload.github.com/zhaoyang21cn/TILFilterSdk/zip/master?token=ARGVpSHzhZ0WYLDRNtIHFfWu2HyLU0YTks5bANKAwA==)
 
 ## 具体实现
 
 ### 1. 添加 licence(p 图收费版)
-> 申请 p 图 licence； 
+> 申请 p 图 licence；
 > 将 licence 改名为 YTFaceSDK.licence 放入 app 的 assets 目录下
 
 
@@ -64,7 +64,7 @@ TXCVideoPreprocessor mTxcFilter = new TXCVideoPreprocessor(this, bGLContext);
 boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setAfterPreviewListener(new AVVideoCtrl.AfterPreviewListener(){
     @Override
     public void onFrameReceive(AVVideoCtrl.VideoFrame var1) {
-    
+
         // 回调的数据，传递给 美颜插件 processFrame 接口处理;并且通过 var1.data 返回处理后的数据
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             mTxcFilter.processFrame(var1.data, var1.width, var1.height, var1.rotate, var1.videoFormat, var1.videoFormat);
@@ -88,7 +88,7 @@ mTxcFilter.setWhitenessLevel(3);        // 设置美白级别,范围 0～10
 mTxcFilter.setRuddyLevel(2);            // 设置红润级别，范围 0～10
 ```
 
-### 6. 释放资源 
+### 6. 释放资源
 
 **退出房间时，必须释放插件美颜资源，否则下次进入房间，设置特效不生效。**
 **日志也会出现 “please realloc new TXCVideoPreprocessor” 错误**
@@ -121,31 +121,31 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 | 接口名|  接口描述  |参数定义|返回值|
 |---------|---------|---------|---------|
 | TXCVideoPreprocessor(Context activity, boolean bGLContext) | 构造函数|**activity**：当前Activity的this指针  **bGLContext**：当前是否有Opengl 环境|无|
-| **逻辑代码接口** | 
+| **逻辑代码接口** |
 | void setListener(TXIVideoPreprocessorListener listener) | 设置sdk数据监听回调|**listener**: sdk数据返回监听（用于接收process* 处理函数返回的数据）|无|
 | void setNotifyListener(TXINotifyListener notify) | 设置sdk事件监听回调|**notify**: sdk事件监听；事件为 TXCVideoPreprocessor.EventVideoProcess.*|无|
 | int processFrame(int texture, int width, int height, int processAngle, int inputFormat, int outputFormat) | 纹理输入处理|**texture**：输入纹理 **width**：纹理宽 **height**：纹理高 **processAngle**：纹理旋转角度 **inputFormat**：视频输入格式（0：2D纹理输入 1：I420数据输入 2：RGBA 数据输出 3：NV21数据输入 4:外部纹理输入（如相机纹理，需要调用 setInputMatrix 设置旋转矩阵）） **outputFormat**：视频输出格式（0：2D纹理输出 1：I420数据输出 2：RGBA 数据输出 3：NV21数据输出） |-1： 失败 >=0：成功|
 | int processFrame(byte[] data, int width, int height, int processAngle, int inputFormat, int outputFormat) | 原始数据输入处理|**data**：输入原始数据 **width**：数据宽 **height**：数据高 **processAngle**：纹理旋转角度 **inputFormat**：视频输入格式（0：2D纹理输入 1：I420数据输入 2：RGBA 数据输出 3：NV21数据输入 4:外部纹理输入（如相机纹理，需要调用 setInputMatrix 设置旋转矩阵）） **outputFormat**：视频输出格式（0：2D纹理输出 1：I420数据输出 2：RGBA 数据输出 3：NV21数据输出） |-1： 失败 >=0：成功|
 | void setInputMatrix(float[] mtx) | 设置外部纹理输入时的旋转矩阵（仅在外部纹理输入时，才使用）|**mtx**: 外部纹理输入时，从SurfaceTexture.getTransformMatrix() 中获取|无|
 | void release() | 释放sdk资源|无 |无|
-| **美颜相关接口** | 
+| **美颜相关接口** |
 | void setBeautyStyle(int style) | 设置美颜风格|**style**: 美颜风格 0: 光滑 1: 自然 2: 朦胧|无|
 | void setBeautyLevel(int level) | 设置美颜级别|**level**: 美颜级别 （0 - 9）|无|
 | void setWhitenessLevel(int level) | 设置美白级别|**level**: 美白级别（0 - 9）|无|
 | void setRuddyLevel(int level) | 设置红润级别|**level**: 红润级别（0 - 9）|无|
-| **滤镜相关接口** | 
+| **滤镜相关接口** |
 | int setFilterType(int type) | 切换滤镜|**type**: 滤镜编号 1:无  2：浪漫 3：清新 4：唯美 5：粉嫩 6：怀旧 7: 蓝调 8:清凉  9: 日系|-1：失败 0：成功|
 | void setFilterImage(Bitmap bmp) | 设置滤镜图片|**bmp**: 滤镜图片|无|
 | void setFilterImage(String imagePath) | 设置滤镜图片路径|**imagePath**：滤镜文件路径|无|
 | void setFilterMixLevel(final float specialValue) | 设置滤镜程度|**specialValue**：滤镜程度（0.0 - 1.0）|无|
-| **视频编辑相关接口** | 
+| **视频编辑相关接口** |
 | void setCrop(CropRect cutRect) | 设置剪裁大小|**cutRect**：剪裁矩阵 cutRect.x：x轴坐标偏移 cutRect.y：y轴坐标偏移 cutRect.cropWidth：x轴剪裁长度 cutRect.cropHeight：y轴剪裁高度 |无|
 | void setRotate(int angle) | 设置输出旋转顺时针角度|**angle**：输出顺时针旋转角度|无|
 | void setOutputFrameSize(int width, int height) | 设置输出长宽|**width**：输出数据宽 **height**：输出数据高 |无|
 | void setMirror(boolean enable) | 设置输出图像左右镜像|**enable**：true：开启左右镜像 false：不开启左右镜像 |无|
 | void setWaterMark(Bitmap bitmap, float x, float y, float width) | 设置水印（位置以左上角为原点）|**bitmap**: 水印图片BitMap **x**：(0.0 - 1.0)归一化坐标，左上角x轴偏移 **y**：(0.0 - 1.0)归一化坐标，左上角y轴偏移 width：(0.0 - 1.0)归一化宽度；左上角x轴宽度|无|
 | void setWaterMarkList(final List< WaterMakeTag> markList) | 设置多个水印（setWaterMark 的加强版）|**markList**：多个水印 WaterMakeTag 链表|无|
-| **p图收费版相关接口** | 
+| **p图收费版相关接口** |
 | void setFaceSlimLevel(int level) | 设置瘦脸级别|**level**: 瘦脸级别（0 - 9）|无|
 | void setEyeScaleLevel(int level) | 设置大眼级别|**level**: 大眼级别（0 - 9）|无|
 | void setFaceVLevel(int level) | 设置V脸级别|**level**: V脸级别（0 - 9）|无|
@@ -191,9 +191,3 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 - **为什么通过 compile  'com.tencent.ilivefilter:****',提示 “Could not get resource '****.aar'”，提示 aar 无法找到呢？？**
 
 > 可能是 jcenter 服务器下载链接的问题；可以改成 compile  'com.tencent.ilivefilter:****@aar' 试试
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

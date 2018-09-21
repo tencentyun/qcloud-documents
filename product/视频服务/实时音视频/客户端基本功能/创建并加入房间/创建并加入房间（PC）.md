@@ -1,7 +1,7 @@
 本文将指导您在客户端中创建一个房间，打开摄像头和麦克风，并看到自己的视频画面。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
 
 ## 相关概念
@@ -110,9 +110,3 @@ GetILive()->setChannelMode(E_ChannelIMSDK);
 ![](https://main.qcloudimg.com/raw/b849f6239ca311d2d72a381db455d623.png)
 
 这是因为 iLiveSDK 内部使用了其他 SDK，这是其他 SDK 的打印输出信息，不会影响实际使用,忽略不管即可。
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)
