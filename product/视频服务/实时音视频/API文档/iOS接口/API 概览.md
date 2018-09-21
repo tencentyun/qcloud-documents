@@ -5,24 +5,24 @@
 #### ILiveSDK类
 | API                   |  描述            |
 | -------------------- | -------- |
-| [- initSdk:](./基础功能接口.md#初始化)     | ILiveSDK初始化(必调) |
-| [- setChannelMode:withHost:](./基础功能接口.md#设置SDK环境) | 设置SDK环境(自研环境还是云上环境) |
-| [ilveEventListener](./基础功能接口.md#设置事件回调监听) | 设置统一事件回调监听 |
+| [- initSdk:](https://cloud.tencent.com/document/product/647/20037#ilivesdk.E7.B1.BB)     | ILiveSDK初始化(必调) |
+| [- setChannelMode:withHost:](https://cloud.tencent.com/document/product/647/20037#ilivesdk.E7.B1.BB) | 设置SDK环境(自研环境还是云上环境) |
+| [ilveEventListener](https://cloud.tencent.com/document/product/647/20037#ilivesdk.E7.B1.BB) | 设置统一事件回调监听 |
 
 #### ILiveLoginManager类
 | API                   |  描述            |
 | -------------------- | -------- |
-| [– iLiveLogin:sig:succ:failed:](./基础功能接口.md#登录)     | 登录 |
-| [– iLiveLogout:failed:](./基础功能接口.md#登出)     | 登出 |
+| [– iLiveLogin:sig:succ:failed:](https://cloud.tencent.com/document/product/647/20037#iliveloginmanager.E7.B1.BB录)     | 登录 |
+| [– iLiveLogout:failed:](https://cloud.tencent.com/document/product/647/20037#iliveloginmanager.E7.B1.BB)     | 登出 |
 
 #### ILiveRoomManager类
 | API                   |  描述            |
 | -------------------- | -------- |
-| [– createRoom:option:succ:failed:](./基础功能接口.md#创建房间)     | 创建房间 |
-| [– joinRoom:option:succ:failed:](./基础功能接口.md#加入房间)     | 加入房间 |
-| [- switchRoom:option:succ:failed:](./基础功能接口.md#切换房间)     | 切换房间 |
-| [– quitRoom:failed:](./基础功能接口.md#退出房间)     | 退出房间 |
-| [– addRenderAt:forIdentifier:srcType:](./基础功能接口.md#创建渲染图层)     | 创建渲染图层|
+| [– createRoom:option:succ:failed:](https://cloud.tencent.com/document/product/647/20037#iliveroommanager.E7.B1.BB)     | 创建房间 |
+| [– joinRoom:option:succ:failed:](https://cloud.tencent.com/document/product/647/20037#iliveroommanager.E7.B1.BB)     | 加入房间 |
+| [- switchRoom:option:succ:failed:](https://cloud.tencent.com/document/product/647/20037#iliveroommanager.E7.B1.BB)     | 切换房间 |
+| [– quitRoom:failed:](https://cloud.tencent.com/document/product/647/20037#iliveroommanager.E7.B1.BB)     | 退出房间 |
+| [– addRenderAt:forIdentifier:srcType:](https://cloud.tencent.com/document/product/647/20037#iliveroommanager.E7.B1.BB)     | 创建渲染图层|
 
 
 ### 事件通知接口
@@ -31,11 +31,11 @@
 
 | 事件                   |  描述            |
 | -------------------- | -------- |
-| [- onLoginSuccess:](./事件通知接口.md#登录成功事件onloginsuccess)     | 登录成功事件 |
-| [- onLoginFailed:module:errCode:errMsg:](./事件通知接口.md#登录失败事件onloginfailed)     | 登录失败事件 |
-| [- onLogoutSuccess:](./事件通知接口.md#注销成功事件onlogoutsuccess)     | 注销成功事件 |
-| [- onLogoutFailed:module:errCode:errMsg:](./事件通知接口.md#注销失败事件onlogoutfailed)     |  注销失败事件 |
-| [- onForceOffline:module:errCode:errMsg:](./事件通知接口.md#帐号下线事件onforceoffline)     | 账号下线事件 |
+| [- onLoginSuccess:](https://cloud.tencent.com/document/product/647/20036)     | 登录成功事件 |
+| [- onLoginFailed:module:errCode:errMsg:](https://cloud.tencent.com/document/product/647/20036)     | 登录失败事件 |
+| [- onLogoutSuccess:](https://cloud.tencent.com/document/product/647/20036)     | 注销成功事件 |
+| [- onLogoutFailed:module:errCode:errMsg:](https://cloud.tencent.com/document/product/647/20036)     |  注销失败事件 |
+| [- onForceOffline:module:errCode:errMsg:](https://cloud.tencent.com/document/product/647/20036)     | 账号下线事件 |
 
 #### 房间事件
 | 事件                   |  描述            |
@@ -73,4 +73,3 @@
 | [- enableCameraPreview:enable:succ:failed:](./高级功能接口.md#打开相机预览)   | 打开相机预览 |
 | [- changeRole:succ:failed:](./高级功能接口.md#开始推流)   | 切换音视频角色 |
 | [- sendGroupMessage:succ:failed:](./高级功能接口.md#停止录制)     | 发送群组消息 |
-
