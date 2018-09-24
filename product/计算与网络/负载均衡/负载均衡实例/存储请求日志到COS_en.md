@@ -18,6 +18,8 @@ If no buckets are created for cloud object storage, [Create a Bucket](https://co
 
 - Now the log service of load balancer is `Free`. According to [Free Quota](https://cloud.tencent.com/document/product/436/6240), the free quota of COS storage is 50 GB. If you have a large log size, please clean up the data in time.
 
+- If you do not enable log access, Tencent Cloud will keep 3 days of logs for you by default; if you enable log access, the storage time depends on COS storage.
+
 ### Log Format and Variable Description
 #### Log Format
 
