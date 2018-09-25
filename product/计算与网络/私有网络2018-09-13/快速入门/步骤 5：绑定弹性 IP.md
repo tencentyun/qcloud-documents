@@ -1,4 +1,4 @@
-[弹性 IP](https://cloud.tencent.com/doc/product/213/1941) 是一种与用户帐号相关联的公网 IP 地址，用于与 Internet 的通信。您可以使用弹性 IP 快速绑定任何云服务器，使其可以与公网通信。
+[弹性 IP](https://cloud.tencent.com/document/product/215/20080) 是一种与用户帐号相关联的公网 IP 地址，用于与 Internet 的通信。您可以使用弹性 IP 快速绑定任何云服务器，使其可以与公网通信。
 云服务器绑定弹性 IP 的操作步骤如下：
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【云服务器】，进入云服务器控制台。
 2. 单击左侧目录中的【弹性公网 IP】，进入管理页面。
