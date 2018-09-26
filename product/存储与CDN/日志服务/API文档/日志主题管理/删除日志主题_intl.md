@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to delete a log topic.
 
