@@ -104,7 +104,7 @@ NSLog(@"resul:%ld",result);
     {
         NSMutableData *pdata = [NSMutableData data];
         const Byte *btyes = [data bytes];
-        
+
         while (pdata.length < length)
         {
             if (off + length > data.length)
@@ -120,11 +120,11 @@ NSLog(@"resul:%ld",result);
                 off += length;
             }
         }
-        
+
         if (pdata.length == length)
         {
             *offset = off;
-            
+
             const void *abbytes = [aFrame.buffer bytes];
             memcpy((void *)abbytes, [pdata bytes], length);
         }
@@ -134,9 +134,3 @@ NSLog(@"resul:%ld",result);
 
 ## 常见问题
 * 1 实现纯音频透传时，声音无法正确播放，一般是因为音频数据格式不正确导致，自定义采集的音频数据的采样率，通道数，音频位宽，必须与回调中QAVAudioFrame数据的一致
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -18,7 +18,7 @@
 由于 MP4 和 HLS（m3u8）是目前在桌面浏览器和手机浏览器上支持程度最广泛的格式，所以腾讯云的视频点播平台最终会把上传的视频发布为 MP4 和 HLS（m3u8） 格式。
 ## 准备工作
 ### step 1：开通服务
-在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云帐号，然后开通**点播**服务。
+在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，然后开通**点播**服务。
 ### step 2：上传文件
 点播服务开通之后，进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) 就可以上传新的视频文件，如果您没有开通点播服务，则无法操作这一步骤。
 ### step 3：获取 fileID 与 appID

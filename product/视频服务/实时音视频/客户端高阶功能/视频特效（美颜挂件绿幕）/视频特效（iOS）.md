@@ -7,7 +7,7 @@
 ![](https://main.qcloudimg.com/raw/37c82c24b8154081c21293f7c65ddfae.png)|![](https://main.qcloudimg.com/raw/b7b91102c419a5f7ae590215fdb0065c.png)|![](https://main.qcloudimg.com/raw/bd5ebfa2b3078061ca5f2e824db1beb5.png)|![](https://main.qcloudimg.com/raw/53a5e44a06db04fdca6b6929c63820f5.png)|![](https://main.qcloudimg.com/raw/2117efcf754bb9992a5fbc9ba62f1bce.png)
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/demo_beauty_3.3.1.zip)
 
 ## 集成说明
@@ -15,14 +15,14 @@
 ### 引入依赖库
 
 
-高级版本|基础版本 
+高级版本|基础版本
 :-----:|:-----:|
 ![](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/doc/advance.png)|![](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/doc/basic.png)|
 确保所有的资源都引入到Copy Bundle Resources，并且model文件夹下的资源以Create folder references方式引入||
 
 
  * 温馨提示：
- >(1) 如果不使用滤镜，可以删除 TXLiteAVVideoPreprocessorResource.bundle； 
+ >(1) 如果不使用滤镜，可以删除 TXLiteAVVideoPreprocessorResource.bundle；
  (2) 高级版本需要申请 licence 并同步到 Copy Bundle Resources 中，licence 不能重命名，必须为 YTFaceSDK.licence；  
  (3) 下载的 TXMVideoPreprocessor.advance 中的 Pitu 子文件夹及 YoutuBeauty 子文件夹中的所有 bundle，并同步到 Copy Bundle Resources 中，否则直接 crash；  
  (4) 如果您是 AVSDK 的用户，processFrame 的 orientation 参数应该设置为 frameData.frameDesc.rotate，否则无法识别到人脸；  
@@ -362,10 +362,3 @@ sdK提供美颜、美白、红润、滤镜、大眼、瘦脸、动效贴纸、�
 #### 费用问题
 
 美颜、美白、红润等基础功能是免费的。基于人脸识别的功能由于采用了优图实验室的专利技术，授权费用约 50W/年（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或联系我们（jerryqian QQ:364993028 ），商务同学会提供 P 图 SDK，并替您向优图实验室申请试用 License。
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)
