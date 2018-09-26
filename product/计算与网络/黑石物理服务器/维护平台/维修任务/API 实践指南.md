@@ -8,7 +8,7 @@
 ![](https://main.qcloudimg.com/raw/633bbc27051fee577535b6718dc8e471.png)
 
 ## 维修操作流程图
-![](https://main.qcloudimg.com/raw/a56833a5a2faa3cbeb867ada8cc609d1.png)
+![](https://main.qcloudimg.com/raw/9cb048decfd3514c456cc6e4922c4dbd.png)
 
 >**注意：**
 - 云监控告警回调功能，请参考 [回调接口](https://cloud.tencent.com/document/product/248/9066)。
