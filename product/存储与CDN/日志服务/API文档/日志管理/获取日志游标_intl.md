@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to get the log cursor under a specified log topic, and download collected logs.
 
