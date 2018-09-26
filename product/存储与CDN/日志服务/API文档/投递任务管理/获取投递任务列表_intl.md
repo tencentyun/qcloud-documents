@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to obtain the list of shipping task information.
 
