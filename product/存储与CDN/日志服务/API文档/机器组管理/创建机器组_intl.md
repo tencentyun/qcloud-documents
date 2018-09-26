@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to create a server group. The ID of the new server group is returned.
 
