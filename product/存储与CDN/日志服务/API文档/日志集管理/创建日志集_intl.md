@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to create a logset. The ID of the new logset is returned.
 
