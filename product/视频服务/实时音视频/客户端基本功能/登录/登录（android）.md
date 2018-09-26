@@ -58,7 +58,7 @@ public class DemoApp extends Application {
 ```
 
 ## 创建登录模块
-首先创建一个登录模块与 Acitivity 通讯的接口：
+首先创建一个登录模块与 Activity 通讯的接口：
 ```Java
 public interface ILoginView {
     // 登录成功
@@ -180,7 +180,3 @@ Error:Could not resolve all files for configuration ':app:debugCompileClasspath'
 - 登录未返回错误模块 IMSDK, 错误码 70009, 错误描述：tls_check_signature failed decrypt sig failed failed iRet:-2 sdkappid:14000xxxxx,acctype:xxxx,identifier:guest sig:E9vB6Ocs42J8A5lZW6s_
 
 > 这种问题一般为登录的 userSig 与 id 不匹配引起，需要生成 userSig 的密钥与初始化时使用的 sdkAppId 是否对应
-
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

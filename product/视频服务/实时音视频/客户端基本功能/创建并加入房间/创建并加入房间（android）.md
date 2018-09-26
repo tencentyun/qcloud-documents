@@ -145,6 +145,3 @@ ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMS
 #### 失败回调，错误码 1003 或 8011
 1. 进房/退房为线性互斥操作，若请求太频繁，sdk便会上抛 8011，这种情况需要上次操作完成(回调上抛)再继续操作(进出房间)；
 2. 用户一次只能加入一个房间，所以若上次房间未退出，再次调用创建(或加入)便会上抛 1003，这种情况需要先退出上次房间；
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
