@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to get the details of a specified index policy.
 
