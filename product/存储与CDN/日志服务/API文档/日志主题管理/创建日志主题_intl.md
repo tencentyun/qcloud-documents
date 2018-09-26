@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to create a log topic. The ID of the new log topic is returned.
 
