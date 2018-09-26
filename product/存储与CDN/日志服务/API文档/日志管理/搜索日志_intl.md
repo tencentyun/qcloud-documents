@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to search the log content according to specified criteria.
 
