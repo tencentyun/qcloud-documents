@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to retry a failed shipping task.
 
