@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to download logs using cursor.
 
