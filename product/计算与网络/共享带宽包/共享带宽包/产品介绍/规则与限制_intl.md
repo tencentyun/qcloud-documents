@@ -1,4 +1,4 @@
-####**Device Bandwidth Package**
+#### **Device Bandwidth Package**
 Only one BWP can be activated in one region (billed based on either the top 5 peaks or the 95th monthly peak).
 After the BWP is activated, all CVMs and LBs in the region will be automatically billed by the BWP;
 The BWP billing method cannot coexist with other billing methods in the same region;
