@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to get the information on a server group.
 
