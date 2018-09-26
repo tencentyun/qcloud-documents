@@ -17,7 +17,7 @@
 ![](https://main.qcloudimg.com/raw/0ec1e345a75fa62bd40eaaf33a24e05c.png)
 
 ## 代码编写辅助工具
-[API Explore](https://console.cloud.tencent.com/api/explorer)（内测中，未正式上线，可进行试用） 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度，推荐使用此工具辅助 API 相关功能接入，相关信息可参考 [说明文档](https://cloud.tencent.com/document/sdk/PHP)。
+[API Explore](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度，推荐使用此工具辅助 API 相关功能接入，相关信息可参考 [说明文档](https://cloud.tencent.com/document/sdk/PHP)。
 
 
 ## 代码编写集合与示例
