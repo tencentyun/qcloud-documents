@@ -38,15 +38,16 @@ boardMgr->init(userID, userSig, sdkappId);
 delete boardMgr；
 ```
 
-### 2.3 创建白板窗口
+### 2.3 创建普通白板窗口
 使用如下代码创建白板实例，并获得白板指针：
 
 ```C++
 boardMgr->initBoardSDK(roomId, hwnd);
 BoardSDK* boardSDk = boardMgr->getBoardSDK();
 ```
+使用TICSDK推荐TICSDK的方法`initWhiteBoard`
 
-> 注意：白板长宽比固定为 16 : 9
+> 注意：白板长宽比推荐固定为 16 : 9
 
 其中第一个参数`roomId`指定当前房间ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
 白板窗口创建完后，可通过如下代码获取白板窗口句柄，方便对白板窗口进行操作：
@@ -69,7 +70,7 @@ ShowWindow(hWnd, SW_SHOW);
 ```C++
 boardSDk->useTool(BoardTool::Rectangle);//使用矩形工具
 boardSDk->setLineWidth(100);//设置画笔宽度
-boardSDk->setBrushColor(0xff0000ff);//设置画笔颜色（颜色字节序从高到低按RGBA存储）
+boardSDk->setBrushColor(255，0，255，255);//设置画笔颜色，按照red，green，blue和alpha通道值顺序
 boardSDk->setFill(true);//填充图形
 boardSDk->setRadius(30);//设置圆角半径
 ```
@@ -88,7 +89,7 @@ boardSDk->setRadius(30);//设置圆角半径
 |选区|BoardTool::Select|无|
 
 ### 2.5 页面操作、背景设置及页面清除
-白板SDK支持多页面操作，可通过如下接口来进行页面操作：
+白板SDK支持多页面操作，可通过BoardMgr如下接口来进行页面操作：
 
 ```C++
 	/**
