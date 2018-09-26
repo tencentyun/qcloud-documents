@@ -1,4 +1,4 @@
-﻿## Description
+## Description
 
 This API is used to get the status of a server under the specified server group.
 
