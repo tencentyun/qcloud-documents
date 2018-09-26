@@ -5,6 +5,6 @@ SCF is Tencent Cloud's serverless execution environment. With SCF, you don't nee
 ## **Glossary**
 
 | Term | Full Name  | Description |
-|---------|---------|
+|---------|---- | -----|
 | SCF | Serverless Cloud Function | By hosting your code and using user-configured triggers, SCF automatically executes your applications based on the trigger event of the triggers, providing you with FaaS (Function as a Service) type services |
 | Trigger | Function Trigger | SCF functions are triggered by events. Event sources serve as the triggers, which are usually resource objects of other products such as a COS bucket, a CMQ topic or a timer |
