@@ -365,7 +365,7 @@ class IClassroomIMListener
 
 房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
 
-设置 IM 事件监听代理`IClassroomIMListener`，IM 收到的消息，无论个人，群组还是系统消息，都会通过事件代理通知上层，详请参见 [使用窗口分享涂鸦]() 。
+设置 IM 事件监听代理`IClassroomIMListener`，IM 收到的消息，无论个人，群组还是系统消息，都会通过事件代理通知上层，详请参见 [使用窗口分享涂鸦](https://cloud.tencent.com/document/product/680/17883#2.7-.E4.BD.BF.E7.94.A8.E7.AA.97.E5.8F.A3.E5.88.86.E4.BA.AB.E6.B6.82.E9.B8.A6) 。
 
 设置白板事件监听代理`IClassroomWhiteboardListener`，可以监听到白板操作和 PPT 上传事件的回调。
 
