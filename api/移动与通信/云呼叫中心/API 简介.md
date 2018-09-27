@@ -51,4 +51,4 @@ Content-Type：text/json;charset=utf-8
 ![](https://main.qcloudimg.com/raw/e13cdc449801134c181c49893f55d1b7.png)
 
 呼出：
-![](https://main.qcloudimg.com/raw/9dcd6313240393da66d7d02a8ee9396c.png)
+![](https://main.qcloudimg.com/raw/af1a02914ba97aeec28233047bd0bd5a.png)
