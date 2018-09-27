@@ -7,7 +7,7 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 - [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
 - [COS 服务](https://cloud.tencent.com/document/product/436/6225)
 
-### 1.1 资源下载	
+###  资源下载	
 
 为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 
@@ -209,7 +209,7 @@ boardSDk->uploadFile(filePath, sig);
 上传结果会通过回调函数`onUploadResult`和`onFileUploadResult`通知给上层。
 
 ### 2.7 使用窗口分享涂鸦
-窗口分享涂鸦需要机器支持OpenGL，调用如下接口可以选择指定的窗口分享出去：
+窗口分享涂鸦需要机器支持 OpenGL，调用如下接口可以选择指定的窗口分享出去：
 ```C++
 	/**
 	* \brief 打开白板分享(指定窗口，必须支持OpenGL)
