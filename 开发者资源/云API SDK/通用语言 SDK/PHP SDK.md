@@ -24,7 +24,7 @@
     <td><a href="https://cloud.tencent.com/document/api/409/16761">云数据库 PostgreSQL</a></td>
   </tr>
 <tr>
-    <td><a href="https://cloud.tencent.com/document/api/692/16733">Web漏洞扫描</a></td>
+    <td><a href="https://cloud.tencent.com/document/api/692/16733">Web 漏洞扫描</a></td>
     <td><a href="https://cloud.tencent.com/document/api/441/17362">智能语音服务</a></td>
     <td><a href="https://cloud.tencent.com/document/api/858/17760 ">容器实例服务</a></td>
     <td><a href="https://cloud.tencent.com/document/api/283/17741">应用安全</a></td>
@@ -49,6 +49,8 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/884/19310 ">智聆口语评测</a></td>
+<td><a href="https://cloud.tencent.com/document/api/239/20001 ">云数据库 Redis</a></td>
+ <td><a href="https://cloud.tencent.com/document/api/238/19926 ">云数据库 SQL Server</a></td>
 <td></td>
 <td></td>
 <td></td>
