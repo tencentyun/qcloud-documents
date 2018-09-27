@@ -369,7 +369,7 @@ class IClassroomIMListener
 
 设置白板事件监听代理`IClassroomWhiteboardListener`，可以监听到白板操作和 PPT 上传事件的回调。
 
-### 3.0 结束课堂
+### 2.10 结束课堂
 退出课堂调用方法如下：
 ```C++
 > TICManager.h
