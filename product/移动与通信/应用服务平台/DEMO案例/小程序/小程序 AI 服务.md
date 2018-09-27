@@ -129,9 +129,7 @@ npm install --production
 |--|--|--|--|
 |uploadText|上传按钮的文字|否|上传图片|
 |recognizeText|识别按钮的文字|否|进行识别|
-|mode|识别模式|是|
--
-|
+|mode|识别模式|是|     -          |
 |imgUrl|默认图片 url|否|略|
 |type|对象类型(仅在`drivingLicence`模式中有效)|否|0|
 
