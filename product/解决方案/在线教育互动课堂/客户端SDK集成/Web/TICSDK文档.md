@@ -8,11 +8,11 @@
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.1/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.2/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.3.0/TICSDK.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.3.1/TICSDK.mini.js"></script>
 ```
 **建议直接使用腾讯云 CDN 加速的 SDK**。
 
@@ -141,6 +141,7 @@ webrtc 推流配置参数：
 id | String | 是 | 白板渲染的在 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br/>false 不采用比例，采用参数id所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板SDK会以参数id所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 
 

@@ -1,7 +1,7 @@
 本文将指导您实现房间内的用户如何收发 IM 消息。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/MAC_TRTC.zip)
 ## 相关概念
 * [群组系统](/document/product/647/16792#.E7.BE.A4.E7.BB.84.E7.B3.BB.E7.BB.9F)
@@ -48,7 +48,7 @@ option.imOption.imSupport = YES;
 /**
  发送Group消息
  此处发送group，仅限于在当前直播间中发送group消息,或者绑定过IM群组id
- 
+
  @param message IM消息
  @param succ    发送成功回调
  @param fail    发送失败回调
@@ -148,9 +148,3 @@ option.imOption.imSupport = YES;
 ## 常见问题
 - 加入房间失败，错误模块 IMSDK，错误码 10010。
 > 这表示要加入的IM群组不存在，需要检测是否先创建了群组(创建房间时传入的配置对象中 imsupport 为 true 时会自动创建群组)，并确认群组类型一致。
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

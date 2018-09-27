@@ -2,17 +2,17 @@
 
 SuperPlayer 是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能。包括横竖屏切换、清晰度选择、手势、小窗等基础功能，还支持视频缓存，软硬解切换，倍速播放等特殊功能。相比系统播放器，支持格式更多，兼容性更好，功能更强大。同时还支持直播流（ flv + rtmp ）播放，具备首屏秒开、低延迟的优点，清晰度无缝切换、直播时移等高级能力。
 
-本播放器完全免费开源，不对播放地址来源做限制，可放心使用。
+本播放器完全免费开源，不对播放地址来源做限制，可以放心使用。
 
 ## 阅读对象
 
-本文档部分内容为腾讯云专属能力，使用前请开通[腾讯云](https://cloud.tencent.com/?from=superPlayer)相关服务，未注册用户可注册账号[免费试用](https://cloud.tencent.com/login?from=superPlayer)。
+本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com/?from=superPlayer) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login?from=superPlayer)。
 
 ## 快速集成
 
 ### aar集成
 
-- 1.下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android))
+- 1.下载 SDK + Demo 开发包，下载地址为 ([Android](https://cloud.tencent.com/document/product/454/7873#Android))
 - 2.导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去
 - 3.在 `app/build.gralde` 中添加依赖：
 
@@ -26,7 +26,7 @@ compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 - 4.在项目`build.gralde`中添加：
 
 ```
-....
+...
 allprojects {
     repositories {
         flatDir {
@@ -60,7 +60,9 @@ allprojects {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
-注：`lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+>注：`lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+
+
 
 ### 使用播放器
 
@@ -81,11 +83,11 @@ mSuperPlayerView.playWithMode(model);
 
 ## 多清晰度
 
-上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开[直播控制台](https://console.cloud.tencent.com/live/livemanage&from=superPlayer)，找到需要播放放的直播流，进入详情。
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage&from=superPlayer)，找到需要播放放的直播流，进入详情。
 
 ![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
 
-这里有不同清晰度、不同格式的播放地址。推荐使用FLV地址播放，代码如下：
+这里有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
 ```java
 SuperPlayerModel superPlayerModel = new SuperPlayerModel();
@@ -120,14 +122,14 @@ playerModel.appId = 1252463788;
 
 ![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
 
-> 时移功能处于公测申请阶段，如您需要可[提交工单](https://console.cloud.tencent.com/workorder&from=superPlayer)申请使用。
+> 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder&from=superPlayer) 申请使用。
 
 ## FileId播放
 
-设置清晰度除了填写url外，更简单的使用方式是采用fileId播放。fileId在一般是在视频上传后，由服务器返回：
+设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
 
-1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C&from=superPlayer)到客户端
-2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757&from=superPlayer)的通知中包含对应的fileId
+1. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C&from=superPlayer) 到客户端
+2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757&from=superPlayer) 的通知中包含对应的 fileId
 
 如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist&from=superPlayer) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
 
@@ -144,11 +146,11 @@ model.fileid = "5285890781763144364"; // 视频的fileid；
 mSuperPlayerView.playWithMode(model);
 ```
 
-视频在上传后，后台会自动转码（所有转码格式请参考[转码模板](https://console.cloud.tencent.com/video/transcodetmpl&from=superPlayer))。转码完成后，播放器会自动显示多个清晰度。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl&from=superPlayer))。转码完成后，播放器会自动显示多个清晰度。
 
 #### 视频缩略图&打点信息
 
-在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务API，能快速对视频处理。
+在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
 [截取雪碧图](https://cloud.tencent.com/document/product/266/8101&from=superPlayer)
 
@@ -187,6 +189,6 @@ mSuperPlayerView.resetPlayer();
 
 ## 更多功能
 
-完整功能可扫码下载视频云工具包体验，或直接运行工程Demo。
+完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 
 ![Android二维码下载](https://main.qcloudimg.com/raw/f2ce2c1c8fadc90bba73b605549a730c.png)

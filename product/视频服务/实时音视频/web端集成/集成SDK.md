@@ -57,7 +57,6 @@
 
 ![启用权限密钥](https://main.qcloudimg.com/raw/c60b5cf33ea2c0bc291a7700f252b8c1.png)
 
-打开开关表示校验密文，关闭开关表示校验明文。
 
 ## 接入准备工作
 

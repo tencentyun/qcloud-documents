@@ -115,7 +115,7 @@ virtual-kubelet.yaml 创建 Pod 运行 virtual-kubelet 程序：
       volumes:  
       - name: credentials
     hostPath:
-      path: /home/ubuntu/for-show/config (config 文件夹包含 config.toml, server.crt 和 server.key)
+      path: /home/ubuntu/for-show/config
 ```
 
 ## 使用步骤

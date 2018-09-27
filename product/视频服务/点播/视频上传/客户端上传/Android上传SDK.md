@@ -135,7 +135,14 @@ mVideoPublish.canclePublish();
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | context   | application 上下文        | Context | 是    |
-| customKey | 用于区分不同的用户，建议使用app的账号id | String  | 否    |
+| customKey | 用于区分不同的用户，建议使用app的账号id，方便后续定位问题 | String  | 否    |
+
+设置点播appId `TXUGCPublish.setAppId`
+
+| 参数名称      | 参数描述                   | 类型      | 必填   |
+| --------- | ---------------------- | ------- | ---- |
+| appId   | 点播appId        | int | 是    |
+
 
 上传 `TXUGCPublish.publishVideo`
 
@@ -184,6 +191,11 @@ mVideoPublish.canclePublish();
 | videoURL | 视频存储地址    | String |
 | coverURL | 封面存储地址    | String |
 
+预上传 `TXUGCPublishOptCenter.prepareUpload`
+
+| 参数名称      | 参数描述                   | 类型      | 必填   |
+| --------- | ---------------------- | ------- | ---- |
+| signature   | [客户端上传签名](/document/product/266/9221)        | String | 是    |
 
 ## 错误码
 
