@@ -50,9 +50,7 @@
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/884/19310 ">智聆口语评测</a></td>
 <td><a href="https://cloud.tencent.com/document/api/239/20001 ">云数据库 Redis</a></td>
- <td><a href="https://cloud.tencent.com/document/api/238/19926 ">云数据库 SQL Server</a></td>
-<td></td>
-<td></td>
+<td><a href="https://cloud.tencent.com/document/api/238/19926 ">云数据库 SQL Server</a></td>
 <td></td>
 </tr>
   </table>
