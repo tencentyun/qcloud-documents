@@ -10,7 +10,7 @@ git clone https://github.com/TencentCloudBase/tcb-demo-ai.git
 ```
 
 ### 填入小程序 appid
-用[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)，打开上一步下载下来的代码仓库，填入小程序的 appid（使用云开发能力必须填写 appid）。
+用 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)，打开上一步下载下来的代码仓库，填入小程序的 appid（使用云开发能力必须填写 appid）。
 
 ### 为需要云函数填入云服务相关配置
 
