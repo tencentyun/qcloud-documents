@@ -7,7 +7,7 @@
 
 ## 接入准备
 
-1. 下载 SDK + Demo 开发包。[下载地址](https://cloud.tencent.com/document/product/454/7873#iOS)）。
+1. 下载 SDK + Demo 开发包。[下载地址](https://cloud.tencent.com/document/product/881/20205)。
 
 2. 超级播放器的 UI 部分源码开源，开源代码位于`Player/SuperPlayer`文件夹，图片资源位于`SuperPlayer.bundle`中，您需要src中的文件分拷贝的您的App工程中。其它依赖的第三方库您可以自行 Pod 添加或在 `Third` 目录中获取
 
