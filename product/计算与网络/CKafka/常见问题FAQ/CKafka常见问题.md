@@ -29,7 +29,7 @@
 当前 Cloud Kafka 支持开源的 snappy 和 lz4 的消息压缩格式。由于 Gzip 压缩对于 CPU 的消耗较高，暂未支持。
 测试期间建议客户关闭消息压缩参数进行测试。
 
-配置开启方法：Producer的配置文件中 参数'compression.type = snappy'或者'lz4'，默认为关闭'none'
+配置开启方法：Producer的配置文件中 参数compression.type = snappy或者lz4，默认为关闭none
 
 ### Cloud Kafka 消息保留时间配置为 1min，是否会在 1min 后立即删除堆积消息？
 不一定。消息删除不仅和保留时间配置有关，也和生产消息的数据量级有关。
