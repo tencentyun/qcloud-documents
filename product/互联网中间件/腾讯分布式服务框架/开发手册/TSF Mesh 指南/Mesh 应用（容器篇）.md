@@ -80,7 +80,7 @@ user => shop => promotion
 4.1 部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 **步骤二** 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
 
-![](https://main.qcloudimg.com/raw/106c2e338203090f135163e0ccf68232.png)
+![](https://main.qcloudimg.com/raw/4666cf331bf58e4f23fa2c3f39d33a36/group.png)
 
 4.3 单击【提交】按钮，，如果部署组状态变为运行中，表示应用部署成功。
 
