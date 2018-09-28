@@ -78,7 +78,6 @@
 
 - 服务注册与发现功能，请参考 [服务注册与发现]( https://cloud.tencent.com/document/product/649/16617)。
 - 分布式配置功能，请参考 [分布式配置](https://cloud.tencent.com/document/product/649/16620)。
-
 - 服务鉴权功能，请参考[服务鉴权](https://cloud.tencent.com/document/product/649/16621)。
 - 服务限流功能，请参考 [服务限流](https://cloud.tencent.com/document/product/649/19019)。
 - 参数传递功能，请参考 [参数传递](https://cloud.tencent.com/document/product/649/18511)。
