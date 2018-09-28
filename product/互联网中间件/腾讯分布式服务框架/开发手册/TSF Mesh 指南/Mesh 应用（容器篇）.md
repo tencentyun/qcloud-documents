@@ -68,8 +68,8 @@ user => shop => promotion
    - 部署组名：填写部署组名称。
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
-   - 日志配置项：可选择无。
-     ![](https://main.qcloudimg.com/raw/0d8d32716de2d154e11b6260fb966abb.png)
+   - 其他设置：参考下图
+     ![](https://main.qcloudimg.com/raw/4666cf331bf58e4f23fa2c3f39d33a36/group.png)
 
 3.3 单击【提交】按钮。
 
@@ -80,7 +80,7 @@ user => shop => promotion
 4.1 部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 **步骤二** 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
 
-![](https://main.qcloudimg.com/raw/4666cf331bf58e4f23fa2c3f39d33a36/group.png)
+![](https://main.qcloudimg.com/raw/230b0a45fdb27f15bfe0b4fcfefafc4b/image.png)
 
 4.3 单击【提交】按钮，，如果部署组状态变为运行中，表示应用部署成功。
 
