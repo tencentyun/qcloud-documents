@@ -38,8 +38,15 @@ Agent 若安装在数据库服务器上，可以自动遍历数据库服务器�
 所有配置完成后，单击【配置并下载 Agent】即可下载您设置好的 Agent 了。
 ## Agent 安装
 下载 Agent 完成后，需要将 Agent 安装在相应服务器上才能实现审计效果。
- - 如果您使用的是云服务器 + 自建数据库模式，则建议您将 Agent 安装在数据库服务器上。
- - 如果您使用的是 CBD，则需要在连接数据库的应用服务器上安装 Agent。
+- 如果您使用的是云服务器 + 自建数据库模式，则建议您将 Agent 安装在数据库服务器上。
+- 如果您使用的是 TencentDB，则需要在连接数据库的应用服务器上安装 Agent。
+
+安装步骤：
+1. 将 CapAgent_xxx.zip 安装包上传到需要安装的机器上，如 /data 目录。
+2. 使用`unzip CapAgent_xxx.zip`命令进行解压，得到 /data/CapAgent 目录。
+3. 执行命令`chmod -R 755 CapAgent`。
+4. 执行`cd CapAgent/script`，再执行`./install.sh`，结果如下。如未得到以下结果，请联系客服。
+![](https://main.qcloudimg.com/raw/cbbbd91003cfad7da0cba7a84e9c8b56.png)
 
 ##  配置数据库实例
 Agent 下载并正确安装后，审计数据即可回传，但若需在可视化报表和审计报告中查阅审计信息，还需配置数据库实例参数。
