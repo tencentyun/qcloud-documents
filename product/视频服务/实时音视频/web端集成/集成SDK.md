@@ -26,7 +26,7 @@
 
 > appid 是 125xxxxxxx 的数字，可以在[ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)的顶部获取。
 > sdkappid 是  14000xxxxx 的数字 ，[ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)创建应用，在【App 基础设置】下可查看。
-> accounttype 需要您在 [ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)创建应用后，查看 【App 基础设置】-【帐号集成体系】中找到（ 如果没有，编辑保存即可 ）
+> accounttype 需要您在 [ 实时音视频控制台 ](https://console.cloud.tencent.com/rav)创建应用后，查看 【App 基础设置】-【账号集成体系】中找到（ 如果没有，编辑保存即可 ）
 
 
 * 用户信息
@@ -45,7 +45,7 @@
 | roomId  | 用来标识一个视频通话房间。roomId 相同的用户才能相互看到             |
 | privateMapKey  | 房间权限key（密文），相当于进入指定房间roomId的钥匙             |
 
-> privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，你可以忽略这部分内容
+> privateMapKey 并不影响业务开发，如果暂时不用考虑对用户的权限控制，您可以忽略这部分内容
 
 下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
@@ -60,7 +60,7 @@
 
 ## 接入准备工作
 
-1. 请务必参考[开通服务](https://cloud.tencent.com/document/product/647/17195)的指引，注册腾讯云帐号，申请开通实时音视频业务并**提交白名单申请**；
+1. 请务必参考[开通服务](https://cloud.tencent.com/document/product/647/17195)的指引，注册腾讯云账号，申请开通实时音视频业务并**提交白名单申请**；
 2. 在实时音视频页面，新建应用。得到 sdkappid 和 accounttype；
 3. 参考[ usersig 计算文档 ](https://cloud.tencent.com/document/product/268/7656)，计算出测试用户名的 usersig；
 4. 如果所在网络有防火墙，请确定有开放以下端口：
