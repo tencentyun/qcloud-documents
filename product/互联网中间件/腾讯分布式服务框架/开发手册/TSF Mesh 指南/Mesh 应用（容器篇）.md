@@ -69,7 +69,7 @@ user => shop => promotion
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
    - 其他设置：参考下图
-     ![](https://main.qcloudimg.com/raw/4666cf331bf58e4f23fa2c3f39d33a36/group.png)
+     ![](https://main.qcloudimg.com/raw/3a79f0f83dc6e538e6ab5534a8e1302d.png)
 
 3.3 单击【提交】按钮。
 
@@ -94,10 +94,10 @@ user => shop => promotion
 3. 新建服务：
    - 服务名：填写服务名称 user。
    - 关联应用：选择 Mesh 应用，在应用列表中选择在 **步骤一** 中创建的应用。
-   - 服务监听端口：协议选择 HTTP，端口可填写 8091。
+   - 服务监听端口：协议选择 HTTP，端口可填写 9080。
    - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行。
 
-     ![](https://main.qcloudimg.com/raw/2dd6db7f8a8989ceafcb1d6099cbf681/user22.png)
+     ![](https://main.qcloudimg.com/raw/b08bb4be98bd700806aa37180b8f670b.png)
 4. 单击【提交】按钮。
 
 
@@ -105,11 +105,11 @@ user => shop => promotion
 
 使用同样的步骤一和步骤二部署 `user`、`shop` 和 `promotion` 三个应用，并创建服务与应用关联。注意在创建3个服务时的端口号：
 
-- `user` 端口号：8091
+- `user` 端口号：9080
 
-- `shop` 端口号：8092
+- `shop` 端口号：9080
 
-- `promotion` 端口号：8093
+- `promotion` 端口号：9080
 
 
 

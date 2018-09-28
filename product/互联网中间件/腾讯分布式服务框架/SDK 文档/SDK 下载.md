@@ -139,18 +139,21 @@
    - 查看执行结果，没有错误表明 setting.xml 格式正确。
    - Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
    - ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
-   
+
 其他说明
    - 执行正确的 Maven 命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
-#### 4. 获取 Demo
+https://main.qcloudimg.com/raw/8b6d89e53ec8d272606370daaa5fd507/tsf-demo-simple-0823.zip)
 
-[Demo 源码下载 >>](https://main.qcloudimg.com/raw/8b6d89e53ec8d272606370daaa5fd507/tsf-demo-simple-0823.zip)
 
-### 安装 SDK
+
+## 安装 SDK
 
 通过 Maven 获取 TSF SDK。在 Demo 工程 `pom.xml` 所在目录执行 `mvn clean package` 即可下载 TSF SDK。
 
 ![](https://main.qcloudimg.com/raw/d6d4c2e76bd308671472682999eb78d3.png)
 
 > **注意：**如果无法下载相关依赖，请检查网络是否有防火墙限制。
+
+
+
