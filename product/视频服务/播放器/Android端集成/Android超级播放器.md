@@ -6,7 +6,7 @@
 
 ## 接入准备
 
-1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android)).
+1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/881/20205)).
 
 2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
 

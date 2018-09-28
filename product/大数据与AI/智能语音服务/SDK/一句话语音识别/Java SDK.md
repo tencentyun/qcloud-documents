@@ -3,7 +3,7 @@
 一句话语音识别[ Java SDK下载地址>>](https://main.qcloudimg.com/raw/1ebec980474c7bf16e7cbfb79d1bc559/SASRjavasdk.zip)
 
 ### 环境依赖
-cJdk 1.8及以上。
+JDK 1.8 及以上。
 
 ### 安装 SDK
 **源码安装**

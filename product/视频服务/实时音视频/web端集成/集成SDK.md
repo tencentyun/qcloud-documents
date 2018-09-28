@@ -3,8 +3,8 @@
 
 | 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( Only ) | 11.1.2 | 由于 Safari 的实现仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
-| Android      | TBS （微信和手机QQ的默认Webview） | 43600                |   微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) ，<br />   |
+| iOS          | Safari ( 只支持Safari ) | 11.1.2 | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
+| Android      | TBS （微信和手机QQ的默认Webview） | 43600                | 微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 | Mac          | Chrome | 47+                |      |
 | Mac          | Safari | 11+                |      |
@@ -12,7 +12,7 @@
 | Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2 | &nbsp;     |
 
 
-> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/16924#.E6.A3.80.E6.B5.8B.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81webrtc) 中有获取 TBS 版本的方法。
+> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
 
 ## 基本名词
 
@@ -83,7 +83,15 @@
 
 - 3.0（ 2018-09-11 ）
 
-  - 初始化接口 默认不推流（closeLocalMedia 参数被弃用）
+  - 初始化接口 [WebRTCAPI](/document/product/647/17251#webrtcapi) 
+      弃用字段 accountType 
+      弃用字段 closeLocalMedia 默认不再推流
+      弃用字段 video 不再支持配置是否进行音视频推流 
+      弃用字段 audio 不再支持配置是否进行音视频推流
+      弃用成功和失败回调
+      ```javascript
+      new WebRTCAPI({...});
+      ```
     
 - 2.6.1（ 2018-08-16 ）
 
