@@ -17,7 +17,7 @@ The lifecycle of Tencent Cloud CVM instance refers to all the statuses from the 
 | Reclaimed | Steady status | A prepaid instance that expires for less than 7 days will be in recycle bin. The instance in this status cannot be used to provide external services. |
 
 - **Instance Status Transition:**
-![](//mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
+![](https://main.qcloudimg.com/raw/1c018b2724bf142b1f3e90b97002d7a0.png)
 
 ## Instance Launching
  - After an instance is launched, it enters the creating status. The hardware specifications are configured according to the specified [Instance Specifications](/document/product/213/7153) for the instance in the creating status, and the system launches the instance using the image specified on launch.
