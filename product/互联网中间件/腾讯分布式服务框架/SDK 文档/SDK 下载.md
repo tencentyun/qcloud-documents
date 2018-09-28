@@ -143,8 +143,6 @@
 其他说明
    - 执行正确的 Maven 命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
-https://main.qcloudimg.com/raw/8b6d89e53ec8d272606370daaa5fd507/tsf-demo-simple-0823.zip)
-
 
 
 ## 安装 SDK
