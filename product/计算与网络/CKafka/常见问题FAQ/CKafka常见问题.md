@@ -21,15 +21,15 @@
 2.  consumer group 空闲存活时间 1 个月
 3.  CKafka单条消息大小（message.max.bytes）限制为1M 
 
-### 生产消费者是否只需配置vip:port？
---bootstrap-server参数中填写CKafka实例的vip:port即可,新购CKafka实例后，默认通过9092端口接入，但9093-9095端口也可通。
-主要原因在于，CKafka vip封装了后端节点的broker ip,并通过9092端口负载均衡到9093-9095端口，因此接入时仅需配置CKafka实例的vip:port。
+### 生产消费者是否只需配置 vip:port？
+--bootstrap-server 参数中填写 CKafka 实例的 vip:port 即可,新购 CKafka 实例后，默认通过 9092 端口接入，但 9093-9095 端口也可通。
+主要原因在于，CKafka VIP 封装了后端节点的 broker IP，并通过 9092 端口负载均衡到 9093-9095 端口，因此接入时仅需配置 CKafka 实例的 vip:port。
 
 ### Cloud Kafka 是否支持消息压缩？
 当前 Cloud Kafka 支持开源的 snappy 和 lz4 的消息压缩格式。由于 Gzip 压缩对于 CPU 的消耗较高，暂未支持。
 测试期间建议客户关闭消息压缩参数进行测试。
 
-配置开启方法：Producer的配置文件中 参数compression.type = snappy或者lz4，默认为关闭none
+配置开启方法：Producer 的配置文件中参数 compression.type = snappy 或者 lz4，默认为关闭 none。
 
 ### Cloud Kafka 消息保留时间配置为 1min，是否会在 1min 后立即删除堆积消息？
 不一定。消息删除不仅和保留时间配置有关，也和生产消息的数据量级有关。
