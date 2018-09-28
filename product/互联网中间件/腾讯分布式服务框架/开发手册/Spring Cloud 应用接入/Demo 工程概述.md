@@ -4,7 +4,7 @@
 
 
 
-## 工程目录及 POM.XML 
+## 工程目录
 
 `tsf-simple-demo` 的工程目录如下：
 
