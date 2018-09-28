@@ -46,7 +46,6 @@ user => shop => promotion
    - 应用类型：选择 **Mesh 应用**
 
      ![](https://main.qcloudimg.com/raw/dc0c301e3b3829f486cff4ce580ab6f0.png)
-	​	 
 1.4 单击【提交】按钮。
 
 
