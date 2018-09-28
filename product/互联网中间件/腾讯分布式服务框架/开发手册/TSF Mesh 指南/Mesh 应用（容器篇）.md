@@ -46,7 +46,6 @@ user => shop => promotion
    - 应用类型：选择 **Mesh 应用**
 
      ![](https://main.qcloudimg.com/raw/dc0c301e3b3829f486cff4ce580ab6f0.png)
-	​	 
 1.4 单击【提交】按钮。
 
 
@@ -96,7 +95,6 @@ user => shop => promotion
    - 关联应用：选择 Mesh 应用，在应用列表中选择在 **步骤一** 中创建的应用。
    - 服务监听端口：协议选择 HTTP，端口可填写 8091。
    - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行。
-
      ![](https://main.qcloudimg.com/raw/2dd6db7f8a8989ceafcb1d6099cbf681/user22.png)
 4. 单击【提交】按钮。
 
