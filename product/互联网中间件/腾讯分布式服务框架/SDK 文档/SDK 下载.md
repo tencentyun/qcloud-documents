@@ -8,13 +8,13 @@
 
 ##### 1.1 检查 Java 安装
 
-打开终端，执行
+打开终端，执行如下命令：
 
 ```
 java -version
 ```
 
-如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java, 从以下网址安装 Java 软件开发套件(JDK) : 
+如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，从以下网址安装 Java 软件开发套件(JDK)： 
 
 **http://www.oracle.com/technetwork/java/javase/downloads/index.html**
 
@@ -22,7 +22,7 @@ java -version
 
 ##### 1.2 设置 Java 环境
 
-设置 `JAVA_HOME` 环境变量，并指向你机器上的 Java 安装目录。例如：
+设置 `JAVA_HOME` 环境变量，并指向您机器上的 Java 安装目录。例如：
 
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -169,6 +169,4 @@ java -version
 ![](https://main.qcloudimg.com/raw/d6d4c2e76bd308671472682999eb78d3.png)
 
 > **注意：**如果无法下载相关依赖，请检查网络是否有防火墙限制。
-
-
 
