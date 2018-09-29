@@ -164,7 +164,7 @@ typedef NS_ENUM(NSInteger, QAVUpdateEvent) {
 ### 退出房间
 调用 ILiveSDk 的退出房间接口。
 接口选择在直播控制器的 dealloc 方法中调用。
-> 注意，别让你的直播控制器被循环引用，否则 dealloc 方法将不会被调用。
+> 注意，别让您的直播控制器被循环引用，否则 dealloc 方法将不会被调用。
 
 ```objc
 // 房间销毁时记得调用退出房间接口

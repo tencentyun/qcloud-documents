@@ -69,7 +69,7 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
     self.userSigTF.text = @"用户自己生成的userSig";
 }
 
-// 登录按钮点击
+// 登录按钮单击
 - (IBAction)onLogin:(id)sender {
     //登录sdk
     [[ILiveLoginManager getInstance] iLiveLogin:self.userIdTF.text sig:self.userSigTF.text succ:^{
