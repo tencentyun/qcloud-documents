@@ -1,107 +1,107 @@
-﻿
 <div class="paragraph">
-<p>When a Tencent Cloud CVM is created, the instance type specified by the user determines the host hardware configuration of the instance. Each instance type provides different computing, memory, and storage features. Users can choose a proper instance type according to the scale of application to be deployed. These instance families comprise varying combinations of CPU, memory, storage, heterogeneous hardware, and network bandwidth and give you the flexibility to choose the appropriate mix of resources for your applications.</p>
+<p>创建腾讯云云服务器时，用户指定的实例类型决定了实例的主机硬件配置。每个实例类型提供不同的计算、内存和存储功能。用户可基于需要部署运行的应用规模，选择一种适当的实例类型。这些实例族由 CPU、内存、存储、异构硬件和网络带宽组成不同的组合，您可灵活地为您的应用程序选择适当的资源。</p>
 </div>
 <div class="paragraph">
-<p>If your demand is stable, we recommend that you choose the prepaid billing method, so your savings will increase with the length of usage. To react to spikes in demand, you can choose the postpaid billing method, which allows you to activate/terminate computing instances at any time and only pay for the actually consumed resources. CVM usage is billed in one-second increments to maximize your savings.</p>
+<p>对于稳定业务，推荐您选择包年包月的计费模式，购买时长越久越划算；
+对于突发性业务高峰，您可以选择按量计费的计费模式，随时开通/销毁计算实例，按实例的实际使用量付费。计费精确到秒，最大程度降低成本。</p>
 </div>
 <div class="sect1">
-<h2 id="INSTANCETYPE">Instance Type</h2>
+<h2 id="INSTANCETYPE">实例类型</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tencent Cloud instance families are divided into the following types:</p>
+<p>腾讯云实例族可分为以下类型：</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="#S">Standard Instance Family</a></dt>
+<dt class="hdlist1"><a href="#S">标准型实例族</a></dt>
 <dd>
-<p>This family provides a balance of computing, memory, and network resources to accommodate most applications.</p>
+<p>均衡的计算、内存和网络资源，可满足大多数场景下的应用资源需求</p>
 </dd>
 <dt class="hdlist1"></dt>
 <dd>
-<p><a href="#S3">Standard S3</a> <a href="#SA1">Standard SA1</a> <a href="#S2ne">Standard Network Optimized S2ne</a> <a href="#SN2">Standard Network Enhanced SN2</a> <a href="#S2">Standard S2</a> <a href="#S1">Standard S1</a></p>
+<p><a href="#S3">标准型 S3</a> <a href="#SA1">标准型 SA1</a> <a href="#S2ne">标准网络优化型 S2ne</a> <a href="#SN2">标准网络增强型 SN2</a> <a href="#S2">标准型 S2</a> <a href="#S1">标准型 S1</a></p>
 </dd>
-<dt class="hdlist1"><a href="#M">MEM Optimized Instance Family</a></dt>
+<dt class="hdlist1"><a href="#M">内存型实例族</a></dt>
 <dd>
-<p>This family features large memory and is suitable for applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#M3">MEM Optimized M3</a> <a href="#M2">MEM Optimized M2</a> <a href="#M1">MEM Optimized M1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#I">High IO Instance Family</a></dt>
-<dd>
-<p>It features high random IOPS, high throughput and low latency and is suitable for I/O-intensive applications that require high disk read/write performance and low latency, such as high-performance databases.</p>
+<p>具有大内存的特点，适合高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </dd>
 <dt class="hdlist1"></dt>
 <dd>
-<p><a href="#I3">High IO I3</a> <a href="#I2">High IO I2</a> <a href="#I1">High IO I1</a></p>
+<p><a href="#M3">内存型 M3</a> <a href="#M2">内存型 M2</a> <a href="#M1">内存型 M1</a></p>
 </dd>
-<dt class="hdlist1"><a href="#D">Big Data Instance Family</a></dt>
+<dt class="hdlist1"><a href="#I">高IO型实例族</a></dt>
 <dd>
-<p>This instance family is equipped with massive storage resources, features high throughput, and is suitable for throughput-intensive applications such as Hadoop distributed computing, massive log processing, distributed file systems, and large data warehouses.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#D1">Big Data D1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#C">Compute Instance Family</a></dt>
-<dd>
-<p>This family comes with a base clock rate of 3.2 GHz to provide the highest single-core computing performance. It is suitable for compute-intensive applications such as batch processing, high performance computing, and large game servers.</p>
+<p>具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等I/O密集型应用</p>
 </dd>
 <dt class="hdlist1"></dt>
 <dd>
-<p><a href="#CN3">Computing CN3</a> <a href="#C3">Computing C3</a> <a href="#CN2">Computing Network Enhanced CN2</a> <a href="#C2">Computing C2</a></p>
+<p><a href="#I3">高IO型 I3</a> <a href="#I2">高IO型 I2</a> <a href="#I1">高IO型 I1</a></p>
 </dd>
-<dt class="hdlist1"><a href="#OTHER">Heterogeneous Computing Instance Family</a></dt>
+<dt class="hdlist1"><a href="#D">大数据型实例族</a></dt>
 <dd>
-<p>This family is equipped with heterogeneous hardware such as GPU and FPGA to deliver real-time, fast parallel computing and floating-point computing capabilities. It is suitable for high-performance applications such as deep learning, scientific computing, video encoding/decoding, and graphics workstations.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#FX2">FPGA FX2</a> <a href="#GN8">GPU Computing GN8</a> <a href="#GN2">GPU Computing GN2</a> <a href="#GA2">GPU Rendering GA2</a></p>
-</dd>
-<dt class="hdlist1"><a href="#B">Batch-based Instance Family</a></dt>
-<dd>
-<p>With the lowest per core-hour cost, this family is suitable for compute-intensive applications that use super large computing nodes frequently in a short time, such as rendering, gene analysis, and crystal pharmacy.</p>
+<p>搭载海量存储资源，具有高吞吐特点，适合 Hadoop 分布式计算、海量日志处理、分布式文件系统和大型数据仓库等吞吐密集型应用</p>
 </dd>
 <dt class="hdlist1"></dt>
 <dd>
-<p><a href="#BC1">Batch Computing BC1</a> <a href="#BS1">Batch General Purpose BS1</a></p>
+<p><a href="#D1">大数据型 D1</a></p>
+</dd>
+<dt class="hdlist1"><a href="#C">计算型实例族</a></dt>
+<dd>
+<p>搭载 3.2GHz 基准主频，具有最高单核计算性能。适合批处理、高性能计算和大型游戏服务器等计算密集型应用</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p><a href="#CN3">计算型 CN3</a> <a href="#C3">计算型 C3</a> <a href="#CN2">计算网络增强型 CN2</a> <a href="#C2">计算型 C2</a></p>
+</dd>
+<dt class="hdlist1"><a href="#OTHER">异构计算实例族</a></dt>
+<dd>
+<p>搭载 GPU、FPGA 等异构硬件，具有实时高速的并行计算和浮点计算能力，适合于深度学习、科学计算、视频编解码和图形工作站等高性能应用</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p><a href="#FX2">FPGA型 FX2</a> <a href="#GN8">GPU 计算型 GN8</a> <a href="#GN2">GPU 计算型 GN2</a> <a href="#GA2">GPU 渲染型 GA2</a></p>
+</dd>
+<dt class="hdlist1"><a href="#B">批量型实例族</a></dt>
+<dd>
+<p>具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p><a href="#BC1">批量计算型 BC1</a>  <a href="#BS1">批量通用型 BS1</a></p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_实例限制">Restrictions on Instances</h2>
+<h2 id="_实例限制">实例限制</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>The total number of instances that can be started in one zone is limited. For more information, please see <a href="https://cloud.tencent.com/document/product/213/2664">Restrictions on CVM Instance Purchase</a>.</p>
+<p>在一个区域中可以启动的实例总数存在限制，有关限制的更多信息，请参阅  <a href="https://cloud.tencent.com/document/product/213/2664">CVM 实例购买限制</a></p>
 </li>
 <li>
-<p>Restrictions on system and data disks mounted on an instance: To ensure premium disk I/O performance, Tencent Cloud sets limits on the size and type of data disks purchased with an instance. For more information, please see the disk matching module of the respective instance family. You can also purchase separate cloud disks if you have higher disk requirements.</p>
+<p>实例的系统盘和数据盘挂载限制：为了保证磁盘的IO性能体验，腾讯云对于随实例购买的数据盘有的大小和类型限制，请参考对应实例族的磁盘搭配模块；必要时您可以通过购买独立云硬盘来规避实例的磁盘限制。</p>
 </li>
 <li>
-<p>Note that the private network bandwidth capacity of an instance specification is the maximum private network bandwidth limit of the corresponding instance. If the CVM private network traffic exceeds this limit, random packet loss may happen within the private network for your instances.</p>
+<p>请注意实例规格对应的内网带宽能力，该指标为对应规格实例最大内网带宽上限，CVM内网流量超限后，实例内网可能出现随机丢包。</p>
 </li>
 <li>
-<p>The availability of instance specifications may vary from region to region. Some configurations may have been sold out. Please see the purchase page for accurate information.</p>
+<p>各个地域可供售卖的实例规格不一定完全相同，部分配置可能售罄，请以实际购买页上的信息为准。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Here is a full list of instance families for different applications.</p>
+<p>根据您的业务场景，可以分为以下实例族。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="S">Standard Instance Family</h2>
+<h2 id="S">标准型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This family provides a balance of computing, memory, and network resources to support most applications.</p>
+<p>标准型实例是计算、内存和网络资源的均衡，可满足大多数场景下的应用资源需求。</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -111,75 +111,75 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="S3">Standard S3</h3>
+<h3 id="S3">标准型 S3</h3>
 <div class="paragraph">
-<p>Standard S3 instances are the latest generation of standard instances. This family provides a balance of computing, memory, and network resources, and it is a premium choice for many applications.</p>
+<p>标准型 S3 实例是最新一代的标准型实例，此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
 </div>
 <div class="paragraph">
-<p>Standard S3 instances are equipped with the new Skylake Xeon® processors that perform 30% better and the latest DDR4 memories that perform 60% better than Standard S2 instances. Standard S3 instances support up to 10 Gbps private network bandwidth.</p>
+<p>标准型 S3 实例采用至强®处理器Skylake全新处理器，性能相比标准型 S2 实例提升30%；内存采用最新DDR4，性能提升60%；最高内网带宽可支持10Gbps。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点">Features</h4>
+<h4 id="_实例特点">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.5 GHz Intel Xeon® Skylake 6133 processors with stable computing performance</p>
+<p>2.5GHz Intel® Xeon® Skylake 6133 处理器，计算性能稳定</p>
 </li>
 <li>
-<p>The latest generation of 6-channel DDR4 memories with a memory bandwidth of 2,666 MT/s</p>
+<p>最新一代六通道 DDR4 内存，内存带宽达 2666 MT/s</p>
 </li>
 <li>
-<p>Larger instance size, S3.20XLARGE320, offering 80 vCPUs and 320 GB of memory</p>
+<p>更大实例规格，S3.20XLARGE320，提供 80 vCPU 和 320 GB内存</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高。</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景">Application Scenarios</h4>
+<h4 id="_使用场景">使用场景</h4>
 <div class="paragraph">
-<p>Standard S3 instances are applicable to the following scenarios:</p>
+<p>标准型 S3 实例可应用于以下场景：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Enterprise applications of different types and sizes</p>
+<p>各种类型和规模的企业级应用</p>
 </li>
 <li>
-<p>Small and medium-sized database systems, caches, and search clusters</p>
+<p>中小型数据库系统、缓存、搜索集群</p>
 </li>
 <li>
-<p>Computing clusters, memory-intensive data processing</p>
+<p>计算集群、依赖内存的数据处理</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求">Requirements</h4>
+<h4 id="_实例要求">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for S3 instances.</p>
+<p>S3实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>S3 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 S3 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for S3 instances. Please see the instance specifications on the right. Make sure that the size of the S3 instance you choose meet the minimum CPU memory requirements of your operating system and applications. In many cases, GUI operating systems (such as Windows) that consume extensive memory and CPU resources may need larger instances. As the needs of your workload for memory and CPU increase, you can expand to higher configurations or choose other instance types.</p>
+<p>S3 实例支持购买配置，请参阅右侧实例规格。确保您选择的 S3 实例大小达到您的操作系统和应用程序的最低CPU内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如，Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -192,10 +192,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -520,76 +527,69 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="SA1">Standard SA1</h3>
+<h3 id="SA1">标准型 SA1</h3>
 <div class="paragraph">
-<p>Tencent Cloud is the first company in China providing Standard SA1 instances equipped with AMD EPYC™ processors. This instance family of ultra-high cost performance support a variety of specifications, making your workload more cost-efficient in the industry. This family provides a balance of computing, memory, and network resources, and it is a premium choice for many applications.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>This instance type is only available to users on the whitelist. Click <a href="https://cloud.tencent.com/act/event/AMD.html">here</a> to apply for the permission to purchase these instances.</p>
-</li>
-</ul>
+<p>标准型 SA1 实例是国内首家采用 AMD EPYC™处理器的实例，提供多种规格，具有超高性价比，确保您的工作负载获得业界领先的性价比。此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_2">Features</h4>
+<h4 id="_实例特点_2">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.0 GHz AMD EPYC™ 7551 processors with a Turbo Boost clock of 2.55 GHz, offering stable computing performance</p>
+<p>2.0GHz AMD EPYC™ 7551 处理器，Turbo频率 2.55GHz，计算性能稳定</p>
 </li>
 <li>
-<p>The latest generation of 8-channel DDR4 memories with a memory bandwidth of 2,666 MT/s</p>
+<p>最新一代八通道 DDR4 内存，内存带宽达 2666 MT/s</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高。</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_2">Application Scenarios</h4>
+<h4 id="_使用场景_2">使用场景</h4>
 <div class="paragraph">
-<p>Standard SA1 instances are applicable to the following scenarios:</p>
+<p>标准型 SA1 实例可应用于以下场景：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Enterprise applications of different types and sizes</p>
+<p>各种类型和规模的企业级应用</p>
 </li>
 <li>
-<p>Small and medium-sized database systems, caches, and search clusters</p>
+<p>中小型数据库系统、缓存、搜索集群</p>
 </li>
 <li>
-<p>Computing clusters, memory-intensive data processing</p>
+<p>计算集群、依赖内存的数据处理</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_2">Requirements</h4>
+<h4 id="_实例要求_2">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for SA1 instances.</p>
+<p>SA1 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>SA1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 SA1 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for SA1 instances. Please see the instance specifications on the right. As the needs of your workload for memory and CPU increase, you can expand to higher configurations or choose other instance types.</p>
+<p>SA1 实例支持购买配置，请参阅右侧实例规格。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_2">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_2">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -602,10 +602,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -748,70 +755,70 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="S2ne">Standard Network Optimized S2ne</h3>
+<h3 id="S2ne">标准网络优化型 S2ne</h3>
 <div class="paragraph">
-<p>Standard Network Optimized S2ne instances are the best choice for applications that require sending and receiving massive network packets. They support sending and receiving up to millions of network packets per second. Standard Network Optimized S2ne instances are recommended for scenarios with high network PPS requirements, such as large game servers, videos, and live broadcasts.</p>
+<p>标准网络优化型 S2ne 实例是高网络收发包能力应用的最佳选择，最高提供每秒数百万次网络收发能力。建议用于大型游戏服务器、视频、直播等高网络PPS需求场景。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This instance type is only available to users on the whitelist for now. Contact your pre-sales manager for the permission to purchase these instances.</p>
+<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_3">Features</h4>
+<h4 id="_实例特点_3">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Intel Xeon E5-2680 Broadwell (v4) processors with a base clock rate of 2.4 GHz and DDR4 memories, offering stable computing performance</p>
+<p>2.4 GHz 基准主频的Intel Xeon E5-2680 Broadwell（v4）处理器，DDR4 内存，计算性能稳定</p>
 </li>
 <li>
-<p>Up to 48 cores and 192 GB are available for sale.</p>
+<p>最大售卖配置可达 48 核 192 GB</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_使用场景_3">Application Scenarios</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Scenarios that require sending and receiving massive network packets, such as game services, video services, and financial analysis</p>
-</li>
-<li>
-<p>Enterprise applications of different types and sizes</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_3">Requirements</h4>
+<h4 id="_使用场景_3">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for S2ne instances.</p>
+<p>高网络包收发场景，如游戏业务、视频业务、金融分析等实时性要求高的业务场景</p>
 </li>
 <li>
-<p>S2ne instances can only be started in a VPC.</p>
-</li>
-<li>
-<p>Configuration purchase is available for S2ne instances. Please see the instance specifications on the right.</p>
+<p>各种类型和规模的企业级应用</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_3">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="_实例要求_3">实例要求</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>S2ne实例可以用作包年包月实例和按量计费实例；</p>
+</li>
+<li>
+<p>仅支持私有网络VPC中启动 S2ne 实例；</p>
+</li>
+<li>
+<p>S2ne 实例支持购买配置，请参阅右侧实例规格。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_3">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -826,12 +833,19 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
-<th class="tableblock halign-left valign-top">Network packet forwarding (pps)</th>
-<th class="tableblock halign-left valign-top">Number of queues</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网
+带宽
+能力
+（Gbps）</th>
+<th class="tableblock halign-left valign-top">网络
+包转发
+（pps）</th>
+<th class="tableblock halign-left valign-top">队列数</th>
 </tr>
 </thead>
 <tbody>
@@ -849,7 +863,7 @@
 <p>1.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>80,000</p>
+<p>8 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
@@ -869,7 +883,7 @@
 <p>1.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>300,000</p>
+<p>15 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
@@ -889,7 +903,7 @@
 <p>1.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>500,000</p>
+<p>30 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
@@ -909,7 +923,7 @@
 <p>1.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>500,000</p>
+<p>30 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
@@ -929,7 +943,7 @@
 <p>2</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1 million</p>
+<p>60 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -937,7 +951,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S2ne.2XLARGE16</p>
+<p>S2ne.2XLARGE32</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -949,7 +963,7 @@
 <p>2</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1 million</p>
+<p>60 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -969,7 +983,7 @@
 <p>2.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.2 million</p>
+<p>90 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -989,7 +1003,7 @@
 <p>2.5</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.2 million</p>
+<p>90 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1009,7 +1023,7 @@
 <p>4.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.6 million</p>
+<p>120 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1029,7 +1043,7 @@
 <p>4.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.6 million</p>
+<p>120 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1049,7 +1063,7 @@
 <p>5.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2 million</p>
+<p>180 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1069,7 +1083,7 @@
 <p>5.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2 million</p>
+<p>180 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1089,7 +1103,7 @@
 <p>7.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.5 million</p>
+<p>240 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1109,7 +1123,7 @@
 <p>7.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.5 million</p>
+<p>240 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1129,7 +1143,7 @@
 <p>10.0</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4.5 million</p>
+<p>360 万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -1148,69 +1162,69 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="SN2">Standard Network Enhanced SN2</h3>
+<h3 id="SN2">标准网络增强型 SN2</h3>
 <div class="paragraph">
-<p>Standard Network Enhanced SN2 instances come with a 25 GB network environment, featuring greater bandwidth, lower latency, stable computing performance, and the ability to send and receive up to 700,000 packets per second. They are suitable for scenarios that require sending and receiving massive network packets.</p>
+<p>标准网络增强型 SN2 搭载25G网络环境，拥有更大带宽、更低时延，计算性能稳定，网络收发包性能可达 70万 PPS，可满足高网络包收发场景的业务场景。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_4">Features</h4>
+<h4 id="_实例特点_4">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.4 GHz Intel Xeon E5-2680 Broadwell (v4) processors, DDR4 memories</p>
+<p>2.4 GHz Intel Xeon E5-2680 Broadwell（v4） 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>Up to 56 cores and 224 GB are available to meet the need for ultra-large CPUs/memories.</p>
+<p>最大售卖配置可达 56 核 224 GB，满足超大规格CPU/内存配置需求</p>
 </li>
 <li>
-<p>Support up to 25 Gbps of private network bandwidth to meet extremely high private network transmission requirements.</p>
+<p>最高可支持 25Gbps 内网带宽，满足极高的内网传输需求</p>
 </li>
 <li>
-<p>Support forwarding up to 700,000 network packets per second to allow for a greater number of concurrent users.</p>
+<p>最高可支持 70万 pps，超高的网络包转发能力，满足更多客户同时在线</p>
 </li>
 <li>
-<p>Support storage options of local disks, HDD cloud disks and SSD cloud disks.</p>
+<p>存储可搭配本地盘、普通云盘和SSD云盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_4">Application Scenarios</h4>
+<h4 id="_使用场景_4">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Scenarios that require sending and receiving massive network packets, such as game services, video services, and financial analysis</p>
+<p>高网络包收发场景，如游戏业务、视频业务、金融分析等实时性要求高的业务场景</p>
 </li>
 <li>
-<p>Enterprise applications of different types and sizes</p>
+<p>各种类型和规模的企业级应用</p>
 </li>
 <li>
-<p>Small and medium-sized database systems, caches, and search clusters</p>
+<p>中小型数据库系统、缓存、搜索集群</p>
 </li>
 <li>
-<p>Computing clusters, memory-intensive data processing</p>
+<p>计算集群、依赖内存的数据处理</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_4">Requirements</h4>
+<h4 id="_实例要求_4">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The prepaid billing method is available for SN2 instances.</p>
+<p>SN2 实例可以用作包年包月实例</p>
 </li>
 <li>
-<p>SN2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动SN2实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for SN2 instances. Please see the instance specifications on the right.</p>
+<p>SN2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_4">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_4">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -1223,10 +1237,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -1285,59 +1306,59 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="S2">Standard S2</h3>
+<h3 id="S2">标准型 S2</h3>
 <div class="paragraph">
-<p>Standard S2 instances are a relatively new generation of instances. This family provides a balance of computing, memory, and network resources, and it is a good choice for many applications.</p>
+<p>标准型 S2 实例是较新一代的标准型实例，此系列提供了平衡的计算、内存和网络资源，是很多应用程序的良好选择。</p>
 </div>
 <div class="paragraph">
-<p>Standard S2 instances are equipped with Intel® Xeon® Broadwell processors that bring 40% better integer and floating-point computing performance and DDR4 memories that perform 30% better.</p>
+<p>标准型 S2 实例采用英特尔®至强® Broadwell 处理器，整数和浮点运算性能相比以往提升40%；搭配 DDR4 内存，性能提升30%。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_5">Features</h4>
+<h4 id="_实例特点_5">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Intel Xeon E5-2680 Broadwell (v4) processors with a base clock rate of 2.4 GHz and DDR4 memories</p>
+<p>2.4 GHz 基准主频的Intel Xeon E5-2680 Broadwell（v4）处理器，DDR4 内存</p>
 </li>
 <li>
-<p>CPU performance is 20% higher than Standard S1</p>
+<p>CPU性能相比系列 1 标准型 S1 提升 20%</p>
 </li>
 <li>
-<p>Up to 56 cores and 224 GB are available for sale.</p>
+<p>最大售卖配置可达 56 核 224 GB</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>Balance of computing, memory, and network resources</p>
+<p>计算、内存和网络资源的平衡</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_5">Application Scenarios</h4>
+<h4 id="_使用场景_5">使用场景</h4>
 <div class="paragraph">
-<p>This family is used for small and mid-size databases, data processing tasks that require additional memory and cache fleets, and for running backend servers for SAP, Microsoft SharePoint, cluster computing and other enterprise applications.</p>
+<p>用于中小型数据库和需要附加内存的数据处理任务以及缓存集群，也用于运行 SAP、Microsoft SharePoint、集群计算和其他企业应用程序的后端服务器。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_5">Requirements</h4>
+<h4 id="_实例要求_5">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>S2 instances support both prepaid and postpaid billing methods, and can also be used as production instances of standard host HS20 in CDHs.</p>
+<p>S2实例可以用作包年包月实例和按量计费实例，也可以用作专用宿主机中标准型 HS20 宿主机生产的实例；</p>
 </li>
 <li>
-<p>S2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 S2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for S2 instances. Please see the instance specifications on the right. Make sure that the size of the S2 instance you choose meet the minimum CPU memory requirements of your operating system and applications. In many cases, GUI operating systems (such as Windows) that consume extensive memory and CPU resources may need larger instances. As the needs of your workload for memory and CPU increase, you can expand to higher configurations or choose other instance types.</p>
+<p>S2 实例支持购买配置，请参阅右侧实例规格。确保您选择的 S2 实例大小达到您的操作系统和应用程序的最低CPU内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如，Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_5">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_5">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -1350,10 +1371,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -1650,56 +1678,56 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="S1">Standard S1</h3>
+<h3 id="S1">标准型 S1</h3>
 <div class="paragraph">
-<p>Standard S1 instances are a type of virtual machines with CPUs ranging from low to high core count. They feature moderate prices and flexible configuration options to meet different needs of users. They also offer the options of local disks, HDD cloud disks, and SSD cloud disks for the data disks (The option may vary with different hardware specifications).</p>
+<p>系列 1 的标准机型 S1 是覆盖低核到大核的实例类型，满足用户灵活选择配置的需求，具备价格适中和配置灵活可选的特点。数据盘可搭配本地盘、普通云盘和SSD云盘等不同类型（具体可能随硬件规格而不同）。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_6">Features</h4>
+<h4 id="_实例特点_6">实例特点</h4>
 <div class="paragraph">
-<p>Standard S1 instances have the following features:</p>
+<p>标准型S1具有以下特点：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>With CPUs ranging from low to high core count, offering you flexible options to configure your CVM</p>
+<p>覆盖低核到大核，用户灵活选择配置</p>
 </li>
 <li>
-<p>Intel Xeon CPUs and DDR3 memories</p>
+<p>Intel Xeon CPU，搭配 DDR3 内存</p>
 </li>
 <li>
-<p>Support storage options of local disks, HDD cloud disks and SSD cloud disks.</p>
+<p>存储可搭配本地盘、普通云盘和SSD云盘</p>
 </li>
 <li>
-<p>Balance of computing, memory, and network resources</p>
+<p>计算、内存和网络资源的平衡</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_6">Application Scenarios</h4>
+<h4 id="_使用场景_6">使用场景</h4>
 <div class="paragraph">
-<p>Standard S1 instances are applicable to large-, medium-, and small-sized applications and databases.</p>
+<p>标准型 S1 实例可使用于各种大中小型应用、大中小型数据库等不同应用。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_6">Requirements</h4>
+<h4 id="_实例要求_6">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>S1 instances support both prepaid and postpaid billing methods, and can also be used as production instances of standard host in CDHs.</p>
+<p>S1实例可以用作包年包月实例和按量计费实例，也可以用作专用宿主机中标准型宿主机生产的实例；</p>
 </li>
 <li>
-<p>S1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动S1实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for S1 instances. Please see the instance specifications on the right. Make sure that the size of the S1 instance you choose meet the minimum CPU memory requirements of your operating system and applications. In many cases, GUI operating systems (such as Windows) that consume extensive memory and CPU resources may need larger instances. As the needs of your workload for memory and CPU increase, you can expand to higher configurations or choose other instance types.</p>
+<p>S1 实例支持购买配置，请参阅右侧实例规格。确保您选择的 S1 实例大小达到您的操作系统和应用程序的最低CPU内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如，Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_6">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_6">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -1712,10 +1740,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -1889,6 +1924,20 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>S1.2XLARGE20</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>20</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.0</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>S1.2XLARGE32</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1899,6 +1948,20 @@
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>2.0</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>S1.3XLARGE16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>12</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.5</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2035,10 +2098,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="M">MEM Optimized Instance Family</h2>
+<h2 id="M">内存型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MEM optimized instances feature large memory and are suitable for applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching.</p>
+<p>内存型实例具有大内存的特点，适合高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -2048,72 +2111,72 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="M3">MEM Optimized M3</h3>
+<h3 id="M3">内存型 M3</h3>
 <div class="paragraph">
-<p>As the latest generation of MEM optimized instances, MEM Optimized M3 instances are designed to deliver high performance for handling the workloads of large data sets in memory, and are the best choice for applications demanding high-memory computing.</p>
+<p>内存型 M3 实例是最新一代内存型实例，旨在为处理内存中的大型数据集的工作负载交付快速性能，是高内存计算应用的最佳选择。</p>
 </div>
 <div class="paragraph">
-<p>MEM Optimized M3 instances come with the new Intel® Xeon® Skylake processors that bring 30% better performance than MEM Optimized M2 instance, and the latest DDR4 memories with an increase in performance at 60%. They support up to 10 Gbps private network bandwidth.</p>
+<p>内存型 M3 实例采用英特尔®至强® Skylake 全新处理器，性能相比内存型 M2 实例提升 30%；内存采用最新 DDR4，性能提升 60%；最高内网带宽可支持 10Gbps。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_7">Application Scenarios</h4>
+<h4 id="_使用场景_7">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>它们非常适用于下列情况：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching.</p>
+<p>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </li>
 <li>
-<p>Users who build their own hadoop clusters or redis for gene computing and so on.</p>
+<p>基因计算等自行搭建hadoop集群或redis的用户</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_7">Features</h4>
+<h4 id="_实例特点_7">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.5 GHz Intel Xeon® Skylake 6133 processors with stable computing performance</p>
+<p>2.5GHz Intel® Xeon® Skylake 6133 处理器，计算性能稳定</p>
 </li>
 <li>
-<p>The latest generation of 6-channel DDR4 memories with a bandwidth of 2,666 MT/sec</p>
+<p>最新一代六通道 DDR4 内存， 带宽达 2666 MT/s</p>
 </li>
 <li>
-<p>Larger instance size, M3.16XLARGE512, offering 64 vCPUs and 512 GB of memory</p>
+<p>更大的实例规格，M3.16XLARGE512，提供64 vCPU 512GB内存</p>
 </li>
 <li>
-<p>1:8 or 1:12 processor to memory ratio</p>
+<p>处理器与内存配比为1:8，部分1:12</p>
 </li>
 <li>
-<p>Price is lower than any other memory-optimized instances with the same memory</p>
+<p>购买相同大小内存实例价格最低</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_7">Requirements</h4>
+<h4 id="_实例要求_7">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for M3 instances.</p>
+<p>M3 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>M3 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 M3 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for M3 instances. Please see the instance specifications on the right.</p>
+<p>M3 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_7">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_7">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -2126,10 +2189,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -2300,53 +2370,55 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="M2">MEM Optimized M2</h3>
+<h3 id="M2">内存型 M2</h3>
 <div class="paragraph">
-<p>MEM Optimized M2 instances are designed to deliver high performance for handling the workloads of large data sets in memory. They feature large memory, which makes them the perfect choice for applications demanding high memory computing.</p>
+<p>内存型 M2 实例旨在为处理内存中的大型数据集的工作负载交付快速性能。特色即大内存，是高内存计算应用的最佳选择。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_8">Application Scenarios</h4>
+<h4 id="_使用场景_8">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for: - Applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching. - Users who build their own hadoop clusters or redis for gene computing and so on.</p>
+<p>它们非常适用于下列情况：
+- 高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用
+- 基因计算等自行搭建 Hadoop 集群或 Redis 的用户</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_8">Features</h4>
+<h4 id="_实例特点_8">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.4 GHz Intel Xeon® E5-2680v4 processors, DDR4 memories</p>
+<p>2.4 GHz Intel® Xeon® E5-2680v4 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>Up to 448 GB memory available. M3.14XLARGE448, offering 56 vCPUs and 448 GB of memory</p>
+<p>最大可提供 448GB 内存售卖，M2.14XLARGE448，提供 56 vCPU 448GB 内存</p>
 </li>
 <li>
-<p>1:8 processor to memory ratio</p>
+<p>处理器与内存配比为1:8</p>
 </li>
 <li>
-<p>Price is lower than any other memory-optimized instances with the same memory</p>
+<p>购买相同大小内存实例价格最低</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_8">Requirements</h4>
+<h4 id="_实例要求_8">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>M2 instances support both prepaid and postpaid billing methods, and can also be used as production instances of MEM optimized host HM20 in CDHs.</p>
+<p>M2 实例可以用作包年包月实例和按量计费实例，也可以用作专用宿主机中内存型 HM20 宿主机生产的实例；</p>
 </li>
 <li>
-<p>M2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 M2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for M2 instances. Please see the instance specifications on the right.</p>
+<p>M2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_8">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_8">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -2359,10 +2431,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -2519,57 +2598,57 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="M1">MEM Optimized M1</h3>
+<h3 id="M1">内存型 M1</h3>
 <div class="paragraph">
-<p>MEM Optimized M1 instances with about 1:8 CPU to memory ratio are applicable to applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching.</p>
+<p>内存型 M1 是 CPU 内存比在 1:8 左右的机型，满足高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_9">Features</h4>
+<h4 id="_实例特点_9">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.3 GHz Intel Xeon® E5-2670 v3 processors and DDR3 memories, providing larger-sized instances with stronger computing capacities.</p>
+<p>2.3GHz Intel Xeon® E5-2670 v3 处理器，DDR3 内存，为用户提供更大的实例规格，整体计算能力更强。</p>
 </li>
 <li>
-<p>Memory Intensive with a golden ratio, satisfying the needs for large-scale business deployment.</p>
+<p>内存密集型应用黄金比例，满足大业务部署。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_9">Application Scenarios</h4>
+<h4 id="_使用场景_9">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>它们非常适用于下列情况：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Applications that require extensive memory operations, searches, and computations, such as high-performance databases and distributed memory caching.</p>
+<p>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </li>
 <li>
-<p>Users who build their own hadoop clusters or redis for gene computing and so on.</p>
+<p>基因计算等自行搭建hadoop集群或redis的用户</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_9">Requirements</h4>
+<h4 id="_实例要求_9">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for M1 instances.</p>
+<p>M1 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>M1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 M1 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for M1 instances. Please see the instance specifications on the right.</p>
+<p>M1 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_9">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_9">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -2582,10 +2661,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -2723,10 +2809,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="I">High IO Instance Family</h2>
+<h2 id="I">高 IO 型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>It features high random IOPS, high throughput and low latency and is suitable for I/O-intensive applications that require high disk read/write performance and low latency, such as high-performance databases.</p>
+<p>高 IO 型实例具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等I/O密集型应用。</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -2736,115 +2822,120 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="I3">High IO I3</h3>
+<h3 id="I3">高IO型 I3</h3>
 <div class="paragraph">
-<p>High IO I3 instances, based on NVMe SSD instance storage, are designed for I/O-intensive workloads. They come with the storage resources featured by low latency, super high IOPS and high throughput, and offer an IOPS of up to 6.9 million and a throughput reaching up to 29 GB/s, allowing for an ultra high IOPS at a low cost. This instance type is suitable for I/O-intensive businesses such as high performance relational databases, Elasticsearch, etc.</p>
+<p>高IO型 I3 实例专为I / O密集型工作负载设计，基于NVMe SSD 实例存储，提供低延迟、极高的IOPS、高吞吐量的存储资源，提供高达 690万 IOPS 及高达 29GB/s 吞吐能力，以较低的成本提供超高 IOPS。适合高性能关系型数据库、Elasticsearch等 IO 密集型业务</p>
 </div>
 <div class="paragraph">
-<p>I3 instances feature less expensive and more intensive storage than I2 instances, providing higher IOPS and larger private network bandwidth for each CPU core.</p>
+<p>与I2实例相比，I3实例提供更便宜且更密集的存储，能够为每个CPU核心提供更高的IOPS和更多的内网带宽</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This instance type is only available to users on the whitelist for now. Contact your pre-sales manager for the permission to purchase these instances.</p>
+<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_10">Application Scenarios</h4>
+<h4 id="_使用场景_10">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>High-performance databases, NoSQL databases (e.g. MongoDB), and clustered databases</p>
+<p>高性能数据库，NoSQL 数据库（例如MongoDB）、群集化数据库</p>
 </li>
 <li>
-<p>I/O intensive applications that require low latency, such as online transaction processing (OLTP) systems, and Elasticsearch.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_实例特点_10">Features</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>2.5 GHz Intel Xeon® Skylake 6133 processors that support AVX 2 instructions, offering stable computing performance</p>
-</li>
-<li>
-<p>The latest generation of 6-channel DDR4 memories with a memory bandwidth of 2,666 MT/s</p>
-</li>
-<li>
-<p>Support up to 25 Gbps of private network bandwidth to meet extremely high private network transmission requirements.</p>
-</li>
-<li>
-<p>NVMe SSD is used for instance storage, offering low latency and ultrahigh IOPS</p>
-</li>
-<div class="ulist">
-<ul>
-<li>
-<p>For a single disk, the random read IOPS reaches up to 650,000 (4 KB of block size), and the sequential read throughput is as high as 2.8 GB/s (128 KB of block size)</p>
-</li>
-<li>
-<p>For the machine, the random read IOPS reaches up to 6.9 million (4 KB of block size), and the sequential read throughput is as high as 29 GB/s (128 KB of block size)</p>
-</li>
-
-</ul>
-</div>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_实例要求_10">Requirements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>I3 instances use local disks as data disks, which may lead to a risk of data loss (in case of host crash). If your application does not have a data reliability architecture, you are strongly recommended to choose instances with cloud disks used as data disks.</p>
-</li>
-<div class="ulist">
-<ul>
-<li>
-<p>After the local disk is damaged, you need to shut down the CVM instance before we can change the local disk.</p>
-</li>
-<li>
-<p>If the CVM instance has crashed, we will inform you and make repairs.</p>
-</li>
-</ul>
-</div>
-<li>
-<p>Both prepaid and postpaid billing methods are available for I3 instances.</p>
-</li>
-<li>
-<p>I3 instances can be launched in basic networks and VPCs.</p>
-</li>
-<li>
-<p>The configuration of I3 instances cannot be changed.</p>
-</li>
-<li>
-<p>Configuration purchase is available for I3 instances. Please see the instance specifications on the right.</p>
+<p>联机事务处理 (OLTP) 系统、Elastic Search搜索等需要低时延的I/O密集型应用。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_10">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="_实例特点_10">实例特点</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>2.5GHz Intel® Xeon® Skylake 6133 处理器，计算性能稳定，该处理器支持 AVX 2指令</p>
+</li>
+<li>
+<p>最新一代六通道 DDR4 内存，内存带宽达 2666MT/s</p>
+</li>
+<li>
+<p>最高可支持 25Gbps 内网带宽，满足极高的内网传输需求</p>
+</li>
+<li>
+<p>采用 NVMe SSD 的实例存储，提供低延迟、极高的IOPS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>单盘随机读高达 65万 IOPS（4KB块大小），顺序读吞吐能力高达 2.8 GB/s（128KB块大小）</p>
+</li>
+<li>
+<p>整机随机读高达 690万 IOPS（4KB块大小），顺序读吞吐能力高达 29 GB/s（128KB块大小）</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_实例要求_10">实例要求</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>I3 实例的数据盘是本地存储，有丢失数据的风险（比如宿主机宕机时）。如果您的应用不能做到数据可靠性的架构，不建议使用 I3 实例，我们强烈建议您使用可以选择云硬盘作为数据盘的实例。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换</p>
+</li>
+<li>
+<p>若云服务器实例已经宕机，我们会告知您并进行维修操作</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>I3 实例可以用作包年包月实例和按量计费实例</p>
+</li>
+<li>
+<p>支持在基础网络和私有网络中启动 I3 实例</p>
+</li>
+<li>
+<p>I3 实例不支持调整配置</p>
+</li>
+<li>
+<p>I3 实例支持购买配置，请参阅右侧实例规格</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_10">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 15%;">
-<col style="width: 15%;">
-<col style="width: 15%;">
-<col style="width: 40%;">
-<col style="width: 15%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6669%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Local storage</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+（GB）</th>
+<th class="tableblock halign-left valign-top">本地
+存储</th>
+<th class="tableblock halign-left valign-top">内网
+带宽
+能力
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -2859,7 +2950,7 @@
 <p>32</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1 × 3720 GB local NVMe SSD</p>
+<p>1 x 3720 GB 本地 NVMe SSD 硬盘</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>2.5</p>
@@ -2876,7 +2967,7 @@
 <p>64</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2 × 3720 GB local NVMe SSD</p>
+<p>2 x 3720 GB 本地 NVMe SSD 硬盘</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>5.0</p>
@@ -2893,7 +2984,7 @@
 <p>96</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4 × 3720 GB local NVMe SSD</p>
+<p>4 x 3720 GB 本地 NVMe SSD 硬盘</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>7.5</p>
@@ -2910,7 +3001,7 @@
 <p>128</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>6 × 3720 GB local NVMe SSD</p>
+<p>6 x 3720 GB 本地 NVMe SSD 硬盘</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>10</p>
@@ -2927,33 +3018,15 @@
 <p>256</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8 × 3720 GB local NVMe SSD</p>
+<p>8 x 3720 GB 本地 NVMe SSD 硬盘</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>20</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>I3.20XLARGE320</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>80</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>320</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>12 × 3720 GB local NVMe SSD</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>25</p>
-</div></div></td>
-</tr>
 </tbody>
 </table></div></td>
 </tr>
-
 </tbody>
 </table>
 <table class="tableblock frame-none grid-all spread custom-style">
@@ -2964,48 +3037,48 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="I2">High IO I2</h3>
+<h3 id="I2">高IO型 I2</h3>
 <div class="paragraph">
-<p>High IO I2 instances are optimized to provide tens of thousands of low-latency random I/O operations per second (IOPS) to applications, which are the ideal choice for high IOPS scenarios.</p>
+<p>高IO型 I2 实例经过了优化，可以向应用程序提供每秒上万次低延迟性随机 I/O 操作 (IOPS)，是高 IOPS 应用场景的最佳选择。</p>
 </div>
 <div class="paragraph">
-<p>High IO I2 instances come with Intel® Broadwell processors that bring 40% better integer and floating-point computing performance and DDR4 memories that perform 30% better.</p>
+<p>高IO型 I2 实例采用Intel Broadwell 处理器，整数和浮点运算性能相比以往提升40%；搭配 DDR4 内存，性能提升30%；</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_11">Application Scenarios</h4>
+<h4 id="_使用场景_11">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>High-performance databases, NoSQL databases (e.g. MongoDB), and clustered databases</p>
+<p>高性能数据库，NoSQL 数据库（例如MongoDB）、群集化数据库</p>
 </li>
 <li>
-<p>I/O intensive applications that require low latency, such as online transaction processing (OLTP) systems, and Elasticsearch.</p>
+<p>联机事务处理 (OLTP) 系统、Elastic Search搜索等需要低时延的I/O密集型应用。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_11">Features</h4>
+<h4 id="_实例特点_11">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.4 GHz Intel Xeon E5-2680 Broadwell (v4) processors, DDR4 memories</p>
+<p>2.4 GHz Intel Xeon E5-2680 Broadwell（v4） 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>CPU performance is 20% higher than Series 1 High IO I1</p>
+<p>CPU性能相比系列 1 高 IO 型 I1 提升20%</p>
 </li>
 <li>
-<p>SSD is used for instance storage, and SSD local disk is adopted for all system disks</p>
+<p>采用 SSD 的实例存储，系统盘均为 SSD 本地盘</p>
 <div class="ulist">
 <ul>
 <li>
-<p>High random IOPS, with up to 75,000 random read IOPS (blocksize = 4k, iodepth = 32) and up to 10,000 random write IOPS (blocksize = 4k, iodepth = 32) in typical scenarios.</p>
+<p>高随机 IOPS，典型场景下随机读 IOPS 最高可达 75000 （blocksize =4k ，iodepth =32），典型场景下随机写 IOPS 最高可达 10000 （blocksize =4k ，iodepth =32）；</p>
 </li>
 <li>
-<p>High throughput, with up to 250 MB/sec random read throughput (blocksize =4k, iodepth =32) in typical scenarios.</p>
+<p>高吞吐量，典型场景下随机读吞吐最高可达 250 MB/s（blocksize =4k ，iodepth =32）；</p>
 </li>
 <li>
-<p>Low latency, with the access latency in sub-milliseconds (blocksize = 4k, iodepth = 1) in typical scenarios.</p>
+<p>低延时：典型场景下，提供亚毫秒级的访问延时（blocksize =4k ，iodepth =1）。</p>
 </li>
 </ul>
 </div>
@@ -3014,23 +3087,23 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_11">Requirements</h4>
+<h4 id="_实例要求_11">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>High IO I2 instances support both prepaid and postpaid billing methods, and can also be used as production instances of high IO host HI20 in CDHs.</p>
+<p>高IO型 I2 实例可以用作包年包月实例和按量计费实例，也可以用作专用宿主机中高IO型 HI20 宿主机生产的实例；</p>
 </li>
 <li>
-<p>I2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 I2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for I2 instances. Please see the instance specifications on the right.</p>
+<p>I2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_11">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_11">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -3043,10 +3116,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -3273,57 +3353,57 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="I1">High IO I1</h3>
+<h3 id="I1">高IO型 I1</h3>
 <div class="paragraph">
-<p>High IO I1 is a virtual machine mounted with a high-performance SSD local disk, which can meet the high requirements for fast disk read/write and low latency.</p>
+<p>高 IO 机型 I1 是搭载高性能 SSD 本地盘的实例类型，可以覆盖对磁盘读写和时延要求高的用户需求。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_12">Features</h4>
+<h4 id="_实例特点_12">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>High random IOPS, with up to 40,000 random read IOPS in typical scenarios (blocksize =4k, iodepth =32);</p>
+<p>高随机 IOPS，典型场景下随机读 IOPS 最高可达 40000 （blocksize =4k ，iodepth =32）；</p>
 </li>
 <li>
-<p>High throughput, with up to 250 MB/sec random read throughput (blocksize =4k, iodepth =32) in typical scenarios.</p>
+<p>高吞吐量，典型场景下随机读吞吐最高可达 250 MB/s（blocksize =4k ，iodepth =32）；</p>
 </li>
 <li>
-<p>Low latency, with the access latency in sub-milliseconds.</p>
+<p>低时延，提供亚毫秒级访问延时。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_12">Application Scenarios</h4>
+<h4 id="_使用场景_12">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>High-performance databases, NoSQL databases (e.g. MongoDB), and clustered databases</p>
+<p>高性能数据库，NoSQL 数据库（例如MongoDB）、群集化数据库</p>
 </li>
 <li>
-<p>I/O intensive applications that require low latency, such as online transaction processing (OLTP) systems, and Elasticsearch.</p>
+<p>联机事务处理 (OLTP) 系统、Elastic Search搜索等需要低时延的I/O密集型应用。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_12">Requirements</h4>
+<h4 id="_实例要求_12">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing modes are available for High IO I1 instances.</p>
+<p>高IO型 I1 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>I1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 I1 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for I1 instances. Please see the instance specifications on the right.</p>
+<p>I1 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_12">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_12">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -3336,10 +3416,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -3575,10 +3662,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="D">Big Data Instance Family</h2>
+<h2 id="D">大数据型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The big data instance family is equipped with massive storage resources, features high throughput, and is suitable for throughput-intensive applications such as Hadoop distributed computing, massive log processing, distributed file systems, and large data warehouses.</p>
+<p>大数据型实例搭载海量存储资源，具有高吞吐特点，适合 Hadoop 分布式计算、海量日志处理、分布式文件系统和大型数据仓库等吞吐密集型应用</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -3588,88 +3675,92 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="D1">Big Data D1</h3>
+<h3 id="D1">大数据型 D1</h3>
 <div class="paragraph">
-<p>Big Data D1 instances are equipped with massive storage resources, and carry up to 48 TB SATA HDD local storage, making them suitable for throughput-intensive services, such as Hadoop distributed computing and parallel data processing.</p>
+<p>大数据型 D1 实例搭载海量存储资源，最高可搭载 48T SATA HDD 本地存储， 适合 Hadoop分布式计算、并行数据处理等吞吐密集型业务使用。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_13">Application Scenarios</h4>
+<h4 id="_使用场景_13">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Distributed computing services such as Hadoop MapReduce/HDFS/Hive/HBase.</p>
+<p>Hadoop MapReduce/HDFS/Hive/HBase等分布式计算</p>
 </li>
 <li>
-<p>Business scenarios such as Elasticsearch, log processing, and large data warehouse.</p>
+<p>Elasticsearch、日志处理和大型数据仓库等业务场景设计</p>
 </li>
 <li>
-<p>Customers in the Internet, finance, and other industries who require big data computing and storage analysis, as well as business scenarios of massive data storage and computing.</p>
+<p>互联网行业、金融行业等有大数据计算与存储分析需求的行业客户，进行海量数据存储和计算的业务场景</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_13">Features</h4>
+<h4 id="_实例特点_13">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.4 GHz Intel Xeon E5-2680v4 processors, DDR4 memories</p>
+<p>2.4 GHz Intel® Xeon® E5-2680v4 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>Equipped with up to 48 TB local HDD storage</p>
+<p>实例配备最高 48TB 的基于HDD的本地存储</p>
+<div class="ulist">
+<ul>
+<li>
+<p>单盘顺序读吞吐能力 190+ MB/s，顺序写吞吐能力 190+ MB/s（128 KB 块大小，32深度）</p>
 </li>
 <li>
-<p>For a single disk, the sequential read throughput is 190+ MB/s, and sequential write throughput is 190+ MB/s (128 KB of block size and depth of 32)</p>
+<p>整机吞吐能力最高可达 2.3 GB/s（128 KB 块大小，32深度）。</p>
 </li>
 <li>
-<p>For the machine, the throughput can reach up to 2.3 GB/s (128 KB of block size and depth of 32).</p>
+<p>低至 2-5 ms 读写延时</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>The read/write delay is as low as 2-5 ms.</p>
+<p>本地存储单价低至S2的 1/10，与 IDC 自建 Hadoop 集群拥有相近的总成本。</p>
 </li>
 <li>
-<p>The unit price of local storage is as low as 1/10 of that of S2. The total cost is similar to that of Hadoop clusters built in IDC.</p>
-</li>
-<li>
-<p>The 1:4 processor to memory ratio is tailored for the big data scenarios.</p>
+<p>处理器与内存配比为1:4，为大数据场景设计</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_13">Requirements</h4>
+<h4 id="_实例要求_13">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Big Data D1 instances use local disks as data disks, which may lead to a risk of data loss (in case of host crash). If your application does not have a data reliability architecture, you are strongly recommended to choose instances with cloud disks used as data disks.</p>
+<p>大数据型 D1 实例的数据盘是本地硬盘，有丢失数据的风险（比如宿主机宕机时），如果您的应用不能做到数据可靠性的架构，我们强烈建议您使用可以选择云硬盘作为数据盘的实例。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>After the local disk is damaged, you need to shut down the CVM instance before we can change the local disk.</p>
+<p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换</p>
 </li>
 <li>
-<p>If the CVM instance has crashed, we will inform you and make repairs.</p>
+<p>若云服务器实例已经宕机，我们会告知您并进行维修操作</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Both prepaid and postpaid billing modes are available for Big Data D1 instances.</p>
+<p>大数据型 D1 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>D1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 D1 实例</p>
 </li>
 <li>
-<p>The configuration of D1 instances cannot be changed.</p>
+<p>D1 实例不支持调整配置</p>
 </li>
 <li>
-<p>Configuration purchase is available for D1 instances. Please see the instance specifications on the right.</p>
+<p>D1 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_13">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_13">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -3682,10 +3773,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -3767,10 +3865,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="C">Compute Instance Family</h2>
+<h2 id="C">计算型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This family comes with a base clock rate of 3.2 GHz to provide the highest single-core computing performance. It is suitable for compute-intensive applications such as batch processing, high performance computing, and large game servers.</p>
+<p>计算型实例搭载 3.2GHz 基准主频，具有最高单核计算性能。适合批处理、高性能计算和大型游戏服务器等计算密集型应用。</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -3780,78 +3878,78 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="CN3">Computing CN3 Instance</h3>
+<h3 id="CN3">计算型 CN3</h3>
 <div class="paragraph">
-<p>As the latest generation of computing instances, the Computing CN3 instances come with 25 GB ENI that is 2.5 times faster than that of normal computing instances, featuring greater bandwidth and lower latency. Computing CN3 instances provide the processor with the maximum base clock rate and the best cost performance among CVMs. It is an ideal choice for applications subject to computing, such as high computing performance and high concurrent read and write.</p>
+<p>计算型 CN3 实例是最新一代计算型实例，搭配 25G 网卡，网络性能相比普通计算型提高2.5倍，拥有更大带宽、更低时延。提供 CVM 中最高基准主频的处理器和最高的性价比，是高计算性能和高并发读写等受计算限制的应用程序的理想选择。</p>
 </div>
 <div class="paragraph">
-<p>Computing CN3 instances are equipped with the new Skylake Xeon® processors, and support up to 25 Gbps private network bandwidth.</p>
+<p>计算型 CN3 实例采用至强®处理器 Skylake 全新处理器，最高内网带宽可支持25Gbps。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_14">Application Scenarios</h4>
+<h4 id="_使用场景_14">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>它们非常适合用于下列情况：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Batch processing workloads and high performance computing (HPC)</p>
+<p>批处理工作负载、高性能计算 (HPC)</p>
 </li>
 <li>
-<p>High-traffic Web frontend server</p>
+<p>高流量 Web 前端服务器</p>
 </li>
 <li>
-<p>Other compute-intensive services such as the massively multiplayer online (MMO) game server</p>
+<p>大型多人联机 (MMO) 游戏服务器等其他计算密集型业务</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_14">Features</h4>
+<h4 id="_实例特点_14">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>3.2 GHz Intel Xeon® Skylake 6146 processors with up to 3.6 GHz of turbo frequency</p>
+<p>3.2GHz Intel® Xeon® Skylake 6146 处理器</p>
 </li>
 <li>
-<p>New Intel Advanced Vector Extension (AXV-512) instruction set</p>
+<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
 </li>
 <li>
-<p>Support up to 25 Gbps of private network bandwidth to meet extremely high private network transmission requirements.</p>
+<p>最高可支持 25Gbps 内网带宽，满足极高的内网传输需求</p>
 </li>
 <li>
-<p>The latest generation of 6-channel DDR4 memories with a memory bandwidth of 2,666 MT/s</p>
+<p>最新一代六通道 DDR4 内存，内存带宽达 2666MT/s</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_14">Requirements</h4>
+<h4 id="_实例要求_14">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for CN3 instances.</p>
+<p>CN3 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>CN3 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 CN3 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for CN3 instances. Please see the instance specifications on the right.</p>
+<p>CN3 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_14">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_14">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -3864,10 +3962,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -3996,75 +4101,75 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="C3">Computing C3 Instance</h3>
+<h3 id="C3">计算型 C3</h3>
 <div class="paragraph">
-<p>As the latest generation of computing instances, Computing C3 instances provide the processor with the maximum base clock rate and the best cost performance among CVMs. It is an ideal choice for applications subject to computing, such as high computing performance and high concurrent read and write.</p>
+<p>计算型 C3 实例是最新一代计算型实例，可提供 CVM 中最高基准主频的处理器和最高的性价比，是高计算性能和高并发读写等受计算限制的应用程序的理想选择。</p>
 </div>
 <div class="paragraph">
-<p>Computing C3 instances are equipped with the new Skylake Xeon® processors that perform 30% better and the latest DDR4 memories that perform 60% better than Computing C2 instances. Computing C3 instances support up to 10 Gbps private network bandwidth.</p>
+<p>计算型 C3 实例采用至强®处理器Skylake全新处理器，性能相比计算型 C2 实例提升30%；内存采用最新DDR4，性能提升60%；最高内网带宽可支持10Gbps。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_15">Application Scenarios</h4>
+<h4 id="_使用场景_15">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>它们非常适合用于下列情况：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Batch processing workloads and high performance computing (HPC)</p>
+<p>批处理工作负载、高性能计算 (HPC)</p>
 </li>
 <li>
-<p>High-traffic Web frontend server</p>
+<p>高流量 Web 前端服务器</p>
 </li>
 <li>
-<p>Other compute-intensive services such as the massively multiplayer online (MMO) game server</p>
+<p>大型多人联机 (MMO) 游戏服务器等其他计算密集型业务</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_15">Features</h4>
+<h4 id="_实例特点_15">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>3.2 GHz Intel Xeon® Skylake 6146 processors with up to 3.6 GHz of turbo frequency</p>
+<p>3.2GHz Intel® Xeon® Skylake 6146 处理器</p>
 </li>
 <li>
-<p>New Intel Advanced Vector Extension (AXV-512) instruction set</p>
+<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
 </li>
 <li>
-<p>The latest generation of 6-channel DDR4 memories with a memory bandwidth of 2,666 MT/s</p>
+<p>最新一代六通道 DDR4 内存，内存带宽达 2666MT/s</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_15">Requirements</h4>
+<h4 id="_实例要求_15">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for C3 instances.</p>
+<p>C3 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>C3 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 C3 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for C3 instances. Please see the instance specifications on the right.</p>
+<p>C3 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_15">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_15">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4077,10 +4182,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4210,6 +4322,20 @@
 <p>8.0</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>C3.12XLARGE160</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>48</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>160</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>10</p>
+</div></div></td>
+</tr>
 </tbody>
 </table></div></td>
 </tr>
@@ -4223,69 +4349,69 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="CN2">Computing Network Enhanced CN2</h3>
+<h3 id="CN2">计算网络增强型 CN2</h3>
 <div class="paragraph">
-<p>Computing Network Enhanced CN2 instances come with 25 GB ENI, providing a network performance that is 2.5 times faster than that of normal computing instances, featuring greater bandwidth, lower latency, and super-high clock rate. They are suitable for scenarios that require high computing resources and sending and receiving massive network packets.</p>
+<p>计算网络增强型 CN2 实例搭配 25G 网卡，网络性能相比普通计算型提高2.5倍，拥有更大带宽、更低时延，超高主频，适合需要高计算资源消耗及高网络包收发场景的应用场景。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_16">Features</h4>
+<h4 id="_实例特点_16">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>3.2 GHz Intel Xeon® E5-2667v4 processors with up to 3.6 GHz of turbo frequency; DDR4 memories</p>
+<p>3.2GHz Intel® Xeon® E5-2667v4 处理器，睿频高达3.6GHz，DDR4 内存</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>Support up to 25 Gbps of private network bandwidth to meet extremely high private network transmission requirements.</p>
+<p>最高可支持 25Gbps 内网带宽，满足极高的内网传输需求</p>
 </li>
 <li>
-<p>Support forwarding up to 700,000 network packets per second to allow for a greater number of concurrent users.</p>
+<p>最高可支持 70万 pps 的包转发率，超高网络包转发能力，满足更多客户同时在线</p>
 </li>
 <li>
-<p>Support storage options of SSD local disks, HDD cloud disks and SSD cloud disks.</p>
+<p>存储可搭配SSD本地盘、普通云盘和SSD云盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_16">Application Scenarios</h4>
+<h4 id="_使用场景_16">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Scenarios that require sending and receiving massive network packets, such as game services, video services, and financial analysis</p>
+<p>高网络包收发场景，如游戏业务、视频业务、金融分析等实时性要求高的业务场景</p>
 </li>
 <li>
-<p>Batch processing workloads</p>
+<p>批处理工作负载</p>
 </li>
 <li>
-<p>High-traffic Web server, massively multiplayer online (MMO) game server</p>
+<p>高流量 Web 服务器、大型多人联机 (MMO) 游戏服务器</p>
 </li>
 <li>
-<p>High performance computing (HPC)</p>
+<p>高性能计算 (HPC)</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_16">Requirements</h4>
+<h4 id="_实例要求_16">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The prepaid billing method is available for CN2 instances.</p>
+<p>CN2 实例可以用作包年包月实例；</p>
 </li>
 <li>
-<p>CN2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 CN2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for CN2 instances. Please see the instance specifications on the right.</p>
+<p>CN2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_16">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_16">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4298,10 +4424,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4360,66 +4493,67 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="C2">Computing C2 Instance</h3>
+<h3 id="C2">计算型 C2</h3>
 <div class="paragraph">
-<p>Computing C2 instances provide the processor with the highest performance and the best cost performance among CVMs. It is an ideal choice for applications subject to computing, such as high computing performance and high concurrent read and write.</p>
+<p>计算型 C2 实例可提供 CVM 中最高性能的处理器和最高的性价比，是高计算性能和高并发读写等受计算限制的应用程序的理想选择。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_17">Application Scenarios</h4>
+<h4 id="_使用场景_17">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>计算型 C2 非常适合用于下列情况：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Batch processing workloads</p>
+<p>批处理工作负载</p>
 </li>
 <li>
-<p>High-traffic Web server, massively multiplayer online (MMO) game server</p>
+<p>高流量 Web 服务器、大型多人联机 (MMO) 游戏服务器</p>
 </li>
 <li>
-<p>High-performance computing (HPC) and other compute-intensive applications.</p>
+<p>高性能计算 (HPC)
+以及其他计算密集型应用程序。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_17">Features</h4>
+<h4 id="_实例特点_17">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>3.2 GHz Intel Xeon® E5-2667v4 processors with up to 3.6 GHz of turbo frequency; DDR4 memories</p>
+<p>3.2GHz Intel® Xeon® E5-2667v4 处理器，睿频高达 3.6GHz，DDR4 内存</p>
 </li>
 <li>
-<p>1:2 or 1:4 processor to memory ratio.</p>
+<p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>The network performance of an instance is determined by its specification. The higher the specification is, the greater the network forwarding performance and the higher the maximum private network bandwidth limit will be.</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
 </li>
 <li>
-<p>Support all kinds of cloud disks</p>
+<p>支持全种类云硬盘</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_17">Requirements</h4>
+<h4 id="_实例要求_17">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>C2 instances support both prepaid and postpaid billing methods, and can also be used as production instances of computing host HC20 in CDHs.</p>
+<p>C2 实例可以用作包年包月实例和按量计费实例，也可以用作专用宿主机中计算型宿主机 HC20 生产的实例；</p>
 </li>
 <li>
-<p>C2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 C2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for C2 instances. Please see the instance specifications on the right.</p>
+<p>C2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_17">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_17">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4432,10 +4566,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4587,10 +4728,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="OTHER">Heterogeneous Computing Instance Family</h2>
+<h2 id="OTHER">异构计算实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This family is equipped with heterogeneous hardware such as GPU and FPGA to deliver real-time, fast parallel computing and floating-point computing capabilities. It is suitable for high-performance applications such as deep learning, scientific computing, video encoding/decoding, and graphics workstations.</p>
+<p>异构计算实例搭载 GPU、FPGA 等异构硬件，具有实时高速的并行计算和浮点计算能力，适合于深度学习、科学计算、视频编解码和图形工作站等高性能应用。</p>
 </div>
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
@@ -4600,63 +4741,63 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="GN8">GPU Computing GN8</h3>
+<h3 id="GN8">GPU计算型 GN8</h3>
 <div class="paragraph">
-<p>GPU Computing GN8 uses high-performance NVIDIA Tesla P40 and is applicable to generic GPU computing applications with CUDA and OpenCL programming models. The peak computing capacity of a single CVM exceeds 96 TFLOPS in single-precision floating point compute and 376 TOPS in INT8. Based on top-notch TFLOPS and INT8 performance, GPU Computing GN8 is the most cost-effective AI training and inference solution perfectly meeting the needs of one-stop deep learning training and real-time inference.</p>
+<p>GPU 计算型 GN8 实例采用高性能 NVIDIA Tesla P40 以及适用于使用 CUDA 和 OpenCL 编程模型的通用 GPU 计算设计，整机峰值计算能力突破 96 TFLOPS 单精度浮点运算，376 TOPS 整数运算能力（INT8）, 顶级的单精度浮点运算能力和整数运算能力集中到同一机器上，完美的满足了一站式深度学习训练与实时推理的需求， 是目前最具有性价比的整体 AI 训练与推理解决方案。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_18">Application Scenarios</h4>
+<h4 id="_使用场景_18">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>这些实例特别适用于以下场景：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deep learning such as image classification and recognition, speech recognition, and natural language processing</p>
+<p>深度学习如图像分类识别、语音识别、自然语言处理</p>
 </li>
 <li>
-<p>Scientific computing including computational fluid dynamics, computational finance, genomics research, environmental analysis, high-performance computing, and other server-side GPU computing workloads.</p>
+<p>科学计算如计算流体动力学、计算金融学、基因组学研究、环境分析,高性能计算等其他服务器端 GPU 计算工作负载。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_18">Features</h4>
+<h4 id="_实例特点_18">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>NVIDIA Tesla P40 GPU compute cards</p>
+<p>采用 NVIDIA Tesla P40 GPU 计算卡</p>
 </li>
 <li>
-<p>2.4 GHz Intel Xeon E5-2680v4 processors, DDDR4 memories</p>
+<p>2.4 GHz Intel® Xeon® E5-2680v4 处理器，DDDR4 内存</p>
 </li>
 <li>
-<p>The peak computing capacity of a single CVM: over 96 TFLOPS (single-precision floating point compute); over 376 TOPS (INT8)</p>
+<p>单机峰值计算能力突破 96 TFLOPS 单精度浮点运算及 376 TOPS 整数运算能力</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_18">Requirements</h4>
+<h4 id="_实例要求_18">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for GN8 instances.</p>
+<p>GN8 实例可以用作包年包月实例和按量计费实例</p>
 </li>
 <li>
-<p>GN8 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 GN8 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for GN8 instances. Please see the instance specifications on the right.</p>
+<p>GN8 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 <li>
-<p>The configuration of GN8 instances cannot be changed.</p>
+<p>GN8 实例暂时不支持变更配置。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_18">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_18">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4669,10 +4810,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4745,66 +4893,66 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="GN2">GPU Computing GN2</h3>
+<h3 id="GN2">GPU计算型 GN2</h3>
 <div class="paragraph">
-<p>GPU Computing GN2 uses high-performance NVIDIA Tesla M40 and is applicable to generic GPU computing applications with CUDA and OpenCL programming models. It offers powerful single/double-precision floating point feature with 6,144 acceleration cores. The single-precision floating point compute capacity reaches14 TFlops.</p>
+<p>GPU 计算型 GN2 实例采用高性能 NVIDIA Tesla M40 以及适用于使用 CUDA 和 OpenCL 编程模型的通用 GPU 计算设计，提供强大的单双精度浮点功能。拥有高达 6144 个加速核心，高达 14TFlops 单精度浮点运算能力。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_19">Application Scenarios</h4>
+<h4 id="_使用场景_19">使用场景</h4>
 <div class="paragraph">
-<p>These instances are an ideal choice for:</p>
+<p>这些实例特别适用于以下场景：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deep learning such as image classification and recognition, speech recognition, and natural language processing</p>
+<p>深度学习如图像分类识别、语音识别、自然语言处</p>
 </li>
 <li>
-<p>Scientific computing including computational fluid dynamics, computational finance, genomics research, environmental analysis, high-performance computing, and other server-side GPU computing workloads.</p>
+<p>科学计算如计算流体动力学、计算金融学、基因组学研究、环境分析,高性能计算等其他服务器端 GPU 计算工作负载。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_19">Features</h4>
+<h4 id="_实例特点_19">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>NVIDIA Tesla M40 GPU compute cards, with 24 GB GDDR5 video memory for each card</p>
+<p>采用 NVIDIA Tesla M40 GPU 计算卡，单卡 24GB GDDR5 显存</p>
 </li>
 <li>
-<p>2.4 GHz Intel Xeon E5-2680v4 processors</p>
+<p>2.4 GHz Intel® Xeon® E5-2680v4 处理器</p>
 </li>
 <li>
-<p>Peak computing capacity for single machine: over 14 TFlops (single-precision floating point); over 0.4 TFlops (double-precision floating point).</p>
+<p>单机峰值计算能力突破 14 TFlops 单精度浮点运算，0.4 TFlops 双精度浮点运算</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_19">Requirements</h4>
+<h4 id="_实例要求_19">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both system disks and data disks use local SSD disks and can be mounted with cloud disks.</p>
+<p>系统盘以及数据盘均为本地SSD硬盘，并可自由挂载云硬盘</p>
 </li>
 <li>
-<p>Both prepaid and postpaid billing methods are available for GN2 instances.</p>
+<p>GN2 实例可以用作包年包月实例和按量计费实例</p>
 </li>
 <li>
-<p>GN2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 GN2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for GN2 instances. Please see the instance specifications on the right.</p>
+<p>GN2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 <li>
-<p>The configuration of GN2 instances cannot be changed.</p>
+<p>GN2 实例暂时不支持变更配置。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_19">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_19">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4817,10 +4965,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4865,64 +5020,64 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="GA2">GPU Rendering GA2</h3>
+<h3 id="GA2">GPU渲染型 GA2</h3>
 <div class="paragraph">
-<p>GA2 instances are optimized for graphics-intensive applications and are suitable for generic GPU rendering applications. These instances are equipped with the latest AMD S7150 GPUs. A single GPU has 2,048 processor cores and provides a single-precision floating-point compute capacity of 3.77 TFLOPS. With powerful computing capacity and elastic expansion based on your business needs, GA2 instances are optimal for high-performance rendering and computing applications.</p>
+<p>GA2 实例针对图形密集型应用程序进行了优化，适用于通用 GPU 渲染应用程序。搭配 AMD 最新 S7150 系列 GPU，单 GPU 核心具有 2048 个 处理器核心，单 GPU 最高可达 3.77 TFLOPS 单精度浮点运算，是计算性能强大、弹性按需扩展的 GPU 实例提供给用户高性能渲染及计算的最优选。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This instance type is only available to users on the whitelist for now. Contact your pre-sales manager for the permission to purchase these instances.</p>
+<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_20">Application Scenarios</h4>
+<h4 id="_使用场景_20">使用场景</h4>
 <div class="paragraph">
-<p>GA2 Instance is especially suitable for GPU computing workloads requiring high-performance rendering and excellent graphic processing capacities.</p>
+<p>非常适用于高性能渲染和高图形处理能力要求GPU 计算工作负载。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Graphic rendering scenarios such as 3D modeling, rendering, multimedia encoding/decoding, and nonlinear editing</p>
+<p>3D 建模、渲染、多媒体编解码和非线性编辑等图形渲染能力</p>
 </li>
 <li>
-<p>Business scenarios that require a small amount of virtual GPU resources for optimal graphics performance, such as cloud gaming</p>
+<p>云游戏等需要少量虚拟GPU资源以实现最佳图形性能的业务场景</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_20">Features</h4>
+<h4 id="_实例特点_20">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>AMD FirePro™ S7150 GPU, with single-precision floating-point compute capacity of up to 3.77 TFlops for a single GPU</p>
+<p>采用 AMD FirePro™ S7150 GPU，单 GPU 最高可达 3.77 TFLOPS 单精度浮点运算</p>
 </li>
 <li>
-<p>Intel Xeon E5-2680v4 2.5 GHz processors; high-speed DDR4 memories</p>
+<p>采用 2.4 GHz Intel® Xeon® E5-2680v4 处理器，内存采用高速 DDR4</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_20">Requirements</h4>
+<h4 id="_实例要求_20">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Both prepaid and postpaid billing methods are available for GA2 instances.</p>
+<p>GA2 实例可以用作包年包月实例和按量计费实例；</p>
 </li>
 <li>
-<p>GA2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 GA2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for GA2 instances. Please see the instance specifications on the right.</p>
+<p>GA2 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -4935,10 +5090,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -4969,70 +5131,70 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="FX2">FPGA FX2</h3>
+<h3 id="FX2">FPGA型 FX2</h3>
 <div class="paragraph">
-<p>FPGA FX2 is an FPGA-based computing service equipped with a Xilinx KU115 accelerator. It is designed to accelerate compute-intensive algorithms, and achieve high throughput, low latency, and hardware programming. We recommend that you use it for high-performance computing services, such as genomics research, financial analysis, image compression and real-time video processing.</p>
+<p>FPGA型FX2 是基于FPGA现场可编程阵列的计算服务，搭载Xilinx KU115加速器，专用于加快计算密集型算法，高吞吐，低时延，硬件可编程，建议用于基因组学研究、金融分析、图像压缩和实时视频处理等高性能计算服务</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This instance type is only available to users on the whitelist for now. Contact your pre-sales manager for the permission to purchase these instances.</p>
+<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_21">Application Scenarios</h4>
+<h4 id="_使用场景_21">使用场景</h4>
 <div class="paragraph">
-<p>Ideal for scenarios that require large amounts of parallel computing and high throughput</p>
+<p>非常适合用于需要大量并行计算、高吞吐的场景</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deep learning and inference scenarios such as natural language processing and image classification</p>
+<p>深度学习推理如自然语言处理和图片分类等场景</p>
 </li>
 <li>
-<p>Scenarios that require a large amount of analysis and computing such as genomics research and financial analysis</p>
+<p>基因组学研究、金融分析等大量分析计算场景</p>
 </li>
 <li>
-<p>Large-scale image processing scenarios such as image compression and real-time video processing</p>
+<p>图像压缩和实时视频处理等大规模图像处理场景</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_21">Features</h4>
+<h4 id="_实例特点_21">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Use Xilinx Kintex UltraScale KU115 FPGA</p>
+<p>采用Xilinx Kintex UltraScale KU115 FPGA</p>
 </li>
 <li>
-<p>Intel Xeon E5-2680v4 2.5 GHz processors; high-speed DDR4 memories</p>
+<p>采用 2.4 GHz Intel® Xeon® E5-2680v4 处理器，内存采用高速 DDR4</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_21">Requirements</h4>
+<h4 id="_实例要求_21">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The prepaid billing method is available for FX2 instances.</p>
+<p>FX2 实例可以用作包年包月实例；</p>
 </li>
 <li>
-<p>FX2 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 FX2 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for FX2 instances. Please see the instance specifications on the right.</p>
+<p>FX2 实例支持购买配置，请参阅右侧实例规格；</p>
 </li>
 <li>
-<p>The configuration of FX2 instances cannot be changed.</p>
+<p>FX2 实例暂时不支持变更配置。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_21">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_21">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -5045,10 +5207,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -5102,15 +5271,15 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="B">Batch-based Instance Family</h2>
+<h2 id="B">批量型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>With the lowest per core-hour cost, this family is suitable for compute-intensive applications that use super large computing nodes frequently in a short time, such as rendering, gene analysis, and crystal pharmacy.</p>
+<p>批量型实例具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This instance type is only available to users on the whitelist for now. Contact your pre-sales manager for the permission to purchase these instances.</p>
+<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
 </li>
 </ul>
 </div>
@@ -5122,57 +5291,57 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="BC1">Batch-based Computing BC1</h3>
+<h3 id="BC1">批量计算型 BC1</h3>
 <div class="paragraph">
-<p>The batch-based computing BC1 instance is an instance of ultra-high cost performance. It applies the core/hour billing method, which is accurate to seconds. The price is as low as 0.1 CNY/core. It is flexible and ready to use, and can be terminated when you do not need it. It supports a variety of specifications to meet the needs of compute-intensive application users who frequently use super large computing nodes in short time, such as rendering, gene analysis, and crystal pharmacy.</p>
+<p>批量计算型 BC1 实例是一款超高性价比按核时计费的实例，计费精确到秒，刊例价低至 0.1 元/核时。使用灵活，即买即用，用完销毁，支持多种规格，可满足渲染、基因分析、晶体药学等计算密集型用户短时频繁使用超大规模计算节点诉求。</p>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_22">Application Scenarios</h4>
+<h4 id="_使用场景_22">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Video/Film rendering</p>
+<p>视频 / 影视渲染</p>
 </li>
 <li>
-<p>Genomics, crystal pharmacy, etc.</p>
+<p>基因组学、晶体药学等</p>
 </li>
 <li>
-<p>HPC compute-intensive business such as weather forecasting and astronomy</p>
+<p>HPC计算密集型业务，如气象预测、天文学等</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_22">Features</h4>
+<h4 id="_实例特点_22">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Cost-effective with the lowest price per hour among all instances with the same specification</p>
+<p>高性价比，所有实例类型中相同规格小时单价最低</p>
 </li>
 <li>
-<p>1:4 processor to memory ratio</p>
+<p>处理器与内存配比为1:4</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_22">Requirements</h4>
+<h4 id="_实例要求_22">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Only the postpaid billing method is available for batch-based computing BC1 instances.</p>
+<p>批量计算型 BC1 实例仅支持按量计费方式启动；</p>
 </li>
 <li>
-<p>BC1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 BC1 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for BC1 instances. Please see the instance specifications on the right.</p>
+<p>BC1 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_22">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_22">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -5185,10 +5354,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>
@@ -5247,57 +5423,57 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="BS1">Batch-based Computing BS1</h3>
+<h3 id="BS1">批量计算型 BS1</h3>
 <div class="paragraph">
-<p>The batch-based computing BS1 instance is an instance of ultra-high cost performance. It applies the core/hour billing method, which is accurate to seconds. The price is as low as 0.09 CNY/core. It is flexible and ready to use, and can be terminated when you do not need it. It supports a variety of specifications to meet the needs of compute-intensive application users who frequently use super large computing nodes in short time, such as rendering, gene analysis, and crystal pharmacy.</p>
+<p>批量计算型 BS1 实例是一款超高性价比按核时计费的实例，计费精确到秒，刊例价低至 0.09 元/核时。使用灵活，即买即用，用完销毁，支持多种规格，可满足渲染、基因分析、晶体药学等计算密集型用户短时频繁使用超大规模计算节点诉求。</p>
 </div>
 <div class="sect3">
-<h4 id="_实例特点_23">Features</h4>
+<h4 id="_实例特点_23">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Cost-effective with the lowest price per hour among all instances with the same specification</p>
+<p>高性价比，所有实例类型中相同规格小时单价最低</p>
 </li>
 <li>
-<p>1:2 processor to memory ratio</p>
+<p>处理器与内存配比为1:2</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_使用场景_23">Application Scenarios</h4>
+<h4 id="_使用场景_23">使用场景</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Video/Film rendering</p>
+<p>视频 / 影视渲染</p>
 </li>
 <li>
-<p>Genomics, crystal pharmacy, etc.</p>
+<p>基因组学、晶体药学等</p>
 </li>
 <li>
-<p>HPC compute-intensive business such as weather forecasting and astronomy</p>
+<p>HPC计算密集型业务，如气象预测、天文学等</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_实例要求_23">Requirements</h4>
+<h4 id="_实例要求_23">实例要求</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Only the postpaid billing method is available for batch-based computing BS1 instances.</p>
+<p>批量计算型 BS1 实例仅支持按量计费方式启动；</p>
 </li>
 <li>
-<p>BS1 instances can be launched in basic networks and VPCs.</p>
+<p>支持在基础网络和私有网络中启动 BS1 实例；</p>
 </li>
 <li>
-<p>Configuration purchase is available for BS1 instances. Please see the instance specifications on the right.</p>
+<p>BS1 实例支持购买配置，请参阅右侧实例规格。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_23">&nbsp; &nbsp;<a href="#INSTANCETYPE">Back to the top</a></h4>
+<h4 id="__a_href_instancetype_回到顶部_a_23">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
 </div>
 </div></div></td>
@@ -5310,10 +5486,17 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Model</th>
-<th class="tableblock halign-left valign-top">vCPU (core)</th>
-<th class="tableblock halign-left valign-top">Memory (GB)</th>
-<th class="tableblock halign-left valign-top">Private network bandwidth (Gbps)</th>
+<th class="tableblock halign-left valign-top">规格</th>
+<th class="tableblock halign-left valign-top">vCPU
+
+（核）</th>
+<th class="tableblock halign-left valign-top">内存
+
+
+（GB）</th>
+<th class="tableblock halign-left valign-top">内网带宽能力
+
+（Gbps）</th>
 </tr>
 </thead>
 <tbody>

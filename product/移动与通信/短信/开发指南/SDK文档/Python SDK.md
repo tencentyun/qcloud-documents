@@ -2,32 +2,17 @@
 目前腾讯云短信为客户提供 **国内短信、国内语音** 和 **国际短信** 三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
-国内短信支持操作：
-- 单发短信
-- 指定模板单发短信
-- 群发短信
-- 指定模板群发短信
-- 拉取短信回执和短信回复状态
+国内短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
 
 > 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 ### 国际短信
-国际短信支持操作：
-- 单发短信
-- 指定模板单发短信
-- 群发短信
-- 指定模板群发短信
-- 拉取短信回执和短信回复状态
+国际短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
 
 > 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
 ### 语音通知
-语音通知支持操作：
-- 发送语音验证码
-- 发送语音通知
-- 上传语音文件
-- 按语音文件fid发送语音通知
-- 指定模板发送语音通知类
+语音通知支持操作：[发送语音验证码](#发送语音验证码)、[发送语音通知](#发送语音通知)、[上传语音文件](#上传语音文件)、[按语音文件 fid 发送语音通知](#按语音文件fid发送语音通知)、[指定模板发送语音通知](#指定模板发送语音通知)。
 
 
 ## 开发准备
@@ -81,32 +66,12 @@ phone_numbers = ["21212313123", "12345678902", "12345678903"]
 
 # 短信模板ID，需要在短信应用中申请
 template_id = 7839  # NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-
+# templateId 7839 对应的内容是"您的验证码是: {1}"
 # 签名
 sms_sign = "腾讯云"  # NOTE: 这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台中申请，另外签名参数使用的是`签名内容`，而不是`签名ID`
 ```
 
-- **单发短信**
-
-```python
-from qcloudsms_py import SmsSingleSender
-from qcloudsms_py.httpclient import HTTPError
-
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-ssender = SmsSingleSender(appid, appkey)
-try:
-    result = ssender.send(sms_type, 86, phone_numbers[0],
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-print(result)
-```
-
-> 发送短信没有指定模板ID时，发送的内容需要与已审核通过的模板内容相匹配，才可能下发成功，否则返回失败。
-> 如需发送国际短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
+<a id="指定模板单发短信" ></a>
 
 - **指定模板ID单发短信**
 
@@ -115,7 +80,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 
 ssender = SmsSingleSender(appid, appkey)
-params = ["5678"]  # 当模板没有参数时，`params = []`
+params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = ssender.send_with_param(86, phone_numbers[0],
         template_id, params, sign=sms_sign, extend="", ext="")  # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -129,34 +94,17 @@ print(result)
 
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发短信**
 
-```python
-from qcloudsms_py import SmsMultiSender
-from qcloudsms_py.httpclient import HTTPError
+<a id="指定模板群发短信" ></a>
 
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-msender = SmsMultiSender(appid, appkey)
-try:
-    result = msender.send(sms_type, "86", phone_numbers,
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-print(result)
-```
->无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
-
-- **指定模板ID群发**
+- **指定模板ID群发短信**
 
 ```python
 from qcloudsms_py import SmsMultiSender
 from qcloudsms_py.httpclient import HTTPError
 
 msender = SmsMultiSender(appid, appkey)
-params = ["5678"]
+params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = msender.send_with_param(86, phone_numbers,
         template_id, params, sign=sms_sign, extend="", ext="")   # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -170,6 +118,8 @@ print(result)
 
 > 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持(QQ:3012203387)。
 >无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+
+<a id="发送语音验证码" ></a>
 
 - **发送语音验证码**
 
@@ -191,6 +141,9 @@ print(result)
 
 > 语音验证码发送只需提供验证码数字，例如当 msg=“5678” 时，您收到的语音通知为“您的语音验证码是5678”，如需自定义内容，可以使用语音通知。
 
+
+<a id="发送语音通知" ></a>
+
 - **发送语音通知**
 
 ```python
@@ -208,6 +161,8 @@ except Exception as e:
 
 print(result)
 ```
+
+<a id="拉取短信回执" ></a>
 
 - **拉取短信回执以及回复**
 
@@ -239,8 +194,8 @@ print(reply_result)
 from qcloudsms_py import SmsMobileStatusPuller
 from qcloudsms_py.httpclient import HTTPError
 
-begin_time = 1511125600  # 开始时间(unix timestamp)
-end_time = 1511841600    # 结束时间(unix timestamp)
+begin_time = 1511125600  # 开始时间(UNIX timestamp)
+end_time = 1511841600    # 结束时间(UNIX timestamp)
 max_num = 10             # 单次拉取最大量
 mspuller = SmsMobileStatusPuller(appid, appkey)
 try:
@@ -263,6 +218,8 @@ print(reply_result)
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
+<a id="上传语音文件" ></a>
+
 - **上传语音文件**
 
 ```python
@@ -284,6 +241,9 @@ except Exception as e:
 print(result)
 ```
 >语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
+
+
+<a id="按语音文件fid发送语音通知" ></a>
 
 - **按语音文件 fid 发送语音通知**
 
@@ -308,14 +268,16 @@ print(result)
 ```
 >按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
-- **按语音文件 fid 发送语音通知**
+<a id="指定模板发送语音通知" ></a>
+
+- **指定模版发送语音通知**
 
 ```python
 from qcloudsms_py import TtsVoiceSender
 from qcloudsms_py.httpclient import HTTPError
 
 template_id = 12345
-params = ["5678"]
+params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 tvsender = TtsVoiceSender(appid, appkey)
 Try:
     result = tvsender.send(template_id, params, phone_numbers[0],

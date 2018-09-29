@@ -15,7 +15,7 @@ HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I
 确认您已经开通了腾讯云，并且创建了一个EMR集群。在创建EMR集群的时候需要在软件配置见面选择了 Hbase 组件和 Zookeeper 组件。
 
 ## 2. 使用 Hbase Shell
-在使用 Hbase Shell 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式可参考 [登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
+在使用 Hbase Shell 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式可参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录 `/usr/local/service/hbase`：
 

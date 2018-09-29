@@ -22,7 +22,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 Linux 或 Windows 环境
 
 ### 软件依赖
-- JDK1.7 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK1.7 X64 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
@@ -121,7 +121,7 @@ executeTimeWindow=00:00,24:00
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
 | daemonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
-| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数03:30,21:00, 表示在凌晨03:30到晚上21:00之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
+| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00, 表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -167,7 +167,7 @@ proxyPort=
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
-**3.3.3 配置AWS数据源 migrateAws**
+**3.3.3 配置 AWS 数据源 migrateAws**
 
 若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从 AWS 迁移到 COS 配置分节
@@ -223,11 +223,12 @@ proxyPort=
 <pre>
 # 从 URL 列表下载迁移到 COS 配置分节
 [migrateUrl]
+urllistPath=D:\\folder\\urllist.txt
 </pre>
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|url列表项，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表文件的地址，内容为文本文件，一行一条。参数格式要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如 E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
@@ -310,5 +311,9 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 #### 6. 迁移失败，日志显示 404 NoSuchBucket，该怎么办？
 请确认您的密钥信息，Bucket 信息，Region 信息是否正确。
 
-#### 7. 其他问题
+#### 7. 运行异常，显示如下的信息该怎么办?
+![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
+此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
+
+#### 8. 其他问题
 请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。

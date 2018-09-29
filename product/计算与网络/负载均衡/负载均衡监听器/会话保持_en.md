@@ -1,4 +1,4 @@
-Session persistence allows the requests from the same IP (network segment) to be forwarded to the same backend CVM. By default, cloud load balancer routes each request to a different backend CVM instance. However, you can use session persistence feature to route requests from a specific user to the same backend CVM instance, so that some applications (such as shopping carts) that need to maintain the session state can work properly.
+Session persistence allows the requests from the same IP to be forwarded to the same backend CVM. By default, cloud load balancer routes each request to a different backend CVM instance. However, you can use session persistence feature to route requests from a specific user to the same backend CVM instance, so that some applications (such as shopping carts) that need to maintain the session state can work properly.
 
 ## Layer-4 Session Persistence
 Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of `0-3600` seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.

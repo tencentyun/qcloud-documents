@@ -1,8 +1,85 @@
-## [1.2.1] - 2018-08-20
+## [1.5.2] - 2018-09-11
 ### 变更
-1. TXBoardView.framework 更改为 TXBoardSDK.framework
-2. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
-3. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
+1. `TXFileManager` 初始化 COS 接口去掉`SDKAPPID`参数： 
+```objc
+- (int)initCosWithConfig:(TXCosConfig *)config;
+```
+
+### 优化
+1. 修复了一些 bug
+
+
+## [1.5.1] - 2018-09-07
+### 变更
+1. TXBoardSDK 文档接口重构，整合 COS 文件上传，接口更加易用
+
+### 新增
+1. TXBoardSDK 新增清空指定课堂历史数据接口
+
+```objc
+/**
+ 清空【指定课堂】的历史数据（该方法为类方法，白板对象销毁后也能调用）
+ 
+ @param roomID 课堂ID
+ */
++ (void)clearHistoryDataWithRoomID:(int)roomID;
+```
+
+## [1.5.0] - 2018-09-03
+### 变更
+1. 去除`TXBoardViewDelegate`中的`getBoardDataConfig`方法
+
+```objc
+/**
+ 获取白板所需外部参数，包含uid、userSig、roomID（这些值发送改变时需要重新设置）
+ */
+- (TXBoardDataConfig *)getBoardDataConfig;
+```
+
+2. 去掉`TICManger`初始化方法中的`accountType`参数
+
+```objc
+- (int)initSDK:(NSString *)SDKAppID;
+```
+
+3. `TICManger`中的IM消息收/发方法由原来的4个合并为2个
+
+### 新增
+1. `TXBoardSDK`新增白板SDK初始化方法：
+
+```objc
+/**
+ @brief 初始化SDK，使用白板SDK第一个调用的接口 (使用 TICSDK 无需调用该接口，单独使用TXBoardSDK的开发者，需手动调用该接口初始化，建议在登录IM时调用)
+ 
+ @param SDKAppID    腾讯云控制台注册的应用ID
+ @param uid 登录时的用户id
+ @param userSig 登录时的用户签名
+ @param succ 成功回调，返回的code暂时无用
+ @param failed 失败回调
+ */
++ (void)initSDK:(NSString *)SDKAppID uid:(NSString *)uid userSig:(NSString *)userSig succ:(void (^)(int code))succ failed:(void (^)(int errCode, NSString *errMsg))failed;
+```
+
+2. `TICManager`增加课堂销毁方法，与创建课堂方法对应
+
+```
+/**
+ @brief 销毁课堂（老师端调用）
+ 
+ @param roomID 课堂ID，课堂唯一标识（课堂销毁成功后，roomID将会被回收，可再次使用该roomID创建房间）
+ */
+- (void)destroyClassroom:(int)roomID succ:(TCIVoidBlock)succ failed:(TCIErrorBlock)failed;
+```
+
+### 优化
+1. 激光点乱序问题修复
+
+## [1.2.2] - 2018-08-23
+### 变更
+1. TICSDK 接口整理，将TICSDK.h中的接口移动到 TICManger.h 中
+2. TXBoardView.framework 更改为 TXBoardSDK.framework，增加TXBoardSDK.h 头文件
+3. TICSDK 文档上传下载功能 (TXFileManager) 移动到 TXBoardSDK 内部
+4. TXBoardSDK 移除了图片上传下载代理方法，移动到SDK内部实现，减少SDK接入工作量
 
 ```objc
 /**
@@ -34,6 +111,8 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 ### 优化
 1. 优化涂鸦画线策略，使涂鸦更加平滑
+2. 修改FID生成规则，兼容短时间上传多个文档的场景
+3. 不再显示起点和终点重合的标准图形
 
 ## [1.2.0] - 2018-08-03
 ### 新增
@@ -89,6 +168,10 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 3. 在线课堂线上音视频互动；
 4. 数字白板功能；
 5. 课堂 IM 消息互动。
+
+
+
+
 
 
 

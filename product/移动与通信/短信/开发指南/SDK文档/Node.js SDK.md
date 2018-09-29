@@ -3,33 +3,17 @@
 目前腾讯云短信为客户提供 **国内短信、国内语音** 和 **国际短信** 三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
-国内短信支持操作：
-- 单发短信
-- 指定模板单发短信
-- 群发短信
-- 指定模板群发短信
-- 拉取短信回执和短信回复状态
+国内短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
 
 > 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 ### 国际短信
-国际短信支持操作：
-- 单发短信
-- 指定模板单发短信
-- 群发短信
-- 指定模板群发短信
-- 拉取短信回执和短信回复状态
+国际短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
 
 > 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
 ### 语音通知
-语音通知支持操作：
-- 发送语音验证码
-- 发送语音通知
-- 上传语音文件
-- 按语音文件fid发送语音通知
-- 指定模板发送语音通知类
-
+语音通知支持操作：[发送语音验证码](#发送语音验证码)、[发送语音通知](#发送语音通知)、[上传语音文件](#上传语音文件)、[按语音文件 fid 发送语音通知](#按语音文件fid发送语音通知)、[指定模板发送语音通知](#指定模板发送语音通知)。
 
 ## 开发准备
 ### SDK 获取
@@ -63,7 +47,7 @@ npm install qcloudsms_js
  2.把 qcloudsms_js 把代码放入项目目录。
  3.在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
 
- 
+
  ### 相关资料
  若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
@@ -86,7 +70,7 @@ var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
 
 // 短信模板ID，需要在短信应用中申请
 var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-
+//templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
 var smsSign = "腾讯云";  // NOTE: 这里的签名只是示例，请使用真实的已申请的签名, 签名参数使用的是`签名内容`，而不是`签名ID`
 
@@ -104,47 +88,34 @@ function callback(err, res, resData) {
 }
 ```
 
-- **单发短信**
-
-```javascript
-var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
-var ssender = qcloudsms.SmsSingleSender();
-ssender.send(smsType, 86, phoneNumbers[0],
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
-> 如需发送国际短信，同样可以使用此接口，只需将国家码"86"改写成对应国家码号。
-> 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+<a id="指定模板单发短信" ></a>
 
 - **指定模板 ID 单发短信**
 
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
   params, SmsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发短信**
 
-```javascript
-var smsType = 0;  // Enum{0: 普通短信, 1: 营销短信}
-var msender = qcloudsms.SmsMultiSender();
-msender.send(smsType, "86", phoneNumbers,
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
->无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+<a id="指定模板群发短信" ></a>
 
-- **指定模板 ID 群发**
+- **指定模板 ID 群发短信**
 
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 > **注意：**
 > 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+
+
+<a id="发送语音验证码" ></a>
 
 - **发送语音验证码**
 
@@ -154,12 +125,16 @@ cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
 ```
 > 语音验证码发送只需提供验证码数字，例如当 msg=“5678” 时，您收到的语音通知为“您的语音验证码是 5 6 7 8”，如需自定义内容，可以使用语音通知。
 
+<a id="发送语音通知" ></a>
+
 - **发送语音通知**
 
 ```javascript
 var pvsender = qcloudsms.PromptVoiceSender();
 pvsender.send("86", phoneNumbers[0], 2, "5678", 2, "", callback);
 ```
+
+<a id="拉取短信回执" ></a>
 
 - **拉取短信回执以及回复**
 
@@ -176,8 +151,8 @@ spuller.pullReply(maxNum, callback);
 - **拉取单个手机短信状态**
 
 ```javascript
-var beginTime = 1511125600;  // 开始时间(unix timestamp)
-var endTime = 1511841600;    // 结束时间(unix timestamp)
+var beginTime = 1511125600;  // 开始时间(UNIX timestamp)
+var endTime = 1511841600;    // 结束时间(UNIX timestamp)
 var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
@@ -190,6 +165,8 @@ mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
+
+<a id="上传语音文件" ></a>
 
 - **上传语音文件**
 
@@ -205,6 +182,9 @@ uploader.upload(fileContent, "mp3", callback);
 ```
 >语音文件上传功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
+
+<a id="按语音文件fid发送语音通知" ></a>
+
 - **按语音文件 fid 发送语音通知**
 
 ```javascript
@@ -216,11 +196,15 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 ```
 >按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持(QQ:3012203387)才能开通。
 
+
+
+<a id="指定模板发送语音通知" ></a>
+
 - **指定模板发送语音通知**
 
 ```javascript
 var templateId = 12345;
-var params = ["5678"];
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 var tvsender = qcloudsms.TtsVoiceSender();
 tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 ```

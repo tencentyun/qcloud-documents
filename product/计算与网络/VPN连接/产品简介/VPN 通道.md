@@ -1,6 +1,6 @@
 - VPN 网关和对端网关建立后，即可建立用于 VPC 和外部 IDC 之间加密通信的 VPN 通道。当前 VPN 通道支持 IPsec 加密协议，可满足绝大多数 VPN 连接的需求。
 - VPN 通道在运营商公网中运行，公网的网络阻塞、抖动会影响 VPN 网络质量，因此无法提供 SLA 服务协议保障。若业务对延时、抖动敏感，建议您通过专线接入 VPC，更多详情，请参见 [专线接入服务](https://cloud.tencent.com/product/dc.html)。
-- 腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。
+- 腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。
 - VPN 通道的建立包括以下配置信息：
  - 基本信息
  - SPD（Security Policy Database）策略
@@ -40,7 +40,7 @@
 | DH group        | 指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>Group1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> Group2：采用 1024-bit MODP 算法的 DH 组<br/> Group5：采用 1536-bit MODP 算法的 DH 组<br/>Group14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>Group24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项 |
 | IKE SA Lifetime | 单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除 |
 
-##  Ipsec 信息
+##  IPsec 信息
 <style> table th:first-of-type { width: 150px; } </style>
 
 | 配置项                   | 说明                                       |

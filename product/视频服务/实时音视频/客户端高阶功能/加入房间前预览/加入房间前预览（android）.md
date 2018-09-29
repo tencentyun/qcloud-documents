@@ -71,6 +71,3 @@ arvRoot.setSubCreatedListener(new AVRootView.onSubViewCreatedListener() {
 |名称|类型|描述|
 |--|--|--|
 |CaptureMode|int|Camera的预览模式,参考[预览模式](#相关概念)|
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

@@ -1,6 +1,6 @@
 本文将指导您操作客户端将向腾讯云完成登录过程。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_login.zip)
 
 ## 前提条件
@@ -80,6 +80,3 @@ while (GetMessage(&msg, NULL, 0, 0))
 
 ## 运行结果
 ![](https://main.qcloudimg.com/raw/0efdf60c32dd0b52070a7e0392b53246.png)
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

@@ -18,7 +18,7 @@
 由于 MP4 和 HLS（m3u8）是目前在桌面浏览器和手机浏览器上支持程度最广泛的格式，所以腾讯云的视频点播平台最终会把上传的视频发布为 MP4 和 HLS（m3u8） 格式。
 ## 准备工作
 ### step 1：开通服务
-在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云帐号，然后开通**点播**服务。
+在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，然后开通**点播**服务。
 ### step 2：上传文件
 点播服务开通之后，进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) 就可以上传新的视频文件，如果您没有开通点播服务，则无法操作这一步骤。
 ### step 3：获取 fileID 与 appID
@@ -222,16 +222,6 @@ player.loadVideoByID({
 
 示例：
 [切换 fileID 播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
-
-### 自定义域名替换
-腾讯云点播服务提供自定义域名替换功能，在播放端的配置方法如下：
-```
-var player = TCPlayer('player-container-id', {
-  fileID: '', // 请传入需要播放的视频 filID 必须
-  appID: '', // 请传入点播账号的 appID 必须
-  customHost: '' // 请传入替换的域名，例如 www.costum.host
-});
-```
 
 ### 镜像功能
 激活镜像功能，可以让视频画面镜像翻转，如下图所示：

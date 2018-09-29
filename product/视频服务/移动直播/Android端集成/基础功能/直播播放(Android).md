@@ -56,7 +56,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 | PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
 > **关于HLS(m3u8)**
-> 在 APP 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 APP 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
+> 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
 ### step 4: 画面调整
 
@@ -197,7 +197,7 @@ mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692
 ```
 
 
-### step 11：直播回看
+### step 11: 直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```java
@@ -248,7 +248,8 @@ mPlayConfig.setMaxAutoAdjustCacheTime(1);
 //
 //流畅模式
 mPlayConfig.setAutoAdjustCacheTime(false);
-mPlayConfig.setCacheTime(5);
+mPlayConfig.setMinAutoAdjustCacheTime(5);
+mPlayConfig.setMaxAutoAdjustCacheTime(5);
 //
 mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放

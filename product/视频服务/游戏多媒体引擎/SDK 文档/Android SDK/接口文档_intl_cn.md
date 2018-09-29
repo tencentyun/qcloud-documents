@@ -12,11 +12,8 @@
 |Init    		|初始化 GME 	|
 |Poll    		|触发事件回调	|
 |EnterRoom	 	|进房  		|
-|EnableAudioCaptureDevice	 	|开关采集设备 	|
-|EnableAudioSend		|打开关闭音频上行 	|
-|EnableAudioPlayDevice    			|开关播放设备		|
-|EnableAudioRecv    					|打开关闭音频下行	|
-
+|EnableMic	 	|开麦克风 	|
+|EnableSpeaker		|开扬声器 	|
 
 **说明**
 **GME 的接口调用成功后返回值为 QAVError.OK，数值为0。**
@@ -394,7 +391,8 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 调用场景举例：
 
 当用户界面点击打开/关闭麦克风/扬声器按钮时，建议如下方式：
-- 对于大部分的游戏类 App，总是应该同时调用 EnableAudioCaptureDevice/EnableAudioSend 和 EnableAudioPlayDevice/EnableAudioRecv；
+- 对于大部分的游戏类 App，推荐调用 EnableMic 及 EnbaleSpeaker 接口，相当于总是应该同时调用 EnableAudioCaptureDevice/EnableAudioSend 和 EnableAudioPlayDevice/EnableAudioRecv 接口；
+
 - 其他类型的移动端 App 例如社交类型 App，打开或者关闭采集设备，会伴随整个设备（采集及播放）重启，如果此时 App 正在播放背景音乐，那么背景音乐的播放也会被中断。利用控制上下行的方式来实现开关麦克风效果，不会中断播放设备。具体调用方式为：在进房的时候调用 EnableAudioCaptureDevice(true) && EnabledAudioPlayDevice(true) 一次，点击开关麦克风时只调用 EnableAudioSend/Recv 来控制音频流是否发送/接收。
 
 如目的是互斥（释放录音权限给其他模块使用），建议使用 PauseAudio/ResumeAudio。
@@ -403,6 +401,8 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 | ------------- |:-------------:|
 |PauseAudio    				       	   |暂停音频引擎		|
 |ResumeAudio    				      	 |恢复音频引擎		|
+|EnableMic    						|开关麦克风|
+|GetMicState    						|获取麦克风状态|
 |EnableAudioCaptureDevice    		|开关采集设备		|
 |IsAudioCaptureDeviceEnabled    	|获取采集设备状态	|
 |EnableAudioSend    				|打开关闭音频上行	|
@@ -410,6 +410,8 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 |GetMicLevel    						|获取实时麦克风音量	|
 |SetMicVolume    					|设置麦克风音量		|
 |GetMicVolume    					|获取麦克风音量		|
+|EnableSpeaker    					|开关扬声器|
+|GetSpeakerState    					|获取扬声器状态|
 |EnableAudioPlayDevice    			|开关播放设备		|
 |IsAudioPlayDeviceEnabled    		|获取播放设备状态	|
 |EnableAudioRecv    					|打开关闭音频下行	|
@@ -443,7 +445,31 @@ ITMGContext ITMGAudioCtrl public int ResumeAudio()
 ITMGContext.GetInstance(this).GetAudioCtrl().ResumeAudio();
 ```
 
+### 开启关闭麦克风
+此接口用来开启关闭麦克风。加入房间默认不打开麦克风及扬声器。
 
+####  函数原型  
+```
+ITMGContext public void EnableMic(boolean isEnabled)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| isEnabled    |boolean     |如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false|
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
+```
+
+### 麦克风状态获取
+此接口用于获取麦克风状态，返回值 0 为关闭麦克风状态，返回值 1 为打开麦克风状态，返回值 2 为麦克风设备正在操作中，返回值 3 为麦克风设备不存在，返回值 4 为设备没初始化好。
+####  函数原型  
+```
+ITMGContext TMGAudioCtrl public int GetMicState() 
+```
+####  示例代码  
+```
+int micState = ITMGContext.GetInstance(this).GetAudioCtrl().GetMicState();
+```
 
 ### 开启关闭采集设备
 此接口用来开启/关闭采集设备。加入房间默认不打开设备。
@@ -541,6 +567,34 @@ ITMGContext TMGAudioCtrl public int GetMicVolume()
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().GetMicVolume();
 ```
+
+### 开启关闭扬声器
+此接口用于开启关闭扬声器。
+####  函数原型  
+```
+ITMGContext public void EnableSpeaker(boolean isEnabled)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| isEnabled    |boolean       |如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true|
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
+```
+
+### 扬声器状态获取
+此接口用于扬声器状态获取。返回值 0 为关闭扬声器状态，返回值 1 为打开扬声器状态，返回值 2 为扬声器设备正在操作中，返回值 3 为扬声器设备不存在，返回值 4 为设备没初始化好。
+####  函数原型  
+```
+ITMGContext TMGAudioCtrl public int GetSpeakerState() 
+```
+
+####  示例代码  
+```
+int micState = ITMGContext.GetInstance(this).GetAudioCtrl().GetSpeakerState();
+```
+
+
 
 ### 开启关闭播放设备
 此接口用于开启关闭播放设备。
