@@ -106,6 +106,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.+'
     // 拷贝这段代码起始位置
     compile 'com.android.support:recyclerview-v7:25.+'
+    // 这里注意：根据拷贝的aar文件，修改sdk的版本号
     compile(name: 'LiteAVSDK_UGC_1.1.10', ext: 'aar')
     compile files('libs/glide-3.7.0.jar')
      // 拷贝这段代码结束位置
