@@ -10,7 +10,7 @@
 
 - 您可以选择是否打包 licence 到应用中：如果不选择打包，SDK 第一次使用需要访问网络；如果选择打包，把 TXUgcSDK.licence（名称要正确）拷贝到 App 中即可。
 - 当您的 licence 过期了，可以登录腾讯云点播控制台进行续费，SDK 会自动续期，不需要您的应用做任何操作。
-- 如果您的 licence 校验失败，您可以调用下面代码来查看 licence 信息是否填写错误。
+- 如果您的 licence 校验失败，您可以调用下面代码查看 licence 信息是否填写错误。
 
 ```objc
 NSLog(@"%@", [TXUGCBase getLicenceInfo]);
@@ -45,21 +45,32 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
 在工程中添加 `TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库：
 
 > 1. Accelerate.framework
-> 2. libstdc++.tbd
-> 3. libsqlite3.tbd
+> 2. SystemConfiguration.farmework
+> 3. libstdc++.tbd
+> 4. libsqlite3.tbd
+> 5. libz.tbd
 
 所有系统依赖库添加完毕，工程依赖如下图所示：    
-![](https://main.qcloudimg.com/raw/1025d781a783a5aeed2cb4fa1ead9469.png)
-
-#### 添加头文件
-在 Build Settings->Search Paths->User Header Search Paths 中添加头文件搜索路径。注意此项不是必须的，如果您没有添加 TXLiteAVSDK_UGC 的头文件搜索路径，则在引用 SDK 的相关头文件时，需要在头文件前增加 "TXLiteAVSDK_UGC/"，如下所示：
-
-```	objc
-#import "TXLiteAVSDK_UGC/TXUGCRecord.h"
-```
+![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 
 #### 添加 -ObjC
 SDK 用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错。
+
+#### 引用头文件
+在需要使用SDK的文件中引用SDK，如下所示：
+
+- 5.0开始的SDK支持clang module, 可以直接使用@import来引入
+
+  ```	objc
+  @import TXLiteAVSDK_UGC;
+  ```
+
+- 5.0之前的版本SDK需要单独引用使用到的头文件，比如
+
+  ``` objc
+  #import <TXLiteAVSDK_UGC/TXUGCBase.h>
+  ```
+
 
 #### 短视频发布功能集成
 
@@ -75,10 +86,10 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：B
 
 ##### 引用头文件
 
-在 ViewController.m 开头引用 SDK 的头文件：
+在 ViewController.m 开头引用 SDK：
 
 ```	objc
-#import "TXLiteAVSDK_UGC/TXLiveBase.h"
+@import TXLiteAVSDK_UGC；
 ```
 
 #### 添加调用代码

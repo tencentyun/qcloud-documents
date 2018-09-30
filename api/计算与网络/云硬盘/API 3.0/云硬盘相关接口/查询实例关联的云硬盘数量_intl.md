@@ -47,7 +47,7 @@ https://cbs.tencentcloudapi.com/?Action=DescribeInstancesDiskNum
 &InstanceIds.1=ins-jw0vit58
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

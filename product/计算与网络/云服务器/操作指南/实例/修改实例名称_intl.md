@@ -15,3 +15,4 @@ To help users manage CVMs on the CVM console and quickly identify them by name, 
 - On the renaming page, enter a new CVM name, and then click **OK**.
 ![](https://main.qcloudimg.com/raw/7713dbc0d7ca2da1008c28ba0a1ba5d8.png)
 >Note: The names of multiple CVMs that are renamed by this way are the same.
+

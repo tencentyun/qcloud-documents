@@ -65,7 +65,7 @@ If a read/write exception or a failure to rename folder/file occurred while usin
 > mount <mount point IP>:/FSID <shared directory name>:
 > //For example: mount 10.10.0.12:/z3r6k95r X:
 
-![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
+![](https://main.qcloudimg.com/raw/d30598951413f86722aed46482e053f9.png)
 
 
 ### The file system has no write permission in Windows after being mounted using NFS
@@ -75,17 +75,18 @@ Add AnonymousUid and AnonymousGid to the registry as instructed, and then restar
 ### Windows IIS cannot use mapped driver
 Configure the correct NFS client program and modify the registry (add users who access the system) by following the steps in [Use File System in Windows](https://cloud.tencent.com/document/product/582/9133#.E5.9C.A8-windows-.E4.B8.8A.E4.BD.BF.E7.94.A8.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F).
 After the client is restarted, open the IIS configuration page, add a site, and click **Advanced Settings** to set the "Physical path" as the CFS mount point.
-![](https://mc.qcloudimg.com/static/img/bdd15aa1ca694653b5595442cbc38737/IIS.png)
-![](https://mc.qcloudimg.com/static/img/754bc7c54efd1a6b572fff503763854d/image.png)
+
+![](https://main.qcloudimg.com/raw/83580529ff0f22032f891e442dff1235.png)
+![](https://main.qcloudimg.com/raw/b1a83b2a698428e569ab833f5132e37d.png)
 
 ### How can I continue using CFS in an availability zone with the CFS resources sold out?
 Take Shanghai as an example. You have a CVM in Shanghai Zone 1 and you need to use CFS. However, you cannot directly create a file system, because the resources have been sold out in Shanghai Zone 1.
 
 **In VPC network**
 If the CVM resides in the "subnet of Shanghai Zone 1" in a VPC, you can log in to the [VPC console](https://console.cloud.tencent.com/vpc) to find the VPC and create a subnet of "Shanghai zone 2" for it.
-![](https://mc.qcloudimg.com/static/img/bb555e27b45c153e6ec4246f703e64de/image.png)
-![](https://mc.qcloudimg.com/static/img/945a86eb6dabc9ae6364487dcbd71509/image.png)
-![](https://mc.qcloudimg.com/static/img/0cab5743795cb970ca1755ac68a217c0/image.png)
+![](https://main.qcloudimg.com/raw/a849aa72a6419206d43ab084a3e72f3d.png)
+![](https://main.qcloudimg.com/raw/13d6a643a5a47d041ecfb5c01e24257f.png)
+![](https://main.qcloudimg.com/raw/eab7adc8dc279c2baca89b9baec3a7fd.png)
 
 After creating the subnet successfully, go back to the CFS console, and select this VPC and the subnet you just created to create resources in Shanghai Zone 2. The CFS file system can be directly mounted to the CVM in the subnet of Shanghai Zone 1 in this VPC. [View the file system mounting help documentation](https://cloud.tencent.com/document/product/582/11523).
 

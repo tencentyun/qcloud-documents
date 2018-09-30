@@ -5,7 +5,7 @@
 
 ### URL Example
 
-`https://yun.tim.qq.com/v5/tlssmssvr/sendisms?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/sendisms?sdkappid=xxxxx&random=xxxx`
 
 **Note**: Replace`xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
@@ -26,7 +26,7 @@
 | Parameter | Required | Type | Description |
 |--------|------|--------|------------------------------------------------------------------------------------------|
 | ext | No | String | User's session content (optional). The Tencent server returns it as is. You can leave it empty if it is not needed. |
-| extend | No | String | Extended SMS code which is valid only when it is in a format of pure numeral string. It is not enabled by default. [Contact SMS Helper](https://cloud.tencent.com/document/product/382/3773) to enable it. |
+| extend | No | String | Extended SMS code which is valid only when it is in a format of pure numeral string. It is not enabled by default. [Contact SMS Helper](/document/product/382/3773) to enable it. |
 | msg | Yes | String | UTF-8-encoded SMS message. It must match the content of the approved template. |
 | sig | Yes | String | App credential. For more information on the calculation, please see the following. |
 | tel | Yes | String | International phone number. Format is `+[Country code][Phone number]` defined based on [e.164](https://en.wikipedia.org/wiki/E.164) standard, for example: `+8613711112222`. It starts with a symbol `+`, followed by `86` (country code) and `13711112222` (phone number). |
@@ -67,13 +67,9 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 
 | Parameter | Required | Type | Description |
 |------------|------|--------|-----------------------------------------------|
-| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. For more information, please see [Error Codes](https://cloud.tencent.com/document/product/382/3771) |
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. For more information, please see [Error Codes](/document/product/382/3771) |
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
 | ext | No | String | User's session content. The Tencent server returns it as is. |
 | nationcode | Yes | String | Country code |
-| fee | No | Number | Number of SMS messages billed. [About Billing](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99) |
+| fee | No | Number | Number of SMS messages billed. [About Billing](/document/product/382/9556) |
 | sid | No | String | Delivery ID, indicating an SMS delivery record |
-
-
-
-

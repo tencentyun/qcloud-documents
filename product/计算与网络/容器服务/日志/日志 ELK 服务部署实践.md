@@ -16,7 +16,7 @@ Elasticsearch 是基于 Apache Lucene(TM) 的分布式，提供 RESTful API 的�
 
 本示例直接使用容器服务提供的 ELK 基础模板搭建 Elasticsearch 集群和 Kibana。
 
-首先把所需 yaml 文件下载到 CCS 集群内节点上。
+首先把所需 yaml 文件下载到 TKE 集群内节点上。
 
 	git clone https://github.com/tencentyun/ccs-elasticsearch-template.git /tmp/kubernetes-elasticsearch
 
@@ -58,7 +58,7 @@ Logstash 是开源的日志分析处理程序，能够从多种源采集转换�
 
 ### 第三步：在 Kibana 页面查看日志数据
 
-在 CCS 控制台可以看到刚创建的 Kibana 服务。
+在 TKE 控制台可以看到刚创建的 Kibana 服务。
 
 ![][4]
 
@@ -70,7 +70,7 @@ Logstash 是开源的日志分析处理程序，能够从多种源采集转换�
 
 ![][1]
 
-本文以在 CCS 集群中部署 ELK 并从 Kafka 读取日志数据为例，ELK 更多使用说明以及问题指导请查阅网络资料。
+本文以在 TKE 集群中部署 ELK 并从 Kafka 读取日志数据为例，ELK 更多使用说明以及问题指导请查阅网络资料。
 
 [1]:https://mc.qcloudimg.com/static/img/da4ea19aa75ffbf94b38e39a6e781082/ccs-log.jpeg
 [2]:https://mc.qcloudimg.com/static/img/a233130efb256ef5836b294e9ec65a35/ccs-log-visual.jpeg

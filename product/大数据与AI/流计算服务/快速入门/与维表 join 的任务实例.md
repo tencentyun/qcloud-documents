@@ -1,5 +1,5 @@
 实际需求场景里 join 操作比较常见，这里在之前单表聚合统计的基础上演示如何与维表 join 后进行聚合计算。
-1. 在CDB 里创建维表
+1. 在 CDB 里创建维表
 ```
  CREATE TABLE `dim_page` (
   `page_id` varchar(32) NOT NULL,
@@ -23,8 +23,8 @@
  按之前的操作在 project 再新建一个topic当做join的结果输出流，用作记录按 record_time、page_name聚合后的 pv、uv 数。
  ![](https://main.qcloudimg.com/raw/d52ea278487645f5e6100ee12bd2b278.png)
 5. 新建 Integrator
- 新建 Integrator与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
-  在之前代码基础上添加以下代码，补全 CDB 相关信息 
+ 新建 Integrator 与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
+  在之前代码基础上添加以下代码，补全 CDB 相关信息。 
  ```
  CREATE TABLE `dimPage` (
   `page_id` VARCHAR,

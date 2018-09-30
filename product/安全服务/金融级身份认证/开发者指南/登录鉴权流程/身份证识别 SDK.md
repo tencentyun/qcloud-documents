@@ -16,7 +16,7 @@
 
 具体接入开发指南见：[**身份证识别 SDK 接入**](https://cloud.tencent.com/document/product/655/13846)
 ## 流程图示
-![](https://main.qcloudimg.com/raw/eeb419054f546aa4c47036dadef0ab0f.png)
+![](https://main.qcloudimg.com/raw/03278bb6c037963616a059c46f08a7d8.png)
 
 >**注意：**
 >1. access token 有效期 7200 秒，建议合作方缓存在服务器，必须在临近过期和使用失效时重新获取；

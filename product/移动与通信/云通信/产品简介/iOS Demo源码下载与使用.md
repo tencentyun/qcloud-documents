@@ -65,22 +65,22 @@ Demo在AppStore上名为“随心聊IM”，下载地址：https://itunes.apple.
 
 ### 公开群
 
-展示公开群（类型为Public），点击对应的群，可进入到聊天界面，也可在本界面创建公开群
+展示公开群（类型为Public），单击对应的群，可进入到聊天界面，也可在本界面创建公开群
 <img src="//mccdn.qcloud.com/static/img/212a1b150a3ecedc6944799d53ed0eaa/image.png" width=360 />
 
 ### 讨论组
 
-展示讨论组（类型为Private），点击对应的讨论组，可进入到聊天界面，也可在本界面创建讨论组
+展示讨论组（类型为Private），单击对应的讨论组，可进入到聊天界面，也可在本界面创建讨论组
 <img src="//mccdn.qcloud.com/static/img/2876b83580a3af81fd1b5d96cd597c0d/image.png" width=360 />
 
 ### 聊天室
 
-展示聊天室（类型为ChatRoom）点击对应的聊天室。可进入到聊天界面，也可在本界面创建聊天室
+展示聊天室（类型为ChatRoom）单击对应的聊天室。可进入到聊天界面，也可在本界面创建聊天室
 <img src="//mccdn.qcloud.com/static/img/68ea8f874540d4355f99691a288fc65e/image.png" width=360 />
 
 ### 联系人列表
 
-展示所有的好友，支持分组展示。点击分组名称，收起或展开分组好友，点击对应好友，可进入聊天界面
+展示所有的好友，支持分组展示。单击分组名称，收起或展开分组好友，单击对应好友，可进入聊天界面
 <img src="//mccdn.qcloud.com/static/img/a65e04f917358d677e14350e50eeef83/image.jpg" width=360 />
 
 ### 添加好友

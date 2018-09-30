@@ -28,6 +28,6 @@ All the Tencent Cloud APIs achieve communication over HTTPS to provide high-secu
 
 Both POST and GET methods are supported, but they cannot be used together. If the GET method is used, the parameters are obtained from Querystring. If the POST method is used, the parameters are obtained from Request Body, and the parameters in the Querystring are ignored. The rules for parameter formats are the same for both methods. Generally, GET method is used. If parameter strings are too long, POST method is used. For more information, please see the relevant API description.
 
-## 4 Character Encoding
+## 4. Character Encoding
 
 UTF-8 encoding is always used.

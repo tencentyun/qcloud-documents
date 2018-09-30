@@ -1,8 +1,8 @@
-本文将指导您的客户端将加入之前所创建的房间，并与其他用户音视频互动。
+本文将指导您的客户端加入之前所创建的房间，并与其他用户音视频互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
+[单击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
 
 ## 加入房间
 与创建房间类似，需要先初始化、登录之后才能加入房间；加入房间也需要先填写 iLiveRoomOption 结构体，用于描述所加入房间的相关信息，然后调用 joinRoom() 接口进行加入房间。
@@ -13,9 +13,10 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
+roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
-roomOption.controlRole = "LiveGuest";      //使用Spear上配置的"LiveGuest"角色
+roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
 roomOption.memberStatusListener = OnMemStatusChange;//房间内成员状态变化回调
 roomOption.data = NULL;//在回调中原封不动传回的void*数据指针;
 
@@ -37,10 +38,18 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 至此，房间内成员便可以进行音视频互动。
 
 ## 源码说明
-- 行测试说明
+- 测试说明
 本文 Demo 和[ 创建房间 ](/document/product/647/16819)的完整 Demo 进行互通测试时，需要分别在两台电脑上进行测试，因为代码中都写死打开第一个摄像头和第一个麦克风；如果要在一台电脑上测试，需要电脑至少有两个摄像头及麦克风，且两个用户不能使用同一个设备。
 
 ## 运行结果
 
 ![](https://main.qcloudimg.com/raw/7f16017270f4be5d36d8954b85dd57d6.png)
 
+## 常见问题
+
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+GetILive()->setChannelMode(E_ChannelIMSDK);
+```

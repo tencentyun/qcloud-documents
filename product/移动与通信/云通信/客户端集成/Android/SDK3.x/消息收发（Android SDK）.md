@@ -10,7 +10,7 @@
 /**
  * 获取会话
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return 会话实例
  */
 public TIMConversation getConversation(TIMConversationType type, String peer)
@@ -23,14 +23,14 @@ public TIMConversation getConversation(TIMConversationType type, String peer)
 String peer = "sample_user_1";  //获取与用户 "sample_user_1" 的会话
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.C2C,    //会话类型：单聊
-        peer);                      //会话对方用户帐号//对方id
+        peer);                      //会话对方用户帐号//对方ID
  
 //获取群聊会话
 String groupId = "TGID1EDABEAEO";  //获取与群组 "TGID1LTTZEAEO" 的会话
 
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.Group,      //会话类型：群组
-        groupId);                       //群组 Id
+        groupId);                       //群组 ID
 ```
 
 **消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
@@ -141,8 +141,8 @@ public void setLevel(int level)
 public boolean cancelUploading()
 
 /**
- * 获取图片上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 图片上传任务 id
+ * 获取图片上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 图片上传任务 ID
  */
 public int getTaskId()
 
@@ -357,8 +357,8 @@ public long getDuration()
 public void setDuration(long duration)
 
 /**
- * 获取语音上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 语音文件上传任务id
+ * 获取语音上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 语音文件上传任务ID
  */
 public int getTaskId()
 
@@ -528,8 +528,8 @@ public String getPath()
 public void setPath(String path)
 
 /**
- * 获取文件上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 文件上传任务 id
+ * 获取文件上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 文件上传任务 ID
  */
 public int getTaskId()
 ```
@@ -959,7 +959,7 @@ public boolean remove()
 消息 ID 也有两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间未读，可以认为 10 分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
 
 ```
-//获取消息 Id
+//获取消息 ID
 public String getMsgId()
 
 //获取消息uniqueId
@@ -968,7 +968,7 @@ public long getMsgUniqueId()
 
 ### 消息自定义字段
 
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
+开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
 
 ```
 //设置自定义整数， 默认为 0
@@ -1227,7 +1227,7 @@ ImSDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删
 /**
  * 删除会话缓存
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return true 成功  false 失败
  */
 public boolean deleteConversation(TIMConversationType type, String peer)
@@ -1236,7 +1236,7 @@ public boolean deleteConversation(TIMConversationType type, String peer)
 /**
  * 删除会话缓存并同时删除该会话相关的本地消息
  * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
+ * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return true 成功  false 失败
  */
 public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String peer)

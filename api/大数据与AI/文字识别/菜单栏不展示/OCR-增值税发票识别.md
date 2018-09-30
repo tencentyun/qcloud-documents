@@ -5,7 +5,7 @@
 增值税发票 OCR 识别，用于根据用户上传的图像，返回识别出的发票信息。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/invoice`
 

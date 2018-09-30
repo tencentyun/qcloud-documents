@@ -1,7 +1,7 @@
 本文将指导您的客户端如何使用 IM （即时通讯）功能，在房间内收发消息。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_msg.zip)
 
 ## 相关概念

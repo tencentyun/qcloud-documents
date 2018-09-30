@@ -1,11 +1,12 @@
 本文将指导您在客户端中创建一个房间，打开摄像头和麦克风，并看到自己的视频画面。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 视频渲染
  在拿到视频数据时，需要将视频数据绘制显示出来，此过程即为视频渲染。
@@ -36,6 +37,7 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
+roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要创建的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "LiveMaster";      //使用Spear上配置的"LiveMaster"角色
@@ -93,6 +95,13 @@ void OnLocalVideo(const LiveVideoFrame* video_frame, void* data)
 ![](https://main.qcloudimg.com/raw/1f1677b779f36f761bfef6a0d5282c15.png)
 
 ## 常见问题
+
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey
+> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
+```
+GetILive()->setChannelMode(E_ChannelIMSDK);
+```
 
 #### 控制台输出一些无用信息:
 

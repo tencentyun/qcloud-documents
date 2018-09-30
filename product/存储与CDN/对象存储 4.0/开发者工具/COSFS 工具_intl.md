@@ -16,7 +16,7 @@ This tool is compiled in C++ compiling environment, and dependent on such softwa
 ### Environment Installation 
 #### How to install environment dependency on Ubuntu system
 ```
-sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
 
 #### How to install environment dependency on CentOS system

@@ -8,7 +8,7 @@
 
 ![][1]
 
-详情请参考 [virtual kubelet 部署模版](https://main.qcloudimg.com/raw/bfb0dcd2aeb8c11295887f19fd0ca8a8/virtual%20kubelet%20node.tar.gz) ，该模版支持上传 CCS 节点，解压缩，修改特定参数后直接使用。
+详情请参考 [virtual kubelet 部署模版](https://main.qcloudimg.com/raw/bfb0dcd2aeb8c11295887f19fd0ca8a8/virtual%20kubelet%20node.tar.gz) ，该模版支持上传 TKE 节点，解压缩，修改特定参数后直接使用。
 
 1. virtual-kubelet 启动配置文件 config.toml
 ```
@@ -27,7 +27,7 @@
 
 2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key。  
 该 10250 端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 Pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息。
-在腾讯云 CCS 服务中，我们没有设置 10250 的端口认证，但是 kube-apiserver 需要以 HTTPS 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
+在腾讯云 TKE 服务中，我们没有设置 10250 的端口认证，但是 kube-apiserver 需要以 HTTPS 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
 
 3. virtual-kubelet 的部署文件：
 qcloud-vkubelet.yaml 创建 virtual-kubelet 对应的 serviceaccount，可以操作 Pod 等资源权限：
@@ -115,10 +115,10 @@ virtual-kubelet.yaml 创建 Pod 运行 virtual-kubelet 程序：
       volumes:  
       - name: credentials
     hostPath:
-      path: /home/ubuntu/for-show/config (config 文件夹包含 config.toml, server.crt 和 server.key)
+      path: /home/ubuntu/for-show/config (请自行修改为部署模版解压后的config文件夹路径，内包含config.toml, server.crt和server.key)
 ```
 
-## 使用步骤
+## 使用步骤（ubuntu系统）
 1. 登录安装了 kubectl 并已完成了初始化的 Kubernetes 节点服务器。
 kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.tencent.com/document/product/457/8438)。
 
@@ -134,7 +134,7 @@ kubectl create -f qcloud-vkubelet.yaml
     serviceaccount "vkubelet" created  
 ```
 
-3. 执行以下命令：
+3. 请修改virtual-kubelet.yaml最后一行hostPath内path参数为部署模版解压后的config文件夹路径，并执行以下命令：
 ```
 kubectl create -f virtual-kubelet.yaml
 ```

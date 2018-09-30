@@ -20,7 +20,7 @@ Web 播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括 PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>;
 ```
 
 >**注意：**
@@ -254,7 +254,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url <br>**备注：该选项只对 PC 平台生效** [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器）将 flv 播放地址直接赋给 `<video>` 播放，[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例：true   |
+| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例："h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏），1：（portraint竖屏），2：（landscape &verbar; portrait 跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例：0   |
@@ -274,12 +274,13 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |mute(muted)      | {Boolean} [可选]       | true,false {Boolean}         | 切换静音状态，不传参则返回当前是否静音      | player.mute(true) |
 |volume(val)      | {int} 范围：0~1 [可选]  | 范围：0~1                    | 设置音量，不传参则返回当前音量             | player.volume(0.3) |
 |playing()        | 无                     | true,false {Boolean}         | 返回是否在播放中                         | player.playing() |
-|duration()       | 无                     | {int}                       | 获取视频时长 <br>**备注：只适用于点播** | player.duration() |
-|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>**备注：只适用于点播 **| player.currentTime() |
+|duration()       | 无                     | {int}                       | 获取视频时长 <br>**备注：只适用于点播，需要在触发 loadedmetadata 事件后才可获取视频时长** | player.duration() |
+|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>**备注：只适用于点播** | player.currentTime() |
 |fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br>**备注：移动端系统全屏没有提供 API，也无法获取系统全屏状态** | player.fullscreen(true) |
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>**备注：只适用于点播** | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
+|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 rtmp、flv、hls、mp4 ，H5 模式支持 mp4、hls、flv（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load('http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4')  |
 
 >**注意：**
 >**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
@@ -316,7 +317,7 @@ var player = new TcPlayer('id_test_video', {
 ### ES Module
 TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.1.js
+http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.2.js
 ```
 ### 开启优先 H5 播放模式
 TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
@@ -378,4 +379,5 @@ TcPlayer 在不断的更新以及完善中，为了方便大家了解版本情�
 | 2017.3.4        | 2.1.0    | 至 2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player；<br>2. 调整播放器初始化逻辑，优化错误提示效果；<br>3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 flv；<br>4. 支持 x5-video-orientation 属性；<br>5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放；<br>6. 启用版本号发布方式，避免影响旧版本的使用者；<br> 7. 优化事件触发的时间戳，统一为标准时间；<br>8. bug 修复。|
 | 2017.12.7       | 2.2.1    | 1. 增加 systemFullscreen 参数；<br> 2. 增加 flashUrl 参数；<br>3. 修复音量 max 后进行静音切换的 UI 问题；<br> 4. 修复 ios11 微信下需要单击两次才能播放的问题；<br> 5. 修复 safari 11 系统样式被遮挡的问题；<br>6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况；<br>7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题；<br> 8. 切换清晰度保持音量不变；<br> 9. 修复页面宽度为 0，播放器宽度判断失败问题；<br> 10. destroy 方法增加完全销毁播放器节点。|
-| 2017.12.20      | 2.2.1    | 1.增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3.支持切换清晰度方法。|
+| 2017.12.20      | 2.2.1    | 1. 增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3.支持切换清晰度方法。|
+| 2018.5.3        | 2.2.2    | 1. 优化loading组件;<br> 2.优化Flash destroy方法;<br> 3.默认使用 H5 播放。<br> 4.修复已知问题|

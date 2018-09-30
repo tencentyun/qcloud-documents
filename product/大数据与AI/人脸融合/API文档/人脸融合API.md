@@ -37,8 +37,8 @@
 | ------ | ---- | ------ | ------- |
 | appid  | 是   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看。   |
 | uin    | 是   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看。|
-| project_id    | 是   | string | 活动 ID。 |
-| model_id    | 是   | string | 素材 ID。 |
+| project_id    | 是   | string | 活动 ID，可在 [控制台](https://console.cloud.tencent.com/ai/facemerge)查看。 |
+| model_id    | 是   | string | 素材 ID，可在 [控制台](https://console.cloud.tencent.com/ai/facemerge)查看。 |
 | img_data    | 是   | string | 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。图片大小不超过 500k，分辨率不超过 1080\*1080。 |
 | rsp_img_type    | 是   | string | 返回图像方式（url 或 base64) ，二选一。 |
 
@@ -63,7 +63,7 @@
 	"appid":"xxxxxxxx", 
 	"uin":"xxxxxxxx",
 	"img_data":"xxxxxxxx",
-	"model_id":"xxxxxxxx",
+	"model_id":"xxxxxxxx"
 }
 
 ```
@@ -115,3 +115,9 @@
 | -20004      |  操作太频繁，触发频控。                           |
 | -20005      |  后端服务故障。                           |
 | -20006      |  参数格式不是 json 格式。                            |
+| -20007      |  素材 ID（model_id）传入为空。                            |
+| -20008      |  活动 ID（project_id）传入为空。                            |
+| -20009      |  图片数据（image_data）传入为空。                            |
+| -20010      |  返回图片类型（rsp_img_type)为空。                            |
+| -20011      |  appid 传入为空。                            |
+| -20012      |  uin 传入为空。                            |

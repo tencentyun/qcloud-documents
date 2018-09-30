@@ -1,5 +1,3 @@
-## 概述
-
 开发者可以使用 TLS 后台 API 及相关工具，生成公私钥、生成 `UserSig` 和校验 `UserSig`。TLS 后台 API 我们提供了 6 个包供开发者 [下载](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)，内容分别是 Windows 下 64 位预编译文件包、Windows 下32位预编译文件包、Linux 下64位预编译文件包、Linux 下32位预编译文件包、zip 格式的源代码文件和 tar.gz 格式的源代码文件。
 
 >**注意：**

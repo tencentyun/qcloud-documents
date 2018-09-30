@@ -25,11 +25,11 @@ netstat -tunlp
 3. Confirm whether it is started through public network access.
  1. Install telnet service with the following command.
 ```
-yum -y intsall  telnet
+yum -y install  telnet
 ```
  2. Test with a command on another computer connected to the Internet:
 ```
-telnet + CVM public IP + 21
+telnet + CVM public network IP + 21
 ```
 If the following is displayed, the service has been started.
 ![](https://main.qcloudimg.com/raw/47ad66d7be133b6d69d60c3e5b719dbd.png)
@@ -48,16 +48,16 @@ If the following is displayed, the service has been started.
 ![](//mc.qcloudimg.com/static/img/f8912544914d11dfc1dd7e0a6db16f11/image.png)
 
 ## FAQ
-### Problem Description
+### Problem description
 Some users may encounter such problem as connection timeout and failure to read the directory list when using FTP client connections locally, as shown below.
 ![](//mc.qcloudimg.com/static/img/eb7beaf8c5a6e683257e94dd754e3f25/image.jpg)
-The problem occurs at the PASV command. The reason is that FTP protocol is incompatible with Tencent Cloud network architecture. FTP client transmits data in passive mode by default, therefore it searches for the server's IP address to connect during the communication process. However, public IP of Tencent Cloud is not directly configured on ENI, so the client cannot find a valid IP in passive mode (it can only find private IP of CVM. The private IP cannot communicate directly with the public network). Therefore, the connection cannot be established.
+The problem occurs at the PASV command. The reason is that FTP protocol is incompatible with Tencent Cloud network architecture. FTP client transmits data in passive mode by default. Therefore, it searches for the server's IP address to connect during the communication process. However, public IP of Tencent Cloud is not directly configured on ENI, so the client cannot find a valid IP in passive mode (it can only find private IP of CVM. The private IP cannot communicate directly with the public network). Therefore, the connection cannot be established.
 
 ### Solution
  - Change the transmission mode on the client to active.
  - If the client network environment requires passive mode, then add the following statements to the configuration file of the server [Step 3](#jump):
  ```
- pasv_address=XXX.XXX.XXX.XXX     //(Public network IP)
+ pasv_address=XXX.XXX.XXX.XXX     // (Public IP)
  pasv_enable=YES
  pasv_min_port=1024
  pasv_max_port=2048

@@ -1,109 +1,112 @@
 ## 1. API Description
-This API (CreateScalingConfiguration) is used to create launch configurations.
-Domain name for API request: scaling.api.qcloud.com
 
-1) The CVM instance specification specified in the launch configuration must be consistent with the instance specification of the active launch configurations in the scaling group.
+This API (CreateScalingConfiguration) is used to create new scaling configurations. Domain for API request: scaling.api.qcloud.com
 
-2) The launch configuration cannot be edited or modified. If you want to use a new launch configuration, you must create one.
+1) The specified CVM instance specification must be consistent with the instance specification of the active scaling configurations in the scaling group.
 
-3) When you create a launch configuration, an image must be selected to determine the system disk configuration for the instance to be created. The image contains the operating system and application software configuration. After the instance is created based on the image, the system disk of this instance is the full clone of the image.
+2) The scaling configuration cannot be edited or modified. If you want to use a new scaling configuration, you must recreate one.
 
-4) When you create a launch configuration, a security group must be specified. The number of instances in the same security group cannot exceed 1,000. Otherwise, if you specify the security group when creating an instance, a failure screen will appear.
+3) When creating a scaling configuration, an image must be selected to determine the system disk configuration of the new created instance. The image contains the operating system and application software configuration. After the instance is created based on the image, the system disk of this instance is the full clone of the image.
 
-5) When an instance is created, the system assigns a system disk of an appropriate size to the system based on the specified image.
+4) When creating a scaling configuration, a security group must be specified. The number of instances in the same security group can not exceed 1000. Otherwise, if you specify the security group when creating an instance, a failure screen will appear.
+
+5) When creating an instance, the system shall allocate a system disk of the corresponding size to the system based on the specified image.
 
 6) The system disk type is the same as the data disk type.
 
-7) A maximum of 20 launch configurations can be created for each project. For more information, please see <a href="/doc/product/377/3120" title="Use Limits">Use Limits</a>.
-
+7) A maximum of 20 scaling configurations can be created for each project. For more information, refer to [Service Limits]().
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is CreateScalingConfiguration.
 
-| Parameter Name | Required | Type | Description |
-|---------|---------|---------|---------|
-| scalingConfigurationName | Yes | String | Launch configuration name defined by the user. |
-| imageId | Yes | String | Image ID. Please fill in the unImgId (unified ID of image) field returned by the <a href="/doc/api/229/查询可用的镜像列表" title="/doc/api/229/查询可用的镜像列表">Query Available Image List</a> (DescribeImages) API. |
-| cpu | Yes | Int | Number of CPU cores, which may vary in different regions. For more information, please see [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
-| mem | Yes | Int | Memory size (in GB), which may vary in different regions. For more information, please see [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
-| storageType | Yes | Int | Type of data disk. Only three values are available: 1 means local disk; 2 means cloud disk; 3 means local SSD; 5 means cloud SSD. |
-| storageSize | Yes | Int | Data disk size (GB). The increment is 10 GB. For local disks, the available range is 0-500 G; for cloud disks, the available range is 0-4,000 G. |
-| bandwidthType | Yes | String | Bandwidth type. Only two values are available: PayByHour: Bill by bandwidth usage time; PayByTraffic: Bill by traffic. |
-| bandwidth | Yes | Int | Public network bandwidth (in Mbps). 0 means that public network bandwidth is not enabled. To modify the bandwidth, use the <a href="/doc/api/229/调整按量计费实例带宽" title="Adjust the bandwidth of public network of postpaid instances">UpdateInstanceBandwidthHour</a> API after the instance is created. |
-| imageType | Yes | Int | Image type. Value range: <br>1: Private image; <br>2: Public image; <br>3: Service marketplace image. |
-| rootSize | No | Int | System disk size (in GB). For Linux, the default is 50 GB and the increment is 1GB. For Windows, it is always 50 GB. |
-| keyId | No | String | Key ID. It can be queried by calling the <a href="/doc/api/229/查询密钥">Query Keys</a> (DescribeKeyPairs) API. |
-| password | No | String | Instance password. It will be generated randomly if not set. Password rules for Linux server: A combination of 8-16 characters comprised of at least two of the following types: letters, numbers, special characters (!, @, #, $, %, ^, \, *, ()). Password rules for Windows server: A combination of 12-16 characters comprised of at least three of the following types: uppercase letters, lowercase letters, numbers, special characters (!, @, #, \, *).**Note: Key and password cannot be specified at the same time.** |
-| needMonitorAgent | No | Int | Whether to enable the Cloud Monitor service. Only two values are available: 1: Enable (default); 0: Disable. |
-| needSecurityAgent | No | Int | Whether to enable the cloud security service. Only two values are available: 1: enabled; 0: disabled. The default is 1. |
-| wanIp | No | Int | Whether to enable public IP. Only two values are available: 1: Enable (default); 0: Disable. |
-| sgId | No | String | Safety group ID. It can be queried by calling the <a href="/doc/api/229/查询安全组列表">Query Security Group List</a> API.
-| projectId | No | String | Project ID. If not specified, 0 means default project. To specify other projects, you can call the <a href="/doc/api/403/4400" title="Query Project List">Query Project List</a> (DescribeProject) API to query. |
-| dataSnapshotId | No | String | Data disk snapshot ID. If you want to use the data disk snapshot feature, the data disk type (`storageType`) must be cloud disk, and the capacity of the data disk snapshot must be less than that of the data disk (`storageSize`). |
-| cvmType | No | String | Select CVM type. Three values are available: 11 means Standard CVM; 21 means High IO CVM; 31 means Memory CVM. If not specified, this field is 11 (Standard CVM) by default. |
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](). The Action field for this API is CreateScalingConfiguration.
 
-The launch configurations support three CVMs, including Standard CVM, High IO CVM and Memory CVM (subject to the actual available types in each region). For more information about the CPUs and memories sizes supported by launch configurations, please see [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
+| Parameter Name           | Required | Type   | Description                                                  |
+| ------------------------ | -------- | ------ | ------------------------------------------------------------ |
+| scalingConfigurationName | Yes      | String | Scaling configuration name defined by the user.              |
+| imageId                  | Yes      | String | Image ID. Please fill in the unImgId (unified ID of image) field returned by [Query Image]() (DescribeImages) API. |
+| cpu                      | Yes      | Int    | The number of CPU cores, whose optional number may vary in different regions. For more information, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177). |
+| mem                      | Yes      | Int    | The size of memory (in GB), whose optional size may vary in different regions. For more information, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177). |
+| storageType              | Yes      | Int    | Data disk type. Only five values are available: 1 means local disk; 2 means cloud disk; 3 means local SSD; 5 means cloud SSD; 6 means premium cloud disk. |
+| storageSize              | Yes      | Int    | Data disk size (GB). The increment is 10 GB. For local disks, the optional range is 0-500 G; for cloud disks, the optional range is 0-4000 G. |
+| bandwidthType            | Yes      | String | Bandwidth type. Only two values are available: PayByHour indicating charge by bandwidth usage time and PayByTraffic indicating charge by traffic. |
+| bandwidth                | Yes      | Int    | Public network bandwidth (in Mbps). 0 means that public network bandwidth is not enabled. To modify the bandwidth, please use [UpdateInstanceBandwidthHour]() API to make changes after the instance is created successfully. |
+| imageType                | Yes      | Int    | Image type. Only two values are available: A value of 1 indicates that it is a private image; A value of 2 indicates that it is a public image. |
+| rootSize                 | No       | Int    | Size of system disk (in GB). The setup range for Linux system is 20-50 GB. Default is 20 GB, and the increment is 1 GB. Adjustment is not supported for Windows. The default size is 50 GB. |
+| keyId                    | No       | String | ID of key. It can be queried by calling [Query Keys]() (DescribeKeyPairs) API. |
+| password                 | No       | String | Instance password. It will be generated randomly if not set. Password rules for Linux host: which should be a combination of 8-16 characters comprised of at least two of the following types: letters, numbers, special characters (!, @, #, $, %, ^, \, *, ()).  Password rules for Windows host: which should be a combination of 12-16 characters comprised of at least three of the following types: uppercase letters, lowercase letters, numbers, special characters (!, @, #, \, *).** Note: Key and password cannot both be specified at the same time.** |
+| needMonitorAgent         | No       | Int    | Activate cloud monitor service or not. Only two values are available: 1: activated; 0: deactivated. Default is 1. |
+| needSecurityAgent        | No       | Int    | Whether to activate cloud security service. Only two values are available: 1: activated; 0: deactivated. Default is 1. |
+| wanIp                    | No       | Int    | Whether to activate the public IP. Only two values are available: 1: activated; 0: deactivated. Default is 1. |
+| sgId                     | No       | String | Safety group ID. It can be queried by calling API [Query Security Group List ](). |
+| projectId                | No       | String | Project ID. If not specified, 0 means default project. To specify other projects, you can call API [Query Project List]() (DescribeProject) to query. |
+| dataSnapshotId           | No       | String | Data disk snapshot ID. If you want to use the data disk snapshot function, the data disk type (storageType) must be cloud disk, and the capacity of data disk snapshot must be less than that of the data disk (storageSize). |
+| cvmType                  | No       | String | Select CVM type. Only seven values are available: 11 means Standard CVM; 12 means Standard CVM Series 2; 21 means High IO CVM; 22 means High IO CVM Series 2; 31 means Memory CVM.  32 means Memory CVM Series 2 42 means Calculation CVM. If not specified, the default of this field is 11 (Standard CVM). |
+| userdata                 | No       | String | Base64-encoded User Data text, the length limit is 16KB.     |
 
-
+Currently, the scaling configurations support three CVMs, including Standard CVM, High IO CVM and Memory CVM (subject to the actual available types in each region). For more information about the CPUs and memories sizes supported by scaling configurations, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
 
 ## 3. Output Parameters
-| Parameter Name | Type | Description |
-|---------|---------|---------|
-| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> in the Error Codes page.|
-| codeDesc | String | Error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned. |
-| message | String | Module error message description depending on API.|
-| data | Array | Output results, including the information of the created launch configuration list. |
 
-Parameter data is composed of only one element: `scalingConfigurationIdSet`.
+| Parameter Name | Type   | Description                                                  |
+| -------------- | ------ | ------------------------------------------------------------ |
+| code           | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Code page. |
+| codeDesc       | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
+| message        | String | Module error message description depending on API.           |
+| data           | Array  | Output results. It contains the scaling configuration list information that was created successfully. |
 
-| Parameter Name | Type | Description |
-|---------|---------|---------|
-| scalingConfigurationIdSet | Array | ID of each created launch configuration. |
+Parameter data is composed of only one element: scalingConfigurationIdSet.
+
+| Parameter Name            | Type  | Description                            |
+| ------------------------- | ----- | -------------------------------------- |
+| scalingConfigurationIdSet | Array | Each scaling configuration ID created. |
 
 ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, please see [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
-| Error Code | Description |
-|----|------|
-| QuotaExceeded.ScallingConfiguration | Launch configurations to be added exceed the limit |
-| NameDuplicate.ScallingConfiguration | Launch configuration name already exists |
-| InvalidParameter.SecurityGroupId | Security group ID is incorrect |
-| IInvalidParameter.CbsNotMatchCpu | 1C1G can only be configured with cloud disks |
-| InvalidParameter.storageType | Storage type error |
-| QuotaExceeded.storageSize | Data disk size is out of range |
-| QuotaExceeded.rootSize | System disk size is out of range |
-| OprationFail.CpuOrMemNotExsit | The model for this CPU and MEME is sold out or does not exist |
+The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
+| Error Code                          | Description                                                  |
+| ----------------------------------- | ------------------------------------------------------------ |
+| QuotaExceeded.ScallingConfiguration | Scaling configurations to be added exceed the limit          |
+| NameDuplicate.ScallingConfiguration | Scaling configuration name already exists                    |
+| InvalidParameter.SecurityGroupId    | Security group ID is incorrect                               |
+| IInvalidParameter.CbsNotMatchCpu    | 1C1G can only configure cloud disks                          |
+| InvalidParameter.storageType        | Storage type error                                           |
+| QuotaExceeded.storageSize           | Data disk size exceeds the range                             |
+| QuotaExceeded.rootSize              | System disk size exceeds the range                           |
+| OprationFail.CpuOrMemNotExsit       | The model for this cpu and mem are sold out or not available |
 
 ## 5. Example
-### Input
 
 ```
 https://scaling.api.qcloud.com/v2/index.php?
 &<Common request parameters>
-&scalingConfigurationName=test
+&scalingConfigurationName=configuration_test
 &imageType=2
-&imageId=img-xxx
+&imageId=img-50mr2ow7
 &cpu=1
-&mem=1
-&storageType=1
-&storageSize=10
+&mem=2
+&storageType=6
+&storageSize=100
 &bandwidthType=PayByTraffic
 &bandwidth=1
-&projectId=102135
-&cvmType=11
+&projectId=0
+&cvmType=12
 ```
-### Output:
+
+Example of returned result is as below:
+
 ```
+
 {
     "code":"0",
     "message":"",
     "codeDesc":"Success",      
     "data":{
         "scalingConfigurationIdSet":[
-            "xxxxxx"
+            "asc-4jwggk1l"
         ]
     }
 }
 ```
 
+ 

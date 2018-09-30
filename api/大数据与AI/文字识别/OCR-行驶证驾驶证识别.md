@@ -9,7 +9,7 @@
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### url 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/drivinglicence` 
 
@@ -20,15 +20,24 @@
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
-| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。       |
-| authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)|
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
+| content-length |  否   | 包体总长度                          | 1.每个请求的包体大小限制为 6MB；<br/>2.图片格式支持：JPG、JPEG、PNG、BMP等；<br/>3.不支持 .gif 类型的动图。 | 
+| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1.使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64 编码；<br/>2.使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
+| authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)。|
 
 >**注意：**
-如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ### 请求参数
+使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。
+
+| 参数名    | 必选 | 类型     | 说明                                       |
+| ------ | ---- | ------ | ---------------------------------------- |
+| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
+| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
+| image  | 否   | binary/string | 图片文件 或 图片 base64                                |
+| url    | 否   | string | 图片 url。url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
+
 目前支持的字段为：
 
 | 行驶证    | 驾驶证  |
@@ -44,15 +53,6 @@
 | 注册日期   | 起始日期 |
 | 发证日期   | 有效日期 |
 | &nbsp; | 红章   |
-
-使用 url 选择 application/json 格式，使用 image 则选择 multipart/form-data 格式：
-
-| 参数名    | 必选 | 类型     | 说明                                       |
-| ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
-| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证识别                   |
-| image  | 否   | binary | image 和 url 只提供一个即可                                 |
-| url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
@@ -77,7 +77,7 @@ Item说明：
 
 ## 请求示例
 
-### 使用 url 的请求示例
+### 使用 application/json 的请求示例
 
 ```
 POST /ocr/drivinglicence HTTP/1.1
@@ -94,7 +94,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 image 的请求示例
+### 使用 multipart/form-data 的请求示例
 
 ```
 POST /ocr/drivinglicence HTTP/1.1

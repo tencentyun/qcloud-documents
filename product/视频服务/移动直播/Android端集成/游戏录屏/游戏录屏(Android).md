@@ -4,7 +4,6 @@
 
 ![](https://main.qcloudimg.com/raw/4532046fab322387a48fea410ead7a4d.jpg)
 
-录屏功能在 iOS 和 Android 下有两套截然不同的实现方案，本文档
 
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。

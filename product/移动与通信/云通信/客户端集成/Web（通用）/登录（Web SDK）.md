@@ -320,7 +320,7 @@ function onGroupInfoChangeNotify(groupInfo) {
     var groupId = groupInfo.GroupId;
     var newFaceUrl = groupInfo.GroupFaceUrl;//新群组图标, 为空，则表示没有变化
     var newName = groupInfo.GroupName;//新群名称, 为空，则表示没有变化
-    var newOwner = groupInfo.OwnerAccount;//新的群主 id, 为空，则表示没有变化
+    var newOwner = groupInfo.OwnerAccount;//新的群主 ID, 为空，则表示没有变化
     var newNotification = groupInfo.GroupNotification;//新的群公告, 为空，则表示没有变化
     var newIntroduction = groupInfo.GroupIntroduction;//新的群简介, 为空，则表示没有变化
     if (newName) {

@@ -2,7 +2,8 @@
 GET Buket lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。
 
 ## 请求
-语法示例：
+### 请求示例
+
 ```
 GET /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -11,17 +12,9 @@ Authorization: Auth String
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-```
-GET /?lifecycle HTTP/1.1
-```
-该 API 接口接受 GET 请求。
-
 ### 请求头
-
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
-
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -31,24 +24,16 @@ GET /?lifecycle HTTP/1.1
 ## 响应
 
 ### 响应头
-#### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
-
+#### 公共响应头
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
-响应体中各个元素的内容及含义与 PUT Buket lifecycle 时的请求体一致。详细请参见 [PUT Bucket lifecycle]() 请求体节点描述内容。
+响应体中各个元素的内容及含义与 PUT Buket lifecycle 时的请求体一致。详细请参见 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) 请求体节点描述内容。
 
-### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
-
-|错误码|HTTP 状态码|描述|
-|-------|--------|--------|
-|NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
-|NoSuchLifecycleConfiguration|404 Not Found|生命周期配置不存在。|
-
-获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+### 错误码
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
 
 ## 实际案例
 

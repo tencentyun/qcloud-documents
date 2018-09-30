@@ -40,7 +40,7 @@
 
 #### 禁用自动旋转
 ```
-ILiveRenderView *view =  [[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds forIdentifier:user srcType:type];
+ILiveRenderView *view =  [[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds foruserId:user srcType:type];
 view.autoRotate = NO;
 ```
 #### 旋转

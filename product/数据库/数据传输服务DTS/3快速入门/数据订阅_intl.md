@@ -5,13 +5,13 @@ We will obtain binlog from the master database by simulating slave database for 
 >Note:
 - The subscribed messages of the last day is retained by default. Retaining of those for the last 3 days will be available soon.
 - In addition, if you subscribe to the entire database, the newly added tables will also appear in the original subscription channel, eliminating your need to add configurations to the original subscription channel.
-- Only CDB For MySQL5.6 is supported for now, and CDB For MySQL5.7 will be available soon.
+- Only TencentDB For MySQL5.6 is supported for now, and TencentDB For MySQL5.7 will be available soon.
 - View, trigger and foreign key are not supported by the data subscription.
 
 
 ## Feature Description
-Data Transfer Service (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from CDB with several simple steps:
-* Purchase and create a subscription channel for CDB instances from the Tencent Cloud DTS console.
+TencentDB Service for Transmission (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
+* Purchase and create a subscription channel for TencentDB instances from the Tencent Cloud DTS console.
 * Use DTS data subscription SDK to connect to this subscription channel to subscribe to and consume incremental data.
 
 ## Cases
@@ -20,7 +20,7 @@ Data Transfer Service (DTS) provides a binlog-based incremental data subscriptio
 [Pull changes to the subscription table to Kafka](/document/product/571/16856)
 
 ## Use Limits
-**Data subscription feature is in beta test in some regions and is only supported for CDB for MySQL.**
+**Data subscription feature is in beta test in some regions and is only supported for TencentDB for MySQL.**
 
 Supported regions:
 
@@ -45,16 +45,16 @@ Log in to DTS console and go to the Data Subscription page.
 
 * Click **New Data Subscription** in the upper right corner to start configuring a subscription channel.
 ![][img-1]
-* Select the region where the source CDB instance resides
+* Select the region where the source TencentDB instance resides
 ![][img-2]
 * Once the channel is enabled, go to the console and complete initial configuration for the data subscription channel you just purchased.
 ![][img-3]
-* Select the source CDB instance
+* Select the source TencentDB instance
 ![](https://mc.qcloudimg.com/static/img/b9617f906b0c14ac819624b10378f4f5/image.png)
 * Select your desired synchronization type and database table.
 ![](https://mc.qcloudimg.com/static/img/12e77b47402dee0eebe1c691682f33e5/image.png)
 	The granularity of subscription objects for DTS data subscription includes database and table. That is, a user may choose to subscribe to certain databases or tables.
-	DTS subdivides subscription data types into data updates, structure updates. If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire CDB instance, in which case you need to filter the data using SDK.
+	DTS subdivides subscription data types into data updates, structure updates. If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire TencentDB instance, in which case you need to filter the data using SDK.
 * The subscription channel can be enabled when subscription object is selected.
 
 ## Modifying Consumption Time Point

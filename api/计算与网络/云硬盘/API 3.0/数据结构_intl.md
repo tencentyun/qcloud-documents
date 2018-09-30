@@ -13,7 +13,7 @@ The details of a cloud disk
 | DiskName | String | No | Cloud disk name. |
 | DiskSize | Integer | No | Cloud disk size. |
 | DiskState | String | No | Status of the cloud disk. Value range:<li>UNATTACHED: Unmounted</li><li>ATTACHING: Mounting</li><li>ATTACHED: Mounted</li><li>DETACHING: Unmounting</li><li>EXPANDING: Expanding capacity</li><li>ROLLBACKING: Rolling backing</li> |
-| DiskType | String | No | Type of cloud disk medium. Value range:<li>CLOUD_BASIC: Ordinary cloud disk</li><li>CLOUD_PREMIUM: Premium cloud storage</li><li>CLOUD_SSD: SSD cloud disk</li> |
+| DiskType | String | No | Type of cloud disk medium. Value range:<li>CLOUD_BASIC: HDD cloud disk</li><li>CLOUD_PREMIUM: Premium cloud storage</li><li>CLOUD_SSD: SSD cloud disk</li> |
 | Attached | Boolean | No | Whether the cloud disk is mounted to the CVM. Value range:<li>false: Unmounted</li><li>true: Mounted</li> |
 | InstanceId | String | No | ID of the CVM to which the cloud disk is mounted. |
 | CreateTime | Timestamp | No | Creation time of the cloud disk. |
@@ -45,7 +45,7 @@ Cloud disk configuration.
 | Name | Type | Required | Description |
 |------|------|----------|------|
 | Available | Boolean | No | Whether the configuration is available. |
-| DiskType | String | No | Type of cloud disk medium. Value range:<li>CLOUD_BASIC: Ordinary cloud disk</li><li>CLOUD_PREMIUM: Premium cloud storage</li><li>CLOUD_SSD: SSD cloud disk</li> |
+| DiskType | String | No | Type of cloud disk medium. Value range:<li>CLOUD_BASIC: HDD cloud disk</li><li>CLOUD_PREMIUM: Premium cloud storage</li><li>CLOUD_SSD: SSD cloud disk</li> |
 | DiskUsage | String | No | Cloud disk type. Value range:<li>SYSTEM_DISK: System disk</li><li>DATA_DISK: Data disk</li> |
 | DiskChargeType | String | No | Billing method. Value range:<li>PREPAID: Prepaid</li><li>POSTPAID_BY_HOUR: Postpaid</li> |
 | MaxDiskSize | Integer | No | The maximum configurable cloud disk size. |
@@ -97,6 +97,6 @@ The details of a snapshot
 | Percent | Integer | No | The percentage of progress for snapshot creation. This field is always 100 after the snapshot is created successfully. |
 | CreateTime | Timestamp | No | Creation time of the snapshot. |
 | DeadlineTime | Timestamp | No | Expiration time of the snapshot. If the snapshot is permanently retained, this field is empty. |
-| Encrypt | Boolean | No | Whether the snapshot is create from a encrypted disk. Value range:<li>true: Yes</li><li>false: No</li> |
+| Encrypt | Boolean | No | Whether the snapshot is created from a encrypted disk. Value range:<li>true: Yes</li><li>false: No</li> |
 | IsPermanent | Boolean | No | Whether it is a permanent snapshot. Value range:<li>true: Permanent snapshot</li><li>false: Non-permanent snapshot. |
 

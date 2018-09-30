@@ -3,7 +3,7 @@
 This API is used to pull the SMS delivery status in a certain period of time (the number of SMS messages sent, the number of SMS message sent successfully, the number of SMS messages billed).
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/pullsendstatus?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/pullsendstatus?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -59,5 +59,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | bill_number | Yes | Number | The number of SMS messages billed. For example, among all SMS messages that are submitted successfully, 20 messages are long messages, each with a length of 80 bytes. A long SMS message is divided into two messages. So, the number of SMS messages billed is 80*1+20*2=120 |
 | request | Yes | Number | The number of SMS messages submitted |
 | success | Yes | Number | The number of SMS messages submitted successfully |
-
-

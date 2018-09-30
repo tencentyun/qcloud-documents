@@ -1,12 +1,12 @@
 ## 接口概述
 
 ### 服务简介
-名片 OCR 识别，根据用户上传的名片图像，返回识别出的名片字段信息，目前已支持20 多个字段识别，详细字段如下：
+本接口用于根据用户上传的名片图片，返回识别出的20 多个字段信息，详细字段如下：
 
 姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
 >注意：
->如果开发者使用的是 V1 版本，请查看 [名片识别（V1）](/document/product/866/17593)。
+>如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
@@ -18,6 +18,7 @@
 
 `https://recognition.image.myqcloud.com/ocr/businesscard`
 
+
 ## 请求方式
 
 ### 请求头 header
@@ -26,7 +27,7 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。 |
+| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
 | authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 >**注意：**
@@ -38,9 +39,8 @@
 | 参数名       | 必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 是         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
-| image         | 是   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
-| url_list   | 是   | string 数组 | 图片 url 列表。image 和 url 只提供一个即可；如果都提供，只使用 url   |
-
+| image         | 否   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| url_list	    | 否  |	string 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入|
 ## 返回内容
 
 | 字段          | 类型      | 说明           |
@@ -67,7 +67,7 @@ data字段具体内容：
 
 ## 请求示例
 
-### 使用 url 的请求示例
+### 使用 application/json 的请求示例
 
 ```
 POST /ocr/businesscard HTTP/1.1
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 image 的请求示例 
+### 使用 multipart/form-data 的请求示例 
 
 ```
 POST /ocr/businesscard HTTP/1.1

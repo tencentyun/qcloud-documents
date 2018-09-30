@@ -1,31 +1,35 @@
-## FAQ on configuration adjustment
-### 1. Where can I check the history of my configuration changes? 
-You can view the record of the adjustments you've made to CVM configuration in the Operation Logs at the upper right corner of the console. For CVMs with an annual or monthly plan, an order will be generated in the transaction statement for both upgrading and degrading of configuration.
-![](//mccdn.qcloud.com/static/img/b759463ebe8f1e988902456f2aed07c8/image.png)
+### How do I upgrade/degrade the configuration of a CVM?
 
-### 2. How does the annual or monthly plan work for degrading of configuration and extension of expiry time? 
-The refundable difference between the unexpended part of you've paid and the unexpended part for the target configuration by the time the configuration of your CVM needs to be degraded is calculated. If the difference is larger than zero, that difference will be converted into the length of time supported by the target configuration and the expiry time of the server will be extended accordingly. If the difference is less than zero, the expiry time of your server will not be adjusted.
+Only the instances **whose system disk and data disk are both cloud disks** support adjusting configuration. 
 
-### 3. Is there a possibility that the configuration of the prepaid server is degraded but an extended expiry time is not offered? 
-Yes. 
-For example, the price for your configuration A is 100CNY/month as shown on the official website before you degrade it, whereas you purchased it at the price of 50CNY/month with a 50% promotion discount. After ten days of use, you need to degrade the configuration to B, which is priced 60CNY/month on the official website. In this case, the difference between the paid price (50CNY/month) and the official website price (60CNY/month) is less than zero, so the expiry time of your server will not be adjusted.  
-This may also happen when vouchers or other non-cash payment methods are used to make the purchase. In this case, you will be prompted with the following message when degrading the configuration:
+For more information about how to upgrade/degrade instance configuration, please see [Adjusting Instance Configuration](https://cloud.tencent.com/document/product/213/2178).
 
-```
-You have three chances to degrade your configuration, and you have two left; 
-The original configuration is 2-core 8GB and the target one is 1-core 2GB; 
-For degraded configuration, a price difference in the amount of ＊＊ yuan will refunded based on the paid amount and the price shown on the official website; 
-As the difference to refund is less than zero, the expiry time of your server will not be adjusted.
-```
+For more information about how to adjust bandwidth/network configuration, please see [Adjusting Network Configuration](https://cloud.tencent.com/document/product/213/15517).
 
-### 4. How does the pay-per-use work after an adjustment is made? 
-It will apply immediately upon completion of the adjustment, with the time accurate to the second. 
-For example, if the original configuration 1-core 2G is successfully upgraded to 2-core 4G at 1:23:21, by 2:00 o'clock you will be charged on the basis of 1-core 2G for the first 23 minutes and 21 seconds, and 2-core 4G for the remaining 36 minutes and 39 seconds, with the time accurate to the second.
+If your configuration adjustment does not take effect, [submit a ticket](https://console.cloud.tencent.com/workorder/category) to contact us.
 
+### How do I check the records of configuration adjustments?
 
+The records of configuration adjustments can be found in the operation log in the upper right corner of the [Console](https://console.cloud.tencent.com/cvm/index). For a prepaid instance, an order will be generated in the income & expense statement each time the instance is upgraded or degraded.
+![](https://main.qcloudimg.com/raw/276e7199bedf1c6d4745d6dd18003f67.png)
 
-| | Bandwidth Package (CNY/Mbps) |Exceeding Package (CNY/Mbps) |
-| --------- | --------- | --------- |
-| Mainland China |  |  |
-| Hong Kong |  |  |
-| North America |  |  |
+### Can bandwidth be adjusted when the CVM is renewed in Recycle Bin?
+No. Adjustment to bandwidth configuration can only be made after the instance is successfully renewed in Recycle Bin.
+
+### Does a postpaid instance support adjusting configuration?
+The instances whose data disk and system disk are both cloud disks support adjusting configuration. The configuration of a postpaid instance can be upgraded or degraded for unlimited times; the configuration of a prepaid instance can be upgraded for unlimited times, but can **only be degraded once**.
+
+### How many times can the configuration of a CVM be degraded at most?
+Each instance can only be degraded once.
+
+### Will the usage period of a prepaid instance be extended after the instance is degraded?
+It may not be extended. This depends on whether the remaining amount of your actual payment at the time of purchase after the deduction of fees for the used resources is greater than the amount to be paid for the degraded configuration. If so, the usage period is extended, otherwise it remains unchanged.
+#### Example:
+An instance with a configuration of "Standard, 2-core, 4-GB local disk, without bandwidth" is priced at 102 CNY/month. You purchased the instance for a usage period of one year with a 400 CNY voucher at a discount of 83% off. When the instance has been used for 2 months, its configuration is degraded to "Standard, 1-Core, 2-GB local disk, without bandwidth", which is priced at 51 CNY/month.
+Discounted price: 102  \* 12 \* 0.83 = 1015.92 CNY
+Actual paid amount: 1015.92 - 400 = 615.92 CNY
+Remaining amount after deduction of fees for used resources: 615.92 - 102 \* 2 = 411.92 CNY
+The amount to be paid for the degraded instance (1-core CPU, 2-GB local disk) for a usage period of 10 months is 51 \* 10 = 510 CNY
+**Conclusion:** Because 411.92 < 510, the usage period remains unchanged.
+> The above prices are only used as examples, and are not actual prices listed on the official website.
+

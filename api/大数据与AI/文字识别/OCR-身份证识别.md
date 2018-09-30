@@ -21,12 +21,12 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json  或  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
+| content-type   | 是| application/json  或  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
 | authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734) |
 >**注意：**
 >如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
-## 使用图片 URL
+## 使用 application/json 格式
 ### 请求参数
 
 使用 application/json 格式：
@@ -34,7 +34,8 @@
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
 | appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
-| url_list  | 是   | string 数组 | 图片 url 列表      |
+| card_type | 否    | int       | 0 为身份证有照片的一面（正面）；1 为身份证有国徽的一面（反面）。如果未指定，默认为0，但反面必须填1。  |
+| url_list  | 否   | string 数组 | 图片 url 列表      |
 
 
 ### 返回内容
@@ -175,7 +176,7 @@ Content-Type: "application/json"
 }
 ```
 
-## 使用图片文件
+## 使用 multipart/form-data 格式
 
 ### 请求参数
 使用 multipart/form-data 格式：
@@ -257,13 +258,13 @@ Content-Disposition: form-data; name="card_type";
 Content-Disposition: form-data; name="image[0]"; filename="1.jpg"
 Content-Type: image/jpeg
 
-<@INCLUDE *D:\185839ggh0oedgnog04g0b.jpg.thumb.jpg*@>
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ---------------------------acebdf13572468
 Content-Disposition: form-data; name="image[1]"; filename="2.jpg"
 Content-Type: image/jpeg
 
-<@INCLUDE *D:\200132svnmybmhbmmgbmga.jpg.thumb.jpg*@>
----------------------------acebdf13572468
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+---------------------------acebdf13572468--
 ```
 
 ### 返回示例
@@ -342,6 +343,7 @@ Content-Type: image/jpeg
 | -5107   | 输入图片不是身份证                         |
 | -5108   | 身份证信息不合规范                         |
 | -5109   | 照片模糊                              |
+| -5806   | 身份证号码或姓名格式错误                |
 | -7001   | 未检测到身份证，请对准边框(请避免拍摄时倾角和旋转角过大、摄像头) |
 | -7002   | 请使用第二代身份证件进行扫描                    |
 | -7003   | 不是身份证正面照片(请使用带证件照的一面进行扫描)         |

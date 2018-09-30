@@ -2,35 +2,26 @@
 
 | 类                  | 说明                                       |
 | ------------------ | ---------------------------------------- |
-| WhiteboardSDK     |  白板 SDK 初始化类，App 启动时调用 init 方法进行初始化。 |
+| BoardSDK     |  白板 SDK 初始化类，App 启动时调用 init 方法进行初始化。 |
 | WhiteboardView     | 继承 SurfaceView，独立主线程渲染。白板数据采集和展示网络白板数据控件。 |
 | WhiteboardManager  | 白板主要业务逻辑管理类，提供了包括绘制参数设置、撤销、重做、擦除和选择等所有白板功能接口。 |
 | WhiteboardEventListener | 白板事件回调接口，业务须实现所有接口。                               |
 | WhiteboardConfig   | 白板绘制参数配置。                                |
-| PaintType          | 绘制类型。详见代码注释说明。                           |
-| FillMode           | 背景图的显示模式。详见代码注释说明。                       |
-| BaseAction             | 白板绘制操作封装类抽象类。所有白板操作均继承该类。                     |
-| WhiteboardEvent         | 白板对外的数据结构，由一系列的 Action 组成。                 |
+| WhiteboardEvent         | 白板事件的数据结构。                 |
 
-**教育SDK里重要类**
-
-| 类                | 说明                                     |
-| ---------------- | ---------------------------------------- |
-| ILVConfMgr       | 教育业务管理类。                              | 
-| JsonProto        | 转换成协议数据格式，并通过数据链路外发。   |
 
 ## 白板使用方法
 ### WhiteboardView 使用方法
 跟普通的自定义控制使用方法相同，在布局文件中可以直接使用、按需继承。
 ```
 <com.tencent.boardsdk.board.WhiteboardView
-	 android:id="@+id/cbv_board"
-	 android:layout_width="match_parent"
-	 android:layout_height="match_parent" />
+ android:id="@+id/cbv_board"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent" />
 
 ```
 > **注意：**
-> 为了保证各端体验一致，白板视图的宽高比固定为 16：9。WhiteboardView 控件内部已做处理，开发者直接使用即可。
+> 为了保证各端体验一致，白板视图的宽高比默认为 16：9。WhiteboardView 控件内部已做处理，开发者直接使用即可。
 
 **主要方法说明**
 
@@ -38,6 +29,7 @@
 | ------------------- | ----------- |
 | setWhiteboardEnable | 关启白板绘制。      |
 | setDragEnable       | 关启白板缩放和拖拽功能。 |
+| setAspectRatio       | 设置控件宽高比例（高度/宽度，内置默认是 9.0f / 16.0f），控件初始化后调用。 |
 
 ### WhiteboardManager 使用方法
 
@@ -45,80 +37,85 @@
 从 WhiteboardManager 获取 WhiteboardConfig 实例（也可自己构建），设置相关参数后，通过 WhiteboardManager 的`init`方法进行初始化。
 
 ```
-	WhiteboardConfig config = WhiteboardManager.getInstance().getConfig();
-	config.setPaintSize(6).setPaintColor(Color.BLUE);
-	WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
+WhiteboardConfig config = WhiteboardManager.getInstance().getConfig();
+config.setPaintSize(6).setPaintColor(Color.BLUE);
+WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 ```
 #### 主要方法说明
+
+**初始化和释放：**
 
 | 接口                                 | 说明                                       |
 | ---------------------------------- | ---------------------------------------- |
 | init                               | 初始化白板绘制参数。                               |
-| setBackgroundColor                 | 设置背景色。|
-| setGlobalBackgroundColor				| 设置全部白板背景色，已设置背景色或者新创建背景色均生效。 |
-| setPaintColor                      | 设置画笔颜色。                                   |
-| setPaintType                       | 设置绘制类型。                                   |
-| setPaintSize                       | 设置画笔笔画大小（默认是6）。                           |
-| setCornerRadius                    | 设置矩形的圆角半径。                               |
-| setFillStyle                       | 设置封闭形状如矩形，圆形的填充样式。仅支持 Paint.Style.FILL 和 Paint.Style.STROKE 两种，FILL为实心，STROKE 为空心。 |
-| setDottedEnable                    | 开启虚线，默认实线。      |                         |
-| setFillMode                        | 设置背景图显示模式。                               |
-| getConfig                          | 获取白板绘制参数配置。                               |
-| createSubBoard                     | 创建子白板。返回创建的白板 ID 标识。                       |
-| switchBoardById                    | 切换白板。结果返回，0，表示切换成功（ID 如不存在，则新建）；-1，表示白板 ID 非法（空ID）。 |
-| deleteBoardById                    | 删除白板，并切换至默认白板。结果返回，0，表示删除成功；-1，表示白板 id 非法（原因如：1.默认白板删除‘#DEFAULT’不允许删除；2.该白板不存在）。 |
-| getCurrentWhiteboardId             | 获取当前白板 ID。默认的 ID 为 #DEFAULT。                 |
-| getBoardList                       | 获取所有白板的 ID，返回白板列表。                         |
-| revoke                             | 撤销绘制操作。                                   |
-| redo                               | 重做。                                       |
-| clear                              | 清空白板内容。                                   |
-| setTimePeriod                      | 设置白板数据外发时间间隔（默认是 200ms）。             |
-| registerBoardListChangedListener   | 注册白板列表变化监听，注意去注册操作，避免内存泄露。               |
-| unregisterBoardListChangedListener | 去注册监听白板列表。                               |
+| release                               | 释放白板相关资源，在退出课堂时调用。                              |
+
+**白板事件监听：**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| setEventListener                    |设置白板绘制回调。**如果通过 TIC SDK 使用白板，不要单独设置次监听，否则会导致白板功能异常**。                              |
+
+**白板管理接口：**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| createSubBoard                   | 创建子白板。  					|
+| switchBoardById                   |切换白板。  					|
+| deleteBoardById                   | 删除白板及其内容，并切换至默认白板。  					|
+| whiteboardPageCtrlById             | 删除白板及其内容，并切换至指定白板，如未指定目标白板，则切换至目标白板。  	|
+| getCurrentWhiteboardId                   | 获取当前白板 ID。  					|
+| getBoardList                   | 获取白板 ID 列表  					|
+| getFidList                   | 获取文件 ID 列表信息，包括普通白板。  					|
+
+**白板数据接口：**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| getBoardData                   | 同步课堂白板历史数据，仅在进入课堂后调用有效。  	|
+| setTimePeriod                   | 设置白板数据上抛间隔(默认为 200ms)。  		|
+
+**白板操作接口：**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| revoke                   | 撤回本人最新的一次绘制操作。  	|
+| redo                   | 取消撤回操作。  					|
+| clear                   | 清除当前白板内容，并同步到各端。  					|
+| clearDraws                   | 清空当前白板所绘制的涂鸦涂鸦，并同步到各端。  					|
+| clearFileDraws                   | 清空指定文件涂鸦。  					|
+| setPaintColor                   | 设置画笔颜色(默认为蓝色)。  					|
+| setPaintType                   | 设置绘制类型。  					|
+| setPaintSize                   | 设置画笔宽度(默认为 5)。  					|
+| setCornerRadius                   | 设置矩形的圆角半径。  					|
+| setFillStyle                   | 设置封闭图形，如矩形或者圆形的填充样式，见 @{Paint.Style}，白板目前支持 Style#FILL 和 Style#STROKE 两种模式。  					|
+
+**背景接口：**
+
+| 接口                                 | 说明                                       |
+| ---------------------------------- | ---------------------------------------- |
+| setBoardBackGround                   | 设置白板背景图。  	|
+| setBackgroundColor                   | 设置白板背景颜色(默认为白色)，当前白板生效。  	|
+| setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效。  	|
+
+**COS 相关**
+
+| 接口                                 | 说明                                       |
+| ----------------------------------- | ------------------------------------------ |
+| setCosConfig                   	| 为**私有账号模式**特有接口，在使用白板功能时，务必请先调用此接口。  	|
+
+COS 为 腾讯云对象存储，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到COS ，白板SDK 会将调用SDK 接口上传的图片，文件上传到 COS 的存储桶中。
+白板SDK提供两种使用COS 服务能力的方式，一种是**大账号模式**，一种是**私有账号模式**，对比如下：
+
+| 大账号模式                                 | 私有账号模式                                        |
+| ---------------------------------------- | ---------------------------------------- |
+| 1.仅需提供sdkappid申请开通白名单即可使用，方便快捷；| 1.用户须自行开通和配置COS 服务，并须联系商务开通预览服务；|
+| 2.SDK 默认使用大账号模式，不需额外代码配置； |2.成功后调用setCosConfig接口进行初始化和设置|
+
+* SDK默认使用大账号模式，如果您是新接入用户，我们推荐使用该模式模式；
+* 如果您已经或者决定使用私有账号模式，请确保按照[开通对象存储服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1)指引配置COS 账号，调用**setCosConfig**接口设置配置信息后使用。
 
 
-设置背景色接口：
-
-```java
-    /**
-     * 设置白板背景颜色(默认为白色)，当前白板生效
-     *
-     * @param backgroundColor 背景颜色，格式ARGB
-     * @return
-     */
-    public void setBackgroundColor(int backgroundColor);
-
-    /**
-     * 设置全部白板背景色，已设置背景色或者新创建背景色均生效
-     * @param backgroundColor 背景颜色，格式ARGB
-     */
-    public void setGlobalBackgroundColor(int backgroundColor);
-```
-
-设置背景图接口：
-
-```java
-	> WhiteboardManager.java
-   /**
-     * 设置白板背景，默认当前所在白板
-     *
-     * @param filePath  文件所在路径
-     * @param bAutoFill 填充样式
-     * @param callBack  结果回调
-     */
-    public void setBoardBackGround(final String filePath, final boolean bAutoFill, final IWbCallBack<String> callBack);
-
-    /**
-     * 设置指定白板的背景
-     *
-     * @param filePath  文件所在路径，文件为空时，清空白板背景
-     * @param bAutoFill 填充样式
-     * @param boardId   白板标识
-     * @param callBack  结果回调, onSuccess回调中返回图片上传到服务后台存放的的url
-     */
-    public void setBoardBackGround(final String filePath, final boolean bAutoFill, final String boardId, final IWbCallBack<String> callBack);
-
-```
 #### 多终端交互
 | 接口        | 说明                           |
 | --------- | ---------------------------- |

@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: DescribeSnapshots |
+| Action | Yes | String | Common parameter. Value used in this API: DescribeSnapshots |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | SnapshotIds.N | No | Array of String | List of IDs of the snapshots to be queried. This parameter does not support specifying both `SnapshotIds` and `Filters`. |
 | Filters.N | No | Array of [Filter](/document/api/362/15669#Filter) | Filter conditions. This parameter does not support specifying both `SnapshotIds` and `Filters`. <li>snapshot-id - Array of String - Required or not: No - (Filter condition) Filter by the snapshot ID in such format as `snap-11112222`. </li><li>snapshot-name - Array of String - Required or not: No - (Filter condition) Filter by the snapshot name. </li><li>snapshot-state - Array of String - Required or not: No - (Filter condition) Filter by the snapshot status (NORMAL: normal &#124; CREATING: creating &#124; ROLLBACKING: rolling back). </li><li>disk-usage - Array of String - Required or not: No - (Filter condition) Filter by the type of the cloud disk for which the snapshot is created (SYSTEM_DISK: system disk &#124; DATA_DISK: data disk). </li><li>project-id - Array of String - Required or not: No - (Filter condition) Filter by ID of the project to which the cloud disk belongs. </li><li>disk-id - Array of String - Required or not: No - (Filter condition) Filter by the ID of the cloud disk for which the snapshot is created. </li><li>zone - Array of String - Required or not: No - (Filter condition) Filter by [availability zone](/document/api/213/9452#zone). |
@@ -54,7 +54,7 @@ https://cbs.tencentcloudapi.com/?Action=DescribeSnapshots
 &Filters.1.Values.0=ap-guangzhou-2
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

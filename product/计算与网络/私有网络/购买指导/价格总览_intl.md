@@ -3,7 +3,7 @@
             <th style="width: 10%;" rowspan="2">Feature</th>
             <th style="width: 10%;" rowspan="2">Billing Model</th>
                         <th style="width: 30%;" rowspan="2">Configuration</th>
-            <th style="width: 50%;" colspan="7">Price</th>
+            <th style="width: 50%;" colspan="10">Price</th>
         </tr>
         <tr>
             <th>Beijing<br>Shanghai<br>Guangzhou</th>
@@ -12,11 +12,14 @@
             <th>Toronto</th> 
 	<th>Korea</th> 
 		<th>Frankfurt</th>
-			<th>Silicon Valley</th>
+		<th>Silicon Valley</th>
+		<th>Virginia</th> 
+		<th>Mumbai</th>
+			<th>bangkok</th>
         </tr>
         <tr>
             <td>Custom VPC</td>
-            <td colspan="9" rowspan="4" align="center">Free</td>
+            <td colspan="12" rowspan="4" align="center">Free</td>
         </tr>
         <tr>
             <td>Custom Subnet</td>
@@ -37,7 +40,11 @@
             <td>0.12</td>
 			<td>0.088</td>
             <td>0.088</td>
+						<td>0.088</td>
+						<td>0.088</td>
             <td>0.088</td>
+						<td>0.12</td>
+           
         </tr>
                                 <tr>
             <td rowspan="4">NAT Gateway</td>
@@ -50,6 +57,9 @@
 			<td>0.13</td>
             <td>0.13</td>
             <td>0.13</td>
+						<td>0.18</td>
+            <td>0.14</td>
+						<td>0.13</td>
         </tr>
                 <tr>
             <td>Medium</td>
@@ -59,6 +69,9 @@
                         <td>0.42</td>
 			<td>0.39</td>
             <td>0.39</td>
+			<td>0.39</td>
+			<td>0.54</td>
+                        <td>0.42</td>
 			<td>0.39</td>
         </tr>
                 <tr>
@@ -70,6 +83,9 @@
 			<td>1.3</td>
 			<td>1.3</td>
 			<td>1.3</td>
+			<td>1.8</td>
+			<td>1.4</td>
+			<td>1.3</td>
         </tr>
                 <td colspan="2">Charge for traffic consumption (Only the traffic from NAT gateway to the Internet is billed. The NAT gateway traffic for users with a bandwidth package is charged to the bill of bandwidth package)<br>(USD/GB)</td>
             <td>0.12</td>
@@ -79,10 +95,13 @@
 			<td>0.12</td>
 			<td>0.077</td>
 			<td>0.077</td>
+			<td>0.1</td>
+			<td>0.1</td>
+			<td>0.075</td>
         </tr>
                 <tr>
                     <td>Regional Peering Connection</td>
-                 <td colspan="9" rowspan="1" align="center">Free</td>
+                 <td colspan="12" rowspan="1" align="center">Free</td>
                  </tr>
         </tr>
     <tr>
@@ -90,31 +109,31 @@
                         <td rowspan="5">Peak bandwidth of the day<br><br>Bill by days (USD/Mbps/day) <br><br>Peak bandwidth is calculated as the average bandwidth every 5 minutes<br></td>
                         <td>(0, 20] Mbps</td>
                         <td colspan="1" rowspan="1" align="center">3.19</td>
-                        <td colspan="6" rowspan="1" align="center">15</td>
+                        <td colspan="9" rowspan="1" align="center">15</td>
         </tr>
                 
                 <tr>
                 <td>(20M, 100] Mbps</td>
                         <td colspan="1" rowspan="1" align="center">1.98</td>
-                        <td colspan="6" rowspan="1" align="center">12</td>
+                        <td colspan="9" rowspan="1" align="center">12</td>
                 </tr>
                 
                 <tr>
                 <td>(100, 500] Mbps</td>
                 <td colspan="1" rowspan="1" align="center">1.48</td>
-                        <td colspan="6" rowspan="1" align="center">9</td>
+                        <td colspan="9" rowspan="1" align="center">9</td>
                 </tr>
                 
                 <tr>
                 <td>(500, 2000] Mbps</td>
 				<td colspan="1" rowspan="1" align="center">1.19</td>
-                        <td colspan="6" rowspan="1" align="center">6</td>
+                        <td colspan="9" rowspan="1" align="center">6</td>
                 </tr>
                 
              <tr>
                 <td >> 2000 Mbps</td>
 				<td colspan="1" rowspan="1" align="center">0.82</td>
-                        <td colspan="6" rowspan="1" align="center">5</td>
+                        <td colspan="9" rowspan="1" align="center">5</td>
                 </tr>
                 </tr>
                     

@@ -1,94 +1,149 @@
-## 功能介绍
+## 简介
+SuperPlayer是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能。包括横竖屏切换、清晰度选择、手势、小窗等基础功能，还支持视频缓存，软硬解切换，倍速播放等特殊功能。相比系统播放器，支持格式更多，兼容性更好，功能更强大。同时还支持直播流（flv+rtmp）播放，具备首屏秒开、低延迟的优点，清晰度无缝切换、直播时移等高级能力。
 
-超级播放器是基于`TXVodPlayer`实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕等功能于一体的解决方案，**且完全开源**。帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
+本播放器完全免费开源，不对播放地址来源做限制，可放心使用。
 
-
-![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
-
-## 接入准备
-
-1. 下载 SDK + Demo 开发包，下载地址为（[iOS](https://cloud.tencent.com/document/product/454/7873#iOS)）。
-
-2. 超级播放器的 UI 部分源码开源，开源代码位于`Player`文件夹，图片资源位于`Resource/Player`文件夹，您需要先将这两部分拷贝的您的App工程中。其它依赖的第三方库您可以自行 Pod 添加或在 `Third` 目录中获取
- -  Masonry
- - SDWebImage
+## 阅读对象
+本文档部分内容为腾讯云专属能力，使用前请开通[腾讯云](https://cloud.tencent.com/?from=product-document-use-Player)相关服务，未注册用户可注册账号[免费试用](https://cloud.tencent.com/login?from=product-document-use-Player)。
 
 
-## 创建播放器
+## 快速集成
 
-超级播放器主类为`ZFPlayerView`，您需求先创建它并添加的需要的父View中。
+### 接入准备
+
+#### 方案1. 官方CocoaPods
+请将下面代码加入到您的Podfile中：
+```
+pod 'SuperPlayer'
+```
+
+#### 方案2. 本地CocoaPods
+
+下载SDK [下载地址](https://cloud.tencent.com/document/product/454/7873)，解压到本地。
+
+以独立播放器版为例，此时您可以看到解压后的文件
+
+![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
+
+其中，播放器代码位于Demo/SuperPlayer，SDK库位于SDK目录。
+
+在您的Podfile文件，添加下面代码：
+```
+pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec', :subspecs => ['Player']
+# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
+```
+
+命令行输入 `pod install` 或 `pod update` 执行安装。
+
+### 使用播放器
+播放器主类为`SuperPlayerView`，创建后即可播放视频。
 
 ```objective-c
-_playerView = [[ZFPlayerView alloc] init];
-        
-[_playerView playerControlView:nil playerModel:self.playerModel];
+// 引入头文件
+#import <SuperPlayer/SuperPlayer.h>
 
-// 设置代理
+_playerView = [[SuperPlayerView alloc] init];
+// 设置代理，用于接受事件
 _playerView.delegate = self;
+// 设置父View，_playerView会被自动添加到holderView下面
+_playerView.fatherView = self.holderView;
 
-// 加载成功后自动播放
-[self.playerView autoPlayTheVideo];
+SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+// 设置播放地址，直播、点播都可以
+playerModel.videoURL = @"http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4";
+// 开始播放
+[_playerView playWithModel:playerModel];
 ```
+运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可以状态
+![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
 
-## 视频信息获取
 
-与播放普通url地址不同，获取视频信息需要通过fileId方式。
+## 多清晰度
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开[直播控制台](https://console.cloud.tencent.com/live/livemanage&from=product-document-use-Player)，找到需要播放放的直播流，进入详情。
 
-```objective-c
-TXPlayerAuthParams *p = [TXPlayerAuthParams new];
-p.appId = 1252463788;
-p.fileId = @"4564972819220421305";
+![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
 
-self.getInfoPlayer = [[TXVodPlayer alloc] init];
-[self.getInfoPlayer setIsAutoPlay:NO];
-self.getInfoPlayer.vodDelegate = self;
-[self.getInfoPlayer startPlayWithParams:p];
+这里有不同清晰度、不同格式的播放地址。推荐使用FLV地址播放，代码如下：
 ```
+SuperPlayerUrl *url1 = [SuperPlayerUrl new];
+url1.url = @"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv";
+url1.title = @"超清";
+SuperPlayerUrl *url2 = [SuperPlayerUrl new];
+url2.url = @"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv";
+url2.title = @"高清";
+SuperPlayerUrl *url3 = [SuperPlayerUrl new];
+url3.url = @"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_550.flv";
+url3.title = @"标清";
 
-fileId在一般是在视频上传后，由服务器返回：
+SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+palyerModel.multiVideoURLs = @[url1, url2, url3];
+playerModel.videoURL = url1.url; // 设置默认播放的清晰度
+// 开始播放
+[_playerView playWithModel:playerModel];
+```
+在播放器中即可看到这几个清晰度，单击即可立即切换。
 
-1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C)到客户端
-2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757)的通知中包含对应的fileId
+![直播清晰度](https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg)
 
-如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+## 时移播放
+播放器开启时移非常简单，您只需要在播放前配置好appId
+
+```objc
+playerModel.appId = 1252463788;
+```
+> appId在 腾讯云控制台 -> [账号信息](https://console.cloud.tencent.com/developer&from=product-document-use-Player) 中查到。
+
+播放的直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击“返回直播”可观看最新直播流。
+
+![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
+
+> 时移功能处于公测申请阶段，如您需要可[提交工单](https://console.cloud.tencent.com/workorder&from=product-document-use-Player)申请使用。
+
+## FileId播放
+设置清晰度除了填写url外，更简单的使用方式是采用fileId播放。fileId在一般是在视频上传后，由服务器返回：
+
+1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C&from=product-document-use-Player)到客户端
+2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757&from=product-document-use-Player)的通知中包含对应的fileId
+
+如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist&from=product-document-use-Player) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
 
 ![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 
+播放fileId的代码如下：
+```
+SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+playerModel.appId = 1252463788;
+playerModel.fileId = @"4564972819219071679";
+[_playerView playWithModel:self.playerModel];
+```
+视频在上传后，后台会自动转码（所有转码格式请参考[转码模板](https://console.cloud.tencent.com/video/transcodetmpl&from=product-document-use-Player))。转码完成后，播放器会自动显示多个清晰度。
 
+#### 视频缩略图&打点信息
+在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务API，能快速对视频处理。
 
-SDK在请求成功后，视频信息将以事件的形式通知到上层
+[截取雪碧图](https://cloud.tencent.com/document/product/266/8101&from=product-document-use-Player)
 
+[增加打点信息](https://cloud.tencent.com/document/product/266/14190&from=product-document-use-Player)
+
+任务执行成功后，播放器的界面会增加新的元素。
+![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+
+## 小窗播放
+小窗播是指在App内，悬浮在主window上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
-- (void)onPlayEvent:(TXVodPlayer *)player event:(int)EvtID withParam:(NSDictionary *)param
-{
-    
-    if (EvtID == PLAY_EVT_GET_PLAYINFO_SUCC) {
-        ListVideoModel *model = [ListVideoModel new];
-        model.cover = param[EVT_PLAY_COVER_URL];
-        model.duration = [param[EVT_PLAY_DURATION] intValue];
-        model.url = param[EVT_PLAY_URL];
-    }
-}
+SuperPlayerWindowShared.superPlayer = _playerView; // 设置小窗显示的播放器
+SuperPlayerWindowShared.backController = self;  // 设置返回的view controller
+[SuperPlayerWindowShared show]; // 悬浮显示
+```
+![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)
+
+## 退出播放
+当不需要播放器时，调用resetPlayer清理播放器内部状态，释放内存。
+```objective-c
+[_playerView resetPlayer];
 ```
 
+## 更多功能
+完整功能可扫码下载视频云工具包体验，或直接运行工程Demo。
 
-## 切换视频
-
-播放另一个视频，您需要重新创建一个`playerModel`，调用resetToPlayNewVideo即可
-
-```objective-c
-_playerModel.title = [cell getSource].title;
-_playerModel.videoURL = [NSURL URLWithString:[cell getSource].url];
-_playerModel.placeholderImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:
-                                [NSURL URLWithString:[cell getSource].cover]]];
-
-[_playerView resetToPlayNewVideo:self.playerModel];
-```
-### 移除播放器
-
-当不需要播放器时，调用resetPlayer清理播放器内部状态，防止干扰下次播放。
-
-```objective-c
-[self.playerView resetPlayer];  //非常重要
-```
-
+![iOS二维码下载](https://main.qcloudimg.com/raw/b670e99ddb3f0d828798520e19f40fa7.png)

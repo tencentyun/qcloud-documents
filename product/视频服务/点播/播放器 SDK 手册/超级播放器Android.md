@@ -1,107 +1,194 @@
-## 功能介绍
+## 简介
 
-超级播放器是基于`TXVodPlayer`实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕等功能于一体的解决方案，**且完全开源**。帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
+SuperPlayer 是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能。包括横竖屏切换、清晰度选择、手势、小窗等基础功能，还支持视频缓存，软硬解切换，倍速播放等特殊功能。相比系统播放器，支持格式更多，兼容性更好，功能更强大。同时还支持直播流（ flv + rtmp ）播放，具备首屏秒开、低延迟的优点，清晰度无缝切换、直播时移等高级能力。
 
-![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
+本播放器完全免费开源，不对播放地址来源做限制，可以放心使用。
 
-## 接入准备
+## 阅读对象
 
-1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android)).
+本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com/?from=superPlayer) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login?from=superPlayer)。
 
-2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
+## 快速集成
 
-3. Demo 的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在 github 获取，也可如 Demo 在 build.gradle示例配置 
-```
+### aar集成
+
+- 1.下载 SDK + Demo 开发包，下载地址为 ([Android](https://cloud.tencent.com/document/product/454/7873#Android))
+- 2.导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去
+- 3.在 `app/build.gralde` 中添加依赖：
+
+```java
+compile(name: 'LiteAVSDK_Professional', ext: 'aar')
+compile(name: 'lib_tcsuperplayer', ext: 'aar')
+// 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
 
-## 创建播放器
+- 4.在项目`build.gralde`中添加：
 
-超级播放器主类为`SuperVideoPlayer`，您需求先创建它。
-
-```objective-c
-mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
-mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
 ```
-
-## 视频信息获取
-
-与播放普通url地址不同，获取视频信息需要通过fileId方式。
-
-```objective-c
-TXPlayerAuthParams *p = [TXPlayerAuthParams new];
-p.appId = 1252463788;
-p.fileId = @"4564972819220421305";
-
-TXPlayerAuthBuilder authBuilder = new TXPlayerAuthBuilder();
-try {
-    authBuilder.setAppId(Integer.parseInt(playerAuthParam.appId));
-    authBuilder.setFileId(playerAuthParam.fileId);
-    mTXPlayerGetInfo.startPlay(authBuilder);
-} catch (NumberFormatException e) {
-    Toast.makeText(mContext, "请输入正确的AppId", 0).show();
-}
-```
-
-fileId在一般是在视频上传后，由服务器返回：
-
-1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C)到客户端
-2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757)的通知中包含对应的fileId
-
-如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
-
-![](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
-
-SDK在请求成功后，将视频信息将以事件的形式通知到上层
-
-在Demo中SuperVideoPlayer中示例
-```objective-c
-mTXPlayerGetInfo = new TXVodPlayer(context);
-mTxplayer.setVodListener(mPlayVodListener);
-mTXPlayerGetInfo.setVodListener(mGetVodInfoListener);
-
-/**
- * 获取fileId对应的视频信息
- */
-private ITXVodPlayListener mGetVodInfoListener = new ITXVodPlayListener() {
-    @Override
-    public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
-        String playEventLog = "receive event: " + event + ", " + param.getString(TXLiveConstants.EVT_DESCRIPTION);
-        Log.d(TAG, playEventLog);
-
-        if (event == TXLiveConstants.PLAY_EVT_GET_PLAYINFO_SUCC) { // 获取点播文件信息成功
-            VodRspData data = new VodRspData();
-            data.cover = param.getString(TXLiveConstants.EVT_PLAY_COVER_URL);
-            data.duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION);
-            data.url = param.getString(TXLiveConstants.EVT_PLAY_URL);
-            if (mVideoPlayCallback != null) {
-                mVideoPlayCallback.onLoadVideoInfo(data);
-            }
+...
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
         }
+        ...
     }
-};
-```
-
-
-## 切换视频
-
-播放器播放另一个视频，调用`setPlayUrl`即可
-
-```objective-c
-String url = "http://1252463788.vod2.myqcloud.com/xxx/yyy/v.f20.mp4";
-if (mSuperVideoPlayer != null) {
-    mSuperVideoPlayer.updateUI("新播放的视频");
-    mSuperVideoPlayer.setPlayUrl(url);
 }
+...
 ```
 
-## 移除播放器
+- 5.权限声明
 
-当不需要播放器时，调用onDestroy清理播放器内部状态，防止干扰下次播放。
+```java
+<!--网络权限-->
 
-```objective-c
-if (mSuperVideoPlayer != null) {
-    mSuperVideoPlayer.onDestroy();
-}
+<uses-permission android:name="android.permission.INTERNET" />
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+<!--点播播放器悬浮窗权限-->
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+<!--存储-->
+
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
+>注：`lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+
+
+
+### 使用播放器
+
+播放器主类为`SuperPlayerView`，创建后即可播放视频。
+
+```java
+mSuperPlayerView = findViewById(R.id.main_super_player_view);
+
+SuperPlayerModel model = new SuperPlayerModel();
+
+model.videoURL = "http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4";
+
+mSuperPlayerView.playWithMode(model);
+```
+
+运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可以状态
+![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+
+## 多清晰度
+
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage&from=superPlayer)，找到需要播放放的直播流，进入详情。
+
+![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
+
+这里有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
+
+```java
+SuperPlayerModel superPlayerModel = new SuperPlayerModel();
+
+superPlayerModel.videoURL = "http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4.flv";
+
+superPlayerModel.multiVideoURLs = new ArrayList<>();
+
+superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("超清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4.flv"));
+
+superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("高清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_900.flv"));
+
+superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("标清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_550.flv"));
+mSuperPlayerView.playWithMode(superPlayerModel);
+```
+
+在播放器中即可看到这几个清晰度，单击即可立即切换。
+
+![直播清晰度](https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg)
+
+## 时移播放
+
+播放器开启时移非常简单，您只需要在播放前配置好appId
+
+```java
+playerModel.appId = 1252463788;
+```
+
+> appId在 腾讯云控制台 -> [账号信息](https://console.cloud.tencent.com/developer&from=superPlayer) 中查到。
+
+播放的直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击“返回直播”可观看最新直播流。
+
+![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
+
+> 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder&from=superPlayer) 申请使用。
+
+## FileId播放
+
+设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
+
+1. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C&from=superPlayer) 到客户端
+2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757&from=superPlayer) 的通知中包含对应的 fileId
+
+如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist&from=superPlayer) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+
+![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+
+播放fileId的代码如下：
+
+```java
+//通过fileid方式的视频信息配置
+SuperPlayerModel model = new SuperPlayerModel();
+model.appid = 1252463788;   // 默认的app id
+model.fileid = "5285890781763144364"; // 视频的fileid；
+// 开始播放
+mSuperPlayerView.playWithMode(model);
+```
+
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl&from=superPlayer))。转码完成后，播放器会自动显示多个清晰度。
+
+#### 视频缩略图&打点信息
+
+在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
+
+[截取雪碧图](https://cloud.tencent.com/document/product/266/8101&from=superPlayer)
+
+[增加打点信息](https://cloud.tencent.com/document/product/266/14190&from=superPlayer)
+
+任务执行成功后，播放器的界面会增加新的元素。
+![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+
+## 小窗播放
+
+小窗播放可以悬浮在所有 Activity 之上播放。使用小窗播放非常简单，只需要在开始播放前调用下面代码即可：
+
+```java
+// 播放器配置
+SuperPlayerGlobalConfig prefs = SuperPlayerGlobalConfig.getInstance();
+// 开启悬浮窗播放
+prefs.enableFloatWindow = true;
+//设置悬浮窗的初始位置和宽高
+SuperPlayerGlobalConfig.TXRect rect = new SuperPlayerGlobalConfig.TXRect();
+rect.x = 0;
+rect.y = 0;
+rect.width = 810;
+rect.height = 540;
+// ...其他配置
+```
+
+![](https://main.qcloudimg.com/raw/d6783a450e339526e0ca0b2ed3ef6142.png)
+
+## 退出播放
+
+当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
+
+```java
+mSuperPlayerView.resetPlayer();
+```
+
+## 更多功能
+
+完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
+
+![Android二维码下载](https://main.qcloudimg.com/raw/f2ce2c1c8fadc90bba73b605549a730c.png)

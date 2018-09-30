@@ -57,4 +57,3 @@ setRecordFileType 设置录制的视频文件格式，目前支持 HLS、FLV 和
         });
     }
 ```
-

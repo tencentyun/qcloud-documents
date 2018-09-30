@@ -87,7 +87,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=AddBmSslVpnGwAcl
 | data.n.dstCidr | String | 目标ip网段，cidr形式,如 192.168.10.0/24。为用户私有网络unVpcId内的子网|
 | data.n.direction | string | 规则生效方向，目前只有ingress。|
 | data.n.action | string | 规则生效动作，allow 或 deny。|
-| data.n.portRange | string | 如果protocol为tcp或者udp生效，否则填null。 两种：1.单个port,  (0, 65535) 范围: p1:p2 (p1,p2的范围为0:65535)。|
+| data.n.portRange | string | 如果protocol为tcp或者udp，必须指定port或范围：1).单个port,  2).范围: p1:p2 (p1,p2的范围为0:65535); 如非tcp或udp, portRange填null。|
 
 
 ## 错误码

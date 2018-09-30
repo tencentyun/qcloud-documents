@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: ResizeDisk |
+| Action | Yes | String | Common parameter. Value used in this API: ResizeDisk |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | DiskId | Yes | String | ID of the cloud disk, which can be queried via the API [DescribeDisks](/document/product/362/16315). |
 | DiskSize | Yes | Integer | The capacity of the expanded cloud disk (in GB), which must be greater than the original cloud disk size. Value range: HDD cloud disk: 10 GB - 4,000 GB; Premium cloud disk: 50 GB - 4,000 GB; SSD cloud disk: 100 GB - 4,000 GB. The step width is 10 GB. |
@@ -49,7 +49,7 @@ https://cbs.tencentcloudapi.com/?Action=ResizeDisk
 &DiskSize=200
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

@@ -9,10 +9,10 @@ Before getting started, you need to obtain SDK AppID and App Key. If you have no
 > SDK AppID begins with 14xxxxx.
 
 **2. Apply for a signature:**
-You must add a signature when sending an SMS message. You can apply for an SMS signature in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [here](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D).
+You must add a signature when sending an SMS message. You can apply for an SMS signature in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [here](https://intl.cloud.tencent.com/document/product/382/18053#create-signatureD).
 
 **3. Apply for a template:**
-The content of the SMS message you sent must be approved. You can apply for an SMS template in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [here](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88).
+The content of the SMS message you sent must be approved. You can apply for an SMS template in the [SMS Console](https://console.cloud.tencent.com/sms). For more information, please see [here](https://intl.cloud.tencent.com/document/product/382/18053#create-body-template).
 
 You can proceed with code development after completing the above three steps.
 
@@ -42,7 +42,7 @@ Since the following four dependencies are required in Tencent Cloud SMS:
 
 
 ## Getting Started
-For any questions about APIs, see [API documentation](https://cloud.tencent.com/document/product/382/13297).
+For any questions about APIs, see [API documentation](/document/product/382/13297).
 
 First, you need to import library:
 ```

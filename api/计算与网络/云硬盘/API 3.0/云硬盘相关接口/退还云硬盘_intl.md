@@ -50,7 +50,7 @@ DiskIds.0=disk-lzrg2pwi
 DiskIds.1=disk-g27hqeo2
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

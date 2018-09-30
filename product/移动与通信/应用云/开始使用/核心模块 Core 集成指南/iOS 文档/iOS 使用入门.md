@@ -1,5 +1,3 @@
-# MobileLine iOS 快速入门
-
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -104,7 +102,6 @@ pod 'TACCrash'
 自动添加脚本目前仅支持通过 Cocoapods 方式进行集成的用户。如果使用 Cocoapods 集成的话，在 Podfile 的最后一行后面**新起一行**，并且将以下代码粘贴进去以后，运行 `pod install` 即可，就完成了配置程序需要脚本这一步。
 
 ~~~
-
 pre_install do |installer|
     puts "[TAC]-Running post installer"
     xcodeproj_file_name = "placeholder"
@@ -145,7 +142,7 @@ pre_install do |installer|
               end
               after_build_phase.name = shell_script_after_build_phase_name
               after_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"
               fi
               "
@@ -160,7 +157,7 @@ pre_install do |installer|
               end
               before_build_phase.name = shell_script_before_build_phase_name
               before_build_phase.shell_script = "
-              if [-f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"]; then
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\" ]; then
                   bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"
                   fi
                   "

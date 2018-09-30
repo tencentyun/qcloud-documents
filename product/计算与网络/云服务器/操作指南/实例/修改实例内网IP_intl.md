@@ -15,3 +15,4 @@ You can modify the private IP of a CVM instance in the VPC directly on the conso
 - Enter a new IP in the pop-up window and then click **OK**. It takes effect after the instance is restarted.
 ![](https://main.qcloudimg.com/raw/a1828fa41fbed3efabd78636f435188a.png)
 >Note: You can only enter the private IP of the current subnet CIDR.
+

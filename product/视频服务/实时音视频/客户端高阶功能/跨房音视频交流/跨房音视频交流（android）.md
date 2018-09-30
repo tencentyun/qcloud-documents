@@ -53,3 +53,6 @@ ILiveRoomManager类封装的取消跨房音视频交流接口
 |名称|类型|描述|
 |--|--|--|
 |callback|ILiveCallBack|取消跨房连接的结果回调|
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

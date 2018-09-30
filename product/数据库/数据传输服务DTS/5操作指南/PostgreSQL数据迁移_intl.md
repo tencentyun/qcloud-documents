@@ -1,4 +1,4 @@
-Data Transfer Service (DTS) supports data migration and provides continuous data replication from self-built MySQL databases to CDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connect, or MySQL databases in Tencent Cloud CVMs.
+TencentDB Service for Transmission (DTS) supports data migration and provides continuous data replication from self-built MySQL databases to TencentDB, allowing users to migrate hot data without interrupting their services. Data migration is supported for local IDCs with public IP/Port or access to Tencent Cloud via direct connect, or MySQL databases in Tencent Cloud CVMs.
 
 >Note:
 Data migration is only supported for 9.3.x and 9.5.x PostgreSQL databases. Incremental synchronization is not supported for the 9.3.x versions, and is supported for the 9.5.x versions only if an online [sync plug-in][1] is available. For more information on specific configuration, please see [Sync Plug-in Configuration](#.E5.90.8C.E6.AD.A5.E6.8F.92.E4.BB.B6.E9.85.8D.E7.BD.AE).
@@ -26,7 +26,7 @@ Required information:
 ![](https://main.qcloudimg.com/raw/b9135f84c4d8d92d947ebd093cd353f6.png)
 ###### Self-built PostgreSQL on CVM: CVM-based self-built PostgreSQL databases in both basic networks and VPCs. You need to specify the ID of the CVM instance and the network environment where it is located.
 Required information:
-* Region: Data migration is only supported when the CVM-based self-built PostgreSQL and the destination CDB are in the same region. If the CVM and CDB are located in different regions, you need to choose **PostgreSQL with Public IP** and perform migration using CVM public network.
+* Region: Data migration is only supported when the CVM-based self-built PostgreSQL and the destination TencentDB are in the same region. If the CVM and TencentDB are located in different regions, you need to choose **PostgreSQL with Public IP** and perform migration using CVM public network.
 * CVM network: Both basic networks and VPCs are supported.
 * VPC: If you select a VPC, you need to select the VPC and subnet to which the instance belongs.
 * CVM instance ID
@@ -76,7 +76,7 @@ When the migration is started, you can see the corresponding migration progress 
 > Due to system design limitations, multiple migration tasks submitted or queued at the same time will be performed serially based on the queuing time.
 
 ### Incremental synchronization
-When creating a migration task, the incremental synchronization option is selected by default. When data migration is completed, the target CDB for PostgreSQL will be set as the slave database for the source database, and new data of the source database during migration will be synced to the target CDB for PostgreSQL via master/slave synchronization. In this case, any changes made to the source database will be synced to the destination CDB for PostgreSQL.
+When creating a migration task, the incremental synchronization option is selected by default. When data migration is completed, the target TencentDB for PostgreSQL will be set as the slave database for the source database, and new data of the source database during migration will be synced to the target TencentDB for PostgreSQL via master/slave synchronization. In this case, any changes made to the source database will be synced to the destination TencentDB for PostgreSQL.
 After migration, click the **Finish** button to terminate the synchronization relationship between source and destination databases to complete migration.
 > **Note:**
 > Before terminating synchronization, do not write data into the destination database instance as this may cause data inconsistency between the source and destination databases, which will cause data comparison to fail, resulting in a failed migration.

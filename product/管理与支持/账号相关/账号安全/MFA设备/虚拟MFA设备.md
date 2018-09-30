@@ -2,7 +2,7 @@
 
 ## 绑定虚拟 MFA 设备
 1. 登录腾讯云控制台，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
-![](https://mc.qcloudimg.com/static/img/63c17fdf2fc1913927ad669c86dcafcd/image.png)
+![](https://main.qcloudimg.com/raw/e8ce8cb91b6f42054847dc63bdc4d399.png)
 2. 弹出身份验证页面后，单击【发送验证码】，手机收到验证码后，将手机收到的 6 位数字验证码输入框内，单击【确定】。
 ![](https://mc.qcloudimg.com/static/img/b96da083ba830fdaeab02785fdcd7625/image.png)
 3. 弹出安全设置页面后，依次按照图片中的步骤进行操作。
@@ -14,7 +14,7 @@
  
 ## 解绑虚拟 MFA 设备
 1. 登录腾讯云控制台，进入 [账号中心](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
-![](https://mc.qcloudimg.com/static/img/31eac4c6f2e90dac10d941ba9fd3181f/image.png)
+![](https://main.qcloudimg.com/raw/f3337ed8ad98c7c8d8d1cb95e0a192b3.png)
 2. 单击【确定解绑】。
 ![](https://mc.qcloudimg.com/static/img/41e8f092c9710d0cbda8d96b3ac4c08b/image.png)
 

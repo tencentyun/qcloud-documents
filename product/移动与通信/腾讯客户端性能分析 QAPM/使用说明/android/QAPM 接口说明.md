@@ -16,19 +16,20 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyAppId </td>
-    <td x:str>产品ID 为“产品密钥-产品id”模式，可从“获取项目app_key”中获取，或联系nickyliu或者anthonytan获取。</td>
+    <td x:str>产品 ID 为“产品密钥-产品 ID”模式，可从邮件中获取。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyUserId </td>
-    <td x:str>用户账号（比如QQ号、微信号等）。</td>
+    <td x:str>用户账号（比如 QQ 号、微信号等）。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyAppVersion </td>
-    <td x:str>产品版本（以类似“7.3.0.141.r123456”格式填写，后台可以解析出大版本号和revision）。</td>
+    <td x:str>产品版本（以类似“7.3.0.141.r123456”格式填写，后台可以解析出大版本号和 revision）。</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeySymbolId </td>
-    <td x:str>UUID，用于拉取被混淆堆栈的mapping（注：在RDM上编译时，可以通过编译脚本把UUID写到assets或者AndroidManifest.xml里，细节可以咨询RDM的同学，也可以参考文档[RDM UUID的设置](http://x.code.oa.com/mobilespectest/SNGAPM/articles/402)）。</td>
+    <td x:str>UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用<br/>
+   </td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeyDebug </td>
@@ -47,7 +48,7 @@
   </table>
 	
 
-<br />
+
 ### 启动监控
 ```
 (2) public static boolean beginScene(String sceneName, int mode)
@@ -69,7 +70,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeAll </td>
-    <td x:str>开启全部监控，包括内存泄漏、文件IO、数据库IO、卡顿、触顶、电量、区间性能、流畅度</td>
+    <td x:str>开启全部监控，包括内存泄漏、文件 IO、数据库 IO、卡顿、触顶、电量、区间性能、流畅度</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> ModeStable </td>
@@ -96,9 +97,9 @@
   </table>
 
 >注意：<br/>
->A. 正式版建议开启QAPM.ModeStable，研发流程内版本建议开启QAPM.ModeAll。 <br/>
->B. 确实需要定制开启个别功能时，可使用ModeLeakInspector、ModeFileIO、ModeDBIO、ModeLooper、ModeCeiling、ModeBattery中一个到多个，多个使用时采用按为或方式即可，如ModeLeakInspector | ModeFileIO | ModeDBIO。<br/>
-> C. 上述定制功能开启后，不能通过endScene关闭。
+>A. 正式版建议开启 QAPM.ModeStable，研发流程内版本建议开启 QAPM.ModeAll。 <br/>
+>B. 确实需要定制开启个别功能时，可使用 ModeLeakInspector、ModeFileIO、ModeDBIO、ModeLooper、ModeCeiling、ModeBattery 中一个到多个，多个使用时采用按为或方式即可，如 ModeLeakInspector | ModeFileIO | ModeDBIO。<br/>
+> C. 上述定制功能开启后，不能通过 endScene 关闭。
 
 <br />
 
@@ -118,7 +119,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> extraInfo <span style='mso-spacerun:yes;'>&nbsp;</span></td>
-    <td x:str>可选以下项<br /> 用户定制 —— 若存在未调用endScene即再调用beginScene的场景，需要填extraInfo以区分</td>
+    <td x:str>可选以下项<br /> 用户定制 —— 若存在未调用 endScene 即再调用 beginScene 的场景，需要填 extraInfo 以区分</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> mode </td>
@@ -136,7 +137,7 @@
    <![endif]>
   </table>
 
-<br />
+
 ### 结束监控
 ```
 (4) public static boolean endScene(String sceneName, int mode)
@@ -195,7 +196,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> extraInfo <span style='mso-spacerun:yes;'>&nbsp;</span></td>
-    <td x:str>可选以下项:<br /> 用户定制 —— 见2)<br/>APPLAUNCH —— 用户定制App启动的结束点</td>
+    <td x:str>可选以下项:<br /> 用户定制 —— 见(2)<br/>APPLAUNCH —— 用户定制 App 启动的结束点</td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> mode </td>

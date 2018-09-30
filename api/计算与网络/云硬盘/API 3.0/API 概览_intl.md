@@ -1,4 +1,4 @@
-## CBS-related APIs
+## Cloud Disk APIs
 
 | API Name | Feature |
 |---------|---------|
@@ -17,7 +17,7 @@
 | [ResizeDisk](/document/api/362/16310) | Expand the capacity of a cloud disk |
 | [TerminateDisks](/document/api/362/16321) | Return a cloud disk |
 
-## Snapshot-related APIs
+## Snapshot APIs
 
 | API Name | Feature |
 |---------|---------|

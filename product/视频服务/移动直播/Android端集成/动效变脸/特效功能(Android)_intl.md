@@ -1,80 +1,159 @@
-# Special Effects (Eye Enlarging, Face Slimming, Dynamic Effect and Green Screen)
+# Special Effects (Eye Enlarging, Face Slimming, Dynamic Effect, Green Screen, etc.)
 
 ## Feature Description
-Special effects such as eye enlarging, face slimming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
 
-## Charges
-The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **0.5 million CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
+Eye enlarging, face slimming, dynamic sticker, green screen and other special effects are licensed features developed based on the face recognizing technology of YouTu Lab and the beautifying technology of Pitu. By working with YouTu Lab and Pitu, Tencent Cloud Mini LVB integrates these special effect features into the image processing process of RTMP SDK to achieve better video effects.
 
-## Version Downloading
-You can download the privileged SDK package at the bottom of the [RTMP SDK](https://cloud.tencent.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you need to replace the non-privileged jar and so files in your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
+## Integration Procedure
 
-## Project Settings
+Application procedure:
 
-### 1. Add the SDK
-Copy txrtmpsdk.jar, libtxrtmpsdk.so and other so files in the SDK to the corresponding location in the project, such as in the libs folder
-> Note: Privileged version only supports so files with armeabi architecture. Therefore, you should delete so files with other architectures in the App to avoid loading failure of so files.
+1. Submit a ticket or contact one of our customer service representatives by calling 400-9100-100.
 
-### 2. Add resources
-Copy the `camera` folder in the zip package to the assets directory of the project
-> Note: The camera directory includes files such as resources for switching dynamic effects, and must be placed correctly under the assets directory, otherwise an error will occur
+2. Download the [sample form](https://mc.qcloudimg.com/static/archive/766c9092424d0440a31c56c81f34a629/archive.xlsx), fill in the information, and send it to jerryqian@tencent.com and copy it to your customer service representative (important).
 
-### 3. Import the license file
-The features of the privileged version take effect only after the license verification is successful. You can apply to our staff of the business department for a 30-day free license for debugging.
-After getting the license, you need to name it **YTFaceSDK.licence** and place it under the assets directory in the project.
+3. Ask your customer service representative to confirm the email by replying to it. Otherwise, the email may be treated as a harassing email.
 
-> Each license is bound to a specific package name. Therefore, modifying the package name in the App can cause verification failure.
+4. As soon as the email is confirmed, we will apply for a trial License from Youtu Lab and send the License along with the package decompression password to you.
+
+   Two types of License:
+
+   - Trial License: It is **valid for one month**, and used to debug and test the dynamic effects SDK. If your App is published with a trial License, the dynamic effects will not work normally after the License expires.
+   - Official License: The validity period (usually one year) is subject to the contract.
+
+## Version Download
+
+Go to [SDK + Source Code](https://cloud.tencent.com/document/product/454/7873), and download the commercial SDK package at the bottom of this page. The compressed SDK package is encrypted. You can obtain the decompression password and License file from our customer service. After the package is decompressed successfully, you will get `LiteAVSDK_Enterprise_3.9.2749.aar` and `LiteAVSDK_Enterprise_3.9.2749.zip` corresponding to two integration methods respectively.
+
+## Project settings
+
+For more information, please see [Project Configuration](https://cloud.tencent.com/document/product/454/7877). 
+
+### Adding SDKs
+
+#### Integration Using aar
+
+Directly replace the non-commercial version of aar in your project with LiteAVSDK_Enterprise_3.9.2749.aar, and modify the corresponding name in build.gradle in the app directory. This method is very simple.
+
+#### Integration Using jar Package
+
+1. Decompress LiteAVSDK_Enterprise_3.9.2749.zip and copy the jar package and so files under libs to your jni load path. The jar package and so files related to motion effects are as follows:             
+                                        
+| jar                     |                          |                   |
+| ----------------------- | ------------------------ | ----------------- |
+| filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
+| video_module.jar        | YTCommon.jar             |                   |
+
+| so                     |                           |                        |
+| ---------------------- | ------------------------- | ---------------------- |
+| libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
+| libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
+| libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
+| libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
+| libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
+
+
+2. Copy the resources from the decompressed assets folder to your project's assets directory, including the files in the asset root directory and files in the camera folder.
+
+### Importing License File
+
+The license of the commercial version needs to be verified to enable some of the features. You can contact one of our customer service representatives to apply for a 30-day free license for debugging.
+After you obtain a license, name the license as **YTFaceSDK.licence** and place it in the project's assets directory.
+
+> Each license is bound with a specific package name. Modifying the package name of the App will result in verification failure.
 >
-> The name of YTFaceSDK.license file is fixed, cannot be modified, and must be placed under the assets directory.
-> 
-> For IOS and Android systems, you need to apply for only one license because one license can authorize the bundleid of an iOS system and the packageName of an Android system at the same time.
+> YTFaceSDK.Licence cannot be renamed or modified, and must be placed in the assets directory.
+>
+> You do not need to apply for licenses for iOS and Android separately. One license can be used to authorize the bundleid in iOS and the packageName in Android simultaneously.
 
 ## Feature Calling
 
 ### 1. Dynamic effects
 
-One dynamic effect template is included in one directory, which contains many resource files. Depending on the complexity of each dynamic effect, the number of directories and file sizes are different.
+Example:
 
-Download resources for dynamic effects from the background and decompress them to the Resource directory, and then you can get sample codes in the Mini LVB. In the codes, you can find download addresses of resources and thumbnails for dynamic effects. The format is as follows
+![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
 
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}Android.zip
->
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}.png
->
+A dynamic effect template is a directory, which contains a lot of resource files. The directory number and file size of each dynamic effect template vary depending on the complexity of the dynamic effect.
 
-It is strongly recommended that you put the resources for dynamic effects on your own servers to prevent unnecessary impact caused by modifications of the Mini LVB.
+The sample code in DEMO downloads the dynamic effect resources from the backend, and then the resources are decompressed to sdcard. You can find the download addresses of the dynamic effect resources in DEMO in the following format:
 
-After decompression, you can enable dynamic effects through the following API
+> ```
+> http://dldir1.qq.com/hudongzhibo/AISpecial/Android/156/(Dynamic effectsname).zip
+> ```
 
-```java
+You are strongly recommended to put the dynamic effect resources on your own servers to avoid being affected by DEMO changes.
+
+When the decompression is completed, you can enable the dynamic effect via the following API.
+
+```
 /**
- * setMotionTmpl is used to set the location of dynamic sticker files
+ * setMotionTmpl Set the location of dynamic sticker files
  * @param tmplPath
  */
 public void setMotionTmpl(String tmplPath);
 ```
 
+### 2. AI background keying-out
 
-### 2. Green screen
+Example:
 
-Prepare a mp4 file for playback, and then you can enable the green screen effect by calling the following API
+![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
 
-```java
+The resources for AI background keying-out need to be downloaded, and the API is the same as that of dynamic effects.
+
+```
 /**
- * Set the green screen file: Currently, the supported pictures are in jpg/png format, and the supported videos are in mp4, 3gp and other Android-supported format
- * API requirement 18
- * @param path : Location of the green screen file. It supports two ways:
- *             1. The resource file is put under the assets directory, and path is the file name
- *             2. path is the absolute path of the file 
+ * setMotionTmpl Set the location of dynamic sticker files
+ * @param tmplPath
+ */
+public void setMotionTmpl(String tmplPath);
+```
+
+### 3. Beautifying
+
+```
+// Eye enlarging (0-9)
+mTXCameraRecord.setEyeScaleLevel(eyeScaleLevel);
+// Face slimming (0-9)
+mTXCameraRecord.setFaceScaleLevel(faceScaleLevel);
+// V-shaped face (0-9)
+mTXCameraRecord.setFaceVLevel(level)
+// Chin stretching or contracting (0-9)
+mTXCameraRecord.setChinLevel(scale)
+// Face contracting (0-9)
+mTXCameraRecord.setFaceShortLevel(level)
+// Nose narrowing (0-9)
+mTXCameraRecord.setNoseSlimLevel(scale)
+```
+
+### 4. Green Screen
+
+You need to prepare an mp4 file in advance and call the following API to enable the green screen effect.
+
+```
+/**
+ * Set the green screen file: The formats available in Android system are supported. That is, images in jpg/png and videos in mp4/3gp are supported.
+ * Required API: 18
+ * @param path :Location of green screen file. The following two methods are supported:
+ *             1. Place the resource files in the assets directory, and use the file name as the path name.
+ *             2. Use the absolute file path as the path name.
  */
 @TargetApi(18)
 public void setGreenScreenFile(String path);
 ```
 
-
-### 3. Eye enlarging and face slimming
-
-> Eye enlarging and face slimming features for SDK 2.0.0 are still under tense development and will be released as soon as possible.
-
+## Troubleshooting              
+### 1. What should I do if crash occurs during project operation?  
+ > 1. Check whether abiFilters is set to armeabi in build.gradle (only armeabi is supported).
+ > 2. If a jar package was used for integration, check whether all the so files related to dynamic effects are copied to the jniLibs directory of the project.
+     
+### 2. Why don't the dynamic effects take effect?  
+ > 1. Check if YTFaceSDK.licence is named correctly, and it must be placed in the assets root directory.  
+ > 2. Check if the license expired (download [Query Tool](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) or contact our developers).    
+ > 3. If a jar package is used for integration, check if the Pitu resources are added correctly (all contents in the assets directory under the decompressed SDK must be copied to the project's assets directory).  
+ > 4. If you update the license, make sure to use the latest license. If you are not sure, check the validity period of the license (download [Query Tool](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) or contact our developers). If the license in the project is changed, clean the project and delete the local installation package for compilation.       
+ 
+##### [Query Tool](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) is an xcode project, which is only supported on Mac. Other query methods will be available soon.
 
 

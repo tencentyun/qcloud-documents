@@ -809,7 +809,7 @@ uuid | 唯一标识，方便用户缓存
 dataSize | 语音文件大小
 second | 语音时长，以秒为单位
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（iOS%20SDK）#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户点击播放后可设置 `customInt` 的值为1。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（iOS%20SDK）#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为1。
 
 ```
 @interface TIMMessage : NSObject

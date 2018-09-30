@@ -7,7 +7,7 @@
 
 **接口**：unified_order
 
-**地址**：https://api.openmidas.com/v1/r/$appid$/unified_order
+**地址**：`https://api.openmidas.com/v1/r/$appid$/unified_order`
 
 > 注意：聚合支付模式下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
 > 托管账户模式下 `appid` 为该托管账户的 id。
@@ -28,7 +28,7 @@ currency\_type |	string[3]	| 是	| ISO 货币代码，CNY
 amount |	int |	是	| 支付金额，单位： 分
 product\_name	| string[128] | 	是	| 商品名称
 product\_detail |	string[255] | 是	 | 商品详情
-ts |	string[10]	| 是	| unix 时间戳（格林威治时间），精确到秒。
+ts |	string[10]	| 是	| UNIX 时间戳（格林威治时间），精确到秒。
 sign |	string[32] |	是	| [请求签名](https://cloud.tencent.com/document/product/666/16830)
 sub\_appid	| string[50] |	否	| 子应用 ID
 channel |	string[10]|	否	| 指定支付渠道：wechat：微信支付； qqwallet：QQ 钱包
@@ -42,7 +42,7 @@ buss\_settle\_amount | int | 否 | 结算应收金额，单位：分
 platform\_income\_detail | array[100] | 否 | 平台应收金额详情。格式：json，如：{"A":50,"B":50}
 sub\_out\_trade\_no\_list | array[512] | 否 | 子订单信息列表
 
-子订单信息列表格式：子订单号、子应用ID、金额
+子订单信息列表格式：子订单号、子应用 ID、金额
 ```
 [ 
 	{
@@ -114,7 +114,7 @@ METRIC: 1
 
 **接口**：query_order
 
-**地址**：https://api.openmidas.com/v1/r/$appid$/query_order
+**地址**：`https://api.openmidas.com/v1/r/$appid$/query_order`
 
 > 物品直购下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
 > 账户充值下 `appid` 为该账户的 id。
@@ -234,7 +234,7 @@ refund_time	 |string[24]	 |退款时间，格式：YYYY-MM-DD hh:mm:ss
 
 **接口**：close_order
 
-**地址**：https://api.openmidas.com/v1/r/$appid$/close_order
+**地址**：`https://api.openmidas.com/v1/r/$appid$/close_order`
 > 物品直购下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
 > 账户充值下 `appid` 为该账户的 id。
 
@@ -301,7 +301,7 @@ msg	 | string[512]	| 失败的错误信息。
 
 **接口**：refund
 
-**地址**：https://api.openmidas.com/v1/r/$appid$/refund
+**地址**：`https://api.openmidas.com/v1/r/$appid$/refund`
 
 > 物品直购下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
 > 账户充值下 `appid` 为该账户的 id。
@@ -420,7 +420,7 @@ msg	|string[512]|	失败的错误信息。
 
 **接口**：query_refund
 
-**地址**：https://api.openmidas.com/v1/r/$appid$/query_refund
+**地址**：`https://api.openmidas.com/v1/r/$appid$/query_refund`
 
 > 物品直购下 `appid` 为您 MobileLine 控制台上移动支付的 `offerid`。
 > 账户充值下 `appid` 为该账户的 id。
@@ -456,7 +456,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 
 **接口**：get_balance
 
-**地址**：https://api.openmidas.com/v1/r/$accoutid$/get_balance
+**地址**：`https://api.openmidas.com/v1/r/$accoutid$/get_balance`
 
 **请求方式**：POST
 
@@ -486,7 +486,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 
 **接口**：pay
 
-**地址**：https://api.openmidas.com/v1/r/$accoutid$/pay
+**地址**：`https://api.openmidas.com/v1/r/$accoutid$/pay`
 
 **请求参数**：POST
 
@@ -520,7 +520,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 
 **接口**：cancel_pay
 
-**地址**：https://api.openmidas.com/v1/r/$accoutid$/cancel_pay
+**地址**：`https://api.openmidas.com/v1/r/$accoutid$/cancel_pay`
 
 **请求方式**：POST
 
@@ -551,7 +551,7 @@ state	| int	| 退款状态码 1：退款中；2：退款成功；3：退款失�
 
 **接口**：present
 
-**地址**：https://api.openmidas.com/v1/r/$accoutid$/present
+**地址**：`https://api.openmidas.com/v1/r/$accoutid$/present`
 
 **请求方式**：POST
 

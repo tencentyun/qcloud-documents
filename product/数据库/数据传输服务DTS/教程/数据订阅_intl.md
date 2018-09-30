@@ -1,11 +1,11 @@
 # Data Subscription Description
 ## 1. Feature Description
-Data transfer service (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from CDB with several simple steps:
-* Purchase and create a subscription channel for CDB instances from the Tencent Cloud DTS console.
+TencentDB Service for Transmission (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
+* Purchase and create a subscription channel for TencentDB instances from the Tencent Cloud DTS console.
 * Use DTS data subscription SDK to connect to this subscription channel to subscribe to and consume incremental data.
 
 ## 2. Use Limits
-**Data subscription feature is in beta test in some regions and is only supported for CDB for MySQL.**
+**Data subscription feature is in beta test in some regions and is only supported for TencentDB for MySQL.**
 
 Supported regions:
 
@@ -31,16 +31,16 @@ Log in to DTS console and go to the Data Subscription page.
 
 * Click **New Data Subscription** in the upper right corner to start configuring a subscription channel.
 ![][img-1]
-* Select the region where the source CDB instance resides
+* Select the region where the source TencentDB instance resides
 ![][img-2]
 * Once the channel is enabled, go to the console and complete initial configuration for the data subscription channel you just purchased.
 ![][img-3]
-* Select the source CDB instance
+* Select the source TencentDB instance
 ![][img-4]
 * Select your desired synchronization type and database table.
 ![][img-5]
 	The granularity of subscription objects for DTS data subscription includes database and table. That is, a user may choose to subscribe to certain databases or tables.
-	DTS divides data subscription into two types: data update and structure update. If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire CDB instance, in which case you need to filter the data using SDK.
+	DTS divides data subscription into two types: data update and structure update. If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire TencentDB instance, in which case you need to filter the data using SDK.
 * The subscription channel can be enabled when subscription object is selected.
 
 ## 4. Change Consumption Time Point

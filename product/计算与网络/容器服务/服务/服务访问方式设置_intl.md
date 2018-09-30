@@ -1,4 +1,4 @@
-The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. Tencent Cloud CCS provides four service access methods: Access from Public Network, Access Within Cluster Only, Access via Private Network in VPC and Not Enabled.
+The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. Tencent Cloud TKE provides four service access methods: Access from Public Network, Access Within Cluster Only, Access via Private Network in VPC and Not Enabled.
 
 ## Access from Public Network
 For services accessed from public network, an entry (the public network load balancer) for Internet access is provided. The service accessed using this method can be accessed directly from the public network. This method is applicable to Web frontend services, such as wordpress frontend service.

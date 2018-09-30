@@ -62,7 +62,7 @@ function onFriendDeleteNotify(notify) {
 
 ## 加好友未决添加
 
-**触发时机：**当有人向你发出好友申请时，会收到加好友通知。 
+**触发时机：**当有人向您发出好友申请时，会收到加好友通知。 
 
 **示例： **
 
@@ -76,13 +76,13 @@ function onFriendDeleteNotify(notify) {
             "PendencyAdd_Account": "peaker1",//对方帐号
             "ProfileImNic": "匹克1",//对方昵称
             "AddSource": "AddSource_Type_Unknow",//来源
-            "AddWording": "你好"//申请附言
+            "AddWording": "您好"//申请附言
         },
         {
             "PendencyAdd_Account": "peaker2",//对方帐号
             "ProfileImNic": "匹克2",//对方昵称
             "AddSource": "AddSource_Type_Unknow",//来源
-            "AddWording": "你好"//申请附言
+            "AddWording": "您好"//申请附言
         }
     ]
 }

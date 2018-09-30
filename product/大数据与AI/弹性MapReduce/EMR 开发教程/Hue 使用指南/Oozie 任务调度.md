@@ -64,7 +64,7 @@
 
 3. 创建定时任务
 
-    Hue 的定时任务是 coordinator, 类似于 linux 的 crontab，支持的调度粒度可以到分钟级别, 选择 Workflows -> Editors -> Coordinator -> Create，创建 coordinator
+    Hue 的定时任务是 coordinator, 类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别, 选择 Workflows -> Editors -> Coordinator -> Create，创建 coordinator
 
     ![创建定时](https://mc.qcloudimg.com/static/img/e0e18b6ee297fc42a30b741371a47098/5-8-2-7.png)
 
