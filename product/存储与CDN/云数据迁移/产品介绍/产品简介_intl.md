@@ -30,7 +30,7 @@ Tencent Cloud records the latest status of the migration task in real time and w
 CDM offers two device options with different storage capacity: M30 for 30 TB and L80 for 80 TB. The device specs are as below:
 
 | Migration device | Storage capacity | Supported interfaces | Dimensions | Power supply | Power |
-|---------------- |------|---------|-------|-----|
+|------ | ---------- |------|---------|-------|-----|
 | M30 | 30 TB | USB 3.0 port x 1 |28 cm x 16 cm x 22 cm | 220 V | 150 W |
 | L80 | 80 TB | 10-Gbps Ethernet electrical port x 2 | 48 cm x 92 cm x 9 cm | 220 V | 220 W |
 
