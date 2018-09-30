@@ -8,7 +8,7 @@
 
 从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 `webim sdk` 库，提供了聊天，群组管理，资料管理，关系链（好友，黑名单）管理功能。包含以下库文件：
 
-``
+```
 sdk/webim.js
 sdk/json2.js
 ```
