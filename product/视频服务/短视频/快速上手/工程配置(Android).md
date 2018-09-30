@@ -137,7 +137,7 @@ String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                             
 @Override
 public void onCreate() {
     super.onCreate();
-    TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
+        TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
     }
 }
 ```
