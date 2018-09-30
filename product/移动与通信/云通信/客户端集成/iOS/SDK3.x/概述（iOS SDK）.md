@@ -11,7 +11,7 @@
 
 ### 下载 ImSDK
 
-从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，主要包括**必选 SDK** 、**可选 SDK** 和**其他 SDK** 。
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK 开发包，主要包括**必选 SDK** 、**可选 SDK** 和**其他 SDK** 。
 
 > **注意：**
 > SDK 包必须是一个版本成套使用，不同版本不可混用。

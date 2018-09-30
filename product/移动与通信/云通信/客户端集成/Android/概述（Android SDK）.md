@@ -5,7 +5,7 @@ ImSDK 支持 JDK 1.6 和 Android SDK version 14 以上系统。
 
 ### 下载 ImSDK
 
-ImSDK 下载地址： [ImSDK](https://cloud.tencent.com/product/im.html#sdk)，包含以下库文件：
+ImSDK 下载地址： [ImSDK](https://cloud.tencent.com/product/im/developer)，包含以下库文件：
 
 ```
 libs/bugly_1.3.0_imsdk_release.jar

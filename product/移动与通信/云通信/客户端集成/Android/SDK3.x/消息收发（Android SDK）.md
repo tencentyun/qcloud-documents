@@ -888,6 +888,9 @@ TIMMessageStatus.SendFail
 
 //删除
 TIMMessageStatus.HasDeleted
+
+//消息被撤回
+TIMMessageStatus.HasRevoked
 ```
 
 ### 是否自己发出的消息
