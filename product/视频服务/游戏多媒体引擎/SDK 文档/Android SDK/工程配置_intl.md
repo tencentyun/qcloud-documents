@@ -18,7 +18,7 @@ The decompressed SDK resource is composed as follows:
 
 ## System Requirement
 
-SDK is supported on Android 4.0.3 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
+SDK is supported on Android 4.2 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
 
 ## Preparations
 
