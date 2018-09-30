@@ -25,8 +25,8 @@
 
 ## 特权关闭方式
 
-- 如果您的某些资源不需要SVIP预付费不停服特权保障，您可前往 [续费管理](https://console.cloud.tencent.com/account/renewal) 页面，将其设置为到期不续。
-![](https://main.qcloudimg.com/raw/df6705976e612e48b1ca7f965fcbcd0a.png)
+- 如果您的某些资源不需要SVIP预付费不停服特权保障，您可前往 [续费管理](https://console.cloud.tencent.com/account/renewal) 页面，将其设置为到期不续。相关操作可参考文档[续费管理](https://cloud.tencent.com/document/product/555/7454)。
+![](https://main.qcloudimg.com/raw/453e5b2f33a53c5cbf941d6f9d0f679d.png)
 
 
 - 您也可以前往 [费用中心](https://console.cloud.tencent.com/account) 页面申请关闭特权。
