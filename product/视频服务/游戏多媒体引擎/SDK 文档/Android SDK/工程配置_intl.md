@@ -6,7 +6,7 @@ You can obtain the SDK by the following way:
 
 ### Download SDK
 
-Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521).
+Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521).
 
 Pinpoint the SDK resource for Android on the page.
 
