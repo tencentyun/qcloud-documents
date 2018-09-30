@@ -35,19 +35,20 @@
    ```
 
 6. 拷贝以下文件夹并拖动到项目里
-   1. Demo/TXLiteAVDemo/Common/UGC
-   2. Demo/TXLiteAVDemo/Common/BeautySettingPanel
-   3. Demo/TXLiteAVDemo/Common/Category
-   4. Demo/TXLiteAVDemo/Common/Color
-   5. Demo/TXLiteAVDemo/Common/Resource
-   6. Demo/TXLiteAVDemo/Common/Third/Masonry
-   7. Demo/TXLiteAVDemo/Common/Third/AFNetworking
-   8. Demo/TXLiteAVDemo/Common/Third/MBProgressHUD
-   9. Demo/TXLiteAVDemo/Common/Third/QBImagePicker
-   10. Demo/TXLiteAVDemo/Common/Third/V8HorizontalPickerView
-   11. Demo/TXLiteAVDemo/UGC
-   12. SDK/TXLiteAVSDK_*.framework
-      _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
+   - Demo/TXLiteAVDemo/Common/UGC
+   - Demo/TXLiteAVDemo/Common/BeautySettingPanel
+   - Demo/TXLiteAVDemo/Common/Category
+   - Demo/TXLiteAVDemo/Common/Color
+   - Demo/TXLiteAVDemo/Common/Resource
+   - Demo/TXLiteAVDemo/Common/Third/Masonry
+   - Demo/TXLiteAVDemo/Common/Third/AFNetworking
+   - Demo/TXLiteAVDemo/Common/Third/MBProgressHUD
+   - Demo/TXLiteAVDemo/Common/Third/QBImagePicker
+   - Demo/TXLiteAVDemo/Common/Third/V8HorizontalPickerView
+   - Demo/TXLiteAVDemo/UGC
+   - SDK/TXLiteAVSDK_*.framework
+      
+    _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
 
 7. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
 
