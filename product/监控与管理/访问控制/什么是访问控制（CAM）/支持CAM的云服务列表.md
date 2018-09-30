@@ -60,7 +60,7 @@
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597/17989) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
-| [API 网关](https://cloud.tencent.com/document/product/628)         |-        | -      | -      | -   | -        | ✔    |
+| [API 网关](https://cloud.tencent.com/document/product/628)         | ✔       | ✔      | ✔      | 资源级   | -        | ✔    |
 | [分布式服务治理平台](https://cloud.tencent.com/document/product/649)         |-        | -      | -      | -   | -        | ✔    |
  ## 域名与网站	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
