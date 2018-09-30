@@ -1,6 +1,6 @@
 ## Overview
 
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for C++ developers to debug and integrate the APIs for Game Multimedia Engine.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for Windows developers to debug and integrate the APIs for Game Multimedia Engine.
 
 
 ## How to Use
@@ -13,14 +13,13 @@ This document only provides the most important APIs to help you get started with
 
 
 | Important API | Description |
-| ------------- |-------------|
-|Init    		|Initializes GME 	|
-|Poll    		|Triggers event callback	|
-|EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+| ------------- |:-------------:|
+|Init		    		|Initializes GME 	|
+|Poll    			|Triggers event callback	|
+|EnterRoom	 		|Enters a room  		|
+|EnableMic	 		|Enables the microphone 	|
+|EnableSpeaker			|Enables the speaker 	|
+
 
 **Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -28,6 +27,7 @@ This document only provides the most important APIs to help you get started with
 **The request for entering a room via GME API should be authenticated. For more information, see authentication section in relevant documentation.**
 
 **The Poll API is called for GME to trigger event callback.**
+
 
 ## Procedure for Quick Integration
 
@@ -91,11 +91,11 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext virtual void EnterRoom(int roomID, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
+ITMGContext virtual void EnterRoom(const char*  roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomID			|int   		| Room number. 32-bit is supported.	|
+| roomID			|char*     		|Room number supports Int32 type (which is passed after being converted to a string) |
 | roomType 			|ITMG_ROOM_TYPE	| Audio type of the room	|
 | authBuffer    		|char*    				| Authentication key			|
 | buffLen   			|int   				| Length of the authentication key		|
@@ -117,7 +117,9 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 ### 5. Callback for entering a room
 This API is used to send the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message after a user enters a room, which is checked in the OnEvent function.
-#### Sample code  
+
+#### Sample code 
+
 ```
 // ITMGDelegate is inherited from the header file and declaration is made.
 //Implementation
@@ -132,77 +134,35 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 }
 ```
 
-### 6. Enable/disable a capturing device
-This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
-- This API can only be called after a user enters the room. The device is disabled after the user exits the room.
-- Operations such as permission application and volume type adjustment come with enabling the capturing device on mobile.
-
-#### Function prototype  
-
-```
-ITMGContext virtual int EnableAudioCaptureDevice(bool enable)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the capturing device, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code
-
-```
-Enable a capturing device
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioCaptureDevice(true);
-```
-
-
-### 7. Enable/disable audio upstream
-This API is used to enable/disable audio upstream. If the capturing device is already enabled, captured audio data will be sent. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioCaptureDevice.
-
-#### Function prototype
-
-```
-ITMGContext  virtual int EnableAudioSend(bool bEnable)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| bEnable    |bool     |To enable the audio upstream, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code  
-
-```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioSend(true);
-```
-
-### 8. Enable/disable a playback device
-This API is used to enable/disable a playback device.
+### 6. Enable/Disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
 #### Function prototype  
 ```
-ITMGContext virtual int EnableAudioPlayDevice(bool enable) 
+ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool       	| To disable the playback device, set this parameter to false, otherwise, set it to true.	|
+| bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
 #### Sample code  
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioPlayDevice(true);
+ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
 ```
 
-### 9. Enable/disable audio downstream
-This API is used to enable/disable audio downstream. If the playback device is enabled, audio data of other users in the room will be played back. If it is not enabled, it remains silent. To enable/disable a playback device, see API EnableAudioPlayDevice.
+
+### 7. Enable/Disable the speaker
+This API is used to enable/disable the speaker.
 
 #### Function prototype  
-
 ```
-ITMGContext virtual int EnableAudioRecv(bool enable)
+ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the audio downstream, set this parameter to true, otherwise, set it to false. |
-
+| enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
 #### Sample code  
-
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioRecv(true);
+ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
 ```
 
 
@@ -213,12 +173,13 @@ When voice message is obtaining authentication, the parameter of room number mus
 
 #### Function prototype
 ```
-QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, unsigned int dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
+QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, const char* dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
 ```
+
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | nAppId    			|int   		| The SdkAppId obtained from the Tencent Cloud console		|
-| dwRoomID    		|int   		| Room number. 32-bit is supported.	|
+| dwRoomID    		| char*    		|Room number supports Int32 type (which is passed after being converted to a string)|
 | strOpenID  		|char*    		| User ID								|
 | strKey    			|char*	    	| The key obtained from the Tencent Cloud console		|
 |strAuthBuffer		|char*    	| Returned authbuff				|
