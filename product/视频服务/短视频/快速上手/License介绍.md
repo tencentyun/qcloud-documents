@@ -13,17 +13,17 @@
    ![](https://main.qcloudimg.com/raw/e45994fd46982632ad4e29469e67f64f.png)
 
 3. License 版本与 SDK 版本的对应使用关系如下：
-    &#10003; 表示可以使用，&#10006;表示不可使用
+    &#10004; 表示可以使用，&#10005;表示不可使用
 
 	<table>
 <thead>
 <tr><th></th><th>精简版SDK（UGC_Smart）</th><th>基础版SDK（UGC）</th><th>商业版SDK（UGC_Enterprise）</th><th>商业版Pro SDK（EnterprisePro）</th></tr>
 </thead>
 <tbody>
-<tr><td>License精简版（点播套餐精简版）</td><td>&#10003;</td><td>&#10006;</td><td>&#10006;</td><td>&#10006;</td></tr>
-<tr><td>License基础版（点播套餐旗舰版2或者3）</td><td>&#10003;</td><td>&#10003;</td><td>&#10006;</td><td>&#10006;</td></tr>
-<tr><td>License商业版 （联系商务）</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10006;</td></tr>
-<tr><td>License商业版Pro （联系商务）</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>License精简版（点播套餐精简版）</td><td>&#10004;</td><td>&#10005;</td><td>&#10005;</td><td>&#10005;</td></tr>
+<tr><td>License基础版（点播套餐旗舰版2或者3）</td><td>&#10004;</td><td>&#10004;</td><td>&#10005;</td><td>&#10005;</td></tr>
+<tr><td>License商业版 （联系商务）</td><td>&#10004;</td><td>&#10004;</td><td>&#10004;</td><td>&#10005;</td></tr>
+<tr><td>License商业版Pro （联系商务）</td><td>&#10004;</td><td>&#10004;</td><td>&#10004;</td><td>&#10004;</td></tr>
 </tbody>
 </table>
 

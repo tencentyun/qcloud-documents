@@ -54,6 +54,7 @@
     ```
     - (void)viewDidLoad {
         [super viewDidLoad];
+        self.view.backgroundColor = [UIColor grayColor];
         UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [editButton setTitle:@"编辑" forState:UIControlStateNormal];
         [editButton addTarget:self action:@selector(onEdit:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,13 +67,13 @@
         [joinButton setTitle:@"拼接" forState:UIControlStateNormal];
         [joinButton addTarget:self action:@selector(onJoin:) forControlEvents:UIControlEventTouchUpInside];
         
-        CGPoint center = CGPointMake(CGRectGetMidX(self.view.bounds), 30);
+        CGPoint center = CGPointMake(CGRectGetMidX(self.view.bounds), 150);
         editButton.center = center;
         
-        center.y += 50;
+        center.y += 80;
         recordButton.center = center;
         
-        center.y += 50;
+        center.y += 80;
         joinButton.center = center;
         
         for (UIButton *button in @[editButton, recordButton, joinButton]) {
@@ -90,6 +91,7 @@
     #import "VideoEditViewController.h"
     #import "VideoJoinerController.h"
     #import "VideoPreviewViewController.h"
+    #import "VideoLoadingController.h"
     ```
     另外需要在ViewController中增加一个变量记录视频选则的上下文
     ```
@@ -141,6 +143,7 @@
             };
             [weakConfigVC.navigationController pushViewController:recordVC animated:YES];
         };
+        self.navigationController.navigationBar.hidden = YES;
         [self.navigationController pushViewController:configViewController animated:YES];
     }
     
@@ -152,6 +155,13 @@
         videoPicker.mediaType = QBImagePickerMediaTypeVideo;
         _composeMode = ComposeMode_Join;
         [self presentViewController:videoPicker animated:YES completion:nil];
+    }
+
+    // 录制参数设置界面会隐藏导航条，这里恢复导航的显示
+    - (void)viewWillAppear:(BOOL)animated
+    {
+        [super viewWillAppear:animated];
+        self.navigationController.navigationBar.hidden = NO;
     }
     ```
 
@@ -191,7 +201,6 @@
      ```
 
 11. 运行项目
-
 
 
 ### 相关文件简介
