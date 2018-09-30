@@ -192,7 +192,7 @@
     }
     ```
 
-10. 打开AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加license的设置，license的申请方法请参见[[license介绍]]
+10. 打开AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加license的设置，license的申请方法请参见 License介绍
      ```objc
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
          // 如果没有license可以先传两个空的字符串, 以下为示例，请填写实际申请下来的信息
