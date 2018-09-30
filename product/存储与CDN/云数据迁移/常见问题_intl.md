@@ -12,7 +12,7 @@ Before using CDM, you can first evaluate the upload bandwidth of your current ne
 
 Based on the data volume and network bandwidth capabilities, we provide the following figure for your reference (with theoretical values).
 
-![](https://i.imgur.com/NvByUya.png)
+![](https://main.qcloudimg.com/raw/bbcecbd46f146dba5412a43d8f4b95a6.png)
 
 
 ### What is the data capacity that can be transferred through CDM?
