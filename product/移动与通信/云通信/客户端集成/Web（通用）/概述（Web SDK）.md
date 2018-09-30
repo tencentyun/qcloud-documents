@@ -19,7 +19,7 @@ Demo 目录结构如下：
 
 Demo 主要 JavaScript 文件功能说明如下：
 
-```
+```html
 <!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
 <script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
 <!--用于获取文件MD5 js api(发送图片时用到)-->
@@ -75,7 +75,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 首先引入 Web SDK：
 
-```
+```html
 <script type="text/javascript" src="sdk/json2.js"></script>
 <!--web im sdk-->
 <script type="text/javascript" src="sdk/webim.js"></script>
