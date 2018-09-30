@@ -131,12 +131,12 @@ dependencies {
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```
 public class DemoApplication extends Application {
-String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
-String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                                                                 //您从控制台申请的licence key
+    String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
+    String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                                                                 //您从控制台申请的licence key
 
-@Override
-public void onCreate() {
-    super.onCreate();
+    @Override
+    public void onCreate() {
+        super.onCreate();
         TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
     }
 }
