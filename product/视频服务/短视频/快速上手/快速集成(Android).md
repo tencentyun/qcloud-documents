@@ -2,7 +2,7 @@
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。
 文中所需要的代码及资源文件均在资源下载中SDK的压缩包中提供。
 
-#接入步骤
+# 接入步骤
 1、创建一个空的Android Studio工程，工程名为UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请license。 如果没有license依然可以完成以下步骤集成UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
