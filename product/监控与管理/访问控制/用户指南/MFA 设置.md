@@ -2,7 +2,7 @@
 
 ## 绑定虚拟 MFA 设备
 
-1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】；
+1.	登录 **腾讯云控制台**，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】；
 
 2.	进行敏感操作校验，确认当前操作者身份；
 
@@ -12,7 +12,7 @@
 
 ## 解绑虚拟 MFA 设备
 
-1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】；
+1.	登录 **腾讯云控制台**，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】；
 
 2.	进行敏感操作校验，确认当前操作者身份；
 
