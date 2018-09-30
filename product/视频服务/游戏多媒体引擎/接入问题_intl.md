@@ -179,7 +179,7 @@ The voice chat service does not support receiver.
 
 ### What local audio file formats are supported by the SDK?
 
-Four formats are supported: m4a, AAC, wav, and mp3.
+Three formats are supported: m4a, wav, and mp3.
 
 ### How do I integrate the team chatting mode of GME voice chat? Does distance attenuation (the sound level decreases with distance from the sound source) exist in the team chatting mode?
 
