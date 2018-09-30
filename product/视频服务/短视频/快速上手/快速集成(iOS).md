@@ -6,7 +6,7 @@
 
 ## 接入步骤
 
-1. 参考[[license介绍]], 申请license。 如果没有license依然可以完成以下步骤集成UI，但部分功能会无法使用。
+1. 申请license。 如果没有license依然可以完成以下步骤集成UI，但部分功能会无法使用。
 
 2. 新建一个`Single View App`, 打开Main.storyboard, 选侧左边的`View Controller Scene`, 依次从顶部菜单栏选则`Editor -> Embeded In -> Navigation Controller`。
 
