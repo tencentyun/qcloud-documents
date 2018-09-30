@@ -23,15 +23,15 @@
 5. 在Info.plist中增加相机和相册的权限提示,  可以在Info.plist中右键选`Open as / Source Code`， 在末尾的`</dict></plist>`之前粘贴以下内容
    ```
    <key>NSAppleMusicUsageDescription</key>
-   <string>视频云工具包需要访问你的媒体库权限以获取音乐，不允许则无法添加音乐</string>
+   <string>视频云工具包需要访问您的媒体库权限以获取音乐，不允许则无法添加音乐</string>
    <key>NSCameraUsageDescription</key>
-   <string>视频云工具包需要访问你的相机权限，开启后录制的视频才会有画面</string>
+   <string>视频云工具包需要访问您的相机权限，开启后录制的视频才会有画面</string>
    <key>NSMicrophoneUsageDescription</key>
-   <string>视频云工具包需要访问你的麦克风权限，开启后录制的视频才会有声音</string>
+   <string>视频云工具包需要访问您的麦克风权限，开启后录制的视频才会有声音</string>
    <key>NSPhotoLibraryAddUsageDescription</key>
-   <string>视频云工具包需要访问你的相册权限，开启后才能保存编辑的文件</string>
+   <string>视频云工具包需要访问您的相册权限，开启后才能保存编辑的文件</string>
    <key>NSPhotoLibraryUsageDescription</key>
-   <string>视频云工具包需要访问你的相册权限，开启后才能编辑视频文件</string>
+   <string>视频云工具包需要访问您的相册权限，开启后才能编辑视频文件</string>
    ```
 
 6. 拷贝以下文件夹并拖动到项目里
@@ -49,7 +49,7 @@
    12. SDK/TXLiteAVSDK_*.framework
       _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
 
-7. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮做为功能入口
+7. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
 
     ```
     - (void)viewDidLoad {
