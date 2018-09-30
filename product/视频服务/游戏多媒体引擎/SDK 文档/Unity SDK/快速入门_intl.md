@@ -13,14 +13,12 @@ This document only provides the most important APIs to help you get started with
 
 
 | Important API | Description |
-| ------------- |:-------------:|
-|Init    		|Initializes GME 	|
-|Poll    		|Triggers event callback	|
-|EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+| ------------- |-------------|
+|Init    				|Initializes GME 	|
+|Poll    				|Triggers event callback	|
+|EnterRoom	 		|Enters a room  			|
+|EnableMic	 		|Enables the microphone 		|
+|EnableSpeaker		|Enables the speaker 		|
 
 **Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -69,11 +67,11 @@ This API is used to enter a room with the generated authentication information. 
 
 #### Function prototype
 ```
-ITMGContext EnterRoom(int roomID, int roomType, byte[] authBuffer)
+ITMGContext EnterRoom(string roomID, int roomType, byte[] authBuffer)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomID		|int    		| Room number. 32-bit is supported. |
+| roomID		|string    		| Room number supports Int32 type (which is passed after being converted to a string). |
 | roomType 	|ITMGRoomType		|Audio type of the room		|
 | authBuffer 	|Byte[] 	| Authentication key					|
 
@@ -118,74 +116,37 @@ void OnEnterRoomComplete(int err, string errInfo)
 }
 ```
 
-### 5. Enable/disable a capturing device
-This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
-- This API can only be called after a user enters the room. The device is disabled after the user exits the room.
-- Operations such as permission application and volume type adjustment come with enabling the capturing device on mobile.
+### 5. Enable/Disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
 #### Function prototype  
 ```
-ITMGAudioCtrl int EnableAudioPlayDevice(bool isEnabled)
+ITMGAudioCtrl EnableMic(bool isEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the capturing device, set this parameter to true, otherwise, set it to false. |
+| isEnabled    |boolean     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
 #### Sample code  
 ```
-Enable a capturing device
-IQAVContext.GetInstance().GetAudioCtrl().EnableAudioCaptureDevice(true);
+Enable the microphone
+IQAVContext.GetInstance().GetAudioCtrl().EnableMic(true);
 ```
 
 
-### 6. Enable/disable audio upstream
-This API is used to enable/disable audio upstream. If the capturing device is already enabled, captured audio data will be sent. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioCaptureDevice.
-
+### 6. Enable/Disable the speaker
+This API is used to enable/disable the speaker.
 #### Function prototype  
 ```
-ITMGAudioCtrl int EnableAudioSend(bool isEnabled)
+ITMGAudioCtrl EnableSpeaker(bool isEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the audio upstream, set this parameter to true, otherwise, set it to false. |
-
+| isEnabled    |bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
 #### Sample code  
 ```
-IQAVContext.GetInstance().GetAudioCtrl().EnableAudioSend(true);
+Enable the speaker
+IQAVContext.GetInstance().GetAudioCtrl().EnableSpeaker(true);
 ```
-
-### 7. Enable/disable a playback device
-This API is used to enable/disable a playback device.
-> Function prototype  
-```
-ITMGAudioCtrl EnableAudioPlayDevice(bool isEnabled)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| isEnabled    |bool       	| To disable the playback device, set this parameter to false, otherwise, set it to true.	|
-#### Sample code  
-```
-Enable a playback device
-IQAVContext.GetInstance().GetAudioCtrl().EnableAudioPlayDevice(true);
-```
-
-
-
-### 8. Enable/disable audio downstream
-This API is used to enable/disable audio downstream. If the playback device is enabled, audio data of other users in the room will be played back. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioPlayDevice.
-
-#### Function prototype  
-```
-ITMGAudioCtrl int EnableAudioRecv(bool isEnabled)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the audio downstream, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code  
-```
-IQAVContext.GetInstance().GetAudioCtrl().EnableAudioRecv(true);
-```
-
 
 ## Authentication
 ### Voice chat authentication
@@ -194,18 +155,18 @@ When voice message is obtaining authentication, the parameter of room number mus
 A value of type Byte[] is returned by this API.
 #### Function prototype
 ```
-QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string openId, string key)
+QAVAuthBuffer GenAuthBuffer(int appId, string roomId, string openId, string key)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|The SdkAppId obtained from the Tencent Cloud console |
-| roomId    		|int   		|Room number. 32-bit is supported.									|
+| roomId    		|string   		|Room number supports Int32 type (which is passed after being converted to a string)|
 | openId    	|String 	|User ID											|
 | key    		|string 	|The key obtained from the Tencent Cloud console			|
 #### Sample code  
 
 ```
-byte[] GetAuthBuffer(string appId, string userId, int roomId)
+byte[] GetAuthBuffer(string appId, string userId, string roomId)
     {
 	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9");
 }
