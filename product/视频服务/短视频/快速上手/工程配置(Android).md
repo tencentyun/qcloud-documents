@@ -23,38 +23,38 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 - 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
 ```
 dependencies {
-compile fileTree(dir: 'libs', include: ['*.jar'])
-// 导入短视频SDK aar
-compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // 导入短视频SDK aar
+    compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
 }
 ```
 
 - 在工程目录下的 build.gradle 中，添加 flatDir，指定本地仓库：
 ```
 allprojects {
-repositories {
-jcenter()
-flatDir {
-dirs 'libs'
-}
-}
+  repositories {
+      jcenter()
+      flatDir {
+          dirs 'libs'
+      }
+  }
 }
 ```
 
 - 在工程目录下的build.gradle的defaultConfig里面，指定ndk兼容的架构：
 ```
 defaultConfig {
-applicationId "com.tencent.liteav.demo"
-minSdkVersion rootProject.ext.minSdkVersion
-targetSdkVersion rootProject.ext.targetSdkVersion
-versionCode 1
-versionName "2.0"
+    applicationId "com.tencent.liteav.demo"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "2.0"
 
-ndk {
-abiFilters "armeabi", "armeabi-v7a"
-// 如果您使用的是商业版，只能使用 armeabi 架构，即：
-// abiFilters "armeabi",
-}
+    ndk {
+        abiFilters "armeabi", "armeabi-v7a"
+        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
+        // abiFilters "armeabi",
+    }
 }
 ```
 
@@ -87,9 +87,9 @@ abiFilters "armeabi", "armeabi-v7a"
 
 ```
 dependencies {
-compile fileTree(dir: 'libs', include: ['*.jar'])
-// 导入腾讯云短视频SDK jar
-compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // 导入腾讯云短视频SDK jar
+    compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
 }
 ```
 #### 3.2.4. 减少 APK 体积
@@ -136,9 +136,9 @@ String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                             
 
 @Override
 public void onCreate() {
-super.onCreate();
-TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
-}
+    super.onCreate();
+    TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
+    }
 }
 ```
 
@@ -192,17 +192,17 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 - 如果您使用 aar 集成方式的完整版本，在工程目录下的 build.gradle 的 defaultConfig 里面确认下是否将 x64 架构的 so 库过滤掉。因为完整版本中连麦功能所使用的声学组件库暂时不支持 x64 架构的手机。
 ```
 defaultConfig {
-applicationId "com.tencent.liteav.demo"
-minSdkVersion rootProject.ext.minSdkVersion
-targetSdkVersion rootProject.ext.targetSdkVersion
-versionCode 1
-versionName "2.0"
+    applicationId "com.tencent.liteav.demo"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "2.0"
 
-ndk {
-abiFilters "armeabi", "armeabi-v7a"
-// 如果您使用的是商业版，只能使用 armeabi 架构，即：
-// abiFilters "armeabi",
-}
+    ndk {
+        abiFilters "armeabi", "armeabi-v7a"
+        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
+        // abiFilters "armeabi",
+    }
 }
 ```
 - 检查下混淆规则，确认已将 SDK 的相关包名加入了不混淆名单。
