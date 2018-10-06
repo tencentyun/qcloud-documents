@@ -68,7 +68,7 @@ for (int i = 0; i < mTCLayerViewGroup.getChildCount(); i++) {
 mTXVideoEditer.setAnimatedPasterList(animatedPasterList);  //设置动态贴纸
 mTXVideoEditer.setPasterList(pasterList);                  //设置静态贴纸
 ```
-##自定义动态贴纸
+## 自定义动态贴纸
 动态贴纸的本质是：将**一串图片**，按照**一定的顺序**以及**时间间隔**，插入到视频画面中去，形成一个动态贴纸的效果。
 
 ##### 封装格式
