@@ -12,10 +12,14 @@
  ![](https://main.qcloudimg.com/raw/01f8e581617aeaea3fc87fbbab16b075.png)
 
 SDK版本License与您需要购买的点播套餐包对应关系如下：
-||精简版SDK（UGC_Smart） || 点播套餐精简版 ||
-||基础版SDK（UGC） ||点播套餐基础版1或者2 ||
-||商业版SDK（UGC_Enterprise）|| 参考目录6申请商业版本License||
-||商业版Pro SDK（EnterprisePro）||  参考目录6申请商业版本License ||
+
+| SDK版本 | 套餐包 |
+|---------|---------|
+| 精简版SDK（UGC_Smart） | 点播套餐精简版 | 
+| 基础版SDK（UGC） | 点播套餐基础版1或者2 | 
+| 商业版SDK（UGC_Enterprise） | 参考目录6申请商业版本License | 
+| 商业版Pro SDK（EnterprisePro） | 参考目录6申请商业版本License | 
+
 **注意: 购买点播套餐包后，在 [点播控制台](https://console.cloud.tencent.com/video/license) 测试License信息下面会有一键切换正式License按钮，当点击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License信息不能再做修改。**
 
 ### 3. License的使用方法
