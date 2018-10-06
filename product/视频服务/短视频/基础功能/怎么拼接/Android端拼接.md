@@ -20,7 +20,9 @@ Demo中使用了实现从相册选取多视频的功能, 可以参考工具包De
 ### 1. 选择视频文件  
 自己实现多选文件功能
 ### 2. 设置视频合成源
+
 1、创建视频合成对象
+
 2、设置视频合成的视频源路径列表List<String> pathList。
 ```
 /**
@@ -37,7 +39,9 @@ mTXVideoJoiner.setVideoPathList(mVideoSourceList);
 ```
 ### 3. 视频合成预览 
 视频合成预览步骤及调用接口如下：
+ 
 1、预览功能也需要上层提供预览 FrameLayout。
+ 
 ```
 /**
   * 初始化预览View
@@ -54,6 +58,7 @@ public void initWithPreview(TXVideoEditConstants.TXPreviewParam param);
 public void setTXVideoPreviewListener(TXVideoJoiner.TXVideoPreviewListener listener);
 ```
 完整示例如下：
+
 1、xml中配置
 ```
 <FrameLayout
@@ -87,6 +92,7 @@ public void stopPlay();
 ```
 ### 5. 生成最终文件
 预览效果满意后调用生成接口即可生成合成后的文件，视频合成步骤及调用接口如下：
+
 1、设置视频合成进度回调
 ```
 /**
