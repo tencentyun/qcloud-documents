@@ -320,9 +320,9 @@ lib_tcvideorecord
 
 # 详细介绍
 以下为各模块的详细说明
-1. [视频录制](https://cloud.tencent.com/document/product/584/9367)
-2. [视频编辑](https://cloud.tencent.com/document/product/584/9375)
-3. [视频拼接](https://cloud.tencent.com/document/product/584/9370)
-4. [视频上传](https://cloud.tencent.com/document/product/584/15534)
-5. [视频播放](https://cloud.tencent.com/document/product/584/9372)
-6. [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/13509)
+1. [视频录制](https://cloud.tencent.com/document/product/584/20295)
+2. [视频编辑](https://cloud.tencent.com/document/product/584/20298)
+3. [视频拼接](https://cloud.tencent.com/document/product/584/20301)
+4. [视频上传](https://cloud.tencent.com/document/product/584/20340)
+5. [视频播放](https://cloud.tencent.com/document/product/584/20337)
+6. [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/20330)
