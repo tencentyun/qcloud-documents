@@ -1,4 +1,4 @@
-##录制添加BGM
+## 录制添加BGM
 ```objc
 //获取recorder对象
 TXUGCRecord *recorder =  [TXUGCRecord shareInstance]；
@@ -37,7 +37,7 @@ TXUGCRecord *recorder =  [TXUGCRecord shareInstance]；
 // volume: 音量大小，1为正常音量，建议值为0~2，如果需要调大背景音量可以设置更大的值
 [recorder setBGMVolume:1.0];
 ```
-##编辑添加BGM
+## 编辑添加BGM
 ```objc
 //初始化编辑器
 TXPreviewParam *param = [[TXPreviewParam alloc] init];
@@ -64,7 +64,7 @@ ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
 //设置BGM声音大小
 [ugcEdit setBGMVolume:1.0];
 ```
-#####BGM设置完之后，当启动编辑器预览，BGM就会根据设置的参数播放，当启动编辑器生成，BGM也会按照设置的参数合成到生成的视频中。
+##### BGM设置完之后，当启动编辑器预览，BGM就会根据设置的参数播放，当启动编辑器生成，BGM也会按照设置的参数合成到生成的视频中。
 
 
 
