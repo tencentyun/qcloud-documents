@@ -52,7 +52,7 @@ mTXVideoEditer.stopEffect(TXVideoEditConstants.TXEffectType_SPLIT_SCREEN, 4000);
 //删除3-4s设置的滤镜特效
 mTXVideoEditer.deleteLastEffect();
 ```
-##慢/快动作
+## 慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
@@ -97,7 +97,7 @@ list.add(speed3);
 mTXVideoEditer.setSpeedList(list);
 ```
 
-##倒放
+## 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
 注意：**setTXVideoReverseListener()**  老版本(SDK4.5以前)首次监听是否倒放完成在新版本无需调用即可生效。
 
@@ -107,7 +107,7 @@ mTXVideoEditer.setTXVideoReverseListener(mTxVideoReverseListener);
 mTXVideoEditer.setReverse(true);
 ```
 
-##重复视频片段
+## 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。目前 Android 只支持设置一段画面重复，重复三次。
 如需取消之前设置的重复片段，调用 **setRepeatPlay(null)** 即可。
 
