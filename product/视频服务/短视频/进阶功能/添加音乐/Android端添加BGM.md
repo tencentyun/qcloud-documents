@@ -49,4 +49,4 @@ public void setVideoVolume(float volume);
 public void setBGMVolume(float volume);
 ```
 
-#####BGM设置完之后，当启动编辑器预览，BGM就会根据设置的参数播放，当启动编辑器生成，BGM也会按照设置的参数合成到生成的视频中。
+##### BGM设置完之后，当启动编辑器预览，BGM就会根据设置的参数播放，当启动编辑器生成，BGM也会按照设置的参数合成到生成的视频中。
