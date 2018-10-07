@@ -257,7 +257,7 @@ mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 public void setVideoBitrate(int videoBitrate);
 ```
 
-##  视频裁剪
+### 视频裁剪
 设置视频裁剪的开始时间和结束时间
 ```
 /**
