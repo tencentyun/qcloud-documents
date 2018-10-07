@@ -283,7 +283,7 @@ VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
 如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率
 
 ## 资源释放
-当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。
+当您不再使用mTXVideoEditer对象时，一定要记得调用 **release()** 释放它。
 
 ## 高级功能
 [类抖音特效](https://cloud.tencent.com/document/product/584/20324)
