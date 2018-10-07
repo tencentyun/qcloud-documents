@@ -194,40 +194,7 @@ public void resumePlay();
 public void stopPlay();
 ```
 
-## 编码参数设置
-### 视频码率设置
-目前支持自定义视频的码率，这里建议设置的范围 600-12000kbps，如果设置了这个码率，SDK最终压缩视频时会优先选取这个码率，注意码率不要太大或太小，码率太大，视频的体积会很大，码率太小，视频会模糊不清。
-```
-public void setVideoBitrate(int videoBitrate);
-```
-
-##  视频裁剪
-设置视频裁剪的开始时间和结束时间
-```
-/**
-  * 设置视频剪切范围
-  * @param startTime 视频剪切的开始时间(ms)
-  * @param endTime   视频剪切的结束时间(ms)
-  */
-public void setCutFromTime(long startTime, long endTime)
-
-// ...
-// 生成最终的视频文件
-public void generateVideo(int videoCompressed, String videoOutputPath)
-```
-
-参数videoCompressed在TXVideoEditConstants中可选常量
-```
-VIDEO_COMPRESSED_360P ——压缩至360P分辨率（360*640）
-VIDEO_COMPRESSED_480P ——压缩至480P分辨率（640*480）
-VIDEO_COMPRESSED_540P ——压缩至540P分辨率 (960*540)
-VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
-```
-如果源视频的分辨率小于设置的常量对应的分辨率，按照原视频的分辨率；
-如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率
-
-## 添加视频效果
-### 1. 美颜滤镜
+### 5. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了 16 种滤镜选择，同时也可以设置自定义的滤镜。  
 
 设置滤镜的方法为：
@@ -246,7 +213,7 @@ void setFilter(Bitmap leftBitmap, float leftIntensity, Bitmap rightBitmap, float
 ```
 该接口能够实现组合滤镜，即左右可以添加不同的滤镜。leftBitmap为左侧滤镜、leftIntensity为左侧滤镜程度值；rightBitmap为右侧滤镜、rightIntensity为右侧滤镜程度值；leftRatio为左侧滤镜所占的比例,一般为0.0 ~ 1.0。当leftBitmap或rightBitmap为null，则该侧清除滤镜效果。
 
-### 2. 水印
+### 6. 水印
 ##### 1. 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 
@@ -282,13 +249,47 @@ txRect.y = (mTXVideoInfo.height - tailWaterMarkBitmap.getHeight()) / (2f * mTXVi
 txRect.width = tailWaterMarkBitmap.getWidth() / (float) mTXVideoInfo.width;
 mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 ```
+
+## 压缩裁剪
+### 视频码率设置
+目前支持自定义视频的码率，这里建议设置的范围 600-12000kbps，如果设置了这个码率，SDK最终压缩视频时会优先选取这个码率，注意码率不要太大或太小，码率太大，视频的体积会很大，码率太小，视频会模糊不清。
+```
+public void setVideoBitrate(int videoBitrate);
+```
+
+##  视频裁剪
+设置视频裁剪的开始时间和结束时间
+```
+/**
+  * 设置视频剪切范围
+  * @param startTime 视频剪切的开始时间(ms)
+  * @param endTime   视频剪切的结束时间(ms)
+  */
+public void setCutFromTime(long startTime, long endTime)
+
+// ...
+// 生成最终的视频文件
+public void generateVideo(int videoCompressed, String videoOutputPath)
+```
+
+参数videoCompressed在TXVideoEditConstants中可选常量
+```
+VIDEO_COMPRESSED_360P ——压缩至360P分辨率（360*640）
+VIDEO_COMPRESSED_480P ——压缩至480P分辨率（640*480）
+VIDEO_COMPRESSED_540P ——压缩至540P分辨率 (960*540)
+VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
+```
+如果源视频的分辨率小于设置的常量对应的分辨率，按照原视频的分辨率；
+如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率
+
 ## 资源释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。
 
 ## 高级功能
-视觉特效
-设置背景音乐
-贴纸字幕
-图片编辑
+[类抖音特效](https://cloud.tencent.com/document/product/584/20324)
 
+[设置背景音乐](https://cloud.tencent.com/document/product/584/20316)
 
+[贴纸字幕](https://cloud.tencent.com/document/product/584/20326)
+
+[图片编辑](https://cloud.tencent.com/document/product/584/20328)
