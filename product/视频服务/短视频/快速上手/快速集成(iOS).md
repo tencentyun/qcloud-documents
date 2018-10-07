@@ -107,9 +107,9 @@
    - Demo/TXLiteAVDemo/Common/Third/V8HorizontalPickerView
    - Demo/TXLiteAVDemo/UGC
    - SDK/TXLiteAVSDK_*.framework
+   _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
 ```
-    _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
-
+   
 2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
 
     ```
