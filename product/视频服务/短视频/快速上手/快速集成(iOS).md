@@ -1,17 +1,17 @@
 
-# 工程配置
-## 支持平台
+## 工程配置
+### 支持平台
 
 + SDK 支持 iOS 8.0 以上系统
 
-## 开发环境
+### 开发环境
 
 + Xcode 9 或更高版本
 + OS X 10.10 或更高版本
 
-## 设置步骤
+### 设置步骤
 
-### 1.链接SDK及系统库
+#### 1.链接SDK及系统库
 1. 将下载的SDK资源包解压，并将SDK文件夹中的TXLiteAVSDK_开头的framework(如TXLiteAVSDK_UGC.framework)复制到工程所在文件夹,并拖动到工程当中。
 
 2. 选中当工程的Target，添加以下系统库
@@ -24,7 +24,7 @@
     
 3. 选中工程的Target，在Build Settings中搜索bitcode, 将Enable Bitcode设置为NO
 
-### 2. 配置App权限
+#### 2. 配置App权限
 应用会需要相册及相册的访问权限，需要在Info.plist中添加对应项，可以通过在Info.plist中右键选Open as / Source Code粘贴并修改以下内容进行配置。
 ```
 <key>NSAppleMusicUsageDescription</key> 
@@ -39,7 +39,7 @@
 <string>视频云工具包需要访问你的相册权限，开启后才能编辑视频文件</string> 
 ```
 
-### 3. SDK License 设置与基本信息获取
+#### 3. SDK License 设置与基本信息获取
 请参考[License介绍]() 的指引申请License后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
   ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
   在您的应用中使用短视频功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置
@@ -61,7 +61,7 @@
 
 - 商业版请参考[动效变脸](https://cloud.tencent.com/document/product/584/13509)
 
-### 4. Log 配置
+#### 4. Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
 - **setConsoleEnabled**
 设置是否在 xcode 的控制台打印 SDK 的相关输出。
@@ -78,19 +78,19 @@
   [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
   ```
 
-### 5. 编译运行
+#### 5. 编译运行
 
 如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息。
 
 > 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
 
-# 快速接入功能模块
+## 快速接入功能模块
 
 下面讲述了如何集成短视频SDK的录制、编辑、拼接的功能。
 
 文中所需要的代码及资源文件均在[资源下载](https://cloud.tencent.com/document/product/584/9366)中SDK的压缩包中提供。
 
-## 接入步骤
+### 接入步骤
 
 ``
 1. 拷贝以下文件夹并拖动到项目里
