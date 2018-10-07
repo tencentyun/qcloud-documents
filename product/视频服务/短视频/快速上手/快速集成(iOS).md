@@ -93,8 +93,6 @@
 ### 接入步骤
 
 1. 拷贝以下文件夹并拖动到项目里  
-
-```
    - Demo/TXLiteAVDemo/Common/UGC
    - Demo/TXLiteAVDemo/Common/BeautySettingPanel
    - Demo/TXLiteAVDemo/Common/Category
@@ -108,7 +106,6 @@
    - Demo/TXLiteAVDemo/UGC
    - SDK/TXLiteAVSDK_*.framework
    _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
-```
    
 2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
 
