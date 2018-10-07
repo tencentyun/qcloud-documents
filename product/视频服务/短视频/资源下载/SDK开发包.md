@@ -1,15 +1,14 @@
- 
 
-## SDK各版本功能列表及下载
+## 腾讯云短视频SDK各版本下载
 <table>
    <tr>
-      <td width="85px" style="text-align:center">功能模块</td>
-      <td width="85px" style="text-align:center">功能项</td>
-      <td width="0px"  >功能简介</td>
-      <td width="70px" style="text-align:center">精简版</td>
-      <td width="70px" style="text-align:center">基础版</td>
-      <td width="70px" style="text-align:center">商业版</td>
-      <td width="92px" style="text-align:center">商业版Pro</td>
+      <th width="85px" style="text-align:center">功能模块</td>
+      <th width="85px" style="text-align:center">功能项</td>
+      <th width="0px" >功能简介</td>
+      <th width="70px" style="text-align:center">精简版</td>
+      <th width="70px" style="text-align:center">基础版</td>
+      <th width="70px" style="text-align:center">商业版</td>
+      <th width="92px" style="text-align:center">商业版Pro</td>
    </tr>
    <tr>
       <td>界面</td>
