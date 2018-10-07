@@ -20,6 +20,8 @@
     4. libsqlite3.tbd
 
     添加完毕后，工程库依赖如下图所示：![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
+    
+3. 选中工程的Target，在Build Settings中搜索bitcode, 将Enable Bitcode设置为NO
 
 ### 2. 配置App权限
 应用会需要相册及相册的访问权限，需要在Info.plist中添加对应项，可以通过在Info.plist中右键选Open as / Source Code粘贴并修改以下内容进行配置。
@@ -79,44 +81,18 @@
 
 如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息。
 
-> 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541 
-# 快速接入腾讯云短视频SDK
+> 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
 
-本篇文档讲述了如何在空的项目中集成短视频SDK的录制、编辑、拼接的功能。
+# 快速接入功能模块
+
+下面讲述了如何集成短视频SDK的录制、编辑、拼接的功能。
 
 文中所需要的代码及资源文件均在[资源下载](https://cloud.tencent.com/document/product/584/9366)中SDK的压缩包中提供。
 
 ## 接入步骤
 
-1. 请参考 License介绍 申请license。 如果没有license依然可以完成以下步骤集成UI，但部分功能会无法使用。
-
-2. 新建一个`Single View App`, 打开Main.storyboard, 选侧左边的`View Controller Scene`, 依次从顶部菜单栏选则`Editor -> Embeded In -> Navigation Controller`。
-
-3. 选中工程的Target，在Build Settings中搜索bitcode, 将Enable Bitcode设置为NO
-
-4. 选中工程的Target, 在 Build phases / Link Binary With Libraries中添加以下依赖项
-
-   1. Accelerate.framework
-   2. SystemConfiguration.framework
-   3. libc++
-   4. libz
-   5. libsqlite
-
-5. 在Info.plist中增加相机和相册的权限提示,  可以在Info.plist中右键选`Open as / Source Code`， 在末尾的`</dict></plist>`之前粘贴以下内容
-   ```
-   <key>NSAppleMusicUsageDescription</key>
-   <string>视频云工具包需要访问您的媒体库权限以获取音乐，不允许则无法添加音乐</string>
-   <key>NSCameraUsageDescription</key>
-   <string>视频云工具包需要访问您的相机权限，开启后录制的视频才会有画面</string>
-   <key>NSMicrophoneUsageDescription</key>
-   <string>视频云工具包需要访问您的麦克风权限，开启后录制的视频才会有声音</string>
-   <key>NSPhotoLibraryAddUsageDescription</key>
-   <string>视频云工具包需要访问您的相册权限，开启后才能保存编辑的文件</string>
-   <key>NSPhotoLibraryUsageDescription</key>
-   <string>视频云工具包需要访问您的相册权限，开启后才能编辑视频文件</string>
-   ```
-
-6. 拷贝以下文件夹并拖动到项目里
+``
+1. 拷贝以下文件夹并拖动到项目里
    - Demo/TXLiteAVDemo/Common/UGC
    - Demo/TXLiteAVDemo/Common/BeautySettingPanel
    - Demo/TXLiteAVDemo/Common/Category
@@ -132,7 +108,7 @@
       
     _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
 
-7. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
+2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
 
     ```
     - (void)viewDidLoad {
@@ -165,7 +141,7 @@
     }
     ```
 
-8. 接下来在ViewController中添加几个按钮的事件处理方法
+3. 接下来在ViewController中添加几个按钮的事件处理方法
     这里要用到Demo中的一些控制器， 先要在ViewController.m 的头部导入头文件
     ```
     #import "QBImagePickerController.h"
@@ -248,7 +224,7 @@
     }
     ```
 
-9. 添加点选照片的回调处理方法
+4. 添加点选照片的回调处理方法
     先声明ViewController实现了QBImagePicker的委托方法, 将ViewController.m的前面修改为
 
     ```
@@ -274,7 +250,7 @@
     }
     ```
 
-10. 打开AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加license的设置，license的申请方法请参见 License介绍
+5. 打开AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加license的设置，license的申请方法请参见 License介绍
      ```objc
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
          // 如果没有license可以先传两个空的字符串, 以下为示例，请填写实际申请下来的信息
@@ -283,7 +259,7 @@
      }
      ```
 
-11. 运行项目
+6. 运行项目
 
 
 ### 相关文件简介
