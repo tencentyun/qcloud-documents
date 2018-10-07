@@ -187,7 +187,7 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B
 - (void)stopPlay;
 ```
 
-### 5. 滤镜
+### 5. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo提供了多种滤镜选择，对应的滤镜资源在Common/Resource/Filter/FilterResource.bundle中，同时也可以设置自定义的滤镜。  
 设置滤镜的方法为：
 
