@@ -8,7 +8,7 @@
 | `TXVideoInfoReader.h`| 媒体信息获取 |
 | `TXVideoEditer.h` | 视频编辑 |
 
-##使用说明
+## 使用说明
 视频编辑的基本使用流程如下
 
 1. 设置视频路径
@@ -175,7 +175,8 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B
                    toTime:(CGFloat)endTime;
 ```
 ### 4. 预览的暂停与恢复
-````
+
+```
 /// 暂停播放
 - (void)pausePlay;
 
@@ -184,78 +185,52 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B
 
 /// 停止播放
 - (void)stopPlay;
-​```
-## 编码参数设置
-### 视频码率设置
-​```
-/**
- * 设置视频码率
- * @param bitrate  视频码率 单位:kbps
- *                 如果设置了码率，SDK生成视频会优先使用这个码率，注意码率不要太大或则太小，码率太小视频会模糊不清，码率太大，生成视频体积会很大
- *                 这里建议设置范围为：600~12000，如果没有调用这个接口，SDK内部会根据压缩质量自动计算码率
- */
-- (void) setVideoBitrate:(int)bitrate;
-​```
+```
 
-## 视频裁剪
-视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
-
-​```objective-c
-TXVideoEditer* _ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
-// 设置裁剪的 起始时间 和 结束时间
-[_ugcEdit setCutFromTime:_videoRangeSlider.leftPos toTime:_videoRangeSlider.rightPos];
-// ...
-// 生成最终的视频文件
-_ugcEdit.generateDelegate = self;
-[_ugcEdit generateVideo:VIDEO_COMPRESSED_540P videoOutputPath:_videoOutputPath];
-​```
-输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`generateDelegate`以回调的形式通知用户。
-
-## 添加视频效果
-### 1. 滤镜
+### 5. 滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo提供了多种滤镜选择，对应的滤镜资源在Common/Resource/Filter/FilterResource.bundle中，同时也可以设置自定义的滤镜。  
 设置滤镜的方法为：
 
-​```
+```
 - (void) setFilter:(UIImage *)image;
-​```
+```
 其中 image 为滤镜映射图，image 设置为 nil，会清除滤镜效果。
 
 Demo示例：
-​```
+```
 TXVideoEditer     *_ugcEdit;
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 path = [path stringByAppendingPathComponent:@"langman.png"];
 UIImage* image = [UIImage imageWithContentsOfFile:path];
 [_ugcEdit setFilter:image];
-​```
-### 2. 设置水印
+```
+### 6. 设置水印
 #### 1. 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 设置水印的方法为：  
-​```
+```
 - (void) setWaterMark:(UIImage *)waterMark  normalizationFrame:(CGRect)normalizationFrame;
-​```  
+```  
 其中 waterMark 表示水印图片，normalizationFrame 是相对于视频图像的归一化frame，frame 的 x，y，width，height 的取值范围都为 0~1。
 
 Demo 示例：
-​```
+```
 UIImage *image = [UIImage imageNamed:@"watermark"];  
 [_ugcEdit setWaterMark:image normalizationFrame:CGRectMake(0, 0, 0.3 , 0.3 * image.size.height / image.size.width)];//水印大小占视频宽度的30%，高度根据宽度自适应
-​```
+```
 #### 2. 设置片尾水印
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置
 设置片尾水印的方法为：  
 
-​```
+```
 - (void) setTailWaterMark:(UIImage *)tailWaterMark normalizationFrame:(CGRect)normalizationFrame 
                           duration:(CGFloat)duration;
-​```  
+```  
 其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化frame，frame 的 x，y，width，height 的取值范围都为 0~1，
  duration 水印的持续时长
 Demo 示例：设置水印在片尾中间，持续时间 1s。
 
-​```
+```
 UIImage *tailWaterimage = [UIImage imageNamed:@"tcloud_logo"];
 float w = 0.15;
 float x = (1.0 - w) / 2.0;
@@ -264,13 +239,40 @@ float height = width * tailWaterimage.size.height / tailWaterimage.size.width;
 float y = (videoMsg.height - height) / 2 / videoMsg.height;
 [_ugcEdit setTailWaterMark:tailWaterimage normalizationFrame:CGRectMake(x,y,w,0) duration:1];   
 
-​```
+```
 
-## 视觉特效
+## 压缩裁剪
+### 视频码率设置
+```
+/**
+ * 设置视频码率
+ * @param bitrate  视频码率 单位:kbps
+ *                 如果设置了码率，SDK生成视频会优先使用这个码率，注意码率不要太大或则太小，码率太小视频会模糊不清，码率太大，生成视频体积会很大
+ *                 这里建议设置范围为：600~12000，如果没有调用这个接口，SDK内部会根据压缩质量自动计算码率
+ */
+- (void) setVideoBitrate:(int)bitrate;
+```
 
-## 设置背景音乐
+### 视频裁剪
+视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
-## 贴纸字幕
+```objective-c
+TXVideoEditer* _ugcEdit = [[TXVideoEditer alloc] initWithPreview:param];
+// 设置裁剪的 起始时间 和 结束时间
+[_ugcEdit setCutFromTime:_videoRangeSlider.leftPos toTime:_videoRangeSlider.rightPos];
+// ...
+// 生成最终的视频文件
+_ugcEdit.generateDelegate = self;
+[_ugcEdit generateVideo:VIDEO_COMPRESSED_540P videoOutputPath:_videoOutputPath];
+```
+输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`generateDelegate`以回调的形式通知用户。
 
-## 图片编辑
-````
+## 高级功能
+
+[类抖音特效](https://cloud.tencent.com/document/product/584/20323)
+
+[设置背景音乐](https://cloud.tencent.com/document/product/584/20315)
+
+[贴纸字幕](https://cloud.tencent.com/document/product/584/20325)
+
+[图片编辑](https://cloud.tencent.com/document/product/584/20327)
