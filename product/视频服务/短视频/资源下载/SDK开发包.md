@@ -324,10 +324,10 @@
       <td rowspan='2'>License</td>
       <td>License申请</td>
       <td>不同版本SDK需要搭配不同版本的License才能使用</td>
-      <td><a href="http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/584/20333">精简版</a></td>
-      <td><a href="http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/584/20333">基础版</a></td>
-      <td><a href="http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/584/20333">商业版license</a></td>
-      <td><a href="http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/584/20333">商业版Pro license</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/584/20333">精简版</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/584/20333">基础版</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/584/20333">商业版</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/584/20333">商业版Pro</a></td>
    </tr>
    <tr>
       <td>套餐价格</td>
