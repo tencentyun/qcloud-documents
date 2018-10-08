@@ -2,19 +2,19 @@
 ## 工程配置
 ### 支持平台
 
-+ SDK 支持 iOS 8.0 以上系统
++ SDK 支持 iOS 8.0 以上系统。
 
 ### 开发环境
 
-+ Xcode 9 或更高版本
-+ OS X 10.10 或更高版本
++ Xcode 9 或更高版本；
++ OS X 10.10 或更高版本；
 
 ### 设置步骤
 
-#### 1.链接SDK及系统库
-1. 将下载的SDK资源包解压，并将SDK文件夹中的TXLiteAVSDK_开头的framework(如TXLiteAVSDK_UGC.framework)复制到工程所在文件夹,并拖动到工程当中。
+#### 1.链接 SDK 及系统库
+1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中的 TXLiteAVSDK_ 开头的 framework(如 TXLiteAVSDK_UGC.framework)复制到工程所在文件夹,并拖动到工程当中。
 
-2. 选中当工程的Target，添加以下系统库
+2. 选中当工程的 Target，添加以下系统库
     1. Accelerate.framework
     2. SystemConfiguration.farmework
     3. libc++.tbd
@@ -24,23 +24,23 @@
     
 3. 选中工程的Target，在Build Settings中搜索bitcode, 将Enable Bitcode设置为NO
 
-#### 2. 配置App权限
-应用会需要相册及相册的访问权限，需要在Info.plist中添加对应项，可以通过在Info.plist中右键选Open as / Source Code粘贴并修改以下内容进行配置。
+#### 2. 配置 App 权限
+应用会需要相册及相册的访问权限，需要在 Info.plist 中添加对应项，可以通过在 Info.plist 中右键选 Open as / Source Code 粘贴并修改以下内容进行配置。
 ```
 <key>NSAppleMusicUsageDescription</key> 
-<string>视频云工具包需要访问你的媒体库权限以获取音乐，不允许则无法添加音乐</string> 
+<string>视频云工具包需要访问您的媒体库权限以获取音乐，不允许则无法添加音乐</string> 
 <key>NSCameraUsageDescription</key> 
-<string>视频云工具包需要访问你的相机权限，开启后录制的视频才会有画面</string> 
+<string>视频云工具包需要访问您的相机权限，开启后录制的视频才会有画面</string> 
 <key>NSMicrophoneUsageDescription</key> 
-<string>视频云工具包需要访问你的麦克风权限，开启后录制的视频才会有声音</string> 
+<string>视频云工具包需要访问您的麦克风权限，开启后录制的视频才会有声音</string> 
 <key>NSPhotoLibraryAddUsageDescription</key> 
-<string>视频云工具包需要访问你的相册权限，开启后才能保存编辑的文件</string> 
+<string>视频云工具包需要访问您的相册权限，开启后才能保存编辑的文件</string> 
 <key>NSPhotoLibraryUsageDescription</key> 
-<string>视频云工具包需要访问你的相册权限，开启后才能编辑视频文件</string> 
+<string>视频云工具包需要访问您的相册权限，开启后才能编辑视频文件</string> 
 ```
 
 #### 3. SDK License 设置与基本信息获取
-请参考[License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请License后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
   ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
   在您的应用中使用短视频功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置
 
@@ -56,10 +56,10 @@
 @end
 ```
 
-- 对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的License必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+- 对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
   ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
-- 商业版请参考[动效变脸](https://cloud.tencent.com/document/product/584/13509)
+- 商业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
 #### 4. Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
@@ -86,9 +86,9 @@
 
 ## 快速接入功能模块
 
-下面讲述了如何集成短视频SDK的录制、编辑、拼接的功能。
+下面讲述了如何集成短视频 SDK 的录制、编辑、拼接的功能。
 
-文中所需要的代码及资源文件均在[资源下载](https://cloud.tencent.com/document/product/584/9366)中SDK的压缩包中提供。
+文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中提供。
 
 ### 接入步骤
 
@@ -105,9 +105,10 @@
    - Demo/TXLiteAVDemo/Common/Third/V8HorizontalPickerView
    - Demo/TXLiteAVDemo/UGC
    - SDK/TXLiteAVSDK_*.framework
-   _在VideoJoinController.m 53行有一处HelpBtnUI的未定义方法，这行需要删掉_
    
-2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口
+	 _在 VideoJoinController.m 53 行有一处 HelpBtnUI 的未定义方法，这行需要删掉_
+   
+2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口：
 
     ```
     - (void)viewDidLoad {
@@ -140,8 +141,8 @@
     }
     ```
 
-3. 接下来在ViewController中添加几个按钮的事件处理方法
-    这里要用到Demo中的一些控制器， 先要在ViewController.m 的头部导入头文件
+3. 接下来在 ViewController 中添加几个按钮的事件处理方法：
+    这里要用到 Demo 中的一些控制器， 先要在 ViewController.m 的头部导入头文件：
     ```
     #import "QBImagePickerController.h"
     #import "VideoRecordConfigViewController.h"
@@ -151,14 +152,14 @@
     #import "VideoPreviewViewController.h"
     #import "VideoLoadingController.h"
     ```
-    另外需要在ViewController中增加一个变量记录视频选则的上下文
+    另外需要在 ViewController 中增加一个变量记录视频选则的上下文：
     ```
     @interface ViewController ()
     {
         ComposeMode _composeMode;
     }
     ```
-    然后添加以下按钮事件处理方法
+    然后添加以下按钮事件处理方法：
 
     ```
     // 选则视频并进入编辑
@@ -223,15 +224,15 @@
     }
     ```
 
-4. 添加点选照片的回调处理方法
-    先声明ViewController实现了QBImagePicker的委托方法, 将ViewController.m的前面修改为
+4. 添加点选照片的回调处理方法：
+    先声明 ViewController 实现了 QBImagePicker 的委托方法, 将 ViewController.m 的前面修改为：
 
     ```
     @interface ViewController () <QBImagePickerControllerDelegate>
     @end
     ```
 
-    然后增加以下方法
+    然后增加以下方法：
 
     ```
     - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
@@ -249,10 +250,10 @@
     }
     ```
 
-5. 打开AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加license的设置，license的申请方法请参见 License介绍
+5. 打开 AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加 license 的设置，license 的申请方法请参见 License 介绍：
      ```objc
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-         // 如果没有license可以先传两个空的字符串, 以下为示例，请填写实际申请下来的信息
+         // 如果没有 license 可以先传两个空的字符串, 以下为示例，请填写实际申请下来的信息。
          [TXUGCBase setLicenceURL:@"https://license.vod2.myqcloud.com/xxxxxxxxxxx/TXUgcSDK.licence" key:@"xxxxxxxxxxx"];
          return YES;
      }
@@ -265,7 +266,7 @@
 
 #### 主功能的类及图片资源
 
-UGC中各界面的类如下所示
+UGC 中各界面的类如下所示：
 
 ```
 UGC
@@ -306,7 +307,7 @@ UGC
 ```
 
 #### 使用到的公有模块
-Demo中使用到的公有模块及第三方库如下所示
+Demo 中使用到的公有模块及第三方库如下所示：
 
 ```
 Common
@@ -332,9 +333,9 @@ Common
 ### 详细介绍
 以下为各模块的详细说明
 
-1. [视频录制](https://cloud.tencent.com/document/product/584/9367)
-2. [视频编辑](https://cloud.tencent.com/document/product/584/9375)
-3. [视频拼接](https://cloud.tencent.com/document/product/584/9370)
-4. [视频上传](https://cloud.tencent.com/document/product/584/15534)
-5. [视频播放](https://cloud.tencent.com/document/product/584/9372)
-6. [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/13509)
+1. [视频录制](https://cloud.tencent.com/document/product/584/9367)；
+2. [视频编辑](https://cloud.tencent.com/document/product/584/9375)；
+3. [视频拼接](https://cloud.tencent.com/document/product/584/9370)；
+4. [视频上传](https://cloud.tencent.com/document/product/584/15534)；
+5. [视频播放](https://cloud.tencent.com/document/product/584/9372)；
+6. [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/13509)；
