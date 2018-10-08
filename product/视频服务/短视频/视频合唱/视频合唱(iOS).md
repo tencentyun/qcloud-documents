@@ -228,4 +228,4 @@ Privacy - Camera Usage Description
     @end
     ```
 
-至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考小视频源码, 下载页面: [https://cloud.tencent.com/document/product/584/9358](https://cloud.tencent.com/document/product/584/9358)。
+至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考  [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)。
