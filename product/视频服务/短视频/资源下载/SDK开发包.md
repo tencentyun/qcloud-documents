@@ -338,8 +338,9 @@
    </tr>
 </table>
 
-#### 1. 如果您对SDK支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535) 寻找答案。
-#### 2. 如果您想了解SDK版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
+#### 1. iOS基础版点播默认使用的是系统播放器，如果您需要使用IJK播放器，请 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_IJK_Rename_iOS_5.2.5541.zip)。
+#### 2. 如果您对SDK支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
+#### 3. 如果您想了解SDK版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
 
 ## 全功能APP("小视频")源代码
 
