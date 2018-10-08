@@ -28,8 +28,8 @@
 |data::topicList|json array|
 |data::topicList::topic|string|topicName。|
 |data::topicList::partitions|json array|
-|data::topicList::parititons::partition| topic的partitionId。|
-|data::topicList::partitions::offset||提交的offset位置。|
+|data::topicList::parititons::partition|int| topic的partitionId。|
+|data::topicList::partitions::offset|int|提交的offset位置。|
 |data::topicList::partitions::metadata|string|支持消费者提交消息时，传入metadata作为它用，当前一般为空字符串。|
 |data::topicList::partitions::log_end_offset|int|当前partition最新的offset。|
 |data::topicList::partitions::lag|int|未消费的消费个数。|
