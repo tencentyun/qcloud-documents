@@ -26,14 +26,14 @@
 
 #### 相关代码
 - Logic:
-	- TCLoginParam: 用来管理用户的登录信息，如登录信息的缓存、过期判断等；
-	- TCTLSPlatform：TLS 注册登录相关接口封装；
-	- TCIMPlatform: ImSDK 登录相关接口封装；
+	- TCLoginParam: 用来管理用户的登录信息，如登录信息的缓存、过期判断等。
+	- TCTLSPlatform：TLS 注册登录相关接口封装。
+	- TCIMPlatform: ImSDK 登录相关接口封装。
 
 - UI:
-	- TCLoginViewController: 过度界面，从缓存中读取登录数据，如果可以自动登录，则直接调用imlogin 的接口进行 im 登录，否则拉取登录界面；
-	- TCTLSLoginViewController：TLS 登录界面，包含用户名登录、短信登录以及游客登录；
-	- TCTLSRegisterViewController：TLS 注册界面，包含用户名注册和短信注册；
+	- TCLoginViewController: 过度界面，从缓存中读取登录数据，如果可以自动登录，则直接调用imlogin 的接口进行 im 登录，否则拉取登录界面。
+	- TCTLSLoginViewController：TLS 登录界面，包含用户名登录、短信登录以及游客登录。
+	- TCTLSRegisterViewController：TLS 注册界面，包含用户名注册和短信注册。
 
 ### 主界面和列表管理
 #### 模块简介
@@ -94,7 +94,7 @@
 	- VideoCutView：视频微缩图 view，主要用于视频播放进度选择，视频剪切等。
 	- EffectSelectView：特效选择 view。
 	- PasterAddView：贴纸添加 view，主要用于动态/静态贴纸添加。
-	- TextAddView：字幕添加 view，主要用于普通字幕/气泡字幕添加
+	- TextAddView：字幕添加 view，主要用于普通字幕/气泡字幕添加。
 
 ### 发布模块
 #### 模块简介
