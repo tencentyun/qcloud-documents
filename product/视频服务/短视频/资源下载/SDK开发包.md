@@ -338,6 +338,7 @@
    </tr>
 </table>
 
+#### 如果您对SDK支持的功能问题还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535) 寻找答案。
 
 ## 全功能APP("小视频")源代码
 
