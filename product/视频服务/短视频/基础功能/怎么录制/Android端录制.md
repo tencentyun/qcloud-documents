@@ -273,10 +273,9 @@ mTXCameraRecord.getLicenceInfo();
 
 ## 高级功能
 
-[处理画面回调](https://cloud.tencent.com/document/product/584/20332)
-
-[设置声音特效](https://cloud.tencent.com/document/product/584/20322)
-
-[设置背景音乐](https://cloud.tencent.com/document/product/584/20316)
-
 [多段录制](https://cloud.tencent.com/document/product/584/20318)
+[录制草稿箱](https://cloud.tencent.com/document/product/584/20320)
+[添加背景音乐](https://cloud.tencent.com/document/product/584/20316)
+[变声和混响](https://cloud.tencent.com/document/product/584/20322)
+[定制视频数据](https://cloud.tencent.com/document/product/584/20332)
+
