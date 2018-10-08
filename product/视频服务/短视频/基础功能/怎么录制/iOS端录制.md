@@ -269,7 +269,8 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ## 高级功能
-[处理画面回调](https://cloud.tencent.com/document/product/584/20331)。
-[设置声音特效](https://cloud.tencent.com/document/product/584/20321)。
-[设置背景音乐](https://cloud.tencent.com/document/product/584/20315)。
-[多段录制](https://cloud.tencent.com/document/product/584/20317)。
+[多段录制](https://cloud.tencent.com/document/product/584/20317)
+[录制草稿箱](https://cloud.tencent.com/document/product/584/20319)
+[添加背景音乐](https://cloud.tencent.com/document/product/584/20315)
+[变声和混响](https://cloud.tencent.com/document/product/584/20321)
+[定制视频数据](https://cloud.tencent.com/document/product/584/20331)
