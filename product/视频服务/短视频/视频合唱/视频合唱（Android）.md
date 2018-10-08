@@ -1,6 +1,6 @@
-本篇教程向大家介绍如何完成合唱的基础功能，可以参考小视频源码。源码下载 [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)
+本篇教程向大家介绍如何完成合唱的基础功能。
 
-### 过程简介
+## 过程简介
 
 1. 在界面上放两个 View, 一个用来播放，一个用来录制。
 2. 再放一个按钮和进度条来开始录制和显示进度。
@@ -8,12 +8,12 @@
 4. 把录好的视频与源视频左右合成。
 5. 预览合成好的视频。
 
-### 界面搭建
+## 界面搭建
 
 在录制界面 TCVideoRecordActivity 的 activity_video_record.xml 中创建两个 view，左半边是录制界面，右半边是播放界面。
 ![](https://main.qcloudimg.com/raw/db388cf497615ac5f1ab58238a765e93.png)
 
-### 代码部分
+## 代码部分
 
 对于合唱功能主要使用三大块功能: 播放、录制、以及录制后和原视频进行合成，这三个功能对应到 SDK 的类为： TXVideoEditer、TXUGCRecord、TXVideoJoiner，其中播放也可以换成 TXVodPlayer 去播放。
 
