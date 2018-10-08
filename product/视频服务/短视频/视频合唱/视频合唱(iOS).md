@@ -41,7 +41,7 @@ Privacy - Camera Usage Description
 
 1. 首先是声明与初始化。
     打开 ViewContorller.m，引用 SDK 并声明上述三个类的实例。另外这里播放、录制和合成视频都是异步操作，需要监听他们的事件，所以要加上实现 TXVideoJoinerListener, TXUGCRecordListener, TXVideoPreviewListener 这三个协议的声明。加好后如下所示：
-```objective-c
+ ```objective-c
     #import "ViewController.h"
     @import TXLiteAVSDK_UGC;
 
@@ -64,7 +64,7 @@ Privacy - Camera Usage Description
 
     - (IBAction)onTapButton:(UIButton *)sender;
     @end
-    ```
+ ```
 准备好成员变量和接口实现声明后，我们在viewDidLoad中对上面的成员变量进行初始化。
  ```objc
  - (void)viewDidLoad {
@@ -118,7 +118,7 @@ Privacy - Camera Usage Description
         _joiner.joinerDelegate = self;
         [_joiner setVideoPathList:@[_recordPath, mp4Path]];
     }
-    ```
+```
 2. 接下来是录制部分，只要响应用户点击按钮调用SDK方法就可以了，为了方便起见，这里复用了这个按钮来显示当前状态。另外加上在进度条上显示进度的逻辑。
     ```objective-c
     - (IBAction)onTapButton:(UIButton *)sender {
