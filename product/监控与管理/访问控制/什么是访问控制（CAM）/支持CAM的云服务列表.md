@@ -23,6 +23,8 @@
 | [黑石物理服务器](https://cloud.tencent.com/document/product/386/13245) | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [容器服务](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
+| [容器镜像服务](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
+| 容器持续集成服务                                             | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 服务级   | -        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
