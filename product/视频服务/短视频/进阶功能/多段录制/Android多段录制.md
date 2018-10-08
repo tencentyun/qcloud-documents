@@ -1,22 +1,21 @@
-## 多段录制
 
 视频多段录制基本使用流程如下：
 
-1. 启动画面预览
-2. 开始录制
-3. 开始播放BGM
-4. 暂停录制
-5. 暂停播放BGM
-6. 继续录制
-7. 继续播放BGM
-8. 停止录制
-9. 停止BGM
+1. 启动画面预览；
+2. 开始录制；
+3. 开始播放 BGM；
+4. 暂停录制；
+5. 暂停播放 BGM；
+6. 继续录制；
+7. 继续播放 BGM；
+8. 停止录制；
+9. 停止 BGM；
 
-``` 
+```
 // 开始录制
 mTXCameraRecord.startRecord();
 
-// pauseRecord 后会生成一段视频，视频可以在 TXUGCPartsManager 里面获取 
+// pauseRecord 后会生成一段视频，视频可以在 TXUGCPartsManager 里面获取
 mTXCameraRecord.pauseRecord();
 mTXCameraRecord.pauseBGM();
 

@@ -1,6 +1,6 @@
-## 录制添加BGM
+## 录制添加 BGM
 
-``` 
+```
 // 设置BGM路径
 mTXCameraRecord.setBGM(path);
 
@@ -27,7 +27,7 @@ mTXCameraRecord.setBGMVolume(x);
 mTXCameraRecord.seekBGM(startTime, endTime);
 ```
 
-## 编辑添加BGM
+## 编辑添加 BGM
 
 ```
 // 设置BGM路径，返回值为 0 表示设置成功； 其他表示失败，如：不支持的音频格式。
@@ -49,4 +49,4 @@ public void setVideoVolume(float volume);
 public void setBGMVolume(float volume);
 ```
 
-##### BGM设置完之后，当启动编辑器预览，BGM就会根据设置的参数播放，当启动编辑器生成，BGM也会按照设置的参数合成到生成的视频中。
+>BGM 设置完之后，当启动编辑器预览，BGM 就会根据设置的参数播放，当启动编辑器生成，BGM 也会按照设置的参数合成到生成的视频中。

@@ -17,7 +17,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
 
 ##### 3.1.2. 拷贝文件
-将 aar 包放在工程 libs 目录下即可
+将 aar 包放在工程 libs 目录下即可。
 
 ##### 3.1.3. 工程配置
 - 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
@@ -62,7 +62,7 @@ defaultConfig {
 
 #### 3.2 集成攻略（jar）
 ##### 3.2.1. 库说明
-解压 zip 压缩包后得到 libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
+解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
@@ -77,9 +77,9 @@ defaultConfig {
 | libtxsdl.so                  | ijkplayer 开源库，用于点播播放功能，解决一些视频格式的兼容问题        |
 
 ##### 3.2.2. 拷贝文件
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs**目录下，这是android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 android studio 默认的 jni 加载目录。
 
-如果您使用的是商业版，那么解压zip包后，除了 jar 包和 so 库增加了以外，还多了assets目录下的文件，这些是动效所需要的，需要全部拷贝到工程的assets目录下，参考 [动效变脸->工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
+如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，参考 [动效变脸->工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
 
 ##### 3.2.3. 工程配置
 
@@ -104,11 +104,11 @@ dependencies {
  在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
 
  **3. 下载 SO 文件**
- 
+
  在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
 
  **4. 加载 SO 文件**
- 
+
  等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
 
 #### 3.3、配置 App 权限
@@ -130,7 +130,7 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 #### 3.4、License设置
-请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请License后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```
@@ -146,7 +146,7 @@ public class DemoApplication extends Application {
 }
 ```
 
-对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的License必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
 #### 3.5、LOG 打印
@@ -217,20 +217,20 @@ defaultConfig {
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。
-文中所需要的代码及资源文件均在[资源下载](https://cloud.tencent.com/document/product/584/9366)中SDK的压缩包中提供。
+文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中SDK的压缩包中提供。
 
 ### 接入步骤
-1、创建一个空的Android Studio工程，工程名为UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请license。 如果没有license依然可以完成以下步骤集成UI，但部分功能会无法使用。
+1、创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 license。 如果没有 license 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2、拷贝SDK开发包中的lib_tccommon、lib_tcvideoediter、lib_tcvideorecord、lib_tcvideojoiner四个Android Studio module放入新建的工程UGC/下
+2、拷贝 SDK 开发包中的 lib_tccommon、lib_tcvideoediter、lib_tcvideorecord、lib_tcvideojoiner 四个 Android Studio module 放入新建的工程 UGC/ 下：
 
 - lib_tccommon ： 资源公共库
 - lib_tcvideoediter：SDK开发包中短视频编辑UI组件
 - lib_tcvideorecord：SDK开发包中短视频录制UI组件
 - lib_tcvideojoiner：SDK开发包中短视频合成UI组件
 
-在新建的工程UGC/settings.gradle 下指明引入这四个module
+在新建的工程 UGC/settings.gradle 下指明引入这四个 module：
 
 ```
 include ':app'
@@ -242,7 +242,7 @@ include ':lib_tccommon'
 # 拷贝这段代码结束位置
 ```
 
-在新建的工程module：app的build.gradle下指明引入这四个module
+在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
 ```
 apply plugin: 'com.android.application'
 
@@ -287,7 +287,7 @@ dependencies {
     // 拷贝这段代码结束位置
 }
 ```
-4、拷贝sdk：/SDK/LiteAVSDK_UGC_1.1.10.aar 到新建的工程UGC/lib_tccommon/libs/下，修改lib_tccommon:build.gradle中的SDK版本号
+4、拷贝 sdk：/SDK/LiteAVSDK_UGC_1.1.10.aar 到新建的工程 UGC/lib_tccommon/libs/ 下，修改 lib_tccommon:build.gradle 中的 SDK 版本号：
 
 ```
 apply plugin: 'com.android.library'
@@ -329,10 +329,10 @@ dependencies {
      // 拷贝这段代码结束位置
 }
 ```
-5、修改Project:build.gradle的配置，保证使用了lib_tccommon中的sdk版本
-``` 
+5、修改 Project:build.gradle 的配置，保证使用了 lib_tccommon 中的 sdk 版本：
+```
 buildscript {
-    
+
     repositories {
         jcenter()
     }
@@ -357,21 +357,21 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 ```
-6、请确保Android Gradle Plugin版本和本地Gradle版本的兼容性。
+6、请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 
 ```
 The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
-可以按照如下给出的代码配置，保证Gradle版本兼容性，修改gradle-wrapper.properties文件的Gradle版本
+可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本
 
 ```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
-7、license配置
-新建DemoApplication类，用于设置license，并在AndroidManifest.xml中声明此Application
+7、license 配置
+新建 DemoApplication 类，用于设置 license，并在 AndroidManifest.xml 中声明此 Application。
 
 ```
-//DemoApplication.java 
+//DemoApplication.java
 import com.tencent.ugc.TXUGCBase;
 
 public class DemoApplication extends Application {
@@ -397,7 +397,7 @@ public class DemoApplication extends Application {
 ```
 
 8、短视频模块的调用
-在activity_main.xml中建立三个Button
+在 activity_main.xml 中建立三个 Button。
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -425,7 +425,7 @@ public class DemoApplication extends Application {
         android:text="Joiner" />
 </LinearLayout>
 ```
-在MainActivity.java中启动各模块的类即可
+在 MainActivity.java 中启动各模块的类即可。
 ```
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -463,12 +463,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 }
 
 ```
-9、clean工程，运行即可看到效果
+9、clean 工程，运行即可看到效果。
 
 ### 相关文件简介
 #### 短视频录制
 
-``` 
+```
 lib_tcvideorecord
 └── videorecord
     ├── RecordDef.java(背景音选择接口)
@@ -487,7 +487,7 @@ lib_tcvideorecord
         └── TCMusicSelectView.java
 ```
 #### 短视频编辑
-``` 
+```
 └── videoediter
     ├── PictureChooseFragment.java(图片选择界面)
     ├── TCVideoEditChooseActivity.java(单视频编辑文件选择界面)
@@ -528,7 +528,7 @@ lib_tcvideorecord
         └── TCTransitionFragment.java(图片转场设置界面)
 ```
 #### 短视频合成
-``` 
+```
 └── videojoiner
     ├── TCVideoJoinerActivity.java(多视频合成顺序调整界面)
     ├── TCVideoJoinerPreviewActivity.java(多视频预览、生成界面)
