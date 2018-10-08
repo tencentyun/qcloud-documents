@@ -30,7 +30,7 @@ public TXVideoEditConstants.TXVideoInfo getVideoFileInfo(String videoPath);
 ```
 返回的TXVideoInfo定义如下
 
-``` 
+```
 public final static class TXVideoInfo {
         public Bitmap coverImage;                                // 视频首帧图片
         public long duration;                                         // 视频时长(ms)
@@ -45,14 +45,14 @@ public final static class TXVideoInfo {
 完整示例如下：
 ```
 //sourcePath为视频源路径
-String sourcePath = Environment.getExternalStorageDirectory() + File.separator + "temp.mp4"; 
+String sourcePath = Environment.getExternalStorageDirectory() + File.separator + "temp.mp4";
 TXVideoEditConstants.TXVideoInfo info = TXVideoInfoReader.getInstance().getVideoFileInfo(sourcePath);
 ```
 ## 缩略图获取
 缩略图的接口主要用于生成视频编辑界面的预览缩略图，或获取视频封面等。
 ### 1. 按个数平分时间获取缩略图
 ##### 快速导入生成精准缩略图
-调用接口如下： 
+调用接口如下：
 ```
 /**
   * 获取缩略图列表
@@ -108,14 +108,14 @@ txVideoEditer.getThumbnailList(list, 200, 200);
 - 设置的时间点单位是毫秒(ms)
 
 ## 视频导入
-###1. 快速导入
-快速导入视频，可以直接观看到视频编辑的预览效果，支持视频裁剪、时间特效（慢动作）、滤镜特效、滤镜风格、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能，不支持的功能有时间特效（重复、倒放）。  
+### 1. 快速导入
+快速导入视频，可以直接观看到视频编辑的预览效果，支持视频裁剪、时间特效（慢动作）、滤镜特效、滤镜风格、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能，不支持的功能有时间特效（重复、倒放）。
 
-###2. 全功能导入
+### 2. 全功能导入
 全功能导入，支持所有的功能，包括时间特效（重复、倒放）。需要为视频先预处理操作。
 经过全功能导入后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
 
-全功能导入步骤及调用接口如下： 
+全功能导入步骤及调用接口如下：
 1、设置精确输出缩略图
 ```
 /**
@@ -124,7 +124,7 @@ txVideoEditer.getThumbnailList(list, 200, 200);
 public void setThumbnail(TXVideoEditConstants.TXThumbnail thumbnail)
 ```
 2、设置输出缩略图的回调
-``` 
+```
 /**
   * 设置预处理输出缩略图回调
   * @param listener
@@ -139,10 +139,10 @@ public void setThumbnailListener(TXThumbnailListener listener)
   * 设置视频预处理回调
   * @param listener
   */
-public void setVideoProcessListener(TXVideoProcessListener listener) 
+public void setVideoProcessListener(TXVideoProcessListener listener)
 ```
 4、进行视频预处理
-``` 
+```
 public void processVideo();
 ```
 完整示例如下：
@@ -159,15 +159,15 @@ mTXVideoEditer.setVideoProcessListener(this);                       // 视频预
 mTXVideoEditer.processVideo();                                               // 进行预处理
 ```
 
-## 编辑预览   
+## 编辑预览
 视频编辑提供了 定点预览（将视频画面定格在某一时间点）与区间预览（循环播放某一时间段 A <=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
 
 ### 1. 设置预览播放的Layout
-``` 
-public void initWithPreview(TXVideoEditConstants.TXPreviewParam param) 
+```
+public void initWithPreview(TXVideoEditConstants.TXPreviewParam param)
 ```
 设置预览Layout时，可以设置两种视频画面渲染模式，在TXVideoEditConstants常量中定义了这两种渲染模式
-``` 
+```
 public final static int PREVIEW_RENDER_MODE_FILL_SCREEN = 1;   // 填充模式，尽可能充满屏幕不留黑边，所以可能会裁剪掉一部分画面
 public final static int PREVIEW_RENDER_MODE_FILL_EDGE = 2;        // 适应模式，尽可能保持画面完整，但当宽高比不合适时会有黑边出现
 ```
@@ -178,12 +178,12 @@ public void previewAtTime(long timeMs);
 ```
 ### 3.区间预览
 TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A <=>B内的视频片段。
-``` 
+```
 // 播放某一时间段的视频，从startTime到endTime的视频片段
 public void startPlayFromTime(long startTime, long endTime);
 ```
 ### 4. 预览的暂停与恢复
-``` 
+```
 // 暂停播放视频
 public void pausePlay();
 
@@ -195,7 +195,7 @@ public void stopPlay();
 ```
 
 ### 5. 美颜滤镜
-您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了 16 种滤镜选择，同时也可以设置自定义的滤镜。  
+您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了 16 种滤镜选择，同时也可以设置自定义的滤镜。
 
 设置滤镜的方法为：
 ```
