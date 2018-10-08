@@ -202,7 +202,7 @@ recorder.videoProcessDelegate = delegate;
 [recorder setRecordSpeed:VIDEO_RECORD_SPEED_NOMAL];
 ```
 
-### 3 声音设置
+### 3. 声音设置
 ```
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
 // 音量大小,1为正常音量,建议值为0~2,如果需要调大音量可以设置更大的值.
