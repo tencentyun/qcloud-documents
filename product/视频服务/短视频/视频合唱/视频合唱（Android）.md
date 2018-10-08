@@ -125,4 +125,4 @@ public void onJoinComplete(TXVideoEditConstants.TXJoinerResult result) {
     }
 }
 ```
-至此就完成了全部合唱的基础功能，完整代码可以参考小视频源码 [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)。
+至此就完成了全部合唱的基础功能，完整代码可以参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)。
