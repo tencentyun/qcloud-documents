@@ -11,7 +11,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤。|
-|group|是|String  |kafka 消费分组数组。|
+|group|是|String  |kafka 消费分组。|
 |topics|否|string array|group 订阅的主题名称数组，如果没有该数组，则表示指定的group下所有topic信息。|
 |searchWord|否|string|模糊匹配topicName。|
 |offset|否|int|默认0 ，本次查询的偏移位置。|
