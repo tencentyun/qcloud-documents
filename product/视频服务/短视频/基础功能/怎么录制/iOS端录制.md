@@ -1,7 +1,7 @@
 ## 功能概览
-视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能
+视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能。
 
-## 使用类介绍 
+## 使用类介绍
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制，其详细定义如下：
 
 | 接口文件                | 功能                                       |
@@ -13,11 +13,11 @@
 | `TXUGCPartsManager.h`   | 视频片段管理类，用于视频的多段录制，回删等 |
 
 ## 使用说明
-视频录制的的基本使用流程如下
-1. 配置录制参数
-2. 启动画面预览
-3. 设置录制效果
-4. 完成录制
+视频录制的的基本使用流程如下：
+1. 配置录制参数；
+2. 启动画面预览；
+3. 设置录制效果；
+4. 完成录制；
 
 示例
 ```
@@ -83,7 +83,7 @@
 ```
 
 ## 画面预览
-TXUGCRecord（位于 TXUGCRecord.h） 负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
+TXUGCRecord（位于 TXUGCRecord.h） 负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
 ### 1. 启动预览
 ```objc
 TXUGCRecord *record = [TXUGCRecord sharedInstance];
@@ -168,7 +168,7 @@ recorder.videoProcessDelegate = delegate;
 
 - onRecordEvent 录制事件回调预留的接口，暂未使用
 
-```   
+```
   @optional
    (void)onRecordEvent:(NSDictionary*)evt;
 ```
@@ -223,7 +223,7 @@ recorder.videoProcessDelegate = delegate;
 
 ## 设置效果
 
-在视频录制的过程中，您可以给录制视频的画面设置各种特效
+在视频录制的过程中，您可以给录制视频的画面设置各种特效。
 ### 1. 水印效果
 ```objc
 // 设置全局水印
@@ -241,10 +241,10 @@ recorder.videoProcessDelegate = delegate;
 // filterImage : 指定滤镜用的颜色查找表。注意：一定要用png格式
 // demo用到的滤镜查找表图片位于FilterResource.bundle中
 [recorder setFilter:filterImage];
- 
+
  // 用于设置滤镜的效果程度，从0到1，越大滤镜效果越明显，默认取值0.5
 [recorder setSpecialRatio:ratio];
-                        
+
 // 设置组合滤镜特效
 // mLeftBitmap      左侧滤镜
 // leftIntensity   左侧滤镜强度
@@ -269,9 +269,7 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ## 高级功能
-[处理画面回调](https://cloud.tencent.com/document/product/584/20331)
-[设置声音特效](https://cloud.tencent.com/document/product/584/20321)
-[设置背景音乐](https://cloud.tencent.com/document/product/584/20315)
-[多段录制](https://cloud.tencent.com/document/product/584/20317)
-
-
+[处理画面回调](https://cloud.tencent.com/document/product/584/20331)。
+[设置声音特效](https://cloud.tencent.com/document/product/584/20321)。
+[设置背景音乐](https://cloud.tencent.com/document/product/584/20315)。
+[多段录制](https://cloud.tencent.com/document/product/584/20317)。

@@ -1,16 +1,16 @@
-## 多段录制
+
 
 视频多段录制基本使用流程如下 :
 
-1. 启动画面预览
-2. 开始录制
-3. 开始播放BGM
-4. 暂停录制
-5. 暂停播放BGM
-6. 继续播放BGM
-7. 继续录制
-8. 停止录制
-9. 停止播放BGM
+1. 启动画面预览；
+2. 开始录制；
+3. 开始播放 BGM；
+4. 暂停录制；
+5. 暂停播放 BGM；
+6. 继续播放 BGM；
+7. 继续录制；
+8. 停止录制；
+9. 停止播放 BGM；
 
 ```objc
 //开启画面预览
@@ -27,9 +27,9 @@ recorder = [TXUGCRecord shareInstance];
 [recorder playBGMFromTime:beginTime toTime:_BGMDuration withBeginNotify:^(NSInteger errCode) {
 //开始播放
 } withProgressNotify:^(NSInteger progressMS, NSInteger durationMS) {
-//播放进度           
+//播放进度
 } andCompleteNotify:^(NSInteger errCode) {
- //播放结束       
+ //播放结束
 }];
 
 // 调用 pauseRecord 后会生成一段视频，视频可以在 TXUGCPartsManager 里面获取管理
@@ -66,7 +66,7 @@ TXUGCPartsManager *partsManager = recorder.partsManager;
 [partsManager deletePart:1];
 
 // 删除所有片段视频
-[partsManager deleteAllParts];  
+[partsManager deleteAllParts];
 
  //您可以添加当前录制视频之外的视频
 [partsManager insertPart:videoPath atIndex:0];
