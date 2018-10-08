@@ -65,8 +65,7 @@ Privacy - Camera Usage Description
     - (IBAction)onTapButton:(UIButton *)sender;
     @end
     ```
-准备好成员变量和接口实现声明后，我们在viewDidLoad中对上面的成员变量进行初始化。
-
+    准备好成员变量和接口实现声明后，我们在viewDidLoad中对上面的成员变量进行初始化。
     ```objective-c
     - (void)viewDidLoad {
         [super viewDidLoad];
