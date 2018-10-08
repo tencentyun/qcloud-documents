@@ -201,7 +201,7 @@ mTXCameraRecord.setMute(isMute);
 
 ## 设置效果
 在视频录制的过程中，您可以给录制视频的画面设置各种特效
-###1. 水印
+### 1. 水印
 ``` 
 // 设置全局水印
 // TXRect-水印相对于视频图像的归一化值，sdk内部会根据水印宽高比自动计算height
@@ -230,7 +230,7 @@ mTXCameraRecord.setFilter(mLeftBitmap, leftIntensity, mRightBitmap, rightIntensi
 mTXCameraRecord.setSpecialRatio(0.5);
 ```
 
-###3. 美颜
+### 3. 美颜
 
 ``` 
 // 设置美颜类型
@@ -264,8 +264,8 @@ mTXCameraRecord.setMotionTmp(motionTmplPath);
 mTXCameraRecord.setMotionMute(true);
 ```
 
-## 获取 licence 信息
-新版本的SDK增加了短视频licence的校验，如果校验没通过，您可以通过该接口来查询licence中具体信息
+## 获取 license 信息
+新版本的SDK增加了短视频license的校验，如果校验没通过，您可以通过该接口来查询license中具体信息
 
 ``` 
 mTXCameraRecord.getLicenceInfo();
