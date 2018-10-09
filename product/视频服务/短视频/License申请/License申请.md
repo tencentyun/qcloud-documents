@@ -72,13 +72,16 @@ TXLiveBase.getInstance().getLicenceInfo();
 
 1. 测试License到期后是否可以延期？
 
-   测试License是不能延期的，到期后请尽快购买正式License
+   测试License试用期最多28天是不能延期的，到期后请尽快购买正式License
 
 2. 测试License能否更改Android的PackageName和iOS的BundleID?
+
    测试License是可以的，在控制台测试License信息右边有编辑按钮，可以点击编辑修改
 
 3. 正式License能否更改Android的PackageName和iOS的BundleID?
-  当前版本，正式License不能更改PackageName 和 BundleID，后续版本会加以支持
+
+   当前版本，正式License不能更改PackageName 和 BundleID，后续版本会加以支持
 
 4. License可以同时支持多个APP吗？
-  一个License 只能对应一个PackageName 和 BundleID，不支持多个APP
+   
+   一个License 只能对应一个PackageName 和 BundleID，不支持多个APP
