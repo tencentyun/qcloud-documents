@@ -1,14 +1,14 @@
 ## boardsdk [1.6.0] - 2018-10-09
 ### 新增
-1. 新增文档功能，支持ppt、pdf等文档资源上传、转码和预览；
-2. 新增激光笔功能；
+1. 新增文档功能，支持 PPT、PDF 等文档资源上传、转码和预览；
+2. 新增激光笔功能。
 
 ### 优化
-1. 优化橡皮擦功能算法，提高命中率；
+1. 优化橡皮擦功能算法，提高命中率。
 
 ## ticsdk [1.5.1] - 2018-10-09
 ### 优化
-1. 提高稳定性；
+1. 提高稳定性。
 
 
 ## boardsdk [1.5.1] - 2018-09-11
@@ -24,7 +24,7 @@
 
 ### 接口变更
 1. TICClassroomOption 中 setEnableCamera() 变更为 autoCamera()，setEnableMic 变更为 autoMic()；
-2. TICManager 中合并和精简了如 send###MessageIM 消息系列发送接口；
+2. TICManager 中合并和精简了如 send###Message IM 消息系列发送接口；
 3. IClassroomIMListener 合并和精简了消息回调接口，由 Constants 中的 MSG_TYPE_C2C 和 MSG_TYPE_GROUP 区分消息类型；
 4. TICManager 中新增了 destroyClassroom 接口。
 
