@@ -57,7 +57,6 @@ SDK API 说明：
 3. 调用 CreateSDKBuffFromStr 生成水印。
 
 			byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
-			
 参数说明：
 <table>
 <tr>
@@ -77,7 +76,6 @@ SDK API 说明：
 <td>服务器端口</td>
 </tr>
 </table>
-
 返回值：
 <table>
 <tr>
@@ -85,8 +83,9 @@ SDK API 说明：
 <td>计算的水印信息，取 20 字节</td>
 </tr>
 </table>
-
 调用示例：
+<table>
+</table>
 
 			String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
 			String uDesIp = "115.159.147.198";
