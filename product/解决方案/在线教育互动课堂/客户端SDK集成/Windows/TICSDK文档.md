@@ -224,7 +224,7 @@ boardSDk->uploadFile(filePath, sig);
 	*/
 	virtual void openWhiteBoardShare(HWND hwnd) = 0;
 ```
-打开窗口分享涂鸦后可调用 BoarSDK 接口函数对画笔进行操作。BoarSDK 接口详见 [白板SDK文档](/document/product/680/17884) 。
+打开窗口分享涂鸦后可调用 BoarSDK 接口函数对画笔进行操作。BoardSDK 接口详见 [白板SDK文档](/document/product/680/17884) 。
 
 ### 2.8 收发消息
 IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也只封装了一些常用接口：
