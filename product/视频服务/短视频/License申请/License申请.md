@@ -80,8 +80,8 @@ TXLiveBase.getInstance().getLicenceInfo();
 
 3. 正式License能否更改Android的PackageName和iOS的BundleID?
 
-   当前版本，正式License不能更改PackageName 和 BundleID，后续版本会加以支持
+   当前版本，正式License不能更改PackageName和BundleID，后续版本会加以支持
 
 4. License可以同时支持多个APP吗？
    
-   一个License 只能对应一个PackageName 和 BundleID，不支持多个APP
+   一个License只能对应一个PackageName和BundleID，不支持多个APP
