@@ -5,14 +5,29 @@
 ## Android 接入
 ### 预备工作
 接入 SDK 需要完成以下步骤：
-![](https://i.imgur.com/83k1tW3.png)
+1. 根据运行平台选择相应的 so 文件，将 so 文件和 jar 文件拷贝到工程目录下，并添加依赖。
+2. 调用 SDK 接口函数，生成水印信息。
+3. 发送报文时，将 20 字节水印信息放在消息体前面。
+
 SDK 文件包含 so 文件和 jar 文件，目录结构如下：
 ![](https://i.imgur.com/mPPkCxA.png)
+
 SDK API 说明：
-![](https://i.imgur.com/qnXd77J.png)
+<table>
+<tr>
+<th>程序包</td>
+<td>comgamesec</td>
+</tr>
+<tr>
+<th>类</td>
+<td>Mark</td>
+</tr>
+</table>
+
 生成水印的函数为：
 			
 		byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
+		
 ### 接入步骤 (Android Studio)
 
 1. 将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
@@ -42,10 +57,35 @@ SDK API 说明：
 3. 调用 CreateSDKBuffFromStr 生成水印。
 
 			byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
+			
 参数说明：
-![](https://i.imgur.com/zzPSkCT.png)
+<table>
+<tr>
+<td>pSDKinfo</td>
+<td>水印防护密钥</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>占位参数，传入空字符串即可</td>
+</tr>
+<tr>
+<td>uDeslp</td>
+<td>服务器 IP，如 “1.2.3.4”</td>
+</tr>
+<tr>
+<td>uDesPort</td>
+<td>服务器端口</td>
+</tr>
+</table>
+
 返回值：
-![](https://i.imgur.com/sIKyf8S.png)
+<table>
+<tr>
+<td>byte[]</td>
+<td>计算的水印信息，取 20 字节</td>
+</tr>
+</table>
+
 调用示例：
 
 			String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
@@ -69,7 +109,11 @@ SDK API 说明：
 ### 预备工作
 
 接入 SDK 需要完成以下步骤：
-![](https://i.imgur.com/JHNlTuE.png)
+1. 将 SDK 文件拷贝到工程目录，Swift 工程需要添加桥文件。
+2. 调用 SDK 接口函数，生成水印信息。
+3. 发送报文时，将 20 字节水印信息放在消息体前面。
+
+
 SDK 文件包含 a 文件和 h 文件，目录结构如下：
 ![](https://i.imgur.com/Q8Xz8J5.png)
 SDK 生成水印的函数位于 h 文件中：
@@ -102,7 +146,26 @@ SDK 生成水印的函数位于 h 文件中：
 			uint32_t CreateSDKBuffFromStr(
               char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
 参数说明：
-![](https://i.imgur.com/ef0n1m0.png)
+<table>
+<tr>
+<td>pSDKinfo</td>
+<td>水印防护密钥</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>水印指针，输出水印结果</td>
+</tr>
+<tr>
+<td>uDeslp</td>
+<td>服务器 IP，如 “1.2.3.4”</td>
+</tr>
+<tr>
+<td>uDesPort</td>
+<td>服务器端口</td>
+</tr>
+</table>
+
+
 3. 调用示例。
 Swift 调用：
 
@@ -145,7 +208,26 @@ SDK 为 gamesec.dll 文件，有一个生成水印的函数：
     uint32_t CreateSDKBuffFromStr(
               char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
 参数说明：
-![](https://i.imgur.com/hCqWg5S.png)
+<table>
+<tr>
+<td>pSDKinfo</td>
+<td>水印防护密钥</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>水印指针，输出水印结果</td>
+</tr>
+<tr>
+<td>uDeslp</td>
+<td>服务器 IP，如 “1.2.3.4”</td>
+</tr>
+<tr>
+<td>uDesPort</td>
+<td>服务器端口</td>
+</tr>
+</table>
+
+
 
 ### 参数说明：
 
