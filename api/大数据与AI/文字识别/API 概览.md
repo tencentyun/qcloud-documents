@@ -13,6 +13,6 @@
 | OCR-营业执照识别    | [查看文档](/document/product/866/17598) |
 | OCR-通用印刷体识别   | [查看文档](/document/product/866/17600) |
 | OCR-手写体识别     |[查看文档](/document/product/866/17596) |
-| OCR-增值税发票识别  | [查看文档](/document/product/866/17606 )  |
+
 
 
