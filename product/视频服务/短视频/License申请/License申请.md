@@ -71,7 +71,8 @@ TXLiveBase.getInstance().getLicenceInfo();
 ### 7. License常见问题QA
 
 1. 测试License到期后是否可以延期？
-  测试License是不能延期的，到期后请尽快购买正式License
+
+   测试License是不能延期的，到期后请尽快购买正式License
 
 2. 测试License能否更改Android的PackageName和iOS的BundleID?
    测试License是可以的，在控制台测试License信息右边有编辑按钮，可以点击编辑修改
