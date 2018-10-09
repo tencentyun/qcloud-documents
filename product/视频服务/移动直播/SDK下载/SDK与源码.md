@@ -28,138 +28,149 @@ table td {
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th width="115px">功能特性</th>
+    <th width="100px">功能特性</th>
+		<th width="400px">功能简洁</th>
     <th width="150px">直播精简版</th>
-    <th width="150px">独立播放器版</th>
-    <th width="150px">短视频功能版</th>
     <th width="150px">全功能专业版</th>
     <th width="150px">商用企业版</th>
   </tr>
   <tr>
-    <td>RTMP推流</td>
+    <td>RTMP 推流</td>
+		<td>用于实现主播端的手机推流功能(美女直播)</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td></td>
-    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	 <tr>
+    <td>录屏推流</td>
+		<td>用于实现主播端的屏幕推流功能(游戏直播)</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>直播播放</td>
+    <td>RTMP 播放</td>
+		<td>用于实现 rtmp:// 协议的直播播放功能</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>FLV 播放</td>
+		<td>用于实现 HTTP+ FLV 协议的直播播放功能</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+  <tr>
+    <td>HLS 播放</td>
+		<td>用于实现 HLS(m3u8) 协议的直播播放功能</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
     <td>点播播放</td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td>用于实现视频点播回放（类似优酷）功能</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
     <td>基础美颜</td>
+		<td>提供自然、光滑等多种不同风格的美颜算法</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>基础滤镜</td>
+		<td>提供多套不同风格的滤镜算法</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
     <td>直播连麦</td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td></td>
-    <td></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-  </tr>
-  <tr>
-    <td>视频录制</td>
-    <td></td>
-    <td></td>
+		<td>用于实现主播PK和连麦互通能力</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>视频编辑</td>
-    <td></td>
+    <td>录制和拍摄</td>
+    <td>用于实现带美颜滤镜的拍照和视频录制功能</td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>裁剪拼接</td>
+    <td>用于实现简单易用的视频裁剪和拼接功能</td>
+    <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>视频拼接</td>
+    <td>类“抖音”特效</td>
+    <td>用于实现类“抖音”的视频特效编辑功能</td>
     <td></td>
-    <td></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>视频发布</td>
+    <td>视频上传</td>
+    <td>用于实现将视频上传到云端的功能</td>
     <td></td>
-    <td></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>动效贴纸</td>
-    <td></td>
-    <td></td>
+    <td>大眼瘦脸</td>
+    <td>基于天天P图AI特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
-    <td>美瞳瘦脸</td>
-    <td></td>
-    <td></td>
+    <td>V脸隆鼻</td>
+    <td>基于天天P图AI特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
     <td>绿幕抠图</td>
-    <td></td>
-    <td></td>
+    <td>基于天天P图AI特效实现背景抠图能力</td>
     <td></td>
     <td></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr>
     <td>BitCode</td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
-    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td>是否支持BitCode(iOS提供的体积优化方案)</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td></td>
   </tr>
 	<tr>
     <td>IPA 增量</td>
+		<td>嵌入该版本后 IPA 安装包的体积增量</td>
     <td>1.43 M</td>
-    <td>2.57 M</td>
-    <td>2.52 M</td>
     <td>4.19 M</td>
     <td>5.98 M</td>
   </tr>
   <tr>
     <td>Pod 安装</td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+		<td>基于 Pod 的 SDK 嵌入方式</td>
     <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
     <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
     <td>见版本说明</td>
   </tr>
   <tr>
     <td>SDK 下载</td>
+		<td>直接下载包含 SDK 的 zip 压缩包</td>
     <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Smart_iOS_5.2.5541.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Player_iOS_5.2.5541.zip">DOWNLOAD</a></td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_Rename_iOS_5.2.5541.zip">DOWNLOAD</a></td>
     <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Professional_iOS_5.2.5541.zip">DOWNLOAD</a></td>
     <td>见如下说明</td>
   </tr>
