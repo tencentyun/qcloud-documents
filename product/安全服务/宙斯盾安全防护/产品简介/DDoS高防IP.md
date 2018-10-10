@@ -15,7 +15,7 @@ DDoS 高防 IP 可针对云内外服务器提供 T 级防护，轻松抵御大�
 >**注意：**
 >如需配置更高带宽防护，请联系客服咨询。
 - 支持单 IP、套餐购买
-DDoS 高防 IP 支持一次性购买一条或多条不同线路 IP，灵活选购，适合各种业务场景使用。如果业务防护需求主要是某一个运营商，可以直接选购单 IP 线路防护。而套餐支持提供多线路防护，避免跨网访问，更划算。比如三网 3 IP 保底 20Gbps 19500 / 月，相比单 IP 定价电信、联通、移动分别保底 20Gbps，合计 13600 * 3 = 40800 / 月实惠更多。详情请参见 [DDoS 高防 IP 单 IP 定价](https://cloud.tencent.com/document/product/685/15262) 和 [ DDoS 高防 IP 套餐定价](https://cloud.tencent.com/document/product/685/19025)。
+DDoS 高防 IP 支持一次性购买一条或多条不同线路 IP，灵活选购，适合各种业务场景使用。若业务防护需求主要是某一个运营商，可直接选购单 IP 线路防护。而套餐支持提供多线路防护，避免跨网访问，更划算。比如三网 3 IP 保底 20Gbps 19500 / 月，相比单 IP 定价电信、联通、移动分别保底 20Gbps，合计 13600 * 3 = 40800 / 月实惠更多。详情请参见 [DDoS 高防 IP 单 IP 定价](https://cloud.tencent.com/document/product/685/15262) 和 [ DDoS 高防 IP 套餐定价](https://cloud.tencent.com/document/product/685/19025)。
 - 灵活计费
 按月预付费的保底 + 按天后付费的弹性，按用户实际攻击量计费，为用户节约成本。详情请参见 [计费说明](https://cloud.tencent.com/document/product/685/15263)。
 
