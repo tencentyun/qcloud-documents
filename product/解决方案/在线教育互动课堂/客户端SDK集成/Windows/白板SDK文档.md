@@ -1,61 +1,62 @@
-## 1. SDK文件结构
-白板SDK内包含文件说明如下表:
+## 1. SDK 文件结构
+白板 SDK 内包含文件说明如下表:
 
 |文件名称|说明|
 |---|---|
-|BoardSDK.dll|SDK动态链接库|
-|BoardSDK.lib|SDK导入库|
-|BoardSDK.h|SDK头文件|
-|BoardMgr.h|SDK头文件|
+|BoardSDK.dll|SDK 动态链接库|
+|BoardSDK.lib|SDK 导入库|
+|BoardSDK.h|SDK 头文件|
+|BoardMgr.h|SDK 头文件|
 
-## 2. SDK快速集成
-### 2.1 导入SDK到项目
-在Visual Studio开发环境下，按如下步骤导入SDK：
+## 2. SDK 快速集成
+### 2.1 导入 SDK 到项目
+在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
-1. 从菜单中依次选择`视图`-`解决方案资源管理器`
-2. 在`解决方案资源管理器`中，右键点击要导入SDK的项目名称
-3. 在弹出菜单内点击`属性`选项，弹出`项目属性`对话框
-4. 从左侧`配置属性`列表中，选择`VC++目录`项
-5. 将SDK所在目录路径依次添加到右侧`包含目录`及`库目录`中
-6. 在任意一个`*.c`或`*.cpp`文件内添加如下代码导入SDK接口
+1. 从菜单中依次选择`视图`-`解决方案资源管理器`；
+2. 在`解决方案资源管理器`中，右键单击要导入 SDK 的项目名称；
+3. 在弹出菜单内单击`属性`选项，弹出`项目属性`对话框；
+4. 从左侧`配置属性`列表中，选择`VC++目录`项；
+5. 将 SDK 所在目录路径依次添加到右侧`包含目录`及`库目录`中；
+6. 在任意一个`*.c`或`*.cpp`文件内添加如下代码导入 SDK 接口。
 
 ```C++
 #pragma comment(lib, "BoardSDK.lib")
 ```
 ### 2.2 初始化白板
-初始化白板前，首先使用如下代码引入SDK头文件：
+初始化白板前，首先使用如下代码引入 SDK 头文件：
 ```C++
 #include "BoardMgr.h"
 ```
-然后调用如下代码进行白板初始化
+然后调用如下代码进行白板初始化：
 
 ```C++
 boardMgr = BoardMgr::GetSDKInstance()
 boardMgr->init(userID, userSig, sdkappId);
 ```
-退出时销毁白板直接删除指针即可
+退出时销毁白板直接删除指针即可：
 ```C++
 delete boardMgr；
 ```
 
-### 2.3 创建白板窗口
+### 2.3 创建普通白板窗口
 使用如下代码创建白板实例，并获得白板指针：
 
 ```C++
 boardMgr->initBoardSDK(roomId, hwnd);
 BoardSDK* boardSDk = boardMgr->getBoardSDK();
 ```
+使用TICSDK推荐TICSDK的方法`initWhiteBoard`
 
-> 注意：白板长宽比固定为 16 : 9
+> **注意：**白板长宽比推荐固定为 16：9。
 
-其中第一个参数`roomId`指定当前房间ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
+其中第一个参数`roomId`指定当前房间 ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
 白板窗口创建完后，可通过如下代码获取白板窗口句柄，方便对白板窗口进行操作：
 
 ```C++
 HWND boardHWnd = boardSDk->getRenderWindow();
 ```
 
-之后调用
+之后调用：
 
 ```C++
 ShowWindow(hWnd, SW_SHOW);
@@ -69,7 +70,7 @@ ShowWindow(hWnd, SW_SHOW);
 ```C++
 boardSDk->useTool(BoardTool::Rectangle);//使用矩形工具
 boardSDk->setLineWidth(100);//设置画笔宽度
-boardSDk->setBrushColor(0xff0000ff);//设置画笔颜色（颜色字节序从高到低按RGBA存储）
+boardSDk->setBrushColor(255，0，255，255);//设置画笔颜色，按照red，green，blue和alpha通道值顺序
 boardSDk->setFill(true);//填充图形
 boardSDk->setRadius(30);//设置圆角半径
 ```
@@ -88,7 +89,7 @@ boardSDk->setRadius(30);//设置圆角半径
 |选区|BoardTool::Select|无|
 
 ### 2.5 页面操作、背景设置及页面清除
-白板SDK支持多页面操作，可通过如下接口来进行页面操作：
+白板 SDK 支持多页面操作，可通过 BoardMgr 如下接口来进行页面操作：
 
 ```C++
 	/**
@@ -139,7 +140,7 @@ boardSDk->setRadius(30);//设置圆角半径
 boardSDk->setBackgroundImage("http://www.image.com/img", "page1");
 ```
 
-以上代码设置ID为page1的页面背景图片为URL“[http://www.image.com/img]()”，当第一个参数指定为URL时，白板SDK会自动联网下载图片，当该参数以字符串“file://” 开头时，SDK将尝试在本地查找该文件路径。第二个参数用于指定要设置背景的页面ID，留空表示设置当前页面的背景，当其所指向的页面不存在时，将会自动创建页面。
+以上代码设置 ID 为 page1 的页面背景图片为 URL`[http://www.image.com/img]()`，当第一个参数指定为 URL 时，白板 SDK 会自动联网下载图片，当该参数以字符串`file://`开头时，SDK 将尝试在本地查找该文件路径。第二个参数用于指定要设置背景的页面 ID，留空表示设置当前页面的背景，当其所指向的页面不存在时，将会自动创建页面。
 
 在任何时候，可以通过如下代码来清除当前页面内容：
 
@@ -167,40 +168,40 @@ boardSDk->remove();//删除选中图形
 
 ### 2.7 上传文档
 
-用户想使用PPT，可先上传到腾讯云对象存储COS。目前白板内部集成了COSSDK
-开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置COS账号并自行维护。
+用户想使用 PPT，可先上传到腾讯云对象存储 COS。目前白板内部集成了 COSSDK。
+开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置 COS。账号并自行维护。
 
-使用如下接口可以将ppt上传至COS：
+使用如下接口可以将 PPT 上传至 COS：
 ```C++
 boardSDk->uploadFile(filePath);//上传文件
 ```
-这里会将文件上传至公共账号的COS路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果
-如果想使用自己申请的COS账号存储地址，可以调如下接口设置：
+这里会将文件上传至公共账号的 COS 路径下，通过回调`onUploadResult`和`onFileUploadResult`通知上传和预览结果。
+如果想使用自己申请的 COS 账号存储地址，可以调如下接口设置：
 ```C++
 boardSDk->setCosConfig(appId, bucket, path, region);//设置COS参数
 ```
-对于使用了V4旧版的COS系统，上传需要先计算签名sig，再调用以下代码
+对于使用了 V4 旧版的 COS 系统，上传需要先计算签名 sig，再调用以下代码。
 ```C++
 boardSDk->uploadFile(filePath, sig);
 ```
-### 2.8 添加PPT（以PPT为例）
+### 2.8 添加 PPT（以 PPT 为例）
 
-用户首先需要将PPT上传到腾讯云对象存储COS（或者其他存储系统），获取到PPT每一页转码后的图片URL链接。
+用户首先需要将 PPT 上传到腾讯云对象存储 COS（或者其他存储系统），获取到PPT每一页转码后的图片 URL 链接。
 ```C++
 url = boardMgr->getPreviewUrl(objName, i);
 ```
 
 * PPT上传管理
 
-将上一步获取到的URL数组，和文件名当做参数传入，SDK内部会根据该文件生成对应的文件唯一标识**fid**返回，并生成与URL数量对应数量的白板。 
+将上一步获取到的 URL 数组，和文件名当做参数传入，SDK 内部会根据该文件生成对应的文件唯一标识 **fid** 返回，并生成与 URL 数量对应数量的白板。 
 ```C++
 boardMgr->addFile(_backsUrl, fileName);
 ```
 
-若要删除PPT，调用 deleteFile 接口，传入文件对应的fid即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板ID也应该对应删除
+若要删除 PPT，调用 deleteFile 接口，传入文件对应的 fid 即可。deleteFile 内部会将该文件对应的白板全部删除，同样的用户在外部维护的白板 ID 也应该对应删除。
 
-### 2.9 SDK回调
-白板SDK通过回调接口通知用户SDK内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置SDK回调：
+### 2.9 SDK 回调
+白板 SDK 通过回调接口通知用户 SDK 内部状态变化，当需要接收回调时，您需要创建一个类继承自`BoardCallback`类，并实现其中所有纯虚方法，使用如下代码设置 SDK 回调：
 
 ```C++
 class MyCallback : public BoardCallback{
@@ -220,17 +221,17 @@ MyCallback myCallback;
 boardSDk->setCallback(&myCallback);
 ```
 
-其中`onGetTime`接口用于供白板SDK获取统一的时间戳，白板SDK内部对所有操作的排序都依靠该接口保证先后顺序，您必须在该接口中返回尽可能准确且多端统一的时间戳，精度至少为秒。（时间戳多端不统一一般也不会造成太大问题，但极端情况下可能导致多端显示内容存在细微差异）
+其中`onGetTime`接口用于供白板 SDK 获取统一的时间戳，白板 SDK 内部对所有操作的排序都依靠该接口保证先后顺序，您必须在该接口中返回尽可能准确且多端统一的时间戳，精度至少为秒（时间戳多端不统一一般也不会造成太大问题，但极端情况下可能导致多端显示内容存在细微差异）。
 
 ### 2.10 撤销及重做
-白板SDK支持操作的撤销及重做，任何时候可以使用如下代码进行撤销或重做操作：
+白板 SDK 支持操作的撤销及重做，任何时候可以使用如下代码进行撤销或重做操作：
 
 ```C++
 boardSDk->undo();//撤销
 boardSDk->redo();//重做
 ```
 
-如果当前已经没有操作可撤销或者重做，则调用无效，不会产生其他负面效果。对于当前是否存在操作可撤销或重做，SDK将会在用户进行操作后通过回调`onStatusChanged`返回通知，其中`canUndo`参数指示当前是否存在可撤销操作，`canRedo`参数指示当前是否存在可重做操作。
+如果当前已经没有操作可撤销或者重做，则调用无效，不会产生其他负面效果。对于当前是否存在操作可撤销或重做，SDK 将会在用户进行操作后通过回调`onStatusChanged`返回通知，其中`canUndo`参数指示当前是否存在可撤销操作，`canRedo`参数指示当前是否存在可重做操作。
 
 ### 2.11 多白板状态同步
 
@@ -239,7 +240,7 @@ boardSDk->redo();//重做
 该过程主要分为两步，数据上报和数据拉取：
 
 白板数据上报：
-在每次对白板操作后，SDK会将操作的数据上报到白板后台，目前表白SDK已经内部实现了该功能，白板后台服务也是我们在维护，用户无需自行实现。
+在每次对白板操作后，SDK 会将操作的数据上报到白板后台，目前表白 SDK 已经内部实现了该功能，白板后台服务也是我们在维护，用户无需自行实现。
 
 白板数据拉取（同步）：
 数据拉取在白板中提供了一个接口，用户只需要在进房成功之后调用该接口拉取白板数据即可， 方法内部已经实现了数据的解析即填充到白板的功能。（包括异常退出重新进入房间时同步数据的场景）
@@ -247,7 +248,7 @@ boardSDk->redo();//重做
 boardSDk->getBoardData();
 ```
 
-## 3. SDK参考
-各接口具体的作用及参数说明，详见SDK头文件注释。
+## 3. SDK 参考
+各接口具体的作用及参数说明，详见 SDK 头文件注释。
 
 

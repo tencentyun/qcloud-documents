@@ -5,7 +5,7 @@
 请参考 [名词解析](https://cloud.tencent.com/document/product/647/17230)。
 
 #### TIC 特有名词
-* roomID：课堂ID，一个课堂的唯一标识，在调用TICSDK的创建房间和加入房间时，由外部传入。
+* roomID：课堂 ID，一个课堂的唯一标识，在调用 TICSDK 的创建房间和加入房间时，由外部传入。
 
 ### 接入概览
 
@@ -46,4 +46,3 @@ TICSDK有创建课堂的接口，但是课堂 ID (roomID) 由外面传入，TICS
 * [Web SDK](/document/product/680/17887)
 * [Android SDK](/document/product/680/17881)
 * [iOS SDK](/document/product/680/17891)
-

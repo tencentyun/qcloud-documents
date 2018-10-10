@@ -895,12 +895,18 @@ public boolean isRead()
 ```
 //发送中
 TIMMessageStatus.Sending
+
 //发送成功
 TIMMessageStatus.SendSucc
+
 //发送失败
 TIMMessageStatus.SendFail
+
 //删除
 TIMMessageStatus.HasDeleted
+
+//消息被撤回
+TIMMessageStatus.HasRevoked
 ```
 
 ### 是否自己发出的消息

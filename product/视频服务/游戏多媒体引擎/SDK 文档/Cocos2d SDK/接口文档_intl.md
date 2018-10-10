@@ -3,19 +3,17 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 ### Key considerations for using GME
 
 | Important API | Description |
 | ------------- |:-------------:|
-|Init    		|Initializes GME 	|
-|Poll    		|Triggers event callback	|
-|EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+|Init		    		|Initializes GME 	|
+|Poll    			|Triggers event callback	|
+|EnterRoom	 		|Enters a room  		|
+|EnableMic	 		|Enables the microphone 	|
+|EnableSpeaker			|Enables the speaker 	|
 
 
 **Notes:**
@@ -83,7 +81,7 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -186,17 +184,17 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).    
 When voice message is obtaining authentication, the parameter of room number must be set to 0.
 
 #### Function prototype
 ```
-QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, unsigned int dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
+QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, const char* dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | nAppId    			|int   		| The SdkAppId obtained from the Tencent Cloud console		|
-| dwRoomID    		|int   		| Room number. 32-bit is supported.	|
+| dwRoomID    		|char*    		| Room number supports Int32 type (which is passed after being converted to a string)	|
 | strOpenID  		|char*    		| User ID								|
 | strKey    			|char*	    	| The key obtained from the Tencent Cloud console		|
 |strAuthBuffer		|char*    	| Returned authbuff				|
@@ -213,17 +211,17 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strA
 
 ### Enter a room
 This API is used to enter a room with the generated authentication information, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team chatting, use the common API for entering a room. For more information, see the [GME team chatting documentation](https://cloud.tencent.com/document/product/607/17972).
+For entering a common voice chat room that does not involve team chatting, use the common API for entering a room. For more information, see the [GME team chatting documentation](/document/product/607/17972).
 
 #### Function prototype
 
 ```
-ITMGContext virtual void EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)//Common API for entering a room
+ITMGContext virtual void EnterRoom(const char*  roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
 ```
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomId			|int   		| Room number. 32-bit is supported.	|
+| roomId			|char*     		|Room number supports Int32 type (which is passed after being converted to a string)|
 | roomType 			|ITMG_ROOM_TYPE	|Audio type of the room		|
 | authBuffer    		|char*     	| Authentication key			|
 | buffLen   			|int   		| Length of the authentication key		|
@@ -247,16 +245,16 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 
 ### Team chatting room
-For more information on how to integrate team chatting, see [GME team chatting documentation](https://cloud.tencent.com/document/product/607/17972).
+For more information on how to integrate team chatting, see [GME team chatting documentation](/document/product/607/17972).
 
 #### Function prototype
 ```
-ITMGContext virtual void EnterTeamRoom(int roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen, int teamId, int gameAudioMode)
+ITMGContext virtual void EnterTeamRoom(const char* roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen, int teamId, int gameAudioMode)
 ```
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomId		|int   		| Room number. 32-bit is supported.			|
+| roomId		|char*     		| Room number. 127 character is supported.			|
 | roomType 		|ITMG_ROOM_TYPE	|Audio type of the room |
 | authBuffer    	|char*    	| Authentication key					|
 | buffLen   		|int   		| Length of the authentication key				|
@@ -465,6 +463,14 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 | ------------- |:-------------:|
 |PauseAudio    				       	   |Pauses audio engine |
 |ResumeAudio    				      	 |Resumes audio engine |
+|GetMicListCount    				       	|Obtains the number of microphones |
+|GetMicList    				      	|Enumerates microphones |
+|GetSpeakerListCount    				      	|Obtains the number of speakers |
+|GetSpeakerList    				      	|Enumerates speakers |
+|SelectMic    				      	|Searches microphones |
+|SelectSpeaker    				|Searches speakers |
+|EnableMic    						|Enables/disables the microphone |
+|GetMicState    						|Obtains the microphone status |
 |EnableAudioCaptureDevice    		|Enables/disables a capturing device |
 |IsAudioCaptureDeviceEnabled    	|Obtains the status of a capturing device |
 |EnableAudioSend    				|Enables/disables audio upstream |
@@ -472,6 +478,8 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 |GetMicLevel    						|Obtains real-time microphone volume |
 |SetMicVolume    					|Sets microphone volume |
 |GetMicVolume    					|Obtains microphone volume |
+|EnableSpeaker    					|Enables/disables the speaker |
+|GetSpeakerState    					|Obtains the speaker status |
 |EnableAudioPlayDevice    			|Enables/disables a playback device		|
 |IsAudioPlayDeviceEnabled    		|Obtains the status of a playback device |
 |EnableAudioRecv    					|Enables/disables audio downstream 	|
@@ -563,6 +571,32 @@ ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
 const char* pMicID ="1";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectMic(pMicID);
 ```
+### Enable/disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
+
+#### Function prototype  
+```
+ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
+#### Sample code  
+```
+ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
+```
+
+### Obtain the microphone status
+This API is used to obtain the microphone status. If "0" is returned, the microphone is off. If "1" is returned, the microphone is on. If "2" is returned, the microphone is being worked on. If "3" is returned, no microphone exists. If "4" is returned, the microphone is not initialized well.
+#### Function prototype  
+```
+ITMGAudioCtrl virtual int GetMicState()
+```
+#### Sample code  
+```
+ITMGContextGetInstance()->GetAudioCtrl()->GetMicState();
+```
+
 
 ### Enable/disable a capturing device
 This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
@@ -716,6 +750,34 @@ const char* pSpeakerID ="1";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectSpeaker(pSpeakerID);
 ```
 
+### Enable/disable the speaker
+This API is used to enable/disable the speaker.
+
+#### Function prototype  
+```
+ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
+#### Sample code  
+```
+ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
+```
+
+### Obtain the speaker status
+This API is used to obtain the speaker status. If "0" is returned, the speaker is off. If "1" is returned, the speaker is on. If "2" is returned, the speaker is being worked on. If "3" is returned, no speaker exists. If "4" is returned, the speaker is not initialized well.
+#### Function prototype  
+```
+ITMGAudioCtrl virtual int GetSpeakerState()
+```
+
+#### Sample code  
+```
+ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerState();
+```
+
+
 ### Enable/disable a playback device
 This API is used to enable/disable a playback device.
 
@@ -846,7 +908,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableLoopBack(true);
 |SetAccompanyFileCurrentPlayedTimeByMs 				|Sets the playback progress |
 
 ### Start playing back the accompaniment
-This API is used to start playing back the accompaniment. Four formats are supported: m4a, AAC, wav, and mp3. This API is used to reset the volume.
+This API is used to start playing back the accompaniment. Three formats are supported: m4a, wav, and mp3. This API is used to reset the volume.
 
 #### Function prototype  
 ```
@@ -1035,7 +1097,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->SetAccompanyFileCurrentPlayedTim
 
 
 ### Play the sound effect
-This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Four formats are supported: m4a, AAC, wav, and mp3.
+This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Three formats are supported: m4a, wav, and mp3.
 #### Function prototype  
 ```
 ITMGAudioEffectCtrl virtual int PlayEffect(int soundId,  const char* filePath, bool loop, double pitch, double pan, double gain)

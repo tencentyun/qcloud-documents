@@ -17,10 +17,9 @@ This document only provides the most important APIs to help you get started with
 |Init    		|Initializes GME 	|
 |Poll    		|Triggers event callback	|
 |EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+|EnableMic	 	|Enables the microphone 	|
+|EnableSpeaker		|Enables the speaker 	|
+
 
 **Notes**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -92,12 +91,12 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext public abstract void  EnterRoom(int roomId, int roomType, byte[] authBuffer)
+ITMGContext public abstract void  EnterRoom(String roomId, int roomType, byte[] authBuffer)
 ```
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomId 	|int		|Room number. 32-bit is supported. |
+| roomId    		|String   		|Room number supports Int32 type (which is passed after being converted to a string)|
 | roomType 	|int		|Audio type of the room		|
 | authBuffer	|byte[]	|Authentication key				|
 
@@ -136,79 +135,36 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 	}
 ```
 
-### 6. Enable/disable a capturing device
-This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
-- This API can only be called after a user enters the room. The device is disabled after the user exits the room.
-- Operations such as permission application and volume type adjustment come with enabling the capturing device on mobile.
+### 6. Enable/Disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
 #### Function prototype  
 ```
-ITMGContext public int EnableAudioCaptureDevice(boolean isEnabled)
+ITMGContext public void EnableMic(boolean isEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the capturing device, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code
-
-```
-Enable a capturing device
-ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioCaptureDevice(true);
-```
-
-
-### 7. Enable/disable audio upstream
-This API is used to enable/disable audio upstream. If the capturing device is already enabled, captured audio data will be sent. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioCaptureDevice.
-
-#### Function prototype
-
-```
-ITMGContext public int EnableAudioSend(boolean isEnabled)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the audio upstream, set this parameter to true, otherwise, set it to false. |
-
+| isEnabled    |boolean     |To disable the microphone, set this parameter to false, otherwise, set it to true. |
 #### Sample code  
-
 ```
-ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioSend(true);
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
 ```
 
 
-### 8. Enable/disable a playback device
-This API is used to enable/disable a playback device.
+### 7. Enable/Disable the speaker
+This API is used to enable/disable the speaker.
 
 #### Function prototype  
 ```
-ITMGContext public int EnableAudioPlayDevice(boolean isEnabled)
+ITMGContext public void EnableSpeaker(boolean isEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| isEnabled    |boolean        | To disable the playback device, set this parameter to false, otherwise, set it to true. |
+| isEnabled    |boolean       |To disable the speaker, set this parameter to false, otherwise, set it to true.	|
 #### Sample code  
 ```
-ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioPlayDevice(true);
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
 ```
-
-### 9. Enable/disable audio downstream
-This API is used to enable/disable audio downstream. If the playback device is enabled, audio data of other users in the room will be played back. If it is not enabled, it remains silent. To enable/disable a playback device, see API EnableAudioPlayDevice.
-
-#### Function prototype  
-
-```
-ITMGContext public int EnableAudioRecv(boolean isEnabled)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |To enable the audio downstream, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code  
-
-```
-ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioRecv(true);
-```
-
 
 
 ## Authentication
@@ -218,13 +174,13 @@ A value of type Byte[] is returned by this API. When voice message is obtaining 
 
 #### Function prototype
 ```
-AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, int roomId, String identifier, String key)
+AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, String identifier, String key)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|The SdkAppId obtained from the Tencent Cloud console |
-| roomId    		|int   		|Room number. 32-bit is supported.									|
-| openID    	|String 	|User ID											|
+| roomId    		|String   		|Room number supports Int32 type (which is passed after being converted to a string)  |
+| openID    	|String 	|User ID					|
 | key    		|string 	|The key obtained from the Tencent Cloud console			|
 
 

@@ -4,23 +4,21 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/18739).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](/document/product/607/18739).
 
 
 | Important API | Description |
-| ------------- |:-------------:|
-|InitEngine    				       	|Initializes GME 	|
-|Poll    		|Triggers event callback	|
-|EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+| ------------- |-------------|
+|InitEngine    		|Initializes GME 	|
+|Poll    				|Triggers event callback	|
+|EnterRoom	 		|Enters a room  			|
+|EnableMic	 		|Enables the microphone 		|
+|EnableSpeaker		|Enables the speaker 		|
 
 **Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -49,7 +47,7 @@ _context.TMGDelegate =self;
 
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
@@ -87,11 +85,11 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext   -(void)EnterRoom:(int) roomID roomType:(int*)roomType authBuffer:(NSData*)authBuffer
+ITMGContext   -(void)EnterRoom:(NSString*) roomId roomType:(int*)roomType authBuffer:(NSData*)authBuffer
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomID 	|int		|Room number. 32-bit is supported.									|
+| roomID 	|NSString		|Room number supports Int32 type (which is passed after being converted to a string) |
 | roomType 	|int		|Audio type of the room		|
 | authBuffer	|NSData	|Authentication key				|
 
@@ -132,95 +130,53 @@ Reference code for the callback processing:
 }
 ```
 
-### 6. Enable/disable a capturing device
-This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
-- This API can only be called after a user enters the room. The device is disabled after the user exits the room.
-- Operations such as permission application and volume type adjustment come with enabling the capturing device on mobile.
+### 6. Enable/Disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
 #### Function prototype  
 ```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioCaptureDevice:(BOOL)enabled
+ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enabled    |BOOL     |To enable the capturing device, set this parameter to YES, otherwise, set it to NO. |
-
-#### Sample code  
-
+| isEnabled    | boolean | To disable the microphone, set this parameter to NO; otherwise, set it to YES. |
+#### Sample code   
 ```
-Enable a capturing device
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioCaptureDevice:enabled];
+[[[ITMGContext GetInstance] GetAudioCtrl] EnableMic:YES];
 ```
 
 
-### 7. Enable/disable audio upstream
-This API is used to enable/disable audio upstream. If the capturing device is already enabled, captured audio data will be sent. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioCaptureDevice.
+### 7. Enable/Disable the speaker
+This API is used to enable/disable the speaker.
 
-#### Function prototype
-
+#### Function prototype 
 ```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioSend:(BOOL)enable
+ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |BOOL     |To enable the audio upstream, set this parameter to YES, otherwise, set it to NO. |
-
-#### Sample code  
-
-```
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioSend:enabled];
-```
-
-### 8. Enable/disable a playback device
-This API is used to enable/disable a playback device.
-#### Function prototype  
-
-```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioPlayDevice:(BOOL)enabled
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| enabled    |BOOL        	| To disable the playback device, set this parameter to NO, otherwise, set it to YES.	|
+| isEnabled    | boolean | To disable the speaker, set this parameter to NO; otherwise, set it to YES. |
 #### Sample code
-
 ```
-Enable a playback device
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioPlayDevice:enabled];
+[[[ITMGContext GetInstance] GetAudioCtrl] EnableSpeaker:YES];
 ```
 
-### 9. Enable/disable audio downstream
-This API is used to enable/disable audio downstream. If the playback device is enabled, audio data of other users in the room will be played back. If it is not enabled, it remains silent. To enable/disable a playback device, see API EnableAudioPlayDevice.
-
-#### Function prototype  
-
-```
-ITMGContext GetAudioCtrl -(QAVResult)EnableAudioRecv:(BOOL)enabled
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| enabled    |BOOL     |To enable the audio downstream, set this parameter to YES, otherwise, set it to NO. |
-
-#### Sample code  
-
-```
-[[[ITMGContext GetInstance]GetAudioCtrl ]EnableAudioRecv:enabled];
-```
 
 ## Authentication
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218). When voice message is obtaining authentication, the parameter of room number must be set to 0.    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218). When voice message is obtaining authentication, the parameter of room number must be set to 0.
 A value of type NSData is returned by this API.
 
 #### Function prototype
 ```
 @interface QAVAuthBuffer : NSObject
-+ (NSData*) GenAuthBuffer:(unsigned int)appId roomId:(unsigned int)roomId identifier:(NSString*)identifier key:(NSString*)key;
++ (NSData*) GenAuthBuffer:(unsigned int)appId roomId:(NSString*)roomId identifier:(NSString*)identifier key:(NSString*)key;
 + @end
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | appId    		|int   		| The SdkAppId obtained from the Tencent Cloud console		|
-| roomId    		|int   		| Room number. 32-bit is supported.	|
+| roomId    		|NSString   		| Room number supports Int32 type (which is passed after being converted to a string)|
 | identifier  		|NSString | User ID |
 | key    			|NSString | The key obtained from the Tencent Cloud console |
 

@@ -6,7 +6,7 @@ You can obtain the SDK by the following way:
 
 ### Download SDK
 
-Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521).
+Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521).
 
 Pinpoint the SDK resource for Android on the page.
 
@@ -18,7 +18,7 @@ The decompressed SDK resource is composed as follows:
 
 ## System Requirement
 
-SDK is supported on Android 4.0.3 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
+SDK is supported on Android 4.2 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
 
 ## Preparations
 

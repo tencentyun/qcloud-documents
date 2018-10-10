@@ -18,7 +18,7 @@ Map the specified key in the configuration file to the container (key is the fil
 
  ![][setVolumeMountPath]
 
-5. After the setting is completed, log in to verify the container. Finally, the `configuration item-version number` is used as the name of configMap. Import the content of the configuration item into the cluster. "key" is the file name, and "Vaule" is the file content to be mounted to the specified path of the container.
+5. After the setting is completed, log in to verify the container. Finally, the `configuration item-version number` is used as the name of configMap. Import the content of the configuration item into the cluster. "key" is the file name, and "Value" is the file content to be mounted to the specified path of the container.
   - Log in to the container to verify the status of mounting:
 
     ![][verification1]
