@@ -21,8 +21,8 @@ https://bm.api.qcloud.com/v2/index.php?
 
 |参数名称     |            必选     |            类型          |     描述  |
 |-----|------|----|-----|
-|deviceClassCode   | 否    |            String    |        设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号(DescribeDeviceClass)](/doc/api/456/6636)  |
-|instanceId   |           否      |          String      |      需要查询自定义机型 RAID 信息时，传入自定义机型实例 ID。instanceId 存在时 deviceClassCode 失效  |
+|deviceClassCode   | 否    |            String    |       设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号(DescribeDeviceClass)](https://cloud.tencent.com/document/api/386/6636) 获得设备类型。标准机型需要传入此参数 。|  
+|instanceId   |           否      |          String      |      需要查询自定义机型 RAID 信息时，传入自定义机型实例 ID。instanceId 存在时 deviceClassCode 失效。  |
 
 ## 响应
 
