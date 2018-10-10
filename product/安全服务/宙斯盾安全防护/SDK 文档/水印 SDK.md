@@ -28,7 +28,7 @@ SDK API 说明：
 			
 		byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
 		
-### 接入步骤 (Android Studio)
+### 接入步骤（Android Studio）
 
 1. 将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
 ![](https://i.imgur.com/GnO0TF2.png)
@@ -120,7 +120,7 @@ SDK 生成水印的函数位于 h 文件中：
     uint32_t CreateSDKBuffFromStr(
               char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
 
-### 接入步骤 (Xcode)
+### 接入步骤（Xcode）
 
 1. 将 sdk/ios 文件夹下的内容拷贝到工程目录：
 ![](https://i.imgur.com/1RHDRpP.png)
