@@ -1,43 +1,99 @@
-Session persistence allows the requests from the same IP to be forwarded to the same backend CVM. By default, load balancer routes each request to a different backend CVM instance. However, you can use session persistence feature to route requests from a specific user to the same backend CVM instance, so that some applications (such as shopping cart) that need to maintain the session state can work properly.
+Tencent Cloud's cloud load balancer instances can periodically send Ping to backend CVMs, make attempts to connect with them or send requests to them to test their running status. This is called "health check".
 
-## Layer-4 Session Persistence
-Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of `30-3600` seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.
+If it is concluded that a backend CVM instance is unhealthy, the cloud load balancer instance will not forward requests to the instance. But health check will be performed on all backend CVMs, whether healthy or unhealthy, and when the unhealthy instance returns to normal state, the cloud load balancer instance will forward new requests to it.
 
-## Layer-7 Session Persistence
-Layer-7 forwarding scenario supports session persistence based on cookie insertion (the cookie is stuffed into the client by load balancer). Session duration range is 30-3600s. For more information on session persistence based on cookie insertion, please see [Session Persistence Principles](https://cloud.tencent.com/document/product/214/2736).
+Auto scaling group regularly checks the running status of instances within each group in a similar way. For more information, please see [Auto Scaling product documentation](https://cloud.tencent.com/doc/product/377).
 
-## Connection Timeout
-HTTP connection timeout (keepalive_timeout) is not adjustable and the default is `75` seconds. If there is no data transfer in the session for a period exceeding the time threshold, the session will be disconnected.
-TCP connection timeout is not adjustable and the default is `900` seconds. If there is no data transfer in the session for a period exceeding the time threshold, the session will be disconnected.
+## Definitions of Health Check Configuration Fields
 
-## Configuring Session Persistence
-1. Log in to the [CLB Console](https://console.cloud.tencent.com/loadbalance), then click the ID of the load balancer instance that needs session persistence configurations to go to its details page.
+**Response Timeout:** The maximum time-out for the response to health check. If a backend CVM does not respond properly within the time limit, it is considered that the health check fails.
 
-2. Click the **Modify** button next to the load balancer listener that needs session persistence configurations.
+**Health Check Interval:** Time interval between health checks.
 
-3. Set whether to enable the session persistence feature. Click the button to enable it, then enter the persistence duration, and click **OK**.
+**Unhealthy Threshold:** If a failure result is returned for the health check for n consecutive times (n is the input value), the backend CVM is identified as unhealthy and marked "Unhealthy" on the console.
 
-## Relationship Between Persistent Connection and Session Persistence
+**Healthy Threshold:** If a success result is returned for the health check for n consecutive times (n is the input value), the backend CVM is identified as healthy and marked "Healthy" on the console.
 
-### Scenario 1: HTTP Layer-7 Business
+**Normal Status Code:** This is only applicable to HTTP check method. Specify the HTTP status code used to verify that the health check is normal. Option values include `http_1xx`, `http_2xx`, `http_3xx`, `http_4xx` and `http_5xx`. Multiple choices are allowed. By default or if no choice is made, it is set to `http_2xx`.
 
-**Assume that the client access protocol is HTTP/1.1, and "Connection: keep-alive" is set in the header information. If the backend CVM is accessed through the CLB with session persistence disabled, is it possible to access the same CVM next time?**
+## Health Check Configuration for Layer-4 Forwarding
 
-**A:** No. 
+Under the health check mechanism for Layer-4 forwarding, cloud load balancer initiates an access request to the CVM port specified in the configuration. If the access to the port is normal, the backend CVM is considered normal, otherwise it is considered abnormal. For TCP services, SYN packet is used for the check. For UDP services, Ping command is used for the check.
 
-First of all, HTTP keep-alive means that the TCP connection remains connected after requests are sent. Therefore, the browser can continue to send requests over the same connection. Keeping connected can save the time and bandwidth taken to set up a new connection for each request. The default timeout for a CLB cluster is 75s (if there is no new request within 75s, the TCP connection is disconnected by default).
+- Response timeout: 2-60 seconds
+- Check interval: 5-300 seconds
+- Unhealthy threshold: 2-10 times (When the response timeout has happened to a healthy backend CVM for the specified number of times, the backend CVM is considered unhealthy)
+- Healthy threshold: 2-10 times (When the response timeout has happened to an unhealthy backend CVM for the specified number of times, the backend CVM is considered healthy)
 
-HTTP keep-alive is established by the client with the CLB. If the cookie session persistence is disabled, the CLB will randomly select a backend CVM according to the polling policy. The previous persistent connection is in vain.
+## Health Check Configuration for Layer-7 Forwarding
 
-Therefore, it is recommended to enable session persistence.
+Under the health check mechanism for Layer-7 forwarding, the cloud load balancer sends an HTTP request to the backend CVM to check the backend services. The cloud load balancer determines the running status of the service based on whether the returned value of HTTP is `http_2xx` or `http_4xx`. In the future, users will be allowed to customize the descriptions of the statuses represented by response codes. For example, in a certain scenario, HTTP returned values include `http_1xx`, `http_2xx`, `http_3xx`, `http_4xx` and `http_5xx`. Users can, based on business needs, define `http_1xx` and `http_2xx` as normal status and the values from `http_3xx` to `http_5xx` as abnormal status.
 
-If the cookie session persistence is set to 1,000s and the client initiates another request, TCP connection needs to be re-established, because it has been more than 75s since the last request is sent. The application layer finds the same CVM by cookie, and the CVM accessed by the client is still the one used for the last access.
+- Response timeout cannot be configured. Default is 5 seconds.
+- Check interval is 5-300 seconds, default is 6 seconds.
+- Unhealthy threshold: 2-10 times, default is 3 times. When the response timeout has happened to a healthy backend CVM for the specified number of times, the backend CVM is considered unhealthy.
+- Healthy threshold: 2-10 times, default is 3 times. When the response timeout has happened to an unhealthy backend CVM for the specified number of times, the backend CVM is considered healthy.
+- HTTP Request Method: by default, the HEAD method is used. The server only returns the HTTP header information. The corresponding backend service needs to support HEAD. Selecting HEAD method can reduce back-end overhead and improve the request efficiency. If the GET method is used, the backend service needs to support GET.
 
-### Scenario 2: TCP Layer-4 Business
+## How to Troubleshoot in Health Check
+### Layer-4 Troubleshooting
 
-**Assume that the client initiates the access using TCP as the transport layer protocol, and persistent connection is enabled, but source IP-based session persistence is disabled, can the same client access the same CVM next time?**
+Under TCP protocol, cloud load balancer uses SYN packet for the check while under UDP protocol, it uses Ping command for the check.
 
-**A:** Uncertain.
+When a backend CVM port is marked "unhealthy" in the page, you should conduct troubleshooting using the following procedures:
 
-First of all, according to the layer-4 implementation mechanism, if the persistent connection is enabled for TCP and remains connected, the same CVM can be accessed, because the two accesses use the same connection. However, if the first connection is released due to some reason (network restart or connection timeout), the second access may be dispatched to other backend CVMs. Besides, the global timeout for persistent connection is 900s by default, which means that the persistent connection will be released if there is no new request.
+- Check whether the service of the backend CVM is affected by a configuration or the security group. For information on how to ensure the normal operation of service by controlling the access to the backend CVM, please see [Access Control for the Backend CVM](/doc/product/214/6157).
+- Use the `netstat` command to check if there is a process listening on the backend CVM's port. If no such process is found, restart the service.
 
+### Layer-7 Troubleshooting
+For Layer-7 services (HTTP/HTTPS protocol), when an exception is detected in the health check by a listener process, the troubleshooting can be performed in the following ways:
+
+1) The Layer-7 health check service of cloud load balancer communicates with the backend CVM via private network, so you need to log in to the server to check whether the application server port is being listened on normally at the private network address; if not, you should move the listening of application server port to the private network address to ensure the normal communication between cloud load balancer system and backend CVM.
+
+Assume that the both the frontend and the backend ports of the cloud load balancer are 80, the CVM's private IP is: 1.1.1.10
+
+The server on Windows system uses the following command:
+
+```
+netstat -ano | findstr :80
+```
+
+The server on Linux system uses the following command:
+
+```
+netstat -anp | grep :80
+```
+
+If you can see the listening status at 1.1.1.10:80 or 0.0.0.0:80, the configuration is considered normal.
+
+2) Make sure that the backend port configured in the cloud load balancer listener has been enabled on the backend CVM.
+
+For Layer-4 cloud load balancer, it is considered normal as long as the backend port telnet gives a response. You can use `telnet 1.1.1.10 80` to test. For Layer-7 cloud load balancer, such HTTP status codes as 200 indicate a normal state. The test is conducted as follows:
+
+- On Windows system, directly input private IP in the CVM browser to check whether it is normal. In this example, `http://1.1.1.10` is input;
+- On Linux system, use the `curl-I` command to check if the status is` HTTP/1.1 200 OK`. In this example, `curl -I 1.1.1.10` command is used
+
+3) Check whether there is a firewall or other security software inside the backend CVM. This type of software can easily block the local IP address of the cloud load balancer system, causing the failure of cloud load balancer system to communicate with the backend CVM.
+
+Check whether the firewall of private network on server allows port 80. You can temporarily disable the firewall for the test.
+
+- For Windows system, run the `firewall.cpl' entry to disable the firewall
+- For Linux system, input `/etc/init.d/iptables stop` to disable the firewall
+
+4) Check if the parameter settings of cloud load balancer health check are correct. It is recommended to complete the settings by referring to the health check default parameter values provided in this document.
+
+5) The recommended test file specified for health check is a simple page in HTML form and is only used for check returned results. Dynamic scripting languages such as php are not recommended.
+
+6) Check whether there is a high load on the backend CVM that leads to slow response of CVM to provide service.
+
+7) Check the HTTP request method. If you use the HEAD method, the backend service must support HEAD. If it is a GET method, the backend service must support GET.
+
+### Notes about too frequent health check
+
+Health check packets are sent too frequently. Each health check packet is sent every 5 seconds as configured in the console. But the backend RS finds that one or more health check requests are received in one second. Why is that?
+
+Too frequent health check is caused by the implementation mechanism of CLB backend health check. Assume that 1 million requests from client are distributed on four LB backend physical machines before being sent to the CVM, and each LB backend physical machine conducts health check separately. If the LB instance is set to send a health check request every 5 seconds, each physical machine on the LB backend sends a health check request every 5 seconds. That's why the backend CVM receives multiple health check requests. For example, if the cluster to which an LB instance belongs has eight physical machines, and each machine sends a request every 5 seconds, the backend CVM may receive 8 health check requests in 5 seconds.
+
+The advantages of this implementation solution are high efficiency, accurate check, and avoidance of mis-removal. For example, if one of eight physical machines in the LB instance cluster fails, the other seven machines can still forward traffic normally.
+
+Therefore, if your backend CVM is checked too frequently, you can set the check interval to be much longer, such as, 15 seconds.
