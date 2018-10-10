@@ -12,7 +12,7 @@ DDoS 高防包可针对云内服务器提供保底防护 200Gbps，弹性防护 
 >**注意：**
 >如需配置高带宽防护，请联系客服咨询。
 - 支持单 IP 模式、多 IP 模式
-DDoS 高防包支持一次性选购单个 IP 或多个 IP，灵活选购，适合各种业务场景使用。多 IP 成本更低，比如 IP 数量 5 个 保底 20Gbps 23250 / 月，相比单 IP 保底 20Gbps，合计 16600 * 5=83000 / 月实惠更多。详情请参见 [DDoS 高防包单 IP 定价](https://cloud.tencent.com/document/product/685/15266)和 [DDoS 高防包多 IP 定价](https://cloud.tencent.com/document/product/685/15267)。
+DDoS 高防包支持一次性选购单个 IP 或多个 IP，用户可以灵活选购，适合各种业务场景使用。多 IP 成本更低，比如 IP 数量 5 个 保底 20Gbps 23250 / 月，相比单 IP 保底 20Gbps，合计 16600 * 5 = 83000 / 月实惠更多。详情请参见 [DDoS 高防包单 IP 定价](https://cloud.tencent.com/document/product/685/15266)和 [DDoS 高防包多 IP 定价](https://cloud.tencent.com/document/product/685/15267)。
 - 灵活计费
 按月预付费的保底 + 按天后付费的弹性 / 按用量后付款的弹性流量包，用户可根据自身业务需求，设置保底防护，当超过保底防护时，DDoS 高防包继续防护，超过部分按用量后付款，为用户节约成本。详情请参见 [计费说明](https://cloud.tencent.com/document/product/685/15263)。
 
