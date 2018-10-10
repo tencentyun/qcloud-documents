@@ -21,7 +21,7 @@ The following configurations are recommended: ["Model Recommendation"](https://c
 - Universal: Suitable for scenarios where cloud computing is frequently used. For example, portals, SaaS software, small Apps.
 - Application: Suitable for applications demanding high concurrency and scenarios with high requirement for CVM network and computing. For example, large portals, e-commerce websites, game Apps.
 
-If recommended configuration does not meet your needs, you can compare the configurations in [More Models](https://buy.cloud.tencent.com/cvm?tabIndex=1) based on your actual needs. You can also [Upgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) or [Downgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) at any time after purchasing a CVM based on your business needs.
+If recommended configuration does not meet your needs, you can compare the configurations in [More Models](https://buy.cloud.tencent.com/cvm?tab=custom&regionId=4&step=1 ) based on your actual needs. You can also [Upgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) or [Downgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) at any time after purchasing a CVM based on your business needs.
 
 ### Choosing Billing Method
 Tencent Cloud provides two billing methods: Prepaid and Postpaid. For more information, please see [Billing Methods](/doc/product/213/2180).
