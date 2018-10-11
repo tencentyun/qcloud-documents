@@ -289,7 +289,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 这里介绍一些视频播放器 SDK 的进阶使用方法。
 
 ### 使用广告SDK
-TcPlayer 提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
+TCPlayerLite 提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
 
 ```
 <!-- Google IMA SDK  -->
@@ -315,14 +315,14 @@ var player = new TcPlayer('id_test_video', {
 >TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
 
 ### ES Module
-TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
+TCPlayerLite 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.2.js
 ```
 ### 开启优先 H5 播放模式
-TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
+TCPlayerLite 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
 
-虽然目前浏览器厂商已经开始逐步放弃对 Flash 插件的支持，但是在国内仍有大量的浏览器不支持 MSE，在播放 FLV HLS（m3u8）时无法切换到 H5 `<video>`的播放模式，而播放 RTMP 必须使用 Flash 模式才可以播放，因此 TcPlayer 仍是默认优先启用 Flash 播放模式，如果在检测到 Flash 插件不可用的情况下，将采用 H5 `<video>`进行播放。
+虽然目前浏览器厂商已经开始逐步放弃对 Flash 插件的支持，但是在国内仍有大量的浏览器不支持 MSE，在播放 FLV HLS（m3u8）时无法切换到 H5 `<video>`的播放模式，而播放 RTMP 必须使用 Flash 模式才可以播放，因此 TCPlayerLite 仍是默认优先启用 Flash 播放模式，如果在检测到 Flash 插件不可用的情况下，将采用 H5 `<video>`进行播放。
 
 默认 Flash 模式的原因是 Flash 支持的视频格式最广，而 H5 `<video>`默认只支持 MP4（h.264）（其他非腾讯云提供的视频格式这里就不列出），在特定条件下才能支持HLS（m3u8）、FLV。
 
