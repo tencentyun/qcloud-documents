@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口 (GetGroupOffsets) 用于在用户账户下获取 CKafka 消费分组详细信息。
+本接口 (SetGroupOffsets) 用于在用户账户下设置 CKafka 实例某个消费分组offset。
 
 接口请求域名：`ckafka.api.qcloud.com`
 
