@@ -127,7 +127,6 @@ webrtc 推流配置参数：
 |audio | Boolean | 否，默认 true | 是否启用音频采集|
 |video | Boolean | 否，默认 true | 是否启用视频采集|
 |role | String | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在 [控制台>画面设定](https://console.cloud.tencent.com/rav) 中配置|
-|privateMapKey | String | 如果useCloud为true 则必传| 进房权限|
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境|
 |pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 MP3 文件 <br/>2 => 本次是纯音频推流,录制文件为 MP3 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户|
