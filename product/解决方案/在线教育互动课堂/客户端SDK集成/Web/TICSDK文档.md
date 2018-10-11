@@ -8,7 +8,7 @@
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.2/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.3/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->

@@ -11,7 +11,7 @@
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.0/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.3/board_sdk.mini.js"></script>
 ```
 
 **建议直接使用腾讯云 CDN 加速的 SDK**。
