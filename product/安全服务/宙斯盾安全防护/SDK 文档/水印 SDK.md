@@ -9,8 +9,6 @@
 2. 调用 SDK 接口函数，生成水印信息。
 3. 发送报文时，将 20 字节水印信息放在消息体前面。
 
-
-
 SDK 文件包含 so 文件和 jar 文件，目录结构如下：
 ![](https://i.imgur.com/mPPkCxA.png)
 
@@ -26,9 +24,9 @@ SDK API 说明：
 		
 ### 接入步骤（Android Studio）
 
-1.将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
+1. 将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
 ![](https://i.imgur.com/GnO0TF2.png)
-2.修改项目的 build.gradle 文件，设置 jni 文件目录，添加 jar 依赖：
+2. 修改项目的 build.gradle 文件，设置 jni 文件目录，添加 jar 依赖：
 	
 	android {
 		sourceSets {
@@ -40,29 +38,48 @@ SDK API 说明：
 		dependencies {
 						implementation files('libs/gamesec.jar') // 添加依赖
 				     }
-3.Eclipse 接入方法类似，不需要配置 build.gradle 文件。
+3. Eclipse 接入方法类似，不需要配置 build.gradle 文件。
 
 ### 接口调用
 
-1.导入程序包。
+1. 导入程序包。
 
-			import com.gamesec.*;
-2.实例化 Mark 对象。
+		import com.gamesec.*;
+2. 实例化 Mark 对象。
 
-			Mark mark = new Mark();
-3.调用 CreateSDKBuffFromStr 生成水印。
+		Mark mark = new Mark();
+3. 调用 CreateSDKBuffFromStr 生成水印。
 
-			byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
-**参数说明：**
-
-|参数|类型|含义|
-|-|-|-|
-|pSDKinfo|String|水印防护密钥|
-|buffer|String|占位参数，传入空字符串即可|
-|uDeslp|String|服务器 IP，如 “1.2.3.4”|
-|uDesPort|int|服务器端口|
-	
-**返回值：**
+		byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
+<b>参数说明：</b>
+<table>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+<tr>
+<td>pSDKinfo</td>
+<td>String</td>
+<td>水印防护密钥</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>String</td>
+<td>占位参数，传入空字符串即可</td>
+</tr>
+<tr>
+<td>uDeslp</td>
+<td>String</td>
+<td>服务器 IP，如 “1.2.3.4”</td>
+</tr>
+<tr>
+<td>uDesPort</td>
+<td>int</td>
+<td>服务器端口</td>
+</tr>
+</table>
+<b>返回值：</b>
 <table>
 <tr>
 <th>类型</th>
@@ -73,15 +90,14 @@ SDK API 说明：
 <td>计算的水印信息，取 20 字节</td>
 </tr>
 </table>
+<b>调用示例：</b>
 
-**调用示例：**
-
-	String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
-	String uDesIp = "115.159.147.198";
-	int uDesPort = 8899 ;
-	byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
+		String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
+		String uDesIp = "115.159.147.198";
+		int uDesPort = 8899 ;
+		byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
 	
-4.添加水印信息到消息体。代码示例如下：
+4. 添加水印信息到消息体。代码示例如下：
 
 	Socket s = new Socket(uDesIp, uDesPort);
 	OutputStream out = s.getOutputStream();
