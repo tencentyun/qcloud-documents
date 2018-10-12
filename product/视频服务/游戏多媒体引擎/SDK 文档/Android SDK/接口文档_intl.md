@@ -3,7 +3,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 ### Key considerations for using GME
 
@@ -12,10 +12,8 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 |Init    		|Initializes GME 	|
 |Poll    		|Triggers event callback	|
 |EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+|EnableMic	 	|Enables the microphone 	|
+|EnableSpeaker		|Enables the speaker 	|
 
 
 **Notes**
@@ -100,7 +98,7 @@ TMGContext.GetInstance(this).SetTMGDelegate(itmgDelegate);
 
 
 ### Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
@@ -176,26 +174,26 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).    
 A value of type Byte[] is returned by this API. When voice message is obtaining authentication, the parameter of room number must be set to 0.
 
 A value of type Byte[] is returned by this API.
 #### Function prototype
 ```
-AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, int roomId, String identifier, String key)
+AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, String identifier, String key)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|The SdkAppId obtained from the Tencent Cloud console |
-| roomId    		|int   		|Room number. 32-bit is supported. |
+| roomId    		|String   		|Room number supports Int32 type (which is passed after being converted to a string)  |
 | openID    	|String 	|User ID					|
 | key    		|string 	|The key obtained from the Tencent Cloud console			|
 
 
 #### Sample code  
 ```
-import com.tencent.av.sig.AuthBuffer;// Header files
-byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkAppId), Integer.parseInt(strRoomID),identifier, key);
+import com.tencent.av.sig.AuthBuffer;
+byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkAppId), strRoomID,identifier, key);
 ```
 
 
@@ -206,11 +204,11 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext public abstract void  EnterRoom(int roomId, int roomType, byte[] authBuffer)
+ITMGContext public abstract void  EnterRoom(string roomId, int roomType, byte[] authBuffer)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomId 	|int		|Room number. 32-bit is supported. |
+| roomId 	|String		|Room number supports Int32 type (which is passed after being converted to a string)|
 | roomType 	|int		|Audio type of the room		|
 | authBuffer	|byte[]	|Authentication key				|
 
@@ -224,7 +222,7 @@ ITMGContext public abstract void  EnterRoom(int roomId, int roomType, byte[] aut
 - The sound effect in a game depends directly on the sampling rate set on the console. Please confirm whether the sampling rate you set on the [console](https://console.cloud.tencent.com/gamegme) is suitable for the project's application scenario.
 #### Sample code  
 ```
-ITMGContext.GetInstance(this).EnterRoom(Integer.parseInt(relationId),roomType, authBuffer);    
+ITMGContext.GetInstance(this).EnterRoom(roomId,roomType, authBuffer);    
 ```
 
 ### Callback for entering a room
@@ -403,6 +401,8 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 | ------------- |:-------------:|
 |PauseAudio    				       	   |Pauses audio engine |
 |ResumeAudio    				      	 |Resumes audio engine |
+|EnableMic    						|Enables/disables the microphone |
+|GetMicState    						|Obtains the microphone status |
 |EnableAudioCaptureDevice    		|Enables/disables a capturing device |
 |IsAudioCaptureDeviceEnabled    	|Obtains the status of a capturing device |
 |EnableAudioSend    				|Enables/disables audio upstream |
@@ -410,6 +410,8 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 |GetMicLevel    						|Obtains real-time microphone volume |
 |SetMicVolume    					|Sets microphone volume |
 |GetMicVolume    					|Obtains microphone volume |
+|EnableSpeaker    					|Enables/disables the speaker |
+|GetSpeakerState    					|Obtains the speaker status |
 |EnableAudioPlayDevice    			|Enables/disables a playback device		|
 |IsAudioPlayDeviceEnabled    		|Obtains the status of a playback device |
 |EnableAudioRecv    					|Enables/disables audio downstream 	|
@@ -443,7 +445,31 @@ ITMGContext ITMGAudioCtrl public int ResumeAudio()
 ITMGContext.GetInstance(this).GetAudioCtrl().ResumeAudio();
 ```
 
+### Enable/disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
+#### Function prototype  
+```
+ITMGContext public void EnableMic(boolean isEnabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| isEnabled    |boolean     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
+#### Sample code  
+```
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
+```
+
+### Obtain the microphone status
+This API is used to obtain the microphone status. If "0" is returned, the microphone is off. If "1" is returned, the microphone is on. If "2" is returned, the microphone is being worked on. If "3" is returned, no microphone exists. If "4" is returned, the microphone is not initialized well.
+#### Function prototype  
+```
+ITMGContext TMGAudioCtrl public int GetMicState() 
+```
+#### Sample code  
+```
+int micState = ITMGContext.GetInstance(this).GetAudioCtrl().GetMicState();
+```
 
 ### Enable/disable a capturing device
 This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
@@ -540,6 +566,32 @@ ITMGContext TMGAudioCtrl public int GetMicVolume()
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().GetMicVolume();
+```
+
+### Enable/disable the speaker
+This API is used to enable/disable the speaker.
+#### Function prototype  
+```
+ITMGContext public void EnableSpeaker(boolean isEnabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| isEnabled    |boolean       |To disable the speaker, set this parameter to false, otherwise, set it to true.	|
+#### Sample code  
+```
+ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
+```
+
+### Obtain the speaker status
+This API is used to obtain the speaker status. If "0" is returned, the speaker is off. If "1" is returned, the speaker is on. If "2" is returned, the speaker is being worked on. If "3" is returned, no speaker exists. If "4" is returned, the speaker is not initialized well.
+#### Function prototype  
+```
+ITMGContext TMGAudioCtrl public int GetSpeakerState() 
+```
+
+#### Sample code  
+```
+int micState = ITMGContext.GetInstance(this).GetAudioCtrl().GetSpeakerState();
 ```
 
 ### Enable/disable a playback device
@@ -672,7 +724,7 @@ ITMGContext.GetInstance(this).GetAudioCtrl().EnableLoopBack(true);
 |SetAccompanyFileCurrentPlayedTimeByMs 				|Sets the playback progress |
 
 ### Start playing back the accompaniment
-This API is used to start playing back the accompaniment. Four formats are supported: m4a, AAC, wav, and mp3. This API is used to reset the volume.
+This API is used to start playing back the accompaniment. Three formats are supported: m4a,  wav, and mp3. This API is used to reset the volume.
 
 #### Function prototype  
 ```
@@ -825,7 +877,7 @@ ITMGContext.GetInstance(this).GetAudioEffectCtrl().SetAccompanyFileCurrentPlayed
 
 
 ### Play the sound effect
-This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Four formats are supported: m4a, AAC, wav, and mp3.
+This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Three formats are supported: m4a, wav, and mp3.
 #### Function prototype  
 ```
 ITMGContext TMGAudioEffectCtrl public int PlayEffect(int soundId, String filePath, boolean loop) 

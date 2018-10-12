@@ -115,10 +115,10 @@ virtual-kubelet.yaml 创建 Pod 运行 virtual-kubelet 程序：
       volumes:  
       - name: credentials
     hostPath:
-      path: /home/ubuntu/for-show/config (config 文件夹包含 config.toml, server.crt 和 server.key)
+      path: /home/ubuntu/for-show/config (请自行修改为部署模版解压后的config文件夹路径，内包含config.toml, server.crt和server.key)
 ```
 
-## 使用步骤
+## 使用步骤（ubuntu系统）
 1. 登录安装了 kubectl 并已完成了初始化的 Kubernetes 节点服务器。
 kubectl 安装和初始化可参考 [使用 kubectl 操作集群](https://cloud.tencent.com/document/product/457/8438)。
 
@@ -134,7 +134,7 @@ kubectl create -f qcloud-vkubelet.yaml
     serviceaccount "vkubelet" created  
 ```
 
-3. 执行以下命令：
+3. 请修改virtual-kubelet.yaml最后一行hostPath内path参数为部署模版解压后的config文件夹路径，并执行以下命令：
 ```
 kubectl create -f virtual-kubelet.yaml
 ```

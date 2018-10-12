@@ -180,10 +180,3 @@ Error:Could not resolve all files for configuration ':app:debugCompileClasspath'
 - 登录未返回错误模块 IMSDK, 错误码 70009, 错误描述：tls_check_signature failed decrypt sig failed failed iRet:-2 sdkappid:14000xxxxx,acctype:xxxx,identifier:guest sig:E9vB6Ocs42J8A5lZW6s_
 
 > 这种问题一般为登录的 userSig 与 id 不匹配引起，需要生成 userSig 的密钥与初始化时使用的 sdkAppId 是否对应
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

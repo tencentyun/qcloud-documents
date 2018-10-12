@@ -26,11 +26,11 @@ allprojects {
 // COS SDK模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9.1'
+compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.1'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.5.0'
+compile 'com.tencent.ticsdk:ticsdk:1.5.1'
 // 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.5.1'
+compile 'com.tencent.boardsdk:boardsdk:1.6.0'
 ```    
 
 - 在 defaultConfig 中配置 abiFilters 信息。
@@ -145,7 +145,6 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
     TICClassroomOption classroomOption = new TICClassroomOption()
         .setRoomId(roomId)			// 为createClassroom中的roomId
         .controlRole("user") 		// 默认的实时音视频角色的配置“user”，开发者需要根据自身的业务需求配置实时音视频的角色。
-        .privateMapKey(privateMapKey) // 进房票据
         .autoSpeaker(false)		// 此处为demo的配置，开发者需要根据自身的业务需求配置
         .autoCamera(true)   // 开发者需要根据自身的业务需求配置
         .autoMic(true)      // 开发者需要根据自身的业务需求配置
@@ -155,10 +154,9 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack(){...});
 ```
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有一个父类的参数必须填写：**controlRole** 。
 
 * **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名。
-* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，**privateMapKey** 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 加入课堂成功，在成功的回调处，需要更新和设置一下白板 SDK 的相关配置，如：
 

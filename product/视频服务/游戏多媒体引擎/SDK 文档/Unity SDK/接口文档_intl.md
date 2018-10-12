@@ -3,7 +3,7 @@
 Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for Unity developers to debug and integrate the APIs for Game Multimedia Engine.
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 
 ### Key considerations for using GME
@@ -13,10 +13,9 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 |Init    		|Initializes GME 	|
 |Poll    		|Triggers event callback	|
 |EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+|EnableMic	 	|Enables the microphone 	|
+|EnableSpeaker		|Enables the speaker 	|
+
 
 **Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -42,7 +41,7 @@ For an uninitialized SDK, you must initialize it via initialization authenticati
 Obtain the Context instance using ITMGContext instead of QAVContext.GetInstance().
 
 ### Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 
@@ -118,17 +117,17 @@ You must initialize and call the SDK to enter a room before Voice Chat can start
 
 
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).    
 When voice message is obtaining authentication, the parameter of room number must be set to 0.
 A value of type Byte[] is returned by this API.
 #### Function prototype
 ```
-QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string openId, string key)
+QAVAuthBuffer GenAuthBuffer(int appId, string roomId, string openId, string key)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|The SdkAppId obtained from the Tencent Cloud console |
-| roomId    		|int   		|Room number. 32-bit is supported.									|
+| roomId    		|string   		|Room number supports Int32 type (which is passed after being converted to a string)|
 | openId    	|String 	|User ID					|
 | key    		|string 	|The key obtained from the Tencent Cloud console			|
 
@@ -136,25 +135,25 @@ QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string openId, string key)
 
 #### Sample code  
 ```
-byte[] GetAuthBuffer(string appId, string userId, int roomId)
+byte[] GetAuthBuffer(string appId, string userId, string roomId)
     {
-	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9");
+	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9");
 }
 ```
 
 ### Enter a room
 This API is used to enter a room with the generated authentication information. Microphone and speaker are not enabled by default after a user enters the room. After a user exits the room, a callback response is returned in 30 seconds.
 
-For more information on how to integrate team chatting, see [GME team chatting](https://cloud.tencent.com/document/product/607/17972).
+For more information on how to integrate team chatting, see [GME team chatting](/document/product/607/17972).
 
 
 #### Function prototype
 ```
-ITMGContext EnterRoom(int roomId, int roomType, byte[] authBuffer)
+ITMGContext EnterRoom(string roomId, int roomType, byte[] authBuffer)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomId		|int    		| Room number. 32-bit is supported. |
+| roomId		|string    		|Room number supports Int32 type (which is passed after being converted to a string)|
 | roomType 	|ITMGRoomType		|Audio type of the room		|
 | authBuffer 	|Byte[] 	| Authentication key					|
 
@@ -387,6 +386,8 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 | ------------- |:-------------:|
 |PauseAudio    				       	   |Pauses audio engine |
 |ResumeAudio    				      	 |Resumes audio engine |
+|EnableMic    						|Enables/disables the microphone |
+|GetMicState    						|Obtains the microphone status |
 |EnableAudioCaptureDevice    		|Enables/disables a capturing device |
 |IsAudioCaptureDeviceEnabled    	|Obtains the status of a capturing device |
 |EnableAudioSend    				|Enables/disables audio upstream |
@@ -394,6 +395,8 @@ It is recommended to call PauseAudio/ResumeAudio for mutually exclusive (releasi
 |GetMicLevel    						|Obtains real-time microphone volume |
 |SetMicVolume    					|Sets microphone volume |
 |GetMicVolume    					|Obtains microphone volume |
+|EnableSpeaker    						|Enables/disables the speaker |
+|GetSpeakerState    					|Obtains the speaker status |
 |EnableAudioPlayDevice    			|Enables/disables a playback device		|
 |IsAudioPlayDeviceEnabled    		|Obtains the status of a playback device |
 |EnableAudioRecv    					|Enables/disables audio downstream 	|
@@ -427,6 +430,33 @@ ITMGAudioCtrl abstract int ResumeAudio()
 #### Sample code  
 ```
 IQAVContext.GetInstance ().GetAudioCtrl ().ResumeAudio();
+```
+
+### Enable/disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
+
+#### Function prototype  
+```
+ITMGAudioCtrl EnableMic(bool isEnabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| isEnabled    |boolean     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
+#### Sample code  
+```
+Enable microphone
+IQAVContext.GetInstance().GetAudioCtrl().EnableMic(true);
+```
+
+### Obtain the microphone status
+This API is used to obtain the microphone status. If "0" is returned, the microphone is off. If "1" is returned, the microphone is on. If "2" is returned, the microphone is being worked on. If "3" is returned, no microphone exists. If "4" is returned, the microphone is not initialized well.
+#### Function prototype  
+```
+ITMGAudioCtrl GetMicState()
+```
+#### Sample code  
+```
+micToggle.isOn = IQAVContext.GetInstance().GetAudioCtrl().GetMicState();
 ```
 
 ### Enable/disable a capturing device
@@ -527,6 +557,34 @@ ITMGAudioCtrl GetMicVolume()
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioCtrl().GetMicVolume();
+```
+
+### Enable/disable the speaker
+This API is used to enable/disable the speaker.
+#### Function prototype  
+```
+ITMGAudioCtrl EnableSpeaker(bool isEnabled)
+```
+| Parameter | Type | Description |
+| ------------- |:-------------:|-------------|
+| isEnabled    |bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
+#### Sample code  
+```
+Enable the speaker.
+IQAVContext.GetInstance().GetAudioCtrl().EnableSpeaker(true);
+```
+
+
+### Obtain the speaker status
+This API is used to obtain the speaker status. If "0" is returned, the speaker is off. If "1" is returned, the speaker is on. If "2" is returned, the speaker is being worked on. If "3" is returned, no speaker exists. If "4" is returned, the speaker is not initialized well.
+#### Function prototype  
+```
+ITMGAudioCtrl GetSpeakerState()
+```
+
+#### Sample code  
+```
+speakerToggle.isOn = IQAVContext.GetInstance().GetAudioCtrl().GetSpeakerState();
 ```
 
 ### Enable/disable a playback device
@@ -698,7 +756,7 @@ void QAVAudioDeviceStateCallback(){
 |SetAccompanyFileCurrentPlayedTimeByMs 				|Sets the playback progress |
 
 ### Start playing back the accompaniment
-This API is used to start playing back the accompaniment. Four formats are supported: m4a, AAC, wav, and mp3. This API is used to reset the volume.
+This API is used to start playing back the accompaniment. Three formats are supported: m4a, wav, and mp3. This API is used to reset the volume.
 #### Function prototype  
 ```
 IQAVAudioEffectCtrl int StartAccompany(string filePath, bool loopBack, int loopCount, int duckerTimeMs)
@@ -884,7 +942,7 @@ IQAVContext.GetInstance().GetAudioEffectCtrl().SetAccompanyFileCurrentPlayedTime
 |SetEffectsVolume 	|Sets the volume of sound effects |
 
 ### Play the sound effect
-This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Four formats are supported: m4a, AAC, wav, and mp3.
+This API is used to play the sound effect. The sound effect ID in the parameter needs to be managed by the App side, uniquely identifying a separate file. Three formats are supported: m4a, wav, and mp3.
 #### Function prototype  
 
 ```
@@ -1361,7 +1419,7 @@ public abstract event QAVSpeechToTextCallback OnSpeechToTextComplete;
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | code    |int                       | When code is 0, recording is completed |
-| filepath    |string                      | Path for storing the recorded file |
+| fileid    |string                      | URL of the voice file |
 | result    |string                      | Result of text conversion |
 #### Sample code  
 ```

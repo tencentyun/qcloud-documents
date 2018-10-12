@@ -15,7 +15,7 @@ Set the permission for account test123, and click "Save Configuration".
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 Check whether the account permission is configured correctly, and click **Close** to complete the configuration.
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-For more information on creating an account, see https://cloud.tencent.com/document/product/237/7054.
+For more information on creating an account, see [creating an account](https://cloud.tencent.com/document/product/237/7054).
 
 ## Access Database
 There are two methods to connect to MariaDB database:

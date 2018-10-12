@@ -2,7 +2,7 @@
 
 ## 源码下载
 在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
+[单击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_join.zip)
 
 ## 加入房间
 与创建房间类似，需要先初始化、登录之后才能加入房间；加入房间也需要先填写 iLiveRoomOption 结构体，用于描述所加入房间的相关信息，然后调用 joinRoom() 接口进行加入房间。
@@ -53,9 +53,3 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 ```
 GetILive()->setChannelMode(E_ChannelIMSDK);
 ```
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

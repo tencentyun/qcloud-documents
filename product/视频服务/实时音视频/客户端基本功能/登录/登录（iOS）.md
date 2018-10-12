@@ -1,6 +1,6 @@
 本文将指导您初始化 SDK 和如何调用登录接口。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_login.zip)
 
 ## 前提条件
@@ -37,10 +37,10 @@ static  const int kSDKAppID = 后台创建应用对应的SDKAppId;
 static  const int kAccountType = 后台创建应用对应的AccountType;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
     // 初始化SDK
     [[ILiveSDK getInstance] initSdk:kSDKAppID accountType:kAccountType];
-    
+
     return YES;
 }
 
@@ -69,7 +69,7 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
     self.userSigTF.text = @"用户自己生成的userSig";
 }
 
-// 登录按钮点击
+// 登录按钮单击
 - (IBAction)onLogin:(id)sender {
     //登录sdk
     [[ILiveLoginManager getInstance] iLiveLogin:self.userIdTF.text sig:self.userSigTF.text succ:^{
@@ -103,12 +103,5 @@ static  const int kAccountType = 后台创建应用对应的AccountType;
 > 且以上仅为示例代码，实际过程中（客户采用独立帐号模式），登录流程应为：
 >
 > 客户端显示登录界面，用户输入帐号密码，客户的业务后台验证通过后使用实时音视频后台 SDK 生成 userSig 返回给客户端，客户端再拿用户输入的用户名和业务后台返回的 userSig 调用 ILiveSDK的登录接口。
-	
+
 运行程序，控制台输出登录成功！，即说明 ILiveSDK 登录成功。
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -13,7 +13,7 @@ Domain name for API access: `lb.api.qcloud.com`
 | loadBalancerType | No | Int | Network type of the load balancer instance: <br>2: Public network-based; 3: Private network-based. |
 | forward | No | Int | 1: Application-based; 0: Conventional; -1: All types. |
 | loadBalancerName | No | String | Name of the load balancer instance. |
-| domain | No | String | Domain name assigned by Tencent Cloud for a load balancer instance. This field is not applicable to application-based load balancer instances. |
+| domain | No | String | Domain name assigned by Tencent Cloud for a conventional public network-based load balancing instance. This field is not applicable to private network-based and application-based cloud load balancing instances.|
 | loadBalancerVips.n | No | String | VIP address of load balancer instance. You may enter multiple addresses. |
 | backendWanIps.n | No | String | Public IP of the backend CVM |
 | backendLanIps.n | No | String | Private IP of the backend CVM |
@@ -44,7 +44,7 @@ Domain name for API access: `lb.api.qcloud.com`
 | loadBalancerName | String | Name of the load balancer instance. |
 | loadBalancerType | Int | Network type of the cloud load balancer instance: <br>2: Public network-based, 3: Private network-based. |
 | forward | Int | Indicate whether it is an application-based cloud load balancer. 1: Application-based cloud load balancer; 0: Conventional cloud load balancer. |
-| domain | String | Domain name of the load balancer instance. This field is not applicable to private network-based and application-based cloud load balancer instances. |
+| domain | String | Domain name assigned by Tencent Cloud for a conventional public network-based load balancing instance. This field is not applicable to private network-based and application-based cloud load balancing instances. |
 | loadBalancerVips | Array | VIP list of the load balancer instance. |
 | status | Int | Status of the load balancer instance. <br>0: Creating; 1: Running. |
 | createTime | String | The time when the load balancer instance is created. |
@@ -101,4 +101,3 @@ Response
 }
 
 ```
-

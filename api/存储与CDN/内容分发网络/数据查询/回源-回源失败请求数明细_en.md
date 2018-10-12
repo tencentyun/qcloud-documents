@@ -8,7 +8,7 @@ Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
 **Notes:** 
 
-- You can submit a maximum of 5 domain names at a time to query the real-time number of failed origin-pull requests for each domain name.
+- You can submit a maximum of 20 domain names at a time to query the real-time number of failed origin-pull requests for each domain name.
 - Origin-pull failure includes origin-pull 5XX error, incompatible origin-pull protocol, origin-pull timeout and origin server disconnection.
 - The statistic value of the number of failed origin-pull bandwidth requests is generated at an interval of 5 minutes, with the delay of real-time data being 5-10 minutes.
 - You can query the data with a time range of 60 days between a start and end time (inclusive).

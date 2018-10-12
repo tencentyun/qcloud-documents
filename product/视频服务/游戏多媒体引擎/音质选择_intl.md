@@ -1,6 +1,6 @@
 ## Overview
 
-Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://cloud.tencent.com/product/tmg?idx=1). This document provides a detailed description that makes it easy for developers to select sound quality via GME SDK.
+Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://intl.cloud.tencent.com/product/tmg?idx=1). This document provides a detailed description that makes it easy for developers to select sound quality via GME SDK..
 
 ## Overview of Sound Quality Types
 

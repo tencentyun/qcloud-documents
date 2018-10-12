@@ -267,7 +267,7 @@ mv * /usr/share/nginx/html/
 ![配置WP1](//mc.qcloudimg.com/static/img/6012d2bcc2f5a5a78e333e57f08545f6/image.png)
 3. 将其余安装信息输入WordPress 安装向导，单击 “安装 WordPress” 完成安装。
 
-| 所需信息 | 备注 | 
+| 所需信息 | 说明 | 
 |---------|---------|
 | 站点标题 |  WordPress 网站名称。 |
 | 用户名 | WordPress 管理员名称。出于安全考虑，建议设置一个不同于 admin 的名称。因为与默认用户名称 admin 相比，该名称更难破解。 |

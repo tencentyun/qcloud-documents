@@ -1,11 +1,10 @@
 Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云 COS 作为底层存储文件系统运行上层计算任务的功能。启动 Hadoop 集群主要有单机、伪分布式和完全分布式等三种模式，本文主要以 Hadoop-2.7.4 版本为例进行 Hadoop 完全分布式环境搭建及 wordcount 简单测试介绍。
 
 ## 准备环境
-### 安装
-#### 1. 准备若干台机器。
-#### 2. 安装配置系统：[CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)。
-#### 3. 安装 Java 环境：[jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz)，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
-#### 4. 安装 Hadoop 可用包：[Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available)。 
+1. 准备若干台机器。
+2. 安装配置系统：[CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)。
+3. 安装 Java 环境，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
+4. 安装 Hadoop 可用包：[Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available)。 
 
 ### 网络配置
 使用`ifconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。
@@ -35,7 +34,7 @@ yum install -y ntp  //安装 ntp 服务
 ntpdate cn.pool.ntp.org  //同步网络时间
 ```
 ### 安装配置 JDK
-上传 [jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz)  安装包到`root`根目录。
+上传 JDK 安装包（如jdk-8u144-linux-x64.tar.gz）到`root`根目录。
 ```
 mkdir /usr/java
 tar -zxvf jdk-8u144-linux-x64.tar.gz -C /usr/java/
@@ -94,7 +93,7 @@ scp authorized_keys slave3:~/.ssh
 ```
 ## 安装配置 Hadoop
 ### 安装 Hadoop
-上传 [hadoop-2.7.4.tar.gz](http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz) 安装包到`root`根目录。
+上传 hadoop 安装包（如hadoop-2.7.4.tar.gz）到`root`根目录。
 ```
 tar -zxvf hadoop-2.7.4.tar.gz -C /usr
 rm -rf hadoop-2.7.4.tar.gz

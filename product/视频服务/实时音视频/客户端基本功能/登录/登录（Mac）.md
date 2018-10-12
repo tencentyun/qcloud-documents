@@ -1,6 +1,6 @@
 本文将指导您初始化 SDK 和如何调用登录接口。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/MAC_TRTC.zip)
 
 ## 前提条件
@@ -34,9 +34,9 @@ ERR_EXPIRE              = 8051,    //票据过期(需更新票据userSig)
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+
     [[ILiveSDK getInstance] initSdk:[TCLiveConfigInfo getInstance].sdkAppID];
-    
+
 }
 
 ```
@@ -73,16 +73,16 @@ ERR_EXPIRE              = 8051,    //票据过期(需更新票据userSig)
         [[ILiveLoginManager getInstance] iLiveLogin:[TCLiveConfigInfo getInstance].userID sig:[TCLiveConfigInfo getInstance].userToken succ:^{
             NSLog(@"-----> login  succ");
         } failed:^(NSString *module, int errId, NSString *errMsg) {
-            
+
             NSLog(@"-----> login  fail,%@ %d %@",module, errId, errMsg);
         }];
-        
+
         NSString *defaultRole = [[TCLiveConfigInfo getInstance].roles firstObject][@"name"];
         _vc = [[TCLiveRoomWC alloc] initWithRoomID:[self.inputTextField stringValue] role:defaultRole];
         [_vc.window orderFront:nil];
     }
     else{
-        
+
     }
 
 }
@@ -112,12 +112,5 @@ ERR_EXPIRE              = 8051,    //票据过期(需更新票据userSig)
 > 且以上仅为示例代码，实际过程中（客户采用独立帐号模式），登录流程应为：
 >
 > 客户端显示登录界面，用户输入帐号密码，客户的业务后台验证通过后使用实时音视频后台 SDK 生成 userSig 返回给客户端，客户端再拿用户输入的用户名和业务后台返回的 userSig 调用 ILiveSDK的登录接口。
-	
+
 运行程序，控制台输出登录成功！，即说明 ILiveSDK 登录成功。
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

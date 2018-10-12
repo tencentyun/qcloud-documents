@@ -4,23 +4,22 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 
 ## How to Use
-![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+![](https://main.qcloudimg.com/raw/810d0404638c494d9d5514eb5037cd37.png)
 
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/15231).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](/document/product/607/15231).
 
 
 | Important API | Description |
 | ------------- |:-------------:|
-|Init    		|Initializes GME 	|
-|Poll    		|Triggers event callback	|
-|EnterRoom	 	|Enters a room  		|
-|EnableAudioCaptureDevice	 	|Enables/disables a capturing device |
-|EnableAudioSend		|Enables/disables audio upstream 	|
-|EnableAudioPlayDevice    			|Enables/disables a playback device		|
-|EnableAudioRecv    					|Enables/disables audio downstream 	|
+|Init		    		|Initializes GME 	|
+|Poll    			|Triggers event callback	|
+|EnterRoom	 		|Enters a room  		|
+|EnableMic	 		|Enables the microphone 	|
+|EnableSpeaker			|Enables the speaker 	|
+
 
 **Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
@@ -45,7 +44,7 @@ context->SetTMGDelegate(this);
 
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
@@ -99,11 +98,11 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext virtual void EnterRoom(int roomID, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
+ITMGContext virtual void EnterRoom(const char*  roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| roomID			|int   		| Room number. 32-bit is supported.	|
+| roomID			|char*     		| Room number. 127 character is supported. |
 | roomType 			|ITMG_ROOM_TYPE	| Audio type of the room	|
 | authBuffer    		|char*    				| Authentication key			|
 | buffLen   			|int   				| Length of the authentication key		|
@@ -125,7 +124,9 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 ### 5. Callback for entering a room
 This API is used to send the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message after a user enters a room, which is checked in the OnEvent function.
-#### Sample code  
+
+#### Sample code 
+
 ```
 //Implementation
 void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
@@ -139,92 +140,52 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 }
 ```
 
-### 6. Enable/disable a capturing device
-This API is used to enable/disable a capturing device. The devices is not enabled by default after a user enters the room.
-- This API can only be called after a user enters the room. The device is disabled after the user exits the room.
-- Operations such as permission application and volume type adjustment come with enabling the capturing device on mobile.
+### 6. Enable/Disable the microphone
+This API is used to enable/disable the microphone. Microphone and speaker are not enabled by default after a user enters a room.
 
 #### Function prototype  
 ```
-ITMGContext virtual int EnableAudioCaptureDevice(bool enable)
+ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the capturing device, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code
-
-```
-Enable a capturing device
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioCaptureDevice(true);
-```
-
-
-### 7. Enable/disable audio upstream
-This API is used to enable/disable audio upstream. If the capturing device is already enabled, captured audio data will be sent. If it is not enabled, it remains silent. To enable/disable a capturing device, see API EnableAudioCaptureDevice.
-
-#### Function prototype
-
-```
-ITMGContext  virtual int EnableAudioSend(bool bEnable)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| bEnable    |bool     |To enable the audio upstream, set this parameter to true, otherwise, set it to false. |
-
+| bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
 #### Sample code  
-
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioSend(true);
+ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
 ```
 
-### 8. Enable/disable a playback device
-This API is used to enable/disable a playback device.
+
+### 7. Enable/Disable the speaker
+This API is used to enable/disable the speaker.
 
 #### Function prototype  
 ```
-ITMGContext virtual int EnableAudioPlayDevice(bool enable) 
+ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| enable    |bool       	| To disable the playback device, set this parameter to false, otherwise, set it to true.	|
+| enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
 #### Sample code  
 ```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioPlayDevice(true);
-```
-
-### 9. Enable/disable audio downstream
-This API is used to enable/disable audio downstream. If the playback device is enabled, audio data of other users in the room will be played back. If it is not enabled, it remains silent. To enable/disable a playback device, see API EnableAudioPlayDevice.
-
-#### Function prototype  
-
-```
-ITMGContext virtual int EnableAudioRecv(bool enable)
-```
-| Parameter | Type | Description |
-| ------------- |:-------------:|-------------|
-| enable    |bool     |To enable the audio downstream, set this parameter to true, otherwise, set it to false. |
-
-#### Sample code  
-
-```
-ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioRecv(true);
+ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
 ```
 
 
 ## Authentication
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](https://cloud.tencent.com/document/product/607/12218).  
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).  
 When voice message is obtaining authentication, the parameter of room number must be set to 0.
 
 #### Function prototype
 ```
-QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, unsigned int dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
+QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, const char* dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
 ```
+
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | nAppId    			|int   		| The SdkAppId obtained from the Tencent Cloud console		|
-| dwRoomID    		|int   		| Room number. 32-bit is supported.	|
+| dwRoomID    		| char*    		| Room number. 127 character is supported. |
 | strOpenID  		|char*    		| User ID								|
 | strKey    			|char*	    	| The key obtained from the Tencent Cloud console		|
 |strAuthBuffer		|char*    	| Returned authbuff				|

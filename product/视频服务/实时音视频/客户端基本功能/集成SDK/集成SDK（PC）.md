@@ -1,6 +1,6 @@
 本文将指导您完成在 PC 端下实时音视频客户端功能的 SDK 集成。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_import.zip)
 ## 操作步骤
 ### 创建 Win32 Console 工程
@@ -29,7 +29,7 @@
 4. 添加库目录
 在项目的附加库目录中添加 lib 文件所在目录，`$(SolutionDir)libs`：
 ![](https://main.qcloudimg.com/raw/078a7447425662586f2e4af0e04a00d8.png)
->**注意:** 
+>**注意:**
 >上面添加 include 目录和库目录时，Debug 和 Release 版本都需要配置。
 
 5. 包含头文件
@@ -42,7 +42,7 @@ using namespace ilive;
 
 6. 拷贝 dll 文件到程序(.exe)所在目录：
 将 libs 目录下的所有 dll 文件复制到解决方案的 Debug 和 Relase 目录下( 至少编译一次 Debug 和 Relase 才会生成这两个目录 )，此时可删除 libs 目录下的 dll 文件。
->**注意:** 
+>**注意:**
 >]这里不要将 iLiveSDK.lib 也删除了。
 
 7. 验证是否配置成功
@@ -66,10 +66,3 @@ iLiveSDK暂时没有64位版本，需要切换成32位编译即可。
 ![](https://main.qcloudimg.com/raw/9148232b9dee4bb1a7f7c6e90d8087cb.png)
 
 恭喜，至此说明 iLiveSDK 已经成功集成。
-
-
-## 联系我们
-
-关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

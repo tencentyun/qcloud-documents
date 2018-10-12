@@ -8,12 +8,12 @@ This function is used to enter a room with the generated authentication data.
 ### Voice chat room
 #### Function prototype
 ```
-ITMGContext EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer)
+ITMGContext EnterRoom(string roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer)
 ```
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------
-| roomId		|int    		| Room number. 32-bit is supported. |
+| roomId		|string    		| Room number supports Int32 type (which is passed after being converted to a string) |
 | roomType 			|ITMG_ROOM_TYPE	|Audio type of the room |
 | authBuffer    	|Byte[]  		| Authentication data					|
 
@@ -66,11 +66,11 @@ The voice mode can be switched at any time during the game.
 
 #### Function prototype
 ```
-ITMGContext  EnterTeamRoom(int roomId,ITMG_ROOM_TYPE roomType, byte[] authBuffer,int teamId, int audioMode)
+ITMGContext  EnterTeamRoom(string roomId,ITMG_ROOM_TYPE roomType, byte[] authBuffer,int teamId, int audioMode)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------
-| roomId		|int    		| Room number. 32-bit is supported. |
+| roomId		|string    		| Room number supports Int32 type (which is passed after being converted to a string)|
 | roomType 			|ITMG_ROOM_TYPE	| Audio type of the room (only 1 is allowed) |
 | authBuffer    	|Byte[] 		| Authentication data					|
 | teamId    		|int    	| The ID of the team that enters the room (0 is not allowed)	|

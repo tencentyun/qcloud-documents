@@ -4,7 +4,7 @@
 
 ### 下载 ImSDK 
 
-从官网下载 ImSDK 开发包，主要包括 `include` 文件夹和 `lib` 文件夹，推荐使用 C 接口头文件进行接入。各部分说明如下：
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK 开发包，主要包括 `include` 文件夹和 `lib` 文件夹，推荐使用 C 接口头文件进行接入。各部分说明如下：
 
 - libs\c_includes C 接口头文件
 - libs\includes C++ 接口头文件
