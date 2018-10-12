@@ -71,7 +71,7 @@
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
-    <td>清晰度流程切换</td>
+    <td>清晰度流畅切换</td>
 		<td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
