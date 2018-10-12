@@ -103,7 +103,7 @@ playerModel.appId = 1252463788;
 设置清晰度除了填写url外，更简单的使用方式是采用fileId播放。fileId在一般是在视频上传后，由服务器返回：
 
 1. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C&from=product-document-use-Player)到客户端
-2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757&from=product-document-use-Player)的通知中包含对应的fileId
+2. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757?&from=product-document-use-Player)的通知中包含对应的fileId
 
 如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist&from=product-document-use-Player) ，找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
 
