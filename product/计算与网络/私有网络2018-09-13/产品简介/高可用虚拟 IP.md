@@ -84,4 +84,4 @@ HAVIP 目前处于灰度阶段，如有需要，请 [提交工单](https://conso
 两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
 
 ## 操作指南
-控制台操作详情，请参见 [操作总览]()。
+控制台操作详情，请参见 [操作总览](https://cloud.tencent.com/document/product/215/20133)。
