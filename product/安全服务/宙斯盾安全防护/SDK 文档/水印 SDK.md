@@ -1,34 +1,35 @@
 ## SDK 准备
-
 下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5ef28eba111891591f576dbbbaed601c.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
 ## Android 接入
 ### 预备工作
-接入 SDK 需要完成以下步骤：
+- 接入 SDK 需要完成以下步骤：
+ 1. 根据运行平台选择相应的 so 文件，将 so 文件和 jar 文件拷贝到工程目录下，并添加依赖。
+ 2. 调用 SDK 接口函数，生成水印信息。
+ 3. 发送报文时，将 20 字节水印信息放在消息体前面。
 
-1. 根据运行平台选择相应的 so 文件，将 so 文件和 jar 文件拷贝到工程目录下，并添加依赖。
-2. 调用 SDK 接口函数，生成水印信息。
-3. 发送报文时，将 20 字节水印信息放在消息体前面。
-
-SDK 文件包含 so 文件和 jar 文件，目录结构如下：
+- SDK 文件包含 so 文件和 jar 文件，目录结构如下：
 ![](https://i.imgur.com/mPPkCxA.png)
 
-SDK API 说明：
-- 程序包：com.gamesec
-- 类：Mark
+- SDK API 说明：
+ - 程序包：com.gamesec
+ - 类：Mark
 
-接口：
+- 接口说明：
+<table>
+<tbody>
+<tr>
+<th>接口名称</th>
+<th>说明</th></tr>
+<tr>
+<td>CreateSDKBuffFromStr</td>
+<td>生成水印</td></tr></tbody></table>
 
-|名称|	含义|
-|-|-|
-|CreateSDKBuffFromStr	|生成水印|
-		
 ### 接入步骤（Android Studio）
-
 1. 将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
-![](https://i.imgur.com/GnO0TF2.png)
+ ![](https://i.imgur.com/GnO0TF2.png)
 2. 修改项目的 build.gradle 文件，设置 jni 文件目录，添加 jar 依赖：
-	
-	android {
+```
+android {
 		sourceSets {
 				main {
 						jniLibs.srcDirs =['libs/jni'] // 设置 jni 目录
@@ -38,20 +39,25 @@ SDK API 说明：
 		dependencies {
 						implementation files('libs/gamesec.jar') // 添加依赖
 				     }
+```
+
 3. Eclipse 接入方法类似，不需要配置 build.gradle 文件。
 
 ### 接口调用
-
 1. 导入程序包。
+```
+import com.gamesec.*;
+```
 
-		import com.gamesec.*;
 2. 实例化 Mark 对象。
-
-		Mark mark = new Mark();
+```
+Mark mark = new Mark();
+```
 3. 调用 CreateSDKBuffFromStr 生成水印。
-
-		byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
-<b>参数说明：</b>
+```
+byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, int uDesPort)
+```
+ - **参数说明：**
 <table>
 <tr>
 <th>参数</th>
@@ -79,7 +85,8 @@ SDK API 说明：
 <td>服务器端口</td>
 </tr>
 </table>
-<b>返回值：</b>
+
+ - **返回值：**
 <table>
 <tr>
 <th>类型</th>
@@ -90,24 +97,28 @@ SDK API 说明：
 <td>计算的水印信息，取 20 字节</td>
 </tr>
 </table>
-<b>调用示例：</b>
 
-		String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
-		String uDesIp = "115.159.147.198";
-		int uDesPort = 8899 ;
-		byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
-	
+ - **调用示例：**
+```
+String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
+String uDesIp = "115.159.147.198";
+int uDesPort = 8899 ;
+byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
+```
+
 4. 添加水印信息到消息体。代码示例如下：
+```
+Socket s = new Socket(uDesIp, uDesPort);
+OutputStream out = s.getOutputStream();
+PrintWriter output = new PrintWriter(out, true);
+// 先传入水印信息
+output.print(bytes); 
+output.println("msg msg msg");
+BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
+String msg = input.readLine();
+s.close();
+```
 
-	Socket s = new Socket(uDesIp, uDesPort);
-	OutputStream out = s.getOutputStream();
-	PrintWriter output = new PrintWriter(out, true);
-	// 先传入水印信息
-	output.print(bytes); 
-	output.println("msg msg msg");
-	BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-	String msg = input.readLine();
-	s.close();
 ## iOS 接入
 
 ### 预备工作
