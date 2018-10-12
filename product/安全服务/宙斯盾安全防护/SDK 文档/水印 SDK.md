@@ -1,19 +1,17 @@
 ## SDK 准备
 下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5ef28eba111891591f576dbbbaed601c.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
+
 ## Android 接入
 ### 预备工作
 - 接入 SDK 需要完成以下步骤：
  1. 根据运行平台选择相应的 so 文件，将 so 文件和 jar 文件拷贝到工程目录下，并添加依赖。
  2. 调用 SDK 接口函数，生成水印信息。
  3. 发送报文时，将 20 字节水印信息放在消息体前面。
-
 - SDK 文件包含 so 文件和 jar 文件，目录结构如下：
 ![](https://i.imgur.com/mPPkCxA.png)
-
 - SDK API 说明：
  - 程序包：com.gamesec
  - 类：Mark
-
 - 接口说明：
 <table>
 <tbody>
@@ -40,7 +38,6 @@ android {
 						implementation files('libs/gamesec.jar') // 添加依赖
 				     }
 ```
-
 3. Eclipse 接入方法类似，不需要配置 build.gradle 文件。
 
 ### 接口调用
@@ -48,7 +45,6 @@ android {
 ```
 import com.gamesec.*;
 ```
-
 2. 实例化 Mark 对象。
 ```
 Mark mark = new Mark();
@@ -85,7 +81,6 @@ byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, in
 <td>服务器端口</td>
 </tr>
 </table>
-
  - **返回值：**
 <table>
 <tr>
@@ -97,7 +92,6 @@ byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, in
 <td>计算的水印信息，取 20 字节</td>
 </tr>
 </table>
-
  - **调用示例：**
 ```
 String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
@@ -122,23 +116,23 @@ s.close();
 ## iOS 接入
 
 ### 预备工作
-
-接入 SDK 需要完成以下步骤：
+- 接入 SDK 需要完成以下步骤：
 1. 将 SDK 文件拷贝到工程目录，Swift 工程需要添加桥文件。
 2. 调用 SDK 接口函数，生成水印信息。
 3. 发送报文时，将 20 字节水印信息放在消息体前面。
-
-
-SDK 文件包含 a 文件和 h 文件，目录结构如下：
-![](https://i.imgur.com/Q8Xz8J5.png)
-接口：
-
-|名称|	含义|
-|-|-|
-|CreateSDKBuffFromStr	|生成水印|
+- SDK 文件包含 a 文件和 h 文件，目录结构如下：
+ ![](https://i.imgur.com/Q8Xz8J5.png)
+- 接口说明：
+<table>
+<tbody>
+<tr>
+<th>接口名称</th>
+<th>说明</th></tr>
+<tr>
+<td>CreateSDKBuffFromStr</td>
+<td>生成水印</td></tr></tbody></table>
 
 ### 接入步骤（Xcode）
-
 1. 将 sdk/ios 文件夹下的内容拷贝到工程目录：
 ![](https://i.imgur.com/1RHDRpP.png)
 2. 将 SDK 文件添加到 Xcode。右键工程名，单击 “Add Files to”。
@@ -155,12 +149,13 @@ SDK 文件包含 a 文件和 h 文件，目录结构如下：
 ### 接口调用
 
 1. Swift 项目可以直接调用生成水印函数，Object-C 项目需要在使用的文件里面添加头文件：
-
-			# import "gamesec.h";
+```
+# import "gamesec.h";
+```
 2. 调用 CreateSDKBuffFromStr 生成水印。
-
-			uint32_t CreateSDKBuffFromStr(
-              char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
+```
+uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_tuDstPort);
+```
 **参数说明：**
 <table>
 <tr>
@@ -189,13 +184,13 @@ SDK 文件包含 a 文件和 h 文件，目录结构如下：
 <td>服务器端口</td>
 </tr>
 </table>
-
+ 
  >**注意：**
->水印结果保存在参数 buffer 中，取 20 字节。
+ >水印结果保存在参数 buffer 中，取 20 字节。
 3. 调用示例。
 **Swift 调用：**
-
-			let pSDKinfo = UnsafeMutablePointer<Int8>(mutating: (
+```
+	let pSDKinfo = UnsafeMutablePointer<Int8>(mutating: (
 			"566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c" 
 			as NSString).utf8String);
 					var buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 20);
@@ -224,15 +219,15 @@ SDK 文件包含 a 文件和 h 文件，目录结构如下：
 					// 水印信息在前20字节
 							NSLog(@"%d", (int8_t)buffer[i]); 
 			}
+```
 4. 发送报文前，添加 20 字节水印信息到消息体前面。
 
 ## Windows 接入
 ### 预备工作
-
 SDK 为 gamesec.dll 文件，有一个生成水印的函数：
-
-    uint32_t CreateSDKBuffFromStr(
-              char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
+```
+uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uint16_t uDstPort);
+```
 **参数说明：**
 <table>
 <tr>
@@ -269,15 +264,16 @@ SDK 为 gamesec.dll 文件，有一个生成水印的函数：
 ### 接口调用
 
 在使用水印函数时，需先导入 dll 文件，可以使用 LoadLibrary 函数（需要添加 Windows.h ）：
-
-    // 定义函数指针
+```
+ // 定义函数指针
     typedef int(*FUNC)(char *, uint8_t *, char* , uint16_t );
     // 设置 dll 路径
     HINSTANCE Hint = ::LoadLibrary(L"E:\\sdk\\gamesec.dll");
     FUNC CreateSDKBuffFromStr = (FUNC)GetProcAddress(Hint, "CreateSDKBuffFromStr");
+```
 完整调用示例：
-
-    // 保存水印
+```
+ // 保存水印
     uint8_t buffer[BUFFER_SIZE];
     memset(buffer, 0, BUFFER_SIZE);
     
@@ -303,3 +299,4 @@ SDK 为 gamesec.dll 文件，有一个生成水印的函数：
     }
     printf("\n\n");
     }
+```
