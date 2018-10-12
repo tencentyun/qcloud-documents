@@ -1,26 +1,98 @@
-
-
-
-
-## 终端 SDK 下载
-
+## SDK 功能列表
 <table width="850px">
   <tr align="center">
-     <th width="140px">操作系统</th>
-     <th width="240px">版本说明</th>
-     <th width="120px">下载链接</th>
+     <th>功能</th>
+     <th>iOS</th>
+     <th>Android</th>
   </tr>
   <tr align="center">
-     <td>iOS 平台</td>
+     <td>版本</td>
         <td>5.1.5299 @ 2018-08-29</td>
-        <td><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.1/TXLiteAVSDK_Player_iOS_5.1.5299.zip">单击下载</a></td>
+        <td>5.1.5293 @ 2018-08-17</td>
   </tr>
   <tr align="center">
-    <td>Android 平台</td>
-    <td>5.1.5293 @ 2018-08-17</td>
-    <td><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.1/LiteAVSDK_Player_Android_5.1.5293.zip">单击下载</a></td>
+    <td>小窗播放</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>多手势操作</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>播放列表</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>进度条打点、进度缩略图</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>互动浮窗</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>首屏秒开+预加载</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>视频截图</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>弹幕</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>直播时移</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>视频加密、视频试看</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>码率自适应</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>变速播放、镜像播放</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>清晰度流程切换</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>多格式支持</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr align="center">
+    <td>H.265 编码</td>
+		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  
+  <tr align="center">
+     <th>SDK 下载</th>
+        <td><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.1/TXLiteAVSDK_Player_iOS_5.1.5299.zip">iOS下载</a></td>
+        <td><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.1/LiteAVSDK_Player_Android_5.1.5293.zip">Android下载</a></td>
   </tr>
 </table>
+
 
 
 ## 技术交流
