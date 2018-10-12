@@ -10,7 +10,7 @@
 
 **Demo for Python**
 
-- [Demo for Python](https://main.qcloudimg.com/raw/0b79096102f4bc343ee7a1994118a5d5/tsf_python_vm_demo.zip)：提供了 3 个 Python 应用。三个应用对应的服务名分别是：
+- [Demo for Python](https://main.qcloudimg.com/raw/10b3073c70d56a1ebb76b2e015e289fc.zip)：提供了 3 个 Python 应用。三个应用对应的服务名分别是：
   - user
   - shop
   - promotion
