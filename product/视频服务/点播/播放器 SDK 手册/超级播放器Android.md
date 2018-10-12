@@ -154,7 +154,7 @@ mSuperPlayerView.playWithMode(model);
 
 在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
-[截取雪碧图](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite))
+[截取雪碧图](https://cloud.tencent.com/document/product/266/11702)
 
 [增加打点信息](https://cloud.tencent.com/document/product/266/14190?from=product-document-use-Player)
 
