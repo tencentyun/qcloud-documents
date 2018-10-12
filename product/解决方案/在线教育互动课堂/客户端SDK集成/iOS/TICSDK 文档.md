@@ -21,10 +21,6 @@ pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 ```
 pod repo update
 ```
-#### 工程配置
-为了工程能够正常编译，需要修改以下工程配置：
-
-* 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
 
 ### 手动集成
 
@@ -58,7 +54,7 @@ pod repo update
 |libz.tbd|
 |libstdc++.6.0.9.tbd|
 
-#### 工程配置
+### 工程配置
 为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
 
 * 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
