@@ -26,12 +26,12 @@ libtersafe2.so
 ```
 
 ## 添加 SDK 文件到工程
-### 1. 添加文件
+###  添加文件
 1. 将 sdk/android/c 目录下的 tp2.jar 文件拷贝到 android 工程目录的 libs 目录下;
 2. 将 sdk/android/java/lib 目录下以 CPU 架构命名的文件夹 (包含 libtersafe2.so 文件) 拷贝到 android 工程目录的 libs 目录下, 对不支持的 CPU 架构体系不需要拷贝.
 ![](https://mc.qcloudimg.com/static/img/eab83b3ae6d2a13b8f6a8479137a5e07/image.png)
 
-### 2. 工程属性设置
+###  工程属性设置
 在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar
 ![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
  选择已拷贝到工程目录的 tp2.jar
@@ -46,7 +46,7 @@ clean 工程并重新编译
 import com.tencent.tersafe2.TP2Sdk;
 ```
 
-### 1. 初始化函数
+### 初始化函数
 ** 函数原型 **
 ```
 public static int initEx(int gameId, String appKey);
@@ -61,7 +61,7 @@ public static int initEx(int gameId, String appKey);
 gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成
 ** 返回值 **：0 表示调用成功
 
-### 2. 用户登录接口
+### 用户登录接口
 ** 函数原型 **
 ```
 public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
@@ -93,7 +93,7 @@ role_id 用于区分同一帐号同一分区下的不同角色，如果没有角
 open_id 由所在运营平台分配，用于唯一区分用户。
 ** 返回值 **：0 表示调用成功
 
-### 3. 前台切换到后台接口
+### 前台切换到后台接口
 ** 函数原型 **
 ```
 int onAppPause ();
@@ -101,18 +101,18 @@ int onAppPause ();
 程序由前台切换到后台，表明游戏当前为非活动状态。
 ** 返回值 **：0 表示调用成功
 
-### 4. 后台切换到前台接口
+### 后台切换到前台接口
 ** 函数原型 **
 程序由后台切换到前台，表明游戏当前为活动状态。
 ** 返回值 **：0 表示调用成功
 
-### 5. 调用时机
+### 调用时机
 1. TP2Sdk.initEx 在游戏启动的第一时间调用，参数为游戏 id 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
 2. TP2Sdk.onUserLogin 在游戏获取到用户授权的登录信息后调用，如果游戏有设置大区 id 和角色 id，则在获取大区 id 和角色 id 之后再调用 TP2Sdk.onUserLogin 函数。在游戏过程中，如果出现断线重连，用户注销重新登录等需要重新获取用户登录信息的情况，也需要再次调用该函数。传递的参数为用户的帐号信息，可自定义。
 3. TP2Sdk.onAppPause 在游戏从前台切换到后台时调用。
 4. TP2Sdk.onAppResume 在游戏从后台切换到前台时调用。
 
-### 6. 示例代码
+### 示例代码
 ```
 public void onCreate()
  {
