@@ -1,4 +1,7 @@
 ## 工具使用方法
+
+>注意：（此上传工具已停止官方维护，建议用户选择通过COS方式进行数据迁移）
+
 1、将“[Windows客户端上传工具](https://mc.qcloudimg.com/static/archive/ef1dec9f9a72cbafdc707915475a368e/upload.zip)”下载至本地后，将其解压到任意文件夹（注：文件夹路径请勿包涵中文），解压后的文件目录结构如下：
 ![](https://mc.qcloudimg.com/static/img/716da8b5ece00ca2be062e2b637ff40d/1-1.png)
 
