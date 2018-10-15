@@ -4,9 +4,6 @@
 
 [github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
-[C++ SDK 本地下载](https://main.qcloudimg.com/raw/ca3af26054042d262d9d444022ba756a/cos-cpp-sdk-v4-master.zip)
-
-
 ### 开发环境
 
 1. 安装 openssl 的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) 
