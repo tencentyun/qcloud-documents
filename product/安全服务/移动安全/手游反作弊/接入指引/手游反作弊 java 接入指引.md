@@ -58,8 +58,9 @@ public static int initEx(int gameId, String appKey);
 |---------|---------|---------|
 | gameId | 是 | 由腾讯云官网分配的 game_id  |
 | appKey | 是 | 由腾讯云官网分配 game_key，与 game_id 对应  |
-gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成
-** 返回值 **：0 表示调用成功
+
+- gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
+- ** 返回值 **：0 表示调用成功。
 
 ### 用户登录接口
 ** 函数原型 **
@@ -75,6 +76,7 @@ public static native int onUserLogin(int accountType, int worldId, String openId
 | worldId | 用户游戏角色的大区信息 |
 | openId | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
 | roleId | 区分用户创建的不同角色的标识 |
+
 account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```
 enum TssSdkEntryId
@@ -88,10 +90,10 @@ ENTRY_ID_WHATSAPP = 6, // whatsapp
 ENTRY_ID_OTHERS = 99, // 其他平台
 };
 ```
-world_id 由游戏自定义，如果游戏没有分区可填 0。
-role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填””。
-open_id 由所在运营平台分配，用于唯一区分用户。
-** 返回值 **：0 表示调用成功
+- world_id 由游戏自定义，如果游戏没有分区可填 0。
+- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填””。
+- open_id 由所在运营平台分配，用于唯一区分用户。
+** 返回值 **：0 表示调用成功。
 
 ### 前台切换到后台接口
 ** 函数原型 **
@@ -99,12 +101,12 @@ open_id 由所在运营平台分配，用于唯一区分用户。
 int onAppPause ();
 ```
 程序由前台切换到后台，表明游戏当前为非活动状态。
-** 返回值 **：0 表示调用成功
+** 返回值 **：0 表示调用成功。
 
 ### 后台切换到前台接口
 ** 函数原型 **
 程序由后台切换到前台，表明游戏当前为活动状态。
-** 返回值 **：0 表示调用成功
+** 返回值 **：0 表示调用成功。
 
 ### 调用时机
 1. TP2Sdk.initEx 在游戏启动的第一时间调用，参数为游戏 id 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
