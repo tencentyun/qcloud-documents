@@ -66,11 +66,11 @@
 
 ```
 typedef NS_ENUM(NSInteger, QAVRecordPreset) {
-    
+
     QAVRecordPreset1280x720  = 1,//超清模式
     QAVRecordPreset960x540   = 2,//高清模式
     QAVRecordPreset864x480   = 3,//标清模式
-    
+
 };
 ```
 * screenOptionComplete block：开启屏幕分享的结果回调，可处理成功或失败操作
@@ -92,13 +92,13 @@ typedef NS_ENUM(NSInteger, QAVRecordPreset) {
     {
         return;
     }
-    
+
     self.screenRecord = [QAVScreenRecord shareInstance];
     self.screenRecord.context = [[ILiveSDK getInstance] getAVContext];
     self.screenRecord.userId = [[ILiveLoginManager getInstance] getLoginId];
     self.screenRecord.appid = kRecordAppId;
     self.screenRecord.mode = mode;
-    
+
     //    UIDeviceOrientationPortrait ：0
     //    UIDeviceOrientationLandscapeRight：1
     //    UIDeviceOrientationPortraitUpsideDown：2
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger, QAVRecordPreset) {
     [self.screenRecord setRotation:0];
     [self.screenRecord setDelegate:self];
     QAVResult res = [self.screenRecord startRecord];
-    
+
     self.isScreenRecording = res == QAV_OK;
 }
 ```
@@ -135,6 +135,3 @@ typedef NS_ENUM(NSInteger, QAVRecordPreset) {
 - 调用屏幕分享接口失败?
 > 屏幕分享功能只支持iOS9，iOS10系统。
 > `kRecordAppId`与`Bundle identifier`是绑定的，请检查是否对应；
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

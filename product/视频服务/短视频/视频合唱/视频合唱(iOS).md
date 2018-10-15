@@ -1,6 +1,6 @@
 本篇教程向大家介绍如何从零开始完成合唱的基础功能。
 
-### 过程简介
+## 过程简介
 
 1. 在界面上放两个 View， 一个用来播放，一个用来录制
 2. 再放一个按钮和进度条来开始录制和显示进度
@@ -8,7 +8,7 @@
 4. 把录好的视频与源视频左右合成
 5. 预览合成好的视频
 
-### 界面搭建
+## 界面搭建
 首先来开始工程的创建，打开 Xcode, File - New - Project，然后起好工程名创建工程，这里方便起见叫做 Demo，因为要录像，所以我们需要相机和麦克风的权限，在 Info 中配置一下增加以下两项：
 ```
 Privacy - Microphone Usage Description
@@ -24,7 +24,7 @@ Privacy - Camera Usage Description
 ![6绑定View](https://main.qcloudimg.com/raw/cbdc197ae0ac5856413efb956dd5893d.png)
 
 
-### 代码部分
+## 代码部分
 
 对于合唱功能主要使用三大块功能： 播放、录制、以及录制后和原视频进行合成，这三个功能对应到 SDK 的类为： TXVideoEditer、TXUGCRecord、TXVideoJoiner。
 
@@ -41,7 +41,7 @@ Privacy - Camera Usage Description
 
 1. 首先是声明与初始化。
     打开 ViewContorller.m，引用 SDK 并声明上述三个类的实例。另外这里播放、录制和合成视频都是异步操作，需要监听他们的事件，所以要加上实现 TXVideoJoinerListener, TXUGCRecordListener, TXVideoPreviewListener 这三个协议的声明。加好后如下所示：
-```objective-c
+    ```objective-c
     #import "ViewController.h"
     @import TXLiteAVSDK_UGC;
 
@@ -65,9 +65,9 @@ Privacy - Camera Usage Description
     - (IBAction)onTapButton:(UIButton *)sender;
     @end
     ```
-准备好成员变量和接口实现声明后，我们在viewDidLoad中对上面的成员变量进行初始化。
- ```objc
- - (void)viewDidLoad {
+    准备好成员变量和接口实现声明后，我们在viewDidLoad中对上面的成员变量进行初始化。
+    ```objective-c
+    - (void)viewDidLoad {
         [super viewDidLoad];
         // 这里找一段mp4视频放到了工程里，或者用手机录制的mov格式视频也可以
         NSString *mp4Path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"];
@@ -119,6 +119,7 @@ Privacy - Camera Usage Description
         [_joiner setVideoPathList:@[_recordPath, mp4Path]];
     }
     ```
+    
 2. 接下来是录制部分，只要响应用户点击按钮调用SDK方法就可以了，为了方便起见，这里复用了这个按钮来显示当前状态。另外加上在进度条上显示进度的逻辑。
     ```objective-c
     - (IBAction)onTapButton:(UIButton *)sender {
@@ -228,4 +229,4 @@ Privacy - Camera Usage Description
     @end
     ```
 
-至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考小视频源码, 下载页面: [https://cloud.tencent.com/document/product/584/9358](https://cloud.tencent.com/document/product/584/9358)。
+至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考  [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)。

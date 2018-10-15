@@ -6,7 +6,10 @@
 | -------------------- | -------- |
 | [WebRTCAPI.fn.detectRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc)     | 检测是否支持 WebRTC |
 | [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)     | 初始化 |
-| [WebRTCAPI.createRoom](https://cloud.tencent.com/document/product/647/17251#webrtcapi.createroom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17251#webrtcapi.getlocalstream)     | 获取本地音频/视频流 |
+| [WebRTCAPI.enterRoom ](https://cloud.tencent.com/document/product/647/17251#webrtcapi.enterRoom)     | 创建或进入音视频房间 |
+| [WebRTCAPI.startRTC](https://cloud.tencent.com/document/product/647/17251#webrtcapi.startrtc)   | 主动推流才需要用到 |
+| [WebRTCAPI.stopRtc](https://cloud.tencent.com/document/product/647/17251#webrtcapi.startrtc)   | 停止推流 |
 | [WebRTCAPI.quit](https://cloud.tencent.com/document/product/647/17251#webrtcapi.quit)     | 退出音视频房间 |
 
 ### 基础事件通知
@@ -25,9 +28,6 @@
 
 | API                   |  描述            |
 | -------------------- | -------- |
-| [WebRTCAPI.startRTC](https://cloud.tencent.com/document/product/647/17250#webrtcapi.startrtc)   | 主动推流才需要用到 |
-| [WebRTCAPI.stopRtc](https://cloud.tencent.com/document/product/647/17250#webrtcapi.startrtc)   | 停止推流 |
-| [WebRTCAPI.getLocalStream](https://cloud.tencent.com/document/product/647/17250#webrtcapi.getlocalstream)     | 获取本地音频/音频流 |
 | [WebRTCAPI.updateStream](https://cloud.tencent.com/document/product/647/17250#webrtcapi.updatestream)     | 更新视频流 |
 | [WebRTCAPI.openVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.openvideo)     | 推流期间重新打开视频采集 |
 | [WebRTCAPI.closeVideo](https://cloud.tencent.com/document/product/647/17250#webrtcapi.closevideo)     | 推流期间暂时关闭视频采集 |
@@ -46,3 +46,21 @@
 | 事件                   |  描述            |
 | -------------------- | -------- |
 | [onPeerConnectionAdd](https://cloud.tencent.com/document/product/647/17252#onpeerconnectionadd)     | PeerConnection 新增通知 ，请确保您已经了解了 peer connection 通知的作用和意义 |
+
+
+
+
+
+### 更新日志
+> 2.6.1
+    ## WebRTCAPI.getSpeakerDevices
+        枚举音频输出设备
+    ## WebRTCAPI.chooseSpeakerDevice
+        枚举音频输出设备
+
+
+### 联系我们
+
+关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
+
+![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)

@@ -90,7 +90,7 @@ ps -A -o comm |sort -k1 |uniq -c|sort -k1 -rn|head，列出运行实例最多的
 </td></tr></tbody></table>
 
 其他常用的命令和文件，free -m，du，uptime，w，/proc/stat，/proc/cpuinfo，/proc/meminfo。 
-参考资料：http://en.wikipedia.org/wiki/Template:Unix_commands，http://www.linuxmanpages.com/ 
+参考资料：http://en.wikipedia.org/wiki/Template:Unix_commands 
 
 ## 12. Cron不生效怎么办？
 排查步骤如下：

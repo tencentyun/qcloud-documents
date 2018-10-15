@@ -1,7 +1,7 @@
 本文将指导您的观众端如何加入一个直播房间，并打开摄像头麦克风与其他用户视频互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/iOS/demo_join.zip)
 ## 加入房间
 加入房间的方法在 ILiveRoomManager.h 中，跟创建房间的方法一样，该方法也需要传入两个参数，房间 ID  roomId 和房间配置对象  option （加入房间的 roomId 要和创建的 roomId 一致），创建配置对象时，我们要关闭自动打开摄像头和麦克风。
@@ -10,11 +10,11 @@
 - (IBAction)onJoinRoom:(id)sender {
     // 1. 创建live房间页面
     LiveRoomViewController *liveRoomVC = [[LiveRoomViewController alloc] init];
-    
+
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
     // 配置进房票据
-    option.privateMapKey = privateMapKey;
+    option.avOption.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 不自动打开摄像头
     option.avOption.autoCamera = NO;
@@ -24,10 +24,10 @@
     option.memberStatusListener = liveRoomVC;
     // 设置房间中断事件监听
     option.roomDisconnectListener = liveRoomVC;
-    
+
     // 该参数代表进房之后使用什么规格音视频参数，参数具体值为客户在腾讯云实时音视频控制台画面设定中配置的角色名（例如：默认角色名为user, 可设置controlRole = @"user"）
     option.controlRole = #腾讯云控制台配置的角色名#;
-    
+
     // 3. 调用创建房间接口，传入房间ID和房间配置对象
     [[ILiveRoomManager getInstance] joinRoom:[self.roomIDTF.text intValue] option:option succ:^{
         // 加入房间成功，跳转到房间页
@@ -117,18 +117,18 @@
 - (void)onCameraNumChange {
     // 获取当前所有渲染视图
     NSArray *allRenderViews = [[TILLiveManager getInstance] getAllAVRenderViews];
-    
+
     // 检测异常情况
     if (allRenderViews.count == 0) {
         return;
     }
-    
+
     // 计算并设置每一个渲染视图的frame
     CGFloat renderViewHeight = [UIScreen mainScreen].bounds.size.height / allRenderViews.count;
     CGFloat renderViewWidth = [UIScreen mainScreen].bounds.size.width;
     __block CGFloat renderViewY = 0.f;
     CGFloat renderViewX = 0.f;
-    
+
     [allRenderViews enumerateObjectsUsingBlock:^(ILiveRenderView *renderView, NSUInteger idx, BOOL * _Nonnull stop) {
         renderViewY = renderViewY + renderViewHeight * idx;
         CGRect frame = CGRectMake(renderViewX, renderViewY, renderViewWidth, renderViewHeight);
@@ -150,7 +150,3 @@
 
 切换角色失败，错误码 - 1 。
 > 这表示配置后台找不到要切换角色，这里需要确认角色名是否填写正常（区分大小写）。
-
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

@@ -6,7 +6,7 @@
 
 ## 效果演示
 - **PC 端**
-用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/miniApp/) 可以体验桌面版 WebRTC 的效果。
+用 Chrome 浏览器打开 [体验页面](https://www.qcloudtrtc.com/miniApp/index.html#/) 可以体验桌面版 WebRTC 的效果。
 
 - **Android 端**
 用 Android 手机 [下载 App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装 App 即可体验 Android 的效果。
@@ -24,7 +24,7 @@
 
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，单击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
-![](https://main.qcloudimg.com/raw/00d3215b9865159429097ad7a9df4395.jpg)
+![](https://main.qcloudimg.com/raw/36310afb4121a945d1119c51c3334c36.png)
 
 ## 对接资料
 
@@ -36,20 +36,30 @@
 
 ## 标签详解
 ### 属性定义
-| 属性      | 类型    | 值           | 说明       |
+| 属性      | 类型    | 默认值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
-| sdkAppID    | String  | ‘’                      | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
-| userID     | String  | ''                   |必要，用户 ID |
-| userSig    | String  | ‘’                      | 必要，身份签名，相当于登录密码的作用    |
-| roomID    | Number  | ‘’                      | 必要，房间号                           |
-| privateMapKey    | String  | ‘’                 | 必要，房间权限 key，相当于进入指定房间 roomID 的钥匙      |
-| beauty    | Number  | 0~5                     | 可选，默认 5, 美颜级别 0～5  |
-| muted     | Boolean | true, false             | 可选，默认 false，是否静音    |
-| debug     | Boolean | true, false             | 可选，默认 false，是否打印推流 debug 信息   |
-| bindRoomEvent     | function |              | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
-| enableIM     | Boolean | true, false             | 可选，默认false   |
-| bindIMEvent     | function |             | 当IM开启时必要，监听 IM 返回的事件   |
+| sdkAppID    | String  |                       | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
+| userID     | String  |                   |必要，用户 ID |
+| userSig    | String  |                     | 必要，身份签名，相当于登录密码的作用    |
+| roomID    | Number  |                      | 必要，房间号                           |
+| privateMapKey    | String  |                 | 必要，房间权限 key，相当于进入指定房间 roomID 的钥匙      |
+| beauty    | Number  | 5                     | 可选， 美颜指数，取值 0 - 9，数值越大效果越明显  |
+| whiteness | String | 5                      | 可选， 美白指数，取值 0 - 9，数值越大效果越明显 |
+| muted     | Boolean | false             | 可选，true 静音 false 不静音    |
+| debug     | Boolean | false             | 可选，true 打印推流 debug 信息 fales 不打印推流 debug 信息  |
+| bindRoomEvent     | Function |              | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
+| enableIM     | Boolean | true             | 可选，是否启用IM, true   |
+| bindIMEvent     | Function |             | 当IM开启时必要，监听 IM 返回的事件   |
+| userName | String |  | 可选，IM昵称 |
+| aspect | String | 9:16 | 可选， 宽高比3:4, 9:16 |
+| minBitrate | String | 200 | 可选，最小码率，该数值决定了画面最差的清晰度表现 |
+| maxBitrate | String | 400 | 可选，最大码率，该数值决定了画面最好的清晰度表现 |
+| autoplay | Boolean | false | 可选，进入房间后是否自动播放房间中其他的远程画面 true 自动播放 false 不自动播放 |
+| enableCamera | Boolean | true | 可选，开启\关闭摄像头 |
+| pureAudioPushMod | Number |  | 可选，纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制mp3文件 <br/> 2 => 本次是纯音频推流,录制文件为mp3 |
+| recordId | Number |  | 可选，自动录制时业务自定义id，将在录制完成后通过[直播录制回调](https://console.cloud.tencent.com/live/livecodemanage) 接口通知业务方，`注意：如果小程序与小程序或者小程序与Web端互通，且传了recordId，必须保证web端和小程序传递的值一致` |
+
 
 > 小程序实时音视频与 WebRTC 互通只需要保证两端的 sdkAppID 与 roomID 一致
 
@@ -64,11 +74,79 @@
 | resume()                                     | 恢复    |
 | stop()                                          | 停止     |
 | switchCamera()                           | 切换摄像头   |
+| enableVideo() | 打开或者关闭某一路画面 |
+| enableAudio() | 打开或者关闭某一路声音 |
+| sendC2CTextMsg(receiveUser, msg, succ, fail) | 发送C2C文本消息 |
+| sendC2CCustomMsg(receiveUser, msgObj, succ, fail) | 发送C2C自定义消息 |
+| sendGroupTextMsg(msg, succ, fail) | 发送群组文本消息 |
+| sendGroupCustomMsg(msgObj, succ, fail) | 发送群组自定义消息 |
 
 ```
 var webrtcroom = this.selectComponent("#webrtcroomid")
 webrtcroom.pause();
 ```
+#### enableVideo 
+
+> 打开或者关闭某一路画面
+
+`注意：该功能是模拟实现的，目前还不支持关闭对端的画面而只听对端的声音，这里的功能实现只是在画面上做了一层遮罩，达到一个伪效果，遮罩层的图片可以根据业务需要自行替换`
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+enable | Boolean | 是 | 打开/关闭画面
+userid | Function | 是 | 要打开/关闭的画面的userid
+
+#### enableAudio 
+
+> 打开或者关闭某一路声音
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+enable | Boolean | 是 | 打开/关闭声音
+userid | Function | 是 | 要打开/关闭的声音的userid
+
+#### sendC2CTextMsg
+
+> 发送C2C文本消息
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+receiveUser | String | 是 | 接收人的userid
+msg | String | 是 | 消息内容
+succ | Function | 否 | 发送成功的回调
+fail | Function | 否 | 发送失败的回调
+
+#### sendC2CCustomMsg
+
+> 发送C2C自定义消息
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+receiveUser | String | 是 | 接收人的userid
+msgObj | Object | 是 | {data: '消息内容', ext: '', desc: ''}
+succ | Function | 否 | 发送成功的回调
+fail | Function | 否 | 发送失败的回调
+
+#### sendGroupTextMsg
+
+> 发送群组文本消息
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+msg | String | 是 | 消息内容
+succ | Function | 否 | 发送成功的回调
+fail | Function | 否 | 发送失败的回调
+
+#### sendGroupCustomMsg
+
+> 发送群组自定义消息
+
+参数	| 类型	| 是否必填 | 描述
+--------- | --------- | ----- | --------- |
+msgObj | Object | 是 | {data: '消息内容', ext: '', desc: ''}
+succ | Function | 否 | 发送成功的回调
+fail | Function | 否 | 发送失败的回调
+
 
 ### 事件通知
 **&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回 IM 消息事件，事件参数格式如下
@@ -183,18 +261,18 @@ Page({
 - 在 page 目录下的 wxml 文件中使用标签
 ```xml
 <webrtc-room id="webrtcroomid"
-		roomID="{{roomID}}"
-		userID="{{userID}}"
-		userSig="{{userSig}}"
-		sdkAppID="{{sdkAppID}}"
-		privateMapKey="{{privateMapKey}}"
-		template="1v3"
-		beauty="{{beauty}}"
-		muted="{{muted}}"
-		debug="{{debug}}"
-		bindRoomEvent="onRoomEvent"
-		enableIM="{{enableIM}}"
-		bindIMEvent="onIMEvent">
+    roomID="{{roomID}}"
+    userID="{{userID}}"
+    userSig="{{userSig}}"
+    sdkAppID="{{sdkAppID}}"
+    privateMapKey="{{privateMapKey}}"
+    template="1v3"
+    beauty="{{beauty}}"
+    muted="{{muted}}"
+    debug="{{debug}}"
+    bindRoomEvent="onRoomEvent"
+    enableIM="{{enableIM}}"
+    bindIMEvent="onIMEvent">
 </webrtc-room>
 ```
 

@@ -80,8 +80,8 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  videoHeight()|  无|  (Number)|  获取视频分辨率的高度|  
 |  dispose()|  无|  无|  销毁播放器|  
 
->**注意事项：**
-> * 部分方法不能同步调用
+>**注意事项：** 
+> * 对象方法不能同步调用，需要在相应的事件（例如 loadedmetadata ）触发后才可以调用，除了ready、on、one、off。
 
 ## 事件
 播放器可以通过初始化返回的对象进行事件监听，示例：
@@ -112,7 +112,8 @@ player.on(type, function);
 |  waiting|  播放停止，下一帧内容不可用时触发|  
 |  ended|  视频播放已结束时触发。此时 currentTime 值等于媒体资源最大值|  
 |  resolutionswitching|  清晰度切换进行中|  
-|  resolutionswitched|  清晰度切换完毕|  
+|  resolutionswitched|  清晰度切换完毕|
+|  fullscreenchange| 全屏状态切换时触发|
 
 ## 错误码
 当播放器触发 error 事件时，监听函数会返回错误码。错误码列表：

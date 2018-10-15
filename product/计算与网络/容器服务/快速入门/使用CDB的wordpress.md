@@ -11,12 +11,12 @@
   ### 第一步：创建云数据库 CDB
   1) 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
   2) 单击私有网络列表页的 ID/名称（如：vpc-xxxxx）。
-  ![](https://mc.qcloudimg.com/static/img/33830d9c88d9cb332b1ce148588cdbf5/image.png)
+  ![](https://main.qcloudimg.com/raw/2fd34e7264abffa5b68169e234bb594e/cdb1.png)
   3) 在私有网络详情页，选择数据库目录下的 **MySQL**，单击右侧【添加】。
   ![](https://mc.qcloudimg.com/static/img/6b93fb0bc0ea4937a77ce77564934ed5/image.png)
   4) 选择购买配置，完成系列支付操作。相关详情请参见 [数据库MySQL](/doc/product/236/5147)。
   5) 购买的 MySQL 将出现在 MySQL 实例列表中。
-  ![](https://mc.qcloudimg.com/static/img/d5d50b0f9406856b875ba1171e7e8a1f/image.png)
+  ![](https://main.qcloudimg.com/raw/7e3436e89411d57e2427b146c9640271/cdb2.png)
   6) 初始化 MySQL 实例。单击右侧 **操作** 栏下的【初始化】。
   ![](https://mc.qcloudimg.com/static/img/2f548123653b1b80b90bd61c74ac495f/image.png)
   7) 配置初始化相关参数，然后单击【确定】开始初始化。
@@ -33,13 +33,13 @@
   ### 第二步：创建使用 CDB 的 WordPress 服务
   1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
   2) 单击左侧导航栏中的【服务】，单击服务列表页的【+ 新建】。
-  ![](https://mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
+  ![](https://main.qcloudimg.com/raw/c384dfc1a29e48d0e19955aee4ad56b4.png)
   3) 设置服务的基本信息。
    - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。
    - **所在地域**：建议您根据所在地理位置选择靠近的地域。
    - **运行集群**：选择服务所要运行的集群。运行集群需要选择运行中和集群内有可用主机的集群。
    - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
-    ![](https://mc.qcloudimg.com/static/img/9254649a08d86761bcb8287fe5a45141/image.png)
+    ![](https://main.qcloudimg.com/raw/6095285ef5a0c007ad84acaf5c6f53a1.png)
 
   4) 镜像配置。
    - **名称**：输入运行容器的名称，此处以 wordpress 为例。
@@ -62,7 +62,8 @@
   ## 访问 WordPress 服务
   1) 提供三种方式访问 WordPress 服务。
    - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的【服务信息】查看负载均衡 IP 和负载均衡 ID。 
-    ![](https://mc.qcloudimg.com/static/img/f92f30a3360c46ac0e6e76d045f4484f/image.png) 
+    ![](https://main.qcloudimg.com/raw/6b41f179c5bfaf9df8ee8d3fa6aa8228.png) 
+		![](https://main.qcloudimg.com/raw/0c696c05062ebe37742df7e914621d29.png)
    - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡ID，复制域名访问服务。
    - 集群内的其他服务或容器可以直接通过服务名称访问。
 

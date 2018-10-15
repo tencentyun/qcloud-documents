@@ -6,7 +6,7 @@
 
 ### 下载 ImSDK
 
-从官网下载 ImSDK，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 `webim sdk` 库，提供了聊天，群组管理，资料管理，关系链（好友，黑名单）管理功能。包含以下库文件：
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 `webim sdk` 库，提供了聊天，群组管理，资料管理，关系链（好友，黑名单）管理功能。包含以下库文件：
 
 ```
 sdk/webim.js
@@ -19,7 +19,7 @@ Demo 目录结构如下：
 
 Demo 主要 JavaScript 文件功能说明如下：
 
-```
+```html
 <!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
 <script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
 <!--用于获取文件MD5 js api(发送图片时用到)-->
@@ -75,7 +75,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 首先引入 Web SDK：
 
-```
+```html
 <script type="text/javascript" src="sdk/json2.js"></script>
 <!--web im sdk-->
 <script type="text/javascript" src="sdk/webim.js"></script>

@@ -1,6 +1,6 @@
 ## Overview
 
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for C++ developers to debug and integrate the APIs for Game Multimedia Engine (GME).
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides an overview that makes it easy for Windows developers to debug and integrate the APIs for Game Multimedia Engine.
 
 
 ## How to Use
@@ -9,21 +9,25 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, please see [API Documentation](https://intl.cloud.tencent.com/document/product/607/15232).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](/document/product/607/15232).
 
 
 | Important API | Description |
-| ------------- |-------------|
-|Init   				|Initializes GME 	|
-|Poll    				|Triggers event callback	|
-|EnterRoom	 		|Enters a room  			|
-|EnableMic	 		|Enables the microphone 		|
-|EnableSpeaker		|Enables the speaker 		|
+| ------------- |:-------------:|
+|Init		    		|Initializes GME 	|
+|Poll    			|Triggers event callback	|
+|EnterRoom	 		|Enters a room  		|
+|EnableMic	 		|Enables the microphone 	|
+|EnableSpeaker			|Enables the speaker 	|
 
-**Note:**
+
+**Notes:**
 **When a GME API is called successfully, QAVError.OK is returned, and the value is 0.**
 **GME APIs are called in the same thread.**
-**The request for entering a room via GME API should be authenticated. For more information, please see authentication section in relevant documentation.**
+**The request for entering a room via GME API should be authenticated. For more information, see authentication section in relevant documentation.**
+
+**The Poll API is called for GME to trigger event callback.**
+
 
 ## Procedure for Quick Integration
 
@@ -40,8 +44,8 @@ context->SetTMGDelegate(this);
 
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
-This API should contain SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
+For more information on how to obtain parameters, see [GME Integration Guide](/document/product/607/10782).
+This API should contain SdkAppId and openId. The SdkAppId is obtained from the Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype
 
@@ -51,7 +55,7 @@ ITMGContext virtual void Init(const char* sdkAppId, const char* openId)
 
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| sdkAppId    	|char*  	|The SdkAppId obtained from Tencent Cloud console					|
+| sdkAppId    	|char*  	|The SdkAppId obtained from the Tencent Cloud console					|
 | openID    		|char*   	|The OpenID supports Int64 type (which is passed after being converted to a string) only. It is used to identify users and must be greater than 10000. 	|
 
 #### Sample code 
@@ -87,22 +91,22 @@ This API is used to enter a room with the generated authentication information, 
 
 #### Function prototype
 ```
-ITMGContext virtual void EnterRoom(int relationId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
+ITMGContext virtual void EnterRoom(const char*  roomId, ITMG_ROOM_TYPE roomType, const char* authBuff, int buffLen)
 ```
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
-| relationId			|int   				| Room number. 32-bit is supported. |
+| roomID			|char*     		|Room number supports Int32 type (which is passed after being converted to a string) |
 | roomType 			|ITMG_ROOM_TYPE	| Audio type of the room	|
 | authBuffer    		|char*    				| Authentication key			|
 | buffLen   			|int   				| Length of the authentication key		|
 
 | Audio Type | Meaning | Parameter | Volume Type | Recommended Sampling Rate on the Console | Application Scenarios |
 | ------------- |------------ | ---- |---- |---- |---- |
-| ITMG_ROOM_TYPE_FLUENCY			|Fluent	|1|Speaker: chat volume; headset: media volume 	| 16k sampling rate is recommended if there is no special requirement for sound quality					| With fluent sound and ultra-low latency, it allows voice chat and is suitable for team speak scenario in such games as FPS and MOBA.	|							
-| ITMG_ROOM_TYPE_STANDARD			|Standard	|2|Speaker: chat volume; headset: media volume	| Choose 16k or 48k sampling rate depending on different requirements for sound quality				| With good sound quality and medium latency, it is suitable for real time chat scenarios in casual games such as Werewolf, chess and card games.	|												
-| ITMG_ROOM_TYPE_HIGHQUALITY		|High-quality	|3|Speaker: media volume; headset: media volume	| To ensure optimum effect, it is recommended to enable HQ configuration with 48k sampling rate	| With ultra-high sound quality and high latency, it is suitable for scenarios demanding high sound quality, such as music playback and online karaoke.	|
+| ITMG_ROOM_TYPE_FLUENCY			|Fluent	|1|Speaker: chat volume; headset: media volume | 16k (if there is no special requirement for sound quality) | With high fluency and ultra-low delay, it is suitable for team speak scenarios in such games as FPS and MOBA. |							
+| ITMG_ROOM_TYPE_STANDARD			|Standard	|2|Speaker: chat volume; headset: media volume	| 16k or 48k, depending on the requirement for sound quality	| With good sound quality and medium delay, it is suitable for voice chat scenarios in casual games such as Werewolf and board games.	|												
+| ITMG_ROOM_TYPE_HIGHQUALITY		|HD	|3|Speaker: media volume; headset: media volume	| 48k is recommended to ensure the best effect	| With ultra-high sound quality and high delay, it is suitable for music and voice social Apps, and scenarios demanding high sound quality, such as music playback and online karaoke.	|
 
-- If you have special requirement for audio type or scenarios, contact the customer service.
+- If you have special requirements for volume types or scenarios, contact the customer service.
 - The sound effect in a game depends directly on the sampling rate set on the console. Please confirm whether the sampling rate you set on the [console](https://console.cloud.tencent.com/gamegme) is suitable for the project's application scenario.
 
 #### Sample code  
@@ -113,16 +117,11 @@ context->EnterRoom(roomId, ITMG_ROOM_TYPE_STANDARD, (char*)retAuthBuff,bufferLen
 
 ### 5. Callback for entering a room
 This API is used to send the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message after a user enters a room, which is checked in the OnEvent function.
-#### Sample code  
+
+#### Sample code 
+
 ```
 // ITMGDelegate is inherited from the header file and declaration is made.
-class TMGTestScene : public cocos2d::Scene,public ITMGDelegate
-{
-public:
-    void OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data);
-    ...	
-}
-
 //Implementation
 void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 	switch (eventType) {
@@ -142,7 +141,6 @@ This API is used to enable/disable the microphone. Microphone and speaker are no
 ```
 ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 ```
-
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
@@ -159,7 +157,6 @@ This API is used to enable/disable the speaker.
 ```
 ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 ```
-
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
@@ -171,26 +168,28 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
 
 ## Authentication
 ### Voice chat authentication
-AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, please see [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).  
+AuthBuffer is generated for encryption and authentication of appropriate features. For more information on how to obtain relevant parameters, see [GME Key](/document/product/607/12218).  
+When voice message is obtaining authentication, the parameter of room number must be set to 0.
 
 #### Function prototype
 ```
-QAVSDK_API int QAVSDK_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int appId, unsigned int authId, const char* strOpenID, const char* key, unsigned int expTime, unsigned int privilegeMap, unsigned char* retAuthBuff, unsigned int* buffLenght);
+QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int nAppId, const char* dwRoomID, const char* strOpenID, const char* strKey, unsigned char* strAuthBuffer, unsigned int bufferLength);
 ```
+
 | Parameter | Type | Description |
-| ------------- |:-------------:|-------------
-| appId    		|int   		| The SdkAppId obtained from Tencent Cloud console		|
-| authId    		|int  		| Name of the room to be entered							|
+| ------------- |:-------------:|-------------|
+| nAppId    			|int   		| The SdkAppId obtained from the Tencent Cloud console		|
+| dwRoomID    		| char*    		|Room number supports Int32 type (which is passed after being converted to a string)|
 | strOpenID  		|char*    		| User ID								|
-| key    			|char*	    	| The key obtained from Tencent Cloud console		|
-| expTime    		|int   		| authBuffer timeout						|
-| privilegeMap   	|int    		| Permission (ITMG_AUTH_BITS_DEFAULT indicates full access) |
-| retAuthBuff   	|char*    		| Returned authbuff							|
-| buffLenght   	|int    		| Length of returned authbuff					|
+| strKey    			|char*	    	| The key obtained from the Tencent Cloud console		|
+|strAuthBuffer		|char*    	| Returned authbuff				|
+| buffLenght   		|int    		| Length of returned authbuff					|
 
 
 #### Sample code  
 ```
-QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY, expTime, ITMG_AUTH_BITS_DEFAULT, retAuthBuff, &bufferLen);
+unsigned int bufferLen = 512;
+unsigned char retAuthBuff[512] = {0};
+QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strAuthBuffer,&bufferLen);
 ```
 

@@ -20,7 +20,7 @@
 | ----------- | ---------- | ---------- |
 | code       |  String    | 身份证 OCR 识别结果的返回码</br>0：识别成功</br>其他：识别失败        |
 | warning    | String  | Code=0 是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据 warning 来确定     |
-| msgstring  | String  | 请求结果描述        |
+| msg  | String  | 请求结果描述        |
 | ocrId      | String    | 保留字段，内部标识        |
 | orderNo    |  String    | 订单号，由合作方上送，每次唯一，此信息为本次身份证 OCR 识别上送的信息        |
 | name       | String    | 身份证识别结果：姓名         |
@@ -31,3 +31,5 @@
 | address    | String  | 身份证识别结果：住址</br>如果用户没有正确上传身份证反面，则没有该字段   |
 | authority  | String  | 身份证识别结果：签发机关</br>如果用户没有正确上传身份证反面，则没有该字段    |
 | validDate  |  String    | 身份证识别结果：有效日期</br>如果用户没有正确上传身份证反面，则没有该字段     |
+| multiWarning | String | 正面 / 反面多重告警码，含义请参考【[通用响应码列表](https://cloud.tencent.com/document/product/655/13819)】 |
+| clarity      | String | 图片清晰度                  |

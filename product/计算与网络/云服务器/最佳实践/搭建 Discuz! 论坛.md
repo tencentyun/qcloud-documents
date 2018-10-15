@@ -27,7 +27,7 @@ PHP：Web 服务器生成网页的程序。
 - 需要购买腾讯云云服务器。
 
 #### 已有腾讯云服务器，只安装镜像
-1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，单击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
+1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，单击左侧导航【云主机】，找到您想要搭建 Discuz! 的云服务器。
 单击右侧菜单的【更多】，选择【重装系统】
 ![云主机](//mc.qcloudimg.com/static/img/5abc4a177ce635a8357b03ee7061c57e/image.png)
 2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据您的需要进行选择。
@@ -100,7 +100,7 @@ PHP：Web 服务器生成网页的程序。
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
 ### 步骤一：创建云服务器 
 1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。购买指南请参考 [创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2972)
-2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云主机状态。
+2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云服务器状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 本教程中云服务器实例的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
@@ -167,7 +167,7 @@ phpinfo()
 输入完成后，按“Esc”键，输入 “:wq”，保存文件并返回。
 3. 在浏览器中，访问该`test.php`文件，查看环境配置是否成功：
 ```
-http://云主机的公网 IP/test.php 
+http://云服务器的公网 IP/test.php 
 ```
 出现以下页面,则说明 LAMP 环境配置成功。
 ![环境验证](//mc.qcloudimg.com/static/img/3e2a1d07e4429d640461b64956b240cb/image.png)

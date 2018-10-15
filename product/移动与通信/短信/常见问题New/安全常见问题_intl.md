@@ -10,7 +10,7 @@ SMS bombing is a method of sending massive SMS verification messages to numerous
 If harassed by SMS bombing, users will complain a lot and SMS channels will be unavailable. Besides, the business side will also suffer heavy economic losses. Therefore, SMS bombing must be prevented in advance.
 Because SMS bombing is generally implemented on servers, it is recommended to apply the following methods to defend against it:
 1. Limit the number of requests from the same IP address.
-2. Limit the number of SMS messages sent from the same phone number by setting the [delivery frequency limit](https://cloud.tencent.com/document/product/382/13483#.E9.85.8D.E7.BD.AE.E9.A2.91.E7.8E.87.E9.99.90.E5.88.B6) on the console.
+2. Limit the number of SMS messages sent from the same phone number by setting the [delivery frequency limit](https://intl.cloud.tencent.com/document/product/382/13483#configuring-frequency-limit) on the console.
 3. Check the sending of SMS messages regularly (for example, daily), and view the specific data in the SMS console. Resolve any exception immediately. Suspend the SMS service in the SMS console if an emergency arises.
 
 ### What are the differences between China SMS messaging and international SMS messaging?

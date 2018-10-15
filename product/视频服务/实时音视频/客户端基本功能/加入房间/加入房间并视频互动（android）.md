@@ -1,16 +1,16 @@
 本文将指导您的客户端加入一个房间，并自己打开摄像头麦克风与其他用户互动。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [ Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_join.zip)
 
 ## 相关概念
 * [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
 * [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
 * [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
-* 摄像头 id （cameraId） 
+* 摄像头 id （cameraId）
   Andorid 手机中一般有两个摄像头: 前置摄像头和后置摄像头，SDK 通过 cameraId 来区分。
-	
+
 |常量|描述|
 |--|--|
 |ILiveConstants.NONE_CAMERA|无效摄像头 id(一般表示摄像头未开启)|
@@ -44,7 +44,7 @@
         });
     }
 ```
- 
+
 ## 打开采集设备（摄像头和麦克风）
 如果需要上行音视频与其他用户互动，您就需要在房间模块中添加两个接口分别用于控制摄像头和麦克风。
 ```
@@ -69,6 +69,3 @@
 ```
 ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
 ```
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
