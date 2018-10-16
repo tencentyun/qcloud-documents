@@ -23,7 +23,6 @@
     // 加入房间
     public int joinRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
-                .privateMapKey(privateMapKey)   // 进房票据
                 .imsupport(false)       // 不需要IM功能
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
@@ -64,8 +63,4 @@
 
 ## 常见问题
 #### 进房失败，提示没有权限
-确认正确配置了进房票据privateMapKey
-> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
-```
-ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
-```
+确认正确配置了进房票据privateMapKey，若控制台在【帐号信息】开启【启用权限密钥】,则privateMapKey为必填字段
