@@ -1,6 +1,6 @@
-## 下载 Cloudbase-Init 工具安装包
+## 下载 cloudbase-init 工具安装包
 
-请根据实际使用的操作系统位数，下载对应版本的 Cloudbase-init 工具安装包进行安装。具体详情请参见 [Cloudbase-Init官网](http://www.cloudbase.it/cloud-init-for-windows-instances/)。
+请根据实际使用的操作系统位数，下载对应版本的 cloudbase-init 工具安装包进行安装。具体详情请参见 [Cloudbase-Init 官网](http://www.cloudbase.it/cloud-init-for-windows-instances/)。
 
 Cloudbase-init 分为以下版本：
 - 稳定版本：推荐使用该版本安装包进行安装。
@@ -9,9 +9,9 @@ Cloudbase-init 分为以下版本：
 	- Windwos 32位 操作系统：https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x86.msi
 - Beta 版本
 
-## 安装 Cloudbase-Init
+## 安装 cloudbase-init
 
-安装 Cloudbase-Init 的过程中，请注意以下两点：
+安装 cloudbase-init 的过程中，请注意以下两点：
 
 - **在 “Configuration options” 窗口中，请按照下图的内容进行配置。即将 “Serial port for logging” 设置为 “COM1”。**
 ![Alt text](https://main.qcloudimg.com/raw/beaca64e8484ec7e9880703cad400717.png)
@@ -19,10 +19,10 @@ Cloudbase-init 分为以下版本：
 - **在安装完成的最后一步时，请勿勾选任何复选框，不运行 Sysprep。如下图所示：**
 ![Alt text](https://main.qcloudimg.com/raw/aceec91df6a51db2eca775f3350de88c.png)
 
-## 修改 Cloudbase-Init 配置文件 
+## 修改 cloudbase-init 配置文件 
 
-1. 打开 Cloudbase-Init 配置文件（配置文件的路径为： \PATH\TO\Cloudbase Solutions\Cloubase-Init\conf\cloudbase-init.conf）。
-2. 将 Cloudbase-Init 配置文件替换为以下内容：
+1. 打开 cloudbase-init 配置文件（配置文件的路径为：\PATH\TO\Cloudbase Solutions\Cloubase-Init\conf\cloudbase-init.conf）。
+2. 将 cloudbase-init 配置文件替换为以下内容：
 
 	```
 	[DEFAULT]
