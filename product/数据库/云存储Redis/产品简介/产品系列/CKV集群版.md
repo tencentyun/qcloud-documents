@@ -66,14 +66,14 @@ CKV集群版仅支持以下密码格式，“实例 id:密码” 的格式类型
 | 　 | 　 | hvals | 　 |  | rpushx | 　 | 　 |
 | 　 | 　 | hscan | 　 |  | 　 | 　 | 　 |
 
-|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |**server 族** | 
-| --- | --- | --- | --- | --- |
-| sadd | zadd | append | discard | command |
-| scard | zcard | bitcount | exec | dbsize |
-| sdiff | zcount | bitop | multi |
-| sdiffstore | zincrby | bitpos | unwatch |
-| sinter | zinterstore | decr | watch |
-| sinterstore | zlexcount | decrby | 　 |
+|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |**server 族** |  **scripting 族** |
+| --- | --- | --- | --- | --- | --- | 
+| sadd | zadd | append | discard | command | eval |
+| scard | zcard | bitcount | exec | dbsize | script debug |
+| sdiff | zcount | bitop | multi | | script flush |
+| sdiffstore | zincrby | bitpos | unwatch | | script kill|
+| sinter | zinterstore | decr | watch | |script load|
+| sinterstore | zlexcount | decrby | 　 | | script exists|
 | sismember | zrange | get | 　 |
 | smembers | zrangebylex | getbit | 　 |
 | smove | zrangebyscore | getrange | 　 |
@@ -96,13 +96,13 @@ CKV集群版仅支持以下密码格式，“实例 id:密码” 的格式类型
 
 | **cluster 族** | **connection 族** | **keys 族** | **lists 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- |
-| cluster addslots | swapdb | touch | blpop | eval | bgrewriteaof | bitfield |
-| cluster count-failure-reports | 　 | restore | brpop | evalsha | bgsave | 　 |
-| cluster delslots | 　 | object | brpoplpush | script debug | client kill | 　 |
-| cluster failover | 　 | unlink | 　 | script exists | client list | 　 |
-| cluster forget | 　 | wait | 　 | script flush | client getname | 　 |
-| cluster meet | 　 | migrate | 　 | script kill | client pause | 　 |
-|cluster replicate  | 　 | dump | 　 | script load | client reply | 　 |
+| cluster addslots | swapdb | touch | blpop | evalsha | bgrewriteaof | bitfield |
+| cluster count-failure-reports | 　 | restore | brpop |  | bgsave | 　 |
+| cluster delslots | 　 | object | brpoplpush |  | client kill | 　 |
+| cluster failover | 　 | unlink | 　 |  | client list | 　 |
+| cluster forget | 　 | wait | 　 |  | client getname | 　 |
+| cluster meet | 　 | migrate | 　 |  | client pause | 　 |
+|cluster replicate  | 　 | dump | 　 |  | client reply | 　 |
 | cluster reset | 　 | scan | 　 | 　 | client setname | 　 |
 | cluster saveconfig | 　 |keys 　 | 　 | 　 | command count | 　 |
 |cluster set-config-epoch  | 　 |move 　 | 　 | 　 | command getkeys | 　 |
