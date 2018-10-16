@@ -8,7 +8,7 @@
 ## Signature Content
 The HTTP signature request initiated to CLS through the API is passed by using the standard HTTP Authorization header, as shown in the following example:
 ```
-GET /logset?logset_name=testset HTTP/1.1
+GET /logset?logset_id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx HTTP/1.1
 Host: ap-shanghai.cls.myqcloud.com
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDc9YlmrBcFk4C8sbmXQ8i65XXXXXXXXXX&q-sign-time=1510109254;1510109314&q-key-time=1510109254;1510109314&q-header-list=content-type;host&q-url-param-list=logset_name&q-signature=e8b23b818caf4e33f196f895218bdabdbd1f1423
 ```
