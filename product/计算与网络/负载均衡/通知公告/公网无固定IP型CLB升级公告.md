@@ -14,5 +14,4 @@
   
 
 若您对升级实例、升级时间等有特殊要求，或者在此过程中有任何问题，请登录 [工单系统](https://console.cloud.tencent.com/workorder/category) 提单，或者拨打 4009 - 100 - 100 与我们联系，我们将尽快为您核实处理。
-感谢您对腾讯云的支持和理解，谢谢！
-有关此次升级的更多疑问，可参见 [公网无固定 IP 型 CLB 升级常见问题](https://cloud.tencent.com/document/product/214/20490)。
+感谢您对腾讯云的支持和理解，谢谢！有关此次升级的更多疑问，可参见 [公网无固定 IP 型 CLB 升级常见问题](https://cloud.tencent.com/document/product/214/20490)。
