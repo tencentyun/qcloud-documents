@@ -98,7 +98,6 @@
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589/14625) | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔  |	
 | [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |✔       |
-| 流计算服务-流连接      |-        | -      | -      | -   | -        |  ✔    |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)         |✔       | ✔      | ✔      | 操作级   | ✔        | -    |	
 
