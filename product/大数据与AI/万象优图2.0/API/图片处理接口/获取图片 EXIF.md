@@ -3,10 +3,13 @@ EXIF（Exchangeable Image File）是“可交换图像文件”的缩写，可�
 ## 接口形式
 download_url?exif
 ## 参数说明
-| 参数                                      | 含义                                       |
+| 参数                                      | 含义                                       |
 | --------------------------------------- | ---------------------------------------- |
-|download_url                            |文件的访问链接，具体构成为&lt;bucket id&gt;-&lt;appid&gt;.&lt;picture region&gt;.&lt;domain&gt;.com/&lt;picture name&gt;，如examples-1251000004.picsh.myqcloud.com/sample.jpeg|
+|download_url                            |文件的访问链接，具体构成为<bucket id>-<appid>.<picture region>.<domain>.com/<picture name>，如examples-1251000004.picsh.myqcloud.com/sample.jpeg|
+
 ## 示例
+
 ```
 http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?exif
+
 ```
