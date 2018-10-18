@@ -130,15 +130,10 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 
 为了验证 `user` 服务能通过服务名来调用 `shop` 服务，需要用户通过以下几种方式来触发 `user` 服务的接口调用：
 
-
-
-- **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过 **负载均衡 IP + 服务端口** （在上面的截图例子中服务端口是  9080）来访问 `user` 服务的 `/api/v6/user/account/query` 接口。
-
-- **节点 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点 IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点 IP` 为集群中任一节点的内网 IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
+- 登录 user 所在云服务器，在服务器上执行如下 `curl` 命令。
 
 ```
-	shell
-	curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
+curl localhost:8091/api/v6/user/account/query
 ```
 
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 `user` 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
