@@ -12,7 +12,7 @@
 
 ### aar集成
 
-- 1.下载 SDK + Demo 开发包，下载地址为 ([Android](https://cloud.tencent.com/document/product/454/7873#Android))
+- 1.下载 SDK + Demo 开发包，下载地址为 ([Android](https://cloud.tencent.com/document/product/881/20205))
 - 2.导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去
 - 3.在 `app/build.gralde` 中添加依赖：
 
@@ -129,7 +129,7 @@ playerModel.appId = 1252463788;
 设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
 
 1. 在 [腾讯云官网](https://cloud.tencent.com/?from=product-document-use-Player) 注册腾讯云账号，然后开通点播服务。
-2. 客户端视频发布后，服务器会返回fileId到客户端
+2. 客户端视频发布后，服务器会返回[fileId](https://cloud.tencent.com/document/product/584/9369)到客户端
 3. 服务端视频上传，在[确认上传](https://cloud.tencent.com/document/product/266/9757?&from=product-document-use-Player)的通知中包含对应的fileId
 
 
