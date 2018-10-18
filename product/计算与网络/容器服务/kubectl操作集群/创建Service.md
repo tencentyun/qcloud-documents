@@ -33,18 +33,17 @@ metadata:
 ```yaml
 metadata:
   annotations:
-    service.kubernetes.io/qcloud-loadbalancer-backends-label: `key in (value1, value2) ` ## LabelSelector 格式
+    service.kubernetes.io/qcloud-loadbalancer-backends-label: key in (value1, value2)  ## LabelSelector 格式
 ```
 
 1. 建议配合工作负载的亲和性调度使用。
 2. 前提条件是 Node 已根据业务需求设置 Label。
-2. 采用原生LabelSelector格式如：
+3. 采用原生LabelSelector格式如：
   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1=values1, key2=values2
   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1 in (value1),key2 in (value2)
   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key in (value1, value2)
   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1, key2 notin (value2)
-3. 增量的节点若匹配，将自动绑定到该 Loadbalance。
-4. 修改存量节点的 Label， 根据匹配规则将动态绑定和解绑 Loadbalance。
+4. 增量的节点若匹配，将自动绑定到该 Loadbalance。
 
 ## 带宽上移用户
 带宽上移用户在创建公网访问方式的服务时需要指定如下两个 annotations 项：
