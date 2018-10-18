@@ -93,6 +93,7 @@
   </tr>
 </table>
 
+详细介绍可[参考此文档](https://github.com/tencentyun/SuperPlayer)
 
 
 ## 技术交流
