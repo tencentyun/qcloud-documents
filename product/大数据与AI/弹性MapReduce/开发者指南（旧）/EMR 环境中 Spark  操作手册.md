@@ -5,8 +5,8 @@
 * 登录机器后使用命令 `su hadoop` 切换到 hadoop 用户；
 * Spark 软件路径在 `/usr/local/service/spark` 下；
 * 相关日志路径在 `/data/emr` 下；
-* 提供了必要的测试用例，分为 jar 包和 python 两种； 
-* jar 包位于 Spark 目录的 `examples/jars/` 下，python 文件位于 `examples/demo` 下；
+* 提供了必要的测试用例，分为 jar 包和 Python 两种； 
+* jar 包位于 Spark 目录的 `examples/jars/` 下，Python 文件位于 `examples/demo` 下；
 * 提供测试用到的数据文件，需要提前在集群中上传。
 <span id ="jump">
     

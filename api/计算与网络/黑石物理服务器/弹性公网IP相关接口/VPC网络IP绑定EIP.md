@@ -1,5 +1,5 @@
 ## 功能描述
-EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非黑石物理机IP）。区别于[EipBmBindRs](/document/product/386/6673)，该接口主要适用于客户使用黑石的半托管服务或者在黑石物理集群中创建自己的虚拟机，同时又需要这些半托管的设备或者虚拟机出公网的场景。
+EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非黑石物理机IP）。区别于[EipBmBindRs](/document/product/386/6673)，该接口主要适用于客户使用黑石的半托管服务或者在黑石物理集群中创建自己的云服务器，同时又需要这些半托管的设备或者云服务器出公网的场景。
 
 接口访问域名: bmeip.api.qcloud.com
 

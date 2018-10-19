@@ -67,6 +67,81 @@ pod 'TACCrash'
 2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
 
 ![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
+#### 自动添加所有程序需要脚本
+自动添加脚本目前仅支持通过 Cocoapods 方式进行集成的用户。如果使用 Cocoapods 集成的话，在 Podfile 的最后一行后面**新起一行**，并且将以下代码粘贴进去以后，运行 `pod install` 即可，就完成了配置程序需要脚本这一步。
+
+~~~
+
+pre_install do |installer|
+    puts "[TAC]-Running post installer"
+    xcodeproj_file_name = "placeholder"
+    Dir.foreach("./") do |file|
+        if file.include?("xcodeproj")
+            xcodeproj_file_name = file
+        end
+    end
+    puts "[TAC]-project file is #{xcodeproj_file_name}"
+    project = Xcodeproj::Project.open(xcodeproj_file_name)
+    project.targets.each do |target|
+        shell_script_after_build_phase_name = "[TAC] Run After Script"
+        shell_script_before_build_phase_name = "[TAC] Run Before Script"
+        puts "[TAC]-target.product_type is #{target.product_type}"
+          if target.product_type.include?("application")
+              should_insert_after_build_phases = 0
+              should_insert_before_build_phases=0
+              after_build_phase = nil
+              before_build_phase = nil
+              target.shell_script_build_phases.each do |bp|
+                    if !bp.name.nil? and bp.name.include?(shell_script_after_build_phase_name)
+                        should_insert_after_build_phases = 1
+                        after_build_phase = bp
+                    end
+                    if !bp.name.nil? and bp.name.include?(shell_script_before_build_phase_name)
+                        should_insert_before_build_phases = 1
+                        before_build_phase = bp
+                    end
+              end
+
+
+              if should_insert_after_build_phases == 1
+                  puts "[TAC]-Build phases with the same name--#{shell_script_after_build_phase_name} has already existed"
+              else
+                  after_build_phase = target.new_shell_script_build_phase
+                  puts "[TAC]-installing run afger build phases-- #{after_build_phase}"
+
+              end
+              after_build_phase.name = shell_script_after_build_phase_name
+              after_build_phase.shell_script = "
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\" ]; then
+                  bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh\"
+              fi
+              "
+              after_build_phase.shell_path = '/bin/sh'
+              if should_insert_before_build_phases == 1
+                  puts "[TAC]-Build phases with the same name--#{shell_script_before_build_phase_name} has already existed"
+                  else
+                  before_build_phase = target.new_shell_script_build_phase
+                  target.build_phases.insert(0,target.build_phases.pop)
+                  puts "[TAC]-installing run before build phases-- #{before_build_phase}"
+
+              end
+              before_build_phase.name = shell_script_before_build_phase_name
+              before_build_phase.shell_script = "
+              if [ -f \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\" ]; then
+                  bash \"${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh\"
+                  fi
+                  "
+              before_build_phase.shell_path = '/bin/sh'
+         end
+    end
+    puts "[TAC]-Saving projects"
+    project.save()
+end
+~~~
+
+注：运行`pod install`以后，可以按照上面的图片打开项目里的 Build Phases 确认是否有 [TAC] 开头，与图上类似的 Build phases 。如果没有的话，可再次运行 `pod install`后检查即可。
+
+#### 手动添加程序需要脚本
 
 请按照以下步骤来添加脚本：
 
@@ -89,12 +164,12 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
 
 * 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-   
+
   ~~~
   ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
   ~~~
 * 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-   
+
   ~~~
    export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
    [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
@@ -122,12 +197,12 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
 
 * 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-	
+
   ~~~
   ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
   ~~~
 * 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-    
+
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
@@ -142,7 +217,7 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 
 ### 了解 MobileLine：
 
-- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)
+- 查看 [MoblieLine 应用示例](https://ios-release-1253960454.cos.ap-shanghai.myqcloud.com/tac.zip)
 
 ### 向您的应用添加 MobileLine 功能：
 

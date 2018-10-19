@@ -25,7 +25,7 @@ Please note that CLS collects only logs of container clusters in the same region
 2. Specify the collecting source
 ![][2]
 
-3. As CCS has independent log collection capability, you don't need to select Agent creating a log collection
+3. As TKE has independent log collection capability, you don't need to select Agent creating a log collection
 ![][4]
 
 4. Specified the log topic as the log receiver

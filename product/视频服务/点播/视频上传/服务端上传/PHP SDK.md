@@ -15,7 +15,7 @@
 如果项目当中没有使用 composer 工具进行依赖管理的，可以直接下载源码导入项目中使用：
 
 * [从 Github 访问 >>](https://github.com/tencentyun/vod-php-sdk-v5)
-* [点击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
+* [单击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
 
 复制 src 文件下的源码和 test/non-composer 文件的 cos-sdk-v5、qcloudapi-sdk-php 到项目同级目录即可
 

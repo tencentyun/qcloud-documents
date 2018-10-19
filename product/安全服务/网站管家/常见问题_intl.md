@@ -1,45 +1,45 @@
 ### Can servers outside Tencent Cloud use Web Application Firewall (WAF)?
-Web application firewall can be applied in data centers not deployed on Tencent Cloud and protect any servers on public network, including but not limited to Tencent Cloud, cloud from other vendors, and IDC. 
-> Note: Domain names accessed in Mainland China must acquire an ICP license in accordance with MIIT requirements.
+WAF can be connected with servers in data centers outside Tencent Cloud. WAF protects servers in any public networks, including but not limited to Tencent Cloud, cloud from other vendors, and IDC. 
+> Note: To access WAF in Mainland China, domain names must obtain an ICP license as required by MIIT.
 
 ### Does WAF support HTTPS protection?
-WAF completely supports HTTPS service. After you upload the SSL certificate and private key according to the prompts or select the Tencent Cloud hosting certificate, the web application firewall can protect HTTPS traffic.
+WAF completely supports HTTPS services. You just need to upload the SSL certificate and private key as instructed, or select the Tencent Cloud hosting certificate to make WAF protect HTTPS traffic.
 
-### Is the QPS of WAF set based on the whole instance or on a single domain?
-The QPS of WAF is set based on the whole instance. For example, if three domains are under protection of the WAF, the cumulative QPS of the three domains may not exceed the specified limit, otherwise the rate limit will be triggered and result in packet loss.
+### The QPS limit in WAF is for the entire instance, or for a single configured domain name?
+The QPS limit in WAF is for the entire instance. For example, if three domain names are under the protection of WAF, the total QPS of the three domains names cannot exceed the upper limit. If the QPS limit of the purchased instance is exceeded, speed limit is triggered, which will result in packet loss.
 
-### Can a Tencent Cloud CVM private IP be entered as the IP of WAF origin server?
-WAF does not support CVM private IPs for now.
+### Can a Tencent Cloud CVM private IP be entered as the origin server IP of WAF?
+WAF does not support using CVM private IP as the origin server IP.
 
-### Can WAF directly use BGP high defense packages?
-Yes. High defense capacity can be enabled for WAF by directly selecting the IP of the WAF instance on the configuration page in the BGP high defense package console.
+### Can Dayu high defense packages be used directly for WAF?
+Yes. You can enable high defense capability for WAF by simply selecting the IP of the WAF instance on the configuration page in the Dayu high defense package console.
 
-### How is WAF accessed with CDN or BGP high defense package?
-WAF can directly integrates with BGP high defense packages. And you can point the origin server of CDN to the IP of WAF instance.
+### How to access WAF and CDN or Dayu high defense package at the same time?
+Dayu high defense package can be directly associated with WAF. And you just need to point the origin server of CDN to the IP of WAF instance.
 
-Best deployment architecture:
-Client > CDN > WAF + High defense package > Load balancer > Origin server
+The optimal deployment architecture:
+Client > CDN > WAF+High defense package > Load balancer > Origin server
 
-If you need CDN and high defense capability, set the CNAME provided after WAF is accessed as the CDN origin server, and add the BGP high defense package to the WAF instance. Then after passing through the CDN, the user traffic is forwarded to the WAF with high-traffic DDOS cleaning capability enabled, and ultimately forwarded to the origin server, so as to provide all-round protection for the origin server.
+If you need CDN and high defense capability, set the CNAME provided after the access to WAF to the CDN origin server, and associate the Dayu high defense package with the WAF instance. The user traffic, after going through CDN, is forwarded to WAF, which has the capability of cleaning high-traffic DDoS attacks, and then be forwarded to the origin server to achieve a full protection.
 
 ### Is WAF able to protect multiple origin server IPs under one domain name?
 Yes. Up to 20 domain names can be protected by one WAF.
 
-### How to perform load balancing when WAF has multiple origin servers configured?
-If multiple origin server IPs are configured, WAF achieves load balancing of access requests in the polling mode.
+### How to perform load balance if multiple origin servers are configured for WAF?
+If multiple origin server IPs are configured, WAF achieves load balance of access requests by polling.
 
 ### Does WAF support health check?
-The health check feature of WAF is enabled by default. WAF checks the access status of all origin server IPs. If an origin server IP does not respond, WAF will not forward requests to this IP until its access status becomes normal.
+Health check is enabled for WAF by default. WAF checks the access status of all origin server IPs. For the origin server IP that does not respond, WAF will not forward requests to this IP until its connection status returns to normal.
 
 ### Does WAF support session persistence?
-WAF supports session persistence, which is enabled by default.
+Yes. Session persistence is enabled by default.
 
-### How long does it take for changes to configurations in the WAF console to take effect?
-In general, changes to configurations take effect within 10s.
+### How long does it take for changes to configuration to take effect in the WAF console?
+In general, changes to configuration take effect within 10s.
 
-### Does WAF automatically add origin server IP range into security groups?
-High defense origin server IP range cannot be automatically added into security groups. For more information on adding origin server IP range into security groups, see [Quick Start](/doc/product/627/11706).
+### Does WAF automatically add origin server IP range to security groups?
+High defense origin server IP range cannot be automatically added to security groups. For more information on how to add origin server IP range to security groups, please see [here](/doc/product/627/11706).
 
-### If the uploaded file is blocked, will it still be blocked using HTTPS or SFTP?
-Files are not blocked without WAF. HTTPS and HTTP use WAF, but SFTP does not. WAF blocks a file only if it is an invalid uploaded file.
+### If the uploaded files are blocked, will they still be blocked when using HTTPS or SFTP?
+If WAF is used, files uploaded with HTTPS and HTTP will be blocked, but the ones uploaded with SFTP will not. WAF blocks a file only if it is an invalid uploaded file.
 

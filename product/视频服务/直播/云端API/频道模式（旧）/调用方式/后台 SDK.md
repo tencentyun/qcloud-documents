@@ -32,8 +32,8 @@
 ```
 {"code":4600,"message":"\u534f\u8bae\u4e0d\u652f\u6301\uff0c\u8bf7\u53c2\u8003\u6587\u6863\u8bf4\u660e\u3002"}
 ```
-有些平台下拿到的message是如上的unicode形式的字符串，遇到这种情况打开chrome浏览器转义一下就行了。
-> 打开chrome浏览器按F12进入开发者模式，在右下角的Console面板里输入：
+有些平台下拿到的message是如上的unicode形式的字符串，遇到这种情况打开Chrome浏览器转义一下就行了。
+> 打开Chrome浏览器按F12进入开发者模式，在右下角的Console面板里输入：
 > "\u534f\u8bae\u4e0d\u652f\u6301\uff0c\u8bf7\u53c2\u8003\u6587\u6863\u8bf4\u660e\u3002" 
 > 就能得到转以后的结果"协议不支持，请参考文档说明。"
 > 

@@ -1,5 +1,5 @@
 ## Application Creation
-Log in to the [Tencent CCS Console](https://console.cloud.tencent.com/ccs). In [Application Page"][1], click **New**.
+Log in to the [Tencent TKE Console](https://console.cloud.tencent.com/ccs). In [Application Page"][1], click **New**.
 
 ![Create Application-006.png][2]
 

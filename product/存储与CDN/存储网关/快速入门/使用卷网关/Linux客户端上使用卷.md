@@ -1,5 +1,3 @@
-# Linux 客户端上使用卷
-
 ## 通过 Linux 客户端连接到卷
 下面介绍如何在 Linux 下，使用 iscsi-initiator-utils RPM 包连接到网关 iSCSI 目标。
 
@@ -23,7 +21,7 @@ sudo /etc/init.d/iscsi start
 ```
 
 ### 发现卷
-请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP
+请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP。
 ```
 sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal <GATEWAY_IP>:3260  
  
@@ -51,7 +49,7 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	fdisk /dev/vdb
 	```
 	
-	按照界面的提示，依次输入 "n" (新建分区)、"p"(新建扩展分区)、"1" (使用第1个主分区)，两次回车(使用默认配置)，输入 "wq" (保存分区表)，回车开始分区。这里是以创建1个分区为例，开发者也可以根据自己的需求创建多个分区。
+	按照界面的提示，依次输入 "n" (新建分区)、"p"(新建扩展分区)、"1" (使用第1个主分区)，两次回车(使用默认配置)，输入 "wq" (保存分区表)，回车开始分区。这里是以创建 1 个分区为例，开发者也可以根据自己的需求创建多个分区。
 	![](https://mccdn.qcloud.com/img56a604c2b886f.png)
 	
 - **查看分区**
@@ -59,7 +57,7 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	![](https://mccdn.qcloud.com/img56a605027a966.png)
 	
 - **格式化分区**
-	分区后需要对分好的区进行格式化，您可自行决定文件系统的格式，如xfs、ext4等，本例以“ext3”为例。请使用以下命令对新分区进行格式化。
+	分区后需要对分好的区进行格式化，您可自行决定文件系统的格式，如 xfs、ext4 等，本例以“ext3”为例。请使用以下命令对新分区进行格式化。
 	**注意： xfs 文件系统格式的稳定性相对较弱，但格式化速度快； ext 文件系统格式稳定性强，但是存储量越大格式化时间越长。请根据需要设置文件格式。**
 	```
 	mkfs.ext3 /dev/vdb1
@@ -68,7 +66,7 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	![](https://mccdn.qcloud.com/img56a6053fb5aa0.png)
 
 - **挂载及查看分区**
-	使用以下命令创建mydata目录并将分区挂载在该目录下：
+	使用以下命令创建 mydata 目录并将分区挂载在该目录下：
 	```
 	mkdir /mydata
 	mount /dev/vdb1 /mydata
@@ -138,16 +136,16 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 - 修改请求排队的最长时间
   找到并打开 /etc/iscsi/iscsi.conf 文件，找到下列代码并修改为建议值或更长。
 	```
-	node.session.timeo.replacement_timeout = 3600  //原值为120秒
+	node.session.timeo.replacement_timeout = 3600  //原值为 120 秒
 	```
 	
-	*说明：修改此数值后，当Initiator和Csg之间的网络连接异常断开时，Initiator会尝试修复网络连接直到replacement_timeout，然后再设置卷的状态为错误，对发下的每一个IO请求返回-EIO*
+	*说明：修改此数值后，当 Initiator 和 Csg 之间的网络连接异常断开时，Initiator 会尝试修复网络连接直到 replacement_timeout，然后再设置卷的状态为错误，对发下的每一个 IO 请求返回 -EIO*
 	```
 	node.conn[0].timeo.noop_out_interval = 60  //原值为5秒
 	node.conn[0].timeo.noop_out_timeout = 600  //原值为5秒
 	```
 	
-	*修改此数值后，Initiator会延长向Csg发送HA请求（ping）的间隔和超时判定，这样Initiator会尽可能的容忍和Csg的网络连接错误，不会轻易的判定和Csg之间发生不可恢复的网络故障*
+	*修改此数值后，Initiator 会延长向 Csg 发送 HA 请求（ping）的间隔和超时判定，这样 Initiator 会尽可能的容忍和 Csg 的网络连接错误，不会轻易的判定和 Csg 之间发生不可恢复的网络故障*
 	
 	在进行如上修改后，请执行如下命令重启 iSCSI 服务，来使配置生效。
 	```

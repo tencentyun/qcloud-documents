@@ -14,7 +14,7 @@ The Layer-7 business process and Layer-4 business process of the public network 
 In the public network application CLB, when a domain is configured using the forwarding rules of Layer-7 listener, a regular expression should be adopted with a length of 1-80 characters.
 
 - Character sets supported in non-regular domain names are as follows:
-`a-z` `0-9` `_` `.` `-` 
+`a-z` `0-9` `.` `-` 
 			
 - A wild card domain name only supports  
 `*.example.com` or `www.example.*`. Only one \* can occur in a single domain name. 		

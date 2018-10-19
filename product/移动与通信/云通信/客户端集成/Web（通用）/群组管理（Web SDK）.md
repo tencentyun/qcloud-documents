@@ -1,7 +1,7 @@
 ## 创建群 
 
 ```
-/* function createGroup  
+/* function createGroup
  *   创建群
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -20,7 +20,7 @@ createGroup: function(options, cbOk, cbErr) {},
 var createGroup = function () {
     var sel_friends = $('#select_friends').val();
     var member_list = [];
-    var members = sel_friends.split(";"); //字符分割 
+    var members = sel_friends.split(";"); //字符分割
     for (var i = 0; i < members.length; i++)
     {
         if (members[i] && members[i].length > 0) {
@@ -76,10 +76,10 @@ var createGroup = function () {
 };
 ```
 
-## 申请加群 
+## 申请加群
 
 ```
-/* function applyJoinGroup  
+/* function applyJoinGroup
  *   申请加群
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -125,10 +125,10 @@ var applyJoinGroup = function () {
 };
 ```
 
-## 处理申请加群（同意或拒绝） 
+## 处理申请加群（同意或拒绝）
 
 ```
-/* function handleApplyJoinGroup  
+/* function handleApplyJoinGroup
 *   处理申请加群(同意或拒绝)
 * params:
 *   options	- 请求参数，详见 API 文档
@@ -140,7 +140,7 @@ var applyJoinGroup = function () {
 handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 ```
 
-**其中 options 定义如下：** 
+**其中 options 定义如下：**
 
 ```
 {
@@ -154,7 +154,7 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 }
 ```
 
-**示例：** 
+**示例：**
 
 ```
 //处理加群申请
@@ -198,12 +198,12 @@ var handleApplyJoinGroupPendency = function () {
 };
 ```
 
-## 删除加群申请 
+## 删除加群申请
 
 在处理完加群申请之后，需要删除对应的加群申请 。**函数名：**
 
 ```
-/* function deleteApplyJoinGroupPendency  
+/* function deleteApplyJoinGroupPendency
  *   删除加群申请
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -215,7 +215,7 @@ var handleApplyJoinGroupPendency = function () {
 deleteApplyJoinGroupPendency: function(options, cbOk, cbErr) {},
 ```
 
-**其中 options 定义如下：** 
+**其中 options 定义如下：**
 
 ```
 //要删除的群未决消息(支持批量删除)
@@ -249,10 +249,10 @@ var deleteApplyJoinGroupPendency = function (opts) {
 };
 ```
 
-## 主动退群 
+## 主动退群
 
 ```
-/* function quitGroup  
+/* function quitGroup
  *  主动退群
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -297,10 +297,10 @@ var quitGroup = function (group_id) {
 };
 ```
 
-## 解散群 
+## 解散群
 
 ```
-/* function destroyGroup  
+/* function destroyGroup
  *  解散群
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -345,10 +345,10 @@ var destroyGroup = function (group_id) {
 };
 ```
 
-## 我的群组列表 
+## 我的群组列表
 
 ```
-/* function getJoinedGroupListHigh  
+/* function getJoinedGroupListHigh
  *   获取我的群组-高级接口
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -398,7 +398,7 @@ var getMyGroup = function () {
             options,
             function (resp) {
                 if (!resp.GroupIdList || resp.GroupIdList.length == 0) {
-                    alert('你目前还没有加入任何群组');
+                    alert('您目前还没有加入任何群组');
                     return;
                 }
                 var data = [];
@@ -447,10 +447,10 @@ var getMyGroup = function () {
 };
 ```
 
-## 读取群详细资料 
+## 读取群详细资料
 
 ```
-/* function getGroupInfo  
+/* function getGroupInfo
  *   读取群详细资料-高级接口
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -508,10 +508,10 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 };
 ```
 
-##  修改群基本资料 
+##  修改群基本资料
 
 ```
-/* function modifyGroupBaseInfo  
+/* function modifyGroupBaseInfo
  *   修改群基本资料
  * params:
  *   options	- 请求参数，详见 API 文档
@@ -559,7 +559,7 @@ var modifyGroup = function () {
     webim.modifyGroupBaseInfo(
             options,
             function (resp) {
-                //在表格中修改对应的行              
+                //在表格中修改对应的行
                 $('#get_my_group_table').bootstrapTable('updateRow', {
                     index: $('#mg_sel_row_index').val(),
                     row: {

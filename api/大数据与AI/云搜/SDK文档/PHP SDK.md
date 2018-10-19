@@ -10,8 +10,8 @@ qcloudapi-sdk-php 是为了让 PHP 开发者能够在自己的代码里更快捷
     <?php
     require_once './src/QcloudApi/QcloudApi.php';
 
-    $config = array('SecretId'       => '你的secretId',
-                    'SecretKey'      => '你的secretKey',
+    $config = array('SecretId'       => '您的secretId',
+                    'SecretKey'      => '您的secretKey',
                     'RequestMethod'  => 'GET',
                     'DefaultRegion'  => '区域参数');
 
@@ -36,10 +36,10 @@ qcloudapi-sdk-php 是为了让 PHP 开发者能够在自己的代码里更快捷
                      
     // 请求前可以通过下面四个方法重新设置请求的secretId/secretKey/region/method参数
     // 重新设置secretId
-    $secretId = '你的secretId';
+    $secretId = '您的secretId';
     $service->setConfigSecretId($secretId);
     // 重新设置secretKey
-    $secretKey = '你的secretKey';
+    $secretKey = '您的secretKey';
     $service->setConfigSecretKey($secretKey);
     // 重新设置region
     $region = 'sh';

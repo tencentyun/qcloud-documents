@@ -2,7 +2,7 @@
 DescribeCdnRegionIspDetailStat
 
 ## 功能说明
-查询指定域名指定日期按地区、运营商统计的国内 CDN 节点统计数据（流量、带宽、请求数、请求命中率）
+查询指定域名指定日期按地区、运营商统计的国内 CDN 节点统计数据（流量、带宽、请求数）
 
 1. 返回的数据为每5分钟一个统计数据。
 2. 由于地区、运营商数据需要从日志中分析，数据延迟大概为20-30分钟。
@@ -24,11 +24,11 @@ vod.api.qcloud.com
 ### 参数说明
 | 参数名称      | 必填 | 类型   | 说明                                                                                                                                                                                |
 | ------------- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hosts         | 否   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过5个，返回错误                                                                                                           |
+| hosts         | 否   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过2个，返回错误                                                                                                           |
 | date          | 是   | String | 查询日期，格式为 yyyy-MM-dd ，如2018-03-01                                                                                                                                          |
-| statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li><li>hitrate：请求命中率，单位为万分比</li></ul> |
-| regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                               |
-| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                      |
+| statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li></ul>                                           |
+| regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                              |
+| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                        |
 | COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
 
 ## 接口应答
@@ -73,7 +73,7 @@ vod.api.qcloud.com
 | Guizhou               | 贵州     |
 | Hainan                | 海南     |
 | Hebei                 | 河北     |
-| Heilongjiang          | 黑龙江    |
+| Heilongjiang          | 黑龙江   |
 | Henan                 | 河南     |
 | Hubei                 | 湖北     |
 | Hunan                 | 湖南     |
@@ -117,6 +117,10 @@ vod.api.qcloud.com
 | --------- | -------------------------------------------- |
 | 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
+| 17010     | hosts 参数错误                               |
+| 17011     | 域名列表数据超过5个                          |
+| 17012     | statType 参数错误                            |
+| 17015     | date 参数错误                                |
 
 ## 示例
 ### 请求示例

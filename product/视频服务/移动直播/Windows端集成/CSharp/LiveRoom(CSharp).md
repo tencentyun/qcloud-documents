@@ -967,7 +967,7 @@ class MainDialog : ILiveRoomCallback
   {
   	void ILiveRoomCallback.onError(LiveResult res, string userID)
       {
-      	// 弹框提示错误，根据错误严重程序，是否关闭直播
+      	// 弹框提示错误，根据错误严重程度，是否关闭直播
       }
       
       ...

@@ -10,19 +10,21 @@
 如您没有创建对象存储的bucket，请在[新建bucket](https://console.cloud.tencent.com/cos4/bucket)后选取相应的存储位置。
 
 ### 产品限制和费用计算
-- 当前日志聚合粒度为1小时
+- 当前日志聚合粒度为1小时。
 
-- 当前负载均衡仅支持七层日志的存储和下载。
+- 当前负载均衡仅支持七层（HTTP/HTTPS）日志的存储和下载。
 
 - 日志数据的传输会有一定的延迟。
 
 - 当前负载均衡日志服务`免费`，COS存储的免费额度按照[文档](https://cloud.tencent.com/document/product/436/6240)中所示，提供50G免费存储空间。如您的日志量级较大，请及时清理数据。
 
+- 若您不开启日志访问，腾讯云默认为您保留3天的日志；若您开启日志访问，存储时间则依COS存储而定。
+
 ### 日志格式及变量说明
 #### 日志格式
 
 ```
-[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status]  [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] 
+[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status]  [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer]
 [$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time] [$tcpinfo_rtt] [$connection] [$connection_requests] [$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$ssl_session_reused]
 ```
 
@@ -50,4 +52,4 @@
 | 18 | ssl_handshake_time	|ssl握手所花费时间 |
 | 19 | ssl_cipher| 加密套件|
 | 20 | ssl_protocol	| ssl协议版本 |
-| 21 | ssl_session_reused | ssl session复用|	
+| 21 | ssl_session_reused | ssl session复用|

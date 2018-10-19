@@ -1,60 +1,46 @@
-﻿MLVB is not an independent cloud service, and is charged for the following basic cloud services it relies on, with no additional cost incurred.
+Mobile Live Video Broadcasting (MLVB) is not an independent cloud service, and is charged for the following basic cloud services it relies on, with no additional cost incurred.
 
 ### Live Video Broadcasting (LVB)
-MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB service:
-<table class="t" style="text-align: center;">
-<tbody><tr>
-<th width=250> Package List
-</th><th width=250> LVB Traffic (downlink)
-</th><th width=250> Price (USD)
-</th></tr>
-<tr>
-<td> 2.9 USD Package
-</td><td> 10 GB
-</td><td> 2.9
-</td></tr>
-<td colspan="3" style="text-align: center;"> Note: New user can get a 2.9 USD package for free.
-<tr>
-<td> 7.5 USD Package
-</td><td> 50 GB
-</td><td> 7.5
-</td></tr>
-<tr>
-<td> 14.5 USD Package
-</td><td> 100 GB
-</td><td> 14.5
-</td></tr>
-<tr>
-<td> 72.0 USD Package
-</td><td> 500 GB
-</td><td> 72.0
-</td></tr>
-<tr>
-<td> 143.8 USD Package
-</td><td> 1 TB
-</td><td> 143.8
-</td></tr>
-<tr>
-<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 0.17 USD/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during the period of service billed based on a monthly basis.
-</td></tr>
-</tbody></table>
+MLVB is an extension of Tencent Cloud LVB that is designed to cater for the needs of mobile devices, so you must activate the LVB service.
 
-## Instant Messaging (IM)
+
+
+You can select to be billed on a monthly basis or other billing methods. For more information, please see [LVB Price Overview](https://cloud.tencent.com/document/product/267/2818).
+
+### Video On-demand (VOD)
+
+If you wish to record the LVB content and provide playback feature, this service is indispensable.
+
+Tencent Cloud VOD product is billed based on the following three parts:
+
+Video storage: The storage space taken up by the source video files and transcoded video files uploaded to Tencent Cloud VOD is charged on the basis of the storage capacity.
+
+Video transcoding: The source video files stored in Tencent Cloud VOD are charged by the specification and length of target files during transcoding.
+
+Video acceleration: Fees generated when CDN is used for acceleration during video playback are charged based on the downstream traffic.
+
+For more information, please see [LVB Price Overview](https://cloud.tencent.com/document/product/266/2838).
+
+
+
+### Instant Messaging (IM)
 It is used to build a chat room with high concurrency and unlimited number of users. A user can use this service to send private messages to another user in a reliable manner:
 <table class="t" style="text-align: center;">
 <tbody><tr>
 <th width=150> Daily active users
-</th><th width=200> X < 100,000 DAUs
-</th><th width=200> 100,000 DAUs ≤ X < 800,000 DAUs
+</th><th width=200> X &lt; 100,000 DAUs
+</th><th width=200> 100,000 DAUs ≤ X &lt; 800,000 DAUs
 </th><th width=200> X ≥ 800,000 DAUs
 </th></tr>
 <tr>
-<td> Billing method
+<td> Billing standard
 </td><td> Free
 </td><td> 10,000 CNY/month/100,000 DAUs
 </td><td> Contact customer service
 </td></tr>
 </tbody></table>
+
+For more information, please see [IM Price Overview](https://cloud.tencent.com/document/product/269/11673).
 
 ### Cloud Object Storage (COS)
 COS is used to upload, store and download files. You don't need to activate this service if it is well-established in your current service system.

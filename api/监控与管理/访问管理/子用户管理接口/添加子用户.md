@@ -62,7 +62,7 @@ https://cam.api.qcloud.com/v2/index.php
     "data": {
         "uin": "90881234151",
         "name": "testName",
-        "password": "juhawe@f112",
+        "password": "topSecret",
         "secretId": "AKIDWwGVed95Zu693ltdoopjcKrDct20DKky15215",
         "secretKey": "AKIDWwGVed95Zu693ltdoopjcKrDct20DKky12562",
     }

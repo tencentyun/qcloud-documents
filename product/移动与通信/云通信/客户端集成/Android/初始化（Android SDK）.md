@@ -43,7 +43,7 @@ public boolean onNewMessages(List<TIMMessage> msgs)
 public void removeMessageListener(TIMMessageListener listener)
 ```
 
-> 注：回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息，如消息文本，语音数据，图片等，可参阅 [消息解析](/doc/product/269/消息收发（Android%20SDK）#2.1-.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)。
+> 注：回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息，如消息文本，语音数据，图片等，可参阅 [消息解析](/doc/product/269/消息收发（Android%20SDK）#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)。
 
 **示例：**
 
@@ -178,7 +178,7 @@ TIMManager.getInstance().setUserStatusListener(new TIMUserStatusListener() {
 
 ### 用户票据过期通知
 
-在用户登录（参见 [登录](/doc/product/269/%E7%99%BB%E5%BD%95%EF%BC%88Android%20SDK%EF%BC%89#1-.E7.99.BB.E5.BD.95)）的时候，需要提供一个用户票据，而这个用户票据在生成的时候是有一个有效使用期限的。在正常使用过程中，如果超过了用户票据的使用期限时，SDK 与服务器的交互会因为票据验证失败而操作失败，这个时候 SDK 会给出用户票据过期的通知。如果设置了用户状态变更通知监听器（参见 [用户状态变更](#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)），则可以在监听器的回调方法 `onUserSigExpired` 中进行相应的处理，出现这种情况，如果仍需要继续与服务器进行交互，则需要更换票据后重新登录。
+在用户登录（参见 [登录](/doc/product/269/%E7%99%BB%E5%BD%95%EF%BC%88Android%20SDK%EF%BC%89#.E7.99.BB.E5.BD.95)）的时候，需要提供一个用户票据，而这个用户票据在生成的时候是有一个有效使用期限的。在正常使用过程中，如果超过了用户票据的使用期限时，SDK 与服务器的交互会因为票据验证失败而操作失败，这个时候 SDK 会给出用户票据过期的通知。如果设置了用户状态变更通知监听器（参见 [用户状态变更](#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)），则可以在监听器的回调方法 `onUserSigExpired` 中进行相应的处理，出现这种情况，如果仍需要继续与服务器进行交互，则需要更换票据后重新登录。
 
 
 ## Crash 上报

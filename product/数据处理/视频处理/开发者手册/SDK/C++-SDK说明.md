@@ -18,10 +18,10 @@ mkdir -p build <br>
 cd build <br>
 cmake .. <br>
 make <br>
-</p><p>需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成你自己的。<br>
+</p><p>需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成您自己的。<br>
 生成的sample就可以直接运行，试用，生成的静态库，名称为:libuvsdk.a。 <br>
-</p><p>生成的libuvsdk.a放到你自己的工程里lib路径下， <br>
-include目录下的 Auth.h Video.h curl json openssl都放到你自己的工程的include路径下。 <br>
+</p><p>生成的libuvsdk.a放到您自己的工程里lib路径下， <br>
+include目录下的 Auth.h Video.h curl json openssl都放到您自己的工程的include路径下。 <br>
 </p><p>例如我的项目里只有一个sample.cpp,项目目录和sdk在同级目录， <br>
 copy libuvsdk.a 到项目所在目录那么编译命令为: <br>
 g++ -o sample sample.cpp -I ./include/ -L. -L../uvs-cpp-sdk/lib/ -luvsdk -lcurl -lcrypto -lssl -lrt -ljsoncpp

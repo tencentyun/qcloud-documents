@@ -3,7 +3,7 @@
 This API is used to send voice notifications (consisting of Chinese characters, English letters, numbers or a combination with a length of not more than 100 characters) to Chinese users.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoiceprompt?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoiceprompt?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -65,6 +65,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
 | callid | No | String | Indicate the ID of this delivery as well as a delivery record |
 | ext | No | String | User's session content. The Tencent server returns it as is. |
-
-
-

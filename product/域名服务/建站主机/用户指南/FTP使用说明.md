@@ -2,7 +2,7 @@
 
 ### 1. 获取FTP信息
 进入主机的管理页面，获取 FTP 地址、用户名和密码。
-![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
+![](https://ask.qcloudimg.com/draft/1173778/1kbhbeegp8.png)
 
 ### 2. 使用 FTP 工具登录主机
 FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明。
@@ -11,7 +11,7 @@ FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明。
 输入主机地址，用户名，密码，主机地址是`ftp://xxxxx.mylitesite.com`，
 ![](https://mc.qcloudimg.com/static/img/bceea82794b39dc24b9d37dc2d1c9891/1.png)
 
-点击【快速连接】登录，可以记住密码。
+单击【快速连接】登录，可以记住密码。
 ![](https://mc.qcloudimg.com/static/img/bf19651be717936689baac9bdf8db42b/2.png)
 
 #### 2.2 查看主机目录
@@ -23,4 +23,4 @@ FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明。
 ![](https://mc.qcloudimg.com/static/img/4cb3c2d5cf09c8923ec271f6cdeeaec7/4.png)
 
 完成上传后，可以在右侧远程站点查看到主机目录下的网站代码。
-![](https://mc.qcloudimg.com/static/img/fcd6c8fac628baf90e1de7d24507b614/5.png)
+![](https://main.qcloudimg.com/raw/a810005e9ff4ea581d41011869fb43bb.png)

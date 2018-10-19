@@ -15,7 +15,7 @@
 
 直接下载github上提供的源代码，集成到开发环境。 
 
-若需 HTTPS 支持，则将 cos_dotnet_sdk/Api/CosCloud.cs 文件中变量 COSAPI_CGI_URL 中的 http 修改为 https 即可。
+若需 HTTPS 支持，则将 cos_dotnet_sdk/Api/CosCloud.cs 文件中变量 COSAPI_CGI_URL 中的 HTTP 修改为 HTTPS 即可。
 
 ## 生成签名
 

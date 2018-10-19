@@ -2,9 +2,7 @@
 
 ### 相关资源
 
-[cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
-
-[Java SDK本地下载](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-java-sdk-v4-master.zip)
+[cos java sdk v4 github 项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
 ### 环境依赖
 
@@ -21,7 +19,7 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.6</version>
+            <version>4.7</version>
 </dependency>
 ```
 
@@ -39,7 +37,7 @@ pom.xml 添加依赖
 
 ## 生成客户端对象
 
-### 初始化秘钥信息
+### 初始化密钥信息
 
 ```java
         long appId = 1000000;
@@ -47,7 +45,7 @@ pom.xml 添加依赖
         String secretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxx";
         // 设置要操作的bucket
         String bucketName = "xxxxxxxxx";
-        // 初始化秘钥信息
+        // 初始化密钥信息
         Credentials cred = new Credentials(appId, secretId, secretKey);
 ```
 

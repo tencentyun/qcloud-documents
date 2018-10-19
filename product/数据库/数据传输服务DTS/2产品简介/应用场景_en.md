@@ -1,7 +1,7 @@
 
 # Application Scenario #
 ### Remote Disaster Recovery for Cloud Database ###
-Data transfer service (DTS) is capable of providing disaster recovery synchronization based on Tencent private direct connection for cloud database disaster recovery instances. The disaster recovery architecture allows mutual redundancy of different data centers in multiple regions such that when any data center goes down or fails to provide service due to any force majeure, the service can be quickly switched to another data center.
+TencentDB Service for Transmission (DTS) is capable of providing disaster recovery synchronization based on Tencent private direct connection for cloud database disaster recovery instances. The disaster recovery architecture allows mutual redundancy of different data centers in multiple regions such that when any data center goes down or fails to provide service due to any force majeure, the service can be quickly switched to another data center.
 
 DTS optimizes database replication and greatly reduces synchronization delay between master/slave databases, thereby reducing the risk of data loss caused by synchronization delay during disasters to the utmost extent.
 ![][img1]

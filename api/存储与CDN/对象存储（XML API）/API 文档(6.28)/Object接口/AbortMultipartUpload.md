@@ -22,10 +22,7 @@ DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 该 API 接口接受 DELETE 请求。
 #### 请求参数
-包含所有请求参数的请求行示例：
-```
-DELETE /ObjectName?uploadId=UploadId HTTP/1.1
-```
+
 具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |参数名称|描述|类型|必选|

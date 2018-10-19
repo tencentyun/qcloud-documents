@@ -91,7 +91,7 @@
             <td>支持日志存储到COS功能</td>
                         <td>✔（七层）</td>
                         <td>即将支持</td>
-                        <td>✖</td>
+                        <td>✔（七层）</td>
                         <td>✖</td>
         </tr>   
 </tbody></table>

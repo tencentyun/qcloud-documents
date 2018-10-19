@@ -1,78 +1,38 @@
-Elastic public IP addresses are static IPs designed for dynamic cloud computing. It is a fixed public IP of a certain area. With flexible public IP addresses, you can quickly remap addresses to another CVM instance in your account (or [NAT Gateway](https://cloud.tencent.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) instance), thereby blocking instance failures.
+## Overview
+Elastic IP, is referred to as ElP for short. It is a static IP designed for dynamic cloud computing, and a fixed public IP in a certain region. In case of an instance failure, the EIP can be remapped to another instance in your account (or [NAT gateway instance](/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) ) quickly to block the failure.
 
-Your elastic IP address is associated with a Tencent Cloud account, not with a CVM instance, and it remains associated with your Tencent Cloud account until you choose to explicitly release it or if you owe fees for more than 7 days.
+For example, if you need to remap a custom domain name to the public IP of a new instance, it takes a dozen or even dozens of hours to transmit and update the mapping over the Internet. In this case, the request will be completely parsed to the original instance, resulting in the inability of the new instance to receive the request. EIP can solve this problem by redirecting the request to the new instance.
 
-## Scope
+## EIP Category
+Tencent Cloud accounts are classified into the following classes based on whether an EIP has a capability of public network management:
+- The EIPs purchased by Class I accounts are bare instances, with backend resources featured with public network capacity.
+- Class II accounts manage public network capabilities on EIP and CLB, with backend resources being bare instances.
 
-The elastic public IP address applies to both the CVM instance of the underlying network and private network, and the [NAT Gateway](/doc/product/215/4975) instance in the private network. An elastic public IP address can only be bound to a CVM/NAT Gateway instance in the same region. Dynamic binding and unbinding are supported.
+According to the above two account classes, EIPs are also divided into the following two types:
+### Bare IP
+The EIPs purchased by Class I accounts are bare instances, with backend resources featured with public network capacity. When you create a CVM instance, NAT gateway instance or VPN gateway instance, specify the public network capacity (bandwidth cap) and billing method (bill-by-traffic/bill-by-bandwidth) of the instance. Public IP or CLB only serves as a public network egress. This type of IP is referred to as **bare IP**.
 
->Note:
-- One elastic public IP can be bound to only one CVM/NAT Gateway at the same time
-- One CVM/NAT Gateway instance can bind only one elastic public IP at the same time
+### Non-bare IP
+- Class II accounts manage public network capabilities on EIP and CLB, with backend resources being bare instances. When you create an EIP, specify the public network capacity (bandwidth cap) and billing method (bill-by-traffic/bill-by-bandwidth) of this IP. The backend instances (CVM/NAT gateway/VPN gateway) use the public network capability of the EIP. This type of IP is referred to as **non-bare IP**.
+- There are three types of non-bare IPs: **EIP billed by bandwidth on an hourly basis, EIP billed by bandwidth on a monthly basis, and EIP billed by traffic**. (Non-bare IP is under internal trial. EIP billed by bandwidth on an hourly basis applies to most of the users.)
 
-When binding an elastic IP to a CVM instance, the current public IP of the instance will be released to the public IP address pool of the underlying network. If you choose to reassign the public IP when the IP address is unbound from the CVM instance, the instance will be automatically assigned to a new public IP (there is no guarantee that it will be consistent with the public IP before binding). In addition, the destruction of an instance will also disassociate it from the elastic IP.
+### How to determine the type of an EIP
+- Log in to the [EIP Console](https://console.cloud.tencent.com/cvm/eip).
+As shown below, if **no** bandwidth-related information appears in the EIP list, the EIPs are purchased by the Class I accounts. The EIPs are non-bare IPs with no public network attributes, and you need to purchase public network for the backend resources before accessing the public network via a public IP or CLB.
+![](https://main.qcloudimg.com/raw/aa9bc5d1844dc8aa333bbd2cf5d10c84.png)
+- As shown below, if bandwidth-related information **can be found** in the EIP list, the EIPs are purchased by the Class II accounts. The type of a non-bare IP can be queried based on the billing method.
+![](https://main.qcloudimg.com/raw/8d99377cf8e7c34460206371c9913345.png)
 
-## Use constraints
+## Rules and Limits
+### Use rules
+ - An EIP applies to the CVM instances of both basic networks and VPCs, and the [NAT gateway](/doc/product/215/4975) instances in VPCs.
+ - An EIP is associated with a Tencent Cloud account, instead of an instance.
+ - An EIP remains associated with a Tencent Cloud account until it is released or the account balance is in arrears for more than 26 hours.
+ - When an EIP is bound to an instance, the current public IP of the instance will be released to the public IP pool of a basic network. If you choose to reassign a public IP when unbinding an EIP from an instance, the instance will be automatically assigned a new public IP (which may be different from the one before binding). Besides, terminating an instance will disassociate it from its EIP.
+ 
+### Use limits
+ - The maximum number of requests that can be made by each Tencent Cloud account in each region equals to **two times the quota**.
+ - At most **20** EIPs can be created by each Tencent Cloud account in each region.
+ - Each account can be reassigned **10** public IPs free of charge in a day when an EIP is unbound.
+ - **One** EIP can only be bound to **one** CVM/NAT gateway instance in the same region at a time. Dynamic binding and unbinding are supported. 
 
-
-- The number of daily purchases available for Tencent Cloud accounts in each region is (quota * 2) times.
-- Each Tencent Cloud account can create up to 20 elastic public network IPs in each region.
-- When unbinding EIP, the number of free public IP re-assignments that you can do for each Tencent Cloud account is 10 times per day. 
-
-## Release elastic public IP
-
-- Users can release an elastic public IP through the console or cloud API;
-
-- Owed fees release: When an elastic IP is not bound to a resource, it will be charged by the hour. If the user account amount starts at less than 0 USD at any time and continues for more than ** 2 ** hours, and is not recharged to greater than 0 USD , all elastic IPs will remain inactive for the next (24\*7) hours (until the account balance is >0). If the amount is negative for the past (2+24\*7) hours, all elastic public IPs will be released automatically;
-
-## Investigation method for elastic public IP block reasons
-An elastic public IP block usually has the below reasons: 
-
-- Elastic public IP is not bound to a cloud resource. For details, see the following.
-
-- Check to see if there are security policies ([Security Group](/doc/product/213/5221) or [Network ACL](/doc/product/215/5132)); in effect, if the cloud product instance is bound, for example: prohibit 8080 port access, then the elastic public IP 8080 port will also be inaccessible.
-
-## Elastic public IP billing
-When an elastic IP has been purchased, but <font color="red">is not yet bound to a cloud product instance (CVM or NAT Gateway) </font> yet, a small amount of resource usage will be charged using the below chart (anything less than 1 hour will be charged by 1 hour's time; will be billed once every hour). <font color="red">Elastic IPs used for binding cloud product instances (CVM or NAT Gateways) are free. </font>We recommend that you stop all use of elastic public IPs immediately, to ensure rational use of IP resources, and to save costs.
-
-
-## Apply for elastic public IP
-
-1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
-	
-2) In the navigation pane, click Elastic Public IP.
-
-3) Click the [Apply] button.
-
-4) After the application is finished, you can see the EIP of your application in the EIP list.
-
-## Binding elastic public IP to cloud product
-
-1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
-
-2) In the navigation pane, click Elastic Public IP.
-
-3) Click the [Bind] button next to the cloud product EIP list item you want to bind. If this elastic IP is bound to a cloud product instance, the button will be unavailable. Please unbind it first.
-	
-4) In the pop-up box, select the cloud product type you need to bind, and select the corresponding cloud product instance ID; click the "Bind" button to complete binding with the cloud product.
-
-## Unbind elastic public IP to cloud product
-
-1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
-
-2) In the navigation pane, click Elastic Public IP.
-
-3) Click the [Unbind] button next to the cloud product EIP list item that is already bound.
-
-4) Click [OK].
-
-At this point, the cloud product instance may be assigned a new public IP, and the specific details will be based on differences in cloud resources, with the actual situation being the correct one.
-
-## Release for elastic public IP
-1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
-
-2) In the navigation pane, click Elastic Public IP.
-
-3) Click the [Release] button next to the EIP list item you want to release.
-
-4) Click [OK].

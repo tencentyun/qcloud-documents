@@ -1,4 +1,4 @@
-- 登录腾讯云账号，进入总览页面，点击对象存储服务
+- 登录腾讯云账号，进入总览页面，单击对象存储服务
 
     ![总览](https://mc.qcloudimg.com/static/img/b81be7e0ea1ce65a0f6d62574ae0e4d8/6-2-1.png)
 

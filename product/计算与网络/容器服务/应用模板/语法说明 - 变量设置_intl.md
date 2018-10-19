@@ -17,7 +17,7 @@ Note: The variable name needs to satisfy the regular expression "[A-Za-z_][A-Za-
 
 ## Custom Variable - ReleaseCBS
 
-If you need to mount a CBS disk in CCS, the description is specified as follows:
+If you need to mount a CBS disk in TKE, the description is specified as follows:
 
 ```
       volumes:
@@ -33,7 +33,7 @@ If you need to mount a CBS disk in CCS, the description is specified as follows:
 ```
 (The above description means that the CBS disk disk-pr47vtvt is mounted as a vol disk to the container's /mnt directory.)
 
-A CBS disk can only be mounted to one container at a time. You need to specify different CBS disks when deploying applications in different environments with application templates. Therefore, CCS provides variable ReleaseCBS to represent CBS disk. During the application deployment, the **specific CBS disks available for the applications** are selected for deployment. The example is as follows:
+A CBS disk can only be mounted to one container at a time. You need to specify different CBS disks when deploying applications in different environments with application templates. Therefore, TKE provides variable ReleaseCBS to represent CBS disk. During the application deployment, the **specific CBS disks available for the applications** are selected for deployment. The example is as follows:
 
 ```
       volumes:
@@ -47,7 +47,7 @@ A CBS disk can only be mounted to one container at a time. You need to specify d
 
 ## Custom Variable - ReleaseSubnetId
 
-In CCS, if the service access method is set to "Access in VPC", you need to specify the SubnetId for the Lb in the description file by defining the following result in the service description file. The subnet-s1jz1ycx is the specified SubnetId.
+In TKE, if the service access method is set to "Access in VPC", you need to specify the SubnetId for the Lb in the description file by defining the following result in the service description file. The subnet-s1jz1ycx is the specified SubnetId.
 ```
 apiVersion: v1
 kind: Service

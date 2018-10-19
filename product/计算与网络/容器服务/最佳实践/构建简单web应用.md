@@ -72,7 +72,7 @@
 
 #### 4、查看服务
 
-点击左侧栏的服务，即可看到我们刚刚创建的三个服务，其中frontend服务可以公网访问，因为我们指定了公网负载均衡访问方式，而redismaster和redisslave服务只能够在集群内被其它服务访问，因为我们设置了访问方式为集群内访问。
+单击左侧栏的服务，即可看到我们刚刚创建的三个服务，其中frontend服务可以公网访问，因为我们指定了公网负载均衡访问方式，而redismaster和redisslave服务只能够在集群内被其它服务访问，因为我们设置了访问方式为集群内访问。
 ![](https://mc.qcloudimg.com/static/img/f6f97b051b982a79f48972151c2cb9e8/image.png)
 我们注意到，frontend服务的属性里面的ip地址有两个： 一个外网ip 211.159.213.194和一个内网ip 10.20.255.125，而redisslave和redismaster服务分别只有一个内网ip，那是因为frontend服务的访问方式为公网负载均衡方式访问，所以我们为该服务分配了一个公网负载均衡，该外网ip就是公网负载均衡的ip，由于frontend服务的访问端口为80，所以我们可以在浏览器直接输入该外网ip 211.159.213.194，可以看到：
 ![](https://mc.qcloudimg.com/static/img/1d2bee6cf0a05db0e12d409cc83995b7/image.png)
