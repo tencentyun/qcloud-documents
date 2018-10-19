@@ -92,7 +92,7 @@ TICManager.getInstance().setAvRootView(livingVideoView);
 
 ### 2.3. 初始化 SDK
 
-> 在初始化前，需确认已[开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
+> **注意：**在初始化前，需确认已 [开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
 
 接口 | 说明
 ---|---
@@ -137,7 +137,7 @@ createClassroom | 创建课堂 | roomID
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
-joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomOption
+joinClassroom | 根据参数配置和 roomID 加入互动课堂中 | TICClassroomOption
 
 该接口需要传入TICClassroomOption 加入课堂的参数配置。如：
 
@@ -179,7 +179,7 @@ enableMic | 打开/关闭麦克风
 enableSpeaker | 打开/关闭扬声器
 
 ### 2.8. 使用互动白板
-> **说明：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
+> **注意：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
 
 白板的相关操作用户直接通过白板 SDK 操作即可，TICSDK 不做任何封装。详见 [Android 白板 SDK 使用手册](/document/product/680/17889)。
 
