@@ -23,13 +23,13 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-|data|JSON Array| |
-|data::totalCount|Int|符合本次搜索条件的所有 topic。|
-|data::topicList|JSON Array|
-|data::topicList::topic|String|topicName。|
-|data::topicList::partitions|JSON Array|
+|data|JSON Array| |本次返回的消费分组信息。|
+|data::totalCount|Int|符合本次搜索条件的所有 topic个数。|
+|data::topicList|JSON Array|订阅的topic数组，其中每个元素为一个json object。|
+|data::topicList::topic|String|group 订阅的topicName。|
+|data::topicList::partitions|JSON Array|该主题分区数组，其中每个元素为一个json object。|
 |data::topicList::parititons::partition|Int| topic 的 partitionId。|
-|data::topicList::partitions::offset|Int|提交的 offset 位置。|
+|data::topicList::partitions::offset|Int|consumer 提交的 offset 位置。|
 |data::topicList::partitions::metadata|String|支持消费者提交消息时，传入 metadata 作为它用，当前一般为空字符串。|
 |data::topicList::partitions::log_end_offset|Int|当前 partition 最新的 offset。|
 |data::topicList::partitions::lag|Int|未消费的消费个数。|
