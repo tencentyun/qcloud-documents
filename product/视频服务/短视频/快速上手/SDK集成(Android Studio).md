@@ -162,6 +162,8 @@ public class DemoApplication extends Application {
 TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
+
+
 #### 3.6、编译运行
 
 在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
