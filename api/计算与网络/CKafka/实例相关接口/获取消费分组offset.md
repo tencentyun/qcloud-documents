@@ -12,10 +12,10 @@
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤。|
 |group|是|String  |kafka 消费分组。|
-|topics|否|string array|group 订阅的主题名称数组，如果没有该数组，则表示指定的group下所有topic信息。|
-|searchWord|否|string|模糊匹配topicName。|
-|offset|否|int|默认0 ，本次查询的偏移位置。|
-|limit|否|int| 默认50， 最大值50， 本次返回结果的最大个数。|
+|topics|否|String Array|group 订阅的主题名称数组，如果没有该数组，则表示指定的 group下所有 topic 信息。|
+|searchWord|否|String|模糊匹配 topicName。|
+|offset|否|Int|默认 0 ，本次查询的偏移位置。|
+|limit|否|Int| 默认 50， 最大值 50， 本次返回结果的最大个数。|
 
 
 
@@ -23,16 +23,17 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-|data|json array| |
-|data::totalCount|int|符合本次搜索条件的所有topic。|
-|data::topicList|json array|
-|data::topicList::topic|string|topicName。|
-|data::topicList::partitions|json array|
-|data::topicList::parititons::partition|int| topic的partitionId。|
-|data::topicList::partitions::offset|int|提交的offset位置。|
-|data::topicList::partitions::metadata|string|支持消费者提交消息时，传入metadata作为它用，当前一般为空字符串。|
-|data::topicList::partitions::log_end_offset|int|当前partition最新的offset。|
-|data::topicList::partitions::lag|int|未消费的消费个数。|
+|data|JSON Array| |
+|data::totalCount|Int|符合本次搜索条件的所有 topic。|
+|data::topicList|JSON Array|
+|data::topicList::topic|String|topicName。|
+|data::topicList::partitions|JSON Array|
+|data::topicList::parititons::partition|Int| topic 的 partitionId。|
+|data::topicList::partitions::offset|Int|提交的 offset 位置。|
+|data::topicList::partitions::metadata|String|支持消费者提交消息时，传入 metadata 作为它用，当前一般为空字符串。|
+|data::topicList::partitions::log_end_offset|Int|当前 partition 最新的 offset。|
+|data::topicList::partitions::lag|Int|未消费的消费个数。|
+
 ## 4. 示例
 
 输入：
