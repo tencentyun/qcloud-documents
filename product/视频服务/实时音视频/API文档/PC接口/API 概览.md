@@ -12,8 +12,8 @@
 
 | API | 描述 |
 | -- | -- |
-| [init](https://cloud.tencent.com/document/product/647/30018#.E5.88.9D.E5.A7.8B.E5.8C.96) | 初始化iLiveSDK(必调) |
-| [setChannelMode](https://cloud.tencent.com/document/product/647/30018#.E8.AE.BE.E7.BD.AE.E9.9F.B3.E8.A7.86.E9.A2.91.E7.8E.AF.E5.A2.83) | 设置SDK环境(自研环境还是云上环境) |
+| [init](https://cloud.tencent.com/document/product/647/30018#.E5.88.9D.E5.A7.8B.E5.8C.96) | 初始化 iLiveSDK(必调) |
+| [setChannelMode](https://cloud.tencent.com/document/product/647/30018#.E8.AE.BE.E7.BD.AE.E9.9F.B3.E8.A7.86.E9.A2.91.E7.8E.AF.E5.A2.83) | 设置 SDK 环境(自研环境还是云上环境) |
 | [addEventHandler](https://cloud.tencent.com/document/product/647/30018#.E6.B7.BB.E5.8A.A0.E4.BA.8B.E4.BB.B6.E5.9B.9E.E8.B0.83) | 设置统一事件回调 |
 | [clearEventHandler](https://cloud.tencent.com/document/product/647/30018#.E7.A7.BB.E9.99.A4.E6.89.80.E6.9C.89.E4.BA.8B.E4.BB.B6.E5.9B.9E.E8.B0.83) | 移除所有事件回调 |
 | [login](https://cloud.tencent.com/document/product/647/30018#.E7.99.BB.E5.BD.95) | 登录 iLiveSDK |
