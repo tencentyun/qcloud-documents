@@ -23,13 +23,13 @@ allprojects {
 - 在主工程的 buidle.gradle 文件中，添加 dependencies。
 
  ```
-// COS SDK模块
+// COS SDK 模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
-// iLiveSDK模块
+// iLiveSDK 模块
 compile 'com.tencent.ilivesdk:ilivesdk:1.9+'
 // 互动教育模块
 compile 'com.tencent.ticsdk:ticsdk:1.5.2'
-// 白板SDK模块
+// 白板 SDK 模块
 compile 'com.tencent.boardsdk:boardsdk:1.6.2'
 ```    
 
@@ -62,7 +62,7 @@ TICSDK 使用的一般流程如下：
 
 ### 2.2. 控件使用
 
-TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接Layout的XML文件里直接引用，或者继承添加自己业务需要的特性。如：
+TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接 Layout 的 XML 文件里直接引用，或者继承添加自己业务需要的特性。如：
 
 ```xml
 <com.tencent.ilivesdk.view.AVRootView
@@ -131,7 +131,7 @@ login | 登录 | userId 和 userSig
 ------- | ------- | -------
 createClassroom | 创建课堂 | roomID
 
-其中参数**roomID**由业务层自行指定（必须为正整数）。
+其中参数 **roomID** 由业务层自行指定（必须为正整数）。
 
 ### 2.6. 加入课堂
 
@@ -240,7 +240,7 @@ quitClassroom | 退出课堂
 ------- | ------- | ------
 destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责调用。| roomId
 
->** 注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
+>**注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
 
 ### 2.13. 登出
 
