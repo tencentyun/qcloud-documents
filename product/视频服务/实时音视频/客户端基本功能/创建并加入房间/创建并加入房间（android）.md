@@ -53,7 +53,6 @@ public class RoomHelper implements ILiveRoomOption.onExceptionListener, ILiveRoo
     // 创建房间
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
-                .privateMapKey(privateMapKey)   // 进房票据
                 .imsupport(false)       // 不需要IM功能              
                 .exceptionListener(this)  // 监听异常事件处理
                 .roomDisconnectListener(this)   // 监听房间中断事件
@@ -128,11 +127,7 @@ roomHelper.createRoom(1234);
 ## 常见问题
 
 #### 进房失败10004，提示request room server address failed
-确认正确配置了进房票据privateMapKey
-> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
-```
-ILiveSDK.getInstance().setChannelMode(CommonConstants.E_ChannelMode.E_ChannelIMSDK);
-```
+确认正确配置了进房票据privateMapKey，若控制台在【帐号信息】开启【启用权限密钥】,则privateMapKey为必填字段
 
 #### 进房失败71，提示decodeSsoCmd_pbvideoapp_pbvideoinfoErr:user id error longConnHead.account=0
 这种情况多帐号登录引起，请确认之前登录新帐号时，已注销老的帐号

@@ -26,7 +26,7 @@ $res_type = 0;
 $result_text_format = 0;
 // 语音编码方式 1:wav 4:sp 6:skill
 $voice_format = 1;
-//$filepath="D:\\test20180903.wav";
+$filepath="D:\\test20180903.wav";
 // 语音切片长度 cutlength<200000
 $cutlength = 6400;
 //调用 RASRsdk 中的 sendvoice 函数获得识别结果
