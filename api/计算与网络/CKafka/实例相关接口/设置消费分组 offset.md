@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口 (GetGroupOffsets) 用于在用户账户下获取 CKafka 消费分组详细信息。
+本接口 (SetGroupOffsets) 用于在用户账户下设置 CKafka 实例某个消费分组 offset。
 
 接口请求域名：`ckafka.api.qcloud.com`
 
@@ -12,19 +12,19 @@
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤。|
 |group|是|String  |kafka 消费分组。|
-|topics|否|string array|表示需要重置offset的topic数组，不填表示全部topic。|
-|strategy|是|int|重置offset的策略，入参含义 0. 对齐shift-by参数，代表把offset向前或向后移动shift条 1. 对齐参考(by-duration,to-datetime,to-earliest,to-latest),代表把offset移动到指定timestamp的位置 2. 对齐参考(to-offset)，代表把offset移动到指定的offset位置。|
-|shift|否|int|当strategy为0时，必须包含该字段，可以大于零代表会把offset向后移动shift条，小于零则将offset向前回溯shift条数。正确重置后新的offset应该是(old_offset + shift)，需要注意的是如果新的offset小于partition的earliest则会设置为earliest，如果大于partition 的latest则会设置为latest。|
-|timestamp|否|int|	单位ms。当strategy为1时，必须包含该字段，其中-2表示重置offset到最开始的位置，-1表示重置到最新的位置(相当于清空)，其它值则代表指定的时间，会获取topic中指定时间的offset然后进行重置，需要注意的时，如果指定的时间不存在消息，则获取最末尾的offset。|
-|offset|否|int|需要重新设置的offset位置。当strategy为2，必须包含该字段。|
+|topics|否|String Array|表示需要重置 offset 的 topic 数组，不填表示全部 topic。|
+|strategy|是|Int|重置 offset 的策略，入参含义：<br> 0：对齐 shift-by 参数，代表把 offset 向前或向后移动 shift 条。<br> 1：对齐参考(by-duration,to-datetime,to-earliest,to-latest),代表把 offset 移动到指定timestamp的位置。<br> 2：对齐参考(to-offset)，代表把 offset 移动到指定的 offset 位置。|
+|shift|否|Int|当 strategy 为 0 时，必须包含该字段，可以大于零代表会把 offset 向后移动 shift 条，小于零则将 offset 向前回溯 shift 条数。正确重置后新的 offset 应该是(old_offset + shift)，**如果新的 offset 小于 partition 的 earliest 则会设置为 earliest，如果大于partition 的 latest 则会设置为 latest**。|
+|timestamp|否|Int|	单位：ms。当 strategy 为 1 时，必须包含该字段，其中 -2 表示重置 offset 到最开始的位置，-1 表示重置到最新的位置(相当于清空)，其它值则代表指定的时间，会获取 topic 中指定时间的 offset 然后进行重置，**如果指定的时间不存在消息，则获取最末尾的 offset**。|
+|offset|否|Int|需要重新设置的 offset 位置。当 strategy 为 2 时，必须包含该字段。|
 
 ## 3. 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-|data|json array| |
-|data::succ|json array|重置成功数组，说明参考实例|
-|data::failed|json array|重置失败数组，说明参见实例
+|data|JSON Array|本次接口返回的设置消费分组结果信息。|
+|data::succ|JSON Array|重置成功数组，说明参考实例。|
+|data::failed|JSON Array|重置失败数组，说明参见实例。
 
 ## 4. 示例
 

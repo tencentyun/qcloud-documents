@@ -13,7 +13,6 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
-roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要加入的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "user";      //使用Spear上配置的"user"角色
@@ -48,8 +47,4 @@ GetILive()->joinRoom(roomOption, [](void* data) {
 ## 常见问题
 
 #### 进房失败，提示没有权限
-确认正确配置了进房票据privateMapKey
-> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
-```
-GetILive()->setChannelMode(E_ChannelIMSDK);
-```
+确认正确配置了进房票据privateMapKey，若控制台在【帐号信息】开启【启用权限密钥】,则privateMapKey为必填字段
