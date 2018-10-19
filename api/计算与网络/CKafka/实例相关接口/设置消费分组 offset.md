@@ -22,7 +22,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-|data|JSON Array| |
+|data|JSON Array|本次接口返回的设置消费分组结果信息。|
 |data::succ|JSON Array|重置成功数组，说明参考实例。|
 |data::failed|JSON Array|重置失败数组，说明参见实例。
 
