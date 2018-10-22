@@ -16,7 +16,7 @@
 
 > 为了您永久密钥的安全性，我们强烈建议您通过接入临时密钥服务来进行授权。
 
-## 搭建 COS 传输服务
+## 集成 COS 传输服务
 
 ### 第一步：集成 COS SDK
 
@@ -157,7 +157,7 @@ public void upload(String bucket, String cosPath, String localPath) {
     cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
         @Override
         public void onStateChanged(final TransferState state) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 
@@ -165,7 +165,7 @@ public void upload(String bucket, String cosPath, String localPath) {
     cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
         @Override
         public void onProgress(final long complete, final long target) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 
@@ -173,18 +173,17 @@ public void upload(String bucket, String cosPath, String localPath) {
     cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
         @Override
         public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
 
         @Override
         public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 }
 
 ```
-
 
 #### 下载文件
 
@@ -208,7 +207,7 @@ public void download(String bucket, String cosPath, String localDirPath) {
     cosxmlDownloadTask.setTransferStateListener(new TransferStateListener() {
         @Override
         public void onStateChanged(final TransferState state) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 
@@ -216,7 +215,7 @@ public void download(String bucket, String cosPath, String localDirPath) {
     cosxmlDownloadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
         @Override
         public void onProgress(final long complete, final long target) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 
@@ -224,21 +223,25 @@ public void download(String bucket, String cosPath, String localDirPath) {
     cosxmlDownloadTask.setCosXmlResultListener(new CosXmlResultListener() {
         @Override
         public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
 
         @Override
         public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-            // TODO: 2018/10/22
+            // TODO: 
         }
     });
 }
 
 ```
 
+> 注意：COSXMLUploadTask 和 COSXMLDownloadTask 的状态、进度和结果监听器均不保证在 UI 线程中回调，因此请不要直接在回调函数中操作 UI。
+
 ### 运行传输项目
 
 完成以上四个步骤接入 COS 服务后，您可以调用上传和下载代码来进行传输测试，上传成功后，您可以在 [COS 控制台](https://console.cloud.tencent.com/cos/bucket) 上查看您上传的文件，或者在本地查看你下载成功的文件，如果您开启了 Debug 模式，那么您也可以在 logcat 中查看传输日志。
+
+### 完整示例代码
 
 [项目 Github 地址 >>](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/COSTransfer)
 
