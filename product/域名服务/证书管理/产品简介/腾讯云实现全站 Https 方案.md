@@ -15,7 +15,7 @@
 ### 1.2 填写提交申请
 
 填写申请域名，注意免费证书目前不支持一级域名申请（例如qcloud.com），请填写例如cloud.tencent.com，demo.test.qlcoud.com形式二级、三级等域名。
-如果需要部署到
+如果需要部署到腾讯云负载均衡、CDN等云服务，请勿填写私钥密码。
 
 ![](https://mc.qcloudimg.com/static/img/4961164252cd488c9695475e173c0b8c/4.png)
 
