@@ -41,8 +41,6 @@ TSF demo (注意注册中心地址使用注册中心IP和端口替换)
 
 #### 4. 打包FATJAR
 
-
-
 可以通过 **maven-shade-plugin** 来构建一个包含所有依赖的 jar 包（FatJar）。执行命令 `mvn clean package`。
 
 >根据实际情况，修改以下 mainClass 标签内容。
