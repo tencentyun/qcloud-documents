@@ -80,8 +80,8 @@ metadata:
   name: cloud-premium
 provisioner: cloud.tencent.com/qcloud-cbs ##tke集群自带的provisioner
 parameters:
-  type: cloudPremium
-  # 支持 cloudBasic,cloudPremium,cloudSSD  如果不识别则当做cloudBasic
+  type: CLOUD_PREMIUM
+  # 支持'CLOUD_BASIC': '普通云硬盘','CLOUD_PREMIUM': '高性能云硬盘','CLOUD_SSD': 'SSD云硬盘'
   # zone:ap-shanghai-1
   # zone 支持指定zone，如果指定，则讲云盘创建到此zone，如果不指定，则拉取所有node的zone信息，随机挑选一个
   # paymode: PREPAID 
