@@ -94,4 +94,4 @@ TSF demo (**注册中心地址使用注册中心 IP 和端口替换**)：
 参考文档：[maven-shade-plugin 入门指南](https://www.jianshu.com/p/7a0e20b30401) 。
 
 ##  部署应用
-参考 《TSF 操作手册》中 [应用部署](https://cloud.tencent.com/document/product/649/13686) 。
+请参考 [应用基本操作](https://cloud.tencent.com/document/product/649/13686) 。
