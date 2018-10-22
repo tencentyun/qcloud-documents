@@ -13,7 +13,7 @@
 ## 处理步骤
 
 1. 确认内核版本
-Agent 安装目录下的 bin 目录中的可执行文件只支持 Linux 64 位内核，请通过命令行 `uname -a` 确认内核版本是否为 x86_64。
+Agent 安装目录下的 bin 目录中的可执行文件只支持 Linux 64 位内核，请通过命令行 **uname -a** 确认内核版本是否为 x86_64。
 
 2. 确认安装执行命令
 Tools 目录中的脚本文件为 bash 脚本，不支持 sh install.sh 的执行方式，推荐使用 ./install.sh 或 bash install.sh 的方式，请务必按照 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档进行操作。
