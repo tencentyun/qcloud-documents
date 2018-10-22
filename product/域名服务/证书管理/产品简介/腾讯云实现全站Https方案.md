@@ -60,7 +60,7 @@
 选择需要配置证书的加速域名，注意：
 
 + 域名需要已经接入 CDN，且状态为 **部署中** 或 **已启动**，关闭状态的域名无法部署证书；
-+ COS 或 万象优图开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书；
++ COS 或 数据万象开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书；
 + SVN 托管源暂时无法配置证书。
 
 ![](https://mc.qcloudimg.com/static/img/973e75c6a0b1672f1a1f11f9667bf6f0/image.png)
