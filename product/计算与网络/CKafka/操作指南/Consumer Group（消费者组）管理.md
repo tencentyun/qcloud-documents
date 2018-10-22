@@ -21,7 +21,8 @@
  - 从某一时间点开始进行重新消费
 
 >**注意：**
->offset 设置范围要在最小 offset 和最大 offset 之间。在配置时，如果小于最小 offset 会从最小 offset 进行消费，如果大于最大 offset 会从最大 offset 进行消费。
+> offset 设置范围要在最小 offset 和最大 offset 之间。在配置时，如果小于最小 offset 会从最小 offset 进行消费，如果大于最大 offset 会从最大 offset 进行消费。
+> 重置消费分组时，需保证没有消费者在消费分组内才能进行重置，否则不能进行重置。
 
 ![](https://main.qcloudimg.com/raw/7b5d80d6d02317c7e760871289ac6772.jpg)
 
