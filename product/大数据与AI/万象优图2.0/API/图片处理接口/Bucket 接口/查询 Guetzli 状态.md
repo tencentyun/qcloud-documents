@@ -37,8 +37,10 @@ GET /?guetzli HTTP/1.1
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
+
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <GuetzliStatus>on</GuetzliStatus>
 ```
+
 拥有 `on` 与 `off` 两种状态。
