@@ -22,7 +22,7 @@ FISCO BCOS 平台基于价值联盟、安全可信、业务可行、自主可控
 
 ## 官方社区
 
-- FISCO BCOS 官方地址：github.com/fisco-bcos
+- FISCO BCOS 官方地址：[https://github.com/fisco-bcos](https://github.com/fisco-bcos)
 - FISCO BCOS 官方文档地址：https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community/index.html
 - FISCO BCOS 官方技术支持与交流：扫描下方二维码，群管理员邀请进群![](https://main.qcloudimg.com/raw/1fa213b56d47b40d4a53e66a39d947d1/%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg)
 
