@@ -1,10 +1,10 @@
 WebRTC 不仅可提供以摄像头为源的视频通讯功能，也能将由canvas元素捕获的流进行推流。
 
 ### demo演示
-https://sxb.qcloud.com/webrtc-samples/canvascapture/demo.html
+https://www.qcloudtrtc.com/webrtc-samples/canvascapture/demo.html
 
 ### 示例代码
-https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
+https://gitee.com/vqcloud/webrtc-samples
 
 
 
@@ -16,8 +16,7 @@ https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
         userId: userId,
         sdkAppId:  sdkappid,
         accountType:  accountType,
-        userSig: userSig,
-        closeLocalMedia: true
+        userSig: userSig
     },function(){
         ...
     } ,function(error){
@@ -29,20 +28,31 @@ https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
 参考demo，通过 canvas.captureStream 获取到MediaStream
 
 
-### step 3.推流
+### step 3.进房并推流
 > role 必须带上，这将决定了canvas流的码率，请到控制台配置一个合适的码率。
+> role 可以在进房的时候带，也可以在推流的时候带，建议在进房的时候带，会更快哦
+
 ```javascript
-    RTC.startRTC({
-        role: 'canvas_stream_role_name', 
+    RTC.enterRoom({
+        role: 'canvas_stream_role_name',
+        roomid : $("#roomid").val()
+    },function(){
+        //进房成功，音视频推流
+        RTC.startRTC({
+        role: 'canvas_stream_role_name',
         stream: canvasStream
-    })
+        });
+    },function(){
+
+    });
+
 ```
 
 
 ### FAQ
 
 - 为什么我在无法进行canvas推流？
-  - 受限于浏览器支持情况，需要在Chrome浏览器52+版本下运行。 
+  - 受限于浏览器支持情况，需要在Chrome浏览器52+版本下运行。
   - 受限于浏览器权限，需要在localhost，或者通过服务器访问，不能直接访问本地html文件进行canvas推流。
 - 有没有实例代码？怎么获得canvas的流?怎么在canvas推流时加入声音？
-  - 请参考 https://github.com/TencentVideoCloudMLVBDev/webrtc_web_samples
+  - 请参考 https://gitee.com/vqcloud/webrtc-samples

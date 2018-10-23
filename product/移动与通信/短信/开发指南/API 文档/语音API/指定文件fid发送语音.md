@@ -28,7 +28,7 @@
 | playtimes | 否   | number | 播放次数，可选，最多 3 次，默认 2次                                                                 |
 | sig       | 是   | string | App 凭证，具体计算方式见下注                                                                      |
 | tel       | 是   | object | 电话号码                                                                                         |
-| time      | 是   | number | 请求发起时间，unix 时间戳(单位秒)，如果和系统时间相差超过 10 分钟则会返回失败                               |
+| time      | 是   | number | 请求发起时间，UNIX 时间戳(单位秒)，如果和系统时间相差超过 10 分钟则会返回失败                               |
 | ext       | 否   | string | 用户的 session 内容，腾讯 server 回包中会原样返回                                                    |
 
 - 参数`tel`:
@@ -67,7 +67,7 @@ string fmt = "appkey=%s&random=%lu&time=%lu&mobile=%s";
 string appkey = "5f03a35d00ee52a21327ab048186a2c4";
 // 请求url中的随机值
 uint64_t random = 7226249334;
-// 当前请求时间，unix时间戳，单位秒
+// 当前请求时间，UNIX 时间戳，单位秒
 time_t now = time(NULL);
 // 手机号码
 string mobile = "13788888888";
@@ -87,10 +87,14 @@ fmt = "appkey={}&random={}&time={}&mobile={}"
 appkey = "5f03a35d00ee52a21327ab048186a2c4"
 # 请求url中的随机值
 random = 1234
-# 当前请求时间，unix时间戳，单位秒
+# 当前请求时间，UNIX 时间戳，单位秒
 now = int(time.time())
 # 手机号码
 mobile = "13788888888"
 # 计算sig
 sig = hashlib.sha256(fmt.format(appkey, random, now, mobile)).hexdigest()
 ```
+
+
+## DEMO
+腾讯云短信服务为您提供了 [Java SDK](https://cloud.tencent.com/document/product/382/5804)、[PHP SDK](https://cloud.tencent.com/document/product/382/5804)、[Python SDK](https://cloud.tencent.com/document/product/382/5804)、[Node.js SDK](https://cloud.tencent.com/document/product/382/5804) 和 [C# SDK](https://cloud.tencent.com/document/product/382/5804) 供您参考，欢迎查阅。

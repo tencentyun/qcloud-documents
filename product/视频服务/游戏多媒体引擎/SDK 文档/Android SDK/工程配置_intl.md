@@ -1,46 +1,57 @@
-Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes project configuration for Android development so that Android developers can easily debug and access APIs for Tencent Cloud GME.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides project configuration that makes it easy for Android developers to debug and integrate the APIs for Game Multimedia Engine.
 
-## SDK Acquisition
-You can obtain the SDK as follows.
+## SDK Preparation
 
-### Download the SDK. 
-Click the Tencent Cloud [Game Multimedia Engine](https://intl.cloud.tencent.com/product/tmg?idx=1).  
-![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
+You can obtain the SDK by the following way:
 
-On the displayed page, click "Developer Resources". Download the SDK resource package for Android.
-![](https://main.qcloudimg.com/raw/1792e4d44a0db1bf6a0f6da752a33056.png)
+### Download SDK
 
-Decompress the downloaded SDK resource package. The following table describes the folder in the package.
+Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521).
 
-|Folder Name       | Description           
+Pinpoint the SDK resource for Android on the page.
+
+The decompressed SDK resource is composed as follows:
+
+| File Name | Description           
 | ------------- |:-------------:|
-| libs     	| Development kit **libs**.     |
+| Libs     	| SDK Libs     |
 
-## OS Requirements
-The SDK can be run in Android 4.0.3 (API 15) and later versions, but hardcoding is supported only in versions later than Android 4.3 (API 18).
+## System Requirement
 
-## Preparation
-### Import the SDK files.  
-Copy the **mobilepb.jar**, **tmgsdk.jar**, and **wup-1.0.0-SNAPSHOT.jar** files from the development kit folder **libs** into the **libs** folder of the Android project, as shown in the following figure. (If there is no **libs** folder in the Android project, create one. If there are no **armeabi** and **armeabi-v7a** folders in the Android project, copy these two folders from the development kit folder **libs** as well.)  
-![](https://main.qcloudimg.com/raw/2d35214a4bda9fdd36de0527a6bfa0e7.png)
+SDK is supported on Android 4.2 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
 
-### Configure the project.  
-In the **build.gradle** file under **app** in the Android project, add the code of the referenced library.  
+## Preparations
+
+#### Importing SDK file
+
+Copy mobilepb.jar, tmgsdk.jar and wup-1.0.0-SNAPSHOT.jar from the SDK's libs directory to the Android project's libs directory (If there is no libs directory in the project, create one; if there is no armeabi and armeabi-v7a in it, copy them to the libs directory), as shown below:  
+![](https://main.qcloudimg.com/raw/006cc0fab7b4c2f370b9b31fdbc93f90.png)
+
+### Configuring project
+
+Add the code that references the library to build.gradle under the App directory of the project.  
+
 ```
 sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
 }
-```  
+```
 
-### Configure application permissions.  
-Add the following permissions to the **AndroidManifest.xml** file of the Android project.
+### Configuring App permissions
+
+Add the following permissions in the AndroidManifest.xml file of the project:
+
 ```
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-```
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+	```
+

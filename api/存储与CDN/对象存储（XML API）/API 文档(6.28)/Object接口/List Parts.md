@@ -2,24 +2,22 @@
 List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。
 
 ## 请求
-请求示例：
+### 请求示例
+
 ```
 GET /ObjectName?uploadId=UploadId HTTP/1.1
 Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
-
 ```
+
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-GET /{ObjectName}?uploadId={UploadId} HTTP/1.1
-```
-
-该 API 接口接受 `GET` 请求。
-
+### 请求头
+#### 公共头部
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+#### 非公共头部
+该请求操作无特殊的请求头部信息。
 
 #### 请求参数
 
@@ -30,31 +28,20 @@ encoding-type|string|否|规定返回值的编码方式
 max-parts|string|否|单次返回最大的条目数量，默认 1000
 part-number-marker|string|否|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
 
-### 请求头
-
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
-
 ### 请求体
 该请求请求体为空。
+
 ## 响应
+
 ### 响应头
-
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
-
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-
-该请求操作无特殊的响应头部信息。
+该响应无特殊的响应头。
 
 ### 响应体
-查询成功，返回 application/xml 数据，包含已完成的分片信息。
+查询成功，返回 **application/xml** 数据，包含已完成的分片信息。
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <ListPartsResult>
@@ -100,7 +87,7 @@ Key|ListPartsResult|Object 的名字|string|是
 UploadId|ListPartsResult|标识本次分块上传的 ID|string|是
 Initiator|ListPartsResult|用来表示这些分块所有者的信息|Container|是
 Owner|ListPartsResult|用来表示这些分块所有者的信息|Container|是
-StorageClass|ListPartsResult|用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA|string|是
+StorageClass|ListPartsResult|用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string|是
 PartNumberMarker|ListPartsResult|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string|是
 NextPartNumberMarker|ListPartsResult|假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点|string|是
 MaxParts|ListPartsResult|单次返回最大的条目数量|string|是
@@ -126,7 +113,6 @@ PartNumber|ListPartsResult.Part|块的编号|string|是
 LastModified|ListPartsResult.Part|说明块最后被修改时间|string|是
 ETag|ListPartsResult.Part|块的 MD-5 算法校验值|string|是
 Size|ListPartsResult.Part|说明块大小，单位是 Byte|string|是
-
 
 ## 实际案例
 

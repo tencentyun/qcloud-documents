@@ -1,22 +1,24 @@
 ## Overview
 
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. To make it easier for developers to debug and integrate GME products, this document describes the authentication keys for all platforms.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document describes the authentication keys for all platforms to make it easy for developers to debug and integrate Game Multimedia Engine.
 
-## Voice Chat Key
-Tencent Cloud GME provides authentication keys for the encryption and authentication of related features. Generating a signature used for authentication involves plaintext, key and algorithm.
+## Voice Key
+Tencent Cloud GME provides authentication keys for authentication of voice chat and voice message.
+
+Plaintext, key and algorithm are used to generate a signature for authentication.
 
 Plaintext is constructed using the following fields in the network order:
 
 | Field Description | Type/Length | Value Definition/Note |
 | ---------------- |-------------------|--------------|
 | cVer				|unsigned char/1	|Version number. Value entered: 0 |
-| wAccountLen		|unsigned short/2	|Length of third-party account	|
-| buffAccount		|wAccountLen		|Characters of third-party account	|
+| wOpenIDLen		|unsigned short/2	|Length of third-party account	|
+| dwOpenID			|wAccountLen		|Characters of third-party account	|
 | dwSdkAppid		|unsigned short/4	|AppID of third-party account		|
-| dwAuthid			|unsigned int/4		|Group ID				|
+| dwRoomID			|unsigned int/4		|For voice chat, enter the room number; for voice message, enter 0. |
 | dwExpTime		|unsigned int/4		|Expiration time (current time + validity period) (in sec). 300 seconds is recommended. |
-| dwPriviegeMap	|unsigned int/4		|ITMG_AUTH_BITS_DEFAULT indicates full access |
-| dwReserved		|unsigned int/4		|Value entered: 0 |
+| dwReserved1		|unsigned int/4		|Value entered: -1 or 0xFFFFFFFF |
+| dwReserved2		|unsigned int/4		|Value entered: 0 |
 
 ### 1. Key
 The permission key can be obtained on Tencent Cloud GME console.
@@ -25,7 +27,7 @@ The permission key can be obtained on Tencent Cloud GME console.
 
 ### 2. Algorithm
 TEA symmetric encryption algorithm.
-It is recommended to deploy the algorithm on the client in the early stage of integration, and deploy it at the game application backend later.
+It is recommended to deploy authentication feature on the client at the early stage, and later deploy it at the game App backend.
 
 | Solution       		| Advantage        		| Disadvantage																																|
 | ------------- |-------------|-------------| 
@@ -33,7 +35,7 @@ It is recommended to deploy the algorithm on the client in the early stage of in
 | Client deployment      	| Quick integration	| Low security |
 
 #### How to implement backend deployment
-The encrypted string generated at backend is delivered to the client and used for the following scenario: when API enterRoom is called for entering a room, the encrypted string is transferred to the field authBuffer in the parameters for entering room.
+The encrypted string generated at backend is delivered to the client and used for the following scenario: when API EnterRoom is called for entering a room, the encrypted string is transferred to the field authBuffer in the parameters for entering room.
 
 
 
@@ -56,35 +58,4 @@ The encrypted string generated at backend is delivered to the client and used fo
 >Do not convert the binary strings into hexadecimal ones.
 
 
-
-## Offline Voice Key
-Overview: Offline voice messages are uploaded and downloaded through the COS platform of Tencent Cloud, which requires separate authentication. Generating a signature used for authentication involves plaintext, key and algorithm.
-### 1. Plaintext
-The plaintext is constructed based on appid and openid.
-
-### 2. Obtain the key
-Click **Download Public and Private Keys** in the Authentication Information module on the application setting page to download the public and private keys for the application.
-![](https://main.qcloudimg.com/raw/bed3c36cdf3fcb421878c64cd5d775ba.png)
-
-Decompress the downloaded zip package and you can find two files as below:
-
-| File Name       | Role    |
-| :-----------: | ------------- |
-|public_key |Public key |
-|private_key |Private key |
-
-Open a file in Notepad as required, copy the key in it, and enter the key to corresponding function as a parameter.
-
->**Note:**
->The public and private key pair obtained each time can be used after 1 hour upon download.
-
-### 3. Deploy the algorithm
-It is recommended to deploy the algorithm on the client in the early stage of integration, and deploy it at the application backend later.
-
-| Solution       | Disadvantage        | Details |
-| ------------- |:-------------:| ------------- 
-| Backend deployment   		| Heavy workload				| [TLS Backend API User Guide](https://cloud.tencent.com/document/product/269/1510#1-.E6.A6.82.E8.BF.B0)					|
-| Client deployment      	| Large installer package and low security 		| Two library files libqav_tlssig.so (Android) and QAVSDKTlsSig.framework (iOS), as well as QAVSig.cs are introduced to the project. 	|  
-
-For more information, please see platform documents.
 

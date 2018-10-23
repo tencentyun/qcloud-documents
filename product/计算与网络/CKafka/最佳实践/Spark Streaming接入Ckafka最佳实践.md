@@ -23,6 +23,8 @@ Spark Streaming将连续数据抽象成DStream(Discretized Stream)，而DStream�
 
 目前ckafka支持0.9.0.x，0.10.0.x，0.10.1.x，0.10.2.x版本，本次实践使用0.10.2.1版本的kafka依赖
 
+此外，EMR中的Spark Streaming也支持直接对接CKafka，详见[SparkStreaming 对接 Ckafka 服务](https://cloud.tencent.com/document/product/589/12305)
+
 ## Spark Streaming接入CKafka
 
 ### 申请Ckafka实例

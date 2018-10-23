@@ -9,7 +9,7 @@
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
 
 ### URL 说明
-支持 http 和 https 两种协议：
+支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/bankcard`
 
@@ -23,7 +23,7 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
-| content-type   |  是   |string | 1. 使用 application/json 格式，参数为 url 或 base64，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。     |
+| content-type   |  是   |string | 1. 使用 application/json 格式，参数为 url 或 image，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。     |
 | authorization  |  是   |string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
 
 ### 请求参数
@@ -50,7 +50,7 @@ items 说明：
 | ---------- | ------ | ---------------------------------------- |
 | item       | string | 字段名称                                     |
 | itemstring | string | 字段结果                                     |
-| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width, height |
+| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽 width、高 height |
 | itemconf   | float  | 识别结果对应的置信度                               |
 
 ## 请求示例

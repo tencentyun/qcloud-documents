@@ -99,7 +99,7 @@ HAVIP 目前处于灰度阶段，如需使用请 [提交工单](https://console.
 
 ## 常见使用场景
 - **负载均衡的 HA**
-用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual ip address。
+用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual Ip address。
 - **关系型数据库主备**
 两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
 

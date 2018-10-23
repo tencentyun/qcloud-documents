@@ -25,6 +25,9 @@ GME 快速入门文档只提供最主要的接入接口，更多详细接口请�
 ** GME 的接口调用要在同一个线程下。**
 ** GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。**
 
+**GME 需要调用 Poll 接口触发事件回调。**
+
+
 ## 快速接入步骤
 
 
@@ -59,18 +62,16 @@ ITMGContext public abstract int Poll();
 ```
 
 ### 3、加入房间
-用生成的鉴权信息进房。
-- 加入房间默认不打开麦克风及扬声器。
-- 在 EnterRoom 接口调用之前要先调用 Init 接口。
+用生成的鉴权信息进房。加入房间默认不打开麦克风及扬声器。
 
 
 #### 函数原型
 ```
-ITMGContext EnterRoom(int relationId, int roomType, byte[] authBuffer)
+ITMGContext EnterRoom(int roomID, int roomType, byte[] authBuffer)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| relationId		|int    	|房间号，只支持32位					|
+| roomID		|int    	|房间号，只支持32位					|
 | roomType 	|ITMGRoomType		|房间音频类型		|
 | authBuffer 	|Byte[] 	|鉴权码					|
 
@@ -147,29 +148,27 @@ ITMGAudioCtrl EnableSpeaker(bool isEnabled)
 IQAVContext.GetInstance().GetAudioCtrl().EnableSpeaker(true);
 ```
 
+
 ## 关于鉴权
 ### 实时语音鉴权信息
 生成 AuthBuffer，用于相关功能的加密和鉴权，相关参数获取及详情见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。      
+离线语音获取鉴权时，房间号参数必须填0。
 该接口返回值为 Byte[] 类型。
 #### 函数原型
 ```
-QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string identifier, string key, int expTime, uint authBits)
+QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string openId, string key)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码					|
-| roomId    		|int   		|房间号，只支持 32 位									|
-| identifier    	|String 		|用户标识											|
-| key    			|string 		|来自腾讯云控制台的密钥								|
-| expTime    		|int   		|authBuffer 超时时间									|
-| authBits    		|int    		|权限（ITMG_AUTH_BITS_DEFAULT 代表拥有全部权限）	|
+| appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
+| roomId    		|int   		|房间号，只支持32位				|
+| openId    	|String 	|用户标识					|
+| key    		|string 	|来自腾讯云控制台的密钥				|
 #### 示例代码  
+
 ```
-byte[] GetAuthBuffer(string appId, string userId, int roomId, uint authBits)
+byte[] GetAuthBuffer(string appId, string userId, int roomId)
     {
-	TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-	double timeStamp = t.TotalSeconds;
-	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9", (int)timeStamp + 1800, authBits);
+	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9");
 }
-byte[] authBuffer = this.GetAuthBuffer(str_appId,, str_userId, roomId, recvOnly ? IQAVContext.AUTH_BITS_RECV : IQAVContext.AUTH_BITS_ALL);
 ```

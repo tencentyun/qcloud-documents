@@ -1,7 +1,7 @@
 ## 相关说明
-腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)一文。
+腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 一文。
 
-Node.js MongoDB驱动文档：
+Node.js MongoDB 驱动文档：
 https://docs.mongodb.org/ecosystem/drivers/node-js/
 
 ## 快速开始
@@ -19,12 +19,12 @@ npm init
 var mongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
-// 拼接URI
+// 拼接 URI
 var url = 'mongodb://mongouser:thepasswordA1@10.66.161.177:27017/admin';
 
 mongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
-	var db = db.db('testdb'); // 选择一个db
+	var db = db.db('testdb'); // 选择一个 db
 	var col = db.collection('demoCol'); // 选择一个集合(表)
    // 插入数据
     col.insertOne(
@@ -34,7 +34,7 @@ mongoClient.connect(url, function(err, db) {
         }, 
         //可选参数
         //{
-        //    w: 'majority' // 开启 “大多数”模式，保证数据写入Secondary节点
+        //    w: 'majority' // 开启 “大多数”模式，保证数据写入 Secondary 节点
         //}, 
         function(err, r) {
             console.info("err:", err);

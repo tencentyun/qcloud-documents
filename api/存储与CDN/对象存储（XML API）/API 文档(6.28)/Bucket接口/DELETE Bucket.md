@@ -37,7 +37,7 @@ Authorization: Auth String
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-|错误码|描述|HTTP 状态码|
+|错误码|HTTP 状态码|描述|
 |-------|------|------|
 |BucketNotEmpty|409 Conflict|不能删除一个非空的 Bucket|
 |AccessDenied|403 Forbidden|删除 Bucket 同样需要携带签名，如果试图删除一个没有访问权限的 Bucket，就会返回该错误|
@@ -58,7 +58,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应
 ```
-HTTP /1.1 204 OK
+HTTP/1.1 204 OK
 Content-Type: application/xml
 Content-Length: 0
 Connection: keep-alive

@@ -9,7 +9,7 @@ EipAclBmSet 接口用于修改 ACL 名称、状态、入站规则、出战规则
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipAclBmSet
 	&<公共请求参数>
-	&aclId=<EIP实例ID>
+	&aclId=<ACL实例ID>
 	&aclName=<ACL名称>
 	&status=<ACL状态>
 	&type=<规则类型 入站/出战>

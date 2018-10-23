@@ -28,7 +28,7 @@ currency\_type |	string[3]	| 是	| ISO 货币代码，CNY
 amount |	int |	是	| 支付金额，单位： 分
 product\_name	| string[128] | 	是	| 商品名称
 product\_detail |	string[255] | 是	 | 商品详情
-ts |	string[10]	| 是	| unix 时间戳（格林威治时间），精确到秒。
+ts |	string[10]	| 是	| UNIX 时间戳（格林威治时间），精确到秒。
 sign |	string[32] |	是	| [请求签名](https://cloud.tencent.com/document/product/666/16830)
 sub\_appid	| string[50] |	否	| 子应用 ID
 channel |	string[10]|	否	| 指定支付渠道：wechat：微信支付； qqwallet：QQ 钱包

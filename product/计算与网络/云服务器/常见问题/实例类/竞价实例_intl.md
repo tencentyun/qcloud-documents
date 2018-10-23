@@ -2,7 +2,7 @@
 Spot instances are a new mode of CVM instances that featured by spot prices at substantial discounts and an interruption mechanism (available at certain discounts and can be automatically interrupted and reclaimed by the system). After you purchase a spot instance, you can use it the same way as you use a postpaid CVM instance, including console operations, remote login, service deployment, associating with VPC, etc.
 
 * Related document: [FAQ About Spot Instances](document/product/213/17817)
-* Related document: [Managing Spot Instances](/document/product/213/17926)
+* Related document: [How to purchase Spot Instances](/document/product/213/17926)
 
 ## Special Policies During Public Trial
 * Application: During the public trial, you need to submit an application before you can use a spot instance. Tencent Cloud technical engineers will review and reply to your application. [Application Page >>](https://cloud.tencent.com/act/apply/spot)

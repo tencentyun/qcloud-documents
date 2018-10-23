@@ -12,12 +12,11 @@ The lifecycle of Tencent Cloud CVM instance refers to all the statuses from the 
 | Resetting | Intermediate | The instance's system is reinstalled or its disk is reset via the console or APIs, but the instance is not running yet. |
 | Shutting down | Intermediate status | A shutdown operation is performed for the instance, but it is not completely shut down yet. If this status lasts for a long time, there may be an exception. Forced shutdown is not recommended. |
 | Shut down | Steady status | The instance is shut down normally. Instances in this status cannot provide external services. Some attributes of instance can only be modified when the instance is in the shutdown status. |
-| Terminating | Intermediate | The instance has expired for 7 days, or the user actively performed the termination operation, but the termination has not yet completed. |
+| Terminating | Intermediate | The user actively performed the termination operation, but the termination has not yet completed.|
 | Terminated | Steady status | The termination operation is completed. The original instance does not exist and cannot provide services. Its data is completely cleared. |
-| Reclaimed | Steady status | A prepaid instance that expires for less than 7 days will be in recycle bin. The instance in this status cannot be used to provide external services. |
 
 - **Instance Status Transition:**
-![](//mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
+![](https://main.qcloudimg.com/raw/1c018b2724bf142b1f3e90b97002d7a0.png)
 
 ## Instance Launching
  - After an instance is launched, it enters the creating status. The hardware specifications are configured according to the specified [Instance Specifications](/document/product/213/7153) for the instance in the creating status, and the system launches the instance using the image specified on launch.
@@ -47,7 +46,7 @@ For more information on instance shutdown, please see [Instance Shutdown](/doc/p
 You can terminate an CVM instance if you no longer need it. You can terminate an instance through Tencent Cloud Console or Tencent Cloud APIs.
 
 - Manual termination: you can actively terminate postpaid instances and prepaid instances in the recycle bin through the console.
-- Auto termination: postpaid instances cannot be automatically terminated; prepaid instances can be automatically terminated after they expire for 7 days.
+- Auto termination: postpaid instances cannot be automatically terminated.
 
 When terminating an instance, the system disks and data disks designated when purchasing will be terminated. But elastic cloud disks mounted on it will not be affected.
 For more information on instance termination, please see [Terminate Instance](/doc/product/213/4930).

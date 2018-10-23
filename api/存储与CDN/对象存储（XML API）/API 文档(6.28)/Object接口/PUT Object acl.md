@@ -2,7 +2,8 @@
 PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
 
 ## 请求
-请求示例:
+### 请求示例
+
 ```
 PUT /{ObjectName}/?acl HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
@@ -13,23 +14,13 @@ Authorization: Auth String
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-
-```
-PUT /{ObjectName}/?acl HTTP/1.1
-```
-
-该 API 接口接受 `PUT` 请求。
-
-
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 非公共头部
-
 
 名称|类型|必选|描述
 ---|---|---|---
@@ -40,10 +31,28 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 
 
 ### 请求体
-请求的请求体为 ACL 配置规则。
+该请求的请求体为 ACL 配置规则。
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<AccessControlPolicy/>
+<AccessControlPolicy>
+  <Owner>
+    <ID>qcs::cam::uin/${owner_uin}:uin/${sub_uin}</ID>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee>
+        <ID>qcs::cam::uin/${owner_uin}:uin/${sub_uin}</ID>
+      </Grantee>
+      <Permission>Permission</Permission>
+    </Grant>
+    <Grant>
+      <Grantee>
+        <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+      </Grantee>
+      <Permission>Permission</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
 ```
 
 

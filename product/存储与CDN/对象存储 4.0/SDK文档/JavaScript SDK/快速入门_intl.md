@@ -20,9 +20,7 @@ Download Demo from [XML JS SDK Demo](https://github.com/tencentyun/cos-js-sdk-v5
 ## Getting Started		
 ### Computing signature
 
-If the signature computing is implemented at frontend, SecretId and SecretKey can be exposed. For this reason, the signature computing is performed at backend. The frontend obtains the signature computing result via ajax. Add a permission verification at backend for your website during the deployment.
-
-Please see the [examples of signatures in PHP and NodeJS](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/). For other languages, please see the relevant [XML SDK](https://cloud.tencent.com/document/product/436/6474).
+If the signature computing is implemented at frontend, SecretId and SecretKey can be exposed. For this reason, the signature computing is performed at backend. The frontend obtains the signature computing result via ajax. Add a permission verification at backend for your website during the deployment.For other languages, please see the relevant [XML SDK](https://cloud.tencent.com/document/product/436/6474).
 
 ### Example for upload
 

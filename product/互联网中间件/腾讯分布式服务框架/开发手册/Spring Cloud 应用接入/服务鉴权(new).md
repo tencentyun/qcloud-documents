@@ -1,6 +1,6 @@
 ## 一、准备工作
 
-开始实践服务鉴权功能前，请确保已完成了 [准备工作](https://cloud.tencent.com/document/product/649/16619)，并阅读 [服务鉴权概述](https://cloud.tencent.com/document/product/649/18024)。
+开始实践服务鉴权功能前，请确保已完成了 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) ，并阅读 [服务鉴权概述](https://cloud.tencent.com/document/product/649/18024)。
 
 ## 二、快速上手
 

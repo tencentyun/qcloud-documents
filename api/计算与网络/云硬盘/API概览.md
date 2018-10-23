@@ -27,7 +27,7 @@
 | [修改快照名称](/doc/api/364/2532) | ModifySnapshot | 修改指定快照的展示名称 |
 | [回滚快照](/doc/api/364/2533) | ApplySnapshot | 回滚快照到原云硬盘 |
 | [删除快照](/doc/api/364/2531) | DeleteSnapshot | 删除指定的快照 |
-| []() | InquirySnapshotPrice | 查询对指定大小指定类型指定时长的云硬盘创建快照所需费用 |
+| [查询快照价格]() | InquirySnapshotPrice | 查询对指定大小指定类型指定时长的云硬盘创建快照所需费用 |
 
 ## 4. 定期快照相关接口
 

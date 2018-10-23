@@ -1,34 +1,35 @@
-## 1. Service Address
+## **1. Service Address**
 
-Tencent Cloud APIs are divided into different function modules, with each module accessed using a different domain name. You can access these APIs from a closest region or a specified region. For example, the domain name of a nearest CVM is cvm.tencentcloudapi.com, and that of the Guangzhou region is cvm.ap-guangzhou.tencentcloudapi.com.
+The Tencent Cloud API is divided into different functional modules by function and each module is accessed via a unique domain name. The API supports access from either a nearby region or a specified region. For example, Cloud Virtual Machine's domain name for the nearby region is cvm.tencentcloudapi.com, and its domain name for the Guangzhou region is cvm.ap-guangzhou.tencentcloudapi.com.
 
-The list of supported domain names:
+Below lists the currently supported regions:
 
-| Region | Domain Name |
+| Access region | Domain name |
 |----------|------|
-| The nearest region (recommended) |  \*.tencentcloudapi.com |
-| South China (Guangzhou) | \*.ap-guangzhou.tencentcloudapi.com |
-| East China (Shanghai) | \*.ap-shanghai.tencentcloudapi.com |
-| North China (Beijing) | \*.ap-beijing.tencentcloudapi.com |
-| Southwest (Chengdu) | \*.ap-chengdu.tencentcloudapi.com |
-| Southwest (Chongqing) | \*.ap-chongqing.tencentcloudapi.com |
-| Southeast Asia (Seoul) | \*.ap-seoul.tencentcloudapi.com |
-| East China (Shanghai Finance) | \*.ap-shanghai-fsi.tencentcloudapi.com |
-| South China (Shenzhen Finance) | \*.ap-shenzhen-fsi.tencentcloudapi.com |
-| Southeast Asia (Singapore) | \*.ap-singapore.tencentcloudapi.com |
-| Southeast Asia (India) | \*.ap-mumbai.tencentcloudapi.com |
-| Western U.S. (Silicon Valley) | \*.na-siliconvalley.tencentcloudapi.com |
-| Eastern U.S. (Ashburn) | \*.na-ashburn.tencentcloudapi.com |
+|Nearby region (recommended)|\*.tencentcloudapi.com|
+|South China (Guangzhou)|\*.ap-guangzhou.tencentcloudapi.com|
+|East China (Shanghai)|\*.ap-shanghai.tencentcloudapi.com|
+|North China (Beijing)|\*.ap-beijing.tencentcloudapi.com|
+|Southwest China (Chengdu)|\*.ap-chengdu.tencentcloudapi.com|
+|Southwest China (Chongqing)|\*.ap-chongqing.tencentcloudapi.com|
+|Southeast Asia (Seoul)|\*.ap-seoul.tencentcloudapi.com|
+|East China (Shanghai Financial)|\*.ap-shanghai-fsi.tencentcloudapi.com|
+|South China (Shenzhen Financial)|\*.ap-shenzhen-fsi.tencentcloudapi.com|
+|Southeast Asia (Singapore)|\*.ap-singapore.tencentcloudapi.com|
+|Asia Pacific (Mumbai)|\*.ap-mumbai.tencentcloudapi.com|
+|Western America (Silicon Valley)|\*.na-siliconvalley.tencentcloudapi.com|
+|Eastern America (Virginia)|\*.na-ashburn.tencentcloudapi.com|
 
-## 2. Communication Protocol
+**Note: As financial and non-financial availability zones are isolated, when accessing the services in a financial availability zone (with the common parameter Region specifying a financial availability zone), it is necessary to specify a domain name with the financial availability zone, preferably in the same region as specified in Region.**
 
-All Tencent Cloud APIs communicate over HTTPS to provide high-security tunnels.
+## **2. Communications Protocol**
 
-## 3. Request Method
+All the interfaces of the Tencent Cloud API communicate via HTTPS, providing highly secure communications tunnels.
 
-Both POST and GET methods are supported, but they cannot be used together. If the GET method is used, the parameters are obtained from Querystring. If the POST method is used, the parameters are obtained from Request Body, and the parameters in the Querystring are ignored. The rules for parameter formats are the same for both methods. Generally, GET method is used. If parameter strings are too long, POST method is used. For more information, please see the relevant API description.
+## **3. Request Method**
 
-## 4 Character Encoding
+POST and GET requests are supported. Currently, POST requests only support Content-Type application/x-www-form-urlencoded.
 
-UTF-8 encoding is always used.
+## **4. Character Encoding**
 
+Only UTF-8 encoding is used.

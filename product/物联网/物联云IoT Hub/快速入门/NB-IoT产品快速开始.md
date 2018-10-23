@@ -27,7 +27,7 @@ SDK 下载请点击：[SDK下载](https://cloud.tencent.com/document/product/634
 ### 2.4 配置 C-SDK 示例程序
 samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例代码。  
 SDK 上传数据编码主要帮助用户将要传输的 payload 编码成 AT 命令传输的数据，其中包括 Topic、鉴权、传输质量控制等字段填充。  
-下行数据解码主要讲 IoT 后台发送的 topic、payload、传输质量等信息解析出来。  
+下行数据解码主要将 IoT 后台发送的 topic、payload、传输质量等信息解析出来。  
 #### 2.4.1 上传数据编码
 1. 接口  
 int IOT_NB_setMessage(unsigned char* msg, unsigned int* length, NBIoTSetMessage* nbiotMsg);  

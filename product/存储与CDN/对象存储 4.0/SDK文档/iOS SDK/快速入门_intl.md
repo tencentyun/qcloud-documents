@@ -91,7 +91,7 @@ Instantiate QCloudCOSTransferManagerService object:
 | appID  | Project ID, i.e. APPID. | NSString * | Yes |
 
 #### Example of initialization
-The APPID, SecretId and SecretKey in the example below can be obtained from [COS V4 Console](https://console.cloud.tencent.com/cos4/secret).
+The APPID, SecretId and SecretKey in the example below can be obtained from [COS V5 Console](https://console.cloud.tencent.com/cos5).
 ```objective-c
 //AppDelegate.m
 

@@ -1,8 +1,8 @@
 下文介绍如何基于建站主机快速搭建 Discuz! 站点。
 
-### 1. 获取FTP信息
-进入主机的管理页面，获取 FTP 地址、用户名和密码
-![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
+### 1. 获取 FTP 信息
+点击主机 ID 进入主机管理页面，可获取 FTP 和 MySQL 地址、用户名，用户可在此处重置密码。
+![](https://main.qcloudimg.com/raw/78d6e646e8e503f824c5d7e83d8e384c.png)
 
 ### 2. 下载 Discuz! 安装包
 前往 [Discuz!官网](http://www.comsenz.com/downloads/install/discuzx) 下载最新版本的 Discuz! 安装包。
@@ -11,7 +11,7 @@
 通过 FTP 工具上传网站程序，具体可以参考 [FTP 工具使用说明](https://cloud.tencent.com/document/product/615/11181)。
 只需要把upload目录下所有的文件和目录上传到wwwroot目录下，安装包其他的文件和目录不需要上传。
 ![](https://ask.qcloudimg.com/draft/1173778/2vl1cnc78k.png)
-
+> 注意：使用 FTP 工具上传文件，建站主机不提供解压功能。
 
 
 

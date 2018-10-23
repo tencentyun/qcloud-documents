@@ -26,8 +26,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 |---------|---------|---------|---------|
 | unVpcId | 系统分配的私有网络 ID，例如：vpc-kd7d06of。可通过 DescribeBmVpcEx 接口查询返回的 unVpcId 值。 |String | 是 | 
 | unSubnetId | 系统分配的私有网络子网 ID，例如：subnet-k20jbhp0。可通过 DescribeBmSubnetEx 接口查询返回的 unSubnetId 值。 |String | 是 | 
-| ipList | 注册 IP 数组，数组个数范围为 1-20。 |Array | 是 | 
-| ipClass |  IP 类型，0 为物理机 IP，1 为云服务器类型 IP，2 为托管类型 IP。默认传 1 |Int | 否 |
+| ipList | 注册 IP 数组，数组个数范围为 1-20。 |Array | 是 |
 
 
 ## 响应

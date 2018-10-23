@@ -3,26 +3,32 @@
 申请通过后，您的 CKafka 控制台中会展示 CKafka 实例，单击实例信息可以查看实例详情。包括地域、内网 VIP、端口等信息。
 
 ![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
-![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
+![](https://main.qcloudimg.com/raw/d4d33971683792a1f97d0a2f5b8ec8c1.png)
 
 在 topic 管理页面，您可以创建 topic、指定 topic 的分区个数和副本个数。
 > **注意：**
 > 当前 topic 名称输入后无法更改。此外，分区个数指定后，只能进行新增分区的操作。副本数指定后无法更改。 
 
-![](https://mc.qcloudimg.com/static/img/677df5a8c57fc9482867ea4e5ff9f77f/3.png)
-创建好 topic 和分区后，可以通过云主机的 kafka 客户端对该实例进行生产和消费的操作。
+![](https://main.qcloudimg.com/raw/b8e3f81b1b041d1733fdce4134c98abb.png)
+创建好 topic 和分区后，可以通过云服务器的 kafka 客户端对该实例进行生产和消费的操作。
+分区数：一个物理上分区的概念，一个Topic可以包含一个或者多个partition，CKafka以partition作为分配单位
+副本数：partition的副本个数，用于保障partition的高可用，为保障数据可靠性，当前不支持创建单副本topic，默认开启2副本。
+>**注意：**这里的副本数也算分区个数的，比如说客户创建了topic 1个， 分区6 ， 副本2，那么分区额度一共用了1*6*2=12个。
+如果超过了购买的最大分区个数，那么就会有提示，类似如下：
+
+![](https://main.qcloudimg.com/raw/03f9a8d66de455120506ca868735b165.png)
 
 ## 本地下载 Kafka 工具包
 
 ### 1. 安装 JDK 环境
-本教程在腾讯云主机上搭建 CKafka 环境，首先可以在购买页 [选购云主机](https://buy.cloud.tencent.com/cvm)，并登入。本次测试机器配置如下：
+本教程在腾讯云服务器上搭建 CKafka 环境，首先可以在购买页 [选购云服务器](https://buy.cloud.tencent.com/cvm)，并登入。本次测试机器配置如下：
 > 机器配置 
 操作系统 CentOS 6.8 64 位 
 CPU 1核 
 内存 2GB 
 公网带宽 1Mbps 
 
-之后需要给云主机安装 JDK。
+之后需要给云服务器安装 JDK。
 1.1 下载 JDK，可以通过 wget 命令获取，如果需要其他不同版本也可以在官网进行下载。
 建议使用 1.7 以上版本的 JDK，本教程的版本为 jdk1.7.0_79。
 
@@ -93,7 +99,7 @@ This is another message
 ```
 上述命令中，由于没有指定 consumer group 进行消费，系统会随机生成一个 group 进行消费。这样做容易达到 group 上限。因此推荐 **指定 Group** 的方式接收消息，首先需要在 consumer.properties 中配置下指定的 group name，如下图所示：
 
-![](https://mc.qcloudimg.com/static/img/b39a4b9b75a734830a69cc66a7273485/111.png)
+![](https://main.qcloudimg.com/raw/7ec8a2311776ac360ba0f4c18703fd8b.jpg)
 
 配置完成后，指定 consumer group 的命令如下所示：
 ```
@@ -115,4 +121,9 @@ CKafka 支持在 topic 维度开启 IP 白名单的功能，有效保证数据�
 
 ###  设置消息保留时间
 CKafka 支持设置消息保留时间，以分钟为单位，最短 1 分钟，最长保留 30 天。
+>**注意：**
+>这里设置的消息保留时间，过期的消息就会被删除，而删除的机制是按照 ckafka 的分片批量删除的，不是立刻删除的，目前分片的大小是 1G，如果分片不到 1G 就不会删除。因此，假如您设置的是 1 分钟，而分片的数据大小在 1 分钟内无法增到 1G，那么这个时间是无效的，建议延长保留时间，这具体得看您数据的堆积速度。
+
 ![](https://mc.qcloudimg.com/static/img/a9c9c921134c4a3a987f03b0f2d2f57e/8.png)
+
+

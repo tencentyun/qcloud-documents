@@ -118,11 +118,11 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
          <tr>
              <th>Beijing<br>Shanghai<br>Guangzhou</th>
                          <th>Hong Kong</th>
-                                                  <th>Singapore</th>
-             <th>Toronto</th> 
- 	<th>Korea</th> 
- 		<th>Frankfurt</th>
+                                                  <th>Singapore<br>Toronto</th>
+ 	<th>Korea<br>Frankfurt</th> 
  			<th>Silicon Valley</th>
+		 <th>Virginia<br>Mumbai</th>
+		 <th>Bangkok</th>
          </tr>
         <tr>
              <td>VPN Gateway</td>
@@ -131,10 +131,10 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
              <td>0.078</td>
              <td>0.088</td>
              <td>0.12</td>
-             <td>0.12</td>
  			<td>0.088</td>
              <td>0.088</td>
-             <td>0.088</td>
+	     <td>0.088</td>
+	     <td>0.12</td>
          </tr>              
      </tbody></table>
  

@@ -3,8 +3,6 @@
 |-----|------| 
 |[指定模板单发短信](https://cloud.tencent.com/document/product/382/5976)	|使用指定短信模板给单个用户发短信验证码、短信通知，营销短信| 
 |[指定模板群发短信](https://cloud.tencent.com/document/product/382/5977)	|使用指定短信模板给用户群发通知类或营销类短信| 
-|[单发短信](https://cloud.tencent.com/document/product/382/5808)	|给用户发短信验证码、短信通知，营销短信（内容长度不超过450字）| 
-|[群发短信](https://cloud.tencent.com/document/product/382/5806)	|给用户群发通知类或营销类短信| 
 |[短信下发状态通知](https://cloud.tencent.com/document/product/382/5807)	|腾讯云短信服务可以通过回调业务 url 的方式，通知业务方短信下发的状态| 
 |[短信回复](https://cloud.tencent.com/document/product/382/5809)	|通过回调业务 url 的方式，通知业务方用户回复了短信| 
 |[拉取短信状态](https://cloud.tencent.com/document/product/382/5810)	|拉取短信状态（下发状态，短信回复等）| 

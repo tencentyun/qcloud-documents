@@ -5,7 +5,7 @@
 #### 账户
 - **根账号**：腾讯云资源归属、资源使用计量计费的基本主体，可登录腾讯云服务。
 - **子账号**：由根账号创建账号，有确定的身份 ID 和身份凭证，且能登录到腾讯云控制台。根账号可以创建多个子账号(用户)。**子账号默认不拥有资源，必须由所属根账号进行授权。**
-- **身份凭证**：包括登录凭证和访问证书两种，**登录凭证**是指用户登录名和密码，**访问证书**是指云 API 密钥(SecretId 和 SecretKey)。
+- **身份凭证**：包括登录凭证和访问证书两种，**登录凭证** 指用户登录名和密码，**访问证书** 指云 API 密钥(SecretId 和 SecretKey)。
 
 #### 资源与权限
 
@@ -26,13 +26,14 @@
 
 ### CKafka 全读写策略
 授权一个子用户以 CKafka 服务的完全管理权限（创建、管理等全部操作）。
+
 ```
 {
   "version": "2.0",
   "statement": [
     {
       "action": [
-            "name/ckafka:*",
+            "name/ckafka:*"
       ],
       "resource": "*",
       "effect": "allow"
@@ -41,24 +42,65 @@
 }
 ```
 
+也可以通过设置系统的 [全读写策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
+
+![](https://main.qcloudimg.com/raw/1642ea25bd6b6d270eb7016807e06c77.jpg)
+
 ### CKafka 单个实例读写策略
+
 授权一个子用户某个特定实例的 CKafka 服务的完全管理权限（创建、管理等全部操作）。
+1. 授予一个实例只读权限。
+![](https://main.qcloudimg.com/raw/875be8b3763e1ff19b4ff6d81b12182a.jpg)
+2. 授予某特定实例的读写权限。
 ```
 {
   "version": "2.0",
   "statement": [
     {
       "action": [
-            "name/ckafka:*",
+            "name/ckafka:*"
       ],
-      "resource": "qcs::ckafka:$region:uin/:ckafkaId/uin/$createUin/$instanceId",
+      "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
       "effect": "allow"
     }
   ]
 }
 ```
 
+### CKafka 单个实例只读策略
 
+1. 按照策略生成器创建，授权列表类权限和产品监控权限。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "name/ckafka:ListInstance",
+                "name/monitor:GetMonitorData"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
 
-
-
+2. 授权单实例只读权限。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "ckafka:Get*",
+                "ckafka:List*"
+            ],
+            "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
+            "effect": "allow"
+        }
+    ]
+}
+```
