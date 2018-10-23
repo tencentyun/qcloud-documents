@@ -111,9 +111,9 @@
 
 1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
 
-2. 右键重命名：训练特征集处理。
+2. 右键重命名：训练特征处理。
 
-3. 特征上传配置：上传本地文件 feature_conf.json。
+3. 特征生成配置：上传本地文件 feature_conf.json。
     ![](https://main.qcloudimg.com/raw/ef901ab45ee6127e7ac884615a9e9b36.png)
 
 4. 填写参数：
@@ -121,22 +121,20 @@
  - 负样本抽样率：1.0
  - 并行数：100
  - 特征频次阈值：2
- - num-executors：5
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
 
 
-### 数据切分
+### 数据拆分
 
 1. 左边栏选择：算法>机器学习算法>数据预处理>Splitter。
 
-2. 右键重命名：数据切分。
+2. 右键重命名：训练数据拆分
 
 3. 填写参数
  - 输入输出路径根据连线自动生成，无需用户填写。
  - 并行数：11
  - 切分比例：0.7
- - num-executors：10
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png)
 
@@ -149,13 +147,12 @@
 
 3. 填写参数：
  - 输入数据根据连线自动生成。
- - 并行率：10
+ - 并行数：10
  - 验证集数据若未生成，则需要用户手动将上一组件与本组件相连，重新点开参数配置栏，验证集数据根据连线自动生成。
  - 子模型数：2
  - L1 正则系数：0.001
  - rho：0.01
  - 最大迭代次数：20
- - num-executors：10
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/ab313a03b34d21bc3c78f7a9d561092c/kobe%E6%8A%95%E7%AF%AE%20%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A43.png)
 
@@ -188,27 +185,25 @@
  - 负样本抽样率：1.0
  - 并行数：100
  - 特征频次阈值：2
- - num-executors：10
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)
 
 
 ### 模型验证
 
-1. 单击流失率训练模型旁边的小圈。
+1. 单击投篮预测模型旁边的小圈。
 
 2. 填写参数：
  - 模型运行方式设为“自动运行”。
  - 将验证集特征处理组件与模型小圈连线，输入输出路径根据连线自动生成。
  - 并行数：10
- - num-executors： 10
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
 
 
 ### 模型评估
 
-1. 左边栏选择：算法>机器学习算法>输出>BinaryEvaluator。
+1. 左边栏选择：输出>模型评估>BinaryEvaluator。
 
 2. 右键重命名：模型评估。
 
@@ -219,7 +214,6 @@
  - 抽样率：1.0
  - 并行数：20
  - 预测阈值：0.5
- - num-executors： 10
  - 其余使用默认值。
     ![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
 
