@@ -98,15 +98,13 @@
    - Demo/TXLiteAVDemo/Common/Category
    - Demo/TXLiteAVDemo/Common/Color
    - Demo/TXLiteAVDemo/Common/Resource
-   - Demo/TXLiteAVDemo/Common/Third/Masonry
-   - Demo/TXLiteAVDemo/Common/Third/AFNetworking
-   - Demo/TXLiteAVDemo/Common/Third/MBProgressHUD
-   - Demo/TXLiteAVDemo/Common/Third/QBImagePicker
-   - Demo/TXLiteAVDemo/Common/Third/V8HorizontalPickerView
+   - Demo/TXLiteAVDemo/Third/Masonry
+   - Demo/TXLiteAVDemo/Third/AFNetworking
+   - Demo/TXLiteAVDemo/Third/MBProgressHUD
+   - Demo/TXLiteAVDemo/Third/QBImagePicker
+   - Demo/TXLiteAVDemo/Third/V8HorizontalPickerView
    - Demo/TXLiteAVDemo/UGC
    - SDK/TXLiteAVSDK_*.framework
-   
-	 _在 VideoJoinController.m 53 行有一处 HelpBtnUI 的未定义方法，这行需要删掉_
    
 2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口：
 
@@ -320,7 +318,7 @@ Common
 ├── TCHttpUtil (视频上传)
 └── UGC (短视频各子模块的公有类)
 
- Third
+Third
 ├── AFNetworking (HTTP网络封装，商业版用于下载动态贴纸资源)
 ├── MBProgressHUD (界面Toast提示)
 ├── Masonry (自动布局)
