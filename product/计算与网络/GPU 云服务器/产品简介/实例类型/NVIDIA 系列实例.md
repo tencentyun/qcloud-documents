@@ -2,7 +2,7 @@
 
 **NVIDIA 系列 GPU 实例 GN?** 不仅适用于深度学习、科学计算等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景；腾讯云以和 **标准云服务器一致的管理方式**，提供快速、稳定、弹性的计算服务。
 
-> ** 注意 **：
+> **注意：**
 > GN? 系列实例用作 3D 图形渲染（GN2 不支持）需要安装 GRID Driver 和配置 License Server，安装方法参考[安装 NVIDIA GRID 驱动指引](https://cloud.tencent.com/document/product/560/30060)。
 
 ## 适用场景
