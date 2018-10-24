@@ -15,7 +15,7 @@ COS 提供了 6 种对象 HTTP 头部标识供配置：
 |  x-cos-meta-[自定义内容]   |   自定义内容    |              自定义内容               |
 
 ## 配置步骤
-1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos5)，选择左侧菜单栏【存储桶列表】，进入存储桶列表页面。单击需要配置 HTTP 头部的对象的存储桶（如 example-1253833564），进入存储桶。
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos)，选择左侧菜单栏【存储桶列表】，进入存储桶列表页面。单击需要配置 HTTP 头部的对象的存储桶（如 example-1253833564），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/d156619ab35a0e1195a70d0e8d8954ca/image.png)
 2. 找到需要设置头部的对象（如 example.exe）,单击对象右侧的【详情】。
 ![设置HTTP头部1](//mc.qcloudimg.com/static/img/f9fe9cdf0d3535cc4bc93547ab7bd84c/image.png)
