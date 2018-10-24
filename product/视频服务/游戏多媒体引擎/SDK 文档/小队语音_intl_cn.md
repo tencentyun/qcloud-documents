@@ -13,7 +13,7 @@ ITMGContext EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer
 
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
-| roomId		|int    		|房间号，只支持32位|
+| roomId		|int    		|房间号，最大支持127字符|
 | roomType 			|ITMG_ROOM_TYPE	|房间音频类型				|
 | authBuffer    	|Byte[]  		|鉴权数据					|
 
@@ -70,7 +70,7 @@ ITMGContext  EnterTeamRoom(int roomId,ITMG_ROOM_TYPE roomType, byte[] authBuffer
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
-| roomId		|int    		|房间号，只支持32位									|
+| roomId		|int    		|房间号，最大支持127字符	|
 | roomType 			|ITMG_ROOM_TYPE	|房间音频类型（参数只能为1）|
 | authBuffer    	|Byte[] 		|鉴权数据								|
 | teamId    		|int    		|加入的小队语音队伍标识码（不能为 0 ）	|

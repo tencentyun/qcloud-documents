@@ -11,7 +11,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
 
 ### 请求行
 
@@ -37,8 +37,10 @@ GET /?guetzli HTTP/1.1
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
+
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <GuetzliStatus>on</GuetzliStatus>
 ```
+
 拥有 `on` 与 `off` 两种状态。

@@ -1,17 +1,19 @@
 ## 功能描述
-对 bucket 开通 Guetzli 压缩功能。
+对 Bucket 开通 Guetzli 压缩功能。
 
 ## 请求
 ### 请求示例
+
 ```
 PUT /?guetzli HTTP/1.1
 Host: <BucketName-APPID>.pic.<Region>.myqcloud.com 
 Date: GMT Date
 Authorization: Auth String
 ```
->Authorization: Auth String (详情参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)。
+>Authorization: Auth String（详情参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 ### 请求行
+
 ```
 PUT /?guetzli HTTP/1.1
 ```
