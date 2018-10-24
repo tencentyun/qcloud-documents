@@ -1,4 +1,4 @@
-### 1. 安装依赖
+## 1. 安装依赖
 
 [下载依赖 >>](https://main.qcloudimg.com/raw/d075de11daa5d1427346e19880cd5492/dubbo-registry-consul-1.1.4-SNAPSHOT.zip)
 
@@ -9,16 +9,16 @@ registry-consul-1.1.4-SNAPSHOT.pom
 
 
 
-### 2. 注册中心配置
+## 2. 注册中心配置
 
-文件路径 `src/main/resources/META-INF/spring/dubbo-demo-provider.xml`
-Dubbo 官网 demo
+文件路径： `src/main/resources/META-INF/spring/dubbo-demo-provider.xml`
+Dubbo 官网 demo：
 
 ```
 <dubbo:registry address="multicast://224.5.6.7:1234"/>
 ```
 
-TSF demo (注意注册中心地址使用注册中心IP和端口替换)
+TSF demo (**注册中心地址使用注册中心 IP 和端口替换**)：
 
 ```
 <dubbo:registry address="consul://注册中心地址:端口"/>
@@ -26,7 +26,7 @@ TSF demo (注意注册中心地址使用注册中心IP和端口替换)
 
 
 
-### 3. 添加依赖
+## 3. 添加依赖
 
 ```XML
 <dependency> 
@@ -39,11 +39,11 @@ TSF demo (注意注册中心地址使用注册中心IP和端口替换)
 
 
 
-#### 4. 打包FATJAR
+## 4. 打包 FATJAR
 
-可以通过 **maven-shade-plugin** 来构建一个包含所有依赖的 jar 包（FatJar）。执行命令 `mvn clean package`。
+您可以通过 **maven-shade-plugin** 来构建一个包含所有依赖的 jar 包（FatJar）。执行命令 `mvn clean package`。
 
->根据实际情况，修改以下 mainClass 标签内容。
+>**注意：**您需要根据实际情况，修改以下 mainClass 标签内容。
 
 ~~~ xml
 <build>
@@ -91,7 +91,7 @@ TSF demo (注意注册中心地址使用注册中心IP和端口替换)
     </build>
 ~~~
 
-参考链接：[maven-shade-plugin 入门指南](https://www.jianshu.com/p/7a0e20b30401) 。
+参考文档：[maven-shade-plugin 入门指南](https://www.jianshu.com/p/7a0e20b30401) 。
 
 ##  部署应用
 参考 《TSF 操作手册》中 [应用部署](https://cloud.tencent.com/document/product/649/13686) 。
