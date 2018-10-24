@@ -228,7 +228,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表文件的地址，内容为文本文件，一行一条。参数格式要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如 E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表的地址，内容为URL文本，一行一条URL原始地址(如 http://aaa.bbb.com/yyy/zzz.txt, 无需添加任何双引号或其他符号)。url列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c.txt <br>Windows 下分隔符为两个反斜杠，如 E:\\\a\\\b\\\c.txt。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
