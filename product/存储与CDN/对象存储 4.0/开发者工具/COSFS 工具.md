@@ -147,16 +147,16 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 
 ## 常见问题
 
-##### 1. 如何查看cosfs提供的挂载参数选项和版本
+##### 1. 如何查看cosfs提供的挂载参数选项和版本？
 使用cosfs --help命令，可以查看cosfs提供的参数选项；使用cosfs --version命令，可以查看cosfs版本号。
 
-##### 2. cosfs所产生的日志存储在哪里
+##### 2. cosfs所产生的日志存储在哪里？
 在centos中，cosfs产生的日志存储在/var/log/messages中；在ubuntu中，日志存储在/var/log/syslog中。如果您在使用中有遇到使用上的问题，请将对应时间段的日志发送给我们。
 
-##### 3. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"
+##### 3. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"？
 如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 [cosfs V1.0.2](https://github.com/tencentyun/cosfs/releases) 及以上版本。
 
-##### 4.  在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决
+##### 4.  在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决？
 如在 configure 操作时，提示
 ```
 hecking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
@@ -179,34 +179,34 @@ hecking for common_lib_checking... configure: error: Package requirements (fuse 
 2.8.4   //看到版本表示安装成功
 ```
 
-##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"
+##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"？
 cosfs 是根据 /etc/mime.types 和上传的文件后缀进行比对，自动设置 Content-Type，建议查看机器上是否存在该文件。对于 ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 centos，可以通过 sudo yum install mailcap 来添加，或者手动添加，每种格式一行，例如：image/png png。
 
-##### 6. 非root用户如何挂载cosfs
+##### 6. 非 root 用户如何挂载 cosfs？
 非root用户建议在个人Home目录下建立.passwd-cosfs文件，并且设置权限为600，按照正常命令挂载即可，另外可以指定-opasswd_file=path指定密钥文件的路径。
 
-##### 7. 为什么之前可用写文件，突然不能写了
+##### 7. 为什么之前可用写文件，突然不能写了？
 由于cos鉴权产品策略调整，所以使用老版本的cosfs工具会导致策略校验不过，因此需要拉取最新的cosfs工具重新mount
 
-##### 8. 挂载时显示Bucket not exist
-请检查参数-ourl，确保不要携带bucket部分，正确的形式为：
+##### 8. 挂载时显示 Bucket not exist？
+请检查参数 -ourl，确保不要携带 bucket 部分，正确的形式为：
 ```shell
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 ```
 
-##### 9. 如何设定cosfs开机自动挂载
+##### 9. 如何设定 cosfs 开机自动挂载？
 在/etc/fstab中添加如下的内容，其中，_netdev选项使得网络准备好后再执行当前命令：
 ```shell
 cosfs#bucketprefix-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//cos.ap-guangzhou.myqcloud.com,dbglevel=dbg,curldbg
 ```
 
-##### 10. cosfs是否支持https
+##### 10. cosfs 是否支持 https？
 cosfs支持https，使用形式为：
 ```shell
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
 
-##### 11. 如何挂载目录
+##### 11. 如何挂载目录？
 您在挂载命令的时候，可以指定目录，命令如下：
 ```
 cosfs my-bucket-name:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
