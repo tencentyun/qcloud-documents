@@ -13,8 +13,8 @@
 3. 在弹出的 “选择镜像” 对话框的搜索框中，输入 **GPU** ，单击搜索按钮。预装 GPU 驱动的镜像分为以下类型：
 	- **Windows AMD GPU 镜像**
  [Windows AMD GPU 镜像](http://market.qcloud.com/detail.php?productId=3204) 为渲染型 GPU 实例 GA2 专用，预装了 AMD FirePro™ S7150 驱动程序。
- - **CentOS NVIDIA GPU 镜像**
-	 - [CentOS 7.2 NVIDIA GPU基础镜像（预装驱动和CUDA 8.0）](http://market.qcloud.com/detail.php?productId=6637)
+ 	- **CentOS NVIDIA GPU 镜像**
+	 	- [CentOS 7.2 NVIDIA GPU基础镜像（预装驱动和CUDA 8.0）](http://market.qcloud.com/detail.php?productId=6637)
 		- [CentOS 7.2 NVIDIA GPU基础镜像（预装驱动和CUDA 9.0）](http://market.qcloud.com/detail.php?productId=6630)
 		- [CentOS 7.3 NVIDIA GPU基础镜像（预装驱动和CUDA 8.0）](http://market.qcloud.com/detail.php?productId=6638)
 		- [CentOS 7.3 NVIDIA GPU基础镜像（预装驱动和CUDA 9.0）](http://market.qcloud.com/detail.php?productId=6635)
