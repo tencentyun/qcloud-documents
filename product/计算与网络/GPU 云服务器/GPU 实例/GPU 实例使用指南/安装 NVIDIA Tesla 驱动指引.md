@@ -2,14 +2,14 @@ GPU 云服务器正常工作需安装正确的基础设施软件，对 NVIDIA �
 1. 驱动 GPU 工作的硬件驱动程序。
 2. 上层应用程序所需要的库。
 
-若把 NVIDIA GPU 用作通用计算，需要安装 Tesla Driver + CUDA，本文仅介绍如何安装 Tesla Driver，如何安装CUDA请参考[安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
+若把 NVIDIA GPU 用作通用计算，需要安装 Tesla Driver + CUDA，本文仅介绍如何安装 Tesla Driver，如何安装 CUDA 请参考 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
 
 为方便用户，用户可以再创建 GPU 云服务器时，在镜像市场里选择预装特定版本驱动和 CUDA 的镜像。
 
 ## Linux 驱动安装
 Linux 驱动安装有 2 种方式：
-1. Shell 脚本安装， 适用于任何 Linux 发行版，包括 CentOS，Ubuntu 等；
-2. 包安装，适用于不同 Linux 发行版，例如 DEB 包安装， RPM 包安装等。
+- Shell 脚本安装， 适用于任何 Linux 发行版，包括 CentOS，Ubuntu 等；
+- 包安装，适用于不同 Linux 发行版，例如 DEB 包安装， RPM 包安装等。
 
 不管哪种安装方式，NVIDIA Telsa GPU 的 Linux 驱动在安装过程种需要编译 kernel module，所以要求系统安装好了 gcc 和编译 Linux Kernel Module 所依赖的包，例如 kernel-devel-$(uname -r) 等。
 
@@ -69,21 +69,23 @@ apt-get install cuda-drivers
 6. 运行`nvidia-smi`能输出正确信息代表驱动安装成功。
 
 #### RPM 包安装方式
-1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或打开链接 http://www.nvidia.com/Download/Find.aspx 。选择支持 RPM 包的操作系统，例如：CentOS 7.x， 得到下载链接：`wget http://us.download.nvidia.com/tesla/396.44/nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm`
-2. 使用`rpm`命令安装 rpm 包。
+1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或打开链接 http://www.nvidia.com/Download/Find.aspx 。
+2. 选择支持 RPM 包的操作系统，并获取该 RPM 包的下载链接。例如：选择 CentOS 7.x， 得到下载链接：
+`wget http://us.download.nvidia.com/tesla/396.44/nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm`
+3. 使用`rpm`命令安装 rpm 包。
 ```
 rpm -i nvidia-diag-driver-local-repo-rhel7-396.44-1.0-1.x86_64.rpm
 ```
-3. 使用`yum`命令清除缓存。
+4. 使用`yum`命令清除缓存。
  ```
  yum clean all
  ```
-4. 使用`yum`命令安装驱动。
+5. 使用`yum`命令安装驱动。
 ```
 yum install cuda-drivers
 ```
-5. 运行`reboot`命令重启。
-6. 运行`nvidia-smi`能输出正确信息代表驱动安装成功。
+6. 运行`reboot`命令重启。
+7. 运行`nvidia-smi`能输出正确信息代表驱动安装成功。
 
 ## Windows 驱动安装
 1. 登录 [NVIDIA 驱动下载官网](http://www.nvidia.com/Download/Find.aspx)。
