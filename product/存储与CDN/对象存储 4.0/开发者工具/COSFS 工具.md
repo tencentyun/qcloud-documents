@@ -153,7 +153,7 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 ##### 2. cosfs所产生的日志存储在哪里
 在centos中，cosfs产生的日志存储在/var/log/messages中；在ubuntu中，日志存储在/var/log/syslog中。如果您在使用中有遇到使用上的问题，请将对应时间段的日志发送给我们。
 
-##### 3. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"？
+##### 3. 为什么 cosfs 在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"
 如果 cosfs 不是被强制退掉，那么检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 异常退出。建议更新 fuse 版本，或下载 [cosfs V1.0.2](https://github.com/tencentyun/cosfs/releases) 及以上版本。
 
 ##### 4.  在 centos6.5 及较低版本，提示 fuse 版本太低，该如何解决
@@ -179,7 +179,7 @@ hecking for common_lib_checking... configure: error: Package requirements (fuse 
 2.8.4   //看到版本表示安装成功
 ```
 
-##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"？
+##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是"application/octet-stream"
 cosfs 是根据 /etc/mime.types 和上传的文件后缀进行比对，自动设置 Content-Type，建议查看机器上是否存在该文件。对于 ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 centos，可以通过 sudo yum install mailcap 来添加，或者手动添加，每种格式一行，例如：image/png png。
 
 ##### 6. 非root用户如何挂载cosfs
