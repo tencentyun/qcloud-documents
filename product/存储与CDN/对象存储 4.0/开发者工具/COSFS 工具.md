@@ -218,5 +218,3 @@ cosfs my-bucket-name:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbg
 cosfs my-bucket-name-suffix:my-bucket-name-prefix:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
 
-##### 12. 为什么之前可用写文件，突然不能写了？
-由于 COS 鉴权产品策略调整，所以老版本的 cosfs 工具会导致策略校验不过，因此需要拉取最新的 cosfs 工具重新 mount
