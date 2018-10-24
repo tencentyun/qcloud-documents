@@ -1,6 +1,6 @@
 GPU 云服务器正常工作需安装正确的基础设施软件，对 NVIDIA 系列 GPU 而言，有两个层次的软件包需要安装：
-1. 驱动 GPU 工作的硬件驱动程序。
-2. 上层应用程序所需要的库。
+- 驱动 GPU 工作的硬件驱动程序。
+- 上层应用程序所需要的库。
 
 若把 NVIDIA GPU 用作通用计算，需要安装 Tesla Driver + CUDA，本文仅介绍如何安装 Tesla Driver，如何安装 CUDA 请参考 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
 
