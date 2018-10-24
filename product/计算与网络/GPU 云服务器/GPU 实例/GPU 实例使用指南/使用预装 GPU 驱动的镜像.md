@@ -4,6 +4,8 @@
 
 ## 操作步骤
 
+### 如何选择安装驱动预装镜像
+
 1. 在购买页选择所需要的 GPU 实例，单击【下一步：选择镜像】。如下图所示：
 ![](https://main.qcloudimg.com/raw/691f53446f1f8b3e21649e8e2e13626b.png)
 
@@ -16,12 +18,12 @@
 5. 根据界面提示，完成实例创建的配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/00ce30ec22c0354188fd2b63fd7e5faa.png)
 
-## AMD GPU 驱动预装镜像
+### AMD GPU 驱动预装镜像
 
 [Windows AMD GPU镜像](http://market.qcloud.com/detail.php?productId=3204)
 该镜像为渲染型 GPU 实例 GA2 专用，预装了 AMD FirePro™ S7150 驱动程序。
 
-## NVIDIA GPU 驱动预装镜像
+### NVIDIA GPU 驱动预装镜像
 - [CentOS 7.2 NVIDIA GPU基础镜像（预装驱动和CUDA 8.0）](http://market.qcloud.com/detail.php?productId=6637)
 - [CentOS 7.2 NVIDIA GPU基础镜像（预装驱动和CUDA 9.0）](http://market.qcloud.com/detail.php?productId=6630)
 - [CentOS 7.3 NVIDIA GPU基础镜像（预装驱动和CUDA 8.0）](http://market.qcloud.com/detail.php?productId=6638)
