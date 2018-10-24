@@ -1,18 +1,18 @@
-### DynamoDB集群介绍
-DynamoDB是一个支持文档和键值存储模型的基于表维度的且具有高可扩展性NoSQL数据库服务。腾讯云数据库团队在已有的NoSQL模块框架上，全新推出了一项高度兼容DynamoDB协议，且性能快速稳定，支持实例级别的备份和回档，自动容灾机制的数据库服务。如果您是DynamoDB开发爱好者，您无需改动太多的代码既可以通过DynamoDB协议来访问数据库。
+### DynamoDB 集群介绍
+DynamoDB 是一个支持文档和键值存储模型的基于表维度的且具有高可扩展性 NoSQL 数据库服务。腾讯云数据库团队在已有的 NoSQL 模块框架上，全新推出了一项高度兼容 DynamoDB 协议，且性能快速稳定，支持实例级别的备份和回档，自动容灾机制的数据库服务。如果您是 DynamoDB 开发爱好者，您无需改动太多的代码既可以通过DynamoDB 协议来访问数据库。
 
 
-### 创建DynamoDB集群
-进入MongoDB[购买页](https://buy.cloud.tencent.com/mongodb?clusterType=1)，单击"分片集群"，在协议类型上选择"DynamoDB协议"。
+### 创建 DynamoDB 集群
+进入 MongoDB [购买页](https://buy.cloud.tencent.com/mongodb?clusterType=1)，单击"分片集群"，在协议类型上选择" DynamoDB 协议"。
 由于底层也是通过将数据分布在多台物理机上来达到存储容量平滑扩展的目的。所以您还需要按需选择分片的片数，片内节点数，以及节点规格。每个分片都是多节点的副本集，片内多节点自动容灾，保证服务高可用。
 [![](https://mc.qcloudimg.com/static/img/70d51b1da13f7334b54f14612b26c05c/create.png)](https://mc.qcloudimg.com/static/img/70d51b1da13f7334b54f14612b26c05c/create.png)
 
 ### 管理控制台
-在控制台中可以查看DynamoDB集群实例的详细信息，如节点的构成，节点的规格和已使用容量，同时也可以在控制台上进行实例的续费管理以及扩容等操作。
+在控制台中可以查看 DynamoDB 集群实例的详细信息，如节点的构成，节点的规格和已使用容量，同时也可以在控制台上进行实例的续费管理以及扩容等操作。
 [![](https://mc.qcloudimg.com/static/img/c101b8878cb77a9e486ed5e34467a995/D.png)](https://mc.qcloudimg.com/static/img/c101b8878cb77a9e486ed5e34467a995/D.png)
 
 ### 扩容操作
-目前DynamoDB集群的扩容方式只支持将所有节点进行统一扩容，暂不支持通过添加节点的方式进行扩容。在实例列表页单击的“扩容”按钮，选择需要扩到的容量规格，单击“升级”。
+目前 DynamoDB 集群的扩容方式只支持将所有节点进行统一扩容，暂不支持通过添加节点的方式进行扩容。在实例列表页单击的“扩容”按钮，选择需要扩到的容量规格，单击“升级”。
 [![](https://mc.qcloudimg.com/static/img/eac99761afe97e60a18438f5ef196e14/kuo.png)](https://mc.qcloudimg.com/static/img/eac99761afe97e60a18438f5ef196e14/kuo.png)
 
 
