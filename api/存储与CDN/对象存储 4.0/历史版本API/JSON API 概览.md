@@ -1,4 +1,4 @@
-腾讯云对象存储服务（COS）相关JSON API 接口及说明如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }table th:nth-of-type(2) { width: 100px; }</style>
+腾讯云对象存储服务（COS）相关 JSON API 接口及说明如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }table th:nth-of-type(2) { width: 100px; }</style>
 
 ## 目录操作
 
@@ -20,11 +20,11 @@
 |   [查询上传分片 API](https://cloud.tencent.com/document/product/436/6070)     | GET  |  查询分片的断点和 session |
 | [查询文件属性 API](https://cloud.tencent.com/document/product/436/6069)   | GET  |  查询文件的属性信息 |
 |    [更新文件属性 API](https://cloud.tencent.com/document/product/436/6072)    | POST | 对 COS 中某个文件的属性进行设置或修改   |
- |   [复制文件 API]( https://cloud.tencent.com/document/product/436/7419)   | POST  |  将 COS 中指定文件复制一份|
- |   [下载文件 API]( https://cloud.tencent.com/document/product/436/8429)   | GET  |  将 COS 中指定文件下载到本地|
- |   [移动文件 API](https://cloud.tencent.com/document/product/436/6730)   | POST | 将文件移动或重命名 |
+|   [复制文件 API]( https://cloud.tencent.com/document/product/436/7419)   | POST  |  将 COS 中指定文件复制一份|
+|   [下载文件 API]( https://cloud.tencent.com/document/product/436/8429)   | GET  |  将 COS 中指定文件下载到本地|
+|   [移动文件 API](https://cloud.tencent.com/document/product/436/6730)   | POST | 将文件移动或重命名 |
 |  [删除文件 API](https://cloud.tencent.com/document/product/436/6073)    | POST | 将 COS 中某个文件删除 |
 
 
 
-历史版本API，请点击查看[历史版本文档](/document/product/430/6012)
+历史版本 API，请单击查看 [历史版本文档](/document/product/430/6012)。

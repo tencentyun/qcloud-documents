@@ -3,8 +3,8 @@
 >过户完成后，新的账号持有人将对域名享有一切管理权限，包括修改域名信息、过户等。
 
 ### 步骤一：登录管理控制台
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名服务】，即可看到您购买的所有域名信息列表。
-![打开域名服务中心](//mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)
+登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名注册】，即可看到您购买的所有域名信息列表。
+![打开域名服务中心](https://main.qcloudimg.com/raw/874acea6398562bd7c5cab9d847c2192.png)
 ### 步骤二：账号间过户
 域名服务页面右侧，单击【操作】>【管理】，进入域名信息管理页面。
 ![](//mc.qcloudimg.com/static/img/d7d485d04f780bacb592826f0148a540/image.png)

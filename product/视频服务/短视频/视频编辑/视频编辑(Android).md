@@ -52,22 +52,100 @@ Android 编辑的代码位置：com.tencent.liteav.demo.shortvideo包名下面�
 
 ## 自己实现 UI
 如果您不考虑复用我们开发包中的 UI 代码，决心自己实现 UI 部分，则可以参考如下的攻略进行对接：
-### 1. 预览图片组
-**TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息，**getSampleImages** 则可以获取指定数量的预览图：
+### 1. 视频导入
+
+#### 快速导入
+
+快速导入视频，可以直接观看到视频编辑的预览效果，支持视频裁剪、时间特效（慢动作）、滤镜特效、滤镜风格、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能，不支持的功能有时间特效（重复、倒放）。
+
+
+快速导入生成精准缩略图，开发包中的 TCVideoEditerActivity 即使用了此方法获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
+
+```
+TXVideoEditConstants.TXThumbnail thumbnail = new TXVideoEditConstants.TXThumbnail();
+thumbnail.count = TCVideoEditerWrapper.mThumbnailCount; //设置缩略图张数
+thumbnail.width = 100; //缩略图宽
+thumbnail.height = 100;//缩略图高
+
+mTXVideoEditer.setThumbnail(thumbnail);
+mTXVideoEditer.setThumbnailListener(mThumbnailListener); //设置缩略图回调
+
+mTXVideoEditer.processVideo(false);
+
+private TXVideoEditer.TXThumbnailListener mThumbnailListener = new TXVideoEditer.TXThumbnailListener() {
+        @Override
+        public void onThumbnail(int index, long timeMs, final Bitmap bitmap) {
+            // 动态生成缩略图的回调，每生成一张，返回一张Bitmap
+        }
+    };
+```
+
+
+
+#### 全功能导入
+
+全功能导入，支持所有的功能，包括时间特效（重复、倒放）。需要为视频先预处理操作。
+
+经过全功能导入后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
+
+1、生成精确缩略图的方法：
+
+```
+public void setThumbnail(TXVideoEditConstants.TXThumbnail thumbnail);
+
+//TXThumbnail参数如下：
+public final static class TXThumbnail{
+    public int count;        // 缩略图个数
+    public int width;        // 缩略图宽
+    public int height;       // 缩略图高
+}
+```
+
+注意：
+
+- 生成精确缩略图**setTumbnail**方法必须在**processVideo**方法调用之前
+- 缩略图的宽高最好不要设置视频宽高，SDK内部缩放效率更高
+
+2、进行预处理的方法：
+
+```
+//预处理方法
+public void processVideo();
+
+//设置视频预处理回调
+public void setVideoProcessListener(TXVideoProcessListener listener);
+```
+
+Demo示例：
+
+```
+int thumbnailCount = (int) mTXVideoEditer.getTXVideoInfo().duration / 1000;  //根据视频时长生成缩略图个数
+
+TXVideoEditConstants.TXThumbnail thumbnail = new TXVideoEditConstants.TXThumbnail();
+thumbnail.count = thumbnailCount;
+thumbnail.width = 100;
+thumbnail.height = 100;
+
+mTXVideoEditer.setThumbnail(thumbnail);                  //设置预处理生成的缩略图
+mTXVideoEditer.setThumbnailListener(mThumbnailListener); // 缩略图回调
+
+mTXVideoEditer.setVideoProcessListener(this); //视频预处理进度回调
+mTXVideoEditer.processVideo();                //进行预处理
+```
+
+### 2. 视频基本信息
+
+**TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息
 
 ```objective-c
 // 获取视频文件的信息
 getVideoFileInfo(String videoPath){...}
-
-// 对视频文件进行预读，均匀得生成 count 张预览图片组
-getSampleImages(int count, String videoPath, TXVideoInfoReader.OnSampleProgrocess listener)
-// 或者调用该接口
-getSampleImage(int count, String videoPath)
 ```
-开发包中的 TCVideoEditerActivity 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
-### 2. 效果预览
-视频编辑提供了**区间预览**（循环播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
+
+### 3. 效果预览
+
+视频编辑提供了**区间预览**（播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
 
 - **绑定 FrameLayout**
   TXVideoEditer 的 initWithPreview 函数用于绑定一个 FrameLayout 给 SDK 来渲染视频画面，绑定时需要制定**自适应**与**填充**两种模式。
@@ -77,9 +155,9 @@ PREVIEW_RENDER_MODE_FILL_EDGE  - 适应模式，尽可能保持画面完整，�
 ```
 
 - **区间预览**
-  TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
+  TXVideoEditer 的 startPlayFromTime 函数用于播放某一时间段 A<=>B 内的视频片段。
 
-### 3. 视频裁剪
+### 4. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
@@ -94,16 +172,27 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mVideoO
 输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`TXVideoEditer.TXVideoGenerateListener`以回调的形式通知用户。
 >注意：输出文件路径请在外部新建一个空文件，传入绝对路径，不要和原视频的路径相同。
 
-### 4. 美颜滤镜
+### 5. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了 9 种滤镜选择，同时也可以设置自定义的滤镜。
 设置滤镜调用 **TXVideoEditer** 的 **setFilter** 方法：
 
 ```
 void setFilter(Bitmap bmp)
 ```
-其中 image 为滤镜映射图，image 设置为 nil，会清除滤镜效果。
+其中 Bitmap 为滤镜映射图，bmp 设置为 null，会清除滤镜效果。
 
-### 5. 音轨处理
+```
+void setSpecialRatio(float specialRatio)
+```
+该接口可以调整滤镜程度值，一般为0.0 ~ 1.0。
+
+```
+void setFilter(Bitmap leftBitmap, float leftIntensity, Bitmap rightBitmap, float rightIntensity, float leftRatio)
+```
+该接口能够实现组合滤镜，即左右可以添加不同的滤镜。leftBitmap为左侧滤镜、leftIntensity为左侧滤镜程度值；rightBitmap为右侧滤镜、rightIntensity为右侧滤镜程度值；leftRatio为左侧滤镜所占的比例,一般为0.0 ~ 1.0。当leftBitmap或rightBitmap为null，则该侧清除滤镜效果。
+
+
+### 6. 音轨处理
 您可以为视频添加自己喜欢的背景音乐，并且可以选择音乐播放的起始时间和结束时间，如果音乐的播放时间段小于视频的时间段，音乐会循环播放至视频结束。除此之外，您也可以设置视频声音和背景声音的大小，来达到自己想要声音合成效果。
 
 设置背景音乐的方法为：
@@ -142,7 +231,7 @@ mTXVideoEditer.setBGMStartTime(startTime, endTime);
 mTXVideoEditer.setBGMVolume(0.5f);
 mTXVideoEditer.setVideoVolume(0.5f);
 ```
-### 6. 设置水印
+### 7. 设置水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 
 设置水印的方法为：
@@ -159,7 +248,7 @@ rect.y = 0.5f;
 rect.width = 0.5f;
 mTXVideoEditer.setWaterMark(mWaterMarkLogo, rect);
 ```
-### 7. 设置片尾水印
+### 8. 设置片尾水印
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置。
 设置片尾水印的方法为：
 
@@ -177,59 +266,15 @@ txRect.y = (mTXVideoInfo.height - tailWaterMarkBitmap.getHeight()) / (2f * mTXVi
 txRect.width = tailWaterMarkBitmap.getWidth() / (float) mTXVideoInfo.width;
 mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 ```
-### 8. 视频预处理
-您使用 滤镜特效 和 时间特效（包括倒放，重复片段，慢动作）需要为视频先预处理操作。
-经过预处理后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
+### 9. 单帧预览
 
-1、生成精确缩略图的方法：
-```
-public void setThumbnail(TXVideoEditConstants.TXThumbnail thumbnail);
-
-//TXThumbnail参数如下：
-public final static class TXThumbnail{
-    public int count;        // 缩略图个数
-    public int width;        // 缩略图宽
-    public int height;      // 缩略图高
-}
-```
-注意：
-- 生成精确缩略图**setTumbnail**方法必须在**processVideo**方法调用之前
-- 缩略图的宽高最好不要设置视频宽高，SDK内部缩放效率更高
-
-2、进行预处理的方法：
-
-```
-//预处理方法
-public void processVideo();
-
-//设置视频预处理回调
-public void setVideoProcessListener(TXVideoProcessListener listener);
-
-```
-3、经过预处理后的视频可以精确的seek到每个时间点的方法：
+经过预处理后的视频可以精确的seek到每个时间点的方法：
 
 ```
 public void previewAtTime(long timeMs);
 ```
 
-Demo示例：
-
-```
-int thumbnailCount = (int) mTXVideoEditer.getTXVideoInfo().duration / 1000;  //根据视频时长生成缩略图个数
-
-TXVideoEditConstants.TXThumbnail thumbnail = new TXVideoEditConstants.TXThumbnail();
-thumbnail.count = thumbnailCount;
-thumbnail.width = 100;
-thumbnail.height = 100;
-
-mTXVideoEditer.setThumbnail(thumbnail);  //设置预处理生成的缩略图
-mTXVideoEditer.setThumbnailListener(mThumbnailListener);
-
-mTXVideoEditer.setVideoProcessListener(this);
-mTXVideoEditer.processVideo();          //进行预处理
-```
-
-### 9. 滤镜特效
+### 10. 滤镜特效
 您可以为视频添加多种滤镜特效，我们目前支持四种滤镜特效，每种滤镜您也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK 会应用最后一种滤镜特效作为当前的滤镜特效。
 
 设置滤镜特效的方法为：
@@ -263,7 +308,7 @@ mTXVideoEditer.stopEffect(TXVideoEditConstants.TXEffectType_SPLIT_SCREEN, 4000);
 //删除3-4s设置的滤镜特效
 mTXVideoEditer.deleteLastEffect();
 ```
-### 10. 慢/快动作
+### 11. 慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
@@ -297,9 +342,9 @@ list.add(speed);
 
 mTXVideoEditer.setSpeedList(list);
 ```
-### 11. 倒放
+### 12. 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
-注意：**setTXVideoReverseListener()**  老版本首次监听是否倒放完成在新版本无需调用即可生效。
+注意：**setTXVideoReverseListener()**  老版本(SDK4.5以前)首次监听是否倒放完成在新版本无需调用即可生效。
 
 Demo示例：
 ```
@@ -307,7 +352,7 @@ mTXVideoEditer.setTXVideoReverseListener(mTxVideoReverseListener);
 mTXVideoEditer.setReverse(true);
 ```
 
-### 12. 重复视频片段
+### 13. 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。目前 Android 只支持设置一段画面重复，重复三次。
 如需取消之前设置的重复片段，调用 **setRepeatPlay(null)** 即可。
 
@@ -336,7 +381,7 @@ repeatList.add(repeat);  //目前只支持重复一段时间
 mTXVideoEditer.setRepeatPlay(repeatList);
 ```
 
-### 13. 静/动态贴纸
+### 14. 静/动态贴纸
 您可以为视频设置静态贴纸或者动态贴纸。
 设置静态贴纸的方法：
 
@@ -436,7 +481,7 @@ SDK内部将获取到该动态贴纸对应的config.json，并且按照json中�
 
 >**注：该封装格式为SDK内部强制性要求，请严格按照该格式描述动态贴纸**
 
-### 14. 气泡字幕
+### 15. 气泡字幕
 您可以为视频设置气泡字幕，我们支持对每一帧视频添加字幕，每个字幕您也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 您可以把字幕列表传给 SDK 内部，SDK 会自动在合适的时间对视频和字幕做叠加。
 
 设置气泡字幕的方法为：
@@ -516,10 +561,10 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 
 您也可以修改相关控件源代码，来满足自身的业务要求。
 
-### 15. 自定义视频输出
+### 16. 自定义视频输出
 设置最终生成视频的压缩分辨率和输出路径
 ```
-public void generateVideo(int videoCompressed, String videoOutputPath) 
+public void generateVideo(int videoCompressed, String videoOutputPath)
 ```
 参数videoCompressed在TXVideoEditConstants中可选常量
 ```
@@ -535,6 +580,60 @@ VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
 ```
 public void setVideoBitrate(int videoBitrate);
 ```
+### 17. 图片编辑
+SDK在4.9版本后增加了图片编辑功能，用户可以选择自己喜欢的图片，添加转场动画，BGM，贴纸等效果。  
+接口函数如下：
 
-### 16. 释放
+```
+/*
+ * bitmapList:转场图片列表,至少设置三张图片 （tips ：图片最好压缩到720P以下（参考demo用法），否则内存占用可能过大，导致编辑过程异常）
+ * fps:       转场图片生成视频后的fps （15 ~ 30）
+ * 返回值：
+ *       0 设置成功；
+ *      -1 设置失败，请检查图片列表是否存在
+ */
+public int setPictureList(List<Bitmap> bitmapList, int fps);
+
+/*
+ * type:转场类型，详情见 TXVideoEditConstants
+ * 返回值：
+ *       duration 转场视频时长（tips：同一个图片列表，每种转场动画的持续时间可能不一样，这里可以获取转场图片的持续时长）；
+ */
+public long setPictureTransition(int type)
+```
+- 其中，setPictureList接口用于设置图片列表，最少设置三张，如果设置的图片过多，要注意图片的大小，防止内存占用过多而导致编辑异常。
+- setPictureTransition接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过返回值获取转场的时长。
+- 需要注意接口调用顺序，先调用setPictureList，再调用setPictureTransition。
+- 图片编辑暂不支持的功能：重复，倒放，快速/慢速，其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。
+
+### 18. 释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。
+
+### 19、根据时间点获取缩略图
+
+输出指定时间点列表的缩略图，可以根据返回的多张缩略图生成一个GIF封面
+
+```
+List<Long> list = new ArrayList<>();
+list.add(10000L);
+list.add(12000L);
+list.add(13000L);
+list.add(14000L);
+list.add(15000L);
+
+TXVideoEditer txVideoEditer = new TXVideoEditer(TCVideoPreviewActivity.this);
+txVideoEditer.setVideoPath(mVideoPath);
+txVideoEditer.setThumbnailListener(new TXVideoEditer.TXThumbnailListener() {
+       @Override
+       public void onThumbnail(int index, long timeMs, Bitmap bitmap) {
+           Log.i(TAG, "bitmap:" + bitmap + ",timeMs:" + timeMs);
+           saveBitmap(bitmap, timeMs);
+       }
+});
+txVideoEditer.getThumbnailList(list, 200, 200);
+```
+
+注意
+
+- List中时间点不能超出视频总时长，对于超出总时长的返回最后一张图片
+- 设置的时间点单位是毫秒(ms)

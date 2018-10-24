@@ -1,8 +1,8 @@
 ## 一、开通网关权限
-目前 API 网关在内测阶段，您需要在 [API 网关](https://cloud.tencent.com/product/apigateway) 中点击【申请内测】开通 API 网关，或联系自己的客户经理直接申请开通。开通后，您就可以进入 API 网关的管理控制台进行配置了。
+目前 API 网关在内测阶段，您需要在 [API 网关](https://cloud.tencent.com/product/apigateway) 中单击【申请内测】开通 API 网关，或联系自己的客户经理直接申请开通。开通后，您就可以进入 API 网关的管理控制台进行配置了。
 
 ## 二、服务创建
-1. 登陆 [腾讯云控制台](https://console.cloud.tencent.com/apigateway)。   
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/apigateway)。   
 2. 在当前地域下，服务标签页中，单击【新建】。
 ![新建服务](https://i.imgur.com/DsnOFaH.png)
 3. 填写服务名称、备注信息，并选择前端类型，前端类型可选择 http、https、http 与 https 任一种。
@@ -24,7 +24,7 @@
 1. 配置您需要访问的路径，如：/path。   
 2. 选择您需要的请求方法，目前有：GET、POST、PUT、DELETE、HEAD。   
 3. 选择性地输入备注信息。   
-4. 根据提示填写你的 API 需要的入参配置。   
+4. 根据提示填写您的 API 需要的入参配置。   
 5. 单击【下一步】进入后端配置。   
 > **注意：**
 如果您是 API 市场的供应商，在部署即将售卖的 API 时，请勿选择免鉴权。

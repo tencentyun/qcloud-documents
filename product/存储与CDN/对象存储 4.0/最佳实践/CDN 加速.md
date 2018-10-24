@@ -4,7 +4,7 @@ CDN 加速适用于对存储桶中的对象进行下载、分发的场景，特�
 在控制台上进行简单配置即可对指定的存储桶开启 CDN 加速服务。开启 CDN 加速后，腾讯云会自动为该存储桶生成一个加速域名。使用加速域名访问可实现 CDN 加速。使用默认域名访问，即保持默认的访问方式。
 
 ### 设置 CDN 加速
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，点击需要配置域名的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，单击需要配置域名的存储桶（如 example），进入存储桶。
 ![域名管理1](//mc.qcloudimg.com/static/img/3153ef78fbad0c8e791f1d78d93023ce/image.png)
 2. 单击【域名管理】，进入域名管理页面，单击加速域名的【修改】按钮，进入可配置状态。
 3. 修改当前状态为开启，单击【保存】即可。
@@ -33,7 +33,7 @@ example-1234567890.file.myqcloud.com/test.txt
  
 ### 开启 CDN 加速
 #### 添加域名
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，点击需要配置域名的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，单击需要配置域名的存储桶（如 example），进入存储桶。
 ![域名管理1](//mc.qcloudimg.com/static/img/3153ef78fbad0c8e791f1d78d93023ce/image.png)
 2. 单击【域名管理】，进入域名管理页面，单击自定义域名下的【+ 添加域名】按钮，进入可配置状态。
 ![域名管理5](//mc.qcloudimg.com/static/img/de12443b88e07fe20613cf759a60966f/image.png)
@@ -48,14 +48,14 @@ example-1234567890.file.myqcloud.com/test.txt
 ![域名管理7](//mc.qcloudimg.com/static/img/6ac3a93bda882224cbd6c2f591397042/image.png)
 2. 输入自定义域名，选择所属项目，单击【确定】保存即可。
 ![域名管理8](//mc.qcloudimg.com/static/img/8364ae1f871077a2755c4ea9c8071041/image.png)
-3. 域名添加成功后，点击域名，进入解析记录管理页面。单击【+ 添加记录】，弹出添加记录对话框。
+3. 域名添加成功后，单击域名，进入解析记录管理页面。单击【+ 添加记录】，弹出添加记录对话框。
 ![域名管理9](//mc.qcloudimg.com/static/img/34997fe3c0fa5ccf275997ae6a63a0bd/image.png)
 4. 记录类型选择 CNAME，主机记录留空，线路类型选择默认，填入 [步骤 3](#步骤3) 获取的 CNAME 记录，TTL 保持默认，单击【确定】保存即可。完成解析添加后，大约需 15 分钟左右生效，请耐心等待。
 ![域名管理10](//mc.qcloudimg.com/static/img/8d0fdde4ff83ae50fdfea421935dc93d/image.png)
 
 ### 关闭 CDN 加速
 #### 解析域名
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，点击需要配置域名的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) ，进入左侧菜单栏【 Bucket 列表】，单击需要配置域名的存储桶（如 example），进入存储桶。
 ![域名管理1](//mc.qcloudimg.com/static/img/3153ef78fbad0c8e791f1d78d93023ce/image.png)
 <span id="步骤2"></span>
 2. 单击【域名管理】，复制存储桶的默认域名（[步骤 6](#步骤6) 需要用到）。
@@ -63,7 +63,7 @@ example-1234567890.file.myqcloud.com/test.txt
 ![域名管理7](//mc.qcloudimg.com/static/img/6ac3a93bda882224cbd6c2f591397042/image.png)
 4. 输入自定义域名，选择所属项目，单击【确定】保存即可。
 ![域名管理8](//mc.qcloudimg.com/static/img/8364ae1f871077a2755c4ea9c8071041/image.png)
-5. 域名添加成功后，点击域名，进入解析记录管理页面。单击【+ 添加记录】，弹出添加记录对话框。
+5. 域名添加成功后，单击域名，进入解析记录管理页面。单击【+ 添加记录】，弹出添加记录对话框。
 ![域名管理9](//mc.qcloudimg.com/static/img/34997fe3c0fa5ccf275997ae6a63a0bd/image.png)
 <span id="步骤6"></span>
 6. 记录类型选择 CNAME，主机记录留空，线路类型选择默认，记录值填入 [步骤 2 ](#步骤2) 复制的默认域名（以适用于 JSON API 的默认域名为例），TTL 保持默认，单击【确定】保存即可。完成解析添加后，大约需 15 分钟左右生效，请耐心等待。

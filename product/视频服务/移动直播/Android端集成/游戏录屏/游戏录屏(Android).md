@@ -2,9 +2,8 @@
 ## 功能介绍
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端APP演示等需要手机屏幕画面的场景。
 
-![](https://main.qcloudimg.com/raw/b202669693a06db0fcc06ca80a194176.jpg)
+![](https://main.qcloudimg.com/raw/4532046fab322387a48fea410ead7a4d.jpg)
 
-录屏功能在 iOS 和 Android 下有两套截然不同的实现方案，本文档
 
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。
@@ -123,7 +122,7 @@ step 9 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_B
 腾讯云 RTMP SDK 中内部已经实现了动态横竖屏切换视频逻辑，所以在使用录屏直播时无需关注这个问题，主播的手机在横竖屏切换的时候，观众端看到的画面会同主播的视角保持一致。
 
 ### step 9: 向SDK填充自定义Audio数据
-如果你希望把音频的采集替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
+如果您希望把音频的采集替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
 ```java
 // (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
 _config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;

@@ -16,7 +16,7 @@ Web播放器的视频播放能力本身不是网页代码实现的，而是靠�
 
  最常见的用于网页直播的视频源地址是以m3u8结尾的地址，我们称其为HLS (HTTP Live Streaming)，这是苹果推出的标准。由于苹果的影响力，目前各手机浏览器产品对这种格式的兼容性最好，但它有个天然的问题，就是延迟比较大，一般是20-30秒左右的延迟，没有办法，在手机浏览器上我们并没有其它选择。
 
- 在PC上情况会好很多，因为PC上的浏览器目前还没有抛弃flash控件，而flash控件不追求洁癖，支持的视频源格式挺多的，而且各浏览器上的flash控件都是Adobe它家自己开发，所以兼容性非常好。（悄悄滴告诉你，Chrome最近对flash的态度不太友好）
+ 在PC上情况会好很多，因为PC上的浏览器目前还没有抛弃flash控件，而flash控件不追求洁癖，支持的视频源格式挺多的，而且各浏览器上的flash控件都是Adobe它家自己开发，所以兼容性非常好。（悄悄滴告诉您，Chrome最近对flash的态度不太友好）
 ![](//mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
 
 ## 对接攻略
@@ -251,7 +251,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.0+]  <br> 示例:  true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url <br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js ,所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
+| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)。[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例: "h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例: "true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏）, 1：（portraint竖屏）, 2：（landscape &verbar; portrait跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例:  0   |
@@ -379,7 +379,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 | 2016.12.28      | 2.0.0    | 首个版本  |
 | 2017.3.4        | 2.1.0    | 至2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1.增加控制播放环境判断的参数： flash、h5_flv、x5_player。<br>2.调整播放器初始化逻辑，优化错误提示效果。<br>3.增加flv.js支持，在符合条件的情况下可以采用flv.js播放 flv <br>4.支持x5-video-orientation属性，<br>5.增加播放环境判断逻辑，可通过参数调整H5与Flash的优先级，以及是否启用TBS播放。<br>6.启用版本号发布方式，避免影响旧版本的使用者。<br> 7.优化事件触发的时间戳，统一为标准时间。<br>8.bug修复|
-| 2017.12.7       | 2.2.1    | 1.增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要点击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点|
+| 2017.12.7       | 2.2.1    | 1.增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要单击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点|
 | 2017.12.20      | 2.2.1    | 1.增加可配置清晰度文案功能<br> 2.设置默认清晰度<br> 3.支持切换清晰度方法|
 
 ## 常见问题
@@ -406,7 +406,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
     ![](//mc.qcloudimg.com/static/img/d5746d9bef48b411c3bac576fe6925b1/image.png)![](//mc.qcloudimg.com/static/img/1e20288d6f69a5cf7a886f95edd40ec3/image.png)
     （左：Android 微信，右：iOS 微信）
 
-    这两种全屏模式显示的控制栏都是 TcPlayer 提供的控制栏，进入方式都是通过点击控制栏的全屏按钮，或者 TcPlayer 提供的全屏方法实现的。
+    这两种全屏模式显示的控制栏都是 TcPlayer 提供的控制栏，进入方式都是通过单击控制栏的全屏按钮，或者 TcPlayer 提供的全屏方法实现的。
     然而在移动端不一定可以显示 TcPlayer 提供的控制栏，大部分情况下移动端webview会劫持视频播放，并使用 webview 提供的控制栏，这样就无法显示 TcPlayer 的控制栏，也无法使用 TcPlayer 提供的全屏方案。如图所示：
     ![](//mc.qcloudimg.com/static/img/d027ca6fce35059e05428128b9823d70/image.png)![](//mc.qcloudimg.com/static/img/b28d69f15a60321d1a6e2b3a93b53038/image.png)
     （左：Android 微信，TBS劫持视频播放，右：iOS QQ浏览器劫持视频播放）
@@ -439,7 +439,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 
 -  **为什么在移动端浏览器视频无法自动播放？**
 
-	在移动端 WEB 自动播放视频只有两个办法，通过设置 `<video>` 标签 autoplay 属性 或者调用 `<video>` 标签提供的 play() 方法，然而现实是在移动端WEB中视频自动播放一直是被禁止的，目前通用的办法是通过用户手动触发播放（例如监听用户的点击事件并调用 play()方法）。除此之外不排除一些特殊定制的 webview 支持 `<video>` 标签 autoplay 属性或者通过其他特殊的函数调用实现自动播放，那么在这类 Webview 下打开页面就有可能自动播放。我们的播放器已经在 autoplay 设置为 true 的情况下，为 `<video>` 标签加上 autoplay 属性，只要终端支持即可。
+	在移动端 WEB 自动播放视频只有两个办法，通过设置 `<video>` 标签 autoplay 属性 或者调用 `<video>` 标签提供的 play() 方法，然而现实是在移动端WEB中视频自动播放一直是被禁止的，目前通用的办法是通过用户手动触发播放（例如监听用户的单击事件并调用 play()方法）。除此之外不排除一些特殊定制的 webview 支持 `<video>` 标签 autoplay 属性或者通过其他特殊的函数调用实现自动播放，那么在这类 Webview 下打开页面就有可能自动播放。我们的播放器已经在 autoplay 设置为 true 的情况下，为 `<video>` 标签加上 autoplay 属性，只要终端支持即可。
 
 -  **为什么在 PC Chrome 中Flash播放器会有两个播放按钮？**
 

@@ -4,7 +4,7 @@
   - **Live_Channel_GetStatus**: This API is used to query whether a stream has a status of *Broadcasting**.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API:` http://fcgi.video.qcloud.com/common_access`
 
 - **Use**
   - To query whether a stream has a status of **Broadcasting**. It is implemented based on Tencent Cloud's detection of audio/video stream interruption, and thus may not be as fast and accurate as the active reporting of App in terms of real-time capability. But it can serve as a good supplementary means for checking and clearing up LVB streams regularly.

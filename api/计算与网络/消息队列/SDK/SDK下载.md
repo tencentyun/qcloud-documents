@@ -1,6 +1,7 @@
 ## SDK 下载
 
 腾讯云消息队列目前支持 java、python、php 及 C++ SDK，后续会支持更多语言。也欢迎广大开发者根据 API 说明开发更多语言的 SDK 版本。
+> **注意：** 由于分配资源和释放资源有 1s 左右的时间，当前消息队列SDK在创建及删除队列/主题时会有 1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
 
 #### GitHub 地址如下：
 
@@ -23,10 +24,12 @@
 - [Python SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
 
 
-- [HP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
+- [PHP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
 
 
 - [C++ SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
+
+- [C# SDK](https://main.qcloudimg.com/raw/2fe051dcc6ee0b3088f16d5d04182f64.zip)
 
 
 ## SDK 使用注意事项

@@ -13,16 +13,16 @@
 
 ## 第二步：添加配置文件
 
-在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+在您创建好的应用上单击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
+![](http://tacimg-1253960454.file.myqcloud.com/guides/project/downloadConfig.gif)
 
 解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
 
-<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+![](https://main.qcloudimg.com/raw/2098031bcf22b6a32ac87066ed8a3278.jpg)
 
 >**注意：**
->请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+>请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 APK 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
@@ -31,12 +31,12 @@
 
 |功能|服务名称|Gradle 依赖项|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.1.0|
-|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging:1.1.0|
-|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash:1.1.0|
-|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment:1.1.0|
-|移动存储（Storage）|storage|com.tencent.tac:tac-storage:1.1.0|
-|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization:1.1.0|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-messaging|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-crash|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-payment|
+|移动存储（Storage）|storage|com.tencent.tac:tac-storage|
+|登录与授权（Authorization）|authorization|com.tencent.tac:tac-authorization|
 
 
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
@@ -46,7 +46,7 @@
 ```
 dependencies {
 	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.3.+'
 }
 ```
 
@@ -55,8 +55,8 @@ dependencies {
 ```
 dependencies {
 	// 增加这两行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.0' 
-	compile 'com.tencent.tac:tac-messaging:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.3.+' 
+	compile 'com.tencent.tac:tac-messaging:1.3.+'
 }
 ```
 
@@ -65,12 +65,20 @@ dependencies {
 ```
 dependencies {
 	// 增加这三行，其中 core 是所有其他模块的基础
-	compile 'com.tencent.tac:tac-core:1.1.0' 
-	compile 'com.tencent.tac:tac-messaging:1.1.0'
-	compile 'com.tencent.tac:tac-crash:1.1.0'
+	compile 'com.tencent.tac:tac-core:1.3.+' 
+	compile 'com.tencent.tac:tac-messaging:1.3.+'
+	compile 'com.tencent.tac:tac-crash:1.3.+'
 }
 ```
-> 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
+
+此外，我们提供了 gradle 插件，帮您进一步降低集成成本，
+
+```
+apply plugin: 'com.tencent.tac.services'
+```
+
+> **注意：**
+> 使用 Payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
 ## 第四步：参考各个服务的快速入门
 
@@ -83,7 +91,7 @@ dependencies {
 |腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
 |腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
 |移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
-|微信QQ登录（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
+|微信 QQ 登录（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
 ## 后续步骤
 
@@ -97,5 +105,5 @@ dependencies {
 - 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
 - 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
 - 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
-- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 获取微信和QQ登录能力。
-- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和QQ支付能力。
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 获取微信和 QQ 登录能力。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和 QQ 支付能力。

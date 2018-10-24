@@ -26,7 +26,7 @@ The client signs the HTTP request, and then sends it to Tencent Cloud for signat
 
 ## Preparations
 1. APPID, SecretId and SecretKey. 
-   They are available on the [Cloud API Key](https://console.cloud.tencent.com/cam/capi) page of console.
+   They are available on the [Cloud API Key](https://buy.cloud.tencent.com/capi) page of console.
 2. Specify the development languages:
    Support but not limited to Java, PHP, C Sharp, C++, node.js, Python, and specify the corresponding HMAC-SHA1, SHA1 functions.
 
@@ -112,7 +112,7 @@ Parameter | Description
 [q-key-time] | must be consistent with the q-key-time descripted in [Key Description](#signaturesplit).
 [HttpMethod] | HTTP request method. Only lowercase is supported, such as get, post, put, delete, head, and options.<br><br>**For example:** Suppose an HTTP request "GET /testfile". Its HttpMethod is get.
 [HttpURI] | The URI part of an HTTP request. Namely the part starting from the "/" virtual root path.<br><br>**For example:** Suppose an HTTP request "GET /testfile". Its HttpURI is /testfile.
-[HttpParameters] | HTTP request parameter. This is the part after “?” and linked with "&" in URI. You need to select part or all of key=value pairs, and the key and value are required to be converted to lowercase. Many pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "GET /?prefix=abc&max-keys=20". Its HttpParameters is max-keys=20&prefix=abc or prefix=abc.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-url-param-list descripted in [Key Description](#signaturesplit).
+[HttpParameters] | HTTP request parameter. This is the part after “?” and linked with "&" in URI. You need to select part or all of key=value pairs. Besides, the key needs to be converted to lowercase, and the URLEncode conversion is to perform on its value. Many pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "GET /?prefix=abc&max-keys=20". Its HttpParameters is max-keys=20&prefix=abc or prefix=abc.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-url-param-list descripted in [Key Description](#signaturesplit).
 [HttpHeaders] | HTTP request header. You need to select part or all of the key:value pairs, and convert them into the key=value format. Besides, the key needs to be converted to lowercase, and the URLEncode conversion is to perform on its value. Multiple pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com Content-Type: image/jpeg". Its HttpHeaders is content-type=image%2Fjpeg&host=bucket1-1254000000.cos.ap-beijing.myqcloud.com.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-header-list descripted in [Key Description](#signaturesplit).
 [q-sign-algorithm] | sha1. Only sha1 encryption algorithm is currently supported.
 [q-sign-time] | Must be consistent with the q-sign-time descripted in [Key Description](#signaturesplit).
@@ -134,7 +134,7 @@ Parameter | Value
 A user wants to download and upload objects using the API calling method, and make a signature to the calling.
 
 ### Preparations
-Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.tencent.cloud.com/cam/capi) page, and specify the development language as follows:
+Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.cloud.tencent.com/capi) page, and specify the development language as follows:
 
 APPID | SecretId | SecretKey | Development Language
 ---|---|---|---
@@ -150,7 +150,7 @@ The original HTTP request is:
 PUT /testfile2 HTTP/1.1
 Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com
 x-cos-content-sha1: 7b502c3a1f48c8609ae212cdfb639dee39673f5e
-x-cos-storage-class: standard
+x-cos-storage-class: nearline
 
 Hello world
 ```
@@ -161,7 +161,7 @@ The signed HTTP request is:
 PUT /testfile2 HTTP/1.1
 Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com
 x-cos-content-sha1: 7b502c3a1f48c8609ae212cdfb639dee39673f5e
-x-cos-storage-class: standard
+x-cos-storage-class: nearline
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q&q-sign-time=1417773892;1417853898&q-key-time=1417773892;1417853898&q-header-list=host;x-cos-content-sha1;x-cos-storage-class&q-url-param-list=&q-signature=84f5be2187452d2fe276dbdca932143ef8161145
 
 Hello world
@@ -183,7 +183,7 @@ Where, the calculation code of q-signature is:
 ```
 $signTime = '1417773892;1417853898';
 $signKey = hash_hmac('sha1', $signTime, 'BQYIM75p8x0iWVFSIgqEKwFprpRSVHlz');
-$httpString = "put\n/testfile2\n\nhost=bucket1-1254000000.cos.ap-beijing.myqcloud.com&x-cos-content-sha1=7b502c3a1f48c8609ae212cdfb639dee39673f5e&x-cos-storage-class=standard\n";
+$httpString = "put\n/testfile2\n\nhost=bucket1-1254000000.cos.ap-beijing.myqcloud.com&x-cos-content-sha1=7b502c3a1f48c8609ae212cdfb639dee39673f5e&x-cos-storage-class=nearline\n";
 $sha1edHttpString = sha1($httpString);
 $stringToSign = "sha1\n$signTime\n$sha1edHttpString\n";
 $signature = hash_hmac('sha1', $stringToSign, $signKey);

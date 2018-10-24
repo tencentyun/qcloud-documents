@@ -1,9 +1,9 @@
 ## 1 Format of SMS Messages
-An SMS message is composed of signature and main content. For example, in the SMS message "[Tencent Technology] Your verification code for QQ login is 1234. This verification is valid for five minutes", "[Tencent Technology]" is the signature and "Your verification code for QQ login is 1234. This verification code is valid for five minutes" is the main content.
-You need to apply for a signature and a content template before sending an SMS message. For the aforesaid SMS message, the signature is "[Tencent Technology]" and the content template is "Your verification code for QQ login is {1}. This verification code is valid for {2} minutes". {1} and {2} are variables.
+An SMS message is composed of a signature and main body. For example, in the SMS message "[Tencent Technology] Your verification code for QQ login is 1234. This verification is valid for five minutes", "[Tencent Technology]" is the signature and "Your verification code for QQ login is 1234. This verification code is valid for five minutes" is the main body.
+You need to apply for a signature and a body template before sending an SMS message. For the aforesaid SMS message, the signature is "[Tencent Technology]" and the body template is "Your verification code for QQ login is {1}. This verification code is valid for {2} minutes". {1} and {2} are variables.
 
 ## 2 Signature Regulations
-A signature is an identifier added before the main content for identifying the company or business. A signature is composed of [] and 2 to 8 English words or numerals. Special symbols such as "+, @, and |" cannot be contained. For example, the signature of a Tencent Cloud SMS message is "[Tencent Cloud]".
+A signature is an identifier added before the main body for identifying the company or business. A signature is composed of [] and 2 to 8 English words or numerals. Special symbols such as "+, @, and |" cannot be contained. For example, the signature of a Tencent Cloud SMS message is "[Tencent Cloud]".
 Signatures of SMS messages need to be filed with mobile network operators and the original and copy of the company's business license stamped with its official seal should also be provided. If the signature infringes the rights of any third party, an appropriate authorization from this third party should be obtained. For any questions, [contact SMS Helper](/document/product/382/3773).
 
 ## 3 Content Regulations
@@ -29,7 +29,7 @@ Sample 2: The {1} post-new year promotion is coming! Haircare products are {2} o
 4. Send marketing SMS messages in the daytime (8:00 - 22:00) to minimize complaints.
 
 ## 6 Review Rules
-Generally, you can get the review result of your signature and main content template in half a work day. The review time is from Monday to Sunday between 9:00 to 21:00.
+Generally, you can get the review result of your signature and main body template in half a work day. The review time is from Monday to Sunday between 9:00 to 21:00.
 If you want to use the SMS in a short time, [contact SMS Helper](/document/product/382/3773) and we will quicken the review process. If you fail to pass the review, [contact SMS Helper](/document/product/382/3773) for a solution.
-As the approved content templates also need to be spot checked and reviewed by operators, the templates may not be sent successfully. If such issue occurs, [Contact SMS Helper](/document/product/382/3773) for a solution. 
+As the approved body templates also need to be spot checked and reviewed by operators, the templates may not be sent successfully. If such issue occurs, [Contact SMS Helper](/document/product/382/3773) for a solution. 
 

@@ -10,7 +10,7 @@
 
 1. 提工单或客服电话（400-9100-100）联系我们商务同学。
 
-2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/766c9092424d0440a31c56c81f34a629/archive.xlsx)，按照表格填好信息后，邮件发送到 jerryqian@tencent.com 并抄送给您联系的商务同学（重要）。
+2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/766c9092424d0440a31c56c81f34a629/archive.xlsx)，按照表格填好信息后，邮件发送到 wisonxie@tencent.com 并抄送给您联系的商务同学（重要）。
 
 3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
 
@@ -20,10 +20,11 @@
 
    - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
    - 正式Licence：有效期根据最终的合同而定，一般为一年。
+5. 回复的邮件中将包含Licence对应的URL和Key, 具体使用方法请见下文的工程配置部分。
 
 ## 版本下载
 
-可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & Licence文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
+可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & Licence文件 可以跟我们的商务同学获取）, 成功解压后在SDK目录下得到一个`aar`和`zip`，分别对应两种集成方式。
 
 ## 工程设置
 
@@ -33,12 +34,11 @@
 
 #### 使用aar方式集成
 
-直接把LiteAVSDK_Enterprise_3.9.2749.aar替换你工程中的非商业版的aar，并在app目录下的build.gradle中修改对应的名称即可，相对简单
+直接替换你工程中的非商业版的aar，并在app目录下的build.gradle中修改对应的名称即可，相对简单
 
 #### 使用jar包方式集成
 
-1. 需要解压LiteAVSDK_Enterprise_3.9.2749.zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
-
+1.需要解压zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
 
 | jar                     |                          |                   |
 | ----------------------- | ------------------------ | ----------------- |
@@ -53,7 +53,7 @@
 | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
 | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
 
-2. 把解压后的assets文件夹下的资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
+2.把解压后的assets文件夹下的所有资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
 ### 导入licence文件
 
@@ -65,6 +65,9 @@
 > YTFaceSDK.Licence的文件名固定，不可修改、且必须放在assets目录下。
 >
 > iOS 和 Android 不需要重复申请 Licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+>
+
+**从4.9版本开始，SDK支持二合一的licence, 这种方式不再需要YTFaceSDK.licence, 在从商务同学处获取到licence对应的key和url后，设置方式和标准版licence设置方式相同。**
 
 ## 功能调用
 
@@ -149,9 +152,9 @@ public void setGreenScreenFile(String path);
  > 2. 如果是jar集成方式，检查动效对应的so是否都考到工程jniLibs目录下
      
 ### 2. 工程特效不生效？  
- > 1. 检查YTFaceSDK.licence 命名是否正确，YTFaceSDK.licence必须放在assets根目录下  
- > 2. 检查licence是否过期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们的开发同学）    
- > 3. 如果是jar集成方式，检查pitu资源是否添加正确（sdk解压出来的assets目录内容都要拷贝到工程的assets目录下）  
- > 4. 如果客户更新了licence，请确保使用的是最新的licence，如果不确定，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译       
+ > 1. 检查是否调用了`TXUGCBase.getInstance().setLicence(Context context, String url, String key)`方法, 以及参数是否正确；  
+ > 2. 调用TXUGCBase的getLicenseInfo方法，带有动效的licence会包含`pituLicense`字段；
+ > 3. 如果是jar集成方式，检查pitu资源是否添加正确（sdk解压出来的assets目录内容都要拷贝到工程的assets目录下）；
+ > 4. SDK会把P图的licence保存到`/sdcard/android/data/你的应用包名/files/YTFaceSDK.licence`，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译       
  
 ##### [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)是一个xcode工程，目前仅支持在mac上使用， 后续会开放其他查询方式

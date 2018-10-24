@@ -16,11 +16,11 @@ PC直播流程非常简单，主要步骤：
 
 ## 1. 直播前准备
 - 在腾讯云开通云直播服务
-如果您尚未开通，点击这里[申请开通](https://console.cloud.tencent.com/live)云直播服务。
+如果您尚未开通，单击这里[申请开通](https://console.cloud.tencent.com/live)云直播服务。
 ![](//mc.qcloudimg.com/static/img/f45715687e787ee9a8e18154d1e13b92/image.png)
 
 ### 1.2 生成推流地址
-如何您尚未准备好**推流地址**，点击这里[接入管理 >> 直播码接入 >>推流生成器](https://console.cloud.tencent.com/live)生成一个**推流地址**和三个播放地址。
+如何您尚未准备好**推流地址**，单击这里[接入管理 >> 直播码接入 >>推流生成器](https://console.cloud.tencent.com/live)生成一个**推流地址**和三个播放地址。
 
 其中，域名为 **livepush.myqcloud.com** 的即为推流地址：
 ![](//mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png)
@@ -59,21 +59,21 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 
 - **OBS推流地址设置**
 ![](//mc.qcloudimg.com/static/img/8f5dabbdea9882531464017385648e0c/image.png)
-点击**设定** 选中 **广播设定**，依次配置模式为**直播流**、串流服务为**Custom**、FMS URL为推流地址的前半部分、播放路径/串码流为推流地址的后半部分。自动重连是在OBS检测到网络断开等异常情况，自动触发推流连接操作，建议勾选。
+单击**设定** 选中 **广播设定**，依次配置模式为**直播流**、串流服务为**Custom**、FMS URL为推流地址的前半部分、播放路径/串码流为推流地址的后半部分。自动重连是在OBS检测到网络断开等异常情况，自动触发推流连接操作，建议勾选。
 ![](//mc.qcloudimg.com/static/img/88024aaff126c5e34f4e96b9cd7e37c2/image.png)
 
 - **OBS Studio推流地址设置**
 ![](//mc.qcloudimg.com/static/img/023f599e7fe3e22a8d348a6b4b7b0720/image.png)
-点击界面右下角**设置**选中**串流**，依次配置串流类型为**自定义流媒体服务器**、URL为推流地址的前半部分、流密钥为推流地址的后半部分。
+单击界面右下角**设置**选中**串流**，依次配置串流类型为**自定义流媒体服务器**、URL为推流地址的前半部分、流密钥为推流地址的后半部分。
 
 ### 2.2 设置音视频源
-音视频源相当于你要投递的包裹的内容。内容形式主要有三种:
+音视频源相当于您要投递的包裹的内容。内容形式主要有三种:
 - 来自视频采集设备，如camera 或者是专业的录像设备等。
 - 来自PC窗口或者游戏源。
 - 来自存放在PC上的视频图片等媒体文件。
 
 - **OBS 音视频源设置**
-**特别提醒**：在来源框中**点击鼠标右键**，左键是没有反应的。弹出添加菜单，随后弹出**获取窗口**、显示器获取、图片源、投影片放映、文字来源、CLR Browser、 **视频捕捉设备**、游戏源等。其中获取窗口和视频捕捉设备两项比较常用。不用的来源，相应的设置就不太一样。接下来主要介绍 **视频捕捉设备** 的设置。
+**特别提醒**：在来源框中**单击鼠标右键**，左键是没有反应的。弹出添加菜单，随后弹出**获取窗口**、显示器获取、图片源、投影片放映、文字来源、CLR Browser、 **视频捕捉设备**、游戏源等。其中获取窗口和视频捕捉设备两项比较常用。不用的来源，相应的设置就不太一样。接下来主要介绍 **视频捕捉设备** 的设置。
 ![](//mc.qcloudimg.com/static/img/c2f5a64918807e99aad4bd7778259e62/image.png)
 ![](//mc.qcloudimg.com/static/img/6f15746021918db02fbaefa6dc56c22b/image.png)
 ![](//mc.qcloudimg.com/static/img/d60b1a9c246d381a5e698bafac8c3f4e/image.png)
@@ -118,7 +118,7 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 [下载](https://cloud.tencent.com/document/product/454/6555) RTMP DEMO，将播放地址用在线二维码[生成器](http://cli.im/)生成二维码后，即可扫码播放。
 
 ### 3.3 VLC 播放验证
-[VLC下载地址](http://www.videolan.org/vlc/)，安装按照默认设置即可。打开后点击**媒体菜单**，选择**打开网络串流**，填写播放地址，点击**播放**。
+[VLC下载地址](http://www.videolan.org/vlc/)，安装按照默认设置即可。打开后单击**媒体菜单**，选择**打开网络串流**，填写播放地址，单击**播放**。
 ![](//mc.qcloudimg.com/static/img/7923a14be5525bd37719c18d54243403/image.png)
 
 

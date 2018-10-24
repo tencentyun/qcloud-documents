@@ -1,44 +1,81 @@
-日志服务 CLS 提供实时日志查询能力，帮助您快速定位业务问题。在进行日志检索之前，您需要进行索引的相关配置并开启索引。
+﻿CLS provides real-time log query capability to help you quickly locate business problems. Before performing log search, you need to configure and enable the index.
 
-## 开启索引
+## How Does It Work
 
-索引是日志主题的可选项功能，需要首先选择查询的日志主题，然后开启其索引功能，具体操作步骤如下：
+Log search is performed based on the key words of a log which are matched with the information you entered. You can flexibly adjust the key words by customizing a word separator or specifying whether to enable case sensitivity depending on your business needs. The following example uses a log to explain the word separator and case sensitivity.
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 左侧选择日志集管理，依次进入目标日志集、日志主题。
-3. 在日志主题选项卡中，选择 **索引配置**。
-4. 根据需要，开启全文索引或键值索引，并勾选是否对大小写敏感（默认不勾选）。
-5. 单击【保存】，完成索引配置。
+```
+10002345987;write;ERROR;code=400;topic does not exist;
+```
 
-> **注意：**
-> 日志主题创建后，默认关闭索引，需要您手动开启。
+### Word separator
 
-## 索引类型
-### 全文索引
+The text of the original log can be split into several key words by use of a word separator to facilitate your search. For example:
 
-日志服务将完整的单独一条日志当做文本进行查询。开启全文索引后，可以根据关键词信息进行日志检索。
-![全文索引](https://main.qcloudimg.com/raw/7347d861b8143c0ce7da5041488c3569.png)
+- If the word separator is set to ";=", the log is split into 6 words: "10002345987", "write", "error", "code", "400", and "topic does not exist;". In exact search, you can find the log by typing any of the above words.
+- If the word separator is set to null, the entire log is regarded as a word. In exact search, you have to type the entire word to search for the log.
 
-### 键值索引
+### Case sensitivity
 
-日志服务可根据采集配置中设置的 key 进行键值索引配置，在键值索引配置中，根据索引需求填写所对应的 key，并指定其数据类型，目前支持 text、long、double 数据类型。
-![键值索引](https://main.qcloudimg.com/raw/d65bc5a6b68316eb5316019f5f41de07.png)
+Case sensitivity refers to the precise distinction between uppercase and lowercase letters in a string. For example, when the word separator is ";=":
 
-### 大小写敏感
+- If case sensitivity is enabled, the log cannot be found by typing "error". This is because "error" and "ERROR" are regarded as two different words.
 
-大小写敏感指对于一个字符串中的大写小写字母是否进行精确区分，在检索过程中若需要对字母大小写进行精确区分，则需勾选索引开关旁的敏感框。
+- If case sensitivity is disabled, the log can be found by typing "error", "Error" or "ERROR".
 
-## 数据类型
-目前日志服务支持三种字段类型，详情如下：
 
-|名称|类型描述|
-|-----|:-----|
-| text | 文本类型|
-|long|整型数值类型|
-|double|浮点数数值类型|
 
-## 注意事项
-1. 索引关闭时采集的日志数据将无法被检索。
-2. 开启索引后，日志采集后可立即被检索。
-3. 存储数据的存储时间与日志集所设置的保存时间一致。
-4. 同一日志主题多次开启和关闭，可以检索到开启期间内的日志数据。
+## Enabling Index
+
+Index is an optional feature for log topics. You need to select the log topic to query, and then enable its index feature. Specific steps are as follows:
+
+1. Log in to the [CLS console](https://console.cloud.tencent.com/cls).
+2. Select **Logset** on the left, and then enter the target logset and log topic.
+3. In the Log Topic tab, select **Index Configuration**.
+4. Enable Full-text Index or Key-value Index as needed, select Case-sensitive (not selected by default) and enter a word separator (default word separator: ```, "';=()[]{}?@&<>/:\n\t\r```).
+5. Click **Save** to complete the index configuration.
+
+> **Note:**
+> After a log topic is created, its index is not enabled by default. You need to manually enable it.
+
+## Index Type
+
+### Full-text index
+
+CLS uses a complete log as the text for search. When the full-text index is enabled, you can use key words to search for the log. You can also set a custom full-text word separator. The text of the original log is split into several key words by use of a word separator to facilitate your search.
+![Full-text Index](http://chuantu.biz/t6/352/1533216745x-1404792742.png)
+
+To illustrate the feature of full-text word separator, here are some examples for partial search.
+
+| Full-text Word Separator | Exact Search | Fuzzy Search |
+| ---------- | ------------------------------------------------------------ | ------------------------- |
+| Set to null | Enter "10002345987;write;error;code=400;topic does not exist;" | Enter "10002345987*" |
+| ;          | Enter "code=400" or "topic does not exist" | Enter "code=40?" or "code*" |
+| ;=         | Enter "code", "400" or "code=400" | Enter "topic*" or "40?" |
+| ;  =       | Enter "topic", "does", "not" or "exist" | Enter "do*" |
+
+### Key value index
+
+CLS can configure key value index according to the key in the collection configuration. In the key value index configuration, enter the appropriate key according to the index requirements, and specify its data type (text, long, or double). Custom word separators are supported by data in "text" type. Different word separators can be set for different keys.
+
+![Key Value Index](http://chuantu.biz/t6/352/1533216775x-1404792742.png)
+
+
+
+## Data Type
+
+CLS supports the following three field types:
+
+| Name | Type Description |
+| ------ | :----------------------- |
+| text   | Text |
+| long   | Integer (Int 64) |
+| double | Floating-point number (64 bit) |
+
+## Notes
+
+1. Log data collected during the period when the index is disabled cannot be found.
+2. After the index is enabled, logs can be found immediately after they are collected.
+3. The data storage time is the same as that in the logset.
+4. If a log topic is enabled and disabled for multiple times, the log data during the enabling period can be found.
+

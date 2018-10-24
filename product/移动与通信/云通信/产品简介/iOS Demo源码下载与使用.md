@@ -23,123 +23,123 @@
 | 个人设置 | 用户昵称设置(头像设置Demo中不提供，SDK支持头像设置) |
 
 
-## 1. AppStore 下载
+## AppStore 下载
 
 Demo在AppStore上名为“随心聊IM”，下载地址：https://itunes.apple.com/cn/app/sui-xin-liaoim/id1112479040?mt=8
 
 <img src="//mccdn.qcloud.com/static/img/71db8d792764f22984f8a644f879aa5a/image.png" width=320 />
 
-## 2. 从源码下载并构建
+## 从源码下载并构建
 
-### 2.1 从官网下载
+### 从官网下载
 从[官网](https://cloud.tencent.com/product/im.html)下载IM iOS SDK压缩包，并解压。
 工程路径：IM_iOS_SDK_x.x.x/samples/sample , 其中x.x.x是版本号。eg：IM_iOS_SDK_1.9.1/samples/sample
 使用最新版本的Xcode打开工程文件 TIMChat.xcodeproj 即可运行
-### 2.1 从github下载
+### 从github下载
 从[github](https://github.com/zhaoyang21cn/iOS_Suixinliao)下载源码，所有配置与官网相同。
 
 注：若使用真机编译不过，请检查Bundle Identifier是否正确
 
-## 3. 登录/注册
+## 登录/注册
 
-### 3.1 使用手机号
+### 使用手机号
 
 使用手机号注册、登录流程：
 <img src="//mccdn.qcloud.com/static/img/8c4527cda87f3abc7dc25e8cb0681dd2/image.png" width=360 />
 
-### 3.2 用户名
+### 用户名
 使用用户名id注册登录流程：
 <img src="//mccdn.qcloud.com/static/img/0cbc851406f865e2ea03e1016e910be8/image.png" width=360 />
 
-### 3.3 游客
+### 游客
 
 如果用户只是想简单的体验一下demo，可以直接使用游客登录，无需注册登录帐号，即可体验demo中的功能
 
 
-## 4. 联系人
+## 联系人
 
-### 4.1 新朋友
+### 新朋友
 
 新朋友中显示好友未决、已决列表(已经拒绝添加的好友不会显示)。用户的申请加好友信息可在这里进行审核，同时可以查看已经添加过哪些好友
 <img src="//mccdn.qcloud.com/static/img/42b9753addf1988f84c933ab8bdc2cd9/image.png" width=360 />
 
-### 4.2 公开群
+### 公开群
 
-展示公开群（类型为Public），点击对应的群，可进入到聊天界面，也可在本界面创建公开群
+展示公开群（类型为Public），单击对应的群，可进入到聊天界面，也可在本界面创建公开群
 <img src="//mccdn.qcloud.com/static/img/212a1b150a3ecedc6944799d53ed0eaa/image.png" width=360 />
 
-### 4.3 讨论组
+### 讨论组
 
-展示讨论组（类型为Private），点击对应的讨论组，可进入到聊天界面，也可在本界面创建讨论组
+展示讨论组（类型为Private），单击对应的讨论组，可进入到聊天界面，也可在本界面创建讨论组
 <img src="//mccdn.qcloud.com/static/img/2876b83580a3af81fd1b5d96cd597c0d/image.png" width=360 />
 
-### 4.4 聊天室
+### 聊天室
 
-展示聊天室（类型为ChatRoom）点击对应的聊天室。可进入到聊天界面，也可在本界面创建聊天室
+展示聊天室（类型为ChatRoom）单击对应的聊天室。可进入到聊天界面，也可在本界面创建聊天室
 <img src="//mccdn.qcloud.com/static/img/68ea8f874540d4355f99691a288fc65e/image.png" width=360 />
 
-### 4.5 联系人列表
+### 联系人列表
 
-展示所有的好友，支持分组展示。点击分组名称，收起或展开分组好友，点击对应好友，可进入聊天界面
+展示所有的好友，支持分组展示。单击分组名称，收起或展开分组好友，单击对应好友，可进入聊天界面
 <img src="//mccdn.qcloud.com/static/img/a65e04f917358d677e14350e50eeef83/image.jpg" width=360 />
 
-### 4.6 添加好友
+### 添加好友
 
 添加好友，添加群组以及分组管理的入口在联系人界面的右上角“＋”。
 <img src="//mccdn.qcloud.com/static/img/18976651f50554a3be9bac00bc6e1d6d/image.jpg" width=360 />
 添加好友
 <img src="//mccdn.qcloud.com/static/img/506b7d2fd9ea71634b72d6588bce4181/image.png" width=360 />
 
-### 4.7 添加群组
+### 添加群组
 
 <img src="//mccdn.qcloud.com/static/img/6cafdeaccfbada9aeec1fe98e25b01c7/image.png" width=360 />
 
-### 4.8 分组管理
+### 分组管理
 <img src="//mccdn.qcloud.com/static/img/f80894da99e59d1b6d2bbe759828667c/image.png" width=360 />
 
-## 5. 会话
+## 会话
 
-### 5.1 会话列表
+### 会话列表
 
 展示所有的会话信息，并按照时间的先后顺序展示，最新的会话现在在最顶部
 <img src="//mccdn.qcloud.com/static/img/43def83f8eacda056955678c84c29f7c/image.png" width=360 />
 
-## 6. 消息发送
+## 消息发送
 
-### 6.1 文本
+### 文本
 <img src="//mccdn.qcloud.com/static/img/127d9d38220b057d649ef683d4158b3c/image.png" width=360 />
 
-### 6.2 语音
+### 语音
 <img src="//mccdn.qcloud.com/static/img/3fef3c299fe4668a506bf3c13e029f20/image.png" width=360 />
-### 6.3 图片/文件/小视频
+### 图片/文件/小视频
 <img src="//mccdn.qcloud.com/static/img/827be0482beb012e800aed5d97a924ff/image.png" width=360 />
-### 6.4 表情
+### 表情
 <img src="//mccdn.qcloud.com/static/img/ec24125aebf6c4bd7e6d5596501b931a/image.png" width=360 />
 
-## 7. 设置
+## 设置
 
-### 7.1 个人信息
+### 个人信息
 
 个人id的展示，昵称的展示和修改
 
-### 7.2 好友申请
+### 好友申请
 
 设置好友申请的审核规则，目前有“同意任何用户加好友”、“拒绝任何人加好友”、“需要验证”三个选项
 
-### 7.3 黑名单
+### 黑名单
 
 添加黑名单
 <img src="//mccdn.qcloud.com/static/img/d50599e54cfc0e70dd4b696718bf6353/image.png" width=360 />
 展示被加入黑名单的好友列表。
 
-### 7.4 控制台日志
+### 控制台日志
 
 显示控制台日志的开关,这个开关主要是方便调试时的使用，打开控制台日志开关，sdk的日志会输出到控制台，不需要再查看caches目录下的日志
 
-### 7.5 日志级别
+### 日志级别
 
 打印到日志文件中的日志级别，debug为最高级别，日志文件所在路径 ：Library/Caches/imsdk_xxxxxxxx.log。调试的时候，最好都设置为Debug级别，方便跟踪问题。
 
-### 7.6 退出登录
+### 退出登录
 登出SDK，反初始化App数据，退回登录界面，用户可以再次登录其它帐号。如果登出一个并没有登录的帐号，会返回登出失败。
 

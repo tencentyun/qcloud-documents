@@ -29,7 +29,7 @@
 ![](//mc.qcloudimg.com/static/img/8db9f2aaa65978c0e0005739c7861aad/image.png)
 
 ## 二、连接 SQL Server 云数据库实例（Windows 云服务器）
-1. 登陆腾讯云 Windows 云服务器。如果您还没有腾讯云 Windows 云服务器，请参考 [快速入门 Windows 云服务器](/doc/product/213/2764)。本教程以 Windows Server 2012 R2 标准版 64 位中文版为例。
+1. 登录腾讯云 Windows 云服务器。如果您还没有腾讯云 Windows 云服务器，请参考 [快速入门 Windows 云服务器](/doc/product/213/2764)。本教程以 Windows Server 2012 R2 标准版 64 位中文版为例。
 2. 在腾讯云 Windows 云服务器中下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)。更多有关 SQL Server Management Studio 的文档请参考微软官方文档 [使用 SQL Server Management Studio][1]。
 3. 在 SQL Server 云数据库实例详情页，单击【实例详情】，查看 SQL Server 云数据库实例的内网 IP 及端口号。**该内网 IP 及端口号会在连接云数据库时使用。**
 ![](//mc.qcloudimg.com/static/img/6dcf51fc839f1ea7c47c26609b711ede/image.png)

@@ -98,7 +98,7 @@ After the configuration is completed, you can directly run `ftp_server.py` in th
 python ftp_server.py
 ```
 After the command is executed, if the result is shown as below, it indicates that the FTP Server service is successfully enabled. And you can access the configured IP and port through the FTP client.
-![运行成功](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
+![](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
 
 ## Stopping FTP Server
 The FTP Server (running directly or in the backend with the screen command) can be easily stopped via `Ctrl + C`.

@@ -1,5 +1,5 @@
 您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们将称为 secret_id/secret_key 对。
-在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。在服务发布时，你可以在选择发布服务的认证方式时选定为使用 secret_id + secret_key，然后在 secret_id/secret_key 对的选择处选择已经创建好的 secret_id/secret_key 对。
+在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。在服务发布时，您可以在选择发布服务的认证方式时选定为使用 secret_id + secret_key，然后在 secret_id/secret_key 对的选择处选择已经创建好的 secret_id/secret_key 对。
 一对 secret_id/secret_key 可用于多个已发布的服务，一个已发布的服务也可以选择使用多个 secret_id/secret_key 对。
 
 使用 secret_id + secret_key 完成认证的方式如下：
@@ -61,10 +61,12 @@ source: AndriodApp
 
 ## 注意事项
 
-### header对应
+### header 对应
 
 Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。
 
 ### 签名内容生成
 
 排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。
+
+[常用语言的签名 demo>>](https://github.com/apigateway-demo)

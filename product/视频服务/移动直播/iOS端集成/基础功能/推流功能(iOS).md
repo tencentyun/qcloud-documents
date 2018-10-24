@@ -72,7 +72,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 
 ```objectivec
 // 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
-txLivePush.config.enablePureAudioPush = YES;   // true 为启动纯音频推流，而默认值是 false；
+txLivePush.config.enablePureAudioPush = YES;   // YES 为启动纯音频推流，而默认值是 NO；
 [_txLivePublisher setConfig:_config];          // 重新设置 config
 
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";      
@@ -245,7 +245,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推�
 在上一步的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后 SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
 ```
-//切后台处理： 在 8.2 的基础上补一句
+//切后台处理： 在上一步的基础上补一句
 - (void)handleEnterBackground:(NSNotification *)notification
 {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{

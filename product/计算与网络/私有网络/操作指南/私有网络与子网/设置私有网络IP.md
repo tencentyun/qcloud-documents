@@ -11,7 +11,7 @@
 
 您可以在私有网络详情页，自定义资源的内网IP分配，目前IP自定义服务仅支持云服务器。
 
-登录[云服务器CVM控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，选择需要配置IP的私有网络，在详情页【IP地址分配】进行资源的IP地址自定义分配。
+登录[云服务器CVM控制台](https://console.cloud.tencent.com/)，单击导航条【私有网络】，选择需要配置IP的私有网络，在详情页【IP地址分配】进行资源的IP地址自定义分配。
 
  ![](//mccdn.qcloud.com/img567fa3aadabb8.png)
  

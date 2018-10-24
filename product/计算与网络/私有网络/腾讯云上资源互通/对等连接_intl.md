@@ -45,10 +45,10 @@ The advantages of gateway traffic control are as follows:
 ## Workflows
 
 ### Workflow for Establishing a Peering Connection
-![](//mccdn.qcloud.com/static/img/9527bab04ca5213bdd72dbec99c9e9ef/image.png)
+![](https://main.qcloudimg.com/raw/8ccdab3137bbcd16e982130f360ea875.png)
 
 ### Workflow for Deleting a Peering Connection
-![](//mccdn.qcloud.com/static/img/0e0ae950ebface4e307cd510de2b885e/image.png)
+![](https://main.qcloudimg.com/raw/512bd95bc024e945986b3a659df6ef9a.png)
 
 ## Service Limits
 Please note the following when you use peering connection:
