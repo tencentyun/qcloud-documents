@@ -5,7 +5,7 @@ The public network-based or private network-based Layer-4 load balancer is autom
 ### HTTP/HTTPS
 On the load balancer page, click to create a load balancer and enter the basic information.
 
-![Alt text](https://mc.qcloudimg.com/static/img/199e31f15be30cc68e115cc202ed5dfd/%7B36C9F9F5-1967-423B-BEC3-F99AA956F7B2%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/af279084f638730f1cd18834fcbf2fed/1.png)
 
 ## Deleting Load Balancer
 ### TCP/UDP

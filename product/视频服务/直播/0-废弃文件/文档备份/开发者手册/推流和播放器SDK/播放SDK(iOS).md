@@ -43,7 +43,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
 
 ### step 4: 画面调整
-如果你希望调整画面的显示方式，SDK也提供了多种选择：
+如果您希望调整画面的显示方式，SDK也提供了多种选择：
 ![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
 
 ##### setRenderMode

@@ -68,11 +68,11 @@ In which, default project is id/0; service is cos; region field is filled in bas
 
 ### Example
 
-[bucketname-125102314.cossh.myqcloud.com](http://bucketname-125102314.cossh.myqcloud.com/) of Shanghai COS 4.0
+`bucketname-125102314.cossh.myqcloud.com` of Shanghai COS 4.0
 
 qcs:id/0:cos:ce:uid/125102314:prefix//125102314/bucketname/
 
-[testbucket-125102315.cosgz.myqcloud.com/foldertest/file.txt](http://testbucket-125102315.cosgz.myqcloud.com/foldertest/file.txt) of Guangzhou COS 4.0
+`testbucket-125102315.cosgz.myqcloud.com/foldertest/file.txt` of Guangzhou COS 4.0
 
 qcs:id/0:cos:ce:uid/125102315:prefix//125102315/testbucket/foldertest/file.txt
 

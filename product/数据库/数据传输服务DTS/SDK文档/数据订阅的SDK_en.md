@@ -1,5 +1,24 @@
-# Download Data Subscription SDK
+# Downloading Data Subscription SDK
 [Click to Download][1]
+
+## Logs Released by SDK
+### Version 2.6.0
+1. Multiple channels can be subscribed via a single SDK.
+2. Subscription of "stop", "start" and other operations performed on Client is supported.
+3. Serialization of DataMessage.Record is supported.
+4. SDK performance is optimized and resource consumption is reduced.
+
+### Version 2.5.0
+1. Bugs occurred with small probability in high-concurrency scenarios are fixed.
+
+2. Record of unique global auto-increment ID in transactions is supported.
+
+### Version 2.4.0
+1. The subscription logic is optimized by working with backend to accurately display SDK's current consumption time point.
+
+2. The problem occurred while encoding a few special characters in the backend is fixed.
+
+3. **A number of compatibility issues are fixed. We recommend that users who use older versions upgrade the software to this version ASAP.**
 
 # Brief Description of Data Subscription SDK Sample Code
 ---
@@ -55,7 +74,9 @@ The whole process is an intuitive, typical producer-consumer model, in which SDK
  3. Finally, launch the client to start the process.
 The listener `ClusterListener` allows users to handle data received according to their own demands and filter received Binlog data by type, for example, filtering out all `drop` statements.
  
- Note that in the sample code, users must provide five parameters. Among them, `secretId` and `secretKey` are key values associated with users' Tencent Cloud accounts which can be viewed in "Tencent Cloud Console" -> "Cloud Products" -> "Cloud API Key" -> "API Key" and are used by SDK to authenticate user actions. The other three parameters including `serviceIp` `servicePort` and `channelId` are related to users' Binlog subscription, which will be displayed on the console after subscription contents are configured on the related pages of Tencent Cloud CDB for MySQL. For detailed operations, please see Console Operation Guide.
+ In the sample code, users must provide five parameters. Among them, `secretId` and `secretKey` are key values associated with users' Tencent Cloud accounts which can be viewed in "Tencent Cloud Console" -> "Cloud Products" -> "Cloud API Key" -> "API Key" and are used by SDK to authenticate user actions. The other three parameters including `serviceIp` `servicePort` and `channelId` are related to users' Binlog subscription, which will be displayed on the console after subscription contents are configured on the related pages of Tencent Cloud TencentDB for MySQL. For detailed operations, please see Console Operation Guide.
+ 
+ Note: Since the data subscription SDK has been connected to CAM permission control, the root account has all the permissions by default and can directly access with the cloud API key of the root account. A sub-account has no permission by default and requires its root account to grant it access to the operation `name/dts:AuthenticateSubscribeSDK` or access to all DTS operations `QcloudDTSFullAccess`.
 
 # SDK API Description
 ---
@@ -140,7 +161,7 @@ The `DefaultSubscribeClient` class implements `SubscribeClient` API.
 ### Class Description
 This is used to build the client program for subscribing SDK, i.e. consumer for Binlog messages.
 
-Based on user requirement, `DefaultSubscribeClient` provides two implementation methods, synchronous acknowledgment and asynchronous acknowledgment. In synchronous mode, acknowledgment message is synchronously received each time the client consumes Binlog message, to ensure that message consumption acknowledgment can be received by the server as soon as possible. In this mode, the overall performance of SDK is lower compared to asynchronous mode. In asynchronous mode, the consumer program acknowledges message consumption asynchronously, that is, message pulling and acknowledgment are processed asynchronously and independently, in which case performance is higher than that in synchronous acknowledgment mode. Users may select acknowledgment mode as desired.
+Based on user requirements, `DefaultSubscribeClient` provides two implementation methods, synchronous acknowledgment and asynchronous acknowledgment. In synchronous mode, acknowledgment message is synchronously received each time the client consumes Binlog message, to ensure that message consumption acknowledgment can be received by the server as soon as possible. In this mode, the overall performance of SDK is lower compared to asynchronous mode. In asynchronous mode, the consumer program acknowledges message consumption asynchronously, that is, message pulling and acknowledgment are processed asynchronously and independently, in which case performance is higher than that in synchronous acknowledgment mode. Users may select acknowledgment mode as desired.
 
 ### Construction Method
 #### **Construct DefaultSubscribeClient**
@@ -158,7 +179,7 @@ public DefaultSubscribeClient(SubscribeContext context, boolean isSync) throws E
 
 ##### Thrown Exception
 
- - IllegalArgumentException: This exception is thrown when any parameter is invalid in the parameter context submitted by a user. Invalid situations: no security credential or incorrect format; no service IP/port or incorrect format.
+ - 	IllegalArgumentException: This exception is thrown when any parameter is invalid in the parameter context submitted by a user. Invalid situations: no security credential or incorrect format; no service IP/port or incorrect format.
  - Exception: This exception is thrown when an error occurs during the SDK internal initialization process.
  
 #### **Construct DefaultSubscribeClient**
@@ -176,11 +197,11 @@ public DefaultSubscribeClient(SubscribeContext context) throws Exception
 
 ##### Thrown Exception
 
- - IllegalArgumentException: This exception is thrown when any parameter is invalid in the parameter context submitted by a user. Invalid situations: no security credential or incorrect format; no service IP/port or incorrect format.
+ - 	IllegalArgumentException: This exception is thrown when any parameter is invalid in the parameter context submitted by a user. Invalid situations: no security credential or incorrect format; no service IP/port or incorrect format.
  - Exception: This exception is thrown when an error occurs during the SDK internal initialization process.
  
 ### Class Method
-#### **Add a Listener for SDK Consumer Client**
+#### **Adding a Listener for SDK Consumer Client**
 ---
 ##### Function Description
 To subscribe for incremental data in the channel, add listener `ClusterListener` into a `SubscribeClient`.
@@ -236,11 +257,17 @@ None
 #### **Stop SDK Client**
 ---
 ##### Function Prototype
+public void stop(int waitSeconds) throws Exception
+
 public void stop() throws Exception
 
 ##### Input Parameters
 
-None
+| Parameter Name | Type | Description |
+|:-------------:|:-------------|:-------------|
+| waitSeconds | int | Waiting time in seconds, which indicates to forcedly stop SDK operation after waiting for a certain time |
+
+"stop" function with no parameters will wait for the thread to stop, which may last for a long time. The specific time is determined by the system scheduling. It is recommended to use the stop function with timeout for scenarios where specific restart time is required.
 
 ##### Returned Result
 None
@@ -248,6 +275,7 @@ None
 ##### Thrown Exception
 
  - Exception: This exception is thrown if an internal error occurs when the SDK client is being stopped.
+
 
 ## ClusterListener API
 ---
@@ -264,7 +292,7 @@ public abstract void notify(List<ClusterMessage> messages) throws Exception
 ##### Input Parameters
 | Parameter Name | Type | Description |
 |:-------------:|:-------------|:-------------|
-| messages | List<ClusterMessage> | Subscription data array. For detailed implementation of ClusterMessage, refer to its definition |
+| messages| List<ClusterMessage> | Subscription data array. For more information on implementation of ClusterMessage, please see its definition |
 
 ##### Returned Result
 None
@@ -295,7 +323,7 @@ None
 ## ClusterMessage Class
 ---
 ### Class Description
-The ClusterMessage class delivers consumed subscription data through the notify function. Each ClusterMessage saves data records of one **transaction** in CDB for MySQL, and each record in the transaction is saved via Record.
+The ClusterMessage class delivers consumed subscription data through the notify function. Each ClusterMessage saves data records of one **transaction** in TencentDB for MySQL, and each record in the transaction is saved via Record.
 
 ### Class Method
 #### **Acquire Record From ClusterMessage**
@@ -353,10 +381,10 @@ Possible attribute key values are:
 
 | Attribute Key Value | Description |
 |:-------------|:-------------|
-| record_id | Record ID. This is not guaranteed to be incremental during subscription |
+| record_id |	Record ID, which will be automatically added in order by string in the channel, but cannot be ensured to be added continuously |
 | source_type | Database instance engine type of corresponding Record. Current available value: mysql |
 | source_category | Record type. Current available value: full_recorded |
-| timestamp | The time when the Record is stored into binlog. This is also the time when the SQL statement is executed in CDB |
+| timestamp | The time when the Record is stored into binlog. This is also the time when the SQL statement is executed in TencentDB |
 | checkpoint | File check point of corresponding Record, in the format of file_offset@file_name, where filen_name is the number suffix of the binlog file |
 | record_type | Operation type of Record. Main available values include insert/update/delete/replace/ddl/begin/commit/heartbeat |
 | db | Database name of the Record update table |
@@ -388,7 +416,7 @@ None
 |:-------------|:-------------|
 | DataMessage.Record.Type | Record type |
 
-Possible values for DataMessage.Record.Type include: insert, delete, update, replace, ddl, begin, commit and heartbeat. heartbeat is a heartbeat table internally defined for data transfer and mainly used to check health status of a subscription channel. Theoretically, one heartbeat is generated each second.
+Possible values for DataMessage.Record.Type include: insert, delete, update, replace, ddl, begin, commit and heartbeat. "heartbeat" is a heartbeat table internally defined for data transfer and mainly used to check health status of a subscription channel. Theoretically, one heartbeat is generated each second.
 
 ##### Thrown Exception
 None
@@ -421,7 +449,7 @@ None
 ##### Returned Result
 | Type | Parameter Description |
 |:-------------|:-------------|
-| String | Timestamp string|
+| String | Timestamp string |
 
 ##### Thrown Exception
 None
@@ -487,7 +515,7 @@ None
 ##### Returned Result
 | Type | Parameter Description |
 |:-------------|:-------------|
-| DBType | Currently, only CDB for MySQL is supported for data transfer, that is, DBType.MYSQL |
+| DBType | Currently, only TencentDB for MySQL is supported for data transfer, that is, DBType.MYSQL |
 
 ##### Thrown Exception
 None
@@ -626,4 +654,4 @@ None
 ##### Thrown Exception
 None
 
-[1]:	//mc.qcloudimg.com/static/archive/376dde7c54ff6cf025465008ea08e47f/binlogsdk-2.1.0.jar.zip
+[1]:	//mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip

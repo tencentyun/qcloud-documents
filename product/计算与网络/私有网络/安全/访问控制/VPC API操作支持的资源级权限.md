@@ -32,7 +32,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'></td>
@@ -56,7 +56,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'></td>
@@ -84,7 +84,7 @@ none'>nnEx</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D108 style=3D'height:81.0pt'>
   <td height=3D108 style=3D'height:81.0pt'></td>
@@ -103,7 +103,7 @@ none'>nnEx</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:vpngw表示开发商下的vpn网关<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>AssignPr<span style=3D'display:=
@@ -118,7 +118,7 @@ none'>ivateIpAddresses</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>Associat<span style=3D'display:=
@@ -140,7 +140,7 @@ none'>eRouteTable</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'></td>
@@ -151,7 +151,7 @@ none'>eRouteTable</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>AttachCl<span style=3D'display:=
@@ -164,11 +164,11 @@ none'>assicLinkVpc</span></td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域。</td>
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>AttachNe<span style=3D'display:=
@@ -183,15 +183,15 @@ none'>tworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域
 。</td>
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
@@ -205,11 +205,11 @@ none'>dAttachNetworkInterface</span></td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域
 。</td>
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
@@ -223,7 +223,7 @@ none'>dAttachNetworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateDi<span style=3D'display:=
@@ -242,7 +242,7 @@ none'>rectConnectGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreateLo<span style=3D'display:=
@@ -254,7 +254,7 @@ none'>calDestinationIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreateLo<span style=3D'display:=
@@ -266,7 +266,7 @@ none'>calIPTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreateLo<span style=3D'display:=
@@ -278,7 +278,7 @@ none'>calIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreateLo<span style=3D'display:=
@@ -290,7 +290,7 @@ none'>calSourceIPPortTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreateLo<span style=3D'display:=
@@ -302,7 +302,7 @@ none'>calSourceIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>CreatePe<span style=3D'display:=
@@ -314,7 +314,7 @@ none'>erIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateNa<span style=3D'display:=
@@ -334,7 +334,7 @@ none'>tGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateNe<span style=3D'display:=
@@ -353,7 +353,7 @@ none'>tworkAcl</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateNe<span style=3D'display:=
@@ -373,7 +373,7 @@ none'>tworkInterface</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'></td>
@@ -385,7 +385,7 @@ none'>tworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:subnet表示开发商子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>CreateRo<span style=3D'display:=
@@ -397,7 +397,7 @@ none'>ute</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateRo<span style=3D'display:=
@@ -416,7 +416,7 @@ none'>uteTable</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateSu<span style=3D'display:=
@@ -435,7 +435,7 @@ none'>bnet</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>CreateSu<span style=3D'display:=
@@ -447,7 +447,7 @@ none'>bnetAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
   <td height=3D126 style=3D'height:94.5pt'></td>
@@ -457,7 +457,7 @@ none'>bnetAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
   <td height=3D198 style=3D'height:148.5pt'>CreateVp<span style=3D'display:=
@@ -478,7 +478,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>CreateVp<span style=3D'display:=
@@ -501,7 +501,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteDi<span style=3D'display:=
@@ -513,7 +513,7 @@ none'>rectConnectGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteLo<span style=3D'display:=
@@ -525,7 +525,7 @@ none'>calDestinationIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteLo<span style=3D'display:=
@@ -537,7 +537,7 @@ none'>calIPTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteLo<span style=3D'display:=
@@ -549,7 +549,7 @@ none'>calIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteLo<span style=3D'display:=
@@ -561,7 +561,7 @@ none'>calSourceIPPortTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeletePe<span style=3D'display:=
@@ -573,7 +573,7 @@ none'>erIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteLo<span style=3D'display:=
@@ -585,7 +585,7 @@ none'>calSourceIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeleteNa<span style=3D'display:=
@@ -598,7 +598,7 @@ none'>tGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeleteNe<span style=3D'display:=
@@ -610,7 +610,7 @@ none'>tworkAcl</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DeleteNe<span style=3D'display:=
@@ -625,7 +625,7 @@ none'>tworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeleteRo<span style=3D'display:=
@@ -637,7 +637,7 @@ none'>ute</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeleteRo<span style=3D'display:=
@@ -649,7 +649,7 @@ none'>uteTable</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeleteSu<span style=3D'display:=
@@ -661,7 +661,7 @@ none'>bnet</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
   <td height=3D198 style=3D'height:148.5pt'>DeleteUs<span style=3D'display:=
@@ -695,7 +695,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D432 style=3D'height:324.0pt'>
   <td height=3D432 style=3D'height:324.0pt'>DeleteVp<span style=3D'display:=
@@ -711,7 +711,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D270 style=3D'height:202.5pt'>
   <td height=3D270 style=3D'height:202.5pt'>DeleteVp<span style=3D'display:=
@@ -728,7 +728,7 @@ r>
     vpc:vpngw表示开发商下的网关<br>
     vpc:usergw表示开发商下的对端网关<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>DetachCl<span style=3D'display:=
@@ -743,21 +743,21 @@ none'>assicLinkVpc</span></td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域
 。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>DetachNe<span style=3D'display:=
 none'>tworkInterface</span></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域
 。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
@@ -772,7 +772,7 @@ none'>tworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>DeteleSu<span style=3D'display:=
@@ -784,7 +784,7 @@ none'>bnetAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'></td>
@@ -795,7 +795,7 @@ none'>bnetAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>EipBindN<span style=3D'display:=
@@ -808,7 +808,7 @@ none'>atGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>EipUnBin<span style=3D'display:=
@@ -821,7 +821,7 @@ none'>dNatGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>EnableVp<span style=3D'display:=
@@ -844,7 +844,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>EnableVp<span style=3D'display:=
@@ -868,7 +868,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>MigrateN<span style=3D'display:=
@@ -883,16 +883,16 @@ none'>etworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D288 style=3D'height:216.0pt'>
   <td height=3D288 style=3D'height:216.0pt'></td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云主机资源<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId(迁移前后的都需要授权)</t=
 d>
   <td>cvm:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云主机所在地域
+  <td colspan=3D4 style=3D'mso-ignore:colspan'>cvm:region表示云服务器所在地域
 。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
@@ -908,7 +908,7 @@ none'>rivateIpAddress</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyDi<span style=3D'display:=
@@ -920,7 +920,7 @@ none'>rectConnectGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyLo<span style=3D'display:=
@@ -932,7 +932,7 @@ none'>calDestinationIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyLo<span style=3D'display:=
@@ -944,7 +944,7 @@ none'>calIPTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyLo<span style=3D'display:=
@@ -956,7 +956,7 @@ none'>calIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyLo<span style=3D'display:=
@@ -968,7 +968,7 @@ none'>calSourceIPPortTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyPe<span style=3D'display:=
@@ -980,7 +980,7 @@ none'>erIPTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyLo<span style=3D'display:=
@@ -992,7 +992,7 @@ none'>calSourceIPPortTranslationNatRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifyNa<span style=3D'display:=
@@ -1005,7 +1005,7 @@ none'>tGateway</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifyNe<span style=3D'display:=
@@ -1017,7 +1017,7 @@ none'>tworkAcl</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifyNe<span style=3D'display:=
@@ -1029,7 +1029,7 @@ none'>tworkAclEntry</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyNe<span style=3D'display:=
@@ -1044,7 +1044,7 @@ none'>tworkInterface</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>ModifyPr<span style=3D'display:=
@@ -1059,7 +1059,7 @@ none'>ivateIpAddress</span></td>
 r>
     vpc:subnet表示开发商下的子网<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifyRo<span style=3D'display:=
@@ -1071,7 +1071,7 @@ none'>uteTableAttribute</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifySu<span style=3D'display:=
@@ -1083,7 +1083,7 @@ none'>bnetAttribute</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
   <td height=3D198 style=3D'height:148.5pt'>ModifyUs<span style=3D'display:=
@@ -1124,7 +1124,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>ModifyVp<span style=3D'display:=
@@ -1148,7 +1148,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D270 style=3D'height:202.5pt'>
   <td height=3D270 style=3D'height:202.5pt'>ModifyVp<span style=3D'display:=
@@ -1165,7 +1165,7 @@ r>
     vpc:vpngw表示开发商下的网关<br>
     vpc:usergw表示开发商下的对端网关<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>ModifyVp<span style=3D'display:=
@@ -1177,7 +1177,7 @@ none'>nGw</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>RejectVp<span style=3D'display:=
@@ -1200,7 +1200,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
   <td height=3D180 style=3D'height:135.0pt'>RejectVp<span style=3D'display:=
@@ -1224,7 +1224,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
- 
+
  </tr>
  <tr height=3D270 style=3D'height:202.5pt'>
   <td height=3D270 style=3D'height:202.5pt'>ResetVpn<span style=3D'display:=
@@ -1241,7 +1241,7 @@ r>
     vpc:vpngw表示开发商下的网关<br>
     vpc:usergw表示开发商下的对端网关<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>SetLocal<span style=3D'display:=
@@ -1253,7 +1253,7 @@ none'>IPTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>SetLocal<span style=3D'display:=
@@ -1265,7 +1265,7 @@ none'>SourceIPPortTranslationAclRule</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>SetSSLVp<span style=3D'display:=
@@ -1277,7 +1277,7 @@ none'>nDomain</span></td>
     vpc:region</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc表示开发商VPC<br>
     vpc:region表示vpc所在地域。</td>
- 
+
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
   <td height=3D234 style=3D'height:175.5pt'>Unassign<span style=3D'display:=
@@ -1294,3 +1294,4 @@ r>
     vpc:region表示vpc所在地域。</td>
  </tr>
 </table>
+

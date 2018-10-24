@@ -1,47 +1,42 @@
+If you don't want to expose your business to the public network for business security, but want to access the public network, you can use Tencent Cloud [NAT Gateway](/doc/product/215/4975). The following describes how to access the public network via NAT gateway.
+## Public IP
+When a cluster is created, public IPs are assigned to the nodes of the cluster by default. With these public IPs, you can:
+- Log in to the nodes of the cluster.
+- Access the public network services.
 
-## How to Use Public IP of Container Service Node
+## Public Network Bandwidth
+When a public network service is created, the load balancer in the public network uses the bandwidth and traffic of nodes. If the public network service is required, the nodes need to use public network bandwidth. If the public network service is not needed for your business, you can choose not to purchase public network bandwidth.
 
-### About Enabling Public IP
+## NAT Gateway
+The CVM is not bound to an EIP, and all the traffic accessing the Internet is forwarded via the NAT gateway. In this way, the CVM traffic accessing the Internet is forwarded to the NAT gateway via the private network. This means that the traffic is not restricted by the upper limit of public network bandwidth specified when you purchase the CVM, and the traffic generated from the NAT gateway doesn't occupy the public network bandwidth egress of the CVM. To access the Internet via the NAT gateway, follow the steps below:
 
-By default, public IP will be assigned to the cluster node if you create a cluster. With the assigned public IP, you can:
+### Step 1: Create an NAT gateway
+1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and then select **Cloud Products** in the top navigation bar. Select **VPC** under **Cloud Computing and Network** to go to [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then click "NAT Gateway" in the left navigation bar.
+2. Click the "New" button at the upper left corner, and enter or confirm the following parameters in the pop-up box:
+- Gateway name.
+- Gateway type (It can be changed after creation).
+- VPC of NAT gateway service.
+- Assign an EIP to the NAT gateway. You can choose an existing EIP, or purchase and assign a new EIP.
+3. After selection, click "OK" to complete the creation of the NAT gateway.
+4. After the creation of the NAT gateway, you need to configure the routing rules on the Routing Table page of the VPC Console to direct the subnet traffic to the NAT gateway.
+>**Note:**
+>The rental fee will be frozen for 1 hour during the creation of NAT gateway.
 
-- log in to the cluster node server through the public IP.
-- access the public network services through the public IP.
+### Step 2: Configure the routing table associated with the subnet
+1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and then select **Cloud Products** in the top navigation bar. Select **VPC** under **Cloud Computing and Network** to go to [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then click "Routing Table" in the left navigation bar.
+2. In the routing table list, click the routing table ID associated with the subnet that needs to access the Internet to enter the details page of the routing table, and then click "Edit" button in "Routing Policies".
+3. Click "New line", specify the "Destination", select "NAT Gateway" in "Next Hop Type", and then select the created NAT gateway ID.
+4. Click "OK".
+5. After the configuration, the traffic generated when the CVM in the subnet associated with the routing table accesses the Internet will be directed to the NAT gateway.
 
-If you do not want your business to be directly exposed to the public network, but need to access the public network, you can use Tencent Cloud NAT gateway. Click to view [NAT gateway details](https://cloud.tencent.com/document/product/215/4975). The following shows how to use the NAT gateway to access the public network.
+## Other solutions
+### Solution 1: Use an EIP
+CVM is only bound with EIP, instead of using NAT gateway. With this solution, all the traffic of the CVM accessing the Internet flows via the EIP and is restricted by the upper limit of public network bandwidth specified when you purchase the CVM. The fees for accessing the public network depends on the billing method of the CVM's network.
+For more information, please see [How to Use EIP](/doc/product/215/4958#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97).
 
-### About Purchasing Public Network Bandwidth
+### Solution 2: Use Both NAT Gateway and EIP
+If both NAT gateway and EIP are used, all the traffic of the CVM accessing the Internet is only forwarded to the NAT gateway via the private network, and the response packets are returned to the CVM via the NAT gateway. This means that the traffic is not restricted by the upper limit of public network bandwidth specified when you purchase the CVM, and the traffic generated from the NAT gateway does not occupy the public network bandwidth egress of the CVM. If the traffic from the Internet accesses the EIP of the CVM, the response packets of the CVM are all returned through the EIP. In this case, the resulting outbound traffic of the public network is restricted by the upper limit of public network bandwidth specified when you purchase the CVM. The fees for accessing the public network depends on the billing method of the CVM's network.
 
-When you create public network services, the public network load balancer uses bandwidth and traffic of the node. If you need public network services, public network bandwidth is required for nodes.
-If your business does not require public network services, you can choose not to purchase public network bandwidth.
-
-### How to Use NAT Gateway
-
-The CVM is not bound to an EIP; all traffic from accessing the Internet is forwarded through the NAT gateway. With this method, the traffic from the CVM accessing the Internet will be forwarded to the NAT gateway through the private network. That means this traffic will not be subject to the public network bandwidth limit specified when the CVM was purchased, nor will the traffic generated at the NAT gateway occupy the public network bandwidth egress of the CVM.
-Tips on usage:
-Step 1: Create a NAT gateway
-- Log in to Tencent Cloud Console, select "Virtual Private Cloud" tab, and select "NAT Gateway".
-- Click the "New" button at the upper left corner, and enter or specify the following parameters in the pop-up box:
-- After selection, click "OK" to complete the creation of NAT gateway.
-- After the creation of a NAT gateway, you need to configure the routing rules in the Routing Tables page in the Virtual Private Cloud console to direct the subnet traffic to the NAT gateway.
-> Note: The rental fee will be frozen for 1 hour during the creation of NAT Gateway.
-
-Step 2: Configure the routing table associated with the subnet
-- Log in to Tencent Cloud Console, and click "Virtual Private Cloud" in the navigation bar to enter the VPC Console. Select "Routing Tables".
-- In the routing table list, click the routing table ID with which the subnet that needs to access the Internet is associated to enter its details page, and click "Edit" button in the "Routing Rules".
-- Click "New line", fill in the "Destination" field, select "NAT Gateway" in "Next hop type", and select the created NAT gateway ID.
-- Click "OK". After the above configuration is made, the traffic generated when the CVM in the subnet associated with the routing table accesses the Internet will be directed to the NAT gateway.
-
-
-### Others: Use EIP
-
-The CVM is only bound to an EIP, and the NAT gateway will not be used. With this method, all traffic from the CVM accessing the Internet will go out from the EIP. That means this traffic will not be subject to the public network bandwidth limit specified when the CVM was purchased. The cost resulting from accessing the public network will be charged based on the network billing mode of the CVM.
-Tips on usage: Please see [How to Use EIP](https://cloud.tencent.com/document/product/215/4958#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
-
-If you are using NAT gateway and EIP at the same time, with this method, all traffic from the CVM actively accessing the Internet can only be forwarded to the NAT gateway through the private network, and the returning packets will be returned to the CVM through the NAT gateway as well. This traffic will not be subject to the public network bandwidth limit specified when the CVM was purchased, nor will the traffic generated at the NAT gateway occupy the public network bandwidth egress of the CVM. If the traffic from the Internet actively accesses the elastic public IP of the CVM, the returning packets of the CVM will be uniformly returned through the EIP. This way, the resulting outbound traffic of the public network will be subject to the public network bandwidth limit specified when the CVM was purchased. The cost resulting from accessing the public network will be charged based on the network billing mode of the CVM.
-
-> Note: For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the 0.8 CNY/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth.
-
-
-
+>**Note:**
+>For the accounts with a bandwidth package for bandwidth sharing, the fee for the outbound traffic from NAT gateway is covered by the bandwidth package (the network traffic fee of 0.8 CNY/GB is not charged additionally). You're recommended to set a limit on the outbound bandwidth of the NAT gateway, so as to avoid a high bandwidth package fee due to the excessive use of outbound bandwidth of NAT gateway.
 

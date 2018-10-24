@@ -1,12 +1,13 @@
 ## 消息收发
 
-目前支持实时拉取群消息（普通，点赞，提示，系统）和发送群消息（普通，点赞，红包）
+目前支持实时拉取群消息（普通，点赞，提示，系统）和发送群消息（普通，点赞，红包）。
 
 ### 监听群消息（普通，点赞，提示，红包）
 
->注意：现托管模式下的群聊消息体中，已经有下发的用户基本信息。
+> **注意：**
+> 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
 
-示例：
+**示例：**
 
 ```
 //监听大群新消息（普通，点赞，提示，红包）
@@ -22,14 +23,13 @@ function onBigGroupMsgNotify(msgList) {
 
 ### 显示群消息（普通，点赞，提示，红包）
 
-示例：
+**示例：**
 
 ```
 //显示消息（群普通+点赞+提示+红包）
 function showMsg(msg) {
     var isSelfSend, fromAccount, fromAccountNick, sessType, subType;
     var ul, li, paneDiv, textDiv, nickNameSpan, contentSpan;
-
     fromAccount = msg.getFromAccount();
     if (!fromAccount) {
         fromAccount = '';
@@ -57,14 +57,12 @@ function showMsg(msg) {
     textDiv = document.createElement("div");
     textDiv.setAttribute('class', 'video-sms-text');
     nickNameSpan = document.createElement("span");
-
     var colorList = ['red', 'green', 'blue', 'org'];
     var index = Math.round(fromAccount.length % colorList.length);
     var color = colorList[index];
     nickNameSpan.setAttribute('class', 'user-name-' + color);
     nickNameSpan.innerHTML = fromAccountNick;
     contentSpan = document.createElement("span");
-
     //解析消息
     //获取会话类型，目前只支持群聊
     //webim.SESSION_TYPE.GROUP-群聊，
@@ -74,11 +72,8 @@ function showMsg(msg) {
     //会话类型为群聊时，子类型为：webim.GROUP_MSG_SUB_TYPE
     //会话类型为私聊时，子类型为：webim.C2C_MSG_SUB_TYPE
     subType = msg.getSubType();
-
     isSelfSend = msg.getIsSend();//消息是否为自己发的
-
     switch (subType) {
-
         case webim.GROUP_MSG_SUB_TYPE.COMMON://群普通消息
             contentSpan.innerHTML = convertMsgtoHtml(msg);
             break;
@@ -97,20 +92,18 @@ function showMsg(msg) {
     }
     textDiv.appendChild(nickNameSpan);
     textDiv.appendChild(contentSpan);
-
     paneDiv.appendChild(textDiv);
     li.appendChild(paneDiv);
     ul.appendChild(li);
 }
 ```
 
-
 ### 解析群消息（普通，点赞，提示，红包）
 
-示例：
+**示例：**
 
 ```
-//把消息转换成Html
+//把消息转换成 HTML
 function convertMsgtoHtml(msg) {
     var html = "", elems,elem, type, content;
     elems=msg.getElems();//获取消息包含的元素数组
@@ -154,7 +147,7 @@ function convertMsgtoHtml(msg) {
 
 ### 解析文本消息元素
 
-示例：
+**示例：**
 
 ```
 //解析文本消息元素
@@ -166,7 +159,7 @@ function convertTextMsgToHtml(content) {
 
 ### 解析表情消息元素
 
-示例：
+**示例：**
 
 ```
 //解析表情消息元素
@@ -188,7 +181,7 @@ function convertFaceMsgToHtml(content) {
 
 ### 解析图片消息元素
 
-示例：
+**示例：**
 
 ```
 //解析图片消息元素
@@ -208,7 +201,7 @@ function convertImageMsgToHtml(content) {
 
 ### 	解析语音消息元素
 
-示例：
+**示例：**
 
 ```
 //解析语音消息元素
@@ -224,19 +217,19 @@ function convertSoundMsgToHtml(content) {
 
 ### 解析文件消息元素
 
-示例：
+**示例：**
 
 ```
 //解析文件消息元素
 function convertFileMsgToHtml(content) {
     var fileSize = Math.round(content.getSize() / 1024);
-    return '<a href="' + content.getDownUrl() + '" title="点击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
+    return '<a href="' + content.getDownUrl() + '" title="单击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
 }
 ```
 
 ### 解析位置消息元素
 
-示例：
+**示例：**
 
 ```
 //解析位置消息元素
@@ -247,7 +240,7 @@ function convertLocationMsgToHtml(content) {
 
 ### 解析自定义消息元素
 
-示例：
+**示例：**
 
 ```
 //解析自定义消息元素
@@ -263,7 +256,7 @@ function convertCustomMsgToHtml(content) {
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。
 
-示例：
+**示例：**
 
 ```
 //解析群提示消息元素
@@ -273,7 +266,7 @@ function convertGroupTipMsgToHtml(content) {
     var maxIndex = WEB_IM_GROUP_TIP_MAX_USER_COUNT - 1;
     var opType,opUserId,userIdList;
     opType=content.getOpType();//群提示消息类型（操作类型）
-    opUserId=content.getOpUserId();//操作人id
+    opUserId=content.getOpUserId();//操作人 ID
     switch (opType) {
         case webim.GROUP_TIP_TYPE.JOIN://加入群
             userIdList=content.getUserIdList();
@@ -326,7 +319,6 @@ function convertGroupTipMsgToHtml(content) {
             }
             text += "的管理员资格";
             break;
-
         case webim.GROUP_TIP_TYPE.MODIFY_GROUP_INFO://群资料变更
             text += opUserId + "修改了群资料：";
             var groupInfoList=content.getGroupInfoList();
@@ -356,7 +348,6 @@ function convertGroupTipMsgToHtml(content) {
                 }
             }
             break;
-
         case webim.GROUP_TIP_TYPE.MODIFY_MEMBER_INFO://群成员资料变更(禁言时间)
             text += opUserId + "修改了群成员资料:";
             var memberInfoList=content.getMemberInfoList();
@@ -388,42 +379,36 @@ function convertGroupTipMsgToHtml(content) {
 }
 ```
 
-
 ### 发送群消息（普通）
 
-本节主要介绍sdk 发消息sendMsg api。
-
-函数名：
+**`sendMsg` 函数名：**
 
 ```
 webim.sendMsg
 ```
 
-定义：
+**定义：**
 
 ```
 webim.sendMsg(msg,cbOk, cbErr)
 ```
 
-参数列表：
+**参数列表：**
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|msg|	消息对象|	webim.Msg|
-|cbOk	|调用接口成功回调函数|	Function|
-|cbErr	|调用接口失败回调函数	|Function|
+| 名称    | 说明         | 类型        |
+| ----- | ---------- | --------- |
+| msg   | 消息对象       | webim.Msg |
+| cbOk  | 调用接口成功回调函数 | Function  |
+| cbErr | 调用接口失败回调函数 | Function  |
 
-
-
-示例：
+**示例：**
 
 ```
 	//发送消息(普通消息)
 function onSendMsg() {
-
     if (!loginInfo.identifier) {//未登录
         if (accountMode == 1) {//托管模式
-            //将account_type保存到cookie中,有效期是1天
+            //将account_type保存到cookie中,有效期是 1 天
             webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
             //调用tls登录服务
             tlsLogin();
@@ -432,7 +417,6 @@ function onSendMsg() {
         }
         return;
     }
-
     if (!selToID) {
         alert("您还没有进入房间，暂不能聊天");
         $("#send_msg_text").val('');
@@ -441,12 +425,10 @@ function onSendMsg() {
     //获取消息内容
     var msgtosend = $("#send_msg_text").val();
     var msgLen = webim.Tool.getStrBytes(msgtosend);
-
     if (msgtosend.length < 1) {
         alert("发送的消息不能为空!");
         return;
     }
-
     var maxLen, errInfo;
     if (selType == webim.SESSION_TYPE.GROUP) {
         maxLen = webim.MSG_MAX_LENGTH.GROUP;
@@ -459,12 +441,11 @@ function onSendMsg() {
         alert(errInfo);
         return;
     }
-
     if (!selSess) {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1表示sdk自动生成，用于去重
+    var seq = -1;//消息序列，-1 表示 SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     var subType;//消息子类型
@@ -475,7 +456,6 @@ function onSendMsg() {
         //webim.GROUP_MSG_SUB_TYPE.TIP-提示消息(不支持发送，用于区分群消息子类型)，
         //webim.GROUP_MSG_SUB_TYPE.REDPACKET-红包消息，优先级最高
         subType = webim.GROUP_MSG_SUB_TYPE.COMMON;
-
     } else {
         //C2C消息子类型如下：
         //webim.C2C_MSG_SUB_TYPE.COMMON-普通消息,
@@ -490,7 +470,6 @@ function onSendMsg() {
         text_obj = new webim.Msg.Elem.Text(msgtosend);
         msg.addText(text_obj);
     } else {//有表情
-
         for (var i = 0; i < emotions.length; i++) {
             tmsg = msgtosend.substring(0, msgtosend.indexOf(emotions[i]));
             if (tmsg) {
@@ -520,7 +499,6 @@ function onSendMsg() {
         }
         webim.Log.info("发消息成功");
         $("#send_msg_text").val('');
-
         hideDiscussForm();//隐藏评论表单
         showDiscussTool();//显示评论工具栏
         hideDiscussEmotion();//隐藏表情
@@ -531,10 +509,9 @@ function onSendMsg() {
 }
 ```
 
-
 ### 发送群消息（点赞）
 
-示例：
+**示例：**
 
 ```
 //发送消息(群点赞消息)
@@ -542,26 +519,24 @@ function sendGroupLoveMsg() {
 
     if (!loginInfo.identifier) {//未登录
         if (accountMode == 1) {//托管模式
-            //将account_type保存到cookie中,有效期是1天
+            //将 account_type 保存到 cookie 中,有效期是 1 天
             webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
-            //调用tls登录服务
+            //调用 TLS 登录服务
             tlsLogin();
         } else {//独立模式
             //to do
         }
         return;
     }
-
     if (!selToID) {
         alert("您还没有进入房间，暂不能点赞");
         return;
     }
-
     if (!selSess) {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1表示sdk自动生成，用于去重
+    var seq = -1;//消息序列，-1 表示 SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     //群消息子类型如下：
@@ -570,12 +545,10 @@ function sendGroupLoveMsg() {
     //webim.GROUP_MSG_SUB_TYPE.TIP-提示消息(不支持发送，用于区分群消息子类型)，
     //webim.GROUP_MSG_SUB_TYPE.REDPACKET-红包消息，优先级最高
     var subType = webim.GROUP_MSG_SUB_TYPE.LOVEMSG;
-
     var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, loginInfo.identifier, subType, loginInfo.identifierNick);
     var msgtosend = 'love_msg';
     var text_obj = new webim.Msg.Elem.Text(msgtosend);
     msg.addText(text_obj);
-
     webim.sendMsg(msg, function (resp) {
         if (selType == webim.SESSION_TYPE.C2C) {//私聊时，在聊天窗口手动添加一条发的消息，群聊时，长轮询接口会返回自己发的消息
             showMsg(msg);
@@ -594,5 +567,6 @@ function sendGroupLoveMsg() {
 
 红包消息的下发优先级最高，保证不丢消息。
 
-示例：
-同发送群消息（点赞）示例，只需把subType设成webim.GROUP_MSG_SUB_TYPE.REDPACKET即可。
+**示例：**
+
+同发送群消息（点赞）示例，只需把 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。

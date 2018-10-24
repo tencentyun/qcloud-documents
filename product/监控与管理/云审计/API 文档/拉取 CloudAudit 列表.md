@@ -1,19 +1,26 @@
-# 拉取 CloudAudit 列表
+
 ## 接口描述
-  ListAudits 用于拉取 CloudAudit 列表。
+ListAudits 用于拉取 CloudAudit 列表。
+接口访问域名：`cloudaudit.api.qcloud.com`
+
 ## 请求参数
-详见 [公共请求参数](https://cloud.tencent.com/document/api/214/4183)  页面。
+详见 [公共请求参数](https://cloud.tencent.com/document/product/599/12707)  页面。
 
 ## 响应参数
+
+|参数名称|类型|描述|
+|---------|---------|---------|
+|auditLists|Array|跟踪集列表|
+
 以下是 auditLists 列表的数据。
 
 |参数名称|类型|描述|
 |---------|---------|---------|
-|Name|string|CloudAudit 名字|
-|bucketName|string|COS 存储桶名称|
-|prefix|string|日志前缀|
-|status|number|状态（0：关闭，1：开启）|
-|isMultiRegionTrail|number|是否开启多地域采集（0：否，1：是）|
+|Name|String|CloudAudit 名称|
+|bucketName|String|COS Bucket 名称|
+|prefix|String|日志前缀|
+|status|Number|Audit 状态，0 代表关闭，1 代表开启|
+|IsMultiRegionAudit|Number|是否开启多地域采集。0：否，1：是|
 
 ## 实际案例
 ### 请求
@@ -32,17 +39,15 @@
             "bucketName":"xxx",
             "prefix":"xxx",
             "status":1,
-            "isMultiRegionTrail":0
+            "IsMultiRegionAudit":0
         },
         {
             "name": "xxx-1",
             "bucketName":"xxx",
             "prefix":"xxx",
             "status":1
-            "isMultiRegionTrail":0
+            "IsMultiRegionAudit":0
         }
     ]
 }
 ```
-
-

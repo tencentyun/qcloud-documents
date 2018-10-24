@@ -2,7 +2,7 @@
  
 This API (DescribeRegions) is used to obtain the availability zones of CPM.
 
-Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: <font style="color:red">bm.api.cloud.tencent.com</font>
 
 
 ## 2. Input Parameters
@@ -45,11 +45,11 @@ The following request parameter list only provides API request parameters. For a
  
 Input
 
-<pre>
+```
 	https://domain/v2/index.php?
-	Action=DescribeRegions
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
+	Action=DescribeRegions</code>
+	&<Common request parameters>
+```
 Output
 
 ```
@@ -60,41 +60,41 @@ Output
     "data": {
         "1": {
             "regionId": "1",
-            "regionName": "华南地区（广州）",
+            "regionName": "South China (Guangzhou)",
             "setName": "ap-guangzhou",
             "zones": {
                 "1000100003": {
                     "zoneId": "1000100003",
-                    "zoneName": "广州物理机一区 ",
+                    "zoneName": "Guangzhou Zone 1",
                     "zoneEname": "ap-guangzhou-bls-1"
                 }
             }
         },
         "4": {
             "regionId": "4",
-            "regionName": "华东地区（上海）",
+            "regionName": "East China (Shanghai)",
             "setName": "ap-shanghai",
             "zones": {
                 "1000400001": {
                     "zoneId": "1000400001",
-                    "zoneName": "上海物理机一区",
+                    "zoneName": "Shanghai Zone 1",
                     "zoneEname": "ap-shanghai-bls-1"
                 }
             }
         },
         "8": {
             "regionId": "8",
-            "regionName": "华北地区（北京）",
+            "regionName": "North China (Beijing)",
             "setName": "ap-beijing",
             "zones": {
                 "1000800001": {
                     "zoneId": "1000800001",
-                    "zoneName": "北京物理机一区",
+                    "zoneName": "Beijing Zone 1",
                     "zoneEname": "ap-beijing-bls-1"
                 },
                 "1000800002": {
                     "zoneId": "1000800002",
-                    "zoneName": "北京物理机二区",
+                    "zoneName": "Beijing Zone 2 ",
                     "zoneEname": "ap-beijing-bls-2"
                 }
             }

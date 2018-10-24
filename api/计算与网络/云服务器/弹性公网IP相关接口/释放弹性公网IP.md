@@ -1,55 +1,53 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DeleteEip
 
-释放弹性公网IP。
+本接口 (ReleaseAddresses) 用于释放一个或多个[弹性公网IP](/document/product/213/1941)（简称 EIP）。
 
- 
+接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
+
+* 该操作不可逆，释放后 EIP 关联的 IP 地址将不再属于您的名下。
+* 只有状态为 UNBIND 的 EIP 才能进行释放操作。
 
 ## 2. 输入参数
- 
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> eipIds.n  <td> 是 <td> String <td> EIP实例ID列表，列表下标从0开始，可通过<a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEip">DescribeEip</a>接口返回字段中的eipId获取
-</tbody></table>
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
- 
+| 参数名称 | 类型 | 是否必选 | 描述 |
+|---------|---------|---------|---------|
+| Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
+| AddressIds.N | array of String| 是| 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。|
+
 
 ## 3. 输出参数
- 
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
+| RequestId| String|唯一请求 ID。每次请求都会返回`RequestId`。当用户调用接口失败找后台研发人员处理时需提供该`RequestId`。|
 
 
- 
+## 4. 错误码
 
-## 4. 示例
- 
-输入
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/11657)。
+
+| 错误码 | 描述 |
+|---------|---------|
+|InvalidAddressId.NotFound|指定的 EIP 不存在。|
+|InvalidAddressState|指定 EIP 当前状态不允许进行释放操作。只有 EIP 的状态是 UNBIND 时才能进行释放操作。|
+
+## 5. 示例代码
+
+#### 请求参数
 <pre>
-
-  https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
-  &eipIds.0=eip-gzc5rgr2
-
+https://eip.api.qcloud.com/v2/index.php?Action=ReleaseAddresses
+&Version=2017-03-12
+&AddressIds.1=eip-gzc5rgr2
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
-输出
-```
-
+#### 返回参数
+<pre>
 {
-    "code": 0,
-    "message": ""
+    "Response": {
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
+    }
 }
-
-```
-
+</pre>

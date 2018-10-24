@@ -3,8 +3,8 @@ This API (AttachCbsStorages) is used to mount the specified elastic cloud storag
 
 Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
-1. Only elastic cloud storages are supported. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters.
+Usage restrictions:<br>
+1. Only elastic cloud storages are supported. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters.<br>
 2. The cloud storage must be unmounted and the status is `normal`. The mount status of a cloud storage can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `storageStatus` and `attached` fields in output parameters.
 3. The number of elastic cloud storages mounted on the CVM can be queried through the [DescribeInstancesCbsNum (Query Number of Elastic Cloud Storages Mounted to CVM)](https://cloud.tencent.com/doc/api/364/2528) API. See the `maxAttachNum` and `count` fields in output parameters.
 

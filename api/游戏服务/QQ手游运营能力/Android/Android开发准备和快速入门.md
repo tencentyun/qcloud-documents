@@ -1,8 +1,5 @@
 ## 开发准备
-### 相关环境
-[点击下载 SDK >>](http://wiki.connect.qq.com/sdk%E4%B8%8B%E8%BD%BD )
 
-![](https://mc.qcloudimg.com/static/img/1c18ecaece1d026e23d2f7c92545d6b4/image.jpg)
 ### 环境依赖
 适用于 JDK1.6 版本以上 。
 ###  安装 SDK

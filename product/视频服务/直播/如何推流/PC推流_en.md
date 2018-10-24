@@ -98,9 +98,9 @@ Then the playback URL (liveplay) is:
 
 | Playback Protocol | Playback URL | 
 |---------|---------|
-| FLV |  rtmp://3891.liveplay</font>.myqcloud.com/live/3891_test |
-| RTMP | http://3891.liveplay</font>.myqcloud.com/live/3891_test.flv |
-| HLS(m3u8) | http://3891.liveplay</font>.myqcloud.com/live/3891_test.m3u8 |
+| FLV |  `rtmp://3891.liveplay</font>.myqcloud.com/live/3891_test` |
+| RTMP | `http://3891.liveplay</font>.myqcloud.com/live/3891_test.flv` |
+| HLS(m3u8) | `http://3891.liveplay</font>.myqcloud.com/live/3891_test.m3u8` |
 
 
 ### 3.2 RTMP DEMO playback verification

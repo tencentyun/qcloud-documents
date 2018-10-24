@@ -1,136 +1,123 @@
-COS FTP V4 is used to upload and download files to/from COS via FTP protocol.
+The COS FTP Server tool can be used to directly operate objects and directories in COS via the FTP protocol, including uploading/downloading/deleting files and creating folders. This tool is developed with Python, which makes the installation easier.
+## Operating Environment
+### System Environment
+OS: Linux. It is recommended to use the CVM of Tencent Cloud CentOS 7 series. Windows systems are not supported for now.
+
+Python interpreter version: Python 2.7. For more information on how to install and configure it, please see [Python Installation and Configuration](https://cloud.tencent.com/document/product/436/10866).
+
+Dependent libraries:
+- requests
+- argparse
+
+### Download and Installation
+GitHub link: [COS FTP Server Tool](https://github.com/tencentyun/cos-ftp-server-V5).
+
+After the download is completed, simply run `setup.py` under the `cos ftp server` directory. You need to install dependent libraries online.
+```
+python setup.py install   # sudo or root permissions may be required here.
+```
+
+### Special Notes
+This tool is developed with the COS XML API.
 
 ## Feature Description
+#### Upload Mechanism
+The stream upload is adopted and the uploaded file is not saved locally. It works only if the working directory is configured according to the standard FTP protocol, and no disk storage space is occupied actually.
 
-COS FTP V4 is a server end tool which relies on COS 4.X. You can use COS FTP tool to upload and download files to/from COS via FTP protocol.
+#### Download Mechanism
+The downloaded file is directly returned to the client in the stream download mode.
 
-**Upload mechanism**: Uploaded content are first placed into FTP local disk, and deleted after the content is uploaded to COS, after which a success status is returned to the client. (In later versions, contents are uploaded to COS using stream upload method and are no longer placed into local disk)
+#### Directory Mechanism
+Bucket serves as the root directory of the entire FTP Server, and multiple subdirectories can be created under Bucket.
 
-**Download mechanism**: Contents are returned to client using stream download method
+#### Notes
+- Now, only one Bucket can be operated each time. But simultaneous operation on multiple Buckets may be supported in the future.
+- The FTP Server tool does not support resuming upload from the breakpoint for now.
+- An empty file (0B) cannot be uploaded. The maximum file size is 200 GB.
 
-### Supported FTP Commands
-
+## Supported FTP Commands
 - put
-- get
 - mput
-- mget
+- get
+- rename
 - delete
 - mkdir
 - ls
 - cd
 - bye
-- quit
+- quite
 - size
 
-### Unsupported FTP Command
-
+## Unsupported FTP Commands
 - append
+- mget (The native mget command is not supported, but on certain Windows clients, such as FileZilla, the files can still be downloaded in batches.)
 
 
-## Required Environment
+## Configuration File
+`conf/vsftpd.conf` is the configuration file of the FTP Server tool. The relevant configuration items are described as follows:
+```conf
+[COS_ACCOUNT]
+cos_secretid = XXXXXX
+cos_secretkey = XXXXXX
+# SecretId and SecretKey can be obtained at https://console.cloud.tencent.com/cam/capi.
+cos_bucket = BucketName-appid
+# The bucket to be operated. Its format is bucektname-appid, such as cos_bucket = mybucket-125888888888.
+cos_region = ap-xxx
+# Bucket's region. For more information on supported regions, please see [Available Regions - Applicable to the XML API Section]:https://cloud.tencent.com/document/product/436/6224
+cos_user_home_dir = /home/cos_ftp/data
+# The working directory of the FTP Server.
+[FTP_ACCOUNT]
+login_users = user1:pass1:RW;user2:pass2:RW
+# FTP account configuration. The configuration format is <User name: Password: Read and write permissions>, and multiple accounts are separated by a semicolon.
 
-### COS Version 
+[NETWORK]
+masquerade_address = XXX.XXX.XXX.XXX
+# For FTP server located behind a gateway or NAT, you can assign the gateway's IP or domain name to the FTP Server through this configuration item. In general, this configuration item needs not to be configured.
+listen_port = 2121
+# The listening port (default: 2121) of the Ftp Server. Please note that the firewall needs this port opened.
+passive_ports = 60000,65535             
+# passive_port can be used to set the port range for the passive mode. Default is (60000, 65535).
 
-4.x
+[FILE_OPTION]
+single_file_max_size = 21474836480
+# By default, the maximum size of a single file is 200 GB. Too large files are not recommended.
 
-### System Requirement
-
-Linux (Tencent Cloud Centos series CVMs are recommended)
-
-### Required Library
-
-For systems that are installed using yum (such as Centos), build.sh will download the following required contents automatically. Please install these contents on your own for other systems.
-
+[OPTIONAL]
+# For the following settings, take the defaults if there is no special requirements, or fill in an appropriate integer if necessary.
+min_part_size       = default
+upload_thread_num   = default
+max_connection_num  = 512
+max_list_file       = 10000                # The maximum number of files to be listed by ls command. It is recommended not to set it too big. Otherwise, high delay of ls command may occur.
+log_level           = INFO                 # Set the log output level
+log_dir             = log                  # Set the directory to store logs. Default is the log directory under the ftp server directory.
 ```
-cmake
-boost
-openssl-devel
-asio-devel
-libidn-devel
+The OPTIONAL part in the configuration is used to adjust the upload performance. In general, it will be fine to take the default values. You can obtain an optimal uploading speed by reasonably adjusting the multipart size and the number of concurrent upload threads based on the server performance. max_connection_num is the limit option for the maximum number of connections, which can be adjusted based on the server condition. If it is set to 0, there is no limit on the maximum number of connections. 
+## Running FTP Server
+After the configuration is completed, you can directly run `ftp_server.py` in the root directory via Python to start the FTP Server. You can also use the screen command to make the FTP Server run in the backend.
 ```
-
-## How to Use
-
-### Acquire Application Package
-
-Download link: [COS FTP V4 github](https://github.com/tencentyun/cos_ftp_v4)
-
-### Source Code Structure
-
-|    Directory     |              Description               |
-| :------: | :---------------------------: |
-|   bin    |          Executables generated after compiling          |
-|   conf   |            Directory for configuration files             |
-|   data   |    Directory for storing temporary data when uploading, the data is deleted when upload succeeds or fails    |
-|   dep    | COS 4.X CPP SDK that FTP Server relies on |
-| include  |           Directory for header files            |
-|   lib    |            Directory for required libraries             |
-|   log    |             Directory for logs              |
-|  opbin   |        Scripts regarding log cleaning and automatic pulling        |
-|   src    |            Directory for FTP source code            |
-| build.sh |             Script for compiling              |
-| start.sh |        Script for starting FTP server        |
-| stop.sh  |            Script for terminating the application            |
-
-### Configuration
-
-The configuration file conf/vsftpd.conf contains relevant configurations for vsftpd. Please refer to the following configuration instructions
-
-```ini
-1. COS account information configuration
-    #cos, set your app info in cos                                                   
-    cos_appid=1000000                                                   
-    cos_secretid=xxxxxxxxxxxxxxxxxxxxxxxxx                              
-    cos_secretkey=xxxxxxxxxxxxxxxxxx 
-    # bucket information, including its name and the region to which it belongs. Currently, available values are South China Guangzhou (gz), East China Shanghai (sh) and North China Tianjin (tj)
-    cos_bucket=test                                                     
-    cos_region=gz
-    # Configuring domain as "cos" means downloading via the COS origin server (recommended for Tencent Cloud CVM users)
-    # Configuring domain as "cdn" means downloading via CDN (recommended for non-Tencent Cloud CVM users)
-    cos_download_domain=cos                                             
-    # No need to configure this item as build.sh script will configure it automatically
-    cos_user_home_dir=/home/test/cosftp_data/                                        
-
-2. FTP account configuration (Format - account name:password:read/write privilege. Multiple accounts are separated using semicolons)
-    login_users=user1:pass1:RW;user2:pass2:RW  
-    
-3. Public network IP configuration. Configure public network IP as the public network IP of the server (This is only for users who access FTP service through public network IP. You don't need to configure this item if you access service through private network IP, when both the client and the FTP server are located on Tencent Cloud CVM)
-	pasv_address=115.115.115.115
-	
-4. Control port and data port configuration. You can use the default configuration (It is recommended to use ports from 1025 to 65535 and make sure the ports are not filtered out by firewall iptables)
-	listen_port=2121
+python ftp_server.py
 ```
-### Compile
+After the command is executed, if the result is shown as below, it indicates that the FTP Server service is successfully enabled. And you can access the configured IP and port through the FTP client.
+![](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
 
-1. As FTP will need to use local disk, please place FTP source code applications in a disk with enough storage space. (Data disks purchased with initial Tencent Cloud CVMs need to be formatted and mounted manually. Refer to [https://cloud.tencent.com/doc/product/213/2974](https://cloud.tencent.com/doc/product/213/2974))
-2. **Execute build.sh as root** (Because build.sh will call yum to install dependent libraries. It is recommended to use Centos series systems which are commonly used by Tencent Cloud. Please modify opbin/env_init.sh if you use systems of other series, such as ubuntu)
+## Stopping FTP Server
+The FTP Server (running directly or in the backend with the screen command) can be easily stopped via `Ctrl + C`.
+## FAQ
 
-### Run
+### What does the masquerade_address option in the configuration file do and when to configure it?
+If the FTP Server runs in PASSIVE mode (PASSIVE mode is generally enabled for the FTP client located behind a NAT gateway) on a Server with multiple ENIs, you need to use the masquerade_address option to bind an IP for reply in PASSIVE mode. For example, the FTP Server has multiple IPs (private IP: 10.XXX.XXX.XXX, public IP: 123.XXX.XXX.XXX), and the client adopts PASSIVE mode for transmission. If the public IP is not bound via the masquerade_address option, the private IP may be used when the Server makes a reply in PASSIVE mode. That is, the client can connect to the FTP Server but cannot get any reply data from the Server.
 
-```
-1. Switch to cos_ftp account (which is created in the build.sh script), su cos_ftp
-2. sh start.sh (this will start the FTP process and monitor application as well as install the CT script used to automatically clean up logs)
-3. Use FTP client to connect to the control port of server (2121 by default). It is recommended to use pasv mode in case the port is restricted by the client.
-You can perform a test in advance using FTP command of the server machine (you can install this client application by using yum install ftp).  Test by executing FTP 127.0.0.1 2121.
-4. Execute FTP commands such as upload/download
-```
+If necessary, it is recommended to set masquerade_address to the IP used by the client to connect with the Server.
 
-### Terminate
+#### If a large file in uploading is cancelled, why does it remain on COS as an uploaded file?
+The FTP Server applicable to COS V5 provides the full stream upload capability, and cancelling of file upload or connection break can trigger the completion of large file upload. Then, COS will regard the user's data stream as uploaded completely, and then generate a complete file using the uploaded data. If you want to upload the file again, you can directly upload it with the original file name and overwrite the previous one, or delete the incomplete file and then upload the file again.
 
-```
-sh  stop.sh
-```
+#### Why does the maximum size of uploaded file need to be set in FTP Server configuration?
+The maximum number of multiparts to be uploaded to COS is 10,000, and the size of each multipart is limited to 1 MB-5 G. The upper limit on uploaded files is set to calculate the size of a multipart.
+The FTP Server supports uploading a single file less than 200 GB by default. However, it is recommended not to set the upper limit to a too big value, because the bigger the set file size, the larger the multipart buffer for uploading. This may increase the consumption of your memory resource. Therefore, it is recommended to set the upper limit on the size of a single file appropriately according to the actual situation.
 
-## FAQs
+#### What will happen if the size of an uploaded file exceeds the upper limit?
+If the size of a single uploaded file exceeds the upper limit specified in the configuration file, the system will return an IOError exception and record the error message in the log.
 
-```
-1. Cannot connect. Check the account name, password, port number, whether the connection mode is correct, and whether the process has been started on the server (netstat -tulnp | grep vsftpd)
-2. During concurrent upload, one of the files failed. FTP does not support concurrent file upload and will lock the files so only one file can be successfully uploaded.
-3. Failed to upload large file due to insufficient local disk space. Files uploaded via FTP will be first placed into FTP server disk temporarily (and located in the data directory of the FTP service) before being uploaded to COS. The local files will be deleted when they're successfully uploaded. Downloaded files are not limited by disk space as they will not be placed into local disk. Thus it is recommended to deploy FTP service in a large partition.
-4. Failed to upload large files when using clients such as FileZilla. FTP servers of the first version do not support append mode. Clients such as FileZilla will use append operation when uploading certain large files.
-5. For other questions, please provide the compressed files under the log directory.
-```
+#### If you have any other questions, please [submit a ticket](https://console.cloud.tencent.com/workorder/category) and attach the complete `cos_v5.log` log for troubleshooting.
 
- 
-
- 

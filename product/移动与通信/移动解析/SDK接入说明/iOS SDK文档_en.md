@@ -60,10 +60,10 @@ Configure the declaration that allows HTTP request in "info.plist". The detailed
 | Key | Type | Value |
 |---------|---------|---------|
 | IS_COOPERATOR | Boolean | Enter "YES" for external App |
-| COOPERATOR_APPID| String| It is assigned by system or admin after registration |
+| COOPERATOR_APPID| String| It is assigned by system after registration |
 | TIME_OUT | Number | Set the timeout for requesting HttpDNS (in ms). 1,000 ms is recommended |
-| DNS_ID | String | It is assigned by system or admin after registration |
-| DNS_KEY | String | It is assigned by system or admin after registration |
+| DNS_ID | String | It is assigned by system after registration |
+| DNS_KEY | String | It is assigned by system after registration |
 | Debug | Boolean| Log switch configuration. "YES" means to enable MSDKDns log, and "No" means to disable it. In the test phase, we recommend that you enable log for troubleshooting. You can disable it after official launch
 | IS_TEST | Boolean | Test switch configuration. "YES" means to use demo provided officially for testing, so you don't need to apply for ID and KEY. For an official connection, both ID and KEY are required. After ID and key are assigned to your project, the parameter can be left empty
 

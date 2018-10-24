@@ -1,5 +1,5 @@
 ## 功能描述
-CreateBmNatGateway 接口用于创建黑石NAT网关，可针对全部子网、子网全部IP、子网部分IP创建NAT网关
+CreateBmNatGateway 接口用于创建黑石NAT网关，可针对CIDR方式、子网全部IP、子网部分IP创建NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -9,13 +9,13 @@ CreateBmNatGateway 接口用于创建黑石NAT网关，可针对全部子网、�
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
     &<公共请求参数>
-    &natId=<NAT网关ID>
     &natName=<NAT网关名称>
     &unVpcId=<vpc网络ID>
 	&maxConcurrent=<网关并发连接上限>
 	&autoAllocEipNum=<分配IP的个数>
 	&unSubnetIds.0=<子网ID>
 	&unSubnetIds.1=<子网ID>
+	&forwardMode=<转发方式>
 	&ips.0.unSubnetId=<子网ID>
 	&ips.0.ipList.0=<子网内IP>
 	&ips.0.ipList.1=<子网ID>
@@ -31,9 +31,10 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | natName | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符。 | String | 是 |
 | unVpcId |  私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 | String | 是 |
 | maxConcurrent | 网关并发连接上限，例如：1000000、3000000、10000000。 | Int |  是 |
-| assignedEipSet.n |绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考弹性IP。| Array | 否 | 
-| subnetAll | 是否包含vpc下的所有子网包括后续新建子网的IP。当subnetAll为1时，subnetIds和ips的参数传入将忽略；当subnetAll为0时，需至少传入subnetIds子网或ips信息一个。| Int | 否 |  
+| exclusive |取值为0，1；0和1分别表示创建共享型NAT网关和独占NAT型网关；由于同一个VPC网络内，指向NAT集群的默认路由只有一条，因此VPC内只能创建一种类型NAT网关；创建独占型NAT网关时，需联系对应架构师进行独占NAT集群搭建，否则无法创建独占型NAT网关。| Int | 否 |  
 | autoAllocEipNum | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 | Int |  否 | 
+| assignedEipSet.n |绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考弹性IP。当exclusive为0时，assignedEipSet集合中的eip为共享类型EIP，当exclusive为1时，assignedEipSet集合中的eip为独占类型EIP。| Array | 否 | 
+| forwardMode | NAT网关的转发方式。当值为0表示ip方式，值为1时表示cidr方式；cidr方式目前支持网段位数不小于24位的子网，通过cidr方式可支持更多的IP接入到NAT网关| Int | 是 | 
 | unSubnetIds.n | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。| Array | 否 | 
 | ips.n | 需要绑定部分IP的子网信息数组，ips和unSubnetIds中的子网ID标识不能重复。| Array | 否 | 
 
@@ -92,13 +93,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&unVpcId=vpc-kd7d06of
 	&maxConcurrent=1000000
 	&autoAllocEipNum=1
+	&forwardMode=1
 	&unSubnetIds.0=subnet-333333
 	&unSubnetIds.1=subnet-444444
-	&ips.0.unSubnetId=subnet-111111
-	&ips.0.ipList.0=10.11.1.14
-	&ips.0.ipList.1=10.11.1.15
-	&ips.1.unSubnetId=subnet-222222
-	&ips.1.ipList.0=10.11.3.15
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 

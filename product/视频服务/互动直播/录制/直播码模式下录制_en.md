@@ -40,7 +40,7 @@ For more information about the parameter format and response solution of callbac
 | end_time  | int       | End time (UNIX timestamp. The time cannot be accurate to seconds due to interference of the I frame position.)  |
 | stream_param  | string       | Parameters for recording, including room ID, sdkappid, etc. |
 
-Example: A new recorded FLV part is generated, ID is 9192487266581821586, playback address is "http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv".
+Example: A new recorded FLV part is generated, ID is 9192487266581821586, playback address is `http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv`.
 
 ```json
 {

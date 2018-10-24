@@ -18,15 +18,13 @@
 
 Here are examples of certificate format and certificate chain format. Please confirm the format before uploading:
 
-1. Certificate issued by root CA: Certificate is pem format under linux environment. Example:
-
+1.Certificate issued by root CA: Certificate is pem format under linux environment. Example:
 ![](//mccdn.qcloud.com/static/img/b5eb2ee933723e3171d48377f354bc95/image.jpg)
-
 Rules for certificate:
-- [--- BEGIN CERTIFICATE ---, --- END CERTIFICATE ---] are the beginning and end, which should be uploaded with the content;
-- Each line contains 64 characters, but the last line can contain less than 64 characters;
+  - [--- BEGIN CERTIFICATE ---, --- END CERTIFICATE ---] are the beginning and end, which should be uploaded with the content;
+  - Each line contains 64 characters, but the last line can contain less than 64 characters;
 
-2. Certificate chain issued by intermediate CA:
+2.Certificate chain issued by intermediate CA:
 ---BEGIN CERTIFICATE---
 ---END CERTIFICATE---
 ---BEGIN CERTIFICATE---

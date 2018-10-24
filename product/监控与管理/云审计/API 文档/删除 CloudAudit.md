@@ -1,20 +1,23 @@
-# 删除 CloudAudit
+
 ## 接口描述
 DeleteAudit 用于删除云审计（CloudAudit）。
+接口访问域名：`cloudaudit.api.qcloud.com`
+
 ## 请求参数
 以下请求参数列表仅列出了接口请求参数。
 
 |参数名称|必选|类型|描述|
 |---------|---------|---------|--------|
-|Name|是|string|CloudAudit 名字|
-
+|Name|是|String|CloudAudit 名称|
+## 响应参数
+响应参数为 OK。
 
 ## 实际案例
 ### 请求
 
 ```
 {
-   "Name": "string"
+   "Name": "String"
 }
 ```
 ### 响应

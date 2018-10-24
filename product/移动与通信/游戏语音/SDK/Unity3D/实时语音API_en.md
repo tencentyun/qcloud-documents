@@ -15,7 +15,7 @@ To use Voice Chat, you need to call [Basic APIs](https://cloud.tencent.com/docum
 **Note**  
 For commander mode, only 5 people are allowed to speak. Users will be assigned a role (listener or host) when they join the room.
 
-### 3 Voice Chat APIs
+## 3 Voice Chat APIs
 
 ### 3.1 Join Team Chat Room
 1.API Description 

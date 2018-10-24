@@ -62,8 +62,8 @@ But this is done in the Java applet running in the browser. In case of security 
 ### Install browser and JRE
 You're recommended to use Firefox, install the correct Java version and make correct Java security settings. Please verify whether you are using a 32-bit or 64-bit Firefox browser and install the correct version of JRE. After installing the JRE, restart the browser.
 
-[32-bit JRE](http://sdlc-esd.oracle.com/ESD6/JSCDL/jdk/8u91-b15/jre-8u91-windows-i586.exe?GroupName=JSC&FilePath=/ESD6/JSCDL/jdk/8u91-b15/jre-8u91-windows-i586.exe&BHost=javadl.sun.com&File=jre-8u91-windows-i586.exe&AuthParam=1478323813_4af27d91260f692b5706084436d8e104&ext=.exe "")  
-[64-bit JRE](http://javadl.oracle.com/webapps/download/AutoDL?BundleId=210185 "")
+[FireFox](http://www.firefox.com.cn/download/)  
+[JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
 ### Setting JAVA security level
 If you are using a Windows system, please locate [JRE] in the "Start" menu 

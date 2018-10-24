@@ -46,7 +46,7 @@ You can use Tencent Cloud's **[Event Notification Service](https://cloud.tencent
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
-The following is a typical notification message, which indicates: a new FLV recorded file with ID 9192487266581821586 has been generated, and the playback URL is:"http://200025724.vod.myqcloud.com/200025724_ac92b7y81a22c4a3e937c9e61c2624af7.f0.flv".
+The following is a typical notification message, which indicates: a new FLV recorded file with ID 9192487266581821586 has been generated, and the playback URL is:`http://200025724.vod.myqcloud.com/200025724_ac92b7y81a22c4a3e937c9e61c2624af7.f0.flv`.
 ```json
 {
     "channel_id": "2121_15919131751",

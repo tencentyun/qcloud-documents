@@ -80,8 +80,8 @@ Authorization: Auth
 | Description                  | 任务的描述                                    | String | 否    |
 | Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。默认值：`JSON` | String | 否    |
 | InventoryRetrievalParameters | Archive列表检索的相关配置                         | String | 否    |
-| StartDate                    | Archive列表检索的开始日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
-| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之前创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
+| StartDate                    | Archive列表检索的开始日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssZ`（以秒为单位）的字符串表示。例如， 2017-02-28T17:03:43Z | String | 否    |
+| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之前创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssZ`（以秒为单位）的字符串表示。例如， 2017-02-28T17:03:43Z | String | 否    |
 | Limit                        | Archive列表检索请求返回的最大条目数。默认值：10000，有效值：1-10000之间的正整数 | String | 否    |
 | Marker                       | 字典序，从Marker起读取对应Archive列表                | String | 否    |
 
@@ -137,10 +137,10 @@ Authorization: Auth
 | Object             | COS中源Bucket的Object地址                   | String | 是    |
 | Range              | COS中源Object的Range范围， 以字节（bytes）为单位     | String | 是    |
 | Condition          | 从COS获取数据的前置条件                          | Array  | 否    |
-| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。       | String | 否    |
-| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。       | String | 否    |
-| If-Match           | 如果文件ETag与指定的一致，返回文件内容。         | String | 否    |
-| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。       | String | 否    |
+| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。                 | String | 否    |
+| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。                 | String | 否    |
+| If-Match           | 如果文件ETag与指定的一致，返回文件内容。                 | String | 否    |
+| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。                | String | 否    |
 | ArchiveDescription | 档案文件描述                                 | String | 否    |
 
 ```json

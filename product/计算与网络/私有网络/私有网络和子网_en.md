@@ -50,14 +50,14 @@ Region is named as "coverage + city where data center locates". The first half r
 | Region | VPC (subnet) | Regional Peering Connection | Cross-region Peering Connection | Basic Network Interconnection | NAT Gateway | Public Network Gateway | VPN Gateway | Direct Connect Gateway|
 |---------|---------|---------| ---------|---------|---------| ---------|---------|---------|
 | South China (Guangzhou) | ||||||||
-| South China (Guangzhou Open) |||　　×||　　×||　　×|　　×|
+| South China (Guangzhou Open) |||　　×||　　×||　　×|　　×
 | South China (Shenzhen Finance) |||||||||
 | East China (Shanghai) |||||||||
 | East China (Shanghai Finance) |||||||||
 | North China (Beijing) |||||||||
 | Southeast Asia (Hong Kong) |||-||||||
-| South East Asia (Singapore) |||-|||||　　×|
-| North America (Toronto) |||-|||||　　×|
+| South East Asia (Singapore) |||-|||||　　×
+| North America (Toronto) |||-|||||　　×
 
 
 > Note:
@@ -168,13 +168,13 @@ What you need to be aware of about the availability zone:
 
 The following table shows the number limit on VPCs and subnets:
 
-| Resource | Limit |
+| Resource | Limit 
 |---------|---------|
-| Number of region-wide VPCs | 5	 | 
-| Number of subnets per VPC | 10 | 
-| Lower limit of size of subnet | /28 (or 14 IP addresses) |
-| Number of routing tables per VPC | 10	 | 
-| Number of routing tables associated per subnet | 1	 | 
+| Number of region-wide VPCs | 5	 
+| Number of subnets per VPC | 10 
+| Lower limit of size of subnet | 28 (or 14 IP addresses) 
+| Number of routing tables per VPC | 10	  
+| Number of routing tables associated per subnet | 1	  
 
 For more information, please click to view [Usage Constraints on Other VPC Products](https://cloud.tencent.com/document/product/215/537).
 

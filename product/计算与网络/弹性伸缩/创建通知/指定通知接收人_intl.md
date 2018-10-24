@@ -1,35 +1,28 @@
-如果您已创建通知，并已指定接收人，那么AS 将在发生伸缩活动时，发送通知给设置好的相关人员。
+When the notification rule is set and recipient is specified, AS sends the notification to the specified person(s) when a scaling activity occurs.
 
-### step 1: 定义通知接收人
+### Step 1:  Specify the recipient of the notification
 
-进入 [用户管理控制台](https://console.cloud.tencent.com/cam)，可以看到账户注册人的联系方式。
+Go to [User Management Console](https://console.cloud.tencent.com/cam) and you will see the contact information of the account registrant.
 
-如果您希望有更多人接收通知，比如运维团队的其他成员，可以点击【新建】，创建更多。
+To send the notification to other people (such as other members from the operation and maintenance team), please click **New**.
 
-> 注：
-> 若您的腾讯云账号只有您一个人使用，则可以跳过这步，因为系统已经默认创建了一个“开发商”的账户。
+> Note:
+> If you are the only user of your Tencent cloud account, you can skip this step, because the system has a "developer" account created by default.
 
-### step 2: 定义用户组（接收人归类）
+### Step 2:  Define user groups (recipient classification)
 
-AS 以 **用户组** 为单位发送通知，而非 **接收人**。
+AS sends a notification on a **user group** basis, rather than **recipient**.
 
-**场景举例：**
+**Scenario example:**
 
-- 如果您只希望您一个人收到通知，您可以创建一个只有您一个人联系方式的用户组。
+- If you want you are the only person to receive the notification, you can create a user group with your contact information only.
+- You have defined a number of notification recipients, who may be in the same or different departments. You may wish that a certain type of notifications to be sent to the recipients of department A, and another type to the recipients of department B. Then you can define a user group, and put the different notification recipients to this particular user group.
 
-- 您已经定义好多个通知接收人，但通知接收人可能处于同一个部门，也可能是不同部门。您可能会希望某类通知发给 A 部门的接收人，另一类通知发给 B 部门的接收人。那么您可以定义用户组，把不同的通知接收人归到一个用户组中。
+**Setting Up:**
 
-**如何设置：**
-1. 进入[用户组管理](https://console.cloud.tencent.com/cam/groups)，点击【新建用户组】，填写用户名后点击【确定】。
-2. 然后点击【添加用户】，将相关的通知接收人添加进去即可。
+1. Go to [User Group Management](https://console.cloud.tencent.com/cam/groups), click **New User Group**, enter the group name and click **OK**.
+2. Then click **Add User** to add the relevant notification recipients.
 
-### step 3：使用用户组
+### Step 3: Apply user groups
 
-定义 AS 的告警触发策略和通知策略时，在通知接收人的列表中，就可以看到您定义过的用户组了，您可以根据需求设置通知指定的用户组。
-
-
-
-
-
-
-
+When you define the alarm triggering policy and notification policy of the AS, you can see the user groups you have defined in the list of recipients. You can set a specific user group to be notified as needed.

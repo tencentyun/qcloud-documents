@@ -1,51 +1,67 @@
 ## 1. API Description
- 
-This API (RestartInstances) is used to restart instances.
 
-Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
+This API (RebootInstances) is used to restart an instance.
 
-* You can simply pass instanceId; this API supports passing IDs in batch.
-* Some applications running in an instance can cause a failure of normal shutdown. In this case, you can add forceStop parameter to allow the API to use a forced shutdown policy after a shutdown failure. Forced shutdown will not be performed by default.
+Domain name for API request: cvm.api.qcloud.com
+
+* This operation is only allowed for the instances with a status of `RUNNING`.
+* When the API is called successfully, the instance goes into the `REBOOTING` status. When restarted, it goes into the `RUNNING` status.
+* Forced restart is supported. Just like restarting a physical PC after a power-off, forced restart may cause data loss or the corruption of file system. Be sure to perform forced restart only when the server cannot be restarted normally.
+* Batch operations are supported. The maximum number of instances in a batch for each request is 100. If any instance that does not allow batch operations exists in the batch, an [error code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned.
+
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/11650).
 
-| Parameter Name | Required | Type | Description |
+| Parameter | Type | Required | Description |
 |---------|---------|---------|---------|
-| instanceIds.n | Yes | String | ID of the instance to be operated. It can be obtained from unInstanceId in the returned value of [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API. This API allows passing multiple IDs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568).
-| forceStop | No | Int | Indicate whether a forced shutdown is performed. A value of 0 indicates a normal shutdown, and a value of 1 indicates a forced shutdown. The default is 0. |
+| Version | String | Yes | API version number, used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+| InstanceIds.N | array of Strings | Yes | ID(s) of one or more instances you are working with. This can be obtained from `InstanceId` in the returned values of API [`DescribeInstances`](/document/api/213/9388). The maximum number of instances in a batch for each request is 100. |
+| ForceReboot | Boolean | No | Whether to perform a forced restart on the instance in case of a failure of normal restart. Values: <br><li>TRUE: Perform a forced restart ;<br><li>FALSE: Do not. <br><br>Default: FALSE. |
+
 
 ## 3. Output Parameters
 
-| Parameter Name | Type | Description |
+| Parameter| Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| detail| Array| Refer to [Format of Returned Results of Batch Asynchronous Task API](http://cloud.tencent.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#2.-批量异步任务接口返回格式). |
+| RequestId | String | Unique request ID. `RequestId` is returned for each request. In case of a failed call to the API, `RequestId` needs to be provided when you contact the developer at backend. |
+
 
 ## 4. Error Codes
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [CVM Error Codes](/document/product/213/6982) page.
 
-| Error Code | Description |
-|---|---|
-| OperationConstraints.InvaildInstanceStatus | Instance status is incorrect or the attempt to obtain the instance status failed (EC_CVM_STATUS_ERROR) |
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://cloud.tencent.com/document/api/213/11657).
+
+
+| Error code | Description |
+|---------|---------|
+| MissingParameter | Missing parameter. A required parameter is missing in the request. |
+| InvalidInstanceId.NotFound | Invalid instance ID. The specified instance ID does not exist. |
+| InvalidInstanceId.Malformed | Invalid instance ID. The specified instance ID is in an incorrect format. For example, `ins-1122` indicates an ID length error. |
+| InvalidParameterValue | Invalid parameter value. Parameter value is in an incorrect format or is not supported. |
+| InvalidParameterValue.LimitExceeded | The number of parameter values exceeds the limit. |
+| InvalidInstance.NotSupported | This operation is not supported for the instance. |
+| InternalServerError | Tencent Cloud server error. |
+
 
 ## 5. Example
- 
-Input
 
+Input
 <pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=RestartInstances
-  &instanceIds.0=ins-r8hr2upy
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Public request parameters</a>>
+https://cvm.api.qcloud.com/v2/index.php?Action=RebootInstances
+&Version=2017-03-12
+&InstanceIds.1=ins-r8hr2upy
+&InstanceIds.2=ins-5d8a23rs
+&ForceReboot=FALSE
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
-
-Refer to [Format of Returned Results of Batch Asynchronous Task API](http://cloud.tencent.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#2.-批量异步任务接口返回格式)
-
-
-
-
+<pre>
+{
+    "Response": {
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
+    }
+}
+</pre>
 

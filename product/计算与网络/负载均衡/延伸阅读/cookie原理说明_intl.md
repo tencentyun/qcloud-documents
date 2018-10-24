@@ -11,7 +11,7 @@ Cookie is a status bit used to identify each request. After years of development
 
 ## How Do Cookies Work?
 
-![](//mccdn.qcloud.com/static/img/58f3b8fb6182198e549315f3192bd11a/image.png)
+![](//mc.qcloudimg.com/static/img/72f96871e29f8a509cd0904d74d63bf3/image.png)
 
 1) When a request is initiated to Tencent Cloud for the first time, the HTTP request header is as follows:
 

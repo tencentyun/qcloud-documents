@@ -10,11 +10,12 @@
 (1)安装 openssl 的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) ；
 (2)安装 curl 的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) ；
 (3)安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) ；
-(4)安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) ；
+(4)安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 。
 
 ### SDK 配置
 直接下载 github 上提供的源代码，集成到您的开发环境。
-执行下面的命令
+
+执行下面的命令：
 ```
 cd ${image-cpp-sdk-v2.0}
 mkdir -p build
@@ -28,7 +29,7 @@ image_demo.cpp 里面有常见 API 的例子。生成的 image_demo 可直接运
 授权包括： APPID 、SecretId 、 SecretKey 及存储桶名（可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937) ）。
 
 ### 创建对应操作类的对象
-如果要使用图片，需要创建图片操作类对象
+如果要使用图片，需要创建图片操作类对象：
 
 ```
 //设置全局参数（非必须）
@@ -218,7 +219,7 @@ ret = image.FaceDelPerson(delPersonReq);
 cout<<ret<<endl;
 ```
 #### 人脸验证
-给定一个 Face 和一个 Person ，返回是否是同一个人的判断以及置信度
+给定一个 Face 和一个 Person ，返回是否是同一个人的判断以及置信度：
 ```
 //单个图片Url
 FaceVerifyReq faceVerifyReq(BUCKET);
@@ -246,7 +247,7 @@ ret = image.FaceCompare(fcReq);
 cout<<ret<<endl;  
 ```
 #### 人脸检索
-对于一个待识别的人脸图片，在一个 Group 中识别出最相似的 Top5 Person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
+对一张待识别的人脸图片，在一个或多个 group 中识别出最相似的 Top5 person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
 ```
 //单个图片Url
 FaceIdentifyReq identifyReq(BUCKET);

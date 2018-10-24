@@ -35,7 +35,7 @@ Compile and run project, and select **FreeShow** in startup interface.
 [Download audio and video library classes](https://console.cloud.tencent.com/avc/avSdkDownload) from Tencent Cloud's official website. You should place so folder and jar package file into the corresponding jnilibs and libs.        
 ![](https://mc.qcloudimg.com/static/img/e3cc8175676d647dd657beebb11cc2e3/1.png)
 ### 2. Configure Service and Modify Backend Server Address
- Currently, for FreeShow, the live room list is maintained at the business backend ([Source Code](https://github.com/zhaoyang21cn/FreeShowPHPServer) can be reused if open sourced).<br />
+ Currently, for FreeShow, the live room list is maintained at the business backend ([Source Code](https://github.com/zhaoyang21cn/SuiXinBoPHPServer) can be reused if open sourced).<br />
  If you want to reuse FreeShow client code, you need to modify the backend address of FreeShow to the server address deployed at the business side. <br />    
       
 | API | Description |

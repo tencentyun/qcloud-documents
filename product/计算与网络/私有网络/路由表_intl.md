@@ -3,7 +3,7 @@ A routing table consists of a series of routing policies that are used to contro
 
 The routing table consists of a series of routing policies. The routing policy includes the routing destination, the next hop type, and the next hop. The next hop type can be any component in the following figure.
 
-![](//mccdn.qcloud.com/static/img/2788ddc8974023b2c4b9d83b007c8bda/image.png)
+![](https://mc.qcloudimg.com/static/img/f8b245d763569d7e36c12b84b81aea20/VPC-Routing+Tables.png)
 
 ## Default Routing Table
 When a user creates a VPC, the system automatically generates a default routing table. When a subnet is created afterwards, the subnet will automatically associate the default routing table if the user does not select a custom routing table. You can add, delete, and modify routing policies in the default routing table, but you cannot delete the default routing table.
@@ -53,7 +53,7 @@ The routing table is created and used completely free of charge. For other price
 ### Modifying Default Routing Table
 When a VPC is created, the system will automatically create a default routing table, with which newly created subnets will be associated by default.
 
-1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc ? Rid = 8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "Routing Table" in the left navigation bar, and click the routing table ID in the routing table list to enter the routing table details page.
 3) Click "Edit" button of the routing policy to start modifying the routing policy.
 4) (Optional) Click "New Line" to add a routing policy. Enter the destination network segment, select the next hop type (public network gateway, VPN gateway, direct connect gateway, etc.), and then select the next hop ID.

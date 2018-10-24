@@ -43,7 +43,7 @@ These are three methods for publishing custom codes. Their usages are as follows
 
 **Adaptive HTML** is HTML code used to embed a video player when editing a web page. The player can be displayed and used to play videos when a user visits the web page. This code may need a few custom modifications, thus it is suitable for users who have an understanding of HTML language. This code can automatically adapt itself to both mobile and PC clients. It supports WEB SDK feature for highly flexible redevelopment. Refer to [WEB SDK Development Guide](http://video.qcloud.com/download/docs/QVOD_Player_Web_SDK_Developer_Guide.pdf) for details about how to use it .
 
-**Flash address** is a URL address, usually with a format of http://****.swf (there may be a parameter string following behind). It can be opened using the browser address bar, or referenced in a web page. Flash can be opened in most browsers, but may not be supported by the default browser Safari in iOS or MAC X systems.
+**Flash address** is a URL address, usually with a format of `http://****.swf` (there may be a parameter string following behind). It can be opened using the browser address bar, or referenced in a web page. Flash can be opened in most browsers, but may not be supported by the default browser Safari in iOS or MAC X systems.
 
 **IFRAME code** is used to quickly publish the player code directly without any modifications. You simply need to copy and paste the code to the proper location in HTML page, without the need to understand the code itself
 . With excellent compatibility, IFRAME tag can currently support major browsers including Chrome, IE, Safari, Firefox and so on.

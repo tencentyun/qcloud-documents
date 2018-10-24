@@ -1,13 +1,13 @@
-## PHP
+## PHP Signature Example
 ```php
 <?php
-// Determine the cloud API secret key for the App
+// Determine the cloud API key for the App
 $secret_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 $secret_key = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
 // Determine the current time and expiration time for the signature
 $current = time();
-$expired = $current + 86400;  // Validity period: 1 day
+$expired = $current + 86400;  // Signature validity: 1 day
 
 // Enter parameters into the parameter list
 $arg_list = array(
@@ -16,7 +16,7 @@ $arg_list = array(
 	"expireTime" => $expired,
 	"random" => rand());
 
-// Calculate signature
+// Calculate the signature
 $orignal = http_build_query($arg_list);
 $signature = base64_encode(hash_hmac('SHA1', $orignal, $secret_key, true).$orignal);
 
@@ -25,7 +25,7 @@ echo "\n";
 ?>
 ```
 
-## java
+## Java Signature Example
 ```java
 import java.util.Random;
 import javax.crypto.Mac;
@@ -98,8 +98,8 @@ class Signature {
 public class Test {
     public static void main(String[] args) {
         Signature sign = new Signature();
-        sign.setSecretId("your secretId");
-        sign.setSecretKey("your SecretKey");
+        sign.setSecretId("Secret Id in the personal API key");
+        sign.setSecretKey("Secret Key in the personal API key");
         sign.setCurrentTime(System.currentTimeMillis() / 1000);
         sign.setRandom(new Random().nextInt(java.lang.Integer.MAX_VALUE));
         sign.setSignValidDuration(3600 * 24 * 2);
@@ -108,7 +108,7 @@ public class Test {
             String signature = sign.getUploadSignature();
             System.out.println("signature : " + signature);
         } catch (Exception e) {
-            System.out.print("get signature fail");
+            System.out.print("Failed to acquire the signature");
             e.printStackTrace();
         }
     }
@@ -118,23 +118,23 @@ public class Test {
 ***Note***
 
 * You need to import third-party packages javax-crpyto.jar and sun.misc.BASE64Encoder.jar.
-* If the error "Access restriction" occurred when importing the third-party package sun.misc.BASE64Encoder.jar, you can adjust error level to solve it 
+* If the error "Access restriction" occurred when importing the third-party package sun.misc.BASE64Encoder.jar, you can adjust error level to solve it.
 ```
 Windows -> Preferences -> Java -> Compiler -> Errors/Warnings -> Deprecated and trstricted API -> Forbidden reference (access rules): -> change to warning
 ```
 
-## Node.js
+## Node.js Signature Example
 ```javascript
 var querystring = require("querystring");
 var crypto = require('crypto');
 
-// Determine the cloud API secret key for the App
+// Determine the cloud API key for the App
 var secret_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 var secret_key = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
 // Determine the current time and expiration time for the signature
 var current = parseInt((new Date()).getTime() / 1000)
-var expired = current + 86400;  // Validity period: 1 day
+var expired = current + 86400;  // Signature validity: 1 day
 
 // Enter parameters into the parameter list
 var arg_list = {
@@ -144,7 +144,7 @@ var arg_list = {
 	random : Math.round(Math.random() * Math.pow(2, 32))
 }
 
-// Calculate signature
+// Calculate the signature
 var orignal = querystring.stringify(arg_list);
 var orignal_buffer = new Buffer(orignal, "utf8");
 
@@ -156,7 +156,7 @@ var signature = Buffer.concat([hmac_buffer, orignal_buffer]).toString("base64");
 console.log(signature);
 ```
 
-##  C#
+## C# Signature Example
 ```csharp
 using System;
 using System.Security.Cryptography;
@@ -203,8 +203,8 @@ class Program
     static void Main(string[] args)
     {
         Signature sign = new Signature();
-        sign.m_strSecId = "Secret Id in the personal API secret key";
-        sign.m_strSecKey = "Secret Key in the personal API secret key";
+        sign.m_strSecId = "Secret Id in the personal API key";
+        sign.m_strSecKey = "Secret Key in the personal API key";
         sign.m_qwNowTime = Signature.GetIntTimeStamp();
         sign.m_iRandom = new Random().Next(0, 1000000);
         sign.m_iSignValidDuration = 3600 * 24 * 2;
@@ -214,3 +214,4 @@ class Program
 }
 
 ```
+

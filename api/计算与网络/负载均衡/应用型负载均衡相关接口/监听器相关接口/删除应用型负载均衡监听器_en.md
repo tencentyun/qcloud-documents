@@ -27,8 +27,8 @@ Input
 ```
 https://lb.api.qcloud.com/v2/index.php?Action=DeleteForwardLBSeventhListeners
 &<Common request parameters>
-&loadBalanceId=lb-abcdefgh
-&listenerIds.0=lbl-20cxbf40
+&loadBalancerId=lb-abcdefgh
+&listenerId=lbl-20cxbf40
 ```
 Output
 ```

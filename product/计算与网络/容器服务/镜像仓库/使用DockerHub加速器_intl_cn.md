@@ -1,6 +1,6 @@
 Docker 软件源地址：`https://mirror.ccs.tencentyun.com`。
 
-## CCS 集群 CVM 主机
+## TKE 集群 CVM 主机
 无需手动配置，在创建节点时会自动安装 Docker 服务，配置 Mirror 镜像。配置项如下：
 ```shell
 [root@VM_1_2_centos ~]# cat /etc/docker/dockerd 
@@ -29,7 +29,7 @@ OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'
 ### Windows：
 如果你使用的是 Boot2Docker，进入 Boot2Docker Start Shell 并执行：
 ```shell
-sudo su echo "EXTRA_ARGS=\"–registry-mirror=http://https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  重启Boot2Docker
+sudo su echo "EXTRA_ARGS=\"–registry-mirror=https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  重启Boot2Docker
 ```
 
 ## 启动 Docker

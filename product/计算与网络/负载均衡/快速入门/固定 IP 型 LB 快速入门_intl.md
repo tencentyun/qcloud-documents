@@ -1,4 +1,4 @@
-﻿This document will use an example to help new users understand how to use Tencent Cloud's Cloud Load Balance: Create a public network-based (with daily rate) cloud load balancer instance named `clb-test`, and bind it to a custom domain to forward HTTP request to the two backend CVMs when this domain is accessed.
+This document will use an example to help new users understand how to use Tencent Cloud's Cloud Load Balance: Create a public network-based (with daily rate) cloud load balancer instance named `clb-test`, and bind it to a custom domain to forward HTTP request to the two backend CVMs when this domain is accessed.
 
 ## Preconditions
 - Cloud load balancer is only responsible for forwarding the traffic, and is not capable of processing requests. Therefore, you need a running CVM instance to process user's requests. Here, you just need two CVM instances. You can also specify the number of CVMs to which the requests are forwarded. In this example, two CVM instances, `rs-1` and `rs-2`, have been created in Beijing region. For information on how to create a CVM instance, refer to [Purchase and Enable CVM Instance](/doc/product/213/4855).
@@ -51,36 +51,14 @@ For more information on cloud load balancer listeners, refer to [Cloud Load Bala
 
 4) Click "OK".
 
-## Purchasing a Domain and Resolving It to the Cloud Load Balancer Instance
-Open the [Tencent Cloud Domain Registration Page](https://cloud.tencent.com/product/dm.html) for domain query and registration. Here we take qcloudtest.com as an example.
-
-For relevant documents, refer to [How to Register a Domain](https://cloud.tencent.com/doc/product/242/3717)
-
-2) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/) and click "Cloud Products" - "Domain Management" - "Resolution".
-
-
-3) Click "Add Record" to add a CNAME record, and enter the following information:
-
-- Record type: `CNAME`;
-- Host record: Domain prefix. In this example, we will resolve all the prefixes and set it to `*.qcloudtest.com`.
-- Line type: Default;
-- Associate with cloud resources: Select `Yes`;
-- Resource type: Select "Cloud Load Balance", and check `clb-test` you just created.
-- TTL: Set to `10 min` (10 minutes).
-
-Click "OK" when you've completed the settings.
-
-It will take some time for the CDNS (Cloud Domain Name Service) to transmit the record over the Internet. To test if the domain name is resolved normally, you can directly access the bound CNAME domain (such as www.qcloudtest.com in the example) when the resolution record has been added for some time.
-
-### Testing Cloud Load Balancer
+## Testing Cloud Load Balancer
 Enter the public network domain name (`www.qcloudtest.com`) configured for the cloud load balancer instance in the browser. Check the test result to verify whether the cloud load balancer instance has been configured successfully.
 
 According to the following figures, the cloud load balancer can access the two bound backend CVMs based on the configurations made by the user.
 - If the user enables the session persistence feature, or disables this feature but selects "ip_hash" for scheduling, the requests will be allocated to one backend CVM all the time.
 - If the user disables the session persistence feature and selects "Weighted Round Robin" for scheduling, the requests will be allocated to multiple backend CVMs in sequence.
 
-![](//mccdn.qcloud.com/static/img/6db39e63f01e0212b85811d17467e5be/image.png)
-![](//mccdn.qcloud.com/static/img/3a3df321b536f701c172f200f36bddc7/image.png)
+
 
 
 

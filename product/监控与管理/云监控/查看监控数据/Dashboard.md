@@ -20,7 +20,7 @@ Dashboard提供了自定义监控面板的服务，用户可以跨产品跨实�
 
 #### 二、添加监控图表
 
-1. 点击新建图表
+1. 单击新建图表
 
 2. 在弹窗中选择所需订阅的产品类型、关注的指标以及实例对象
 
@@ -40,7 +40,7 @@ Dashboard提供了自定义监控面板的服务，用户可以跨产品跨实�
 
 2. 监控面板默认展示近1小时的数据，监控数据实时刷新，用户可自行调整刷新频率
 
-3. 点击图表的![6](http://mc.qcloudimg.com/static/img/68e7b4bfa5775b1b4c53157f0a85eb79/image.png)按钮，放大单个图表，可在弹窗的大图中进一步查看监控细节数据。
+3. 单击图表的![6](http://mc.qcloudimg.com/static/img/68e7b4bfa5775b1b4c53157f0a85eb79/image.png)按钮，放大单个图表，可在弹窗的大图中进一步查看监控细节数据。
 
    ![5](http://mc.qcloudimg.com/static/img/2b47c7488f0cb61d2f4c424a2f798323/image.png)
 

@@ -87,7 +87,7 @@
 <td> cookieHash
 </td><td> 可选
 </td><td> String
-</td><td> 用户Http请求中的cookie进行2次hash的值，只要保证相同cookie的Hash值一致即可
+</td><td> 用户 Http 请求中的 cookie 进行 2 次 hash 的值，只要保证相同 cookie 的 Hash 值一致即可
 </td></tr>
 <tr>
 <td> registerSource
@@ -111,25 +111,25 @@
 <td> userAgent
 </td><td> 可选
 </td><td> String
-</td><td> 用户Http请求的userAgent
+</td><td> 用户 Http 请求的 userAgent
 </td></tr>
 <tr>
 <td> xForwardedFor
 </td><td> 可选
 </td><td> String
-</td><td> 用户Http请求中的x_forward_for
+</td><td> 用户 Http 请求中的 x_forward_for
 </td></tr>
 <tr>
 <td> mouseClickCount
 </td><td> 可选
 </td><td> UInt
-</td><td> 用户操作过程中鼠标点击次数
+</td><td> 用户操作过程中鼠标单击次数
 </td></tr>
 <tr>
 <td> keyboardClickCount
 </td><td> 可选
 </td><td> UInt
-</td><td> 用户操作过程中键盘点击次数
+</td><td> 用户操作过程中键盘单击次数
 </td></tr>
 <tr>
 <td> result

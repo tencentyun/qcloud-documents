@@ -1,130 +1,96 @@
 ## Feature Description
-
-This migration tool is used to migrate files from services such as AWS S3, Aliyun OSS, Qiniu, to COS. It can also migrate file lists, which means migrating files to COS based on given URLs. **Only applicable to COS 4.0**
+This migration tool is used to migrate files from services such as AWS S3, Alibaba Cloud OSS and Qiniu Cloud to COS. It also allows migration of a list of files from given URLs to COS.
+## Service Limits
+Only applicable to COS V4. Not available in Chongqing (ap-chongqing), Seoul (ap-seoul), and Mumbai (ap-mumbai).
 
 ## Operating Environment
-
 ### System Environment
-
-Linux, Mac OS
-
-### Required Software
-
-Operation platform for this tool is \*nix. An environment of Python2.6 or above is required, and pip, gcc, python-dev should be installed on the machine. You may use the package manager (included in the system) to install relevant depended resources.
-
-In centos, use the following command to install:
-```bash
-sudo yum install python-pip python-devel gcc
+Linux or Mac system
+### Software Dependencies
+Python 2.7.x, pip, gcc and python-dev.
+#### Installation and Configuration
+1. For more information on how to install Python 2.7.x, please see [Install and Configure Python](https://cloud.tencent.com/document/product/436/10866).
+2. Install pip, gcc and python-dev:
+```
+sudo yum install python-pip python-devel gcc g++
 ```
 
-In ubuntu/debian, use the following command to install:
-```bash
-sudo apt-get install python-pip python-dev gcc
-```
 ## How to Use
-
-### Acquire the Tool
-
-Github project: https://github.com/tencentyun/cos_migrate_tool
-
-### How to Install
-
-It is recommended to use pip for installation. Refer to the [Official Site](https://pip.pypa.io/en/latest/installing/) to learn about how to install pip, or use package managers (such as apt, yum) to install python-pip package.
-
-```bash
- pip install -U cos_migrate_tool
-    
+### Obtaining Tool
+[Link to Github](https://github.com/tencentyun/cos_migrate_tool) 
+### Installation Method
+Installation using pip is recommended. For more information on how to install pip, please see [pip official website](https://pip.pypa.io/en/latest/installing/). Alternatively, you can use apt/yum and other package management tools to install python-pip package.
 ```
-After executing the command above, you can check whether the installation is successful by using the following command.
-```bash
+ pip install -U cos_migrate_tool
+```
+![Migration tool 1](//mc.qcloudimg.com/static/img/1b576204b2d16c368be9a6bca908b014/image.png)
+After the above command is executed, check whether the tool has been installed using the following command:
+```
 cos_migrate_tool -h
 ```
-
+The following returned result indicates a successful installation:
+![Migration tool 2](//mc.qcloudimg.com/static/img/04495932eebaae7e5099830cbe73f2e1/image.png)
+<span id="Configuration file"></span>
 ### Configuration File
+Configuration file template is located in `./cos_migrate_tool-master/conf`. The following shows an example of configuration:
+Assume that the data is migrated from OSS to COS, configure the basic information in "common" section (workspace is a working directory), the data source information (OSS attributes) in "source" section, and the COS attributes in "destination" section.
 
-Configure file template. "common" section is for basic configurations, "workspace" is the workspace directory mentioned above. "source" section is for configuring data source information. Configure oss attributes if you wish to migrate oss to cos. "destination" section is for configuring cos attributes.
-
-**Please delete the annotation texts in configuration files (`# Annotation`). Refer to [Link](https://github.com/tencentyun/cos_migrate_tool/tree/master/conf) for a blank template**
-
-```bash
-[common]
-workspace=/tmp/tmp6   # Workspace directory
-threads=20            # Number of working threads. 10 threads if not configured
-
-[source]
-type=oss
-accesskeyid=
-accesskeysecret=
-bucket=
-endpoint=
-
-[destination]
-type=cosv4
-region=shanghai
-accesskeyid=
-appid=
-accesskeysecret=
-bucket=sdktest
+**Delete notes (`# note`) from configuration file. Blank template can be found on [GitHub page](https://github.com/tencentyun/cos_migrate_tool/tree/master/conf).**
+#### Migration from OSS
 ```
-
-#### Migrate Files in OSS
-
-```bash
 [common]
 workspace=/tmp/tmp6
-
+threads=20           # Number of threads. Default is 10.
+ 
 [source]
 type=oss
 accesskeyid=         # oss accesskey id
 accesskeysecret=     # oss accesskey secret
-bucket=              # Name of the bucket to be migrated
-endpoint=            # endpoint of oss, for example: oss-cn-beijing.aliyuncs.com
+bucket=              # Name of bucket to be migrated
+endpoint=            # The endpoint of OSS, such as oss-cn-beijing.aliyuncs.com
 
 [destination]
 type=cosv4
-region=shanghai            # region of cos, such as shanghai, guangzhou
-accesskeyid=               # accesskeyid of cos
-appid=                     # appid of cos
-accesskeysecret=           # accesskeysecret of cos
-bucket=sdktest             # bucket of cos
-prefix_dir=/dir21          # Directory of cos. Migrated files will be placed under this directory (root directory if not configured)
+region=sh                  # The region of COS, such as sh, gz
+accesskeyid=               # The accesskeyid of COS
+appid=                     # The appid of COS
+accesskeysecret=           # The accesskeysecret of COS
+bucket=sdktest             # COS bucket
+prefix_dir=/dir21          # The COS directory to which all files are migrated. If it is not configured, files are migrated to the root directory.
 ```
-
-#### Migrate Files in Qiniu
-
-```bash
+#### Migration from Qiniu Cloud
+```
 [common]
 workspace=/tmp/tmp11
-       
+
 
 [source]
 type=qiniu
-accesskeyid=               # accesskeyid of qiniu
-accesskeysecret=           # accesskeysecret of qiniu
-bucket=                    # qiniu bucket to be migrated
-domain_url=                # Download domain of qiniu
+accesskeyid=               # The accesskeyid of Qiniu
+accesskeysecret=           # The accesskeysecret of Qiniu
+bucket=                    # Qiniu bucket to be migrated
+domain_url=                # The download domain name of Qiniu
 
 [destination]
 type=cosv4
-region=shanghai            # region of cos, such as shanghai, guangzhou
-accesskeyid=               # accesskeyid of cos
-appid=                     # appid of cos
-accesskeysecret=           # accesskeysecret of cos
-bucket=sdktest             # bucket of cos
-prefix_dir=/dir21          # Directory of cos. Migrated files will be placed under this directory (root directory if not configured)
+region=sh                  # The region of COS, such as sh, gz
+accesskeyid=               # The accesskeyid of COS
+appid=                     # The appid of COS
+accesskeysecret=           # The accesskeysecret of COS
+bucket=sdktest             # COS bucket
+prefix_dir=/dir21          # The COS directory to which all files are migrated. If it is not configured, files are migrated to the root directory.
 ```
-
-#### Migrate Files is S3
-
-```bash
+#### Migration from S3
+```
 [common]
 workspace=/tmp/tmp21
 
 [source]
 type=s3
-accesskeyid=               # accesskey id of s3
-accesskeysecret=           # accesskey secret of s3
-bucket=                    # Name of the s3 bucket to be migrated
+accesskeyid=               # The accesskey id of S3
+accesskeysecret=           # The accesskey secret of S3
+bucket=                    # Name of S3 bucket to be migrated
+region=                    # Required for S3 in China
 
 [destination]
 type=cosv4
@@ -133,19 +99,16 @@ accesskeyid=
 appid=
 accesskeysecret=
 bucket=
-
 ```
-
-#### Migrate Lists of Files
-
-```bash
+#### Migrating List File
+```
 [common]
 workspace=
 
 [source]
 type=url
-url_list_file=/tmp/urllist.txt   # The list file containing the URLs of files to be migrated. Each line in the file contains a complete URL
-timeout=3                        # Timeout for HTTP requests 
+url_list_file=/tmp/urllist.txt   # The list file containing URLs of files to be migrated, with each complete URL in a separate row
+timeout=3                        # The timeout of HTTP request
 
 [destination]
 type=cosv4
@@ -155,29 +118,21 @@ appid=
 accesskeysecret=
 bucket=
 ```
-
-### Run the Tool
-
-Once installed, there will be an executable command `cos_migrate_tool` in the system, which will be used for all subsequent migration operations. How to execute this command:
-
-```bash
+### Running Tool
+After the tool has been installed, an executable command `cos_migrate_tool` is provided for all the subsequent migration processes. The command is executed as follows:
+```
 cos_migrate_tool -c /path/to/your/conf
 ```
-
-Modify the configuration file according to the templates mentioned above. You need to configure a workspace directory in the configuration file. Temporary files generated in migration operations will be stored in this directory, so please make sure there is enough storage space for this directory. It is recommended to use different directories if there are multiple concurrent migration tasks.
-
-During the migration process, you can check the fail_file.txt (located in the workspace directory you configured) to view the list of files that weren't migrated successfully.
-
+Write a configuration file by referring to the [Configuration File](#Configuration File) section. In the configuration file, you need to configure a working directory to store all the temporary files generated during the migration process. Make sure that the directory has sufficient space. Use different directories for multiple migration tasks performed in parallel.
+During the migration process, you can view the fail_file.txt in your working directory to obtain the list of files failed to be migrated.
 ### How to Uninstall
-
 Run the following command:
-
 ```
 pip uninstall cos_migrate_tool
 ```
-
 ## FAQs
-1. pip command does not exist.  Use "apt install python-pip" or "yum install python-pip" to install pip.
-2. Failed to use pip to install migration tool. Try executing "sudo pip install cos_migrate_tool".
-
+1. The pip command does not exist. 
+Use the command `apt install python-pip` or `yum install python-pip` to install PIP.
+2. Failed to install the migration tool using pip.
+Execute `sudo pip install cos_migrate_tool`.
 

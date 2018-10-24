@@ -31,7 +31,7 @@ Simple Session Persistence (also known as source address-based session persisten
 A very important parameter in a simple session persistence is the connection timeout value; the cloud load balancer sets a time value for each session that is in a persistent state.  If the interval of a session from the last completion to the next iteration is less than the timeout value, the cloud load balancer will have the new connection persisted for the same session; but if the interval is greater than the timeout value, the cloud load balancer will regard the new connection as a new session and perform cloud load balancing. 
 
 It's easy to implement simple session persistence, which requires only layer-3 or 4 information of packets, the efficiency being high. 
-![](//mccdn.qcloud.com/static/img/c9e0a755c805cbf864063d12101ca387/image.png) 
+![](//mc.qcloudimg.com/static/img/946088003aa5a23d21b12de69cc23ad3/image.png)
 
 However, the problem with this approach is that when multiple clients access the server through proxy or address translation, the requests are delivered to the same server due to the same source address, resulting in a serious imbalance between servers. 
 

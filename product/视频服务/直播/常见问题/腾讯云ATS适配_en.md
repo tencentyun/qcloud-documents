@@ -1,5 +1,5 @@
 ﻿
-Apple Inc. announced in WWDC 2016 that by default all new Apps submitted as of January 1, 2017 will not be allowed to use `NSAllowsArbitraryLoads=YES` to bypass ATS restriction. Tencent Cloud will officially support HTTPS as of December 12th. By then, you just need to use the new SDK version (API remains the same) and change the video URLs' prefix from http:// to https://. The new SDK can be automatically adapted to the change.
+Apple Inc. announced in WWDC 2016 that by default all new Apps submitted as of January 1, 2017 will not be allowed to use `NSAllowsArbitraryLoads=YES` to bypass ATS restriction. Tencent Cloud will officially support HTTPS as of December 12th. By then, you just need to use the new SDK version (API remains the same) and change the video URLs' prefix from `http://` to `https://`. The new SDK can be automatically adapted to the change.
 
 
 

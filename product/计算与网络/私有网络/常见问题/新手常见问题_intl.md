@@ -36,9 +36,9 @@ Yes. The following table lists your demands and their corresponding features:
 | User Demand | Corresponding VPC Feature | 
 |---------|---------|
 | Communication between VPC and CVM within the basic network |  [Basic Network Interconnection](https://cloud.tencent.com/doc/product/215/5002)|
-| Access public network | [ Elastic IP ](https://cloud.tencent.com/doc/product/215/4958) / [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975)(High performance)/ [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972) |
+| Access public network | Elastic IP / NAT Gateway](https://cloud.tencent.com/doc/product/215/4975)(High performance)/ Public Network Gateway |
 | Other VPCs | [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)(Cross-region and cross-account are supported) |
-| My data center | [VPN Connection ](https://cloud.tencent.com/doc/product/215/4956)/[ Direct Connect](https://cloud.tencent.com/doc/product/215/4976) |
+| My data center | [VPN Connection ](https://cloud.tencent.com/doc/product/215/4956)/ Direct Connect |
 
 
 ## 4. How many VPCs, subnets, routing tables, public network gateways, NAT gateways, peering connections, VPN gateways, VPN tunnels, network ACLs can I create, respectively?

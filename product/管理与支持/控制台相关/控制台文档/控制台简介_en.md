@@ -1,0 +1,6 @@
+[Tencent Cloud](https://cloud.tencent.com/) is committed to creating a public cloud service platform with quality and optimal ecological environment. The market-oriented Tencent Cloud provides enterprises and individuals with the one-stop cloud service integrating cloud computing with cloud data and cloud operation, and creates solutions for gaming, video and mobile application industries. With a solid infrastructure and years of experience, Tencent Cloud provides mature products in various Internet application scenarios, such as social, gaming, and other areas.
+
+Tencent Cloud has been cooperating with third-party service vendors to meet the needs of enterprises and individuals. As the business grows, Tencent Cloud and ISPs have established and launched a large number of cloud nodes in multiple regions and availability zones across the globe to provide better cloud services for enterprises and individuals. During the distribution of service contents to global acceleration nodes, the global scheduling system is used to enable enterprises and individuals to access the contents from the nodes closest to them, thus reducing access delay.
+
+Users who have signed up at Tencent Cloud can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/) to view, purchase and use Tencent Cloud products and services.
+

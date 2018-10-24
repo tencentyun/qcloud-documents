@@ -1,7 +1,8 @@
 ## 1 iOS 接入
 
 ### 1.1 SDK 获取
-智营网优 iOS SDK 1.1.0 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/4ab5f30bd830cb54bb06a133280f297b/IOSv1.1.0.zip).
+登录腾讯云控制台,在智营网优管理后台下载 SDK。  
+*** 注意：本产品需要申请通过后才能访问管理后台 ***
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构

@@ -10,7 +10,7 @@ This document shows how to deploy the source code on a self-built Apache server,
 <table class="t" style="text-align: center; width:750px">
 <tbody>
 <tr><td>
-http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=1400012345&acctype=8888&userid=test1234&type=0
+`http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=1400012345&acctype=8888&userid=test1234&type=0`
 </td></tr>
 </tbody></table>
 - When a user opens the sharing URL, the sharing page fetches data from Mini LVB's livedemo server based on the URL parameters, including video playback URL, VJ data, IM room information, and then presents the video playback and IM messaging features.
@@ -29,7 +29,7 @@ The source code provides a series of static files for deployment to the static f
 - Operating system: Windows 7 64-bit
 - Web server: Apache 2.4 64-bit
 - Demo can also be run with other Web server, such as Nginx
-- Server has a public IP and domain name. In this example, the domain name is www.xiaozhibo.com.
+- Server has a public IP and domain name. In this example, the domain name is `www.xiaozhibo.com`.
 
 Welcome to Tencent Cloud's one-stop solution. It covers a range of solutions such as CVM and DNS, eliminating your efforts in a variety of configurations. For more information, please see
 
@@ -89,13 +89,13 @@ Under the installation directory, locate D: \ Program Files\Apache24\bin\ApacheM
 
 Click "start" on the left to start Apache service.
 
-Open the browser and enter http://localhost
-If the port you set is 8080, then the access URL is http://localhost: 8080/
+Open the browser and enter `http://localhost`
+If the port you set is 8080, then the access URL is `http://localhost: 8080/`
 The appearance of the following page indicates Apahce has started successfully.
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)
 
 If the server has a public IP and domain name, you can use the domain name for access, for example:
-http://www.xiaozhibo.com/
+`http://www.xiaozhibo.com/`
 
 ### 3.3 Run Demo
 
@@ -107,13 +107,13 @@ D:\Program Files\Apache24\htdocs
 
 Then the URL for accessing the sharing page is
 
-http://www.xiaozhibo.com/share/xiaozhibo.html
+`http://www.xiaozhibo.com/share/xiaozhibo.html`
 
 Note: This URL has not included required parameters.
 
 Required parameters need to be appended to the above URL by Mini LVB App to construct the complete sharing URL as shown below:
 
-http://www.xiaozhibo.com/share/xiaozhibo.html?sdkappid=1400012894&acctype=6672&userid=test1234&type=0&ts=1479299174
+`http://www.xiaozhibo.com/share/xiaozhibo.html?sdkappid=1400012894&acctype=6672&userid=test1234&type=0&ts=1479299174`
 
 When a user opens the sharing URL, the sharing page fetches data from Mini LVB's livedemo server based on the URL parameters, including video playback URL, VJ data, IM room information, and then presents the video playback and IM messaging features.
 

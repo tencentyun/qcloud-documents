@@ -29,14 +29,16 @@
 3. 把 test.html 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传。
 
 ```html
-<input id="file-selector" type="file">
+<input id="fileSelector" type="file">
 <script src="dist/cos-js-sdk-v5.min.js"></script>
 <script>
-var Bucket = 'test-1250000000';
+var AppId = '1250000000';
+var Bucket = 'test';
 var Region = 'ap-guangzhou';
 
 // 初始化实例
 var cos = new COS({
+    AppId: AppId,
     getAuthorization: function (options, callback) {
         // 异步获取签名
         $.get('../server/auth.php', {
@@ -49,7 +51,7 @@ var cos = new COS({
 });
 
 // 监听选文件
-document.getElementById('file-selector').onchange = function () {
+document.getElementById('fileSelector').onchange = function () {
     
     var file = this.files[0];
     if (!file) return;

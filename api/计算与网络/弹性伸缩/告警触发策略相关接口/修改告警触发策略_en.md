@@ -49,7 +49,7 @@ The following error codes only include the business logic error codes for this A
 | InvalidParameter.AdjustmentValue | adjustmentValue of scaling policy is beyond the range |
 | Conflict.ModifyDefaultScalingPolicyError | Default policy cannot be edited |
 
-## 4. Example
+## 5. Example
 ```
 https://scaling.api.qcloud.com/v2/index.php?
 &<Common request parameters>

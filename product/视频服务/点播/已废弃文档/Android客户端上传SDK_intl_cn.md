@@ -1,5 +1,5 @@
 ## SDK集成
-[点击下载 Android UGC SDK](https://mc.qcloudimg.com/static/archive/51854b2dd574bda851bad6221238e967/ugcupload.zip)。解压zip包，配置工程导入其中的jar包和so:
+[单击下载 Android UGC SDK](https://mc.qcloudimg.com/static/archive/51854b2dd574bda851bad6221238e967/ugcupload.zip)。解压zip包，配置工程导入其中的jar包和so:
 
 >* okio-1.6.0.jar
 >* okhttp-3.2.0.jar

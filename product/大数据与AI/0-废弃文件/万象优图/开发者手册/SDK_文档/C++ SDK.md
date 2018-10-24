@@ -3,7 +3,7 @@
 ### 1.1	前期准备
 前期准备
 1.	安装openssl的库和头文件 http://www.openssl.org/source/ 
-2.	安装curl的库和头文件 http://curl.haxx.se/download/curl-7.43.0.tar.gz 
+2.	安装curl的库和头文件 `http://curl.haxx.se/download/curl-7.43.0.tar.gz` 
 3.	安装jsoncpp的库和头文件 https://github.com/open-source-parsers/jsoncpp 
 4.	安装cmake工具 http://www.cmake.org/download/ 
 注意：
@@ -21,12 +21,12 @@ cd build
 cmake .. 
 make 
 ```
-需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成你自己的。
+需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成您自己的。
 生成的sample就可以直接运行，试用，生成的静态库，名称为:libimagesdk.a。 
-生成的libimagesdk.a放到你自己的工程里lib路径下， 
-include目录下的 Auth.h Imageapi.h curl json都放到你自己的工程的include路径下。 
+生成的libimagesdk.a放到您自己的工程里lib路径下， 
+include目录下的 Auth.h Imageapi.h curl json都放到您自己的工程的include路径下。 
 例如我的项目里只有一个sample.cpp,项目目录和sdk在同级目录， 
-copy libimagesdk.a 到项目所在目录那么编译命令为: 
+copy libimagesdk.a 到项目所在目录那么编译命令为：
 
 ```
 g++ -o sample sample.cpp -I ./include/ -L. -L../cpp-sdk/lib/ -limagesdk -lcurl -lcrypto -lssl -lrt -ljsoncpp

@@ -13,7 +13,7 @@ Developers can try Porn Detection out on [Try-out Platform](http://cloud.tencent
 ## Description
 
 Porn Detection API uses HTTP protocol and supports multiple URLs and local images, with a maximum of 20 images or URLs supported for each request.
-**API:**  http://service.image.myqcloud.com/detection/porn_detect
+**API:**  `http://service.image.myqcloud.com/detection/porn_detect`
 **Method:**  POST
 
 ## Porn Detection for Images/URLs

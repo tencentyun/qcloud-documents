@@ -1,7 +1,7 @@
 ### Logging in to Container on Console (Recommended)
 1. Log in to [CCS Console](https://console.cloud.tencent.com/ccs).
 2. Select the service to which the container belongs and enter the details page to view the list of pods. Select container and connect to the remote console.
-3. For the FAQs on the Remote Terminal, please see [Details](https://cloud.tencent.com/document/product/457/8638?!preview&lang=zh)
+3. For the FAQs on the Remote Terminal, please see [Details](https://cloud.tencent.com/document/product/457/8638)
 
 ![Alt text](https://mc.qcloudimg.com/static/img/fd06e590a5e2d109d5489b1df55454e5/20170316160930.png)
 

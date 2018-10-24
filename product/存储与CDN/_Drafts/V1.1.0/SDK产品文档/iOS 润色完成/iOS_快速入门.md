@@ -87,7 +87,7 @@ QCloudCOSXML/QCloudCOSXML.h
 
 | 参数名称   |  说明                 |类型         | 必填 |
 | ------ | ---------- | ---- | --------------|
-| appID  | 项目 ID，即 APP ID。         |NSString * | 是    | 
+| appID  | 项目 ID，即 APP ID。         |NSString * | 是    |
 
 
 #### 初始化示例
@@ -182,13 +182,13 @@ QCloudCOSXML/QCloudCOSXML.h
 | Object  | 上传文件（对象）的文件名，也是对象的key          | NSString * | 是    |
 |bucket|上传的存储桶的名称|NSString * |是|
 |body|需要上传的文件的路径。填入NSURL * 类型变量|BodyType|是|
-| storageClass |  对象的存储级别 |QCloudCOSStorageClass | 是    | 
+| storageClass |  对象的存储级别 |QCloudCOSStorageClass | 是    |
 |cacheControl|RFC 2616 中定义的缓存策略|NSString *  |否|
 |contentDisposition|RFC 2616中定义的文件名称|NSString * |否|
 |expect|当使用expect=@"100-Continue"时，在收到服务端确认后才会发送请求内容|NSString * | 否 |
-|expires| RFC 2616中定义的过期时间|NSString * |否 | 
+|expires| RFC 2616中定义的过期时间|NSString * |否 |
 |initMultipleUploadFinishBlock| 如果该 request 产生了分片上传的请求，那么在分片上传初始化完成后，会通过这个 block 来回调，可以在该回调 block 中获取分片完成后的 bucket， key， uploadID，以及用于后续上传失败后恢复上传的ResumeData。|block|否|
-|accessControlList|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|NSString * |否| 
+|accessControlList|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|NSString * |否|
 |grantRead|赋予被授权者读的权限。格式： id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"  其中 OwnerUin 指的是根账户的 ID，而 SubUin 指的是子账户的 ID|NSString * |否|
 |grantWrite| 授予被授权者写的权限。格式同上。|NSString * |否|
 |grantFullControl| 授予被授权者读写权限。格式同上。|NSString * |否|
@@ -222,8 +222,12 @@ SDK 中的请求需要用到签名，以确认访问的用户的身份，也保�
                   urlRequest:(NSURLRequest* )urlRequst    
                    compelete:(QCloudHTTPAuthentationContinueBlock)continueBlock
 ```
-虽然在本地提供了永久的 SecretId 和 SecretKey 来生成签名的接口，但请注意，将永久的 SecretId 和SecretKey 存储在本地是非常危险的行为，容易造成泄露引起不必要的损失。因此基于安全性的考虑，建议您在服务器端实现签名的过程。    
-推荐您在自己的签名服务器内接入腾讯云的 CAM（Cloud Access Manager， 访问管理）来实现整个签名流程。    
+### 最佳实践：接入CAM系统实现临时签名
+
+虽然在本地提供了永久的 SecretId 和 SecretKey 来生成签名的接口，但请注意，将永久的 SecretId 和SecretKey 存储在本地是非常危险的行为，容易造成泄露引起不必要的损失。因此基于安全性的考虑，建议您在服务器端实现签名的过程。        
+
+推荐您在自己的签名服务器内接入腾讯云的 CAM（Cloud Access Manager， 访问管理）来实现整个签名流程。     
+
 ![接入CAM签名部署图](http://ericcheung-1253653367.cosgz.myqcloud.com/Logical%20View.png)        
 签名服务器接入 CAM 系统后，当客户端向签名服务器端请求签名时，签名服务器端会向 CAM 系统请求临时证书，然后返回给客户端。CAM 系统会根据您的永久 SecretId 和 SecretKey 来生成临时的 Secret ID, Secret Key 和临时Token 来生成签名，可以最大限度地提高安全性。
 
@@ -247,6 +251,25 @@ SDK 中的请求需要用到签名，以确认访问的用户的身份，也保�
 
 ```
 
+### 在终端使用永久密钥生成签名（不推荐，有极大的泄密风险）
+```objective-c
+- (void) signatureWithFields:(QCloudSignatureFields*)fileds
+                     request:(QCloudBizHTTPRequest*)request
+                  urlRequest:(NSMutableURLRequest*)urlRequst
+                   compelete:(QCloudHTTPAuthentationContinueBlock)continueBlock
+{
+
+    QCloudCredential* credential = [QCloudCredential new];
+    credential.secretID = @"永久的SecretID";
+    credential.secretKey = @"永久的SecretKey";
+    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:credential];
+    QCloudSignature* signature =  [creator signatureForData:urlRequst];
+    continueBlock(signature, nil);
+}
+
+```
+
+### 使用脚手架工具管理异步签名过程
 其实到这一步，您已经可以生成签名正常使用 SDK 里面的接口了。但为了方便您实现临时签名，从服务器端获取tempSecretKey 等临时签名需要的信息，我们提供了脚手架工具可供使用。您可以依照前面的代码来生成签名，也可以通过我们的脚手架工具 QCloudCredentailFenceQueue 来方便地获取临时签名。QCloudCredentailFenceQueue 提供了栅栏机制，也就是说您使用 QCloudCredentailFenceQueue 获取签名的话，所有需要获取签名的请求会等待签名完成后再执行，免去了自己管理异步过程。   
 使用 QCloudCredentailFenceQueue，我们需要先生成一个实例。
 ```objective-c

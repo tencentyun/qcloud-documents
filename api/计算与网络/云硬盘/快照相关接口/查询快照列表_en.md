@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
 | diskType  | No | String | Filter by cloud disk type. Option: root (system disk), data (data disk) |
-| projectId | No | Int | Filter by project ID. 0 means default project. To specify other projects, you can call <a href="https://cloud.tencent.com/doc/api/403/4400" title="DescribeProject">DescribeProject</a> API to query |
+| projectId | No | Int | Filter by project ID. 0 means default project. To specify other projects, you can call <a  title="DescribeProject">DescribeProject</a> API to query |
 | storageIds.n | No | Array [String] | Filter by cloud disk ID creating this snapshot. You can call <a href="http://cloud.tencent.com/doc/api/364/%E6%9F%A5%E8%AF%A2%E4%BA%91%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF" title="DescribeCbsStorages">DescribeCbsStorages</a> API to query |
 | snapshotIds.n  | No | Array [String] | Filter by snapshot ID. |
 | offset | No | Int | Offset. The value is 0 if not passed. |
@@ -26,7 +26,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, refer to<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Code</a>. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Code</a>. |
 | message | String | Error message |
 | snapshotSet | Array [object] | Snapshot details |
 | totalCount | Int | Number of snapshots that meet the condition.

@@ -1,46 +1,61 @@
 ## 1. API Description
- 
 
 This API (DeleteImages) is used to delete one or more images.
 
-Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">image.api.qcloud.com</font>.
 
-
-* Images with the status of "Creating..." or "In Use" cannot be deleted.
+* The images with a [status](/document/api/213/9452#image_state) of `Creating` or `In Use` cannot be deleted. Image status can be obtained via API [DescribeImages](/document/api/213/9418).
 * A maximum of 10 custom images are allowed to be created for each region. Deletion of images can free the quota on account.
-
+* A shared image cannot be deleted.
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
 
-| Parameter Name | Required | Type | Description |
+| Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| imageIds.n | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://cloud.tencent.com/document/api/213/1272) API (This API allows passing multiple IDs at a time). For the format of this parameter, refer to `id.n` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568)).
+| Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+| ImageIds.N |  array of Strings |Yes | List of image IDs. Image ID can be obtained by either of the following ways: <br><li>Obtained from the `ImageId` field in the returned values of API [DescribeImages](/document/api/213/9418); <br><li>Obtained via [image console](https://console.cloud.tencent.com/cvm/image). <br>Image ID must meet the following requirements: <br><li>It must identify an image with a status of `NORMAL`;<br><li>It must identify an image that has not been shared to other accounts.<br>For more information on image statuses, please see [Image Data Sheet](/document/api/213/9452#image_state). 
 
 
 ## 3. Output Parameters
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
- 
- 
+| RequestId | String | Unique request ID. A unique RequestId is returned for each request. The value of RequestId need to be provided to the backend developer if you fail to call the API. |
 
-## 4. Example
- 
-Input
+
+## 4. Error Codes
+
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](/document/api/213/10146).
+
+| Error code | Description |
+|---------|---------|
+|InvalidImageId.InShared|The image is being shared.|
+|InvalidImageId.IncorrectState|Invalid image status.|
+|InvalidImageId.NotFound|This image cannot be found.|
+|InvalidImageId.Malformed| Incorrect format of image ID.|
+
+
+## 5. Example 
+
+Request Parameters
 <pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=DeleteImages
-  &imageIds.0=img-xxxxxxxx
-  &imageIds.1=img-xxxxxxxx
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
+https://image.api.qcloud.com/v2/index.php?Action=DeleteImages
+&Version=2017-03-12
+&ImageIds.0=img-o3ycss2p
+&imageIds.1=img-kb1a392d
+&<<a href="/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
-Output
-Refer to [Asyn Task API Return Format](http://cloud.tencent.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#2.-批量异步任务接口返回格式)
-
+Response Parameters
+<pre>
+{
+    "Response": {
+        "RequestID": "354f4ac3-8546-4516-8c8a-69e3ab73aa8a"
+    }
+}
+</pre>
 
 
 

@@ -1,40 +1,31 @@
-API request parameters depends on specific APIs. Different APIs support different API request parameters. The first letter of API request parameters is lowercase to distinguish them from public request parameters.
-We here use <a href="/doc/api/229/831" title="查询实例列表">DescribeInstances</a> as an example. It supports these API request parameters:
+A complete Tencent Cloud API request requires two types of request parameters: common request parameter and API request parameter. This document will describe API request parameters used in Tencent Cloud API requests. For more information about common request parameters, please see [Common Request Parameters](/document/api/377/4153).
+API request parameters depend on specific APIs. Different APIs support different API request parameters. In order to differentiate from common request parameters, the initial letters of API request parameters are all lowercases.
+>**Note:**
+>The parameters in this document use Tencent Cloud CVM as example. For actual parameters for other Tencent Cloud products, refer to their API parameter instructions accordingly.
 
-| Parameter | Required | Type | Description | 
+The following parameter list uses the Tencent Cloud CVM API DescribeInstances as example. This API supports the following API request parameters:
+
+| Parameter | Description | Type | Required |
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | ID array of CVM instances to be queried (starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
-| lanIps.n | No | String | Private IP array of CVMs to be queried.  | 
-| searchWord | No | String | User-defined CVM name. |
-| offset | No | Int | Offset value, which defaults to 0.  | 
-| limit | No | Int | The maximum number of CVM that can be queried at one time. The default is 20 and the maximum is 100. |
-| status | No | Int | Status of the CVM to be queried. |
-| projectId | No | String | Project ID. The CVM instances for all projects are queried if it is not specified. 0 indicates the default project. If you want to specify a different project, you can call the <a href="/document/product/378/4400" title="查询项目列表">DescribeProject</a> API to query. |
-| simplify | No | Int | Obtains non-real time data. When simplify = 1 is specified, then non-real time data is obtained. |
-| zoneId | No | Int | Availability zone ID. The CVM instances for all availability zones are queried if it is not specified. To specify an availability zone, you can call the <a href="/doc/api/229/1286" title="查询可用区">DescribeAvailabilityZones</a> API to query. |
+| instanceIds.n | Array of IDs of CVMs to be queried. The array subscript starts from 0. Both instanceId and unInstanceId are supported, but it is recommended to use unified resource ID: unInstanceId. | String | No |
+| lanIps.n | Array of private IPs of the CVMs to be queried. | String | No |
+| searchWord | CVM alias set by the user. | String | No |
+| offset | Offset. Default is 0. | Int | No |
+| limit | The maximum number of servers allowed to be queried at a time. Default is 20, and the maximum is 100. | Int | No |
+| status | Status of the CVM to be queried. | Int | No |
+| projectId | Project ID. CVM instances of all projects are queried if this is left empty. 0 indicates default project. Call the API [DescribeProject](/document/product/378/4400)  to look for the IDs of other projects. | String | No |
+| simplify | Obtain non-real time data if simplify=1 is added when passing parameters. | Int | No |
+| zoneId | Availability zone ID. CVM instances of all availability zones are queried if this is left empty. Call the API [DescribeAvailabilityZones](/doc/api/229/1286) to look for the IDs of other availability zones. | Int | No |
 
-The fields are described as follows:
-<table class="t">
-<tbody>
-<td> Parameter
-</td><td> Name of the request parameters supported by this API. You can use it as an API request parameter when using this API. <br>
-Note: If the parameter name is ended with ".n", it indicates that this parameter is an array. Then you need to specify array parameters in sequence. For the DescribeInstances API, if you specify the parameter instanceIds.0=ins-0hm4gvho&instanceIds.1=ins-0hm4gvho, only the CVM instances with the IDs of ins-0hm4gvho and ins-0hm4gvho are queried.
-</td></tr>
-<tr>
-<td> Required
-</td><td> Indicates whether this parameter is required. "Yes" means that this parameter must be specified to call this API; "No" means that it may not be specified. In the DescribeInstances API, all API request parameters are not mandatory. You can call this API using common request parameters.
-</td></tr>
-<tr>
-<td> Type
-</td><td> Data type of this API parameter.
-</td></tr>
-<tr>
-<td> Description
-</td><td> Describes briefly the content of this API request parameter.
-</td></tr>
-</tbody></table>
+The fields are described as below:
 
-If you want to query the auto scaling group list, the request should be:
+**Parameter name:** Request parameter name supported by the API. Users can use this as API request parameter when using this API. A parameter name which ends with ".n" indicates that the parameter is an array, and array parameters need to be passed when using this parameter.
+**Required:** Indicate whether this parameter is required. "Yes" means the parameter is required when you call the API. "No" means the parameter can be left empty.
+**Type:** Data type of the API parameter.
+**Description:** A brief description of the API request parameter.
+
+### Example
+The format of API request parameters in API request links for Tencent Cloud products are shown below. Take Tencent Cloud CVM as example, suppose a user needs to query the list of scaling groups, the request link should be:
 
 <pre>
 https://cvm.api.qcloud.com/v2/index.php?
@@ -47,4 +38,4 @@ https://cvm.api.qcloud.com/v2/index.php?
 &zoneId=100003
 </pre>
 
-A complete request requires two types of request parameters: common request parameters and API request parameters. Only API request parameter are listed here. For more information about common request parameters, refer to <a href="/doc/api/372/公共请求参数" title="公共请求参数">Common request parameters</a>.
+

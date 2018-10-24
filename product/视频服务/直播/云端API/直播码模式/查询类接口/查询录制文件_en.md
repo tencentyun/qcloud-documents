@@ -5,7 +5,7 @@
   - **Live_Tape_GetFilelist**: This API is used to query recording files generated in a certain LVB stream during a certain period of time.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API:` http://fcgi.video.qcloud.com/common_access`
 
 - **Note**
   - You are unaware of the exact file generation time so you cannot properly determine when to call such active query APIs. Therefore, it is recommended that you use [Passive Event Notification](https://cloud.tencent.com/doc/api/258/5957) (event_type = 100) mechanism.
@@ -49,7 +49,7 @@
 | end_time    | End time of the part |   string  |  The time cannot be accurate to seconds due to interference of the I frame position  |
 | file_id        | VOD file_id     |   string  |  This parameter is required when you use the VOD API to exchange for playback URL |
 | record_file_url | Playback address | string | This field is used as the address. If left empty, the address will be the vid which is assembled based on assembly format  |
-**vid assembly format: URL format for video part recording requests: http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv**
+**vid assembly format: URL format for video part recording requests: `http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv` **
 
  
 ## 4. Example

@@ -1,4 +1,3 @@
-#### Viewing Monitoring Data
 
 Click on the instance name to enter the page where you can view its detailed information and monitoring data.
 

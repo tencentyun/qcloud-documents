@@ -25,7 +25,7 @@ The scaling group offers an option: you can add one or more CVM instances to the
 
 Click the ID of the scaling group to be managed, or click **Management** beside it, to enter the details page of scaling group. In the lower half of the page, click "Add CVM" in CVM list, and check the corresponding CVM in the dialog box, then click "OK".
 
-![](https://mc.qcloudimg.com/static/img/ba54a0d85d885e75d0e07056050748ee/5.jpg)
+![](https://mc.qcloudimg.com/static/img/7fab080a771cd36a18cd669a6e6cf78b/1.jpg)
 
 
 ## Modifying the Expected Number of Instances to Enable One-click Scale-up
@@ -42,10 +42,10 @@ In such case, you can set the scaling configuration of CVM template, and configu
 1. Create a custom image.
 An instance that is scaled up subsequently will deploy the environment based on this image.
 Suggested steps to create a custom image: You can deploy your services on an existing CVM or a newly-created CVM, set the services to be activated upon the boot of operating system, and export the services as a custom image.
-For any question, refer to [Create Custom Images](https://cloud.tencent.com/document/product/213/4942).
+For any question, refer to [Create Custom Images](https://intl.cloud.tencent.com/document/product/213/4942).
 
 2. Create a scaling configuration based on the custom image.
-For more information about creating scaling configuration, refer to [Create Scaling Configuration](https://cloud.tencent.com/document/product/377/8544).
+For more information about creating scaling configuration, refer to [Create Scaling Configuration](https://intl.cloud.tencent.com/document/product/377/8544).
 
 3. Create a scaling group.
 During the creation process, select the created scaling configurations. For the minimum group size, maximum group size and initial number of instances, you should fill in these fields based on the upper and lower limits of the required number of servers as well as the current number. After finishing this step, you can scale up at any time.
@@ -54,5 +54,3 @@ During the creation process, select the created scaling configurations. For the 
 If the service needs to be scaled up (for example, starting a gene sequencing task or enabling a request-specific server for data collection), you can directly modify the configuration of scaling group to increase the minimum group size, maximum group size and the expected number of instances, and then AS will quickly perform the scale-up operation for you.
 
 **Summary:** With such operations as CLB forwarding rules, machine configuration and service deployment performed in advance, you can complete scale-up by simply modifying the parameters of scaling group, ensuring the agility of service.
-
-

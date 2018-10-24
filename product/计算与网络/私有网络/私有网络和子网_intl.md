@@ -1,23 +1,23 @@
 ## Virtual Private Cloud (VPC)
 Virtual Private Cloud allows you to build an independent network space on Tencent Cloud, similar to the traditional network you hosted in a data center. However, what hosted in Tencent Cloud VPC are your service resources on Tencent Cloud, which include: [Cloud Virtual Machine](https://cloud.tencent.com/doc/product/213/495), [Cloud Load Balance](https://cloud.tencent.com/doc/product/214/524), [Cloud Database](https://cloud.tencent.com/doc/product/236) and other resources of cloud services on your Tencent Cloud. Tencent Cloud VPC can provide you with the following features:
 - Customize network segmentation, IP address and routing policy via the console and APIs
-- Access Internet flexibly via [Elastic IP](https://cloud.tencent.com/doc/product/213/1941), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972)
-- Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and [Direct Connect](https://cloud.tencent.com/doc/product/215/4976)
+- Access Internet flexibly via [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and Public Network Gateway
+- Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and Direct Connect
 - "One server covering the globe" and disaster recovery at "two regions, three centers" can be achieved via [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)
 - Through basic network interconnection, hosts in basic network and VPC can communicate via private network
-- The [Security Group](https://cloud.tencent.com/doc/product/213/500) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
+- The [Security Group](https://intl.cloud.tencent.com/document/product/213/5221) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
 
 When creating a VPC, the user needs to specify an IP address group for VPC in the form of a classless inter-domain routing (CIDR) block (e.g, 10.0.0.0/16). VPC is region related. For example VPC A in southern China (Guangzhou), users cannot create a cross-region VPC.
 
 ## Subnet
 Subnet is the IP address block within VPC, and all cloud resources in the VPC must be deployed in subnet. Subnet is availability zone related, as shown in the following figure. After creating a VPC, you can add a subnet to each availability zone under the region to which the VPC belongs. Availability zone is designed to isolate failures from other availability zone. By starting an instance in an independent availability zone, users can protect their applications from being affected by the failures occurring in a single point.
-![](//mccdn.qcloud.com/static/img/ed30d5720e70a9f25510216526c1c342/image.png)
+![](https://mc.qcloudimg.com/static/img/40f878e32272b1657f0c2004f80d6ab7/VPC-Private+Network+and+Subnet%281%29.png)
 
 ## VPC IP Address
 You can specify the CIDR (Classless Inter-Domain Routing) to implement the overall IP division of the VPC and subnets. IP address used in the Tencent Cloud VPC is divided into three categories:
 - **Private IP**: It is the IP address that must be assigned to an instance within VPC for communication between instances in VPC, but it cannot be used for Internet communication.
 - **Public IP**: It is the IP address used for Internet access and can be used for communication between instances and the Internet or other Tencent Cloud resources (such as CDB) that have common terminal nodes.
-- **[Elastic IP (EIP)](https://cloud.tencent.com/doc/product/213/1941)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
+- **[Elastic IP (EIP)](https://intl.cloud.tencent.com/document/product/213/5733)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
 
 ## CIDR
 CIDR (Classless Inter-Domain Routing) is a user-specified independent network space address block, which enables the overall division of the network by combining IP with mask. Take `10.1.0.0/16` as an example, the left side of the slash is the IP of the network block, and the right side of the slash is the mask of the network block. You can adjust the size of the network block by setting the value of the mask. Number of IPs that the network block contains equals 2 ^ (32-mask), so the `10.1.0.0/16` network block contains up to 65,536 IP addresses.
@@ -67,16 +67,16 @@ Region is named as "coverage + city where data center locates". The first half r
 
 ## Availability Zone
 Availability zones are physical zones under the same region but each with independent power and network (it is usually a physical data center), named as "city + No.". For example, there are two availability zones under South China (Guangzhou), i.e., Guangzhou Zone 1 and Guangzhou Zone 2, as shown below.
-![](//mccdn.qcloud.com/static/img/1e3fefd8da993577229ea4df2a34d559/image.png)
+![](https://mc.qcloudimg.com/static/img/db8ed5b876cd159c7253dacf24fb68b9/VPC-Private+Network+and+Subnet%282%29.png)
 
 The availability zone is designed to ensure that failure of any zone can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones so that users' online services will not interrupt. For large-scale applications, disaster recovery is an important guarantee for service availability, and multiple data center deployment is a common practice of disaster recovery; for ordinary users, the multiple data center deployment is a luxury investment, but Tencent Cloud's multiple availability zones is designed as such that each customer can implement disaster recovery deployment across multiple data centers while not incurring additional cost and the complexity of operation and maintenance.
 
 For example, if you have deployed the same service in Zone 1 and Zone 2, the power failure in Zone 1 will not affect Zone 2, which provides you with stable and highly available services, as shown below.
-![](//mccdn.qcloud.com/static/img/764997fbfa7359bb8c384f460f89be57/image.png)
+![](https://mc.qcloudimg.com/static/img/5acf2667d4c9e11d4a36add666a54050/VPC-Private+Network+and+Subnet%283%29.png)
 
 - Disaster recovery architecture: When your service needs higher availability, multiple data center deployment across the availability zones is to ensure low latency while providing users with high disaster recovery capacity. For example: You can purchase CVM in Guangzhou Zone 1 and Zone 2, respectively, and failure that happens in one zone will not affect the normal operation of cloud services in the other zone.
 - Low latency architecture: If the application is more focused on low network latency, you can deploy the services in the same availability zone.
-![](//mccdn.qcloud.com/static/img/756eac365c1a43c81a95abe976979ca7/image.png)
+![](https://mc.qcloudimg.com/static/img/091ef35eaad1c1baa39a022860057d61/VPC-Private+Network+and+Subnet%284%29.png)
 
 Regions and availability zones supported by Tencent Cloud VPC are listed as follows:
 
@@ -237,7 +237,8 @@ Modification to primary private IP of CVM primary ENI is supported, while modifi
 2)  Click the CVM ID to enter the CVM details page, and click the "ENI" tab on the top.
 3)  Click "Modify primary IP".
 4)  Fill in the new IP and save it.
-![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
+
+![](https://mc.qcloudimg.com/static/img/c9a84dfc1784b3a51f21fb80626447ee/step6.jpg)
 
 You can also modify the primary private IP on the ENI details page. Click to view [Operation Details](https://cloud.tencent.com/doc/product/215/6513#.E4.BF.AE.E6.94. B9.E.B8.BB.E5.86.85.E7.BD.91ip).
 
@@ -257,4 +258,4 @@ The prerequisite for deleting a subnet is that the IPs in the subnet is not occu
 3) Select the line where subnet to be deleted is located and click "Delete".
 
 ## API Overview
-You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).

@@ -2,6 +2,13 @@
 
 |时间|更新内容|
 |:--|:---|
+|2018.03.01|1.[容器服务新增服务自动扩缩容功能](https://cloud.tencent.com/document/product/457/14209)<br>2.容器服务购买页支持全部CVM机型<br>3.容器服务控制台页面接入新版重构|
+|2018.02.08|1.[容器服务新增集群自动扩缩容功能](https://cloud.tencent.com/document/product/457/6779)|
+|2018.02.06|1. [容器服务新增日志采集功能](https://cloud.tencent.com/document/product/457/13658) <br>2. [容器服务新增应用管理功能](https://cloud.tencent.com/document/product/457/12198) <br>3. [容器服务新增免费实验室功能](https://console.cloud.tencent.com/ccs/lab)|
+|2017.12.20|1. 购买集群节点支持使用代金卷<br>2. 创建空集群功能<br>3. 添加已有节点支持设置容器目录和资源所属项目|
+|2017.11.30|1. 集群保留策略 - 预留dockerd、kubelet等系统进程资<br>2. 集群驱逐策略 - 保证系统进程的资源满足，驱逐pod<br>3. dockerd日志回卷 - 自动回收日志，保证磁盘空间充足<br>4. [ingress转发规则支持通配符](https://cloud.tencent.com/document/product/457/9111#.E5.9F.9F.E5.90.8D.E9.80.9A.E9.85.8D.E7.AC.A6.E8.AF.B4.E6.98.8E)|
+|2017.10.31|1. [容器服务新增应用管理(内测)](https://cloud.tencent.com/act/apply/ccs_application)<br>2. 镜像仓库多地域部署， 支持新地域香港<br>3. 容器服务支持国际版|
+|2017-09-26|1.[容器镜像仓库接入CAM权限管理](https://cloud.tencent.com/document/product/457/11527)<br>2.[服务支持label属性](https://cloud.tencent.com/document/product/457/11360)<br>3.配置项支持导入环境变量<br>4.[集群新增资源所属项目属性](https://cloud.tencent.com/document/product/457/11185)<br>5.容器服务支持新加坡地域|
 |2017-08-23|1.[容器服务接入告警平台](https://cloud.tencent.com/document/product/457/10784)<br> 2.[容器集群支持Kubernetes1.7](https://cloud.tencent.com/act/apply/ccs_kubernetes_1_7_3 )<br>3.[基于TencentHub持续集成和持续部署](https://cloud.tencent.com/document/product/457/11039)<br>4.[镜像仓库新增触发器功能](https://cloud.tencent.com/document/product/457/10155)<br>5.镜像仓库接入操作日志|
 |2017-08-04|1.[公网使用Kubectl操作集群](https://cloud.tencent.com/document/product/457/8438)<br> 2.容器集群接入CAM权限管理|
 |2017-07-19|1.[容器服务支持配置文件管理](https://cloud.tencent.com/document/product/457/10173)|

@@ -1,0 +1,54 @@
+为了帮助您快速使用私用网络api，这里给出一个示例，该示例先创建一个vpc。
+
+在搭建一个vpc之前，必须要规划好您的cidrBlock（即网段）。VPC 创建成功后 cidrBlock 是不能修改的。有关创建 VPC 的详细信息请参考创建私有网络页面。
+
+这里我们创建一个私有网络，其公共请求参数的Action字段CreateVpc，接口请求参数如下表：
+
+| 参数名称 | 描述 | 取值 |
+|---------|---------|---------|
+| vpcName | VPC名称 | 1-60个中文、英文大小写的字母、数字和下划线分隔符 |
+| cidrBlock | 私有网络CIDR网段 | VPC网段,可选值 10.0.0.0/16、172.16.0.0/16和192.168.0.0/16及它们包含的子网，详见VPC网段规划说明 |
+| subnetSet.n |子网数组 | 可选项 |
+| subnetSet.n.subnetName | 子网名称 | 1-60个中文、英文大小写的字母、数字和下划线分隔符 |
+| subnetSet.n.cidrBlock | 子网网段 | 子网网段必须要在vpc网段内 |
+| subnetSet.n.zoneId | 可用区ID | 详见可用区说明 |
+
+结合公共请求参数和接口请求参数，最终得到的请求形式如下：
+
+<pre>
+https://vpc.api.qcloud.com/v2/index.php?Action=CreateVpc
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+  &vpcName=bbbtest
+  &cidrBlock=192.168.0.0/16
+  &subnetSet.0.subnetName=wikitest
+  &subnetSet.0.cidrBlock=192.168.1.0/24
+  &subnetSet.0.zoneId=800001
+</pre>
+上述请求的返回结果如下，由结果可知，新创建的启动配置ID为vpc-2ari9m7h。
+
+```
+{
+    "code": 0,
+    "message": "",
+    "vpcId": "gz_vpc_266",
+    "uniqVpcId": "vpc-2ari9m7h",
+    "vpcCreateTime": "2015-11-06 11:33:52",
+    "subnetSet": [
+        {
+            "subnetId": "gz_subnet_18720",
+            "unSubnetId": "subnet-5gu2jxf4",
+            "routeTableId": "gz_rtb_8751",
+            "subnetName": "wikitest",
+            "cidrBlock": "192.168.1.0/24",
+            "zoneId": 800001
+        }
+    ],
+    "routeTableSet": [
+        {
+            "routeTableId": "gz_rtb_8751",
+            "routeTableType": 1,
+            "routeTableName": "默认"
+        }
+    ]
+}
+```

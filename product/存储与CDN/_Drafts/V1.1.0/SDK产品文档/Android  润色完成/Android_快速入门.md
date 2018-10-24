@@ -17,12 +17,10 @@
 
 需要在工程项目中导入下列 jar 包，存放在 libs 文件夹下：
 
-- cos-xml-android-sdk-1.2.jar
-- qcloud-core-1.2.jar
+- cos-xml-android-sdk.1.3.0.jar
+- qcloud-core.1.3.0.jar
 - okhttp-3.8.1.jar
 - okio-1.13.0.jar
-- xstream-1.4.7.jar
-- fastjson-1.1.62.android.jar
 
 使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0 以上还需要动态获取权限）：
 ```html
@@ -39,7 +37,7 @@
 ### 初始化 
 
 进行任何操作之前，都需要实例化 CosXmlService 和 CosXmlServiceConfig。
-- CosXmlServiceConfig： 网络连接、重试等配置参数；
+- CosXmlServiceConfig： 配置参数；
 - CosXmlService：SDK 提供的服务类，可操作各种 COS 服务；
 
 ````java
@@ -54,11 +52,9 @@ long keyDuration = 600; //SecretKey 的有效时间，单位秒
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .setAppidAndRegion(appid, region)
        .setDebuggable(true)
-       .setConnectionTimeout(45000)
-       .setSocketTimeout(30000)
-       .build();
+       .builder();
 
-//创建获取签名类
+//创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
 LocalCredentialProvider localCredentialProvider = new LocalCredentialProvider(secretId, secretKey, keyDuration);
 
 //创建 CosXmlService 对象，实现对象存储服务各项操作.
@@ -77,13 +73,13 @@ long signDuration = 600; //签名的有效期，单位为秒
 
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
 
-putObjectRequest.setSign(signDuration,null,null);
+putObjectRequest.setSign(signDuration,null,null); //若不调用，则默认使用sdk中sign duration（60s）
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress 已上传的大小， max 表示文件的总大小
 */
-putObjectRequest.setProgressListener(new QCloudProgressListener() {
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
@@ -177,10 +173,10 @@ srcPath, uploadId);
 uploadPartRequest.setSign(600,null,null);
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress已上传的大小， max 表示文件的总大小
 */
-uploadPartRequest.setProgressListener(new QCloudProgressListener() {
+uploadPartRequest.setProgressListener(new CosXmlProgressListener() {
 	 @Override
 	 public void onProgress(long progress, long max) {
 	     float result = (float) (progress * 100.0/max);
@@ -229,6 +225,50 @@ try {
        Log.w("TEST","CosXmlServiceException =" + e.toString());
 }
 ````
+
+### UploadService
+
+````java
+//UploadService 封装了上述分片上传请求一系列过程的类
+
+ UploadService.ResumeData resumeData = new UploadService.ResumeData();
+ resumeData.bucket = "存储桶名称";
+ resumeData.cosPath = "远端路径，即存储到 COS 上的绝对路径"; //格式如 cosPath = "/test.txt";
+ resumeData.srcPath = "本地文件的绝对路径"; // 如 srcPath =Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+ resumeData.sliceSize = 1024 * 1024; //每个分片的大小
+ resumeData.uploadId = null; //若是续传，则uploadId不为空
+
+
+ UploadService uploadService = new UploadService(cosXmlService, resumeData);
+
+/*设置进度显示
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
+  progress 已上传的大小， max 表示文件的总大小
+*/
+uploadService.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        float result = (float) (progress * 100.0/max);
+        Log.w("TEST","progress =" + (long)result + "%");
+    }
+});
+try {
+	CosXmlResult cosXmlResult = uploadService.upload();
+									
+	Log.w("TEST","success: " + cosXmlResult.accessUrl );
+
+  } catch (CosXmlClientException e) {
+
+	   //抛出异常
+       Log.w("TEST","CosXmlClientException =" + e.toString());
+  } catch (CosXmlServiceException e) {
+
+	   //抛出异常
+       Log.w("TEST","CosXmlServiceException =" + e.toString());
+}
+
+````
+
  
 ### 下载文件
 ````java
@@ -240,10 +280,10 @@ GetObjectRequest getObjectRequest = GetObjectRequest(bucket, cosPath, savePath);
 getObjectRequest.setSign(signDuration,null,null);
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress 已上传的大小， max 表示文件的总大小
 */
-getObjectRequest.setProgressListener(new QCloudProgressListener() {
+getObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);

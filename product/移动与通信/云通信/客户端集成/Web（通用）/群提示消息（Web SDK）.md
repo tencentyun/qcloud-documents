@@ -1,10 +1,8 @@
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。 
-
-如下图中，展示一条用户主动退群的提示消息： 
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。如下图中，展示一条用户主动退群的提示消息。
 
 ![](//mccdn.qcloud.com/static/img/26477a470aaa4149480fad643efea12d/image.png)
 
-群提示消息类型定义如下： 
+**群提示消息类型定义如下： **
 
 ```
 //群提示消息类型
@@ -19,16 +17,16 @@ var WEB_IM_GROUP_TIP_TYPE = {
 };
 ```
 
-群提示消息对象定义如下： 
+**群提示消息对象定义如下： **
 
 ```
 // class Msg.Elem.GroupTip 群提示消息对象
 Msg.Elem.GroupTip = function (opType, opUserId, groupId, groupName, userIdList) {
     this.opType = opType;//操作类型
-    this.opUserId = opUserId;//操作者id
-    this.groupId = groupId;//群id
+    this.opUserId = opUserId;//操作者 id
+    this.groupId = groupId;//群 id
     this.groupName = groupName;//群名称
-    this.userIdList = userIdList ? userIdList : [];//被操作的用户id列表
+    this.userIdList = userIdList ? userIdList : [];//被操作的用户 id 列表
     this.groupInfoList = [];//新的群资料信息，群资料变更时才有值
     this.memberInfoList = [];//新的群成员资料信息，群成员资料变更时才有值
     this.groupMemberNum = null;//群成员数，操作类型为加群或者退群时才有值
@@ -99,20 +97,18 @@ Msg.Elem.GroupTip.prototype.toHtml = function () {
 };
 ```
 
-## 1 用户被邀请加入群组 
+## 用户被邀请加入群组 
 
-触发时机：当有用户被邀请加入群组时，群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。 
+**触发时机：**当有用户被邀请加入群组时，群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。 收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.JOIN`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.JOIN。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法： **
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.JOIN  | 
-| getOpUserId()| 邀请人id  | 
+| getOpUserId()| 邀请人 ID  | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 被邀请入群的用户id列表  | 
+| getUserIdList()| 被邀请入群的用户 ID 列表  | 
 | getGroupMemberNum()| 获取当前群成员数  | 
 
 **示例： **
@@ -131,18 +127,16 @@ case WEB_IM_GROUP_TIP_TYPE.JOIN://加入群
         break;
 ```
 
-## 2 用户主动退出群组 
+## 用户主动退出群组 
 
-触发时机：当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。 
+**触发时机：**当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.QUIT`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.QUIT。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法： **
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.QUIT  | 
-| getOpUserId()| 退群用户id   | 
+| getOpUserId()| 退群用户 ID   | 
 | getGroupName()| 群名  | 
 | getGroupMemberNum()| 获取当前群成员数  | 
 
@@ -154,22 +148,20 @@ case WEB_IM_GROUP_TIP_TYPE.QUIT://退出群
     break;
 ```
 
-## 3 用户被踢出群组 
+## 用户被踢出群组 
 
-触发时机：当有用户被踢出群组时，群组内会由系统发出通知。可以更新群成员列表。 
+**触发时机：**当有用户被踢出群组时，群组内会由系统发出通知。可以更新群成员列表。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.KICK`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.KICK。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法： **
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.KICK  | 
-| getOpUserId()| 踢人id   | 
+| getOpUserId()| 踢人 ID   | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 被踢出群的用户id列表  | 
+| getUserIdList()| 被踢出群的用户 ID 列表  | 
 
-示例： 
+**示例：** 
 
 ```
 case WEB_IM_GROUP_TIP_TYPE.KICK://踢出群
@@ -185,20 +177,18 @@ case WEB_IM_GROUP_TIP_TYPE.KICK://踢出群
     break;
 ```
 
-## 4 用户被设置成管理员 
+## 用户被设置成管理员 
 
-触发时机：当有用户被设置为管理员时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识 。
+**触发时机：**当有用户被设置为管理员时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.SET_ADMIN`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.SET_ADMIN。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法： **
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.SET_ADMIN  | 
-| getOpUserId()| 设置者id   | 
+| getOpUserId()| 设置者 ID   | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 被设置成管理员的用户id列表  | 
+| getUserIdList()| 被设置成管理员的用户 ID 列表  | 
 
 **示例：** 
 
@@ -216,21 +206,18 @@ case WEB_IM_GROUP_TIP_TYPE.SET_ADMIN://设置管理员
     break;
 ```
 
-## 5 用户被取消管理员身份 
+## 用户被取消管理员身份 
 
-触发时机：当有用户被被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识 。
+**触发时机：**当有用户被被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN  | 
-| getOpUserId()| 取消者id   | 
+| getOpUserId()| 取消者 ID   | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 被取消管理员身份的用户id列表  | 
-
+| getUserIdList()| 被取消管理员身份的用户 ID 列表  | 
 
 **示例：** 
 
@@ -248,22 +235,20 @@ case WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN://取消管理员
     break;
 ```
 
-## 6 群组资料变更 
+## 群组资料变更 
 
-触发时机：当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关展示字段。或者选择性把消息展示给用户。 
+**触发时机：**当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关展示字段。或者选择性把消息展示给用户。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法： **
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO  | 
-| getOpUserId()| 修改群资料的用户id   | 
+| getOpUserId()| 修改群资料的用户 ID   | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 群变更的具体资料信息，为Msg.Elem.GroupTip.GroupInfo对象列表   | 
+| getUserIdList()| 群变更的具体资料信息，为 Msg.Elem.GroupTip.GroupInfo 对象列表   | 
 
-变更的群资料信息对象定义如下： 
+**变更的群资料信息对象定义如下： **
 
 ```
 // class Msg.Elem.GroupTip.GroupInfo，变更的群资料信息对象
@@ -279,12 +264,12 @@ Msg.Elem.GroupTip.GroupInfo.prototype.getValue = function () {
 };
 ```
 
-群提示消息-群资料变更类型定义如下： 
+**群提示消息-群资料变更类型定义如下： **
 
 ```
 //群提示消息-群资料变更类型
 var WEB_IM_GROUP_TIP_MODIFY_GROUP_INFO_TYPE = {
-    "FACE_URL": 1, //修改群头像URL
+    "FACE_URL": 1, //修改群头像 URL
     "NAME": 2, //修改群名称
     "OWNER": 3, //修改群主
     "NOTIFICATION": 4, //修改群公告
@@ -324,28 +309,26 @@ case WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO://群资料变更
     break;
 ```
 
-## 7 群成员资料变更 
+## 群成员资料变更 
 
-触发时机：当群成员的群相关资料变更时，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。（注意：这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料，目前只支持禁言时间通知）。
+**触发时机：**当群成员的群相关资料变更时，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。（注意：这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料，目前只支持禁言时间通知）。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.MODIFY_MEMBER_INFO`。 
 
-收到的消息type为 WEB_IM_GROUP_TIP_TYPE.MODIFY_MEMBER_INFO。 
-
-Msg.Elem.GroupTip 成员方法： 
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
 | getOpType()| WEB_IM_GROUP_TIP_TYPE.MODIFY_MEMBER_INFO  | 
-| getOpUserId()| 修改者id   | 
+| getOpUserId()| 修改者 ID   | 
 | getGroupName()| 群名  | 
-| getUserIdList()| 变更的群成员的具体资料信息，为Msg.Elem.GroupTip.MemberInfo对象列表    | 
+| getUserIdList()| 变更的群成员的具体资料信息，为 Msg.Elem.GroupTip.MemberInfo 对象列表    | 
 
-变更的群成员资料信息对象定义如下： 
+**变更的群成员资料信息对象定义如下： **
 
 ```
 // class Msg.Elem.GroupTip.MemberInfo，变更的群成员资料信息对象
 Msg.Elem.GroupTip.MemberInfo = function (userId, shutupTime) {
     this.userId = userId;//群成员id
-    this.shutupTime = shutupTime;//群成员被禁言时间，0表示取消禁言，大于0表示被禁言时长，单位：秒
+    this.shutupTime = shutupTime;//群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒
 };
 Msg.Elem.GroupTip.MemberInfo.prototype.getUserId = function () {
     return this.userId;

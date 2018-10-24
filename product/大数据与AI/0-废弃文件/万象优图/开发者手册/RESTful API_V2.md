@@ -6,7 +6,7 @@
 概念|	解释
 ---------|---------
 appid|	接入万象优图创建空间时,系统生成的唯一项目ID, 用于唯一标识接入项目, 申请链接: [图片空间](http://console.cloud.tencent.com/image/bucket)；如果空间名称前面有“APP”字样的小图标，表明是V1版本的，只能使用V1版本接口
-bucket|	开发者添加的空间名称，参见[图片空间](http://console.cloud.tencent.com/image/bucket)
+bucket|	开发者添加的空间名称，参见[图片空间](`http://console.cloud.tencent.com/image/bucket`)
 userid|	为即将废弃字段，请使用默认值“0”
 fileid|	资源存储的唯一标识
 
@@ -18,9 +18,9 @@ fileid|	资源存储的唯一标识
 开发者可以通过[服务器SDK文档(V2版本)](/doc/product/275/SDK文档#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk.E6.96.87.E6.A1.A3)生成签名，也可以参考我们的签名函数自行生成签名，，具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档)。
 
 ## 3	图片上传
-功能: 直接上传单张图片, 只支持POST表单(multipart/form-data)方式, 目前只支持20M以内的图片。
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/ (由后台自动生成fileid)
+功能: 直接上传单张图片, 只支持 POST 表单(multipart/form-data)方式, 目前只支持 20M 以内的图片。
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` (自定义fileid)
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]`/ (由后台自动生成fileid)
 注意：userid为即将废弃参数，请默认置为0（后台都会按照0处理），不要依赖该参数。
 其中fileid为可选参数，可以包含0-9，A-Z，a-z，-和等字符，区分大小写，utf8字符集，最大长度支持128字节，建议控制在64字节内。
 方法: POST
@@ -28,7 +28,7 @@ fileid|	资源存储的唯一标识
 
 参数名称|	必选|	类型|	描述
 ---------|---------|---------|---------
-Host|	是|	String|	图片云服务器域名，固定为web.image.myqcloud.com
+Host|	是|	String|	图片云服务器域名，固定为`web.image.myqcloud.com`
 Content-Length|	是|	Int	|整个multipart/form-data内容的总长度，单位：字节（Byte）。
 Content-Type|	是|	String|	标准的multipart/form-data 格式，参见[rfc1867](http://www.ietf.org/rfc/rfc1867.txt)
 Authorization|	是|	String|	多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档)
@@ -59,8 +59,8 @@ data里面字段描述:
 
 字段名称|	描述|	格式
 ---------|---------|---------
-url|	资源url(用于restful api交互, 如查询,复制,删除资源)|	http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]
-download_url|	生成的下载资源url(用于下载)|	http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal
+url|	资源url(用于restful api交互, 如查询,复制,删除资源)|	`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]`
+download_url|	生成的下载资源url(用于下载)|	`http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal`
 fileid|	生成的资源唯一标识符|
 info|	图片的具体信息，见下表	|
 
@@ -94,7 +94,7 @@ Content-Type: image/jpeg
 
 ## 4	图片复制
 功能: 将图片复制一份(保留原有图片)。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/copy
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/copy`
 方法: POST
 请求参数HTTP头部信息:
 
@@ -120,8 +120,8 @@ data里面字段描述:
 
 字段名称|	描述|	格式
 ---------|---------|---------
-url	|资源url(用于restful api交互, 如查询,复制,删除资源)|	http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]
-download_url|	生成的下载资源url(用于下载)|	http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal
+url	|资源url(用于restful api交互, 如查询,复制,删除资源)|	`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]`
+download_url|	生成的下载资源url(用于下载)|	`http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal`
 
 
 请求示例:
@@ -137,13 +137,13 @@ Content-Length: 0
 
 ## 5	图片查询
 功能: 查看文件的属性信息，包含：文件哈希值、文件大小、上传时间等，图片和视频返回的信息会有所不同。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/`
 方法: GET
 请求参数HTTP头部信息:
 
 参数名称|	必选|	类型|	描述
 ---------|---------|---------|---------
-Host|	是|	String|	图片云服务器域名，固定为web.image.myqcloud.com
+Host|	是|	String|	图片云服务器域名，固定为`web.image.myqcloud.com`
 
 
 返回的HTTPP 状态码: 
@@ -162,7 +162,7 @@ data里面字段描述:
 
 字段名称|	描述|	格式
 ---------|---------|---------
-file_url|	图片资源的下载url|	http:// [bucket]-[appid].image.myqcloud.com/[bucket]-[appid]]/[userid]/[fileid]/original
+file_url|	图片资源的下载url|	`http:// [bucket]-[appid].image.myqcloud.com/[bucket]-[appid]]/[userid]/[fileid]/original`
 file_fileid|	图片资源的唯一id	|
 file_upload_time|	图片上传时间|	Unix timestamp
 file_size|	图片的大小|	单位: Byte
@@ -180,7 +180,7 @@ Host: web.image.myqcloud.com
 
 ## 6	图片删除
 功能: 删除一个图片。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/del
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/del`
 方法: POST
 请求参数HTTP头部信息:
 
@@ -238,8 +238,8 @@ Host: tencentyun-10001290.image.myqcloud.com
 
 ## 8	图像处理
 ### 8.1	基本格式
-url=http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]
-domain: [bucket]-[appid].image.myqcloud.com
+url=`http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]`
+domain: `[bucket]-[appid].image.myqcloud.com`
 
 参数名称|	参数含义|	说明
 ---------|---------|---------
@@ -258,7 +258,7 @@ http://tencentyun-10001290.image.myqcloud.com/tencentyun-10001290/0/tencentyunPr
 
 
 ### 8.2	普通缩放功能
-url=http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?ss=1&w=100&h=80
+url=`http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?ss=1&w=100&h=80`
 
 参数名称|	参数值|	说明
 ---------|---------|---------
@@ -270,8 +270,8 @@ domain, appid, userid, fileid, pattern等参数参见[基本格式参数说明](
 
 
 注：假如样式[parttern]图大小（w\*h）为200\*400，将其缩放为100\*80，按照等比缩放，采用不同的缩放方式可以缩放为100\*200或者40\*80两种，具体如下：
-url=http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=0&w=100&h=80 限定短边的缩放方式，返回的缩略图大小为40\*80（等比缩放，缩略后的图片宽最多100，高最多80）
-url=http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&w=100&h=80 限定长边的缩放方式，返回的缩略图大小为100\*200（等比缩放，缩略后的图片宽最少100，高最少80）
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=0&w=100&h=80` 限定短边的缩放方式，返回的缩略图大小为40\*80（等比缩放，缩略后的图片宽最多100，高最多80）
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&w=100&h=80` 限定长边的缩放方式，返回的缩略图大小为100\*200（等比缩放，缩略后的图片宽最少100，高最少80）
 
 示例:
 
@@ -283,7 +283,7 @@ ss=1&w=100&h=80
 
 
 ### 8.3	水印功能
-url=http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?
+url=`http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?`
     watermark=1&wpos=north&wpx=10&wpy=10&wlw=200&wlh=200
     &ww=water_test&font=<encodedFontName>&fontsize=<fontSize>
     &fill=<encodedTextColor>&dissolve=<dissolve>
@@ -320,9 +320,9 @@ watermark=1&wpos=north&wpx=10&wpy=10&wlw=200&wlh=200&ww=tencentyun
 
 ### 8.4	裁剪功能
 一般裁剪功能：
-url=http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?crop=1&cpx=0&cpy=0&cpos=north&w=300&h=300
+url=`http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?crop=1&cpx=0&cpy=0&cpos=north&w=300&h=300`
 智能裁剪功能：
-url=http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?scrop=1&w=300&h=300
+url=`http://[domain]/[bucket]-[appid]]/[userid]/[fileid]/[pattern]?scrop=1&w=300&h=300`
 
 参数名称|	参数值|	说明|	默认值
 ---------|---------|---------|---------
@@ -337,7 +337,7 @@ h|	图片裁剪后的高度|	取值范围10-16383|	原图
 
 domain, appid, userid, fileid, pattern等参数参见[基本格式参数说明](#8-.E5.9B.BE.E5.83.8F.E5.A4.84.E7.90.86)。
 scrop 参数与 crop 参数同时使用，当智能裁剪没有识别到人脸时，会执行普通的裁剪。 
-http://tencentyun-10001290.image.myqcloud.com/tencentyun-10001290/0/tencentyunProcessTest/myPattern?scrop=1&crop=1&w=300&h=300
+`http://tencentyun-10001290.image.myqcloud.com/tencentyun-10001290/0/tencentyunProcessTest/myPattern?scrop=1&crop=1&w=300&h=300`
 示例:
 
 ```

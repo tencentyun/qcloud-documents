@@ -16,7 +16,7 @@ Web播放器的视频播放能力本身不是网页代码实现的，而是靠�
 
  最常见的用于网页直播的视频源地址是以m3u8结尾的地址，我们称其为HLS (HTTP Live Streaming)，这是苹果推出的标准。由于苹果的影响力，目前各手机浏览器产品对这种格式的兼容性最好，但它有个天然的问题，就是延迟比较大，一般是20-30秒左右的延迟，没有办法，在手机浏览器上我们并没有其它选择。
 
- 在PC上情况会好很多，因为PC上的浏览器目前还没有抛弃flash控件，而flash控件不追求洁癖，支持的视频源格式挺多的，而且各浏览器上的flash控件都是Adobe它家自己开发，所以兼容性非常好。（悄悄滴告诉你，Chrome最近对flash的态度不太友好）
+ 在PC上情况会好很多，因为PC上的浏览器目前还没有抛弃flash控件，而flash控件不追求洁癖，支持的视频源格式挺多的，而且各浏览器上的flash控件都是Adobe它家自己开发，所以兼容性非常好。（悄悄滴告诉您，Chrome最近对flash的态度不太友好）
 ![](//mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
 
 ## 对接攻略
@@ -24,7 +24,7 @@ Web播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括PC或H5）中引入初始化脚本
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.0.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
 ```
 
 >注意：**<font color="red">直接用本地网页是调试不了的</font>，因为腾讯云Web播放器处理不了这种情况下的跨域问题。**
@@ -228,18 +228,18 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
-| m3u8_hd         | String   | 无       |  高清m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
-| m3u8_sd         | String   | 无       |  标清m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
-| flv             | String   | 无       |  原画flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535a.flv |
-| flv_hd          | String   | 无       |  高清flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
-| flv_sd          | String   | 无       |  标清flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
-| mp4             | String   | 无       |  原画mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| mp4_hd          | String   | 无       |  高清mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
-| mp4_sd          | String   | 无       |  标清mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
-| rtmp            | String   | 无       |  原画rtmp 播放URL  <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
-| rtmp_hd         | String   | 无       |  高清rtmp 播放URL  <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
-| rtmp_sd         | String   | 无       |  标清rtmp 播放URL   <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
+| m3u8            | String   | 无       |  原画m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
+| m3u8_hd         | String   | 无       |  高清m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
+| m3u8_sd         | String   | 无       |  标清m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
+| flv             | String   | 无       |  原画flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
+| flv_hd          | String   | 无       |  高清flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
+| flv_sd          | String   | 无       |  标清flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
+| mp4             | String   | 无       |  原画mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
+| mp4_hd          | String   | 无       |  高清mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
+| mp4_sd          | String   | 无       |  标清mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
+| rtmp            | String   | 无       |  原画rtmp 播放URL  <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
+| rtmp_hd         | String   | 无       |  高清rtmp 播放URL  <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
+| rtmp_sd         | String   | 无       |  标清rtmp 播放URL   <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
 | width           | Number   | 无       | <font color="red">必选</font>，设置播放器宽度，单位为像素   <br> 示例:  640   |
 | height          | Number   | 无       | <font color="red">必选</font>，设置播放器高度，单位为像素   <br> 示例: 480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例: 0.6   |
@@ -247,13 +247,17 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | autoplay        | Boolean  | false    | 是否自动播放<br><font color="red">备注：该选项只对大部分PC平台生效</font>  <br> 示例:  true |
 | coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style可选属性：<br>default 居中1:1显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例:  "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": "http://www.test.com/myimage.jpg"} |
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 <font color="red">备注：如果需要在移动端使用系统全屏，就需要设置为system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式</font> [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)  <br> 示例:  "system"  |
+| systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例:  true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.0+]  <br> 示例:  true  |
+| flashUrl        | String   | 无       | 可以设置 flash swf url <br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js ,所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
+| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)。[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例: "h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例: "true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏）, 1：（portraint竖屏）, 2：（landscape &verbar; portrait跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例:  0   |
-| wording         | Object   | 无       | 自定义文案   <br> 示例:  { 2032: '请求视频失败，请检查网络'}  |
+| wording         | Object   | 无       | 自定义文案   <br> 示例: { 2032: '请求视频失败，请检查网络'}  |
+| clarity         | String   | 'od'     | 默认播放清晰度 [v2.2.1+] <br> 示例: clarity: 'od'  |
+| clarityLabel    | Object   | {od: '超清', hd: '高清', sd: '标清'} | 自定义清晰度文案 [v2.2.1+] <br> 示例: clarityLabel: {od: '蓝光', hd: '高清', sd: '标清'}  |
 | listener        | Function | 无       | 事件监听回调函数，回调函数将传入一个JSON格式的对象  <br> 示例: function(msg){<br>//进行事件处理 <br>}  |
 
 ## 实例方法列表
@@ -271,15 +275,43 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br><font color="red">备注：只适用于点播</font> | player.currentTime() |
 |fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br><font color="red">备注：移动端系统全屏没有提供api，也无法获取系统全屏状态</font> | player.fullscreen(true) |
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br><font color="red">备注：只适用于点播</font> | player.buffered()  |
+|destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
+|switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值"od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
 
 <font color="red">备注：以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即load事件触发后）</font><br>
 
 ## 进阶攻略
 这里介绍一些视频播放器SDK的进阶使用方法
+
+### 使用广告SDK
+TcPlayer提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
+
+```
+<!-- Google IMA SDK  -->
+<script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<!-- 使用集成 IMA SDK 的版本 -->
+<script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
+```
+
+通过adTagUrl和auth参数使用广告功能，帐号及License信息可登录 https://tcplayer.qcloud.com 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
+
+```
+var player = new TcPlayer('id_test_video', {
+  /* Advertisement-related parameter */
+  "adTagUrl": "http://ad_tag_url",	//VAST,VMAP,VAPID视频广告Tag
+  "auth": {
+    "user_id": "your_user_id",		//广告帐户ID 
+    "app_id": "your_app_id",		//应用ID 
+    "license": "your_license"		//应用license
+  }
+});
+```
+<font color="red">备注：TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支</font><br>
+
 ### ES Module
 TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer 。 下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.0.js
+http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.1.js
 ```
 ### 开启优先H5播放模式
 TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
@@ -346,7 +378,9 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 |-----------------|--------- |-------------------------------------------- |
 | 2016.12.28      | 2.0.0    | 首个版本  |
 | 2017.3.4        | 2.1.0    | 至2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
-| 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： flash、h5_flv、x5_player。<br>2.调整播放器初始化逻辑，优化错误提示效果。<br>3.增加flv.js支持，在符合条件的情况下可以采用flv.js播放 flv <br>4.支持x5-video-orientation属性，<br>5.增加播放环境判断逻辑，可通过参数调整H5与Flash的优先级，以及是否启用TBS播放。<br>6.启用版本号发布方式，避免影响旧版本的使用者。<br> 7.优化事件触发的时间戳，统一为标准时间。<br>8.bug修复|
+| 2017.6.30       | 2.2.0    | 1.增加控制播放环境判断的参数： flash、h5_flv、x5_player。<br>2.调整播放器初始化逻辑，优化错误提示效果。<br>3.增加flv.js支持，在符合条件的情况下可以采用flv.js播放 flv <br>4.支持x5-video-orientation属性，<br>5.增加播放环境判断逻辑，可通过参数调整H5与Flash的优先级，以及是否启用TBS播放。<br>6.启用版本号发布方式，避免影响旧版本的使用者。<br> 7.优化事件触发的时间戳，统一为标准时间。<br>8.bug修复|
+| 2017.12.7       | 2.2.1    | 1.增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要单击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点|
+| 2017.12.20      | 2.2.1    | 1.增加可配置清晰度文案功能<br> 2.设置默认清晰度<br> 3.支持切换清晰度方法|
 
 ## 常见问题
 
@@ -359,7 +393,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-shim.js" charset="utf-8"></script>
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-sham.js" charset="utf-8"></script>
     <![endif]-->
-    <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.0.js" charset="utf-8"></script>;
+    <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
     ```
 
 - **为什么在移动端 TcPlayer 全屏后无法使视频全屏，仍然会显示浏览器的界面？**
@@ -372,7 +406,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
     ![](//mc.qcloudimg.com/static/img/d5746d9bef48b411c3bac576fe6925b1/image.png)![](//mc.qcloudimg.com/static/img/1e20288d6f69a5cf7a886f95edd40ec3/image.png)
     （左：Android 微信，右：iOS 微信）
 
-    这两种全屏模式显示的控制栏都是 TcPlayer 提供的控制栏，进入方式都是通过点击控制栏的全屏按钮，或者 TcPlayer 提供的全屏方法实现的。
+    这两种全屏模式显示的控制栏都是 TcPlayer 提供的控制栏，进入方式都是通过单击控制栏的全屏按钮，或者 TcPlayer 提供的全屏方法实现的。
     然而在移动端不一定可以显示 TcPlayer 提供的控制栏，大部分情况下移动端webview会劫持视频播放，并使用 webview 提供的控制栏，这样就无法显示 TcPlayer 的控制栏，也无法使用 TcPlayer 提供的全屏方案。如图所示：
     ![](//mc.qcloudimg.com/static/img/d027ca6fce35059e05428128b9823d70/image.png)![](//mc.qcloudimg.com/static/img/b28d69f15a60321d1a6e2b3a93b53038/image.png)
     （左：Android 微信，TBS劫持视频播放，右：iOS QQ浏览器劫持视频播放）
@@ -405,7 +439,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 
 -  **为什么在移动端浏览器视频无法自动播放？**
 
-	在移动端 WEB 自动播放视频只有两个办法，通过设置 `<video>` 标签 autoplay 属性 或者调用 `<video>` 标签提供的 play() 方法，然而现实是在移动端WEB中视频自动播放一直是被禁止的，目前通用的办法是通过用户手动触发播放（例如监听用户的点击事件并调用 play()方法）。除此之外不排除一些特殊定制的 webview 支持 `<video>` 标签 autoplay 属性或者通过其他特殊的函数调用实现自动播放，那么在这类 Webview 下打开页面就有可能自动播放。我们的播放器已经在 autoplay 设置为 true 的情况下，为 `<video>` 标签加上 autoplay 属性，只要终端支持即可。
+	在移动端 WEB 自动播放视频只有两个办法，通过设置 `<video>` 标签 autoplay 属性 或者调用 `<video>` 标签提供的 play() 方法，然而现实是在移动端WEB中视频自动播放一直是被禁止的，目前通用的办法是通过用户手动触发播放（例如监听用户的单击事件并调用 play()方法）。除此之外不排除一些特殊定制的 webview 支持 `<video>` 标签 autoplay 属性或者通过其他特殊的函数调用实现自动播放，那么在这类 Webview 下打开页面就有可能自动播放。我们的播放器已经在 autoplay 设置为 true 的情况下，为 `<video>` 标签加上 autoplay 属性，只要终端支持即可。
 
 -  **为什么在 PC Chrome 中Flash播放器会有两个播放按钮？**
 

@@ -24,7 +24,7 @@
 | [Live_Queue_Get](https://cloud.tencent.com/doc/api/258/5961)| 查询某条流在直播过程中的**截图**文件列表 |
 | [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997)|查询频道列表|
 | [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862)|查询直播中频道列表|
-| [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流操作接口|
+| [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流（用于将多条直播流的画面进行合并）操作接口|
 | [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复——可针对某路流禁止推流|
 | [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务——可实现定时录制任务或者实时视频录制|
 | [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568)|结束录制任务|

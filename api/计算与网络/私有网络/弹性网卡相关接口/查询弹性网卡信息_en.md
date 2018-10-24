@@ -4,7 +4,7 @@ This API (DescribeNetworkInterfaces) is used to query the information of ENI.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information,refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | instanceId | No | String | CVM instance ID, for example: ins-xx44545f |
 | offset | No | Int | Offset of initial line. Default is 0 |
 | limit | No | Int | Number of lines per page. Default is 20. Maximum is 50.  |
-| orderField | No | String | Sort by a certain field, <br>which can be: eniName, createTime. Default is createTime |
+| orderField | No | String | Sort by a certain field,<br>which can be: eniName, createTime. Default is createTime |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc |
 
 ## 3. Output Parameters
@@ -24,8 +24,8 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code. 0: Succeeded; other values: Failed
 | message | String | Error message |
-| totalCount | Int | Total number of ENIs |
-| data.n | Array | ENI information array |
+| data.totalNum | Int | Total number of ENIs |
+| data.data| Array | ENI information array |
 **data array:**
 
 | Parameter Name | Type | Description |
@@ -37,9 +37,9 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.eniDescription| String | ENI description | 
 | data.n.networkInterfaceId | String | ENI ID, for example: eni-m6dyj72l | 
 | data.n.primary | Bool | Indicate whether it is a primary ENI. true: primary ENI; false: secondary ENI | 
-| data.n.macAddress| String | ENI mac address | for example: 02: 81: 60: cb: 27: 37 | 
+| data.n.macAddress| String | ENI mac address, for example: 02: 81: 60: cb: 27: 37 | 
 | data.n.privateIpAddressesSet | Array | IP information bound to ENI | 
-| data.n.instanceSet | Array | CVM information bound to ENI | 
+| data.n.instanceSet | Object | CVM information bound to ENI | 
 | data.n.groupSet | Array | Security group information bound to ENI | 
 
 **privateIpAddressesSet information array:**
@@ -49,9 +49,11 @@ The following request parameter list only provides API request parameters. Commo
 | privateIpAddress | String | IP address |
 | Primary | Bool | Indicate whether it is a primary IP. true: yes; false: no |
 | wanIp | String | Public IP |
+| description |String | ENI description |
+| isWanIpBlocked | Bool | Indicate whether public ip has been blocked. true: yes; false: no |
 | EipId | String | EIP ID |
 
-**instanceSet information array:**
+**instanceSet information:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -64,6 +66,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | sgId | String | Security group ID, for example: sg-dfg1df54 | 
 | sgName | String | Security group name | 
+| projectId | Int | Security group name |
 
 ## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
@@ -78,46 +81,163 @@ Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetworkInterfaces
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-&vpcId=vpc-7t9nf3pu
+&vpcId=vpc-fyc4pilj
 </pre>
 Output
 ```
 {
-    "code":"0",
-    "message":"",
-    "totalCount":1,
-    "data":[
-        {
-            "vpcId":"vpc-7t9nf3pu",
-            "subnetId":"subnet-0ap8nwca",
-	    "zoneId":200001,
-            "eniName":"eni",
-            "eniDescription":"eni example",
-            "networkInterfaceId":"eni-m6dyj72l",
-            "primary":false,
-            "macAddress":"02:81:60:cb:27:37",
-            "privateIpAddressesSet":[
-                 {
-                     "privateIpAddress":"10.0.0.2",
-                     "primary":true,
-                     "wanIp":"183.23.0.2",
-                     "eipId":"eip-dgd545ef"
-                  }
-	           ],
-             "instanceSet":[
-                  {
-                       "instanceId":"ins-xx44545f",
-                       "attachTime":"2016-02-15 19:20:54"
-                  }
-            ],
-            "groupSet":[
-                 {
-                      "sgId":"sg-dfg1df54",
-                      "sgName":"Security group 1"
-                  }
-            ]
+    "code": 0,
+        "message": "",
+        "codeDesc": "Success",
+        "data": {
+            "totalNum": 3,
+            "data": [
+            {
+                "vpcId": "vpc-fyc4pilk",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksb",
+                "zoneId": 100002,
+                "eniName": "big",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-d6m4m0iy",
+                "primary": false,
+                "macAddress": "20:90:6F:59:8D:79",
+                "createTime": "2017-08-31 11:33:59",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.19",
+                    "primary": true,
+                    "wanIp": "119.29.158.39",
+                    "description": "asdfasdfasdf",
+                    "isWanIpBlocked": false,
+                    "eipId": "eip-07vqn979"
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "ins-7s7zjjcz",
+                        "attachTime": "2017-12-12 11:55:07"
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxwb",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-ikmc8kcy",
+                        "sgName": "alldrop",
+                        "projectId": 0
+                    }
+                    ]
+            },
+            {
+                "vpcId": "vpc-fyc4pilk",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksb",
+                "zoneId": 100002,
+                "eniName": "manual",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-ay1ac9c7",
+                "primary": false,
+                "macAddress": "20:90:6F:94:86:77",
+                "createTime": "2017-07-28 20:09:34",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.230",
+                    "primary": true,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                },
+                {
+                    "privateIpAddress": "10.53.54.231",
+                    "primary": false,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "",
+                        "attachTime": ""
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxw9",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-37tmkdiz",
+                        "sgName": "Windows port 3389-20170928143645736",
+                        "projectId": 0
+                    }
+                    ]
+            },
+            {
+                "vpcId": "vpc-fyc4pilk",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksb",
+                "zoneId": 100002,
+                "eniName": "New flexible network card manual",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-a7hx9qae",
+                "primary": false,
+                "macAddress": "20:90:6F:31:88:B4",
+                "createTime": "2017-07-28 17:39:39",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.200",
+                    "primary": true,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "",
+                        "attachTime": ""
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxwe",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-5y2tai6e",
+                        "sgName": "createPolicy_repair_test",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-q7bvssoa",
+                        "sgName": "del usg test",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-0cgr10ie",
+                        "sgName": "bilibili no icmp",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-ei2rr0qf",
+                        "sgName": "Guangzhou",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-oodf2fc6",
+                        "sgName": "offset",
+                        "projectId": 0
+                    }
+                ]
+            }
         }
-    ]
 }
 ```
 
