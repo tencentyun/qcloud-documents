@@ -7,7 +7,7 @@
 This document provides the official prices of different CVM instances in all Tencent Cloud regions. Please note that this price list is FOR YOUR REFERENCE ONLY. The actual price is subjected to your order. 
 Regions are sorted alphabetically below. For more information, please see [CVM Instance Specifications](https://intl.cloud.tencent.com/document/product/213/11518).
 
-#### Bangkok
+### Bangkok
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -48,7 +48,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Beijing
+### Beijing
 
 | Model              | Specifications  | vCPU     | MEM   | Processor model (clock rate)       | Fee         |
 | ------------------ | --------------- | -------- | ----- | ---------------------------------- | ----------- |
@@ -139,7 +139,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Chengdu
+### Chengdu
 
 | Model              | Specifications  | vCPU     | MEM   | Processor model (clock rate)     | Fee         |
 | ------------------ | --------------- | -------- | ----- | -------------------------------- | ----------- |
@@ -201,7 +201,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Chongqing
+### Chongqing
 
 | Model           | Specifications  | vCPU     | MEM   | Processor model (clock rate)       | Fee         |
 | --------------- | --------------- | -------- | ----- | ---------------------------------- | ----------- |
@@ -252,7 +252,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Frankfurt
+### Frankfurt
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -293,7 +293,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Guangzhou
+### Guangzhou
 
 | Model                           | Specifications  | vCPU     | MEM   | Processor model (clock rate)       | Fee         |
 | ------------------------------- | --------------- | -------- | ----- | ---------------------------------- | ----------- |
@@ -413,7 +413,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Hong Kong
+### Hong Kong
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -470,7 +470,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Moscow
+### Moscow
 
 | Model       | Specifications | vCPU     | MEM   | Processor model (clock rate)       | Fee        |
 | ----------- | -------------- | -------- | ----- | ---------------------------------- | ---------- |
@@ -525,7 +525,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Mumbai
+### Mumbai
 
 | Compute C2         | C2.8XLARGE96   | 32 Cores | 96GB  | Intel Xeon E5-2667 v4(3.2 GHz)   | 2.05USD/hr |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -566,7 +566,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Seoul
+### Seoul
 
 | Model       | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ----------- | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -597,7 +597,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Shanghai
+### Shanghai
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)       | Fee        |
 | ------------------ | -------------- | -------- | ----- | ---------------------------------- | ---------- |
@@ -688,7 +688,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Silicon Valley
+### Silicon Valley
 
 | Model              | Specifications  | vCPU     | MEM   | Processor model (clock rate)     | Fee         |
 | ------------------ | --------------- | -------- | ----- | -------------------------------- | ----------- |
@@ -748,7 +748,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Singapore
+### Singapore
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -802,7 +802,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Tokyo
+### Tokyo
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -843,7 +843,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Toronto
+### Toronto
 
 | Region  | Model       | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------- | ----------- | -------------- | -------- | ----- | -------------------------------- | ---------- |
@@ -867,7 +867,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 [Back to Top](#CVMPricing)
 
-#### Virginia
+### Virginia
 
 | Model              | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
 | ------------------ | -------------- | -------- | ----- | -------------------------------- | ---------- |
