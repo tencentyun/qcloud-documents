@@ -6,7 +6,7 @@
 下面将介绍使用 WeCOS 的相关准备工作和安装操作等配置。
 ## 准备工作
 1. 进入 [腾讯云官网](https://cloud.tencent.com/)，注册腾讯云账户，指引请参考 [注册腾讯云](/doc/product/378/9603) 页面。
-2. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4)，开通对象存储服务，[创建存储桶](/doc/product/436/6232)。
+2. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)，开通对象存储服务，[创建存储桶](/doc/product/436/6232)。
 3. 在 GitHub 中 [获取 WeCOS 工具](https://github.com/tencentyun/wecos) 。
 4. 在 [Node.js 官网](https://nodejs.org/) 下载环境并安装。
 
@@ -38,7 +38,7 @@ npm install -g wecos
 | 配置项    | 类型           | 说明                                       |
 | ------ | ------------ | ---------------------------------------- |
 | appDir | String | 默认 `./app`，小程序项目目录                       |
-| cos    | Object | 必填。COS 的存储桶、地域等配置信息，请查看 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) 文档，密钥等信息请在 [云API密钥控制台](https://console.cloud.tencent.com/cos4/secret) 中获取查看 |
+| cos    | Object | 必填。COS 的存储桶、地域等配置信息，请查看 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) 文档，密钥等信息请在 [访问管理控制台](https://console.cloud.tencent.com/cam) 的【API密钥管理】中获取查看 |
 ## 开始使用
 在配置文件同级目录下执行以下使用命令：
 
