@@ -190,10 +190,10 @@ pusher.start({
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，比如：
 
-- **WARNING_NET_BUSY**
+- **PUSH_WARNING_NET_BUSY**
 上行网速不给力，建议提示用户改善当前的网络环境，比如让用户离家里的路由器近一点，或者切到 WiFi 环境下再使用。
 
-- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
+- <font color='red'>**PUSH_WARNING_SERVER_DISCONNECT**</font>
 请求被后台拒绝了，出现这个问题一般是由于 URL 里的 txSecret 计算错了，或者是 URL 被其他人占用了（跟播放不同，一个推流 URL 同时只能有一个用户使用）。
 
 - **PUSH_WARNING_HANDUP_STOP**
