@@ -20,8 +20,7 @@ and [Expanding Windows File System](https://intl.cloud.tencent.com/document/prod
 
 3) Only the cloud disk in the status of **Unmounted** and **Support Mounting/Unmounting** can be expanded (i.e., the elastic cloud disk in the status of **Unmounted**). Click **More** -> **Expand** at the end to select the desired size (it must be larger than or equal to the current size), and complete the payment to finish the capacity expansion of physical disks.
 
-> For elastic cloud disks which have been connected to the instance, you need to [Unmount Cloud Disk](/document/product/362/6740
-).
+> For elastic cloud disks which have been connected to the instance, you need to [Unmount Cloud Disk](https://cloud.tencent.com/document/product/362/6740).
 
 ### Expanding Elastic Cloud Disk via API
 For more information, please see [API ResizeCbsStorage](https://intl.cloud.tencent.com/doc/api/364/2527).
