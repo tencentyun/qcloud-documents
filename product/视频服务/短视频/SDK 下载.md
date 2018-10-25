@@ -311,8 +311,8 @@
    <tr>
       <td>iOS</td>
       <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Enterprise_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
+      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_UGC_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
+      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Enterprise_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
