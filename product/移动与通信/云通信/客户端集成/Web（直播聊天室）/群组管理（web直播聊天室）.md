@@ -1,21 +1,19 @@
-## 3 群组管理
-### 3.1	进群
+## 群组管理
+### 进群
 
-本节主要介绍sdk 进群applyJoinBigGroup api。
-
-函数名：
+**`applyJoinBigGroup` 函数名：**
 
 ```
 webim.applyJoinBigGroup
 ```
 
-定义：
+**定义：**
 
 ```
 webim.applyJoinBigGroup(options,cbOk, cbErr)
 ```
 
-参数列表：
+**参数列表：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
@@ -23,19 +21,19 @@ webim.applyJoinBigGroup(options,cbOk, cbErr)
 |cbOk	|调用接口成功回调函数	|Function|
 |cbErr	|调用接口失败回调函数	|Function|
 
-其中options对象属性定义如下：
+**其中 `options` 对象属性定义如下：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
-|GroupId	|要加入的群id	|String|
+|GroupId	|要加入的群 ID	|String|
 
-示例：
+**示例：**
 
 ```
 //加入直播大群
 function applyJoinBigGroup(groupId) {
     var options = {
-        'GroupId': groupId//群id
+        'GroupId': groupId//群 ID
     };
     webim.applyJoinBigGroup(
             options,
@@ -54,23 +52,21 @@ function applyJoinBigGroup(groupId) {
 }
 ```
 
-### 3.2	退群
+### 退群
 
-本节主要介绍sdk 退群quitBigGroup api。
-
-函数名：
+**`quitBigGroup` 函数名：**
 
 ```
 webim.quitBigGroup
 ```
 
-定义：
+**定义：**
 
 ```
 webim.quitBigGroup(options,cbOk, cbErr)
 ```
 
-参数列表：
+**参数列表：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
@@ -78,24 +74,23 @@ webim.quitBigGroup(options,cbOk, cbErr)
 |cbOk	|调用接口成功回调函数	|Function|
 |cbErr	|调用接口失败回调函数	|Function|
 
-其中options对象属性定义如下：
+**其中 `options` 对象属性定义如下：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
-|GroupId|要退出的群id	|String|
+|GroupId|要退出的群 ID	|String|
 
-示例：
+**示例：**
 
 ```
 //退出大群
 function quitBigGroup() {
     var options = {
-        'GroupId': avChatRoomId//群id
+        'GroupId': avChatRoomId//群 ID
     };
     webim.quitBigGroup(
             options,
             function (resp) {
-                
                 webim.Log.info('退群成功');
                 $("#video_sms_list").find("li").remove(); 
             },

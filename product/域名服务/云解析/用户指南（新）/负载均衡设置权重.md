@@ -1,0 +1,12 @@
+负载均衡管理提供了为解析的负载设置权重的功能。
+### 首先完成解析的负载均衡
+同记录类型、同主机记录、同线路的记录可以实现解析的负载均衡。
+![](//mc.qcloudimg.com/static/img/51f1a5daa232d0b91db9ff5d2a5ac103/image.png)
+### 进入负载均衡页面查看
+默认为均等负载，即权威服务器会以随机顺序返回全部记录值，系统默认取首位的 IP 地址，获取每个解析记录的几率大致是均等的。
+![](//mc.qcloudimg.com/static/img/9cbe986b857e0cf7ff54e2e253b8ced6/image.png)
+此时权重为 0，但解析比例均等。
+![](//mc.qcloudimg.com/static/img/a8a3180902b2040b91a97b33c2c04027/image.png)
+### 修改权重 
+单击【修改权重】设置权重，可设置 1-100 的数字分配，权威服务器将根据权重返回一个 IP 节点。
+![](//mc.qcloudimg.com/static/img/9cfcfd37f383173ed5bd2c7f5da8fe7d/image.png)

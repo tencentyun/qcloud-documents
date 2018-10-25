@@ -1,0 +1,29 @@
+
+**请求示例:**
+
+```
+PUT /jimmy/test.file2?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
+User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
+Accept: */*
+x-cos-copy-source:jimmyyantest-1251668577.cos.ap-shanghai.myqcloud.com/test.file1
+x-cos-copy-source-range: bytes=10-100
+Host: jimmyyantest-1251668577.cos.ap-shanghai.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f05cb2
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 133
+Connection: keep-alive
+Date: Mon, 04 Sep 2017 04:45:45 GMT
+Server: tencent-cos
+x-cos-request-id: NTlkYjFjYWJfMjQ4OGY3MGFfNGIzZV9k
+
+<CopyPartResult>
+    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+    <LastModified>2017-09-04T04:45:45</LastModified>
+</CopyPartResult>
+```

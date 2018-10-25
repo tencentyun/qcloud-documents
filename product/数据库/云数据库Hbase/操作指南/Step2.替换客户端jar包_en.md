@@ -1,0 +1,344 @@
+##  Replace the Client jar Package
+
+When connecting to the Tencent Cloud Hbase service, you need to use the jar packages we provided to replace part of the jar packages of community version, and set the appropriate parameters.
+
+1). If you use maven to manage the jar package, you can refer to the following pom settings to pull and replace the jar package:
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hadoop-two.version>2.6.4</hadoop-two.version>
+	</properties>
+
+	<dependencies>
+		<!-- Import the community jar package -->
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-client</artifactId>
+			<version>1.1.3</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-auth</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-hdfs</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-app</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-server-common</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-server</artifactId>
+			<version>1.1.3</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-auth</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-hdfs</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-app</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-yarn-server-common</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.htrace</groupId>
+			<artifactId>htrace-core</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<!-- Import the jar package provided by Tencent Cloud. Pay attention to modify the path of the jar package. -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-annotations</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-annotations-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-auth</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-auth-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-client-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-common-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-hdfs-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-app</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-mapreduce-client-app-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-common</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-mapreduce-client-common-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-mapreduce-client-core-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-mapreduce-client-jobclient-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-mapreduce-client-shuffle-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-yarn-api</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-yarn-api-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-yarn-client</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-yarn-client-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-yarn-common</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-yarn-common-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-yarn-server-common</artifactId>
+			<version>2.6.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hadoop-yarn-server-common-2.6.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-client</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hbase-client-1.1.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-common</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hbase-common-1.1.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-protocol</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hbase-protocol-1.1.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-server</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/hadoop/hbase-server-1.1.3.jar</systemPath>
+		</dependency>
+
+	</dependencies>
+[Download](http://hbase-10010986.cos.myqcloud.com/%E8%85%BE%E8%AE%AF%E4%BA%91jar%E5%8C%85.zip) the jar package to be replaced.
+List of jar packages to be replaced:
+hadoop-annotations-2.5.1.jar
+hadoop-auth-2.5.1.jar
+hadoop-client-2.5.1.jar
+hadoop-common-2.5.1.jar
+hadoop-hdfs-2.5.1.jar
+hadoop-mapreduce-client-app-2.5.1.jar
+hadoop-mapreduce-client-common-2.5.1.jar
+hadoop-mapreduce-client-core-2.5.1.jar
+hadoop-mapreduce-client-jobclient-2.5.1.jar
+hadoop-mapreduce-client-shuffle-2.5.1.jar
+hadoop-yarn-api-2.5.1.jar
+hadoop-yarn-client-2.5.1.jar
+hadoop-yarn-common-2.5.1.jar
+hadoop-yarn-server-common-2.5.1.jar
+hbase-client-1.1.3.jar
+hbase-common-1.1.3.jar
+hbase-protocol-1.1.3.jar
+hbase-server-1.1.3.jar
+The above jar packages are replaced with:
+hadoop-annotations-2.6.4.jar
+hadoop-auth-2.6.4.jar
+hadoop-client-2.6.4.jar
+hadoop-common-2.6.4.jar
+hadoop-hdfs-2.6.4.jar
+hadoop-mapreduce-client-app-2.6.4.jar
+hadoop-mapreduce-client-common-2.6.4.jar
+hadoop-mapreduce-client-core-2.6.4.jar
+hadoop-mapreduce-client-jobclient-2.6.4.jar
+hadoop-mapreduce-client-shuffle-2.6.4.jar
+hadoop-yarn-api-2.6.4.jar
+hadoop-yarn-client-2.6.4.jar
+hadoop-yarn-common-2.6.4.jar
+hadoop-yarn-server-common-2.6.4.jar
+hbase-client-1.1.3.jar
+hbase-common-1.1.3.jar
+hbase-protocol-1.1.3.jar
+hbase-server-1.1.3.jar
+
+2) If you don't use mvn to get dependencies, you can also directly click here to [download](http://hbase-10010986.cos.myqcloud.com/%E6%89%80%E6%9C%89jar%E5%8C%85.zip) all client jar packages.
+

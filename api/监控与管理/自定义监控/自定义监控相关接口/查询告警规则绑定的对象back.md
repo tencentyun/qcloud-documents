@@ -36,7 +36,7 @@ data内容：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action= DescribeAlarmRuleObjects
 & alarmRuleId = policy-f3h1bxvcsb 
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 输出
 ```

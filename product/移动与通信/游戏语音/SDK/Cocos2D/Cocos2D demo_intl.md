@@ -1,0 +1,1 @@
+[Download Cocos2D demo](http://doc-10010986.cos.myqcloud.com/gvoice/VoiceTutorial_cocos2dx.zip)

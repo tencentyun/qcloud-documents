@@ -40,7 +40,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 ```
 
 ### step 4: 画面调整
-如果你希望调整画面的显示方式，SDK也提供了多种选择：
+如果您希望调整画面的显示方式，SDK也提供了多种选择：
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
 - **setRenderMode**
@@ -74,6 +74,7 @@ TXLivePlayer 的 **stopPlay** 函数用于停止直播流的拉取、画面渲�
 
 - **暂停播放: ** 如果您只是要暂停播放，可以使用stopPlay(<font color='red'> false</font>) 来实现，stopPlay 的布尔型参数含义为**是否清除最后一帧画面**。
 > 直播没有影音播放器中的暂停的概念，因为主播不会因为一个观众的暂停而暂停，由于腾讯云播放器有秒开模式，所以暂停后继续可以用`stopPlay(false) + start`模拟实现。
+> 点播如果您希望播放结束后，保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
 - **结束播放: ** 如果您是要彻底结束播放，比如退出播放界面，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
 ```java

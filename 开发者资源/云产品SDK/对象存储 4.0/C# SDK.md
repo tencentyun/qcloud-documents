@@ -32,9 +32,9 @@ public static string Signature(int appId, string secretId, string secretKey, lon
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.qcloud.com/cos)获取。 |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.cloud.tencent.com/cos)获取。 |
 | expired    | long   | 是      | 过期时间，Unix时间戳                             |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 
 #### 示例
 
@@ -56,8 +56,8 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.qcloud.com/cos)获取。 |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.cloud.tencent.com/cos)获取。 |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | remotePath | string | 是      | 文件唯一的标识，格式/appid/bucketname/filepath/filename，其中/filepath/filename为文件在此bucketname下的全路径， |
 
 #### 示例
@@ -66,7 +66,7 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 var sign = Sign.SignatureOnce(appId, secretId, secretKey,remotePath, bucketName); 
 ```
 
-更多签名详细说明，请参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+更多签名详细说明，请参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
 
 ## 目录操作
 
@@ -269,7 +269,7 @@ public string UploadFile(string bucketName, string remotePath, string localPath,
 
 | **参数名**      | **类型**                     | **必填** | **参数描述**                                 |
 | ------------ | -------------------------- | ------ | ---------------------------------------- |
-| bucketName   | string                     | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName   | string                     | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | remotePath   | string                     | 是      | 文件在服务端的全路径                               |
 | localPath    | string                     | 是      | 文件本地路径                                   |
 | parameterDic | Dictionary<string, string> | 否      | 文件上传参数字典                                 |

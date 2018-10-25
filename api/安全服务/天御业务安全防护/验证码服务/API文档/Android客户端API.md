@@ -4,7 +4,7 @@
 ### 2 开发步骤
 1)	将VerifySDK.jar拷贝到libs目录下关联到工程
 
-[Android-SDK下载](https://mc.qcloudimg.com/static/archive/0380647a95b4e8ebd40129f7967926ac/AndroidSDK%281%29.zip)
+[Android-SDK下载](https://mc.qcloudimg.com/static/archive/48720dad0a66293a8837a60b88ceef4e/archive.zip)
 
 2)	如AndroidManifest.xml未声明以下权限，则添加声明
 ```

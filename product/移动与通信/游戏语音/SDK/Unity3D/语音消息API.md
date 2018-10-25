@@ -1,5 +1,5 @@
 ## 1 概述
-使用消息语音，需要先调用[基本API](https://www.qcloud.com/document/product/556/7675)。
+使用消息语音，需要先调用[基本API](https://cloud.tencent.com/document/product/556/7675)。
 
 ## 2 语音消息API调用流程
  
@@ -96,7 +96,7 @@
 ### 3.4 停止录音
 1.接口说明  
 
-在语音消息的模式下，调用停止录音接口会
+在语音消息的模式下，调用停止录音接口
 
 2.函数原型
 

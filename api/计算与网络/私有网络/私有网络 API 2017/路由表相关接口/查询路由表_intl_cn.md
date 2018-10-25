@@ -1,0 +1,290 @@
+## 1. 接口描述
+
+本接口(DescribeRouteTable)用于查询路由表。
+接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+
+
+## 2. 输入参数
+ 
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeRouteTable。
+
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| vpcId | 否 | String | 子网所属的私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-0ox8fuhw。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
+| routeTableId | 否 | String | 系统分配的路由表ID值，可使用routeTableId或unRouteTableId，建议使用unRouteTableId，例如：rtb-0ox8fuhw。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>接口查询。 |
+| routeTableName | 否 | String | 路由表名，支持模糊查询。 |
+| offset | 否 | Int | 初始行的偏移量，默认为0。 |
+| limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
+| orderField | 否 | String | 按某个字段排序，目前仅支持createTime,routeTableName排序，默认按createTime排序。 |
+| orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：desc。 |
+
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述|
+|---------|---------|---------|
+| code| Int | 错误码，0: 成功，其他值: 失败。 |
+| message |  String | 错误信息。 |
+| totalCount | Int | 查询结果中路由总数量。 |
+| data.n | Array | 返回的数组。 |
+| data.n.vpcId | String | 系统分配的私有网络ID，例如：gz_vpc_8849。 |
+| data.n.unVpcId | String | 系统分配的新的私有网络ID，建议使用新ID，例如：vpc-0ox8fuhw。 |
+| data.n.routeTableId | String | 系统分配的路由表ID，例如：gz_rtb_8849。 |
+| data.n.unRouteTableId | String | 系统分配的新的路由表ID，建议使用新ID，例如：rtb-0ox8fuhw。 |
+| data.n.routeTableName | String  | 路由表名称。 |
+| data.n.routeTableType | Int  | 路由表类型，0：默认路由表；1：普通路由表。默认路由表和普通路由表的区别详见<a href="" title="路由表产品说明">路由表产品说明</a>。 |
+| data.n.routeTableCreateTime | String  | 路由表创建时间，例如：2015-11-06 17:50:21。 |
+| data.n.subnetNum | Int  | 关联子网的数量。 |
+| data.n.routeTableSet.n | Array  | 路由策略信息数组。 |
+
+routeTableSet路由策略信息数组
+
+| 参数名称 | 类型 | 描述|
+|---------|---------|---------|
+| routeTableSet.n.destinationCidrBlock | string  | 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。 |
+| routeTableSet.n.nextType | string  | 下一跳类型，目前我们支持的类型有：0：公网网关；1：vpn网关； 3：专线网关；4：对等连接；7：sslvpn；8：nat网关；9：普通云主机。 |
+| routeTableSet.n.nextHub | string  | 下一跳地址，这里只需要指定不同下一跳类型的网关ID（推荐使用新ID），系统会自动匹配到下一跳地址。 |
+| routeTableSet.n.unNextHub | string  | 下一跳地址唯一ID，下一跳地址的唯一标识，推荐使用统一ID。 |
+| routeTableSet.n.description | string  | 路由描述。 |
+ 
+  ## 4. 错误码表
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+
+| 错误码 | 描述 |
+|---------|---------|
+| InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 | 
+| InvalidRouteTableId.NotFound | 无效的路由表。路由表ID不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>接口查询。 | 
+ 
+## 5. 示例
+ 
+输入
+<pre>
+  https://vpc.api.qcloud.com/v2/index.php?Action=DescribeRouteTable
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+  &vpcId=vpc-amhnnao5
+  &routeTableName=tttt111
+</pre>
+
+输出
+```
+
+{
+    "code": 0,
+    "message": "",
+    "totalCount": 114,
+    "data": [
+        {
+            "vpcId": "gz_vpc_99",
+            "unVpcId": "vpc-amhnnao5",
+            "vpcName": "pan-vpc25",
+            "vpcCidrBlock": "10.100.25.0\/24",
+            "routeTableName": "tttt111",
+            "routeTableId": "gz_rtb_8755",
+            "unRouteTableId": "rtb-rqndayhs",
+            "routeTableType": 0,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-11-06 17:50:21",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                },
+                {
+                    "destinationCidrBlock": "121.0.0.0\/16",
+                    "nextType": 1,
+                    "nextHub": "548"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_266",
+            "unVpcId": "vpc-2ari9m7h",
+            "vpcName": "bbbtest",
+            "vpcCidrBlock": "192.168.0.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_8751",
+            "unRouteTableId": "rtb-ggovmles",
+            "routeTableType": 1,
+            "subnetNum": 0,
+            "routeTableCreateTime": "2015-11-06 11:33:52",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_64",
+            "unVpcId": "vpc-kd7d06of",
+            "vpcName": "panpan-vpc1",
+            "vpcCidrBlock": "10.0.0.0\/16",
+            "routeTableName": "tttt",
+            "routeTableId": "gz_rtb_8750",
+            "unRouteTableId": "rtb-dy09eb46",
+            "routeTableType": 0,
+            "subnetNum": 0,
+            "routeTableCreateTime": "2015-11-02 16:58:53",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_265",
+            "unVpcId": "vpc-ktom9wg5",
+            "vpcName": "yunapitest",
+            "vpcCidrBlock": "10.100.100.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_8747",
+            "unRouteTableId": "rtb-fdyy7v1o",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-10-30 16:10:49",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_260",
+            "unVpcId": "vpc-r4wc72kt",
+            "vpcName": "oplogtest",
+            "vpcCidrBlock": "10.100.180.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_8738",
+            "unRouteTableId": "rtb-cfqwtvs4",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-10-23 19:47:54",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_180",
+            "unVpcId": "vpc-cor5n2a5",
+            "vpcName": "test",
+            "vpcCidrBlock": "10.100.181.0\/24",
+            "routeTableName": "default",
+            "routeTableId": "gz_rtb_8730",
+            "unRouteTableId": "rtb-hrjfw07c",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-10-22 12:11:22",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                },
+                {
+                    "destinationCidrBlock": "10.0.0.0\/8",
+                    "nextType": 3,
+                    "nextHub": "4245"
+                },
+                {
+                    "destinationCidrBlock": "10.100.2.0\/24",
+                    "nextType": 3,
+                    "nextHub": "4245"
+                },
+                {
+                    "destinationCidrBlock": "172.0.0.0\/8",
+                    "nextType": 3,
+                    "nextHub": "4245"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_248",
+            "unVpcId": "vpc-ali73gtr",
+            "vpcName": "pan-vpc180",
+            "vpcCidrBlock": "10.100.180.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_8729",
+            "unRouteTableId": "rtb-m5es14q4",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-10-22 11:25:51",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_231",
+            "unVpcId": "vpc-erxok83l",
+            "vpcName": "barry-uniqVpci",
+            "vpcCidrBlock": "10.20.80.0\/24",
+            "routeTableName": "apollolan121",
+            "routeTableId": "gz_rtb_8724",
+            "unRouteTableId": "rtb-5qaib2em",
+            "routeTableType": 0,
+            "subnetNum": 0,
+            "routeTableCreateTime": "2015-10-19 19:50:38",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_231",
+            "unVpcId": "vpc-erxok83l",
+            "vpcName": "barry-uniqVpci",
+            "vpcCidrBlock": "10.20.80.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_8720",
+            "unRouteTableId": "rtb-3jdtm2uk",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-10-19 11:36:00",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        },
+        {
+            "vpcId": "gz_vpc_174",
+            "unVpcId": "vpc-gaep0rmx",
+            "vpcName": "pan-vpc99",
+            "vpcCidrBlock": "10.100.99.0\/24",
+            "routeTableName": "默认",
+            "routeTableId": "gz_rtb_481",
+            "unRouteTableId": "rtb-d1voj30m",
+            "routeTableType": 1,
+            "subnetNum": 1,
+            "routeTableCreateTime": "2015-01-30 14:21:19",
+            "routeSet": [
+                {
+                    "destinationCidrBlock": "Local",
+                    "nextType": 2,
+                    "nextHub": "Local"
+                }
+            ]
+        }
+    ]
+}
+
+```
+

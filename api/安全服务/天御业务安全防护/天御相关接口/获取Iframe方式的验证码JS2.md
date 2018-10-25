@@ -49,7 +49,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
 &uid=15013465759
 &userIp=8.8.8.8
 &xForwardedFor=121.14.96.121
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 
 输出
@@ -62,4 +62,4 @@ https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
 }
 ```
 ## 5. 样例代码
-[样例代码](https://console.qcloud.com/tianyu/guide/service/Captcha)
+[样例代码](https://console.cloud.tencent.com/tianyu/guide/service/Captcha)

@@ -1,0 +1,282 @@
+常用语法的含义：
+- `{ }`表示可选且任选一项，例如 { BOTH | LEADING | TRAILING } 表示可以不填（使用默认行为），也可以使用 BOTH 或 LEADING 或 TRAILING 的任意一项。不同项的功能不同。
+
+- `[ ]`表示可选项，而`*`表示重复 0 或多次，例如 `[, value]*`表示后续有 0 个或多个 “, value”，这种用法常用来表示不定数目的参数，例如 value, value, value … value。
+
+- 小写字母构成的字符串表示某个变量，例如 value1、value、boolean、numeric 等，而大写字母（例如 IS NULL）或符号（例如 =、<）表示运算符或内置函数。
+
+## 比较函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| value1 = value2	| 比较 value1 和 value2 是否相等，如果相等则返回TRUE，如果不相等则返回FALSE。<br>**NULL 与任何值比较的结果均为 NULL**，在 WHERE 条件中会被当作 FALSE。因此请使用 IS NULL 而不是 = NULL 来与 NULL 进行比较。<br>  **`=` 和 IS NOT DISTINCT FROM** 的区别主要在于对 NULL 值的处理的方式不同。|
+| value1 <> value2	| 比较 value1 和 value2 是否不相等。|
+| value1 > value2	| 比较 value1 是否大于 value2。|
+| value1 >= value2	| 比较 value1 是否大于等于 value2。|
+| value1 < value2	| 比较 value1 是否小于 value2。|
+| value1 <= value2	| 比较 value1 是否小于等于 value2。|
+| value IS NULL	| 如果 value 为 NULL 则返回 TRUE，否则返回 FALSE。|
+| value IS NOT NULL	| 如果 value 不为 NULL 则返回 TRUE，否则返回 FALSE。|
+| value1 IS DISTINCT FROM value2	| 如果两个值不等（所有 NULL 值视为彼此相等），则返回 TRUE。|
+| value1 IS NOT DISTINCT FROM value2	| 如果两个值相等（所有 NULL 值视为彼此相等）则返回 TRUE。|
+| value1 BETWEEN [ASYMMETRIC &#124; SYMMETRIC ] value2 AND value3	| 默认行为是 ASYMMETRIC，表示若 value1 大于等于 value2 且小于等于 value3，则返回 TRUE；如果显式指明 SYMMETRIC，则 value2 和 value3 的顺序可以相互交换而不影响结果。|
+| value1 NOT BETWEEN value2 AND value3	| 如果 value1 小于 value2 或者大于 value3，则返回 TRUE。|
+| string1 LIKE string2 [ ESCAPE string3 ]	| 如果 string1 符合 string2 表示的 pattern 则返回 TRUE。可以用 ESCAPE 指定转义符。|
+| string1 NOT LIKE string2 [ ESCAPE string3 ]	| 如果 string1 不符合 string2 表示的 pattern 则返回 TRUE。 可以用 ESCAPE 指定转义符。|
+| string1 SIMILAR TO string2 [ ESCAPE string3 ]	| 如果 string1 符合 string2 表示的正则表达式，则返回 TRUE。可用 ESCAPE 指定转义符。|
+| string1 NOT SIMILAR TO string2 [ ESCAPE string3 ]	| 如果 string1 不符合 string2 表示的正则表达式，则返回 TRUE。可用 ESCAPE 指定转义符。|
+| value IN (listItem [, listItem]\* )	|如果 value 处于 IN 后面的值列表中，则返回 TRUE。该语句等价于多个 OR 表达式的连接。<br>如果值列表中包含 NULL，则找不到时会返回 NULL，否则找不到时返回 FALSE. 如果 value 是 NULL，则结果永远为 NULL。|
+| value NOT IN (listItem, [, listItem]\*)	| 如果 value 不在 IN 后的值列表中，则返回 TRUE。|
+| EXISTS (某个子查询)	|  如果子查询返回至少一行，则为 TRUE。|
+
+## 逻辑函数
+逻辑函数用来执行逻辑运算。
+逻辑状态有 TRUE、FALSE、UNKNOWN 三种（NULL 值的逻辑状态是 UNKNOWN），因而 NOT TRUE 不一定是 FALSE，还可能是 UNKNOWN。
+
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| boolean1 OR boolean2	| 如果 boolean1 或者 boolean2 任意一个为 TRUE，则返回 TRUE。|
+| boolean1 AND boolean2	| 当且仅当 boolean1 和 boolean2 均为 TRUE 时才返回 TRUE。|
+| NOT boolean	| 如果 boolean 为 TRUE 则返回 FALSE; 如果为 FALSE 则返回 TRUE； 如果为 UNKNOWN 则返回 UNKNOWN。|
+| boolean IS FALSE	| 如果 boolean 为 FALSE 则返回 TRUE；如果 boolean 为 UNKNOWN 则返回 FALSE。|
+| boolean IS NOT FALSE	| 如果 boolean 不为 FALSE 则返回 TRUE； 如果为 UNKNOWN 则返回 TRUE。|
+| boolean IS UNKNOWN	| 如果 boolean 为 UNKNOWN 则返回 TRUE。|
+| boolean IS NOT UNKNOWN |	如果 boolean 不为 UNKNOWN 则返回 TRUE。|
+
+## 算数函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| +numeric	| 返回 numeric 本身。 |
+| -numeric	| 返回 0-numeric 的值，即翻转符号。 |
+| numeric1 + numeric2	| 返回 numeric1 加 numeric2。|
+| numeric1 - numeric2	 | 返回 numeric1 减 numeric2。|
+| numeric1 * numeric2  | 返回 numeric1 乘 numeric2。|
+| numeric1 / numeric2	 | 返回 numeric1 除以 numeric2。|
+| POWER(numeric1, numeric2) |	返回 numeric1 的 numeric2 次方。|
+| ABS(numeric)	| 返回 numeric 的绝对值。|
+| MOD(numeric1, numeric2)	| 返回 numeric1 除以 numeric2 的余数。如果 numeric1 是负数，那么余数也为负。|
+| SQRT(numeric)	| 返回 numeric 的平方根。|
+| LN(numeric)	返回 | numeric 的自然对数（以 e 为底）。|
+| LOG10(numeric) |	返回 numeric 以 10 为底的对数。|
+| EXP(numeric)	| 返回 e 的 numeric 次方。|
+| CEIL(numeric) 或 CEILING(numeric)	| 返回 numeric 向上取整的值。|
+| FLOOR(numeric) |	返回 numeric 向下取整的值。|
+| SIN(numeric)	| 计算 numeric 的正弦值。|
+| COS(numeric) | 	计算 numeric 的余弦值。|
+| TAN(numeric)	| 计算 numeric 的正切值。|
+| COT(numeric)	| 计算 numeric 的余切值。|
+| ASIN(numeric)	| 计算 numeric 的反正弦值。|
+| ACOS(numeric)	| 计算 numeric 的反余弦值。|
+| ATAN(numeric)	| 计算 numeric 的反正切值。|
+| DEGREES(numeric)	| 将 numeric 从弧度转为角度。|
+| RADIANS(numeric)	| 将 numeric 从角度转为弧度。|
+| SIGN(numeric)	| 得到 numeric 的符号，负数是 -1，0 返回 0，正数是 1。|
+| ROUND(numeric, int)	| 对 numeric 取整，位数由 int 值给定，可正也可负。|
+| PI()	| 返回一个可以代表 π 的值。|
+| E()	| 返回一个可以代表自然对数的底数 e 的值。|
+| RAND() 或 RAND(种子值)	| 返回一个 0.0 ~ 1.0 (不包含) 的伪随机数，可以指定一个整数作为种子值。|
+| RAND_INTEGER(上限值) 或 RAND_INTEGER(种子值, 上限值)	| 返回一个 0.0 – 指定上限值 (不包含) 的伪随机数。|
+| LOG(numeric) LOG(base, numeric)	| 返回 numeric 的自然对数，或者返回以指定 base 为底的对数。|
+| BIN(numeric)	| 获取 numeric 的二进制表示的字符串，例如输入 4 则返回 “100”。|
+
+## 字符串操作函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| string1 &#124;  &#124;  string2	| 连接两个字符串。 |
+| CHAR_LENGTH(string)	| 返回字符串的长度。|
+| CHARACTER_LENGTH(string)	| 与 CHAR_LENGTH(string) 相同。|
+| UPPER(string)	| 返回 string 的全大写字母形式。|
+| LOWER(string)	| 返回 string 的全小写字母形式。|
+| POSITION(string1 IN string2)	| 获取 string1 在 string2 中第一次出现的位置。|
+| TRIM( { BOTH &#124; LEADING &#124; TRAILING } string1 FROM string2)| 去掉 string2 中以 string1 两端 / 开头 / 结尾的 string1 部分。默认会移除两端的空格。|
+| OVERLAY(string1 PLACING string2 FROM start_pos [ FOR length ])	| 将 string1 从第 start_pos 位开始的子串替换为 string2。可以指定替换的长度。|
+| SUBSTRING(string from pos) [ FOR length]	| 获取从 pos 位开始的子串，默认行为是直到源字符串的最后，可以使用 FOR 来指定子串的长度。|
+| INITCAP(string)	| 将 string 转为以大写字母开头，其他是小写字母的形式。单词之间使用非字母和数字的字符分隔。|
+| CONCAT(string1, string2 …)	| 连接多个字符串。若任意字符串为 NULL 则结果为 NULL。|
+| CONCAT_WS(separator, string1, string2, …)	|使用指定的分隔符separator连接多个字符串。如果 separator 为 NULL 则结果为 NULL. 如果某个字符串为 NULL 则跳过它；不会跳过空字符串，例如 CONCAT_WS("~", "AA","BB", "", "CC")  会返回 AA~BB~\~CC。|
+| LPAD(text, length, padding)	| 使用 padding 指定的字符串从左侧填充 text 字符串到指定长度  length. 如果 text 比 length 更长，则会截断到 length 的长度。|
+| RPAD(text, length, padding)	| 使用 padding 指定的字符串从右侧填充 text 字符串到指定长度 length。如果 text 比 length 更长，则会截断到 length 的长度。|
+
+## 条件函数
+
+| 函数名	| 功能描述 |
+| ----- | ----- | 
+| CASE value<br>WHEN value1 [, value11 ]\* THEN result1<br>[ WHEN valueN [, valueN1 ]\* THEN resultN ]\*<br>[ ELSE resultZ ]<br>END	| 当满足 value1 ~ value11 的任意值时，返回 result1；<br>当满足 valueN ~ valueN1 的任意值时，返回 resuntlN；<br>否则返回 resultZ。|
+| CASE<br>WHEN condition1 THEN result1<br>[ WHEN conditionN THEN resultN ]<br>\*<br>[ ELSE resultZ ]<br>END	| 当满足 condition1 时返回 result1；<br>当满足 condition 时返回 resultN；<br>否则返回 resultZ。|
+| NULLIF(value1, value2)	| 如果 value1 与 value2 相同则返回 NULL；否则返回第一个值。例如 NULLIF(5, 5) 返回 NULL, 而 NULLIF(5, 0) 返回 5。|
+| COALESCE(value, value [, value ]\* )	| 如果前值是 NULL 则提供一个后续的值，例如 COLAESCE(NULL, 5) 则返回 5。|
+
+## 类型转换函数
+| 函数名	| 功能描述 | 
+| ----- | ----- |
+| CAST(value AS type)	| 将某个值转为 type 类型. 例如 CAST(`hello` AS VARCHAR) 会将 `hello` 字段转为 VARCHAR 类型。|
+
+## 时间相关函数
+| 函数名	| 功能描述 | 
+| ----- | ----- |
+| DATE string	| 将 “yy-MM-dd” 形式表示的字符串转为 SQL 日期。|
+| TIME string	| 将 “hh:mm:ss” 形式表示的字符串转为 SQL 时间。|
+| TIMESTAMP string	| 将 “yy-MM-dd hh:mm:ss.fff” 形式的字符串转为 SQL 时间戳。|
+| INTERVAL string range	| 接受 “dd hh:mm:ss.fff” 形式的字符串（毫秒），或者 “yyyy-MM” 形式的字符串（月）。<br>对于毫秒，可以接受 DAY, MINUTE, DAY TO HOUR, DAY TO SECOND 作为 range； 对于月，接受 YEAR 或 YEAR TO MONTH 作为 range。 例如 INTERVAL ’10 00:00:00.004’ DAY TO SECOND、INTERVAL ‘10’ DAY、INTERVAL ‘2-10’ YEAR TO MONTH。|
+| CURRENT_DATE	| 返回当前的 SQL 格式表示的日期（UTC）。|
+| CURRENT_TIME	| 返回当前的 SQL 格式表示的时间（UTC）。|
+| CURRENT_TIMESTAMP	| 返回当前 SQL 格式表示的时间戳（UTC）。|
+| LOCALTIME	| 返回本地时区表示的 SQL 时间。|
+| LOCALTIMESTAMP	| 返回本地时区表示的 SQL 时间戳。|
+| EXTRACT(timeintervalunit FROM temporal)	| 获取时间点或时间段字符串中的某项，例如 EXTRACT(DAY FROM DATE ‘2006-06-05’) 返回 5，而 EXTRACT(YEAR FROM DATE ‘2018-06-12’) 则返回2018。|
+| FLOOR(timepoint TO timeintervalunit)	| 将一个时间点向下取整，例如 FLOOR(TIME ’12:44:31’ TO MINUTE) 返回 12:44:00。|
+| CEIL(timepoint TO timeintervalunit)	| 将一个时间点向上取整，例如 CEIL(TIME ’12:44:31’ TO MINUTE) 返回 12:45:00。|
+| QUARTER(date)	| 返回指定 SQL 日期所在的季度，例如 QUARTER(DATE ‘1994-09-27’) 返回 3，表示第 3 季度。|
+| (timepoint, temporal) OVERLAPS (timepoint, temporal)	| 判断两个时间段是否重叠。例如 (TIME<br>'2:55:00', INTERVAL '1' HOUR) OVERLAPS (TIME<br>'3:30:00', INTERVAL '2' HOUR) 返回 TRUE; 而 (TIME<br>'9:00:00', TIME '10:00:00') OVERLAPS (TIME<br>'10:15:00', INTERVAL '3' HOUR) 返回 FALSE。|
+| DATE_FORMAT(timestamp, format)	| 使用指定的格式字符串 format 来格式化时间戳。使用方式与 MySQL 的 date_parse() 函数相同。<br>例如 DATE_FORMAT(ts, ‘%Y, %d %M’) 返回字符串 ‘2017, 05 May’。|
+| TIMESTAMPADD(unit, interval, timestamp)	| 对指定 timestamp 增加一个时间段（允许为负数），区间必须为 SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR 中的一种，例如 TIMESTAMPADD(WEEK, 1, ‘2013-01-02’) 返回 ‘2013-01-09’。|
+
+## 聚合函数
+| 函数名	| 功能描述 | 
+| ----- | ----- |
+| COUNT(value [, value]\* )	| 返回非 NULL value 的输入行数。|
+| COUNT(\*)	| 返回输入的行数。|
+| AVG(numeric)	| 返回指定列的所有输入的算术平均值。|
+| SUM(numeric)	| 返回指定列的所有输入和。|
+| MAX(value)	| 返回指定列所有输入的最大值（注：不可用于 TIMESTAMP 类型）。|
+| MIN(value)	| 返回指定列所有输入的最小值（注：不可用于 TIMESTAMP 类型）。|
+| STDDEV_POP(value)	| 计算指定列所有输入的总体标准差。|
+| STDDEV_SAMP(value)	| 计算指定列所有输入的样本标准差。|
+| VAR_POP(value)	| 计算指定列所有输入的总体方差。|
+| VAR_SAMP(value)	| 计算指定列所有输入的样本方差。|
+| COLLECT(value)	| 返回指定列所有非 NULL 输入的集合（允许重复值）。如果所有值都是 NULL，则返回一个空集。|
+
+## 时间窗口函数
+窗口函数是一种特殊的函数，它并不在 SELECT 的投影列表中使用，而是在 GROUP BY 子句中使用。SCS 支持三种类型的窗口函数：TUMBLE、HOP、SESSION。
+
+### TUMBLE WINDOW
+TUMBLE 窗口是一个个相连但不重叠的固定周期的窗口。
+#### 语法
+`TUMBLE(time_attr, interval)`
+　
+其中 interval 的用法参见 [本手册 4.7 小节]()。
+第一个参数表示时间戳字段，若没有定义 WATERMARK 则可以使用系统自动生成的 `PROCTIME` 时间戳字段，表示每条记录被处理时的时间戳。
+>**注意：**
+>如果在Event Time 时间模式下（使用 WATERMARK FOR BOUNDED 定义了时间戳字段），那么 TUMBLE 窗口函数的第一个参数必须为该字段；如果在 Processing Time 时间模式下，则 TUMBLE 窗口函数的第一个参数必须为 PROCTIME（大写）。HOP 和 SESSION 同理。
+
+#### 示例
+`TUMBLE(rowtime, INTERVAL '1' DAY)`
+其中 rowtime是数据源中的时间戳字段。
+
+`TUMBLE(PROCTIME, INTERVAL ‘2’ HOUR)`
+其中 PROCTIME 是自动生成的记录被处理时的时间戳。
+
+TUMBLE 窗口的示意图：
+![](https://main.qcloudimg.com/raw/929281540cd32e2ae25f9545e806b34b.png)
+
+### HOP WINDOW
+HOP WINDOW 是一种滑动窗口，它保持窗口大小不变，每次滑动指定的时间周期，因而允许窗口之间的相互重叠。
+#### 语法
+`HOP(time_attr, sliding_interval, window_size_interval)`
+
+#### 示例
+`HOP(rowtime, INTERVAL '1' HOUR, INTERVAL '1' DAY), product")` 
+表示一个窗口大小为 1 天，滑动周期为 1 小时的 HOP 窗口。
+
+HOP 窗口的示意图：
+![](https://main.qcloudimg.com/raw/302b9e539861ce455d9b37d31ff7dad3.png)
+
+### SESSION WINDOW
+Session Window并非以长度来划分窗口，而是以非活跃时间来划分。例如超过 30 分钟不活跃（没有新数据），则之前的窗口结束，下一个来到的数据将会形成一个新窗口。
+#### 语法
+`SESSION(time_attr, interval)`
+
+#### 示例
+`SESSION(rowtime, INTERVAL '12' HOUR)`
+
+SESSION 窗口的示意图：
+![](https://main.qcloudimg.com/raw/f2135fdb0181a01227dfd59e38354b2e.png)
+
+另外，这三种窗口都有对应的辅助函数。以 TUMBLE 窗口为例（HOP、SESSION 也一样，只是前缀不同），有如下辅助函数：
+- **TUMBLE_START**：表示 TUMBLE 窗口的起始值（包含）。
+示例：
+```
+SELECT user,
+TUMBLE_START(rowtime, INTERVAL '1' DAY) as wStart, 
+SUM(amount) FROM Orders 
+GROUP BY TUMBLE(rowtime, INTERVAL '1' DAY), user
+```
+
+- **TUMBLE_END**：表示 TUMBLE 窗口的末端界限（不包含，只能用于 SELECT 后的列，不能用作JOIN或 GROUP 以及 OVER 条件。若需要请根据当前的时间模式（Event Time 或 Processing Time）分别使用下面的 TUMBLE_ROWTIME 或 TUMBLE_PROCTIME）
+TUMBLE_ROWTIME：表示 TUMBLE 窗口的末端界限（包含，可用作JOIN或 GROUP 以及 OVER 条件，Event Time 时间模式下使用）。
+示例：
+```
+SELECT user,
+TUMBLE_START(rowtime, INTERVAL '12' HOUR) AS sStart,
+TUMBLE_ROWTIME(rowtime, INTERVAL '12' HOUR) AS snd,
+SUM(amount)
+FROM Orders
+GROUP BY TUMBLE(rowtime, INTERVAL '12' HOUR), user
+```
+
+- **TUMBLE_PROCTIME**：表示 TUMBLE 窗口的末端界限（包含，可用作JOIN或 GROUP 以及 OVER 条件，Processing Time 时间模式下使用）。
+示例：
+```
+SELECT user,
+TUMBLE_START(PROCTIME, INTERVAL '12' HOUR) AS sStart,
+TUMBLE_PROCTIME(PROCTIME, INTERVAL '12' HOUR) AS snd,
+SUM(amount)
+FROM Orders
+GROUP BY TUMBLE(PROCTIME, INTERVAL '12' HOUR), user
+```
+
+## 其他函数
+### Map 映射操作函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| CARDINALITY(map)	| 返回某个 Map 的总项数。 |
+| map ‘[’ key ‘]’	| 返回 Map 的 key 键所对应的值。|
+
+### 散列函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| MD5(string)	| 返回字符串的 MD5 值（32位十六进制数字组成的字符串）。如果输入为 NULL 则返回 NULL。|
+| SHA1(string)	| 返回字符串的 SHA1 值（40位十六进制数字组成的字符串）。如果输入为 NULL 则返回 NULL。|
+| SHA256(string)	| 返回字符串的 SHA256 值（64位十六进制数字组成的字符串）。如果输入为 NULL 则返回 NULL。|
+
+### 值访问函数（暂未支持）
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| tableName.compositeType.field	| 访问复合类型（Tuple、POJO）等的字段。|
+| tableName.compositeType.\*	| 访问 Tuple 或 POJO 的所有字段。|
+
+### 值构造函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| (value, [, value]\*)	|创建一个包含若干值的行。|
+| ROW(value, [, value]\*)	| 创建一个包含若干值的行（同上）。|
+| ARRAY ‘[’ value [, value ]\* ‘]’	| 创建一个包含若干值的数组。|
+| MAP ‘[’ key, value [, key, value ]\* ‘]’	| 创建一个包含若干键值对的映射。|
+
+### 数组函数
+| 函数名	| 功能描述 |
+| ----- | ----- |
+| CARDINALITY(array)	| 返回某个数组的长度。|
+| array ‘[’ index ‘]’	| 返回某个数组的指定位置的项（注意下标从 1 开始）。|
+| ELEMENT(array)	| 返回单元素数组的内容（如果数组为空则返回 NULL；如果数组存放的元素大于一个，则抛出异常）。| 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

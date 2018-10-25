@@ -1,37 +1,30 @@
+GPU 云服务器必须具备相应的 NVIDIA 驱动，必须针对您的编译您安装的 NVIDIA 驱动程序。
+## Linux 安装驱动
+1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或复制链接 http://www.nvidia.com/Download/Find.aspx 。
+2. 选择操作系统和安装包。以 M40 为例，选择要下载的驱动版本：
+![](//mc.qcloudimg.com/static/img/70da79038a0220191adc012fa8133b1b/image.png)
+![](//mc.qcloudimg.com/static/img/8255f9b4f32528399fc4616df6feec68/image.png)
+4. 跳转后，右击【DOWNLOAD】-【复制链接地址】。
+![](//mc.qcloudimg.com/static/img/bb3b94d8c364948dd2b36ef893649a7e/image.png)
+5. 登录 GPU 实例，使用 `wget` 命令， 粘贴上述步骤复制的链接地址下载安装包；或通过在本地系统下载 NVIDIA 安装包， 上传到 GPU 实例的服务器。
+![](//mc.qcloudimg.com/static/img/7e712f47f709a4d978daf1fb09417cd1/image.png)
+3. 对安装包加执行权限。 比如对文件名为 `NVIDIA-Linux-x86_64-352.99.run` 加执行权限
+ ` chmod +x NVIDIA-Linux-x86_64-352.99.run`
+4. 安装当前系统对应的 gcc 和 kernel-devel 包
+  `sudo yum install -y gcc kernel-devel-xxx`
+  `xxx `是内核版本号，可以通过 `uname -r` 查看。
+5. 运行驱动安装程序 `sudo /bin/bash ./NVIDIA-Linux-x86_64-352.99.ru` 按提示进行后续操作。
+6. 安装完成后， 运行 nvidia-smi 如果有类似如下的 GPU 信息显示出来，说明驱动安装成功。
+![](//mc.qcloudimg.com/static/img/1c82b06999b15cc414a383d61961e528/image.jpg)
 
-> CUDA®(Compute Unified Device Architecture)是显卡厂商NVIDIA推出的运算平台。 CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。 它包含了CUDA指令集架构（ISA）以及GPU内部的并行计算引擎。 开发人员现在可以使用C语言,C++,FORTRAN来为CUDA™架构编写程序,所编写出的程序于是就可以在支持CUDA™的处理器上以超高性能运行。
-
-GPU 云服务器采用NVIDIA显卡，需要安装CUDA开发运行环境。以目前最常用的CUDA7.5为例，可参照以下步骤进行安装：
-
-## Linux GPU 云服务器安装 CUDA 指引
-1. 需要在 Linux 实例上安装 CUDA，可以从 https://developer.nvidia.com/cuda-75-downloads-archive 下载 CUDA 安装包。
-2. 操作系统和安装包选择。
-以 CentOS 7.2 64位为例，可按如下方式进行选择
-![](//mc.qcloudimg.com/static/img/366bbd6ca9af49f77dda91036cf533bc/image.jpg)
->  注：Installer Type 推荐选择rpm（network）。
-> network：网络安装包，安装包较小，需要在主机内联网下载实际的安装包。
-> local：本地安装包。安装包较大，包含每一个下载安装组件的安装包。
-
-3. 安装
-![](//mc.qcloudimg.com/static/img/0dd00b1bbdc9d025109e38825be8ed71/image.jpg)
-按照如上安装指引即可安装
-
-4. 验证是否安装成功
-
-- 在	` /usr/local/cuda-7.5/samples/1_Utilities/deviceQuery ` 目录下，执行 `make` 命令，可以编译出 deviceQuery 程序。
-- 执行 deviceQuery 正常显示如下设备信息，此刻认为 CUDA 安装正确。
-
-![](//mc.qcloudimg.com/static/img/d545951dc869591d83bf23e27831287a/image.jpg)
+## Windows 安装驱动
+1. 登录 [NVIDIA 驱动下载官网](http://www.nvidia.com/Download/Find.aspx)。
+2. 选择操作系统和安装包。以 M40 为例，选择如下驱动程序：
+![](//mc.qcloudimg.com/static/img/ba82ef3631369d12b995b6cb2a94b14c/image.png)
+3. 打开下载驱动程序的文件夹，然后双击安装文件以启动它。按照说明安装驱动程序并根据需要重启实例。要验证 GPU 是否正常工作，请检查设备管理器。
 
 
-## Windows GPU 云服务器安装 CUDA 指引
-1. 要在 Windows 实例上安装 CUDA，请使用远程桌面以管理员的身份登录您的 Windows 实例。可以从 https://developer.nvidia.com/cuda-75-downloads-archive 下载 CUDA 安装包。
-2. 操作系统和安装包选择。
-以 Win Server 2012 R2 64位为例，可按如下方式进行选择
-![](//mc.qcloudimg.com/static/img/e8e76622c35b0013cf7be9eb4bfed1d8/image.jpg)
-![](//mc.qcloudimg.com/static/img/4c4e34608a54cd98b8fc7535548aeea7/image.jpg)
-3. 启动安装程序，按提示进行安装，如果最后出现完成对话框，则安装成功。
-![](//mc.qcloudimg.com/static/img/52aef97b2d048f884c467d8446fed003/image.jpg)
+
 
 
 

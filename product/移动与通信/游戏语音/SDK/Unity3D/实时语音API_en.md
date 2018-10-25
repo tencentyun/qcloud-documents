@@ -1,5 +1,5 @@
 ## 1 Overview
-To use Voice Chat, you need to call [Basic APIs](https://www.qcloud.com/document/product/556/7675).
+To use Voice Chat, you need to call [Basic APIs](https://cloud.tencent.com/document/product/556/7675).
 
 ## 2 Call APIs for Voice Chat 
 ![](https://mc.qcloudimg.com/static/img/69e8fafb64190a5ddc1f18a954d977ce/j2.png)
@@ -15,7 +15,7 @@ To use Voice Chat, you need to call [Basic APIs](https://www.qcloud.com/document
 **Note**  
 For commander mode, only 5 people are allowed to speak. Users will be assigned a role (listener or host) when they join the room.
 
-### 3 Voice Chat APIs
+## 3 Voice Chat APIs
 
 ### 3.1 Join Team Chat Room
 1.API Description 

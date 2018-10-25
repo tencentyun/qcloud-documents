@@ -10,7 +10,7 @@ Direct Connect consists of three parts: physical Direct Connect, Direct Connect 
 Direct Connect gateway serves as the bridge connecting VPC to the physical Direct Connect, and you can create a Direct Connect tunnel associated with a Direct Connect gateway in the physical Direct Connect. The Direct Connect gateway can connect with Direct Connect tunnels from more than one physical Direct Connects to link with multiple local data centers. You can create only one Direct Connect gateway for each VPC in the Direct Connect gateway console. The created gateway can link with the requests for Direct Connect tunnels from different physical Direct Connects.
 
 ## Difference between Direct Connect and VPN Connection
-- **[VPN Connection](https://www.qcloud.com/doc/product/215/4956)** uses the public network and IPsec protocol to establish an encrypted network connection between your data center and VPC. You can purchase, enable and configure the VPN gateway in a few minutes. But the VPN connection may be interrupted due to Internet jitter, block or other public network quality problems. If users' services have low requirement for the network connection quality, it is a highly cost-effective choice for fast deployment.
+- **[VPN Connection](https://cloud.tencent.com/doc/product/215/4956)** uses the public network and IPsec protocol to establish an encrypted network connection between your data center and VPC. You can purchase, enable and configure the VPN gateway in a few minutes. But the VPN connection may be interrupted due to Internet jitter, block or other public network quality problems. If users' services have low requirement for the network connection quality, it is a highly cost-effective choice for fast deployment.
 - **Direct Connect** provides you with a dedicated Direct Connect network connection solution, which needs relatively longer construction time, but can provide the network connection services with high quality and reliability. If users' services have low requirement for the network quality and security, you may choose this solution for deployment.
 
 ## Direct Connect NAT
@@ -156,22 +156,22 @@ Step 5: Configuring the routing table associated with the subnets requiring comm
 
 These steps are described in detail below:
 ### Step 1: Creating the Physical Direct Connect
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Direct Connect" - "Physical Direct Connect" tab, and then click "New" button.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Direct Connect" - "Physical Direct Connect" tab, and then click "New" button.
 2) You need to carefully verify the region where the local data center is located, Direct Connect ISPs and the bandwidth of your physical Direct Connect, as these parameters cannot be changed once confirmed. After entering the basic information for the application of the physical Direct Connect, you will be provided with the recommended price based on the region of your local data center. You do not need to pay it during application.
 3) After clicking "OK", you can find your Direct Connect application record on the "Application Record" page of the Direct Connect console. Our Direct Connect manager will contact you within 1 business day for the details of the Direct Connect. After it's approved, the status of the application record will change to "Payment Pending". If Tencent Cloud is deemed incapable of meeting your requirements for the applied Direct Connect after communication, the manager will change the status to "Application Refused".
 
 The payment may be different depending on the establishment mode, the region where the local data center is located, and the bandwidth of Direct Connect. Once the payment is confirmed and paid, Tencent Cloud will carry out the Direct Connect construction based on the information you submitted, and if there is any parameter error found during its construction, you should bear the full cost incurred therefrom. The physical Direct Connect cannot be deleted during construction. After construction is completed, its status will change to "Running" on its console.
 
-![](//mccdn.qcloud.com/img567fa85e57aa3.png)
+![](//mc.qcloudimg.com/static/img/dd2c8735c408ba1d8de8034be3e70b50/image.png)
 
 ### Step 2: Creating the Direct Connect Tunnel
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then click "Direct Connect Gateway" tab.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then click "Direct Connect Gateway" tab.
 2) Click the "New" button to enter the Direct Connect creation page.
 3) Enter the name, VPC and address mapping mode, and select whether to enable the network address translation function. (**This function is only available in the beta test currently**. Please activate it by a ticket or your customer manager.)
 4) Click OK to confirm the information and complete the creation of the Direct Connect gateway.
 
 ### Step 3: Creating the Direct Connect Tunnel
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), and click "Direct Connect"- "Direct Connect Tunnel" tab.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click "Direct Connect"- "Direct Connect Tunnel" tab.
 2) You can only create the Direct Connect tunnel for a physical Direct Connect in "Running" status to establish a network link in the physical Direct Connect. Click the "New" button to enter the Direct Connect tunnel creation page.
 
 Direct Connect tunnel supports BPG route and static route. BGP ASN and BGP key are required for BPG route.
@@ -184,7 +184,7 @@ You can configure the gateway's network address translation on the Direct Connec
 #### IP Translation Configuration
 IP translation refers to the original IP translation to the new IP to achieve network interconnection, which includes local IP translation and peer IP translation. IP translation does not distinguish whether the access is initiated by the source or the destination. The new IP can either access or be accessed by the peer. The specific procedure is as follows:
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then click "Direct Connect" - "Direct Connect Gateway" tab.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then click "Direct Connect" - "Direct Connect Gateway" tab.
 2) Click the ID of the Direct Connect gateway to enter its details page.
 3) Edit the rules for "Local IP Translation".
 
@@ -202,7 +202,7 @@ ACL rules support TCP and UDP protocol. The local IP mapping ACL rules support t
 #### IP Port Translation Configuration
 IP port translation refers to the original IP port mapping to the new IP port to achieve network interconnection, which includes **local source IP port translation** and **local destination IP port translation**. The specific procedure is as follows:
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then click "Direct Connect" - "Direct Connect Gateway" tab.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then click "Direct Connect" - "Direct Connect Gateway" tab.
 2) Click the ID of the Direct Connect gateway to enter its details page.
 3) On the Direct Connect gateway details page, click "Source IP Port Translation". There are two steps for configuring source IP port translation:
 
@@ -224,49 +224,17 @@ Deleting: Click "Delete" to the right of the line where the IP port mapping is l
 Modifying: Click "Modify IP Port Mapping" to the right of the line where the IP port mapping is located to modify the mapping and note of this IP port mapping.
 
 ### Step 5: Configuring the routing table associated with the subnets requiring communication
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2)	Click "Routing Table" in the left navigation bar and click the routing table ID associated with the subnet requiring communication to enter its details page.
 3)	Click the "Edit" and "New line", enter the destination network segment, and select "Direct Connect" as the next hop type; then select the gateway name for next hop.
 4)	Click "Save".
 
 ### Step 6: Setting the alarm
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.qcloud.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
 2)	Fill in the Policy Name, select "Physical Direct Connect" or "Direct Connect Tunnel" in Policy Type, and then add the Hit Condition.
 3)	**Associate alarm objects**: select the alarm receiver group. You can view the set alarm policy in the policy list after you click "Complete".
-4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://www.qcloud.com/doc/product/248/1073).
+4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
 
 ## API Overview
-You can use the command line or APIs to configure and manage the Direct Connect gateway. For more information about VPC API, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/product/215/4954).
-
-| Function | Action ID | Description
-|---------|---------|---------|
-| Create Direct Connect Gateway | [CreateDirectConnectGateway](https://www.qcloud.com/doc/api/245/4824) | Create a Direct Connect gateway.  |
-| Modify Attributes of Direct Connect Gateway | [ModifyDirectConnectGateway](https://www.qcloud.com/doc/api/245/4825) | Modify the attributes of Direct Connect gateway. |
-| Delete Direct Connect Gateway | [DeleteDirectConnectGateway](https://www.qcloud.com/doc/api/245/4826) | Delete a Direct Connect gateway.  |
-| Query Direct Connect Gateway | [DescribeDirectConnectGateway](https://www.qcloud.com/doc/api/245/4827) | Query a Direct Connect gateway.  |
-| Create Local IP Translation for Direct Connect Gateway | [CreateLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4891) | Create local IP translation for Direct Connect gateway.  |
-| Delete Local IP Translation for Direct Connect Gateway | [DeleteLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4897) | Delete local IP translation for Direct Connect gateway.  |
-| Modify Local IP Translation Rule for Direct Connect Gateway | [ModifyLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4839) | Modify local IP translation rules for Direct Connect gateway.  |
-| Query Local IP Translation for Direct Connect Gateway | [DescribeLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4834) | Query local IP translation for Direct Connect gateway.  |
-| Create Local Source IP Port Translation for Direct Connect Gateway | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4892) | Create local source IP port translation for Direct Connect gateway.  |
-| Delete Local Source IP Port Translation for Direct Connect Gateway | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4898) | Delete local source IP port translation for Direct Connect gateway.  |
-| Modify Local Source IP Port Translation for Direct Connect Gateway | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4841) | Modify local source IP port translation for Direct Connect gateway.  |
-| Query Local Source IP Port Translation for Direct Connect Gateway | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4836) | Query local source IP port translation for Direct Connect gateway.  |
-| Create Local Destination IP Port Translation for Direct Connect Gateway | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4894) | Create local destination IP port translation for Direct Connect gateway.  |
-| Delete Local Destination IP Port Translation for Direct Connect Gateway | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4893) | Delete local destination IP port translation for Direct Connect gateway.  |
-Modify Local Destination IP Port Translation for Direct Connect Gateway | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4842) | Modify local destination IP port translation for Direct Connect gateway.  |
-| Query Local Destination IP Port Translation for Direct Connect Gateway | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4837) | Query the local destination IP port translation for Direct Connect gateway.  |
-Create Peer IP Translation for Direct Connect Gateway | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4896) | Create the peer IP translation for Direct Connect gateway.  |
-| Delete Peer IP Translation for Direct Connect Gateway | [DeletePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4895) | Delete the peer IP translation for Direct Connect gateway.  |
-| Modify Peer IP Translation for Direct Connect Gateway | [ModifyPeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4840) | Modify the peer IP translation for Direct Connect gateway.  |
-| Query Peer IP Translation for Direct Connect Gateway | [DescribePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4835) | Query the peer IP translation for Direct Connect gateway.  |
-| Create Local IP Translation ACL Rule | [CreateLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4843) | Create the local IP translation ACL rule.  |
-| Delete Local IP Translation ACL Rule | [DeleteLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4844) | Delete the local IP translation ACL rule.  |
-| Modify Local IP Translation ACL Rule | [ModifyLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4845) | Modify the local IP translation ACL rule.  |
-| Query Local IP Translation ACL Rule | [DescribeLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4846) | Query the local IP translation ACL rule.  |
-| Create Local IP Port Translation ACL Rule | [CreateLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4848) | Create the local IP port translation ACL rule.  |
-| Delete Local IP Port Translation ACL Rule | [DeleteLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4849) | Delete the local IP port translation ACL rule.  |
-| Modify Local IP Port Translation ACL Rule | [ModifyLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4850) | Modify the local IP port translation ACL rule.  |
-| Query Local IP Port Translation ACL Rule | [DescribeLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4851) | Query the local IP port translation ACL rule.  |
-
+You can use the command line or APIs to configure and manage the Direct Connect gateway. Please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/product/215/4954).
 

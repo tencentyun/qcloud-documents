@@ -2,27 +2,27 @@
 
 This API (RefreshCdnOverSeaUrl) is used to set specified resources  on an overseas CDN node as expired.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: cdn.api.qcloud.com
 
-[Call Demo](https://www.qcloud.com/document/product/228/1734)
+[Call Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is RefreshCdnOverSeaUrl.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page for details.
 
 | Parameter Name   | Required | Type     | Description                     |
 | ------ | ---- | ------ | ---------------------- |
-| urls.n | Yes    | String | URL to be purged. You may purge multiple URLs |
+| urls.n | Yes    | String | URLs to be purged. You may purge multiple URLs |
 
 #### Note
 
-+ You may purge one or multiple URLs. When purging multiple URLs, you can pass parameters like this:
++ To purge multiple URLs, please pass parameters like this:
   ```
   urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
   ```
 
-+ Note that URLs must start with "http://" or "https://", otherwise errors will occur.
++ URLs must start with "http://" or "https://"
 
-+ You may purge up to 10000 URLs each day and you can submit up to 1000 URLs at a time
++ You can purge up to 10,000 URLs each day (1,000 URLs each time)
 
 
 
@@ -31,16 +31,16 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
 | message  | String | Module error message description depending on API                           |
-| codeDesc | String | English error message or error code at business side.                           |
+| codeDesc | String |Error message                     |
 | data     | Array  | Details will be described below                                  |
 
-**data Field Description:**
+**`data` Field Description:**
 
 | Parameter Name  | Type   | Description           |
 | ----- | ---- | ------------ |
-| count | Int  | Number of URLs submitted for this purge operation |
+| count | Int  | Number of URLs submitted by this purge operation |
 
 
 

@@ -1,22 +1,34 @@
 为方便 PHP 开发者调试和接入云 API， 我们提供了基于 PHP 的 SDK。
 
+## 环境准备
+
+1. 腾讯云PHP SDK适用于PHP 5.3及以上版本。
+2. [获取安全凭证](https://console.cloud.tencent.com/capi)。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+3. 到[腾讯云控制台](https://console.cloud.tencent.com/)开通相应产品。
+
+## SDK获取与安装
+
+可以通过以下方式获取PHP SDK:
+
+1. github
 [从 Github 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-php)
+
+2.直接下载
 [点击下载 PHP SDK >>](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip)
 
-qcloudapi-sdk-php 是为了让 PHP 开发者能够在自己的代码里更快捷方便的使用腾讯云的 API 而开发的 SDK 工具包。
+3.composer
+在composer.json的require结构体中加入一行："tencentyun-api/qcloudapi-sdk-php": "dev-master"
 
 
-## 1. 资源
-见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/document/api/213/6976)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
 
-## 2. 入门
-1. [获取安全凭证](https://console.qcloud.com/capi)。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+## 示例
 
-2. 下载SDK，放入到您的程序目录。详细使用方法请参考下面的示例。
-[从 Github 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-php)
-[点击下载 PHP SDK >>](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip)
+### 公共说明
+见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://cloud.tencent.com/document/api/213/6976)、[云服务器API概览](http://cloud.tencent.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://cloud.tencent.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
 
-## 3. 示例
+
+
+### 示例
 
 ```
 <?php
@@ -37,7 +49,12 @@ $config = array('SecretId'       => '你的secretId',
 // QcloudApi::MODULE_IMAGE    对应   image.api.qcloud.com
 // QcloudApi::MODULE_MONITOR  对应   monitor.api.qcloud.com
 // QcloudApi::MODULE_CDN      对应   cdn.api.qcloud.com
-// QcloudApi::MODULE_WENZHI 对应   wenzhi.api.qcloud.com
+// QcloudApi::MODULE_WENZHI   对应   wenzhi.api.qcloud.com
+// QcloudApi::MODULE_BM       对应   bm.api.qcloud.com
+// QcloudApi::MODULE_BMLB     对应   bmlb.api.qcloud.com
+// QcloudApi::MODULE_BMEIP    对应   bmeip.api.qcloud.com
+// QcloudApi::MODULE_BMVPC    对应   bmvpc.api.qcloud.com
+
 $service = QcloudApi::load(QcloudApi::MODULE_CVM, $config);
 
 // 请求参数，请参考产品文档对应接口的说明

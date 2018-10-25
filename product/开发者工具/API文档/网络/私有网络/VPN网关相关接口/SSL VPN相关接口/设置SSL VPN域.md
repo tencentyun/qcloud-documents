@@ -11,8 +11,8 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
-| sslVpnId | 否 | Int | 系统分配的SSLvpn网关ID，例如：vpngw-l2tlvgb9。可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn">DescribeSSLVpn</a>接口查询。 |
+| vpcId | 是 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
+| sslVpnId | 否 | Int | 系统分配的SSLvpn网关ID，例如：vpngw-l2tlvgb9。可通过<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn">DescribeSSLVpn</a>接口查询。 |
 | groupId | 是 | String |  域的工作组。|
 | ipPool.n | 否 | Array |  sslVPN终端IP段。|
 | acl.n | 否 | Array |  acl策略。|
@@ -30,10 +30,10 @@
 |---------|---------|---------|
 | code | Int | 错误码, 0: 成功, 其他值: 失败|
 | message | String | 错误信息|
-| taskId | Int | 任务ID，操作结果可以用taskId查询，详见<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">查询任务执行结果接口</a>。 |
+| taskId | Int | 任务ID，操作结果可以用taskId查询，详见<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">查询任务执行结果接口</a>。 |
 
 ## 4. 错误码表
-该接口没有业务错误码，公共错误码详见<a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="私有网络错误码">vpc错误码</a>
+该接口没有业务错误码，公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="私有网络错误码">vpc错误码</a>
 
 ## 5. 示例
  

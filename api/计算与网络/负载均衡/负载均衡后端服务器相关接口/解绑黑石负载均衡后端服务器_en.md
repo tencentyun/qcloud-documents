@@ -27,7 +27,7 @@ Input
 https://lb.api.qcloud.com/v2/index.php?
 &loadBalancerId=lb-51jf1v2l
 &backends.0.instanceId=cpm-owlr8otf
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output
 ```

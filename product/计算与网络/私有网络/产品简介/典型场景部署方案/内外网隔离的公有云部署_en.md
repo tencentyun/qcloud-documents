@@ -17,5 +17,5 @@ The network types of Tencent Cloud are classified as VPC and basic network:
 2) Create a subnet
 3) Create a new subnet associated with routing table
 4) Add CVM and database to the subnet
-[Click here to view details](https://www.qcloud.com/document/product/215/8119)
+[Click here to view details](https://cloud.tencent.com/document/product/215/8119)
 

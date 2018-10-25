@@ -7,13 +7,13 @@ Domain for API request:<font style="color:red">cdn.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473). The Action field for this API is EAddCdnHost.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is EAddCdnHost.
 
 | Parameter Name    | Required | Type     | Description                                       |
 | ------- | ----------- | ------ | -------------------- |
 | host    | Yes    | String | Accelerated domain |
 | origin | Yes | String | Set origin server. You may set a domain or multiple origin IPs (the type of "ip:port" can be used, such as 8.8.8.8:8080). The port number should be between 0 and 65535 (exclusive of 0). |
-| projectId | Yes | Int | Project ID. [Click to View](https://console.qcloud.com/project) |
+| projectId | Yes | Int | Project ID. [Click to View](https://console.cloud.tencent.com/project) |
 | hostType | Yes | String | Domain type. "cname" refers to self-owned origin, "ftp" refers to FTP origin |
 | cache | No | json | Set cache expiration rule. For details, refer to the description later. |
 | cacheMode | No | String | Caching mode. There are two modes: "simple" means cache completely depends on the cache expiration rule set in the Console; "custom" means cache depends on the cache expiration rule set in the Console and the minimum value of max-age output by origin server.  |
@@ -68,7 +68,7 @@ The second field is the specific list.
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | Error message or error code at business side.                           |
 | data     | Object | host_id, the ID of added domain |

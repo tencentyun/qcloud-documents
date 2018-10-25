@@ -5,7 +5,7 @@
 密码规则： 长度为8-16个字符；至少包含字母、数字和字符（!@#%^()）中的两种
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/260/1753' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ModfiyRedisPassword。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/239/7200' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ModfiyRedisPassword。
 <table class="t"><tbody><tr>
 <th><b>参数名称</b></th>
 <th><b>是否必选</b></th>
@@ -25,7 +25,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> code <td> Int <td> 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
+<td> code <td> Int <td> 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
 <tr>
 <td> message <td> String <td> 错误信息
 <tr>
@@ -59,7 +59,7 @@
 ## 5. 示例
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=ModfiyRedisPassword
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-ifmymj41
 &oldPassword=49A2d!e@f12e
 &password=12D3E@!r5ed

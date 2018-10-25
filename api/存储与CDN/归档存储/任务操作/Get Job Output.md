@@ -9,7 +9,7 @@ Get Job Output 请求用来输出缓存池中检索出来的 Archive 或Archive�
 ### 请求语法
 
 ```HTTP
-GET /<UID>/vaults/<VaultName>/jobs/<JobID>/Output HTTP 1.1
+GET /<UID>/vaults/<VaultName>/jobs/<JobID>/output HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
@@ -39,7 +39,7 @@ Range:ByteRangeToRetrieve
 | 名称                     | 描述                                       | 类型     |
 | ---------------------- | ---------------------------------------- | ------ |
 | Content-Range          | 返回的字节范围       。                          | String |
-| Content-Type           | 根据内容类型判断输出是Archive还是Archive列表，若为Archive，该值为`application/octet-stream`；若为JSON格式Archive列表，改值为 `application/json`；若为CSV格式Archive列表，改值为  `text/csv` 。 | String |
+| Content-Type           | 根据内容类型判断输出是Archive还是Archive列表，若为Archive，该值为`application/octet-stream`；若为JSON格式Archive列表，该值为 `application/json`；若为CSV格式Archive列表，该值为  `text/csv` 。 | String |
 | x-cas-sha256-tree-hash | Output中的数据树形哈希，当Job为Archive的一棵子树，且获取Job的Range范围也是一棵子树才返回该头部。 | String |
 
 ### 返回内容

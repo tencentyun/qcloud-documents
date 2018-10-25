@@ -6,7 +6,7 @@
 
 **单次有效签名**：签名中绑定文件fileid，有效期必须设置为0，此签名只可使用一次，且只能应用于被绑定的文件。
 
-具体适用场景参见[签名适用场景](http://www.qcloud.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景)。
+具体适用场景参见[签名适用场景](http://cloud.tencent.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景)。
 
 
 
@@ -18,7 +18,7 @@
 
 生成签名所需信息包括项目ID（appid），空间名称（bucket,文件资源的组织管理单元），项目的Secret ID和Secret Key。获取这些信息的方法如下：
 
-1) 登录 [云对象存储](http://console.qcloud.com/cos), 进入云对象存储空间；
+1) 登录 [云对象存储](http://console.cloud.tencent.com/cos), 进入云对象存储空间；
 
 2) 如开发者未创建空间，可添加空间，空间名称（bucket）由用户自行输入；
 
@@ -58,7 +58,7 @@ a=[appid]&b=[bucket]&k=[SecretID]&e=[expiredTime]&t=[currentTime]&r=[rand]&f=[fi
 
 **上传必须使用多次有效签名；**
 
-具体适用场景参见[签名适用场景](http://www.qcloud.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景)
+具体适用场景参见[签名适用场景](http://cloud.tencent.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景)
 
 
 ### 2.3	生成签名

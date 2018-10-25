@@ -10,7 +10,7 @@ Domain for API access: lb.api.qcloud.com
 | Parameter Name | Required | Type | Description |
 |---|---|---|---|
 | loadBalancerIds.n | No | String | The unique ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). |
-| loadBalancerType | No | Int | Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network. |
+| loadBalancerType | No | Int | Type of the cloud load balancer instance <br>2: public network (with daily rate) 3: private network. |
 | loadBalancerName | No | String | Name of the cloud load balancer instance. |
 | domain | No | String | Domain of the cloud load balancer instance assigned by Tencent Cloud. This field is not applicable to application-based cloud load balancers. |
 | loadBalancerVips.n | No | String | VIP address of the cloud load balancer instance. You may enter multiple addresses. |
@@ -27,7 +27,7 @@ Domain for API access: lb.api.qcloud.com
 
 | Parameter Name | Type | Description |
 |----|---|----|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
 | codeDesc | String | Error code. For a successful operation, "Success" will be returned. For a failed operation, a message describing the failure will be returned. |
 | totalCount | Int | Total number of cloud load balancer instances that meet the filtering conditions. |

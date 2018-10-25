@@ -106,7 +106,7 @@ var errorCallBack = function(result){
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.createFolder = function(success, error, bucketName, remotePath)
+cos.createFolder = function(success, error, bucketName, remotePath)
 ```
 
 #### 参数说明
@@ -141,7 +141,7 @@ cos.createFolder(successCallBack, errorCallBack, bucketName, "/newfolder/");
 #### 方法原型
 
 ```javascript
- CosCloud.prototype.updateFolder = function(success, error, bucketName, remotePath, bizAttribute)
+ cos.updateFolder = function(success, error, bucketName, remotePath, bizAttribute)
 ```
 
 #### 参数说明
@@ -174,7 +174,7 @@ cos.updateFolder(successCallBack, errorCallBack, bucketName, "/newfolder/", "Thi
 #### 方法原型
 
 ```
- CosCloud.prototype.getFolderStat = function(success, error, bucketName, remotePath)
+ cos.getFolderStat = function(success, error, bucketName, remotePath)
 
 ```
 
@@ -212,7 +212,7 @@ cos.getFolderStat(successCallBack, errorCallBack, bucketName, "/newfolder/");
 #### 方法原型
 
 ```javascript
- CosCloud.prototype.deleteFolder = function(success, error, bucketName, remotePath)
+ cos.deleteFolder = function(success, error, bucketName, remotePath)
 ```
 
 #### 参数说明
@@ -244,7 +244,7 @@ cos.deleteFolder(successCallBack, errorCallBack, bucketName, "/newfolder/");
 #### 方法原型
 
 ```javascript
- CosCloud.prototype.getFolderList = function(success, error, bucketName, remotePath, num, context, order, pattern, prefix)
+ cos.getFolderList = function(success, error, bucketName, remotePath, num, context, order, pattern, prefix)
 ```
 
 #### 参数说明
@@ -299,7 +299,7 @@ cos.getFolderList(successCallBack, errorCallBack, bucketName, "/", 20, "", 0);
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.uploadFile = function(success, error, bucketName, remotePath, file)
+cos.uploadFile = function(success, error, bucketName, remotePath, file)
 ```
 
 #### 参数说明
@@ -337,7 +337,7 @@ cos.uploadFile(successCallBack, errorCallBack, bucketName, "/tel.txt", files[0])
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.sliceUploadFile = function(success, error, bucketName, remotePath, file)
+cos.sliceUploadFile = function(success, error, bucketName, remotePath, file)
 ```
 
 #### 参数说明
@@ -376,7 +376,7 @@ cos.sliceUploadFile(successCallBack, errorCallBack, bucketName, "/movie/" + file
 #### 方法原型
 
 ```javascript
- CosCloud.prototype.getFileStat = function(success, error, bucketName, remotePath)
+ cos.getFileStat = function(success, error, bucketName, remotePath)
 ```
 
 #### 参数说明：
@@ -422,7 +422,7 @@ cos.sliceUploadFile(successCallBack, errorCallBack, bucketName, "/movie/" + file
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.getFileStat = function(success, error, bucketName, remotePath)
+cos.getFileStat = function(success, error, bucketName, remotePath)
 ```
 
 #### 参数说明
@@ -475,7 +475,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucketName, "/tel.txt");
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.deleteFile = function(success, error, bucketName, remotePath)
+cos.deleteFile = function(success, error, bucketName, remotePath)
 ```
 
 #### 参数说明
@@ -508,7 +508,7 @@ cos.deleteFile(successCallBack, errorCallBack, bucketName, "/tel.txt");
 #### 方法原型
 
 ```javascript
-CosCloud.prototype.moveFile = function(success, error, bucketName, remotePath, destPath, overWrite)
+cos.moveFile = function(success, error, bucketName, remotePath, destPath, overWrite)
 ```
 
 #### 参数说明

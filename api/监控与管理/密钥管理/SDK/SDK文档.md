@@ -9,7 +9,7 @@
 
 ### KMS Python SDK 下载与配置
 #### 云 API 密钥使用说明
-使用 Python SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。获取云 API 密钥的方法如下：登录[腾讯云控制台](https://console.qcloud.com/)，选择【云产品】-【云 API 密钥】选项
+使用 Python SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。获取云 API 密钥的方法如下：登录[腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】-【云 API 密钥】选项
 ![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
 
 用户可在此新建新的云 API 密钥或使用现有密钥。点击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
@@ -18,8 +18,8 @@
 #### endpoint 说明
 endpoint 是使用 KMS 服务的访问地址，同时 endpoint 中也包含了使用的协议，endpoint的格式如下：
 
-- 内网：https://kms-region.api.tencentyun.com
-- 外网：https://kms-region.api.qcloud.com
+- 内网：`https://kms-region.api.tencentyun.com`
+- 外网：`https://kms-region.api.qcloud.com`
 
 
 #### region 说明
@@ -28,11 +28,11 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网endpoint：
 1) 同地域内网的时延更低；
-2) 目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
+2) 目前KMS对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 
 
 #### Python SDK下载
-下载最新版[KMS kms SDK](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.1.zip)，或选择下载[jar包](http://cmqsdk-10016717.cos.myqcloud.com/cmq.jar)。
+下载最新版[KMS SDK](https://cloud.tencent.com/document/product/573/8908)。
 
 ### 使用 KMS Python SDK
 
@@ -63,7 +63,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 
         # encrypt the data string
         Plaintest = "test message data"
-        CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintext)
+        CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintest)
         print "the encrypted data is :%s \n" % CiphertextBlob
 
         # decrypt the encrypted data string
@@ -71,7 +71,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
         print "the decrypted data is :%s\n" % Plaintest
 
         # get key attributes
-        key_meta = kms_account.get_key_attributes("kms-awy8dndb")
+        key_meta = kms_account.get_key_attributes(key_meta.KeyId)
         print key_meta
 
         # set key attributes

@@ -1,4 +1,4 @@
-以Python代码示例来演示MongoDB分片集群的数据基本读写，分片集群实例创建完成之后
+以 Python 代码示例来演示 MongoDB 分片集群的数据基本读写，分片集群实例创建完成之后
 ```
 示例代码：
 #!/usr/bin/python
@@ -14,7 +14,7 @@ db = client.test
 if 'num' in db.collection_names():
     db.drop_collection('num')
 
-#create database and shardkey，shardkey is name
+#create database and shardkey,shardkey is name
 db_admin=client.admin
 db_admin.command('enableSharding', 'test')
 db_admin.command('shardCollection', 'test.num', key = {'name':1})
@@ -38,7 +38,6 @@ print 'print R9'
 for i in db.num.find({"name":"R9"}): print i
 print 'list all docs'
 for i in db.num.find(): print i
-}
 ```
 
 运行结果

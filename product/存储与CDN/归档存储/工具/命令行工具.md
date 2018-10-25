@@ -1,0 +1,367 @@
+本文简要介绍命令行工具的运行环境与基本操作。
+
+## 环境要求
+
+Python 解释器：Python 2.7
+
+依赖库： 
+
+- cas_python_sdk（included)
+- pyaml
+- ordereddict
+
+## 安装部署
+
+在 CAS 的 Python SDK 包中提供了用于的日常操作 CAS 的命令行工具`cascmd.py`，命令行工具的安装主要是通过安装 CAS 的 Python SDK 来完成。[获取地址](https://github.com/tencentyun/cas_python_sdk/tree/v1.0.0)
+
+- 通过 pip 安装 SDK
+
+``` shell
+pip install cassdk
+```
+
+- 通过 SDK 源码安装
+
+``` shell
+python setup.py install
+```
+
+## 安装验证
+
+``` shell
+cascmd.py -h
+```
+
+若返回子命令列表，则安装成功。
+
+## 获取帮助
+
+### 命令选项
+
+可以使用以下命令，来获取的支持的子命令列表。
+
+``` shell
+cascmd.py -h
+```
+可以使用以下命令，来获取相关子命令的参数说明。
+``` shell
+cascmd.py <subcommand> -h
+```
+
+### 示例
+
+获取`create_job`这个子命令的详细帮助信息，可执行
+
+``` shell
+cascmd.py create_job
+
+```
+
+帮助信息输出如下：
+
+``` shell
+usage: cascmd.py create_job [-h] [--start START] [--size SIZE] [--desc DESC]
+                            [--tier TIER] [--endpoint ENDPOINT]
+                            [--appid APPID] [--secretid SECRETID]
+                            [--secretkey SECRETKEY]
+                            [--config-file CONFIG_FILE]
+                            vault [archive_id]
+
+positional arguments:
+  vault                 format cas://vault-name
+  archive_id            ID of archive to be downloaded. If not provided, an
+                        inventory-retrieval job will be created
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --start START         start position of archive to retrieve, default to be 0
+  --size SIZE           size to retrieve, default to be (totalsize - start)
+  --desc DESC           description of the job
+  --tier TIER           The retrieval option to use for the archive retrieval.
+                        Standard is the default value used.
+  --endpoint ENDPOINT   endpoint, e.g. cas.ap-chengdu.myqcloud.com
+  --appid APPID         appid, please refer to https://console.cloud.tencent.com/capi
+  --secretid SECRETID   secretid, please refer to
+                        https://console.cloud.tencent.com/capi
+  --secretkey SECRETKEY
+                        secretkey, please refer to
+                        https://console.cloud.tencent.com/capi
+  --config-file CONFIG_FILE
+                        configuration file
+
+```
+
+## 信息配置
+
+在**首次**使用 cascmd.py 工具前，需要配置 CAS 的访问信息:
+
+``` shell
+cascmd.py config --endpoint HOST --appid APPID --secretid SECRETID --secretkey SECRETKEY [--config-file CONFIG_FILE] 
+
+```
+
+**参数说明**：
+
+| 参数          | 说明                                       |
+| ----------- | ---------------------------------------- |
+| HOST        | CAS服务的访问地址，格式为`cas.<Region>.myqcloud.com`；Region取值：`ap-chengdu`，`ap-guangzhou`，`ap-beijing`，`ap-shanghai` |
+| APPID       | 每个开发者访问 CAS 服务时拥有的唯一用户标识。在申请到 CAS 后由系统自动生成。[APPID获取地址](https://console.cloud.tencent.com/developer) |
+| SECRETID    | 开发者拥有的密钥 ID。[SECRETID 获取地址](https://console.cloud.tencent.com/capi) |
+| SECRETKEY   | 开发者拥有的签名密钥值。 [SECRETKEY 获取地址](https://console.cloud.tencent.com/capi) |
+| CONFIG_FILE | 指定访问信息存储的文件位置，默认该文件会保存在用户主目录下，命名为：.cascmd_credentials |
+
+## 创建文件库
+
+### 命令选项
+
+``` shell
+cascmd.py create_vault cas://vault-name
+
+```
+
+### 返回值
+
+``` shell
+Vault Location: /12xxxxxxxx/vaults/vault-name
+0.087(s) elapsed
+
+```
+
+**说明**: "cas://" 为 vault 的前缀标识，cascmd 工具所有需要指明 Vault 的地方都需要加上该前缀。
+
+## 删除文件库
+
+### 命令选项
+
+``` shell
+cascmd.py delete_vault cas://vault-name 
+
+```
+
+### 返回值
+
+``` shell
+Delete success
+
+```
+
+**说明**： 如果 Vault 不为空，那么删除操作会失败，返回如下信息：
+
+``` shell
+Error Headers:
+[('content-length', '120'), ('x-cas-requestid', 'NTlhNTE5MDRfNGM5ZTU4NjRfN2YyY183NzOQ=='), ('server', 'nginx'), ('connection', 'keep-alive'), ('date', 'Tue, 29 Aug 2017 07:34:28 GMT'), ('content-type', 'application/json')]
+Error Body:
+{
+   "code" : "BadRequest",
+   "message" : "vault is not empty, only empty vault can be delete",
+   "type" : "Client"
+}
+
+Error Status:
+400
+Failed!
+```
+
+## 上传档案
+
+### 命令选项
+
+可以使用如下命令，上传一个本地文件到 CAS 中，其中需要指定 Archive 所属的 Vault
+
+```shell
+cascmd.py upload cas://vault-name [local-file-name]
+```
+
+### 返回值
+
+上传成功会返回 Archive 的 ID，Archive ID 是操作 Archive 的唯一入口，本地文件的名称会默认写到 Archive 的 description 中，不能作为操作 Archive 的依据
+
+```
+Archive ID: ikMDFA46zWpP6tez5EJb6Bc8Asqd7_HCqCt7c_MaPkqgCqrsFc8ZChsR13rDgO_xxxxxxxxxxxxx
+
+```
+
+**说明**:
+
+1. 这里需要注意的是，当同一个本地文件多次上传时，并不会覆盖原来的 Archive，而是产生不同的 Archive ID进行标识。因此，Archive ID 是操作档案的唯一依据，而不是本地文件名。
+2. CAS 服务提供了一个 Multipart Upload 的上传方式，当上传的文件大小超过 100MB 之后，会自动将该文件拆分成多个 part 进行分片上传，该种方式的返回信息如下：
+
+``` shell
+File larger than 100MB, multipart upload will be used
+Use 7 parts with partsize 16.00 MB to upload
+MultiPartUpload ID: 1A1S1RrfNxVuIYCcnL21OyqZLB7cTJVL8WHC8pjQYLP6CNqOXLK3tMmI3v792ji3
+Uploading part 1...
+
+Upload success
+
+Uploading part 2...
+
+...
+
+68.048(s) elapsed
+```
+其中的 MultipartUpload ID 可以作为断点续传的依据，当由于网络中断等原因传输失败以后，可以使用这个 ID 对原文件进行断点续传. 如假设上述上传文件操作在 part2 位置中断
+
+``` shell
+cascmd.py upload cas://vault-name [local-large-file] --upload_id 1A1S1RrfNxVuIYCcnL21OyqZLB7cTJVL8WHC8pjQYLP6CNqOXLK3tMmI3v792ji3
+
+```
+
+断点续传输出如下信息：
+
+``` shell
+Resume last upload with partsize 16.00MB
+Uploading part 2 ...
+
+...
+
+Upload success
+Archive ID: tICk7wdqQB9YdCg3zoWblY4YJND4H5tqdvJipmWNR-uHOK3JqGKS6JDcDPMwJAjDTRwXcUZyBTS5dzixWOxMwPCHR8cWDzRaRYAO8_ZLhQu8Wl0C66pPBZRyTIYR7aTk
+60.592(s) elapsed
+
+```
+
+**补充**：这里的 partsize 是可以设定的，默认大小为 16MB，手动设定的 partsize 需要为 16MB 的整数倍。
+
+``` shell
+cascmd.py upload cas://vault-name [local-file-name] -p 32M
+
+```
+
+## 删除档案
+
+### 命令选项
+
+执行如下命令可以删除一个已经上传的 Archive，参数中需要指定 Archive 所属的 Vault，以及 Archive 的 ID。
+
+``` shell
+cascmd.py delete_archive cas://vault-name ikMDFA46zWpP6tez5EJb6Bc8Asqd7_HCqCt7c_MaPkqgCqrsFc8ZChsR13rDgO_xxxxxxxxxxxxx
+
+```
+
+### 返回值
+
+``` shell
+Delete success
+0.092(s) elapsed
+
+```
+
+## 档案取回
+
+### 步骤一：发起取回任务
+
+#### 命令选项
+
+使用 creare_job 创建一个 Archive 下载任务。
+
+```shell
+cascmd.py create_job cas://vault-name <archive-id> [--start START] [--size SIZE] [--tier TIER]
+```
+
+参数解释：
+
+- archive-id: 要下载的 Archive 的 ID
+- START：指定从 Archive 的 START 位置开始下载
+- SIZE： 指定下载的数据大小
+- TIER: 档案取回任务可指定三种模式： Expedited（Job 在1~5分钟内可完成）、Standard（3~5小时内完成）以及 Bulk（Job 在 5~12 小时内完成）
+
+**说明**：其中 Expedited 模式，最大只能支持 256MB 的文件。
+
+#### 示例
+
+加急下载 Archive 的 32M 到 128M 位置的数据
+
+```shell
+cascmd.py create_job cas://vault-name <archive-id> --start 32M --size 96M --tier Expedited
+```
+
+### 步骤二：查询任务进展
+
+#### 命令选项
+
+清单检索任务的时间比较长，通常为 3~5 小时，使用返回的 Job ID 来查询 Job 的运行状态：
+
+```shell
+cascmd.py desc_job cas://vault-name <job-id>
+```
+
+### 步骤三：获取任务内容
+
+#### 命令选项
+
+当 Job 运行完成以后，可以使用`fetch_job_output`子命令来将下载内容取回到本地文件中。
+
+```shell
+cascmd.py fetch_job_output cas://vault-name <job-id> <local-file-name>
+```
+
+## 档案列表取回
+
+### 步骤一：发起取回任务
+
+#### 命令选项
+
+执行如下命令会创建一个文件库的档案列表取回任务，该任务的最终结果是一个指定 Vault 下所有 Archive 的清单。
+
+``` shell
+cascmd.py create_job cas://vault-name
+
+```
+
+#### 返回值
+
+```
+inventory-retrieval job created, job ID: E-nVoA6erIw71cTwI4gY6kaYpCrV1ehUrqXCkDHNfObQSfkqk_f5KyeKcxVvo--8
+Use
+
+    cascmd.py fetch cas://vault-name E-nVoA6erIw71cTwI4gY6kaYpCrV1ehUrqXCkDHNfObQSfkqk_f5KyeKcxVvo--8 <local_file>
+
+to check job progress and download the data when job finished
+NOTICE: Jobs usually take about 4 HOURS to complete.
+0.100(s) elapsed
+```
+
+### 步骤二：查询任务进展
+
+#### 命令选项
+
+清单检索任务的时间比较长，通常为 3~5 小时，使用返回的 Job ID 来查询 Job 的运行状态：
+``` shell
+cascmd desc_job cas://vault-name E-nVoA6erIw71cTwI4gY6kaYpCrV1ehUrqXCkDHNfObQSfkqk_f5KyeKcxVvo--8
+```
+#### 返回值
+
+Job 运行状态查询的输出：
+
+```shell
+JobId: E-nVoA6erIw71cTwI4gY6kaYpCrV1ehUrqXCkDHNfObQSfkqk_f5KyeKcxVvo--8
+Action: InventoryRetrieval
+StatusCode: InProgress
+StatusMessage: InProgress
+ArchiveId: None
+ArchiveSizeInBytes: None
+SHA256TreeHash: None
+ArchiveSHA256TreeHash: None
+RetrievalByteRange: None
+Completed: False
+CompletionDate: None
+CreationDate: 2017-08-29T08:29:41.000Z
+InventorySizeInBytes: 0
+JobDescription:
+Tier: None
+VaultQCS: qcs:id/0:cas:ap-[RegionName]:uid/12xxxxx:vaults/vault-name
+0.084(s) elapsed
+```
+
+### 步骤三：获取任务内容
+
+#### 命令选项
+
+当 Job 完成以后，可以使用如下命令来下载 Job 的结果到本地文件中。
+``` shell
+cascmd.py fetch cas://vault-name E-nVoA6erIw71cTwI4gY6kaYpCrV1ehUrqXCkDHNfObQSfkqk_f5KyeKcxVvo--8 <local_file>
+```
+## 更多功能
+
+命令行工具提供了丰富的操作选项，以上只列出的了日常比较常用的操作选项，更多操作可使用`cascmd.py -h`获取帮助。

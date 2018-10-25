@@ -86,7 +86,7 @@ SrcStoragePrefix= 设置的迁移文件目录，如果有多个目录要迁移�
 
 ##### 腾讯云 COS 信息设置
 
-登录[腾讯云对象存储](https://console.qcloud.com/cos)，默认项目会分配 APP ID、secretID、secretKey 如下图，如果新建项目，则会分配一套新的 APP ID、secretID、secretKey，每个项目下的 APP ID、secretID、secretKey 均不相同。
+登录[腾讯云对象存储](https://console.cloud.tencent.com/cos)，默认项目会分配 APP ID、secretID、secretKey 如下图，如果新建项目，则会分配一套新的 APP ID、secretID、secretKey，每个项目下的 APP ID、secretID、secretKey 均不相同。
 
 ![image_1aog2g81ghgqmk210p4146c8tr9.png-23.6kB][1]
 

@@ -1,18 +1,18 @@
 ## What is Cloud Account?
 
-Each user registered with Tencent Cloud will be assigned a cloud account. Users can manage cloud costs with this account , such as topping up account, buying Tencent Cloud services using the account balance, etc.
-<font color="red">Post-paid payment is supported for Tencent Cloud's international products:</font> 
+Each user registered with Tencent Cloud will be assigned with a cloud account. Users can manage cloud costs with this account, such as topping up account, buying Tencent Cloud services using the account balance, etc.
+Post-paid payment is supported for Tencent Cloud's international products.
 
 
-**Post-paid**payment is based on a "Pay by Usage" model, which means no amount is deducted from the account balance when the resource is purchased and system determines the amount to be frozen depending on the resource purchased. For more information, refer to [Rules on Freezing Account Balance](/document/product/555/7719). The deduction from the account balance is performed in the monthly settlement based on the actual usage. If the user's cloud account balance <= 0, the user must top it up before purchasing the cloud service resources. 
+**Post-paid** payment is based on a "Pay by Usage" model, which means no amount is deducted from the account balance when the resource is purchased and system determines the amount to be frozen depending on the resource purchased. For more information, refer to [Rules on Freezing Account Balance](/document/product/555/7719). The deduction from the account balance is performed in the monthly settlement based on the actual usage. If the user's cloud account balance <= 0, the user must top it up before purchasing the cloud service resources. 
 
 ## Go to the Cloud Account Management Page
 
-After entering the "User Center", creator and collaborator in a finance management role can see the cloud account amount and sub-account balance in the "Account Information".
+After entering the "Cost Center", creator and collaborator in a finance management role can see the cloud account amount and sub-account balance in the "Account Information".
 
-<font color="red">For the purpose of protection of sensitive data, only the creator and collaborator in a finance management role are allowed to check and manage their cloud account </font> on the "Cost Center" page.
+For the purpose of protection of sensitive data, only the creator and collaborator with finance permission are allowed to check and manage their cloud account on the "Cost Center" page.
 
-![](//mc.qcloudimg.com/static/img/dd57244d9b70ed8e92970da5c1c2cb27/image.png)
+![](//mc.qcloudimg.com/static/img/93bd5741892964e81bdbc29ad15350c5/%7B6D6378A2-DC89-445F-9867-C71FB8FC2377%7D.png)
 
 The terms about sub-account are as follows:
 <table class="t">
@@ -32,7 +32,7 @@ Frozen amount is generated on the settlement date or when the user applies for c
 <tr>
 <td> Topped-up Balance
 </td><td> Balance of topped-up account.<br>
-<p>Users need to top up the account by means of offline bank transfer in the cloud account top-up page in management center. (Online payment will be available soon)<br>For more information, refer to <a href="/document/product/555/7425" title="Top Up">Top Up</a>.
+<p>Users need to top up the account by means of offline bank transfer in the cloud account top-up page in cost center. (Online payment will be available soon)<br>For more information, refer to <a href="/document/product/555/7425" title="Top Up">Top Up</a>.
 </p>
 </td></tr>
 <tr>
