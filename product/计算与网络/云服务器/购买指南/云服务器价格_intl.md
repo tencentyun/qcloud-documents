@@ -46,7 +46,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S2        | S2.SMALL2      | 1 Core   | 2GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.03USD/hr |
 | Standard S2        | S2.SMALL1      | 1 Core   | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02USD/hr |
 
-[Back to Top](#CVM Pricing)
+[Back to Top](#CVMPricing)
 
 ##### Beijing
 
