@@ -305,8 +305,8 @@
       <td rowspan='2'>SDK下载</td>
       <td>Android</td>
 	  <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_UGC_Android_5.2.5541.zip">DOWNLOAD</a> </td>
-			<td colspan="2" align="middle" > <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_EnterprisePro_Android_5.2.5541.zip">DOWNLOAD</a> </td>
+      <td colspan="2" align="middle"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/LiteAVSDK_UGC_Android_5.3.6001.zip">DOWNLOAD</a> </td>
+			<td colspan="2" align="middle" > <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/LiteAVSDK_Enterprise_Android_5.3.6001.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
