@@ -194,18 +194,14 @@ table td {
   <tr>
     <td style="text-align:center">SDK 下载</td>
 		<td style="text-align:left">直接下载包含 SDK 的 zip 压缩包</td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Smart_iOS_5.2.5541.zip">DOWNLOAD</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Professional_iOS_5.2.5541.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Smart_iOS_5.3.6001.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Professional_iOS_5.3.6001.zip">DOWNLOAD</a></td>
     <td style="text-align:center">见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_EnterprisePro_Rename_iOS_5.2.5541.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
-  
-- **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Professional_Rename_iOS_5.2.5541.zip">【Rename(iOS).zip】</a> 。  
-  
+  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Enterprise_iOS_5.3.6001.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。 
 
 <h2 id="Android"> Android SDK (5.3.6001) </h2>
 
