@@ -88,8 +88,8 @@ chmod 640 /etc/passwd-cosfs
 cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- \<MountPoint> 为本地挂载目录（如 /mnt）。
-- \<CosDomainName> 为存储桶对应的访问域名，形式为 [http://cos.\<Region>.myqcloud.com]() （适用于XML API），其中\<Region> 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅[可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- \&lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
+- \&lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 [http://cos.\<Region>.myqcloud.com]() （适用于XML API），其中\&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅[可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
