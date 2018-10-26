@@ -4,7 +4,7 @@
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
-      <th width="0px" >功能简介</td>
+      <th width="0px"  style="text-align:center">功能简介</td>
       <th width="70px" style="text-align:center">精简版</td>
       <th width="70px" style="text-align:center">基础版</td>
       <th width="70px" style="text-align:center">商业版</td>
@@ -305,18 +305,14 @@
       <td rowspan='2'>SDK下载</td>
       <td>Android</td>
 	  <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_UGC_Smart_Android_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_UGC_Android_5.2.5541.zip">DOWNLOAD</a> </td>
-	  <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_UGC_Enterprise_Android_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/LiteAVSDK_EnterprisePro_Android_5.2.5541.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/LiteAVSDK_UGC_Android_5.3.6001.zip">DOWNLOAD</a> </td>
+			<td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/LiteAVSDK_Enterprise_Android_5.3.6001.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_Smart_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_Enterprise_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
-      <td> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_EnterprisePro_Rename_iOS_5.2.5541.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_UGC_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Enterprise_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
@@ -338,9 +334,8 @@
    </tr>
 </table>
 
-#### 1. iOS基础版点播默认使用的是系统播放器，如果您需要使用IJK播放器，请 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/5.2/5541/TXLiteAVSDK_UGC_IJK_Rename_iOS_5.2.5541.zip)。
-#### 2. 如果您对SDK支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
-#### 3. 如果您想了解SDK版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
+#### 1. 如果您对SDK支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
+#### 2. 如果您想了解SDK版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
 
 ## 全功能APP("小视频")源代码
 
