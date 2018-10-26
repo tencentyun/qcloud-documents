@@ -26,7 +26,7 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 
 ### 开启功能
 #### 1. 选择存储桶
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos) ，进入左侧菜单栏【存储桶列表】，单击需要加速的存储桶，进入存储桶。
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，进入左侧菜单栏【存储桶列表】，单击需要加速的存储桶，进入存储桶。
 ![存储桶界面](https://main.qcloudimg.com/raw/688c1dc518cb417461bc9d4645e4c41c.png)
 
 #### 2. 进入配置页面
@@ -127,7 +127,7 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 > COS 控制台和 CDN 控制台均可完成自定义域名添加及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，可以参考 [域名接入](https://cloud.tencent.com/document/product/228/5734)。
 
 #### 1. 选择自定义域名要绑定的存储桶
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos) ，进入左侧菜单栏【存储桶列表】，单击需要配置域名的存储桶，进入存储桶。
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，进入左侧菜单栏【存储桶列表】，单击需要配置域名的存储桶，进入存储桶。
 ![存储桶界面](https://main.qcloudimg.com/raw/688c1dc518cb417461bc9d4645e4c41c.png)
 
 #### 2. 添加自定义域名
