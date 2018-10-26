@@ -59,6 +59,8 @@
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
 | aspect | String | 9:16 | 3:4, 9:16|
+| zoom | Boolean | false | 是否正常焦距，true表示将摄像头放大 |
+| device-position | String | front | front 前置摄像头，back 后置摄像头 | 
 | min-bitrate | Number | 200  | 最小码率，该数值决定了画面最差的清晰度表现|
 | max-bitrate | Number | 1000 | 最大码率，该数值决定了画面最好的清晰度表现|
 | audio-quality| String| low | low 适合语音通话, high 代表高音质 | 
@@ -67,6 +69,7 @@
 | background-mute | Boolean | false | 当微信切到后台时是否禁用声音采集 |
 | bindstatechange | String |  | 用于指定一个javascript函数来接收音视频事件 |
 | debug | Boolean | false | 是否开启调试模式 |
+
 
 ## 示例代码
 ```html
@@ -187,11 +190,15 @@ pusher.start({
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，比如：
 
-- **WARNING_NET_BUSY**
+- **PUSH_WARNING_NET_BUSY**
 上行网速不给力，建议提示用户改善当前的网络环境，比如让用户离家里的路由器近一点，或者切到 WiFi 环境下再使用。
 
-- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
+- <font color='red'>**PUSH_WARNING_SERVER_DISCONNECT**</font>
 请求被后台拒绝了，出现这个问题一般是由于 URL 里的 txSecret 计算错了，或者是 URL 被其他人占用了（跟播放不同，一个推流 URL 同时只能有一个用户使用）。
+
+- **PUSH_WARNING_HANDUP_STOP**
+当用户点击小程序右上角的圆圈或者返回按钮时，微信会将小程序挂起，此时 &lt;live-pusher&gt; 会抛出 5000 这个事件。
+
 
 | code                 |    事件定义  |  含义说明                    | 
 | :-------------------  |:-------- |  :-----------------------| 
@@ -204,6 +211,8 @@ pusher.start({
 | 3003 |PUSH_WARNING_SHAKE_FAIL            |  服务器握手失败，启动重试流程  |
 | 3004 |PUSH_WARNING_SERVER_DISCONNECT   |  服务器主动断开连接，启动重试流程 |
 | 3005 |PUSH_WARNING_SERVER_DISCONNECT   |  socket 链路异常断开 ，启动重试流程 |
+| 5000 | PUSH_WARNING_HANDUP_STOP  |  小程序被用户挂起 | 
+
 
 #### 4. 示例代码
 ```javascript
