@@ -67,12 +67,12 @@ pkg-config --modversion fuse
 ### cosfs使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs中，写入您的存储桶名称 \<Name>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+在文件 /etc/passwd-cosfs中，写入您的存储桶名称 \<BucketName>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
 ```shell
-echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
+echo <BucketName>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
-您需要将 \<Name>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369这个Bucket 中，\<Name> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
+您需要将 \<BucketName>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369这个Bucket 中，\<BucketName> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
 
 **示例：**
 
@@ -85,7 +85,7 @@ chmod 640 /etc/passwd-cosfs
 将已经在密钥文件中配置好信息的存储桶挂载到指定目录，可以使用如下命令行：
 
 ```shell
-cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
+cosfs <BucketName>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
 - \<MountPoint> 为本地挂载目录（如 /mnt）。
@@ -102,12 +102,12 @@ cosfs test-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel
 v1.0.5 之前版本 cosfs 的挂载命令如下：
 
 ```shell
-cosfs <Appid>:<Name> <MountPoint> -ourl=<CosDomainName>
+cosfs <Appid>:<BucketName> <MountPoint> -ourl=<CosDomainName>
 ```
 
 v1.0.5 之前版本 cosfs 的配置文件格式是：
 ```shell
-<Name>:<SecretId>:<SecretKey>
+<BucketName>:<SecretId>:<SecretKey>
 ```
 
 #### 3. 卸载存储桶
