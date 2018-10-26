@@ -1,5 +1,5 @@
 ## 功能说明 
-cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs提供的主要功能包括：
+cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
@@ -25,13 +25,13 @@ cosfs 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、
 sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
 
-#####  CentOS 系统下安装依赖软件：
+##### CentOS 系统下安装依赖软件：
 
 ```shell
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
-#### 3. 编译和安装cosfs 
+#### 3. 编译和安装 cosfs 
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
 cd /usr/cosfs
@@ -67,12 +67,16 @@ pkg-config --modversion fuse
 ### cosfs使用方法
 
 #### 1. 配置密钥文件
+
 在文件 /etc/passwd-cosfs中，写入您的存储桶名称 \<BucketName>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+
 ```shell
 echo <BucketName>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
+
 您需要将 \<BucketName>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369这个Bucket 中，\<BucketName> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
+
 
 **示例：**
 
@@ -124,7 +128,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 用来指定分块上传时单个分块的大小（单位： MB），默认是 10 MB。 由于分块上传对单个文件块的数目有最大限制（10000 块），所以对于超出 10 MB * 10000 (100 GB) 大小的文件，需要根据具体情况调整该参数。
 
 ##### 2. -oallow_other
-如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定  allow_other 参数。
+如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定该参数。
 
 ##### 3. -odel_cache
 默认情况下， cosfs 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 cosfs 退出时，自动清除缓存，可以在挂载时加入该选项。
@@ -165,7 +169,7 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 ```
 如果 cosfs 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 进程异常退出。此时，建议您按照本文[编译和安装](#安装和使用) 部分更新 fuse 版本或安装最新版本的 cosfs。
 
-##### 4.  如何挂载 Bucket 下的一个目录
+##### 4. 如何挂载 Bucket 下的一个目录
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 ```shell
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
@@ -178,16 +182,16 @@ cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 ```
 
 ##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"
-cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
+cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现 Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
 ```shell
 image/jpeg                                      jpg jpeg
 image/jpm                                       jpm jpgm
 image/jpx                                       jpx jpf
 ```
-##### 6. 非root用户如何挂载 cosfs
+##### 6. 非 root 用户如何挂载 cosfs
 非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为 600，按照正常命令挂载即可，此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
 
-##### 7.  cosfs是否支持https进行挂载
+##### 7. cosfs 是否支持 https 进行挂载
 cosfs 支持 https，http 和 https 的使用形式分别为：
 ```shell
 -ourl=http://cos.ap-guangzhou.myqcloud.com
