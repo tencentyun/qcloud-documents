@@ -72,7 +72,7 @@ pkg-config --modversion fuse
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
-您需要将 \<Name>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369这个Bucket 中，\<Name> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
+您需要将 \<Name>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\<Name> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
 
 **示例：**
 
@@ -124,7 +124,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 用来指定分块上传时单个分块的大小（单位： MB），默认是 10 MB。 由于分块上传对单个文件块的数目有最大限制（10000 块），所以对于超出 10 MB * 10000 (100 GB) 大小的文件，需要根据具体情况调整该参数。
 
 ##### 2. -oallow_other
-如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定  allow_other 参数。
+如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定该参数。
 
 ##### 3. -odel_cache
 默认情况下， cosfs 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 cosfs 退出时，自动清除缓存，可以在挂载时加入该选项。
@@ -178,7 +178,7 @@ cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 ```
 
 ##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"
-cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
+cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现 Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
 ```shell
 image/jpeg                                      jpg jpeg
 image/jpm                                       jpm jpgm
