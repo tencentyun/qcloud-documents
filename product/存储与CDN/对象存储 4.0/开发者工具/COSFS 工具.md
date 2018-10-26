@@ -1,5 +1,5 @@
 ## 功能说明 
-cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs提供的主要功能包括：
+cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
@@ -67,12 +67,12 @@ pkg-config --modversion fuse
 ### cosfs使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs中，写入您的存储桶名称 \<Name>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \<Name>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
-您需要将 \<Name>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369这个Bucket 中，\<Name> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
+您需要将 \<Name>、\<Appid>、\<SecretId> 和 \<SecretKey> 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\<Name> 为 test， \<Appid> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId> 和 \<SecretKey> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
 
 **示例：**
 
@@ -178,7 +178,7 @@ cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 ```
 
 ##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"
-cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
+cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现 Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
 ```shell
 image/jpeg                                      jpg jpeg
 image/jpm                                       jpm jpgm
