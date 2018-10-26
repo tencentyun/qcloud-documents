@@ -1,5 +1,5 @@
 ## 功能说明 
-cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs提供的主要功能包括：
+cosfs 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， cosfs 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
@@ -25,13 +25,13 @@ cosfs 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、
 sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
 
-#####  CentOS 系统下安装依赖软件：
+##### CentOS 系统下安装依赖软件：
 
 ```shell
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
-#### 3. 编译和安装cosfs 
+#### 3. 编译和安装 cosfs 
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
 cd /usr/cosfs
@@ -67,7 +67,7 @@ pkg-config --modversion fuse
 ### cosfs使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs中，写入您的存储桶名称 \<Name>-\<Appid>，以及该存储桶对应的 \<SecretId>和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \<Name>-\<Appid>，以及该存储桶对应的 \<SecretId> 和 \<SecretKey>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
@@ -165,7 +165,7 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 ```
 如果 cosfs 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 进程异常退出。此时，建议您按照本文[编译和安装](#安装和使用) 部分更新 fuse 版本或安装最新版本的 cosfs。
 
-##### 4.  如何挂载 Bucket 下的一个目录
+##### 4. 如何挂载 Bucket 下的一个目录
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 ```shell
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
@@ -184,10 +184,10 @@ image/jpeg                                      jpg jpeg
 image/jpm                                       jpm jpgm
 image/jpx                                       jpx jpf
 ```
-##### 6. 非root用户如何挂载 cosfs
+##### 6. 非 root 用户如何挂载 cosfs
 非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为 600，按照正常命令挂载即可，此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
 
-##### 7.  cosfs是否支持https进行挂载
+##### 7. cosfs 是否支持 https 进行挂载
 cosfs 支持 https，http 和 https 的使用形式分别为：
 ```shell
 -ourl=http://cos.ap-guangzhou.myqcloud.com
