@@ -64,15 +64,15 @@ pkg-config --modversion fuse
 #当您看到 “2.9.4” 时，表示fuse安装成功  
 ```
 
-### cosfs 使用方法
+### cosfs使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \<Name\>-\<Appid\>，以及该存储桶对应的 \<SecretId\> 和 \<SecretKey\>，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \&lt;Name&gt;-\&lt;Appid&gt;，以及该存储桶对应的 \&lt;SecretId&gt; 和 \&lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
-您需要将 \<Name\>、\<Appid\>、\<SecretId\> 和 \<SecretKey\> 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\<Name\> 为 test， \<Appid\> 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\<SecretId\> 和 \<SecretKey\> 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
+您需要将 \&lt;Name&gt;、\&lt;Appid&gt;、\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\&lt;Name&gt; 为 test， \&lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。
 
 **示例：**
 
@@ -88,8 +88,8 @@ chmod 640 /etc/passwd-cosfs
 cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- \<MountPoint\> 为本地挂载目录（如 /mnt）。
-- \<CosDomainName\> 为存储桶对应的访问域名，形式为 [http://cos.\<Region>.myqcloud.com]() （适用于XML API），其中\<Region\> 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅[可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- \&lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
+- \&lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 http://cos.\&lt;Region&gt;.myqcloud.com （适用于XML API），其中\&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
@@ -151,21 +151,21 @@ cosfs 提供的功能、性能和本地文件系统相比，存在一些局限�
 
 ## 常见问题
 
-##### 1. 如何查看 cosfs 提供的挂载参数选项和版本号
+##### 1. 如何查看 cosfs 提供的挂载参数选项和版本号?
 使用 cosfs --help 命令，可以查看 cosfs 提供的参数选项；使用 cosfs --version 命令，可以查看 cosfs 版本号。
 
-##### 2. cosfs 所产生的日志存储在哪里
+##### 2. cosfs 所产生的日志存储在哪里?
 在 CentOS 中，cosfs 产生的日志存储在 /var/log/messages 中；在 Ubuntu 中，cosfs 日志存储在 /var/log/syslog 中。如果您在使用中有遇到问题，请将对应时间段的该日志发送给我们。
 
-##### 3. 为什么 cosfs 在使用过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问
+##### 3. 为什么 cosfs 在使用过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问?
 您可以使用`ps ax|grep cosfs`命令查看 cosfs 进程是否存在，如果 cosfs 进程是由于误操作而挂掉，您可以执行如下命令进行重新挂载：
 ```shell
 umount -l /path/to/mnt_dir
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-如果 cosfs 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 进程异常退出。此时，建议您按照本文[编译和安装](#安装和使用) 部分更新 fuse 版本或安装最新版本的 cosfs。
+如果 cosfs 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 cosfs 进程异常退出。此时，建议您按照本文 [编译和安装](#安装和使用)  部分更新 fuse 版本或安装最新版本的 cosfs。
 
-##### 4. 如何挂载 Bucket 下的一个目录
+##### 4. 如何挂载 Bucket 下的一个目录?
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 ```shell
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
@@ -177,39 +177,39 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
 
-##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"
+##### 5. 为什么通过 cosfs 上传的文件 Content-Type 全是 "application/octet-stream"?
 cosfs 是根据 /etc/mime.types 和上传文件的后缀进行比对，自动设置上传到 COS 上文件的 Content-Type。出现 Content-Type 问题时，建议检查系统上是否存在该配置文件。对于 Ubuntu， 可以通过 sudo apt-get install mime-support 来添加。对于 CentOS，可以通过 sudo yum install mailcap 来添加。您也可以手动创建该文件，每种文件格式添加一行，例如：
 ```shell
 image/jpeg                                      jpg jpeg
 image/jpm                                       jpm jpgm
 image/jpx                                       jpx jpf
 ```
-##### 6. 非 root 用户如何挂载 cosfs
+##### 6. 非 root 用户如何挂载 cosfs?
 非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为 600，按照正常命令挂载即可，此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
 
-##### 7. cosfs 是否支持 https 进行挂载
+##### 7. cosfs 是否支持 https 进行挂载?
 cosfs 支持 https，http 和 https 的使用形式分别为：
 ```shell
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
 
-##### 8. 挂载时显示 Bucket not exist
+##### 8. 挂载时显示 Bucket not exist?
 请检查参数 -ourl，确保 url 中不要携带 Bucket 部分，正确的形式为：
 ```shell
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 ```
 
-##### 9. 如何设定 cosfs 开机自动挂载
+##### 9. 如何设定 cosfs 开机自动挂载?
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 ```shell
 cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
-##### 10. 为什么之前可用写文件，突然不能写了
+##### 10. 为什么之前可用写文件，突然不能写了?
 由于 COS 鉴权产品策略调整，所以使用 V1.0.0 之前版本的 cosfs 工具会导致策略校验不过，您可以安装最新的 cosfs 工具重新挂载。
 
-##### 11. 如何挂载多个存储桶
+##### 11. 如何挂载多个存储桶?
 
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
