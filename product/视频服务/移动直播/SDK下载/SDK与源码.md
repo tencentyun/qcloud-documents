@@ -438,7 +438,7 @@ table td {
 </table>
 
 - **一键部署**
-此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
+此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [源码调试](https://cloud.tencent.com/document/product/454/12554)。
 
 <h2 id="PCWeb">Web（PC端）源码（1.0.0）</h2>
 
