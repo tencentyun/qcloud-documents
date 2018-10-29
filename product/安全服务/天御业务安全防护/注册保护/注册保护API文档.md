@@ -151,7 +151,7 @@
 <td> registerSpend
 </td><td> 否
 </td><td> UInt
-</td><td> 登录耗时，单位秒
+</td><td> 登录耗时，单位：秒
 </td></tr>
 <td> macAddress
 </td><td> 否
@@ -191,7 +191,7 @@
 </td></tr></tbody></table>
 
 ## 3.输出参数
-<table class="t">
+<table>
 <tbody><tr>
 <th><b>参数名称</b>
 </th><th> <b>类型</b>
@@ -247,8 +247,8 @@
 </td></tr>
 </tbody></table>
 
-riskType详细说明
-<table class="t">
+riskType 详细说明
+<table >
 <tbody><tr>
 <th height="23"> <b>风险类型</b>
 </th><th> <b>风险详情</b>
@@ -267,14 +267,14 @@ riskType详细说明
 </tr>
 <td rowspan="3">环境风险</td>
 <td>环境异常<br></td><td>201</td></tr><tr>
-<td>js上报异常<br></td><td>202</td></tr><tr>
+<td>js 上报异常<br></td><td>202</td></tr><tr>
 <td>撞库<br></td><td>203</td></tr><tr>
 </tr>
 </td></tr></tbody></table>
 
 ## 4.示例代码
 代码下载： [Python 示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP 示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java 示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net 示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 。
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?
