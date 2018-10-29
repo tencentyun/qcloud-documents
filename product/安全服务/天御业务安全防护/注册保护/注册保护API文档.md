@@ -1,4 +1,4 @@
-## 1.接口描述
+## 1. 接口描述
 注册保护接口提供恶意注册识别等能力，根据用户账号、信用和注册的行为和来源判断当次注册的恶意等级。
 
 协议：HTTPS
@@ -7,7 +7,7 @@
 
 接口名：RegisterProtection
 
-## 2.输入参数
+## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 页面。其中，此接口的 Action 字段为 RegisterProtection。
 <table >
 <tbody><tr>
@@ -190,7 +190,7 @@
 <br> 网站或应用的业务下有多个场景使用此服务，通过此 ID 区分统计数据
 </td></tr></tbody></table>
 
-## 3.输出参数
+## 3. 输出参数
 <table>
 <tbody><tr>
 <th><b>参数名称</b>
@@ -272,8 +272,8 @@ riskType 详细说明
 </tr>
 </td></tr></tbody></table>
 
-## 4.示例代码
-代码下载： [Python 示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP 示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java 示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net 示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)
+## 4. 示例代码
+代码下载： [Python 示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip)、[PHP 示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip)、[Java 示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip)、[.Net 示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)。
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 。
 ```
 请求示例 ：
@@ -288,7 +288,7 @@ Action=RegisterProtection
 &associateAccount="SpFsjpyvaJ27329"
 ```
 
-## 5.响应示例
+## 5. 响应示例
 ```
 {
 "code": 0,
