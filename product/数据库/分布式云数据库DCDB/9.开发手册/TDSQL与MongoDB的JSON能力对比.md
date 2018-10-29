@@ -1,12 +1,12 @@
-目前，DCDB（MySQL 5.7内核）已支持 json 能力，更多细节，可以参考 mysql 官方的 json 文档[https://dev.mysql.com/doc/refman/5.7/en/json-function-reference.html]( https://dev.mysql.com/doc/refman/5.7/en/json-function-reference.html)
+目前，TDSQL（MySQL 5.7内核）已支持 json 能力，更多细节，可以参考 mysql 官方的 json 文档 [https://dev.mysql.com/doc/refman/5.7/en/json-function-reference.html]( https://dev.mysql.com/doc/refman/5.7/en/json-function-reference.html)
 
-## DCDB 使用 JSON 注意事项
+## TDSQL 使用 JSON 注意事项
 1. json 字段不可以作为 shardkey（分表键）；
 2. json 类型的聚合操作( 如 orderby，groupby )不支持混合类型排序，例如，不能将 string 类型和 int 类型做比较或排序。且排序只支持数值类型，string 等类型排序不支持。
 
-## DCDB 与 MongoDB 的 JSON 能力对比
+## TDSQL 与 MongoDB 的 JSON 能力对比
 ### 建表语法
-**DCDB**
+**TDSQL**
 ```
 Create table inventory(id int primary key auto_increment, value json) shardkey=id;
 ```
@@ -151,7 +151,7 @@ where value->"$.item"="paper" limit 1
 </table>
 
 ### QUERY Document
-||MongoDB|	DCDB|
+||MongoDB|	TDSQL|
 |---- |-----| ----|
 |预先插入数据	|db.inventory.insertMany([ <br>&emsp;{ item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" , tags: ["blank", "red"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "A", qty:, 5 }, { warehouse: "C", qty: 15 } ] } ,<br>&emsp;{ item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" , tags: ["red", "blank"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "C", qty: 5 } ] }, <br>&emsp;{ item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "D" , tags: ["red", "blank", "plain"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },<br>&emsp;{ item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" , tags: ["blank", "red"], dim_cm: [ 22.85, 30 ] , instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },<br>&emsp;{ item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" , tags: ["blue"], dim_cm: [ 10, 15.25 ] , instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }]); |	insert into inventory(value) values<br>('{ "item": "canvas", "qty": 100, "size": { "h": 28, "w": 35.5, "uom": "cm" }, "status": "A" , "tags": ["blank", "red"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "A", "qty": 5 }, { "warehouse": "C", "qty": 15 } ] }'),<br>&emsp;('{ "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" , "tags": ["red", "blank"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "C", "qty": 5 } ] }'),<br>&emsp;('{ "item": "mat", "qty": 85, "size": { "h": 27.9, "w": 35.5, "uom": "cm" }, "status": "D" , "tags": ["red", "blank", "plain"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "A", "qty": 60 }, { "warehouse": "B", "qty": 15 } ] }'),<br>&emsp;('{ "item": "mousepad", "qty": 25, "size": { "h": 19, "w": 22.85, "uom": "cm" }, "status": "P" , "tags": ["blank", "red"], "dim_cm": [ 22.85, 30 ] , "instock": [ { "warehouse": "A", "qty": 40 }, { "warehouse": "B", "qty": 5 } ] }'),<br>&emsp;('{ "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "P" , "tags": ["blue"], "dim_cm": [ 10, 15.25 ] , "instock": [ { "warehouse": "B", "qty": 15 }, { "warehouse": "C", "qty": 35 } ] }') |
 |通过路径语法实现对json内任意成员的访问|	支持	|支持|
@@ -293,15 +293,15 @@ create FULLTEXT index full_idx on stores(value_name, value_description);<br>
 
 ### SHARDING
 
-||MongoDB|	DCDB|
+||MongoDB|	TDSQL|
 |---- |-----| ----|
 |Ranged sharding	|支持	|不支持
-|Hashed sharding	|db.t1.createIndex({"key1":"hashed"})<br>sh.shardCollection("test.t1", {"key1":"hashed"})<br>db.t1.insertOne({"key1":"value1","key2":"value2"})|DCDB不需要事先创建hashed index<br><br>create table t1(key1 varchar(20), value json) shardkey=key1;<br>insert into t1(key1, value) values("value1", '{"key2":"value2"}');<br><br>DCDB目前不支持按照json内的任意字段进行hashed sharding，如有需要，需要将作为shardkey的字段单独提出作为一列。
+|Hashed sharding	|db.t1.createIndex({"key1":"hashed"})<br>sh.shardCollection("test.t1", {"key1":"hashed"})<br>db.t1.insertOne({"key1":"value1","key2":"value2"})|TDSQL不需要事先创建hashed index<br><br>create table t1(key1 varchar(20), value json) shardkey=key1;<br>insert into t1(key1, value) values("value1", '{"key2":"value2"}');<br><br>TDSQL目前不支持按照json内的任意字段进行hashed sharding，如有需要，需要将作为shardkey的字段单独提出作为一列。
 |将含有数据的非shard表修改为shard表|	支持	|不支持|
-MongoDB和DCDB的shard（分布式）架构相似，因此在水平扩容、容灾等方面各有千秋，此处不做展开。
+MongoDB和TDSQL的shard（分布式）架构相似，因此在水平扩容、容灾等方面各有千秋，此处不做展开。
 
 ### SHARD INDEX
-MongoDB 和 DCDB 的 index 都是建立在各个 shard 上的，并且只有包含 shardkey 的 index 才可以有全局 unique 的约束条件。无论是包含  shardkey 的 Compound Indexes 还是将对 shardkey 本身建立 index，两者都是先通过 shardkey 确定相关 shard，再在相关的各个  shard 上利用该索引，在没有 shardkey 的情况下，查询会发送到所有的 shard。
+MongoDB 和 TDSQL 的 index 都是建立在各个 shard 上的，并且只有包含 shardkey 的 index 才可以有全局 unique 的约束条件。无论是包含  shardkey 的 Compound Indexes 还是将对 shardkey 本身建立 index，两者都是先通过 shardkey 确定相关 shard，再在相关的各个  shard 上利用该索引，在没有 shardkey 的情况下，查询会发送到所有的 shard。
 
 ### JOIN
 MongoDB 在非 shard 表下只能支持多表 left join，而在 shard 表下不支持 join；具体实现方法如下代码所示
@@ -430,15 +430,15 @@ select * from users left join userinfo on users.value
 
 ## 对比总结
 ### 写入数据
-两者都可以以方便的写入 json 串和更新 json 内部的某些字段，但 MongoDB 不支持事务，只有单行操作可保证原子性，多行操作如果需要原子性需要应用层实现两阶段提交。而 DCDB 的 json 操作可以完整的支持事务特性，sharding 模式下也支持分布式事务。
+两者都可以以方便的写入 json 串和更新 json 内部的某些字段，但 MongoDB 不支持事务，只有单行操作可保证原子性，多行操作如果需要原子性需要应用层实现两阶段提交。而 TDSQL 的 json 操作可以完整的支持事务特性，sharding 模式下也支持分布式事务。
 
 ### 查询数据
-1. Join： DCDB 支持多表根据 json 字段进行 join 操作，MongoDB 只支持多个 unsharded 表 left join
+1. Join： TDSQL 支持多表根据 json 字段进行 join 操作，MongoDB 只支持多个 unsharded 表 left join
 2. Index：两者都支持根据 json 的某些（int,string）字段建立索引，MongoDB 还额外支持 multikey index 等索引
 3. 访问j son 内部元素：两者都有各自完善的语法可以访问到json内部的各个字段，无需应用层进行json解析
-4. 搜索条件：MongoDB 提供的搜索和匹配方面的功能更完善，相比之下，DCDB 需要时刻注意对选择条件进行类型转换后再进行判断，对开发人员来说不是很友好，并且筛选的功能方面也较 MongoDB 稍弱，适用于对json操作相对简单的应用。
+4. 搜索条件：MongoDB 提供的搜索和匹配方面的功能更完善，相比之下，TDSQL 需要时刻注意对选择条件进行类型转换后再进行判断，对开发人员来说不是很友好，并且筛选的功能方面也较 MongoDB 稍弱，适用于对json操作相对简单的应用。
 
 ### 综合对比
-综合来看，对比于 MongoDB 目前的三大核心功能：json 的灵活性，复制集保证高可用，sharding 保证可扩展，DCDB均可以支持。而在 json 细节的支持，MongoDB 提供的功能更加丰富一些。但是，DCDB 是基于腾讯 TDSQL 金融级分布式架构的，其自身数据强一致、高可用和可扩展也有着完善的解决方案，且能够关系型数据库的事务，join等功能。
+综合来看，对比于 MongoDB 目前的三大核心功能：json 的灵活性，复制集保证高可用，sharding 保证可扩展，TDSQL 均可以支持。而在 json 细节的支持，MongoDB 提供的功能更加丰富一些。但是，TDSQL 是基于腾讯 TDSQL 金融级分布式架构的，其自身数据强一致、高可用和可扩展也有着完善的解决方案，且能够关系型数据库的事务，join等功能。
 
-如果您既希望使用json类型，又对数据一致性，事务，join 等传统数据库具备的能力也有一定要求的话，DCDB 将是一个很好的选择。
+如果您既希望使用json类型，又对数据一致性，事务，join 等传统数据库具备的能力也有一定要求的话，TDSQL 将是一个很好的选择。
