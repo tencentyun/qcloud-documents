@@ -40,12 +40,11 @@
 </td><td>是
 </td><td> UInt
 </td><td> 用户账号类型（QQ 开放帐号、微信开放账号需要提交 <a href='https://console.cloud.tencent.com/workorder/category'>工单</a> 由腾讯云进行资格审核）
-<br> 0：其他账号
-<br> 1：QQ开放帐号
-<br> 2：微信开放帐号
+<br> 1：QQ 开放帐号
+<br> 2：微信开放账号 
 <br> 4：手机号
-<br> 6：手机动态码
-<br> 7：邮箱
+<br> 0：其他 
+<br> 10004：手机号 MD5
 </td></tr>
 <tr>
 <td> appId
