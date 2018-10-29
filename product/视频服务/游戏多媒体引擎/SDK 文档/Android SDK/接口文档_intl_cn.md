@@ -1383,6 +1383,23 @@ ITMGContext TMGPTT public int SpeechToText(String fileID)
 ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID);
 ```
 
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGContext TMGPTT public int SpeechToText(String fileID, String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |String                     |语音文件 url|
+| language    |String                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID,"cmn-Hans-CN");
+```
+
 ### 识别回调
 将指定的语音文件识别成文字的回调，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。
 传递的参数包含三个信息，result、file_path 和 text，其中 text 为识别的文本。
@@ -1394,6 +1411,9 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 	 }
 }
 ```
+
+
+
 ## 高级 API
 
 ### 获取版本号

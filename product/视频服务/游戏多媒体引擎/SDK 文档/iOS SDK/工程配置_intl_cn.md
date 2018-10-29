@@ -52,7 +52,6 @@ Bitcode 需要工程依赖的所有类库同时支持，SDK 暂时还不支持 B
 |Required background modes    		 |允许后台运行|
 |Microphone Usaeg Description   	|允许麦克风权限|
 
-
 ### 5.离线语音添加 HTTP 访问权限
 需要增加 Allow Arbitrary Loads 权限。
 

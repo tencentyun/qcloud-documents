@@ -1491,6 +1491,24 @@ ITMGContext GetPTT -(void)SpeechToText:(NSString*)fileID
 [[[ITMGContext GetInstance]GetPTT]SpeechToText:fileID];
 ```
 
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGContext GetPTT -(void)SpeechToText:(NSString*)fileID (NSString*)language
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |NSString*                     |语音文件 url|
+| language    |NSString*                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+[[[ITMGContext GetInstance]GetPTT]SpeechToText:fileID language:"cmn-Hans-CN"];
+```
+
+
 ### 识别回调
 将指定的语音文件识别成文字的回调，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。
 ```

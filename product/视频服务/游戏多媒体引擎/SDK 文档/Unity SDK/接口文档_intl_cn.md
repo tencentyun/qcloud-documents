@@ -1503,6 +1503,24 @@ IQAVPTT int SpeechToText(String fileID)
 IQAVContext.GetInstance().GetPttCtrl().SpeechToText(fileID);
 ```
 
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+IQAVPTT int SpeechToText(String fileID,String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |String                     |语音文件 url|
+| language    |String                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+IQAVContext.GetInstance().GetPttCtrl().SpeechToText(fileID,"cmn-Hans-CN");
+```
+
+
 ### 识别回调
 将指定的语音文件识别成文字，通过委托传递消息。
 #### 函数原型  

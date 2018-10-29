@@ -621,7 +621,7 @@ ITMGContext virtual int EnableAudioCaptureDevice(bool enable)
 | ------------- |:-------------:|-------------|
 | enable    |bool     |如果需要打开采集设备，则传入的参数为 true，如果关闭采集设备，则参数为 false|
 
-> 示例代码
+#### 示例代码
 
 ```
 打开采集设备
@@ -653,7 +653,7 @@ ITMGContext  virtual int EnableAudioSend(bool bEnable)
 | ------------- |:-------------:|-------------|
 | bEnable    |bool     |如果需要打开音频上行，则传入的参数为 true，如果关闭音频上行，则参数为 false|
 
-> 示例代码  
+#### 示例代码  
 
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioSend(true);
@@ -1614,6 +1614,23 @@ ITMGPTT virtual void SpeechToText(const char* fileID)
 #### 示例代码  
 ```
 ITMGContextGetInstance()->GetPTT()->SpeechToText(fileID);
+```
+
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGPTT virtual void SpeechToText(const char* fileID, const char* language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |char*                     |语音文件 url|
+| language    |char*                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetPTT()->GetVoiceFileDuration(filePath,"cmn-Hans-CN");
 ```
 
 ### 识别回调
