@@ -1,4 +1,4 @@
-以下为购买 DCDB 实例的详细流程。
+以下为购买 TDSQL 实例的详细流程。
 ## 购买入口
 ### 入口一
 1. 访问 [腾讯云主页](https://cloud.tencent.com/)，将鼠标依次移动至【产品】>【数据库】，单击【分布式数据库】进入产品主页。
@@ -7,7 +7,7 @@
 	![](https://mc.qcloudimg.com/static/img/d72b569da05fc5dda1b74b61efcecf62/r2.png)
 
 ### 入口二
-- 登录 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb)，单击 [新建](https://buy.cloud.tencent.com/dcdb) 进入购买界面。
+- 登录 [ TDSQL 控制台](https://console.cloud.tencent.com/dcdb)，单击 [新建](https://buy.cloud.tencent.com/dcdb) 进入购买界面。
 	![](https://mc.qcloudimg.com/static/img/0f6bc721d0d1f5afa480b3933def8ae5/r3.png)
 	
 ## 购买步骤
@@ -20,5 +20,5 @@
 	![](https://mc.qcloudimg.com/static/img/2e4cf68c2838e92cfe905bcbe6fa27cd/r5.png)
 3. 支付成功
 ![](https://mc.qcloudimg.com/static/img/f959063fa86d13d83558b48baec3cd86/r6.png)
-4. 单击【进入管理中心】，将鼠标依次移动至【云产品】>【基础产品】>【数据库】，单击【分布式数据库】进入 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb)，可看到 DCDB 实例已经购买成功，下一步即可进行实例初始化操作。
+4. 单击【进入管理中心】，将鼠标依次移动至【云产品】>【基础产品】>【数据库】，单击【分布式数据库】进入 [ TDSQL 控制台](https://console.cloud.tencent.com/dcdb)，可看到 TDSQL 实例已经购买成功，下一步即可进行实例初始化操作。
 ![](https://mc.qcloudimg.com/static/img/249a71ad1cf6b888d96d0d1170e0f88f/r7.png)
