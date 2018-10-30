@@ -2,8 +2,8 @@
 **&lt;live-pusher&gt;** 是小程序内部用于支持音视频上行能力的功能标签，本文主要介绍该标签的使用方法。
 
 ## 版本支持
-- 微信 APP iOS 最低版本要求：6.5.21 
-- 微信 APP Android 最低版本要求：6.5.19 
+- 微信 App iOS 最低版本要求：6.5.21 
+- 微信 App Android 最低版本要求：6.5.19 
 - 小程序基础库最低版本要求：1.7.0 
 
 > 通过 wx.getSystemInfo 可以获取当前基础库版本信息
@@ -59,7 +59,7 @@
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
 | aspect | String | 9:16 | 3:4, 9:16|
-| zoom | Boolean | false | 是否正常焦距，true表示将摄像头放大 |
+| zoom | Boolean | false | 是否正常焦距，true 表示将摄像头放大 |
 | device-position | String | front | front 前置摄像头，back 后置摄像头 | 
 | min-bitrate | Number | 200  | 最小码率，该数值决定了画面最差的清晰度表现|
 | max-bitrate | Number | 1000 | 最大码率，该数值决定了画面最好的清晰度表现|
@@ -67,7 +67,7 @@
 | waiting-image | String |  | 当微信切到后台时的垫片图片 |
 | waiting-image-hash | String |  |当微信切到后台时的垫片图片的校验值 |
 | background-mute | Boolean | false | 当微信切到后台时是否禁用声音采集 |
-| bindstatechange | String |  | 用于指定一个javascript函数来接收音视频事件 |
+| bindstatechange | String |  | 用于指定一个 javascript 函数来接收音视频事件 |
 | debug | Boolean | false | 是否开启调试模式 |
 
 
@@ -86,13 +86,13 @@
 
 ## 属性详解
 - **url**
-用于音视频上行的推流URL，以 rtmp:// 协议前缀打头，腾讯云推流 URL 的获取方法见 [DOC](https://cloud.tencent.com/document/product/454/7915)。
+用于音视频上行的推流URL，以 rtmp:// 协议前缀打头，腾讯云推流 URL 的获取方法见 [快速获取URL](https://cloud.tencent.com/document/product/454/7915) 文档。
 > 小程序内部使用的 RTMP 协议是支持 UDP 加速的版本，在同样网络条件下，UDP 版本的 RTMP 会比开源版本的有更好的上行速度和抗抖动能力。
 
 - **mode**
 SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育、远程培训等等。SD、HD 和 FHD 分别对应三种默认的清晰度。该模式下，小程序会更加注重清晰度和观看的流畅性，不会过分强调低延迟，也不会为了延迟牺牲画质和流畅性。
 
- RTC 则主要用于双向视频通话或多人视频通话场景，比如金融开会、在线客服、车险定损、培训会议 等等。该模式下，小程序会更加注重降低点到点的时延，也会优先保证声音的质量，在必要的时候会对画面清晰度和画面的流畅性进行一定的缩水。
+ RTC 则主要用于双向视频通话或多人视频通话场景，比如金融开会、在线客服、车险定损、培训会议等。该模式下，小程序会更加注重降低点到点的时延，也会优先保证声音的质量，在必要的时候会对画面清晰度和画面的流畅性进行一定的缩水。
 
 - **orientation 和 aspect**
 横屏（horizontal）模式还是竖屏（vertical）模式，默认是竖屏模式，即 home 键朝下。这时，小程序推出的画面的宽高比是 3：4 或者 9 : 16 这两种竖屏宽高比的画面，也就是宽 < 高。如果改成横屏模式，小程序推出的画面宽高比即变为 4 : 3 或者 16 : 9 这种横屏宽高比的画面，也就是宽 > 高。
@@ -172,7 +172,7 @@ pusher.start({
 | code                 |    事件定义  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 | 1001 | PUSH_EVT_CONNECT_SUCC | 已经成功连接到云端服务器 |
-| 1002 | PUSH_EVT_PUSH_BEGIN       | 与服务器握手完毕,一切正常，准备开始上行推流 |
+| 1002 | PUSH_EVT_PUSH_BEGIN       | 与服务器握手完毕，一切正常，准备开始上行推流 |
 | 1003 | PUSH_EVT_OPEN_CAMERA_SUCC  |  已成功启动摄像头，摄像头被占用或者被限制权限的情况下无法打开 | 
 
 #### 2. 严重错误
@@ -185,7 +185,7 @@ pusher.start({
 | -1304 |PUSH_ERR_AUDIO_ENCODE_FAIL  | 音频编码失败|
 | -1305 |PUSH_ERR_UNSUPPORTED_RESOLUTION  |不支持的视频分辨率|
 | -1306 |PUSH_ERR_UNSUPPORTED_SAMPLERATE | 不支持的音频采样率|
-| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连,且经三次抢救无效,可以放弃治疗,更多重试请自行重启推流|
+| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连,且经三次抢救无效，可以放弃治疗，更多重试请自行重启推流|
 
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，比如：
@@ -203,10 +203,10 @@ pusher.start({
 | code                 |    事件定义  |  含义说明                    | 
 | :-------------------  |:-------- |  :-----------------------| 
 | 1101 | PUSH_WARNING_NET_BUSY             | 上行网速不够用，建议提示用户改善当前的网络环境|
-| 1102 |PUSH_WARNING_RECONNECT           | 网络断连, 已启动重连流程 (重试失败超过三次会放弃)|
+| 1102 |PUSH_WARNING_RECONNECT           | 网络断连，已启动重连流程 (重试失败超过三次会放弃)|
 | 1103 |PUSH_WARNING_HW_ACCELERATION_FAIL| 硬编码启动失败，自动切换到软编码|
 | 1107 |PUSH_WARNING_SWITCH_SWENC     |  由于机器性能问题，自动切换到硬件编码|
-| 3001 |PUSH_WARNING_DNS_FAIL                |  DNS解析失败，启动重试流程     |
+| 3001 |PUSH_WARNING_DNS_FAIL                |  DNS 解析失败，启动重试流程     |
 | 3002 |PUSH_WARNING_SEVER_CONN_FAIL |  服务器连接失败，启动重试流程  |
 | 3003 |PUSH_WARNING_SHAKE_FAIL            |  服务器握手失败，启动重试流程  |
 | 3004 |PUSH_WARNING_SERVER_DISCONNECT   |  服务器主动断开连接，启动重试流程 |

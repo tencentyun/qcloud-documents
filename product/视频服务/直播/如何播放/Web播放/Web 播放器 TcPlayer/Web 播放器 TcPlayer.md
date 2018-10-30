@@ -24,7 +24,7 @@ Web 播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ```
 
 >**注意：**
->**直接用本地网页是调试不了的，**因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -78,13 +78,13 @@ var player =  new TcPlayer('id_test_video', {
 如果是点播 URL，那要检查您要播放的文件是否还在服务器上，比如要播放的地址是否已经被其它人从点播系统移除。
 
 - **原因二：本地网页调试**
-目前腾讯云的 Web 播放器是不支持本地网页去调试的（即通过`file://`协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个`test.html`文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
+目前腾讯云的 Web 播放器是不支持本地网页去调试的（即通过 file:// 协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个 test.html 文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
 
 - **原因三：手机兼容问题**
 FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的 QQ 浏览器支持 FLV 协议的播放，但普及度还不高），只能用 HLS（m3u8)。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件`crossdomain.xml`中增加`qq.com`域名：
+PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件 crossdomain.xml 中增加 qq.com 域名：
 ```xml
 <cross-domain-policy>
 <allow-access-from domain="*.qq.com" secure="false"/>
@@ -102,7 +102,7 @@ coverpic 可以传入一个图片地址作为播放器的封面，将在播放�
 "coverpic" : "http://www.test.com/myimage.jpg"
 ```
 #### 4.2 设置封面的展现样式
-coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。<br>
+coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
 
 style 支持的样式有 3 种：
 - default：居中并且以图片的实际分辨率进行显示；
@@ -121,7 +121,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
 
 >**注意：**
->**在某些移动端设置封面会无效，具体说明请查看常见问题。**
+>在某些移动端设置封面会无效，具体说明请查看常见问题。
 
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
@@ -144,7 +144,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
 >**注意：**
->**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
+>上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。
 
 #### 5.2 代码实现
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
@@ -170,7 +170,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 **PC 端现已支持多种清晰度播放并支持切换的功能，移动端尚未支持。**
 
 ### Step 6：定制错误提示语
-我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
+我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
 #### 6.1 代码实现
 如下是让播放器支持自定义提示语的核心代码，设置的提示语主要落在 wording 属性上。
@@ -211,8 +211,8 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2048	| 无法加载视频文件，跨域访问被拒绝 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误） |
 
 >**备注：**
->**Code 1 ~ 4 对应的是 H5 的原生事件；**
->**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
+>Code 1 ~ 4 对应的是 H5 的原生事件；
+>由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
 这里有一个线上的示例代码，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
@@ -231,24 +231,24 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
-| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
-| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
-| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
-| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
-| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
-| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
-| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
-| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
-| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
-| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
-| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
+| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
+| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
+| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
+| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535a.flv |
+| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
+| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
+| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
+| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
+| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
+| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
+| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
+| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
 | width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素   <br> 示例：640   |
 | height          | Number   | 无       | **必选**，设置播放器高度，单位为像素   <br> 示例：480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例：0.6   |
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放<br>**备注：该选项只对大部分 PC 平台生效**  <br> 示例：  true |
-| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "`http://www.test.com/myimage.jpg`" <br>或者<br>{"style": "cover", "src": h`ttp://www.test.com/myimage.jpg`} |
+| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": http://www.test.com/myimage.jpg} |
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 **备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html) ** <br> 示例："system"  |
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |

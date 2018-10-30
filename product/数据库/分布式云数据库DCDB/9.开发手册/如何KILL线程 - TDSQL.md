@@ -2,11 +2,11 @@
 ```
 	KILL [CONNECTION | QUERY] thread_id
 ```
-请注意，由于 DCDB 是由多个数据库节点组（SET）组成，您必须使用/* 透传 [自定义注释功能](https://cloud.tencent.com/document/product/557/8770) 才能成功杀掉。
+请注意，由于 TDSQL 是由多个数据库节点组（SET）组成，您必须使用/* 透传 [自定义注释功能](https://cloud.tencent.com/document/product/557/8770) 才能成功杀掉。
 ```
 	/*sets:set_1*/kill 890346;
 ```
-由于 DCDB 是由多个数据库节点组（SET）组成，您可以使用`/*sets:set_1*/SHOW PROCESSLIST`语句查看哪些线程正在运行，并使用 `KILL thread_id` 语句终止一个线程。
+由于 TDSQL 是由多个数据库节点组（SET）组成，您可以使用`/*sets:set_1*/SHOW PROCESSLIST`语句查看哪些线程正在运行，并使用 `KILL thread_id` 语句终止一个线程。
 
 > 查询 set_ID,可至控制台分布式数据库>管理>节点管理，或者使用`/*proxy*/show status;`命令。
 

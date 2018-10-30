@@ -19,8 +19,8 @@
 - 支持内容：
    1.SDK 默认内置 token 服务官网和 MQ 服务根证书
    2.使用自定义 Topic 进行通讯的场景 demo
-   3.SDK 函数及结构定义注释说明文档上线：
-   https://tencentyun.github.io/tencent-cloud-iotsuite-embedded-c/sdk/index.html
+   3.SDK 函数及结构定义注释说明文档上线
+ 
 
 
 ## Android SDK

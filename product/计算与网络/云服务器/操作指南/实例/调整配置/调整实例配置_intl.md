@@ -33,7 +33,7 @@ You can upgrade the configuration of CVMs to adapt to you growing business. For 
 
 
  - **Popup box for postpaid instances:**
-![](https://main.qcloudimg.com/raw/978bb2965d44a97deb336f55da8d2460.png)
+![](https://main.qcloudimg.com/raw/83c89f2a8d2fa39c875a7e4ffce2d38b.png)
 
 ### Upgrading via API
 You can upgrade instance configuration using the APIs ResizeInstance and ResizeInstanceHour. For more information, please see [APIs for adjusting instance configuration](/doc/product/213/9394).
@@ -49,5 +49,4 @@ The degrade method varies with different CVM types.
 2. Locate the Operation column next to the **postpaid** instance to be adjusted, and click **More** -> **CVM Configuration** -> **Adjust Configuration**.
 
 3. In the popup box, select the configuration you want to degrade to, and then click **OK**.
-![](https://main.qcloudimg.com/raw/e5b4882f024c66c0e389cd3a67e29c01.png)
-
+![](https://main.qcloudimg.com/raw/4898656c35e6b28e52eeb3db03f105ab.png)

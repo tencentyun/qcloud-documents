@@ -1,7 +1,7 @@
-以下为连接DCDB的相关操作流程。
+以下为连接 TDSQL 的相关操作流程。
 ## 准备工作
 ### 新建用户权限
-1. 在 [DCDB 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
+1. 在 [TDSQL 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
 ![](https://mc.qcloudimg.com/static/img/d2eafea1a7b03224961c0906180e6b22/image.png)
 2. 在实例详情页面单击【账号管理】，进入帐号管理页面后单击【创建帐号】。
 ![](https://mc.qcloudimg.com/static/img/4e60badccaa63bf1632dbe1ed948793f/r2.png)
@@ -23,12 +23,12 @@
 	![](https://mc.qcloudimg.com/static/img/fc3d50322e3547722a8d3e29e479b2e5/r6.png)	
 
 2. 稍等片刻后，即可获得外网地址以及端口号。
-	> DCDB 提供了唯一的 IP、端口供用户访问和使用。
+	> TDSQL 提供了唯一的 IP、端口供用户访问和使用。
 
 	![](https://mc.qcloudimg.com/static/img/234c21d6897515b6623055301771dd24/r7.png)
 
 ## 连接步骤
-在创建用户权限和获取外网地址后，DCDB 可通过第三方工具和程序驱动进行连接。在 WINDOWS 端，以命令行连接、客户端连接和 JDBC 驱动连接三种方式为示例。在LINUX 端，以命令行连接为示例。
+在创建用户权限和获取外网地址后，TDSQL 可通过第三方工具和程序驱动进行连接。在 WINDOWS 端，以命令行连接、客户端连接和 JDBC 驱动连接三种方式为示例。在LINUX 端，以命令行连接为示例。
 
 ### WINDOWS 命令行连接
 1. 打开 WINDOWS 命令行，在 mysql 的正确路径下输入以下命令。
@@ -52,7 +52,7 @@
 3. 成功连接后的界面如图所示，在此页面即可进行数据库内相关操作。![](//mc.qcloudimg.com/static/img/93ecf636452505760086db5972d5fc6b/image.png)
 
 ### WINDOWS JDBC驱动连接
-> DCDB 支持程序驱动连接，这里我们以 JAVA 使用 JDBC Driver for MySQL (Connector/J) 连接 DCDB 为示例。
+> TDSQL 支持程序驱动连接，这里我们以 JAVA 使用 JDBC Driver for MySQL (Connector/J) 连接 TDSQL 为示例。
 
 1. 首先在 MySQL 官网[下载](https://dev.mysql.com/downloads/connector/j/5.0.html)一个JDBC的jar包，将其导入 JAVA 引用的 Library 中。
 2. 调用 JDBC 代码如下：
@@ -68,11 +68,11 @@
 		conn.close();
 ```
 3. 连接成功后，下一步即可进行其他数据库内操作。
-> 注意：因为 DCDB 在分表和插入数据时需要标记 shardkey，所以无法用 JDBC 调用这些操作。
+> 注意：因为 TDSQL 在分表和插入数据时需要标记 shardkey，所以无法用 JDBC 调用这些操作。
 
 ### LINUX 命令行连接
 以腾讯云服务器中 CentOS 7.2 64 位系统的 CVM 为例，关于腾讯云服务器的购买详情，可以参考[云服务器选购](https://buy.cloud.tencent.com/cvm)。
 
 1. 登录 LINUX 后，输入命令 `yum install mysql` ,利用 CentOS 自带的包管理软件 Yum 在腾讯云的镜像源中下载安装 MySQL 客户端。
 ![](//mc.qcloudimg.com/static/img/7f6a1f7a953cc38809fa069182481a22/image.png)
-2. 命令行显示 complete 后，MySQL 客户端安装完成。我们输入命令 `mysql -h外网地址 -P端口 -u用户名 -p密码` 连接 DCDB。下一步即可进行分表操作。下图中以`show databases;`为例。![](//mc.qcloudimg.com/static/img/b3fba8f8ace315e5eba05fdd252bd4c0/image.png)
+2. 命令行显示 complete 后，MySQL 客户端安装完成。我们输入命令 `mysql -h外网地址 -P端口 -u用户名 -p密码` 连接 TDSQL。下一步即可进行分表操作。下图中以`show databases;`为例。![](//mc.qcloudimg.com/static/img/b3fba8f8ace315e5eba05fdd252bd4c0/image.png)
