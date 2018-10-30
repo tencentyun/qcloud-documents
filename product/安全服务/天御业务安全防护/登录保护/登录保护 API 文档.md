@@ -1,5 +1,5 @@
 ## 1. 接口描述
-登录保护接口提供恶意登录识别、撞库行为识别等能力，根据用户的账号、信用和登录行为来源判断当次登录的恶意等级
+登录保护接口提供恶意登录识别、撞库行为识别等能力，根据用户的账号、信用和登录行为来源判断当次登录的恶意等级。
 协议：HTTPS
 域名：csec.api.qcloud.com
 接口名：LoginProtection
@@ -226,7 +226,7 @@
 </td></tr>
 <td> codeDesc
 </td><td> String
-</td><td> 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。
+</td><td> 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因
 </td></tr>
 <td> message
 </td><td> String
@@ -296,7 +296,7 @@ riskType 详细说明
 
 ## 4. 示例代码
 代码下载：  [Python 示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip)、 [PHP 示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip)、 [Java 示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip) 、[.Net 示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)。
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?
