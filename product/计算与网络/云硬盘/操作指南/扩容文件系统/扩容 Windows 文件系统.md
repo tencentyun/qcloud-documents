@@ -1,59 +1,31 @@
-Windows 云硬盘扩容有以下两种场景：
+## 操作场景
 
-- 对于新增的容量空间，建立独立的新分区，老的分区保持不变。
-- 扩容旧的分区至新增的容量空间，并且保持老分区的数据不丢失。
+完成 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 操作后，虽然已经扩大了实体存储空间，但对于已经创建了文件系统的实例来说，还需要扩容文件系统来识别新扩容的空间。本文档为 Windows 系统下扩容文件系统的指引。
 
-以上两种场景在您的 Windows 云硬盘升级成功之后（看到云硬盘容量变化），都可以通过 Windows 下的分区扩容工具分区助手完成分区扩容，并且保证原数据不会丢失。
+## 注意事项
+
+- 扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 以备份数据。
+- 云硬盘扩容需要 [重启实例](https://cloud.tencent.com/document/product/213/4928) 或重新扫描磁盘后才能识别，这将导致您的业务有一定时间的中断，请您谨慎操作。
 
 ## 前提条件
-- 用户需要先下载 [分区助手](http://www.disktool.cn/)。
-- 然后完成 [扩容实体云硬盘](/doc/product/362/5747) 操作。
-- 若此云硬盘上没有经过格式化和创建文件系统，直接在原有空白云硬盘基础上增加了容量，用户可以直接参考 [Windows 系统分区、格式化及创建文件系统](https://cloud.tencent.com/document/product/362/6734
-) 相关操作。
 
-## 新空间格式化成一个独立分区
-打开分区助手可以看到新扩容未使用的磁盘空间：
-![](//mccdn.qcloud.com/static/img/8bb1180fb58f1dba376084eca29502e7/image.png)
+- 已完成 [扩容实体云硬盘](https://cloud.tencent.com/document/product/362/5747) 。
+- 确保该云硬盘已经 [连接到 Windows 云服务器](https://cloud.tencent.com/document/product/362/5745) 上。
+- 若此云硬盘上没有经过格式化和创建文件系统，直接在原有空白云硬盘基础上增加了容量，可以参考 [Windows 系统分区、格式化及创建文件系统](https://cloud.tencent.com/document/product/362/6734) 进行操作。
 
-右键选中未使用的磁盘空间，选择【创建分区】：
-![](//mccdn.qcloud.com/static/img/2c9c621debf86e7ae91e55fdf42216fe/image.png)
+## 重新扫描磁盘
 
-在弹出框中，输入需要的分区大小、盘符和文件系统，然后单击【确定】按钮：
-![](//mccdn.qcloud.com/static/img/2279a58dff1ecf399f53a660f46612f8/image.png)
+重新扫描磁盘需满足以下其中一条条件：
+- 当硬盘为 **未挂载** 或者 **已挂载且服务器已关机** 的状态时，执行了扩容操作，那么您可以直接进行【执行扩展卷】操作。
 
-在左上角单击【提交】任务按钮：
-![](//mccdn.qcloud.com/static/img/e406a9ab0a907fc9f33708beaad45feb/image.png)
+- 当云硬盘已连接在云服务器中，并且该云服务器在正常运行状态时执行了硬盘扩容操作，需要先执行【重新扫描磁盘】操作来识别扩容后的硬盘空间。
 
-在弹出框中，确认格式分区的信息无误后，单击【执行】按钮：
-![](//mccdn.qcloud.com/static/img/0eb80f57d7ade8eec8b86b9bc82a8f92/image.png)
+- 进入【服务器管理】-【磁盘管理】页面，右键单击【磁盘管理】，选择【重新扫描磁盘】。扫描完成后，可看到数据盘已经为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的 10GB 扩容到了 50GB）。
+![](https://main.qcloudimg.com/raw/fd48a45d1454cabdbf04418120fb0ce6.png)
+![](https://main.qcloudimg.com/raw/c83aa73f0ce8ed140aa0bc4d3b35391a.png)
 
-再次确认格式分区的信息无误后，在弹出框中单击【是】按钮：
-![](//mccdn.qcloud.com/static/img/b31c86dcc8e38644a8fe5835d2f676f5/image.png)
+## 执行扩展卷操作
+右键单击磁盘空间的任一空白处，选择【扩展卷】，根据扩展卷向导的指引完成扩展卷操作。完成后新增的数据盘空间将会合入原有卷中。
+![](https://main.qcloudimg.com/raw/f2be002e959f6b309ff3b674dee9078f.png)
 
-创建完成后，单击【确认】按钮：
-![](//mccdn.qcloud.com/static/img/f424d22f58089ecf0712173484008945/image.png)
-
-打开【我的电脑】可以看到新创建的磁盘分区(此例中新创建的是E盘)：
-![](//mccdn.qcloud.com/static/img/f53c99dd35ec9f9af00eb2d1960522ef/image.png)
-
-## 新空间增加到已有分区空间中
-右键单击需要扩容的分区，选择【调整/移动分区(R)】：
-![](//mccdn.qcloud.com/static/img/aacac81271ba88f35ea0dd6e25314977/image.png)
-
-在弹出框中，如图所示，向右拖动小箭头调整分区需要的空间大小，然后单击【确认】按钮：
-![](//mccdn.qcloud.com/static/img/d548f0c5f75f9171612581c77cad072b/image.png)
-
-在左上角单击【提交】按钮：
-![](//mccdn.qcloud.com/static/img/0b4e4e270c6b1e9ab43a747553119746/image.png)
-
-在弹出框中，确认分区扩容信息正确无误后，单击【确认】按钮：
-![](//mccdn.qcloud.com/static/img/aab479952f267a19585c789a9511cd84/image.png)
-
-再次确认分区扩容信息后，单击【是】按钮：
-![](//mccdn.qcloud.com/static/img/d9c99392f4542bebc1087f9d6790e722/image.png)
-
-等待分区扩容完成后，单击【确定】：
-![](//mccdn.qcloud.com/static/img/b06ca48c96f5c2230077b9e3430b779a/image.png)
-
-打开【我的电脑】，可以查看到扩容后的分区变化(此例中扩容的是D盘，由60G扩容至109G)：
-![](//mccdn.qcloud.com/static/img/cfb207b4364adc4e59cea68ad700271b/image.png)
+至此您已完成扩容硬盘后的扩容 Windows 文件系统操作。
