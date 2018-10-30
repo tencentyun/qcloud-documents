@@ -24,9 +24,15 @@ CKV 主从版通过独有的方案，保证版本升级做到业务无感知，�
 
 ### 使用限制
 
-- CKV 主从版的性能最大支持 12+万 QPS，需要更高的 QPS 请选择 CKV 集群版，最大可支持 1000万 QPS；
-- CKV 对于 pttl 的设置毫秒的过期时间，展示的最小单位为秒，与社区版 Redis 不一致；
-- CKV 目前支持的 string 类型 Key，Value 最大 Size 为 32MB，与社区版 Redis 不一致；
+- CKV 引擎主从版的性能最大支持 12+万 QPS，需要更高的 QPS 请选择 CKV 集群版，最大可支持 1000万 QPS；
+- CKV 引擎对于 pttl 的设置毫秒的过期时间，展示的最小单位为秒，与社区版 Redis 不一致；
+- CKV 引擎目前支持的 string 类型 Key，Value 最大 Size 为 32MB；
+- CKV 引擎的实例连接方式为“实例 id:密码”,这里和社区版连接方式不一致；
+- CKV 引擎dbsize命令实现的时间复杂度为O(n),执行命令时需要遍历当前DB的所有Key，请谨慎使用；
+- CKV 引擎会内置一个string类型的key：`{ckv_plus_pub_sub}_patterns`，该key用于支持pub、sub订阅功能，如果你使用订阅功能，请不要删除该Key否则订阅会失效；
+- CKV 引擎事件通知暂时不支持过期和淘汰策略通知；
+- CKV 引擎的淘汰策略，暂时只支持`volatile-lru`，或者关闭淘汰机制，对应的参数为`maxmemory-policy`
+
 
 ###  连接示例
 CKV 主从版仅支持以下密码格式，“实例 id:密码” 的格式类型，例如您的实例 id 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令如下 redis-cli -h IP地址 -p 端口 -a crs-bkuza6i3:abcd1234。
@@ -55,14 +61,14 @@ CKV 主从版仅支持以下密码格式，“实例 id:密码” 的格式类�
 | 　 | 　 | 　 | 　 | sort | 　 | 　 | 　 |
 
 
-|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
-| --- | --- | --- | --- |
-| sadd | zadd | append | discard |
-| scard | zcard | bitcount | exec |
-| sdiff | zcount | bitop | multi |
-| sdiffstore | zincrby | bitpos | unwatch |
-| sinter | zinterstore | decr | watch |
-| sinterstore | zlexcount | decrby | 　 |
+|**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** | **scripting 族** |
+| --- | --- | --- | --- | --- |
+| sadd | zadd | append | discard |eval|
+| scard | zcard | bitcount | exec |script debug|
+| sdiff | zcount | bitop | multi |script exists|
+| sdiffstore | zincrby | bitpos | unwatch |script flush|
+| sinter | zinterstore | decr | watch |script kill|
+| sinterstore | zlexcount | decrby | 　 |script load |
 | sismember | zrange | get | 　 |
 | smembers | zrangebylex | getbit | 　 |
 | smove | zrangebyscore | getrange | 　 |
@@ -85,13 +91,13 @@ CKV 主从版仅支持以下密码格式，“实例 id:密码” 的格式类�
 
 | **cluster 族** | **connection 族** | **keys 族** | **lists 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- |
-| cluster addslots | swapdb | touch | blpop | eval | bgrewriteaof | bitfield |
-| cluster count-failure-reports | 　 | restore | brpop | evalsha | bgsave | 　 |
-| cluster countkeyinslot | 　 | object | brpoplpush | script debug | client kill | 　 |
-| cluster delslots | 　 | unlink | 　 | script exists | client list | 　 |
-| cluster failover | 　 | wait | 　 | script flush | client getname | 　 |
-| cluster forget | 　 | migrate | 　 | script kill | client pause | 　 |
-| cluster getkeysinslot | 　 | dump | 　 | script load | client reply | 　 |
+| cluster addslots | swapdb | touch | blpop | evalsha | bgrewriteaof | bitfield |
+| cluster count-failure-reports | 　 | restore | brpop |  | bgsave | 　 |
+| cluster countkeyinslot | 　 | object | brpoplpush |  | client kill | 　 |
+| cluster delslots | 　 | unlink | 　 |  | client list | 　 |
+| cluster failover | 　 | wait | 　 |  | client getname | 　 |
+| cluster forget | 　 | migrate | 　 |  | client pause | 　 |
+| cluster getkeysinslot | 　 | dump | 　 | | client reply | 　 |
 | cluster info | 　 | 　 | 　 | 　 | client setname | 　 |
 | cluster keyslot | 　 | 　 | 　 | 　 | command count | 　 |
 | cluster meet | 　 | 　 | 　 | 　 | command getkeys | 　 |
