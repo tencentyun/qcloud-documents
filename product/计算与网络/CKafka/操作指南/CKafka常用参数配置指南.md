@@ -51,19 +51,20 @@ partition的数量需要根据生产和消费的吞吐来判断。理想情况�
 a、单个partition是可以实现消息的顺序写入的。
 b、单个partition只能被同消费者组的单个消费者进程消费。
 c、单个消费者进程可同时消费多个partition，即partition限制了消费端的并发能力。
-d、partition越多则失败选举的耗时越长。
+d、partition越多则失败后leader选举的耗时越长。
 e、offset的粒度最细是在partition级别的，partition越多，查询offset就越耗时。
 f、partition的数量是可以动态增加的，只能增加不能减少。但增加会出现消息rebalance的情况。
 
 #### 2.2 选取合适的副本
 
-目前为了保证可用性副本数必须大于等于2。
+目前为了保证可用性副本数必须大于等于2,如果需要保障高可靠建议3副本。
+>注：副本数会影响生产/消费流量，如三副本则实际流量= 生产流量*3
 
 #### 2.3 日志保留时间
 
 Topic的log.retention.ms配置通过控制台实例的保留时间统一设置。
 
-#### 2.4 其他Topic级别配置
+#### 2.4 其他Topic级别配置说明
 ```
 # Topic级别最大消息大小
 max.message.bytes=1000012
