@@ -2,8 +2,8 @@
 Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行此请求以后会返回 UploadId 用于后续的 Upload Part 请求。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 POST /Object?uploads HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -13,16 +13,10 @@ Authorization: Auth String
 
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-```
-POST /Object?uploads HTTP/1.1
-```
-该 API 接口接受 POST 请求。
-
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 **推荐头部**
@@ -44,7 +38,7 @@ POST /Object?uploads HTTP/1.1
 
 | 名称                       | 描述                                       | 类型     | 必选   |
 | :----------------------- | :--------------------------------------- | :----- | :--- |
-| x-cos-acl                | 定义 Object 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String | 否    |
+| x-cos-acl                | 定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。 | String | 否    |
 | x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
 | x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
@@ -73,7 +67,7 @@ POST /Object?uploads HTTP/1.1
 
 | 名称                           | 描述                                       | 类型     |
 | ---------------------------- | ---------------------------------------- | ------ |
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
+| x-cos-server-side-encryption | 如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。| String |
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
