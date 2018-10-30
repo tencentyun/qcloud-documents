@@ -1,16 +1,26 @@
-两个账号间，您需要将您账户下的域名转到另一个帐号 ID 名下时，您需要进行 [账号间过户](https://console.cloud.tencent.com/domain/account/transfer?domain=2example.cn)。
->**注意：**
->过户完成后，新的账号持有人将对域名享有一切管理权限，包括修改域名信息、过户等。
+## 操作场景
 
-### 步骤一：登录管理控制台
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名注册】，即可看到您购买的所有域名信息列表。
-![打开域名服务中心](https://main.qcloudimg.com/raw/874acea6398562bd7c5cab9d847c2192.png)
-### 步骤二：账号间过户
-域名服务页面右侧，单击【操作】>【管理】，进入域名信息管理页面。
-![](//mc.qcloudimg.com/static/img/d7d485d04f780bacb592826f0148a540/image.png)
-信息管理页面最下方，单击【账号间过户】，打开信息填写页。
-![](//mc.qcloudimg.com/static/img/7024efd952b75881e4ec0588a9c28d58/image.png)
-首先您需要验证身份，您可以选择用手机认证或邮箱认证，单击【获取验证码】，填写验证码，然后填写过户接受方的账号 ID ，您可以选填备注信息，单击【确认过户】您的域名成功过户到新的账号 ID 内。
-![](//mc.qcloudimg.com/static/img/8b3ab4316a9cf27b3e93a2199b94041a/image.png)
+本文档指导您通过 [账户间过户](https://console.cloud.tencent.com/domain/account/transfer?domain=2example.cn)，将您账户下的域名转到另一个帐户 ID 名下。
+> **注意：**
+> 过户完成后，新的账户持有人将对域名享有一切管理权限，包括修改域名信息、过户等。
+
+## 操作步骤
+
+### 登录控制台
+
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)。
+2. 选择 “云产品 > 域名与网站 > 域名注册”，进入 “域名服务” 页面，查看已购买的所有域名信息。如下图所示：
+![我的域名](https://main.qcloudimg.com/raw/d08f09720e741dc3d58c1f359ba2d96d/QQ%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE20181023175511.png)
+
+### 账户间过户
+
+1. 在待过户的域名行中，单击【管理】。如下图所示：
+![管理](https://main.qcloudimg.com/raw/b13507067276aca1db2f7ba81394e1c6.png)
+2. 在 “域名信息” 页面的底部，单击 “域名转移” 栏的【账户间过户】。如下图所示：
+![账户间过户](https://main.qcloudimg.com/raw/b923fc5fecbfc6e0253af6c772b45bf5.png)
+3. 在 “账户间过户” 页面，根据实际需求，选择验证方式，获取并输入验证码，以及过户后帐号。如下图所示：
+![获取验证码](https://main.qcloudimg.com/raw/857cac41e99b031ccd2eb2884cdeee33.png)
+4. 单击【确认过户】，完成账户间过户操作。
+
 
 
