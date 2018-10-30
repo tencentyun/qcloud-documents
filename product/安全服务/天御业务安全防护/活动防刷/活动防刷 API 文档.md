@@ -5,7 +5,7 @@
 接口名：ActivityAntiRush
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279 )页面。其中，此接口的 Action 字段为 ActivityAntiRush。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279 ) 页面。其中，此接口的 Action 字段为 ActivityAntiRush。
 <table>
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -157,7 +157,7 @@
 <td> keyboardClickCount
 </td><td> 否
 </td><td> UInt
-</td><td> 用户操作过程中鼠标单击次数
+</td><td> 用户操作过程中键盘单击次数
 </td></tr>
 <tr>
 <td> macAddress
