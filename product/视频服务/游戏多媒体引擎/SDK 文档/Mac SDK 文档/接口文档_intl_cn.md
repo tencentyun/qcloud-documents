@@ -245,11 +245,11 @@ ITMGContext -(BOOL)IsRoomEntered
 ```
 
 ### 退出房间
-通过调用此接口可以退出所在房间。这是一个同步接口，调用返回时会释放所占用的设备资源。
+通过调用此接口可以退出所在房间。这是一个异步接口，返回值为 AV_OK 的时候代表异步投递成功。
 #### 函数原型  
 
 ```
-ITMGContext -(void)ExitRoom
+ITMGContext -(int)ExitRoom
 ```
 #### 示例代码
 
@@ -1281,7 +1281,7 @@ ITMGContext GetPTT int StartRecordingWithStreamingRecognition(const char* filePa
 ```
 
 ### 停止录音
-此接口用于停止录音。
+此接口用于停止录音。停止录音后会有录音完成回调。
 #### 函数原型  
 
 ```
