@@ -43,8 +43,10 @@ sudo make install
 cosfs --version
 ```
 
->**注意：**
->在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+> **注意：**
+> 在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+
+
 ```shell
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
