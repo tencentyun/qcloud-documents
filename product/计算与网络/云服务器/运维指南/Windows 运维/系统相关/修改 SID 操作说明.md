@@ -4,17 +4,17 @@
 下面将介绍如何使用系统自带 sysprep 以及 sidchg 工具修改 SID 的方法。
 
 > **注意：**
-> 本说明仅适用于 Windows Server 2008 R2 、Windows Server 2012 以及Windows Server 2016。
-> 如果有批量修改 SID 的需求，可通过制作自定义镜像（选择 “执行 sysprep 制作镜像”）解决。
-> 修改 SID 可能导致数据丢失或系统损坏，建议您提前做好系统盘快照或者镜像。
+> - 本说明仅适用于 Windows Server 2008 R2 、Windows Server 2012 以及Windows Server 2016。
+> - 如果有批量修改 SID 的需求，可通过制作自定义镜像（选择 “执行 sysprep 制作镜像”）解决。
+> - 修改 SID 可能导致数据丢失或系统损坏，建议您提前做好系统盘快照或者镜像。
 
 ## 操作步骤
 
 ### 使用 sysprep 修改 SID
 
 > **注意：**
-> 使用 sysprep 修改 SID 后，系统参数很多都被重新设置，包括 IP 配置信息等，您必须手动重新设置。
-> 使用 sysprep 修改 SID 后，C:\Users\Administrator 将会被重置，系统盘部分数据将被清理，请注意做好数据备份。
+> - 使用 sysprep 修改 SID 后，系统参数很多都被重新设置，包括 IP 配置信息等，您必须手动重新设置。
+> - 使用 sysprep 修改 SID 后，C:\Users\Administrator 将会被重置，系统盘部分数据将被清理，请注意做好数据备份。
 
 1. 使用控制台 VNC 登录到云服务器实例。单击 [查看操作指南](https://cloud.tencent.com/doc/product/213/2155)。
 2. 保存当前网络配置。
