@@ -218,9 +218,9 @@ IQAVContext.GetInstance().IsRoomEntered();
 ```
 
 ### 退出房间
-通过调用此接口可以退出所在房间。这是一个同步接口，调用返回时会释放所占用的设备资源。
-
+通过调用此接口可以退出所在房间。这是一个异步接口，返回值为 AV_OK 的时候代表异步投递成功。
 #### 函数原型  
+
 ```
 ITMGContext ExitRoom()
 ```
@@ -1290,7 +1290,7 @@ void mInnerHandler(int code, string fileid, string filepath, string result){
 
 ```
 ### 停止录音
-此接口用于停止录音。
+此接口用于停止录音。停止录音后会有录音完成回调。
 #### 函数原型  
 ```
 ITMGPTT int StopRecording()
@@ -1502,6 +1502,24 @@ IQAVPTT int SpeechToText(String fileID)
 ```
 IQAVContext.GetInstance().GetPttCtrl().SpeechToText(fileID);
 ```
+
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+IQAVPTT int SpeechToText(String fileID,String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |String                     |语音文件 url|
+| language    |String                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+IQAVContext.GetInstance().GetPttCtrl().SpeechToText(fileID,"cmn-Hans-CN");
+```
+
 
 ### 识别回调
 将指定的语音文件识别成文字，通过委托传递消息。

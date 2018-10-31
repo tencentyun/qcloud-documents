@@ -302,11 +302,11 @@ context->IsRoomEntered();
 ```
 
 ### 退出房间
-通过调用此接口可以退出所在房间。这是一个同步接口，调用返回时会释放所占用的设备资源。
+通过调用此接口可以退出所在房间。这是一个异步接口，返回值为AV_OK的时候代表异步投递成功。
 #### 函数原型  
 
 ```
-ITMGContext virtual void ExitRoom()
+ITMGContext virtual int ExitRoom()
 ```
 #### 示例代码  
 
@@ -621,7 +621,7 @@ ITMGContext virtual int EnableAudioCaptureDevice(bool enable)
 | ------------- |:-------------:|-------------|
 | enable    |bool     |如果需要打开采集设备，则传入的参数为 true，如果关闭采集设备，则参数为 false|
 
-> 示例代码
+#### 示例代码
 
 ```
 打开采集设备
@@ -653,7 +653,7 @@ ITMGContext  virtual int EnableAudioSend(bool bEnable)
 | ------------- |:-------------:|-------------|
 | bEnable    |bool     |如果需要打开音频上行，则传入的参数为 true，如果关闭音频上行，则参数为 false|
 
-> 示例代码  
+#### 示例代码  
 
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioSend(true);
@@ -1438,7 +1438,7 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 ```
 
 ### 停止录音
-此接口用于停止录音。
+此接口用于停止录音。停止录音后会有录音完成回调。
 #### 函数原型  
 ```
 ITMGPTT virtual int StopRecording()
@@ -1614,6 +1614,23 @@ ITMGPTT virtual void SpeechToText(const char* fileID)
 #### 示例代码  
 ```
 ITMGContextGetInstance()->GetPTT()->SpeechToText(fileID);
+```
+
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGPTT virtual void SpeechToText(const char* fileID, const char* language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |char*                     |语音文件 url|
+| language    |char*                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetPTT()->GetVoiceFileDuration(filePath,"cmn-Hans-CN");
 ```
 
 ### 识别回调

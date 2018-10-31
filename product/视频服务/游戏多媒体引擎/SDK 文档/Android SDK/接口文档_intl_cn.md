@@ -260,11 +260,10 @@ ITMGContext.GetInstance(this).IsRoomEntered();
 ```
 
 ### 退出房间
-通过调用此接口可以退出所在房间。这是一个同步接口，调用返回时会释放所占用的设备资源。
-
+通过调用此接口可以退出所在房间。这是一个异步接口，返回值为AV_OK的时候代表异步投递成功。
 #### 函数原型  
 ```
-ITMGContext public void ExitRoom()
+ITMGContext public int ExitRoom()
 ```
 ####  示例代码  
 ```
@@ -1213,7 +1212,7 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 
 
 ### 停止录音
-此接口用于停止录音。
+此接口用于停止录音。停止录音后会有录音完成回调。
 ####  函数原型  
 ```
 ITMGContext TMGPTT public int StopRecording()
@@ -1383,6 +1382,23 @@ ITMGContext TMGPTT public int SpeechToText(String fileID)
 ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID);
 ```
 
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGContext TMGPTT public int SpeechToText(String fileID, String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |String                     |语音文件 url|
+| language    |String                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID,"cmn-Hans-CN");
+```
+
 ### 识别回调
 将指定的语音文件识别成文字的回调，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。
 传递的参数包含三个信息，result、file_path 和 text，其中 text 为识别的文本。
@@ -1394,6 +1410,9 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 	 }
 }
 ```
+
+
+
 ## 高级 API
 
 ### 获取版本号
