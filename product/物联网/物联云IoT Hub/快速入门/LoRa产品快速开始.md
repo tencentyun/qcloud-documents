@@ -21,7 +21,7 @@
 ![](https://main.qcloudimg.com/raw/26acf7aa274fe686e857fda1e70b98d2/NB-IoT_forward_app.png)  
 具体步骤详见 [规则引擎详情](https://cloud.tencent.com/document/product/634/14446)。
 ### 2.3 创建网关产品和设备
-创建网关产品和设备跟创建 LoRa 产品和设备类似，请参考 [创建 LoRa 产品和设备]()。
+创建网关产品和设备跟创建 LoRa 产品和设备类似，请参考 [创建 LoRa 产品和设备](https://cloud.tencent.com/document/product/634/30210#2.1-.E5.88.9B.E5.BB.BA-lora-.E4.BA.A7.E5.93.81.E5.92.8C.E8.AE.BE.E5.A4.87)。
 ### 2.4 网关与 LoRa 建立绑定关系
 1. 进入 【控制台】-【产品列表】 下网关产品，单击【子产品】。  
 ![](https://main.qcloudimg.com/raw/f9bb294a9e4b83b78b14aef60f54a8db/Gateway_sub_product.png)
