@@ -150,7 +150,7 @@
     #import "VideoPreviewViewController.h"
     #import "VideoLoadingController.h"
     ```
-    另外需要在 ViewController 中增加一个变量记录视频选则的上下文：
+    另外需要在 ViewController 中增加一个变量记录视频选择的上下文：
     ```
     @interface ViewController ()
     {
@@ -160,7 +160,7 @@
     然后添加以下按钮事件处理方法：
 
     ```
-    // 选则视频并进入编辑
+    // 选择视频并进入编辑
     - (void)onEdit:(id)sender {
         QBImagePickerController *videoPicker = [[QBImagePickerController alloc] init];
         videoPicker.delegate = self;
@@ -204,7 +204,7 @@
         [self.navigationController pushViewController:configViewController animated:YES];
     }
     
-    // 选则视频并进入拼接
+    // 选择视频并进入拼接
     - (void)onJoin:(id)sender {
         QBImagePickerController *videoPicker = [[QBImagePickerController alloc] init];
         videoPicker.delegate = self;
