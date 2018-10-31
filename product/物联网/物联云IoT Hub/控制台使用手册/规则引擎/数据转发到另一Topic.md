@@ -1,9 +1,11 @@
 ## 概述
-通过将感兴趣的消息字段转发到另一个 Topic，可以实现不同设备间的 M2M 通信。Topic 的填写支持两种方式：
+通过将感兴趣的消息字段转发到另一个 Topic，可以实现不同设备间的 M2M 通信。Topic 的填写支持三种方式：
 - **填写一个 Topic 名字**
 例如```${productId}/house_monitor/thermometer```，这样就会把满足规则的消息转发到这个 Topic。
 - **填写带变量的 Topic 名字**
 例如```${procductId}/${house}/device```, 其中用```${}```括起来的```house```就代表一个变量名，这个变量名是 SELECT 语句中选取出来的字段内容。
+- **填写带函数的 Topic 名字**
+例如```${procductId}/${house}/topic(1)```, 其中用```topic(1)```是取出源Topic中的第一级数据，源topic为FROM语句中的Topic。
 
 举个例子说明带变量的转发 Topic 是如何生效的，假设定义了一条这样的规则：
 
