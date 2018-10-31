@@ -4,7 +4,8 @@
 下面将介绍如何使用系统自带 sysprep 以及 sidchg 工具修改 SID 的方法。
 
 > **注意：**
-> 本说明仅适用于 Windows Server 2008 R2 和 Windows Server 2012 系统，如果有批量修改 SID 的需求，可通过制作自定义镜像（选择 “执行 sysprep 制作镜像”）解决。
+> 本说明仅适用于 Windows Server 2008 R2 、Windows Server 2012 以及Windows Server 2016。
+> 如果有批量修改 SID 的需求，可通过制作自定义镜像（选择 “执行 sysprep 制作镜像”）解决。
 > 修改 SID 可能导致数据丢失或系统损坏，建议您提前做好系统盘快照或者镜像。
 
 ## 操作步骤
@@ -21,7 +22,7 @@
 3. 打开 sysprep 工具。
  运行位于 `C:\windows\system32\sysprep` 文件夹下的 `sysprep.exe` 程序。
 【系统清理操作】选择 **进入系统全新体验（OOBE）**，同时勾选【通用】选项，【关机选项】选择 **重新启动**。
- ![系统准备工具](//mccdn.qcloud.com/static/img/1dfa18a861c0a70b880b5130ff40d572/image.png)
+ ![](//mccdn.qcloud.com/static/img/1dfa18a861c0a70b880b5130ff40d572/image.png)
 4. 单击 **确定** 后系统重新启动，启动后按照向导完成配置（选择语言、重设密码等）。
 5. 验证 SID。
 单击【开始】>【运行】，输入 `cmd` 打开命令行界面，执行命令 `whoami /user `，验证 SID 是否已修改。
@@ -30,8 +31,8 @@
 
 ### 使用 sidchg 修改 SID
 1. 下载 [sidchg](http://www.stratesave.com/html/sidchg.html) 工具。
-2. 命令行执行 sidchg64-2.0n.exe /R. 根据提示输入 Trial key 或者 license，然后回车。
-注：sidchg64-2.0n.exe 为 64位 版本
+2. 命令行执行 sidchg64-2.0n.exe /R. 根据提示输入 Trial key 或者 license，然后回车。sidchg 提供了多个启动选项，其中 /R 表示修改后自动重启，/S 表示修改后关闭，使用详情请参照 [官方说明](http://www.stratesave.com/html/sidchg.html)。
+注：sidchg64-2.0n.exe 为 64位 版本。
  ![](https://main.qcloudimg.com/raw/18884c02b7775a138e5fc1d45eddf3a9.png)
 3. 提示修改 SID 可能引发数据丢失或者系统损坏，是否继续？输入 Y，回车进行设置。
  ![](https://main.qcloudimg.com/raw/2ddf9c5f9a66703ac1a20f3eaeb94ed6.png)
