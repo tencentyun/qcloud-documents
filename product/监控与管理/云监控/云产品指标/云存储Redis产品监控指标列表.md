@@ -34,4 +34,4 @@
 
 
 
-有关更多如何使用 云存储Redis  的监控指标内容，可以查看云监控 API 中的[读取消息队列监控数据接口](https://cloud.tencent.com/document/product/248/11013)。
+有关更多如何使用 云存储Redis  的监控指标内容，可以查看云监控 API 中的 [云存储 Redis 接口文档](https://cloud.tencent.com/document/product/248/11009)。
