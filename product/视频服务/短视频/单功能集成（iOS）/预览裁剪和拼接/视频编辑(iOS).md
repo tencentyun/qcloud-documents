@@ -115,7 +115,7 @@ TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些
 缩略图的接口主要用于生成视频编辑界面的预览缩略图，或获取视频封面等。
 ### 1. 按个数平分时间获取缩略图
 
-TXVideoInfoReader 的getSampleImages 可以获取按按指定数量，时间间隔相同的预览图：
+TXVideoInfoReader 的getSampleImages 可以获取按指定数量，时间间隔相同的预览图：
 ```
 /** 获取视频的采样图列表
  * @param count        获取的采样图数量（均匀采样）
