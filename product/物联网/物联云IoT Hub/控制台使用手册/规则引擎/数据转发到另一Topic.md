@@ -5,7 +5,7 @@
 - **填写带变量的 Topic 名字**
 例如```${procductId}/${house}/device```, 其中用```${}```括起来的```house```就代表一个变量名，这个变量名是 SELECT 语句中选取出来的字段内容。
 - **填写带函数的 Topic 名字**
-例如```${procductId}/${house}/topic(1)```, 其中用```topic(1)```是取出源Topic中的第一级数据，源topic为FROM语句中的Topic。
+例如```${procductId}/${house}/topic(1)```, 其中用```topic(1)```是取出源Topic中的第一级数据，源 topic 为 FROM 语句中的 Topic。
 
 举个例子说明带变量的转发 Topic 是如何生效的，假设定义了一条这样的规则：
 
@@ -20,7 +20,7 @@ WHERE house="tencent" AND temperature > 40
 下图展示了转发的全过程：
 ![image](https://mc.qcloudimg.com/static/img/2fd61f602479ab39f47e7d6eb4f93558/gui3.png)
 ## 配置
-1. 登录 [规则引擎](https://console.cloud.tencent.com/iotcloud/rules/rule) 控制台页面，点击所要配置的规则。
+1. 登录 [规则引擎](https://console.cloud.tencent.com/iotcloud/rules/rule) 控制台页面，单击所要配置的规则。
 ![](https://main.qcloudimg.com/raw/0a0a0e5bc48aa0d4492ac0b8d3c7413c.png)
 2. 在规则详情页面，单击【添加行为】按钮。在弹出的“新增行为”窗口，选择行为“republish”，填写要转发至的 Topic 名称，单击【创建】即可。物联网通信平台会将上报数据发转至该 Topic。
 ![image](https://main.qcloudimg.com/raw/1b87e2ca055b5d0581c2fe7e6568c8fb.png)
