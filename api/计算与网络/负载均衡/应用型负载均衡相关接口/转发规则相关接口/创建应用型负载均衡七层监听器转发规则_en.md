@@ -1,8 +1,8 @@
 ## 1. API Description
  API CreateForwardLBListenerRules provides the ability to create forwarding rules of application-based cloud load balancer listener.
- 
+
 Domain for API access: lb.api.qcloud.com
- 
+
 ## 2. Request Parameters
    The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](/doc/api/244/4183). The Action field for this API is CreateForwardLBListenerRules.
 
@@ -18,7 +18,7 @@ Domain for API access: lb.api.qcloud.com
 | rules.n.intervalTime | No | Int | The time interval between health checks on the forwarding rules of application-based cloud load balancer listener. Default value: 5; value range: 5-300; unit: second. |
 | rules.n.healthNum | No | Int | Healthy threshold for the forwarding rules of application-based cloud load balancer listener. Default value: 3, which means the forwarding is normal if it is detected to be healthy for three times consecutively. Value range: 2-10; unit: time. |
 | rules.n.unhealthNum | No | Int | Unhealthy threshold for the forwarding rules of application-based cloud load balancer listener. Default value: 3, which means the forwarding is abnormal if it is detected to be unhealthy for three times consecutively. Value range: 2-10; unit: time. |
-| rules.n.httpHash | No | Int | Forward method of the forwarding rules of application-based cloud load balancer listener. Available values: wrr (weighted round robin), ip_hash (IP_HASH)<br>. Default is wrr. |
+| rules.n.httpHash | No | String | Forward method of the forwarding rules of application-based cloud load balancer listener. Available values: wrr (weighted round robin), ip_hash (IP_HASH)<br>. Default is wrr. |
 | rules.n.httpCode | No | Int | Health status code for the forwarding rules of application-based cloud load balancer listener. Value range: 1-31. The default is 31. <br>1: it is considered healthy if the health check returns 1xx code; 2: it is considered healthy if the health check returns 2xx code; 4: it is considered healthy if the health check returns 3xx code; 8: it is considered healthy if the health check returns 4xx code; 16: it is considered healthy if the health check returns 5xx code. If there should be multiple types of codes that can indicate healthy status, enter the accumulated value corresponding to such codes. |
 | rules.n.httpCheckPath | No | String | Check path for forwarding rules of application-based cloud load balancer listener, which is / by default and must start with /.  The length range is between 1 and 80 characters. Characters that can be used include letters, numbers, "_", "-", ".", "&", "#", "？", "%", and "/". |
 
@@ -35,7 +35,7 @@ Domain for API access: lb.api.qcloud.com
 
 
 ## 4. Example
- 
+
 Input
 ```
 https://lb.api.qcloud.com/v2/index.php?Action=CreateForwardLBListenerRules
@@ -63,6 +63,3 @@ Output
     "requestId": 28182
 }
 ```
-
-
-

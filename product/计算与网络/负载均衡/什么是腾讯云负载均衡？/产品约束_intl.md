@@ -21,4 +21,4 @@
 </tbody>
 </table>
 
-If a CLB-associated CVM is isolated (put into the recycle bin, or removed according to the postpaid plan) due to arrears, the CLB is still bound this CVM.
+If a CLB-associated CVM is isolated (put into the recycle bin, or removed according to the postpaid plan) due to arrears, the CLB still binds this CVM.
