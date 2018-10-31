@@ -36,8 +36,8 @@ log.retention.check.interval.ms=300000
 
 从生产者的角度来看，向不同的 partition 写入是完全并行的；从消费者的角度来看，并发数完全取决于 partition 的数量（如果 consumer 数量大于 partition 数量，则必有 consumer 闲置）。因此选取合适的分区数量对于发挥 CKafka 实例的性能十分重要。
 partition 的数量需要根据生产和消费的吞吐来判断。理想情况下，可以通过如下公式来判断分区的数目：
+>**Num =  max( T/PT , T/CT ) = T / min( PT ,  CT )**
 
-**Num =  max( T/PT , T/CT ) = T / min( PT ,  CT )**
 其中，Num 代表 partition 数量，T 代表目标吞吐量，PT 代表生产者写入单个 partition 的最大吞吐，CT 代表消费者从单个 partition 消费的最大吞吐。则 partition 数量应该等于 T/PT 和 T/CT 中较大的那一个。
 
 在实际情况中，生产者写入但 partition 的最大吞吐 PT 的影响因素和批处理的规模、压缩算法、确认机制、副本数等有关。消费者从单个 partition 消费的最大吞吐 CT 的影响因素和业务逻辑有关，需要在不同场景下实测得出。
@@ -87,7 +87,8 @@ batch.size=16384
 # -1 或 all：Broker 在 leader 收到数据并同步给所有 ISR 中的 follower 后，才应答给 Producer 继续发送下一条（批）消息。 这种配置提供了最高的数据可靠性，只要有一个已同步的副本存活就不会有消息丢失。注意：这种配置不能确保所有的副本读写入该数据才返回，可以配合 Topic 级别参数 min.insync.replicas 使用。
 # 0：生产者不等待来自 broker 同步完成的确认，继续发送下一条（批）消息。这种配置生产性能最高，但数据可靠性最低（当服务器故障时可能会有数据丢失，如果 leader 已死但是 producer 不知情，则 broker 收不到消息）
 # 1：生产者在 leader 已成功收到的数据并得到确认后再发送下一条（批）消息。这种配置是在生产吞吐和数据可靠性之间的权衡（如果leader已死但是尚未复制，则消息可能丢失）
-# 用户不显示配置时，默认值为1。用户根据自己的业务情况进行设置。
+
+# 用户不显示配置时，默认值为 1。用户根据自己的业务情况进行设置。
 acks=1
 
 # 控制生产请求在 Broker 等待副本同步满足 acks 设置的条件所等待的最大时间。
@@ -129,8 +130,10 @@ retry.backoff.ms=100
 ```
 # 是否在消费消息后将 offset 同步到 Broker，当 Consumer 失败后就能从 Broker 获取最新的 offset。
 auto.commit.enable=true
+
 # 当 auto.commit.enable=true 时，自动提交 Offset 的时间间隔，建议设置至少 1000。
 auto.commit.interval.ms=5000
+
 # 当 Broker 端没有 offset（如第一次消费或 offset 超过 7 天过期）时如何初始化 offset，当收到 OFFSET_OUT_OF_RANGE 错误时，如何重置 Offset。
 # earliest：表示自动重置到 partition 的最小 offset。
 # latest：默认为 latest，表示自动重置到 partition 的最大 offset。
@@ -139,21 +142,28 @@ auto.offset.reset=latest
 
 # 标识消费者所属的消费分组
 group.id=""
+
 # 使用 Kafka 消费分组机制时，消费者超时时间。当 Broker 在该时间内没有收到消费者的心跳时，认为该消费者故障失败，Broker 发起重新 Rebalance 过程。目前该值的配置必须在 Broker 配置。group.min.session.timeout.ms=6000和group.max.session.timeout.ms=300000 之间
 session.timeout.ms=10000
+
 # 使用 Kafka 消费分组机制时，消费者发送心跳的间隔。这个值必须小于 session.timeout.ms，一般小于它的三分之一
 heartbeat.interval.ms=3000
+
 # 使用 Kafka 消费分组机制时，再次调用 poll 允许的最大间隔。如果在该时间内没有再次调用 poll，则认为该消费者已经失败，Broker 会重新发起 Rebalance 把分配给它的 partition 分配给其他消费者
 max.poll.interval.ms=300000
 
 # Fecth 请求最少返回的数据大小。默认设置为 1B，表示请求能够尽快返回。增大该值会增加吞吐，同时也会增加延迟
 fetch.min.bytes=1
+
 # Fetch 请求最多返回的数据大小，默认设置为 50MB
 fetch.max.bytes=52428800
+
 # Fetch 请求等待时间
 fetch.max.wait.ms=500
+
 # Fetch 请求每个 partition 返回的最大数据大小，默认为 10MB
 max.partition.fetch.bytes=1048576
+
 # 在一次 poll 调用中返回的记录数
 max.poll.records=500
 
