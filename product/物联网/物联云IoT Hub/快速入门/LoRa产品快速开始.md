@@ -25,7 +25,7 @@
 ### 2.4 网关与 LoRa 建立绑定关系
 1. 进入 【控制台】-【产品列表】 下网关产品，单击【子产品】。  
 ![](https://main.qcloudimg.com/raw/f9bb294a9e4b83b78b14aef60f54a8db/Gateway_sub_product.png)
-2. 点击【添加子产品】选择刚创建的 LoRa 产品添加。  
+2. 单击【添加子产品】选择刚创建的 LoRa 产品添加。  
 ![](https://main.qcloudimg.com/raw/0b660fb0d3e8e1233426a6fc878b2301/Gateway_add_lora_product.png)
 3. 在【设备列表】下网关设备，单击【子设备】-【添加子设备】选择刚创建的 LoRa 设备添加。  
 ![](https://main.qcloudimg.com/raw/7a52e633c5d3510637c1ff2e5bb5d329/Gateway_device_add_lora_device.png)
