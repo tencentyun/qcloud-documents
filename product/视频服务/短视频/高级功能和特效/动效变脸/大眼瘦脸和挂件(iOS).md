@@ -46,7 +46,7 @@
 ### 2. 添加链接参数
 
 > 1. 在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
-> 2. 如果使用了AI扣背功能，需要把  Product -> Edit Scheme -> Run -> Options -> Metal API Validation 设置为Disabled。
+> 2. 如果使用了AI抠背功能，需要把  Product -> Edit Scheme -> Run -> Options -> Metal API Validation 设置为Disabled。
 
 ### 3. 添加动效资源
 
