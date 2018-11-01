@@ -176,7 +176,7 @@ ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
 ## 关于鉴权
 ### 鉴权信息
 生成 AuthBuffer，用于相关功能的加密和鉴权，相关后台部署见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。    
-该接口返回值为 Byte[] 类型。离线语音获取鉴权时，房间号参数必须填0。
+该接口返回值为 Byte[] 类型。离线语音获取鉴权时，房间号参数必须填null。
 
 ####  函数原型
 ```
@@ -185,7 +185,7 @@ AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, Strin
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码|
-| roomId    		|String   	|房间号，最大支持127字符（离线语音房间号参数必须填0）|
+| roomId    		|String   	|房间号，最大支持127字符（离线语音房间号参数必须填null）|
 | openID    	|String 	|用户标识|
 | key    		|string 	|来自腾讯云[控制台](https://console.cloud.tencent.com/gamegme)的密钥|
 
