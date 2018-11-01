@@ -1,12 +1,10 @@
 您可以通过子帐号实现不同的人管理不同的服务。默认情况下，子帐号在使用 TSF 的部分功能时会受限，因为 TSF 会访问其他产品（如 CVM 等）的资源，因此需要主帐号授权子帐号可以传递指定角色（Pass Role）到 TSF。
-
 关于腾讯云访问管理及用户身份的说明请参考 [腾讯云访问管理](https://cloud.tencent.com/document/product/598) 和 [腾讯云用户管理介绍](https://cloud.tencent.com/document/product/598/13665)。
 
 ## 向用户授予 PassRole 权限
 
 在首次使用 TSF 时，TSF 为您创建 `TSF_QCSRole` 角色。如果您在不具备 **PassRole** 权限的情况下尝试使用 TSF 相关功能，会收到错误。
-
-要将角色（及其许可策略）传递至 TSF 服务，用户必须具有 *传递角色* 至服务的许可。这有助于管理员确保仅批准的用户可配置具有能够授予许可的角色的服务。
+要将角色（及其许可策略）传递至 TSF 服务，用户必须具有 **传递角色** 至服务的许可。这有助于管理员确保仅批准的用户可配置具有能够授予许可的角色的服务。
 
 
 ### 1. 新建 tsf_PassRole 策略
@@ -66,11 +64,8 @@
 ## 其他资源访问授权
 
 TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号将相关的资源权限授权给用户。
-
 当用户使用 TSF 时，弹出如下提示框时，表示 TSF 需要调用其他产品的云 API 获取信息。例如下图显示 TSF 依赖 CKafka 的 ListInstance 接口。
-
 ![](https://main.qcloudimg.com/raw/a653f0e7b2df62ba16c9e7be31adb895.png)
-
 此时需要 **主账号** 用户去腾讯云 [访问管理](https://console.cloud.tencent.com/cam) 控制台给用户添加对应服务的权限。具体指引可参考 [访问管理](https://cloud.tencent.com/document/product/598) 产品文档。
 
 
