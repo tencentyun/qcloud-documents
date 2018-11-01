@@ -93,6 +93,7 @@ ITMGContext -(void)InitEngine:(NSString*)sdkAppID openID:(NSString*)openID
 | ------------- |:-------------:|-------------|
 | sdkAppId    	|NSString  |来自腾讯云控制台的 SdkAppId 号码				|
 | openID    		|NSString  |OpenID 只支持 Int64 类型（转为string传入），必须大于 10000，用于标识用户 |
+
 #### 示例代码  
 
 ```
@@ -508,6 +509,7 @@ ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     |如果需要打开麦克风，则传入的参数为 YES，如果关闭麦克风，则参数为 NO|
+
 #### 示例代码  
 
 ```
@@ -615,6 +617,7 @@ ITMGContext GetAudioCtrl -(QAVResult)SetMicVolume:(int) volume
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | volume    |int      |设置音量，范围 0 到 150|
+
 #### 示例代码  
 
 ```
@@ -645,6 +648,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean       |如果需要关闭扬声器，则传入的参数为 NO，如果打开扬声器，则参数为 YES|
+
 #### 示例代码  
 
 ```
@@ -675,6 +679,7 @@ ITMGContext GetAudioCtrl -(QAVResult)EnableAudioPlayDevice:(BOOL)enabled
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | enabled    |BOOL        |如果需要关闭播放设备，则传入的参数为 NO，如果打开播放设备，则参数为 YES|
+
 #### 示例代码
 
 ```
@@ -754,6 +759,7 @@ ITMGContext GetAudioCtrl -(QAVResult)SetSpeakerVolume:(int)vol
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | vol    |int        |设置音量，范围 0 到 150|
+
 #### 示例代码  
 
 ```
@@ -786,6 +792,7 @@ ITMGContext GetAudioCtrl -(QAVResult)EnableLoopBack:(BOOL)enable
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | enable    |boolean         |设置是否启动|
+
 #### 示例代码  
 
 ```
@@ -818,6 +825,7 @@ ITMGContext GetAudioEffectCtrl -(QAVAccResult)StartAccompany:(NSString*)filePath
 | filePath    	|NSString    		|播放伴奏的路径											|
 | loopBack  	|boolean         	|是否混音发送，一般都设置为 YES，即其他人也能听到伴奏	|
 | loopCount	|int          		|循环次数，数值为 -1 表示无限循环							|
+
 #### 示例代码  
 
 ```
@@ -987,6 +995,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)PlayEffect:(int)soundId filePath:(NSS
 | soundId  	|int           	|音效 id			|
 | filePath    	|NSString    	|音效路径		|
 | loop    		|boolean  	|是否重复播放	|
+
 #### 示例代码  
 
 ```
@@ -1033,6 +1042,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)ResumeEffect:(int)soundId
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | soundId    |int                    |音效 id|
+
 #### 示例代码  
 
 ```
@@ -1062,6 +1072,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)StopEffect:(int)soundId
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | soundId    |int                    |音效 id|
+
 #### 示例代码  
 
 ```
@@ -1221,6 +1232,7 @@ ITMGContext GetPTT -(void)SetMaxMessageLength:(int)msTime
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | msTime    |int                    |语音时长，单位ms|
+
 #### 示例代码  
 
 ```
@@ -1237,6 +1249,7 @@ ITMGContext GetPTT -(void)StartRecording:(NSString*)fileDir
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | fileDir    |NSString                     |存放的语音路径|
+
 #### 示例代码  
 
 ```
@@ -1345,6 +1358,7 @@ ITMGContext GetPTT -(void)UploadRecordedFile:(NSString*)filePath
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |NSString                      |上传的语音路径|
+
 #### 示例代码  
 
 ```
@@ -1378,6 +1392,7 @@ ITMGContext GetPTT -(void)DownloadRecordedFile:(NSString*)fileId downloadFilePat
 | ------------- |:-------------:|-------------|
 | fileID    			|NSString                      |文件的url路径		|
 | downloadFilePath 	|NSString                      |文件的本地保存路径	|
+
 #### 示例代码  
 
 ```
@@ -1409,6 +1424,7 @@ ITMGContext GetPTT -(void)PlayRecordedFile:(NSString*)downloadFilePath
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | downloadFilePath    |NSString                      |文件的路径|
+
 #### 示例代码  
 
 ```
@@ -1453,6 +1469,7 @@ ITMGContext GetPTT -(int)GetFileSize:(NSString*)filePath
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |NSString                     |语音文件的路径|
+
 #### 示例代码  
 
 ```
@@ -1469,6 +1486,7 @@ ITMGContext GetPTT -(int)GetVoiceFileDuration:(NSString*)filePath
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |NSString                     |语音文件的路径|
+
 #### 示例代码  
 
 ```
@@ -1485,6 +1503,7 @@ ITMGContext GetPTT -(void)SpeechToText:(NSString*)fileID
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | fileID    |NSString                     |语音文件 url|
+
 #### 示例代码  
 
 ```
@@ -1563,6 +1582,7 @@ ITMGContext -(void)SetLogLevel:(ITMG_LOG_LEVEL)logLevel (BOOL)enableWrite (BOOL)
 |TMG_LOG_LEVEL_INFO=2			|打印提示日志		|
 |TMG_LOG_LEVEL_DEBUG=3		|打印开发调试日志	|
 |TMG_LOG_LEVEL_VERBOSE=4		|打印高频日志		|
+
 #### 示例代码  
 ```
 [[ITMGContext GetInstance] SetLogLevel:TMG_LOG_LEVEL_NONE YES YES];
@@ -1608,6 +1628,7 @@ ITMGContext GetAudioCtrl -(QAVResult)AddAudioBlackList:(NSString*)identifier
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | identifier    |NSString      |需添加黑名单的 id|
+
 #### 示例代码  
 
 ```
@@ -1624,6 +1645,7 @@ ITMGContext GetAudioCtrl -(QAVResult)RemoveAudioBlackList:(NSString*)identifier
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | identifier    |NSString      |需移除黑名单的id|
+
 #### 示例代码  
 
 ```
