@@ -15,25 +15,10 @@
 小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、播放、录制、编辑、发布以及资料模块，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
-#### 模块简介
 - 帐号模块负责处理用户登录/注册以及登录缓存的逻辑；
-- 登录注册功能使用 [TLSSDK 托管](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现；
-- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用 TCIMPlatform的guestLogin 接口以游客身份使用 IM 通道，详情请参考 [替换帐号](https://cloud.tencent.com/doc/api/258/6441)；
-- 在 TLSSDK 登录鉴权成功后，可以通过鉴权返回的 UserId 与 UserSig 调用 ImSDK 的 login 接口完成 IM 模块的登录；
-- 用户可以通过帐号密码/手机验证码两种方式进行注册与登录；
-- 帐号模块会缓存最后登录的用户基本信息（UserId 与 UserSig）在本地，通过接口调用可以获取最近登录的用户信息并判断是否需要重新登录；
-- 登录实现为互踢机制，登录时间在前的用户会接收到强制下线消息；
+- 如果您已经有自己的帐号体系，可以直接替换该模块；
+- 账号模块通过调用 TCUserMgr 的 register 将用户名，密码注册到小视频的业务后台，调用 TCUserMgr 的 login 方法进行登录，并将登录信息缓存到本地 Sharepreference 中，退出登录，清空本地缓存。
 
-#### 相关代码
-- Logic:
-	- TCLoginParam: 用来管理用户的登录信息，如登录信息的缓存、过期判断等。
-	- TCTLSPlatform：TLS 注册登录相关接口封装。
-	- TCIMPlatform: ImSDK 登录相关接口封装。
-
-- UI:
-	- TCLoginViewController: 过度界面，从缓存中读取登录数据，如果可以自动登录，则直接调用imlogin 的接口进行 im 登录，否则拉取登录界面。
-	- TCTLSLoginViewController：TLS 登录界面，包含用户名登录、短信登录以及游客登录。
-	- TCTLSRegisterViewController：TLS 注册界面，包含用户名注册和短信注册。
 
 ### 主界面和列表管理
 #### 模块简介
