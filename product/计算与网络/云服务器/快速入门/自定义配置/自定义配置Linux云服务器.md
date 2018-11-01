@@ -3,14 +3,12 @@
 本文档介绍 Linux 云服务器的自定义配置方法。
 不同于快速配置，自定义配置选项齐全，您可根据需求选择合适的配置。
 
-<div id="page1"></div>
 ## 前提条件
 
  1. 开始自定义配置前，您需完成 [【快速入门 Linux 云服务器】](/doc/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B) 文档中的步骤一。
  2. 登录腾讯云官网，选择【产品】-【计算】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
 
-<div id="page2"></div>
 ## 选择地域与机型
 ![](https://main.qcloudimg.com/raw/17ffe6b77c5389a42bb11817de4cc206.png)
  1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation) ）。更多信息请看 [计费模式说明](/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
@@ -29,7 +27,6 @@
 
 单击【下一步：选择镜像】按钮，进入选择镜像页面。
 
-<div id="page3"></div>
 ## 选择镜像
 ![](https://main.qcloudimg.com/raw/f791ff38fba64678b6762690b0e14785.png)
  1. 选择镜像提供方。
@@ -43,7 +40,6 @@
 
 单击【下一步：选择存储与网络】按钮，进入选择存储与网络页面。
 
-<div id="page4"></div>
 ## 选择存储与网络
 ![](https://main.qcloudimg.com/raw/2256f28e84695cfdd1a68bf3b7eb7c2e.png)
  1. 选择硬盘类型和数据盘大小。
@@ -69,7 +65,6 @@
  
  单击【下一步：设置安全组和主机】，进入设置安全组和主机页面。
  
-<div id="page5"></div>
 ## 设置安全组和主机
 ![](https://main.qcloudimg.com/raw/9efbc54b8a552a98765f1789db865dc9.png)
 1. 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
