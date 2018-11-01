@@ -8,7 +8,7 @@
 | RuleId       | 是  | string | 规则 ID|
 | ClientIp         | 否   | string |  允许访问的客户端 IP |
 | RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro 为只读，rw 为读写 |
-| UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中 root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash 为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash 为将来访的 root 用户映射为匿名用户或用户组；no_root_squash 为来访的 root 用户保持 root 帐号权限|
+| UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中 all_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash 为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash 为将来访的 root 用户映射为匿名用户或用户组；no_root_squash 为来访的 root 用户保持 root 帐号权限|
 | Priority       | 否 | int    | 规则优先级，参数范围 1-100。 其中 1 为最高，100 为最低 |
 
 ## 输出参数

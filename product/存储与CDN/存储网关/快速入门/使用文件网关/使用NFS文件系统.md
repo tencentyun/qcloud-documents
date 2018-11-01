@@ -64,7 +64,7 @@
 
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
 > umount <目录名称>
-> // 列如， umount /local/test
+> // 例如， umount /local/test
 
 
 ## 在 Windows 上使用 NFS 文件系统

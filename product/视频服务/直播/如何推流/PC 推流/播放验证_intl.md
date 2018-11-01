@@ -1,9 +1,9 @@
-### Confirm playback URL
+### Confirming playback URL
 If the push URL (livepush) is `rtmp://3891.livepush.myqcloud.com/live/3891_test?bizid=3891&txSecret=xxx&txTime=58540F7F`, the playback URL (liveplay) is:
 
 | Playback Protocol | Playback URL | 
 |---------|---------|
-| FLV | [rtmp://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test]() |
+| FLV |  [rtmp://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test]() |
 | RTMP | [http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.flv]() |
 | HLS(m3u8) | [http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.m3u8]() |
 

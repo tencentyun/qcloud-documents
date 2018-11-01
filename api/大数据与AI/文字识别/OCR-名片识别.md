@@ -1,7 +1,8 @@
 ## 接口概述
 
 ### 服务简介
-本接口用于识别名片上的姓名、手机号、地址等信息。
+本接口为V1版本，用于识别名片上的姓名、手机号、地址等信息。
+建议使用 [名片识别V2版](/document/product/866/17595)，支持 20 多个字段，识别效果更佳。
 
 ### 计费说明
 本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
@@ -9,9 +10,11 @@
 ### url 说明
 支持 http 和 https 两种协议：
 
-支持 http 和 https 两种协议：
-
 `http://service.image.myqcloud.com/ocr/namecard`
+`https://service.image.myqcloud.com/ocr/namecard`
+
+**注意**：V1版后续将不再维护，请及时切换到 [名片识别V2版](/document/product/866/17595)。
+
 
 ## 请求包header
 
@@ -22,16 +25,17 @@
 | content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择                          |
 | authorization  | 是|鉴权签名                           | 用于 [**鉴权**](/document/product/866/17734) 的签名 |
 
-## 使用图片 URL
+## 使用 application/json 格式
 ### 请求参数
-使用 application/json 格式：
+使用 application/json 格式，参数选择 url 或 base64：
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 项目ID           |
-| bucket    | 是   | string    | 图片空间           |
+| appid     | 是   | string    |  接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
+| bucket    | 否   | string    | 图片空间           |
 | ret_image | 是   | int       | 0 不返回图片，1 返回图片 |
-| url_list  | 是   | string 数组 | 图片 url 列表      |
+| url_list  | 否   | string 数组 | 图片 url 列表      |
+| image     | 否   | binary    | 使用 base64 编码的二进制图片内容|
 
 ><font color="#0000cc">**注意：** </font>
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
@@ -123,18 +127,18 @@ Content-Type: "application/json"
 
 
 
-## 使用图片文件
+## 使用 multipart/form-data 格式
 
 ### 请求参数
 
 图片文件 OCR 使用 HTML 表单上传一个或多个文件，文件内容通过多重表单格式（multipart/form-data）编码。
 
-| 参数        | 是否必选 | 类型          | 说明                                       |
+| 参数        | 必选 | 类型          | 说明                                       |
 | --------- | ---- | ----------- | ---------------------------------------- |
-| appid     | 必选   | uint        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                  |
-| bucket    | 必选   | string      | 图片空间                                     |
-| ret_image | 必选   | int         | 0 不返回图片，1 返回图片                           |
-| image     | 必选   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| appid     | 是   | uint        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                  |
+| bucket    | 否   | string      | 图片空间                                     |
+| ret_image | 是   | int         | 0 不返回图片，1 返回图片                           |
+| image     | 是   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 

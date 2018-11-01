@@ -151,7 +151,7 @@ x-cos-request-id: NTk4NTcwMDNfMjQ4OGY3MGFfNDI0Y181
 |NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
 |MalformedXML|400 Bad Request| XML 格式不合法，请跟 restful api 文档仔细比对 |
 |InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示xml数据中的多条 rule 有相互冲突的部分。|
-|InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 id 字段相同。|
+|InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同。|
 
 备注：具体的错误原因可参考返回的message进行排查。
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。

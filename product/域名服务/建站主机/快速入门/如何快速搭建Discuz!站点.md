@@ -1,25 +1,30 @@
 下文介绍如何基于建站主机快速搭建 Discuz! 站点。
 
-### 1. 获取FTP信息
-进入主机的管理页面，获取 FTP 地址、用户名和密码
-![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
+### 1. 获取 FTP 信息
+点击主机 ID 进入主机管理页面，可获取 FTP 和 MySQL 地址、用户名，用户可在此处重置密码。
+![](https://main.qcloudimg.com/raw/78d6e646e8e503f824c5d7e83d8e384c.png)
 
 ### 2. 下载 Discuz! 安装包
 前往 [Discuz!官网](http://www.comsenz.com/downloads/install/discuzx) 下载最新版本的 Discuz! 安装包。
 
 ### 3. 上传安装包
 通过 FTP 工具上传网站程序，具体可以参考 [FTP 工具使用说明](https://cloud.tencent.com/document/product/615/11181)。
+只需要把upload目录下所有的文件和目录上传到wwwroot目录下，安装包其他的文件和目录不需要上传。
+![](https://ask.qcloudimg.com/draft/1173778/2vl1cnc78k.png)
+> 注意：使用 FTP 工具上传文件，建站主机不提供解压功能。
+
+
 
 ### 4. 获取数据信息
 进入主机的管理页面，获取数据库信息。
 ![](https://mc.qcloudimg.com/static/img/c7fa30c75349f24270cf1493943373b1/image.png)
 
 ### 5. 执行安装
-浏览器访问`http://您的域名/discuz/install `，单击【我同意】，进入安装步骤。
-![](https://mc.qcloudimg.com/static/img/f9137bfcba9227930828430754f8b274/1.png)
+浏览器访问`http://您的域名/install `，单击【我同意】，进入安装步骤。
+![](https://ask.qcloudimg.com/draft/1070625/h989h6uhsx.png)
 
 确认当前环境，选择【全新安装】，单击【下一步】。
-![](https://mc.qcloudimg.com/static/img/eada7ee01817fd5139ca9a4b7bb534ef/2.png)
+![](https://ask.qcloudimg.com/draft/1070625/i6mqjkknjj.png)
 
 填写数据库信息和网站管理员信息，单击【下一步】。
 
@@ -33,11 +38,11 @@
 管理员密码：（填写管理员登录网站后台的密码，需要牢记）
 管理员 Email：填写管理员/站长的邮箱
 
-![](https://mc.qcloudimg.com/static/img/7d51cc0c69319aef4a08d18ecdd9a5a3/3.png)
+![](https://ask.qcloudimg.com/draft/1070625/xcgt0r9jwl.png)
 
 完成安装。
-![](https://mc.qcloudimg.com/static/img/ced1f86f7b53a95232d33cb2b40cf5e4/4.png)
+![](https://ask.qcloudimg.com/draft/1070625/dn2ehcikb9.png)
 
 ### 6. 访问网站首页
-通过临时域名`http://xxxxxx.mylitesite.com/discuz/forum.php`或者已绑定域名 `http://youdoamin.com/discuz/forum.php` 访问站点。
-![](https://mc.qcloudimg.com/static/img/efae2237651909501cd9a332753ab36f/5.png)
+通过临时域名`http://xxxxxx.mylitesite.com/forum.php`或者已绑定域名 `http://youdoamin.com/forum.php` 访问站点。
+![](https://ask.qcloudimg.com/draft/1070625/wftihv7vih.png)

@@ -13,8 +13,8 @@ A channel can only be connected with and consumed by one SDK. If you add a new c
 ### When the data subscription subscribes to the real-time incremental data, is the new data only the added data or does it include modified data?
 Data subscription can subscribe to the following incremental data: all additions, deletions and modifications (DML), and structure changes (DDL).
 
-### A CDB instance and a local database have the same table structure, but different indexes. Does the data subscription support real time synchronization?
-Yes. If the data subscription only subscribes to data changes, consumption will not be affected by different indexes. If it subscribes to structure changes, and indexes will change on the CDB instance, the structure changes may fail to be consumed locally due to different indexes.
+### A TencentDB instance and a local database have the same table structure, but different indexes. Does the data subscription support real time synchronization?
+Yes. If the data subscription only subscribes to data changes, consumption will not be affected by different indexes. If it subscribes to structure changes, and indexes will change on the TencentDB instance, the structure changes may fail to be consumed locally due to different indexes.
 
 ### Why can't I modify the consumption time point of a data subscription channel?
 When an error occurred while modifying a consumption time point, a prompt will appear on the interface. It is generally because the subscription channel is consumed by a downstream SDK. You can check the consumption source IP on the DTS console to see if there is a downstream SDK consuming data. If yes, stop the consumption and then modify the consumption time point.
@@ -35,8 +35,8 @@ In this case, it is more likely that the API ackAsConsumed is not called in the 
 ### How to ensure that the data subscribed to by SDK is a complete transaction, and will the record in the middle of the transaction be pulled based on the provided consumption time point?
 No. Based on the user-specified consumption time point or the time point of the last acknowledged consumption, the server will search for the start point of the complete transaction corresponding to this consumption time point. Data is sent to the downstream SDK from the beginning of the entire transaction. So the full transaction content can be received.
 
-### Is there any problem with the data subscription during the CDB master/slave switch or when the master database is restarted? Will the data be lost?
-No. When a switching between master and slave occurs or when CDB instance is restarted, the data subscription will automatically perform switching. This process is transparent to the SDK.
+### Is there any problem with the data subscription during the TencentDB master/slave switch or when the master database is restarted? Will the data be lost?
+No. When a switching between master and slave occurs or when TencentDB instance is restarted, the data subscription will automatically perform switching. This process is transparent to the SDK.
 
 ### An error occurred while starting SDK: Do DTS authentication fail, caused by: get channel info from msg failed.
 Confirm whether the input parameters are matched, including ip, port, secretId, secretKey, and channelId.
@@ -48,8 +48,8 @@ Sub-account has no permission by default. It must be given the access to the ope
 No if data is consumed normally. If SDK quits abnormally, the information of the last acknowledgement time point is not reported timely, and duplicate data may be received when the SDK is started next time. But the probability is very low.
 If a complete transaction is not acknowledged, the data is pulled again from the beginning of the transaction when the SDK is started next time. In this case, the data cannot be regarded as duplicate data. The core logic of the SDK guarantees the integrity of the transaction. 
 
-### Can a data subscription instance subscribe to multiple CDB instances?
-No. A data subscription channel can subscribe to only one CDB instance.
+### Can a data subscription instance subscribe to multiple TencentDB instances?
+No. A data subscription channel can subscribe to only one TencentDB instance.
 
 ### What if OOM occurs while SDK is running?
 Choose a host with better configurations. When a single SDK runs smoothly at high speed, it consumes less than 1-core CPU and less than 1.5 GB of memory.

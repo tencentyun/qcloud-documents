@@ -24,7 +24,7 @@ QAVContext *context = [[ILiveSDK getInstance] getAVContext];
 <pre>
 - (void)OnLocalVideoPreview:(QAVVideoFrame *)frameData
 {
-    frameData.identifier = [[ILiveLoginManager getInstance] getLoginId];
+    frameData.userId = [[ILiveLoginManager getInstance] getLoginId];
     ILiveFrameDispatcher *dispatch = [[ILiveRoomManager getInstance] getFrameDispatcher];
     [dispatch dispatchVideoFrame:frameData];
 }
@@ -55,7 +55,7 @@ option.fps = 20;
 ```
 [[ILiveRoomManager getInstance] enableCameraPreview:CameraPosFront enable:YES succ:^{
 	NSString *loginId = [[ILiveLoginManager getInstance] getLoginId];
-	[[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds forIdentifier:loginId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
+	[[TILLiveManager getInstance] addAVRenderView:[UIScreen mainScreen].bounds foruserId:loginId srcType:QAVVIDEO_SRC_TYPE_CAMERA];
 } failed:^(NSString *module, int errId, NSString *errMsg) {
 	NSLog(@"enable camera fail. m=%@,errid=%d,msg=%@",module,errId,errMsg);
 }];

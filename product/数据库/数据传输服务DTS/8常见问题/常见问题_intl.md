@@ -1,15 +1,15 @@
 
 ### What is DTS?
-Data transfer service (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also allows you to use a real-time synchronization channel to easily build a highly available database architecture which supports remote disaster recovery.
+TencentDB Service for Transmission (DTS) provides database data transfer service integrated with data migration, data synchronization and data subscription features, helping you achieve database migration without downtime. It also allows you to use a real-time synchronization channel to easily build a highly available database architecture which supports remote disaster recovery.
 
 ### How to use Tencent Cloud DTS?
 You can use Tencent Cloud DTS to migrate all your data to the Tencent Cloud-based database at a time, or you can perform continuous data replication. Tencent Cloud DTS captures changes to the source database, and applies them to the destination database in a transaction-consistent manner. For information on how to perform continuous data replication, please see [Data Subscription](https://cloud.tencent.com/document/product/571/8774).
 
-### Can DTS support data migration between CDB instances under two different Tencent Cloud accounts?
-Yes. For the migration between CDB instances cross Tencent Cloud accounts, log in to the DTS with the Tencent Cloud account to which the destination CDB instance belongs. And for the source instance type, select the self-built database with public IP.
+### Can DTS support data migration between TencentDB instances under two different Tencent Cloud accounts?
+Yes. For the migration between TencentDB instances cross Tencent Cloud accounts, log in to the DTS with the Tencent Cloud account to which the destination TencentDB instance belongs. And for the source instance type, select the self-built database with public IP.
 
 ### Which sources and destinations does Tencent Cloud DTS support?
-Tencent Cloud DTS supports MySQL with public IP, MySQL built on CVM, MySQL with Direct Connect, MySQL with VPN access, source database for CDB for MySQL, and destination database for CDB for MySQL.
+Tencent Cloud DTS supports MySQL with public IP, MySQL built on CVM, MySQL with Direct Connect, MySQL with VPN access, source database for TencentDB for MySQL, and destination database for TencentDB for MySQL.
 
 ### Can the progress of database migration tasks be monitored?
 Yes. You can see the progress of the migration tasks on the Tencent Cloud DTS console management page.
@@ -24,7 +24,7 @@ Yes. After you create Tencent Cloud DTS, you can select the option of timed exec
 Source instances of version 3.2 or above are not supported for migration.
 
 ### What version of MySQL is applicable to migration?
-MySQL 5.1/5.5/5.6 is supported for the migration of data to the cloud. Since MySQL 5.1 is no longer supported by Tencent Cloud CDB, we recommended that you update MySQL 5.1 to MySQL 5.5 before migrating data to CDB for MySQL 5.5. You can also use the DTS data migration tool to directly migrate data from local MySQL 5.1 to Tencent Cloud CDB for MySQL 5.5.
+MySQL 5.1/5.5/5.6 is supported for the migration of data to the cloud. Since MySQL 5.1 is no longer supported by Tencent Cloud TencentDB, we recommended that you update MySQL 5.1 to MySQL 5.5 before migrating data to TencentDB for MySQL 5.5. You can also use the DTS data migration tool to directly migrate data from local MySQL 5.1 to Tencent Cloud TencentDB for MySQL 5.5.
 
 ### How to check the cause for connectivity failure?
 Click **Click to View Details** to view the solution.

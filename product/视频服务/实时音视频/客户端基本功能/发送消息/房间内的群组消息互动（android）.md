@@ -1,6 +1,6 @@
 本文将指导您的客户端使用IM功能，在房间内收发消息。
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/Android/demo_msg.zip)
 ## 相关概念
 本课程涉及到的概念有：
@@ -22,7 +22,7 @@
     public int createRoom(int roomId){
         ILiveRoomOption option = new ILiveRoomOption()
                 .imsupport(true)       // 开启IM功能
-                .groupType("AVChatRoom")    // 使用实时音视频聊天室(默认)
+                .groupType("Public")    // 使用实时音视频聊天室(默认)
                 .exceptionListener(this)
                 .roomDisconnectListener(this)
                 .controlRole("LiveMaster")
@@ -89,7 +89,7 @@ public class MessageObservable implements ILiveMessageListener {
         }
         return instance;
     }
-    
+
     // 添加观察者
     public void addObserver(ILiveMessageListener listener){
         if (!listObservers.contains(listener)){

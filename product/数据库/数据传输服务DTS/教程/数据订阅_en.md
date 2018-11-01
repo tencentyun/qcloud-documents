@@ -1,11 +1,11 @@
 # Data Subscription Description
 ## 1. Feature Description
-Data transfer service (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from CDB with several simple steps:
-* Purchase and create subscription channel for CDB instance from the Tencent Cloud DTS console.
+TencentDB Service for Transmission (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
+* Purchase and create subscription channel for TencentDB instance from the Tencent Cloud DTS console.
 * Use DTS data subscription SDK to connect to this subscription channel to subscribe to and consume incremental data.
 
 ## 2. Service Limit
-**For now, data subscription feature is unavailable in some regions, and is only supported for Cloud Database MySQL (CDB for MySQL).**
+**For now, data subscription feature is unavailable in some regions, and is only supported for Cloud Database MySQL (TencentDB for MySQL).**
 
 Supported regions:
 
@@ -30,11 +30,11 @@ Log in to DTS console and go to the Data Subscription page.
 
 * Click "New Data Subscription" in the upper right corner to start configuring a subscription channel.
 ![][img-1]
-* Select the region where the source CDB instance is located
+* Select the region where the source TencentDB instance is located
 ![][img-2]
 * Once the channel is enabled, go to the console and complete initial configuration for the data subscription channel you just purchased.
 ![][img-3]
-* Select the source CDB instance
+* Select the source TencentDB instance
 ![][img-4]
 * Select your desired synchronization type and database table.
 ![][img-5]

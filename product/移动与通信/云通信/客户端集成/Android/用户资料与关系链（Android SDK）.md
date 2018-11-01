@@ -934,7 +934,7 @@ void OnAddFriends(List<TIMUserProfile> users);
 /**
  *  删除好友通知
  *
- *  @param identifiers 用户 id 列表
+ *  @param identifiers 用户 ID 列表
  */
 void OnDelFriends(List<String> identifiers);
 /**
@@ -946,7 +946,7 @@ void OnFriendProfileUpdate(List<TIMUserProfile> profiles);
 /**
  *  好友申请通知
  *
- *  @param reqs 好友申请者id列表，详见{@see TIMSNSChangeInfo}
+ *  @param reqs 好友申请者ID列表，详见{@see TIMSNSChangeInfo}
  */
 void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs);
 ```

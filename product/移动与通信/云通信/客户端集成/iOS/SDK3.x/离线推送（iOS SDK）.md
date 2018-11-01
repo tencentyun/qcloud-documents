@@ -18,7 +18,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 
 ### 客户端实现 APNs 推送
 
-客户端要实现接收 APNs 推送，需要实现 4 个部分：**向苹果后台请求 DeviceToken**、**登录 SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[云通信 IM-iOS ImSDK 离线推送](https://qcloud.com/course/detail/80)。
+客户端要实现接收 APNs 推送，需要实现 4 个部分：**向苹果后台请求 DeviceToken**、**登录 SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[云通信 iOS Im SDK 离线推送集成](https://qcloud.com/course/detail/80)。
 
 **向苹果后台请求 DeviceToken**：
 
@@ -56,7 +56,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
     NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
     [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
-/* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 id，将证书 id 传入一下 busiId 参数中。*/
+/* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiId 参数中。*/
 #if kAppStoreVersion
 // AppStore 版本
 #if DEBUG
@@ -65,7 +65,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
     param.busiId = 2382;
 #endif
 #else
-    //企业证书 id
+    //企业证书 ID
     param.busiId = 2516;
 #endif    
     [param setToken:deviceToken];    

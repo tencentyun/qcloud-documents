@@ -16,7 +16,7 @@ the IP address can be set up according to the following solution.
 
 The setting procedure is shown as follows:
 
-![](https://mc.qcloudimg.com/static/img/9cccdddfe99dbc065c97cad27448ed9f/image.png)
+![](https://main.qcloudimg.com/raw/645411d191ecdf976ed11d5a11cd69aa.png)
 
 
 

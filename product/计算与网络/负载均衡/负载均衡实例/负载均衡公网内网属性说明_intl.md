@@ -9,7 +9,7 @@ You can add multiple [load balancer listeners](/doc/product/214/6151) to a publi
 Each traditional public network load balancer instance is assigned a fixed domain name with the following format by default:
 
 ```
-<name>.<region>.<number>.clb.myqcloud.com 
+<name>.<region>.<number>.clb.myqcloud.com
 ```
 
 `<name>` and `<number>` are system-generated strings, and `<region>` is the ID of the region where the load balancer instance resides.
@@ -22,7 +22,7 @@ Each traditional public network load balancer instance is assigned a fixed domai
 In the above cases, it is recommended to use public network load balancers with a fixed IP.
 
 ### Billing
-- A traditional or application-based public network load balancer instance costs 0.02 CNY/hour.
+- A traditional or application-based public network load balancer instance costs 0.003 USD/hour.
 - Any public network bandwidth/traffic generated with this service is charged to the bill for backend CVMs. For more information, please see [Purchase Network Bandwidth](https://cloud.tencent.com/doc/product/213/509).
 
 ### Create a public network load balancer instance
@@ -45,8 +45,7 @@ In the above cases, it is recommended to use private network load balancer.
 
 ### Billing
 
-Private network load balancers are free of charge. 
+Private network load balancers are free of charge.
 
 ### Create a private network load balancer instance
 For more information on how to create a private network load balancer instance, please see [Creating a Load Balancer Instance](/doc/product/214/6149).
-

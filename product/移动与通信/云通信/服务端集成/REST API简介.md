@@ -106,7 +106,7 @@ REST API 的应答包体也是 JSON 格式，其格式符合如下特征：
 | 60011 | appid 请求频率超限，请降低请求频率。 |
 | 60012 | REST 接口需要带 sdkappid，请检查请求 URL 中的 sdkappid。 |
 | 60013 | HTTP 响应包 JSON 解析错误。 |
-| 60014 | 置换 id 超时。 |
+| 60014 | 置换 ID 超时。 |
 | 60015 | 请求包体帐号类型错误，请确认帐号为字符串格式。 |
 
 ## REST API 调试工具
@@ -133,5 +133,5 @@ Postman 是一款功能强大的网页调试与发送网页 HTTP 请求的 Chrom
 （1）IM 后台 REST 接口设置的超时时间是 3s，调用方设置的超时时间应该长于 3s。
 （2）telnet yun.tim.qq.com 443 确认能否连接服务端口。
 （3）使用 curl -G https://yun.tim.qq.com 简单测试确认能够收到响应。
-（4）确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 ip 所在地域运营商一致。
+（4）确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 IP 所在地域运营商一致。
 （5）建议业务调用方使用“长连接+连接池”模式。

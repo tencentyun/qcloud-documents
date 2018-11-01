@@ -1,7 +1,7 @@
 Data synchronization can be used for sync disaster recovery instances. This section introduces data synchronization feature with disaster recovery instance as an example.
 
 ## Overview
-For application with a strong demand for continued services and reliable data or regulatory requirements, CDB provides disaster recovery instances to help users enhance their capability to deliver continued services at a low cost and improve data reliability.
+For application with a strong demand for continued services and reliable data or regulatory requirements, TencentDB provides disaster recovery instances to help users enhance their capability to deliver continued services at a low cost and improve data reliability.
 
 
 ## Characteristics
@@ -43,7 +43,7 @@ Step 2: Enter the task name, check the source database and destination database 
 ![](//mc.qcloudimg.com/static/img/65081661234a42fb80cad12a24e15471/image.png)<br>
 Step 3: Select the object to be synced. Synchronization of the entire instance or only part of the database table is supported. Synchronization type cannot be selected for now.
 ![](//mc.qcloudimg.com/static/img/76c331f779b11094f13b1d2a03d929c7/image.png)<br>
-Step 4: Click **Save and Verify**. After the verification succeeds, you can view the task details on the CDB **Data Transfer** page.
+Step 4: Click **Save and Verify**. After the verification succeeds, you can view the task details on the TencentDB **Data Transfer** page.
 ![](//mc.qcloudimg.com/static/img/2cc2ee83a7cd428684479fbefb3cb79c/image.png)
 ![](//mc.qcloudimg.com/static/img/fff3ba47eedc8f85c0a61717aaf80756/image.png)<br>
 
@@ -60,12 +60,12 @@ Disaster recovery instance provides instance details, instance monitoring, backu
 ![](//mc.qcloudimg.com/static/img/78b5dd4673d6b1edb4409bd906c2a01a/image.png)
 
 ### Upgrade a disaster recovery instance to a master instance
-You can quickly upgrade a disaster recovery instance to a master instance in the console. After the switching, the synchronization connection between the disaster recovery instance and the master instance is broken, and the instance database data write capability and the full CDB features are restored.
+You can quickly upgrade a disaster recovery instance to a master instance in the console. After the switching, the synchronization connection between the disaster recovery instance and the master instance is broken, and the instance database data write capability and the full TencentDB features are restored.
 Once the synchronization connection is broken, it cannot be reestablished. Please proceed with caution.
 ![](//mc.qcloudimg.com/static/img/1f2345005497a7d1aedc2f2c725d3c3e/image.png)
 
 ### Switch a disaster recovery instance back to a master instance
-After the service is resumed in the region where the master instance resides, you can, with the help of CDB service personnel, perform reverse data synchronization and data verification, and then switch the disaster recovery instance back to the master instance.
+After the service is resumed in the region where the master instance resides, you can, with the help of TencentDB service personnel, perform reverse data synchronization and data verification, and then switch the disaster recovery instance back to the master instance.
 
 ## Notes
 1. If the cold backup before rollback or disaster recovery does not contain the table, the rollback or disaster recovery will fail.

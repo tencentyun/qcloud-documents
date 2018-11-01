@@ -4,7 +4,7 @@ You can use Logstash to consume log data of Kafka, and send the log data to Elas
 
 ## Building Elasticsearch Cluster (make sure that there are sufficient resources available in the cluster)
 
-You can directly use the basic template of Elasticsearch provided by CCS to build Elasticsearch cluster and Kibana. The following command can be used directly on the node in the cluster.
+You can directly use the basic template of Elasticsearch provided by TKE to build Elasticsearch cluster and Kibana. The following command can be used directly on the node in the cluster.
 
 	git clone https://github.com/tencentyun/ccs-elasticsearch-template.git /tmp/kubernetes-elasticsearch
 	cd kubernetes-elasticsearch
@@ -19,7 +19,7 @@ You can directly use the basic template of Elasticsearch provided by CCS to buil
 
 ## Building Logstash to Consume Data in the Specified Topic of Kafka
 
-You can directly use the basic template of Logstash provided by CCS to build Logstash to consume data of Kafka and send the data to Elasticsearch. Before building, you need to change `bootstrap_servers` in `/tmp/kubernetes-elasticsearch/logstash-config.yaml` and `hosts` in `elasticsearch` to the addresses of Kafka and Elasticsearch, respectively.
+You can directly use the basic template of Logstash provided by TKE to build Logstash to consume data of Kafka and send the data to Elasticsearch. Before building, you need to change `bootstrap_servers` in `/tmp/kubernetes-elasticsearch/logstash-config.yaml` and `hosts` in `elasticsearch` to the addresses of Kafka and Elasticsearch, respectively.
 
 	kubectl create -f logstash-consumer.yaml
 

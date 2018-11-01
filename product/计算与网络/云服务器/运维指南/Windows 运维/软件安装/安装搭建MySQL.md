@@ -21,7 +21,7 @@
 
  1. 配置 MySQL 的类型。此处以详细配置(Detailed Configuration)为例。
   - 详细配置(Detailed Configuration)，适合想要更加细粒度控制服务器配置的高级用户。
-  - 标准配置(Standard Configuration)，适合想要快速启动 MySQL而不必考虑服务器配置的新用户。
+  - 标准配置(Standard Configuration)，适合想要快速启动 MySQL 而不必考虑服务器配置的新用户。
  
  > **注意：**
  > 标准配置(Standard Configuration)可能与操作系统不兼容。推荐选择详细配置。
@@ -42,7 +42,7 @@
  
  ![](//mc.qcloudimg.com/static/img/37972855d5c880e59b5310a7872491f1/image.png)
 
- 4. 配置 MySQL的 InnoDB 表空间。此处选择的默认配置。
+ 4. 配置 MySQL 的 InnoDB 表空间。此处选择的默认配置。
 	![](//mc.qcloudimg.com/static/img/c4c8e8710e27b202a9694b2c1be0f4f6/image.png)
 
  5. 配置 MySQL 并发连接。此处以决策支持(Decision Support)为例。
@@ -60,8 +60,8 @@
 	 ![](//mc.qcloudimg.com/static/img/b864e47b1e4b0e87cd5015007f9bd8dc/image.png)
 
  7. 配置 MySQL 字符集。此处以标准字符集(Standard Character Set)为例。
-  - 标准字符集(Standard Character Set)，默认 Latin1 做为服务器字符集。
-  - 支持多种语言(Best Support For Multilingualism)，默认 UTF8 做为服务器字符集。
+  - 标准字符集(Standard Character Set)，默认 Latin1 作为服务器字符集。
+  - 支持多种语言(Best Support For Multilingualism)，默认 UTF8 作为服务器字符集。
   - 人工设置/校对规则( Manual Selected Default Character Set/Collation)，从下拉列表中选择期望的字符集。
  
 	![](//mc.qcloudimg.com/static/img/31c4f7f13a2b5b6aa0754cc3e4bd526e/image.png)

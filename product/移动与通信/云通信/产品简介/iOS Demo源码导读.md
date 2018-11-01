@@ -38,7 +38,7 @@ Call：调用  CallBack：回调  Broadcast：广播  Support：支撑/支持
 | AppUI | App界面 | AppUI |
 
 ## CommonLibrary介绍
-CommonLibrary中主要是整理了一些常用工具类，以及常用的界面布局框架。另外考虑到有些代码与用户现有的代码冲突，用户可根据自身需要，通过控制宏来决定要导入的内容（TIMChat工程中目前只加载了其中部份，具体操作后面CommonLibrary集成说明中介绍）。
+CommonLibrary中主要是整理了一些常用工具类，以及常用的界面布局框架。另外考虑到有些代码与用户现有的代码冲突，用户可根据自身需要，通过控制宏来决定要导入的内容（TIMChat工程中目前只加载了其中部分，具体操作后面CommonLibrary集成说明中介绍）。
 CommonLibrary中包含了一般App开发中常用的功能，较简单的界面布局框架，以及一些通用的界面基类，用户可快速地集成并通过继承来实现开发与自定义
 <img src="//mccdn.qcloud.com/static/img/0657b5d778a896cf7ec79a074cd0c2ec/image.jpg" />
 

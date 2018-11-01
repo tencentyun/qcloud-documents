@@ -51,7 +51,7 @@ SPD policy 1: The local IP address range is `10.0.0.0/24`, and the peer IP addre
 SPD policy 2: The local IP address range is `10.0.1.0/24`, and the peer IP address range is `192.168.2.0/24`.
 SPD policy 3: The local IP address range is `10.0.2.0/24`, and the peer IP address range is `192.168.2.0/24`.
 
-![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
+![](https://main.qcloudimg.com/raw/3b08cd5856e6593a1bae8e1a195c4049.png)
  
 ### IKE Configuration
 
@@ -118,11 +118,11 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
          <tr>
              <th>Beijing<br>Shanghai<br>Guangzhou</th>
                          <th>Hong Kong</th>
-                                                  <th>Singapore</th>
-             <th>Toronto</th> 
- 	<th>Korea</th> 
- 		<th>Frankfurt</th>
+                                                  <th>Singapore<br>Toronto</th>
+ 	<th>Korea<br>Frankfurt</th> 
  			<th>Silicon Valley</th>
+		 <th>Virginia<br>Mumbai</th>
+		 <th>Bangkok</th>
          </tr>
         <tr>
              <td>VPN Gateway</td>
@@ -131,10 +131,10 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
              <td>0.078</td>
              <td>0.088</td>
              <td>0.12</td>
-             <td>0.12</td>
  			<td>0.088</td>
              <td>0.088</td>
-             <td>0.088</td>
+	     <td>0.088</td>
+	     <td>0.12</td>
          </tr>              
      </tbody></table>
  

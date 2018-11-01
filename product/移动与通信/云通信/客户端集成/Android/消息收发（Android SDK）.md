@@ -363,8 +363,8 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ```
 /**
- * 获取微视频上传任务 id, 调用 sendMessage 后此接口的返回值有效
- * @return 微视频上传任务id
+ * 获取微视频上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ * @return 微视频上传任务ID
  */
 public long getTaskId()
 /**
@@ -895,12 +895,18 @@ public boolean isRead()
 ```
 //发送中
 TIMMessageStatus.Sending
+
 //发送成功
 TIMMessageStatus.SendSucc
+
 //发送失败
 TIMMessageStatus.SendFail
+
 //删除
 TIMMessageStatus.HasDeleted
+
+//消息被撤回
+TIMMessageStatus.HasRevoked
 ```
 
 ### 是否自己发出的消息
@@ -990,13 +996,13 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 已读回执
 
-由 2.3.0 版本开始，提供**针对于 C2C 消息**的已读回执功能。通过 `TIMManager` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/1562#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候会给聊天对方发送已读回执。通过 `TIMManager` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
+由 2.3.0 版本开始，提供**针对于 C2C 消息**的已读回执功能。通过 `TIMManager` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/1562#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候会发送已读回执给聊天对方。通过 `TIMManager` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
 **原型：**
 
 ```
 /**
- * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊会话有效
+ * 启用已读回执，启用后在已读上报时会发送回执给对方，只对单聊会话有效
  */
 public void enableReadReceipt()
 /**
@@ -1337,6 +1343,81 @@ public TIMMessageLocator setRand(long rand)
  * @param self true - 发送者是自己， false - 发送者不是自己
  */
 public TIMMessageLocator setSelf(boolean self)
+```
+
+### 撤回消息
+
+ImSDK v2系列在v2.7.2版本开始提供撤回消息的接口。可以通过调用 `TIMConversation` 的 `revokeMessage` 接口来撤回自己发送的消息。
+
+> **注意：**
+> - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
+> - 默认只能撤回 2 分钟内的消息。
+
+**原型：**
+
+```
+/**
+ * 消息撤回（仅 C2C 和 GROUP 会话有效，其中 onlineMessage、AVChatRoom 和 BChatRoom 无效）
+ * @param msg 需要撤回的消息
+ * @param cb 回调
+ * @since 2.7.2
+ */
+public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
+```
+
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMManager` 的 `setMessageRevokedListener` 来进行配置。
+
+**原型：**
+
+```
+/**
+ * 消息被撤回通知监听器
+ * @since 2.7.2
+ */
+public interface TIMMessageRevokedListener extends IMBaseListener {
+    /**
+     * 消息撤回通知
+     * @param locator 被撤回的消息的消息定位符
+     */
+     void onMessageRevoked(TIMMessageLocator locator);
+}
+
+/**
+* 设置消息撤回通知监听器
+* @param listener 消息撤回通知监听器
+* @since 2.7.2
+*/
+public void setMessageRevokedListener(@NonNull TIMMessageRevokedListener listener)
+
+```
+
+收到一条消息撤回通知后，通过 `TIMMessage` 中的 `checkEquals` 方法判断当前消息是否是被对方撤回了，然后根据需要对 UI 进行刷新。
+
+**原型：**
+
+```
+/**
+ * 比较当前消息与提供的消息定位符表示的消息是否是同一条消息
+ * @param locator 消息定位符
+ * @return true - 表示是同一条消息； false - 表示不是同一条消息
+ * @since 2.7.2
+ */
+public boolean checkEquals(@NonNull TIMMessageLocator locator)
+
+```
+
+另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
+
+**原型：**
+
+```
+/**
+ * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
+ * @param cb 回调
+ * @since 2.7.2
+ */
+public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
+
 ```
 
 ## 系统消息

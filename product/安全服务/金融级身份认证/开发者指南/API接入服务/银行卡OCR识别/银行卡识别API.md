@@ -1,6 +1,7 @@
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 请求 URL：`https://ida.webank.com/api/paas/bankcardocrapp`
 请求方法：POST
+报文格式：Content-Type: application/json
 ## 请求参数
 
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
@@ -23,3 +24,5 @@
 | bankcardNo        |String       | 银行卡识别结果：银行卡号                         |
 | bankcardValidDate |String       | 银行卡识别结果：银行卡有效时间                      |
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
+| multiWarnCode | String | 多重告警码，含义请参考【[通用响应码列表](https://cloud.tencent.com/document/product/655/13819)】 |
+| clarity       | String | 图片清晰度                |

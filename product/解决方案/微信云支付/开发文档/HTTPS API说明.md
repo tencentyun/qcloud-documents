@@ -1,7 +1,7 @@
 ## 说明
 ### 通讯说明
-- 所有接口均使用 https 通信，数据包格式为 json（http 请求的 content-type 字段必须使用 application/json）。
-- 请求必须传认证或签名信息。其中撤单和退款请求，传签名和签名算法，其他请求传认证码和认证算法。
+- 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
+- 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
 
@@ -705,216 +705,6 @@ std::string gen_cloud_pay_scan_code_pay(
 */
 std::string response;
 post(request, "https://pay.qcloud.com/cpay/scan_code_pay", &response);
-```
-### 撤销订单
-#### 特别说明
-- **微信支付只能撤销刷卡支付的订单**
-- **支付宝只有发生支付超时或者支付结果未知时可调用撤销**
-- **撤单的终端必须和发起支付的终端是同一个（为保证安全）**
-#### 接口地址
-`https://pay.qcloud.com/cpay/reverse`
-
-content_type：application/json
-#### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-#### RequestContent 结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>pay_mch_key</td>
-      <td>是</td>
-      <td>PayMchKey</td>
-      <td>支付商户信息，详见PayMchKey</td>
-   </tr>
-   <tr>
-      <td>order_client</td>
-      <td>是</td>
-      <td>OrderClient</td>
-      <td>客户端信息，详见OrderClient</td>
-   </tr>
-   <tr>
-      <td>out_trade_no</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-#### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-#### ResponseContent 结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Status</td>
-      <td>错误码，详见 Status。0 ：成功；非 0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-   <tr>
-      <td>log_id</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>消息 id</td>
-   </tr>
-   <tr>
-      <td>internal_status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>调试使用，调用者可以不予理会</td>
-   </tr>
-   <tr>
-      <td>reverse</td>
-      <td>否</td>
-      <td>ReverseResponse</td>
-      <td>authen_info 存在时必填。详见 ReverseResponse</td>
-   </tr>
-</table>
-
-#### ReverseResponse 结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-#### 构造撤销订单请求例子
-```
-/*
-构造请求字符串
-*/
-std::string gen_cloud_pay_reverse(
-    const int         &pay_platform,
-    const std::string &out_mch_id,
-    const std::string &out_sub_mch_id,
-    const std::string &out_shop_id,
-    const std::string &out_trade_no,
-    const std::string &device_id,
-    const std::string &staff_id,
-    const int         &terminal_type,
-    const std::string &machine_no,
-    const std::string &sdk_version,
-    const std::string &spbill_create_ip,
-    const std::string &signing_key
-)
-{
-    Json::Value request_content;
-    request_content["nonce_str"] = generate_random_nonce_str();
-    request_content["out_trade_no"] = out_trade_no;
-
-    Json::Value pay_mch_key, order_client;
-
-    pay_mch_key["pay_platform"]    = pay_platform;
-    pay_mch_key["out_mch_id"]      = out_mch_id;
-    pay_mch_key["out_sub_mch_id"]  = out_sub_mch_id;
-    pay_mch_key["out_shop_id"]     = out_shop_id;
-    request_content["pay_mch_key"] = pay_mch_key;
-
-    order_client["device_id"]        = device_id;
-    order_client["staff_id"]         = staff_id;
-    order_client["terminal_type"]    = terminal_type;
-    order_client["machine_no"]       = machine_no;
-    order_client["sdk_version"]      = sdk_version;
-    order_client["spbill_create_ip"] = spbill_create_ip;
-    request_content["order_client"]  = order_client;
-
-    Json::FastWriter w;
-    const std::string &rc = w.write(request_content);
-
-    Json::Value authen_info, s;
-    s["sign_type"] = 1;
-    // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
-    std::string signature;
-    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
-        // 计算失败
-        return "";
-    }
-    s["signature"] = signature;
-    authen_info["s"] = s;
-
-    Json::Value request;
-    request["request_content"] = rc;
-    request["authen_info"] = authen_info;
-
-    return w.write(request);
-}
-/*
-构造请求完毕之后，将请求通过POST方法发送到云支付接口对应的URL
-使用了发送请求举例（使用libcurl实现）中的post函数
-*/
-std::string response;
-post(request, "https://pay.qcloud.com/cpay/reverse", &response);
 ```
 ### 申请退款
 #### 接口地址
@@ -1812,7 +1602,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ### 支付成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（https）
+服务商在云支付管理后台配置的回调地址（HTTPS）
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1918,7 +1708,7 @@ content_type：application/json
 
 ### 退款成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（https）
+服务商在云支付管理后台配置的回调地址（HTTPS）
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -2154,13 +1944,13 @@ content_type：application/json
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -2362,7 +2152,7 @@ content_type：application/json
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -2575,7 +2365,7 @@ content_type：application/json
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -2901,13 +2691,13 @@ content_type：application/json
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -3089,7 +2879,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>a<br><br>s</td>
-      <td>撤单和退款接口使用签名,其他接口使用认证码</td>
+      <td>退款接口使用签名,其他接口使用认证码</td>
       <td>Authen<br><br>Signature</td>
       <td>认证信息，详见Authen<br><br>签名信息，详见Signature</td>
    </tr>
@@ -3886,13 +3676,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给服务商的帐号</td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+      <td>云支付分配给子商户的帐号</td>
    </tr>
    <tr>
       <td>out_shop_id</td>
@@ -4338,6 +4128,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>终端类型，1：windows，2：andriod，3：iso，4：linux，100：其他</td>
    </tr>
    <tr>
+      <td>sub_terminal_type</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>子终端类型，代表一个机具品牌，具体值可以联系云支付分配</td>
+   </tr>
+   <tr>
       <td>machine_no</td>
       <td>否</td>
       <td>String(32)</td>
@@ -4436,7 +4232,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_shop_id</td>
       <td>否</td>
       <td>String(20)</td>
-      <td>外部可见的商户门店号，云支付内全局唯一，固定20个字符长，可用于生成门店固定二维码，仅返回时有该字段</td>
+      <td>外部可见的商户门店号，云支付内全局唯一，可用于生成门店固定二维码，仅返回时有该字段</td>
    </tr>
    <tr>
       <td>out_shop_id_url</td>

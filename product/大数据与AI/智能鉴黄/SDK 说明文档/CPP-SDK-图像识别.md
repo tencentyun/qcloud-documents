@@ -1,9 +1,8 @@
 ## 开发准备
-><font color="#0000cc">**注意：** </font>
-以下为 Linux 等类 UINX 系统使用手册，暂不支持 windows 系统。
+>**注意：**以下为 Linux 等类 UINX 系统使用手册，暂不支持 Windows 系统。
 
 ### SDK 获取
-万象优图 C++ SDK 下载地址：[cpp-SDK-V2.0](https://github.com/tencentyun/image-cpp-sdk-v2.0) 。
+智能图像 C++ SDK 下载地址：[cpp-SDK-V2.0](https://github.com/tencentyun/image-cpp-sdk-v2.0) 。
 ### 开发准备
 依赖静态库: curl jsoncpp (在 lib 文件夹下)；
 依赖动态库: ssl crypto rtz (需要安装)；
@@ -26,7 +25,7 @@ make
 image_demo.cpp 里面有常见 API 的例子。生成的 image_demo 可直接运行，生成的静态库名称为：libimagesdk.a 。生成的 libimagesdk.a  放到用户自己的工程里 lib 路径下，include 目录拷贝到用户的工程的 include 路径下。
 ## 快速入门
 ### 在腾讯云申请业务的授权
-授权包括： APPID 、SecretId 、 SecretKey 及存储桶名（可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937) ）。
+授权包括： APPID 、SecretId 、 SecretKey ，目前只支持主账号及密钥进行调用。
 
 ### 创建对应操作类的对象
 如果要使用图片，需要创建图片操作类对象：

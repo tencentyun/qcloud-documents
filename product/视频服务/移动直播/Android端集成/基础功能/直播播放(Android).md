@@ -56,7 +56,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 | PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
 > **关于HLS(m3u8)**
-> 在 APP 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 APP 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
+> 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
 ### step 4: 画面调整
 
@@ -185,6 +185,40 @@ mLivePlayer.stopRecord();
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的  onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
 
+### step 10: 清晰度无缝切换
+日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以观看更高画质。
+传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
+
+清晰度切换在直播开始后，任意时间都可以调用。调用方式如下
+```java
+// 正在播放的是流http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv，
+// 现切换到码率为900kbps的新流上
+mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv");
+```
+
+
+### step 11: 直播回看
+时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
+
+```java
+// 设置直播回看前，先调用startPlay
+// 开始播放 ...
+TXLiveBase.setAppID("1253131631"); // 配置appId
+mLivePlayer.prepareLiveSeek();     // 后台请求直播起始时间
+```
+配置正确后，在PLAY_EVT_PLAY_PROGRESS事件里，当前进度就不是从0开始，而是根据实际开播时间计算而来。
+调用seek方法，就能从历史事件点重新直播
+```java
+mLivePlayer.seek(600); // 从第10分钟开始播放
+```
+
+接入时移需要在后台打开2处配置：
+
+1. 录制：配置时移时长、时移储存时长
+2. 播放：时移获取元数据
+
+时移功能处于公测申请阶段，如您需要可提交工单申请使用。
+
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
 
@@ -214,7 +248,8 @@ mPlayConfig.setMaxAutoAdjustCacheTime(1);
 //
 //流畅模式
 mPlayConfig.setAutoAdjustCacheTime(false);
-mPlayConfig.setCacheTime(5);
+mPlayConfig.setMinAutoAdjustCacheTime(5);
+mPlayConfig.setMaxAutoAdjustCacheTime(5);
 //
 mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
@@ -239,6 +274,10 @@ mLivePlayer.setConfig(mPlayConfig);
 
 - **Obs的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)， Obs 的推流端积压比较严重，是无法达到低延时效果的。
+
+- **该功能按播放时长收费**
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考**[价格指引](https://cloud.tencent.com/document/product/454/8008#ACC)**。
+
 
 
 ## SDK 事件监听

@@ -1,11 +1,12 @@
 本文将指导您在客户端中创建一个房间，打开摄像头和麦克风，并看到自己的视频画面。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
 
 ## 相关概念
  - [房间](https://cloud.tencent.com/document/product/647/16792#.E6.88.BF.E9.97.B4)
+ - [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
  - [角色配置](https://cloud.tencent.com/document/product/647/16792#.E8.A7.92.E8.89.B2.E9.85.8D.E7.BD.AE)
  - 视频渲染
  在拿到视频数据时，需要将视频数据绘制显示出来，此过程即为视频渲染。
@@ -94,7 +95,11 @@ void OnLocalVideo(const LiveVideoFrame* video_frame, void* data)
 
 ## 常见问题
 
-- 控制台输出一些无用信息:
+#### 进房失败，提示没有权限
+确认正确配置了进房票据privateMapKey，若控制台在【帐号信息】开启【启用权限密钥】,则privateMapKey为必填字段
+
+
+#### 控制台输出一些无用信息:
 
 在调用 SDK 某些接口时，控制台可能输出一些无用信息，例如，创建房间的输出如下图：
 

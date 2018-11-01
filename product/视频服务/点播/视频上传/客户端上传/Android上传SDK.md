@@ -14,12 +14,12 @@
 
 | jar 文件                       | 说明                                       |
 | --------------------------- | ---------------------------------------- |
-| cos-android-sdk-5.4.6.jar   | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| qcloud-foundation.1.3.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+| cosxml-5.4.10.jar           | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+| qcloud-foundation-1.5.1.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
 | okhttp-3.8.1.jar            | 开源 HTTP 组件                          |
 | okio-1.13.0.jar             | 开源网络 I/O 组件                         |
 | xstream-1.4.7.jar           | 开源序列化组件                             |
-| fastjson-1.1.62.android.jar | 开源 json 组件                            |
+| bolts-tasks-1.4.0.jar       | 开源 多线程 组件                            |
 
 3.使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
 
@@ -29,13 +29,22 @@
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
+  <intent-filter>
+    //检测网络变化的acton
+    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+    <category android:name="android.intent.category.DEFAULT" />
+  </intent-filter>
+</receiver>
 ```
 
 ##  简单视频上传
 ### 初始化一个上传对象
 
 ```java
-TXUGCPublish mVideoPublish = new TXUGCPublish(this.getApplicationContext(), "carol_android")
+TXUGCPublish mVideoPublish = new TXUGCPublish(this.getApplicationContext(), "independence_android")
 ```
 
 ### 设置上传对象的回调
@@ -99,6 +108,25 @@ mVideoPublish.canclePublish();
 在视频上传过程中，点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。断点续传的有效时间是 1 天，即同一个视频上传被中断，那么 1 天内再次上传可以直接从断点处上传，超过 1 天则默认会重新上传完整视频。
 上传参数中的 `enableResume` 为断点续传开关，默认是开启的。
 
+### 预上传
+
+经统计，在实际上传过程中很大部分的错误都是由于网络连接失败或者超时导致的，为优化此类问题增加了预上传优化逻辑。
+预上传包含：httpdns解析、获取建议上传园区、探测最优上传园区。
+建议您在app启动的时候调用`TXUGCPublishOptCenter.getInstance().prepareUpload(signature)`，预上传模块会把<域名, ip>映射表和最优上传园区缓存在本地，监听到网络切换的时候清空缓存并自动刷新。
+
+注意：一定要在 AndroidManifest.xml 中注册网络监听模块
+```xml
+<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
+  <intent-filter>
+    //检测网络变化的acton
+    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+    <category android:name="android.intent.category.DEFAULT" />
+  </intent-filter>
+</receiver>
+```
+
+> 参数`signature`计算规则可参考 [客户端上传签名](/document/product/266/9221)。
+
 
 ## 接口描述
 
@@ -107,7 +135,14 @@ mVideoPublish.canclePublish();
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | context   | application 上下文        | Context | 是    |
-| customKey | 用于区分不同的用户，建议使用app的账号id | String  | 否    |
+| customKey | 用于区分不同的用户，建议使用app的账号id，方便后续定位问题 | String  | 否    |
+
+设置点播appId `TXUGCPublish.setAppId`
+
+| 参数名称      | 参数描述                   | 类型      | 必填   |
+| --------- | ---------------------- | ------- | ---- |
+| appId   | 点播appId        | int | 是    |
+
 
 上传 `TXUGCPublish.publishVideo`
 
@@ -156,6 +191,11 @@ mVideoPublish.canclePublish();
 | videoURL | 视频存储地址    | String |
 | coverURL | 封面存储地址    | String |
 
+预上传 `TXUGCPublishOptCenter.prepareUpload`
+
+| 参数名称      | 参数描述                   | 类型      | 必填   |
+| --------- | ---------------------- | ------- | ---- |
+| signature   | [客户端上传签名](/document/product/266/9221)        | String | 是    |
 
 ## 错误码
 
@@ -179,4 +219,5 @@ SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上
 | 1014 | ERR_UGC_INVALID_VIDEO_FILE     | 当前路径下视频文件不存在           |
 | 1015 | ERR_UGC_FILE_NAME              | 视频上传文件名太长（超过 40）或含有特殊字符 |
 | 1016 | ERR_UGC_INVALID_COVER_PATH     | 视频文件封面路径不对，文件不存在       |
+| 1017 | ERR_USER_CANCEL                | 用户取消上传       |
 | 1018 | ERR_UPLOAD_VOD                 | 小于5m的文件直接上传到点播失败       |

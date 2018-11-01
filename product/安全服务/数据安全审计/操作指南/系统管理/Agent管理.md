@@ -1,6 +1,6 @@
-以 sysadmin 账号登录数据安全审计管理页面，在左侧导航栏中单击 【Agent 配置】 即可进入 Agent 配置页面。
+以 sysadmin 账号登录数据安全审计管理页面，在左侧导航栏中单击 【Agent 配置】，即可进入 Agent 配置页面。
 ## Agent 部署
-单击 【 部署 Agent】 可配置审计 Agent 的各类参数并提供下载链接，配置步骤以及配置注意事项请参见 [Agent 部署]()。
+单击 【 部署 Agent】 可配置审计 Agent 的各类参数并提供下载链接，配置步骤以及配置注意事项请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
 ![](https://main.qcloudimg.com/raw/b5e1a655581831675549268a7f111e39.png)
 ## Agent 配置
 Agent 配置用于展示所有已正确安装且能实现 CDS-Audit 实例网络互通的 Agent 信息。

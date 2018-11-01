@@ -20,11 +20,11 @@ Web 播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括 PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>;
 ```
 
 >**注意：**
->**直接用本地网页是调试不了的，**因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -78,13 +78,13 @@ var player =  new TcPlayer('id_test_video', {
 如果是点播 URL，那要检查您要播放的文件是否还在服务器上，比如要播放的地址是否已经被其它人从点播系统移除。
 
 - **原因二：本地网页调试**
-目前腾讯云的 Web 播放器是不支持本地网页去调试的（即通过`file://`协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个`test.html`文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
+目前腾讯云的 Web 播放器是不支持本地网页去调试的（即通过 file:// 协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个 test.html 文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
 
 - **原因三：手机兼容问题**
 FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的 QQ 浏览器支持 FLV 协议的播放，但普及度还不高），只能用 HLS（m3u8)。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件`crossdomain.xml`中增加`qq.com`域名：
+PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件 crossdomain.xml 中增加 qq.com 域名：
 ```xml
 <cross-domain-policy>
 <allow-access-from domain="*.qq.com" secure="false"/>
@@ -102,7 +102,7 @@ coverpic 可以传入一个图片地址作为播放器的封面，将在播放�
 "coverpic" : "http://www.test.com/myimage.jpg"
 ```
 #### 4.2 设置封面的展现样式
-coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。<br>
+coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
 
 style 支持的样式有 3 种：
 - default：居中并且以图片的实际分辨率进行显示；
@@ -121,7 +121,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
 
 >**注意：**
->**在某些移动端设置封面会无效，具体说明请查看常见问题。**
+>在某些移动端设置封面会无效，具体说明请查看常见问题。
 
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
@@ -144,7 +144,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
 >**注意：**
->**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
+>上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。
 
 #### 5.2 代码实现
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
@@ -170,7 +170,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 **PC 端现已支持多种清晰度播放并支持切换的功能，移动端尚未支持。**
 
 ### Step 6：定制错误提示语
-我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
+我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
 #### 6.1 代码实现
 如下是让播放器支持自定义提示语的核心代码，设置的提示语主要落在 wording 属性上。
@@ -211,8 +211,8 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2048	| 无法加载视频文件，跨域访问被拒绝 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误） |
 
 >**备注：**
->**Code 1 ~ 4 对应的是 H5 的原生事件；**
->**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
+>Code 1 ~ 4 对应的是 H5 的原生事件；
+>由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
 这里有一个线上的示例代码，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
@@ -231,30 +231,30 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
-| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
-| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
-| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
-| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
-| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
-| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
-| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
-| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
-| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
-| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
-| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
+| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
+| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
+| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
+| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535a.flv |
+| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
+| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例： http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
+| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
+| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
+| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
+| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
+| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
+| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
 | width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素   <br> 示例：640   |
 | height          | Number   | 无       | **必选**，设置播放器高度，单位为像素   <br> 示例：480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例：0.6   |
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放<br>**备注：该选项只对大部分 PC 平台生效**  <br> 示例：  true |
-| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "`http://www.test.com/myimage.jpg`" <br>或者<br>{"style": "cover", "src": h`ttp://www.test.com/myimage.jpg`} |
+| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": http://www.test.com/myimage.jpg} |
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 **备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html) ** <br> 示例："system"  |
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url <br>**备注：该选项只对 PC 平台生效** [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器）将 flv 播放地址直接赋给 `<video>` 播放，[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例：true   |
+| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例："h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏），1：（portraint竖屏），2：（landscape &verbar; portrait 跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例：0   |
@@ -274,12 +274,13 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |mute(muted)      | {Boolean} [可选]       | true,false {Boolean}         | 切换静音状态，不传参则返回当前是否静音      | player.mute(true) |
 |volume(val)      | {int} 范围：0~1 [可选]  | 范围：0~1                    | 设置音量，不传参则返回当前音量             | player.volume(0.3) |
 |playing()        | 无                     | true,false {Boolean}         | 返回是否在播放中                         | player.playing() |
-|duration()       | 无                     | {int}                       | 获取视频时长 <br>**备注：只适用于点播** | player.duration() |
-|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>**备注：只适用于点播 **| player.currentTime() |
+|duration()       | 无                     | {int}                       | 获取视频时长 <br>**备注：只适用于点播，需要在触发 loadedmetadata 事件后才可获取视频时长** | player.duration() |
+|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>**备注：只适用于点播** | player.currentTime() |
 |fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br>**备注：移动端系统全屏没有提供 API，也无法获取系统全屏状态** | player.fullscreen(true) |
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>**备注：只适用于点播** | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
+|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 rtmp、flv、hls、mp4 ，H5 模式支持 mp4、hls、flv（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load('http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4')  |
 
 >**注意：**
 >**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
@@ -316,7 +317,7 @@ var player = new TcPlayer('id_test_video', {
 ### ES Module
 TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.1.js
+http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.2.js
 ```
 ### 开启优先 H5 播放模式
 TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
@@ -378,4 +379,5 @@ TcPlayer 在不断的更新以及完善中，为了方便大家了解版本情�
 | 2017.3.4        | 2.1.0    | 至 2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player；<br>2. 调整播放器初始化逻辑，优化错误提示效果；<br>3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 flv；<br>4. 支持 x5-video-orientation 属性；<br>5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放；<br>6. 启用版本号发布方式，避免影响旧版本的使用者；<br> 7. 优化事件触发的时间戳，统一为标准时间；<br>8. bug 修复。|
 | 2017.12.7       | 2.2.1    | 1. 增加 systemFullscreen 参数；<br> 2. 增加 flashUrl 参数；<br>3. 修复音量 max 后进行静音切换的 UI 问题；<br> 4. 修复 ios11 微信下需要单击两次才能播放的问题；<br> 5. 修复 safari 11 系统样式被遮挡的问题；<br>6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况；<br>7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题；<br> 8. 切换清晰度保持音量不变；<br> 9. 修复页面宽度为 0，播放器宽度判断失败问题；<br> 10. destroy 方法增加完全销毁播放器节点。|
-| 2017.12.20      | 2.2.1    | 1.增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3.支持切换清晰度方法。|
+| 2017.12.20      | 2.2.1    | 1. 增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3.支持切换清晰度方法。|
+| 2018.5.3        | 2.2.2    | 1. 优化loading组件;<br> 2.优化Flash destroy方法;<br> 3.默认使用 H5 播放。<br> 4.修复已知问题|

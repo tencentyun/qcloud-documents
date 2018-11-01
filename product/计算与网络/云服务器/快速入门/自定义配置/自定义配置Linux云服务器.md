@@ -1,16 +1,16 @@
+## 操作场景
+
 本文档介绍 Linux 云服务器的自定义配置方法。
 不同于快速配置，自定义配置选项齐全，您可根据需求选择合适的配置。
 
-<div id="page1"></div>
 ## 前提条件
 
- 1. 开始自定义配置前，您需完成[【快速入门 Linux 云服务器】](/doc/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B)文档中的步骤一。
- 2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
+ 1. 开始自定义配置前，您需完成 [【快速入门 Linux 云服务器】](/doc/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B) 文档中的步骤一。
+ 2. 登录腾讯云官网，选择【产品】-【计算】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
 
-<div id="page2"></div>
 ## 选择地域与机型
-![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
+![](https://main.qcloudimg.com/raw/17ffe6b77c5389a42bb11817de4cc206.png)
  1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation) ）。更多信息请看 [计费模式说明](/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
 
  2. 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
@@ -27,9 +27,8 @@
 
 单击【下一步：选择镜像】按钮，进入选择镜像页面。
 
-<div id="page3"></div>
 ## 选择镜像
-![](//mc.qcloudimg.com/static/img/fd40922e47525453a58de73d0ffa266c/image.png)
+![](https://main.qcloudimg.com/raw/f791ff38fba64678b6762690b0e14785.png)
  1. 选择镜像提供方。
 腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](/doc/product/213/4941) 进行选择。
 对于刚开始使用腾讯云的用户，推荐选择公共镜像。
@@ -41,9 +40,8 @@
 
 单击【下一步：选择存储与网络】按钮，进入选择存储与网络页面。
 
-<div id="page4"></div>
 ## 选择存储与网络
-![](//mc.qcloudimg.com/static/img/e95a5bf7bf47c60f43dd0ee62946b67a/image.png)
+![](https://main.qcloudimg.com/raw/2256f28e84695cfdd1a68bf3b7eb7c2e.png)
  1. 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型。（均默认 50GB 系统盘，系统盘大小任选）
   - 云硬盘：采用一盘三备的分布式存储方式，数据可靠性高
@@ -64,20 +62,27 @@
  4. 选择服务器数量。
 
  5. 选择购买时长与续费方式（仅限包年包月云服务器）。
+ 
+ 单击【下一步：设置安全组和主机】，进入设置安全组和主机页面。
+ 
+## 设置安全组和主机
+![](https://main.qcloudimg.com/raw/9efbc54b8a552a98765f1789db865dc9.png)
+1. 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
+2. 实例名称：您可选择创建后命名，也可立即命名。
+3. 设置登录方式：
+ - 设置密码：输入主机密码设置。
+ - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://cloud.tencent.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
+ - 自动生成密码：自动生成的密码将会以站内信方式发送。
+4.  单击【高级设置】，根据实际需求对主机做更多配置。其关键参数信息如下：
+ ![高级设置](https://main.qcloudimg.com/raw/6bec334746e6daab20d01eb969f51b7a.png)
+ - 主机名：用户可以自定义设置云服务器操作系统内部的计算机名，云服务器成功生产后可以通过登录云服务器内部查看。
+ - 置放群组：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 [置放群组](https://cloud.tencent.com/document/product/213/15486 ) 进行设置。
+ - 标签：设置标签之后可以对云服务器实现资源的分类管理。具体可参考 [标签](https://cloud.tencent.com/document/product/213/19548) 进行设置。
+ - 自定义数据：指定自定义数据来配置实例，既当实例启动的时候运行配置的脚本，如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Linux 操作系统支持 Shell 格式，Windows 操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 [自定义数据](https://cloud.tencent.com/document/product/213/17525)。
 
-单击【下一步：设置信息】按钮，进入设置信息页面。
+ > **说明：**
+ > 此项配置仅支持部分带Cloudinit服务的公有镜像，具体可参考 [cloud-init](https://cloud.tencent.com/document/product/213/19670)。
 
-<div id="page5"></div>
-## 设置信息
-![](//mc.qcloudimg.com/static/img/1c463db6e3b31abd6c1d3163f1c3108f/image.png)
- 1. 命名主机：您可选择创建后命名，也可立即命名。
-
- 2. 登录信息设置：
-- 设置密码：输入主机密码设置。
-- 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://cloud.tencent.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
-- 自动生成密码：自动生成的密码将会以站内信方式发送。
-
- 3. 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
 单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 
