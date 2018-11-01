@@ -74,3 +74,11 @@ TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号
 此时需要 **主账号** 用户去腾讯云 [访问管理](https://console.cloud.tencent.com/cam) 控制台给用户添加对应服务的权限。具体指引可参考 [访问管理](https://cloud.tencent.com/document/product/598) 产品文档。
 
 
+
+### 访问镜像仓库
+
+如果主账号未开通过镜像仓库时，会提示如下图所示信息，此时需要主账号登录 TSF 控制台，开通镜像仓库。然后协作者/子账号才能继续使用镜像仓库。
+
+
+
+![](https://main.qcloudimg.com/raw/245c87613aa7bb17c05f1955bd7de3c5.png)
