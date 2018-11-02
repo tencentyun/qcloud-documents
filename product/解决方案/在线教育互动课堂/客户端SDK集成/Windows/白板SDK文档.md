@@ -30,7 +30,7 @@
 然后调用如下代码进行白板初始化：
 
 ```C++
-boardMgr = BoardMgr::GetSDKInstance()
+boardMgr = BoardMgr::GetSDKInstance();
 boardMgr->init(userID, userSig, sdkappId);
 ```
 退出时销毁白板直接删除指针即可：
