@@ -75,6 +75,7 @@ _context.TMGDelegate =self;
 参数获取见文档：[游戏多媒体引擎接入指引](https://cloud.tencent.com/document/product/607/10782)。
 此接口需要来自腾讯云控制台的 SdkAppId 号码作为参数，再加上 openId，这个 openId 是唯一标识一个用户，规则由 App 开发者自行制定，App 内不重复即可（目前只支持 INT64）。
 初始化 SDK 之后才可以进房。
+
 #### 函数原型
 
 ```
@@ -85,6 +86,7 @@ ITMGContext -(void)InitEngine:(NSString*)sdkAppID openID:(NSString*)openID
 | ------------- |:-------------:|-------------|
 | sdkAppId    	|NSString  |来自腾讯云控制台的 SdkAppId 号码				|
 | openID    		|NSString  |OpenID 只支持 Int64 类型（转为string传入），必须大于 10000，用于标识用户 |
+
 #### 示例代码  
 
 ```
@@ -130,7 +132,9 @@ ITMGContext -(QAVResult)Resume
 ```
 ITMGContext -(void)Uninit
 ```
+
 #### 示例代码
+
 ```
 [[ITMGContext GetInstance] Uninit];
 ```
@@ -164,9 +168,9 @@ ITMGContext -(void)Uninit
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
-| roomId    		|NSString  	|房间号，最大支持127字符（离线语音房间号参数必须填null）	|
+| roomId    		|NSString  	|房间号，最大支持 127 字符（离线语音房间号参数必须填 null）	|
 | identifier  		|NSString    	|用户标识								|
-| key    			|NSString    	|来自腾讯云[控制台](https://console.cloud.tencent.com/gamegme)的密钥					|
+| key    			|NSString    	|来自腾讯云 [控制台](https://console.cloud.tencent.com/gamegme)的密钥					|
 
 
 
@@ -199,6 +203,7 @@ ITMGContext   -(void)EnterRoom:(NSString*) roomId roomType:(int*)roomType authBu
 
 - 如对音量类型或场景有特殊需求，请联系一线客服反馈；
 - 控制台采样率设置会直接影响游戏语音效果，请在 [控制台](https://console.cloud.tencent.com/gamegme) 上再次确认采样率设置是否符合项目使用场景。
+
 
 #### 示例代码  
 
