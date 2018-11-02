@@ -181,7 +181,7 @@ ITMGContext.GetInstance(this).Uninit();
 生成 AuthBuffer，用于相关功能的加密和鉴权，相关后台部署见 [GME密钥文档](https://cloud.tencent.com/document/product/607/12218)。    
 该接口返回值为 Byte[] 类型。离线语音获取鉴权时，房间号参数必须填null。
 
-> 函数原型
+#### 函数原型
 ```
 AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, String identifier, String key)
 ```
