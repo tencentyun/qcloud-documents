@@ -16,12 +16,11 @@ If you want to access web pages using port 8080, the port must be opened to Inte
 
 Open a port to Internet
 1. Log in to the security group console, and click the security group bound with the instance to enter the details page
-![](https://main.qcloudimg.com/raw/fbaddd48843f0b276bb82e1b5bb29ccf.png)
+![](https://main.qcloudimg.com/raw/c448e60ad071de9abc1824aaa616f614.png)
 2. Select "Inbound/Outbound Rules" and click **Add Rule**
-![](https://main.qcloudimg.com/raw/6d10195eab130185b4d972b7c194ce69.png)
+![](https://main.qcloudimg.com/raw/6b69628e3a0ce6daa06071a6eaaaad55.png)
 3. You can refer to the following template to enter your IP address (range) and port to be opened, and then select "Allow" to open the port
-![](https://main.qcloudimg.com/raw/aaa3eddfe40315a7d5a21a9d8df6c2cb.png)
-
+![](https://main.qcloudimg.com/raw/0477ac68f7ea684128f84fe0851a6514.png)
 
 For detailed operation guide, please click [Common Security Group Operations](https://cloud.tencent.com/document/product/213/12450)
 

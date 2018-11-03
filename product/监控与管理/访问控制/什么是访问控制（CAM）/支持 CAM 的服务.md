@@ -115,6 +115,8 @@
 | [文智自然语言处理](https://cloud.tencent.com/document/product/271) | ✔        | -      | ✔      | 服务级   | -      | -|	
 | [机器翻译](https://cloud.tencent.com/document/product/551)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [腾讯云小微](https://cloud.tencent.com/document/product/645) | ✔        | -      | ✔      | 服务级   | -        | - |
+| 云智明视视频识别                                              | ✔        | ✔      | -      | 操作级   | ✔        | -     |	
+
 
  ## 云智 AI 平台服务	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
