@@ -26,7 +26,7 @@ allprojects {
 // COS SDK 模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK 模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9+'
+compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.3.9'
 // 互动教育模块
 compile 'com.tencent.ticsdk:ticsdk:1.5.2'
 // 白板 SDK 模块
@@ -49,8 +49,14 @@ defaultConfig {
 如果您的 APK 最终会经过代码混淆，请在 proguard 配置文件中加入以下代码：
 
  ```
--dontwarn com.tencent.**
 -keep class com.tencent.**{*;}
+-dontwarn com.tencent.**
+
+-keep class tencent.**{*;}
+-dontwarn tencent.**
+
+-keep class qalsdk.**{*;}
+-dontwarn qalsdk.**
 ```
 
 ## 2. 使用详解
@@ -254,8 +260,8 @@ logout | 注销登录。
 ## 3. 常见问题
 ### 3.1. AvRootView 与 WhiteboardView 叠加时白板无法显示？
 
-AvRootView 和 WhiteboardView 都是集成 SurfaceView 的，SurfaceView 叠加显示时会有异常。
-通过 SurfaceView 的 `setZOrderMediaOverlay(true);`即可解决。
+AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加显示时会有异常。
+通过 SurfaceView 的 `setZOrderMediaOverlay(true);`可解决。
 
 ### 3.2. 如何定制视频画面展示？
 关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/17433)。
