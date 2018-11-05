@@ -35,9 +35,8 @@
 
 ## SDK 使用注意事项
 
-使用 SDK 前至少要获取 [SecretId](https://console.cloud.tencent.com/capi)、 [SecretKey](https://console.cloud.tencent.com/capi) 和 endpoint（即请求发到哪个地域，走内网还是外网）。
+使用 SDK 前至少要获取 [SecretId](https://console.cloud.tencent.com/capi)、 [SecretKey](https://console.cloud.tencent.com/capi) 和 endpoint（即请求发到哪个地域，走内网还是外网）。endpoint 说明如下。
 
-### endpoint 说明：
 
 ### 队列模型
 
