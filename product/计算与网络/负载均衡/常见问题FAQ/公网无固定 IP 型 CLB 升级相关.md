@@ -27,8 +27,8 @@
         </tr>
         <tr>
           <td>产品类型</td>
-          <td>公网无固定IP型CLB</td>
-          <td>传统型公网CLB</td>
+          <td>公网无固定 IP 型 CLB</td>
+          <td>传统型公网 CLB</td>
         </tr>
         <tr>
           <td>域名</td>
@@ -51,7 +51,7 @@
             <td>加权轮询<br>加权最小连接数<br>IP hash（七层）</td>
         </tr>    
         <tr>
-          <td>WebSocket(Secure)</td>
+          <td>WebSocket（Secure）</td>
           <td>✖</td>
           <td>✔</td>
         </tr>
@@ -78,7 +78,7 @@
         <tr>
             <td>价格</td>
             <td>暂时免费</td>
-            <td>0.02元/小时 [点我查看详情](https://cloud.tencent.com/document/product/214/8848)</td>    
+            <td>0.02 元/小时。详情请参见 [计费说明](https://cloud.tencent.com/document/product/214/8848)</td>    
         </tr>
 </tbody></table>
 
