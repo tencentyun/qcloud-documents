@@ -78,7 +78,7 @@
         <tr>
             <td>价格</td>
             <td>暂时免费</td>
-            <td>0.02 元/小时。详情请参见 [计费说明](https://cloud.tencent.com/document/product/214/8848)</td>    
+            <td>0.02 元/小时<br>详情请参见 <a href=(https://cloud.tencent.com/document/product/214/8848)>计费说明</a>。</td>    
         </tr>
 </tbody></table>
 
