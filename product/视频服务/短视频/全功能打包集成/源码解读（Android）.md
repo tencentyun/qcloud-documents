@@ -108,7 +108,7 @@
 
 | 类名                           | 描述                                                         |
 | ------------------------------ | ------------------------------------------------------------ |
-| TCVideoPreprocessActivity.java | 录制后的视频进入编辑时预处理类的洁面                         |
+| TCVideoPreprocessActivity.java | 录制后的视频进入编辑时预处理类的界面                         |
 | TCVideoCutterActivity.java     | 短视频裁剪界面                                               |
 | TCVideoEditerActivity.java     | 短视频裁剪后编辑界面，底部有音乐，滤镜，速度，色调，贴纸，字幕等功能 |
 | TCVideoEffectActivity.java     | 单击底部按钮，进入短视频添加特效界面                         |
