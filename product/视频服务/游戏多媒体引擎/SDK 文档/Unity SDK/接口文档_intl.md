@@ -48,7 +48,7 @@ Obtain the Context instance using ITMGContext instead of QAVContext.GetInstance(
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API should contain SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -60,6 +60,7 @@ IQAVContext Init(string sdkAppID, string openID)
 | ------------- |:-------------:|-------------|
 | sdkAppId    	|String  | The SdkAppId obtained from Tencent Cloud console				|
 | openID |String | The OpenID supports Int64 type (which is passed after being converted to a string) only. It is used to identify users and must be greater than 10000. |
+
 #### Sample code  
 ```
 int ret = IQAVContext.GetInstance().Init(str_appId, str_userId);
@@ -123,7 +124,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 
 ### Voice chat authentication
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 
 #### Function prototype
 ```
@@ -148,7 +149,7 @@ byte[] GetAuthBuffer(string appId, string userId, string roomId)
 
 ### Join a room
 This API is used to enter a room with the generated authentication data, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](../GME%20TeamAudio%20Manual_intl.md).
+For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://intl.cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 
@@ -450,6 +451,7 @@ ITMGAudioCtrl EnableMic(bool isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     | To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioCtrl().EnableMic(true);
@@ -548,6 +550,7 @@ ITMGAudioCtrl SetMicVolume(int volume)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | volume | int | Sets the volume, value range: 0 to 200 |
+
 #### Sample code  
 
 ```
@@ -576,6 +579,7 @@ ITMGAudioCtrl EnableSpeaker(bool isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | bool | To disable the speaker, set this parameter to false, otherwise set it to true. |
+
 #### Sample code  
 ```
 Enable the speaker
@@ -605,6 +609,7 @@ ITMGAudioCtrl EnableAudioPlayDevice(bool isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | bool | true means enable, false means disable |
+
 #### Sample code
 
 ```
@@ -679,6 +684,7 @@ ITMGAudioCtrl SetSpeakerVolume(int volume)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | volume | int | Sets the volume. Value range: 0 to 200. |
+
 #### Sample code
 
 ```
@@ -710,6 +716,7 @@ ITMGContext GetAudioCtrl EnableLoopBack(bool enable)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable    |bool         | Specifies whether to enable in-ear monitoring |
+
 #### Sample code  
 
 ```
@@ -774,6 +781,7 @@ IQAVAudioEffectCtrl int StartAccompany(string filePath, bool loopBack, int loopC
 | filePath | string  |Path of the accompaniment file	|
 | loopBack | bool | Indicates whether to send a mix. This is generally set to true, so that other users can also hear the accompaniment. |
 | loopCount | int | Number of loops to be played. Value -1 means an infinite loop.	 |
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioEffectCtrl().StartAccompany(filePath,true,loopCount,duckerTimeMs);
@@ -855,6 +863,7 @@ IQAAudioEffectCtrl int EnableAccompanyPlay(bool enable)
 | Parameter | Type | Description |
 | ------------- |:-------------:|--------------|
 | enable    |bool | Indicates whether you can hear the accompaniment |
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioEffectCtrl().EnableAccompanyPlay(true);
@@ -1004,6 +1013,7 @@ IQAAudioEffectCtrl int ResumeEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioEffectCtrl().ResumeEffect(soundId);
@@ -1029,6 +1039,7 @@ IQAAudioEffectCtrl int StopEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetAudioEffectCtrl().StopEffect(soundId);
@@ -1176,6 +1187,7 @@ ITMGPTT int SetMaxMessageLength(int msTime)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | msTime    |int | Indicates the length of a voice message in millisecond|
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetPttCtrl().SetMaxMessageLength(60000); 
@@ -1191,6 +1203,7 @@ ITMGPTT int StartRecording(string fileDir)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | fileDir | string | Indicates the path for storing the voice file |
+
 #### Sample code  
 ```
 string recordPath = Application.persistentDataPath + string.Format ("/{0}.silk", sUid++);
@@ -1326,6 +1339,7 @@ public abstract event QAVUploadFileCompleteCallback OnUploadFileComplete;
 | code | int | When code is 0, recording is completed |
 | filepath | string | Path for storing the recorded file |
 | fileid | string | URL to the file |
+
 #### Sample code  
 ```
 Listen for an event:
@@ -1370,6 +1384,7 @@ public abstract event QAVDownloadFileCompleteCallback OnDownloadFileComplete
 | code | int | When code is 0, recording is completed |
 | filepath | string | Path for storing the recorded file |
 | fileid | string | URL to the file |
+
 #### Sample code  
 ```
 Listen for an event:
@@ -1391,6 +1406,7 @@ IQAVPTT PlayRecordedFile (string downloadFilePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | downloadFilePath | string |Indicates the path of the file to be played|
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetPttCtrl().PlayRecordedFile(filePath); 
@@ -1447,6 +1463,7 @@ IQAVPTT GetFileSize(string filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | string | Indicates the path to a voice file |
+
 #### Sample code  
 ```
 int fileSize = IQAVContext.GetInstance().GetPttCtrl().GetFileSize(filepath);
@@ -1461,6 +1478,7 @@ IQAVPTT int GetVoiceFileDuration(string filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | string |  Indicates the path to a voice file |
+
 #### Sample code  
 ```
 int fileDuration = IQAVContext.GetInstance().GetPttCtrl().GetVoiceFileDuration(filepath);
@@ -1493,6 +1511,7 @@ IQAVPTT int SpeechToText(String fileID,String language)
 | ------------- |:-------------:|-------------|
 | fileID    |char* | Indicates the URL to a voice file |
 | language    |char*                     |Language code, refer to [language reference list](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
 #### Sample code  
 ```
 IQAVContext.GetInstance().GetPttCtrl().SpeechToText(fileID,"cmn-Hans-CN");
@@ -1512,6 +1531,7 @@ public abstract event QAVSpeechToTextCallback OnSpeechToTextComplete;
 | code | int | When code is 0, recording is completed |
 | fileid | string | URL to the voice file |
 | result | string | Result of text conversion |
+
 #### Sample code  
 ```
 Listen for an event:
@@ -1610,6 +1630,7 @@ ITMGContext ITMGAudioCtrl AddAudioBlackList(string openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId | NSString | ID that needs to be added to the blacklist |
+
 #### Sample code  
 
 ```
@@ -1626,6 +1647,7 @@ ITMGContext ITMGAudioCtrl RemoveAudioBlackList(string openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId | NSString | ID that needs to be removed from the blacklist |
+
 #### Sample code  
 
 ```
