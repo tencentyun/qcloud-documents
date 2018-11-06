@@ -1,5 +1,4 @@
 ```
-objectivec
 void loggerFunc(QAPMLoggerLevel level, const char* log) {
     
     NSLog(@"log level: %zd, log info:%s", level, log);
