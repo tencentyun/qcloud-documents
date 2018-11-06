@@ -17,7 +17,7 @@ git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 
 #### 2. 安装依赖软件 
-COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS和MacOS 的依赖软件安装过程如下：
+COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS 和 MacOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
 
