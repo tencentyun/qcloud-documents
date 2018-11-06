@@ -189,7 +189,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://cloud.tencent.com/document/product/607/12218).    
 A value of type Byte[] is returned by this API. The room ID parameter for voice message must be set to "null".
 
 > Function prototype
