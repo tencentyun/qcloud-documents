@@ -1,4 +1,4 @@
-A cloud disk created from a snapshot has all the data of the snapshot upon creation, so you don't need to perform operations such as [partitioning, formatting and creating file system](https://cloud.tencent.com/document/product/362/6734
+A cloud disk created from a snapshot has all the data of the snapshot upon creation, so you don't need to perform operations such as [partitioning, formatting and creating file system](https://intl.cloud.tencent.com/document/product/362/6734
 ), because the data on the cloud disk would be all erased through formatting. After creating a cloud disk from a snapshot and [connecting it to a CVM instance](/doc/product/362/5745), users can read and write all the data normally on the snapshot. Therefore, snapshots are an important way for data sharing and migration.
 
 ## Creating a Cloud Disk from a Snapshot in Console
@@ -16,4 +16,4 @@ A cloud disk created from a snapshot has all the data of the snapshot upon creat
 - A maximum of 10 elastic cloud disks can be created at a time.
 
 ## Creating a Cloud Disk from a Snapshot with API
-Please refer to [CreateCbsStorages API](/doc/api/364/2524).
+Please refer to [CreateCbsStorages API](https://cloud.tencent.com/document/api/364/2524).

@@ -22,9 +22,9 @@ Authorization: Auth String
 
 #### 非公共头部
 
-名称|类型|必选|描述
+名称|描述|类型|必选
 ---|---|---|---
-x-cos-acl|string|否|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。
+x-cos-acl|定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|string|否
 x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
 x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
 x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 
@@ -132,6 +132,3 @@ Connection: keep-alive
 Date: Fri, 25 Feb 2017 04:10:22 GMT\
 Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
-```
-
-
