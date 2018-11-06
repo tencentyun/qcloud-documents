@@ -1,12 +1,12 @@
 ## 功能说明 
-COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， COSFS 提供的主要功能包括：
+COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
 
 ## 安装和使用 
 ### 适用操作系统版本 
-主流的 Ubuntu、CentOS、Mac OS X 系统。
+主流的 Ubuntu、CentOS、MacOS 系统。
 
 ### 安装流程
 
@@ -17,7 +17,7 @@ git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 
 #### 2. 安装依赖软件 
-COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 和 CentOS 的依赖软件安装过程如下：
+COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS 和 MacOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
 
@@ -31,6 +31,12 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
+- MacOS 系统下安装依赖软件：
+
+```shell
+brew install automake git curl libxml2 make pkg-config openssl 
+brew cask install osxfuse
+```
 <span id="BY"></span>
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
@@ -43,12 +49,12 @@ sudo make install
 cosfs --version
 ```
 
-> **注意：**
+> **注意1：**
 > 在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
 
 
 ```shell
-checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
+checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
 此时，您需要手动安装 fuse 2.8.4 及以上版本，安装 fuse 2.9.4 的命令示例如下：
@@ -67,17 +73,27 @@ ldconfig
 pkg-config --modversion fuse 
 #当您看到 “2.9.4” 时，表示fuse安装成功  
 ```
-
+> **注意2：**
+> 在 MacOS 进行configure操作时，可能会出现如下提示：
+```shell
+configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
+No package 'libcrypto' found
+```
+此时，您需要设置 PKG_CONFIG_PATH 变量，以使得pkg-config工具能找到 openssl，命令如下：
+```shell
+brew info openssl 
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根据上一条命令的提示信息修改这条命令
+```
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \&lt;Name&gt;-\&lt;Appid&gt;，以及该存储桶对应的 \&lt;SecretId&gt; 和 \&lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 >**注意：**
->您需要将 \&lt;Name&gt;、\&lt;Appid&gt;、\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\&lt;Name&gt; 为 test， \&lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 **示例：**
 
@@ -93,8 +109,8 @@ chmod 640 /etc/passwd-cosfs
 cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- \&lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
-- \&lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 http://cos.\&lt;Region&gt;.myqcloud.com （适用于XML API），其中\&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API），其中&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
@@ -215,7 +231,7 @@ cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//co
 
 ### 11. 如何挂载多个存储桶?
 
-您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-COSFS 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
+您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
 ```shell
 echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
