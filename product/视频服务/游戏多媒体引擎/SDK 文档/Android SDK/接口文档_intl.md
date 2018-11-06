@@ -1157,6 +1157,7 @@ ITMGContext TMGPTT public void StartRecording(String filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | String | Indicates the path for storing the voice file |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().StartRecording(filePath);
