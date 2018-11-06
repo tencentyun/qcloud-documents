@@ -98,6 +98,7 @@ ITMGContext public int SetTMGDelegate(ITMGDelegate delegate)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | delegate    | ITMGDelegate | SDK callback function |
+
 #### Sample code  
 ```
 TMGContext.GetInstance(this).SetTMGDelegate(itmgDelegate);
@@ -107,7 +108,7 @@ TMGContext.GetInstance(this).SetTMGDelegate(itmgDelegate);
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -188,7 +189,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://cloud.tencent.com/document/product/607/12218).    
 A value of type Byte[] is returned by this API. The room ID parameter for voice message must be set to "null".
 
 > Function prototype
@@ -481,6 +482,7 @@ ITMGContext public void EnableMic(boolean isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     | To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
@@ -581,6 +583,7 @@ ITMGContext TMGAudioCtrl int SetMicVolume(int volume)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | volume    |int      | Sets the volume, value range: 0 to 200 |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().SetMicVolume(volume);
@@ -607,6 +610,7 @@ ITMGContext public void EnableSpeaker(boolean isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean       | To disable the speaker, set this parameter to false, otherwise, set it to true. |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
@@ -634,6 +638,7 @@ ITMGContext public int EnableAudioPlayDevice(boolean isEnabled)
 |Parameter     | Type         |Description|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean        | true means enable, false means disable |
+
 #### Sample code 
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioPlayDevice(true);
@@ -706,6 +711,7 @@ ITMGContext TMGAudioCtrl public int SetSpeakerVolume(int volume)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | volume    |int      | Sets the volume, value range: 0 to 200 |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().SetSpeakerVolume(volume);
@@ -734,6 +740,7 @@ ITMGContext TMGAudioCtrl public int EnableLoopBack(boolean enable)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable    |boolean         | Specifies whether to enable in-ear monitoring |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableLoopBack(true);
@@ -763,6 +770,7 @@ ITMGContext TMGAudioEffectCtrl public int StartAccompany(String filePath, boolea
 | filePath    	|String    	|Path of the accompaniment file	 |
 | loopBack  	|boolean    	| Indicates whether to send a mix. This is generally set to true, so that other users can also hear the accompaniment. |
 | loopCount	|int    		| Number of loops to be played. Value -1 means an infinite loop. |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().StartAccompany(filePath,true,loopCount,duckerTimeMs);
@@ -918,6 +926,7 @@ ITMGContext TMGAudioEffectCtrl public int PlayEffect(int soundId, String filePat
 | soundId | int | Indicates the sound effect ID |
 | filePath | string | Indicates the sound effect file path |
 | loop | boolean | Indicates whether to repeat playback |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().PlayEffect(soundId,filePath,loop);
@@ -959,6 +968,7 @@ ITMGContext TMGAudioEffectCtrl public int ResumeEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId | int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().ResumeEffect(soundId);
@@ -984,6 +994,7 @@ ITMGContext TMGAudioEffectCtrl public int StopEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().StopEffect(soundId);
@@ -1131,6 +1142,7 @@ ITMGContext TMGPTT public void SetMaxMessageLength(int msTime)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | msTime    |int                    |Indicates the length of a voice message in millisecond |
+
 > Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().SetMaxMessageLength(msTime);
@@ -1145,6 +1157,7 @@ ITMGContext TMGPTT public void StartRecording(String filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | String | Indicates the path for storing the voice file |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().StartRecording(filePath);
@@ -1238,6 +1251,7 @@ ITMGContext TMGPTT public void UploadRecordedFile(String filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | String |Indicates the path of the voice files to be uploaded  |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().UploadRecordedFile(filePath);
@@ -1267,6 +1281,7 @@ ITMGContext TMGPTT public void DownloadRecordedFile(String fileID, String downlo
 | ------------- |:-------------:|-------------|
 | fileID | String | URL to a file  |
 | downloadFilePath | string | Local path for saving the file |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().DownloadRecordedFile(url,path);
@@ -1297,6 +1312,7 @@ ITMGContext TMGPTT public int PlayRecordedFile(String downloadFilePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | downloadFilePath | String |Indicates the path of the file to be played |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().PlayRecordedFile(downloadFilePath);
@@ -1334,6 +1350,7 @@ ITMGContext TMGPTT public int GetFileSize(String filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | String | Indicates the path to a voice file |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().GetFileSize(path);
@@ -1348,6 +1365,7 @@ ITMGContext TMGPTT public int GetVoiceFileDuration(String filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | String | Indicates the path to a voice file |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().GetVoiceFileDuration(path);
@@ -1364,6 +1382,7 @@ ITMGContext TMGPTT public int SpeechToText(String fileID)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | fileID | String |  Indicates the URL to a voice file  |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID);
@@ -1379,6 +1398,7 @@ ITMGContext TMGPTT public int SpeechToText(String fileID, String language)
 | ------------- |:-------------:|-------------|
 | fileID    |char* | Indicates the URL to a voice file |
 | language    |char*                     |Language code, refer to [language reference list](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID,"cmn-Hans-CN");
@@ -1478,6 +1498,7 @@ ITMGContext ITMGAudioCtrl AddAudioBlackList(String openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId | String |ID that needs to be added to the blacklist |
+
 #### Sample code  
 
 ```
@@ -1494,6 +1515,7 @@ ITMGContext ITMGAudioCtrl RemoveAudioBlackList(String openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId | String | ID that needs to be removed from the blacklist|
+
 #### Sample code  
 
 ```

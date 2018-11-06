@@ -10,7 +10,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This documen
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/15210).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://intl.cloud.tencent.com/document/product/607/15210).
 
 
 | Important API | Description |
@@ -60,7 +60,7 @@ TMGContext.getInstance(this);
 ```
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -146,6 +146,7 @@ ITMGContext public void EnableMic(boolean isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     | To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
@@ -162,6 +163,7 @@ ITMGContext public void EnableSpeaker(boolean isEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean       | To disable the speaker, set this parameter to false, otherwise, set it to true. |
+
 #### Sample code  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
@@ -170,7 +172,7 @@ ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
 
 ## Authentication
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 A value of type Byte[] is returned by this API. The room ID parameter for voice message must be set to "null".
 
 > Function prototype

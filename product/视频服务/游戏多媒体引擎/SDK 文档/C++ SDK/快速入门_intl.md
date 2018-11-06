@@ -9,7 +9,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/15231).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://intl.cloud.tencent.com/document/product/607/15231).
 
 
 | Important API | Description |
@@ -75,7 +75,7 @@ m_pTmgContext->TMGDelegate(p);
 ```
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -121,7 +121,7 @@ void TMGTestScene::update(float delta)
 
 ### 4. Join a room
 This API is used to enter a room with the generated authentication data, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://cloud.tencent.com/document/product/607/17972).
+For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://intl.cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 
@@ -181,6 +181,7 @@ ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
@@ -197,6 +198,7 @@ ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
@@ -205,7 +207,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
 
 ## Authentication
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 The room ID parameter for voice message must be set to "null".
 
 #### Function prototype

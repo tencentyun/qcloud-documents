@@ -77,7 +77,7 @@ With the API class, the Delegate method is used to send callback notifications t
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -90,6 +90,7 @@ ITMGContext -(void)InitEngine:(NSString*)sdkAppID openID:(NSString*)openID
 | ------------- |:-------------:|-------------|
 | sdkAppId | NSString | The SdkAppId obtained from Tencent Cloud console |
 | openID | NSString | The OpenID supports Int64 type (which is passed after being converted to a string) only. It is used to identify users and must be greater than 10000. |
+
 #### Sample code  
 
 ```
@@ -158,7 +159,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to[GME Key](https://cloud.tencent.com/document/product/607/12218). 
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://intl.cloud.tencent.com/document/product/607/12218). 
 
 #### Function prototype
 
@@ -479,6 +480,7 @@ ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | boolean | To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 
 ```
@@ -584,6 +586,7 @@ ITMGContext GetAudioCtrl -(QAVResult)SetMicVolume:(int) volume
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | volume | int | Sets the volume, value range: 0 to 200. |
+
 #### Sample code  
 
 ```
@@ -615,6 +618,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | boolean | To disable the speaker, set this parameter to NO, otherwise set it to YES. |
+
 #### Sample code  
 
 ```
@@ -645,6 +649,7 @@ ITMGContext GetAudioCtrl -(QAVResult)EnableAudioPlayDevice:(BOOL)enabled
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enabled | BOOL |true means enable, false means disable|
+
 #### Sample code
 
 ```
@@ -723,6 +728,7 @@ ITMGContext GetAudioCtrl -(QAVResult)SetSpeakerVolume:(int)vol
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | vol | int | Sets the volume, value range: 0 to 200. |
+
 #### Sample code  
 
 ```
@@ -755,6 +761,7 @@ ITMGContext GetAudioCtrl -(QAVResult)EnableLoopBack:(BOOL)enable
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable | boolean | Specifies whether to enable in-ear monitoring |
+
 #### Sample code  
 
 ```
@@ -786,6 +793,7 @@ ITMGContext GetAudioEffectCtrl -(QAVAccResult)StartAccompany:(NSString*)filePath
 | filePath | NSString | Path of the accompaniment file |
 | loopBack | boolean | Indicates whether to send a mix. This is generally set to true, so that other users can also hear the accompaniment. |
 | loopCount | int | Number of loops to be played. Value -1 means an infinite loop. |
+
 #### Sample code  
 
 ```
@@ -957,6 +965,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)PlayEffect:(int)soundId filePath:(NSS
 | soundId | int | Indicates the sound effect ID |
 | filePath | NSString | Indicates the sound effect file path |
 | loop | boolean | Indicates whether to repeat playback |
+
 #### Sample code  
 
 ```
@@ -1002,6 +1011,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)ResumeEffect:(int)soundId
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 
 ```
@@ -1030,6 +1040,7 @@ ITMGContext GetAudioEffectCtrl -(QAVResult)StopEffect:(int)soundId
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 
 ```
@@ -1187,6 +1198,7 @@ ITMGContext GetPTT -(void)SetMaxMessageLength:(int)msTime
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | msTime    |int | Indicates the length of a voice message in millisecond|
+
 #### Sample code  
 ```
 [[[ITMGContext GetInstance]GetPTT]SetMaxMessageLength:(int)msTime];
@@ -1202,6 +1214,7 @@ ITMGContext GetPTT -(void)StartRecording:(NSString*)fileDir
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | fileDir    |char* | Indicates the path for storing the voice file
+
 #### Sample code  
 
 ```
@@ -1309,6 +1322,7 @@ ITMGContext GetPTT -(void)UploadRecordedFile:(NSString*)filePath
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | NSString | Indicates the path of the voice files to be uploaded |
+
 #### Sample code  
 
 ```
@@ -1342,6 +1356,7 @@ ITMGContext GetPTT -(void)DownloadRecordedFile:(NSString*)fileId downloadFilePat
 | ------------- |:-------------:|-------------|
 | fileID | NSString | URL to a file |
 | downloadFilePath | NSString | Local path for saving the file |
+
 #### Sample code  
 
 ```
@@ -1373,6 +1388,7 @@ ITMGContext GetPTT -(void)PlayRecordedFile:(NSString*)downloadFilePath
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | downloadFilePath | NSString |  Indicates the path of the file to be played |
+
 #### Sample code  
 
 ```
@@ -1417,6 +1433,7 @@ ITMGContext GetPTT -(int)GetFileSize:(NSString*)filePath
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | NSString | Indicates the path to a voice file  |
+
 #### Sample code  
 
 ```
@@ -1433,6 +1450,7 @@ ITMGContext GetPTT -(int)GetVoiceFileDuration:(NSString*)filePath
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath | NSString | Indicates the path to a voice file |
+
 #### Sample code  
 
 ```
@@ -1449,6 +1467,7 @@ ITMGContext GetPTT -(void)SpeechToText:(NSString*)fileID
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | fileID | NSString |Indicates the URL to a voice file |
+
 #### Sample code  
 
 ```
@@ -1553,6 +1572,7 @@ ITMGContext GetAudioCtrl -(QAVResult)AddAudioBlackList:(NSString*)identifier
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | identifier | NSString | Indicates the ID to be added to the blacklist |
+
 #### Sample code  
 
 ```
@@ -1569,6 +1589,7 @@ ITMGContext GetAudioCtrl -(QAVResult)RemoveAudioBlackList:(NSString*)identifier
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | identifier | NSString | ID that needs to be removed from the blacklist |
+
 #### Sample code  
 
 ```

@@ -9,7 +9,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ### Key considerations for using GME
 
-This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://cloud.tencent.com/document/product/607/15221).
+This document only provides the most important APIs to help you get started with GME. For more APIs, see [API Documentation](https://intl.cloud.tencent.com/document/product/607/15221).
 
 
 | Important API | Description |
@@ -56,7 +56,7 @@ _context.TMGDelegate =self;
 
 
 ### 2. Initialize the SDK
-For more information on how to obtain parameters, please see [GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -148,6 +148,7 @@ ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | boolean | To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 
 ```
@@ -166,6 +167,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | isEnabled | boolean | To disable the speaker, set this parameter to NO, otherwise set it to YES. |
+
 #### Sample code  
 
 ```
@@ -175,7 +177,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 
 ## Authentication
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to[GME Key](https://cloud.tencent.com/document/product/607/12218). 
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://intl.cloud.tencent.com/document/product/607/12218). 
 
 #### Function prototype
 

@@ -89,7 +89,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char
 
 ### Initialize the SDK
 
-For more information on how to obtain parameters, please see[GME Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+For more information on how to obtain parameters, please see [GME Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 This API call needs SdkAppId and openId. The SdkAppId is obtained from Tencent Cloud console, and the openId is used to uniquely identify a user. The setting rule for openId can be customized by App developers, and this ID must be unique in an App (only INT64 is supported).
 SDK must be initialized before a user can enter a room.
 #### Function prototype 
@@ -187,7 +187,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 
 ### Authentication information
-AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to [GME Key](https://cloud.tencent.com/document/product/607/12218).    
+AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
 The room ID parameter for voice message must be set to "null".
 
 #### Function prototype
@@ -214,7 +214,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strA
 
 ### Join a room
 This API is used to enter a room with the generated authentication data, and the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback. Microphone and speaker are not enabled by default after a user enters the room.
-For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://cloud.tencent.com/document/product/607/17972).
+For entering a common voice chat room that does not involve team voice chat, use the common API for entering a room. For more information, please see the [GME team voice chat documentation](https://intl.cloud.tencent.com/document/product/607/17972).
 
 #### Function prototype
 
@@ -531,6 +531,7 @@ public:
 | ------------- |:-------------:|-------------|
 | ppDeviceInfoList    	|TMGAudioDeviceInfo   	| Device list		|
 | nCount    		|int     		|The number of microphones obtained	|
+
 #### Sample code  
 
 ```
@@ -548,6 +549,7 @@ ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | pMicID    |char*      |Microphone ID |
+
 #### Sample code  
 ```
 const char* pMicID ="1";
@@ -564,6 +566,7 @@ ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | bEnabled    |bool     |To enable the microphone, set this parameter to true, otherwise, set it to false. |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableMic(true);
@@ -663,6 +666,7 @@ ITMGAudioCtrl virtual void SetMicVolume(int vol)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | vol    |int      | Sets the volume, value range: 0 to 200 |
+
 #### Sample code  
 ```
 int vol = 100;
@@ -712,6 +716,7 @@ public:
 | ------------- |:-------------:|-------------|
 | ppDeviceInfoList    	|TMGAudioDeviceInfo    	| Device list		|
 | nCount   		|int     		| The number of speakers obtained	|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerList(ppDeviceInfoList,nCount);
@@ -726,6 +731,7 @@ ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | pSpeakerID    |char*      |Speaker ID |
+
 #### Sample code  
 ```
 const char* pSpeakerID ="1";
@@ -742,6 +748,7 @@ ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable   		|bool       	| To disable the speaker, set this parameter to false, otherwise, set it to true.	|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableSpeaker(true);
@@ -769,6 +776,7 @@ ITMGContext virtual int EnableAudioPlayDevice(bool enable)
 |Parameter     | Type         |Description|
 | ------------- |:-------------:|-------------|
 | enable    |bool        |true means enable, false means disable|
+
 #### Sample code 
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableAudioPlayDevice(true);
@@ -841,6 +849,7 @@ ITMGAudioCtrl virtual void SetSpeakerVolume(int vol)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | vol    |int        | Sets the volume, value range: 0 to 200 |
+
 #### Sample code  
 ```
 int vol = 100;
@@ -870,6 +879,7 @@ ITMGAudioCtrl virtual int EnableLoopBack(bool enable)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | enable    |bool         | Specifies whether to enable in-ear monitoring |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->EnableLoopBack(true);
@@ -900,6 +910,7 @@ ITMGAudioEffectCtrl virtual void StartAccompany(const char* filePath, bool loopB
 | loopBack  	|bool	|Indicates whether to send a mix. This is generally set to true, so that other users can also hear the accompaniment.	|
 | loopCount	|int 	|Number of loops to be played. Value -1 means an infinite loop.				|
 | msTime	|int   	| Delay time						|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioEffectCtrl()->StartAccompany(filePath,true,-1,0);
@@ -983,6 +994,7 @@ ITMGAudioEffectCtrl virtual int EnableAccompanyPlay(bool enable)
 | Parameter | Type | Description |
 | ------------- |:-------------:|--------------|
 | enable    |bool | Indicates whether you can hear the accompaniment |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyPlay(false);
@@ -1135,6 +1147,7 @@ ITMGAudioEffectCtrl virtual int ResumeEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeEffect(soundId);
@@ -1160,6 +1173,7 @@ ITMGAudioEffectCtrl virtual int StopEffect(int soundId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | soundId    |int | Indicates the sound effect ID |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetAudioEffectCtrl()->StopEffect(soundId);
@@ -1307,6 +1321,7 @@ ITMGPTT virtual void SetMaxMessageLength(int msTime)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | msTime    |int | Indicates the length of a voice message in millisecond|
+
 #### Sample code  
 ```
 int msTime = 10;
@@ -1322,6 +1337,7 @@ ITMGPTT virtual void StartRecording(const char* fileDir)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | fileDir    |char* | Indicates the path for storing the voice file
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->StartRecording(fileDir);
@@ -1431,6 +1447,7 @@ ITMGPTT virtual void UploadRecordedFile(const char* filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath    |char* | Indicates the path of the voice files to be uploaded |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->UploadRecordedFile(filePath);
@@ -1466,6 +1483,7 @@ ITMGPTT virtual void DownloadRecordedFile(const char* fileId,const char* filePat
 | ------------- |:-------------:|-------------|
 | fileId  		|char*   	|URL to a file |
 | filePath 	|char*  	|Local path for saving the file |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->DownloadRecordedFile(fileID,filePath);
@@ -1500,6 +1518,7 @@ ITMGPTT virtual void PlayRecordedFile(const char* filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath    |char* | Indicates the path of the file to be played|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->PlayRecordedFile(filePath);
@@ -1544,6 +1563,7 @@ ITMGPTT virtual int GetFileSize(const char* filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath    |char* | Indicates the path to a voice file |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->GetFileSize(filePath);
@@ -1558,6 +1578,7 @@ ITMGPTT virtual int GetVoiceFileDuration(const char* filePath)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | filePath    |char* | Indicates the path to a voice file |
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->GetVoiceFileDuration(filePath);
@@ -1575,6 +1596,7 @@ ITMGPTT virtual void SpeechToText(const char* fileID, const char* language)
 | ------------- |:-------------:|-------------|
 | fileID    |char* | Indicates the URL to a voice file |
 | language    |char*                     |Language code, refer to [language reference list](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
 #### Sample code  
 ```
 ITMGContextGetInstance()->GetPTT()->SpeechToText((filePath,"cmn-Hans-CN");
@@ -1691,6 +1713,7 @@ ITMGContext ITMGAudioCtrl int AddAudioBlackList(const char* openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId    |char* | ID that needs to be added to the blacklist |
+
 #### Sample code  
 
 ```
@@ -1707,6 +1730,7 @@ ITMGContext ITMGAudioCtrl int RemoveAudioBlackList(const char* openId)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | openId    |char*       | ID that needs to be removed from the blacklist |
+
 #### Sample code  
 
 ```
