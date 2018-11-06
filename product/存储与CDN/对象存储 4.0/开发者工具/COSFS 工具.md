@@ -82,7 +82,7 @@ No package 'libcrypto' found
 此时，您需要设置 PKG_CONFIG_PATH 变量，以使得pkg-config工具能找到 openssl，命令如下：
 ```shell
 brew info openssl 
-export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig # 您可能需要根据上条命令的提示信息修改这条命令
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig # 您可能需要根据上一条命令的提示信息修改这条命令
 ```
 ### COSFS 使用方法
 
