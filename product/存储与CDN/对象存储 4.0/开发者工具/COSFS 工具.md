@@ -49,7 +49,7 @@ sudo make install
 cosfs --version
 ```
 
-> **注意：**
+> **注意1：**
 > 在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
 
 
@@ -73,6 +73,7 @@ ldconfig
 pkg-config --modversion fuse 
 #当您看到 “2.9.4” 时，表示fuse安装成功  
 ```
+> **注意2：**
 > 在 MacOS 进行configure操作时，可能会出现如下提示：
 ```shell
 configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
