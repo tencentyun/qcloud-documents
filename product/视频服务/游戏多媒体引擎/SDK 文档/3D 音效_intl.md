@@ -3,73 +3,80 @@ Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This documen
 
 
 ## Integrating 3D Sound Effect
-### Initialize 3D sound effect
-This function is used to Initialize  3D sound effect.
+### 1. Initialize 3D sound effect
+This function is used to initialize 3D sound effect and can be called after a user enters a room. You need to call this API before you can use 3D sound effect. Any user who only receives 3D sound effect and does not send it also needs to call this API.
 
 #### Function prototype  
 ```
-public abstract int InitSpatializer()
-```
-
-### Enable/disable 3D sound effect
-This function is used to enable/disable 3D sound effect. You need to call this API before you can use 3D sound effect. Any user who only receives 3D sound effect and does not send it also needs to call this API.
-
-#### Function prototype  
-```
-QAVAudioCtrl virtual int EnableSpatializer(bool enable, bool applyToTeam)
+public abstract int InitSpatializer(string modelPath)
 ```
 
 | Parameter | Type | Description |
-| ------------- |:-------------:|-------------
-| enable    |bool         | Specifies whether to enable 3D sound effect |
-| applyToTeam    |bool         | Be valid while bEnable=true, specifies whether to use spatial audio in the same team |
+| ------- |---------|------|
+| modelPath | string | Indicates the path of 3D sound effect resource files. Contact Tencent Cloud personnel for more information on the resource files. |
 
-
-
-### Obtain status of 3D sound effect
-This function is used to obtain the status of 3D sound effect and returns a Boolean value.
+### 2. Enable/disable 3D sound effect
+This function is used to enable/disable 3D sound effect. You can hear the 3D sound after enabling it.
 
 #### Function prototype  
 ```
-QAVAudioCtrl virtual bool IsEnableSpatializer()
+public abstract int EnableSpatializer(bool enable, bool applyToTeam)
+```
+
+| Parameter | Type | Description |
+| ------- |---------|------|
+| enable | bool | You can hear the 3D sound after enabling it |
+| applyToTeam | bool | Indicates whether 3D sound applies to the team. This parameter takes effect only when "enable" is true. |
+
+### 3. Obtain status of 3D sound effect
+This function is used to obtain status of 3D sound effect.
+
+#### Function prototype  
+```
+public abstract bool IsEnableSpatializer()
 ```
 
 | Returned Value | Description |
 | ------- |---------|
-| true    	|Enabled |
-| false    	|Disabled |  
+| true | Indicates "enabled" |
+| false | Indicates "disabled" |
 
-### Update self position (including orientation)
-Set own position and rotate information to GME for function: Spatializer && WorldMode.
-The relationship between distance and sound attenuation.
+### 4. Update sound source azimuth (including orientation)
+This function is used to update the sound source azimuth information. The 3D sound effect can be achieved by calling this function for each frame.
+
+#### The relationship between distance and sound attenuation
+
+In 3D sound effect, there is an attenuation relationship between the volume of the sound source and the distance to the sound source. When the distance exceeds 500 (in a specified unit), the volume attenuates to almost zero.
 
 | Distance Range (In the unit of engine) | Attenuation Formula |
 | ------- |---------|
-| 0< N <range/5	| Attenuation coefficient: 1.0 (no attenuation) |
-| N≥range/5  |Attenuation coefficient: 40/N |
+| 0< N <range/5  	|Attenuation coefficient: 1.0 (no attenuation)	|
+| N≥range/5  |Attenuation coefficient: 40/N  			|
 
- ![](https://main.qcloudimg.com/raw/82892249eab8fea3bcb9149e8eee37f1.jpg)
+![](https://main.qcloudimg.com/raw/50e745c853ab0e3f9f3bbef9d9cfc401.jpg)
 
 #### Function prototype  
 ```
-ITMGRoom virtual void UpdateAudioRecvRange(int range)
+public abstract void UpdateAudioRecvRange(int range)
 ```
 
-|Parameter | Type | Description |
+| Parameter | Type | Description |
+| ------------- |-------------|-------------|
+| range | int | Sets the range within which the sound can be received |
+
+```
+public abstract int UpdateSelfPosition(int position[3], float axisForward[3], float axisRight[3], float axisUp[3])
+```
+
+In the world coordinate system designed in GME (Note: it is the same as that in Unreal engine, but different from that in Unity engine):
+- The x axis points forward, the y axis points to the right and the z axis points upward.
+
+| Parameter | Type | Description |
 | ------------- |-------------|-------------
-| range 	|int  	|The range of voice can be reveiced|
-
-```
-ITMGRoom virtual intUpdateSelfPosition(int position[3], float axisForward[3], float axisRight[3], float axisUp[3])
-```
-
-|Parameter | Type | Description |
-| ------------- |-------------|-------------
-| position   	|int[]		|Position of self, the order is forword, right and up|
-| axisForward   |float[]  	|The forward axis of self coordinate system|
-| axisRight    	|float[]  	|The right axis of self coordinate system|
-| axisUp    	|float[]  	|The up axis of self coordinate system|
-
+| position | int[] | The user's X-Y-Z coordinates in the world coordinate system |
+| axisForward | float[] | The unit vector of x axis in the coordinate system |
+| axisRight | float[] | The unit vector of y axis in the coordinate system |
+| axisUp | float[] | The unit vector of z axis in the coordinate system |
 
 #### Sample code
 
@@ -84,7 +91,7 @@ float right[] = { matrix.GetColumn(0).Y,matrix.GetColumn(1).Y,matrix.GetColumn(2
 float up[] = { matrix.GetColumn(0).Z,matrix.GetColumn(1).Z,matrix.GetColumn(2).Z};
 ITMGContextGetInstance()->GetRoom()->UpdateSelfPosition(position, forward, right, up); 	
 ```
-Unity：
+Unity:
 ```
 Transform selftrans = currentPlayer.gameObject.transform;
 Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, selftrans.rotation, Vector3.one);
@@ -94,6 +101,10 @@ float[] axisRight = new float[3] { matrix.m20, matrix.m00, matrix.m10 };
 float[] axisUp = new float[3] { matrix.m21, matrix.m01, matrix.m11 };
 ITMGContext.GetInstance().GetRoom().UpdateSelfPosition(position, axisForward, axisRight, axisUp);
 ```
+
+
+
+
 
 
 

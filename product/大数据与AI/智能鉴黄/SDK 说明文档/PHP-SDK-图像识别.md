@@ -57,8 +57,9 @@ var_dump ($client->idcardDetect(array('buffers'=>array(file_get_contents('F:\pic
 ```
 #### OCR - 名片识别  
 ```
+//单个或多个图片 HRL
 var_dump ($client->namecardV2Detect(array('urls'=>array('http://open.youtu.qq.com/app/img/experience/char_general/ocr_namecard_01.jpg'))));
-//单个或多个图片file
+//单个或多个图片 file
 var_dump ($client->namecardV2Detect(array('files'=>array('assets/ocr_namecard_01.jpg'))));
 //单个或多个图片内容
 var_dump ($client->namecardV2Detect(array('buffers'=>array(file_get_contents('assets/ocr_namecard_01.jpg')))));
@@ -67,11 +68,11 @@ var_dump ($client->namecardV2Detect(array('buffers'=>array(file_get_contents('as
 人脸识别包括：人脸检测、五官定位、个体信息管理、人脸验证、人脸对比及人脸检索。
 #### 人脸检测
 ```
-//单个图片 URL, mode:1 为检测最大的人脸，0 为检测所有人脸
+//单个图片 URL， mode:1 为检测最大的人脸，0 为检测所有人脸
 var_dump ($client->faceDetect(array('url'=>'http://img3.a0bi.com/upload/ttq/20160814/1471155260063.png'), 1));
 //单个图片 file,mode:1 为检测最大的人脸，0 为检测所有人脸
 var_dump ($client->faceDetect(array('file'=>'F:\pic\face1.jpg'),0));
-//单个图片内容,mode:1 为检测最大的人脸，0 为检测所有人脸
+//单个图片内容，mode:1 为检测最大的人脸，0 为检测所有人脸
 var_dump ($client->faceDetect(array('buffer'=>file_get_contents('F:\pic\face1.jpg')), 1));
 ```
 #### 五官定位
@@ -100,7 +101,7 @@ var_dump ($client->faceAddFace('person1111', array('urls'=>array('http://jiangsu
 var_dump ($client->faceAddFace('person2111', array('files'=>array('F:\pic\yang.jpg','F:\pic\yang2.jpg'))));
 //将单个或者多个 Face 的文件内容加入到一个 Person 中
 var_dump ($client->faceAddFace('person3111', array('buffers'=>array(file_get_contents('F:\pic\yang.jpg'),file_get_contents('F:\pic\yang2.jpg')))));
-// 删除人脸，删除一个 person 下的 face
+// 删除人脸，删除一个 Person 下的 face
 var_dump ($client->faceDelFace('person1', array('12346',)));
 //设置信息
 var_dump ($client->faceSetInfo('person1', 'fanbing'));

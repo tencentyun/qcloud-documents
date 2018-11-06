@@ -61,22 +61,22 @@ Fabric 中，排序服务是模块化设计的，具备开发能力的用户可�
 
 ![](https://main.qcloudimg.com/raw/c25fc1a23ec6024ab54504e73fb8a4b4/%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6.png)
 
-## 官方社区
+## 开源社区
 
-Hyperledger Fabric 项目主页: https://www.hyperledger.org/projects/fabric
-Hyperledger Fabric 官方文档：https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html
+Hyperledger Fabric 开源社区: https://www.hyperledger.org/projects/fabric
+Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html
 代码仓库镜像：https://github.com/hyperledger/fabric
 
 ## 常见问题
 
-**TBaaS 目前支持哪个版本的 Hyperledger Fabric？**
+### TBaaS 目前支持哪个版本的 Hyperledger Fabric？
 
 **答**： Hyperledger Fabric v1.1。
 	
-**TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？**
+### TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？
 
 **答**：TBaaS 在设计之初的目标定位于：支持多种区块链底层引擎的一站式企业级区块链平台。目前 TBaaS 支持 Hyperledger Fabric 的同时，也支持 BCOS。率先支持 Hyperledger Fabric 的原因在于其开源、优秀的模块化设计、支持多种语言编写智能合约、隐私保护特性丰富。
 
-**TBaaS 未来会支持以太坊吗？**
+### TBaaS 未来会支持以太坊吗？
 
 **答**：按照国内相关法规要求，TBaaS 不会对以太坊、比特币等开放式区块链进行支持，也不支持用户在 TBaaS 上发行任何数字货币。

@@ -25,7 +25,7 @@ Form
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
 
 #### 非公共头部
 该请求操作需要用到如下必选请求头：
@@ -37,7 +37,7 @@ Form
 ### 表单字段
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| acl |文件的权限，不填默认继承，详见 [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) |String| 否|
+| acl |定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|String| 否|
 | Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) |String| 否|
 | file|文件内容，作为表单的最后一个字段 |String| 是|
 | key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 a/b/a1.txt |String| 是|
@@ -66,6 +66,7 @@ Form
 设置该 POST Policy 的超时时间，使用 ISO8601 GMT 时间，例如 2017-12-01T12:00:00.000Z。
 
 **Conditions 规则**
+
 | 类型   | 描述                                       |
 | ---- | ---------------------------------------- |
 | 完全匹配 | 使用`{"key": "value"}`或`["eq", "$key", "value"]`方式表达 |
@@ -92,7 +93,7 @@ Form
 ## 响应
 ### 响应头
 #### 公共响应头
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该请求操作的响应头具体数据为：
 
@@ -122,10 +123,10 @@ Container 节点 PostResponse 的内容：
 | 错误码                  |   HTTP 状态码                                      |    描述       |
 | ------------------- | --------------------------------------- | ------------------ |
 | InvalidDigest        |400 Bad Request     | 如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回 InvalidDigest | 
-| KeyTooLong           |400 Bad Request     | 上传文件时携带的以x-cos-meta开头的自定义头部，每个自定义头部的key和value加起来不能超过4k，否则返回 KeyTooLong 错误 | 
+| KeyTooLong           |400 Bad Request     | 上传文件时携带的以 x-cos-meta 开头的自定义头部，每个自定义头部的 key 和 value 加起来不能超过 4k，否则返回 KeyTooLong 错误 | 
 | MissingContentLength | 411 Length Required |如果上传文件时，没有添加 Content-Length 头部，会返回该错误码     | 
 | NoSuchBucket         | 404 Not Found       |如果试图添加的 Object 所在的 Bucket 不存在，返回 404 Not Found 错误，错误码：NoSuchBucket | 
-| EntityTooLarge       | 400 Bad Request     |如果添加的文件长度超过5G，会返回 EntityTooLarge，并返回错误信息`“Your proposed upload exceeds the maximum allowed object size”` | 
+| EntityTooLarge       | 400 Bad Request     |如果添加的文件长度超过 5G，会返回 EntityTooLarge，并返回错误信息`“Your proposed upload exceeds the maximum allowed object size”` | 
 | InvalidURI           | 400 Bad Request     | 对象 key 长度限制为 850，如果超过 850 会返回 InvalidURI       |
 
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。

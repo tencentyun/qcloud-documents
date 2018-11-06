@@ -58,7 +58,7 @@ go-mysql-elasticsearch 是一款开源的高性能的 Mysql 数据同步 Elastic
 至此，CTSDB 中的表结构也准备好了，下面我们使用 go-mysql-elasticsearch 来同步数据。
 
 ### go-mysql-elasticsearch 使用  
-由于 go-mysql-elasticsearch 是用 go 语言开发，因此首先安装 go，官方要求的版本是 1.6 以上，go 的安装非常简单，参考官方文档，下载：https://golang.org/dl/， 安装：https://golang.org/doc/install#install， 然后开始安装 go-mysql-elasticsearch，整个步骤如下：
+由于 go-mysql-elasticsearch 是用 go 语言开发，因此首先安装 go，官方要求的版本是 1.6 以上，go 的安装非常简单，参考官方文档，下载：https://golang.org/dl/  安装：https://golang.org/doc/install#install  然后开始安装 go-mysql-elasticsearch，整个步骤如下：
 ```
     $ go get github.com/siddontang/go-mysql-elasticsearch
 	$ cd $GOPATH/src/github.com/siddontang/go-mysql-elasticsearch
@@ -191,6 +191,6 @@ go-mysql-elasticsearch 是一款开源的高性能的 Mysql 数据同步 Elastic
 可以看到，使用 go-mysql-elasticsearch，仅需要在配置文件里面写规则，就能非常方便的将数据从 MySQL 同步给 ES。上面仅仅举了一些简单的例子，如果有更多的需求可以参考 go-mysql-elasticsearch的官方文档。
 
 除了本文所介绍的工具外，这里再推荐两种工具，
-- 一个是 py-mysql-elasticsearch-sync，该工具是使用 python语言编写，与go-mysql-elasticsearch的原理类似，都是利用 binlog 来实现数据的同步，安装及使用见官方文档https://github.com/zhongbiaodev/py-mysql-elasticsearch-sync； 
-- 另一个工具是 logstash，使用 logstash 同步数据时需要安装 logstash-input-jdbc、logstash-output-elasticsearch 两个插件，具体使用参考官方文档 https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html 、https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html <br> 
+- 一个是 py-mysql-elasticsearch-sync，该工具是使用 python语言编写，与go-mysql-elasticsearch的原理类似，都是利用 binlog 来实现数据的同步，安装及使用见 [官方文档 ](https://github.com/zhongbiaodev/py-mysql-elasticsearch-sync)。
+- 另一个工具是 logstash，使用 logstash 同步数据时需要安装 logstash-input-jdbc、logstash-output-elasticsearch 两个插件，具体使用参考 [官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)  、[elastic 官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html) 。
 如果您在使用上述工具中遇到问题，欢迎提工单联系我们。
