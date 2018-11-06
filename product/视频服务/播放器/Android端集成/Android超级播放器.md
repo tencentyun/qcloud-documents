@@ -148,7 +148,7 @@ model.fileid = "5285890781763144364"; // 视频的fileid；
 mSuperPlayerView.playWithMode(model);
 ```
 
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF?from=product-document-use-Player)。转码完成后，播放器会自动显示多个清晰度。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)。转码完成后，播放器会自动显示多个清晰度。
 
 #### 视频缩略图&打点信息
 
