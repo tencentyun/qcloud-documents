@@ -37,8 +37,9 @@ sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel mak
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
 ```
-<span id="BY"></span>
+
 #### 3. 编译和安装 COSFS 
+
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
 cd /usr/cosfs
@@ -49,15 +50,13 @@ sudo make install
 cosfs --version
 ```
 
-> **注意1：**
-> 在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
-
-
-```shell
+根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
+- 在 CentOS 6.5 及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+```
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，您需要手动安装 fuse 2.8.4 及以上版本，安装 fuse 2.9.4 的命令示例如下：
+此时，您需要手动安装 fuse 2.8.4 及以上版本，安装命令示例如下：
 ```shell
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
@@ -73,17 +72,18 @@ ldconfig
 pkg-config --modversion fuse 
 #当您看到 “2.9.4” 时，表示fuse安装成功  
 ```
-> **注意2：**
-> 在 MacOS 进行configure操作时，可能会出现如下提示：
+
+- 在 MacOS 进行 configure 操作时，可能会出现如下提示：
 ```shell
 configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
 No package 'libcrypto' found
 ```
-此时，您需要设置 PKG_CONFIG_PATH 变量，以使得pkg-config工具能找到 openssl，命令如下：
+此时，您需要设置 PKG_CONFIG_PATH 变量，以使得 pkg-config 工具能找到 openssl，命令如下：
 ```shell
 brew info openssl 
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根据上一条命令的提示信息修改这条命令
 ```
+
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
