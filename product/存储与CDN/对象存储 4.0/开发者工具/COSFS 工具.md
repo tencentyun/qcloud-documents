@@ -6,7 +6,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 ## 安装和使用 
 ### 适用操作系统版本 
-主流的 Ubuntu、CentOS、Mac OS X 系统。
+主流的 Ubuntu、CentOS、MacOS系统。
 
 ### 安装流程
 
