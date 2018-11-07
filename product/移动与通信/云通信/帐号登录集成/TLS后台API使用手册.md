@@ -347,4 +347,4 @@ function signature($identifier, $sdkappid, $private_key_path)
 下载 [TLS 后台 API ](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)。
 ## 联系我们
 
-[腾讯云论坛](http://bbs.qcloud.com/thread-8287-1-1.html) 的一些信息可能对您有帮助，如需支持，请 @TLS 帐号支持，QQ 3268519604，电子邮箱 tls_assistant@tencent.com。
+[腾讯云论坛](http://bbs.qcloud.com/thread-8287-1-1.html) 的一些信息可能对您有帮助，如需更多帮助，请[提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=云通信%20%20IM&step=1)。
