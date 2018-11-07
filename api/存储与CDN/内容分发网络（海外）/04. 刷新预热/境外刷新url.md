@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口（RefreshCdnOverSeaUrl）用于将海外CDN节点上指定资源设置为过期。
+本接口（RefreshCdnOverSeaUrl）用于将境外 CDN 节点上指定资源设置为过期。
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
