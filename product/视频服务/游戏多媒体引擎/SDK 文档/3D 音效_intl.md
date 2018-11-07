@@ -1,18 +1,18 @@
 ## Overview
-Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This document provides a detailed description that makes it easy for developers to debug and integrate GME APIs for 3D sound effect.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides a detailed description that makes it easy for developers to debug and integrate GME 3D sound effect APIs.
 
 
-## Integrating 3D Sound Effect
-### Initialize 3D sound effect
-This function is used to Initialize  3D sound effect.
+## 3D Sound Effect Integration
+### 1. Initialize 3D sound effect
+This function is used to Initialize 3D sound effect after entering the room. This API must be called before using 3D sound effect, no matter for receiving or sending the 3D sound effect. 
 
 #### Function prototype  
 ```
 public abstract int InitSpatializer()
 ```
 
-### Enable/disable 3D sound effect
-This function is used to enable/disable 3D sound effect. You need to call this API before you can use 3D sound effect. Any user who only receives 3D sound effect and does not send it also needs to call this API.
+### 2. Enable/disable 3D sound effect
+This function is used to enable/disable 3D sound effect.
 
 #### Function prototype  
 ```
@@ -22,11 +22,10 @@ QAVAudioCtrl virtual int EnableSpatializer(bool enable, bool applyToTeam)
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------
 | enable    |bool         | Specifies whether to enable 3D sound effect |
-| applyToTeam    |bool         | Be valid while bEnable=true, specifies whether to use spatial audio in the same team |
+| applyToTeam    |bool         | Specifies whether to use spatial audio in the same team |
 
 
-
-### Obtain status of 3D sound effect
+### 3. Obtain status of 3D sound effect
 This function is used to obtain the status of 3D sound effect and returns a Boolean value.
 
 #### Function prototype  
@@ -39,9 +38,13 @@ QAVAudioCtrl virtual bool IsEnableSpatializer()
 | true    	|Enabled |
 | false    	|Disabled |  
 
-### Update self position (including orientation)
-Set own position and rotate information to GME for function: Spatializer && WorldMode.
-The relationship between distance and sound attenuation.
+### 4. Update sound source position (including direction)
+
+This function is used to set its own position and direction related information.  This API can be called frame by frame to update the 3D sound effect.
+
+#### relationship between sound source distance and sound volume attenuation.
+
+In 3D sound effect, the sound volume has a certain attenuation relationship with the sound source distance. When the unit distance exceeds 500, the volume attenuates to almost zero
 
 | Distance Range (In the unit of engine) | Attenuation Formula |
 | ------- |---------|
@@ -62,13 +65,15 @@ ITMGRoom virtual void UpdateAudioRecvRange(int range)
 ```
 ITMGRoom virtual intUpdateSelfPosition(int position[3], float axisForward[3], float axisRight[3], float axisUp[3])
 ```
+The definition of GME coordinate system is as belows(it is the same as the definition of Unreal's but is not as Unity's)
+- x axis points to the front, y axis points to the right, z axis points to the top.
 
 |Parameter | Type | Description |
 | ------------- |-------------|-------------
-| position   	|int[]		|Position of self, the order is forword, right and up|
-| axisForward   |float[]  	|The forward axis of self coordinate system|
-| axisRight    	|float[]  	|The right axis of self coordinate system|
-| axisUp    	|float[]  	|The up axis of self coordinate system|
+| position   	|int[]		|Self-position, the coordinate order is front, right and top|
+| axisForward   |float[]  	|The front axis value of self coordinate system|
+| axisRight    	|float[]  	|The right axis value of self coordinate system|
+| axisUp    	|float[]  	|The top axis value of self coordinate system|
 
 
 #### Sample code

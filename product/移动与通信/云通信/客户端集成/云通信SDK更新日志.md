@@ -132,7 +132,7 @@
 
 **接口变更：**
 1. TIMMessageOfflinePushSettings.AndroidSettings 及 TIMMessageOfflinePushSettings.IOSSettings 构造方式变更。
-详情请参见官网文档（https://cloud.tencent.com/document/product/269/3899）
+详情请参见官网文档 [离线推送](https://cloud.tencent.com/document/product/269/3899) 文档。
 
 #### IM Android SDK 2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码 6205）

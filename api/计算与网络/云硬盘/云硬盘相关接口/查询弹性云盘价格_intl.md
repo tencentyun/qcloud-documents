@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (InquiryStoragePrice) is used to query the price of [Elastic Cloud Storage](https://cloud.tencent.com/doc/product/362/2345). The API's functions vary with different input parameters. For details, refer to the description later.
+This API (InquiryStoragePrice) is used to query the price of [Elastic Cloud Storage](https://intl.cloud.tencent.com/doc/product/362/2345). The API's functions vary with different input parameters. For details, refer to the description later.
 
 Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
@@ -17,7 +17,7 @@ Usage restrictions:
 | inquiryType | Yes | String | For query for the price of newly purchased cloud disks, the input parameter is always "create" | 
 | storageType | Yes | String | Type of the Cloud Block Storage. HDD cloud storage: cloudBasic, SSD cloud storage: cloudSSD |
 | storageSize | Yes | Int | Size of Cloud Block Storage (GB). <br>The minimum size of a HDD cloud storage is 10GB, and the minimum of a SSD cloud storage is 250GB. The increment for both is 10GB. |
-| goodsNum | Yes | Int | The number of Cloud Block Storages purchased. The maximum value refer to [Cloud Block Storage Usage Restrictions](https://cloud.tencent.com/doc/product/362/5145). | 
+| goodsNum | Yes | Int | The number of Cloud Block Storages purchased. The maximum value refer to [Cloud Block Storage Usage Restrictions](https://intl.cloud.tencent.com/doc/product/362/5145). | 
 | period | Yes | Int | Length of purchase (month) | 
 | payMode | Yes | String | Payment mode of the Cloud Block Storage. Only the annual or monthly plan: prePay is supported currently | 
  
@@ -26,7 +26,7 @@ Usage restrictions:
 | Parameter Name | Required  | Type | Description |
 | ------- | ------- | ------- | --- | 
 | inquiryType | Yes | String | For renewals, the input parameter is always "renew" | 
-| storageId | Yes | String | ID of the cloud storage, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](/doc/api/364/2519) API |
+| storageId | Yes | String | ID of the cloud storage, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/document/api/364/2519) API |
 | period | Yes | Int | Length of purchase (month) |
  
  
