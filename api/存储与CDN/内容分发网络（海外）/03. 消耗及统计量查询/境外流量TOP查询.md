@@ -1,4 +1,4 @@
-接口 GetCdnOverseaStatTop 通过入参 statType 不同可指定查询按海外流量 / 海外请求数排序的 TOP URL，此文档对海外流量 TOP 查询进行详细说明。
+接口 GetCdnOverseaStatTop 通过入参 statType 不同可指定查询按境外流量 / 境外请求数排序的 TOP URL，此文档对境外流量 TOP 查询进行详细说明。
 
 ## 接口描述
 **GetCdnOverseaStatTop** 用于查询多域名/项目指定时间区间按流量排名的 TOP 1000 URL 列表。
