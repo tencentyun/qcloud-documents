@@ -1,10 +1,10 @@
 ## 1. 接口描述
-本接口（CdnOverseaPushser）提交海外CDN URL预热任务。
+本接口（CdnOverseaPushser）提交境外 CDN URL预热任务。
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 **接口说明：**
-+ 每一个客户每天能够提交的海外CDN预热资源上限为1000条，每一个客户每次提交的海外CDN预热资源上限为20条；
++ 每一个客户每天能够提交的境外 CDN 预热资源上限为1000条，每一个客户每次提交的境外 CDN 预热资源上限为 20 条；
 + 若默认上限无法满足您的业务需求，请联系我们为您调整配额；
 
 [调用Demo](https://cloud.tencent.com/document/product/228/1734)
