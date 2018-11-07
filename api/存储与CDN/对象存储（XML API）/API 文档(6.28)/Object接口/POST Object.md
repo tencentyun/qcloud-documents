@@ -35,6 +35,7 @@ Form
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。|String| 是|
 
 ### 表单字段
+
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | acl |定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|String| 否|
@@ -47,17 +48,39 @@ Form
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。 |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied。 |String| 否|
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。 | String | 如需加密，是 |
-| q-signature      | 使用上述元素计算的请求签名，COS 将会使用表单元素与签名内容做校验，若签名与所签内容不一致，则请求将被拒绝。 | String | 是 |
+
+#### 签名保护
+
+当发起一个表单上传 HTTP POST 请求需要签名保护时，表单需要包含以下的内容结构 form-data 的内容：
+
+| 表单字段         | 描述                                                         |
+| ---------------- | ----------------------------------------- |
+| policy           | 经过 Base64 加密的策略内容，策略内容将用于对请求内容的检查。如果请求内容与策略指定条件不符，则请求将被拒绝。 |
+| q-sign-algorithm | 用于计算签名的算法，腾讯云 COS 目前支持 SHA1，此处填写小写 `sha1`。 |
+| q-ak             | 用户在腾讯云的账户密钥 ID，即 SecretId。                     |
+| q-key-time      | 用于请求签名的密钥有效起止时间，通过 Unix 时间戳描述起始和结束时间，以秒为单位，格式为 [*start-seconds*];[*end-seconds*]。例如 `1480932292;1481012298`。 |
+| q-signature      | 使用上述元素计算的请求签名，COS 将会使用表单元素与签名内容做校验，若签名与所签内容不一致，则请求将被拒绝。 |
+
+#### 签名计算
+
+签名 q-signature 的计算分为三个步骤：
+
+1. 使用密钥内容对 q-key-time 的时间加密计算值 SignKey。
+2. 创建一个 POST 请求 policy 并将内容进行 sha1 加密，得到 StringToSign。
+3. 使用 SignKey 对 StringToSign 进行加密，生成签名 Signature。
 
 #### Policy
-**基本格式**
+以下是一个完整的 policy 示例：
 
 ```json
 { "expiration": "2007-12-01T12:00:00.000Z",
   "conditions": [
     {"acl": "public-read" },
-    {"bucket": "johnsmith" },
+    {"bucket": "johnsmith-1250000000" },
     ["starts-with", "$key", "user/eric/"],
+    {"q-sign-algorithm": "sha1" },
+    {"q-ak": "AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q" },
+    {"q-sign-time": "1480932292;1481012298" },
   ]
 }
 ```
@@ -96,16 +119,36 @@ Form
 该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
-该请求操作的响应头具体数据为：
+该请求将返回如下响应头部：
 
+|名称|描述|类型|
+|:---|:-- |:-- |
+|success_action_redirect|成功上载时客户端重定向到的URL。|String|
+|x-cos-version-id|目标存储桶中复制对象的版本。|String|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值：AES256。|string|
+
+
+### 响应参数
 |名称|描述|类型|
 |:---|:-- |:-- |
 | ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏。|String|
 | Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径。|String|
-|x-cos-version-id|目标存储桶中复制对象的版本。|String|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值：AES256。|string|
+
 
 ### 响应体
+该响应体返回为 application/xml 数据，包含完整节点数据的内容展示如下：
+
+```
+<PostResponse>
+        <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
+        <Bucket>xxxx-123456</Bucket>
+        <Key>a/empty:a</Key>
+        <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
+</PostResponse>
+```
+
+具体的数据描述如下：
+
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
 | PostResponse |无| 保存 POST Object 结果的容器。 | Container |是|
