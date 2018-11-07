@@ -23,14 +23,14 @@ allprojects {
 - 在主工程的 buidle.gradle 文件中，添加 dependencies。
 
  ```
-// COS SDK模块
+// COS SDK 模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
-// iLiveSDK模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.1'
+// iLiveSDK 模块
+compile 'com.tencent.ilivesdk:ilivesdk:1.9+'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.5.1'
-// 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.6.0'
+compile 'com.tencent.ticsdk:ticsdk:1.5.2'
+// 白板 SDK 模块
+compile 'com.tencent.boardsdk:boardsdk:1.6.2'
 ```    
 
 - 在 defaultConfig 中配置 abiFilters 信息。
@@ -62,7 +62,7 @@ TICSDK 使用的一般流程如下：
 
 ### 2.2. 控件使用
 
-TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接Layout的XML文件里直接引用，或者继承添加自己业务需要的特性。如：
+TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接 Layout 的 XML 文件里直接引用，或者继承添加自己业务需要的特性。如：
 
 ```xml
 <com.tencent.ilivesdk.view.AVRootView
@@ -92,7 +92,7 @@ TICManager.getInstance().setAvRootView(livingVideoView);
 
 ### 2.3. 初始化 SDK
 
-> 在初始化前，需确认已[开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
+> **注意：**在初始化前，需确认已 [开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
 
 接口 | 说明
 ---|---
@@ -131,13 +131,13 @@ login | 登录 | userId 和 userSig
 ------- | ------- | -------
 createClassroom | 创建课堂 | roomID
 
-其中参数**roomID**由业务层自行指定（必须为正整数）。
+其中参数 **roomID** 由业务层自行指定（必须为正整数）。
 
 ### 2.6. 加入课堂
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
-joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomOption
+joinClassroom | 根据参数配置和 roomID 加入互动课堂中 | TICClassroomOption
 
 该接口需要传入TICClassroomOption 加入课堂的参数配置。如：
 
@@ -179,7 +179,7 @@ enableMic | 打开/关闭麦克风
 enableSpeaker | 打开/关闭扬声器
 
 ### 2.8. 使用互动白板
-> **说明：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
+> **注意：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
 
 白板的相关操作用户直接通过白板 SDK 操作即可，TICSDK 不做任何封装。详见 [Android 白板 SDK 使用手册](/document/product/680/17889)。
 
@@ -240,7 +240,7 @@ quitClassroom | 退出课堂
 ------- | ------- | ------
 destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责调用。| roomId
 
->** 注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
+>**注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
 
 ### 2.13. 登出
 

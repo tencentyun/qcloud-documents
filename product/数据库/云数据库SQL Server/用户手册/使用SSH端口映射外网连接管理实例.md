@@ -1,6 +1,6 @@
-考虑到数据的安全，目前 CDB for SQL Server 尚未开放实例的外网 IP，但有需求的用户可以利用 SSH2 的端口映射在外网连接实例，并对其进行配置和管理，操作步骤非常简单，可按照以下步骤操作：
+考虑到数据的安全，目前 TencentDB for SQL Server 尚未开放实例的外网 IP，但有需求的用户可以利用 SSH2 的端口映射在外网连接实例，并对其进行配置和管理，操作步骤非常简单，可按照以下步骤操作：
 1. 准备一台具有外网 IP 的 Linux 云主机
-2. 在本地使用 SSH 工具（如 SecureCRT 或 PuTTY 等）配置端口映射，在本地启动一个服务端口，然后使用 SSH 工具与linux服务器建立连接，即可使用 SSMS 连接本地的服务端口
+2. 在本地使用 SSH 工具（如 SecureCRT 或 PuTTY 等）配置端口映射，在本地启动一个服务端口，然后使用 SSH 工具与 linux 服务器建立连接，即可使用 SSMS 连接本地的服务端口
 ![](//mccdn.qcloud.com/static/img/3f9a661b42fed1648d8b00091d5ace60/image.png)
 
 **以 SecureCRT 为例：**
