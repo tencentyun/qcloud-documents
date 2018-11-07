@@ -9,8 +9,9 @@ COS 触发器具有以下特点：
 
 - COS Bucket（必选）：配置的COS Bucket，仅支持选择同地域下的 COS 存储桶。
 - 事件类型（必选）：支持“文件上传”和“文件删除”、以及更细粒度的上传和删除事件，具体事件类型见下表。事件类型决定了触发器何时触发云函数，例如选择“文件上传”时，会在该COS Bucket中有文件上传时触发该函数。
-|    事件类型                   | 描述 |
-| ----------                   | --- |
+
+|    事件类型    | 描述 |
+| ---------- | --- |
 | cos: ObjectCreated:*         |  以下提到的所有上传事件均可触发云函数 |
 | cos: ObjectCreated:Put       |  使用 Put Object 接口创建文件时触发云函数 |
 | cos: ObjectCreated:Post      |  使用 Post Object 接口创建文件时触发云函数  |
@@ -24,7 +25,7 @@ COS 触发器具有以下特点：
 
 ## COS 触发器使用限制
 
-- 为了避免 COS 的事件生产投递出现错误，COS 针对每个 Bucket 的每个事件（如文件上传/文件删除等）和前后缀过滤的组合，限制同一组规则只能绑定一个可触发的函数。因此，在您创建 COS 触发器时，请不要针对同一个 COS Bucket 配置相同的规则。例如，您可以为函数 A 配置 test Bucket 的“Created:* ”事件触发（未配置过滤规则），那么该 test Bucket 的上传事件不能再绑定到其他函数，这些事件包含（Created:Put、Created:Post等），但是您可以为 函数 B 配置 test Bucket 的“ObjectRemove:* ” 事件触发。
+- 为了避免 COS 的事件生产投递出现错误，COS 针对每个 Bucket 的每个事件（如文件上传/文件删除等）和前后缀过滤的组合，限制同一组规则只能绑定一个可触发的函数。因此，在您创建 COS 触发器时，请不要针对同一个 COS Bucket 配置相同的规则。例如，您可以为函数 A 配置 test Bucket 的“Created: * ”事件触发（未配置过滤规则），那么该 test Bucket 的上传事件不能再绑定到其他函数，这些事件包含（Created:Put、Created:Post等），但是您可以为 函数 B 配置 test Bucket 的“ObjectRemove” 事件触发。
 
 - 当使用前后缀过滤规则时，为了保证同一个 Bucket 触发事件的唯一性，需要注意同一 Bucket 无法使用重叠前缀、重叠后缀或前缀和后缀的重叠组合为相同的事件类型定义筛选规则。例如，当您给函数 A 配置了 test Bucket 的“Created:* ”和前缀过滤为“Log”的事件触发，那么该  test Bucket 下就不能再创建“Created:* ”和前缀过滤为“Lo”的事件触发。
 
