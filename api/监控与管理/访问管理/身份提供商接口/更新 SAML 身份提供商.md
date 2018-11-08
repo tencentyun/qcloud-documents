@@ -53,4 +53,4 @@ Action=UpdateSAMLProvider&name=idp&SAMLMetadataDocument=U0FNTE1ldGFkYXRhRG9jdW1l
 | 错误码 | 描述 |
 |---------|---------|
 | InvalidParameter.ProviderNotExist| 身份提供商不存在 |
-| InvalidParameter. SAMLMetadataDocument | SAML 身份提供商元数据文档错误 |
+| InvalidParameter.SAMLMetadataDocument | SAML 身份提供商元数据文档错误 |
