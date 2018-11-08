@@ -10,7 +10,7 @@
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| name | 是 | String | SAML身份提供商名称 |
+| name | 是 | String | SAML 身份提供商名称 |
 | desc | 是 | String | 身份提供商描述 |
 | SAMLMetadataDocument | 是 | String | SAML 身份提供商元数据文档。需要以 Base64 编码，支持最大数据为 64KB。 |
 
