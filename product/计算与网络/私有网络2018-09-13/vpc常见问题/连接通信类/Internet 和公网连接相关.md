@@ -22,7 +22,7 @@
 2. 将转换成功的这个弹性 IP 与该云服务器解绑并释放，操作详情请参见 [解绑和释放弹性 IP](https://cloud.tencent.com/document/product/213/16586#.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip-.E8.A7.A3.E7.BB.91.E4.BA.91.E4.BA.A7.E5.93.81)。
 3. 重新申请一个弹性 IP ，并与该云服务器绑定，操作详情请参见 [申请和绑定弹性 IP](https://cloud.tencent.com/document/product/213/16586#.E7.94.B3.E8.AF.B7.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip)。
 
-> 注意：
+>**注意：**
 > 公网 IP 转换成弹性公网 IP 后，建议您立即释放，否则，未绑定实例的弹性 IP 将会收取一定 [限制费用](https://cloud.tencent.com/document/product/213/17156)。 
 
 ### 什么是公网网关？
