@@ -16,7 +16,7 @@
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | total | Integer | 身份提供商总数 |
-| list | Array Of [SAMLProvider](http://tapd.oa.com/QCloud_2015/markdown_wikis/view/#1010103951007980175) | SAML 身份提供商列表 |
+| list | Array Of SAMLProvider | SAML 身份提供商列表 |
 
 SAMLProvider 字段展示如下：
 
