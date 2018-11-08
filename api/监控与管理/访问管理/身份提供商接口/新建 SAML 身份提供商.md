@@ -55,10 +55,11 @@ Action=CreateSAMLProvider&name=idp&SAMLMetadataDocument=U0FNTE1ldGFkYXRhRG9jdW1l
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "name": "api-test",
-        "SAMLProviderArn": "qcs::cam::uin/798950673:saml-provider/api-test"
+        "name": "idp",
+        "SAMLProviderArn": "qcs::cam::uin/798950673:saml-provider/idp"
     }
 }
+
 ``` 
 
 ### 错误码
