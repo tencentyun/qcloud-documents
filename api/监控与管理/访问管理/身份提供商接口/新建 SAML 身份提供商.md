@@ -1,6 +1,6 @@
 ### 接口描述
 
-本接口（CreateSAMLProvider）用于创建SAML身份提供商。
+本接口（CreateSAMLProvider）用于创建 SAML 身份提供商。
 请求域名：cam.api.qcloud.com
 请求方式：HTTP POST
 
@@ -12,7 +12,7 @@
 |---------|---------|---------|---------|
 | name | 是 | String | SAML身份提供商名称 |
 | desc | 是 | String | 身份提供商描述 |
-| SAMLMetadataDocument | 是 | String | SAML身份提供商元数据文档。需要以Base64 编码，支持最大数据为64KB。 |
+| SAMLMetadataDocument | 是 | String | SAML 身份提供商元数据文档。需要以 Base64 编码，支持最大数据为 64KB。 |
 
 备注：若IdP元数据文档超过最大限制，可删除元数据XML文档中除IDPSSODescriptor外的其他XML节点。例如：
 
@@ -29,8 +29,8 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| name | String | SAML身份提供商名称 |
-| SAMLProviderArn | String | SAML身体提供商访问描述名称 |
+| name | String | SAML 身份提供商名称 |
+| SAMLProviderArn | String | SAML 身体提供商访问描述名称 |
 
 ### 示例
 
@@ -67,5 +67,5 @@ Action=CreateSAMLProvider&name=idp&SAMLMetadataDocument=U0FNTE1ldGFkYXRhRG9jdW1l
 | 错误码 | 描述 |
 |---------|---------|
 | InvalidParameter.ProviderAlreadyExist | 身份提供商已存在 |
-| InvalidParameter. SAMLMetadataDocument | SAML身份提供商元数据文档错误 |
+| InvalidParameter. SAMLMetadataDocument | SAML 身份提供商元数据文档错误 |
 | InvalidParameter.ProviderMaxLimit | 身份提供商达到上限 |
