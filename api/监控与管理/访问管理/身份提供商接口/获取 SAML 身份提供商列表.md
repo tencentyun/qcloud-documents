@@ -1,5 +1,5 @@
 ### 接口描述
-本接口（GetSAMLProvider）用于查询身份提供商详情。
+本接口（GetSAMLProvider）用于获取 SAML 身份提供商列表详情。
 请求域名：cam.api.qcloud.com
 
 ### 输入参数
@@ -21,7 +21,7 @@
 
 ### 示例
 
-查询名称为idp的SAML身份提供商详情。
+查询名称为 IdP 的 SAML 身份提供商详情。
 
 ##### 输入示例：
 
