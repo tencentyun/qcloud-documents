@@ -1,6 +1,6 @@
 ### 接口描述
 
-本接口（ListSAMLProviders）用于查询特定的 SAML 身份提供商信息。
+本接口（ListSAMLProviders）用于获取 SAML 身份提供商列表。
 请求域名：cam.api.qcloud.com
 
 ### 输入参数
