@@ -37,12 +37,12 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 ```java
 dependencies {
     ...
-    implementation 'com.tencent.qcloud.uikit:tuikit:0.0.1.156'
+    implementation 'com.tencent.qcloud.uikit:tuikit:0.0.1.161'
 }
 
 ```
 
-TUIKit会自动加载所需的IMSDK。目前加载的IMSDK版本是V3.5.0.156。
+TUIKit会自动加载所需的IMSDK。目前加载的IMSDK版本是V3.5.0.161。
 
 ## 初始化TUIKit
 
