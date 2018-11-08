@@ -10,7 +10,7 @@
 |---------|---------|---------|---------|
 | name | 是 | String | SAML 身份提供商名称 |
 | desc | 否 | String | 身份提供商描述 |
-| SAMLMetadataDocument | 否 | String | SAML身份提供商元数据文档。需要以Base64 编码，支持最大数据为64KB。 |
+| SAMLMetadataDocument | 否 | String | SAML 身份提供商元数据文档。需要以Base64 编码，支持最大数据为 64KB。 |
 
 备注：若 IdP 元数据文档超过最大限制，可删除元数据 XML 文档中除 IDPSSODescriptor 外的其他 XML 节点。
 
@@ -48,9 +48,9 @@ Action=UpdateSAMLProvider&name=idp&SAMLMetadataDocument=U0FNTE1ldGFkYXRhRG9jdW1l
 
 ### 错误码
 
-以下仅列出了接口业务逻辑相关的错误码，其他错误码详见[公共错误码](https://cloud.tencent.com/document/api/213/15694#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
+以下仅列出了接口业务逻辑相关的错误码，其他错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/15694#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
 
 | 错误码 | 描述 |
 |---------|---------|
 | InvalidParameter.ProviderNotExist| 身份提供商不存在 |
-| InvalidParameter. SAMLMetadataDocument | SAML身份提供商元数据文档错误 |
+| InvalidParameter. SAMLMetadataDocument | SAML 身份提供商元数据文档错误 |
