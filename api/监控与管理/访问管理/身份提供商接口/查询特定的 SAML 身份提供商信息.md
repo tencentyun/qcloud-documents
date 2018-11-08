@@ -1,10 +1,10 @@
 ### 接口描述
 
-本接口（ListSAMLProviders）用于查询身份提供商列表。
+本接口（ListSAMLProviders）用于查询特定的 SAML 身份提供商信息。
 请求域名：cam.api.qcloud.com
 
 ### 输入参数
-以下请求参数列表仅列出了接口请求参数，其余公共参数列表见[公共请求参数](https://cloud.tencent.com/document/api/213/15692)。
+以下请求参数列表仅列出了接口请求参数，其余公共参数列表见 [公共请求参数](https://cloud.tencent.com/document/api/213/15692)。
 
 | 参数名称 | 必选 | 类型 | 描述|
 |---------|---------|---------|---------|
