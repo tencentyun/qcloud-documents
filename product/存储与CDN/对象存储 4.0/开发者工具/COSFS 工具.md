@@ -37,9 +37,8 @@ sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel mak
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
 ```
-
+<a id="compile"> </a>
 #### 3. 编译和安装 COSFS 
-
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
 cd /usr/cosfs
@@ -161,6 +160,10 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 设置 COSFS 日志记录级别，可选 info、dbg，生产环境中建议设置为 info，调试时可以设置为 dbg。
 
+### 8. -oumask=[perm]
+
+该选项可以去除给定类型用户对挂载目录内文件的操作权限，例如-oumask=007，可以去除其他用户对文件的读写执行权限。
+
 ## 局限性
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
 - 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
@@ -213,7 +216,11 @@ COSFS 支持 https，http 和 https 的使用形式分别为：
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
-
+在 libcurl 所依赖的 NSS 库为 3.12.3 版本以上的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 https 方式挂载 Bucket，需要执行如下命令：
+```shell
+echo "export NSS_STRICT_NOFORK=DISABLED" >> ~/.bashrc
+source ~/.bashrc
+```
 ### 8. 挂载时显示 Bucket not exist?
 请检查参数 -ourl，确保 url 中不要携带 Bucket 部分，正确的形式为：
 ```shell
@@ -237,3 +244,4 @@ cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//co
 echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
 echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
 ```
+
