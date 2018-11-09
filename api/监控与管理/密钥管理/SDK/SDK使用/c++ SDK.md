@@ -62,7 +62,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 id|
+|KeyId|string|密钥 Id|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -97,7 +97,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥id|
+|KeyId|string|密钥 Id|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -108,7 +108,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 ```
     KeyMetadata meta;
-    string keyId=""  # 请填写你的keyId
+    string keyId=""  # 请填写您的keyId
     account.get_key_attributes(meta.KeyId,meta);
 ```
 
@@ -200,14 +200,14 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
+|KeyId|string|None|主密钥 Id|
 
 返回值 无
 
 #### 使用示例
 
 ```
-    string KeyId= ""  // 请填写你的keyId;
+    string KeyId= ""  // 请填写您的keyId;
     account.enable_key(KeyId)
 ```
 ### 禁用主密钥
@@ -221,13 +221,13 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
+|KeyId|string|None|主密钥 Id|
 
 返回值 无
 #### 使用示例
 
 ```
-    string KeyId= ""  // 请填写你的keyId;
+    string KeyId= ""  // 请填写您的keyId;
     account.disable_key(KeyId)
 ```
 
@@ -258,7 +258,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 #### 使用示例
 
 ```
-    string KeyId = "" ; // 请填写你的keyId;
+    string KeyId = "" ; // 请填写您的keyId;
     string Plaintest = "test message data"
     string CiphertextBlob = account.encrypt(KeyId,Plaintest,"");
 ```
