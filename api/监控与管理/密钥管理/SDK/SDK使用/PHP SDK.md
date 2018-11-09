@@ -5,7 +5,7 @@
 
 ### 开发环境
 1. 依赖环境：PHP5.3.0 版本及以上
-2. 从控制台获取 APP ID，SecretID，SecretKey。
+2. 从控制台获取 AppID，SecretID，SecretKey。
 
 
 ## 生成客户端对象
@@ -184,7 +184,7 @@
 #### 使用示例
 
 ```
-    $KeyId= ""  // 请填写你的keyId;
+    $KeyId= ""  // 请填写您的keyId;
     $kms_account->enable_key($KeyId);
 ```
 ### 禁用主密钥
