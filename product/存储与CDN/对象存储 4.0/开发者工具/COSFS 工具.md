@@ -216,7 +216,7 @@ COSFS 支持 https，http 和 https 的使用形式分别为：
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
-在 libcurl 所依赖的 NSS 库为 3.12.3 版本以上的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 https 方式挂载 Bucket，需要执行如下命令：
+在 libcurl 所依赖的 NSS 库为 3.12.3 及其以上版本的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 https 方式挂载 Bucket，需要执行如下命令：
 ```shell
 echo "export NSS_STRICT_NOFORK=DISABLED" >> ~/.bashrc
 source ~/.bashrc
