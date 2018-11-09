@@ -1,3 +1,24 @@
+### [1.6.0] 2018-11-09
+#### 新增
+1. `TXBoardSDK`新增文字输入功能:
+
+```objc
+[self.boardView setBrushModel:TXBoardBrushModelText];
+```
+2. 自己被老师踢出课堂会在以下回调抛出（此时`members`中`identifier`为自己）：
+
+```
+/**
+ *  @brief 有人退出（或者被踢出）课堂时的通知回调
+ *
+ *  @param members 退出成员的identifier（NSString*）列表
+ */
+-(void)onMemberQuit:(NSArray*)members;
+```
+
+#### 优化
+1. 修复了一些 bug。
+
 ### [1.5.6] 2018-10-25
 #### 优化
 1. 修复了一些 bug。
