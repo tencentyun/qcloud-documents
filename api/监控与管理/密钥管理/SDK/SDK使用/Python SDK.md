@@ -3,9 +3,9 @@
 [GitHub 地址](https://github.com/tencentyun/kms-python-sdk) ,欢迎贡献代码以及反馈问题。
 
 ### 环境依赖
-python2.7 目前不支持 python3。
+Python2.7 目前不支持 Python3。
 
-获取 python 版本的方法：
+获取 Python 版本的方法：
 
 Linux shell 
 
@@ -24,7 +24,7 @@ Windows cmd
     Python 2.7.11
 ```
 
-如果提示不是内部或者外部命令，请先在 Window 环境变量 PATH 里面添加上 python 的绝对路径。
+如果提示不是内部或者外部命令，请先在 Window 环境变量 PATH 里面添加上 Python 的绝对路径。
 
 
 ## 生成客户端对象
