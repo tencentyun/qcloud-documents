@@ -185,7 +185,7 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 umount -l /path/to/mnt_dir
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](#BY)  部分更新 fuse 版本或安装最新版本的 COSFS。
+如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](#compile)  部分更新 fuse 版本或安装最新版本的 COSFS。
 
 ### 4. 如何挂载 Bucket 下的一个目录？
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
