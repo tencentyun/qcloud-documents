@@ -24,7 +24,7 @@
 ```
 
 sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可以直接运行，生成的 libKMS.a 和 libKMS.so 文件可以放到自己的 lib 文件夹下，inc目录拷贝到自己工程的 include 路径下。
-### 历史版本
+
 
 ## 生成客户端对象
 
