@@ -1,12 +1,12 @@
 ## Overview
 
-This document provides FAQs about Game Multimedia Engine (GME) SDK to make it easier for developers to debug and integrate the APIs for GME. The following are FAQs and common concepts about GME. This document will be updated with more FAQs from time to time.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides FAQs about Game Multimedia Engine (GME) SDK to make it easier for developers to debug and integrate the APIs of GME. The following are FAQs and common concepts about GME. This document will be updated with more FAQs from time to time.
 
 ## General FAQs
 
 ### What features are supported by GME?
 
-GME supports voice chat, voice message and voice-to-text converting.
+GME supports real-time voice chat, voice message and voice-to-text converting.
 
 ### What game scenarios does GME apply to?
 
@@ -18,7 +18,7 @@ GME supports Unity, Unreal and Cocos2d engines, and Windows, Mac, iOS and Androi
 
 ### How do I get started with GME?
 
-[Integration Guide](https://cloud.tencent.com/document/product/607/10782) will guide you through the initial integration of GME before you can use the engine.
+[Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782) will guide you through the initial integration of GME before you can use the engine.
 
 ### Is armv8 available in Android's so library?
 
@@ -33,24 +33,24 @@ It is recommended to deploy authentication feature on the client at the early st
 | Deployment at backend | Higher security	| Joint testing by backend developers is required |
 | Deployment on client | Quick integration | Lower security |
 
+### What should I do for the authentication failure?
+When the authentication failure happens, check if the voice service on the console is enabled. If it is enabled, please check the following, 
+1. If sdkappid is the same as that of the console.
+2. OpenID only support Int64 type(convert to string), it must be greater than 10000. 
+3. The room ID parameter for voice message must be set to "null".
+4. If the permission key match the one from Tencent Cloud console.  
 
-### The error code indicates an authentication failure when I try to integrate voice chat and voice message features. What should I do?
-First, check if the voice message service is enabled in the console. If yes, then verify the following:
-1.The sdkappid is consistent with the console.
-2. The OpenID is greater than 10,000.
-3. The room number parameter of voice message must be set to 0.
-4. The key obtained from the Tencent Cloud console is valid.
 
-## FAQs About Downloading and Modifying Demo
+## FAQs about Downloading and Modifying sample code
 
-### Where should I download the GME Demo and SDK?
+### Where should I download the GME sample code and SDK?
 
-Please download applicable Demo and SDK from [Downloading Instruction](https://cloud.tencent.com/document/product/607/18521). The Demos for Unity, Cocos2D, Android native and iOS native Engines are available on the official website.
+Please download applicable sample code and SDK from [Downloading Instructions](https://intl.cloud.tencent.com/document/product/607/18521). The sample code for Unity Engine, Cocos2D Engine, sample Android native App and iOS native App are available on the official website.
 
-### After downloading the GME Demo, can I change the account to the one I applied for?
+### After downloading the GEM sample code, can I change the account to the one I applied for?
 
 1. Yes. You need to get two numbers from the console: sdkappid and permission key.
-2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, see [Integration Guide](https://cloud.tencent.com/document/product/607/10782).
+2. To use voice message, you need to get the TLS signature key. For more information on how to obtain the above numbers, see [Integration Guide](https://intl.cloud.tencent.com/document/product/607/10782).
 3. To use your own appid in Voice Chat, you need to modify the key for voice chat in GetAuthBuffer in AVChatViewController.
 
 ### I received the error message "errinfo=priv map info error" when using the Demo.
@@ -59,11 +59,11 @@ If an error occurs with the parameter for entering a room, check whether the sdk
 
 
 
-## FAQs About Billing
+## Billing-Related FAQs
 
 ### What are the billing methods for the voice chat service of GME? How do I select the billing method?
 
-The voice chat service of GME supports two billing methods: Bill by DAU and Bill by Usage Duration. The billing method cannot be modified once being selected. For detailed price information, see [Purchase Guide](https://cloud.tencent.com/document/product/607/17808).
+The voice chat service of GME supports two billing methods: Bill by DAU and Bill by Usage Duration. The billing method cannot be modified once being selected. For detailed price information, see [Purchase Guide](https://intl.cloud.tencent.com/document/product/607/17808).
 If you select Bill by DAU, the validity of a voice chat room is 90 minutes. When the validity expires, the system closes the room automatically. This billing method is recommended for PVP and casual games.
 If you select Bill by Duration, no limit is imposed on the validity of room. This billing method is recommended for social, VJ and team speak game scenarios.
 
@@ -81,7 +81,7 @@ The billable duration begins at the moment when a user in the App enters the roo
 
 ### What are the billing methods for GME's voice message and voice-to-text services? How do I select the billing method?
 
-Voice message and voice-to-text services are billed by voice message DAU. For detailed price information, see [Purchase Guide](https://cloud.tencent.com/document/product/607/17808).
+Voice message and voice-to-text services are billed by voice message DAU. For detailed price information, see [Purchase Guide](https://intl.cloud.tencent.com/document/product/607/17808).
 
 ### How is the DAU for GME's voice message and voice-to-text services calculated?
 
@@ -104,9 +104,9 @@ As shown below, the audio type you select varies with different application scen
 
 | Audio Type | Description | Parameter | Volume Type | Recommended Sampling Rate on the Console | Application Scenarios |
 | -------------------------- | -------- | ---- | -------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------ |
-| ITMG_ROOM_TYPE_FLUENCY | Fluent | 1    | Speaker: chat volume; headset: media volume | 16k (if there is no special requirement for sound quality) | With high fluency and ultra-low delay, it is suitable for team speak scenarios in such games as FPS and MOBA. |
-| ITMG_ROOM_TYPE_STANDARD | Standard | 2    | Speaker: chat volume; headset: media volume	| 16k or 48k, depending on the requirement for sound quality	| With good sound quality and medium delay, it is suitable for voice chat scenarios in casual games such as Werewolf and board games.	|
-| ITMG_ROOM_TYPE_HIGHQUALITY | HD | 3    | Speaker: media volume; headset: media volume	| 48k is recommended to ensure the best effect	| With ultra-high sound quality and high delay, it is suitable for music and voice social Apps, and scenarios demanding high sound quality, such as music playback and online karaoke.	|
+| ITMG_ROOM_TYPE_FLUENCY     |Fluent	| 1    |Speaker: chat volume; headset: media volume | 16k (if there is no special requirement for sound quality) | Fluent sound quality and ultra-low delay which is suitable for team speak scenarios in games like FPS and MOBA. |
+| ITMG_ROOM_TYPE_STANDARD    |Standard	| 2    |Speaker: chat volume; headset: media volume	| 16k or 48k, depending on the requirement for sound quality	| Good sound quality and medium delay which is suitable for voice chat scenarios in casual games like Werewolf and board games.	|
+| ITMG_ROOM_TYPE_HIGHQUALITY |HD	| 3    |Speaker: media volume; headset: media volume	| 48k is recommended to ensure the best effect	| Super-high sound quality and relative high delay which is suitable for scenarios demanding high sound quality, such as music playback and online karaoke.	|
 
 Please select a sampling rate (16k or 48k) in the console based on the actual application scenario. In the integration process, you can change the audio type by using APIs, but the sampling rate you use will not exceed the sampling rate selected in the console. For example, if you select a sampling rate of 16k on the console and the audio type is changed to HD on the client, the sampling rate is still 16k; If you select a sampling rate of 48k on the console and the audio type is changed to Fluent on the client, the sampling rate is 16k.
 
@@ -118,7 +118,7 @@ Theoretically, all of our APIs need to be called in the same thread. If you choo
 
 ### How frequent should I call the poll function?
 
-Call the poll function as described in Demo if there is no special requirement.
+Call the poll function as described in the sample code if there is no special requirement.
 
 ### Is there a limit on the number of voice chat rooms and the number of members in a room?
 
@@ -133,13 +133,13 @@ If your account ID starts from 0, it is recommended to add 10000 to your account
 
 No. After the last member exits the room, the room is terminated automatically.
 
-### Is there any requirement for the value of room ID?
+### Is there a requirement for the value of room ID?
 
-Only a 32-bit unsigned integer is allowed for roomid.
+Only a 32-bit unsigned integer is allowed for roomid. Convert it into a string type before passing it to SDK.
 
-### Is there any requirement for the value of openid?
+### Is there a requirement for the value of openid?
 
-Only a 64-bit unsigned integer is allowed for openid. Please convert it into a string type before passing it to SDK.
+Only a 64-bit unsigned integer is allowed for openid. Convert it into a string type before passing it to SDK.
 
 ### Can I enter multiple rooms at the same time using a single openid?
 
@@ -151,7 +151,7 @@ You need to call exitroom first, and then call enterroom after receiving a callb
 
 ### When is the member status synchronized? Will a user receive the status notification when the user enters the room for the first time?
 
-Audio events are subject to a threshold above which the notification "A member sent audio packets" is sent. Only when the member in the room does not speak within 2 seconds will the notification "A member stopped sending audio packets" be sent.
+Audio events are subject to a threshold above which the notification "A member sent audio packets" is sent. Only when the member in the room does not speak within 2 seconds will the notification "A member stopped sending audio packets" be sent. A user will receive the status notification when the user enters the room for the first time.
 
 ### Can the microphone volume be set before a user enters a room?
 
@@ -161,13 +161,13 @@ No. The voice chat-related API ITMGAudioCtrl ITMGAudioEffectCtrl can only be cal
 
 You can get the microphone permission after calling the function EnterRoom successfully, and other programs cannot capture audio data from the microphone during your use of microphone.
 Calling EnableMic(false) does not release the microphone.
-If you really need to release the microphone, call PauseAudio, which can cause the engine to be paused entirely. To resume the use of microphone, call ResumeAudio.
+If you really need to release the microphone, call PauseAudio, which will pause the engine entirely. To resume audio capturing, call ResumeAudio.
 
 ### Is there an API to obtain the microphone status before the function EnableMic is called?
 
 You can verify whether the microphone is available by using the API getMicCount.
 
-### What should I do if I don't want the viewers listening to the chat between players to join the chat?
+### What should I do if I don't want the viewers listening to the chat of players to join the chat?
 
 The developer can implement a feature on client that prevents other viewers from enabling the microphone.
 
@@ -184,21 +184,22 @@ The simulator does not support mp3.
 The voice chat service does not support receiver.
 
 ### What local audio file formats are supported by the SDK?
+
 Three formats are supported: m4a, wav, and mp3.
 
 ### How do I integrate the team chatting mode of GME voice chat? Does distance attenuation (the sound level decreases with distance from the sound source) exist in the team chatting mode?
 
-For more information on how to integrate team chatting in voice chat, see the [Team Chatting](https://cloud.tencent.com/document/product/607/17972) document. When the team chatting is enabled, distance attenuation does not exist in the same team, but exist in global chatting. For the attenuation coefficient, see the documentation.
+For more information on how to integrate team chatting in voice chat, see the [Team Chatting](https://intl.cloud.tencent.com/document/product/607/17972) document. When the team chatting is enabled, distance attenuation does not exist in the same team, but exist in global chatting. For the attenuation coefficient, see the documentation.
 
-### What are the requirements for the microphone and speaker if I want to realize 3D sound effect?
+### What are the requirements for the user's microphone and speaker if I want to realize 3D sound effect?
 
 Dual-channel output devices are required to realize 3D sound effect.
 
 ### How do I integrate 3D sound effect of GME voice chat?
 
-For more information on how to integrate 3D sound effect of voice chat, see the [3D Sound Effect](https://cloud.tencent.com/document/product/607/18218) document.
+For more information on how to integrate 3D sound effect of voice chat, see the [3D Sound Effect](https://intl.cloud.tencent.com/document/product/607/18218) document.
 
-### There is no Authbuffer file in the downloaded SDK document and Demo.
+### There is no Authbuffer file in the downloaded SDK document and sample code.
 
 The Authbuffer file has been incorporated into another file. Please search for it globally in the SDK.
 
@@ -206,7 +207,7 @@ The Authbuffer file has been incorporated into another file. Please search for i
 
 We have provided [Authbuffer compiled document and zip package](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20Authbuffer%20Manual.md).
 
-### ITMG_MAIN_EVENT_TYPE_ROOM_DISCONNECT occurs in case of a network disconnection. When does it occur after the network disconnection?
+### ITMG_MAIN_EVENT_TYPE_ROOM_DISCONNECT occurs in case of network disconnection. When does it occur after the network disconnection?
 
 This occurs if no heartbeat packet is received within 30 seconds after the network is disconnected completely.
 
@@ -228,7 +229,7 @@ You need to export the executable files of the voice message and voice-to-text c
 
 You can use this URL to download the file by calling the API for downloading file.
 
-## FAQs About Getting Logs and Troubleshooting
+## FAQs about Getting Logs and Troubleshooting
 
 ### How do I get the log?
 
