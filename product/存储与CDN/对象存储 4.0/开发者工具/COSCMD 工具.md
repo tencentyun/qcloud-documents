@@ -32,8 +32,7 @@ cd coscmd
 python setup.py install
 ```
 > **注意：** 
-python版本为2.6时，pip安装依赖库时容易失败，推荐使用该方法安装。
-
+python版本为2.6时，pip安装依赖库时容易失败，推荐使用该方法安装
 ## 使用方法
 ### 查看 help
 用户可通过`-h`或`--help`命令来查看工具的 help 信息
@@ -103,8 +102,8 @@ coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
 | SECRET_KEY| 必选参数，APPID 对应的密钥 Key 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取| 字符串  |
 | BUCKET| 必选参数，指定的存储桶名称，bucket的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串  |
 | REGION| 必选参数，存储桶所在地域，参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串  |
-| MAX_THREAD| 可选参数，多线程上传时的最大线程数（默认为 5），有效值：1~10         | 数字   |
-| PART_SIZE| 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB），有效值：1~10     | 数字   |
+| MAX_THREAD| 可选参数，多线程上传时的最大线程数（默认为 5）     | 数字   |
+| PART_SIZE| 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB）   | 数字   |
 
 > **注意：** 
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建
@@ -154,7 +153,10 @@ coscmd -b <bucket> deletebucket
 #操作示例
 coscmd createbucket
 coscmd -b AAA-12344567 deletebucket
+coscmd -b AAA-12344567 deletebucket -f
 ```
+* 使用-f参数则会强制删除该bucket，包括所有文件、开启多版本之后历史文件夹、上传产生的碎片。
+
 ### 上传文件或文件夹
 - 上传文件命令如下：
 ```
@@ -186,7 +188,7 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
 * 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)
 * COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）
 * COSCMD 分块上传时会对每一块进行 MD5 校验
-* COSMCD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 `md5` 值
+* COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 `md5` 值
 * 使用-s参数可以使用同步上传，跳过上传md5一致的文件(cos上的原文件必须是由1.8.3.2之后的COSCMD上传的，默认带有x-cos-meta-md5的header)
 * 使用-H参数设置HTTP header时，请务必保证格式为json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`
 * 在上传文件夹时，使用--ignore参数可以忽略某一类文件，支持shell通配规则，支持多条规则，用逗号分隔
@@ -244,6 +246,15 @@ coscmd delete -r /
 > **注意：** 
 * 批量删除需要输入确定，使用 `-f` 参数跳过确认 
 
+### 清除上传文件碎片
+- 命令如下：
+```
+#命令格式
+coscmd abort
+#操作示例
+coscmd abort
+```
+
 ### 复制文件或文件夹
 - 复制文件命令如下：
 ```
@@ -297,7 +308,7 @@ coscmd info bbb/123.txt
 - 命令如下：
 ```
 #命令格式
-coscmd sigurl<cospath>
+coscmd signurl <cospath>
 #操作示例
 coscmd signurl bbb/123.txt
 coscmd signurl bbb/123.txt -t 100
@@ -348,6 +359,18 @@ coscmd putbucketacl <cospath>
 #操作示例
 coscmd getobjectacl aaa/aaa.txt 
 ```
+### 开启关闭多版本
+- 命令如下：
+```
+#命令格式
+coscmd putbucketversioning <status>
+#开启多版本
+coscmd putbucketversioning Enabled
+#关闭多版本
+coscmd putbucketversioning Suspended
+```
+请将"<>"中的参数替换为您需要多版本状态（status）
+* 注意开启多版本为不可逆过程，之后该bucket将无法使用v4的api接口(包括所有v4sdk)，请慎重选择。
 
 ### 恢复归档文件
 - 命令如下：
