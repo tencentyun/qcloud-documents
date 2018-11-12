@@ -52,3 +52,6 @@ Tencent Cloud Audio/Video Engine requires the following permissions on iOS:
 | Required background modes | Allows running in the background |
 | Microphone Usaeg Description | Allows microphone permission |
 
+### 5. Allow Arbitrary Loads
+
+![image](https://main.qcloudimg.com/raw/1aebf9111fd95e3e6b6fb4eb08193a26.png)

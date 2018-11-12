@@ -175,55 +175,6 @@ GET index_1/_recovery
                     "check_index_time_in_millis": 0,
                     "total_time_in_millis": 0
                 }
-            },
-            {
-                "id": 0,
-                "type": "SNAPSHOT",
-                "stage": "INDEX",
-                "primary": true,
-                "start_time_in_millis": 1525766148296,
-                "total_time_in_millis": 8748,
-                "source": {
-                    "repository": "my_cos_backup",
-                    "snapshot": "snapshot",
-                    "version": "5.6.4",
-                    "index": "index_1"
-                },
-                "target": {
-                    "id": "rOupcFi7Rn-kc2PzEoRMMQ",
-                    "host": "10.0.0.15",
-                    "transport_address": "10.0.0.15:9300",
-                    "ip": "10.0.0.15",
-                    "name": "node-3"
-                },
-                "index": {
-                    "size": {
-                        "total_in_bytes": 1362775831,
-                        "reused_in_bytes": 0,
-                        "recovered_in_bytes": 155162131,
-                        "percent": "11.4%"
-                    },
-                    "files": {
-                        "total": 125,
-                        "reused": 0,
-                        "recovered": 27,
-                        "percent": "21.6%"
-                    },
-                    "total_time_in_millis": 8736,
-                    "source_throttle_time_in_millis": 0,
-                    "target_throttle_time_in_millis": 0
-                },
-                "translog": {
-                    "recovered": 0,
-                    "total": 0,
-                    "percent": "100.0%",
-                    "total_on_start": 0,
-                    "total_time_in_millis": 0
-                },
-                "verify_index": {
-                    "check_index_time_in_millis": 0,
-                    "total_time_in_millis": 0
-                }
             }
         ]
     }
