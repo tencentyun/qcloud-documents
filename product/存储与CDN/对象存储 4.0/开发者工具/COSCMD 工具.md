@@ -151,7 +151,7 @@ coscmd -b AAA-12344567 createbucket
 #命令格式
 coscmd -b <bucket> deletebucket
 #操作示例
-coscmd createbucket
+coscmd deletebucket
 coscmd -b AAA-12344567 deletebucket
 coscmd -b AAA-12344567 deletebucket -f
 ```
