@@ -204,7 +204,7 @@ Authbuffer 此文件已经合并了，请在 SDK 里面全局搜索一下。
 
 ### tea 加密有没有lib文件？
 
-我们提供 [Authbuffer 编译文档及 zip 包](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20Authbuffer%20Manual.md)。
+我们提供 [Authbuffer 编译文档及 zip 包](https://cloud.tencent.com/document/product/607/30281)。
 
 ### ITMG_MAIN_EVENT_TYPE_ROOM_DISCONNECT因为网络断开，一般在什么情况下出现，具体是多少分钟断连才会出现？
 

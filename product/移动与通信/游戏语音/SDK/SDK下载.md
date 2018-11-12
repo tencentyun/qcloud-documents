@@ -2,13 +2,13 @@
 
 ## v1.1.22
 [Unity](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Unity3D.zip)
-[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Unity3D_bitcode.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_Unity3D_bitcode.zip)
 [Cocos](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Cocos.zip)
-[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Cocos_bitcode.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_Cocos_bitcode.zip)
 [Win64](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_winx64_1_1_22_184516_20181101.zip)
 [Win32](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_win_1_1_22_184516_20181101.zip)
 [iOS](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_iOS.zip)
-[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_iOS_bitcode.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_iOS_bitcode.zip)
 [iOS(cpplib)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_iOS_cpplib.zip)
 [Android](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Android.zip)
 [UE4](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_UE4.zip)
