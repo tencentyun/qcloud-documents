@@ -125,11 +125,11 @@ Page({
 
 ### step1: 开通相关云服务
 
-小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通讯（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以点击链接开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
+小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通信（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以单击链接开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
 
 ### step2: 下载自定义组件源码
 
-**&lt;live-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。点击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
+**&lt;live-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
 
 ### step3: 登录房间服务（必需）
 
@@ -148,7 +148,7 @@ liveroom.login({
 });
 ```
 
-参考 [DOC](https://cloud.tencent.com/document/product/454/14606#Server) 可以了解上面的这些参数应该怎么填写。
+参考 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606#Server) 可以了解上面的这些参数应该怎么填写。
 
 ### step4: 获取房间列表（可选）
 如果您不想自己实现房间列表，而是使用房间服务自带的房间列表，您可以通过调用 `/utils/liveroom.js` 的 `getRoomList` 函数获取到列表信息。
@@ -334,7 +334,7 @@ liveroom.respondJoinReq(true, aduience);
 
 <h2 id="PLATFORM">其它平台</h2>
 
-**&lt;live-room&gt;** 也有 Windows、iOS、Android 等平台下的对等实现，您可以参考下表中的资料。同时， 阅读 [设计文档](https://cloud.tencent.com/document/product/454/14617)，您可以了解该解决方案的内部设计原理。
+**&lt;live-room&gt;** 也有 Windows、iOS、Android 等平台下的对等实现，您可以参考下表中的资料。同时， 阅读 [视频通话（RTCRoom）](https://cloud.tencent.com/document/product/454/14617)，您可以了解该解决方案的内部设计原理。
 
 | 所属平台 | SDK下载 | 文档指引 |
 |:-------:|:-------:|:-------:|
