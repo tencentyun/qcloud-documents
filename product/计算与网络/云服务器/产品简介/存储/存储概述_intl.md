@@ -48,7 +48,7 @@ Storage devices can be divided into the following categories by dimensions:
 
 Each instance has a system disk to keep the basic operation data. More data disks can be mounted to an instance. An instance uses block storage device-mapping to map the storage devices to locations it can identify.
 Block storage is a storage device that puts data into blocks in bytes and allows random access. Tencent Cloud supports two types of block storage devices: local disk and cloud disk.
-![](https://mc.qcloudimg.com/static/img/7e8715ce6bba831c61d0cc807bec8ce9/device-mapping.png)
+![](https://main.qcloudimg.com/raw/3815bb250f6178d67b8fe2be11a50bf8.svg)
 This figure shows how CBS maps the block storage device to the CVM and maps `/dev/vda' to the system disk, and how it maps the two data disks to '/dev/vdb and /dev/vdc' respectively.
 The CVM instance can automatically create block storage device mapping for the local disks and cloud storages mounted to it.
 

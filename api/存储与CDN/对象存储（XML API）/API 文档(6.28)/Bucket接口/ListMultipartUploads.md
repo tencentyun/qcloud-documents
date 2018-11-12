@@ -67,10 +67,12 @@ Authorization: Auth String
     <UploadID></UploadID>
     <StorageClass></StorageClass>
     <Initiator>
-      <UIN></UIN>
+      <ID></ID>
+	<DisplayName></DisplayName>
     </Initiator>
     <Owner>
-      <UID></UID>
+      <ID></ID>
+	<DisplayName></DisplayName>
     </Owner>
     <Initiated></Initiated>
   </Upload>
@@ -96,7 +98,7 @@ Container 节点 ListMultipartUploadsResult 的内容：
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始 |  String |
 | NextKeyMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 NextKeyMarker 就是下一个条目的起点 | String |
 | NextUploadIdMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 UploadId 就是下一个条目的起点 |  String |
-| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从 1 到 000 |  String |
+| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从 0 到 1000 |  String |
 | IsTruncated | ListMultipartUploadsResult | 返回条目是否被截断，布尔值：TRUE，FALSE |  Boolean |
 | Prefix | ListMultipartUploadsResult | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix |  String |
 | Delimiter | ListMultipartUploadsResult | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 |  String |
@@ -118,13 +120,15 @@ Container 节点 Initiator 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
+| ID | ListMultipartUploadsResult.Upload.Initiator | 用户唯一的 CAM 身份 ID | String  |
+| DisplayName | ListMultipartUploadsResult.Upload.Initiator | 用户身份 ID 的简称（UIN） | String  |
 
 Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UID | ListMultipartUploadsResult.Upload.Owner | Object 的持有者 ID  | String    |
+| ID | ListMultipartUploadsResult.Upload.Owner | 用户唯一的 CAM 身份 ID  | String    |
+| DisplayName | ListMultipartUploadsResult.Upload.Owner| 用户身份 ID 的简称（UIN） | String  |
 
 Container 节点 CommonPrefixes 的内容：
 
@@ -135,7 +139,7 @@ Container 节点 CommonPrefixes 的内容：
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：
 
-| 错误码             | HTTP 状态码         |描述                                       | 
+| 错误码             | HTTP 状态码         |描述                    | 
 | ------------- | ------------------------------------ | ------------- |
 | InvalidArgument | 400 Bad Request |1. max-uploads 必须是整数，且值介于 0~1000 之间，否则返回 InvalidArgument；<br>2. encoding-type 只能取值 url，否则会返回 InvalidArgument | 
 
@@ -155,7 +159,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ### 响应
 
 ```
-HTTP /1.1 200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1203
 Date: Wed, 18 Jan 2015 21:32:00 GMT
@@ -175,10 +179,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
         <Initiator>
-           <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:04:17 2017</Initiated>
@@ -187,10 +193,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
         <Initiator>
-            <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:12:38 2017</Initiated>
@@ -199,10 +207,12 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>ObjectName</Key>
         <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
         <Initiator>
-            <UIN>14847266009/14847266009<UIN/>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Initiator>
         <Owner>
-            <UID>1251668577</UID>
+           <ID>qcs::cam::uin/14847266009:uin/14847266009</ID>
+		<DisplayName>14847266009</DisplayName>
         </Owner>
         <StorageClass>Standard</StorageClass>
         <Initiated>Wed Jan 18 16:14:30 2017</Initiated>

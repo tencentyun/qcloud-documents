@@ -1,12 +1,12 @@
 ## Overview
 
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides project configuration that makes it easy for iOS developers to debug and integrate the APIs for Game Multimedia Engine.
+Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This document provides project configuration that makes it easy for iOS developers to debug and integrate the APIs for GME.
 
 ## SDK Preparation
 
 You can obtain the SDK by the following way:
 
-### 1. Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521).
+### 1. Please download applicable Demo and SDK from [Downloading Instruction](https://cloud.tencent.com/document/product/607/18521).
 
 ### 2. Pinpoint the SDK resource for iOS on the page.
 
@@ -16,7 +16,7 @@ The decompressed SDK resource is composed as follows:
 
 | Name | Description   
 | ------------- |:-------------:|
-|GMESDK.framework			|Game Multimedia Engine related resources
+| GMESDK.framework			| Game Multimedia Engine related resources
 
 ## System Requirement
 
@@ -38,7 +38,7 @@ Refer to the figure below:
 
 ### 3. Disable Bitcode
 
-Bitcode should be supported by all the class libraries that the project depends on. Bitcode is not supported by the SDK, so Bitcode can be disabled now.
+Bitcode should be supported by all class libraries that the project depends on. Bitcode is not supported by the SDK, so it can be disabled.
 To disable Bitcode, search Bitcode under **Targets** -> **Build Settings** and set the corresponding option to NO.
 See the figure below:  
 ![](https://main.qcloudimg.com/raw/82c628e8a7d9a4bebc842c8545d9563a.png)
@@ -47,8 +47,11 @@ See the figure below:
 
 Tencent Cloud Audio/Video Engine requires the following permissions on iOS:
 
-|key     | Description   
+| key | Description   
 | ------------- |:-------------:|
-|Required background modes    		 |Allows the Engine to run in the background |
-|Microphone Usaeg Description   	|Allows the Engine to use the microphone |
+| Required background modes | Allows running in the background |
+| Microphone Usaeg Description | Allows microphone permission |
 
+### 5. Allow Arbitrary Loads
+
+![image](https://main.qcloudimg.com/raw/1aebf9111fd95e3e6b6fb4eb08193a26.png)

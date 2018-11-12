@@ -1,6 +1,6 @@
-## Result for Successful Request
+## **Returned Result for Success**
 
-Take the CVM API "View Instance Status List" (DescribeInstancesStatus) (version 2017-03-12) as an example. If it is successfully called, the possible returned result is as follows:
+Take viewing the instance status list (DescribeInstancesStatus) version 2017-03-12 through the Cloud Virtual Machine interface as an example. If the call succeeds, the possible returned result is as follows:
 
     {
         "Response": {
@@ -10,13 +10,13 @@ Take the CVM API "View Instance Status List" (DescribeInstancesStatus) (version 
         }
     }
 
-* The Response and its RequestId are fixed fields, which are always returned as long as the request is processed by the API, regardless of whether it is successful or not.
-* RequestId is used to uniquely identify an API request. If an API exception occurs, you can contact us and provide this ID to solve the problem.
-* Other fields than the fixed ones are defined by specific APIs. For more information on the fields returned by different APIs, please see relevant API document. * In this example, TotalCount and InstanceStatusSet are defined by the API DescribeInstancesStatus. Since the user who initiated the request does not have a CVM instance, the returned value for TotalCount is 0, and the InstanceStatusSet list is empty.
+* `Response` and its internal `RequestId` are fixed fields and will be returned as long as processed by the API no matter whether the request succeeds.
+* `RequestId` is used to uniquely identify an API request. If the API is abnormal, you can contact us and provide the ID for troubleshooting.
+* Except for the fixed fields, all the fields are defined by the specific API. For the fields returned by different APIs, see the definitions in the API documentation. In this example, TotalCount and InstanceStatusSet are the fields defined by the DescribeInstancesStatus API. As the user who calls the request does not have a Cloud Virtual Machine instance yet, TotalCount returns a value of 0 in this case and the InstanceStatusSet list is empty.
 
-## Result for Failed Request
+## **Returned Result for Error**
 
-If the call fails, the returned values are as follows:
+If the call fails, the returned result may look like the example below:
 
     {
         "Response": {
@@ -28,37 +28,36 @@ If the call fails, the returned values are as follows:
         }
     }
 
-* Error indicates a failed call. * The Error field along with its Code and Message fields is still returned even if the call fails.
-* Code indicates the specific error code. When an error occurs with the request, you can find the cause and solution in the common error codes and the error code list for the current API based on this error code.
-* Message indicates the reason for the error, which may be changed or updated from time to time with the business growth or experience optimization. Therefore, you should not rely on this returned value.
-* RequestId is used to uniquely identify an API request. If an API exception occurs, you can contact us and provide this ID to solve the problem.
+* The presence of the Error field indicates that the request call failed. The Error field and its internal Code and Message fields, must be returned when the call fails.
+* Code indicates the error code of the specific error. When the request goes wrong, you can use this error code to locate the cause and solution in the common error code list and the error code list corresponding to the current API.
+* Message shows the specific cause of this error. The message text is subject to change or update as the business develops or the experience gets optimized, so you should not rely on this return value.
+* RequestId is used to uniquely identify an API request. If the API is abnormal, you can contact us and provide the ID for troubleshooting.
 
 
-## Common Error Codes
+## **Common Error Codes**
 
 
-The Error field in the returned result means the call to the API failed. The Code field in the Error indicates the error code. Common error codes are error codes that may appear in all businesses, as shown below.
+If there is an Error field in the returned result, it means that the API call failed. The Code field in Error indicates the error code. The error codes that may appear for all Tencent Cloud services are common error codes, which are listed below:
 
 
-| Error Code | Error Description |
+| Error code | Error description |
 |----------|----------|
-| InvalidParameter | Invalid parameter (including incorrect parameter format, type, etc.) |
-| InvalidParameterValue | Incorrect parameter value |
-| MissingParameter | A required parameter is missing |
-| UnknownParameter | Unknown parameter. This error occurs when a user passes an undefined parameter. |
-| AuthFailure | CAM signature/authentication failure |
+| InvalidParameter | Wrong parameter (including errors with parameter format, type, etc.) |
+| InvalidParameterValue | Wrong parameter value |
+| MissingParameter | Missing parameter; a required parameter is missing |
+| UnknownParameter | Unknown parameter; an undefined parameter passed in by the user will cause this error |
+| AuthFailure | Error with CAM signature/authentication |
 | InternalError | Internal error |
 | InvalidAction | API does not exist |
 | UnauthorizedOperation | Unauthorized operation |
 | RequestLimitExceeded | The number of requests exceeds the frequency limit |
-| NoSuchVersion | The API version does not exist |
-| UnsupportedRegion | The API does not support the region passed |
-| UnsupportedOperation | Operation is not supported |
+| NoSuchVersion | API version does not exist |
+| UnsupportedRegion | API does not support the passing region |
+| UnsupportedOperation | Unsupported operation |
 | ResourceNotFound | Resource does not exist |
-| LimitExceeded | Quota exceeded |
-| ResourceUnavailable | Unavailable resource |
+| LimitExceeded | Quota limit is exceeded |
+| ResourceUnavailable | Resource not available |
 | ResourceInsufficient | Insufficient resource |
 | FailedOperation | Operation failed |
-| ResourceInUse | Resource is occupied |
-| DryRunOperation | DryRun operation. It means that the request will be successful, but multiple DryRun parameters are passed. |
-
+| ResourceInUse | Resource is in use |
+| DryRunOperation | DryRun operation, which means the request will succeed, but an unnecessary DryRun parameter is passed in |

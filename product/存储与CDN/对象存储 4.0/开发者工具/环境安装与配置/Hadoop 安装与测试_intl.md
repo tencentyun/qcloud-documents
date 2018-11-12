@@ -1,11 +1,10 @@
 Hadoop (2.7.2 or above) tool provides the capability to run the high-layer computing tasks on file systems that use Tencent Cloud COS as the underlying storage. The Hadoop cluster can be launched in three modes: stand-alone, pseudo-distributed, and fully-distributed. This document uses Hadoop-2.7.4 as an example to describe how to build a fully-distributed Hadoop environment and how to use wordcount to execute a simple test.
 
 ## Preparation
-### Installation
-#### 1. Prepare several servers.
-#### 2. Install and configure system: [CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/).
-#### 3. Install Java environment: [jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz). For more information, please see [Install and Configure Java](/doc/product/436/10865).
-#### 4. Install Hadoop package: [Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available). 
+1. Prepare several servers.
+2. Install and configure system: [CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/).
+3. Install Java environment, For more information, please see [Install and Configure Java](/doc/product/436/10865).
+4. Install Hadoop package: [Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available). 
 
 ### Network Configuration
 Use `ifconfig -a` to check the IP of each server, then use ping command to see if they can ping each other, and record the IP of each server.
@@ -35,7 +34,7 @@ yum install -y ntp  //Install ntp service
 ntpdate cn.pool.ntp.org  //Sync network time
 ```
 ### Installing and Configuring JDK
-Upload [jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz) installation package to the `root` directory.
+Upload jdk installation package to the `root` directory.
 ```
 mkdir /usr/java
 tar -zxvf jdk-8u144-linux-x64.tar.gz -C /usr/java/
@@ -94,7 +93,7 @@ scp authorized_keys slave3:~/.ssh
 ```
 ## Installing and Configuring Hadoop
 ### Installing Hadoop
-Upload [hadoop-2.7.4.tar.gz](http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz) installation package to the `root` directory.
+Upload hadoop installation package to the `root` directory.
 ```
 tar -zxvf hadoop-2.7.4.tar.gz -C /usr
 rm -rf hadoop-2.7.4.tar.gz

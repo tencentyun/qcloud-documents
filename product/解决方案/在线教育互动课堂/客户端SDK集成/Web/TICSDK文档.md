@@ -8,11 +8,11 @@
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.1/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.3/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.3.0/TICSDK.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.3.1/TICSDK.mini.js"></script>
 ```
 **建议直接使用腾讯云 CDN 加速的 SDK**。
 
@@ -76,15 +76,15 @@ fn | Function | 是 | 事件的回调函数
 this.ticSdk.login(loginConfig);
 ```
 
-loginConfi：
+loginConfig：
 
-参数名 | 是否必填 | 备注 |
---------- | --------- | -----
-identifier | 是 | 用户名
-userSig | 是 | 登录鉴权信息
-sdkAppId | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
-identifierNick | 否 | IM昵称
-userHeadImg | 否 | IM头像
+参数名 | 类型 | 是否必填 | 备注 |
+---------| ---- | --------- | -----
+sdkAppId | Integer | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+identifier | String | 是 | 用户名
+userSig | String | 是 | 登录鉴权信息
+identifierNick | String | 否 | IM昵称
+userHeadImg | String | 否 | IM头像
 
 该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
@@ -127,7 +127,6 @@ webrtc 推流配置参数：
 |audio | Boolean | 否，默认 true | 是否启用音频采集|
 |video | Boolean | 否，默认 true | 是否启用视频采集|
 |role | String | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在 [控制台>画面设定](https://console.cloud.tencent.com/rav) 中配置|
-|privateMapKey | String | 如果useCloud为true 则必传| 进房权限|
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境|
 |pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 MP3 文件 <br/>2 => 本次是纯音频推流,录制文件为 MP3 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户|
@@ -141,6 +140,7 @@ webrtc 推流配置参数：
 id | String | 是 | 白板渲染的在 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br/>false 不采用比例，采用参数id所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板SDK会以参数id所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 
 

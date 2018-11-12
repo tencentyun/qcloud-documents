@@ -1,4 +1,4 @@
-This document describes how to create an empty elastic cloud disk `cbs-test` in Beijing, connect to a CVM instance, create a file system and write a file named `qcloud.txt` in the system so as to help users have a basic understanding on Tencent Cloud's cloud disks. For more information on the definition of elastic cloud disk, please see [Cloud Disk Classification](/doc/product/362/2353). For more information on how to create a cloud disk with data, please see [Create Cloud Disk from Snapshot](/doc/product/362/5757).
+This document describes how to create an empty elastic cloud disk `cbs-test` in Beijing, connect to a CVM instance, create a file system and write a file named `qcloud.txt` in the system so as to help users have a basic understanding on Tencent Cloud's cloud disks. For more information on the definition of elastic cloud disk, please see [Cloud Disk Classification](https://cloud.tencent.com/document/product/362/2353). For more information on how to create a cloud disk with data, please see [Create Cloud Disk from Snapshot](/doc/product/362/5757).
 
 ## Prerequisites
 To use cloud disks according to this document, make sure that you have an available running CVM instance in the region and availability zone (Beijing Zone 1 in this example) where your cloud disks are created. For information on how to purchase and launch a CVM instance, please see [Purchase and Launch CVM](/doc/product/213/4855).
@@ -54,6 +54,5 @@ For more information on partitioning, formatting, and file system creation on Li
 
 (5) Create a file named `qcloud.txt` in the disk. Enter something, and click "Save". Now you have successfully written the file.
 
-For more information on partitioning, formatting, online and file system creation on Windows, please see [Partitioning, Formatting, Online and File System Creation on Windows](https://cloud.tencent.com/document/product/362/6734
-).
+For more information on partitioning, formatting, online and file system creation on Windows, please see [Partitioning, Formatting, Online and File System Creation on Windows](https://intl.cloud.tencent.com/document/product/362/6734).
 

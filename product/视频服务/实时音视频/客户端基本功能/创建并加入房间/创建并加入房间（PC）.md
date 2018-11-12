@@ -1,7 +1,7 @@
 本文将指导您在客户端中创建一个房间，打开摄像头和麦克风，并看到自己的视频画面。
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [Demo 代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/Demo/PC/demo_create.zip)
 
 ## 相关概念
@@ -37,7 +37,6 @@ void  OnMemStatusChange(E_EndpointEventId eventId, const Vector<String> &ids, vo
 }
 
 iLiveRoomOption roomOption;
-roomOption.privateMapKey = privateMapKey;    // 配置进房票据
 roomOption.roomId = RoomId;                 //要创建的房间id
 roomOption.authBits = AUTH_BITS_DEFAULT;    //拥有所有权限
 roomOption.controlRole = "LiveMaster";      //使用Spear上配置的"LiveMaster"角色
@@ -97,11 +96,8 @@ void OnLocalVideo(const LiveVideoFrame* video_frame, void* data)
 ## 常见问题
 
 #### 进房失败，提示没有权限
-确认正确配置了进房票据privateMapKey
-> 新接入用户进房票据为必填字段，老用户(不使用进房票据)需在初始化时配置
-```
-GetILive()->setChannelMode(E_ChannelIMSDK);
-```
+确认正确配置了进房票据privateMapKey，若控制台在【帐号信息】开启【启用权限密钥】,则privateMapKey为必填字段
+
 
 #### 控制台输出一些无用信息:
 
@@ -110,6 +106,3 @@ GetILive()->setChannelMode(E_ChannelIMSDK);
 ![](https://main.qcloudimg.com/raw/b849f6239ca311d2d72a381db455d623.png)
 
 这是因为 iLiveSDK 内部使用了其他 SDK，这是其他 SDK 的打印输出信息，不会影响实际使用,忽略不管即可。
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

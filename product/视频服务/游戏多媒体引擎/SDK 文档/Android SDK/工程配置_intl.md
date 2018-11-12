@@ -1,12 +1,12 @@
-Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides project configuration that makes it easy for Android developers to debug and integrate the APIs for Game Multimedia Engine.
+Thank you for using Tencent Cloud Game Multimedia Engine (GME) SDK. This document provides project configuration that makes it easy for Android developers to debug and integrate the APIs for GME.
 
 ## SDK Preparation
 
 You can obtain the SDK by the following way:
 
-### Download SDK
+### Downloading SDK
 
-Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521).
+Please download applicable Demo and SDK from [Downloading Instructions](https://intl.cloud.tencent.com/document/product/607/18521).
 
 Pinpoint the SDK resource for Android on the page.
 
@@ -17,17 +17,16 @@ The decompressed SDK resource is composed as follows:
 | Libs     	| SDK Libs     |
 
 ## System Requirement
-
-SDK is supported on Android 4.0.3 (API 15) or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
+The SDK is supported on Android 4.2 or above. However, hardware encoding can be enabled only on Android 4.3 (API 18) or above.
 
 ## Preparations
 
-#### Importing SDK file
+### Importing SDK files
 
 Copy mobilepb.jar, tmgsdk.jar and wup-1.0.0-SNAPSHOT.jar from the SDK's libs directory to the Android project's libs directory (If there is no libs directory in the project, create one; if there is no armeabi and armeabi-v7a in it, copy them to the libs directory), as shown below:  
 ![](https://main.qcloudimg.com/raw/006cc0fab7b4c2f370b9b31fdbc93f90.png)
 
-### Configuring project
+### Configuring the project
 
 Add the code that references the library to build.gradle under the App directory of the project.  
 

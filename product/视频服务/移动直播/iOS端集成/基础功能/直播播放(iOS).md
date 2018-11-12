@@ -216,7 +216,8 @@ _config.minAutoAdjustCacheTime = 1;
 _config.maxAutoAdjustCacheTime = 1;
 //流畅模式
 _config.bAutoAdjustCacheTime   = NO;
-_config.cacheTime              = 5;
+_config.minAutoAdjustCacheTime = 5;
+_config.maxAutoAdjustCacheTime = 5;
 
 [_txLivePlayer setConfig:_config];
 

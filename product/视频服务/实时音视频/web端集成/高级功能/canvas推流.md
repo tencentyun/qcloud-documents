@@ -16,8 +16,7 @@ https://gitee.com/vqcloud/webrtc-samples
         userId: userId,
         sdkAppId:  sdkappid,
         accountType:  accountType,
-        userSig: userSig,
-        closeLocalMedia: true
+        userSig: userSig
     },function(){
         ...
     } ,function(error){
@@ -29,13 +28,24 @@ https://gitee.com/vqcloud/webrtc-samples
 参考demo，通过 canvas.captureStream 获取到MediaStream
 
 
-### step 3.推流
+### step 3.进房并推流
 > role 必须带上，这将决定了canvas流的码率，请到控制台配置一个合适的码率。
+> role 可以在进房的时候带，也可以在推流的时候带，建议在进房的时候带，会更快哦
+
 ```javascript
-    RTC.startRTC({
+    RTC.enterRoom({
+        role: 'canvas_stream_role_name',
+        roomid : $("#roomid").val()
+    },function(){
+        //进房成功，音视频推流
+        RTC.startRTC({
         role: 'canvas_stream_role_name',
         stream: canvasStream
-    })
+        });
+    },function(){
+
+    });
+
 ```
 
 

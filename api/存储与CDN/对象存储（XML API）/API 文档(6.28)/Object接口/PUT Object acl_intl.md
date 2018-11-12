@@ -5,21 +5,13 @@ The PUT Object acl API is used to configure the ACL table for an Object in a buc
 Request example:
 ```
 PUT /{ObjectName}/?acl HTTP/1.1
-Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Host: .cos..myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
-<AccessControlPolicy>
+
 ```
 > Authorization: Auth String (see [Request Signature](https://cloud.tencent.com/document/product/436/7778) for details)
-
-### Request line
-
-```
-PUT /{ObjectName}/?acl HTTP/1.1
-```
-
-The API accepts `PUT` requests.
 
 
 ### Request Headers
@@ -31,9 +23,9 @@ The implementation of this request operation uses the common request header. For
 #### Non-common Headers
 
 
-Name|Type|Required|Description
+Name|Description|Type|Required
 ---|---|---|---
-X-cos-acl|string|No|Defines the ACL property of the Object. Valid values: private, public-read-write, public-read.
+X-cos-acl|Defines the ACL property of the Object. Valid values: private, public-read-write, public-read.|string|No
 x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No 
 x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No 
 x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No 
@@ -42,8 +34,8 @@ x-cos-grant-full-control | Give the authorized person read and write permissions
 ### Request Body
 The requested request body is an ACL configuration rule.
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<AccessControlPolicy/>
+
+
 ```
 
 
@@ -92,25 +84,25 @@ Authorization: q-sign-algorithm = sha1 & q-ak = AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj
 Content-Length: 229
 Content-Type: application/x-www-form-urlencoded
 
-<AccessControlPolicy>
-  <Owner>
-    <ID>qcs::cam::uin/12345:uin/12345</ID>
-  </Owner>
-  <AccessControlList>
-    <Grant>
-      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"CanonicalUser\">
-        <ID>qcs::cam::uin/12345:uin/12345</ID>
-      </Grantee>
-      <Permission>FULL_CONTROL</Permission>
-    </Grant>
-    <Grant>
-      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"Group\">
-        <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-      </Grantee>
-      <Permission>READ</Permission>
-    </Grant>
-  </AccessControlList>
-</AccessControlPolicy>
+
+  
+    qcs::cam::uin/12345:uin/12345
+  
+  
+    
+      
+        qcs::cam::uin/12345:uin/12345
+      
+      FULL_CONTROL
+    
+    
+      
+        http://cam.qcloud.com/groups/global/AllUsers
+      
+      READ
+    
+  
+
 ```
 
 ### Response:

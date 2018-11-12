@@ -11,7 +11,7 @@
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.0/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.2.3/board_sdk.mini.js"></script>
 ```
 
 **建议直接使用腾讯云 CDN 加速的 SDK**。
@@ -75,15 +75,16 @@ user | String | 否 | 白板用户昵称
 canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受  Hex 色值，如 #ff00ff，大小写不敏感
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br/>false 不采用比例，采用参数id所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板SDK会以参数id所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
 tlsData | Object | 是 | 白板用户鉴权信息
 
 ##### tlsData参数
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
-sdkAppId | Object | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
-identifier | Object | 是 | 用户名
-userSig | Object | 是 | 登录鉴权信息
+sdkAppId | Integer | 是 | 腾讯云应用的唯一标识，可以登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)查看
+identifier | String | 是 | 用户名
+userSig | String | 是 | 登录鉴权信息
 
 该方法传入参数，identifier 和 userSig，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 

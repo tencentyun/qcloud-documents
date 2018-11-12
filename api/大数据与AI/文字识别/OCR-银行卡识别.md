@@ -50,7 +50,7 @@ items 说明：
 | ---------- | ------ | ---------------------------------------- |
 | item       | string | 字段名称                                     |
 | itemstring | string | 字段结果                                     |
-| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width, height |
+| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽 width、高 height |
 | itemconf   | float  | 识别结果对应的置信度                               |
 
 ## 请求示例

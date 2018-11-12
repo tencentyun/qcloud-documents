@@ -2,12 +2,12 @@
 
 Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document describes the authentication keys for all platforms to make it easy for developers to debug and integrate Game Multimedia Engine.
 
-## Voice Key
+##  Key deployment
 Tencent Cloud GME provides authentication keys for authentication of voice chat and voice message.
 
 Plaintext, key and algorithm are used to generate a signature for authentication.
 
-Plaintext is constructed using the following fields in the network order:
+Plaintext is constructed using the following fields in the network byte order:
 
 | Field Description | Type/Length | Value Definition/Note |
 | ---------------- |-------------------|--------------|
@@ -15,7 +15,7 @@ Plaintext is constructed using the following fields in the network order:
 | wOpenIDLen		|unsigned short/2	|Length of third-party account	|
 | dwOpenID			|wAccountLen		|Characters of third-party account	|
 | dwSdkAppid		|unsigned short/4	|AppID of third-party account		|
-| dwRoomID			|unsigned int/4		|For voice chat, enter the room number; for voice message, enter 0. |
+| dwRoomID			|unsigned int/4		|For voice chat, enter the room ID; for voice message, enter 0. |
 | dwExpTime		|unsigned int/4		|Expiration time (current time + validity period) (in sec). 300 seconds is recommended. |
 | dwReserved1		|unsigned int/4		|Value entered: -1 or 0xFFFFFFFF |
 | dwReserved2		|unsigned int/4		|Value entered: 0 |
@@ -23,7 +23,7 @@ Plaintext is constructed using the following fields in the network order:
 ### 1. Key
 The permission key can be obtained on Tencent Cloud GME console.
 
-![](https://main.qcloudimg.com/raw/9afa07c629e37b66cd223bf39fe17abf.png)
+![](https://main.qcloudimg.com/raw/bed3c36cdf3fcb421878c64cd5d775ba.png)
 
 ### 2. Algorithm
 TEA symmetric encryption algorithm.

@@ -1760,7 +1760,7 @@ get_auth(Method, Bucket, Key, Expired=300, Headers={}, Params={})
 
 ```python
 response = client.get_auth(
-    Method='GET'|'POST'|'GET'|'DELETE'|'HEAD',
+    Method='PUT'|'POST'|'GET'|'DELETE'|'HEAD',
     Bucket='test01-123456789',
     Key='test.txt',
     Expired=300,
@@ -1778,7 +1778,7 @@ response = client.get_auth(
 
 | Parameter Name | Description | Type | Required | 
 | -------------- | -------------- |---------- | ----------- |
- | Method  | Indicates the method of the operation. Available values: 'GET', 'POST', 'GET', 'DELETE', and 'HEAD'. |  String | Yes | 
+ | Method  | Indicates the method of the operation. Available values: 'PUT', 'POST', 'GET', 'DELETE', and 'HEAD'. |  String | Yes | 
  | Bucket  |Bucket name, in the format of bucketname-appid |  String | Yes | 
  | Key  | For bucket operations, enter a root path "/". For object operations, enter a file path. | String | Yes | 
  |Expired| Signature expiration time (in seconds) | Int| No |

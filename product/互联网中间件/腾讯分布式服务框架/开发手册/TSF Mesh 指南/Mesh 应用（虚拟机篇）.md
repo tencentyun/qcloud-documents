@@ -10,7 +10,7 @@
 
 **Demo for Python**
 
-- [Demo for Python](https://main.qcloudimg.com/raw/f84f0735204c8f24fcc3f21519a8740f/tsf_python_vm_demo.zip)：提供了 3 个 Python 应用及 Dockerfile。三个应用对应的服务名分别是：
+- [Demo for Python](https://main.qcloudimg.com/raw/10b3073c70d56a1ebb76b2e015e289fc.zip)：提供了 3 个 Python 应用。三个应用对应的服务名分别是：
   - user
   - shop
   - promotion
@@ -90,23 +90,35 @@ user => shop => promotion
 
 3. 新建服务：
 
-   - 服务名：填写服务名称。
+   - 服务名：填写服务名称 user。
 
    - 关联应用：选择 Mesh 应用，在应用列表中选择在 **步骤一** 中创建的应用。
 
-   - 服务监听端口：协议选择 HTTP，端口可填写 8080。
+   - 服务监听端口：协议选择 HTTP，端口可填写 8091。
 
    - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行。
 
-     ![](https://main.qcloudimg.com/raw/7394a165093a98219a04100f37dc1ab7.png)
+     ![](https://main.qcloudimg.com/raw/5f94851a2ef33e3aa2b76bf25a6351b3/userService.png)
 
 4. 单击【提交】按钮。
 
 
 
+
+
 ## 三、验证服务调用
 
-使用同样的步骤一和步骤二部署 `user`、`shop` 和 `promotion` 三个应用，并创建服务与应用关联。用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
+使用同样的步骤一和步骤二部署 `user`、`shop` 和 `promotion` 三个应用，并创建服务与应用关联。注意在创建3个服务时的端口号：
+
+- `user` 端口号：8091
+
+- `shop` 端口号：8092
+
+- `promotion` 端口号：8093
+
+
+
+用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
 
 
 
@@ -118,15 +130,10 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 
 为了验证 `user` 服务能通过服务名来调用 `shop` 服务，需要用户通过以下几种方式来触发 `user` 服务的接口调用：
 
-
-
-- **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过 **负载均衡 IP + 服务端口** （在上面的截图例子中服务端口是  9080）来访问 `user` 服务的 `/api/v6/user/account/query` 接口。
-
-- **节点 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点 IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点 IP` 为集群中任一节点的内网 IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
+- 登录 user 所在云服务器，在服务器上执行如下 `curl` 命令。
 
 ```
-	shell
-	curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
+curl localhost:8091/api/v6/user/account/query
 ```
 
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 `user` 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
@@ -139,8 +146,6 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 
 - **服务治理** 界面：选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
   ![](https://main.qcloudimg.com/raw/89040e8ddf377a1a9a972cac02b65037.png)
-
-  
 
 - **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
 

@@ -23,14 +23,14 @@ allprojects {
 - 在主工程的 buidle.gradle 文件中，添加 dependencies。
 
  ```
-// COS SDK模块
+// COS SDK 模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
-// iLiveSDK模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9.1'
+// iLiveSDK 模块
+compile 'com.tencent.ilivesdk:ilivesdk:1.9+'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.5.0'
-// 白板SDK模块
-compile 'com.tencent.boardsdk:boardsdk:1.5.1'
+compile 'com.tencent.ticsdk:ticsdk:1.5.2'
+// 白板 SDK 模块
+compile 'com.tencent.boardsdk:boardsdk:1.6.2'
 ```    
 
 - 在 defaultConfig 中配置 abiFilters 信息。
@@ -62,7 +62,7 @@ TICSDK 使用的一般流程如下：
 
 ### 2.2. 控件使用
 
-TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接Layout的XML文件里直接引用，或者继承添加自己业务需要的特性。如：
+TICSDK 主要用到两个重要的 UI 控件，分别用于显示视频流信息和白板数据信息的。开发者可以直接 Layout 的 XML 文件里直接引用，或者继承添加自己业务需要的特性。如：
 
 ```xml
 <com.tencent.ilivesdk.view.AVRootView
@@ -92,7 +92,7 @@ TICManager.getInstance().setAvRootView(livingVideoView);
 
 ### 2.3. 初始化 SDK
 
-> 在初始化前，需确认已[开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
+> **注意：**在初始化前，需确认已 [开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
 
 接口 | 说明
 ---|---
@@ -131,13 +131,13 @@ login | 登录 | userId 和 userSig
 ------- | ------- | -------
 createClassroom | 创建课堂 | roomID
 
-其中参数**roomID**由业务层自行指定（必须为正整数）。
+其中参数 **roomID** 由业务层自行指定（必须为正整数）。
 
 ### 2.6. 加入课堂
 
 接口 | 说明 | 主要参数
 ------- | ------- | -------
-joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomOption
+joinClassroom | 根据参数配置和 roomID 加入互动课堂中 | TICClassroomOption
 
 该接口需要传入TICClassroomOption 加入课堂的参数配置。如：
 
@@ -145,7 +145,6 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
     TICClassroomOption classroomOption = new TICClassroomOption()
         .setRoomId(roomId)			// 为createClassroom中的roomId
         .controlRole("user") 		// 默认的实时音视频角色的配置“user”，开发者需要根据自身的业务需求配置实时音视频的角色。
-        .privateMapKey(privateMapKey) // 进房票据
         .autoSpeaker(false)		// 此处为demo的配置，开发者需要根据自身的业务需求配置
         .autoCamera(true)   // 开发者需要根据自身的业务需求配置
         .autoMic(true)      // 开发者需要根据自身的业务需求配置
@@ -155,10 +154,9 @@ joinClassroom | 根据参数配置和roomID加入互动课堂中 | TICClassroomO
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack(){...});
 ```
 
-为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
+为了保证课堂内的正常逻辑和事件都能被监听到，进房时`TICClassroomOption`的这些属性都是必填参数，另外还有一个父类的参数必须填写：**controlRole** 。
 
 * **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> **画面设定** 中配置的角色名。
-* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，**privateMapKey** 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)。
 
 加入课堂成功，在成功的回调处，需要更新和设置一下白板 SDK 的相关配置，如：
 
@@ -181,7 +179,7 @@ enableMic | 打开/关闭麦克风
 enableSpeaker | 打开/关闭扬声器
 
 ### 2.8. 使用互动白板
-> **说明：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
+> **注意：**使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
 
 白板的相关操作用户直接通过白板 SDK 操作即可，TICSDK 不做任何封装。详见 [Android 白板 SDK 使用手册](/document/product/680/17889)。
 
@@ -242,7 +240,7 @@ quitClassroom | 退出课堂
 ------- | ------- | ------
 destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责调用。| roomId
 
->** 注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
+>**注意：**这里的 **roomId** 对应创建课堂中的 **roomId**。
 
 ### 2.13. 登出
 

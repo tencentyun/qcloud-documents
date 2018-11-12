@@ -11,7 +11,7 @@
 - **微信端**
 发现=>小程序=>搜索“腾讯视频云”，点击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
 
-![](https://main.qcloudimg.com/raw/00d3215b9865159429097ad7a9df4395.jpg)
+![](https://main.qcloudimg.com/raw/36310afb4121a945d1119c51c3334c36.png)
 
 ## 对接资料
 

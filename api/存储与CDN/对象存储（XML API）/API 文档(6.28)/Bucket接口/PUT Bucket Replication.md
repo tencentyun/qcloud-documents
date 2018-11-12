@@ -1,7 +1,8 @@
 ## 功能描述
 PUT Bucket replication 用于向已启用多版本的存储桶中配置跨区域复制规则。如果存储桶已经配置了跨区域复制规则，那么该请求会替换现有配置。
 
->注意：使用该接口时，需确保存储桶已经开启多版本，开启多版本的 API 文档请参见 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/***/****)。
+>**注意：**
+>使用该接口时，需确保存储桶已经开启多版本，开启多版本的 API 文档请参见 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/436/19889)。
 
 ## 请求
 ### 请求示例

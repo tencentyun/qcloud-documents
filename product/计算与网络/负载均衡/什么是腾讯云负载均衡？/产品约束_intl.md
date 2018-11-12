@@ -11,7 +11,7 @@
   <td rowspan="4">A maximum of 100 CLB instances can be purchased for each type <br>A maximum of 100 CVMs can be associated with each CLB instance <br>A maximum of 50 listeners can be created for each CLB instance <br>The number of ports can only be an integer within 1-65535</td>
  </tr>
 <tr>
-  <td>Classic CLB instance</td>
+  <td>Conventional CLB instance</td>
   <td>A frontend port only corresponds to one protocol within one CLB instance <br>A frontend port corresponds to multiple backend ports within one CLB instance</td>
  </tr>
  <tr>
@@ -21,5 +21,4 @@
 </tbody>
 </table>
 
-If a CLB-associated CVM is isolated (put into the recycle bin, or removed according to the postpaid plan) due to arrears, the CLB is forcibly unbound from this CVM.
-
+If a CLB-associated CVM is isolated (put into the recycle bin, or removed according to the postpaid plan) due to arrears, the CLB still binds this CVM.

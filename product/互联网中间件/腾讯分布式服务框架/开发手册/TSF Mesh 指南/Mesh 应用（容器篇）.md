@@ -46,7 +46,6 @@ user => shop => promotion
    - 应用类型：选择 **Mesh 应用**
 
      ![](https://main.qcloudimg.com/raw/dc0c301e3b3829f486cff4ce580ab6f0.png)
-		 
 1.4 单击【提交】按钮。
 
 
@@ -68,8 +67,8 @@ user => shop => promotion
    - 部署组名：填写部署组名称。
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
-   - 日志配置项：可选择无。
-     ![](https://main.qcloudimg.com/raw/0d8d32716de2d154e11b6260fb966abb.png)
+   - 其他设置：参考下图
+     ![](https://main.qcloudimg.com/raw/3a79f0f83dc6e538e6ab5534a8e1302d.png)
 
 3.3 单击【提交】按钮。
 
@@ -80,7 +79,7 @@ user => shop => promotion
 4.1 部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 **步骤二** 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
 
-![](https://main.qcloudimg.com/raw/106c2e338203090f135163e0ccf68232.png)
+![](https://main.qcloudimg.com/raw/230b0a45fdb27f15bfe0b4fcfefafc4b/image.png)
 
 4.3 单击【提交】按钮，，如果部署组状态变为运行中，表示应用部署成功。
 
@@ -92,18 +91,28 @@ user => shop => promotion
 1. 在 TSF 控制台上，单击左侧导航栏 【服务治理】。
 2. 在页面顶部选择集群和命名空间。确保选中的集群和命名空间和 **步骤三** 中部署组的集群和命名空间属性相同。
 3. 新建服务：
-   - 服务名：填写服务名称。
+   - 服务名：填写服务名称 user。
    - 关联应用：选择 Mesh 应用，在应用列表中选择在 **步骤一** 中创建的应用。
-   - 服务监听端口：协议选择 HTTP，端口可填写 8080。
+   - 服务监听端口：协议选择 HTTP，端口可填写 9080。
    - 健康检查 URL：填写应用的健康检查 URL，用于检查应用是否正常运行。
 
-     ![](https://main.qcloudimg.com/raw/7394a165093a98219a04100f37dc1ab7.png)
+     ![](https://main.qcloudimg.com/raw/b08bb4be98bd700806aa37180b8f670b.png)
 4. 单击【提交】按钮。
 
 
 ## 三、验证服务调用
 
-使用同样的步骤一和步骤二部署 `user`, `shop` 和 `promotion` 三个应用，并创建服务与应用关联。用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
+使用同样的步骤一和步骤二部署 `user`、`shop` 和 `promotion` 三个应用，并创建服务与应用关联。注意在创建3个服务时的端口号：
+
+- `user` 端口号：9080
+
+- `shop` 端口号：9080
+
+- `promotion` 端口号：9080
+
+
+
+用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 `user` 服务是否健康，以及触发 `user` 服务调用 `shop` 和 `promotion` 服务。
 
 
 
@@ -136,8 +145,6 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 
 - **服务治理** 界面：选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
   ![](https://main.qcloudimg.com/raw/89040e8ddf377a1a9a972cac02b65037.png)
-
-  
 
 - **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
   ![](https://main.qcloudimg.com/raw/95c0a6e134664254b23e2c70e5f25671.png)

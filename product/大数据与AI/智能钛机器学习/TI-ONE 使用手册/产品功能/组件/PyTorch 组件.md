@@ -95,4 +95,5 @@ Net(
 )
 ```
 
-示例代码下载：<a href="manual/attachments/pytorch_nn_example.py" target="_blank">pytorch_nn_example.py</a>
+示例代码下载：[pytorch_nn_example.py](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/pytorch_nn_example.py)
+

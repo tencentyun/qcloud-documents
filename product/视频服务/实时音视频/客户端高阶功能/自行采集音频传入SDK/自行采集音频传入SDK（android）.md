@@ -1,7 +1,7 @@
 本章节将指导您如何在客户端采集自定义的音频，并且上行播放给观众
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
 [点击下载]()
 
 ## 相关说明
@@ -51,13 +51,13 @@ ILiveRoomOption option = new ILiveRoomOption(ILiveLoginManager.getInstance().get
 	.autoSpeaker(true) //开启speaker
 	.videoMode(ILiveConstants.VIDEOMODE_NORMAL)
 	.controlRole(Constants.ROLE_MASTER);
-		
+
 
 ILiveRoomManager.getInstance().createRoom(iRoomNum, option, new ILiveCallBack() {
 		@Override
 		public void onSuccess(Object data) {
 		    //创建房间成功后切换至观看场景
-			ILiveSDK.getInstance().getAvAudioCtrl().changeAudioCategory(AVRoomMulti.AUDIO_CATEGORY_MEDIA_PLAYBACK);	
+			ILiveSDK.getInstance().getAvAudioCtrl().changeAudioCategory(AVRoomMulti.AUDIO_CATEGORY_MEDIA_PLAYBACK);
 		}
 
 		@Override
@@ -118,6 +118,3 @@ AVAudioCtrl类的方法，用于向SDK填充自行采集的音频数据
 
 - 音频fillExternalAudioFrame的参数该如何设置？
 > 自定义采集需开发者对音频相关知识有一定的了解。参数的设置需参考API说明
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

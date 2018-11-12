@@ -248,7 +248,8 @@ mPlayConfig.setMaxAutoAdjustCacheTime(1);
 //
 //流畅模式
 mPlayConfig.setAutoAdjustCacheTime(false);
-mPlayConfig.setCacheTime(5);
+mPlayConfig.setMinAutoAdjustCacheTime(5);
+mPlayConfig.setMaxAutoAdjustCacheTime(5);
 //
 mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
