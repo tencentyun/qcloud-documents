@@ -334,7 +334,7 @@ coscmd putobjectacl  --grant-read 12345678,12345678/11111 --grant-write anyone -
 ```
 
 #### ACL 设置指南
-> *  --grant-read 代表读的权限
+*  --grant-read 代表读的权限
 * --grant-write 代表写的权限
 * --grant-full-control 代表读写的权限
 * GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL 代表被赋权的帐号
