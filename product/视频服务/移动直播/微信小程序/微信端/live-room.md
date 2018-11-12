@@ -125,7 +125,7 @@ Page({
 
 ### step1: 开通相关云服务
 
-小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通讯（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以点击链接免费开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
+小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通讯（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以点击链接开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
 
 ### step2: 下载自定义组件源码
 
