@@ -203,14 +203,14 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
 
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
  > **注意：** 
- - 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
- - COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
- - COSCMD 分块上传时会对每一块进行 MD5 校验。
- - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 `md5` 值。
- - 使用-s参数可以使用同步上传，跳过上传 md5 一致的文件(cos上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header)。
- - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`。
- - 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
- - 目前只支持上传最大 40T 的单文件。
+>  - 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
+>  - COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
+>  - COSCMD 分块上传时会对每一块进行 MD5 校验。
+>  - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 `md5` 值。
+>  - 使用-s参数可以使用同步上传，跳过上传 md5 一致的文件(cos上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header)。
+>  - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`。
+>  - 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
+>  - 目前只支持上传最大 40T 的单文件。
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
@@ -235,13 +235,13 @@ coscmd download -rs / bbb/aaa
 #忽略.txt和.doc的后缀文件
 coscmd download -rs / bbb/aaa --ignore *.txt,*.doc 
 ```
-请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）
+请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
 > **注意：** 
-* 若本地存在同名文件，则会下载失败，使用 `-f` 参数覆盖本地文件
-* `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口
-* 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文
-件 (前提是下载文件夹是通过 `COSCMD` 的 `upload` 接口上传的，文件携带有 `x-cos-meta-md5` 头部)
-* 在下载文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔
+> - 若本地存在同名文件，则会下载失败，使用 `-f` 参数覆盖本地文件。
+> - `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
+> - 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文。
+> 件 (前提是下载文件夹是通过 `COSCMD` 的 `upload` 接口上传的，文件携带有 `x-cos-meta-md5` 头部)。
+> - 在下载文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
 
 ### 删除文件或文件夹
 - 删除文件命令如下：
