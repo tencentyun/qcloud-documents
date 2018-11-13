@@ -4529,7 +4529,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>url</td>
       <td>否</td>
       <td>String(64)</td>
-      <td>点击广告图片后的跳转链接，如没有，则图片无法点击</td>
+      <td>单击广告图片后的跳转链接，如没有，则图片无法单击</td>
    </tr>
 </table>
 
