@@ -133,12 +133,12 @@ GET index_1/_recovery
         "shards": [
             {
                 "id": 1,
-                "type": "SNAPSHOT",
+                "type": "SNAPSHOT",     <1>
                 "stage": "INDEX",
                 "primary": true,
                 "start_time_in_millis": 1525766148333,
                 "total_time_in_millis": 8718,
-                "source": {
+                "source": {     <2>
                     "repository": "my_cos_backup",
                     "snapshot": "snapshot",
                     "version": "5.6.4",
@@ -162,7 +162,7 @@ GET index_1/_recovery
                         "total": 132,
                         "reused": 0,
                         "recovered": 20,
-                        "percent": "15.2%"
+                        "percent": "15.2%"      <3>
                     },
                     "total_time_in_millis": 8716,
                     "source_throttle_time_in_millis": 0,
