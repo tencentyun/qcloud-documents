@@ -18,6 +18,6 @@ time4.cloud.tencent.com
 time5.cloud.tencent.com
 ```
 
-Linux 系统设置 NTP 时钟源服务器详见《Linux 实例设置 NTP 服务》。
-Windows 系统设置 NTP 时钟源服务器详见《Windows 实例设置 NTP 服务》。
+Linux 系统设置 NTP 时钟源服务器详见[《Linux 实例设置 NTP 服务》](https://cloud.tencent.com/document/product/213/30393)。
+Windows 系统设置 NTP 时钟源服务器详见[《Windows 实例设置 NTP 服务》](https://cloud.tencent.com/document/product/213/30394)。
 
