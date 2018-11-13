@@ -1,4 +1,4 @@
-## shell 连接 MongoDB
+
 在腾讯云云服务器（CVM）中可用 MongoDB 提供的 shell 客户端 （[查看安装文档](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/)）连接腾讯云 MongoDB 服务进行数据管理，请注意使用最新版本的 MongoDB 客户端套件。
 
 ### 快速开始
