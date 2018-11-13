@@ -913,12 +913,12 @@ std::string gen_cloud_pay_refund(
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
-    std::string signature;
-    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+    std::string sign;
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &sign)) {
         // 计算失败
         return "";
     }
-    s["signature"] = signature;
+    s["sign"] = sign;
     authen_info["s"] = s;
 
     Json::Value request;
