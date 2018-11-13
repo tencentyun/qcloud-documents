@@ -57,6 +57,7 @@ var_dump ($client->idcardDetect(array('buffers'=>array(file_get_contents('F:\pic
 ```
 #### OCR - 名片识别  
 ```
+//单个或多个图片Url
 var_dump ($client->namecardV2Detect(array('urls'=>array('http://open.youtu.qq.com/app/img/experience/char_general/ocr_namecard_01.jpg'))));
 //单个或多个图片file
 var_dump ($client->namecardV2Detect(array('files'=>array('assets/ocr_namecard_01.jpg'))));
