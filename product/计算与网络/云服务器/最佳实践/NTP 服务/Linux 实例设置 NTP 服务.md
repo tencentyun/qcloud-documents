@@ -1,6 +1,5 @@
 ## 操作场景
 
-本文介绍如何安装和运行客户端 NTP 服务。
 NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，其完整的实现了 NTP 协议，用于校正本地系统与时钟源服务器之前的时间。NTPD 与 NTPDate 的区别是步进式的逐渐校正时间，不会出现时间跳变，而 NTPDate 是断点更新。本文将介绍 NTPD 的安装和使用。
 
 ## 注意事项
