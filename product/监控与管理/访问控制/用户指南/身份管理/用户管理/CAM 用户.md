@@ -1,15 +1,15 @@
 CAM 用户为您在腾讯云中创建的一个实体，每一个 CAM 用户仅同一个腾讯云账户关联。您注册腾讯云账号成功账号时已成为 CAM 主账号，您可以通过 [用户管理](https://console.cloud.tencent.com/cam) 来创建拥有不同权限的子账号协作您。子账号的类型分为 [子用户](https://cloud.tencent.com/document/product/598/13674)、[协作者](https://cloud.tencent.com/document/product/598/13666) 以及 [消息接收人](https://cloud.tencent.com/document/product/598/13667)。
 
 <table>
-	<tr style="align: center;">
-		<th rowspan="2">账号类型</th>
-		<th rowspan="2">主账号</th>
-		<th colspan="3">子账号</th>
+	<tr>
+		<th rowspan="2" align="center" valign="middle">账号类型</th>
+		<th rowspan="2" align="center" valign="middle">主账号</th>
+		<th colspan="3" align="center" valign="middle">子账号</th>
 	</tr>
 	<tr>
-		<th>子用户</th>
-		<th>协作者</th>
-		<th>消息接收人</th>
+		<th align="center" valign="middle">子用户</th>
+		<th align="center" valign="middle">协作者</th>
+		<th align="center" valign="middle">消息接收人</th>
 	</tr>
 	<tr>
 		<td>定义</td>
