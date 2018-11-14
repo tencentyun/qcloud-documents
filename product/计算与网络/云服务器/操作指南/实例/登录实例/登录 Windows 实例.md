@@ -11,7 +11,7 @@
 - 管理员账号：对于 Windows 类型的实例，管理员帐号统一为 **Administrator**。
 - 密码：
   - 若用户在启动实例时选择【自动生成密码】，则初始密码由系统随机分配。您可以登录 [腾讯云控制台](https://cloud.tencent.com/login)，单击右上角的消息中心，查收新购买的服务器，页面中将包含云服务器登录管理员帐号及初始密码。如下图所示：
-  ![](https://main.qcloudimg.com/raw/042d4df5926cdea4fc04989815589ef3.png)
+  ![](https://main.qcloudimg.com/raw/15029612c2710cbd55d97255bf36a840.png)
   - 若用户在启动实例时选择【自定义密码】，则密码为用户在购买云服务器实例时指定的密码。有关密码的更多内容，请参考 [登录密码](/doc/product/213/6093) 。
 
 ## 本地为 Windows 计算机
