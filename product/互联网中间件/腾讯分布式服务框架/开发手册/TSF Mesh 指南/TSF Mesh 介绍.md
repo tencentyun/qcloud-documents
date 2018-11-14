@@ -17,7 +17,7 @@ TSF Mesh 具有如下优势：
 
 ## 基本实现原理
 
-TSF  Mesh 可以代理使用虚拟机或者容器部署的应用。下面以容器为例说明 TSF Service Mesh 的实现原理。Sidecar 是 L7 层代理，和服务运行在同一个 Pod 中，与服务共享网络和存储，其中 Sidecar 与服务的关系如下：
+TSF  Mesh 可以代理使用虚拟机或者容器部署的应用。下面以容器为例说明 TSF Service Mesh 的实现原理。Sidecar 是 L7 层代理，和服务运行在同一个 Pod 中，与 Pod 共享网络，其中 Sidecar 与服务的关系如下：
 
 - Sidecar 代理服务向注册中心注册服务相关信息，以便其他服务发现自身。
 - Sidecar 作为 Pod 内服务的 HTTP 代理，可以自动发现其他服务。
