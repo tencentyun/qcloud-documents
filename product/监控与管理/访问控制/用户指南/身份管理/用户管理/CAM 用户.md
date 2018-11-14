@@ -2,14 +2,14 @@ CAM 用户为您在腾讯云中创建的一个实体，每一个 CAM 用户仅�
 
 <table>
 	<tr>
-		<th rowspan="2" align="center" valign="middle">账号类型</th>
-		<th rowspan="2" align="center" valign="middle">主账号</th>
-		<th colspan="3" align="center" valign="middle">子账号</th>
+		<th rowspan="2">账号类型</th>
+		<th rowspan="2">主账号</th>
+		<th colspan="3">子账号</th>
 	</tr>
 	<tr>
-		<th align="center" valign="middle">子用户</th>
-		<th align="center" valign="middle">协作者</th>
-		<th align="center" valign="middle">消息接收人</th>
+		<th>子用户</th>
+		<th>协作者</th>
+		<th>消息接收人</th>
 	</tr>
 	<tr>
 		<td>定义</td>
