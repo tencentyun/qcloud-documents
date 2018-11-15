@@ -168,7 +168,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 		order_client["machine_no"]       = "32-62-A8-14-B3-C0";
 		order_client["sdk_version"]      = "1.0";
 		order_client["device_id"]        = 1;
-		order_client["spbill_create_ip"] = "183.15.244.75";
+		order_client["spbill_create_ip"] = "192.168.100.75";
 		order_client["staff_id"]         = "1003";
 		order_client["terminal_type"]    = 2;
 
@@ -913,12 +913,12 @@ std::string gen_cloud_pay_refund(
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
-    std::string signature;
-    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+    std::string sign;
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &sign)) {
         // 计算失败
         return "";
     }
-    s["signature"] = signature;
+    s["sign"] = sign;
     authen_info["s"] = s;
 
     Json::Value request;
@@ -4529,7 +4529,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>url</td>
       <td>否</td>
       <td>String(64)</td>
-      <td>点击广告图片后的跳转链接，如没有，则图片无法点击</td>
+      <td>单击广告图片后的跳转链接，如没有，则图片无法单击</td>
    </tr>
 </table>
 
