@@ -29,9 +29,7 @@ Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 
 
 
-> **程序包格式说明**
->
-> 如果程序包是 Java 应用且文件后缀是 `.jar` ，在部署应用时，TSF 会执行 `java -jar xxx.jar` 命令启动应用；如果程序包的后缀名不是 `.jar` （如 Python 应用），在部署应用时，需要将 Python 文件、启停脚本、健康检查脚本压缩成 `zip` 或 `tar.gz` 格式的压缩包进行部署。
+其中star.sh、stop.sh、cmdline的编写方法参考 [上传程序包要求>>](https://cloud.tencent.com/document/product/649/30359)。
 
 
 
