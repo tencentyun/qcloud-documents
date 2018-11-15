@@ -9,8 +9,8 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 PUT /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -104,11 +104,7 @@ PUT /?lifecycle HTTP/1.1
 |Filter    |LifecycleConfiguration.Rule    |Filter 用于描述规则影响的 Object 集合    |Container    |是|
 |Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |Container    |是|
 |ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过 255 个字符    |String    |否|
-|And    |LifecycleConfiguration.Rule.Filter    |用于组合 Prefix 与 Tag    |Container    |否|
 |Prefix    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |Container    |否|
-|Tag    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |标签，Tag 可以有零个或者多个    |Container    |否|
-|Key    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
-|Value    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
 |Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数    |Integer    |否|
