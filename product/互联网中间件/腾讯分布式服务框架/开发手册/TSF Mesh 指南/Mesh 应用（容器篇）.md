@@ -17,7 +17,7 @@
 
 ### 2. 将镜像推送到仓库
 2.1  单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】标签页。首次使用时，需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tence nt.com/document/product/649/16695)）。
+2.2 单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
      ![](https://main.qcloudimg.com/raw/c5fd709b9d3acbc6fc25f1c8bd8ebd5d.png)
 
 
