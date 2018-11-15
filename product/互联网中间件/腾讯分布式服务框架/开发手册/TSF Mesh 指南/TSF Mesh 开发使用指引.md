@@ -1,14 +1,3 @@
-## 获取 Demo
-
-[Demo for Python](https://main.qcloudimg.com/raw/f84f0735204c8f24fcc3f21519a8740f/tsf_python_vm_demo.zip) 提供了 3 个 Python 应用及 Dockerfile。3 个应用对应的服务名分别是：
-  - user
-  - shop
-  - promotion
-
-3 个应用之间的调用关系是：`user => shop => promotion`
-
-
-
 
 ## 开发说明
 
@@ -57,3 +46,83 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 ```
 
 > **注意：**以上代码片段可参考 Demo 工程内 userService.py 。
+
+
+
+## 服务定义和注册
+
+在应用程序所在目录中设置创建 `spec.yml` 文件，该文件用于描述服务信息。sidecar 会通过服务描述文件将服务注册到服务注册中心。spec.yml 格式如下：
+
+```yaml
+apiVersion: v1
+kind: Application
+spec:
+  services:
+    - name: user # service name
+      ports:
+        - targetPort: 8091 
+        protocol: http
+      healthCheck:
+        path: /health
+```
+
+
+
+## API 定义和上报
+
+TSF 支持 Mesh 应用 API 上报功能。在应用程序所在目录中设置创建 `apis` 目录，里面放置服务的 API 定义。一个服务对应一个 yaml 文件，文件名就是服务名，如 petstore 服务对应的配置是 petstore.yaml。API遵循 [OPENAPI 3.0规范 >>](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。配置文件 [样例参考>>](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0/petstore.yaml)。user.yml 的 API 定义如下：
+
+```yaml
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: user service
+paths:
+  /api/v6/user/create:
+    get:
+      responses:
+        '200':
+           description: OK
+        '401':
+           description: Unauthorized
+        '402':
+           description: Forbidden
+        '403':
+           description: Not Found
+  /api/v6/user/account/query:
+    get:
+      responses:
+        '200':
+           description: OK
+        '401':
+           description: Unauthorized
+        '402':
+           description: Forbidden
+        '403':
+           description: Not Found
+  /health:
+    get:
+      responses:
+        '200':
+           description: OK
+        '401':
+           description: Unauthorized
+        '402':
+           description: Forbidden
+        '403':
+           description: Not Found
+```
+
+### 设置自定义标签
+
+Mesh 支持通过 http header 设置自定义标签（标签可用于服务治理，参考服务治理相关文档）。以 Python 为例说明如何设置自定义标签。
+
+```
+>>> import requests
+>>> url = 'https://api.github.com/some/endpoint'
+>>> headers = {'custom-key': 'custom-value'}
+>>> r = requests.get(url, headers=headers)
+```
+
+> 以上示例依赖机器上已经安装了 requests 库。
+
