@@ -2,7 +2,7 @@
 
 虚拟机部署 Demo: [tsf_python_vm_demo >>](https://main.qcloudimg.com/raw/cfc64e09c79e05581275ad6baaa1b20c/tsf_python_vm_demo-1108.zip) 
 
-容器部署 Demo: [tsf_python_docker_demo >>](https://main.qcloudimg.com/raw/e94cd237b6e49b0cb3f34a024926544a/tsf_python_docker_demo.zip)
+容器部署 Demo: [tsf_python_docker_demo >>](https://main.qcloudimg.com/raw/449b92688fabd8903e1486f1d00577be/tsf_python_docker_demo-1115.zip)
 
 Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 
