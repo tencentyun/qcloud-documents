@@ -5,9 +5,9 @@
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
       <th width="0px"  style="text-align:center">功能简介</td>
-      <th width="70px" style="text-align:center">精简版</td>
-      <th width="70px" style="text-align:center">基础版</td>
-      <th width="70px" style="text-align:center">商业版</td>
+      <th width="92px" style="text-align:center">精简版</td>
+      <th width="92px" style="text-align:center">基础版</td>
+      <th width="92px" style="text-align:center">商业版</td>
       <th width="92px" style="text-align:center">商业版Pro</td>
    </tr>
    <tr>
@@ -305,32 +305,32 @@
       <td rowspan='2'>SDK下载</td>
       <td>Android</td>
 	  <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/LiteAVSDK_UGC_Android_5.3.6001.zip">DOWNLOAD</a> </td>
-			<td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickSta
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/LiteAVSDK_UGC_Android_5.3.6004.zip">DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/LiteAVSDK_Enterprise_Android_5.3.6004.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_UGC_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/TXLiteAVSDK_Enterprise_iOS_5.3.6001.zip">DOWNLOAD</a> </td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/TXLiteAVSDK_UGC_iOS_5.3.6004.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/TXLiteAVSDK_Enterprise_iOS_5.3.6004.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
       <td rowspan='2'>License</td>
       <td>License申请</td>
       <td>不同版本SDK需要搭配不同版本的License才能使用</td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">精简版</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">基础版</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版Pro</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">精简版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">基础版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版Pro</a></td>
    </tr>
    <tr>
       <td>套餐价格</td>
       <td>包含SDK的一年使用权和腾讯云点播流量套餐</td>
-      <td>￥2345/年</td>
-      <td>￥10050/年</td>
-      <td>￥35W/年 </td>
-      <td>￥50W/年 </td>
+      <td style="text-align:center">￥2345/年</td>
+      <td style="text-align:center">￥10050/年</td>
+      <td style="text-align:center">￥35W/年 </td>
+      <td style="text-align:center">￥50W/年 </td>
    </tr>
 </table>
 

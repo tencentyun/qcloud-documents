@@ -149,7 +149,7 @@ public void setGreenScreenFile(String path);
 ## 问题排查              
 ### 1. 工程运行过程中crash？  
  > 1. 检查build.gradle设置，abiFilters是否设置为armeabi，目前只支持armeabi架构
- > 2. 如果是jar集成方式，检查动效对应的so是否都考到工程jniLibs目录下
+ > 2. 如果是jar集成方式，检查动效对应的so是否都拷到工程jniLibs目录下
      
 ### 2. 工程特效不生效？  
  > 1. 检查是否调用了`TXUGCBase.getInstance().setLicence(Context context, String url, String key)`方法, 以及参数是否正确；  
