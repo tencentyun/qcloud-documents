@@ -9,8 +9,8 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 PUT /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -22,13 +22,6 @@ Content-MD5: MD5
 Lifecycle configuration in the request body
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
-
-### 请求行
-
-```
-PUT /?lifecycle HTTP/1.1
-```
-该 API 接口接受 PUT 请求。
 
 ### 请求头
 
@@ -46,8 +39,8 @@ PUT /?lifecycle HTTP/1.1
 
 
 ### 请求体
-
 该 API 接口请求的请求体具体节点内容为：
+
 ```
 <LifecycleConfiguration>
   <Rule>
@@ -94,8 +87,8 @@ PUT /?lifecycle HTTP/1.1
   </Rule>
 </LifecycleConfiguration>
 ```
-具体内容描述如下：
 
+具体内容描述如下：
 
 |节点名称（关键字）|    父节点|    描述    |类型|    必选|
 |---|---|---|---|---|
@@ -104,11 +97,8 @@ PUT /?lifecycle HTTP/1.1
 |Filter    |LifecycleConfiguration.Rule    |Filter 用于描述规则影响的 Object 集合    |Container    |是|
 |Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |Container    |是|
 |ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过 255 个字符    |String    |否|
-|And    |LifecycleConfiguration.Rule.Filter    |用于组合 Prefix 与 Tag    |Container    |否|
+|And    |LifecycleConfiguration.Rule.Filter    |用于组合 Prefix    |Container    |否|
 |Prefix    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |Container    |否|
-|Tag    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |标签，Tag 可以有零个或者多个    |Container    |否|
-|Key    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
-|Value    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
 |Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数    |Integer    |否|
@@ -123,38 +113,25 @@ PUT /?lifecycle HTTP/1.1
 
 
 ## 响应
-响应示例：
-```
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Date: Sat, 05 Aug 2017 07:13:50 GMT
-Content-Length: 0
-Server: tencent-cos
-x-cos-request-id: NTk4NTcwMDNfMjQ4OGY3MGFfNDI0Y181
-```
-
 ### 响应头
 
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
 该响应体返回为空。
 
-### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+### 错误码
+以下描述此请求可能会发生的一些特殊的且常见的错误情况。具体的错误原因可参考返回的 message 进行排查。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-|错误码|HTTP状态码|描述|
+|错误码|HTTP 状态码|描述|
 |--------|--------|----------|
 |NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
 |MalformedXML|400 Bad Request| XML 格式不合法，请跟 restful api 文档仔细比对 |
 |InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示xml数据中的多条 rule 有相互冲突的部分。|
 |InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同。|
-
-备注：具体的错误原因可参考返回的message进行排查。
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

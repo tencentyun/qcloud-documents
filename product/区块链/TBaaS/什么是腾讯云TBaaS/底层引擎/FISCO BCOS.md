@@ -18,7 +18,7 @@ FISCO BCOS 平台基于价值联盟、安全可信、业务可行、自主可控
 
 ## 系统框架
 
-![](https://main.qcloudimg.com/raw/8d45ce7c7c62d7454c46494560d73263/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842.png)
+![架构图](https://main.qcloudimg.com/raw/debc32754e6a3bb2dd8f543535fba695.jpg)
 
 ## 开源社区
 
