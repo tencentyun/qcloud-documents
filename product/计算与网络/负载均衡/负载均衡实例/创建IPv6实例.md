@@ -31,5 +31,5 @@ IPv6 负载均衡的架构如下图所示。
 3. 购买完成后，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
 ![](https://main.qcloudimg.com/raw/1b87146cc6b4e42417e2d323f4f6d00c.png)
 ### 使用 IPV6 负载均衡
-登陆 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参考 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
+登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参考 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/9802a8e3baeffccb1b1ba853594b0755.png)
