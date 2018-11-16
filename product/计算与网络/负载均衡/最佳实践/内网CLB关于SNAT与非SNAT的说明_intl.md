@@ -3,5 +3,3 @@ Starting from December 15th, 2016, newly purchased private network-based Cloud L
 1. For private network-based CLB newly purchased after 15th, after security group policy is enabled, you must allow all inbound rules of client IPs to ensure normal access.
 
 2. If necessary, you can switch the existing private network-based CLB to the new one by submitting a ticket to the after-sales team. After the switching, the access IP acquired from the server side is the client IP. Your business will not be interrupted during the switching process
-
-
