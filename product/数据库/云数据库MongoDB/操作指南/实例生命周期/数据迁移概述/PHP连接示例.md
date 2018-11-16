@@ -1,14 +1,14 @@
 ### 相关说明
-腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 一文。
+腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 文档。
 
 在 PHP 里，有 [两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/) 可用于连接操作 MongoDB 数据库，它们分别是：
 - mongodb ([PHP官网文档](http://php.net/manual/en/set.mongodb.php))  - MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
 - mongo ([PHP官网文档](http://php.net/manual/en/book.mongo.php)) - mongo 比较老旧，但也可以用，如果要用请选择 1.6 版本。
 
 下面分别用上述两个驱动演示一下连接腾讯云 MongoDB 并进行读写。
- 
+
 ### 使用 mongodb 驱动
-mongodb 安装方法参考 [这里](http://php.net/manual/zh/mongodb.installation.php)。
+mongodb 安装方法参考 [官方安装步骤](http://php.net/manual/zh/mongodb.installation.php)。
 **mongodb 驱动可以用 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式**，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563)。
 
 示例代码:
@@ -98,7 +98,7 @@ var_dump($one);
 
 ### 推荐使用 PHPLIB 库（基于 mongodb 驱动封装）
 使用 mongodb 驱动推荐搭配 [PHPLIB](http://php.net/manual/zh/mongodb.tutorial.library.php) 使用，[查看相关文档](http://mongodb.github.io/mongo-php-library/tutorial/crud/)。
-PHPLIB 的安装方法参考 [这里](http://mongodb.github.io/mongo-php-library/getting-started/)，请注意 PHPLIB 依赖与 mongodb 驱动。
+PHPLIB 的安装方法参考 [官方安装步骤](http://mongodb.github.io/mongo-php-library/getting-started/)，请注意 PHPLIB 依赖与 mongodb 驱动。
 
 示例代码:
 ```
