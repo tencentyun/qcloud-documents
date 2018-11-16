@@ -11,11 +11,11 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 打开 COS 签名工具
 
-1. 单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
+单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
 
 #### 输入基础配置信息
 
-1. 在 “基础信息” 栏中，填写 API 版本及签名有效时间。如下图所示：
+在 “基础信息” 栏中，填写 API 版本及签名有效时间。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/6855a2f6b18779037090e0769303bbc7.png)
 > 基础信息中的参数均为必填项。
 > - API 版本：选择 XML 版本 API。
@@ -23,7 +23,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 输入 API 密钥信息
 
-1. 在 “API 密钥” 栏中，填写您的 API 密钥信息。如下图所示：
+在 “API 密钥” 栏中，填写您的 API 密钥信息。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/c28b93819a8fdd9e121e6b0702d098d4.png)
 > - API 密钥中的信息均为必填项。
 >- API 密钥的参数信息可从控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取。
@@ -31,7 +31,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 输入 HTTP 参数信息
 
-1. 在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
+在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/8fbc5566b31777e646aa457239468cda.png)
 主要参数如下：
  - **HttpMethod：**必选项。HTTP 请求方法，包括 GET，POST，PUT，DELETE 四种。
@@ -45,7 +45,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 生成签名及查阅过程参数
 
-1. 单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。如下图所示：
+单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。如下图所示：
 > COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#signature-.E8.AE.A1.E7.AE.97)。
 
 ![avatar](https://main.qcloudimg.com/raw/4e5d3164848078e4ac2dc0b9b767ca00.png)
@@ -64,13 +64,13 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 输入 API 密钥信息
 
-1. 在 “API 密钥” 栏中，填写您的 API 密钥信息。
+在 “API 密钥” 栏中，填写您的 API 密钥信息。
 > 该信息为必选项，可从控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取。
 > 填写时，请确保该信息的准确性。填写错误将导致您的签名被视为无效签名。
 
 #### 输入 HTTP 参数信息
 
-1. 在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
+在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/621bd5458b8da2dcfc6eea7d707fecbb.png)
 主要参数如下：
  - **ExpiredTime：**必选项。签名的失效时间，单位为秒。您可以在【当前时间】的参数上加上一个有效时长，得到签名的失效时间。**单次签名时，失效时间必须设置为 0**。
@@ -84,7 +84,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 #### 生成签名及查阅过程参数
 
-1. 单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。
+单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。
 > COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/6054#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF2)。
 
 ## 注意事项
