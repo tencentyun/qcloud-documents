@@ -37,7 +37,7 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 ```java
 dependencies {
     ...
-    implementation 'com.tencent.qcloud.uikit:tuikit:0.0.1.161'
+    implementation 'com.tencent.imsdk:tuikit:0.0.1.161'
 }
 
 ```
