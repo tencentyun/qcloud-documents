@@ -84,4 +84,4 @@
 
  [Android 技术接入文档下载](https://mc.qcloudimg.com/static/archive/dc2654f41921ed5c94960efa3ecabade/API+Document_Android.docx) >>
 
-接入过程中若遇到技术问题，且文档内记录无法解决您的问题，请提交工单进行咨询。
+接入过程中若遇到技术问题，且文档内记录无法解决您的问题，请提交 [工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。
