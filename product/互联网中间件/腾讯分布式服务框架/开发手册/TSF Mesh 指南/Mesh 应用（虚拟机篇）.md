@@ -52,23 +52,20 @@
 用户可以登录容器集群 VPC 下任一机器，然后通过 `curl` 命令验证 user 服务是否健康，以及触发 user 服务调用 shop 和 promotion 服务。
 
 #### 1. 触发 user 服务调用 shop 和 promotion 服务
-
 user、shop、promotion 三个服务的接口间调用关系如下：
-
 user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotion (`/api/v6/promotion/query`)
 
 为了验证 user 服务能通过服务名来调用 shop 服务，需要用户通过以下几种方式来触发 user 服务的接口调用：
-
 - 登录 user 所在云服务器，在服务器上执行如下 `curl` 命令。
 ```
 curl localhost:8091/api/v6/user/account/query
 ```
-- **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 `user` 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
+- **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 user 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
 
 
 
 #### 2. 在控制台验证服务间是否调用
-可以通过几种方式验证服务是否成功被 sidecar 代理注册到注册中心，同时服务之间是否成功地进行了调用。
+可以通过以下两种方式验证服务是否成功被 Sidecar 代理注册到注册中心，同时服务之间是否成功地进行了调用。
 - **服务治理** 界面：选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
   ![](https://main.qcloudimg.com/raw/89040e8ddf377a1a9a972cac02b65037.png)
 - **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
