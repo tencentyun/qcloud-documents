@@ -16,10 +16,10 @@ Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 - **start.sh**：启动脚本。
 - **stop.sh**：停止脚本。
 - **cmdline**：检查进程是否存活的文件。
-- **spec.yml**：服务描述文件，具体解释参考 Mesh 开始使用指引。
-- **apis 目录**：存放 API 定义的目录， 具体解释参考 Mesh 开始使用指引。
+- **spec.yml**：服务描述文件，具体解释参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
+- **apis 目录**：存放 API 定义的目录， 具体解释参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
 
-其中 star.sh、stop.sh、cmdline的编写方法参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)。
+其中 star.sh、stop.sh、cmdline 的编写方法参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)。
 
 
 ### 容器应用工程目录
