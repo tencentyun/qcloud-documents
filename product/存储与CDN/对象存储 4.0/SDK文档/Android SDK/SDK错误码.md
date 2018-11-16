@@ -17,9 +17,11 @@
 |10001|InvalidCredentials|密钥信息校验失败，如密钥为空|
 |10002|BadRequest|SDK配置错误，如APPID,region配置出错|
 |10003|SinkSourceNotFound|输入源或者输出源错误，如上传的文件不存在|
+|10004|UnsupportOperation| 无法支持的操作|
 |20000|InternalError|内部错误，如xml格式数据解析失败|
 |20001|ServerError|服务错误,如返回了非xml格式数据|
 |20002|IOError|流读写IO异常，如文件读写IO异常|
 |20003|NetworkError|网络出现异常，如网络不可用，dns解析失败等|
+|20004|DataIntegrityError|数据完整性校验失败|
 |30000|UserCancelled|用户已取消了请求|
 |30001|AlreadyFinished|已执行过请求|
