@@ -7,7 +7,7 @@
 | ------ |--------- | ---- |
 |InvalidArgument|参数校验失败，如必填参数为空|10000|
 |InvalidCredentials|密钥信息校验失败，如密钥为空|10001|
-|BadRequest|SDK配置错误，如APPID|10002|
+|BadRequest|SDK配置错误，如APPID,region配置出错|10002|
 |SinkSourceNotFound|输入源或者输出源错误，如上传的文件不存在|10003|
 |InternalError|内部错误，如xml格式数据解析失败|20000|
 |ServerError|服务错误,如返回了非xml格式数据|20001|
