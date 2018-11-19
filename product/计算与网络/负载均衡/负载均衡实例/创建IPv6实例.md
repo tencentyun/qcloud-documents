@@ -1,4 +1,4 @@
-负载均衡支持创建 IPv6 实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 vip），该 vip 转发来自 IPv6 客户端的请求。
+负载均衡支持创建 IPv6 实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 vip），该 vip 转发来自 IPv6 客户端的请求。该功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/qk4z8jli43)。
 
 ## 什么叫 IPv6？
 IPv6 指网际协议第 6 版（Internet Protocol version 6），是网际协议（IP）的最新版本。IPv6 是 IETF（互联网工程任务组，Internet Engineering Task Force）设计的用于替代现行版本 IP 协议（IPv4）的下一代 IP 协议。与 IPv4 相比，IPv6 的主要特点是：
@@ -30,6 +30,7 @@ IPv6 负载均衡的架构如下图所示。
 2. 实例类型选择 **应用型 CLB**，IP 类型选择 **IPv6**，其他配置和普通实例配置相同。
 3. 购买完成后，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
 ![](https://main.qcloudimg.com/raw/1b87146cc6b4e42417e2d323f4f6d00c.png)
+
 ### 使用 IPV6 负载均衡
 登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参考 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/9802a8e3baeffccb1b1ba853594b0755.png)
