@@ -1,4 +1,4 @@
-## s准备工作
+## 准备工作
 
 **前提条件**：
 
@@ -42,8 +42,6 @@
 
 3. 单击【提交】按钮，完成上传。
 
-   ![](https://main.qcloudimg.com/raw/5feffece169465b33226d89a4d1b8db3.png)
-
 
 
 ### 3. 创建部署组
@@ -62,12 +60,11 @@
 
 1. 单击左侧导航栏【服务治理】，查看服务是否注册成功。如果注册成功，服务显示在线状态。
 
-   ![](https://main.qcloudimg.com/raw/b04f1d3145a472e8a76423a3ce98a9df.png)
+   ![](https://main.qcloudimg.com/raw/c9c264621141bdd7e1005ab8e6c2fe50/WX20181119-183239@2x.png)
 
 2. 单击服务ID，进入服务详情页。单击【API 列表】标签页，可以查看上报的 API 定义。
 
-   ![](https://main.qcloudimg.com/raw/66d48d0a42ebb521c83e3e25070247d2.png)
-
+   ![](https://main.qcloudimg.com/raw/0316c7d95288b8111884f64e04703451/WX20181119-180443@2x.png)
 
 
 ## 三、验证服务调用
@@ -109,8 +106,8 @@ curl localhost:8091/api/v6/user/account/query
 完成 **1** 和 **2** 之后，可以通过几种方式验证服务是否成功被 sidecar 代理注册到注册中心，同时服务之间是否成功地进行了调用。
 
 - **服务治理** 界面：选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
-  ![](https://main.qcloudimg.com/raw/89040e8ddf377a1a9a972cac02b65037.png)
+  ![](https://main.qcloudimg.com/raw/c9c264621141bdd7e1005ab8e6c2fe50/WX20181119-183239@2x.png)
 
 - **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
 
-  ![](https://main.qcloudimg.com/raw/95c0a6e134664254b23e2c70e5f25671.png)
+  ![](https://main.qcloudimg.com/raw/e8bdc3acfcb2f5a2c55bdc344f060163/WX20181119-181613@2x.png)
