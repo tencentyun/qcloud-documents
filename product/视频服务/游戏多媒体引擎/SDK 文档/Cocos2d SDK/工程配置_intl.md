@@ -1,72 +1,63 @@
-﻿Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes project configuration for Cocos2d development so that Cocos2d developers can easily debug and access APIs for Tencent Cloud GME.
+Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document provides project configuration that makes it easy for Cocos2D developers to debug and integrate the APIs for Game Multimedia Engine.
 
-## SDK Acquisition
-You can contact the staff to obtain the SDK.
+## SDK Preparation
 
-### Decompress the SDK resource package.
-Decompress the obtained SDK resource package. The following table describes the folders in the package.
+Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521).
 
-|Folder Name     		| Description
-| ---------------------- |-----------------------------------	|
-| TMG_SDK     		|Game audio-video SDK framework files.	|
-| TMGCocosDemo   	|Game audio-video SDK sample project.			|
+### Decompressing SDK resources
 
-## OS Requirements
-The SDK can be compiled in the Mac OS.
+1. Decompress obtained SDK resources
+2. The folders are as follows:
 
-## iOS Xcode Preparation
-### 1. Import the SDK framework files. 
-Add the required framework to the Xcode project and set the reference location of the header file. The result is shown in the following figure.
+| Folder Name | Description
+| ----------------------|-----------------------------------        |
+| TMG_SDK                    |Mobile Gaming SDK framework file        |
+| TMGCocosDemo          | Mobile Gaming SDK project sample	|
 
-![](https://main.qcloudimg.com/raw/3e3b6a7ed89b4665bb8e2eb72214e02e.png)
+## System Requirement
 
-There are three framework folders in the **TMG_SDK** folder as follows.
->TMGSDK_cocos_audio.framework:
+The SDK can be compiled on Mac.
 
-This audio-video SDK is mandatory.
->QAVSDKAuthBuffer.framework:
+## iOS Xcode Preparations
 
-This SDK is used to generate encryption strings for voice chat room permissions. It can be deployed at the backend during formal deployment. Therefore, this SDK is not mandatory during project configuration.
->QAVSDKTlsSig.framework:
+### 1. Import SDK related framework file
 
-This SDK is used to generate encryption verification strings for PTT. If PTT is not used, this SDK is not required during project configuration.
+Add framework to Xcode project and set the reference location of the header file.
 
-### 2. Add dependent libraries.  
-For more information, see the following figure.  
-![](https://main.qcloudimg.com/raw/8241677307d71444c391cfd89d9a8355.png)
+GMESDK.framework, the Mobile Gaming SDK framework file in TMG_SDK folder, must be added to the project.
 
-## Android Preparation
-### 1. Add the **tmgsdk.jar** file to the **libs** folder.
-![](https://main.qcloudimg.com/raw/d98214986c57df2ad8a12db7501b642c.png)
+### 2. Add dependent libraries
 
-### 2. Import SO files into **Activity**.
+Refer to the figure below:  
+![](https://main.qcloudimg.com/raw/b6156b8c7a596248c148607070e38f67.png)
+
+## Android Preparations
+
+### 1. Add tmgsdk.jar to libs library.
+
+![](https://main.qcloudimg.com/raw/fe1bde45a15f273aa9b9707420bb2696.png)
+
+### 2. Import so file to Activity.
+
 ```
 public class AppActivity extends Cocos2dxActivity {
     static final String TAG = "AppActivity";
     static OpensdkGameWrapper gameWrapper ;
     static {
-        Log.e(TAG, "Load so begin");
-        System.loadLibrary("stlport_shared");
-        System.loadLibrary("xplatform");
-        System.loadLibrary("UDT");
-        System.loadLibrary("qav_authbuff");
-        System.loadLibrary("qav_tlssign");
-        System.loadLibrary("traeimp-armeabi-v7a");
-        System.loadLibrary("qavsdk");
-        Log.e(TAG, "Load so end");
+        OpensdkGameWrapper.loadSdkLibrary();
     }
 }
 ```
 
-### 3. Initialize the project.
-Initialize the project using the onCreate function and pay attention to the sequence.
+### 3. Initialization
+
+Initialization is in oncreate function and the sequence cannot be wrong.
 ```
 protected void onCreate(Bundle savedInstanceState) {
         super.setEnableVirtualButton(false);
         super.onCreate(savedInstanceState);
 
-        //Pay attention to the sequence during initialization.
-        AVLoggerChooser.setUseImsdk(false);
+        //Initialization, the sequence cannot be wrong
         AVChannelManager.setIMChannelType(AVChannelManager.IMChannelTypeImplementInternal);
         gameWrapper = new OpensdkGameWrapper(this);
         runOnGLThread(new Runnable() {
@@ -77,3 +68,4 @@ protected void onCreate(Bundle savedInstanceState) {
         });
 }
 ```
+

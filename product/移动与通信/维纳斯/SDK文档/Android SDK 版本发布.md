@@ -1,4 +1,11 @@
 #### Android SDK 历史版本及更新日志
+
+### 版本号：WNS SDK V 2.6.1
+发布时间：2017.12.01
+版本说明： 
+1、修复部分安卓8.0机型协商密钥失败的bug
+[下载](	https://main.qcloudimg.com/raw/754409d4afa2869b31f23fa7121b9cbc/cloudwns_sdk_and_v2.6.1.zip)
+ 
  
  
 ### 版本号：WNS SDK V 2.6.0

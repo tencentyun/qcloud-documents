@@ -1,6 +1,6 @@
 您可以在私有网络控制台VPN网关页创建VPN网关。
 
-登录[云服务器控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，在私有网络控制台选择【VPN连接】-【VPN网关】选项卡，点击【新建】创建VPN网关。
+登录[云服务器控制台](https://console.cloud.tencent.com/)，单击导航条【私有网络】，在私有网络控制台选择【VPN连接】-【VPN网关】选项卡，单击【新建】创建VPN网关。
 
  ![](//mccdn.qcloud.com/img567fa20d1fadf.png)
  

@@ -1,28 +1,43 @@
 ## 功能描述
-GET Bucket Versioning 接口实现获得存储桶的版本控制信息。
+GET Bucket versioning 接口实现获得存储桶的版本控制信息。
 ### 细节分析
-1. 获取存储桶版本管理的状态，需要有该存储桶的读权限；
+1. 获取存储桶版本控制的状态，需要有该存储桶的读权限；
+2. 有三种版本控制状态：未启用版本控制、启用版本控制和暂停版本控制。
+- 如果您从未在存储桶上启用（或暂停）版本控制，则响应为：
+```
+<VersioningConfiguration>
+```
+
+- 如果您启用了存储桶的版本控制功能，则响应为：
+```
+<VersioningConfiguration>
+  <Status>Enabled</Status>
+</VersioningConfiguration>
+```
+- 如果您暂停了存储桶的版本控制功能，则响应为：
+```
+<VersioningConfiguration>
+    <Status>Suspended</Status>
+</VersioningConfiguration>
+```
+
 
 ## 请求
-语法示例：
+### 请求示例
+
 ```
 GET /?versioning HTTP 1.1
 Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT date
 Authorization: Auth String
 ```
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
-### 请求行
-```
-GET /?versioning HTTP 1.1
-```
-该 API 接口接受 GET 请求。
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
@@ -34,16 +49,18 @@ GET /?versioning HTTP 1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
+
 ```
 <VersioningConfiguration>
-	<Status>Enabled</Status>
+    <Status></Status>
 </VersioningConfiguration>
 ```
+
 具体的数据内容如下：
 
 | 节点名称（关键字）                | 父节点               | 描述    | 类型   |
@@ -75,6 +92,6 @@ x-cos-request-id: NTk5ZDM5OTRfZDNhZDM1MGFfMjYyMTFfZmU3NWQ=
 
 <?xml version='1.0' encoding='utf-8' ?>
 <VersioningConfiguration>
-	<Status>Enabled</Status>
+    <Status>Enabled</Status>
 </VersioningConfiguration>
 ```

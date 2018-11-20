@@ -72,7 +72,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 
 ```objectivec
 // 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
-txLivePush.config.enablePureAudioPush = YES;   // true 为启动纯音频推流，而默认值是 false；
+txLivePush.config.enablePureAudioPush = YES;   // YES 为启动纯音频推流，而默认值是 NO；
 [_txLivePublisher setConfig:_config];          // 重新设置 config
 
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";      

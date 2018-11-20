@@ -8,8 +8,8 @@ WAF completely supports HTTPS services. You just need to upload the SSL certific
 ### The QPS limit in WAF is for the entire instance, or for a single configured domain name?
 The QPS limit in WAF is for the entire instance. For example, if three domain names are under the protection of WAF, the total QPS of the three domains names cannot exceed the upper limit. If the QPS limit of the purchased instance is exceeded, speed limit is triggered, which will result in packet loss.
 
-### Can a Tencent Cloud CVM private IP be entered as the IP of WAF origin server?
-WAF does not support using CVM private IP as the IP of origin server.
+### Can a Tencent Cloud CVM private IP be entered as the origin server IP of WAF?
+WAF does not support using CVM private IP as the origin server IP.
 
 ### Can Dayu high defense packages be used directly for WAF?
 Yes. You can enable high defense capability for WAF by simply selecting the IP of the WAF instance on the configuration page in the Dayu high defense package console.
@@ -20,7 +20,7 @@ Dayu high defense package can be directly associated with WAF. And you just need
 The optimal deployment architecture:
 Client > CDN > WAF+High defense package > Load balancer > Origin server
 
-If you need CDN and high defense capability, set the CNAME provided after the access to WAF to the CDN origin server, and associate the Dayu high defense package with the WAF instance. The user traffic, after going through CDN, is forwarded to WAF, which has the capability of cleaning high-traffic DDOS attacks, and then be forwarded to the origin server to achieve a full protection.
+If you need CDN and high defense capability, set the CNAME provided after the access to WAF to the CDN origin server, and associate the Dayu high defense package with the WAF instance. The user traffic, after going through CDN, is forwarded to WAF, which has the capability of cleaning high-traffic DDoS attacks, and then be forwarded to the origin server to achieve a full protection.
 
 ### Is WAF able to protect multiple origin server IPs under one domain name?
 Yes. Up to 20 domain names can be protected by one WAF.
@@ -38,8 +38,8 @@ Yes. Session persistence is enabled by default.
 In general, changes to configuration take effect within 10s.
 
 ### Does WAF automatically add origin server IP range to security groups?
-High defense origin server IP range cannot be automatically added to security groups. For more information on how to add origin server IP range to security groups, please see [Quick Start](/doc/product/627/11706).
+High defense origin server IP range cannot be automatically added to security groups. For more information on how to add origin server IP range to security groups, please see [here](/doc/product/627/11706).
 
 ### If the uploaded files are blocked, will they still be blocked when using HTTPS or SFTP?
-If WAF is used, files uploaded with HTTPS and HTTP are blocked, but the ones uploaded with SFTP are not. WAF blocks a file only if it is an invalid uploaded file.
+If WAF is used, files uploaded with HTTPS and HTTP will be blocked, but the ones uploaded with SFTP will not. WAF blocks a file only if it is an invalid uploaded file.
 

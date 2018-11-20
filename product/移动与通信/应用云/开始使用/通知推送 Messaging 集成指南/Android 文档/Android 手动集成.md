@@ -2,18 +2,12 @@
 
 ### 1. 下载服务资源压缩包
 
-- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip)，并解压。
-- 下载 [移动开发平台（MobileLine） Messaging 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-messaging-1.1.0.zip)，并解压。
+- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.file.myqcloud.com/tac-core.zip)，并解压。
+- 下载 [移动开发平台（MobileLine） Messaging 资源包](http://tac-android-libs-1253960454.file.myqcloud.com/tac-messaging.zip)，并解压。
 
-### 2. 集成 jar 包 和 so 包
+### 2. 修改您工程的 AndroidManifest.xml 文件
 
-* 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
-* 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
-* 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
-
-### 3. 修改您工程的 AndroidManifest.xml 文件
-
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
+如果您不是通过 aar 集成，请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
 
 ```
 <!-- Messaging 所需权限   -->

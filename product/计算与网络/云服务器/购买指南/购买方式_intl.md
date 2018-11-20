@@ -1,25 +1,22 @@
-The CVM supports two purchase modes: official website purchase and API purchase. This section will detail these two purchase modes.
-## Official website purchase
+Tencent Cloud users can purchase CVMs either from the official website or via the API. 
 
-All users can purchase CVMs on the official website of Tencent Cloud. By billing mode, users can purchase postpaid (billing in seconds, settled every hour). For details, see [Billing Instructions](https://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E).
-For official website purchase of CVMs, click [here](https://cloud.tencent.com/doc/product/213/6998). In the following section, we will introduce official purchase of CVMs.
+### Purchasing from Official Website
+Users can purchase CVMs on [Tencent Cloud official website](https://buy.cloud.tencent.com/cvm?tab=custom&step=1&regionId=1). Tencent Cloud CVM provides pay-as-you-go pricing, which is accurate to seconds and settled on an hourly basis. For more information, please see CVM [Billing Methods](https://intl.cloud.tencent.com/document/product/213/2180).
 
-### Postpaid
- 
-1) Log in to [Tencent Cloud Service Purchase page](http://manage.qcloud.com/shoppingcart/shop.php?tab=cvm).
- 
-2) For the billing mode on the Purchase page, you can choose "Postpaid".
+Follow the steps below to purchase CVMs on Tencent Cloud website:
 
-3) Choose the region, CVM type, and select hardware, bandwidth or traffic as needed. Then you can confirm the order.
+1. Log in to the [CVM purchase page](https://buy.cloud.tencent.com/cvm?tab=custom&step=1&regionId=1).
+2. 	Select region, availability zone, series, model, hardware, network type and network billing method as needed.
+3. 	After confirming the order, you can pay with your balance.
+4. 	he CVM is launched immediately after the payment is completed. The IP address will display in 10 minutes, which can be managed by logging in to the CVM.
 
-- Pay by Bandwidth is recommended for those users with stable network conditions. If you select fixed bandwidth, there is no limit on traffic, and the billing mode is "Hardware + Bandwidth" (fixed fee, settled every hour).
+Note:
+-	Make sure that your account has sufficient balance.  CVMs in arrears may be reclaimed. 
+For more information, please see [Expiry Reminder](https://intl.cloud.tencent.com/document/product/213/2181).
+-	See [CVM Instance Price](https://intl.cloud.tencent.com/document/product/213/2176), [Disk Price](https://intl.cloud.tencent.com/document/product/213/2255), [Purchase Network Bandwidth](https://intl.cloud.tencent.com/document/product/213/10578) and other help documents for more configurations, and purchase as needed.
+-	For more instructions and notes, please see [Purchase Instructions](https://intl.cloud.tencent.com/document/product/213/6998) on the official website.
 
-- Pay by Traffic is recommended for those users with highly fluctuating network conditions. If you select pay-by-traffic, you are free to choose the peak bandwidth, and the billing mode is "Hardware (fixed fee, settled every hour) + Traffic (according to the actual traffic consumed)".
+### Purchasing via API
+For more information on how to purchase a CVM via the API, please see the API document [Create Instance](https://intl.cloud.tencent.com/document/api/213/9384).
 
-4) You can pay for orders via the account balance and credit cards.
-
-5) The CVM is activated after you pay for the order. 10 minutes later you can see the IP address, through which you can perform login management. (After activating postpaid CVMs, make sure that your account has sufficient balance)
-
-## Purchase via API
-For API purchase of CVMs, see the API document [Create Postpaid Instances](https://cloud.tencent.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89).
 

@@ -9,31 +9,31 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| ClusterId | 是 | string | emr集群ID，emr-xxxx格式 |
+| ClusterId | 是 | string | EMR 集群 ID，emr-xxxx格式 |
 | NodeFlag | 是 | string | 节点名称, 取值为：master，core，task，common，all |
-| PageNo | 否 | int | 第几页，首页从1开始 |
-| PageSize | 否 | int | 每页记录数，默认20 |
+| PageNo | 否 | int | 第几页，首页从 1 开始 |
+| PageSize | 否 | int | 每页记录数，默认 20 |
 
 ## 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| code | Int | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | data.totalCnt | int | 查询的集群总个数。|
 | data.n.appId | int | 应用ID |
-| data.n.ip | string | IP地址 |
-| data.n.wanIp | string | 外网IP地址 |
-| data.n.spec | string | cvm规格 |
-| data.n.regionId | int | 地区ID |
-| data.n.zoneId | int | 可用区ID |
-| data.n.diskSize | int | 数据盘容量，单位G |
-| data.n.nameTag | string | 节点tag |
+| data.n.ip | string | IP 地址 |
+| data.n.wanIp | string | 外网 IP 地址 |
+| data.n.spec | string | CVM 规格 |
+| data.n.regionId | int | 地区 ID |
+| data.n.zoneId | int | 可用区 ID |
+| data.n.diskSize | int | 数据盘容量，单位 G |
+| data.n.nameTag | string | 节点 tag |
 | data.n.services | string | 节点上部署的服务 |
 | data.n.nodeFlag | string | 节点类型 |
-| data.n.cvmId | string | cvm实例ID |
-| data.n.cpu | int | cpu核数 |
-| data.n.memSize | int | 内存容量，单位G |
+| data.n.cvmId | string | CVM 实例 ID |
+| data.n.cpu | int | CPU 核数 |
+| data.n.memSize | int | 内存容量，单位 G |
 | data.n.applyTime | string | 节点申请时间 |
 | data.n.freeTime | string | 节点销毁时间 |
 

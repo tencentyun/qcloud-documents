@@ -1,5 +1,5 @@
 ## Image Repository Overview
-Image repository is used to store Docker images which are used to deploy CCS. Each image has a unique ID (image's repository address + image name + image Tag).
+Image repository is used to store Docker images which are used to deploy TKE. Each image has a unique ID (image's repository address + image name + image Tag).
 
 ## Image Types
 Currently, official Docker Hub images and private user images are supported. Tencent Cloud community images will become available soon.

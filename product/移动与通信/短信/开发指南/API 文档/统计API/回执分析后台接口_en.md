@@ -3,7 +3,7 @@
 This API is used to pull the SMS status report in a certain period of time (the number of SMS messages submitted successfully, deliver reports, successful delivery reports, deleted delivery reports, and failure distribution).
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/pullcallbackstatus?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/pullcallbackstatus?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -72,5 +72,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | status_fail_4 | Yes | Number | Delivery frequency limit of operator |
 | status_success | Yes | Number | The number of successful delivery reports|
 | success | Yes | Number | The number of SMS messages submitted successfully |
-
-

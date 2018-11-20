@@ -40,7 +40,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             <物理机IP>,
         ],
         "vmSet": [
-            <虚拟机IP>,
+            <云服务器IP>,
         ],
         "tgSet": [
             <托管机器IP>,
@@ -57,7 +57,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 | code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="/document/product/386/6725" title="公共错误码">公共错误码</a>。| Int |
 | message | 模块错误信息描述，与接口相关。| String |
 | data.cpmSet | 物理机类型IP信息。| Array |
-| data.vmSet | 虚拟机类型IP信息。| Array |
+| data.vmSet | 云服务器类型IP信息。| Array |
 | data.tgSet | 托管机器类型IP信息。| Array |
 
 ## 错误码

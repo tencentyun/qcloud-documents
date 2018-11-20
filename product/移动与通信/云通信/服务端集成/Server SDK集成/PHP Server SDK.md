@@ -6,7 +6,7 @@
 
 [独立模式](/doc/product/269/独立模式) 和 [托管模式](/doc/product/269/托管模式) 的集成存在轻微差别，唯一的差别在于 user_sig 的设置方式。
 1. 对于独立模式，需要调用`generate_user_sig`生成user_sig；
-2. 对于托管模式，需要先依照 [这里](/doc/product/269/下载UserSig) 的指引下载 user_sig，然后再调用 `set_user_sig` 设置 user_sig。
+2. 对于托管模式，需要先依照 [下载UserSig](/doc/product/269/下载UserSig) 的指引下载 user_sig，然后再调用 `set_user_sig` 设置 user_sig。
 
 ### API集成示例代码（独立模式）
 
@@ -89,13 +89,13 @@ $ret = $api->comm_rest("group_open_http_svc", "group_get_group_member_info", $re
 ### 独立模式
 1. 配置 TimRestApiConfig.json 文件，其中： identifier 为 App 管理者账户；private_pem_path 为本地私钥位置；user_sig 请填""。
 2. 查看 signature 文件夹中对应脚本使用权限，如果无可执行权限，需要修改权限使其可被执行。
-3. 执行 php TimRestApiGear.php 可看到该工具访问命令(用法)。 详情请见：代码包中 README 文件。
+3. 执行 PHP TimRestApiGear.php 可看到该工具访问命令(用法)。 详情请见：代码包中 README 文件。
 
 ### 托管模式
 1. 配置 TimRestApiConfig.json 文件，其中： identifier 为App管理者账户； user_sig 为托管模式用户下载到的用户凭证，下载方式参见 [下载 UserSig](/doc/product/269/下载UserSig)；private_pem_path 请填""。
-2. 执行 php TimRestApiGear.php 可看到该工具访问命令（用法）。 详情请见：代码包中 README 文件。
+2. 执行 PHP TimRestApiGear.php 可看到该工具访问命令（用法）。 详情请见：代码包中 README 文件。
 
 ## SDK下载
 您可通过如下两种方式下载：
-1. [直接点击下载](http://share.weiyun.com/7528e49c4602425d88ce3b91ccde3b9b)；
+1. [直接单击下载](http://share.weiyun.com/7528e49c4602425d88ce3b91ccde3b9b)；
 2. 到 [github](https://github.com/tencentyun/imsdk_restapi-php-sdk)下载。

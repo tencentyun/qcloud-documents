@@ -37,7 +37,7 @@ PHP 5.3 版本后取消了安装包模式，仅通过 zip 文件和 debug pack �
  1. 将 PHP zip 安装包解压（本例解压至 `C:\PHP`），复制`php.ini-production`并改名为`php.ini`，如下图所示：
 ![](//mc.qcloudimg.com/static/img/1be9b1771a93852aff909b08159a5b79/image.png)
 
- 2. 单击【服务器管理器】-【IIS】，在本地 IIS 上右键点击选择 IIS 管理器：
+ 2. 单击【服务器管理器】-【IIS】，在本地 IIS 上右键单击选择 IIS 管理器：
 ![](//mc.qcloudimg.com/static/img/f0387eeb456b7d60e8a5b601cbd3c6b0/image.png)
 
 	单击左侧 主机名(IP) 来到主页，双击【处理程序映射】：

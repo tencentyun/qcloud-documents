@@ -9,9 +9,9 @@
 
 ### 环境依赖
 
-python 2.7
+Python 2.7
 
-获取 python 版本的方法:
+获取 Python 版本的方法:
 
 - Linux Shell
 
@@ -27,7 +27,7 @@ D:\>python -V
 Python 2.7.11
 ```
 
-如果提示不是内部或外部命令，请现在 Windows 环境变量 PATH 里添加上 python 的绝对路径
+如果提示不是内部或外部命令，请现在 Windows 环境变量 PATH 里添加上 Python 的绝对路径
 
 ### 安装 SDK
 

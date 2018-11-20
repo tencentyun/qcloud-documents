@@ -12,23 +12,14 @@ Authorization: Auth String
 
 > Authorization: Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778) chapter)
 
-### Request Line
-```
-GET /?uploads HTTP/1.1
-```
-This API allows GET request.
-
 ### Request Parameters
-Example of request line that contains all request parameters.
-```
-GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-uploads=MaxUploads&key-marker=KeyMarker&upload-id-marker=UploadIdMarker HTTP/1.1
-```
+
 See the details below: <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
-| Name               | Description                                       | Type     | Required   |
-| ---------------- | ---------------------------------------- | ------ | ---- |
+| Name       | Description            | Type     | Required   |
+| ---------------- | ------------------------------- | ------ | ---- |
 | delimiter | Delimiter is a sign. Objects that contain the same string between the prefix , if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element: common prefix. If you don't specify the prefix parameter, the substring starts at the beginning of the path | String | No    |
-| encoding-type | Indicate the encoding method of the returned value. Valid value: url                               | String | No    |
+| encoding-type | Indicate the encoding method of the returned value. Valid value: url                | String | No    |
 | prefix | Specify that the returned Object key must be prefixed with Prefix. </br>Note that the returned key will still contain Prefix when querying with prefix | String | No    |
 | max-uploads | Set the maximum number of multipart returned. Valid value: from 1 to 1,000. Default: 1,000                       | String | No    |
 | key-marker       | Used together with upload-id-marker<Br/>If upload-id-marker is not specified, entries whose ObjectNames are in front of key-marker (according to alphabetical order) will be listed<Br/>If upload-id-marker is specified, besides the above entries, those whose ObjectNames are equal to key-marker and UploadIDs are in front of upload-id-marker (according to alphabetical order) will also be listed. | String | No    |
@@ -72,10 +63,12 @@ No particular response header for this response.
     <UploadID></UploadID>
     <StorageClass></StorageClass>
     <Initiator>
-      <UIN></UIN>
+      <ID></ID>
+	<DisplayName></DisplayName>
     </Initiator>
     <Owner>
-      <UID></UID>
+      <ID></ID>
+	<DisplayName></DisplayName>
     </Owner>
     <Initiated></Initiated>
   </Upload>
@@ -120,15 +113,17 @@ Content of Container node Upload:
 
 Content of Container node Initiator:
 
-| Node Name (Keyword)          | Parent Node | Description                                    | Type        |
+| Node Name (Keyword)    | Parent Node | Description       | Type        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN | ListMultipartUploadsResult.Upload.Initiator | AppId of developer | String |
+| ID | ListMultipartUploadsResult.Upload.Initiator |  CAM ID | String  |
+| DisplayName | ListMultipartUploadsResult.Upload.Initiator | UIN | String  |
 
 Content of Container node Owner:
 
 | Node Name (Keyword)          | Parent Node | Description                                    | Type        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UID | ListMultipartUploadsResult.Upload.Owner | ID of Object's owner | String |
+| ID | ListMultipartUploadsResult.Upload.Initiator |  CAM ID | String  |
+| DisplayName | ListMultipartUploadsResult.Upload.Initiator | UIN | String  |
 
 Content of Container node CommonPrefixs:
 

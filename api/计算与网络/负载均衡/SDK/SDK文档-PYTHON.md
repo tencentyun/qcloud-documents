@@ -24,7 +24,7 @@ Python 2.x 目前不支持 Python 3
 
 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云 API 密钥】选项。
 
-用户可在此新建新的云 API 密钥或使用现有密钥。点击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
+用户可在此新建新的云 API 密钥或使用现有密钥。单击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
 ![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
 
 
@@ -75,8 +75,8 @@ listeners.n.sessionExpire	 非必传	负载均衡监听器的会话保持时间�
 listeners.n.healthSwitch	  非必传	负载均衡实例监听器是否开启健康检查：1（开启）、0（关闭）。默认值1，表示打开。
 listeners.n.timeOut	       非必传	负载均衡监听器健康检查的响应超时时间，可选值:2-60，默认值:2，单位:秒。响应超时时间要小于检查间隔时间。
 listeners.n.intervalTime	  非必传	负载均衡监听器检查间隔时间，默认值:5，可选值:5-300，单位:秒。
-listeners.n.healthNum	     非必传	负载均衡监听器健康阀值，默认值:3，表示当连续探测三次健康则表示该转发正常，可选值:2-10，单位：次。
-listeners.n.unhealthNum	   非必传	负载均衡监听器不健康阀值，默认值:3，表示当连续探测三次健康则表示该转发正常，可选值:2-10，单位：次。
+listeners.n.healthNum	     非必传	负载均衡监听器健康阈值，默认值:3，表示当连续探测三次健康则表示该转发正常，可选值:2-10，单位：次。
+listeners.n.unhealthNum	   非必传	负载均衡监听器不健康阈值，默认值:3，表示当连续探测三次健康则表示该转发正常，可选值:2-10，单位：次。
 
 """
 region = 'gz'

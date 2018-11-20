@@ -36,7 +36,7 @@ function tlsLogin() {
 ```
 
 如果已经拿到了临时凭证，则继续调用 `TLSHelper.fetchUserSig()` 获取正式身份凭证，成功之后会回调`tlsGetUserSig(res)` 函数。
-	
+
 >注：独立模式可直接用已生成的 `usersig` 与 `usersig` 对应的帐号放入 `loginInfo` 中，然后进行下一步去登录 SDK。详情可参考 Demo。
 
 **示例： **
@@ -52,8 +52,8 @@ function tlsGetUserSig(res) {
         loginInfo.userSig = res.UserSig;
         //从当前 URL 中获取参数为 sdkappid 的值
         loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(TLSHelper.getQuery("sdkappid"));
-        //从 cookie 获取 accountType      
-        initDemoApp();      
+        //从 cookie 获取 accountType
+        initDemoApp();
     } else {
         //签名过期，需要重新登录
         if (res.ErrorCode == TlsErrorCode.SIGNATURE_EXPIRATION) {
@@ -166,7 +166,7 @@ var onConnNotify = function (resp) {
             webim.Log.warn('建立连接成功: ' + resp.ErrorInfo);
             break;
         case webim.CONNECTION_STATUS.OFF:
-            info = '连接已断开，无法收到新消息，请检查下你的网络是否正常: ' + resp.ErrorInfo;
+            info = '连接已断开，无法收到新消息，请检查下您的网络是否正常: ' + resp.ErrorInfo;
             alert(info);
             webim.Log.warn(info);
             break;
@@ -294,7 +294,7 @@ var onFriendSystemNotifys = {
 ```
 //监听资料系统通知函数对象，方法都定义在 receive_profile_system_msg.js 文件中
 var onProfileSystemNotifys = {
-    "1": onProfileModifyNotify//资料修改  
+    "1": onProfileModifyNotify//资料修改
 };
 ```
 
@@ -320,7 +320,7 @@ function onGroupInfoChangeNotify(groupInfo) {
     var groupId = groupInfo.GroupId;
     var newFaceUrl = groupInfo.GroupFaceUrl;//新群组图标, 为空，则表示没有变化
     var newName = groupInfo.GroupName;//新群名称, 为空，则表示没有变化
-    var newOwner = groupInfo.OwnerAccount;//新的群主 id, 为空，则表示没有变化
+    var newOwner = groupInfo.OwnerAccount;//新的群主 ID, 为空，则表示没有变化
     var newNotification = groupInfo.GroupNotification;//新的群公告, 为空，则表示没有变化
     var newIntroduction = groupInfo.GroupIntroduction;//新的群简介, 为空，则表示没有变化
     if (newName) {

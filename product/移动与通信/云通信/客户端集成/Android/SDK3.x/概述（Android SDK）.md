@@ -11,7 +11,7 @@ ImSDK 支持 JDK 1.6 和 Android SDK version 14 以上系统。
 
 ### 下载 ImSDK
 
-从[官网](https://cloud.tencent.com/product/im.html#sdk)下载 ImSDK ，包含以下库文件：
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK ，包含以下库文件：
 
 ```
 libs
@@ -144,7 +144,7 @@ libs
 在工程中根据以上说明引入库文件，依照后续章节的开发指引进行功能的开发。
 
 ### 代码混淆规则
-如果你的项目中使用 proguard 等工具做了代码混淆，请保留以下选项。
+如果您的项目中使用 proguard 等工具做了代码混淆，请保留以下选项。
 
 ```
 -keep class com.tencent.**{*;}
