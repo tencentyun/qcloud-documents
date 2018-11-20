@@ -11,7 +11,7 @@
 
 ### Bug 修复
 
-- 解决RestTemplate Bean 冲突问题
+- 解决 RestTemplate Bean 冲突问题
 
 ### 升级建议
 
