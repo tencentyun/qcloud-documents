@@ -1,8 +1,6 @@
 ## 获取 Demo
 
-[Demo 下载 >> ](https://main.qcloudimg.com/raw/8b6d89e53ec8d272606370daaa5fd507/tsf-demo-simple-0823.zip) 
-
-
+[Demo 下载 >> ](https://main.qcloudimg.com/raw/082d94a76b7c0a34feb909c130b72179/tsf-demo-simple-1120.zip) 
 
 ## 工程目录
 
@@ -26,12 +24,12 @@
     <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version>1.1.1-RELEASE</version>
+        <version>1.10.0-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
     </parent>
 
 	<groupId>com.tsf.demo</groupId>
 	<artifactId>tsf-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.10.0-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -43,9 +41,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<consul-api.version>1.3.0</consul-api.version>
-
-
 	</properties>
 
 	<build>
@@ -57,7 +52,6 @@
 		</plugins>
 	</build>
 </project>
-
 ```
 
 其中 parent 描述了 `provider-demo` 和 `consumer-demo` 共同的 TSF 依赖。
@@ -66,13 +60,11 @@
 <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version>1.1.1-RELEASE</version>
+        <version>1.1.1-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
 </parent>
 ```
 
-关于 Maven 环境安装以及 TSF SDK 下载，参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)。
-
-
+关于 Maven 环境安装以及 TSF SDK 下载，参考 [SDK 下载 >>](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 最新版本号参考 >>](https://cloud.tencent.com/document/product/649/20230) 。
 
 ## Demo 功能概述
 
