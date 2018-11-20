@@ -29,7 +29,6 @@ Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 - **start.sh**：在启动脚本中创建 `/opt/tsf/app_config/` 目录，然后将 spec.yml 文件和 apis 目录拷贝到 `/opt/tsf/app_config/` 中。
 **您需要在容器启动后通过用户程序的启动脚本拷贝目录，不可以在 Dockerfile 中提前拷贝**。
 ```
-shell
 #! /bin/bash
 mkdir -p /opt/tsf/app_config/apis 
 cp /root/app/userService/spec.yaml /opt/tsf/app_config/
