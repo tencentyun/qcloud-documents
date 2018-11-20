@@ -25,11 +25,9 @@
 > 本实践案例以 Node.js 语言示例代码为例。
 
 ### 1. 创建 SCF 函数
+>!您创建的函数所属地域需与 COS 存储桶的地域保持一致。
+
 1）登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，单击函数服务，选择与静态内容相同的地域并创建函数。如下图所示：
-
->**注意：**
->您创建的函数所属地域需与 COS 存储桶的地域保持一致。
-
 ![](https://main.qcloudimg.com/raw/332edc2828575a4c802a9af9cb233b08.png)
 2）在 “新建函数” 页面，选择 “空白函数”，输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为  Nodejs 6.10）。确认配置无误后单击【完成】即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/70e9dbae0471dd8cd50ffa724eb089f4.png)
