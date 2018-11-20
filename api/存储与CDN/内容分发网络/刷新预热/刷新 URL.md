@@ -21,23 +21,27 @@
 
 ### 详细说明
 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考：
+
 ```
 urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
 ```
 
 ### 过滤参数影响
 1. 若域名开启了过滤参数配置，此时提交如下 URL 进行刷新：
-```
+
+ ```
 https: //www.test.com/index.php?name=1
 https: //www.test.com/index.php?name=2
 ```
-由于缓存时忽略参数，因此均刷新 URL：```https://www.test.com/index.php```。为节省配额，提交刷新任务时可不带参去重。
+
+ 由于缓存时忽略参数，因此均刷新 URL：```https://www.test.com/index.php```。为节省配额，提交刷新任务时可不带参去重。
 2. 若域名关闭了过滤参数配置，此时提交如下 URL 进行刷新：
-```
+
+ ```
 https: //www.test.com/index.php?name=1
 https: //www.test.com/index.php?name=2
 ```
-由于缓存时未忽略参数，因此将会删除对应的两个资源。
+ 由于缓存时未忽略参数，因此将会删除对应的两个资源。
 
 ## 出参说明
 
@@ -58,12 +62,14 @@ https: //www.test.com/index.php?name=2
 
 ## 调用案例
 ### 示例参数
+
 ```
 urls.0：https://www.test.com/1.jpg
 ```
 
 ### GET 请求
 GET 请求需要将所有参数都加在 URL 后：
+
 ```
 https://cdn.api.qcloud.com/v2/index.php?
 Action=RefreshCdnUrl
@@ -78,12 +84,15 @@ Action=RefreshCdnUrl
 
 ### POST 请求
 POST请求时，参数填充在 HTTP Request-body 中，请求地址：
+
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
+
 >!POST 请求大小限制为 1 MB，超出大小限制则会返回状态码 501。若需提交较多 URL，请拆分为多批次提交。
 
 参数支持 form-data、x-www-form-urlencoded 等格式，参数数组如下：
+
 ```
 array (
   'Action' => 'RefreshCdnUrl',
@@ -94,9 +103,11 @@ array (
   'urls.0' => 'https://www.test.com/1.jpg'
 )
 ```
+
 >!当需要刷新的 URL 较多时，为避免 GET 请求长度超出限制，建议使用 POST 方式调用此接口。
 
 ### 结果示例
+
 ```json
 {
     "code": 0,
