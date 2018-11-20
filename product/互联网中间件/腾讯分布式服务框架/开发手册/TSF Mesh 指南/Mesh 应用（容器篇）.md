@@ -17,8 +17,8 @@
 
 ### 2. 将镜像推送到仓库
 2.1  单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】标签页。首次使用时，需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
-  ![](https://main.qcloudimg.com/raw/c5fd709b9d3acbc6fc25f1c8bd8ebd5d.png)
+2.2 单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+ ![](https://main.qcloudimg.com/raw/8c1e4c6822d639718a35d6026aa59e3e.png)
 
 
 ### 3. 创建部署组
@@ -29,10 +29,9 @@
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
    - 实例资源限制：参考下图
-     ![](https://main.qcloudimg.com/raw/c3d28abdc89be459621894be0aa82b30/WX20181115-220246@2x.png)
-		 
+	 ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
 3.3 访问设置、更新方式、日志配置项。
-   ![](https://main.qcloudimg.com/raw/a5259f28a6e476a5ebefd01b2ac0a52e/WX20181115-220306@2x.png)
+ ![](https://main.qcloudimg.com/raw/989f250a54c31559929ccee79d1f8740.png)
 3.4 单击【提交】按钮。
 
 
@@ -40,7 +39,7 @@
 ### 4. 部署应用
 4.1 单击部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 [步骤 2](https://cloud.tencent.com/document/product/649/17930#2.-.E5.B0.86.E9.95.9C.E5.83.8F.E6.8E.A8.E9.80.81.E5.88.B0.E4.BB.93.E5.BA.93) 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
-![](https://main.qcloudimg.com/raw/d2f047a9d95c7d705f96ef21ab4334a2/WX20181115-220652@2x.png)
+![](https://main.qcloudimg.com/raw/1d32f732730f081aa9b9740bc4ec64a2.png)
 4.3  单击【提交】按钮，如果部署组状态变为运行中，表示应用部署成功。
 
 
@@ -48,9 +47,9 @@
 ## 二、查看服务是否注册成功
 
 1. 单击左侧导航栏【[服务治理](https://console.cloud.tencent.com/tsf/service)】，查看服务是否注册成功。如果注册成功，服务显示在线状态。
-   ![](https://main.qcloudimg.com/raw/b04f1d3145a472e8a76423a3ce98a9df.png)
+	 ![](https://main.qcloudimg.com/raw/2860c0c1026873a9388b0e4c0c4b4d04.png)
 2. 单击服务 ID，进入服务详情页。单击【API 列表】标签页，可以查看上报的 API 定义。
-   ![](https://main.qcloudimg.com/raw/66d48d0a42ebb521c83e3e25070247d2.png)
+	 ![](https://main.qcloudimg.com/raw/072a805dbd0649310a4a6f55f7312d3a.png)
 
 
 ## 三、验证服务调用
@@ -77,7 +76,7 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 ### 2. 在控制台验证服务间是否调用
 可以通过以下两种方式验证服务是否成功被 Sidecar 代理注册到注册中心，同时验证服务之间是否成功地进行了调用。
 
-- **服务治理** 界面：选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
-  ![](https://main.qcloudimg.com/raw/89040e8ddf377a1a9a972cac02b65037.png)
-- **依赖拓扑** 界面：选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
-  ![](https://main.qcloudimg.com/raw/95c0a6e134664254b23e2c70e5f25671.png)
+- **服务治理** 界面：单击【[服务治理](https://console.cloud.tencent.com/tsf/service)】，选择集群和命名空间后，如果服务列表中的服务状态为 **在线** 或 **单点在线**，表示服务被代理注册成功。如果服务提供者的请求量大于 0，表示服务提供者被服务消费者请求成功。
+  ![](https://main.qcloudimg.com/raw/a509cabf20869f2a473a9efe4f322948.png)
+- **依赖拓扑** 界面：单击【[服务依赖拓扑](https://console.cloud.tencent.com/tsf/topology)】，选择集群和命名空间后，调整时间范围覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
+	![](https://main.qcloudimg.com/raw/b20cee42f5b2af5bda604546e0a65f1f.png)
