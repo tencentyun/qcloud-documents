@@ -39,7 +39,7 @@
 输入：
 
 ```
- https://domain/v2/index.php?Action=GetGroupOffset&<公共请求参数>
+ https://domain/v2/index.php?Action=GetGroupOffsets&<公共请求参数>
 ```
 
 输出：
