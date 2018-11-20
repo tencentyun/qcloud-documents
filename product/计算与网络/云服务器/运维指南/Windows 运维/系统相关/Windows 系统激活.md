@@ -1,6 +1,5 @@
 腾讯云云服务器使用 KMS 方式对 Windows 服务器进行授权。
->!  
-> 目前只有 Windows 2008 和 Windows 2012 需要做这种方式的授权。Windows 2016 公共镜像中默认配置的 KMS 地址（kms1.tencentyun.com:1668）是正确的，无需做修改。
+>! 目前只有 Windows 2008 和 Windows 2012 需要做这种方式的授权。Windows 2016 公共镜像中默认配置的 KMS 地址（kms1.tencentyun.com:1668）是正确的，无需做修改。
 
 ## 激活前须知
 1. Windows 中 SPP Notification Service 用来执行激活相关的服务，需要保证正常运行。如下图所示：
