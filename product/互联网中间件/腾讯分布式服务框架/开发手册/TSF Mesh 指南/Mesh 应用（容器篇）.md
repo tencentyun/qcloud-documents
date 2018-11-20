@@ -16,9 +16,10 @@
 
 
 ### 2. 将镜像推送到仓库
-2.1 单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】标签页。首次使用时，需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
-​     ![](https://main.qcloudimg.com/raw/bbf54724e4294e6c16c0d892499db3e0/WX20181119-174858@2x.png)
+
+2.1  单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】标签页。首次使用时，需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
+2.2 单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+   ![](https://main.qcloudimg.com/raw/bbf54724e4294e6c16c0d892499db3e0/WX20181119-174858@2x.png)
 
 
 ### 3. 创建部署组
@@ -29,10 +30,9 @@
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
    - 实例资源限制：参考下图
-     ![](https://main.qcloudimg.com/raw/c3d28abdc89be459621894be0aa82b30/WX20181115-220246@2x.png)
-		 
+	 ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
 3.3 访问设置、更新方式、日志配置项。
-   ![](https://main.qcloudimg.com/raw/a5259f28a6e476a5ebefd01b2ac0a52e/WX20181115-220306@2x.png)
+ ![](https://main.qcloudimg.com/raw/989f250a54c31559929ccee79d1f8740.png)
 3.4 单击【提交】按钮。
 
 
@@ -40,6 +40,7 @@
 ### 4. 部署应用
 4.1 单击部署组左侧的【部署应用】。
 4.2 部署相关信息，使用 [步骤 2](https://cloud.tencent.com/document/product/649/17930#2.-.E5.B0.86.E9.95.9C.E5.83.8F.E6.8E.A8.E9.80.81.E5.88.B0.E4.BB.93.E5.BA.93) 中仓库中的镜像。各字段含义可参考 [容器应用部署组-部署应用](https://cloud.tencent.com/document/product/649/15525#.E9.83.A8.E7.BD.B2.E5.BA.94.E7.94.A8)。
+  ![](https://main.qcloudimg.com/raw/1d32f732730f081aa9b9740bc4ec64a2.png)
 4.3  单击【提交】按钮，如果部署组状态变为运行中，表示应用部署成功。
 
 
