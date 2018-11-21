@@ -1,9 +1,12 @@
 ## WebRTC 和小程序互通
 **PC 端**
+
 用 Chrome 浏览器打开 [体验页面](https://sxb.qcloud.com/jump.php?platform=web) 可以体验桌面版 WebRTC 的效果。
 
 **微信端**
+
 ![](https://main.qcloudimg.com/raw/795dbb4be3cca81a82ea3e4b7ba6e5d3.png)
+
 扫描微信小程序二维码，进入【腾讯视频云】小程序
 选择 TRTC 模块，就可以体验跟桌面版 Chrome 互通的效果了（微信 6.6.6 版本开始支持）。
 
