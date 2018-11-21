@@ -1,4 +1,4 @@
-签名详情请参考 [合作方生成签名](https://cloud.tencent.com/document/product/655/30496)。
+驾驶证 OCR 识别的签名详情请参考 [合作方生成签名](https://cloud.tencent.com/document/product/655/30496)。
 
 请求 URL：`https://idasc.webank.com/api/v2/ocrbase/querydriverlicenseocrresult`
 请求方法：POST
