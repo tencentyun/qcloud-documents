@@ -1,35 +1,37 @@
+## 简介
 本文档介绍如何不依赖 SDK，用简单的代码，在网页（Web 端）直传文件到 COS 的存储桶。
->本文档内容基于 XML API 。
 
+>**注意：**
+>本文档内容基于 XML 版本的 API 。
+
+## 实践步骤
 <span id="前期准备"></span>
-## 一、前期准备
-1. 登录  [COS 控制台](https://console.cloud.tencent.com/cos4) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
-2. 登录 [控制台密钥管理](https://console.cloud.tencent.com/cam/capi) 获取您的项目 SecretId 和 SecretKey。
-3. 在 COS 控制台，进入新建的存储桶，单击【基础配置】，配置 CORS 规则，配置示例如下图：
+### 1. 前期准备
+1）登录  [COS 控制台](https://console.cloud.tencent.com/cos4) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
+2）登录 [密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取您的项目 SecretId 和 SecretKey。
+3）在 COS 控制台，进入新建的存储桶，单击【基础配置】，配置 CORS 规则，配置示例如下图：
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
 
-## 二、计算签名
-
-出于安全考虑，签名计算过程推荐在服务端搭建签名服务：
-
-签名服务可参考示例 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.js)
+### 2. 计算签名
+出于安全考虑，签名计算过程推荐在服务端搭建签名服务，签名服务可参考 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.js)。
 
 如其他语言或自行实现可以看以下具体流程：
 
-1. 前端需要签名，向服务端获取签名，传必要参数，method 和 pathname
-2. 服务端先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，这个过程可以参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 
-3. 服务端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，这个步骤可以参考 [COS 签名计算文档](https://cloud.tencent.com/document/product/436/7778) 或 [COS SDK 文档](https://cloud.tencent.com/document/product/436/6474)
-4. 服务端把计算得到签名 authorization 和 sessionToken 返回给前端，前端分别把两个值放到 header 的 Authorization 和 x-cos-security-token 字段里，向 COS API 发出上传请求。
+1）前端需要签名，向服务端获取签名，传入 method 和 pathname 必要参数；
+2）服务端首先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，详情请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 文档；
+3）服务端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，详情请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档或 [SDK 文档 ](https://cloud.tencent.com/document/product/436/6474)；
+4）服务端把计算得到签名 authorization 和 sessionToken 返回给前端，前端分别把两个值放到 header 的 Authorization 和 x-cos-security-token 字段里，向 COS API 发出上传请求。
 
-> 注：正式部署时服务端请加一层您的网站本身的权限检验。
+> **注意：**
+> 正式部署时服务端请加一层您的网站本身的权限检验。
 
-## 三、前端上传
-### 方案 A：使用 AJAX 上传
-AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的是 [XML API 的 PutObject 接口](/doc/product/436/7749)，操作指引：
-1. 按照 [步骤一、前期准备](#前期准备) 的步骤，准备好存储桶。
-2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，复制到`test.html`文件。
-3. 部署好后端的签名服务，并修改`test.html`里的签名服务地址。
-4. 把`test.html`放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
+### 3. 前端上传
+#### 方案 A：使用 AJAX 上传
+AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的是 [PUT Object ](https://cloud.tencent.com/document/product/436/7749)  文档，操作指引如下：
+1）按照 [步骤1. 前期准备](#前期准备) 的步骤，准备好存储桶的相关配置。
+2）创建 `test.html` 文件，修改下方代码的 Bucket 和 Region，复制到 `test.html` 文件。
+3）部署好后端的签名服务，并修改 `test.html` 里的签名服务地址。
+4）把 `test.html` 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
 
 ```html
 <!doctype html>
@@ -39,41 +41,36 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
     <title>Ajax Put 上传</title>
     <style>
         h1, h2 {
-            font-weight: normal;
+        font-weight: normal;
         }
-
         #msg {
-            margin-top: 10px;
+        margin-top: 10px;
         }
     </style>
 </head>
 <body>
-
 <h1>Ajax Put 上传</h1>
-
 <input id="fileSelector" type="file">
 <input id="submitBtn" type="submit">
-
 <div id="msg"></div>
-
 <script>
     (function () {
-        // 请求用到的参数
+// 请求用到的参数
         var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
 
-        // 计算签名
+// 计算签名
         var getAuthorization = function (options, callback) {
-            var method = (options.Method || 'get').toLowerCase();
-            var key = options.Key || '';
-            var pathname = key.indexOf('/') === 0 ? key : '/' + key;
+        var method = (options.Method || 'get').toLowerCase();
+        var key = options.Key || '';
+        var pathname = key.indexOf('/') === 0 ? key : '/' + key;
             // var url = 'http://127.0.0.1:3000/sts-auth' +
-            var url = '../server/sts-auth.php' +
+        var url = '../server/sts-auth.php' +
                 '?method=' + method +
                 '&pathname=' + encodeURIComponent(pathname);
-            var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onload = function (e) {
                 var AuthData;
@@ -96,9 +93,9 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
             xhr.send();
         };
 
-        // 上传文件
+// 上传文件
         var uploadFile = function (file, callback) {
-            var Key = 'dir/' + file.name; // 这里指定上传目录和文件名
+        var Key = 'dir/' + file.name; // 这里指定上传目录和文件名
             getAuthorization({Method: 'PUT', Key: Key}, function (err, info) {
 
                 if (err) {
@@ -106,10 +103,10 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
                     return;
                 }
 
-                var auth = info.Authorization;
-                var XCosSecurityToken = info.XCosSecurityToken;
-                var url = prefix + Key;
-                var xhr = new XMLHttpRequest();
+        var auth = info.Authorization;
+        var XCosSecurityToken = info.XCosSecurityToken;
+        var url = prefix + Key;
+        var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
                 XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
@@ -128,7 +125,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
             });
         };
 
-        // 监听表单提交
+// 监听表单提交
         document.getElementById('submitBtn').onclick = function (e) {
             var file = document.getElementById('fileSelector').files[0];
             if (!file) {
@@ -146,16 +143,17 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 </body>
 </html>
 ```
+
 执行效果如下图：
 ![Ajax 上传](//mc.qcloudimg.com/static/img/99a434bbf2fb62e988396b487f1918f8/image.png)
 
-### 方案 B：使用 Form 表单上传
+#### 方案 B：使用 Form 表单上传
 Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用的是 [XML API 的 PostObject 接口](/doc/product/436/7751)。操作指引：
-1. 按照 [步骤一、前期准备](#前期准备) 的步骤，准备好存储桶。
-2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，复制到`test.html`文件。
-3. 部署好后端的签名服务，并修改`test.html`里的签名服务地址。
-4. 在`test.html`同一个目录下创建一个空的`empty.html`，用于上传成功时跳转回来。
-5. 把`test.html`和`empty.html`放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
+1）按照 [1. 前期准备](#前期准备) 的步骤，准备好存储桶。
+2）创建 `test.html` 文件，修改下方代码的 Bucket 和 Region，复制到 `test.html` 文件。
+3）部署好后端的签名服务，并修改 `test.html` 里的签名服务地址。
+4）在 `test.html` 同一个目录下创建一个空的 `empty.html`，用于上传成功时跳转回来。
+5）把 `test.html` 和 `empty.html` 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
 
 ```html
 <!doctype html>
@@ -188,7 +186,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 <script>
     (function () {
 
-        // 请求用到的参数
+// 请求用到的参数
         var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
@@ -196,14 +194,14 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         var form = document.getElementById('form');
         form.action = prefix;
 
-        // 计算签名
+// 计算签名
         var getAuthorization = function (options, callback) {
-            var method = (options.Method || 'get').toLowerCase();
+        var method = (options.Method || 'get').toLowerCase();
             // var url = 'http://127.0.0.1:3000/sts-auth' +
-            var url = '../server/sts-auth.php' +
+        var url = '../server/sts-auth.php' +
                 '?method=' + method +
                 '&pathname=' + encodeURIComponent('/');
-            var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
                 if (xhr.readyState === 4) {
@@ -229,7 +227,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             xhr.send();
         };
 
-        // 监听上传完成
+// 监听上传完成
         var Key;
         var submitTarget = document.getElementById('submitTarget');
         var showMessage = function (err, data) {
@@ -237,7 +235,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             document.getElementById('msg').innerText = err ? err : ('上传成功，ETag=' + data.ETag);
         };
         submitTarget.onload = function () {
-            var search;
+        var search;
             try {
                 search = submitTarget.contentWindow.location.search.substr(1);
             } catch (e) {
@@ -255,7 +253,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             }
         };
 
-        // 发起上传
+// 发起上传
         document.getElementById('submitBtn').onclick = function (e) {
             var filePath = document.getElementById('fileSelector').value;
             if (!filePath) {
