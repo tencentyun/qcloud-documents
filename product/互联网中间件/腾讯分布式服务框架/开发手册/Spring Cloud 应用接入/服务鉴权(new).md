@@ -5,7 +5,6 @@
 这里演示如何快速实践服务鉴权功能。假如现在有两个微服务 provider 和 consumer，想实现 consumer 调用 provider 时，provider 对请求做鉴权。
 
 1. 向 provider 和 consumer 工程都添加依赖。在 `pom.xml` 中添加以下代码：
-
 ```xml
 <dependency>
     <groupId>com.tencent.tsf</groupId>
@@ -15,11 +14,9 @@
 ```
 
 2. 向 Application 类中添加注解 `@EnableTsfAuth`：
-
 ```java
 // 下面省略了无关的代码
 import org.springframework.tsf.auth.annotation.EnableTsfAuth;
-
 @SpringBootApplication
 @EnableTsfAuth
 public class ProviderApplication {
