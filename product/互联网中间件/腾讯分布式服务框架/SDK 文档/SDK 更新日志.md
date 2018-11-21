@@ -1,24 +1,22 @@
-# SDK 更新日志
-
-## 1.10.0-RELEASE  - 2018-11-12
+## 1.10.0 - RELEASE（2018-11-12）
 
 ### 新特性
 
-- 服务路由(srping-cloud-tsf-route): 支持服务下单个API请求级别的路由。
-- 服务限流(spring-cloud-tsf-ratelimite): 支持服务下单个API请求级别的限流。
-- 日志输出(spring-cloud-tsf-logger): 支持默认日志输出。
-- API注册(spring-cloud-tsf-swagger): 支持服务下API信息自动注册, 查看API出入参请求结构。
+- 服务路由(srping-cloud-tsf-route)：支持服务下单个 API 请求级别的路由。
+- 服务限流(spring-cloud-tsf-ratelimite)：支持服务下单个 API 请求级别的限流。
+- 日志输出(spring-cloud-tsf-logger)：支持默认日志输出。
+- API 注册(spring-cloud-tsf-swagger)：支持服务下 API 信息自动注册，查看 API 出入参请求结构。
 
 ### Bug 修复
 
-- 解决 RestTemplate Bean 冲突问题
+- 解决 RestTemplate Bean 冲突问题。
 
 ### 升级建议
 
 - 支持向后兼容。
 - 新功能建议全量升级。
 
-## 1.1.1-RELEASE  - 2018-08-26
+## 1.1.1 - RELEASE（2018-08-26）
 
 ### 新特性
 
