@@ -16,7 +16,7 @@
 1. 腾讯云账户，需具备 COS、CDN、SCF 等产品的访问权限。
 2. 创建存储桶，并在该存储桶上绑定了 CDN 加速域名。
 3. 确保 COS 的存储桶的所属地域支持 SCF 产品功能，暂不支持跨地域调用。
-4. 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载了 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/757b646eb68e9b9a5b2fc4bf0fed2492/scf_about_cdn_refresh.zip)。
+4. 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/757b646eb68e9b9a5b2fc4bf0fed2492/scf_about_cdn_refresh.zip)。
 
 ## 实践步骤
 
