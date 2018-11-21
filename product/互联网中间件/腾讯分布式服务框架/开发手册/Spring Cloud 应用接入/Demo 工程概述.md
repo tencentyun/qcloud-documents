@@ -66,7 +66,7 @@ pom.xml 中定义了工程需要的依赖包：
 关于 Maven 环境安装以及 TSF SDK 下载，请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 更新日志](https://cloud.tencent.com/document/product/649/20230) 。
 
 ## Demo 功能
-Demo 主要有以下功能：
+
 - [服务注册与发现]( https://cloud.tencent.com/document/product/649/16617)
 - [分布式配置](https://cloud.tencent.com/document/product/649/16620)
 - [服务鉴权](https://cloud.tencent.com/document/product/649/16621)
