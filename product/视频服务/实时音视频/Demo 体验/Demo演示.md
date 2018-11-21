@@ -18,7 +18,6 @@
 
 用 Android 手机 [下载 App](https://sxb.qcloud.com/jump.php?platform=android) 或者扫码下载安装 App 即可体验 Android 的效果。
  [创建应用快速上手](https://console.cloud.tencent.com/rav)
-<br/>
 <img src="https://main.qcloudimg.com/raw/832a98ecb5b5a9e1a559267e8a6e1cb4/android.png" width="160">
 
 
@@ -26,7 +25,6 @@
 
 用 iOS 手机 扫码后通过 Safari 打开并安装 App 即可体验 iOS 的效果。
 [创建应用快速上手](https://console.cloud.tencent.com/rav)
-<br/>
 <img src="https://main.qcloudimg.com/raw/3b90b95af1650fbed97db47dd1deabc9/iOS.png" width="150"> 
 
 
