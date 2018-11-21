@@ -245,7 +245,7 @@ echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn
 echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
 ```
 
-#### 12. 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option, bad superblock on cosfs"?
+### 12. 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option, bad superblock on cosfs"?
 这是由于您的机器上缺乏 fuse 库所致，您可以执行下列命令安装 fuse 库：
 ```shell
 sudo yum install fuse #CentOS
