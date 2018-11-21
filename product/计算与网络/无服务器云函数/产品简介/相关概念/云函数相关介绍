@@ -3,7 +3,7 @@
 
 ## 无服务器
 
-无服务器架构说法的来源可以根据 Mike Roberts 在 Martin Fowler的博客网站上发表的 [无服务器架构](https://martinfowler.com/articles/serverless.html) 一文中得到解释。
+无服务器架构说法的来源可以根据 Mike Roberts 在 Martin Fowler 的博客网站上发表的 [无服务器架构](https://martinfowler.com/articles/serverless.html) 一文中得到解释。
 
 无服务器并不是没有服务器就能够进行计算，而是对于开发者来说，无需了解底层的服务器情况，也能使用到相关资源，因此称为无服务器。
 
