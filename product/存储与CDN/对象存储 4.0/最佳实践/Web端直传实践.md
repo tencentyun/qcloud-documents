@@ -9,8 +9,19 @@
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
 
 ## 二、计算签名
-签名计算放在前端会暴露 SecretKey，因此我们把签名计算过程放在后端实现，前端通过 AJAX 向后端获取签名结果，正式部署时请在后端加一层您的网站本身的权限检验。
-指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
+
+出于安全考虑，签名计算过程推荐在服务端搭建签名服务：
+
+签名服务可参考示例 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.js)
+
+如其他语言或自行实现可以看以下具体流程：
+
+1. 前端需要签名，向服务端获取签名，传必要参数，method 和 pathname
+2. 服务端先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，这个过程可以参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 
+3. 服务端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，这个步骤可以参考 [COS 签名计算文档](https://cloud.tencent.com/document/product/436/7778) 或 [COS SDK 文档](https://cloud.tencent.com/document/product/436/6474)
+4. 服务端把计算得到签名 authorization 和 sessionToken 返回给前端，前端分别把两个值放到 header 的 Authorization 和 x-cos-security-token 字段里，向 COS API 发出上传请求。
+
+> 注：正式部署时服务端请加一层您的网站本身的权限检验。
 
 ## 三、前端上传
 ### 方案 A：使用 AJAX 上传
