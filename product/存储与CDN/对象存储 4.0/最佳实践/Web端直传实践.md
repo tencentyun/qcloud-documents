@@ -1,284 +1,288 @@
-## 简介
-本文档介绍如何不依赖 SDK，用简单的代码，在网页（Web 端）直传文件到 COS 的存储桶。
+## 获取临时密钥
 
->**注意：**
->本文档内容基于 XML 版本的 API 。
+临时密钥是 CAM 以云 API 的形式提供的接口。使用该接口可以得到权限收窄的密钥，COS 签名过程也可以使用临时密钥的 sessionToken 和临时密钥计算得到的签名来像 COS API 发请求。
+COS 需要使用到临时密钥接口返回信息中如下三个字段：
+- tmpSecretId
+- tmpSecretKey
+- sessionToken
 
-## 实践步骤
-<span id="前期准备"></span>
-### 1. 前期准备
-1）登录  [COS 控制台](https://console.cloud.tencent.com/cos4) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
-2）登录 [密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取您的项目 SecretId 和 SecretKey。
-3）在 COS 控制台，进入新建的存储桶，单击【基础配置】，配置 CORS 规则，配置示例如下图：
-![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
+### 使用临时密钥的优势
 
-### 2. 计算签名
-出于安全考虑，签名计算过程推荐在服务端搭建签名服务，签名服务可参考 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts-auth.js)。
+Web、iOS、Android 使用 COS 的场景时，通过固定密钥计算签名方式不能有效地控制权限。如若通过临时密钥方式，则可以方便、有效地解决权限控制问题。
+例如，在申请临时密钥过程中，您可以通过传入权限策略 policy 字段，限制操作和资源，将权限限制在指定的范围内。
 
-如其他语言或自行实现可以看以下具体流程：
+### 通过 API 获取
 
-1）前端需要签名，向服务端获取签名，传入 method 和 pathname 必要参数；
-2）服务端首先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，详情请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 文档；
-3）服务端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，详情请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档或 [SDK 文档 ](https://cloud.tencent.com/document/product/436/6474)；
-4）服务端把计算得到签名 authorization 和 sessionToken 返回给前端，前端分别把两个值放到 header 的 Authorization 和 x-cos-security-token 字段里，向 COS API 发出上传请求。
+关于临时密钥接口说明，您可以参考本文中的 [使用临时密钥访问 COS](#AccessCOS)，也可以参考 [临时密钥接口文档](https://cloud.tencent.com/document/product/598/13896)。
 
-> **注意：**
-> 正式部署时服务端请加一层您的网站本身的权限检验。
+#### STS 云 API 接口说明
 
-### 3. 前端上传
-#### 方案 A：使用 AJAX 上传
-AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的是 [PUT Object ](https://cloud.tencent.com/document/product/436/7749)  文档，操作指引如下：
-1）按照 [步骤1. 前期准备](#前期准备) 的步骤，准备好存储桶的相关配置。
-2）创建 `test.html` 文件，修改下方代码的 Bucket 和 Region，复制到 `test.html` 文件。
-3）部署好后端的签名服务，并修改 `test.html` 里的签名服务地址。
-4）把 `test.html` 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
+##### 接口地址：
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajax Put 上传</title>
-    <style>
-        h1, h2 {
-        font-weight: normal;
-        }
-        #msg {
-        margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-<h1>Ajax Put 上传</h1>
-<input id="fileSelector" type="file">
-<input id="submitBtn" type="submit">
-<div id="msg"></div>
-<script>
-    (function () {
-// 请求用到的参数
-        var Bucket = 'test-1250000000';
-        var Region = 'ap-guangzhou';
-        var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
-        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
-
-// 计算签名
-        var getAuthorization = function (options, callback) {
-        var method = (options.Method || 'get').toLowerCase();
-        var key = options.Key || '';
-        var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            // var url = 'http://127.0.0.1:3000/sts-auth' +
-        var url = '../server/sts-auth.php' +
-                '?method=' + method +
-                '&pathname=' + encodeURIComponent(pathname);
-        var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.onload = function (e) {
-                var AuthData;
-                try {
-                    AuthData = JSON.parse(xhr.responseText)
-                } catch (e) {}
-                if (AuthData && AuthData.Authorization) {
-                    callback(null, {
-                        Authorization: AuthData.Authorization,
-                        XCosSecurityToken: AuthData.XCosSecurityToken,
-                    });
-                } else {
-                    console.error(AuthData);
-                    callback('获取签名出错');
-                }
-            };
-            xhr.onerror = function (e) {
-                callback('获取签名出错');
-            };
-            xhr.send();
-        };
-
-// 上传文件
-        var uploadFile = function (file, callback) {
-        var Key = 'dir/' + file.name; // 这里指定上传目录和文件名
-            getAuthorization({Method: 'PUT', Key: Key}, function (err, info) {
-
-                if (err) {
-                    alert(err);
-                    return;
-                }
-
-        var auth = info.Authorization;
-        var XCosSecurityToken = info.XCosSecurityToken;
-        var url = prefix + Key;
-        var xhr = new XMLHttpRequest();
-                xhr.open('PUT', url, true);
-                xhr.setRequestHeader('Authorization', auth);
-                XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
-                xhr.onload = function () {
-                    if (xhr.status === 200 || xhr.status === 206) {
-                        var ETag = xhr.getResponseHeader('etag');
-                        callback(null, {url: url, ETag: ETag});
-                    } else {
-                        callback('文件 ' + Key + ' 上传失败，状态码：' + xhr.status);
-                    }
-                };
-                xhr.onerror = function () {
-                    callback('文件 ' + Key + ' 上传失败，请检查是否没配置 CORS 跨域规则');
-                };
-                xhr.send(file);
-            });
-        };
-
-// 监听表单提交
-        document.getElementById('submitBtn').onclick = function (e) {
-            var file = document.getElementById('fileSelector').files[0];
-            if (!file) {
-                document.getElementById('msg').innerText = '未选择上传文件';
-                return;
-            }
-            file && uploadFile(file, function (err, data) {
-                console.log(err || data);
-                document.getElementById('msg').innerText = err ? err : ('上传成功，ETag=' + data.ETag);
-            });
-        };
-    })();
-</script>
-
-</body>
-</html>
+```
+https://sts.api.qcloud.com/v2/index.php
 ```
 
-执行效果如下图：
-![Ajax 上传](//mc.qcloudimg.com/static/img/99a434bbf2fb62e988396b487f1918f8/image.png)
+##### 请求方法：
 
-#### 方案 B：使用 Form 表单上传
-Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用的是 [XML API 的 PostObject 接口](/doc/product/436/7751)。操作指引：
-1）按照 [1. 前期准备](#前期准备) 的步骤，准备好存储桶。
-2）创建 `test.html` 文件，修改下方代码的 Bucket 和 Region，复制到 `test.html` 文件。
-3）部署好后端的签名服务，并修改 `test.html` 里的签名服务地址。
-4）在 `test.html` 同一个目录下创建一个空的 `empty.html`，用于上传成功时跳转回来。
-5）把 `test.html` 和 `empty.html` 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
+云 API 的参数支持 GET 参数和 POST 参数两种格式，以下介绍 GET 参数的格式。
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Form 表单简单上传</title>
-    <style>h1, h2 {font-weight: normal;}#msg {margin-top:10px;}</style>
-</head>
-<body>
+##### 参数说明：
 
-<h1>Form 表单简单上传（兼容 IE8）</h1>
-<div>最低兼容到 ie6 上传，不支持 onprogress</div>
+>? 以下请求参数列表中，临时密钥接口特有的参数有：name、policy、durationSeconds 。其他字段则是云 API 的 [公共请求参数](https://cloud.tencent.com/document/api/213/6976)。
 
-<form id="form" target="submitTarget" action="" method="post" enctype="multipart/form-data" accept="*/*">
-    <input id="name" name="name" type="hidden" value="">
-    <input name="success_action_status" type="hidden" value="200">
-    <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
-    <input id="key" name="key" type="hidden" value="">
-    <input id="Signature" name="Signature" type="hidden" value="">
-    <input name="Content-Type" type="hidden" value="">
-    <input id="x-cos-security-token" name="x-cos-security-token" type="hidden" value="">
-    <input id="fileSelector" name="file" type="file">
-    <input id="submitBtn" type="button" value="提交">
-</form>
-<iframe id="submitTarget" name="submitTarget" style="display:none;" frameborder="0"></iframe>
+| 字段 |  描述  |是否必选 | 类型  | 
+| ------------ | ------------ | ------------ | ------------ |
+| name | 联合身份用户昵称。<br>备注字段，可以填写用户 uin 作为身份备注。 | 是 | String |
+| policy | 策略语法。| 是 | String | 
+| durationSeconds |  指定临时证书的有效期，单位：秒。<br>默认值为1800秒，最长有效期：2小时（7200 秒）。 | 否 | Int |
+| Action | 云 API的 Action 参数。需要指定 GetFederationToken。 | 是 | String |
+| Timestamp | 当前 UNIX 时间戳。 | 是 | Int | 
+| Nonce | 随机正整数。与 Timestamp 联合起来，用于防止重放攻击。 | 是 | Int | 
+| Region | 云 API 地域参数，可填写空字符串，默认就近地域。可填写的地域请参见 [公共请求参数](https://cloud.tencent.com/document/api/213/6976)。 | 是 | String |
+| SecretId | 在云 API 密钥上申请的标识身份的 SecretId。一个 SecretId 对应唯一的 SecretKey，SecretKey 会用来生成请求签名 Signature。 | 是 | String |  
+| Signature | 请求签名。用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。<br>计算方法可参考 [签名方法](https://cloud.tencent.com/document/api/377/4214 "签名方法") 章节。|是 | String |
 
-<div id="msg"></div>
+#### policy 示例：
 
-<script>
-    (function () {
-
-// 请求用到的参数
-        var Bucket = 'test-1250000000';
-        var Region = 'ap-guangzhou';
-        var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
-        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
-        var form = document.getElementById('form');
-        form.action = prefix;
-
-// 计算签名
-        var getAuthorization = function (options, callback) {
-        var method = (options.Method || 'get').toLowerCase();
-            // var url = 'http://127.0.0.1:3000/sts-auth' +
-        var url = '../server/sts-auth.php' +
-                '?method=' + method +
-                '&pathname=' + encodeURIComponent('/');
-        var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.onreadystatechange = function (e) {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var AuthData;
-                        try {
-                            AuthData = (new Function('return ' + xhr.responseText))();
-                        } catch (e) {}
-                        if (AuthData && AuthData.Authorization) {
-                            callback(null, {
-                                Authorization: AuthData.Authorization,
-                                XCosSecurityToken: AuthData.XCosSecurityToken,
-                            });
-                        } else {
-                            console.error(AuthData);
-                            callback('获取签名出错');
-                        }
-                    } else {
-                        callback('获取签名出错');
-                    }
-                }
-            };
-            xhr.send();
-        };
-
-// 监听上传完成
-        var Key;
-        var submitTarget = document.getElementById('submitTarget');
-        var showMessage = function (err, data) {
-            console.log(err || data);
-            document.getElementById('msg').innerText = err ? err : ('上传成功，ETag=' + data.ETag);
-        };
-        submitTarget.onload = function () {
-        var search;
-            try {
-                search = submitTarget.contentWindow.location.search.substr(1);
-            } catch (e) {
-                showMessage('文件 ' + Key + ' 上传失败');
-            }
-            if (search) {
-                var items = search.split('&');
-                var i, arr, data = {};
-                for (i = 0; i < items.length; i++) {
-                    arr = items[i].split('=');
-                    data[arr[0]] = decodeURIComponent(arr[1] || '');
-                }
-                showMessage(null, {url: prefix + Key, ETag: data.etag});
-            } else {
-            }
-        };
-
-// 发起上传
-        document.getElementById('submitBtn').onclick = function (e) {
-            var filePath = document.getElementById('fileSelector').value;
-            if (!filePath) {
-                document.getElementById('msg').innerText = '未选择上传文件';
-                return;
-            }
-            Key = 'dir/' + filePath.match(/[\\\/]?([^\\\/]+)$/)[1]; // 这里指定上传目录和文件名
-            getAuthorization({Method: 'POST', Key: Key}, function (err, AuthData) {
-                // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
-                document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
-                document.getElementById('key').value = Key;
-                document.getElementById('Signature').value = AuthData.Authorization;
-                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken || '';
-                form.submit();
-            });
-        };
-    })();
-</script>
-
-</body>
-</html>
 ```
-执行效果如下图：
-![Form 表单上传](//mc.qcloudimg.com/static/img/b7944177f25a64c3f6c19275b586c32f/image.png)
-## 相关文档
-若您有更丰富的接口调用需求，请参考以下 JavaScript SDK 文档：
-- [JavaScript SDK](https://cloud.tencent.com/document/product/436/11459)
-- [JavaScript SDK（历史版本 API）](https://cloud.tencent.com/document/product/436/8095)
+{
+    'version': '2.0',
+    'statement': [{
+        'action': [
+            // // 这里可以从临时密钥的权限上控制前端允许的操作
+            // 'name/cos:*', // 这样写可以包含下面所有权限
+
+            // // 列出所有允许的操作
+            // // ACL 读写
+            // 'name/cos:GetBucketACL',
+            // 'name/cos:PutBucketACL',
+            // 'name/cos:GetObjectACL',
+            // 'name/cos:PutObjectACL',
+            // // 简单 Bucket 操作
+            // 'name/cos:PutBucket',
+            // 'name/cos:HeadBucket',
+            // 'name/cos:GetBucket',
+            // 'name/cos:DeleteBucket',
+            // 'name/cos:GetBucketLocation',
+            // // Versioning
+            // 'name/cos:PutBucketVersioning',
+            // 'name/cos:GetBucketVersioning',
+            // // CORS
+            // 'name/cos:PutBucketCORS',
+            // 'name/cos:GetBucketCORS',
+            // 'name/cos:DeleteBucketCORS',
+            // // Lifecycle
+            // 'name/cos:PutBucketLifecycle',
+            // 'name/cos:GetBucketLifecycle',
+            // 'name/cos:DeleteBucketLifecycle',
+            // // Replication
+            // 'name/cos:PutBucketReplication',
+            // 'name/cos:GetBucketReplication',
+            // 'name/cos:DeleteBucketReplication',
+            // // 删除文件
+            // 'name/cos:DeleteMultipleObject',
+            // 'name/cos:DeleteObject',
+            // // 其他文件操作
+            // 'name/cos:PutObjectCopy',
+            // 'name/cos:PostObjectRestore',
+            // 'name/cos:GetObject',
+            // 'name/cos:HeadObject',
+            // 简单文件操作可以设置如下 action
+            'name/cos:PutObject',
+            'name/cos:PostObject',
+            'name/cos:AppendObject',
+            'name/cos:OptionsObject',
+            // 分片上传操作可以设置如下 action
+            'name/cos:InitiateMultipartUpload',
+            'name/cos:ListMultipartUploads',
+            'name/cos:ListParts',
+            'name/cos:UploadPart',
+            'name/cos:CompleteMultipartUpload',
+            'name/cos:AbortMultipartUpload',
+        ],
+        'effect': 'allow',
+        'principal': {'qcs': ['*']},
+        'resource': [
+            // 以下的 ap-guangzhou 是存储桶所在园区
+            // 以下的 test 是存储桶短名称
+            // * 是通配符，代指后面可以是任意字符串，这里的 resource 也可以是具体的链接，比如把 allowDir/* 替换为 a.jpg
+            // 以下的 allowDir 是限制权限的目录，如果赋予整个存储桶权限，可以去掉 allowDir/
+            'qcs::cos:ap-guangzhou:uid/1250000000:prefix//1250000000/test/allowDir/*',
+        ]
+    }]
+}
+```
+
+#### 返回值
+
+| 字段 | 类型  | 描述  |
+| ------------ | ------------ | ------------ |
+| expiredTime | Int | 临时密钥失效的时间戳。 |
+| credentials | Object | 对象中包含 Token，tmpSecretId，tmpSecretKey 三元组。 |
+| --tmpSecretId | String| tmpSecretId 计算签名时使用。 |
+| --tmpSecretKey |String| tmpSecretKey 计算签名时使用。 |
+| --sessionToken | String | sessionToken 请求鉴权时使用，COS 接口放在 Header 的 x-cos-security-token 字段里。 |
+
+#### 访问请求示例
+
+```
+GET https://sts.api.qcloud.com/v2/index.php?Action=GetFederationToken&Nonce=652650920&Region=gz&RequestClient=SDK_JAVA_1.3&SecretId=SecretIDXXXXX&Signature=Bv4G9gCkDVy/lhiDHg2eOIo1PPI=&Timestamp=1494561662&name=Sevenyou&policy=eyJzdGF0ZW1lbnQiOiBbeyJhY3Rpb24iOiBbIm5hbWUvY29zOkdldE9iamVjdCIsIm5hbWUvY29zOlB1dE9iamVjdCJdLCJlZmZlY3QiOiAiYWxsb3ciLCJyZXNvdXJjZSI6WyJxY3M6OmNvczpjbi1ub3J0aDp1aWQvMTI1MjQ0ODcwMzpwcmVmaXgvLzEyNTI0NDg3MDMvcmFiYml0bGl1dGovKiJdfV0sInZlcnNpb24iOiAiMi4wIn0%3D
+```
+
+#### 返回内容示例
+
+```
+{
+    "codeDesc": "Success",
+    "message": "",
+    "data": {
+        "expiredTime": 1494563462,
+        "credentials": {
+            "tmpSecretId": "AKIDxxxxxx",
+            "tmpSecretKey": "xxxxxx",
+            "sessionToken": "xxxxxx"
+        }
+    },
+    "code": 0
+}
+```
+
+### 通过 COS STS SDK 获取
+
+COS 针对 STS 提供了 SDK 和样例，目前已有 Java、Nodejs、PHP、Python 等多种语言的样例。
+具体内容请参考 [COS STS SDK](https://github.com/tencentyun/qcloud-cos-sts-sdk)。
+
+### 通过云 API SDK 获取
+
+以云 API 提供的 [Java SDK](https://github.com/QcloudApi/qcloudapi-sdk-java "java sdk") 为例：
+
+```
+import com.qcloud.Utilities.Json.JSONObject;
+
+public class Demo {
+    public static void main(String[] args) {
+        /* 如果是循环调用下面举例的接口，需要从此处开始您的循环语句。切记！ */
+        TreeMap<String, Object> config = new TreeMap<String, Object>();
+        config.put("SecretId", "AKIDxxxxxx");
+        config.put("SecretKey", "xxxxxx");
+        
+        /* 请求方法类型 POST、GET */
+        config.put("RequestMethod", "GET");
+        
+        /* 区域参数，可选: gz: 广州; sh: 上海; hk: 香港; ca: 北美; 等。 */
+        config.put("DefaultRegion", "gz");
+
+        QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Sts(),
+                config);
+
+        TreeMap<String, Object> params = new TreeMap<String, Object>();
+        /* 将需要输入的参数都放入 params 里面，必选参数是必填的。 */
+        /* DescribeInstances 接口的部分可选参数如下 */
+        params.put("name", "sevenyou");
+        String policy = "{\"statement\": [{\"action\": [\"name/cos:GetObject\",\"name/cos:PutObject\"],\"effect\": \"allow\",\"resource\":[\"qcs::cos:ap-beijing:uid/1250000000:prefix//1250000000/sevenyou/*\"]}],\"version\": \"2.0\"}";
+        params.put("policy", policy);
+        
+        /* 在这里指定所要用的签名算法，不指定默认为 HmacSHA1*/
+        //params.put("SignatureMethod", "HmacSHA256");
+        
+        /* generateUrl 方法生成请求串, 可用于调试使用 */
+        System.out.println(module.generateUrl("GetFederationToken", params));
+        String result = null;
+        try {
+            /* call 方法正式向指定的接口名发送请求，并把请求参数 params 传入，返回即是接口的请求结果。 */
+            result = module.call("GetFederationToken", params);
+            JSONObject json_result = new JSONObject(result);
+            System.out.println(json_result);
+        } catch (Exception e) {
+            System.out.println("error..." + e.getMessage());
+        }
+    }
+}
+```
+
+申请临时三元组时，需要描述策略 Policy，详情请参见 [策略语法](https://cloud.tencent.com/document/product/598/10603) 文档。以 IP 做限制的 Policy 示例如下：
+```
+{
+"statement": [
+    {
+        "action": [
+            "name/cos:GetObject",
+            "name/cos:HeadObject"
+        ],
+        "condition": {
+            "ip_equal": {
+                "qcs:ip": [
+                    "101.226.226.185/32"
+                ]
+            }
+        },
+        "effect": "allow",
+        "resource": [
+            "qcs::cos:cn-east:uid/1250000000:prefix//1250000000/sevenyou/*"
+        ]
+    }
+],
+"version": "2.0"
+}
+
+```
+
+
+
+>**注意：** 
+>- resource 字段中的 prefix 需加上`//`。
+>- uid 后面对应的是 APPID，而不是 UIN。
+
+<span id="AccessCOS"></span>
+## 使用临时密钥访问 COS
+
+COS 访问通过 `x-cos-security-token` 字段来传递临时 sessionToken，临时 SecretId 和 SecretKey 则用来生成密钥。以 Java SDK 为例，使用临时密钥访问 COS。
+单击 [此处](https://github.com/tencentyun/cos-java-sdk-v5) ，从 Github 下载 Java SDK 安装包。
+
+>? 下列代码，需要加入`x-cos-security-token`字段，传递 STS 的临时密钥。
+
+```
+public class Demo {
+    public static void main(String[] args) throws Exception {
+
+        // 用户基本信息
+        String tmpSecretId = "AKIDxxxxxx";
+        String tmpSecretKey = "xxxxxx";
+        String sessionToken = "xxxxxx";
+
+        // 1 初始化用户身份信息(secretId, secretKey)
+        COSCredentials cred = new BasicCOSCredentials(tmpSecretId, tmpSecretKey);
+        // 2 设置bucket的区域, COS地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
+        ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
+        // 3 生成cos客户端
+        COSClient cosclient = new COSClient(cred, clientConfig);
+        // bucket名需包含appid
+        String bucketName = "mybucket-1251668577";
+
+        String key = "aaa/bbb.txt";
+        // 上传 object, 建议 20M 以下的文件使用该接口
+        File localFile = new File("src/test/resources/test.txt");
+        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
+
+        // 设置 x-cos-security-token header 字段
+        ObjectMetadata objectMetadata = new ObjectMetadata();
+        objectMetadata.setSecurityToken(sessionToken);
+        putObjectRequest.setMetadata(objectMetadata);
+
+        try {
+            PutObjectResult putObjectResult = cosclient.putObject(putObjectRequest);
+            // putobjectResult会返回文件的etag
+            String etag = putObjectResult.getETag();
+        } catch (CosServiceException e) {
+            e.printStackTrace();
+        } catch (CosClientException e) {
+            e.printStackTrace();
+        }
+
+        // 关闭客户端
+        cosclient.shutdown();
+
+    }
+}
+```
