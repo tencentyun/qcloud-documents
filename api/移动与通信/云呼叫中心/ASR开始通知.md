@@ -1,5 +1,5 @@
 ## 接口说明
-仅在开启了智能外呼时会上报该通知。
+仅在开启了智能外呼时会上报该通知。检测到用户说话时，会上报该通知，可以根据该接口来停止正在播放的语音。
 
 ## 请求
 ### 请求地址
@@ -15,8 +15,8 @@ Post 请求
 | appId  | String | 是   | 应用 ID               |
 | callId | String | 是   | 呼叫 ID               |
 | ssrc  |  String | 是  | 对应媒体 rtp 头部 ssrc  |
-| event	| String | 是  | 通知事件类型 (asrStart)  |
-| timeStamp | String | 是  | 时间戳  |
+| event	| String | 是  | 通知事件类型 (vadStart)  |
+| timeStamp | String | 否  | 时间戳  |
 
 
 ## 响应
