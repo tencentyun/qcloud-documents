@@ -13,8 +13,7 @@
 ```
 
 其中 consumer-demo 表示服务消费者， provider-demo 表示服务提供者。
-
-`pom.xml` 中定义了工程需要的依赖包：
+pom.xml 中定义了工程需要的依赖包：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -64,13 +63,13 @@
 </parent>
 ```
 
-关于 Maven 环境安装以及 TSF SDK 下载，参考 [SDK 下载 >>](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 最新版本号参考 >>](https://cloud.tencent.com/document/product/649/20230) 。
+关于 Maven 环境安装以及 TSF SDK 下载，请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 更新日志](https://cloud.tencent.com/document/product/649/20230) 。
 
-## Demo 功能概述
+## Demo 功能
 
-- 服务注册与发现功能，请参考 [服务注册与发现]( https://cloud.tencent.com/document/product/649/16617)。
-- 分布式配置功能，请参考 [分布式配置](https://cloud.tencent.com/document/product/649/16620)。
-- 服务鉴权功能，请参考[服务鉴权](https://cloud.tencent.com/document/product/649/16621)。
-- 服务限流功能，请参考 [服务限流](https://cloud.tencent.com/document/product/649/19019)。
-- 参数传递功能，请参考 [参数传递](https://cloud.tencent.com/document/product/649/18511)。
-- 调用链功能，请参考 [调用链](https://cloud.tencent.com/document/product/649/16622)。
+- [服务注册与发现]( https://cloud.tencent.com/document/product/649/16617)
+- [分布式配置](https://cloud.tencent.com/document/product/649/16620)
+- [服务鉴权](https://cloud.tencent.com/document/product/649/16621)
+- [服务限流](https://cloud.tencent.com/document/product/649/19019)
+- [参数传递](https://cloud.tencent.com/document/product/649/18511)
+- [调用链](https://cloud.tencent.com/document/product/649/16622)

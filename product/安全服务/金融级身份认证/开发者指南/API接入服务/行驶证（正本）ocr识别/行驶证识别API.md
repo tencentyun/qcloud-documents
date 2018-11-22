@@ -8,10 +8,10 @@
 | ---- | ----- | ----- | ---- | --- |
 | webankAppId | WebankAppId，由腾讯指定        | String        | 腾讯云线下对接决定 | 是          |
 | version     | 接口版本号</br>默认值：1.0.0                    | String        | 20          | 是 |
-| nonce       | 随机数</br>32 位随机串（字母 + 数字组成的随机数） | String        | 32          | 是        |
+| nonce       | 随机数</br>32位随机串（字母 + 数字组成的随机数） | String        | 32          | 是        |
 | sign        | 签名：使用上面生成的签名            | String        | 40          | 是         |
 | orderNo     | 订单号，由合作方上送，每次唯一          | String        | 32          | 是         |
-|imageStr|	驾驶证图片文件（Base64）	 |Base64 String|	大小不超过 3 M	|是|
+|imageStr|	行驶证图片文件（Base64）	 |Base64 String|	大小不超过3M	|是|
 |bizScene|	业务场景</br>场景编号，两位数字，具体如下：</br>01：贷款申请</br>02：信用卡申请</br>03：开户</br>04：修改密码</br>05：重置密码</br>06：转账</br>07：挂失 / 解挂</br>08：登录</br>09：信息维护	|String	|2	|否|
 
 ## 响应参数
