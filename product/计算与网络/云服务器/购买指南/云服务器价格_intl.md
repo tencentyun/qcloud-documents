@@ -933,25 +933,25 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 ### Toronto
 
-| Region  | Model       | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
-| ------- | ----------- | -------------- | -------- | ----- | -------------------------------- | ---------- |
-| Toronto | Standard S2 | S2.14XLARGE224 | 56 Cores | 224GB | Intel Xeon   E5-2680 v4(2.4 GHz) | 2.63USD/hr |
-| Toronto | Standard S2 | S2.8XLARGE128  | 32 Cores | 128GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.5USD/hr  |
-| Toronto | Standard S2 | S2.8XLARGE64   | 32 Cores | 64GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.99USD/hr |
-| Toronto | Standard S2 | S2.6XLARGE96   | 24 Cores | 96GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.13USD/hr |
-| Toronto | Standard S2 | S2.6XLARGE48   | 24 Cores | 48GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.74USD/hr |
-| Toronto | Standard S2 | S2.4XLARGE64   | 16 Cores | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.75USD/hr |
-| Toronto | Standard S2 | S2.4XLARGE32   | 16 Cores | 32GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.5USD/hr  |
-| Toronto | Standard S2 | S2.3XLARGE48   | 12 Cores | 48GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.56USD/hr |
-| Toronto | Standard S2 | S2.3XLARGE24   | 12 Cores | 24GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.37USD/hr |
-| Toronto | Standard S2 | S2.2XLARGE32   | 8 Cores  | 32GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.38USD/hr |
-| Toronto | Standard S2 | S2.2XLARGE16   | 8 Cores  | 16GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.25USD/hr |
-| Toronto | Standard S2 | S2.LARGE16     | 4 Cores  | 16GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.19USD/hr |
-| Toronto | Standard S2 | S2.LARGE8      | 4 Cores  | 8GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.12USD/hr |
-| Toronto | Standard S2 | S2.MEDIUM8     | 2 Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.09USD/hr |
-| Toronto | Standard S2 | S2.MEDIUM4     | 2 Cores  | 4GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.05USD/hr |
-| Toronto | Standard S2 | S2.SMALL2      | 1 Core   | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02USD/hr |
-| Toronto | Standard S2 | S2.SMALL1      | 1 Core   | 1GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.01USD/hr |
+| Model       | Specifications | vCPU     | MEM   | Processor model (clock rate)     | Fee        |
+| ----------- | -------------- | -------- | ----- | -------------------------------- | ---------- |
+| Standard S2 | S2.14XLARGE224 | 56 Cores | 224GB | Intel Xeon   E5-2680 v4(2.4 GHz) | 2.63USD/hr |
+| Standard S2 | S2.8XLARGE128  | 32 Cores | 128GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.5USD/hr  |
+| Standard S2 | S2.8XLARGE64   | 32 Cores | 64GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.99USD/hr |
+| Standard S2 | S2.6XLARGE96   | 24 Cores | 96GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.13USD/hr |
+| Standard S2 | S2.6XLARGE48   | 24 Cores | 48GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.74USD/hr |
+| Standard S2 | S2.4XLARGE64   | 16 Cores | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.75USD/hr |
+| Standard S2 | S2.4XLARGE32   | 16 Cores | 32GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.5USD/hr  |
+| Standard S2 | S2.3XLARGE48   | 12 Cores | 48GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.56USD/hr |
+| Standard S2 | S2.3XLARGE24   | 12 Cores | 24GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.37USD/hr |
+| Standard S2 | S2.2XLARGE32   | 8 Cores  | 32GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.38USD/hr |
+| Standard S2 | S2.2XLARGE16   | 8 Cores  | 16GB  | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.25USD/hr |
+| Standard S2 | S2.LARGE16     | 4 Cores  | 16GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.19USD/hr |
+| Standard S2 | S2.LARGE8      | 4 Cores  | 8GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.12USD/hr |
+| Standard S2 | S2.MEDIUM8     | 2 Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.09USD/hr |
+| Standard S2 | S2.MEDIUM4     | 2 Cores  | 4GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.05USD/hr |
+| Standard S2 | S2.SMALL2      | 1 Core   | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02USD/hr |
+| Standard S2 | S2.SMALL1      | 1 Core   | 1GB   | Intel Xeon   E5-2680 v4(2.4 GHz) | 0.01USD/hr |
 
 [Back to Top](#CVMPricing)
 
