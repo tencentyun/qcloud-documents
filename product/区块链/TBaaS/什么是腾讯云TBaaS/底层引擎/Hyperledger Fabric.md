@@ -31,7 +31,7 @@ Hyperledger Fabric 中的智能合约被称为 “链码” 或者 “链代码�
 
 传统的区块链中，智能合约的执行使用 “排序-执行” 的架构，其执行结果必须是确定性的，否则共识可能无法达成。为了解决非确定性问题，许多平台要求智能合约使用特性的脚本或者特定的语言（例如：Solidity）进行编写，这需要开发人员熟悉特定语言的开发，否则可能会带来不可预知的各种错误。此外，由于所有节点上都无差别地顺序执行多笔交易，因此性能和规模受到限制，所有节点必须具备完善的防护措施来抵御恶意合约带来的影响。
 
-Fabric 中引入了 “预执行-排序-验证” 的权限架构，它可以将任何一笔交易分成三个步骤来解决上述 “排序-执行” 可能带来的灵活性、可伸缩性、性能、隐私性问题。该操作步骤如下：
+Fabric 中引入了 “预执行-排序-验证” 的全新架构，它可以将任何一笔交易分成三个步骤来解决上述 “排序-执行” 可能带来的灵活性、可伸缩性、性能、隐私性问题。该操作步骤如下：
 
 1. 预执行一笔交易，并检查其结果的正确性。如果正确，将对结果进行背书 / 签名。
 2. 通过排序服务，对批量的交易进行排序。
@@ -61,22 +61,22 @@ Fabric 中，排序服务是模块化设计的，具备开发能力的用户可�
 
 ![](https://main.qcloudimg.com/raw/c25fc1a23ec6024ab54504e73fb8a4b4/%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6.png)
 
-## 官方社区
+## 开源社区
 
-Hyperledger Fabric 项目主页: https://www.hyperledger.org/projects/fabric
-Hyperledger Fabric 官方文档：https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html
+Hyperledger Fabric 开源社区: https://www.hyperledger.org/projects/fabric
+Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html
 代码仓库镜像：https://github.com/hyperledger/fabric
 
 ## 常见问题
 
-**TBaaS 目前支持哪个版本的 Hyperledger Fabric？**
+### TBaaS 目前支持哪个版本的 Hyperledger Fabric？
 
 **答**： Hyperledger Fabric v1.1。
 	
-**TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？**
+### TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？
 
 **答**：TBaaS 在设计之初的目标定位于：支持多种区块链底层引擎的一站式企业级区块链平台。目前 TBaaS 支持 Hyperledger Fabric 的同时，也支持 BCOS。率先支持 Hyperledger Fabric 的原因在于其开源、优秀的模块化设计、支持多种语言编写智能合约、隐私保护特性丰富。
 
-**TBaaS 未来会支持以太坊吗？**
+### TBaaS 未来会支持以太坊吗？
 
 **答**：按照国内相关法规要求，TBaaS 不会对以太坊、比特币等开放式区块链进行支持，也不支持用户在 TBaaS 上发行任何数字货币。

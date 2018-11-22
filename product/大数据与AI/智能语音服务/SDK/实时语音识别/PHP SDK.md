@@ -24,7 +24,7 @@ $engine_model_type = '8k_0';
 $res_type = 0;
 // 识别结果文本编码方式 0:UTF-8,1:GB2312,2:GBK,3:BIG5
 $result_text_format = 0;
-// 语音编码方式 1:wav 4:sp 6:skill
+// 语音编码方式 1:wav 4:sp 6:silk
 $voice_format = 1;
 $filepath="D:\\test20180903.wav";
 // 语音切片长度 cutlength<200000

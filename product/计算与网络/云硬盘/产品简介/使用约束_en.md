@@ -1,7 +1,7 @@
 | Restriction Type | Restriction Description | 
 | --- |  --- |
 | Restrictions on relevant cloud block storage APIs | If an API's name contains "Elastic Cloud Block Storage", it means this API can only operate on elastic cloud block storage (for example, mounting elastic cloud disk). If the name doesn't contain "Elastic Cloud Block Storage", it can operate on all cloud storage (for example, modifying cloud disk attribute) |
-| Regions that support the use of elastic cloud block storage capabilities |  All [Availability Zones](https://cloud.tencent.com/doc/api/229/1286) are available (Except Guangzhou Zone 1, which is out of stock) |
+| Regions that support the use of elastic cloud block storage capabilities |  All [Availability Zones](https://intl.cloud.tencent.com/doc/api/229/1286) are available (Except Guangzhou Zone 1, which is out of stock) |
 | Available regions for purchasing SSD cloud block storage and high-performance cloud block storage | Currently, SSD cloud block storage and high-performance cloud block storage are only available for Guangzhou Zone 3, Beijing Zone 1, Shanghai Zone 1 and Singapore zone 1. High-performance cloud block storage is in closed test. Open test application will become available soon |
 | Cloud block storage performance restriction | About the IO performance described in product documentations. For example, the random IOPS of a 1 TB SSD cloud block storage can reach 24000 IOPS as described in document. This means read and write can reach 24000 IOPS at the same time. The IO performances of 4 KB/8 KB can both reach this number, while the IO of 16 KB cannot reach 24000 IOPS because its throughput has already reached the limit of 260 MB/s |
 | Maximum number of elastic cloud disks under a single account | 500 at most |
