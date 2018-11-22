@@ -19,7 +19,7 @@
 详细实例监控功能和告警功能的介绍，请参阅 [监控功能](https://cloud.tencent.com/document/product/236/8455) 和 [告警功能](https://cloud.tencent.com/document/product/236/8457)。
 
 ### 数据库操作
-在【数据库管理】-【参数设置】页面，您可以将 sql 文件导入到指定的数据库，如下表所示：
+在【数据库管理】-【数据库列表】页面，您可以将 sql 文件导入到指定的数据库，如下表所示：
 
 1. 单击【数据导入】进入数据导入页面。
    ![](https://main.qcloudimg.com/raw/e37eb9335ee79d0852829efcf5e8e45d.png)
@@ -34,8 +34,8 @@
 在【数据库管理】-【参数设置】页面，您可以对数据库的众多可修改参数进行设置和修改历史的查看，如下表所示，单击**参数运行值**旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改。更多关于参数模板的操作可参阅 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
 ![](https://main.qcloudimg.com/raw/21715becbdc085c1ffff00bcff2786fb.png)
 
-### 账号管理
-在【数据库管理】-【帐号管理】页面，您可以对系统默认的 root 账户进行管理，如修改权限，重置密码等，也可以创建帐号，删除帐号。如下图所示：
+### 帐号管理
+在【数据库管理】-【帐号管理】页面，您可以对系统默认的 root 帐户进行管理，如修改权限，重置密码等，也可以创建帐号，删除帐号。如下图所示：
 ![](https://main.qcloudimg.com/raw/58d42b6a85a21882735fef5caa4b1ad6.png)
 
 ### 安全组
