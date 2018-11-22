@@ -51,6 +51,7 @@
 在【操作日志】页面，您可以对慢查询及回档日志进行下载，如下图所示：
 ![](https://main.qcloudimg.com/raw/2ebfc2aad271f78d8f15510cec60b10f.png)
 
+<span id = "biangengpeizhi"></span>
 ### 调整配置
 在【实例列表】页面，您可以对数据库实例进行配置调整（扩缩容），支持实例升级与降级。入口如下图所示，详细操作可参考 [调整数据库实例规格](https://cloud.tencent.com/document/product/236/19707)。
 ![](https://main.qcloudimg.com/raw/6592b2ec71952933e0f1b12dd86de2b5.png)
@@ -59,7 +60,7 @@
 在【实例列表】页面，如下图所示，勾选所需要回档的实例，单击【回档】，借助于冷备和 binlog 可以将数据库回档至某个指定的时间，详细操作可参阅 [数据回档](https://cloud.tencent.com/document/product/236/7276)。
 ![](https://main.qcloudimg.com/raw/75631185a2331d3d9935d3b428a72b01.png)
 
-
+<span id = "chongqi"></span>
 ### 重启
 在【实例列表】页面，勾选需要重启的数据库实例，单击【重启】按钮对实例进行重启操作，支持批量重启（勾选多个实例），操作如下：
 ![](https://main.qcloudimg.com/raw/4ddb5e423d7681b41e169a8009f9253c.png)
