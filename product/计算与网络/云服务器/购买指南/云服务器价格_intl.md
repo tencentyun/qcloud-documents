@@ -773,6 +773,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S3      | S3.SMALL4      | 1   Core   | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr |
 | Standard S3      | S3.SMALL2      | 1   Core   | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr |
 | Standard S3      | S3.SMALL1      | 1   Core   | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr |
+
 [Back to Top](#CVMPricing)
 
 ### Silicon Valley
