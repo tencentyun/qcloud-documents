@@ -71,7 +71,7 @@ in#8080#reporttimeb::9.77.7.132:8080::sub_zone::
 in#8080#reporttimeb::9.77.7.132:8080::canary::false
 in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 ```
-- 如果 cluster 不存在，则需要联系后台运维人员处理。
+- 如果 cluster 不存在，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 - 如果状态不为 healthy，则执行后续步骤。
 
 
@@ -83,7 +83,7 @@ curl http://127.0.0.1:15000/config_dump -o config.json
 ```
 
 通过 vi 打开 config.json 文件，并查找 in#8080#reporttimeb（本地 cluster，格式为 in#port#serviceName），查看配置中的服务地址(address)、端口(port_value）是否正确。
-健康检查信息 health_checks、熔断配置 circuit_breakers 是否正确。如果不正确，且确认服务没有被熔断，则需要联系后台运维人员处理。
+健康检查信息 health_checks、熔断配置 circuit_breakers 是否正确。如果不正确，且确认服务没有被熔断，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 ```json
 "dynamic_active_clusters": [
     {
@@ -123,8 +123,8 @@ curl http://127.0.0.1:15000/config_dump -o config.json
 
 
 ### 如何联系后台运维人员？
+您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系后台运维人员。
 您需要提供以下信息，方便运维人员快速定位问题。
-
-问题：B 服务注册失败，已初步定位，原因在于下发的配置与服务配置不相符。
-服务节点信息：A 调用 B 服务，B 服务192.168.3.1，A 服务192.168.2.1。
-服务类型信息：A 服务为 springcloud，B 服务为 mesh。
+- 问题：B 服务注册失败，已初步定位，原因在于下发的配置与服务配置不相符。
+- 服务节点信息：A 调用 B 服务，B 服务192.168.3.1，A 服务192.168.2.1。
+- 服务类型信息：A 服务为 springcloud，B 服务为 Mesh。
