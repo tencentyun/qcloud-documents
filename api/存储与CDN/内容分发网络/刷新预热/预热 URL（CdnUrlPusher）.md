@@ -1,7 +1,7 @@
 **URL 预热接口目前仅开放内测，敬请期待全量开放。**
 
 ## 接口描述
-**CdnUrlPusher**  将指定 URL 资源主动推送至 CDN 节点。
+**CdnUrlPusher**将指定 URL 资源主动推送至 CDN 节点。
 请求域名：`cdn.api.qcloud.com`
 + 默认情况下，每一个账号每日可预热资源1000条，每次最多可提交20条。
 + 内测用户子账号可使用自有 SecretId、SecretKey 预热有权限的资源。
