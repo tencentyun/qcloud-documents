@@ -60,7 +60,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.25/demo/cos-auth.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5@0.4.26/demo/cos-auth.js"></script>
 <script>
     (function () {
         // 请求用到的参数
@@ -194,7 +194,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.25/demo/cos-auth.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5@0.4.26/demo/cos-auth.js"></script>
 <script>
     (function () {
 
