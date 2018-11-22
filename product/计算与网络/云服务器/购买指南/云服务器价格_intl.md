@@ -1,7 +1,3 @@
-
-
-
-
 ### <span id="CVMPricing">CVM Pricing</span>
 
 This document provides the official prices of different CVM instances in all Tencent Cloud regions. Please note that this price list is FOR YOUR REFERENCE ONLY. The actual price is subjected to your order. 
@@ -69,7 +65,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S4      | S4.LARGE8       | 4   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr   |
 | Standard S4      | S4.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.15   USD/hr  |
 | Standard S4      | S4.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
-| Standard S4      | S4.SMALL2       | 1   Cores  | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr  |
+| Standard S4      | S4.SMALL2       | 1   Core   | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr  |
 | MEM-optimized M4 | M4.18XLARGE648  | 72   Cores | 648GB | Intel Xeon Skylake 6148(2.4 GHz) | 7.7   USD/hr   |
 | MEM-optimized M4 | M4.16XLARGE512  | 64   Cores | 512GB | Intel Xeon Skylake 6148(2.4 GHz) | 6.27   USD/hr  |
 | MEM-optimized M4 | M4.8XLARGE384   | 32   Cores | 384GB | Intel Xeon Skylake 6148(2.4 GHz) | 4.29   USD/hr  |
@@ -81,7 +77,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M4 | M4.2XLARGE64    | 8   Cores  | 64GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.78   USD/hr  |
 | MEM-optimized M4 | M4.LARGE32      | 4   Cores  | 32GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.39   USD/hr  |
 | MEM-optimized M4 | M4.MEDIUM16     | 2   Cores  | 16GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr   |
-| MEM-optimized M4 | M4.SMALL8       | 1   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
+| MEM-optimized M4 | M4.SMALL8       | 1   Core   | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
 | GPU Compute GN8  | GN8.14XLARGE448 | 56   Cores | 448GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 20.04   USD/hr |
 | GPU Compute GN8  | GN8.7XLARGE224  | 28   Cores | 224GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 10.02   USD/hr |
 | GPU Compute GN8  | GN8.3XLARGE112  | 14   Cores | 112GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 5.01   USD/hr  |
@@ -102,7 +98,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M2 | M2.2XLARGE64    | 8   Cores  | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.78   USD/hr  |
 | MEM-optimized M2 | M2.LARGE32      | 4   Cores  | 32GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.39   USD/hr  |
 | MEM-optimized M2 | M2.MEDIUM16     | 2   Cores  | 16GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.2   USD/hr   |
-| MEM-optimized M2 | M2.SMALL8       | 1   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
+| MEM-optimized M2 | M2.SMALL8       | 1   Core   | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
 | High IO I2       | I2.14XLARGE224  | 56   Cores | 224GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 4.03   USD/hr  |
 | High IO I2       | I2.8XLARGE128   | 32   Cores | 128GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 2.3   USD/hr   |
 | High IO I2       | I2.8XLARGE64    | 32   Cores | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.54   USD/hr  |
@@ -134,18 +130,18 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S2      | S2.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.14   USD/hr  |
 | Standard S2      | S2.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
 | Standard S2      | S2.MEDIUM2      | 2   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
-| Standard S2      | S2.SMALL4       | 1   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
-| Standard S2      | S2.SMALL2       | 1   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr  |
-| Standard S2      | S2.SMALL1       | 1   Cores  | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr  |
+| Standard S2      | S2.SMALL4       | 1   Core   | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
+| Standard S2      | S2.SMALL2       | 1   Core   | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr  |
+| Standard S2      | S2.SMALL1       | 1   Core   | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr  |
 | Standard SA1     | SA1.2XLARGE32   | 8   Cores  | 32GB  | AMD EPYC 7551(2.0 GHz)           | 0.23   USD/hr  |
 | Standard SA1     | SA1.2XLARGE16   | 8   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.15   USD/hr  |
 | Standard SA1     | SA1.LARGE16     | 4   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.12   USD/hr  |
 | Standard SA1     | SA1.LARGE8      | 4   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.08   USD/hr  |
 | Standard SA1     | SA1.MEDIUM8     | 2   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.06   USD/hr  |
 | Standard SA1     | SA1.MEDIUM4     | 2   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.04   USD/hr  |
-| Standard SA1     | SA1.SMALL4      | 1   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr  |
-| Standard SA1     | SA1.SMALL2      | 1   Cores  | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr  |
-| Standard SA1     | SA1.SMALL1      | 1   Cores  | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr  |
+| Standard SA1     | SA1.SMALL4      | 1   Core   | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr  |
+| Standard SA1     | SA1.SMALL2      | 1   Core   | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr  |
+| Standard SA1     | SA1.SMALL1      | 1   Core   | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr  |
 | Standard S3      | S3.20XLARGE320  | 80   Cores | 320GB | Intel Xeon Skylake 6133(2.5 GHz) | 5.76   USD/hr  |
 | Standard S3      | S3.16XLARGE256  | 64   Cores | 256GB | Intel Xeon Skylake 6133(2.5 GHz) | 4.61   USD/hr  |
 | Standard S3      | S3.16XLARGE128  | 64   Cores | 128GB | Intel Xeon Skylake 6133(2.5 GHz) | 3.07   USD/hr  |
@@ -163,9 +159,9 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S3      | S3.LARGE8       | 4   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.19   USD/hr  |
 | Standard S3      | S3.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.14   USD/hr  |
 | Standard S3      | S3.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.1   USD/hr   |
-| Standard S3      | S3.SMALL4       | 1   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr  |
-| Standard S3      | S3.SMALL2       | 1   Cores  | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr  |
-| Standard S3      | S3.SMALL1       | 1   Cores  | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr  |
+| Standard S3      | S3.SMALL4       | 1   Core   | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr  |
+| Standard S3      | S3.SMALL2       | 1   Core   | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr  |
+| Standard S3      | S3.SMALL1       | 1   Core   | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr  |
 
 [Back to Top](#CVMPricing)
 
@@ -327,9 +323,9 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 
 | Model                         | Specifications  | vCPU       | MEM   | Processor   model (clock rate)   | Fee            |
 | ----------------------------- | --------------- | ---------- | ----- | -------------------------------- | -------------- |
-| Standard S3                   | S3.SMALL1       | 1   Cores  | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr  |
-| Standard S3                   | S3.SMALL2       | 1   Cores  | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr  |
-| Standard S3                   | S3.SMALL4       | 1   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr  |
+| Standard S3                   | S3.SMALL1       | 1   Core   | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr  |
+| Standard S3                   | S3.SMALL2       | 1   Core   | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr  |
+| Standard S3                   | S3.SMALL4       | 1   Core   | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr  |
 | Standard S3                   | S3.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.1   USD/hr   |
 | Standard S3                   | S3.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.14   USD/hr  |
 | Standard S3                   | S3.LARGE8       | 4   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.19   USD/hr  |
@@ -349,18 +345,18 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S3                   | S3.16XLARGE128  | 64   Cores | 128GB | Intel Xeon Skylake 6133(2.5 GHz) | 3.07   USD/hr  |
 | Standard S3                   | S3.16XLARGE256  | 64   Cores | 256GB | Intel Xeon Skylake 6133(2.5 GHz) | 4.61   USD/hr  |
 | Standard S3                   | S3.20XLARGE320  | 80   Cores | 320GB | Intel Xeon Skylake 6133(2.5 GHz) | 5.76   USD/hr  |
-| Standard SA1                  | SA1.SMALL1      | 1   Cores  | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr  |
-| Standard SA1                  | SA1.SMALL2      | 1   Cores  | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr  |
-| Standard SA1                  | SA1.SMALL4      | 1   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr  |
+| Standard SA1                  | SA1.SMALL1      | 1   Core   | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr  |
+| Standard SA1                  | SA1.SMALL2      | 1   Core   | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr  |
+| Standard SA1                  | SA1.SMALL4      | 1   Core   | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr  |
 | Standard SA1                  | SA1.MEDIUM4     | 2   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.04   USD/hr  |
 | Standard SA1                  | SA1.MEDIUM8     | 2   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.06   USD/hr  |
 | Standard SA1                  | SA1.LARGE8      | 4   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.08   USD/hr  |
 | Standard SA1                  | SA1.LARGE16     | 4   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.12   USD/hr  |
 | Standard SA1                  | SA1.2XLARGE16   | 8   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.15   USD/hr  |
 | Standard SA1                  | SA1.2XLARGE32   | 8   Cores  | 32GB  | AMD EPYC 7551(2.0 GHz)           | 0.23   USD/hr  |
-| Standard S2                   | S2.SMALL1       | 1   Cores  | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr  |
-| Standard S2                   | S2.SMALL2       | 1   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr  |
-| Standard S2                   | S2.SMALL4       | 1   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
+| Standard S2                   | S2.SMALL1       | 1   Core   | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr  |
+| Standard S2                   | S2.SMALL2       | 1   Core   | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr  |
+| Standard S2                   | S2.SMALL4       | 1   Core   | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
 | Standard S2                   | S2.MEDIUM2      | 2   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr  |
 | Standard S2                   | S2.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
 | Standard S2                   | S2.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.14   USD/hr  |
@@ -392,7 +388,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | High IO I2                    | I2.8XLARGE64    | 32   Cores | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.54   USD/hr  |
 | High IO I2                    | I2.8XLARGE128   | 32   Cores | 128GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 2.3   USD/hr   |
 | High IO I2                    | I2.14XLARGE224  | 56   Cores | 224GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 4.03   USD/hr  |
-| MEM-optimized M3              | M3.SMALL8       | 1   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.1   USD/hr   |
+| MEM-optimized M3              | M3.SMALL8       | 1   Core   | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.1   USD/hr   |
 | MEM-optimized M3              | M3.MEDIUM16     | 2   Cores  | 16GB  | Intel Xeon Skylake 6133(2.5 GHz) | 0.2   USD/hr   |
 | MEM-optimized M3              | M3.LARGE32      | 4   Cores  | 32GB  | Intel Xeon Skylake 6133(2.5 GHz) | 0.39   USD/hr  |
 | MEM-optimized M3              | M3.2XLARGE64    | 8   Cores  | 64GB  | Intel Xeon Skylake 6133(2.5 GHz) | 0.78   USD/hr  |
@@ -403,7 +399,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M3              | M3.8XLARGE256   | 32   Cores | 256GB | Intel Xeon Skylake 6133(2.5 GHz) | 3.14   USD/hr  |
 | MEM-optimized M3              | M3.8XLARGE384   | 32   Cores | 384GB | Intel Xeon Skylake 6133(2.5 GHz) | 4.29   USD/hr  |
 | MEM-optimized M3              | M3.16XLARGE512  | 64   Cores | 512GB | Intel Xeon Skylake 6133(2.5 GHz) | 6.27   USD/hr  |
-| MEM-optimized M2              | M2.SMALL8       | 1   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
+| MEM-optimized M2              | M2.SMALL8       | 1   Core   | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr   |
 | MEM-optimized M2              | M2.MEDIUM16     | 2   Cores  | 16GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.2   USD/hr   |
 | MEM-optimized M2              | M2.LARGE32      | 4   Cores  | 32GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.39   USD/hr  |
 | MEM-optimized M2              | M2.2XLARGE64    | 8   Cores  | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.78   USD/hr  |
@@ -442,7 +438,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | GPU Compute GN8               | GN8.14XLARGE448 | 56   Cores | 448GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 20.04   USD/hr |
 | GPU Compute GN6S              | GN6S.LARGE20    | 4   Cores  | 20GB  | Intel Xeon Sliver 4110(2.1 GHz)  | 1.11   USD/hr  |
 | GPU Compute GN6S              | GN6S.2XLARGE40  | 8   Cores  | 40GB  | Intel Xeon Sliver 4110(2.1 GHz)  | 2.22   USD/hr  |
-| MEM-optimized M4              | M4.SMALL8       | 1   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
+| MEM-optimized M4              | M4.SMALL8       | 1   Core   | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
 | MEM-optimized M4              | M4.MEDIUM16     | 2   Cores  | 16GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr   |
 | MEM-optimized M4              | M4.LARGE32      | 4   Cores  | 32GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.39   USD/hr  |
 | MEM-optimized M4              | M4.2XLARGE64    | 8   Cores  | 64GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.78   USD/hr  |
@@ -454,7 +450,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M4              | M4.8XLARGE384   | 32   Cores | 384GB | Intel Xeon Skylake 6148(2.4 GHz) | 4.29   USD/hr  |
 | MEM-optimized M4              | M4.16XLARGE512  | 64   Cores | 512GB | Intel Xeon Skylake 6148(2.4 GHz) | 6.27   USD/hr  |
 | MEM-optimized M4              | M4.18XLARGE648  | 72   Cores | 648GB | Intel Xeon Skylake 6148(2.4 GHz) | 7.7   USD/hr   |
-| Standard S4                   | S4.SMALL2       | 1   Cores  | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr  |
+| Standard S4                   | S4.SMALL2       | 1   Core   | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr  |
 | Standard S4                   | S4.MEDIUM4      | 2   Cores  | 4GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr   |
 | Standard S4                   | S4.MEDIUM8      | 2   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.15   USD/hr  |
 | Standard S4                   | S4.LARGE8       | 4   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr   |
@@ -674,7 +670,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M4 | M4.2XLARGE64   | 8   Cores  | 64GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.78   USD/hr |
 | MEM-optimized M4 | M4.LARGE32     | 4   Cores  | 32GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.39   USD/hr |
 | MEM-optimized M4 | M4.MEDIUM16    | 2   Cores  | 16GB  | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr  |
-| MEM-optimized M4 | M4.SMALL8      | 1   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr  |
+| MEM-optimized M4 | M4.SMALL8      | 1   Core   | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr  |
 | Standard S4      | S4.18XLARGE288 | 72   Cores | 288GB | Intel Xeon Skylake 6148(2.4 GHz) | 5.25   USD/hr |
 | Standard S4      | S4.16XLARGE256 | 64   Cores | 256GB | Intel Xeon Skylake 6148(2.4 GHz) | 4.67   USD/hr |
 | Standard S4      | S4.16XLARGE128 | 64   Cores | 128GB | Intel Xeon Skylake 6148(2.4 GHz) | 3.13   USD/hr |
@@ -692,7 +688,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S4      | S4.LARGE8      | 4   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.2   USD/hr  |
 | Standard S4      | S4.MEDIUM8     | 2   Cores  | 8GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.15   USD/hr |
 | Standard S4      | S4.MEDIUM4     | 2   Cores  | 4GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.1   USD/hr  |
-| Standard S4      | S4.SMALL2      | 1   Cores  | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr |
+| Standard S4      | S4.SMALL2      | 1   Core   | 2GB   | Intel Xeon Skylake 6148(2.4 GHz) | 0.05   USD/hr |
 | Compute C2       | C2.8XLARGE96   | 32   Cores | 96GB  | Intel Xeon E5-2667 v4(3.2 GHz)   | 2.85   USD/hr |
 | Compute C2       | C2.4XLARGE64   | 16   Cores | 64GB  | Intel Xeon E5-2667 v4(3.2 GHz)   | 1.71   USD/hr |
 | Compute C2       | C2.4XLARGE32   | 16   Cores | 32GB  | Intel Xeon E5-2667 v4(3.2 GHz)   | 1.14   USD/hr |
@@ -718,7 +714,7 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | MEM-optimized M2 | M2.2XLARGE64   | 8   Cores  | 64GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.78   USD/hr |
 | MEM-optimized M2 | M2.LARGE32     | 4   Cores  | 32GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.39   USD/hr |
 | MEM-optimized M2 | M2.MEDIUM16    | 2   Cores  | 16GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.2   USD/hr  |
-| MEM-optimized M2 | M2.SMALL8      | 1   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr  |
+| MEM-optimized M2 | M2.SMALL8      | 1   Core   | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr  |
 | High IO I2       | I2.14XLARGE224 | 56   Cores | 224GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 4.03   USD/hr |
 | High IO I2       | I2.8XLARGE128  | 32   Cores | 128GB | Intel Xeon E5-2680 v4(2.4 GHz)   | 2.3   USD/hr  |
 | High IO I2       | I2.6XLARGE96   | 24   Cores | 96GB  | Intel Xeon E5-2680 v4(2.4 GHz)   | 1.73   USD/hr |
@@ -747,18 +743,18 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S2      | S2.MEDIUM8     | 2   Cores  | 8GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.14   USD/hr |
 | Standard S2      | S2.MEDIUM4     | 2   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.1   USD/hr  |
 | Standard S2      | S2.MEDIUM2     | 2   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr |
-| Standard S2      | S2.SMALL4      | 1   Cores  | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr |
-| Standard S2      | S2.SMALL2      | 1   Cores  | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr |
-| Standard S2      | S2.SMALL1      | 1   Cores  | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr |
+| Standard S2      | S2.SMALL4      | 1   Core   | 4GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.07   USD/hr |
+| Standard S2      | S2.SMALL2      | 1   Core   | 2GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.04   USD/hr |
+| Standard S2      | S2.SMALL1      | 1   Core   | 1GB   | Intel Xeon E5-2680 v4(2.4 GHz)   | 0.02   USD/hr |
 | Standard SA1     | SA1.2XLARGE32  | 8   Cores  | 32GB  | AMD EPYC 7551(2.0 GHz)           | 0.23   USD/hr |
 | Standard SA1     | SA1.2XLARGE16  | 8   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.15   USD/hr |
 | Standard SA1     | SA1.LARGE16    | 4   Cores  | 16GB  | AMD EPYC 7551(2.0 GHz)           | 0.12   USD/hr |
 | Standard SA1     | SA1.LARGE8     | 4   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.08   USD/hr |
 | Standard SA1     | SA1.MEDIUM8    | 2   Cores  | 8GB   | AMD EPYC 7551(2.0 GHz)           | 0.06   USD/hr |
 | Standard SA1     | SA1.MEDIUM4    | 2   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.04   USD/hr |
-| Standard SA1     | SA1.SMALL4     | 1   Cores  | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr |
-| Standard SA1     | SA1.SMALL2     | 1   Cores  | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr |
-| Standard SA1     | SA1.SMALL1     | 1   Cores  | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr |
+| Standard SA1     | SA1.SMALL4     | 1   Core   | 4GB   | AMD EPYC 7551(2.0 GHz)           | 0.03   USD/hr |
+| Standard SA1     | SA1.SMALL2     | 1   Core   | 2GB   | AMD EPYC 7551(2.0 GHz)           | 0.02   USD/hr |
+| Standard SA1     | SA1.SMALL1     | 1   Core   | 1GB   | AMD EPYC 7551(2.0 GHz)           | 0.01   USD/hr |
 | Standard S3      | S3.20XLARGE320 | 80   Cores | 320GB | Intel Xeon Skylake 6133(2.5 GHz) | 5.76   USD/hr |
 | Standard S3      | S3.16XLARGE256 | 64   Cores | 256GB | Intel Xeon Skylake 6133(2.5 GHz) | 4.61   USD/hr |
 | Standard S3      | S3.16XLARGE128 | 64   Cores | 128GB | Intel Xeon Skylake 6133(2.5 GHz) | 3.07   USD/hr |
@@ -774,9 +770,9 @@ Regions are sorted alphabetically below. For more information, please see [CVM I
 | Standard S3      | S3.LARGE8      | 4   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.19   USD/hr |
 | Standard S3      | S3.MEDIUM8     | 2   Cores  | 8GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.14   USD/hr |
 | Standard S3      | S3.MEDIUM4     | 2   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.1   USD/hr  |
-| Standard S3      | S3.SMALL4      | 1   Cores  | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr |
-| Standard S3      | S3.SMALL2      | 1   Cores  | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr |
-| Standard S3      | S3.SMALL1      | 1   Cores  | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr |
+| Standard S3      | S3.SMALL4      | 1   Core   | 4GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.07   USD/hr |
+| Standard S3      | S3.SMALL2      | 1   Core   | 2GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.04   USD/hr |
+| Standard S3      | S3.SMALL1      | 1   Core   | 1GB   | Intel Xeon Skylake 6133(2.5 GHz) | 0.03   USD/hr |
 [Back to Top](#CVMPricing)
 
 ### Silicon Valley
