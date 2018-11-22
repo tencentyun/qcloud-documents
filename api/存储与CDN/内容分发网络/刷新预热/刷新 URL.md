@@ -1,14 +1,13 @@
 ## 接口描述
-**RefreshCdnUrl** 删除CDN全网节点上缓存的指定资源。
+**RefreshCdnUrl**删除 CDN 全网节点上缓存的指定资源。
 请求域名：`cdn.api.qcloud.com`
->!
-+ 默认情况下，每一个账号每日可刷新 URL 10000 条，每次最多可提交 1000 条。
-+ 全网 URL 刷新生效时间约为 5分钟。
-+ 提交的 URL 必须以 http:// 或 https:// 开头。
++ 默认情况下，每一个账号每日可刷新 URL 10000条，每次最多可提交1000条。
++ 全网 URL 刷新生效时间约为5分钟。
++ 提交的 URL 必须以`http://`或`https://`开头。
 + 提交的 URL 中域名必须为该账号下已接入的加速域名。
 + 提交的 URL 中域名的状态需要为【已启动】或【部署中】。
-+ 调用频次限制为 10000 次/分钟。
-+ 接口已支持子账号调用，权限配置可参考权限[配置示例](https://cloud.tencent.com/document/product/228/14867)。
++ 调用频次限制为10000次/分钟。
++ 接口已支持子账号调用，权限配置可参考权限 [配置示例](https://cloud.tencent.com/document/product/228/14867)。
 
 查看 [调用示例](https://cloud.tencent.com/document/product/228/1734)。
 
@@ -19,9 +18,8 @@
 | ------ | ---- | ------ | --------------------- |
 | urls.n | 是    | String | 需要刷新的 URL<br/>详情请参见下文 “URL 详细说明” |
 
-### URL 详细说明
-支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考：
-
+#### 详细说明
+支持刷新一个或多个 URL，刷新多个 URL 时，参数传入方式可参考：
 ```
 urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
 ```
@@ -47,16 +45,16 @@ https: //www.test.com/index.php?name=2
 
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0 表示成功，其他值表示失败。<br/>详情请参见错误码页面的 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败<br/>详情请参见错误码页面的 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) |
 | message  | String | 模块错误信息描述，与接口相关                           |
-| codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详情请参见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
+| codeDesc | String | 英文错误信息，或业务侧错误码<br/>详情请参见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
 | data     | Array  | 详情请参见下文 “data 详细说明”                                  |
 
-### data 详细说明
+#### data 详细说明
 | 参数名称    | 类型     | 描述           |
 | ------- | ------ | ------------ |
-| count   | Int    | 此次刷新提交的URL数目 |
-| task_id | String | 此次刷新任务对应的ID  |
+| count   | Int    | 此次刷新提交的 URL 数目 |
+| task_id | String | 此次刷新任务对应的 ID  |
 
 
 ## 调用案例
@@ -77,10 +75,10 @@ Action=RefreshCdnUrl
 &urls.0=https%3A%2F%2www.test.com%2F1.jpg
 ```
 
->!GET 请求大小限制为 32KB，超出大小限制则会返回状态码 501。若需提交较多 URL，可采用 POST 请求。
+>!GET 请求大小限制为32KB，超出大小限制则会返回状态码501。若需提交较多 URL，可采用 POST 请求。
 
 ### POST 请求
-POST请求时，参数填充在 HTTP Request-body 中，请求地址：
+POST 请求时，参数填充在 HTTP Request-body 中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
@@ -99,7 +97,7 @@ array (
 
 >!
 - 当需要刷新的 URL 较多时，为避免 GET 请求长度超出限制，建议使用 POST 方式调用此接口。
-- POST 请求大小限制为 1 MB，超出大小限制则会返回状态码 501。若需提交较多 URL，请拆分为多批次提交。
+- POST 请求大小限制为1MB，超出大小限制则会返回状态码501。若需提交较多 URL，请拆分为多批次提交。
 
 ### 结果示例
 ```json
