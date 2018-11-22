@@ -2,7 +2,7 @@
  - 如果您还没有购买 MySQL 数据库，请参阅 [购买指引](https://cloud.tencent.com/document/product/236/5160) 文档购买 MySQL 数据库。
  - 如果您已购买 MySQL 数据库请直接进入下一步操作。
 
- ### 登录 MySQL 控制台
+### 登录 MySQL 控制台
 
 登录腾讯云官网，单击顶部菜单栏右侧【控制台】，在腾讯云 [控制台](https://console.cloud.tencent.com/) 的左上角，单击【云产品】菜单下的【关系型数据库】，进入 MySQL 数据库产品页面。
 
