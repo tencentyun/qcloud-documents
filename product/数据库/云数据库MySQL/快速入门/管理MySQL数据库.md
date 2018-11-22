@@ -4,7 +4,7 @@
 云数据库 MySQL 实例管理页面内，您可以对数据库的实例详情查看及修改、实例监控告警管理、数据库管理、参数设置、安全组管理、备份管理以及数据库操作日志下载等。
 
 ### 实例详情
-【实例详情】页能够对数据库的各种信息进行查看和操作，如下图所示，单击![](https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png)可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
+【实例详情】页能够对数据库的各种信息进行查看和操作，如下图所示，单击<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
 ![](https://main.qcloudimg.com/raw/5891a3473b18b6248bdf2992487144d4.png)
 
 ### 实例监控
@@ -31,7 +31,7 @@
 
 ### 参数设置
 
-在【数据库管理】-【参数设置】页面，您可以对数据库的众多可修改参数进行设置和修改历史的查看，如下表所示，单击**参数运行值**旁边的![](https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png)可以对该参数值进行修改。更多关于参数模板的操作可参阅 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
+在【数据库管理】-【参数设置】页面，您可以对数据库的众多可修改参数进行设置和修改历史的查看，如下表所示，单击**参数运行值**旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改。更多关于参数模板的操作可参阅 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
 ![](https://main.qcloudimg.com/raw/21715becbdc085c1ffff00bcff2786fb.png)
 
 ### 账号管理
