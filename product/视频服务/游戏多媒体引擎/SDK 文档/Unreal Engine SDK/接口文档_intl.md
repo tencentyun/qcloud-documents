@@ -197,7 +197,7 @@ QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer
 | Parameter | Type | Description |
 | ------------- |:-------------:|-------------|
 | nAppId | int | The SdkAppId obtained from the Tencent Cloud console |
-| dwRoomID |char* | Room ID, maximum to 127 characters (The room ID for voice message must be set to "null") |
+| dwRoomID |char* | Room ID, maximum to 127 characters (The room ID parameter for voice message must be set to "null") |
 | strOpenID | char*   | User ID |
 | strKey | char* | The key obtained from the Tencent Cloud [Console](https://console.cloud.tencent.com/gamegme) |
 | strAuthBuffer | char* | Returned authbuff |
@@ -449,8 +449,8 @@ If you do not need to enable both the microphone and the speaker (releasing the 
 |GetMicList    				      	|Enumerates microphones |
 |GetSpeakerListCount    				      	|Obtains the number of speakers |
 |GetSpeakerList    				      	|Enumerates speakers |
-|SelectMic    				      	|Searches microphones |
-|SelectSpeaker    				|Searches speakers |
+|SelectMic    				      	|Selectes microphones |
+|SelectSpeaker    				|Selectes speakers |
 |EnableMic    						|Enables/disables the microphone |
 |GetMicState    						|Obtains the microphone status |
 |EnableAudioCaptureDevice    		|Enables audio capture device		|
@@ -541,7 +541,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetMicList(ppDeviceInfoList,nCount);
 
 
 ### Select the microphone
-This API is used to select the microphone. If this API is not called or an empty string is passed in, the default microphone is selected.
+This API is used to select the microphone. If this API is not called or an "DEVICEID_DEFAULT" is passed in, the default microphone is selected.The device ID comes from the GetMicList API return list.
 #### Function prototype  
 ```
 ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
@@ -552,7 +552,7 @@ ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
 
 #### Sample code  
 ```
-const char* pMicID ="1";
+const char* pMicID ="{0.0.1.00000000}.{7b0b712d-3b46-4f7a-bb83-bf9be4047f0d}";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectMic(pMicID);
 ```
 
@@ -723,7 +723,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerList(ppDeviceInfoList,nCount
 ```
 
 ### Select speakers
-This API is used to select the playback device. If this API is not called or an empty string is passed in, the default device is selected.
+This API is used to select the playback device.If this API is not called or an "DEVICEID_DEFAULT" is passed in, the default device is selected.The device ID comes from the GetSpeakerList API return list.
 #### Function prototype  
 ```
 ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
@@ -734,7 +734,7 @@ ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
 
 #### Sample code  
 ```
-const char* pSpeakerID ="1";
+const char* pSpeakerID ="{0.0.1.00000000}.{7b0b712d-3b46-4f7a-bb83-bf9be4047f0d}";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectSpeaker(pSpeakerID);
 ```
 
@@ -806,6 +806,7 @@ ITMGContext virtual int EnableAudioRecv(bool enable)
 |Parameter     | Type         |Description|
 | ------------- |:-------------:|-------------|
 | enable    |bool     |true means enabling the audio receing. false means not|
+
 
 #### Sample code
 
