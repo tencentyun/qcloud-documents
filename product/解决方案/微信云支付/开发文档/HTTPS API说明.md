@@ -3041,6 +3041,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>应结支付金额，单位分</td>
    </tr>
    <tr>
+      <td>refunded_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>已退款金额，单位分，只有接口client_order_detail返回这个字段，接口query_order不返回</td>
+   </tr>
+   <tr>
       <td>body</td>
       <td>否</td>
       <td>String(128)</td>
