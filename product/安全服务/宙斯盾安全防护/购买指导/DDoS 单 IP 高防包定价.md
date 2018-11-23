@@ -141,7 +141,6 @@
 </tr>
 
 
-
 <tr>
 <td rowspan="7">新加坡<br>德国法兰克福<br>美国圣何塞</td>
 <td  rowspan="7">0.4/GB</td>
