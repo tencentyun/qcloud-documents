@@ -92,14 +92,12 @@
 
 ### 弹性流量包（预付费）
 弹性流量包有效期3年。
-
 <table>
 <tr>
 <th>区域</th>
 <th>单价</th>
 <th>弹性防护</th>
 <th>定价（元/GB）</th>
-
 </tr>
 
 <tr>
@@ -107,7 +105,6 @@
 <td  rowspan="7">0.8/GB</td>
 <td>500GB</td>
 <td>400.00</td>
-
 </tr>
 
 <tr>
@@ -140,13 +137,11 @@
 <td>80000.00</td>
 </tr>
 
-
 <tr>
 <td rowspan="7">新加坡<br>德国法兰克福<br>美国圣何塞</td>
 <td  rowspan="7">0.4/GB</td>
 <td>500GB</td>
 <td>200.00</td>
-
 </tr>
 
 <tr>
