@@ -1,4 +1,4 @@
-CynosDB(兼容 PostgreSQL 版 10) SQL 基本操作如下：
+CynosDB（兼容 PostgreSQL 版 10）SQL 基本操作如下：
 ### 查询版本
 ```
 postgres=# select cynosdb_version();
