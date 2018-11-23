@@ -95,7 +95,7 @@ API 网关触发器配置 **不在云函数中进行配置**，而是在 API 网
 在 API 网关设置为集成响应时，需要返回类似如下内容的数据结构。
 ```
 {
-    "isBase64": False,
+    "isBase64Encoded": False,
     "statusCode": 200,
     "headers": {"Content-Type":"text/html"},
     "body": "<html><body><h1>Heading</h1><p>Paragraph.</p></body></html>"
@@ -105,7 +105,7 @@ API 网关触发器配置 **不在云函数中进行配置**，而是在 API 网
 
 |    结构名    | 内容 |
 | ---------- | --- |
-| isBase64 |  指明 body 内的内容是否为 Base64 编码后的二进制内容，取值需要为 JSON 格式的 true 或 false |
+| isBase64Encoded |  指明 body 内的内容是否为 Base64 编码后的二进制内容，取值需要为 JSON 格式的 true 或 false |
 | statusCode | HTTP 返回的状态码，取值需要为 int 值 |
 | headers | HTTP 返回的头部内容，取值需要为多个 key-value 对象 |
 | body | HTTP 返回的 body 内容 |
