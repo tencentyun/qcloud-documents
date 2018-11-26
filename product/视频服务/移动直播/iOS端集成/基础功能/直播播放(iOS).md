@@ -163,7 +163,8 @@ _txLivePlayer.recordDelegate = recordListener;
 ```objectivec
 // 正在播放的是流http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv，
 // 现切换到码率为900kbps的新流上
-[_txLivePlayer switchStream:@"http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv"];
+[_txLivePlayer switchStream:@"http://5815.liveplay.myqcloud.com/live/
+                              5815_62fe94d692ab11e791eae435c87f075e_900.flv"];
 ```
 
 
@@ -247,22 +248,31 @@ _config.maxAutoAdjustCacheTime = 5;
 - **该功能按播放时长收费**
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考**[价格指引](https://cloud.tencent.com/document/product/454/8008#ACC)**。
 
-
 ## SDK事件监听
 您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 1. 播放事件
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
+| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器            |
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
-| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
-|PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
-|PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
-|PLAY_EVT_GET_MESSAGE	|  2012|  用于接收夹在音视频流中的消息，详情参考[消息接受](#Message)|  
+| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 收到首帧数据，越快收到此消息说明链路质量越好  |
+| PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做loading，会需要它 | 
+| PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，说明错用成了TXVodPlayer |
+| PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
+| PLAY_EVT_PLAY_LOADING	|  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
+| PLAY_EVT_START_VIDEO_DECODER	|  2008| 视频解码器开始启动（2.0 版本以后新增） |  
+| PLAY_EVT_CHANGE_RESOLUTION	|  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
+| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，说明错用成了TXVodPlayer|  
+| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，说明错用成了TXVodPlayer|  
+| PLAY_EVT_GET_MESSAGE	|  2012|  获取夹在视频流中的自定义SEI消息，消息的发送需使用TXLivePusher |  
+| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，说明错用成了TXVodPlayer|  
+| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了TXVodPlayer|  
+| PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考[清晰度切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
-- **不要在收到 PLAY_LOADING 后隐藏播放画面**
-因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
+>**<font color='red'>不要在收到 PLAY_LOADING 后隐藏播放画面</font>**
+>
+>因为PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -270,10 +280,11 @@ _config.maxAutoAdjustCacheTime = 5;
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
 
-- **<font color='red'>如何判断直播已结束？</font>**
-基于各种标准的实现原理不同，很多直播流通常没有结束事件（2006）抛出，此时可预期的表现是：主播结束推流后，SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
-
- 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
+> **<font color='red'>如何判断直播已结束？</font>**
+>
+> RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
+>
+> 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 
 
 ### 3. 警告事件
@@ -293,19 +304,25 @@ _config.maxAutoAdjustCacheTime = 5;
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
 
+## 获取视频分辨率
+通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的 100ms - 200ms 左右就能得到。
 
-## 视频宽高 
+视频的宽高信息位于 TXLivePlayListener 的 `onPlayEvent:(int)EvtID withParam:(NSDictionary*)param;` 通知中的 **param** 参数中。
 
-**视频的宽高（分辨率）是多少？**
-站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
+| 参数 | 含义 | 数值 |
+|---------|---------|---------|
+| EVT_PARMA1 | 视频宽度 | 分辨率数值，如1920 |
+| EVT_PARMA2 | 视频高度 | 分辨率数值，如1080 |
+
+## 定时触发的状态通知
 
  **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
 | NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
-| **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
-| **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
+| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
+| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
 |	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
 |	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
 |	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
@@ -313,4 +330,3 @@ _config.maxAutoAdjustCacheTime = 5;
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
-
