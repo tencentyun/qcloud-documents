@@ -79,4 +79,4 @@ getSignature: function(callback) {
 1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
 2. 只支持上传视频。
 3. 不支持断点续传和分片上传。
-4. request 和 uploadFile 合法域名，只需加上 vod2.qcloud.com 即可。
+4. request 和 uploadFile 合法域名，只需加上 vod2.qcloud.com 即可（必须是V5.1版本的SDK）。

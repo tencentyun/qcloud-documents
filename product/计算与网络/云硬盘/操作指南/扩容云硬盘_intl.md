@@ -16,7 +16,7 @@ Cloud disk is an expandable storage device on cloud. When a cloud disk is create
 > For elastic cloud disks which have been connected to the instance, you first need to [Unmount Cloud Disk](/doc/product/362/6740).
 
 ### Expanding CBS Data Disk via API
-For more information, please see [API ResizeCbsStorage](https://cloud.tencent.com/doc/api/364/2527).
+For more information, please see [API ResizeCbsStorage](https://intl.cloud.tencent.com/doc/api/364/2527).
 
 ### Expanding CBS Data Disk via CVM Console
 1) Log in to the [CVM Console](https://console.cloud.tencent.com/cvm).
@@ -28,4 +28,4 @@ For more information, please see [API ResizeCbsStorage](https://cloud.tencent.co
 > For a running instance with its system disk and data disk being cloud disks, you need to perform [Instance Shutdown](/doc/product/213/4929) before expansion.
 
 ## Expanding System Disk of the Type of Cloud Disk
-A system disk of the type of cloud disk is allowed for capacity expansion, but this can only be achieved by reinstalling CVM OS. For more information, please see [Reinstall System](https://cloud.tencent.com/document/product/213/4933).
+A system disk of the type of cloud disk is allowed for capacity expansion, but this can only be achieved by reinstalling CVM OS. For more information, please see [Reinstall System](https://intl.cloud.tencent.com/document/product/213/4933).
