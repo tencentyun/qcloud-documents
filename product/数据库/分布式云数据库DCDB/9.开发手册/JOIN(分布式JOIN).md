@@ -1,9 +1,9 @@
 
-> 如果您期望阅读或下载全量开发文档，请参考 [《DCDB开发指南》](https://cloud.tencent.com/document/product/557/7714)
+> 如果您期望阅读或下载全量开发文档，请参考 [《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)
 
 
 ## JOIN(分布式 JOIN)
-由于 DCDB 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 JOIN，一般叫做分布式 JOIN。
+由于 TDSQL 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 JOIN，一般叫做分布式 JOIN。
 
 - 如果 join 相关的表有 shardkey 相等条件（如下示例），由于分表的一致性原则，会让这部分数据自动存储到同一物理节点，此时相当于单机 JOIN，性能最好。此处涉及到分表 shardkey 的选择，可以参考 [常见问题](https://cloud.tencent.com/document/product/557/10572)，帮助您更好的判断。
 - 如果涉及到跨物理节点数据，此时 proxy 会先从其他节点拉取数据并缓存，由于涉及到网络数据传输，性能会损失。

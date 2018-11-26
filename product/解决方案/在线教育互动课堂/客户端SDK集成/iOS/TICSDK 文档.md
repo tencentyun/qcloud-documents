@@ -21,10 +21,6 @@ pod install // 由于SDK源文件较大，这步可能需要等待几分钟
 ```
 pod repo update
 ```
-#### 工程配置
-为了工程能够正常编译，需要修改以下工程配置：
-
-* 在`Build Settings` 中将 `Allow Non-modular includes in Framework Modules`设置为`YES`。
 
 ### 手动集成
 
@@ -53,12 +49,9 @@ pod repo update
 |libprotobuf.tbd|
 |libresolv.tbd|
 |libsqlite3.tbd|
-|libstdc++.6.tbd|
-|libstdc++.tbd|
 |libz.tbd|
-|libstdc++.6.0.9.tbd|
 
-#### 工程配置
+### 工程配置
 为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
 
 * 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
@@ -208,10 +201,9 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 该接口需要传入一个配置block，该 block 接收一个方法内部创建好的`TICClassroomOption`默认配置对象，开发者需在该 block 中修改自定义配置，然后将修改后的 option 返回。
 
-为了保证课堂内的逻辑正常以及触发的事件能被监听到，进房时`TICClassroomOption`的属性都是必填参数，另外还有两个父类的参数必须填写：**controlRole** 和 **privateMapKey**。
+为了保证课堂内的逻辑正常以及触发的事件能被监听到，进房时`TICClassroomOption`的属性都是必填参数，另外还有一个父类的参数必须填写：**controlRole**。
 
 * **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
-* **privateMapKey**：该参数相当于一个进入房间的钥匙，进房时必须填写，privateMapKey 需要在开发者的业务后台生成传给客户端，生成方法见 [privateMapKey](https://cloud.tencent.com/document/product/647/17275#.E7.94.9F.E6.88.90-privatemapkey) 。
 
 示例代码如下：
 
@@ -222,7 +214,6 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
     option.eventListener = #课堂事件监听对象#;
     option.imListener = #课堂消息监听对象#;
     option.controlRole = @“user”;
-    option.avOption.privateMapKey = #开发者业务后台生成的privateMapKey#
     return option;
 } succ:^{
     NSLog(@"进房成功");

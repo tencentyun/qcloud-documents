@@ -15,7 +15,7 @@
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 查看帐号权限的配置是否正确，然后单击**关闭**完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-如需了解更多关于帐号创建的信息，请参考https://cloud.tencent.com/document/product/237/7054。
+如需了解更多关于帐号创建的信息，请参考[帐号创建](https://cloud.tencent.com/document/product/237/7054)。
 
 ## 访问数据库
 连接到MariaDB数据库的方式有两种：

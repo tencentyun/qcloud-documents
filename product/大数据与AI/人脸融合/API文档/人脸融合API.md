@@ -52,7 +52,8 @@
 
 ## 示例
 
-[单击下载 PHP 代码 demo>> ](https://main.qcloudimg.com/raw/e6601ec77d988a193a06cb940595da97.php)
+- [单击下载 PHP 代码 demo>> ](https://main.qcloudimg.com/raw/e6601ec77d988a193a06cb940595da97.php)
+- [单击下载 Java 代码 demo>>](https://main.qcloudimg.com/raw/74c360901626b508e2efd937d47a988e.java)
 
 ### 请求
 
