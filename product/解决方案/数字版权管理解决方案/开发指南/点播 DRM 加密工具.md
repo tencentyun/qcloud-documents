@@ -22,7 +22,7 @@ $ ./packager-linux in={input filename},stream=audio,output={output filename} in=
 - 提交生成的公钥给 Apple，获取 Apple 返回的公钥证书。
 - 提交 Apple 返回的公钥证书后，获取网页显示的 Ask。
 
-### Fiarplay 加密
+### Fairplay 加密
 
 推荐加密工具：
 [bento4 mp42hls](https://www.bento4.com/)
