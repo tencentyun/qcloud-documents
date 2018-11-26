@@ -1,9 +1,4 @@
-## 准备 Fairplay 材料
-以下材料需用户使用自己的 Apple 开发者帐户从 Apple 官方处获取，**材料不可复用**。
-- 获取 FPS_Deployment_Package.zip 文件并解压。
-- 参照解压的 package 文档生成公私钥对。
-- 提交生成的公钥给 Apple，获取 Apple 返回的公钥证书。
-- 提交 Apple 返回的公钥证书后，网页显示 Ask。
+
 
 ## 点播 DRM 加密工具
 key、keyid、iv、content id 等数据可通过 DescribeKeys 接口获取。
@@ -19,6 +14,13 @@ $ ./packager-linux in={input filename},stream=audio,output={output filename} in=
 
 >?Widevine 方案，音频和视频需使用不同的加密 key。
 更多用法，请参考 shaka packager 文档。
+
+### 准备 Fairplay 材料
+以下四项材料需用户使用自己的 Apple 开发者帐户从 Apple 官方处获取，**材料不可复用**。
+- 获取 FPS_Deployment_Package.zip 文件。
+- 参照解压的 FPS_Deployment_Package 文档生成公私钥对。
+- 提交生成的公钥给 Apple，获取 Apple 返回的公钥证书。
+- 提交 Apple 返回的公钥证书后，获取网页显示的 Ask。
 
 ### Fiarplay 加密
 
