@@ -20,7 +20,7 @@
 | [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568)|结束录制任务|
 
 ### 错误码
-1.http 错误 
+1.HTTP 错误 
 
 | 错误码 | 含义 | 备注 |
 |---------|---------|---------|
