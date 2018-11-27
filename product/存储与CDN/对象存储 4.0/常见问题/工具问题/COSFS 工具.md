@@ -16,8 +16,7 @@
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
 
-> **注意：**
-> my-dir 必须以 `/` 开头。
+>!my-dir 必须以 `/` 开头。
 
 如使用 v1.0.5 之前版本，则挂载命令为：
 
