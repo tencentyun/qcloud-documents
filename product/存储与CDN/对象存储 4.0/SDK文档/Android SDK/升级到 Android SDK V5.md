@@ -58,7 +58,7 @@ dependencies {
 
 ### 更改 SDK 鉴权方式
 
-在 V4 中您需要自己在后台计算好签名，再返回客户端使用。而在 SDK V5 使用了新的鉴权算法，在 V5 中，我们强烈建议您后台接入我们的临时密钥 (STS) 方案。您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
+在 V4 中您需要自己在后台计算好签名，再返回客户端使用。而在 SDK V5 使用了新的鉴权算法，在 V5 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
 您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
 
 ### 更改 SDK 初始化
@@ -68,7 +68,7 @@ dependencies {
 * 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
 * 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
 
-v4 的初始化方式如下：
+**v4 的初始化方式如下：**
 
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
@@ -84,7 +84,7 @@ String peristenceId = "持久化Id";
 COSClient cos = new COSClient(context,appid,config,peristenceId);
 ```
 
-v5 的初始化方式如下：
+**v5 的初始化方式如下：**
 
 ```
 String appid = "1250000000";
