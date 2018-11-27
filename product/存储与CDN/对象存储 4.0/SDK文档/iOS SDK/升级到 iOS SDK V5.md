@@ -1,5 +1,3 @@
-## 升级到 iOS SDK V5
-
 如果您细心对比过 iOS SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。COS V5 在架构、可用性和安全性上有了非常大的提升，我们的 SDK 在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 iOS SDK V5，请参考下面的指引，一步步完成 SDK 的升级工作。
 
 ### 功能对比
@@ -106,7 +104,7 @@ v5的初始化方式如下：(示例代码中给出的是通过推荐使用的�
 
 ### Bucket 和 Region 变化
 
-V5 的存储桶名称发生了变化，在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+V5 的存储桶名称发生了变化。在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过腾讯云控制台 【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
@@ -154,13 +152,13 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 }
 ```
 
-### API变化
+### API 变化
 
 #### 不再支持目录操作
 
 在 V5 中，我们不再支持目录操作。
 
-对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
 例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
 
@@ -215,15 +213,13 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
   [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:request];
 
 ```
-> 注意  
-注意的是，按照分片上传的运行原理，只有当一个分片上传完了，那么后台服务器才会将该分片记录下来，并且叠加进度。并且以下几种情况无法进行断点续传，而是重新开始一次上传过程：
- - 上传的文件小于 1M,没有进行分片上传
+>!按照分片上传的运行原理，只有当一个分片上传完了，那么后台服务器才会将该分片记录下来，并且叠加进度。并且以下几种情况无法进行断点续传，而是重新开始一次上传过程：
+ - 上传的文件小于1M，没有进行分片上传
  - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口
  - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）
-#### 新增API
+#### 新增 API
 
-V5 增加了很多新的API，包括：
-
+V5 增加了很多新的 API，包括：
 * 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等
 * 存储桶ACL的操作，如 QCloudPutBucketACLRequest，QCloudGetBucketACLRequest 等
 * 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest, QCloudGetBucketLifecycleRequest 等

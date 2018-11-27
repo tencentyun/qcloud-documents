@@ -7,7 +7,7 @@
  rtmp://xxx.livepush.myqcloud.com/live/test?bizid=1234&txDRMInfo=hls:fairplay,dash:widevine
 ```
 
-HLS 与 Fairplay 对应，DASH 与 Widevine 对应，同一条直播流可同时使用多种 DRM 方案。
+Widevine 对应参数为 dash，Fairplay 对应参数为 hls，同一条直播流可同时使用多种 DRM 方案。
 
 ## 拉流
 
