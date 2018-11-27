@@ -108,7 +108,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 
 ### 更改存储桶名称和可用区域简称
 
-SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，这里需要你根据实际进行更改。
+SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
 
 #### 存储桶 Bucket
