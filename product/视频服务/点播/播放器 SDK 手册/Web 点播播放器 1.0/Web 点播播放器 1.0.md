@@ -287,7 +287,9 @@ qcVideo.Player(id, option, listener);
 | setClarity(clarity)                                           | 参数：clarity：int 清晰度 取值范围 （1：”手机”，2：”标清”，3：”高清”，4：”超清”）<br>功能：更换视频清晰度 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)                            <br>注意：clarity 指定的清晰度，请确保当前视频具备该清晰度，否则将按播放器默认规则选择一个清晰度播放                       |
 | changeVideo(opt)                                              | 参数： opt Object，包含将要播放的视频的基本信息和构造函数第二个参数基本一致，具体参考 [构造函数说明](#constructor)<br>功能：动态更换视频  <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506) |
 | addBarrage(barrage) <span id="barrage"></span>| 参数：barrage：Array 弹幕信息   <br> \[{   <br>"type":"content", //消息类型，content:普通文本（**必选**）  <br>"content":"hello world", //文本消息 （**必选**）  <br>"time":"1.101",//单位秒 ，表示距离当前调用添加字幕的时间多久后，开始显示该条字幕（**必选**）   <br>"style": "C64B03;35",// 分号分割，第一项颜色值，第二项字体大小（可选） <br>"postion":"center" //固定位置 <br>center: 居中，bottom: 底部， up: 顶上 (可选) }, ... \]  <br>功能：添加弹幕     <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506) <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                                                                |
-| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                        |
+| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**    |
+
+
 这些设置方法的统一返回码是：
   
 | 错误码<span id="errorcode"></span> | 含义 |
