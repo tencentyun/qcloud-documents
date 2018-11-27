@@ -217,7 +217,7 @@ var player = new qcVideo.Player("id_video_container", option);
 
 ## API方法总览
 
-#### 构造函数
+### 构造函数
 ```
 qcVideo.Player(id, option, listener);
 ```
