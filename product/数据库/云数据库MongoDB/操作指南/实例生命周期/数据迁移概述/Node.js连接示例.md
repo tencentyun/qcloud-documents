@@ -1,12 +1,12 @@
 ## 相关说明
-腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 一文。
+腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 文档。
 
 Node.js MongoDB 驱动文档：
 https://docs.mongodb.org/ecosystem/drivers/node-js/
 
 ## 快速开始
 ### Node.js 原生 示例代码
-Shell安装驱动包：
+Shell 安装驱动包：
 ```
 npm install mongodb --save
 ( 如遇安装不成功可以尝试更换源，npm config set registry http://registry.cnpmjs.org )
@@ -31,11 +31,11 @@ mongoClient.connect(url, function(err, db) {
         {
             a: 1,
             something: "yy"
-        }, 
+        },
         //可选参数
         //{
         //    w: 'majority' // 开启 “大多数”模式，保证数据写入 Secondary 节点
-        //}, 
+        //},
         function(err, r) {
             console.info("err:", err);
             assert.equal(null, err);
@@ -55,7 +55,7 @@ mongoClient.connect(url, function(err, db) {
 输出：
 
 ```
-[root@VM_2_167_centos node]# node index.js 
+[root@VM_2_167_centos node]# node index.js
 docs: [ { _id: 567a1bf26773935b3ff0b42a, a: 1, something: 'yy' } ]
 ```
 
