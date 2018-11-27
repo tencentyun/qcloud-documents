@@ -1,6 +1,6 @@
 如果您细心对比过 iOS SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。COS V5 在架构、可用性和安全性上有了非常大的提升，我们的 SDK 在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 iOS SDK V5，请参考下面的指引，一步步完成 SDK 的升级工作。
 
-### 功能对比
+## 功能对比
 
 下表列出了 V4 和 V5 SDK 的主要功能对比：
 
@@ -14,12 +14,12 @@
 | 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
 
 
-### 总览
+## 升级总览
 
 1. 更新您的 iOS SDK
-2. 我们的鉴权方式发生了变化，建议后台集成我们的临时密钥（STS）方案，并提供接口，客户端携带获取到的临时密钥执行 COS 请求
-3. 根据指引修改 SDK 的初始化方式
-4. 我们的 `存储桶名称` 和 `可用区域简称` 有了更新，请对应修改
+2. 更改 SDK 鉴权方式
+3. 更改 SDK 初始化方式
+4. 更改 SDK **存储桶名称** (Bucket) 和**可用区域简称** (Region)
 5. 一些操作的 API 发生了变化，我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12258)
 
 ### 更新 SDK
@@ -31,18 +31,18 @@
 ```
 
 - **使用打包好的动态库导入（手动集成方式）**  
-可以从 [realease](https://github.com/tencentyun/qcloud-sdk-ios/releases) 中选择需要的版本进行下载  
+您可以从 [realease](https://github.com/tencentyun/qcloud-sdk-ios/releases) 中选择需要的版本进行下载  
 将 **QCloudCOSXML.framework, QCloudCore.framework 和 libmtasdk.a** 拖入到工程中：
 ![](https://main.qcloudimg.com/raw/14c8f5773ea19bc681b7f862dd6384fb.png)  
 
-并添加以下依赖库：
-> 1. CoreTelephony
-> 2. Foundation
-> 3. SystemConfiguration
-> 4. libc++.tbd
+	并添加以下依赖库：
+> - CoreTelephony
+> - Foundation
+> - SystemConfiguration
+> - libc++.tbd
 
 #### 工程配置
-在 Build Settings 中设置 Other Linker Flags，加入以下参数：
+完成上述步骤之后，在 Build Settings 中设置 Other Linker Flags，加入以下参数：
 ```
 -ObjC
 -all_load
@@ -50,24 +50,26 @@
 
 ![参数配置](https://main.qcloudimg.com/raw/3bee5d2c3cb7e7f80b94c5f6bbe2ce5e.png)
 
-### 签名和权限
+### 更改鉴权方式
 
-COS V5 使用了新的鉴权算法，在 V4 中您需要自己在后台计算好签名，再返回客户端使用，在 V5 中，我们强烈建议您后台接入我们的临时密钥（STS）方案。您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
+在 SDK V4 中您需要自己在后台计算好签名，再返回客户端使用。而 V5 使用了新的鉴权算法，我们强烈建议您后台接入我们的临时密钥（STS）方案。您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
+您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
 
-### 初始化
+### 更改 SDK V5 初始化方式
 
-在 V5 中，我们的初始化接口发生了一些变化：
+SDK V5 的初始化接口发生了一些变化：
 
-* 为了区分，`QCloudCOSXMLService` 代替了 `COSClient`，但他们的作用相同,同时增加了`QCloudServiceConfiguration`来配置更多的信息。
-* 您需要在初始化时实例化一个密钥提供者 `QCloudAuthentationV5Creator`，用于提供一个有效的密钥，建议使用临时密钥。
+- `QCloudCOSXMLService` 代替了 `COSClient`，但两者作用相同。同时增加了`QCloudServiceConfiguration`来配置更多的信息。
+- 您需要在初始化时实例化一个密钥提供者 `QCloudAuthentationV5Creator`，用于提供一个有效的密钥，建议使用临时密钥。
 
-v4的初始化方式如下：
+**v4的初始化方式如下：**
 
 ```
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
-v5的初始化方式如下：(示例代码中给出的是通过推荐使用的临时密钥的方式获取签名)
+**v5的初始化方式如下：**
+>?示例代码中给出的是通过推荐使用的临时密钥的方式获取签名
 
 ```
 - (void) signatureWithFields:(QCloudSignatureFields*)fileds
@@ -102,9 +104,10 @@ v5的初始化方式如下：(示例代码中给出的是通过推荐使用的�
 ```
 
 
-### Bucket 和 Region 变化
+### 更改存储桶名称和可用区域简称
 
-V5 的存储桶名称发生了变化。在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过腾讯云控制台 【账号信息】查看 APPID。
+SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同。
+V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过腾讯云控制台 【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
@@ -154,7 +157,10 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 
 ### API 变化
 
-#### 不再支持目录操作
+升级到 SDK V5之后，API 变化有如下几点： 
+
+
+**不支持目录操作**
 
 在 V5 中，我们不再支持目录操作。
 
@@ -167,7 +173,7 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
-#### QCloudCOSTransferMangerService
+**QCloudCOSTransferMangerService**
 
 在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `QCloudCOSTransferMangerService`，对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
@@ -217,7 +223,8 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
  - 上传的文件小于1M，没有进行分片上传
  - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口
  - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）
-#### 新增 API
+
+**新增 API**
 
 V5 增加了很多新的 API，包括：
 * 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等
