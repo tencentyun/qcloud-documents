@@ -20,7 +20,6 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云服务器](https://cloud.tencent.com/document/product/213/10314) | ✔        | ✔      | ✔      | 资源级   | ✔        |   ✔  |	
-| 安全组                                                       | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [黑石物理服务器](https://cloud.tencent.com/document/product/386/13245) | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [容器服务-集群](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
@@ -108,6 +107,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |✔       |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)         |✔       | ✔      | ✔      | 操作级   | ✔        | -    |	
+| Sparkling 数据仓库套件         |✔       | -      | ✔      | 资源级   | -        | -    |	
 
  ## 云智大数据应用服务	
  
