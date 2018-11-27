@@ -32,7 +32,7 @@
 
 - **使用打包好的动态库导入（手动集成方式）**  
 您可以从 [realease](https://github.com/tencentyun/qcloud-sdk-ios/releases) 中选择需要的版本进行下载  
-将 **QCloudCOSXML.framework, QCloudCore.framework 和 libmtasdk.a** 拖入到工程中：
+将 **QCloudCOSXML.framework, QCloudCore.framework 和 libmtasdk.a** 拖入到工程中，如下图所示：
 ![](https://main.qcloudimg.com/raw/14c8f5773ea19bc681b7f862dd6384fb.png)  
 
 	并添加以下依赖库：
@@ -48,6 +48,7 @@
 -all_load
 ```
 
+如下图所示：
 ![参数配置](https://main.qcloudimg.com/raw/3bee5d2c3cb7e7f80b94c5f6bbe2ce5e.png)
 
 ### 更改鉴权方式
