@@ -19,7 +19,7 @@
 1. 更新 iOS SDK
 2. 更改 SDK 鉴权方式
 3. 更改 SDK 初始化方式
-4. 更改 SDK **存储桶名称**和**可用区域简称**
+4. 更改**存储桶名称**和**可用区域简称**
 5. 更改 API 
 
 ### 更新 iOS SDK
@@ -51,10 +51,9 @@
 如下图所示：
 ![参数配置](https://main.qcloudimg.com/raw/3bee5d2c3cb7e7f80b94c5f6bbe2ce5e.png)
 
-### 更改鉴权方式
+### 更改 SDK 鉴权方式
 
-在 SDK V4 中您需要自己在后台计算好签名，再返回客户端使用。而 SDK V5 使用了新的鉴权算法，我们强烈建议您后台接入我们的临时密钥（STS）方案。
-您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
+在 SDK V4 中您需要自己在后台计算好签名，再返回客户端使用。而 SDK V5 使用了新的鉴权算法，我们强烈建议您后台接入我们的临时密钥（STS）方案。该方案您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
 您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
 
 ### 更改 SDK  初始化方式
@@ -64,13 +63,13 @@ SDK V5 的初始化接口发生了一些变化：
 - `QCloudCOSXMLService` 代替了 `COSClient`，但两者作用相同。同时增加了`QCloudServiceConfiguration`来配置更多的信息。
 - 您需要在初始化时实例化一个密钥提供者 `QCloudAuthentationV5Creator`，用于提供一个有效的密钥，建议使用临时密钥。
 
-**v4的初始化方式如下：**
+**v4 的初始化方式如下：**
 
 ```
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
-**v5的初始化方式如下：**
+**v5 的初始化方式如下：**
 >?示例代码中给出的是通过使用临时密钥的方式获取签名
 
 ```
@@ -168,7 +167,7 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 
 API 变化有如下三点： 
 
-**不再支持目录操作**
+1) **不再支持目录操作**
 
 在 iOS SDK V5 中，不再支持目录操作。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
@@ -177,7 +176,7 @@ API 变化有如下三点：
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
-**QCloudCOSTransferMangerService**
+2) **QCloudCOSTransferMangerService**
 
 在 SDK V5 中，我们封装了上传、下载和复制操作，命名为 `QCloudCOSTransferMangerService`，对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
@@ -228,7 +227,7 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
  - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口
  - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）
 
-**新增 API**
+3) **新增 API**
 
 V5 增加了很多新的 API，您可根据需求进行调用。包括：
 * 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等
