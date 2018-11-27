@@ -1,5 +1,5 @@
 ## 性能测试工具
-`$KAFKA_HOME/bin/kafka-producer-perf-test.sh ` 该开源脚本被设计用于测试 afka Producer  性能，主要输出每秒发送消息量（MB/second），每秒发送消息数（records/second）等两项指标。
+`$KAFKA_HOME/bin/kafka-producer-perf-test.sh ` 该开源脚本被设计用于测试 Kafka Producer  性能，主要输出每秒发送消息量（MB/second），每秒发送消息数（records/second）等两项指标。
 
 `$KAFKA_HOME/bin/kafka-consumer-perf-test.sh `该脚本用于测试 Kafka Consumer 性能， 测试指标与 Producer 性能测试脚本一样。
 
