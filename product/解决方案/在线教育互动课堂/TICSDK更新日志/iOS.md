@@ -11,7 +11,7 @@
 
 ### [1.6.0] 2018-11-09
 #### 新增
-1. `TXBoardSDK`新增文字输入功能:
+1. `TXBoardSDK`新增文字输入功能：
 
 ```objc
 [self.boardView setBrushModel:TXBoardBrushModelText];
@@ -197,8 +197,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 1. 使用实时音视频 SDK 升级版（云上环境，线路优化）；
 2. 修复白板若干 bug，完善白板 SDK 体验。
 
-> **注意：**
-> 1.1.0 版本以上的音视频 SDK（IliveSDK）和之前的版本默认不互通（可手动切换环境来互通），建议客户统一升级到该版本以上。
+>!1.1.0版本以上的音视频 SDK（IliveSDK）和之前的版本默认不互通（可手动切换环境来互通），建议用户户统一升级到该版本以上。
 
 ### [1.0.3] 2018-07-06
 #### 优化
@@ -212,7 +211,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 ### [1.0.0] 2018-06-13
 #### 新增
-1.0.0 版本发布，包含以下功能：
+1.0.0版本发布，包含以下功能：
 
 1. 账号登录；
 2. 创建、加入、退出课堂；
