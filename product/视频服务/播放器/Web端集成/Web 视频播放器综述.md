@@ -3,7 +3,7 @@
 - [点播超级播放器](https://cloud.tencent.com/document/product/266/14424)
 - [直播播放器1.0](https://cloud.tencent.com/document/product/267/5704)
 - [TCPlayer Lite](https://cloud.tencent.com/document/product/267/7479)
-- [点播播放器1.0](https://cloud.tencent.com/document/product/267/5706)
+- [点播播放器1.0](https://cloud.tencent.com/document/product/266/30810)
 
 
 ### 点播超级播放器
@@ -27,7 +27,7 @@
 
 点播播放器1.0是结合腾讯云点播业务而开发的视频播放器，以 Flash 为主要播放模式，需要浏览器支持并启用 Flash 插件。该播放器主要面向比较老旧的浏览器，比如 IE8、9、10、11等。
 由于 Flash 逐步被现代浏览器禁止运行，并且 Flash 将于2020年停止开发和更新，腾讯云点播推出了以 HTML5 播放为主的点播超级播放器方案，进行替换点播播放器1.0。
-点播播放器1.0具体介绍请参阅 [使用文档](https://cloud.tencent.com/document/product/267/5706)。
+点播播放器1.0具体介绍请参阅 [使用文档](https://cloud.tencent.com/document/product/266/30810)。
 
 ## 如何选择播放器
 
