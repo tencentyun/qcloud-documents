@@ -180,7 +180,7 @@ API 变化有以下三点：
 
 2) **QCloudCOSTransferMangerService**
 
-在 SDK V5 中，我们封装了智能判断是简单上传(复制)还是分片上传(复制)操作，命名为 `QCloudCOSTransferMangerService`，对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
+在 SDK V5 中，我们封装了能智能判断是简单上传(复制)还是分片上传(复制)操作，命名为 `QCloudCOSTransferMangerService`，对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
 * 支持断点上传
 * 支持根据文件大小智能选择简单上传（copy）还是分片上传（copy）
