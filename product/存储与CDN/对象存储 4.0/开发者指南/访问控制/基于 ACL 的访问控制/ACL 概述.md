@@ -23,10 +23,10 @@
 
 在存储桶或对象的 ACL 中支持授予的身份包括：
 
-- 跨账号：请使用根账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得「账号 ID」，例如 `398626565`
+- 跨账号：请使用根账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得「账号 ID」，例如 `398626565`。
 - 预设用户组：请使用 URI 标签标记预设的用户组，支持的用户组包括：
-  - 匿名用户组 - `http://cam.qcloud.com/groups/global/AllUsers` 该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
-  - 认证用户组 - `http://cam.qcloud.com/groups/global/AuthenticatedUsers` 该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
+  - 匿名用户组 -`http://cam.qcloud.com/groups/global/AllUsers` 该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
+  - 认证用户组 -`http://cam.qcloud.com/groups/global/AuthenticatedUsers` 该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
 
 
 ### 操作 Permission
