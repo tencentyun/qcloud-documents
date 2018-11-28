@@ -37,7 +37,7 @@ producer.close();
 
 可以看出新旧版本的使用方法基本一致，只有一些参数的配置不同，改造代价不大。
 
-###  Ckafka 兼容性说明
+### 兼容性说明
 对于 Kafka 而言，0.8.x 版本的 Producer API 都可以顺利接入 Ckafka，无需改造。推荐使用新版 Kafka Producer API。
 
 ## Kafka Consumer 
@@ -140,5 +140,5 @@ while (iterator.hasNext()) {
 
 可以看到，改造成 New Consumer 编写更加简单，最主要的变化是将 ZooKeeper 参数的输入替代成了 Kafka 地址输入。同时，New Consumer 也增加了与 Coodinator 交互的参数配置，一般情况下使用默认配置就足够。
 
-###  Ckafka 兼容性说明
+### 兼容性说明
 Ckafka 与开源社区高版本的 Kafka 一致，支持重写后的 New Consumer API，屏蔽了 Consumer 客户端与 Zookeeper 的交互（Zookeeper不再向用户暴露）。New Consumer 解决原有与 Zookeeper 直接交互的 Herd Effect 和 Split Brain 问题，以及融合了原有 Old Consumer 的特性，使消费环节更加可靠。
