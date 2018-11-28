@@ -191,7 +191,7 @@ API 变化有以下三点：
 
 2) **TransferManager**
 
-在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
+在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
 * 支持断点下载
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
