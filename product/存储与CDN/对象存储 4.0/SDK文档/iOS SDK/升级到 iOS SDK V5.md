@@ -20,7 +20,7 @@
 2. 更改 SDK 鉴权方式
 3. 更改 SDK 初始化方式
 4. 更改**存储桶名称**和**可用区域简称**
-5. 更改 API 
+5. 更改 API
 
 ### 更新 iOS SDK
 您可以通过 cocoapods 或下载打包好的动态库的方式来集成 SDK。在这里我们推荐您使用 cocoapods 的方式来进行导入。
@@ -70,7 +70,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
 **v5 的初始化方式如下：**
->?示例代码中给出的是通过使用临时密钥的方式获取签名
+>?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
 ```
 - (void) signatureWithFields:(QCloudSignatureFields*)fileds
@@ -78,15 +78,17 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
                   urlRequest:(NSURLRequest*)urlRequst
                    compelete:(QCloudHTTPAuthentationContinueBlock)continueBlock
 {
-    /*向签名服务器请求临时的 Secret ID,Secret Key,Token*/
-    QCloudCredential* credential = [QCloudCredential new];
-    credential.secretID = @"从 CAM 系统获取的临时 Secret ID";
-    credential.secretKey = @"从 CAM 系统获取的临时 Secret Key";
-    credential.token = @"从 CAM 系统返回的 Token，为会话 ID"
-    credential.expiretionDate     = /*签名过期时间*/
-    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:credential];
-    QCloudSignature* signature =  [creator signatureForData:urlRequst];
-    continueBlock(signature, nil);
+  /*向签名服务器请求临时的 Secret ID,Secret Key,Token*/
+   QCloudCredential* credential = [QCloudCredential new];
+   credential.secretID = @"从 CAM 系统获取的临时 Secret ID";
+   credential.secretKey = @"从 CAM 系统获取的临时 Secret Key";
+   credential.token = @"从 CAM 系统返回的 Token，为会话 ID"
+   /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
+   credential.startDate = /*返回的服务器时间*/
+   credential.expiretionDate	 = /*签名过期时间*/
+   QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:credential];
+   QCloudSignature* signature =  [creator signatureForData:urlRequst];
+   continueBlock(signature, nil);
 
 }
 
@@ -165,7 +167,7 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 
 升级到 SDK V5之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12258)。
 
-API 变化有如下三点： 
+API 变化有如下三点：
 
 1) **不再支持目录操作**
 
