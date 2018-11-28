@@ -28,7 +28,7 @@ CKV 集群版通过独有的方案，保证版本升级做到业务无感知，�
 CKV 集群版仅支持“实例 id:密码” 的密码格式类型，例如您的实例 id 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令如下 redis-cli -h IP 地址 -p 端口 -a crs-bkuza6i3:abcd1234。
 
 
-##  其他限制
+##  使用限制
 - CKV 对于 pttl 等设置毫秒的过期时间，展示的最小单位为秒，与社区版 Redis 不一致；
 - 目前支持的 string 类型 Key，Value 最大 Size 为32MB，与社区版 Redis 不一致；
 - 除 mset、mget 批量操作不受限制之外，其他批量操作，都要求批量的 key 都是在相同的 slot 中，否则会报错，提示 CROSSSLOT Keys in request don't hash to the same slot；
