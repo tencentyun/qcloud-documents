@@ -25,9 +25,9 @@ compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK 模块
 compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.3.9'
 // 互动教育模块
-compile 'com.tencent.ticsdk:ticsdk:1.5.5'
+compile 'com.tencent.ticsdk:ticsdk:1.5.6'
 // 白板 SDK 模块
-compile 'com.tencent.boardsdk:boardsdk:1.6.6'
+compile 'com.tencent.boardsdk:boardsdk:1.6.8'
 ```    
 
 - 在 defaultConfig 中配置 abiFilters 信息。
@@ -261,5 +261,6 @@ AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加�
 ### 3.2. 如何定制视频画面展示？
 关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/17433)。
 
-
+### 3.3. 视频画面有哪些渲染方式？
+关于视频渲染方式的选择和使用，请参考实时音视频中的 [Android渲染指引文档]https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo/blob/master/doc/ILiveSDK/AndroidRenderIntr.md)。
 
