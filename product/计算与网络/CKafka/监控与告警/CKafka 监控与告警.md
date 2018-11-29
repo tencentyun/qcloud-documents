@@ -14,6 +14,12 @@ CKafka提供两种维度的监控——实例维度和Topic维度。监控页面
 ### CKafka监控指标说明
 详情参见文档 [CKafka监控指标](https://cloud.tencent.com/document/product/248/12154)。
 
+### CKafka监控API文档
+CKafka API详情参见如下文档
+[主题监控](https://cloud.tencent.com/document/product/248/17296)
+[实例监控](https://cloud.tencent.com/document/product/248/17297)
+[consumer group监控](https://cloud.tencent.com/document/product/248/17298)
+
 ## CKafka告警策略
 ### 创建告警
 您可以通过创建告警用于在云产品状态改变时触发警报以发送相关消息。创建的告警会根据每隔一段时间监控的指标相对于给定阈值的情况判断是否需要触发相关通知。
