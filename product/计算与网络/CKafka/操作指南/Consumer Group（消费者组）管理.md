@@ -40,7 +40,7 @@
 
 - 一个消费者订阅了topic时
 - 消费者被关闭时
-- 当一个consumer被 group coordinator（协调器）认为是DEAD状态时。（如果consumer在`zookeeper.session.timeout.ms`时间内没有给zookeeper发心跳，则这个consumer被认为是DEAD状态，并且发起rebalance。`zookeeper.session.timeout.ms`默认为6000ms）
+- 当一个consumer被 group coordinator（协调器）认为是DEAD状态时。（如果consumer在`session.timeout.ms`时间内没有给group coordinator发心跳，则这个consumer被认为是DEAD状态，并且发起rebalance。消费者[参数配置详情](https://cloud.tencent.com/document/product/597/30203)）
 - 分区数增加时
 - 如果订阅了一个还未创建的topic，当这个topic创建后rebalance则会发生；同理，如果一个已经被订阅的topic被删除，也会发生rebalance。
 - 应用崩溃时
