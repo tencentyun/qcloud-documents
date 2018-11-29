@@ -1,4 +1,4 @@
-高防 IP 专业版使用非网站业务转发规则的，源站需使用 toa 模块获取客户端真实 IP。
+高防 IP 专业版使用非网站业务转发规则的，源站需使用 toa 模块获取客户端的真实 IP。
 
 ## 基本原理
 高防 IP 专业版使用公网代理模式，因此数据包的源地址和目标地址均会被修改。源站看到的数据包源地址是高防 IP 专业版实例的回源 IP，而并非是客户端的真实 IP。为了将客户端 IP 传给服务器，转发时高防 IP 专业版将客户端的 IP 和 Port 记录在自定义的 tcp option 字段中。如下：
@@ -30,7 +30,7 @@ struct ip_vs_tcpo_addr {
 - 如需升级内核，建议升级内核前将原内核保存，以防出现升级失败等意外。
 -  toa 仅支持 IPv4，若环境默认获取 IPv6 则无法正确获得客户端 IP。
 
-## 安装 toa
+## 获取客户端真实 IP
 1. 安装编译环境。
 `yum install gcc kernel-headers kernel-devel -y `
 2. 下载安装文件并解压。
@@ -57,5 +57,5 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 加载成功后，可正常获取真实客户端源 IP 。
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
-## 卸载 toa
+## 卸载 toa 模块
 `rmmod hello`  
