@@ -44,5 +44,6 @@ TICSDK有创建课堂的接口，但是课堂 ID (roomID) 由外面传入，TICS
 * [Web SDK](/document/product/680/17887)
 * [Android SDK](/document/product/680/17881)
 * [iOS SDK](/document/product/680/17891)
+* [Mac SDK](/document/product/680/17891)
 
 
