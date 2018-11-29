@@ -12,9 +12,8 @@
  - 对端地域：选择您购买的 CDS-Mask 实例所处地域。
  >**注意：**
  >地域如果不在同一区域需要额外费用。
- - 对端账户：固定填写 `100005260334`。
- - 对端网络：广州填写`vpc-747pr24t`，上海填写`vpc-fkbxl342`，北京填写`vpc-dgkgopji`，成都填写`vpc-rtzl6lne`，重庆填写`vpc-pj5fqapd`。
- 
+ - 对端账户：固定填写`100008373108`。
+ - 对端网络：广州填写`vpc-dcwrrj73`，上海填写`vpc-1b08zb34`，北京填写`vpc-lczv7zs6`，成都填写`vpc-54fen6hq`，重庆填写`vpc-m7pzgzo9`。
  ![2](https://main.qcloudimg.com/raw/91f6bc95ef9abd55dcaf2b21aea9ea19.png)
 3. 配置完毕后，单击【创建】即可。
 
