@@ -21,8 +21,7 @@ IPv6 负载均衡的架构如下图所示。
 > **注意：**
 > 1. 当前仅支持北京、上海、广州三个地域。
 > 2. 仅支持 **应用型** 负载均衡，不支持传统型负载均衡。
-> 3. 当前仅支持 **四层协议（TCP/UDP）**，不支持七层协议（HTTP/HTTPS）。
-> 4. 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请填写 [工单](https://console.cloud.tencent.com/workorder/category) 反馈，同时在内测期间，不提供 SLA 保障。
+> 3. 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请填写 [工单](https://console.cloud.tencent.com/workorder/category) 反馈，同时在内测期间，不提供 SLA 保障。
 
 ## 操作指南
 ### 创建 IPv6 负载均衡
