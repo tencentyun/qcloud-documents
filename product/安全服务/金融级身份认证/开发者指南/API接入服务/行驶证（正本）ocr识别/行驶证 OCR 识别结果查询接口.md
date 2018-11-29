@@ -1,15 +1,16 @@
-- 合作方生成签名。
+行驶证 OCR 识别的签名详情请参考 [合作方生成签名](https://cloud.tencent.com/document/product/655/30504)。
 
 请求 URL：`https://idasc.webank.com/api/v2/ocrbase/queryvehiclelicenseocrresult`
 请求方法：POST
 报文格式：Content-Type: application/json
+
 ## 请求参数
 
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
 | ---- | ----- | ----- | ---- | --- |
 |webankAppId|	腾讯服务分配的 App ID|	String 	|腾讯服务分配|	是|
 |orderNo	|订单号，合作方订单的唯一标识	|String |	32	|是|
-|getFile	|是否需要查询行驶证 OCR 原照，值为 1 则返回文件；其他则不返回	|String 	|1|	否|
+|getFile	|是否需要查询行驶证 OCR 原照，值为1则返回文件；其他则不返回	|String 	|1|	否|
 |nonce	|随机数	|String |	32	|是|
 |version|	版本号，默认值：1.0.0	|String |	20|	是|
 |sign	|签名值，使用本页第一步生成的签名	|String |	40	|是|
