@@ -1,8 +1,5 @@
 ## 下载SDK
-您可以在腾讯云官网下载移动端直播SDK：
-> [https://www.qcloud.com/doc/product/267/4821](https://www.qcloud.com/doc/product/267/4821)
-
-解压后得到libs目录，里面主要包含so文件和jar文件，文件清单如下：
+您可以在腾讯云官网下载移动端 [直播SDK](https://cloud.tencent.com/doc/api/258/6172)，解压后得到libs目录，里面主要包含so文件和jar文件，文件清单如下：
 
 | 文件 | 说明 |
 |---------|---------|
@@ -59,13 +56,13 @@
 在MainActivity.java中引用SDK的class:
 
 ```
-import com.tencent.rtmp.TXRtmpApi;
+import com.tencent.rtmp.TXLivePusher;
 ```
 
 **2. 在onCreate中调用getSDKVersion接口获取版本号：**
 
 ```
-int[] sdkver = TXRtmpApi.getSDKVersion();
+int[] sdkver = TXLivePusher.getSDKVersion();
 if (sdkver != null && sdkver.length >= 3) {
     Log.d("rtmpsdk","rtmp sdk version is:" + sdkver[0] + "." + sdkver[1] + "." + sdkver[2]);
 }

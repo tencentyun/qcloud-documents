@@ -36,3 +36,22 @@
 | [修改定时任务](/doc/api/372/修改定时任务) | ModifyScheduledTask | 修改定时任务配置，如修改定时任务名、定时任务触发时，重设伸缩组的最大、最小伸缩数等。|
 | [删除定时任务](/doc/api/372/删除定时任务) | DeleteScheduledTask | 根据伸缩组ID和定时任务ID，删除特定伸缩组中特定的定时任务。|
 
+## 5. 通知相关接口
+| 接口功能 | Action Name | 功能描述 |
+|---------|---------|---------|
+| [创建通知](/doc/api/372/创建通知) | CreateScalingNotification | 创建新的通知，根据伸缩组ID，用户可以为指定伸缩组创建特定的伸缩活动结果通知。|
+| [查询通知](/doc/api/372/查询通知)  | DescribeScalingNotification| 根据伸缩组ID或通知ID，查询伸缩组中所有或特定通知的具体信息。 |
+| [修改通知](/doc/api/372/修改通知) | ModifyScalingNotification | 修改通知配置，如修改通知的通知类型、通知的接收对象等。|
+| [删除通知](/doc/api/372/删除通知) | DeleteScalingNotification | 根据伸缩组ID和通知ID，删除特定伸缩组中特定的通知。|
+
+## 6. 生命周期钩子相关接口
+| 接口功能 | Action Name | 功能描述 |
+|---------|---------|---------|
+| [创建生命周期钩子](/doc/api/372/创建生命周期钩子) | CreateLifeCycleHook | 每个伸缩组可以创建最多10个生命周期钩子，但同一时刻只能其中一个生命周期钩子生效（可以调用绑定生命周期钩子接口触发生命周期钩子生效）。|
+| [修改生命周期钩子](/doc/api/372/修改生命周期钩子) | ModifyLifeCycleHook | 修改生命周期钩子的相关参数，包括生命周期钩子的名字、超时时间、默认超时动作、触发回调条件、通知组。|
+| [查询生命周期钩子](/doc/api/372/查询生命周期钩子) | DescribeLIfeCycleHook | 查询用户组下所有的生命周期钩子或者某个特定的生命周期钩子。|
+| [删除生命周期钩子](/doc/api/372/删除生命周期钩子) | DeleteLifeCycleHook | 删除伸缩组中某个特定的生命周期钩子。|
+| [绑定生命周期钩子](/doc/api/372/绑定生命周期钩子) | AttachLifeCycleHookId | 将生命周期钩子和伸缩组绑定，激活伸缩组当前需要使用的生命周期钩子。|
+| [解绑生命周期钩子](/doc/api/372/解绑生命周期钩子) | DetachLifeCycleHookId | 将生命周期钩子和伸缩组解绑，如需激活生命周期钩子需要重新绑定|
+| [生命周期钩子回调完成通知](/doc/api/372/生命周期钩子回调完成通知) | CompleteLifeCycleHookAction | 调用此接口提前完成生命周期钩子回调。|
+| [生命周期钩子延期时间续订](/doc/api/372/生命周期钩子延期时间续订) | RecordLifeCycleHookTimeout | 用于生命周期钩子延期时间的续订。|

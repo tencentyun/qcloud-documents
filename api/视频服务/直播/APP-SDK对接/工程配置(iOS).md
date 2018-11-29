@@ -1,10 +1,6 @@
 ## 下载SDK
 
-您可以在腾讯云官网下载移动端直播SDK
-
-> [https://www.qcloud.com/doc/product/267/4821](https://www.qcloud.com/doc/product/267/4821)
-
-解压SDK后，得到一个`TXRTMPSDK.framework`。目前RTMP SDK所有功能都集成在这一个framework中。
+您可以在腾讯云官网下载移动端 [直播SDK](https://cloud.tencent.com/doc/api/258/6172)，解压后得到一个`TXRTMPSDK.framework`。目前 SDK 所有功能都集成在这一framework中。
 
 ## Xcode工程设置
 
@@ -38,16 +34,23 @@
 > 5. CoreMedia.framework
 > 6. CoreGraphics.framework
 > 7. libstdc++.tbd
-> 8. lib.tbd
+> 8. libz.tbd
 > 9. libiconv.tbd
+> 10. libresolv.tbd
 
 所有添加完毕，工程依赖如下图所示：
 
-![](//mccdn.qcloud.com/static/img/a9c75d5ba92382c1549f3a99317cbd1f/image.jpg)
+![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
 
 关闭工程Bitcode选项。
 
 ![](//mccdn.qcloud.com/static/img/4298f90507a749625d7e92cc9004c1b1/image.png)
+
+### 3、添加头文件
+在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXRTMPSDK的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXRTMPSDK/"，如下所示：
+```
+#import "TXRTMPSDK/TXLivePush.h"
+```
 
 ### 三、验证
 
@@ -57,19 +60,19 @@
 
 在ViewController.m开头引用SDK的头文件：
 
-```objective-c
-#import "TXRTMPSDK/TXRTMPAPI.h"
+```
+#import "TXRTMPSDK/TXLivePush.h"
 ```
 
 ### 2、添加调用代码
 
 在viewDidLoad方法中添加代码：
 
-```objective-c
+```
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 打印SDK的版本信息
-    NSLog(@"SDK Version = %@", [[TXRtmpApi getSDKVersion] componentsJoinedByString:@"."]);
+    NSLog(@"SDK Version = %@", [[TXLivePush getSDKVersion] componentsJoinedByString:@"."]);
 }
 ```
 

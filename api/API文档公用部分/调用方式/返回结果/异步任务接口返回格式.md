@@ -1,0 +1,76 @@
+## 普通异步任务接口返回格式
+一次请求只能操作一个资源的异步任务接口，例如创建负载均衡，重置主机操作系统等。
+<table class="t">
+<tbody><tr>
+<th> <b>名称</b>
+</th><th> <b>类型</b>
+</th><th> <b>描述</b>
+</th></tr>
+<tr>
+<td> code
+</td><td> Int
+</td><td> 返回结果的错误码，0 表示成功，其它值表示失败。
+</td></tr>
+<tr>
+<td> message
+</td><td> String
+</td><td> 返回结果的错误信息。
+</td></tr>
+<tr>
+<td> requestId
+</td><td> String
+</td><td> 任务 ID
+</td></tr></tbody></table>
+
+## 批量异步任务接口返回格式
+一次请求能操作多个资源的异步任务接口，例如修改密码，启动机器，停止机器等。
+<table class="t">
+<tbody><tr>
+<th> <b>名称</b>
+</th><th> <b>类型</b>
+</th><th> <b>描述</b>
+</th></tr>
+<tr>
+<td> code
+</td><td> Int
+</td><td> 返回结果的错误码，0 表示成功，其它值表示失败。
+</td></tr>
+<tr>
+<td> message
+</td><td> String
+</td><td> 返回结果的错误信息。
+</td></tr>
+<tr>
+<td> detail
+</td><td> Array
+</td><td> 以资源 ID 为 key，返回对该资源操作的 code，message，requestId。
+</td></tr></tbody></table>
+
+例如：
+
+```
+{
+        "code":0,
+        "message": "success",
+        "detail":
+        {
+             "qcvm6a456b0d8f01d4b2b1f5073d3fb8ccc0":
+            {
+             "code":0,
+             "message":"",
+             "requestId":"1231231231231":,
+            }
+              "qcvm6a456b0d8f01d4b2b1f5073d3fb8ccc0":
+            {
+              "code":0,
+              "message":"",
+              "requestId":"1231231231232":,
+            }
+        }
+}
+```
+>**注意：**
+资源全部操作成功，则最外层 code 为 0。
+资源全部操作失败，则最外层 code 会返回 5100。
+资源部分操作失败，则最外层 code 会返回 5400。
+在第 3 种情况下，终端可以通过 detail 得到失败部分的操作信息。

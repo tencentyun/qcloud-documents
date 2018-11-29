@@ -1,68 +1,58 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: CreateEip
 
-创建弹性公网IP（EIP），弹性公网 IP是专为动态云计算设计的静态IP地址。借助弹性公网IP，您可以快速将EIP重新映射到您的另一个实例上，从而屏蔽实例故障。
-您的弹性公网 IP 与腾讯云账户相关联，而不是与某个实例相关联，而且在您选择显式释放该地址，或欠费超过7天之前，它会一直与您的腾讯云账户保持关联。
->注：
-平台对用户每地域能申请的EIP最大配额有所限制（可参见<a href="/doc/product/213/1941" title="/doc/product/213/1941">EIP产品简介</a>）。上述配额可通过 <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D" title="DescribeEipQuota">DescribeEipQuota</a>接口获取。
+本接口 (AllocateAddresses) 用于申请一个或多个[弹性公网IP](/document/product/213/1941)（简称 EIP）。
+
+接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
+
+* EIP 是专为动态云计算设计的静态 IP 地址。借助 EIP，您可以快速将 EIP 重新映射到您的另一个实例上，从而屏蔽实例故障。
+* 您的 EIP 与腾讯云账户相关联，而不是与某个实例相关联。在您选择显式释放该地址，或欠费超过七天之前，它会一直与您的腾讯云账户保持关联。
+* 平台对用户每地域能申请的 EIP 最大配额有所限制，可参见 [EIP 产品简介](/document/product/213/5733)，上述配额可通过 [DescribeAddressQuota](/document/api/213/1378) 接口获取。
 
 
 ## 2. 输入参数
- 
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> goodsNum <td> 否 <td> Int <td> 单次申请数量（默认为1, 最大为5）
-</tbody></table>
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
- 
+| 参数名称 | 类型 | 是否必选 | 描述 |
+|---------|---------|---------|---------|
+| Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
+|AddressCount | Integer| 否| 申请 EIP 数量。取值范围：[1，5]，默认值为1。|
+
 
 ## 3. 输出参数
-  | 参数名称 | 类型 | 描述 |
+
+| 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/doc/api/229/1234" title="错误码">错误码</a>。 |
-| message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| RequestId| String|唯一请求 ID。每次请求都会返回`RequestId`。当用户调用接口失败找后台研发人员处理时需提供该`RequestId`。|
+| AddressSet | array of Strings | 申请到的 EIP 的唯一 ID 列表。 |
 
-Data结构
+## 4. 错误码
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/11657)。
 
+| 错误码 | 描述 |
+|---------|---------|
+|AddressQuotaLimitExceeded|账户配额不足，每个腾讯云账户每个地域下最多可创建 20 个 EIP。|
+|AddressQuotaLimitExceeded.DailyAllocate|申购次数不足，每个腾讯云账户每个地域每天申购次数为配额数*2 次。|
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> data.eipIds <td> Array <td> 创建的EIP实例ID列表
-</tbody></table>
+## 5. 示例代码
 
- 
+#### 请求参数
 
-## 4. 示例
- 
-输入
-```
- https://eip.api.qcloud.com/v2/index.php?
- &<公共请求参数>
-```
+<pre>
+https://eip.api.qcloud.com/v2/index.php?Action=AllocateAddresses
+&Version=2017-03-12
+&AddressCount=1
+&<<a href="/document/api/213/11650">公共请求参数</a>>
+</pre>
 
-输出
-```
-
+#### 返回参数
+<pre>
 {
-    "code": 0,
-    "message": "",
-    "data": {
-        "eipIds": [
+    "Response": {
+        "AddressSet": [
             "eip-m44ku5d2"
-        ]
+        ],
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-
-```
-
+</pre>

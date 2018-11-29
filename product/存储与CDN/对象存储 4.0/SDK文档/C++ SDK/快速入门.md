@@ -1,0 +1,227 @@
+## 开发准备
+### 适用系统
+该 SDK 目前仅支持在 Linux 平台上使用。
+
+### SDK 获取
+对象存储服务的 XML C++ SDK 资源下载地址：[XML C++ SDK 下载](https://github.com/tencentyun/cos-cpp-sdk-v5 "cos-cpp-sdk-v5下载地址")。
+演示示例 Demo 下载地址：[XML C++ SDK Demo](https://github.com/tencentyun/cos-cpp-sdk-v5/blob/master/demo/cos_demo.cpp "Cpp SDK 参考")。
+
+### 环境准备
+**依赖静态库：** jsoncpp boost_system boost_thread Poco （在 lib 文件夹下）；
+**依赖动态库：** ssl crypto rt z （需要安装）。
+SDK 中提供了 JsonCpp 的库以及头文件。若您想要自行安装，将以下步骤安装的库编译好后替换掉 SDK 中相应的库和头文件即可。若以上库已安装到系统，也可删除 SDK 中相应的库和头文件。具体安装步骤如下：
+
+#### 1. 安装 CMake 工具。
+```
+yum install -y gcc gcc-c++ make automake
+//安装 gcc 等必备程序包（已安装则略过此步）
+yum install -y wget
+
+// cmake 版本要大于3.5
+wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
+tar -zxvf cmake-3.5.2.tar.gz
+cd cmake-3.5.2
+./bootstrap --prefix=/usr
+gmake
+gmake install
+```
+
+####  2. 安装 Boost 的库和头文件。
+```
+wget http://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz
+tar -xzvf boost_1_54_0.tar.gz
+cd boost_1_54_0
+./bootstrap.sh --prefix=/usr/local
+./b2 install --with=all
+#Boost 库被安装在 /usr/local/lib 目录下
+```
+
+#### 3. 安装 OpenSSL。
+
+```
+yum install openssl openssl-devel
+```
+
+或者
+
+```
+wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz  
+tar -xzvf ./openssl-1.0.1t.tar.gz
+cd openssl-1.0.1t/
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl
+
+cd /usr/local/
+ln -s ssl openssl
+echo "/usr/local/openssl/lib" >> /etc/ld.so.conf
+ldconfig
+
+# 添加头文件/库文件查找路径(可以写入到~/.bashrc中)
+LIBRARY_PATH=/usr/local/ssl/lib/:$LIBRARY_PATH
+CPLUS_INCLUDE_PATH=/usr/local/ssl/include/:$CPLUS_INCLUDE_PATH
+```
+
+#### 4. 从 [Poco官网](https://pocoproject.org/download.html) 获取并安装 Poco 的库和头文件（下载 complete 版本）。
+```
+./configure --omit=Data/ODBC,Data/MySQL
+make
+make install
+```
+
+#### 5. 从控制台获取 APPID、SecretId、SecretKey。
+>**注意：**
+>关于 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考 [COS 术语信息](/document/product/436/7751)。
+>您可以通过修改`CMakeList.txt`文件，指定本地 Boost 头文件路径，修改如下语句： 
+```
+SET(BOOST_HEADER_DIR "/root/boost_1_61_0")
+```
+
+### SDK 配置
+直接下载 [SDK 获取](#sdk-.E8.8E.B7.E5.8F.96) 步骤 GitHub 上提供的源代码，集成到您的开发环境。执行下面的命令：
+``` bash
+cd ${cos-cpp-sdk} 
+mkdir -p build 
+cd build 
+cmake .. 
+make
+```
+
+cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，生成的静态库名称为：libcossdk.a。生成的 libcossdk.a 放到您自己的工程里lib路径下，include 目录拷贝到自己的工程的include路径下。
+
+## 快速入门
+### 初始化
+```
+"SecretId":"*********************************", // V5.4.3 版本之前的sdk配置文件请使用"AccessKey"
+"SecretKey":"********************************",
+"Region":"cn-north",                
+// COS 地域, 请保证正确
+"SignExpiredTime":360,              
+// 签名超时时间, 单位：s
+"ConnectTimeoutInms":6000,          
+// connect 超时时间, 单位：ms
+"HttpTimeoutInms":60000,            
+// http 超时时间, 单位：ms
+"UploadPartSize":1048576,           
+// 上传文件分块大小，范围：1 MB~5 GB, 默认为 1 MB
+"UploadThreadPoolSize":5,           
+// 单文件分块上传线程池大小
+"DownloadSliceSize":4194304,        
+// 下载文件分片大小
+"DownloadThreadPoolSize":5,         
+// 单文件下载线程池大小
+"AsynThreadPoolSize":2,             
+// 异步上传下载线程池大小
+"LogoutType":1,                     
+// 日志输出类型，0：不输出，1：输出到屏幕，2：输出到 syslog
+"LogLevel":3                     
+// 日志级别，1：ERR，2：WARN，3：INFO，4：DBG
+```
+### 创建 Bucket
+```
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化 CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造创建 Bucket 的请求
+    std::string bucket_name = "cpp_sdk_v5-123456789"; // Bucket名称
+    qcloud_cos::PutBucketReq req(bucket_name);
+    qcloud_cos::PutBucketResp resp;
+    
+    // 3. 调用创建 Bucket 接口
+    qcloud_cos::CosResult result = cos.PutBucket(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 创建成功
+    } else {
+        // 创建 Bucket 失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+        std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
+```
+
+### 上传文件
+```
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化 CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造上传文件的请求
+    std::string bucket_name = "cpp_sdk_v5-123456789"; // 上传的目的Bucket名称
+    std::string object_name = "object_name"; //object_name 即为对象键（Key），是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg。
+    // request的构造函数中需要传入本地文件路径
+    qcloud_cos::PutObjectByFileReq req(bucket_name, object_name, "/path/to/local/file");
+    req.SetXCosStorageClass("STANDARD_IA")； // 调用Set方法设置元数据等
+    qcloud_cos::PutObjectByFileResp resp;
+    
+    // 3. 调用上传文件接口
+    qcloud_cos::CosResult result = cos.PutObject(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 上传文件成功
+    } else {
+        // 上传文件失败，可以调用CosResult的成员函数输出错误信息，比如requestID等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+        std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
+```
+
+### 下载文件
+```
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化 CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造创建 Bucket 的请求
+    std::string bucket_name = "cpp_sdk_v5-123456789"; // 上传的目的Bucket名称
+    std::string object_name = "object_name"; // object_name 即为对象键（Key），是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg。
+    std::string local_path = "/tmp/object_name";
+    // request需要提供appid、bucketname、object,以及本地的路径（包含文件名）
+    qcloud_cos::GetObjectByFileReq req(bucket_name, object_name, local_path);
+    qcloud_cos::GetObjectByFileResp resp;
+    
+    // 3. 调用创建 Bucket 接口
+    qcloud_cos::CosResult result = cos.GetObject(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 下载文件成功
+    } else {
+        // 下载文件失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+        std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
+```

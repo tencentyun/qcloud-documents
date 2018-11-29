@@ -1,0 +1,2 @@
+公网网关和云服务器一样，在云服务器购买页进行购买，登录[腾讯云CVM购买页面](http://manage.qcloud.com/shoppingcart/shop.php?tab=cvm)，在网络项选择需要公网网关的私有网络及子网，勾选【用作公网网关】，完成购买后公网网关即创建完成。私有网络内主机可进行配置，通过此公网网关与外网互访。
+![](//mccdn.qcloud.com/img568e273bc4959.png)

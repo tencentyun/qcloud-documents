@@ -1,0 +1,169 @@
+GPU 云服务器（GPU Cloud Computing）是基于 GPU 的快速、稳定、弹性的计算服务，主要应用于深度学习训练\推理、图形图像处理以及科学计算等场景。 GPU 云服务器提供和标准CVM  云服务器一致的方便快捷的管理方式。GPU云服务器通过其强大的快速处理海量数据的计算性能，有效解放用户的计算压力，提升业务处理效率与竞争力。
+
+## 为什么选择 GPU 云服务器
+GPU 云服务器 与自建 GPU 服务器对比：
+<table class="npf-comparsion-table">
+	<colgroup>
+		<col class="col2" style="width: 6%;" />
+		<col class="col3" style="width: 54%;" />
+		<col class="col4" style="width: 40%;" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>
+			<div>优势</div>
+			</th>
+			<th class="stress-item">
+			<div class="gradient ">GPU云服务器</div>
+			</th>
+			<th>
+			<div>自建GPU服务器</div>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<div><span class="unit-text">弹性</span></div>
+			</td>
+			<td class="stress-item">
+			<div>
+			
+<ul class="text-list">
+	<li>只需几分钟时间即可轻松获取一个或若干个高性能计算实例。</li>
+	<li>可按需灵活定制，一键升级到更高性能和容量的实例规格，实现快速、平滑扩容，满足业务快速发展需要。</li>
+<ul>
+			</div>
+			</td>
+			<td>
+			<div><span class="unit-text">机器固定配置，难以满足变化的需求</span></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div><span class="unit-text">性能</span></div>
+			</td>
+			<td class="stress-item">
+			<div>
+			
+<ul class="text-list">
+	<li>透传 GPU 性能，极致发挥 GPU 性能。 </li>
+	<li>单机峰值计算能力突破 125.6T Flops 单精度浮点运算，62.4T Flops 双精度浮点运算。</li>
+<ul>
+			</div>
+			</td>
+			<td>
+			<div>
+			<ul class="text-list">
+	<li>用户手工容灾，依赖于硬件健壮性。 </li>
+	<li>数据物理单点，数据安全不可控。</li>
+<ul>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div><span class="unit-text">易用</span></div>
+			</td>
+			<td class="stress-item">
+			<div>
+			<ul class="text-list">
+	<li>与腾讯云云服务器 CVM、负载均衡 CLB 等多种云产品无缝接入，内网流量免费。 </li>
+	<li>和云服务器 CVM 采用一致的管理方式，无需跳板机登录，简单易用。</li>
+	<li>清晰的 GPU 驱动的安装、部署指引，免去高学习成本。</li>
+<ul>
+			</div>
+			</td>
+			<td>
+			<div>
+						<ul class="text-list">
+	<li>购买装机管理，自行实现硬件扩展、驱动安装。 </li>
+	<li>需跳板机登录，操作复杂。</li>
+<ul>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div><span class="unit-text">安全</span></div>
+			</td>
+			<td class="stress-item">
+			<div>
+						<ul class="text-list">
+	<li>不同用户间资源全面隔离，数据安全有保障； </li>
+	<li>完善的安全组和网络 ACL 设置让您能控制进出实例和子网的网络入出站流量并进行安全过滤。</li>
+	<li>与云安全无缝对接，享有云服务器同等的基础云安全基础防护和高防服务。</li>
+<ul>
+			</div>
+			</td>
+			<td>
+			<div>
+			<ul class="unit-text">
+			<li>不同用户共享资源，数据不隔离。</li>
+			<li>需额外购买安全防护服务。</li>
+			<ul>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div><span class="unit-text">成本</span></div>
+			</td>
+			<td class="stress-item stress-last-item">
+			<div>
+<ul class="unit-text">
+			<li>提供包月购买方式，无需大量资金投资购置物理服务器。</li>
+			<li>硬件跟随主流 GPU更新步伐，免除硬件更新带来的置换烦恼。</li>
+			<li>服务器运维成本低，无需预先采购、准备硬件资源，有效降低基础设施建设投入。</li>
+			<ul>
+			</div>
+			</td>
+			<td>
+			<div>
+			<ul class="unit-text">
+			<li>高服务器投资运营成本。</li>
+			<li>设备高功耗，需硬件改。</li>
+			<li>为保障服务稳定需高额的运维IT成本。</li>
+			<ul>
+			</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+GPU 云服务器与 CPU 云服务器对比：
+![](//mc.qcloudimg.com/static/img/ac3ea7314a71758f5c7caef08ec63692/image.jpg)
+
+<table class="table" contenteditable="true">
+	<thead>
+		<tr>
+			<th>维度</th>
+			<th>GPU</th>
+			<th>CPU</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>核心数量</td>
+			<td>数千个加速核心（双卡 M40 高达 6144 个加速核心）</td>
+			<td>几十个核心</td>
+		</tr>
+		<tr>
+			<td>产品特点</td>
+			<td>1. 高效众多的运算单元（ALU）支持并行处理<br />
+			2. 多线程以到达超大并行吞吐量<br />
+			3. 简单的逻辑控制</td>
+			<td>1. 复杂的逻辑控制单元<br />
+			2. 强大的算数运算单元（ALU）<br />
+			3. 简单的逻辑控制</td>
+		</tr>
+		<tr>
+			<td>适用场景</td>
+			<td>计算密集、易于并行的程序</td>
+			<td>逻辑控制、串行运算的程序</td>
+		</tr>
+	</tbody>
+</table>
+
+

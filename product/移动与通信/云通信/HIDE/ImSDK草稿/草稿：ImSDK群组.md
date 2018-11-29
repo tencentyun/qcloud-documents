@@ -1,13 +1,13 @@
 
-## 1. 群组综述 
+## 群组综述 
 
 IM云通讯有多种群组类型，其特点以及限制因素可参考[群组系统](/doc/product/269/群组系统)。群组使用唯一Id标识，通过群组Id可以进行不同操作。
 
-## 2. 群组消息 
+## 群组消息 
 
 群组消息与C2C消息相同，仅在获取Conversation时的会话类型不同，可参照（4.1. 消息发送）部分。
 
-## 3. 群组管理
+## 群组管理
 
 群组相关操作都由 TIMGroupManager 实现，需要用户登录成功后操作。
 
@@ -19,7 +19,7 @@ IM云通讯有多种群组类型，其特点以及限制因素可参考[群组�
 @end
 ```
 
-### 3.1 创建内置类型群组
+### 创建内置类型群组
 
 CreatePrivateGroup 创建私有群，CreatePublicGroup创建公有群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。
  
@@ -67,7 +67,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 示例创建一个私有群组，并且把用户@"iOS_002"拉入群组，创建者默认加入群组，无需显式指定。 
 公有群和聊天室调用方式和参数相同，仅方法名不同。 
 
-### 3.2 创建指定属性群组
+### 创建指定属性群组
 
 在创建群组时，除了设置默认的成员以及群名外，还可以设置如群公告、群简介等字段，通过以下接口可以设置：
 
@@ -192,7 +192,7 @@ groupInfo.membersInfo = membersInfo;
 ```
 示例创建一个指定属性的私有群，并把用户 @"iOS_001" 加入群组，创建者默认加入群，无需显示指定。
 
-### 3.3 自定义群组Id创建群组
+### 自定义群组Id创建群组
 
 默认创建群组时，IM通讯云服务器会生成一个唯一的Id，以便后续操作，另外，如果用户需要自定义群组Id，在创建时可指定Id，通过 3.2 创建指定属性群组 也可以实现自定义群组Id的功能。
 
@@ -226,7 +226,7 @@ groupId|自定义群组Id
 succ|成功回调
 fail|失败回调
 
-### 3.4 邀请用户入群
+### 邀请用户入群
 
 TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于共有群，需要对方同意才可进入。
 
@@ -291,7 +291,7 @@ typedef NS_ENUM(NSInteger, TIMGroupMemberStatus) {
 };
 ```
 
-### 3.5 申请加入群组 
+### 申请加入群组 
 
 TIMGroupManager 的接口 JoinGroup可以主动申请进入群组，此操作只对公有群和聊天室有效。 
 
@@ -339,7 +339,7 @@ fail | 失败回调
 
 示例中用户申请加入群组@"TGID1JYSZEAEQ"，申请理由为@"Apply Join Group"。
 
-### 3.6 退出群组 
+### 退出群组 
 
 群组成员可以主动退出群组。 
 
@@ -377,7 +377,7 @@ fail | 失败回调
 
 示例中主动退出群组 @"TGID1JYSZEAEQ"。 
 
-### 3.7 删除群组成员 
+### 删除群组成员 
 
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。 
 
@@ -423,7 +423,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 
 示例中把好友 @"iOS_002" 从群组 @"TGID1JYSZEAEQ" 中删除，执行成功后返回操作列表以及操作状态。 
 
-### 3.8 获取群成员列表 
+### 获取群成员列表 
 
 GetGroupMembers 方法可获取群内成员列表，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
 
@@ -522,7 +522,7 @@ fail | 失败回调
 @end
 ```
 
-### 3.9 获取加入的群组列表 
+### 获取加入的群组列表 
 
 通过 GetGroupList 可以获取当前用户加入的所有群组： 
 
@@ -567,7 +567,7 @@ fail | 失败回调
 
 示例中获取群组列表，并打印群组Id，群类型（Private/Public/ChatRoom）以及群名。 
 
-### 3.10 解散群组
+### 解散群组
 
 通过 DeleteGroup 可以解散群组。 
 
@@ -607,7 +607,7 @@ fail | 失败回调
 ```
 示例中解散群组 @"TGID1JYSZEAEQ"。
 
-### 3.11 转让群组 
+### 转让群组 
 
 通过 ModifyGroupOwner可以转让群组。 
 
@@ -649,7 +649,7 @@ fail | 失败回调
 ```
 示例中转让群组 @"TGID1JYSZEAEQ"给用户@"iOS_001"。 
 
-### 3.12 删除群组成员（带原因）
+### 删除群组成员（带原因）
 
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。 
 
@@ -702,9 +702,9 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 示例中把好友 @"iOS_002" 从群组 @"TGID1JYSZEAEQ" 中删除，执行成功后返回操作列表以及操作状态。 。 
 
 
-## 4. 获取群资料
+## 获取群资料
 
-### 4.1 设置拉取字段
+### 设置拉取字段
 
 拉取用户资料默认返回部分内置字段，如果需要自定义字段，或者不拉取某些字段，可以通过接口进行设置（**此接口1.9版本以上提供**），此设置对所有资料相关接口有效，全局有效：
 
@@ -750,7 +750,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 ---|---
 setting|设置TIMGroupManager和TIMGroupAssistant默认拉取的字段
 
-### 4.2 群成员获取群组资料
+### 群成员获取群组资料
 
 GetGroupInfo方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
 
@@ -807,7 +807,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 ```
 示例中获取群组 @"TGID1JYSZEAEQ" 的详细信息。 
 
-### 4.3 非群成员获取群组资料
+### 非群成员获取群组资料
 
 GetGroupInfo方法只对群成员有效，非成员需要调用 GetGroupPublicInfo 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
 
@@ -856,9 +856,9 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 示例中获取群组 @"TGID1JYSZEAEQ" 的公开信息。 
 
 
-### 4.4 获取本人在群里的资料
+### 获取本人在群里的资料
 
-如果需要获取在所有群内的资料，可以通过 [GetGroupList](#3.9-.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8) 拉取加入的群列表时得到（1.9版本以后支持）。另外，如果需要单独获取某个群组，可使用以下接口，建议通过GetGroupList获取，没有必要调用以下接口单独获取。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
+如果需要获取在所有群内的资料，可以通过 [GetGroupList](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8) 拉取加入的群列表时得到（1.9版本以后支持）。另外，如果需要单独获取某个群组，可使用以下接口，建议通过GetGroupList获取，没有必要调用以下接口单独获取。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
 
 **原型：**
 
@@ -896,15 +896,15 @@ group | 群组Id
 succ |  成功回调，返回用户本人在群内的资料
 fail | 失败回调
 
-### 4.5 获取群内某个人的资料
+### 获取群内某个人的资料
 
 （1.9版本提供）默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）。
 
  
 
-## 5. 修改群资料 
+## 修改群资料 
 
-### 5.1 修改群名 
+### 修改群名 
 
 通过 ModifyGroupName可以修改群组名称： 
 
@@ -941,7 +941,7 @@ fail | 失败回调
 
 示例修改群 @"TGID1JYSZEAEQ" 的名字为 @"ModifyGroupName"。
 
-### 5.2 修改群简介 
+### 修改群简介 
 
 通过 ModifyGroupIntroduction可以修改群组简介： 
 
@@ -988,7 +988,7 @@ fail | 失败回调
 }];
 ```
 
-### 5.3 修改群公告 
+### 修改群公告 
 
 通过 ModifyGroupNotification可以修改群组公告： 
 
@@ -1038,7 +1038,7 @@ fail | 失败回调
 
 示例修改群 @"TGID1JYSZEAEQ" 的公告为 @"test notification"。 
 
-### 5.4 修改群头像 
+### 修改群头像 
 
 通过 ModifyGroupFaceUrl可以修改群头像： 
 
@@ -1083,7 +1083,7 @@ fail | 失败回调
 }];
 ```
 
-### 5.5 修改加群选项 
+### 修改加群选项 
 
 通过 ModifyGroupAddOpt可以修改加群选项： 
 
@@ -1133,7 +1133,7 @@ fail | 失败回调
 
 示例修改群 @"TGID1JYSZEAEQ" 为禁止任何人加入。 
 
-### 5.6 修改群维度自定义字段 
+### 修改群维度自定义字段 
 
 通过 ModifyGroupCustomInfo可以对群维度自定义字段进行修改： 
 
@@ -1188,7 +1188,7 @@ NSData *data = [NSData dataWithBytes:"custom value" length:13];
 
 示例修改群 @"TGID1JYSZEAEQ" 为禁止任何人加入。
 
-### 5.7 修改用户群内身份 
+### 修改用户群内身份 
 
 通过 ModifyGroupMemberInfoSetRole可以对群成员的身份进行修改： 
 
@@ -1226,7 +1226,7 @@ fail | 失败回调
 
 示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 为管理员。 
 
-### 5.8 对群成员进行禁言 
+### 对群成员进行禁言 
 
 通过 ModifyGroupMemberInfoSetSilence可以对群成员进行禁言并设置禁言时长： 
 
@@ -1264,7 +1264,7 @@ fail | 失败回调
 
 示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 禁言120s。 
 
-### 5.9 修改群名片 
+### 修改群名片 
 
 通过 ModifyGroupMemberInfoSetNameCard可以对群成员资料的群名片进行修改： 
 
@@ -1298,7 +1298,7 @@ fail | 失败回调
 
 示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 群名片为 @"iOS_001_namecard"。 
 
-### 5.10 修改群成员维度自定义字段 
+### 修改群成员维度自定义字段 
 
 通过 ModifyGroupMemberInfoSetCustomInfo可以对群成员维度自定义字段进行修改： 
 
@@ -1333,9 +1333,9 @@ fail | 失败回调
 示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 的自定义属性。
 
 
-## 6. 群组未决信息 
+## 群组未决信息 
 
-### 6.1 拉取群未决相关信息 
+### 拉取群未决相关信息 
 
 通过GetPendencyFromServer 接口可拉取群未决相关信息。此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
@@ -1486,7 +1486,7 @@ requestMsg/handleMsg|申请、审批时的hello word
   }];
 ```
 
-### 6.2上报群未决已读 
+### 上报群未决已读 
 
 对于未决信息，sdk可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。 
 
@@ -1526,7 +1526,7 @@ fail|失败回调
     }];
 ```
 
-### 6.3 处理群未决信息 
+### 处理群未决信息 
 
 对于群的未决信息，sdk增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 
 
@@ -1573,11 +1573,11 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 }];
 ```
 
-## 7. 群资料存储
+## 群资料存储
 
-在1.9版本之前，并未存储用户的群资料数据，每次调用接口都是从服务端重新获取，需要APP端进行存储，1.9以后版本，增加了群资料存储，可以设置存储的具体字段，参考 [4.1 设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。另外，这里仅存储群资料，并未对群成员的资料获取，1.9版本以后会在群消息中增加用户的相关字段，建议直接从消息中获取。
+在1.9版本之前，并未存储用户的群资料数据，每次调用接口都是从服务端重新获取，需要APP端进行存储，1.9以后版本，增加了群资料存储，可以设置存储的具体字段，参考 [4.1 设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。另外，这里仅存储群资料，并未对群成员的资料获取，1.9版本以后会在群消息中增加用户的相关字段，建议直接从消息中获取。
 
-### 7.1 启用群资料存储
+### 启用群资料存储
 
 **原型：**
 
@@ -1594,7 +1594,7 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 @end
 ```
 
-###  7.2 群组资料获取同步接口
+###   群组资料获取同步接口
 
 为了方便读取，1.9以后版本增加了群组资料的同步接口（需要开启群资料存储），
 
@@ -1632,7 +1632,7 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 @end
 ```
 
-### 7.3 群通知回调
+### 群通知回调
 
 如果开启了存储，可以设置监听感知群事件，当有对应事件发生时，会进行回调：
 
@@ -1694,7 +1694,7 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 群成员变更时通过onMemberUpdate回调，参数`TIMGroupMemberInfo*`为变更后的成员信息，可以根据字段更新界面。
 
 
-## 18 群事件消息 
+## 群事件消息 
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的Elem标识，通过新消息回调返回消息（参见2.3. 新消息通知）：
 如下图中，展示一条修改群名的事件消息： 
@@ -1849,7 +1849,7 @@ login_param.sdkAppId = 123456;
 ```
 示例中注册新消息回调，打印用户进入群组和离开群组的事件通知，其他事件通知用法相同，具体含义可参见下面章节： 
 
-### 18.1 用户被邀请加入群组 
+### 用户被邀请加入群组 
 
 触发时机：当有用户被邀请加入群组时，群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。 
 
@@ -1862,7 +1862,7 @@ opUser ： 邀请人
 groupName ： 群名 
 userList ： 被邀请入群的用户列表 
 
-### 18.2 用户退出群组 
+### 用户退出群组 
 
 触发时机：当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。 
 收到的消息type为 TIM_GROUP_TIPS_TYPE_QUIT_GRP。 
@@ -1872,7 +1872,7 @@ type： TIM_GROUP_TIPS_TYPE_QUIT_GRP
 opUser ： 退出用户identifier 
 groupName ： 群名 
 
-### 18.3 用户退出群组 
+### 用户退出群组 
 
 触发时机：当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。 
 收到的消息type为 TIM_GROUP_TIPS_TYPE_QUIT_GRP。 
@@ -1882,7 +1882,7 @@ type： TIM_GROUP_TIPS_TYPE_QUIT_GRP
 opUser ： 退出用户identifier 
 groupName ： 群名 
 
-### 18.4 被设置/取消管理员 
+### 被设置/取消管理员 
 
 触发时机：当有用户被设置为管理员或者被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。 
 收到的消息type为 TIM_GROUP_TIPS_TYPE_SET_ADMIN 和 TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN 。 
@@ -1894,7 +1894,7 @@ opUser ： 操作用户identifier
 groupName ： 群名 
 userList ： 被设置/取消管理员身份的用户列表 
 
-### 18.5 群资料变更 
+### 群资料变更 
 
 触发时机：当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关展示字段。或者选择性把消息展示给用户。 
 
@@ -1948,7 +1948,7 @@ notification： 变更后的群公告，如果没有变更则为nil
 faceUrl： 变更后的群头像URL，如果没有变更则为nil 
 owner： 变更后的群主，如果没有变更则为nil 
 
-### 18.6 群成员资料变更 
+### 群成员资料变更 
 
 触发时机：当群成员的群相关资料变更时，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。（注意：这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料）。
  
@@ -1983,7 +1983,7 @@ memberInfoList： 变更的群成员的具体资料信息，为TIMGroupTipsElemM
 identifier： 变更的用户identifier 
 shutupTime： 被禁言的时间 
 
-## 19 群系统消息 
+## 群系统消息 
 
 当有用户申请加群等事件发生时，管理员会收到邀请加群系统消息，用户可根据情况接受请求或者拒绝，相应的消息通过群系统消息展示给用户。 
 **群系统消息类型定义： **
@@ -2177,7 +2177,7 @@ login_param.sdkAppId = 123456;
 ```
 示例中收到群系统消息，如果是入群申请，默认同意，如果是群解散通知，打印信息。其他类型消息解析方式相同。 
 
-### 19.1 申请加群消息 
+### 申请加群消息 
 
 触发时机：当有用户申请加群时，群管理员会收到申请加群消息，可展示给用户，由用户决定是否同意对方加群，如果同意，调用accept方法，拒绝调用refuse方法。 
 消息类型为：TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE 
@@ -2194,7 +2194,7 @@ msg ： 申请理由，（可选）
 当同意申请人入群，可调用accept方法 
 当不同意申请人入群，可调用refuse方法。 
 
-### 19.2 申请加群同意/拒绝消息 
+### 申请加群同意/拒绝消息 
 
 触发时机：当管理员同意加群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。 
 
@@ -2206,7 +2206,7 @@ group ： 群组Id，表示是哪个群通过/拒绝了
 user ： 处理请求的管理员identifier 
 msg ： 同意或者拒绝理由（可选） 
 
-### 19.3 邀请入群消息 
+### 邀请入群消息 
 
 触发时机：当有用户被邀请群时，该用户会收到邀请入群消息，可展示给用户，由用户决定是否同意入群，如果同意，调用accept方法，拒绝调用refuse方法。 
 消息类型为：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE 
@@ -2222,7 +2222,7 @@ user ： 邀请人
 当同意邀请入群，可调用accept方法 
 当不同意邀请入群，可调用refuse方法。
 
-### 19.4 邀请入群同意/拒绝消息 
+### 邀请入群同意/拒绝消息 
 
 触发时机：当被邀请者同意入群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。 
 
@@ -2234,7 +2234,7 @@ group ： 群组Id，表示是对哪个群通过/拒绝了
 user ： 处理请求的用户identifier 
 msg ： 同意或者拒绝理由（可选） 
 
-### 19.5 被管理员踢出群组 
+### 被管理员踢出群组 
 
 触发时机：当用户被管理员踢出群组时，申请人会收到被踢出群的消息。 
 
@@ -2244,7 +2244,7 @@ type ： TIM_GROUP_SYSTEM_KICK_OFF_FROM_GROUP_TYPE
 group ： 群组Id，表示在哪个群里被踢了 
 user ： 操作管理员identifier 
 
-### 19.6 群被解散 
+### 群被解散 
 
 触发时机：当群被解散时，全员会收到解散群消息。 
 
@@ -2254,10 +2254,10 @@ type ： TIM_GROUP_SYSTEM_DELETE_GROUP_TYPE
 group ： 群组Id，表示哪个群被解散了 
 user ： 操作管理员identifier 
 
-### 19.7 创建群消息 
+### 创建群消息 
 
 触发时机：当群创建时，创建者会收到创建群消息。 
-当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，做为更新群列表的时机，本终端可以选择忽略。 
+当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，作为更新群列表的时机，本终端可以选择忽略。 
 
 **参数说明：**
  
@@ -2265,7 +2265,7 @@ type ： TIM_GROUP_SYSTEM_CREATE_GROUP_TYPE
 group ： 群组Id，表示创建的群Id 
 user ： 创建者，这里也就是用户自己 
 
-### 19.8 邀请加群 
+### 邀请加群 
 
 触发时机：当用户被邀请加入群组时，该用户会收到邀请消息，注意：创建群组时初始成员无需邀请即可入群。 
 
@@ -2280,10 +2280,10 @@ user ： 操作人，表示哪个用户的邀请
 当用户同意入群，可调用accept方法 
 当用户不同意，可调用refuse方法。 
 
-### 19.9 主动退群 
+### 主动退群 
 
 触发时机：当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。 
-当用户调用QuitGroup时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以做为更新群列表的时机，本终端可以选择忽略。 
+当用户调用QuitGroup时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以作为更新群列表的时机，本终端可以选择忽略。 
 
 **参数说明：**
  
@@ -2291,7 +2291,7 @@ type ： TIM_GROUP_SYSTEM_QUIT_GROUP_TYPE
 group ： 群组Id，表示退出的哪个群 
 user ： 操作人，这里即为用户自己 
 
-### 19.10 设置/取消管理员 
+### 设置/取消管理员 
 
 触发时机：当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。 
 
@@ -2302,7 +2302,7 @@ type ： 取消管理员身份:TIM_GROUP_SYSTEM_GRANT_ADMIN_TYPE
 group ： 群组Id，表示哪个群的事件 
 user ： 操作人 
 
-### 19.11 群被回收 
+### 群被回收 
 
 触发时机：当群组被系统回收时，全员可收到群组被回收消息。 
 
@@ -2312,7 +2312,7 @@ type ： TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
 group ： 群组Id，表示哪个群被回收了 
 
 
-## 21 群事件通知回调 
+## 群事件通知回调 
 
 当群内资料或者成员变更时，会有群事件通知的回调，用户可以监听回调进行业务逻辑处理，如更新成员列表、更新群组资料显示等操作。 
 
@@ -2334,52 +2334,4 @@ group ： 群组Id，表示哪个群被回收了
 **参数说明：** 
 
 listener   群事件通知回调，参考TIMGroupTipsListener协议，TIMGroupTipsElem 内容和含义同群事件消息。 
-
-## 12 搜索群
-
-通过 SearchGroup 成员方法可以模糊搜索群组，目前只支持群名匹配关键字。 
-
-**原型：**
-
-```
-@interface TIMGroupManager : NSObject
-
-/**
- *  通过名称信息获取群资料（可指定字段拉取）
- *
- *  @param groupName      群组名称
- *  @param flags          拉取资料标志
- *  @param custom         要获取的自定义key（NSString*）列表
- *  @param pageIndex      分页号
- *  @param pageSize       每页群组数目
- *  @param succ           成功回调
- *  @param fail           失败回调
- */
--(int) SearchGroup:(NSString*)groupName flags:(TIMGetGroupBaseInfoFlag)flags custom:(NSArray*)custom pageIndex:(uint32_t)pageIndex pageSize:(uint32_t)pageSize succ:(TIMGroupSearchSucc)succ fail:(TIMFail)fail;
-
-@end
-```
-**参数说明：**
- 
-groupName： 要检索的群名中关键字 
-flags： 要获取的群资料字段，详情可参考TIMGetGroupBaseInfoFlag 
-custom：自定义key列表 
-pageIndex：分页号，从0开始 
-pageSize：每页的大小 
-succ：成功回调，返回群列表 
-fail：失败回调，返回错误码和错误原因 
-
-**示例：** 
-
-```
-[[TIMGroupManager sharedInstance] SearchGroup:@"test" flags:TIM_GET_GROUP_BASE_INFO_FLAG_NAME custom:nil pageIndex:0 pageSize:10 succ:^(uint64_t totalNum, NSArray * groupList){
-	NSLog(@"SearchGroup succ: totalNum=%lu groupList=%@", totalNum, groupList);
-	for (TIMGroupInfo * info in groupList) {
-        NSLog(@"group info=%@", info);
-    }
-} fail:^(int code, NSString *err){
-	NSLog(@"SearchGroup failed: code=%d, err=%@", code, err);
-}];
-```
-示例中搜索群名包含"test"关键字的群列表，并打印。
 

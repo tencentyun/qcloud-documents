@@ -1,1 +1,0 @@
-TDSQL基于MariaDB10.0.10，兼容MySQL5.5的SQL语法，如有需要请查阅MySQL5.5或者MariaDB10.0.10手册。

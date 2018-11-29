@@ -1,0 +1,74 @@
+## 概述
+本文将介绍限制子网、委托人和 VPC ID 的存储桶策略示例。您可以使用该存储桶策略控制对存储桶及其数据的特定访问。有关访问策略语言的更多信息，请参阅 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023)。
+>!
+>- 使用对象存储控制台配置存储桶策略时，您需要授予用户拥有存储桶的相关权限，如获取存储桶位置和列出存储桶权限。
+- 存储桶策略的大小限制为 20 KB。
+
+
+### 示例 1：限制来自子网 10.1.1.0/24 网段 和 vpcid 为 aqp5jrc1 的请求
+语法示例如下：
+```
+{
+  "Statement": [
+    {
+      "Action": [
+        "name/cos:*"
+      ],
+      "Condition": {
+        "ip_equal": {
+          "qcs:ip": [
+            "10.1.1.0/24"
+          ]
+        },
+        "string_equal": {
+          "vpc:requester_vpc": [
+            "vpc-aqp5jrc1"
+          ]
+        }
+      },
+      "Effect": "deny",
+      "Principal": {
+        "qcs": [
+          "qcs::cam::anyone:anyone"
+        ]
+      },
+      "Resource": [
+        "qcs::cos:ap-guangzhou:uid/1251668577:jimmyyantest-1251668577/*"
+      ]
+    }
+  ],
+  "version": "2.0"
+}
+```
+
+
+### 示例 2：限制 vpcid 为 aqp5jrc1 、特定委托人和特定存储桶的请求
+语法示例如下：
+```
+{
+  "Statement": [
+    {
+      "Action": [
+        "name/cos:*"
+      ],
+      "Condition": {
+        "string_equal": {
+          "vpc:requester_vpc": [
+            "vpc-aqp5jrc1"
+          ]
+        }
+      },
+      "Effect": "allow",
+      "Principal": {
+        "qcs": [
+          "qcs::cam::uin/3280754170:uin/100005212150"
+        ]
+      },
+      "Resource": [
+        "qcs::cos:ap-beijing:uid/1252921383:x3cmplay-1252921383/*"
+      ]
+    }
+  ],
+  "version": "2.0"
+}
+```
