@@ -25,8 +25,8 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 ```
 tar -zxvf cloud-init-17.1.tar.gz 
 ```
-2. 根据实际需求选择需安装的依赖包。
->!  cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Pyhon 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行以下命令，安装 requests 2.20.0 版本以下的版本。
+2. 根据实际需求选择依赖包类型，安装依赖包。
+>!  cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行以下命令，安装 requests 2.20.0 版本以下的版本。
 ```
 pip install 'requests<2.20.0'
 ```
