@@ -53,7 +53,7 @@ func main() {
 	// SDK 有默认的超时时间，非必要请不要进行调整。
 	// 如有需要请在代码中查阅以获取最新的默认值。
 	cpf.HttpProfile.ReqTimeout = 10
-	// SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+	// SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务，
 	// 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
 	cpf.HttpProfile.Endpoint = "tbaas.tencentcloudapi.com"
 	// SDK 默认用 HmacSHA256 进行签名，它更安全但是会轻微降低性能。
@@ -63,7 +63,7 @@ func main() {
 	// 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量
 	client, _ := tbaas.NewClient(credential, regions.Guangzhou, cpf)
 	// 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	// 你可以直接查询 SDK 源码确定 NewInvokeRequest 有哪些属性可以设置。
+	// 您可以直接查询 SDK 源码确定 NewInvokeRequest 有哪些属性可以设置。
 	// 属性可能是基本类型，也可能引用了另一个数据结构。
 	// 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明。
 	request := tbaas.NewInvokeRequest()
