@@ -25,21 +25,20 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 ```
 tar -zxvf cloud-init-17.1.tar.gz 
 ```
-2. 根据实际需求选择依赖包类型，安装依赖包。
+2. 执行以下命令，安装 Python-pip。
 >!  cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行以下命令，安装 requests 2.20.0 版本以下的版本。
 ```
 pip install 'requests<2.20.0'
 ```
 
- - （推荐）使用 Python-pip 安装依赖包，执行以下命令。
-```
+ ```
 yum install python-pip -y
 ```
- - 使用 pip 安装依赖包，执行以下命令。
+3. 执行以下命令，安装依赖包。
 ```
 pip install -r cloud-init-17.1/requirements.txt
 ```
-3. 根据操作系统版本，安装 cloud-utils 组件。
+4. 根据操作系统版本，安装 cloud-utils 组件。
  - Centos 6系列，执行以下命令：
 ```
 yum install cloud-utils-growpart dracut-modules-growroot -y
@@ -53,7 +52,7 @@ yum install cloud-utils-growpart -y
 ```
 apt-get install cloud-guest-utils -y
 ```
-4. 执行以下命令，安装 cloud-init。
+5. 执行以下命令，安装 cloud-init。
 ```
 python setup.py build
 python setup.py install --init-system systemd
@@ -76,11 +75,11 @@ useradd syslog
 
 ### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
- 1. **针对 ubuntu 或 debian 操作系统，需执行以下命令。**
+ 1) **针对 ubuntu 或 debian 操作系统，需执行以下命令。**
 ```
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
 ```
- 2. **所有操作系统都需执行以下命令。**
+ 2) **所有操作系统都需执行以下命令。**
 ```
 systemctl enable cloud-init-local.service 
 systemctl start cloud-init-local.service
@@ -95,8 +94,8 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 ```
- 3. **针对 centos 和 redhat 操作系统，需执行以下命令。**
-将 /lib/systemd/system/cloud-init-local.service 文件替换为如下内容：
+ 3) **针对 centos 和 redhat 操作系统，需执行以下命令。**
+ 将 /lib/systemd/system/cloud-init-local.service 文件替换为如下内容：
 ```
 [Unit]
 Description=Initial cloud-init job (pre-networking)
