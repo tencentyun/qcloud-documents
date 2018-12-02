@@ -34,22 +34,24 @@
 - Empty：消费分组内当前没有任何成员。如果组内所有 offset 过期的话就会变为 dead 状态。一般新创建 Group 的时候都会是 Empty 状态。
 - Stable：消费分组中各个消费者已经加入，处于稳定状态。
 
-## rebalance状态详解
+## rebalance 状态详解
 
-### 1. rebalance 在如下几种情况下可能发生
+###  rebalance 发生
+以下情况可能会发生 rebalance：
+- 一个消费者订阅了 Topic。
+- 消费者被关闭。
+- 某个 Consumer 被 Group Coordinator（协调器）认为是 Dead 状态时。
+如果某个Consumer 在`session.timeout.ms`时间内没有给 Group Coordinator 发心跳，则该 Consumer 将被认为是 Dead 状态，并且发起 rebalance。详请参见 [CKafka 常用参数配置指南](https://cloud.tencent.com/document/product/597/30203)。
+- 分区数增加。
+- 订阅了不存在的 Topic。
+如果您订阅了一个还未创建的 Topic，那么当这个 Topic 创建后会发生 rebalance；同理，如果一个已经被订阅的 Topic 被删除，也会发生 rebalance。
+- 应用崩溃。
 
-- 一个消费者订阅了topic时
-- 消费者被关闭时
-- 当一个consumer被 group coordinator（协调器）认为是DEAD状态时。（如果consumer在`session.timeout.ms`时间内没有给group coordinator发心跳，则这个consumer被认为是DEAD状态，并且发起rebalance。消费者[参数配置详情](https://cloud.tencent.com/document/product/597/30203)）
-- 分区数增加时
-- 如果订阅了一个还未创建的topic，当这个topic创建后rebalance则会发生；同理，如果一个已经被订阅的topic被删除，也会发生rebalance。
-- 应用崩溃时
+### rebalance 过程分析（依据0.10版本的机制说明）
 
-### 2. rebalance的过程（依据0.10版本的机制说明）
+根据 Consumer Group 的状态机可知，当 Consumer Group 在 Empty、AwaitSync 或 Stable 状态时，Group 可能会进行 rebalance；
 
-根据consumer group的状态机可知，当consumer group 在 Empty、AwaitSync 或 Stable 状态时，group 可能会进行 rebalance；
-
-- 任何一个consumer想要加入到一个consumer group中时，会发送一个JoinGroup的请求给group coordinator。第一个加入group的consumer会变成Group Leader。
+- 任何一个 consumer 想要加入到一个Consumer Group 中时，会发送一个 JoinGroup 的请求给 Group Coordinator。第一个加入 Group 的 Consumer 会变成 Group Leader。
 - Leader会从group coordinator处收到这个group中所有consumer的列表，并且Leader负责给group中的consumer分配partition。分区的分配可以通过PartitionAssignor 接口来实现。
 - 分配完成后，Leader会把分配结果发给group coordinator，Coordinator会把结果发送给所有的consumer。
 - 因此每个consumer只能查看到自己被分配的partition，Leader是唯一能够拿到consumer group中的consumer以及其分区情况的节点。
