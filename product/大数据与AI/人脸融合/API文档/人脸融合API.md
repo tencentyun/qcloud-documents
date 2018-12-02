@@ -30,8 +30,8 @@
 | ------ | ---- | ------ | ------- |
 | appid  | 是   | String | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 中查看。   |
 | uin    | 是   | String | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 中查看。|
-| project_id    | 是   | String | 活动 ID，可在 [人脸融合控制台](https://console.cloud.tencent.com/ai/facemerge)查看。 |
-| model_id    | 是   | String | 素材 ID，可在 [人脸融合控制台](https://console.cloud.tencent.com/ai/facemerge)查看。 |
+| project_id    | 是   | String | 活动 ID，可在 [人脸融合控制台](https://console.cloud.tencent.com/ai/facemerge) 中查看。 |
+| model_id    | 是   | String | 素材 ID，可在 [人脸融合控制台](https://console.cloud.tencent.com/ai/facemerge) 中查看。 |
 | img_data    | 是   | String | 图片 base64数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理。图片大小不超过 500k，分辨率不超过 1080 \* 1080。 |
 | rsp_img_type    | 是   | String | 返回图像方式（url 或 base64) ，二选一。 |
 | porn_detect   |  否 |  Int |0表示不需要鉴黄，1表示需要鉴黄。2018年12月之后创建的活动默认为1，之前创建的活动默认为0。 |
