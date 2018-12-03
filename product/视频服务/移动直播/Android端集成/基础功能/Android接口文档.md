@@ -73,7 +73,7 @@
 | setPauseImg(img)                      | 设置后台暂停,后台播放的暂停图片    |
 | setPauseImg(time, fps)                | 设置推流暂停时,后台播放暂停图片的方式 |
 | setVideoEncodeGop(gop)                | 设置视频编码GOP           |
-| setVideoResolution(resolution)        | 设置视频帧率              |
+| setVideoResolution(resolution)        | 设置视频分辨率              |
 | setWatermark(watermark, x, y, width)  | 设置水印图片              |
 | setWatermark(watermark, x,y)          | 设置水印图片              |
 
