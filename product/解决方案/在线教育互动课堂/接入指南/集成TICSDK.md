@@ -12,7 +12,12 @@
 >?在开发调试阶段，可使用实时音视频控制台生成的 identifier 和 userSig 用于测试开发，详细操作请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 #### 调用接口
-调用 TICSDK 接口接入，详细接口介绍请参见 [客户端 SDK 集成](https://cloud.tencent.com/document/product/680/17883)。
+调用 TICSDK 接口接入，详细接口介绍请参考： 
+- [Windows SDK](https://cloud.tencent.com/document/product/680/17883)
+- [Web SDK](https://cloud.tencent.com/document/product/680/17887)
+- [Android SDK](https://cloud.tencent.com/document/product/680/17888)
+- [iOS SDK](https://cloud.tencent.com/document/product/680/17891)
+- [Mac SDK](https://cloud.tencent.com/document/product/680/31010)
 
 #### 界面布局
 用户需完成自己的产品的界面布局。
