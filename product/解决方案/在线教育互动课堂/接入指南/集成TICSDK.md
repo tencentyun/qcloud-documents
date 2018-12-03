@@ -18,7 +18,7 @@
 >?课堂 ID：roomID，课堂的唯一标识，在调用 TICSDK 创建房间和加入房间时，由外部传入。
 >创建重复的课堂 TICSDK 将会返回创建失败及错误信息，根据具体业务用户需维护当前的课堂列表。
 
-## 接入客户端 SDK
+## 客户端 SDK 文档
 - [Windows SDK](https://cloud.tencent.com/document/product/680/17883)
 - [Web SDK](https://cloud.tencent.com/document/product/680/17887)
 - [Android SDK](https://cloud.tencent.com/document/product/680/17888)
