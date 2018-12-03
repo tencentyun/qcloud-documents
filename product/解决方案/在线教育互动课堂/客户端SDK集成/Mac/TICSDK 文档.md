@@ -160,6 +160,7 @@ TICSDK 使用流程如下：
 -enableScreenShare:succ:failed: | 打开/关闭 屏幕分享
 -setScreenShareRect:succ:failed: | 设置屏幕分享区域
 
+
 课堂内成员在打开/关闭摄像头、麦克风等操作时，会触发音视频事件，在加入课堂前设置课堂事件监听代理 `id<TICClassroomEventListener> eventListener`后，一端进行音视频操作，另一端就可在课堂内音视频事件回调中得到通知：
 
 接口 | 说明
