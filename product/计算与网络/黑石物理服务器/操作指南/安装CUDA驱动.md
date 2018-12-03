@@ -2,21 +2,28 @@
 
 ## Linux 系列安装指引
 ### 操作步骤
-1. 根据服务器型号和 OS 版本，选择安装脚本。
-2. 登录服务器，新建文件粘贴脚本代码。
-3. 运行脚本。
-4. 检查是否安装成功。
+1. 下载并运行安装脚本。
+2. 检查是否安装成功。
 
 ### 工具准备
 Xshell、PuTTY 等远程登录工具。
 
-### 运行安装脚本
+### 下载和运行安装脚本
 Nvidia 官方的 CUDA toolkit 和 GPU 卡的兼容列表，请参考 [Nvidia 官网文档](http://www.nvidia.com/Download/index.aspx?lang=cn "Nvidia官网文档")。
 
 请使用以下命令下载和运行安装脚本
-
 ```
 wget http://mirrors.tencentyun.com/install/monitor_bm/install_gpu_driver.sh;chmod +x ./install_gpu_driver.sh ;./install_gpu_driver.sh 
+```
+
+执行结束后，有如下提示，说明安装成功：
+
+```
+Driver:   Installed 
+```
+
+```
+Toolkit:  Installed in /usr/local/cuda-10.0
 ```
 
 ### 检验驱动是否安装成功
