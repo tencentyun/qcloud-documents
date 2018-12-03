@@ -4,19 +4,19 @@
 
 >! TICSDK 包含白板 SDK，用户只需创建白板对象，并调用白板对象的相应接口来操作白板即可。
 
-#### 头文件概览
+#### 头文件
 
 类名 | 主要功能
 --------- | ---------
-TXBoardSDK.h | SDK 的全局管理类
-TXBoardView.h | 白板视图类，白板SDK的主要操作类，包含了所有白板相关的接口和展示逻辑
-TXBoardCommon.h | 白板定义类，定义了一些与白板视图相关的枚举，类和代理方法
-TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（一般无需直接使用该类接口，添加文件的接口已经封装在 TXBoardView.h 中）
+TXBoardSDK.h | SDK 的全局管理类。
+TXBoardView.h | 白板视图类，白板SDK的主要操作类，包含了所有白板相关的接口和展示逻辑。
+TXBoardCommon.h | 白板定义类，定义了一些与白板视图相关的枚举，类和代理方法。
+TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COS SDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等（一般无需使用该类接口，添加文件接口已封装在 TXBoardView.h 中）。
 
 
 ## 2. SDK 接口
 
-### 2.1 初始化SDK
+### 2.1 初始化 SDK
 接口 | 说明
 ---|---
 -initSDK:uid:userSig:succ:failed: | 初始化白板 TXBoardSDK
@@ -25,12 +25,12 @@ TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSS
 >?使用 TICSDK 时无需单独调用该接口，TICSDK 内部已将`TXBoardSDK`初始化。
 
 
-### 2.2 创建一块白板
+### 2.2 创建白板
 接口 | 说明
 ---|---
 -initWithRoomID: | 初始化 TXBoardView
 
-展示涂鸦和课件，需先创建一块白板，`TXBoardView`为唯一指定的初始化接口，需传入一个房间 ID 作为参数（即 TIC 中创建房间填入的 roomID）, 示例代码如下：
+展示涂鸦和课件，需先创建一块白板，`TXBoardView`为唯一指定的初始化接口，需传入一个房间 ID 作为参数（即 TIC 中创建房间填入的 roomID），示例代码如下：
 
 ```objc
 TXBoardView *boardView = [[TXBoardView alloc] initWithRoomID:_classID];
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 ---|---
 - updateBgImageWithPath:mode:succ:failed: | 设置背景图片（本地图片路径）
 - updateBgImageWithURL:mode:succ:failed: | 设置背景图片（网络图片 URL）
-- getBGImageURL: | 获取BoardId对应白板当前显示的背景图片
+- getBGImageURL: | 获取 BoardId 对应白板当前显示的背景图片
 
 ### 2.7 多白板接口
 
@@ -119,11 +119,11 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 * 白板 SDK 实现文档的原理为多白板（白板组）。 
 * 每个白板展示一页文档，即每个文档会对应一组白板。
-* 每个文档有一个 fid (文件唯一标识)。
+* 每个文档有一个 fid（文件唯一标识）。
 * 每个白板有一个 boardID。
 * 非文档白板的白板全部合成一个白板组，为普通白板，该白板组的 fid 为 #DEFAULT。
 
-### 添加文档（以 PPT 为例）
+### 3.1 添加文档（以 PPT 为例）
 
 接口 | 说明
 ---|---
@@ -150,14 +150,13 @@ addFile:onProgress:onFinish: |  添加本地文档
 ```
 
 
-### 获取课堂内文档信息
+### 3.2 获取课堂内文档信息
 
 接口 | 说明
 ---|---
-getAllFileInfo | 获取所有文档信息(包括普通白板组，fid 为 #DEFAULT)
+getAllFileInfo | 获取所有文档信息（包括普通白板组，fid 为 #DEFAULT）
 
-调用`getAllFileInfo`可获得当前课堂内所有的文件信息，返回数据是一个 `TXBoardFileInfo` 数组：
-
+调用`getAllFileInfo`可获得当前课堂内所有的文件信息，返回数据是一个 `TXBoardFileInfo` 数组。
 ```objc
 /** 文件信息模型 */
 @interface TXBoardFileInfo : NSObject
@@ -177,7 +176,7 @@ getCurrentFid |  获取当前展示的文件 fid
 
 调用`getCurrentFid` 接口可以获取当前正在展示文件的 fid。
 
-### 翻页/切换
+### 3.3 翻页/切换
 接口 | 说明
 ---|---
 prePage |  切换到当前文件的前一页
@@ -197,7 +196,7 @@ switchFile: |  切换到 fid 对应文件
 
 调用 `switchFile:` 接口可切换文件，接收文件的 fid 作为参数，切换文件会跳转到对应文件最近展示的页面。
 
-### 删除文档
+### 3.4 删除文档
 接口 | 说明
 ---|---
 deleteFiles:stay: |  删除文档，支持一次删除多个
