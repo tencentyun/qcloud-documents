@@ -1,9 +1,9 @@
 ## 接入架构
-腾讯云互动课堂解决方案提供强大的能力支持，用户只需完成业务层逻辑和调用接口，即可快速搭建一个全平台的在线互动课堂产品。
+腾讯云互动课堂解决方案为用户提供强大的能力支持，用户只需完成业务层逻辑和接口调用，即可快速搭建一个全平台的在线互动课堂产品。
 ![](https://main.qcloudimg.com/raw/1924c82283cd5e15da0518d97154e0bb.png)
 
 ## 接入操作
-TICSDK 登录需使用`identifier`和`userSig`接口，用户需先在自己的开发者服务器生成对应的 identifier 和 userSig。
+调用 TICSDK 登录/登出接口时，需使用`identifier`和`userSig`，用户需先在自己的开发者服务器生成对应的 identifier 和 userSig。
 #### 生成 identifier 和 userSig 
 ![](https://main.qcloudimg.com/raw/e5e4e33ea06db665a249844f928f0094.png)
 1. 登录开发者服务器，使用腾讯云提供的工具生成登录 TICSDK 所需的 userSig，将 userSig 返回终端。
@@ -15,11 +15,11 @@ TICSDK 登录需使用`identifier`和`userSig`接口，用户需先在自己的�
 用户需完成自己的产品的界面布局。
 
 #### 课堂管理
-由于课堂 ID (roomID) 从外部传入，TICSDK 无法维护 roomID，因此业务在调用 TICSDK 接口创建课堂时，需维护 roomID 的唯一性。
+由于课堂 ID (roomID) 从外部传入，TICSDK 无法维护 roomID，因此用户在调用 TICSDK 接口创建课堂时，需维护 roomID 的唯一性。
 >?创建重复的课堂 TICSDK 将会返回创建失败及错误信息，根据具体业务用户需维护当前的课堂列表。
 
 #### 调用接口
-调用接口接入 TICSDK，详细接口介绍请参见 [客户端 SDK 集成](https://cloud.tencent.com/document/product/680/17883)。
+调用 TICSDK 接口接入，详细接口介绍请参见 [客户端 SDK 集成](https://cloud.tencent.com/document/product/680/17883)。
 
 
 
