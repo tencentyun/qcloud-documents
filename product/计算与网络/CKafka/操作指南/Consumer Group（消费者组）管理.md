@@ -1,4 +1,4 @@
-## 查询 Consumer Group 信息
+## 查询 Consumer Group
 在 Consumer Group 页面，您可以查看到当前 CKafka 实例的消费组信息。消费组信息包含状态、协议类型、均衡算法及操作。 您可以对消费组订阅 topic 进行 offset 重置，对历史消息进行重新消费。
 ![](https://main.qcloudimg.com/raw/1cd6c59ae22fabaa882759c978b4ffac.jpg)
 - 在 Consumer Group 列表页，单击操作列的【查看消费者详情】，可以查看该消费组中的消费者信息，以及具体消费者和订阅 topic 的对应关系。
@@ -6,7 +6,7 @@
 
 >?由于 offset 信息是在消费端维护的，因此 offset 的位置和消费者提交 offset 的方式有关，是异步展示的，并不一定代表实时的消费情况。
 
-## offset 设置
+## 设置 offset 
 在离线数据处理等场景下，有时需要对 offset 进行重置，用于消费前一时间段的消息。此时可以通过设置 offset 重新消费。
 1. 在消费者组列表中，单击【offset 设置】
 2. 在 offset 设置窗口，选取需要重置 offset 的 topic 信息（不选则默认全部 topic 的 offset 均重置）。
