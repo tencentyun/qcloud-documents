@@ -10,7 +10,7 @@
 | PropertyKeyAppId      | 产品 ID 为“产品密钥-产品 ID”模式，可从邮件中获取。           |
 | PropertyKeyUserId     | 用户账号（比如 QQ 号、微信号等）。                      |
 | PropertyKeyAppVersion | 产品版本（以类似“7.3.0.141.r123456”格式填写，后台可以解析出大版本号和 revision）。 |
-| PropertyKeySymbolId   | UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用，见备注    |
+| PropertyKeySymbolId   | UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用，见说明    |
 | PropertyKeyDebug      | 是否开启调试日志（“true”开启，“false”不开启，默认后者）。      |
 | 返回值                   | QAPM 对象。                                 |
 
