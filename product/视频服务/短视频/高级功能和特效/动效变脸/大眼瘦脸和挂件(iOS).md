@@ -46,7 +46,7 @@
 ### 2. 添加链接参数
 
 > 1. 在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
-> 2. 如果使用了AI扣背功能，需要把  Product -> Edit Scheme -> Run -> Options -> Metal API Validation 设置为Disabled。
+> 2. 如果使用了AI抠背功能，需要把  Product -> Edit Scheme -> Run -> Options -> Metal API Validation 设置为Disabled。
 
 ### 3. 添加动效资源
 
@@ -95,7 +95,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
 
-一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
+一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
 
 短视频中的示例代码是从后台下载动效资源，再统一解压到Resource目录。您可以在短视频代码中找到动效资源和动效缩略图的下载地址，格式如下
 
@@ -127,7 +127,7 @@
 
 ```objective-c
 /**
- * 选择扣背动效
+ * 选择抠背动效
  *
  * @param tmplName: 动效名称
  * @param tmplDir: 动效所在目录
