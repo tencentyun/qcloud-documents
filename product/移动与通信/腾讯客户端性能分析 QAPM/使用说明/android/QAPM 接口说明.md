@@ -28,7 +28,7 @@
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
     <td class="xl65" height="40" style='height:30.00pt;' x:str> PropertyKeySymbolId </td>
-    <td x:str>UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用<br/>
+    <td x:str>UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用，见备注<br/>
    </td>
    </tr>
    <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
@@ -46,7 +46,14 @@
     </tr>
    <![endif]>
   </table>
-	
+
+>备注：
+>SymbolId用于关联一个版本的符号表，方便后续对该版本上报的堆栈作反混淆，格式需要为UUID。
+如何生成SymbolId并没有严格限定，只要是与AppVersion相关的一种映射方式即可，下面介绍一种比较简单的方式：
+```Java
+String version = "2.1";
+String symbolId = UUID.nameUUIDFromBytes(version.getBytes()).toString();
+```
 
 
 ### 启动监控
