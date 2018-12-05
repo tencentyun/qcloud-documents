@@ -304,4 +304,4 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 ### 8. 在 Windows 环境下报找不到 rocksdb 的 jni 库，应该如何处理？
 在 Windows 环境下，工具需要在 Microsoft Visual Studio 2015 环境下编译。若出现以上报错，需安装 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)。
 
-*如遇其他问题，请您尝试重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+如遇其他问题，请您尝试重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
