@@ -299,7 +299,9 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 ### 7. 运行异常，显示如下的信息该怎么办?
 ![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
-此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
+此问题是因为工具使用了 rocksdb，需要使用64位的 JDK, 请检查 JDK 版本是 X64的 JDK 。
 
-### 8. 其他问题
-请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+### 8. 在 Windows 环境下报找不到 rocksdb 的 jni 库，应该如何处理？
+在 Windows 环境下，工具需要在 Microsoft Visual Studio 2015 环境下编译。若出现以上报错，需安装 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)。
+
+*如遇其他问题，请您尝试重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
