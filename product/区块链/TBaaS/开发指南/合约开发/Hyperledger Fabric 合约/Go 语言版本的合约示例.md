@@ -55,8 +55,8 @@ func main() {
 
 Hyperledger Fabric 提供了大量的官方智能合约样例，具体请参考 [fabric 官方示例](https://github.com/hyperledger/fabric/tree/release-1.3/examples/chaincode/go) 。本示例以一个 Hyperledger Fabric 官方提供的 example02 样例为例。该示例的 Init 函数用于初始化两个 key/value 键值对，同时提供以下接口：
 - invoke：用于 key 之间的 value 转移。
-- delete 用于删除一个键值对。
-- query 用于查询 key 所对应的值。
+- delete：用于删除一个键值对。
+- query：用于查询 key 所对应的值。
 
 ```
 /*
