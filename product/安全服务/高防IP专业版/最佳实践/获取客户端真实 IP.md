@@ -22,7 +22,7 @@ struct ip_vs_tcpo_addr {
 •	CentOS 6.x
 •	CentOS 7.x
 >!
-- Windows 操作系统不支持通过 toa 功能。
+- Windows 操作系统不支持使用 toa 模块获取客户端的真实 IP。
 - Linux 其他版本操作系统，请联系 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 咨询。
 
 ## 注意事项
