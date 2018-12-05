@@ -10,12 +10,12 @@ Redis 主从版是最通用的 Redis 版本，兼容 Redis 2.8 版本的协议�
     默认开启数据持久化功能，数据全部落盘。支持数据备份功能，用户可以针对备份集回滚实例或者克隆实例，有效的解决数据误操作等问题。
 
 ## 使用限制
- - Redis 主从版支持0.25～60GB规格，需要更大的主从版规格可以选择 CKV 主从版（最大可支持384GB），或者集群版最大可支持2TB的容量。
+ - Redis 主从版支持0.25～60GB规格，需要更大的主从版规格可以选择 CKV 主从版（最大可支持384GB），或者集群版最大可支持48TB的容量。
  - Redis 主从版的性能最大支持10万 QPS，需要更高的 QPS 请选择 Redis 集群版或 CKV 集群版，最大可支持 1000万 QPS。
 
 ## 兼容性
 云数据库 Redis 主从版在 Redis 2.8 基础上进行开发，兼容 Redis 协议命令。自建的 Redis 数据库可以平滑迁移至 Redis 标准版。并且提供数据传输工具（DTS）可以进行增量的 Redis 迁移，保证业务平稳过渡。命令兼容性如下表：
-- **主从版 Redis 支持命令**
+主从版 Redis 支持的命令:
 
 | **connection 族** | **hashes 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
 | --- | --- | --- | --- | --- | --- |
@@ -23,19 +23,19 @@ Redis 主从版是最通用的 Redis 版本，兼容 Redis 2.8 版本的协议�
 | echo | hexists | scan | linsert | pubsub | dbsize |
 | ping | hget | exists | llen | publish | info | 
 | quit | hgetall | expire | lpop | punsubscribe | time | 
-| select | hincrby | expireat | lpush | subscribe |   | 
-|   | hincrbyfloat | keys | lpushx | unsubscribe |   | 
-| 　 | hkeys | type | lrange | 　 |   | 
-| 　 | hlen | move | lrem | 　 |   |
-| 　 | hmget | ttl | lset | 　 |   |
-| 　 | hmset | persist | ltrim | 　 |   |
-| 　 | hset | pexpire | rpop | 　 |   |
-| 　 | hsetnx | pexpireat | rpoplpush | 　 |   |
-| 　 | hstrlen | pttl | rpush | 　 |   |
-| 　 | hvals | randomkey | rpushx | 　 |   |
-| 　 | hscan | rename | blpop | 　 |   |
-| 　 | 　 | renamenx | brpop | 　 | 　 |
-| 　 | 　 | sort | brpoplpush | 　 | 　 |
+| select | hincrby | expireat | lpush | subscribe | -  | 
+| -  | hincrbyfloat | keys | lpushx | unsubscribe |-   | 
+| -　 | hkeys | type | lrange | -　 |-   | 
+| -　 | hlen | move | lrem | -　 | -  |
+| -　 | hmget | ttl | lset | -　 | -  |
+| -　 | hmset | persist | ltrim | -　 | -  |
+| -　 | hset | pexpire | rpop | -　 | -  |
+| -　 | hsetnx | pexpireat | rpoplpush | -　 | -  |
+| -　 | hstrlen | pttl | rpush | -　 |-  |
+| -　 | hvals | randomkey | rpushx | -　 | -  |
+| -　 | hscan | rename | blpop | -　 | -  |
+| -　 | -　 | renamenx | brpop | -　 | -　 |
+| -　 | -　 | sort | brpoplpush | -　 | -　 |
 
 
 |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
@@ -45,56 +45,56 @@ Redis 主从版是最通用的 Redis 版本，兼容 Redis 2.8 版本的协议�
 | sdiff | zcount | bitop | multi |
 | sdiffstore | zincrby | bitpos | unwatch |
 | sinter | zinterstore | decr | watch |
-| sinterstore | zlexcount | decrby | 　 |
-| sismember | zrange | get | 　 |
-| smembers | zrangebylex | getbit | 　 |
-| smove | zrangebyscore | getrange | 　 |
-| spop | zrank | getset | 　 |
-| srandmember | zrem | incr | 　 |
-| srem | zremrangebylex | incrby | 　 |
-| sscan | zremrangebyrank | incrbyfloat | 　 |
-| sunion | zremrangebyscore | mget | 　 |
-| sunionstore | zrevrange | mset | 　 |
-| 　 | zrevrangebylex | msetnx | 　 |
-| 　 | zrevrangebyscore | psetex | 　 |
-| 　 | zscore | setex | 　 |
-| 　 | zrevrank | set | 　 |
-| 　 | zscan | setbit | 　 |
-| 　 | zunionstore | setnx | 　 |
-| 　 | 　 | setrange | 　 |
-| 　 | 　 | strlen | 　 |
+| sinterstore | zlexcount | decrby | -　 |
+| sismember | zrange | get | -　 |
+| smembers | zrangebylex | getbit | -　 |
+| smove | zrangebyscore | getrange | -　 |
+| spop | zrank | getset | -　 |
+| srandmember | zrem | incr | -　 |
+| srem | zremrangebylex | incrby | -　 |
+| sscan | zremrangebyrank | incrbyfloat | -　 |
+| sunion | zremrangebyscore | mget | -　 |
+| sunionstore | zrevrange | mset | -　 |
+| -　 | zrevrangebylex | msetnx | -　 |
+|- 　 | zrevrangebyscore | psetex | -　 |
+| -　 | zscore | setex | -　 |
+| -　 | zrevrank | set | -　 |
+| -　 | zscan | setbit | -　 |
+| -　 | zunionstore | setnx | -　 |
+| -　 | -　 | setrange | -　 |
+| -　 | -　 | strlen | -　 |
 
-- **主从版 Redis 不支持命令**
+主从版 Redis 不支持的命令：
 
 | **cluster 族** | **connection 族** | **geo 族** | **hyperloglog 族** | **keys 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | cluster addslots | swapdb | geoadd | pfadd | touch | eval | bgrewriteaof | bitfield |
-| cluster count-failure-reports | 　 | geohash | pfcount | restore | evalsha | bgsave | 　 |
-| cluster countkeyinslot | 　 | geopos | pfmerge | object | script debug | client kill | 　 |
-| cluster delslots | 　 | geodist | 　 | unlink | script exists | client list | 　 |
-| cluster failover | 　 | georadius | 　 | wait | script flush | client getname | 　 |
-| cluster forget | 　 | georadiusbymember | 　 | migrate | script kill | client pause | 　 |
-| cluster getkeysinslot | 　 | 　 | 　 | dump | script load | client reply | 　 |
-| cluster info | 　 | 　 | 　 | 　 | 　 | client setname | 　 |
-| cluster keyslot | 　 | 　 | 　 | 　 | 　 | command count | 　 |
-| cluster meet | 　 | 　 | 　 | 　 | 　 | command getkeys | 　 |
-| cluster nodes | 　 | 　 | 　 | 　 | 　 | command info | 　 |
-| cluster replicate | 　 | 　 | 　 | 　 | 　 | config get | 　 |
-| cluster reset | 　 | 　 | 　 | 　 | 　 | config rewrite | 　 |
-| cluster saveconfig | 　 | 　 | 　 | 　 | 　 | config set | 　 |
-| cluster set-config-epoch | 　 | 　 | 　 | 　 | 　 | config resetstat | 　 |
-| cluster setslot | 　 | 　 | 　 | 　 | 　 | debug object | 　 |
-| cluster slaves | 　 | 　 | 　 | 　 | 　 | debug segfault | 　 |
-| cluster slots | 　 | 　 | 　 | 　 | 　 | flushall | 　 |
-| readonly | 　 | 　 | 　 | 　 | 　 | flushdb | 　 |
-| readwrite | 　 | 　 | 　 | 　 | 　 | lastsave | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | monitor | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | role | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | save | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | shutdown | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | slaveof | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | slowlog | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | sync | 　 |
+| cluster count-failure-reports | -　 | geohash | pfcount | restore | evalsha | bgsave |- 　 |
+| cluster countkeyinslot | -　 | geopos | pfmerge | object | script debug | client kill | -　 |
+| cluster delslots | -　 | geodist | -　 | unlink | script exists | client list | -　 |
+| cluster failover | -　 | georadius | -　 | wait | script flush | client getname | -　 |
+| cluster forget | -　 | georadiusbymember |- 　 | migrate | script kill | client pause |- 　 |
+| cluster getkeysinslot | -　 | -　 | -　 | dump | script load | client reply | -　 |
+| cluster info | -　 | -　 | -　 | -　 | -　 | client setname |- 　 |
+| cluster keyslot | -　 | -　 | -　 | -　 | -　 | command count | -　 |
+| cluster meet | -　 | -　 | -　 |- 　 | -　 | command getkeys | -　 |
+| cluster nodes | -　 | -　 | -　 | -　 | -　 | command info |- 　 |
+| cluster replicate | -　 | -　 | -　 | -　 | -　 | config get | -　 |
+| cluster reset | -　 | -　 | -　 | -　 | -　 | config rewrite |- 　 |
+| cluster saveconfig | -　 | -　 | -　 |- 　 | -　 | config set | 　- |
+| cluster set-config-epoch | -　 | -　 | - | - | -　 | config resetstat | -　 |
+| cluster setslot | -　 | -　 | -　 | -　 | 　- | debug object | -　 |
+| cluster slaves | -　 | -　 | -　 | -　 | -　 | debug segfault | -　 |
+| cluster slots | -　 | -　 | -　 | -　 | -　 | flushall | -　 |
+| readonly | -　 | -　 | -　 | -　 | -　 | flushdb | -　 |
+| readwrite | -　 | -　 | -　 | -　 |- 　 | lastsave |- 　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | monitor | -　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | role | -　 |
+|- 　 | -　 | -　 | -　 | -　 | -　 | save | -　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | shutdown | -　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | slaveof | -　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | slowlog | -　 |
+| -　 | -　 | -　 | -　 | -　 | -　 | sync | -　 |
 
     
 
