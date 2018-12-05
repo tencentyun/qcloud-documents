@@ -32,7 +32,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 | GetQueryResult(query string)(StateQueryIteratorInterface, error) | 查询状态数据库，只对支持富查询功能的状态数据库 |
 | GetHistoryForKey(key string) (HistoryQueryIteratorInterface, error) | 返回对应键的所有历史值 |
 
-<span id="parametersProcess "></span>
+<span id="parametersProcess"></span>
 ### 参数处理
 
 | 接口 | 说明 |
