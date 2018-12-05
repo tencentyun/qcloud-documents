@@ -60,7 +60,6 @@ Hyperledger Fabric 提供了大量的官方智能合约样例，具体请参考 
 
 ```
 /*
-Copyright IBM Corp. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0
 */
 package example02
