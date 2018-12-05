@@ -59,7 +59,7 @@ COS 签名工具将分别展示生成的最终签名及计算签名过程中的�
 ![avatar](https://main.qcloudimg.com/raw/8b764cd2bef9d2d64a3b8faeb26afff1.png)
 API 密钥中的信息均为必填项。
 - API 版本：选择 JSON 版本 API。
-- 存储桶名称：填写需要访问的存储桶名称，格式如：bucketname-uin。
+- 存储桶名称：填写需要访问的存储桶名称，格式如：bucketname-appid。
 - 当前时间：目前系统的时间，是一个符合 Unix Epoch 时间戳规范的数值，单位为秒；您也可以填入一个指定的时间用于复现在指定时间戳下的签名结果。
 
 #### 输入 API 密钥信息

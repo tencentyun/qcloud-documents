@@ -3,7 +3,7 @@
 ### 步骤二：登录弹性 MapReduce 购买页
 在成功注册账号后，登录 [弹性 MapReduce](https://buy.cloud.tencent.com/emr) 购买页。
 ### 步骤三：创建弹性 MapReduce 集群
-在官网自助购买页面中，仅支持依赖于云主机（CVM）的 EMR 集群创建。如果您需要独享物理机的黑石 EMR 集群，请通过 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=16&level2_id=200&level1_name=%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1&level2_name=%E5%85%B6%E4%BB%96%E4%BA%91%E6%9C%8D%E5%8A%A1) 的方式联系我们。
+在官网自助购买页面中，仅支持依赖于云服务器（CVM）的 EMR 集群创建。如果您需要独享物理机的黑石 EMR 集群，请通过 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=16&level2_id=200&level1_name=%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1&level2_name=%E5%85%B6%E4%BB%96%E4%BA%91%E6%9C%8D%E5%8A%A1) 的方式联系我们。
 请按照以下指引填写集群创建信息：
 #### 1. 选择计费模式
 **包年包月：**提前预付 N 个月的产品费用，相比按量付费价格更低。
