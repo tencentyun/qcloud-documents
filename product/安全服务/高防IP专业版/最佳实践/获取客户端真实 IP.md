@@ -58,4 +58,4 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
 ## 卸载 toa 模块
-执行`rmmod hello`命令。
+执行`rmmod toa`命令。
