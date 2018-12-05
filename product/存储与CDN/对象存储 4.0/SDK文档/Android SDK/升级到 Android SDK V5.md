@@ -17,14 +17,8 @@
 
 ## 升级步骤
 请按照下面5个步骤升级 Android SDK
-### 总览
-1. 更新 Android SDK
-2. 更改 SDK 鉴权方式
-3. 更改 SDK 初始化方式
-4. 更改**存储桶名称**和**可用区域简称**
-5. 更改 API 
 
-### 更新 Android SDK
+**1. 更新 Android SDK**
 
 COS V5 Android SDK 发布在 [Bintray](https://bintray.com) 的 maven 包管理平台，推荐您使用自动集成方式进行更新。
 
@@ -55,12 +49,12 @@ dependencies {
 
 当然，您也可以继续选择手动 jar 包依赖，您可以在这里 [COS XML Android SDK-release](https://github.com/tencentyun/qcloud-sdk-android/releases) 下载所有的 jar 包。
 
-### 更改 SDK 鉴权方式
+**2. 更改 SDK 鉴权方式**
 
 在 V4 中您需要自己在后台计算好签名，再返回客户端使用。而在 SDK V5 使用了新的鉴权算法，在 V5 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
 您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
 
-### 更改 SDK 初始化
+**3. 更改 SDK 初始化**
 
 在 V5 中，我们的初始化接口发生了一些变化：
 
@@ -117,10 +111,10 @@ CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credenti
 ```
 
 
-### 更改存储桶名称和可用区域简称
+**4. 更改存储桶名称和可用区域简称**
 SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
-#### 存储桶 Bucket
+**存储桶 Bucket**
 
 V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
@@ -136,7 +130,7 @@ String srcPath = Environment.getExternalStorageDirectory().getPath() + "/test.tx
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 ```
 
-#### 存储桶可用区域简称 Region
+**存储桶可用区域简称 Region**
 
 V5 的存储桶可用区域简称发生了变化，下列表格列出了不同区域在 V4 和 V5 中的对应关系：
 
@@ -170,13 +164,13 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .builder();
 ```
 
-### 更改 API
+**5. 更改 API**
 
 升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/11238)。
 
 API 变化有以下三点：
 
-1) **不再支持目录操作**
+1. 不再支持目录操作
 
 在 SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
 为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
@@ -188,7 +182,7 @@ API 变化有以下三点：
 如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
-2) **TransferManager**
+2. TransferManager
 
 在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
@@ -268,7 +262,7 @@ cosxmlUploadTask.pause();
 cosxmlUploadTask.resume();
 ```
 
-3) **新增API**
+3. 新增API
 
 V5 增加了很多新的API，您可根据需求进行调用。包括：
 
