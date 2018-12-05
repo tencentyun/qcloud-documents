@@ -23,8 +23,8 @@ struct ip_vs_tcpo_addr {
 •	CentOS 6.x
 •	CentOS 7.x
 >!
-- Windows操作系统不支持通过 toa 功能。
-- Linux其他版本，请咨询 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 获取技术支持。
+- Windows 操作系统不支持通过 toa 功能。
+- Linux 其他版本，请咨询 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 获取技术支持。
 
 ### 注意事项
 - 建议先在测试环境中进行安装和测试，确认功能可用、运行稳定后再部署到正式环境。
@@ -62,7 +62,7 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 执行`rmmod toa`命令。
 
 ## 使用网站业务转发规则
-使用高防 IP 网站业务转发规则时，可利用 http 头部的 X-Forwareded-For 字段获取客户端真实 IP。
+使用高防 IP 网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
 X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可以识别通过代理等方式链接的客户端真正的 IP。
 格式为：
 `X-Forwareded-For：Client，proxy1，proxy2，proxy3……  `
