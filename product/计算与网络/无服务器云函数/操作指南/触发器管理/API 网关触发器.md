@@ -32,7 +32,7 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
 ```
 {
   "requestContext": {
-    "serviceName": "testsvc",
+    "serviceId": "service-f94sy04v",
     "path": "/test/{path}",
     "httpMethod": "POST",
     "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
@@ -40,7 +40,7 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
       "secretId": "abdcdxxxxxxxsdfs"
     },
     "sourceIp": "10.0.2.14",
-    "stage": "prod"
+    "stage": "release"
   },
   "headers": {
     "Accept-Language": "en-US,en,cn",
@@ -59,10 +59,13 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
     "Refer": "10.0.2.14"
   },
   "stageVariables": {
-    "stage": "test"
+    "stage": "release"
   },
   "path": "/test/value",
-  "query": "foo=bar&bob=alice",
+  "queryString": {
+    "foo" : "bar",
+    "bob" : "alice"
+  },
   "httpMethod": "POST"
 }
 ```
@@ -71,10 +74,10 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
 
 |    结构名    | 内容 |
 | ---------- | --- |
-| requestContext |  请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceName，path，httpMethod 指向 API 网关的服务、API 的路径和方法；<li>stage 指向请求来源 API 所在的环境；<li>requestId 标识当前这次请求的唯一 ID；<li>identity 标识用户的认证方法和认证的信息；<li>sourceIp 标识请求来源 IP |
+| requestContext |  请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceId，path，httpMethod 指向 API 网关的服务Id、API 的路径和方法；<li>stage 指向请求来源 API 所在的环境；<li>requestId 标识当前这次请求的唯一 ID；<li>identity 标识用户的认证方法和认证的信息；<li>sourceIp 标识请求来源 IP |
 | path       |  记录实际请求的完整 Path 信息 |
 | httpMethod | 记录实际请求的 HTTP 方法 |
-| query | 记录实际请求的完整 Query 内容 |
+| queryString | 记录实际请求的完整 Query 内容 |
 | body | 记录实际请求的完整 Body 内容 |
 | headers | 记录实际请求的完整 Header 内容 |
 | pathParameters | 记录在 API 网关中配置过的 Path 参数以及实际取值 |
