@@ -22,8 +22,8 @@ struct ip_vs_tcpo_addr {
 •	CentOS 6.x
 •	CentOS 7.x
 >!
-- Windows操作系统不支持通过 toa 功能。
-- Linux其他版本，请咨询 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 获取技术支持。
+- Windows 操作系统不支持通过 toa 功能。
+- Linux 其他版本操作系统，请咨询 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 获取技术支持。
 
 ## 注意事项
 - 建议先在测试环境中进行安装和测试，确认功能可用、运行稳定后再部署到正式环境。
