@@ -35,7 +35,7 @@
 > - SystemConfiguration
 > - libc++.tbd
 
-#### 工程配置
+**工程配置**
 完成上述步骤之后，在 Build Settings 中设置 Other Linker Flags，加入以下参数：
 ```
 -ObjC
@@ -106,7 +106,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
 
-#### 存储桶 Bucket
+**存储桶 Bucket**
 V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过腾讯云控制台【账号信息】查看 APPID。
@@ -116,7 +116,7 @@ V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两�
 NSString *bucket = "mybucket1-1250000000";
 ```
 
-#### 存储桶可用区域简称 Region
+**存储桶可用区域简称 Region**
 V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
