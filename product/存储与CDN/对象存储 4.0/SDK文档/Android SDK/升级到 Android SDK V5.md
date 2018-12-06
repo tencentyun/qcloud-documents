@@ -170,7 +170,7 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 API 变化有以下三点：
 
-1. 不再支持目录操作
+**1）不再支持目录操作**
 
 在 SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
 为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
@@ -182,7 +182,7 @@ API 变化有以下三点：
 如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
-2. TransferManager
+**2）TransferManager**
 
 在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
@@ -262,7 +262,7 @@ cosxmlUploadTask.pause();
 cosxmlUploadTask.resume();
 ```
 
-3. 新增API
+**3）新增API**
 
 V5 增加了很多新的API，您可根据需求进行调用。包括：
 
