@@ -33,8 +33,13 @@ struct ip_vs_tcpo_addr {
 ## 获取客户端真实 IP
 1. 安装编译环境。
 `yum install gcc kernel-headers kernel-devel -y `
-2. 下载安装文件并解压。
-3. 执行`uname -a`命令，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。执行`make`命令，然后进行编译。
+2. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
+ ```
+wget  https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip
+unzip TOA_CentOS_v1.zip
+
+ ```
+3. 执行`uname -a`命令，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
 ```
 [root@VM_0_2_centos toa]# uname -r
@@ -49,6 +54,7 @@ all:
 clean:    
         rm *.o *.ko *.mod.c  Module.symvers modules.order
 ```
+4. 执行`make`命令进行编译。
 5. 移动模块并启动加载。
 ```
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
@@ -58,4 +64,4 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
 ## 卸载 toa 模块
-执行`rmmod toa`命令。
+执行`rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko`命令。
