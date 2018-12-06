@@ -39,7 +39,7 @@ struct ip_vs_tcpo_addr {
 wget  https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip
 unzip TOA_CentOS_v1.zip
  ```
-3. 执行`uname -a`命令，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
+3. 执行`uname -r`命令，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
 ```
 [root@VM_0_2_centos toa]# uname -r
@@ -64,7 +64,10 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
 ### 卸载 toa 模块
-执行`rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko`命令。
+执行以下命令，卸载 toa 模块。
+```
+rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
+```
 
 ## 使用网站业务转发规则
 使用高防 IP 网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
