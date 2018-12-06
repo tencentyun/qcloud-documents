@@ -20,7 +20,6 @@ BGP 高防 IP 支持 CC 防护功能，当高防 IP 统计的 HTTP 请求量超�
 - 限速模式下，每个自定义策略只允许设置**1**条策略条件。
 
 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】，在【CC攻击防护】页签，单击【添加策略】。根据实际业务需求设置以下参数，单击【确定】。
-![](https://main.qcloudimg.com/raw/30ebdcdbebe5e951c3aa9fa263e59787.png)
 - 策略名称
 输入策略名称，长度为1 - 20字符。
 - 模式
@@ -28,8 +27,8 @@ BGP 高防 IP 支持 CC 防护功能，当高防 IP 统计的 HTTP 请求量超�
  - 限速模式：对源IP访问进行限速处理。
 - 策略
  - 当选择【匹配模式】时，支持从 HTTP 报文的 host 参数、CGI 参数、Referer 和 User-Agent 等多个特征进行组合，组合逻辑包括包含、不包含和等于。最多可以设置**4**个策略条件进行特征控制。
- ![](https://main.qcloudimg.com/raw/3c7c7412f52dd81bca4f66e9679fbe46.png)
+![](https://main.qcloudimg.com/raw/58a65efbe5d5a89be92c01953b237585.png)
  - 当选择【限速模式】时，对每个源 IP 访问进行限速处理。只允许设置**1**个策略条件。
- ![](https://main.qcloudimg.com/raw/004262730bc9cd0d3b6f54b6816bb05e.png)
+![](https://main.qcloudimg.com/raw/d05e9996a490261822a43134f3c98ef3.png)
 - 执行
-策略匹配后，需执行的处理动作，包括拦截和验证码。
+仅当选择【匹配模式】时，需要设置该参数。表示策略匹配后，需执行的处理动作，包括拦截和验证码。
