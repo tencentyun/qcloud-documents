@@ -30,7 +30,7 @@ CKV 主从版通过独有的方案，保证版本升级做到业务无感知，�
 
 
 ##  连接示例
-CKV 主从版仅支持“实例 ID:密码” 的密码格式类型，例如您的实例 ID 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令是 redis-cli -h IP地址 -p 端口 -a crs-bkuza6i3:abcd1234。
+CKV 主从版仅支持“实例 ID:密码” 的密码格式类型，例如您的实例 ID 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令是 `redis-cli -h IP地址 -p 端口 -a crs-bkuza6i3:abcd1234`。
 
 ## 兼容性
 CKV 主从版支持的命令：
