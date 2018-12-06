@@ -1,7 +1,7 @@
-## Constructing a Web Application Using Tencent Cloud Container Service
+## Constructing a Web Application Using Tencent Kubernetes Engines
 
 
-This document shows how to build a simple Web application in Tencent Cloud's CCS
+This document shows how to build a simple Web application in Tencent Cloud's TKE
 
 ### The Web Application Consists of Two Sections:
 

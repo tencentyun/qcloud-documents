@@ -2,21 +2,16 @@
 
 ### 1. 下载服务资源压缩包
  
-- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-core-1.1.0.zip) 并解压。
-- 下载 [移动开发平台（MobileLine） Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.1.0/tac-payment-1.1.0.zip) 并解压。
+- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.file.myqcloud.com/tac-core.zip) 并解压。
+- 下载 [移动开发平台（MobileLine） Payment 资源包](http://tac-android-libs-1253960454.file.myqcloud.com/tac-payment.zip) 并解压。
                              
-### 2. 集成 jar 包
+### 2. 集成 QQ 支付
 
-将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。资源文件中只包含了微信支付渠道的 jar 包，如果您需要同时接入 QQ 支付，那么必须将 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 也添加到您工程的 `libs` 目录。
+如果您需要同时接入 QQ 支付，那么必须将 [mqqopenpay.jar](http://tac-android-libs-1253960454.file.myqcloud.com/jars/mqqopenpay.jar) 也添加到您工程的 `libs` 目录。
 
-### 3. 集成 资源文件
- 
-- 将Payment 资源包中的 `assets` 目录下的文件拷贝到您工程的 `assets` 目录下
-- 将Payment 资源包中的 `res` 目录下的所有文件拷贝到您工程的 `res` 目录下，注意 `values.xml` 需要和您原来的字符串文件合并。
+### 3. 修改 AndroidManifest.xml 文件
 
-### 4. 修改 AndroidManifest.xml 文件
-
-首先添加如下 `permission` 声明：
+如果您不是通过 aar 集成，首先添加如下 `permission` 声明：
 
 ```
 <!-- 必选权限 -->

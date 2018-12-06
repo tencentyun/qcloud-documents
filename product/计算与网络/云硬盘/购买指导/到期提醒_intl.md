@@ -15,7 +15,7 @@ On the day when prepaid resources expire and every two days after that, we will 
 
 ## Expiry Reminder for Postpaid Cloud Disks
  
- ![](//mccdn.qcloud.com/img567f91951599d.png)
+ ![](https://main.qcloudimg.com/raw/3a50706a27bfc92a2a52d524e04beca9.png)
  
 ### Balance Reminder
 We will estimate the remaining available period of your account based on your usage of postpaid resources under your account and your balance over the past 24 hours. We will send you a balance reminding message if the remaining period is less than 5 days. The reminding message will be sent to Tencent Cloud account creator and all the collaborators via email and SMS.

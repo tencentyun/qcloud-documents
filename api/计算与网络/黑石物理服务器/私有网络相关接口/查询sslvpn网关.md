@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeBmSslVpnGwEx 用于获取黑石sslvpn网关。
+DescribeBmSslVpnGw 用于获取黑石sslvpn网关。
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -8,7 +8,7 @@ DescribeBmSslVpnGwEx 用于获取黑石sslvpn网关。
 
 语法示例：
 ```
-GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGwEx
+GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGw
     &<公共请求参数>
     &unVpcId=<私有网络唯一ID>
 ```
@@ -84,7 +84,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGwEx
 ### 请求
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
-	Action=DescribeBmSslVpnGwEx
+	Action=DescribeBmSslVpnGw
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=11362
 	&Timestamp=1515570588

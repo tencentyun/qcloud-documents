@@ -3,7 +3,7 @@
 This API is used to push the reason why voice verification code or voice notification is failed to be delivered to the target mobile number.
 
 ### URL Example
-`https://yun.tim.qq.com/voice/voicecallback`
+`POST https://yun.tim.qq.com/voice/voicecallback`
 
 ## Request Parameters
 ```json
@@ -45,6 +45,3 @@ This API is used to push the reason why voice verification code or voice notific
 |--------|------|--------|---------------------------|
 | errmsg | Yes | String | The specific error message when the "result" is not 0 |
 | result | Yes | Number | Error code. 0: Successful. Other values: Failed |
-
-
-

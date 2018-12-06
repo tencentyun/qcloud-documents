@@ -35,7 +35,7 @@ X-Real-IP: 163.177.93.244
 X-Forwarded-For: 106.19.71.102, 163.177.93.244
 Date: Sun, 21 Sep 2017 06:18:21 GMT
 Authorization: hmac id="AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN", algorithm="hmac-sha1", headers="Date Host", signature="630c82836582f78b90f293b2f38bda9c"
-//签名，具体签名方法见认证与安全中的秘钥计算方法
+//签名，具体签名方法见认证与安全中的密钥计算方法
 </code></pre>
 
 

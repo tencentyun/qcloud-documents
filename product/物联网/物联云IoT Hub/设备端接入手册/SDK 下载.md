@@ -5,6 +5,16 @@
 - 下载最新版 
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
   
+### 版本 v2.2.0  
+- 发布日期：2018/07/20
+- 开发语言：C语言
+- 开发环境：Linux, GNU Make
+- 内容：
+	1、新增 NBIoT 设备接入能力
+	2、适配 TOPIC 的通配符 “#” 和 “+”
+	3、整理第三方库的目录结构
+	4、若干 bug 的修复
+  
 ### 版本 v2.1.0
 - 发布日期：2018/05/02
 - 开发语言：C语言

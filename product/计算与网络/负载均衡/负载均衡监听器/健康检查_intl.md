@@ -20,8 +20,8 @@ Auto scaling group regularly checks the running status of instances within each 
 
 Under the health check mechanism for Layer-4 forwarding, cloud load balancer initiates an access request to the CVM port specified in the configuration. If the access to the port is normal, the backend CVM is considered normal, otherwise it is considered abnormal. For TCP services, SYN packet is used for the check. For UDP services, Ping command is used for the check.
 
-- Response timeout: 2-60 seconds 
-- Check interval: 5-300 seconds 
+- Response timeout: 2-60 seconds
+- Check interval: 5-300 seconds
 - Unhealthy threshold: 2-10 times (When the response timeout has happened to a healthy backend CVM for the specified number of times, the backend CVM is considered unhealthy)
 - Healthy threshold: 2-10 times (When the response timeout has happened to an unhealthy backend CVM for the specified number of times, the backend CVM is considered healthy)
 
@@ -30,9 +30,10 @@ Under the health check mechanism for Layer-4 forwarding, cloud load balancer ini
 Under the health check mechanism for Layer-7 forwarding, the cloud load balancer sends an HTTP request to the backend CVM to check the backend services. The cloud load balancer determines the running status of the service based on whether the returned value of HTTP is `http_2xx` or `http_4xx`. In the future, users will be allowed to customize the descriptions of the statuses represented by response codes. For example, in a certain scenario, HTTP returned values include `http_1xx`, `http_2xx`, `http_3xx`, `http_4xx` and `http_5xx`. Users can, based on business needs, define `http_1xx` and `http_2xx` as normal status and the values from `http_3xx` to `http_5xx` as abnormal status.
 
 - Response timeout cannot be configured. Default is 5 seconds.
-- Check interval is 5-300 seconds. Default is 6 seconds.
+- Check interval is 5-300 seconds, default is 6 seconds.
 - Unhealthy threshold: 2-10 times, default is 3 times. When the response timeout has happened to a healthy backend CVM for the specified number of times, the backend CVM is considered unhealthy.
 - Healthy threshold: 2-10 times, default is 3 times. When the response timeout has happened to an unhealthy backend CVM for the specified number of times, the backend CVM is considered healthy.
+- HTTP Request Method: by default, the HEAD method is used. The server only returns the HTTP header information. The corresponding backend service needs to support HEAD. Selecting HEAD method can reduce back-end overhead and improve the request efficiency. If the GET method is used, the backend service needs to support GET.
 
 ## How to Troubleshoot in Health Check
 ### Layer-4 Troubleshooting
@@ -85,12 +86,14 @@ Check whether the firewall of private network on server allows port 80. You can 
 
 6) Check whether there is a high load on the backend CVM that leads to slow response of CVM to provide service.
 
+7) Check the HTTP request method. If you use the HEAD method, the backend service must support HEAD. If it is a GET method, the backend service must support GET.
+
 ### Notes about too frequent health check
 
 Health check packets are sent too frequently. Each health check packet is sent every 5 seconds as configured in the console. But the backend RS finds that one or more health check requests are received in one second. Why is that?
 
 Too frequent health check is caused by the implementation mechanism of CLB backend health check. Assume that 1 million requests from client are distributed on four LB backend physical machines before being sent to the CVM, and each LB backend physical machine conducts health check separately. If the LB instance is set to send a health check request every 5 seconds, each physical machine on the LB backend sends a health check request every 5 seconds. That's why the backend CVM receives multiple health check requests. For example, if the cluster to which an LB instance belongs has eight physical machines, and each machine sends a request every 5 seconds, the backend CVM may receive 8 health check requests in 5 seconds.
 
-The advantages of this implementation solution are high efficiency, accurate check, and avoidance of mis-removal. For example, if one of eight physical machines in the LB instance cluster fails, the other seven machines can still forward traffic normally. 
+The advantages of this implementation solution are high efficiency, accurate check, and avoidance of mis-removal. For example, if one of eight physical machines in the LB instance cluster fails, the other seven machines can still forward traffic normally.
 
 Therefore, if your backend CVM is checked too frequently, you can set the check interval to be much longer, such as, 15 seconds.

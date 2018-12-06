@@ -20,10 +20,7 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 This API allows GET request.
 ### Request Parameters
-Example of request line that contains all request parameters.
-```
-GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&part-number-marker=PartNumberMarker HTTP/1.1
-```
+
 See the details below: <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 | Parameter Name | Description | Type | Required |
@@ -135,7 +132,7 @@ Content of Container node Part:
 GET /coss3/test10M_2?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
 Host:burning-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed, 18 Jan 2017 16:17:03 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadId&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadid&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
 ```
 
 ### Response

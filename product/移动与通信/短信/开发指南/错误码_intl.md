@@ -5,7 +5,7 @@
 <tr><td>1001</td><td>sig verification failed.</td><td>Check the sig format of the API.</td></tr>
 <tr><td>1002</td><td>Text/Voice SMS contains sensitive words.</td><td>A response packet including these sensitive words is returned. Delete these words and send again.</td></tr>
 <tr><td>1003</td><td>sig field is missing or left empty in request packet.</td><td>Comply with the specifications in API description.</td></tr>
-<tr><td>1004</td><td>Failed to resolve request packet. This is generally because the specifications in API description is not complied with.</td><td>Refer to <a href="/doc/product/382/3772#11-1004.E9.94.99.E8.AF.AF.E8.AF.A6.E8.A7.A3">1004 error description.</a></td></tr>
+<tr><td>1004</td><td>Failed to resolve request packet. This is generally because the specifications in API description is not complied with.</td><td>Refer to <a href="https://intl.cloud.tencent.com/document/product/382/9558#what-can-i-do-if-a-1004-error-is-returned.3F">1004 error description.</a></td></tr>
 <tr><td>1006</td><td>No permission to request. For example, no extended code permission, etc.</td><td>Check error message. For other questions, provide the mobile number from which you failed to send SMS message when you <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
 <tr><td>1007</td><td>Other error</td><td>Check error message. For other questions, provide the mobile number from which you failed to send SMS message when you <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
 <tr><td>1008</td><td>Request to send text/voice SMS timed out.</td><td>Rare occurrence. Try again.</td></tr>
@@ -13,10 +13,10 @@
 <tr><td>1011</td><td>REST API does not exist.</td><td>Check REST API description.</td></tr>
 <tr><td>1012</td><td>Signature format is incorrect or signature is not approved.</td><td>Signature is a combination of 2-8 characters comprised of English letter and numbers only. If the signature format is correct, check whether it is approved.</td></tr>
 <tr><td>1013</td><td>Text/Voice SMS hits the delivery frequency limit policy. </td><td>You can adjust the delivery frequency limit policy for text SMS messages on the console. For voice SMS messages, <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
-<tr><td>1014</td><td>Template is not approved or request content does not match the approved template content.</td><td>Refer to <a href="/doc/product/382/3772#12-1014.E9.94.99.E8.AF.AF.E8.AF.A6.E8.A7.A3">1014 error description.</a></td></tr>
+<tr><td>1014</td><td>Template is not approved or request content does not match the approved template content.</td><td>Refer to <a href="https://intl.cloud.tencent.com/document/product/382/9558#what-can-i-do-if-a-1014-error-is-returned.3F">1014 error description.</a></td></tr>
 <tr><td>1015</td><td>Number on the blacklist. This is generally because you unsubscribed from the SMS service or hit the operator's blacklist.</td><td><a href="/doc/product/382/3773">Contact SMS Helper </a>to solve the problem.</td></tr>
 <tr><td>1016</td><td>Incorrect number format</td><td>Check whether the format of the mobile number from which you send text/voice SMS is correct.</td></tr>
-<tr><td>1017</td><td>The content of the requested SMS is too long.</td><td><a href="/doc/product/382/3772#2-.E7.9F.AD.E4.BF.A1.E9.95.BF.E5.BA.A6">The length of SMS content </a>exceeds the limit. Adjust the length of SMS content.</td></tr>
+<tr><td>1017</td><td>The content of the requested SMS is too long.</td><td>The length of SMS content exceeds the limit. Adjust the length of SMS content.</td></tr>
 <tr><td>1018</td><td>The format of voice verification code is incorrect.</td><td>Comply with the specifications in the API description.</td></tr>
 <tr><td>1019</td><td>sdkappid does not exist.</td><td></td></tr>
 <tr><td>1020</td><td>sdkappid is disabled.</td><td>This sdkappid is unavailable. If necessary, <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
@@ -26,9 +26,9 @@
 <tr><td>1024</td><td>The number of SMS messages sent from a single mobile number within 1 hour exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
 <tr><td>1025</td><td>The number of SMS messages sent from a single mobile number every day exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
 <tr><td>1026</td><td>The number of the same SMS messages sent from a single mobile number exceeds the upper limit.</td><td>You can adjust the SMS delivery frequency limit policy on the console.</td></tr>
-<tr><td>1029</td><td>Time constraint on delivering marketing SMS messages.</td><td>Check <a href="/doc/product/382/9557#5-.E8.90.A5.E9.94.80.E7.9F.AD.E4.BF.A1.E8.A7.84.E8.8C.83">when the marketing SMS messages can be sent.</a></td></tr>
+<tr><td>1029</td><td>Time constraint on delivering marketing SMS messages.</td><td>To avoid disturbing users, marketing SMS messages are only allowed to be sent between 8:00 and 22:00.</td></tr>
 <tr><td>1030</td><td>This request is not supported.</td><td></td></tr>
-<tr><td>1031</td><td>Insufficient balance in SMS package.</td><td>Purchase <a href="https://buy.cloud.tencent.com/sms">package.</a></td></tr>
+<tr><td>1031</td><td>Insufficient balance in SMS package.</td><td>Purchase package.</td></tr>
 <tr><td>1032</td><td>Individual user does not have the permission to send marketing SMS messages.</td><td></td></tr>
 <tr><td>1033</td><td>Service is suspended due to arrears.</td><td>You can top up your account by logging in to Tencent Cloud to pay off the overdraft.</td></tr>
 </table>

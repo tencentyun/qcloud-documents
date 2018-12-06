@@ -1,5 +1,6 @@
 1. Enter your information to sign up.
-![](https://main.qcloudimg.com/raw/25c5572baa9d4c12600be73b9b8c0572.png)
+![](https://main.qcloudimg.com/raw/654702003585c0224ddc4d17e9c88631.png)
+![](https://main.qcloudimg.com/raw/262d2f0ecb2ea9abc07d02f10254c50c.png)
 
 2. After submitting your information, you will receive an email for account activation. You can click the URL containing in the email to activate your account. If the account is left inactivated for a long time, the URL will expire. Therefore, you need to resend the activation email after login.
 ![](https://main.qcloudimg.com/raw/13f692482d5d9eda0048450bf1da818a.png)

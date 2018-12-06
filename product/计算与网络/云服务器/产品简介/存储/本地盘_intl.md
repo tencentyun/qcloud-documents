@@ -1,37 +1,64 @@
-Local disk is a storage device located on the same physical server as the CVM instance and is featured by high read/write IO and low latency. Local disk comes from the local storage of the physical machine where the CVM resides. It is a storage area reserved on the physical machine where the CVM resides. It is advised to choose local disk for both system disk and data disk. In addition, in case of the purchase of a High IO model, only SSD local disk is recommended. However, a CVM for which local disk is selected DOES NOT support the upgrade of hardware (CPU, memory) and only supports upgrade of bandwidth.
+## Overview
+Local disk is a storage device located on the same physical server as the CVM instance and features high read/write IO and low latency.
+It is a local storage reserved on the physical machine where the CVM resides in. You can choose local disks as system disks and data disks for most of Tencent instances.
 
-## Lifecycle of local disk
-Since the local disk can only be created following CVM instances,  it will be started and stopped with the life cycle of CVM.
+- **Lifecycle**: Local disk is created with the creation of CVM instance, so its life cycle is same as that of CVM.
+- **Purchase**: Local disk can only be enabled with the enabling of CVM, which means you can specify a local disk only when purchasing a CVM instance. For more information about purchasing a CVM, please see [Purchase and Enable an Instance](/doc/product/213/4855).
 
-## Types of local disks
+>**Note:**
+>For a CVM with local disk, you cannot upgrade hardware (CPU and memory), and can only upgrade bandwidth.
 
-The local disk is a local storage located on the physical machine where the CVM resides. By storage media, local disks are classified into local HDD and SSD local disk.
-
+## Type
+Local disk is a local storages on the physical machine where the CVM resides in, and can be classified into local HDDs and SSDs according to their media.
 ### Local HDD
+<table class="typical">
+	<tbody>
+	<tr>
+		<th>Type</th>
+		<th>Available specification</th>
+		<th>Performance</th>
+		<th>Price</th>
+	</tr>
+	<tr>
+		<td>System disk</td>
+		<td>Always 50 GB and unchangeable</td>
+		<td rowspan="2">Peak throughput: 40 - 100 MB/s. IOPS: hundreds - 1000.</td>
+		<td rowspan="2">Prepaid: 0.3 CNY/GB/month<br>Postpaid: 0.00042 CNY/GB/hour</td>
+	</tr>
+	
+	<tr>
+		<td>Data disk</td>
+		<td>A capacity ranging from 10 GB to 1600 GB (in 10 GB increments) is supported. The maximum capacity supported varies with hardware configuration.</td>
+	</tr>
+</tbody></table>
 
-The local HDD is a local storage located on the physical machine where the CVM instances reside. It is a part for storage separated from the physical machine where the CVM instances are located. You cannot upgrade hardware (CPU and memory) in CVM with local disk, except the bandwidth.
+### Local SSD
+Local SSD is a local storage on the physical machine where the CVM resides in. It provides instances with full SSD block-level data access capability with a low latency, high random IOPS, and high I/O throughput.
+<table class="SSD">
+	<tbody>
+	<tr>
+		<th>Type</th>
+		<th>Available specification</th>
+		<th>Performance</th>
+		<th>Price</th>
+	</tr>
+	<tr>
+		<td >System disk</td>
+		<td>Always 50 GB and unchangeable</td>
+		<td rowspan="2">Peak throughput: 250 MB/s<br>Its IOPS for random write reaches up to 10000 (blocksize = 4k, iodepth = 32)<br>Its IOPS for random read reaches up to 75000 (blocksize = 4k, iodepth = 32)<br>Access latency is less than 3 ms.
+</td>
+		<td rowspan="2">Prepaid: 0.8 CNY/GB/month<br/>Postpaid: 0.0033 CNY/GB/hour</td>
+	</tr>
+	<tr>
+		<td>Data disk</td>
+		<td>A capacity ranging from 10 GB to 7000 GB (in 10 GB increments) is supported. The maximum capacity supported varies with hardware configuration.</td>
+	</tr>
+</tbody></table>
 
+Local SSD is suitable for the following scenarios:
 
-| Specifications | Performance | Price |
-|---------|---------|---------|
-| System disk: a fee-free capacity of 20 GB. You can choose to buy disks of a larger capacity. It supports a maximum of 50 GB (Linux)<br><br> A fee-free non-expandable capacity of 50 GB (Windows).<br><br> Data disk: the local HDD supports the capacity from 10 GB up to 1,000 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Reading and writing speed of more than 80 MB/S | Postpaid: USD $0.01/100 GB/hour |
-
-### SSD local disk
-The SSD local disk is a local storage located on the physical machine where the CVM resides, providing instances with block-level data access with low latency, high random IOPS, and high I/O throughput.
-
-| Specifications | Performance | Price |
-|---------|---------|---------|
-| System disk:<br> a fee-free capacity of 20 GB (Linux)<br> A fee-free non-expandable capacity of 50 GB (Windows)<br><br> Data disk: the SSD local disk supports the capacity from 10 GB up to 250 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Throughput of up to 300 MB/s and 30,000 random IOPS| Postpaid: USD $0.03/100 GB/hour |
-
-SSD local disk is suitable for the following scenarios:
-
-- Low latency: the access latency in microseconds 
-- Distributed application: NoSQL, MPP data warehouse, distributed file system and other I/O intensive applications. These applications have their own distributed data redundancy. 
-- Logs for large online applications: large online applications can produce a large amount of log data and require high-performance storage, while the log data does not require highly reliable storage. 
-- Single point of failure (SPOF) risks:  There are the potential SPOF risks. It is recommended to implement data redundancy at the application layer to ensure data availability.
-
-
-## Purchasing local disks
-Since the local disk can only be started together with the launch of CVM,  you can just specify the local disks when purchasing CVM instances. For more information, please refer to the [Purchase and Start an Instance](/doc/product/213/4855).
-
+- Low latency: Access latency within microseconds. 
+- Distributed application: NoSQL, MPP data warehouse, distributed file system and other I/O intensive applications. These applications themselves have distributed data redundancy. 
+- Logs for large online applications: Large online applications produce a large amount of log data, which require high-performance storage with less demand on storage reliability. 
+- Single point of failure (SPOF) risk: If SPOF risk exists, it is recommended to implement data redundancy at the application layer to ensure data availability.
 

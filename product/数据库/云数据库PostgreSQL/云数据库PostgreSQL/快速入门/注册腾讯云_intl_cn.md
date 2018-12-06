@@ -1,0 +1,1 @@
+新用户注册腾讯云账户的流程请参考[该文档](<https://intl.cloud.tencent.com/document/product/378/17985>) 。

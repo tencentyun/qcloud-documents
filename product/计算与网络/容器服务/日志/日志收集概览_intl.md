@@ -23,7 +23,7 @@ To provide log visualization capability, you are recommended to consume log data
  
 ## Concepts
 
-- Log collection Agent: The Agent that CCS used to collect log information. it's developed based on Fluentd and runs in a form of Daemonset.
+- Log collection Agent: The Agent that TKE used to collect log information. it's developed based on Fluentd and runs in a form of Daemonset.
 
 - Log collection rule: Users can use log collection rules to specify the source of logs and the location to which collected logs are sent. Log collection Agent monitors changes in log collection rules. Changed or new rules take effect within 10 seconds. Configuration of multiple log collection rules cannot lead to the creation of multiple Daemonsets. However, the log collection Agent may take up more resources if too many rules are configured.
 

@@ -6,7 +6,7 @@
 
 ## 接入流程
 
-登录 [腾讯云点播控制台](https://console.cloud.tencent.com/video/license) 在线申请为期两周的基础版试用LICENSE，可免费申请两次。Licence有两种：
+登录 [腾讯云点播控制台](https://console.cloud.tencent.com/video/license) 在线申请为期两周的商业版试用LICENSE，可免费申请两次。Licence有两种：
 
 - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
 - 正式Licence：有效期根据最终的合同而定，一般为一年。

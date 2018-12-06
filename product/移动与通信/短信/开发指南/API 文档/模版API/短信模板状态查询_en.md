@@ -4,7 +4,7 @@ This API is used to query the status of the SMS text message (or voice message) 
 
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/get_template?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/get_template?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -84,5 +84,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | reply | Yes | String | Approval information. If "status" is 2, the reason for rejection is returned |
 | text | Yes | String | Template content |
 | type | Yes | Number | SMS message type. 0: general message; 1: marketing message. |
-
-

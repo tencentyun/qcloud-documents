@@ -139,7 +139,7 @@ output {
     }
 }
 ```
-更多有关 kafka 数据源的接入，请查阅官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
+更多有关 JDBC 数据源的接入，请查阅官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
 
 
 ## 使用 Beats 接入 ES 集群
@@ -153,7 +153,7 @@ Beats 包含用于收集文件类型数据的 FileBeat, 收集监控指标数据
 1. 安装部署 filebeat。
 ```
 	wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.4-linux-x86_64.tar.gz
-	tar xvf logstash-5.6.4.tar.gz
+	tar xvf filebeat-5.6.4.tar.gz
 ```
 2. 配置 filebeat.yml。
 3. 执行filebeat。

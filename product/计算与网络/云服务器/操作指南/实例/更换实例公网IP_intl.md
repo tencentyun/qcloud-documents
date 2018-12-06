@@ -1,18 +1,18 @@
-The public network IP of the instance can be replaced by binding and unbinding the EIP. After the EIP is bound, the original public network IP will be lost and cannot be retrieved. After the EIP is released, a new free public IP will be assigned to complete the public IP replacement.
+The public network IP of the instance can be replaced by binding and unbinding the EIP. After the EIP is bound, the original public network IP will be lost and cannot be retrieved. After the EIP is released, a new public IP will be assigned for free to complete the public IP replacement.
 
 > **Note:**
 > Release the unbound EIP as soon as possible if you no longer use it. Otherwise, you will be billed for the idle EIP. The released EIP cannot be retrieved. For more information, please see [Billing Method](https://cloud.tencent.com/document/product/215/11145).
 
 ## Binding an EIP
-1. Log in to Tencent Cloud, enter the CVM [management page](https://console.cloud.tencent.com/cvm/index) of the CVM console, and click **More** -> **IP Operation** -> **Bind EIP**.
+1. Log in to Tencent Cloud CVM console to enter the CVM [management page](https://console.cloud.tencent.com/cvm/index), and click **More** -> **IP Operation** -> **Bind EIP**.
 ![](https://main.qcloudimg.com/raw/d9c315bdbc0ddb0355794b2bf255ab2c.png)
-2. After confirming the information in the pop-up box, click **Convert**.
+2. Confirm the information in the pop-up box, and then click **Convert**.
 ![](https://main.qcloudimg.com/raw/1dee2e6fae92713aec29669c8b13e63d.png)
 3. The EIP converted successfully is shown as below:
 ![](https://main.qcloudimg.com/raw/7dfeb52aaf8d2378678e902813cd8644.png)
 
 > **Note:**
-> It is recommended to bind the applied EIP with the CVM immediately. Otherwise, you will be billed for the idle EIP. For more information on billing, please see [Billing Method](https://cloud.tencent.com/document/product/215/11145).
+> It is recommended to bind the requested EIP with the CVM immediately. Otherwise, you will be billed for the idle EIP. For more information on billing, please see [Billing Method](https://cloud.tencent.com/document/product/215/11145).
 
 ## Unbinding EIP
 1. To convert the EIP back to public network IP, click **More** -> **IP Operation** -> **Unbind EIP**.

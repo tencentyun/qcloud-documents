@@ -89,11 +89,11 @@ $ret = $api->comm_rest("group_open_http_svc", "group_get_group_member_info", $re
 ### 独立模式
 1. 配置 TimRestApiConfig.json 文件，其中： identifier 为 App 管理者账户；private_pem_path 为本地私钥位置；user_sig 请填""。
 2. 查看 signature 文件夹中对应脚本使用权限，如果无可执行权限，需要修改权限使其可被执行。
-3. 执行 php TimRestApiGear.php 可看到该工具访问命令(用法)。 详情请见：代码包中 README 文件。
+3. 执行 PHP TimRestApiGear.php 可看到该工具访问命令(用法)。 详情请见：代码包中 README 文件。
 
 ### 托管模式
 1. 配置 TimRestApiConfig.json 文件，其中： identifier 为App管理者账户； user_sig 为托管模式用户下载到的用户凭证，下载方式参见 [下载 UserSig](/doc/product/269/下载UserSig)；private_pem_path 请填""。
-2. 执行 php TimRestApiGear.php 可看到该工具访问命令（用法）。 详情请见：代码包中 README 文件。
+2. 执行 PHP TimRestApiGear.php 可看到该工具访问命令（用法）。 详情请见：代码包中 README 文件。
 
 ## SDK下载
 您可通过如下两种方式下载：

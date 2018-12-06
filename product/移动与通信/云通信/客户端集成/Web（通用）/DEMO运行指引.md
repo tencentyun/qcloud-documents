@@ -26,13 +26,13 @@ Web 服务器软件：Apache 2.4 64 位
 D:\Program Files\Apache24\conf\httpd.conf
 ```
 
-- 找到 `Define SRVROOT` 这一项，将其右方的值改为当前你 Apache 安装存放的目录地址，如下：
+- 找到 `Define SRVROOT` 这一项，将其右方的值改为当前您 Apache 安装存放的目录地址，如下：
 
 ```
 Define SRVROOT "D:/Program Files/Apache24"
 ```
 
-- 继续找，找到 `Listene 80`，若你电脑的 80 端口被占用（可在 `cmd` 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口，如下：
+- 继续找，找到 `Listene 80`，若您电脑的 80 端口被占用（可在 `cmd` 下用命令 `netstat -a` 查看），则将 80 端口改为别的端口，这里我们使用 8080 端口，如下：
 
 ```
 Listen 8080
@@ -61,7 +61,7 @@ C:\Users\peakerdong>"D:\Program Files\Apache24\bin\httpd.exe" -k install -n apac
 
 - 单击左侧 【start】，启动 Apache 服务。
 
-- 打开浏览器，输入访问 `http://localhost`，如果你设置的端口是 8080，则访问地址是 `http://localhost:8080/`，出现以下界面，表示 Apahce启动成功。
+- 打开浏览器，输入访问 `http://localhost`，如果您设置的端口是 8080，则访问地址是 `http://localhost:8080/`，出现以下界面，表示 Apahce启动成功。
 
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)
 

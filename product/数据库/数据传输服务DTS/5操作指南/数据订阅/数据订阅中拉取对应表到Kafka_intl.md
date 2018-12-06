@@ -24,7 +24,7 @@ Log in to the [Tencent Cloud console](https://console.cloud.tencent.com/), and c
 
 ### Select data subscription
 1. Log in to the [DTS console](https://console.cloud.tencent.com/dtsnew/migrate/page), and select **Data Subscription** on the left to go to the Data Subscription page.
-2. Click the name of a CDB instance to be synced to launch it. Then, go back to Data Subscription, and click the data subscription you have created. For more information, please see [How to Obtain Data Subscription](https://cloud.tencent.com/document/product/571/13707).
+2. Click the name of a TencentDB instance to be synced to launch it. Then, go back to Data Subscription, and click the data subscription you have created. For more information, please see [How to Obtain Data Subscription](https://cloud.tencent.com/document/product/571/13707).
 3. Check the corresponding DTS tunnel, IP, and Port, and enter the key you previously obtained in the KafkaDemo.java file.
 ```
   // Enter the key obtained from the cloud API

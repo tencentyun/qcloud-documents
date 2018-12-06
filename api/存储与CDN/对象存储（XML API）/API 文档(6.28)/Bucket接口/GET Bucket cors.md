@@ -2,7 +2,7 @@
 GET Bucket cors 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（cors 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
-请求示例：
+### 请求示例
 
 ```
 GET /?cors HTTP/1.1
@@ -10,43 +10,30 @@ Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
+
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
-
-### 请求行
-
-```
-GET /?cors HTTP/1.1
-```
-
-该 API 接口接受 `GET` 请求。
-
 
 ### 请求头
 
 #### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
-
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 #### 非公共头部
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
+
 ### 响应头
-
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
-
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-
-
-该请求操作无特殊的响应头部信息。
+该响应无特殊的响应头。
 
 ### 响应体
 获取跨域资源共享的信息配置成功。
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CORSConfiguration>
@@ -85,12 +72,7 @@ ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自�
 
 
 ### 错误码
-
-错误码|描述|HTTP 状态码
----|---|---
-NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-NoSuchCORSConfiguration|跨域配置不存在|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
 
 ## 实际案例
 

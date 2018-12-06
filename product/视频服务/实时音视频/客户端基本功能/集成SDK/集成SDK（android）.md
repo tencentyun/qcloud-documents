@@ -8,8 +8,10 @@
 ### 添加依赖( 集成 SDK )
 修改 build.gradle 文件，在 dependencies 中添加 iLiveSDK 的依赖：
 ```
-compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号)
+compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
+
+[最新版本说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo)
 
 ### 创建一个应用
 在 layout 中创建一个简单布局 main.xml 资源：
@@ -62,7 +64,7 @@ public class MainActivity extends Activity {
 编译运行，可以看到效果：
 
 ```
-iLiveSDK:1.8.5
+iLiveSDK:1.8.7
 IMSDK:2.5.6.11073.11080
 AVSDK:1.9.8.2
 ```

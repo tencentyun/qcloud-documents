@@ -1,28 +1,24 @@
 ## 功能描述
+PUT Bucket versioning 接口实现启用或者暂停存储桶的版本控制功能。
 
-PUT Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功能。
 ### 细节分析
-1. 版本管理功能一经打开，只能暂停，不能关闭；
-2. 可以设置版本管理状态为 Enabled 或者 Suspended，表示开启版本管理和暂停版本管理；
-3. 设置版本版本管理，你需要有存储桶写权限。
+
+1. 如果您从未在存储桶上启用过版本控制，则 GET Bucket versioning 请求不返回版本状态值。
+2. 开启版本控制功能后，只能暂停，不能关闭。
+3. 设置版本控制状态值为 Enabled 或者 Suspended，表示开启版本控制和暂停版本控制。
+4. 设置存储桶的版本控制功能，您需要有存储桶的写权限。
 
 ## 请求
+### 请求示例
 
-语法示例：
 ```
 PUT /?versioning HTTP 1.1
 Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT date
 Authorization: Auth String
 ```
+
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
-
-### 请求行
-
-```
-PUT /?versioning HTTP 1.1
-```
-该 API 接口接受 PUT 请求。
 
 ### 请求头
 
@@ -36,9 +32,10 @@ PUT /?versioning HTTP 1.1
 
 ```
 <VersioningConfiguration>
-  <Status>Enabled</Status>
+  <Status></Status>
 </VersioningConfiguration>
 ```
+
 具体的数据内容如下：
 
 | 节点名称（关键字）                | 父节点               | 描述    | 类型   |
@@ -50,21 +47,22 @@ PUT /?versioning HTTP 1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
-该响应体返回为空。
+该响应体为空。
+
 ### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+以下描述此请求可能会发生的一些特殊的且常见的错误情况。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码             | HTTP状态码         |描述                                       | 
 | -------------- | --------------------------------------- | -------------- |
-| InvalidArgument | 400 Bad Request |如果开启版本管理的 xml body 为空，会返回 InvalidArgument  | 
-| InvalidDigest   |400 Bad Request | 1. 携带的 Content-MD5 和服务端计算的请求 body 的不一致；<br>2. 开启版本管理的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，会返回 InvalidArgument | 
+| InvalidArgument | 400 Bad Request |如果开启版本控制的 xml body 为空，会返回 InvalidArgument  | 
+| InvalidDigest   |400 Bad Request | 1. 携带的 Content-MD5 和服务端计算的请求 body 的不一致；<br>2. 开启版本控制的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，会返回 InvalidArgument | 
 
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 
 ## 实际案例
 ```

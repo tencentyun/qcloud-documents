@@ -1,108 +1,93 @@
 ## Basics
-RTMP SDK includes two features, Push and Playback. Push works at the VJ side, while Playback, including Live Video Broadcasting (LVB) and Video On Demand (VOD), functions at the viewer side. Before getting started with the code interfacing, let's learn some basic facts:
+This document describes the LVB playback feature of Tencent Video Cloud SDK. The following are the basics you must learn before getting started.
 
 - **LVB and VOD**
-LVB video source is generated in real time, and only makes sense when someone pushes the LVB stream. Therefore, once the VJ stops broadcasting, the LVB URL will become invalid. Since the video is played in real time, no progress bar is displayed on the player during the LVB.
+The video source of <font color='blue'>LVB (LIVE)</font> is pushed by VJ in real time. When the VJ stops broadcasting, the video image on the playback device stops. In addition, the video is broadcasted in real time, no progress bar is displayed when the player is playing the LVB URL.
 
-VOD's video source is a file on cloud, which can be played at any time as long as it has not been deleted by the provider. Since the entire video file is stored on the server, a progress bar will be displayed during playback.
+ The video source of <font color='blue'>Video On-demand (VOD)</font> is a video file on cloud, which can be played at any time as long as it has not been deleted from the cloud. You can control the playback progress using the progress bar. The video playbacks on Tencent Video and Youku Tudou are typical VOD scenarios.
 
 - **Supported Protocols**
-Commonly used LVB protocols are as follows. It is recommended to use LVB URL based on FLV protocol (starting with "http" and ending with ".flv") on APPs:
+Commonly used LVB protocols are as follows. It is recommended to use an LVB URL based on the FLV protocol (starting with "http" and ending with ".flv") on Apps:
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
- Commonly used VOD protocols are as follows. Currently, HLS VOD addresses are most commonly used (starting with "http" and ending with ".m3u8"):
-![](//mc.qcloudimg.com/static/img/4b42a00bb7ce2f58f362f35397734177/image.jpg)
-
 ## Notes
-Tencent Cloud RTMP SDK **DOES NOT ** impose any restrictions on the source of playback URLs, which means you can use the SDK to play videos from both Tencent Cloud and non-Tencent Cloud addresses. But the player in RTMP SDK only supports three LVB video address formats (FLV, RTMP and HLS (m3u8)) and three VOD address formats (MP4, HLS (m3u8) and FLV).
+- **Is there any restriction?**
+Tencent Cloud SDK <font color='red'>**does not**</font> impose any restrictions on the source of playback URLs, which means you can use the SDK to play videos from both Tencent Cloud and non-Tencent Cloud addresses. But the player in Tencent Video Cloud SDK only supports three LVB video address formats (FLV, RTMP and HLS (m3u8)) and three VOD address formats (MP4, HLS (m3u8) and FLV).
 
-## Interfacing Guide
+- **Historical factors**
+In earlier versions of the SDK, TXLivePlayer works as the only Class carrying both LVB and VOD features. With the expansion of the VOD features, we have made VOD a separate set of features carried by TXVodPlayer starting from SDK 3.5. For the compilation to be successful, VOD features such as seek are still visible in TXLivePlayer.
 
-### Step 1:  Create a Player
+## Interfacing
+
+### Step 1: Create a player
+The TXLivePlayer module in Tencent Video Cloud SDK is responsible for the LVB playback feature.
 ```objectivec
-_txLivePlayer = [[TXLivePlayer alloc] init];
-[_txLivePlayer setupVideoWidget:[UIScreen mainScreen].bounds containView:_myView insertIndex:0]
+TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 ```
 
-### Step 2:  Find a Place to Display Pictures
-Next, we need to look for a place to display the video pictures in a player. In iOS systems, a view is used as the basic picture rendering unit. Therefore you simple need to prepare a view and adjust the layout.
+### Step 2: Render a view
+Next, we need to find a place to display the video images in the player. In iOS system, a view is used as the basic rendering unit. Therefore you simply need to prepare a view and configure the layout.
 
-- **Recommended layout**
-> In fact, RTMP SDK player 
->  directly render the picture to the view you provided. Instead, it creates a subView used for OpenGL rendering upon the view. However, the size of this subView used for rendering will be adjusted automatically according to the size change of the view you provided, which means you do not need to worry about configuring the size.
->![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
->
-> If you want to implement UI controls such as live commenting and flower gifting on top of the rendering screen, we recommend that you create another view at the same level. This is a common design style which helps avoid a lot of problems regarding screen overlay.
+```objectivec
+//Use setupVideoWidget to bind the view used to determine render area for the player. The first parameter "frame" has been deprecated since 1.5.2
+[_txLivePlayer setupVideoWidget:CGRectMake(0, 0, 0, 0) containView:_myView insertIndex:0];
+```
 
-- **How to make animation?**
-> You can freely make animations for a view. But note that the target attribute modified for animations is **transform**, but not frame.
->
+Technically, the player does not directly render the video image to the view (\_myView in the sample code) you provided. Instead, it creates a subView used for OpenGL rendering on top of the view.
+
+You can adjust the size of the rendered image by simply adjusting the size and position of the view. The SDK will automatically adapt the video images to the size and position of the view.
+
+![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+ 
+> **How to make an animation?**
+> You can freely make animations for a view. But note that the target attribute modified for animations is <font color='red'>transform</font>, instead of frame.
 ```objectivec
   [UIView animateWithDuration:0.5 animations:^{
             _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //Shrink by 1/3
         }];
 ```
 
-### Step 3:  Start Playback
+### Step 3: Start playback
 ```objectivec
 NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
-//Use setupVideoWidget to bind the view used to determine render area for the player. The first parameter "frame" has been deprecated since 1.5.2
-[_txLivePlayer setupVideoWidget:CGRectMake(0, 0, 0, 0) containView:_myView insertIndex:0];
-//Use startPlay to start the playback. FLV protocol is recommended for LVB
 [_txLivePlayer startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
 ```
 
-- **setupVideoWidget** 
-The parameter "frame" has been deprecated since 1.5.2. The size of the image is change to "always fills up the view provided by user". You can directly adjust the view if you wish to change the size or position of the image.
-
-- **startPlay** 
-Parameter type supports the following options. According to the feedback from some customers, **"fast forward" sometimes occurs during playback**. This is because they confused LIVE_FLV and VOD_FLV.
-
 | Option | Enumerated Value | Description |
 |---------|---------|---------|
-| PLAY_TYPE_LIVE_RTMP | 0 | The input URL is an RTMP-based LVB URL |
-| PLAY_TYPE_LIVE_FLV| 1 | The input URL is an FLV-based LVB URL |
-| PLAY_TYPE_VOD_FLV | 2 | The input URL is an RTMP-based VOD URL |
-| PLAY_TYPE_VOD_HLS | 3 | The input URL is an HLS (m3u8)-based VOD URL |
-| PLAY_TYPE_VOD_MP4 |4 | The input URL is an MP4-based VOD URL |
-| PLAY_TYPE_LIVE_RTMP_ACC | 5 | Low-latency joint broadcasting LVB URL (for joint broadcasting scenarios only) |
-| PLAY_TYPE_LOCAL_VIDEO | 6 | Local video file on mobile phone |
+| PLAY_TYPE_LIVE_RTMP | 0 | The URL passed in is an RTMP-based LVB URL |
+| PLAY_TYPE_LIVE_FLV | 1 | The URL passed in is an FLV-based LVB URL |
+| PLAY_TYPE_LIVE_RTMP_ACC | 5 | Low-latency URL (only for joint broadcasting scenarios) |
+| PLAY_TYPE_VOD_HLS | 3 | The URL passed in is an HLS (m3u8)-based playback URL |
 
-### Step 4:  Adjust View
+> **About HLS (m3u8)**
+> Considering its high latency, HLS is not recommended as the playback protocol for playing LVB videos on your App (although it is suitable for playing VOD videos). Recommended playback protocols include LIVE_FLV and LIVE_RTMP.
 
-- **View: Size and Position**
-You can modify the size and position of the view by directly adjusting the size and position of the parameter "view" of setupVideoWidget.
+
+### Step 4: Adjust the view
+
+- **view: size and position**
+You can modify the size and position of the video images by adjusting the size and position of the parameter "view" of setupVideoWidget. The SDK will automatically adapt the video images to the size and position of the view.
 
 - **setRenderMode: Full Screen or Self-Adaption**
 
-| Option | Description  |
+| Option | Description |
 |---------|---------|
-| RENDER_MODE_FILL_SCREEN | The entire screen is filled with the view which is spread proportionally, with the excess parts cut out. There will be no black edges in this mode, but certain sections may not be displayed completely because some areas are cut out.  | 
-| RENDER_MODE_FILL_EDGE | The view is scaled proportionally to adapt to the longest edge. The width and height of the scaled view will not extend beyond the display area and the view is centered. In this mode, black edges may appear on the screen.  | 
+| RENDER_MODE_FILL_SCREEN | The image spread across the entire screen proportionally, with the excess parts cut out. There are no black edges in this mode, but the image may not be displayed completely because of the cut-out areas. | 
+| RENDER_MODE_FILL_EDGE | The image is scaled proportionally to adapt to the longest edge. Both the width and the height of the scaled image will not extend beyond the display area and the image is centered. In this mode, black edges maybe appear in the screen. | 
 
-- **setRenderRotation: Screen Rotation**
+- **setRenderRotation: Screen rotation**
 
 | Option | Description |
 |---------|---------|
-| RENDER_ROTATION_PORTRAIT | Normal playback (The Home button is located directly below the video) | 
-| RENDER_ROTATION_LANDSCAPE | The video rotates 270° clockwise (the Home button is directly to the left of the video) | 
+| RENDER_ROTATION_PORTRAIT | Normal playback (The Home button is located directly below the image) | 
+| RENDER_ROTATION_LANDSCAPE | The image rotates 270° clockwise (the Home button is directly to the left of the image) | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
 
-### Step 5:  Adjust Progress
-Adjusting playback progress ** is only applicable to VOD**. You cannot adjust the video progress during LVB because the video source is in real-time.
-```objectivec
-// Adjust progress
-[_txLivePlayer seek:slider.value];
-```
-
-### Step 6:  Pause Playback
-- **VOD**
-Pausing the video during VOD is of course, a common practice.
-
-- **LVB**
-For LVB, calling pause function means temporarily stopping stream-pull. The player will not be terminated, but will display the last frame.
+### Step 5: Pause playback
+Strictly speaking, you cannot pause LVB playback. The so-called pausing LVB playback means **freezing the image** and **turning off the sound**, but the video source keeps updating on the cloud. When you call resume, the video is resumed from the latest time, which works quite differently from VOD videos that are paused and resumed in the same way as local video files).
 
 ```objectivec
 // Pause
@@ -111,8 +96,8 @@ For LVB, calling pause function means temporarily stopping stream-pull. The play
 [_txLivePlayer resume];
 ```
 
-### Step 7:  End Playback
-At the end of the playback, **be sure to terminate the View control**, especially before the next startPlay. Otherwise a lot of memory leaks and splash screen issues will occur.
+### Step 6: End playback
+To exit the current UI at the end of playback, be sure to terminate the view control using <font color='red'>**removeVideoWidget**</font>. Otherwise, memory leak or flickering screen will occur.
 
 ```objectivec
 // Stop playback
@@ -120,19 +105,37 @@ At the end of the playback, **be sure to terminate the View control**, especiall
 [_txLivePlayer removeVideoWidget]; // Be sure to terminate the view control
 ```
 
-### Step 8:  Hardware Acceleration
-For blu-ray (1080p) quality, it is difficult to obtain smooth playback experience just by using software decoding. Therefore, if your scenario focuses on gaming LVB, it is recommended to enable hardware acceleration.
+<h3 id="Message"> Step 7: Receive messages</h3>
+This feature is used to deliver certain custom messages from the pusher end to the viewer end via audio/video lines. It is applicable to the following scenarios:
+(1) Online quiz: The pusher end delivers the **questions** to the viewer end. Perfect "sound-image-question" synchronization can be achieved.
+(2) Live show: The pusher end delivers **lyrics** to the viewer end. The lyric effect can be displayed on the viewer end in real time and its image quality is not affected by video encoding.
+(3) Online education: The pusher end delivers the operations of **Laser pointer** and **Doodle pen** to the viewer end. The drawing can be performed at the viewer end in real time.
 
-It is strongly recommended to perform **stopPlay** before the switching between software decoding and hardware decoding, and perform **startPlay** after switching. Otherwise serious blurred screen problems may occur.
+You can use this feature as follows:
+- Switch the **enableMessage** toggle button in TXLivePlayConfig to **YES**.
+- TXLivePlayer listens into messages by **TXLivePlayListener**, message No.: **PLAY_EVT_GET_MESSAGE (2012)**.
 
-```objectivec
-  [_txLivePlayer stopPlay];
-  _txLivePlayer.enableHWAcceleration = YES;
-  [_txLivePlayer startPlay:_flvUrl type:_type];
+```objectiveC
+ -(void) onPlayEvent:(int)EvtID withParam:(NSDictionary *)param {
+    [self asyncRun:^{
+        if (EvtID == PLAY_EVT_GET_MESSAGE) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([_delegate respondsToSelector:@selector(onPlayerMessage:)]) {
+                    [_delegate onPlayerMessage:param[@"EVT_GET_MSG"]];
+                }
+            });
+        }
+    }];
+}
 ```
 
-### Step 9:  Stream capture recording (for LVB only)
-Stream capture recording is an extended feature in LVB playback scenarios. It means that during the LVB, the viewer can capture and record a segment of the video by clicking the "Record" button and publish the recorded content via video delivery platforms (e.g. Tencent Cloud VOD system) so that the content can be shared on social platforms (such as WeChat Moments) in the form of UGC messages.
+### Step 8: Screencap
+You can capture the current image as a frame by calling **snapshot**. This feature can only capture the frames from the current live stream. To capture the entire UI, call the API of iOS system.
+
+![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
+
+### Step 9: Recode the captured stream
+As an extension in LVB playback scenarios, Recording Captured Stream means that during the LVB, the viewer can capture and record a segment of video by clicking the "Record" button and publish the recorded content via the video delivery platform (e.g. Tencent Cloud's VOD system) so that the content can be shared through UGC message on social platforms such as the "Moment" of WeChat.
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
 
@@ -141,7 +144,7 @@ Stream capture recording is an extended feature in LVB playback scenarios. It me
 //
 //Specify a TXVideoRecordListener used to synchronize the progress and result of the recording process
 _txLivePlayer.recordDelegate = recordListener;
-//Start recording. It can be placed in the response function of the "Record" button. Currently you can only record the video source, but not the other contents such as the live comments
+//Start the recording. It can be placed in the response function of the "Record" button. You can only record the video source, but not the other contents such as the on-screen comments.
 [_txLivePlayer startRecord: RECORD_TYPE_STREAM_SOURCE]; 
 // ...
 // ...
@@ -150,93 +153,20 @@ _txLivePlayer.recordDelegate = recordListener;
 ```
 - The progress of recording process is indicated as a time value by the onRecordProgress of TXVideoRecordListener.
 - The recorded file is in the format of MP4, and is informed by onRecordComplete of TXVideoRecordListener.
-- TXUGCPublish is used to upload and publish videos. For details on how to use TXUGCPublish, refer to [Short Video-Publish Files](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310).
- 
-## Status Monitor
-Tencent Cloud RTMP SDK is always designed on a basis of White Box. You can bind a **TXLivePlayListener** for the TXLivePlayer object so that you can receive notifications regarding the internal status of SDK through onPlayEvent (Event Notification) and onNetStatus (Quality Feedback).
-
-### 1. Playback Events
-| Event ID                 |    Value  |  Description                    |   
-| :-------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_PLAY_BEGIN    |  2004 |  Video playback begins. The "loading" icon stops flashing at this point | 
-| PLAY_EVT_PLAY_PROGRESS |  2005 |  Video playback progress, including current progress and overall progress. ** This is only applicable to VOD**      | 
-| PLAY_EVT_PLAY_LOADING |  2007 | Video playback is being loaded. If video playback is resumed, this will be followed by a BEGIN event |  
-
-- **Do not hide the playback view after receiving PLAY_LOADING**
-The time length between PLAY_LOADING and PLAY_BEGIN can be different (sometimes 5 seconds, sometimes 5 milliseconds). Some customers consider hiding the view upon LOADING and displaying the view upon BEGIN, which will cause serious flickering (especially in LVB scenarios). It is recommended to place a translucent Loading animation on top of the video view.
-
-- **The frequency of LOADING is determined by cacheTime**
-You can configure the player's cacheTime attribute in TXLivePlayConfig. A small cacheTime value can cause a high LOADING frequency. If this happens, please make adjustments while referring to [Stutter & Latency](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F).
-
-- **Work with PLAY_PROGRESS playback progress**
-If you have no idea about​how to handle the PLAY_EVT_PLAY_PROGRESS event during VOD, refer to the sample code - [Work with Playback Progress](https://cloud.tencent.com/document/product/454/7896).
-
-### 2. Ending Events
-| Event ID                 |    Value  |  Description                    |   
-| :-------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_PLAY_END      |  2006 |  Video playback ends      | 
-| PUSH_ERR_NET_DISCONNECT          |  -2301  | Network disconnected. Reconnection attempts have failed for multiple times, thus no more retries will be performed. Please restart playback manually | 
-
-- How to check whether the LVB has ended?
-For **VOD**, we can check whether the playback has ended through the PLAY_EVT_PLAY_END event.
-
- For **LVB**, we can't determine if the VJ has ended the push only by using the SDK. It is expected that when the VJ stops pushing stream, RTMP SDK will soon find the data stream pull fails (WARNING_RECONNECT), and then retry it again until the PLAY_ERR_NET_DISCONNECT event is thrown after three failed attempts.
-
- The reason for this is that the standard playback protocol itself does not have a generic STOP standard, so it is recommended to achieve your purpose by broadcasting a system message such as **"LVB has ended"** in the chat room.
+- TXUGCPublish is used to upload and publish videos. For more information on how to use TXUGCPublish, please see [Short Video - Publish Files](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310).
 
 
-### 3. Warning Events
-You don't need to consider the following events. We listed the information of these events for synchronization purposes, according to the SDK white-box design concept
-
-| Event ID                 |    Value  |  Description                    |   
-| :-------------------  |:-------- |  :------------------------ | 
-| PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | Failed to decode the current video frame  |
-| PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | Failed to decode the current audio frame  |
-| PLAY_WARNING_RECONNECT           |  2103  | Network disconnected, automatic reconnection has started (the PLAY_ERR_NET_DISCONNECT event will be thrown after three failed attempts) |
-| PLAY_WARNING_RECV_DATA_LAG       |  2104  | Unstable incoming packet from network: This may be caused by insufficient downstream bandwidth, or unstable outgoing stream at the VJ end |
-| PLAY_WARNING_VIDEO_PLAY_LAG       |  2105  | Stutter occurred during the current video playback |
-| PUSH_WARNING_HW_ACCELERATION_FAIL |  2106  | Failed to start hard-decoding; Soft-decoding is used |
-| PLAY_WARNING_VIDEO_DISCONTINUITY |  2107  | Current video frames are discontinuous and frame loss may occur |
-| PLAY_WARNING_DNS_FAIL            |  3001  | RTMP-DNS resolution failed (thrown only if the playback address is RTMP) |
-| PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | Failed to connect to RTMP server (thrown only if the playback address is RTMP) |
-| PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP server handshaking failed (thrown only if the playback address is RTMP) |
-
-### 4. Connection Events
-In addition, there are several server connection events used to measure and calculate the time for server connections. Also, you don't have to be concerned:
-
-| Event ID                     |    Value  |  Description                    |   
-| :-----------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | Connected to the server                |
-| PLAY_EVT_RTMP_STREAM_BEGIN |  2002    | Connected to the server and started to pull stream (thrown only if the playback address is RTMP) |
-| PLAY_EVT_RCV_FIRST_I_FRAME |  2003    | The network has received the first renderable video packet (IDR)  |
-
-
-### 5. Status Callback 
- The **onNetStatus** notification is triggered once per second to provide real-time feedback on the current status of the pusher. Like a car dashboard, it can offer you a picture about what is happening inside the SDK, so that you can keep track of current network condition and video quality.
-  
-|   Evaluation Parameter                   |  Description                   |   
-| :------------------------  |  :------------------------ | 
-| NET_STATUS_CPU_USAGE     | Current CPU utilization (instantaneous) | 
-| NET_STATUS_VIDEO_WIDTH  | Video resolution - Width |
-| NET_STATUS_VIDEO_HEIGHT | Video resolution - Height |
-| NET_STATUS_NET_SPEED     | Current network data receiving speed |
-| NET_STATUS_NET_JITTER    | Network jitter status. A bigger jitter means a more unstable network |
-| NET_STATUS_VIDEO_FPS     | The video frame rate of the current stream media    |
-| NET_STATUS_VIDEO_BITRATE | Video bitrate of the current stream media (in kbps) |
-| NET_STATUS_AUDIO_BITRATE | Audio bitrate of the current stream media (in kbps) |
-| NET_STATUS_CACHE_SIZE    | Buffer size (jitterbuffer). A buffer length of 0 means that stutter will occur in all probability |
-| NET_STATUS_SERVER_IP | IP of the connected server | 
-
-## Stutter & Latency
-In LVB scenarios, the occurrence frequency of stutters and latency level are critical indicators used to measure the user experience of an App product.
-
-**The player itself plays an important role in these measurements**. With the same network environment and playback address, different players may yield completely different latency and stutter occurrence. (For example, commonly used flash players on PC browsers may have increasing latency because the playback policies are too simple)
-
-Therefore, once you have finished the functional code interfacing listed in previous sections of this document, make sure you read the [Stutter Optimization-Player Optimization](https://cloud.tencent.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) and make adjustments until you've achieved the best playback mode for your business scenario.
+<h2 id="Delay">Adjusting delay</h2>
+The LVB feature of Tencent Cloud SDK, equipped with the self-developed playback engine, is not developed based on ffmpeg. Compared with open source players, it performs better in terms of LVB delay control. We provide three delay adjusting modes, suitable for Live show, game LVB, and combined scenarios.
 
 - **Performance comparison among the three modes**
 
-![](//mc.qcloudimg.com/static/img/1d5a860ff74f9d026a36c04dd8bb27ef/image.jpg)
+| Control mode | Stutter rate | Average delay | Applicable scenarios | Principle description |
+|---------|---------|---------| ------ | ----- |
+| Speedy mode | High (relatively smooth) | 2s - 3s | Live show (online quiz) | It has the upper hand in delay control and is suitable for delay-sensitive scenarios. |
+| Smooth mode | Lowest | >= 5s | Game LVB (Penguin e-Sports) | It is suitable for the LVB of ultra-high-bitrate games (such as battle royale games) |
+| Auto mode | Network adaption | 2s - 8s | Combined scenarios | The better the viewers' network condition, the lower the latency, and vice versa. |
+
 
 - **Interface codes of the three modes**
 
@@ -256,10 +186,93 @@ _config.cacheTime              = 5;
 
 [_txLivePlayer setConfig:_config];
 
-//Launch the playback once configuration is completed
-
+//Launch the playback after the configuration
 ```
 
-Note: Cloud providers usually introduce a latency of **1.5-2 seconds** on their CDN. This is unavoidable, thus the **total latency = CDN latency + CacheTime.**
+> For more technical information on how to deal with stutter and delay problems, please see [How to Deal with Stutter](https://cloud.tencent.com/document/product/454/7946) <**ECI**>
+
+<h2 id="RealTimePlay">Ultra-low latency playback</h2>
+Tencent Cloud LVB player supports ultra-low delay playback with a delay of about <font color='red'>**400ms**</font>, which can be used in scenarios that have high requirement for delay, such as **remote prize claw** and **joint broadcasting**. Notes about this feature:
+
+- **You don't need to activate this feature**
+This feature does not need to be enabled in advance, but it requires that LVB streams reside in Tencent Cloud. Implementing low-delay linkage across cloud providers is difficult, in more than just technical terms.
+
+- **Hotlink protection must be included in the URL**
+The playback URL cannot be a normal CDN URL. It must have a hotlink protection signature. For more information on how to calculate the hotlink protection signature, please see [**txTime&txSecret**](https://cloud.tencent.com/document/product/454/9875).
+
+- **Specify the playback type as ACC**
+Specify the type as <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font> when calling the startPlay function. The SDK pulls LVB streams using the RTMP-UDP protocol.
+
+- **This feature has restrictions on concurrent playback**
+It supports <font color="red">10 channels</font> of concurrent playback at most. Instead of being set due to limited technical capabilities, this restriction is intended to encourage you to use this feature in interaction scenarios only (for example, for VJs only in joint broadcasting and for players only in prize claw scenarios), so that you do not incur any unnecessary costs in the mere pursuit of low delay (The price of low latency lines is higher than that of CDN lines).
+
+- **The delay performance of OBS is unsatisfactory**
+If the push end is [TXLivePusher](https://cloud.tencent.com/document/product/454/7879), set `quality` to MAIN_PUBLISHER or VIDEO_CHAT using [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6). If the push end is Windows, use [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows). Pushing with OBS leads to unsatisfactory delay due to the excessive accumulated data at the pusher end.
+
+## Listening to SDK Events
+You can bind a **TXLivePlayListener** to the TXLivePlayer object to receive notifications about the internal status of SDK through onPlayEvent (Event Notification) and onNetStatus (Quality Feedback).
+
+### 1. Playback events
+| Event ID | Value | Description |   
+| :-------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_CONNECT_SUCC     |  2001    | Connected to the server                |
+| PLAY_EVT_RTMP_STREAM_BEGIN |  2002    | Connected to the server and started to pull stream (thrown only if the playback address is RTMP) |
+| PLAY_EVT_RCV_FIRST_I_FRAME |  2003    | The network has received the first renderable video packet (IDR)  |
+| PLAY_EVT_PLAY_BEGIN    |  2004 |  Video playback begins. The "loading" icon stops flashing at this point | 
+| PLAY_EVT_PLAY_LOADING |  2007 | Video playback is being loaded. If video playback is resumed, this will be followed by a BEGIN event |  
+| PLAY_EVT_GET_MESSAGE |  2012 | Used to receive messages inserted into the audio/video stream. For more information, please see [Message Reception](#Message) |  
+
+- **Do not hide the playback view after receiving PLAY_LOADING**
+The time length between PLAY_LOADING and PLAY_BEGIN can be different (sometimes 5 seconds, sometimes 5 milliseconds). Some customers consider hiding the view upon LOADING and displaying the view upon BEGIN, which will cause serious flickering (especially in LVB scenarios). It is recommended to place a translucent Loading animation on top of the video view.
+
+### 2. Ending events
+| Event ID | Value | Description |   
+| :-------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_PLAY_END      |  2006 |  Video playback ends      | 
+| PLAY_ERR_NET_DISCONNECT |  -2301  |  Network is disconnected. Too many failed reconnection attempts. Restart the playback for more retries | 
+
+- **<font color='red'>How do I tell whether the LVB is over?</font>**
+Because of the varying implementation principles of different standards, many LVB streams usually don't throw end events (2006) and it is expected that when the VJ stops pushing stream, the SDK will soon find that data stream pull fails (WARNING_RECONNECT) and attempt to retry until the PLAY_ERR_NET_DISCONNECT event is thrown after three failed attempts.
+
+ Therefore, you need to listen to both 2006 and -2301 and use the result as the events to determine the end of LVB.
+
+
+### 3. Warning events
+You don't need to consider the following events. We listed the information of these events for synchronization purposes, according to the SDK white-box design concept
+
+| Event ID | Value | Description |   
+| :-------------------  |:-------- |  :------------------------ | 
+| PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | Failed to decode the current video frame  |
+| PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | Failed to decode the current audio frame  |
+| PLAY_WARNING_RECONNECT           |  2103  | Network disconnected, automatic reconnection has started (the PLAY_ERR_NET_DISCONNECT event will be thrown after three failed attempts) |
+| PLAY_WARNING_RECV_DATA_LAG       |  2104  | Unstable incoming packet from network: This may be caused by insufficient downstream bandwidth, or unstable outgoing stream at the VJ end |
+| PLAY_WARNING_VIDEO_PLAY_LAG       |  2105  | Stutter occurred during the current video playback |
+| PLAY_WARNING_HW_ACCELERATION_FAIL |  2106  | Failed to start hard-decoding; Soft-decoding is used |
+| PLAY_WARNING_VIDEO_DISCONTINUITY |  2107  | Current video frames are discontinuous and frame loss may occur |
+| PLAY_WARNING_DNS_FAIL            |  3001  | RTMP-DNS resolution failed (thrown only if the playback address is RTMP) |
+| PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | Failed to connect to RTMP server (thrown only if the playback address is RTMP) |
+| PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP server handshaking failed (thrown only if the playback address is RTMP) |
+
+
+
+## Video Width and Height 
+
+**What is the video resolution (in width and height)?**
+This question cannot be figured out if SDK only obtains one URL string. To know the width and the height of a video image in pixels, SDK needs to access the cloud server until enough information is loaded to analyze the size of the video image. Therefore, SDK can only tell the video information to your application by notification. 
+
+ The **onNetStatus** notification is triggered once per second to provide real-time feedback on the current status of the pusher. Like a car dashboard, it can offer you a picture about what is happening inside the SDK, so that you can keep track of current network conditions and video information.
+  
+| Evaluation parameter | Description |   
+| :------------------------  |  :------------------------ | 
+| NET_STATUS_CPU_USAGE     | Current CPU utilization (instantaneous) | 
+| **NET_STATUS_VIDEO_WIDTH**  | Video resolution - Width |
+| **NET_STATUS_VIDEO_HEIGHT** | Video resolution - Height |
+| NET_STATUS_NET_SPEED     | Current speed at which network data is received |
+| NET_STATUS_NET_JITTER    | Network jitter status. A bigger jitter means a more unstable network |
+| NET_STATUS_VIDEO_FPS     | The video frame rate of the current stream media    |
+| NET_STATUS_VIDEO_BITRATE | Video bitrate of the current stream media (in Kbps) |
+| NET_STATUS_AUDIO_BITRATE | Audio bitrate of the current stream media (in Kbps) |
+| NET_STATUS_CACHE_SIZE    | Buffer size (jitterbuffer). A buffer length of 0 means that stutter will occur in all probability |
+| NET_STATUS_SERVER_IP | IP of the connected server | 
 
 

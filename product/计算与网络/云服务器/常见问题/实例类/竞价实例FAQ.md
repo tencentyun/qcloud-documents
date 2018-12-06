@@ -3,7 +3,7 @@
 竞价实例的一个重要特性就是系统会根据价格或供求关系，对已分配的实例进行回收。当市场价格大于您的出价，或者竞价实例对应规格的云服务器资源池库存紧张时，会触发系统中断流程。
 
 ### 如何感知实例将要被中断 ？
-我们会在系统中断前 5 分钟通过 Metadata 的方式来通知您即将中断回收该实例。
+我们会在系统中断前 2 分钟通过 Metadata 的方式来通知您即将中断回收该实例。
 
 ## 价格和计费
 ### 市场价格和用户指定最高出价，会以哪个收取费用 ？
@@ -29,6 +29,11 @@
 | 成都二区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
 | 重庆一区  | S3 | S3.MEDIUM4、S3.LARGE8、S3.2XLARGE16、S3.4XLARGE32、S3.8XLARGE64 | 20% |
 | 重庆一区  | C3 | C3.LARGE8、C3.2XLARGE16、C3.4XLARGE32、C3.8XLARGE64 | 20% |
+| 香港一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
+| 硅谷一区、二区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
+| 弗吉尼亚一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
+| 多伦多一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
+| 曼谷一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
 
 ### 竞价实例的配额限制和按量计费共用吗 ？
 不共用，以每个用户在每个可用区拥有的竞价实例 vCPU 核心数之和为限制判断条件，目前每个用户最大拥有 30 个，每个可用区独立计算（提高配额请提交工单咨询）。

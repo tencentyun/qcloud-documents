@@ -9,9 +9,9 @@
 ### url 说明
 支持 HTTP 和 HTTPS 两种协议：
 
-`http://service.image.myqcloud.com/v1/detection/imagetag_detect`
+`http://recognition.image.myqcloud.com/v1/detection/imagetag_detect`
 
-`https://service.image.myqcloud.com/v1/detection/imagetag_detect`
+`https://recognition.image.myqcloud.com/v1/detection/imagetag_detect`
 
 ## 请求方式
 ### 请求头 header
@@ -20,36 +20,36 @@
 
 | 参数名            | 必选|值                          | 描述                       |
 | -------------- | -----|--------------------- | ------------------------ |
-| host           | 是|service.image.myqcloud.com | 腾讯云图片标签服务器域名                |
+| host           | 是|recognition.image.myqcloud.com | 腾讯云图片标签服务器域名                |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（Byte） |
 | content-type   | 是|application/json 或  multipart/form-data   | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。  |
 | authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/865/17723)     |
 >**注意：**
->如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+>如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ### 请求参数
 
 | 参数名 | 必选 | 类型   | 说明                                    |
 | ----- | ---- | ------| ---------------------------------------- |
-| appid | 是   | string |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                     |
-| image | 否   | string | 图像 base64 编码，图像格式为 jpg/png/bmp 其中之一。 |
-| url   | 否  | string | 可下载的图片 url。如果 url 和 image 都提供, 仅使用 url。  |
+| appid | 是   | String |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                     |
+| image | 否   | String | 图像 base64 编码，图像格式为 jpg/png/bmp 其中之一。 |
+| url   | 否  | String | 可下载的图片 url。如果 url 和 image 都提供, 仅使用 url。  |
 
 
 
 ## 返回内容
 | 字段      | 类型    | 说明                     |
 | ------- | -------- | -------------------     |
-| code    | int      | 错误码, 0 为成功          |
-| message | string   | 服务器返回的信息           |
+| code    | Int      | 错误码，0 为成功          |
+| message | String   | 服务器返回的信息           |
 | tags    | ImageTag | 图像的分类标签列表，具体内容如下表 |
 
 其中 ImageTag 具体内容为：      
 
 | 字段             | 类型     | 说明                            |
 | -------------- | ------ | ----------------------------- |
-| tag_name       | string | 返回的图像标签名字                     |
-| tag_confidence | int    | 图像标签的置信度，取值范围[0， 100]，数值越大置信度越高 |
+| tag_name       | String | 返回的图像标签名字                     |
+| tag_confidence | Int    | 图像标签的置信度，取值范围[0， 100]，数值越大置信度越高 |
 
 
 ## 实际示例

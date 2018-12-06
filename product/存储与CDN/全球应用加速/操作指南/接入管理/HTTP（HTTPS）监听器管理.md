@@ -34,7 +34,7 @@
 ![](https://main.qcloudimg.com/raw/50987ba13431db15c467acfed88a3319.png)
 
 ### 修改规则
-参考 [添加规则](# 添加规则)，主要差别在于域名和源站类型无法修改。
+参考 [添加规则](#添加规则)，主要差别在于域名和源站类型无法修改。
 
 ### 绑定源站
 参考 [绑定源站](https://cloud.tencent.com/document/product/608/17849#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E7.BB.91.E5.AE.9A.E6.BA.90.E7.AB.99)，可以对不同源站绑定不同的端口。

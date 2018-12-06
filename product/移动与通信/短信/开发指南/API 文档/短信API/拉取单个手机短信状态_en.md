@@ -3,7 +3,7 @@
 This API is used to pull the SMS status of a mobile phone, such as SMS delivery status and SMS reply.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/pullstatus4mobile?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/pullstatus4mobile?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 
@@ -58,6 +58,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
 | count | Yes | Number | The number of returned message entries. It is valid when "result" is 0. |
 | data | No | Array | For more information, please see the following. |
-
-
-

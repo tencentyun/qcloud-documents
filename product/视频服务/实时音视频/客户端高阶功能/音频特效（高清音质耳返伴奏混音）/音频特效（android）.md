@@ -84,7 +84,7 @@ SDK的音频数据对象
 |bits|int|音频数据位宽，目前固定为16|
 |channelNum|int|通道数|
 |dataLen|int|音频帧的数据缓冲区大小，单位：字节。|
-|identifier|int|音频帧所属的房间成员id|
+|identifier|int|音频帧所属的房间成员id(即userId)|
 |sampleRate|int|采样率|
 |srcTye|int|音频源类型|
 |timeStamp|long|音频帧的时间戳，SDK内部会自动填写好，utc时间，0为无效值。|
@@ -113,4 +113,7 @@ AVAudioCtrl类的方法，用于向SDK注销音频数据处理的回调
 AudioFrameDesc audio_desc = avAudioCtrl.getAudioDataFormat(AudioDataSourceType.AUDIO_DATA_SOURCE_VOICEDISPOSE);
 audio_desc.sampleRate = 44100;//这里只是举例采样频率为44100，实际应用中应与要混音的音频采样率一直
 avAudioCtrl.setAudioDataFormat(AudioDataSourceType.AUDIO_DATA_SOURCE_VOICEDISPOSE, audio_desc);
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com
 ```

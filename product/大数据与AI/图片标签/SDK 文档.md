@@ -8,3 +8,4 @@
 | Python-SDK-图像识别 | [Python-SDK- 图像识别](/document/product/865/17727) |
 | CPP-SDK-图像识别    | [CPP-SDK- 图像识别](/document/product/865/17725) |
 | PHP-SDK-图像识别    | [PHP-SDK- 图像识别](/document/product/865/17728) |
+| Node-SDK-图像识别   | [Node-SDK-图像识别](/document/product/865/18709) |

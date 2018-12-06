@@ -1,5 +1,5 @@
 **Host Name:**
-A host name is prfix of a domain name. Common usage is as follows:
+A host name is the prefix of a domain name. Common usage is as follows:
 **www:** Domain name after resolution is www.87677677.com
 **@:** Primary domain name 87677677.com is directly resolved
 ***:** Pan resolution, in which case all other domain names *.87677677.com are matched

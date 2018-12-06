@@ -4,12 +4,18 @@ Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. To help Unreal Engine
 ## Preparation for SDK
 Contact us to obtain SDK.
 Open the Plugins folder under the Unreal Engine project directory (create one if no directory exists), and copy SDK to the folder. The SDK directory is shown as follows:
+
 ![](https://main.qcloudimg.com/raw/751894ab16c5262b7a99370cc7efd52c.png)
+
 Compile the imported plug-in in the Unreal Engine.
 After the compiling is completed, a directory can be found in VS2015 as follows.
+
 ![](https://main.qcloudimg.com/raw/86073ea6d8b41abf1a0949d9c36826cd.png)
+
 Open the Unreal Engine again, click the edit button and then the Plugins button, and you can see the GME plug-in.
+
 ![](https://main.qcloudimg.com/raw/b14824ae09efbf014af246866b79dc48.png)
+
 ## Preparation in Android
 
 ### Initialization

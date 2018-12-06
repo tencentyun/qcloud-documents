@@ -18,7 +18,7 @@
 
 - Phoenix 二级索引配置
 
-    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的, 可变的索引只需按照以下步骤配置即可。打开 EMR 控制台详情页面，点击进入组件配置详情切页。单击参数配置，增加 hbase-site.xml 的 "hbase.regionserver.wal.codec"，"hbase.region.server.rpc.scheduler.factory.class"和"hbase.rpc.controllerfactory.class"三个配置项即可, 详细配置如下：
+    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的, 可变的索引只需按照以下步骤配置即可。打开 EMR 控制台详情页面，单击进入组件配置详情切页。单击参数配置，增加 hbase-site.xml 的 "hbase.regionserver.wal.codec"，"hbase.region.server.rpc.scheduler.factory.class"和"hbase.rpc.controllerfactory.class"三个配置项即可, 详细配置如下：
 
     ``` xml
     <property>

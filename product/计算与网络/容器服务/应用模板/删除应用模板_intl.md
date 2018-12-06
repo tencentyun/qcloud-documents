@@ -1,6 +1,6 @@
 ## Deleting Application Template
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). You can view the application template list on [Application Template][1] page. Click the **Delete** button to delete a specified application template.
+Log in to the [Tencent Cloud TKE Console](https://console.cloud.tencent.com/ccs). You can view the application template list on [Application Template][1] page. Click the **Delete** button to delete a specified application template.
 
 >**Note:**
 >Deletion of the application template does not affect the application deployed using this template.

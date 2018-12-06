@@ -55,7 +55,7 @@ The whole process is an intuitive, typical producer-consumer model, in which SDK
  3. Finally, launch the client to start the process.
 The listener `ClusterListener` allows users to handle data received according to their own demands and filter received Binlog data by type, for example, filtering out all `drop` statements.
  
- Note that in the sample code, users must provide five parameters. Among them, `secretId` and `secretKey` are key values associated with users' Tencent Cloud accounts which can be viewed in "Tencent Cloud Console" -> "Cloud Products" -> "Cloud API Key" -> "API Key" and are used by SDK to authenticate user actions. The other three parameters including `serviceIp` `servicePort` and `channelId` are related to users' Binlog subscription, which will be displayed on the console after subscription contents are configured on the related pages of Tencent Cloud CDB for MySQL. For detailed operations, please see Console Operation Guide.
+ Note that in the sample code, users must provide five parameters. Among them, `secretId` and `secretKey` are key values associated with users' Tencent Cloud accounts which can be viewed in "Tencent Cloud Console" -> "Cloud Products" -> "Cloud API Key" -> "API Key" and are used by SDK to authenticate user actions. The other three parameters including `serviceIp` `servicePort` and `channelId` are related to users' Binlog subscription, which will be displayed on the console after subscription contents are configured on the related pages of Tencent Cloud TencentDB for MySQL. For detailed operations, please see Console Operation Guide.
 
 # SDK API Description
 ---
@@ -295,7 +295,7 @@ None
 ## ClusterMessage Class
 ---
 ### Class Description
-The ClusterMessage class delivers consumed subscription data through the notify function. Each ClusterMessage saves data records of one **transaction** in CDB for MySQL, and each record in the transaction is saved via Record.
+The ClusterMessage class delivers consumed subscription data through the notify function. Each ClusterMessage saves data records of one **transaction** in TencentDB for MySQL, and each record in the transaction is saved via Record.
 
 ### Class Method
 #### **Acquire Record From ClusterMessage**
@@ -356,7 +356,7 @@ Possible attribute key values are:
 | record_id | Record ID. This is not guaranteed to be incremental during subscription |
 | source_type | Database instance engine type of corresponding Record. Current available value: mysql |
 | source_category | Record type. Current available value: full_recorded |
-| timestamp | The time when the Record is stored into binlog. This is also the time when the SQL statement is executed in CDB |
+| timestamp | The time when the Record is stored into binlog. This is also the time when the SQL statement is executed in TencentDB |
 | checkpoint | File check point of corresponding Record, in the format of file_offset@file_name, where filen_name is the number suffix of the binlog file |
 | record_type | Operation type of Record. Main available values include insert/update/delete/replace/ddl/begin/commit/heartbeat |
 | db | Database name of the Record update table |
@@ -487,7 +487,7 @@ None
 ##### Returned Result
 | Type | Parameter Description |
 |:-------------|:-------------|
-| DBType | Currently, only CDB for MySQL is supported for data transfer, that is, DBType.MYSQL |
+| DBType | Currently, only TencentDB for MySQL is supported for data transfer, that is, DBType.MYSQL |
 
 ##### Thrown Exception
 None

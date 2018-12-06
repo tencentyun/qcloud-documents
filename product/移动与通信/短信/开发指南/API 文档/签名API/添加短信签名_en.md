@@ -3,7 +3,7 @@
 This API is used to add an SMS signature.
 
 ### URL Example
-`https://yun.tim.qq.com/v5/tlssmssvr/add_sign?sdkappid=xxxxx&random=xxxx`
+`POST https://yun.tim.qq.com/v5/tlssmssvr/add_sign?sdkappid=xxxxx&random=xxxx`
 **Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
 
 ## Request Parameters
@@ -33,7 +33,7 @@ string strRand = "7226249334"; //The value of the "random" field in the URL
 string strTime = "1457336869"; //The unix timestamp
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869)
            = c13e54f047ed75e821e698730c72d030dc30e5b510b3f8a0fb6fb7605283d7df;
-```           
+```
 ## Response Parameters
 ```json
 {
@@ -61,4 +61,3 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 | id | Yes | Number | Signature ID |
 | status | Yes | Number | Signature status. 0: Passed, 1: Pending approval, 2: Rejected. |
 | text | Yes | String | Signature content |
-

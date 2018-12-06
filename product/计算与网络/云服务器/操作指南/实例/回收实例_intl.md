@@ -5,13 +5,13 @@ Tencent Cloud Recycle Bin is a cloud service reclaiming mechanism. The prepaid i
 
  - **Retention time:** The instance is retained for 7 calendar days in the recycle bin.
  - **Expiry processing:** If the instance is not renewed within 7 days, the system will release resources and start to automatically [Terminate Instance](/doc/product/213/4930).
- - **Mounting relationship:** After being put into the recycle bin, the instance will be **forced to terminate** the mounting relationship with CLB, Elastic Public IP, elastic cloud disk, secondary ENI, and Classiclink. The mounting relationship **cannot be recovered** after renewal, you have to reset it.
- - **Operation limits:** You can only [**renew**](/doc/product/213/4931) or [*terminate**](/doc/product/213/4930) the instances in the recycle bin.
+ - **Mounting relationship:** After being put into the recycle bin, the instance will be **forced to terminate** the mounting relationship with CLB, elastic public IP, elastic cloud disk, secondary ENI, and Classiclink. The mounting relationship **cannot be recovered** after renewal, you have to reset it.
+ - **Operation limits:** You can only [**renew**](/doc/product/213/4931) or [**terminate**](/doc/product/213/4930) the instances in the recycle bin.
 
 ## Recovering Instance
  1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/).
  2. On the left navigation bar, click **Recycle Bin** -> **CVM Recycle Bin** to enter the CVM reclaiming list.
- 3. Recover single instance: Find the instance to be recovered in the list, click **Recover** button, and finish the renewal payment.
- 4. Recover instances in batch: Select all instances to be recovered, click **Recover in Batch** on the top, and finish the renewal payment.
+ 3. Recover single instance: Find the instance to be recovered in the list, click **Recover** button, and complete the renewal payment.
+ 4. Recover instances in batch: Select all instances to be recovered, click **Recover in Batch** on the top, and complete the renewal payment.
 
 

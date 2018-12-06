@@ -89,8 +89,8 @@ sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 ```
 这个命令是将`/dev/sda`整个盘导出到`/mnt/sdb/test.qcow2`。`/mnt/sdb`这里应该挂载另外一块磁盘，或者是其它网络存储。
 如果要转换成其它参数，需要修改`-O`参数，可选的参数有：
-
 <a id="-o"></a>
+
 值 | 含义
 ---|---
 qcow2 | qcow2 格式
@@ -151,4 +151,4 @@ mount /dev/nbd0p1 /mnt
 ```
 如果 qcow2 镜像的第一个分区导出时文件系统被破坏，mount 时将会报错。
 
-此外还可以在上传镜像前，先启动云服务器测试镜像文件是否可以使用。
+此外还可以在上传镜像前，先启动虚拟机测试镜像文件是否可以使用。

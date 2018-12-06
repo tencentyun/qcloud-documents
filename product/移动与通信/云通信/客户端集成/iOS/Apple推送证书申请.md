@@ -3,7 +3,7 @@
 
 生成Certificate Signing Request(CSR)：
  <img src="//mccdn.qcloud.com/static/img/d9a5bfba8bd35bc9d32cea2e8c1e201b/image.png" width=640 />
-填写你的邮箱(这个邮箱是申请AppID的付费帐号)和常用名称(一般默认是计算机名，不用更改)，并选择保存到硬盘：
+填写您的邮箱(这个邮箱是申请AppID的付费帐号)和常用名称(一般默认是计算机名，不用更改)，并选择保存到硬盘：
  <img src="//mccdn.qcloud.com/static/img/712cd7c494f0bb36ebb1126ed3757046/image.png" width=640 />
 单击继续：
  <img src="//mccdn.qcloud.com/static/img/fa7f2ee807a551ff09e052d317739406/image.png" width=640 />
@@ -18,16 +18,16 @@
 再选择Identifiers进行到Identifiers管理页：
 <img src="//mccdn.qcloud.com/static/img/441c328294ddca6e9906e3f35d989ea2/image.png" width=640 />
 生成App ID：
-Identifiers的右侧列表中，如果你已经配置你的应用，跳到第3步，否则单击“+”号添加Appid。
+Identifiers的右侧列表中，如果您已经配置您的应用，跳到第3步，否则单击“+”号添加Appid。
 <img src="//mccdn.qcloud.com/static/img/b1c257146018480e246be45f3889d5c4/image.png" width=640 />
-输入你的App ID描述信息，可以输入工程名; Bunble ID(在工程的General信息中)，一般格式为com.youcompany.youprojname, 选择需要支持Push Notification，Continue：
+输入您的App ID描述信息，可以输入工程名; Bunble ID(在工程的General信息中)，一般格式为com.youcompany.youprojname, 选择需要支持Push Notification，Continue：
 <img src="//mccdn.qcloud.com/static/img/1b403cd5e1dcccf0153eb23b3e87d8c6/image.png" width=640 />
 Submit提交：
 <img src="//mccdn.qcloud.com/static/img/ff761eaa370eb22b487c7b549e2ceab1/image.png" width=640 />
 
 ## 创建App的 APS证书
 
-回到App IDs选择你需要推送的app.展开单击“Edit”：
+回到App IDs选择您需要推送的app.展开单击“Edit”：
 <img src="//mccdn.qcloud.com/static/img/1d4b185be699bda3f1bb87b8232e7907/image.png" width=640 />
 找到最底部的Push Notifications，单击”Create Cerifcate…”创建push证书，这里**开发环境的证书和发布环境的证书需要分别创建，也就是相同的流程要走两遍**：
 <img src="//mccdn.qcloud.com/static/img/17f9f4648c333306abc307777557075e/image.png" width=640 />
@@ -37,7 +37,7 @@ Submit提交：
 <img src="//mccdn.qcloud.com/static/img/9e043e3c71ebe7fd5403fb52390642e7/image.png" width=640 />
 aps证书创建成功了，单击Download下载到本地。(文件名：开发版本为 aps_development.cer，发布版本为 aps.cer)：
 <img src="//mccdn.qcloud.com/static/img/9f112c857a992f6b8636a352963a21c4/image.png" width=640 />
-单击Done，你会发现该环境的push配置状态已经Enabled：
+单击Done，您会发现该环境的push配置状态已经Enabled：
 <img src="//mccdn.qcloud.com/static/img/c932c852924ac49c0823e9e5ba84a6a4/image.jpg" width=640 />
 注意：有的App ID的Apple Push Notification service列是灰色的，并且不允许使用Configure按钮，这是因为APNS不支持带通配符的App ID。
 

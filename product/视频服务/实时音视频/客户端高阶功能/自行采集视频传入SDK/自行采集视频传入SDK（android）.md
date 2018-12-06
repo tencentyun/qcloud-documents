@@ -224,3 +224,6 @@ AVVideoCtrl类的方法，入从外部视频捕获设备获取的视频图像到
 
 - 图像填充接口LiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame的参数该如何设置？
 > 自定义采集需开发者对视频、图像相关知识有一定的了解。主要是colorFormat的配置，采集的图像格式要与该参数相匹配。另外对于RGB32位的图像，需获取图像的byteperRow。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

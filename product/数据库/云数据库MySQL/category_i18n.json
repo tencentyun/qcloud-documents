@@ -1,0 +1,32 @@
+{
+  "任务相关接口": {
+    "en": "Task-Related API"
+  }, 
+  "其他接口": {
+    "en": "Other APIs"
+  }, 
+  "参数相关接口": {
+    "en": "Parameter-Related API"
+  }, 
+  "回档相关接口": {
+    "en": "Rollback-Related API"
+  }, 
+  "备份相关接口": {
+    "en": "Backup-Related API"
+  }, 
+  "安全组相关接口": {
+    "en": "Security-Related API"
+  }, 
+  "实例相关接口": {
+    "en": "Instance-Related API"
+  }, 
+  "数据导入相关接口": {
+    "en": "Data Import-Related API"
+  }, 
+  "数据库相关接口": {
+    "en": "Database-Related API"
+  }, 
+  "账号相关接口": {
+    "en": "Account-Related API"
+  }
+}

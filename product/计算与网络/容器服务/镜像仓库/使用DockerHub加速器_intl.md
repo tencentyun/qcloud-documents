@@ -1,6 +1,6 @@
 Source address of Docker: `https://mirror.ccs.tencentyun.com`
 
-## CCS Cluster CVM
+## TKE Cluster CVM
 When a node is created, Docker service is installed and image is configured automatically, without the need of manual configuration. The configuration items are as follows:
 ```shell
 [root@VM_1_2_centos ~]# cat /etc/docker/dockerd 

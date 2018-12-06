@@ -24,12 +24,11 @@ Create the `wecos.config.json` file under a directory at the same level as the M
 {
   "appDir": "./app",
   "cos": {
-    "appid": "1234567890",
-    "bucketname": "wxapp",
-    "folder": "/", //The bucket directory in which resources are stored
-    "region": "wx", //The region abbreviation selected when a bucket is created
-    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
-    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"      
+    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "bucket": "wxapp-1251902136",
+    "region": "ap-guangzhou", //创建bucket时选择的地域简称
+    "folder": "/" //资源存放在bucket的哪个目录下
   }
 }
 ```

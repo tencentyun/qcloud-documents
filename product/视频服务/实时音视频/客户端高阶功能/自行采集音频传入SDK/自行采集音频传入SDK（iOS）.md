@@ -104,7 +104,7 @@ NSLog(@"resul:%ld",result);
     {
         NSMutableData *pdata = [NSMutableData data];
         const Byte *btyes = [data bytes];
-        
+
         while (pdata.length < length)
         {
             if (off + length > data.length)
@@ -120,11 +120,11 @@ NSLog(@"resul:%ld",result);
                 off += length;
             }
         }
-        
+
         if (pdata.length == length)
         {
             *offset = off;
-            
+
             const void *abbytes = [aFrame.buffer bytes];
             memcpy((void *)abbytes, [pdata bytes], length);
         }

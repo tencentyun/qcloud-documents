@@ -1,5 +1,5 @@
 ## 1 概述
-使用消息语音，需要先调用[基本API](https://cloud.tencent.com/document/product/556/7665)。
+使用消息语音，需要先调用 [基本 API](https://cloud.tencent.com/document/product/556/7665)。
 
 ## 2 消息语音API调用流程
 ![](https://mc.qcloudimg.com/static/img/28ec9bf0eab80c06c7883219fbd7604a/jj3.png)  
@@ -88,7 +88,7 @@ GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写
 ### 3.4 停止录音
 1.接口说明  
 
-在语音消息的模式下，调用停止录音接口会
+在语音消息的模式下，调用停止录音接口
 
 2.函数原型
 

@@ -13,7 +13,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: ModifyDiskAttributes |
+| Action | Yes | String | Common parameter. Value used in this API: ModifyDiskAttributes |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | DiskIds.N | Yes | Array of String | ID(s) of one or more cloud disks to be operated. If multiple cloud disk IDs are specified, all the specified cloud disks can only have the same attribute. |
 | ProjectId | No | Integer | The new project ID of the cloud disk. Only the project ID of elastic cloud disk can be modified. The available projects and their IDs can be queried via the API [DescribeProject](/document/api/378/4400). |
@@ -51,7 +51,7 @@ https://cbs.tencentcloudapi.com/?Action=ModifyDiskAttributes
 &DiskName=test_data_disk
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

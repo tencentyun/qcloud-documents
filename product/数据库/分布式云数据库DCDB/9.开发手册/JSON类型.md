@@ -1,9 +1,9 @@
 
-> 如果您期望阅读或下载全量开发文档，请参考 [《DCDB开发指南》](https://cloud.tencent.com/document/product/557/7714)。
+> 如果您期望阅读或下载全量开发文档，请参考 [《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)。
 
 #### JSON
 
-DCDB 支持存储 Json 格式的数据，使得对 Json 处理更加有效，同时又能提早检查错误；如果您既希望使用 json 类型，又对数据一致性，事务，join 等传统数据库具备的能力也有一定要求的话，DCDB 将是一个很好的选择，当然 DCDB 的 JSON 是基于 MySQL 与 Mongodb 的使用仍有一些差异，如果您感兴趣，可以阅读 [DCDB与MongoDB 的 JSON 能力对比](https://cloud.tencent.com/document/product/557/15142)。
+TDSQL 支持存储 Json 格式的数据，使得对 Json 处理更加有效，同时又能提早检查错误；如果您既希望使用 json 类型，又对数据一致性，事务，join 等传统数据库具备的能力也有一定要求的话，TDSQL 将是一个很好的选择，当然 TDSQL 的 JSON 是基于 MySQL 与 Mongodb 的使用仍有一些差异，如果您感兴趣，可以阅读 [TDSQL 与MongoDB 的 JSON 能力对比](https://cloud.tencent.com/document/product/557/15142)。
 ```
 	mysql>  CREATE TABLE t1 (jdoc JSON,a int) shardkey=a;
 	Query OK, 0 rows affected (0.30 sec)

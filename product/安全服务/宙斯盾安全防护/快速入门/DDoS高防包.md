@@ -1,29 +1,27 @@
-# 快速入门DDoS高防包 #
-腾讯云宙斯盾 DDoS 高防包防护流程图如下：
-![](https://main.qcloudimg.com/raw/26e2bab63e6df5395036522b50b3cfd4.png)
-## 一、准备与选型 
-1. 注册腾讯云账号
-新用户需在 [腾讯云官网](https://cloud.tencent.com/) 进行【注册】然后购买宙斯盾安全防护服务，详情可参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603) 操作指引和宙斯盾安全防护 [购买指导]()。
-2. 确定高防包区域
- - 区域选择原则
-DDoS 高防包只能为同区域的腾讯云公网 IP 提供高防服务，请务必选择与您腾讯云源站服务器同区域的高防包。
-3. 确定高防 IP 配置方案
- - 防护范围
- 可以选择单IP或多IP。单IP模式高防包可以绑定一个腾讯云公网IP地址，该IP独享防护峰值。多IP模式高防包可以绑定多个腾讯云公网IP地址，多IP共享防护峰值。当多IP同时遭受DDoS攻击时，若叠加峰值超过防护峰值时，会从攻击流量最大的IP地址开始封堵。
- - 保底防护峰值
- 保底防护峰值为包年包月预付费。建议以历史攻击流量的平均值为参考，配置保底防护峰值高于平均值，以使保底防护峰值足够防御大部分攻击事件。
- - 弹性防护峰值
- 弹性防护峰值为按使用量计费，每日结算。建议以历史攻击流量最高值为参考，配置弹性防护峰值略高于历史最高峰值，以便发生大流量攻击时有足够的容量可以防御，避免超过防护峰值IP被封堵。同时弹性按月用量付费，未使用时不付费，可以大量节省成本。
+宙斯盾 DDoS 高防包可为腾讯云公网 IP 地址提供高防能力。包括 [云服务器](https://cloud.tencent.com/doc/product/213/495)、[负载均衡](https://cloud.tencent.com/doc/product/214/524)、黑石服务器、黑石负载均衡、NAT IP、EIP、GAAP IP 等。DDoS 高防包使用简单，对于业务不可更改 IP 地址，或者有大量 IP 需要防护的场景下，可以快速简单地完成防护配置。目前 DDoS 高防包有单 IP 模式和多 IP 模式。
 
-## 二、添加防护 IP
-DDoS 高防包购买完成后，在 DDoS 高防包管理页面列表中即可以看到分配的高防包资源。高防包可以直接对腾讯云公网 IP 地址提升 DDoS 防护能力.
-本部分介绍添加 IP 的配置方法。
-1. 在宙斯盾安全防护产品控制台，在左侧目录中选择【DDoS 高防包】 即可以进入 DDoS 高防包管理页；
- ![](https://i.imgur.com/EyS5666.jpg)
-2. 在高防包列表中，单击【绑定 IP 数】列的 IP 数量，即可接入防护 IP 列表；
- ![](https://i.imgur.com/SWyyKSx.jpg)
-3. 在防护 IP 列表下，单击【添加 IP】，并选取需要添加到高防包中防护的 IP 地址；
- ![](https://i.imgur.com/nPTbOqg.jpg)
- ![](https://i.imgur.com/itOyZcR.jpg)
-4. 完成添加后，该 IP 地址即可以得到宙斯盾安全防护系统的保护了。
-![](https://i.imgur.com/7wzmM0D.jpg)
+本文档将详细说明 DDoS 高防包配置接入的步骤。如何选择购买配置，详情请参见 [**产品配置说明**](https://cloud.tencent.com/document/product/685/18798)。
+
+## 流程图
+![0](https://main.qcloudimg.com/raw/56680ef9138fe084b097b0ca753b9636.png)
+
+## 接入步骤
+1. **购买 DDoS 高防包**
+a. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【DDoS 高防包】，在 “高防包列表” 的下，单击【购买】。
+![1](https://main.qcloudimg.com/raw/3117e8b78bd394bd3afa7e3126adc839.png)
+b. 选择好配置，单击【立即下单】。
+![2](https://i.imgur.com/WubfeN7.png)
+弹性防护支持两种计费模式，详情请参见 “产品配置说明” 文档的 [确定高防包配置方案](https://cloud.tencent.com/document/product/685/18798#.E7.A1.AE.E5.AE.9A.E9.AB.98.E9.98.B2.E5.8C.85.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88) 的弹性计费模式、弹性流量包、弹性带宽峰值。
+![3](https://main.qcloudimg.com/raw/73f2289fc484b77fc07ee09d55968535.png)
+c. 在 “DDoS 高防包” 下，单击【弹性流量包管理】，单击【购买弹性流量包】。
+![4](https://main.qcloudimg.com/raw/a8b44642c3f3153f15fa9acb489b4faa.png)
+![5](https://i.imgur.com/EsZfSDe.png)
+2. **绑定防护 IP**
+a. 在 “DDoS 高防包” 页面的【高防包列表】下，单击高防包 ID，进入基本信息页。
+![6](https://main.qcloudimg.com/raw/e3112d0601ccb3b11d7cc0a8fb6db583.png)
+b. 在 “DDoS 高防包详情” 页面下，单击【防护 IP 列表】，单击【添加防护 IP】。
+![7](https://main.qcloudimg.com/raw/2f323e4e6afbd9e08ffb76631b328f43.png)
+c. 在 “添加防护 IP” 弹窗中，勾选好云服务器的 “IP 地址”，单击【确定】。
+![8](https://i.imgur.com/UPpqQAY.png)
+d. 添加成功后，在【防护 IP 列表】下，可以看到该 IP 地址即可以获得 DDoS 高防包防护了。
+![9](https://main.qcloudimg.com/raw/75c262c24a13aae92a8b6c036ac369d8.png)

@@ -44,7 +44,7 @@ The following recommended request headers are recommended for implementation of 
 | Expect | If Expect: 100-continue is used, the request content will not be sent until the receipt of response from server. | String | No |
 | Expires | The expiration time defined in RFC 2616, which will be saved as Object metadata. | String | No |
 | x-cos-meta-* | The header information allowed to be defined by users, which will be returned as Object metadata. The size is limited to 2 KB. | String | No |
-| X-cos-storage-class | Set the storage class of Object. Enumerated values: STANDARD, STANDARD_IA, NEARLINE. The default is STANDARD (this is only supported for South China region) | String | No |
+| X-cos-storage-class | Set the storage class of Object. Enumerated values: STANDARD, STANDARD_IA. The default is STANDARD (this is only supported for South China region) | String | No |
 
 **Permission-related headers**
 This request operation is implemented using header x-cos-acl in request Put to set the access permission of Object. Three access permissions are available: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
@@ -53,9 +53,9 @@ This request operation is implemented using header x-cos-acl in request Put to s
 | Name | Description | Type | Required |
 |:---|:-- |:--|:--|
 | x-cos-acl | Define the ACL attribute of Object. Valid values: private, public-read-write, public-read. Default value: private | String | No |
-| x-cos-grant-read | Grant read permission to the authorized user. Format: x-cos-grant-read: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
-| x-cos-grant-write | Grant write permission to the authorized user. Format: x-cos-grant-write: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
-| x-cos-grant-full-control | Grant read-write permission to the authorized user. Format: x-cos-grant-full-control: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
+| x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No |
+| x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No |
+| x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No |
 
 ### Request Body
 The request body of this request is file Object.
@@ -90,7 +90,7 @@ Content-Length: 64
 
 ### Response
 ```
-HTTP/1.1 200 OK
+HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed, 28 Oct 2015 20:32:00 GMT

@@ -3,10 +3,10 @@ Accessing clients must be in the same network with the file system. Permission g
 
 ### Creating a permission group
 Click **Create** to create a permission group under the Permission Group tab.
-![](https://mc.qcloudimg.com/static/img/97e13cd68ef5222536a0fef699cf41c7/image.png)
+![](https://main.qcloudimg.com/raw/476316bb59fa6235d95edca6a95a50e4.png)
 
 Set a name and note for the permission group in the popup window.
-![](https://mc.qcloudimg.com/static/img/384cd8ccc219798ffd7eb1cef7c3018e/image.png)
+![](https://main.qcloudimg.com/raw/ab927080ea543761f36566088361377a.png)
 
 ### Managing permission group rules
 You can add, edit or delete rules in the rule list. If no rule is added to the permission group, all IPs in your network are allowed.
@@ -25,7 +25,7 @@ User Permission: You can select one of the following 4 options to control the pe
 **If you create a file directory and mount a file system as a root user, and set all_squash or root_squash for accessing IPs, the accessing IPs can only read the files (because the mount path is configured with root permission and the accessing IPs are mapped as anonymous users).**
 
 Priority: You can configure an integer from 1-100 as the priority level, where 1 indicates the highest priority. When the permission of a single IP conflicts with that of an IP address range containing this single IP in the same permission group, the permission with a higher priority shall prevail. If the priority is the same, the permission of the single IP shall prevail. If two IP address ranges that have overlaps are configured with different permissions but the same priority, the permissions of the overlapped range will take effect randomly. Please avoid configuring IP address ranges with overlaps. **Note: Priority configuration is not supported for CIFS/SMB file systems and it will not take effect after configured.**
-![](https://mc.qcloudimg.com/static/img/1c2662c3a4ab972aa4f1cdc42806116b/image.png)
+![](https://main.qcloudimg.com/raw/71754c722e1b841ca7745c9bbaa5e6cf.png)
 
 
 ### Configuring a permission group for the file system
@@ -35,10 +35,10 @@ Priority: You can configure an integer from 1-100 as the priority level, where 1
 
 **Note: If the file system is mounted using the NFS v4 protocol, the modification to the permission group rules of the file system will take effect in 2 minutes.**
 
-![](https://mc.qcloudimg.com/static/img/b22d7373fb7838ed63b8a176f4616461/image.png)
+![](https://main.qcloudimg.com/raw/78cec9a955e9d92c996f4a67335bc2b4.png)
 
 ### Modifying permission group information
 You can modify the name and the note of the permission group in the permission group details page.
-![](https://mc.qcloudimg.com/static/img/1a738d689985e7d85daf72422b707929/image.png)
+![](https://main.qcloudimg.com/raw/fe17d7bb9bb7720c5afc406340fb4395.png)
 
 

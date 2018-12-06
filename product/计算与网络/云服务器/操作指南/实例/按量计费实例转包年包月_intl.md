@@ -16,9 +16,9 @@ You can switch the billing method at CVM console. Specific rules are as follows:
  
 
 
-### Service Limits
+### Use limits
 
-1. You cannot switch the instance from postpaid to prepaid if the remaining quota of prepaid instances in the availability zone is less than the number of postpaid instances to be switched. To increase your quota, check **Apply for increasing CVM quota** when [submitting a ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&source=0).
+1. You cannot switch the instance from postpaid to prepaid if the remaining quota of prepaid instances in the availability zone is less than the number of postpaid instances to be switched. To increase your quota, select **Apply for increasing CVM quota** when [submitting a ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&source=0).
 2. The billing method of non-postpaid instances cannot be switched.
 3. The network used by an instance is billed by bandwidth usage time and such method cannot be switched. It may be available in the future.
 4. The billing method of batch-based instances such as BC1 and BS1 cannot be switched.
@@ -50,7 +50,7 @@ You can switch the billing method at CVM console. Specific rules are as follows:
 A: [Submit a ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&source=0).
 
 **Q: Does the switch affect how the bandwidth is billed?**
-A: No. Switching from Postpaid to Prepaid is only applicable to the change of instance billing method.
+A: No. Switching from Postpaid to Prepaid is only available to instances.
 
 **Q: When does the prepaid billing method take effect after the switch?**
 A: Immediately after you pay for the order for switching.

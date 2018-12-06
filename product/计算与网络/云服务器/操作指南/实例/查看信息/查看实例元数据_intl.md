@@ -1,51 +1,51 @@
-Instance metadata refers to the data of the instance that you operate on, and can be used to configure and manage running instances.
+Instance metadata is the data of the instances you are running and can be used to configure or manage the running instances.
 
->Note: While instance metadata can only be accessed internally from the instance, the data has not been protected through encryption. Anyone who accesses the instance can view its metadata. Therefore, you should take proper precautions to safeguard sensitive data (e.g. using permanent encryption key).
+>Note: Although the instance metadata can only be accessed from within the instance itself, the data is not encrypted and protected. Anyone who has the access to an instance also has the access to its metadata. Therefore, it is recommended to take appropriate measures to protect sensitive data (e.g. using a permanent encryption key).
 
 
-## Instance Metadata Classification
-Now Tencent Cloud provides the following metadata information:
+## Overview of Instance Metadata 
+Tencent Cloud provides the following meta-data:
 
-| Data | Description | Latest Version |
+| Data | Description | Version Where It Was Introduced |
 |---------|---------|---------|
 | instance-id | Instance ID | 1.0 |
 | uuid | Instance ID | 1.0 |
-| local-ipv4 | Private IP of instance | 1.0 |
-| public-ipv4 | Public IP of instance | 1.0 |
+| local-ipv4 | Instance's private IP | 1.0 |
+| public-ipv4 | Instance's public IP | 1.0 |
 | mac | MAC address of instance's eth0 device | 1.0 |
-| placement/region | Information of the region in which the instance resides | 2017-09-19 |
-| placement/zone | Information of the availability zone in which the instance resides | 2017-09-19 |
-| network/interfaces/macs/<font style="color:red">mac</font>/mac | The device address for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/primary-local-ipv4 | The primary private IP for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/public-ipv4s | The public IP for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/gateway | The gateway address for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/local-ipv4 | The private IP for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4 | The public IP for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4-mode | The public network mode for the network interface of the instance | 1.0 |
-| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/subnet-mask | The subnet mask for the network interface of the instance | 1.0 |
+| placement/region | Information of the region where the instance resides | Updated on Sept 19, 2017 |
+| placement/zone | Information of the availability zone where the instance resides | Updated on Sept 19, 2017 |
+| network/interfaces/macs/<font style="color:red">mac</font>/mac | Device address of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/primary-local-ipv4 | Primary private IP of instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/public-ipv4s | Public IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/gateway | Gateway address of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/local-ipv4 | Private IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4 | Public IP of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/public-ipv4-mode | Public network mode of the instance's network interface | 1.0 |
+| network/interfaces/macs/<font style="color:red">mac</font>/local-ipv4s/<font style="color:red">local-ipv4</font>/subnet-mask | Subnet mask of the instance's network interface | 1.0 |
 
-> Fields <font style="color:red">mac</font> and <font style="color:red">local-ipv4</font> in red in the above table refer to the device address and private IP of the network interface specified for the instance, respectively.
+> Fields <font style="color:red">mac</font> and <font style="color:red">local-ipv4</font> in red in the above table indicate the device address and private IP of the network interface specified for the instance, respectively.
 > 
-> The destination URL address of the request is case sensitive. You must construct the destination URL address of a new request according to the returned result of the request.
+> The requested target URL is case sensitive. > Construct the target URL address of new request in strict accordance with the format of the returned result of request.
 >
-> The data returned by `placement` is changed in the current version (2017-09-19). If you need to use the data of the version 1.0, you can specify the path of the previous version or do not specify the version path so as to access the data of version 1.0. For more information on the data returned by `placement`, please see [Region and Availability Zone](/document/product/213/6091).
+> In the current version, the returned data of placement has been changed. To use the data in the previous version, specify the previous version path or leave the version path empty to access the data of version 1.0. For more information about the returned data of placement, please see [Region and Availability Zone](/document/product/213/6091).
 
 ## Querying Instance Metadata
-Within the instance, you can access data, such as local IP and public IP of instance, via instance metadata to manage the connection with external applications.
-To view all types of instance metadata within the running instance, use the following URI:
+You can access the instance metadata such as instance's local IP and public IP from within an instance to manage connections with external applications.
+To view all the instance metadata from within a running instance, use the following URI:
 ```
 http://metadata.tencentyun.com/latest/meta-data/
 ```
-You can access metadata via the cURL tool or HTTP GET request. For example:
+You can access metadata through the cURL tool or HTTP GET request, for example:
 ```
 curl http://metadata.tencentyun.com/latest/meta-data/
 ```
-* For resources that do not exist, HTTP error code 404 - Not Found is returned.
-* The operations on the instance metadata can only be performed **within the instance**. Log in to the instance first. For more information on instance login, please see [Log in to Windows Instance](/doc/product/213/5435) and [Log in to Linux Instance](/doc/product/213/5436).
+* For resources that do not exist, HTTP error code "404 - Not Found" is returned.
+* Any operation on instance metadata can only be performed **from within the instance**. Log in to the instance first. For more information on how to log in to an instance, please see [Logging in to Windows Instances](/doc/product/213/5435) and [Logging in to Linux Instances](/doc/product/213/5436).
 
-### Examples of Metadata Querying
+### Example of querying metadata
 
-The following example shows how to get metadata version. For now, the metadata versions include "1.0", "2017-09-19" and "latest". Tencent Cloud may release new metadata versions time by time. You can specify the version that your application or scripts depending on. Data of Version 1.0 is returned if not specified.
+The following example shows how to obtain the metadata version information. Note: When the Tencent Cloud modifies the metadata access path or returned data, a new metadata version is released. If your application or script depends on the structure or returned data of previous version, you can access metadata using the specified previous version. If no version is specified, version 1.0 is accessed by default.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/
 1.0
@@ -54,7 +54,7 @@ latest
 meta-data
 ```
 
-The following example shows how to view the metadata root directory. The words ending with `/` represent directories, and words that do not end with `/` represent access data. For the meaning of the specific access data, please see the **Instance Metadata Classification** above.
+The following example shows how to view the metadata root directory. The line ending with `/` represents a directory and the one not ending with `/` represents the accessed data. For the description of accessed data, please see **Overview of Instance Metadata** described above.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/
 instance-id
@@ -66,7 +66,7 @@ public-ipv4
 uuid
 ```
 
-The following example shows how to get the physical location of the instance. For the relationship between returned data and the physical location, please see [Region and Availability Zone](/document/product/213/6091).
+The following example shows how to obtain the physical location information of an instance. For the relationship between the returned data and the physical location, please see [Region and Availability Zone](/document/product/213/6091).
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/placement/region
 ap-guangzhou
@@ -75,43 +75,43 @@ ap-guangzhou
 ap-guangzhou-3
 ```
 
-The following example shows how to get the private IP of the instance. If there is more than one ENI in the instance, the network address of the eth0 device is returned.
+The following example shows how to obtain the private IP of an instance. If an instance has multiple ENIs, the network address of the eth0 device is returned.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/local-ipv4
 10.104.13.59
 ```
 
-The following example shows how to get the public IP of the instance.
+The following example shows how to obtain the public IP of an instance.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/public-ipv4
 139.199.11.29
 ```
 
-The following example shows how to get the instance ID. Instance ID is the unique identifier of the instance.
+The following example shows how to obtain an instance ID. Instance ID is used to uniquely identify an instance.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/instance-id
 ins-3g445roi
 ```
 
-The following example shows how to get the instance uuid. The uuid is also a unique identifier of the instance. However it is recommended to use instance ID above.
+The following example shows how to get the instance uuid. Instance uuid can also be used as the unique identifier of an instance, but it is recommended to use instance ID to distinguish between instances.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/uuid
 cfac763a-7094-446b-a8a9-b995e638471a
 ```
 
-The following example shows how to get MAC address of eth0 device of the instance.
+The following example shows how to obtain the MAC address of an instance's eth0 device.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/mac
 52:54:00:BF:B3:51
 ```
 
-The following example shows how to get ENI information of the instance. Multiple lines of data will be returned for multiple ENIs. Each line contains the data directory of an ENI.
+The following example shows how to obtain the ENI information of an instance. In case of multiple ENIs, multiple lines of data are returned, with each line indicating the data directory of an ENI.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/
 52:54:00:BF:B3:51/
 ```
 
-The following example shows how to get the information of a specified ENI.
+The following example shows how to obtain the information of specified ENI.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/
 local-ipv4s/
@@ -120,13 +120,13 @@ primary-local-ipv4
 public-ipv4s
 ```
 
-The following example shows how to get a list of private IP addresses bound to a specified ENI. If the ENI is bound to multiple private IPs, multiple lines of data are returned.
+The following example shows how to obtain the list of private IPs bound to the specified ENI. If the ENI is bound with multiple private IPs, multiple lines of data are returned.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/
 10.104.13.59/
 ```
 
-The following example shows how to get the information of private IP.
+The following example shows how to obtain the information of private IP.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59
 gateway
@@ -136,25 +136,25 @@ public-ipv4-mode
 subnet-mask
 ```
 
-The following example shows how to get the private IP gateway. This data is only available to instance using VPC. For more information on VPC, please see [Private Network](/document/product/215).
+The following example shows how to obtain the gateway of private IP (only for VPC-based CVMs). For more information about VPC-based CVMs, please see [Virtual Private Cloud (VPC)](/document/product/215).
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/gateway
 10.15.1.1
 ```
 
-The following example shows how to get the access mode of private IP to public network. This data is only available to instance using VPC. Instance using basic network can access Internet via public network gateway.
+The following example shows how to obtain the access mode used by a private IP to access the public network (only for VPC-based CVMs). A basic network-based CVM accesses the public network through the public gateway.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/public-ipv4-mode
 NAT
 ```
 
-The following example shows how to get the public network IP bound to the private IP.
+The following example shows how to obtain the public IP bound to a private IP.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/public-ipv4
 139.199.11.29
 ```
 
-The following example shows how to get the subnet mask of the private IP.
+The following example shows how to obtain the subnet mask of a private IP.
 ```
 [qcloud-user]# curl http://metadata.tencentyun.com/latest/meta-data/network/interfaces/macs/52:54:00:BF:B3:51/local-ipv4s/10.104.13.59/subnet-mask
 255.255.192.0

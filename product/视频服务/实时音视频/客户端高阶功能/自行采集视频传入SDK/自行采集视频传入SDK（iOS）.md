@@ -62,3 +62,6 @@
 * 1 如果渲染自定义采集的画面使用了OpenGL，则不能使用ILiveSDK中的渲染，否则会Crash。也就是说，此时界面上应该有两个view，一个渲染自定义采集的画面，另一个渲染QAVVideoFrame对象。
 
 * 2 如果有其它自定义采集数据格式，推荐使用[libyuv库](https://github.com/asynnestvedt/libyuv-ios)进行转换，再构造QAVVideoFrame结构。
+
+## 联系邮箱
+如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

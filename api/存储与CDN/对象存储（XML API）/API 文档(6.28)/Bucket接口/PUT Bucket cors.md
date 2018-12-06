@@ -56,14 +56,14 @@ PUT /?cors HTTP/1.1
 
 具体的数据描述如下：
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
+|节点名称（关键字）|父节点|描述|类型|必选|
+|---|---|---|---|---|
 |CORSConfiguration|无|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是|
 
 Container 节点 CORSConfiguration 的内容：
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
+|节点名称（关键字）|父节点|描述|类型|必选|
+|---|---|---|---|
 |CORSRule|CORSConfiguration|说明跨域资源共享配置的所有信息，最多可以包含 100 条 CORSRule|Container|是|
 
 Container 节点 CORSRule 的内容：

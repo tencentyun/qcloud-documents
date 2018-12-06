@@ -14,7 +14,7 @@ Click **Settings**, select **Broadcasting Settings**, and then set **Mode** to *
 #### OBS Studio push URL settings
 Click **Settings** in the lower right corner of the page, select **Stream**, and then set **Streaming Type** to **Custom Streaming Media Server**, **URL** to the first part of the push URL, and **Stream Key** to the second part.
 ![](//mc.qcloudimg.com/static/img/023f599e7fe3e22a8d348a6b4b7b0720/image.png)
-### Set Audio/Video Sources
+### Set audio/video sources
 Audio/video sources are like the contents of the package you want to deliver. There are three types of audio/video sources:
 - From video capture devices (such as camera or video recording devices);
 - From PC windows or game sources;
@@ -29,16 +29,16 @@ Audio/video sources are like the contents of the package you want to deliver. Th
 #### OBS Studio audio/video source settings
 For more information, please see "OBS audio/video source settings".
 
-### Set Audio/Video Formats
+### Set audio/video formats
 After the video source is set, although the audio/video signals can be obtained, the original audio and video signals are not suitable for transmission over network because of their high requirement for bandwidth. Therefore, it is very important to set audio/video encoding parameters before live broadcasting.
 
 | Configuration Item | Feature | 
 |:--------:|---------|
-| x264 | Recommended. The h264 encoder is most commonly used in the industry and allows a higher video compression ratio for the same image quality. |
-| Nvidia NVENC | Encoding using the video processing core dedicated to nv graphics card. Nvidia graphics card is required. |
-| Quick Sync | Use Intel Quick Sync Video technology to support hardware encoding with a high encoding speed and image quality. But it has a poor compatibility and high bitrate. |
-| CBR | Recommended. This is one of video encoding bitrate control modes and is called constant bitrate control. With a consistent bitrate, it is more suitable for network transmission. |
-| AAC | Recommended. This is the most widely used live audio encoding format. |
+|x264| Recommended. The h264 encoder is most commonly used in the industry and allows a higher video compression ratio for the same image quality. |
+|Nvidia NVENC| Encoding using the video processing core dedicated to nv graphics card. Nvidia graphics card is required. |
+|Quick Sync| Use Intel Quick Sync Video technology to support hardware encoding with a high encoding speed and image quality. But it has a poor compatibility and high bitrate. |
+|CBR| This is one of video encoding bitrate control modes and is called constant bitrate control. With a consistent bitrate, it is more suitable for network transmission. It is recommended to check this option. |
+| AAC | This is the most widely used live audio encoding format. It is recommended to select this option. |
 
 #### OBS audio/video format settings
 ![](//mc.qcloudimg.com/static/img/eb91f2e51ca3b3d8c39028262b4eae21/image.png)

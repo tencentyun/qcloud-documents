@@ -1,0 +1,114 @@
+## 接口描述
+本接口 ( ListTriggerLog ) 获取触发记录。
+接口请求域名：
+
+````
+ccr.api.qcloud.com
+````
+
+## 输入参数
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](/doc/api/457/9463)。
+
+| 参数名称 | 描述 |类型 | 必选  |
+|---------|---------|---------|---------|
+| reponame   | 仓库名称 | String |是 |
+| offset   | 数据偏移量，默认值为 0 | Int |否 |
+| limit   | 返回数据条数，默认为 20 | Int |否 |
+| order   | 按时间排序的，desc 降序，asc 升序 | String |否 |
+| orderby   | 支持按字段排序，支持的字段包括invoke_time，trigger_name，repo_name 这三个字段 | String |否 |
+
+## 输出参数
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| code | 公共错误码。0 表示成功，其他值表示失败|Int |
+| codeDesc | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因|String |
+| message |  模块错误信息描述，与接口相关|String |
+| totalCount |  查询结果数目|Int |
+| logInfo |  触发记录字段|Object Array |
+
+触发器信息字段：
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| triggerName   | 触发器名称 | String |
+| repoName   | 触发器绑定的仓库名 | String |
+| tagName   | 镜像仓库 tag | String |
+| invokeSource   | 触发原因。当前为固定值“IMAGE_PUSH”，表示由镜像推送引起触发 | String |
+| invokeAction   | 触发动作。当前为固定值“SERVICE_UPDATE”，表示更新服务 | String|
+| invokeTime   | 触发时间 | String|
+| invokeCondition   | 触发条件| Object|
+| invokePara   | 触发参数| Object|
+| invokeResult   | 触发结果| Object|
+
+invokeCondition 参数包括以下字段：
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| invokeMethod   | 触发方式。<br>all：全部触发<br>taglist：指定tag触发<br>regex：正则表达式触发 | String |
+| invokeExpr   | 触发方式对应的表达式。<br>invokeMethod 为“all”时，此参数为空<br>invodeMethod 为“taglist”时，此参数为 tag 列表，英文分号分隔，如：v1;v2;v3<br>invokeMethod 为“regex”时，此参数为正则表达式，如：^test* | String |
+
+invokePara 参数包括以下字段：
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| appId   | 用户的 APPID | String |
+| serviceName   | 更新服务参数服务名称 | String |
+| clusterId   | 更新服务参数集群 ID | String |
+| namespace   | 更新服务参数命名空间 | String |
+| containerName   | 更新服务参数容器名称 | String |
+| clusterRegion   | 更新服务参数集群区域。<br>地域编号如下：<br>1：广州<br>4：上海<br>5：香港<br>7：上海金融<br>8：北京<br>9：新加坡<br>16：成都 | Int |
+
+invokeResult 参数包括以下字段：
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| returnCode   | 触发结果。0：成功，非0：失败 | Int|
+| returnMsg   | 触发结果相关信息 | String|
+## 示例
+### 输入
+
+```
+  https://domain/v2/index.php?Action=ListTriggerLog
+  &offset=0
+  &limit=20
+  &reponame=test/kube_test
+  &其它公共参数
+```
+### 输出
+
+```
+{
+    "code": 0,
+    "message": "", 
+    "codeDesc": "Success",
+    "data": {
+			"logInfo": [{
+				"repoName": "kubetest/kubetest",
+				"tagName": "latest",
+				"triggerName": "trigger_test",
+				"invokeSource": "IMAGE_PUSH",
+				"invokeAction": "SERVICE_UPDATE",
+				"invokeTime": "2018-07-23 23:13:27",
+				"invokeCondition": {
+					"invokeMethod": "regex",
+					"invokeExpr": "test*"
+				},
+				"invokePara": {
+					"appId": "1254119589",
+					"clusterId": "cls-666666",
+					"namespace": "default",
+					"serviceName": "nginx-test",
+					"containerName": "nginx-test",
+					"clusterRegion": 1
+				},
+				"invokeResult": {
+					"returnCode": 0,
+					"returnMsg": "ok"
+				}
+			}],
+			"totalCount": 1
+	}
+}
+
+```

@@ -2,7 +2,7 @@
 腾讯云 IoT MQ 服务端会对每个客户端的访问请求进行身份验证，即客户端的每个请求中都需包含签名信息（Signature），以验证用户身份。
 
 ## 1. MQTT SDK 访问服务器
-MQTT 客户端连接 IoT MQ 服务器时，须发送 CONNECT 报文，且在 Connect 报文中需上传 username 和 password。其中 username 是 SecretId，password 是将 Appid、Instanceid 等作为待签名字符串，用 SecretKey 作为秘钥计算得到的签名。
+MQTT 客户端连接 IoT MQ 服务器时，须发送 CONNECT 报文，且在 Connect 报文中需上传 username 和 password。其中 username 是 SecretId，password 是将 Appid、Instanceid 等作为待签名字符串，用 SecretKey 作为密钥计算得到的签名。
 
 ## 2. 申请安全凭证
 在第一次使用客户端之前，用户需要在【腾讯云控制台】> 【[API 密钥管理](https://console.cloud.tencent.com/cam/capi) 】上申请安全凭证。安全凭证包括 SecretId 和 SecretKey，其中：
@@ -54,7 +54,7 @@ SecretKey： Gu5t9xGARNpq86cd98joQYCN3Cozk1qA
 >**注意：**
 >这里只是示例，请用户根据自己实际的 SecretId 和 SecretKey 和请求参数进行后续操作。
 
-然后用 SecretKey 作为秘钥，使用 HmacSHA256 签名算法对上一步中获得的 签名原文字符串 进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
+然后用 SecretKey 作为密钥，使用 HmacSHA256 签名算法对上一步中获得的 签名原文字符串 进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
 
 HmacSHA256 的算法实现，各个语言都有现成的函数库，下面以 PHP 语言为例（使用其它程序设计语言开发时，可用上述示例中的原文字符串进行签名验证，得到的签名串与例子中的一致即可）：
 

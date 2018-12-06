@@ -1,10 +1,9 @@
-## SDK获取
+## SDK 获取
 智能图像的 Java SDK 下载地址：[Java-SDK-V2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
 
 ## 使用前准备
-1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）
-2. 取得存储桶名称 **BucketName**： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) ；
-3. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，单击“新建密钥”。
+1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）。
+2. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，单击“新建密钥”（目前只支持主账号及密钥进行调用）。
 
 ## 如何集成到您的项目中
 ### 获得 SDK jar 文件
@@ -49,8 +48,9 @@ System.out.println(result);
 
 更多例子详情可参见 [Demo.java](https://github.com/tencentyun/image-java-sdk-v2.0/blob/master/src/main/java/com/qcloud/image/demo/Demo.java) 的代码。
 
+
 ## 如何运行这个 Demo 工程
-1. 修改文件 src/main/java/com/qcloud/image/demo/Demo.java 的 main() 方法，填入上述申请到的 **APPID**、**SecretId**、**SecretKey**、**BucketName**
+1. 修改文件 src/main/java/com/qcloud/image/demo/Demo.java 的 main() 方法，填入上述申请到的 **APPID**、**SecretId**、**SecretKey**
 
 2. 导入到 IDE：这个 Demo 工程是用 Maven 构建的，以 Intellij IDEA 为例，导入方式为：Import Project -> 选择工程目录 -> 
   Import project from external model -> Maven

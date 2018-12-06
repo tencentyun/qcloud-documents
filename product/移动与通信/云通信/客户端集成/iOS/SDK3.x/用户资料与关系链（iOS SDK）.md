@@ -1138,7 +1138,7 @@ ImSDK 默认不会进行存储，需要用户显示调用开启存储。
 /**
  *  获取指定好友资料
  *
- *  @param users 好友 id（NSString*）列表，nil 时返回全部
+ *  @param users 好友 ID（NSString*）列表，nil 时返回全部
  *
  *  @return 好友资料（TIMUserProfile*）列表，proxy 未同步时返回 nil
  */
@@ -1175,7 +1175,7 @@ ImSDK 默认不会进行存储，需要用户显示调用开启存储。
 /**
  *  删除好友通知
  *
- *  @param identifiers 用户 id 列表（NSString*）
+ *  @param identifiers 用户 ID 列表（NSString*）
  */
 - (void)onDelFriends:(NSArray*)identifiers;
 /**
@@ -1187,7 +1187,7 @@ ImSDK 默认不会进行存储，需要用户显示调用开启存储。
 /**
  *  好友申请通知
  *
- *  @param reqs 好友申请者 id 列表（TIMSNSChangeInfo*）
+ *  @param reqs 好友申请者 ID 列表（TIMSNSChangeInfo*）
  */
 - (void)onAddFriendReqs:(NSArray*)reqs;
 @end

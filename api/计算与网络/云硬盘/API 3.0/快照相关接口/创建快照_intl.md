@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters and so
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes | String | Common parameter. Value​used in this API: CreateSnapshot |
+| Action | Yes | String | Common parameter. Value used in this API: CreateSnapshot |
 | Version | Yes | String | Common parameter. Value used in this API: 2017-03-12 |
 | DiskId | Yes | String | ID of the cloud disk, for which a snapshot needs to be created. It can be queried via the API [DescribeDisks](/document/product/362/16315). |
 | SnapshotName | No | String | Snapshot name. If it is left empty, the default is "not named". |
@@ -53,7 +53,7 @@ https://cbs.tencentcloudapi.com/?Action=CreateSnapshot
 &SnapshotName=snap_201711301015
 &<Common request parameters>
 ```
-### Response parameters
+### Return parameters
 
 ```
 {

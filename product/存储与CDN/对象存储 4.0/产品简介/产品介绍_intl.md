@@ -30,6 +30,3 @@ High-frequency Storage provides users with Cloud Object Storage with high reliab
 
 Low-frequency Storage provides users with Cloud Object Storage with high reliability, relatively low storage cost and access latency. Low-frequency Storage is suitable for business scenarios with low access frequency, for example, online disks and low-frequency files. Low-frequency Storage has lower storage cost, while maintaining a Time to First Byte within milliseconds. Users can read data with fast speed when retrieving data, without the need to wait.
 
-## Nearline Storage
-
-Nearline Storage provides users with online storage with high reliability and low cost. Nearline Storage is positioned between online storage and offline storage. Nearline Storage is suitable for business scenarios where the data is not accessed frequently, but is still required to be read online when necessary, for example, infrequently used media materials and disaster recovery backup. The most obvious feature of Nearline Storage is that its price is similar with that of offline storage, while Nearline Storage is still able to respond within seconds.

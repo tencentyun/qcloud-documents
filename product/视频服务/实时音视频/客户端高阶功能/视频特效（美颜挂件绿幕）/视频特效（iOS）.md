@@ -1,5 +1,5 @@
 
-本文将指导您在ILiveSDK中集成预处理插件（TXMVideoPreprocessor）实现视频特效功能。
+本文将指导您在 ILiveSDK 中集成预处理插件（TXMVideoPreprocessor）实现视频特效功能。
 
 ## 效果图
 美颜|滤镜|大眼/瘦脸/小鼻等|动效|绿幕
@@ -7,31 +7,31 @@
 ![](https://main.qcloudimg.com/raw/37c82c24b8154081c21293f7c65ddfae.png)|![](https://main.qcloudimg.com/raw/b7b91102c419a5f7ae590215fdb0065c.png)|![](https://main.qcloudimg.com/raw/bd5ebfa2b3078061ca5f2e824db1beb5.png)|![](https://main.qcloudimg.com/raw/53a5e44a06db04fdca6b6929c63820f5.png)|![](https://main.qcloudimg.com/raw/2117efcf754bb9992a5fbc9ba62f1bce.png)
 
 ## 源码下载
-在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。 
-[点击下载](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/demo_beauty_3.3.1.zip)
+在此我们提供以下所讲到的完整 Demo 代码，如有需要请您自行下载。
+[Demo 代码下载](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/demo_beauty_3.3.1.zip)
 
 ## 集成说明
 
-引入依赖库
+### 引入依赖库
 
 
-高级版本|基础版本 
+高级版本|基础版本
 :-----:|:-----:|
 ![](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/doc/advance.png)|![](http://dldir1.qq.com/hudongzhibo/TXMVideoPreprocessor/IOS/3.3.1/doc/basic.png)|
 确保所有的资源都引入到Copy Bundle Resources，并且model文件夹下的资源以Create folder references方式引入||
 
 
  * 温馨提示：
- >(1) 如果不使用滤镜，可以删除TXLiteAVVideoPreprocessorResource.bundle  
- (2) 高级版本需要申请licence并同步到Copy Bundle Resources中，licence不能重命名，必须为YTFaceSDK.licence  
- (3) 下载的TXMVideoPreprocessor.advance中的Pitu子文件夹及YoutuBeauty子文件夹中的所有bundle，并同步到Copy Bundle Resources中，否则直接crash  
- (4) 如果您是AVSDK的用户，processFrame的orientation参数应该设置为frameData.frameDesc.rotate，否则无法识别到人脸  
- (5) 使用滤镜功能时，确保设置融合度setFilterMixLevel，否则默认为0  
- (6) 如需要更多动效资源，请联系商务，并将资源添加到Resource文件夹下  
+ >(1) 如果不使用滤镜，可以删除 TXLiteAVVideoPreprocessorResource.bundle；
+ (2) 高级版本需要申请 licence 并同步到 Copy Bundle Resources 中，licence 不能重命名，必须为 YTFaceSDK.licence；  
+ (3) 下载的 TXMVideoPreprocessor.advance 中的 Pitu 子文件夹及 YoutuBeauty 子文件夹中的所有 bundle，并同步到 Copy Bundle Resources 中，否则直接 crash；  
+ (4) 如果您是 AVSDK 的用户，processFrame 的 orientation 参数应该设置为 frameData.frameDesc.rotate，否则无法识别到人脸；  
+ (5) 使用滤镜功能时，确保设置融合度 setFilterMixLevel，否则默认为 0；
+ (6) 如需要更多动效资源，请联系商务，并将资源添加到 Resource 文件夹下；  
 
 
- 工程配置
- > 基础版本无须做工程配置，用默认配置即可  
+ ### 工程配置
+ > 基础版本无须做工程配置，用默认配置即可。  
 
 
 ## 集成到ILiveSDK
@@ -49,7 +49,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 [self.preProcessor setDelegate:self];//TXIVideoPreprocessorDelegate
 ```
 
-2.设置ILiveSDK数据回调
+2.设置 ILiveSDK 数据回调
 
 ```object-c
 // 进房前设置数据帧回调
@@ -85,9 +85,9 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 ```
 
 
-## API说明
+## API 说明
 
-预处理接口调用
+### 预处理接口调用
 
 ```object-c
 /*
@@ -112,7 +112,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 - (int)processFrame:(Byte *)data width:(NSInteger)width height:(NSInteger)height orientation:(TXERotation)orientation inputFormat:(TXEFrameFormat)inputFormat outputFormat:(TXEFrameFormat)outputFormat;
 ```
 
-数据处理完回调
+### 数据处理完回调
 
 ```object-c
 /*
@@ -169,7 +169,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 ```
 
 
-基础功能
+### 基础功能
 
 > 美颜风格、美颜、美白、红润、滤镜、水印、裁剪、旋转、缩放、镜像
 
@@ -242,7 +242,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 
 ```
 
-可以使用sdk自带的滤镜资源，也可以自定义滤镜资源，通过设置融合度调整滤镜资源和图像的融合程度
+可以使用sdk自带的滤镜资源，也可以自定义滤镜资源，通过设置融合度调整滤镜资源和图像的融合程度。
 
 ```object-c
 /*
@@ -272,9 +272,9 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 
 
 
-高级功能
+### 高级功能
 
-> 大眼、瘦脸、v脸、短脸、下巴、瘦鼻、绿幕、动效
+> 大眼、瘦脸、v脸、短脸、下巴、瘦鼻、绿幕、动效。
 
 
 ```object-c
@@ -334,7 +334,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 
 ```
 
-将动效资源解压在Resource目录下，通过资源路径设置动效
+将动效资源解压在 Resource 目录下，通过资源路径设置动效。
 
 ```object-c
 /*
@@ -344,7 +344,7 @@ self.preProcessor = [[TXCVideoPreprocessor alloc] init];
 - (void)setMotionTemplate:(NSString *)templatePath;
 ```
 
-使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+使用绿幕需要先准备一个用于播放的 mp4 文件，通过调用以下接口即可开启绿幕效果。
 
 ```object-c
 /*
@@ -361,4 +361,4 @@ sdK提供美颜、美白、红润、滤镜、大眼、瘦脸、动效贴纸、�
 
 #### 费用问题
 
-美颜、美白、红润等基础功能是免费的。基于人脸识别的功能由于采用了优图实验室的专利技术，授权费用约 50W/年（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或联系我们（jerryqian QQ:364993028 ），商务同学会提供P图SDK，并替您向优图实验室申请试用 License。
+美颜、美白、红润等基础功能是免费的。基于人脸识别的功能由于采用了优图实验室的专利技术，授权费用约 50W/年（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或联系我们（jerryqian QQ:364993028 ），商务同学会提供 P 图 SDK，并替您向优图实验室申请试用 License。

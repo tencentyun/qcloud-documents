@@ -2,9 +2,7 @@
 
 ### 相关资源
 
-[cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
-
-[Java SDK本地下载](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-java-sdk-v4-master.zip)
+[cos java sdk v4 github 项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
 ### 环境依赖
 
@@ -21,7 +19,7 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.6</version>
+            <version>4.7</version>
 </dependency>
 ```
 

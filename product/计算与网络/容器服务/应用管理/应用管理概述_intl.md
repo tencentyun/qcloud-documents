@@ -1,10 +1,10 @@
-With the rise of micro-service and Devops, the deployment and management for multiple services across multiple environments becomes a necessity. Besides, the complexity of deployment also greatly increases. Tencent CCS can help you achieve group management of services via applications, which significantly simplifies the service management. Meanwhile, Tencent CCS saves the service deployment information in application templates, and manages differentiated service information in different environments via configurations, thus achieving quick service deployment in different environments in the mode of "application template + configuration".
+With the rise of micro-service and Devops, the deployment and management for multiple services across multiple environments becomes a necessity. Besides, the complexity of deployment also greatly increases. Tencent TKE can help you achieve group management of services via applications, which significantly simplifies the service management. Meanwhile, Tencent TKE saves the service deployment information in application templates, and manages differentiated service information in different environments via configurations, thus achieving quick service deployment in different environments in the mode of "application template + configuration".
 
 ## Key Concepts in Application Management
 
 Application management involves three key concepts:
 
-**Application:** Tencent CCS performs unified management for multiple services via service groups. For more information on applications, please see [Application Overview][1].
+**Application:** Tencent TKE performs unified management for multiple services via service groups. For more information on applications, please see [Application Overview][1].
 
 **Application Template:** The service deployment information is saved in the form of YAML text. Users can deploy the same application in different environments with ease. For more information on application templates, please see [Application Template Overview][2].
 

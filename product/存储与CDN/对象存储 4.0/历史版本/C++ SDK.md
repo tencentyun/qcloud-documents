@@ -2,10 +2,7 @@
 
 ### 相关资源
 
-[github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
-
-[C++ SDK 本地下载](https://mc.qcloudimg.com/static/archive/ebb45053fb35607c81359b48cd83a759/cos-cpp-sdk-v4-master.zip)
-
+[Github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
 ### 开发环境
 
@@ -14,7 +11,7 @@
 3. 安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装 boost 的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
 5. 安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-6. 从控制台获取 APP ID、SecretID、SecretKey。
+6. 从控制台获取 App ID、SecretID、SecretKey。
 
 >**注意：**
 >1. 本 SDK 仅适用于 Linux 系统和编译环境，暂不支持 Windows 环境。
@@ -59,7 +56,7 @@ static string AppSignMuti(const uint64_t appId,
 
 | 参数名          | **类型**   | **是否必填** | **默认值** | **参数描述**     |
 | ------------ | -------- | -------- | ------- | ------------ |
-| appId        | uint64_t | 是        | 无       | 项目 APP ID     |
+| appId        | uint64_t | 是        | 无       | 项目 App ID     |
 | secretId     | String   | 是        | 无       | 用户 Secret ID |
 | secretKey    | String   | 是        | 无       | 用户 SecretKey |
 | expired_time | uint64_t | 否        | 无       | 过期时间，Unix 时间戳 |
@@ -92,7 +89,7 @@ static string AppSignOnce(const uint64_t appId,
 
 | **参数名**    | **类型**   | **必须** | **默认值** | **参数描述**                                 |
 | ---------- | -------- | ------ | ------- | ---------------------------------------- |
-| appId      | uint64_t | 是      | 无       | 项目 APP ID                                |
+| appId      | uint64_t | 是      | 无       | 项目 App ID                                |
 | secretId   | String   | 是      | 无       | 项目 SecretID                              |
 | secretKey  | String   | 是      | 无       | 项目 SecretKey                             |
 | bucketName | String   | 否      | 无       | bucket名称                                 |

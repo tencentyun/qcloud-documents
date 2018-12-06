@@ -1,54 +1,25 @@
-Common request parameters are the request parameters that are used by every API. Unless it is necessary, these parameters will not be described in the separate documents for each API. However, <font style="color:red">they need to be included in each request</font>. The first letter of common request parameters are capitalized, to distinguish them from API request parameters.
+A complete Tencent Cloud API request requires two types of request parameters: common request parameters and API request parameters. This document describes 6 common request parameters used in Tencent Cloud API requests. For more information about API request parameters, see [API Request Parameters](https://cloud.tencent.com/document/product/582/13381).
+Common request parameters are required in every API. When developers use Tencent Cloud APIs to send requests, they should make sure that the requests carry these common request parameters. Otherwise, the requests will fail. The first letter of each common request parameter is in uppercase so that the parameter can be differentiated from API request parameters.
 
-Common request parameters are listed below:
+Common request parameters are as follows:
+>**Note:**
+>This document illustrates APIs specific to Tencent Cloud CVMs. For APIs specific to other Tencent Cloud products, see the relevant documents.
 
-<table class="t">
-<tbody><tr>
-<th><b> Parameter </b>
-</th><th width="50"><b>Required</b>
-</th><th><b> Description </b>
-</th><th><b> Type </b>
-</th></tr>
-<tr>
-<td> Action
-</td><td> Yes
-</td> <td> The API name to be called. For example, if you want to call the <a href="/doc/api/229/831" title="DescribeInstances">DescribeInstances</a> API, then the Action parameter is DescribeInstances.
-</td><td> String
-</td></tr>
-<tr>
-<td> Region
-</td><td> No
-</td><td> This parameter indicates the region you want to operate the instances. The values for the region parameter are: <br>Beijing:ap-beijing, Guangzhou:ap-guangzhou, Shanghai:ap-shanghai, Hong Kong:ap-hongkong, Toronto:na-toronto, Silicon Valley:na-siliconvalley, Singapore:ap-singapore, Shanghai Finance:ap-shanghai-fsi, Shenzhen Finance:ap-shenzhen-fsi, Guangzhou open zone: ap-guangzhou-open<br>Click to view all <a href="/doc/product/213/6091" title="Regions and Availability Zones">Regions and Availability Zones</a>，click to view <a href="/doc/api/213/9456" title="DescribeRegions">DescribeRegions</a> API introduce。<br><B> Note: 1. This parameter is required fot most cases. If it is not required, we will state that in the corresponding API doc. <br>2. Some regions are in trial period and only open for authorized users. </B>
-</td><td> String
-</td></tr>
-<tr>
-<td> Timestamp
-</td><td> Yes
-</td><td> Current UNIX timestamp, which records the time when an API request is originated.
-</td><td> UInt
-</td></tr>
-<tr>
-<td> Nonce
-</td><td> Yes
-</td><td> A random positive integer, used in conjunction with timestamp to prevent playback attacks.
-</td><td> UInt
-</td></tr>
-<tr>
-<td> SecretId
-</td><td> Yes
-</td><td> The SecretId that indicates the identity requested on the <a href="https://console.cloud.tencent.com/capi">Cloud API key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate a request signature. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
-</td><td> String
-</td></tr>
-<tr>
-<td> Signature
-</td><td> Yes
-</td><td> Request signature, used to verify the legitimacy of the request, the system automatically generated based on input parameters. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
-</td><td> String
-</td></tr></tbody></table>
+| Parameter Name | Description | Type | Required |
+|---------|---------|---------|---------|
+| Action | The name of the API for the desired operation. For example, when a Tencent Cloud CVM user calls the API [Query Instance List](https://cloud.tencent.com/document/api/213/9388), the Action parameter is DescribeInstances. | String | Yes |
+| Region | Region parameter, which is used to identify the region to which the instance you want to work with belongs. For more information, see [Regions and Availability Zones](/document/product/213/6091), or use the API [Query Region List](/document/api/213/9456).<br>**Notes:** 1. Unless otherwise specified in the API document, this parameter is required generally.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Some of the regions are under internal trial and only available to certain users. | String | No |
+| Timestamp | The current UNIX timestamp, which is used to record the time when the API request was initiated. | UInt | Yes |
+| Nonce | A random positive integer that is used in conjunction with Timestamp to prevent replay attacks. | UInt | Yes |
+| SecretId | SecretId for identifying identity that is applied for on [Cloud API Key](https://console.cloud.tencent.com/capi). A SecretId corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, see [Signature Method](https://cloud.tencent.com/document/product/215/1693). | String | Yes |
+| Signature | Request signature, which is used to verify the validity of the request. It is generated based on input parameters. For more information, see [Signature Method](https://cloud.tencent.com/document/product/215/1693). | String | Yes |
+| SignatureMethod | Signature method. Supported methods include HmacSHA256 and HmacSHA1. The HmacSHA256 method is used to verify signatures only when the parameter is specified as HmacSHA256. Otherwise, HmacSHA1 is used. For more information, see [Signature Method](https://cloud.tencent.com/document/product/215/1693). | String | No |
+| Token | The token used for the temporary certificate, which must be used together with a temporary key. No token is required for a long-term key. | String | No |
 
-For example, if you want to query the CVM instance list in Guangzhou, the request link should be:
+### Use Case
+The following example shows how common request parameters look like in an API request link for a Tencent Cloud product. If, for example, you want to query the list of Tencent Cloud CVM instances in the Guangzhou region, the request link should look like this:
 
-```
+<pre>
 https://cvm.api.qcloud.com/v2/index.php?
 Action=DescribeInstances
 &SecretId=xxxxxxx
@@ -56,7 +27,9 @@ Action=DescribeInstances
 &Timestamp=1465055529
 &Nonce=59485
 &Signature=mysignature
-&<API request parameters>
-```
+&SignatureMethod=HmacSHA256
+&<<a href="https://cloud.tencent.com/document/api/377/4154">API request parameters</a>>
+</pre>
 
-A complete request requires two types of request parameters: public request parameters and API request parameters. Only the aforementioned six public request parameters are listed here. For more information about API request parameters, refer to the <a href="https://intl.cloud.tencent.com/document/product/377/8938" title="接口请求参数">API request parameters</a> section.
+
+

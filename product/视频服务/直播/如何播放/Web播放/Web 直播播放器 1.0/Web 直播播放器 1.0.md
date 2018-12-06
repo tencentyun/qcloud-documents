@@ -18,7 +18,7 @@
 ## 准备工作
 
 ### Step 1：开通服务
-在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云帐号，并开通**直播**服务。
+在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，并开通**直播**服务。
 ### Step 2：创建频道
 进入 [直播管理控制台](https://console.cloud.tencent.com/live) 并创建直播频道。
 ### Step 3：获取 ID

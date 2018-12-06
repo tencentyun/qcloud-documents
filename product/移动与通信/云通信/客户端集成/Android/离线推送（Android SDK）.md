@@ -205,11 +205,11 @@ public void setNotifyMode(NotifyMode mode)
 
 ```java
 /**
- * 普通通知栏消息模式，离线消息下发后，点击通知栏消息直接启动应用，不会给应用进行回调
+ * 普通通知栏消息模式，离线消息下发后，单击通知栏消息直接启动应用，不会给应用进行回调
  */
 NotifyMode.Normal
 /**
- * 自定义消息模式，离线消息下发后，点击通知栏消息会给应用进行回调
+ * 自定义消息模式，离线消息下发后，单击通知栏消息会给应用进行回调
  */
 NotifyMode.Custom
 ```
@@ -271,7 +271,7 @@ TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOf
 //ImSDK 2.5.3 之前的构造方式
 //TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
-//推送自定义通知栏消息，接收方收到消息后点击通知栏消息会给应用回调（针对小米、华为离线推送）
+//推送自定义通知栏消息，接收方收到消息后单击通知栏消息会给应用回调（针对小米、华为离线推送）
 androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Custom);
 //设置 Android 设备收到消息时的提示音，声音文件需要放置到 raw 文件夹
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
@@ -598,7 +598,7 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 | 方法 | 说明 |
 | --- | --- |
-| onNotificationMessageClicked | 用来接收服务器发来的通知栏消息（用户点击通知栏时触发） |
+| onNotificationMessageClicked | 用来接收服务器发来的通知栏消息（用户单击通知栏时触发） |
 | onNotificationMessageArrived | 用来接收服务器发来的通知栏消息（消息到达客户端时触发，并且可以接收应用在前台时不弹出通知的通知消息） |
 | onReceiveRegisterResult | 用来接受客户端向服务器发送注册命令消息后返回的响应 |
 
@@ -867,7 +867,7 @@ public class HwPushMessageReceiver extends PushEventReceiver{
 		<action android:name="com.huawei.android.push.intent.REGISTRATION" />
 		<!-- 必须，用于接收消息-->
 		<action android:name="com.huawei.android.push.intent.RECEIVE" />
-		<!-- 可选，用于点击通知栏或通知栏上的按钮后触发 onEvent 回调-->
+		<!-- 可选，用于单击通知栏或通知栏上的按钮后触发 onEvent 回调-->
 		<action android:name="com.huawei.android.push.intent.CLICK" />
 		<!-- 可选，查看 push 通道是否连接，不查看则不需要-->
 		<action android:name="com.huawei.intent.action.PUSH_STATE" />
@@ -998,7 +998,7 @@ dependencies {
 }
 ```
 
-> 注：如果你需要使用 JAR，请参考 [Eclipse 接入方式](https://comsince.github.io/2017/02/21/mzpushsdk-eclipse/)。
+> 注：如果您需要使用 JAR，请参考 [Eclipse 接入方式](https://comsince.github.io/2017/02/21/mzpushsdk-eclipse/)。
 
 ### 兼容 Flyme 5.0 以下版本推送兼容配置
 
@@ -1015,9 +1015,9 @@ dependencies {
   <uses-permission android:name="包名.push.permission.MESSAGE"></uses-permission>
   <!--  兼容 Flyme3.0 配置权限-->
   <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
-  <permission android:name="你的包名.permission.C2D_MESSAGE"
+  <permission android:name="您的包名.permission.C2D_MESSAGE"
                     android:protectionLevel="signature"></permission>
-  <uses-permission android:name="你的包名.permission.C2D_MESSAGE"/>
+  <uses-permission android:name="您的包名.permission.C2D_MESSAGE"/>
 ```
 
 ### 自定义 BroadcastReceiver 类
@@ -1086,7 +1086,7 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
     public void onSubAliasStatus(Context context, SubAliasStatus subAliasStatus) {
     }
     /**
-     * 通知栏点击回调
+     * 通知栏单击回调
      */
     @Override
     public void onNotificationClicked(Context context, MzPushMessage mzPushMessage) {

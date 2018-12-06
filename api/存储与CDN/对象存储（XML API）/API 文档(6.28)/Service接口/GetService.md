@@ -1,60 +1,35 @@
 ## 功能描述
-Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。
+GET Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。
 
 ## 请求
-#### 请求语法示例
-
-**shell:** 
-
-```shell
-# You can also use curl
-curl -X GET http://{bucket}.cos.{region}.myqcloud.com/ \
-  -H 'Accept: application-xml'
-
-```
-
-**http:** 
-
-```http
-GET http://{bucket}.cos.{region}.myqcloud.com/ HTTP/1.1
-Host: 
-
-Accept: application-xml
-
-```
-
-### 请求行
+### 请求示例
 
 ```
 GET / HTTP/1.1
+Host: service.cos.myqcloud.com
+Date: GMT Date
+Authorization: Auth String
 ```
 
-该 API 接口接受 `GET` 请求。
-
+> Authorization: Auth String (详情参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求头
-
 #### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
-该请求请求体为空。
+该请求的请求体为空。
+
 ## 响应
 ### 响应头
 
 #### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
-
 该请求操作无特殊的响应头部信息。
 
 ### 响应体
@@ -106,13 +81,13 @@ Container 节点 Bucket 的内容：
 节点名称（关键字）|父节点|描述|类型|必选
 ---|---|---|---|---
 Name|ListAllMyBucketsResult.Buckets.Bucket|Bucket 的名称|string|是
-Location|ListAllMyBucketsResult.Buckets.Bucket|Bucket 所在地域。枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等|string|是
+Location|ListAllMyBucketsResult.Buckets.Bucket|Bucket 所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等|string|是
 CreateDate|ListAllMyBucketsResult.Buckets.Bucket|Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z|string|是
 
 
 ### 错误码
 
-错误码|描述|http 状态码
+错误码|描述|HTTP 状态码
 ---|---|---
 InvalidBucketName|Bucket 名称不合法|400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)

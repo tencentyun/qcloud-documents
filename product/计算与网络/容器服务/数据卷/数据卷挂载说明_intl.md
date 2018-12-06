@@ -7,10 +7,10 @@ In Docker, a volume is just a directory in the disk or another container. Its li
 
 For more information about Kubernetes volumes, please see [here](https://kubernetes.io/docs/concepts/storage/volumes/).
 ### How to Use Container Service Volumes
-Tencent Cloud's CCS is built based on the Kubernetes orchestration system, and supports the following volume types:
+Tencent Cloud's TKE is built based on the Kubernetes orchestration system, and supports the following volume types:
 
-- emptyDir: Used for temporary storage. Lifecycle is the same as pods. emptydir mode is used if you left the source volume path empty when creating service in Tencent Cloud's CCS.
-- hostPath: Specifies that files or directories in the host file system are mounted to a certain path in the container. hostPath mode is used if you enter a source path when creating service in Tencent Cloud's CCS.
+- emptyDir: Used for temporary storage. Lifecycle is the same as pods. emptydir mode is used if you left the source volume path empty when creating service in Tencent Cloud's TKE.
+- hostPath: Specifies that files or directories in the host file system are mounted to a certain path in the container. hostPath mode is used if you enter a source path when creating service in Tencent Cloud's TKE.
 - Cloud Disk: Other third-party storage plug-ins similar to Kubernetes (Tencent Cloud is actively participating in open source development and will soon submit relevant plug-ins to the community). Here, it means to mount a Tencent Cloud CBS disk to a certain path in the container. Use this mode by choosing the corresponding CBS disk when creating the volume.
 - nfs: Specify an nfs directory
 

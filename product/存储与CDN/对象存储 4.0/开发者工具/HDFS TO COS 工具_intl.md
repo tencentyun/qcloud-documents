@@ -1,7 +1,6 @@
 ## Feature Description
 HDFS TO COS is used to copy the data on HDFS to Tencent Cloud COS.
-## Service Limits
-Applicable to COS V5
+
 ## Operating Environment
 ### System Environment
 Linux/Windows system

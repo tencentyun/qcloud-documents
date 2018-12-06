@@ -5,10 +5,6 @@ Cluster Autoscaler (CA) is an independent program that dynamically adjusts the n
 
 ## 2. How to Use It
 ### 2.1 Enable CA
-1. Create a cluster and enable CA to automatically create a scaling group.
-![Create scaling group][1]
-2. Add multiple scaling groups to the cluster
-![Create scaling group 2][2]
 
 Create an auto scaling group before using auto scaling. You can specify the minimum/maximum number and label.
 
@@ -48,8 +44,8 @@ Node auto scaling based on monitoring metrics pays no attention to the pods duri
 ### 3.2. What is the relationship between CA and scaling group?
 A CA-enabled cluster will create a launch configuration and a scaling group that is bound with this launch configuration based on the selected node configuration. It will then perform scaling up/down in this bound scaling group. CVMs scaled up are automatically added to the cluster. Nodes that are automatically scaled up/down are billed on a postpaid basis. For more information on scaling group, please see [Auto Scaling](https://cloud.tencent.com/document/product/377).
 
-### 3.3. Will CA scale down the nodes that I added manually on the CCS console?
-No. CA only scales down the nodes within the scaling group. Nodes that are added on the [CCS console](https://console.cloud.tencent.com/ccs) are not added to the scaling group.
+### 3.3. Will CA scale down the nodes that I added manually on the TKE console?
+No. CA only scales down the nodes within the scaling group. Nodes that are added on the [TKE console](https://console.cloud.tencent.com/ccs) are not added to the scaling group.
 
 ### 3.4. Can I add or remove CVMs on the AS console?
 Yes but NOT RECOMMENDED. ed making any modifications on the [AS console](https://console.cloud.tencent.com/autoscaling).
@@ -133,5 +129,4 @@ You can query the scaling events of a scaling group and view K8S events on the A
 
 
 
-[1]: https://mc.qcloudimg.com/static/img/7c43dbefbf8d793b5785c370b76e1bef/image.png
-[2]: https://mc.qcloudimg.com/static/img/fe1304edd0dd8632a04b540945795a34/image.png
+

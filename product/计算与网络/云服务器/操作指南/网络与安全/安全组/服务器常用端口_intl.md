@@ -7,8 +7,8 @@ The following describes the common server ports. For more information on service
 | 25 | SMTP | SMTP server's open port for sending emails. |
 | 80 | HTTP | Used for Web services, such as IIS, Apache, Nginx, to provide external access. |
 | 110 | POP3 | Port 110 is open for POP3 (email protocol 3) service. |
-| 137, 138, 139 | NETBIOS protocol | Port 137 and 138 are UDP ports used to transfer files via My Network Places.<br> Port 139: Incoming connections over port 139 attempt to obtain NetBIOS/SMB service. This protocol is used for file and printer sharing on Windows as well as SAMBA service. |
-| 143 | IMAP | Port 143 is mainly used for "Internet Message Access Protocol" (IMAP) v2, a protocol for receiving emails as POP3. |
+| 137, 138, 139 | NETBIOS protocol | Port 137 and 138 are UDP ports used to transfer files via My Network Places. <br>Port 139: Incoming connections over port 139 attempt to obtain NetBIOS/SMB service. This protocol is used for file and printer sharing on Windows as well as SAMBA service. |
+| 143 | IMAP | Port 143 is mainly used for "Internet Message Access Protocol" (IMAP) v2, a protocol for receiving emails as the same as POP3. |
 | 443 | HTTPS | Web browsing port. This is another type of HTTP that supports encryption and transfer over secure ports. |
 | 1433 | SQL Server | Port 1433 is the default port for SQL Server. The SQL Server service uses two ports: TCP-1433 and UDP-1434. Port 1433 is used by SQL Server to provide external services, and port 1434 is used to send requester a response about which TCP/IP port is used by SQL Server. |
 | 3306 | MySQL | Port 3306 is the default port for MySQL database and is used by MySQL to provide external services. |

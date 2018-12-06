@@ -42,9 +42,9 @@ PUT /?acl HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Object 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&tl;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String|  否 |
+| x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
 
 ### 请求体
 该请求操作的实现也可以在请求体中帯特定请求参数来设置 Bucket 访问权限，但请求体帯参数方式和请求头帯 acl 子资源方式两者只能选一种。
@@ -99,7 +99,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， SubAccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |是|
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， SubAccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，可以在 ID 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |是|
 
 Container 节点 Grantee 的内容：

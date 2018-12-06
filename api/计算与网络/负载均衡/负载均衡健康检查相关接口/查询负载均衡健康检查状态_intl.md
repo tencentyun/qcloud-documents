@@ -73,7 +73,7 @@ The following request parameter list only provides the API request parameters. C
 <tr>
 <td> healthStatus
 <td> Int
-<td> Health check result. 1: healthy; 0: unhealthy; -1: incomplete target.
+<td> Health check result. 1: healthy; 0: unhealthy.
 </tbody></table>
  
 

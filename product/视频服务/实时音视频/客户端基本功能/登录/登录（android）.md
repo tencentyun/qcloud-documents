@@ -11,7 +11,7 @@
  - [实时音视频应用](https://cloud.tencent.com/document/product/647/16792#.E5.AE.9E.E6.97.B6.E9.9F.B3.E8.A7.86.E9.A2.91.E5.BA.94.E7.94.A8)
  - [应用标识( sdkAppId )](https://cloud.tencent.com/document/product/647/16792#.E5.BA.94.E7.94.A8.E6.A0.87.E8.AF.86.EF.BC.88-sdkappid-.EF.BC.89)
  - [帐号类型( accountType )](https://cloud.tencent.com/document/product/647/16792#.E5.B8.90.E5.8F.B7.E7.B1.BB.E5.9E.8B.EF.BC.88-accounttype-.EF.BC.89)
- - [用户标识( identifier )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-identifer-.EF.BC.89)
+ - [用户标识( userId )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E6.A0.87.E8.AF.86.EF.BC.88-userId-.EF.BC.89)
  - [用户签名( userSig )](https://cloud.tencent.com/document/product/647/16792#.E7.94.A8.E6.88.B7.E7.AD.BE.E5.90.8D.EF.BC.88-usersig-.EF.BC.89)
 
 ## 获取 userSig
@@ -27,7 +27,7 @@
 ## 添加依赖( 集成 SDK )
 修改 build.gradle 文件，在 dependencies 中添加 iLiveSDK 的依赖：
 ```
-compile 'com.tencent.ilivesdk:ilivesdk:1.8.5'
+compile 'com.tencent.ilivesdk:ilivesdk:latest.release'  //其中latest.release指代最新iLiveSDK版本号
 ```
 
 ## 初始化 iLiveSDK
@@ -58,7 +58,7 @@ public class DemoApp extends Application {
 ```
 
 ## 创建登录模块
-首先创建一个登录模块与 Acitivity 通讯的接口：
+首先创建一个登录模块与 Activity 通讯的接口：
 ```Java
 public interface ILoginView {
     // 登录成功
@@ -76,8 +76,8 @@ public class LoginHelper {
         loginView = view;
     }
 
-    public void loginSDK(String identifier, String userSig){
-        ILiveLoginManager.getInstance().iLiveLogin(identifier, userSig, new ILiveCallBack() {
+    public void loginSDK(String userId, String userSig){
+        ILiveLoginManager.getInstance().iLiveLogin(userId, userSig, new ILiveCallBack() {
             @Override
             public void onSuccess(Object data) {
                 loginView.onLoginSuccess();
@@ -158,9 +158,9 @@ ILiveLoginManager.getInstance().setUserStatusListener(StatusObservable.getInstan
 ```Java
 loginHelper = new LoginHelper(this);
 ```
-然后在单击登录事件后，获取用户输入的 identifier 和 userSig，调用 loginHelper 的登录接口进行登录：
+然后在单击登录事件后，获取用户输入的 userId 和 userSig，调用 loginHelper 的登录接口进行登录：
 ```Java
-loginHelper.loginSDK(identifier, userSig);
+loginHelper.loginSDK(userId, userSig);
 ```
 
 ## 常见问题

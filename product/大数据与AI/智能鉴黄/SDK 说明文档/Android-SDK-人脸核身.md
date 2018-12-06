@@ -1,13 +1,12 @@
 ## 开发准备
 
 ### SDK 获取
-人脸核身 SDK 的 Android SDK-1.0.0下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/96cb171e0810b55e85689d0c6f17af34/QCloudFaceIdSample_beta.zip)。
+人脸核身 SDK 的 Android SDK-1.0.0 下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/96cb171e0810b55e85689d0c6f17af34/QCloudFaceIdSample_beta.zip)。
 
 
 ### 开发准备
  1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）
- 2. 取得存储桶名称 `BucketName`： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) 
- 3. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”
+ 2. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) ，单击“新建密钥”，目前只支持使用主账号进行调用。
 
 # 快速体验 Demo
 1. 修改：找到 app/src/main/java/com/tencent/faceiddemo/MainActivity.java 文件，定位到 initUserInfo() 方法，填入上面申请到的  `APPID`、`BucketName`、`SecretId`、`SecretKey`
@@ -15,9 +14,9 @@
 2. 运行：工程使用 Gradle 构建，导入 Android Studio 中即可运行
 >命令行方式编译安装：工程根目录下执行 `./gradlew installDebug` (macOS) 或 `.\gradlew.bat installDebug` (Windows)
 
-# 集成 SDK 到你的工程中
+# 集成 SDK 到您的工程中
 
-1.复制 libs 目录下的所有 jar 文件到你工程的 libs 下
+1.复制 libs 目录下的所有 jar 文件到您工程的 libs 下：
 ```
 faceid-1.1.jar
 lib-camera.jar
@@ -25,7 +24,7 @@ okhttp-3.2.0.jar
 okio-1.6.0.jar
 slf4j-android-1.6.1-RC1.jar
 ```
-2.AndroidManifest.xml 增加以下权限
+2.AndroidManifest.xml 增加以下权限：
 ``` 
 <!--网络-->
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -37,12 +36,12 @@ slf4j-android-1.6.1-RC1.jar
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-feature android:name="android.hardware.camera" />
 ``` 
->如果你的工程的 targetSdkVersion >= 23 (Android 6.0) ，那么还需要处理动态权限申请相关事宜，可参考 MainActivity.java 和 RecorderActivity.java
+>如果您的工程的 targetSdkVersion >= 23 (Android 6.0) ，那么还需要处理动态权限申请相关事宜，可参考 MainActivity.java 和 RecorderActivity.java
 
 # 快速入门
 ## 初始化核身引擎 FaceIdClient
 ```
-String appid = "your appid"; // 你申请到的 APPID
+String appid = "your appid"; // 您申请到的 APPID
 FaceIdClient mFaceIdClient = new FaceIdClient(context, appid);
 ```
 
