@@ -37,7 +37,6 @@ struct ip_vs_tcpo_addr {
  ```
 wget  https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip
 unzip TOA_CentOS_v1.zip
-
  ```
 3. 执行`uname -a`命令，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
