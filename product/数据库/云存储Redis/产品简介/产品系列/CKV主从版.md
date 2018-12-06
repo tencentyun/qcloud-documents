@@ -19,12 +19,12 @@ CKV 主从版通过独有的方案，保证版本升级做到业务无感知，�
 
 ## 使用限制
 
-- CKV 引擎主从版的性能最大支持12万 QPS，需要更高的 QPS 请选择 CKV 集群版，最大可支持1000万 QPS；
+- CKV 引擎主从版的性能最大支持12万 QPS，需要更高的 QPS 请选择集群版，可支持千万级 QPS；
 - 对于 pttl 的设置毫秒的过期时间，展示的最小单位为秒，与社区版 Redis 不一致；
-- 目前支持的 string 类型 key，Value 最大 Size 为32MB；
+- 目前支持 string 类型的 Key，Value 最大 Size 为32MB；
 - 实例连接方式为“实例 ID:密码”，与社区版连接方式不一致；
-- dbsize 命令实现的时间复杂度为 O(n)，执行命令时需要遍历当前 DB 的所有 key ，请谨慎使用；
-- 内置一个 string 类型的 key：`{ckv_plus_pub_sub}_patterns`，该 key 用于支持 pub、sub 订阅功能，如果您需要使用订阅功能，请不要删除该 key，否则订阅会失效；
+- dbsize 命令实现的时间复杂度为 O(n)，执行命令时需要遍历当前 DB 的所有 Key ，请谨慎使用；
+- 内置一个 string 类型的 Key：`{ckv_plus_pub_sub}_patterns`，该 Key 用于支持 pub、sub 订阅功能，如果您需要使用订阅功能，请不要删除该 Key，否则订阅会失效；
 - 事件通知暂时不支持过期和淘汰策略通知；
 - 淘汰策略目前只支持`volatile-lru`，或者关闭淘汰机制，对应参数为`maxmemory-policy`。
 
