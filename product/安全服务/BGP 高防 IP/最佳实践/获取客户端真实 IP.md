@@ -80,4 +80,4 @@ X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可�
 格式为：
 `X-Forwareded-For：Client，proxy1，proxy2，proxy3……  `
 当高防 IP把用户的访问请求转到后端服务器时，会把请求用户的真实 IP 记录在X-Forwareded-For 字段的首位。因此，源站应用只需要获取 HTTP 头部的 X-Forwarded-For 字段的内容即可。
-更多详情请参考 [七层转发获取来访真实IP的方法](https://cloud.tencent.com/document/product/214/3728)。
+更多详情请参考 [七层转发获取来访真实 IP 的方法](https://cloud.tencent.com/document/product/214/3728)。
