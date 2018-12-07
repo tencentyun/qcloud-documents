@@ -12,9 +12,9 @@ Usage statistics include statistics for voice chat, and for voice messaging and 
 
 ### Usage statistics for voice chat
 
-This page displays the DAU data of the voice chat application.
+This page displays the real-time DAU data of the voice chat application.
 - **Total Voice Chat DAU** displays the total DAU of voice chat yesterday
-- **Mainland China Voice Chat DAU** displays the DAU of voice chat in Mainland China
+- **China Mainland Voice Chat DAU** displays the DAU of voice chat in Mainland China
 - **Overseas Voice Chat DAU** displays the DAU of voice chat overseas
 - The total DAU data in the last seven days are displayed by default. You can also view the usage data for other statistical periods and other regions.
 

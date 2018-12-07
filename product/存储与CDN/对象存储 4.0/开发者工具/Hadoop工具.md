@@ -16,7 +16,10 @@ Hadoop-2.7.2 及以上版本。
 
 ### 安装 hadoop-cos 插件
 
-1. 将dep目录下的cos_hadoop_api-5.2.5.jar 和 hadoop-cos-2.7.2.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
+1. 将dep目录下的cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
+
+> **说明：** 
+> 根据 hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 hadoop 版本号，重新编译生成。 
 
 2. 修改 hadoop_env.sh
 在 `$HADOOP_HOME/etc/hadoop`目录下，进入 hadoop_env.sh，增加如下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
@@ -51,6 +54,28 @@ done
         <name>dfs.name.dir</name>
         <value>${HADOOP_PATH}/name</value>
     </property>
+  
+    <property>
+        <name>fs.cosn.credentials.provider</name>
+        <value>org.apache.hadoop.fs.auth.SimpleCredentialProvider</value>
+        <description>
+
+            This option allows the user to specify how to get the credentials.
+            Comma-separated class names of credential provider classes which implement
+            com.qcloud.cos.auth.COSCredentialsProvider:
+
+            1.org.apache.hadoop.fs.auth.SimpleCredentialProvider: Obtain the secret id and secret key
+            from fs.cosn.userinfo.secretId and fs.cosn.userinfo.secretKey in core-site.xml
+            2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider: Obtain the secret id and secret key
+            from system environment variables named COS_SECRET_ID and COS_SECRET_KEY
+
+            If unspecified, the default order of credential providers is:
+            1. org.apache.hadoop.fs.auth.SimpleCredentialProvider
+            2. org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider
+
+        </description>
+    </property>
+  
     <property>
         <name>fs.cosn.userinfo.secretId</name>
         <value>xxxxxxxxxxxxxxxxxxxxxxxxx</value>
@@ -65,6 +90,12 @@ done
         <name>fs.cosn.userinfo.region</name>
         <value>ap-xxx</value>
         <description>The region where the bucket is located</description>
+    </property>
+    <property>
+        <name>fs.cosn.userinfo.endpoint_suffix</name>
+        <value>cos.ap-xxx.myqcloud.com</value>
+        <description>COS endpoint to connect to. 
+        For public cloud users, it is recommended not to set this option, and only the correct area field is required.</description>
     </property>
     <property>
         <name>fs.cosn.impl</name>
@@ -122,9 +153,11 @@ done
 | 属性键                             | 说明                |默认值|必填项|
 |:-----------------------------------:|:----------------------|:-----:|:-----:|
 |fs.cosn.userinfo.secretId/secretKey| 填写您账户的 API 密钥信息。可通过 [云 API 密钥 控制台](https://console.cloud.tencent.com/capi) 查看 | 无  | 是|
+|fs.cosn.credentials.provider|配置secret id和secret key的获取方式。当前支持两种获取方式：1.org.apache.hadoop.fs.auth.SimpleCredentialProvider：从core-site.xml配置文件中读取fs.cosn.userinfo.secretId和fs.cosn.userinfo.secretKey来获取secret id和secret key 2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量COS_SECRET_ID和COS_SECRET_KEY中获取|如果不指定改配置项，默认会按照以下顺序读取：1.org.apache.hadoop.fs.auth.SimpleCredentialProvider；2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider。|否|
 |fs.cosn.impl                      | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem| 无 |是|
 |fs.AbstractFileSystem.cosn.impl   | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN | 无 |是|
 |fs.cosn.userinfo.region           | 请填写您的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等 | 无 | 是|
+|fs.cosn.userinfo.endpoint_suffix | 指定要连接的COS endpoint，该项为非必填项目。对于公有云COS用户而言，只需要正确填写上述的region配置即可。|无|否|
 |fs.cosn.buffer.dir                | 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处。如果 buffer 指定了 disk 类型，则该目录需要预留至少fs.cosn.upload.buffer.size大小的空间| /tmp/hadoop_cos | 否|
 |fs.cosn.upload.buffer             | 流式上传时，使用的缓冲区类型。当前支持两种缓冲区类型：disk 和 memory，其中disk将会在 fs.cosn.buffer.dir 选项指定的文件系统目录中生成若干个文件临时文件，并使用内存映射技术将其包装为上传缓冲池。内存较大机器建议可以使用 memory 类型的缓冲区，同时缓冲区的大小至少保证大于等于一个 block 的大小。| disk | 否|
 |fs.cosn.upload.buffer.size        | 向 COS 流式上传文件时，本地使用的缓冲区的大小。要求至少大于等于一个 block 的大小 | 134217728（128MB）|否|

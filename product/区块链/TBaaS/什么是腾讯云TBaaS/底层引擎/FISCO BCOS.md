@@ -18,14 +18,13 @@ FISCO BCOS 平台基于价值联盟、安全可信、业务可行、自主可控
 
 ## 系统框架
 
-![](https://main.qcloudimg.com/raw/8d45ce7c7c62d7454c46494560d73263/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842.png)
+![架构图](https://main.qcloudimg.com/raw/debc32754e6a3bb2dd8f543535fba695.jpg)
 
-## 官方社区
+## 开源社区
 
-- FISCO BCOS 官方地址：[https://github.com/fisco-bcos](https://github.com/fisco-bcos)
-- FISCO BCOS 官方文档地址：https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community/index.html
-- FISCO BCOS 官方技术支持与交流：扫描下方二维码，群管理员邀请进群
-![](https://main.qcloudimg.com/raw/a615cd5f65e0b75cfb5157da687b2662/%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg)
+- FISCO BCOS 开源社区：[https://github.com/fisco-bcos](https://github.com/fisco-bcos)
+- FISCO BCOS 文档地址：https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community/index.html
+
 
 ## 常见问题
 

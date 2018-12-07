@@ -5,16 +5,16 @@ This API (ResizeCbsStorage) is used to expand the specified elastic cloud storag
 Domain for API call:<font style="color:red">cbs.api.cloud.tencent.com</font>
 
 Usage restrictions:
-1. Only elastic cloud storages can be expanded. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters. The cloud disk storage created with the CVM needs to be expanded via  [ResizeInstanceHour (Adjust the Instance Configuration (Bill by Traffic)](/doc/api/229/1344) API
+1. Only elastic cloud storages can be expanded. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://intl.cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters. The cloud disk storage created with the CVM needs to be expanded via  [ResizeInstanceHour (Adjust the Instance Configuration (Bill by Traffic)](/doc/api/229/1344) API
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://intl.cloud.tencent.com/document/api/213/6976
 ).
 
 | Parameter Name | Required | Type | Description |
 | --- | --- | --- | --- | 
-| storageId | Yes | String | ID of the cloud storage, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](/doc/api/364/2519) API |
+| storageId | Yes | String | ID of the cloud storage, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/document/api/364/2519) API |
 | storageSize | Yes | Int | The expanded size of data disk (GB), which must be greater than the current value. The maximum value is 4,000, and the increment is 10 | 
  
 ## 3. Output Parameters

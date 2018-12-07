@@ -1,11 +1,11 @@
 ## Overview
 
-Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://intl.cloud.tencent.com/product/tmg?idx=2). This document provides a detailed description that makes it easy for developers to integrate GME SDK.
+Thank you for using [Tencent Cloud Game Multimedia Engine SDK](https://intl.cloud.tencent.com/product/tmg?idx=2). This document provides a detailed steps  that makes it easy for developers to integrate GME SDK.
 
 Follow the steps below to use GME:
 1. [Create a GME service in Tencent Cloud backend](https://intl.cloud.tencent.com/document/product/607/10782#create-a-service);
-2. [Download the client SDK of applicable version](https://intl.cloud.tencent.com/document/product/607/10782#download-sdk);
-3. [Port the SDK to your project by referring to the integration API document](https://intl.cloud.tencent.com/document/product/607/10782#related-sdk-technical-documents);
+2. [Download the corresponding version SDK](https://intl.cloud.tencent.com/document/product/607/10782#download-sdk);
+3. [Import the SDK to your project by referring to the integration API document](https://intl.cloud.tencent.com/document/product/607/10782#related-sdk-technical-documents);
 4. [Check the daily operation backend statistics](https://intl.cloud.tencent.com/document/product/607/10782#usage-statistics-on-the-console);
 5. [Troubleshoot special problems during integration and provide feedback](https://intl.cloud.tencent.com/document/product/607/10782#special-problems-handling);
 
@@ -65,8 +65,8 @@ To integrate the SDK, you need to use the AppID and the permission key provided 
 
 For the configuration for other platforms, please see the project configuration document of relevant platform.
 
-#### 3. Notes for using the official Demo
-The Demo provides a Tencent Cloud test account for you to experience features. If you want to use personal or corporate test account, you need to change the Tencent Cloud test account AppID to the AppID obtained in the console on relevant page in the Demo, and modify the permission key for voice chat in the AVChatViewController-GetAuthBuffer function.
+#### 3. Notes for using the official sample code
+The sample code provides a Tencent Cloud test account for you to experience features. If you want to use personal or corporate test account, you need to change the Tencent Cloud test account AppID to the AppID obtained in the console on relevant page in the Demo, and modify the permission key for voice chat in the AVChatViewController-GetAuthBuffer function.
 
 ## Related SDK Technical Documents
 **Unity engine** 

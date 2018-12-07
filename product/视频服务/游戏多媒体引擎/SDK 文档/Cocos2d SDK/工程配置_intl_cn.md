@@ -44,14 +44,7 @@ public class AppActivity extends Cocos2dxActivity {
     static final String TAG = "AppActivity";
     static OpensdkGameWrapper gameWrapper ;
     static {
-        Log.e(TAG, "Load so begin");
-        System.loadLibrary("stlport_shared");
-        System.loadLibrary("xplatform");
-        System.loadLibrary("UDT");
-        System.loadLibrary("qav_tlssign");
-        System.loadLibrary("traeimp-armeabi-v7a");
-        System.loadLibrary("qavsdk");
-        Log.e(TAG, "Load so end");
+        OpensdkGameWrapper.loadSdkLibrary();
     }
 }
 ```
