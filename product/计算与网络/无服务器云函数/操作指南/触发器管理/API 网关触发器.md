@@ -6,7 +6,7 @@ API 网关触发器具有以下特点：
 
 ## API 网关触发器配置
 API 网关触发器分别支持在 **云函数控制台**或在**API网关控制台**中进行配置。
- - 在**云函数控制台**中，支持在触发方式中添加API网关触发器；支持选取已有API服务或新建API服务；支持请求方法（目前支持 **"ANY"，"GET"，"HEAD"，"POST"，"PUT"，"DELETE"** 六种方法的请求）、发布环境（测试、预发布及发布环境）及鉴权方式（API网关密钥对）的定义。
+ - 在**云函数控制台**中，支持在触发方式中添加API网关触发器；支持选取已有 API 服务或新建 API 服务；支持请求方法（目前支持 **"ANY"，"GET"，"HEAD"，"POST"，"PUT"，"DELETE"** 六种方法的请求）、发布环境（测试、预发布及发布环境）及鉴权方式（API网关密钥对）的定义。
  - 在 **API 网关控制台**中配置 API 规则时，后端配置可选 Cloud Function，且在选择 Cloud Function 后，即可选择与 API 服务相同地域的云函数。在 API 网关控制台上，可以配置及管理更高阶的 API 服务，如限流计划、黑白名单等。
 
 在 API 网关配置对接云函数时，也需要配置超时时间。API 网关中的请求超时时间和云函数的运行超时时间，两者分别生效。超时规则如下：
@@ -32,7 +32,7 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
 ```
 {
   "requestContext": {
-    "serviceName": "testsvc",
+    "serviceId": "service-f94sy04v",
     "path": "/test/{path}",
     "httpMethod": "POST",
     "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
@@ -40,7 +40,7 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
       "secretId": "abdcdxxxxxxxsdfs"
     },
     "sourceIp": "10.0.2.14",
-    "stage": "prod"
+    "stage": "release"
   },
   "headers": {
     "Accept-Language": "en-US,en,cn",
@@ -59,10 +59,13 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
     "Refer": "10.0.2.14"
   },
   "stageVariables": {
-    "stage": "test"
+    "stage": "release"
   },
   "path": "/test/value",
-  "query": "foo=bar&bob=alice",
+  "queryString": {
+    "foo" : "bar",
+    "bob" : "alice"
+  },
   "httpMethod": "POST"
 }
 ```
@@ -71,10 +74,10 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
 
 |    结构名    | 内容 |
 | ---------- | --- |
-| requestContext |  请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceName，path，httpMethod 指向 API 网关的服务、API 的路径和方法；<li>stage 指向请求来源 API 所在的环境；<li>requestId 标识当前这次请求的唯一 ID；<li>identity 标识用户的认证方法和认证的信息；<li>sourceIp 标识请求来源 IP |
+| requestContext |  请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceId，path，httpMethod 指向 API 网关的服务Id、API 的路径和方法；<li>stage 指向请求来源 API 所在的环境；<li>requestId 标识当前这次请求的唯一 ID；<li>identity 标识用户的认证方法和认证的信息；<li>sourceIp 标识请求来源 IP |
 | path       |  记录实际请求的完整 Path 信息 |
 | httpMethod | 记录实际请求的 HTTP 方法 |
-| query | 记录实际请求的完整 Query 内容 |
+| queryString | 记录实际请求的完整 Query 内容 |
 | body | 记录实际请求的完整 Body 内容 |
 | headers | 记录实际请求的完整 Header 内容 |
 | pathParameters | 记录在 API 网关中配置过的 Path 参数以及实际取值 |
@@ -90,7 +93,9 @@ API 网关触发器分别支持在 **云函数控制台**或在**API网关控制
 
 透传响应，是指 API 网关将云函数的返回内容直接传递给 API 请求方。通常这种响应的数据格式直接确定为 JSON 格式，状态码根据函数执行的状态定义，函数执行成功即为 200 状态码。通过透传响应，用户可以自行获取到 JSON 格式后在调用位置解析结构，获取结构内的内容。
 
->! 当前 API 网关处理响应的方式默认为透传响应，如需开启集成响应，请在 API 配置中的后端配置位置，勾选 **启用集成响应**，并在代码中按如下说明的数据结构返回内容。
+>! 
+> - 如果当前通过 API 网关控制台配置的 API 网关触发器，处理响应的方式默认为透传响应。如需开启集成响应，请在 API 配置中的后端配置位置，勾选**启用集成响应**，并在代码中按如下说明的数据结构返回内容。
+> - 如果当前通过云函数控制台配置的 API 网关触发器，默认已开启集成响应功能，请注意返回数据的格式。
 
 <span id="apiStructure"></span>
 #### API 网关触发器的集成响应返回数据结构

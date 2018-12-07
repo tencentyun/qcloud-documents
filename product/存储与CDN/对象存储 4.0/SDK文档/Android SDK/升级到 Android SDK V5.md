@@ -1,10 +1,9 @@
-## 升级到 Android SDK V5
 
-如果您细心对比过 Android SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。COS V5 在架构、可用性和安全性上有了非常大的提升，我们的 SDK 在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 Android SDK V5，请参考下面的指引，一步步完成 SDK 的升级工作。
+如果您细心对比过 Android SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。Android SDK V5 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 Android SDK V5，请参考下面的指引，一步步完成 SDK 的升级工作。
 
-### 功能对比
+## 功能对比
 
-下表列出了 V4 和 V5 SDK 的主要功能对比：
+下表列出了 V4 和 V5 的主要功能对比：
 
 | 功能       | V5         | V4                         |
 | -------- | :------------: | :------------------:    |
@@ -16,20 +15,14 @@
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
 | 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
 
+## 升级步骤
+请按照下面5个步骤升级 Android SDK。
 
-### 总览
+**1. 更新 Android SDK**
 
-1. 更新您的 Android SDK
-2. 我们的鉴权方式发生了变化，建议后台集成我们的临时密钥（STS）方案，并提供接口，客户端携带获取到的临时密钥执行 COS 请求
-3. 根据指引修改 SDK 的初始化方式
-4. 我们的 `存储桶名称` 和 `可用区域简称` 有了更新，请对应修改
-5. 一些操作的 API 发生了变化，我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/11238)
+COS V5 Android SDK 发布在 [Bintray](https://bintray.com) 的 maven 包管理平台，推荐您使用自动集成方式进行更新。
 
-### 更新 SDK
-
-COS V5 Android SDK 发布在 [Bintray](https://bintray.com) 的 maven 包管理平台，所以推荐您使用自动集成方式。
-
-在您的项目根目录下的 build.gradle 文件中添加 maven 仓库：
+在您的项目根目录下的 build.gradle 文件中添加 maven 仓库，代码如下：
 
 ```
 allprojects {
@@ -44,7 +37,7 @@ allprojects {
 }
 ```
 
-在应用的根目录下的 build.gradle 中添加依赖：
+在应用的根目录下的 build.gradle 中添加依赖，代码如下：
 
 ```
 dependencies {
@@ -56,18 +49,19 @@ dependencies {
 
 当然，您也可以继续选择手动 jar 包依赖，您可以在这里 [COS XML Android SDK-release](https://github.com/tencentyun/qcloud-sdk-android/releases) 下载所有的 jar 包。
 
-### 签名和权限
+**2. 更改 SDK 鉴权方式**
 
-COS V5 使用了新的鉴权算法，在 V4 中您需要自己在后台计算好签名，再返回客户端使用，在 V5 中，我们强烈建议您后台接入我们的临时密钥（STS）方案。您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
+在 V4 中您需要自己在后台计算好签名，再返回客户端使用。而在 SDK V5 使用了新的鉴权算法，在 V5 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
+您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
 
-### 初始化
+**3. 更改 SDK 初始化**
 
 在 V5 中，我们的初始化接口发生了一些变化：
 
 * 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
 * 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
 
-v4的初始化方式如下：
+**v4 的初始化方式如下：**
 
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
@@ -83,7 +77,7 @@ String peristenceId = "持久化Id";
 COSClient cos = new COSClient(context,appid,config,peristenceId);
 ```
 
-v5的初始化方式如下：
+**v5 的初始化方式如下：**
 
 ```
 String appid = "1250000000";
@@ -117,9 +111,14 @@ CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credenti
 ```
 
 
-### Bucket 和 Region 变化
+**4. 更改存储桶名称和可用区域简称**
+SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
-V5 的存储桶名称发生了变化，在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+**存储桶 Bucket**
+
+V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
@@ -131,7 +130,9 @@ String srcPath = Environment.getExternalStorageDirectory().getPath() + "/test.tx
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 ```
 
-V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
+**存储桶可用区域简称 Region**
+
+V5 的存储桶可用区域简称发生了变化，下列表格列出了不同区域在 V4 和 V5 中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
@@ -163,13 +164,16 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .builder();
 ```
 
-### API变化
+**5. 更改 API**
 
-#### 不再支持目录操作
+升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/11238)。
 
-在 V5 中，我们不再支持目录操作。
+API 变化有以下三点：
 
-对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+**1）不再支持目录操作**
+
+在 SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
+为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
 例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
 
@@ -178,9 +182,9 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
-#### TransferManager
+**2）TransferManager**
 
-在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
+在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
 * 支持断点下载
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
@@ -258,12 +262,12 @@ cosxmlUploadTask.pause();
 cosxmlUploadTask.resume();
 ```
 
-#### 新增API
+**3）新增API**
 
-V5 增加了很多新的API，包括：
+V5 增加了很多新的API，您可根据需求进行调用。包括：
 
 * 存储桶的操作，如 PutBucketRequest, GetBucketRequest, ListBucketRequest 等
-* 存储桶ACL的操作，如 PutBucketACLRequest，GetBucketACLRequest 等
+* 存储桶 ACL 的操作，如 PutBucketACLRequest，GetBucketACLRequest 等
 * 存储桶生命周期的操作，如 PutBucketLifecycleRequest, GetBucketLifecycleRequest 等
 
 具体请参考我们的 [Android SDK 接口文档](https://cloud.tencent.com/document/product/436/11238)。
