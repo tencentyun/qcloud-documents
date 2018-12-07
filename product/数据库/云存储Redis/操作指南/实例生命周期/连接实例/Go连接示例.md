@@ -1,6 +1,6 @@
 ﻿**运行前必备**：
 
-使用客户端Go-redis，下载和参考地址： https://github.com/alphazero/Go-Redis
+使用客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
 
 **示例代码**：
 ```
