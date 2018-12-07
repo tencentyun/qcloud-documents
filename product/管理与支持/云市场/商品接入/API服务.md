@@ -2,18 +2,18 @@
 为保证腾讯云用户正常使用 API 服务，服务商需要在腾讯云网关上部署相关 API 服务。具体请参考 [ API 网关](https://cloud.tencent.com/document/product/628)。   
 
 ## 上架流程      
-1. 服务商发布 API 服务至发布环境。   
-2. 服务商上架 API 服务商品，并申请审核。   
-3. 腾讯云审核商品信息。   
+1.服务商发布 API 服务至发布环境。   
+2.服务商上架 API 服务商品，并申请审核。   
+3.腾讯云审核商品信息。   
  
 ## 上架操作      
-1. 发布 API 服务，请参考 [API 网关](https://cloud.tencent.com/document/product/628)  。 
-2. 登录 [云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)  。 
-3. 进入商品管理，单击【新建】按钮 。 
+1.发布 API 服务，请参考 [API 网关](https://cloud.tencent.com/document/product/628)  。 
+2.登录 [云市场-服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products)  。 
+3.进入商品管理，单击【新建】按钮 。 
 ![](https://main.qcloudimg.com/raw/aa85939d9b2fe457a1ab1f02789028fc.png)   
-4. 选择【API 交付】 。   
+4.选择【API 交付】 。   
 ![](https://main.qcloudimg.com/raw/cfeb4857cc0c35317845b46c69437320.png)  
-5. 填写商品信息。   
+5.填写商品信息。   
 ![](https://main.qcloudimg.com/raw/ae7af3fd3584892acea7da981a5b6e61.png)   
 
  **【填写说明】**   
@@ -31,8 +31,8 @@
  - **上传文档**：非必填，支持本地文档上传，文档格式：PDF、Word、PPT、ZIP、RAR，大小：不超过 5M。   
  - **商品服务协议**：必填，是您和服务购买者之间默认的服务协议，可以选择引用既有协议，也可以手动添加新协议。
 
-6. 填写完商品信息，单击【提交】按钮。    
-7. 提交后商品为【审核中】状态，云市场运营人员会在 7 个工作日内完成审核。   
-8. 审核中的商品，可以单击【预览】查看效果，需要修改继续单击【修改】即可。   
+6.填写完商品信息，单击【提交】按钮。    
+7.提交后商品为【审核中】状态，云市场运营人员会在 7 个工作日内完成审核。   
+8.审核中的商品，可以单击【预览】查看效果，需要修改继续单击【修改】即可。   
 ![](https://main.qcloudimg.com/raw/b43d08d5a320a8a3d9133800b432e3c6.png)  
-9. 完成上架。  
+9.完成上架。  
