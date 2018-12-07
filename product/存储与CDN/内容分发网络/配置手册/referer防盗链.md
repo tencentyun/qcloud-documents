@@ -24,7 +24,7 @@
 ### referer 黑名单
 单击防盗链配置处【编辑】图标，选中 **referer 黑名单**，可进行黑名单配置。
 ![](https://mc.qcloudimg.com/static/img/690538acf3324386b5d9ad9616aa100f/refer-config-2.png)
-假设用户为域名`www.test.com`配置了 referer 黑名单，黑名单内容如下：`www.abc.com`，且未勾选 **包含空 referer**，则 referer 值为`www.abc.com`的请求均返回403，其他请求情况均返回正常内容。
+假设用户为域名`www.abc.com`配置了 referer 黑名单，黑名单内容如下：`www.test.com`，且未勾选 **包含空 referer**，则 referer 值为`www.test.com`的请求均返回403，其他请求情况均返回正常内容。
 **配置须知：** 
 - 若请求的 referer 字段匹配黑名单内设置的内容，CDN 节点拒绝返回该请求信息，直接返回403状态码。
 - 若请求的 referer 不匹配黑名单内设置的内容，则 CDN 节点正常返回请求信息。
