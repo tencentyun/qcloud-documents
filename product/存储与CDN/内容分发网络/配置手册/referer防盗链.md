@@ -14,7 +14,7 @@
 ### referer 白名单
 单击防盗链配置处【编辑】图标，选中 **referer 白名单**，可进行白名单配置。
 ![](https://mc.qcloudimg.com/static/img/49bd3daadeba7fccee2858f1e7e82e2f/refer-config-3.png)
-假设用户为域名 ```www.abc.com``` 配置了 referer 白名单，白名单内容如下：```www.test.com```，且未勾选 **包含空 referer**，则表示用户仅允许 referer 值为 ```www.test.com``` 的请求访问，其他请求均返回403。 
+假设用户为域名 ```www.test.com``` 配置了 referer 白名单，白名单内容如下：```www.abc.com```，且未勾选 **包含空 referer**，则表示用户仅允许 referer 值为 ```www.abc.com``` 的请求访问，其他请求均返回403。 
 **配置须知：** 
 - 若请求的 referer 字段匹配白名单设置的内容，则 CDN 节点正常返回请求信息。
 - 若请求的 referer 字段不匹配白名单设置的内容，则 CDN 节点拒绝返回该请求信息，会直接返回状态码403。
