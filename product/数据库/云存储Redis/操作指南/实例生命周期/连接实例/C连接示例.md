@@ -1,7 +1,6 @@
 ﻿**运行前必备**:
 
-下载并安装 hiredis
-https://github.com/redis/hiredis
+下载并安装 [hiredis](https://github.com/redis/hiredis)。
 
 **示例代码**：
 ```
