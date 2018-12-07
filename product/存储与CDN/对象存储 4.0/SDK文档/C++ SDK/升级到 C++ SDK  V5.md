@@ -13,16 +13,11 @@
 | 目录操作       |                            不支持                            |               创建目录<br>查询目录<br>删除目录               |
 
 ## 升级步骤
-请按照下面5个步骤升级 CPP SDK
-### 总览
-1. 更新 CPP SDK
-2. 更改 SDK 配置文件
-3. 更改**存储桶名称**和**可用区域简称**
-4. 更改 API 
+请按照下面4个步骤升级 CPP SDK
 
-### 更新 CPP SDK
+#### 1. 更新 C++ SDK
 
-[COS V5 CPP SDK ](https://github.com/tencentyun/cos-cpp-sdk-v5)利用 Poco 库替换 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 获取并安装 Poco 的库和头文件（下载 complete 版本）。
+[COS V5 C++ SDK ](https://github.com/tencentyun/cos-cpp-sdk-v5)利用 Poco 库替换 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 获取并安装 Poco 的库和头文件（下载 complete 版本）。
 
 ```
 ./configure --omit=Data/ODBC,Data/MySQL
