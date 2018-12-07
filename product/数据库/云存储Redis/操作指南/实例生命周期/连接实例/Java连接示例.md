@@ -1,6 +1,6 @@
 ﻿**运行前必备**：
 
-使用客户端Jedis，下载和参考地址：https://github.com/xetorthio/jedis/wiki/Getting-started
+使用客户端 [Jedis](https://github.com/xetorthio/jedis/wiki/Getting-started)。
 
 **示例代码**：
 
