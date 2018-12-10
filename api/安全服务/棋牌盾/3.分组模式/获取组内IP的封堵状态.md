@@ -15,9 +15,9 @@
 
 | 参数 | 示例 | 类型 | 描述 |
 | --------- | ----------- | ------- | ------------------ |
-| list | [obj,…] | Array  | 转发规则数组，数组元素如下：<pre>{</br>"region": "gz", </br>"ip": "1.1.1.1",</br>"status":"0/1",</br>"unblockTime":"2016-03-02 01:23:45",</br>"name":"www",</br>}</pre> |
-| region | gz / sh / bj | String  | 棋牌盾 IP 的地域，目前有一个地区：</br>sh：上海  |
-| ip | 1.2.3.4 | String  | 棋牌盾 IP 的 IP 地址 |
-| status | 0 / 1 | Integer | 棋牌盾 IP 的封堵状态</br>0 ：表示未封堵</br>1 ：表示封堵中 |
-| unblockTime | 2016-03-02</br>01:23:45 | Time | 棋牌盾 IP 的预计解封时间</br>如果状态为封堵中，该字段不为空，否则该字段是空字段   |
+| list | [obj,…] | Array  | 转发规则数组，数组元素如下：<pre>{</br>"region": "gz", </br>"ip": "10.1.1.1",</br>"status":"0/1",</br>"unblockTime":"2016-03-02 01:23:45",</br>"name":"www",</br>}</pre> |
+| region | gz/sh/bj | String  | 棋牌盾 IP 的地域，目前有一个地区：</br>sh：上海  |
+| ip | 10.2.3.4 | String  | 棋牌盾 IP 的 IP 地址 |
+| status | 0/1 | Integer | 棋牌盾 IP 的封堵状态</br>0：表示未封堵</br>1：表示封堵中 |
+| unblockTime | 2016-03-02</br>01:23:45 | Time | 棋牌盾 IP 的预计解封时间</br>如果状态为封堵中，该字段不为空，否则该字段为空  |
 | name | 王者荣誉 | String | 棋牌盾 IP 的名称，由用户自定义 |
