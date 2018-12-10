@@ -266,8 +266,8 @@ cosxmlUploadTask.resume();
 
 V5 增加了很多新的API，您可根据需求进行调用。包括：
 
-* 存储桶的操作，如 PutBucketRequest, GetBucketRequest, ListBucketRequest 等。
-* 存储桶 ACL 的操作，如 PutBucketACLRequest，GetBucketACLRequest 等。
-* 存储桶生命周期的操作，如 PutBucketLifecycleRequest, GetBucketLifecycleRequest 等。
+* 存储桶的操作，如 PutBucketRequest、GetBucketRequest、ListBucketRequest 等。
+* 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
 
 具体请参考我们的 [Android SDK 接口文档](https://cloud.tencent.com/document/product/436/11238)。
