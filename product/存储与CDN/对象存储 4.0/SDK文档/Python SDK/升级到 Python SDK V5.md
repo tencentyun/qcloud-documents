@@ -18,21 +18,21 @@
 
 **1. 更新 Python SDK**
 
-通过 pip 您可以非常方便的获取到最新的 COS Python SDK V5，请执行以下命令获取：
+通过 pip 您可以方便获取到最新的 Python SDK V5，请执行以下命令获取：
 ```
  pip uninstall qcloud_cos_v4
 
  pip install -U cos-python-sdk-v5
 ```
 
-当然，您也可以根据官网的 [快速入门](https://cloud.tencent.com/document/product/436/12269) 选择合适您的安装方式。
+此外，您也可以根据官网的 [快速入门](https://cloud.tencent.com/document/product/436/12269) 选择合适您的安装方式。
 
 
 **2. 更改 SDK 初始化**
 
-V5 新增了 CosConfig 对象来管理您访问 COS 的配置，你可以方便的设置访问的协议 HTTP/HTTPS，设置临时秘钥等信息，请根据以下示例进行初始化。
+SDK V5 新增了 CosConfig 对象来管理您访问 COS 的配置，您可以方便的设置访问协议 HTTP/HTTPS，临时密钥等信息。请根据以下示例进行初始化。
 
-v4的初始化方式如下：
+V4 的初始化方式如下：
 
 ```
 secret_id = u'xxxxxxxx'      # 替换为用户的 secretId
@@ -42,7 +42,7 @@ appid = 100000               # 替换为用户的appid
 cos_client = CosClient(appid, secret_id, secret_key, region=region)
 ```
 
-v5的初始化方式如下：
+V5 的初始化方式如下：
 
 ```
 # appid 已在配置中移除,请在参数 Bucket 中带上 appid。Bucket 由 bucketname-appid 组成
@@ -70,28 +70,27 @@ client = CosS3Client(config)
 
 SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
-- 存储桶 Bucket
-在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+**存储桶 Bucket**
+SDK V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
 
-	在设置 Bucket 时，请参考下面的示例代码：
+设置 Bucket ，请参考下面的示例代码：
+```
+bucket = "mybucket1-1250000000"
+file_name = "test.txt"
+local_path = 'local.txt'
+response = client.upload_file(
+Bucket=bucket,
+LocalFilePath=local_path,
+	Key=file_name
+)
+```
 
-	```
-	bucket = "mybucket1-1250000000"
-	file_name = "test.txt"
-	local_path = 'local.txt'
-	response = client.upload_file(
-			Bucket=bucket,
-			LocalFilePath=local_path,
-			Key=file_name
-	)
-	```
+**存储桶可用区域简称 Region**
 
-- 存储桶可用区域简称 Region
+V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
 
-	V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
-
-	| 地域       | V5 地域简称         | V4 地域简称                         |
+| 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
 | 北京一区（华北） | ap-beijing-1 | tj |
 | 北京       | ap-beijing   | bj |
@@ -119,15 +118,14 @@ SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您�
 API 变化有以下三点：
 
 **1）不再支持目录操作**
-在 V5 中，我们不再支持目录操作。
+在  Python SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，在展示方式上模拟了传统文件夹。
+- 上传文件。请直接上传，不需要先创建文件夹。
+- 上传文件夹。您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
-	对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt。
 
-	例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
 
-	因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。
 
-	如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
 **2）高级上传接口（推荐）**
