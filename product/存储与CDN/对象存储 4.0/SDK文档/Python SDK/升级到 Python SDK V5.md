@@ -83,7 +83,7 @@ local_path = 'local.txt'
 response = client.upload_file(
 Bucket=bucket,
 LocalFilePath=local_path,
-	Key=file_name
+Key=file_name
 )
 ```
 
