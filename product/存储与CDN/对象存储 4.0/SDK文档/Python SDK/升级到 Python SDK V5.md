@@ -88,7 +88,7 @@ LocalFilePath=local_path,
 
 **存储桶可用区域简称 Region**
 
-V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
+V5 的存储桶可用区域简称发生了变化。在初始化时，请将存储桶所在区域简称设置到 `CosConfig` 中。下表列出了不同区域在 V4 和 V5 中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
@@ -109,7 +109,7 @@ V5 的存储桶可用区域简称发生了变化，下面列出了不同区域�
 | 曼谷       | ap-bangkok     | 无 |
 | 莫斯科       | eu-moscow     | 无 |
 
-在初始化时，请将存储桶所在区域简称设置到 `CosConfig` 中。
+
 
 
 
@@ -146,10 +146,10 @@ response = client.upload_file(
 
 **3）新增 API**
 
-V5 增加了很多新的API，包括：
+V5 增加了很多新的API，您可根据需求进行调用，包括：
 
 * 存储桶的操作，如 create_bucket, delete_bucket, list_objects 等
-* 存储桶ACL的操作，如 put_bucket_acl, get_bucket_acl 等
+* 存储桶 ACL 的操作，如 put_bucket_acl, get_bucket_acl 等
 * 存储桶生命周期的操作，如 put_bucket_lifecycle, get_bucket_lifecycle 等
 
 具体请参考我们的 [Python SDK 接口文档](https://cloud.tencent.com/document/product/436/12270)。
