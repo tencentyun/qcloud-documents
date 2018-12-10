@@ -10,7 +10,7 @@
 | 参数   | 必选 | 类型     | 描述                   |
 | ------ | ---- | ------ | -------------------- |
 | bgpId     | 是   | String  | 棋牌盾 IP 的资源ID</br>格式：bgpip-XXXXXXX          |
-| threshold | 是   | Integer | CC 防护阈值，单位：QPS</br>等于 0 表示关闭 CC 防护</br>大于 0 表示开启 CC 防护 |
+| threshold | 是   | Integer | CC 防护阈值，单位：QPS</br>等于0表示关闭 CC 防护</br>大于0表示开启 CC 防护 |
 
 ## 响应参数
 无。
