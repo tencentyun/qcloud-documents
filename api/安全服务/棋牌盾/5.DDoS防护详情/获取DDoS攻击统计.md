@@ -10,8 +10,8 @@
 | 参数 | 是否必选 | 类型 | 描述 |
 | ----- | ---- | ------ | ---------------------------------------- |
 | id  | 是 | String | 棋牌盾 IP 的资源 ID</br>格式：bgpip-XXXXXXX   |
-| beginDate | 是  | String | 统计的开始时间</br>格式：YYYY-MM-DD</br>如 2016-11-10 |
-| endDate   | 是   | String | 统计的结束时间</br>格式：YYYY-MM-DD</br>如 2016-11-11 |
+| beginDate | 是  | String | 统计的开始时间</br>格式：YYYY-MM-DD</br>如2016-11-10 |
+| endDate   | 是   | String | 统计的结束时间</br>格式：YYYY-MM-DD</br>如2016-11-11 |
 | stride | 是 | Integer | 获取 DDoS 攻击的统计粒度，单位：分钟</br>对应关系如下：</br>时间长度 = 1天，stride = 5</br>时间长度 = 7天，stride = 60</br>时间长度 = 30天，stride = 1440 |
 
 ## 响应参数
