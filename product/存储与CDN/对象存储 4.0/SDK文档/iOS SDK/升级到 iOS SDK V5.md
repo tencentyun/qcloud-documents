@@ -117,7 +117,7 @@ NSString *bucket = "mybucket1-1250000000";
 ```
 
 **存储桶可用区域简称 Region**
-V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
+V5 的存储桶可用区域简称发生了变化，下表列出了不同区域在 V4 和 V5 中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
@@ -196,7 +196,7 @@ API 变化有以下三点：
   [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
 
 ```
-上传文件时的断点续传
+使用 `QCloudCOSTransferMangerService`上传文件时断点续传示例代码：
 
 ```
 QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
@@ -226,8 +226,8 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 **3 ）新增 API**
 
 V5 增加了很多新的 API，您可根据需求进行调用。包括：
-* 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等。
-* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest，QCloudGetBucketACLRequest 等。
-* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest, QCloudGetBucketLifecycleRequest 等。
+* 存储桶的操作，如 QCloudPutBucketRequest、QCloudGetBucketRequest、QCloudListBucketRequest 等。
+* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest、QCloudGetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest、QCloudGetBucketLifecycleRequest 等。
 
 具体请参考我们的 [iOS SDK 接口文档](https://cloud.tencent.com/document/product/436/12258)。
