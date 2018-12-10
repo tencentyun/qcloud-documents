@@ -186,9 +186,9 @@ API 变化有以下三点：
 
 在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
-* 支持断点下载
+* 支持断点下载。
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
-* 支持任务状态的监听
+* 支持任务状态的监听。
 
 使用 `TransferManager`上传的示例代码：
 
@@ -266,8 +266,8 @@ cosxmlUploadTask.resume();
 
 V5 增加了很多新的API，您可根据需求进行调用。包括：
 
-* 存储桶的操作，如 PutBucketRequest, GetBucketRequest, ListBucketRequest 等
-* 存储桶 ACL 的操作，如 PutBucketACLRequest，GetBucketACLRequest 等
-* 存储桶生命周期的操作，如 PutBucketLifecycleRequest, GetBucketLifecycleRequest 等
+* 存储桶的操作，如 PutBucketRequest, GetBucketRequest, ListBucketRequest 等。
+* 存储桶 ACL 的操作，如 PutBucketACLRequest，GetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PutBucketLifecycleRequest, GetBucketLifecycleRequest 等。
 
 具体请参考我们的 [Android SDK 接口文档](https://cloud.tencent.com/document/product/436/11238)。
