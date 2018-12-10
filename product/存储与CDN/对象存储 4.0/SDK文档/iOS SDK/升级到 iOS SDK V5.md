@@ -57,13 +57,13 @@ SDK V5 的初始化接口发生了一些变化：
 - `QCloudCOSXMLService` 代替了 `COSClient`，但两者作用相同。同时增加了`QCloudServiceConfiguration`来配置更多的信息。
 - 您需要在初始化时实例化一个密钥提供者 `QCloudAuthentationV5Creator`，用于提供一个有效的密钥，建议使用临时密钥。
 
-**v4 的初始化方式如下：**
+**SDK V4 的初始化方式如下：**
 
 ```
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
-**v5 的初始化方式如下：**
+**SDK V5 的初始化方式如下：**
 >?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
 ```
@@ -176,8 +176,8 @@ API 变化有以下三点：
 
 在 SDK V5 中，我们封装了可以智能判断是简单上传（复制）还是分片上传（复制）的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
-* 支持断点上传
-* 支持根据文件大小智能选择简单上传（copy）还是分片上传（copy）
+* 支持断点上传。
+* 支持根据文件大小智能选择简单上传（复制）还是分片上传（复制）。
 
 使用 `QCloudCOSTransferMangerService`上传的示例代码：
 
@@ -226,8 +226,8 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 **3 ）新增 API**
 
 V5 增加了很多新的 API，您可根据需求进行调用。包括：
-* 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等
-* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest，QCloudGetBucketACLRequest 等
-* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest, QCloudGetBucketLifecycleRequest 等
+* 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等。
+* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest，QCloudGetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest, QCloudGetBucketLifecycleRequest 等。
 
 具体请参考我们的 [iOS SDK 接口文档](https://cloud.tencent.com/document/product/436/12258)。
