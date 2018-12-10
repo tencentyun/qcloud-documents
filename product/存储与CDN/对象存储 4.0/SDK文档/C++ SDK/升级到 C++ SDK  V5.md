@@ -29,7 +29,7 @@ make install
 
 **2. 更改 SDK 配置文件**
 
-V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 SDK V5 配置文件中，发生了一些变化，请对应修改。
+V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 SDK V5 配置文件中，请对应修改以下变化内容：
 
 - 删除 V4 中 "APPID" 配置项。
 - `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms`和`CurlGlobalConnectTimeoutInms`，新增`ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
