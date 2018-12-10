@@ -21,7 +21,7 @@
 | ----- | ---- | ------ | ---------------------------------------- |
 | total | 123  | Integer | DDoS 攻击记录总数  |
 | records  | [obj,…]  | Array | DDoS 攻击详情数组，数组元素如下：<pre>{</br>"peak": "300000", </br>"endTime": "2013-03-01 01:23:45",</br>"startTime": "2013-03-01 01:23:50"</br>"overload": "yes/no"</br>}</pre> |
-| peak | 35000 / Mbps | Integer | 该条记录的 DDoS 攻击峰值 |
+| peak | 35000/Mbps | Integer | 该条记录的 DDoS 攻击峰值 |
 | startTime | 2013-03-01 01:23:45 | Time | DDoS 攻击的开始时间</br>格式：YYYY-MM-DD XX:XX:XX</br>如2016-11-10 11:00:00 |
 | endTime | 2013-03-01 01:23:50 | Time | DDoS 攻击的结束时间</br>格式：YYYY-MM-DD XX:XX:XX</br>如2016-11-10 11:00:00 |
-| overload | yes / no | String | 该次攻击是否超过防护峰值 |
+| overload | yes/no | String | 该次攻击是否超过防护峰值 |
