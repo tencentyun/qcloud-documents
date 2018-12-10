@@ -61,7 +61,7 @@ dependencies {
 * 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
 * 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
 
-**v4 的初始化方式如下：**
+**SDK V4 的初始化方式如下：**
 
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
@@ -77,7 +77,7 @@ String peristenceId = "持久化Id";
 COSClient cos = new COSClient(context,appid,config,peristenceId);
 ```
 
-**v5 的初始化方式如下：**
+**SDK V5 的初始化方式如下：**
 
 ```
 String appid = "1250000000";
