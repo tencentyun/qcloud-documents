@@ -18,7 +18,7 @@
 
 **1. 更新 C++ SDK**
 
-[COS C++ SDK V5 ](https://github.com/tencentyun/cos-cpp-sdk-v5)利用 Poco 库替换 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 下载 complete 版本的 Poco ，并执行以下命令安装 Poco 的库和头文件。
+[C++ SDK V5 ](https://github.com/tencentyun/cos-cpp-sdk-v5)使用 Poco 库替换了 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 下载 complete 版本的 Poco ，并执行以下命令安装 Poco 的库和头文件。
 
 ```
 ./configure --omit=Data/ODBC,Data/MySQL
@@ -30,12 +30,12 @@ make install
 
 **2. 更改 SDK 配置文件**
 
-V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 V5 配置文件中，发生了一些变化，请对应修改。
+V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 SDK V5 配置文件中，发生了一些变化，请对应修改。
 
 - 删除 V4 中 "APPID" 配置项。
 - `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms`和`CurlGlobalConnectTimeoutInms`，新增`ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
 - V5 的初始化默认参数在文件 "cos_sys_config.cpp" 中有详细说明。
-- V4 和 V5 对应 Region 描述不同，详细区别见下文“更改存储桶名称和可用域简称”。
+- V4 和 V5 对应 Region 描述不同，详细区别见下方“更改存储桶名称和可用域简称”。
 
 **3. 更改存储桶名称和可用区域简称**
 
@@ -61,7 +61,7 @@ qcloud_cos::CosResult result = cos.HeadBucket(req, &resp);
 
 **存储桶可用区域简称 Region**
 
-V5 的存储桶可用区域简称发生了变化，在初始化时，请将存储桶所在区域简称设置到配置文件的 `Region` 中。请查看下列表格不同区域在 V4 和 V5 中的对应关系：
+V5 的存储桶可用区域简称发生了变化，在进行 SDK V5 初始化时，请将存储桶所在区域简称设置到配置文件的 `Region` 中。不同区域在 V4 和 V5 中的对应关系请查看下表：
 
 | 地域             | V5 地域简称      | V4 地域简称 |
 | ---------------- | ---------------- | ----------- |
@@ -91,13 +91,11 @@ API 变化有以下两点：
 **1）不再支持目录操作**
 
 在 SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
-为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
+例如：上传对象`project/doc/a.txt `，分隔符`/`会模拟「文件夹」的展示方式，在控制台上可以看到「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含了 a.txt 文件 。
 
-因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。
-
-如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
+因此，如果您的应用场景只是上传文件，不需要上传文件夹，直接上传文件。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将该文件当做文件夹使用。
 
 **2）多线程上传下载操作**
 
@@ -106,7 +104,7 @@ API 变化有以下两点：
 主要特性有：
 
 - 可设置分块大小进行多线程上传和下载
-- `MultiUploadObjectReq`接口封装了分块上传的所有接口，包括 Init，Upload，Complete 和 Abort 操作。
+- `MultiUploadObjectReq`接口封装了分块上传的所有接口，包括 Init、Upload、Complete 和 Abort 操作。
 
 使用`MultiUploadObjectReq`上传的示例代码：
 
@@ -155,10 +153,10 @@ qcloud_cos::CosResult result = cos.GetObject(req, &resp);
 
 **3）新增API**
 
-V5 增加了很多新的 API，您可根据需求进行调用。包括：
+C++ SDK V5 新增 API，您可根据需求进行调用。包括：
 
-- 存储桶的操作，如 PutBucketReq, GetBucketReq 等。
+- 存储桶的操作，如 PutBucketReq、GetBucketReq 等。
 - 存储桶 ACL 的操作，如 PutBucketACLReq，GetBucketACLReq 等。
-- 存储桶生命周期的操作，如 PutBucketLifecycleReq, GetBucketLifecycleReq 等。
+- 存储桶生命周期的操作，如 PutBucketLifecycleReq、GetBucketLifecycleReq 等。
 
-具体请参考我们的 [C++ SDK 接口文档](https://cloud.tencent.com/document/product/436/12302)。
+具体请参考我们的 C++ SDK [接口文档](https://cloud.tencent.com/document/product/436/12302)。
