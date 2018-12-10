@@ -10,9 +10,9 @@
 | 参数 | 是否必选 | 类型 | 描述 |
 | ----- | ---- | ------ | ---------------------------------------- |
 | id  | 是 | String | 棋牌盾 IP 的资源 ID</br>格式：bgpip-XXXXXXX   |
-| beginDate | 是  | String | 统计的开始时间</br>格式：YYYY - MM - DD</br>如 2016-11-10 |
-| endDate   | 是   | String | 统计的结束时间</br>格式：YYYY - MM - DD</br>如 2016-11-11 |
-| paging.index | 是   | Integer | 页面索引</br>0 表示第 1 页  |
+| beginDate | 是  | String | 统计的开始时间</br>格式：YYYY-MM-DD</br>如2016-11-10 |
+| endDate   | 是   | String | 统计的结束时间</br>格式：YYYY-MM-DD</br>如2016-11-11 |
+| paging.index | 是   | Integer | 页面索引</br>0表示第1页  |
 | paging.count | 是   | Integer | 每页返回详情数  |
 
 ## 响应参数
@@ -22,6 +22,6 @@
 | total | 123  | Integer | DDoS 攻击记录总数  |
 | records  | [obj,…]  | Array | DDoS 攻击详情数组，数组元素如下：<pre>{</br>"peak": "300000", </br>"endTime": "2013-03-01 01:23:45",</br>"startTime": "2013-03-01 01:23:50"</br>"overload": "yes/no"</br>}</pre> |
 | peak | 35000 / Mbps | Integer | 该条记录的 DDoS 攻击峰值 |
-| startTime | 2013-03-01 01:23:45 | Time | DDoS 攻击的开始时间</br>格式：YYYY - MM - DD XX:XX:XX</br>如 2016-11-10 11:00:00 |
-| endTime | 2013-03-01 01:23:50 | Time | DDoS 攻击的结束时间</br>格式：YYYY  - MM - DD XX:XX:XX</br>如 2016-11-10 11:00:00 |
+| startTime | 2013-03-01 01:23:45 | Time | DDoS 攻击的开始时间</br>格式：YYYY-MM-DD XX:XX:XX</br>如2016-11-10 11:00:00 |
+| endTime | 2013-03-01 01:23:50 | Time | DDoS 攻击的结束时间</br>格式：YYYY-MM-DD XX:XX:XX</br>如2016-11-10 11:00:00 |
 | overload | yes / no | String | 该次攻击是否超过防护峰值 |
