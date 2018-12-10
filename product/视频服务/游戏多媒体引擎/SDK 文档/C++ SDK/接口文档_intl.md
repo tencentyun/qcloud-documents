@@ -181,7 +181,7 @@ After the initialization, API for entering a room should be called before Voice 
 
 ### Authentication information
 AuthBuffer is generated for the purpose of encryption and authentication. For more information about the authentication data, refer to  [GME Key](https://intl.cloud.tencent.com/document/product/607/12218).    
-The room ID parameter for voice message must be set to "null"
+The room ID parameter for voice message must be set to "null".
 
 #### Function prototype
 ```
@@ -442,8 +442,8 @@ If you do not need to enable both the microphone and the speaker (releasing the 
 |GetMicList    				      	|Enumerates microphones |
 |GetSpeakerListCount    				      	|Obtains the number of speakers |
 |GetSpeakerList    				      	|Enumerates speakers |
-|SelectMic    				      	|Searches microphones |
-|SelectSpeaker    				|Searches speakers |
+|SelectMic    				      	|Selectes microphones |
+|SelectSpeaker    				|Selectes speakers |
 |EnableMic    						|Enables/disables the microphone |
 |GetMicState    						|Obtains the microphone status |
 |EnableAudioCaptureDevice    		|Enables audio capture device		|
@@ -534,7 +534,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetMicList(ppDeviceInfoList,nCount);
 
 
 ### Select the microphone
-This API is used to select the microphone. If this API is not called or an empty string is passed in, the default microphone is selected.
+This API is used to select the microphone. If this API is not called or an "DEVICEID_DEFAULT" is passed in, the default microphone is selected.The device ID comes from the GetMicList API return list.
 #### Function prototype  
 ```
 ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
@@ -545,7 +545,7 @@ ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
 
 #### Sample code  
 ```
-const char* pMicID ="1";
+const char* pMicID ="{0.0.1.00000000}.{7b0b712d-3b46-4f7a-bb83-bf9be4047f0d}";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectMic(pMicID);
 ```
 
@@ -716,7 +716,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerList(ppDeviceInfoList,nCount
 ```
 
 ### Select speakers
-This API is used to select the playback device. If this API is not called or an empty string is passed in, the default device is selected.
+This API is used to select the playback device.If this API is not called or an "DEVICEID_DEFAULT" is passed in, the default device is selected.The device ID comes from the GetSpeakerList API return list.
 #### Function prototype  
 ```
 ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
@@ -727,7 +727,7 @@ ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
 
 #### Sample code  
 ```
-const char* pSpeakerID ="1";
+const char* pSpeakerID ="{0.0.1.00000000}.{7b0b712d-3b46-4f7a-bb83-bf9be4047f0d}";
 ITMGContextGetInstance()->GetAudioCtrl()->SelectSpeaker(pSpeakerID);
 ```
 
