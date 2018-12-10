@@ -87,6 +87,17 @@ LocalFilePath=local_path,
 )
 ```
 
+```
+response = client.upload_file(
+    Bucket='test04-123456789',
+    LocalFilePath='local.txt',
+    Key=file_name,
+    PartSize=10,
+    MAXThread=10
+)
+```
+
+
 **存储桶可用区域简称 Region**
 
 SDK V5 的存储桶可用区域简称发生了变化。在进行 SDK V5 初始化时，请将存储桶所在区域简称设置到 CosConfig 中。不同区域在 V4 和 V5 中的对应关系请查看下表：
