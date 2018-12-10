@@ -81,19 +81,9 @@ bucket = "mybucket1-1250000000"
 file_name = "test.txt"
 local_path = 'local.txt'
 response = client.upload_file(
-Bucket=bucket,
-LocalFilePath=local_path,
+    Bucket=bucket,
+    LocalFilePath=local_path,
     Key=file_name
-)
-```
-
-```
-response = client.upload_file(
-    Bucket='test04-123456789',
-    LocalFilePath='local.txt',
-    Key=file_name,
-    PartSize=10,
-    MAXThread=10
 )
 ```
 
