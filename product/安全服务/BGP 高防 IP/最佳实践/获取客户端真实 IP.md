@@ -2,7 +2,7 @@
 BGP 高防 IP 使用非网站业务转发规则是，源站需使用 toa 模块获取客户端的真实 IP。
 
 ### 基本原理
-BGP 高防 IP 使用公网代理模式，因此数据包的源地址和目标地址均会被修改。源站看到的数据包源地址是高防 IP 专业版实例的回源 IP，而并非是客户端的真实 IP。为了将客户端 IP 传给服务器，转发时 BGP 高防 IP 将客户端的 IP 和 Port 记录在自定义的 tcp option 字段中。如下：
+BGP 高防 IP 使用公网代理模式，因此数据包的源地址和目标地址均会被修改。源站看到的数据包源地址是 BGP 高防 IP 实例的回源 IP，而并非是客户端的真实 IP。为了将客户端 IP 传给服务器，转发时 BGP 高防 IP 将客户端的 IP 和 Port 记录在自定义的 tcp option 字段中。如下：
 ```
 #define TCPOPT_ADDR  200
 #define TCPOLEN_ADDR 8      /* |opcode|size|ip+port| = 1 + 1 + 6 */
