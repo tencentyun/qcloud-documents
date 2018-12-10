@@ -1,9 +1,3 @@
-
-
-
-
-
-
 如果您细心对比过 C++ SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。C++ SDK V5 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 C++ SDK V5，请参考下面的指引，完成 SDK 的升级工作。
 
 ## 功能对比
@@ -12,19 +6,19 @@
 
 | 功能           |                              V5                              |                              V4                              |
 | -------------- | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| 文件上传       | 支持本地文件、字节流、输入流上传<br>覆盖同名文件<br>简单上传最大支持5GB<br>分块上传最大支持50TB | 支持本地文件上传,大于8M的文件需将文件内容进行分片上传<br>需要手动设置同名文件是否覆盖<br>简单上传最大上传20MB<br>分片上传最大支持64GB |
+| 文件上传       | 支持本地文件、字节流、输入流上传<br>覆盖同名文件<br>简单上传最大支持5GB<br>分块上传最大支持50TB | 支持本地文件上传，大于8M的文件需将文件内容进行分片上传<br>需要手动设置同名文件是否覆盖<br>简单上传最大上传20MB<br>分片上传最大支持64GB |
 | 存储桶基本操作 |            创建存储桶<br>获取存储桶<br>删除存储桶            |                            不支持                            |
-| 存储桶ACL操作  |   设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL    |                            不支持                            |
+| 存储桶 ACL 操作  |   设置存储桶 ACL<br>获取设置存储桶 ACL<br>删除设置存储桶 ACL    |                            不支持                            |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 |                            不支持                            |
 | 目录操作       |                            不支持                            |               创建目录<br>查询目录<br>删除目录               |
 
 ## 升级步骤
 
-请按照下面4个步骤升级 C++ SDK
+请按照下面4个步骤升级 C++ SDK。
 
 **1. 更新 C++ SDK**
 
-[COS C++ SDK V5 ](https://github.com/tencentyun/cos-cpp-sdk-v5)利用 Poco 库替换 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 获取并安装 Poco 的库和头文件（下载 complete 版本）。
+[COS C++ SDK V5 ](https://github.com/tencentyun/cos-cpp-sdk-v5)利用 Poco 库替换 V4 SDK 的 curl 库，从 [Poco官网](https://pocoproject.org/download.html) 下载 complete 版本的 Poco ，并执行以下命令安装 Poco 的库和头文件。
 
 ```
 ./configure --omit=Data/ODBC,Data/MySQL
@@ -40,8 +34,8 @@ V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容�
 
 - 删除 V4 中 "APPID" 配置项。
 - `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms`和`CurlGlobalConnectTimeoutInms`，新增`ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
-- V5 的初始化默认参数在文件 “cos_sys_config.cpp” 中有详细说明。
-- V4 和 V5 对应 Region 描述不同，详细区别见后文“存储桶可用区域简称 Region”。
+- V5 的初始化默认参数在文件 "cos_sys_config.cpp" 中有详细说明。
+- V4 和 V5 对应 Region 描述不同，详细区别见下文“更改存储桶名称和可用域简称”。
 
 **3. 更改存储桶名称和可用区域简称**
 
