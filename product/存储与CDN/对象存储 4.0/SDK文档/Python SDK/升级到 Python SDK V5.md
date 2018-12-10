@@ -1,8 +1,6 @@
-## 升级到 Python SDK V5
-
 如果您细心对比过 Python SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。COS V5 在架构、可用性和安全性上有了非常大的提升，我们的 SDK 在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 Python SDK V5，请参考下面的指引，一步步完成 SDK 的升级工作。
 
-### 功能对比
+## 功能对比
 
 下表列出了 V4 和 V5 SDK 的主要功能对比：
 
@@ -23,19 +21,19 @@
 3. 我们的 `存储桶名称` 和 `可用区域简称` 有了更新，请对应修改
 4. 一些操作的 API 发生了变化，我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12270)
 
-### 更新 SDK
+**1. 更新 Python SDK**
 
-通过pip 您可以非常方便的获取到最新的COS V5 Python SDK，具体操作如下:
+通过 pip 您可以非常方便的获取到最新的 COS Python SDK V5，请执行以下命令获取：
 ```
  pip uninstall qcloud_cos_v4
 
  pip install -U cos-python-sdk-v5
 ```
 
-当然，您也可以根据官网的[快速入门](https://cloud.tencent.com/document/product/436/12269) 选择合适您的安装方式。
+当然，您也可以根据官网的 [快速入门](https://cloud.tencent.com/document/product/436/12269) 选择合适您的安装方式。
 
 
-### 初始化
+**2. 更改 SDK 初始化**
 
 在 V5 中，我们的初始化接口发生了一些变化：
 
@@ -75,22 +73,26 @@ client = CosS3Client(config)
 ```
 
 
-### Bucket 和 Region 变化
+**3. 更改存储桶名称和可用区域简称**
 
-V5 的存储桶名称发生了变化，在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
-在设置 Bucket 时，请参考下面的示例代码：
+- 存储桶 Bucket
+在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
 
-```
-bucket = "mybucket1-1250000000"
-file_name = "test.txt"
-local_path = 'local.txt'
-response = client.upload_file(
-    Bucket=bucket,
-    LocalFilePath=local_path,
-    Key=file_name
-)
-```
+	在设置 Bucket 时，请参考下面的示例代码：
+
+	```
+	bucket = "mybucket1-1250000000"
+	file_name = "test.txt"
+	local_path = 'local.txt'
+	response = client.upload_file(
+			Bucket=bucket,
+			LocalFilePath=local_path,
+			Key=file_name
+	)
+	```
 
 V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
 
