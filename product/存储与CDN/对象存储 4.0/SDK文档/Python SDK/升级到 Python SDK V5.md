@@ -112,7 +112,7 @@ SDK V5 的存储桶可用区域简称发生了变化。在进行 SDK V5 初始�
 
 
 **4. 更改 API**
-升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12270)。
+升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12270)。
 API 变化有以下三点：
 
 **1）不再支持目录操作**
@@ -126,7 +126,7 @@ API 变化有以下三点：
 
 **2）高级上传接口**
 
-在 SDK V5 中，我们封装了高级上传接口，该接口支持根据文件大小智能选择简单上传还是分片上传，分块上传具备断点续传功能，同时您还可以设置线程数量来控制您的上传速度。
+在 SDK V5 中，我们封装了高级上传接口，该接口支持根据文件大小智能选择简单上传还是分块上传，分块上传具备断点续传功能，同时您还可以设置线程数量来控制您的上传速度。
 
 使用高级上传接口断点续传示例代码如下：
 
@@ -144,8 +144,8 @@ response = client.upload_file(
 
 Python SDK V5 新增 API，您可根据需求进行调用。包括：
 
-* 存储桶的操作，如 create_bucket, delete_bucket, list_objects 等
-* 存储桶 ACL 的操作，如 put_bucket_acl, get_bucket_acl 等
-* 存储桶生命周期的操作，如 put_bucket_lifecycle, get_bucket_lifecycle 等
+* 存储桶的操作，如 create_bucket、delete_bucket、list_objects 等。
+* 存储桶 ACL 的操作，如 put_bucket_acl、get_bucket_acl 等。
+* 存储桶生命周期的操作，如 put_bucket_lifecycle、get_bucket_lifecycle 等。
 
-具体请参考我们的 [Python SDK 接口文档](https://cloud.tencent.com/document/product/436/12270)。
+阅读更多请参考我们的 Python SDK [接口文档](https://cloud.tencent.com/document/product/436/12270)。
