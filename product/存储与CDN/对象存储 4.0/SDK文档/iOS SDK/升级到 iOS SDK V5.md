@@ -165,16 +165,16 @@ API 变化有以下三点：
 
 **1）不再支持目录操作**
 
-在 iOS SDK V5 中，不再支持目录操作。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+在 iOS SDK V5 中，不再支持目录操作。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
+例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
 **2 ）QCloudCOSTransferMangerService**
 
-在 SDK V5 中，我们封装了可以智能判断是简单上传(复制)还是分片上传(复制)的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
+在 SDK V5 中，我们封装了可以智能判断是简单上传（复制）还是分片上传（复制）的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
 * 支持断点上传
 * 支持根据文件大小智能选择简单上传（copy）还是分片上传（copy）
@@ -219,9 +219,9 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 
 ```
 >!按照分片上传的运行原理，只有当一个分片上传完了，那么后台服务器才会将该分片记录下来，并且叠加进度。并且以下几种情况无法进行断点续传，而是重新开始一次上传过程：
- - 上传的文件小于1M，没有进行分片上传
- - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口
- - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）
+ - 上传的文件小于1M，没有进行分片上传。
+ - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口。
+ - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）。
 
 **3 ）新增 API**
 
