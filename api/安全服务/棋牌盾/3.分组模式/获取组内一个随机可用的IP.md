@@ -16,6 +16,6 @@
 | 参数 | 示例 | 类型 | 描述 |
 | --------- | ----------- | ------- | ------------------ |
 | region | gz / sh / bj | String  | 棋牌盾 IP 的地域，目前有一个地区：</br>sh：上海  |
-| ip | 1.2.3.4 | String  | 棋牌盾 IP 的 IP 地址 |
+| ip | 10.2.3.4 | String  | 棋牌盾 IP 的 IP 地址 |
 | id | bgpip-000001 | String | 棋牌盾 IP 的资源 ID</br>格式：bgpip-XXXXXXX |
 | name | 王者荣誉 | String | 棋牌盾 IP 的名称，由用户自定义 |
