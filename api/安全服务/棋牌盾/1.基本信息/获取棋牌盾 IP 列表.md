@@ -23,8 +23,8 @@
 | servicePacks | [obj,…] | Array | 攻击详情数组，数组元素如下：<pre>{</br>"id": "bgpip-0000001", </br>"name": "服务包1",</br>"region": "gz/sh/bj",</br>"boundIP": "10.2.3.4",</br>"bandwidth": 10000,</br>"status":"idle/attacking/blocking/creating",</br>"expire":"2016-03-02 01:23:45",</br>"transTarget":"nqcloud ",</br>"transRules": "12"，</br>"grpName":"分组1",</br>"ipAmount":"20",</br>"packId":" pack-0000001",</br>}</pre> |
 | id | bgpip-000001 | String | 棋牌盾 IP 的资源 ID</br>格式：bgpip-XXXXXXX |
 | name | 王者荣誉 | String | 棋牌盾 IP 的名称，由用户自定义 |
-| region | gz / sh / bj | String | 棋牌盾 IP 的地域</br>目前只有一个地区：</br>sh：上海 |
-| boundIP | 1.2.3.4 | String | 棋牌盾 IP 的 IP 地址 |
+| region | gz/sh/bj | String | 棋牌盾 IP 的地域</br>目前只有一个地区：</br>sh：上海 |
+| boundIP | 10.2.3.4 | String | 棋牌盾 IP 的 IP 地址 |
 | bandwidth | 5000 Mbps | Integer | 棋牌盾 IP 的防护带宽</br>单位： Mbps |
 | status | idle</br>attacking</br>blocking</br>creating | String | 棋牌盾 IP 的状态：</br>idle：正常工作中</br>attacking：正在被攻击</br>blocking：被封堵</br>creating：正常创建中 |
 | expire | 2016-03-02</br>01:23:45 | Time | 棋牌盾 IP 的到期时间</br>格式：YYYY - MM - DD XX:XX:XX</br>如 2016-11-10 11:00:00 |
