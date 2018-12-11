@@ -14,17 +14,12 @@
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
 | 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
 
-### 总览
+## 升级步骤
+**1. 更新 Java SDK**
 
-1. 更新您的Java SDK
-2. 我们的`存储桶名称`和`可用区域简称`有了更新，请对应修改
-3. 一些操作的 API 发生了变化，我们了封装让 SDK 更加易用，具体参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12263)
+Java SDK V5 发布在 [maven](https://mvnrepository.com/artifact/com.qcloud/cos_api) 中央仓库，推荐您使用 maven 自动管理依赖方式引入。
 
-### 更新SDK
-
-COS V5 Java SDK 发布在maven中央仓库中，推荐使用maven自动管理依赖方式引入:
-
-在您的maven项目的pom.xml文件中添加如下依赖：
+在 maven 项目的 pom.xml 文件中添加如下依赖：
 
 ```xml
 <!-- https://mvnrepository.com/artifact/com.qcloud/cos_api -->
@@ -36,17 +31,21 @@ COS V5 Java SDK 发布在maven中央仓库中，推荐使用maven自动管理依
 
 ```
 
-maven仓库的版本列表：[https://mvnrepository.com/artifact/com.qcloud/cos_api](https://mvnrepository.com/artifact/com.qcloud/cos_api)
-
-当然您也可以在maven中央仓库中直接下载对应版本的jar包，手动加入到您的项目当中。下载地址：[https://mvnrepository.com/artifact/com.qcloud/cos_api](https://mvnrepository.com/artifact/com.qcloud/cos_api)
+当然您也可以在 [maven](https://mvnrepository.com/artifact/com.qcloud/cos_api) 中央仓库中直接下载对应版本的 jar 包，手动加入到您的项目当中。
 
 
+**2. 更改存储桶名称和可用区域简称**
 
-### Bucket和Region的变化
+SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
 
-V5 的存储桶名称发生了变化，在 V5 中，存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+**存储桶 Bucket**
 
-在设置 Bucket 时，请参考下面的示例代码：
+SDK V5 存储桶名称由两部分组成：用户自定义字符串和 APPID，两者以中划线“-”相连。
+例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+
+设置 Bucket，请参考以下示例代码：
 
 ```java
 COSCredentials cred = new BasicCOSCredentials("AKIDXXXXXXXX", "1A2Z3YYYYYYYYYY");
@@ -77,7 +76,8 @@ cosclient.shutdown();
 
 ```
 
-V5的存储桶可用区域简称发生了变化，下面列出了不同区域在V4和V5中的对应关系：
+**存储桶可用区域简称 Region**
+SDK V5的存储桶可用区域简称发生了变化，下表列出了不同区域在V4和V5中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
@@ -106,25 +106,27 @@ COSClient cosclient = new COSClient(cred, clientConfig);
 
 ```
 
-### API变化
+**3. 更改 API**
+升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12263)。
+API 变化有以下三点：
 
-#### 不再支持目录操作
+**1）不再支持目录操作**
 
-由于对象存储本身是没有目录和文件夹的概念的，所以COS不会因为上传对象`project/a.txt`而创建一个名为`project`的目录。为了满足文件系统用户的使用习惯，COS在控制台、COS browser等图形化工具中模拟了「文件夹」或「目录」的展示方式，于是可以看到控制台上出现`project`的文件夹，其中包含了`a.txt`
+在 Java SDK V5 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
-因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。
+例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
 
-如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的 0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
+因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 
-#### TransferManager
+**2）TransferManager**
 
-在 COS V5 SDK中，我们封装了上传、下载和复制操作，命名为`TransferManager`，对 API 设计和传输性能都能做了优化，建议您直接使用。
+在 Java SDK V5 中，我们封装了上传、下载和复制操作，命名为`TransferManager`，优化了 API 设计和传输性能，建议您直接使用。
 
 `TransferManager`的主要特性有：
 
-- 支持断点下载
+- 支持断点下载。
 - 支持根据文件大小只能选择简单上传还是分片上传，您可以设置该判断临界。
-- 支持任务状态的监听
+- 支持任务状态的监听。
 
 使用`TransferManager`上传的示例代码：
 
@@ -163,12 +165,12 @@ cosclient.shutdown();
 
 ```
 
-#### 新增的API
+**3）新增的 API**
 
-V5增加了很多新的API，包括：
+Java SDK V5 新增 API，您可根据需求进行调用。包括：
 
-* 存储桶的操作，如 createBucket, GetBucket(List Objects), ListBuckets 等
-* 存储桶ACL的操作，如 getBucketAcl，setBucketAcl 等
-* 存储桶生命周期的操作，如 setBucketLifecycleConfiguration, getBucketLifecycleConfiguration, deleteBucketLifecycleConfiguration 等
+* 存储桶的操作，如 createBucket、GetBucket（List Objects）、ListBuckets 等。
+* 存储桶 ACL 的操作，如 getBucketAcl、setBucketAcl 等。
+* 存储桶生命周期的操作，如 setBucketLifecycleConfiguration、getBucketLifecycleConfiguration、 deleteBucketLifecycleConfiguration 等。
 
-具体可以参考文件的[Java SDK 接口文档](https://cloud.tencent.com/document/product/436/12263)
+了解更多请查看 [Java SDK 接口文档](https://cloud.tencent.com/document/product/436/12263)。
