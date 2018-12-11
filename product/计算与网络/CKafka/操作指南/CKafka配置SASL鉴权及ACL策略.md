@@ -20,9 +20,9 @@ b. 在弹窗中，选择路由类型和接入方式。
 
 ####  Client 端配置
 a. 在 CKafka 实例的用户管理页面，单击【新建】按钮，创建用户。
-![](https://main.qcloudimg.com/raw/527965341b3193c801f27c1e358a9f54.png)
+![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
 b. 输入用户名和密码信息，单击【提交】完成用户新增。
-![](https://main.qcloudimg.com/raw/0a0d40a579d28fa4d45d159d22809cb6.png)
+![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
 a. 在 client.properties 配置文件中，增加如下配置：
