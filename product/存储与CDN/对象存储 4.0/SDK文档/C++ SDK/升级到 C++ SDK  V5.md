@@ -1,4 +1,4 @@
-如果您细心对比过 C++ SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。C++ SDK V5 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 C++ SDK V5，请参考下面的指引，完成 C++ SDK 的升级工作。
+如果您细心对比过 C++ SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。C++ SDK V5 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想升级到 C++ SDK V5，请参考下面的指引，完成 C++ SDK 的升级工作。
 
 ## 功能对比
 
@@ -29,7 +29,7 @@ make install
 
 **2. 更改 SDK 配置文件**
 
-V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 SDK V5 配置文件中，请对应修改以下变化内容：
+C++ SDK V5 与 V4 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 V5 配置文件中，请对应修改以下变化内容：
 
 - 删除 V4 中 "APPID" 配置项。
 - `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms`和`CurlGlobalConnectTimeoutInms`，新增`ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
@@ -38,7 +38,7 @@ V4 和 V5 的初始化过程相同，但对应配置文件 "config.json" 内容�
 
 **3. 更改存储桶名称和可用区域简称**
 
-SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您进行相应的更改。
+C++ SDK V5 的存储桶名称和可用区域简称与 V4 的不同，需要您进行相应的更改。
 
 **存储桶 Bucket**
 
@@ -46,7 +46,7 @@ V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两�
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
 
-V5在设置 Bucket 时，请参考下面的示例代码：
+V5 在设置 Bucket 时，请参考下面的示例代码：
 
 ```cpp
 qcloud_cos::CosConfig config("./config.json");
@@ -60,7 +60,7 @@ qcloud_cos::CosResult result = cos.HeadBucket(req, &resp);
 
 **存储桶可用区域简称 Region**
 
-V5 的存储桶可用区域简称发生了变化，在进行 SDK V5 初始化时，请将存储桶所在区域简称设置到配置文件的 `Region` 中。不同区域在 V4 和 V5 中的对应关系请查看下表：
+V5 的存储桶可用区域简称发生了变化，在初始化时，请将存储桶所在区域简称设置到配置文件的 `Region` 中。V5 与 V4 不同区域的对应关系请查看下表：
 
 | 地域             | V5 地域简称      | V4 地域简称 |
 | ---------------- | ---------------- | ----------- |
@@ -83,7 +83,7 @@ V5 的存储桶可用区域简称发生了变化，在进行 SDK V5 初始化时
 
 **4. 更改 API**
 
-升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12302)。
+升级到 C++ SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12302)。
 
 API 变化有以下三点：
 
@@ -155,7 +155,7 @@ qcloud_cos::CosResult result = cos.GetObject(req, &resp);
 C++ SDK V5 新增 API，您可根据需求进行调用。包括：
 
 - 存储桶的操作，如 PutBucketReq、GetBucketReq 等。
-- 存储桶 ACL 的操作，如 PutBucketACLReq，GetBucketACLReq 等。
+- 存储桶 ACL 的操作，如 PutBucketACLReq、GetBucketACLReq 等。
 - 存储桶生命周期的操作，如 PutBucketLifecycleReq、GetBucketLifecycleReq 等。
 
 具体请参考我们的 C++ SDK [接口文档](https://cloud.tencent.com/document/product/436/12302)。
