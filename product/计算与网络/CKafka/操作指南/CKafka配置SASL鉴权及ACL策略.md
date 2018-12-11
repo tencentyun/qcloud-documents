@@ -6,43 +6,43 @@
 
 ## 操作步骤
 
-### 1. 创建实例
+###  创建实例
 单击实例列表页的【新建】按钮，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
-### 2. 添加路由
-a. 在实例基本信息页面，单击接入方式模块中的【添加路由策略】。
-b. 在弹窗中，选择路由类型和接入方式。
-- 路由类型：公网域名接入
-- 接入方式：SASL_PLAINTEXT
+###  添加路由
+1. 在实例基本信息页面，单击接入方式模块中的【添加路由策略】。
+2. 在弹窗中，选择路由类型和接入方式。
+ - 路由类型：公网域名接入
+ - 接入方式：SASL_PLAINTEXT
 
-### 3. 配置用户信息
+### 配置用户信息
 您可以通过 Client 端或 CKafka 实例两种方式配置用户信息。
 
 ####  Client 端配置
-a. 在 CKafka 实例的用户管理页面，单击【新建】按钮，创建用户。
+1. 在 CKafka 实例的用户管理页面，单击【新建】按钮，创建用户。
 ![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
-b. 输入用户名和密码信息，单击【提交】完成用户新增。
+2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
-a. 在 client.properties 配置文件中，增加如下配置：
+1. 在 client.properties 配置文件中，增加如下配置：
 ```
 sasl.mechanism=PLAIN
 security.protocol=SASL_PLAINTEXT
 ```
-b. 配置用户名及密码：
+2. 配置用户名及密码：
 ```
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginM
 odule required
 username="INSTANCE-2#admin" password="admin";
 ```
-sasl.jaas.config 部分 username 和 password 说明如下： 
-- username：包含实例名和用户名，使用`#`拼接，实例名为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
-- password：部分为用户名对应的密码。
+其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
+ - username：包含实例名和用户名，使用`#`拼接，实例名为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
+ - password：部分为用户名对应的密码。
 
-### 4. 配置 ACL 策略
-a. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的【编辑 acl 策略】。
-b. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认所有用户/host 都支持。
+###  配置 ACL 策略
+1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的【编辑 acl 策略】。
+2. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认所有用户/host 都支持。
     ACL 策略示例： 允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 ![](https://main.qcloudimg.com/raw/09d00ca8725b9f8ad080a05f5f3b8f7f.png)
 
@@ -50,7 +50,7 @@ b. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认
 - 开通路由只影响接入时的验证方式，设置的 ACL 权限则是全局的。
 - 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，则需要通过 API 为实例添加`ANONYMOUS`用户，并为 PLAINTEXT 需要访问的 Topic 添加`ANONYMOUS`用户的可读写的权限。
 
-### 5. 连通性测试
+###  连通性测试
 ####  Kafka 自带工具脚本
 将 SASL_PLAINTEXT 方式需要的配置写入 producer.properties 文件中，运行下列命令生产消息：
 ```bash
