@@ -13,8 +13,8 @@
 ## 具体实现
 
 ### 1. 添加 licence(p 图收费版)
-> 申请 p 图 licence；
-> 将 licence 改名为 YTFaceSDK.licence 放入 app 的 assets 目录下
+申请 p 图 licence；
+将 licence 改名为 YTFaceSDK.licence 放入 app 的 assets 目录下
 
 
 ### 2. 集成美颜插件
@@ -22,7 +22,7 @@
 p 图收费版：
 ```
 // build.gradle 中，加载p图收费版
-compile 'com.tencent.ilivefilter:liteav_pitu:1.1.21'
+compile 'com.tencent.ilivefilter:liteav_pitu:1.1.22'
 ```
 ```
 defaultConfig{
@@ -37,7 +37,7 @@ defaultConfig{
 非 p 图普通版：
 ```
 // build.gradle 中，加载非p图普通版
-compile 'com.tencent.ilivefilter:liteav_normal:1.1.21'
+compile 'com.tencent.ilivefilter:liteav_normal:1.1.22'
 ```
 ```
 defaultConfig{
@@ -111,9 +111,9 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 ### 7. 扩展：其他使用场景
 
 如：
-> 1. 自定义采集
-> 2. 需要支持纹理输入--》纹理输出场景
-> 3. 自定义滤镜
+1. 自定义采集
+2. 需要支持纹理输入-->纹理输出场景
+3. 自定义滤镜
 
 **请参考详细文档 [开发说明](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/ilivefiltersdk-README.md)**
 
@@ -158,36 +158,35 @@ ILVLiveManager.getInstance().quitRoom(new ILiveCallBack() {
 
 
 ## 常见问题
--  **为什么 p 图功能不生效？？**
+#### 为什么 p 图功能不生效？
 
-> 1. 确认 licence 文件名称是否是 YTFaceSDK.licence；
-> 2.  确认 licence 文件 是否在 assets 目录下；
-> 3.  processFrame 传入的processAngle角度，是否正确；iLiveSDK 一般穿 var1.rotate；
+1. 确认 licence 文件名称是否是 YTFaceSDK.licence；
+2. 确认 licence 文件 是否在 assets 目录下；
+3. processFrame 传入的processAngle角度，是否正确；iLiveSDK 一般传 var1.rotate；
 
-- **为什么 licence 存在，但是加载会失败**
-> 确认 licence 是否过期；可以找申请 licence 时的相关人员确认。
+#### 为什么 licence 存在，但是加载会失败？
+ 确认 licence 是否过期；可以找申请 licence 时的相关人员确认。
 
-- **p 图版和非 p 图版有什么区别？ 非 p 图版是收费的吗？**
+#### p 图版和非 p 图版有什么区别？ 非 p 图版是收费的吗？
 
-> 1. p 图版，集成了 p 图人脸识别 sdk；支持 美颜/滤镜/水印等基础功能 + 绿幕/动效/大眼/瘦脸等人脸识别相关的 p 图特效，
-> 2. 非 p 图版本，只支持美颜/滤镜/水印等基础功能，
-> 3. 非 p 图版，是免费使用的，
-- **为什么 p 图版本，so 库只支持 armeabi 架构？**
+1. p 图版，集成了 p 图人脸识别 sdk；支持 美颜/滤镜/水印等基础功能 + 绿幕/动效/大眼/瘦脸等人脸识别相关的 p 图特效，
+2. 非 p 图版本，只支持美颜/滤镜/水印等基础功能，
+3. 非 p 图版，是免费使用的，
 
 
-> 1. 市面上大多数手机，都是 armeabi-v7a/arm64-v8a/x86 等架构；而这些架构， 都可以兼容 armeabi；
-> 2. 为了 p 图 sdk 的体积考虑，所以只提供 armeabi 架构的 so 库
+#### 为什么 p 图版本，so 库只支持 armeabi 架构？
+1. 市面上大多数手机，都是 armeabi-v7a/arm64-v8a/x86 等架构；而这些架构， 都可以兼容 armeabi；
+2. 为了 p 图 sdk 的体积考虑，所以只提供 armeabi 架构的 so 库
 
-- **为何会分“有 GL 环境”和“无 GL 环境”两种模式？**
+#### 为何会分“有 GL 环境”和“无 GL 环境”两种模式？
 
-> 1. 一般应用场景，只会出现“有 GL 环境”和“无 GL 环境”；从效率和使用方式上考虑，故 sdk 支持两种模式；
-> 2. 如果用户使用场景（如：自定义采集），存在GL环境；为了不与现有 GL 环境冲突，使用“有 GL 环境”模式，支持纹理输入--》处理后纹理输出，效率和兼容性更好；
-> 3. 如果用户使用场景（如：使用 iLiveSDK 采集），无 GL 环境；sdk 会单独开启一个线程，处理传入的原始视频数据，此时不支持纹理输入--》纹理输出，仅支持 原始数据输入--》原始数据输出；
+1. 一般应用场景，只会出现“有 GL 环境”和“无 GL 环境”；从效率和使用方式上考虑，故 sdk 支持两种模式；
+2. 如果用户使用场景（如：自定义采集），存在GL环境；为了不与现有 GL 环境冲突，使用“有 GL 环境”模式，支持纹理输入-->处理后纹理输出，效率和兼容性更好；
+3. 如果用户使用场景（如：使用 iLiveSDK 采集），无 GL 环境；sdk 会单独开启一个线程，处理传入的原始视频数据，此时不支持纹理输入-->纹理输出，仅支持 原始数据输入-->原始数据输出；
 
-- **接入 p 图版本，如何收费？**
+#### 接入 p 图版本，如何收费？
+参见上面的“费用说明”
 
-> 参见上面的“费用说明”
+#### 为什么通过` compile  'com.tencent.ilivefilter:****'`,提示 `“Could not get resource '****.aar'”`，提示 aar 无法找到呢？
 
-- **为什么通过 compile  'com.tencent.ilivefilter:****',提示 “Could not get resource '****.aar'”，提示 aar 无法找到呢？？**
-
-> 可能是 jcenter 服务器下载链接的问题；可以改成 compile  'com.tencent.ilivefilter:****@aar' 试试
+可能是 jcenter 服务器下载链接的问题；可以改成` compile  'com.tencent.ilivefilter:****@aar' `试试

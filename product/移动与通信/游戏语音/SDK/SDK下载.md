@@ -1,3 +1,42 @@
+## v1.1.23
+[Unity](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Unity3D.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Unity3D_bitcode.zip)
+[Cocos](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Cocos.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Cocos_bitcode.zip)
+[Win64](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_winx64_1_1_23_185768_20181122.zip)
+[Win32](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_win_1_1_23_185768_20181122.zip)
+[iOS](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS_bitcode.zip)
+[iOS(cpplib)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS_cpplib.zip)
+[Android](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Android.zip)
+[UE4](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_UE4.zip)
+
+### 更新说明
+- 动态 FEC 调整；
+- 增加语音相关错误码及回调结果上报；
+
+
+
+## v1.1.22
+[Unity](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Unity3D.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_Unity3D_bitcode.zip)
+[Cocos](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Cocos.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_Cocos_bitcode.zip)
+[Win64](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_winx64_1_1_22_184516_20181101.zip)
+[Win32](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_win_1_1_22_184516_20181101.zip)
+[iOS](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_iOS.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181106_iOS_bitcode.zip)
+[iOS(cpplib)](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_iOS_cpplib.zip)
+[Android](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_Android.zip)
+[UE4](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.22/gcloud_voice_1_1_22_184516_20181101_UE4.zip)
+
+### 更新说明
+- 增加对 IPV6 的支持（暂不包括离线语音和语音转文字功能）；
+- 增加开麦被占用的回调；
+- 增加部分动态开关的配置功能。
+
+
+
 ## v1.1.21
 [Unity](http://lexizhang-1251557890.file.myqcloud.com/gvioce1.1.21/gcloud_voice_1_1_21_183471_20181016_Unity3D.zip)
 [Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/gvioce1.1.21/gcloud_voice_1_1_21_183471_20181016_Unity3D_bitcode.zip)
@@ -217,3 +256,5 @@
 - 在调用 SetMode() 的时候，传入 HIGHQUALITY 枚举值即可使用高质量语音模式  
 - iOS 平台的 SDK，由 C++ 变为 Objective-C  
 - 由于关闭了 iOS bitcode 选项，SDK 包变小是正常现象 
+
+

@@ -1,7 +1,5 @@
 ## 1. 接口描述
-
 本接口 (GetGroupOffsets) 用于在用户账户下获取 CKafka 消息分组 offset。
-
 接口请求域名：`ckafka.api.qcloud.com`
 
 ## 2. 输入参数
@@ -11,11 +9,11 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤。|
-|group|是|String  |kafka 消费分组。|
+|group|是|String  |Kafka 消费分组。|
 |topics|否|String Array|group 订阅的主题名称数组，如果没有该数组，则表示指定的 group下所有 topic 信息。|
 |searchWord|否|String|模糊匹配 topicName。|
-|offset|否|Int|默认 0 ，本次查询的偏移位置。|
-|limit|否|Int| 默认 50， 最大值 50， 本次返回结果的最大个数。|
+|offset|否|Int|本次查询的偏移位置，默认为0。|
+|limit|否|Int| 本次返回结果的最大个数，默认为50，最大值为50。|
 
 
 
@@ -39,7 +37,7 @@
 输入：
 
 ```
- https://domain/v2/index.php?Action=GetGroupOffset&<公共请求参数>
+ https://domain/v2/index.php?Action=GetGroupOffsets&<公共请求参数>
 ```
 
 输出：

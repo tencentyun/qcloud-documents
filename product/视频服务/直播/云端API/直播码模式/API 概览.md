@@ -15,25 +15,24 @@
 | [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997)|查询频道列表|
 | [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862)|查询直播中频道列表|
 | [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流操作接口|
-| [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复——可针对某路流禁止推流|
-| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务——可实现定时录制任务或者实时视频录制|
+| [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复 - 可针对某路流禁止推流|
+| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务 - 可实现定时录制任务或者实时视频录制|
 | [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568)|结束录制任务|
 
 ### 错误码
-1.http 错误 
+1.HTTP 错误 
 
 | 错误码 | 含义 | 备注 |
 |---------|---------|---------|
-| 403 | Forbidden | 接口为了安全考虑开启了校验，若使用浏览器验证发现该错误，可检查下 cookie 里是否含有skey |
+| 403 | Forbidden | 接口为了安全考虑，开启了校验；若使用浏览器验证发现该错误，可检查下 cookie 里是否含有 skey |
 | 404 | Not Found | 查看请求时是否带上 host |
 
 2.接口通用返回错误
 
 | 错误码 | 含义 | 备注 |
 |---------|---------|---------|
-| appid is invalid | appid 不合法，表示未开通该功能  | <br>|
+| appid is invalid | appid 不合法，表示未开通该功能  |  - |
 
->**注意：**
->以上错误码针对本文 API 列表中的 API，不包括 [消息事件通知](https://cloud.tencent.com/document/product/267/5957)。
+>!以上错误码针对本文 API 列表中的 API，不包括 [消息事件通知](https://cloud.tencent.com/document/product/267/5957)。
 
  

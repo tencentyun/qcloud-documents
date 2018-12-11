@@ -1,12 +1,12 @@
 ## 功能说明 
-COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的文件， COSFS 提供的主要功能包括：
+COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
 
 ## 安装和使用 
 ### 适用操作系统版本 
-主流的 Ubuntu、CentOS、Mac OS X 系统。
+主流的 Ubuntu、CentOS、MacOS 系统。
 
 ### 安装流程
 
@@ -17,7 +17,7 @@ git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 
 #### 2. 安装依赖软件 
-COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 和 CentOS 的依赖软件安装过程如下：
+COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS 和 MacOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
 
@@ -28,10 +28,16 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 - CentOS 系统下安装依赖软件：
 
 ```shell
-sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
+sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel fuse
 ```
 
-<span id="BY"></span>
+- MacOS 系统下安装依赖软件：
+
+```shell
+brew install automake git curl libxml2 make pkg-config openssl 
+brew cask install osxfuse
+```
+<a id="compile"> </a>
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
@@ -43,15 +49,13 @@ sudo make install
 cosfs --version
 ```
 
-> **注意：**
-> 在 CentOS 6.5 及更低版本的操作系统，进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
-
-
-```shell
-checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
+根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
+- 在 CentOS 6.5 及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+```
+checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，您需要手动安装 fuse 2.8.4 及以上版本，安装 fuse 2.9.4 的命令示例如下：
+此时，您需要手动安装 fuse 2.8.4 及以上版本，安装命令示例如下：
 ```shell
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
@@ -68,16 +72,27 @@ pkg-config --modversion fuse
 #当您看到 “2.9.4” 时，表示fuse安装成功  
 ```
 
+- 在 MacOS 进行 configure 操作时，可能会出现如下提示：
+```shell
+configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
+No package 'libcrypto' found
+```
+此时，您需要设置 PKG_CONFIG_PATH 变量，以使得 pkg-config 工具能找到 openssl，命令如下：
+```shell
+brew info openssl 
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根据上一条命令的提示信息修改这条命令
+```
+
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 \&lt;Name&gt;-\&lt;Appid&gt;，以及该存储桶对应的 \&lt;SecretId&gt; 和 \&lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 >**注意：**
->您需要将 \&lt;Name&gt;、\&lt;Appid&gt;、\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，\&lt;Name&gt; 为 test， \&lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。\&lt;SecretId&gt; 和 \&lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 **示例：**
 
@@ -93,8 +108,8 @@ chmod 640 /etc/passwd-cosfs
 cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- \&lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
-- \&lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 http://cos.\&lt;Region&gt;.myqcloud.com （适用于XML API），其中\&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API），其中&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
@@ -145,6 +160,10 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 设置 COSFS 日志记录级别，可选 info、dbg，生产环境中建议设置为 info，调试时可以设置为 dbg。
 
+### 8. -oumask=[perm]
+
+该选项可以去除给定类型用户，对挂载目录内文件的操作权限，例如-oumask=007，可以去除其他用户对文件的读写执行权限。
+
 ## 局限性
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
 - 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
@@ -166,7 +185,7 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 umount -l /path/to/mnt_dir
 cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](#BY)  部分更新 fuse 版本或安装最新版本的 COSFS。
+如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](#compile)  部分更新 fuse 版本或安装最新版本的 COSFS。
 
 ### 4. 如何挂载 Bucket 下的一个目录？
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
@@ -197,7 +216,11 @@ COSFS 支持 https，http 和 https 的使用形式分别为：
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
-
+在 libcurl 所依赖的 NSS 库为 3.12.3 及其以上版本的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 https 方式挂载 Bucket，需要执行如下命令：
+```shell
+echo "export NSS_STRICT_NOFORK=DISABLED" >> ~/.bashrc
+source ~/.bashrc
+```
 ### 8. 挂载时显示 Bucket not exist?
 请检查参数 -ourl，确保 url 中不要携带 Bucket 部分，正确的形式为：
 ```shell
@@ -215,9 +238,16 @@ cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//co
 
 ### 11. 如何挂载多个存储桶?
 
-您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-COSFS 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
+您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
 ```shell
 echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
 echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
+```
+
+### 12. 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option, bad superblock on cosfs"?
+由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
+```shell
+sudo yum install fuse #CentOS
+sudo apt-get install fuse #Ubuntu
 ```

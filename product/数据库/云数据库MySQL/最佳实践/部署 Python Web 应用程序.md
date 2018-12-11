@@ -108,7 +108,7 @@ service httpd restart
 ```
 8. 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/python/hello`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），页面出现 “Hello world !” 表示项目环境搭建成功。
 
-### 在 Django 中配置云数据库 CDB（可选）
+### 在 Django 中配置云数据库 TencentDB（可选）
 1. 配置项目目录下的 settings.py 文件。
 ```
 DATABASES = {

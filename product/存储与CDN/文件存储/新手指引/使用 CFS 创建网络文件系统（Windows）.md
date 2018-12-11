@@ -108,13 +108,14 @@ CIFS/SMB | 445 |  telnet 445
 #### 通过图形界面挂载文件系统
 a.打开 "映射网路驱动器"
 登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
-![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
-![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
+![](https://main.qcloudimg.com/raw/515b5b21a19e3f3518c75441326e1800.png)
+![](https://main.qcloudimg.com/raw/b0396ce0f8f108f3e89a2f2bfb3d7f71.png)
 
 b.输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 CIFS/SMB 文件系统中看到的挂载目录）。
+![](https://main.qcloudimg.com/raw/8d58ee713b9e072156caf8019b4242d5.png)
 ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
-![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
+
 
 
 c.验证读写
@@ -168,24 +169,22 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 3.3 重启使配置生效
 关闭注册表并重启 Windows 系统，完成注册表修改。
 
-##### 4. 挂载文件系统
-###### 通过图形界面挂载
-a.打开 "映射网路驱动器"
+#### 4. 挂载文件系统
+挂载文件系统有两种方式：通过图形界面挂载和通过 CMD 命令行挂载。
+1）通过图形界面挂载
+a. 打开 "映射网路驱动器"
 登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
-![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
-![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
-
-b.输入访问路径
+![](https://main.qcloudimg.com/raw/515b5b21a19e3f3518c75441326e1800.png)
+![](https://main.qcloudimg.com/raw/b0396ce0f8f108f3e89a2f2bfb3d7f71.png)
+b. 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
+![](https://main.qcloudimg.com/raw/8d58ee713b9e072156caf8019b4242d5.png)
 ![](https://mc.qcloudimg.com/static/img/caa18888e6da73b19de8eefc18ff3680/image.png)
-![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
-
-
-c.验证读写
+c. 验证读写
 确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
-###### 通过 CMD 命令行挂载
+2）通过 CMD 命令行挂载
 在 Windows 的命令行工具中输入如下命令，挂载文件系统。其中，系统缺省子目录为 FSID。
 
 ```
@@ -198,10 +197,7 @@ mount 10.10.0.12:/z3r6k95r X:
 ```
 
 > **注意：**
-> FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
-
-![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
-
+> FSID 挂载命令可以到【文件存储控制台】>【文件系统详情】>【挂载点信息】中获取。
 
 ### 5.卸载文件系统
 #### 通过图形界面卸载共享目录
@@ -220,12 +216,9 @@ umount X：
 ```
 
 
-
 ## 五、终止资源
 您可以从腾讯云控制台轻松终止 CVM 实例和文件系统。事实上，最好终止不再使用的资源，以免继续为其付费。
 1. 终止腾讯云实例。进入腾讯云云服务器 [控制台](https://console.cloud.tencent.com/cvm/index)，选中需要终止的实例，单击【更多】>【云主机状态】，可以选中【销毁】以终止 CVM 实例。
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
-
-
