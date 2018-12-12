@@ -15,7 +15,7 @@ BGP 高防 IP 提供面向 DDoS 攻击的高级防护策略功能，用户可针
 
 > !高级安全防护策略功能具有一定专业性，建议有相关经验的用户在阅读以下操作指南后根据实际情况进行配置。
 
-登录 [DDoS防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防包】>【防护配置】。在【DDoS高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
 ![](https://main.qcloudimg.com/raw/c392ecfccfb97d7533cf406d8ab92e81.png)
 
 - **策略名称**
@@ -50,14 +50,14 @@ BGP 高防 IP 提供面向 DDoS 攻击的高级防护策略功能，用户可针
 
 ## 绑定与解绑资源
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS 攻击防护】页签，单击目标策略所在行的【绑定资源】。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防包】>【防护配置】。在【DDoS 攻击防护】页签，单击目标策略所在行的【绑定资源】。
 
 - 绑定资源：在弹出的【绑定资源】对话框中，根据实际业务需求勾选一个或多个资源，单击【确定】。
 - 解绑资源：在弹出的【绑定资源】对话框中，根据实际业务需求单击【已选择】区域中已选资源右侧的<img src="https://main.qcloudimg.com/raw/f452deeefbca4c66f34b7db71ec0daca.png"  style="margin:0;">，单击【确定】。
 
 ## 配置策略
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS攻击防护】页签，单击目标策略所在行的【配置】。根据实际业务需求更新以下参数，单击【确定】保存修改。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防包】>【防护配置】。在【DDoS攻击防护】页签，单击目标策略所在行的【配置】。根据实际业务需求更新以下参数，单击【确定】保存修改。
 
 - 策略名称
 - 黑白名单
@@ -71,4 +71,4 @@ BGP 高防 IP 提供面向 DDoS 攻击的高级防护策略功能，用户可针
 
 > ?未绑定资源的策略可直接删除。已绑定资源的策略需要先将所有资源解绑再执行删除操作。
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS攻击防护】页签，单击目标策略所在行的【删除】。在弹出的对话框中，单击【确定】。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防包】>【防护配置】。在【DDoS攻击防护】页签，单击目标策略所在行的【删除】。在弹出的对话框中，单击【确定】。
