@@ -23,17 +23,17 @@
 
 在存储桶或对象的 ACL 中支持授予的身份包括：
 
-- 跨账号：请使用根账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得「账号 ID」，例如 `398626565`
+- 跨账号：请使用根账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得「账号 ID」，例如 `398626565`。
 - 预设用户组：请使用 URI 标签标记预设的用户组，支持的用户组包括：
-  - 匿名用户组 - `http://cam.qcloud.com/groups/global/AllUsers` 该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
-  - 认证用户组 - `http://cam.qcloud.com/groups/global/AuthenticatedUsers` 该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
+  - 匿名用户组 -`http://cam.qcloud.com/groups/global/AllUsers` 该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
+  - 认证用户组 -`http://cam.qcloud.com/groups/global/AuthenticatedUsers` 该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
 
 
 ### 操作 Permission
 
 腾讯云对象存储 COS 在资源 ACL 上支持的操作实际上是一系列的操作集合，对于存储桶和对象 ACL 来说分别代表不同的含义。
 
-#### 存储桶的操作
+**存储桶的操作**
 
 下表列出了支持在存储桶 ACL 中设置的操作列表：
 
@@ -47,7 +47,7 @@
 
 >!请谨慎授予存储桶 WRITE、WRITE_ACP 或 FULL_CONTROL 权限。授予存储桶 WRITE 权限将允许被授权者覆盖或删除已有的任何对象。
 
-#### 对象的操作
+**对象的操作**
 
 下表列出了支持在对象 ACL 中设置的操作列表：
 
@@ -64,7 +64,7 @@
 
 腾讯云对象存储 COS 支持一系列预设的 ACL 进行授权，这将极大地方便描述简单的权限。使用预设 ACL 描述时，需要在 PUT Bucket/Object 或 PUT Bucket/Object acl 中携带 `x-cos-acl` 头部并描述所需权限，如果同时在请求正文中携带了 XML 的描述内容，我们将优先选择头部中的描述并忽略请求正文中的 XML 描述。
 
-#### 存储桶的预设 ACL
+**存储桶的预设 ACL**
 
 | 预设名称           | 描述                                                         |
 | ------------------ | ------------------------------------------------------------ |
@@ -73,7 +73,7 @@
 | public-read-write  | 创建者和匿名用户组都具备 FULL_CONTROL 权限，通常不建议授予此权限。 |
 | authenticated-read | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限。     |
 
-#### 对象的预设 ACL
+**对象的预设 ACL**
 
 | 预设名称                  | 描述                                                         |
 | ------------------------- | ------------------------------------------------------------ |

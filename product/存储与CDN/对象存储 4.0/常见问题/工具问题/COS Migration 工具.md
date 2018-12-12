@@ -27,6 +27,7 @@
 ![img](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
 此问题是因为工具使用了 rocksdb，需要使用 64 位的 JDK，请检查 JDK 版本是 X64 的 JDK 。
 
-### 其他问题
+### 在 Windows 环境下报找不到 rocksdb 的 jni 库，应该如何处理？
+在 Windows 环境下，工具需要在 Microsoft Visual Studio 2015 环境下编译。若出现以上报错，需安装 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)。
 
-请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。

@@ -2,8 +2,8 @@
 ## 问题描述
 
 通过远程桌面连接登录 Windows 实例时，出现 “发生身份验证错误，给函数提供标志无效” 或 “发生身份验证错误。要求的函数不受支持” 的报错，如下图所示：
-![给函数提供标志无效](https://main.qcloudimg.com/raw/0c5e6df33c7de426b8e6f3a30df1e4ab.png)
-![要求函数不支持](https://main.qcloudimg.com/raw/4cc667df3c13b6a255fa8be5c81c08a9.png)
+![给函数提供标志无效](https://main.qcloudimg.com/raw/cbb3b5ea89ed9d3a65af8b303880b7c8.png)
+![要求函数不支持](https://main.qcloudimg.com/raw/09ff95a4f2e46e93a75d0e6ec38c1954.png)
 
 ## 问题分析
 
@@ -44,7 +44,7 @@
 7. 在 “更新和安全” 中，选择 “Windows 更新”，单击【检查更新】。如下图所示：
 ![检查更新](https://main.qcloudimg.com/raw/b687c689b78124df4c26a11050da6ad4.png)
 8. 根据界面提示，单击【开始安装】。
-等待安装完成，重启实例，即可完成更新。
+9. 安装完成后，重启实例，完成更新。
 
 ### 方案二：修改策略配置
 
