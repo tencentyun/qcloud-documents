@@ -1,9 +1,8 @@
-<div id="trtc-doc">
 
-# TRTCCloudDelegate
+TRTCCloudDelegate 是 TRTCCloud 的主要回调接口     
+## 通用事件回调
 
-TRTCCloudDelegateTRTCCloud
-## `onError`
+### `onError`
 `void onError(int errCode, String errMsg, Bundle extraInfo)`
 
 
@@ -19,8 +18,9 @@ __参数__
 | errCode | int | 错误码 TRTCErrorCode  |
 | errMsg | String | 错误信息  |
 | extraInfo | Bundle | 额外信息，如错误发生的用户，一般不需要关注，默认是本地错误  |
+<br/>
 
-## `onWarning`
+### `onWarning`
 `void onWarning(int warningCode, String warningMsg, Bundle extraInfo)`
 
 
@@ -36,9 +36,13 @@ __参数__
 | warningCode | int | 错误码 TRTCWarningCode  |
 | warningMsg | String | 警告信息  |
 | extraInfo | Bundle | 额外信息，如警告发生的用户，一般不需要关注，默认是本地错误  |
+<br/>
 
-## `onEnterRoom`
-`void onEnterRoom(int roomId, String userId, long elapsed)`
+
+## 房间事件回调
+
+### `onEnterRoom`
+`void onEnterRoom(long elapsed)`
 
 
 __功能__
@@ -50,12 +54,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomId | int | 房间号  |
-| userId | String | 用户标识  |
 | elapsed | long | 加入房间耗时，单位毫秒  |
+<br/>
 
-## `onExitRoom`
-`void onExitRoom(int roomId, int reason)`
+### `onExitRoom`
+`void onExitRoom(int reason)`
 
 
 __功能__
@@ -67,10 +70,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomId | int | 房间号  |
 | reason | int | 离开房间原因  |
+<br/>
 
-## `onUserEnter`
+
+## 成员事件回调
+
+### `onUserEnter`
 `void onUserEnter(String userId)`
 
 
@@ -84,8 +90,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识  |
+<br/>
 
-## `onUserExit`
+### `onUserExit`
 `void onUserExit(String userId, int reason)`
 
 
@@ -100,8 +107,9 @@ __参数__
 |-----|------|------|
 | userId | String | 用户标识  |
 | reason | int | 退出原因  |
+<br/>
 
-## `onUserVideoAvailable`
+### `onUserVideoAvailable`
 `void onUserVideoAvailable(String userId, boolean available)`
 
 
@@ -116,8 +124,9 @@ __参数__
 |-----|------|------|
 | userId | String | 用户标识  |
 | available | boolean | true：视频可播放，false：视频被关闭  |
+<br/>
 
-## `onUserAudioAvailable`
+### `onUserAudioAvailable`
 `void onUserAudioAvailable(String userId, boolean available)`
 
 
@@ -132,8 +141,9 @@ __参数__
 |-----|------|------|
 | userId | String | 用户标识  |
 | available | boolean | true：音频可播放，false：音频被关闭  |
+<br/>
 
-## `onUserVoiceVolume`
+### `onUserVoiceVolume`
 `void onUserVoiceVolume(ArrayList< TRTCCloudDef.TRTCVolumeInfo > userVolumes, int totalVolume)`
 
 
@@ -148,8 +158,12 @@ __参数__
 |-----|------|------|
 | userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围 [0, 100]  |
 | totalVolume | int | 总的语音音量, 取值范围 [0, 100]  |
+<br/>
 
-## `onNetworkQuality`
+
+## 统计和质量回调
+
+### `onNetworkQuality`
 `void onNetworkQuality(TRTCCloudDef.TRTCQuality localQuality, ArrayList< TRTCCloudDef.TRTCQuality > remoteQuality)`
 
 
@@ -164,8 +178,9 @@ __参数__
 |-----|------|------|
 | localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量  |
 | remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量  |
+<br/>
 
-## `onStatistics`
+### `onStatistics`
 `void onStatistics(TRTCStatistics statics)`
 
 
@@ -183,8 +198,12 @@ __参数__
 __说明__
 
 每2秒回调一次 
+<br/>
 
-## `onFirstVideoFrame`
+
+## 音视频事件回调
+
+### `onFirstVideoFrame`
 `void onFirstVideoFrame(String userId)`
 
 
@@ -198,8 +217,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识  |
+<br/>
 
-## `onFirstAudioFrame`
+### `onFirstAudioFrame`
 `void onFirstAudioFrame(String userId)`
 
 
@@ -213,8 +233,12 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识  |
+<br/>
 
-## `onConnectionLost`
+
+## 服务器事件回调
+
+### `onConnectionLost`
 `void onConnectionLost()`
 
 
@@ -222,8 +246,9 @@ __功能__
 
 
 SDK 跟服务器的连接断开 
+<br/>
 
-## `onTryToReconnect`
+### `onTryToReconnect`
 `void onTryToReconnect()`
 
 
@@ -231,8 +256,9 @@ __功能__
 
 
 SDK 尝试重新连接到服务器 
+<br/>
 
-## `onConnectionRecovery`
+### `onConnectionRecovery`
 `void onConnectionRecovery()`
 
 
@@ -240,8 +266,9 @@ __功能__
 
 
 SDK 跟服务器的连接恢复 
+<br/>
 
-## `onSpeedTest`
+### `onSpeedTest`
 `void onSpeedTest(TRTCCloudDef.TRTCSpeedTestResult currentResult, int finishedCount, int totalCount)`
 
 
@@ -257,8 +284,12 @@ __参数__
 | currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果  |
 | finishedCount | int | 已完成测速的服务器数量  |
 | currentResult | TRTCCloudDef.TRTCSpeedTestResult | 需要测速的服务器总数量  |
+<br/>
 
-## `onCameraDidReady`
+
+## 硬件设备事件回调
+
+### `onCameraDidReady`
 `void onCameraDidReady()`
 
 
@@ -266,8 +297,9 @@ __功能__
 
 
 摄像头准备就绪 
+<br/>
 
-## `onAudioRouteChanged`
+### `onAudioRouteChanged`
 `void onAudioRouteChanged(int newRoute, int oldRoute)`
 
 
@@ -275,8 +307,13 @@ __功能__
 
 
 音频路由发生变化，音频路由即声音由哪里输出（扬声器、听筒） 
+<br/>
 
-## `onRecvCustomCmdMsg`
+
+## 自定义消息的接收回调
+
+
+### `onRecvCustomCmdMsg`
 `void onRecvCustomCmdMsg(String roomNum, String userId, int cmdID, int seq, byte [] message)`
 
 
@@ -298,8 +335,9 @@ __参数__
 __说明__
 
 该消息由 sendCustomCmdMsg 发送 
+<br/>
 
-## `onRecvCustomCmdMsgError`
+### `onRecvCustomCmdMsgError`
 `void onRecvCustomCmdMsgError(String roomNum, String userId, int cmdID, int errCode, int missed)`
 
 
@@ -317,14 +355,15 @@ __参数__
 | cmdID | int | 数据流ID  |
 | errCode | int | 错误码，当前版本为-1  |
 | missed | int | 丢失的消息数量  |
+<br/>
 
 
-# TRTCLogDelegate
+## TRTCLogDelegate
 
 日志事件回调对象
 
-建议在一个比较早初始化的类中设置回调对象，如Application 
-## `onLog`
+建议在一个比较早初始化的类中设置回调对象，如Application     
+### `onLog`
 `abstract void onLog(String log, int level, String module)`
 
 __参数__
@@ -334,13 +373,20 @@ __参数__
 | log | String | 日志内容  |
 | level | int | 日志等级 参见TRTC_LOG_LEVEL  |
 | module | String | 值暂无具体意义，目前为固定值TXLiteAVSDK  |
+<br/>
 
 
+## TRTCVideoRenderDelegate
 
-</div>
-<style>
-#trtc-doc h2 code, #trtc-doc h3 code, #trtc-doc h4 code { display:block; padding:3px 5px; background: #E3F3FF; color: #333; text-shadow:0px 1px #BCD2E2; }
-//#trtc-doc h2{ font-size:28px !important;}
-#trtc-doc table td:nth-child(1){font-family: 'Lucida Console', Monaco, monospace; font-size:14px !important; color: #4078c0}
-#trtc-doc table tr:nth-child(even){background: #fafafa;}
-</style>
+自定义视频渲染回调对象     
+### `onRenderVideoFrame`
+`void onRenderVideoFrame(String userId, TRTCCloudDef.TRTCVideoFrame frame)`
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧  |
+<br/>
+
+

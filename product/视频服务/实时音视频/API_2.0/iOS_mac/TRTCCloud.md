@@ -1,6 +1,5 @@
-<div id="trtc-doc">
 
-# TRTCCloud
+腾讯云视频通话功能的主要接口类     
 ## 房间相关接口函数
 
 ### `enterRoom`
@@ -21,6 +20,7 @@ __参数__
 __说明__
 
 不管进房是否成功，都必须与exitRoom配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题 
+<br/>
 
 ### `exitRoom`
 ` - (void)exitRoom`
@@ -30,6 +30,7 @@ __功能__
 
 
 离开房间 
+<br/>
 
 
 ## 视频相关接口函数
@@ -49,6 +50,7 @@ __参数__
 |-----|------|------|
 | frontCamera | BOOL | YES:前置摄像头 NO:后置摄像头  |
 | view | TXView * | 承载预览画面的控件所在的父控件  |
+<br/>
 
 ### `startLocalPreview`
 ` - (void)startLocalPreview:(TXView *)view `
@@ -68,6 +70,7 @@ __参数__
 __说明__
 
 在调用该方法前，请先调用 setCurrentCameraDevice 选择使用 Mac 自带的摄像头还是外接摄像头 
+<br/>
 
 ### `stopLocalPreview`
 ` - (void)stopLocalPreview`
@@ -77,6 +80,7 @@ __功能__
 
 
 停止本地视频采集及预览 
+<br/>
 
 ### `startRemoteView`
 ` - (void)startRemoteView:(NSString *)userId view:(TXView *)view `
@@ -93,6 +97,7 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 对方的用户标识  |
 | view | TXView * | 指定渲染控件所在的父控件，SDK会在 view 内部创建一个等大的子控件用来渲染远端画面  |
+<br/>
 
 ### `stopRemoteView`
 ` - (void)stopRemoteView:(NSString *)userId `
@@ -108,6 +113,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | NSString * | 对方的用户标识  |
+<br/>
 
 ### `stopAllRemoteView`
 ` - (void)stopAllRemoteView`
@@ -117,6 +123,7 @@ __功能__
 
 
 停止渲染远端视频画面，如果有屏幕分享，则屏幕分享的画面也会一并被关闭 
+<br/>
 
 ### `setLocalVideoQuality`
 ` - (void)setLocalVideoQuality:(TRTCVideoEncParam *)param qosControl:(TRTCQosMode)qosControl qosPreference:(TRTCVideoQosPreference)qosPreference `
@@ -134,6 +141,7 @@ __参数__
 | param | TRTCVideoEncParam * | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
 | qosControl | TRTCQosMode | 流控模式选择，默认选择【云控】模式，便于获得更好的效果，【终端】模式则用于特殊的调试场景  |
 | qosPreference | TRTCVideoQosPreference | 画面质量偏好，有【流畅】和【清晰】两种模式可供选择，详情请参考 TRTCVideoQosPreference 的定义  |
+<br/>
 
 ### `muteLocalVideo`
 ` - (void)muteLocalVideo:(BOOL)mute `
@@ -153,6 +161,7 @@ __参数__
 __介绍__
 
 当屏蔽本地视频后，房间里的其它成员将会收到 onUserVideoAvailable 回调通知 
+<br/>
 
 ### `setLocalViewFillMode`
 ` - (void)setLocalViewFillMode:(TRTCVideoFillMode)mode `
@@ -168,6 +177,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
+<br/>
 
 ### `setRemoteViewFillMode`
 ` - (void)setRemoteViewFillMode:(NSString *)userId mode:(TRTCVideoFillMode)mode `
@@ -184,6 +194,7 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户的id  |
 | mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
+<br/>
 
 ### `setLocalViewRotation`
 ` - (void)setLocalViewRotation:(TRTCVideoRotation)rotation `
@@ -199,6 +210,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+<br/>
 
 ### `setRemoteViewRotation`
 ` - (void)setRemoteViewRotation:(NSString *)userId rotation:(TRTCVideoRotation)rotation `
@@ -215,6 +227,7 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户Id  |
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+<br/>
 
 ### `setVideoOutputRotation`
 ` - (void)setVideoOutputRotation:(TRTCVideoRotation)rotation `
@@ -230,6 +243,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+<br/>
 
 ### `setGSensorMode`
 ` - (void)setGSensorMode:(TRTCGSensorMode)mode `
@@ -245,6 +259,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mode | TRTCGSensorMode | 重力感应模式，详情请参考 TRTCGSensorMode 的定义  |
+<br/>
 
 ### `enableEncSmallVideoStream`
 ` - (int)enableEncSmallVideoStream:(BOOL)enable withQuality:(TRTCVideoEncParam *)smallVideoEncParam `
@@ -265,6 +280,7 @@ __参数__
 __介绍__
 
 如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流） 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源 对于同一房间的远程观众而言， 如果有些人的下行网络很好，可以选择观看【高清】画面 如果有些人的下行网络不好，可以选择观看【低清】画面 
+<br/>
 
 ### `setRemoteVideoStreamType`
 ` - (void)setRemoteVideoStreamType:(NSString *)userId type:(TRTCVideoStreamType)type `
@@ -285,6 +301,7 @@ __参数__
 __介绍__
 
 此功能需要该 uid 通过 enableEncSmallVideoStream 提前开启双路编码模式 如果该 uid 没有开启双路编码模式，则此操作无效 
+<br/>
 
 ### `setPriorRemoteVideoStreamType`
 ` - (void)setPriorRemoteVideoStreamType:(TRTCVideoStreamType)type `
@@ -304,6 +321,7 @@ __参数__
 __介绍__
 
 低端设备推荐优先选择低清晰度的小画面 如果对方没有开启双路视频模式，则此操作无效 
+<br/>
 
 
 ## 音频相关接口函数
@@ -326,6 +344,7 @@ __参数__
 __介绍__
 
 当屏蔽本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知 
+<br/>
 
 ### `setAudioRoute`
 ` - (void)setAudioRoute:(TRTCAudioRoute)route `
@@ -341,6 +360,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | route | TRTCAudioRoute | 音频路由即声音由哪里输出（扬声器、听筒）  |
+<br/>
 
 ### `muteRemoteAudio`
 ` - (void)muteRemoteAudio:(NSString *)userId mute:(BOOL)mute `
@@ -357,6 +377,7 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 对方的用户标识  |
 | mute | BOOL | YES:静音 NO:非静音  |
+<br/>
 
 ### `muteAllRemoteAudio`
 ` - (void)muteAllRemoteAudio:(BOOL)mute `
@@ -372,6 +393,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mute | BOOL | YES:静音 NO:非静音  |
+<br/>
 
 ### `setRemoteAudioVolume`
 ` - (void)setRemoteAudioVolume:(NSString *)userId volume:(float)volume `
@@ -388,6 +410,7 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户Id  |
 | volume | float | 音量  |
+<br/>
 
 ### `enableAudioVolumeEvaluation`
 ` - (void)enableAudioVolumeEvaluation:(NSUInteger)interval smooth:(NSInteger)smoothLevel `
@@ -408,6 +431,7 @@ __参数__
 __介绍__
 
 开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估 
+<br/>
 
 
 ## 摄像头相关接口函数
@@ -420,6 +444,7 @@ __功能__
 
 
 切换摄像头 
+<br/>
 
 ### `isCameraZoomSupported`
 ` - (BOOL)isCameraZoomSupported`
@@ -429,6 +454,7 @@ __功能__
 
 
 查询当前摄像头是否支持缩放 
+<br/>
 
 ### `setZoom`
 ` - (void)setZoom:(CGFloat)distance `
@@ -444,6 +470,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | distance | CGFloat | 取值范围 1~5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清  |
+<br/>
 
 ### `isCameraTorchSupported`
 ` - (BOOL)isCameraTorchSupported`
@@ -453,6 +480,7 @@ __功能__
 
 
 查询是否支持手电筒模式 
+<br/>
 
 ### `enbaleTorch`
 ` - (BOOL)enbaleTorch:(BOOL)enable `
@@ -468,6 +496,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | enable | BOOL | YES:开启 NO:关闭  |
+<br/>
 
 ### `isCameraFocusPositionInPreviewSupported`
 ` - (BOOL)isCameraFocusPositionInPreviewSupported`
@@ -477,6 +506,7 @@ __功能__
 
 
 查询是否支持设置焦点 
+<br/>
 
 ### `setFocusPosition`
 ` - (void)setFocusPosition:(CGPoint)touchPoint `
@@ -492,6 +522,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | touchPoint | CGPoint | 对焦位置  |
+<br/>
 
 ### `isCameraAutoFocusFaceModeSupported`
 ` - (BOOL)isCameraAutoFocusFaceModeSupported`
@@ -501,6 +532,7 @@ __功能__
 
 
 查询是否支持自动识别人脸位置 
+<br/>
 
 ### `enableAutoFaceFoucs`
 ` - (void)enableAutoFaceFoucs:(BOOL)enable `
@@ -516,6 +548,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | enable | BOOL | YES:打开 NO:关闭  |
+<br/>
 
 ### `getCameraDevicesList`
 ` - (NSArray< TRTCMediaDeviceInfo * > *)getCameraDevicesList`
@@ -525,6 +558,7 @@ __功能__
 
 
 获取摄像头设备列表 
+<br/>
 
 ### `getCurrentCameraDevice`
 ` - (TRTCMediaDeviceInfo *)getCurrentCameraDevice`
@@ -534,6 +568,7 @@ __功能__
 
 
 获取当前要使用的摄像头 
+<br/>
 
 ### `setCurrentCameraDevice`
 ` - (int)setCurrentCameraDevice:(NSString *)deviceId `
@@ -549,6 +584,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | deviceId | NSString * | 从getCameraDevicesList中得到的设备id  |
+<br/>
 
 
 ## 音频设备相关接口函数
@@ -561,6 +597,7 @@ __功能__
 
 
 获取麦克风设备列表 
+<br/>
 
 ### `getCurrentMicDevice`
 ` - (TRTCMediaDeviceInfo *)getCurrentMicDevice`
@@ -570,6 +607,7 @@ __功能__
 
 
 获取当前的麦克风设备 
+<br/>
 
 ### `setCurrentMicDevice`
 ` - (int)setCurrentMicDevice:(NSString *)deviceId `
@@ -585,6 +623,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | deviceId | NSString * | 从getMicDevicesList中得到的设备id  |
+<br/>
 
 ### `getCurrentMicDeviceVolume`
 ` - (float)getCurrentMicDeviceVolume`
@@ -594,6 +633,7 @@ __功能__
 
 
 获取当前麦克风设备音量 
+<br/>
 
 ### `setCurrentMicDeviceVolume`
 ` - (void)setCurrentMicDeviceVolume:(float)volume `
@@ -609,6 +649,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | volume | float | 麦克风音量值, 范围0~100  |
+<br/>
 
 ### `getSpeakerDevicesList`
 ` - (NSArray< TRTCMediaDeviceInfo * > *)getSpeakerDevicesList`
@@ -618,6 +659,7 @@ __功能__
 
 
 获取扬声器设备列表 
+<br/>
 
 ### `getCurrentSpeakerDevice`
 ` - (TRTCMediaDeviceInfo *)getCurrentSpeakerDevice`
@@ -627,6 +669,7 @@ __功能__
 
 
 获取当前的扬声器设备 
+<br/>
 
 ### `setCurrentSpeakerDevice`
 ` - (int)setCurrentSpeakerDevice:(NSString *)deviceId `
@@ -642,6 +685,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | deviceId | NSString * | 从getSpeakerDevicesList中得到的设备id  |
+<br/>
 
 ### `getCurrentSpeakerDeviceVolume`
 ` - (float)getCurrentSpeakerDeviceVolume`
@@ -651,6 +695,7 @@ __功能__
 
 
 当前扬声器设备音量 
+<br/>
 
 ### `setCurrentSpeakerDeviceVolume`
 ` - (int)setCurrentSpeakerDeviceVolume:(float)volume `
@@ -666,6 +711,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | volume | float | 设置的扬声器音量, 范围0~100  |
+<br/>
 
 
 ## 美颜滤镜相关接口函数
@@ -687,6 +733,7 @@ __参数__
 | beautyLevel | NSInteger | 美颜级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
 | whitenessLevel | NSInteger | 美白级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
 | ruddinessLevel | NSInteger | 红润级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
+<br/>
 
 ### `setFilter`
 ` - (void)setFilter:(TXImage *)image `
@@ -702,9 +749,10 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | image | TXImage * | 指定素材，即颜色查找表图片。注意：一定要用png格式！！！  |
+<br/>
 
-### `addWatermark`
-` - (void)addWatermark:(TXImage *)image rect:(CGRect)rect `
+### `setWatermark`
+` - (void)setWatermark:(TXImage *)image rect:(CGRect)rect `
 
 
 __功能__
@@ -718,6 +766,7 @@ __参数__
 |-----|------|------|
 | image | TXImage * | 水印图片  |
 | rect | CGRect | 水印相对于编码分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height  |
+<br/>
 
 
 ## 屏幕共享接口函数(MAC)
@@ -740,6 +789,7 @@ __参数__
 | bitRate | NSInteger | 采集码率  |
 | rect | CGRect | 采集区域  |
 | view | NSView * | 预览View  |
+<br/>
 
 ### `startScreenCaptureWithWindowID`
 ` - (int)startScreenCaptureWithWindowID:(CGWindowID)windowID captureFreq:(NSUInteger)captureFreq bitRate:(NSInteger)bitRate renderView:(NSView *)view `
@@ -758,6 +808,7 @@ __参数__
 | captureFreq | NSUInteger | 采集fps  |
 | bitRate | NSInteger | 采集码率  |
 | view | NSView * | 预览View  |
+<br/>
 
 ### `stopScreenCapture`
 ` - (int)stopScreenCapture`
@@ -767,6 +818,7 @@ __功能__
 
 
 停止屏幕采集
+<br/>
 
 ### `resetScreenCaptureRect`
 ` - (int)resetScreenCaptureRect:(CGRect)rect `
@@ -776,6 +828,7 @@ __功能__
 
 
 更新采集区域
+<br/>
 
 
 ## 自定义音视频数据
@@ -794,6 +847,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | enable | BOOL | 是否启用  |
+<br/>
 
 ### `sendVideoSampleBuffer`
 ` - (void)sendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer `
@@ -817,6 +871,7 @@ __介绍__
 __说明__
 
 相关属性设置请参考TXLivePushConfig，autoSampleBufferSize优先级高于sampleBufferSize 
+<br/>
 
 ### `enableCustomAudioCapture`
 ` - (void)enableCustomAudioCapture:(BOOL)enable `
@@ -832,6 +887,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | enable | BOOL | 是否启用  |
+<br/>
 
 ### `sendCustomPCMData`
 ` - (void)sendCustomPCMData:(unsigned char *)data len:(unsigned int)len `
@@ -845,6 +901,49 @@ __功能__
 __说明__
 
 目前SDK只支持16位采样的PCM编码；如果是单声道，请保证传入的PCM长度为2048；如果是双声道，请保证传入的PCM长度为4096 
+<br/>
+
+### `setLocalVideoRenderDelegate`
+` - (void)setLocalVideoRenderDelegate:(id< TRTCVideoRenderDelegate >)delegate withPixelFormat:(TRTCVideoPixelFormat)pixelFormat `
+
+
+__功能__
+
+
+设置本地视频自定义渲染 
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调  |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式  |
+
+__说明__
+
+设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过渲染逻辑 
+<br/>
+
+### `setRemoteVideoRenderDelegate`
+` - (void)setRemoteVideoRenderDelegate:(id< TRTCVideoRenderDelegate >)delegate withUserId:(NSString *)userId pixelFormat:(TRTCVideoPixelFormat)pixelFormat `
+
+
+__功能__
+
+
+设置远端视频自定义渲染 
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调  |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式  |
+
+__说明__
+
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过渲染逻辑 
+<br/>
 
 
 ## 自定义消息发送
@@ -870,6 +969,7 @@ __参数__
 __说明__
 
 限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息 限制2：每个包最大为 1 KB，超过则很有可能会被中间路由器或者服务器丢弃 限制3：每个客户端每秒最多能发送总计 8 KB 数据
+<br/>
 
 
 ## 背景混音相关接口函数
@@ -891,6 +991,7 @@ __参数__
 | beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知  |
 | progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒  |
 | completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知  |
+<br/>
 
 ### `stopBGM`
 ` - (void)stopBGM`
@@ -900,6 +1001,7 @@ __功能__
 
 
 停止播放背景音乐 
+<br/>
 
 ### `pauseBGM`
 ` - (void)pauseBGM`
@@ -909,6 +1011,7 @@ __功能__
 
 
 暂停播放背景音乐 
+<br/>
 
 ### `resumeBGM`
 ` - (void)resumeBGM`
@@ -918,6 +1021,7 @@ __功能__
 
 
 继续播放背景音乐 
+<br/>
 
 ### `getBGMDuration`
 ` - (NSInteger)getBGMDuration:(NSString *)path `
@@ -933,6 +1037,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | path | NSString * | 音乐文件路径，如果path为空，那么返回当前正在播放的music时长  |
+<br/>
 
 ### `setBGMPosition`
 ` - (int)setBGMPosition:(NSInteger)pos `
@@ -948,6 +1053,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | pos | NSInteger | 单位毫秒  |
+<br/>
 
 ### `setMicVolumeOnMixing`
 ` - (void)setMicVolumeOnMixing:(float)volume `
@@ -963,6 +1069,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | volume | float | 音量大小，1为正常音量，值为0~2  |
+<br/>
 
 ### `setReverbType`
 ` - (void)setReverbType:(TRTCReverbType)reverbType `
@@ -978,6 +1085,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | reverbType | TRTCReverbType | ：混响类型 ，详见 TXReverbType  |
+<br/>
 
 ### `setVoiceChangerType`
 ` - (void)setVoiceChangerType:(TRTCVoiceChangerType)voiceChangerType `
@@ -993,6 +1101,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | voiceChangerType | TRTCVoiceChangerType | 变声类型, 详见 TXVoiceChangerType  |
+<br/>
 
 
 ## 设备和网络测试
@@ -1004,7 +1113,7 @@ __参数__
 __功能__
 
 
-开始进行网络测速(视屏通话期间请勿测试，以免影响通话质量)
+开始进行网络测速(视频通话期间请勿测试，以免影响通话质量)
 
 __参数__
 
@@ -1017,8 +1126,9 @@ __参数__
 
 __介绍__
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进性一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
 注意：测速本身会消耗一定的流量，所以也会产生少量额外的流量费用
+<br/>
 
 ### `stopSpeedTest`
 ` - (void)stopSpeedTest`
@@ -1028,6 +1138,7 @@ __功能__
 
 
 停止服务器测速 
+<br/>
 
 ### `startCameraDeviceTestInView`
 ` - (void)startCameraDeviceTestInView:(NSView *)view `
@@ -1047,6 +1158,7 @@ __参数__
 __说明__
 
 同startLocalPreview一样使用setCurrentCameraDevice接口选中的摄像头设备 
+<br/>
 
 ### `stopCameraDeviceTest`
 ` - (void)stopCameraDeviceTest`
@@ -1056,6 +1168,7 @@ __功能__
 
 
 结束视频测试预览 
+<br/>
 
 ### `startMicDeviceTest`
 ` - (void)startMicDeviceTest:(NSInteger)interval testEcho:(void(^)(NSInteger volume))testEcho `
@@ -1065,6 +1178,7 @@ __功能__
 
 
 开始进行麦克风测试 该方法测试麦克风是否能正常工作, volume的取值范围为 0~100 
+<br/>
 
 ### `stopMicDeviceTest`
 ` - (void)stopMicDeviceTest`
@@ -1074,6 +1188,7 @@ __功能__
 
 
 停止麦克风测试 
+<br/>
 
 ### `startSpeakerDeviceTest`
 ` - (void)startSpeakerDeviceTest:(NSString *)audioFilePath onVolumeChanged:(void(^)(NSInteger volume, BOOL isLastFrame))volumeBlock `
@@ -1083,6 +1198,7 @@ __功能__
 
 
 开始扬声器测试 该方法播放指定的音频文件测试播放设备是否能正常工作。如果能听到声音，说明播放设备能正常工作。 
+<br/>
 
 ### `stopSpeakerDeviceTest`
 ` - (void)stopSpeakerDeviceTest`
@@ -1092,6 +1208,7 @@ __功能__
 
 
 停止扬声器测试 
+<br/>
 
 
 ## LOG相关接口函数
@@ -1114,6 +1231,7 @@ __参数__
 __介绍__
 
 仪表盘是状态统计和事件消息浮层view，方便调试 
+<br/>
 
 ### `setDebugViewMargin`
 ` - (void)setDebugViewMargin:(NSString *)userId margin:(TXEdgeInsets)margin `
@@ -1134,6 +1252,7 @@ __参数__
 __介绍__
 
 必须在 showDebugView 调用前设置才会生效 
+<br/>
 
 ### `getSDKVersion`
 ` + (NSString *)getSDKVersion`
@@ -1143,6 +1262,7 @@ __功能__
 
 
 获取SDK版本信息 
+<br/>
 
 ### `setLogLevel`
 ` + (void)setLogLevel:(TRTCLogLevel)level `
@@ -1158,6 +1278,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | level | TRTCLogLevel | 参见 TRTCLogLevel  |
+<br/>
 
 ### `setConsoleEnabled`
 ` + (void)setConsoleEnabled:(BOOL)enabled `
@@ -1173,6 +1294,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | enabled | BOOL | 指定是否启用  |
+<br/>
 
 ### `setLogCompressEnabled`
 ` + (void)setLogCompressEnabled:(BOOL)enabled `
@@ -1192,6 +1314,7 @@ __参数__
 __介绍__
 
 开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
+<br/>
 
 ### `setLogDirPath`
 ` + (void)setLogDirPath:(NSString *)path `
@@ -1211,6 +1334,7 @@ __参数__
 __说明__
 
 默认保存在 sandbox Documents/log 下，如需修改, 必须在所有方法前调用 
+<br/>
 
 ### `setLogDelegate`
 ` + (void)setLogDelegate:(id< TRTCLogDelegate >)logDelegate `
@@ -1220,22 +1344,16 @@ __功能__
 
 
 设置日志回调 
+<br/>
 
 
-## `delegate`
+## 属性列表
+### `delegate`
 `@property (weak) id< TRTCCloudDelegate > delegate;`
 
 设置回调接口 TRTCCloudDelegate，用户获得来自 
-## `delegateQueue`
+### `delegateQueue`
 `@property (strong) dispatch_queue_t delegateQueue;`
 
 设置驱动回调的队列，默认会采用 Main Queue。 也就是说，如果您不指定 delegateQueue，那么直接在 TRTCCloudDelegate 的回调函数中操作 UI 界面将是安全的 
 
-
-</div>
-<style>
-#trtc-doc h2 code, #trtc-doc h3 code, #trtc-doc h4 code { display:block; padding:3px 5px; background: #E3F3FF; color: #333; text-shadow:0px 1px #BCD2E2; }
-//#trtc-doc h2{ font-size:28px !important;}
-#trtc-doc table td:nth-child(1){font-family: 'Lucida Console', Monaco, monospace; font-size:14px !important; color: #4078c0}
-#trtc-doc table tr:nth-child(even){background: #fafafa;}
-</style>
