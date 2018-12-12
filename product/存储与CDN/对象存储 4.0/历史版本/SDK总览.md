@@ -13,5 +13,4 @@
 | PHP SDK       | [PHP SDK 快速入门](https://cloud.tencent.com/document/product/436/12266)   |
 | Python SDK       | [Python SDK 快速入门](https://cloud.tencent.com/document/product/436/12269)   |
 
->?
->- 历史版本 SDK 文档请参阅 [历史版本 SDK](https://cloud.tencent.com/document/product/436/13698)。
+>?历史版本 SDK 文档请参阅 [历史版本 SDK](https://cloud.tencent.com/document/product/436/13698)。
