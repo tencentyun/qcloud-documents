@@ -13,7 +13,7 @@
 ### 安装使用
 
 ```javascript
-npm i -save image-node-sdk
+npm i --save image-node-sdk
 ```
 以 OCR-身份证识别 为例，一般支持外链 url 或者本地读取图片文件，两种方式。
 
