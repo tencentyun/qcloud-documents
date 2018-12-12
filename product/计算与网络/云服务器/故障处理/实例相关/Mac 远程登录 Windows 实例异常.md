@@ -6,7 +6,7 @@ Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时，提示 “T
 ![Mac 远程桌面连接](https://main.qcloudimg.com/raw/32f0444a47b2e4c90f6657ec9686afcb.png)
 
 
-## 解决方法
+## 解决方案
 
 通过浏览器 VNC 方式登录实例，修改实例的本地组策略解决，详细操作步骤如下：
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
