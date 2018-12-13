@@ -79,13 +79,13 @@
       <td>用户参加活动的地址位置信息。如可填入 用经纬度信息转化为的具体地址信息</td>
    </tr>
    <tr>
-      <td>Latitude</td>
+      <td>latitude</td>
       <td>可选（建议填写）</td>
       <td>Float</td>
       <td>维度。浮点数，范围为 90 ~ -90</td>
    </tr>
    <tr>
-      <td>Longitude</td>
+      <td>longitude</td>
       <td>可选（建议填写）</td>
       <td>Float</td>
       <td>经度。浮点数，范围为 180 ~ -180</td>
@@ -139,7 +139,7 @@
       <td>UTF-8 编码，出错消息</td>
    </tr>
    <tr>
-      <td>Nonce</td>
+      <td>nonce</td>
       <td>UInt</td>
       <td>随机正整数，与 Timestamp 联合起来, 用于防止重放攻击（公共参数）</td>
    </tr>
@@ -159,7 +159,7 @@
       <td>操作来源的外网IP</td>
    </tr>
    <tr>
-      <td>Level（*重要：风险值）</td>
+      <td>level（*重要：风险值）</td>
       <td>Int</td>
       <td>0：表示无恶意<br>1～4：恶意等级由低到高</td>
    </tr>
