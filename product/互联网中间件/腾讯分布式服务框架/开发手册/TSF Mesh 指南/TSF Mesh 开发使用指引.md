@@ -5,8 +5,7 @@
 - 其他代码不做修改。
 
 #### 示例
-> **说明：**
-> 以下代码片段可参考 Demo 工程内 userService.py 。
+>?以下代码片段可参考 Demo 工程内 userService.py 。
 
 改造前：
 ```python
@@ -113,7 +112,5 @@ Mesh 支持通过 HTTP Header 设置自定义标签（标签可用于服务治�
 >>> headers = {'custom-key': 'custom-value'}
 >>> r = requests.get(url, headers=headers)
 ```
-
-> **说明：**
-> 以上示例已经在依赖机器上安装了 requests 库。
+>?以上示例已经在依赖机器上安装了 requests 库。
 
