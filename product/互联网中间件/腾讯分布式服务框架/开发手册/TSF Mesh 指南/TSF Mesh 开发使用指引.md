@@ -46,7 +46,7 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 
 
 ## 服务定义和注册
-在应用程序所在目录中设置创建 `spec.yml` 文件，该文件用于描述服务信息。Sidecar 会通过服务描述文件将服务注册到服务注册中心。spec.yml 格式如下：
+在应用程序所在目录中设置创建 `spec.yaml` 文件，该文件用于描述服务信息。Sidecar 会通过服务描述文件将服务注册到服务注册中心。spec.yaml 格式如下：
 ```yaml
 apiVersion: v1
 kind: Application
