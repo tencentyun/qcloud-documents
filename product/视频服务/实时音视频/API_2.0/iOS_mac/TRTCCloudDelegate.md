@@ -1,10 +1,9 @@
-<div id="trtc-doc">
 
-# TRTCCloudDelegate
+TRTCCloudDelegate 是 TRTCCloud 的主要回调接口     
+## 通用事件回调
 
-TRTCCloudDelegate 是 TRTCCloud
-## `onError`
-` - (void)onError:(TRTCErrorCode)errCode errMsg:(nullable NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo `
+### `onError`
+` - (void)onError:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo `
 
 
 __功能__
@@ -16,12 +15,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TRTCErrorCode | 错误码  |
+| errCode | TXLiteAVError | 错误码  |
 | errMsg | nullable NSString * | 错误信息  |
 | extInfo | nullable NSDictionary * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题  |
+<br/>
 
-## `onWarning`
-` - (void)onWarning:(TRTCWarningCode)warningCode warningMsg:(nullable NSString *)warningMsg extInfo:(nullable NSDictionary *)extInfo `
+### `onWarning`
+` - (void)onWarning:(TXLiteAVWarning)warningCode warningMsg:(nullable NSString *)warningMsg extInfo:(nullable NSDictionary *)extInfo `
 
 
 __功能__
@@ -33,12 +33,16 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| warningCode | TRTCWarningCode | 警告码  |
+| warningCode | TXLiteAVWarning | 警告码  |
 | warningMsg | nullable NSString * | 警告信息  |
 | extInfo | nullable NSDictionary * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题  |
+<br/>
 
-## `onEnterRoom`
-` - (void)onEnterRoom:(UInt32)roomId userId:(NSString *)userId elapsed:(NSInteger)elapsed `
+
+## 房间事件回调
+
+### `onEnterRoom`
+` - (void)onEnterRoom:(NSInteger)elapsed `
 
 
 __功能__
@@ -50,12 +54,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomId | UInt32 | 房间号  |
-| userId | NSString * | 用户标识  |
 | elapsed | NSInteger | 加入房间耗时  |
+<br/>
 
-## `onExitRoom`
-` - (void)onExitRoom:(UInt32)roomId reason:(NSInteger)reason `
+### `onExitRoom`
+` - (void)onExitRoom:(NSInteger)reason `
 
 
 __功能__
@@ -67,10 +70,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomId | UInt32 | 房间号  |
 | reason | NSInteger | 离开房间原因  |
+<br/>
 
-## `onUserEnter`
+
+## 成员事件回调
+
+### `onUserEnter`
 ` - (void)onUserEnter:(NSString *)userId `
 
 
@@ -84,8 +90,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | NSString * | 用户标识  |
+<br/>
 
-## `onUserExit`
+### `onUserExit`
 ` - (void)onUserExit:(NSString *)userId reason:(NSInteger)reason `
 
 
@@ -100,8 +107,9 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户标识  |
 | reason | NSInteger | 离开原因代码  |
+<br/>
 
-## `onUserVideoAvailable`
+### `onUserVideoAvailable`
 ` - (void)onUserVideoAvailable:(NSString *)userId available:(BOOL)available `
 
 
@@ -116,8 +124,9 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户标识  |
 | available | BOOL | 画面是否开启  |
+<br/>
 
-## `onUserAudioAvailable`
+### `onUserAudioAvailable`
 ` - (void)onUserAudioAvailable:(NSString *)userId available:(BOOL)available `
 
 
@@ -132,8 +141,9 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 用户标识  |
 | available | BOOL | 声音是否开启  |
+<br/>
 
-## `onUserVoiceVolume`
+### `onUserVoiceVolume`
 ` - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume `
 
 
@@ -148,8 +158,12 @@ __参数__
 |-----|------|------|
 | userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围 0~100  |
 | totalVolume | NSInteger | 总的语音音量, 取值范围 0~100  |
+<br/>
 
-## `onNetworkQuality`
+
+## 统计和质量回调
+
+### `onNetworkQuality`
 ` - (void)onNetworkQuality:(TRTCQualityInfo *)localQuality remoteQuality:(NSArray< TRTCQualityInfo * > *)remoteQuality `
 
 
@@ -164,8 +178,9 @@ __参数__
 |-----|------|------|
 | localQuality | TRTCQualityInfo * | 上行网络质量  |
 | remoteQuality | NSArray< TRTCQualityInfo * > * | 下行网络质量  |
+<br/>
 
-## `onStatistics`
+### `onStatistics`
 ` - (void)onStatistics:(TRTCStatistics *)statistics `
 
 
@@ -183,8 +198,12 @@ __参数__
 __说明__
 
 每2秒回调一次 
+<br/>
 
-## `onFirstVideoFrame`
+
+## 音视频事件回调
+
+### `onFirstVideoFrame`
 ` - (void)onFirstVideoFrame:(NSString *)userId `
 
 
@@ -192,8 +211,9 @@ __功能__
 
 
 首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面 
+<br/>
 
-## `onFirstAudioFrame`
+### `onFirstAudioFrame`
 ` - (void)onFirstAudioFrame:(NSString *)userId `
 
 
@@ -201,8 +221,12 @@ __功能__
 
 
 首帧音频数据到达 
+<br/>
 
-## `onConnectionLost`
+
+## 服务器事件回调
+
+### `onConnectionLost`
 ` - (void)onConnectionLost`
 
 
@@ -210,8 +234,9 @@ __功能__
 
 
 SDK 跟服务器的连接断开 
+<br/>
 
-## `onTryToReconnect`
+### `onTryToReconnect`
 ` - (void)onTryToReconnect`
 
 
@@ -219,8 +244,9 @@ __功能__
 
 
 SDK 尝试重新连接到服务器 
+<br/>
 
-## `onConnectionRecovery`
+### `onConnectionRecovery`
 ` - (void)onConnectionRecovery`
 
 
@@ -228,17 +254,23 @@ __功能__
 
 
 SDK 跟服务器的连接恢复 
+<br/>
 
-## `onCameraDidReady`
+
+## 硬件设备事件回调
+
+
+### `onCameraDidReady`
 ` - (void)onCameraDidReady`
 
 
 __功能__
 
 
-SDK 跟服务器的连接断开 （暂无） 7.1 摄像头准备就绪 
+摄像头准备就绪 
+<br/>
 
-## `onAudioRouteChanged`
+### `onAudioRouteChanged`
 ` - (void)onAudioRouteChanged:(TRTCAudioRoute)route fromRoute:(TRTCAudioRoute)fromRoute `
 
 
@@ -253,8 +285,9 @@ __参数__
 |-----|------|------|
 | route | TRTCAudioRoute | 当前音频路由  |
 | fromRoute | TRTCAudioRoute | 变更前的音频路由  |
+<br/>
 
-## `onDevice`
+### `onDevice`
 ` - (void)onDevice:(NSString *)deviceId type:(TRTCMediaDeviceType)deviceType stateChanged:(NSInteger)state `
 
 
@@ -275,8 +308,12 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | state | NSInteger | 0: 设备断开 1: 设备连接  |
+<br/>
 
-## `onRecvCustomCmdMsg`
+
+## 自定义消息的接收回调
+
+### `onRecvCustomCmdMsg`
 ` - (void)onRecvCustomCmdMsg:(NSString *)roomNum userId:(NSString *)userId cmdID:(NSInteger)cmdID seq:(UInt32)seq message:(NSData *)message `
 
 
@@ -298,8 +335,9 @@ __参数__
 __说明__
 
 该消息由 sendCustomCmdMsg 发送 
+<br/>
 
-## `onRecvCustomCmdMsgError`
+### `onRecvCustomCmdMsgError`
 ` - (void)onRecvCustomCmdMsgError:(NSString *)roomNum userId:(NSString *)userId cmdID:(NSInteger)cmdID errCode:(NSInteger)errCode missed:(NSInteger)missed `
 
 
@@ -317,14 +355,35 @@ __参数__
 | cmdID | NSInteger | 命令ID  |
 | errCode | NSInteger | 错误码，当前版本为-1  |
 | missed | NSInteger | 丢失的消息数量  |
+<br/>
 
 
-# TRTCLogDelegate
+## TRTCVideoRenderDelegate
+
+自定义视频渲染回调对象     
+### `onRenderVideoFrame`
+` - (void)onRenderVideoFrame:(TRTCVideoFrame *_Nonnull)frame `
+
+
+__功能__
+
+
+自定义视频渲染回调 
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCVideoFrame *_Nonnull | 渲染的视频frame  |
+<br/>
+
+
+## TRTCLogDelegate
 
 日志事件回调对象
 
-建议在一个比较早初始化的类中设置回调委托对象，如AppDelegate 
-## `onLog`
+建议在一个比较早初始化的类中设置回调委托对象，如AppDelegate     
+### `onLog`
 ` - (void)onLog:(nullable NSString *)log LogLevel:(TRTCLogLevel)level WhichModule:(nullable NSString *)module `
 
 
@@ -340,13 +399,6 @@ __参数__
 | log | nullable NSString * | 日志内容  |
 | level | TRTCLogLevel | 日志等级 参见TRTCLogLevel  |
 | module | nullable NSString * | 值暂无具体意义，目前为固定值TXLiteAVSDK  |
+<br/>
 
 
-
-</div>
-<style>
-#trtc-doc h2 code, #trtc-doc h3 code, #trtc-doc h4 code { display:block; padding:3px 5px; background: #E3F3FF; color: #333; text-shadow:0px 1px #BCD2E2; }
-//#trtc-doc h2{ font-size:28px !important;}
-#trtc-doc table td:nth-child(1){font-family: 'Lucida Console', Monaco, monospace; font-size:14px !important; color: #4078c0}
-#trtc-doc table tr:nth-child(even){background: #fafafa;}
-</style>
