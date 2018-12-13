@@ -3,7 +3,7 @@
 ## 配置对等连接
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
 2. 在左侧导航中单击【对等连接】，进入管理页面。
- ![1](https://main.qcloudimg.com/raw/29f2a6da000bcf47942e2408d9c1e3ee.png)
+![](https://main.qcloudimg.com/raw/e91e460b5e82b0fef052a5f7a6214cdb.png)
 3. 单击【新建】，配置项填写说明如下：
  - 名称：任意填写简单易记的名称即可（如 test）。
  - 本端地域：选择本端数据库服务器所处的地域。
@@ -13,14 +13,14 @@
  >!地域如果不在同一区域需要额外费用。
  - 对端账户：固定填写`100008373108`。
  - 对端网络：广州填写`vpc-dcwrrj73`，上海填写`vpc-1b08zb34`，北京填写`vpc-lczv7zs6`，成都填写`vpc-54fen6hq`，重庆填写`vpc-m7pzgzo9`，深圳金融填写`vpc-r0xq0u8i`，上海金融填写`vpc-c5zsy1r7`。
- ![2](https://main.qcloudimg.com/raw/91f6bc95ef9abd55dcaf2b21aea9ea19.png)
+ ![](https://main.qcloudimg.com/raw/bdacf2d7bf24c1f371fb8304f828db50.png)
 4. 配置完毕后，单击【创建】。
 
 ## 配置路由表
 配置完对等网络后，开始配置 “路由表”。
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
 2. 在左侧导航中单击【路由表】，进入管理页面。
-![3](https://main.qcloudimg.com/raw/c19ff4c88fd5bec52484b7a2446789e3.png)
+![](https://main.qcloudimg.com/raw/85267f8f7aa64279311847d132ee61c1.png)
 3. 单击【新建】，填写配置信息，配置项填写说明如下：
  - 名称：任意填写简单易记的名称即可（如 test）。
  - 所属网络：选择本端数据库服务器所处的私有网络。若您从未新建过私有网络，选择仅有选项即可。
@@ -28,6 +28,6 @@
  - 下一跳类型：选择对等连接。
  - 下一跳：选择刚配置的对等连接的名称（如 test）。
  - 备注：任意填写简单易记的备注信息即可。
-![4](https://main.qcloudimg.com/raw/7fdf945902a09cd84a3b08c26dc5367e.png)
+ ![](https://main.qcloudimg.com/raw/8db24000b7aef07d0afc0c0de8f6441c.png)
 4. 配置完毕后，单击【创建】。
 >?对等网络与路由表配置完毕后，您可以登录数据库服务器，对新购的 CDS-Mask 实例内网 IP 进行 ping 操作，查看网络是否连通。
