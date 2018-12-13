@@ -16,7 +16,7 @@ Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 - **start.sh**：启动脚本。
 - **stop.sh**：停止脚本。
 - **cmdline**：检查进程是否存活的文件。
-- **spec.yml**：服务描述文件，具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
+- **spec.yaml**：服务描述文件，具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
 - **apis 目录**：存放 API 定义的目录， 具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
 
 其中 star.sh、stop.sh、cmdline 的编写方法请参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)。
@@ -26,7 +26,7 @@ Demo 提供了 3 个 Python 应用，对应的服务名分别是：
 以 tsf_python_docker_demo 中的 demo-mesh-user 为例说明容器应用工程目录。
 - **Dockerfile**：使用 userService 目录中 start.sh 脚本来启动 Python 应用。
 - **userService**目录：基本结构和 tsf_python_vm_demo中 userService 目录类似，除了没有 stop.sh 和 cmdline 文件。
-- **start.sh**：在启动脚本中创建 `/opt/tsf/app_config/` 目录，然后将 spec.yml 文件和 apis 目录拷贝到 `/opt/tsf/app_config/` 中。
+- **start.sh**：在启动脚本中创建 `/opt/tsf/app_config/` 目录，然后将 spec.yaml 文件和 apis 目录拷贝到 `/opt/tsf/app_config/` 中。
 **您需要在容器启动后通过用户程序的启动脚本拷贝目录，不可以在 Dockerfile 中提前拷贝**。
 ```
 #! /bin/bash
