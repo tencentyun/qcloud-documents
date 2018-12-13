@@ -233,7 +233,7 @@
 ## <span id="type">物品 ID 信息表</span>
 <table>
    <tr>
-      <th>id</th>
+      <th>ID</th>
       <th>name</th>
       <th>level</th>
       <th>parent_id</th>
