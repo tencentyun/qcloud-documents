@@ -1,35 +1,28 @@
 ## 输入参数
-
 <table>
    <tr>
-      <th>参数名称</th>
-      <th>是否必选</th>
-      <th>类型</th>
-      <th>描述</th>
+      <td>参数名称</td>
+      <td nowrap="nowrap">是否必选</td>
+      <td>类型</td>
+      <td>描述</td>
    </tr>
    <tr>
       <td>accountType</td>
       <td>是</td>
       <td>Uint</td>
-      <td>用户账号类型<br>1：QQ开放帐号<br>2：微信开放账号<br>0：其他</td>
+      <td>用户账号类型<br>1：QQ开放帐号<br> 2：微信开放账号<br> 4：手机号 （暂仅支持国内手机号）<br> 10004： 手机号MD5 </td>
    </tr>
    <tr>
       <td>uid</td>
       <td>是</td>
       <td>String</td>
-      <td>用户帐号ID值，如微信/QQ openid</td>
-   </tr>
-   <tr>
-      <td>accessToken</td>
-      <td>是</td>
-      <td>String</td>
-      <td>小程序：用户登录态（通过互联登录获取）</td>
+      <td>用户 ID 值，如微信/QQ openid，或手机号等（如15912345687）</td>
    </tr>
    <tr>
       <td>userIP</td>
       <td>是</td>
       <td>String</td>
-      <td>用户领取奖励时的客户端外网IP</td>
+      <td>用户领取奖励时的真实外网 IP</td>
    </tr>
    <tr>
       <td>postTime</td>
@@ -38,37 +31,37 @@
       <td>用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）</td>
    </tr>
    <tr>
-      <td>Type</td>
-      <td>是</td>
-      <td>String</td>
-			<td>所买物品信息，了解更多请查看 <a href="#type">物品 ID 信息表</a></td>
-   </tr>
-   <tr>
-      <td>appid</td>
+      <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID</td>
+      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 appId，用来唯一标识网站或应用</td>
    </tr>
    <tr>
-      <td>EncryptedCode</td>
+      <td>goodInfo</td>
+      <td>是</td>
+      <td>String</td>
+      <td>所买物品信息</td>
+   </tr>
+   <tr>
+      <td>encryptedCode</td>
       <td nowrap="nowrap">可选（建议填写）</td>
       <td>String</td>
-      <td>领奖码的唯一加密值（请注意信息安全，使用 md5 加密，确保唯一 ID 即可）</td>
+      <td>领奖码的唯一加密码（请注意信息安全，使用加密码，确保唯一ID即可）</td>
    </tr>
    <tr>
-      <td>Share</td>
+      <td>share</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
-      <td>单个红包允许领取的用户数量（分享红包）</td>
+      <td>单个红包允许领取的用户数量（分享红包）<br> 举例：<br> 1：单个红包仅支持1个用户领取（非分享红包） <br>2：单个红包可允许2个用户领取 </td>
    </tr>
    <tr>
-      <td>Daytimes</td>
+      <td>dayTimes</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
       <td>单日内，单个账号每日领取奖励的最大次数</td>
    </tr>
    <tr>
-      <td>Totaltimes</td>
+      <td>totaltimes</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
       <td>整个活动周期内，单个账号能领取奖励的最大次数</td>
@@ -80,38 +73,55 @@
       <td>若 accountType 非手机号码， 且能获取到手机号。则填入对应的手机号（如：15912345687）</td>
    </tr>
    <tr>
-      <td>Address</td>
+      <td>address</td>
       <td>可选（建议填写）</td>
       <td>String</td>
-      <td>用户参加活动的地址位置信息。如可填入用经纬度信息转化为的具体地址信息</td>
+      <td>用户参加活动的地址位置信息。如可填入 用经纬度信息转化为的具体地址信息</td>
    </tr>
    <tr>
       <td>Latitude</td>
       <td>可选（建议填写）</td>
       <td>Float</td>
-      <td>维度。浮点数，范围为90~-90</td>
+      <td>维度。浮点数，范围为 90 ~ -90</td>
    </tr>
    <tr>
       <td>Longitude</td>
       <td>可选（建议填写）</td>
       <td>Float</td>
-      <td>经度。浮点数，范围为180~-180</td>
+      <td>经度。浮点数，范围为 180 ~ -180</td>
    </tr>
    <tr>
-      <td>Imei</td>
-      <td>可选（建议填写）</td>
+      <td>imei</td>
+      <td>可选</td>
       <td>String</td>
-      <td>手机设备号imei/idfa</td>
+      <td>手机设备号</td>
+   </tr>
+   <tr>
+      <td>referer</td>
+      <td>可选</td>
+      <td>String</td>
+      <td>用户 HTTP 请求的 referer 值</td>
+   </tr>
+   <tr>
+      <td>loginType</td>
+      <td>可选</td>
+      <td>UInt</td>
+      <td>登录方式：<br>0：其他 <br>1：手动帐号密码输入 <br>2：动态短信密码登录<br> 3：二维码扫描登录</td>
+   </tr>
+   <tr>
+      <td>loginSource</td>
+      <td>可选</td>
+      <td>UInt</td>
+      <td>登录来源 ：<br>0：其他 <br>1：PC网页 <br>2：移动页面 <br>3：APP <br>4：微信公众号</td>
    </tr>
 </table>
-
 
 ## 输出参数
 <table>
    <tr>
-      <th>参数名称</th>
-      <th>类型</th>
-      <th>描述</th>
+      <td>参数名称</td>
+      <td>类型</td>
+      <td>描述</td>
    </tr>
    <tr>
       <td>code</td>
@@ -121,7 +131,7 @@
    <tr>
       <td>codeDesc</td>
       <td>String</td>
-      <td>业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。</td>
+      <td>业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。</td>
    </tr>
    <tr>
       <td>message</td>
@@ -141,9 +151,7 @@
    <tr>
       <td>uid（*对应输入参数）</td>
       <td>String</td>
-      <td>用户ID：accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId </td>
-   </tr>
-   <tr>
+      <td>用户 ID  accountType 不同对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId</td>
    </tr>
    <tr>
       <td>userIp（*对应输入参数）</td>
@@ -153,833 +161,70 @@
    <tr>
       <td>Level（*重要：风险值）</td>
       <td>Int</td>
-      <td>0：表示无恶意<br> 1～4：恶意等级由低到高</td>
+      <td>0：表示无恶意<br>1～4：恶意等级由低到高</td>
    </tr>
    <tr>
-   </tr>
-   <tr>
-      <td>riskType（*重要：风险标签）</td>
+      <td nowrap="nowrap">riskType（*重要：风险标签）</td>
       <td>Array</td>
       <td>风险类型</td>
    </tr>
    <tr>
       <td>associateAccount</td>
       <td>String</td>
-      <td>accountType是QQ或微信开放账号时，用于标识QQ或微信用户登录后关联业务自身的账号ID</td>
+      <td>accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID</td>
    </tr>
 </table>
+
 
 ## risktype 详细说明
 <table>
    <tr>
-      <th>风险类型</th>
-      <th>风险详情</th>
-      <th>风险码</th>
-      <th>解释说明</th>
+      <td>风险类型</td>
+      <td>风险详情</td>
+      <td>风险码</td>
+      <td>解释说明</td>
    </tr>
    <tr>
-      <td rowspan= '3'>账号风险</td>
+      <td rowspan="3">账号风险</td>
       <td>账号信用低</td>
-      <td>101</td>
+      <td>1</td>
       <td>账号近期存在 因恶意被处罚历史、低活跃、被举报等因素</td>
    </tr>
    <tr>
       <td>垃圾账号</td>
-      <td>102</td>
+      <td>2</td>
       <td>疑似批量注册小号、近期存在严重违规或大量举报</td>
    </tr>
    <tr>
       <td>无效账号</td>
-      <td>103</td>
-      <td>送检账号参数无法成功解析，若为微信/QQ openid请检查是否送检数据错误</td>
+      <td>3</td>
+      <td>送检账号参数无法成功解析，若为微信/QQ openid 请检查是否送检数据错误</td>
    </tr>
    <tr>
-      <td rowspan= '4'>行为风险</td>
+      <td rowspan="3">行为风险</td>
       <td>批量操作</td>
-      <td>201</td>
+      <td>101</td>
       <td>存在 IP/设备/环境等因素的聚集性异常</td>
    </tr>
    <tr>
-      <td>恶意行为</td>
-      <td>202</td>
-      <td>买码卖码</td>
-   </tr>
-   <tr>
       <td>自动机</td>
-      <td>203</td>
+      <td>102</td>
       <td>疑似自动机批量请求</td>
    </tr>
    <tr>
       <td>异常扫码</td>
-      <td>204</td>
+      <td>103</td>
       <td>频繁扫码、大量扫废码等异常扫码行为</td>
    </tr>
    <tr>
-      <td rowspan= '2'>环境风险</td>
-      <td>环境异常</td>
-      <td>301</td>
-      <td>操作IP/设备/环境存在异常。如当前IP非常用IP或恶意IP段</td>
+      <td rowspan="2">环境风险</td>
+      <td >环境异常</td>
+      <td>201</td>
+      <td>操作IP/设备/环境存在异常。如当前 IP 非常用 IP 或恶意IP段</td>
    </tr>
    <tr>
       <td>Js上报异常</td>
-      <td>302</td>
-      <td>需用户在前端部署js方有效</td>
-   </tr>
-</table>
-
-
-
-
-## <span id="type">物品 ID 信息表</span>
-<table>
-   <tr>
-      <th>ID</th>
-      <th>name</th>
-      <th>level</th>
-      <th>parent_id</th>
-   </tr>
-   <tr>
-      <td>1</td>
-      <td>饮料</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>2</td>
-      <td>蔬果汁</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>3</td>
-      <td>碳酸饮料</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>4</td>
-      <td>茶饮</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>5</td>
-      <td>咖啡</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>6</td>
-      <td>功能饮料</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>7</td>
-      <td>矿泉水</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>8</td>
-      <td>纯净水</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>9</td>
-      <td>含酒精饮料</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>10</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>1</td>
-   </tr>
-   <tr>
-      <td>11</td>
-      <td>冲调类食品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>12</td>
-      <td>奶粉</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>13</td>
-      <td>速溶咖啡</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>14</td>
-      <td>速溶果汁</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>15</td>
-      <td>米粉</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>16</td>
-      <td>芝麻糊</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>17</td>
-      <td>藕粉</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>18</td>
-      <td>蜂蜜</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>19</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>11</td>
-   </tr>
-   <tr>
-      <td>20</td>
-      <td>乳制品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>21</td>
-      <td>常温奶</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>22</td>
-      <td>酸奶</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>23</td>
-      <td>风味奶</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>24</td>
-      <td>成人奶粉</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>25</td>
-      <td>婴幼儿奶粉</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>26</td>
-      <td>奶茶</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>27</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>20</td>
-   </tr>
-   <tr>
-      <td>28</td>
-      <td>冰品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>29</td>
-      <td>杯装</td>
-      <td>2</td>
-      <td>28</td>
-   </tr>
-   <tr>
-      <td>30</td>
-      <td>蛋筒</td>
-      <td>2</td>
-      <td>28</td>
-   </tr>
-   <tr>
-      <td>31</td>
-      <td>冰棍</td>
-      <td>2</td>
-      <td>28</td>
-   </tr>
-   <tr>
-      <td>32</td>
-      <td>雪糕</td>
-      <td>2</td>
-      <td>28</td>
-   </tr>
-   <tr>
-      <td>33</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>28</td>
-   </tr>
-   <tr>
-      <td>34</td>
-      <td>休闲零食</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>35</td>
-      <td>坚果</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>36</td>
-      <td>炒货</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>37</td>
-      <td>饼干</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>38</td>
-      <td>糕点</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>39</td>
-      <td>糖果</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>40</td>
-      <td>蜜饯</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>41</td>
-      <td>膨化食品</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>42</td>
-      <td>鱼肉类制品</td>
-      <td>2</td>
-      <td>34</td>
-   </tr>
-   <tr>
-      <td>43</td>
-      <td>啤酒</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>44</td>
-      <td>纯生</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>45</td>
-      <td>全麦</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>46</td>
-      <td>淡色啤酒</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>47</td>
-      <td>浓色啤酒</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>48</td>
-      <td>黑色啤酒</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>49</td>
-      <td>果味啤</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>50</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>43</td>
-   </tr>
-   <tr>
-      <td>51</td>
-      <td>白酒</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>52</td>
-      <td>酱香型</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>53</td>
-      <td>清香型</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>54</td>
-      <td>浓香型</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>55</td>
-      <td>米香型</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>56</td>
-      <td>凤香型</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>57</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>51</td>
-   </tr>
-   <tr>
-      <td>58</td>
-      <td>食用油</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>59</td>
-      <td>花生油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>60</td>
-      <td>菜油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>61</td>
-      <td>葵花籽油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>62</td>
-      <td>大豆油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>63</td>
-      <td>玉米胚油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>64</td>
-      <td>调和油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>65</td>
-      <td>色拉油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>66</td>
-      <td>橄榄油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>67</td>
-      <td>香油</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>68</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>58</td>
-   </tr>
-   <tr>
-      <td>69</td>
-      <td>方便食品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>70</td>
-      <td>方便面</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>71</td>
-      <td>方便米饭</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>72</td>
-      <td>八宝粥</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>73</td>
-      <td>罐头食品</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>74</td>
-      <td>火腿肠</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>75</td>
-      <td>速食汤料</td>
-      <td>2</td>
-      <td>69</td>
-   </tr>
-   <tr>
-      <td>76</td>
-      <td>粮食</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>77</td>
-      <td>米</td>
-      <td>2</td>
-      <td>76</td>
-   </tr>
-   <tr>
-      <td>78</td>
-      <td>面</td>
-      <td>2</td>
-      <td>76</td>
-   </tr>
-   <tr>
-      <td>79</td>
-      <td>粗粮</td>
-      <td>2</td>
-      <td>76</td>
-   </tr>
-   <tr>
-      <td>80</td>
-      <td>调味品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>81</td>
-      <td>白糖</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>82</td>
-      <td>冰糖</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>83</td>
-      <td>砂糖</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>84</td>
-      <td>红糖</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>85</td>
-      <td>味精</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>86</td>
-      <td>鸡精</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>87</td>
-      <td>蚝油</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>88</td>
-      <td>虾酱</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>89</td>
-      <td>鱼露</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>90</td>
-      <td>精盐</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>91</td>
-      <td>酱油</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>92</td>
-      <td>豆豉</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>93</td>
-      <td>辣椒粉</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>94</td>
-      <td>胡椒粉</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>95</td>
-      <td>八角</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>96</td>
-      <td>香叶</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>97</td>
-      <td>孜然</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>98</td>
-      <td>陈皮</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>99</td>
-      <td>薄荷</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>100</td>
-      <td>草果</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>101</td>
-      <td>肉桂</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>102</td>
-      <td>番茄酱</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>103</td>
-      <td>白醋</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>104</td>
-      <td>陈醋</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>105</td>
-      <td>柠檬汁</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>106</td>
-      <td>其他</td>
-      <td>2</td>
-      <td>80</td>
-   </tr>
-   <tr>
-      <td>107</td>
-      <td>日用品</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>108</td>
-      <td>护肤</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>109</td>
-      <td>彩妆</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>110</td>
-      <td>口腔护理</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>111</td>
-      <td>女性护理</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>112</td>
-      <td>洗发护发</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>113</td>
-      <td>身体护理</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>114</td>
-      <td>家庭清洁</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>115</td>
-      <td>纸品</td>
-      <td>2</td>
-      <td>107</td>
-   </tr>
-   <tr>
-      <td>116</td>
-      <td>服装</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>117</td>
-      <td>女装</td>
-      <td>2</td>
-      <td>116</td>
-   </tr>
-   <tr>
-      <td>118</td>
-      <td>男装</td>
-      <td>2</td>
-      <td>116</td>
-   </tr>
-   <tr>
-      <td>119</td>
-      <td>内衣</td>
-      <td>2</td>
-      <td>116</td>
-   </tr>
-   <tr>
-      <td>120</td>
-      <td>配饰</td>
-      <td>2</td>
-      <td>116</td>
-   </tr>
-   <tr>
-      <td>121</td>
-      <td>家具家居</td>
-      <td>1</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>122</td>
-      <td>厨具</td>
-      <td>2</td>
-      <td>121</td>
-   </tr>
-   <tr>
-      <td>123</td>
-      <td>家纺</td>
-      <td>2</td>
-      <td>121</td>
-   </tr>
-   <tr>
-      <td>124</td>
-      <td>生活日用</td>
-      <td>2</td>
-      <td>121</td>
+      <td>202</td>
+      <td>需用户在前端部署 js 方有效</td>
    </tr>
 </table>
