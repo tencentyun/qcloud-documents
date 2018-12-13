@@ -61,7 +61,7 @@ spec:
 
 
 ## API 定义和上报
-TSF 支持 Mesh 应用 API 上报功能。在应用程序所在目录中创建 `apis` 目录，用来放置服务的 API 定义。一个服务对应一个 yaml 文件，文件名就是服务名，如 petstore 服务对应的配置是 petstore.yaml。API 遵循 [OPENAPI 3.0 规范 ](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。配置文件遵循 [样例参考](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0/petstore.yaml)。user.yml 的 API 定义如下：
+TSF 支持 Mesh 应用 API 上报功能。在应用程序所在目录中创建 `apis` 目录，用来放置服务的 API 定义。一个服务对应一个 yaml 文件，文件名就是服务名，如 petstore 服务对应的配置是 petstore.yaml。API 遵循 [OPENAPI 3.0 规范](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。配置文件遵循 [样例参考](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0/petstore.yaml)。user.yml 的 API 定义如下：
 ```yaml
 openapi: 3.0.0
 info:
