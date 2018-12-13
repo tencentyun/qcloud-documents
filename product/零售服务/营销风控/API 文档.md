@@ -2,10 +2,10 @@
 
 <table>
    <tr>
-      <td>参数名称</td>
-      <td>是否必选</td>
-      <td>类型</td>
-      <td>描述</td>
+      <th>参数名称</th>
+      <th>是否必选</th>
+      <th>类型</th>
+      <th>描述</th>
    </tr>
    <tr>
       <td>accountType</td>
@@ -109,9 +109,9 @@
 ## 输出参数
 <table>
    <tr>
-      <td>参数名称</td>
-      <td>类型</td>
-      <td>描述</td>
+      <th>参数名称</th>
+      <th>类型</th>
+      <th>描述</th>
    </tr>
    <tr>
       <td>code</td>
@@ -126,7 +126,7 @@
    <tr>
       <td>message</td>
       <td>String</td>
-      <td>UTF-8编码，出错消息</td>
+      <td>UTF-8 编码，出错消息</td>
    </tr>
    <tr>
       <td>Nonce</td>
@@ -172,10 +172,10 @@
 ## risktype 详细说明
 <table>
    <tr>
-      <td>风险类型</td>
-      <td>风险详情</td>
-      <td>风险码</td>
-      <td>解释说明</td>
+      <th>风险类型</th>
+      <th>风险详情</th>
+      <th>风险码</th>
+      <th>解释说明</th>
    </tr>
    <tr>
       <td rowspan= '3'>账号风险</td>
