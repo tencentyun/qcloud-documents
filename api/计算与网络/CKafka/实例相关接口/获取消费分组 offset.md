@@ -30,7 +30,7 @@
 |data::topicList::partitions::offset|Int|consumer 提交的 offset 位置。|
 |data::topicList::partitions::metadata|String|支持消费者提交消息时，传入 metadata 作为它用，当前一般为空字符串。|
 |data::topicList::partitions::log_end_offset|Int|当前 partition 最新的 offset。|
-|data::topicList::partitions::lag|Int|未消费的消费个数。|
+|data::topicList::partitions::lag|Int|未消费的消息个数。|
 
 ## 4. 示例
 
