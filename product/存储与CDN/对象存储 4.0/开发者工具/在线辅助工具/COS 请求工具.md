@@ -13,7 +13,7 @@ COS 请求工具是腾讯云对象存储 COS 为您提供的 Web 端调试工具
 单击 [COS 请求工具](https://console.cloud.tencent.com/api/explorer?Product=cos) 页面，选择“对象存储”产品，选择所需的 API 接口，填写该接口下相应的参数，单击发送请求后获取相应的请求响应结果。
 
 COS 请求工具的整体页面，从左至右依次是产品栏，接口栏，参数栏和结果栏；您可以在不同的栏目执行相应的操作，最终在结果栏发送请求并获取响应结果和相关的过程参数信息。如下图所示：
-![](https://main.qcloudimg.com/raw/1d38b2e84aa0f63b462b6117c0b0c5d0.png)
+![](https://main.qcloudimg.com/raw/6329b432ed56516ca311bcbe5720d13f.png)
 
 有关 COS 请求工具的详细操作请查看如下步骤。
 
