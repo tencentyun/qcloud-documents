@@ -2,9 +2,10 @@
 [腾讯云 TencentDB for MySQL](https://cloud.tencent.com/product/cdb-overview) 支持用户创建一个或多个只读实例组成只读实例 RO 组，适用于用户的读写分离和一主多从应用场景，可显著提高用户数据库的读负载能力。
 >!
 > - 创建只读实例之前需要先创建云数据库主实例。请参考腾讯云 TencentDB for MySQL 产品文档 [购买与续费](/doc/product/236/5160) 中的步骤新建云数据库主实例。
-> - 使用腾讯云 TencentDB for MySQL 之前，需要对数据库进行初始化。请参考腾讯云 CDB for MySQL 产品文档 [初始化 MySQL 数据库](/doc/product/236/3128) 中的步骤初始化 MySQL 数据库。
+> - 使用腾讯云 TencentDB for MySQL 之前，需要对数据库进行初始化。请参考腾讯云 TencentDB for MySQL 产品文档 [初始化 MySQL 数据库](/doc/product/236/3128) 中的步骤初始化 MySQL 数据库。
 
 ## 操作步骤
+### 创建只读实例 RO 组
 1. 登录 [云数据库控制台](https://console.cloud.tencent.com/cdb/ )，实例列表中，选择需要创建只读实例 RO 组的云数据库，单击【管理】，进入云数据库主实例管理界面。
 ![](https://main.qcloudimg.com/raw/de03b9ef53dfd65e2666238c01c2e75e.png)
 2. 在管理界面中，在【相关实例】内单击【添加只读实例】，进入只读实例管理界面。
@@ -56,7 +57,7 @@
 6. 在发货成功后状态切换成【运行中】，并且【登录】按钮有如下提示，则表示只读实例创建成功。
 ![](https://main.qcloudimg.com/raw/20663e141678f8fabc3899feca375d53.png)
 
-## 相关操作
+
 ### 配置只读实例 RO 组
 在只读实例 RO 组的配置界面，可以配置只读实例 RO 组的名称、延时超限策略、延时阈值、最少保留实例、读权重等基本信息，具体的操作步骤如下。
 1. 在 [云数据库控制台](https://console.cloud.tencent.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
