@@ -2,15 +2,14 @@
 
 您可以通过使用访问管理（Cloud Access Management，CAM）策略让用户拥有在容器服务（Tencent Kubernetes Engine，TKE）控制台中查看和使用特定资源的权限。本文档中的示例指导您在控制台中配置单个集群的策略。
 
-## 前提条件
-
-已登录 CAM 控制台。
-
 ## 操作步骤
 
 ### 配置对单个集群全读写权限
 
-1. 单击 [按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2) 创建策略。
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
+2. 在左侧导航栏中，单击【策略】，进入策略管理页面。
+3. 单击【新建自定义策略】，选择 “按策略语法创建” 方式。如下图所示：
+![按策略语法创建](https://main.qcloudimg.com/raw/c261cb05604002132129a215c42d925c.png)
 4. 选择 “空白模板” 类型，单击【下一步】。
 5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
