@@ -8,7 +8,7 @@
 
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
-3. 单击【新建自定义策略】，选择 “按策略语法创建” 方式。
+3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
 4. 选择 “空白模板” 类型，单击【下一步】。
 5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
@@ -69,7 +69,7 @@
 
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
-3. 单击【新建自定义策略】，选择 “按策略语法创建” 方式。
+3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
 4. 选择 “空白模板” 类型，单击【下一步】。
 5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
