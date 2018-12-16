@@ -46,10 +46,12 @@ done
         <name>fs.defaultFS</name>
         <value>cosn://<bucket-appid></value>
     </property>
+      
     <property>
         <name>hadoop.tmp.dir</name>
         <value>${HADOOP_PATH}/tmp</value>
     </property>
+      
     <property>
         <name>dfs.name.dir</name>
         <value>${HADOOP_PATH}/name</value>
@@ -81,27 +83,34 @@ done
         <value>xxxxxxxxxxxxxxxxxxxxxxxxx</value>
         <description>Tencent Cloud Secret Id </description>
     </property>
+      
     <property>
         <name>fs.cosn.userinfo.secretKey</name>
         <value>xxxxxxxxxxxxxxxxxxxxxxxx</value>
         <description>Tencent Cloud Secret Key</description>
     </property>
+      
     <property>
         <name>fs.cosn.userinfo.region</name>
         <value>ap-xxx</value>
         <description>The region where the bucket is located</description>
     </property>
+      
     <property>
         <name>fs.cosn.userinfo.endpoint_suffix</name>
         <value>cos.ap-xxx.myqcloud.com</value>
-        <description>COS endpoint to connect to. 
-        For public cloud users, it is recommended not to set this option, and only the correct area field is required.</description>
+        <description>
+          COS endpoint to connect to. 
+          For public cloud users, it is recommended not to set this option, and only the correct area field is required.
+        </description>
     </property>
+      
     <property>
         <name>fs.cosn.impl</name>
         <value>org.apache.hadoop.fs.CosFileSystem</value>
         <description>The implementation class of the CosN Filesystem</description>
     </property>
+      
     <property>
         <name>fs.AbstractFileSystem.cosn.impl</name>
         <value>org.apache.hadoop.fs.CosN</value>
@@ -109,41 +118,38 @@ done
     </property>
 
     <property>
-        <name>fs.cosn.buffer.dir</name>
-        <value>${hadoop.tmp.dir}/cos</value>
-        <description>The local path where the cosn filesystem should store files before write to cos.</description>
+        <name>fs.cosn.tmp.dir</name>
+        <value>/tmp/hadoop_cos</value>
+        <description>Temporary files will be placed here.</description>
     </property>
+      
     <property>
-    	<name>fs.cosn.upload.buffer</name>
-        <value>disk</value>
-        <description>
-        	There are two options to choose from:
-            "disk": Use some temporary files as buffer pool, and use the memory mapping technology to obtain a memory access speed for buffer IO approximately.
-            "memory": Use some direct byte buffers as buffer pool, and obtain a memory access speed for buffer IO.
-            Default is disk mode.
-        </description>
-    </property>
-    <property>
-    	<name>fs.cosn.upload.buffer.size</name>
-        <value>134217728</value>
+    	<name>fs.cosn.buffer.size</name>
+        <value>33554432</value>
         <description>The total size of the buffer pool</description>
     </property>
+      
     <property>
     	<name>fs.cosn.block.size</name>
         <value>8388608</value>
-        <description>Block size to use cosn filesysten, which is the part size for MultipartUpload. Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file. for example, 8MB part size can allow  writing a 78GB single file.</description>
+        <description>The total size of the memory buffer pool</description>
     </property>
+      
     <property>
     	<name>fs.cosn.maxRetries</name>
-        <value>3</value>
-        <description>The maximum number of retries for reading or writing files to
-    COS, before we signal failure to the application.</description>
+      <value>3</value>
+      <description>
+        The maximum number of retries for reading or writing files to
+        COS, before we signal failure to the application.
+      </description>
     </property>
+      
     <property>
     	<name>fs.cosn.retry.interval.seconds</name>
-        <value>10</value>
-        <description>The number of seconds to sleep between each COS retry.</description>
+      <value>10</value>
+      <description>The number of seconds to sleep between each COS retry.</description>
     </property>
+      
 </configuration>
 ```
 
@@ -158,11 +164,13 @@ done
 |fs.AbstractFileSystem.cosn.impl   | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN | 无 |是|
 |fs.cosn.userinfo.region           | 请填写您的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等 | 无 | 是|
 |fs.cosn.userinfo.endpoint_suffix | 指定要连接的COS endpoint，该项为非必填项目。对于公有云COS用户而言，只需要正确填写上述的region配置即可。|无|否|
-|fs.cosn.buffer.dir                | 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处。如果 buffer 指定了 disk 类型，则该目录需要预留至少fs.cosn.upload.buffer.size大小的空间| /tmp/hadoop_cos | 否|
-|fs.cosn.upload.buffer             | 流式上传时，使用的缓冲区类型。当前支持两种缓冲区类型：disk 和 memory，其中disk将会在 fs.cosn.buffer.dir 选项指定的文件系统目录中生成若干个文件临时文件，并使用内存映射技术将其包装为上传缓冲池。内存较大机器建议可以使用 memory 类型的缓冲区，同时缓冲区的大小至少保证大于等于一个 block 的大小。| disk | 否|
-|fs.cosn.upload.buffer.size        | 向 COS 流式上传文件时，本地使用的缓冲区的大小。要求至少大于等于一个 block 的大小 | 134217728（128MB）|否|
-|fs.cosn.block.size                |  CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持 10000 块，因此需要预估最大可能使用到的单文件大小。例如，block size 为 8MB 时，最大能够支持 78GB 的单文件上传。 block size 最大可以支持到 2GB，即单文件最大可支持 19TB| 8388608（8MB） | 否 |
-|fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目 | CPU 核心数× 3 |  否|
+|fs.cosn.tmp.dir                | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。| /tmp/hadoop_cos | 否|
+|fs.cosn.buffer.size        | 向COS流式上传文件时，本地使用的内存缓冲区的大小。要求至少大于等于一个block的大小 | 33554432（32MB）|否|
+|fs.cosn.block.size                | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持 10000 块，因此需要预估最大可能使用到的单文件大小。例如，block size 为 8MB 时，最大能够支持 78GB 的单文件上传。 block size 最大可以支持到 2GB，即单文件最大可支持 19TB| 8388608（8MB） | 否 |
+|fs.cosn.upload_thread_pool        | 文件流式上传到COS时，并发上传的线程数目 | CPU核心数*5 | 否 |
+|fs.cosn.copy_thread_pool          |目录拷贝操作时，可用于并发拷贝文件的线程数目 | CPU核心数目*3 | 否 |
+|fs.cosn.read.ahead.block.size     | 预读块的大小                                 | 524288（512KB） |  否 |
+|fs.cosn.read.ahead.queue.size     | 预读队列的长度                               | 10              | 否  |
 |fs.cosn.maxRetries				   | 访问 COS 出现错误时，最多重试的次数 | 3 | 否 |
 |fs.cosn.retry.interval.seconds    | 每次重试的时间间隔 | 3 | 否 |
 
