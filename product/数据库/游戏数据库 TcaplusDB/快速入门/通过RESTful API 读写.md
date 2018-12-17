@@ -8,7 +8,7 @@
 
 * AppId：2
 * AppKey：3aa84dd773826cd655e9f24a249d68bb
-* RESTful接入点：10.123.9.70:31002
+* RESTful 接入点：10.123.9.70:31002
 * ZoneId：1
 
 ## 写操作
