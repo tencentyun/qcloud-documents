@@ -9,8 +9,8 @@
 
 ## 下载软件包
 
-1. 下载依赖包 [TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip](http://ptp.oa.com/product/7).
-2. 下载 Tcaplus Protobuf API 软件包 [Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413.zip](http://ptp.oa.com/product/160).
+1. 下载依赖包 [TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip](http://ptp.oa.com/product/7)。
+2. 下载 Tcaplus Protobuf API 软件包 [Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413.zip](http://ptp.oa.com/product/160)。
 3. 解压缩，以下是软件包的结构
 ```
 Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
@@ -119,12 +119,12 @@ Tcaplus Pb API 支持多种类型操作，支持异步和协程模式，用户�
 |命令                          | 描述  |
 | ------------------------------- | ------------ |
 |SET           |通过指定一条记录所有主键设置一条记录。如果记录存在执行覆盖操作，否则执行插入操作。 |
-|GET          |从一个Tcaplus pb表中通过指定一条记录所有主键查询一条记录，如果数据记录不存在，将会返回错误。|
+|GET          |从一个 Tcaplus pb 表中通过指定一条记录所有主键查询一条记录，如果数据记录不存在，将会返回错误。|
 |ADD           |通过指定一条记录所有主键插入一条记录。如果记录存在返回错误。|
 |DELETE         |通过指定一条记录的所有主键删除此记录，如果数据不存在则返回错误。|
-|BATCHGET              |从一个Tcaplus pb表中通过指定多组主键查询多条记录。|
-|TRAVERSE           |遍历一个Tcaplus pb表，将返回多条记录。|
-|FIELDGET        |从一个Tcaplus pb表中通过指定一条记录所有主键查询一条记录。本操作只查询和传输用户指定的字段的值，减少网络传输流量。如果数据记录不存在，将会返回错误。|
+|BATCHGET              |从一个 Tcaplus pb 表中通过指定多组主键查询多条记录。|
+|TRAVERSE           |遍历一个 Tcaplus pb 表，将返回多条记录。|
+|FIELDGET        |从一个 Tcaplus pb 表中通过指定一条记录所有主键查询一条记录。本操作只查询和传输用户指定的字段的值，减少网络传输流量。如果数据记录不存在，将会返回错误。|
 |FIELDSET   |通过指定一条记录的所有主键修改指定字段，只传输指定字段的值。减轻网络流量。如果数据记录存在，将执行更新操作，否则将会返回错误。|
 |FIELDINC      |通过指定一条记录的所有主键对指定的字段进行自增操作，此命令字仅支持 `int32`, `int64`, `uint32` 和 `uint64`类型字段。特性与FIELDSET类似。|
 |GETBYPARTKEY  |通过指定部分主键，查询符合条件的多条数据，主键集合必须在建表的时候创建了索引，否则会返回错误。|
