@@ -9,9 +9,9 @@
 
 扫描微信小程序二维码，进入【腾讯视频云】小程序；
 
-选择 TRTC 模块，就可以体验跟桌面版 Chrome 互通的效果了（微信 6.6.6 版本开始支持）。
+选择视频通话模块，就可以体验跟桌面版 Chrome 互通的效果了（微信 6.6.6 版本开始支持）。
 
-![](https://main.qcloudimg.com/raw/36310afb4121a945d1119c51c3334c36.png)
+![](https://main.qcloudimg.com/raw/5f51b88147398f185a8d9e0c3548210e.jpg)
 
 
 **Android 端**

@@ -1,6 +1,6 @@
 ### 如何调用 API 删除掉未完成上传文件？
 
-首先调用接口 ListMultipartUploads 列出未完成上传文件，调用后一个接口放弃已经完成上传的文件。
+首先调用接口 ListMultipartUploads 列出未完成上传文件，然后调用 Abort Multipart upload 接口舍弃一个分块上传并删除已上传的块。
 
 ### 调用批量删除接口返回正确，但实际文件删除失败怎么办？
 
