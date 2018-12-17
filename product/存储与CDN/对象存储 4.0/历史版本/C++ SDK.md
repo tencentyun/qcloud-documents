@@ -2,10 +2,7 @@
 
 ### 相关资源
 
-[github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
-
-[C++ SDK 本地下载](https://main.qcloudimg.com/raw/ca3af26054042d262d9d444022ba756a/cos-cpp-sdk-v4-master.zip)
-
+[Github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
 ### 开发环境
 

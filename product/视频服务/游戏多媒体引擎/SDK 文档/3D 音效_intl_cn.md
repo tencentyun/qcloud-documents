@@ -3,135 +3,106 @@
 
 
 ## 3D 音效接入
-### 开关 3D 音效
-此函数用于开关 3D 音效。在使用 3D 音效之前必须先调用此接口，只接收 3D 音效而不发出 3D 音效的用户也需要调用此接口。
+### 1、初始化 3D 音效引擎
+此函数用于初始化 3D 音效引擎，在进房后调用。在使用 3D 音效之前必须先调用此接口，只接收 3D 音效而不发出 3D 音效的用户也需要调用此接口。
 
 #### 函数原型  
 ```
-QAVAudioCtrl virtual int EnableSpatializer(bool enable)
+public abstract int InitSpatializer(string modelPath)
 ```
 
-|参数     | 类型         |意义|
-| ------------- |:-------------:|-------------
-| enable    |bool         |设置是否开启|
+|参数	|类型	|意义 |
+| ------- |---------|------|
+| modelPath    	|string    	|3D音效资源文件路径，资源文件详情咨询腾讯云相关工作人员|
 
-
-
-### 获取当前 3D 音效状态
-此函数获取当前 3D 音效的状态，返回值为 bool 类型数值。
+### 2、开启或关闭 3D 音效
+此函数用于开启或关闭 3D 音效。开启之后可以听到 3D 音效。
 
 #### 函数原型  
 ```
-QAVAudioCtrl virtual bool IsEnableSpatializer()
+public abstract int EnableSpatializer(bool enable, bool applyToTeam)
+```
+
+|参数	|类型	|意义 |
+| ------- |---------|------|
+| enable    	|bool    	|开启之后可以听到 3D 音效|
+| applyToTeam  	|bool    	|3D语音是否作用于小队内部，仅 enble 为 true 时有效|
+
+### 3、获取当前 3D 音效状态
+此函数用于获取当前 3D 音效状态。
+
+#### 函数原型  
+```
+public abstract bool IsEnableSpatializer()
 ```
 
 |返回值	|意义	|
 | ------- |---------|
-| true    	|开启状态     |
-| false    	|关闭状态       |  
+| true    	|开启状态    	|
+| false    	|关闭状态	|  
 
-### 更新声源方位（包含朝向）
-此函数用于更新声源方位角信息，传入用户 openID 后每帧调用便可实现 3D 音效效果。
+### 4、更新声源方位（包含朝向）
+此函数用于更新声源方位角信息，每帧调用便可实现 3D 音效效果。
 
-距离与声音衰减的关系：3D 音效中，音源音量的大小与音源距离有一定的衰减关系。单位距离超过 500 之后，音量衰减到几乎为零。
+#### 距离与声音衰减的关系
 
+3D 音效中，音源音量的大小与音源距离有一定的衰减关系。单位距离超过500之后，音量衰减到几乎为零。
 
 |距离范围（引擎单位）|衰减公式	|
 | ------- |---------|
-| 0< N <40  	|衰减系数：1.0 （音量无衰减）|
-| N≥40  |衰减系数：40/N          |
+| 0< N <range/5  	|衰减系数：1.0 （音量无衰减）	|
+| N≥range/5  |衰减系数：40/N          			|
 
- ![](https://main.qcloudimg.com/raw/50e745c853ab0e3f9f3bbef9d9cfc401.jpg)
+![](https://main.qcloudimg.com/raw/50e745c853ab0e3f9f3bbef9d9cfc401.jpg)
 
 #### 函数原型  
 ```
-QAVAudioCtrl virtual int UpdateSpatializer(string identifier,float azimuth,float elevation,float distance_cm)
+public abstract void UpdateAudioRecvRange(int range)
 ```
+
+|参数     | 类型         |意义|
+| ------------- |-------------|-------------|
+| range 	|int  	|设定音效可接收的范围|
+
+```
+public abstract int UpdateSelfPosition(int position[3], float axisForward[3], float axisRight[3], float axisUp[3])
+```
+
+在 GME 中设计的世界坐标系下（此坐标系与 Unreal 引擎坐标系相同，与 Unity 引擎不同，需要开发者注意）：
+- x 轴指向前方，y 轴指向右方，z 轴指向上方。
+
 |参数     | 类型         |意义|
 | ------------- |-------------|-------------
-| identifier   		|string	|传入一个 identifier，以识别用户（identifier 在进房时候已经确定）	|
-| azimuth    		|float	|方位参数（需要计算）											|
-| elevation    	|float 	|角度参数（需要计算）											|
-| distance_cm    	|float  	|距离参数（需要计算）											|
-
-#### 函数原理
-![](https://main.qcloudimg.com/raw/0f90e8e84915c3f34482b1d40b0630c0.png)
-
-![](https://main.qcloudimg.com/raw/f59ba4161fd1c9b53ca7e66b2213e851.png)
-
-则计算公式为：
-![](https://main.qcloudimg.com/raw/e1aa4d09b144af4ea920d63cf9cac6bb.png)
+| position   	|int[]		|自身在世界坐标系中的坐标，顺序是前、右、上|
+| axisForward   |float[]  	|自身坐标系前轴的单位向量|
+| axisRight    	|float[]  	|自身坐标系右轴的单位向量|
+| axisUp    	|float[]  	|自身坐标系上轴的单位向量|
 
 #### 示例代码
-```
-private void CalculatePosition()
-{
-	Transform selftrans = currentPlayer.gameObject.transform;
-	Vector3 relativePos = new  Vector3 (playerPrefab.transform.position.x - selftrans.position.x, playerPrefab.transform.position.y - selftrans.position.y, playerPrefab.transform.position.z - selftrans.position.z);
-	Vector3 rotation = Quaternion.Inverse(selftrans.rotation) * relativePos;  
-	double distance = 0;
-	double azimuth = 0;
-	double elevation = 0;
-	double x = rotation.z;
-	double y = rotation.x;
-	double z = rotation.y;
-	double sqxy = Math.Sqrt(x*x + y*y);
-	distance = Math.Sqrt(relativePos.x*relativePos.x + relativePos.y*relativePos.y + relativePos.z*relativePos.z)*10;
-	if (y != 0)
-	{
-		if (x != 0)
-		{
-			if (x > 0)
-			{
-				azimuth =  Math.Atan(y / x);
-			}
-			else
-			{
-				azimuth = (Math.PI) + Math.Atan(y / x);
-			}
-		}
-		else
-		{
-			if (y > 0)
-			{
-				azimuth = -Math.PI/2;
-			}
-			else
-			{
-				azimuth = Math.PI/2;
-			}
-		}
-	}
-	else
-	{
-		if (x > 0)
-		{
-			azimuth = 0;
-		}
-		else
-		{
-			azimuth = -Math.PI;
-		}
-	}
 
-	if (sqxy != 0)
-	{
-		elevation = Math.Atan(z / sqxy);
-	}
-	else
-	{
-		if (z > 0)
-		{
-			elevation = Math.PI;
-		}
-		else
-		{
-			elevation = -Math.PI;
-		}
-	}
-	Debug.LogFormat(string.Format ("3Daudio UpdateSpatializer, azimuth:{0}, elevation:{1}, distance:{2}", (float)(azimuth * 180)/Math.PI, (float)(elevation * 180)/Math.PI,distance));		
-}
+Unreal:
 ```
+FVector cameraLocation = UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->GetCameraLocation();
+FRotator cameraRotation = UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->GetCameraRotation();
+int position[] = { (int)cameraLocation.X,(int)cameraLocation.Y, (int)cameraLocation.Z };
+FMatrix matrix = ((FRotationMatrix)cameraRotation);
+float forward[] = { matrix.GetColumn(0).X,matrix.GetColumn(1).X,matrix.GetColumn(2).X };
+float right[] = { matrix.GetColumn(0).Y,matrix.GetColumn(1).Y,matrix.GetColumn(2).Y };
+float up[] = { matrix.GetColumn(0).Z,matrix.GetColumn(1).Z,matrix.GetColumn(2).Z};
+ITMGContextGetInstance()->GetRoom()->UpdateSelfPosition(position, forward, right, up); 	
+```
+Unity:
+```
+Transform selftrans = currentPlayer.gameObject.transform;
+Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, selftrans.rotation, Vector3.one);
+int[] position = new int[3] { selftrans.position.z, selftrans.position.x, selftrans.position.y };
+float[] axisForward = new float[3] { matrix.m22, matrix.m02, matrix.m12 };
+float[] axisRight = new float[3] { matrix.m20, matrix.m00, matrix.m10 };
+float[] axisUp = new float[3] { matrix.m21, matrix.m01, matrix.m11 };
+ITMGContext.GetInstance().GetRoom().UpdateSelfPosition(position, axisForward, axisRight, axisUp);
+```
+
+
 
 
 

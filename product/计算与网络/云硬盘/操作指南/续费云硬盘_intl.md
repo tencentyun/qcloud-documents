@@ -23,4 +23,4 @@ Users can use the RenewCbsStorages API to renew the elastic cloud disk. For more
 The lifecycle of non-elastic cloud disk is subject to the lifecycle of CVM instance. If you need to renew it, go directly to the [Renew CVM instance](/doc/product/213/6143).
 
 ### Renewing Non-elastic Cloud Disk via API
-The lifecycle of non-elastic cloud disk is subject to the lifecycle of CVM instance. Users can use RenewInstance API to renew the elastic cloud disk. For more information, please see [API to Renew Instance (prepaid)](https://cloud.tencent.com/doc/api/229/1348).
+The lifecycle of non-elastic cloud disk is subject to the lifecycle of CVM instance. Users can use RenewInstance API to renew the elastic cloud disk. For more information, please see [API to Renew Instance (prepaid)](https://intl.cloud.tencent.com/doc/api/229/1348).

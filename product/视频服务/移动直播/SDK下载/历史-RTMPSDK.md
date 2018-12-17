@@ -1,3 +1,26 @@
+### Version 5.3 @ 2018-10-25
+【播放器】
+- iOS&Android：HLS下载支持秘钥外部校验
+- iOS&Android：TXVodPlayer增加设置起始时间
+- iOS&Android：解决加速播放偶现的音画不同步问题
+- iOS：超级播放器代码重构；支持随网络选择清晰度
+- iOS：解决播放器和音乐App的兼容问题
+
+【短视频】
+- iOS&Android：编辑BGM支持淡入淡出
+- iOS&Android：支持1080P视频录制
+- iOS&Android：支持无音频视频拼接
+- iOS：录制BGM支持设置是否循环播放
+- iOS：短视频上传优化
+- iOS：Demo增加生成原视频的GIF功能
+- Android：修复录制进度回调不及时问题
+- Android：解决部分视频缩略图方向不对问题
+- Android：解决预处理卡顿问题
+
+【其他】
+- iOS&Android：推流&播放解决有线耳机和蓝牙耳机声音采集和播放相关问题
+- Android：推流&播放支持surface渲染（用于支持微信小程序中的 <live-pusher> 和 <live-player>能跟其它元素混合叠加）
+
 
 ### Version 5.2 @ 2018-09-14
 【播放器】
@@ -23,7 +46,7 @@
 ### Version 5.1 @ 2018-08-18
 
 【播放器】
-- iOS&Android：直播播放支持时移回看，文档参考： [https://cloud.tencent.com/document/product/266/9237#.E7.9B.B4.E6.92.AD.E6.97.B6.E7.A7.BB.E5.9B.9E.E7.9C.8B]；
+- iOS&Android：直播播放支持时移回看，文档参考[超级播放器 iOS](https://cloud.tencent.com/document/product/266/9237#.E7.9B.B4.E6.92.AD.E6.97.B6.E7.A7.BB.E5.9B.9E.E7.9C.8B) 。
 - iOS&Android：FLV直播播放支持无缝切换能力；
 - iOS&Android：超级播放器改造，新增直播点播播放列表；
 - iOS&Android：超级播放器直播点播多清晰度播放优化，根据网络状况提示切换不同清晰度；

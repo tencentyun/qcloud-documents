@@ -38,8 +38,6 @@
 
     // 2. 创建房间配置对象
     ILiveRoomOption *option = [ILiveRoomOption defaultHostLiveOption];
-    // 配置进房票据
-    option.avOption.privateMapKey = privateMapKey;
     option.imOption.imSupport = NO;
     // 设置房间内音视频监听
     option.memberStatusListener = liveRoomVC;

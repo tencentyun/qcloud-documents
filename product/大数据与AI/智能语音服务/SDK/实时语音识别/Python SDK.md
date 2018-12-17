@@ -1,6 +1,6 @@
 ## 开发准备
 ### 相关环境
-实时语音识别 [Python SDK 下载地址>>](https://main.qcloudimg.com/raw/f66a99a01f0e657a014e7db9971acd0a/RASRsdk.py)
+实时语音识别 [Python SDK 下载地址>>](https://main.qcloudimg.com/raw/8ee05f7ec08e866225a550ab89501d57/RASRsdk.py)
 
 ### 环境依赖
 此版本 SDK 适用于 Python 2.7，暂不适用于 Python3。

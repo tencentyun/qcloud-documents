@@ -110,7 +110,7 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 ```
 该接口需要参数中，opt 是`TICClassroomOption`对象，代表加入课堂时的一些配置
 
-基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。其中 roomOption 参数下面有个成员 privateMapKey，是用户配置票据，为必填信息。进入课堂前要先从自己的业务服务器或者该信息，然后调用ticsdk的进入课堂接口。详见- [privateMapKey](https://cloud.tencent.com/document/product/647/17230#privatemapkey)
+基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
 
 加入房间后要注意监听如下一些事件回调：
 
@@ -403,3 +403,5 @@ class IClassroomIMListener
 	 */
 	void logout(ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data);
 ```
+
+

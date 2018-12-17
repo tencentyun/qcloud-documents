@@ -44,7 +44,7 @@ The following recommended request headers are recommended for implementation of 
 | Expect | If Expect: 100-continue is used, the request content will not be sent until the receipt of response from server. | String | No |
 | Expires | The expiration time defined in RFC 2616, which will be saved as Object metadata. | String | No |
 | x-cos-meta-* | The header information allowed to be defined by users, which will be returned as Object metadata. The size is limited to 2 KB. | String | No |
-| X-cos-storage-class | Set the storage class of Object. Enumerated values: STANDARD, STANDARD_IA, NEARLINE. The default is STANDARD (this is only supported for South China region) | String | No |
+| X-cos-storage-class | Set the storage class of Object. Enumerated values: STANDARD, STANDARD_IA. The default is STANDARD (this is only supported for South China region) | String | No |
 
 **Permission-related headers**
 This request operation is implemented using header x-cos-acl in request Put to set the access permission of Object. Three access permissions are available: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:

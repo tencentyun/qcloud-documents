@@ -3,7 +3,10 @@
 
 
 ## 使用流程图
+### 实时语音流程图
 ![](https://main.qcloudimg.com/raw/bf2993148e4783caf331e6ffd5cec661.png)
+### 离线语音语音转文字流程图
+![](https://main.qcloudimg.com/raw/4c875d05cd2b4eaefba676d2e4fc031d.png)
 
 ### 使用 GME 重要事项
 
@@ -15,13 +18,14 @@
 |EnableMic	 	|开麦克风 	|
 |EnableSpeaker		|开扬声器 	|
 
-**说明**
-**GME 的接口调用成功后返回值为 QAVError.OK，数值为0。**
-**GME 的接口调用要在同一个线程下。**
-**GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。**
-
-**GME 需要调用 Poll 接口触发事件回调。**
-
+>**说明：**
+- GME 的接口调用成功后返回值为 QAVError.OK，数值为 0。
+- GME 的接口调用要在同一个线程下。
+- GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。
+- GME 需要周期性的调用 Poll 接口触发事件回调。
+- GME 回调信息参考回调消息列表。
+- 设备的操作要在进房成功之后。
+- 此文档对应GME sdk version：2.2。
 
 ## 初始化相关接口
 未初始化前，SDK 处于未初始化阶段，需要初始化鉴权后，通过初始化 SDK，才可以进房。
@@ -89,6 +93,7 @@ ITMGContext public int SetTMGDelegate(ITMGDelegate delegate)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | delegate    |ITMGDelegate |SDK 回调函数|
+
 ####  示例代码  
 ```
 TMGContext.GetInstance(this).SetTMGDelegate(itmgDelegate);
@@ -172,27 +177,26 @@ ITMGContext.GetInstance(this).Uninit();
 |GetRoomType 		|获取用户房间音频类型|
 
 
-### 实时语音鉴权信息
-生成 AuthBuffer，用于相关功能的加密和鉴权，相关参数获取及详情见 [GME密钥文档](https://cloud.tencent.com/document/product/607/12218)。    
-该接口返回值为 Byte[] 类型。离线语音获取鉴权时，房间号参数必须填0。
+### 鉴权信息
+生成 AuthBuffer，用于相关功能的加密和鉴权，相关后台部署见 [GME密钥文档](https://cloud.tencent.com/document/product/607/12218)。    
+该接口返回值为 Byte[] 类型。离线语音获取鉴权时，房间号参数必须填null。
 
-该接口返回值为 Byte[] 类型。
-####  函数原型
+#### 函数原型
 ```
-AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, int roomId, String identifier, String key)
+AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, String identifier, String key)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
-| roomId    		|int   		|房间号，只支持32位				|
+| roomId    		|String   		|房间号，最大支持127字符（离线语音房间号参数必须填null）|
 | openID    	|String 	|用户标识					|
-| key    		|string 	|来自腾讯云控制台的密钥				|
+| key    		|string 	|来自腾讯云[控制台](https://console.cloud.tencent.com/gamegme)的密钥				|
 
 
 ####  示例代码  
 ```
 import com.tencent.av.sig.AuthBuffer;//头文件
-byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkAppId), Integer.parseInt(strRoomID),identifier, key);
+byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkAppId), strRoomID,identifier, key);
 ```
 
 
@@ -203,13 +207,13 @@ byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkApp
 
 ####  函数原型
 ```
-ITMGContext public abstract void  EnterRoom(int roomId, int roomType, byte[] authBuffer)
+ITMGContext public abstract void  EnterRoom(String roomId, int roomType, byte[] authBuffer)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| roomId 	|int		|房间号，只支持32位	|
-| roomType 	|int		|房间音频类型		|
-| authBuffer	|byte[]	|鉴权码				|
+| roomId 	|String		|房间号，最大支持127字符|
+| roomType 	|int		|房间音频类型|
+| authBuffer	|byte[]	|鉴权码|
 
 |音频类型     	|含义|参数|音量类型|控制台推荐采样率设置|适用场景|
 | ------------- |------------ | ---- |---- |---- |---- |
@@ -221,7 +225,7 @@ ITMGContext public abstract void  EnterRoom(int roomId, int roomType, byte[] aut
 - 控制台采样率设置会直接影响游戏语音效果，请在 [控制台](https://console.cloud.tencent.com/gamegme) 上再次确认采样率设置是否符合项目使用场景。
 ####  示例代码  
 ```
-ITMGContext.GetInstance(this).EnterRoom(Integer.parseInt(relationId),roomType, authBuffer);    
+ITMGContext.GetInstance(this).EnterRoom(Integer.parseInt(roomId),roomType, authBuffer);    
 ```
 
 ### 加入房间事件的回调
@@ -251,11 +255,10 @@ ITMGContext.GetInstance(this).IsRoomEntered();
 ```
 
 ### 退出房间
-通过调用此接口可以退出所在房间。这是一个同步接口，调用返回时会释放所占用的设备资源。
-
+通过调用此接口可以退出所在房间。这是一个异步接口，返回值为AV_OK的时候代表异步投递成功。
 #### 函数原型  
 ```
-ITMGContext public void ExitRoom()
+ITMGContext public int ExitRoom()
 ```
 ####  示例代码  
 ```
@@ -367,6 +370,18 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 }
 ```
 
+### 质量监控事件
+质量监控事件，事件消息为 ITMG_MAIN_EVENT_TYPE_CHANGE_ROOM_QUALITY，返回的参数为 weight、floss  及 delay，代表的信息如下，在 OnEvent 函数中对事件消息进行判断。
+
+|参数     | 含义         |
+| ------------- |-------------|
+|weight    				|范围是 1 到 50，数值为 50 是音质评分极好，数值为 1 是音质评分很差，几乎不能使用，数值为 0 代表初始值，无意义|
+|floss    				|丢包率|
+|delay    		|音频触达延迟时间（ms）|
+
+
+
+
 ### 消息详情
 
 |消息     | 消息代表的意义   
@@ -455,6 +470,7 @@ ITMGContext public void EnableMic(boolean isEnabled)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     |如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
@@ -464,7 +480,7 @@ ITMGContext.GetInstance(this).GetAudioCtrl().EnableMic(true);
 此接口用于获取麦克风状态，返回值 0 为关闭麦克风状态，返回值 1 为打开麦克风状态，返回值 2 为麦克风设备正在操作中，返回值 3 为麦克风设备不存在，返回值 4 为设备没初始化好。
 ####  函数原型  
 ```
-ITMGContext TMGAudioCtrl public int GetMicState() 
+ITMGContext TMGAudioCtrl int GetMicState() 
 ```
 ####  示例代码  
 ```
@@ -544,8 +560,9 @@ ITMGContext TMGAudioCtrl int GetMicLevel()
 int micLevel = ITMGContext.GetInstance(this).GetAudioCtrl().GetMicLevel();
 ```
 
-### 设置麦克风的软件音量
-此接口用于设置麦克风的软件音量。参数 volume 用于设置麦克风的软件音量，当数值为 0 的时候表示静音，当数值为 100 的时候表示音量不增不减，默认数值为 100。
+### 设置麦克风的音量
+此接口用于设置麦克风的音量。参数 volume 用于设置麦克风的音量，当数值为 0 的时候表示静音，当数值为 100 的时候表示音量不增不减，默认数值为 100。
+
 ####  函数原型  
 ```
 ITMGContext TMGAudioCtrl int SetMicVolume(int volume) 
@@ -553,13 +570,15 @@ ITMGContext TMGAudioCtrl int SetMicVolume(int volume)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | volume    |int      |设置音量，范围 0 到 200|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().SetMicVolume(volume);
 ```
-###  获取麦克风的软件音量
-此接口用于获取麦克风的软件音量。返回值为一个 int 类型数值，返回值为101代表没调用过接口 SetMicVolume。
-####  函数原型  
+###  获取麦克风的音量
+此接口用于获取麦克风的音量。返回值为一个int类型数值，返回值为101代表没调用过接口 SetMicVolume。
+
+#### 函数原型  
 ```
 ITMGContext TMGAudioCtrl public int GetMicVolume()
 ```
@@ -577,6 +596,7 @@ ITMGContext public void EnableSpeaker(boolean isEnabled)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean       |如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableSpeaker(true);
@@ -606,6 +626,7 @@ ITMGContext public int EnableAudioPlayDevice(boolean isEnabled)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean        |如果需要关闭播放设备，则传入的参数为 false，如果打开播放设备，则参数为 true|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableAudioPlayDevice(true);
@@ -668,9 +689,9 @@ ITMGContext TMGAudioCtrl public int GetSpeakerLevel()
 int SpeakLevel = ITMGContext.GetInstance(this).GetAudioCtrl().GetSpeakerLevel();
 ```
 
-### 设置扬声器的软件音量
-此接口用于设置扬声器的软件音量。
-参数 volume 用于设置扬声器的软件音量，当数值为 0 的时候表示静音，当数值为 100 的时候表示音量不增不减，默认数值为 100。
+### 设置扬声器的音量
+此接口用于设置扬声器的音量。
+参数 volume 用于设置扬声器的音量，当数值为 0 的时候表示静音，当数值为 100 的时候表示音量不增不减，默认数值为 100。
 
 ####  函数原型  
 ```
@@ -679,14 +700,16 @@ ITMGContext TMGAudioCtrl public int SetSpeakerVolume(int volume)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | volume    |int        |设置音量，范围 0 到 200|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().SetSpeakerVolume(volume);
 ```
 
-### 获取扬声器的软件音量
-此接口用于获取扬声器的软件音量。返回值为 int 类型数值，代表扬声器的软件音量，返回值为101代表没调用过接口 SetSpeakerVolume。
-Level 是实时音量，Volume 是扬声器的软件音量，最终声音音量相当于 Level*Volume%。举个例子：实时音量是数值是 100 的话，此时Volume的数值是 60，那么最终发出来的声音数值也是 60。
+### 获取扬声器的音量
+
+此接口用于获取扬声器的音量。返回值为 int 类型数值，代表扬声器的音量，返回值为101代表没调用过接口 SetSpeakerVolume。
+Level 是实时音量，Volume 是扬声器的音量，最终声音音量相当于 Level*Volume%。举个例子：实时音量是数值是 100 的话，此时Volume的数值是 60，那么最终发出来的声音数值也是 60。
 
 ####  函数原型  
 ```
@@ -707,6 +730,7 @@ ITMGContext TMGAudioCtrl public int EnableLoopBack(boolean enable)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | enable    |boolean         |设置是否启动|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioCtrl().EnableLoopBack(true);
@@ -726,7 +750,7 @@ ITMGContext.GetInstance(this).GetAudioCtrl().EnableLoopBack(true);
 |SetAccompanyFileCurrentPlayedTimeByMs 				|设置播放进度|
 
 ### 开始播放伴奏
-调用此接口开始播放伴奏。支持 m4a、AAC、wav、mp3 一共四种格式。调用此 API，音量会重置。
+调用此接口开始播放伴奏。支持 m4a、wav、mp3 一共三种格式。调用此 API，音量会重置。
 
 ####  函数原型  
 ```
@@ -737,6 +761,7 @@ ITMGContext TMGAudioEffectCtrl public int StartAccompany(String filePath, boolea
 | filePath    	|String    	|播放伴奏的路径					|
 | loopBack  	|boolean    	|是否混音发送，一般都设置为 true，即其他人也能听到伴奏	|
 | loopCount	|int    		|循环次数，数值为 -1 表示无限循环	|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().StartAccompany(filePath,true,loopCount,duckerTimeMs);
@@ -874,12 +899,13 @@ ITMGContext.GetInstance(this).GetAudioEffectCtrl().SetAccompanyFileCurrentPlayed
 |StopEffect 		|停止播放音效|
 |StopAllEffects		|停止播放所有音效|
 |SetVoiceType 		|变声特效|
+|SetKaraokeType 		|K歌音效特效|
 |GetEffectsVolume	|获取播放音效的音量|
 |SetEffectsVolume 	|设置播放音效的音量|
 
 
 ### 播放音效
-此接口用于播放音效。参数中音效 id 需要 App 侧进行管理，唯一标识一个独立文件。文件支持 m4a、AAC、wav、mp3 一共四种格式。
+此接口用于播放音效。参数中音效 id 需要 App 侧进行管理，唯一标识一个独立文件。文件支持 m4a、wav、mp3 一共三种格式。
 #### 函数原型  
 ```
 ITMGContext TMGAudioEffectCtrl public int PlayEffect(int soundId, String filePath, boolean loop) 
@@ -889,6 +915,7 @@ ITMGContext TMGAudioEffectCtrl public int PlayEffect(int soundId, String filePat
 | soundId    	|int    		|音效 id|
 | filePath    	|String		|音效路径|
 | loop    		|boolean	|是否重复播放|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().PlayEffect(soundId,filePath,loop);
@@ -930,6 +957,7 @@ ITMGContext TMGAudioEffectCtrl public int ResumeEffect(int soundId)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | soundId    |int                    |音效 id|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().ResumeEffect(soundId);
@@ -957,6 +985,7 @@ ITMGContext TMGAudioEffectCtrl public int StopEffect(int soundId)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | soundId    |int                    |音效 id|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().StopEffect(soundId);
@@ -1007,7 +1036,31 @@ ITMGContext TMGAudioEffectCtrl  public int setVoiceType(int type);
 ITMGContext.GetInstance(this).GetAudioEffectCtrl().setVoiceType(0);
 ```
 
+### K歌音效特效
+调用此接口设置K歌音效特效。
+####  函数原型  
+```
+ITMGContext TMGAudioEffectCtrl  public int SetKaraokeType(int type);
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| type    |int                    |表示本端音频变声类型|
 
+
+|类型参数     |参数代表|意义|
+| ------------- |-------------|------------- |
+|ITMG_KARAOKE_TYPE_ORIGINAL 		|0	|原声			|
+|ITMG_KARAOKE_TYPE_POP 				|1	|流行			|
+|ITMG_KARAOKE_TYPE_ROCK 			|2	|摇滚			|
+|ITMG_KARAOKE_TYPE_RB 				|3	|嘻哈			|
+|ITMG_KARAOKE_TYPE_DANCE 			|4	|舞曲			|
+|ITMG_KARAOKE_TYPE_HEAVEN 			|5	|空灵			|
+|ITMG_KARAOKE_TYPE_TTS 				|6	|语音合成		|
+
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetAudioEffectCtrl().SetKaraokeType(0);
+```
 
 ### 获取播放音效的音量
 获取播放音效的音量，为线性音量，默认值为 100，数值大于 100 为增益效果，数值小于 100 为减益效果。
@@ -1049,6 +1102,7 @@ ITMGContext.GetInstance(this).GetAudioEffectCtrl().SetEffectsVolume(Volume);
 |ApplyPTTAuthbuffer    |鉴权初始化	|
 |SetMaxMessageLength    |限制最大语音信息时长	|
 |StartRecording		|启动录音		|
+|StartRecordingWithStreamingRecognition		|启动流式录音		|
 |StopRecording    	|停止录音		|
 |CancelRecording	|取消录音		|
 |UploadRecordedFile 	|上传语音文件		|
@@ -1082,25 +1136,27 @@ ITMGContext TMGPTT public void SetMaxMessageLength(int msTime)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| msTime     |  int           |语音时长|
-####  示例代码  
+| msTime    |int                    |语音时长，单位ms|
+
+#### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().SetMaxMessageLength(msTime);
 ```
 
 
 ### 启动录音
-此接口用于启动录音。
+此接口用于启动录音。需要将录音文件上传后才可以进行语音转文字等操作。
 ####  函数原型  
 ```
-ITMGContext TMGPTT public void StartRecording(String fileDir)
+ITMGContext TMGPTT public void StartRecording(String filePath)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| fileDir    |String                     |存放的语音路径|
+| filePath    |String                     |存放的语音路径|
+
 ####  示例代码  
 ```
-ITMGContext.GetInstance(this).GetPTT().StartRecording(fileDir);
+ITMGContext.GetInstance(this).GetPTT().StartRecording(filePath);
 ```
 
 ### 启动录音的回调
@@ -1117,8 +1173,53 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 }
 ```
 
+### 启动流式录音
+此接口用于启动流式录音，同时在回调中会有实时的语音转文字返回。
+
+#### 函数原型  
+
+```
+ITMGContext TMGPTT public void StartRecordingWithStreamingRecognition (String filePath,String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| filePath    	|String	|存放的语音路径	|
+| language 	|String	|需要转换的语言代码：“cmn-Hans-CN”|
+
+#### 示例代码  
+```
+String  temple = getActivity().getExternalFilesDir(null).getAbsolutePath() + "/test_"+(index++)+".ptt";
+ITMGContext.GetInstance(getActivity()).GetPTT().StartRecordingWithStreamingRecognition(temple,"cmn-Hans-CN");
+```
+
+### 启动流式录音的回调
+启动录音完成后的回调调用函数 OnEvent，事件消息为 ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE， 在 OnEvent 函数中对事件消息进行判断。传递的参数包含以下四个信息。
+
+|消息名称     | 意义         |
+| ------------- |:-------------:|
+| result    	|用于判断流式录音是否成功的返回码			|
+| text    		|语音转文字识别的文本	|
+| file_path 	|录音存放的本地地址		|
+| file_id 		|录音在后台的 url 地址	|
+
+|错误码     | 意义         |处理方式|
+| ------------- |:-------------:|:-------------:|
+|32775	|流式语音转文本失败，但是录音成功	|调用 UploadRecordedFile 接口上传录音，再调用 SpeechToText 接口进行语音转文字操作
+|32777	|流式语音转文本失败，但是录音成功，上传成功	|返回的信息中有上传成功的后台 url 地址，调用 SpeechToText 接口进行语音转文字操作
+
+#### 示例代码  
+```
+public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
+	if (ITMGContext.ITMG_MAIN_EVENT_TYPE.ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE == type)
+        	{
+            		//启动流式录音的回调
+        	}
+}
+```
+
+
 ### 停止录音
-此接口用于停止录音。
+此接口用于停止录音。停止录音后会有录音完成回调。
 ####  函数原型  
 ```
 ITMGContext TMGPTT public int StopRecording()
@@ -1150,6 +1251,7 @@ ITMGContext TMGPTT public void UploadRecordedFile(String filePath)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |String                      |上传的语音路径|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().UploadRecordedFile(filePath);
@@ -1179,6 +1281,7 @@ ITMGContext TMGPTT public void DownloadRecordedFile(String fileID, String downlo
 | ------------- |:-------------:|-------------|
 | fileID    			|String                      |文件的url路径	|
 | downloadFilePath 	|String                      |文件的本地保存路径	|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().DownloadRecordedFile(url,path);
@@ -1209,6 +1312,7 @@ ITMGContext TMGPTT public int PlayRecordedFile(String downloadFilePath)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | downloadFilePath    |String   |文件的路径|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().PlayRecordedFile(downloadFilePath);
@@ -1253,6 +1357,7 @@ ITMGContext TMGPTT public int GetFileSize(String filePath)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |String                     |语音文件的路径|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().GetFileSize(path);
@@ -1267,6 +1372,7 @@ ITMGContext TMGPTT public int GetVoiceFileDuration(String filePath)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | filePath    |String                     |语音文件的路径|
+
 ####  示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().GetVoiceFileDuration(path);
@@ -1283,9 +1389,27 @@ ITMGContext TMGPTT public int SpeechToText(String fileID)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | fileID    |String                     |语音文件 url|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID);
+```
+
+### 将指定的语音文件识别成文字（指定语言）
+此接口用于将指定的语音文件识别成指定语言的文字。
+
+####  函数原型  
+```
+ITMGContext TMGPTT public int SpeechToText(String fileID, String language)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |String                     |语音文件 url|
+| language    |String                     |参数参考[语音转文字的语言参数参考列表](https://github.com/TencentMediaLab/GME/blob/master/GME%20Developer%20Manual/GME%20SpeechToText.md)|
+
+####  示例代码  
+```
+ITMGContext.GetInstance(this).GetPTT().SpeechToText(fileID,"cmn-Hans-CN");
 ```
 
 ### 识别回调
@@ -1299,6 +1423,9 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
 	 }
 }
 ```
+
+
+
 ## 高级 API
 
 ### 获取版本号
@@ -1337,6 +1464,7 @@ ITMGContext int SetLogLevel(int logLevel, bool enableWrite, bool enablePrint)
 |TMG_LOG_LEVEL_INFO=2			|打印提示日志		|
 |TMG_LOG_LEVEL_DEBUG=3		|打印开发调试日志	|
 |TMG_LOG_LEVEL_VERBOSE=4		|打印高频日志		|
+
 #### 示例代码  
 ```
 ITMGContext.GetInstance(this).SetLogLevel(1,true,true);
@@ -1382,6 +1510,7 @@ ITMGContext ITMGAudioCtrl AddAudioBlackList(String openId)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | openId    |String      |需添加黑名单的 id|
+
 #### 示例代码  
 
 ```
@@ -1398,6 +1527,7 @@ ITMGContext ITMGAudioCtrl RemoveAudioBlackList(String openId)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | openId    |String      |需移除黑名单的id|
+
 #### 示例代码  
 
 ```

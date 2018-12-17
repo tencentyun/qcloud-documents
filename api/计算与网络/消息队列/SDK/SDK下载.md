@@ -1,7 +1,8 @@
 ## SDK 下载
 
-腾讯云消息队列目前支持 java、python、php 及 C++ SDK，后续会支持更多语言。也欢迎广大开发者根据 API 说明开发更多语言的 SDK 版本。
-> **注意：** 由于分配资源和释放资源有 1s 左右的时间，当前消息队列SDK在创建及删除队列/主题时会有 1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
+腾讯云消息队列目前支持 Java、Python、PHP 及 C++ SDK，后续会支持更多语言。也欢迎广大开发者根据 API 说明开发更多语言的 SDK 版本。
+> **注意：** 
+> 由于分配资源和释放资源有 1s 左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有 1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
 
 #### GitHub 地址如下：
 
@@ -34,9 +35,8 @@
 
 ## SDK 使用注意事项
 
-使用 SDK 前至少要获取 [secret id](https://console.cloud.tencent.com/capi)、 [secret key](https://console.cloud.tencent.com/capi) 和 endpoint（即请求发到哪个地域，走内网还是外网）。
+使用 SDK 前至少要获取 [SecretId](https://console.cloud.tencent.com/capi)、 [SecretKey](https://console.cloud.tencent.com/capi) 和 endpoint（即请求发到哪个地域，走内网还是外网）。endpoint 说明如下。
 
-### endpoint 说明：
 
 ### 队列模型
 
@@ -56,6 +56,6 @@
 - 同地域内网时延更低；
 - 目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 
-{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港）,ca(北美)，cd（成都），usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
-外网域名请求既支持 http，也支持 https。内网请求仅支持 http。
+外网域名请求既支持 HTTP，也支持 HTTPS。内网请求仅支持 HTTP。

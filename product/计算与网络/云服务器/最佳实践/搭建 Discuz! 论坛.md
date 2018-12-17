@@ -94,7 +94,7 @@ PHP：Web 服务器生成网页的程序。
 **域名注册**：如果想要使用易记的域名访问您的 Discuz! 论坛，可以使用腾讯云域名注册服务来购买域名。
 **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
 **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
-**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。单击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
+**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。单击 [下载 PuTTY ](https://www.putty.org/)。
  
 自主安装流程图如下：
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
@@ -110,7 +110,7 @@ PHP：Web 服务器生成网页的程序。
 ### 步骤二：搭建 LAMP 环境 
 对于 CentOS 系统，腾讯云提供与 CentOS 官方同步的软件安装源，包涵的软件都是当前最稳定的版本，可以直接通过 Yum 快速安装。
 #### 2.1 运行 PuTTY 连接 Linux 云服务器
-1. 请 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524) 到您的电脑，解压文件；双击 “putty.exe”，出现配置界面。
+1. 请 [下载 PuTTY ](https://www.putty.org/) 到您的电脑，解压文件；双击 “putty.exe”，出现配置界面。
 2. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP，如 “server1” 或 “192.168.2.10”。本教程输入的是云服务器实例的公网 IP。其他配置保持默认。
 3. 在 “Saved Sessions” 输入栏中命名会话，单击 “Save” ，即可保存会话配置。
 ![putty1](//mc.qcloudimg.com/static/img/85df3247daae4982003a91ad1ad6f89e/image.png)

@@ -66,11 +66,10 @@ cd  $JAVA_HOME/bin
 ### 2. 下载 Kafka 工具包
 
 下载并解压 kafka 安装包。（[Kafka 安装包官网下载地址>>](http://kafka.apache.org/downloads)）
-当前 CKafka 100% 兼容 Kafka 0.9 0.10 版本，建议您下载相应版本的安装包。
+当前 CKafka 100% 兼容 Kafka 0.9 0.10 版本，推荐0.10.2版本的安装包。建议您下载相应版本的安装包。
 
 ```
-tar -xzvf kafka_2.10-0.10.2.0.tgz
-mv kafka_2.10-0.10.2.0 /opt/
+tar -C /opt -xzvf kafka_2.10-0.10.2.0.tgz    //解压到相应的目录中
 ```
 
 下载解压完成后，无需配置其他环境，直接可用。

@@ -75,10 +75,13 @@ virtual_ipaddress {
 腾讯云 HAVIP 可免费使用。
 
 ## 使用申请
-HAVIP 目前处于灰度阶段，如有需要，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC&level3_id=181&radio_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C/%E5%9F%BA%E7%A1%80%E7%BD%91%E7%BB%9C&queue=81&scene_code=17116&step=2) 申请。
+HAVIP 目前处于灰度阶段，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/ednylty94f) 。
 
 ## 常见使用场景
 - **负载均衡的 HA**
 用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual Ip address。
 - **关系型数据库主备**
 两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
+
+## 操作指南
+控制台操作详情，请参见 [操作总览](https://cloud.tencent.com/document/product/215/20133)。
