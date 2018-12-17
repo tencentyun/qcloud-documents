@@ -2,11 +2,11 @@
 
 ## 概述
 
-Tcaplus RESTful API 为开发者提供了一种通过 Http 请求与 Tcaplus 数据库远程交互的方式。当你通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，你会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
+Tcaplus RESTful API 为开发者提供了一种通过 Http 请求与 Tcaplus 数据库远程交互的方式。当您通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，您会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
 
 ## 准备工作
 
-确保你已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 app，并且已经获取对应的 app 信息(包括：AppId，ZoneId，AppKey)。当前Tcaplus RESTful API 只支持通过 protobuf 定义的表。
+确保您已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 app，并且已经获取对应的 app 信息(包括：AppId，ZoneId，AppKey)。当前Tcaplus RESTful API 只支持通过 protobuf 定义的表。
 
 以下是一个 Tcaplus protobuf 表定义文件的示例：
 
