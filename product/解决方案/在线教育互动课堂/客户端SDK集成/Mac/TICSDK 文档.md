@@ -279,3 +279,15 @@ TICSDK 只对`IMSDK`基础接口进行了封装，用户如需使用`IMSDK`的�
 -destroyClassroom:succ:failed: | 销毁课堂（老师端调用）
 
 调用销毁课堂接口销毁课堂，销毁后，课堂的历史消息将会被清空，课堂的`roomID`也会被回收，用户可使用该`roomID`重新创建课堂。
+
+## 常见问题
+### 3.1 初始化失败、登录失败、进房/退房失败
+请根据错误码查找相关原因：[iLiveSDK 错误码](https://cloud.tencent.com/document/product/647/17871)，[IMSDK 错误码](https://cloud.tencent.com/document/product/269/1671)。
+
+### 3.2 客户端本地日志路径
+SDK|目录
+:--:|:--:
+TXBoardSDK|/Library/Caches/TICLog/TXBoard_YYYYMMDD.xlog
+iLiveSDK|Library/Caches/ilivesdk_YYYYMMDD.log
+IMSDK|Library/Caches/imsdk_YYYYMMDD.log
+AVSDK|Library/Caches/QAVSDK_YYYYMMDD.log
