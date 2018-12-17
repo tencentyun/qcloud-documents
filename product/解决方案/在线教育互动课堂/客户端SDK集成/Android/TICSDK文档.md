@@ -156,7 +156,7 @@ joinClassroom | 根据参数配置和 roomID 加入互动课堂中 | TICClassroo
 
 * **controlRole**：代表进房之后使用哪些音视频参数，参数具体值为客户在 [实时音视频控制台](https://console.cloud.tencent.com/rav) > 【画面设定】中配置的角色名。
 
-加入课堂成功，在成功的回调处，需要更新和设置一下白板 SDK 的相关配置，如：
+加入课堂成功，在成功的回调处，需要更新和设置白板 SDK 的相关配置，如：
 
 ```java
 // 配置白板参数
