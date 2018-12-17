@@ -6,8 +6,9 @@
 
 ### 1.1 gradle 集成
 TICSDK 目前仅支持 gradle 的集成方式。
+
  - 在整个工程的 build.gradle 文件中，使用 jcenter 配置 repositories，如下：
-  ```
+```
 allprojects {
     repositories {
         jcenter()
@@ -252,7 +253,7 @@ destroyClassroom | 销毁课堂，回收课堂资源，由课堂创建者负责�
 logout | 注销登录。
 
 
-## 3. 常见问题
+## 3. 视频相关问题
 ### 3.1. AvRootView 与 WhiteboardView 叠加时白板无法显示？
 
 AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加显示时会有异常。
@@ -265,13 +266,3 @@ AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加�
 ### 3.3. 视频画面有哪些渲染方式？
 
 关于视频渲染方式的选择和使用，请参考实时音视频中的 [Android渲染指引文档]https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo/blob/master/doc/ILiveSDK/AndroidRenderIntr.md)。
-
-### 3.4. 日志文件保存路径是什么？
-
-**iLiveSDK**  /sdcard/tencent/imsdklogs/包名/ilivesdk_YYYYMMDD.log
-
-**IMSDK** /sdcard/tencent/imsdklogs/包名/imsdk_YYYYMMDD.log
-
-**AVSDK** /sdcard/tencent/imsdklogs/包名/QAVSDK_YYYYMMDD.log
-
-**BoardSDK** /sdcard/tencent/boardsdk/包名/boardsdk_YYYYMMDD.log
