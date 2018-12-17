@@ -1,5 +1,5 @@
-合作方后台服务上送 sign、请求参数到身份证识别后台服务。
-请求 URL：`https://ida.webank.com/api/paas/bankcardocrapp`
+合作方后台服务上送 sign、请求参数到驾驶证识别后台服务。
+请求 URL：`https://idasc.webank.com/api/v2/ocrpaas/driverlicenseupload`
 请求方法：POST
 报文格式：Content-Type: application/json
 ## 请求参数
