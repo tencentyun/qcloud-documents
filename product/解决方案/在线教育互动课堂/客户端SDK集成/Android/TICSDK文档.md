@@ -259,8 +259,19 @@ AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加�
 通过 SurfaceView 的 `setZOrderMediaOverlay(true);`可解决。
 
 ### 3.2. 如何定制视频画面展示？
+
 关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/17433)。
 
 ### 3.3. 视频画面有哪些渲染方式？
+
 关于视频渲染方式的选择和使用，请参考实时音视频中的 [Android渲染指引文档]https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo/blob/master/doc/ILiveSDK/AndroidRenderIntr.md)。
 
+### 3.4. 日志文件保存路径是什么？
+
+**iLiveSDK**  /sdcard/tencent/imsdklogs/包名/ilivesdk_YYYYMMDD.log
+
+**IMSDK** /sdcard/tencent/imsdklogs/包名/imsdk_YYYYMMDD.log
+
+**AVSDK** /sdcard/tencent/imsdklogs/包名/QAVSDK_YYYYMMDD.log
+
+**BoardSDK** /sdcard/tencent/boardsdk/包名/boardsdk_YYYYMMDD.log
