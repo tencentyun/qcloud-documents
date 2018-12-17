@@ -1,7 +1,8 @@
 
 ## 1. 准备工作
-TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读 [方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
+TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）、COS 服务等腾讯云服务能力，在使用腾讯互动课堂服务时，请先阅读指 [方案简介](https://cloud.tencent.com/document/product/680/14776)，了解相关服务的基本概念和基本业务流程。
 相关链接如下：
+
 - [实时音视频](https://cloud.tencent.com/document/product/268/8424)
 - [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
 - [COS 服务](https://cloud.tencent.com/document/product/436/6225)
@@ -10,7 +11,8 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 
 为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 
->!开发者 Demo 主要向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
+>**注意：**
+> 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
 SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zip)
 
@@ -21,18 +23,18 @@ SDK 下载：[TICSDK >>](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zi
 
 ![](https://main.qcloudimg.com/raw/944398e69196f1cb5a1d6a3db63d1dd6.png)
 
-在 VisualStudio 工程里面，`配置属性`>`C/C++`里面添加 TICSDK、iLiveSDK、BoardSDK 头文件地址。
+在 VisualStudio 工程里面，`配置属性`->`C/C++`里面添加 TICSDK、iLiveSDK、BoardSDK 头文件地址。
 
 ![](https://main.qcloudimg.com/raw/98866e32ed59d559b3dd18069717ca70.png)
 
-在 VisualStudio工程里面，`配置属性`>`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`、`BoardSDK.lib`这三个链接库，并指定好库文件地址。
+在 VisualStudio工程里面，`配置属性`->`链接器`里面添加`TICSDK.lib`、`iLiveSDK.lib`、`BoardSDK.lib`这三个链接库，并指定好库文件地址。
 
 ![](https://main.qcloudimg.com/raw/1cd17fb7e0f9e5ed2ffa0b4aa95834dd.png)
 
 ![](https://main.qcloudimg.com/raw/69db29e18bef8083fbbd54374294e778.png)
 
 ### 2.2 初始化SDK
-开发需要包含如下头文件，通过`TICManager::GetTICManager()`方法获得 TICManager 实例指针并进行初始化。在此之前，必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
+开发需要包含如下头文件。通过`TICManager::GetTICManager()`方法获得 TICManager 实例指针并进行初始化。在此之前，之前必须保证已经在 [腾讯云后台](https://console.cloud.tencent.com/rav) 注册成功并创建了应用，这样才能拿到腾讯云后台分配的 SDKAppID 和 accountType。
 
 ```C++
 	#include "TICSDK.h"
@@ -82,7 +84,7 @@ TICSDK 进出房间状态流程可参考下图：
 该方法需要传入 uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要开发者服务器遵守腾讯云生成 userSig 的规则来生成，并传给客户端用于登录，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数据。
 
->!
+> **注意：**
 > 1. 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试。
 > 2. 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
 > 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
@@ -106,7 +108,7 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 	*/
 	virtual void joinClassroom(TICClassroomOption& opt, ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data) = 0;
 ```
-该接口需要参数中，opt 是`TICClassroomOption`对象，代表加入课堂时的一些配置.
+该接口需要参数中，opt 是`TICClassroomOption`对象，代表加入课堂时的一些配置
 
 基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
 

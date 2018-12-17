@@ -45,14 +45,14 @@
 
 包含 8 个环节，分别是：
 
-1. [上传训练数据](https://cloud.tencent.com/document/product/851/19546#.E4.B8.8A.E4.BC.A0.E8.AE.AD.E7.BB.83.E6.95.B0.E6.8D.AE)
-2. [训练集特征处理](https://cloud.tencent.com/document/product/851/19546#.E8.AE.AD.E7.BB.83.E9.9B.86.E7.89.B9.E5.BE.81.E5.A4.84.E7.90.86)
-3. [数据拆分](https://cloud.tencent.com/document/product/851/19546#.E6.95.B0.E6.8D.AE.E6.8B.86.E5.88.86)
-4. [训练投篮预测模型](https://cloud.tencent.com/document/product/851/19546#.E8.AE.AD.E7.BB.83.E6.8A.95.E7.AF.AE.E9.A2.84.E6.B5.8B.E6.A8.A1.E5.9E.8B)
-5. [上传验证数据](https://cloud.tencent.com/document/product/851/19546#.E4.B8.8A.E4.BC.A0.E9.AA.8C.E8.AF.81.E6.95.B0.E6.8D.AE)
-6. [验证集特征预处理](https://cloud.tencent.com/document/product/851/19546#.E9.AA.8C.E8.AF.81.E9.9B.86.E7.89.B9.E5.BE.81.E9.A2.84.E5.A4.84.E7.90.86)
-7. [模型验证](https://cloud.tencent.com/document/product/851/19546#.E6.A8.A1.E5.9E.8B.E9.AA.8C.E8.AF.81)
-8. [模型评估](https://cloud.tencent.com/document/product/851/19546#.E6.A8.A1.E5.9E.8B.E8.AF.84.E4.BC.B0)
+1. [将训练数据从本地上传到 COS](#jump1)
+2. [对训练数据做特征处理](#jump2)
+3. [将特征处理后的训练数据切分成训练集和测试集](#jump3)
+4. [训练 Kobe 投篮预测模型](#jump4)
+5. [将验证数据从本地上传到 COS](#jump5)
+6. [对验证数据做特征处理](#jump6)
+7. [在验证数据集上验证 Kobe 投篮预测模型](#jump7)
+8. [生成模型评估结果](#jump8)
 
 
 ## 流程详解

@@ -30,7 +30,7 @@
 然后调用如下代码进行白板初始化：
 
 ```C++
-boardMgr = BoardMgr::GetSDKInstance();
+boardMgr = BoardMgr::GetSDKInstance()
 boardMgr->init(userID, userSig, sdkappId);
 ```
 退出时销毁白板直接删除指针即可：
@@ -73,7 +73,6 @@ boardSDk->setLineWidth(100);//设置画笔宽度
 boardSDk->setBrushColor(255，0，255，255);//设置画笔颜色，按照red，green，blue和alpha通道值顺序
 boardSDk->setFill(true);//填充图形
 boardSDk->setRadius(30);//设置圆角半径
-boardSDk->setFontSize(20);//设置文字大小
 ```
 
 可选的工具定义如下：
@@ -87,7 +86,6 @@ boardSDk->setFontSize(20);//设置文字大小
 |直线|BoardTool::Line|宽度、颜色|
 |椭圆|BoardTool::Ellipse|宽度、颜色、是否填充|
 |矩形|BoardTool::Rectangle|宽度、颜色、是否填充、圆角半径|
-|文字|BoardTool::Text|颜色、大小|
 |选区|BoardTool::Select|无|
 
 ### 2.5 页面操作、背景设置及页面清除

@@ -49,7 +49,10 @@ pod repo update
 |libprotobuf.tbd|
 |libresolv.tbd|
 |libsqlite3.tbd|
+|libstdc++.6.tbd|
+|libstdc++.tbd|
 |libz.tbd|
+|libstdc++.6.0.9.tbd|
 
 ### 工程配置
 为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：

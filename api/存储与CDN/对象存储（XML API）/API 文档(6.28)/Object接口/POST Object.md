@@ -44,7 +44,7 @@ Form
 | key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 `a/b/a1.txt`。|String| 是|
 | success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。 |String| 否|
 | success_action_status |可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。 |String| 否|
-| x-cos-meta-\* | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。 |String| 否|
+| x-cos-meta- * | 自定义的信息，将作为 Object 元数据返回。大小限制 2K。 |String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。 |String| 否|
 | policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied。 |String| 否|
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。 | String | 如需加密，是 |
@@ -110,8 +110,8 @@ Form
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
 | x-cos-credential        | 格式   *<your-access-key-id>*/*<date>*/*<aws-region>*/*<aws-service>*/aws4_request | 完全    |
 | x-cos-date              | ISO8601 的 UTC 时间      | 完全    |
-| x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。  | 完全、前缀 |
-| x-cos-*      | 其他需要签署的 COS 头部            | 完全    |
+| x-cos-meta-*            | 用户自定义的头部                                 | 完全、前缀 |
+| x-cos-*                 | 其他需要签署的 COS 头部                           | 完全    |
 
 ## 响应
 ### 响应头
