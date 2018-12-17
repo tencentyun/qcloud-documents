@@ -1,10 +1,10 @@
-### API 简介
+## API 简介
 TcaplusDB 服务化 API 是应用访问游戏存储服务集群的数据访问入口，是应用存取游戏存储服务集群中业务数据的编程接口。当前 TcaplusDB 主要使用基于 Google Protocol Buffer（Protobuf）做通讯和数据元定义协议。
 
-### API 流程
+## API 流程
 用户在控制台开通业务创建完表后，控制台配置信息页会提供 AppId，AppKey，内网接入地址，以及 Protobuf 表管理页显示已经创建的表名称和部署单元 ID（ZoneId） 等信息。其中，前三项是应用申请接入游戏存储服务成功后得到的，后两项是业务在游戏存储管理页面上创建表结构时确定下来的。使用游戏存储服务化 API，应用可以操作属于 AppId 的多个数据表。
 
-### API 模块
+## API 模块
 用户可以 Protobuf 协议来定义符合 TcaplusDB 规范的表，把表定义的元文件传到  TcaplusDB 控制台管理系统中进行创建新表或修改已经存在的表，成功后即可通过  TcaplusDB Protobuf API 进行表数据记录的读写操作，当前 TcaplusDB Protobuf API 支持的操作如下表：
 
 | 操作 | 功能描述 |
@@ -20,7 +20,7 @@ TcaplusDB 服务化 API 是应用访问游戏存储服务集群的数据访问�
 | INDEXGET | 指定索引和字段进行索引查询 |
 | TRAVERSE | 指定表名进行全表遍历 |
 
-### TcaplusDB Protobuf API 约定
+## TcaplusDB Protobuf API 约定
 TcaplusDB 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 TcaplusDB 系统中，用户只需在自定义表时引用，创建新表或修改已经存在的表时不用上传，系统已经内置。具体内容如下：
 ```
 extend google.protobuf.MessageOptions
@@ -49,7 +49,7 @@ extend google.protobuf.FieldOptions
 6. 表默认是 generic 类型。但对外不显示 generic 类型。
 7. key 字段当前只能是 protobuf 规定的标量类型（Scalar Value Type）,不能包括其它复合类型，自定义类型等。
 
-### API 常用接口
+## API 常用接口
 ```
  @brief 根据用户输入的req中的index名称，msg值，offset以及limit，通过索引获取多个记录的值填充到res中的vec结构中，并返回总记录数以及剩余记录数。
  @param [INOUT] req   用户输入的req
@@ -131,37 +131,37 @@ extend google.protobuf.FieldOptions
 ```
 **int Traverse(::google::protobuf::Message \*msg, TcaplusTraverseCallback \*cb);**
 
-### 规则与约束
-#### Get 操作约束
+## 规则与约束
+### Get 操作约束
 1. 不能查询特定版本号的记录。
 1. 如果待查询的字段原记录中不存在，则会返回字段默认值。
 
-#### BatchGet 操作约束
+### BatchGet 操作约束
 1. 批量查询操作必须经由 tcaproxy 进行消息路由处理，tcapsvr 进程不支持批量查询操作。
 1. 一个批量查询请求返回一个批量查询结果，批量查询的超时时间为10秒。
 1. 批量查询结果记录数同请求中记录数，查询不存在或者查询失败的记录也会在结果集中存在一条空的记录，因此需要通过 FetchRecord 进行记录获取。
 1. 批量查询结果集总大小不能超过256K，否则超过大小记录内容会无法返回，会返回空记录内容。
 1. 批量查询结果集返回的顺序与请求的记录顺序不保证一致。
 
-#### FieldInc 操作约束
+### FieldInc 操作约束
 1. message 中指定的 key 的记录必须是存在。
 1. dottedpaths 中指定的字段必须是数值类型。
 1. dottedpaths 所在 set 中的元素个数总数不能起过128个。
 1. dottedpaths 所在 set 中的每个元素的长度不能超过1023字节。
 1. dottedpaths 所在 set 中的第个元素代表的字段嵌套不能超过32。
 
-#### FieldGet 操作约束
+### FieldGet 操作约束
 1. dottedpaths 所在 set 中的元素个数总数不能起过128个。
 1. dottedpaths 所在 set 中的每个元素的长度不能超过1023字节。
 1. dottedpaths 所在 set 中的第个元素代表的字段嵌套不能超过32。
 
-#### FieldSet 操作约束
+### FieldSet 操作约束
 1. dottedpaths 所在 set 中的元素个数总数不能起过128个。
 1. dottedpaths 所在 set 中的每个元素的长度不能超过1023字节。
 1. dottedpaths 所在 set 中的第个元素代表的字段嵌套不能超过32。
 
 
-### SDK 源文件目录结构
+## SDK 源文件目录结构
 
     `-- release
         `-- x86_64
@@ -185,7 +185,7 @@ extend google.protobuf.FieldOptions
             `-- version                                本C++ SDK的版本记录文件
 
 下面就头文件包中的文件中的主要内容逐一介绍
-#### 文件 cipher_suite_base.h
+### 文件 cipher_suite_base.h
 这个文件主要是加密算法套件基类CipherSuite的声明，规定了子类的规范
 ```
 // 加密算法套件基类
@@ -218,7 +218,7 @@ class CipherSuite
 };
 ```
 
-#### 文件default_aes_cipher_suite.h
+### 文件default_aes_cipher_suite.h
 这个文件主要是加密算法套件默认实现类DefaultAesCipherSuite的声明，是TcaplusDB基于AES加密的实现，用户可自定义密钥。
 ```
 // 加密算法套件默认实现类DefaultAesCipherSuite
@@ -314,7 +314,7 @@ class DefaultAesCipherSuite: public CipherSuite
 };
 ```
 
-#### 文件tcaplus_async_pb_api.h
+### 文件tcaplus_async_pb_api.h
 TcaplusDB PB API异步模式的TcaplusAsyncPbApi类及回调类TcaplusPbCallback的实现
 ```
 // 接回调用默认实现类
@@ -560,7 +560,7 @@ private:
 };
 ```
 
-#### tcaplus_coroutine_pb_api.h
+### tcaplus_coroutine_pb_api.h
 TcaplusDB PB API协程模式的TcaplusCoroutinePbApi类声明
 ```
 // 协程模式类声明
@@ -786,7 +786,7 @@ private:
     struct tagtbl_idl *m_pTblIdl;
 };
 ```
-#### 文件 tcaplus_error_code.h
+### 文件 tcaplus_error_code.h
 TcaplusDB PB API常用错误码及描述，所表达的意义
 ```
 static const int32_t GEN_ERR_SUC                                                                     = 0x00000000;
@@ -1974,7 +1974,7 @@ static const int32_t COMMON_INFO_DATA_NOT_MODIFIED                              
 };
 ```
 
-#### 文件 tcaplus_protobuf_api.h
+### 文件 tcaplus_protobuf_api.h
 TcaplusDB PB API汇总头文件，主要包括了其它头文件，不详细介绍
 ```
 #include "tcaplus_protobuf_define.h"
@@ -1983,7 +1983,7 @@ TcaplusDB PB API汇总头文件，主要包括了其它头文件，不详细介�
 #include "tcaplus_coroutine_pb_api.h"
 ```
 
-#### 文件 tcaplus_protobuf_define.h
+### 文件 tcaplus_protobuf_define.h
 TcaplusDB PB API基础定义头文件，包括 ClientOptions，IndexGetRequest，IndexGetResponse定义
 ```
 typedef struct 
@@ -2040,9 +2040,9 @@ enum
 };
 ```
 
-#### 文件 tcaplusservice.optionv1.pb.h
+### 文件 tcaplusservice.optionv1.pb.h
 Google Protobuf根据tcaplusservice.optionv1.proto用protoc生成的C++头文件，机器生成，不做详细价绍
 
-#### 文件 tcaplusservice.optionv1.proto
+### 文件 tcaplusservice.optionv1.proto
 此文件为TcaplusDB定义表时用的公共定义，在本文件前面TcaplusDB Protobuf API 约定一节中已经介绍过，此处不再赘述。
 
