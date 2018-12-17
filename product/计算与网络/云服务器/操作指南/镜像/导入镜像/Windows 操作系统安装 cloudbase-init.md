@@ -12,10 +12,8 @@ Cloudbase-init 分为以下版本：
 ## 安装 cloudbase-init
 
 安装 cloudbase-init 的过程中，请注意以下两点：
-
 - **在 “Configuration options” 窗口中，请按照下图的内容进行配置。即将 “Serial port for logging” 设置为 “COM1”。**
 ![Alt text](https://main.qcloudimg.com/raw/beaca64e8484ec7e9880703cad400717.png)
-
 - **在安装完成的最后一步时，请勿勾选任何复选框，不运行 Sysprep。如下图所示：**
 ![Alt text](https://main.qcloudimg.com/raw/aceec91df6a51db2eca775f3350de88c.png)
 
@@ -23,7 +21,6 @@ Cloudbase-init 分为以下版本：
 
 1. 打开 cloudbase-init 配置文件（配置文件的路径为：\PATH\TO\Cloudbase Solutions\Cloubase-Init\conf\cloudbase-init.conf）。
 2. 将 cloudbase-init 配置文件替换为以下内容：
-
 	```
 	[DEFAULT]
 	username=Administrator
@@ -53,5 +50,4 @@ Cloudbase-init 分为以下版本：
 	C:\powershell
 	PS C:\Set-ExecutionPolicy Unrestricted
 	```
-
-3. 将 TencentCloudRun.ps1 脚本拷贝到 C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ 路径下。
+3. 将 [TencentCloudRun.ps1](http://cloudinit-1251783334.cosgz.myqcloud.com/TencentCloudRun.ps1) 脚本拷贝到 C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ 路径下。
