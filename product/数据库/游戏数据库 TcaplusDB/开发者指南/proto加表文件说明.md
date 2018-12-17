@@ -1,6 +1,6 @@
 TcaplusDB 使用 Google Protobuf 文件定义业务数据表，支持 proto2 和 proto3 的语法规范，以下是 proto 建表文件的规则描述。
 
-## proto2加表文件规范
+## proto2 加表文件规范
 
 以下是一个符合 proto2 语法规范的加表文件示例
 
@@ -76,7 +76,7 @@ message pay_info { //使用message定义结构体
 * REPEATED 类型字段必须指定 [packed=true]。
 * TcaplusDB 表定义中，string 和 bytes 类型的字段可以指定为加密字段，TcaplusAPI 将使用`tcaplusservice.tcaplus_field_cipher_suite`选项指定的加密工具，和用户指定的密码对设置了`[(tcaplusservice.tcaplus_crypto) = true]`选项的字段进行加密传输和存储。
 
-## proto3加表文件规范
+## proto3 加表文件规范
 
 ```
 syntax = "proto3";                      // 指明符合proto3语法规范
