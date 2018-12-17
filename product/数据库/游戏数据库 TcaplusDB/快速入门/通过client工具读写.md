@@ -10,7 +10,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的
 
 * AppId：2
 * AppKey：3aa84dd773826cd655e9f24a249d68bb
-* tcapdir接入点：10.125.32.21:9999
+* tcapdir 接入点：10.125.32.21:9999
 * ZoneId：1
 
 ## 使用帮助
