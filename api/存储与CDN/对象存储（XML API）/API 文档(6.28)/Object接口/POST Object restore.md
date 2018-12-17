@@ -5,7 +5,7 @@ POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的�
 ### 请求示例
 
 ```
-POST /ObjectName?restore HTTP/1.1
+POST /<ObjectName>?restore HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
@@ -67,10 +67,10 @@ RestoreAlreadyInProgress|对象已经在恢复中|409 [Conflict](https://tools.i
 ### 请求
 
 ```
-POST /arvin/arvin6.txt?restore HTTP/1.1
+POST /123.txt?restore HTTP/1.1
 Accept: */*
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:arvin1-7319456.cn-north.myqcloud.com
+Host:test-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 105
 Content-Type: application/x-www-form-urlencoded
 

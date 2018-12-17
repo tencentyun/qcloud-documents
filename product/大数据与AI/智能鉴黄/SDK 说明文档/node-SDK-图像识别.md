@@ -1,7 +1,7 @@
 ## 开发准备
 ### SDK 获取
 
-智能图像的 Node SDK 下载地址：[Node-SDK-V2.0](https://github.com/TencentCloudBase/image-node-sdk) 。
+智能图像的 Node SDK 下载地址：[Node-SDK](https://github.com/TencentCloudBase/image-node-sdk) 。
 
 
 ## 快速入门
@@ -13,9 +13,9 @@
 ### 安装使用
 
 ```javascript
-npm i -save image-node-sdk-v2
+npm i --save image-node-sdk
 ```
-以 OCR-身份证识别 为例，一般支持外链 url 或者本地读取图片文件，两种方式。
+以 OCR-身份证识别 为例，一般支持外链 url 或者本地读取图片文件这两种方式。
 
 * 外链 url
 

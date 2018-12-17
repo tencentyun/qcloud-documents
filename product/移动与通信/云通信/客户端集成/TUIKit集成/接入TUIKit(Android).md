@@ -27,17 +27,25 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 ## 集成TUIKit
 
-首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用。
+首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。
 
 ```java
+android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a' //目前仅提供armeabi-v7a的so库
+        }
+    }
+}
+
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.161'
+    implementation 'com.tencent.imsdk:tuikit:0.0.1.198'
 }
 
 ```
 
-TUIKit 会自动加载所需的 IMSDK。目前加载的 IMSDK 版本是 V3.5.0.161。
+TUIKit 会自动加载所需的 IMSDK。目前加载的 IMSDK 版本是 V3.5.0.198。
 
 ## 初始化 TUIKit
 

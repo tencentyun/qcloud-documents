@@ -31,7 +31,7 @@
 2. 选择集群为我们刚刚创建的集群my-first-cluster。
 3. 设置服务的实例信息(实例可以包含多个容器)：
   - 添加一个容器，命名为master。
-  - 为master容器指定镜像为ccr.ccs.tencentyun.com/library/redis，版本为lateast 。
+  - 为master容器指定镜像为ccr.ccs.tencentyun.com/library/redis，版本为latest 。
 4. 设置服务运行的实例数，redis-master服务需要运行1个实例，我们选择1。
 5. 选择服务的访问方式，因为我们的redis服务是内部服务，只提供给集群内其它服务访问，所以我们选择仅在集群内访问。
 6. 最后设置服务的访问端口，我们的服务实例包含1个redis容器，该容器监听了6379端口，所以我们配置端口映射的容器端口为6379，服务端口跟容器端口一样，也设置成6379，这样其它服务可以通过服务名称 redis-master以及端口6379就可以访问到我们的master容器了。
@@ -45,7 +45,7 @@
 2. 选择集群为我们刚刚创建的集群my-first-cluster。
 3. 设置服务的实例信息：
   - 添加一个容器，命名为slave。
-  - 为slave容器指定镜像为ccr.ccs.tencentyun.com/library/gb-redisslave，版本为lateast 。
+  - 为slave容器指定镜像为ccr.ccs.tencentyun.com/library/gb-redisslave，版本为latest 。
   - 为容器指定cpu，内存资源的上限(可选)，上面的master容器同样可以指定cpu、内存限制。
   - 运行命令和启动参数我们使用镜像里面默认的命令和参数即可，可以不填。
   - 添加一个环境变量 环境变量名称为：GET_HOSTS_FROM，值为:dns （由于gb-redisslave镜像里的程序需要，这里必填）。
@@ -62,7 +62,7 @@
 2. 选择集群为我们刚刚创建的集群my-first-cluster。
 3. 设置服务的实例信息：
   - 添加一个容器，命名为frontend。
-  - 为slave容器指定镜像为ccr.ccs.tencentyun.com/library/gb-frontend，版本为lateast 。
+  - 为slave容器指定镜像为ccr.ccs.tencentyun.com/library/gb-frontend，版本为latest 。
   - 添加一个环境变量 环境变量名称为：GET_HOSTS_FROM，值为:dns （由于gb-frontend镜像里的程序需要，这里必填）。
 4. 设置服务运行的实例数，frontend服务需要运行1个实例，我们选择1。
 5. 选择服务的访问方式，因为我们的frontend需要提供外网浏览器访问，我们选择公网负载均衡访问方式。
