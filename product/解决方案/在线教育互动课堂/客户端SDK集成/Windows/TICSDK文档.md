@@ -411,8 +411,11 @@ class IClassroomIMListener
 TICSDK日志保存在工作目录下的txsdklog目录下，分别为：
 
 iLiveSDK ilivesdk_YYYYMMDD.log
+
 IMSDK 	 imsdk_YYYYMMDD.log
+
 AVSDK 	 QAVSDK_YYYYMMDD.log
+
 BoardSDK boardsdk_YYYYMMDD.log
 
 
