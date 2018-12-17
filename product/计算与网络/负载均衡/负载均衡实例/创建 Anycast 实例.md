@@ -45,7 +45,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 实例类型选择 **应用型 CLB**，加速 IP 处勾选“启用 Anycast 加速 IP”，其他配置和普通实例配置相同。
 3. 购买完成后，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 Anycast 负载均衡。
-![](https://main.qcloudimg.com/raw/9d0d69b3caa205f0758564476f2f9353.png)
+![](https://main.qcloudimg.com/raw/09d158f129125e607b352cd39c006962.png)
 
 ### 使用 Anycast CLB
 登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参见 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
