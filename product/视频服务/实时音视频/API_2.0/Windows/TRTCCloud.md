@@ -1,16 +1,56 @@
-<div id="trtc-doc">
+## 设置 TRTCCloudCallback 回调
 
-# TRTCCloud
-## 房间相关接口函数
-
-### `enterRoom`
-`void enterRoom(const TRTCParams & params)`
+### addCallback
+```
+void addCallback(ITRTCCloudCallback * callback)
+```
 
 
 __功能__
 
 
-进入房间 
+添加事件回调         
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| callback | ITRTCCloudCallback * | 事件回调  |
+
+<br/>
+
+### removeCallback
+```
+void removeCallback(ITRTCCloudCallback * callback)
+```
+
+
+__功能__
+
+
+移除事件回调         
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| callback | ITRTCCloudCallback * | 事件回调  |
+
+<br/>
+
+
+## 房间相关接口函数
+
+### enterRoom
+```
+void enterRoom(const TRTCParams & params)
+```
+
+
+__功能__
+
+
+进入房间         
 
 __参数__
 
@@ -22,26 +62,34 @@ __说明__
 
 不管进房是否成功，都必须与exitRoom配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题 
 
-### `exitRoom`
-`void exitRoom()`
+<br/>
+
+### exitRoom
+```
+void exitRoom()
+```
 
 
 __功能__
 
 
-退出房间 
+退出房间         
+
+<br/>
 
 
 ## 视频相关接口函数
 
-### `startLocalPreview`
-`void startLocalPreview(HWND rendHwnd)`
+### startLocalPreview
+```
+void startLocalPreview(HWND rendHwnd)
+```
 
 
 __功能__
 
 
-启动本地摄像头采集和预览 
+启动本地摄像头采集和预览         
 
 __参数__
 
@@ -49,23 +97,31 @@ __参数__
 |-----|------|------|
 | rendHwnd | HWND | 承载预览画面的 HWND  |
 
-### `stopLocalPreview`
-`void stopLocalPreview()`
+<br/>
+
+### stopLocalPreview
+```
+void stopLocalPreview()
+```
 
 
 __功能__
 
 
-关闭本地摄像头采集和预览 
+关闭本地摄像头采集和预览         
 
-### `startRemoteView`
-`void startRemoteView(const char * userId, HWND rendHwnd)`
+<br/>
+
+### startRemoteView
+```
+void startRemoteView(const char * userId, HWND rendHwnd)
+```
 
 
 __功能__
 
 
-开始渲染远端用户画面 
+开始渲染远端用户画面         
 
 __参数__
 
@@ -74,14 +130,18 @@ __参数__
 | userId | const char * | 远端用户标识  |
 | rendHwnd | HWND | - 承载预览画面的 HWND  |
 
-### `stopRemoteView`
-`void stopRemoteView(const char * userId)`
+<br/>
+
+### stopRemoteView
+```
+void stopRemoteView(const char * userId)
+```
 
 
 __功能__
 
 
-停止渲染远端用户画面 
+停止渲染远端用户画面         
 
 __参数__
 
@@ -89,23 +149,31 @@ __参数__
 |-----|------|------|
 | userId | const char * | 远端用户标识  |
 
-### `stopAllRemoteView`
-`void stopAllRemoteView()`
+<br/>
+
+### stopAllRemoteView
+```
+void stopAllRemoteView()
+```
 
 
 __功能__
 
 
-停止渲染所有远端用户画面，如果有屏幕分享，则屏幕分享的画面也会一并被关闭 
+停止渲染所有远端用户画面，如果有屏幕分享，则屏幕分享的画面也会一并被关闭         
 
-### `setLocalVideoQuality`
-`void setLocalVideoQuality(const TRTCVideoEncParam & params, TRTCQosMode qosMode, TRTCVideoQosPreference qosPreference)`
+<br/>
+
+### setLocalVideoQuality
+```
+void setLocalVideoQuality(const TRTCVideoEncParam & params, TRTCQosMode qosMode, TRTCVideoQosPreference qosPreference)
+```
 
 
 __功能__
 
 
-设置画面质量参数 
+设置画面质量参数         
 
 __参数__
 
@@ -115,14 +183,18 @@ __参数__
 | qosMode | TRTCQosMode | 流控模式选择，默认选择【云控】模式，便于获得更好的效果，【终端】模式则用于特殊的调试场景  |
 | qosPreference | TRTCVideoQosPreference | 画面质量偏好，有【流畅】和【清晰】两种模式可供选择，详情请参考 TRTCVideoQosPreference 的定义  |
 
-### `muteLocalVideo`
-`void muteLocalVideo(bool mute)`
+<br/>
+
+### muteLocalVideo
+```
+void muteLocalVideo(bool mute)
+```
 
 
 __功能__
 
 
-是否屏蔽本地视频 
+是否屏蔽本地视频         
 
 __参数__
 
@@ -132,16 +204,20 @@ __参数__
 
 __介绍__
 
-当屏幕本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知 
+当屏幕本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知         
 
-### `setLocalViewFillMode`
-`void setLocalViewFillMode(TRTCVideoFillMode mode)`
+<br/>
+
+### setLocalViewFillMode
+```
+void setLocalViewFillMode(TRTCVideoFillMode mode)
+```
 
 
 __功能__
 
 
-设置本地图像的渲染模式 
+设置本地图像的渲染模式         
 
 __参数__
 
@@ -149,14 +225,18 @@ __参数__
 |-----|------|------|
 | mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
 
-### `setRemoteViewFillMode`
-`void setRemoteViewFillMode(const char * userId, TRTCVideoFillMode mode)`
+<br/>
+
+### setRemoteViewFillMode
+```
+void setRemoteViewFillMode(const char * userId, TRTCVideoFillMode mode)
+```
 
 
 __功能__
 
 
-设置远端图像的渲染模式 
+设置远端图像的渲染模式         
 
 __参数__
 
@@ -165,14 +245,18 @@ __参数__
 | userId | const char * | 远端用户标识  |
 | mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
 
-### `setLocalViewRotation`
-`void setLocalViewRotation(TRTCVideoRotation rotation)`
+<br/>
+
+### setLocalViewRotation
+```
+void setLocalViewRotation(TRTCVideoRotation rotation)
+```
 
 
 __功能__
 
 
-设置本地图像的顺时针旋转角度 
+设置本地图像的顺时针旋转角度         
 
 __参数__
 
@@ -180,14 +264,18 @@ __参数__
 |-----|------|------|
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
 
-### `setRemoteViewRotation`
-`void setRemoteViewRotation(const char * userId, TRTCVideoRotation rotation)`
+<br/>
+
+### setRemoteViewRotation
+```
+void setRemoteViewRotation(const char * userId, TRTCVideoRotation rotation)
+```
 
 
 __功能__
 
 
-设置远端图像的顺时针旋转角度 
+设置远端图像的顺时针旋转角度         
 
 __参数__
 
@@ -196,14 +284,18 @@ __参数__
 | userId | const char * | 远端用户标识  |
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
 
-### `setVideoOutputRotation`
-`void setVideoOutputRotation(TRTCVideoRotation rotation)`
+<br/>
+
+### setVideoOutputRotation
+```
+void setVideoOutputRotation(TRTCVideoRotation rotation)
+```
 
 
 __功能__
 
 
-设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向 
+设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向         
 
 __参数__
 
@@ -211,14 +303,18 @@ __参数__
 |-----|------|------|
 | rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
 
-### `enableSmallVideoStream`
-`void enableSmallVideoStream(bool enable, const TRTCVideoEncParam & smallVideoParam)`
+<br/>
+
+### enableSmallVideoStream
+```
+void enableSmallVideoStream(bool enable, const TRTCVideoEncParam & smallVideoParam)
+```
 
 
 __功能__
 
 
-开启大小画面双路编码模式 
+开启大小画面双路编码模式         
 
 __参数__
 
@@ -229,16 +325,20 @@ __参数__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流） 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源 对于同一房间的远程观众而言， 如果有些人的下行网络很好，可以选择观看【高清】画面 如果有些人的下行网络不好，可以选择观看【低清】画面 
+如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流） 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源 对于同一房间的远程观众而言， 如果有些人的下行网络很好，可以选择观看【高清】画面 如果有些人的下行网络不好，可以选择观看【低清】画面         
 
-### `setRemoteVideoStreamType`
-`void setRemoteVideoStreamType(const char * userId, TRTCVideoStreamType type)`
+<br/>
+
+### setRemoteVideoStreamType
+```
+void setRemoteVideoStreamType(const char * userId, TRTCVideoStreamType type)
+```
 
 
 __功能__
 
 
-选择某一路的画面质量：当网络不好时可以切换到低清晰度的小画面 
+选择某一路的画面质量：当网络不好时可以切换到低清晰度的小画面         
 
 __参数__
 
@@ -249,16 +349,20 @@ __参数__
 
 __介绍__
 
-如果对方没有开启双路视频模式，则此操作无效 
+如果对方没有开启双路视频模式，则此操作无效         
 
-### `setPriorRemoteVideoStreamType`
-`void setPriorRemoteVideoStreamType(TRTCVideoStreamType type)`
+<br/>
+
+### setPriorRemoteVideoStreamType
+```
+void setPriorRemoteVideoStreamType(TRTCVideoStreamType type)
+```
 
 
 __功能__
 
 
-设定观看方优先选择的视频质量 
+设定观看方优先选择的视频质量         
 
 __参数__
 
@@ -268,19 +372,23 @@ __参数__
 
 __介绍__
 
-低端设备推荐优先选择低清晰度的小画面 如果对方没有开启双路视频模式，则此操作无效 
+低端设备推荐优先选择低清晰度的小画面 如果对方没有开启双路视频模式，则此操作无效         
+
+<br/>
 
 
 ## 音频相关接口函数
 
-### `muteLocalAudio`
-`void muteLocalAudio(bool mute)`
+### muteLocalAudio
+```
+void muteLocalAudio(bool mute)
+```
 
 
 __功能__
 
 
-是否屏蔽本地音频 
+是否屏蔽本地音频         
 
 __参数__
 
@@ -292,14 +400,18 @@ __说明__
 
 当屏蔽本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知 
 
-### `muteRemoteAudio`
-`void muteRemoteAudio(const char * userId, bool mute)`
+<br/>
+
+### muteRemoteAudio
+```
+void muteRemoteAudio(const char * userId, bool mute)
+```
 
 
 __功能__
 
 
-屏蔽指定远端音频 
+屏蔽指定远端音频         
 
 __参数__
 
@@ -308,14 +420,18 @@ __参数__
 | userId | const char * | 用户id  |
 | mute | bool | 开关  |
 
-### `muteAllRemoteAudio`
-`void muteAllRemoteAudio(bool mute)`
+<br/>
+
+### muteAllRemoteAudio
+```
+void muteAllRemoteAudio(bool mute)
+```
 
 
 __功能__
 
 
-远端所有用户全部静音 
+远端所有用户全部静音         
 
 __参数__
 
@@ -323,14 +439,18 @@ __参数__
 |-----|------|------|
 | mute | bool | 开关  |
 
-### `enableAudioVolumeEvaluation`
-`void enableAudioVolumeEvaluation(uint32_t interval, uint32_t smoothLevel)`
+<br/>
+
+### enableAudioVolumeEvaluation
+```
+void enableAudioVolumeEvaluation(uint32_t interval, uint32_t smoothLevel)
+```
 
 
 __功能__
 
 
-启用或关闭音量大小提示 
+启用或关闭音量大小提示         
 
 __参数__
 
@@ -341,64 +461,84 @@ __参数__
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估 
+开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估         
+
+<br/>
 
 
 ## 摄像头相关接口函数
 
-### `getCameraDevicesList`
-`TXStringList getCameraDevicesList()`
+### getCameraDevicesList
+```
+TXStringList getCameraDevicesList()
+```
 
 
 __功能__
 
 
-查询摄像头列表 
+查询摄像头列表         
 
-### `setCurrentCameraDevice`
-`void setCurrentCameraDevice(const char * cameraName)`
+<br/>
+
+### setCurrentCameraDevice
+```
+void setCurrentCameraDevice(const char * deviceId)
+```
 
 
 __功能__
 
 
-设置要使用的摄像头 
+设置要使用的摄像头         
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| cameraName | const char * | : 摄像头名称，getCameraDevicesList 接口获取得到  |
+| deviceId | const char * | 摄像头ID，getCameraDevicesList 接口获取得到  |
 
-### `getCurrentCameraDevice`
-`TXString getCurrentCameraDevice()`
+<br/>
+
+### getCurrentCameraDevice
+```
+TXString getCurrentCameraDevice()
+```
 
 
 __功能__
 
 
-获取当前使用的摄像头 
+获取当前使用的摄像头         
+
+<br/>
 
 
 ## 音频设备相关接口函数
 
-### `getMicDevicesList`
-`TXStringList getMicDevicesList()`
+### getMicDevicesList
+```
+TXStringList getMicDevicesList()
+```
 
 
 __功能__
 
 
-查询麦克风列表 
+查询麦克风列表         
 
-### `setCurrentMicDevice`
-`void setCurrentMicDevice(const char * micId)`
+<br/>
+
+### setCurrentMicDevice
+```
+void setCurrentMicDevice(const char * micId)
+```
 
 
 __功能__
 
 
-选择指定的麦克风作为录音设备，不调用该接口时，默认选择索引为0的麦克风 
+选择指定的麦克风作为录音设备，不调用该接口时，默认选择索引为0的麦克风         
 
 __参数__
 
@@ -406,32 +546,44 @@ __参数__
 |-----|------|------|
 | micId | const char * | 麦克风Id，getMicDevicesList 接口查询获取  |
 
-### `getCurrentMicDevice`
-`TXString getCurrentMicDevice()`
+<br/>
+
+### getCurrentMicDevice
+```
+TXString getCurrentMicDevice()
+```
 
 
 __功能__
 
 
-获取当前选择的麦克风 
+获取当前选择的麦克风         
 
-### `getCurrentMicDeviceVolume`
-`uint32_t getCurrentMicDeviceVolume()`
+<br/>
 
-
-__功能__
-
-
-查询已选择麦克风的音量 
-
-### `setCurrentMicDeviceVolume`
-`void setCurrentMicDeviceVolume(uint32_t volume)`
+### getCurrentMicDeviceVolume
+```
+uint32_t getCurrentMicDeviceVolume()
+```
 
 
 __功能__
 
 
-设置已选择麦克风的音量 
+查询已选择麦克风的音量         
+
+<br/>
+
+### setCurrentMicDeviceVolume
+```
+void setCurrentMicDeviceVolume(uint32_t volume)
+```
+
+
+__功能__
+
+
+设置已选择麦克风的音量         
 
 __参数__
 
@@ -439,23 +591,31 @@ __参数__
 |-----|------|------|
 | volume | uint32_t | 设置的音量大小，范围是[0, 100]  |
 
-### `getSpeakerDevicesList`
-`TXStringList getSpeakerDevicesList()`
+<br/>
+
+### getSpeakerDevicesList
+```
+TXStringList getSpeakerDevicesList()
+```
 
 
 __功能__
 
 
-查询扬声器列表 
+查询扬声器列表         
 
-### `setCurrentSpeakerDevice`
-`void setCurrentSpeakerDevice(const char * speakerId)`
+<br/>
+
+### setCurrentSpeakerDevice
+```
+void setCurrentSpeakerDevice(const char * speakerId)
+```
 
 
 __功能__
 
 
-选择指定的扬声器作为音频播放的设备，不调用该接口时，默认选择索引为0的扬声器 
+选择指定的扬声器作为音频播放的设备，不调用该接口时，默认选择索引为0的扬声器         
 
 __参数__
 
@@ -463,32 +623,44 @@ __参数__
 |-----|------|------|
 | speakerId | const char * | 麦克风Id，getSpeakerDevicesList 接口查询获取  |
 
-### `getCurrentSpeakerDevice`
-`TXString getCurrentSpeakerDevice()`
+<br/>
+
+### getCurrentSpeakerDevice
+```
+TXString getCurrentSpeakerDevice()
+```
 
 
 __功能__
 
 
-获取已选择的扬声器 
+获取已选择的扬声器         
 
-### `getCurrentSpeakerVolume`
-`uint32_t getCurrentSpeakerVolume()`
+<br/>
 
-
-__功能__
-
-
-查询已选择扬声器的音量，注意查询得到不是系统扬声器的音量大小 
-
-### `setCurrentSpeakerVolume`
-`void setCurrentSpeakerVolume(uint32_t volume)`
+### getCurrentSpeakerVolume
+```
+uint32_t getCurrentSpeakerVolume()
+```
 
 
 __功能__
 
 
-设置SDK播放的音量，注意设置的不是系统扬声器的音量大小 
+查询已选择扬声器的音量，注意查询得到不是系统扬声器的音量大小         
+
+<br/>
+
+### setCurrentSpeakerVolume
+```
+void setCurrentSpeakerVolume(uint32_t volume)
+```
+
+
+__功能__
+
+
+设置SDK播放的音量，注意设置的不是系统扬声器的音量大小         
 
 __参数__
 
@@ -496,17 +668,21 @@ __参数__
 |-----|------|------|
 | volume | uint32_t | 设置的音量大小，范围是[0, 100]  |
 
+<br/>
+
 
 ## 美颜相关接口函数
 
-### `setBeautyStyle`
-`void setBeautyStyle(TRTCBeautyStyle style, uint32_t beauty, uint32_t white, uint32_t ruddiness)`
+### setBeautyStyle
+```
+void setBeautyStyle(TRTCBeautyStyle style, uint32_t beauty, uint32_t white, uint32_t ruddiness)
+```
 
 
 __功能__
 
 
-设置美颜、美白、红润 
+设置美颜、美白、红润         
 
 __参数__
 
@@ -517,17 +693,21 @@ __参数__
 | white | uint32_t | 美白级别，取值范围 0 - 9: 0表示关闭，值越大，效果越明显  |
 | ruddiness | uint32_t | 红润级别，取值范围 0 - 9: 0表示关闭，值越大，效果越明显，该参数暂未生效  |
 
+<br/>
+
 
 ## 屏幕采集共享操作
 
-### `startScreenCapture`
-`void startScreenCapture(HWND rendHwnd, const RECT & rendRect, HWND captureHwnd, const RECT & captureRect, bool captureGLOrDXWindow)`
+### startScreenCapture
+```
+void startScreenCapture(HWND rendHwnd, const RECT & rendRect, HWND captureHwnd, const RECT & captureRect, bool captureGLOrDXWindow)
+```
 
 
 __功能__
 
 
-启动屏幕分享 
+启动屏幕分享         
 
 __参数__
 
@@ -539,14 +719,18 @@ __参数__
 | captureRect | const RECT & | - 指定捕获的区域  |
 | captureGLOrDXWindow | bool | - 无法直接获取某些特殊窗口（openGL渲染的窗口）的画面，captureGLOrDXWindow 设为 true 时，通过截取屏幕区域 实现捕获窗口，默认设为 false 共享整个屏幕 : captureHwnd 设为 NULL，captureRect 设为 { 0, 0, 0, 0 }。 共享指定窗口 : captureHwnd 设为非 NULL，captureRect 设为需要的区域 共享指定区域 : captureHwnd 设为 NULL，captureRect 设为非 NULL  |
 
-### `resetScreenCaptureRect`
-`void resetScreenCaptureRect(const RECT & captureRect)`
+<br/>
+
+### resetScreenCaptureRect
+```
+void resetScreenCaptureRect(const RECT & captureRect)
+```
 
 
 __功能__
 
 
-更新采集区域 
+更新采集区域         
 
 __参数__
 
@@ -554,46 +738,82 @@ __参数__
 |-----|------|------|
 | captureRect | const RECT & | 指定捕获的区域  |
 
-### `stopScreenCapture`
-`void stopScreenCapture()`
+<br/>
+
+### stopScreenCapture
+```
+void stopScreenCapture()
+```
 
 
 __功能__
 
 
-关闭屏幕分享 
+关闭屏幕分享         
+
+<br/>
 
 
 ## 自定义音视频数据
 
-### `setVideoFrameProcessCallback`
-`void setVideoFrameProcessCallback(TRTCVideoFrameFormat format, ITRTCVideoFrameProcessCallback * callback)`
+### setLocalVideoRenderCallback
+```
+void setLocalVideoRenderCallback(ITRTCVideoRenderCallback * callback, TRTCVideoPixelFormat pixelFormat)
+```
 
 
 __功能__
 
 
-设置视频数据回调 
+设置本地视频自定义渲染         
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| format | TRTCVideoFrameFormat | 视频的格式  |
-| callback | ITRTCVideoFrameProcessCallback * | 视频回调，设置为NULL表示不需要回调视频  |
+| callback | ITRTCVideoRenderCallback * | 自定义渲染回调。  |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。  |
 
-__介绍__
+__说明__
 
-这个接口会触发 onLocalVideoFrameAfterProcess 和 onRemoteVideoFrame 回调接口 
+设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过HWND渲染逻辑。 退房、setLocalVideoRenderCallback(null, x)，停止回调 
 
-### `setAudioFrameProcessCallback`
-`void setAudioFrameProcessCallback(TRTCAudioFrameFormat format, ITRTCAudioFrameProcessCallback * callback)`
+<br/>
+
+### setRemoteVideoRenderCallback
+```
+void setRemoteVideoRenderCallback(ITRTCVideoRenderCallback * callback, const char * userId, TRTCVideoPixelFormat pixelFormat)
+```
 
 
 __功能__
 
 
-设置音频数据回调 
+设置远端视频自定义渲染         
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| callback | ITRTCVideoRenderCallback * | 自定义渲染回调。  |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。  |
+
+__说明__
+
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑。 退房、setLocalVideoRenderCallback(null, x)、远端用户退房，停止回调。。
+
+<br/>
+
+### setAudioFrameProcessCallback
+```
+void setAudioFrameProcessCallback(TRTCAudioFrameFormat format, ITRTCAudioFrameProcessCallback * callback)
+```
+
+
+__功能__
+
+
+设置音频数据回调         
 
 __参数__
 
@@ -604,16 +824,20 @@ __参数__
 
 __介绍__
 
-这个接口会触发 onCaptureAudioFrame、 onRemoteAudioFrameBeforeMixing 和 onRemoteAudioFrameAfterMixing 回调接口 
+这个接口会触发 onCaptureAudioFrame、 onRemoteAudioFrameBeforeMixing 和 onRemoteAudioFrameAfterMixing 回调接口         
 
-### `enableCustomVideoCapture`
-`void enableCustomVideoCapture(bool enable)`
+<br/>
+
+### enableCustomVideoCapture
+```
+void enableCustomVideoCapture(bool enable)
+```
 
 
 __功能__
 
 
-启用视频自定义采集模式 
+启用视频自定义采集模式         
 
 __参数__
 
@@ -621,14 +845,18 @@ __参数__
 |-----|------|------|
 | enable | bool | 是否启用  |
 
-### `sendCustomVideoData`
-`void sendCustomVideoData(const char * userId, TRTCVideoFrame * frame)`
+<br/>
+
+### sendCustomVideoData
+```
+void sendCustomVideoData(const char * userId, TRTCVideoFrame * frame)
+```
 
 
 __功能__
 
 
-发送客户自定义的视频数据 
+发送客户自定义的视频数据         
 
 __参数__
 
@@ -637,14 +865,18 @@ __参数__
 | userId | const char * | 用户标识  |
 | frame | TRTCVideoFrame * | 视频帧数据  |
 
-### `enableCustomAudioCapture`
-`void enableCustomAudioCapture(bool enable)`
+<br/>
+
+### enableCustomAudioCapture
+```
+void enableCustomAudioCapture(bool enable)
+```
 
 
 __功能__
 
 
-启用音频自定义采集模式 
+启用音频自定义采集模式         
 
 __参数__
 
@@ -652,14 +884,18 @@ __参数__
 |-----|------|------|
 | enable | bool | 是否启用  |
 
-### `sendCustomAudioData`
-`void sendCustomAudioData(const char * pcmBuffer)`
+<br/>
+
+### sendCustomAudioData
+```
+void sendCustomAudioData(const char * pcmBuffer)
+```
 
 
 __功能__
 
 
-发送客户自定义的音频PCM数据 
+发送客户自定义的音频PCM数据         
 
 __参数__
 
@@ -669,19 +905,23 @@ __参数__
 
 __介绍__
 
-目前SDK只支持16位采样的PCM编码,如果是单声道,请保证传入的PCM长度为2048；如果是双声道,请保证传入的PCM长度为4096 
+目前SDK只支持16位采样的PCM编码,如果是单声道,请保证传入的PCM长度为2048；如果是双声道,请保证传入的PCM长度为4096         
+
+<br/>
 
 
 ## 自定义消息发送
 
-### `sendCustomCmdMsg`
-`bool sendCustomCmdMsg(uint32_t cmdId, const uint8_t * data, uint32_t dataSize, bool reliable, bool ordered)`
+### sendCustomCmdMsg
+```
+bool sendCustomCmdMsg(uint32_t cmdId, const uint8_t * data, uint32_t dataSize, bool reliable, bool ordered)
+```
 
 
 __功能__
 
 
-发送自定义消息给房间内所有用户 
+发送自定义消息给房间内所有用户         
 
 __参数__
 
@@ -697,17 +937,21 @@ __说明__
 
 限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息 限制2：每个包最大为 1 KB，超过则很有可能会被中间路由器或者服务器丢弃 限制3：每个客户端每秒最多能发送总计 8 KB 数据
 
+<br/>
+
 
 ## 背景混音相关接口函数
 
-### `playBGM`
-`void playBGM(const char * path)`
+### playBGM
+```
+void playBGM(const char * path)
+```
 
 
 __功能__
 
 
-播放背景音乐 
+播放背景音乐         
 
 __参数__
 
@@ -715,41 +959,57 @@ __参数__
 |-----|------|------|
 | path | const char * | 音乐文件路径  |
 
-### `stopBGM`
-`void stopBGM()`
+<br/>
+
+### stopBGM
+```
+void stopBGM()
+```
 
 
 __功能__
 
 
-停止播放背景音乐 
+停止播放背景音乐         
 
-### `pauseBGM`
-`void pauseBGM()`
+<br/>
 
-
-__功能__
-
-
-暂停播放背景音乐 
-
-### `resumeBGM`
-`void resumeBGM()`
+### pauseBGM
+```
+void pauseBGM()
+```
 
 
 __功能__
 
 
-继续播放背景音乐 
+暂停播放背景音乐         
 
-### `getBGMDuration`
-`uint32_t getBGMDuration(const char * path)`
+<br/>
+
+### resumeBGM
+```
+void resumeBGM()
+```
 
 
 __功能__
 
 
-获取音乐文件总时长，单位毫秒 
+继续播放背景音乐         
+
+<br/>
+
+### getBGMDuration
+```
+uint32_t getBGMDuration(const char * path)
+```
+
+
+__功能__
+
+
+获取音乐文件总时长，单位毫秒         
 
 __参数__
 
@@ -757,14 +1017,18 @@ __参数__
 |-----|------|------|
 | path | const char * | 音乐文件路径，如果path为空，那么返回当前正在播放的music时长  |
 
-### `setBGMPosition`
-`void setBGMPosition(uint32_t pos)`
+<br/>
+
+### setBGMPosition
+```
+void setBGMPosition(uint32_t pos)
+```
 
 
 __功能__
 
 
-设置BGM播放进度 
+设置BGM播放进度         
 
 __参数__
 
@@ -772,14 +1036,18 @@ __参数__
 |-----|------|------|
 | pos | uint32_t | 单位毫秒  |
 
-### `setMicVolumeOnMixing`
-`void setMicVolumeOnMixing(uint32_t volume)`
+<br/>
+
+### setMicVolumeOnMixing
+```
+void setMicVolumeOnMixing(uint32_t volume)
+```
 
 
 __功能__
 
 
-设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小 
+设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小         
 
 __参数__
 
@@ -787,17 +1055,21 @@ __参数__
 |-----|------|------|
 | volume | uint32_t | 设置的音量大小，范围是[0, 100]  |
 
+<br/>
+
 
 ## 设备和网络测试
 
-### `startSpeedTest`
-`void startSpeedTest(uint32_t sdkAppId, const char * userId, const char * userSig)`
+### startSpeedTest
+```
+void startSpeedTest(uint32_t sdkAppId, const char * userId, const char * userSig)
+```
 
 
 __功能__
 
 
-开始进行网络测速(视屏通话期间请勿测试，以免影响通话质量) 
+开始进行网络测速(视频通话期间请勿测试，以免影响通话质量)         
 
 __参数__
 
@@ -809,26 +1081,34 @@ __参数__
 
 __介绍__
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进性一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
 注意：测速本身会消耗一定的流量，所以也会产生少量额外的流量费用
 
-### `stopSpeedTest`
-`void stopSpeedTest()`
+<br/>
+
+### stopSpeedTest
+```
+void stopSpeedTest()
+```
 
 
 __功能__
 
 
-停止服务器测速 
+停止服务器测速         
 
-### `startCameraDeviceTest`
-`void startCameraDeviceTest(HWND rendHwnd)`
+<br/>
+
+### startCameraDeviceTest
+```
+void startCameraDeviceTest(HWND rendHwnd)
+```
 
 
 __功能__
 
 
-开启摄像头测速，会触发 onLocalVideoFrameAfterProcess 回调接口 
+开启摄像头测速，会触发 onLocalVideoFrameAfterProcess 回调接口         
 
 __参数__
 
@@ -836,23 +1116,31 @@ __参数__
 |-----|------|------|
 | rendHwnd | HWND | 承载预览画面的 HWND  |
 
-### `stopCameraDeviceTest`
-`void stopCameraDeviceTest()`
+<br/>
+
+### stopCameraDeviceTest
+```
+void stopCameraDeviceTest()
+```
 
 
 __功能__
 
 
-停止摄像头测速 
+停止摄像头测速         
 
-### `startMicDeviceTest`
-`void startMicDeviceTest(uint32_t interval)`
+<br/>
+
+### startMicDeviceTest
+```
+void startMicDeviceTest(uint32_t interval)
+```
 
 
 __功能__
 
 
-开启麦克风测试，回调接口 onTestMicVolume 获取视频数据 
+开启麦克风测试，回调接口 onTestMicVolume 获取视频数据         
 
 __参数__
 
@@ -860,23 +1148,31 @@ __参数__
 |-----|------|------|
 | interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于 200 毫秒  |
 
-### `stopMicDeviceTest`
-`void stopMicDeviceTest()`
+<br/>
+
+### stopMicDeviceTest
+```
+void stopMicDeviceTest()
+```
 
 
 __功能__
 
 
-关闭麦克风测试 
+关闭麦克风测试         
 
-### `startSpeakerDeviceTest`
-`void startSpeakerDeviceTest(const char * testAudioFilePath)`
+<br/>
+
+### startSpeakerDeviceTest
+```
+void startSpeakerDeviceTest(const char * testAudioFilePath)
+```
 
 
 __功能__
 
 
-开启扬声器测试，回调接口 onTestSpeakerVolume 获取视频数据 
+开启扬声器测试，回调接口 onTestSpeakerVolume 获取视频数据         
 
 __参数__
 
@@ -886,37 +1182,49 @@ __参数__
 
 __介绍__
 
-该方法测试扬声器是否能正常工作。SDK播放指定的音频文件，测试者如果能听到声音，说明播放设备能正常工作 
+该方法测试扬声器是否能正常工作。SDK播放指定的音频文件，测试者如果能听到声音，说明播放设备能正常工作         
 
-### `stopSpeakerDeviceTest`
-`void stopSpeakerDeviceTest()`
+<br/>
+
+### stopSpeakerDeviceTest
+```
+void stopSpeakerDeviceTest()
+```
 
 
 __功能__
 
 
-停止扬声器测试 
+停止扬声器测试         
+
+<br/>
 
 
 ## 调试相关函数
 
-### `getSDKVersion`
-`TXString getSDKVersion()`
+### getSDKVersion
+```
+TXString getSDKVersion()
+```
 
 
 __功能__
 
 
-获取SDK版本信息 
+获取SDK版本信息         
 
-### `setLogLevel`
-`void setLogLevel(TRTCLogLevel level)`
+<br/>
+
+### setLogLevel
+```
+void setLogLevel(TRTCLogLevel level)
+```
 
 
 __功能__
 
 
-设置log输出级别 
+设置log输出级别         
 
 __参数__
 
@@ -924,14 +1232,18 @@ __参数__
 |-----|------|------|
 | level | TRTCLogLevel | 参见 TRTCLogLevel  |
 
-### `setConsoleEnabled`
-`void setConsoleEnabled(bool enabled)`
+<br/>
+
+### setConsoleEnabled
+```
+void setConsoleEnabled(bool enabled)
+```
 
 
 __功能__
 
 
-启用或禁用控制台日志打印 
+启用或禁用控制台日志打印         
 
 __参数__
 
@@ -939,14 +1251,18 @@ __参数__
 |-----|------|------|
 | enabled | bool | 指定是否启用  |
 
-### `setLogCompressEnabled`
-`void setLogCompressEnabled(bool enabled)`
+<br/>
+
+### setLogCompressEnabled
+```
+void setLogCompressEnabled(bool enabled)
+```
 
 
 __功能__
 
 
-启用或禁用Log的本地压缩 
+启用或禁用Log的本地压缩         
 
 __参数__
 
@@ -956,16 +1272,20 @@ __参数__
 
 __介绍__
 
-开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
+开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。。
 
-### `setLogDirPath`
-`void setLogDirPath(const char * path)`
+<br/>
+
+### setLogDirPath
+```
+void setLogDirPath(const char * path)
+```
 
 
 __功能__
 
 
-设置日志保存路径 
+设置日志保存路径         
 
 __参数__
 
@@ -973,14 +1293,18 @@ __参数__
 |-----|------|------|
 | path | const char * | 存储日志的文件夹，例如 "D:\\Log"，utf-8编码  |
 
-### `setLogCallback`
-`void setLogCallback(ITRTCLogCallback * callback)`
+<br/>
+
+### setLogCallback
+```
+void setLogCallback(ITRTCLogCallback * callback)
+```
 
 
 __功能__
 
 
-设置日志回调 
+设置日志回调         
 
 __参数__
 
@@ -988,14 +1312,18 @@ __参数__
 |-----|------|------|
 | callback | ITRTCLogCallback * | 日志回调  |
 
-### `showDebugView`
-`void showDebugView(int showType)`
+<br/>
+
+### showDebugView
+```
+void showDebugView(int showType)
+```
 
 
 __功能__
 
 
-显示仪表盘（状态统计和事件消息浮层view），方便调试 
+显示仪表盘（状态统计和事件消息浮层view），方便调试         
 
 __参数__
 
@@ -1003,52 +1331,23 @@ __参数__
 |-----|------|------|
 | showType | int | 0: 不显示 1: 显示精简版 2: 显示全量版  |
 
+<br/>
 
 
 
 
-## `TRTCCloud`
-` TRTCCloud()`
+## TRTCCloud
+```
+ TRTCCloud()
+```
 
-## `~TRTCCloud`
-` ~TRTCCloud()`
+<br/>
 
-## `addCallback`
-`void addCallback(ITRTCCloudCallback * callback)`
+## ~TRTCCloud
+```
+ ~TRTCCloud()
+```
 
-
-__功能__
-
-
-添加事件回调 
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| callback | ITRTCCloudCallback * | 事件回调  |
-
-## `removeCallback`
-`void removeCallback(ITRTCCloudCallback * callback)`
+<br/>
 
 
-__功能__
-
-
-移除事件回调 
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| callback | ITRTCCloudCallback * | 事件回调  |
-
-
-
-</div>
-<style>
-#trtc-doc h2 code, #trtc-doc h3 code, #trtc-doc h4 code { display:block; padding:3px 5px; background: #E3F3FF; color: #333; text-shadow:0px 1px #BCD2E2; }
-//#trtc-doc h2{ font-size:28px !important;}
-#trtc-doc table td:nth-child(1){font-family: 'Lucida Console', Monaco, monospace; font-size:14px !important; color: #4078c0}
-#trtc-doc table tr:nth-child(even){background: #fafafa;}
-</style>
