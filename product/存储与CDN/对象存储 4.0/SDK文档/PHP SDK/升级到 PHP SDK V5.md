@@ -20,17 +20,16 @@
 **1. 更新 PHP SDK**
 
 有三种方式安装 COS PHP SDK V5：
-* Composer 方式
-* Phar 方式
-* 源码方式
+* Composer 方式。
+* Phar 方式。
+* 源码方式。
 
 #### Composer 方式
-推荐用户使用 Composer 安装 cos-php-sdk-v5，Composer 是PHP的依赖管理工具，允许您声明项目所需的依赖，然后自动将它们安装到您的项目中。
+推荐用户使用 Composer 安装 COS PHP SDK V5，Composer 是PHP的依赖管理工具，允许您声明项目所需的依赖，然后自动将它们安装到您的项目中。
 
 >?您可以在 [Composer 官网](https://getcomposer.org/) 上找到更多关于如何安装 Composer，配置自动加载以及用于定义依赖项的其他最佳实践等相关信息。
 
-**使用 Composer 安装 COS-PHP-SDK-V5**
-
+##### 使用 Composer 安装 COS-PHP-SDK-V5
 1）打开终端。
 2）下载 Composer。
 ```
@@ -57,7 +56,7 @@ require '/path/to/sdk/vendor/autoload.php';
 至此，您的项目已经可以使用 COS PHP SDK V5 了。
 
 
-#### Phar方式
+#### Phar 方式
 Phar 方式安装 PHP SDK V5 的步骤如下：
 
 1）在 [Github发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
@@ -70,7 +69,7 @@ require  '/path/to/cos-sdk-v5.phar';
 #### 源码方式
 源码方式安装SDK的步骤如下：
 
-1）在[Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
+1）在 [Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
 
 2）解压通过 autoload.php 脚本加载 SDK。
 ```
