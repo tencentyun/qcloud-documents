@@ -1,19 +1,19 @@
-## Namespaces
-Namespaces是Kubernetes支持在同一个集群中进行逻辑环境划分的对象， 您可以通过Namespaces进行管理多个团队多个项目的划分，Namespaces下Kubernetes对象的名称必须唯一，可以通过资源配额进行可用资源的分配，还可以实现不同Namespaces的网络访问控制。
+Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象， 您可以通过 Namespaces 进行管理多个团队多个项目的划分。在 Namespaces 下，Kubernetes 对象的名称必须唯一。您可以通过资源配额进行可用资源的分配，还可以进行不同 Namespaces 网络的访问控制。
 
-### Namespaces使用方法
+## 使用方法
 
-1. TKE控制台使用：TKE控制台提供Namespaces的增删改查功能.
-2. 直接通过kubectl使用 ：更多详情可查看[Kubernetes官网文档](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)
+- 通过 TKE 控制台使用：TKE 控制台提供 Namespaces 的增删改查功能。
+- 通过 Kubectl 使用：更多详情可查看 [Kubernetes 官网文档](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)。
 
-### 使用ResourceQuota设置Namespaces资源使用配额
-一个命名空间下可以拥有多个ResourceQuota资源，每个ResourceQuota可以定义提供给每个Namespace的资源使用约束，可以设置Namespces：
+## 通过 ResourceQuota 设置 Namespaces 资源的使用配额
 
-- 计算资源如CPU内存的配额
-- 存储资源如请求存储的总存储配额
-- Kubernetes对象计数 如 Deployment个数配额
+一个命名空间下可以拥有多个 ResourceQuota 资源，每个 ResourceQuota 可以设置每个 Namespace 资源的使用约束。可以设置 Namespces 资源的使用约束如下：
+- 计算资源的配额，例如 CPU、内存。
+- 存储资源的配额，例如请求存储的总存储。
+- Kubernetes 对象的计数，例如 Deployment 个数配额。
 
-不同Kubernetes版本ResourceQuota支持的配额设置略有差异，更多详情查看[Kubernetes ResourceQuota官方文档](https://kubernetes.io/docs/concepts/policy/resource-quotas/)， 下述为ResourceQuota示例：
+不同的 Kubernetes 版本，ResourceQuota 支持的配额设置略有差异，更多详情可查看 [Kubernetes ResourceQuota 官方文档](https://kubernetes.io/docs/concepts/policy/resource-quotas/)。
+ResourceQuota 的示例如下所示：
 ```yaml
 apiVersion: v1
 kind: ResourceQuota
@@ -31,8 +31,9 @@ spec:
     memory: 200Gi ##该Namespaces下最多使用200Gi的内存
 ```
 
+## 通过 NetWorkPolicy 设置 Namespaces 网络的访问控制
 
-### 使用NetWorkPolicy设置Namespaces网络访问控制
-Network Policy 是 k8s 提供的一种资源，用于定义基于 pod 的网络隔离策略，不局限限制Namespaces， 还可以更细粒度的控制Pod与Pod之间的网络访问控制，它描述了一组 pod 是否可以与其它组 pod，以及其它 network endpoints 进行通信。
+Network Policy 是 k8s 提供的一种资源，用于定义基于 Pod 的网络隔离策略。不仅可以限制 Namespaces， 还可以控制 Pod 与 Pod 之间的网络访问控制，即控制一组 Pod 是否可以与其它组 Pod，以及其它 network endpoints 进行通信。
 
-使用NetworkPolicy需要在集群内部署NetworkPolicy Controller， 详细安装步骤可查看[使用 Network Policy 进行网络访问控制](https://cloud.tencent.com/document/product/457/19793), 此次介绍如何通过NetworkPolicy实现Namespaces间的网络控制。
+在集群内部署 NetworkPolicy Controller，并通过 NetworkPolicy 实现 Namespaces 之间的网络控制的操作详情可查看 [使用 Network Policy 进行网络访问控制](https://cloud.tencent.com/document/product/457/19793)。
+
