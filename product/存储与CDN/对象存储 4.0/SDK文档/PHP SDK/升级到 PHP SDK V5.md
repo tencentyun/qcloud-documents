@@ -159,13 +159,13 @@ API 变化有以下两点：
 1）不再支持目录操作
 对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
+例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含了 a.txt 文件 。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/ `结尾的0KB 文件。这样在您调用`GetBucket`接口时，就可以将这样的文件当做文件夹。
 
 
-2）新增API
-V5 增加了很多新的API，包括：
+2）新增 API
+V5 增加了很多新的 API，包括：
 * 存储桶的操作，如 PutBucketRequest、GetBucketRequest、ListBucketRequest 等。
 * 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。
 * 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
