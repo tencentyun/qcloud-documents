@@ -32,7 +32,7 @@
 
 使用 Composer 安装 PHP SDK V5 步骤如下：
 1）打开终端。
-2）下载 Composer。
+2）下载 Composer，执行命令如下：
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
@@ -49,6 +49,7 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install
 ```
 使用该命令后会在当前目录中创建一个 vendor 文件夹，里面包含 SDK 的依赖库和一个 autoload.php 脚本，方便用户在自己的项目中调用。
+
 5）通过 autoloader 脚本调用 PHP SDK V5。
 ```
 require '/path/to/sdk/vendor/autoload.php';
@@ -85,7 +86,7 @@ require '/path/to/sdk/vendor/autoload.php';
 
 **3. 更改 SDK 初始化方式**
 
-在 V5 中，我们的初始化接口发生了一些变化：
+在 V5 中，我们的初始化接口发生了一些变化，请您对应进行更改。
 
 * 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
 * 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
@@ -129,7 +130,7 @@ V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两�
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可登录 [腾讯云控制台](https://console.cloud.tencent.com/)， 在【账号信息】查看 APPID。
 
 **存储桶可用区域简称 Region**
-V5 的存储桶可用区域简称发生了变化，在初始化时，请按照下列表格填写 region 字段。
+V5 的存储桶可用区域简称发生了变化， 在初始化时，请按照下列表格填写 region 字段。
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
