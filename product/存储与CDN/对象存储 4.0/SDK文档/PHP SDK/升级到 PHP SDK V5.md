@@ -17,7 +17,7 @@
 
 ## 升级步骤
 
-1. 更新 PHP SDK
+**1. 更新 PHP SDK**
 
 有三种方式安装 COS PHP SDK V5：
 * Composer 方式
@@ -30,12 +30,13 @@
 >?您可以在 [Composer 官网](https://getcomposer.org/) 上找到更多关于如何安装 Composer，配置自动加载以及用于定义依赖项的其他最佳实践等相关信息。
 
 **使用 Composer 安装 COS-PHP-SDK-V5**
-1.  打开终端。
-2. 下载 Composer。
+
+1）打开终端。
+2）下载 Composer。
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
-3. 创建一个名为`composer.json`的文件，内容如下：
+3）创建一个名为`composer.json`的文件，内容如下：
 ```
 {
     "require": {
@@ -43,12 +44,12 @@ curl -sS https://getcomposer.org/installer | php
     }
 }
 ```
-4. 使用 Composer 安装，执行命令如下：
+4）使用 Composer 安装，执行命令如下：
 ```
 php composer.phar install
 ```
 使用该命令后会在当前目录中创建一个 vendor 文件夹，里面包含 SDK 的依赖库和一个 autoload.php 脚本，方便用户在自己的项目中调用。
-5. 通过 autoloader 脚本调用 PHP SDK V5。
+5）通过 autoloader 脚本调用 PHP SDK V5。
 ```
 require '/path/to/sdk/vendor/autoload.php';
 ```
@@ -59,9 +60,9 @@ require '/path/to/sdk/vendor/autoload.php';
 #### Phar方式
 Phar 方式安装 PHP SDK V5 的步骤如下：
 
-1.  在 [Github发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
+1）在 [Github发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
 
-2.  在代码中引入 Phar 文件：
+2）在代码中引入 Phar 文件：
 ```
 require  '/path/to/cos-sdk-v5.phar';
 ```
@@ -69,9 +70,9 @@ require  '/path/to/cos-sdk-v5.phar';
 #### 源码方式
 源码方式安装SDK的步骤如下：
 
-1.  在[Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
+1）在[Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
 
-2.  解压通过 autoload.php 脚本加载 SDK。
+2）解压通过 autoload.php 脚本加载 SDK。
 ```
 require '/path/to/sdk/vendor/autoload.php';
 ```
@@ -174,3 +175,6 @@ V5 增加了很多新的API，包括：
 * 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
 
 具体请参考我们的 PHP [SDK 接口文档](https://cloud.tencent.com/document/product/436/12267)。
+
+
+
