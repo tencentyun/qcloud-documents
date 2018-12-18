@@ -1,4 +1,4 @@
-如果您细心对比过 PHP SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。COS V5 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 PHP SDK V5，请参考下面的指引，完成 PHP SDK 的升级工作。
+如果您细心对比过 PHP SDK V4 和 V5 的文档，您会发现并不是一个简单的增量更新。PHP SDK V5 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 PHP SDK V5，请参考下面的指引，完成 PHP SDK 的升级工作。
 
 ## 功能对比
 
@@ -24,12 +24,12 @@
 * Phar 方式。
 * 源码方式。
 
-#### Composer 方式
-推荐用户使用 Composer 安装 COS PHP SDK V5，Composer 是PHP的依赖管理工具，允许您声明项目所需的依赖，然后自动将它们安装到您的项目中。
+**Composer 方式**
+推荐用户使用 Composer 安装 COS PHP SDK V5，Composer 是 PHP 的依赖管理工具，允许您声明项目所需的依赖，然后自动将它们安装到您的项目中。
 
 >?您可以在 [Composer 官网](https://getcomposer.org/) 上找到更多关于如何安装 Composer，配置自动加载以及用于定义依赖项的其他最佳实践等相关信息。
 
-##### 使用 Composer 安装 COS-PHP-SDK-V5
+使用 Composer 安装 PHP SDK V5 步骤如下：
 1）打开终端。
 2）下载 Composer。
 ```
@@ -56,7 +56,7 @@ require '/path/to/sdk/vendor/autoload.php';
 至此，您的项目已经可以使用 COS PHP SDK V5 了。
 
 
-#### Phar 方式
+**Phar 方式**
 Phar 方式安装 PHP SDK V5 的步骤如下：
 
 1）在 [Github发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
@@ -66,7 +66,7 @@ Phar 方式安装 PHP SDK V5 的步骤如下：
 require  '/path/to/cos-sdk-v5.phar';
 ```
 
-#### 源码方式
+**源码方式**
 源码方式安装SDK的步骤如下：
 
 1）在 [Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
@@ -125,7 +125,7 @@ PHP SDK V5 的存储桶名称和可用区域简称与 V4 的不同，需要您�
 V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。
 例如`mybucket1-1250000000`，其中`mybucket1`为用户自定义字符串，`1250000000`为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可登录 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可登录 [腾讯云控制台](https://console.cloud.tencent.com/)， 在【账号信息】查看 APPID。
 
 **存储桶可用区域简称 Region**
 V5 的存储桶可用区域简称发生了变化，在初始化时，请按照下列表格填写 region 字段。
