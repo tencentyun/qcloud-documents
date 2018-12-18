@@ -15,7 +15,7 @@ BGP 高防 IP 提供面向 DDoS 攻击的高级防护策略功能，用户可针
 
 > !高级安全防护策略功能具有一定专业性，建议有相关经验的用户在阅读以下操作指南后根据实际情况进行配置。
 
-登录 [DDoS防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP高防IP】>【防护配置】。在【DDoS高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
 ![](https://main.qcloudimg.com/raw/c392ecfccfb97d7533cf406d8ab92e81.png)
 
 - **策略名称**
