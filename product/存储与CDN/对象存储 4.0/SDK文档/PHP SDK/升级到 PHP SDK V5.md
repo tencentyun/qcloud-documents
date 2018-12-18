@@ -61,7 +61,7 @@ require '/path/to/sdk/vendor/autoload.php';
 **Phar 方式**
 Phar 方式安装 PHP SDK V5 的步骤如下：
 
-1）在 [Github发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
+1）在 [Github 发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 phar 文件。
 
 2）在代码中引入 Phar 文件：
 ```
@@ -71,7 +71,7 @@ require  '/path/to/cos-sdk-v5.phar';
 **源码方式**
 源码方式安装SDK的步骤如下：
 
-1）在 [Github发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
+1）在 [Github 发布页面](https://github.com/tenc[]()entyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
 
 2）解压通过 autoload.php 脚本加载 SDK。
 ```
