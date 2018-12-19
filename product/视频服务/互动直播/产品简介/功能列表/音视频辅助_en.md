@@ -18,13 +18,13 @@ Capability differences between the two methods:
 | Method for watching | Watch from App | Watch by using the channel ID or LVB link you acquired |
 | Video format | Non-open format | RTMP, FLV, HLS are all supported |
 | Member limit | A maximum of 100,000 members can watch in the same room, at the same time | No limit |
-| Room/channel limit | No limit for number of rooms | 5 free initial channels are provided for free, and you can add new paid channels</br>Channels are managed using the Cloud LVB Console. [Channel Management](https://www.qcloud.com/doc/product/267/4697) |
+| Room/channel limit | No limit for number of rooms | 5 free initial channels are provided for free, and you can add new paid channels</br>Channels are managed using the Cloud LVB Console. [Channel Management](https://cloud.tencent.com/doc/product/267/4697) |
 
 For this reason, non-interactive broadcasting is suitable for users without corresponding Apps to watch contents (such as promotions), or for large-scale LVB events with a concurrency of more than 100,000 participants.
 
-[Price for Non-Interactive Broadcasting](https://www.qcloud.com/doc/product/268/5129#1..E6.97.81.E8.B7.AF.E7.9B.B4.E6.92.AD.E8.AE.A1.E8.B4.B9)
+[Price for Non-Interactive Broadcasting](https://cloud.tencent.com/doc/product/268/5129#1..E6.97.81.E8.B7.AF.E7.9B.B4.E6.92.AD.E8.AE.A1.E8.B4.B9)
 
-[Non-Interactive Broadcasting Development Manual](https://www.qcloud.com/doc/product/268/3219)
+[Non-Interactive Broadcasting Development Manual](https://cloud.tencent.com/doc/product/268/3219)
 
 
 ### Recording

@@ -1,7 +1,7 @@
 ## 1 Overview
 Client fails to or cannot always connect to Cloud Memcached possibly due to the server environment of client.
 This tool is used to diagnose the TCP connection environment status on the client server.
-For any questions, contact us via Tencent Cloud [Ticket System](http://console.qcloud.com/ticket).
+For any questions, contact us via Tencent Cloud [Ticket System](http://console.cloud.tencent.com/ticket).
 
 ## 2. How to use the tool
 ### 2.1 Installation steps

@@ -4,7 +4,7 @@ Domain name: live.api.qcloud.com
 API name: DescribeQueueLog
 
 Note: This API is used to query the queue of a screenshot and can also be used for other message queuing services.
-The screenshot files are stored on COS for long-term storage. You need to activate the service before you can use this feature, and you will be charged a fee (for the storage and etc.) based on the billing mode for COS. See the [Relevant Document](http://www.qcloud.com/product/cos.html) for details.
+The screenshot files are stored on COS for long-term storage. You need to activate the service before you can use this feature, and you will be charged a fee (for the storage and etc.) based on the billing mode for COS. See the [Relevant Document](http://cloud.tencent.com/product/cos.html) for details.
 
 **Note: This service must be activated separately for the queue query API**. You can submit a request through the after-sales QQ number 514025596 to activate the service. You can send the request by simply indicating that "I want to activate the LVB screenshot query queue API service" as well as the account information in the message. The service will be activated within one business day. You can also choose to perform query through COS related APIs. In this case, you do not need to activate this service separately.
 
@@ -62,7 +62,7 @@ The screenshot files are stored on COS for long-term storage. You need to activa
 
 Input 1
 <pre>
-http://domain/v2/index.php?Action=DescribeQueueLog&bid=100&count=5&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+http://domain/v2/index.php?Action=DescribeQueueLog&bid=100&count=5&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 
@@ -105,4 +105,4 @@ Description of the screenshot URL
 http://(cos_bucketname)-(cos_appid).file.myqcloud.com/file name
 Example:
 http://record1-10005041.file.myqcloud.com/2000_f3d36****eeb11e5b91fa4dcbef5e35a_1453255801_0_146324_1280_720.jpg
-For details on the access method, refer to the COS [Relevant Documents](https://www.qcloud.com/document/product/430).
+For details on the access method, refer to the COS [Relevant Documents](https://cloud.tencent.com/document/product/430).

@@ -3,7 +3,7 @@ This API (DescribeTaskInfo) is used to query the results of a task.
 Domain name for API request: <font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when API is called. For more information, please see <a href='/doc/api/260/1753' title='Common Request Parameters'>Common Request Parameters</a>. The Action field for this API is DescribeTaskInfo.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when API is called. For more information, please see <a href='https://cloud.tencent.com/document/api/239/7200' title='Common Request Parameters'>Common Request Parameters</a>. The Action field for this API is DescribeTaskInfo.
 
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> code <td> Int <td> Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page.
+<td> code <td> Int <td> Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page.
 <tr>
 <td> message <td> String <td> Error message
 <tr>
@@ -50,7 +50,7 @@ The following error codes include the business logic error codes for this API.
 ## 5. Example
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeTaskInfo
-&<<a href="https://www.qcloud.com/doc/api/229/6976">common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 &requestId=11963
 </pre>
 The returned results are as below:

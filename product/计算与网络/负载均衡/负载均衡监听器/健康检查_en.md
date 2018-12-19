@@ -2,7 +2,7 @@ Tencent Cloud's cloud load balancer instances can periodically send Ping to back
 
 If it is concluded that a back-end CVM instance is unhealthy, the cloud load balancer instance will not forward requests to the instance.  But health check will be performed on all back-end CVMs, whether healthy or unhealthy, and when the unhealthy instance returns to normal state, the cloud load balancer instance will resume forwarding new requests to it. 
 
-Auto scaling group regularly checks the running status of instances within each group in a similar way.  For more information, refer to [Auto Scaling Product Documentation](https://www.qcloud.com/doc/product/377). 
+Auto scaling group regularly checks the running status of instances within each group in a similar way.  For more information, refer to [Auto Scaling Product Documentation](https://cloud.tencent.com/doc/product/377). 
 
 ## Definitions of Health Check Configuration Fields 
 

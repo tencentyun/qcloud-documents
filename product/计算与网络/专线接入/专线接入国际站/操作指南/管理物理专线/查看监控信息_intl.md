@@ -1,0 +1,3 @@
+You can query the monitoring data (outbound and inbound bandwidth, packet loss, and latency) of physical direct connects in the console or via API. The console operations are as follows:
+1. Open [Tencent Cloud Direct Connect Console - Physical Direct Connect](https://console.cloud.tencent.com/vpc/dc).
+2. Click your physical direct connect in the list, and click the **Monitoring** button to query the monitoring data of the physical direct connect.

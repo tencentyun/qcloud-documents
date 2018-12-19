@@ -3,15 +3,15 @@ As shown in the figure below, in this exercise, you will create a VPC and a subn
 
 You need to complete the following steps:
 
-[Step 1: Create a VPC and initialize subnets and routing tables](https://www.qcloud.com/document/product/215/8113)
+[Step 1: Create a VPC and initialize subnets and routing tables](https://cloud.tencent.com/document/product/215/8113)
 
-[Step 2: Create a subnet](https://www.qcloud.com/document/product/215/8114)
+[Step 2: Create a subnet](https://cloud.tencent.com/document/product/215/8114)
 
-[Step 3: Create a routing table to associate with a subnet](https://www.qcloud.com/document/product/215/8115)
+[Step 3: Create a routing table to associate with a subnet](https://cloud.tencent.com/document/product/215/8115)
 
-[Step 4: Add a CVM to the subnet](https://www.qcloud.com/document/product/215/8116)
+[Step 4: Add a CVM to the subnet](https://cloud.tencent.com/document/product/215/8116)
 
-[Step 5: Bind an elastic IP to the CVM for accessing the public network](https://www.qcloud.com/document/product/215/8118)
+[Step 5: Bind an elastic IP to the CVM for accessing the public network](https://cloud.tencent.com/document/product/215/8118)
 
-[(Optional) Step 6: Create a security group for network traffic control](https://www.qcloud.com/document/product/215/8117)
+[(Optional) Step 6: Create a security group for network traffic control](https://cloud.tencent.com/document/product/215/8117)
 

@@ -15,6 +15,6 @@ select * from emp order by sal, deptno desc;
 Note:
 - 	Only "read by slave" (select) is supported rather than other operations. Non-select statements will fail.
 - -c parameter needs to be added after mysql to resolve the annotation.	
-- `/*slave*/` must be lowercase, and no spaces are needed before and after the statement.
+- `/*slave*/` must be lowercase, and no space is needed before and after the statement.
 - 	If MAR (Strongsync) mechanism is affected due to slave exception, the read operation on slave is automatically switched to that on master.
 

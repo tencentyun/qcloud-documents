@@ -1,1 +1,0 @@
-Cloud database can now provide alarm for key performance metrics via SMS, email and internal message. You can configure alarm through [Cloud Monitoring](https://console.qcloud.com/monitor/overview) -> [Alarm Policy](https://console.qcloud.com/monitor/policylist/add) in Tencent Cloud Console.

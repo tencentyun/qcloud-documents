@@ -6,7 +6,7 @@ For GCC instances, we now provide G2 instances which are suitable for general GP
 	•	High-frequency Intel Xeon E5-2680 (Broadwell) processor
 	•	High-performance NVIDIA Tesla M40 GPU, each with 3,072 CUDA cores and 24 GB video memory
 	•	Network enhancement is available by default (free).
-	•      You can [Purchase Elastic Cloud Disk](https://www.qcloud.com/document/product/362/2732) separately and mount them if you need to expand local SSD capacity.	
+	•      You can [Purchase Elastic Cloud Disk](https://cloud.tencent.com/document/product/362/2732) separately and mount them if you need to expand local SSD capacity.	
 	
 	
 **G2 instances are provided in two configurations:**

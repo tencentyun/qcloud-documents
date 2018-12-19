@@ -44,7 +44,7 @@ groupName=test_group2&isDefault=0&agent.0.province=gd&agent.0.isp=cmc&agent.1.pr
 
 ```
 https://catapi.api.qcloud.com/v2/index.php?
-& <<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+& <<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &Action=CreateCatAgentGroup
 &groupName=test_group2
 &isDefault=0

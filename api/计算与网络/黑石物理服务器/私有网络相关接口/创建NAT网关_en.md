@@ -9,10 +9,10 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | natName | Yes | string | NAT gateway name, which has a length of 1-25 characters, and can contain uppercase and lowercase English letters, numbers, and underscores.  |
-| vpcId | Yes | string | VPC ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
+| vpcId | Yes | string | VPC ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
 | maxConcurrent | Yes | int | Maximum gateway concurrent connections. For example: 1,000,000, 3,000,000, 10,000,000.  |
 | assignedEipSet.n | No | Array | EIP array bound to a gateway. At least one of the two EIP arrays bound to the gateway, assignedEipSet and autoAllocEipNum, must be passed, for example: assignedEipSet.0=10.0.0.1. For more information about EIP, please see Elastic IP. |
-| subnetIds.n | No | Array | Array of unique IDs of subnets bound to a gateway. For example: subnet-k20jbhp0. You can query the subnet through API <a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>. |
+| subnetIds.n | No | Array | Array of unique IDs of subnets bound to a gateway. For example: subnet-k20jbhp0. You can query the subnet through API <a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>. |
 | subnetAll | No | int | Whether to contain all the subnets under the VPC, including the new ones. If subnetAll is 0, you must pass subnetIds subnet information |
 | autoAllocEipNum | No | int | The number of EIPs for new requests. The system will generate several EIPs according to your needs. At least one of the assignedEipSet and autoAllocEipNum must be passed. For more information on EIP, please see Elastic IP.  |
 
@@ -27,12 +27,12 @@ The following request parameter list only provides API request parameters. Commo
 | data | Array | Returned operation task ID. You can query the creation result by calling API <a href="" title="QueryBmNatGatewayProductionStatus">QueryBmNatGatewayProductionStatus</a>. |
 
 ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Error Message | Error Description |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
-| -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
+| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query VPC through API <a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
+| -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
 | 13006 | InvalidBmVpc.NatGatewayLimitExceeded |The number of created NAT gateways exceeds the limit. Please contact customer service for more resources. The maximum number of NAT gateways allowed to be created for each VPC is 5. |
 | 13010 | BmVpcNat.InvalidEip | EIP bound to NAT gateway does not exist.  |
 | 13011 | BmVpcNat.InvalidEipVpcId | EIP and NAT gateway do not belong to the same VPC.  |
@@ -43,7 +43,7 @@ The following error codes only include the business logic error codes for this A
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=CreateBmNatGateway
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &natName=zhezhe
 &vpcId=vpc-kd7d06of
 &maxConcurrent=1000000

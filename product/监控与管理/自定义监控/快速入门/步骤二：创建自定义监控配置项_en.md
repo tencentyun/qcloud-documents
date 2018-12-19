@@ -2,7 +2,7 @@
 ## 1. Create Custom Namespace
 In this example, we use API for creation. Users can also create in CCM console.
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 Execute the following commands to create a namespace:
 
@@ -27,7 +27,7 @@ Create a metric (proc_cpu) in the namespace (proc_monitor) you just created, and
 
 In this example, we use API for creation. Users can also create in CCM console.
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 ```
 # curl -k https://monitor.api.qcloud.com/v2/index.php?Action=CreateMetric
@@ -54,7 +54,7 @@ You can add multiple sets of statistical method and period using the parameter s
 
 In this example, we use API for creation. Users can also create in CCM console.
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 ```
 #curl -k https://monitor.api.qcloud.com/v2/index.php?Action=CreateMetricStatisticsType

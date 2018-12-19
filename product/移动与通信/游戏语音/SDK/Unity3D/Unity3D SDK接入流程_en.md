@@ -19,9 +19,9 @@ Download and decompress the SDK package, you will see:
 
 ## 3 Call APIs
 1. Basic API: For both Voice Chat and Voice Message features, you need to call basic APIs for initialization at start and deinitialization at the end. You also need to call `Poll` for callbacks of APIs called in the process.
-[Call Basic APIs](https://www.qcloud.com/document/product/556/7675).  
+[Call Basic APIs](https://cloud.tencent.com/document/product/556/7675).  
 2. Voice Chat API: Used for Voice Chat feature
-[Call of instant voice API](https://www.qcloud.com/document/product/556/7676).   
+[Call of instant voice API](https://cloud.tencent.com/document/product/556/7676).   
 3. Voice Message API: Used for Voice Message feature
-[Call of voice message API](https://www.qcloud.com/document/product/556/7677)    
+[Call of voice message API](https://cloud.tencent.com/document/product/556/7677)    
 ![](https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png) 

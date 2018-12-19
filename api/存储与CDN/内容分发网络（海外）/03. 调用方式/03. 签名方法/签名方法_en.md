@@ -6,7 +6,7 @@ Before using the Cloud API for the first time, user needs to apply for a securit
 
 To apply for a security credential, please proceed as follows:
 
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Click "Cloud Products", and choose "Cloud API Key" under "Monitor & Management" to access the Cloud API key management page.
 ![](//mccdn.qcloud.com/static/img/d9ee6db6ea3736d5aa04b9f161242b27/image.jpg)
@@ -24,7 +24,7 @@ Suppose that a user has the following SecretId and SecretKey:
 >SecretKey: pxPgRWDbCy86ZYyqBTDk7WmeRZSmPco0
 
 **Note: This is just an example. Please proceed with your actual SecretId and SecretKey!**
-Take [Query domain information](https://www.qcloud.com/doc/api/231/%E6%9F%A5%E8%AF%A2%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF)(DescribeCdnHosts) request as an example. When the user calls the API, the request parameters are as follows:
+Take [Query domain information](https://cloud.tencent.com/doc/api/231/%E6%9F%A5%E8%AF%A2%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF)(DescribeCdnHosts) request as an example. When the user calls the API, the request parameters are as follows:
 
 | Parameter name | Description | Parameter Value |
 | ------ | ---- | ---- |

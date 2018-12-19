@@ -1,20 +1,18 @@
 ## 功能说明
 HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储（COS）上。
-## 使用限制
-适用于 COS V5 版本
 ## 使用环境
 ### 系统环境
 Linux 或 Windows 系统
 ### 软件依赖
 JDK 1.7 或1.8 
 #### 安装与配置
-具体环境安装与配置请参考 [Java 安装与配置](doc/product/436/10865)。
+具体环境安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 ## 配置及使用方法
 ### 配置方法
 1. 安装 Hadoop-2.7.2 及以上版本，具体安装步骤请参考 [Hadoop 安装与测试](/doc/product/436/10867)。
 2. 通过 [GitHub 地址](https://github.com/tencentyun/hdfs_to_cos_tools) 下载 HDFS TO COS 工具并解压缩。
 3. 将要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 文件夹中，其中 core-site.xml 中包含 NameNode 的配置信息。
-4. 编辑配置文件`cos_info.conf`， 包括 APPID、存储桶（Bucket）、地域（Region）以及 API 密钥信息。
+4. 编辑配置文件`cos_info.conf`， 存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000。
 5. 在命令行参数中指定配置文件位置， 默认位置 `conf/cos_info.conf`。
 > <font color="#0000cc">**注意：** </font>
 当命令行参数中的参数与配置文件重合时，以命令行为准。
@@ -48,7 +46,7 @@ dep  : 编译生成的可运行的 JAR 包
 ```
 ## 问题与帮助
 #### 关于配置信息
-请确保填写的配置信息正确，包括 APPID、存储桶（Bucket）、地域（Region）以及 API 密钥信息。并保证机器的时间和北京时间一致（相差 1 分钟左右是正常的），如果相差较大，请重新设置机器时间。
+请确保填写的配置信息正确，包括 存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000。并保证机器的时间和北京时间一致（相差 1 分钟左右是正常的），如果相差较大，请重新设置机器时间。
 #### 关于 DateNode
 请保证对于 DateNode，拷贝程序所在的机器也可以连接。NameNode 有外网 IP 可以连接，但获取的 block 所在的 DateNode 机器是内网 IP，是无法直接连接上的。因此建议同步程序放在 Hadoop 的某个节点上执行，保证对 NameNode 和 DateNode 皆可访问。
 #### 关于权限

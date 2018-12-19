@@ -1,13 +1,13 @@
 ## 1. Feature Description
 An SQL statement query that takes longer than specified time is called a "slow log", and such statement is referred to as "slow log statement". We refer to the process in which database admin (DBA) analyzes the statement and tries to find out the cause for the slow log as "slow log analysis".
 
-Tencent Cloud Database (CDB for TDSQL) provides slow log analysis feature which can be found in "Instance Management" -> "Performance Optimization".
+Tencent Cloud Database (CDB for TDSQL) provides slow log analysis feature which can be found in **Instance Management** -> **Performance Optimization**.
 
 ## 2. Main Parameters
 ### (1) Main Default Settings
 -   Slow log feature: Enabled by default.
--   Slow log time (long_query_time): 1 second, that is, only query statements that take longer than 1 second are recorded.
--   Analysis delay: 1-5 minutes.
+-   Slow log time (long_query_time): one second, that is, only query statements that take longer than one second are recorded.
+-   Analysis delay: 1 to 5 minutes.
 
 ### (2) Fields in the Analysis List
 -   Checksum (checksum): A sequence of numbers used to identify the slow log statement (64-bit by default);

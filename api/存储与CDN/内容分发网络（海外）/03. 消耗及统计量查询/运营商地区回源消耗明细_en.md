@@ -13,11 +13,11 @@ Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 + If you specify neither ISP nor region, the consumption retails of every ISP in every region will be returned;
 + Nothing will be returned if there is no data.
 
-[Call Demo](https://www.qcloud.com/document/product/228/1734)
+[Call Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is GetCdnOverseaProvIspHyDetailStat.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page for details. The Action field for this API is GetCdnOverseaProvIspHyDetailStat.
 
 | Parameter Name     | Required | Type     | Description                                       |
 | -------- | ---- | ------ | ---------------------------------------- |
@@ -39,7 +39,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81).  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81).  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Object | Data result, details are described below                             |

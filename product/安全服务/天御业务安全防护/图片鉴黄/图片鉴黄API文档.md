@@ -5,7 +5,7 @@
 <br> 接口名：FileDetection
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/document/product/295/7279)页面。其中，此接口的Action字段为FileDetection。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)页面。其中，此接口的Action字段为FileDetection。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -48,7 +48,7 @@
 </th></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见<a href=https://www.qcloud.com/document/product/295/7285 target="blank">错误码页面。</a></td>
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见<a href=https://cloud.tencent.com/document/product/295/7285 target="blank">错误码页面。</a></td>
 <tr><td> codeDesc
 </td><td> String
 </td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
@@ -97,7 +97,7 @@
 
 ## 4.示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/c8aa3de8d147ae873b9645c1b84eaac4/FileDetection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/df6e1d58b1a853e9af459e034661feb9/FileDetection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/6ad6797367a37e8cd7d09f94b008b76e/FileDetection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/5314a5e2171556d17cc197cf1cc7e14d/FileDetection.cs.zip)
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)小节。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=FileDetection

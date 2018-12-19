@@ -1,0 +1,22 @@
+
+**请求示例**
+
+```
+DELETE /dog.jpg?tagging HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: chengwus3sdktj-1251668577.cos.ap-beijing-1.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516362927;1517362977&q-key-time=1516362927;1517362977&q-url-param-list=tagging&q-header-list=host&q-signature=da82624189ea0982bcd2928d717a584af6d3789b
+```
+
+**响应示例**
+
+```
+HTTP/1.1 204 No Content
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Fri, 19 Jan 2018 11:56:23 GMT
+Server: tencent-cos
+x-cos-request-id: NWE2MWRjZTdfNTJhZTM1MGFfNGJkY18yYjYyOQ==
+```

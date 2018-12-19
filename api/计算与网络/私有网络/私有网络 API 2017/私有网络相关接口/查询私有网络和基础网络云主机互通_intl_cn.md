@@ -1,0 +1,79 @@
+## 1. 接口描述
+ 
+本接口(DescribeVpcClassicLink)用于查询私有网络和基础网络云主机互通。
+接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+
+
+ 
+
+## 2. 输入参数
+ 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeVpcClassicLink。
+
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| vpcId | 否 | String | 系统分配的私有网络ID，支持升级前的vpcId，也支持升级后的unVpcId，例如：vpc-dgd5454。 |
+| classicLinkId | 否 | String | vpc与基础网络云主机互通ID，例如：vcx-opgnzgo9。 |
+| lanIp | 否 | String | 云主机内网IP。 |
+| offset | 否 | Int | 初始行的偏移量，默认为0。 |
+| limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
+| orderField | 否 | String | 按某个字段排序，默认不排序。支持字段：createTime。 |
+| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。 |
+ 
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| message | String | 模块错误信息描述，与接口相关。|
+| totalCount | Int | 返回的互通总数量。|
+| data.n | Array | 返回信息详情。|
+| data.n.lanIp | String | 腾讯云主机内网ip地址。|
+| data.n.unVpcId | String | 系统分配的vpc统一ID，由vpcId升级而来，为了兼容这两种ID系统都支持，推荐使用统一ID，示例：vpc-2ari9m7h。|
+| data.n.vpcId | String | 系统分配的私有网络ID，例如：gz_vpc_15。|
+| data.n.classicLinkId | String | 系统分配的互通ID，例如：vcx-opgnzgo9。|
+| data.n.createTime | String | 创建时间，例如：2016-01-21 14:59:37。|
+| data.n.instanceId | String | 腾讯云主机统一ID，例如：ins-xxd51df。|
+| data.n.instanceName | String | 腾讯云主机名称。|
+
+ ## 4. 错误码表
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+
+| 错误码 | 描述 |
+|---------|---------|
+| InvalidLanIp.NotFound | 云主机不存在，请核实您填写的lanIp是否正确，查询VPC下云主机详见<a href="https://cloud.tencent.com/doc/api/229/831" title="查看云主机实例列表">查看云主机实例列表</a>。 |
+| InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
+
+## 5. 示例
+ 
+输入
+<pre>
+
+  https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpcClassicLink
+	&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+	&vpcId=vpc-2ari9m7h
+	&classicLinkId=vcx-df454d
+</pre>
+
+输出
+```
+
+{
+    "code": 0,
+    "message": "",
+		"totalCount":"1",
+		"data":[
+        {
+            "lanIp":"10.232.18.145",
+            "uniqVpcId":"vpc-8e0ypm3z",
+            "vpcId":"gz_vpc_245",
+            "classicLinkId":"vcx-opgnzgo9",
+            "createTime":"2016-01-21 14:59:37",
+            "instanceId":"ins-d1o128ru",
+            "instanceName":"未命名"
+        }
+    ]
+}
+
+```
+

@@ -25,7 +25,7 @@ $HttpMethod="GET";
 /*Most APIs are based on HTTPS protocol, except a small number of APIs such as MultipartUploadVodFile*/
 $isHttps =true;
 
-/*Your key is required. You can obtain SecretId and $secretKey from https://console.qcloud.com/capi*/
+/*Your key is required. You can obtain SecretId and $secretKey from https://console.cloud.tencent.com/capi*/
 $secretKey='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 
 

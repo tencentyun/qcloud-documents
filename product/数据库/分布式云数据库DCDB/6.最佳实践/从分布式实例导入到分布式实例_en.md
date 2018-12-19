@@ -63,4 +63,4 @@ Purchase linux CVM and use `yum install mariadb-server` to install mysqldump.
     mysql --default-character-set=utf8 -uusername -ppassword -hxxx.xxx.xxx.xxx -Pxxxxx dbname < data.sql
 ```
 
->Note: If auto-increment field is used in the source table and error "Column 'xx' specified twice" occurred while importing data, you need to delete the backquotes in the auto-increment field (cat schema.sql | tr "\`" " " > schema_tr.sql) of schema.sql, drop database, and then repeat steps 3-5 using the modified schema_tr.sql.
+>Note: If auto-increment field is used in the source table and error "Column 'xx' specified twice" occurred while importing data, you need to delete the backquotes in the auto-increment field (cat schema.sql | tr "\`" " " > schema_tr.sql) of schema.sql, drop database, and then repeat steps 3 to 5 using the modified schema_tr.sql.

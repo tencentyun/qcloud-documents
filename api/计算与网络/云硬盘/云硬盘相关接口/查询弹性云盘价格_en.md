@@ -1,10 +1,10 @@
 ## 1. API Description
 
-This API (InquiryStoragePrice) is used to query the price of [Elastic Cloud Storage](https://www.qcloud.com/doc/product/362/2345). The API's functions vary with different input parameters. For details, refer to the description later.
+This API (InquiryStoragePrice) is used to query the price of [Elastic Cloud Storage](https://cloud.tencent.com/doc/product/362/2345). The API's functions vary with different input parameters. For details, refer to the description later.
 
 Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
+Usage restrictions:<br>
 
 1. Only query for the price of elastic cloud storages is supported
 
@@ -15,9 +15,9 @@ Usage restrictions:
 | Parameter Name | Required  | Type | Description |
 | ------- | ------- | ------- | --- | 
 | inquiryType | Yes | String | For query for the price of newly purchased cloud disks, the input parameter is always "create" | 
-| storageType | Yes | String | Type of the Cloud Block Storage. HDD cloud storage: cloudBasic, SSD cloud storage: cloudSSD |
-| storageSize | Yes | Int | Size of Cloud Block Storage (GB). <br>The minimum size of a HDD cloud storage is 10GB, and the minimum of a SSD cloud storage is 250GB. The increment for both is 10GB. |
-| goodsNum | Yes | Int | The number of Cloud Block Storages purchased. The maximum is 10 | 
+| storageType | Yes | String | Type of the Cloud Block Storage.<br><li>HDD cloud storage: cloudBasic<br><li>SSD cloud storage: cloudSSD |
+| storageSize | Yes | Int | Size of Cloud Block Storage (GB). <br>The minimum size of a HDD cloud storage is 10GB, and the minimum of a SSD cloud storage is 100GB. The increment for both is 10GB. |
+| goodsNum | Yes | Int | The number of Cloud Block Storages purchased. The maximum value refer to [Cloud Block Storage Usage Restrictions](https://cloud.tencent.com/doc/product/362/5145). | 
 | period | Yes | Int | Length of purchase (month) | 
 | payMode | Yes | String | Payment mode of the Cloud Block Storage. Only the annual or monthly plan: prePay is supported currently | 
  
@@ -44,14 +44,14 @@ Usage restrictions:
 
 | Parameter Name | Type | Description |
 | ------- | --- | --- |
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
-| message | String | Error message. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
+| code | Int | Common error code. 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
+| message | String | Error message. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
 | price | Int | The total price of the product, in RMB 0.01 |
  
 
 ## 4. Error Code List
 
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
+The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://cloud.tencent.com/doc/api/364/4207).
 
 | Error Code | English Description | Error Description |
 | ------- | ------- | ------- |
@@ -64,7 +64,7 @@ The following list only provides the business logic error codes for this API. Fo
 Input
 <pre>
 https://cbs.api.qcloud.com/v2/index.php?Action=InquiryStoragePrice
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &inquiryType=create
 &storageType=cloudBasic
 &storageSize=10

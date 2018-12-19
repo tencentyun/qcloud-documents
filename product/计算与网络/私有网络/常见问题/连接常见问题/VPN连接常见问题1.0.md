@@ -1,5 +1,5 @@
 ## 1. 支持客户网关设备使用 VPC 的 VPN 连接？
-点击查看 <a href="https://www.qcloud.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87" target="_blank">支持 VPN 通道的对端设备详情</a>，如果您的设备不在列表中，请联系我们的技术人员进行 VPN 通道的建立。
+点击查看 <a href="https://cloud.tencent.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87" target="_blank">支持 VPN 通道的对端设备详情</a>，如果您的设备不在列表中，请联系我们的技术人员进行 VPN 通道的建立。
 
 ## 2. 一个 VPC 可以通过 VPN 连接与多个 IDC 互联么？
 可以，目前私网网络可以建立VPN网关并在每个 VPN 网关上建立多个 VPN 通道，每个 VPN 通道可以打通一个本地 IDC。

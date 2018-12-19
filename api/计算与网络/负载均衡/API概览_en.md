@@ -22,7 +22,7 @@
 |---------|---------|
 | [Bind Backend Server to Cloud Load Balancer](/doc/api/244/绑定后端服务器到负载均衡) | RegisterInstancesWithLoadBalancer | Associate a group of CVMs specified by the user with the cloud load balancer instance specified by the user. |
 | [Obtain List of Backend Servers Bound with Cloud Load Balancer](/doc/api/244/获取负载均衡绑定的后端服务器列表) | DescribeLoadBalancerBackends | Obtain a list of CVMs that are associated with the cloud load balancer instance *LoadBalanceId*, which is entered by the user. | 
-|  [Modify Weight of Cloud Load Balancer Backend Servers](/doc/api/244/修改负载均衡器后端服务器权重) | ModifyLoadBalancerBackends | Modify [Weight of a Group of CVMs](https://www.qcloud.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE) that are associated with the cloud load balancer instance.
+|  [Modify Weight of Cloud Load Balancer Backend Servers](/doc/api/244/修改负载均衡器后端服务器权重) | ModifyLoadBalancerBackends | Modify [Weight of a Group of CVMs](https://cloud.tencent.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE) that are associated with the cloud load balancer instance.
 |  [Unbind Backend Servers](/doc/api/244/解绑后端服务器) | DeregisterInstancesFromLoadBalancer | Unbind CVMs that are associated with the cloud load balancer instance. |
 
 ## 4. Relevant APIs for Cloud Load Balancer Health Check
@@ -35,7 +35,7 @@
 ## 5. Relevant APIs for Cloud Load Balancer Monitoring
 | API | Action ID | Description |
 |---------|---------|
-| [Monitor Cloud Load Balancer](https://www.qcloud.com/doc/api/244/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E6%8E%A7%E6%8E%A5%E5%8F%A3) | GetMonitorData | Acquire information related to the traffic and bandwidth of the cloud load balancer instance. | 
+| [Monitor Cloud Load Balancer](https://cloud.tencent.com/doc/api/244/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E6%8E%A7%E6%8E%A5%E5%8F%A3) | GetMonitorData | Acquire information related to the traffic and bandwidth of the cloud load balancer instance. | 
 
 
 ## 6. General APIs for Cloud Load Balancer

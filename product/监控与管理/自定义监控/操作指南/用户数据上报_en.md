@@ -6,7 +6,7 @@ GET method is used. The data encoded with urlencode is as follows:
 
 ![](//mccdn.qcloud.com/static/img/3500c7bc10502733ee5403851ba57cc8/image.png)
 
->Note: For more information on how to generate Signature parameter, please see the data reporting steps in the [API for Data Reporting](https://www.qcloud.com/doc/api/255/4247)
+>Note: For more information on how to generate Signature parameter, please see the data reporting steps in the [API for Data Reporting](https://cloud.tencent.com/doc/api/255/4247)
 
 ```
 #curl http://receiver.monitor.tencentyun.com:8080/report.cgi?Nonce=41718

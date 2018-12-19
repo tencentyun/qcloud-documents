@@ -1,19 +1,19 @@
-## 1 Nginx HTTPS双向认证配置
+## Nginx HTTPS双向认证配置
 
 以第三方开发者域名www.example.com为例。
 
-### 1.1 第三方开发者已有权威第三方签发的证书
+### 第三方开发者已有权威第三方签发的证书
 
 	开发者准备权威第三方为www.example.com签发的证书www.example.com.crt和派发的私钥www.example.com.key；注意必须是权威的第三方机构（如天威、globalsign等）签发的证书；
 	腾讯云给开发者后台提供用于验证请求方（腾讯）证书的CA证书TencentQQAuthCA.crt。
 	
-### 1.2 第三方开发者向腾讯云申请为域名签发证书
+### 第三方开发者向腾讯云申请为域名签发证书
 
 	第三方开发者向腾讯云提供开发者后台域名，例如www.example.com；
 	腾讯云给开发者后台域名www.example.com签发证书和私钥，www.example.com.crt和www.example.com.key；
 	同时腾讯云给开发者后台提供用于验证请求方（腾讯）证书的CA证书TencentQQAuthCA.crt。
 	
-### 1.3 Nginx配置参考
+### Nginx配置参考
 
 开发者后台配置Nginx。将www.example.com.crt、www.example.com.key和TencentQQAuthCA.crt拷贝到Nginx的安装目录的conf文件夹下。修改nginx.conf配置文件，参考配置如下。
 

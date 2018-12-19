@@ -2,7 +2,7 @@
 
 This Acceptable Use Policy sets out rules of good behaviour applicable to your use of Tencent Cloud.  By using Tencent Cloud, you agree to this Policy.
 
-Should you have any questions about, or any person’s compliance with, this Policy, please contact us at [cloudlegalenquiries@tencent.com. ](cloudlegalenquiries@tencent.com)
+Should you have any questions about, or any person’s compliance with, this Policy, please contact us at `cloudlegalenquiries@tencent.com`. 
 
 Any terms used in this Policy will have the same meaning as the equivalent defined terms in the Tencent Cloud Terms of Service, unless the context requires otherwise. 
 

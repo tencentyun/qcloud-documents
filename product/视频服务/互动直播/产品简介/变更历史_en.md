@@ -218,7 +218,7 @@
 (1) Fixed the possible crash or blurred screen caused by image resolution change when processing video frames from the same user during "Decoding - Rendering" procedure..
 (2) Synchronized volume adjustment is supported to fix the bug that quick volume adjustment may have no effect.
 (3) Fixed the crash caused by enabling cameras after executing related logics of external capture.
-(4) Fixed the occasional crashes when repeating thes "Join Room - Enable Camera - Exit Room" procedure".
+(4) Fixed the occasional crashes when repeating the "Join Room - Enable Camera - Exit Room" procedure.
 
 ## AV_Windows C++_SDK1.6    1/11/2016
 

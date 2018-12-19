@@ -1,11 +1,11 @@
 # Data Subscription Description
 ## 1. Feature Description
-Data transmission service (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from CDB with several simple steps:
-* Purchase and create subscription channel for CDB instance from the Tencent Cloud DTS console.
+TencentDB Service for Transmission (DTS) provides a binlog-based incremental data subscription feature that allows subscription of incremental update data from TencentDB with several simple steps:
+* Purchase and create subscription channel for TencentDB instance from the Tencent Cloud DTS console.
 * Use DTS data subscription SDK to connect to this subscription channel to subscribe to and consume incremental data.
 
 ## 2. Service Limit
-**Currently, data subscription feature is unavailable in some regions, and is only supported for Cloud Database MySQL (CDB for MySQL).**
+**For now, data subscription feature is unavailable in some regions, and is only supported for Cloud Database MySQL (TencentDB for MySQL).**
 
 Supported regions:
 
@@ -14,34 +14,37 @@ Supported regions:
 | Guangzhou | Yes |
 | Shanghai | Yes |
 | Beijing | Yes |
+| Shanghai Finance | Yes |
+|Frankfurt| Yes |
+| Seoul | Yes |
+| chengdu | Yes |
 | Hong Kong | - |
-| Open zone | - |
+| Open Zone | - |
 | Singapore | - |
 | Toronto | - |
 | Silicon Valley | - |
 | Shenzhen Finance | - |
-| Shanghai Finance | - |
 
 ## 3. Create Data Subscription Channel
 Log in to DTS console and go to the Data Subscription page.
 
 * Click "New Data Subscription" in the upper right corner to start configuring a subscription channel.
 ![][img-1]
-* Select the region where the source CDB instance is located
+* Select the region where the source TencentDB instance is located
 ![][img-2]
 * Once the channel is enabled, go to the console and complete initial configuration for the data subscription channel you just purchased.
 ![][img-3]
-* Select the source CDB instance
+* Select the source TencentDB instance
 ![][img-4]
 * Select your desired synchronization type and database table.
 ![][img-5]
 	The granularity of subscription objects for DTS data subscription includes two levels: database and table. That is, a user may choose to subscribe to certain databases or tables.
-	DTS divides data subscription into two types: data update and structure update. If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire RDS instance, in which case you need to filter the data using SDK.
+	If you only choose subscription object and data update, you will only receive changes regarding three types of data: insert/delete/update. To subscribe to structure update (DDL), you need to select structure change in subscription data type. If you subscribe to structure update, the DTS will pull all structural changes of the entire RDS instance, in which case you need to filter the data using SDK.
 * The subscription channel can be enabled when subscription object is selected.
 
 ## 4. Change Consumption Time Point
   
-When using DTS, you can change consumption time point at any time during consumption process. Once the consumption time point is changed, downstream incremental data pulled by the SDK will start from the new consumption time point. The new consumption time point must fall within the data range of the subscription channel. Currently you can only change consumption time point in the DTS console. You cannot specify consumption time point in the SDK.
+When using DTS, you can change consumption time point at any time during consumption process. Once the consumption time point is changed, downstream incremental data pulled by the SDK will start from the new consumption time point. The new consumption time point must fall within the data range of the subscription channel. For now, you can only change consumption time point in the DTS console. You cannot specify consumption time point in the SDK.
 Change consumption time point by following the steps below:
 * Stop SDK consumption process.
 ![][img-6]

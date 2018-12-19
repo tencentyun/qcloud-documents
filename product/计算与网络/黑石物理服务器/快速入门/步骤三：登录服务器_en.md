@@ -3,7 +3,7 @@ This section describes how to log in to a CPM after an EIP is bound.
 
 ## Acquiring Login Password
 If the purchased CPM is displayed as "Running" on the CPM console, it means the operating system has been installed and the CPM delivered to you.
-Please go to [Tencent Cloud Message Center](https://console.qcloud.com/message/index/all/104 "Message Center") to view your CPM password.</br>
+Please go to [Tencent Cloud Message Center](https://console.cloud.tencent.com/message/index/all/104 "Message Center") to view your CPM password.</br>
 ![](http://mc.qcloudimg.com/static/img/9e1593f7340a55f489fd6971fd862d33/image.png))
 
 
@@ -14,7 +14,7 @@ From the CPM console, locate the CPM you just purchased and the public IP.
 *If there is no public IP, please verify whether an EIP is bound*
 
 ## Remote Login
-Download the remote connection software Putty. Reference download link: http://www.putty.nl/download.html
+Download the remote connection software Putty. Reference download link: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 Open the Putty client, enter the following information in the "PuTTY Configuration" window:
 

@@ -8,7 +8,7 @@ Domain for API request: <font style='color:red'>mongodb.api.qcloud.com </font>
 4. Value range of validity period of instance in a single creation: [1,2,3,4,5,6,7,8,9,10,11,12,24,36] (in month).
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://www.qcloud.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is CreateMongoDB.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is CreateMongoDB.
 
 | Parameter Name | Required | Type | Description |
 |:---------|---------|---------|---------|
@@ -21,15 +21,15 @@ The following request parameter list only provides API request parameters. Commo
 | goodsNum | Yes | Int | Number of instances purchased at a time |
 | period | Yes | Int | Purchased usage period (in month). Value range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36] |
 | password | Yes | String | Password for the instance. Rule: It should be a combination of 8-16 characters comprised of at least two of the following types: letters, numbers, special characters (!, @, #, %, ^, ()) |
-| unVpcId | No | String | VPC ID. If it is left empty, the default is basic network. This value is subject to the unVpcId returned by API [Query VPC List](https://www.qcloud.com/doc/api/245/1372), such as: vpc-kd7d06of |
-| unSubnetId | No | String | subnetId is invalid under basic network; Under VPC, the value is subject to the unSubnetId returned by the API [Query Subnet List](https://www.qcloud.com/document/product/215/1371), such as subnet-3lzrkspo |
-| projectId | No | Int | Project ID. The value is subject to the projectId returned via User Account > User Account-related APIs > [Query Project List](https://www.qcloud.com/doc/api/403/4400) |
+| unVpcId | No | String | VPC ID. If it is left empty, the default is basic network. This value is subject to the unVpcId returned by API [Query VPC List](https://cloud.tencent.com/doc/api/245/1372), such as: vpc-kd7d06of |
+| unSubnetId | No | String | subnetId is invalid under basic network; Under VPC, the value is subject to the unSubnetId returned by the API [Query Subnet List](https://cloud.tencent.com/document/product/215/1371), such as subnet-3lzrkspo |
+| projectId | No | Int | Project ID. The value is subject to the projectId returned via User Account > User Account-related APIs > [Query Project List](https://cloud.tencent.com/doc/api/403/4400) |
 
 
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes </a>on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes </a>on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | data | Object | Returned order ID |
@@ -65,7 +65,7 @@ The following error codes include the business logic error codes for this API.
 Input
 <pre>
 https://mongodb.api.qcloud.com/v2/index.php?Action=CreateMongoDB
-&<<a href="https://www.qcloud.com/doc/api/229/6976">common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 &zoneId=100002
 &typeId=GIO
 &memory=4096

@@ -41,11 +41,11 @@ Conduct initialization in Java. See below:
     }
 ## 3 Call APIs
 1. Basic API: For both Voice Chat and Voice Message features, you need to call basic APIs for initialization at start and deinitialization at the end. You also need to call `Poll` for callbacks of APIs called in the process.
-[Call Basic APIs](https://www.qcloud.com/document/product/556/7665).  
+[Call Basic APIs](https://cloud.tencent.com/document/product/556/7665).  
 2. Voice Chat API: Used for Voice Chat feature
-[Call Voice Chat APIs](https://www.qcloud.com/document/product/556/7667).   
+[Call Voice Chat APIs](https://cloud.tencent.com/document/product/556/7667).   
 3. Voice Message API: Used for Voice Message feature
-[Call Voice Message APIs](https://www.qcloud.com/document/product/556/7670)    
+[Call Voice Message APIs](https://cloud.tencent.com/document/product/556/7670)    
 ![](https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png)  
 
 

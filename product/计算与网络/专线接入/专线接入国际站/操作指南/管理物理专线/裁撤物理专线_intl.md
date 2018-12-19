@@ -1,0 +1,1 @@
+You cannot cancel a physical direct connect in the console, but you can do this offline by contacting your dedicated physical Direct Connect manager. If you intend to cancel a physical direct connect, you must submit an application to the Direct Connect manager two months in advance.

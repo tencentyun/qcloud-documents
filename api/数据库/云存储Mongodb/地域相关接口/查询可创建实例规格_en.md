@@ -3,10 +3,10 @@ This API (DescribeMongoDBProduct) is used to query supported instance specificat
 You can also use API [Query Instance Price (Annual or Monthly Plan)](/document/product/240/8311) to query the prices of creatable instances, and use API [Create Instance (Annual or Monthly Plan)](/document/product/240/8308) to create a new instance.
 Domain for API request: <font style='color:red'>mongodb.api.qcloud.com </font>
 
-This API can be used to query the supported specifications under specified availability zone. Users who are not in the purchaser whitelist cannot query the details of supported specifications under the availability zone. You can apply for the purchase of the whitelist of a region by submitting a [Ticket](https://console.qcloud.com/workorder/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS).
+This API can be used to query the supported specifications under specified availability zone. Users who are not in the purchaser whitelist cannot query the details of supported specifications under the availability zone. You can apply for the purchase of the whitelist of a region by submitting a [Ticket](https://console.cloud.tencent.com/workorder/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS).
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://www.qcloud.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeMongoDBProduct.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeMongoDBProduct.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -27,7 +27,7 @@ Availability zones are defined as follows:
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | data | Object | Configuration information of supported instance specification |
@@ -50,7 +50,7 @@ Parameter goodsDescription indicates the configuration information of instance, 
 
 | Parameter Name | Type | Description |
 |:---------|---------|---------|
-| region | String | Region ID. For more information, please see <a href='https://www.qcloud.com/document/product/213/6976'>Common Request Parameters</a> | 
+| region | String | Region ID. For more information, please see <a href='https://cloud.tencent.com/document/product/213/6976'>Common Request Parameters</a> | 
 | isSupportVpc | Bool | Whether VPC is supported. Values: True and False | 
 | types | Object | Content of supported instance specification |
 
@@ -78,7 +78,7 @@ The following error codes include the business logic error codes for this API.
 Input
 <pre>
 https://mongodb.api.qcloud.com/v2/index.php?Action=DescribeMongoDBProduct
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &zoneIds.0=100002
 &zoneIds.1=200001
 </pre>

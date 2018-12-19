@@ -1,0 +1,52 @@
+## 功能描述
+
+本接口用于删除日志主题。
+
+## 请求
+
+### 请求示例
+
+```
+DELETE /topic?topic_id=xxxx-xx-xx-xx-xxxxxxxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+
+```
+
+### 请求行
+
+```
+DELETE /topic
+```
+
+### 请求头
+
+除公共头部外，无特殊请求头部。
+
+### 请求参数
+
+| 字段名        |  类型  | 位置  | 必须 |      含义                       |
+|--------------|--------|------|---------|--------------------------------|
+| topic_id     | string | query| 是      |要删除的日志主题的 ID                |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Length: 0
+
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+无
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

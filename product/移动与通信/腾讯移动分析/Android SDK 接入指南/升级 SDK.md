@@ -1,0 +1,1 @@
+新版本 SDK 兼容老版本接口，升级时只需要替换旧的 jar 包即可，先在工程所在 libs 目录下删除旧的 jar 包，复制新 jar 包到 libs 路径，同时在 Java Build Path 里面删除旧的 jar 包，并添加新 jar 包引用。

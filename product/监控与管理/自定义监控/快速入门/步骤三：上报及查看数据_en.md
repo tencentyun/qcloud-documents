@@ -6,7 +6,7 @@ GET method is used. The data encoded with urlencode is as follows:
 
 ![](//mccdn.qcloud.com/static/img/3500c7bc10502733ee5403851ba57cc8/image.png)
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/document/product/397/4247)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/document/product/397/4247)
 
 ```
 #curl http://receiver.monitor.tencentyun.com:8080/report.cgi?Nonce=41718
@@ -39,7 +39,7 @@ In this example, we use API for creation. Users can also create in CCM console.
 
 Check whether the monitoring data of a specific object is calculated properly by calling the API GetMonitorData. For example, check the data of the object ip=1.2.3.5&proc_name=daemon2: monitored after 17:35:00:
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 ```
 #curl -k "https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData

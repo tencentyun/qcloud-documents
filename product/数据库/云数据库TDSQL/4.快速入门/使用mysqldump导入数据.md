@@ -30,7 +30,7 @@ dbName：需要迁移的数据库名
 ```
 
 ### 3.将数据文件和存储过程文件上传到 云服务器 CVM 上。
-> 请确保CVM和云数据库CDB能正常连通，且CVM存储空间足够。
+> 请确保 CVM 和云数据库 TencentDB 能正常连通，且CVM存储空间足够。
 
 ### 4.登录 CVM，将数据文件和存储过程文件导入到目标 云数据库 中。
 
@@ -42,7 +42,7 @@ mysql -h xxx.xxx.xxx.xxx:xxxx -u userName -p dbName < /tmp/triggerProcedure.sql
 参数说明：
 
 xxx.xxx.xxx.xxx:xxxx  实例连接地址，本例以内网地址为例
-userName：RDS 数据库的迁移账号
+userName：CDB 数据库的迁移账号
 dbName：需要导入的数据库名
 /tmp/dbName.sql：要导入的数据文件名
 /tmp/triggerProcedure.sql：要导入的存储过程文件名

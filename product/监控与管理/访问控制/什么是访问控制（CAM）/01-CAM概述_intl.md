@@ -1,0 +1,1 @@
+CAM is a set of Web services provided by Tencent Cloud that helps customers securely manage the access permissions to the resources under the Tencent Cloud account. With CAM, you can create, manage, and terminate users (groups), and control which Tencent Cloud resources can be used by which people through identity management and policy management.

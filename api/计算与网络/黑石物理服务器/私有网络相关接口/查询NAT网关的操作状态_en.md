@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=QueryBmNatGatewayProductionStatus
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &taskId=2160000000
 </pre>
 Output

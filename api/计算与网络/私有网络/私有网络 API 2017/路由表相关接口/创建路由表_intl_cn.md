@@ -1,0 +1,85 @@
+## 1. 接口描述
+
+本接口(CreateRouteTable)用于创建路由表。
+接口请求域名：<font style="color:red">vpc.api.qcloud.com</font> 
+
+创建了VPC后，系统会创建一个默认路由表，所有新建的子网都会关联到默认路由表。默认情况下您可以直接使用默认路由表来管理您的路由策略。当您的路由策略较多时，您可以调用创建路由表接口创建更多路由表管理您的路由策略。
+
+## 2. 输入参数
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为CreateRouteTable。
+
+
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| vpcId | 是 | String | 子网所属的私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-rqndayhs。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
+| routeTableName | 是 |  String | 路由表名称，可任意命名，但不得超过60个字符。 |
+| routeSet.n | 否 | array | 路由表内容，可选项。|
+| routeSet.n.destinationCidrBlock | 是 | String | 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。|
+| routeSet.n.nextType | 是 | String | 下一跳类型，目前我们支持的类型有：0：公网网关；1：vpn网关； 3：专线网关；4：对等连接；7：sslvpn网关；8：nat网关；9：普通云主机。|
+| routeSet.n.nextHub | 是 | String | 下一跳地址，这里只需要指定不同下一跳类型的网关ID（推荐使用新ID），系统会自动匹配到下一跳地址。 |
+| routeSet.n.description | 否 | String | 路由描述，支持60内个字符。 |
+
+ 
+
+## 3. 输出参数
+ 
+| 参数名称 | 类型 | 描述|
+|---------|---------|---------|
+| code| Int | 错误码，0: 成功，其他值: 失败。 |
+| message | String | 错误信息。 |
+| routeTableId | String |路由表ID，例如：gz_rtb_4545。 |
+| unRouteTableId | String |路由表统一ID,建议使用统一ID标识路由表，例如：rtb-rqndayhs。 |
+| routeTableSet.n | Array  | 路由表内容。 |
+| routeTableSet.n.destinationCidrBlock | String  | 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。 |
+| routeTableSet.n.nextType | String  | 下一跳类型，目前我们支持的类型有：0：公网网关；1：vpn网关； 3：专线网关；4：对等连接；7：sslvpn;8:nat网关。 |
+| routeTableSet.n.nextHub | String  | 下一跳地址，这里只需要指定不同下一跳类型的网关ID（推荐使用新ID），系统会自动匹配到下一跳地址。 |
+| routeTableSet.n.description | String  | 路由描述。 |
+
+ ## 4. 错误码表
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+
+| 错误码 | 描述 |
+|---------|---------|
+| InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
+| InvalidRouteTableName | 路由表名称不合法。可任意命名，但不得超过60个字符。 |
+| InvalidDestinationCidr | 目标网段不合法。 |
+| RouteTableLimitExceeded | 创建的路由表数量超过上限。如果需要更多资源，请联系客服申请。更多 VPC 资源限制信息详见<a href="https://cloud.tencent.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
+| RouteLimitExceeded | 路由表策略数超过上限。如果需要更多资源，请联系客服申请。更多 VPC 资源限制信息详见<a href="https://cloud.tencent.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
+| RouteAlreadyExists | 目标网段在路由表策略中已存在。同一个路由表里策略中，目标网段不能冲突。 |
+| InvalidRouteNextType | 无效的下一跳类型。可以支持的类型详见入参说明。 |
+| InvalidRouteNextHub.NotFound | 下一跳地址不存在。请核实您填写的下一跳地址资源ID是否正确。 |
+ 
+
+## 5. 示例
+ 
+输入
+<pre>
+  https://vpc.api.qcloud.com/v2/index.php?Action=CreateRouteTable
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+  &vpcId=vpc-amhnnao5
+  &routeTableName=tttt111
+  &routeSet.0.destinationCidrBlock=121.0.23.51/16
+  &routeSet.0.nextType=1
+  &routeSet.0.nextHub=vpngw-dystbrkv
+
+</pre>
+
+输出
+```
+
+{
+    "code": 0,
+    "message": "",
+    "routeTableId": "gz_rtb_8755",
+    "unRouteTableId": "rtb-rqndayhs",
+    "routeTableSet": [
+        {
+            "destinationCidrBlock": "121.0.23.51\/16",
+            "nextType": 1,
+            "nextHub": "vpngw-dystbrkv"
+        }
+    ]
+}
+
+```
+

@@ -5,12 +5,12 @@ Before using Cloud APIs for the first time, a user needs to apply for a security
 
 To apply for a security credential, please proceed as follows:
 
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Click "Cloud Products", and choose "Cloud API Key" under "Monitor & Management" to access the Cloud API key management page.
 ![](//mccdn.qcloud.com/img568f5fb824757.png)
 
-3) On the [Cloud API Key Management](https://console.qcloud.com/capi) page, click "New" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
+3) On the [Cloud API Key Management](https://console.cloud.tencent.com/capi) page, click "New" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
 
 ## 2. Generating Signature String
 With the SecretID and SecretKey, a signature string can be generated. The following procedure is a detailed example for generating a signature string.

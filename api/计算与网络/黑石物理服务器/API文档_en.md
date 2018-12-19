@@ -14,7 +14,7 @@ Before using these APIs, please make sure that you have a thorough understanding
 |---------|---------|---------|---------|
 | Instance | Instance | Instance | A CPM
 | Zone | Zone | Availability zone|Tencent Cloud's physical data centers whose electric power facilities and networks are independent from each other within the same region. They are designed to ensure that the failures within an availability zone can be isolated without spreading to and affecting other zones so that users' businesses can provide continuous online services.  |
-| N/A | N/A | Annual or Monthly Plan |	A billing model. For more information, please see [Billing Models](https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88). |
+| N/A | N/A | Annual or Monthly Plan |	A billing model. For more information, please see [Billing Models](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88). |
 
 
 #### Definitions of input and response parameters

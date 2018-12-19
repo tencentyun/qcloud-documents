@@ -1,9 +1,7 @@
-目前是通过定义好友系统消息监听事件来处理好友系统消息的。
-
-示例：
+目前是通过定义好友系统消息监听事件来处理好友系统消息的。**示例：**
 
 ```
-//监听好友系统通知函数对象，方法都定义在receive_friend_system_msg.js文件中
+//监听好友系统通知函数对象，方法都定义在 receive_friend_system_msg.js 文件中
 var onFriendSystemNotifys = {
     "1": onFriendAddNotify, //好友表增加
     "2": onFriendDeleteNotify, //好友表删除
@@ -14,9 +12,9 @@ var onFriendSystemNotifys = {
 };
 ```
 
-## 1 好友表添加
+## 好友表添加
 
-触发时机：当用户添加了新的好友时，会收到好友表添加通知。 
+**触发时机：**当用户添加了新的好友时，会收到好友表添加通知。 
 
 **示例：** 
 
@@ -25,12 +23,12 @@ var onFriendSystemNotifys = {
 /*notify对数示例：
  {
     'Type':1,//通知类型
-    'Accounts':['jim','bob']//用户ID列表
+    'Accounts':['jim','bob']//用户 ID 列表
  }
 */
 function onFriendAddNotify(notify) {
     webim.Log.info("执行 好友表添加 回调："+JSON.stringify(notify));
-    //好友表发生变化，需要重新加载好友列表或者单独添加notify.Accounts好友帐号
+    //好友表发生变化，需要重新加载好友列表或者单独添加 notify.Accounts 好友帐号
     getAllFriend(getAllFriendsCallbackOK);
     var typeCh = "[好友表添加]";
     var content = "新增以下好友："+notify.Accounts;
@@ -38,9 +36,9 @@ function onFriendAddNotify(notify) {
 }
 ```
 
-## 2 好友表删除
+## 好友表删除
 
-触发时机：当用户的好友发生减少时，会收到好友表删除通知。 
+**触发时机：**当用户的好友发生减少时，会收到好友表删除通知。 
 
 **示例：** 
 
@@ -49,7 +47,7 @@ function onFriendAddNotify(notify) {
 /*notify对数示例：
  {
     'Type':2,//通知类型
-    'Accounts':['jim','bob']//用户ID列表
+    'Accounts':['jim','bob']//用户 ID 列表
  }
 */
 function onFriendDeleteNotify(notify) {
@@ -62,9 +60,9 @@ function onFriendDeleteNotify(notify) {
 }
 ```
 
-## 3 加好友未决添加
+## 加好友未决添加
 
-触发时机：当有人向你发出好友申请时，会收到加好友通知。 
+**触发时机：**当有人向您发出好友申请时，会收到加好友通知。 
 
 **示例： **
 
@@ -78,13 +76,13 @@ function onFriendDeleteNotify(notify) {
             "PendencyAdd_Account": "peaker1",//对方帐号
             "ProfileImNic": "匹克1",//对方昵称
             "AddSource": "AddSource_Type_Unknow",//来源
-            "AddWording": "你好"//申请附言
+            "AddWording": "您好"//申请附言
         },
         {
             "PendencyAdd_Account": "peaker2",//对方帐号
             "ProfileImNic": "匹克2",//对方昵称
             "AddSource": "AddSource_Type_Unknow",//来源
-            "AddWording": "你好"//申请附言
+            "AddWording": "您好"//申请附言
         }
     ]
 }
@@ -100,9 +98,9 @@ function onPendencyAddNotify(notify) {
 }
 ```
 
-## 4 加好友未决删除
+## 加好友未决删除
 
-触发时机：当用户被管理员踢出群组时，用户会收到被踢出群的消息。
+**触发时机：**当用户被管理员踢出群组时，用户会收到被踢出群的消息。
 
 **示例：** 
 
@@ -111,7 +109,7 @@ function onPendencyAddNotify(notify) {
 /*notify对数示例：
  {
     'Type':4,//通知类型
-    'Accounts':['jim','bob']//用户ID列表
+    'Accounts':['jim','bob']//用户 ID 列表
  }
 */
 function onPendencyDeleteNotify(notify) {
@@ -122,9 +120,9 @@ function onPendencyDeleteNotify(notify) {
 }
 ```
 
-## 5 好友黑名单添加
+## 好友黑名单添加
 
-触发时机：当新增好友黑名单时，会收到此类通知。 
+**触发时机：**当新增好友黑名单时，会收到此类通知。 
 
 **示例： **
 
@@ -133,7 +131,7 @@ function onPendencyDeleteNotify(notify) {
 /*notify对数示例：
  {
     'Type':5,//通知类型
-    'Accounts':['jim','bob']//用户ID列表
+    'Accounts':['jim','bob']//用户 ID 列表
  }
 */
 function onBlackListAddNotify(notify) {
@@ -144,9 +142,9 @@ function onBlackListAddNotify(notify) {
 }
 ```
 
-## 6 好友黑名单删除
+## 好友黑名单删除
 
-触发时机：当删除好友黑名单时，会收到此类通知。 
+**触发时机：**当删除好友黑名单时，会收到此类通知。 
 
 **示例： **
 
@@ -155,7 +153,7 @@ function onBlackListAddNotify(notify) {
 /*notify对数示例：
  {
     'Type':6,//通知类型
-    'Accounts':['jim','bob']//用户ID列表
+    'Accounts':['jim','bob']//用户 ID 列表
  }
 */
 function onBlackListDeleteNotify(notify) {

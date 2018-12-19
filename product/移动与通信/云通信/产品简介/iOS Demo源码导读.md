@@ -1,8 +1,8 @@
 # TIMChat源码导读
-## 1. 目的
+## 目的
 本文档描述了ImSDK的Demo的架构、以及核心流程，并作为其他开发者了解 ImSDK功能以及集成ImSDK指导说明。
 
-## 2. 架构设计及说明
+## 架构设计及说明
 App基于系统（OS System Service），自底向上再分作三层：
 1.App Core Service：App核心服务层，对外提供核心功能（如IMSDK）等；
 2.App Adapter：业务逻辑适配层，App根据自身的业务不同，将App Core Service提供的核心功能进行封装，以供外部使用；
@@ -15,7 +15,7 @@ App分层通信模型如下：
 Call：调用  CallBack：回调  Broadcast：广播  Support：支撑/支持
 <img src="//mccdn.qcloud.com/static/img/90c3bacc07baad640bcc38958b9e1043/image.png" width=640 />
 
-## 3. 架构内各层通信规则说明
+## 架构内各层通信规则说明
 1. App Adapter层之间的各模块允许相互访问:
 <img src="//mccdn.qcloud.com/static/img/d9542fee67988a5a3781725abcd683d8/image.png" width=640 />
 2. App UI层各模块不允许直接访问，可通过Adapter层间接访问:
@@ -23,10 +23,10 @@ Call：调用  CallBack：回调  Broadcast：广播  Support：支撑/支持
 3. App Core Service层各模块不允许直接访问，虽通过Apdater层间接访问:
 <img src="//mccdn.qcloud.com/static/img/b0e04d3ea2833092b95de66344682cb9/image.png" width=640 />
 
-## 4. TIMChat工程与架构图的对应关系
+## TIMChat工程与架构图的对应关系
 <img src="//mccdn.qcloud.com/static/img/9506396b4c1b2fea7116dc34d0facb53/image.png" width=640 />
 
-## 5. TIMChat工程目录与架构图的对应关系
+## TIMChat工程目录与架构图的对应关系
 <img src="//mccdn.qcloud.com/static/img/e24f0bb4ca418386b899e2dc6dec0eb8/image.jpg" />
 
 | 目录名 | 	功能说明 | 对应架构图名称 |
@@ -37,12 +37,12 @@ Call：调用  CallBack：回调  Broadcast：广播  Support：支撑/支持
 | CustomUI | 界面中通用的自定义UI | CustomViews |
 | AppUI | App界面 | AppUI |
 
-## 6. CommonLibrary介绍
-CommonLibrary中主要是整理了一些常用工具类，以及常用的界面布局框架。另外考虑到有些代码与用户现有的代码冲突，用户可根据自身需要，通过控制宏来决定要导入的内容（TIMChat工程中目前只加载了其中部份，具体操作后面CommonLibrary集成说明中介绍）。
+## CommonLibrary介绍
+CommonLibrary中主要是整理了一些常用工具类，以及常用的界面布局框架。另外考虑到有些代码与用户现有的代码冲突，用户可根据自身需要，通过控制宏来决定要导入的内容（TIMChat工程中目前只加载了其中部分，具体操作后面CommonLibrary集成说明中介绍）。
 CommonLibrary中包含了一般App开发中常用的功能，较简单的界面布局框架，以及一些通用的界面基类，用户可快速地集成并通过继承来实现开发与自定义
 <img src="//mccdn.qcloud.com/static/img/0657b5d778a896cf7ec79a074cd0c2ec/image.jpg" />
 
-## 7. TIMAdapter设计说明
+## TIMAdapter设计说明
 TIMAdapter是腾讯云IMSDK Demo中对IMSDK的一层再封装，其覆盖基本的联系人以及聊天功能，为方便用户进行复用以及扩展各自App的业务逻辑，此处只说明设计思路，用户也可以参照此处的做法，进行自定义扩展。
 实际开发过程中，用户App的逻辑与Demo逻辑可能不一致，建议用户通过继承重写某些类与自身逻辑不一致的方法，以及来增加新方法来扩展自身逻辑，这样Demo更新的时候，如果TIMAdapter有更新，再用工具对比TIMAdapter的即可。
 复用TIMAdapter的好处在于：
@@ -126,7 +126,7 @@ TIMAdapter中的控制层IMAPlatform对应的代码如下：
 <img src="//mccdn.qcloud.com/static/img/c4fe5595a0013770d353a4cf76fe87ed/image.jpg" width=640 />
 
 
-## 8. 用户集成说明
+## 用户集成说明
 用户可按照以下步骤进行集成，注意在保证每步都Build成功的情况下再进行下一步，（因1.9.2版本为方便用户集成，将TCShow进行了拆分，下面的信成是按照1.9.2版本来处理）
 
 1. 新建空工程TIMDemo，增加PCH文件，并删除默认生成的内容，设置Enable BitCode 为NO，设置Other Linker Flags 为 -ObjC

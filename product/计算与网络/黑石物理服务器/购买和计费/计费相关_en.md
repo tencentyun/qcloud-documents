@@ -8,7 +8,7 @@ This means that you need to make the payment for the service before Tencent Clou
 - When the validity period expires, Tencent Cloud will retain the instance for your. You can still make use of it normally for 7 days, during which you're recommended to complete the renewal. The time period for retaining the instance is subject to change. Please regularly visit Tencent Cloud's official website for the latest update. Any consequences resulting from your failure to migrate data in a timely manner will be borne by you.
 
 ## Renewal
-Please go to [Renewal Management Console](//console.qcloud.com/account/renewal) to select CPM to renew your instance.
+Please go to [Renewal Management Console](//console.cloud.tencent.com/account/renewal) to select CPM to renew your instance.
 ![](http://mccdn.qcloud.com/static/img/89796a3919392ce878c975ebe614af64/image.png)
 
 Charges for the time period during which the instance is retained and isolated will be included in the renewal fee.

@@ -1,0 +1,1 @@
+云数据库已支持关键性能指标的短信、邮件、站内信等告警；欢迎登录腾讯云管理中心>[云监控](https://console.cloud.tencent.com/monitor/overview)>[告警策略](https://console.cloud.tencent.com/monitor/policylist/create)；进行设置。

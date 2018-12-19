@@ -45,4 +45,4 @@ For more information, please see API "Check Operating Data of Cloud Memcached".
 Contact us by submitting a ticket.
 
 ## 9 Connection diagnostics
-For more information, please see: [Cloud Memcached Connection Diagnostics](https://www.qcloud.com/doc/product/241/3247)
+For more information, please see: [Cloud Memcached Connection Diagnostics](https://cloud.tencent.com/doc/product/241/3247)

@@ -1,0 +1,39 @@
+
+**请求示例:**
+
+```
+POST /?delete HTTP/1.1
+Host: lelu06-1252400000.cos.ap-guangzhou.myqcloud.com
+Date: Wed, 23 Oct 2016 21:32:00 GMT
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
+Content-MD5: yoLiNjQuvB7lu8cEmPafrQ==
+Content-Length: 125
+
+<Delete>
+  <Quiet>true</Quiet>
+    <Object>
+        <Key>aa</Key>
+    </Object>
+    <Object>
+        <Key>aaa</Key>
+    </Object>
+</Delete>
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 17
+Connection: keep-alive
+Date: Tue, 22 Aug 2017 12:00:48 GMT
+Server: tencent-cos
+x-cos-request-id: NTk5YzFjZjBfZWFhZDM1MGFfMjkwZV9lZGM3ZQ==
+
+<DeleteResult/>
+```

@@ -19,7 +19,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 
 ## 4.示例
@@ -29,7 +29,7 @@
 输入
 <pre>
   https://emr.api.qcloud.com/v2/index.php?Action=EmrDestroyCoreNode
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
   &ClusterId=emr-rowyenms
   &IPs.0=10.0.0.235
 

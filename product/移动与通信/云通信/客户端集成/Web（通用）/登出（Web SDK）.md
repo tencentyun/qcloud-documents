@@ -1,33 +1,31 @@
 ## 	登出
 
-本节主要介绍sdk 登出logout api。
-
-函数名：
+**登出 `logout` 函数名：**
 
 ```
 webim.logout
 ```
 
-定义：
+**定义：**
 
 ```
 webim.logout(cbOk, cbErr)
 ```
 
-参数列表：
+**参数列表：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 |cbOk	|调用接口成功回调函数	|Function|
 |cbErr	|调用接口失败回调函数	|Function|
 
-示例：
+**示例：**
 
 ```
 //登出
 function quitClick() {
     if (loginInfo.identifier) {
-        //sdk登出
+        //SDK 登出
         webim.logout(
                 function (resp) {
                     loginInfo.identifier = null;

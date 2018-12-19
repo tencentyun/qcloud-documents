@@ -2,9 +2,9 @@
 
 ## Domain Name Registration
 
-Register domain by opening [Domain Registration Page](https://www.qcloud.com/product/dm.html) for domain query and registration.
+Register domain by opening [Domain Registration Page](https://cloud.tencent.com/product/dm.html) for domain query and registration.
 
-For relevant documents, please refer to [How to Register Domain](https://www.qcloud.com/doc/product/242/3717)
+For relevant documents, please refer to [How to Register Domain](https://cloud.tencent.com/doc/product/242/3717)
 
 ## Adding CNAME record
 
@@ -54,8 +54,8 @@ Record values of various types are usually like these:
 - CNAME Record: Enter the domain provided by your domain provider.*** For example: Domain of the LB instance in cloud load balancer, 1b16c9-0.gz.12345678.clb.myqcloud.com***.
 - MX Record: Enter the IP address of your e-mail server or the domain provided by your enterprise e-mail provider. Ask your e-mail service provider if you're not sure
 - TXT Record:　Usually used in anti-spam configurations of enterprise e-mails (such as Google, QQ and so on)
-- Explicit URL Record: Enter the URL to redirect to, for example: http://www.qcloud.com
-- Implicit URL Record: Enter the URL whose content is to be referenced, for example: http://www.qcloud.com
+- Explicit URL Record: Enter the URL to redirect to, for example: http://cloud.tencent.com
+- Implicit URL Record: Enter the URL whose content is to be referenced, for example: http://cloud.tencent.com
 - AAAA: Rarely used. IPv6 address to be resolved.
 - NS Record:　Rarely used. Please do not modify the two NS records added by the system by default. NS downward authorization. Enter the DNS domain, for example: f1g1ns1.dnspod.net
 - SRV Record:　Rarely Used Format: <priority>, space, <weight>, space, <port>, space, <host name>. Once the record is generated, it is normal that a "." will be added at the end. For example: 5 0 5269 xmpp-server.l.google.com.

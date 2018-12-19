@@ -47,7 +47,7 @@ Add statistical types for all dimensions under the aggregation when you enter st
 Input
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=CreateMetricAggeration
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 &metricName=diskusage
 &dimensionNames.0=ip

@@ -1,12 +1,12 @@
-## 1 获取群成员列表 
+## 获取群成员列表 
 
 ```
 /* function getGroupMemberInfo  
  *   获取群组成员列表
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -21,7 +21,7 @@ var getGroupMemberInfo = function (group_id) {
     initGetGroupMemberTable([]);
     var options = {
         'GroupId': group_id,
-        'Offset': 0, //必须从0开始
+        'Offset': 0, //必须从 0 开始
         'Limit': totalCount,
         'MemberInfoFilter': [
             'Account',
@@ -67,15 +67,15 @@ var getGroupMemberInfo = function (group_id) {
 };
 ```
 
-## 2 邀请好友加群 
+## 邀请好友加群 
 
 ```
 /* function addGroupMember  
  *   邀请好友加群
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -113,15 +113,16 @@ var addGroupMember = function () {
     );
 };
 ```
-## 3 修改群消息提示 
+
+## 修改群消息提示 
 
 ```
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -161,15 +162,15 @@ var modifyGroupMsgFlag = function () {
 };
 ```
 
-## 4 修改群成员角色 
+## 修改群成员角色 
 
 ```
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -208,15 +209,15 @@ var modifyGroupMemberRole = function () {
 };
 ```
 
-## 5 设置群成员禁言时间 
+## 设置群成员禁言时间 
 
 ```
 /* function forbidSendMsg  
  *   设置群成员禁言时间
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -268,15 +269,15 @@ var forbidSendMsg = function () {
 };
 ```
 
-## 6 删除群成员 
+## 删除群成员 
 
 ```
 /* function deleteGroupMember  
  *   删除群成员
  * params:
- *   options	- 请求参数，详见api文档
+ *   options	- 请求参数，详见 API 文档
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -294,7 +295,7 @@ var deleteGroupMember = function () {
     var options = {
         'GroupId': $('#dgm_group_id').val(),
         //'Silence': $('input[name="dgm_silence_radio"]:checked').val(),
-        //只有ROOT用户采用权限设置该字段（是否静默移除）
+        //只有 ROOT 用户采用权限设置该字段（是否静默移除）
         'MemberToDel_Account': [$('#dgm_account').val()]
     };
     webim.deleteGroupMember(

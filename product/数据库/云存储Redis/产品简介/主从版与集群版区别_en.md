@@ -19,5 +19,5 @@ Tips on Selection:
 2) For the scenarios where the business data grows so fast that the upper limit of 60 GB for standalone instance may be exceeded, cluster instance is recommended initially.
 
 Service limits on commands:
-1) [Service Limits on Commands for Master/Slave Instances](https://www.qcloud.com/doc/product/239/%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6)
-2) [Service Limits on Commands for Cluster Instances](https://www.qcloud.com/doc/product/239/%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6)
+1) [Service Limits on Commands for Master/Slave Instances](https://cloud.tencent.com/doc/product/239/%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6)
+2) [Service Limits on Commands for Cluster Instances](https://cloud.tencent.com/doc/product/239/%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6)

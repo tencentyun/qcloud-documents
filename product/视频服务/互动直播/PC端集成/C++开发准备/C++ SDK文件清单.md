@@ -1,20 +1,20 @@
-## 一、概述
-音视频通信SDK包含三大模块：
+## 概述
+音视频通信 SDK 包含三大模块：
 1. AVSDK
 2. BugReport
 3. IMSDK
 
-**特别注意：**这三大模块的组件，在编译时存在一定的依赖，在运行时互有调用，因此App开发者在更新替换SDK的时候，务必要保证下文清单中，所有文件的完整性。如果仅局部地替换个别文件，又或者仅替换某一模块的文件，很可能会引入各种无法预料的异常。
+**特别注意：**这三大模块的组件，在编译时存在一定的依赖，在运行时互有调用，因此 App 开发者在更新替换 SDK 的时候，务必要保证下文清单中，所有文件的完整性。如果仅局部地替换个别文件，又或者仅替换某一模块的文件，很可能会引入各种无法预料的异常。
 
-## 二、AVSDK文件清单
-AVSDK实现了音视频通信的核心能力。AVSDK的文件可以分成三大类：
+## AVSDK 文件清单
+AVSDK 实现了音视频通信的核心能力。AVSDK 的文件可以分成三大类：
 1. 头文件
-2. Debug版文件
-3. Release版文件
+2. Debug 版文件
+3. Release 版文件
 
-### 1、头文件
+### 头文件
 - 文件位置：%root%\libs\include
-*%root%表示腾讯云官网提供的SDK包的根目录*
+*%root%表示腾讯云官网提供的 SDK 包的根目录*
 - 文件清单：
 1.av_audio_ctrl.h
 2.av_common.h
@@ -33,7 +33,7 @@ AVSDK实现了音视频通信的核心能力。AVSDK的文件可以分成三大�
 15.basictypes.h
 16.build_config.h
 
-### 2、Debug版文件
+### Debug 版文件
 - 文件位置：%root%\libs\win\debug
 - 核心组件：
 1.qavsdk.dll
@@ -52,7 +52,7 @@ AVSDK实现了音视频通信的核心能力。AVSDK的文件可以分成三大�
 2.QQAudioHookService.dll
 3.TRAE.dll
 
-### 3、Release版文件
+### Release 版文件
 - 文件位置：%root%\libs\win\release
 - 核心组件：
 1.qavsdk.dll
@@ -71,28 +71,28 @@ AVSDK实现了音视频通信的核心能力。AVSDK的文件可以分成三大�
 2.QQAudioHookService.dll
 3.TRAE.dll
 
-## 三、BugReport文件清单
-BugReport支持Windows平台的Crash监控，能够发现并上报Crash现场信息，为定位和解决Crash提供更多线索。文件清单如下：
-### 1、头文件
+## BugReport 文件清单
+BugReport 支持 Windows 平台的 Crash 监控，能够发现并上报 Crash 现场信息，为定位和解决 Crash 提供更多线索。文件清单如下：
+### 头文件
 - 文件位置：%root%\libs\include\crash_report.h
 
-### 2、Debug版文件
+### Debug 版文件
 - 文件位置：%root%\libs\win\debug
 - 文件清单：
 1.bugreport.exe
 2.libeay32.dll
 3.tinyxml.dll
 
-### 3、Release版文件
+### Release 版文件
 - 文件位置：%root%\libs\win\release
 - 文件清单：
 1.bugreport.exe
 2.libeay32.dll
 3.tinyxml.dll
 
-## 四、IMSDK文件清单
-IMSDK实现了音视频通信中要用到的第三方账号体系接入，账号登录鉴权等能力。 文件清单如下：
-### 1、头文件
+## IMSDK 文件清单
+IMSDK 实现了音视频通信中要用到的第三方账号体系接入，账号登录鉴权等能力。 文件清单如下：
+### 头文件
 - 文件位置：%root%\libs\include\timsdk
 - 文件清单：
 1.tim.h
@@ -102,13 +102,13 @@ IMSDK实现了音视频通信中要用到的第三方账号体系接入，账号
 5.tim_int.h
 6.tim_msg.h
 
-### 2、Debug版文件
+### Debug 版文件
 - 文件位置：%root%\libs\win\debug
 - 文件清单：
 1.libtim.dll
 2.libtim.lib
 
-### 3、Release版文件
+### Release 版文件
 - 文件位置：%root%\libs\win\release
 - 文件清单：
 1.libtim.dll

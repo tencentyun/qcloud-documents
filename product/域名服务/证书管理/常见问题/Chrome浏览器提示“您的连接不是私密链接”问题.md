@@ -9,13 +9,9 @@
 
 ![](https://mc.qcloudimg.com/static/img/25a818d9e80a02c2b8b7c90f0e1c93df/1.png)
 
-详情可查看赛门铁克官方公告：
-https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160
-
 Symantec官方声明：	https://www.symantec.com/connect/blogs/chrome-53-bug-affecting-symantec-ssltls-certificates
 
-以及Chrome官方公告：
-https://bugs.chromium.org/p/chromium/issues/detail?id=664177
+以及Chrome官方公告：https://bugs.chromium.org/p/chromium/issues/detail?id=664177
 
 另外，使用了 Chromium 53内核的QQ浏览器也会存在这个问题，已经在新版本中修复，使用了旧版本QQ浏览器的用户也建议更新到最新版本。
 详情可查看QQ浏览器官方公告：http://bbs.browser.qq.com/thread-222732-1-1.html

@@ -40,7 +40,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 
@@ -76,7 +76,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 
@@ -109,7 +109,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 
@@ -143,7 +143,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 
@@ -177,7 +177,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 
@@ -210,7 +210,7 @@ public class Connect {
 			// Set parameters for retry
 			config.setInt("hbase.client.retries.number", 1);
 			/*
-			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not set, it functions the same as the community version, and you can normally connect the self-built hbase service.
+			 * To connect the hbase service of Tencent Cloud, you must set this value to true; if not, it functions the same as the community version, and you can normally connect the self-built hbase service.
 			 */
 			config.setBoolean("chbase.tencent.enable", true);
 			Scan scan = new Scan();

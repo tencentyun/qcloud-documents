@@ -1,6 +1,6 @@
 Welcome to Tencent Cloud Database SQL Server. You can call the APIs discussed in this document to work with CDB for SQL Server. Before the use of these APIs, make sure you have a thorough understanding of the product as well as its usage and billing methods.
 
-For the product documentation of SQL Server, please see [SQL Server Product Documentation](https://www.qcloud.com/doc/product/238).
+For the product documentation of SQL Server, please see [SQL Server Product Documentation](https://cloud.tencent.com/doc/product/238).
 ## 1. Glossary
 | Term | Full Name | Description |
 |------|---------|---------|

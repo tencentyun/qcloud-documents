@@ -4,7 +4,7 @@ A sub-account Developer under the enterprise account CompanyExample requires all
 
 Solution A:
 
-The enterprise account CompanyExample directly authorizes the preset policy QcloudVPCFullAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+The enterprise account CompanyExample directly authorizes the preset policy QcloudVPCFullAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 Solution B:
 
@@ -22,7 +22,7 @@ Step 1: Create the following policy through policy syntax.
 }
 ```
 
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 ### Authorizing a sub-account with read-only permission of VPC
 
@@ -30,7 +30,7 @@ A sub-account Developer under the enterprise account CompanyExample requires the
 
 Solution A:
 
-The enterprise account CompanyExample directly authorizes the preset policy QcloudVPCReadOnlyAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+The enterprise account CompanyExample directly authorizes the preset policy QcloudVPCReadOnlyAccess to the sub-account Developer. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 Solution B:
 
@@ -52,7 +52,7 @@ Step 1: Create the following policy through policy syntax.
 }
 ```
 
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).
 
 ### Authorizing a sub-account to manage VPC rather than working with the routing table
 
@@ -87,4 +87,4 @@ Step 1: Create the following policy through policy syntax.
 }
 ```
 
-Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://www.qcloud.com/document/product/378/8961).
+Step 2: Authorize the policy to the sub-account. For more information on authorization, please see [Authorization Management](https://cloud.tencent.com/document/product/378/8961).

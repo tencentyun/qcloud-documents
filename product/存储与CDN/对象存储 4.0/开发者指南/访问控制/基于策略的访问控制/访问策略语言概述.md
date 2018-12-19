@@ -1,0 +1,179 @@
+## 概述
+访问策略可用于授予访问 COS 资源的权限。访问策略使用基于 JSON 的访问策略语言。您可以通过访问策略语言授权指定委托人（principal）对指定的 COS 资源执行指定的操作。
+
+访问策略语言描述了存储桶策略（Bucket Policy）的基本元素和用法，有关策略语言的说明可以参阅 [CAM 策略管理](https://cloud.tencent.com/document/product/598/10600)。
+
+## 访问策略中的元素
+
+访问策略语言包含以下基本意义的元素：
+- 委托人（principal）：描述策略授权的实体。例如用户（开发商、子账号、匿名用户）、用户组等。该元素对于存储桶访问策略有效，对用户访问策略则不应添加。
+- 语句（statement）：描述一条或多条权限的详细信息。该元素包括效力、操作、资源、条件等多个其他元素的权限或权限集合。一条策略有且仅有一个语句元素。
+  - 效力（effect）：描述声明产生的结果是“允许”还是“显式拒绝”，包括 allow 和 deny 两种情况。该元素是必填项。
+  - 操作（action）：描述允许或拒绝的操作。操作可以是 API（以 name 前缀描述）或者功能集（一组特定的 API，以 permid 前缀描述）。该元素是必填项。
+  - 资源（resource）：描述授权的具体数据。资源是用六段式描述。每款产品的资源定义详情会有所区别。有关如何指定资源的信息，请参阅您编写的资源声明所对应的产品文档。该元素是必填项。
+  - 条件（condition）：描述策略生效的约束条件。条件包括操作符、操作键和操作值组成。条件值可包括时间、IP 地址等信息。有些服务允许您在条件中指定其他值。该元素是非必填项。
+
+## 元素用法
+### 指定委托人
+委托人 principal 元素用于指定被允许或拒绝访问资源的用户、账户、服务或其他实体。元素 principal 仅在存储桶中起作用；用户策略中不必指定，因为用户策略直接附加到特定用户。下面是指定 principal 的示例。
+```json
+"principal": {
+  "qcs": [
+    "qcs::cam::uin/1:uin/1"
+  ]
+}
+```
+授予匿名用户权限：
+```json
+"principal": {
+  "qcs": [
+    "qcs::cam::anonymous:anonymous"
+  ]
+}
+```
+授权主账户 UIN 1200000313 权限：
+```json
+"principal": {
+  "qcs": [
+    "qcs::cam::uin/1200000313:uin/1200000313"
+  ]
+}
+```
+授权子账户 UIN 3030313（主账户 UIN 为 1200000313）权限：
+>**注意：**
+>操作前需确保子账号已被添加到主账号的子账号列表中。
+
+```json
+"principal": {
+  "qcs": [
+    "qcs::cam::uin/1200000313:uin/3030313"
+  ]
+}
+```
+
+### 指定效力
+如果没有显式授予（允许）对资源的访问权限，则隐式拒绝访问。您也可显式拒绝（deny）对资源的访问，这样可确保用户无法访问该资源，即使有其他策略授予了访问权限的情况下也是如此。下面是指定允许效力的示例。
+```json
+"effect" : "allow"
+```
+
+### 指定操作
+COS 定义了可在策略中指定的某一个特定的 COS 操作，指定的操作与发起的 API 请求操作完全一致。
+#### 存储桶操作
+| 描述                    | 对应的 API 接口               |
+| --------------------- | ------------------------ |
+| name/cos:GetService   | GET Service              |
+| name/cos:GetBucket    | GET Bucket (List Object) |
+| name/cos:PutBucket    | PUT Bucket               |
+| name/cos:DeleteBucket | DELETE Bucket            |
+
+#### 对象操作
+| 描述                    | 对应的 API 接口    |
+| --------------------- | ------------- |
+| name/cos:GetObject    | GET Object    |
+| name/cos:PutObject    | PUT Object    |
+| name/cos:HeadObject   | HEAD Object   |
+| name/cos:DeleteObject | DELETE Object |
+
+指定允许操作的示例如下：
+```json
+"action": [
+  "name/cos:GetObject",
+  "name/cos:HeadObject"
+]
+```
+
+### 指定资源
+资源（resource）元素描述一个或多个操作对象，如 COS 存储桶或对象等。所有资源均可采用下述的六段式描述方式。
+```json
+qcs:project_id:service_type:region:account:resource
+```
+
+其中：
+1. qcs 是 qcloud service 的简称，表示是腾讯云的云服务。
+2. project_id 描述项目信息，仅为了兼容 CAM 早期逻辑。这里请不填。
+3. service_type 描述产品简称，如 COS。
+4. region 描述地域信息。查阅腾讯云 COS 支持的 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+5. account 描述资源拥有者的根账号信息。目前支持两种方式描述的资源拥有者。一种方式是 uin 方式，即根账号的 qq 号，表示为 uin/${uin}，如 uin/164256472。另外一种方式是 uid 方式，即根账号的 appid，表示为 uid/${appid}，如 uid/1000382392。目前 COS 的资源拥有者统一使用 uid 的方式表述，即根账号的开发商 appid。
+6. resource 描述具体资源详情，在 COS 服务中使用存储桶 XML API 访问域名来描述。
+
+下面是指定存储桶 burningtest-1251500699 的示例。
+```json
+"resource": ["qcs::cos:ap-guangzhou:uid/1251500699:burningtest-1251500699/*"]
+```
+
+下面是指定存储桶 burningtest-1251500699 中的 /test/ 文件夹下所有对象的示例。
+```json
+"resource": ["qcs::cos:ap-guangzhou:uid/1251500699:burningtest-1251500699/test/*"]
+```
+
+下面是指定存储桶 burningtest-1251500699 中的 /test/1.txt 对象的示例。
+```json
+"resource": ["qcs::cos:ap-guangzhou:uid/1251500699:burningtest-1251500699/test/1.txt"]
+```
+
+### 指定条件
+访问策略语言可使您在授予权限时指定条件。例如限制用户访问来源，限制授权时间等。下面列出了目前支持的条件操作符列表以及通用的条件键和示例等信息。
+
+| 条件操作符                   | 含义     | 条件名              | 示例                                       |
+| ----------------------- | ------ | ---------------- | ---------------------------------------- |
+| ip_equal                | IP 等于  | qcs:ip           | {"ip_equal":{"qcs:ip ":"10.121.2.0/24"}} |
+| ip_not_equal            | IP 不等于 | qcs:ip           | {"ip_not_equal":{"qcs:ip ":["10.121.1.0/24", "10.121.2.0/24"]}} |
+| date_not_equal          | 时间不等于  | qcs:current_time | {"date_not_equal":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
+| date_greater_than       | 时间大于   | qcs:current_time | {" date_greater_than ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
+| date_greater_than_equal | 时间大于等于 | qcs:current_time | {" date_greater_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
+| date_less_than          | 时间小于   | qcs:current_time | {" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}} |
+| date_less_than_equal    | 时间小于等于 | qcs:current_time | {" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}} |
+| date_less_than_equal    | 时间小于等于 | qcs:current_time | {"date_less_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
+
+下面是满足来访 IP 为 10.121.2.0/24 网段内的示例。
+
+```json
+"ip_equal":{"qcs:ip ":"10.121.2.0/24"}
+```
+
+下面是满足来访 IP 为 101.226.\*\*\*.185 和 101.226.\*\*\*.186 的示例。
+
+```json
+"ip_equal": {
+  "qcs:ip": [
+    "101.226.***.185",
+    "101.226.***.186"
+  ]
+}
+```
+
+## 实际案例
+
+当根账号允许匿名用户，在访问来源 IP 为 101.226.\*\*\*.185/101.226.\*\*\*.186 时，对华南地区存储桶 burningtest-1251500699 中的对象，执行 GET（下载）和 HEAD 操作，而无需鉴权。更多案例请参阅 [权限设置相关案例](https://cloud.tencent.com/document/product/436/12514)。
+
+```json
+{
+   "version": "2.0",
+   "principal": {
+      "qcs": [
+         "qcs::cam::anonymous:anonymous"
+      ]
+   },
+    "statement": [
+        {
+            "action": [
+                "name/cos:GetObject",
+                "name/cos:HeadObject"
+            ],
+            "condition": {
+                "ip_equal": {
+                    "qcs:ip": [
+                        "101.226.***.185",
+                        "101.226.***.186"
+                    ]
+                }
+            },
+            "effect": "allow",
+            "resource": [
+                "qcs::cos:cn-south:uid/1251500699:burningtest-1251500699.cn-south.myqcloud.com/*"
+            ]
+        }
+    ]
+}
+```

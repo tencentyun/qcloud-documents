@@ -13,7 +13,7 @@
 ### Status Flow Chart
 **Cluster Lifecycle**: Cluster status flow is shown below. Hexagons represent node status.
 
-![Alt text](https://mc.qcloudimg.com/static/img/c480588db03d554a36df294316a981da/Image+051.png)
+![Alt text](https://mc.qcloudimg.com/static/img/a21f83fb844568e72ccb319d24f01946/%7BBE75004B-997B-4939-B7DB-C769ED2712AF%7D.png)
 
 ## Node Lifecycle
 
@@ -23,4 +23,4 @@
 |:--:|:--|
 | Healthy | The node is running and is connected with the cluster |
 | Exception | The node encountered exceptions and is not connected with the cluster |
-| Other Status | Please see [CVM Lifecycle](https://www.qcloud.com/document/product/213/4856) |
+| Other Status | Please see [CVM Lifecycle](https://cloud.tencent.com/document/product/213/4856) |

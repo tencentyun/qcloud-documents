@@ -27,42 +27,42 @@ Tencent Cloud VPC consists of various services which should appear very similar 
 
 ## 2. How to start using VPC?
 You can start using VPC either from the Tencent Cloud Console, or by using cloud APIs.
-- [**Console** Quick Guide](https://www.qcloud.com/document/product/215/8119)
-- [**API** Quick Guide](https://www.qcloud.com/doc/api/245/5157)
+- [**Console** Quick Guide](https://cloud.tencent.com/document/product/215/8119)
+- [**API** Quick Guide](https://cloud.tencent.com/doc/api/245/5157)
 
 ## 3. Is the VPC able to communicate with basic network/public network/other VPCs (of different accounts and regions)/my data center?
 Yes. The following table lists your demands and their corresponding features:
 
 | User Demand | Corresponding VPC Feature | 
 |---------|---------|
-| Communication between VPC and CVM within the basic network |  [Basic Network Interconnection](https://www.qcloud.com/doc/product/215/5002)|
-| Access public network | [ Elastic IP ](https://www.qcloud.com/doc/product/215/4958) / [NAT Gateway](https://www.qcloud.com/doc/product/215/4975)(High performance)/ [Public Network Gateway](https://www.qcloud.com/doc/product/215/4972) |
-| Other VPCs | [Peering Connection](https://www.qcloud.com/doc/product/215/5000)(Cross-region and cross-account are supported) |
-| My data center | [VPN Connection ](https://www.qcloud.com/doc/product/215/4956)/[ Direct Connect](https://www.qcloud.com/doc/product/215/4976) |
+| Communication between VPC and CVM within the basic network |  [Basic Network Interconnection](https://cloud.tencent.com/doc/product/215/5002)|
+| Access public network | [ Elastic IP ](https://cloud.tencent.com/doc/product/215/4958) / [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975)(High performance)/ [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972) |
+| Other VPCs | [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)(Cross-region and cross-account are supported) |
+| My data center | [VPN Connection ](https://cloud.tencent.com/doc/product/215/4956)/[ Direct Connect](https://cloud.tencent.com/doc/product/215/4976) |
 
 
 ## 4. How many VPCs, subnets, routing tables, public network gateways, NAT gateways, peering connections, VPN gateways, VPN tunnels, network ACLs can I create, respectively?
-[View Detailed Resource Quota in the VPC](https://www.qcloud.com/doc/product/215/537), please submit a ticket to apply for a higher quota if needed.
+[View Detailed Resource Quota in the VPC](https://cloud.tencent.com/doc/product/215/537), please submit a ticket to apply for a higher quota if needed.
 
 ## 5. What's the difference between basic network and VPC?
 VPC is able to achieve all functions that can be provided by the basic network, without additional fee.
-VPC is able to satisfy more demands for network customization. [Please Refer to Details about Differences between Basic Network and VPC](https://www.qcloud.com/doc/product/215/535#.E9.80.89.E6.8B.A9.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C-or-.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.EF.BC.9F).
+VPC is able to satisfy more demands for network customization. [Please Refer to Details about Differences between Basic Network and VPC](https://cloud.tencent.com/doc/product/215/535#.E9.80.89.E6.8B.A9.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C-or-.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.EF.BC.9F).
 
 
 ## 6. I have a VPC. How do I configure it to allow only some of the CVMs in it to access the public network through the gateway?
 Place the CVMs that need to access the public network into a certain subnet, then configure routing policy on the routing table which is bound to this subnet and direct data packets to access via the gateway if their destination is the public network. Detailed procedure is shown below:
-1) **[Create Subnet](https://www.qcloud.com/doc/product/215/4927#.E6.96.B0.E5.A2.9E.E5.AD.90.E7.BD.91)** and place the CVMs that need to access the public network into this subnet: purchase CVMs from the [Subnet Console](https://console.qcloud.com/vpc/subnet) / choose this subnet from the Purchased Network Configuration section of the [CVM Introduction Page](https://www.qcloud.com/product/cvm.html).
-2) **Purchase the corresponding gateway equipment**. There are two types of gateway equipments in Tencent Cloud VPC that can access the public network: [NAT Gateway](https://www.qcloud.com/doc/product/215/4975) and [Public Network Gateway](https://www.qcloud.com/doc/product/215/4972). [Click to View Their Differences](https://www.qcloud.com/doc/product/215/4975#nat.E7.BD.91.E5.85.B3.E5.92.8C.E5.85.AC.E7.BD.91.E7.BD.91.E5.85.B3.E7.9A.84.E5.8C.BA.E5.88.AB). You may purchase the corresponding gateway equipment according to your business needs. Instruction on how to allow [CVMs without Public IPs to Access the Public Network via Public Network Gateway](https://www.qcloud.com/doc/product/215/4972#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97) / instruction on how to [Use NAT Gateway to Access the Internet](https://www.qcloud.com/doc/product/215/4975#.E4.BD.BF.E7.94.A8-nat-.E7.BD.91.E5.85.B3.E8.AE.BF.E9.97.AE-internet).
+1) **[Create Subnet](https://cloud.tencent.com/doc/product/215/4927#.E6.96.B0.E5.A2.9E.E5.AD.90.E7.BD.91)** and place the CVMs that need to access the public network into this subnet: purchase CVMs from the [Subnet Console](https://console.cloud.tencent.com/vpc/subnet) / choose this subnet from the Purchased Network Configuration section of the [CVM Introduction Page](https://cloud.tencent.com/product/cvm.html).
+2) **Purchase the corresponding gateway equipment**. There are two types of gateway equipments in Tencent Cloud VPC that can access the public network: [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972). [Click to View Their Differences](https://cloud.tencent.com/doc/product/215/4975#nat.E7.BD.91.E5.85.B3.E5.92.8C.E5.85.AC.E7.BD.91.E7.BD.91.E5.85.B3.E7.9A.84.E5.8C.BA.E5.88.AB). You may purchase the corresponding gateway equipment according to your business needs. Instruction on how to allow [CVMs without Public IPs to Access the Public Network via Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97) / instruction on how to [Use NAT Gateway to Access the Internet](https://cloud.tencent.com/doc/product/215/4975#.E4.BD.BF.E7.94.A8-nat-.E7.BD.91.E5.85.B3.E8.AE.BF.E9.97.AE-internet).
 
 ## 7. I have a VPC, can I create CVMs in different availability zones and how do I do that? Such as creating CVMs in both Guangzhou Zone 2 and Guangzhou Zone 3.
 Yes. There are two preconditions:
-1) You can only create CVMs within availability zones of the region to which the VPC belongs. For example, if your CVM belongs to the region Guangzhou, you can create CVMs in Guangzhou Zone 2 and Zone 3, but you cannot create CVMs in Guangzhou Zone 2 and Beijing Zone 1 at the same time, in this VPC. [Click to View Detailed Distribution of Regions and Availability Zones](https://www.qcloud.com/doc/product/215/4927#.E5.8F.AF.E7.94.A8.E5.8C.BA.EF.BC.88zone.EF.BC.89)
+1) You can only create CVMs within availability zones of the region to which the VPC belongs. For example, if your CVM belongs to the region Guangzhou, you can create CVMs in Guangzhou Zone 2 and Zone 3, but you cannot create CVMs in Guangzhou Zone 2 and Beijing Zone 1 at the same time, in this VPC. [Click to View Detailed Distribution of Regions and Availability Zones](https://cloud.tencent.com/doc/product/215/4927#.E5.8F.AF.E7.94.A8.E5.8C.BA.EF.BC.88zone.EF.BC.89)
 2) You must create a subnet in the availability zone before you can create CVMs in this availability zone.
 
 The detailed procedure regarding how to create CVMs in different availability zones is shown below:
-1) [Create Subnets](https://www.qcloud.com/doc/product/215/4927#.E6.96.B0.E5.A2.9E.E5.AD.90.E7.BD.91) in **different** availability zones under this VPC.
-2) Create CVM. Purchase CVMs from the [Subnet Console](https://console.qcloud.com/vpc/subnet) / choose subnets of **different availability zones** from the Purchased Network Configuration section of the [CVM Introduction Page](https://www.qcloud.com/product/cvm.html).
+1) [Create Subnets](https://cloud.tencent.com/doc/product/215/4927#.E6.96.B0.E5.A2.9E.E5.AD.90.E7.BD.91) in **different** availability zones under this VPC.
+2) Create CVM. Purchase CVMs from the [Subnet Console](https://console.cloud.tencent.com/vpc/subnet) / choose subnets of **different availability zones** from the Purchased Network Configuration section of the [CVM Introduction Page](https://cloud.tencent.com/product/cvm.html).
 
 ## 8. Can I modify the private IP of cloud virtual machine (CVM)/private cloud load balancer (LB)/cloud database (CDB)?
-You can modify the primary private IP of the CVM's primary NIC. You cannot modify the primary private IP of secondary NIC. [Click to View Instructions](https://www.qcloud.com/doc/product/215/6508#4.-.E5.A6.82.E4.BD.95.E4.BF.AE.E6.94.B9.E4.BA.91.E4.B8.BB.E6.9C.BA.E5.86.85.E7.BD.91ip.EF.BC.9F).
+You can modify the primary private IP of the CVM's primary NIC. You cannot modify the primary private IP of secondary NIC. [Click to View Instructions](https://cloud.tencent.com/doc/product/215/6508#4.-.E5.A6.82.E4.BD.95.E4.BF.AE.E6.94.B9.E4.BA.91.E4.B8.BB.E6.9C.BA.E5.86.85.E7.BD.91ip.EF.BC.9F).
 You cannot modify private IP of private cloud load balancer (LB) or cloud database (CDB).

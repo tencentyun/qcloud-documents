@@ -32,11 +32,11 @@ CLB 定价主要包括实例租用费和后端服务器带宽流量费。
 
 ### 官网购买
 
-登录腾讯云 [负载均衡服务购买页](https://buy.qcloud.com/lb)，可购买负载均衡产品。
+登录腾讯云 [负载均衡服务购买页](https://buy.cloud.tencent.com/lb)，可购买负载均衡产品。
 
 ### API 购买
 
-详情请参见 [负载均衡API](http://www.qcloud.com/doc/api/244/%E7%AE%80%E4%BB%8B)。
+详情请参见 [负载均衡API](http://cloud.tencent.com/doc/api/244/%E7%AE%80%E4%BB%8B)。
 
 ## 回收机制
 

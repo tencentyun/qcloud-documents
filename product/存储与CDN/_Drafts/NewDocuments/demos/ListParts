@@ -1,0 +1,46 @@
+
+**请求示例:**
+
+```
+GET /coss3/test10M_2?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
+Host:burning-1251668577.cos.ap-beijing.myqcloud.com
+Date: Wed，18 Jan 2017 16:17:03 GMT
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadId&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 661
+Connection: keep-alive
+Date: Wed，18 Jan 2017 16:17:03 GMT
+x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
+
+<ListPartsResult>
+    <Bucket>burning-123456789</Bucket>
+    <Encoding-type/>
+    <Key>test10M_2</Key>
+    <UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
+    <Initiator>
+        <ID>123456789</ID>
+        <DisplyName>123456789</DisplyName>
+    </Initiator>
+    <Owner>
+        <ID>qcs::cam::uin/156545789:uin/156545789</ID>
+        <DisplyName>156545789</DisplyName>
+    </Owner>
+    <PartNumberMarker>0</PartNumberMarker>
+    <Part>
+        <PartNumber>1</PartNumber>
+        <LastModified>Tue Jan 17 16:43:37 2017</LastModified>
+        <ETag>"a1f8e5e4d63ac6970a0062a6277e191fe09a1382"</ETag>
+        <Size>5242880</Size>
+    </Part>
+    <NextPartNumberMarker>1</NextPartNumberMarker>
+    <StorageClass>STANDARD</StorageClass>
+    <MaxParts>1</MaxParts>
+    <IsTruncated>true</IsTruncated>
+</ListPartsResult>
+```

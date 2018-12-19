@@ -40,22 +40,22 @@
 打开VPN客户端，输入VPN网关IP、用户名、密码和域。
 
 ![](https://mc.qcloudimg.com/static/img/a7b820a30427d720504de3c9e069ade9/003.png)
-点击【连接】，即可成功建立了VPN连接
+单击【连接】，即可成功建立了VPN连接
 
 ![](https://mc.qcloudimg.com/static/img/2dd765f8c114421bc0c67333f33c5a7f/004.png)
 
 ## MAC操作系统的VPN客户端使用指南
-打开mac版的VPN客户端，点击添加按钮，添加新的VPN连接。
+打开mac版的VPN客户端，单击添加按钮，添加新的VPN连接。
 
 ![](https://mc.qcloudimg.com/static/img/ce60d1d393853355c111f67802292249/005.png)
 
 
-确认并点击【next】
+确认并单击【next】
 
 
 ![](https://mc.qcloudimg.com/static/img/a129b19a14a0596bc940bc3c2c17e952/006.png)
 
-输入相应的VPN网关IP、用户名、密码，并点击【Finish】。
+输入相应的VPN网关IP、用户名、密码，并单击【Finish】。
 
 
 ![](https://mc.qcloudimg.com/static/img/c2b10dd164933e92f8f6972fe9737c13/007.png)
@@ -63,7 +63,7 @@
 输入相应的域【Domain】。
 
 ![](https://mc.qcloudimg.com/static/img/68566234130f01caf1a2b38b4cbd4139/008.png)
-点击【connect】即可
+单击【connect】即可
 
 ![](https://mc.qcloudimg.com/static/img/97bb61f78e5299aa452dae8589400dad/009.png)
  __注意__ : 
@@ -108,7 +108,7 @@
 以浪潮服务器为例演示如何登录远程KVM。请找到远程控制选项，下载JNLP文件
 
 ![](https://mc.qcloudimg.com/static/img/a35a3e1ba9bea017eb478fd0fae9a287/013.png)
-请在安装了JRE的前提下，运行JNLP文件，如遇到安全警告请选择【接受风险】并点击【运行】
+请在安装了JRE的前提下，运行JNLP文件，如遇到安全警告请选择【接受风险】并单击【运行】
 
 ![](https://mc.qcloudimg.com/static/img/9f1a11106f7aceb452a8717664890c07/014.png)
 打开KVM控制台后，即可登录该服务器。

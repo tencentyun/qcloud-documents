@@ -105,7 +105,7 @@ Action=AttachCbsStorages
 &Timestamp=1466047744
 ```
 
-The result of the above request is as follows. You can check whether the cloud disk has been mounted to the specified CVM using the API [DescribeCbsStorages (Query Cloud Disk Information)](https://www.qcloud.com/doc/api/364/2519).
+The result of the above request is as follows. You can check whether the cloud disk has been mounted to the specified CVM using the API [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519).
 
 ```json
 {
@@ -122,6 +122,6 @@ The result of the above request is as follows. You can check whether the cloud d
 
 ## 4. Initialize the Cloud Storage on CVM
 
-The first time you use the new elastic cloud storage, you need to perform a series of operations on it, such as partitioning, formatting etc. For details, please refer to [Data Disk Partitioning and Formatting on Windows System](https://www.qcloud.com/doc/product/213/2158) and [Data Disk Mounting, Partitioning and Formatting on Linux System](https://www.qcloud.com/doc/product/362/3893). Note: For Linux system, partitioning is not necessary. You can skip the partitioning process and directly proceed to the formatting.
+The first time you use the new elastic cloud storage, you need to perform a series of operations on it, such as partitioning, formatting etc. For details, please refer to [Data Disk Partitioning and Formatting on Windows System](https://cloud.tencent.com/doc/product/213/2158) and [Data Disk Mounting, Partitioning and Formatting on Linux System](https://cloud.tencent.com/doc/product/362/3893). Note: For Linux system, partitioning is not necessary. You can skip the partitioning process and directly proceed to the formatting.
 
 

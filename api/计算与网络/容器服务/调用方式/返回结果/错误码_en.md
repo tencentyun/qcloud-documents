@@ -33,7 +33,7 @@ Different modules may produce different errors. The user can identify the cause 
 <td> 4100
 </td><td> 10030
 </td><td> authentication failed
-</td><td> Authentication failed. Possible reasons are as follows 1) The secret key that generated the signature algorithm is incorrect; 2) The <a hre="https://www.qcloud.com/doc/api/431/5906">signature algorithm</a> is incorrect (users try to implement the signature algorithm by themselves instead of using the official sdk).
+</td><td> Authentication failed. Possible reasons are as follows 1) The secret key that generated the signature algorithm is incorrect; 2) The <a hre="https://cloud.tencent.com/doc/api/431/5906">signature algorithm</a> is incorrect (users try to implement the signature algorithm by themselves instead of using the official sdk).
 </td></tr>
 <tr>
 <td> 4300
@@ -69,7 +69,7 @@ Different modules may produce different errors. The user can identify the cause 
 <td> 4100
 </td><td> 10270
 </td><td> secret id is not existed
-</td><td> <a href="https://console.qcloud.com/capi">The secret id</a> does not exist.
+</td><td> <a href="https://console.cloud.tencent.com/capi">The secret id</a> does not exist.
 </td></tr>
 <tr>
 <td> 4000

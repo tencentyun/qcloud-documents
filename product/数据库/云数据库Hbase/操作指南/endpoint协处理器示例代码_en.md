@@ -2,7 +2,7 @@
 When using co-processing, you need to provide us with the jar package, and we provide the hdfs address after installation. You can then install via shell or APIs (there are samples in the code). It is strongly recommended to install the co-processor jar package through sufficient testing after fully developed, so as to avoid affecting the normal use of Hbase service after installation.
 
 ## Co-processor Development Steps
-1. Write the proto file (sample: RowCount.proto); because hbse uses the Google version protoc-2.5.0, it is best to use same version to compile the proto file and generate the jave file (sample: RowCountService.java);
+1. Write the proto file (sample: RowCount.proto); because hbse uses the Google version protoc-2.5.0, you'd better to use same version to compile the proto file and generate the jave file (sample: RowCountService.java);
 2. Write the server-side EndPoint code (sample: RowCountEndPoint.java);
 3. Write the client-side calling Client code (sample: RowCountClient.java);
 4. Compile the jar package.

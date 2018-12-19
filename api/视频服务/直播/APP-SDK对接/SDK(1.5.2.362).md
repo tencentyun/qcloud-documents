@@ -4,7 +4,7 @@
  2016年08月16日
 
 ## 【最新特性】
-（1）播放端不再限制只能播放腾讯与您的域名；
+（1）播放端不再限制只能播放腾讯云您的域名；
 （2）增加音频解码对HE-AAC V2的支持；
 （3）推流及播放VideoView支持调整大小、支持保留最后一帧渲染；
 （4）优化就近接入，更智能地选择就近接入点；
@@ -20,7 +20,7 @@
 1.5.2版本将参数frame废弃，<font color='red'>设置此参数无效</font>，控件大小与参数view的大小保持一致；
 
 - ** (void) resetVideoWidgetFrame:(CGRect)frame;**
-1.5.2版本将此方法废弃，<font color='red'>调用此方法无效</font>，如需修改控件的大小及位置，请调整父view(方法setupVideoWidget中参数view)的大小及位置；具体参考[渲染控制](https://www.qcloud.com/doc/api/258/4734#step-2.3A-.E5.90.AF.E5.8A.A8.E6.8E.A8.E6.B5.81)
+1.5.2版本将此方法废弃，<font color='red'>调用此方法无效</font>，如需修改控件的大小及位置，请调整父view(方法setupVideoWidget中参数view)的大小及位置；具体参考[渲染控制](https://cloud.tencent.com/doc/api/258/4734#step-2.3A-.E5.90.AF.E5.8A.A8.E6.8E.A8.E6.B5.81)
 
 - **(NSArray*) getSDKVersion;**
 1.5.2版本将此接口由实例方法变更为TXLivePush 和 TXLivePlayer的类方法；

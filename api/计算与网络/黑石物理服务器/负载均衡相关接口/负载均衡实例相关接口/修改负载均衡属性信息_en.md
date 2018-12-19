@@ -63,7 +63,7 @@ Module Error Codes
 Input
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=ModifyBmLoadBalancerAttributes
-&<<a href="https://www.qcloud.com/document/product/386/6718">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Common request parameters</a>>
 &loadBalancerId=lb-aaaa
 &loadBalancerName=my-test
 &domainPrefix=aaaa

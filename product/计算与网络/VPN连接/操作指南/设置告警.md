@@ -1,0 +1,6 @@
+VPN 通道提供告警功能：
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)单击顶部导航条【云产品】>【管理工具】>[【云监控】](https://console.cloud.tencent.com/monitor/overview)，单击左侧目录【我的告警】> [【告警策略】](https://console.cloud.tencent.com/monitor/policylist)，单击【新增】。
+2. 填写告警策略名称，策略类型选择【私有网络】>【VPN通道】，选择告警对象，设置告警策略，选择告警接受组和告警渠道，单击【完成】，即可在告警策略列表中查看已设置的告警策略。
+![](https://main.qcloudimg.com/raw/5bf3ebcc4f2f47233037f461b40684c6.png)
+3. **查看告警信息**
+告警条件被触发后，您将通过已选择的告警渠道接收到告警通知（短信 / 邮件 / 站内信等），也可以单击左导航【我的告警】>【告警列表】查看。更多告警相关信息，请参考  [告警配置](https://cloud.tencent.com/doc/product/248/1073)。

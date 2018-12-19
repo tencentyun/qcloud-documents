@@ -15,7 +15,7 @@ Authorization: Auth String
        2. 每一个冒号后面都有一个空格；
        3. Dete 格式是 GMT Date；
        4. Authorization 统一为 Auth String -->
-> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 <!-- 将以上完整结构的请求语法示例中的请求行单独描述说明-->
@@ -49,7 +49,7 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 <!-- 如果实际 API 中没有非公共头部内容，表述的语句为：该请求操作无特殊的请求头部信息。
@@ -101,7 +101,7 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 <!-- 如果实际 API 中没有特有响应头，表述的语句为：该响应无特殊的响应头。-->
 该请求操作的响应头具体数据为：
@@ -231,17 +231,17 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
 1. `HTTP/1.1`  是正规写法， HTTP 全大写，不要漏写反斜杠 “/” 。
 2. 官网概念、专有名词统一大小写：APPID，SecretId，SecretKey，Bucket，Object，String 等
 3. 中英文之间要空格。如：该响应体返回为 application/xml 数据。
-4.  链接与正文间要空格。如：了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
+4.  链接与正文间要空格。如：了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 5.  阿拉伯数字与中文间要空格，如：列出 1000 个正在进行中的分块。
 5.  变量名词用尖括号 &lt;abc&gt; 表示，左右尖括号用转义字符 `&lt;`,`&gt;` 表示。
 6.  可选参数用英文方括号 [abc] 表示。
-7.  不帯超链接的域名仅做示例的，要用内敛代码标识 `www.qcloud.com`。
+7.  不帯超链接的域名仅做示例的，要用内敛代码标识 `cloud.tencent.com`。
 8.  “通配符 * ”正确写法：“ * ”前后带空格。
 9.  文中的“注意”有强调作用 ，所以“注意”要加粗换行，但注意的内容不加粗。如：
 
 ><font color="#0000cc">**注意：** </font>
-- 默认下载域名在创建好存储桶后，可通过 [对象存储控制台](https://console.qcloud.com/cos4) 的存储桶【域名管理】查看。
-- bucketname 是在创建存储桶时为存储桶命名的名称，可通过 [对象存储控制台](https://console.qcloud.com/cos4) 的存储桶【基础配置】查看。
+- 默认下载域名在创建好存储桶后，可通过 [对象存储控制台](https://console.cloud.tencent.com/cos4) 的存储桶【域名管理】查看。
+- bucketname 是在创建存储桶时为存储桶命名的名称，可通过 [对象存储控制台](https://console.cloud.tencent.com/cos4) 的存储桶【基础配置】查看。
 
 11.表格描述中不带符号结尾。如：
 

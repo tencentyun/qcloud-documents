@@ -1,0 +1,28 @@
+如果您完成了步骤二：创建并测试 API 服务，且测试结果符合预期，则接下来可以对外发布此服务并从浏览器发起请求来验证接口的工作情况。
+
+## API 服务发布
+
+1. 在 API 网关控制台的【服务】列表页中，找到在步骤二创建的 blogAPI 服务，并单击服务操作中的【发布】按钮。
+
+2. 在发布服务的弹窗中，发布环境选择 `发布`，备注内填入 `发布API`，单击【提交】。
+
+## API 在线验证
+
+通过发布动作，完成了 API 服务的发布，使得 API 可以被外部所访问到，接下来通过浏览器发起请求来查看 API 是否能正确响应。
+
+1. 在 blogAPI 服务中，进入【环境管理】选项卡，复制其中 `发布` 环境的访问路径，例如 `service-kzeed206-1251762227.ap-guangzhou.apigateway.myqcloud.com/release`。
+ **注意** 这里由于每个服务的域名均不相同，您的服务所分配到的域名将与本文中的服务域名有差别，请勿直接拷贝本文中的地址访问。
+
+2. 在此路径后增加创建的 API 规则的路径，形成如下路径。
+```
+service-kzeed206-1251762227.ap-guangzhou.apigateway.myqcloud.com/release/article
+service-kzeed206-1251762227.ap-guangzhou.apigateway.myqcloud.com/release/article/1
+service-kzeed206-1251762227.ap-guangzhou.apigateway.myqcloud.com/release/article/2
+```
+
+3. 将第2步中的路径复制到浏览器中访问，确定输出内容与测试 API 时的输出相同。
+
+4. 可进一步修改请求中的文章编号并查看输出，查看代码是否能正确处理错误的文章编号。
+
+
+至此完成了通过 SCF 云函数实现服务，通过 API 对外提供服务。后续可以通过继续修改代码，增加功能并增加 API 规则，使其完善成为一个更丰富的应用模块。

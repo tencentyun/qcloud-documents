@@ -1,0 +1,30 @@
+
+**请求示例:**
+
+```
+PUT /222.txt HTTP/1.1
+Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com
+Date: Fri, 04 Aug 2017 02:41:45 GMT
+Connection: keep-alive Accept-Encoding: gzip, deflate Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=&q-header-list=host&q-signature=eacefe8e2a0dc8a18741d9a29707b1dfa5aa47cc
+x-cos-copy-source: bucket2-1252443704.cos.ap-beijing.myqcloud.com/1.txt
+Content-Length: 0
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 133
+Connection: keep-alive
+Date: Fri, 04 Aug 2017 02:41:45 GMT
+Server: tencent-cos
+x-cos-request-id: NTk4M2RlZTlfZDRiMDM1MGFfYTA1ZV8xMzNlYw==
+
+<CopyObjectResult>
+    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+    <LastModified>2017-08-04T02:41:45</LastModified>
+</CopyObjectResult>
+```

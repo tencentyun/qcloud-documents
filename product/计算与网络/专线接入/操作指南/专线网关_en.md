@@ -1,6 +1,6 @@
 ## 1. Creating Direct Connect Gateway
 
-1) Open the [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
+1) Open the [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
 
 2) Click the "New" button to enter the Direct Connect creation page.
 
@@ -14,7 +14,7 @@
 ### 2.1. Configuring IP Translation
 
 The specific procedure is as follows:
-1) Open the [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
+1) Open the [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
 
 2) Click the ID of the Direct Connect gateway to enter its details page.
 
@@ -61,7 +61,7 @@ On the Direct Connect gateway details page, click "Peer IP Translation" tab:
 
 ### 2.2. Configuring IP Port Translation
 
-1) Open the [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
+1) Open the [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
 
 2) Click the ID of the Direct Connect gateway to enter its details page.
 
@@ -110,7 +110,7 @@ On the Direct Connect gateway details page, click "Local Destination IP Port Tra
 
 You can delete the Direct Connect gateway which you don't want to use again. Deleting a Direct Connect gateway will also delete its associated tunnel. Please make sure that this will not affect your normal service.
 
-1) Open the [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
+1) Open the [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" in the top navigation bar, and click the "Direct Connect" - "Direct Connect Gateway" tab.
 
 2) Select the Direct Connect gateway you want to delete, and click the "Delete" button in the Operation column.
 
