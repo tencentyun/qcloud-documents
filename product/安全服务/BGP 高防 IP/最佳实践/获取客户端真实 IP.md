@@ -32,7 +32,7 @@ struct ip_vs_tcpo_addr {
 -  toa 仅支持 IPv4，若环境默认获取 IPv6 则无法正确获得客户端 IP。
 
 ### 获取客户端真实 IP
-1. 安装编译环境。
+1. 以root用户执行以下命令，安装编译环境。
 `yum install gcc kernel-headers kernel-devel -y `
 2. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
  ```
@@ -69,7 +69,7 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
 ### 卸载 toa 模块
-执行以下命令，卸载 toa 模块。
+以root用户执行以下命令，卸载 toa 模块。
 ```
 rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 ```
