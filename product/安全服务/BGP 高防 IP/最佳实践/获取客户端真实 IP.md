@@ -46,7 +46,7 @@ unzip TOA_CentOS_v1.zip
 [root@VM_0_2_centos toa]# uname -r
 3.10.0-514.26.2.el7.x86_64
 ```
-4. 根据[步骤3](#step3)的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
+4. 根据 [步骤3](#step3) 的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
 ```
 [root@VM_0_2_centos toa]# vim Makefile 
