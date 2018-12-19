@@ -1,4 +1,4 @@
-## 1. 云市场商品浏览 
+## 1. 商品浏览 
 您可在 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=api) 选购 API 类商品。
 
 ## 2. 选择商品
