@@ -1,8 +1,7 @@
 ## 功能描述
 PUT Bucket replication 用于向已启用版本控制的存储桶中配置跨区域复制规则。如果存储桶已经配置了跨区域复制规则，那么该请求会替换现有配置。
 
->!
->使用该接口时，需确保存储桶已经开启版本控制，开启版本控制的 API 文档请参阅 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/436/19889)。
+>!使用该接口时，需确保存储桶已经开启版本控制，开启版本控制的 API 文档请参阅 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/436/19889)。
 
 ## 请求
 ### 请求示例
@@ -13,11 +12,10 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-MD5: MD5
 Authorization: Auth String
-
 request body
 ```
 
->Authorization: Auth String (详细参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization: Auth String （详细参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 ### 请求头
 #### 公共头部
@@ -55,7 +53,7 @@ request body
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
 |Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs::cos:[region]::[bucketname-AppId] |String    |是|
-|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA；默认值：原存储桶级别<br>**注意：** 目前跨区域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作可查阅 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280)。|String    |否|
+|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA；默认值：原存储桶级别<br>**注意：** 目前跨区域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作可查阅 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280)|String    |否|
 
 ## 响应
 
