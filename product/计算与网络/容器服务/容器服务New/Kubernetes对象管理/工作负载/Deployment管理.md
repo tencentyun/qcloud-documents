@@ -69,7 +69,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 ![更新实例数量](https://main.qcloudimg.com/raw/7547c1eea420bdc8fa6ed2573fecd2a0.png)
 5. 根据实际需求调整 Pod 数量，单击【更新实例数量】，完成调整。
 
-## Ubectl 操作 Deployment 指引
+## Kubectl 操作 Deployment 指引
 <span id="YAMLSample"></span>
 ### YAML 示例
 
