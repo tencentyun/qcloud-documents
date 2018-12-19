@@ -1,4 +1,4 @@
-## 1. 商品浏览
+## 1. 浏览商品
 您可在 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=saas) 选购 SaaS 类商品。
 
 ## 2. 选择商品
