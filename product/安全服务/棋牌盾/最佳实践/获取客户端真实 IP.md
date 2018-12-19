@@ -31,22 +31,21 @@ struct ip_vs_tcpo_addr {
 -  toa 仅支持 IPv4，若环境默认获取 IPv6 则无法正确获得客户端 IP。
 
 ## 获取客户端真实 IP
-1. 以root用户登录操作系统。
-2. 安装编译环境。
+1. 以root用户执行以下命令，安装编译环境。
 `yum install gcc kernel-headers kernel-devel -y `
-3. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
+2. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
  ```
 wget  https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip
 unzip TOA_CentOS_v1.zip
  ```
  <span id="step3"></span>
-4. 执行`uname -r`命令，查看内核版本。
+3. 执行`uname -r`命令，查看内核版本。
  示例：
 ```
 [root@VM_0_2_centos toa]# uname -r
 3.10.0-514.26.2.el7.x86_64
 ```
-5. 根据[步骤3](#step3)的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
+4. 根据[步骤3](#step3)的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
 ```
 [root@VM_0_2_centos toa]# vim Makefile 
@@ -59,8 +58,8 @@ all:
 clean:    
         rm *.o *.ko *.mod.c  Module.symvers modules.order
 ```
-6. 执行`make`命令进行编译。
-7. 移动模块并启动加载。
+5. 执行`make`命令进行编译。
+6. 移动模块并启动加载。
 ```
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
