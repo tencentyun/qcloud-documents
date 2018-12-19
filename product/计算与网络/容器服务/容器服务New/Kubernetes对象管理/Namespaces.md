@@ -22,13 +22,13 @@ metadata:
   namespace: default
 spec:
   hard:
-    configmaps: "10"  ##最多10个ConfigMap
-    replicationcontrollers: "20" ##最多20个replicationcontroller
-    secrets: "10" ##最多10个secret
-    services: "10"##最多10个service
-    services.loadbalancers: "2"  ##最多2个Loadbanlacer模式的service
-    cpu: "1000" ##该Namespaces下最多使用1000个CPU的资源
-    memory: 200Gi ##该Namespaces下最多使用200Gi的内存
+    configmaps: "10"  ## 最多10个 ConfigMap
+    replicationcontrollers: "20" ## 最多20个 replicationcontroller
+    secrets: "10" ## 最多10个 secret
+    services: "10" ## 最多10个 service
+    services.loadbalancers: "2"  ## 最多2个 Loadbanlacer 模式的 service
+    cpu: "1000" ## 该 Namespaces 下最多使用1000个 CPU 的资源
+    memory: 200Gi ## 该 Namespaces 下最多使用200Gi的内存
 ```
 
 ## 通过 NetWorkPolicy 设置 Namespaces 网络的访问控制
