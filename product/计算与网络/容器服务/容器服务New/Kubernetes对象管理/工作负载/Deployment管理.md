@@ -1,56 +1,78 @@
-## Deployment 管理
-### Deployment 简介
-Deployment声明了Pod的模板和控制Pod的运行策略，适用于部署无状态的应用程序，可以根据业务需求声明Deployment下运行的Pod的副本数、调度策略、更新策略等。
-### Deployment 控制台操作指引
-#### 创建Deployment
+## 简介
 
-1. 点击需要部署Deployment的集群ID，进入集群详情页面。
-2. 点击Deployment选项，选择新建Deployment。
-3. 根据指引设置Deployment参数，完成创建。
-![][createdeploymet]
-4. 可通过事件查看Deployment创建过程，当运行数量=期望数量时表示Deployment下的所有Pod已创建完成。
+Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部署无状态的应用程序。您可以根据业务需求，对 Deployment 中运行的 Pod 的副本数、调度策略、更新策略等进行声明。
 
-**说明**
-1. 您可以为Deployment的一个Pod设置多个不同的容器
-2. CPU和内存限制建议填写，Request和Limit恰当的设置可以提供业务的健壮性，详细信息可查看[Kubenretes资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)。
-3. 您可以通过容器的高级设置定制`工作目录`，`运行命令`，`运行参数`，`容器健康检查`，`特权级`等参数。
+## Deployment 控制台操作指引
+<span id="creatDeployment"></span>
+### 创建 Deployment
 
-#### 设置Deployment亲和性调度
-1. 创建Deployment时点击高级设置。
-2. 根据业务需要配置调度规则。
-3. 完成。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要部署 Deployment 的集群 ID，进入待部署 Deployment 的集群管理页面。如下图所示：
+![待部署 Deployment 的集群管理](https://main.qcloudimg.com/raw/b3fe1321d78bf23c519be9418db5fa15.png)
+4. 单击【新建】，进入 “新建Workload” 页面。如下图所示：
+![新建Workload](https://main.qcloudimg.com/raw/ba140ea4e1916c988d06654bd2fbbf10.png)
+5. 根据实际需求，设置 Deployment 参数。关键参数信息如下：
+ - 工作负载名：自定义。
+ - 命名空间：根据实际需求进行选择。
+ - 类型：选择 “Deployment（可扩展的部署Pod）”。
+ - 实例内容器：根据实际需求，为 Deployment 的一个 Pod 设置一个或多个不同的容器。
+    - 名称：自定义。
+    - 镜像：根据实际需求进行选择。
+    - 镜像版本：根据实际需求进行填写。
+    - CPU/内存限制：可根据 [Kubenretes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
+    - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
+ - 实例数量：根据实际需求选择调节方式，设置实例数量。
+6. 单击【创建Workload】，完成创建。如下图所示：
+当运行数量=期望数量时，即表示 Deployment 下的所有 Pod 已创建完成。
+![新建Workload](https://main.qcloudimg.com/raw/4ac45ef3fbee1a679d12fd4682bd8a1a.png)
 
+### 更新 Deployment
 
-#### 更新Deployment
-**Yaml更新**
-1. 点击需要部署的Deployment的集群ID，进入集群详情页面。
-2. 选择需要更新的Deployment, 进入Deployment详情页，点击Yaml tab, 可编辑Yaml直接更新
+#### 更新 YAML
 
-**更新镜像**
-1. 点击需要部署的Deployment的集群ID，进入集群详情页面。
-2. 选择需要更新的Deployment, 点击更新镜像操作。
-    - 支持滚动更新（默认更新策略，推荐）
-    - 支持快速更新
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要更新 Deployment 的集群 ID，进入待更新 Deployment 的集群管理页面。如下图所示：
+![Deployment管理](https://main.qcloudimg.com/raw/a8a99bc14cf09b4c086bc5d4f4ed3fb1.png)
+4. 在需要更新 YAML 的 Deployment 行中，单击【更多】>【编辑YAML】，进入更新 Deployment 页面。
+5. 在 “更新Deployment” 页面，编辑 YAML，单击【完成】，即可更新 YAML。如下图所示：
+![更新YAML](https://main.qcloudimg.com/raw/ddc23ea3fc49bdb05e35c59b67a577ac.png)
 
-![][updatedeploymet]
-#### 回滚Deployment
-1. 点击需要回滚的Deployment的集群ID，进入集群详情页面。
-2. 选择需要回滚的Deployment, 点击回滚操作。
-3. 选择需要回滚的版本，执行回滚。
+#### 更新镜像
 
-![][rolloutdeploymet]
+1. 在集群管理页面，单击需要更新镜像的 Deployment 的集群 ID，进入待更新镜像的 Deployment 的集群管理页面。
+2. 在需要更新镜像的 Deployment 行中，单击【更新镜像】。如下图所示：
+![更新镜像](https://main.qcloudimg.com/raw/c69b2ce36a946791fde874f938957091.png)
+3. 在 “滚动更新镜像” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
+![滚动更新镜像](https://main.qcloudimg.com/raw/ff07e5dd606f329d7ea8077434f5ce74.png)
+4. 单击【完成】，即可更新镜像。
 
-#### 调整Deployment下Pod数量
-1. 点击需要调整Pod数量的Deployment的集群ID，进入集群详情页面。
-2. 选择需要调整Pod数量的Deployment, 点击调整Pod数量操作。
-3. 设置需要调整Pod数量，完成。
+### 回滚 Deployment
 
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要回滚 Deployment 的集群 ID，进入待回滚 Deployment 的集群管理页面。如下图所示：
+![Deployment管理](https://main.qcloudimg.com/raw/a8a99bc14cf09b4c086bc5d4f4ed3fb1.png)
+4. 单击需要回滚的 Deployment 名称，进入 Deployment 信息页面。
+5. 选择 “修订历史” 页签，在需要回滚的版本行中，单击【回滚】。如下图所示：
+![回滚](https://main.qcloudimg.com/raw/b49741ebe125822ed1017dea3a9e9813.png)
+6. 在弹出的 “回滚资源” 提示框中，单击【提交】，完成回滚。
 
-![][scaledeploymet]
+### 调整 Pod 数量
 
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要调整 Pod 数量的 Deployment 的集群 ID，进入待调整 Pod 数量的 Deployment 的集群管理页面。如下图所示：
+![Deployment管理](https://main.qcloudimg.com/raw/a8a99bc14cf09b4c086bc5d4f4ed3fb1.png)
+4. 在需要调整 Pod 数量的 Deployment 行中，单击【更新实例数量】，进入更新实例数量页面。如下图所示：
+![更新实例数量](https://main.qcloudimg.com/raw/7547c1eea420bdc8fa6ed2573fecd2a0.png)
+5. 根据实际需求调整 Pod 数量，单击【更新实例数量】，完成调整。
 
-###kubectl 操作 Deployment 指引
-#### Yaml示例
+## Ubectl 操作 Deployment 指引
+<span id="YAMLSample"></span>
+### YAML 示例
+
 ```Yaml
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -76,53 +98,115 @@ spec:
         - containerPort: 80
 ```
 
-- kind: 标识该资源是Deployment类型
-- metadata：该deployment的名称、Namespace、Label等基本信息
-- metadata.annotations: 对Deployment的额外说明，腾讯云TKE额外增强能力可以通过该参数设置。
-- spec.replicas： 该deployment管理的Pod数量
-- spec.selector： 该deployment管理Seletor选中的Pod的label
-- spec.template:  该deployment管理的Pod的详细模板配置
-- 更多可查看[kubernetes Deployment官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- kind：标识 Deployment 资源类型。
+- metadata：Deployment 的名称、Namespace、Label等基本信息。
+- metadata.annotations：对 Deployment 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+- spec.replicas：Deployment 管理的 Pod 数量。
+- spec.selector：Deployment 管理 Seletor 选中的 Pod 的 Label。
+- spec.template：Deployment 管理的 Pod 的详细模板配置。
 
+更多参数详情可查看 [Kubernetes Deployment 官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)。
 
-#### kubectl创建Deployment
+### Kubectl 创建 Deployment
 
-1. 准备Deployment Yaml文件， 例如上述文件为nginx.Yaml
-2. kubectl安装完成，并且已连接上集群（可直接登录集群节点使用kubectl）
-3. 执行命令创建：
+1. 参考 [YAML 示例](#YAMLSample)，准备 Deployment YAML 文件。
+2. 安装 Kubectl，并连接集群。操作详情请参考 [通过 Kubectl 连接集群](https://cloud.tencent.com/document/product/457/8438)。
+3. 执行以下命令，创建 Deployment YAML 文件。
+```shell
+kubectl create -f Deployment YAML 文件名称
+```
+例如，创建一个文件名为 nginx.Yaml 的 Deployment YAML 文件，则执行以下命令：
 ```shell
 kubectl create -f nginx.yaml
 ```
-4. 执行命令验证创建情况：
+4. 执行以下命令，验证创建是否成功。
 ```shell
 kubectl get deployments
 ```
+返回类似以下信息，即表示创建成功。
+```
+NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+first-workload   1         1         1            0           6h
+ng               1         1         1            1           42m
+```
 
-#### kubectl更新Deployment
-**方法一**：直接通过`kubectl edit  deployment/[name]`更新
-适用与简单调试验证，不建议直接在生产环境使用，可以通过该方法更新任意的deployment参数。
-**方法二**：通过`kubectl set image deployment/[name] [containerName]=[image:tag] `更新指定容器的镜像， 尽量保证deployment的其他参数不变，业务更新时仅更新容器镜像。
+### Kubectl 更新 Deployment
 
- 上述两种方法均支持`Recreate`和`RollingUpdate` 两种更新策略。Recreate表示先销毁全部Pod，然后重新创建；RollingUpdate为滚动更新策略，逐个更新Deployment的Pod，支持暂停、设置更新时间间隔等。
+通过 Kubectl 更新 Deployment 有以下三种方法。其中，[方法一](#Method1) 和 [方法二](#Method2) 均支持 **Recreate** 和 **RollingUpdate** 两种更新策略。
+- Recreate 更新策略为先销毁全部 Pod，再重新创建 Deployment。
+- RollingUpdate 更新策略为滚动更新策略，逐个更新 Deployment 的 Pod。RollingUpdate 还支持暂停、设置更新时间间隔等。
 
-**方法三**：通过`kubectl rolling-update [NAME] -f FILE` 滚动更新指定资源, 查看更多[滚动更新说明](https://kubernetes.io/cn/docs/tasks/run-application/rolling-update-replication-controller/)。
+<span id="Method1"></span>
+#### 方法一
 
-#### kubectl回滚Deployment
-1. 通过`kubectl rollout history deployment/[name]` 查看deployment的更新历史。
-2. 通过`kubectl rollout history deployment/[name] --revision=[REVISION]` ,查看指定版本详情。
-3. 可通过`kubectl rollout undo deployment/[name] --to-revision=[REVISION]`, 回滚到指定的版本号。不指定`--to-revision=[REVISION]`默认回滚到前一个版本。
+执行以下命令，更新 Deployment。
+```
+kubectl edit  deployment/[name]
+```
+此方法适用于简单的调试验证，不建议在生产环境中直接使用。您可以通过此方法更新任意的 Deployment 参数。
 
-#### kubectl调整Deployment下Pod数量
-1. 手动更新Pod数量
-   通过`kubectl scale deployment [NAME] --replicas=[NUMBER]`更新Pod数量。
-2. 自动更新Pod数量
-   前提：需要集群集群内开启HPA功能，TKE集群默认开启。
-   通过`kubectl autoscale deployment [NAME] --min=10 --max=15 --cpu-percent=80` 设置deployment的自动扩缩容。
+<span id="Method2"></span>
+#### 方法二
 
-#### kubectl删除Deployment
-1. 执行命令`kubectl delete deployment [NAME]`
+执行以下命令，更新指定容器的镜像。
+```
+kubectl set image deployment/[name] [containerName]=[image:tag]
+```
+建议保持 Deployment 的其他参数不变，业务更新时，仅更新容器镜像。
 
-[createdeploymet]:https://main.qcloudimg.com/raw/d1263f63c666250b39876b55015d313d.png
-[scaledeploymet]:https://main.qcloudimg.com/raw/cf84d73219bce23e4c2574ba1b517168.
-[updatedeploymet]:https://main.qcloudimg.com/raw/32bd1e1f320fa9d55e7d4940f44b2466.png
-[rolloutdeploymet]:https://main.qcloudimg.com/raw/1b6745b956291cf9febcc1351f9da45e.png
+<span id="Method3"></span>
+#### 方法三
+
+执行以下命令，滚动更新指定资源。
+```
+kubectl rolling-update [NAME] -f FILE
+```
+更多滚动更新可参见 [滚动更新说明](https://kubernetes.io/cn/docs/tasks/run-application/rolling-update-replication-controller/)。
+
+### Kubectl 回滚 Deployment
+
+1. 执行以下命令，查看 Deployment 的更新历史。
+```
+kubectl rollout history deployment/[name]
+```
+2. 执行以下命令，查看指定版本详情。
+```
+kubectl rollout history deployment/[name] --revision=[REVISION]
+```
+3. 执行以下命令，回滚到前一个版本。
+```
+kubectl rollout undo deployment/[name]
+```
+如需指定回滚版本号，可执行以下命令。
+```
+kubectl rollout undo deployment/[name] --to-revision=[REVISION]
+```
+
+### Kubectl 调整 Pod 数量
+
+#### 手动更新 Pod 数量
+
+执行以下命令，手动更新 Pod 数量。
+```
+kubectl scale deployment [NAME] --replicas=[NUMBER]
+```
+	 
+#### 自动更新 Pod 数量
+
+**前提条件**
+
+开启集群中的 HPA 功能。TKE 创建的集群默认开启 HPA 功能。
+
+**操作步骤**
+
+执行以下命令，设置 Deployment 的自动扩缩容。
+```
+kubectl autoscale deployment [NAME] --min=10 --max=15 --cpu-percent=80
+```
+
+### Kubectl 删除 Deployment
+
+执行以下命令，删除 Deployment。
+```
+kubectl delete deployment [NAME]
+```
