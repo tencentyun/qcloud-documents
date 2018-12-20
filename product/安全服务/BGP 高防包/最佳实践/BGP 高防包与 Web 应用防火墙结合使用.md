@@ -3,7 +3,7 @@ BGP 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
 - Web 应用防火墙实时防护，有效拦截 Web 攻击行为，保障用户业务的数据和信息安全。
 
 ## 部署方案
-![](https://main.qcloudimg.com/raw/87a215de1c5250b82b1973b495666f18.png)
+![](https://main.qcloudimg.com/raw/ee33e9c7fc15fdb97cfe784dade3a20f.png)
 
 ## 配置过程
 ### 配置 Web 应用防火墙
