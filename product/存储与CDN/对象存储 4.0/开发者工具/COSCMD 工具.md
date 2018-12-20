@@ -5,13 +5,14 @@
 
 ### 系统环境
 
-Windows 或 Linux 系统
-(请保证本地字符格式为utf-8，否则操作中文文件会出现异常)
+Windows 或 Linux 系统。
+
+>?请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常
 
 ### 软件依赖
 
-Python 2.7/3.5/3.6 
-并装有最新版本的 pip
+- Python 2.7/3.5/3.6。
+-  最新版本的 pip。
 
 #### 安装及配置
 
@@ -31,18 +32,18 @@ pip install coscmd
 ```
 pip install coscmd -U
 ```
-> **注意：** 
-> 当 pip 版本大于等于 10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
+
+>! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
 - **源码安装(不推荐)**
-  下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)
+  下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。
 ```
 git clone https://github.com/tencentyun/coscmd.git
 cd coscmd
 python setup.py install
 ```
-> **注意：** 
-> Python 版本为 2.6 时，pip 安装依赖库时容易失败，推荐使用该方法安装。
+
+>!Python 版本为 2.6 时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
 ## 使用方法
 
@@ -119,10 +120,10 @@ coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
 | SECRET_KEY | 必选参数，APPID 对应的密钥 Key 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
 | BUCKET     | 必选参数，指定的存储桶名称，bucket的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串 |
 | REGION     | 必选参数，存储桶所在地域，参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串 |
-| MAX_THREAD | 可选参数，多线程上传时的最大线程数（默认为 5）               | 数字   |
-| PART_SIZE  | 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB）        | 数字   |
+| MAX_THREAD | 可选参数，多线程上传时的最大线程数（默认为5）               | 数字   |
+| PART_SIZE  | 可选参数，分块上传的单块大小（单位为MB，默认为1MB）        | 数字   |
 
-> **注意：** 
+>!
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
   配置完成之后的`.cos.conf`文件内容示例如下所示：
 ```
@@ -202,7 +203,8 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
 ```
 
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
- > **注意：** 
+ 
+ >!
  >  - 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
  >  - COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
  >  - COSCMD 分块上传时会对每一块进行 MD5 校验。
@@ -210,7 +212,7 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
  >  - 使用-s参数可以使用同步上传，跳过上传 md5 一致的文件(cos上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header)。
  >  - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，这里是个例子：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`。
  >  - 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号分隔。
- >  - 目前只支持上传最大 40T 的单文件。
+ >  - 目前只支持上传最大40TB 的单文件。
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
@@ -236,7 +238,8 @@ coscmd download -rs / bbb/aaa
 coscmd download -rs / bbb/aaa --ignore *.txt,*.doc 
 ```
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
-> **注意：** 
+
+>!
 > - 若本地存在同名文件，则会下载失败，使用 `-f` 参数覆盖本地文件。
 > - `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
 > - 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文件 (前提是下载文件夹是通过 `COSCMD` 的 `upload` 接口上传的，文件携带有 `x-cos-meta-md5` 头部)。
@@ -259,9 +262,9 @@ coscmd delete -r bbb/
 coscmd delete -r /
 ```
 
- 请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作
- > **注意：** 
- - 批量删除需要输入确定，使用 `-f` 参数跳过确认 
+ 请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
+
+ >!批量删除需要输入确定，使用 `-f` 参数跳过确认 
 
 ### 清除上传文件碎片
 - 命令如下：
@@ -291,8 +294,7 @@ coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/
 
  请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）
 
- > **注意：** 
- > sourcepath 的样式如下：```<bucketname>-<appid>.cos.<region>.myqcloud.com/<cospath>```
+ >!sourcepath 的样式如下：```<bucketname>-<appid>.cos.<region>.myqcloud.com/<cospath>```。
 
 ### 打印文件列表
 打印命令如下：
@@ -308,8 +310,7 @@ coscmd list bbb/123.txt  -r -n 10
  - 使用 `-r` 递归打印，并且会在末尾返回列出文件的数量和大小之和。
  - 使用 `-n num` 设置打印数量的最大值。
 
-> **注意：** 
-> `<cospath>`为空默认打印当前 Bucket 根目录。
+>!`<cospath>`为空默认打印当前 Bucket 根目录。
 
 ### 显示文件信息
 命令如下：
@@ -393,7 +394,7 @@ coscmd putbucketversioning Suspended
 ```
 
 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
-> 注意开启版本控制为不可逆过程，之后该bucket将无法使用v4的api接口(包括所有v4sdk)，请慎重选择。
+>!开启版本控制为不可逆过程，之后该 bucket 将无法使用 V4 的 API 接口（包括所有 V4 SDK），请慎重选择。
 
 ### 恢复归档文件
 命令如下：
