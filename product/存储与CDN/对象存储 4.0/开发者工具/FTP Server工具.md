@@ -1,7 +1,7 @@
 COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
 ## 使用环境
 ### 系统环境
-操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
+操作系统：Linux，推荐使用腾讯云 CentOS 7系列 CVM，暂不支持 Windows 系统。
 
 Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 
@@ -18,7 +18,7 @@ python setup.py install   # 这里可能需要sudo或者root权限
 ```
 
 ### 特别说明
-本工具使用 COS XML 接口开发
+本工具使用 COS XML 接口开发。
 
 ## 功能说明
 #### 上传机制
@@ -33,7 +33,7 @@ Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个
 #### 说明
 - 目前只支持操作一个 Bucket，后期可能会支持同时操作多个 Bucket。
 - FTP Server 工具暂不支持断点续传功能。
-- 不支持上传空文件（0B），支持的最大文件为 200 GB。
+- 不支持上传空文件（0B），支持的最大文件为 200GB。
 
 ## 支持的 FTP 命令
 - put
@@ -93,15 +93,15 @@ log_dir             = log                  # 设置日志的存放目录，默�
 ```
 配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行
-正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合screen 的命令将 FTP Server 放到后台运行。
+正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合 screen 的命令将 FTP Server 放到后台运行。
 ```
 python ftp_server.py
 ```
 运行命令后，见到如下图示，即代表 FTP Server 服务启动成功，您可以开始使用 FTP 客户端对配置的 IP 和端口进行访问了。
-![运行成功](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
+![运行成功](https://main.qcloudimg.com/raw/2020018a599653010f8bc7295ed3886a.png)
 
 ## 停止
-`Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
+`Ctrl+C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## 常见问题
 如您在使用 FTP Server 工具过程中，有报错或对上传限制有疑问，请参阅 [FTP Server 工具类常见问题](https://cloud.tencent.com/document/product/436/30742)。
 
