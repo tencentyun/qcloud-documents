@@ -44,7 +44,7 @@ echo "export NSS_STRICT_NOFORK=DISABLED" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### 如何设定 COSFS 开机自动挂载?
+### 如何设定 COSFS 开机自动挂载？
 
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
@@ -52,7 +52,7 @@ source ~/.bashrc
 cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
-### 如何挂载多个存储桶?
+### 如何挂载多个存储桶？
 
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
@@ -88,7 +88,7 @@ image/jpm                                       jpm jpgm
 image/jpx                                       jpx jpf
 ```
 
-### 挂载时显示 Bucket not exist?
+### 挂载时显示 Bucket not exist？
 
 请检查参数 -ourl，确保 URL 中不携带 Bucket 部分，正确的形式为：
 
@@ -96,7 +96,7 @@ image/jpx                                       jpx jpf
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 ```
 
-### 为什么之前可用写文件，突然不能写了?
+### 为什么之前可用写文件，突然不能写了？
 
 由于 COS 鉴权产品策略调整，所以使用 V1.0.0 之前版本的 COSFS 工具会导致策略校验不通过，您可以安装最新的 COSFS 工具重新挂载。
 
