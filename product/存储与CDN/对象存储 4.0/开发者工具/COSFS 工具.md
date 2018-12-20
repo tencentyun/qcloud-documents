@@ -172,4 +172,4 @@ COSFS 提供的功能、性能和本地文件系统相比，存在一些局限�
 - 不可以同时在一个挂载点上挂载、和卸载文件。您可以先 cd 切换到其他目录，再对挂载点进行挂载、卸载操作。
 
 ## 常见问题
-如您在使用 COSFS 工具过程中，有相关的疑问，请参阅 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30745)。
+如您在使用 COSFS 工具过程中，有相关的疑问，请参阅 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/6883)。
