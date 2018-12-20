@@ -246,7 +246,12 @@ echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5
 
 ### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option, bad superblock on cosfs"?
 由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
-```shell
-sudo yum install fuse #CentOS
-sudo apt-get install fuse #Ubuntu
+- CentOS
+```
+sudo yum install fuse
+```
+
+- Ubuntu
+``` 
+sudo apt-get install fuse
 ```
