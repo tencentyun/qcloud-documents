@@ -28,7 +28,7 @@ cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 
 非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
 
-### COSFS 是否支持 HTTPS 进行挂载?
+### COSFS 是否支持 HTTPS 进行挂载？
 
 COSFS 支持 HTTPS，HTTP 和 HTTPS 的使用形式分别为：
 
