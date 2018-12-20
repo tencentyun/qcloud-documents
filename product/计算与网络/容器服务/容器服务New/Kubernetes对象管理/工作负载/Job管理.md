@@ -36,7 +36,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
-3. 单击需要创建 Job 的集群 ID，进入待创建 Job 的集群管理页面。
+3. 单击需要查看 Job 状态的集群 ID，进入待查看 Job 状态的集群管理页面。
 4. 选择 “工作负载” > “Job”，进入 Job 信息页面。如下图所示：
 ![Job](https://main.qcloudimg.com/raw/0fa661e68d83d9cbb1f3228ad4988061.png)
 5. 单击需要查看状态的 Job 名称，即可查看 Job 详情。
@@ -82,13 +82,13 @@ spec:
 ```
 kubectl create -f Job YAML 文件名称
 ```
-例如，创建一个文件名为 web.yaml 的 StatefulSet YAML 文件，则执行以下命令：
+例如，创建一个文件名为 pi.yaml 的 Job YAML 文件，则执行以下命令：
 ```shell
 kubectl create -f pi.yaml
 ```
 4. 执行以下命令，验证创建是否成功。
 ```shell
-kubectl get jobs
+kubectl get job
 ```
 返回类似以下信息，即表示创建成功。
 ```
@@ -96,13 +96,9 @@ NAME      DESIRED   SUCCESSFUL   AGE
 job       1         0            1m
 ```
 
-
 ### 删除 Job
 
 执行以下命令，删除 Job。
 ```
 kubectl delete job [NAME]
 ```
-
-
-[createJob]:https://main.qcloudimg.com/raw/9f07970a2e2f53bbebb9a2df44ee678b.png
