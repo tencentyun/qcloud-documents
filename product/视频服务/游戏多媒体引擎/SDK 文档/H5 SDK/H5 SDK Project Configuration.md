@@ -16,7 +16,7 @@
 ## SDK 准备
 可以通过以下方式获取 SDK。
 
-### 1. 请在[下载指引](https://cloud.tencent.com/document/product/607/18521)下载相关 Demo 及 SDK。
+### 1. 请在[下载指引](https://cloud.tencent.com/document/product/607/18521)下载相关 Sample Code 及 SDK。
 
 
 ### 2. 在界面中找到找到 H5 版本的 SDK 资源。
