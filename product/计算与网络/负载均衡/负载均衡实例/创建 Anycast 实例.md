@@ -1,4 +1,4 @@
-负载均衡支持创建 Anycast 负载均衡实例（下文也叫 Anycast CLB），Anycast CLB 是支持全球动态加速的负载均衡服务，CLB 的[ VIP](https://cloud.tencent.com/document/product/214/524#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A ) 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云数据中心高速互联网转发到云服务器上。
+负载均衡支持创建 Anycast 负载均衡（下文也叫 Anycast CLB）实例，Anycast CLB 是支持全球动态加速的负载均衡服务，CLB 的[ VIP](https://cloud.tencent.com/document/product/214/524#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A ) 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云数据中心高速互联网转发到云服务器上。
 Anycast CLB 能实现网络传输的质量优化和多入口就近接入，减少网络传输的抖动、丢包，最终提升云上应用的服务质量，扩大服务范围，精简后端部署。本功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/act/apply/aia)。
 
 ## 什么是 Anycast？
@@ -45,13 +45,13 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 
 
 ## 操作指南
-### 创建 Anycast CLB 
+### 创建 Anycast CLB 实例
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 实例类型选择 **应用型 CLB**，加速 IP 处勾选【启用 Anycast 加速 IP】，其他配置和 [普通实例配置](https://cloud.tencent.com/document/product/214/8975#2.-.E8.B4.AD.E4.B9.B0.E5.B9.B6.E9.85.8D.E7.BD.AE.E5.85.AC.E7.BD.91.E5.BA.94.E7.94.A8.E5.9E.8Blb) 相同。
 3. 购买完成后，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 Anycast 负载均衡。
 ![](https://main.qcloudimg.com/raw/4eac4325d24c4138daf2c46704672851.png)
 
-### 使用 Anycast CLB 实例
+### 使用 Anycast CLB 
 1. 登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，进入 “LB实例列表”。
 2. 单击实例 ID，进入详情页。
 3. 在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参见 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
