@@ -50,12 +50,12 @@ cosfs --version
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
-- 在 CentOS 6.5 及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+- 在 CentOS 6.5及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
 ```
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，您需要手动安装 fuse 2.8.4 及以上版本，安装命令示例如下：
+此时，您需要手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 ```shell
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
@@ -86,13 +86,12 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
->**注意：**
->您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 **示例：**
 
@@ -118,8 +117,8 @@ cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 mkdir /mnt
 cosfs test-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
->**注意：** 
->v1.0.5 之前版本 COSFS 的挂载命令如下：
+
+>!v1.0.5 之前版本 COSFS 的挂载命令如下：
 ```shell
 cosfs <Appid>:<Name> <MountPoint> -ourl=<CosDomainName>
 ```
@@ -138,31 +137,31 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 ## 常用挂载选项
 
-### 1. -omultipart_size=[size]
-用来指定分块上传时单个分块的大小（单位： MB），默认是 10 MB。 由于分块上传对单个文件块的数目有最大限制（10000 块），所以对于超出 10 MB * 10000 (100 GB) 大小的文件，需要根据具体情况调整该参数。
+### -omultipart_size=[size]
+用来指定分块上传时单个分块的大小（单位： MB），默认是10MB。 由于分块上传对单个文件块的数目有最大限制（10000块），所以对于超出100GB（10MB\*10000）大小的文件，需要根据具体情况调整该参数。
 
-### 2. -oallow_other
+### -oallow_other
 如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定该参数。
 
-### 3. -odel_cache
+### -odel_cache
 默认情况下， COSFS 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
 
-### 4. -onoxattr
+###  -onoxattr
 禁用 getattr/setxattr 功能， 当前版本的 COSFS 不支持该功能，如果在挂载的时候使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
 
-### 5. -ouse_cache=[path]
+### -ouse_cache=[path]
 使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
-### 6. -opasswd_file=[path]
-该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为 600。
+### -opasswd_file=[path]
+该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为600。
 
-### 7. -odbglevel=[info|dbg]
+### -odbglevel=[info|dbg]
 
 设置 COSFS 日志记录级别，可选 info、dbg，生产环境中建议设置为 info，调试时可以设置为 dbg。
 
-### 8. -oumask=[perm]
+### -oumask=[perm]
 
-该选项可以去除给定类型用户，对挂载目录内文件的操作权限，例如-oumask=007，可以去除其他用户对文件的读写执行权限。
+该选项可以去除给定类型用户，对挂载目录内文件的操作权限，例如，-oumask=007，可以去除其他用户对文件的读写执行权限。
 
 ## 局限性
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：

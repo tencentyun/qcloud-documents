@@ -52,7 +52,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 ![](https://main.qcloudimg.com/raw/4eac4325d24c4138daf2c46704672851.png)
 
 ### 使用 Anycast CLB 
-1. 登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，进入 “LB实例列表”。
+1. 登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，进入 “LB 实例列表”。
 2. 单击实例 ID，进入详情页。
-3. 在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参见 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
+3. 在 **监听器管理** 页面，可以配置监听器、设置转发规则、绑定云服务器，详情请参见 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/a884a2e0a51cecf5056ca6053c9c2da5.png)
