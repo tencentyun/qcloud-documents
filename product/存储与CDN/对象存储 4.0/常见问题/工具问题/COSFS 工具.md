@@ -67,7 +67,7 @@ echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5
 
 ## 故障排查
 
-### 使用 COSFS 过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问?
+### 使用 COSFS 过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问？
 
 您可以使用 `ps ax|grep cosfs` 命令查看 COSFS 进程是否存在，如果 COSFS 进程是由于误操作而挂掉，您可以执行如下命令进行重新挂载：
 
@@ -109,7 +109,7 @@ image/jpx                                       jpx jpf
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
 
-### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"?
+### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
 由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
 - CentOS
 ```shell
