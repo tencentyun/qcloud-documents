@@ -55,7 +55,7 @@ cosfs --version
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
-此时，您需要手动安装 fuse 2.8.4 及以上版本，安装命令示例如下：
+此时，您需要手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 ```shell
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
@@ -86,13 +86,12 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限 640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
->**注意：**
->您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 **示例：**
 
@@ -119,8 +118,7 @@ mkdir /mnt
 cosfs test-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 
->!
->v1.0.5 之前版本 COSFS 的挂载命令如下：
+>!v1.0.5 之前版本 COSFS 的挂载命令如下：
 ```shell
 cosfs <Appid>:<Name> <MountPoint> -ourl=<CosDomainName>
 ```
