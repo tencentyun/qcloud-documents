@@ -49,7 +49,7 @@ source ~/.bashrc
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
-cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//cos.ap-guangzhou.myqcloud.com,dbglevel=info
+cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
 ### 如何挂载多个存储桶?
