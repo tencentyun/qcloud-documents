@@ -69,8 +69,8 @@ COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 - 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
 - 子账号访问 COS 资源时，需要使用根账号的 APPID，子账号的 SecretId 和 SecretKey。
 
-#### 基于 XML 的 JAVA SDK 访问示例
-以基于 XML 的 JAVA SDK 命令行为例，需填入参数如下：
+#### 基于 XML 的 Java SDK 访问示例
+以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
 // 1 初始化身份信息
 COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
