@@ -32,7 +32,6 @@ pip install coscmd
 ```
 pip install coscmd -U
 ```
-
 >! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
 - **源码安装(不推荐)**
@@ -42,7 +41,6 @@ git clone https://github.com/tencentyun/coscmd.git
 cd coscmd
 python setup.py install
 ```
-
 >!Python 版本为 2.6 时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
 ## 使用方法
@@ -238,7 +236,6 @@ coscmd download -rs / bbb/aaa
 coscmd download -rs / bbb/aaa --ignore *.txt,*.doc 
 ```
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
-
 >!
 > - 若本地存在同名文件，则会下载失败，使用 `-f` 参数覆盖本地文件。
 > - `download` 接口使用分块下载，老版本的 `mget` 接口已经废除，请使用 `download` 接口。
