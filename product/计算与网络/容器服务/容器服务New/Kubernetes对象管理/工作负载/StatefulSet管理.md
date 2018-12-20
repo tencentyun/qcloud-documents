@@ -114,7 +114,7 @@ spec:
 
 ### 创建 StatefulSet
 
-1. 参考 [YAML 示例](YAMLSample)，准备 StatefulSet YAML 文件。
+1. 参考 [YAML 示例](#YAMLSample)，准备 StatefulSet YAML 文件。
 2. 安装 Kubectl，并连接集群。操作详情请参考 [通过 Kubectl 连接集群](https://cloud.tencent.com/document/product/457/8438)。
 3. 执行以下命令，创建 StatefulSet YAML 文件。
 ```shell
@@ -130,9 +130,8 @@ kubectl get StatefulSet
 ```
 返回类似以下信息，即表示创建成功。
 ```
-NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-first-workload   1         1         1            0           6h
-ng               1         1         1            1           42m
+NAME      DESIRED   CURRENT   AGE
+test      1         1         10s
 ```
 
 ### 更新 StatefulSet
@@ -143,7 +142,7 @@ kubectl get ds/<daemonset-name> -o go-template='{{.spec.updateStrategy.type}}{{"
 ```
 StatefulSet 有以下两种更新策略类型：
 - OnDelete：默认更新策略。该更新策略在更新 StatefulSet 后，需手动删除旧的 StatefulSet Pod 才会创建新的 StatefulSet Pod。
-- RollingUpdate：该更新策略在更新 StatefulSet 模板后，旧的 StatefulSet Pod 将被终止，并且以滚动更新方式创建新的 StatefulSet Pod（Kubernetes 1.7或更高版本）。
+- RollingUpdate：支持 Kubernetes 1.7或更高版本。该更新策略在更新 StatefulSet 模板后，旧的 StatefulSet Pod 将被终止，并且以滚动更新方式创建新的 StatefulSet Pod（Kubernetes 1.7或更高版本）。
 
 #### 方法一
 
