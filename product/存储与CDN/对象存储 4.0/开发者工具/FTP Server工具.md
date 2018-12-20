@@ -103,6 +103,5 @@ python ftp_server.py
 ## 停止
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## 常见问题
-如您在使用 FTP Server 工具过程中，有报错或对上传限制有疑问，请参阅 [FTP Server 工具类常见问题](https://cloud.tencent.com/document/product/436/7214)。
+如您在使用 FTP Server 工具过程中，有报错或对上传限制有疑问，请参阅 [FTP Server 工具类常见问题](https://cloud.tencent.com/document/product/436/30742)。
 
-其他问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category)，并在工单上附上完整的`cos_v5.log`日志，便于我们进一步排查和解决问题。
