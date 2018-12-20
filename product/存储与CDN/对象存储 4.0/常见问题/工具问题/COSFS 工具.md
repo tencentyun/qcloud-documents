@@ -108,3 +108,11 @@ image/jpx                                       jpx jpf
 2. 检查账号是否配置正确。
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
+
+### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"?
+由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
+
+```shell
+sudo yum install fuse #CentOS
+sudo apt-get install fuse #Ubuntu
+```
