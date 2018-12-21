@@ -5,8 +5,8 @@ API 接入详情请参见 [人脸核身 API 文档](https://cloud.tencent.com/do
 
 | 功能              | 说明                                |
 | --------------- | ----------------------------------- |
-| [获取动作顺序](https://cloud.tencent.com/document/api/1007/31822)| 与动作活体模式配合使用 |
-| [获取数字验证码](https://cloud.tencent.com/document/api/1007/31821) | 与数字活体模式配合使用 |
-| [照片人脸核身](https://cloud.tencent.com/document/api/1007/31820)    | 上传照片与公安权威库比对 |
-| [活体人脸比对](https://cloud.tencent.com/document/api/1007/31819)|上传视频与上传照片进行比对 |
-| [活体人脸核身](https://cloud.tencent.com/document/api/1007/31818) | 上传视频与公安权威库比对|
+| [获取动作顺序](https://cloud.tencent.com/document/api/1007/31822)| 活体检测使用动作模式时，需先调用该接口获取动作顺序。 |
+| [获取数字验证码](https://cloud.tencent.com/document/api/1007/31821) | 活体检测使用数字模式时，需先调用该接口获取数字验证码。 |
+| [照片人脸核身](https://cloud.tencent.com/document/api/1007/31820)    | 上传照片与公安权威库比对。 |
+| [活体人脸比对](https://cloud.tencent.com/document/api/1007/31819)|传入视频和照片，对视频中的人与上传照片进行比对。 |
+| [活体人脸核身](https://cloud.tencent.com/document/api/1007/31818) | 上传视频与公安权威库比对。|
