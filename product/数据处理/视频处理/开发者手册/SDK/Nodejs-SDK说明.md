@@ -5,7 +5,7 @@
 ### 1.1	前期准备
 
 <p>1.	sdk采用Node.js v0.10.29版本开发， 推荐使用相同的版本。<br>
-2.	通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
+2.	通过<a href="https://console.cloud.tencent.com/cam/capi" class="external text" title="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
 </p>
 
 ### 1.2	导入SDK
