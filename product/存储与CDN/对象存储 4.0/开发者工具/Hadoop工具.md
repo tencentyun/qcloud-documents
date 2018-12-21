@@ -129,7 +129,9 @@ done
     <property>
     	<name>fs.cosn.block.size</name>
         <value>8388608</value>
-        <description>The total size of the memory buffer pool</description>
+        <description>Block size to use cosn filesysten, which is the part size for MultipartUpload.
+        Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file.
+        for example, 8MB part size can allow  writing a 78GB single file.</description>
     </property>
       
     <property>
