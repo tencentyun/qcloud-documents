@@ -145,7 +145,7 @@ done
       
     <property>
     	<name>fs.cosn.retry.interval.seconds</name>
-      <value>10</value>
+      <value>3</value>
       <description>The number of seconds to sleep between each COS retry.</description>
     </property>
       
