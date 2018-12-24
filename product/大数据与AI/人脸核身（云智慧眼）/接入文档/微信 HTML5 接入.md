@@ -1,6 +1,6 @@
 ## 接入方式
 ### 原生 HTML5（浮层模式）
-微信公众号浮层模式（可选择读数字、光线两种活体检测模式）是基于微信原生的体验，符合以下行业要求的客户可以 [申请使用](https://cloud.tencent.com/apply/p/shcgszvmppc)，审核通过后，即可对接浮层模式。
+微信公众号浮层模式（可选择读数字、光线两种活体检测模式）是基于微信原生的体验，符合以下行业要求的客户可以 [申请服务](https://cloud.tencent.com/apply/p/shcgszvmppc)，微信侧审核通过后，即可对接浮层模式。
 * 政务：政府机构或事业单位
 * 金融：银行、保险
 * 医疗：公立医疗机构
@@ -24,9 +24,6 @@
    - [创建 API 密钥](https://console.cloud.tencent.com/cam/capi)（SecretId 和 SecretKey）
    - 审批发起的核身请求
 2. 客户后端调用实名核身鉴权 API DetectAuth 接口进行核身流程开启前鉴权，获取业务流水号（BizToken）与微信跳转 URL。
->!只有传入的 TerminalType 为`weixinh5`或`weixinh5native`时才会返回微信跳转URL。
-拉取核身结果（GetDetectInfo）时需要提供客户后端 BizToken，请妥善保管。
-
 3. 根据客户自身需求，按照不同的方式跳转进入人脸核身·云智慧眼流程。
    - 微信原生 HTML5模式（浮层模式）：客户后端将步骤2中得到的 URL 返回给客户前端，让前端跳转至此 URL 即可。
    - 微信公众号通用 HTML5模式：客户后端将步骤2中得到的 URL 返回给客户前端，让前端跳转至此 URL 即可。

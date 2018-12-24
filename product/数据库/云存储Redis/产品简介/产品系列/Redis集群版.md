@@ -1,4 +1,4 @@
-Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采用分布式架构，支持垂直和水平扩容和缩容，提供最大的灵活性、可用性、高达千万级 QPS 的高性能。Redis 集群版支持水平方向3 - 128分片的扩展，垂直方向1 - 5个副本集的扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
+Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采用分布式架构，支持垂直和水平扩容和缩容，提供最大的灵活性、可用性、高达千万级 QPS 的高性能。Redis 集群版支持水平方向3分片 - 128分片的扩展，垂直方向1个 - 5个副本集的扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
 
 ## 集群规格
 - 分片规格：4、8、12、16、20、24、28、32（GB）
@@ -7,7 +7,7 @@ Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采
 
 ## 集群模式
 - 分片数量大于1时，Redis 自动启用集群模式，数据将会自动分片，系统将提供数据均衡，数据迁移功能。
-- 集群模式支持的分片规格为4 - 32GB。
+- 集群模式支持的分片规格为4GB - 32GB。
 - 集群模式的命令相对与非集群模式有一定的兼容性。
 - Redis 4.0 支持从非集群模式升级到集群模式，也支持集群模式缩容到非集群模式，迁移过程对业务无感知。
 
@@ -19,7 +19,7 @@ Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采
 **高度的灵活性** 
 Redis 集群版支持最小3个节点到最大128个节点的水平扩容和缩容，支持垂直的1个副本集到5个副本集的扩容和缩容，通过实例的调整支持多种应用场景。
 **高度的系统可用性** 
-Redis 集群版的水平方向（分片数量）和垂直方向（副本数量）的扩容、缩容对业务完全无感知，做到最大的系统可用性，云数据库 Redis 对原生版本进行了优化，支持最小3个分片，系统可以做到从3个分片到128分片的扩容和缩容。
+Redis 集群版的水平方向（分片数量）和垂直方向（副本数量）的扩容、缩容对业务完全无感知，做到最大的系统可用性。
  **高度的兼容性**
 Redis 集群版在应用场景中，支持社区版原生 Cluster 的使用场景，兼容 Jedis 等智能客户端使用场景，兼容 Codis 使用场景。
  **高度的可运维**
@@ -56,19 +56,17 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SLAVEOF
 - SYNC / PSYNC
 
-事务相关的命令云数据库Redis会在2018年8月版本支持，暂时不支持事务相关命令：
+集群版暂时不支持事务相关的命令，相关命令包括如下：
 - MULTI
 - EXEC
 - DISCARD
 - UNWATCH
 
 其他不支持的命令：
-- CONFIG
 - DEBUG 
 - PFDEBUG
 - OBJECT
 - SHUTDOWN
-- CLIENT
 - MONITOR
 - COMMAND
 - SCRIPT-DEBUG
@@ -83,15 +81,21 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 为兼容 Jedis cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
 - CLUSTER NODES
 - CLUSTER SLOT 
+- CONFIG GET
 
-跨 Slot 命令支持，目前不支持跨 Slot 执行的命令，跨 Slot 操作的命令版本，将在后续推出，当出现不支持情况系统会返回如下错误：
+**跨 Slot 命令支持**
+
+集群版目前支持跨slot访问的命令包括：
+- MGET
+- MSET
+
+目前不支持跨 Slot 执行的命令，系统会返回如下错误：
  `(error) CROSSSLOT Keys in request don't hash to the same slot`
 
-相关命令列表如下：
+不支持跨slot访问的命令如下：
 - DEL
 - UNLINK
 - EXISTS
-- MGET
 - BRPOP
 - BLPOP
 - SINTER
@@ -99,7 +103,6 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SUNION
 - SDIFF
 - SDIFFSTORE
-- MSET
 - MSETNX
 - PFCOUNT
 - PFMERGE
@@ -119,6 +122,13 @@ Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用
 	info server
 	自定义命令:
 	info server ef3cf5e20e1a7cf5f9cc259ed488c82c4aa17171
+	
+	SCAN 命令示例：
+	scan 0 238b45926a528c85f40ae89d6779c802eaa394a2
+	scan 0 match a* 238b45926a528c85f40ae89d6779c802eaa394a2
+	
+	KEYS 命令示例：
+	keys a* 238b45926a528c85f40ae89d6779c802eaa394a2
   ```
   
  自定义命令列表：

@@ -4860,31 +4860,52 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>
-      <td>说明</td>
+      <td>操作结果</td>
+      <td>返回内容是否带认证码</td>
+      <td>原请求是否能重试</td>
+      <td>用户操作建议</td>      
    </tr>
    <tr>
       <td>0</td>
-      <td>成功。带认证码，调用者需要验证认证码是否正确</td>
+      <td>成功</td>
+      <td>是</td>
+      <td>是</td>
+      <td>-</td>	   
    </tr>
    <tr>
       <td>3</td>
-      <td>系统内部错误，操作结果未知，可重试，不带认证码</td>
+      <td>未知</td>
+      <td>否</td>
+      <td>是</td>
+      <td>原请求重试</td>      
    </tr>
    <tr>
       <td>101</td>
-      <td>操作失败，且不建议重试，不带认证码</td>
+      <td>失败</td>
+      <td>否</td>
+      <td>否</td>
+      <td>根据description字段内容，检查调用逻辑是否有问题，如认证码计算错误</td>
    </tr>
    <tr>
       <td>102</td>
-      <td>操作失败，且建议换新单号重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>换新单号重试，并根据description字段内容，检查调用逻辑是否有问题，如单号重复</td>
    </tr>
    <tr>
       <td>103</td>
-      <td>系统内部错误，可重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>未知</td>
+      <td>是</td>
+      <td>是</td>
+      <td>隔3秒后原请求重试或查询结果</td>
    </tr>
    <tr>
       <td>104</td>
-      <td>操作失败，且不建议重试. 带认证码，调用者需要验证认证码是否正确<br><b>特别提示：在刷卡支付响应包里出现该错误码时，需要判断 internal_status 字段的值是否是407，如是，则说明说明客户端发生异常，支付时单号重复，但金额等其他信息不重复，被云支付的防重入挡住，此时，请一定不要撤单，否则会造成已支付的订单退款，给商户造成损失。</b></td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>根据description字段内容操作，如退款时顾客余额不足</td>
    </tr>
 </table>
 
