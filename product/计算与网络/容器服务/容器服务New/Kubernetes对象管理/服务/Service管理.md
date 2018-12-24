@@ -1,10 +1,10 @@
 ## 简介
 
 Service 定义访问后端 Pod 的访问策略，提供固定的虚拟访问 IP。您可以通过 Service 负载均衡地访问到后端的 Pod。
-Serivce 支持以下类型：
+Service 支持以下类型：
 - 公网访问： 使用 Service 的 Loadbalance 模式，自动创建公网 CLB。 公网 IP 可直接访问到后端的 Pod。
 - VPC内网访问：使用 Service 的 Loadbalance 模式，自动创建内网 CLB。指定 `annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx`，VPC 内网即可通过内网 IP 直接访问到后端的 Pod。
-- 集群内访问：使用 Service 的 ClusterIP 模式，自动分配 Serivce 网段中的 IP，用于集群内访问。
+- 集群内访问：使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。
 
 ## Service 控制台操作指引
 
@@ -67,7 +67,7 @@ spec:
 - metadata：Service 的名称、Label等基本信息。
 - metadata.annotations: Service 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 - spec.type：标识 Service 的被访问形式
-  - ClusterIP：在集群内部公开服务，可用于集群内不访问。
+  - ClusterIP：在集群内部公开服务，可用于集群内部访问。
   - NodePort：使用节点的端口映射到后端 Service，集群外可以通过节点 IP:NodePort 访问。
   - LoadBalancer：使用腾讯云提供的负载均衡器公开服务，默认创建公网 CLB， 指定 annotations 可创建内网 CLB。
   - ExternalName：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
