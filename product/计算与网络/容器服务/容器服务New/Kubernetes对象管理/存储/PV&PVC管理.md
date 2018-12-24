@@ -30,6 +30,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
  - StorageClass：根据实际需求进行选择。
 7. 单击【创建PersistentVolume】，完成创建。
 
+<span id="createPVC2"></span>
 ### 创建 PVC
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
