@@ -63,7 +63,7 @@ COS 触发器具有以下特点：
 			"eventTime": 1545205770,
 			"eventSource": "qcs::cos",
 			"requestParameters": {
-				"requestSourceIP": "59.37.125.38",
+				"requestSourceIP": "192.168.15.101",
 				"requestHeaders": {
 					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
 				}
@@ -82,7 +82,7 @@ COS 触发器具有以下特点：
 |    结构名    | 内容 |
 | ---------- | --- |
 | Records |  列表结构，可能有多条消息合并在列表中 |
-| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 id |
+| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 ID |
 | cos | 记录事件对应的 COS 信息 |
 | cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称，地域，所属用户 APPID |
 | cosObject |  记录具体事件发生的对象，包含对象文件路径，大小，自定义元数据，访问 URL  |
