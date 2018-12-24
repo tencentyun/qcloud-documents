@@ -56,19 +56,17 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SLAVEOF
 - SYNC / PSYNC
 
-事务相关的命令云数据库Redis会在2018年8月版本支持，暂时不支持事务相关命令：
+集群版暂时不支持事务相关的命令，相关命令包括如下：
 - MULTI
 - EXEC
 - DISCARD
 - UNWATCH
 
 其他不支持的命令：
-- CONFIG
 - DEBUG 
 - PFDEBUG
 - OBJECT
 - SHUTDOWN
-- CLIENT
 - MONITOR
 - COMMAND
 - SCRIPT-DEBUG
@@ -83,15 +81,21 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 为兼容 Jedis cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
 - CLUSTER NODES
 - CLUSTER SLOT 
+- CONFIG GET
 
-跨 Slot 命令支持，目前不支持跨 Slot 执行的命令，跨 Slot 操作的命令版本，将在后续推出，当出现不支持情况系统会返回如下错误：
+**跨 Slot 命令支持**
+
+集群版目前支持跨slot访问的命令包括：
+- MGET
+- MSET
+
+目前不支持跨 Slot 执行的命令，系统会返回如下错误：
  `(error) CROSSSLOT Keys in request don't hash to the same slot`
 
-相关命令列表如下：
+不支持跨slot访问的命令如下：
 - DEL
 - UNLINK
 - EXISTS
-- MGET
 - BRPOP
 - BLPOP
 - SINTER
@@ -99,7 +103,6 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SUNION
 - SDIFF
 - SDIFFSTORE
-- MSET
 - MSETNX
 - PFCOUNT
 - PFMERGE
@@ -119,6 +122,13 @@ Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用
 	info server
 	自定义命令:
 	info server ef3cf5e20e1a7cf5f9cc259ed488c82c4aa17171
+	
+	SCAN 命令示例：
+	scan 0 238b45926a528c85f40ae89d6779c802eaa394a2
+	scan 0 match a* 238b45926a528c85f40ae89d6779c802eaa394a2
+	
+	KEYS 命令示例：
+	keys a* 238b45926a528c85f40ae89d6779c802eaa394a2
   ```
   
  自定义命令列表：

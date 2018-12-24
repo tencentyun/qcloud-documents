@@ -26,9 +26,9 @@ APP 服务器成功上传文件到 COS 后，需要向 VOD 发起确认请求。
 
 ### API
 
-* [APP 服务器向 VOD 发起上传 API](/document/product/266/9756)
-* [APP 服务器向 COS 上传文件 API](/document/product/266/9758)
-* [APP 服务器向 VOD 确认上传 API](/document/product/266/9757)
+* [APP 服务器向 VOD 发起上传 API](/document/product/266/31767)
+* [APP 服务器向 COS 上传文件 API](/document/product/266/31784)
+* [APP 服务器向 VOD 确认上传 API](/document/product/266/31766)
 
 ### SDK
 

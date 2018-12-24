@@ -1,39 +1,58 @@
-## Service 管理
-### Service 简介
-Service 定义了访问后端Pod的访问策略，由Label Selector选中后端的Pod, Service不因后端Pod变化而变化，提供的固定虚拟的访问IP。 可以通过Service 负载均衡地访问到后端的Pod.
-Serivce支持以下类型：
-- 公网访问： 自动创建公网CLB， 通过公网IP可直接访问到后端Pod， 对应Service的loadbalance模式
-- VPC内网访问：自动创建内网CLB， VPC内可通过内网IP直接访问到后端Pod， 也对应Service的Loadbalance模式，但需额外指定 `annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx`
-- 集群内访问：会自动分配Serivce网段中的IP用于集群内访问，对应Service的ClusterIP模式。
+## 简介
 
-### Service 控制台操作指引
-#### 创建 Service
-1. 点击需要部署 Service 的集群ID，进入集群详情页面。
-2. 点击 Service 选项，选择新建 Service。
-3. 根据指引设置 Service 参数，完成创建。
+Service 定义访问后端 Pod 的访问策略，提供固定的虚拟访问 IP。您可以通过 Service 负载均衡地访问到后端的 Pod。
+Serivce 支持以下类型：
+- 公网访问： 使用 Service 的 Loadbalance 模式，自动创建公网 CLB。 公网 IP 可直接访问到后端的 Pod。
+- VPC内网访问：使用 Service 的 Loadbalance 模式，自动创建内网 CLB。指定 `annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx`，VPC 内网即可通过内网 IP 直接访问到后端的 Pod。
+- 集群内访问：使用 Service 的 ClusterIP 模式，自动分配 Serivce 网段中的 IP，用于集群内访问。
 
+## Service 控制台操作指引
 
-![][createService]
->注意：
-1. 不建议您容器业务和CVM业务共用一个CLB。
-2. 不建议您直接在CLB控制台操作TKE自动管理的CLB。
-2. 使用已有的CLB时容器服务TKE会自动覆盖CLB已有的后端RS。
-3. TKE会自动覆盖和更新名称为TKE_Dedicated_Listener的监听器，其他监听器不覆盖。
+### 创建 Service
 
-#### 更新 Service
-**Yaml更新**
-1. 点击需要部署的 Service 的集群ID，进入集群详情页面。
-2. 选择需要更新的 Service , 进入 Service 详情页，点击Yaml tab, 可编辑Yaml直接更新
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
+4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
+![Service](https://main.qcloudimg.com/raw/d42865b5fc802688b365cb2c8409e811.png)
+5. 单击【新建】，进入 “新建Service” 页面。如下图所示：
+![新建Service](https://main.qcloudimg.com/raw/beb261a208c44327e4d5381f29ac0724.png)
+6. 根据实际需求，设置 Service 参数。关键参数信息如下：
+ - 服务名称：自定义。
+ - 命名空间：根据实际需求进行选择。
+ - 服务访问方式：根据实际需求，选择对应的访问方式。
+ - 端口映射：根据实际需求进行设置。
+7. 单击【创建服务】，完成创建。
 
+>! 
+> - 建议您的容器业务不要和 CVM 业务共用一个 CLB。
+> - 建议您不要在 CLB 控制台直接操作 TKE 自动管理的 CLB。
+> - 使用已有的 CLB 时，TKE 会自动覆盖 CLB 已有的后端 RS。
+> - TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
 
-### kubectl 操作 Service 指引
-#### Yaml模板
+### 更新 Service
+
+#### 更新 YAML
+
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
+4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
+![Service](https://main.qcloudimg.com/raw/d42865b5fc802688b365cb2c8409e811.png)
+5. 在需要更新 YAML 的 Service 行中，单击【编辑YAML】，进入更新 Service 页面。
+6. 在 “更新Service” 页面，编辑 YAML，单击【完成】，即可更新 YAML。
+
+## Kubectl 操作 Service 指引
+
+<span id="YAMLSample"></span>
+### YAML 示例
+
 ```Yaml
 kind: Service
 apiVersion: v1
 metadata:
   ## annotations:
-  ##   service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx ##若是创建内网访问的Service需指定该条annotation
+  ##   service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx ##若是创建内网访问的 Service 需指定该条 annotation
   name: my-service
 spec:
   selector:
@@ -44,73 +63,95 @@ spec:
     targetPort: 9376
   type: LoadBalancer
 ```
-##### annotations: 使用已有负载均衡器来创建公网/内网访问的Service
-当您已有包年包月的传统型CLB空闲时， 希望TKE创建的Service能够使用已有的CLB， 您可以通过以下annotations进行设置：
+- kind：标识 Service 资源类型。
+- metadata：Service 的名称、Label等基本信息。
+- metadata.annotations: Service 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+- spec.type：标识 Service 的被访问形式
+  - ClusterIP：在集群内部公开服务，可用于集群内不访问。
+  - NodePort：使用节点的端口映射到后端 Service，集群外可以通过节点 IP:NodePort 访问。
+  - LoadBalancer：使用腾讯云提供的负载均衡器公开服务，默认创建公网 CLB， 指定 annotations 可创建内网 CLB。
+  - ExternalName：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
+
+#### annotations: 使用已有负载均衡器创建公网/内网访问的 Service
+
+如果您已有的包年包月传统型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，您可以通过以下 annotations 进行设置：
 ```Yaml
 metadata:
   annotations:
     service.kubernetes.io/tke-existed-lbid: lb-6swtxxxx
 ```
->注意：
-1. 不建议您容器业务和CVM业务共用一个CLB。
-2. 不建议您直接在CLB控制台操作TKE自动管理的CLB。
-2. 使用已有的CLB时容器服务TKE会自动覆盖CLB已有的后端RS。
-3. TKE会自动覆盖和更新名称为TKE_Dedicated_Listener的监听器，其他监听器不覆盖。
 
-##### annotations: 指定节点绑定Loadbalances
-当您的集群规模较大时， 入口类型的应用设置亲和性调度到部分节点， 你可以配置Servce的Loadbalance只绑定指定节点， annotations如下：
+#### annotations: 指定节点绑定 Loadbalances
+
+如果您的集群规模较大，入口类型的应用需设置亲和性调度到部分节点， 您可以通过配置 Servce 的 Loadbalance，只绑定指定节点， annotations 如下：
 ```yaml
 metadata:
   annotations:
     service.kubernetes.io/qcloud-loadbalancer-backends-label: `key in (value1, value2) ` ## LabelSelector格式
 ```
-1. 建议配合工作负载的亲和性调度使用。
-2. 前提条件是Node已根据业务需求设置Label。
-2. 采用原生LabelSelector格式如：
-  - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1=values1, key2=values2
-  - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1 in (value1),key2 in (value2)
-  - service.kubernetes.io/qcloud-loadbalancer-backends-label: key in (value1, value2)
-  - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1, key2 notin (value2)
-4. 增量的节点若匹配，将自动绑定到该Loadbalance。
-5. 修改存量节点的Label， 根据匹配规则将动态绑定和解绑Loadbalance。
+- 建议配合工作负载的亲和性调度使用。
+- 前提条件是 Node 已根据业务需求设置 Label。
+- 采用原生 LabelSelector 格式如：
+   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1=values1, key2=values2
+   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1 in (value1),key2 in (value2)
+   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key in (value1, value2)
+   - service.kubernetes.io/qcloud-loadbalancer-backends-label: key1, key2 notin (value2)
+- 增量的节点若匹配，将自动绑定到该 Loadbalance。
+- 修改存量节点的 Label， 根据匹配规则将动态绑定和解绑 Loadbalance。
 
->注：如果是带宽上移账号，在创建公网访问方式的服务时需要指定如下两个 annotations 项：
-- `service.kubernetes.io/qcloud-loadbalancer-internet-charge-type`.公网带宽计费方式， 可选值有：TRAFFIC_POSTPAID_BY_HOUR（按使用流量计费），BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）
-- `service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out`.带宽上限，范围：[1,2000] Mbps。
-如：
-```Yaml
-metadata:
-  annotations:
-    service.kubernetes.io/qcloud-loadbalancer-internet-charge-type: TRAFFIC_POSTPAID_BY_HOUR
-    service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out: "10"
+>? 如果您使用的是带宽上移账号，在创建公网访问方式的服务时需要指定以下两个 annotations 项：
+> - `service.kubernetes.io/qcloud-loadbalancer-internet-charge-type` 公网带宽计费方式，可选值有：TRAFFIC_POSTPAID_BY_HOUR（按使用流量计费），BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）
+> - `service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out` 带宽上限，范围：[1,2000] Mbps。
+> 例如：
+> ```Yaml
+> metadata:
+>   annotations:
+>     service.kubernetes.io/qcloud-loadbalancer-internet-charge-type: TRAFFIC_POSTPAID_BY_HOUR
+>     service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out: "10"
+> ```
+
+### 创建 Service
+
+1. 参考 [YAML 示例](#YAMLSample)，准备 StatefulSet YAML 文件。
+2. 安装 Kubectl，并连接集群。操作详情请参考 [通过 Kubectl 连接集群](https://cloud.tencent.com/document/product/457/8438)。
+3. 执行以下命令，创建 Service YAML 文件。
+```shell
+kubectl create -f Service YAML 文件名称
 ```
-
-- kind: 标识该资源是 service 类型
-- metadata：该 service 的名称、Label等基本信息
-- metadata.annotations: 对 service 的额外说明，腾讯云TKE额外增强能力可以通过该参数设置。
-- spec.type：标识该Service的被访问形式：
-  - ClusterIP：在集群内部公开服务， 可用于集群内不访问。
-  - NodePort：使用节点的端口映射到后端Service，集群外可以通过节点IP：NodePort 访问。
-  - LoadBalancer: 使用腾讯云提供的负载均衡器公开服务，默认创建公网CLB， 指定annotations可创建内网CLB。
-  - ExternalName：ExternalName类型的服务将服务映射到DNS。注： ExternalName服务仅适用于kube-dns1.7及更高版本
-
-#### 创建Service
-1. 准备service Yaml文件， 例如上述文件为my-service.Yaml （请先创建好工作负载）
-2. kubectl安装完成，并且已连接上集群（可直接登录集群节点使用kubectl）
-3. 执行命令创建：
+例如，创建一个文件名为 my-service.yaml 的 Service YAML 文件，则执行以下命令：
 ```shell
 kubectl create -f my-service.yaml
 ```
-4. 执行命令验证创建情况：
+4. 执行以下命令，验证创建是否成功。
 ```shell
 kubectl get services
 ```
-#### 更新Service
-**方法一**：直接通过`kubectl edit  service/[name]`更新
-**方法二**：删除旧的Service， 重新通过kubectl create/apply 创建Service.
+返回类似以下信息，即表示创建成功。
+```
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   172.16.255.1   <none>        443/TCP   38d
+```
 
-#### 删除Service
-1. 执行命令`kubectl delete service [NAME]`
+### 更新 Service
 
+#### 方法一
 
-[createService]:https://main.qcloudimg.com/raw/33058be22f681ad732e5d9dd51ddbb8f.png
+执行以下命令，更新 Service。
+```
+kubectl edit service/[name]
+```
+
+#### 方法二
+
+1. 手动删除旧的 Service。
+2. 执行以下命令，重新创建 Service。
+```
+kubectl create/apply
+```
+
+### 删除 Service
+
+执行以下命令，删除 Service。
+```
+kubectl delete service [NAME]
+```
