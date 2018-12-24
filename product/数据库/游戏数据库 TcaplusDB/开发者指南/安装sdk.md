@@ -1,5 +1,5 @@
 ## 操作场景
-本文档指导您如何安装和使用 TcaplusDB Pb。
+本文档指导您在 Linux 系统环境下如何安装和使用 TcaplusDB Pb。
 ## 运行环境
 Linux 2.6、Suse 32 位 / 64 位。
 
