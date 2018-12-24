@@ -1,17 +1,17 @@
 
-
-本文档为 Tcaplus Protobuf API Windows(x64) 用户手册
-
+## 操作场景
+本文档为 Tcaplus Protobuf API Windows(x64) 用户手册。
 ## 运行环境
 
 操作系统 - Microsoft Windows x86\_64
 编译环境 - Microsoft Visual Studio 2015 (VC14.0)
 
-## 下载软件包
+## 操作步骤
+### 下载软件包
 
 1. 下载依赖包 [TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip](http://ptp.oa.com/product/7)。
 2. 下载 Tcaplus Protobuf API 软件包 [Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413.zip](http://ptp.oa.com/product/160)。
-3. 解压缩，以下是软件包的结构
+3. 解压缩，以下是软件包的结构。
 ```
 Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 |-- cfg                                                 # 配置目录
@@ -29,7 +29,7 @@ Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
        |-- C++_pb2_coroutine_simpletable                # 协程模式的pb简单表示例
 ```
 
-## 构建示例
+
 
 ### 准备
 
@@ -111,6 +111,7 @@ set/
 5. 如果需要运行`*_crypto`示例, 请确保`libcrypto-1_1-x64.dll`文件在系统Path路径下,这个文件能够在 openssl 的编译目录下找到。
 
   ![Output](https://main.qcloudimg.com/raw/40627a3a2dff8a4a4aeea57cda2bb8bb.png)
+
 
 ## Tcaplus Pb API 命令列表
 
