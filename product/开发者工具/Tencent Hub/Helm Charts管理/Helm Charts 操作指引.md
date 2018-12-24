@@ -23,7 +23,7 @@
 
 ## 命令行操作指引
 ### 前置条件
-1. 本地安装 Helm 客户端，更多可查看 [Helm 官方文档-安装Helm](https://docs.helm.sh/using_helm/#installing-helm)。
+1. 本地安装 Helm 客户端，更多可查看 [安装 Helm](https://docs.helm.sh/using_helm/#installing-helm)。
 ```shell
 $ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
 $ chmod 700 get_helm.sh

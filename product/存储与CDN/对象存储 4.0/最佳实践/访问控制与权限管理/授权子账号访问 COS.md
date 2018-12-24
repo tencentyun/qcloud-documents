@@ -26,11 +26,10 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
  
 2. 按照要求填写用户相关信息。
  ![子账户2](//mc.qcloudimg.com/static/img/97dbdb848557f0195f90e1a78561eb37/image.png)
-> **注意：**
-> “登录帐号”为可登录腾讯云的账号，可添加三种类型账号为子账号，添加方式如下：
- - 邮箱：请输入已注册腾讯云的邮箱或对应账号 ID；
- - 微信公众号：请输入其在腾讯云的账号 ID；
- - QQ号：请输入QQ号或其账号 ID。
+>!“登录帐号”为可登录腾讯云的账号，可添加三种类型账号为子账号，添加方式如下：
+ - 邮箱：请输入已注册腾讯云的邮箱或对应账号 ID。
+ - 微信公众号：请输入其在腾讯云的账号 ID。
+ - QQ 号：请输入 QQ 号或其账号 ID。
 
 3. 根据系统提供的策略选择，可配置简单的策略，如 COS 的读写权限，只读权限等。如需配置更复杂的策略，可参考 [步骤二：对子账号授予权限](#对子账号授予权限)。
 ![子账户3](//mc.qcloudimg.com/static/img/8c3be83e576d892c99b90190d5f5c0b2/image.png)
@@ -58,7 +57,7 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
 - 使用 COS 对象存储时，如何仅对某 IP 段设置读写权限？
 
 ### 步骤三：子账号访问根账号 COS 资源
-COS 访问（API/SDK）需要如下资源：APPID、SecretId、SecretKey。
+COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 当使用子账号访问 COS 资源时，需要使用根账号的 APPID，子账号的 SecretId 和 SecretKey，您可以在访问管理控制台创建子账号的 SecretId 和 SecretKey。
 1. 子账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  时，需选择对应的根账号（开发商账号）。
 ![10](//mc.qcloudimg.com/static/img/7f109890f04a9f57f3b8c924b3788e2d/image.png)
@@ -66,12 +65,12 @@ COS 访问（API/SDK）需要如下资源：APPID、SecretId、SecretKey。
 ![11](//mc.qcloudimg.com/static/img/294e294ef54662dedf57af975b7bea75/image.png)
 
 
-> **注意：**
+>!
 - 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
 - 子账号访问 COS 资源时，需要使用根账号的 APPID，子账号的 SecretId 和 SecretKey。
 
-#### 基于 XML 的 JAVA SDK 访问示例
-以基于 XML 的 JAVA SDK 命令行为例，需填入参数如下：
+#### 基于 XML 的 Java SDK 访问示例
+以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
 // 1 初始化身份信息
 COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
@@ -150,7 +149,7 @@ coscmd config -u 1250000011 -a AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW -s e8Sde
     "statement": [
         {
             "action": [
-	cos:*
+	"cos:*"
             ],
             "resource": "*",
             "effect": "allow",

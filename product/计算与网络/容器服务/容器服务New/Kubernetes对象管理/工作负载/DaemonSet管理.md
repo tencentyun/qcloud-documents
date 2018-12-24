@@ -1,36 +1,60 @@
-## DaemonSet 管理
-### DaemonSet 简介
-DaemonSet会保证所有（或部分）节点上均运行有指定的Pod， 新节点添加到集群内也会有自动部署Pod, 节点被移除集群后，Pod将自动回收。
-主要用于部署常驻集群内的后台程序，如节点的日志采集。
-### DaemonSet调度说明
-若配置了Pod的nodeSelector或affinity参数， DaemonSet管理的Pod按照指定的调度规则调度， 若未设置上述参数，将在所有的节点上部署Pod。
-### DaemonSet 控制台操作指引
-#### 创建DaemonSet
-1. 点击需要部署创建DaemonSet的集群ID，进入集群详情页面。
-2. 点击创建DaemonSet选项，选择新建创建DaemonSet。
-3. 根据指引设置创建DaemonSet参数，完成创建。
-4. 可通过事件查看DaemonSet创建过程。
-![][createDaemonSet]
+## 简介
 
-**说明**
-1. 您可以为DaemonSet的一个Pod设置多个不同的容器
-2. CPU和内存限制建议填写，Request和Limit恰当的设置可以提供业务的健壮性，详细信息可查看[Kubenretes资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)。
-3. 您可以通过容器的高级设置定制`工作目录`，`运行命令`，`运行参数`，`容器健康检查`，`特权级`等参数。
+DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日志采集。DaemonSet 保证在所有或部分节点上均运行指定的 Pod。 新节点添加到集群内时，也会有自动部署 Pod；节点被移除集群后，Pod 将自动回收。
 
+## 调度说明
 
-#### 更新DaemonSet
-**Yaml更新**
-1. 点击需要部署的DaemonSet的集群ID，进入集群详情页面。
-2. 选择需要更新的DaemonSet, 进入DaemonSet详情页，点击Yaml tab, 可编辑Yaml直接更新
+若配置了 Pod 的 nodeSelector 或 affinity 参数，DaemonSet 管理的 Pod 将按照指定的调度规则调度。若未配置 Pod 的 nodeSelector 或 affinity 参数，则将在所有的节点上部署 Pod。
 
-**更新镜像**
-仅在Kubernetes 1.6或更高版本中支持DaemonSet滚动更新功能
-1. 点击需要部署的DaemonSet的集群ID，进入集群详情页面。
-2. 选择需要更新的DaemonSet, 点击更新镜像操作。
+## DaemonSet 控制台操作指引
 
+### 创建 DaemonSet
 
-### kubectl 操作 DaemonSet 指引
-#### Yaml示例
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要创建 DaemonSet 的集群 ID，进入待创建 DaemonSet 的集群管理页面。
+4. 选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
+![DaemonSet](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
+5. 单击【新建】，进入 “新建Workload” 页面。如下图所示：
+![新建DaemonSet](https://main.qcloudimg.com/raw/525bb7049cd0a8435bff6afe7a7f1e93.png)
+6. 根据实际需求，设置 Deployment 参数。关键参数信息如下：
+ - 工作负载名：自定义。
+ - 命名空间：根据实际需求进行选择。
+ - 类型：选择 “DaemonSet（在每个主机上运行Pod）”。
+ - 实例内容器：根据实际需求，为 DaemonSet 的一个 Pod 设置一个或多个不同的容器。
+    - 名称：自定义。
+    - 镜像：根据实际需求进行选择。
+    - 镜像版本：根据实际需求进行填写。
+    - CPU/内存限制：可根据 [Kubenretes资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
+    - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
+7. 单击【创建Workload】，完成创建。
+
+### 更新 DaemonSet
+
+#### 更新 YAML
+
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
+3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
+4. 选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
+![DaemonSet](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
+5. 在需要更新 YAML 的 DaemonSet 行中，单击【编辑YAML】，进入更新 DaemonSet 页面。
+6. 在 “更新DaemonSet” 页面，编辑 YAML，单击【完成】，即可更新 YAML。
+
+#### 更新镜像
+>? 仅在 Kubernetes 1.6或更高版本中支持 DaemonSet 滚动更新功能。
+
+1. 在集群管理页面，单击需要更新镜像的 DaemonSet 的集群 ID，进入待更新镜像的 DaemonSet 的集群管理页面。
+2. 在需要更新镜像的 DaemonSet 行中，单击【更新镜像】。如下图所示：
+![DaemonSet更新镜像](https://main.qcloudimg.com/raw/928b50bc33cdb6c64c188c9e7be2099d.png)
+3. 在 “滚动更新镜像” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
+![滚动更新镜像](https://main.qcloudimg.com/raw/c94ee36da1a8c7d0cd25d38607f8c770.png)
+4. 单击【完成】，即可更新镜像。
+
+## Kubectl 操作 DaemonSet 指引
+
+<span id="YAMLSample"></span>
+### YAML 示例
 ```Yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -77,47 +101,84 @@ spec:
 ```
 >注：以上YAML示例引用于 https://kubernetes.io/docs/concepts/workloads/controllers/daemonset， 创建时可能存在容器镜像拉取不成功的情况，仅供于本文介绍DaemonSet的组成。
 
-- kind: 标识该资源是DaemonSet类型
-- metadata：该DaemonSet的名称、Label等基本信息
-- metadata.annotations: 对DaemonSet的额外说明，腾讯云TKE额外增强能力可以通过该参数设置。
-- spec.template:  该DaemonSet管理的Pod的详细模板配置
-- 更多可查看[kubernetes DaemonSet官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+- kind：标识 DaemonSet 资源类型。
+- metadata：DaemonSet 的名称、Label等基本信息。
+- metadata.annotations：DaemonSet 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+- spec.template：DaemonSet 管理的 Pod 的详细模板配置。
 
-#### kubectl 创建DaemonSet
+更多可查看 [Kubernetes DaemonSet 官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
 
-1. 准备DaemonSet Yaml文件， 例如上述文件为fluentd-elasticsearch.Yaml
-2. kubectl安装完成，并且已连接上集群（可直接登录集群节点使用kubectl）
-3. 执行命令创建：
+### Kubectl 创建 DaemonSet
+
+1. 参考 [YAML 示例](#YAMLSample)，准备 StatefulSet YAML 文件。
+2. 安装 Kubectl，并连接集群。操作详情请参考 [通过 Kubectl 连接集群](https://cloud.tencent.com/document/product/457/8438)。
+3. 执行以下命令，创建 DaemonSet YAML 文件。
+```shell
+kubectl create -f DaemonSet YAML 文件名称
+```
+例如，创建一个文件名为 fluentd-elasticsearch.yaml 的 StatefulSet YAML 文件，则执行以下命令：
 ```shell
 kubectl create -f fluentd-elasticsearch.yaml
 ```
-4. 执行命令验证创建情况：
+4. 执行以下命令，验证创建是否成功。
 ```shell
 kubectl get DaemonSet
 ```
+返回类似以下信息，即表示创建成功。
+```
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR       AGE
+frontend   0         0         0         0            0           app=frontend-node   16d
+```
 
-#### kubectl 更新DaemonSet
-DaemonSet有两种更新策略类型（可通过`kubectl get ds/<daemonset-name> -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}'`查看）：
+### Kubectl 更新 DaemonSet
 
-- OnDelete：这是向后兼容性的默认更新策略。使用 OnDelete更新策略，在更新DaemonSet后，只有在手动删除旧的DaemonSet Pod时才会创建新的DaemonSet Pod。
-- RollingUpdate：使用RollingUpdate更新策略，在更新DaemonSet模板后，旧的DaemonSet Pod将被终止，并且将以滚动方式创建新的DaemonSet Pod（Kubernetes 1.6或更高版本）
+执行以下命令，查看 DaemonSet 的更新策略类型。
+```
+kubectl get ds/<daemonset-name> -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}'
+```
+DaemonSet 有以下两种更新策略类型：
+- OnDelete：默认更新策略。该更新策略在更新 DaemonSet 后，需手动删除旧的 DaemonSet Pod 才会创建新的DaemonSet Pod。
+- RollingUpdate：支持 Kubernetes 1.6或更高版本。该更新策略在更新 DaemonSet 模板后，旧的 DaemonSet Pod 将被终止，并且以滚动更新方式创建新的 DaemonSet Pod。
 
+#### 方法一
 
+执行以下命令，更新 DaemonSet。
+```
+kubectl edit DaemonSet/[name]
+```
+此方法适用于简单的调试验证，不建议在生产环境中直接使用。您可以通过此方法更新任意的 DaemonSet 参数。
 
-**方法一**：直接通过`kubectl edit DaemonSet/[name]`更新
-适用与简单调试验证，不建议直接在生产环境使用，可以通过该方法更新任意的DaemonSet参数。
+#### 方法二
 
-**方法二**：通过`kubectl set image ds/[daemonset-name][container-name]=[container-new-image] `更新指定容器的镜像， 保证DaemonSet的其他参数不变，业务更新时仅更新容器镜像.
+执行以下命令，更新指定容器的镜像。
+```
+kubectl set image ds/[daemonset-name][container-name]=[container-new-image]
+```
+建议保持 DaemonSet 的其他参数不变，业务更新时，仅更新容器镜像。
 
-如果是滚动更新的更新策略， 那么还可以通过`kubectl rollout status ds/<daemonset-name>`命令查看更新状态。
+### Kubectl 回滚 DaemonSet
 
-#### kubectl 回滚 DaemonSet
-1. 通过`kubectl rollout history daemonset /[name]` 查看daemonset 的更新历史。
-2. 通过`kubectl rollout history daemonset /[name] --revision=[REVISION]` ,查看指定版本详情。
-3. 可通过`kubectl rollout undo daemonset /[name] --to-revision=[REVISION]`, 回滚到指定的版本号。不指定`--to-revision=[REVISION]`默认回滚到前一个版本。
-4.
-#### kubectl删除 DaemonSet
-1. 执行命令`kubectl delete  DaemonSet [NAME]`
+1. 执行以下命令，查看 DaemonSet 的更新历史。
+```
+kubectl rollout history daemonset /[name]
+```
+2. 执行以下命令，查看指定版本详情。
+```
+kubectl rollout history daemonset /[name] --revision=[REVISION]
+```
+3. 执行以下命令，回滚到前一个版本。
+```
+kubectl rollout undo daemonset /[name]
+```
+如需指定回滚版本号，可执行以下命令。
+```
+kubectl rollout undo daemonset /[name] --to-revision=[REVISION]
+```
 
+### Kubectl 删除 DaemonSet
 
-[createDaemonSet]:https://main.qcloudimg.com/raw/746fff6232ad98317d05d841889eed1f.png
+1. 执行以下命令，删除 DaemonSet。
+```
+kubectl delete  DaemonSet [NAME]
+```
+

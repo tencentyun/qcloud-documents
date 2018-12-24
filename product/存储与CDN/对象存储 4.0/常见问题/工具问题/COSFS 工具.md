@@ -18,7 +18,7 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 
 >!my-dir 必须以 `/` 开头。
 
-如使用 v1.0.5 之前版本，则挂载命令为：
+如使用 v1.0.5之前版本，则挂载命令为：
 
 ```shell
 cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
@@ -26,9 +26,9 @@ cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 
 ### 非 root 用户如何挂载 COSFS？
 
-非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为 600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
+非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
 
-### COSFS 是否支持 HTTPS 进行挂载?
+### COSFS 是否支持 HTTPS 进行挂载？
 
 COSFS 支持 HTTPS，HTTP 和 HTTPS 的使用形式分别为：
 
@@ -37,22 +37,22 @@ COSFS 支持 HTTPS，HTTP 和 HTTPS 的使用形式分别为：
 -ourl=https://cos.ap-guangzhou.myqcloud.com
 ```
 
-在 libcurl 所依赖的 NSS 库为 3.12.3 及其以上版本的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 HTTPS 方式挂载 Bucket，需要执行如下命令：
+在 libcurl 所依赖的 NSS 库为 3.12.3及其以上版本的系统（ 使用 `curl -V` 命令查看 NSS 版本），使用 HTTPS 方式挂载 Bucket，需要执行如下命令：
 
 ```shell
 echo "export NSS_STRICT_NOFORK=DISABLED" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### 如何设定 COSFS 开机自动挂载?
+### 如何设定 COSFS 开机自动挂载？
 
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
-cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http：//cos.ap-guangzhou.myqcloud.com,dbglevel=info
+cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
-### 如何挂载多个存储桶?
+### 如何挂载多个存储桶？
 
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
@@ -67,7 +67,7 @@ echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5
 
 ## 故障排查
 
-### 使用 COSFS 过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问?
+### 使用 COSFS 过程中，突然显示 "unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"，并且无法再访问？
 
 您可以使用 `ps ax|grep cosfs` 命令查看 COSFS 进程是否存在，如果 COSFS 进程是由于误操作而挂掉，您可以执行如下命令进行重新挂载：
 
@@ -88,7 +88,7 @@ image/jpm                                       jpm jpgm
 image/jpx                                       jpx jpf
 ```
 
-### 挂载时显示 Bucket not exist?
+### 挂载时显示 Bucket not exist？
 
 请检查参数 -ourl，确保 URL 中不携带 Bucket 部分，正确的形式为：
 
@@ -96,7 +96,7 @@ image/jpx                                       jpx jpf
 -ourl=http://cos.ap-guangzhou.myqcloud.com
 ```
 
-### 为什么之前可用写文件，突然不能写了?
+### 为什么之前可用写文件，突然不能写了？
 
 由于 COS 鉴权产品策略调整，所以使用 V1.0.0 之前版本的 COSFS 工具会导致策略校验不通过，您可以安装最新的 COSFS 工具重新挂载。
 
@@ -104,7 +104,18 @@ image/jpx                                       jpx jpf
 
 请先按照以下步骤依次检查，确认问题。
 
-1. 请检查机器是否能正常访问 COS 的域名；
+1. 请检查机器是否能正常访问 COS 的域名。
 2. 检查账号是否配置正确。
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
+
+### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
+由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
+- CentOS
+```shell
+sudo yum install fuse
+```
+- Ubuntn
+```shell
+sudo apt-get install fuse
+```
