@@ -1,6 +1,9 @@
-### 运行环境
+## 操作场景
+本文档指导您如何安装和使用 TcaplusDB Pb。
+## 运行环境
 Linux 2.6、Suse 32 位 / 64 位。
 
+## 前提条件
 ### Protobuf 安装
 在安装和使用 TcaplusDB Pb 前需安装 Protobuf，若已安装可忽略此节。
 Protobuf 是 Google 推出的一种混合语言数据标准，是一种轻便的结构化数据存储格式。TcaplusDB 系统支持使用 Protobuf 格式定义文件（.proto）定义数据表。在使用 TcaplusDB Pb API 之前，需要在 GameSvr 服务器上安装 Protobuf。在此推荐使用源代码进行 Protobuf 安装，安装方法如下：
@@ -38,6 +41,7 @@ protoc -version
 如下图所示，安装成功。
 ![](https://mc.qcloudimg.com/static/img/0c9e3f1f45df121b214f07b8961c1c09/1.jpg)
 
+## 操作步骤
 ### SDK 下载
 单击[ SDK 下载](https://mc.qcloudimg.com/static/archive/5455997ec0076386ac96536d71f0a1ce/TcaplusPbApi3.18.0.152096.x86_64_release_20170712.tar.gz)。
 

@@ -6,7 +6,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的
 
 > ! 相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
 
-在本例中，假设用户获取到如下接入点信息，并且在 ZoneId 为`1`的部署单元中创建了表 tb_online
+在本例中，假设用户获取到如下接入点信息，并且在 ZoneId 为1的部署单元中创建了表 tb_online
 
 * AppId：2
 * AppKey：3aa84dd773826cd655e9f24a249d68bb

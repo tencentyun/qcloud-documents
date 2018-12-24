@@ -4,6 +4,7 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 
 ## StatefulSet 控制台操作指引
 
+<span id="createStatefulSet"></span>
 ### 创建 StatefulSet
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
