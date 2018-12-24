@@ -20,23 +20,16 @@
 
 ## 配额和限制
 ### 当前竞价实例支持哪些地域和实例类型及规格 ？
-| 可用区  | 实例类型 | 详细机型 | 折扣比例 |
-|--------|-----|-----|------|
-| 北京三区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 广州三区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 广州三区  | S3 | S3.MEDIUM4、S3.LARGE8、S3.2XLARGE16、S3.4XLARGE32、S3.8XLARGE64 | 20% |
-| 成都一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 成都二区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 重庆一区  | S3 | S3.MEDIUM4、S3.LARGE8、S3.2XLARGE16、S3.4XLARGE32、S3.8XLARGE64 | 20% |
-| 重庆一区  | C3 | C3.LARGE8、C3.2XLARGE16、C3.4XLARGE32、C3.8XLARGE64 | 20% |
-| 香港一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 硅谷一区、二区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 弗吉尼亚一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 多伦多一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
-| 曼谷一区  | S2 | S2.MEDIUM4、S2.LARGE8、S2.2XLARGE16、S2.4XLARGE32、S2.8XLARGE64 | 20% |
+<table>
+<tr><th>地域</th><th>支持实例机型族</th><th>竞价折扣</th></tr>
+<tr><td>北京、上海、成都、重庆、广州Open、香港</td><td rowspan="4">所有按量计费支持机型族</td><td rowspan="4">固定同规格按量计费实例刊例价的 20% </td></tr>
+<tr><td>上海金融、深圳金融</td></tr>
+<tr><td>广州（除广州一区）</td></tr>
+<tr><td>香港、新加坡、曼谷、首尔、东京、孟买、多伦多、硅谷、弗吉尼亚、法兰克福、莫斯科</td></tr>
+</table>
 
 ### 竞价实例的配额限制和按量计费共用吗 ？
-不共用，以每个用户在每个可用区拥有的竞价实例 vCPU 核心数之和为限制判断条件，目前每个用户最大拥有 30 个，每个可用区独立计算（提高配额请提交工单咨询）。
+不共用，以每个用户在每个可用区拥有的竞价实例 vCPU 核心数之和为限制判断条件，目前每个用户最大拥有30个，每个可用区独立计算（提高配额请提交工单咨询）。
 
 ### 竞价实例支持升降实例规格吗 ？
 不支持。
