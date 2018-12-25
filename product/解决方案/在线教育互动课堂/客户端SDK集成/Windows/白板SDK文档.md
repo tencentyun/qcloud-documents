@@ -69,11 +69,12 @@ ShowWindow(hWnd, SW_SHOW);
 
 ```C++
 boardSDk->useTool(BoardTool::Rectangle);//使用矩形工具
-boardSDk->setLineWidth(100);//设置画笔宽度
+boardSDk->setLineWidth(2);//设置画笔宽度
 boardSDk->setBrushColor(255，0，255，255);//设置画笔颜色，按照red，green，blue和alpha通道值顺序
 boardSDk->setFill(true);//填充图形
-boardSDk->setRadius(30);//设置圆角半径
+boardSDk->setRadius(10);//设置圆角半径
 boardSDk->setFontSize(20);//设置文字大小
+boardSDk->setScale(200); //设置缩放系数
 ```
 
 可选的工具定义如下：
@@ -89,6 +90,7 @@ boardSDk->setFontSize(20);//设置文字大小
 |矩形|BoardTool::Rectangle|宽度、颜色、是否填充、圆角半径|
 |文字|BoardTool::Text|颜色、大小|
 |选区|BoardTool::Select|无|
+|移动|BoardTool::Shift|无|
 
 ### 2.5 页面操作、背景设置及页面清除
 白板 SDK 支持多页面操作，可通过 BoardMgr 如下接口来进行页面操作：

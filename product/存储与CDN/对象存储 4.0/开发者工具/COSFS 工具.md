@@ -8,7 +8,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ### 适用操作系统版本 
 主流的 Ubuntu、CentOS、MacOS 系统。
 
-### 安装流程
+### 安装步骤
 
 #### 1. 获取源码 
 您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录 `/usr/cosfs` 为例：
@@ -46,12 +46,12 @@ cd /usr/cosfs
 ./configure
 make
 sudo make install
-cosfs --version
+cosfs --version #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
 - 在 CentOS 6.5及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
-```
+```shell
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
@@ -65,11 +65,10 @@ cd fuse-2.9.4
 make
 make install
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
-modprobe fuse
+modprobe fuse #挂载 fuse 内核模块
 echo "/usr/local/lib" >> /etc/ld.so.conf
-ldconfig
-pkg-config --modversion fuse 
-#当您看到 “2.9.4” 时，表示fuse安装成功  
+ldconfig #更新动态链接库
+pkg-config --modversion fuse #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
 ```
 
 - 在 MacOS 进行 configure 操作时，可能会出现如下提示：
@@ -86,17 +85,18 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开， 并为密钥文件设置权限640。命令如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开，并且为了密钥安全，cosfs 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
->!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 test-1253972369 这个 Bucket 中，&lt;Name&gt; 为 test， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
+>在 example-1253972369 这个 Bucket 中，&lt;Name&gt; 为 example， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成 600。
 
 **示例：**
 
 ```shell
-echo test-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi > /etc/passwd-cosfs
+echo example-1253972369:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 
@@ -108,14 +108,14 @@ cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API），其中&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
 
 ```shell
-mkdir /mnt
-cosfs test-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
+mkdir -p /mnt/cosfs
+cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 
 >!v1.0.5 之前版本 COSFS 的挂载命令如下：
@@ -157,7 +157,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 ### -odbglevel=[info|dbg]
 
-设置 COSFS 日志记录级别，可选 info、dbg，生产环境中建议设置为 info，调试时可以设置为 dbg。
+设置 COSFS 日志记录级别，可选 info、dbg。生产环境中建议设置为 info，调试时可以设置为 dbg。
 
 ### -oumask=[perm]
 
@@ -167,6 +167,8 @@ fusermount -u /mnt 或者 umount -l /mnt
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
 - 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
+- 文件/文件夹的rename操作不是原子的。
+- 元数据操作，例如list directory，性能较差，因为需要远程访问COS服务器。
 - 不支持 hard link，不适合高并发读/写的场景。
 - 不可以同时在一个挂载点上挂载、和卸载文件。您可以先使用 cd 命令切换到其他目录，再对挂载点进行挂载、卸载操作。
 

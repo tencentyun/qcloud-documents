@@ -1,7 +1,7 @@
 您可以通过子帐号实现不同的人管理不同的服务。默认情况下，子帐号在使用 TSF 的部分功能时会受限，因为 TSF 会访问其他产品（如 CVM 等）的资源，因此需要主帐号授权子帐号可以传递指定角色（Pass Role）到 TSF。
 关于腾讯云访问管理及用户身份的说明请参考 [腾讯云访问管理](https://cloud.tencent.com/document/product/598) 和 [腾讯云用户管理介绍](https://cloud.tencent.com/document/product/598/13665)。
 
-由于 TSF 需要访问其他云产品的 API（如 TKE等），所以需要授权 TSF 创建服务角色。TSF 有两种方法创建服务角色：
+由于 TSF 需要访问其他云产品的 API（如 TKE 等），所以需要授权 TSF 创建服务角色。TSF 有两种方法创建服务角色：
 
 - 主账号访问 [TSF 概览页 >> ](https://console.cloud.tencent.com/tsf?rid=1)  会自动创建 TSF 相关服务角色，角色名  `TSF_QCSRole`
 
@@ -50,6 +50,7 @@
 ![](https://main.qcloudimg.com/raw/e26002f8c16eca54a76edaf4e50aaf1b.png)
 1.5 选择【空白模板】，单击下一步。
 ![](https://main.qcloudimg.com/raw/da7849eb16acf32e084beef40784e1dc.png)
+
 1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID。
 
 ```text
