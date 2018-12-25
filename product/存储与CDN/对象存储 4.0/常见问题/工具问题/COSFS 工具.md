@@ -1,4 +1,23 @@
 ## 功能咨询
+### 如何使用临时密钥挂载存储桶？
+
+使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤的操作：
+
+步骤一：在-opasswd-file=[path] 指定的密钥配置文件中，配置临时密钥相关参数，相关概念可参考  [临时密钥](https://cloud.tencent.com/document/product/436/14048)，配置示例如下：
+
+```shell
+COSAccessKeyId=AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #以下为临时密钥的Id、Key和Token字段
+COSSecretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+COSAccessToken=109dbb14ca0c30ef4b7e2fc9612f26788cadbfac3
+COSAccessTokenExpire=2017-08-29T20:30:00 #临时token过期时间，为GMT时间，格式需和例子中一致
+```
+其中，COSFS 会根据 COSAccessTokenExpire 中配置的时间，来判断是否需要重新从密钥文件中加载配置。
+
+步骤二：在挂载命令中，使用 -ocam_role=[role] 指定角色为 sts 和 -opasswd_file=[path] 参数指定密钥文件的路径，注意：密钥文件的权限需设置成 600，示例如下：
+
+```shell
+cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oallow_other -ocam_role=sts -opasswd_file=/tmp/passwd-sts
+```
 
 ### 如何查看 COSFS 提供的挂载参数选项和版本号？
 
@@ -13,7 +32,7 @@
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 
 ```shell
-cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs example-1253972369:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 >!my-dir 必须以 `/` 开头。
@@ -21,12 +40,12 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 如使用 v1.0.5之前版本，则挂载命令为：
 
 ```shell
-cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs 1253972369:example:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 ### 非 root 用户如何挂载 COSFS？
 
-非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
+非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径，并将权限设置为 600。
 
 ### COSFS 是否支持 HTTPS 进行挂载？
 
@@ -49,7 +68,7 @@ source ~/.bashrc
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
-cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
+cosfs#example-1253972369 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
 ### 如何挂载多个存储桶？
@@ -57,8 +76,8 @@ cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
 ```shell
-echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
-echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
+echo example-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
+echo log-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
 ```
 
 ### 挂载后，如何能让机器上其他账户来访问已挂载的目录？
@@ -73,7 +92,7 @@ echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5
 
 ```shell
 umount -l /path/to/mnt_dir
-cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs example-1253972369:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](https://cloud.tencent.com/document/product/436/6883#compile) 部分更新 fuse 版本或安装最新版本的 COSFS。
@@ -105,17 +124,17 @@ image/jpx                                       jpx jpf
 请先按照以下步骤依次检查，确认问题。
 
 1. 请检查机器是否能正常访问 COS 的域名。
-2. 检查账号是否配置正确。
+2. 检查账号是否配置正确。 
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
 
 ### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
-由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
+该错误通常是由于您的机器上缺乏 fuse 库所致，建议您执行下列命令安装 fuse 库：
 - CentOS
 ```shell
 sudo yum install fuse
 ```
-- Ubuntn
+- Ubuntu
 ```shell
 sudo apt-get install fuse
 ```
