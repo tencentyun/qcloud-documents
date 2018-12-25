@@ -8,7 +8,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ### 适用操作系统版本 
 主流的 Ubuntu、CentOS、MacOS 系统。
 
-### 安装流程
+### 安装步骤
 
 #### 1. 获取源码 
 您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录 `/usr/cosfs` 为例：
@@ -46,7 +46,7 @@ cd /usr/cosfs
 ./configure
 make
 sudo make install
-cosfs --version #查看cosfs版本号
+cosfs --version #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
@@ -90,7 +90,8 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
->!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。 在 example-1253972369 这个 Bucket 中，&lt;Name&gt; 为 example， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成 600。
+>!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
+>在 example-1253972369 这个 Bucket 中，&lt;Name&gt; 为 example， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成 600。
 
 **示例：**
 
@@ -107,7 +108,7 @@ cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中&lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
@@ -156,7 +157,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 ### -odbglevel=[info|dbg]
 
-设置 COSFS 日志记录级别，可选 info、dbg，生产环境中建议设置为 info，调试时可以设置为 dbg。
+设置 COSFS 日志记录级别，可选 info、dbg。生产环境中建议设置为 info，调试时可以设置为 dbg。
 
 ### -oumask=[perm]
 
