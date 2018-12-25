@@ -61,7 +61,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的
 tcaplus>
 ```
 
-在提示符之后输入 help，可以看到进一步的帮助信息,通过 `> help 具体命令` 可以查看具体的使用方法。
+在提示符之后输入 help，可以看到进一步的帮助信息，通过 `> help 具体命令` 可以查看具体的使用方法。
 
 ```
 tcaplus>help
