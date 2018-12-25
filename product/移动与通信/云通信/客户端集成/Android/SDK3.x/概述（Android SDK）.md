@@ -11,7 +11,7 @@ ImSDK 支持 JDK 1.6 和 Android SDK version 14 以上系统。
 
 ### 下载 ImSDK
 
-从[官网](https://cloud.tencent.com/product/im.html#sdk)下载 ImSDK ，包含以下库文件：
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK ，包含以下库文件：
 
 ```
 libs
@@ -75,7 +75,7 @@ libs
 > **注意：**
 > Android 6.0 以上的机型，其中一些权限需要在应用中手动申请。可以参照 Demo 的写法。
 
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.CAMERA" />
@@ -96,7 +96,10 @@ libs
 
 在 `AndroidManifest.xml` 中添加以下配置：
 
-```
+```xml
+<!-- Android 9.0兼容配置 -->
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
 <!-- 【必须】消息收发service -->
 <service
 	android:name="com.tencent.qalsdk.service.QalService"
@@ -125,7 +128,7 @@ libs
 	<intent-filter>
 		<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 	</intent-filter>
-   <intent-filter>
+	<intent-filter>
 		<action android:name="android.intent.action.TIME_SET" />
 	</intent-filter>
 	<intent-filter>

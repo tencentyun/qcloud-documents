@@ -1,9 +1,9 @@
 
 
-### 异步外呼相关接口
+### 点击拨号相关接口
 
-> **注意：**  
-所有异步外呼相关接口交互 JSON 数据类型统一为字符串（String）。
+> **注意：**
+所有接口交互 JSON 数据类型统一为字符串（String）。
 
 
 | API       | 功能描述                          |
@@ -16,6 +16,11 @@
 | [回拨通话状态获取](https://cloud.tencent.com/document/product/610/11898) | 用于回拨通话状态获取 |
 | [回拨话单获取](https://cloud.tencent.com/document/product/610/11854) | 用于回拨话单获取 |
 | [回拨拉取主叫显号号码集合](https://cloud.tencent.com/document/product/610/11852) | 用于回拨拉取主叫显号号码集合 |
+
+### 号码保护（中间号）相关接口
+
+| API       | 功能描述                          |
+| -------- | ----------------------------- |
 | [直拨 PSTN 获取虚拟中间号](https://cloud.tencent.com/document/product/610/12009) | 用于直拨 PSTN 获取虚拟中间号（App 使用方发起） |
 | [直拨 PSTN 解绑虚拟中间号](https://cloud.tencent.com/document/product/610/12068) | 用于直拨 PSTN 解绑虚拟中间号（App 使用方发起） |
 | [直拨 PSTN 虚拟中间号话单推送接口](https://cloud.tencent.com/document/product/610/12011) | 用于直拨 PSTN 虚拟中间号话单推送 |
@@ -23,22 +28,3 @@
 | [直拨 PSTN 虚拟中间号通话状态推送接口](https://cloud.tencent.com/document/product/610/12067) | 用于直拨 PSTN 虚拟中间号通话状态推送 |
 | [直拨 PSTN 虚拟中间号话单获取](https://cloud.tencent.com/document/product/610/12066) | 用于直拨 PSTN 虚拟中间号话单获取 |
 | [腾讯 PSTN 通讯平台服务状态实时推送接口](https://cloud.tencent.com/document/product/610/12082) | 用于腾讯 PSTN 通讯平台服务状态实时推送 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

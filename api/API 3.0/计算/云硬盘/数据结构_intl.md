@@ -81,7 +81,7 @@ Used by actions: CreateDisks, DescribeDisks, DescribeSnapshots.
 | Name | Type | Required | Description |
 |------|------|----------|------|
 | Zone | String | Yes | ID of the [availability zone](/document/api/213/9452#zone) to which the instance belongs. This parameter can also be obtained from the Zone field in the returned values of [DescribeZones](/document/product/213/15707). |
-| ProjectId | Integer | No | ID of the project to which the instance belongs. | This parameter can be obtained from the Zone field in the returned values of [DescribeProject](/document/api/378/4400). If this is left empty, default project is used. |
+| ProjectId | Integer | No | ID of the project to which the instance belongs. This parameter can be obtained from the Zone field in the returned values of [DescribeProject](/document/api/378/4400). If this is left empty, default project is used. |
 
 ## Price
 

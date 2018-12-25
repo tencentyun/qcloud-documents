@@ -1,6 +1,6 @@
-﻿Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes error codes that may be reported during Tencent Cloud GME development so that developers can easily debug and access APIs for Tencent Cloud GME.
+Welcome to Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes error codes that may be reported during Tencent Cloud GME development so that developers can easily debug and integrate APIs of GME.
 
-## TMGSDK Client Errors
+## GMESDK Client Errors
 |Error Code Name     |Error Code Value |Description           |Cause          |Suggested Solution       |
 |---- ---- |---- |--- ---- |-------------------- |-------------- -----|
 |AV_ERR_FAILED                  				|1    	  |Common error.                                                    								|The specific cause needs to be located based on log analysis or other operations.                                                                                                                                                                                     |Analyze logs.                                                               |
@@ -84,3 +84,6 @@
 |QAVPTTERROR_V2T_RSP_DATA_DECODE_FAIL 				|32772 |Speech-to-text error. |The returned data fails to be parsed. |Analyze logs, obtain the real error code returned from the backend to the client, and ask backend personnel for help.									|
 |QAVPTTERROR_V2T_SIGN_CHECK_EXPIRED 					|32773 |Speech-to-text error. |The TLS signature verification confirms that the TLS signature has expired. A new TLS signature needs to be applied for. |Analyze logs, obtain the real error code returned from the backend to the client, and ask backend personnel for help.	|
 |QAVPTTERROR_V2T_APPINFO_UNSET 						|32774 |Speech-to-text error. |The **appinfo** parameter is not set. |Analyze logs, obtain the real error code returned from the backend to the client, and ask backend personnel for help.								|
+|VOICE_STREAMIN_RECORD_SUC_REC_FAIL					|32775|Streaming speech recognition error |Streaming voice recognition fails but recording is successful|Check if there are any errors in the code							|
+|VOICE_V2T_SIGN_CHECK_FAIL						|32776|authbuffer check failure error |authbuffer check fails |Check if authbuffer is correct									|
+|VOICE_STREAMIN_UPLOADANDRECORD_SUC_REC_FAIL						|32777|Streaming speech recognition error|Streaming voice recognition fails but recording and uploading is successful|Check if there are any errors in the code	

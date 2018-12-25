@@ -2,7 +2,7 @@ Thank you for using Tencent Cloud Game Multimedia Engine SDK. This document prov
 
 ## SDK Preparation
 
-Please download applicable Demo and SDK from [Downloading Instructions](https://cloud.tencent.com/document/product/607/18521).
+Please download applicable Demo and SDK from [Downloading Instructions](/document/product/607/18521).
 
 ### Decompressing SDK resources
 
@@ -44,14 +44,7 @@ public class AppActivity extends Cocos2dxActivity {
     static final String TAG = "AppActivity";
     static OpensdkGameWrapper gameWrapper ;
     static {
-        Log.e(TAG, "Load so begin");
-        System.loadLibrary("stlport_shared");
-        System.loadLibrary("xplatform");
-        System.loadLibrary("UDT");
-        System.loadLibrary("qav_tlssign");
-        System.loadLibrary("traeimp-armeabi-v7a");
-        System.loadLibrary("qavsdk");
-        Log.e(TAG, "Load so end");
+        OpensdkGameWrapper.loadSdkLibrary();
     }
 }
 ```

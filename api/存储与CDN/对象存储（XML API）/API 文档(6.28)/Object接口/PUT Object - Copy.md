@@ -36,17 +36,17 @@ x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
 名称|描述|类型|必选
 ---|---|---|---
 x-cos-copy-source|源文件 URL 路径，可以通过 versionid 子资源指定历史版本|string|是
-x-cos-metadata-directive|是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced。|string|否
+x-cos-metadata-directive|是否拷贝源文件的元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，则拷贝源文件的元数据；假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。当目标路径和源路径一致，即用户试图修改元数据时，则标记必须为 Replaced。|string|否
 x-cos-copy-source-If-Modified-Since|当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。|string|否
 x-cos-copy-source-If-Unmodified-Since|当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。|string|否
 x-cos-copy-source-If-Match|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
 x-cos-copy-source-If-None-Match|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
-x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD|string|否
+x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD|string|否
 x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|string|否
 x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"|string|否
 x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"|string|否
 x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否
-x-cos-meta-*|其他自定义的文件头部|string|否
+x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
 
 **服务端加密相关头部**
 

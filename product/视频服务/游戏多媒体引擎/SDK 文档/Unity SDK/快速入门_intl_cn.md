@@ -20,13 +20,20 @@ GME 快速入门文档只提供最主要的接入接口，更多详细接口请�
 |EnableMic	 		|开麦克风 		|
 |EnableSpeaker		|开扬声器 		|
 
-**说明：**
+>**说明：**
 ** GME 的接口调用成功后返回值为 QAVError.OK，数值为 0。**
+
 ** GME 的接口调用要在同一个线程下。**
+
 ** GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。**
 
-**GME 需要调用 Poll 接口触发事件回调。**
+**GME 需要周期性的调用 Poll 接口触发事件回调。**
 
+**GME 回调信息参考回调消息列表。**
+
+**设备的操作要在进房成功之后。**
+
+**此文档对应GME sdk version：2.2。**
 
 ## 快速接入步骤
 
@@ -67,11 +74,11 @@ ITMGContext public abstract int Poll();
 
 #### 函数原型
 ```
-ITMGContext EnterRoom(int roomID, int roomType, byte[] authBuffer)
+ITMGContext EnterRoom(string roomID, int roomType, byte[] authBuffer)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| roomID		|int    	|房间号，只支持32位					|
+| roomID		|string    	|房间号，最大支持127字符					|
 | roomType 	|ITMGRoomType		|房间音频类型		|
 | authBuffer 	|Byte[] 	|鉴权码					|
 
@@ -126,6 +133,7 @@ ITMGAudioCtrl EnableMic(bool isEnabled)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean     |如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false|
+
 #### 示例代码  
 ```
 打开麦克风
@@ -142,6 +150,7 @@ ITMGAudioCtrl EnableSpeaker(bool isEnabled)
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |bool        |如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true|
+
 #### 示例代码  
 ```
 打开扬声器
@@ -150,24 +159,26 @@ IQAVContext.GetInstance().GetAudioCtrl().EnableSpeaker(true);
 
 
 ## 关于鉴权
-### 实时语音鉴权信息
-生成 AuthBuffer，用于相关功能的加密和鉴权，相关参数获取及详情见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。      
-离线语音获取鉴权时，房间号参数必须填0。
+### 鉴权信息
+生成 AuthBuffer，用于相关功能的加密和鉴权，相关后台部署见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。      
+离线语音获取鉴权时，房间号参数必须填null。
 该接口返回值为 Byte[] 类型。
 #### 函数原型
 ```
-QAVAuthBuffer GenAuthBuffer(int appId, int roomId, string openId, string key)
+QAVAuthBuffer GenAuthBuffer(int appId, string roomId, string openId, string key)
 ```
+
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
-| roomId    		|int   		|房间号，只支持32位				|
+| roomId    		|string   		|房间号，最大支持127字符	（离线语音房间号参数必须填null）|
 | openId    	|String 	|用户标识					|
-| key    		|string 	|来自腾讯云控制台的密钥				|
+| key    		|string 	|来自腾讯云 [控制台](https://console.cloud.tencent.com/gamegme) 的密钥				|
+
 #### 示例代码  
 
 ```
-byte[] GetAuthBuffer(string appId, string userId, int roomId)
+byte[] GetAuthBuffer(string appId, string userId, string roomId)
     {
 	return QAVAuthBuffer.GenAuthBuffer(int.Parse(appId), roomId, userId, "a495dca2482589e9");
 }

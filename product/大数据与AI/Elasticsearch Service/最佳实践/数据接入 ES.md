@@ -153,7 +153,7 @@ Beats 包含用于收集文件类型数据的 FileBeat, 收集监控指标数据
 1. 安装部署 filebeat。
 ```
 	wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.4-linux-x86_64.tar.gz
-	tar xvf logstash-5.6.4.tar.gz
+	tar xvf filebeat-5.6.4.tar.gz
 ```
 2. 配置 filebeat.yml。
 3. 执行filebeat。

@@ -72,7 +72,7 @@ In addition to the above,you can nstallation via Source Code too:
 7. Execute `make install`；.
 8. Modify `/boot/grub/menu.lst`, and change default to the new kernel ("title" starts from 0).
 9. toa kernel is loaded after `Reboot`.
-10. Check whether the toa module is loaded by executing `lsmode | grep toa`. If not, enable it using the `modprobe toa` command.
+10. Check whether the toa module is loaded by executing `lsmod | grep toa`. If not, enable it using the `modprobe toa` command.
 
 ## Ubuntu
 Click the links below to download the corresponding files：
@@ -88,7 +88,7 @@ dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 
 2. After the installation is completed, restart the server.
 
-3. Check whether the toa module is loaded by executing `lsmode | grep toa`. If not, enable it using the following `modprobe toa` command:
+3. Check whether the toa module is loaded by executing `lsmod | grep toa`. If not, enable it using the following `modprobe toa` command:
 ```
 echo "modprobe toa" >> /etc/rc.d/rc.local
 ```
@@ -107,11 +107,10 @@ dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 
 2. After the installation is completed, restart the server.
 
-3. Check whether the toa module is loaded by executing `lsmode | grep toa`. If not, enable it using the following `modprobe toa` command:
+3. Check whether the toa module is loaded by executing `lsmod | grep toa`. If not, enable it using the following `modprobe toa` command:
 ```
 echo "modprobe toa" >> /etc/rc.d/rc.local
 ```
-
 
 
 

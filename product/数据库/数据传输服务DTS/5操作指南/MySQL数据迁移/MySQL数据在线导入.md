@@ -23,19 +23,19 @@
 
 ### 预先检查以下几项
 1. 检查目标 TencentDB 实例是否有同名库表，避免冲突；
-2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 TencentDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 TencentDB for MySQL 5.5。当然您也可以选择使用 DTS 数据迁移工具直接从本地 MySQL 5.1 迁移至腾讯云 TencentDB for MySQL 5.5。
+2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 TencentDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 TencentDB for MySQL 5.5。
 3. 检查目标 TencentDB 实例容量必须大于源实例；
 4. 在源 MySQL 数据库上创建迁移账号（若有已授权可用于数据迁移的账号，也可不创建）；
-    	
+```  	
     GRANT ALL PRIVILEGES ON *.* TO "迁移账号"@"%" IDENTIFIED BY "迁移密码";
 
     		FLUSH PRIVILEGES;	
-
+```
 5. 确认源库 MySQL 变量
     通过 `SHOW GLOBAL VARIABLES LIKE 'XXX'`; 
 
       查看 MySQL 全局变量，确认当前状态是否可以进行迁移：
-    	
+```    	
             server_id > 1
             
             log_bin = ON;
@@ -53,13 +53,13 @@
             如果源实例为slave角色，需要在源实例中确认以下参数：
             
             log_slave_updates = 1           
-
+```
 6. 修改变量值：
 
   a.  修改源库 MySQL 配置文件`my.cnf`，需重启：
-
+```
   	        log-bin=[自定义binlog文件名]
-
+```
   b.  动态修改配置：
          
                 set global server_id = 99;

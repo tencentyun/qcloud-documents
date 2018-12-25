@@ -1,5 +1,6 @@
-### Cloud Kafka 兼容哪一版的开源 Kafka？
-目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka api，实现用户零成本上云。
+### Cloud Kafka 兼容哪一版的开源 Kafka？当前的 CKafka 是基于开源 Kafka 的哪个版本？
+目前 CKafka 服务可以完美兼容 0.9 0.10 版本的开源 Kafka API，实现用户零成本上云。
+**当前 CKafka 基于 Apache Kafka 0.10 版本，推荐生产消费端选取 0.10 版本的 SDK。**
 
 ### Cloud Kafka 的产品限制有哪些？
 
@@ -20,14 +21,19 @@
 2.  consumer group 空闲存活时间 1 个月
 3.  CKafka单条消息大小（message.max.bytes）限制为1M 
 
-### 生产消费者是否只需配置vip:port？
-
---bootstrap-server参数中填写CKafka实例的vip:port即可,新购CKafka实例后，默认通过9092端口接入，但9093-9095端口也可通。
-主要原因在于，CKafka vip封装了后端节点的broker ip,并通过9092端口负载均衡到9093-9095端口，因此接入时仅需配置CKafka实例的vip:port。
+### 生产消费者是否只需配置 vip:port？
+--bootstrap-server 参数中填写 CKafka 实例的 vip:port 即可,新购 CKafka 实例后，默认通过 9092 端口接入，但 9093-9095 端口也可通。
+主要原因在于，CKafka VIP 封装了后端节点的 broker IP，并通过 9092 端口负载均衡到 9093-9095 端口，因此接入时仅需配置 CKafka 实例的 vip:port。
 
 ### Cloud Kafka 是否支持消息压缩？
 当前 Cloud Kafka 支持开源的 snappy 和 lz4 的消息压缩格式。由于 Gzip 压缩对于 CPU 的消耗较高，暂未支持。
 测试期间建议客户关闭消息压缩参数进行测试。
+
+配置开启方法：Producer 的配置文件中参数 compression.type = snappy 或者 lz4，默认为关闭 none。
+
+### Cloud Kafka 消息保留时间配置为 1min，是否会在 1min 后立即删除堆积消息？
+不一定。消息删除不仅和保留时间配置有关，也和生产消息的数据量级有关。
+CKafka 删除堆积消息的最小单位是 partition 级别的文件分片，当前文件分片大小为 1GB，堆积不达到一个文件分片是不会删除的。如果有 10 partition，在 1 分钟内如果没有达到 10GB 的量，就不会有文件滚动，也就不会删除。
 
 ### Cloud Kafka 是否支持公网访问？
 当前 Cloud Kafka 默认内网传输，由于公网访问会涉及延时、网络环境和安全性等问题，不建议客户长期开启公网传输。

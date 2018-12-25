@@ -23,7 +23,7 @@ The following request parameter list only provides API request parameters and so
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | TotalCount | Integer | Number of regions |
-| RegionSet | Array of [RegionInfo](/document/api/213/##RegionInfo) | Region details |
+| RegionSet | Array of [RegionInfo](/document/api/213/15753#RegionInfo) | Region details |
 | RequestId | String | The unique request ID, which is returned for each request. RequestId is required for locating a problem. |
 
 ## 4. Error Codes

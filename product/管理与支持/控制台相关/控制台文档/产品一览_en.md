@@ -110,7 +110,7 @@ Tencent Cloud Console Service List
 |--------|--------|------|--------|
 | Domain Name Management | | [Domain Name Management Console](https://console.cloud.tencent.com/domain/mydomain) | [Domain Name Management Console Operation Guide](https://cloud.tencent.com/document/product/242) |
 | Cloud DNS | | [Cloud DNS Console](https://console.cloud.tencent.com/domain/cns) | [Cloud DNS Console Operation Guide](https://cloud.tencent.com/document/product/302) |
-| ICP License | | [ICP License Console](https://console.cloud.tencent.com/beian) | [ICP License Console Operation Guide](https://cloud.tencent.com/document/product/ 243) |
+| ICP License | | [ICP License Console](https://console.cloud.tencent.com/beian) | [ICP License Console Operation Guide](https://cloud.tencent.com/document/product/243) |
 | WH | Website Hosting | [WH Console](https://console.cloud.tencent.com/lighthosting) | [WH Console Operation Guide](https://cloud.tencent.com/document/product/615) |
 | SSL Certificates | SSL Certificates | [SSL Certificates Console](https://console.cloud.tencent.com/ssl) | [SSL Certificates Console Operation Guide](https://cloud.tencent.com/document/product/400) |
 | HttpDNS | HttpDNS | [HttpDNS Console](https://console.cloud.tencent.com/httpdns/apply) | [HttpDNS Console Operation Guide](https://cloud.tencent.com/document/product/379) |

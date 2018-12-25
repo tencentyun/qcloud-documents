@@ -1,50 +1,64 @@
-## 1. API Description
-Domain for API request: scf.tencentcloudapi.com
+## **1. API Description**
 
-This API (Invoke) is used to run functions. 
+API request domain name: scf.tencentcloudapi.com.
 
-## 2. Input Parameters
-The following request parameter list only provides API request parameters and some common parameters. For the complete common parameter list, see [Common Request Parameters](/document/api/583/17238).
+This API is used to run the function.
 
-| Parameter Name | Required | Type | Description |
+API request frequency limit: 20 times/second.
+
+
+
+## **2. Input Parameters**
+
+The following list of request parameters lists only the interface request parameters and some common parameters. For the complete list of common parameters, see [Common Request Parameters](/document/api/583/15692).
+
+| Parameter name | Required | Type | Description |
 |---------|---------|---------|---------|
-| Action | Yes |  String | Common parameter. Value used in this API: Invoke |
-| Version | Yes |  String | Common parameter. Value used in this API: 2018-04-16 |
-| FunctionName | Yes |  String | Function name. |
-| InvocationType | No |  String | RequestResponse (synchronous) and Event (asynchronous). Default is synchronous. |
-| Qualifier | No |  String | Version No. to trigger a function. |
-| ClientContext | No |  String | Function execution parameter, which is passed in the JSON format. Maximum parameter size: 1 MB. |
-| LogType | No |  String | This field is specified when using synchronous call. The returned value includes a log of 4 KB. Available values: None (default) and Tail. If the value is Tail, the logMsg field in the returned parameters will contain the corresponding function execution log. | 
+| Action | Yes | String | Common parameter; the value for this interface: Invoke |
+| Version | Yes | String | Common parameter; the value for this interface: 2018-04-16 |
+| Region | Yes | String | Common parameters; for details, see the [Region List](/document/api/583/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8) supported by the product. |
+| FunctionName | Yes | String | Name of the function |
+| InvocationType | No | String | RequestResponse (sync) and Event (asynchronous); sync by default |
+| Qualifier | No | String | Version number that triggers the function |
+| ClientContext | No | String | Parameters when running the function; input in JSON format; the maximum supported parameter length is 1MB |
+| LogType | No | String | If this field is specified when calling synchronously, the return value will contain 4K logs; possible values: None and Tail; None by default. When the value is Tail, the logMsg field in the return parameter will contain the corresponding function execution log |
+| Namespace | No | String | Namespace |
 
-## 3. Output Parameters
+## **3. Output Parameters**
 
-
-| Parameter Name | Type | Description |
+| Parameter name | Type | Description |
 |---------|---------|---------|
-| Result | [Result](/document/api/583/17244#Result) | Function execution result |
-| RequestId | String | The unique request ID, which is returned for each request. RequestId is required for locating the problem. | 
+| Result | [Result](/document/api/583/##Result) | Execution result of the function|
+| RequestId | String | The unique request ID which is returned for each request. The RequestId for the current request needs to be provided when troubleshooting. |
 
-## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, please see [Common Error Codes](/document/api/583/17240#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81).
+## **4. Error Codes**
 
+Only the error codes related to the interface business logic are listed below. For other error codes, see [Common Error Codes](/document/api/583/15694#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81).
 
 | Error Code | Description |
 |---------|---------|
-| FailedOperation | Operation failed |
-| InvalidParameterValue.Param | The parameter you specify is not in the standard JSON format. |
+| InternalError | Internal error |
+| InternalError.System | Internal system error. |
+| InvalidParameterValue | Wrong parameter value |
+| InvalidParameterValue.Param | The input parameter is not in standard JSON format. |
 | ResourceNotFound.FunctionName | Function does not exist. |
-| ResourceUnavailable.InsufficientBalance | Your balance is insufficient. Please top up first. |
-| UnauthorizedOperation | Unauthorized operation | 
+| ResourceUnavailable.InsufficientBalance | The balance is insufficient. Please top up first. |
+| UnauthorizedOperation.CAM | CAM authentication failed. |
 
-## 5. Example
-### Example 1 Run a function
-### Request parameters
+## **5. Examples**
+
+### **Example 1. Running Function**
+
+#### **Input Example**
+
 ```
 https://scf.tencentcloudapi.com/?Action=Invoke
 &FunctionName=xxxx
-&<Common request parameters>
+&<Common request parameter>
 ```
-#### Response parameters
+
+#### **Output Example**
+
 ```
 {
   "Response": {
@@ -63,3 +77,15 @@ https://scf.tencentcloudapi.com/?Action=Invoke
 }
 ```
 
+
+## **6. Other Resources**
+
+Cloud API 3.0 comes with a set of complementary development tools that make it easier to call the API.
+
+* [Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)
+* [Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
+* [Tencent Cloud SDK 3.0 for PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)
+* [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)
+* [Tencent Cloud SDK 3.0 for NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)
+* [Tencent Cloud SDK 3.0 for .NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)
+* [Tencent Cloud CLI 3.0](https://cloud.tencent.com/document/product/440/6176)

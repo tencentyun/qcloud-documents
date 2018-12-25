@@ -153,7 +153,7 @@ Beats includes FileBeat for collecting file type data, MetricBeat for collecting
 1. Install and deploy Filebeat.
 ```
 	wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.4-linux-x86_64.tar.gz
-	tar xvf logstash-5.6.4.tar.gz
+	tar xvf filebeat-5.6.4.tar.gz
 ```
 2. Configure the filebeat.yml.
 3. Execute Filebeat.

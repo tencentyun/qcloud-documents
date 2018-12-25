@@ -36,12 +36,12 @@ Content-Disposition|RFC 2616 中定义的文件名称，将作为 Object 元数�
 Content-Encoding|RFC 2616 中定义的编码格式，将作为 Object 元数据保存|string|否
 Expect|当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容|string|否
 Expires|RFC 2616 中定义的缓存策略，将作为 Object 元数据保存|string|否
-x-cos-meta-*|允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2KB|string|否
-x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD|string|否
-x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private|string|否
- x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
- x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
- x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String| 否 
+x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
+x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD|string|否
+x-cos-acl|定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|string|否
+x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
+x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
+x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String| 否 
 
 #### 服务端加密相关头部
 
@@ -93,7 +93,7 @@ Content-Length: 64
 ### 响应
 
 ```
-HTTP /1.1200 OK
+HTTP/1.1200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed,16 Aug 2017 11: 59: 33 GMT

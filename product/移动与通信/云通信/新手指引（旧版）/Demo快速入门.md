@@ -19,7 +19,7 @@
 
 ### SDK的参数配置
 
-开发者可以不用修改任何参数直接体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在GlobalData.h中配置ios客户端SDK全局参数：kSdkAccountType（即accountType）、kSdkAppId（即SdkAppid）、kAppidAt3rd（同SdkAppid）,开发者可将下面的参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
+开发者可以不用修改任何参数体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在GlobalData.h中配置ios客户端SDK全局参数：kSdkAccountType（即accountType）、kSdkAppId（即SdkAppid）、kAppidAt3rd（同SdkAppid）,开发者可将下面的参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911084704_63682.png)
 
@@ -61,7 +61,7 @@ SDK的正式环境，localId设置语言为简体中文，countryId设置地区�
 
 ### SDK的参数配置
 
-开发者可以不用修改任何参数直接体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在com.example.mydemo.utils.Constant中配置android客户端SDK全局参数：ACCOUNT_TYPE（即accountType）、SDK_APPID（即sdkAppid）,将这两个参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
+开发者可以不用修改任何参数体验demo的功能。开发者申请接入腾讯音视频云通信后，如果选择的是托管模式集成自有帐号，可以在com.example.mydemo.utils.Constant中配置android客户端SDK全局参数：ACCOUNT_TYPE（即accountType）、SDK_APPID（即sdkAppid）,将这两个参数替换成自己申请的，此时demo就类似于开发者自己的app了，demo里的各种功能也是可以正常使用的。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150911085024_95357.png)
 

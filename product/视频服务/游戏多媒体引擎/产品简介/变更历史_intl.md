@@ -1,4 +1,32 @@
-## GME_SDK2.1 2018-08-17
+## GME_SDK2.2 2018-10-29
+
+### New features:
+1. Supports a variety of karaoke sound effects.
+2. Optimizes the user experience in super-large rooms with lower latency and higher fluency.
+3. Supports streaming voice-to-text converting for voice message.
+4. Supports accompaniment on Windows.
+
+### Optimizations
+1. Optimizes voice bandwidth, saving your traffic.
+2. Optimizes CPU and memory performance.
+
+## GME_SDK2.1.5 2018-09-13
+
+### API Changes:
+
+1. Changes the type of parameter roomId in GenAuthBuffer from int32 to string.
+2. Changes the type of parameter roomId in EnterRoom from int32 to string.
+3. Changes the function of SetMicVolume from setting the microphone device volume to setting the microphone software volume.
+4. Changes the function of GetMicVolume from getting the microphone device volume to getting the microphone software volume.
+
+### Optimizations:
+
+1. Upgrades the type of room number from int32 to string.
+2. Changes the functions of the APIs for setting/getting device volume to setting/getting software volume.
+3. Fixes bugs to improve stability.
+
+
+## GME_SDK2.1 2018-08-21
 
 ### New features:
 
@@ -18,7 +46,7 @@
 
 ### New features:
 
-1. GME for PC Native/PC Unity is available.
+1. PC Native and PC Unity versions of GME are made available.
 2. GME supports Unreal engine.
 3. Offline voice-to-text converting is supported in up to 120 languages in GME.
 4. GME supports 3D voice chat on PC.
@@ -56,7 +84,7 @@
 ### Optimizations
 
 1. Provides the module for authentication of user entering room on client and lowers the bar for integrating SDK.
-2. Optimizes the howling suppressing effect on iOS/Android devices.
+2. Optimizes the howling suppressing effect on iOS/Android.
 3. Optimizes the sound quality consistency, immunity to bad network condition and other metrics in Werewolf scenario.
 
 ### Fixes

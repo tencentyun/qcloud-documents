@@ -8,12 +8,12 @@
 ### 实时语音房间
 #### 函数原型
 ```
-ITMGContext EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer)
+ITMGContext EnterRoom(string roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer)
 ```
 
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
-| roomId		|int    		|房间号，只支持32位|
+| roomId		|string    		|房间号，最大支持127字符|
 | roomType 			|ITMG_ROOM_TYPE	|房间音频类型				|
 | authBuffer    	|Byte[]  		|鉴权数据					|
 
@@ -31,7 +31,7 @@ ITMGContext EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer
 #### 小队语音简介：
 小队语音：玩家在游戏开始前组队，小队语音仅队友可以听到；
 全体语音：玩家在游戏开始前和游戏过程中可设置全体语音模式，设置后玩家附近一定范围的人都能听到该玩家讲话。
-游戏过程中可随时切换语音模式。
+游戏过程中可随时切换语音模式。（全体语音模式与普通进房语音模式不互通）
 
 #### 假设 A 玩家状态为全局语音，对应 B 玩家在不同的语音情况下声音的模式：
 
@@ -66,11 +66,11 @@ ITMGContext EnterRoom(int roomId, ITMG_ROOM_TYPE roomType, byte[] authBuffer
 
 #### 函数原型
 ```
-ITMGContext  EnterTeamRoom(int roomId,ITMG_ROOM_TYPE roomType, byte[] authBuffer,int teamId, int audioMode)
+ITMGContext  EnterTeamRoom(string roomId,ITMG_ROOM_TYPE roomType, byte[] authBuffer,int teamId, int audioMode)
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
-| roomId		|int    		|房间号，只支持32位									|
+| roomId		|string    		|房间号，最大支持127字符	|
 | roomType 			|ITMG_ROOM_TYPE	|房间音频类型（参数只能为1）|
 | authBuffer    	|Byte[] 		|鉴权数据								|
 | teamId    		|int    		|加入的小队语音队伍标识码（不能为 0 ）	|
@@ -112,3 +112,17 @@ ITMGRoom int SetGameAudioRecvRange(int range)
 ```
 ITMGContext.GetInstance().GetRoom().SetGameAudioRecvRange(300);
 ```
+
+
+### 更新声源方位（包含朝向）
+此函数用于更新声源方位角信息，每帧调用便可实现 3D 音效效果。
+```
+public abstract int UpdateSelfPosition(int position[3], float axisForward[3], float axisRight[3], float axisUp[3])
+```
+|参数     | 类型         |意义|
+| ------------- |-------------|-------------
+| position   	|int[]		|自身在世界坐标系中的坐标，顺序是前、右、上|
+| axisForward   |float[]  	|自身坐标系前轴的单位向量|
+| axisRight    	|float[]  	|自身坐标系右轴的单位向量|
+| axisUp    	|float[]  	|自身坐标系上轴的单位向量|
+

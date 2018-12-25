@@ -1,9 +1,9 @@
 ### 1. 创建恢复目录
 mkdir recovery
-注: recovery只是示例目录，用户可以自行修改为自己的目录。
+注: recovery 只是示例目录，用户可以自行修改为自己的目录。
 
 ### 2.	下载全量备份文件
-进入PostgreSQL的管理页面——“腾讯云控制台>云产品>关系型数据库>PostgreSQL实例列表>管理>备份管理”点击下载，获取您所需的备份文件下周地址。（服务器需与数据库处于同一网络中）
+进入 PostgreSQL 的管理页面——“腾讯云控制台>云产品>关系型数据库>PostgreSQL 实例列表>管理>备份管理”点击下载，获取您所需的备份文件下周地址。（服务器需与数据库处于同一网络中）
 
 ![](https://mc.qcloudimg.com/static/img/a5de09aeecb4bf1d9ce20423c0c8ddd5/1.png)
 
@@ -16,8 +16,8 @@ tar zxf 20170905010143.tar.gz –C recovery
 解压后得到
 ![](https://mc.qcloudimg.com/static/img/c946fa0b44be183d6fcdfbffb1815d33/2.png)
 
-### 4. 安装相同版本的posgresql（如已安装可跳过此步骤）
-例如采用yum源的安装方式，yum源可到 https://yum.postgresql.org/ 查找您所需要的版本：
+### 4. 安装相同版本的 posgresql（如已安装可跳过此步骤）
+例如采用 yum 源的安装方式，yum 源可到 https://yum.postgresql.org/ 查找您所需要的版本：
 
 ```
 yum install http://yum.postgresql.org/9.3/RedHat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm
@@ -70,12 +70,12 @@ chmod 0700 recovery
 
 ### 7.	应用增量备份文件[可选]
 该步骤为可选步骤，如果跳过该步骤，则数据库的内容为开始做全量备份时数据库的内容。
-说明：将xlog文件放入pg_xlog文件夹下，pg会自动重放xlog日志。例如12：00时做的全量备份，如果在该全量备份的基础上，在pg_xlog文件夹下放置12：00至13：00的所有xlog，则数据库能恢复到13：00时的数据内容。
+说明：将 xlog 文件放入 pg_xlog 文件夹下，pg 会自动重放 xlog 日志。例如12：00时做的全量备份，如果在该全量备份的基础上，在 pg_xlog 文件夹下放置 12：00 至 13：00 的所有 xlog，则数据库能恢复到 13：00 时的数据内容。
 下载增量备份文件（xlog）
 ![](https://mc.qcloudimg.com/static/img/775b3a63d1fa37e1815ab13c100f8b40/4.png)
 
 
-解压在 pg_xlog文件夹下
+解压在 pg_xlog 文件夹下
 ```tar zxf 20170904010214_20170905010205.tar.gz```
 ![](https://mc.qcloudimg.com/static/img/751212c370c884d1510651c257517760/8.png)
 

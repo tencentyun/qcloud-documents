@@ -30,3 +30,10 @@
 
 将开发工具包中 Scripts 文件夹中的文件复制在 Unity 工程中存放代码的文件夹中，如图所示：  
 ![](https://main.qcloudimg.com/raw/8904a83c6173fa7c5b04ddb0e48138ca.png)
+### 3. 音频设置
+在 Unity 编辑器中，Edit-Project Setting-Audio 使用系统默认即可。如果进行修改，Unity 播放音效会因为在iOS上设置硬件缓存区受影响，表现为音效被打断。
+![](https://main.qcloudimg.com/raw/df14517cac7fc29383c90720627572c7.png)
+
+如果设置为下图这种模式，Unity 播放音效会因为在iOS上设置硬件缓存区受影响，表现为音效被打断。
+
+![](https://main.qcloudimg.com/raw/69857f53bdc2ee7c7ad5e48777620df1.png)

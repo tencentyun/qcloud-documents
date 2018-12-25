@@ -5,10 +5,6 @@ Cluster Autoscaler (CA) is an independent program that dynamically adjusts the n
 
 ## 2. How to Use It
 ### 2.1 Enable CA
-1. Create a cluster and enable CA to automatically create a scaling group.
-![Create scaling group][1]
-2. Add multiple scaling groups to the cluster
-![Create scaling group 2][2]
 
 Create an auto scaling group before using auto scaling. You can specify the minimum/maximum number and label.
 
@@ -133,5 +129,4 @@ You can query the scaling events of a scaling group and view K8S events on the A
 
 
 
-[1]: https://mc.qcloudimg.com/static/img/7c43dbefbf8d793b5785c370b76e1bef/image.png
-[2]: https://mc.qcloudimg.com/static/img/fe1304edd0dd8632a04b540945795a34/image.png
+

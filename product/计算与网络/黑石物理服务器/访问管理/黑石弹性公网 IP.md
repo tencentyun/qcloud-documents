@@ -23,7 +23,7 @@
 
 
 ## Action、Resource、Condtion 列表
-以下表格，罗列了在配置黑石弹性公网 IP 的策略时，需要用到的 action、resource、condition。相关概念请参考 [访问管理](https://cloud.tencent.com/document/product/598/10603"访问管理") 章节。
+以下表格，罗列了在配置黑石弹性公网 IP 的策略时，需要用到的 action、resource、condition。相关概念请参考 [访问管理](https://cloud.tencent.com/document/product/598/10603) 章节。
 
  - Action，即操作，对应的是 API。编写策略时，您可以复制表格里内容并粘贴在 Action 字段中。关联该策略后，即可获得特定 API 的调用权限。
  - Resource，即云资源，当列表中 ACtion 的鉴权参数不为空时，则表示在调用 API 需要指定云资源，否则则不需要指定。编写策略时，您可以复制表格里内容并粘贴在策略生成器的 Resource 字段中，但请记得替换 $eipId、$InstanceId 为真实的实例 ID；关联该策略后，即可获得特定资源的操作权限。 

@@ -1,7 +1,7 @@
 ## Creating a Cluster
 1. Log in to the [Tencent Cloud TKE console](https://console.cloud.tencent.com/ccs).
 2. Click **Cluster** in the left navigation bar, and click **New** in the cluster list page.
-![](//mc.qcloudimg.com/static/img/3e20524b9aaa91e937bcfd02270d69c7/image.png)
+![](https://main.qcloudimg.com/raw/95970e5a6a702959931ebd7298078514.png)
 3. Configure the basic cluster information.
  - **Cluster name**: The name of a cluster to be created, with a length limited to 60 characters.
  - **Billing method**: Both Prepaid and Postpaid are supported. For more information, please see [Billing Method](/doc/product/213/2180).
@@ -10,12 +10,12 @@
  - **Node network**: The system assigns the IP addresses within the node network address range to the CVMs in the cluster. For more information, please see [Network Configuration of Containers and Nodes](/doc/product/457/9083).
  - **Container network**: The system assigns the IP addresses within the container network address range to the containers in the cluster. For more information, please see [Network Configuration of Containers and Nodes](/doc/product/457/9083).
  - **Cluster description**: Information about cluster creation, which is displayed on the **Cluster Information** page.
-![Alt text](https://mc.qcloudimg.com/static/img/d52ff827c724c74c38a595d646cb0ca6/image.png)
+![Alt text](https://main.qcloudimg.com/raw/a335ca82b735337e20f434d303d32b54.png)
 
 4. Select a model (all models with cloud disks as system disks are supported).
  - **Series**: **Series 1** and **Series 2** are available. For more information, please see [Pod Types](/doc/product/213/7153#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2).
  - **Model**: For more information on how to select a model, please see [Select CVM Configuration Solution](/doc/product/213/2764#.E7.A1.AE.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88).
-![Alt text](https://mc.qcloudimg.com/static/img/e13c49f3333a1c482bbc158ffaff9653/image.png) 
+![Alt text](https://main.qcloudimg.com/raw/a8f59af5eb218c66cf1481e35dd6403e.png) 
 
 5. Enter CVM configuration.
  - **System disk**: Always 50 GB.
@@ -28,34 +28,28 @@
 	iii. **Automatically generate password**: The automatically generated password is sent to you via the internal message.
  - **Security group**: It functions as a firewall and is used to set the network access control of CVMs. For more information, please see [Configure TKE Security Group](/doc/product/457/9084).
  - **Number of CVMs**: Select the number of CVMs.
-![Alt text](https://mc.qcloudimg.com/static/img/eff41bd979d9572c773dd2dca6230261/image.png)
+![Alt text](https://main.qcloudimg.com/raw/4511911fa83275484cc58505fb079313.png)
 
 6. The created cluster is displayed in the cluster list.
-![Alt text](https://mc.qcloudimg.com/static/img/e8224896e742266489f3e4f56c27b95e/image.png)
 
 ### Add a CVM
 1. On the cluster list page, click **Add Node** on the right.
-![](//mc.qcloudimg.com/static/img/630fefe69ca2d2bedd779246417f8c70/image.png)
-
 2. Set the **Network** to which the new CVM belongs, its **Model** and **Configuration information**.
    You may create CVMs in different subnets under different availability zones in the same region.
-![Alt text](https://mc.qcloudimg.com/static/img/e701af9583d1bae708ffd4d748adb3c6/image.png)
-
 3. The new CVM can be found in the **ID/Node Name** column.
-![](//mc.qcloudimg.com/static/img/1707fa09977298f255c293aa62b1cc10/image.png)
+
 
 ## Terminating a CVM
 1. Click the **ID/Name** of a cluster on the cluster list page to enter the following page. Select a CVM to be terminated, and click **Remove** on the right.
-![](//mc.qcloudimg.com/static/img/cbb99d53f194ec9121fe29d840081ab7/image.png)
 
 2. When a prompt page that displays details of the node appears, click **OK** to remove the node.
-![](//mc.qcloudimg.com/static/img/e9194e2947562271931fcc429e5788f8/image.png)
+
 
 ## Viewing Node Information
 
 1. Click **ID/Name**of the cluster in the cluster list.
 2. Click **Node List** to view the cluster node list information.
-![](//mc.qcloudimg.com/static/img/ad5db6f3a9071235e614f856c3ef7083/image.png)
+
 
 ## Logging in to a Node
 Tencent Cloud CVM can be used as a node. For more information on login, please see [Log in to CVM](https://cloud.tencent.com/doc/product/213/5436).
@@ -64,17 +58,14 @@ Tencent Cloud CVM can be used as a node. For more information on login, please s
 
 1. Select **ID/Name** of a cluster on the cluster list page.
 2. Click **Namespace List**, and then click **New Namespace**.
-![](//mc.qcloudimg.com/static/img/9e6973758fdeec1a6cf6b5a7d6614ab8/image.png)
 3. Enter the information and click **Submit**.
-![](//mc.qcloudimg.com/static/img/c40e34d6235239ae4ef6ab39fbe775f0/image.png)
 
 ## Deleting a Namespace from a Cluster
 
 1. Select **ID/Name** of a cluster on the cluster list page.
 2. Click **Namespace List**, select a Namespace to be deleted, and click **Delete** on the right.
-![](//mc.qcloudimg.com/static/img/f327962fd0918f7030d01fa8c6c03735/image.png)
 3. When a prompt page that displays details of the namespace appears, click **OK** to delete it.
-![](//mc.qcloudimg.com/static/img/b03914a11e8c6bfa5703eafe8017625e/image.png)
+
 >**Note**: 
 >Deleting a namespace will terminate all the resources under this namespace. All the data will be cleared and cannot be recovered after termination. Please back up your data in advance.
 

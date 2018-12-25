@@ -10,18 +10,10 @@
  在使用这些接口前，请确保已按照 [快速入门](https://cloud.tencent.com/document/product/679/14495) 开通了云呼叫中心服务。
 
 ## 名词解释
-
-### 呼叫：
-
-**呼叫类型 1：**
-
-1、预测式外呼：先接通客户，再接通坐席。
-2、预览式外呼：先接通坐席，再接通客户。
-
-**呼叫类型 2：**
-
-1、单路呼出：坐席使用 IP 线路接入，客户使用 PSTN 线路接入。
-2、双路呼出：坐席和客户都使用 PSTN 线路接入。
+### 呼叫
+#### 呼叫类型1：
+1、预测式外呼:先接通客户，再接通坐席。
+2、预览式外呼:先接通坐席，再接通客户。
 
 ### 接口说明
 #### 名词约束：
@@ -59,4 +51,4 @@ Content-Type：text/json;charset=utf-8
 ![](https://main.qcloudimg.com/raw/e13cdc449801134c181c49893f55d1b7.png)
 
 呼出：
-![](https://main.qcloudimg.com/raw/3c305f4bf2b6ddca9fe53d348dc9bd0e.png)
+![](https://main.qcloudimg.com/raw/af1a02914ba97aeec28233047bd0bd5a.png)

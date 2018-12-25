@@ -11,14 +11,14 @@
   </tr>
   <tr>
     <td style="text-align:center;vertical-align:middle;">iOS</td>
-    <td style="text-align:center;vertical-align:middle;">5.0</td>
+    <td style="text-align:center;vertical-align:middle;">5.2</td>
 		<td style="text-align:center;vertical-align:middle;" ><a href="https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8
 ">单击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/b9c3da61900be18622b5cf5a3984ffa1/image.png" /></td>
   </tr>
 	<tr align="center">
     <td style="text-align:center;vertical-align:middle;">Android</td>
-    <td style="text-align:center;vertical-align:middle;">5.0</td>
+    <td style="text-align:center;vertical-align:middle;">5.2</td>
 		<td style="text-align:center;vertical-align:middle;"><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk">单击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/601b4555080a5bf3a15be22ff9a66783/image.png" /></td>
   </tr>
@@ -37,13 +37,13 @@
   </tr>
   <tr align="center">
     <td style="text-align:center;vertical-align:middle;">iOS</td>
-    <td style="text-align:center;vertical-align:middle;">4.7</td>
+    <td style="text-align:center;vertical-align:middle;">5.2</td>
 		<td style="text-align:center;vertical-align:middle;"><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8">单击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/92f5be86a4f0f7f85e45ff5cc3688825/image.png" /></td>
   </tr>
   <tr align="center">
     <td style="text-align:center;vertical-align:middle;">Android</td>
-    <td style="text-align:center;vertical-align:middle;">4.7</td>
+    <td style="text-align:center;vertical-align:middle;">5.2</td>
 		<td style="text-align:center;vertical-align:middle;"><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">单击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png" /></td>
   </tr>

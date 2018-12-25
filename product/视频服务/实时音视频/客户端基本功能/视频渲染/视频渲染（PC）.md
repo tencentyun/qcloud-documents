@@ -76,6 +76,3 @@ GetILive()->setLocalVideoCallBack(OnLocalVideo, NULL);
 ```c++
 pRootView->removeAllView();
 ```
-
-## 联系邮箱
-如果对上述文档有不明白的地方，请反馈到trtcfb@qq.com

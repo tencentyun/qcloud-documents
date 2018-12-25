@@ -20,16 +20,16 @@ GME 快速入门文档只提供最主要的接入接口，更多详细接口请�
 |EnableMic	 		|开麦克风 		|
 |EnableSpeaker		|开扬声器 		|
 
-**说明：**
-** GME 的接口调用成功后返回值为 QAVError.OK，数值为 0。**
-** GME 的接口调用要在同一个线程下。**
-** GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。**
-
-**GME 需要调用 Poll 接口触发事件回调。**
-
+>**说明：**
+- GME 的接口调用成功后返回值为 QAVError.OK，数值为 0。
+- GME 的接口调用要在同一个线程下。
+- GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。
+- GME 需要周期性的调用 Poll 接口触发事件回调。
+- GME 回调信息参考回调消息列表。
+- 设备的操作要在进房成功之后。
+- 此文档对应GME sdk version：2.2。
 
 ## 快速接入步骤
-
 ### 1、获取单例
 在使用语音功能时，需要首先获取 ITMGContext 对象。
 ####  函数原型 
@@ -85,11 +85,11 @@ ITMGContext -(void)Poll
 
 ####  函数原型
 ```
-ITMGContext   -(void)EnterRoom:(int) roomID roomType:(int*)roomType authBuffer:(NSData*)authBuffer
+ITMGContext   -(void)EnterRoom:(NSString*) roomId roomType:(int*)roomType authBuffer:(NSData*)authBuffer
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| roomID 	|int		|房间号，只支持32位|
+| roomId 	|NSString		|房间号，最大支持127字符|
 | roomType 	|int		|房间音频类型		|
 | authBuffer	|NSData	|鉴权码				|
 
@@ -139,7 +139,8 @@ ITMGContext GetAudioCtrl -(void)EnableMic:(BOOL)enable
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
-| isEnabled    |boolean     |如果需要关闭麦克风，则传入的参数为 NO，如果打开麦克风，则参数为 YES|
+| isEnabled    |boolean     |如果需要关闭麦克风，则传入的参数为 NO，如果打开麦克风，则参数为 YES|
+
 ####  示例代码   
 ```
 [[[ITMGContext GetInstance] GetAudioCtrl] EnableMic:YES];
@@ -156,6 +157,7 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | isEnabled    |boolean       |如果需要关闭扬声器，则传入的参数为 NO，如果打开扬声器，则参数为 YES|
+
 ####  示例代码
 ```
 [[[ITMGContext GetInstance] GetAudioCtrl] EnableSpeaker:YES];
@@ -163,22 +165,22 @@ ITMGContext GetAudioCtrl -(void)EnableSpeaker:(BOOL)enable
 
 
 ## 关于鉴权
-### 实时语音鉴权信息
-生成 AuthBuffer，用于相关功能的加密和鉴权，相关参数获取及详情见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。离线语音获取鉴权时，房间号参数必须填0。    
+### 鉴权信息
+生成 AuthBuffer，用于相关功能的加密和鉴权，相关后台部署见 [GME 密钥文档](https://cloud.tencent.com/document/product/607/12218)。离线语音获取鉴权时，房间号参数必须填null。    
 该接口返回值为 NSData 类型。
 
 ####  函数原型
 ```
 @interface QAVAuthBuffer : NSObject
-+ (NSData*) GenAuthBuffer:(unsigned int)appId roomId:(unsigned int)roomId identifier:(NSString*)identifier key:(NSString*)key;
++ (NSData*) GenAuthBuffer:(unsigned int)appId roomId:(NSString*)roomId identifier:(NSString*)identifier key:(NSString*)key;
 + @end
 ```
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------|
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
-| roomId    		|int  		|房间号，只支持32位							|
+| roomId    		|NSString  	|房间号，最大支持127字符（离线语音房间号参数必须填null）	|
 | identifier  		|NSString    	|用户标识								|
-| key    			|NSString    	|来自腾讯云控制台的密钥					|
+| key    			|NSString    	|来自腾讯云[控制台](https://console.cloud.tencent.com/gamegme)的密钥					|
 
 
 

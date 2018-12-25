@@ -98,7 +98,7 @@ Container 节点 ListMultipartUploadsResult 的内容：
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始 |  String |
 | NextKeyMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 NextKeyMarker 就是下一个条目的起点 | String |
 | NextUploadIdMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 UploadId 就是下一个条目的起点 |  String |
-| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从 1 到 000 |  String |
+| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从 0 到 1000 |  String |
 | IsTruncated | ListMultipartUploadsResult | 返回条目是否被截断，布尔值：TRUE，FALSE |  Boolean |
 | Prefix | ListMultipartUploadsResult | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix |  String |
 | Delimiter | ListMultipartUploadsResult | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 |  String |
