@@ -85,7 +85,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开，并且为了密钥安全，cosfs 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。且为防止密钥泄露，COSFS 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
 echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
