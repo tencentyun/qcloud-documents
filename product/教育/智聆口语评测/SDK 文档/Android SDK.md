@@ -26,7 +26,7 @@ android.permission.READ_EXTERNAL_STORAGE
 android.permission.WRITE_EXTERNAL_STORAGE
 ```
 #### 获取密钥
-secretId 和 secretKey 是使用 SDK 的安全凭证，你可以在【访问管理】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证：
+secretId 和 secretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证：
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 ##  使用示例
