@@ -63,7 +63,7 @@ SDK 详细使用流程请参见 [TSOEDemo 工程](https://github.com/TencentClou
 ```
 详细说明请参见 Demo 中的 vertifyVoice 返回。
 
-## 模块设计说明
+## 接口设计说明
 TencentSOE.fremework 有四大模块：配置信息、录音、对文件进行 base64加密、校验语音。
 #### 配置信息（TXTencentSOE）
 TXTencentSOE 是一个单例，需要配置申请的 SecretID 和 SecretKey，代码如下。
