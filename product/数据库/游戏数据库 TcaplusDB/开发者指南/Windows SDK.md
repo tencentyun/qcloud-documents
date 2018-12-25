@@ -33,18 +33,18 @@ Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 
 ### 准备
 
-1. 请确保已经在 [腾讯云 TcaplusDB](http://gcloud.qq.com) 开通了游戏业务并且已经获取到对应的app信息(例如 AppId, ZoneId, AppKey)。
+1. 请确保已经在 [腾讯云 TcaplusDB](http://gcloud.qq.com) 开通了游戏业务并且已经获取到对应的app信息（例如 AppId，ZoneId，AppKey）。
 2. 解压缩 `TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip` 并安装。
   * 假设安装的根路径是 `D:\Tencent\tsf4gMT`, 相关文件将会被安装到 `D:\Tencent\tsf4gMT\win64vc14MT`路径下
-3. 编译并安装`Porotbuf-3.5.1`
+3. 编译并安装`Porotbuf-3.5.1`。
   * 源码地址 https://github.com/google/protobuf/releases/
   * 编译安装指南 https://github.com/google/protobuf/tree/master/cmake
   * 假设安装路径为 `D:\protobuf-3.5.1`
-4. 编译并安装`OpenSSL-1.1.0f`
+4. 编译并安装`OpenSSL-1.1.0f`。
   * 源代码地址 https://www.openssl.org/source/
   * 编译安装指南 https://wiki.openssl.org/index.php/Compilation_and_Installation
   * 假设安装路径为 `D:\openssl-1.1.0f`
-5. 设置环境变量。
+5. 设置环境变量。。
   * `TSF4G_HOME="D:\Tencent\tsf4gMT"`
   * `PROTOBUF_HOME="D:\protobuf-3.5.1"`
   * `OPENSSL_HOME="D:\openssl-1.1.0f"`
@@ -99,7 +99,7 @@ set/
     * `table_test.pb.h`
   * 在Microsoft Visual Studio 2015中打开项目文件`pb_co_set.sln`。
   * 生成 - 生成解决方案。
-  * 如果没有错误产生，在`examples\tcaplus\C++_pb2_coroutine_simpletable\SingleOperation\set/x64`路径下将会生成可执行文件`pb_co_set.exe`
+  * 如果没有错误产生，在`examples\tcaplus\C++_pb2_coroutine_simpletable\SingleOperation\set/x64`路径下将会生成可执行文件`pb_co_set.exe`。
 
 
 ### 测试
