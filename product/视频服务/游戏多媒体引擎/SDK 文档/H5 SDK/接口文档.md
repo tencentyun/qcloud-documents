@@ -77,7 +77,7 @@ gmeAPI.SetTMGDelegate(onEvent);
 
 ### 加入房间
 用生成的鉴权信息进房，会收到消息为 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM 的回调。加入房间默认不打开麦克风及扬声器。
-鉴权参考工程配置中的
+鉴权参考工程配置。
 
 #### 函数原型
 ```
