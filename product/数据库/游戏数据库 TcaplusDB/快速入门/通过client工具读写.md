@@ -13,7 +13,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的
 * tcapdir 接入点：10.125.32.21:9999
 * ZoneId：1
 
-## 使用帮助
+## 权限操作
 
 首先需要给 tcaplus_client 工具赋予可执行权限，当直接执行 ./tcaplus_client 不带任何参数时，会打印连接所需的参数信息，用户可以根据自己的游戏业务进行填写。
 
