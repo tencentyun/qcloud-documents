@@ -119,7 +119,7 @@ coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
 | BUCKET     | 必选参数，指定的存储桶名称，bucket的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串 |
 | REGION     | 必选参数，存储桶所在地域，参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串 |
 | MAX_THREAD | 可选参数，多线程上传时的最大线程数（默认为5）               | 数字   |
-| PART_SIZE  | 可选参数，分块上传的单块大小（单位为MB，默认为1MB）        | 数字   |
+| PART_SIZE  | 可选参数，分块上传的单块大小（单位为 MB，默认为1MB）        | 数字   |
 
 
 >!
@@ -141,7 +141,7 @@ schema = https
 
 
 ### 指定 Bucket 的命令
--  通过`-b <bucket>` 指定 Bucket， 可以指定特定的 Bucket。
+-  通过`-b <bucket> 指定 Bucket`， 可以指定特定的 Bucket。
 -  Bucket 的命名规则为`{name}-{appid}`，此处填写的存储桶名称必须为此格式。
 ```shell
 #命令格式
@@ -415,8 +415,8 @@ coscmd restore a.txt -d 3 -t  Bulk
 ```
 
  请将 "<>" 中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
- - 使用 `-d day` 设置临时副本的过期时间；默认值：7。
- - 使用 `-t tier` 具体复原过程类型，枚举值： Expedited ，Standard ，Bulk；默认值：Standard。
+ - 使用`-d day`设置临时副本的过期时间；默认值：7。
+ - 使用`-t tier`具体复原过程类型，枚举值： Expedited ，Standard ，Bulk；默认值：Standard。
 
 ### Debug 模式执行命令
 在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
