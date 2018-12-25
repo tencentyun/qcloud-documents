@@ -6,7 +6,7 @@ Tcaplus RESTful API 为开发者提供了一种通过 Http 请求与 Tcaplus 数
 
 ## 准备工作
 
-确保您已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 app，并且已经获取对应的 app 信息(包括：AppId，ZoneId，AppKey)。当前Tcaplus RESTful API 只支持通过 protobuf 定义的表。
+确保您已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 app，并且已经获取对应的 app 信息（包括：AppId，ZoneId，AppKey）。当前 Tcaplus RESTful API 只支持通过 protobuf 定义的表。
 
 以下是一个 Tcaplus protobuf 表定义文件的示例：
 
@@ -59,15 +59,15 @@ message pay_info { //如果一个message类型没有显示指定主键(primary k
 ```
 
 >!
-* 如果一个message显示指定了primary key字段，那么它是一个Tcaplus表定义，表名就是message的名称，同一组上传的加表文件中表名不能重复
-* 如果一个message类型没有显示指定主键(primary key)，那么它仅是一个普通的用户自定义结构体类型，而不能够被识别为一张Tcaplus表
-* `tcaplusservice.optionv1.proto` 文件定义了Tcaplus表的一些公共信息，需要在您的表定义中被引用(import)
-* Tcaplus表支持嵌套和非嵌套类型字段
-* Tcaplus表支持REQUIRED, OPTIONAL和REPEATED作为字段修饰符
-* 主键字段必须被required类型修饰，并且不能是嵌套类型
-* 普通字段可以被required,optional或repeated类型修饰
-* repeated修饰的字段需要指定packed=true选项
-* 每个索引所包含的索引键必须是主键，并且所有索引字段集合的交集不能为空
+* 如果一个 message 显示指定了 primary key 字段，那么它是一个 Tcaplus 表定义，表名就是 message 的名称，同一组上传的加表文件中表名不能重复。
+* 如果一个 message 类型没有显示指定主键（primary key），那么它仅是一个普通的用户自定义结构体类型，而不能够被识别为一张 Tcaplus 表。
+* `tcaplusservice.optionv1.proto` 文件定义了 Tcaplus 表的一些公共信息，需要在您的表定义中被引用（import）。
+* Tcaplus 表支持嵌套和非嵌套类型字段。
+* Tcaplus 表支持 REQUIRED, OPTIONAL 和 REPEATED 作为字段修饰符。
+* 主键字段必须被 required 类型修饰，并且不能是嵌套类型。
+* 普通字段可以被 required，optional 或 repeated 类型修饰。
+* repeated 修饰的字段需要指定 packed = true 选项。
+* 每个索引所包含的索引键必须是主键，并且所有索引字段集合的交集不能为空。
 
 ## 当前版本
 
@@ -80,11 +80,11 @@ message pay_info { //如果一个message类型没有显示指定主键(primary k
 ```
 http://{Tcaplus_REST_URL}/{Version}/apps/{AppId}/zones/{ZoneId}/tables/{TableName}/records
 ```
-* Tcaplus_REST_URL: Tcaplus RESTful URL 接入点
-* Version: Tcaplus RESTful API 版本号，默认"ver1.0"
-* AppId: App Id
-* ZoneId: Zone Id
-* TableName: 表名
+* Tcaplus_REST_URL：Tcaplus RESTful URL 接入点
+* Version：Tcaplus RESTful API 版本号，默认"ver1.0"
+* AppId：App Id
+* ZoneId：Zone Id
+* TableName：表名
 
 ```
 示例:
@@ -101,7 +101,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
 
 此字段填写用户 app key 的 MD5 计算结果用于客户端权限验证。
 
-注意：请通过以下 bash 命令计算字符串的 MD5 值:
+请通过以下 bash 命令计算字符串的 MD5 值：
 ```
 # echo -n "c3eda5f013f92c81dda7afcdc273cf82" | md5sum
 879423b88d153cace7b31773a7f46039  -
@@ -124,7 +124,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
 
 `x-tcaplus-idl-type`
 
-指定 Tcaplus 表类型，目前只支持 protobuf(pb) 类型
+指定 Tcaplus 表类型，目前只支持 protobuf（pb）类型。
 
 ####  设置标记 
 
@@ -172,7 +172,7 @@ Request Data:
 
 ### 应答中的 JSON 数据
 
-GetRecord, SetRecord, AddRecord, DeleteRecord, FieldGetRecord,FieldSetRecord 和 FieldIncRecord 操作的结果将会返回单条数据，应答 json 数据格式如下：
+GetRecord，SetRecord，AddRecord，DeleteRecord，FieldGetRecord，FieldSetRecord 和 FieldIncRecord 操作的结果将会返回单条数据，应答 json 数据格式如下：
 
 ```
 Response Data
@@ -233,7 +233,7 @@ Response Data
 
 必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
->!  请求的变量必须通过 urlencode 编码
+>!  请求的变量必须通过 urlencode 编码。
 
 |Name             |Type             |Value |
 | -----------------|-------------- | ------------ |
@@ -526,11 +526,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 
 `GET` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
 
-从一个 Tcaplus pb 表中通过指定一条记录所有主键查询一条记录。本操作只查询和传输用户通过select变量指定的字段的值，这将减少网络传输流量，这是与 GetRecord 操作最大的不同之处。如果数据记录不存在，将会返回错误。
+从一个 Tcaplus pb 表中通过指定一条记录所有主键查询一条记录。本操作只查询和传输用户通过 select 变量指定的字段的值，这将减少网络传输流量，这是与 GetRecord 操作最大的不同之处。如果数据记录不存在，将会返回错误。
 
 必须在 URI 中指定`keys`和`select`变量。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
-注意: 请求的变量必须通过 urlencode 编码
+>! 请求的变量必须通过 urlencode 编码。
 
 |Name             |Type             |Value |
 | -----------------|-------------- | ------------ |
@@ -658,7 +658,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 
 `PUT` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 
-通过指定一条记录的所有主键对指定的字段进行自增操作，此命令字仅支持 `int32`, `int64`, `uint32` 和 `uint64`类型字段。特性与 FieldSetRecord 类似。
+通过指定一条记录的所有主键对指定的字段进行自增操作，此命令字仅支持 `int32`， `int64`， `uint32` 和 `uint64`类型字段。特性与 FieldSetRecord 类似。
 
 |Name             |Type             |Value |
 | -----------------|-------------- | ------------ |
@@ -731,11 +731,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 
 `GET` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
 
-通过指定部分主键的值查询多条记录。这个操作将返回多条数据，并且通过select变量指定的字段名显示。此操作的前提是指定的主键集合必须在建表的时候创建了索引，否则会返回错误。
+通过指定部分主键的值查询多条记录。这个操作将返回多条数据，并且通过 select 变量指定的字段名显示。此操作的前提是指定的主键集合必须在建表的时候创建了索引，否则会返回错误。
 
 必须在URI中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
-注意: 请求的变量必须通过 urlencode 编码
+>! 请求的变量必须通过 urlencode 编码。
 
 |Name             |Type             |Value |
 | -----------------|-------------- | ------------ |
