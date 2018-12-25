@@ -43,7 +43,7 @@
   ]
 }
 ```
-### Head Bucket
+### 检索存储桶
 若授予 `Head Bucket` 操作权限，则策略的 `action` 为 `name/cos:HeadBucket` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶策略详细内容如下：
 ```
@@ -62,7 +62,7 @@
   ]
 }
 ```
-### Get Bucket Location
+### 查询存储桶地域信息
 若授予 `Get Bucket Location` 操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶的地域信息策略详细内容如下：
 ```
@@ -81,7 +81,7 @@
   ]
 }
 ```
-### Get Bucket
+### 获取存储桶的对象列表
 若授予 `Get Bucket` 操作权限，则策略的 `action` 为 `name/cos:GetBucket` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶对象列表的策略详细内容如下：
 ```
@@ -119,7 +119,7 @@
   ]
 }
 ```
-### Put Bucket ACL
+### 设置存储桶 ACL
 若授予 `Put Bucket ACL` 操作权限，则策略的 `action` 为 `name/cos:PutBucketACL` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
 ```
@@ -138,7 +138,7 @@
   ]
 }
 ```
-### Get Bucket ACL
+### 获取存储桶 ACL
 若授予 `Get Bucket ACL` 操作权限，则策略的 `action` 为 `name/cos:GetBucketACL` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
 ```
@@ -157,7 +157,7 @@
   ]
 }
 ```
-### Put Bucket CORS
+### 设置存储桶跨域配置
 若授予 `Put Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:PutBucketCORS` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```
@@ -176,7 +176,7 @@
   ]
 }
 ```
-### Get Bucket CORS
+### 获取存储桶跨域配置
 若授予 `Get Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:GetBucketCORS` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```{
@@ -194,7 +194,7 @@
   ]
 }
 ```
-### Delete BUcket CORS
+### 删除存储桶跨域配置
 若授予 `Delete Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketCORS` .
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```
@@ -213,7 +213,7 @@
   ]
 }
 ```
-### Put Bucket Lifecycle
+### 设置存储桶生命周期
 若授予 `Put Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
@@ -232,7 +232,7 @@
   ]
 }
 ```
-### Get Bucket Lifecycle
+### 获取存储桶生命周期
 若授予 `Get Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
@@ -251,7 +251,7 @@
   ]
 }
 ```
-### Delete Bucket Lifecycle
+### 删除存储桶生命周期
 若授予 `Delete Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketLifecycle` .
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
@@ -270,7 +270,7 @@
   ]
 }
 ```
-### List Multipart Uploads
+### 获取存储桶中正在分片上传信息
 若授予 `List Multipart Uploads` 操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中正在分片上传信息的策略详细内容如下：
 ```
