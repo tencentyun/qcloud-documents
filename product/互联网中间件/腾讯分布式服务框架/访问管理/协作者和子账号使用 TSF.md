@@ -52,7 +52,7 @@
 ![](https://main.qcloudimg.com/raw/da7849eb16acf32e084beef40784e1dc.png)
 1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID，`<roleName>` 根据角色创建的方式有所不同：
 
-- 主账号点击 TSF 概览页自动创建，roleName 填写 TSF_QCSRole
+- 主账号单击 TSF 概览页自动创建，roleName 填写 TSF_QCSRole
 - 在 CAM 控制台角色界面，手动创建角色，填写自定义角色名，参考上文  [创建 TSF 相关服务角色](#des) 中创建的角色 TSF-DefaultRole
 
 ```text
