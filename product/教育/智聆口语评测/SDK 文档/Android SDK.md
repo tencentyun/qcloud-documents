@@ -56,24 +56,24 @@ ArrayList<String> base64StringArray = TencentSOE.encodeAudioFile(filePath, 512 *
 ```
 #### 创建回调
 ```java
-    private SOECallback callback = new SOECallback() {
-        public void onInitSuccess(InitOralProcessResponse response) {
-            sendMessage(MSG_INIT_OK, response.toString());
-        }
+private SOECallback callback = new SOECallback() {
+    public void onInitSuccess(InitOralProcessResponse response) {
+        sendMessage(MSG_INIT_OK, response.toString());
+    }
 
-        public void onTransmitSuccess(int index, int isEnd, TransmitOralProcessResponse response) {
-            Message msg = new Message();
-            msg.what = MSG_TRANSMIT_OK;
-            msg.arg1 = index;
-            msg.arg2 = isEnd;
-            msg.obj = response.toString();
-            mMyHandler.sendMessage(msg);
-        }
+    public void onTransmitSuccess(int index, int isEnd, TransmitOralProcessResponse response) {
+        Message msg = new Message();
+        msg.what = MSG_TRANSMIT_OK;
+        msg.arg1 = index;
+        msg.arg2 = isEnd;
+        msg.obj = response.toString();
+        mMyHandler.sendMessage(msg);
+    }
 
-        public void onError(SOEError e) {
-            sendMessage(MSG_INIT_ERROR, e.getMessage());
-        }
-    };
+    public void onError(SOEError e) {
+        sendMessage(MSG_INIT_ERROR, e.getMessage());
+    }
+};
 ```
 #### 执行一次性评估
 ```java
