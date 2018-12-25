@@ -2,7 +2,7 @@ TcaplusDB 使用 Google Protobuf 文件定义业务数据表，支持 proto2 和
 
 ## proto2 加表文件规范
 
-以下是一个符合 proto2 语法规范的加表文件示例
+以下是一个符合 proto2 语法规范的加表文件示例。
 
 ```
 syntax = "proto2";                      // 指明符合proto2语法规范
@@ -71,7 +71,7 @@ message pay_info { //使用message定义结构体
 * TcaplusDB 表的索引键必须是主键，如果定义多个索引键，那么多个索引键集合的交集不能为空。
 * 用户可以通过`tcaplusservice.tcaplus_sharding_key`选项显式设置分片键，原则是分片键必须是所有索引键字段交集的子集。如果用户不显式设置，那系统将默认采用索引键集合的交集作为分片键。分片键的设置与后台数据分布相关，用户需要评估作为分片键的字段取值是否离散，取值有限的字段如性别，星期等都不建议设置为分片键。
 * TcaplusDB 表最多包含4个主键字段以及128个非主键字段。
-* 支持定义嵌套的结构体类型非主键字段，嵌套深度最深支持30层，嵌套深度太深将会影响数据访问性能
+* 支持定义嵌套的结构体类型非主键字段，嵌套深度最深支持30层，嵌套深度太深将会影响数据访问性能。
 * 单条 TcaplusDB 数据记录最支持256KB。
 * REPEATED 类型字段必须指定 [packed=true]。
 * TcaplusDB 表定义中，string 和 bytes 类型的字段可以指定为加密字段，TcaplusAPI 将使用`tcaplusservice.tcaplus_field_cipher_suite`选项指定的加密工具，和用户指定的密码对设置了`[(tcaplusservice.tcaplus_crypto) = true]`选项的字段进行加密传输和存储。
@@ -133,7 +133,7 @@ message pay_info { //使用message定义结构体
 }
 ```
 
-`加表文件规则:`
+加表文件规则:
 * TcaplusDB proto 表定义文件必须符合 protobuf 语法规范,在文件头用`syntax = "proto3";`标识。
 * 加表文件必须引用`tcaplusservice.optionv1.proto`公共定义文件。
 * 使用 message 定义表和普通结构体，如果 message中 包含`tcaplusservice.tcaplus_primary_key`选项则此 message 是一个 TcaplusDB 业务数据表定义，否则此 message 只是一个结构体定义。
@@ -143,7 +143,7 @@ message pay_info { //使用message定义结构体
 * TcaplusDB 表的索引键必须是主键，如果定义多个索引键，那么多个索引键集合的交集不能为空。
 * 用户可以通过`tcaplusservice.tcaplus_sharding_key`选项显式设置分片键，原则是分片键必须是所有索引键字段交集的子集。如果用户不显式设置，那系统将默认采用索引键集合的交集作为分片键。分片键的设置与后台数据分布相关，用户需要评估作为分片键的字段取值是否离散，取值有限的字段如性别，星期等都不建议设置为分片键。
 * TcaplusDB 表最多包含4个主键字段以及128个非主键字段。
-* 支持定义嵌套的结构体类型非主键字段，嵌套深度最深支持30层，嵌套深度太深将会影响数据访问性能
+* 支持定义嵌套的结构体类型非主键字段，嵌套深度最深支持30层，嵌套深度太深将会影响数据访问性能。
 * 单条 TcaplusDB 数据记录最支持256KB。
 * TcaplusDB 表定义中，string 和 bytes 类型的字段可以指定为加密字段，TcaplusAPI 将使用`tcaplusservice.tcaplus_field_cipher_suite`选项指定的加密工具，和用户指定的密码对设置了`[(tcaplusservice.tcaplus_crypto) = true]`选项的字段进行加密传输和存储。
 
