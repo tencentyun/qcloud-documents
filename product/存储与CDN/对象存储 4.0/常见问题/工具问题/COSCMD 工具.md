@@ -8,4 +8,4 @@ COSCMD 工具会将大写字符自动转换为小写字符，存储桶名称只�
 
 ### 使用 COSCMD 工具下载根目录文件，是否支持排除某个目录？
 
-支持。可使用 `coscmd download -ignore /xxx/*` 方式过滤。
+支持。可使用 `coscmd download --ignore /folder/*` 方式过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入 `""`。
