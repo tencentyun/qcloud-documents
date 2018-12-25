@@ -3,13 +3,13 @@
 
 由于 TSF 需要访问其他云产品的 API（如 TKE等），所以需要授权 TSF 创建服务角色。TSF 有两种方法创建服务角色：
 
-- 主账号访问 [TSF 概览页 >> ](https://console.cloud.tencent.com/tsf?rid=1)  会自动创建 TSF 相关服务角色
+- 主账号访问 [TSF 概览页 >> ](https://console.cloud.tencent.com/tsf?rid=1)  会自动创建 TSF 相关服务角色，角色名  `TSF_QCSRole`
 
-- 具有 QcloudCamRoleFullAccess 策略的用户可以在 CAM 产品控制台创建 TSF 相关服务角色
+- 具有 QcloudCamRoleFullAccess 策略的用户可以在 CAM 产品控制台创建 TSF 相关服务角色，角色名由用户自定义（不能是 TSF_QCSRole）
 
 下面介绍在 CAM 产品页面创建 TSF 相关服务角色的步骤。
 
-## 创建 TSF 相关服务角色
+## <span id="des">创建 TSF 相关服务角色</span>
 
 1. 登录 CAM 控制台，进入[角色界面](https://console.cloud.tencent.com/cam/role)。
 
@@ -25,15 +25,18 @@
 
      ![](https://main.qcloudimg.com/raw/939876b2ccb4cf7d26da3830aa1665a2/2.png)
 
-   - 填写角色名称，如 TSF-DefaultRole
+   - 填写角色名称 TSF-DefaultRole
 
      ![](https://main.qcloudimg.com/raw/65252bbd43280f4d0e7599db93916f1b/3.png)
 
 
 
-## 向协作者或子账号授予 PassRole 权限
+## 向协作者或子账号授予 PassRole 策略
 
-在首次使用 TSF 时，TSF 为您创建 `TSF_QCSRole` 角色。如果协作者或者子账号在不具备 **PassRole** 策略的情况下尝试使用 TSF 相关功能，会收到错误。
+协作者或者子账号使用 TSF 时，需要主账号授予 PassRole 策略，传递的角色（Role）就是上文中创建的角色。
+
+> **注意：** 如果协作者或者子账号在不具备 **PassRole** 策略的情况下尝试使用 TSF 相关功能，会收到错误 role not exist。
+
 要将角色（及其许可策略）传递至 TSF 服务，用户必须具有 **传递角色** 至服务的许可。这有助于管理员确保仅批准的用户可配置具有能够授予许可的角色的服务。
 
 
@@ -47,7 +50,10 @@
 ![](https://main.qcloudimg.com/raw/e26002f8c16eca54a76edaf4e50aaf1b.png)
 1.5 选择【空白模板】，单击下一步。
 ![](https://main.qcloudimg.com/raw/da7849eb16acf32e084beef40784e1dc.png)
-1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID。
+1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID，`<roleName>` 根据角色创建的方式有所不同：
+
+- 主账号点击 TSF 概览页自动创建，roleName 填写 TSF_QCSRole
+- 在 CAM 控制台角色界面，手动创建角色，填写自定义角色名，参考上文  [创建 TSF 相关服务角色](#des) 中创建的角色 TSF-DefaultRole
 
 ```text
 {
@@ -56,7 +62,7 @@
 			{
 					"effect": "allow",
 					"action": "cam:PassRole",
-					"resource": "qcs::cam::uin/<roleOwnerUin>:roleName/TSF_QCSRole"
+					"resource": "qcs::cam::uin/<roleOwnerUin>:roleName/<roleName>"
 			}
 	]
 }
