@@ -33,13 +33,14 @@
 
 在您的 **<font color='red'>服务端</font>** 采用 HTTP 协议的 GET 请求方式（即调用参数直接拼接在 URL 中）进行调用即可，详细的调用方法在每个 API 的说明文档中都有示例参考，没有任何对接难度。
 
+<span id="anquan"></span>
 ### 安全机制
 由于对 API 的调用采用的是普通的 HTTP 协议（出于性能考虑），这就需要一套行之有效的办法来确保您的服务器与腾讯云后台之间的通讯安全。
 
 所有直播码相关的云端 API 都采用了同一种安全检查机制， **t + sign 校验**：
-- **t（过期时间）**：如果一个API请求或者通知中的 t 值所规定的时间已经过期，则可以判定这个请求或者通知为无效的，这样做可以防止网络重放攻击。t 的格式为UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
+- **t（过期时间）**：如果一个 API 请求或者通知中的 t 值所规定的时间已经过期，则可以判定这个请求或者通知为无效的，这样做可以防止网络重放攻击。t 的格式为 UNIX 时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
 
-- **sign（安全签名）**:  <font color='blue'>sign = MD5(key + t) </font>，即把加密key 和 t 进行字符串拼接后，计算一下md5值。这里的key即CGI调用key，您在腾讯云直播管理[控制台](https://console.cloud.tencent.com/live/livecodemanage) 中可以进行设置：
+- **sign（安全签名）**:  <font color='blue'>sign = MD5(key + t) </font>，即把加密 key 和 t 进行字符串拼接后，计算一下 md5 值。这里的 key 即 CGI 调用 key，您在腾讯云直播管理 [控制台](https://console.cloud.tencent.com/live/livecodemanage) 中可以进行设置：
 
 ![](//mc.qcloudimg.com/static/img/e5034b47cead66be46b1f81a1fea8274/image.png)
 
@@ -51,7 +52,7 @@
 ```
 	t = "2016-08-22 15:17:27" = 1471850187
 ```
-   假设我们的key是 **5d41402abc4b2a76b9719d911017c592**，那么我们计算的签名结果就是：
+   假设我们的 key 是 **5d41402abc4b2a76b9719d911017c592**，那么我们计算的签名结果就是：
 ```
 	sign = MD5(5d41402abc4b2a76b9719d911017c5921471850187) = b17971b51ba0fe5916ddcd96692e9fb3
 ```
@@ -75,8 +76,8 @@
 | 错误信息 | 含义 | 
 |---------|---------|
 |cmd is invalid|cmd 不合法，表示未开通该功能|
-|sign invalid|鉴权计算错误，参考3.安全机制小节|
-|time expired|鉴权成功，但是超过了 url 有效期，参考3.安全机制小节|
+|sign invalid|鉴权计算错误，参考 [安全机制](#anquan)|
+|time expired|鉴权成功，但是超过了 url 有效期，参考 [安全机制](#anquan)|
 
 4. 接口后端查询返回错误码
 
@@ -91,7 +92,7 @@
 |1301|has not live stream|没有活跃的流，在调用实时接口时会返回改错误码。|
 |10003|query data is empty|后端查询数据成功，但是返回数据为空。例如，某时间段没有播放，此时调用接口 Get_LivePlayStatHistory 就会返回10003|
 
->! 以上错误码针对本文 1.API 列表中的 API。不包括[消息事件通知](https://cloud.tencent.com/document/product/267/5957)**
+>! 以上错误码针对本文 1.API 列表中的 API，不包括 [消息事件通知](https://cloud.tencent.com/document/product/267/5957)。
 
 ## 消息通知
 详情参考腾讯云事件 [消息通知](https://cloud.tencent.com/document/product/267/5957) 服务。 
