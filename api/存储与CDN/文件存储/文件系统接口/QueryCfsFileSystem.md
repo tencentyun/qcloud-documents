@@ -6,7 +6,7 @@
 |-----------------|------|--------|--------------------------------------------------------------|
 | CreationToken   |   否   | string | 用户自定义文件系统名称，如有该值则查询自定义名称为该值的文进系统										     |
 | FileSystemId  |否 |string| 文件系统 ID   |
-| Region          |是   | string | 园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                   |
+| Region          |是   | string | 园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225#.E5.9C.B0.E5.9F.9F.E5.92.8C.E5.8F.AF.E7.94.A8.E5.8C.BA) 文档中的园区与可用区列表                   |
 | UniqVpcId | 否 | string | 用户私有网络 ID，如指定该值，则查询在该私有网络下的文件系统 |
 
 
