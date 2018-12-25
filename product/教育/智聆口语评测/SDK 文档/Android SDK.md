@@ -6,7 +6,6 @@
 ## 使用说明
 #### 工程及 Demo 源码
 [工程及 Demo 源码的 GitHub 地址>>](https://github.com/TencentCloud/tencentcloud-sdk-android-soe)
-####  文件说明
 本 SDK 的主文件为 tencentsoe-sdk-release.aar，直接引入项目中即可。
 - 如果您需要调用 MP3录音功能，则还需引入 mp3recorder.aar。
 - 如果您需要运行 Demo，请对 SECRET_ID 和 SECRET_KEY 赋值。
@@ -17,7 +16,7 @@
 implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 ```
-#### 权限使用
+#### 使用权限
 本 SDK 需要以下权限：
 ```xml
 android.permission.INTERNET
@@ -26,7 +25,7 @@ android.permission.READ_EXTERNAL_STORAGE
 android.permission.WRITE_EXTERNAL_STORAGE
 ```
 #### 获取密钥
-secretId 和 secretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证：
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 ##  使用示例
