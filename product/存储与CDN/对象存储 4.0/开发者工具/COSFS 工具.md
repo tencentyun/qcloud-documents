@@ -113,8 +113,8 @@ cosfs <Name>-<Appid> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 **示例：**
 
 ```shell
-mkdir /mnt
-cosfs example-1253972369 /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
+mkdir -p /mnt/cosfs
+cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 
 >!v1.0.5 之前版本 COSFS 的挂载命令如下：
