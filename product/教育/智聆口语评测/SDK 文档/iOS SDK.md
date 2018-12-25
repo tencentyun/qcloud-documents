@@ -21,45 +21,45 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管
 SDK 详细使用流程请参见 [TSOEDemo 工程](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe/tree/master/demo/TSOEDemo)。
 #### 初始化 SDK
 ```
-    [TXTencentSOE shareTencentSOE].VoiceSecretID = @"";
-    [TXTencentSOE shareTencentSOE].VoiceSecretKey = @"";
-    [TXTencentSOE shareTencentSOE].Region = @"";
-    [TXTencentSOE shareTencentSOE].SoeAppId = @"";
-    [TXTencentSOE shareTencentSOE].isLongLifesession = @"1";
-    [TXTencentSOE shareTencentSOE].requestDomain = @"soe.tencentcloudapi.com";
+[TXTencentSOE shareTencentSOE].VoiceSecretID = @"";
+[TXTencentSOE shareTencentSOE].VoiceSecretKey = @"";
+[TXTencentSOE shareTencentSOE].Region = @"";
+[TXTencentSOE shareTencentSOE].SoeAppId = @"";
+[TXTencentSOE shareTencentSOE].isLongLifesession = @"1";
+[TXTencentSOE shareTencentSOE].requestDomain = @"soe.tencentcloudapi.com";
 ```
 详细说明请参见 Demo 中的 initSdk。
 
 ####  开始分片录制
 ```
-    [TXTencentSOE shareTencentSOE].seqID = 0;
-    [TXTencentSOE shareTencentSOE].isVoiceVerifyInit= 0;
-    [_recorder startRecording];
+[TXTencentSOE shareTencentSOE].seqID = 0;
+[TXTencentSOE shareTencentSOE].isVoiceVerifyInit= 0;
+[_recorder startRecording];
 ```
 详细说明请参见 Demo 中的 startRecord。
 
 ####  同时处理分片回调的数据并进行口语评测
 ```
-    _verification = [[TXVoiceVerification alloc] init];
-    NSString *dataStr = [TXBase64File getBase64StringWithFileData:mp3Data];
-    if(![TXTencentSOE shareTencentSOE].isVoiceVerifyInit){
-        [TXTencentSOE shareTencentSOE].isVoiceVerifyInit = 1;
-        [self initVoice:dataStr isEnd:isEnd];
-    }
-    else{
-        [self vertifyVoice:dataStr isEnd:isEnd];
-    }
+_verification = [[TXVoiceVerification alloc] init];
+NSString *dataStr = [TXBase64File getBase64StringWithFileData:mp3Data];
+if(![TXTencentSOE shareTencentSOE].isVoiceVerifyInit){
+    [TXTencentSOE shareTencentSOE].isVoiceVerifyInit = 1;
+    [self initVoice:dataStr isEnd:isEnd];
+}
+else{
+    [self vertifyVoice:dataStr isEnd:isEnd];
+}
 ```
 详细说明请参见 Demo 中的 AudioQueueRecorder 回调。
 
 ####  处理口语评测的结果
 最后一个分片完成后，即可处理口语评测的结果。
 ```
-    TXVoiceVerificationFileType type = [self getFileType];
-    __weak typeof(self) ws = self;
-    [_verification oralProcessTransmitWithVoiceFileType:type userVoiceData:@[date] sessionID:_sessionId isEnd:isEnd result:^(TXVoiceVerification *voiceVerification, NSDictionary * _Nullable result, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        [ws setResponse:[NSString stringWithFormat:@"%@", result]];
-    }];
+TXVoiceVerificationFileType type = [self getFileType];
+__weak typeof(self) ws = self;
+[_verification oralProcessTransmitWithVoiceFileType:type userVoiceData:@[date] sessionID:_sessionId isEnd:isEnd result:^(TXVoiceVerification *voiceVerification, NSDictionary * _Nullable result, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [ws setResponse:[NSString stringWithFormat:@"%@", result]];
+}];
 ```
 详细说明请参见 Demo 中的 vertifyVoice 返回。
 
@@ -68,13 +68,13 @@ TencentSOE.fremework 有四大模块：配置信息、录音、对文件进行 b
 #### 配置信息（TXTencentSOE）
 TXTencentSOE 是一个单例，需要配置申请的 SecretID 和 SecretKey，代码如下。
 ```
-    // 初始化语音评测单例
-    [TXTencentSOE shareTencentSOE].VoiceSecretID = @"";//填写在官网申请的secretid
-    [TXTencentSOE shareTencentSOE].VoiceSecretKey = @"";//填写在官网申请的secretkey
-    [TXTencentSOE shareTencentSOE].Region = @"";
-    [TXTencentSOE shareTencentSOE].SoeAppId = @"";//填写soeappid
-    [TXTencentSOE shareTencentSOE].isLongLifesession = @"1";
-    [TXTencentSOE shareTencentSOE].requestDomain = @"soe.tencentcloudapi.com";//可根据实际选择就近的请求域名
+// 初始化语音评测单例
+[TXTencentSOE shareTencentSOE].VoiceSecretID = @"";//填写在官网申请的secretid
+[TXTencentSOE shareTencentSOE].VoiceSecretKey = @"";//填写在官网申请的secretkey
+[TXTencentSOE shareTencentSOE].Region = @"";
+[TXTencentSOE shareTencentSOE].SoeAppId = @"";//填写soeappid
+[TXTencentSOE shareTencentSOE].isLongLifesession = @"1";
+[TXTencentSOE shareTencentSOE].requestDomain = @"soe.tencentcloudapi.com";//可根据实际选择就近的请求域名
 ```
 #### 录音(TXRecorder)
 TXRecorder 是对录音功能的封装，这里依赖了系统库 AudioToolbox 和第三方库 lame，包括以下三个对象方法。
