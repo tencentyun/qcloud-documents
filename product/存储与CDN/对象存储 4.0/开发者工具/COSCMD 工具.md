@@ -97,7 +97,7 @@ optional arguments:
 ```
 
 除此之外，用户还可以在每个命令后（不加参数）输入`-h`查看该命令的具体用法，例如：
-```
+```shell
 coscmd upload -h  //查看 upload 命令使用方法
 ```
 
