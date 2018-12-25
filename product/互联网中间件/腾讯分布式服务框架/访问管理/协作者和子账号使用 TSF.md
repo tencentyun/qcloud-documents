@@ -5,7 +5,7 @@
 
 - 主账号访问 [TSF 概览页 >> ](https://console.cloud.tencent.com/tsf?rid=1)  会自动创建 TSF 相关服务角色，角色名  `TSF_QCSRole`
 
-- 具有 QcloudCamRoleFullAccess 策略的用户可以在 CAM 产品控制台创建 TSF 相关服务角色，角色名由用户自定义（不能是 TSF_QCSRole）
+- 具有 QcloudCamRoleFullAccess 策略的用户可以在 CAM 产品控制台创建 TSF 相关服务角色，角色名  TSF_QCSRole （如果提示名称已存在，则无须手动创建）
 
 下面介绍在 CAM 产品页面创建 TSF 相关服务角色的步骤。
 
@@ -25,7 +25,7 @@
 
      ![](https://main.qcloudimg.com/raw/939876b2ccb4cf7d26da3830aa1665a2/2.png)
 
-   - 填写角色名称 TSF-DefaultRole
+   - 填写角色名称 TSF_QCSRole，单击【完成】。（如果提示名称已存在，则无须手动创建）
 
      ![](https://main.qcloudimg.com/raw/65252bbd43280f4d0e7599db93916f1b/3.png)
 
@@ -50,10 +50,8 @@
 ![](https://main.qcloudimg.com/raw/e26002f8c16eca54a76edaf4e50aaf1b.png)
 1.5 选择【空白模板】，单击下一步。
 ![](https://main.qcloudimg.com/raw/da7849eb16acf32e084beef40784e1dc.png)
-1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID，`<roleName>` 根据角色创建的方式有所不同：
 
-- 主账号单击 TSF 概览页自动创建，roleName 填写 TSF_QCSRole
-- 在 CAM 控制台角色界面，手动创建角色，填写自定义角色名，参考上文  [创建 TSF 相关服务角色](#des) 中创建的角色 TSF-DefaultRole
+1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID。
 
 ```text
 {
@@ -62,7 +60,7 @@
 			{
 					"effect": "allow",
 					"action": "cam:PassRole",
-					"resource": "qcs::cam::uin/<roleOwnerUin>:roleName/<roleName>"
+					"resource": "qcs::cam::uin/<roleOwnerUin>:roleName/TSF_QCSRole"
 			}
 	]
 }
