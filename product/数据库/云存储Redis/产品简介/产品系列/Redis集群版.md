@@ -8,7 +8,7 @@ Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采
 ## 集群模式
 - Redis集群模式数据将会自动分片，系统将提供数据均衡，数据迁移功能。
 - 集群模式支持的分片规格为4GB - 32GB。
-- 集群模式的命令相对与非集群模式有一定的兼容性，主要体现在跨slot数据访问上面，下文使用限制章节将详细说明。
+- 集群模式的命令相对与非集群模式有一定的兼容性，主要体现在跨 Slot 数据访问，详细说明请参见 [使用限制](https://cloud.tencent.com/document/product/239/18336?!preview&!editLang=zh#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
 
 ## 副本说明
 - 副本数等于1时，Redis 提供数据主从实时热备，提供数据高可靠和高可用，HA 系统监测到节点故障后，会将请求切换到从节点，并且新增一个从节点加入到系统。
@@ -82,15 +82,14 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - CLUSTER SLOTS 
 - CONFIG GET
 
-**跨 Slot 命令支持**
-
+跨 Slot 命令支持
 集群版目前支持跨 Slot 访问的命令包括：
 - MGET
 - MSET
 
 目前不支持跨 Slot 执行的命令，系统会返回如下错误：
  `(error) CROSSSLOT Keys in request don't hash to the same slot`
-
+ 
 不支持跨 Slot 访问的命令如下：
 - DEL
 - UNLINK
