@@ -204,7 +204,7 @@ TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号
 1.3 单击【新建自定义策略】。
 1.4 在选择创建策略方式的弹出框中，单击【按策略语法创建】，进入按策略语法创建页。
 1.5 在 [按策略语法创建页](https://console.cloud.tencent.com/cam/policy/createV2) 中，选择【空白模板】，单击下一步。
-1.6 填写策略名和策略内容。 
+1.6 填写策略名和策略内容。
 ![](https://main.qcloudimg.com/raw/f4785a99dbcb646471fd062717e350e8.png)
 您可以直接复制以下代码到策略内容处，其中 `<roleOwnerUin>` 使用主账号的账号 ID。
 ```text
