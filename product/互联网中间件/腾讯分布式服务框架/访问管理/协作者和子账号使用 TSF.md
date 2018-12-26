@@ -30,14 +30,10 @@
 
 ### 1. 新建 tsf_PassRole 策略
 1.1 登录 [访问管理控制台](https://console.cloud.tencent.com/cam)。
-1.2 单击左侧导航栏的 [**策略管理**](https://console.cloud.tencent.com/cam/policy)。
+1.2 在左侧导航栏，单击 [**策略管理**](https://console.cloud.tencent.com/cam/policy)，进入策略管理列表页。
 1.3 单击【新建自定义策略】。
-![](https://main.qcloudimg.com/raw/9e50eb9b644c1e4b560e786ad36c697d.png)
-1.4 单击【按策略语法创建】。
-![](https://main.qcloudimg.com/raw/e26002f8c16eca54a76edaf4e50aaf1b.png)
-1.5 选择【空白模板】，单击下一步。
-![](https://main.qcloudimg.com/raw/da7849eb16acf32e084beef40784e1dc.png)
-
+1.4 在选择创建策略方式的弹出框中，单击【按策略语法创建】，进入按策略语法创建页。
+1.5 在 [按策略语法创建页](https://console.cloud.tencent.com/cam/policy/createV2) 中，选择【空白模板】，单击下一步。
 1.6 填写策略名（ 如 tsf_PassRole ），填写策略内容如下，其中 `<roleOwnerUin>` 使用主账号的账号 ID。
 
 ```text
@@ -52,33 +48,27 @@
 	]
 }
 ```
-![](https://main.qcloudimg.com/raw/c573361bd5d497c5fa2b5aadd733c146.png)
+![](https://main.qcloudimg.com/raw/f4785a99dbcb646471fd062717e350e8.png)
 
 ### 2. 将  tsf_PassRole 策略绑定到用户
 
 2.1 在左侧导航栏，单击 [**用户管理**](https://console.cloud.tencent.com/cam) ，进入用户管理页面。
-![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
-2.2 选择要授予 TSF 使用权限的用户。
-![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
-2.3 单击【关联策略】。
-![](https://main.qcloudimg.com/raw/e8c8994b8655db02dcfeeb89638b7c5e.png)
+2.2 选择要授予 TSF 使用权限的用户，单击【用户名称】，进入该用户详情页。
+2.3 在用户详情页，单击【关联策略】按钮。
 2.4 从策略列表中筛选出步骤1.6中的创建的策略（ 如 `tsf_PassRole`） 。
-![](https://main.qcloudimg.com/raw/bada6e84ee25c9fb8a67785476341f5d.png)
+![](https://main.qcloudimg.com/raw/6400b924e0eefd43585585cc4ce43137.png)
 2.5 绑定策略后，策略显示在用户的策略列表中。
-![](https://main.qcloudimg.com/raw/325a4006966f715aec2861357668c3a1.png)
+![](https://main.qcloudimg.com/raw/9c8a37c138dfc6b3da97bfe92eaa28db.png)
 
 ## 用户使用镜像相关功能
 用户要使用镜像功能，需要被授予 CCR 相关权限。
 
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam)。
 2. 单击左侧导航栏 [**用户管理**](https://console.cloud.tencent.com/cam)。
-![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
-3. 选择要授予 TSF 使用权限的用户。
-![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
-4. 单击【关联策略】。
-![](https://main.qcloudimg.com/raw/e8c8994b8655db02dcfeeb89638b7c5e.png)
+3. 选择要授予 TSF 使用权限的用户，单击【用户名称】，进入该用户详情页。
+4.  在用户详情页，单击【关联策略】。
 5. 从策略列表中选择 `QcloudCCRFullAccess` 策略。
-![](https://main.qcloudimg.com/raw/d9c6a36f4cbc362f23d0d0a4fe8a8a4f.png)
+![](https://main.qcloudimg.com/raw/e8939eae59ca538e5f3b9a6edb7d6906.png)
 6. 绑定策略后，策略显示在用户的策略列表中。
 ![](https://main.qcloudimg.com/raw/850ce1e93101cdd98899d66a1468fd60.png)
 
@@ -92,4 +82,4 @@ TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号
 
 ### 访问镜像仓库
 如果主账号未开通过镜像仓库，会提示如下图所示信息，此时需要主账号登录 TSF 控制台，开通镜像仓库。主账号开通镜像仓库后协作者/子账号才能继续使用镜像仓库。
-![](https://main.qcloudimg.com/raw/245c87613aa7bb17c05f1955bd7de3c5.png)
+![](https://main.qcloudimg.com/raw/3a7eff54219d0fc55946f1939507f8c0.png)
