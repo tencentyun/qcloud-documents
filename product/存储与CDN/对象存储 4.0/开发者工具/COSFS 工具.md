@@ -147,8 +147,8 @@ fusermount -u /mnt 或者 umount -l /mnt
 默认情况下， COSFS 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
 
 ###  -onoxattr
-禁用 getattr/setxattr 功能， 当前版本的 COSFS 不支持该功能，如果在挂载的时候使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
-
+禁用 getattr/setxattr 功能，在 1.0.9 之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载的时候使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
+ 
 ### -ouse_cache=[path]
 使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
@@ -162,6 +162,9 @@ fusermount -u /mnt 或者 umount -l /mnt
 ### -oumask=[perm]
 
 该选项可以去除给定类型用户，对挂载目录内文件的操作权限，例如，-oumask=007，可以去除其他用户对文件的读写执行权限。
+
+### -ouid=[uid]
+该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，访问挂载目录中的所有文件，提示：可用命令 id -u user_00 获取到用户 user_00 的 uid。
 
 ## 局限性
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
