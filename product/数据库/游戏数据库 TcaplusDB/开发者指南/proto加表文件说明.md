@@ -60,14 +60,14 @@ message pay_info { //使用message定义结构体
 }
 ```
 
-加表文件规则:
-* TcaplusDB proto 表定义文件必须符合 protobuf 语法规范,在文件头用`syntax = "proto2";`标识。
+加表文件规则：
+* TcaplusDB proto 表定义文件必须符合 protobuf 语法规范，在文件头用`syntax = "proto2";`标识。
 * 加表文件必须引用`tcaplusservice.optionv1.proto`公共定义文件。
-* 使用 message 定义表和普通结构体，如果 message 中包含`tcaplusservice.tcaplus_primary_key`选项则此 message 是一个 TcaplusDB 业务数据表定义，否则此 message 只是一个结构体定义。
+* 使用 message 定义表和普通结构体，如果 message 中包含`tcaplusservice.tcaplus_primary_key`选项，则此 message 是一个 TcaplusDB 业务数据表定义，否则此 message 只是一个结构体定义。
 * TcaplusDB 表支持定义 int32，int64，uint32，uint64，sint32，sint64，bool，fixed64，sfixed64，double，fixed32，sfixed32，float，string，bytes 非嵌套类型字段，以及 message 嵌套类型字段。
 * TcaplusDB 表支持 REQUIRED，OPTIONAL 和 REPEATED 作为字段修饰符。
-* TcaplusDB 表的主键是1至4个REQUIRED非嵌套类型字段，通过`tcaplusservice.tcaplus_primary_key`选项指定，该选项的值为主键字段名列表字符串，各主键字段用逗号分隔,如：option(tcaplusservice.tcaplus_primary_key) = "uin,name,region"; 。
-* TcaplusDB 单个表支持创建0至4个索引，通过`tcaplusservice.tcaplus_index`选项指定，例如：option(tcaplusservice.tcaplus_index) = "index_1(uin,region)"; 其中 “index_1” 是自定义的索引名称，"uin,region" 是通过逗号分隔的指定索引键字段名列表。
+* TcaplusDB 表的主键是1至4个 REQUIRED 非嵌套类型字段，通过`tcaplusservice.tcaplus_primary_key`选项指定，该选项的值为主键字段名列表字符串，各主键字段用逗号分隔，如：`option(tcaplusservice.tcaplus_primary_key) = "uin,name,region"; `。
+* TcaplusDB 单个表支持创建0至4个索引，通过`tcaplusservice.tcaplus_index`选项指定，例如：`option(tcaplusservice.tcaplus_index) = "index_1(uin,region)";` 其中 “index_1” 是自定义的索引名称，"uin,region" 是通过逗号分隔的指定索引键字段名列表。
 * TcaplusDB 表的索引键必须是主键，如果定义多个索引键，那么多个索引键集合的交集不能为空。
 * 用户可以通过`tcaplusservice.tcaplus_sharding_key`选项显式设置分片键，原则是分片键必须是所有索引键字段交集的子集。如果用户不显式设置，那系统将默认采用索引键集合的交集作为分片键。分片键的设置与后台数据分布相关，用户需要评估作为分片键的字段取值是否离散，取值有限的字段如性别，星期等都不建议设置为分片键。
 * TcaplusDB 表最多包含4个主键字段以及128个非主键字段。
@@ -133,13 +133,13 @@ message pay_info { //使用message定义结构体
 }
 ```
 
-加表文件规则:
-* TcaplusDB proto 表定义文件必须符合 protobuf 语法规范,在文件头用`syntax = "proto3";`标识。
+加表文件规则：
+* TcaplusDB proto 表定义文件必须符合 protobuf 语法规范，在文件头用`syntax = "proto3";`标识。
 * 加表文件必须引用`tcaplusservice.optionv1.proto`公共定义文件。
-* 使用 message 定义表和普通结构体，如果 message中 包含`tcaplusservice.tcaplus_primary_key`选项则此 message 是一个 TcaplusDB 业务数据表定义，否则此 message 只是一个结构体定义。
+* 使用 message 定义表和普通结构体，如果 message 中 包含`tcaplusservice.tcaplus_primary_key`选项，则此 message 是一个 TcaplusDB 业务数据表定义，否则此 message 只是一个结构体定义。
 * TcaplusDB 表支持定义 int32，int64，uint32，uint64，sint32，sint64，bool，fixed64，sfixed64，double，fixed32，sfixed32，float，string，bytes 非嵌套类型字段，以及 message 嵌套类型字段。
-* TcaplusDB 表的主键是1至4个非嵌套类型字段，通过`tcaplusservice.tcaplus_primary_key`选项指定，该选项的值为主键字段名列表字符串，各主键字段用逗号分隔,如：option(tcaplusservice.tcaplus_primary_key) = "uin,name,region"; 。
-* TcaplusDB 单个表支持创建0至4个索引，通过`tcaplusservice.tcaplus_index`选项指定，例如：option(tcaplusservice.tcaplus_index) = "index_1(uin,region)"; 其中 “index_1” 是自定义的索引名称，"uin,region" 是通过逗号分隔的指定索引键字段名列表。
+* TcaplusDB 表的主键是1至4个非嵌套类型字段，通过`tcaplusservice.tcaplus_primary_key`选项指定，该选项的值为主键字段名列表的字符串，各主键字段用逗号分隔，如：`option(tcaplusservice.tcaplus_primary_key) = "uin,name,region";` 。
+* TcaplusDB 单个表支持创建0至4个索引，通过`tcaplusservice.tcaplus_index`选项指定，例如：`option(tcaplusservice.tcaplus_index) = "index_1(uin,region)";` 其中 “index_1” 是自定义的索引名称，"uin,region" 是通过逗号分隔的指定索引键字段名列表。
 * TcaplusDB 表的索引键必须是主键，如果定义多个索引键，那么多个索引键集合的交集不能为空。
 * 用户可以通过`tcaplusservice.tcaplus_sharding_key`选项显式设置分片键，原则是分片键必须是所有索引键字段交集的子集。如果用户不显式设置，那系统将默认采用索引键集合的交集作为分片键。分片键的设置与后台数据分布相关，用户需要评估作为分片键的字段取值是否离散，取值有限的字段如性别，星期等都不建议设置为分片键。
 * TcaplusDB 表最多包含4个主键字段以及128个非主键字段。

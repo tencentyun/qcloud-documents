@@ -9,9 +9,8 @@
 ## 操作步骤
 ### 下载软件包
 
-1. 下载依赖包 [TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip](http://ptp.oa.com/product/7)。
-2. 下载 Tcaplus Protobuf API 软件包 [Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413.zip](http://ptp.oa.com/product/160)。
-3. 解压缩，以下是软件包的结构。
+1. 下载依赖包和 Tcaplus Protobuf API 软件包： [SDK 下载]()。
+2. 解压缩，以下是软件包的结构。
 ```
 Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 |-- cfg                                                 # 配置目录
@@ -33,7 +32,7 @@ Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 
 ### 准备
 
-1. 请确保已经在 [腾讯云 TcaplusDB](http://gcloud.qq.com) 开通了游戏业务并且已经获取到对应的app信息（例如 AppId，ZoneId，AppKey）。
+1. 请确保已经在 [腾讯云 TcaplusDB](https://cloud.tencent.com/product/tcaplus) 开通了游戏业务并且已经获取到对应的 App 信息（例如 AppId，ZoneId，AppKey）。
 2. 解压缩 `TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip` 并安装。
   * 假设安装的根路径是 `D:\Tencent\tsf4gMT`, 相关文件将会被安装到 `D:\Tencent\tsf4gMT\win64vc14MT`路径下
 3. 编译并安装`Porotbuf-3.5.1`。
@@ -52,10 +51,10 @@ Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 ### 构建
 
 1. 解压缩 Tcaplus Pb API 安装包。
-2. 在 `examples/tcaplus/C++_common_for_pb2/common.h` 文件中设置 app 信息。
+2. 在 `examples/tcaplus/C++_common_for_pb2/common.h` 文件中设置 App 信息。
   * Tcapdir 接入点地址列表 - `DIR_URL_ARRAY`
   * Tcapdir 接入点地址个数 - `DIR_URL_COUNT`
-  * 用户表名, 使用之前用户需要预先使用示例目录中的table_test.xml文件创建表 - `TABLE_NAME`
+  * 用户表名，使用之前用户需要预先使用示例目录中的 table_test.xml 文件创建表 - `TABLE_NAME`
   * 用户业务ID - `APP_ID`
   * 用户业务区服ID - `ZONE_ID`
   * 用户业务密码 - `SIGNATURE`
@@ -93,12 +92,12 @@ set/
 |-- proto_generate.cmd                      # 编译proto文件脚本
 `-- tlogconf.xml
 ```
-  * 首先，确认已经使用`table_test.proto`在目标 app 中创建表成功。
+  * 首先，确认已经使用`table_test.proto`在目标 App 中创建表成功。
   * 执行`proto_generate.cmd`脚本，在当前路径下生成依赖文件。
     * `table_test.pb.cc`
     * `table_test.pb.h`
   * 在Microsoft Visual Studio 2015中打开项目文件`pb_co_set.sln`。
-  * 生成 - 生成解决方案。
+  * 生成解决方案。
   * 如果没有错误产生，在`examples\tcaplus\C++_pb2_coroutine_simpletable\SingleOperation\set/x64`路径下将会生成可执行文件`pb_co_set.exe`。
 
 

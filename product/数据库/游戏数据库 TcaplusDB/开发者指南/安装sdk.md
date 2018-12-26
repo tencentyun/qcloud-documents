@@ -67,7 +67,11 @@ GameSvr 游戏服务器中对应数据访问逻辑的开发，可以参考 examp
 tar -xzvf TcaplusPbApi3.18.0.152096.x86_64_release_20170712.tar.gz
 ```
 2. 配置 TcaplusDB 系统连接信息。
-	1. 在命令行输入 ` cd TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus/C++_common_for_pb2 `进入目录。
+	1. 在命令行输入如下代码进入目录：   
+```
+cd TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus/C++_common_for_pb2
+```
+
 	2. 在命令行输入 vi common.h 修改 common.h 头文件，根据业务情况修改如下图片内容。
 	**DIR_URL_ARRAY：**tcapdir 地址和端口号。
 	**DIR_URL_COUNT：**tcapdir 个数。
@@ -79,8 +83,11 @@ tar -xzvf TcaplusPbApi3.18.0.152096.x86_64_release_20170712.tar.gz
 	![](https://mc.qcloudimg.com/static/img/4eddaa926243031049ab2e019d8686ab/image.png)
 3. 修改环境配置设置文件。
 在 TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus 目录下有分别通过异步方式以及协程方式调用API的例子，现在以协程方式调用 Set 接口设置数据为例：
-命令行输入
-`cd TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus/C++_pb2_coroutine_simpletable/SingleOperation/set`进入代码目录，协程方式 Set 例子的所有代码都在该目录中。修改 envcfg.env 文件，将 PROTOBUF_HOME 环境变量设置为本机 protobuf 的安装路径（--prefix指定），并将 TCAPLUS_HOME 环境变量设置为 Tcaplus Pb API 包下 release/x86_64 目录的绝对路径，如下图：
+在命令行输入如下代码进入目录：
+```
+cd TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus/C++_pb2_coroutine_simpletable/SingleOperation/set
+```
+协程方式 Set 例子的所有代码都在该目录中。修改 envcfg.env 文件，将 PROTOBUF_HOME 环境变量设置为本机 protobuf 的安装路径（--prefix指定），并将 TCAPLUS_HOME 环境变量设置为 Tcaplus Pb API 包下 release/x86_64 目录的绝对路径，如下图：
 ![](https://mc.qcloudimg.com/static/img/093250c857a6c77847fd14bd037dc7e9/image.png)
 4. 设置环境变量。
 在代码目录下执行：
@@ -89,7 +96,7 @@ source envcfg.env
 bash conv.sh
 ```
 5. 编译二进制程序。
-执行`make`命令编译 example 二进制,编译成功生成 mytest 可执行文件。
+执行`make`命令编译 example 二进制，编译成功生成 mytest 可执行文件。
 ![](https://mc.qcloudimg.com/static/img/9b4dd73cf2d3b93721d9782a76804d7f/mytest.png)
 6. 执行二进制程序。
-命令行输入`./mytest` ,执行二进制程序。执行结果将在命令行标准输出中显示，若遇到错误，请查看代码目录下的 tcaplus_pb.log 日志文件。
+命令行输入`./mytest` ，执行二进制程序。执行结果将在命令行标准输出中显示，若遇到错误，请查看代码目录下的 tcaplus_pb.log 日志文件。
