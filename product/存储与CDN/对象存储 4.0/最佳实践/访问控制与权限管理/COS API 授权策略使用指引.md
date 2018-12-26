@@ -3,11 +3,12 @@
 
 ## Service API 
 
-### 获取存储桶列表 
+### 获取存储桶列表 (Get Service) 
 若授予 获取存储桶列表 操作权限，则策略的 `action` 为 `name/cos:GetService` .
 
 对应的策略详细内容如下，其中 `resource` 为 `*`.：
-```{
+```
+{
   "version": "2.0",
   "statement": [
     {
@@ -25,7 +26,7 @@
 
 ## Bucket API
 
-### 创建存储桶
+### 创建存储桶 (Put Bucket) 
 若授予 创建存储桶 操作权限，则策略的 `action` 为 `name/cos:PutBucket` .
 
 如在 APPID 为 1253653367 账号下创建一个`ap-beijing`地域的存储桶策略详细内容如下：
@@ -45,7 +46,7 @@
   ]
 }
 ```
-### 检索存储桶
+### 检索存储桶 (Head Bucket) 
 若授予 检索存储桶 操作权限，则策略的 `action` 为 `name/cos:HeadBucket` .
 
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶策略详细内容如下：
@@ -65,7 +66,7 @@
   ]
 }
 ```
-### 查询存储桶地域信息
+### 查询存储桶地域信息 (Get Bucket Location) 
 若授予 查询存储桶地域信息 操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` .
 
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶的地域信息策略详细内容如下：
@@ -85,7 +86,7 @@
   ]
 }
 ```
-### 获取存储桶的对象列表
+### 获取存储桶的对象列表 (Get Bucket) 
 若授予 获取存储桶的对象列表 操作权限，则策略的 `action` 为 `name/cos:GetBucket` .
 
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶对象列表的策略详细内容如下：
@@ -105,7 +106,7 @@
   ]
 }
 ```
-### 删除存储桶
+### 删除存储桶 (Delete Bucket) 
 若授予 删除存储桶 操作权限，则策略的 `action` 为 `name/cos:DeleteBucket` .
 
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶的策略详细内容如下：
@@ -125,7 +126,7 @@
   ]
 }
 ```
-### 设置存储桶 ACL
+### 设置存储桶 ACL (Put Bucket ACL) 
 若授予 设置存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:PutBucketACL` .
 
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
@@ -145,7 +146,7 @@
   ]
 }
 ```
-### 获取存储桶 ACL
+### 获取存储桶 ACL (Get Bucket ACL) 
 若授予 获取存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:GetBucketACL` .
 
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
@@ -165,7 +166,7 @@
   ]
 }
 ```
-### 设置存储桶跨域配置
+### 设置存储桶跨域配置 (Put Bucket CORS) 
 若授予 设置存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:PutBucketCORS` .
 
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
@@ -185,7 +186,7 @@
   ]
 }
 ```
-### 获取存储桶跨域配置
+### 获取存储桶跨域配置 (Get Bucket CORS) 
 若授予 获取存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:GetBucketCORS` .
 
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
@@ -204,7 +205,7 @@
   ]
 }
 ```
-### 删除存储桶跨域配置
+### 删除存储桶跨域配置 (Delete Bucket CORS) 
 若授予 删除存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketCORS` .
 
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
@@ -224,7 +225,7 @@
   ]
 }
 ```
-### 设置存储桶生命周期
+### 设置存储桶生命周期 (Put Bucket Lifecycle) 
 若授予 设置存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` .
 
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
@@ -244,7 +245,7 @@
   ]
 }
 ```
-### 获取存储桶生命周期
+### 获取存储桶生命周期 (Get Bucket Lifecycle) 
 若授予 获取存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` .
 
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
@@ -264,7 +265,7 @@
   ]
 }
 ```
-### 删除存储桶生命周期
+### 删除存储桶生命周期 (Delete Bucket Lifecycle) 
 若授予 删除存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketLifecycle` .
 
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
@@ -284,7 +285,7 @@
   ]
 }
 ```
-### 获取存储桶中正在分片上传信息
+### 获取存储桶中正在分片上传信息 (List Multipart Uploads) 
 若授予 获取存储桶中正在分片上传信息 操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` .
 
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中正在分片上传信息的策略详细内容如下：
@@ -307,7 +308,7 @@
 
 ## Object API
 
-### 简单上传
+### 简单上传 (Put Object) 
 若授予 简单上传 操作权限，则策略的 `action` 为 `name/cos:PutObject` .
 
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中简单上传操作的策略详细内容如下：
@@ -327,7 +328,7 @@
   ]
 }
 ```
-### 分片上传
+### 分片上传 (Initiate Multipar tUpload, List Parts, Upload Part, Complete Multipart Upload, Abort Multipart Upload) 
 若授予 分片上传 操作权限，则策略的 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 的集合.
 
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中分片上传操作的策略详细内容如下：
@@ -352,7 +353,7 @@
 }
 ```
 
-### Post 上传
+### Post 上传 (Post Object) 
 若授予 Post上传 操作权限，则策略的 `action` 为 `name/cos:PostObject` .
 
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中Post上传操作的策略详细内容如下：
@@ -372,7 +373,7 @@
   ]
 }
 ```
-### 检索对象
+### 检索对象 (Head Object) 
 若授予 检索对象 操作权限，则策略的 `action` 为 `name/cos:HeadObject` .
 
 如允许检索 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的对象操作的策略详细内容如下：
@@ -392,7 +393,7 @@
   ]
 }
 ```
-### 下载对象
+### 下载对象 (Get Object) 
 若授予 下载对象 操作权限，则策略的 `action` 为 `name/cos:GetObject` .
 
 如允许下载 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的对象操作的策略详细内容如下：
@@ -412,7 +413,7 @@
   ]
 }
 ```
-### 简单复制
+### 简单复制 (Put Object Copy) 
 若授予 简单复制 操作权限，则策略的目标对象的 `action` 为 `name/cos:PutObject` ， 和 源对象的`action` 为 `name/cos:GetObject` .
 
 如将 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的`audio.mp3`对象复制到 `copy_audio.mp3`对象中操作的策略详细内容如下：
@@ -441,7 +442,7 @@
   ]
 }
 ```
-### 分片复制
+### 分片复制 (Upload Part Copy)
 若授予 分片复制 操作权限，则策略的目标对象的 `action` 为 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 集合， 和 源对象的`action` 为 `name/cos:GetObject` 
 
 如将 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的`audio.mp3`对象复制到 `copy_audio.mp3`对象中操作的策略详细内容如下：
@@ -474,7 +475,7 @@
   ]
 }
 ```
-### 设置对象 ACL
+### 设置对象 ACL (Put Object ACL) 
 若授予 设置对象 ACL 操作权限，则策略的 `action` 为 `name/cos:PutObjectACL` .
 
 如允许设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的对象ACL操作的策略详细内容如下：
@@ -494,7 +495,7 @@
   ]
 }
 ```
-### 获取对象 ACL
+### 获取对象 ACL (Get Object ACL) 
 若授予 获取对象 ACL 操作权限，则策略的 `action` 为 `name/cos:GetObjectACL` .
 
 如允许获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的对象ACL操作的策略详细内容如下：
@@ -513,7 +514,7 @@
   ]
 }
 ```
-### Options 请求
+### Options 请求 (Options Object) 
 若授予 Options 请求 操作权限，则策略的 `action` 为 `name/cos:OptionsObject` .
 
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的 options 请求操作的策略详细内容如下：
@@ -533,7 +534,7 @@
   ]
 }
 ```
-### 恢复归档
+### 恢复归档 (Post Object Restore) 
 若授予 恢复归档 操作权限，则策略的 `action` 为 `name/cos:PostObjectRestore` .
 
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的 恢复归档 操作的策略详细内容如下：
@@ -553,7 +554,7 @@
   ]
 }
 ```
-### 删除对象
+### 删除对象 (Delete Object) 
 若授予 删除对象 操作权限，则策略的 `action` 为 `name/cos:DeleteObject` .
 
 如允许删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的 `audio.mp3`文件 操作的策略详细内容如下：
@@ -573,7 +574,7 @@
   ]
 }
 ```
-### 批量删除对象
+### 批量删除对象 (Delete Multiple Objects) 
 若授予 批量删除 操作权限，则策略的 `action` 为 `name/cos:DeleteObject` .
 
 如允许删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的 `audio.mp3`和 `video.mp4` 文件 操作的策略详细内容如下：
@@ -595,4 +596,3 @@
 }
 ```
 
-## 
