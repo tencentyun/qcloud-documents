@@ -91,7 +91,7 @@ echo log-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYY
 
 ### 在 COSFS 挂载目录中，对创建的文件名称有什么限制吗？
 
-在 COSFS 挂载目录中，您能创建除 '/' 字符以外名称的文件。在类 Unix 系统上，'/' 字符为目录分隔符，因此，您无法在 COSFS 挂载目录中，创建包含 '/' 字符的文件。在创建包含特殊字符的文件时，您可能需要避免特殊字符被 shell 使用：
+在 COSFS 挂载目录中，您能创建除`/`字符以外名称的文件。在类 Unix 系统上，`/`字符为目录分隔符，因此您无法在 COSFS 挂载目录中，创建包含`/`字符的文件。在创建包含特殊字符的文件时，您可能需要避免特殊字符被 shell 使用：
 
 ```shell
 touch 'file;A'
