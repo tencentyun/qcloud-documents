@@ -58,7 +58,7 @@
 
 ### 2. 将  tsf_PassRole 策略绑定到用户
 
-2.1 在左侧导航栏，单击 [**用户管理**]，进入用户管理页面(https://console.cloud.tencent.com/cam)。
+2.1 在左侧导航栏，单击 [**用户管理**](https://console.cloud.tencent.com/cam) ，进入用户管理页面。
 ![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
 2.2 选择要授予 TSF 使用权限的用户。
 ![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
