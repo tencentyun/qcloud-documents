@@ -36,53 +36,53 @@ COS 触发器具有以下特点：
 在指定的 COS Bucket 发生对象创建或对象删除事件时，会将类似以下的 JSON 格式事件数据发送给绑定的 SCF 函数。
 
 ```
-{  
-   "Records":[  
-      {
-        "event": {
-          "eventVersion":"1.0",
-          "eventSource":"qcs::cos",
-          "eventName":"cos:ObjectCreated:*,
-          "eventTime":"1970-01-01T00:00:00.000Z",
-          "eventQueue":"qcs:0:cos:gz:1251111111:cos",
-          "requestParameters":{
-            "requestSourceIP": "111.111.111.111",
-            "requestHeaders":{
-              "Authorization": "Example"
-            }
-          }
-         },
-         "cos":{  
-            "cosSchemaVersion":"1.0",
-            "cosNotificationId":"设置的或返回的 ID",
-            "cosBucket":{  
-               "name":"bucketname",
-               "appid":"1251111111",
-               "region":"gz",
-            },
-            "cosObject":{  
-               "key":"/test.jpg",
-               "size":"1024",
-               "meta":{
-                 "Content-Type": "text/plain",
-                 "x-cos-meta-test": "自定义的 meta",
-                 "x-image-test": "自定义的 meta"
-               },
-               "url": "访问文件的源站url"
-            }
-         }
-      }
-   ]
-}  
+{
+	"Records": [{
+		"cos": {
+			"cosSchemaVersion": "1.0",
+			"cosObject": {
+				"url": "http://testpic-1253970026.cos.ap-chengdu.myqcloud.com/testfile",
+				"meta": {
+					"x-cos-request-id": "NWMxOWY4MGFfMjViMjU4NjRfMTUyMV8yNzhhZjM=",
+					"Content-Type": ""
+				},
+				"vid": "",
+				"key": "/1253970026/testpic/testfile",
+				"size": 1029
+			},
+			"cosBucket": {
+				"region": "cd",
+				"name": "testpic",
+				"appid": "1253970026"
+			},
+			"cosNotificationId": "unkown"
+		},
+		"event": {
+			"eventName": "cos:ObjectCreated:*",
+			"eventVersion": "1.0",
+			"eventTime": 1545205770,
+			"eventSource": "qcs::cos",
+			"requestParameters": {
+				"requestSourceIP": "192.168.15.101",
+				"requestHeaders": {
+					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
+				}
+			},
+			"eventQueue": "qcs:0:lambda:cd:appid/1253970026:default.printevent.$LATEST",
+			"reservedInfo": "",
+			"reqid": 179398952
+		}
+	}]
+}
 ```
+
 
 数据结构内容详细说明如下：
 
 |    结构名    | 内容 |
 | ---------- | --- |
 | Records |  列表结构，可能有多条消息合并在列表中 |
-| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息 |
+| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 ID |
 | cos | 记录事件对应的 COS 信息 |
 | cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称，地域，所属用户 APPID |
 | cosObject |  记录具体事件发生的对象，包含对象文件路径，大小，自定义元数据，访问 URL  |
-| subscriptionName | 记录云函数在 topic 处的订阅名称 |

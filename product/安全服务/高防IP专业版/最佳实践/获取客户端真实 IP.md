@@ -1,4 +1,4 @@
-高防 IP 专业版使用非网站业务转发规则的，源站需使用 toa 模块获取客户端的真实 IP。
+高防 IP 专业版使用非网站业务转发规则，源站需使用 toa 模块获取客户端的真实 IP。
 
 ## 基本原理
 高防 IP 专业版使用公网代理模式，因此数据包的源地址和目标地址均会被修改。源站看到的数据包源地址是高防 IP 专业版实例的回源 IP，而并非是客户端的真实 IP。为了将客户端 IP 传给服务器，转发时高防 IP 专业版将客户端的 IP 和 Port 记录在自定义的 tcp option 字段中。如下：
@@ -31,7 +31,7 @@ struct ip_vs_tcpo_addr {
 -  toa 仅支持 IPv4，若环境默认获取 IPv6 则无法正确获得客户端 IP。
 
 ## 获取客户端真实 IP
-1. 安装编译环境。
+1. 以 root 用户执行以下命令，安装编译环境。
 `yum install gcc kernel-headers kernel-devel -y `
 2. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
  ```
@@ -45,7 +45,7 @@ unzip TOA_CentOS_v1.zip
 [root@VM_0_2_centos toa]# uname -r
 3.10.0-514.26.2.el7.x86_64
 ```
-4. 根据[步骤3](#step3)的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
+4. 根据 [步骤3](#step3) 的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
 示例：
 ```
 [root@VM_0_2_centos toa]# vim Makefile 
@@ -68,7 +68,7 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
  - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
 
 ## 卸载 toa 模块
-执行以下命令，卸载 toa 模块。
+以 root 用户执行以下命令，卸载 toa 模块。
 ```
 rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 ```

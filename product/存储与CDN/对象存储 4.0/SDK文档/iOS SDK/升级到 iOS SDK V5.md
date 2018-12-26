@@ -6,7 +6,7 @@
 
 | 功能       | V5         | V4                         |
 | -------- | :------------: | :------------------:    |
-| 文件上传 | 支持本地文件、二进制数据、分片上传<br>默认覆盖上传<br>智能判断上传模式 | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传 |
+| 文件上传 | 支持本地文件、二进制数据、分片上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
@@ -57,13 +57,13 @@ SDK V5 的初始化接口发生了一些变化：
 - `QCloudCOSXMLService` 代替了 `COSClient`，但两者作用相同。同时增加了`QCloudServiceConfiguration`来配置更多的信息。
 - 您需要在初始化时实例化一个密钥提供者 `QCloudAuthentationV5Creator`，用于提供一个有效的密钥，建议使用临时密钥。
 
-**v4 的初始化方式如下：**
+**SDK V4 的初始化方式如下：**
 
 ```
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
-**v5 的初始化方式如下：**
+**SDK V5 的初始化方式如下：**
 >?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
 ```
@@ -109,7 +109,7 @@ SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您�
 **存储桶 Bucket**
 V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过腾讯云控制台【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过 [腾讯云控制台](https://console.cloud.tencent.com/)【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 ```
@@ -117,7 +117,7 @@ NSString *bucket = "mybucket1-1250000000";
 ```
 
 **存储桶可用区域简称 Region**
-V5 的存储桶可用区域简称发生了变化，下面列出了不同区域在 V4 和 V5 中的对应关系：
+V5 的存储桶可用区域简称发生了变化，下表列出了不同区域在 V4 和 V5 中的对应关系：
 
 | 地域       | V5 地域简称         | V4 地域简称                         |
 | -------- | ------------ | ---------------------------------------- |
@@ -165,19 +165,19 @@ API 变化有以下三点：
 
 **1）不再支持目录操作**
 
-在 iOS SDK V5 中，不再支持目录操作。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+在 iOS SDK V5 中，不再支持目录操作。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
+例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。如果您的使用场景里面有文件夹的概念，需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的0KB 文件。这样在您调用 `GetBucket` 接口时，就可以将这样的文件当做文件夹。
 
 
 **2 ）QCloudCOSTransferMangerService**
 
-在 SDK V5 中，我们封装了可以智能判断是简单上传(复制)还是分片上传(复制)的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
+在 SDK V5 中，我们封装了可以智能判断是简单上传（复制）还是分片上传（复制）的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
 
-* 支持断点上传
-* 支持根据文件大小智能选择简单上传（copy）还是分片上传（copy）
+* 支持断点上传。
+* 支持根据文件大小智能选择简单上传（复制）还是分片上传（复制）。
 
 使用 `QCloudCOSTransferMangerService`上传的示例代码：
 
@@ -196,7 +196,7 @@ API 变化有以下三点：
   [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
 
 ```
-上传文件时的断点续传
+使用 `QCloudCOSTransferMangerService`上传文件时断点续传示例代码：
 
 ```
 QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
@@ -219,15 +219,15 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 
 ```
 >!按照分片上传的运行原理，只有当一个分片上传完了，那么后台服务器才会将该分片记录下来，并且叠加进度。并且以下几种情况无法进行断点续传，而是重新开始一次上传过程：
- - 上传的文件小于1M，没有进行分片上传
- - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口
- - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）
+ - 上传的文件小于1M，没有进行分片上传。
+ - 没有使用 QCloudCOSXMLUploadObjectRequest 类进行上传，而是直接使用简单上传接口。
+ - 取消生成 resumeData 时候初始化分片上传还没有完成（完成初始化上传的回调还没有调用）。
 
 **3 ）新增 API**
 
 V5 增加了很多新的 API，您可根据需求进行调用。包括：
-* 存储桶的操作，如 QCloudPutBucketRequest, QCloudGetBucketRequest, QCloudListBucketRequest 等
-* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest，QCloudGetBucketACLRequest 等
-* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest, QCloudGetBucketLifecycleRequest 等
+* 存储桶的操作，如 QCloudPutBucketRequest、QCloudGetBucketRequest、QCloudListBucketRequest 等。
+* 存储桶 ACL 的操作，如 QCloudPutBucketACLRequest、QCloudGetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest、QCloudGetBucketLifecycleRequest 等。
 
 具体请参考我们的 [iOS SDK 接口文档](https://cloud.tencent.com/document/product/436/12258)。

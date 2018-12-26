@@ -7,7 +7,7 @@
 
 | 功能       | V5         | V4                         |
 | -------- | :------------: | :------------------:    |
-| 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式 | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传 |
+| 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件下载 | 支持断点续传 | 不支持断点续传 |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
@@ -61,7 +61,7 @@ dependencies {
 * 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
 * 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
 
-**v4 的初始化方式如下：**
+**SDK V4 的初始化方式如下：**
 
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
@@ -77,7 +77,7 @@ String peristenceId = "持久化Id";
 COSClient cos = new COSClient(context,appid,config,peristenceId);
 ```
 
-**v5 的初始化方式如下：**
+**SDK V5 的初始化方式如下：**
 
 ```
 String appid = "1250000000";
@@ -118,7 +118,7 @@ SDK V5 的存储桶名称和可用区域简称与 SDK V4 的不同，需要您�
 
 V5 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 腾讯云控制台 【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
@@ -186,9 +186,9 @@ API 变化有以下三点：
 
 在 V5 SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
-* 支持断点下载
+* 支持断点下载。
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
-* 支持任务状态的监听
+* 支持任务状态的监听。
 
 使用 `TransferManager`上传的示例代码：
 
@@ -266,8 +266,8 @@ cosxmlUploadTask.resume();
 
 V5 增加了很多新的API，您可根据需求进行调用。包括：
 
-* 存储桶的操作，如 PutBucketRequest, GetBucketRequest, ListBucketRequest 等
-* 存储桶 ACL 的操作，如 PutBucketACLRequest，GetBucketACLRequest 等
-* 存储桶生命周期的操作，如 PutBucketLifecycleRequest, GetBucketLifecycleRequest 等
+* 存储桶的操作，如 PutBucketRequest、GetBucketRequest、ListBucketRequest 等。
+* 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。
+* 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
 
 具体请参考我们的 [Android SDK 接口文档](https://cloud.tencent.com/document/product/436/11238)。

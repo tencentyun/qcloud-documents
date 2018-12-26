@@ -1,4 +1,3 @@
-## CKV 集群版简介
 CKV 集群版提供双副本集群版实例，突破单线程瓶颈，可极大满足对于大容量或高性能的业务需求，集群版兼容 Redis 3.2 版本协议和命令，最大支持128个分片，支持12GB - 48TB容量。
 
 ## 功能特性
@@ -13,8 +12,7 @@ CKV 集群版可以通过开启从机来显著提升读性能，平均情况可�
 - **平滑升级**
 CKV 集群版通过独有的方案，保证版本升级做到业务无感知，从而保证服务的最大可用性。
 
-
-## 使用场景
+## 适用场景
 - **单实例数据量较大**
 集群版是分布式架构，适用于单实例容量较大的场景，容量可突破 CKV 主从版384GB上限。
 - **QPS 及并发要求高**
@@ -23,13 +21,13 @@ CKV 集群版通过独有的方案，保证版本升级做到业务无感知，�
 集群版对比开源版本在协议支持上有少量协议不支持。
 
 ##  连接示例
-CKV 集群版仅支持“实例 ID:密码” 的密码格式类型，例如您的实例 ID 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令是 `redis-cli -h IP 地址 -p 端口 -a crs-bkuza6i3:abcd1234`。
+CKV 集群版仅支持“实例 ID:密码”的密码格式类型，例如您的实例 ID 是 crs-bkuza6i3，设置的密码是 abcd1234，则连接命令是 `redis-cli -h IP 地址 -p 端口 -a crs-bkuza6i3:abcd1234`。
 
 
 ##  使用限制
-- CKV 对于 pttl 等设置毫秒的过期时间，展示的最小单位为秒，与社区版 Redis 不一致；
-- 目前支持的 string 类型 Key，Value 最大 Size 为32MB，与社区版 Redis 不一致；
-- 除 mset、mget 批量操作不受限制之外，其他批量操作，都要求批量的 Key 是在相同的 slot 中，否则会报错，提示 CROSSSLOT Keys in request don't hash to the same slot；
+- CKV 引擎的 pttl 设置展示最小单位为秒，与社区版 Redis 不一致。
+- 目前支持的 string 类型 Key，Value 最大 Size 为32MB，与社区版 Redis 不一致。
+- 除 mset、mget 批量操作不受限制之外，其他批量操作，都要求批量的 Key 是在相同的 slot 中，否则会报错，提示`CROSSSLOT Keys in request don't hash to the same slot`。
 - 当分片写满后，subscribe、psubscribe 需要占用一定内存，新增全新订阅会受到影响，不影响已订阅 channel 的 publish。
 
 ##  特殊说明
@@ -38,7 +36,8 @@ CKV 集群版仅支持“实例 ID:密码” 的密码格式类型，例如您�
 
 
 ## 兼容性
- 集群版支持的命令：
+
+**集群版支持的命令**：
  
 | **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | 
 | --- | --- | --- | --- | --- | --- | --- |
@@ -84,7 +83,7 @@ CKV 集群版仅支持“实例 ID:密码” 的密码格式类型，例如您�
 | -　 | -　 | setrange | -　 |-
 | -　 | -　 | strlen | -　 |-
 
-集群版不支持的命令：
+**集群版不支持的命令：**
 
 | **cluster 族** | **connection 族** | **keys 族** | **lists 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- |

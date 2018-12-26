@@ -37,7 +37,7 @@ endpoint 说明：
 	
 内网endpoint：http://cmq-queue-region.api.tencentyun.com
 
-公网endpoint：http(s)://cmq-queue-region.api.qcloud.com
+公网endpoint：https://cmq-queue-region.api.qcloud.com
 
 - 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint。例如在腾讯云北京地域的 CVM 子机则建议您使用 `http://cmq-queue-bj.api.tencentyun.com`。
 原因是：1）同地域内网时延更低；2）目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
