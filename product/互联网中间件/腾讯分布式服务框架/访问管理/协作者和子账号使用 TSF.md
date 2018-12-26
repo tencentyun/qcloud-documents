@@ -11,21 +11,19 @@
 
 1. 登录 CAM 控制台，进入 [角色界面](https://console.cloud.tencent.com/cam/role)。
 2. 单击【新建角色】。
-3. 选择 **腾讯云产品服务**，参考下图设置角色相关信息。
-
+3. 选择**腾讯云产品服务**，参考下图设置角色相关信息。
    - 选择【分布式服务治理平台】
-   ![](https://main.qcloudimg.com/raw/f0e5c438beeedcdbc5ea8ea4538ef812/1.png)
+ ![](https://main.qcloudimg.com/raw/f0e5c438beeedcdbc5ea8ea4538ef812/1.png)
    - 选择预设策略 QcloudAccessForTSFRole
-     ![](https://main.qcloudimg.com/raw/939876b2ccb4cf7d26da3830aa1665a2/2.png)
+   ![](https://main.qcloudimg.com/raw/939876b2ccb4cf7d26da3830aa1665a2/2.png)
    - 填写角色名称 TSF_QCSRole，单击【完成】。（如果提示名称已存在，则无须手动创建）
-
 
 
 ## 向协作者或子账号授予 PassRole 策略
 
 协作者或者子账号使用 TSF 时，需要主账号授予 PassRole 策略，传递的角色（Role）就是上文中创建的角色。
 
->!如果协作者或者子账号在不具备**PassRole**策略的情况下尝试使用 TSF 相关功能，会收到错误 role not exist。
+>!如果协作者或者子账号在不具备 **PassRole** 策略的情况下尝试使用 TSF 相关功能，会收到错误 role not exist。
 
 要将角色（及其许可策略）传递至 TSF 服务，用户必须具有**传递角色**至服务的许可。这有助于管理员确保仅批准的用户可配置具有能够授予许可的角色的服务。
 
@@ -64,7 +62,7 @@
 ![](https://main.qcloudimg.com/raw/f56790ed7836fd4ae255f342125c09f3.png)
 2.3 单击【关联策略】。
 ![](https://main.qcloudimg.com/raw/e8c8994b8655db02dcfeeb89638b7c5e.png)
-2.4 从策略列表中筛选出步骤 1.6 中的创建的策略（ 如 `tsf_PassRole`） 。
+2.4 从策略列表中筛选出步骤1.6中的创建的策略（ 如 `tsf_PassRole`） 。
 ![](https://main.qcloudimg.com/raw/bada6e84ee25c9fb8a67785476341f5d.png)
 2.5 绑定策略后，策略显示在用户的策略列表中。
 ![](https://main.qcloudimg.com/raw/325a4006966f715aec2861357668c3a1.png)
@@ -89,7 +87,7 @@
 TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号将相关的资源权限授权给用户。
 当用户使用 TSF 时，弹出如下提示框时，表示 TSF 需要调用其他产品的云 API 获取信息。例如下图显示 TSF 依赖 CKafka 的 ListInstance 接口。
 ![](https://main.qcloudimg.com/raw/3bd4a345af1575ec60139cf02b149d90.png)
-此时需要 **主账号** 用户去腾讯云 [访问管理](https://console.cloud.tencent.com/cam) 控制台给用户添加对应服务的权限。具体指引可参考 [访问管理](https://cloud.tencent.com/document/product/598) 产品文档。
+此时需要**主账号**用户去腾讯云 [访问管理](https://console.cloud.tencent.com/cam) 控制台给用户添加对应服务的权限。具体指引可参考 [访问管理](https://cloud.tencent.com/document/product/598) 产品文档。
 
 
 ### 访问镜像仓库
