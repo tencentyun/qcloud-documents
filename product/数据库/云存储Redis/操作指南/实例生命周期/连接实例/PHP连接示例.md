@@ -1,6 +1,6 @@
 ﻿**运行前必备**：
 
-使用客户端 [phpredis](https://github.com/phpredis/phpredis)。
+下载客户端 [phpredis](https://github.com/phpredis/phpredis)。
 
 **示例代码**：
 
