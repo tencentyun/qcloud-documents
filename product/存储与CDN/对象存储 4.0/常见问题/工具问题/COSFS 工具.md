@@ -1,19 +1,24 @@
 ## 功能咨询
 ### 如何使用临时密钥挂载存储桶？
 
-使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤的操作：
+使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤：
 
-步骤一：在-opasswd-file=[path] 指定的密钥配置文件中，配置临时密钥相关参数，相关概念可参考  [临时密钥](https://cloud.tencent.com/document/product/436/14048)，配置示例如下：
+步骤一：创建临时密钥配置文件，例如为 /tmp/passwd-sts，用于 COSFS 命令选项 -opasswd-file=\[path\] 指定密钥配置文件。临时密钥相关概念可参考  [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 文档。临时密钥配置文件示例如下：
 
 ```shell
-COSAccessKeyId=AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #以下为临时密钥的Id、Key和Token字段
+COSAccessKeyId=AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  #以下为临时密钥的Id、Key和Token字段
 COSSecretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 COSAccessToken=109dbb14ca0c30ef4b7e2fc9612f26788cadbfac3
-COSAccessTokenExpire=2017-08-29T20:30:00 #临时token过期时间，为GMT时间，格式需和例子中一致
+COSAccessTokenExpire=2017-08-29T20:30:00  #临时token过期时间，为GMT时间，格式需和例子中一致
 ```
 其中，COSFS 会根据 COSAccessTokenExpire 中配置的时间，来判断是否需要重新从密钥文件中加载配置。
 
-步骤二：在挂载命令中，使用 -ocam_role=[role] 指定角色为 sts 和 -opasswd_file=[path] 参数指定密钥文件的路径，注意：密钥文件的权限需设置成 600，示例如下：
+>!为防止密钥泄露，COSFS 要求您将密钥文件的权限设置成600，执行命令如下：
+>```shell
+>chmod 600 /tmp/passwd-sts
+>```
+
+步骤二：执行 COSFS 命令，使用命令选项 -ocam_role=[role] 指定角色为 sts、-opasswd_file=[path] 指定密钥文件路径，示例如下：
 
 ```shell
 cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oallow_other -ocam_role=sts -opasswd_file=/tmp/passwd-sts
@@ -45,7 +50,7 @@ cosfs 1253972369:example:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqclo
 
 ### 非 root 用户如何挂载 COSFS？
 
-非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径，并将权限设置为 600。
+非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径，并将权限设置为600。
 
 ### COSFS 是否支持 HTTPS 进行挂载？
 

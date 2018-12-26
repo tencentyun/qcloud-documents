@@ -44,7 +44,7 @@ extend google.protobuf.FieldOptions
 1. 表名要以字母或下载线开头，不能超过 31 个字段，不能有除数字，字母，下划线之外的特殊字段。
 2. 各字段的名称要以字母或下划线，protobuf 已经限制。
 3. 主键最多 4 个字段，必须是 required 类型，打包后长度不能超过 1022 字节。
-4. value 打包后不能超过 256 KB, 同时整个记录打包不能超过 256 KB。
+4. value 打包后不能超过 256 KB，同时整个记录打包不能超过 256 KB。
 5. 除了 key 字段，至少有一个 value 字段。value 字段上限以 protobuf 为准。
 6. 表默认是 generic 类型。但对外不显示 generic 类型。
 7. key 字段当前只能是 protobuf 规定的标量类型（Scalar Value Type）,不能包括其它复合类型，自定义类型等。
@@ -184,9 +184,9 @@ extend google.protobuf.FieldOptions
             |   `-- libtcaplusprotobufapi.a            本C++ SDK的库文件, 程序最终链接库需包含
             `-- version                                本C++ SDK的版本记录文件
 
-下面就头文件包中的文件中的主要内容逐一介绍
+下面就头文件包中的文件中的主要内容逐一介绍。
 ### 文件 cipher_suite_base.h
-这个文件主要是加密算法套件基类CipherSuite的声明，规定了子类的规范
+这个文件主要是加密算法套件基类 CipherSuite 的声明，规定了子类的规范。
 ```
 // 加密算法套件基类
 class CipherSuite
@@ -219,7 +219,7 @@ class CipherSuite
 ```
 
 ### 文件default_aes_cipher_suite.h
-这个文件主要是加密算法套件默认实现类DefaultAesCipherSuite的声明，是TcaplusDB基于AES加密的实现，用户可自定义密钥。
+这个文件主要是加密算法套件默认实现类 DefaultAesCipherSuite 的声明，是 TcaplusDB 基于 AES 加密的实现，用户可自定义密钥。
 ```
 // 加密算法套件默认实现类DefaultAesCipherSuite
 class DefaultAesCipherSuite: public CipherSuite
@@ -315,7 +315,7 @@ class DefaultAesCipherSuite: public CipherSuite
 ```
 
 ### 文件tcaplus_async_pb_api.h
-TcaplusDB PB API异步模式的TcaplusAsyncPbApi类及回调类TcaplusPbCallback的实现
+TcaplusDB PB API 异步模式的 TcaplusAsyncPbApi 类及回调类 TcaplusPbCallback 的实现。
 ```
 // 接回调用默认实现类
 class TcaplusPbCallback
@@ -561,7 +561,7 @@ private:
 ```
 
 ### tcaplus_coroutine_pb_api.h
-TcaplusDB PB API协程模式的TcaplusCoroutinePbApi类声明
+TcaplusDB PB API 协程模式的 TcaplusCoroutinePbApi 类声明。
 ```
 // 协程模式类声明
 class TcaplusCoroutinePbApi
@@ -787,7 +787,7 @@ private:
 };
 ```
 ### 文件 tcaplus_error_code.h
-TcaplusDB PB API常用错误码及描述，所表达的意义
+TcaplusDB PB API 常用错误码及描述，所表达的意义。
 ```
 static const int32_t GEN_ERR_SUC                                                                     = 0x00000000;
 static const int32_t GEN_ERR_ERR                                                                     = -0x00000100;/*-256*/
@@ -1975,7 +1975,7 @@ static const int32_t COMMON_INFO_DATA_NOT_MODIFIED                              
 ```
 
 ### 文件 tcaplus_protobuf_api.h
-TcaplusDB PB API汇总头文件，主要包括了其它头文件，不详细介绍
+TcaplusDB PB API 汇总头文件，主要包括了其它头文件，不详细介绍。
 ```
 #include "tcaplus_protobuf_define.h"
 #include "cipher_suite_base.h"
@@ -1984,7 +1984,7 @@ TcaplusDB PB API汇总头文件，主要包括了其它头文件，不详细介�
 ```
 
 ### 文件 tcaplus_protobuf_define.h
-TcaplusDB PB API基础定义头文件，包括 ClientOptions，IndexGetRequest，IndexGetResponse定义
+TcaplusDB PB API 基础定义头文件，包括 ClientOptions，IndexGetRequest，IndexGetResponse 定义。
 ```
 typedef struct 
 {
@@ -2041,8 +2041,8 @@ enum
 ```
 
 ### 文件 tcaplusservice.optionv1.pb.h
-Google Protobuf根据tcaplusservice.optionv1.proto用protoc生成的C++头文件，机器生成，不做详细价绍
+Google Protobuf 根据 tcaplusservice.optionv1.proto 用 protoc 生成的 C++ 头文件，机器生成，不做详细介绍。
 
 ### 文件 tcaplusservice.optionv1.proto
-此文件为TcaplusDB定义表时用的公共定义，在本文件前面TcaplusDB Protobuf API 约定一节中已经介绍过，此处不再赘述。
+此文件为 TcaplusDB 定义表时用的公共定义，在本文件前面 TcaplusDB Protobuf API 约定一节中已经介绍过，此处不再赘述。
 
