@@ -91,7 +91,7 @@ echo <Name>-<Appid>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 >!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
->在 example-1253972369 这个 Bucket 中，&lt;Name&gt; 为 example， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成 600。
+>在 example-1253972369 这个 Bucket 中，&lt;Name&gt; 为 example， &lt;Appid&gt; 为 1253972369， Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
 
 **示例：**
 
@@ -141,13 +141,13 @@ fusermount -u /mnt 或者 umount -l /mnt
 用来指定分块上传时单个分块的大小（单位： MB），默认是10MB。 由于分块上传对单个文件块的数目有最大限制（10000块），所以对于超出100GB（10MB\*10000）大小的文件，需要根据具体情况调整该参数。
 
 ### -oallow_other
-如果要允许其他用户访问挂载文件夹，可以在运行 cosfs 的时候指定该参数。
+如果要允许其他用户访问挂载文件夹，可以在运行 COSFS 的时候指定该参数。
 
 ### -odel_cache
 默认情况下， COSFS 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
 
 ###  -onoxattr
-禁用 getattr/setxattr 功能，在 1.0.9 之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载的时候使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
+禁用 getattr/setxattr 功能，在1.0.9之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载时使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
  
 ### -ouse_cache=[path]
 使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
@@ -161,17 +161,18 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 ### -oumask=[perm]
 
-该选项可以去除给定类型用户，对挂载目录内文件的操作权限，例如，-oumask=007，可以去除其他用户对文件的读写执行权限。
+该选项可以去除给定类型用户，对挂载目录内文件的操作权限。例如，-oumask=007，可以去除其他用户对文件的读写执行权限。
 
 ### -ouid=[uid]
-该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，访问挂载目录中的所有文件，提示：可用命令 id -u user_00 获取到用户 user_00 的 uid。
+该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
+获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
 
 ## 局限性
 COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
 - 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
-- 文件/文件夹的rename操作不是原子的。
-- 元数据操作，例如list directory，性能较差，因为需要远程访问COS服务器。
+- 文件/文件夹的 rename 操作不是原子的。
+- 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
 - 不支持 hard link，不适合高并发读/写的场景。
 - 不可以同时在一个挂载点上挂载、和卸载文件。您可以先使用 cd 命令切换到其他目录，再对挂载点进行挂载、卸载操作。
 
