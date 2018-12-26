@@ -5,7 +5,7 @@
 
 ### 获取存储桶列表 
 若授予 获取存储桶列表 操作权限，则策略的 `action` 为 `name/cos:GetService` .
- `Get Service` 策略详细内容如下，其中 `resource` 为 `*`.：
+ 对应的策略详细内容如下，其中 `resource` 为 `*`.：
 ```{
   "version": "2.0",
   "statement": [
@@ -44,7 +44,7 @@
 }
 ```
 ### 检索存储桶
-若授予 `Head Bucket` 操作权限，则策略的 `action` 为 `name/cos:HeadBucket` .
+若授予 检索存储桶 操作权限，则策略的 `action` 为 `name/cos:HeadBucket` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶策略详细内容如下：
 ```
 {
@@ -63,7 +63,7 @@
 }
 ```
 ### 查询存储桶地域信息
-若授予 `Get Bucket Location` 操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` .
+若授予 查询存储桶地域信息 操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶的地域信息策略详细内容如下：
 ```
 {
@@ -82,7 +82,7 @@
 }
 ```
 ### 获取存储桶的对象列表
-若授予 `Get Bucket` 操作权限，则策略的 `action` 为 `name/cos:GetBucket` .
+若授予 获取存储桶的对象列表 操作权限，则策略的 `action` 为 `name/cos:GetBucket` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶对象列表的策略详细内容如下：
 ```
 {
@@ -120,7 +120,7 @@
 }
 ```
 ### 设置存储桶 ACL
-若授予 `Put Bucket ACL` 操作权限，则策略的 `action` 为 `name/cos:PutBucketACL` .
+若授予 设置存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:PutBucketACL` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
 ```
 {
@@ -139,7 +139,7 @@
 }
 ```
 ### 获取存储桶 ACL
-若授予 `Get Bucket ACL` 操作权限，则策略的 `action` 为 `name/cos:GetBucketACL` .
+若授予 获取存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:GetBucketACL` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶访问控制信息的策略详细内容如下：
 ```
 {
@@ -158,7 +158,7 @@
 }
 ```
 ### 设置存储桶跨域配置
-若授予 `Put Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:PutBucketCORS` .
+若授予 设置存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:PutBucketCORS` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```
 {
@@ -177,7 +177,7 @@
 }
 ```
 ### 获取存储桶跨域配置
-若授予 `Get Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:GetBucketCORS` .
+若授予 获取存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:GetBucketCORS` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```{
   "version": "2.0",
@@ -195,7 +195,7 @@
 }
 ```
 ### 删除存储桶跨域配置
-若授予 `Delete Bucket CORS` 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketCORS` .
+若授予 删除存储桶跨域配置 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketCORS` .
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶跨域配置信息的策略详细内容如下：
 ```
 {
@@ -214,7 +214,7 @@
 }
 ```
 ### 设置存储桶生命周期
-若授予 `Put Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` .
+若授予 设置存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` .
 如设置 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
 {
@@ -233,7 +233,7 @@
 }
 ```
 ### 获取存储桶生命周期
-若授予 `Get Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` .
+若授予 获取存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` .
 如获取 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
 {
@@ -252,7 +252,7 @@
 }
 ```
 ### 删除存储桶生命周期
-若授予 `Delete Bucket Lifecycle` 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketLifecycle` .
+若授予 删除存储桶生命周期 操作权限，则策略的 `action` 为 `name/cos:DeleteBucketLifecycle` .
 如删除 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶生命周期配置信息的策略详细内容如下：
 ```
 {
@@ -271,7 +271,7 @@
 }
 ```
 ### 获取存储桶中正在分片上传信息
-若授予 `List Multipart Uploads` 操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` .
+若授予 获取存储桶中正在分片上传信息 操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` .
 如查询 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中正在分片上传信息的策略详细内容如下：
 ```
 {
@@ -312,7 +312,7 @@
 }
 ```
 ### 分片上传
-若授予 分片上传 操作权限，则策略的 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 集合.
+若授予 分片上传 操作权限，则策略的 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 的集合.
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中分片上传操作的策略详细内容如下：
 ```
 {
@@ -490,8 +490,8 @@
   ]
 }
 ```
-### Options Object
-若授予 Options 对象 操作权限，则策略的 `action` 为 `name/cos:OptionsObject` .
+### Options 请求
+若授予 Options 请求 操作权限，则策略的 `action` 为 `name/cos:OptionsObject` .
 如允许在 APPID 为 1253653367 账号下的`ap-beijing`地域的`example-1253653367` 存储桶中的 options 请求操作的策略详细内容如下：
 ```json
 {
