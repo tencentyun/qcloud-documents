@@ -7,7 +7,7 @@
   "statement": [
     {
       "action": [
-        "name/cos:PutObject"
+        "name/cos:PutObject",
         "name/cos:InitiateMultipartUpload",
         "name/cos:ListParts",
         "name/cos:UploadPart",
@@ -643,7 +643,7 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/audio.mp3"
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/audio.mp3",
         "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/video.mp4"
       ]
     }
