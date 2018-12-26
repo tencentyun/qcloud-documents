@@ -36,11 +36,10 @@
 | ---- | ---- |
 |version|策略语法版本，默认为 2.0 |
 |effect|有 allow (允许)和 deny (显式拒绝)两种情况|
-|resource|授权操作的具体数据，可以是任意资源 或 指定路径前缀的
-资源 或 指定绝对路径的资源 或 它们的组合|
+|resource|授权操作的具体数据，可以是任意资源 或 指定路径前缀的资源 或 指定绝对路径的资源 或 它们的组合|
 |action|此处是指 COS API，根据需求指定一个或者一序列操作的组合|
 
-以下根据 COS API 详细介绍授权策略.
+*以下根据 COS API 详细介绍授权策略.*
 
 ## Service API 
 
@@ -69,10 +68,10 @@
 ## Bucket API
 Bucket API 策略的 `resource` 可以归纳为以下几种情况：<br>
 若 可操作任意地域的存储桶，则策略的 `resource` 为 `*` .<br>
-若 只可操作指定地域的存储桶，如只可操作 appid 为 1253653367 ，地域为 `ap-beijing` ，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/*` .<br>
+若 只可操作指定地域的存储桶，如只可操作 appid 为 1253653367 ，地域为 `ap-beijing` 的存储桶，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/*` .<br>
 若 只可操作指定地域 且 指定名称的存储桶，如只可操作 appid 为 1253653367 ，地域为 `ap-beijing` 且 名称为 `example-1253653367` 的存储桶， 则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/` .<br>
 Bucket API 策略的 `action` 则因操作不同而取值不同.<br>
-以下列举所有 Bucket API 授权策略.
+*以下列举所有 Bucket API 授权策略.*
 
 ### 创建存储桶 (Put Bucket) 
 若授予 创建存储桶 操作权限，则策略的 `action` 为 `name/cos:PutBucket` .<br>
@@ -361,7 +360,7 @@ Object API 策略的 `resource` 可以归纳为以下几种情况：<br>
 若 只可操作指定存储桶 且 指定路径前缀下的任意对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下的任意对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*` .<br>
 若 只可操作指定绝对路径的对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，绝对路径为 `test/audio.mp3` 的对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3` .<br>
 Object API 策略的 `action` 则因操作不同而取值不同.<br>
-以下列举所有 Object API 授权策略.
+*以下列举所有 Object API 授权策略.*
 
 ### 简单上传 (Put Object) 
 若授予 简单上传 操作权限，则策略的 `action` 为 `name/cos:PutObject` .<br>
