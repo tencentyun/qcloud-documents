@@ -6,7 +6,7 @@ Tcaplus RESTful API 为开发者提供了一种通过 Http 请求与 Tcaplus 数
 
 ## 准备工作
 
-确保您已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 app，并且已经获取对应的 app 信息（包括：AppId，ZoneId，AppKey）。当前 Tcaplus RESTful API 只支持通过 protobuf 定义的表。
+确保您已经在 [腾讯云TcaplusDB](http://qcloud.qq.com) 创建了游戏应用 App，并且已经获取对应的 App 信息（包括：AppId，ZoneId，AppKey）。当前 Tcaplus RESTful API 只支持通过 protobuf 定义的表。
 
 以下是一个 Tcaplus protobuf 表定义文件的示例：
 
