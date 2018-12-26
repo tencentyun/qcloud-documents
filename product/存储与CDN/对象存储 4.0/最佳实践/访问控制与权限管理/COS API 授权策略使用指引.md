@@ -518,7 +518,7 @@ COS API 授权策略 (policy) 是一个 json 字符串,其包含的元素有` ve
 若 源对象或目标对象只存储在指定的存储桶 且 指定的路径前缀下，如源对象或目标对象只存储于 appid 为 1253653367 ， 地域为 `ap-beijing` 地域，存储桶为 `example-1253653367` 的路径为 `test` 下，则源对象或目标对象策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*` .
 若 源对象或目标对象只存储在指定的绝对位置，如源对象或目标对象只存储于 appid 为 1253653367 ， 地域为 `ap-beijing` 地域，存储桶为 `example-1253653367` ，绝对路径为 `test/audio.mp3` ，则源对象或目标对象策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3` .
 #### 示例 
-授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test` 下进行简单复制的操作权限，其策略详细内容如下：
+授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test`  和 路径前缀为 `test2` 间进行分片复制的操作权限，其策略详细内容如下：
 ```
 {
   "version": "2.0",
@@ -538,7 +538,7 @@ COS API 授权策略 (policy) 是一个 json 字符串,其包含的元素有` ve
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"    //这是源对象
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"    //这是源对象
       ]
     }
   ]
@@ -551,7 +551,7 @@ COS API 授权策略 (policy) 是一个 json 字符串,其包含的元素有` ve
 若 源对象或目标对象只存储在指定的存储桶 且 指定的路径前缀下，如源对象或目标对象只存储于 appid 为 1253653367 ， 地域为 `ap-beijing` 地域，存储桶为 `example-1253653367` 的路径为 `test` 下，则源对象或目标对象策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*` .
 若 源对象或目标对象只存储在指定的绝对位置，如源对象或目标对象只存储于 appid 为 1253653367 ， 地域为 `ap-beijing` 地域，存储桶为 `example-1253653367` ，绝对路径为 `test/audio.mp3` ，则源对象或目标对象策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3` .
 #### 示例 
-授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test` 下进行分片复制的操作权限，其策略详细内容如下：
+授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test`  和 路径前缀为 `test2` 间进行分片复制的操作权限，其策略详细内容如下：
 ```
 {
   "version": "2.0",
@@ -566,7 +566,7 @@ COS API 授权策略 (policy) 是一个 json 字符串,其包含的元素有` ve
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/copy_audio.mp3"
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
       ]
     },
     {
@@ -575,7 +575,7 @@ COS API 授权策略 (policy) 是一个 json 字符串,其包含的元素有` ve
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/audio.mp3"
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"    //这是源对象
       ]
     }
   ]
