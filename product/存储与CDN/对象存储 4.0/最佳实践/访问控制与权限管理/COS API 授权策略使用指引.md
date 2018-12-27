@@ -2,7 +2,7 @@
 
 COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID 为 1253653367，地域为`ap-beijing`，存储桶为`example-1253653367` ，路径前缀为`tes`的上传操作权限，路径前缀为`tes2`的下载操作权限的策略内容如下所示：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -42,7 +42,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
 | action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合       |
 
-*以下根据 COS API 详细介绍授权策略.*
+以下根据 COS API 详细介绍授权策略。
 
 ## Service API 
 
@@ -54,7 +54,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 
 授予获取存储桶列表操作权限的策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -94,7 +94,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予可在 APPID 为 1253653367 ，地域为 `ap-beijing` 中创建任意名称的存储桶的操作权限， 其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -119,7 +119,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能检索 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -144,7 +144,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能查询 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的存储桶地域信息的操作权限， 其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -169,7 +169,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的对象列表 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -194,7 +194,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的存储桶 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -219,7 +219,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的 ACL 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -244,7 +244,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的 ACL 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -269,7 +269,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的跨域配置的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -294,7 +294,8 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的跨域配置的操作权限，其策略详细内容如下：
 
-```{
+```shell
+{
   "version": "2.0",
   "statement": [
     {
@@ -318,7 +319,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的跨域配置的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -343,7 +344,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的生命周期配置的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -368,7 +369,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的生命周期配置的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -393,7 +394,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的生命周期配置的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -418,7 +419,7 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 中的正在分片上传信息的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -458,7 +459,7 @@ Object API 策略的 `action` 则因操作不同而取值不同，以下列举�
 
 授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行简单上传的操作权限，其策略详细内容如下：
 
-```
+```shell
  {
   "version": "2.0",
   "statement": [
@@ -483,7 +484,7 @@ Object API 策略的 `action` 则因操作不同而取值不同，以下列举�
 
 授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行分片上传的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -512,7 +513,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行Post上传的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -537,7 +538,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予只能检索 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 中的对象的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -562,7 +563,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予只能下载 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 中的对象的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -587,7 +588,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test`  和 路径前缀为 `test2` 间进行分片复制的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -606,12 +607,14 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"    //这是源对象
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"
       ]
     }
   ]
 }
 ```
+
+其中`"qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"`为源对象。
 
 ### 分片复制
 
@@ -621,7 +624,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予在APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的路径前缀为 `test`  和 路径前缀为 `test2` 间进行分片复制的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -644,12 +647,14 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"    //这是源对象
+        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*" 
       ]
     }
   ]
 }
 ```
+
+其中`"qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"`为源对象。
 
 ### 设置对象 ACL
 
@@ -659,7 +664,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 中的对象 ACL 操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -684,7 +689,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为
 
 授予只能获取 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 中的对象 ACL 操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -709,7 +714,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行 Options 请求 的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -734,7 +739,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行恢复归档的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -759,7 +764,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 授予只能删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 中的 `audio.mp3` 这个对象的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -784,7 +789,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 授予只能批量删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 中的 `audio.mp3` 和 `video.mp4` 两个对象的操作权限，其策略详细内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
@@ -806,7 +811,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 若授予所有任操作且操作任意资源权限，则策略内容如下：
 
-```
+```shell
 {
   "version": "2.0",
   "statement": [
