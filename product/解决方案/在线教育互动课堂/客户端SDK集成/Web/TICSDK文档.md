@@ -8,11 +8,11 @@
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.2.3/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.3.0/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.0/cos.mini.js"></script>
 <!-- TIC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.3.1/TICSDK.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.4.0/TICSDK.mini.js"></script>
 ```
 **建议直接使用腾讯云 CDN 加速的 SDK**。
 
@@ -127,7 +127,8 @@ webrtc 推流配置参数：
 |audio | Boolean | 否，默认 true | 是否启用音频采集|
 |video | Boolean | 否，默认 true | 是否启用视频采集|
 |role | String | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在 [控制台>画面设定](https://console.cloud.tencent.com/rav) 中配置|
-|useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境|
+|useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境 |
+|privateMapKey | String | 否， 如果trtc控制台中开通了权限密钥，则为必填。（[trtc控制台](https://console.cloud.tencent.com/rav)->选择应用->账号信息） |
 |pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 MP3 文件 <br/>2 => 本次是纯音频推流,录制文件为 MP3 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户|
 |peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接。需要结合[高级事件通知]的 [onPeerConnectionAdd] 使用 |
@@ -138,8 +139,10 @@ webrtc 推流配置参数：
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
 id | String | 是 | 白板渲染的在 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
+boardMode | Number | 否 | 白板表现形式， 0：白板模式，白板以一个列表展示  1：文件模式，根据上传的文件进行分组展示。默认 0 白板模式
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
+thin | Number | 否，默认100 | 线条的粗细，实际转换为thin * 白板的高度 / 10000， <font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚</font>
 aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br/>false 不采用比例，采用参数id所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板SDK会以参数id所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 

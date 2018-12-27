@@ -26,7 +26,7 @@
 | ------------------ | ---------------------------------------- |
 | getBoardData | 获取白板数据 |
 | addBoard | 新增一页白板 |
-| deleteBoard | 删除一页白板 |
+| deleteBoard | 删除白板 |
 | prevBoard | 向前翻页 |
 | nextBoard | 向后翻页 |
 | getBoardList | 获取白板列表 |
@@ -47,7 +47,7 @@
 | clearGlobalBgColor | 清除全局背景色 |
 | deleteFile | 删除文件 |
 | switchFile | 切换文件 |
-| getFile | 获取白板中所有的文件 |
+| getAllFileInfo | 获取白板中所有的文件 |
 | getBoardByFile | 根据文件获取该文件的所有白板 |
 | setCanDraw | 设置白板能不能涂鸦 |
 | addBackgroundPic | 增加一白板，并设置该白板的背景图 |
@@ -55,6 +55,8 @@
 | getCosInstance | 获取 COS 对象实例 |
 | addFile | 上传文件，支持 doc、docx、Excel、PPT、PDF |
 | addImgFile | 上传图片 |
+| setTextSize | 设置文字输入的字号 |
+| setTextColor | 设置文字输入的颜色 |
 
 ### 白板 SDK 使用
 
@@ -74,6 +76,7 @@ conf_id | integer | 是 | 课堂 ID
 user | String | 否 | 白板用户昵称
 canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受  Hex 色值，如 #ff00ff，大小写不敏感
+thin | Number | 否，默认100 | 线条的粗细，实际转换为thin * 白板的高度 / 10000， <font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚</font>
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感
 aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br/>false 不采用比例，采用参数id所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板SDK会以参数id所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
 tlsData | Object | 是 | 白板用户鉴权信息
@@ -123,7 +126,7 @@ board.getBoardData()
 board.addBoard()
 ```
 
-#### 4. 删除一页白板
+#### 4. 删除白板
 
 ```
 board.deleteBoard(boarId)
@@ -133,7 +136,7 @@ board.deleteBoard(boarId)
 
 | 参数 |  类型     | 说明 |
 | ----------- | ----------- | ------------------ |
-| boarId |   String   | 需要删除的白板 ID，为空表示删除当前页 |
+| boarId |   String/Array   | 需要删除的白板 ID，传入数组为批量删除，为空表示删除当前页 |
 
 
 #### 5. 向前翻页
@@ -310,7 +313,7 @@ board.deleteFile()
 #### 24. 获取白板中上传的所有的文件
 
 ```
-board.getFile()
+board.getAllFileInfo()
 ```
 
 返回值:
@@ -495,3 +498,4 @@ BoardSDK.DRAW_TYPE：
 | GRAPH_CIRCLE_SOLID | String | graph-circle-solid | 实心圆 |
 | GRAPH_RECT_SOLID | String | graph-rect-solid | 实心矩形 |
 | GRAPH_OVAL_SOLID | String | graph-oval-solid | 实心椭圆 |
+| INPUTTEXT | String | inputtext | 文字输入 |
