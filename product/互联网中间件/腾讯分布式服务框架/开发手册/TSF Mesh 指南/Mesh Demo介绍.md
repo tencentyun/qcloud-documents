@@ -1,5 +1,5 @@
-虚拟机部署 Demo：[tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
-容器部署 Demo：[tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
+虚拟机部署 Demo： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
+容器部署 Demo： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
 
 
 
@@ -8,9 +8,10 @@ Demo 提供了 3 个 Python 应用，对应的服务名和应用监听端口为�
 - shop (8090)
 - promotion (8091)
 
-3 个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口(对应demo中的sidecarPort)，如shop监听8090，user访问shop可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
+3 个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口(对应 demo 中的 sidecarPort )，如 shop 监听8090，user 访问 shop 可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
 
-**注意：mesh的调用链是通过头传递实现的，如果用户想要串起整个服务调用关系，需要在访问其他服务的时候带上父调用9个相关的调用链头，具体示例如下：**
+>!mesh 的调用链通过头传递实现。如果用户想要串联整个服务调用关系，需要在访问其他服务时，带上父调用的9个相关调用链头，具体示例如下：
+
 ```
 // 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
 traceHeaders = ['x-request-id',
@@ -32,10 +33,10 @@ def build_trace_headers(handler):
             retHeaders[header] = header_value
     return retHeaders
 
-// 访问shop服务的端口，可以是默认的80，也可以是shop的真实端口8090
+// 访问 shop 服务的端口，使用默认的80，或者 shop 的真实端口8090
 sidecarPort = 80
 def do_GET(self):
-    // 调用shop服务的时候填充父调用的调用链相关头
+    // 调用shop服务时填充父调用的调用链相关头
     if self.path == '/api/v6/user/create':
         print "headers are %s" % self.headers.keys()
         logger.info("headers are %s" % self.headers.keys())
@@ -74,8 +75,8 @@ def do_GET(self):
 ### 容器应用工程目录
 以 tsf_python_docker_demo 中的 demo-mesh-user 为例说明容器应用工程目录。
 - **Dockerfile**：使用 userService 目录中 start.sh 脚本来启动 Python 应用。
-- **userService**目录：基本结构和 tsf_python_vm_demo中 userService 目录类似，除了没有 stop.sh 和 cmdline 文件。
-- **start.sh**：应用的启动脚本，user demo的启动脚本如下
+- **userService**目录：基本结构类似 tsf_python_vm_demo 中 userService 目录，但是没有 stop.sh 和 cmdline 文件。
+- **start.sh**：应用的启动脚本，user demo的启动脚本如下：
 ```shell
 #! /bin/bash
 cp /root/app/userService/spec.yaml /opt/tsf/app_config/ 
@@ -84,11 +85,11 @@ cd /root/app/userService/
 python ./userService.py 80 1>./logs/user.log 2>&1
 ```
 脚本说明：
-1) 应用工作目录为`/root/app/userService/`，应用日志目录为`/root/app/userService/logs/user.log`
-2) 第2行：创建 `/opt/tsf/app_config/apis` 目录
+1) 应用工作目录为`/root/app/userService/`，应用日志目录为`/root/app/userService/logs/user.log`。
+2) 第2行：创建 `/opt/tsf/app_config/apis` 目录。
 3) 第3行：将`spec.yaml`文件拷贝到`/opt/tsf/app_config/` 中。
 4) 第4行：将`apis`目录拷贝到`/opt/tsf/app_config/` 中。
-5) 第5行：启动user应用
+5) 第5行：启动 user 应用。
 
-> **注意：** 您需要在容器启动后通过用户程序的启动脚本拷贝目录，不可以在 Dockerfile 中提前拷贝。
+> !您需要在容器启动后通过用户程序的启动脚本拷贝目录，不可以在 Dockerfile 中提前拷贝。
 
