@@ -43,3 +43,4 @@ python ./userService.py 80 1>./logs/user.log 2>&1
 5) 第5行：启动user应用
 
 > **注意：** 您需要在容器启动后通过用户程序的启动脚本拷贝目录，不可以在 Dockerfile 中提前拷贝。
+
