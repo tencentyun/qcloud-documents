@@ -1,16 +1,16 @@
 ## 简介
-TcaplusDB 服务化 API 是应用访问游戏存储服务集群的数据访问入口，是应用存取游戏存储服务集群中业务数据的编程接口。当前 TcaplusDB 主要使用基于 Google Protocol Buffer（Protobuf） 做通讯和数据元定义协议。
+TcaplusDB 服务化 API 是应用访问游戏数据库 TcaplusDB 的数据访问入口，是应用存取游戏数据库 TcaplusDB 中业务数据的编程接口。当前 TcaplusDB 主要使用基于 Google Protocol Buffer（Protobuf） 做通讯和数据元定义协议。
 
 ## 流程
-用户在控制台开通业务创建完表后，控制台配置信息页会提供 AppId，AppKey，内网接入地址，以及 Protobuf 表管理页显示已经创建的表名称和部署单元 ID（ZoneId） 等信息。其中，前三项是应用申请接入游戏存储服务成功后得到的，后两项是业务在游戏存储管理页面上创建表结构时确定下来的。使用游戏存储服务化 API，应用可以操作属于 AppId 的多个数据表。
+您在控制台开通业务创建完表后，控制台配置信息页会提供 AppId，AppKey，内网接入地址，以及 Protobuf 表管理页显示已经创建的表名称和部署单元 ID（ZoneId） 等信息。其中，前三项是应用申请接入游戏存储服务成功后得到的，后两项是业务在游戏存储管理页面上创建表结构时确定下来的。使用游戏存储服务化 API，应用可以操作属于 AppId 的多个数据表。
 
 ## 模块
-用户可以 Protobuf 协议来定义符合 TcaplusDB 规范的表，把表定义的元文件传到 TcaplusDB 控制台管理系统中进行创建新表或修改已经存在的表，成功后即可通过 TcaplusDB Protobuf API 进行表数据记录的读写操作，当前 TcaplusDB Protobuf API 支持的操作如下表：
+您可以 Protobuf 协议来定义符合 TcaplusDB 规范的表，把表定义的元文件传到 TcaplusDB 控制台管理系统中进行创建新表或修改已经存在的表，成功后即可通过 TcaplusDB Protobuf API 进行表数据记录的读写操作，当前 TcaplusDB Protobuf API 支持的操作如下表：
 
 | 操作 | 功能描述 |
 |---------|---------|
-| GET | 根据用户传的单个的 Key 获得单条 Value 信息 |
-| BATCHGET | 根据用户传的多个的 Key 获得多条 Value 信息 |
+| GET | 根据单个的 Key 获得单条 Value 信息 |
+| BATCHGET | 根据多个的 Key 获得多条 Value 信息 |
 | ADD | 插入一条数据。如果 Key 对应记录存在则报错 |
 | SET | Key 对应记录存在则更新数据，否则插入数据请求 |
 | DEL| 根据 Key 删除对应的记录 |
@@ -21,7 +21,7 @@ TcaplusDB 服务化 API 是应用访问游戏存储服务集群的数据访问�
 | TRAVERSE | 指定表名进行全表遍历 |
 
 ## TcaplusDB SDK 约定
-TcaplusDB 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 TcaplusDB 系统中，用户只需在自定义表时引用，创建新表或修改已经存在的表时不用上传，系统已经内置。具体内容如下：
+TcaplusDB 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 TcaplusDB 系统中，您只需在自定义表时引用，创建新表或修改已经存在的表时不用上传，系统已经内置。具体内容如下：
 ```
 extend google.protobuf.MessageOptions
 {
@@ -41,8 +41,8 @@ extend google.protobuf.FieldOptions
 }
 ```
 完整文件可在目录 release\x86_64\include\tcaplus_pb_api\tcaplusservice.optionv1.proto 中找到。
-1. 表名要以字母或下载线开头，不能超过31个字段，不能有除数字，字母，下划线之外的特殊字段。
-2. 各字段的名称要以字母或下划线，protobuf 已经限制。
+1. 表名要以字母或下划线开头，不能超过31个字段，不能有除数字，字母，下划线之外的特殊字段。
+2. 各字段的名称要以字母或下划线命名，protobuf 已经限制。
 3. 主键最多4个字段，必须是 required 类型，打包后长度不能超过1022字节。
 4. value 打包后不能超过256KB, 同时整个记录打包不能超过256KB。
 5. 除了 key 字段，至少有一个 value 字段。value 字段上限以 protobuf 为准。
