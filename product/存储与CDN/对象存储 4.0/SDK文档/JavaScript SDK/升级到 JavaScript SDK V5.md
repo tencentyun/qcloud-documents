@@ -44,7 +44,7 @@ SDK V5 存储桶名称由两部分组成：用户自定义字符串和 APPID，�
 ```js
 cos.getBucket({
     Bucket: 'examplebucket-1251902136',
-    Bucket: 'ap-beijing',
+    Region: 'ap-beijing',
 }, function (err, data) {
     console.log(err || data);
 });
@@ -73,12 +73,14 @@ SDK V5 的存储桶可用区域简称发生了变化，不同区域在 V4 和 V5
 | 曼谷       | ap-bangkok     | 无 |
 | 莫斯科       | eu-moscow     | 无 |
 
+也可以参考 [XML API 园区列表文档](https://cloud.tencent.com/document/product/436/6224)
+
 在调用每个方法的时候，将存储桶所在区域的简称设置到参数 `Region` 中：
 
 ```java
 cos.headBucket({
     Bucket: 'examplebucket-1251902136',
-    Bucket: 'ap-beijing',
+    Region: 'ap-beijing',
 }, function (err, data) {
     console.log(err || data);
 });
@@ -146,7 +148,7 @@ cos.putObject({
 ```js
 cos.putObject({
     Bucket: 'examplebucket-1251902136',
-    Bucket: 'ap-beijing-1',
+    Region: 'ap-beijing-1',
     Key: '1.txt',
 }, function (err, data) {
     console.log(err || data);
