@@ -1,13 +1,61 @@
-虚拟机部署 Demo：[tsf_python_vm_demo](https://main.qcloudimg.com/raw/18374feb774a9be209d47bd5d3ab9914/tsf_python_vm_demo-1225.tar.gz) 
-容器部署 Demo：[tsf_python_docker_demo](https://main.qcloudimg.com/raw/69a7f9a875481662871efd2345ac4ff0/tsf_python_docker_demo-1225.tar.gz)
+虚拟机部署 Demo：[tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
+容器部署 Demo：[tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
 
-Demo 提供了 3 个 Python 应用，对应的服务名分别是：
-- user
-- shop
-- promotion
 
-默认的监听端口为**80**，如果需要更改应用监听端口，将**start.sh**和**spec.yaml**中对应的80端口改掉即可(**注意：两个文件都要修改**)
-3 个应用之间的调用关系是：`user -> shop -> promotion`。
+
+Demo 提供了 3 个 Python 应用，对应的服务名和应用监听端口为：
+- user (8089)
+- shop (8090)
+- promotion (8091)
+
+3 个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口(对应demo中的sidecarPort)，如shop监听8090，user访问shop可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
+
+**注意：mesh的调用链是通过头传递实现的，如果用户想要串起整个服务调用关系，需要在访问其他服务的时候带上父调用9个相关的调用链头，具体示例如下：**
+```
+// 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
+traceHeaders = ['x-request-id',
+                'x-trace-service',
+                'x-ot-span-context',
+                'x-client-trace-id',
+                'x-b3-traceid',
+                'x-b3-spanid',
+                'x-b3-parentspanid',
+                'x-b3-sampled',
+                'x-b3-flags']
+
+// 填充调用链相关的头
+def build_trace_headers(handler):
+    retHeaders = {}
+    for header in traceHeaders:
+        if handler.headers.has_key(header):
+            header_value = handler.headers.get(header)
+            retHeaders[header] = header_value
+    return retHeaders
+
+// 访问shop服务的端口，可以是默认的80，也可以是shop的真实端口8090
+sidecarPort = 80
+def do_GET(self):
+    // 调用shop服务的时候填充父调用的调用链相关头
+    if self.path == '/api/v6/user/create':
+        print "headers are %s" % self.headers.keys()
+        logger.info("headers are %s" % self.headers.keys())
+        headers = common.build_trace_headers(self)
+        if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            msg = {"result":{"userId":"1234", "userName":"vincent"}}
+            self.wfile.write(json.dumps(msg))
+        else:
+            self.send_response(500)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            msg = {"exception":"Error invoke %s" % "/api/v6/shop/items"}
+            self.wfile.write(json.dumps(msg))
+
+```
+
+
 
 
 ## 工程目录
