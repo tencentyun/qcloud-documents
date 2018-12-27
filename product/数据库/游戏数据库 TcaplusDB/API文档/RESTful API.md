@@ -218,7 +218,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 >!  请求的变量必须通过 UrlEncode 编码。
 
-|Name             |Type             |Value |
+|名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.GetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -288,7 +288,7 @@ PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 
 通过指定一条记录所有主键设置一条记录。如果记录存在执行覆盖操作，否则，执行插入操作。
 
-|Name             |Type             |Value |
+|名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -390,7 +390,7 @@ POST /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 ```
 通过指定一条记录所有主键插入一条记录。如果记录存在返回错误。
 
-|Name             |Type             |Value |
+|名称            |类型           |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -399,13 +399,15 @@ POST /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 |x-tcaplus-idl-type  |String|protobuf |
 
 
-示例：
+#### 示例：
 
-URL：
+##### URL：
 ```
  http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
-请求Http头:
+##### 请求 Http 头：
+
+```
 [
  "x-tcaplus-target:Tcaplus.AddRecord",
  "x-tcaplus-version:Tcaplus3.32.0",
@@ -413,8 +415,11 @@ URL：
  "x-tcaplus-result-flag:1",
  "x-tcaplus-idl-type:protobuf"
 ]
+```
 
-请求JSON数据:
+##### 请求 JSON 数据：
+
+```
 {
  "ReturnValues": "Send to tcaplus by calvinshao",
  "Record": {
@@ -440,8 +445,11 @@ URL：
   "logintime": 404
  }
 }
+```
 
-应答JSON数据:
+##### 应答 JSON 数据：
+
+```
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
@@ -472,13 +480,18 @@ URL：
 }
 ```
 
+
+
 ###  Tcaplus.DeleteRecord 
 
-`DELETE` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+```
+DELETE /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+
+```
 
 通过指定一条记录的所有主键删除此记录，如果数据不存在则返回错误。
 
-|Name             |Type             |Value |
+|名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -486,13 +499,17 @@ URL：
 |x-tcaplus-result-flag  |Int|1 |
 |x-tcaplus-idl-type  |String|protobuf |
 
+
+#### 示例：
+
+##### URI：
 ```
-示例:
-
-URI:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+```
 
-请求Http头:
+##### 请求 Http 头：
+
+```
 [
  "x-tcaplus-target:Tcaplus.DeleteRecord",
  "x-tcaplus-version:Tcaplus3.32.0",
@@ -500,8 +517,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
  "x-tcaplus-result-flag:1",
  "x-tcaplus-idl-type:protobuf"
 ]
+```
 
-请求JSON数据:
+##### 请求 JSON 数据：
+
+```
 {
  "ReturnValues": "Send to tcaplus by calvinshao",
  "Record": {
@@ -510,8 +530,10 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
   "uin": 100
  }
 }
+```
 
-应答JSON数据:
+##### 应答 JSON 数据：
+```
 {
  "ErrorCode": 0,
  "Record": {},
@@ -520,41 +542,53 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 }
 ```
 
-###  Tcaplus.FieldGetRecord 
 
-`GET` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
+
+###  Tcaplus.FieldGetRecord 
+```
+GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
+```
 
 从一个 Tcaplus pb 表中通过指定一条记录所有主键查询一条记录。本操作只查询和传输用户通过 select 变量指定的字段的值，这将减少网络传输流量，这是与 GetRecord 操作最大的不同之处。如果数据记录不存在，将会返回错误。
-
 必须在 URI 中指定`keys`和`select`变量。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
 >! 请求的变量必须通过 urlencode 编码。
 
-|Name             |Type             |Value |
+|名称             |类型            |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.FieldGetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
 |x-tcaplus-pwd-md5  |String|MD5 of AppKey(Password) |
 |x-tcaplus-idl-type  |String|protobuf |
 
+#### 示例：
+
+##### URL 未 UrlEncode 结果:
+
 ```
-示例:
-
-URL 未UrlEncode结果:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.auth.pay_keys', 'pay.total_money']
+```
 
-URL UrlEncode结果:
+##### URL UrlEncode 结果：
+
+```
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.auth.pay_keys%22%2C%20%22pay.total_money%22%5D
+```
 
-请求Http头:
+##### 请求 Http 头：
+
+```
 [
  "x-tcaplus-target:Tcaplus.FieldGetRecord",
  "x-tcaplus-version:Tcaplus3.32.0",
  "x-tcaplus-pwd-md5:c3eda5f013f92c81dda7afcdc273cf82",
  "x-tcaplus-idl-type:protobuf"
 ]
+```
 
-应答JSON数据
+##### 应答 JSON 数据：
+
+```
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
@@ -581,11 +615,14 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7
 
 ###  Tcaplus.FieldSetRecord  
 
-`PUT` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+```
+PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+```
+
 
 通过指定一条记录的所有主键修改指定字段，与 SetRecord 操作不同的是此操作只传输并设置指定字段的值，并不传输所有字段。这将减轻网络流量。如果数据记录存在，将执行更新操作，否则将会返回错误。
 
-|Name             |Type             |Value |
+|名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -595,13 +632,19 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7
 |x-tcaplus-data-version  |Int|-1 |
 |x-tcaplus-idl-type  |String|protobuf |
 
-```
-示例:
 
-URL:
+#### 示例：
+
+##### URL：
+
+```
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 
-请求HTTP头：
+```
+
+##### 请求 HTTP 头：
+
+```
 [
  "x-tcaplus-target:Tcaplus.FieldSetRecord",
  "x-tcaplus-version:Tcaplus3.32.0",
@@ -612,7 +655,10 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
  "x-tcaplus-idl-type:Protobuf"
 ]
 
-请求JSON数据：
+```
+##### 请求 JSON 数据：
+
+```
 {
  "ReturnValues": "aaaaaaaaaa",
  "Record": {
@@ -629,8 +675,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
   "logintime": 1719
  }
 }
+```
 
-应答JSON数据：
+##### 应答 JSON 数据：
+
+```
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
@@ -652,13 +701,17 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 }
 ```
 
+
 ### Tcaplus.FieldIncRecord 
 
-`PUT` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+```
+PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
+```
+
 
 通过指定一条记录的所有主键对指定的字段进行自增操作，此命令字仅支持 `int32`， `int64`， `uint32` 和 `uint64`类型字段。特性与 FieldSetRecord 类似。
 
-|Name             |Type             |Value |
+|名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
@@ -668,13 +721,18 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 |x-tcaplus-data-version  |Int|-1 |
 |x-tcaplus-idl-type  |String|protobuf |
 
+
+#### 示例：
+
+##### URL：
+
 ```
-示例:
-
-URL:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+```
 
-请求HTTP头:
+##### 请求 HTTP 头：
+
+```
 [
  "x-tcaplus-target:Tcaplus.FieldIncRecord",
  "x-tcaplus-version:Tcaplus3.32.0",
@@ -684,8 +742,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
  "x-tcaplus-data-version:-1",
  "x-tcaplus-idl-type:Protobuf"
 ]
+```
 
-请求JSON数据:
+##### 请求 JSON 数据：
+
+```
 {
  "ReturnValues": "aaaaaaaaaa",
  "Record": {
@@ -702,8 +763,11 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
   "logintime": -2
  }
 }
+```
 
-应答JSON数据：
+##### 应答 JSON 数据：
+
+```
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
@@ -725,43 +789,54 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 }
 ```
 
-###  Tcaplus.PartkeyGetRecord 
 
-`GET` /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
+###  Tcaplus.PartkeyGetRecord 
+```
+GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
+```
 
 通过指定部分主键的值查询多条记录。这个操作将返回多条数据，并且通过 select 变量指定的字段名显示。此操作的前提是指定的主键集合必须在建表的时候创建了索引，否则会返回错误。
 
-必须在URI中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
+必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
 >! 请求的变量必须通过 urlencode 编码。
 
-|Name             |Type             |Value |
+|名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.GetRecord |
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
 |x-tcaplus-pwd-md5  |String|MD5 of AppKey(Password) |
 |x-tcaplus-idl-type  |String|protobuf |
 
+
+#### 示例：
+
+##### URL 未 UrlEncode 结果：
+
 ```
-Example:
-
-URL without UrlEncode:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.total_money', 'pay.auth.pay_keys']
+```
 
-URL with UrlEncode:
+##### URL UrlEncode 结果：
+```
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.total_money%22%2C%20%22pay.auth.pay_keys%22%5D
+```
 
-Request Http header:
+##### 请求 HTTP 头：
+```
 [
 "x-tcaplus-target:Tcaplus.PartkeyGetRecord",
 "x-tcaplus-version:Tcaplus3.32.0",
 "x-tcaplus-pwd-md5:c3eda5f013f92c81dda7afcdc273cf82",
 "x-tcaplus-idl-type:protobuf"
 ]
+```
 
-Resp Status 200, cost:7 ms
 
-Response Data:
+
+##### 应答数据：
+
+```
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
