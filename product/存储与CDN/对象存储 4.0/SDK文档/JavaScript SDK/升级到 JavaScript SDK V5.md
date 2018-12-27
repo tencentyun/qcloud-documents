@@ -163,11 +163,11 @@ JavaScript SDK V5 新增 API，您可根据需求进行调用。包括：
 
 * 存储桶的操作，如 getService 、putBucket、getBucket 等。
 * 存储桶 ACL 的操作，如 getBucketAcl、putBucketAcl 等。
-* 存储桶 Policy 的操作，putBucketPolicy、getBucketPolicy、 deleteBucketPolicy
-* 存储桶生命周期的操作，如 putBucketLifecycle、getBucketLifecycle、 deleteBucketLifecycle
-* 对象 ACL 操作：getObjectAcl、putObjectAcl
-* 对象复制操作：putObjectCopy、sliceCopyFile
-* 工具方法：getObjectUrl
-* 对象上传队列：pauseTask、restartTask、cancelTask、getTaskList 方法以及 list-update 事件
+* 存储桶 Policy 的操作，putBucketPolicy、getBucketPolicy、 deleteBucketPolicy。
+* 存储桶生命周期的操作，如 putBucketLifecycle、getBucketLifecycle、 deleteBucketLifecycle。
+* 对象 ACL 操作：getObjectAcl、putObjectAcl。
+* 对象复制操作：putObjectCopy、sliceCopyFile。
+* 工具方法：getObjectUrl。
+* 对象上传队列：pauseTask、restartTask、cancelTask、getTaskList 方法以及 list-update 事件。
 
 了解更多请查看 [JavaScript SDK 接口文档](https://cloud.tencent.com/document/product/436/12260)。
