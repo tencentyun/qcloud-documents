@@ -212,7 +212,7 @@ Response Data
 ```
 GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSONKeysObj}&select={JSONSelectObj}
 ```
-从一个 Tcaplus pb 表中通过指定一条记录的 key 信息查询此记录。这个操作将会把整条记录取出，但您需要设置 select 变量，需要指定需要在应答中返回的字段，如果 select 变量不指定，将会显示所有字段信息。如果数据记录不存在，将会返回错误。
+从一个 Tcaplus pb 表中通过指定一条记录的 key 信息查询此记录。这个操作将会把整条记录取出，但您可以设置 select 变量，select 变量可指定您需要在应答中返回的字段，如果 select 变量不指定，将会显示所有字段信息。如果数据记录不存在，将会返回错误。
 
 必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指所有主键的值，select 指需要显示的 value 字段的名称。并且您可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
