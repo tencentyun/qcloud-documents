@@ -1,5 +1,5 @@
 
-云数据库 Redis CKV 版提供数据导入工具 [redis-import-rdb（linux 版本）](https://main.qcloudimg.com/raw/2b60883d002b00f4814daf80c2335ba3/redis-import-rdb)，工具支持导入 Redis 4.0 以及 4.0 版本以下的 RDB 数据。
+云数据库 Redis（CKV 版）提供数据导入工具 [redis-import-rdb（linux 版本）](https://main.qcloudimg.com/raw/2b60883d002b00f4814daf80c2335ba3/redis-import-rdb)，工具支持导入 Redis 4.0 以及 4.0 版本以下的 RDB 数据。
 
 ## 操作步骤
 1. 通过`BGSAVE`或`SAVE`命令生成 RDB 文件，推荐使用`BGSAVE`命令备份数据，使用`SAVE`命令会使整个 Redis 服务在完成备份前不可用。
