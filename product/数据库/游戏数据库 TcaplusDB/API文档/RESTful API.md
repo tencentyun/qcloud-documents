@@ -752,14 +752,14 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
  "Record": {
   "name": "calvinshao",
   "pay": {
-   "total_money": -1, // negtive integer means decrease
+   "total_money": -1, 
    "auth": {
     "update_time": -1
    }
   },
   "region": 101,
   "uin": 100,
-  "gamesvrid": 2, // positive integer means increase
+  "gamesvrid": 2,
   "logintime": -2
  }
 }
