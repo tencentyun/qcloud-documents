@@ -38,6 +38,7 @@ COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作�
 |effect|有 allow (允许)和 deny (显式拒绝)两种情况|
 |resource|授权操作的具体数据，可以是任意资源 或 指定路径前缀的资源 或 指定绝对路径的资源 或 它们的组合|
 |action|此处是指 COS API，根据需求指定一个或者一序列操作的组合|
+|[condition](https://cloud.tencent.com/document/product/598/10603)|约束条件，可不填|
 
 *以下根据 COS API 详细介绍授权策略.*
 
