@@ -46,9 +46,9 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 
 ## Service API 
 
-### 获取存储桶列表（Get Service） 
+### 获取存储桶列表
 
-若授予获取存储桶列表操作权限，则策略的 `action` 为 `name/cos:GetService`，`resource`为`*` 。
+获取存储桶列表：Get Service，若授予其操作权限，则策略的 `action` 为 `name/cos:GetService`，`resource`为`*` 。
 
 #### 示例 
 
@@ -86,9 +86,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
   Bucket API 策略的 `action` 则因操作不同而取值不同.<br>
   *以下列举所有 Bucket API 授权策略.*
 
-### 创建存储桶 （Put Bucket） 
+### 创建存储桶 
 
-若授予创建存储桶操作权限，则策略的 `action` 为 `name/cos:PutBucket` .<br>
+创建存储桶：Put Bucket，若授予其操作权限，则策略的 `action` 为 `name/cos:PutBucket` 。
 
 #### 示例 
 
@@ -111,13 +111,13 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 检索存储桶 （Head Bucket） 
+### 检索存储桶  
 
-若授予检索存储桶操作权限，则策略的 `action` 为 `name/cos:HeadBucket` .<br>
+检索存储桶：Head Bucket，若授予其操作权限，则策略的 `action` 为 `name/cos:HeadBucket` 。
 
 #### 示例 
 
-授予 只能检索 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的操作权限，其策略详细内容如下：
+授予只能检索 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的操作权限，其策略详细内容如下：
 
 ```
 {
@@ -136,13 +136,13 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 查询存储桶地域信息 （Get Bucket Location） 
+### 查询存储桶地域信息
 
-若授予查询存储桶地域信息操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` .<br>
+查询存储桶地域信息：Get Bucket Location，若授予其操作权限，则策略的 `action` 为 `name/cos:GetBucketLocation` 。
 
 #### 示例 
 
-授予 只能查询 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的存储桶地域信息的操作权限， 其策略详细内容如下：
+授予只能查询 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的存储桶地域信息的操作权限， 其策略详细内容如下：
 
 ```
 {
@@ -161,9 +161,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 获取存储桶的对象列表 （Get Bucket） 
+### 获取存储桶的对象列表
 
-若授予获取存储桶的对象列表操作权限，则策略的 `action` 为 `name/cos:GetBucket` .<br>
+获取存储桶的对象列表：Get Bucket，若授予其操作权限，则策略的 `action` 为 `name/cos:GetBucket` 。
 
 #### 示例 
 
@@ -186,9 +186,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 删除存储桶 （Delete Bucket） 
+### 删除存储桶
 
-若授予删除存储桶 操作权限，则策略的 `action` 为 `name/cos:DeleteBucket` .<br>
+删除存储桶：Delete Bucket，若授予其操作权限，则策略的 `action` 为 `name/cos:DeleteBucket` 。
 
 #### 示例 
 
@@ -211,9 +211,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 设置存储桶 ACL （Put Bucket ACL） 
+### 设置存储桶 ACL 
 
-若授予设置存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:PutBucketACL` .<br>
+设置存储桶 ACL：Put Bucket ACL，若授予其操作权限，则策略的 `action` 为 `name/cos:PutBucketACL`。
 
 #### 示例 
 
@@ -236,9 +236,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 获取存储桶 ACL （Get Bucket ACL） 
+### 获取存储桶 ACL
 
-若授予获取存储桶 ACL 操作权限，则策略的 `action` 为 `name/cos:GetBucketACL` .<br>
+获取存储桶 ACL：Get Bucket ACL，若授予其操作权限，则策略的 `action` 为 `name/cos:GetBucketACL`。
 
 #### 示例 
 
@@ -261,9 +261,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 设置存储桶跨域配置 （Put Bucket CORS） 
+### 设置存储桶跨域配置
 
-若授予设置存储桶跨域配置操作权限，则策略的 `action` 为 `name/cos:PutBucketCORS` .<br>
+设置存储桶跨域配置：Put Bucket CORS，若授予其操作权限，则策略的 `action` 为`name/cos:PutBucketCORS` 。
 
 #### 示例 
 
@@ -286,9 +286,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 获取存储桶跨域配置 （Get Bucket CORS） 
+### 获取存储桶跨域配置
 
-若授予获取存储桶跨域配置操作权限，则策略的 `action` 为 `name/cos:GetBucketCORS` .<br>
+获取存储桶跨域配置：Get Bucket CORS，若授予其权限，则策略的 `action` 为 `name/cos:GetBucketCORS`。
 
 #### 示例 
 
@@ -310,9 +310,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 删除存储桶跨域配置 （Delete Bucket CORS） 
+### 删除存储桶跨域配置
 
-若授予删除存储桶跨域配置操作权限，则策略的 `action` 为 `name/cos:DeleteBucketCORS` .<br>
+删除存储桶跨域配置 Delete Bucket CORS，若授予其操作权限，则策略的 `action` 为`name/cos:DeleteBucketCORS`。
 
 #### 示例 
 
@@ -335,13 +335,13 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 设置存储桶生命周期 （Put Bucket Lifecycle） 
+### 设置存储桶生命周期
 
-若授予设置存储桶生命周期操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` .<br>
+设置存储桶生命周期：Put Bucket Lifecycle，若授予其操作权限，则策略的 `action` 为 `name/cos:PutBucketLifecycle` 。
 
 #### 示例 
 
-授予 只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的生命周期配置的操作权限，其策略详细内容如下：
+授予只能设置 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 的生命周期配置的操作权限，其策略详细内容如下：
 
 ```
 {
@@ -360,9 +360,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 获取存储桶生命周期 （Get Bucket Lifecycle） 
+### 获取存储桶生命周期
 
-若授予获取存储桶生命周期操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` .<br>
+获取存储桶生命周期：Get Bucket Lifecycle，若授予其操作权限，则策略的 `action` 为 `name/cos:GetBucketLifecycle` 。
 
 #### 示例 
 
@@ -385,9 +385,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 删除存储桶生命周期 （Delete Bucket Lifecycle） 
+### 删除存储桶生命周期
 
-若授予删除存储桶生命周期操作权限，则策略的 `action` 为 `name/cos:DeleteBucketLifecycle` .<br>
+删除存储桶生命周期：Delete Bucket Lifecycle，若授予其操作权限，则策略的 `action` 为`name/cos:DeleteBucketLifecycle`。
 
 #### 示例 
 
@@ -410,9 +410,9 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 }
 ```
 
-### 获取存储桶中正在分片上传信息 （List Multipart Uploads） 
+### 获取存储桶中正在分片上传信息
 
-若授予获取存储桶中正在分片上传信息操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` .<br>
+获取存储桶中正在分片上传信息：List Multipart Uploads，若授予其操作权限，则策略的 `action` 为 `name/cos:ListMultipartUploads` 。
 
 #### 示例 
 
@@ -440,25 +440,23 @@ Bucket API 策略的`resource`可以归纳为以下几种情况：
 ## Object API
 
 Object API 策略的 `resource` 可以归纳为以下几种情况：<br>
-若 可操作任意对象，则策略的 `resource` 为 `*` .<br>
-若 只可操作指定存储桶中的任意对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，且名称为 `example-1253653367` 的存储桶中的任意对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/*` .<br>
-若 只可操作指定存储桶 且 指定路径前缀下的任意对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下的任意对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*` .<br>
-若 只可操作指定绝对路径的对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，绝对路径为 `test/audio.mp3` 的对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3` .<br>
+
+- 可操作任意对象，策略的 `resource` 为 `*`。
+- 只可操作指定存储桶中的任意对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，且名称为 `example-1253653367` 的存储桶中的任意对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/*`。
+- 只可操作指定存储桶 且 指定路径前缀下的任意对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下的任意对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*`。
+- 只可操作指定绝对路径的对象，如只可操作 appid 为 1253653367 ， 地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，绝对路径为 `test/audio.mp3` 的对象，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3`。
 
 
 
+Object API 策略的 `action` 则因操作不同而取值不同，以下列举所有 Object API 授权策略。
 
+### 简单上传
 
-Object API 策略的 `action` 则因操作不同而取值不同.<br>
-*以下列举所有 Object API 授权策略.*
-
-### 简单上传 （Put Object） 
-
-若授予 简单上传 操作权限，则策略的 `action` 为 `name/cos:PutObject` .<br>
+简单上传：Put Object，若授予其操作权限，则策略的 `action` 为 `name/cos:PutObject` 。
 
 #### 示例 
 
-授予 只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行简单上传的操作权限，其策略详细内容如下：
+授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行简单上传的操作权限，其策略详细内容如下：
 
 ```
  {
@@ -479,9 +477,7 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 
 ### 分片上传 
 
-分片上传包含：Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。
-
-若授予分片上传接口操作权限，则策略的 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 的集合。
+分片上传包含：Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 的集合。
 
 #### 示例 
 
@@ -508,9 +504,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### Post 上传 （Post Object） 
+### Post 上传
 
-若授予Post上传 操作权限，则策略的 `action` 为 `name/cos:PostObject` 。
+Post 上传：Post Object，若授予其操作权限，则策略的 `action` 为 `name/cos:PostObject`。
 
 #### 示例 
 
@@ -533,9 +529,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 检索对象 （Head Object） 
+### 检索对象
 
-若授予检索对象 操作权限，则策略的 `action` 为 `name/cos:HeadObject` 。
+检索对象：Head Object，若授予其操作权限，则策略的 `action` 为 `name/cos:HeadObject` 。
 
 #### 示例 
 
@@ -558,9 +554,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 下载对象 （Get Object） 
+### 下载对象
 
-若授予下载对象 操作权限，则策略的 `action` 为 `name/cos:GetObject`。
+下载对象：Get Object，若授予其操作权限，则策略的 `action` 为 `name/cos:GetObject`。
 
 #### 示例 
 
@@ -583,9 +579,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 简单复制 （Put Object Copy） 
+### 简单复制
 
-若授予简单复制 操作权限，则策略的目标对象的 `action` 为 `name/cos:PutObject` ， 和 源对象的`action` 为 `name/cos:GetObject` 。
+简单复制：Put Object Copy，若授予其操作权限，则策略的目标对象的 `action` 为 `name/cos:PutObject` ， 和 源对象的`action` 为 `name/cos:GetObject` 。
 
 #### 示例 
 
@@ -617,9 +613,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 分片复制 （Upload Part Copy）
+### 分片复制
 
-若授予分片复制 操作权限，则策略的目标对象的 `action` 为 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 集合， 和源对象的`action` 为 `name/cos:GetObject` 。
+分片复制：Upload Part Copy，若授予其操作权限，则策略的目标对象的 `action` 为 `action` 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"` 集合， 和源对象的`action` 为 `name/cos:GetObject` 。
 
 #### 示例 
 
@@ -655,9 +651,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 设置对象 ACL （Put Object ACL） 
+### 设置对象 ACL
 
-若授予设置对象 ACL 操作权限，则策略的 `action` 为 `name/cos:PutObjectACL` 。
+设置对象 ACL：Put Object ACL，若授予其操作权限，则策略的 `action` 为 `name/cos:PutObjectACL` 。
 
 #### 示例 
 
@@ -680,9 +676,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 获取对象 ACL （Get Object ACL） 
+### 获取对象 ACL
 
-若授予获取对象 ACL 操作权限，则策略的 `action` 为 `name/cos:GetObjectACL` .<br>
+获取对象 ACL：Get Object ACL，若授予其操作权限，则策略的 `action` 为 `name/cos:GetObjectACL`。
 
 #### 示例 
 
@@ -705,13 +701,13 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### Options 请求 （Options Object） 
+### Options 请求
 
-若授予 Options 请求操作权限，则策略的 `action` 为 `name/cos:OptionsObject` .<br>
+Options 请求：Options Object，若授予其操作权限，则策略的 `action` 为 `name/cos:OptionsObject`。
 
 #### 示例 
 
-授予 只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行 Options 请求 的操作权限，其策略详细内容如下：
+授予只能在 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` ，路径前缀为 `test` 下进行 Options 请求 的操作权限，其策略详细内容如下：
 
 ```
 {
@@ -730,9 +726,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 恢复归档 （Post Object Restore） 
+### 恢复归档
 
-若授予恢复归档操作权限，则策略的 `action` 为 `name/cos:PostObjectRestore` .<br>
+恢复归档：Post Object Restore，若其作权限，则策略的 `action` 为 `name/cos:PostObjectRestore` 。
 
 #### 示例 
 
@@ -755,9 +751,9 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 删除对象 （Delete Object） 
+### 删除对象
 
-若授予删除对象操作权限，则策略的 `action` 为 `name/cos:DeleteObject` .<br>
+删除对象：Delete Object，若授予其操作权限，则策略的 `action` 为 `name/cos:DeleteObject`。
 
 #### 示例 
 
@@ -780,13 +776,13 @@ Object API 策略的 `action` 则因操作不同而取值不同.<br>
 }
 ```
 
-### 批量删除对象 （Delete Multiple Objects） 
+### 批量删除对象
 
-若授予批量删除操作权限，则策略的 `action` 为 `name/cos:DeleteObject` .<br>
+批量删除对象：Delete Multiple Objects，若授予其操作权限，则策略的 `action` 为 `name/cos:DeleteObject`。
 
 #### 示例 
 
-授予 只能批量删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 中的 `audio.mp3` 和 `video.mp4` 两个对象的操作权限，其策略详细内容如下：
+授予只能批量删除 APPID 为 1253653367 ，地域为 `ap-beijing` ，存储桶为 `example-1253653367` 中的 `audio.mp3` 和 `video.mp4` 两个对象的操作权限，其策略详细内容如下：
 
 ```
 {
