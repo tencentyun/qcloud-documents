@@ -1,6 +1,6 @@
 ## 注意事项
 - **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取]()。
-- NONCE ticket 是合作方**前端包含 APP 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
+- NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
@@ -24,15 +24,15 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 **响应示例：**
 ```
 {
-"code":"0",
-"msg":"请求成功",
- "transactionTime":"20151022044027", 
- "tickets":[
-{"value":"ticket_string",
-"expire_in":"120"，
-"expire_time":"20151022044027"}
-]
- }
+	"code": "0",
+	"msg": "请求成功",
+	"transactionTime": "20151022044027",
+	"tickets": [{
+		"value": "ticket_string",
+		"expire_in": "120",
+		"expire_time": "20151022044027"
+	}]
+}
 ```
 >!
 >- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。
