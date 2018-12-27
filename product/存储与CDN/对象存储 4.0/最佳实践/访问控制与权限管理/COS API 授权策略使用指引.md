@@ -40,7 +40,8 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 | version  | 策略语法版本，默认为2.0                                      |
 | effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
-| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合       |
+| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(*)       |
+|[condition](https://cloud.tencent.com/document/product/598/10603)|约束条件，可以不填   |
 
 以下根据 COS API 详细介绍授权策略。
 
@@ -804,9 +805,9 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 }
 ```
 
-## 授权所有操作且操作所有资源
+## 常见场景授权策略
 
-若授予所有任操作且操作任意资源权限，则策略内容如下：
+1、授予完全读写权限，则策略内容如下：
 
 ```shell
 {
@@ -824,3 +825,43 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
   ]
 }
 ```
+
+2、授予只读权限，则策略内容如下：
+```shell
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "action": [
+        "name/cos:Head*",
+        "name/cos:Get*",
+        "name/cos:List*",
+        "name/cos:OptionsObject"
+      ],
+      "effect": "allow",
+      "resource": [
+        "*"
+      ]
+    }
+  ]
+}
+```
+
+3、授予指定路径前缀的读写操作，则策略内容如下：
+```shell
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "action": [
+        "*"
+      ],
+      "effect": "allow",
+      "resource": [
+        "qcs::cos:ap-shanghai:uid/1253653367:prefix//1253653367/example/userID123456/*"
+      ]
+    }
+  ]
+}
+```
+这样用户只能访问存储桶 example-1253653367 中路径前缀为 userID123456 下的文件，无法操作其它路径的文件。
