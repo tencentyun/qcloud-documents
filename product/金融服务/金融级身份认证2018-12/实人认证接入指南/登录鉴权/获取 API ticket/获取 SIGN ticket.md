@@ -25,15 +25,15 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 **响应示例：**
 ```
 {
-"code":"0",
-"msg":"请求成功",
- "transactionTime":"20151022044027", 
- "tickets":[
-{"value":"ticket_string",
-"expire_in":"3600"，
-"expire_time":"20151022044027"}
-]
- ｝
+	"code": "0",
+	"msg": "请求成功",
+	"transactionTime": "20151022044027",
+	"tickets": [{
+		"value": "ticket_string",
+		"expire_in": "3600",
+		"expire_time": "20151022044027"
+	}]
+}
 ```
 >!
 >- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。
