@@ -63,11 +63,11 @@ def do_GET(self):
 ### 虚拟机工程目录
 以 tsf_python_vm_demo 中的 userService 为例说明虚拟机应用工程目录。
 - **userService.py 和 common.py**：Python 应用程序
-- **start.sh**：启动脚本。
-- **stop.sh**：停止脚本。
-- **cmdline**：检查进程是否存活的文件。
-- **spec.yaml**：服务描述文件，具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
-- **apis 目录**：存放 API 定义的目录， 具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)。
+- **start.sh**：启动脚本
+- **stop.sh**：停止脚本
+- **cmdline**：检查进程是否存活的文件
+- **spec.yaml**：服务描述文件，具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)
+- **apis 目录**：存放 API 定义的目录， 具体解释请参考 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)
 
 其中 star.sh、stop.sh、cmdline 的编写方法请参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)。
 
