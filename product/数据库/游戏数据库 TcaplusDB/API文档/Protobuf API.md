@@ -161,7 +161,7 @@ extend google.protobuf.FieldOptions
 1. dottedpaths 所在 set 中的第个元素代表的字段嵌套不能超过32。
 
 
-## SDK源文件目录结构
+## SDK 源文件目录结构
 
     `-- release
         `-- x86_64
