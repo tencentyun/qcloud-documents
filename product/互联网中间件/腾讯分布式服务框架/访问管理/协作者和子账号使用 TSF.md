@@ -236,7 +236,7 @@ TSF 产品需要获取用户的 VPC 、CVM 、Ckafka 等信息，需要主账号
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam)。
 2. 单击左侧导航栏 [**用户管理**](https://console.cloud.tencent.com/cam)。
 3. 选择要授予 TSF 使用权限的用户，单击【用户名称】，进入该用户详情页。
-4. 在用户详情页，单击【关联策略】。
+4.  在用户详情页，单击【关联策略】。
 5. 从策略列表中选择 `QcloudCCRFullAccess` 策略。
 ![](https://main.qcloudimg.com/raw/e8939eae59ca538e5f3b9a6edb7d6906.png)
 6. 绑定策略后，策略显示在用户的策略列表中。
