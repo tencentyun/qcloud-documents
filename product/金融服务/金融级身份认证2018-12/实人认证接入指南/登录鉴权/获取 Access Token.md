@@ -44,7 +44,7 @@ https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_typ
 ```
 
 ## 响应
-- **响应示例：**
+**响应示例：**
 ```
 {
 "code":"0","msg":"请求成功",
