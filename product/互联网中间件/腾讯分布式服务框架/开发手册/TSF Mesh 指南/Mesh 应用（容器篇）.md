@@ -27,13 +27,17 @@
 3.1 在应用详情页内，单击【部署组】标签页。
 3.2 新建部署组： 
    - 部署组名：填写部署组名称。
+
    - 集群：选择应用将部署的集群
+
    - 命名空间：选择命名空间属性
+
    - 实例资源限制：参考下图
-	 ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
-3.3 访问设置、更新方式、日志配置项。
- ![](https://main.qcloudimg.com/raw/989f250a54c31559929ccee79d1f8740.png)
-3.4 单击【提交】按钮。
+      ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
+      3.3 设置访问设置、更新方式、日志配置项。
+
+      ​	![](https://main.qcloudimg.com/raw/907d9a7c6ed590a6a66540554a7531ca/WX20181227-153927@2x.png)
+      3.4 单击【提交】按钮。
 
 
 
@@ -67,8 +71,7 @@ user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotio
 - **节点IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过 **节点IP + NodePort** 来访问 `user` 服务的 `/api/v6/user/account/query` 接口。其中 `节点IP` 为集群中任一节点的内网IP，`NodePort` 可以在部署组的基本信息页面查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
 
 ```
-	shell
-	curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
+curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
 ```
 
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 user 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
