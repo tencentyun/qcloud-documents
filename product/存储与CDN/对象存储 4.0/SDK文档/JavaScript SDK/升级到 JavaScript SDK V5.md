@@ -14,7 +14,7 @@
 
 ## 升级步骤
 
-### 1. 更新 JavaScript SDK
+#### 1. 更新 JavaScript SDK
 
 JavaScript SDK V5 发布在 [npm](https://npm.org/cos-js-sdk-v5) 仓库，推荐您使用 npm 安装依赖包。
 
@@ -28,7 +28,7 @@ npm install cos-js-sdk-v5
 <script src="./cos-js-sdk-v5.min.js"></script>
 ```
 
-### 2. 更改存储桶名称和可用区域简称
+#### 2. 更改存储桶名称和可用区域简称
 
 JavaScript SDK V5 的存储桶名称和可用区域简称与 V4 的不同，需要您进行相应的更改。
 
@@ -86,7 +86,7 @@ cos.headBucket({
 });
 ```
 
-### 3. 更改 API
+#### 3. 更改 API
 
 升级到 SDK V5 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。
 
