@@ -13,7 +13,7 @@ Date:date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization：Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
@@ -110,7 +110,7 @@ Authorization: Auth String
 
 ### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -118,7 +118,7 @@ Authorization: Auth String
 
 ```shell
 GET /?website HTTP/1.1
-Host: demoBucket-1250000000.cos.ap-shanghai.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Date:Thu, 21 Sep 2017 13:09:53 +0000
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484815944;32557711944&q-key-time=1484815944;32557711944&q-header-list=host&q-url-param-list=website&q-signature=a2d28e1b9023d09f9277982775a4b3b705d0e23e
 ```
