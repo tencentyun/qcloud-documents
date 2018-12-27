@@ -127,7 +127,7 @@ webrtc 推流配置参数：
 |role | String | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在 [控制台](https://console.cloud.tencent.com/rav) >【画面设定】中配置。 |
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境。 |
 |privateMapKey | String | 否， 如果 trtc 控制台中开通了权限密钥，则为必填 |可在 [trtc 控制台](https://console.cloud.tencent.com/rav) >【选择应用】>【账号信息】中查看。
-|pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数。 <br/>1：表示本次是纯音频推流，不需要录制 MP3 文件。 <br/>2：表示本次是纯音频推流，录制文件为 MP3。 |
+|pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数。 <li>1：表示本次是纯音频推流，不需要录制 MP3 文件。 <li>2：表示本次是纯音频推流，录制文件为 MP3。 |
 |recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户。 |
 |peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接，需要结合“高级事件通知”的 onPeerConnectionAdd 使用。  |
 
@@ -137,12 +137,12 @@ webrtc 推流配置参数：
 参数	| 类型	| 必填 | 说明
 --------- | --------- | ----- | --------- |
 id | String | 是 | 白板渲染的 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
-boardMode | Number | 否 | 白板表现形式，默认0白板模式。<br> 0：白板模式，白板以一个列表展示。 <br>1：文件模式，根据上传的文件进行分组展示。
+boardMode | Number | 否 | 白板表现形式，默认0白板模式。<li> 0：白板模式，白板以一个列表展示。 <li>1：文件模式，根据上传的文件进行分组展示。
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦。
-color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，如 #ff00ff，大小写不敏感。
+color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感。
 thin | Number | 否，默认100 | 线条的粗细，实际转换为 thin * 白板的高度 / 10000，<font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚。</font>
-aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<br/>false 不采用比例，采用参数 id 所在节点的宽高作为白板的宽高<br/> 传字符串宽高比，如4:3，白板 SDK 会以参数 id 所在的节点宽高以4:3的方式来计算出白板的宽高，默认采用16:9
-globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，如 #ff00ff，大小写不敏感。
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<li>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高。<li> 传字符串宽高比，例如设置4:3，白板 SDK 会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9。
+globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感。
 
 
 ### 6. 使用音视频
