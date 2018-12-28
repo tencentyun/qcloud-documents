@@ -6,7 +6,7 @@ TICSDK 是以事件驱动模式的 SDK，开发者只需调用几个方法，注
 SDK | 主要功能
 --------- | ---------
 TICSDK | 整个 SDK 的入口类，提供了 SDK 初始化、登录/登出 SDK、创建/加入/销毁课堂、音视频操作、IM 操作以及获取 IMSDK 实例、WebRTCAPI 实例、白板实例的接口。
-BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 PPT、PDF等功能。<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)。
+BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 ppt、pdf 等功能。<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)。
 
 ##  集成 SDK
 
@@ -106,7 +106,7 @@ roomType | String | 否，默认 Public | 创建的 IM 群组类型。
 
 ### 5. 加入课堂
 
-加入课堂时可通过配置 webrtc 相关的参数，来控制是否自动/手动推流、是否启用摄像头和麦克风等，也可以配置白板的渲染节点、白板初始化颜色、是否可以在白板涂鸦等，COS 的配置决定了白板是否可以具备上传 PPT、PDF、Word等文档能力。
+加入课堂时可通过配置 webrtc 相关的参数，来控制是否自动/手动推流、是否启用摄像头和麦克风等，也可以配置白板的渲染节点、白板初始化颜色、是否可以在白板涂鸦等，COS 的配置决定了白板是否可以具备上传 ppt、pdf、doc 等格式文档能力。
 调用此方法后会触发加入课堂成功或者失败的事件。
 
 ```
@@ -233,7 +233,7 @@ this.ticksdk.enableMic();
 
 #### 8.1 上传文件
 
-TICSDK 支持 PPT、PDF、Word 文档上传，并且提供预览服务。
+TICSDK 支持 ppt、pdf、doc 格式文档上传，并且提供预览服务。
 
 ```
 ticSdk.addFile(file, succ, fail)
