@@ -1,10 +1,10 @@
-如果您细心对比过 JSON Android SDK 和 XML ANDROID SDK 的文档，您会发现并不是一个简单的增量更新。XML Android SDK 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Android SDK，请参考下面的指引，一步步完成 SDK 的升级工作。
+如果您细心对比过 JSON Android SDK 和 XML Android SDK 的文档，您会发现并不是一个简单的增量更新。XML Android SDK 不仅在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Android SDK，请参考下面的指引，一步步完成 SDK 的升级工作。
 
 ## 功能对比
 
-下表列出了 JSON Android SDK 和 XML ANDROID SDK 的主要功能对比：
+下表列出了 JSON Android SDK 和 XML Android SDK 的主要功能对比：
 
-| 功能       | XML ANDROID SDK         | JSON Android SDK                         |
+| 功能       | XML Android SDK         | JSON Android SDK                         |
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件下载 | 支持断点续传 | 不支持断点续传 |
@@ -261,9 +261,9 @@ cosxmlUploadTask.pause();
 cosxmlUploadTask.resume();
 ```
 
-**3）新增API**
+**3）新增 API**
 
-XML Android SDK 增加了很多新的API，您可根据需求进行调用。包括：
+XML Android SDK 新增 API，您可根据需求进行调用。包括：
 
 * 存储桶的操作，如 PutBucketRequest、GetBucketRequest、ListBucketRequest 等。
 * 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。
