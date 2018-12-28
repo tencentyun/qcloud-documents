@@ -1,5 +1,5 @@
 
-云数据库 Redis（CKV 版）提供数据迁移工具 [redis-migration（inux 版）](https://main.qcloudimg.com/raw/7f7f185d6cb83179e3e2fd0ddbe27c21/redis-migration)，工具支持迁移 Redis 4.0 以及 4.0 以下版本的 RDB 数据。
+云数据库 Redis（CKV 版）提供数据迁移工具 [redis-migration（inux 版）](https://main.qcloudimg.com/raw/7f7f185d6cb83179e3e2fd0ddbe27c21/redis-migration)，工具支持迁移 Redis 4.0 及以下版本的 RDB 数据。
 
 ## 前提条件
 确保源实例支持`sync`命令或`psync`命令，如果不支持将无法进行数据迁移。
