@@ -1,5 +1,5 @@
 ## 白板 SDK 简介
-白板 SDK 已经集成在 TICKSDK 中，可通过 getBoardInstance() 获取白板实例。
+白板 SDK 已集成在 TICKSDK 中，可通过 getBoardInstance() 获取白板实例。
 
 ## 集成 SDK
 在页面中加载以下 SDK，建议直接使用腾讯云 CDN 加速的 SDK。
@@ -48,7 +48,7 @@
 | addBackgroundPic | 增加一白板，并设置该白板的背景图。 |
 | clearFileDraws | 清空文件涂鸦。 |
 | getCosInstance | 获取 COS 对象实例。 |
-| addFile | 上传文件，支持 doc、docx、Excel、PPT、PDF。 |
+| addFile | 上传文件，支持 doc、docx、excel、ppt、pdf。 |
 | addImgFile | 上传图片。 |
 | setTextSize | 设置文字输入的字号。 |
 | setTextColor | 设置文字输入的颜色。 |
@@ -59,21 +59,21 @@
 this.boardSdk = new BoardSDK(options);
 ```
 
-白板初始化参数 options：
+白板初始化 options 参数：
 
 参数	| 类型	| 必填 | 说明
 --------- | --------- | ----- | --------- |
-id | String | 是 | 白板渲染的 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能引起白板定位异常的问题。
+id | String | 是 | 白板渲染的 dom 节点 ID，需保证该节点有 position: relative 样式，否则可能引起白板定位异常的问题。
 conf_id | integer | 是 | 课堂 ID。
 user | String | 否 | 白板用户昵称。
 canDraw | boolean | 否，默认 true | 白板是否可以涂鸦。
 color | String | 否，默认红色 |画笔颜色，只接受  Hex 色值，例如：#ff00ff，大小写不敏感。
 thin | Number | 否，默认100 | 线条的粗细，实际转换为 thin * 白板的高度 / 10000， <font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚。</font>
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感。
-aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<li>false 不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高。<li> 传字符串宽高比，例如设置4:3，白板SDK会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9。
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<br> 传字符串宽高比，例如设置4:3，白板SDK会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9。<br>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高。
 tlsData | Object | 是 | 白板用户鉴权信息。
 
-tlsData参数：
+tlsData 参数：
 
 参数	| 类型	| 必填 | 说明
 --------- | --------- | ----- | --------- |
@@ -81,9 +81,9 @@ sdkAppId | Integer | 是 | 腾讯云应用的唯一标识，可登录 [实时音
 identifier | String | 是 | 用户名。
 userSig | String | 是 | 登录鉴权信息。
 
-该方法需传入 identifier（即uid）和 userSig 参数，identifier 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要在开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
+该方法需传入 identifier（即 uid）和 userSig 参数，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要在开发者服务器依照腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
->?在开发调试阶段，用户可以在腾讯云控制台使用开发辅助工具，来生成临时的 uid 和 userSig 用于开发测试，详情请参见 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+>?开发调试阶段，用户可在腾讯云控制台使用开发辅助工具，生成临时的 uid 和 userSig 用于开发测试，详情请参见 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 
 ### 调用白板 SDK 接口
@@ -226,7 +226,7 @@ board.setType(type)
 | type |  String   |  默认 line，支持的类型可参考 BoardSDK.DRAW_TYPE。 |
 
 
-#### 15. 当前白板页撤销
+#### 15. 撤销当前白板页
 
 ```
 board.undo()
@@ -238,7 +238,7 @@ board.undo()
 board.canUndo()
 ```
 
-#### 17. 当前白板页恢复
+#### 17. 恢复当前白板页
 
 ```
 board.redo()
@@ -305,7 +305,6 @@ board.getAllFileInfo()
 board.getBoardByFile(fid)
 ```
 
-参数:
 
 | 参数 |   类型     | 说明 |
 | --- |----------- | ------------------ |
@@ -362,7 +361,7 @@ board.getCosInstance()
 
 
 
-#### 29. 上传文件（支持 doc、docx、Excel、PPT、PDF）
+#### 29. 上传文件（支持 doc、docx、excel、ppt、pdf）
 
 ```
 board.addFile(file, succ, fail)
@@ -391,7 +390,7 @@ board.addImgFile(imgFile, succ, fail)
 ### 白板事件
 
 #### 监听事件
-初始化完成后，需要进行事件监听，监听关键的事件来实现相关的业务。
+初始化完成后，需要进行监听关键的事件来实现相关的业务。
 
 事件监听的方法：
 
@@ -423,7 +422,7 @@ boardSdk.on(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE, res => {
 | BoardSDK.CONSTANT.EVENT.BOARD.IMG_ERROR | 背景图片加载错误。 |
 | BoardSDK.CONSTANT.EVENT.BOARD.IMG_ABORT | 背景图片加载中断。 |
 | BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_SUCC | 白板服务鉴权通过。 |
-| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_ERROR | 白板服务鉴权失败，请先购买服务 |
+| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_ERROR | 白板服务鉴权失败，请先购买服务。 |
 | BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEDOWN | 白板鼠标点击事件。 |
 | BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEMOVE | 白板鼠标移动事件。 |
 | BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEUP | 白板鼠标弹起事件。 |
@@ -449,7 +448,7 @@ BoardSDK.DRAW_TYPE：
 
 | 涂鸦类型 | 类型 | 值 | 含义 |
 | --- | --- | --- | --- |
-| LINE | String | line | 普通画笔，默认 |
+| LINE | String | line | 默认普通画笔 |
 | ERASER | String | eraser | 橡皮擦 |
 | RASER | String | raser | 激光笔 |
 | POINTSELECT | String | pointselect | 点选 |
