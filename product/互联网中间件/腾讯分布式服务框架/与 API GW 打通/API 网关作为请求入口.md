@@ -68,3 +68,9 @@
 
 
 > 注：在 API 网关上的详细操作可以参考腾讯云 [API 网关产品文档](https://cloud.tencent.com/document/product/628)
+
+
+
+如果 API 调试时发现超时错误，可能是因为服务所在云服务器 CVM 的安全组限制导致的，检查安全组中放通的端口中是否包含了微服务的端口（如 provider-demo 的端口是 18081），参考 [CVM-安全组](https://cloud.tencent.com/document/product/213/12453)。
+
+![](https://main.qcloudimg.com/raw/fd8c8610e312c81bcce1235d17607234.png)
