@@ -6,7 +6,7 @@ TICSDK 是以事件驱动模式的 SDK，开发者只需调用几个方法，注
 SDK | 主要功能
 --------- | ---------
 TICSDK | 整个 SDK 的入口类，提供了 SDK 初始化、登录/登出 SDK、创建/加入/销毁课堂、音视频操作、IM 操作以及获取 IMSDK 实例、WebRTCAPI 实例、白板实例的接口。
-BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 PPT、PDF、等功能。<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)。
+BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 PPT、PDF等功能。<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)。
 
 ##  集成 SDK
 
@@ -33,7 +33,7 @@ TICSDK 使用的一般流程如下：
 
 其中**创建课堂**为教师角色特有流程，学生角色无需调用。
 
-本文将 SDK 按照功能划分，遵循一般的使用顺序，介绍 TICSDK 中各功能的使用方法和注意事项。
+本文将 SDK 按照功能划分，遵循一般的使用顺序来介绍 TICSDK 中各功能的使用方法和注意事项。
 
 ### 1. 初始化 SDK
 
@@ -52,7 +52,7 @@ ticSdk.init();
 ticsdk.on(eventName, fn);
 ```
 
-如：
+示例：
 ```
 ticSdk.on(TICSDK.CONSTANT.EVENT.IM.KICKED, res => {
   // 业务侧逻辑
@@ -84,9 +84,9 @@ userSig | String | 是 | 登录鉴权信息。
 identifierNick | String | 否 | IM 昵称。
 userHeadImg | String | 否 | IM 头像。
 
-该方法需传入 identifier（即 uid ）和 userSig 参数，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要在开发者服务器遵守腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
+该方法需传入 identifier（即 uid ）和 userSig 参数，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要在开发者服务器依照腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
->?在开发调试阶段，用户可以在腾讯云控制台使用开发辅助工具，生成临时的 uid 和 userSig 用于开发测试，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+>?开发调试阶段，用户可在腾讯云控制台使用开发辅助工具，生成临时的 uid 和 userSig 用于开发测试，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 4. 创建课堂
 
@@ -106,7 +106,7 @@ roomType | String | 否，默认 Public | 创建的 IM 群组类型。
 
 ### 5. 加入课堂
 
-加入课堂时可通过配置 webrtc 相关的参数，来控制是否自动/手动推流、是否启用摄像头和麦克风等，也可以配置白板的渲染节点、白板初始化颜色、是否可以在白板涂鸦等，COS 的配置决定了白板是否可以具备上传 PPT、PDF、doc 等文档能力。
+加入课堂时可通过配置 webrtc 相关的参数，来控制是否自动/手动推流、是否启用摄像头和麦克风等，也可以配置白板的渲染节点、白板初始化颜色、是否可以在白板涂鸦等，COS 的配置决定了白板是否可以具备上传 PPT、PDF、Word等文档能力。
 调用此方法后会触发加入课堂成功或者失败的事件。
 
 ```
@@ -121,14 +121,14 @@ webrtc 推流配置参数：
 
 |参数	| 类型	| 必填 | 说明|
 |--------- | --------- | ----- | --------- |
-|closeLocalMedia | Boolean | 否，默认 false | 是否关闭自动推流。<br>如果设置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调推流接口。 |
+|closeLocalMedia | Boolean | 否，默认 false | 是否关闭自动推流。<br>如果设置为 true，则在完成加入/建房操作后，不会发起本端的推流，如需推流，需要由业务主动调用推流接口。 |
 |audio | Boolean | 否，默认 true | 是否启用音频采集。 |
 |video | Boolean | 否，默认 true | 是否启用视频采集。 |
 |role | String | 否，默认 user | 角色名，每个角色名对应一组音视频采集的配置，可在 [控制台](https://console.cloud.tencent.com/rav) >【画面设定】中配置。 |
 |useCloud | Boolean | 否，默认 true | true 表示云上环境，false 表示自研环境。 |
 |privateMapKey | String | 否， 如果 trtc 控制台中开通了权限密钥，则为必填 |可在 [trtc 控制台](https://console.cloud.tencent.com/rav) >【选择应用】>【账号信息】中查看。
-|pureAudioPushMod | Integer | 否 | 纯音频推流模式，需要旁路直播和录制时需要带上此参数。 <li>1：表示本次是纯音频推流，不需要录制 MP3 文件。 <li>2：表示本次是纯音频推流，录制文件为 MP3。 |
-|recordId | Integer | 否 | 自动录制时业务自定义 ID，Int32，录制回调时给到用户。 |
+|pureAudioPushMod | Integer | 否 | 纯音频推流模式，旁路直播和录制时需要带上此参数。 <li>1：表示本次是纯音频推流，不需要录制 MP3 文件。 <li>2：表示本次是纯音频推流，录制文件为 MP3。 |
+|recordId | Integer | 否 | 自动录制时业务自定义 ID、Int32，录制回调时给到用户。 |
 |peerAddNotify | Boolean | 否，默认 false | P2P 的建连通知，在建立 P2P 连接前由业务侧决定是否需要连接，需要结合“高级事件通知”的 onPeerConnectionAdd 使用。  |
 
 
@@ -136,12 +136,12 @@ webrtc 推流配置参数：
 
 参数	| 类型	| 必填 | 说明
 --------- | --------- | ----- | --------- |
-id | String | 是 | 白板渲染的 dom 节点 ID，并保证该节点有 position: relative 样式，否则可能会引起白板定位异常的问题。
+id | String | 是 | 白板渲染的 dom 节点 ID，需保证该节点有 position: relative 样式，否则可能引起白板定位异常的问题。
 boardMode | Number | 否 | 白板表现形式，默认0白板模式。<li> 0：白板模式，白板以一个列表展示。 <li>1：文件模式，根据上传的文件进行分组展示。
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦。
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感。
 thin | Number | 否，默认100 | 线条的粗细，实际转换为 thin * 白板的高度 / 10000，<font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚。</font>
-aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<li>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高。<li> 传字符串宽高比，例如设置4:3，白板 SDK 会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9。
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例。<br> 传字符串宽高比，例如设置4:3，白板 SDK 会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9。<br>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高。
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感。
 
 
@@ -233,7 +233,7 @@ this.ticksdk.enableMic();
 
 #### 8.1 上传文件
 
-TICSDK 支持 PPT、PDF、doc 文档上传，并且提供预览服务。
+TICSDK 支持 PPT、PDF、Word 文档上传，并且提供预览服务。
 
 ```
 ticSdk.addFile(file, succ, fail)
@@ -298,8 +298,8 @@ ticSdk.quitClassroom();
 
 ### 11. 销毁课堂
 
-调用销毁课堂，会真正将课堂销毁，清除白板所有数据，解散课堂 IM 群组。
-本方法只能由课堂的创建者调用，调用此方法后，会触发销毁课堂成功或者销毁课堂失败的事件。非创建者调用不能销毁课堂，并触发销毁课堂失败的事件。
+调用销毁课堂，会彻底将课堂销毁，清除白板所有数据，解散课堂 IM 群组。
+本方法只能由课堂的创建者调用，调用此方法后，会触发销毁课堂成功或者销毁课堂失败的事件。非创建者调用不能销毁课堂，并会触发销毁课堂失败的事件。
 
 ```
 ticSdk.destroyClassRoom()
@@ -319,7 +319,7 @@ fn | Function | 否 | 要注销的回调函数， 不传则表示该事件的回
 
 ### 13. 登出
 
-调用登出方法后，会触发登出成功 `[TICSDK.CONSTANT.EVENT.IM.LOGOUT_SUCC]` 或者登出失败`[TICSDK.CONSTANT.EVENT.IM.LOGOUT_ERROR]`的事件。
+调用登出方法后，会触发登出成功`[TICSDK.CONSTANT.EVENT.IM.LOGOUT_SUCC]`或者登出失败`[TICSDK.CONSTANT.EVENT.IM.LOGOUT_ERROR]`的事件。
 ```
 ticSdk.logout();
 ```
