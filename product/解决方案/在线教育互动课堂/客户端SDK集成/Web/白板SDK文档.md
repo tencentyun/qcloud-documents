@@ -1,4 +1,4 @@
-## 白板 SDK 简介
+## SDK 简介
 白板 SDK 已集成在 TICKSDK 中，可通过 getBoardInstance() 获取白板实例。
 
 ## 集成 SDK
