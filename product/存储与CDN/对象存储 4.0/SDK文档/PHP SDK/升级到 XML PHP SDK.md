@@ -69,7 +69,7 @@ require  '/path/to/cos-sdk-v5.phar';
 ```
 
 **源码方式**
-源码方式安装SDK的步骤如下：
+源码方式安装 SDK 的步骤如下：
 
 1）在 [Github 发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases)下载相应的 zip 文件。
 
