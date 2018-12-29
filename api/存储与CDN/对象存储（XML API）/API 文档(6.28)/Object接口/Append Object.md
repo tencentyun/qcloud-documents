@@ -21,7 +21,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)。
+>?Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)。
 
 ### 请求头
 
@@ -55,7 +55,7 @@ Authorization: Auth String
 **权限相关头部**
 该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
-> 了解更多 ACL 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
+>?了解更多 ACL 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
 
 | 名称                     | 描述                                                         | 类型   | 必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
@@ -100,7 +100,7 @@ Authorization: Auth String
 
 ### 错误分析
 
-1. 如果对一个非 appendable 的文件进行 append 操作，那么会返回 409 Confilct，错误信息：
+1. 如果对一个非 appendable 的文件进行 append 操作，那么会返回409 Confilct，错误信息：
    `The operation is not valid for the current state of the object`。
 2. 如果请求中未携带 position 参数，会返回400 Bad Request, 错误信息：`InvalidArgument`。
 3. 如果请求中缺失 Content-Length 头部，会返回 411 Length Required，错误信息：
