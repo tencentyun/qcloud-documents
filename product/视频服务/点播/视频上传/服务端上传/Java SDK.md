@@ -34,6 +34,80 @@
 
 [点播 Java SDK 关联 jar 包](https://github.com/tencentyun/vod-java-sdk/raw/master/packages/vod-sdk-jar.zip)
 
+##  简单上传
+### 初始化一个上传客户端对象
+使用云 API 密钥初始化 VodUploadClient 实例。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+```
+
+### 构造上传请求对象
+设置媒体本地上传路径。
+```
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+```
+
+### 调用上传
+调用上传方法，传入上传地域及上传请求。
+```
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+## 高级功能
+### 携带封面
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+request.setCoverFilePath("/data/videos/Wildlife.jpg");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 指定任务流
+传入任务流参数，具体的任务流介绍参考[任务流综述](/document/product/266/11700)，上传成功后会自动执行任务流。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+request.setProcedure("QCVB_SimpleProcessFile(1, 1)");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 子应用上传
+传入[子应用](/document/product/266/14574) ID，上传成功后资源只属于具体的子应用。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+request.setSubAppId(101);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
 ## 接口描述
 上传客户端类 `VodUploadClient`
 
@@ -72,81 +146,6 @@
 | --------- | ---------------------- | ------- | ---- |
 | region   | 上传地域，具体参考支持的[地域列表](/document/api/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)        | String | 是    |
 | request   | 上传请求        | VodUploadRequest | 是    |
-
-
-##  简单上传
-### 初始化一个上传客户端对象
-使用云 API 密钥初始化 VodUploadClient 实例。
-```
-VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
-```
-
-### 构造上传请求对象
-设置媒体本地上传路径。
-```
-VodUploadRequest request = new VodUploadRequest();
-request.setMediaFilePath("/data/videos/Wildlife.wmv");
-```
-
-### 调用上传
-调用上传方法，传入上传地域及上传请求。
-```
-try {
-    VodUploadResponse response = client.upload("ap-guangzhou", request);
-    logger.info("Upload Response = {}", response);
-} catch (Exception e) {
-    // 业务方进行异常处理
-    logger.error("Upload Err = {}", e);
-}
-```
-
-## 高级功能
-### 携带封面
-```
-VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
-VodUploadRequest request = new VodUploadRequest();
-request.setMediaFilePath("/data/videos/Wildlife.wmv");
-request.setCoverFilePath("/data/videos/Wildlife.jpg");
-try {
-    VodUploadResponse response = client.upload("ap-guangzhou", request);
-    logger.info("Upload Response = {}", response);
-} catch (Exception e) {
-    // 业务方进行异常处理
-    logger.error("Upload Err = {}", e);
-}
-```
-
-### 指定任务流
-传入任务流参数，具体的任务流介绍参考[任务流综述](/document/product/266/11700)，上传成功后会自动执行任务流。
-```
-VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
-VodUploadRequest request = new VodUploadRequest();
-request.setMediaFilePath("/data/videos/Wildlife.wmv");
-request.setProcedure("QCVB_SimpleProcessFile(1, 1)");
-try {
-    VodUploadResponse response = client.upload("ap-guangzhou", request);
-    logger.info("Upload Response = {}", response);
-} catch (Exception e) {
-    // 业务方进行异常处理
-    logger.error("Upload Err = {}", e);
-}
-```
-
-### 子应用上传
-传入[子应用](/document/product/266/14574) ID，上传成功后资源只属于具体的子应用。
-```
-VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
-VodUploadRequest request = new VodUploadRequest();
-request.setMediaFilePath("/data/videos/Wildlife.wmv");
-request.setSubAppId(101);
-try {
-    VodUploadResponse response = client.upload("ap-guangzhou", request);
-    logger.info("Upload Response = {}", response);
-} catch (Exception e) {
-    // 业务方进行异常处理
-    logger.error("Upload Err = {}", e);
-}
-```
 
 ## 错误码列表
 | 状态码         | 含义               |
