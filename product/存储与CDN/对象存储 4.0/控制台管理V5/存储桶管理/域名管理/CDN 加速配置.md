@@ -50,12 +50,12 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 ![](https://main.qcloudimg.com/raw/f836aa8efc9b07b79d47a203c697aa49.png)
 
 4. 在跳转界面中单击“鉴权配置”旁边的开启按钮，输入鉴权 Key 和有效时间。
-![](https://main.qcloudimg.com/raw/f4d33dbbab044ace5116cb97b07187a5.png)
-![](https://main.qcloudimg.com/raw/75bf0c1e038bd2db498c396317544fdd.png)
+![](https://main.qcloudimg.com/raw/85e26cf1bcdd37e5433bf6c95dd417a8.png)
+![](https://main.qcloudimg.com/raw/7b8f499321fbe7a61e304397a945215f.png)
 
 5. 单击【鉴权计算器】，如果上一步已经配置好，鉴权 Key 和有效时间会自动填入，通常只用输入需要访问的对象的 Path，然后单击【生成】即可得到鉴权 URL，使用鉴权 URL 能直接访问到目标对象。如之前没有输入，需在鉴权计算器上输入鉴权 Key 、有效时间和目标路径。
-![](https://main.qcloudimg.com/raw/4ea1c38bd822f2505fdf33a3eda37efa.png)
-![鉴权计算器](https://main.qcloudimg.com/raw/c3dd941a4100d39d7c093636b5ff40e3.png)
+![](https://main.qcloudimg.com/raw/ca55cba29935ea20a9c691a848865bc2.png)
+![鉴权计算器](https://main.qcloudimg.com/raw/572b32410086d49cbfc00a650eb6f514.png)
 ## 自定义加速域名
 
 >!
@@ -69,15 +69,15 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 
 2. 从存储桶页面上方进入【域名管理】，在第二栏“自定义加速域名”处单击【添加域名】，输入待绑定的自定义域名（如 ` www.example.com`），选择开启回源鉴权，单击右侧的【保存】即可完成域名添加。
 ![](https://main.qcloudimg.com/raw/716e49eb9b9b6600c8afd9deceb78451.png)
-> 注意：对于私有读存储桶，同时开启回源鉴权和 CDN 服务授权会导致通过 CDN 访问源站时无需携带签名，CDN 缓存资源会进行公网分发，导致数据的安全性受到影响，建议开启 CDN 鉴权，进入步骤三。
+>!对于私有读存储桶，同时开启回源鉴权和 CDN 服务授权会导致通过 CDN 访问源站时无需携带签名，CDN 缓存资源会进行公网分发，导致数据的安全性受到影响，建议开启 CDN 鉴权，进入步骤三。
 
 3. 保存自定义域名之后，CDN 鉴权栏会出现 CDN 鉴权功能开关，可开启自定义域名 CDN 鉴权。
 4. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn/access)，进入左侧菜单栏【域名管理】，单击要配置的域名的【管理】，选择【安全配置】。输入鉴权 Key 和有效时间，设置完成后单击【确定】。
-![详细鉴权配置](https://main.qcloudimg.com/raw/75bf0c1e038bd2db498c396317544fdd.png)
+![详细鉴权配置](https://main.qcloudimg.com/raw/61310b0c5960b4846a946bbacbc9fd00.png)
 
 5. 单击【鉴权计算器】，如果上一步已经配置好，鉴权 Key 和有效时间会自动填入，通常只用输入需要访问的对象的 Path，然后单击【生成】即可得到鉴权 URL，使用鉴权 URL 能直接访问到目标对象。如之前没有输入，需在鉴权计算器上输入鉴权 Key 、有效时间和目标路径。
-![鉴权计算器标志](https://main.qcloudimg.com/raw/4ea1c38bd822f2505fdf33a3eda37efa.png)
-![鉴权计算器](https://main.qcloudimg.com/raw/c3dd941a4100d39d7c093636b5ff40e3.png)
+![鉴权计算器标志](https://main.qcloudimg.com/raw/e0d96dcedc499b9f8be7930782fba86f.png)
+![鉴权计算器](https://main.qcloudimg.com/raw/ad4a7703e469269bbf299e19869d00d6.png)
 
 ## 注意事项
 
