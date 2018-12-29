@@ -4,10 +4,9 @@
 
 Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 [Get Object](https://cloud.tencent.com/document/product/436/7753) 或 [Head Object](https://cloud.tencent.com/document/product/436/7745) 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。
 
-追加上传的对象每个分块最小为 4K，建议大小 1M-5G。如果 Position 的值和当前对象的长度不致，COS 会返回 409 错误。如果追加一个 normal 属性的文件，COS 会返回 409 ObjectNotAppendable。
+追加上传的对象每个分块最小为4K，建议大小1M - 5G。如果 Position 的值和当前对象的长度不致，COS 会返回409错误。如果追加一个 normal 属性的文件，COS会返回409 ObjectNotAppendable。
 
-> **注意：**
-> appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨区域复制。
+>!appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨区域复制。
 
 ## 请求
 
@@ -22,7 +21,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)。
 
 ### 请求头
 
@@ -51,7 +50,7 @@ Authorization: Auth String
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回  | String | 否   |
 | Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容 | String | 否   |
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回          | String | 否   |
-| x-cos-meta- *       | 允许用户自定义的头部信息，将作为 Object 元数据返回，大小限制 2K | String | 否   |
+| x-cos-meta- *       | 允许用户自定义的头部信息，将作为 Object 元数据返回，大小限制2K | String | 否   |
 
 **权限相关头部**
 该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
@@ -94,6 +93,7 @@ Authorization: Auth String
 | x-cos-next-append-position | 下一次追加操作的起始点，单位：字节 | String |
 | ETag                       | 文件的唯一标识                     | String |
 
+
 ### 响应体
 
 该响应体返回为空。
@@ -112,7 +112,7 @@ Authorization: Auth String
 
 ### 请求
 
-```HTTP
+```
 POST /coss3/app?append&position=0 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 16 Jan 2016 21:32:00 GMT
