@@ -35,7 +35,7 @@
 
 ## 在 API 网关上的操作
 
-以 [TSF Demo](https://cloud.tencent.com/document/product/649/16619) 为例介绍在 API 网关上配置微服务 API 的流程。
+以 [TSF Demo](https://cloud.tencent.com/document/product/649/20231) 为例介绍在 API 网关上配置微服务 API 的流程。
 
 前置条件：已经在 TSF 平台上部署了`provider-demo`应用，并在微服务所属命名空间中配置 Code，名称为`tsf-code`。
 
