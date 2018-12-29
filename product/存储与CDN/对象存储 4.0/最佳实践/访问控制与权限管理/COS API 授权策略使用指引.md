@@ -34,6 +34,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 }
 ```
 
+<a id="policy"></a>
 #### 授权策略（policy）元素说明
 
 | 名称     | 描述                                                         |
