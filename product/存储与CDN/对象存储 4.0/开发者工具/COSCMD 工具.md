@@ -399,7 +399,7 @@ coscmd putbucketversioning Suspended
 ```
 
 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
->!开启版本控制为不可逆过程，之后该 bucket 将无法使用 V4 的 API 接口（包括所有 V4 SDK），请慎重选择。
+>!开启版本控制为不可逆过程，之后该 bucket 将无法使用 JSON API 接口（包括所有 JSON SDK），请慎重选择。
 
 ### 恢复归档文件
 命令如下：
