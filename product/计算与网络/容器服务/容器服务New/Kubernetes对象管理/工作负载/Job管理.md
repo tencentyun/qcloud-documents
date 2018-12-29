@@ -28,7 +28,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
     - 名称：自定义。
     - 镜像：根据实际需求进行选择。
     - 镜像版本：根据实际需求进行填写。
-    - CPU/内存限制：可根据 [Kubenretes资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
+    - CPU/内存限制：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
     - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
 7. 单击【创建Workload】，完成创建。
 
