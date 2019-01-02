@@ -6,7 +6,7 @@
 - **URL**
 URL for calling API: `http://statcgi.video.qcloud.com/common_access`
 - **Purpose**
-To query the statistics (such as number of viewers, bandwidth, bitrate, and frame rate) of an LVB stream.
+To query the statistics (such as number of viewers, bandwidth, bit rate, and frame rate) of an LVB stream.
 To query the statistics of multiple LVB streams that are being broadcast (paged query is recommended to avoid excessive returned data packet in each time)
 - **Note**
 The statistics are instantaneous statistics at the query time point rather than historically accumulated data.
@@ -47,7 +47,7 @@ The statistic API is still in Beta and is not open to all customers. If you call
 | stream_count    | Total number of online LVB streams | int    |  |
 | stream_info     | Statistics for the LVB stream | array  | For more information, please see below. |
 | total_bandwidth | Total bandwidth for the current account upon query | double | Unit: Mbps |
-| total_online    | Total number of online viewers for the current account upon query | int    |   |
+| total_online    | Total number of online viewers for the current account upon query | int    | |
 
 "stream_info" is composed as follows:
 
@@ -59,35 +59,35 @@ The statistic API is still in Beta and is not open to all customers. If you call
 | client_ip   | Push client IP | string | -       |
 | server_ip   |IP of the server that receives the stream | string | -       |
 | fps         | Instantaneous frame rate of the push | int    | -       |
-| speed       | Instantaneous bitrate of the push | int    | bps     |
+| speed       | Instantaneous bit rate of the push | int    | bps     |
 
 **Get_LivePushStat**
 The output of Get_LivePushStat is a subset of Get_LiveStat:
 
-| Field Name         | Description         | Type    | Note                 |
+| Field Name | Description | Type | Note |
 | ------------ | ---------- | ----- | ------------------ |
 | stream_count | Total number of online LVB streams | int   |  |
 | stream_info  | Statistics for the LVB stream | array | For more information, please see below. |
 
 "stream_info" is composed as follows:
 
-| Field Name         | Description         | Type    | Note                 |
+| Field Name | Description | Type | Note |
 | ----------- | ------- | ------ | ---- |
 | stream_name | LVB Code | string | -    |
 | client_ip   | Push client IP | string | -    |
 | server_ip   |IP of the server that receives the stream | string | -    |
 | fps         | Instantaneous frame rate of the push | int    | -    |
-| speed       | Instantaneous bitrate of the push | int    | bps  |
+| speed       | Instantaneous bit rate of the push | int    | bps  |
 
 **Get_LivePlayStat**
 The output of Get_LivePushStat is another subset of Get_LiveStat:
 
-| Field Name             | Description               | Type     | Note                 |
+| Field Name | Description | Type | Note |
 | --------------- | ---------------- | ------ | ------------------ |
 | stream_count    | Total number of online LVB streams | int    |  |
 | stream_info     | Statistics for the LVB stream | array  | For more information, please see below. |
 | total_bandwidth | Total bandwidth for the current account upon query | double | Unit: Mbps |
-| total_online    | Total number of online viewers for the current account upon query | int    |   |
+| total_online    | Total number of online viewers for the current account upon query | int    | |
 
 "stream_info" is composed as follows:
 
@@ -101,7 +101,7 @@ The output of Get_LivePushStat is another subset of Get_LiveStat:
 
 Purpose: To query the push and playback information of all video streams that are being broadcasted under the current account
 
-| Component              | Example                                     |
+| Component | Example |
 | ----------------- | ---------------------------------------- |
 | API URL | `http://statcgi.video.qcloud.com/common_access?` |
 | cmd               | 1234                                     |

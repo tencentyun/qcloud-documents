@@ -3,7 +3,7 @@
 **Live_Channel_SetStatus**:
 This API is used to disable, interrupt and enable an LVB stream. **Disable** means the stream ID is no longer available for push. If the push is in progress, it will be interrupted and cannot be resumed. **Interrupt** means suspending the stream being pushed, which can be re-pushed later. **Enable** means enabling the stream ID and allowing it to push streams.
 - **URL**
-URL for calling API: `http://<font color='red'>fcgi.</font>video.qcloud.com/common_access`
+URL for calling API: `http://fcgi.video.qcloud.com/common_access`
 - **Purpose**
 This API is used to ban an LVB during porn detection. For example, if a VJ is found to play porny or rebellious content, this LVB stream can be interrupted or disabled at any time.
 - **Note**
@@ -13,12 +13,12 @@ Once an LVB stream is set as **disabled**, Tencent Cloud actively disconnects th
 
 | Parameter Name | Description | Type | Note | Required |
 |---------|---------|---------|---------|---------|
-| appid                        | Customer ID | int       | LVB APPID used for identifying customers |  Y          | 
-| interface                 | API name | string |  Live_Channel_SetStatus |  Y          | 
-| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX timestamp (decimal) |  Y | 
+| appid                        | Customer ID |  int       | LVB APPID used for identifying customers |   Y          | 
+| interface                 | API name |  string |  Live_Channel_SetStatus |  Y          | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) |  int  | UNIX timestamp (decimal) |   Y | 
 | sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
 | Param.s.channel_id | LVB Code | string | | Y|
-| Param.n.status | Status | int | 0: Disabled; 1: Enabled for push; 2: Stream interrupted | Y|
+| Param.n.status | Status |  int | 0: Disabled; 1: Enabled for push; 2: Stream interrupted |  Y|
  
 > **Note:**
 > For historical reasons, the LVB Code parameter was defined as channel_id in some earlier APIs, and is defined as stream_id in new APIs.
@@ -26,15 +26,15 @@ Once an LVB stream is set as **disabled**, Tencent Cloud actively disconnects th
 ### 3. Output Parameters
 | Parameter Name | Description | Type | Note |
 |---------|---------|---------|------------------|
-| ret      | Error code |   int  | 0: Successful; other values: Failed. |
-| message | Error message |   string  | Error message |
+| ret      | Error code |    int  | 0: Successful; other values: Failed. |
+| message | Error message |    string  | Error message |
  
 ### 4. Example
 Purpose: To ban the LVB stream with an LVB Code of 8888_test123 whose content has violated relevant regulations.
 
 | Component | Example |
 |-------------|------------------|
-| API URL |  `http://fcgi.video.qcloud.com/common_access?` |
+| API URL | `http://fcgi.video.qcloud.com/common_access?` |
 |appid       | 1234 |
 |interface       | Live_Channel_SetStatus |
 |Param.s.channel_id | 8888_test123 |

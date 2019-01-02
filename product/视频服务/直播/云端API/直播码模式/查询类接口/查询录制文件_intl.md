@@ -27,7 +27,7 @@ You cannot determine when to call the API due to the uncertainty of the file gen
 ### 3. Output Parameters
 | Parameter Name | Description | Type | Note |
 |---------|---------|---------|------------------|
-| ret      | Error code |   int  |  0: Successful; other values: Failed. |
+| ret      | Error code |   int  | 0: Successful; other values: Failed. |
 | message | Error message |   string  | Error message |
 | output | Message content |   array  | For more information, please see the description below. |
 
@@ -53,7 +53,7 @@ You cannot determine when to call the API due to the uncertainty of the file gen
 ### 4. Example
 Purpose: To query the list of files recorded during the LVB for the LVB stream with an LVB Code of 8888_test123.
 
-| Component |   Example           |
+| Component | Example |
 |-------------|------------------|
 | API URL |` http://fcgi.video.qcloud.com/common_access?` |
 |APPID       | 1234 |

@@ -12,10 +12,10 @@ The push statistics is updated every 5 seconds.
 
 | Parameter Name | Description | Type | Note | Required |
 |---------|---------|---------|---------|---------|
-|cmd	| Business APPID |int|	To apply for a configuration, contact Tencent's service personnel or [submit a ticket](https://console.cloud.tencent.com/workorder/category). Tel: 4009-100-100 |	Y|
+|cmd	| Business appid |int|The LVB appid, which is used to identify different customers |	Y|
 |interface|	API name |	string|	|	Y|
 |t|	Expiration timestamp |	int|		|Y|
-|sign|Signature |	string	|md5 (key+expiration timestamp) |	Y|
+|sign|	Signature |	string	|md5 (key+expiration timestamp) |	Y|
 |Param.n.start_time|	Start time for the query |int	|Limited to the last 3 days from the timestamp |	Y|
 |Param.n.end_time	|End time for the query	|int|	It is recommended to limit the time span for query between start and end times to 2 hours |	Y|
 |Param.s.stream_id| Steam ID |string	||	Y|
@@ -69,3 +69,4 @@ URL = http://statcgi.video.qcloud.com/common_access?
                         &sign=b17971b51ba0fe5916ddcd96692e9fb3
 
 ```
+

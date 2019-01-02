@@ -11,12 +11,12 @@ End a recording task.
 
 | Parameter Name | Description | Type | Note | Required |
 |---------|---------|---------|---------|---------|
-| APPID                       | Customer ID | int       | LVB APPID used for identifying customers |  Y          | 
+| appid | Customer ID | int | LVB appid used for identifying customers | Y | 
 | interface                 | API name | string | For example: Get_LivePushStat |  Y          | 
 | t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX timestamp (decimal) |  Y | 
 | sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
 | Param.s.channel_id | Channel ID | string | | Y|
-| Param.s.task_id  | Task ID | string  |  | Y|
+| Param.n.task_id  | Task ID | int  |  | Y|
 |Param.n.task_sub_type  | Whether to enable real-time recording | int| Default is 0, and 1 means enabling real-time recording |N|
 
 ### 3. Output Parameters
@@ -30,8 +30,8 @@ Purpose: To query the list of files recorded during the LVB for the LVB stream w
 
 | Component | Example |
 |-------------|------------------|
-| API URL | `http://fcgi.video.qcloud.com/common_access?` |
-|APPID       | 1234 |
+| API URL | `http://fcgi.video.qcloud.com/common_access?`|
+| appid | 1234 |
 |interface       | Live_Tape_Stop |
 |Param.s.channel_id | 8888_test123 |
 |Param.n.task_id  | 123|

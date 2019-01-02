@@ -24,7 +24,7 @@ If the push LVB Code to be queried is never used to push streams, the 20601 erro
 ### 3. Output Parameters
 | Parameter Name | Description | Type | Note |
 |---------|---------|---------|------------------|
-| ret      | Error code |   int  |  0: Successful; other values: Failed. |
+| ret      | Error code |   int  | 0: Successful; other values: Failed. |
 | message | Error message |   string  | Error message |
 | output | Message content |   array  | For more information, please see the description below. |
 
@@ -40,7 +40,7 @@ If the push LVB Code to be queried is never used to push streams, the 20601 erro
 
 Purpose: To query whether the LVB stream with the LVB Code of 8888_test123 is in a status **Broadcasting**.
 
-| Component |   Example           |
+| Component | Example |
 |-------------|------------------|
 | API URL | `http://fcgi.video.qcloud.com/common_access?` |
 |APPID      | 1234 |

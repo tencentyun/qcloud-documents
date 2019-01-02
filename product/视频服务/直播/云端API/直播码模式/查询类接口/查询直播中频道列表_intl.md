@@ -27,18 +27,18 @@ To query channel list for LVB in LVB Code mode.
 | Field Name | Description | Type | Note |
 |---------|---------|---------|---------|
 | all_count | Total number |   int      |    |
-| channel_list    | List |   array  |    |     |
+| channel_list | List | array | | |
 
 "channel_list" is composed as follows:
 
 | Parameter Name | Description | Type | Note |
 |---------|---------|---------|---------|
-| channel_id | LVB Code ID  | string | | |
+| channel_id | LVB Code ID | string | | |
 
 ### 4. Example
 Purpose: To query the channel list in LVB under the account.
 
-| Component |   Example           |
+| Component | Example |
 |-------------|------------------|
 | API URL |` http://fcgi.video.qcloud.com/common_access?`|
 

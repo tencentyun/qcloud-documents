@@ -34,7 +34,7 @@ You can query a list of channels with a certain status, such as channels that ar
 | Field Name | Description | Type | Note |
 |---------|---------|---------|---------|
 | all_count | Total number |   int      |    |
-| channel_list    | List |   array  |    |     |
+| channel_list | List | array | | |
 
 "channel_list" is composed as follows:
 
@@ -45,7 +45,7 @@ You can query a list of channels with a certain status, such as channels that ar
 ### 4. Example
 Purpose: Query the list of active channels under the account
 
-| Component |   Example           |
+| Component | Example |
 |-------------|------------------|
 | API URL | `http://fcgi.video.qcloud.com/common_access?` |
 |Param.n.status      | 1 |
