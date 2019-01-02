@@ -1,21 +1,14 @@
 ## 功能说明
 COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将源地址数据快速迁移至 COS 中，它具有以下特点：
-- 丰富的数据源
+- 丰富的数据源：
    - 本地数据：将本地存储的数据迁移到 COS。
-
    - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
-
    - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
-   
    - Bucket 相互复制：COS 的 Bucket 数据相互复制, 支持跨账号跨地域的数据复制。
-
-- 断点续传
-
-- 分块上传 
-
-- 并行上传
-
-- 迁移校验
+- 断点续传：工具支持上传时断点续传。对于一些大文件, 如果中途退出或者因为服务故障，可重新运行工具, 会对未上传完成的文件进行续传。
+- 分块上传：将对象按照分块的方式上传到 COS。
+- 并行上传：支持多个对象同时上传。
+- 迁移校验：对象迁移后的校验。
 
 ## 使用环境
 ### 系统环境
@@ -59,7 +52,7 @@ COS_Migrate_tool
 |——start_migrate.bat #Windows 下迁移启动脚本
 </pre>
 
->**说明：**
+>?
  - db 目录主要记录工具迁移成功的文件标识，每次迁移任务会优先对比 db 中的记录，若当前文件标识已被记录，则会跳过当前文件，否则进行文件迁移。
  - log 目录记录着工具迁移时的所有日志，若在迁移过程中出现错误，请先查看该目录下的 error.log。
 
@@ -151,7 +144,7 @@ ignoreModifiedTimeLessThanSeconds=
 bucket=mybucket-test
 accessKeyId=xxxxxxxxxx
 accessKeySecret=yyyyyyyyyyy
-endPoint= OSS -cn-shenzhen.aliyuncs.com
+endPoint= OSS-cn-shenzhen.aliyuncs.com
 prefix=
 proxyHost=
 proxyPort=
@@ -246,11 +239,11 @@ srcCosPath=/
 
 | 配置项 | 描述 |
 | ------| ------ |
-|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
-|srcBucketName|源 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000|
+|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)。|
+|srcBucketName|源 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000。|
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝。|
 |srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝。|
-|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
+|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket。|
 
 
 ### 4. 运行迁移工具
@@ -267,13 +260,10 @@ sh start_migrate.sh
 sh start_migrate.sh -Dcommon.cosPath=/savepoint0403_10/
 </pre>
 
->** 特别说明**
+>?
 > - 工具支持配置项读取方式有两种：命令行读取或配置文件读取。
-
 > - 命令行优先级高于配置文件，即相同配置选项会优先采用命令行里的参数。
-
 > - 命令行中读取配置项的形式方便用户同时运行不同的迁移任务，但前提是两次任务中的关键配置项不完全一样，例如 Bucket 名称，COS 路径，要迁移的源路径等。因为不同的迁移任务写入的是不同的 db 目录，可以保证并发迁移。请参照前文中的工具结构中的 db 信息。
-    
 > - 配置项的形式为 **-D{sectionName}.{sectionKey}={sectionValue}** 的形式。其中 sectionName 是配置文件的分节名称，sectionKey 表示分节中配置项名称，sectionValue 表示分节中配置项值。如设置要迁移到的 COS 路径，则以 **-Dcommon.cosPath=/bbb/ddd** 表示。
 
 ## 迁移机制及流程
@@ -282,38 +272,11 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 ### 迁移流程步骤
 1. 读取配置文件，根据迁移 type，读取响应的配置分节，并执行参数的检查。
-
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
-
 3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功, condition_not_match表示因为表示因不满足迁移条件而跳过的文件(如lastmodifed和excludes)。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
-
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会跳过。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)
 
-
 ## 常见问题
-#### 1. 迁移工具中途异常退出怎么办？ 
-工具支持上传时断点续传, 对于一些大文件, 如果中途退出或者因为服务故障, 可重新运行工具, 会对未上传完的文件进行续传。
-
-#### 2. 对于迁移成功的文件，用户通过控制台或其他方式删除了 COS 上的文件，迁移工具会将这些文件进行重新上传吗？
-不会。原因是，所有迁移成功的文件会被记录在 db 中，迁移工具运行之前会先扫描 db 目录，对于已被记录的文件不会再次上传，具体原因请参照 [迁移机制及流程](#.E8.BF.81.E7.A7.BB.E6.9C.BA.E5.88.B6.E5.8F.8A.E6.B5.81.E7.A8.8B)。
-
-#### 3. 迁移失败，日志显示 403 Access Deny，该怎么办？
-请确认密钥信息，Bucket 信息，Region 信息是否正确，并且是否具有操作权限。如果是子账号，请让父账号授予相应的权限；如果是本地迁移和其他云存储迁移，需要对 Bucket 具有数据写入和读取权限；如果是 Bucket copy，还需要对源 Bucket 具有数据读取权限。
-
-#### 4. 从其他云存储迁移 COS 失败，显示 Read timed out，该怎么办？
-一般来说，这种失败情况是由网络带宽不足所造成，导致从其他云存储下载数据超时。比如，将 AWS 海外的数据迁移到 COS，在下载数据到本地时由于带宽能力不足，导致时延较高，可能会出现 read time out。因此，解决方法为增大机器的网络带宽能力，建议在迁移之前用 wget 测试下载速度。
-
-#### 5. 迁移失败，日志显示 503 Slow Down，该怎么办？
-这是触发频控所导致，COS 目前对一个账号具有每秒 800 QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
-
-#### 6. 迁移失败，日志显示 404 NoSuchBucket，该怎么办？
-请确认您的密钥信息，Bucket 信息，Region 信息是否正确。
-
-#### 7. 运行异常，显示如下的信息该怎么办?
-![](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
-此问题是因为工具使用了rocksdb，需要使用64位的JDK, 请检查JDK版本是X64的JDK 。
-
-#### 8. 其他问题
-请重新运行迁移工具，若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+如您在使用COS Migration 工具过程中，遇到迁移失败、运行报错等异常情况，请参阅 [COS Migration 工具类常见问题](https://cloud.tencent.com/document/product/436/30745) 寻求解决。

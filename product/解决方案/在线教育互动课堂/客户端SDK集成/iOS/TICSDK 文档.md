@@ -49,13 +49,10 @@ pod repo update
 |libprotobuf.tbd|
 |libresolv.tbd|
 |libsqlite3.tbd|
-|libstdc++.6.tbd|
-|libstdc++.tbd|
 |libz.tbd|
-|libstdc++.6.0.9.tbd|
 
 ### 工程配置
-为了工程能够正常编译，需要修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
+为保障工程正常编译，需修改以下工程配置（**Cocoapods 集成方式也需要配置**）：
 
 * 在`Build Settings` > `Other Linker Flags`里添加选项 `-ObjC`。
 
@@ -63,9 +60,9 @@ pod repo update
 
 * 在`Build Settings`中将 `Enable Bitcode`设置为`NO`。
 
-* 由于要用到手机的相机和麦克风，所以别忘了在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
+* 由于要用到手机的相机和麦克风，所以需要在项目的`info.plist`文件中增加`Privacy - Camera Usage Description`和`Privacy - Microphone Usage Description`两项。
 
-* 由于腾讯云对象存储使用的是 HTTP 协议。为了确保在 iOS 系统上可以运行，您需要开启允许通过 HTTP 传输。
+* 腾讯云对象存储使用的是 HTTP 协议。为确保在 iOS 系统上可以运行，您需要开启允许通过 HTTP 传输。
 您可以通过以下两种方式开启允许通过 HTTP 传输：
 
     - 手动设置
@@ -108,13 +105,13 @@ pod repo update
  如果集成没问题，控制台就能打印出`TICSDK`的版本号。
  
 ## 2. 使用详解
-集成成功之后，就可以进一步了解 TICSDK 的使用方法了，为了方便开发者的集成使用，我们开发了一个面向开发者的 Demo，开发者可以参照该 Demo 使用TICSDK，[单击下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)。
+集成成功之后，可进一步了解 TICSDK 的使用方法，开发者可以参照该 Demo 使用TICSDK，[下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)。
 
-> 开发者 Demo 的主要主要为向开发者展示 TICSDK 的基本使用方法，所以简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
+>? 开发者 Demo 主要为开发者展示 TICSDK 的基本使用方法，简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
 ### 2.1 头文件概览
 
-先总体说明下 SDK 中暴露的公开头文件的主要功能：
+SDK 中暴露的公开头文件的主要功能：
 
 类名 | 主要功能
 --------- | ---------
@@ -147,19 +144,19 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 ```-->
  
-> 其中【创建课堂】和【销毁课堂】为老师端特有步骤
+>? 其中【创建课堂】和【销毁课堂】为老师端特有步骤。
 
 
 ### 2.3 初始化 SDK
-> 在初始化前，需确认已[开通实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并拿到 SDKAppID。
+>?初始化前，需确认已开通 [实时音视频服务](https://cloud.tencent.com/document/product/647/17195)，并获取 SDKAppID。
 
-要使用`TICSDK`，首先得进行初始化:
+使用`TICSDK`前，需先进行初始化。
 
 接口 | 说明
 ---|---
--initSDK:| 初始化SDK
+-initSDK:| 初始化 SDK
 
-`TICSDK`的账号体系基于`IMSDK`，支持多终端登录互踢功能（默认开启），初始化后，开发者可以设置以下回调，用来监听该账号是否被踢，当账号被踢时可以在界面上做出一些提示来提醒用户。账号被踢之后需重新登录方可正常使用TICSDK.
+`TICSDK`的账号体系基于`IMSDK`，支持多终端登录互踢功能（默认开启），初始化后，开发者可以设置以下回调，用来监听该账号是否被踢，当账号被踢时可以在界面上做出一些提示来提醒用户。账号被踢之后需重新登录方可正常使用TICSDK。
 
 ```objc
 >TICMange.h
@@ -173,16 +170,14 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ```
 
 ### 2.4 登录
-初始化完成之后，还需要登录：
 
 接口 | 说明
 ---|---
 -loginWithUid:userSig:succ:failed: | 登录
 
+该方法需要传入两个参数 uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要由开发者业务服务器生成并传给客户端，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
-该方法需要传入两个参数，uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要由开发者业务服务器生成并传给客户端，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
-
-> 开发调试阶段，开发者可以使用腾讯云 [实时音视频控制台](https://console.cloud.tencent.com/rav)->【开发辅助】->【签名(UserSig)生成工具】生成临时的uid和userSig用于开发测试（在控制台->【功能配置】下载公私钥）
+> 开发调试阶段，可使用腾讯云 [实时音视频控制台](https://console.cloud.tencent.com/rav) >【开发辅助】>【签名(UserSig)生成工具】生成临时的 uid 和 userSig 用于开发测试（在控制台 >【功能配置】下载公私钥）。
 
 ### 2.5 创建课堂
 登录成功之后，就可以加入课堂了，如果当前没有课堂需要先创建一个，创建课堂接口如下：
@@ -196,19 +191,19 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 ### 2.6 加入课堂
 
-不管是老师端还是学生端，都需要调用加入课堂接口来进入课堂：
+老师端和学生端，都需要调用加入课堂接口来进入课堂：
 
 接口 | 说明
 ---|---
 -joinClassroomWithOption:succ:failed: | 加入的课堂
 
-该接口需要传入一个配置block，该 block 接收一个方法内部创建好的`TICClassroomOption`默认配置对象，开发者需在该 block 中修改自定义配置，然后将修改后的 option 返回。
+该接口需要传入一个配置 block，该 block 接收一个方法内部创建好的`TICClassroomOption`默认配置对象，开发者需在该 block 中修改自定义配置，然后将修改后的 option 返回。
 
-为了保证课堂内的逻辑正常以及触发的事件能被监听到，进房时`TICClassroomOption`的属性都是必填参数，另外还有一个父类的参数必须填写：**controlRole**。
+为保证课堂内的逻辑正常以及触发的事件能被监听到，进房时`TICClassroomOption`的属性都是必填参数，另外还有一个父类的参数必须填写 **controlRole**。
 
-* **controlRole**：该参数代表进房之后使用哪些音视频参数，参数具体值为客户在[腾讯云实时音视频控制台](https://console.cloud.tencent.com/rav) -> 画面设定 中配置的角色名（例如：默认角色名为 user, 可设置 controlRole = @"user"）
+* **controlRole**：代表进房之后使用哪些音视频参数，参数具体值为客户在 [实时音视频控制台](https://console.cloud.tencent.com/rav) > 【画面设定】中配置的角色名（例如默认角色名为 user，可设置 controlRole = @"user"）。
 
-示例代码如下：
+示例代码：
 
 ```objc
 [[TICManager sharedInstance] joinClassroomWithOption:^TICClassroomOption *(TICClassroomOption *option) {
@@ -242,7 +237,7 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 ---|---
 -onUserUpdateInfo:users: | 课堂内音视频事件回调
 
-课堂内的音视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参照[demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
+课堂内的音视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参考 [Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
 
 ```objc
 /**
@@ -290,17 +285,17 @@ TICSDK 只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需
 
 ### 2.8 使用互动白板
 
-> 使用白板前，需确认已[开通白板服务](https://cloud.tencent.com/document/product/680/14782#2.-.E5.BC.80.E9.80.9A.E7.99.BD.E6.9D.BF.E6.9C.8D.E5.8A.A1)。
+> 使用白板前，需确认已开通 [白板服务](https://cloud.tencent.com/document/product/680/14782#2.-.E5.BC.80.E9.80.9A.E7.99.BD.E6.9D.BF.E6.9C.8D.E5.8A.A1)。
 
-TICSDK 中只有一个关于白板的接口，就是添加一个白板视图对象：
+TICSDK 中只有添加一个白板视图对象的接口：
 
 接口 | 说明
 ---|---
 -addBoardView: | 添加白板到 TICManager
 
-开发者使用时，只需要创建一个 boardView 对象，并调用该接口将其添加到 TICManager 中，即可使用白板进行涂鸦并与各端互动了。
+开发者使用时，只需创建一个 boardView 对象，并调用该接口将其添加到 TICManager 中，即可使用白板进行涂鸦并与各端互动了。
 
-> 注意：为了保证数据的准确展示，各端白板视图的长宽比需保持一致，demo中为 16：9。
+>!为保证数据的准确展示，各端白板视图的长宽比需保持一致，demo中为16：9。
 
 关于白板的更多高级操作及文档功能，请参考 [TXBoardSDK 文档](/document/product/680/17890)。
 
@@ -315,7 +310,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 -sendMessage:toUser:succ:failed: | 发送消息（可以发送所有类型的消息）
 
 
-课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `id<TICClassroomIMListener> imListener;`，一端发送 IM 消息时，另一端就可以在对应的消息回调方法中得到通知:
+课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `id<TICClassroomIMListener> imListener;`，一端发送 IM 消息时，另一端就可以在对应的消息回调方法中得到通知。
 
 接口 | 说明
 ---|---
@@ -323,7 +318,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 -onRecvCustomMsg:from:type: | 收到自定义消息
 -onRecvMessage: | 收到消息(所有类型的消息，自行解析)
 
-这 3 个代理方法，分别对应了前面 3 个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调，收到回调后可将消息展示在界面上。
+这3个接口，分别对应了前面3个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调，收到回调后可将消息展示在界面上。
 
 TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他高级功能，可直接调用`IMSDK`的接口，详情请参考 [IMSDK接口文档](https://cloud.tencent.com/document/product/269/1566)。
 
@@ -337,7 +332,7 @@ TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要
 -onMemberQuit: | 有人退出课堂时的通知
 -onClassroomDestroy: | 课堂被解散通知
 
-以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，比如：在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。
+以上协议方法分别代表有人加入课堂，有人退出课堂和课堂被解散的回调，开发者可以根据自己的业务需求，对回调事件进行相应的处理，例如在收到课堂解散回调时（老师退出课堂即触发该回调），课堂内的学生端可以弹出一个提示框，提示学生课堂已经结束。
 
 
 ### 2.11 退出课堂
@@ -355,8 +350,6 @@ TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要
 -destroyClassroom:succ:failed: | 销毁课堂（老师端调用）
 
 调用销毁课堂接口才会销毁课堂，课堂被销毁后，课堂的历史消息将会被清空，课堂的`roomID`也会被回收，可再使用该`roomID`创建课堂。
-
-
 
 
 

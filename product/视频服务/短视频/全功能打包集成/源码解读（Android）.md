@@ -32,7 +32,7 @@
 
 - 帐号模块负责处理用户登录/注册以及登录缓存的逻辑；
 - 如果您已经有自己的帐号体系，可以直接替换该模块；
-- 账号模块通过调用 TCUserMgr 的 register 将用户名，密码注册到小视频的业务后台，调用 TCUserMgr 的 login 方法进行登录，并将登录信息缓存到本地 Sharepreference 中，退出登录，清空本地缓存。
+- 帐号模块通过调用 TCUserMgr 的 register 将用户名，密码注册到小视频的业务后台，调用 TCUserMgr 的 login 方法进行登录，并将登录信息缓存到本地 Sharepreference 中，退出登录，清空本地缓存。
 
 #### 相关代码
 

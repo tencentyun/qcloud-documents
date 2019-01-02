@@ -29,7 +29,7 @@ Authorization: Auth String
 | Content-Encoding    | RFC 2616 中定义的编码格式，将作为 Object 元数据保存。      | String | 否    |
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。 | String | 否    |
 | Expires             | RFC 2616 中定义的文件日期和时间，将作为 Object 元数据保存。      | String | 否    |
-| x-cos-meta-      | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。    | String | 否    |
+| x-cos-meta-\*      | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。    | String | 否    |
 | x-cos-storage-class | 设置 Object 的存储级别，枚举值：STANDARD, STANDARD_IA，默认值：STANDARD | String | 否    |
 
 **权限相关头部**

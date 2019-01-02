@@ -1,57 +1,43 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
+本接口（idcard）用于识别身份证上的姓名、证件号、地址等信息。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
-### 服务简介
-本接口用于识别身份证上的姓名、证件号、地址等信息。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
-
-### url 说明
-支持 http 和 https 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/idcard`
-
-`https://recognition.image.myqcloud.com/ocr/idcard`
-
-## 请求方式
-
-### 请求头 header
+## 请求头 header
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
-| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json  或  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
-| authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734) |
->**注意：**
->如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为6MB，不支持 .gif 类型的动图。 | 
+| content-type   | 是| application/json  或  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接。<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
+| authorization  |是| 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734) |
+
+>!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ## 使用 application/json 格式
-### 请求参数
-
-使用 application/json 格式：
+### 输入参数
 
 | 参数        | 必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看           |
-| card_type | 否    | int       | 0 为身份证有照片的一面（正面）；1 为身份证有国徽的一面（反面）。如果未指定，默认为0，但反面必须填1。  |
-| url_list  | 否   | string 数组 | 图片 url 列表      |
+| appid     | 是   | String    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
+| card_type | 否    | Int       | 0 为身份证有照片的一面（正面）；1 为身份证有国徽的一面（反面）。如果未指定，默认为0，但反面必须填1。  |
+| url_list  | 否   | String 数组 | 图片 url 列表。      |
 
 
-### 返回内容
+### 输出参数
 
 | 参数          | 类型      | 类型           |
 | ----------- | ------- | ------------ |
-| result_list | json 数组 | 具体查询数据，内容见下表 |
+| result_list |JSON 数组 | 具体查询数据，内容见下表。 |
 
-result_list（ json 数组）中每一项的具体内容：
+result_list（ JSON 数组）中每一项的具体内容：
 
 | 参数      | 类型     | 描述           |
 | ------- | ------ | ------------ |
-| code    | int    | 错误码，0 为成功    |
-| message | string | 错误描述         |
-| url     | string | 当前图片的 url    |
-| data    | object | 具体查询数据，内容见下表 |
+| code    | Int    | 错误码，0为成功。    |
+| message | String | 错误描述。         |
+| url     | String | 当前图片的 url。    |
+| data    | Object | 具体查询数据，内容见下表。 |
 
 data 字段具体内容（身份证有照片的一面）：
 
@@ -80,11 +66,10 @@ data 字段具体内容（身份证反面）：
 | authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
+>?如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
->**注意：** 
->如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
-
-### 请求示例
+### 示例
+#### 输入示例
 ```
 POST /ocr/idcardHTTP/1.1
 Authorization: FL26MsO1nhrZGuXdin10DE5tnDdhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJnQ9MTQ2OTE3NTIzMCZlPTE0NjkxNzYyMzA=
@@ -103,7 +88,7 @@ Content-Type: "application/json"
 }
 ```
 
-### 返回示例
+#### 输出示例
 
 ```
 {
@@ -178,49 +163,48 @@ Content-Type: "application/json"
 
 ## 使用 multipart/form-data 格式
 
-### 请求参数
+### 输入参数
 使用 multipart/form-data 格式：
 
 | 参数        | 必选 | 类型           | 描述                                       |
 | --------- | ---- | ------------ | ---------------------------------------- |
-| appid     | 是    | string         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
-| card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
-| image     | 是    | binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| appid     | 是    | String         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
+| card_type | 否    | Int          | 0为身份证有照片的一面，1为身份证有国徽的一面；如果未指定，默认为0。     |
+| image     | 是    | Binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
-### 返回内容
+### 输出参数
 
 | 字段          | 类型      | 说明           |
 | ----------- | ------- | ------------ |
-| result_list | json 数组 | 具体查询数据，内容见下表 |
+| result_list | JSON 数组 | 具体查询数据，内容见下表。 |
 
-result_list（json 数组）中每一项的具体内容：
+result_list（JSON 数组）中每一项的具体内容：
 
 | 字段       | 类型     | 说明                               |
 | -------- | ------ | -------------------------------- |
-| code     | int    | 服务器错误码，0 为成功                     |
-| message  | string | 服务器返回的信息                         |
-| filename | string | 当前图片的 filename，与请求包中 filename 一致 |
-| data     | object | 具体查询数据，内容见下表                     |
+| code     | Int    | 服务器错误码，0为成功。                     |
+| message  | String | 服务器返回的信息。                         |
+| filename | String | 当前图片的 filename，与请求包中 filename 一致。 |
+| data     | Object | 具体查询数据，内容见下表。                     |
 
 data 字段具体内容（身份证有照片的一面）：
 
 | 字段                     | 类型         | 说明                  |
 | ---------------------- | ---------- | ------------------- |
-| name                   | string     | 姓名                  |
-| sex                    | string     | 性别                  |
-| nation                 | string     | 民族                  |
-| birth                  | string     | 出生日期                |
-| address                | string     | 地址                  |
-| id                     | string     | 身份证号                |
-| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100] |
-| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]]  |
-| nation_confidence_all  | array(int) | 民族置信度，取值范围[0,100]   |
-| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0,100] |
-| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]   |
-| id_confidence_all      | array(int) | 身份证号置信度，取值范围[0,100] |
+| name                   | String     | 姓名                  |
+| sex                    | String     | 性别                  |
+| nation                 | String     | 民族                  |
+| birth                  | String     | 出生日期                |
+| address                | String     | 地址                  |
+| id                     | String     | 身份证号                |
+| name_confidence_all    | Array(Int) | 证件姓名置信度，取值范围[0,100] |
+| sex_confidence_all     | Array(Int) | 性别置信度，取值范围[0,100]]  |
+| nation_confidence_all  | Array(Int) | 民族置信度，取值范围[0,100]   |
+| birth_confidence_all   | Array(Int) | 出生日期置信度，取值范围[0,100] |
+| address_confidence_all | Array(Int) | 地址置信度，取值范围[0,100]   |
+| id_confidence_all      | Array(Int) | 身份证号置信度，取值范围[0,100] |
 
->**注意：** 
->如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为-1。
+>?如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为-1。
 
 data 字段具体内容（身份证反面）：
 
@@ -231,10 +215,10 @@ data 字段具体内容（身份证反面）：
 | authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
->**注意：** 
->如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
+>?如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
-### 请求示例
+### 示例
+#### 输入示例
 ```
 POST /ocr/idcard HTTP/1.1
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
@@ -267,7 +251,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ---------------------------acebdf13572468--
 ```
 
-### 返回示例
+#### 输出示例
 
 ```
 {
@@ -323,10 +307,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | 14      | 签名失败                              |
 | 15      | 操作太频繁，触发频控                        |
 | 16      | 存储桶不存在                            |
-| 17      | url  为空                           |
+| 17      | url 为空                           |
 | 18      | 没有图片或 url                         |
-| 19      | 图片数过多，单次请求最多支持 20 个 url 或文件       |
-| 20      | 图片过大，单个文件最大支持 1MB                 |
+| 19      | 图片数过多，单次请求最多支持20个 url 或文件       |
+| 20      | 图片过大，单个文件最大支持1MB                 |
 | 21      | 无效的参数                             |
 | 200     | 内部打包失败                            |
 | 201     | 内部解包失败                            |
@@ -353,4 +337,4 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
 
-更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。
