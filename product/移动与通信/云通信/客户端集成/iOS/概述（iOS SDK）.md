@@ -26,7 +26,7 @@
 | 包名 | 介绍 | 功能 |
 | --- | --- | --- |
 | IMCore.framework | IM 核心功能 | 如果使用 IM 聊天必须加入，如果只用登录功能（如只使用音视频的情况，可不加入）<br>如果不加入 IMCore.framework，使用时需 `#import "ImSDK/ImSDKSimple.h"`，不要包含其他头文件，否则可能会引起编译错误 |
-| IMSDKBugly.framework | Crash 上报功能 | 如无特殊需要，推荐使用，在控制台页面可以查看 Crash 率等信息<br>如果不加入此 SDK，需要调用 `[TIMManager sharedInstance] disableCrashReport]; ` 禁用功能 |
+| IMSDKBugly.framework | Crash 上报功能 | 如无特殊需要，推荐使用，在控制台页面可以查看 Crash 率等信息<br>如果不加入此 SDK，需要设置 `TIMSdkConfig ` 中的 `disableCrashReport = true ` 禁用功能 |
 
 **其他 SDK：**
 
