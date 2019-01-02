@@ -20,7 +20,7 @@
 
 | jar 文件         | 说明    |
 | ------------ | ------------ | 
-| vod_api-2.0.0.jar | 点播 SDK |
+| vod_api-2.1.0.jar | 点播 SDK |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK                          |
 | tencentcloud-sdk-java-3.0.44.jar             | 腾讯云 API SDK                        |
