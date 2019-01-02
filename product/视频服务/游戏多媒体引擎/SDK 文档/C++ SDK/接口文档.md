@@ -198,7 +198,7 @@ QAVSDK_AUTHBUFFER_API int QAVSDK_AUTHBUFFER_CALL QAVSDK_AuthBuffer_GenAuthBuffer
 #### 示例代码  
 ```
 unsigned int bufferLen = 512;
-unsigned char retAuthBuff[512] = {0};
+unsigned char strAuthBuffer[512] = {0};
 QAVSDK_AuthBuffer_GenAuthBuffer(atoi(SDKAPPID3RD), roomId, "10001", AUTHKEY,strAuthBuffer,&bufferLen);
 ```
 
