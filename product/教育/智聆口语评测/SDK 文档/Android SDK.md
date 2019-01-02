@@ -1,12 +1,12 @@
+
 ##  概述
-腾讯云智聆口语评测（Smart Oral Evaluation）英语口语评测服务，是基于英语口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的英语口语发音评测。腾讯云智聆口语评测支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于英语口语类教学应用中。
-本 SDK 为智聆口语测评的 Android 版本，封装了对智聆口语测评网络 API 的调用及本地音频文件处理，并提供简单的录音功能，使用者可以专注于从业务切入，方便简洁地进行二次开发。
+腾讯云智聆口语评测（英文版）（Smart Oral Evaluation-English，SOE-E）是腾讯云推出的语音评测产品，是基于英语口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的英语口语发音评测。腾讯云智聆口语评测（英文版）支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于英语口语类教学应用中。
+本 SDK 为智聆口语测评（英文版）的 Android 版本，封装了对智聆口语测评（英文版）网络 API 的调用及本地音频文件处理，并提供简单的录音功能，使用者可以专注于从业务切入，方便简洁地进行二次开发。
 本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
 ## 使用说明
 #### 工程及 Demo 源码
 [工程及 Demo 源码的 GitHub 地址>>](https://github.com/TencentCloud/tencentcloud-sdk-android-soe)
-####  文件说明
 本 SDK 的主文件为 tencentsoe-sdk-release.aar，直接引入项目中即可。
 - 如果您需要调用 MP3录音功能，则还需引入 mp3recorder.aar。
 - 如果您需要运行 Demo，请对 SECRET_ID 和 SECRET_KEY 赋值。
@@ -17,7 +17,7 @@
 implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 ```
-#### 权限使用
+#### 使用权限
 本 SDK 需要以下权限：
 ```xml
 android.permission.INTERNET
@@ -26,7 +26,7 @@ android.permission.READ_EXTERNAL_STORAGE
 android.permission.WRITE_EXTERNAL_STORAGE
 ```
 #### 获取密钥
-secretId 和 secretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证：
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 ##  使用示例
@@ -57,24 +57,24 @@ ArrayList<String> base64StringArray = TencentSOE.encodeAudioFile(filePath, 512 *
 ```
 #### 创建回调
 ```java
-    private SOECallback callback = new SOECallback() {
-        public void onInitSuccess(InitOralProcessResponse response) {
-            sendMessage(MSG_INIT_OK, response.toString());
-        }
+private SOECallback callback = new SOECallback() {
+    public void onInitSuccess(InitOralProcessResponse response) {
+        sendMessage(MSG_INIT_OK, response.toString());
+    }
 
-        public void onTransmitSuccess(int index, int isEnd, TransmitOralProcessResponse response) {
-            Message msg = new Message();
-            msg.what = MSG_TRANSMIT_OK;
-            msg.arg1 = index;
-            msg.arg2 = isEnd;
-            msg.obj = response.toString();
-            mMyHandler.sendMessage(msg);
-        }
+    public void onTransmitSuccess(int index, int isEnd, TransmitOralProcessResponse response) {
+        Message msg = new Message();
+        msg.what = MSG_TRANSMIT_OK;
+        msg.arg1 = index;
+        msg.arg2 = isEnd;
+        msg.obj = response.toString();
+        mMyHandler.sendMessage(msg);
+    }
 
-        public void onError(SOEError e) {
-            sendMessage(MSG_INIT_ERROR, e.getMessage());
-        }
-    };
+    public void onError(SOEError e) {
+        sendMessage(MSG_INIT_ERROR, e.getMessage());
+    }
+};
 ```
 #### 执行一次性评估
 ```java

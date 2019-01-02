@@ -2,7 +2,7 @@
 
 tcaplus_client 是在 TcaplusServiceAPI 发布包 bin 目录中的一个 TcaplusDB 表访问工具，它本身也是 TcaplusServiceAPI 的一个应用程序。
 
-Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具,接下来的演示将基于 Linux x86_64 版本的工具进行。
+Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，接下来的演示将基于 Linux x86_64 版本的工具进行。
 
 > ! 相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
 
