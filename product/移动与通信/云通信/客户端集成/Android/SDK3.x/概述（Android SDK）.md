@@ -48,7 +48,7 @@ libs
 
 | 包名 | 描述 | 
 |---------|---------|
-| bugly_2.4.0_imsdk_release.jar | Bugly 包，crash 上报用, 如不需要可删除，并调用 TIMManager 中的 `disableCrashReport` 进行禁用 |
+| bugly_2.4.0_imsdk_release.jar | Bugly 包，crash 上报用, 如不需要可删除，并调用 TIMSdkConfig 中的 `enableCrashReport(false)` 进行禁用 |
 | imsdk.jar | ImSDK 基础包，只提供消息、资料关系链管理、群组管理等的最基础功能 |
 | imsdk_group_ext.jar | 群组管理扩展包，提供群组管理的高级功能 |
 | imsdk_msg_ext.jar | 消息管理扩展包，提供消息管理的高级功能 |
