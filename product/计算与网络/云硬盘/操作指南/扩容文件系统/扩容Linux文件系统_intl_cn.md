@@ -1,4 +1,8 @@
-云硬盘是云上可扩展的存储设备，用户可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。要达到扩容并使用扩容空间的目的，用户在[扩容实体云硬盘](/doc/product/362/5747)大小之后，还需要扩展其上的文件系统以识别新近可用的空间。您可以根据下面的步骤进行：
+云硬盘是云上可扩展的存储设备，用户可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。要达到扩容并使用扩容空间的目的，用户在 [扩容实体云硬盘](/doc/product/362/5747) 大小之后，还需要扩展其上的文件系统以识别新近可用的空间。
+
+> **为了您的数据安全，扩容分区和文件系统前，请务必对操作的云硬盘[制作快照](https://cloud.tencent.com/document/product/362/5755)。**
+
+您可以根据下面的步骤进行：
 
 1) [扩容实体云硬盘大小](/doc/product/362/5747)
 
@@ -11,7 +15,7 @@
 
 
 ## 检查文件系统大小
-在执行了扩容实体云硬盘大小操作后，用户可以通过检查文件系统大小来查看实例是否识别了更大的云硬盘更空间。在 Linux 上，可以使用 `df -h` 命令检查文件系统大小。
+在执行了扩容实体云硬盘大小操作后，用户可以通过检查文件系统大小来查看实例是否识别了更大的云硬盘空间。在 Linux 上，可以使用 `df -h` 命令检查文件系统大小。
 
 如果没有看到云硬盘大小变成扩容后的值，则需要扩容此文件系统，以便实例可以使用新的空间。
 
@@ -80,7 +84,7 @@ mkpart primary start end
 
 本例使用`mkpart primary 10.7GB 100% `
 
-再次执行`print`可发现新分区已经新建成功，键入`quit`即可可退出parted工具：
+再次执行`print`可发现新分区已经新建成功，键入`quit`即可退出parted工具：
 ![](//mccdn.qcloud.com/static/img/fc54fd4c05102ee91c648526d77d1b42/image.png)
 
 #### 格式化新建分区
@@ -159,13 +163,19 @@ e2fsck -f 分区路径
 前述步骤中本例已新建了分区1，使用`e2fsck -f /dev/vdb1`进行操作。结果如下：
 ![](//mccdn.qcloud.com/static/img/307f7a0c98eea05ca1d4560fe4e96f57/image.png)
 
-#### 扩容文件系统
-执行以下命令进行分区上文件系统的扩容操作：
+#### 扩容 EXT 文件系统
+执行以下命令进行新分区上 EXT 文件系统的扩容操作：
 
 ```
-resize2fs 分区路径
+resize2fs 分区路径，如/dev/vdb1
 ```
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
+
+#### 扩容 XFS 文件系统
+执行以下命令进行新分区上 XFS 文件系统的扩容操作：
+```
+xfs_growfs 分区路径，如/dev/vdb1
+```
 
 #### 挂载新分区
 执行以下命令挂载分区：
@@ -253,10 +263,13 @@ mount 新分区路径 新挂载点
 ### 将新空间增加到已有分区空间中
 若原有的硬盘分区为一个MBR分区(可以看到vdb1,vdc1等字样)，同时在此分区上制作了文件系统。或原有的硬盘没有分区，直接在此硬盘上制作了文件系统。这两种情况都可以选择使用自动扩容工具进行扩容。
 
-自动扩容工具适用于Linux操作系统，用于将扩容时新扩的云硬盘存储空间添加到已存在的文件系统中，扩容能够成功必须满足下面3个条件：
-- 文件系统是ext2/ext3/ext4
+自动扩容工具适用于Linux操作系统，用于将扩容时新扩的云硬盘存储空间添加到已存在的文件系统中，扩容能够成功必须满足下面4个条件：
+- 文件系统是ext2/ext3/ext4/xfs
 - 当前文件系统不能有错误
 - 扩容后的磁盘大小不超过2TB
+- 磁盘可卸载（umount）
+
+> **注意：为了数据安全，执行扩容脚本前请务必对操作的云硬盘进行[制作快照](https://cloud.tencent.com/document/product/362/5755)**。
 
 下面介绍自动扩容工具的使用方法。
 
@@ -289,9 +302,9 @@ python /tmp/devresize.py 硬盘路径
 
 若输出的是“[ERROR] - e2fsck failed!!“，请先用fsck对文件系统所在分区进行修复，可以执行以下命令进行自动修复:
 ```
-fsck 分区路径
+fsck -a 分区路径
 ```
-请注意这里与前一个命令不同，需要填写的是文件系统所在分区。若您的文件系统在vdb1上，则应执行`fsck /dev/vdb1`。
+请注意这里与前一个命令不同，需要填写的是文件系统所在分区。若您的文件系统在vdb1上，则应执行`fsck -a /dev/vdb1`。
 
 修复成功后，再使用`python /tmp/devresize.py 硬盘路径`来使用扩容工具进行扩容。
 
@@ -309,4 +322,94 @@ df -h
 这里通过`mount /dev/vdb1 /data`命令手动挂载扩容后的分区(如果原先是没有分区的，执行`mount /dev/vdb /data`)，用`df -h`命令查看，出现以下信息说明挂载成功，即可以查看到数据盘了:
 
 ![](//mccdn.qcloud.com/static/img/2367f3e70cd0c3c1bef665cc47c1c3bc/image.jpg)
-再执行`ll /data`命令，可以查看到，扩容后原分区的数据没有丢失，新增加的存储空间已经扩容到文件系统中。
+再执行`ls -l /data`命令，可以查看到，扩容后原分区的数据没有丢失，新增加的存储空间已经扩容到文件系统中。
+
+
+#### 手动执行命令扩容
+
+如果用户对硬盘分区与文件系统有一定了解，并且无法自动扩容工具扩容（例如磁盘不允许umount）的情况下，可以参考以下两个步骤，将新空间增加到已有分区中。
+
+> **注意：为了数据安全，执行以下操作前请务必对操作的云硬盘进行[制作快照](https://cloud.tencent.com/document/product/362/5755)**。
+
+1） 检查分区是否需要扩容
+
+使用`lsblk`命令可以列出挂载到该云服务器上的块设备，例如：
+```
+[root@VM_0_3_centos ~]# lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+vda    253:0    0   50G  0 disk
+`-vda1 253:1    0   50G  0 part /
+vdb    253:16   0   50G  0 disk
+`-vdb1 253:17   0   30G  0 part /mnt
+vdc    253:32   0   20G  0 disk
+```
+该云服务器挂载了三个块设备：`/dev/vda`，`/dev/vdb`和`/dev/vdc`。
+
+`/dev/vda1`是块设备`/dev/vda`上的分区。可以看到两者大小都是50GB，因此不用调整分区`/dev/vda1`的大小。
+
+而`/dev/vdb1`是一个30GB的分区，位于50GB的`/dev/vdb`设备上，并且卷上没有其他分区。这种情况下分区必须调整大小，以使用设备上的剩余空间。
+
+`/dev/vdc`未进行分区，因此无法调整大小。
+
+例如，用户将一个**没有分区**的云硬盘从10GB扩容到了20GB，那么`lsblk`的输出结果将与上面示例的`/dev/vdc`类似。
+
+如果用户将一块**包含一个分区**的30GB的云硬盘扩容到了50GB，那么在云服务器上通过`lsblk`命令输出的结果与上图的`/dev/vdb`类似，此时需要按照以下命令，使用`growpart`扩容分区（请将`/dev/vdb 1`替换为要扩容的设备和分区号，下同）：
+
+```
+# 注意这里要将设备名称与分区号分开
+[root@VM_0_3_centos ~]# growpart /dev/vdb 1
+CHANGED: partition=1 start=1 old: size=58593750 end=58593751 new: size=104857566,end=104857567
+```
+
+执行成功后通过`lsblk`可以确认分区`/dev/vdb1`已扩容到与设备相同大小（50GB）：
+```
+[root@VM_0_3_centos ~]# lsblk /dev/vdb
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+vdb    253:16   0  50G  0 disk
+`-vdb1 253:17   0  50G  0 part /mnt
+```
+
+> 如果执行`growpart`命令时提示`growpart: command not found`，表示操作系统找不到`growpart`工具，此时需要先安装依赖包`cloud-utils`(Debian)或`cloud-utils-growpart`(CentOS)再执行命令。
+
+2）扩容文件系统
+
+> 扩容文件系统前，建议先使用fsck等命令检查文件系统是否正常。
+
+确保分区已使用剩余的设备空间后，通过`df -h`命令可以查看磁盘现有文件系统的设备空间使用情况：
+```
+[root@VM_0_3_centos ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        50G  5.3G   42G  12% /
+/dev/vdb1        30G   45M   28G   1% /mnt
+/dev/vdc         10G   20M    9G   2% /mnt2
+```
+
+可以看到虽然`/dev/vdb1`分区已从30GB扩容到了50GB，但操作系统所识别的文件系统仍然是30GB大小。
+类似的，没有分区的`/dev/vdc`设备虽然已经从10GB扩容到了20GB，但之前创建的文件系统大小仍然为10GB。
+
+因此还需要将文件系统扩充，以利用剩余的分区和设备空间。对于Linux ext2/ext3/ext4文件系统，可以通过`resize2fs`命令扩充文件系统大小；
+xfs文件系统可以使用`xfs_growfs`命令扩充（xfs文件系统需要mount后才能扩容）。其他文件系统的扩容方式，请参考相应的说明文档。
+
+例如要扩充`/dev/vdb1`分区上的文件系统：
+
+```
+[root@VM_0_3_centos ~]# resize2fs /dev/vdb1
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/vdb1 is mounted on /mnt; on-line resizing required
+old_desc_blocks = 4, new_desc_blocks = 7
+The filesystem on /dev/vdb1 is now 13106939 blocks long.
+```
+
+当命令输出类似"The filesystem on /dev/vdb1 is now xxxxxxxx blocks long."时，表示文件系统扩容成功。
+若出现"The filesystem is already nnnnnnn blocks long. Nothing to do!"的提示，请按照上一步检查分区是否需要扩容。
+
+最后，再次通过`df -h`命令输出文件系统空间使用情况，检查文件系统是否已成功扩容。
+可以看到`/dev/vdb1`分区已从30GB扩充到了分区大小的50GB：
+
+```
+[root@VM_0_3_centos ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        50G  5.3G   42G  12% /
+/dev/vdb1        50G   52M   47G   1% /mnt
+/dev/vdc         10G   20M    9G   2% /mnt2
+```

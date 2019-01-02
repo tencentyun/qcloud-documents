@@ -9,7 +9,7 @@ In this example, the user purchased a 20-GB system disk and a 30-GB data disk (n
 - If you purchased multiple cloud disks, it is recommended to set a custom name for the elastic cloud disk that stores important data and set auto renewal for it to prevent the impact on your business due to the failure to renew the expired elastic cloud disk in a timely manner.  
 - You can locate a cloud disk quickly based on the custom name or the private IP of associated CVM in [CBS Console](https://console.cloud.tencent.com/cvm/cbs).
 
-In this example, the elastic cloud disk ID is `ins-kjo6azag` and the name is `elastic cloud disk usage demo`. 
+In this example, the elastic cloud disk ID is `disk-kjo6azag` and the name is `elastic cloud disk usage demo`. 
 
 
 ## Viewing the Mounted Disk
