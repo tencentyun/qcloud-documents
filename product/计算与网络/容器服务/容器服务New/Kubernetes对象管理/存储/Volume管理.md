@@ -4,8 +4,8 @@
 
 - **使用主机路径**：将容器所在宿主机的文件目录挂载到容器的指定路径中（即对应 Kubernetes 的 HostPath）。您可以根据业务需求，不设置源路径（即对应 Kubernetes 的 EmptyDir）。如果不设置源路径，系统将分配主机的临时目录挂载到容器的挂载点。**指定源路径的本地硬盘数据卷适用于将数据持久化存储到容器所在宿主机，EmptyDir 适用于容器的临时存储。**
 - **使用 NFS 盘**：只需填写 NFS 路径，您可以使用腾讯云的 [文件存储 CFS](https://cloud.tencent.com/document/product/582/9127)，也可使用自建的文件存储 NFS。**使用 NFS 数据卷适用于多读多写的持久化存储，也适用于大数据分析、媒体处理、内容管理等场景。**
-- **使用已有 PersistentVolumeClaim**：使用已有 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。更多详情请参见 [Persistent Volumes 管理]()。
-- **使用新的 PersistentVolumeClaim**：新建一个 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。更多详情请参见 [Persistent Volumes 管理]()。
+- **使用已有 PersistentVolumeClaim**：使用已有 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。更多详情请参见 [PV 和 PVC 管理](https://cloud.tencent.com/document/product/457/31712)。
+- **使用新的 PersistentVolumeClaim**：新建一个 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。更多详情请参见 [PV 和 PVC 管理](https://cloud.tencent.com/document/product/457/31712)。
 - **使用腾讯云硬盘**：腾讯云基于 CBS 扩展的 Kubernetes 的块存储插件。您可以指定一块腾讯云的 CBS 云硬盘挂载到容器的某一路径下，当容器迁移时，云硬盘会随之迁移。**使用云硬盘数据卷适用于数据的持久化保存，可用于 Mysql 等有状态服务。设置云硬盘数据卷的服务，实例数量最大为 1。**
 - **使用 ConfigMap**：ConfigMap 以文件系统的形式挂载到 Pod 上，支持自定义 ConfigMap 条目挂载到特定的路径。更多详情请参见 [ConfigMap 管理](https://cloud.tencent.com/document/product/457/31717)。
 - **使用 Secret**：Secret 以文件系统的形式挂载到 Pod 上，支持自定义 Secret 条目挂载到特定的路径。更多详情请参见 [Secret 管理](https://cloud.tencent.com/document/product/457/31718)。

@@ -5,7 +5,7 @@ VPN 连接（VPN Connections）是一种基于网络隧道技术，实现本地�
 |---------|---------|
 | [文档概览](https://cloud.tencent.com/document/product/554) | VPN 连接文档总览|
 | [产品简介](https://cloud.tencent.com/document/product/554/18980) | 提供 VPN 连接的功能、相关产品、使用限制等关键说明 |
-| [购买指南](https://cloud.tencent.com/document/product/576/18530) | 提供 VPN 连接及相关资源的购买方式、计费等说明 |
+| [购买指南](https://cloud.tencent.com/document/product/554/18986) | 提供 VPN 连接及相关资源的购买方式、计费等说明 |
 | [快速入门](https://cloud.tencent.com/document/product/554/18988) | 提供快速完成 VPN 连接的创建与基础配置的方法 |
 | [操作指南](https://cloud.tencent.com/document/product/554/18996) | 提供修改 VPN 通道配置等各项功能操作指引|
 | [API 文档](https://cloud.tencent.com/document/product/554/19005) | 提供 VPN 连接 API 各接口及功能说明等|
