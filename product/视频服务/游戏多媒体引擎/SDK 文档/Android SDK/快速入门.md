@@ -28,13 +28,12 @@ GME 快速入门文档只提供最主要的接入接口，更多详细接口请�
 - GME 需要周期性的调用 Poll 接口触发事件回调。
 - GME 回调信息参考回调消息列表。
 - 设备的操作要在进房成功之后。
-- 此文档对应 GME sdk version：2.2。
+- 此文档对应 GME sdk version：2.3。
 
 ## 快速接入步骤
 
 ### 1、获取单例
 在使用语音功能时，需要首先获取 ITMGContext 对象。
-
 ####  函数原型 
 
 ```
@@ -101,17 +100,11 @@ ITMGContext public abstract void  EnterRoom(String roomId, int roomType, byte[] 
 | roomType 	|int		|房间音频类型		|
 | authBuffer	|byte[]	|鉴权码				|
 
-|音频类型     	|含义|参数|音量类型|控制台推荐采样率设置|适用场景|
-| ------------- |------------ | ---- |---- |---- |---- |
-| ITMG_ROOM_TYPE_FLUENCY			|流畅音质	|1|扬声器：通话音量；耳机：媒体音量	|如对音质无特殊需求，16K 采样率即可；					|流畅优先、超低延迟实时语音，应用在游戏内开黑场景，适用于 FPS、MOBA 等类型的游戏；	|							
-| ITMG_ROOM_TYPE_STANDARD			|标准音质	|2|扬声器：通话音量；耳机：媒体音量	|根据对音质的需求，可以选择16k/48k 采样率				|音质较好，延时适中，适用于狼人杀、棋牌等休闲游戏的实时通话场景；	|												
-| ITMG_ROOM_TYPE_HIGHQUALITY		|高清音质	|3|扬声器：媒体音量；耳机：媒体音量	|为了保证最佳效果，建议控制台设置 48k 采样率的高音质配置	|超高音质，延时相对大一些，适用于音乐舞蹈类游戏以及语音社交类 APP；适用于播放音乐、线上 K 歌等有高音质要求的场景；	|
+- 房间音频类型请参考[音质选择](https://cloud.tencent.com/document/product/607/18522)。
 
-- 如对音量类型或场景有特殊需求，请联系一线客服反馈；
-- 控制台采样率设置会直接影响游戏语音效果，请在 [控制台](https://console.cloud.tencent.com/gamegme) 上再次确认采样率设置是否符合项目使用场景。
-####  示例代码  
+#### 示例代码  
 ```
-ITMGContext.GetInstance(this).EnterRoom(Integer.parseInt(roomId),roomType, authBuffer);    
+ITMGContext.GetInstance(this).EnterRoom(roomId,roomType, authBuffer);    
 ```
 
 ### 5、加入房间事件的回调
@@ -192,3 +185,5 @@ AuthBuffer public native byte[] genAuthBuffer(int sdkAppId, String roomId, Strin
 import com.tencent.av.sig.AuthBuffer;//头文件
 byte[] authBuffer=AuthBuffer.getInstance().genAuthBuffer(Integer.parseInt(sdkAppId), Integer.parseInt(strRoomID),identifier, key);
 ```
+
+
