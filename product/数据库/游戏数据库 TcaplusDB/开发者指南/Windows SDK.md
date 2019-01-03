@@ -1,6 +1,6 @@
 
 ## 操作场景
-本文档为 Tcaplus Protobuf API Windows(x64) 用户手册。
+本文档教您如何在 Windows(x64) 系统上操作 Tcaplus Protobuf API 。
 ## 运行环境
 
 操作系统 - Microsoft Windows x86\_64
@@ -9,7 +9,7 @@
 ## 操作步骤
 ### 下载软件包
 
-1. 下载依赖包和 Tcaplus Protobuf API 软件包： [SDK 下载]()。
+1. 下载依赖包和 Tcaplus Protobuf API 软件包： [SDK 下载](https://cloud.tencent.com/document/product/596/31925)。
 2. 解压缩，以下是软件包的结构。
 ```
 Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
