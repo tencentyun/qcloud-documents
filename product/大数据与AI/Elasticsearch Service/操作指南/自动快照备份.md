@@ -1,0 +1,90 @@
+腾讯云 ES 提供自动备份，自动创建集群的主索引分片的快照并备份到 COS，进而根据需要将备份数据恢复到集群。
+
+## 备份说明
+
+- 腾讯云 ES 自动快照备份，只保留最近7天的快照数据。
+- 自动快照备份的数据只能用于恢复到原集群，如果需要跨集群恢复，请参考 [手动快照](https://cloud.tencent.com/document/product/845/19549)。
+- 默认情况下，自动快照备份在凌晨进行，建议您根据业务需求选择集群访问压力不大的时间进行。
+- 集群第一个快照是集群数据的完整拷贝，执行时间视具体数据量而定，之后的快照保留的是已存快照和新数据之间的增量差异。
+- 集群健康状态为红色时，自动快照服务将停止创建，建议您关注集群的健康状态。
+
+## 操作步骤
+
+### 开启自动快照备份
+
+1. 登录 [ES 控制台](https://console.cloud.tencent.com/es)，在集群列表，单击集群名称进入集群详情页。
+2. 在“高级配置”页，可以开启自动快照备份以及配置自动快照备份的时间。
+![自动快照备份](https://main.qcloudimg.com/raw/7dda1c6d3a02133bc2f86ce4c159a2d3.png)
+
+### 查看快照存储库
+
+在集群详情页单击【Kibana】进入 Kibana 控制台， 在“Dev Tools”页可以通过 ES 的 API 查看集群的所有快照存储库。
+- 查看集群的快照存储库。
+
+```
+GET _snapshot?pretty
+```
+
+如果只有自动快照，将得到如下的返回信息：
+
+```
+{
+  "ES_AUTO_BACKUP": {
+    "type": "cos",
+    "settings": {
+      "bucket": "es-ap-guangzhou",
+      "base_path": "/es_backup/es-2s8x1b9u",
+      "chunk_size": "500mb",
+      "region": "ap-guangzhou",
+      "compress": "true"
+    }
+  }
+}
+```
+
+- 查看自动快照存储库中的快照信息。  
+
+```
+GET _snapshot/ES_AUTO_BACKUP/_all?pretty
+```
+返回结果如下：
+
+```
+如果没有快照，列表为空。
+{
+  "snapshots": []
+}
+
+{
+  "snapshots": [
+    {
+      "snapshot": "es-2s8x1b9u_20181220",
+      "uuid": "gsXPyWb1SNOlTuj3eNs2gA",
+      "version_id": 5060499,
+      "version": "5.6.4",
+      "indices": [
+        ".kibana"
+      ],
+      "state": "SUCCESS",
+      "start_time": "2018-12-20T08:00:12.336Z",
+      "start_time_in_millis": 1545292812336,
+      "end_time": "2018-12-20T08:00:12.945Z",
+      "end_time_in_millis": 1545292812945,
+      "duration_in_millis": 609,
+      "failures": [],
+      "shards": {
+        "total": 1,
+        "failed": 0,
+        "successful": 1
+      }
+    }
+  ]
+}
+```
+
+### 恢复数据
+
+```
+POST _snapshot/ES_AUTO_BACKUP/es-2s8x1b9u_20181220/_restore
+```
+
