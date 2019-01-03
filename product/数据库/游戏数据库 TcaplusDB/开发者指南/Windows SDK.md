@@ -108,8 +108,7 @@ set/
 3. 检查输出。
 4. 如果需要了解运行详细信息，请查看日志文件`tcaplus_pb.log`。
 5. 如果需要运行`*_crypto`示例, 请确保`libcrypto-1_1-x64.dll`文件在系统Path路径下,这个文件能够在 openssl 的编译目录下找到。
-
-  ![Output](https://main.qcloudimg.com/raw/40627a3a2dff8a4a4aeea57cda2bb8bb.png)
+![Output](https://main.qcloudimg.com/raw/40627a3a2dff8a4a4aeea57cda2bb8bb.png)
 
 
 ## Tcaplus Pb API 命令列表
