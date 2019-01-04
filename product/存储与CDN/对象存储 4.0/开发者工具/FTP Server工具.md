@@ -39,13 +39,13 @@ nohup python ftp_server.py >> /dev/null 2>&1 &
 screen -dmS ftp
 screen -r ftp
 python ftp_server.py
-##使用快捷键，切回主 screen 即可。
+#使用快捷键，切回主 screen 即可：
 Ctrl+A+D 
 ```
 
 ### 停止
 
-- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键 Ctrl+C 停止 FTP Server 运行。 
+- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键`Ctrl+C`停止 FTP Server 运行。 
 
 - 若您是通过 nohup 命令启动，可以使用下面方式停止：
 ```bash
@@ -83,7 +83,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 - append
 - mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
->?Ftp Server工具暂时不支持断点续传功能
+>?Ftp Server 工具暂时不支持断点续传功能。
 
 
 ## 配置文件
