@@ -43,17 +43,16 @@ xff: -
 ```
 ## 采集配置
 
-### 1.登录控制台
+### 1. 登录控制台
 
-登录[日志服务控制台](https://console.cloud.tencent.com/cls)，左侧选择 **日志集管理**。
+登录[日志服务控制台](https://console.cloud.tencent.com/cls)，左侧选择【日志集管理】。
 
-### 2.新建 LogListener 采集
+### 2. 新建 LogListener 采集
 
-选择目标日志集，单击【新建日志主题】，输入日志主题名称：test-json ，单击 【确认】即可。
+选择目标日志集，单击【新建日志主题】，输入日志主题名称：test-json ，单击 【确定】即可。
+![](https://main.qcloudimg.com/raw/33a572bbd59fb6c35f2937a1e124e38d.png)
 
-![](https://main.qcloudimg.com/raw/102d3f6e08598b5bdc677ff40cd54901.png)
-
-### 3.配置 LogListener 采集
+### 3. 配置 LogListener 采集
 
 单击 LogListener 采集的日志主题，在采集配置界面中单击右上角【编辑】按钮，进入到编辑模式，然后开启**采集状态**和**使用 LogListener**。 
 ![](https://main.qcloudimg.com/raw/b8d6b810b8958dc1504e1db3d05490f4.png)
@@ -73,15 +72,14 @@ xff: -
 ### 5. 关联机器组
 
 从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://github.com/tencentyun/qcloud-documents/blob/master/document/product/614/17412) 文档。
+![](https://main.qcloudimg.com/raw/769ab308eaf3f59d9de97fcb358a9a83.png)
 
-![](https://main.qcloudimg.com/raw/3d35cd2f5c45a3836f166e3054c12665.png)
-
-### 6.JSON 模式选择
+### 6. JSON 模式选择
 
 键值提取模式选择 **JSON**。
 ![](https://main.qcloudimg.com/raw/c043a155c49a655b443fce56a7a910c8.png)
 
-### 7.采集时间配置
+### 7. 采集时间配置
 
 >?
 >- 日志时间单位为：秒。
@@ -96,7 +94,7 @@ xff: -
 
 #### 7.2 日志的原始时间戳作为日志时间属性
 
-关闭采集时间状态，填写原始时间戳的时间键以及对应的时间解析格式，转换格式支持strftime的所有函数
+关闭采集时间状态，填写原始时间戳的时间键以及对应的时间解析格式，转换格式支持 strftime 的所有函数。
 ![](https://main.qcloudimg.com/raw/c548153ae42a2329b9be91b4b1c10178.png)
 
 这里举例说明时间格式解析规则填写：  
@@ -106,15 +104,15 @@ xff: -
 
 >!日志时间支持以秒为单位，若时间格式填写错误日志时间将以采集时间为准。
 
-### 8.过滤器条件
+### 8. 过滤器条件
 
 过滤器旨在您根据业务需要添加日志采集过滤规则，帮助您方便筛选出有价值的日志数据。对于JSON格式日志，可以根据所解析成的键值对配置过滤规则，过滤规则为正则表达式。所创建的过滤规则为命中规则，即匹配上正则表达式的日志才会被采集上报。
 
-例如，您希望指定 status = 400 或 500 的日志数据被采集。key处配置 status，过滤规则处配置(400|500)。
+例如，您希望指定 status = 400或500的日志数据被采集。key 处配置 status，过滤规则处配置（400|500）。
 
-### 9.检索结果
+### 9. 检索结果
 
-登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击 **日志检索**，然后在 **日志检索** 界面选择日志集与日志主题，单击【搜索】
-![](https://main.qcloudimg.com/raw/e567772ed5902e1787b138ee35d8ffb0.png)
+登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】。
+![](https://main.qcloudimg.com/raw/bf5c4adb192dcc66d9ca04277852d8ce.png)
 
 >!检索必须开启索引配置，否则无法进行检索。
