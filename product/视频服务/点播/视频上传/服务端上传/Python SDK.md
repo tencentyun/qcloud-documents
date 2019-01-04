@@ -55,11 +55,11 @@ except Exception as err:
 from qcloud_vod.vod_upload_client import VodUploadClient
 from qcloud_vod.model import VodUploadRequest
 
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+request.CoverFilePath = "/data/file/Wildlife-Cover.png"
 try:
-    client = VodUploadClient("your secretId", "your secretKey")
-    request = VodUploadRequest()
-    request.MediaFilePath = "/data/file/Wildlife.mp4"
-    request.CoverFilePath = "/data/file/Wildlife-Cover.png"
     response = client.upload("ap-guangzhou", request)
     print(response.FileId)
     print(response.MediaUrl)
@@ -75,11 +75,11 @@ except Exception as err:
 from qcloud_vod.vod_upload_client import VodUploadClient
 from qcloud_vod.model import VodUploadRequest
 
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+request.Procedure = "QCVB_SimpleProcessFile(1, 1)"
 try:
-    client = VodUploadClient("your secretId", "your secretKey")
-    request = VodUploadRequest()
-    request.MediaFilePath = "/data/file/Wildlife.mp4"
-    request.Procedure = "QCVB_SimpleProcessFile(1, 1)"
     response = client.upload("ap-guangzhou", request)
     print(response.FileId)
     print(response.MediaUrl)
@@ -94,11 +94,11 @@ except Exception as err:
 from qcloud_vod.vod_upload_client import VodUploadClient
 from qcloud_vod.model import VodUploadRequest
 
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+request.SubAppId = 101
 try:
-    client = VodUploadClient("your secretId", "your secretKey")
-    request = VodUploadRequest()
-    request.MediaFilePath = "/data/file/Wildlife.mp4"
-    request.SubAppId = 101
     response = client.upload("ap-guangzhou", request)
     print(response.FileId)
     print(response.MediaUrl)

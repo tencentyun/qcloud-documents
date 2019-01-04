@@ -148,7 +148,8 @@ client.upload("ap-guangzhou", req, function (err, data) {
 | request   | 上传请求        | VodUploadRequest | 是    |
 | callback   | 上传完成回调函数        | function | 是    |
 
-上传完成回调函数 `function(err, data) { ... }`
+上传完成回调函数 `function(err, data)`
+
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | err   | 错误信息        | Exception | 是    |
