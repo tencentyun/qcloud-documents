@@ -3,7 +3,7 @@
 WebSocket 协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信,即允许服务器主动发送信息给客户端。区别于 http，websocket 在服务端有数据推送需求时，一样可以主动发送数据至客户端。而原有 http 协议，服务端由于是被动处理，对于需推送的数据，仅能通过轮询或 long poll 的方式来让客户端获得。
 
 由于云函数是无状态的，且以触发的式运行，即在有事件到来时才会被触发。因此，为了实现 websocket，云函数与 API 网关相结合，通过 API 网关来承接及保持与客户端的连接，可以认为 API 网关与 SCF 一起实现了 Server 端。当客户端有消息发出时，会先传递给 API 网关，再由 API 网关触发云函数执行。当后端云函数要向客户端发送消息时，会先由云函数把消息 post 到 API 网关的反向推送链接，然后由 API 网关向客户端完成消息的推送。具体的实现架构如下：
-![](https://main.qcloudimg.com/raw/f866c5dc05c56f525a89e39ae5bee487.png)
+![](https://main.qcloudimg.com/raw/d51ee070556d8f6bb3be308f651bcc4b.png)
 
 对于 websocket 的整个生命周期，我们可以认为有如下几个事件组成:
 - 连接建立：Client 端向 Server 端请求建立连接并完成连接建立
