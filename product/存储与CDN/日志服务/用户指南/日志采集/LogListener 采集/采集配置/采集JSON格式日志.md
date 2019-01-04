@@ -112,7 +112,7 @@ xff: -
 
 ### 9. 检索结果
 
-登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】。
-![](https://main.qcloudimg.com/raw/bf5c4adb192dcc66d9ca04277852d8ce.png)
+登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】，即可检索日志。
+![](https://main.qcloudimg.com/raw/78b3a5af850b3135f50aecc753db8135.png)
 
 >!检索必须开启索引配置，否则无法进行检索。
