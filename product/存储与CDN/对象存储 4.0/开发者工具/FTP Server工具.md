@@ -59,9 +59,9 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 **下载机制**：直接流式返回给客户端
 **目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
 **多 bucket 绑定**：支持同时绑定多个 bucket。
-**删除操作限制**：在新的 ftp server 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
+**删除操作限制**：在新的 FTP Serve 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
 
->?多bucket绑定：通过不同的 FTP Server 工作路径（`home_dir`）来实现，因此，指定不同的 bucket 和用户信息时必须保证`home_dir`不同。
+>?多 bucket 绑定：通过不同的 FTP Server 工作路径（`home_dir`）来实现，因此，指定不同的 bucket 和用户信息时必须保证`home_dir`不同。
 
 
 ### 支持的FTP命令
@@ -83,7 +83,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 - append
 - mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
->?Ftp Server 工具暂时不支持断点续传功能。
+>?FTP Serve 工具暂时不支持断点续传功能。
 
 
 ## 配置文件
@@ -100,7 +100,7 @@ home_dir = /home/user0
 ftp_login_user_name=user0
 ftp_login_user_password=pass0
 authority=RW
-delete_enable=true					# true为允许该ftp用户进行删除操作(默认)，false为禁止该用户进行删除操作
+delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)，false 为禁止该用户进行删除操作
 
 [COS_ACCOUNT_1]
 cos_secretid = XXXX
@@ -115,17 +115,17 @@ authority=RW
 delete_enable=false
 
 [NETWORK]
-masquerade_address = XXX.XXX.XXX.XXX        # 如果FTP SERVER处于某个网关或NAT后，可以通过该配置项将网关的IP地址或域名指定给FTP
+masquerade_address = XXX.XXX.XXX.XXX        # 如果 FTP SERVER 处于某个网关或NAT后，可以通过该配置项将网关的IP 地址或域名指定给 FTP
 listen_port = 2121					   # Ftp Server的监听端口，默认为2121，注意防火墙需要放行该端口
 
-passive_port = 60000,65535             # passive_port可以设置passive模式下，端口的选择范围，默认在(60000, 65535)区间上选择
+passive_port = 60000,65535             # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择
 
 [FILE_OPTION]
 # 默认单文件大小最大支持到200G，不建议设置太大
 single_file_max_size = 21474836480
 
 [OPTIONAL]
-# 以下设置，如无特殊需要，建议保留default设置  如需设置，请合理填写一个整数
+# 以下设置，如无特殊需要，建议保留 default 设置  如需设置，请合理填写一个整数
 min_part_size       = default
 upload_thread_num   = default
 max_connection_num  = 512
