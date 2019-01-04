@@ -21,12 +21,12 @@
 | expiration |String | 证书无效的时间，以 ISO8601 格式的 UTC 时间表示 |
 
 <span id="dataStructure"></span>
-### 数据结构
+### Credentials 数据结构
 
 | 字段  | 类型  | 描述  |
 |---------|---------|---------|
 | token | String | token 值 |
-| tmpSecretId | String | 临时安全证书 Id |
+| tmpSecretId | String | 临时安全证书 ID |
 | tmpSecretKey | String | 临时安全证书 Key |
 
 
