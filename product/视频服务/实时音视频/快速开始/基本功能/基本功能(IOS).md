@@ -14,26 +14,25 @@
 
 // 继承 TRTCCloudDelegate 回调 
 @interface TRTCViewController() <UITextFieldDelegate, TRTCCloudDelegate> {
-TRTCCloud       *trtcCloud;
-...
+    TRTCCloud       *trtcCloud;
+    ...
 }
 @end
 
 // 创建 trtcCloud 实例
 - (void)viewDidLoad {
-[super viewDidLoad];
-....
-trtcCloud = [[TRTCCloud alloc] init];
-[trtcCloud setDelegate:self];
+    [super viewDidLoad];
+    ....
+    trtcCloud = [[TRTCCloud alloc] init];
+    [trtcCloud setDelegate:self];
 }
 
 // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
 - (void)onError:(int)errCode errMsg:(NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo {
-if (errCode == ERR_ROOM_ENTER_FAIL) {
-[self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
-[self exitRoom];
-return;
-}
+    if (errCode == ERR_ROOM_ENTER_FAIL) {
+        [self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
+        [self exitRoom];
+    }
 }
 ```
 
@@ -66,24 +65,23 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 ```Objective-C
 - (void)enterRoom {
 {
-//TRTCParams 定义参考头文件TRTCCloudDef.h
-TRTCParams *params = [[TRTCParams alloc] init];
-params.sdkAppId = sdkappid;
-params.userId = userid;
-params.userSig = usersig;
-params.roomId = 908; //输入你想进入的房间
-[trtcCloud enterRoom:param];
+    //TRTCParams 定义参考头文件TRTCCloudDef.h
+    TRTCParams *params = [[TRTCParams alloc] init];
+    params.sdkAppId = sdkappid;
+    params.userId = userid;
+    params.userSig = usersig;
+    params.roomId = 908; //输入你想进入的房间
+    [trtcCloud enterRoom:param];
 }
 ...
 - (void)onError:(int)errCode errMsg:(NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo {
-if (errCode == ERR_ROOM_ENTER_FAIL) {
-[self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
-[self exitRoom];
-return;
-}
+    if (errCode == ERR_ROOM_ENTER_FAIL) {
+        [self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
+        [self exitRoom];
+    }
 }
 - (void)onEnterRoom:(NSInteger)elapsed {
-NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]", _userID, _roomID, elapsed];
+    NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]", _userID, _roomID, elapsed];
 }
 ```
 
@@ -101,8 +99,8 @@ NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]",
 ```Objective-C
 /** 设置预览控件 */
 - (void)startLocalPreview:(BOOL)frontCamera localView:(UIView*)localView {
-[trtcCloud setLocalViewFillMode:TRTCVideoFillMode_Fit];
-[trtcCloud startLocalPreview:frontCamera view:localView];
+    [trtcCloud setLocalViewFillMode:TRTCVideoFillMode_Fit];
+    [trtcCloud startLocalPreview:frontCamera view:localView];
 }
 ```
 
@@ -119,8 +117,8 @@ NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]",
 ```Objective-C
 - (void)closeLocalStream {
 {
-[trtcCloud muteLocalVideo:YES];
-[trtcCloud muteLocalAudio:YES];
+    [trtcCloud muteLocalVideo:YES];
+    [trtcCloud muteLocalAudio:YES];
 }
 ```
 
@@ -138,17 +136,17 @@ NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]",
 
 ```Objective-C
 - (void)onUserEnter:(NSString *)userId {
-// 设置playerview
-UIView *remoteView = [[UIView alloc] init];
-[remoteView setBackgroundColor:UIColorFromRGB(0x262626)];
-[self.view addSubview:remoteView];
+    // 设置playerview
+    UIView *remoteView = [[UIView alloc] init];
+    [remoteView setBackgroundColor:UIColorFromRGB(0x262626)];
+    [self.view addSubview:remoteView];
 
-[trtcCloud setRemoteViewFillMode:userId mode:TRTCVideoFillMode_Fit];
-[trtcCloud startRemoteView:userId view:remoteView];
+    [trtcCloud setRemoteViewFillMode:userId mode:TRTCVideoFillMode_Fit];
+    [trtcCloud startRemoteView:userId view:remoteView];
 }
 
 - (void)onUserExit:(NSString *)userId reason:(NSInteger)reason {
-[trtcCloud stopRemoteView:userId];
+    [trtcCloud stopRemoteView:userId];
 }
 
 ```
@@ -164,11 +162,11 @@ UIView *remoteView = [[UIView alloc] init];
 ...
 - (void)exitRoom: {
 {
-[trtcCloud exitRoom];
+    [trtcCloud exitRoom];
 }
 ...
 - (void)onExitRoom:(NSInteger)reason {
-NSString *msg = [NSString stringWithFormat:@"离开房间[%u]: reason[%d]", _roomID, reason];
+    NSString *msg = [NSString stringWithFormat:@"离开房间[%u]: reason[%d]", _roomID, reason];
 }
 
 ```
