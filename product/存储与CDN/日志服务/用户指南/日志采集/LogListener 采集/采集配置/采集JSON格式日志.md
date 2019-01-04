@@ -4,9 +4,23 @@ JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 
 
 ### 示例
 假设您的一条 json 日志原始数据为：
-
 ```
-{"remote_ip":"10.135.46.123","time_local":"21/Dec/2018:17:06:56 +0800","body_sent":142,"responsetime":0.961,"upstreamtime":"0.961","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"GET","url":"/admin/cloud/ad","request":"GET /admin/cloud/ad HTTP/1.1","xff":"-","referer":"http://127.0.0.1/admin/","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
+{
+	"remote_ip": "10.135.46.123",
+	"time_local": "21/Dec/2018:17:06:56 +0800",
+	"body_sent": 142,
+	"responsetime": 0.961,
+	"upstreamtime": "0.961",
+	"upstreamhost": "unix:/tmp/php-cgi.sock",
+	"http_host": "127.0.0.1",
+	"method": "GET",
+	"url": "/admin/cloud/ad",
+	"request": "GET /admin/cloud/ad HTTP/1.1",
+	"xff": "-",
+	"referer": "http://127.0.0.1/admin/",
+	"agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0",
+	"response_code": "200"
+}
 ```
 
 经过日志服务结构化处理后，该条日志将变为如下：
@@ -41,16 +55,14 @@ xff: -
 
 ### 3.配置 LogListener 采集
 
-单击 LogListener 采集的日志主题，在采集配置界面中单击右上角【编辑】按钮，进入到编辑模式，然后开启 **采集状态** 和 **使用 LogListener**。 
-
-![](https://main.qcloudimg.com/raw/f64e45567c11ac413402932c830449c4.png)
+单击 LogListener 采集的日志主题，在采集配置界面中单击右上角【编辑】按钮，进入到编辑模式，然后开启**采集状态**和**使用 LogListener**。 
+![](https://main.qcloudimg.com/raw/b8d6b810b8958dc1504e1db3d05490f4.png)
 
 ### 4. 配置日志文件采集路径
 
 采集路径处需要填写需要采集的完整路径，而非目录格式（即需要以 / 开头，非 / 结尾），文件名支持正则，目前暂不支持通配符。
 
->注意：
->采集路径中仅允许日志文件名称使用正则，目录不支持正则。
+>!采集路径中仅允许日志文件名称使用正则，目录不支持正则。
 
 #### 配置方式
 |方式|路径|
@@ -88,9 +100,9 @@ xff: -
 ![](https://main.qcloudimg.com/raw/c548153ae42a2329b9be91b4b1c10178.png)
 
 这里举例说明时间格式解析规则填写：  
-例1.日志样例原始时间戳：`10/Dec/2017:08:00:00`，解析格式为：`%d/%b/%Y:%H:%M:%S`  
-例2.日志样例原始时间戳：`2017-12-10 08:00:00`，解析格式为：`%Y-%m-%d %H:%M:%S`  
-例3.日志样例原始时间戳：`12/10/2017, 08:00:00`，解析格式为：`%m/%d/%Y, %H:%M:%S`  
+例1：日志样例原始时间戳：`10/Dec/2017:08:00:00`，解析格式为：`%d/%b/%Y:%H:%M:%S`。
+例2：日志样例原始时间戳：`2017-12-10 08:00:00`，解析格式为：`%Y-%m-%d %H:%M:%S`。  
+例3：日志样例原始时间戳：`12/10/2017, 08:00:00`，解析格式为：`%m/%d/%Y, %H:%M:%S`。  
 
 >!日志时间支持以秒为单位，若时间格式填写错误日志时间将以采集时间为准。
 
