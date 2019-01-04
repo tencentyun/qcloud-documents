@@ -5,8 +5,8 @@
 客户 App 接入银行卡 OCR SDK实现身份证识别，识别率高，详情请参见 [SDK 接入](https://cloud.tencent.com/document/product/655/32062)。
 
 ### API 接入
-PaaS 服务模式，直接调用后台银行卡 OCR 接口，上送银行卡正面图片进行银行卡识别，无前端页面，详情请参见 [API 接入](https://cloud.tencent.com/document/product/655/32063)。
+通过 PaaS 服务模式，直接调用后台银行卡 OCR 接口，上送银行卡正面图片进行银行卡识别，无前端页面，详情请参见 [API 接入](https://cloud.tencent.com/document/product/655/32063)。
 
 ## 关键概念
-PaaS 服务模式
+**PaaS 服务模式**
 PaaS（Platform as a Service）是将开发平台作为服务提供给用户。通过 PaaS 服务模式，用户可以在一个包括 SDK、文档和测试环境等在内的开发平台上非常方便地编写应用，用户在部署或运行的时候，无需管理服务器、操作系统、网络和存储等资源，而是由 PaaS 供应商负责处理。
