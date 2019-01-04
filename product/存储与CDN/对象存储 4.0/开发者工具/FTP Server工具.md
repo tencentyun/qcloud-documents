@@ -24,7 +24,7 @@ Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https:/
 ```bash
 python setup.py install   # 这里可能需要您的账号 sudo 或者拥有 root 权限。
 ```
-2. 拷贝 conf/vsftpd.conf.example 到 conf/vsftpd.conf，参考**配置文件**章节，正确配置 bucket 和用户信息。
+2. 将配置示例文件 conf/vsftpd.conf.example 复制命名为 conf/vsftpd.conf，参考 [配置文件](#conf) 章节，正确配置 bucket 和用户信息。
 3. 运行 ftp_server.py 启动 FTP Server：
 ```bash
 python ftp_server.py
@@ -55,7 +55,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 
 ## 功能说明
 
-**上传机制**：流式上传，不落本地磁盘，只要按照标准的FTP协议配置工作目录即可，不占用实际的磁盘存储空间。
+**上传机制**：流式上传，不落本地磁盘，只要按照标准的 FTP 协议配置工作目录即可，不占用实际的磁盘存储空间。
 **下载机制**：直接流式返回给客户端
 **目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
 **多 bucket 绑定**：支持同时绑定多个 bucket。
@@ -85,10 +85,10 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 
 >?FTP Serve 工具暂时不支持断点续传功能。
 
-
+<a id="conf"></a>
 ## 配置文件
 
- Ftp Server 工具的配置示例文件为 conf/vsftpd.conf.example，请复制并命名为 vsftpd.conf，并按照以下的配置项进行配置：
+ Ftp Server 工具的配置示例文件为 conf/vsftpd.conf.example，请复制命名为 vsftpd.conf，并按照以下的配置项进行配置：
 ```conf
 [COS_ACCOUNT_0]
 cos_secretid = XXXXXX
