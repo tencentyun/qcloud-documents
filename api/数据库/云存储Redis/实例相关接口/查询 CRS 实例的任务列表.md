@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(GetRedisTaskList)用于CRS实例的任务列表。
+本接口(GetRedisTaskList)用于 Redis 实例的任务列表。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数
