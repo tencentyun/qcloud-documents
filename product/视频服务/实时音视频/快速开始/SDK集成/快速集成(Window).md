@@ -1,83 +1,91 @@
-本文主要介绍如何快速地将腾讯云 TRTC SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文介绍如何快速地将腾讯云的 TRTC SDK 集成到项目中，只要按照如下步骤进行操作，可以轻松完成 SDK 的集成工作。
 
 ## 开发环境要求
 
-- 操作系统最低要求是Windows 7。
+- 操作系统：最低要求是Windows 7。
 
-- Visual Studio 最低版本要求是2008，推荐使用 Visual Studio 2015。
-
+- 开发环境：最低版本要求是Visual Studio 2010，推荐使用 Visual Studio 2015。
 
 ## 集成 TRTC SDK
 
-通过一个简单的 MFC 项目，介绍如何在 Visual Studio 工程中配置和使用 SDK。
+下面通过创建一个简单的 MFC 项目，介绍如何在 Visual Studio 工程中集成 SDK。
 
-#### **1. 下载解压  TRTC-SDK**
+### 1. 下载  SDK
 
-去官网下载 SDK，如 LiteAVSDK_TRTC_1.1.82.zip，解压后得到 LiteAVSDK 目录，里面主要包含include目录、dll目录、lib目录，目录清单如下：
+在官网下载 Windows SDK，解压并打开，包含以下几个部分：
 
-| 目录名称 | 说明                                                       |
-| -------- | ---------------------------------------------------------- |
-| include  | 包含 TRTC SDK API 相关头文件。                             |
-| lib      | 包含 TRTC SDK 用于编译链接的.lib文件和运行加载的.dll文件。 |
+| 目录名  | 说明                                   |
+| ------- | -------------------------------------- |
+| include | 带有详细接口注释的 API 头文件          |
+| lib     | 编译用的.lib文件和运行时加载的.dll文件 |
 
-**2. 新建工程**
+### 2. 新建工程
 
-在本例中，用Visual Studio 新建一个名为 TRTCDemo 的 MFC 基于对话框的工程。
+打开Visual Studio，新建一个名字叫做 TRTCDemo 的 MFC 应用程序，如下图所示：
 
-**3. 拷贝文件**
+![](https://main.qcloudimg.com/raw/645623e01a65858e23123af52ec15bc2.png)
 
-将解压的 LiteAVSDK 文件夹拷贝到 TRTCDemo.vcxproj 所在目录，并保持 LiteAVSDK 内部原目录清单不变。
+为了便于介绍如何快速集成，在向导的 应用程序类型 页面，我们选择比较简单的 基于对话框 类型，如下图所示：
 
-**4.修改工程配置**
+![](https://main.qcloudimg.com/raw/b561d5d514266a5ab222f4e398ebbc11.png)
 
-将工程配置改为debug模式，平台选择：x86。按以下步骤配置 SDK 的工程环境：
+其他的向导配置，请选择默认的配置即可。
 
-- 配置头文件，在[右键工程]->[属性]->[配置属性]->[C/C++]->[常规]->[附件包含目录] 添加SDK API的头文件引用：
+### 3. 拷贝文件
 
+将解压后的 LiteAVSDK 文件夹拷贝到 TRTCDemo.vcxproj 所在目录下，如下图所示：
+
+![](https://main.qcloudimg.com/raw/a5bfd73b6a7d805f6bbb6e0155687e0f.png)
+
+### 4. 修改工程配置
+
+打开 TRTCDemo属性页，在 [解决方案资源管理器]->[TRTCDemo工程的右键菜单]->[属性]，请按照以下步骤进行配置：
+
+- **添加包含目录**
+在 [C/C++]->[常规]->[附件包含目录]，添加 SDK 头文件目录 $(ProjectDir)LiteAVSDK\include，如下图所示：
+![](https://main.qcloudimg.com/raw/ca5fcb65bad66a57b6b7446e6c92c986.png)
+
+- **添加库目录**
+在 [链接器]->[常规]->[附加库目录]，添加 SDK 库目录 $(ProjectDir)LiteAVSDK\lib，如下图所示：
+![](https://main.qcloudimg.com/raw/55ec832996c5355acc9215f67351fed2.png)
+
+- **添加库文件**
+在 [链接器]->[输入]->[附加依赖项]，添加 SDK 库文件 liteav.lib，如下图所示：
+![](https://main.qcloudimg.com/raw/2d78d5e833668ac009f5d2c04f9ec7aa.png)
+
+- **添加copy命令**
+在 [生成事件]->[后期生成事件]->[命令行]，添加拷贝命令 copy /Y "$(ProjectDir)LiteAVSDK\lib\\\*.dll" "\$(OutDir)"，能够在编译完成后，自动将 SDK 的.dll文件拷贝到程序的运行目录下，如下图所示：
+![](https://main.qcloudimg.com/raw/f6d626301b74d85dd6e7eb8577648988.png)
+
+### 5. 打印 SDK 版本号
+
+- 在 CTRTCDemoDlg::OnInitDialog 函数中，添加下面的测试代码
+
+```c++
+TXString version = TRTCCloud::getSDKVersion();
+
+CString szText;
+szText.Format(L"SDK version: %hs", version.c_str());
+
+CWnd *pStatic = GetDlgItem(IDC_STATIC);
+pStatic->SetWindowTextW(szText);
 ```
-$(ProjectDir)LiteAVSDK\include   //(注：$(ProjectDir)是TRTCDemo.vcxproj所在目录宏)
-```
 
-- 配置lib库，在[右键工程]->[属性]->[配置属性]->[链接器]->[常规]->[附加库目录] 添加 SDK Lib库：
+- F5 运行，打印 SDK 的版本号，如下图所示
 
-```
-$(ProjectDir)LiteAVSDK\lib
-```
-
-​       在[右键工程]->[属性]->[配置属性]->[链接器]->[输入]->[附加依赖项] 添加：liteav.lib。
-
-- 将dll动态拷贝到运行程序的bin目录：在[右键工程]->[属性]->[配置属性]->[生成事件]->[后期生成事件]->[命令行] 添加 拷贝命令：
-
-```
-copy /Y "$(ProjectDir)LiteAVSDK\lib\*.dll" "$(OutDir)"
-```
-
-**5.简单使用SDK功能**
-
-```
-#include <string.h>
-#include "TRTCCloud.h"
-TRTCCloud mTrtcSDK;
-
-void TRTCMainViewController::onBtnTestTrtcSDK()
-{
- 	std::string version = mTrtcSDK.getSDKVersion();
-}
-
-
-```
+![](https://main.qcloudimg.com/raw/6851ab7f24d95ae8115fdf5f69e36a3b.png)
 
 ## 常见问题
 
-- 出现以下错误，请检查SDK的头文件引用配置是否正确：
+- 出现以下错误，请按照前面的工程配置，检查 SDK 头文件的目录是否正确添加：
 
 ```
 fatal error C1083: 无法打开包括文件: “TRTCCloud.h”: No such file or directory
 ```
 
-- 出现以下错误，请检查SDK的lib库配置是否正确：
+- 出现以下错误，请按照前面的工程配置，检查 SDK 库目录和库文件是否正确添加：
 
 ```
-error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall TRTCCloud::~TRTCCloud(void)" (__imp_??1TRTCCloud@@QAE@XZ)，该符号在函数 "public: virtual __thiscall TRTCMainViewController::onBtnTestTrtcSDK(void)" (??1TRTCMainViewController@@UAE@XZ) 中被引用
+error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class TXString __cdecl TRTCCloud::getSDKVersion(void)" (__imp_?getSDKVersion@TRTCCloud@@SA?AVTXString@@XZ)，该符号在函数 "protected: virtual int __thiscall CTRTCDemoDlg::OnInitDialog(void)" (?OnInitDialog@CTRTCDemoDlg@@MAEHXZ) 中被引用
 ```
 

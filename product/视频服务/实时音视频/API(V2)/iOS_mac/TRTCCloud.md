@@ -12,7 +12,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCParams * | 进房参数，请参考 DOC-TO-DO  |
+| param | TRTCParams * | 进房参数，请参考  |
 
 __说明__
 
@@ -135,25 +135,6 @@ __参数__
 <br/>
 
 
-### setLocalVideoQuality
-
-设置本地的视频编码质量。
-
-```
- - (void)setLocalVideoQuality:(TRTCVideoEncParam *)param qosControl:(TRTCQosMode)qosControl qosPreference:(TRTCVideoQosPreference)qosPreference 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| param | TRTCVideoEncParam * | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
-| qosControl | TRTCQosMode | 流控模式选择，默认选择【云控】模式，便于获得更好的效果，【终端】模式则用于特殊的调试场景  |
-| qosPreference | TRTCVideoQosPreference | 画面质量偏好，有【流畅】和【清晰】两种模式可供选择，详情请参考 TRTCVideoQosPreference 的定义  |
-
-<br/>
-
-
 ### muteLocalVideo
 
 是否屏蔽本地视频。
@@ -173,6 +154,40 @@ __介绍__
 
 当屏蔽本地视频后，房间里的其它成员将会收到 onUserVideoAvailable 回调通知。
 
+
+<br/>
+
+
+### setVideoEncoderParam
+
+设置视频编码器相关参数，该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+```
+ - (void)setVideoEncoderParam:(TRTCVideoEncParam *)param 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCVideoEncParam * | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
+
+<br/>
+
+
+### setNetworkQosParam
+
+设置网络流控相关参数，该设置决定了SDK在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+
+```
+ - (void)setNetworkQosParam:(TRTCNetworkQosParam *)param 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCNetworkQosParam * | 网络流控参数，详情请参考 TRTCCloudDef.h 中的  |
 
 <br/>
 
@@ -247,19 +262,19 @@ __参数__
 <br/>
 
 
-### setVideoOutputRotation
+### setVideoEncoderRotation
 
 设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向。
 
 ```
- - (void)setVideoOutputRotation:(TRTCVideoRotation)rotation 
+ - (void)setVideoEncoderRotation:(TRTCVideoRotation)rotation 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+| rotation | TRTCVideoRotation | 支持 0 和 180 两个旋转角度  |
 
 <br/>
 
@@ -426,24 +441,6 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mute | BOOL | YES:静音 NO:非静音  |
-
-<br/>
-
-
-### setRemoteAudioVolume
-
-设置指定用户音量。
-
-```
- - (void)setRemoteAudioVolume:(NSString *)userId volume:(float)volume 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | NSString * | 用户Id  |
-| volume | float | 音量  |
 
 <br/>
 
@@ -833,72 +830,6 @@ __参数__
 
 
 
-## 屏幕共享接口函数(MAC)
-
-### startScreenCaptureWithDisplayID
-
-开始全屏采集。
-
-```
- - (int)startScreenCaptureWithDisplayID:(CGDirectDisplayID)displayID captureFreq:(NSUInteger)captureFreq bitRate:(NSInteger)bitRate rect:(CGRect)rect renderView:(NSView *)view 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| displayID | CGDirectDisplayID | 显示器Id  |
-| captureFreq | NSUInteger | 采集fps  |
-| bitRate | NSInteger | 采集码率  |
-| rect | CGRect | 采集区域  |
-| view | NSView * | 预览View  |
-
-<br/>
-
-
-### startScreenCaptureWithWindowID
-
-开始窗口采集。
-
-```
- - (int)startScreenCaptureWithWindowID:(CGWindowID)windowID captureFreq:(NSUInteger)captureFreq bitRate:(NSInteger)bitRate renderView:(NSView *)view 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| windowID | CGWindowID | 窗口ID  |
-| captureFreq | NSUInteger | 采集fps  |
-| bitRate | NSInteger | 采集码率  |
-| view | NSView * | 预览View  |
-
-<br/>
-
-
-### stopScreenCapture
-
-停止屏幕采集。
-
-```
- - (int)stopScreenCapture
-```
-
-<br/>
-
-
-### resetScreenCaptureRect
-
-更新采集区域。
-
-```
- - (int)resetScreenCaptureRect:(CGRect)rect 
-```
-
-<br/>
-
-
-
 ## 音视频自定义接口
 
 ### enableCustomVideoCapture
@@ -918,30 +849,24 @@ __参数__
 <br/>
 
 
-### sendVideoSampleBuffer
+### sendCustomVideo
 
 发送自定义的SampleBuffer。
 
 ```
- - (void)sendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer 
+ - (void)sendCustomVideo:(TRTCVideoFrame *)frame 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| sampleBuffer | CMSampleBufferRef | sampleBuffer视频数据  |
-
-__介绍__
-
-
-内部有简单的帧率调控逻辑，如果该方法被调用得太频繁，SDK会自动丢弃一些视频帧；如果该方法被调用得太慢，SDK会自动补充一些重复的画面。
-
+| frame | TRTCVideoFrame * | 视频数据 仅支持PixelBuffer I420数据  |
 
 __说明__
 
 
-相关属性设置请参考TXLivePushConfig，autoSampleBufferSize优先级高于sampleBufferSize。
+SDK内部不做帧率控制,请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致,否则编码器输出的码率会不受控制。
 
 
 <br/>
@@ -964,12 +889,12 @@ __参数__
 <br/>
 
 
-### sendCustomPCMData
+### sendCustomAudio
 
 发送客户自定义的音频PCM数据。
 
 ```
- - (void)sendCustomPCMData:(unsigned char *)data len:(unsigned int)len 
+ - (void)sendCustomAudio:(TRTCAudioFrame *)frame 
 ```
 
 __说明__
@@ -1278,7 +1203,7 @@ __参数__
 __说明__
 
 
-同startLocalPreview一样使用setCurrentCameraDevice接口选中的摄像头设备。
+在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 
 
 <br/>
@@ -1509,6 +1434,16 @@ __说明__
 
 ```
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
+```
+
+<br/>
+
+### audioDelegate
+
+设置音频数据回调，传入nil取消监听。
+
+```
+@property (nonatomic, weak) id< TRTCAudioDelegate > audioDelegate;
 ```
 
 <br/>

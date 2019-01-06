@@ -148,25 +148,6 @@ void stopAllRemoteView()
 <br/>
 
 
-### setLocalVideoQuality
-
-设置画面质量参数。
-
-```
-void setLocalVideoQuality(const TRTCVideoEncParam & params, TRTCQosMode qosMode, TRTCVideoQosPreference qosPreference)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
-| qosMode | TRTCQosMode | 流控模式选择，默认选择【云控】模式，便于获得更好的效果，【终端】模式则用于特殊的调试场景  |
-| qosPreference | TRTCVideoQosPreference | 画面质量偏好，有【流畅】和【清晰】两种模式可供选择，详情请参考 TRTCVideoQosPreference 的定义  |
-
-<br/>
-
-
 ### muteLocalVideo
 
 是否屏蔽本地视频。
@@ -179,13 +160,47 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | bool | true: 屏蔽视频采集和上行，false: 开启视频采集和上行  |
+| mute | bool | true: 关闭视频上行，false: 开启视频上行  |
 
 __介绍__
 
 
 当屏幕本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知。
 
+
+<br/>
+
+
+### setVideoEncoderParam
+
+设置视频编码器相关参数，该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+```
+void setVideoEncoderParam(const TRTCVideoEncParam & params)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
+
+<br/>
+
+
+### setNetworkQosParam
+
+设置网络流控相关参数，该设置决定了SDK在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+
+```
+void setNetworkQosParam(const TRTCNetworkQosParam & params)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| params | const TRTCNetworkQosParam & | 网络流控参数，详情请参考 TRTCCloudDef.h 中的  |
 
 <br/>
 
@@ -260,12 +275,12 @@ __参数__
 <br/>
 
 
-### setVideoOutputRotation
+### setVideoEncoderRotation
 
 设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向。
 
 ```
-void setVideoOutputRotation(TRTCVideoRotation rotation)
+void setVideoEncoderRotation(TRTCVideoRotation rotation)
 ```
 
 __参数__
@@ -363,7 +378,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | bool | true: 关闭音频采集和上行 false: 开启音频采集以及音频上行  |
+| mute | bool | true: 关闭音频上行 false: 开启音频上行  |
 
 __说明__
 
@@ -636,58 +651,6 @@ __参数__
 
 
 
-## 屏幕采集共享操作
-
-### startScreenCapture
-
-启动屏幕分享。
-
-```
-void startScreenCapture(HWND rendHwnd, const RECT & rendRect, HWND captureHwnd, const RECT & captureRect, bool captureGLOrDXWindow)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| rendHwnd | HWND | - 承载预览画面的 HWND  |
-| rendRect | const RECT & | - 指定视频图像在 HWND 上的渲染区域  |
-| captureHwnd | HWND | - 指定分享源  |
-| captureRect | const RECT & | - 指定捕获的区域  |
-| captureGLOrDXWindow | bool | - 无法直接获取某些特殊窗口（openGL渲染的窗口）的画面，captureGLOrDXWindow 设为 true 时，通过截取屏幕区域 实现捕获窗口，默认设为 false 共享整个屏幕 : captureHwnd 设为 NULL，captureRect 设为 { 0, 0, 0, 0 }。 共享指定窗口 : captureHwnd 设为非 NULL，captureRect 设为需要的区域 共享指定区域 : captureHwnd 设为 NULL，captureRect 设为非 NULL  |
-
-<br/>
-
-
-### resetScreenCaptureRect
-
-更新采集区域。
-
-```
-void resetScreenCaptureRect(const RECT & captureRect)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| captureRect | const RECT & | 指定捕获的区域  |
-
-<br/>
-
-
-### stopScreenCapture
-
-关闭屏幕分享。
-
-```
-void stopScreenCapture()
-```
-
-<br/>
-
-
-
 ## 音视频自定义接口
 
 ### enableCustomVideoCapture
@@ -707,20 +670,19 @@ __参数__
 <br/>
 
 
-### sendCustomVideoData
+### sendCustomVideo
 
-发送客户自采集的视频数据 内部有简单的帧率调控逻辑，如果该方法被调用得太频繁，SDK会自动丢弃一些视频帧；如果该方法被调用得太慢，SDK会自动补充一些重复的画面。
+发送自定义的视频SampleBuffer SDK内部不做帧率控制, 请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致, 否则编码器输出的码率会不受控制。         
 
 ```
-void sendCustomVideoData(const char * userId, TRTCVideoFrame * frame)
+void sendCustomVideo(TRTCVideoFrame * frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| frame | TRTCVideoFrame * | 视频帧数据  |
+| frame | TRTCVideoFrame * | 视频数据，仅支持PixelBuffer I420数据  |
 
 <br/>
 
@@ -742,19 +704,19 @@ __参数__
 <br/>
 
 
-### sendCustomAudioData
+### sendCustomAudio
 
 发送客户自定义的音频PCM数据。
 
 ```
-void sendCustomAudioData(const char * pcmBuffer)
+void sendCustomAudio(TRTCAudioFrame * frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| pcmBuffer | const char * | pcm音频数据  |
+| frame | TRTCAudioFrame * | 音频数据，仅支持PCM格式  |
 
 __介绍__
 
@@ -809,30 +771,6 @@ __说明__
 
 
 设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 退房、setLocalVideoRenderCallback(null, x)、远端用户退房，停止回调。
-
-
-<br/>
-
-
-### setAudioFrameProcessCallback
-
-设置音频数据回调。
-
-```
-void setAudioFrameProcessCallback(TRTCAudioFrameFormat format, ITRTCAudioFrameProcessCallback * callback)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| format | TRTCAudioFrameFormat | 音频的格式  |
-| callback | ITRTCAudioFrameProcessCallback * | 音频回调，设置为NULL表示不需要回调音频  |
-
-__介绍__
-
-
-这个接口会触发 onCaptureAudioFrame、 onRemoteAudioFrameBeforeMixing 和 onRemoteAudioFrameAfterMixing 回调接口。
 
 
 <br/>
@@ -1262,6 +1200,22 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | showType | int | 0: 不显示 1: 显示精简版 2: 显示全量版  |
+
+<br/>
+
+
+### setNetEnv
+
+设置是否连接测试环境。
+
+```
+void setNetEnv(bool bTestEnv)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
 
 <br/>
 

@@ -222,7 +222,7 @@ __介绍__
 首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面。
 
 ```
-void onFirstVideoFrame(const char * userId)
+void onFirstVideoFrame(const char * userId, uint32_t width, uint32_t height)
 ```
 
 __参数__
@@ -230,6 +230,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识  |
+| width | uint32_t | 画面宽度  |
+| height | uint32_t | 画面高度  |
 
 <br/>
 
@@ -430,47 +432,51 @@ __参数__
 
 #### onRecvCustomCmdMsg
 
-收到对端用户发来的消息。
+当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
-void onRecvCustomCmdMsg(const char * roomNum, const char * userId, int32_t cmdID, uint32_t seq, const char * msg)
+void onRecvCustomCmdMsg(const char * userId, int32_t cmdID, uint32_t seq, const char * msg)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | const char * | 房间号  |
 | userId | const char * | 用户标识  |
 | cmdID | int32_t | 命令ID  |
 | seq | uint32_t | 消息序号  |
 
-__说明__
-
-
-该消息由 sendCustomCmdMsg 发送。
-
-
 <br/>
 
 
-#### onRecvCustomCmdMsgError
+#### onMissCustomCmdMsg
 
-接收对方数据流消息错误的回调，只有发送端设置了可靠传输，该接口才起作用。
+TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
 
 ```
-void onRecvCustomCmdMsgError(const char * roomNum, const char * userId, int32_t cmdID, int32_t errCode, int32_t missed)
+void onMissCustomCmdMsg(const char * userId, int32_t cmdID, int32_t errCode, int32_t missed)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | const char * | 房间号  |
 | userId | const char * | 用户标识  |
 | cmdID | int32_t | 命令ID  |
 | errCode | int32_t | 错误码，当前版本为-1  |
 | missed | int32_t | 丢失的消息数量  |
+
+__介绍__
+
+
+在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+
+
+__说明__
+
+
+只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
+
 
 <br/>
 
@@ -528,68 +534,6 @@ __参数__
 | width | int | 画面宽度  |
 | height | int | 画面长度  |
 | streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享  |
-
-<br/>
-
-
-
-
-<br/>
-
-
-
-## ITRTCAudioFrameProcessCallback
-### 自定义音频数据回调
-
-#### onCaptureAudioFrame
-
-获取 SDK 本地采集的音频数据。
-
-```
-void onCaptureAudioFrame(TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCAudioFrame * | 音频帧数据  |
-
-<br/>
-
-
-#### onRemoteAudioFrameBeforeMixing
-
-获取 SDK 混音前要播放的音频数据。
-
-```
-void onRemoteAudioFrameBeforeMixing(const char * userId, TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | const char * | 用户标识  |
-| frame | TRTCAudioFrame * | 音频帧数据  |
-
-<br/>
-
-
-#### onRemoteAudioFrameAfterMixing
-
-获取 SDK 混音后要播放的音频数据，如果您需要自己播放声音，只需要返回 false 即可接管声音的播放。
-
-```
-bool onRemoteAudioFrameAfterMixing(const char * userId, TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | const char * | 用户标识  |
-| frame | TRTCAudioFrame * | 音频帧数据  |
 
 <br/>
 

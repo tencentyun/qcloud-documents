@@ -13,26 +13,27 @@
 #import "TRTCCloudDelegate.h"
 
 // 继承 TRTCCloudDelegate 回调 
-@interface TRTCViewController() <UITextFieldDelegate, TRTCCloudDelegate> {
-    TRTCCloud       *trtcCloud;
-    ...
+@interface TRTCViewController() <TRTCCloudDelegate> {
+	TRTCCloud       *trtcCloud;
+	//...
 }
 @end
 
 // 创建 trtcCloud 实例
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    ....
-    trtcCloud = [[TRTCCloud alloc] init];
-    [trtcCloud setDelegate:self];
+	[super viewDidLoad];
+	//...
+	trtcCloud = [[TRTCCloud alloc] init];
+	[trtcCloud setDelegate:self];
 }
 
 // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
 - (void)onError:(int)errCode errMsg:(NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo {
-    if (errCode == ERR_ROOM_ENTER_FAIL) {
-        [self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
-        [self exitRoom];
-    }
+	if (errCode == ERR_ROOM_ENTER_FAIL) {
+		[self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
+		[self exitRoom];
+		return;
+	}
 }
 ```
 
@@ -65,23 +66,25 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 ```Objective-C
 - (void)enterRoom {
 {
-    //TRTCParams 定义参考头文件TRTCCloudDef.h
-    TRTCParams *params = [[TRTCParams alloc] init];
-    params.sdkAppId = sdkappid;
-    params.userId = userid;
-    params.userSig = usersig;
-    params.roomId = 908; //输入你想进入的房间
-    [trtcCloud enterRoom:param];
+	//TRTCParams 定义参考头文件TRTCCloudDef.h
+	TRTCParams *params = [[TRTCParams alloc] init];
+	params.sdkAppId = sdkappid;
+	params.userId = userid;
+	params.userSig = usersig;
+	params.roomId = @"908"; //输入你想进入的房间
+	[trtcCloud enterRoom:param];
 }
-...
+
 - (void)onError:(int)errCode errMsg:(NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo {
-    if (errCode == ERR_ROOM_ENTER_FAIL) {
-        [self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
-        [self exitRoom];
-    }
+	if (errCode == ERR_ROOM_ENTER_FAIL) {
+		[self toastTip:[NSString stringWithFormat:@"进房失败[%@]", errMsg]];
+		[self exitRoom];
+		return;
+	}
 }
+
 - (void)onEnterRoom:(NSInteger)elapsed {
-    NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]", _userID, _roomID, elapsed];
+	NSString *msg = [NSString stringWithFormat:@"[%@]进房成功[%u]: elapsed[%d]", _userID, _roomID, elapsed];
 }
 ```
 
@@ -90,17 +93,25 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 调用`startLocalPreview`打开本地的摄像头并预览视频画面。
 
-- 启动本地预览前，调用`setLocalViewFillMode`设指定你想要的视频显示模式`Fill`和 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
+- 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
-- 调用`startLocalPreview`，参数：`frontCamera`（true:前置摄像头 false:后置摄像头）、`view`（UIView 控件）。
+-  (`iOS`) 调用`startLocalPreview`：参数：`frontCamera`（true:前置摄像头 false:后置摄像头）、`view`（UIView 控件）。
+-  (`Mac`) 调用`startLocalPreview`，参数：`view` : NSView 控件。**注**：SDK默认会使用当前系统默认设备。如有多个摄像头可选调用 `setCurrentCameraDevice`接口设置所要使用的摄像头，参数:`deviceId`为摄像头设备ID， 值从`getCameraDevicesList`接口返回的摄像头设备列表中选取。
 - 在创建`TRTCCloud`完成后就可以使用`startLocalPreview`接口。
 
 ```Objective-C
 /** 设置预览控件 */
+//iOS调用示例
 - (void)startLocalPreview:(BOOL)frontCamera localView:(UIView*)localView {
-    [trtcCloud setLocalViewFillMode:TRTCVideoFillMode_Fit];
-    [trtcCloud startLocalPreview:frontCamera view:localView];
+	[trtcCloud setLocalViewFillMode:TRTCVideoFillMode_Fit];
+	[trtcCloud startLocalPreview:frontCamera view:localView];
+}
+
+//Mac调用示例
+- (void)startLocalPreview:(NSView*)localView {
+	[trtcCloud setLocalViewFillMode:TRTCVideoFillMode_Fit];
+	[trtcCloud startLocalPreview:localView];
 }
 ```
 
@@ -117,8 +128,8 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 ```Objective-C
 - (void)closeLocalStream {
 {
-    [trtcCloud muteLocalVideo:YES];
-    [trtcCloud muteLocalAudio:YES];
+	[trtcCloud muteLocalVideo:YES];
+	[trtcCloud muteLocalAudio:YES];
 }
 ```
 
@@ -128,25 +139,27 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 调用`startRemoteView`方法设置本地看到的远端用户的视频。
 
 - 进入房间后，当有远端用户加入本房间，SDK 会回调`onUserEnter`方法，参数：`userId`（加入房间的用户ID）。
-- 订阅远端用户流前，调用`setRemoteViewFillMode`设指定你想要的视频显示模式`Fill`和`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
+- 订阅远端用户流前，可调用`setRemoteViewFillMode`指定视频显示模式为`Fill`或`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
-- 收到 SDK 回调`onUserEnter`方法后，调用`startRemoteView`方法来订阅远端用户视频。
-- 收到 SDK 回调`onUserExit`方法后，调用`stopRemoteView`停止订阅远端用户流。
+- 收到 SDK `onUserEnter`回调后，调用`startRemoteView`方法来订阅远端用户视频。
+- 收到 SDK `onUserExit`回调后，调用`stopRemoteView`停止订阅远端用户流。
 
 ```Objective-C
 - (void)onUserEnter:(NSString *)userId {
-    // 设置playerview
-    UIView *remoteView = [[UIView alloc] init];
-    [remoteView setBackgroundColor:UIColorFromRGB(0x262626)];
-    [self.view addSubview:remoteView];
+	// 设置playerview
+	UIView *remoteView = [[UIView alloc] init];
+	/* 注：Mac平台下为NSView */
+	//NSView *remoteView = [[NSView alloc] init];
+	[remoteView setBackgroundColor:UIColorFromRGB(0x262626)];
+	[self.view addSubview:remoteView];
 
-    [trtcCloud setRemoteViewFillMode:userId mode:TRTCVideoFillMode_Fit];
-    [trtcCloud startRemoteView:userId view:remoteView];
+	[trtcCloud setRemoteViewFillMode:userId mode:TRTCVideoFillMode_Fit];
+	[trtcCloud startRemoteView:userId view:remoteView];
 }
 
 - (void)onUserExit:(NSString *)userId reason:(NSInteger)reason {
-    [trtcCloud stopRemoteView:userId];
+	[trtcCloud stopRemoteView:userId];
 }
 
 ```
@@ -159,15 +172,15 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 - `exitRoom` 并不会直接让用户离开频道， SDK 回调 `onExitRoom` 方法后才真正完成释放资源。
 
 ```Objective-C
-...
 - (void)exitRoom: {
 {
-    [trtcCloud exitRoom];
+	[trtcCloud exitRoom];
 }
-...
+
 - (void)onExitRoom:(NSInteger)reason {
-    NSString *msg = [NSString stringWithFormat:@"离开房间[%u]: reason[%d]", _roomID, reason];
+	NSString *msg = [NSString stringWithFormat:@"离开房间[%u]: reason[%d]", _roomID, reason];
 }
 
 ```
+
 
