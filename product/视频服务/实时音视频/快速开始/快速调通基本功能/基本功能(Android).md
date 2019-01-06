@@ -54,14 +54,22 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
-房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
+这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
+
+ Android 下数字转字符串的代码为：  
+ 
+```java
+int roomId = 123; // 数字类型的房间号
+String strRoomId = String.valueOf(roomId); //转换成字符串
+param.roomId= strRoomId; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_INTEGER 错误
+```
 
 
 ## 进入(或创建)房间
 
 组装完 `TRTCParams` 后，即可调用 `enterRoom` 函数进入房间。
 
-- 如进入房间成功，SDK 会回调`onEnterRoom`接口，参数：`elapsed`代表进入耗时，单位ms。
+- 如进入房间，SDK 会回调`onEnterRoom`接口，参数：`elapsed`代表进入耗时，单位ms。
 - 如进房失败 SDK 会回调`onError`接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.java`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 - 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
 
@@ -99,53 +107,19 @@ public void onEnterRoom(long elapsed) {
 }
 ```
 
+## 收听远端音频流
+- TRTC SDK 会默认接收远端的音频流，您无需为此编写额外的代码。
+- 如果您不希望收听某一个 userid 的音频流，可以使用 `muteRemoteAudio`将其静音。
 
-## 打开本地摄像头画面
+## 观看远端视频流
+TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRemoteView`方法来实现这个目标：
 
-调用`startLocalPreview`打开本地的摄像头并预览视频画面。
-
-- 启动本地预览前，调用`setLocalViewFillMode`设指定你想要的视频显示模式`Fill`和 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
+- 当有远端用户加入或离开房间时，SDK 会通过`onUserEnter`和 `onUserExit`通知到您。
+- 当收到 `onUserEnter`回调后，可以调用`startRemoteView`方法来观看新进 userId 的视频画面。
+- 当收到 `onUserExit`回调后，可以调用`stopRemoteView`停止观看。
+- 通过 `setRemoteViewFillMode` 可以指定视频显示模式为`Fill`或`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
-- 调用`startLocalPreview`，参数：`frontCamera`（true:前置摄像头 false:后置摄像头）、`view`（TXCloudVideoView SDK自定义渲染控件）。
-- 在创建`TRTCCloud`完成后就可以使用`startLocalPreview`接口。
-
-```java
-/** 设置预览控件 */
-void startLocalPreview(boolean frontCamera, TXCloudVideoView localVideoView) {
-	trtcCloud.setLocalViewFillMode(TRTCCloudDef.TRTC_VIDEO_RENDER_MODE_FIT);
-    trtcCloud.startLocalPreview(frontCamera, localVideoView);
-}
-```
-
-
-## 本地音视频流
-
-调用 `muteLocalVideo` 和 `muteLocalAudio` 接口可实现发布和停止发布本地音视频流。
-
-- 发布视频流确保已经打开`startLocalPreview`本地视频预览。
-- 进房成功后，SDK 内部会默认发布本地音视频流，无需额外再调用。
-- 发布本地视频流调用`muteLocalVideo`，参数值为 boolean 类型。如果设置为 true 则关闭本地视频地流，反之则发布本地视频流。 
-- 发布本地音频流调用`muteLocalAudio`，参数值为 boolean 类型。如果设置为 true 则关闭本地音频地流，反之则发布本地音频流。 
-
-```java
-void closeLocalStream() {
-	trtcCloud.muteLocalVideo(true);
-	trtcCloud.muteLocalAudio(true);
-}
-```
-
-
-## 远端音视频流
-
-调用`startRemoteView`方法设置本地看到的远端用户的视频。
-
-- 进入房间后，当有远端用户加入本房间，SDK 会回调`onUserEnter`方法，参数：`userId`（加入房间的用户ID）。
-- 订阅远端用户流前，调用`setRemoteViewFillMode`设指定你想要的视频显示模式`Fill`和`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
-- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
-- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
-- 收到 SDK 回调`onUserEnter`方法后，调用`startRemoteView`方法来订阅远端用户视频。
-- 收到 SDK 回调`onUserExit`方法后，调用`stopRemoteView`停止订阅远端用户流。
 
 ```java
 @Override
@@ -166,12 +140,52 @@ public void onUserExit(String userId, int reason) {
 
 ```
 
+## 开启本地音频流
+TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集和音频流的广播。
+
+- `startLocalAudio` 会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
+- 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
+
+## 开启本地摄像头采集
+
+TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示摄像头的预览画面。
+
+- 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：  
+	- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。  
+	- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+
+- 调用`startLocalPreview`，参数：`frontCamera`（true:前置摄像头 false:后置摄像头）、`view`（TXCloudVideoView SDK自定义渲染控件）。
+
+```java
+/** 打开本地摄像头预览画面 */
+void startLocalPreview(boolean frontCamera, TXCloudVideoView localVideoView) {
+	trtcCloud.setLocalViewFillMode(TRTCCloudDef.TRTC_VIDEO_RENDER_MODE_FIT);
+    trtcCloud.startLocalPreview(frontCamera, localVideoView);
+}
+```
+
+## 屏蔽音视频数据流
+
+- **屏蔽本地视频数据**
+如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
+
+- **屏蔽本地音频数据**
+如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
+
+- **屏蔽远程视频数据**
+通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
+通过 `stopAllRemoteView` 可以屏蔽某一个 userid 的视频数据。
+
+- **屏蔽远程音频数据**
+通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
+通过 `muteAllRemoteAudio` 可以屏蔽所有全程用户的音频数据。
+
 
 ## 退出房间
 
-调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。`exitRoom` 并不会直接让用户离开频道。
+调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
-- `exitRoom` 并不会直接让用户离开频道， SDK 回调 `onExitRoom` 方法后才真正完成释放资源。
+- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```java
 ...

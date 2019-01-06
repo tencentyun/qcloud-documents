@@ -1,11 +1,11 @@
-本文介绍使用腾讯云 TRTC SDK 快速实现视频通话的功能，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识
 
 
 ## 初始化 SDK
 
 使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
 
-- 继承`ITRTCCloudCallback`事件回调接口类，实现关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件、警告事件等。
+- 继承`ITRTCCloudCallback`事件回调接口类，重写关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件、警告事件等。
 - 调用`addCallback`接口注册监听 SDK 事件。**注意：如果`addCallback`注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次`addCallback`。**
 
 ```c++
@@ -57,10 +57,15 @@ TRTCMainViewController::~TRTCMainViewController()
     }
 }
 
+// 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
 virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* errMsg, void* arg)
 {
-    LOGE(L"onError errorCode[%d], errorInfo[%s]", errCode, UTF82Wide(errMsg).c_str());
-    // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+    if (errCode == ERR_ROOM_ENTER_FAIL)
+    {
+        LOGE(L"onError errorCode[%d], errorInfo[%s]", errCode, UTF82Wide(errMsg).c_str());
+		exitRoom();
+		return;
+	}
 }
 
 ...
@@ -73,14 +78,26 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 - **sdkAppId**
   进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
   ![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+
 - **userId**
   您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
+
 - **userSig**
   基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
-- **roomId**
-  房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomid**。
 
-## 进入房间
+- **roomId**
+
+  - 这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
+
+   Windows 下数字转字符串的代码为：
+
+  ```c++
+  int roomId = 123; // 数字类型的房间号
+  TXString roomIdStr = std::to_string(roomId).c_str(); //转换成字符串
+  param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_INTEGER 错误
+  ```
+
+## 进入（或创建）房间
 
 组装完 `TRTCParams` 后，即可调用 `enterRoom` 函数加入(或创建)房间。
 
@@ -99,7 +116,7 @@ void TRTCMainViewController::enterRoom()
     params.sdkAppId = sdkappid;
     params.userId = userid;
     params.userSig = usersig;
-    params.roomId = "908"; // 输入房间Id
+    params.roomId = "908"; // 输入您想进入的房间
     if(m_pTRTCSDK)
     {
     	m_pTRTCSDK->enterRoom(params);
@@ -127,66 +144,12 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 }
 ```
 
-## 设置视频编码参数
+## 收听远端音频流
 
-调用 `setVideoEncoderParam`  接口，设置视频编码参数，影响远端用户看到画面的质量。
+- TRTC SDK 会默认接收远端的音频流，您无需为此编写额外的代码。
+- 如果您不希望收听某一个 userid 的音频流，可以使用 `muteRemoteAudio`将其静音。
 
-- 分辨率，视频画面的大小，默认是横屏分辨率，也就是宽屏模式，如果想要使用竖屏分辨率，请指定 resMode 为 Portrait，比如：640x360 + Portrait = 360x640；
-- 帧率，影响视频播放的流畅性，推荐设置为 15fps 或 20fps；
-- 码率，推荐设置请参考 TRTCVideoResolution 定义处的注释说明，对不同分辨率，推荐了比较合理的码率设置；
-- 编码模式，Smooth 模式（默认）能够获得理论上最低的卡顿率，而 Compatible 模式卡顿率高于 Smooth 模式，但性能优异，推荐在低端设备上开启。 
-
-```c++
-// TRTCMainViewController.cpp
-
-// 加入房间成功后，默认开启音视频流的上行。
-void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
-{
-    ...
-
-    if(m_pTRTCSDK)
-    {
-        // 通常设置分辨率和码率，其他的字段，推荐使用TRTCVideoEncParam的默认值
-        TRTCVideoEncParam param;
-        param.videoResolution = TRTCVideoResolution_640_360;
-        param.videoBitrate = 550;
-        m_pTRTCSDK->setVideoEncoderParam(param);
-    }
-}
-```
-
-## 打开摄像头画面
-
-调用`startLocalPreview`接口，打开摄像头和预览视频画面。
-
-- 调用`startLocalPreview`，指定本地视频渲染的窗口，**注：SDK 动态检测窗口大小，在`rendHwnd`表示的整个窗口进行渲染**；
-- 调用`setLocalViewFillMode`接口，设置本地视频渲染的模式为`Fill`或者 `Fit` 。两种模式下视频尺寸都是等比缩放，区别在于：
-  - `Fill` 模式：优先保证窗口被填满。如果缩放后的视频尺寸与窗口尺寸不一致，那么多出的部分将被裁剪掉；
-  - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与窗口尺寸不一致，未被填满的窗口区域将使用黑色填充。
-
-```c++
-// TRTCMainViewController.cpp
-
-void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
-{
-    ...
-    
-	// 获取渲染窗口的句柄。
-    CWnd *pLocalVideoView = GetDlgItem(IDC_LOCAL_VIDEO_VIEW);
-    HWND hwnd = pLocalVideoView->GetSafeHwnd();
-    
-    if(m_pTRTCSDK)
-    {
-        // 调用SDK接口设置渲染模式和渲染窗口。
-        m_pTRTCSDK->setLocalViewFillMode(TRTCVideoFillMode_Fit);
-        m_pTRTCSDK->startLocalPreview(hwnd);
-    }
-    
-	...
-}
-```
-
-## 播放远端音视频
+## 观看远端视频流
 
 调用`startRemoteView`接口，播放远端用户的视频和音频。
 
@@ -225,12 +188,61 @@ void TRTCMainViewController::onUserExit(const char* userId, int reason)
 
 ```
 
+## 开启本地音频流
+
+TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集和音频流的广播。
+
+- 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
+
+## 开启本地摄像头采集
+
+调用`startLocalPreview`接口，打开摄像头和预览视频画面。
+
+- 调用`startLocalPreview`，指定本地视频渲染的窗口，**注：SDK 动态检测窗口大小，在`rendHwnd`表示的整个窗口进行渲染**；
+- 调用`setLocalViewFillMode`接口，设置本地视频渲染的模式为`Fill`或者 `Fit` 。两种模式下视频尺寸都是等比缩放，区别在于：
+  - `Fill` 模式：优先保证窗口被填满。如果缩放后的视频尺寸与窗口尺寸不一致，那么多出的部分将被裁剪掉；
+  - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与窗口尺寸不一致，未被填满的窗口区域将使用黑色填充。
+
+```c++
+// TRTCMainViewController.cpp
+
+void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
+{
+    ...
+    
+	// 获取渲染窗口的句柄。
+    CWnd *pLocalVideoView = GetDlgItem(IDC_LOCAL_VIDEO_VIEW);
+    HWND hwnd = pLocalVideoView->GetSafeHwnd();
+    
+    if(m_pTRTCSDK)
+    {
+        // 调用SDK接口设置渲染模式和渲染窗口。
+        m_pTRTCSDK->setLocalViewFillMode(TRTCVideoFillMode_Fit);
+        m_pTRTCSDK->startLocalPreview(hwnd);
+    }
+    
+	...
+}
+```
+
+## 屏蔽音视频数据流
+
+- **屏蔽本地视频数据**
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
+- **屏蔽本地音频数据**
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
+- **屏蔽远程视频数据**
+  通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
+  通过 `stopAllRemoteView` 可以屏蔽某一个 userid 的视频数据。
+- **屏蔽远程音频数据**
+  通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
+  通过 `muteAllRemoteAudio` 可以屏蔽所有全程用户的音频数据。
+
 ## 退出房间
 
-调用`exitRoom`接口退出房间。
+调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
-- 调用`exitRoom`接口完成退出房间，**注：SDK 会关闭摄像头，停止本地音频和视频上行、停止播放远端音频和视频等所有资源**。
-- 监听`onUserExit`回调，**不管退房成功还是失败， SDK 都会触发这个回调，在这个回调触发才真正完成资源释放**。
+- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```c++
 // TRTCMainViewController.cpp
