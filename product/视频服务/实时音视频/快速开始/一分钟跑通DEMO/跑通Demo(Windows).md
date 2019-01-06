@@ -39,8 +39,7 @@
 ## 常见问题
 ### 1. 开发环境要求
 - 操作系统： Microsoft Windows 7+
-- 编译器：Microsoft Visual C++ 2013+
-- 开发环境：Microsoft Visual Studio 2015 （推荐）
+- 开发环境：Microsoft Visual Studio 2015 +
 
 ### 2. 防火墙限制
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请联系贵司的网络管理员，将如下端口加入防火墙的安全白名单中。
