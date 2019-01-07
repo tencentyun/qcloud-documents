@@ -21,7 +21,7 @@ IPv6 负载均衡兼容原 IPv4 负载均衡的操作流程，零学习成本，
 - IPv6 LB 不支持 TOA，无法获取 client IP。
 
 ## 计费模式
-黑石 IPv6 LB 与黑石 IPv4 LB 计费模式一样，可以参考 [黑石 IPv4 LB计费](https://cloud.tencent.com/document/product/386/13360)
+黑石 IPv6 LB 与黑石 IPv4 LB 计费模式一样，可以参考 [黑石 IPv4 LB计费](https://cloud.tencent.com/document/product/386/13360)。
 
 ## 操作指南
 1. 登录腾讯云官网，进入 [黑石负载均衡购买页](https://buy.cloud.tencent.com/lbbm) 。
