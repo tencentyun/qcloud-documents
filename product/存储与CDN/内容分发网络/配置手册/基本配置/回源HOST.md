@@ -10,11 +10,10 @@
 2. 在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
  ![](https://main.qcloudimg.com/raw/f4e8af61ef59d345fca5e192d77b1b9f.png)
 3. 在基本配置页面最下方，可以看到回源 HOST 配置信息。
+ ![](https://main.qcloudimg.com/raw/40a78a6e113e612834dcefaf820c23df.png)
 默认情况下，子域名的回源 HOST 为所配置的加速域名，泛域名回源 HOST 为访问域名：
  - 若您接入的加速域名为 `www.test.com`，则此节点对此域名下资源发起回源请求时，Request HTTP Header 中 HOST 字段的值为 `www.test.com`。
  - 若您接入的加速域名为泛域名，如 `*.test.com`，若访问域名为 `abc.test.com`，则回源 HOST 为 `abc.test.com`。
- 
- ![](https://main.qcloudimg.com/raw/40a78a6e113e612834dcefaf820c23df.png)
  
 ### 修改回源 HOST
 在回源配置信息处，单击【编辑】，可以对回源 HOST 配置进行调整。
