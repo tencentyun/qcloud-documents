@@ -51,21 +51,7 @@
 授权一个子用户某个特定实例的 CKafka 服务的完全管理权限（创建、管理等全部操作）。
 1. 授予一个实例只读权限。
 ![](https://main.qcloudimg.com/raw/875be8b3763e1ff19b4ff6d81b12182a.jpg)
-2. 授予某特定实例的读写权限。
-```
-{
-  "version": "2.0",
-  "statement": [
-    {
-      "action": [
-            "name/ckafka:*"
-      ],
-      "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
-      "effect": "allow"
-    }
-  ]
-}
-```
+
 
 ### CKafka 单个实例只读策略
 
@@ -88,19 +74,3 @@
 }
 ```
 
-2. 授权单实例只读权限。
-```
-{
-    "version": "2.0",
-    "statement": [
-        {
-            "action": [
-                "ckafka:Get*",
-                "ckafka:List*"
-            ],
-            "resource": "qcs::ckafka:$region::ckafkaId/uin/$createUin/$instanceId",
-            "effect": "allow"
-        }
-    ]
-}
-```
