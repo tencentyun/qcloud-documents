@@ -9,7 +9,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| redisId | 是 | String | 实例串号, 可通过[查询CRS实例列表接口](http://cloud.tencent.com/doc/api/260/1384)查询|
+| redisId | 是 | String | 实例串号, 可通过[查询 Redis 实例列表接口](http://cloud.tencent.com/doc/api/260/1384)查询|
 | memSize | 是 | UInt | 升级后的容量，1024的整数倍，单位：MB。 必须大于当前实例规格，大小限制以 [查询售卖规格](http://cloud.tencent.com/doc/api/260/4974) 为准|
 
 

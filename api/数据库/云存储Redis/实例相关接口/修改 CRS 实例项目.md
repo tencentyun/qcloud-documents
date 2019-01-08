@@ -1,5 +1,5 @@
 ## 1. 接口描述 
-本接口(ModifyRedisProject)用于修改CRS实例所属项目。
+本接口(ModifyRedisProject)用于修改 Redis 实例所属项目。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数

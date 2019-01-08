@@ -1,0 +1,113 @@
+## 操作场景
+
+您可以通过 Kubernetes 命令行工具 Kubectl 从本地客户端机器连接到 TKE 集群。本文档指导您如何连接集群。
+
+## 准备的软件
+
+请根据操作系统的类型，选择获取 Kubectl 工具的方式：
+>? 根据实际需求，将命令行中的 “v1.8.13” 替换成业务所需的 Kubectl 版本。
+
+- **Mac OS X 系统**
+执行以下命令，获取 Kubectl 工具：
+```shell
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.13/bin/darwin/amd64/kubectl
+```
+- **Linux 系统**
+执行以下命令，获取 Kubectl 工具：
+```shell
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.13/bin/linux/amd64/kubectl
+```
+- **Windows 系统**
+执行以下命令，获取 Kubectl 工具：
+ ```shell
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.13/bin/windows/amd64/kubectl.exe
+```
+
+## 操作步骤
+
+### 安装 Kubectl 工具
+
+1. 参考 [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/)，安装 Kubectl 工具。
+>? 如果您已经安装 Kubectl 工具，请忽略本步骤。
+2. 执行以下命令，添加执行权限。
+```shell
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+3. 执行以下命令，测试安装结果。
+```shell
+kubectl version
+```
+如若输出类似以下版本信息，即表示安装成功。
+```shell
+Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommit:"08e099554f3c31f6e6f07b448ab3ed78d0520507", GitTreeState:"clean", BuildDate:"2017-01-12T04:57:25Z", GoVersion:"go1.7.4", Compiler:"gc", Platform:"linux/amd64"}
+```
+
+### 获取集群账号密码以及证书信息
+
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
+3. 单击需要连接集群的 **ID/名称**，进入该集群的管理页面。
+4. 在左侧导航栏中，选择 “基本信息”，进入 “基本信息” 页面。如下图所示：
+![基本信息](https://main.qcloudimg.com/raw/4a885e52e7d53573ae3bc6fd858dae69.png)
+5. 在 “基本信息” 中，单击 “集群凭证” 中的 【显示凭证】。
+6. 在弹出的 “集群凭证” 窗口中，查看用户名、密码和证书信息。
+>? 您可以根据实际需求，单击【复制】或【下载】将集群 CA 证书保存到本地。
+7. 在弹出的 “集群凭证” 窗口中，获取访问入口。
+ - 集群内直接访问：“外网访问地址” 和 “内网访问地址” 保持默认值，无须进行任何配置，即可直接在集群内的主机上执行 Kubectl 命令。
+ - 获取公网访问入口：将 “外网访问地址” 设置为 “已开启”，可参考 [设置 Kubectl 命令自动补全](#setKubectlAutomaticComplete) 直接使用外网访问地址进行访问。
+ - 获取 VPC 内网访问入口：将 “内网访问地址” 设置为 “已开启”，指定客户端主机的 **hosts**，用于支持域名解析。即，在`/etc/hosts`文件后追加内网返回的 **IP** 和域名。您可以手动设置，也可以参考以下代码进行设置。
+```
+sudo sed -i '$a **IP地址** **域名**' /etc/hosts
+```
+完成配置后，您可参考 [设置 Kubectl 命令自动补全](#setKubectlAutomaticComplete) 使用内网访问地址域名进行访问。
+>! 若集群无可用节点（包括节点异常,已封锁等状态），内网访问将在集群内有可用节点时生效。
+8. 单击【关闭】。
+
+### 通过证书信息使用 Kubectl 操作集群
+
+#### 单次 Kubectl 操作请求，附带证书信息
+
+>? 该方法适用于单次 Kubectl 操作集群，无需将容器集群的证书信息保存到机器上。
+
+**请求方法**
+
+Kubectl 命令格式如下所示：
+```
+-s "域名信息" --username=用户名 --password=密码 --certificate-authority=证书路径
+```
+
+**示例**
+
+```shell
+kubectl get node -s "https://cls-66668888.ccs.tencent-cloud.com" --username=admin --password=6666o9oIB2gHD88882quIfLMy6666 --certificate-authority=/etc/kubernetes/cluster-ca.crt
+```
+
+#### 修改 Kubectl 配置文件，长期有效
+
+>? 该方法适用于长期通过 Kubectl 操作集群，只需配置一次，不修改文件即可长期有效。
+
+1. 参考以下命令，修改 Kubectl 配置文件中的密码、证书信息。
+```shell
+kubectl config set-credentials default-admin --username=admin --password=6666o9oIB2gHD88882quIfLMy6666
+kubectl config set-cluster default-cluster --server=https://cls-66668888.ccs.tencent-cloud.com --certificate-authority=/etc/kubernetes/cluster-ca.crt
+kubectl config set-context default-system --cluster=default-cluster --user=default-admin
+kubectl config use-context default-system
+```
+2. 配置完成后，执行以下命令，获取 node 节点信息。
+```shell
+kubectl get nodes
+```
+返回类似以下信息，即表示修改成功。
+```
+NAME        STATUS    AGE
+10.0.0.61   Ready     10h
+```
+
+<span id="setKubectlAutomaticComplete"></span>
+### 设置 Kubectl 命令自动补全
+
+您可以通过执行以下命令，配置 Kubectl 自动补全，提高可使用性。
+```shell
+source <(kubectl completion bash)
+```
