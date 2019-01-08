@@ -5,22 +5,7 @@ JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 
 ### 示例
 假设您的一条 json 日志原始数据为：
 ```
-{
-	"remote_ip": "10.135.46.123",
-	"time_local": "21/Dec/2018:17:06:56 +0800",
-	"body_sent": 142,
-	"responsetime": 0.961,
-	"upstreamtime": "0.961",
-	"upstreamhost": "unix:/tmp/php-cgi.sock",
-	"http_host": "127.0.0.1",
-	"method": "GET",
-	"url": "/admin/cloud/ad",
-	"request": "GET /admin/cloud/ad HTTP/1.1",
-	"xff": "-",
-	"referer": "http://127.0.0.1/admin/",
-	"agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0",
-	"response_code": "200"
-}
+{"remote_ip":"10.135.46.123","time_local":"21/Dec/2018:17:06:56 +0800","body_sent":142,"responsetime":0.961,"upstreamtime":"0.961","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"GET","url":"/admin/cloud/ad","request":"GET /admin/cloud/ad HTTP/1.1","xff":"-","referer":"http://127.0.0.1/admin/","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 ```
 
 经过日志服务结构化处理后，该条日志将变为如下：

@@ -17,8 +17,9 @@ Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https:/
 
 适用于COS XML 版本。
 
-
 ### 安装运行
+
+获取链接：[cos-ftp-server](https://github.com/tencentyun/cos-ftp-server-V5)
 
 1. 运行 setup.py 安装 FTP Server 及其相关的依赖库（需要联网）：
 ```bash
