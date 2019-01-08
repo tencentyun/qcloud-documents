@@ -2,12 +2,12 @@
 【SDK内核】
 - iOS&Android：优化网络协议算法，直播推流抗 30% 丢包无压力
 - iOS&Android：优化网络Qos流控算法，视频通话卡顿率更低，流畅度更高
-- iOS&Android: 优化 RTC 模式下的解码算法，降低部分Android手机连麦延迟高的问题
+- iOS&Android：优化 RTC 模式下的解码算法，降低部分Android手机连麦延迟高的问题
 - iOS&Android：优化了短视频上传的成功率
 
 【Bugfix】
 - iOS：录屏推流扩展，在某些情况下的CRASH问题（感谢Bilibili的反馈）
-- iOS: 录屏推流在 iOS 12.0 系统上的部分兼容问题（感谢Bilibili的反馈）
+- iOS：录屏推流在 iOS 12.0 系统上的部分兼容问题（感谢Bilibili的反馈）
 - iOS：图片转场合成功能的一些CRASH问题
 - iOS：enableBFrame() 设置为 NO 之后依然编码出 B 帧的问题
 - iOS：背景音乐文件比较短时的一个循环播放问题（感谢易方科技的反馈）
