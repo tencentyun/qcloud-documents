@@ -48,9 +48,7 @@ metadata:
 provisioner: cloud.tencent.com/qcloud-cbs ## TKE 集群自带的 provisioner
 parameters:
   type: CLOUD_PREMIUM
-  # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 cloudBasic
-  # zone:ap-shanghai-1
-  # zone 支持指定zone，如果指定，则讲云盘创建到此 zone，如果不指定，则拉取所有 node 的 zone 信息，随机挑选一个
+  # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC
   # paymode: PREPAID
   # paymode为云盘的计费模式，PREPAID模式（包年包月：仅支持Retain保留的回收策略），默认是 POSTPAID（按量计费：支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效）
   # aspid:asp-123
