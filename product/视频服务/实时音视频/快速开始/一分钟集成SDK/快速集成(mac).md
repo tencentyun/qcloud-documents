@@ -10,41 +10,43 @@
 您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK 再将其导入到您当前的工程项目中。
 
 ### CocoaPods
-**1. 安装 CocoaPods**
+#### 1. 安装 CocoaPods
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）
 ```
 sudo gem install cocoapods
 ```
 
-**2. 创建 Podfile 文件**
+#### 2. 创建 Podfile 文件
 进入项目所在路径，然后输入以下命令行，之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
 
-**3. 编辑 Podfile 文件**
+#### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式
 
-方式一：使用腾讯云 LiteAV SDK 的pod路径
-```
-platform :macOS, '10.10'
+- 3.1 方式一：使用腾讯云 LiteAV SDK 的pod路径。
 
-target 'Your Target' do
-pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
-end
-```
-方案二：使用CocoaPod官方源，支持选择版本号
+	```
+	platform :macOS, '10.10'
 
-```
-platform :macOS, '10.10'
-source 'https://github.com/CocoaPods/Specs.git'
+	target 'Your Target' do
+	pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
+	end
+	```
 
-target 'Your Target' do
-pod 'TXLiteAVSDK_TRTC_Mac'
-end
-```
+- 3.2 方式二：使用CocoaPod官方源，支持选择版本号
 
-**4. 安装与更新 SDK**
+	```
+	platform :macOS, '10.10'
+	source 'https://github.com/CocoaPods/Specs.git'
+
+	target 'Your Target' do
+	pod 'TXLiteAVSDK_TRTC_Mac'
+	end
+	```
+
+#### 4. 安装与更新 SDK
 在终端窗口中输入如下命令执行安装 TRTC SDK
 ```
 pod install
@@ -67,7 +69,8 @@ pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文
 4. 依次添加所下载的SDK Framework及其所需依赖库: 
     - `AudioUnit.framework` 
     - `libc++.tbd`
-    添加后如下图所示：
+    
+ 添加后如下图所示：
 ![](https://main.qcloudimg.com/raw/7bddb832347a971f3e69238480fa3e8d.jpg)
 
 ## 授权摄像头和麦克风使用权限
@@ -80,15 +83,16 @@ pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文
 
 ## 引用 TRTC SDK
 项目代码中使用 SDK 有两种方式
-方式一： 在项目需要使用SDK API的文件里，添加模块引用
+- 方式一： 在项目需要使用SDK API的文件里，添加模块引用
 
 ```
-@import TXLiteAVSDK_TRTC_Mac
+@import TXLiteAVSDK_TRTC_Mac;
 ```
 
-方式二：在项目需要使用SDK API的文件里，引入具体的头文件
+- 方式二：在项目需要使用SDK API的文件里，引入具体的头文件
 
 ```
 #import TXLiteAVSDK_TRTC_Mac/TRTCCloud.h
 ```
+
 

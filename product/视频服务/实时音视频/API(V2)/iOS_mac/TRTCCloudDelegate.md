@@ -396,6 +396,41 @@ __说明__
 
 
 
+## 旁路转推和混流回调
+
+### onStartPublishCDNStream
+```
+ - (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStopPublishCDNStream
+```
+ - (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStartCloudMixTranscoding
+```
+ - (void)onStartCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStopCloudMixTranscoding
+```
+ - (void)onStopCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+
 ## TRTCVideoRenderDelegate
 
 __功能__

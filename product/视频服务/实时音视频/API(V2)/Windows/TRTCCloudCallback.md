@@ -435,7 +435,7 @@ __参数__
 当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
-void onRecvCustomCmdMsg(const char * userId, int32_t cmdID, uint32_t seq, const char * msg)
+void onRecvCustomCmdMsg(const char * userId, int32_t cmdID, uint32_t seq, const uint8_t * msg, uint32_t msgSize)
 ```
 
 __参数__
@@ -445,6 +445,8 @@ __参数__
 | userId | const char * | 用户标识  |
 | cmdID | int32_t | 命令ID  |
 | seq | uint32_t | 消息序号  |
+| msg | const uint8_t * | 消息数据  |
+| msgSize | uint32_t | 消息数据大小  |
 
 <br/>
 
@@ -492,7 +494,7 @@ __说明__
 
 #### onRenderVideoFrame
 
-可以通过setLocalVideoRenderCallback和setRemoteVideoRenderCallback接口设置自定义渲染回调。
+可以通过 setLocalVideoRenderCallback 和 setRemoteVideoRenderCallback 接口设置自定义渲染回调。
 
 ```
 void onRenderVideoFrame(const char * userId, TRTCVideoStreamType streamType, TRTCVideoFrame * frame)

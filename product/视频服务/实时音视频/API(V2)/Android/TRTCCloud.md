@@ -400,6 +400,35 @@ __介绍__
 
 ## 音频相关接口函数
 
+### startLocalAudio
+
+开启本地音频流，该函数会启动麦克风采集，并将音频数据广播给房间里的其他用户。
+
+```
+abstract void startLocalAudio()
+```
+
+__说明__
+
+
+TRTC SDK 并不会默认打开本地的麦克风采集。 
+该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
+
+
+<br/>
+
+
+### stopLocalAudio
+
+关闭本地音频流。
+
+```
+abstract void stopLocalAudio()
+```
+
+<br/>
+
+
 ### muteLocalAudio
 
 是否屏蔽本地音频 当屏蔽本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知。
@@ -467,6 +496,11 @@ __参数__
 | mute | boolean | true:静音 false:非静音  |
 
 <br/>
+
+
+
+<br/>
+
 
 ### enableAudioVolumeEvaluation
 
@@ -693,12 +727,12 @@ __参数__
 <br/>
 
 
-### sendCustomVideo
+### sendCustomVideoData
 
 发送自定义的视频数据。
 
 ```
-abstract void sendCustomVideo(TRTCCloudDef.TRTCVideoFrame frame)
+abstract void sendCustomVideoData(TRTCCloudDef.TRTCVideoFrame frame)
 ```
 
 __参数__
@@ -727,12 +761,12 @@ __参数__
 <br/>
 
 
-### sendCustomAudio
+### sendCustomAudioData
 
 发送客户自定义的音频PCM数据。
 
 ```
-abstract void sendCustomAudio(TRTCCloudDef.TRTCAudioFrame frame)
+abstract void sendCustomAudioData(TRTCCloudDef.TRTCAudioFrame frame)
 ```
 
 __参数__
@@ -1029,6 +1063,78 @@ abstract void stopSpeedTest()
 
 
 
+## 混流转码并发布到CDN
+
+### startPublishCDNStream
+
+启动CDN发布：通过腾讯云将当前房间的音视频流发布到直播CDN上。
+
+```
+abstract void startPublishCDNStream(TRTCCloudDef.TRTCPublishCDNParam param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍  |
+
+__介绍__
+
+
+由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。
+目前支持两种发布方案：
+【1】先混流在发布，TRTCPublishCDNParam.enableTranscoding = YES 需要您先调用startCloudMixTranscoding对多路画面进行混合，发布到CDN上的是混合之后的音视频流
+【2】不混流直接发布，TRTCPublishCDNParam.enableTranscoding = NO 发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响，调用startCloudMixTranscoding将无效。
+
+
+<br/>
+
+
+### stopPublishCDNStream
+
+停止CDN发布。
+
+```
+abstract void stopPublishCDNStream()
+```
+
+<br/>
+
+
+### startCloudMixTranscoding
+
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
+                        \
+ 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                        /
+ 【画面3】=> 解码 => =>。
+
+```
+abstract void startCloudMixTranscoding(TRTCCloudDef.TRTCTranscodingConfig config)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| config | TRTCCloudDef.TRTCTranscodingConfig | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍  |
+
+<br/>
+
+
+### stopCloudMixTranscoding
+
+停止云端的混流转码。
+
+```
+abstract void stopCloudMixTranscoding()
+```
+
+<br/>
+
+
+
 ## LOG相关接口函数
 
 ### mTXLogListener
@@ -1126,10 +1232,6 @@ void setLogListener(final TRTCCloudListener.TRTCLogListener logListener)
 <br/>
 
 
-### setNetEnv
-```
-native void setNetEnv(boolean isDebug)
-```
 
 <br/>
 

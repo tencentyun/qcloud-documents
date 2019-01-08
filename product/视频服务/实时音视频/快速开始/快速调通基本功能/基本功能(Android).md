@@ -174,11 +174,11 @@ void startLocalPreview(boolean frontCamera, TXCloudVideoView localVideoView) {
 
 - **屏蔽远程视频数据**
 通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
-通过 `stopAllRemoteView` 可以屏蔽某一个 userid 的视频数据。
+通过 `stopAllRemoteView` 可以屏蔽所有远程用户的视频数据。
 
 - **屏蔽远程音频数据**
 通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
-通过 `muteAllRemoteAudio` 可以屏蔽所有全程用户的音频数据。
+通过 `muteAllRemoteAudio` 可以屏蔽所有远程用户的音频数据。
 
 
 ## 退出房间

@@ -396,6 +396,41 @@ __说明__
 
 
 
+## 旁路转推和混流回调
+
+### onStartPublishCDNStream
+```
+void onStartPublishCDNStream(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStopPublishCDNStream
+```
+void onStopPublishCDNStream(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStartCloudMixTranscoding
+```
+void onStartCloudMixTranscoding(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStopCloudMixTranscoding
+```
+void onStopCloudMixTranscoding(int err, String errMsg)
+```
+
+<br/>
+
+
+
 ## TRTCVideoRenderListener
 
 __功能__

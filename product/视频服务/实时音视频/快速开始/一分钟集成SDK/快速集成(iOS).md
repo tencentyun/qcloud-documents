@@ -24,7 +24,7 @@ pod init
 
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式：
-- 3.1 使用腾讯云 LiteAV SDK 的podspec文件路径。
+- 3.1 方式一：使用腾讯云 LiteAV SDK 的podspec文件路径。
 ```
   platform :ios, '8.0'
   
@@ -81,7 +81,7 @@ pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文
 项目代码中使用 SDK 有两种方式：
 - 方式一： 在项目需要使用SDK API的文件里，添加模块引用
 ```
-@import TXLiteAVSDK_TRTC
+@import TXLiteAVSDK_TRTC;
 ```
 
 - 方式二：在项目需要使用SDK API的文件里，引入具体的头文件
@@ -99,6 +99,7 @@ pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文
 支持Bitcode， App项目可根据具体需要，在 **Build Settings** 下启用或禁用Bitcode，如下图所示:
 
 ![](https://main.qcloudimg.com/raw/c429a3a559018c661e273421fa299d9a.jpg)
+
 
 
 

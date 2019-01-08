@@ -6,7 +6,9 @@
 使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
 
 - 继承`ITRTCCloudCallback`事件回调接口类，重写关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件、警告事件等。
-- 调用`addCallback`接口注册监听 SDK 事件。**注意：如果`addCallback`注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次`addCallback`。**
+- 调用`addCallback`接口注册监听 SDK 事件。
+
+>!如果`addCallback`注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次`addCallback`。
 
 ```c++
 // TRTCMainViewController.h
@@ -44,14 +46,12 @@ TRTCMainViewController::TRTCMainViewController()
 TRTCMainViewController::~TRTCMainViewController()
 {
     // 取消监听 SDK 事件
-    if(m_pTRTCSDK)
-    {
+    if(m_pTRTCSDK) {
         m_pTRTCSDK->removeCallback(this);
     }
     
     // 释放 TRTCCloud 实例
-	if(m_pTRTCSDK != NULL)
-    {
+	  if(m_pTRTCSDK != NULL) {
         delete m_pTRTCSDK;
         m_pTRTCSDK = null
     }
@@ -60,15 +60,11 @@ TRTCMainViewController::~TRTCMainViewController()
 // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
 virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* errMsg, void* arg)
 {
-    if (errCode == ERR_ROOM_ENTER_FAIL)
-    {
+    if (errCode == ERR_ROOM_ENTER_FAIL) {
         LOGE(L"onError errorCode[%d], errorInfo[%s]", errCode, UTF82Wide(errMsg).c_str());
-		exitRoom();
-		return;
-	}
+		    exitRoom();
+	 }
 }
-
-...
 ```
 
 ## 组装 TRTCParams
@@ -86,16 +82,14 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
   基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
+  这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
 
-  - 这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
-
-   Windows 下数字转字符串的代码为：
-
-  ```c++
-  int roomId = 123; // 数字类型的房间号
+  Windows 下数字转字符串的代码为：
+```
+int roomId = 123; // 数字类型的房间号
   TXString roomIdStr = std::to_string(roomId).c_str(); //转换成字符串
   param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_INTEGER 错误
-  ```
+```
 
 ## 进入（或创建）房间
 
@@ -233,10 +227,10 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
   如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
 - **屏蔽远程视频数据**
   通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
-  通过 `stopAllRemoteView` 可以屏蔽某一个 userid 的视频数据。
+  通过 `stopAllRemoteView` 可以屏蔽所有远端用户的视频数据。
 - **屏蔽远程音频数据**
   通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
-  通过 `muteAllRemoteAudio` 可以屏蔽所有全程用户的音频数据。
+  通过 `muteAllRemoteAudio` 可以屏蔽所有远端用户的音频数据。
 
 ## 退出房间
 

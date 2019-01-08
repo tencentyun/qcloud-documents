@@ -366,6 +366,35 @@ __介绍__
 
 ## 音频相关接口函数
 
+### startLocalAudio
+
+开启本地音频流，该函数会启动麦克风采集，并将音频数据广播给房间里的其他用户。
+
+```
+void startLocalAudio()
+```
+
+__说明__
+
+
+TRTC SDK 并不会默认打开本地的麦克风采集。 
+该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
+
+
+<br/>
+
+
+### stopLocalAudio
+
+关闭本地音频流。
+
+```
+void stopLocalAudio()
+```
+
+<br/>
+
+
 ### muteLocalAudio
 
 是否屏蔽本地音频。
@@ -670,12 +699,12 @@ __参数__
 <br/>
 
 
-### sendCustomVideo
+### sendCustomVideoData
 
 发送自定义的视频SampleBuffer SDK内部不做帧率控制, 请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致, 否则编码器输出的码率会不受控制。         
 
 ```
-void sendCustomVideo(TRTCVideoFrame * frame)
+void sendCustomVideoData(TRTCVideoFrame * frame)
 ```
 
 __参数__
@@ -704,12 +733,12 @@ __参数__
 <br/>
 
 
-### sendCustomAudio
+### sendCustomAudioData
 
 发送客户自定义的音频PCM数据。
 
 ```
-void sendCustomAudio(TRTCAudioFrame * frame)
+void sendCustomAudioData(TRTCAudioFrame * frame)
 ```
 
 __参数__
@@ -732,20 +761,21 @@ __介绍__
 设置本地视频自定义渲染。
 
 ```
-int setLocalVideoRenderCallback(ITRTCVideoRenderCallback * callback, TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType)
+int setLocalVideoRenderCallback(TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback * callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| callback | ITRTCVideoRenderCallback * | 自定义渲染回调  |
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式  |
+| bufferType | TRTCVideoBufferType | 指定视频数据结构类型  |
+| callback | ITRTCVideoRenderCallback * | 自定义渲染回调  |
 
 __说明__
 
 
-设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过HWND渲染逻辑 退房、setLocalVideoRenderCallback(null, x)，停止回调。
+设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过HWND渲染逻辑 调用setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, NULL)停止回调。
 
 
 <br/>
@@ -756,7 +786,7 @@ __说明__
 设置远端视频自定义渲染。
 
 ```
-int setRemoteVideoRenderCallback(const char * userId, ITRTCVideoRenderCallback * callback, TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType)
+int setRemoteVideoRenderCallback(const char * userId, TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback * callback)
 ```
 
 __参数__
@@ -764,13 +794,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识  |
-| callback | ITRTCVideoRenderCallback * | 自定义渲染回调  |
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式  |
+| bufferType | TRTCVideoBufferType | 指定视频数据结构类型  |
+| callback | ITRTCVideoRenderCallback * | 自定义渲染回调  |
 
 __说明__
 
 
-设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 退房、setLocalVideoRenderCallback(null, x)、远端用户退房，停止回调。
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 调用setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)停止回调。
 
 
 <br/>
@@ -1200,22 +1231,6 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | showType | int | 0: 不显示 1: 显示精简版 2: 显示全量版  |
-
-<br/>
-
-
-### setNetEnv
-
-设置是否连接测试环境。
-
-```
-void setNetEnv(bool bTestEnv)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
 
 <br/>
 
