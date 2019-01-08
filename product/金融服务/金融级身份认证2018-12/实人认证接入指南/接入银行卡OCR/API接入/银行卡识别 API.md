@@ -8,8 +8,8 @@
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
 | ---- | ----- | ----- | ---- | --- |
 | webankAppId | WebankAppId，由腾讯指定        | String        | 腾讯云线下对接决定 | 是          |
-| version     | 接口版本号</br>默认值：1.0.0                    | String        | 20          | 是 |
-| nonce       | 随机数</br>32位随机串（字母+数字组成的随机数） | String        | 32          | 是        |
+| version     | 接口版本号，默认值：1.0.0                    | String        | 20          | 是 |
+| nonce       | 随机数，32位随机串（字母+数字组成的随机数） | String        | 32          | 是        |
 | sign        | 签名：使用上面生成的签名            | String        | 40          | 是         |
 | orderNo     | 订单号，由合作方上送，每次唯一          | String        | 32          | 是         |
 | bankcardStr | 银行卡正面图片的 Base64   | Base64 String |  大小不超过3M    | 是         |
@@ -26,5 +26,5 @@
 | bankcardNo        |String       | 银行卡识别结果：银行卡号                         |
 | bankcardValidDate |String       | 银行卡识别结果：银行卡有效时间                      |
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
-|multiWarningCode | String | 多重告警码，含义请参考 [通用响应码列表]() |
+|multiWarningCode | String | 多重告警码，含义请参考 [通用响应码列表](https://cloud.tencent.com/document/product/655/32309) |
 | clarity       | String | 图片清晰度                |
