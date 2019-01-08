@@ -14,10 +14,28 @@ import com.tencent.trtc.TRTCCloudListener;
 
 // 继承 TRTCCloudListener 回调 
 static class TRTCCloudListenerImpl extends TRTCCloudListener {
+	private WeakReference<TRTCMainActivity> mContext;
+    public TRTCCloudListenerImpl(TRTCMainActivity activity) {
+        super();
+        mContext = new WeakReference<>(activity);
+    }
 	....
+	// 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+	@Override
+	public void onError(int errCode, String errMsg, Bundle extraInfo) {
+	    Log.d(TAG, "sdk callback onError");
+	    TRTCMainActivity activity = mContext.get();
+	    if (activity != null) {
+	        Toast.makeText(activity, "onError: " + errMsg + "[" + errCode+ "]" , Toast.LENGTH_SHORT).show();
+	        if (errCode == TXLiteAVCode.ERR_ROOM_ENTER_FAIL) {
+	            activity.exitRoom();
+	        }
+	    }
+	}
 }
 
 // 创建 trtcCloud 实例
+@Override
 protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	....
@@ -25,18 +43,18 @@ protected void onCreate(Bundle savedInstanceState) {
     trtcCloud 	= TRTCCloud.create(this, trtcListener);
 }
 
-// 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+// 销毁 trtcCloud 实例
 @Override
-public void onError(int errCode, String errMsg, Bundle extraInfo) {
-    Log.d(TAG, "sdk callback onError");
-    TRTCMainActivity activity = mContext.get();
-    if (activity != null) {
-        Toast.makeText(activity, "onError: " + errMsg + "[" + errCode+ "]" , Toast.LENGTH_SHORT).show();
-        if (errCode == TXLiteAVCode.ERR_ROOM_ENTER_FAIL) {
-            activity.exitRoom();
-        }
+protected void onDestroy() {
+    super.onDestroy();
+    //销毁 trtc 实例
+    if (trtcCloud != null) {
+        trtcCloud.setListener(null);
+        trtcCloud.destroy();
     }
+    trtcCloud = null;
 }
+
 ```
 
 ## 组装 TRTCParams
@@ -185,7 +203,7 @@ void startLocalPreview(boolean frontCamera, TXCloudVideoView localVideoView) {
 
 调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
-- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
+- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```java
 ...

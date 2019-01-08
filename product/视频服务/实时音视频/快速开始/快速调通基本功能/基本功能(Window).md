@@ -53,7 +53,7 @@ TRTCMainViewController::~TRTCMainViewController()
     // 释放 TRTCCloud 实例
 	  if(m_pTRTCSDK != NULL) {
         delete m_pTRTCSDK;
-        m_pTRTCSDK = null
+        m_pTRTCSDK = null;
     }
 }
 
@@ -151,7 +151,7 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 - 调用`setRemoteViewFillMode`接口，设置远端视频渲染的模式为`Fill`或者 `Fit` 。两种模式下视频尺寸都是等比缩放，区别在于：
   - `Fill` 模式：优先保证窗口被填满。如果缩放后的视频尺寸与窗口尺寸不一致，那么多出的部分将被裁剪掉；
   - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与窗口尺寸不一致，未被填满的窗口区域将使用黑色填充。
-- 当有远端用户也进入这个房间时，SDK 会触发`onUserExit`回调，在这个回调中，调用`stopRemoteView`接口，停止播放远端用户的视频和音频。
+- 当有远端用户退出这个房间时，SDK 会触发`onUserExit`回调，在这个回调中，调用`stopRemoteView`接口，停止播放远端用户的视频和音频。
 
 ```c++
 // TRTCMainViewController.cpp
@@ -236,7 +236,7 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 
 调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
-- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
+- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```c++
 // TRTCMainViewController.cpp

@@ -374,6 +374,17 @@ void onCameraDidReady()
 <br/>
 
 
+#### onMicDidReady
+
+麦克风准备就绪。
+
+```
+void onMicDidReady()
+```
+
+<br/>
+
+
 #### onDeviceChange
 
 设备事件的回调。
@@ -484,8 +495,79 @@ __说明__
 
 
 
+### 旁路转推和混流回调
+
+#### onStartPublishCDNStream
+
+接口startPublishCDNStream的状态回调。
+
+```
+void onStartPublishCDNStream(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h  |
+| errMsg | const char * | 错误详细信息  |
 
 <br/>
+
+
+#### onStopPublishCDNStream
+
+接口stopPublishCDNStream的状态回调。
+
+```
+void onStopPublishCDNStream(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h  |
+| errMsg | const char * | 错误详细信息  |
+
+<br/>
+
+
+#### onStartCloudMixTranscoding
+
+接口startCloudMixTranscoding的状态回调。
+
+```
+void onStartCloudMixTranscoding(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h  |
+| errMsg | const char * | 错误详细信息  |
+
+<br/>
+
+
+#### onStopCloudMixTranscoding
+
+接口stopCloudMixTranscoding的状态回调。
+
+```
+void onStopCloudMixTranscoding(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h  |
+| errMsg | const char * | 错误详细信息  |
+
+<br/>
+
 
 
 
@@ -510,10 +592,6 @@ __参数__
 
 <br/>
 
-
-
-
-<br/>
 
 
 
@@ -542,10 +620,6 @@ __参数__
 
 
 
-<br/>
-
-
-
 ## ITRTCLogCallback
 ### Log 信息回调
 
@@ -567,10 +641,6 @@ __参数__
 
 <br/>
 
-
-
-
-<br/>
 
 
 

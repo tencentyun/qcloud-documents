@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/75edc5d22563c32aace232543915bbff.png)
 
 ## 5. 获得配置文件
-单击生成Demo配置文件按钮，即可获得一段 json 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
+单击**生成Demo配置文件内容**按钮 ，即可获得一段 json 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
 
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
@@ -37,15 +37,20 @@
 > 真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ## 6. 编译运行
-- step1：安装微信小程序[开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，开发工具，单击【小程序项目】按钮。
+- step1：安装微信小程序[开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
  
 - step2： 输入您申请到的微信小程序 AppID（注意：不是上面的 SDKAppID），项目目录选择上一步下载到的代码目录（ **注意：** 目录请选择**根目录**，根目录包含有 `project.config.json`文件），单击【确定】创建小程序项目。
-
+![](https://main.qcloudimg.com/raw/62d821ab972b8d65c5ea9d623b4f3ff5.png)
 - step3： 按照“5. 获得配置文件”中的步骤修改 `pages/webrtc-room/account.js` 。
 
 - step4： 使用手机进行测试，直接扫描开发者工具预览生成的二维码进入。
 
 - step5： <font color='red'>开启调试模式</font>，体验和调试内部功能。开启调试可以跳过把这些域名加入小程序白名单的工作。
+
+>注意：
+>- 不同的手机进行预览体验时，要选择不同的体验ID，因为同一个ID不能互相通讯。
+![](https://main.qcloudimg.com/raw/9e28cb57bd7656641aec6a74b5c9dcb3.png)
+	
 
 ## 常见问题
 ### 1. 开发环境要求
@@ -74,6 +79,3 @@
 |`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名[2] | 
 |`https://cloud.tencent.com`| 推流域名 | 
 |`https://webim.tim.qq.com` | IM域名 |
-
-
-

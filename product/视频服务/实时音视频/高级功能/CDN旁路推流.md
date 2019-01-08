@@ -24,8 +24,17 @@
 - **Objective-C**
 
 ``` Objective-C
-//启动网络测速的示例代码
-
+- (void)startCDN {
+    // 构造推流参数
+    TRTCPublishCDNParam *cdnParam = [[TRTCPublishCDNParam alloc] init];
+    cdnParam.appId = <#appId#>;
+    cdnParam.bizId = <#bizId#>;
+    cdnParam.url = @"<#rtmp推流url#>";
+    // 这里不进行混流，如果需要将多路视频混为一个视频流，将enableTranscoding置为YES并参见"云端混流转码"进行配置
+    cdnParam.enableTranscoding = NO;
+    // 启动CDN旁路推
+    [trtcCloud startPublishCDNStream:cdnParam];
+}
 ```
 
 - **Java**

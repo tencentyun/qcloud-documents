@@ -23,7 +23,7 @@ dependencies {
 ```
 
 - **第二步：指定App使用架构**
-在 defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)
+在 defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)  
 ```
    defaultConfig {
         ndk {
@@ -41,7 +41,7 @@ dependencies {
 
 - **第一步：下载 TRTC SDK**  
 在 Github 上可以下载到最新版本的 [TRTC SDK](https://github.com/TencentVideoCloudTRTC/TRTCSDK/tree/master/Android/app/libs)：
-![](https://main.qcloudimg.com/raw/e9d2e7981c4b4bd9b46ab75990fe9870.png)
+![](https://main.qcloudimg.com/raw/75434db66f21ed185b30528d45128cd4.png)
 
 - **第二步：拷贝TRTC SDK到工程目录**  
 将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下：
@@ -57,7 +57,7 @@ dependencies {
 
 
 - **第五步：指定App使用架构**
-在 app/build.gradle的defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)
+在 app/build.gradle的defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)  
 ```
    defaultConfig {
         ndk {
@@ -75,9 +75,9 @@ dependencies {
 
 - **第一步：下载解压 TRTC SDK**
 在 Github 上可以 [下载](https://github.com/TencentVideoCloudTRTC/TRTCSDK/tree/master/Android) 到最新版本的 jar 压缩包，文件名一般为 LiteAV_TRTC_xxx.zip（其中 xxx 为 TRTC SDK 的版本号）：
-![](https://main.qcloudimg.com/raw/23976c8d78c4c67debe59d5367815c8b.png)
+![](https://main.qcloudimg.com/raw/8a97ef2b6a0cb2860b57b220d0684328.png)
 解压后得到 libs 目录，里面主要包含 jar 文件和so 文件夹，文件清单如下：
-![](https://main.qcloudimg.com/raw/fb086f916080b7412eefaca095962b50.png)
+![](https://main.qcloudimg.com/raw/d90ef03851b93079a6863e7530ac89ca.png)
 
 - **第二步：拷贝SDK文件到工程目录**
 将解压得到的 jar文件和 armeabi， armeabi-v7a文件夹拷贝到 app/libs 目录下
@@ -92,7 +92,7 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/10003cdc49d4856ee4feb840f24680a7.jpg)
 
 - **第五步：指定App使用架构**
-在 app/build.gradle的defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)
+在 app/build.gradle的defaultConfig 中，指定App使用的cpu架构(目前TRTC SDK支持armeabi和armeabi-v7a)  
 ```
    defaultConfig {
         ndk {

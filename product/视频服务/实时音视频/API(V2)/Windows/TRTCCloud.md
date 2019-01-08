@@ -12,7 +12,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| callback | ITRTCCloudCallback * | 事件回调  |
+| callback | ITRTCCloudCallback * | 事件回调指针  |
 
 <br/>
 
@@ -29,7 +29,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| callback | ITRTCCloudCallback * | 事件回调  |
+| callback | ITRTCCloudCallback * | 事件回调指针  |
 
 <br/>
 
@@ -104,7 +104,7 @@ void stopLocalPreview()
 
 ### startRemoteView
 
-开始渲染远端用户画面。
+启动渲染远端用户视频画面。
 
 ```
 void startRemoteView(const char * userId, HWND rendHwnd)
@@ -115,7 +115,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 远端用户标识  |
-| rendHwnd | HWND | 承载预览画面的 HWND  |
+| rendHwnd | HWND | 承载预览画面的窗口句柄  |
 
 <br/>
 
@@ -1114,6 +1114,78 @@ void stopSpeakerDeviceTest()
 
 
 
+## 混流转码并发布到CDN
+
+### startPublishCDNStream
+
+启动CDN发布：通过腾讯云将当前房间的音视频流发布到直播CDN上。
+
+```
+void startPublishCDNStream(TRTCPublishCDNParam param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCPublishCDNParam | 请参考 TRTCCloudDef.h 中关于  |
+
+__介绍__
+
+
+由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。
+目前支持两种发布方案：
+【1】先混流在发布，TRTCPublishCDNParam.enableTranscoding = YES 需要您先调用startCloudMixTranscoding对多路画面进行混合，发布到CDN上的是混合之后的音视频流
+【2】不混流直接发布，TRTCPublishCDNParam.enableTranscoding = NO 发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响，调用startCloudMixTranscoding将无效。
+
+
+<br/>
+
+
+### stopPublishCDNStream
+
+停止CDN发布。
+
+```
+void stopPublishCDNStream()
+```
+
+<br/>
+
+
+### startCloudMixTranscoding
+
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
+                        \
+ 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                        /
+ 【画面3】=> 解码 => =>。
+
+```
+void startCloudMixTranscoding(TRTCTranscodingConfig config)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| config | TRTCTranscodingConfig | 请参考 TRTCCloudDef.h 中关于  |
+
+<br/>
+
+
+### stopCloudMixTranscoding
+
+停止云端的混流转码。
+
+```
+void stopCloudMixTranscoding()
+```
+
+<br/>
+
+
+
 ## 调试相关函数
 
 ### getSDKVersion
@@ -1236,14 +1308,6 @@ __参数__
 
 
 
-
-
-
-<br/>
-
-
-
-<br/>
 
 
 

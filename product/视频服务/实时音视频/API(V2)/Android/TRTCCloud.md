@@ -23,7 +23,7 @@ __参数__
 销毁TRTCEngine实例。
 
 ```
-void destroy()
+abstract void destroy()
 ```
 
 <br/>
@@ -53,11 +53,17 @@ abstract void setListenerHandler(Handler listenerHandler)
 
 ### setAudioListener
 
-设置音频相关回调 < ！！！注意！！！>=""> 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作< ！！！注意！！！>="">。
+设置音频相关回调。
 
 ```
 abstract void setAudioListener(TRTCCloudListener.TRTCAudioListener listener)
 ```
+
+__注意__
+
+
+注意！！！ 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作。
+
 
 <br/>
 
@@ -494,10 +500,6 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mute | boolean | true:静音 false:非静音  |
-
-<br/>
-
-
 
 <br/>
 
@@ -1232,10 +1234,6 @@ void setLogListener(final TRTCCloudListener.TRTCLogListener logListener)
 <br/>
 
 
-
-<br/>
-
-
 ### showDebugView
 
 显示仪表盘（状态统计和事件消息浮层view），方便调试。
@@ -1269,7 +1267,6 @@ __参数__
 | margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于parentView的百分比，margin的取值范围是0 |
 
 <br/>
-
 
 
 

@@ -1350,6 +1350,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于  |
 
 <br/>
 

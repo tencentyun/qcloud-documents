@@ -309,7 +309,7 @@ __参数__
 |-----|------|------|
 | currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果  |
 | finishedCount | int | 已完成测速的服务器数量  |
-| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 需要测速的服务器总数量  |
+| totalCount | int | 需要测速的服务器总数量  |
 
 <br/>
 
@@ -323,6 +323,17 @@ __参数__
 
 ```
 void onCameraDidReady()
+```
+
+<br/>
+
+
+### onMicDidReady
+
+麦克风准备就绪。
+
+```
+void onMicDidReady()
 ```
 
 <br/>
@@ -450,6 +461,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
+| userId | String | 用户标识  |
 | streamType | int | 视频流类型  |
 | frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧  |
 
@@ -462,7 +474,13 @@ __参数__
 __功能__
 
 
-音频相关回调 < ！！！注意！！！>=""> 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作< ！！！注意！！！>=""> 提示：请按需定义相关函数实现，减少不必要的性能损耗。
+音频相关回调。
+
+
+__说明__
+
+
+请按需定义相关函数实现，减少不必要的性能损耗。
 
 
 <br/>

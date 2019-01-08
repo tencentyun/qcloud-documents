@@ -172,18 +172,18 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 
 - **屏蔽远程视频数据**
 通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
-通过 `stopAllRemoteView` 可以屏蔽某一个 userid 的视频数据。
+通过 `stopAllRemoteView` 可以屏蔽所有 userid 的视频数据。
 
 - **屏蔽远程音频数据**
 通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
-通过 `muteAllRemoteAudio` 可以屏蔽所有全程用户的音频数据。
+通过 `muteAllRemoteAudio` 可以屏蔽所有远程用户的音频数据。
 
 
 ## 退出房间
 
 调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
-- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
+- 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```Objective-C
 - (void)exitRoom: {
