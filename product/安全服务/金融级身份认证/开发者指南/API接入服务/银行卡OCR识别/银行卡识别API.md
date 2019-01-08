@@ -11,6 +11,7 @@
 | nonce       | 随机数</br>32位随机串（字母 + 数字组成的随机数） | String        | 32          | 是        |
 | sign        | 签名：使用上面生成的签名            | String        | 40          | 是         |
 | orderNo     | 订单号，由合作方上送，每次唯一          | String        | 32          | 是         |
+|userId	|用户的唯一标识（不要带有特殊字符）|	String	 | 32	|否|
 | bankcardStr | 银行卡正面图片的 Base64   | Base64 String |  大小不超过3M    | 是         |
 
 ## 响应参数
