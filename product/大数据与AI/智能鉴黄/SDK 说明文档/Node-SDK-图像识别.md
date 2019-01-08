@@ -1,7 +1,3 @@
->!本 SDK 仅适用于2018年12月前发布的活动。
-因引擎算法升级，请2018年12月1日后创建新活动的用户，使用 [新版 SDK](https://cloud.tencent.com/document/product/670/31061#SDK)。
-
-
 ## 开发准备
 ### SDK 获取
 智能图像的 Node SDK 下载地址：[Node-SDK](https://github.com/TencentCloudBase/image-node-sdk) 。
