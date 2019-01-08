@@ -54,6 +54,7 @@
 7. [模型验证](https://cloud.tencent.com/document/product/851/19546#.E6.A8.A1.E5.9E.8B.E9.AA.8C.E8.AF.81)
 8. [模型评估](https://cloud.tencent.com/document/product/851/19546#.E6.A8.A1.E5.9E.8B.E8.AF.84.E4.BC.B0)
 
+注：搭建的任务流请保证与此整体流程图完全一致，以保证此任务顺利运行
 
 ## 流程详解
 
