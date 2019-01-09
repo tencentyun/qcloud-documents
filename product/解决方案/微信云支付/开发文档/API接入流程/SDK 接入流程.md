@@ -1,13 +1,13 @@
-## 微信云支付 SDK
+## 1. 微信云支付 SDK
 SDK 支持 C/C++/C#/JAVA。
 SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)。
 
-## 接入场景
+## 2. 接入场景
 本文为您介绍收银机+扫码枪场景的接入流程，在收银机上实现腾讯云支付功能，当用扫码枪扫码顾客微信支付或支付宝付款码，收银机调用云支付的 API 发起刷卡支付。
  ![](https://main.qcloudimg.com/raw/b65326c9bca7b8d557d81669e08f1ecc.jpg)
 
-## 接入流程
-### 服务商/子商户入驻流程
+## 3. 接入流程
+### 3.1 服务商/子商户入驻流程
 登录 [腾讯云官网](https://cloud.tencent.com/) PC 端录入子商户，详细操作请参见 [配置服务商](https://cloud.tencent.com/document/product/569/9796)、[配置子商户](https://cloud.tencent.com/document/product/569/9795)、[配置门店](https://cloud.tencent.com/document/product/569/9797)。
  ![服务商/子商户入驻流程图](https://main.qcloudimg.com/raw/1d6b66c6c4ef61022510c7abbb8ff9ca.png)
 >?流程图中的的 out_mch_id、out_sub_mch_id、out_shop_id、decive_id、staff_id、子商户订单前缀、认证 key、私钥在调用刷卡支付的时需要用到。
@@ -28,7 +28,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 配置子商户时，保存到本地的“认证密码”和“签名私钥”。
  ![](https://main.qcloudimg.com/raw/7e7b2077bfcb2876249af3862e6d6456.png)
 
-### SDK API 接入流程
+### 3.2 SDK API 接入流程
 #### 刷卡支付接入流程（顾客被扫）
 ![](https://main.qcloudimg.com/raw/9acbd65f38d1036275c5667768bb47d8.png)
 - 初始化 SDK 时，commonconf 配置的 micro_pay_query_order_count 和 micro_pay_query_order_interval 两个参数，分别为刷卡支付后查询结果次数和间隔，默认次数是25次、时间间隔是6s，即一共会持续查询150s看是否有支付结果。
@@ -49,7 +49,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
  因此申请退款成功后，需告知顾客，申请退款已经成功，请关注后续到账情况。顾客可以关注微信或支付宝的消息，便能收到已经发起退款或退款到账的消息。
 - 如果想在设备上看这笔退款是否到账，可以调用退款查询接口，通过退款单的状态来查看是否退款成功。
 
-### 日志上报
+### 3.3 日志上报
 #### 接口说明
 机具直接对接云支付的情况下，为方便商户定位问题，云支付提供日志上报接口，将日志数据上报到云支付的后端，可以帮助商户分析问题，例如机具业务流程各个环节消耗了多少时延，业务流程各个环节的数据情况等。
 接口名：https://pay.qcloud.com/cpay/upload_client_monitor_info
@@ -61,14 +61,14 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
  ![](https://main.qcloudimg.com/raw/ff1f644df9d340dc255cddb0081211a0.png)
 - 总时延 = 记录结束时间 - 记录起始时间
 
-### 设备维度订单统计
+### 3.4 设备维度订单统计
 商户需要按设备维度统计订单相关的信息时，说明如下：
 - 统计某一个设备的订单信息，需要接入方知会商家在手机端管理系统，添加门店的设备 ID 和设备名称。
 - 统计某一个款设备型号的订单，需要在支付时，OrderClient 结构里填写 sub_terminal_type 字段。
 - 统计某一个平台的订单，例如 Windows 平台、Andriod 平台，需要在支付时 OrderClient 结构里填写 terminal_type 字段。
 
-## 常见问题
-### 请求格式
+## 4. 常见问题
+### 4.1 请求格式
 以下是刷卡支付的请求内容， 为方便用户查看需要注意点，以下一整个字符串换行显示。
  ![](https://main.qcloudimg.com/raw/f0f5fd8ef9c3c3ed6de5690bbbc40374.png)
 
@@ -131,7 +131,7 @@ request_content 的内容是一个字符串，如下图，所以第2行和第7�
         std::string request_str = w.write(request);
 
         return request_str;
-### 订单号
+### 4.2 订单号
 
 **不同设备的唯一性**
 订单号由云支付分配的订单唯一前缀+商户自定义两部分组成。其中商户自定义部分需要保证不同设备的唯一性，例如一个商户的订单号自定义部分为年+月+日+时+分+秒，这个在多个机器支付时会出现订单号重复，导致支付失败。
