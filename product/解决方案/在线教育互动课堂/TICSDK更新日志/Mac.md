@@ -2,16 +2,15 @@
 ### [1.1.0] 2019-01-08
 
 #### 新增
-1. 画笔增加激光笔模式 `TXBoardBrushModelApplePencil`
-2. 增加设置虚线选择框颜色的接口
+1. 画笔增加激光笔模式 `TXBoardBrushModelApplePencil`。
+2. 增加设置虚线选择框颜色的接口。
 
 ```objc
 // 设置选择虚线框颜色
 - (void)setSelectDashedColor:(NSColor *)color;
 ```
-
 #### 优化
-1. 修复了一些bug
+1. 修复了一些 bug。
 
 ### [1.0.0] 2018-11-29
 #### 新增
