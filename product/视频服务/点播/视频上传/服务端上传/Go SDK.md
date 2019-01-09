@@ -179,8 +179,8 @@ func main() {
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| region   | 上传地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)        | string | 是    |
-| request   | 上传请求        | VodUploadRequest 指针 | 是    |
+| region   | 上传地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。        | string | 是    |
+| request   | 上传请求。        | VodUploadRequest 指针 | 是    |
 
 ## 错误码列表
 
