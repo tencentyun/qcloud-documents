@@ -173,7 +173,7 @@ func main() {
 | Response.FileId   | 媒体文件的唯一标识。        | string 指针 |
 | Response.MediaUrl | 媒体播放地址。 | string 指针  |
 | Response.CoverUrl | 媒体封面地址。 | string 指针  |
-| Response.RequestId | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 | string指针  |
+| Response.RequestId | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 | string 指针  |
 
 上传方法 `VodUploadClient.Upload(region string, request *VodUploadRequest)`
 
