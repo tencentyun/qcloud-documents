@@ -87,7 +87,7 @@
  - 并行数：100
  - 特征频次阈值：2
  - 其余使用默认值。
-
+![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
 
 ### 数据拆分
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【数据预处理】>【Splitter】。
@@ -97,7 +97,7 @@
  - 并行数：11
  - 切分比例：0.7
  - 其余使用默认值。
- 
+![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png) 
 
 ### 训练投篮预测模型
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【分类】>【SparseLogicalRegression】。
@@ -111,7 +111,7 @@
  - rho：0.01
  - 最大迭代次数：20
  - 其余使用默认值。
-
+![](https://main.qcloudimg.com/raw/ab313a03b34d21bc3c78f7a9d561092c/kobe%E6%8A%95%E7%AF%AE%20%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A43.png)
 
 
 ### 上传验证数据
@@ -121,6 +121,9 @@
  - COS 目标路径自动生成，支持修改。
   
 > !从训练特征集处理到验证数据源的连线并非代表这里有数据流传输，只是因为后面的验证集特征处理会用到训练特征集处理的产出物，所以要确保验证特征集处理的开始时间在训练特征集处理结束之后。
+
+![](https://main.qcloudimg.com/raw/fbd21bb7f46d42c39c433ada184438bc.png)
+
 
 
 ### 验证集特征预处理
@@ -134,7 +137,7 @@
  - 并行数：100
  - 特征频次阈值：2
  - 其余使用默认值。
-   
+![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)   
 
 ### 模型验证
 1. 单击投篮预测模型旁边的小圈。
@@ -157,6 +160,7 @@
  - 并行数：20
  - 预测阈值：0.5
  - 其余使用默认值。
+![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
   
 ## 操作说明
 ### 保存工作流
