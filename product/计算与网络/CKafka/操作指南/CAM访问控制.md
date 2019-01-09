@@ -50,7 +50,7 @@
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限【QcloudCKafkaFullAccess】，单击【下一步】。
 6. 单击【创建策略】。
-![](https://main.qcloudimg.com/raw/1642ea25bd6b6d270eb7016807e06c77.jpg)
+
 
 ### CKafka 单个实例只读策略
 按照策略生成器创建，授权列表类权限和产品监控权限。
@@ -78,6 +78,6 @@
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）只读访问策略【QcloudCkafkaReadOnlyAccess】，单击【下一步】。
 6. 单击【创建策略】。
-![](https://main.qcloudimg.com/raw/875be8b3763e1ff19b4ff6d81b12182a.jpg)
+
 
 
