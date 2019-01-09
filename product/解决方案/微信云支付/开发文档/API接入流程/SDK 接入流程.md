@@ -9,7 +9,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 ## 3. 接入流程
 ### 3.1 服务商/子商户入驻流程
 **前提条件**
-登录 [腾讯云官网](https://cloud.tencent.com/) PC 端录入服务商、子商户，详细操作请参见 [配置服务商](https://cloud.tencent.com/document/product/569/9796)、[配置子商户](https://cloud.tencent.com/document/product/569/9795)、[配置门店](https://cloud.tencent.com/document/product/569/9797)。
+登录 [腾讯云官网](https://cloud.tencent.com/) PC 端录入服务商、子商户、门店，详细操作请参见 [配置服务商](https://cloud.tencent.com/document/product/569/9796)、[配置子商户](https://cloud.tencent.com/document/product/569/9795)、[配置门店](https://cloud.tencent.com/document/product/569/9797)。
  **入驻流程**
  ![服务商/子商户入驻流程图](https://main.qcloudimg.com/raw/1d6b66c6c4ef61022510c7abbb8ff9ca.png)
 >?流程图中的的 out_mch_id、out_sub_mch_id、out_shop_id、decive_id、staff_id、子商户订单前缀、认证 key、私钥在调用刷卡支付时需用到。
@@ -62,7 +62,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 >?总时延 = 记录结束时间 - 记录起始时间
 
 ### 3.4 设备维度订单统计
-商户需要按设备维度统计订单相关的信息时，说明如下：
+商户需要按设备维度统计订单相关的信息时：
 - 统计某一个设备的订单信息，需要接入方知会商家在手机端管理系统，添加门店的设备 ID 和设备名称。
 - 统计某一个款设备型号的订单，需要在支付时，OrderClient 结构里填写 sub_terminal_type 字段。
 - 统计某一个平台的订单，例如 Windows 平台、Andriod 平台，需要在支付时，OrderClient 结构里填写 terminal_type 字段。
