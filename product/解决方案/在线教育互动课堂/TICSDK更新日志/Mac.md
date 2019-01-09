@@ -2,7 +2,7 @@
 ### [1.1.0] 2019-01-08
 
 #### 新增
-1. 画笔增加激光笔模式 `TXBoardBrushModelApplePencil`。
+1. 画笔增加激光笔模式`TXBoardBrushModelLaserPen`。
 2. 增加设置虚线选择框颜色的接口。
 
 ```objc
