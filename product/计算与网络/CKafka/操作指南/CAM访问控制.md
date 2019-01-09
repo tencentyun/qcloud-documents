@@ -15,14 +15,14 @@
 - **权限**：权限是指允许或拒绝某些用户执行某些操作。默认情况下，**主账号拥有其名下所有资源的访问权限**，而**子账号没有根账号下任何资源的访问权限**。
 - **策略**：策略是定义和描述一条或多条权限的语法规范。**主账号**通过将**策略关联**到用户/用户组完成授权。
 
-[单击查看更多 CAM 文档>>](https://cloud.tencent.com/document/product/378/9028)
+[单击查看更多 CAM 文档>>](https://cloud.tencent.com/document/product/598/10583)
 
 ##  相关文档
 | 目标 | 链接 | 
 |---------|---------|
-|了解策略和用户之间关系| [策略管理](https://cloud.tencent.com/document/product/378/8955)|
-|了解策略的基本结构| [策略语法](https://cloud.tencent.com/document/product/378/8962) | 
-|了解还有哪些产品支持 CAM|[支持 CAM 的产品](https://cloud.tencent.com/document/product/378/9029)|
+|了解策略和用户之间关系| [策略管理](https://cloud.tencent.com/document/product/598/10601)|
+|了解策略的基本结构| [策略语法](https://cloud.tencent.com/document/product/598/10603) | 
+|了解还有哪些产品支持 CAM|[支持 CAM 的产品](https://cloud.tencent.com/document/product/598/10588)|
 
 ##  访问控制策略示例 
 
@@ -50,7 +50,7 @@
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限【QcloudCKafkaFullAccess】，单击【下一步】。
 6. 单击【创建策略】。
-
+![](https://main.qcloudimg.com/raw/1642ea25bd6b6d270eb7016807e06c77.jpg)
 
 ### CKafka 单个实例只读策略
 按照策略生成器创建，授权列表类权限和产品监控权限。
@@ -78,6 +78,6 @@
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）只读访问策略【QcloudCkafkaReadOnlyAccess】，单击【下一步】。
 6. 单击【创建策略】。
-
+![](https://main.qcloudimg.com/raw/875be8b3763e1ff19b4ff6d81b12182a.jpg)
 
 
