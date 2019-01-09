@@ -1306,7 +1306,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | url         | String | 音频文件的原始URL        |
 | url_f0      | String | 音频文件的原始路径         |
 | v_type      | String | 音频文件类型            |
-| region      | String | 存储地区              |
+| bucket_region    | String | 存储地区              |
 | status      | Int    | 详细说明见备注           |
 | error_code  | Int    | 转码错误码             |
 | error_msg   | String | 转码错误描述            |
