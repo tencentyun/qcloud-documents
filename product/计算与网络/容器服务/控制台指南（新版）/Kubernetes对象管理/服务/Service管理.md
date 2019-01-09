@@ -24,11 +24,11 @@ Service 支持以下类型：
  - 端口映射：根据实际需求进行设置。
 7. 单击【创建服务】，完成创建。
 
->! 
-> - 建议您的容器业务不要和 CVM 业务共用一个 CLB。
-> - 建议您不要在 CLB 控制台直接操作 TKE 自动管理的 CLB。
-> - 使用已有的 CLB 时，TKE 会自动覆盖 CLB 已有的后端 RS。
-> - TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
+#### 注意事项
+- 建议您的容器业务不要和 CVM 业务共用一个 CLB。
+- 建议您不要在 CLB 控制台直接操作 TKE 自动管理的 CLB。
+- 使用已有的 CLB 时，TKE 会自动覆盖 CLB 已有的后端 RS。
+- TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
 
 ### 更新 Service
 
