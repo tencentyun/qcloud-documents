@@ -1,10 +1,10 @@
 ### [1.6.5] 2019-01-03
 #### 优化
-1. 修复橡皮擦不能擦除文字的问题
+1. 修复橡皮擦不能擦除文字的问题。
 
 #### 新增
-1. 画笔增加 Apple Pencil 模式 `TXBoardBrushModelApplePencil`
-2. TICSDK 增加带回调的初始化方法
+1. 画笔增加 Apple Pencil 模式 `TXBoardBrushModelApplePencil`。
+2. TICSDK 增加带回调的初始化方法。
 
 ```objc
 /**
