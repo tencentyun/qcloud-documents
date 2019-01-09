@@ -228,7 +228,7 @@ __说明__
 首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面。
 
 ```
-void onFirstVideoFrame(String userId)
+void onFirstVideoFrame(String userId, int width, int height)
 ```
 
 __参数__
@@ -236,6 +236,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识  |
+| width | int | 视频宽度  |
+| height | int | 视频高度  |
 
 <br/>
 
@@ -307,7 +309,7 @@ __参数__
 |-----|------|------|
 | currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果  |
 | finishedCount | int | 已完成测速的服务器数量  |
-| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 需要测速的服务器总数量  |
+| totalCount | int | 需要测速的服务器总数量  |
 
 <br/>
 
@@ -321,6 +323,17 @@ __参数__
 
 ```
 void onCameraDidReady()
+```
+
+<br/>
+
+
+### onMicDidReady
+
+麦克风准备就绪。
+
+```
+void onMicDidReady()
 ```
 
 <br/>
@@ -343,17 +356,16 @@ void onAudioRouteChanged(int newRoute, int oldRoute)
 
 ### onRecvCustomCmdMsg
 
-收到数据流消息。
+当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
-void onRecvCustomCmdMsg(String roomNum, String userId, int cmdID, int seq, byte [] message)
+void onRecvCustomCmdMsg(String userId, int cmdID, int seq, byte [] message)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | String | 房间号  |
 | userId | String | 用户标识  |
 | cmdID | int | 命令ID  |
 | seq | int | 消息序号  |
@@ -368,23 +380,63 @@ __说明__
 <br/>
 
 
-### onRecvCustomCmdMsgError
+### onMissCustomCmdMsg
 
-接收对方数据流消息错误的回调，只有发送端设置了可靠传输，该接口才起作用。
+TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
 
 ```
-void onRecvCustomCmdMsgError(String roomNum, String userId, int cmdID, int errCode, int missed)
+void onMissCustomCmdMsg(String userId, int cmdID, int errCode, int missed)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | String | 房间号  |
 | userId | String | 用户标识  |
 | cmdID | int | 数据流ID  |
 | errCode | int | 错误码，当前版本为-1  |
 | missed | int | 丢失的消息数量  |
+
+__说明__
+
+
+只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
+
+
+<br/>
+
+
+
+## 旁路转推和混流回调
+
+### onStartPublishCDNStream
+```
+void onStartPublishCDNStream(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStopPublishCDNStream
+```
+void onStopPublishCDNStream(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStartCloudMixTranscoding
+```
+void onStartCloudMixTranscoding(int err, String errMsg)
+```
+
+<br/>
+
+
+### onStopCloudMixTranscoding
+```
+void onStopCloudMixTranscoding(int err, String errMsg)
+```
 
 <br/>
 
@@ -409,8 +461,90 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
+| userId | String | 用户标识  |
 | streamType | int | 视频流类型  |
 | frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧  |
+
+<br/>
+
+
+
+## TRTCAudioListener
+
+__功能__
+
+
+音频相关回调。
+
+
+__说明__
+
+
+请按需定义相关函数实现，减少不必要的性能损耗。
+
+
+<br/>
+
+### onCapturedAudioData
+
+本机采集到的声音回调。
+
+```
+void onCapturedAudioData(TRTCCloudDef.TRTCAudioFrame frame)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
+
+__说明__
+
+
+此接口回调的音频数据可修改。
+
+
+<br/>
+
+
+### onPlayAudioDataBeforeMixing
+
+混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+void onPlayAudioDataBeforeMixing(TRTCCloudDef.TRTCAudioFrame frame, String userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
+| userId | String | 用户标识  |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+<br/>
+
+
+### onPlayAudioDataAfterMixing
+
+经过混合后的声音。
+
+```
+void onPlayAudioDataAfterMixing(TRTCCloudDef.TRTCAudioFrame frame)
+```
+
+__说明__
+
+
+此接口回调的音频数据可修改。
+
 
 <br/>
 

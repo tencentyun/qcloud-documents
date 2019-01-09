@@ -228,8 +228,16 @@ __说明__
 首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面。
 
 ```
- - (void)onFirstVideoFrame:(NSString *)userId 
+ - (void)onFirstVideoFrame:(NSString *)userId width:(int)width height:(int)height 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 用户Id  |
+| width | int | 画面宽度  |
+| height | int | 画面高度  |
 
 <br/>
 
@@ -296,6 +304,17 @@ SDK 跟服务器的连接恢复。
 <br/>
 
 
+### onMicDidReady
+
+麦克风准备就绪。
+
+```
+ - (void)onMicDidReady
+```
+
+<br/>
+
+
 ### onAudioRouteChanged
 
 音频路由发生变化(仅iOS)，音频路由即声音由哪里输出（扬声器、听筒）。
@@ -341,50 +360,83 @@ __参数__
 
 ## 自定义消息的接收回调
 
-### onRecvCustomCmdMsg
+### onRecvCustomCmdMsgUserId
 
-收到对端用户发来的消息。
+当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
- - (void)onRecvCustomCmdMsg:(NSString *)roomNum userId:(NSString *)userId cmdID:(NSInteger)cmdID seq:(UInt32)seq message:(NSData *)message 
+ - (void)onRecvCustomCmdMsgUserId:(NSString *)userId cmdID:(NSInteger)cmdID seq:(UInt32)seq message:(NSData *)message 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | NSString * | 房间号  |
 | userId | NSString * | 用户标识  |
 | cmdID | NSInteger | 命令ID  |
 | seq | UInt32 | 消息序号  |
 | message | NSData * | 消息数据  |
 
-__说明__
-
-
-该消息由 sendCustomCmdMsg 发送。
-
-
 <br/>
 
 
-### onRecvCustomCmdMsgError
+### onMissCustomCmdMsgUserId
 
-接收对方数据流消息错误的回调，只有发送端设置了可靠传输，该接口才起作用。
+TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
 
 ```
- - (void)onRecvCustomCmdMsgError:(NSString *)roomNum userId:(NSString *)userId cmdID:(NSInteger)cmdID errCode:(NSInteger)errCode missed:(NSInteger)missed 
+ - (void)onMissCustomCmdMsgUserId:(NSString *)userId cmdID:(NSInteger)cmdID errCode:(NSInteger)errCode missed:(NSInteger)missed 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | NSString * | 房间号  |
 | userId | NSString * | 用户标识  |
 | cmdID | NSInteger | 命令ID  |
-| errCode | NSInteger | 错误码，当前版本为-1  |
+| errCode | NSInteger | 错误码  |
 | missed | NSInteger | 丢失的消息数量  |
+
+__说明__
+
+
+只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
+
+
+<br/>
+
+
+
+## 旁路转推和混流回调
+
+### onStartPublishCDNStream
+```
+ - (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStopPublishCDNStream
+```
+ - (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStartCloudMixTranscoding
+```
+ - (void)onStartCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
+```
+
+<br/>
+
+
+### onStopCloudMixTranscoding
+```
+ - (void)onStopCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
+```
 
 <br/>
 
@@ -415,6 +467,75 @@ __参数__
 | frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息  |
 | userId | NSString *__nullable | 视频源的 userid，如果是本地视频回调，该参数可以不用理会  |
 | streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等  |
+
+<br/>
+
+
+
+## TRTCAudioDelegate
+
+__功能__
+
+
+音频相关回调。
+
+
+<br/>
+
+### onCapturedAudioData
+
+本机采集到的声音回调。
+
+```
+ - (void)onCapturedAudioData:(TRTCAudioFrame *)frame 
+```
+
+__说明__
+
+
+此接口回调的音频数据可修改。
+
+
+<br/>
+
+
+### onPlayAudioDataBeforeMixing
+
+混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+ - (void)onPlayAudioDataBeforeMixing:(TRTCAudioFrame *)frame userId:(NSString *)userId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据  |
+| userId | NSString * | 用户标识  |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+<br/>
+
+
+### onPlayAudioDataAfterMixing
+
+经过混合后的声音。
+
+```
+ - (void)onPlayAudioDataAfterMixing:(TRTCAudioFrame *)frame 
+```
+
+__说明__
+
+
+此接口回调的音频数据可修改。
+
 
 <br/>
 

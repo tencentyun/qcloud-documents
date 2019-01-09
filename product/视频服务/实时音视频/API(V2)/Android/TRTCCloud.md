@@ -23,7 +23,7 @@ __参数__
 销毁TRTCEngine实例。
 
 ```
-void destroy()
+abstract void destroy()
 ```
 
 <br/>
@@ -51,6 +51,23 @@ abstract void setListenerHandler(Handler listenerHandler)
 <br/>
 
 
+### setAudioListener
+
+设置音频相关回调。
+
+```
+abstract void setAudioListener(TRTCCloudListener.TRTCAudioListener listener)
+```
+
+__注意__
+
+
+注意！！！ 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作。
+
+
+<br/>
+
+
 
 ## 房间相关接口函数
 
@@ -66,7 +83,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCCloudDef.TRTCParams | 进房参数，请参考 DOC-TO-DO  |
+| param | TRTCCloudDef.TRTCParams | 进房参数，详情参考TRTCParams定义  |
 
 __说明__
 
@@ -166,25 +183,6 @@ abstract void stopAllRemoteView()
 <br/>
 
 
-### setLocalVideoQuality
-
-设置本地的视频编码质量。
-
-```
-abstract void setLocalVideoQuality(TRTCCloudDef.TRTCVideoEncParam param, int qosMode, int qosPreference)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义  |
-| qosMode | int | 流控模式选择，默认选择【云控】模式，便于获得更好的效果，【终端】模式则用于特殊的调试场景  |
-| qosPreference | int | 画面质量偏好，有【流畅】和【清晰】两种模式可供选择，详情请参考 TRTC_VIDEO_QOS_PREFERENCE 的定义  |
-
-<br/>
-
-
 ### muteLocalVideo
 
 是否屏蔽本地视频 当屏蔽本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知。
@@ -198,6 +196,40 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mute | boolean | true:屏蔽 false:开启  |
+
+<br/>
+
+
+### setVideoEncoderParam
+
+设置视频编码器相关参数，该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+```
+abstract void setVideoEncoderParam(TRTCCloudDef.TRTCVideoEncParam param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义  |
+
+<br/>
+
+
+### setNetworkQosParam
+
+设置网络流控相关参数，该设置决定了SDK在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+
+```
+abstract void setNetworkQosParam(TRTCCloudDef.TRTCNetworkQosParam param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义  |
 
 <br/>
 
@@ -272,12 +304,12 @@ __参数__
 <br/>
 
 
-### setVideoOutputRotation
+### setVideoEncoderRotation
 
 设置视频编码出的（供录制和远程观看的）画面方向。
 
 ```
-abstract void setVideoOutputRotation(int rotation)
+abstract void setVideoEncoderRotation(int rotation)
 ```
 
 __参数__
@@ -374,6 +406,35 @@ __介绍__
 
 ## 音频相关接口函数
 
+### startLocalAudio
+
+开启本地音频流，该函数会启动麦克风采集，并将音频数据广播给房间里的其他用户。
+
+```
+abstract void startLocalAudio()
+```
+
+__说明__
+
+
+TRTC SDK 并不会默认打开本地的麦克风采集。 
+该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
+
+
+<br/>
+
+
+### stopLocalAudio
+
+关闭本地音频流。
+
+```
+abstract void stopLocalAudio()
+```
+
+<br/>
+
+
 ### muteLocalAudio
 
 是否屏蔽本地音频 当屏蔽本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知。
@@ -439,24 +500,6 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | mute | boolean | true:静音 false:非静音  |
-
-<br/>
-
-
-### setRemoteAudioVolume
-
-设置指定用户音量。
-
-```
-abstract void setRemoteAudioVolume(String userId, float volume)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | String | 对方的用户标识  |
-| volume | float | 音量  |
 
 <br/>
 
@@ -691,17 +734,14 @@ __参数__
 发送自定义的视频数据。
 
 ```
-abstract int sendCustomVideoData(byte [] buffer, int bufferType, int w, int h)
+abstract void sendCustomVideoData(TRTCCloudDef.TRTCVideoFrame frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| buffer | byte [] | 视频数据.  |
-| bufferType | int | 视频格式.  |
-| w | int | 视频图像的宽度.  |
-| h | int | 视频图像的高度.  |
+| frame | TRTCCloudDef.TRTCVideoFrame | 视频数据.  |
 
 <br/>
 
@@ -723,19 +763,19 @@ __参数__
 <br/>
 
 
-### sendCustomPCMData
+### sendCustomAudioData
 
 发送客户自定义的音频PCM数据。
 
 ```
-abstract void sendCustomPCMData(byte [] pcmBuffer)
+abstract void sendCustomAudioData(TRTCCloudDef.TRTCAudioFrame frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| pcmBuffer | byte [] | pcm音频数据  |
+| frame | TRTCCloudDef.TRTCAudioFrame | pcm音频数据  |
 
 __说明__
 
@@ -1025,6 +1065,78 @@ abstract void stopSpeedTest()
 
 
 
+## 混流转码并发布到CDN
+
+### startPublishCDNStream
+
+启动CDN发布：通过腾讯云将当前房间的音视频流发布到直播CDN上。
+
+```
+abstract void startPublishCDNStream(TRTCCloudDef.TRTCPublishCDNParam param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍  |
+
+__介绍__
+
+
+由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。
+目前支持两种发布方案：
+【1】先混流在发布，TRTCPublishCDNParam.enableTranscoding = YES 需要您先调用startCloudMixTranscoding对多路画面进行混合，发布到CDN上的是混合之后的音视频流
+【2】不混流直接发布，TRTCPublishCDNParam.enableTranscoding = NO 发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响，调用startCloudMixTranscoding将无效。
+
+
+<br/>
+
+
+### stopPublishCDNStream
+
+停止CDN发布。
+
+```
+abstract void stopPublishCDNStream()
+```
+
+<br/>
+
+
+### startCloudMixTranscoding
+
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
+                        \
+ 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                        /
+ 【画面3】=> 解码 => =>。
+
+```
+abstract void startCloudMixTranscoding(TRTCCloudDef.TRTCTranscodingConfig config)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| config | TRTCCloudDef.TRTCTranscodingConfig | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍  |
+
+<br/>
+
+
+### stopCloudMixTranscoding
+
+停止云端的混流转码。
+
+```
+abstract void stopCloudMixTranscoding()
+```
+
+<br/>
+
+
+
 ## LOG相关接口函数
 
 ### mTXLogListener
@@ -1141,7 +1253,7 @@ __参数__
 
 ### setDebugViewMargin
 
-设置仪表盘的边距，必须在 showDebugView 调用前设置才会生效。
+设置仪表盘的边距，必须在 用户进房后设置才生效。
 
 ```
 abstract void setDebugViewMargin(String userId, TRTCViewMargin margin)
@@ -1158,10 +1270,9 @@ __参数__
 
 
 
-
 ## 播放背景音乐的回调接口     
 
-__功能__
+__相关类__
 
 
 `TRTCCloud.BGMNotify`。
@@ -1224,7 +1335,7 @@ __参数__
 
 ## 视图边距     
 
-__功能__
+__相关类__
 
 
 `TRTCCloud.TRTCViewMargin`。
@@ -1245,7 +1356,7 @@ float leftMargin
 
 #### topMargin
 
-距离左边的百分比，取值范围为0-1。
+距离顶部的百分比，取值范围为0-1。
 
 ```
 float topMargin
@@ -1255,7 +1366,7 @@ float topMargin
 
 #### rightMargin
 
-距离左边的百分比，取值范围为0-1。
+距离右边的百分比，取值范围为0-1。
 
 ```
 float rightMargin
@@ -1265,7 +1376,7 @@ float rightMargin
 
 #### bottomMargin
 
-距离左边的百分比，取值范围为0-1。
+距离底部的百分比，取值范围为0-1。
 
 ```
 float bottomMargin

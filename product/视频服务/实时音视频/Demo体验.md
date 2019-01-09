@@ -1,5 +1,3 @@
-## 各平台DEMO
-
 <table style="text-align:center;vertical-align:middle;">
   <tr>
     <th width="150px">iOS</th>
@@ -20,22 +18,26 @@
   </tr>
 </table>
 
-## DEMO效果截图
-### iOS 
+**iOS** 
+
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/3b40b70c24019ca487514f70bbcf1084.jpg" />
 
+**Android**
 
-### Android
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/1c184557196ce8c0a862334f4aefd552.jpg" />
 
+**Mac OS**
 
-### Mac OS
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg" />
 
-### Window 
+**Window** 
 
+<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg" />
 
-### 微信小程序
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/627d411fea59fdccd1ecd0c144fbfa18.jpg" />
+**微信小程序**
 
-### Chrome浏览器
+<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg" />
+
+**Chrome浏览器**
+
+<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg" />
