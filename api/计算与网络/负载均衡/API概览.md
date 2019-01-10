@@ -48,7 +48,7 @@
 ### 实例相关接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|
-|  [修改应用型型负载均衡的名称](https://cloud.tencent.com/document/product/214/10008) | ModifyForwardLBName | 修改应用型型负载均衡的名称。|
+|  [修改应用型型负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改应用型型负载均衡的名称。|
 
 ### 监听器相关接口
 | 接口名 | Action ID | 功能描述 |
