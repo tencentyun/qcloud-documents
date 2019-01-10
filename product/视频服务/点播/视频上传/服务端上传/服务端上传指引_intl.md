@@ -26,9 +26,9 @@ Once the App server successfully uploads files to COS, it needs to initiate a co
 
 ### API
 
-* [API for App Server to Initiate Upload Operation to VOD](/document/product/266/9756)
-* [API for App Server to Upload Files to COS](/document/product/266/9758)
-* [API for App Server to Confirm Upload Process with VOD](/document/product/266/9757)
+* [API for App Server to Initiate Upload Operation to VOD](/document/product/266/31767)
+* [API for App Server to Upload Files to COS](/document/product/266/31784)
+* [API for App Server to Confirm Upload Process with VOD](/document/product/266/31766)
 
 ### SDK
 

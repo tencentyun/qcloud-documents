@@ -35,13 +35,13 @@
 | [ShieldGroupGetIPInfo](https://cloud.tencent.com/document/product/1022/31417)        | 获取棋牌盾分组 IP 列表信息                       |
 | [ShieldGetIPStatus](https://cloud.tencent.com/document/product/1022/31416)           | 通过分组 ID 获取分组内所有棋牌盾 IP 的封堵状态 |
 | [ShieldGroupGetRandomIP](https://cloud.tencent.com/document/product/1022/31415)      | 通过分组 ID 获取分组内一个随机可用的 IP          |
-| [ShieldGroupGetAvailableIP](https://cloud.tencent.com/document/product/1022/31414)   | 通过分组ID获取分组内所有可用棋牌盾IP             |
+| [ShieldGroupGetAvailableIP](https://cloud.tencent.com/document/product/1022/31414)   | 通过分组 ID 获取分组内所有可用棋牌盾 IP             |
 
 ## CC 防护详情类接口
 | 接口名称              | 功能描述                                 |
 | --------------------- | ---------------------------------------- |
 | [ShieldCCGetCounter](https://cloud.tencent.com/document/product/1022/31433)    | 获取棋牌盾 IP 的 CC 攻击次数和 CC 攻击峰值 |
-| [ShieldCCGetStatistics](https://cloud.tencent.com/document/product/1022/31432) | 获取棋牌盾 IP 的CC攻击统计                   |
+| [ShieldCCGetStatistics](https://cloud.tencent.com/document/product/1022/31432) | 获取棋牌盾 IP 的 CC 攻击统计                   |
 | [ShieldCCGetDetails](https://cloud.tencent.com/document/product/1022/31431)    | 获取棋牌盾 IP 的 CC 攻击详情                 |
 
 ## DDoS 防护详情类接口

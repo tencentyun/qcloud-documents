@@ -1,5 +1,6 @@
 ## 功能描述
-DELETE Bucket 接口请求可以在指定账号下删除 Bucket，删除之前要求 Bucket 内的内容为空，只有删除了 Bucket 内的信息，才能删除 Bucket 本身。
+DELETE Bucket 请求用于在指定账号下删除 Bucket。
+>!删除存储桶前，请确保存储桶内的数据和未完成上传的分块数据已全部清空，否则会无法删除存储桶。
 
 ## 请求
 ### 请求示例
@@ -35,7 +36,7 @@ Authorization: Auth String
 该响应体为空。
 
 ### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+以下是此请求可能会发生的一些特殊的且常见的错误情况。如需获取更多关于 COS 的错误码的信息，请查阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 |错误码|HTTP 状态码|描述|
 |-------|------|------|
@@ -43,17 +44,15 @@ Authorization: Auth String
 |AccessDenied|403 Forbidden|删除 Bucket 同样需要携带签名，如果试图删除一个没有访问权限的 Bucket，就会返回该错误|
 |NoSuchBucket|404 Not Found|如果删除一个不存在的 Bucket，就回返回该错误|
 
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 ### 请求
 ```
 DELETE / HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484708950;32557604950&q-key-time=1484708950;32557604950&q-header-list=host&q-url-param-list=&q-signature=2b27b72ad2540ff2dde341dc7579a66ee8cb2afc
-
 ```
 
 ### 响应
@@ -65,5 +64,4 @@ Connection: keep-alive
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3ZWRjNjBfOTgxZjRlXzZhYjlfMTg0
-
 ```

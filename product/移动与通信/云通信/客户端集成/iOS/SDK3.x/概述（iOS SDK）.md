@@ -31,7 +31,7 @@
 | IMMessageExt.framework | IM 全量消息能力扩展包 | 包含消息本地存储、会话列表、最近联系人、拉取漫游消息、消息的未读计数、已读回执、草稿等功能
 | IMGroupExt.framework | IM 全量群组能力扩展包 | 包含全量的群组类型和群组资料、全量的群成员能力、全量的群组管理能力 |
 | IMFriendshipExt.framework | IM 全量关系链资料能力扩展包 | 包含全量的关系链能力 |
-| IMSDKBugly.framework | Crash 上报功能 | 推荐使用，可以在控制台页面查看 Crash 率等信息。如果不加入此 SDK，需要调用 `[TIMManager sharedInstance] disableCrashReport]; ` 禁用此功能 |
+| IMSDKBugly.framework | Crash 上报功能 | 推荐使用，可以在控制台页面查看 Crash 率等信息。如果不加入此 SDK，需要设置 `TIMSdkConfig ` 中的 `disableCrashReport = true ` 禁用此功能 |
 | IMUGCExt.framework | IM 小视频 UGC 消息能力扩展包 | 发送小视频消息 TIMUGCElem 功能、上传小视频功能 |
 | TXRTMPSDK.framework | 小视频录制、编辑能力扩展包 | 包含小视频录制功能、小视频编辑功能，其他能力请参见 [移动直播 SDK 文档](https://cloud.tencent.com/document/product/454/7876) |
 

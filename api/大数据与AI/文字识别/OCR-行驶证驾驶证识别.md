@@ -1,42 +1,28 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/drivinglicence`
+本接口（drivinglicence）用于根据用户上传的图像，识别出行驶证或驾驶证的各字段信息。开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
-### 服务简介
-本接口用于根据用户上传的图像，识别出行驶证或驾驶证的各字段信息。
-
-开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
-
-### url 说明
-支持 HTTP 和 HTTPS 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/drivinglicence` 
-
-`https://recognition.image.myqcloud.com/ocr/drivinglicence`
-
-## 请求方式
-### 请求头 header
+## 请求头 header
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
-| content-length |  否   | 包体总长度                          | 1.每个请求的包体大小限制为 6MB；<br/>2.图片格式支持：JPG、JPEG、PNG、BMP等；<br/>3.不支持 .gif 类型的动图。 | 
-| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1.使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64 编码；<br/>2.使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
-| authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)。|
+| content-length |  否   | 包体总长度                          | 1. 每个请求的包体大小限制为6MB；<br/>2. 图片格式支持：JPG、JPEG、PNG、BMP 等；<br/>3. 不支持 .gif 类型的动图。 | 
+| content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64编码；<br/>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
+| authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。|
 
->**注意：**
-如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+>!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
-### 请求参数
+## 输入参数
 使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。
 
 | 参数名    | 必选 | 类型     | 说明                                       |
 | ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
-| type   | 是   | int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
-| image  | 否   | binary/string | 图片文件 或 图片 base64                                |
-| url    | 否   | string | 图片 url。url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
+| appid  | 是   | String | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                      |
+| type   | 是   | Int    | 识别类型，0 表示行驶证，1 表示驾驶证，2 表示行驶证副页。        |
+| image  | 否   | Binary/String | 图片文件 或 图片 base64                                |
+| url    | 否   | String | 图片 url。url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
 
 目前支持的字段为：
 
@@ -54,31 +40,47 @@
 | 发证日期   | 有效日期 |
 | &nbsp; | 红章   |
 
-## 返回内容
+## 输出参数
 
 | 字段              | 类型          | 说明                |
 | --------------- | ----------- | ----------------- |
-| data.session_id | string      | 相应请求的 session 标识符 |
-| data.items      | array(Item) | 识别出的所有字段信息        |
-| code            | int         | 返回码               |
-| message         | string      | 返回错误消息            |
+| data.session_id | String      | 相应请求的 session 标识符 |
+| data.items      | Array(Item) | 识别出的所有字段信息        |
+| code            | Int         | 返回码               |
+| message         | String      | 返回错误消息            |
 
-Item说明：
+Item 说明：
+<table>
+<th colspan="2">字段</th>
+<th>类型</th>
+<th>说明</th><tr>
+<td colspan="2">item</td>
+<td>String</td>
+<td>字段名称</td><tr>
+<td colspan="2">itemstring</td>
+<td>String</td>
+<td>字段内容</td><tr>
+<td colspan="2">itemconf</td>
+<td>Float</td>
+<td>字段识别结果置信度[0.0, 100.0]</td><tr>
+<td rowspan="4">itemcoord</td>
+<td >x</td>
+<td >Int</td>
+<td>item 框左上角 x</td><tr>
+<td>y</td>
+<td >Int</td>
+<td>item 框左上角 y</td><tr>
+<td>width</td>
+<td >Int</td>
+<td>item 框宽度</td><tr>
+<td>height</td>
+<td >Int</td>
+<td>item 框高度</td>
+</table>
 
-| 字段         | &nbsp; | 类型     | 说明                    |
-| ---------- | ------ | ------ | --------------------- |
-| item       | &nbsp; | string | 字段名称                  |
-| itemstring | &nbsp; | string | 字段内容                  |
-| itemconf   | &nbsp; | float  | 字段识别结果置信度[0.0, 100.0] |
-| itemcoord  | x      | int    | item 框左上角 x           |
-| &nbsp;     | y      | int    | item 框左上角 y           |
-| &nbsp;     | width  | int    | item 框宽度              |
-| &nbsp;     | height | int    | item 框高度              |
-
-## 请求示例
-
-### 使用 application/json 的请求示例
-
+## 示例
+### 输入示例
+#### 使用 application/json 
 ```
 POST /ocr/drivinglicence HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -94,8 +96,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 multipart/form-data 的请求示例
-
+#### 使用 multipart/form-data 
 ```
 POST /ocr/drivinglicence HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -123,8 +124,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 返回示例
-
+### 输出示例
 ```
 {
     "code": 0,
@@ -265,18 +265,18 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 错误码   | 含义                       |
 | ----- | ------------------------ |
-| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                    |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2为账号欠费停服                    |
 | 4     | 签名为空                     |
 | 5     | 签名串错误                    |
-| 6     | 签名中的appid/bucket与操作目标不匹配 |
+| 6     | 签名中的 APPID/Bucket 与操作目标不匹配 |
 | 9     | 签名过期                     |
-| 10    | appid不存在                 |
-| 11    | secretid不存在              |
-| 12    | appid和secretid不匹配        |
+| 10    | APPID 不存在                 |
+| 11    | SecretId 不存在              |
+| 12    | APPID 和 SecretId 不匹配        |
 | 13    | 重放攻击                     |
 | 14    | 签名校验失败                   |
 | 15    | 操作太频繁，触发频控               |
-| 16    | Bucket不存在                |
+| 16    | Bucket 不存在                |
 | 21    | 无效参数                     |
 | 23    | 请求包体过大                   |
 | 24    | 没有权限                     |
@@ -289,12 +289,12 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -1301 | 参数为空                     |
 | -1304 | 参数过长                     |
 | -1308 | 图片下载失败                   |
-| -9001 | 请求 type 错误，不是 0，1        |
+| -9001 | 请求 type 错误，不是0或1        |
 | -9002 | 识别失败                     |
 | -9005 | 图片无效                     |
 | -9006 | 预处理失败                    |
 
-更多其他 API 错误码请看 [错误码说明](/document/product/866/17733) 。
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733) 。
 
  
 

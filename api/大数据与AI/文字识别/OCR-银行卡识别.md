@@ -1,61 +1,47 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/bankcard`
+本接口（bankcard）用于根据用户上传的银行卡图像，返回识别出的银行卡字段信息。开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
-### 服务简介
-本接口用于根据用户上传的银行卡图像，返回识别出的银行卡字段信息。
-
-开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
-
-### URL 说明
-支持 HTTP 和 HTTPS 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/bankcard`
-
-`https://recognition.image.myqcloud.com/ocr/bankcard`
-
-## 请求方式
-
-### 请求头 header
+## 请求头 header
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
-| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
-| content-type   |  是   |string | 1. 使用 application/json 格式，参数为 url 或 image，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。     |
-| authorization  |  是   |string | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
-
-### 请求参数
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为6MB，不支持 .gif 类型的动图。 |
+| content-type   |  是   |String | 1. 使用 application/json 格式，参数为 url 或 image，其值为图片链接或图片 base64 编码；<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。     |
+| authorization  |  是   |String | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。 |
+ 
+## 输入参数
 
 | 参数    | 必选 | 类型     | 说明                                   |
 | ----- | ---- | ------ | ------------------------------------ |
-| appid | 是   | string |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                           |
-| image | 否   | binary/string | 图片文件 或 图片 base6                                 |
-| url   | 否   | string | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入 |
+| appid | 是   | String |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                           |
+| image | 否   | Binary/String | 图片文件或图片 base6。                                 |
+| url   | 否   | String | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
 
-## 返回内容
+## 输出参数
 
 | 字段         | 类型     | 说明                        |
 | ---------- | ------ | ------------------------- |
-| code       | int    | 返回值                       |
-| message    | string | 返回消息                      |
-| data       | object | 返回数据                      |
-| session_id | string | 相应请求的 session 标识符，可用于结果查询 |
-| items      | json数组 | 具体查询数据，内容见下表              |
+| code       | Int    | 返回值                       |
+| message    | String | 返回消息                      |
+| data       | Object | 返回数据                      |
+| session_id | String | 相应请求的 session 标识符，可用于结果查询 |
+| items      | JSON 数组 | 具体查询数据，内容见下表              |
 
 items 说明：
 
 | 字段         | 类型     | 说明                                       |
 | ---------- | ------ | ---------------------------------------- |
-| item       | string | 字段名称                                     |
-| itemstring | string | 字段结果                                     |
-| itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽 width、高 height |
-| itemconf   | float  | 识别结果对应的置信度                               |
+| item       | String | 字段名称                                     |
+| itemstring | String | 字段结果                                     |
+| itemcoord  | Object | 字段在图像中的像素坐标，包括左上角坐标 x、y，以及宽 width、高 height |
+| itemconf   | Float  | 识别结果对应的置信度                               |
 
-## 请求示例
-### 使用 application/json 的请求示例
-
+## 示例
+### 输入示例
+#### 使用 application/json 
 ```
 POST /ocr/bankcard HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -69,8 +55,8 @@ Content-Type: application/json
   "url":"http://test-123456.image.myqcloud.com/test.jpg"
 }
 ```
-### 使用 multipart/form-dataL 的请求示例
 
+#### 使用 multipart/form-dataL
 ```
 POST /ocr/bankcard HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -94,7 +80,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 返回示例
+### 输出示例
 ```
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -201,10 +187,10 @@ Content-Type: application/json
 | 14    | 签名失败                            |
 | 15    | 操作太频繁，触发频控                      |
 | 16    | 存储桶不存在                          |
-| 17    | URL  为空                         |
+| 17    | URL 为空                         |
 | 18    | 没有图片或 URL                       |
-| 19    | 图片数过多，单次请求最多支持 20 个 URL 或文件     |
-| 20    | 图片过大，单个文件最大支持 1MB               |
+| 19    | 图片数过多，单次请求最多支持20个 URL 或文件     |
+| 20    | 图片过大，单个文件最大支持1MB               |
 | 21    | 无效的参数                           |
 | 200   | 内部打包失败                          |
 | 201   | 内部解包失败                          |
@@ -218,6 +204,6 @@ Content-Type: application/json
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
 
-更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。 
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。 
 
 

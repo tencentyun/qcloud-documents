@@ -185,7 +185,7 @@ rm -rf /var/lib/cloud
 ```
 rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 ```
-3. 将 `/etc/network/interfaces` 修改为以下内容：
+3. 针对 ubuntu 或 debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
 ```
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
