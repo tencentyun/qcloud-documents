@@ -40,7 +40,7 @@
 ## 整体流程
 
 该 Demo 的整体流程如下：
-![](https://main.qcloudimg.com/raw/c0b76a52418263b5033e48fde20030a2.png)
+![](https://main.qcloudimg.com/raw/f3f5a75cef2a716612cf9d5519bdacac.png)
 
 该流程包含8个环节，**搭建的任务流须与此整体流程图完全一致，以保证此任务顺利运行**。
 
