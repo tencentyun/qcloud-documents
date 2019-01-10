@@ -158,15 +158,15 @@ public void onUserExit(String userId, int reason) {
 
 ```
 
-## 开启本地音频流
-TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集和音频流的广播。
+## 开启（或关闭）本地声音采集
+TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio`则会关闭之。
 
 - `startLocalAudio` 会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 - 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
 
-## 开启本地摄像头采集
+## 开启（或关闭）本地视频采集
 
-TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示摄像头的预览画面。
+TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭之。
 
 - 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：  
 	- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。  
@@ -185,18 +185,18 @@ void startLocalPreview(boolean frontCamera, TXCloudVideoView localVideoView) {
 ## 屏蔽音视频数据流
 
 - **屏蔽本地视频数据**
-如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
-
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
+  
 - **屏蔽本地音频数据**
-如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
-
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
+  
 - **屏蔽远程视频数据**
-通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
-通过 `stopAllRemoteView` 可以屏蔽所有远程用户的视频数据。
-
+  通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
+  通过 `stopAllRemoteView` 可以屏蔽所有远端用户的视频数据。
+  
 - **屏蔽远程音频数据**
-通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
-通过 `muteAllRemoteAudio` 可以屏蔽所有远程用户的音频数据。
+  通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
+  通过 `muteAllRemoteAudio` 可以屏蔽所有远端用户的音频数据。
 
 
 ## 退出房间

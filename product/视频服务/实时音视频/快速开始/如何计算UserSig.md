@@ -17,7 +17,7 @@
 
 <h3 id="PrivateKey"> 下载签名用的私钥 </h3>
 
-进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果还没有应用就创建一个，之后进入**快速上手**页面，既可以获得签名用的私钥下载链接：
+进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果还没有应用就创建一个，之后进入**快速上手**页面，即可以获得签名用的私钥下载链接：
 
 ![](https://main.qcloudimg.com/raw/8d4b35085f3e774d70f403f92d273d4b.png)
 

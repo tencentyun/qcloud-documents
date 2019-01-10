@@ -182,15 +182,14 @@ void TRTCMainViewController::onUserExit(const char* userId, int reason)
 
 ```
 
-## 开启本地音频流
-
-TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集和音频流的广播。
+## 开启（或关闭）本地声音采集
+TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio`则会关闭之。
 
 - 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
 
-## 开启本地摄像头采集
+## 开启（或关闭）本地视频采集
 
-调用`startLocalPreview`接口，打开摄像头和预览视频画面。
+TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭之。
 
 - 调用`startLocalPreview`，指定本地视频渲染的窗口，**注：SDK 动态检测窗口大小，在`rendHwnd`表示的整个窗口进行渲染**；
 - 调用`setLocalViewFillMode`接口，设置本地视频渲染的模式为`Fill`或者 `Fit` 。两种模式下视频尺寸都是等比缩放，区别在于：
@@ -223,11 +222,14 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 
 - **屏蔽本地视频数据**
   如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
+  
 - **屏蔽本地音频数据**
   如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
+  
 - **屏蔽远程视频数据**
   通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
   通过 `stopAllRemoteView` 可以屏蔽所有远端用户的视频数据。
+  
 - **屏蔽远程音频数据**
   通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
   通过 `muteAllRemoteAudio` 可以屏蔽所有远端用户的音频数据。
