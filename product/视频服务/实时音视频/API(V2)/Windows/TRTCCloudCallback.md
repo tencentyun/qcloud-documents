@@ -152,7 +152,7 @@ __参数__
 
 #### onUserVoiceVolume
 
-成员语音音量回调，通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来触发这个回调。
+成员语音音量回调，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
@@ -446,7 +446,7 @@ __参数__
 当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
-void onRecvCustomCmdMsg(const char * userId, int32_t cmdID, uint32_t seq, const uint8_t * msg, uint32_t msgSize)
+void onRecvCustomCmdMsg(const char * userId, int32_t cmdId, uint32_t seq, const uint8_t * msg, uint32_t msgSize)
 ```
 
 __参数__
@@ -454,7 +454,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识  |
-| cmdID | int32_t | 命令ID  |
+| cmdId | int32_t | 命令ID  |
 | seq | uint32_t | 消息序号  |
 | msg | const uint8_t * | 消息数据  |
 | msgSize | uint32_t | 消息数据大小  |
@@ -467,7 +467,7 @@ __参数__
 TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
 
 ```
-void onMissCustomCmdMsg(const char * userId, int32_t cmdID, int32_t errCode, int32_t missed)
+void onMissCustomCmdMsg(const char * userId, int32_t cmdId, int32_t errCode, int32_t missed)
 ```
 
 __参数__
@@ -475,7 +475,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识  |
-| cmdID | int32_t | 命令ID  |
+| cmdId | int32_t | 命令ID  |
 | errCode | int32_t | 错误码，当前版本为-1  |
 | missed | int32_t | 丢失的消息数量  |
 

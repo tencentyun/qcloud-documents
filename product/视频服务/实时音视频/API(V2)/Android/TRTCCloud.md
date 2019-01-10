@@ -51,23 +51,6 @@ abstract void setListenerHandler(Handler listenerHandler)
 <br/>
 
 
-### setAudioListener
-
-设置音频相关回调。
-
-```
-abstract void setAudioListener(TRTCCloudListener.TRTCAudioListener listener)
-```
-
-__注意__
-
-
-注意！！！ 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作。
-
-
-<br/>
-
-
 
 ## 房间相关接口函数
 
@@ -632,23 +615,6 @@ abstract boolean isCameraAutoFocusFaceModeSupported()
 <br/>
 
 
-### enableAutoFaceFocus
-
-自动识别人脸位置。
-
-```
-abstract void enableAutoFaceFocus(boolean enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | boolean | true:打开 false:关闭  |
-
-<br/>
-
-
 
 ## 美颜滤镜相关接口函数
 
@@ -711,81 +677,6 @@ __参数__
 
 
 ## 音视频自定义接口
-
-### enableCustomVideoCapture
-
-启用视频自定义采集模式，即放弃SDK原来的视频采集流程，改用sendVideoSampleBuffer向SDK塞入自己采集的视频画面。
-
-```
-abstract void enableCustomVideoCapture(boolean enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | boolean | 是否启用 true:启用 false:关闭  |
-
-<br/>
-
-
-### sendCustomVideoData
-
-发送自定义的视频数据。
-
-```
-abstract void sendCustomVideoData(TRTCCloudDef.TRTCVideoFrame frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCVideoFrame | 视频数据.  |
-
-<br/>
-
-
-### enableCustomAudioCapture
-
-启用音频自定义采集模式，即放弃SDK原来的声音采集流程，改用enableCustomAudioCapture向SDK塞入自己采集的声音数据（PCM格式）。
-
-```
-abstract void enableCustomAudioCapture(boolean enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | boolean | 是否启用 true:启用 false:关闭  |
-
-<br/>
-
-
-### sendCustomAudioData
-
-发送客户自定义的音频PCM数据。
-
-```
-abstract void sendCustomAudioData(TRTCCloudDef.TRTCAudioFrame frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCAudioFrame | pcm音频数据  |
-
-__说明__
-
-
-如果是单声道，请保证每次传入的PCM长度为2048个采样点；如果是双声道，请保证每次传入的PCM长度为4096个采样点 
-要求每个采样点的位宽是 16bit。
-
-
-<br/>
-
 
 ### setLocalVideoRenderListener
 
@@ -961,14 +852,14 @@ __参数__
 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。
 
 ```
-abstract void setMicVolumeOnMixing(float volume)
+abstract void setMicVolumeOnMixing(int volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 音量大小，100为正常音量，建议值为0~200  |
+| volume | int | 音量大小，100为正常音量，建议值为0~200  |
 
 <br/>
 
@@ -978,14 +869,14 @@ __参数__
 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
 
 ```
-abstract void setBGMVolume(float volume)
+abstract void setBGMVolume(int volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 音量大小，100为正常音量，建议值为0~200，如果需要调大背景音量可以设置更大的值  |
+| volume | int | 音量大小，100为正常音量，建议值为0~200，如果需要调大背景音量可以设置更大的值  |
 
 <br/>
 
