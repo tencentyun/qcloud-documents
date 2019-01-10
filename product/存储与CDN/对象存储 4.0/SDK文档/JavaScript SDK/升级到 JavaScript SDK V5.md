@@ -16,7 +16,7 @@
 
 #### 1. 更新 JavaScript SDK
 
-JavaScript SDK V5 发布在 [npm](https://npm.org/cos-js-sdk-v5) 仓库，推荐您使用 npm 安装依赖包。
+JavaScript SDK V5 发布在 [npm](https://www.npmjs.com/package/cos-js-sdk-v5) 仓库，推荐您使用 npm 安装依赖包。
 
 ```js
 npm install cos-js-sdk-v5
