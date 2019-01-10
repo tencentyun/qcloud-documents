@@ -99,7 +99,7 @@
  - 并行数：11
  - 切分比例：0.7
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/b974d6be408425da37d3ca08f6a0c4ad.png)
+![](https://main.qcloudimg.com/raw/4244dd0e533d30684d2f0648ea93f8a1.png)
 
 ### 训练投篮预测模型
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【分类】>【SparseLogicalRegression】。
@@ -148,7 +148,7 @@
  - 将验证集特征处理组件与模型小圈连线，输入输出路径根据连线自动生成。
  - 并行数：10
  - 其余使用默认值。
-   ![](https://main.qcloudimg.com/raw/f636584c8ed406e8d740127bc4fb5395.png)
+   ![](https://main.qcloudimg.com/raw/709064539ac3b49a75eb5a761fc12804.png)
 
 
 ### 模型评估
@@ -162,7 +162,7 @@
  - 并行数：20
  - 预测阈值：0.5
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/89db45b5b8baefa88a18e1f02c463139.png)
+![](https://main.qcloudimg.com/raw/4a63a43f4b68198703b6252e91116f7e.png)
   
 ## 操作说明
 ### 保存工作流
