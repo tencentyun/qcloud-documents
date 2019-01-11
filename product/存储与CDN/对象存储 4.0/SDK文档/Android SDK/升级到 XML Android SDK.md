@@ -51,7 +51,7 @@ dependencies {
 **2. 更改 SDK 鉴权方式**
 
 在 JSON Android SDK 中您需要自己在后台计算好签名，再返回客户端使用。而在 XML SDK 使用了新的鉴权算法，在 XML Android SDK 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
-您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
+您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068) 以及 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/30172)。
 
 如果您仍然采用后台手动计算签名，再返回客户端使用的方式，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档更新您签名的实现。
 
@@ -120,7 +120,7 @@ XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要�
 
 XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
