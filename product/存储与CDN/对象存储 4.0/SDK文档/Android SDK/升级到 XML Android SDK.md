@@ -12,7 +12,7 @@
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
-| 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
+| 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
 ## 升级步骤
 请按照下面5个步骤升级 Android SDK。
@@ -52,6 +52,8 @@ dependencies {
 
 在 JSON Android SDK 中您需要自己在后台计算好签名，再返回客户端使用。而在 XML SDK 使用了新的鉴权算法，在 XML Android SDK 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
 您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
+
+如果您仍然采用后台手动计算签名，再返回客户端使用的方式，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档更新您签名的实现。
 
 **3. 更改 SDK 初始化**
 
@@ -111,6 +113,7 @@ CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credenti
 
 
 **4. 更改存储桶名称和可用区域简称**
+
 XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要您进行相应的更改。
 
 **存储桶 Bucket**
@@ -169,9 +172,9 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 API 变化有以下三点：
 
-**1）不再支持目录操作**
+**1）没有单独的目录接口**
 
-在 XML SDK 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
 为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
 例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。

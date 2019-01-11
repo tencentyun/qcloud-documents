@@ -1,5 +1,5 @@
 ## 注意事项
-- **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取]()。
+- **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/655/31946)。
 - NONCE ticket 是合作方**前端包含 App 和 H5 等**生成签名鉴权参数之一，启动 H5 或 SDK 人脸核身。
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
@@ -10,7 +10,7 @@
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th >长度（字节）</th><th >是否必填</th></tr>
 <tr><td >app_id</td><td >腾讯云线下对接分配的 AppID</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
-<tr><td >access_token</td><td >请根据 <a href=''>Access Token 获取</a> 指引进行获取</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
+<tr><td >access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/655/31946'>Access Token 获取</a> 指引进行获取</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
 <tr><td >type</td><td >ticket 类型，默认值：NONCE（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td >version</td><td >版本号</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td>user_id</td><td >当前使用用户的唯一标识<br/>注意：合作伙伴必须保证 user_id 的全局唯一性</td><td>String</td><td>30</td><td>是</td></tr>

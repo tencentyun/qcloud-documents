@@ -1,21 +1,15 @@
-用户在腾讯云 API 网关上可以通过配置微服务 API，将外部请求转发到 TSF 平台上部署的微服务。API 网关与 TSF 平台内微服务的关系如下图：
-
+用户在腾讯云 API 网关上可以通过配置微服务 API，将外部请求转发到 TSF 平台上部署的微服务。API 网关与 TSF 平台内微服务的关系如下：
 ![](https://main.qcloudimg.com/raw/efc43843783e9bd53afde3497abe14b1.png)
-
-
-
-
-
 腾讯云 API 网关与腾讯云 TSF 是两个独立的产品，关于 API 网关可参考：
 
-- 腾讯云 API 网关 [产品使用手册](https://cloud.tencent.com/document/product/628)
+- 腾讯云 API 网关 [产品文档](https://cloud.tencent.com/document/product/628)
 - 腾讯云 API 网关 [控制台](https://console.cloud.tencent.com/apigateway)
 
 
 
 ## 命名空间 Code
 
-用户必须将给命名空间配置 Code（Namespace Code）才能实现将 API 网关外部的请求转发到命名空间内的微服务。对于不同命名空间内且名称都是 product 的微服务，只有通过命名空间 ID 和微服务名称来唯一确定一个微服务。由于平台生成的命名空间 ID 较难辨识（通常是 namespaceid-xxxx），因此引入命名空间 Code 作为唯一标示。命名空间 Code 具有如下特性：
+用户必须给命名空间配置 Code（Namespace Code），才能将 API 网关外部的请求转发到命名空间内的微服务。对于在不同命名空间内且名称都是 product 的微服务，只有通过命名空间 ID 和微服务名称来唯一确定一个微服务。由于平台生成的命名空间 ID 较难辨识（通常是 namespaceid-xxxx），因此需要引入命名空间 Code 作为唯一标识。命名空间 Code 具有如下特性：
 
 - 跨集群唯一性
 - 用户自定义
@@ -57,4 +51,5 @@
 
 
 如果 API 调试时发生超时错误，可能是服务所在云服务器 CVM 的安全组限制所导致，检查安全组放通的端口中是否包含了微服务的端口（如 provider-demo 的端口是18081），参考 [CVM-安全组](https://cloud.tencent.com/document/product/213/12453)。
+
 ![](https://main.qcloudimg.com/raw/532e8bd715689a93b7ec90f24c9fc402.png)
