@@ -14,4 +14,4 @@
 **域名**：填写域服务器域名。
 **认证表达式**：填写格式为`$uid@域名`，例如域服务器域名为`example.com`，则认证表达式可以输入`$uid@example.com`或者为`example.com$uid`，具体按照哪种形式输入，请参考域认证时提供的登录名称。
 ![1](https://main.qcloudimg.com/raw/90256eb6a8780f4eba0f4ced254510d3.png)
-4. 单击【保存】，即可添加 Windows域控 资源。
+4. 单击【保存】，即可添加 Windows域控资源。
