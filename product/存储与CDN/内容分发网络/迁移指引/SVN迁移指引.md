@@ -7,9 +7,9 @@
 迁移SVN前，您需要将SVN服务器上的资源同步至本地。
 推荐使用1.7版本的SVN客户端。请不要升级到1.8版本，1.8版本存在缺陷，可能会导致SVN同步异常。
 
-SVN客户端下载：http://subversion.apache.org/download/ 
-SVN中文简介：http://www.subversion.org.cn/?action-channel-name-product 
-SVN手册：http://svndoc.iusesvn.com/
+[SVN客户端下载](http://subversion.apache.org/download/ )
+[SVN中文简介](http://www.subversion.org.cn/?action-channel-name-product )
+[SVN手册](http://svndoc.iusesvn.com/)
 
 #### 2 迁出SVN数据
 
@@ -27,7 +27,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 
 #### 3 创建Bucket
 
-登陆 [COS控制台](https://console.cloud.tencent.com/cos)，若未开通，请点击开通COS对象存储服务，在左侧点击【Bucket列表】：
+登录 [COS 控制台](https://console.cloud.tencent.com/cos)，若未开通，请点击开通COS对象存储服务，在左侧点击【Bucket列表】：
 ![](https://mc.qcloudimg.com/static/img/b87d5d718cf5c7e8b6d93cd2acc78783/cos-1.png)
 
 点击页面上【创建Bucket】按钮，填充如下项：
@@ -66,5 +66,5 @@ http://1251991073-1251991073.costj.myqcloud.com/image/1.png
 
 COS加速域名在CDN控制台上能够进行配置管理、查看统计分析数据、日志下载、刷新预热等功能。
 
-更多COS使用指南可参考：https://cloud.tencent.com/document/product/436
+更多COS使用指南可参考 [对象存储](https://cloud.tencent.com/document/product/436)。
 
