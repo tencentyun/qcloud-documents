@@ -22,15 +22,15 @@
    ![](https://main.qcloudimg.com/raw/d70bbcb727bfc1505725bcad87d491b8.png)
    2. 在添加策略中，添加根账号用户，账号 ID：3508645126。
 	![](https://main.qcloudimg.com/raw/95f2478b98d1e9ad64825ede3ca296cf.png)
-   3.  Policy 权限设置 API 参考 [PUT Bucket policy文档](https://cloud.tencent.com/document/product/436/8282)
+   3.  Policy 权限设置 API 参考 [PUT Bucket policy文档](https://cloud.tencent.com/document/product/436/8282)。
 
 
 
  2. 获取已授权 COS Bucket 信息。
-1. 在存储桶的【基础配置】里即可查看到 COS 的所有信息
+1. 在存储桶的【基础配置】里即可查看到 COS 的所有信息。
 ![](https://main.qcloudimg.com/raw/238ce3abafa0d10614a47c422e16db65.png)
  【访问域名】即为源站域名，包含 bucket name、cos appid 和 bucket region（以上图为例）：
  cos appid：1251775094
  bucket name：buckettest123
  bucket region：ap-chengdu
-2.提交以上3个字段信息，系统将会把直播截图数据存于此已授权的 COS Bucket 中，
+2.提交以上3个字段信息，系统将会把直播截图数据存于此已授权的 COS Bucket 中。
