@@ -15,7 +15,7 @@
 
 
 ## 升级步骤
-
+请按照下面4个步骤升级 Python SDK。
 **1. 更新 Python SDK**
 
 通过 pip 命令您可以方便获取到最新的 XML Python SDK：
