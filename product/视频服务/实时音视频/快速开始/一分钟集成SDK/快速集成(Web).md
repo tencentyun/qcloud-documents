@@ -14,8 +14,6 @@
 > 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
 
 ## 集成 TRTC Web SDK
-### NPM 方案
-TO-DO
 
 ### CDN 方案
 - 该方案直接从腾讯 CDN 上加载 TRTC Web SDK，速度快，稳定性好。
