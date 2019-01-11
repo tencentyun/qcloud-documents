@@ -11,7 +11,7 @@
 
 ### 1. 下载  SDK
 
-在官网下载 Windows SDK，解压并打开，包含以下几个部分：
+[下载 SDK](https://github.com/TencentVideoCloudTRTC/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.md)，解压并打开，包含以下几个部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
