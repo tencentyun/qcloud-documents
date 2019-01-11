@@ -55,11 +55,11 @@ Content-MD5:MD5
 | 名称                    | 父节点               | 描述                                                         | 类型      | 必选 |
 | ----------------------- | -------------------- | ------------------------------------------------------------ | --------- | ---- |
 | RefererConfiguration    | 无                   | 防盗链配置信息                                               | Container | 是   |
-| Status                  | RefererConfiguration | 是否开启防盗链，枚举值：`Eabled`，`Disabled`                 | String    | 是   |
-| RefererType             | RefererConfiguration | 防盗链类型，枚举值：`Black-List`，`White-List`               | String    | 是   |
-| DomainList              | RefererConfiguration | 生效域名列表， 支持多个域名且为前缀匹配， 支持带端口的域名和 IP， 支持通配符`* `，做二级域名或多级域名的通配 | Container | 是   |
-| Domain                  | DomainList           | 单条生效域名，例如 `www.qq.com/123`，`123.2.4.8:8080`， `*.qq.com` | String    | 是   |
-| EmptyReferConfiguration | RefererConfiguration | 是否允许空 Refer 访问，枚举值：`Allow`，`Deny`，默认值 为`Deny` | String    | 否   |
+| Status                  | RefererConfiguration | 是否开启防盗链，枚举值：Eabled、Disabled                | String    | 是   |
+| RefererType             | RefererConfiguration | 防盗链类型，枚举值：Black-List，White-List               | String    | 是   |
+| DomainList              | RefererConfiguration | 生效域名列表， 支持多个域名且为前缀匹配， 支持带端口的域名和 IP， 支持通配符`*`，做二级域名或多级域名的通配 | Container | 是   |
+| Domain                  | DomainList           | 单条生效域名，例如 `www.qq.com/example`，`192.168.1.2:8080`， `*.qq.com` | String    | 是   |
+| EmptyReferConfiguration | RefererConfiguration | 是否允许空 Refer 访问，枚举值：Allow、Deny，默认值 为 Deny | String    | 否   |
 
 
 ## 响应
