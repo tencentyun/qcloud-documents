@@ -43,7 +43,7 @@ XML  JavaScript SDK  存储桶名称由两部分组成：用户自定义字符�
 
 ```js
 cos.getBucket({
-    Bucket: 'examplebucket-1251902136',
+    Bucket: 'examplebucket-1250000000',
     Region: 'ap-beijing',
 }, function (err, data) {
     console.log(err || data);
@@ -54,7 +54,7 @@ cos.getBucket({
 
 XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区域在 JSON  JavaScript SDK 和 XML  JavaScript SDK  中的对应关系请查看下表：
 
-| 地域             | V5 地域简称      | V4 地域简称 |
+| 地域             | XML SDK 地域简称      | JSON SDK 地域简称 |
 | ---------------- | ---------------- | ----------- |
 | 北京一区（华北） | ap-beijing-1     | tj          |
 | 北京             | ap-beijing       | bj          |
@@ -79,7 +79,7 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 
 ```java
 cos.headBucket({
-    Bucket: 'examplebucket-1251902136',
+    Bucket: 'examplebucket-1250000000,
     Region: 'ap-beijing',
 }, function (err, data) {
     console.log(err || data);
@@ -151,7 +151,7 @@ cos.putObject({
 
 ```js
 cos.putObject({
-    Bucket: 'examplebucket-1251902136',
+    Bucket: 'examplebucket-1250000000',
     Region: 'ap-beijing-1',
     Key: '1.txt',
 }, function (err, data) {
