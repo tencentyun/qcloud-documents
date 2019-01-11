@@ -1,5 +1,5 @@
 ## 注意事项
-- **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取]()。
+- **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/655/31946)。
 - SIGN ticket 是合作方**后台服务端业务请求**生成签名鉴权参数之一，用于后台查询验证结果、调用其他业务服务等。
 - API ticket 的 SIGN 类型，其有效期最长为3600秒，此处 API ticket 必须缓存在磁盘，并定时刷新，刷新的机制如下：
  - 由于 API ticket 的生命周期依赖于 Access Token最长为 3600秒，为了简单方便，建议 API ticket 的刷新机制与 Access Token 定时机制原理一致，建议与 Access Token 绑定，每20分钟定时刷新，原 API ticket 1 小时（3600秒）失效。
@@ -12,7 +12,7 @@
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th >长度（字节）</th><th >是否必填</th></tr>
 <tr><td >app_id</td><td >腾讯云线下对接分配的 AppID</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
-<tr><td>access_token</td><td >请根据 <a href=''>Access Token 获取</a> 指引进行获取</td><td>String</td><td >腾讯云线下对接决定</td><td>是</td></tr>
+<tr><td>access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/655/31946'>Access Token 获取</a> 指引进行获取</td><td>String</td><td >腾讯云线下对接决定</td><td>是</td></tr>
 <tr><td >type</td><td >ticket 类型，默认值：SIGN（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td >version</td><td >版本号，默认值：1.0.0</td><td >String</td><td >20</td><td >是</td></tr>
 </tbody></table>

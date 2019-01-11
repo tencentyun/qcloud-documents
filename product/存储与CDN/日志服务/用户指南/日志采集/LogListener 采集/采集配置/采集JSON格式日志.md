@@ -5,22 +5,7 @@ JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 
 ### 示例
 假设您的一条 json 日志原始数据为：
 ```
-{
-	"remote_ip": "10.135.46.123",
-	"time_local": "21/Dec/2018:17:06:56 +0800",
-	"body_sent": 142,
-	"responsetime": 0.961,
-	"upstreamtime": "0.961",
-	"upstreamhost": "unix:/tmp/php-cgi.sock",
-	"http_host": "127.0.0.1",
-	"method": "GET",
-	"url": "/admin/cloud/ad",
-	"request": "GET /admin/cloud/ad HTTP/1.1",
-	"xff": "-",
-	"referer": "http://127.0.0.1/admin/",
-	"agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0",
-	"response_code": "200"
-}
+{"remote_ip":"10.135.46.123","time_local":"21/Dec/2018:17:06:56 +0800","body_sent":142,"responsetime":0.961,"upstreamtime":"0.961","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"GET","url":"/admin/cloud/ad","request":"GET /admin/cloud/ad HTTP/1.1","xff":"-","referer":"http://127.0.0.1/admin/","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 ```
 
 经过日志服务结构化处理后，该条日志将变为如下：
@@ -71,7 +56,7 @@ xff: -
 
 ### 5. 关联机器组
 
-从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://github.com/tencentyun/qcloud-documents/blob/master/document/product/614/17412) 文档。
+从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://cloud.tencent.com/document/product/614/17412#.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 文档。
 ![](https://main.qcloudimg.com/raw/769ab308eaf3f59d9de97fcb358a9a83.png)
 
 ### 6. JSON 模式选择

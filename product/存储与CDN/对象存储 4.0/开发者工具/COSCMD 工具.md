@@ -417,16 +417,19 @@ coscmd putbucketversioning Suspended
 >!开启版本控制为不可逆过程，之后该 bucket 将无法使用 JSON API 接口（包括所有 JSON SDK），请慎重选择。
 
 ### 恢复归档文件
-命令如下：
+- 恢复归档文件命令如下：
 ```
 #命令格式
 coscmd restore <cospath>
-
 #操作示例
-coscmd restore a.txt -d 3 -t  Expedited
-
+coscmd restore -d 3 -t Expedited a.txt 
+```
+- 批量恢复归档文件命令如下：
+```
+#命令格式
+coscmd restore -r <cospath>
 #操作示例
-coscmd restore a.txt -d 3 -t  Bulk
+coscmd restore -r -d 3 -t Bulk folder/
 ```
 
  请将 "<>" 中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
