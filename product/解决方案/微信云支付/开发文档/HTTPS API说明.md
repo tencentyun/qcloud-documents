@@ -1,7 +1,7 @@
 ## 说明
 ### 通讯说明
 - 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
-- 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
+- 请求必须传认证或签名信息。其中退款请求，可以传签名和签名算法，也可以传认证码和认证算法，二选一，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
 
@@ -910,6 +910,7 @@ std::string gen_cloud_pay_refund(
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
+    //方式一：计算签名
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
@@ -924,8 +925,24 @@ std::string gen_cloud_pay_refund(
     Json::Value request;
     request["request_content"] = rc;
     request["authen_info"] = authen_info;
-
     return w.write(request);
+    
+/** 方式二：计算认证码，退款也可以按如下计算认证码打包，签名和认证码二选一即可。    
+    Json::Value authen_info, a;
+    a["authen_type"] = 1;
+
+    std::string authen_code;
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        return "";
+    }
+    a["authen_code"] = authen_code;
+    authen_info["a"] = a;
+
+    Json::Value request;
+    request["request_content"] = rc;
+    request["authen_info"] = authen_info;
+    return w.write(request);
+*/    
 }
 /*
 构造请求完毕之后，将请求通过 POST 方法发送到云支付接口对应的 URL
@@ -4860,31 +4877,52 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>
-      <td>说明</td>
+      <td>操作结果</td>
+      <td>返回内容是否带认证码</td>
+      <td>原请求是否能重试</td>
+      <td>用户操作建议</td>      
    </tr>
    <tr>
       <td>0</td>
-      <td>成功。带认证码，调用者需要验证认证码是否正确</td>
+      <td>成功</td>
+      <td>是</td>
+      <td>是</td>
+      <td>-</td>	   
    </tr>
    <tr>
       <td>3</td>
-      <td>系统内部错误，操作结果未知，可重试，不带认证码</td>
+      <td>未知</td>
+      <td>否</td>
+      <td>是</td>
+      <td>原请求重试</td>      
    </tr>
    <tr>
       <td>101</td>
-      <td>操作失败，且不建议重试，不带认证码</td>
+      <td>失败</td>
+      <td>否</td>
+      <td>否</td>
+      <td>根据description字段内容，检查调用逻辑是否有问题，如认证码计算错误</td>
    </tr>
    <tr>
       <td>102</td>
-      <td>操作失败，且建议换新单号重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>换新单号重试，并根据description字段内容，检查调用逻辑是否有问题，如单号重复</td>
    </tr>
    <tr>
       <td>103</td>
-      <td>系统内部错误，可重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>未知</td>
+      <td>是</td>
+      <td>是</td>
+      <td>隔3秒后原请求重试或查询结果</td>
    </tr>
    <tr>
       <td>104</td>
-      <td>操作失败，且不建议重试. 带认证码，调用者需要验证认证码是否正确<br><b>特别提示：在刷卡支付响应包里出现该错误码时，需要判断 internal_status 字段的值是否是407，如是，则说明说明客户端发生异常，支付时单号重复，但金额等其他信息不重复，被云支付的防重入挡住，此时，请一定不要撤单，否则会造成已支付的订单退款，给商户造成损失。</b></td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>根据description字段内容操作，如退款时顾客余额不足</td>
    </tr>
 </table>
 

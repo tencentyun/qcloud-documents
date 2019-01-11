@@ -20,7 +20,7 @@ Cos 迁移不支持跨地域。
 ![](https://main.qcloudimg.com/raw/a42addc7282971bd635cc293d9be8086.png)
 ![](https://main.qcloudimg.com/raw/bbf3e56be9709c6cc423218fe6e90e07.png)
 2.2 创建任务填写，单击【下一步】
-![](https://main.qcloudimg.com/raw/daef0287956bf1fe61ae8a869092f2f7.png)
+![](https://main.qcloudimg.com/raw/2e9f9c55b9a09a0038afb43772d4b033.png)
 >注释2：cos 源文件连接为步骤1得到【源文件连接】。这里注意的是地域必须和 COS 源文件连接的地域相同。
 注释3：选择目标实例 ID .(只能选择同一地域下的实例)
 

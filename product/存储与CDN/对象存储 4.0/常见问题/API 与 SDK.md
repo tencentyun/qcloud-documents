@@ -8,11 +8,11 @@
 
 ### 通过 JSON API 创建的存储桶和上传的对象，是否可以使用 XML API 管理？
 
-可以，XML API 是基于 COS V4 的架构，可以通过 XML API 操作由 JSON API 产生的数据。
+可以，XML API 是基于 COS 底层架构，可以通过 XML API 操作由 JSON API 产生的数据。
 
 ### XML API 与 JSON API 之间的关系？
 
-V4 版本的 JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。V4 版本的 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
+ JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
 
 ### XML API 与 JSON API 的密钥是否通用？
 
@@ -35,8 +35,16 @@ V4 版本的 JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 A
 
 ### 最新版本 SDK 是否支持 C# SDK?
 
-暂不支持，预计 12 月上旬上线。
+暂不支持，预计1月底上线。
 
 ### SDK 能否使用 CDN 加速域名进行访问？
 
 支持，请根据您所使用的编程语言，并参阅对应的 [SDK 文档](https://cloud.tencent.com/document/sdk) 进行操作。
+
+
+### 小程序里请求多个域名，或者存储桶名称不确定，怎么解决白名单配置和限制问题？
+
+SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下 https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>后缀式请求，在签名时会存储桶名称 /<BucketName-APPID> 也会加入签名计算。
+
+### 小程序如何保存图片到本地？
+先预先通过`cos.getObjectUrl`获取图片 url，而后调用`wx.downloadFile`下载图片得到临时路径，界面显示保存图片按钮，用户单击按钮后，调用`wx.saveImageToPhotosAlbum 保存到相册。

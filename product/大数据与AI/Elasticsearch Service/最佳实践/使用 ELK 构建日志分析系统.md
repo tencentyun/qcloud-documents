@@ -38,7 +38,7 @@ output {
 腾讯云 Elasticsearch 集群默认开启了允许自动创建索引配置，上述 test.conf 配置文件中的 nginx_access-%{+YYYY.MM.dd} 索引会自动创建，除非需要提前设置好索引中字段的 mapping，否则无需额外调用 Elasticsearch 的 API 创建索引。
 
 3. 启动 logstash
-进入 logstash 压缩包解压目录 logstash-5.6.4 下，执行一下命令，后台运行 logstash，注意配置文件路径填写为自己创建的路径。
+进入 logstash 压缩包解压目录 logstash-5.6.4 下，执行以下命令，后台运行 logstash，注意配置文件路径填写为自己创建的路径。
 ```
 nohup ./bin/logstash -f ~/test.conf 2>&1 >/dev/null &
 ```
