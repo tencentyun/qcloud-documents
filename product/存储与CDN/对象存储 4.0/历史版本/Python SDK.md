@@ -2,9 +2,9 @@
 
 ### 相关资源
 
-* [GitHub 地址](https://github.com/tencentyun/cos-python-sdk-v4) GitHub 项目地址，欢迎贡献代码以及反馈问题。
+* [Python-SDK 项目](https://github.com/tencentyun/cos-python-sdk-v4) GitHub 地址，欢迎贡献代码以及反馈问题。
 
-* [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi 项目地址 。
+* [PyPi 项目](https://pypi.python.org/pypi/qcloud_cos_v4)  GitHub 地址 。
 （本版本 SDK 基于 JSON API 封装组成）
 
 ### 环境依赖
