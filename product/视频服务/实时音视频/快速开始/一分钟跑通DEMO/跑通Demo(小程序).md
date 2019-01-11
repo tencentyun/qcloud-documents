@@ -31,12 +31,29 @@
 
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
-复制上面的 json 内容，并拷贝到 `pages/webrtc-room/account.js` 文件中（如果已经存在示例内容，请覆盖之）。
+复制上面的 json 内容，并粘贴到 `pages/webrtc-room/account.js` 文件中（如果已经存在示例内容，请覆盖之）。
 
 > 此处方案仅用于快速跑通 Demo 示例。
 > 真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
-## 6. 编译运行
+## 6.开通小程序类目与推拉流标签权限
+出于政策和合规的考虑，微信暂时没有放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+
+- 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
+
+| 主类目 | 子类目  |
+|-------|----------|
+| 【社交】| 直播 |
+| 【教育】| 在线教育 |
+| 【医疗】| 互联网医院，公立医院 |
+| 【政务民生】| 所有二级类目 |
+| 【金融】| 基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融 |
+
+- 符合类目要求的小程序，需要在【微信公众平台】-【开发】-【接口设置】中自助开通该组件权限，如下图所示：
+
+![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+
+## 7. 编译运行
 - step1：安装微信小程序[开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
  
 - step2： 输入您申请到的微信小程序 AppID（注意：不是上面的 SDKAppID），项目目录选择上一步下载到的代码目录（ **注意：** 目录请选择**根目录**，根目录包含有 `project.config.json`文件），单击【确定】创建小程序项目。
@@ -75,7 +92,6 @@
 
 | 域名 | 说明 | 
 |:-------:|---------|
-|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名[1] | 
-|`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名[2] | 
+|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名 | 
+|`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名 | 
 |`https://cloud.tencent.com`| 推流域名 | 
-|`https://webim.tim.qq.com` | IM域名 |

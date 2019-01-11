@@ -28,7 +28,7 @@ pod init
 - 3.1 方式一：使用腾讯云 LiteAV SDK 的pod路径。
 
 	```
-	platform :macOS, '10.10'
+	platform :osx, '10.10'
 
 	target 'Your Target' do
 	pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
@@ -38,7 +38,7 @@ pod init
 - 3.2 方式二：使用CocoaPod官方源，支持选择版本号
 
 	```
-	platform :macOS, '10.10'
+	platform :osx, '10.10'
 	source 'https://github.com/CocoaPods/Specs.git'
 
 	target 'Your Target' do
@@ -59,7 +59,7 @@ pod update
 pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ]() ，完成后进行解压
+1. 下载 [TRTC-SDK ](https://github.com/TencentVideoCloudTRTC/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.md) ，完成后进行解压
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 Build Phases 项
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
 

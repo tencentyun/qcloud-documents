@@ -30,7 +30,7 @@
 
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
-复制上面的 json 内容，并拷贝到源码根目录下的 `Config.json` 文件中（如果已经存在示例内容，请覆盖之）。
+复制上面的 json 内容，并粘贴到源码根目录下的 `Config.json` 文件中（如果已经存在示例内容，请覆盖之）。
 
 
 ## 6. 编译运行
