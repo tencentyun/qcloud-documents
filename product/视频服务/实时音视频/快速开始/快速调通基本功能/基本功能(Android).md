@@ -5,7 +5,7 @@
 
 使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudListener`抽象类并重写你需要监听的事件（用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 先继承`TRTCCloudListener`抽象类并重写您需要监听的事件（用户加入房间、用户退出房间、警告信息、错误信息等）。
 - 创建`TRTCCloud`实例对象，调用 setListener 方法设置`TRTCCloudListener `回调。
 
 ```java
@@ -63,7 +63,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 - **SDKAppid**
 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
-![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
