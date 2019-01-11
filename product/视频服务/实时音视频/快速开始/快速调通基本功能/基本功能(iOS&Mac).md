@@ -1,12 +1,11 @@
-本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
-
+本文主要介绍腾讯云 TRTC SDK(iOS&Mac) 的几个基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 ## 初始化 SDK
 
 使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudDelegate`虚接口类并重写您需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
-- 创建`TRTCCloud`实例对象，调用setDelegate方法设置`TRTCCloudDelegate`回调。
+- 先继承`TRTCCloudDelegate`虚接口类并重写您需要监听的事件（用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 创建`TRTCCloud`实例对象，调用 setDelegate 方法设置`TRTCCloudDelegate`回调。
 
 ```Objective-C
 #import "TRTCCloud.h"
@@ -41,15 +40,15 @@
 
 TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
 
-- **sdkAppId**
-进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
-![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+- **SDKAppid**
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
+![](https://main.qcloudimg.com/raw/79bfa75cea7faec26d91226a5fb23f10.png)
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
+基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
 房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
@@ -99,8 +98,8 @@ TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRe
 - 当收到 `onUserEnter`回调后，可以调用`startRemoteView`方法来观看新进 userId 的视频画面。
 - 当收到 `onUserExit`回调后，可以调用`stopRemoteView`停止观看。
 - 通过 `setRemoteViewFillMode` 可以指定视频显示模式为`Fill`或`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
-- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
-- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+ - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
+ - `Fit` 模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 ```Objective-C
 - (void)onUserEnter:(NSString *)userId {
@@ -131,14 +130,14 @@ TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以
 TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭之。
 
 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
-- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
-- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+ - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
+ - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 另外，iOS 和 Mac 两个平台的 startLocalPreivew 函数会有一些差异：
--  (`iOS`) 调用`startLocalPreview`：参数：`frontCamera`（YES:前置摄像头  NO:后置摄像头）、`view`（UIView 控件）。
+-  (`iOS`) 调用`startLocalPreview`：参数：`frontCamera`（YES：前置摄像头  NO：后置摄像头）、`view`（UIView 控件）。
 -  (`Mac`) 调用`startLocalPreview`，参数：`view` : NSView 控件。
 
-> Mac 版的 SDK 默认会使用当前系统默认设备。如有多个摄像头可以通过调用 `setCurrentCameraDevice`接口设置所要使用的摄像头，参数 `deviceId` 为摄像头设备ID， 您可以通过 `getCameraDevicesList`接口返回的摄像头设备列表中获得期望的 `deviceId` 。
+>? Mac 版的 SDK 默认会使用当前系统默认设备。如有多个摄像头可以通过调用 `setCurrentCameraDevice`接口设置所要使用的摄像头，参数 `deviceId` 为摄像头设备 ID， 您可以通过 `getCameraDevicesList`接口返回的摄像头设备列表中获得期望的 `deviceId` 。
 
 ```Objective-C
 /** 打开本地摄像头预览画面 */
@@ -174,7 +173,7 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 
 ## 退出房间
 
-调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
+调用`exitRoom`方法退出房间。无论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 
 - 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
