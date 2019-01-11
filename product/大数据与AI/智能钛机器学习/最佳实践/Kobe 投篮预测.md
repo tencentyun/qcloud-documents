@@ -88,7 +88,7 @@
  - 并行数：100
  - 特征频次阈值：2
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
+![](https://main.qcloudimg.com/raw/ba4c97e752ca1014d9e870a25e1ef975.png)
 
 ### 数据拆分
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【数据预处理】>【Splitter】。
