@@ -997,11 +997,7 @@ abstract void stopPublishCDNStream()
 
 ### startCloudMixTranscoding
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
-                        \
- 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
-                        /
- 【画面3】=> 解码 => =>。
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
 abstract void startCloudMixTranscoding(TRTCCloudDef.TRTCTranscodingConfig config)
@@ -1012,6 +1008,21 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | config | TRTCCloudDef.TRTCTranscodingConfig | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍  |
+
+__介绍__
+
+
+<pre>
+
+【画面1】=> 解码 => =>
+                       \
+【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                       /
+【画面3】=> 解码 => =>
+ 
+</pre>
+        
+
 
 <br/>
 
@@ -1166,7 +1177,7 @@ __参数__
 __相关类__
 
 
-`TRTCCloud.BGMNotify`。
+`TRTCCloud.BGMNotify`
 
 
 <br/>
@@ -1229,7 +1240,7 @@ __参数__
 __相关类__
 
 
-`TRTCCloud.TRTCViewMargin`。
+`TRTCCloud.TRTCViewMargin`
 
 
 <br/>

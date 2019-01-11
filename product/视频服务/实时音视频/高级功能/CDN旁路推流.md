@@ -6,22 +6,13 @@
 
 所以，如果要支持超过1000人的大房间应用场景，更为了让带宽成本可控，可以使用 TRTC 的**旁路直播**功能，将 TRTC 音视频房间里的音视频流（经过混流转码）转推到腾讯云直播 CDN 上，从而获得高并发和低成本的观看能力。
 
-![](https://main.qcloudimg.com/raw/f17148b48148aa50c430f2d83832060b.png)
+![](https://main.qcloudimg.com/raw/96dc6cf35659f03d8ec9739f1fde2c5a.png)
 
 ## 支持的平台
 
 | iOS | Android | Mac OS | Windows | 微信小程序 | Chrome浏览器|
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |     ✔  |    ✔    |    ✔   |    ✔    |    ✖     |   ✖     |
-
-## 全局自动开启
-
-- 全局自动开启是指默认为房间里的每一路画面都配备一路对应的播放地址，但是画面之间相互独立，并没有进行混流。
-
-- 在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的**功能配置**页面里可以开启自动旁路推流。
-![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
-
-- 开启此选项后，每一路画面都有一个对应的播放地址
 
 ## 指定房间开启
 
@@ -100,6 +91,38 @@ void startCDN()
     // 启动CDN旁路推
     trtcCloud->startPublishCDNStream(cdnParam);
 }
+```
+
+## 全局自动开启
+
+- 全局自动开启是指默认为房间里的每一路画面都配备一路对应的播放地址，但是画面之间相互独立，并没有进行混流。
+
+- 在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的**账号信息**页面里可以开启自动旁路推。
+
+![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
+
+- 开启此功能的前提是需要先开通腾讯云直播服务，可以在云直播[控制台](https://console.cloud.tencent.com/live)开通。
+
+- 开启此选项后，每一路画面都有一路唯一的播放地址，每一路播放地址的计算规则如下：
+
+```
+播放地址的拼接规则如下：
+rtmp://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid]
+http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
+http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].m3u8
+
+其中，streamid = MD5(房间号_用户名_流类型)
+
+bizid： 的获取见文档前半部分
+流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux (有个例外，Web端目前屏幕分享的流类型也是 main)
+
+假如：bizid = 8888， 房间号 = 12345，用户名 = rexchang， 用户当前使用了摄像头
+那么：streamid = MD5(12345_rexchang_main) = 185e1a7b26423ca4470a99fa9d9b4b9b
+
+所以，rexchang 这一路的腾讯云CDN观看地址是：
+rtmp://8888.liveplay.myqcloud.com/live/8888_185e1a7b26423ca4470a99fa9d9b4b9b
+http://8888.liveplay.myqcloud.com/live/8888_185e1a7b26423ca4470a99fa9d9b4b9b.flv
+http://8888.liveplay.myqcloud.com/live/8888_185e1a7b26423ca4470a99fa9d9b4b9b.m3u8
 ```
 
 ## 如何播放

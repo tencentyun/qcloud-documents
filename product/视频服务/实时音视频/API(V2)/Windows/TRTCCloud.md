@@ -363,6 +363,23 @@ __介绍__
 <br/>
 
 
+### setLocalVideoMirror
+
+设置摄像头本地预览是否开镜像。
+
+```
+void setLocalVideoMirror(bool mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| mirror | bool | 是否开启预览镜像  |
+
+<br/>
+
+
 
 ## 音频相关接口函数
 
@@ -1080,11 +1097,7 @@ void stopPublishCDNStream()
 
 ### startCloudMixTranscoding
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
-                        \
- 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
-                        /
- 【画面3】=> 解码 => =>。
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
 void startCloudMixTranscoding(const TRTCTranscodingConfig & config)
@@ -1095,6 +1108,21 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | config | const TRTCTranscodingConfig & | 请参考 TRTCCloudDef.h 中关于  |
+
+__介绍__
+
+
+<pre>
+
+【画面1】=> 解码 => =>
+                       \
+【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                       /
+【画面3】=> 解码 => =>
+ 
+</pre>
+        
+
 
 <br/>
 

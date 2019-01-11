@@ -52,14 +52,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
-这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
-
- iOS 下数字转字符串的代码为：
-```Objective-C
-int roomId = 123; // 数字类型的房间号
-NSString* roomIdStr = [NSString stringWithFormat:@"%d", roomId]; //转换成字符串
-param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_INTEGER 错误
-```
+房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
 
 ## 进入(或创建)房间
 
@@ -74,10 +67,10 @@ param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_
 {
 	//TRTCParams 定义参考头文件TRTCCloudDef.h
 	TRTCParams *params = [[TRTCParams alloc] init];
-	params.sdkAppId = sdkappid;
-	params.userId = userid;
-	params.userSig = usersig;
-	params.roomId = @"908"; //输入您想进入的房间
+	params.sdkAppId    = sdkappid;
+	params.userId      = userid;
+	params.userSig     = usersig;
+	params.roomId      = 908; //输入您想进入的房间
 	[trtcCloud enterRoom:param];
 }
 
