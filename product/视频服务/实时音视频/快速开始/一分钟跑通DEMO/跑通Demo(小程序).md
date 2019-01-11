@@ -67,7 +67,6 @@
 
 | 域名 | 说明 | 
 |:-------:|---------|
-|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名[1] | 
-|`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名[2] | 
+|`https://official.opensso.tencent-cloud.com` | WebRTC 音视频鉴权服务域名 | 
+|`https://yun.tim.qq.com` | WebRTC 音视频鉴权服务域名 | 
 |`https://cloud.tencent.com`| 推流域名 | 
-|`https://webim.tim.qq.com` | IM域名 |
