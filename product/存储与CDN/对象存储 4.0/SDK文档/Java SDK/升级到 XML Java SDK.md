@@ -13,6 +13,8 @@
 | 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
 ## 升级步骤
+请按照下面4个步骤升级 Java SDK。
+
 **1. 更新 Java SDK**
 
 XML Java SDK 发布在 [maven](https://mvnrepository.com/artifact/com.qcloud/cos_api) 中央仓库，推荐您使用 maven 自动管理依赖方式引入。
