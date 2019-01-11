@@ -23,7 +23,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 
 #### 3 创建Bucket
 
-登录 [COS 控制台](https://console.cloud.tencent.com/cos)，若未开通，请点击开通 COS 对象存储服务，在左侧点击【Bucket列表】：
+登录 [COS 控制台](https://console.cloud.tencent.com/cos)，若未开通，请单击开通 COS 对象存储服务，在左侧单击【Bucket列表】：
 ![](https://mc.qcloudimg.com/static/img/b87d5d718cf5c7e8b6d93cd2acc78783/cos-1.png)
 
 单击【创建Bucket】，填充如下项：
@@ -37,7 +37,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 ![](https://mc.qcloudimg.com/static/img/e3cfe25fbc8f24caa5e7155c333a8b4c/cos-3.png)
 
 #### 4 同步资源
-利用 COS 本地同步工具，将本地资源同步至指定 bucket，使用方式可参考 [COS Migration 工具](https://cloud.tencent.com/document/product/436/7133)。
+利用 COS 本地同步工具，将本地资源同步至指定 bucket，使用方式可参考 [工具指南](https://cloud.tencent.com/document/product/436/7133)。
 
 
 #### 5 资源 URL 变更
