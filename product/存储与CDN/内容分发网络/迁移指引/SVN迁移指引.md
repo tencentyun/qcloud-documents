@@ -37,7 +37,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 ![](https://mc.qcloudimg.com/static/img/e3cfe25fbc8f24caa5e7155c333a8b4c/cos-3.png)
 
 #### 4 同步资源
-利用 COS 本地同步工具，将本地资源同步至指定 bucket，使用方式可参考 [工具指南](https://cloud.tencent.com/document/product/436/7133)。
+利用 COS 本地同步工具，将本地资源同步至指定 bucket，使用方式可参考 [工具指南](https://cloud.tencent.com/document/product/436/15392)。
 
 
 #### 5 资源 URL 变更
