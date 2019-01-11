@@ -8,6 +8,7 @@
 
 ## 操作步骤
 
+<span id="ObtainInformation"></span>
 ### 获取信息
 
 1. 登录 [黑石私有网络控制台](https://console.cloud.tencent.com/vpcbm/vpc)。
@@ -28,7 +29,7 @@
 
 ### 申请对等连接
 
-[提交工单](https://console.cloud.tencent.com/workorder)，并在工单中填写在 [获取信息]() 中记录的 “所在地域”、“节点网络”、“容器网络” 和 当前账号的 APPID 信息。
+[提交工单](https://console.cloud.tencent.com/workorder)，并在工单中填写在 [获取信息](#ObtainInformation) 中记录的 “所在地域”、“节点网络”、“容器网络” 和 当前账号的 APPID 信息。
 
 ### 预期结果
 
