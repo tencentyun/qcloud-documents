@@ -382,7 +382,7 @@ cos.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 
 		var myFile = '111/2.txt';//填您自己实际存在的文件
 
-		//注意一下目标的路径，这里如果填333/2.txt 则表示文件复制到111/333/2.txt
+		//注意目标的路径，这里如果填333/2.txt 则表示文件复制到111/333/2.txt
 		//如果填/333/2.txt 则表示文件复制到bucket根目录下的333/2.txt
 		var newFile = '/333/2.txt';
 		var overWrite = 1;//0 表示不覆盖 1表示覆盖
@@ -430,7 +430,7 @@ cos.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 
 		var myFile = '/111/2.txt';//填您自己实际存在的文件
 
-		//注意一下目标的路径，这里如果填333/2.txt 则表示文件移动到111/333/2.txt
+		//注意目标的路径，这里如果填333/2.txt 则表示文件移动到111/333/2.txt
 		//如果填/333/2.txt 则表示文件移动到bucket根目录下的333/2.txt
 		//如果填/111/3.txt 则相当于把2.txt改名成3.txt
 		var newFile = '/333/2.txt';
@@ -475,7 +475,7 @@ cos.createFolder(successCallBack, errorCallBack, bucket, path);
 ```js
 
 	$('#createFolder').on('click', function () {
-		var newFolder = '/333/';//填您需要创建的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要创建的文件夹
 		cos.createFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
@@ -515,7 +515,7 @@ cos.deleteFolder(successCallBack, errorCallBack, bucket, path);
 
 	//删除文件夹
 	$('#deleteFolder').on('click', function () {
-		var newFolder = '/333/';//填您需要删除的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要删除的文件夹
 		cos.deleteFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
