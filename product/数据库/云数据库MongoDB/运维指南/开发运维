@@ -7,4 +7,4 @@ MongoDB 3.6版本本实例如果反复drop一个 Database 然后创建一个相�
 解决办法有两种，**请选择其中一种**：<br>
 1. 重启 mongos，该操作可以在控制台进行，请参考下图。<br>
 ![](https://main.qcloudimg.com/raw/0ab109e9a0adad49c3d96660132ea290.png)
-2. 或者运行[flushRouterConfig](https://docs.mongodb.com/manual/reference/command/flushRouterConfig/#dbcmd.flushRouterConfig)命令。
+2. 或者运行 [flushRouterConfig](https://docs.mongodb.com/manual/reference/command/flushRouterConfig/#dbcmd.flushRouterConfig)命令。
