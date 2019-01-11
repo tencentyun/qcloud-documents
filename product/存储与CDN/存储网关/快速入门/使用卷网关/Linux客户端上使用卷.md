@@ -15,13 +15,13 @@ sudo /etc/init.d/iscsi status    //适用于RHEL 5 或 RHEL 6
 sudo service iscsid status    //适用于RHEL 7
 ```
 
-如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。
+如果使用上述命令检查未返回 running 状态，请使用以下命令运行程序。
 ```
 sudo /etc/init.d/iscsi start    
 ```
 
 ### 发现卷
-请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP。
+请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用以下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP。
 ```
 sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal <GATEWAY_IP>:3260  
  
