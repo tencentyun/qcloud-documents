@@ -297,7 +297,7 @@ void onConnectionRecovery()
 
 ### onSpeedTest
 
-SDK 跟服务器的连接断开 （暂无） ：6.5 服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
+服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
 
 ```
 void onSpeedTest(TRTCCloudDef.TRTCSpeedTestResult currentResult, int finishedCount, int totalCount)
@@ -464,87 +464,6 @@ __参数__
 | userId | String | 用户标识  |
 | streamType | int | 视频流类型  |
 | frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧  |
-
-<br/>
-
-
-
-## TRTCAudioListener
-
-__功能__
-
-
-音频相关回调。
-
-
-__说明__
-
-
-请按需定义相关函数实现，减少不必要的性能损耗。
-
-
-<br/>
-
-### onCapturedAudioData
-
-本机采集到的声音回调。
-
-```
-void onCapturedAudioData(TRTCCloudDef.TRTCAudioFrame frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
-
-__说明__
-
-
-此接口回调的音频数据可修改。
-
-
-<br/>
-
-
-### onPlayAudioDataBeforeMixing
-
-混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
-
-```
-void onPlayAudioDataBeforeMixing(TRTCCloudDef.TRTCAudioFrame frame, String userId)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
-| userId | String | 用户标识  |
-
-__说明__
-
-
-此接口回调的音频数据不可修改。
-
-
-<br/>
-
-
-### onPlayAudioDataAfterMixing
-
-经过混合后的声音。
-
-```
-void onPlayAudioDataAfterMixing(TRTCCloudDef.TRTCAudioFrame frame)
-```
-
-__说明__
-
-
-此接口回调的音频数据可修改。
-
 
 <br/>
 

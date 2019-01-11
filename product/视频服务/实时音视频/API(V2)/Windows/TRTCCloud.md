@@ -165,7 +165,7 @@ __参数__
 __介绍__
 
 
-当屏幕本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知。
+当屏蔽或重新开启本地视频后，房间里的其它成员会收到 onUserVideoAvailable 回调通知。         
 
 
 <br/>
@@ -363,6 +363,23 @@ __介绍__
 <br/>
 
 
+### setLocalVideoMirror
+
+设置摄像头本地预览是否开镜像。
+
+```
+void setLocalVideoMirror(bool mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| mirror | bool | 是否开启预览镜像  |
+
+<br/>
+
+
 
 ## 音频相关接口函数
 
@@ -378,7 +395,6 @@ __说明__
 
 
 TRTC SDK 并不会默认打开本地的麦克风采集。 
-该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 
 
 <br/>
@@ -412,7 +428,7 @@ __参数__
 __说明__
 
 
-当屏蔽本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知。
+屏蔽或重新开启本地音频后，房间里的其它成员会收到 onUserAudioAvailable 回调通知。 
 
 
 <br/>
@@ -630,7 +646,7 @@ TXString getCurrentSpeakerDevice()
 
 ### getCurrentSpeakerVolume
 
-查询已选择扬声器的音量，注意查询得到不是系统扬声器的音量大小。
+查询已选择扬声器的音量，注意查询的不是系统扬声器的音量大小。         
 
 ```
 uint32_t getCurrentSpeakerVolume()
@@ -682,80 +698,6 @@ __参数__
 
 ## 音视频自定义接口
 
-### enableCustomVideoCapture
-
-启用视频自定义采集模式，即放弃SDK原来的视频采集流程，改用sendCustomVideoData向SDK塞入自己采集的视频画面。
-
-```
-void enableCustomVideoCapture(bool enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | bool | 是否启用  |
-
-<br/>
-
-
-### sendCustomVideoData
-
-发送自定义的视频SampleBuffer SDK内部不做帧率控制, 请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致, 否则编码器输出的码率会不受控制。         
-
-```
-void sendCustomVideoData(TRTCVideoFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCVideoFrame * | 视频数据，仅支持PixelBuffer I420数据  |
-
-<br/>
-
-
-### enableCustomAudioCapture
-
-启用音频自定义采集模式，即放弃SDK原来的声音采集流程，改用enableCustomAudioCapture向SDK塞入自己采集的声音数据（PCM格式）。
-
-```
-void enableCustomAudioCapture(bool enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | bool | 是否启用  |
-
-<br/>
-
-
-### sendCustomAudioData
-
-发送客户自定义的音频PCM数据。
-
-```
-void sendCustomAudioData(TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCAudioFrame * | 音频数据，仅支持PCM格式  |
-
-__介绍__
-
-
-如果是单声道，请保证每次传入的PCM长度为2048个采样点；如果是双声道，请保证每次传入的PCM长度为4096个采样点 要求每个采样点的位宽是 16bit。
-
-
-<br/>
-
-
 ### setLocalVideoRenderCallback
 
 设置本地视频自定义渲染。
@@ -801,7 +743,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 调用setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)停止回调。
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 调用setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)停止回调。 
 
 
 <br/>
@@ -961,7 +903,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 设置的音量大小，范围是[0, 100]  |
+| volume | uint32_t | 音量大小，100为正常音量，值为0~200  |
 
 <br/>
 
@@ -978,7 +920,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 设置的音量大小，范围是[0, 100]  |
+| volume | uint32_t | 音量大小，100为正常音量，值为0~200  |
 
 <br/>
 
@@ -1005,7 +947,7 @@ __参数__
 __介绍__
 
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
+监听 ITRTCCloudCallback::onSpeedTest 回调获取测速结果 测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
 注意：测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
 
 
@@ -1025,7 +967,7 @@ void stopSpeedTest()
 
 ### startCameraDeviceTest
 
-开启摄像头测速，会触发 onLocalVideoFrameAfterProcess 回调接口。
+开启摄像头测试，会触发 onLocalVideoFrameAfterProcess 回调接口。
 
 ```
 void startCameraDeviceTest(HWND rendHwnd)
@@ -1042,7 +984,7 @@ __参数__
 
 ### stopCameraDeviceTest
 
-停止摄像头测速。
+停止摄像头测试。         
 
 ```
 void stopCameraDeviceTest()
@@ -1053,7 +995,7 @@ void stopCameraDeviceTest()
 
 ### startMicDeviceTest
 
-开启麦克风测试，回调接口 onTestMicVolume 获取视频数据。
+开启麦克风测试，回调接口 onTestMicVolume 获取测试数据。
 
 ```
 void startMicDeviceTest(uint32_t interval)
@@ -1081,7 +1023,7 @@ void stopMicDeviceTest()
 
 ### startSpeakerDeviceTest
 
-开启扬声器测试，回调接口 onTestSpeakerVolume 获取视频数据。
+开启扬声器测试，回调接口 onTestSpeakerVolume 获取测试数据。
 
 ```
 void startSpeakerDeviceTest(const char * testAudioFilePath)
@@ -1121,14 +1063,14 @@ void stopSpeakerDeviceTest()
 启动CDN发布：通过腾讯云将当前房间的音视频流发布到直播CDN上。
 
 ```
-void startPublishCDNStream(TRTCPublishCDNParam param)
+void startPublishCDNStream(const TRTCPublishCDNParam & param)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCPublishCDNParam | 请参考 TRTCCloudDef.h 中关于  |
+| param | const TRTCPublishCDNParam & | 请参考 TRTCCloudDef.h 中关于  |
 
 __介绍__
 
@@ -1155,21 +1097,32 @@ void stopPublishCDNStream()
 
 ### startCloudMixTranscoding
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => =>
-                        \
- 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
-                        /
- 【画面3】=> 解码 => =>。
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
-void startCloudMixTranscoding(TRTCTranscodingConfig config)
+void startCloudMixTranscoding(const TRTCTranscodingConfig & config)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | TRTCTranscodingConfig | 请参考 TRTCCloudDef.h 中关于  |
+| config | const TRTCTranscodingConfig & | 请参考 TRTCCloudDef.h 中关于  |
+
+__介绍__
+
+
+<pre>
+
+【画面1】=> 解码 => =>
+                       \
+【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                       /
+【画面3】=> 解码 => =>
+ 
+</pre>
+        
+
 
 <br/>
 

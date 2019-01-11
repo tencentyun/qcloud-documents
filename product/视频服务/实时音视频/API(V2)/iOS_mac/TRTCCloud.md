@@ -367,6 +367,23 @@ __介绍__
 <br/>
 
 
+### setLocalVideoMirror
+
+设置摄像头本地预览是否开镜像。
+
+```
+ - (void)setLocalVideoMirror:(BOOL)mirror 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| mirror | BOOL | 是否开启预览镜像  |
+
+<br/>
+
+
 
 ## 音频相关接口函数
 
@@ -721,14 +738,14 @@ __参数__
 设置麦克风设备的音量。
 
 ```
- - (void)setCurrentMicDeviceVolume:(float)volume 
+ - (void)setCurrentMicDeviceVolume:(NSInteger)volume 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 麦克风音量值, 范围0~100  |
+| volume | NSInteger | 麦克风音量值, 范围0~100  |
 
 <br/>
 
@@ -788,14 +805,14 @@ __参数__
 设置当前扬声器音量。
 
 ```
- - (int)setCurrentSpeakerDeviceVolume:(float)volume 
+ - (int)setCurrentSpeakerDeviceVolume:(NSInteger)volume 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 设置的扬声器音量, 范围0~100  |
+| volume | NSInteger | 设置的扬声器音量, 范围0~100  |
 
 <br/>
 
@@ -860,81 +877,6 @@ __参数__
 
 
 ## 音视频自定义接口
-
-### enableCustomVideoCapture
-
-启用视频自定义采集模式，即放弃SDK原来的视频采集流程，改用sendVideoSampleBuffer向SDK塞入自己采集的视频画面。
-
-```
- - (void)enableCustomVideoCapture:(BOOL)enable 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | BOOL | 是否启用  |
-
-<br/>
-
-
-### sendCustomVideoData
-
-发送自定义的SampleBuffer。
-
-```
- - (void)sendCustomVideoData:(TRTCVideoFrame *)frame 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCVideoFrame * | 视频数据 仅支持PixelBuffer I420数据  |
-
-__说明__
-
-
-SDK内部不做帧率控制,请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致,否则编码器输出的码率会不受控制。
-
-
-<br/>
-
-
-### enableCustomAudioCapture
-
-启用音频自定义采集模式，即放弃SDK原来的声音采集流程，改用enableCustomAudioCapture向SDK塞入自己采集的声音数据（PCM格式）。
-
-```
- - (void)enableCustomAudioCapture:(BOOL)enable 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| enable | BOOL | 是否启用  |
-
-<br/>
-
-
-### sendCustomAudioData
-
-发送客户自定义的音频PCM数据。
-
-```
- - (void)sendCustomAudioData:(TRTCAudioFrame *)frame 
-```
-
-__说明__
-
-
-如果是单声道，请保证每次传入的PCM长度为2048个采样点；如果是双声道，请保证每次传入的PCM长度为4096个采样点 
-要求每个采样点的位宽是 16bit。
-
-
-<br/>
-
 
 ### setLocalVideoRenderDelegate
 
@@ -1112,14 +1054,14 @@ __参数__
 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。
 
 ```
- - (void)setMicVolumeOnMixing:(float)volume 
+ - (void)setMicVolumeOnMixing:(NSInteger)volume 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 音量大小，1为正常音量，值为0~2  |
+| volume | NSInteger | 音量大小，100为正常音量，值为0~200  |
 
 <br/>
 
@@ -1129,14 +1071,14 @@ __参数__
 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
 
 ```
- - (void)setBGMVolume:(float)volume 
+ - (void)setBGMVolume:(NSInteger)volume 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | float | 音量大小，1为正常音量，建议值为0~2，如果需要调大背景音量可以设置更大的值  |
+| volume | NSInteger | 音量大小，100为正常音量，建议值为0~200，如果需要调大背景音量可以设置更大的值  |
 
 <br/>
 
@@ -1336,11 +1278,7 @@ __介绍__
 
 ### startCloudMixTranscoding
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上  【画面1】=> 解码 => => 
-                        \
- 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
-                        /
- 【画面3】=> 解码 => =>。
+启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
  - (void)startCloudMixTranscoding:(TRTCTranscodingConfig *)config 
@@ -1351,6 +1289,21 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于  |
+
+__介绍__
+
+
+<pre>
+
+【画面1】=> 解码 => =>
+                        \
+【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
+                        /
+【画面3】=> 解码 => =>
+ 
+</pre>
+        
+
 
 <br/>
 
@@ -1536,16 +1489,6 @@ __说明__
 
 ```
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
-```
-
-<br/>
-
-### audioDelegate
-
-设置音频数据回调，传入nil取消监听。
-
-```
-@property (nonatomic, weak) id< TRTCAudioDelegate > audioDelegate;
 ```
 
 <br/>

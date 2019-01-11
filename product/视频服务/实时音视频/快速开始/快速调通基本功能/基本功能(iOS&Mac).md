@@ -52,14 +52,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
-这里请注意，虽然 roomId 的定义是字符串类型，但这仅仅是为了后续的兼容考虑，目前 TRTC 的云端服务还<font color='red'>不支持</font>字符串类型的 roomId，所以请使用数字转换成的房间号（如“123”，“901”），不要使用非数字类型（比如“abc”），否则会收到 **ERR_ROOM_ID_NOT_INTEGER** 报错。
-
- iOS 下数字转字符串的代码为：
-```Objective-C
-int roomId = 123; // 数字类型的房间号
-NSString* roomIdStr = [NSString stringWithFormat:@"%d", roomId]; //转换成字符串
-param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_INTEGER 错误
-```
+房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
 
 ## 进入(或创建)房间
 
@@ -74,10 +67,10 @@ param.roomId= roomIdStr; // 这样产生的 roomid 才不会报 ERR_ROOM_ID_NOT_
 {
 	//TRTCParams 定义参考头文件TRTCCloudDef.h
 	TRTCParams *params = [[TRTCParams alloc] init];
-	params.sdkAppId = sdkappid;
-	params.userId = userid;
-	params.userSig = usersig;
-	params.roomId = @"908"; //输入您想进入的房间
+	params.sdkAppId    = sdkappid;
+	params.userId      = userid;
+	params.userSig     = usersig;
+	params.roomId      = 908; //输入您想进入的房间
 	[trtcCloud enterRoom:param];
 }
 
@@ -127,15 +120,15 @@ TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRe
 }
 ```
 
-## 开启本地音频流
-TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集和音频流的广播。
+## 开启（或关闭）本地声音采集
+TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio`则会关闭之。
 
 - `startLocalAudio` 会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 - 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
 
-## 开启本地摄像头采集
+## 开启（或关闭）本地视频采集
 
-TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示摄像头的预览画面。
+TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭之。
 
 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
@@ -165,18 +158,18 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 ## 屏蔽音视频数据流
 
 - **屏蔽本地视频数据**
-如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
-
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的视频数据，让房间里的其他用户暂时无法看到您的画面，可以调用 `muteLocalVideo`。
+  
 - **屏蔽本地音频数据**
-如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
-
+  如果用户在通话过程中，出于隐私目的希望屏蔽本地的音频数据，让房间里的其他用户暂时无法听到您的声音，可以调用 `muteLocalAudio`。
+  
 - **屏蔽远程视频数据**
-通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
-通过 `stopAllRemoteView` 可以屏蔽所有 userid 的视频数据。
-
+  通过 `stopRemoteView` 可以屏蔽某一个 userid 的视频数据。
+  通过 `stopAllRemoteView` 可以屏蔽所有远端用户的视频数据。
+  
 - **屏蔽远程音频数据**
-通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
-通过 `muteAllRemoteAudio` 可以屏蔽所有远程用户的音频数据。
+  通过 `muteRemoteAudio` 可以屏蔽某一个 userid 的音频数据。
+  通过 `muteAllRemoteAudio` 可以屏蔽所有远端用户的音频数据。
 
 
 ## 退出房间
