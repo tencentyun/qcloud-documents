@@ -52,13 +52,6 @@ http://8888.liveplay.myqcloud.com/live/8888_185e1a7b26423ca4470a99fa9d9b4b9b.flv
 http://8888.liveplay.myqcloud.com/live/8888_185e1a7b26423ca4470a99fa9d9b4b9b.m3u8
 ```
 
-### 将多路画面合成一路（云端混流转码）
-
-调用 TRTCCloud 的 `startCloudMixTranscoding` 可以对各路画面的摆放位置以及最终的画面质量进行配置，这里的配置方法需要您参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
-
- > `startCloudMixTranscoding` 并不是在终端进行混流，而是将混流配置传输到云端，由云端进行混流和转码，所以不用担心这里的性能问题。
-
-
 ### 混合画面的转推和播放
 
 由于多路画面的混合需要您指定画面间的叠加方式，所以混合画面的播放地址并没有默认的，需要您按照如下三步进行获取。
