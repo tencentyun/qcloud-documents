@@ -63,7 +63,7 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	```
 	mkfs.ext3 /dev/vdb1
 	```
-	
+	执行命令如下图所示：
 	![](https://mccdn.qcloud.com/img56a6053fb5aa0.png)
 
 - **挂载及查看分区**
