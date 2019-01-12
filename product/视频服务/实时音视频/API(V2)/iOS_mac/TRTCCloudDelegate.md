@@ -410,33 +410,73 @@ __说明__
 ## 旁路转推和混流回调
 
 ### onStartPublishCDNStream
+
+接口startPublishCDNStream的状态回调。
+
 ```
  - (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStopPublishCDNStream
+
+接口stopPublishCDNStream的状态回调。
+
 ```
  - (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStartCloudMixTranscoding
+
+接口startCloudMixTranscoding的状态回调。
+
 ```
  - (void)onStartCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStopCloudMixTranscoding
+
+接口stopCloudMixTranscoding的状态回调。
+
 ```
  - (void)onStopCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
