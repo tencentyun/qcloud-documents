@@ -1,8 +1,8 @@
 ## 操作场景
-
+该指南指导您如何添加 Windows 域内资源。
 
 ## 前提条件
-需已添加 Windows 域控资源。具体请您查看 [添加 Windows 域控资源](https://cloud.tencent.com/document/product/1025/32500) 文档。
+数据安全网关系统需已添加 Windows 域控资源。具体请您查看 [添加 Windows 域控资源](https://cloud.tencent.com/document/product/1025/32500) 文档。
 
 ## 操作步骤
 1. 使用管理员账号登录数据安全网关系统。
