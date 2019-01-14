@@ -11,29 +11,10 @@
 
 ### 接入准备
 
-#### 方案1. 官方CocoaPods
 请将下面代码加入到您的Podfile中：
 ```
 pod 'SuperPlayer'
 ```
-
-#### 方案2. 本地CocoaPods
-
-下载SDK [下载地址](https://cloud.tencent.com/document/product/881/20205)，解压到本地。
-
-以独立播放器版为例，此时您可以看到解压后的文件
-
-![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
-
-其中，播放器代码位于Demo/SuperPlayer，SDK库位于SDK目录。
-
-在您的Podfile文件，添加下面代码：
-```
-pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec', :subspecs => ['Player']
-# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
-```
-
-命令行输入 `pod install` 或 `pod update` 执行安装。
 
 ### 使用播放器
 播放器主类为`SuperPlayerView`，创建后即可播放视频。
