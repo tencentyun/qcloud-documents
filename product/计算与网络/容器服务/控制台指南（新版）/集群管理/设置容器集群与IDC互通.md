@@ -12,7 +12,8 @@
 1. 参考 [申请物理专线](https://cloud.tencent.com/document/product/216/19244)，申请物理专线。
 2. 参考 [申请通道](https://cloud.tencent.com/document/product/216/19250)，申请通道。
 3. 参考 [创建专线网关](https://cloud.tencent.com/document/product/216/19256)，创建专线网关。
-4. 验证容器节点与 IDC 互通（**请保证本步骤验证通过**）。
+4. 验证容器节点与 IDC 互通。
+>! 执行此步骤时，请保证容器节点与 IDC 互通，验证通过。
 6. 准备地域，appID，集群 ID，vpcID，专线网关 ID 信息，[提交工单](https://console.qcloud.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 打通容器网络。
 7. 根据 IDC 使用的协议类型，选择操作方式。
  - 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。
