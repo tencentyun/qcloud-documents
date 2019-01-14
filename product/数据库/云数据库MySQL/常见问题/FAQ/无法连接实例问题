@@ -59,7 +59,7 @@
 
 #### MySQL 实例安全组配置有误
 
-若想要指定的 CVM 实例通过内网访问 MySQL 实例或者使用外网访问 MySQL 实例，需要在 MySQL 安全组中配置入站规则，**当入站规则的源端配置不为0.0.0.0 / 0且协议端口不为ALL时**，需要把 CVM 实例的内网 IP 或者外网客户端 IP 及端口添加到入站规则中。 
+若想要指定的 CVM 实例通过内网访问 MySQL 实例或者使用外网访问 MySQL 实例，需要在 MySQL 安全组中配置入站规则，**当入站规则的源端配置不为0.0.0.0/0且协议端口不为ALL时**，需要把 CVM 实例的内网 IP 或者外网客户端 IP 及端口添加到入站规则中。 
 1. 登录[安全组控制台](https://console.cloud.tencent.com/cvm/securitygroup)，单击 MySQL 实例绑定安全组的详情页。
 ![](https://main.qcloudimg.com/raw/fb0ed260d2669b24be77abc4dfc6d83e.png)
 2. 选择入站规则，然后单击添加规则。
