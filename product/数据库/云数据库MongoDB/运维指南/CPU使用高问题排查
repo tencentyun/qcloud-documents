@@ -5,7 +5,7 @@
 若业务 QPS 确实高，请评估是否需要升级实例配置。若业务 QPS 并不高，此时需要排查是不是有慢查询。<br>
 
 2. 查看当前 mongod 上有没有慢日志。
-登陆 [腾讯云 MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，查看实例的慢日志，可选择抽象查询，具体如下图所示。<br>
+登录 [腾讯云 MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，查看实例的慢日志，可选择抽象查询，具体如下图所示。<br>
 ![](https://main.qcloudimg.com/raw/19a7b1568cf38f6b493cb5088cfdff93.png)
 请关注：command、COLLSCAN、IXSCAN、keysExamined、docsExamined 等关键字，更多的日志说明请参考 [MongoDB 官网](https://docs.mongodb.com/manual/reference/log-messages/index.html)。
  
