@@ -21,9 +21,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码 TRTCErrorCode  |
-| errMsg | String | 错误信息  |
-| extraInfo | Bundle | 额外信息，如错误发生的用户，一般不需要关注，默认是本地错误  |
+| errCode | int | 错误码 TRTCErrorCode |
+| errMsg | String | 错误信息 |
+| extraInfo | Bundle | 额外信息，如错误发生的用户，一般不需要关注，默认是本地错误 |
 
 <br/>
 
@@ -40,9 +40,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| warningCode | int | 错误码 TRTCWarningCode  |
-| warningMsg | String | 警告信息  |
-| extraInfo | Bundle | 额外信息，如警告发生的用户，一般不需要关注，默认是本地错误  |
+| warningCode | int | 错误码 TRTCWarningCode |
+| warningMsg | String | 警告信息 |
+| extraInfo | Bundle | 额外信息，如警告发生的用户，一般不需要关注，默认是本地错误 |
 
 <br/>
 
@@ -62,7 +62,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| elapsed | long | 加入房间耗时，单位毫秒  |
+| elapsed | long | 加入房间耗时，单位毫秒 |
 
 <br/>
 
@@ -79,7 +79,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 离开房间原因  |
+| reason | int | 离开房间原因 |
 
 <br/>
 
@@ -99,7 +99,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
+| userId | String | 用户标识 |
 
 <br/>
 
@@ -116,8 +116,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| reason | int | 退出原因  |
+| userId | String | 用户标识 |
+| reason | int | 退出原因 |
 
 <br/>
 
@@ -134,8 +134,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| available | boolean | true：视频可播放，false：视频被关闭  |
+| userId | String | 用户标识 |
+| available | boolean | true：视频可播放，false：视频被关闭 |
 
 <br/>
 
@@ -152,8 +152,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| available | boolean | true：音频可播放，false：音频被关闭  |
+| userId | String | 用户标识 |
+| available | boolean | true：音频可播放，false：音频被关闭 |
 
 <br/>
 
@@ -170,8 +170,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围 [0, 100]  |
-| totalVolume | int | 总的语音音量, 取值范围 [0, 100]  |
+| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围 [0, 100] |
+| totalVolume | int | 总的语音音量, 取值范围 [0, 100] |
 
 <br/>
 
@@ -191,8 +191,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量  |
-| remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量  |
+| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量 |
+| remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量 |
 
 <br/>
 
@@ -209,7 +209,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| statics | TRTCStatistics | 状态数据  |
+| statics | TRTCStatistics | 状态数据 |
 
 __说明__
 
@@ -235,9 +235,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| width | int | 视频宽度  |
-| height | int | 视频高度  |
+| userId | String | 用户标识 |
+| width | int | 视频宽度 |
+| height | int | 视频高度 |
 
 <br/>
 
@@ -254,7 +254,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
+| userId | String | 用户标识 |
 
 <br/>
 
@@ -297,7 +297,7 @@ void onConnectionRecovery()
 
 ### onSpeedTest
 
-SDK 跟服务器的连接断开 （暂无） ：6.5 服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
+服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
 
 ```
 void onSpeedTest(TRTCCloudDef.TRTCSpeedTestResult currentResult, int finishedCount, int totalCount)
@@ -307,9 +307,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果  |
-| finishedCount | int | 已完成测速的服务器数量  |
-| totalCount | int | 需要测速的服务器总数量  |
+| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果 |
+| finishedCount | int | 已完成测速的服务器数量 |
+| totalCount | int | 需要测速的服务器总数量 |
 
 <br/>
 
@@ -366,10 +366,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| cmdID | int | 命令ID  |
-| seq | int | 消息序号  |
-| message | byte [] | 消息数据  |
+| userId | String | 用户标识 |
+| cmdID | int | 命令ID |
+| seq | int | 消息序号 |
+| message | byte [] | 消息数据 |
 
 __说明__
 
@@ -392,10 +392,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| cmdID | int | 数据流ID  |
-| errCode | int | 错误码，当前版本为-1  |
-| missed | int | 丢失的消息数量  |
+| userId | String | 用户标识 |
+| cmdID | int | 数据流ID |
+| errCode | int | 错误码，当前版本为-1 |
+| missed | int | 丢失的消息数量 |
 
 __说明__
 
@@ -410,33 +410,73 @@ __说明__
 ## 旁路转推和混流回调
 
 ### onStartPublishCDNStream
+
+接口startPublishCDNStream的状态回调。
+
 ```
 void onStartPublishCDNStream(int err, String errMsg)
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | String | 错误详细信息 |
 
 <br/>
 
 
 ### onStopPublishCDNStream
+
+接口stopPublishCDNStream的状态回调。
+
 ```
 void onStopPublishCDNStream(int err, String errMsg)
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | String | 错误详细信息 |
 
 <br/>
 
 
 ### onStartCloudMixTranscoding
+
+接口startCloudMixTranscoding的状态回调。
+
 ```
 void onStartCloudMixTranscoding(int err, String errMsg)
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | String | 错误详细信息 |
 
 <br/>
 
 
 ### onStopCloudMixTranscoding
+
+接口stopCloudMixTranscoding的状态回调。
+
 ```
 void onStopCloudMixTranscoding(int err, String errMsg)
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | String | 错误详细信息 |
 
 <br/>
 
@@ -461,90 +501,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | String | 用户标识  |
-| streamType | int | 视频流类型  |
-| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧  |
-
-<br/>
-
-
-
-## TRTCAudioListener
-
-__功能__
-
-
-音频相关回调。
-
-
-__说明__
-
-
-请按需定义相关函数实现，减少不必要的性能损耗。
-
-
-<br/>
-
-### onCapturedAudioData
-
-本机采集到的声音回调。
-
-```
-void onCapturedAudioData(TRTCCloudDef.TRTCAudioFrame frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
-
-__说明__
-
-
-此接口回调的音频数据可修改。
-
-
-<br/>
-
-
-### onPlayAudioDataBeforeMixing
-
-混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
-
-```
-void onPlayAudioDataBeforeMixing(TRTCCloudDef.TRTCAudioFrame frame, String userId)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据  |
-| userId | String | 用户标识  |
-
-__说明__
-
-
-此接口回调的音频数据不可修改。
-
-
-<br/>
-
-
-### onPlayAudioDataAfterMixing
-
-经过混合后的声音。
-
-```
-void onPlayAudioDataAfterMixing(TRTCCloudDef.TRTCAudioFrame frame)
-```
-
-__说明__
-
-
-此接口回调的音频数据可修改。
-
+| userId | String | 用户标识 |
+| streamType | int | 视频流类型 |
+| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧 |
 
 <br/>
 
@@ -575,9 +534,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| log | String | 日志内容  |
-| level | int | 日志等级 参见TRTC_LOG_LEVEL  |
-| module | String | 值暂无具体意义，目前为固定值TXLiteAVSDK  |
+| log | String | 日志内容 |
+| level | int | 日志等级 参见TRTC_LOG_LEVEL |
+| module | String | 值暂无具体意义，目前为固定值TXLiteAVSDK |
 
 <br/>
 

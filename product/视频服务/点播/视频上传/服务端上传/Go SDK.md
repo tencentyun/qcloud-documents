@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 Go SDK 来实现。上传的流程可以参见 [服务端上传指引](/https://cloud.tencent.com/document/product/266/9759)。
+对于在服务端上传视频的场景，腾讯云点播提供了 Go SDK 来实现。上传的流程可以参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
 
 ## 集成方式
 

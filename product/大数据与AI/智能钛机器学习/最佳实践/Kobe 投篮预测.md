@@ -72,7 +72,7 @@
 ### 上传训练数据
 1. 在左侧菜单栏，选择【输入】>【数据源】>【本地数据】。
 2. 将【本地数据】组件拖入画布，填写参数。
-    ![](https://main.qcloudimg.com/raw/4f0e510dcbe2a4f489149c2f801f03e3.png)
+   ![](https://main.qcloudimg.com/raw/db0fe33b0d84b0db515c374df01f2272.png)
 3. 在参数配置中，上传数据文件：选择本地文件“train.txt”并上传。
 >?目标 COS 路径自动生成，支持修改。
 
@@ -80,6 +80,7 @@
 ### 训练集特征处理
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【特征转换】>【Dummy】。
 2. 将【Dummy】组件拖入画布，右键单击重命名为：训练特征处理。
+![](https://main.qcloudimg.com/raw/1267899cc29811cd575eb2993b394e2d.png)
 3. 特征生成配置：上传本地文件 feature_conf.json。
 4. 填写参数：
  - 输入输出路径根据连线自动生成，无需用户填写。
@@ -87,31 +88,32 @@
  - 并行数：100
  - 特征频次阈值：2
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
+![](https://main.qcloudimg.com/raw/ba4c97e752ca1014d9e870a25e1ef975.png)
 
 ### 数据拆分
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【数据预处理】>【Splitter】。
 2. 将【Splitter】组件拖入画布，右键单击重命名为：训练数据拆分。
+![](https://main.qcloudimg.com/raw/6ecb453eba66d73f626b129281200a60.png)
 3. 填写参数：
  - 输入输出路径根据连线自动生成，无需用户填写。
  - 并行数：11
  - 切分比例：0.7
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png) 
+![](https://main.qcloudimg.com/raw/4244dd0e533d30684d2f0648ea93f8a1.png)
 
 ### 训练投篮预测模型
 1. 在左侧菜单栏，选择【算法】>【机器学习算法】>【分类】>【SparseLogicalRegression】。
 2. 将【SparseLogicalRegression】组件拖入画布，右键单击重命名为：投篮预测训练模型。
 3. 填写参数：
  - 输入数据根据连线自动生成。
- - 并行数：10
+ - 并行数：100
  - 验证集数据若未生成，则需要用户手动将上一组件与本组件相连，重新点开参数配置栏，验证集数据根据连线自动生成。
  - 子模型数：2
  - L1 正则系数：0.001
  - rho：0.01
  - 最大迭代次数：20
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/ab313a03b34d21bc3c78f7a9d561092c/kobe%E6%8A%95%E7%AF%AE%20%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A43.png)
+ ![](https://main.qcloudimg.com/raw/6f83704fd060736f5f619d24712b7d69.png)
 
 
 ### 上传验证数据
@@ -122,7 +124,7 @@
   
 > !从训练特征集处理到验证数据源的连线并非代表这里有数据流传输，只是因为后面的验证集特征处理会用到训练特征集处理的产出物，所以要确保验证特征集处理的开始时间在训练特征集处理结束之后。
 
-![](https://main.qcloudimg.com/raw/fbd21bb7f46d42c39c433ada184438bc.png)
+![](https://main.qcloudimg.com/raw/ec1bdc7847be1e1ce23bfbffbfa24f1a.png)
 
 
 
@@ -137,7 +139,7 @@
  - 并行数：100
  - 特征频次阈值：2
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)   
+![](https://main.qcloudimg.com/raw/2388b96d2b4372009bad2e587cd9b211.png)
 
 ### 模型验证
 1. 单击投篮预测模型旁边的小圈。
@@ -146,7 +148,7 @@
  - 将验证集特征处理组件与模型小圈连线，输入输出路径根据连线自动生成。
  - 并行数：10
  - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
+   ![](https://main.qcloudimg.com/raw/709064539ac3b49a75eb5a761fc12804.png)
 
 
 ### 模型评估
@@ -160,7 +162,7 @@
  - 并行数：20
  - 预测阈值：0.5
  - 其余使用默认值。
-![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
+![](https://main.qcloudimg.com/raw/4a63a43f4b68198703b6252e91116f7e.png)
   
 ## 操作说明
 ### 保存工作流
