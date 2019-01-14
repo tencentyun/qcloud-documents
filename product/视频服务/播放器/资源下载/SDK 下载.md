@@ -88,7 +88,7 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Player_iOS_5.4.6097.zip">iOS下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="https://github.com/tencentyun/SuperPlayer">iOS下载</a></td>
         <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Player_Android_5.4.6097.zip">Android下载</a></td>
   </tr>
 </table>
