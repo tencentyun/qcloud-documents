@@ -13,9 +13,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
-| errMsg | const char * | 错误信息  |
-| arg | void * | 保留参数  |
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+| arg | void * | 保留参数 |
 
 <br/>
 
@@ -32,9 +32,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| warningCode | TXLiteAVWarning | 错误码  |
-| warningMsg | const char * | 警告信息  |
-| arg | void * | 保留参数  |
+| warningCode | TXLiteAVWarning | 错误码 |
+| warningMsg | const char * | 警告信息 |
+| arg | void * | 保留参数 |
 
 <br/>
 
@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| elapsed | uint64_t | 进房耗时  |
+| elapsed | uint64_t | 进房耗时 |
 
 <br/>
 
@@ -71,7 +71,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 退出原因  |
+| reason | int | 退出原因 |
 
 <br/>
 
@@ -91,7 +91,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
+| userId | const char * | 用户标识 |
 
 <br/>
 
@@ -108,8 +108,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| reason | int | 退出原因  |
+| userId | const char * | 用户标识 |
+| reason | int | 退出原因 |
 
 <br/>
 
@@ -126,8 +126,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| available | bool | true：视频可播放，false：视频被关闭  |
+| userId | const char * | 用户标识 |
+| available | bool | true：视频可播放，false：视频被关闭 |
 
 <br/>
 
@@ -144,8 +144,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| available | bool | true：音频可播放，false：音频被关闭  |
+| userId | const char * | 用户标识 |
+| available | bool | true：音频可播放，false：音频被关闭 |
 
 <br/>
 
@@ -162,9 +162,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100]  |
-| userVolumesCount | uint32_t | 发言者的人数，即userVolumes数组的大小  |
-| totalVolume | uint32_t | 总的语音音量, 取值范围 [0, 100]  |
+| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100] |
+| userVolumesCount | uint32_t | 发言者的人数，即userVolumes数组的大小 |
+| totalVolume | uint32_t | 总的语音音量, 取值范围 [0, 100] |
 
 <br/>
 
@@ -184,9 +184,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| localQuality | TRTCQualityInfo | 上行网络质量  |
-| remoteQuality | TRTCQualityInfo * | 下行网络质量的数组  |
-| remoteQualityCount | uint32_t | 下行网络质量的数组大小  |
+| localQuality | TRTCQualityInfo | 上行网络质量 |
+| remoteQuality | TRTCQualityInfo * | 下行网络质量的数组 |
+| remoteQualityCount | uint32_t | 下行网络质量的数组大小 |
 
 <br/>
 
@@ -203,7 +203,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| statis | const TRTCStatistics & | 状态数据  |
+| statis | const TRTCStatistics & | 状态数据 |
 
 __介绍__
 
@@ -229,9 +229,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| width | uint32_t | 画面宽度  |
-| height | uint32_t | 画面高度  |
+| userId | const char * | 用户标识 |
+| width | uint32_t | 画面宽度 |
+| height | uint32_t | 画面高度 |
 
 <br/>
 
@@ -248,7 +248,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
+| userId | const char * | 用户标识 |
 
 <br/>
 
@@ -265,7 +265,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
+| errCode | TXLiteAVError | 错误码 |
 
 <br/>
 
@@ -282,8 +282,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| progressMS | uint32_t | 已播放时间  |
-| durationMS | uint32_t | 总时间  |
+| progressMS | uint32_t | 已播放时间 |
+| durationMS | uint32_t | 总时间 |
 
 <br/>
 
@@ -300,7 +300,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
+| errCode | TXLiteAVError | 错误码 |
 
 <br/>
 
@@ -353,9 +353,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| currentResult | const TRTCSpeedTestResult & | 当前完成的测速结果  |
-| finishedCount | uint32_t | 已完成测速的服务器数量  |
-| totalCount | uint32_t | 需要测速的服务器总数量  |
+| currentResult | const TRTCSpeedTestResult & | 当前完成的测速结果 |
+| finishedCount | uint32_t | 已完成测速的服务器数量 |
+| totalCount | uint32_t | 需要测速的服务器总数量 |
 
 <br/>
 
@@ -397,9 +397,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | const char * | 设备ID  |
-| type | TRTCDeviceType | 设备类型  |
-| state | TRTCDeviceState | 事件类型  |
+| deviceId | const char * | 设备ID |
+| type | TRTCDeviceType | 设备类型 |
+| state | TRTCDeviceState | 事件类型 |
 
 <br/>
 
@@ -416,7 +416,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量值，取值范围 [0, 100]  |
+| volume | uint32_t | 音量值，取值范围 [0, 100] |
 
 <br/>
 
@@ -433,7 +433,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量值，取值范围 [0, 100]  |
+| volume | uint32_t | 音量值，取值范围 [0, 100] |
 
 <br/>
 
@@ -453,11 +453,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| cmdId | int32_t | 命令ID  |
-| seq | uint32_t | 消息序号  |
-| msg | const uint8_t * | 消息数据  |
-| msgSize | uint32_t | 消息数据大小  |
+| userId | const char * | 用户标识 |
+| cmdId | int32_t | 命令ID |
+| seq | uint32_t | 消息序号 |
+| msg | const uint8_t * | 消息数据 |
+| msgSize | uint32_t | 消息数据大小 |
 
 <br/>
 
@@ -474,10 +474,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| cmdId | int32_t | 命令ID  |
-| errCode | int32_t | 错误码，当前版本为-1  |
-| missed | int32_t | 丢失的消息数量  |
+| userId | const char * | 用户标识 |
+| cmdId | int32_t | 命令ID |
+| errCode | int32_t | 错误码，当前版本为-1 |
+| missed | int32_t | 丢失的消息数量 |
 
 __介绍__
 
@@ -509,8 +509,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h  |
-| errMsg | const char * | 错误详细信息  |
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
@@ -527,8 +527,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h  |
-| errMsg | const char * | 错误详细信息  |
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
@@ -545,8 +545,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h  |
-| errMsg | const char * | 错误详细信息  |
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
@@ -563,8 +563,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h  |
-| errMsg | const char * | 错误详细信息  |
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
@@ -586,9 +586,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享  |
-| frame | TRTCVideoFrame * | 视频帧数据  |
+| userId | const char * | 用户标识 |
+| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
+| frame | TRTCVideoFrame * | 视频帧数据 |
 
 <br/>
 
@@ -610,10 +610,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| textureId | int | 回调的 OpenGL 纹理ID  |
-| width | int | 画面宽度  |
-| height | int | 画面长度  |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享  |
+| textureId | int | 回调的 OpenGL 纹理ID |
+| width | int | 画面宽度 |
+| height | int | 画面长度 |
+| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 
 <br/>
 
@@ -635,9 +635,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| log | const char * | 日志内容  |
-| level | TRTCLogLevel | 日志类型  |
-| module | const char * | 暂无具体意义，目前为固定值TXLiteAVSDK  |
+| log | const char * | 日志内容 |
+| level | TRTCLogLevel | 日志类型 |
+| module | const char * | 暂无具体意义，目前为固定值TXLiteAVSDK |
 
 <br/>
 

@@ -1,4 +1,4 @@
-本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识
+本文主要介绍腾讯云 TRTC SDK(Window) 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 
 ## 初始化 SDK
@@ -69,29 +69,30 @@ virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* 
 
 ## 组装 TRTCParams
 
-TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
+TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 SDKAppid，userId，userSig 和 roomId。
 
-- **sdkAppId**
-  进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
-  ![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+- **SDKAppid**
+  进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
+ ![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
 
 - **userId**
   您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-  基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
+  基于 SDKAppid 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
   房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
 
 ## 进入（或创建）房间
 
-组装完 `TRTCParams` 后，即可调用 `enterRoom` 函数加入(或创建)房间。
+调用 `enterRoom` 函数进入房间时，除了需要 TRTCParams 参数，还需要一个叫做 **appScene** 的参数，该参数是指定应用场景用的。
 
-- 调用`enterRoom`接口进入房间，如果这个房间不存在，就会创建房间，并进入这个房间。
-- 监听`onEnterRoom` 回调，这个回调触发时表示进入房间成功，参数`elapsed`表示进房耗时，单位ms。
-- 监听`onError` 回调，进入房间失败时，触发这个回调，参数`errCode`的值是`ERR_ROOM_ENTER_FAIL`。
-- 注意：如果已在房间中，则必须调用 `exitRoom` 接口退出当前房间，才能进入下一个房间。 
+- **VideoCall** 对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。		
+- 如进入房间，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed`代表进入耗时，单位ms。
+- 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
 
 ```c++
 // TRTCMainViewController.cpp
@@ -106,7 +107,7 @@ void TRTCMainViewController::enterRoom()
     params.roomId   = 908; // 输入您想进入的房间
     if(m_pTRTCSDK)
     {
-    	m_pTRTCSDK->enterRoom(params);
+    	m_pTRTCSDK->enterRoom(params, TRTCAppSceneVideoCall);
     }
 }
 
@@ -130,6 +131,8 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 	// 启动本地的视频预览，请参考下面 设置视频编码参数 和 预览本地摄像头画面 的内容
 }
 ```
+
+>!请根据应用场景选择合适的 scene 参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
 
 ## 收听远端音频流
 
@@ -177,7 +180,6 @@ void TRTCMainViewController::onUserExit(const char* userId, int reason)
 
 ## 开启（或关闭）本地声音采集
 TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio`可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio`则会关闭之。
-
 - 您可以在 `startLocalPreview` 之后紧接着调用 `startLocalAudio`。
 
 ## 开启（或关闭）本地视频采集
@@ -230,7 +232,6 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 ## 退出房间
 
 调用`exitRoom`方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
-
 - 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```c++

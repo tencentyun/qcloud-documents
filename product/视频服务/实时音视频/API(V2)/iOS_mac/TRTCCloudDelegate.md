@@ -21,9 +21,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
-| errMsg | nullable NSString * | 错误信息  |
-| extInfo | nullable NSDictionary * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题  |
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | nullable NSString * | 错误信息 |
+| extInfo | nullable NSDictionary * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题 |
 
 <br/>
 
@@ -40,9 +40,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| warningCode | TXLiteAVWarning | 警告码  |
-| warningMsg | nullable NSString * | 警告信息  |
-| extInfo | nullable NSDictionary * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题  |
+| warningCode | TXLiteAVWarning | 警告码 |
+| warningMsg | nullable NSString * | 警告信息 |
+| extInfo | nullable NSDictionary * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题 |
 
 <br/>
 
@@ -62,7 +62,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| elapsed | NSInteger | 加入房间耗时  |
+| elapsed | NSInteger | 加入房间耗时 |
 
 <br/>
 
@@ -79,7 +79,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | NSInteger | 离开房间原因  |
+| reason | NSInteger | 离开房间原因 |
 
 <br/>
 
@@ -99,7 +99,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
+| userId | NSString * | 用户标识 |
 
 <br/>
 
@@ -116,8 +116,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
-| reason | NSInteger | 离开原因代码  |
+| userId | NSString * | 用户标识 |
+| reason | NSInteger | 离开原因代码 |
 
 <br/>
 
@@ -134,8 +134,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
-| available | BOOL | 画面是否开启  |
+| userId | NSString * | 用户标识 |
+| available | BOOL | 画面是否开启 |
 
 <br/>
 
@@ -152,8 +152,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
-| available | BOOL | 声音是否开启  |
+| userId | NSString * | 用户标识 |
+| available | BOOL | 声音是否开启 |
 
 <br/>
 
@@ -170,8 +170,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围 0~100  |
-| totalVolume | NSInteger | 总的语音音量, 取值范围 0~100  |
+| userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围 0~100 |
+| totalVolume | NSInteger | 总的语音音量, 取值范围 0~100 |
 
 <br/>
 
@@ -191,8 +191,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| localQuality | TRTCQualityInfo * | 上行网络质量  |
-| remoteQuality | NSArray< TRTCQualityInfo * > * | 下行网络质量  |
+| localQuality | TRTCQualityInfo * | 上行网络质量 |
+| remoteQuality | NSArray< TRTCQualityInfo * > * | 下行网络质量 |
 
 <br/>
 
@@ -209,7 +209,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| statistics | TRTCStatistics * | 统计数据，包括本地和远程的  |
+| statistics | TRTCStatistics * | 统计数据，包括本地和远程的 |
 
 __说明__
 
@@ -235,9 +235,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户Id  |
-| width | int | 画面宽度  |
-| height | int | 画面高度  |
+| userId | NSString * | 用户Id |
+| width | int | 画面宽度 |
+| height | int | 画面高度 |
 
 <br/>
 
@@ -327,8 +327,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| route | TRTCAudioRoute | 当前音频路由  |
-| fromRoute | TRTCAudioRoute | 变更前的音频路由  |
+| route | TRTCAudioRoute | 当前音频路由 |
+| fromRoute | TRTCAudioRoute | 变更前的音频路由 |
 
 <br/>
 
@@ -345,14 +345,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | NSString * | 设备id  |
-| deviceType | TRTCMediaDeviceType | 设备类型  |
+| deviceId | NSString * | 设备id |
+| deviceType | TRTCMediaDeviceType | 设备类型 |
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| state | NSInteger | 0: 设备断开 1: 设备连接  |
+| state | NSInteger | 0: 设备断开 1: 设备连接 |
 
 <br/>
 
@@ -372,10 +372,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
-| cmdID | NSInteger | 命令ID  |
-| seq | UInt32 | 消息序号  |
-| message | NSData * | 消息数据  |
+| userId | NSString * | 用户标识 |
+| cmdID | NSInteger | 命令ID |
+| seq | UInt32 | 消息序号 |
+| message | NSData * | 消息数据 |
 
 <br/>
 
@@ -392,10 +392,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户标识  |
-| cmdID | NSInteger | 命令ID  |
-| errCode | NSInteger | 错误码  |
-| missed | NSInteger | 丢失的消息数量  |
+| userId | NSString * | 用户标识 |
+| cmdID | NSInteger | 命令ID |
+| errCode | NSInteger | 错误码 |
+| missed | NSInteger | 丢失的消息数量 |
 
 __说明__
 
@@ -410,33 +410,73 @@ __说明__
 ## 旁路转推和混流回调
 
 ### onStartPublishCDNStream
+
+接口startPublishCDNStream的状态回调。
+
 ```
  - (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStopPublishCDNStream
+
+接口stopPublishCDNStream的状态回调。
+
 ```
  - (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStartCloudMixTranscoding
+
+接口startCloudMixTranscoding的状态回调。
+
 ```
  - (void)onStartCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
 
 ### onStopCloudMixTranscoding
+
+接口stopCloudMixTranscoding的状态回调。
+
 ```
  - (void)onStopCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| err | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
@@ -464,9 +504,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息  |
-| userId | NSString *__nullable | 视频源的 userid，如果是本地视频回调，该参数可以不用理会  |
-| streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等  |
+| frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息 |
+| userId | NSString *__nullable | 视频源的 userid，如果是本地视频回调，该参数可以不用理会 |
+| streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等 |
 
 <br/>
 
@@ -500,9 +540,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| log | nullable NSString * | 日志内容  |
-| level | TRTCLogLevel | 日志等级 参见TRTCLogLevel  |
-| module | nullable NSString * | 值暂无具体意义，目前为固定值TXLiteAVSDK  |
+| log | nullable NSString * | 日志内容 |
+| level | TRTCLogLevel | 日志等级 参见TRTCLogLevel |
+| module | nullable NSString * | 值暂无具体意义，目前为固定值TXLiteAVSDK |
 
 <br/>
 

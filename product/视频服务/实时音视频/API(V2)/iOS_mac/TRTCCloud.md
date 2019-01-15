@@ -12,7 +12,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCParams * | 进房参数，请参考  |
+| param | TRTCParams * | 进房参数，请参考 TRTCParams |
 
 __说明__
 
@@ -49,8 +49,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| frontCamera | BOOL | YES:前置摄像头 NO:后置摄像头  |
-| view | TXView * | 承载预览画面的控件所在的父控件  |
+| frontCamera | BOOL | YES:前置摄像头 NO:后置摄像头 |
+| view | TXView * | 承载预览画面的控件所在的父控件 |
 
 <br/>
 
@@ -67,7 +67,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| view | TXView * | 指定渲染控件所在的父控件，SDK会在 view 内部创建一个等大的子控件用来渲染本地摄像头的视频画面  |
+| view | TXView * | 指定渲染控件所在的父控件，SDK会在 view 内部创建一个等大的子控件用来渲染本地摄像头的视频画面 |
 
 __说明__
 
@@ -101,8 +101,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 对方的用户标识  |
-| view | TXView * | 指定渲染控件所在的父控件，SDK会在 view 内部创建一个等大的子控件用来渲染远端画面  |
+| userId | NSString * | 对方的用户标识 |
+| view | TXView * | 指定渲染控件所在的父控件，SDK会在 view 内部创建一个等大的子控件用来渲染远端画面 |
 
 <br/>
 
@@ -119,7 +119,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 对方的用户标识  |
+| userId | NSString * | 对方的用户标识 |
 
 <br/>
 
@@ -147,7 +147,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | BOOL | YES:屏蔽 NO:开启  |
+| mute | BOOL | YES:屏蔽 NO:开启 |
 
 __介绍__
 
@@ -170,7 +170,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCVideoEncParam * | 视频编码参数，详情请参考 TRTCCloudDef.h 中的  |
+| param | TRTCVideoEncParam * | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
 
 <br/>
 
@@ -187,7 +187,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCNetworkQosParam * | 网络流控参数，详情请参考 TRTCCloudDef.h 中的  |
+| param | TRTCNetworkQosParam * | 网络流控参数，详情请参考 TRTCCloudDef.h 中的 TRTCNetworkQosParam 定义 |
 
 <br/>
 
@@ -204,7 +204,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
 <br/>
 
@@ -221,8 +221,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户的id  |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）  |
+| userId | NSString * | 用户的id |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
 <br/>
 
@@ -239,7 +239,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度 |
 
 <br/>
 
@@ -256,8 +256,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户Id  |
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度  |
+| userId | NSString * | 用户Id |
+| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度 |
 
 <br/>
 
@@ -274,7 +274,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持 0 和 180 两个旋转角度  |
+| rotation | TRTCVideoRotation | 支持 0 和 180 两个旋转角度 |
 
 <br/>
 
@@ -291,7 +291,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mode | TRTCGSensorMode | 重力感应模式，详情请参考 TRTCGSensorMode 的定义  |
+| mode | TRTCGSensorMode | 重力感应模式，详情请参考 TRTCGSensorMode 的定义 |
 
 <br/>
 
@@ -308,8 +308,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| enable | BOOL | 是否开启小画面编码  |
-| smallVideoEncParam | TRTCVideoEncParam * | 小流的视频参数  |
+| enable | BOOL | 是否开启小画面编码 |
+| smallVideoEncParam | TRTCVideoEncParam * | 小流的视频参数 |
 
 __介绍__
 
@@ -332,8 +332,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户的uid  |
-| type | TRTCVideoStreamType | 视频流类型，即选择看大画面还是小画面  |
+| userId | NSString * | 用户的uid |
+| type | TRTCVideoStreamType | 视频流类型，即选择看大画面还是小画面 |
 
 __介绍__
 
@@ -356,7 +356,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| type | TRTCVideoStreamType | 默认观看大画面还是小画面  |
+| type | TRTCVideoStreamType | 默认观看大画面还是小画面 |
 
 __介绍__
 
@@ -379,7 +379,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mirror | BOOL | 是否开启预览镜像  |
+| mirror | BOOL | 是否开启预览镜像 |
 
 <br/>
 
@@ -428,7 +428,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | BOOL | YES:屏蔽 NO:开启  |
+| mute | BOOL | YES:屏蔽 NO:开启 |
 
 __介绍__
 
@@ -451,7 +451,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| route | TRTCAudioRoute | 音频路由即声音由哪里输出（扬声器、听筒）  |
+| route | TRTCAudioRoute | 音频路由即声音由哪里输出（扬声器、听筒） |
 
 <br/>
 
@@ -468,8 +468,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 对方的用户标识  |
-| mute | BOOL | YES:静音 NO:非静音  |
+| userId | NSString * | 对方的用户标识 |
+| mute | BOOL | YES:静音 NO:非静音 |
 
 <br/>
 
@@ -486,7 +486,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | BOOL | YES:静音 NO:非静音  |
+| mute | BOOL | YES:静音 NO:非静音 |
 
 <br/>
 
@@ -503,8 +503,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| interval | NSUInteger | 报告间隔单位为ms, 最小间隔20ms, 如果小于等于0则会关闭回调，建议设置为大于200ms  |
-| smoothLevel | NSInteger | 灵敏度，[0,10], 数字越大，波动越灵敏  |
+| interval | NSUInteger | 报告间隔单位为ms, 最小间隔20ms, 如果小于等于0则会关闭回调，建议设置为大于200ms |
+| smoothLevel | NSInteger | 灵敏度，[0,10], 数字越大，波动越灵敏 |
 
 __介绍__
 
@@ -552,7 +552,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| distance | CGFloat | 取值范围 1~5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清  |
+| distance | CGFloat | 取值范围 1~5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清 |
 
 <br/>
 
@@ -580,7 +580,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| enable | BOOL | YES:开启 NO:关闭  |
+| enable | BOOL | YES:开启 NO:关闭 |
 
 <br/>
 
@@ -608,7 +608,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| touchPoint | CGPoint | 对焦位置  |
+| touchPoint | CGPoint | 对焦位置 |
 
 <br/>
 
@@ -636,7 +636,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| enable | BOOL | YES:打开 NO:关闭  |
+| enable | BOOL | YES:打开 NO:关闭 |
 
 <br/>
 
@@ -675,7 +675,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | NSString * | 从getCameraDevicesList中得到的设备id  |
+| deviceId | NSString * | 从getCameraDevicesList中得到的设备id |
 
 <br/>
 
@@ -717,7 +717,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | NSString * | 从getMicDevicesList中得到的设备id  |
+| deviceId | NSString * | 从getMicDevicesList中得到的设备id |
 
 <br/>
 
@@ -745,7 +745,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | NSInteger | 麦克风音量值, 范围0~100  |
+| volume | NSInteger | 麦克风音量值, 范围0~100 |
 
 <br/>
 
@@ -784,7 +784,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | NSString * | 从getSpeakerDevicesList中得到的设备id  |
+| deviceId | NSString * | 从getSpeakerDevicesList中得到的设备id |
 
 <br/>
 
@@ -812,7 +812,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | NSInteger | 设置的扬声器音量, 范围0~100  |
+| volume | NSInteger | 设置的扬声器音量, 范围0~100 |
 
 <br/>
 
@@ -832,10 +832,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| beautyStyle | TRTCBeautyStyle | 美颜风格  |
-| beautyLevel | NSInteger | 美颜级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
-| whitenessLevel | NSInteger | 美白级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
-| ruddinessLevel | NSInteger | 红润级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显  |
+| beautyStyle | TRTCBeautyStyle | 美颜风格 |
+| beautyLevel | NSInteger | 美颜级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显 |
+| whitenessLevel | NSInteger | 美白级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显 |
+| ruddinessLevel | NSInteger | 红润级别，取值范围 0 ~ 9； 0 表示关闭， 1 ~ 9值越大，效果越明显 |
 
 <br/>
 
@@ -852,7 +852,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| image | TXImage * | 指定素材，即颜色查找表图片。注意：一定要用png格式！！！  |
+| image | TXImage * | 指定素材，即颜色查找表图片。注意：一定要用png格式！！！ |
 
 <br/>
 
@@ -869,8 +869,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| image | TXImage * | 水印图片  |
-| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height  |
+| image | TXImage * | 水印图片 |
+| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height |
 
 <br/>
 
@@ -890,9 +890,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调  |
-| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式, 目前仅支持 TRTCVideoPixelFormat_I420  |
-| bufferType | TRTCVideoBufferType | SDK为了提高回调性能，提供了两种PixelBuffer格式，一种是iOS原始的(TRTCVideoBufferType_PixelBuffer)，一种是经过内存整理的(TRTCVideoBufferType_NSData)  |
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调 |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式, 目前仅支持 TRTCVideoPixelFormat_I420 |
+| bufferType | TRTCVideoBufferType | SDK为了提高回调性能，提供了两种PixelBuffer格式，一种是iOS原始的(TRTCVideoBufferType_PixelBuffer)，一种是经过内存整理的(TRTCVideoBufferType_NSData) |
 
 __说明__
 
@@ -915,10 +915,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 自定义渲染回调  |
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调  |
-| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式，目前仅支持 TRTCVideoPixelFormat_I420  |
-| bufferType | TRTCVideoBufferType | SDK为了提高回调性能，提供了两种PixelBuffer格式，一种是iOS原始的(TRTCVideoBufferType_PixelBuffer)，一种是经过内存整理的(TRTCVideoBufferType_NSData)  |
+| userId | NSString * | 自定义渲染回调 |
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调 |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式，目前仅支持 TRTCVideoPixelFormat_I420 |
+| bufferType | TRTCVideoBufferType | SDK为了提高回调性能，提供了两种PixelBuffer格式，一种是iOS原始的(TRTCVideoBufferType_PixelBuffer)，一种是经过内存整理的(TRTCVideoBufferType_NSData) |
 
 __说明__
 
@@ -945,10 +945,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| cmdID | NSInteger | 消息ID，取值范围为 1 ~ 10  |
-| data | NSData * | 待发送的消息，最大支持 1KB（1000字节）的数据大小  |
-| reliable | BOOL | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传  |
-| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息  |
+| cmdID | NSInteger | 消息ID，取值范围为 1 ~ 10 |
+| data | NSData * | 待发送的消息，最大支持 1KB（1000字节）的数据大小 |
+| reliable | BOOL | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
+| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
 __说明__
 
@@ -974,10 +974,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| path | NSString * | 音乐文件路径  |
-| beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知  |
-| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒  |
-| completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知  |
+| path | NSString * | 音乐文件路径 |
+| beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知 |
+| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒 |
+| completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知 |
 
 <br/>
 
@@ -1027,7 +1027,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| path | NSString * | 音乐文件路径，如果path为空，那么返回当前正在播放的music时长  |
+| path | NSString * | 音乐文件路径，如果path为空，那么返回当前正在播放的music时长 |
 
 <br/>
 
@@ -1044,7 +1044,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| pos | NSInteger | 单位毫秒  |
+| pos | NSInteger | 单位毫秒 |
 
 <br/>
 
@@ -1061,7 +1061,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | NSInteger | 音量大小，100为正常音量，值为0~200  |
+| volume | NSInteger | 音量大小，100为正常音量，值为0~200 |
 
 <br/>
 
@@ -1078,7 +1078,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | NSInteger | 音量大小，100为正常音量，建议值为0~200，如果需要调大背景音量可以设置更大的值  |
+| volume | NSInteger | 音量大小，100为正常音量，建议值为0~200，如果需要调大背景音量可以设置更大的值 |
 
 <br/>
 
@@ -1095,7 +1095,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reverbType | TRTCReverbType | ：混响类型 ，详见 TXReverbType  |
+| reverbType | TRTCReverbType | ：混响类型 ，详见 TXReverbType |
 
 <br/>
 
@@ -1112,7 +1112,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| voiceChangerType | TRTCVoiceChangerType | 变声类型, 详见 TXVoiceChangerType  |
+| voiceChangerType | TRTCVoiceChangerType | 变声类型, 详见 TXVoiceChangerType |
 
 <br/>
 
@@ -1132,10 +1132,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| sdkAppId | uint32_t | 应用标识  |
-| userId | NSString * | 用户标识  |
-| userSig | NSString * | 用户签名  |
-| completion | void(^)(TRTCSpeedTestResult *result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调  |
+| sdkAppId | uint32_t | 应用标识 |
+| userId | NSString * | 用户标识 |
+| userSig | NSString * | 用户签名 |
+| completion | void(^)(TRTCSpeedTestResult *result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调 |
 
 __介绍__
 
@@ -1170,7 +1170,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| view | NSView * | 预览控件所在的父控件  |
+| view | NSView * | 预览控件所在的父控件 |
 
 __说明__
 
@@ -1251,7 +1251,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于  |
+| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于 TRTCPublishCDNParam 的介绍 |
 
 __介绍__
 
@@ -1288,20 +1288,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于  |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 |
 
 __介绍__
 
 
 <pre>
-
 【画面1】=> 解码 => =>
                         \
 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
                         /
 【画面3】=> 解码 => =>
- 
 </pre>
+
         
 
 
@@ -1334,7 +1333,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| showType | NSInteger | 0:不显示 1:显示精简版 2:显示全量版  |
+| showType | NSInteger | 0:不显示 1:显示精简版 2:显示全量版 |
 
 __介绍__
 
@@ -1357,8 +1356,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | NSString * | 用户Id  |
-| margin | TXEdgeInsets | 仪表盘内边距，注意这里是基于parentView的百分比，margin的取值范围是0 |
+| userId | NSString * | 用户Id |
+| margin | TXEdgeInsets | 仪表盘内边距，注意这里是基于parentView的百分比，margin的取值范围是01 |
 
 __介绍__
 
@@ -1392,7 +1391,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| level | TRTCLogLevel | 参见 TRTCLogLevel  |
+| level | TRTCLogLevel | 参见 TRTCLogLevel |
 
 <br/>
 
@@ -1409,7 +1408,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| enabled | BOOL | 指定是否启用  |
+| enabled | BOOL | 指定是否启用 |
 
 <br/>
 
@@ -1426,12 +1425,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| enabled | BOOL | 指定是否启用  |
+| enabled | BOOL | 指定是否启用 |
 
 __介绍__
 
 
-开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。         
+开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
+        
 
 
 <br/>
@@ -1449,7 +1449,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| path | NSString * | 存储日志路径  |
+| path | NSString * | 存储日志路径 |
 
 __说明__
 

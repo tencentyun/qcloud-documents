@@ -1,12 +1,12 @@
-本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 TRTC SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 
 ## 初始化 SDK
 
 使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudListener`抽象类并重写你需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
-- 创建`TRTCCloud`实例对象，调用setListener方法设置`TRTCCloudListener `回调。
+- 先继承`TRTCCloudListener`抽象类并重写您需要监听的事件（用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 创建`TRTCCloud`实例对象，调用 setListener 方法设置`TRTCCloudListener `回调。
 
 ```java
 import com.tencent.trtc.TRTCCloud;
@@ -59,17 +59,17 @@ protected void onDestroy() {
 
 ## 组装 TRTCParams
 
-TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
+TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 SDKAppid，userId，userSig 和 roomId。
 
-- **sdkAppId**
-进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
-![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+- **SDKAppid**
+进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
+![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [DOC](https://cloud.tencent.com/document/product/647/17275)。
+基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
 房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
@@ -77,10 +77,12 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 ## 进入(或创建)房间
 
-组装完 `TRTCParams` 后，即可调用 `enterRoom` 函数进入房间。
+调用 `enterRoom` 函数进入房间时，除了需要 TRTCParams 参数，还需要一个叫 **appScene** 的参数，该参数是指定应用场景用的。
 
-- 如进入房间，SDK 会回调`onEnterRoom`接口，参数：`elapsed`代表进入耗时，单位ms。
-- 如进房失败 SDK 会回调`onError`接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.java`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- **VideoCall** 对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更加。						
+- 如进入房间，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed`代表进入耗时，单位ms。
+- 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 - 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
 
 ```java
@@ -91,7 +93,7 @@ void enterRoom() {
 	trtcParams.userId   = userid;
 	trtcParams.userSig  = usersig;
 	trtcParams.roomId   = 908; //输入你想进入的房间
-	trtcCloud.enterRoom(trtcParams);
+	trtcCloud.enterRoom(trtcParams, TRTC_APP_SCENE_VIDEOCALL);
 }
 
 ...
@@ -117,6 +119,8 @@ public void onEnterRoom(long elapsed) {
 }
 ```
 
+>!请根据应用场景选择合适的 scene 参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
+
 ## 收听远端音频流
 - TRTC SDK 会默认接收远端的音频流，您无需为此编写额外的代码。
 - 如果您不希望收听某一个 userid 的音频流，可以使用 `muteRemoteAudio`将其静音。
@@ -128,8 +132,8 @@ TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRe
 - 当收到 `onUserEnter`回调后，可以调用`startRemoteView`方法来观看新进 userId 的视频画面。
 - 当收到 `onUserExit`回调后，可以调用`stopRemoteView`停止观看。
 - 通过 `setRemoteViewFillMode` 可以指定视频显示模式为`Fill`或`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
-- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
-- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+ - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
+ - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 ```java
 @Override
@@ -164,7 +168,7 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 	- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。  
 	- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
-- 调用`startLocalPreview`，参数：`frontCamera`（true:前置摄像头 false:后置摄像头）、`view`（TXCloudVideoView SDK自定义渲染控件）。
+- 调用`startLocalPreview`，参数：`frontCamera`（true：前置摄像头 false：后置摄像头）、`view`（TXCloudVideoView SDK自定义渲染控件）。
 
 ```java
 /** 打开本地摄像头预览画面 */
