@@ -76,6 +76,6 @@ token;hmac签名方法
 7. 将步骤六将上面生成的 possword 字段填入 mqtt connect 报文中，即可完成接入。
  - 将 clientid 填入到 mqtt 的 clientid 字段；
  - 将 username 填入到 mqtt 的 username 字段；
- - 将 password 填入到 mqtt 的 password 字段，
+ - 将 password 填入到 mqtt 的 password 字段。
 
 >!通过 psk 方式接入端口是`1883`。
