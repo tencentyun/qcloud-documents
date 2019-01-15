@@ -11,6 +11,6 @@
  
  
  - command 指出慢日志中记录的操作。<br>
- - COLLSCAN 代表该查询进行了全表扫描，IXSCAN 代表进行了日志扫描。更多的字段描述请参考 [MongoDB 官网](https://docs.mongodb.com/manual/reference/explain-results/index.html)。<br>
+ - COLLSCAN 代表该查询进行了全表扫描，IXSCAN 代表进行了索引扫描。更多的字段描述请参考 [MongoDB 官网](https://docs.mongodb.com/manual/reference/explain-results/index.html)。<br>
  - keysExamined 代表索引扫描条目，docsExamined 代表文档扫描条目。keysExamined 和 docsExamined 越大代表没有建索引或者索引的区分度不高。请确认索引的创建字段。<br>
 更多的日志说明请参考 [MongoDB 官网](https://docs.mongodb.com/manual/reference/log-messages/index.html)
