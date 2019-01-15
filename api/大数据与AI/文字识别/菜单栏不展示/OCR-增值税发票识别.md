@@ -1,55 +1,46 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/invoice`
+本接口（invoice）用于识别增值税发票，根据用户上传的图像，返回识别出的发票代码、开票日期等字段。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
-### 服务简介
-本接口用于识别增值税发票，根据用户上传的图像，返回识别出的发票代码、开票日期等字段。
-
-### url 说明
-支持 http 和 https 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/invoice`
-
-`https://recognition.image.myqcloud.com/ocr/invoice`
-
-## 请求方式
-
-### 请求头 header
+## 请求头 header
 
 | 参数名称           | 值                                      | 描述                                       |
 | -------------- | -------------------------------------- | ---------------------------------------- |
-| host           | recognition.image.myqcloud.com         | 腾讯云智能文字识别服务器域名                           |
-| content-length | 包体总长度                                  | 每次上传的图片大小限制为4MB以内，不支持 .gif 类型的动图          |
-| authorization  | 鉴权签名                                   | 多次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/641/12409) |
+| host           | recognition.image.myqcloud.com         | 腾讯云智能文字识别服务器域名。                           |
+| content-length | 包体总长度                                  | 每次上传的图片大小限制为4MB 以内，不支持 .gif 类型的动图。          |
+| authorization  | 鉴权签名                                   | 多次有效签名,用于鉴权，具体生成方式详见 [鉴权签名](https://cloud.tencent.com/document/product/866/17734)。 |
 
 
-### 请求参数
+## 输入参数
 
 | 参数名称         | 必选   | 类型     | 描述                                       |
 | ------------ | ---- | ------ | ---------------------------------------- |
-| appid        | 是    | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看 |
-| image        | 否    | string | 图片文件或图片 base64(图片小于4M)。                                |
-| url        | 否    | string | 图片文件链接url。图片url和image同时赋值时，则以url指定的图像作为输入(图片小于4M)。  |
+| appid        | 是    | String | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。 |
+| image        | 否    | String | 图片文件或图片 base64（图片小于4M）。                                |
+| url        | 否    | String | 图片文件链接 URL。图片 URL 和 image 同时赋值时，则以 URL 指定的图像作为输入（图片小于4M）。  |
 
 
-## 返回内容
+## 输出参数
 
 | 字段         | 类型          | 说明        |
 | ---------- | ----------- | ---------- |
-| code       | int         | 返回错误码      |
-| message    | string      | 返回错误消息     |
-| data.angle  |  float | 图片旋转角度(角度制)，范围[-180°，180°]，顺时针为正，逆时针为负 |
-| data.items | array(item) | 识别出的所有字段信息 |
+| code       | Int         | 返回错误码。      |
+| message    | String      | 返回错误消息。     |
+| data.angle  |  Float | 图片旋转角度(角度制)，范围[-180°，180°]，顺时针为正，逆时针为负。 |
+| data.items | Array(item) | 识别出的所有字段信息。 |
 
-items说明
+items 说明：
 
 | 字段         | 类型          | 说明                                       |
 | ---------- | ----------- | ---------------------------------------- |
-| item | string      | 识别出的字段名称(关键字)                                    |
-| itemcoord  | object      | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高width,height |
-| itemstring | string      | 识别出的字段名称对应的值，也就是字段 item 对应的字符串结果                                    |
-| itemconf      | float | 置信度                            |
+| item | String      | 识别出的字段名称（关键字）。                                    |
+| itemcoord  | Object      | 字段在图像中的像素坐标，包括左上角坐标 x、y，以及宽 width、高 height。 |
+| itemstring | String      | 识别出的字段名称对应的值，即字段 item 对应的字符串结果。                                    |
+| itemconf      | Float | 置信度。                            |
 
-## 请求示例
-### 请求示例
+## 示例
+### 输入示例
 
 ```
 {
@@ -59,7 +50,7 @@ items说明
 
 ```
 
-### 返回示例
+### 输出示例
 
 ```
 {
@@ -101,7 +92,7 @@ items说明
 | 500  | 服务内部错误               |
 | 502  | 网关错误，计算后台服务不可用       |
 | 503  | 服务不可用                |
-| 504  | 后端服务超时 或者 处理失败       |
+| 504  | 后端服务超时或处理失败       |
 
 
 ## 错误码
@@ -112,8 +103,8 @@ items说明
 | -1300 | 图片为空     |
 | -1301 | 参数为空     |
 | -1304 | 参数过长     |
-| -1308 | url 图片下载失败     |
-| -1320 | Appid 无效     |
+| -1308 | URL 图片下载失败     |
+| -1320 | AppId 无效     |
 | -1400 | 无效的图片格式     |
 | -1403 | 图片下载失败     |
 | -1408 | 图片超出下载限制     |
