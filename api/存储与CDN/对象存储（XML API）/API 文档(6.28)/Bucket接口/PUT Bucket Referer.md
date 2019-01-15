@@ -6,7 +6,7 @@ PUT Bucket Referer 接口用于为存储桶设置 Referer 白名单或者黑名�
 
 ### 请求示例
 
-```HTTP
+```shell
 PUT /?referer HTTP 1.1
 Host:<BucketName-APPID>.<Region>.myqcloud.com
 Date:GMT Date
@@ -54,7 +54,7 @@ Content-MD5:MD5
 
 该请求的请求体具体节点内容为：
 
-```
+```shell
 <RefererConfiguration>
   <Status></Status>
   <RefererType></RefererType>
@@ -102,7 +102,7 @@ Content-MD5:MD5
 
 ### 请求
 
-```HTTP
+```shell
 PUT /?referer HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
@@ -123,7 +123,7 @@ Content-Type: application/xml
 
 ### 响应
 
-```HTTP
+```shell
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: keep-alive
