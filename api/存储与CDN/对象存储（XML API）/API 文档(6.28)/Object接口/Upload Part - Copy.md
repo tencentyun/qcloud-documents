@@ -101,7 +101,7 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ### 请求
 
 ```HTTP
-PUT /jimmy/test.file2?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
+PUT /bucket/example.file?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
 User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
 Accept: */*
 x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.file1
