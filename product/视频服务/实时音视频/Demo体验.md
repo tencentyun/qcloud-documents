@@ -8,7 +8,7 @@
     <th width="150px">微信小程序</th>
   </tr>
   <tr>
-    <td><img src="https://main.qcloudimg.com/raw/9bac5d3d64b1d4f09fb3bcea7907e82e.png" /></td>
+    <td><img src="https://main.qcloudimg.com/raw/b637949cbfc255ecefb060fafbfc70be.png" /></td>
     <td><img src="https://main.qcloudimg.com/raw/4178729fbc6dca03dba513aea4570675.png" /></td>
     <td>
 <input type="button" value="单击下载" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')" /></td>
