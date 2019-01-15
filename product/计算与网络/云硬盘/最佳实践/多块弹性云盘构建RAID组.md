@@ -26,7 +26,7 @@ RAID（独立磁盘冗余阵列，Redundant Array of Independent Disks）可以�
 		 <td>
 		 <ul><li><b>优点</b>：<ul>
 		 <li>读取速度快。</li>
-		 <li>数据安全性较高，单个磁盘的损坏不会导致数据的不可修复。</li>
+		 <li>数据可靠性较高，单个磁盘的损坏不会导致数据的不可修复。</li>
 		 </ul>
 		 <li><b>缺点</b>：<ul>
 		 <li>磁盘利用率最低。</li>
