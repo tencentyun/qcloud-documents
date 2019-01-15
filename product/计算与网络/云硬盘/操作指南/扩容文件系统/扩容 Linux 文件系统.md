@@ -85,7 +85,7 @@ parted '/dev/vdb'
 unit s
 ```
 6. 输入 `print`，查看分区信息，并记录已有分区的 Start 值。
->! 删除分区并新建后，Start 值必须保持不变，否则数据将会丢失。
+>! 删除分区并新建后，Start 值必须保持不变，否则将会引起数据丢失。
 
  ![](//mccdn.qcloud.com/static/img/67ba54c1d9d63c307d4b8a157b70c722/image.png)
 7. 执行以下命令，删除原有分区。
