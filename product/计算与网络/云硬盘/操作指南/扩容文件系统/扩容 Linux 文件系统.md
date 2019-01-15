@@ -17,10 +17,10 @@
 ```
 fdisk -l
 ```
-- 若结果如下两图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 GPT 分区方式，请执行 [扩展分区及文件系统（GPT）](#GPT)。
+ - 若结果如下两图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 GPT 分区方式，请执行 [扩展分区及文件系统（GPT）](#GPT)。
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
-- 若结果如下图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 MBR 分区方式，请执行 [扩展分区及文件系统（MBR）](#MBR)。
+ - 若结果如下图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 MBR 分区方式，请执行 [扩展分区及文件系统（MBR）](#MBR)。
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
 
 <span id="GPT"></span>
