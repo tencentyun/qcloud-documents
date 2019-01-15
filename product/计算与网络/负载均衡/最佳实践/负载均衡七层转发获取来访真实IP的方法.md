@@ -26,23 +26,23 @@
 ![](//mccdn.qcloud.com/static/img/bccab999282e71a49aeb144a4dc3c9ed/image.png)
 8. 重启 IIS 服务器，等待配置生效。
 
-## Apache配置方案
-1. 安装 apache 第三方模块“mod_rpaf” 。
+## Apache 配置方案
+1. 安装 Apache 第三方模块“mod_rpaf” 。
 ```
 wget http://stderr.net/apache/rpaf/download/mod_rpaf-0.6.tar.gz
 tar zxvf mod_rpaf-0.6.tar.gz
 cd mod_rpaf-0.6
 /usr/bin/apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
 ```
-2. 修改 apache 配置`/etc/httpd/conf/httpd.conf`，在最末尾添加：
+2. 修改 Apache 配置`/etc/httpd/conf/httpd.conf`，在最末尾添加：
 ```
 LoadModule rpaf_module modules/mod_rpaf-2.0.so
 RPAFenable On
 RPAFsethostname On
-RPAFproxy_ips IP地址（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以查看apache日志，通常会有2个 都要写上）
+RPAFproxy_ips IP地址（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以查看Apache日志，通常会有2个 都要写上）
 RPAFheader X-Forwarded-For
 ```
-3. 添加完成后，重启 apache。
+3. 添加完成后，重启 Apache。
 ```
 /usr/sbin/apachectl restart
 ```
