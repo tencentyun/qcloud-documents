@@ -65,6 +65,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
     TXBoardBrushModelRectangleFill, //实心矩形
     TXBoardBrushModelTransform,     // 缩放(双指)/移动(单指)
     TXBoardBrushModelText,          // 文字输入
+    TXBoardBrushModelLaserPen,      // 激光笔
 };
 ```
 

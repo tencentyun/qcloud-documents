@@ -1,5 +1,5 @@
 ## 概述
-对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作操作权限。
+对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
 COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID 为1253653367，地域为`ap-beijing`，存储桶为`example-1253653367` ，路径前缀为`tes`的上传操作权限，路径前缀为`tes2`的下载操作权限的策略内容如下所示：
 
@@ -34,6 +34,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 }
 ```
 
+<a id="policy"></a>
 #### 授权策略（policy）元素说明
 
 | 名称     | 描述                                                         |
@@ -42,7 +43,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 | effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
 | action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(*)       |
-|[condition](https://cloud.tencent.com/document/product/598/10603)|约束条件，可以不填   |
+|condition|约束条件，可以不填，具体说明请参考 [condition](https://cloud.tencent.com/document/product/598/10603#6..E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6(condition)) 说明  |
 
 以下根据 COS API 详细介绍授权策略。
 
