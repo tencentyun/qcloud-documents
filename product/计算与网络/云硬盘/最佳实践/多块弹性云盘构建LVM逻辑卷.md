@@ -1,5 +1,5 @@
 ## LVM 简介
-LVM（逻辑卷管理，Logical Volume Manager）通过在硬盘和分区之上建立一个逻辑层，将磁盘或分区划分为相同大小的 PE（Physical Extents）单元，不同的磁盘或分区可以划归到同一个卷组（VG，Volume Group），在 VG 上可以创建逻辑卷（LV，Logical Volume），在 LV 上可以创建文件系统。
+LVM 通过在硬盘和分区之上建立一个逻辑层，将磁盘或分区划分为相同大小的 PE（Physical Extents）单元，不同的磁盘或分区可以划归到同一个卷组（VG，Volume Group），在 VG 上可以创建逻辑卷（LV，Logical Volume），在 LV 上可以创建文件系统。
 相较于直接使用磁盘分区的方式，LVM 的优势在于弹性调整文件系统的容量：
 - 文件系统不再受限于物理磁盘的大小，可以分布在多个磁盘中。
 例如，您可以购买三个4TB的弹性云盘并使用 LVM 创建一个将近12TB的超大文件系统。
