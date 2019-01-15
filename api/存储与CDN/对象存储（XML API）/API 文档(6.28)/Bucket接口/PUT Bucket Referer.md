@@ -27,10 +27,26 @@ Content-MD5:MD5
 
 **必选头部**
 
-| 名称           | 描述                                                         | 类型   | 必选 |
-| -------------- | ------------------------------------------------------------ | ------ | ---- |
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。                | String | 是   |
-| Content-MD5    | RFC 1864 中定义的经过 Base64 编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。 | String | 是   |
+<table>
+   <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>类型</th>
+      <th>必选</th>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">Content-Length</td>
+      <td>RFC 2616中定义的 HTTP 请求内容长度（字节）。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>Content-MD5</td>
+      <td>RFC 1864中定义的经过 Base64 编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+</table>
 
 该请求操作无特殊的请求头部信息。
 
@@ -38,7 +54,7 @@ Content-MD5:MD5
 
 该请求的请求体具体节点内容为：
 
-```XML
+```
 <RefererConfiguration>
   <Status></Status>
   <RefererType></RefererType>
