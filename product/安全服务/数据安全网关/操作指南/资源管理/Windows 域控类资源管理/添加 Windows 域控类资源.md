@@ -3,7 +3,7 @@
 
 
 ## 操作步骤
-1. 使用管理员账号登录数据安全网关系统。
+1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/dasb)，使用管理员账号登录数据安全网关系统。
 2. 在数据安全网关系统单击【资源管理】>【Active Directory】，即可进入域控资源管理页面，如下图所示。
 ![1](https://main.qcloudimg.com/raw/70eaa348c679b73a1de8255724ba3579.png)
 3. 在域控资源管理页面，单击【新建】，配置如下信息。
@@ -14,4 +14,4 @@
 **域名**：填写域服务器域名。
 **认证表达式**：填写格式为`$uid@域名`，例如域服务器域名为`example.com`，则认证表达式可以输入`$uid@example.com`或者为`example.com$uid`，具体按照哪种形式输入，请参考域认证时提供的登录名称。
 ![1](https://main.qcloudimg.com/raw/1cdb5cf0f5b7d63bf54714656dfa08b2.png)
-4. 单击【保存】，即可添加 Windows域控资源。
+4. 单击【保存】，即可添加 Windows 域控资源。
