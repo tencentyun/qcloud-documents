@@ -14,7 +14,7 @@ RAID（独立磁盘冗余阵列，Redundant Array of Independent Disks）可以�
      </tr>
 	 <tr>
          <td>RAID 0</td>
-         <td>存储模式：数据分段存放在不同的磁盘中。</br>虚拟盘大小：阵列中所有盘容量之和。</td>
+				 <td>存储模式：数据分段存放在不同的磁盘中。<br /></br>虚拟盘大小：阵列中所有盘容量之和。</td>
 		 <td>
 		 <ul><li><b>优点</b>：读写可以并行。</br>理论上读写速率可达单个磁盘的 N 倍（N 为组成 RAID0 的磁盘个数），但实际上受限于文件大小、文件系统大小等多种因素。</li>
 		 <li><b>缺点</b>：没有数据冗余，即便只有单个磁盘损坏，在最严重的情况下也有可能导致所有数据的丢失。</li></ul></td>
@@ -22,7 +22,7 @@ RAID（独立磁盘冗余阵列，Redundant Array of Independent Disks）可以�
      </tr> 
 	 <tr>
          <td>RAID 1</td>
-         <td>存储模式：数据被镜像存储在多个磁盘中。</br>虚拟盘大小：阵列中容量最小的盘的容量。</td>
+         <td>存储模式：数据被镜像存储在多个磁盘中。<br /></br> 虚拟盘大小：阵列中容量最小的盘的容量。</td>
 		 <td>
 		 <ul><li><b>优点</b>：<ul>
 		 <li>读取速度快。</li>
@@ -37,14 +37,14 @@ RAID（独立磁盘冗余阵列，Redundant Array of Independent Disks）可以�
      </tr>
 	 <tr>
          <td>RAID 01</td>
-         <td>先用多个盘组成 RAID 0，再用多个 RAID 0 组成 RAID 1。</td>
+         <td>先用多个盘构建成 RAID 0，再用多个 RAID 0 构建成 RAID 1。</td>
 		 <td><ul><li><b>优点</b>：同时具备 RAID 0 和 RAID 1 的优点。</li>
 		 <li><b>缺点</b>：<ul><li>成本相对较高，至少需要使用四块盘。</li><li>单磁盘的损坏会导致同组的磁盘都不可用。</li></td>
 		 <td   rowspan="2">推荐使用 RAID 10。</td>
      </tr>
 	 <tr>
          <td>RAID 10</td>
-         <td>先用多个盘组成 RAID 1，再用多个 RAID 1 组成 RAID 0。</td>
+         <td>先用多个盘构建成 RAID 1，再用多个 RAID 1 构建成 RAID 0。</td>
 		 <td><ul><li><b>优点</b>：同时具备 RAID 0 和 RAID 1 的优点。</li>
 		 <li><b>缺点</b>：成本相对较高，至少需要使用四块盘。</li></td>
      </tr>
