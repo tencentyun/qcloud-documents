@@ -86,7 +86,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
     HMAC_CTX_cleanup(&ctx);
 
     for (int i = 0; i < 32; i++) {
-        snprintf(&format_md[i * 2], 3, "%02x", md[i]);
+        snprintf(&format_md[i * 2], 3, "%02x", md[i]); //二进制转为十六进制大写
     }
     hmac->assign(format_md);
 
