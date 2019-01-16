@@ -23,7 +23,7 @@ CKafka 以实例的形式售卖，采用**包年包月-预付费**的计费形�
 - 单 Topic 支持的 partition 数量限制为24个。
 - 实例级别 Consumer Group 默认限制个数为50个。
 - 实例级别的 paritition 限制包含了副本数。例如，一个实例下有1个双副本、4分区的 Topic、 2个3副本、3分区的 Topic，则该实例的总 partition 个数为 （1 × 2 × 4）+（2 × 3 × 3）= 26个。
-- Consumer Group 空闲存活时间为1个月。
+- Consumer Group 空闲存活时间为7天。
 
 
 ## 单独扩容磁盘价格
