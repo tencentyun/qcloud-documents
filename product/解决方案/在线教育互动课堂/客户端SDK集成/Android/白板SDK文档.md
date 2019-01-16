@@ -65,7 +65,7 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | deleteBoardById                   | 删除白板及其内容，并切换至默认白板。  					|
 | whiteboardPageCtrlById             | 删除白板及其内容，并切换至指定白板，如未指定目标白板，则切换至目标白板。  	|
 | getCurrentWhiteboardId                   | 获取当前白板 ID。  					|
-| getBoardList                   | 获取白板 ID 列表  					|
+| getBoardList                   | 获取白板 ID 列表。  					|
 | getFidList                   | 获取文件 ID 列表信息，包括普通白板。  					|
 
 **白板数据接口：**
@@ -88,7 +88,7 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | setPaintType                   | 设置绘制类型。  					|
 | setPaintSize                   | 设置画笔宽度(默认为 5)。  					|
 | setCornerRadius                   | 设置矩形的圆角半径。  					|
-| setFillStyle                   | 设置封闭图形，如矩形或者圆形的填充样式，见 @{Paint.Style}，白板目前支持 Style#FILL 和 Style#STROKE 两种模式。  					|
+| setFillStyle                   | 设置封闭图形，如矩形或者圆形的填充样式，参见 Paint.Style ，白板目前支持 Style#FILL 和 Style#STROKE 两种模式。  					|
 
 **背景接口：**
 
@@ -98,22 +98,13 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | setBackgroundColor                   | 设置白板背景颜色(默认为白色)，当前白板生效。  	|
 | setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效。  	|
 
-**COS 相关**
+**文字输入接口：**
 
 | 接口                                 | 说明                                       |
-| ----------------------------------- | ------------------------------------------ |
-| setCosConfig                   	| 为**私有账号模式**特有接口，在使用白板功能时，务必请先调用此接口。  	|
+| ---------------------------------- | ---------------------------------------- |
+| setTextColor                   | 设置文字颜色。  	|
+| setTextSize                   | 文字大小。  	|
 
-COS 为 腾讯云对象存储，如果您的 App 中需要用到上传图片、文档到白板上展示的功能，则需要用到 COS ，白板 SDK 会将调用 SDK 接口上传的图片，文件上传到 COS 的存储桶中。
-白板 SDK 提供两种使用 COS 服务能力的方式，一种是**大账号模式**，一种是**私有账号模式**，对比如下：
-
-| 大账号模式                                 | 私有账号模式                                        |
-| ---------------------------------------- | ---------------------------------------- |
-| 1.仅需提供sdkappid申请开通白名单即可使用，方便快捷；| 1.用户须自行开通和配置 COS 服务，并须联系商务开通预览服务；|
-| 2.SDK 默认使用大账号模式，不需额外代码配置； |2.成功后调用 setCosConfig 接口进行初始化和设置|
-
-* SDK 默认使用大账号模式，如果您是新接入用户，我们推荐使用该模式模式；
-* 如果您已经或者决定使用私有账号模式，请确保按照 [开通对象存储服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1) 指引配置COS 账号，调用**setCosConfig**接口设置配置信息后使用。
 
 **文档接口：**
 
@@ -121,10 +112,10 @@ COS 为 腾讯云对象存储，如果您的 App 中需要用到上传图片、�
 | ---------------------------------- | ---------------------------------------- |
 | addFile                   | 添加文件，如 PPT、PDF 等文档。  	|
 | deleteFile                   | 设删除文档。  	|
-| switchFile                   |  切换文档  	|
-| nextPage                   | 下一页 	|
-| prePage                   | 上一页  	|
-| getAllFileInfo                   | 获取所有文档信息（包括普通白板） 	|
+| switchFile                   |  切换文档。  	|
+| nextPage                   | 下一页。 	|
+| prePage                   | 上一页。  	|
+| getAllFileInfo                   | 获取所有文档信息（包括普通白板）。 	|
 
 
 #### 多终端交互
