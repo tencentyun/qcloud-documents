@@ -7,7 +7,7 @@ Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的
 
 语法示例：
 ```
-DELETE /ObjectName?uploadId=UploadId HTTP/1.1
+DELETE /<ObjectKey>?uploadId=UploadId HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
