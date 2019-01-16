@@ -3834,7 +3834,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>author_code</td>
       <td>否</td>
       <td>String(128)</td>
-      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）</td>
+      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）；可以使用授权码前缀判断支付平台：微信支付为10~15开头，支付宝为25~30开头，会员卡为99开头</td>
    </tr>
    <tr>
       <td>time_expire</td>
