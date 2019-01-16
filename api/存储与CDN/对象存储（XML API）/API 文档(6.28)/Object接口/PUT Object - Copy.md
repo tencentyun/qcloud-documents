@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
+PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
 用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。
 
 ### 版本
@@ -7,29 +7,27 @@ PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径�
 默认情况下，在目标存储桶上启用版本控制，对象存储会为正在复制的对象生成唯一的版本 ID。此版本 ID 与源对象的版本 ID 不同。对象存储会在 x-cos-version-id 响应中的响应标头中返回复制对象的版本 ID。
 如果您在目标存储桶没有启用版本控制或暂停版本控制，则对象存储生成的版本 ID 始终为 null。
 
->**注意：**
->在跨帐号复制的时候，需要先设置被复制文件的权限为公有读，或者对目标帐号赋权，同帐号则不需要。
+>!在跨帐号复制的时候，需要先设置被复制文件的权限为公有读，或者对目标帐号赋权，同帐号则不需要。
 
 ## 请求
 ### 请求示例
 
-```
+```shell
 PUT /destinationObject HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
-
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -46,10 +44,10 @@ x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read-write
 x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"|string|否
 x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"|string|否
 x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否
-x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
+x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
+
 
 **服务端加密相关头部**
-
 该请求操作指定腾讯云 COS 在数据存储时，应用数据加密的保护策略。腾讯云 COS 会帮助您在数据写入数据中心时自动加密，并在您取用该数据时自动解密。目前支持使用腾讯云 COS 主密钥对数据进行 AES-256 加密。如果您需要对数据启用服务端加密，则需传入以下头部：
 
 | 名称         | 描述          | 类型     | 必选     |
@@ -64,7 +62,7 @@ x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，
 
 #### 公共响应头
 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -76,7 +74,7 @@ x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```xml
+```shell
 <?xml version="1.0" encoding="UTF-8" ?>
 <CopyObjectResult>
   <ETag>String</ETag>
@@ -88,7 +86,7 @@ x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，
 | 名称               | 描述                                       | 类型     |
 | ---------------- | ---------------------------------------- | ------ |
 | CopyObjectResult | 返回复制结果信息                                 | String |
-| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
 | LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
 
 
@@ -96,7 +94,7 @@ x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，
 
 ### 请求
 
-```
+```shell
 PUT /123.txt HTTP/1.1
 Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com
 Date: Fri, 04 Aug 2017 02:41:45 GMT
@@ -109,7 +107,7 @@ Content-Length: 0
 
 ### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 133
