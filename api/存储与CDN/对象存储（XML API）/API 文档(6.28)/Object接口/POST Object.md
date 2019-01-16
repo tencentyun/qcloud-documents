@@ -36,18 +36,80 @@ Form
 
 ### 表单字段
 
-|名称|描述|类型| 必选|
-|:---|:-- |:---|:-- |
-| acl |定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|String| 否|
-| Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。|String| 否|
-| file|文件内容，作为表单的最后一个字段。 |String| 是|
-| key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 `a/b/a1.txt`。|String| 是|
-| success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。 |String| 否|
-| success_action_status |可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。 |String| 否|
-| x-cos-meta-\* | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。 |String| 否|
-| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。 |String| 否|
-| policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied。 |String| 否|
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。 | String | 如需加密，是 |
+<table>
+   <tr>
+      <th>名称</td>
+      <th>描述</td>
+      <th>类型</td>
+      <th>必选</td>
+   </tr>
+   <tr>
+      <td>acl</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires</td>
+      <td>RFC 2616 中定义的头部，详见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>file</td>
+      <td>文件内容，作为表单的最后一个字段。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>key</td>
+      <td>上传后的文件名，使用 ${filename} 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 a/b/a1.txt。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>success_action_redirect</td>
+      <td>若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>success_action_status</td>
+      <td>可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>x-cos-meta-*</td>
+      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>x-cos-storage-class</td>
+      <td>设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>policy</td>
+      <td>Base64 编码。用于做请求检查，如果请求的内容和 Policy 指定的条件不符，返回 403 AccessDenied。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>x-cos-server-side-encryption</td>
+      <td>指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。</td>
+      <td>String</td>
+      <td nowrap="nowrap">如需加密，是</td>
+   </tr>
+</table>
 
 #### 签名保护
 
@@ -76,7 +138,7 @@ Form
 { "expiration": "2007-12-01T12:00:00.000Z",
   "conditions": [
     {"acl": "public-read" },
-    {"bucket": "johnsmith-1250000000" },
+    {"bucket": "examplebucket-1250000000" },
     ["starts-with", "$key", "user/eric/"],
     {"q-sign-algorithm": "sha1" },
     {"q-ak": "AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q" },
@@ -140,7 +202,7 @@ Form
 
 ```shell
 <PostResponse>
-        <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
+        <Location>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
         <Bucket>xxxx-123456</Bucket>
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
