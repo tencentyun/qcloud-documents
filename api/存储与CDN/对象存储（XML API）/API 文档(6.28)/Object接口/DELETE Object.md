@@ -69,10 +69,9 @@ DELETE /ObjectName HTTP/1.1
 ### 请求
 ```shell
 DELETE /123 HTTP/1.1
-Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213409;32557109409&q-key-time=1484213409;32557109409&q-header-list=host&q-url-param-list=&q-signature=1c24fe260ffe79b8603f932c4e916a6cbb0af44a
-
 ```
 
 ### 响应
