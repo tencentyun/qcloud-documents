@@ -13,7 +13,7 @@ POST Object 接口请求允许使用者用表单的形式将文件（Object）�
 ## 请求
 ### 请求示例
 
-```
+```shell
 POST / HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
@@ -72,7 +72,7 @@ Form
 #### Policy
 以下是一个完整的 policy 示例：
 
-```json
+```shell
 { "expiration": "2007-12-01T12:00:00.000Z",
   "conditions": [
     {"acl": "public-read" },
@@ -80,7 +80,7 @@ Form
     ["starts-with", "$key", "user/eric/"],
     {"q-sign-algorithm": "sha1" },
     {"q-ak": "AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q" },
-    {"q-sign-time": "1480932292;1481012298" },
+    {"q-sign-time": "1480932292;1481012298" }
   ]
 }
 ```
@@ -104,7 +104,6 @@ Form
 | acl                     | 文件 ACL 属性的许可范围，可不填                       | 完全、前缀 |
 | bucket                  | 指定上传的 Bucket                             | 完全    |
 | content-length-range    | 指定文件的上传大小范围                              | 范围    |
-| 五标准头部                   | Cache-Control Content-Type Content-Disposition Content-Encoding Expires | 完全、前缀 |
 | key                     | 对象的存储路径                                  | 完全、前缀 |
 | success_action_redirect | 上传成功后返回的 URL                             | 完全、前缀 |
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
@@ -112,6 +111,7 @@ Form
 | x-cos-date              | ISO8601 的 UTC 时间      | 完全    |
 | x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。  | 完全、前缀 |
 | x-cos-*      | 其他需要签署的 COS 头部            | 完全    |
+
 
 ## 响应
 ### 响应头
@@ -138,7 +138,7 @@ Form
 ### 响应体
 该响应体返回为 application/xml 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <PostResponse>
         <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
         <Bucket>xxxx-123456</Bucket>
@@ -228,7 +228,8 @@ Content-Disposition: form-data; name="file"; filename="empty:a"
 ```
 
 ### 响应
-```
+
+```shell
 HTTP/1.1 201
 Content-Type: application/xml
 Content-Length: 232
@@ -245,5 +246,4 @@ x-cos-request-id: NWEyZTRkMDZfMjQ4OGY3MGFfNTE4Yl81
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
 </PostResponse>
-
 ```
