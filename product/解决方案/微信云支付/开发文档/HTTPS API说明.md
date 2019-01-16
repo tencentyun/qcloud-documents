@@ -1,7 +1,7 @@
 ## 说明
 ### 通讯说明
 - 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
-- 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
+- 请求必须传认证或签名信息。其中退款请求，可以传签名和签名算法，也可以传认证码和认证算法，二选一，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
 
@@ -86,7 +86,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
     HMAC_CTX_cleanup(&ctx);
 
     for (int i = 0; i < 32; i++) {
-        snprintf(&format_md[i * 2], 3, "%02x", md[i]);
+        snprintf(&format_md[i * 2], 3, "%02x", md[i]); //二进制转为十六进制大写
     }
     hmac->assign(format_md);
 
@@ -910,6 +910,7 @@ std::string gen_cloud_pay_refund(
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
+    //方式一：计算签名
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
@@ -924,8 +925,24 @@ std::string gen_cloud_pay_refund(
     Json::Value request;
     request["request_content"] = rc;
     request["authen_info"] = authen_info;
-
     return w.write(request);
+    
+/** 方式二：计算认证码，退款也可以按如下计算认证码打包，签名和认证码二选一即可。    
+    Json::Value authen_info, a;
+    a["authen_type"] = 1;
+
+    std::string authen_code;
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        return "";
+    }
+    a["authen_code"] = authen_code;
+    authen_info["a"] = a;
+
+    Json::Value request;
+    request["request_content"] = rc;
+    request["authen_info"] = authen_info;
+    return w.write(request);
+*/    
 }
 /*
 构造请求完毕之后，将请求通过 POST 方法发送到云支付接口对应的 URL
