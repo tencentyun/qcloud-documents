@@ -3,11 +3,11 @@ VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通
 
 | 通信场景 | 通信方案 |
 |---------------|------------|
-| 不同地域 | 不同地域的云主机或数据库属于不同 VPC，通过 对等连接/云联网（同/跨账号均支持）通信 |
-| 不同可用区 | 同 VPC： 默认互通<br>不同 VPC：对等连接/云联网（同/跨账号均支持） |
-| 不同VPC | 对等连接/云联网（同/跨账号均支持） |
-| 不同子网 | 同 VPC：默认互通<br>不同 VPC：对等连接/云联网（同/跨账号均支持） |
-| 跨账号 | 跨账号对等连接/云联网（同/跨地域均支持） |
+| 不同地域 | 不同地域的云主机或数据库属于不同 VPC，通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 不同可用区 | 同 VPC： 默认互通<br>不同 VPC： [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持） |
+| 不同VPC | [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持） |
+| 不同子网 | 同 VPC：默认互通<br>不同 VPC： [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持） |
+| 跨账号 | 跨账号 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨地域均支持） |
  
 >! 同 VPC 下不同子网间（不论是否在同一可用区），**内网默认互通**，如果不通，请优先排查 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 等防火墙策略。
 
