@@ -4,15 +4,15 @@
 (1)  public static QAPM setProperty(int key, String value)
 ```
 
-| 参数名                   | 解释                                       |
-| --------------------- | ---------------------------------------- |
+| 参数名                | 解释                                                         |
+| --------------------- | ------------------------------------------------------------ |
 | key                   | 可选为“PropertyKeyAppId”、“PropertyKeyUserId”、“PropertyKeyAppVersion”、“PropertyKeySymbolId”、“PropertyKeyDebug”。 |
 | PropertyKeyAppId      | 产品 ID 为“产品密钥-产品 ID”模式，可从邮件中获取。           |
-| PropertyKeyUserId     | 用户账号（比如 QQ 号、微信号等）。                      |
+| PropertyKeyUserId     | 用户账号（比如 QQ 号、微信号等）。                           |
 | PropertyKeyAppVersion | 产品版本（以类似“7.3.0.141.r123456”格式填写，后台可以解析出大版本号和 revision）。 |
-| PropertyKeySymbolId   | UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用，见说明    |
-| PropertyKeyDebug      | 是否开启调试日志（“true”开启，“false”不开启，默认后者）。      |
-| 返回值                   | QAPM 对象。                                 |
+| PropertyKeySymbolId   | UUID，用于拉取被混淆堆栈的 mapping ,用于做堆栈翻译用，见说明 |
+| PropertyKeyLogLevel   | 是否开启调试日志, 可选为 QAPM.LevelOff, QAPM.LevelError, QAPM.LevelWarn, QAPM.LevelInfo, QAPM.LevelDebug, QAPM.LevelVerbos。建议debug模式下开启QAPM.LevelDebug。 |
+| 返回值                | QAPM 对象。                                                  |
 
 >?
 - SymbolId 用于关联一个版本的符号表，方便后续对该版本上报的堆栈作反混淆，格式需要为 UUID。

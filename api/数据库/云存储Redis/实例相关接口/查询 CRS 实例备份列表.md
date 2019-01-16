@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(GetRedisBackupList)用于查询CRS实例的备份列表。
+本接口(GetRedisBackupList)用于查询 Redis 实例的备份列表。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 - 目前备份只保留7天，所以只能查询到最近7天以内的备份，包括用户发起的手动备份和凌晨的系统备份。

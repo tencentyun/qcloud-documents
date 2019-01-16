@@ -1,0 +1,100 @@
+### Cluster Autoscaler 与基于监控指标的弹性伸缩的节点扩缩容有什么不同？
+
+Cluster Autoscaler 确保集群中的所有 Pod 都可调度，不管具体的负载；而基于监控指标的节点弹性伸缩在自动扩缩时不关心 Pod，可能会添加一个没有任何 Pod 的节点，或者删除一个有一些系统关键 Pod 的节点，例如 kube-dns。Kubernetes 不鼓励这种自动缩容机制，故 Cluster Autoscaler 与基于监控指标的弹性伸缩的节点互相冲突，请不要同时启用。
+
+### CA 和伸缩组的对应关系是什么？
+
+启用 CA 的集群会根据选择的节点配置，创建一个启动配置和绑定此启动配置的伸缩组。绑定后，将会在此伸缩组内进行扩缩容，扩容后的 CVM 自动加入集群。自动扩缩容的节点都是按量计费的。伸缩组的相关文档请参见 [弹性伸缩文档](https://cloud.tencent.com/document/product/377)。
+
+### 容器服务控制台手动添加的节点是否会 CA 缩容？
+
+不会，CA 缩容的节点只限于伸缩组内的节点。在 [容器服务控制台](https://console.cloud.tencent.com/tke2) 添加的节点不会加入到伸缩组中。
+
+### 弹性伸缩控制台是否可以添加或者移出云主机？
+
+不可以，不建议您在 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling) 进行任何修改操作。
+
+### 扩缩容会继承所选节点的哪些配置？
+
+创建伸缩组时，需要选择集群内的一个节点作为参考来创建 [启动配置](https://cloud.tencent.com/document/product/377/8543)，参考的节点配置包括：
+ - vCPU
+ - 内存
+ - 系统盘大小
+ - 数据盘大小
+ - 磁盘类型
+ - 带宽
+ - 带宽计费模式
+ - 是否分配公网IP
+ - 安全组
+ - 私有网络
+ - 子网
+
+### 如何使用多个伸缩组？
+
+根据服务的重要级别、类型等特点，您可以通过创建多个伸缩组，为伸缩组设置不同的 label，从而指定伸缩组扩容出节点的 label，来对服务进行分类。
+
+### 扩缩容最大值可以设置为多少？
+
+目前腾讯云用户每个可用区均有30个按量计费类型 CVM 配额，如果希望伸缩组有超过 30 台按量计费的 CVM，请提交工单申请。
+具体配额请参见您当前可用区的云服务器 [实例数及配额](https://console.cloud.tencent.com/cvm/overview)。另外弹性伸缩也有最大值的限制，其最大值为200。如果弹性伸缩超过最大值，请提交工单申请。
+
+### 集群启用缩容是否安全？
+
+由于在缩容节点时会发生 Pod 重新调度的情况，所以服务必须可以容忍重新调度和短时的中断时再启用缩容。建议您为您的服务设置 [PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)。PDB 可以在任何时候指定一个处于运行状态的 Pod 集合副本的最小数量或者最小百分比。有了 PodDisruptionBudget，应用部署者可以保证同一时间内主动移除 Pod 的集群操作不会销毁过多 Pod，避免了因销毁过多 Pod 导致数据丢失、服务中断或者无法接受的服务降级等影响。
+
+### 节点上有哪些类型的 Pod 时不会被缩容？
+
+ - 当您设置了严格的 PodDisruptionBudget 的 Pod 不满足 PDB 时，不会缩容。
+ - Kube-system 下的 Pod。
+ - 节点上有非 deployment，replica set，job，stateful set 等控制器创建的 Pod。
+ - Pod 有本地存储。
+ - Pod 不能被调度到其他节点上。
+
+### 节点满足缩容条件后多长时间会触发缩容？
+
+10分钟。
+
+### 节点 Not Ready 后多长时间会触发缩容？
+
+20分钟。
+
+### 多长时间扫描一次是否需要扩缩容？
+
+10秒。
+
+#### 需要多长时间才可以扩容出 CVM？
+
+一般在10分钟内，相关弹性伸缩的说明文档请参见 [弹性伸缩](https://cloud.tencent.com/document/product/377)。
+
+### 为什么有 Unschedulable 的 Pod，却未进行扩容？
+
+请确认以下原因：
+- Pod 的请求资源是否过大。
+- 是否设置了 node selector。
+- 伸缩组的最大值是否已经达到。
+- 帐号余额是否充足（帐号余额不足，弹性伸缩无法扩容），以及配额不足等 [其他原因](https://cloud.tencent.com/document/product/377/7862)。
+
+
+### 如何防止 Cluster Autoscaler 缩容特定节点？
+
+``` sh
+# 可以在节点的annotations中设置如下信息
+kubectl annotate node <nodename> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
+```
+
+
+### 扩缩容事件如何反馈给用户？
+
+用户可在弹性伸缩控制台查询伸缩组的伸缩活动，也可查看 k8s 的事件。在以下三种资源上都会有对应的事件：
+- kube-system/cluster-autoscaler-status config map
+    - **ScaledUpGroup** - CA 触发扩容。
+    - **ScaleDownEmpty** - CA 删除了一个没有运行 Pod 的节点。
+    - **ScaleDown** - CA 缩容。
+- node
+    - **ScaleDown** - CA 缩容。
+    - **ScaleDownFailed** - CA 缩容失败。
+- pod
+    - **TriggeredScaleUp** - CA 由于此 Pod 触发扩容。
+    - **NotTriggerScaleUp** - CA 无法找到可扩容的伸缩组使得此 Pod 可调度。
+    - **ScaleDown** - CA 尝试驱逐此 Pod 来缩容节点。
+
