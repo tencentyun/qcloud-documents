@@ -8,24 +8,24 @@ PUT Object 接口请求可以将本地的对象（Object）上传至指定存储
 
 ### 细节分析
 1. 需要有 Bucket 的写权限；
-2. 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但 Object 大小只等于 Content-Length 中定义的大小，其他数据将被丢弃；
-3. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
+2. 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但 Object 大小只等于 Content-Length 中定义的大小，其他数据将被丢弃。
+3. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回200 OK。
 
 ## 请求
 ### 请求示例
 
-```
+```shell
 PUT /<ObjectName> HTTP/1.1
 Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 该操作的实现还可以使用以下请求头。
@@ -58,7 +58,7 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -74,15 +74,15 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 该请求响应体为空。
 
 ### 错误码
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 ### 请求
 
-```
+```shell
 PUT /filename.jpg HTTP/1.1
-Host: zuhaotestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2015 20:32:00 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
 Content-Length: 64
@@ -92,7 +92,7 @@ Content-Length: 64
 
 ### 响应
 
-```
+```shell
 HTTP/1.1200 OK
 Content-Type: application/xml
 Content-Length: 0
