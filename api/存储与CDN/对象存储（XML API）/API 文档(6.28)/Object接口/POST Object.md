@@ -13,7 +13,7 @@ POST Object 接口请求允许使用者用表单的形式将文件（Object）�
 ## 请求
 ### 请求示例
 
-```
+```shell
 POST / HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
@@ -36,18 +36,76 @@ Form
 
 ### 表单字段
 
-|名称|描述|类型| 必选|
-|:---|:-- |:---|:-- |
-| acl |定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|String| 否|
-| Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires |RFC 2616 中定义的头部，详见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。|String| 否|
-| file|文件内容，作为表单的最后一个字段。 |String| 是|
-| key |上传后的文件名，使用 **${filename}** 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 `a/b/a1.txt`。|String| 是|
-| success_action_redirect | 若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。 |String| 否|
-| success_action_status |可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。 |String| 否|
-| x-cos-meta-\* | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。 |String| 否|
-| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。 |String| 否|
-| policy | Base64 编码。用于做请求检查，如果请求的内容和  Policy 指定的条件不符，返回 403 AccessDenied。 |String| 否|
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。 | String | 如需加密，是 |
+<table>
+   <tr>
+      <th>名称</td>
+      <th>描述</td>
+      <th>类型</td>
+      <th>必选</td>
+   </tr>
+   <tr>
+      <td>acl</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires</td>
+      <td>RFC 2616 中定义的头部，详见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>file</td>
+      <td>文件内容，作为表单的最后一个字段。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>key</td>
+      <td>上传后的文件名，使用 ${filename} 则会进行替换。例如a/b/${filename}，上传文件 a1.txt，那么最终的上传路径就是 a/b/a1.txt。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>success_action_redirect</td>
+      <td>若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>success_action_status</td>
+      <td>可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>x-cos-meta-*</td>
+      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+   </tr>
+   <tr>
+      <td>x-cos-storage-class</td>
+      <td>设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>policy</td>
+      <td>Base64 编码。用于做请求检查，如果请求的内容和 Policy 指定的条件不符，返回 403 AccessDenied。</td>
+      <td>String</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>x-cos-server-side-encryption</td>
+      <td>指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。</td>
+      <td>String</td>
+      <td nowrap="nowrap">如需加密，是</td>
+   </tr>
+</table>
 
 #### 签名保护
 
@@ -72,15 +130,15 @@ Form
 #### Policy
 以下是一个完整的 policy 示例：
 
-```json
+```shell
 { "expiration": "2007-12-01T12:00:00.000Z",
   "conditions": [
     {"acl": "public-read" },
-    {"bucket": "johnsmith-1250000000" },
+    {"bucket": "examplebucket-1250000000" },
     ["starts-with", "$key", "user/eric/"],
     {"q-sign-algorithm": "sha1" },
     {"q-ak": "AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q" },
-    {"q-sign-time": "1480932292;1481012298" },
+    {"q-sign-time": "1480932292;1481012298" }
   ]
 }
 ```
@@ -104,7 +162,6 @@ Form
 | acl                     | 文件 ACL 属性的许可范围，可不填                       | 完全、前缀 |
 | bucket                  | 指定上传的 Bucket                             | 完全    |
 | content-length-range    | 指定文件的上传大小范围                              | 范围    |
-| 五标准头部                   | Cache-Control Content-Type Content-Disposition Content-Encoding Expires | 完全、前缀 |
 | key                     | 对象的存储路径                                  | 完全、前缀 |
 | success_action_redirect | 上传成功后返回的 URL                             | 完全、前缀 |
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
@@ -112,6 +169,7 @@ Form
 | x-cos-date              | ISO8601 的 UTC 时间      | 完全    |
 | x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。  | 完全、前缀 |
 | x-cos-*      | 其他需要签署的 COS 头部            | 完全    |
+
 
 ## 响应
 ### 响应头
@@ -138,10 +196,10 @@ Form
 ### 响应体
 该响应体返回为 application/xml 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <PostResponse>
-        <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
-        <Bucket>xxxx-123456</Bucket>
+        <Location>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
 </PostResponse>
@@ -184,7 +242,7 @@ Connection: keep-alive
 Accept-Encoding: gzip, deflate
 Accept: */*
 User-Agent: python-requests/2.12.4
-Host: xxxx-123456.cos.ap-guangzhou.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 1352
 Content-Type: multipart/form-data; boundary=e07f2a7876ae4755ae18d300807ad879
 
@@ -228,7 +286,8 @@ Content-Disposition: form-data; name="file"; filename="empty:a"
 ```
 
 ### 响应
-```
+
+```shell
 HTTP/1.1 201
 Content-Type: application/xml
 Content-Length: 232
@@ -240,10 +299,9 @@ Server: tencent-cos
 x-cos-request-id: NWEyZTRkMDZfMjQ4OGY3MGFfNTE4Yl81
 
 <PostResponse>
-        <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
-        <Bucket>xxxx-123456</Bucket>
+        <Location>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
 </PostResponse>
-
 ```
