@@ -3,7 +3,7 @@ DELETE Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object
 >!此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
 ### 细节分析
-1. 每一个批量删除请求，最多只能包含1000 需要删除的对象。
+1. 每一个批量删除请求，最多只能包含1000需要删除的对象。
 2. 批量删除支持二种模式的放回，verbose 模式和 quiet 模式，默认为 verbose 模式。verbose 模式返回每个 key 的删除情况，quiet 模式只返回删除失败的 key 的情况。
 3. 批量删除需要携带 Content-MD5 头部，用以校验请求 body 没有被修改。
 4. 批量删除请求允许删除一个不存在的 key，仍然认为成功。
