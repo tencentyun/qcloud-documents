@@ -56,7 +56,7 @@ xff: -
 
 ### 5. 关联机器组
 
-从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://github.com/tencentyun/qcloud-documents/blob/master/document/product/614/17412) 文档。
+从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://cloud.tencent.com/document/product/614/17412#.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 文档。
 ![](https://main.qcloudimg.com/raw/769ab308eaf3f59d9de97fcb358a9a83.png)
 
 ### 6. JSON 模式选择

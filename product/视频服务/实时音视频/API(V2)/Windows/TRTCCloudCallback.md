@@ -13,9 +13,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
-| errMsg | const char * | 错误信息  |
-| arg | void * | 保留参数  |
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+| arg | void * | 保留参数 |
 
 <br/>
 
@@ -32,9 +32,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| warningCode | TXLiteAVWarning | 错误码  |
-| warningMsg | const char * | 警告信息  |
-| arg | void * | 保留参数  |
+| warningCode | TXLiteAVWarning | 错误码 |
+| warningMsg | const char * | 警告信息 |
+| arg | void * | 保留参数 |
 
 <br/>
 
@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| elapsed | uint64_t | 进房耗时  |
+| elapsed | uint64_t | 进房耗时 |
 
 <br/>
 
@@ -71,7 +71,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 退出原因  |
+| reason | int | 退出原因 |
 
 <br/>
 
@@ -91,7 +91,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
+| userId | const char * | 用户标识 |
 
 <br/>
 
@@ -108,8 +108,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| reason | int | 退出原因  |
+| userId | const char * | 用户标识 |
+| reason | int | 退出原因 |
 
 <br/>
 
@@ -126,8 +126,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| available | bool | true：视频可播放，false：视频被关闭  |
+| userId | const char * | 用户标识 |
+| available | bool | true：视频可播放，false：视频被关闭 |
 
 <br/>
 
@@ -144,15 +144,15 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| available | bool | true：音频可播放，false：音频被关闭  |
+| userId | const char * | 用户标识 |
+| available | bool | true：音频可播放，false：音频被关闭 |
 
 <br/>
 
 
 #### onUserVoiceVolume
 
-成员语音音量回调，通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来触发这个回调。
+成员语音音量回调，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
@@ -162,9 +162,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100]  |
-| userVolumesCount | uint32_t | 发言者的人数，即userVolumes数组的大小  |
-| totalVolume | uint32_t | 总的语音音量, 取值范围 [0, 100]  |
+| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100] |
+| userVolumesCount | uint32_t | 发言者的人数，即userVolumes数组的大小 |
+| totalVolume | uint32_t | 总的语音音量, 取值范围 [0, 100] |
 
 <br/>
 
@@ -184,9 +184,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| localQuality | TRTCQualityInfo | 上行网络质量  |
-| remoteQuality | TRTCQualityInfo * | 下行网络质量的数组  |
-| remoteQualityCount | uint32_t | 下行网络质量的数组大小  |
+| localQuality | TRTCQualityInfo | 上行网络质量 |
+| remoteQuality | TRTCQualityInfo * | 下行网络质量的数组 |
+| remoteQualityCount | uint32_t | 下行网络质量的数组大小 |
 
 <br/>
 
@@ -203,7 +203,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| statis | const TRTCStatistics & | 状态数据  |
+| statis | const TRTCStatistics & | 状态数据 |
 
 __介绍__
 
@@ -222,14 +222,16 @@ __介绍__
 首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面。
 
 ```
-void onFirstVideoFrame(const char * userId)
+void onFirstVideoFrame(const char * userId, uint32_t width, uint32_t height)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
+| userId | const char * | 用户标识 |
+| width | uint32_t | 画面宽度 |
+| height | uint32_t | 画面高度 |
 
 <br/>
 
@@ -246,7 +248,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
+| userId | const char * | 用户标识 |
 
 <br/>
 
@@ -263,7 +265,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
+| errCode | TXLiteAVError | 错误码 |
 
 <br/>
 
@@ -280,8 +282,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| progressMS | uint32_t | 已播放时间  |
-| durationMS | uint32_t | 总时间  |
+| progressMS | uint32_t | 已播放时间 |
+| durationMS | uint32_t | 总时间 |
 
 <br/>
 
@@ -298,7 +300,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | TXLiteAVError | 错误码  |
+| errCode | TXLiteAVError | 错误码 |
 
 <br/>
 
@@ -351,9 +353,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| currentResult | const TRTCSpeedTestResult & | 当前完成的测速结果  |
-| finishedCount | uint32_t | 已完成测速的服务器数量  |
-| totalCount | uint32_t | 需要测速的服务器总数量  |
+| currentResult | const TRTCSpeedTestResult & | 当前完成的测速结果 |
+| finishedCount | uint32_t | 已完成测速的服务器数量 |
+| totalCount | uint32_t | 需要测速的服务器总数量 |
 
 <br/>
 
@@ -372,6 +374,17 @@ void onCameraDidReady()
 <br/>
 
 
+#### onMicDidReady
+
+麦克风准备就绪。
+
+```
+void onMicDidReady()
+```
+
+<br/>
+
+
 #### onDeviceChange
 
 设备事件的回调。
@@ -384,9 +397,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | const char * | 设备ID  |
-| type | TRTCDeviceType | 设备类型  |
-| state | TRTCDeviceState | 事件类型  |
+| deviceId | const char * | 设备ID |
+| type | TRTCDeviceType | 设备类型 |
+| state | TRTCDeviceState | 事件类型 |
 
 <br/>
 
@@ -403,7 +416,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量值，取值范围 [0, 100]  |
+| volume | uint32_t | 音量值，取值范围 [0, 100] |
 
 <br/>
 
@@ -420,7 +433,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量值，取值范围 [0, 100]  |
+| volume | uint32_t | 音量值，取值范围 [0, 100] |
 
 <br/>
 
@@ -430,54 +443,131 @@ __参数__
 
 #### onRecvCustomCmdMsg
 
-收到对端用户发来的消息。
+当房间中的某个用户使用 sendCustomCmdMsg 发送自定义消息时，房间中的其它用户可以通过 onRecvCustomCmdMsg 接口接收消息。
 
 ```
-void onRecvCustomCmdMsg(const char * roomNum, const char * userId, int32_t cmdID, uint32_t seq, const char * msg)
+void onRecvCustomCmdMsg(const char * userId, int32_t cmdId, uint32_t seq, const uint8_t * msg, uint32_t msgSize)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | const char * | 房间号  |
-| userId | const char * | 用户标识  |
-| cmdID | int32_t | 命令ID  |
-| seq | uint32_t | 消息序号  |
+| userId | const char * | 用户标识 |
+| cmdId | int32_t | 命令ID |
+| seq | uint32_t | 消息序号 |
+| msg | const uint8_t * | 消息数据 |
+| msgSize | uint32_t | 消息数据大小 |
+
+<br/>
+
+
+#### onMissCustomCmdMsg
+
+TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
+
+```
+void onMissCustomCmdMsg(const char * userId, int32_t cmdId, int32_t errCode, int32_t missed)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| cmdId | int32_t | 命令ID |
+| errCode | int32_t | 错误码，当前版本为-1 |
+| missed | int32_t | 丢失的消息数量 |
+
+__介绍__
+
+
+在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+
 
 __说明__
 
 
-该消息由 sendCustomCmdMsg 发送。
+只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
 
 
 <br/>
 
 
-#### onRecvCustomCmdMsgError
 
-接收对方数据流消息错误的回调，只有发送端设置了可靠传输，该接口才起作用。
+### 旁路转推和混流回调
+
+#### onStartPublishCDNStream
+
+接口startPublishCDNStream的状态回调。
 
 ```
-void onRecvCustomCmdMsgError(const char * roomNum, const char * userId, int32_t cmdID, int32_t errCode, int32_t missed)
+void onStartPublishCDNStream(int errCode, const char * errMsg)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| roomNum | const char * | 房间号  |
-| userId | const char * | 用户标识  |
-| cmdID | int32_t | 命令ID  |
-| errCode | int32_t | 错误码，当前版本为-1  |
-| missed | int32_t | 丢失的消息数量  |
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
 
+#### onStopPublishCDNStream
 
+接口stopPublishCDNStream的状态回调。
+
+```
+void onStopPublishCDNStream(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
 
 <br/>
+
+
+#### onStartCloudMixTranscoding
+
+接口startCloudMixTranscoding的状态回调。
+
+```
+void onStartCloudMixTranscoding(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
+
+<br/>
+
+
+#### onStopCloudMixTranscoding
+
+接口stopCloudMixTranscoding的状态回调。
+
+```
+void onStopCloudMixTranscoding(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | int | 错误码，参考 TXLiteAVCode.h |
+| errMsg | const char * | 错误详细信息 |
+
+<br/>
+
 
 
 
@@ -486,7 +576,7 @@ __参数__
 
 #### onRenderVideoFrame
 
-可以通过setLocalVideoRenderCallback和setRemoteVideoRenderCallback接口设置自定义渲染回调。
+可以通过 setLocalVideoRenderCallback 和 setRemoteVideoRenderCallback 接口设置自定义渲染回调。
 
 ```
 void onRenderVideoFrame(const char * userId, TRTCVideoStreamType streamType, TRTCVideoFrame * frame)
@@ -496,16 +586,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户标识  |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享  |
-| frame | TRTCVideoFrame * | 视频帧数据  |
+| userId | const char * | 用户标识 |
+| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
+| frame | TRTCVideoFrame * | 视频帧数据 |
 
 <br/>
 
-
-
-
-<br/>
 
 
 
@@ -524,79 +610,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| textureId | int | 回调的 OpenGL 纹理ID  |
-| width | int | 画面宽度  |
-| height | int | 画面长度  |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享  |
+| textureId | int | 回调的 OpenGL 纹理ID |
+| width | int | 画面宽度 |
+| height | int | 画面长度 |
+| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 
 <br/>
 
-
-
-
-<br/>
-
-
-
-## ITRTCAudioFrameProcessCallback
-### 自定义音频数据回调
-
-#### onCaptureAudioFrame
-
-获取 SDK 本地采集的音频数据。
-
-```
-void onCaptureAudioFrame(TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCAudioFrame * | 音频帧数据  |
-
-<br/>
-
-
-#### onRemoteAudioFrameBeforeMixing
-
-获取 SDK 混音前要播放的音频数据。
-
-```
-void onRemoteAudioFrameBeforeMixing(const char * userId, TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | const char * | 用户标识  |
-| frame | TRTCAudioFrame * | 音频帧数据  |
-
-<br/>
-
-
-#### onRemoteAudioFrameAfterMixing
-
-获取 SDK 混音后要播放的音频数据，如果您需要自己播放声音，只需要返回 false 即可接管声音的播放。
-
-```
-bool onRemoteAudioFrameAfterMixing(const char * userId, TRTCAudioFrame * frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | const char * | 用户标识  |
-| frame | TRTCAudioFrame * | 音频帧数据  |
-
-<br/>
-
-
-
-
-<br/>
 
 
 
@@ -615,16 +635,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| log | const char * | 日志内容  |
-| level | TRTCLogLevel | 日志类型  |
-| module | const char * | 暂无具体意义，目前为固定值TXLiteAVSDK  |
+| log | const char * | 日志内容 |
+| level | TRTCLogLevel | 日志类型 |
+| module | const char * | 暂无具体意义，目前为固定值TXLiteAVSDK |
 
 <br/>
 
-
-
-
-<br/>
 
 
 

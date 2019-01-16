@@ -1,10 +1,13 @@
-CKafka 以实例的形式售卖，即 **包年包月-预付费** 的计费形式。
+CKafka 以实例的形式售卖，采用**包年包月-预付费**的计费形式。
+当前 CKafka 根据**峰值吞吐性能**及**磁盘容量**，分为入门型、标准型和容量型等9种实例类型，支持单独扩容磁盘，后续会通过持续的成本优化，推出更加丰富的实例类型。CKafka 计费方式灵活实惠、用户无需关心后端部署，仅需测算业务所需性能和磁盘容量，按需购买即可。
+>?预付费实例购买完成后暂不支持控制台销毁，需要实例到期回收或 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%20CMQ/CKAFKA&level3_id=794&radio_title=%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98&queue=81&scene_code=18327&step=2) 申请销毁。
 
-当前 CKafka 依据 **峰值吞吐性能** 及 **磁盘容量** 进行售卖，分入门型、标准型和容量型等9种类型实例，支持单独扩容磁盘，后续会通过持续的成本优化，推出更加丰富的实例类型。CKafka 计费方式灵活实惠、用户无需关心后端部署，仅需测算业务所需性能和磁盘容量，按需购买即可。
+
 
 ### 包年包月实例定价策
 
-| 实例类别  | 峰值吞吐量（MB/s） | 磁盘容量（GB）| 实例级别topic数|实例级别partition数|价格（元/月）|
+
+| 实例类别  | 峰值吞吐量（MB/s） | 磁盘容量（GB）| 实例级别 Topic 数|实例级别 partition 数|价格（元/月）|
 |---------|---------|-----|------|--------|------|
 | 入门型 | 40 | 300 | 25| 60 |269 |
 | 标准型 | 100 |1000 | 40 | 100 |699 |
@@ -16,26 +19,18 @@ CKafka 以实例的形式售卖，即 **包年包月-预付费** 的计费形式
 | 高阶型L4 |  900 |9000 | 450| 700|7599 |
 | 独占型|  1200 |24000 | 1000| 1500|14000 |
 
->**注意：**
->单 topic 支持的 partition 个数限制为 24个
-实例级别 consumer group 默认限制个数为50个
+>?
+- 单 Topic 支持的 partition 数量限制为24个。
+- 实例级别 Consumer Group 默认限制个数为50个。
+- 实例级别的 paritition 限制包含了副本数。例如，一个实例下有1个双副本、4分区的 Topic、 2个3副本、3分区的 Topic，则该实例的总 partition 个数为 （1 × 2 × 4）+（2 × 3 × 3）= 26个。
+- Consumer Group 空闲存活时间为1个月。
 
->实例级别的 paritition 限制包含了副本数。举例，一个实例下有 1 个双副本、4 分区的 topic，还有 2 个 3 副本，3 分区的 topic，则这个实例的总 partition 个数为 (1×2×4)+(2×3×3)=26 个。
-> consumer group 空闲存活时间 1 个月
 
-
-### 单独扩容磁盘价格
+## 单独扩容磁盘价格
 | 实例类别  | 磁盘容量（GB）| 价格（元/月）|
 |---------|-----|------|
 |非独占性-扩磁盘|100|35|
 
 
->**注意：**
->更高规格 ckafka 实例，请联系商务经理或提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%20CMQ/CKAFKA&level3_id=338&radio_title=%E8%B4%AD%E4%B9%B0%E9%97%AE%E9%A2%98&queue=3&scene_code=16852&step=2) 开通。
+>?如需更高规格的 CKafka 实例，请联系商务经理或提 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%20CMQ/CKAFKA&level3_id=338&radio_title=%E8%B4%AD%E4%B9%B0%E9%97%AE%E9%A2%98&queue=3&scene_code=16852&step=2) 申请开通。
 
-
-#### 注意事项：
-- 计费单位为 元/月。
-- 预付费实例购买完成后暂不支持控制台销毁，需要实例到期回收或工单申请销毁。
-
-[点击购买>>](https://buy.cloud.tencent.com/ckafka)
