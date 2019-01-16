@@ -1,7 +1,7 @@
 ### 网络类型不同
 若 CVM 实例和 MySQL 实例的网络类型不一致，则 CVM 实例无法直接通过内网访问 MySQL 实例。
 
-#### CVM实例采用专有网络（VPC），MySQL 实例采用基础网络
+#### CVM 实例采用专有网络（VPC），MySQL 实例采用基础网络
 
 - 解决办法一（**推荐**）：将 MySQL 实例从基础网络切换为 VPC 网络。
 
@@ -51,9 +51,9 @@
 若想要使用 CVM 实例通过内网访问 MySQL 实例，需要在 CVM 安全组中配置出站规则，**当出站规格的目标配置不为0.0.0.0/0且协议端口不为 ALL 时**，需要把 MySQL 实例的内网 IP 及端口添加到出站规则中。
 1. 登录 [安全组控制台](https://console.cloud.tencent.com/cvm/securitygroup)，单击 CVM 实例绑定安全组的详情页。
 ![](https://main.qcloudimg.com/raw/fb0ed260d2669b24be77abc4dfc6d83e.png)
-2. 选择出站规则，然后单击添加规则。
+2. 选择出站规则，单击 [添加规则]。
 ![](https://main.qcloudimg.com/raw/324bde88d5cb955d8009c24c64abb8a4.png)
-可参考下图模版填写您的IP地址（段）及需要放通的端口信息（MySQL 内网地址），选择允许放通。
+您可以参考下图模版填写您的IP地址（段）及需要放通的端口信息（MySQL 内网地址），选择允许放通。
 ![](https://main.qcloudimg.com/raw/71241852bbc254c9f57ddb939fe45e67.png)
 
 
@@ -62,9 +62,9 @@
 若想要指定的 CVM 实例通过内网访问 MySQL 实例或者使用外网访问 MySQL 实例，需要在 MySQL 安全组中配置入站规则，**当入站规则的源端配置不为0.0.0.0/0且协议端口不为ALL时**，需要把 CVM 实例的内网 IP 或者外网客户端 IP 及端口添加到入站规则中。 
 1. 登录[安全组控制台](https://console.cloud.tencent.com/cvm/securitygroup)，单击 MySQL 实例绑定安全组的详情页。
 ![](https://main.qcloudimg.com/raw/fb0ed260d2669b24be77abc4dfc6d83e.png)
-2. 选择入站规则，然后单击添加规则。
+2. 选择入站规则，单击 [添加规则]。
 ![](https://main.qcloudimg.com/raw/b2f293f285cd2cdc487dfb03f02b6807.png)
-可参考下图模版填写您允许访问的 IP 地址（段）及需要放通的端口信息（MySQL 内网端口），选择允许放通。
+您可以参考下图模版填写您允许访问的 IP 地址（段）及需要放通的端口信息（MySQL 内网端口），选择允许放通。
 ![](https://main.qcloudimg.com/raw/20c66f6451c3c7fe04d7a22d6cb0732e.png)
 
 >!  
