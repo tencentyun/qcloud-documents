@@ -86,7 +86,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
     HMAC_CTX_cleanup(&ctx);
 
     for (int i = 0; i < 32; i++) {
-        snprintf(&format_md[i * 2], 3, "%02x", md[i]);
+        snprintf(&format_md[i * 2], 3, "%02x", md[i]); //二进制转为十六进制大写
     }
     hmac->assign(format_md);
 
@@ -3087,6 +3087,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>AlipayOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayOrderContentExt</td>
    </tr>
+   <tr>
+      <td>card_order_content_ext</td>
+      <td>否</td>
+      <td>CardOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardOrderContentExt</td>
+   </tr>
 </table>
 
 #### WxpayOrderContentExt 结构
@@ -3438,6 +3444,28 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>current_trade_state</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>订单当前状态，详见 CardOrderState</td>
+   </tr>
+   <tr>
+      <td>membership_number</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>会员卡号</td>
+   </tr>
+</table>
+
 ### 退款单信息
 #### RefundOrderContent 结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3530,6 +3558,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayRefundOrderContentExt</td>
+   </tr>
+   <tr>
+      <td>card_refund_order_content_ext</td>
+      <td>是</td>
+      <td>CardRefundOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardRefundOrderContentExt</td>
    </tr>
 </table>
 
@@ -3628,6 +3662,22 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderState(枚举类型)</td>
       <td>退款状态，详见 AlipayRefundOrderState</td>
+   </tr>
+</table>
+
+#### CardRefundOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>state</td>
+      <td>是</td>
+      <td>CardRefundOrderState(枚举类型)</td>
+      <td>退款状态，详见 CardRefundOrderState</td>
    </tr>
 </table>
 
@@ -3784,7 +3834,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>author_code</td>
       <td>否</td>
       <td>String(128)</td>
-      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）</td>
+      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）；可以使用授权码前缀判断支付平台：微信支付为10~15开头，支付宝为25~30开头，会员卡为99开头</td>
    </tr>
    <tr>
       <td>time_expire</td>
@@ -4657,6 +4707,10 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>2</td>
       <td>支付宝</td>
    </tr>
+   <tr>
+      <td>3</td>
+      <td>会员卡</td>
+   </tr>
 </table>
 
 #### TradeType 枚举变量
@@ -4779,6 +4833,34 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>订单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>成功</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>等待用户支付</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>已退款</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>已关单</td>
+   </tr>
+</table>
+
 #### WxpayRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4812,6 +4894,26 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 </table>
 
 #### AlipayRefundOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>退款单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>退款单成功态</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>申请退款失败</td>
+   </tr>
+</table>
+
+#### CardRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>

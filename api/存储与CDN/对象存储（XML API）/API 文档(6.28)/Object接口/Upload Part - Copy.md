@@ -1,17 +1,17 @@
 ## 功能描述
 Upload Part - Copy  请求实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为 5 MB - 5 GB）。
 
->**注意：**
+>!
 >- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过 5 GB, 那么需要使用分块上传或者分块拷贝的接口来复制对象。
 >- 使用上传分块对象，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。
 
 ### 版本
-当存储桶启用了多版本，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回 404 错误。如果您在 x-cos-copy-sourceand 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400 错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
+当存储桶启用了多版本，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回404错误。如果您在 x-cos-copy-sourceand 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
 
 ## 请求
 ### 请求示例
 
-```
+```http
 PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -24,13 +24,13 @@ x-cos-copy-source-if-unmodified-since: time_stamp
 x-cos-copy-source-if-modified-since: time_stamp
 ```
 
->Authorization： Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization： Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -56,6 +56,7 @@ x-cos-copy-source-if-modified-since: time_stamp
 | x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 
 ### 请求参数
+
  名称|描述|类型|必选
 ---|---|---|---
 partNumber|分块拷贝的块号|string|是
@@ -68,9 +69,10 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 
 ### 响应头
 #### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
+
 名称|描述|类型
 ---|---|---
 x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
@@ -79,7 +81,7 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```xml
+```shell
 <?xml version="1.0" encoding="UTF-8" ?>
 <CopyPartResult>
   <ETag>string</ETag>
@@ -98,19 +100,19 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ## 实际案例
 ### 请求
 
-```
-PUT /jimmy/test.file2?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
+```HTTP
+PUT /bucket/example.file?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
 User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
 Accept: */*
-x-cos-copy-source:jimmyyantest-1251668577.cos.ap-shanghai.myqcloud.com/test.file1
+x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.file1
 x-cos-copy-source-range: bytes=10-100
-Host: jimmyyantest-1251668577.cos.ap-shanghai.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f05cb2
 ```
 
 ### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 133 
