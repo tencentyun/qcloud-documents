@@ -178,7 +178,7 @@ enableSpeaker | 打开/关闭扬声器
 
 ### 2.8 使用互动白板
 > **注意：**
-> 使用白板前，需确认已 [开通白板服务](/document/product/680/14782)。
+> 使用白板前，需确认已 [开通白板服务](https://cloud.tencent.com/document/product/680/14782#.E5.BC.80.E9.80.9A.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1)。
 
 白板的相关操作用户直接通过白板 SDK 操作即可，TICSDK 不做任何封装。详见 [Android 白板 SDK 使用手册](/document/product/680/17889)。
 
