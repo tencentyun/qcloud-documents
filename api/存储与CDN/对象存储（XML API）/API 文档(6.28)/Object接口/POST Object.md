@@ -203,7 +203,7 @@ Form
 ```shell
 <PostResponse>
         <Location>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
-        <Bucket>xxxx-123456</Bucket>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
 </PostResponse>
@@ -246,7 +246,7 @@ Connection: keep-alive
 Accept-Encoding: gzip, deflate
 Accept: */*
 User-Agent: python-requests/2.12.4
-Host: xxxx-123456.cos.ap-guangzhou.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 1352
 Content-Type: multipart/form-data; boundary=e07f2a7876ae4755ae18d300807ad879
 
@@ -303,8 +303,8 @@ Server: tencent-cos
 x-cos-request-id: NWEyZTRkMDZfMjQ4OGY3MGFfNTE4Yl81
 
 <PostResponse>
-        <Location>http://xxxx-123456.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
-        <Bucket>xxxx-123456</Bucket>
+        <Location>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/empty:a</Location>
+        <Bucket>examplebucket-1250000000</Bucket>
         <Key>a/empty:a</Key>
         <ETag>d41d8cd98f00b204e9800998ecf8427e</ETag>
 </PostResponse>
