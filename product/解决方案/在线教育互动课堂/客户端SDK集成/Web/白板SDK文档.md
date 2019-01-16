@@ -296,8 +296,17 @@ board.getAllFileInfo()
 
 |   类型     | 说明 |
 | ----------- | ------------------ |
-|   Array   | 返回白板中所有的文件。 |
+|   Array   | 返回白板中所有的文件信息。 |
 
+文件信息：
+
+| 字段  | 类型     | 说明 |
+| ----- | ------ | ------------------ |
+|  fid   | String   | 文件id |
+|  title   | String   | 文件名 |
+|  downloadURL   | String   | 文件下载地址 |
+|  pageCount   | Number   | 文件总数 |
+|  currentPageIndex   | Number   | 文件当前显示的页数 |
 
 #### 25. 根据文件获取该文件的所有白板
 
@@ -314,7 +323,7 @@ board.getBoardByFile(fid)
 
 |   类型     | 说明 |
 | ----------- | ------------------ |
-|   Array   | 返回白板中所有的文件。 |
+|   Array   | 返回白板中所有的白板ID。 |
 
 
 #### 26. 增加一白板并设置该白板的背景图
