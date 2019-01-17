@@ -19,6 +19,7 @@
 
 | 接口          | 说明      |
 | ------------------ | ---------------------------------------- |
+| resize | 重新计算白板宽高 |
 | getBoardData | 获取白板数据 |
 | addBoard | 新增一页白板 |
 | deleteBoard | 删除白板 |
@@ -88,7 +89,13 @@ userSig | String | 是 | 登录鉴权信息
 
 ### 调用白板 SDK 接口
 
-#### 1. 设置白板是否能够涂鸦
+#### 1. 重新计算白板的大小
+```
+board.resize()
+```
+> 适用场景：在使用白板过程中，如需要动态修改白板的宽高，可以通过修改白板外部容器节点的宽高，然后调用resize方法，白板会重新计算宽高，并重绘。
+
+#### 2. 设置白板是否能够涂鸦
 
 ```
 board.setCanDraw(draw)
@@ -98,7 +105,7 @@ board.setCanDraw(draw)
 | ----------- | ----------- | ------------------ |
 | draw |   Boolean   | 默认为 true，true 表示白板可以涂鸦，false 表示白板不能涂鸦 |
 
-#### 2. 获取白板涂鸦数据
+#### 3. 获取白板涂鸦数据
 
 ```
 board.getBoardData()
@@ -110,13 +117,13 @@ board.getBoardData()
 | ----------- | ------------------ |
 |   Array   | 返回白板数据 |
 
-#### 3. 新增一页白板
+#### 4. 新增一页白板
 
 ```
 board.addBoard()
 ```
 
-#### 4. 删除白板
+#### 5. 删除白板
 
 ```
 board.deleteBoard(boarId)
@@ -127,19 +134,19 @@ board.deleteBoard(boarId)
 | boarId |   String/Array   | 需要删除的白板 ID，传入数组为批量删除，为空表示删除当前页 |
 
 
-#### 5. 向前翻页
+#### 6. 向前翻页
 
 ```
 board.prevBoard()
 ```
 
-#### 6. 向后翻页
+#### 7. 向后翻页
 
 ```
 board.nextBoard()
 ```
 
-#### 7. 获取白板列表
+#### 8. 获取白板列表
 
 ```
 board.getBoardList()
@@ -151,7 +158,7 @@ board.getBoardList()
 | ----------- | ------------------ |
 |   Array   | 返回白板列表 |
 
-#### 8. 获取当前白板 ID
+#### 9. 获取当前白板 ID
 
 ```
 board.getCurrentBoard()
@@ -164,7 +171,7 @@ board.getCurrentBoard()
 |   String   | 获取当前白板 ID |
 
 
-#### 9. 白板翻页（切换白板）
+#### 10. 白板翻页（切换白板）
 
 ```
 board.switchBoard(boardid)
@@ -175,7 +182,7 @@ board.switchBoard(boardid)
 | boardid |  String   |  要切换的白板 ID |
 
 
-#### 10. 设置全局颜色
+#### 11. 设置全局颜色
 
 ```
 board.setGlobalBackgroundColor(color)
@@ -185,7 +192,7 @@ board.setGlobalBackgroundColor(color)
 | --- |----------- | ------------------ |
 | color |  String   |   Hex 色值，例如：#ff00ff |
 
-#### 11. 设置当前页颜色
+#### 12. 设置当前页颜色
 
 ```
 board.setBackgroundColor(color)
@@ -195,7 +202,7 @@ board.setBackgroundColor(color)
 | --- |----------- | ------------------ |
 | color |  String   |  Hex 色值，例如：#ff00ff |
 
-#### 12. 设置画笔颜色
+#### 13. 设置画笔颜色
 
 ```
 board.setColor(color)
@@ -205,7 +212,7 @@ board.setColor(color)
 | --- |----------- | ------------------ |
 | color |  String   |  Hex 色值，例如：#ff00ff |
 
-#### 13. 设置画笔的粗细
+#### 14. 设置画笔的粗细
 
 ```
 board.setThin(thin)
@@ -215,7 +222,7 @@ board.setThin(thin)
 | --- |----------- | ------------------ |
 | thin |  number   |  默认100 |
 
-#### 14. 设置涂鸦类型
+#### 15. 设置涂鸦类型
 
 ```
 board.setType(type)
@@ -226,44 +233,44 @@ board.setType(type)
 | type |  String   |  默认 line，支持的类型可参考 BoardSDK.DRAW_TYPE |
 
 
-#### 15. 撤销当前白板页
+#### 16. 撤销当前白板页
 
 ```
 board.undo()
 ```
 
-#### 16. 判断当前白板页是否还能撤销
+#### 17. 判断当前白板页是否还能撤销
 
 ```
 board.canUndo()
 ```
 
-#### 17. 恢复当前白板页
+#### 18. 恢复当前白板页
 
 ```
 board.redo()
 ```
 
-#### 18. 判断当前白板页是否还能恢复
+#### 19. 判断当前白板页是否还能恢复
 
 ```
 board.canRedo()
 ```
 
 
-#### 19. 清空当前页涂鸦和背景色/图片
+#### 20. 清空当前页涂鸦和背景色/图片
 
 ```
 board.clear()
 ```
 
-#### 20. 清空当前页涂鸦（保留背景色/图片）
+#### 21. 清空当前页涂鸦（保留背景色/图片）
 
 ```
 board.clearDraws()
 ```
 
-#### 21. 设置当前页的背景图
+#### 22. 设置当前页的背景图
 
 ```
 board.setBackgroundPic(url)
@@ -274,19 +281,19 @@ board.setBackgroundPic(url)
 | url |  String   | 图片的 URL 地址 |
 
 
-#### 22. 清除全局背景色
+#### 23. 清除全局背景色
 
 ```
 board.clearGlobalBgColor()
 ```
 
-#### 23. 删除文件
+#### 24. 删除文件
 
 ```
 board.deleteFile()
 ```
 
-#### 24. 获取白板中上传的所有的文件
+#### 25. 获取白板中上传的所有的文件
 
 ```
 board.getAllFileInfo()
@@ -308,7 +315,7 @@ board.getAllFileInfo()
 |  pageCount   | Number   | 文件总数 |
 |  currentPageIndex   | Number   | 文件当前显示的页数 |
 
-#### 25. 根据文件获取该文件的所有白板
+#### 26. 根据文件获取该文件的所有白板
 
 ```
 board.getBoardByFile(fid)
@@ -326,7 +333,7 @@ board.getBoardByFile(fid)
 |   Array   | 返回白板中所有的白板 ID |
 
 
-#### 26. 增加一白板并设置该白板的背景图
+#### 27. 增加一白板并设置该白板的背景图
 
 ```
 board.addBackgroundPic(url, switchNewBoard)
@@ -345,7 +352,7 @@ board.addBackgroundPic(url, switchNewBoard)
 |   String   | 返回新增白板 ID |
 
 
-#### 27. 清空文件涂鸦
+#### 28. 清空文件涂鸦
 
 ```
 board.clearFileDraws(fids)
@@ -356,7 +363,7 @@ board.clearFileDraws(fids)
 | fids |  Array    | 是 | 要清空涂鸦的文件 ID |
 
 
-#### 28. 获取 COS 对象实例
+#### 29. 获取 COS 对象实例
 
 ```
 board.getCosInstance()
@@ -370,7 +377,7 @@ board.getCosInstance()
 
 
 
-#### 29. 上传文件（支持 doc、docx、excel、ppt、pdf）
+#### 30. 上传文件（支持 doc、docx、excel、ppt、pdf）
 
 ```
 board.addFile(file, succ, fail)
@@ -383,7 +390,7 @@ board.addFile(file, succ, fail)
 | succ |  Function    | 否 | 上传成功的回调 |
 | fail |  Function    | 否 | 上传失败的回调 |
 
-#### 30. 上传图片
+#### 31. 上传图片
 
 ```
 board.addImgFile(imgFile, succ, fail)
@@ -409,7 +416,7 @@ boardSdk.on('事件名'，回调函数);
 
 示例：
 ```
-var boardSdk = new TICSDK();
+var boardSdk = new BoardSDK();
 boardSdk.on(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE, res => {
   // 业务侧逻辑
 });
@@ -446,7 +453,7 @@ boardSdk.off('事件名');
 
 示例：
 ```
-var boardSdk = new TICSDK();
+var boardSdk = new BoardSDK();
 boardSdk.off(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE);
 ```
 
