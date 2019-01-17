@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
+PUT Object - Copy  请求实现将一个文件从源路径复制到目标路径。建议文件大小1M 到 5G，超过5G 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 acl 可以被修改。
 用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。
 
 ### 版本
@@ -20,7 +20,7 @@ Authorization: Auth String
 x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String （详细请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 
 ### 请求头
@@ -34,17 +34,17 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 名称|描述|类型|必选
 ---|---|---|---
 x-cos-copy-source|源文件 URL 路径，可以通过 versionid 子资源指定历史版本|string|是
-x-cos-metadata-directive|是否拷贝源文件的元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，则拷贝源文件的元数据；假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。当目标路径和源路径一致，即用户试图修改元数据时，则标记必须为 Replaced。|string|否
-x-cos-copy-source-If-Modified-Since|当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。|string|否
-x-cos-copy-source-If-Unmodified-Since|当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。|string|否
-x-cos-copy-source-If-Match|当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
-x-cos-copy-source-If-None-Match|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。|string|否
+x-cos-metadata-directive|是否拷贝源文件的元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，则拷贝源文件的元数据；假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。当目标路径和源路径一致，即用户试图修改元数据时，则标记必须为 Replaced|string|否
+x-cos-copy-source-If-Modified-Since|当 Object 在指定时间后被修改，则执行操作，否则返回412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突|string|否
+x-cos-copy-source-If-Unmodified-Since|当 Object 在指定时间后未被修改，则执行操作，否则返回412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突|string|否
+x-cos-copy-source-If-Match|当 Object 的 Etag 和给定一致时，则执行操作，否则返回412。可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突|string|否
+x-cos-copy-source-If-None-Match|当 Object 的 Etag 和给定不一致时，则执行操作，否则返回412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突|string|否
 x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD|string|否
 x-cos-acl|定义 Object 的 ACL 属性。有效值：private，public-read；默认值：private|string|否
 x-cos-grant-read|赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]"|string|否
 x-cos-grant-write|赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]"|string|否
 x-cos-grant-full-control|赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]"|string|否
-x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
+x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线|string|否
 
 **服务端加密相关头部**
 
