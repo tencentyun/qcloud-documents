@@ -1,28 +1,16 @@
 本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 ## 准备工作
-在使用基本功能前，请确保您已完成以下骤，详见[跑通Demo(Web)](https://cloud.tencent.com/document/product/647/32398)，[快速集成(Web)](https://cloud.tencent.com/document/product/647/16863)。
+在使用基本功能前，请确保您已完成以下骤，详见 [跑通Demo(Web)](https://cloud.tencent.com/document/product/647/32398)，[快速集成(Web)](https://cloud.tencent.com/document/product/647/16863)。
 - 创建了腾讯云实时音视频应用，购买了相应的套餐，并获取到SDKAppid。
 - 获取私钥文件。
 - 在 WEB 项目里集成了 WebRTCAPI.min.js
 
 ## 部署签名服务
-在初始化组件时需要签名服务进行签发 userSig 和 privateMapKey（如果没有在【控制台】-【实时音视频 】-【您的应用名称】-【帐号信息】中启用权限密钥，可以忽略 privateMapKey）。
-
-通过 [签名算法源码](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码，（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。[如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+在初始化组件时需要签名服务进行签发 userSig，详情可以参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ## 检测环境
 检测当前浏览器环境是否支持 WebRTC 相关特性，在支持 WebRTC 的情况下才可以进行初始化等操作。
-回调返回的 info 字段包含的参数有：
-
-| 字段  | 含义    |  备注|
-| ------ | ----- | ------ |
-| isTBS      | 是否是TBS (Android的微信/手机QQ Webview) |   [什么是 TBS](https://x5.tencent.com/tbs/index.html)              |
-| TBSversion      | TBS版本号 |                 |
-| isTBSValid      | TBS版本号是否支持 WebRTC |                 |
-| support      | 是否支持WebRTC |  |
-| h264Support      | 是否支持H.264 |必须支持 H.264 |
-| screenshare      | 是否支持屏幕分享 |必须安装插件 |
 ```javascript
 WebRTCAPI.fn.detectRTC({
         screenshare : true // 是否进行屏幕分享检测，默认true
@@ -32,6 +20,16 @@ WebRTCAPI.fn.detectRTC({
     }
 });
 ```
+回调返回的 info 字段包含的参数有：
+
+| 字段  | 含义    |  备注|
+| :------: | ----- | ------ |
+| isTBS      | 是否是TBS (Android的微信/手机QQ Webview) |   [什么是 TBS](https://x5.tencent.com/tbs/index.html)              |
+| TBSversion      | TBS版本号 |                 |
+| isTBSValid      | TBS版本号是否支持 WebRTC |                 |
+| support      | 是否支持WebRTC |  |
+| h264Support      | 是否支持H.264 |必须支持 H.264 |
+| screenshare      | 是否支持屏幕分享 |必须安装插件 |
 
 ## 组装参数
 使用基本功能必须的参数有:
@@ -128,7 +126,7 @@ RTC.on( 'onRemoteStreamUpdate' , function(data){
 事件回调返回的 data 包含的参数有：
 
 | 参数                   | 类型       | 描述            |
-| -------------------- | -------- | ------------- | ---- |
+| -------------------- | --------  | ---- |
 | userId     | String  | 视频流所属用户的userId    |
 | stream     | Stream  | 视频流 Stream，可能为 null( 每一个用户进来 不管是否推流，都会触发这个回调)  |
 | videoId    | String  | 视频流Stream的唯一id ,由 tinyid + "_" + 由随机字符串 组成      |
@@ -144,9 +142,10 @@ RTC.on( 'onRemoteStreamRemove' , function(data){
 事件回调返回的 data 包含的参数有：
 
 | 参数                   | 类型       | 描述            |
-| -------------------- | -------- | ------------- | ---- |
+| -------------------- | --------  | ---- |
 | userId         | String | 远端视频流所属用户的 userId    |
 | videoId         | String | 远端视频流 Stream 的唯一 ID    |
+
 ## 开启（或关闭）本地声音采集
 采集音频标识（取消静音）。
 ```javascript

@@ -11,7 +11,7 @@
 | Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2 | &nbsp;     |
 
 
-> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
+> 基于 TBS 内核的 webview，需满足版本 >= 43600，我们的[ 能力检测 ](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
 
 ## 集成 TRTC Web SDK
 
@@ -26,7 +26,7 @@
 ## 更新日志
 
 #### 3.0（ 2018-09-11 ）
-- 调整初始化接口 [WebRTCAPI](/document/product/647/17251#webrtcapi) 
+- 调整初始化接口 [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)。
 - 弃用字段 accountType 
 - 弃用字段 closeLocalMedia 默认不再推流
 - 弃用字段 video 不再支持配置是否进行音视频推流 
