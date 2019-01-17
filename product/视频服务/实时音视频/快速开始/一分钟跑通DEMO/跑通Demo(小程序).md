@@ -46,7 +46,7 @@
 ![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
 
 ## 7. 小程序服务器域名配置
-&lt;webrtc-room&gt; 组件内部需要访问如下地址，请将以下域名在 【微信公众平台】-【开发】-【开发设置】-【服务器域名】中进行配置，添加到 **request 合法域名**中：
+&lt;webrtc-room&gt; 组件内部需要访问如下地址，请将以下域名在 【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行配置，添加到 **request 合法域名**中：
 
 | 域名 | 说明 | 
 |:-------:|---------|
@@ -58,8 +58,8 @@
 ![](https://main.qcloudimg.com/raw/b3fb6291c097dda1606d46a5e8f2b810.png)
 
 ## 8. 编译运行
-- step1：安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
 
+- step1：安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
 - step2： 输入您申请到的微信小程序 AppID（注意：不是上面的 SDKAppID），项目目录选择上一步下载到的代码目录（ **注意：** 目录请选择**根目录**，根目录包含有 `project.config.json`文件），单击【确定】创建小程序项目。
 ![](https://main.qcloudimg.com/raw/62d821ab972b8d65c5ea9d623b4f3ff5.png)
 - step3： 按照上文第5步中的步骤修改 `pages/webrtc-room/account.js` 。
