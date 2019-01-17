@@ -3,7 +3,7 @@
 
 
 ## 操作步骤
-1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/dasb)，使用管理员账号登录数据安全网关系统。
+1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关系统。
 2. 在数据安全网关系统单击【资源管理】>【Active Directory】，即可进入域控资源管理页面，如下图所示。
 ![1](https://main.qcloudimg.com/raw/70eaa348c679b73a1de8255724ba3579.png)
 3. 在域控资源管理页面，单击【新建】，配置如下信息。

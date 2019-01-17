@@ -5,7 +5,7 @@
 
 ## 操作步骤
 
-1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/dasb)，使用管理员账号登录数据安全网关系统。
+1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关系统。
 2. 在数据安全网关系统单击【资源管理】>【Linux】，即可进入 Linux 资源管理页面。
 3. 在您要配置管理员账号的资源所在行下，单击“账号”按钮，即可进入资源账号配置页面，如下图所示。
     ![1](https://main.qcloudimg.com/raw/b04669730acd62048622192f6211c8d3.png)
