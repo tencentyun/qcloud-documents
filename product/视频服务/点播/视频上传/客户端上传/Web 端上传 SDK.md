@@ -17,7 +17,7 @@ Demo 源码：[https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/inde
 ```html
 <script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
-> SDK 依赖 Promise，请在低版本浏览器中自行引入。
+>? SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
 ###  定义获取上传签名的函数
 
@@ -29,7 +29,7 @@ function getSignature() {
 };
 ```
 
-> `url` 是您派发签名服务的 URL，参见 [客户端上传指引](/document/product/266/9219)。
+>? `url` 是您派发签名服务的 URL，参见 [客户端上传指引](/document/product/266/9219)。
 > `signature` 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ###  上传视频
@@ -113,7 +113,7 @@ uploader.done().then(function (doneResult) {
 
 ### 取消上传
 
-SDK 支持取消正在上传的视频或封面
+SDK 支持取消正在上传的视频或封面：
 
 ```js
 const uploader = tcVod.upload({
@@ -126,7 +126,7 @@ uploader.cancel()
 
 ### 断点续传
 
-SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。
+SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时，您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 ## 接口描述
 
@@ -151,13 +151,13 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 
 ## 常见问题
 
-1. `File` 对象怎么获取？
-使用 `input` 标签，`type` 为 `file` 类型，即可拿到 `File` 对象
+1. **`File` 对象怎么获取？**
+使用 `input` 标签，`type` 为 `file` 类型，即可拿到 `File` 对象。
 
-2. 上传的文件是否有大小限制?
+2. **上传的文件是否有大小限制?**
 最大支持 60GB。
 
-3. SDK 支持的浏览器版本有哪些？
+3. **SDK 支持的浏览器版本有哪些？**
 Chrome、Firefox等支持 `HTML 5` 的主流浏览器，IE 方面支持的最低版本是 IE10。
 
 
