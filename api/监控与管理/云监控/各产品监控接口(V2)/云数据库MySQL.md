@@ -3,7 +3,7 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-云数据库MySQL（Cloud Database for MySQL）是腾讯云基于全球最受欢迎的开源数据库MySQL专业打造的高性能分布式数据存储服务。具体介绍请参考 <a href="/doc/product/236/简介" title="简介">云数据库MySQL</a> 页面。
+云数据库 MySQL（Cloud Database for MySQL）是腾讯云基于开源数据库 MySQL 专业打造的高性能分布式数据存储服务。具体介绍请参考 <a href="/doc/product/236/简介" title="简介">云数据库MySQL</a> 页面。
 
 查询云数据库（MySQL）产品监控数据，入参取值如下：
 namespace：qce/cdb
