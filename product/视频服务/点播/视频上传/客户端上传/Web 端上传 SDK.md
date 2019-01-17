@@ -1,6 +1,6 @@
 ## 简介
 
-对于浏览器上传音视频的场景，腾讯云点播提供了 Web 上传 SDK 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于浏览器上传音视频的场景，腾讯云点播提供了 Web 上传 SDK 来实现。上传的流程可以参见 [客户端上传指引](/document/product/266/9219)。
 
 源码：[https://github.com/tencentyun/vod-js-sdk-v6](https://github.com/tencentyun/vod-js-sdk-v6)
 
@@ -8,7 +8,7 @@
 
 [https://tencentyun.github.io/vod-js-sdk-v6/](https://tencentyun.github.io/vod-js-sdk-v6/)
 
-Demo源码: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
+Demo 源码：[https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
 
 ## 简单视频上传
 
@@ -29,8 +29,8 @@ function getSignature() {
 };
 ```
 
-> `url` 是您派发签名服务的 URL，参见[客户端上传指引](/document/product/266/9219)。
-> `signature` 计算规则可参考[客户端上传签名](/document/product/266/9221)。
+> `url` 是您派发签名服务的 URL，参见 [客户端上传指引](/document/product/266/9219)。
+> `signature` 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ###  上传视频
 
