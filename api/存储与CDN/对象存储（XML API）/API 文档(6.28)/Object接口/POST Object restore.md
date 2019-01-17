@@ -35,7 +35,7 @@ Authorization: Auth String
 具体的数据描述如下：
 <table>
    <tr>
-      <th>节点名称（关键字）</th>
+      <th nowrap="nowrap">节点名称（关键字）</th>
       <th>父节点</th>
       <th>描述</th>
       <th>类型</th>
