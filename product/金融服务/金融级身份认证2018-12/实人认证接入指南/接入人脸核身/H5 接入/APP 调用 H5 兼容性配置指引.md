@@ -24,7 +24,7 @@ iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用�
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
  2. 动态申请权限
-    - 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。
+    - 如果第三方编译的 targetSdkVersion ≥ 23，则需要动态申请权限。
     - 如果第三方编译的 targetSdkVersion < 23，则不需要动态申请权限。
 3. WebSettings 的设置
 调用`WebView.loadUrl(String url)`前一行添加如下代码设置 WebSettings。
@@ -74,9 +74,9 @@ iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用�
 					}
 ```
  >!
- >- 如果第三方已重写以上函数，将如上述函数体内容添加至第三方的对应函数体首行。
- >- 如果第三方没有重写以上函数，则直接按照上述所示重写。
- 
+ >- 如果第三方已重写以上函数，请将如上述函数体内容添加至第三方的对应函数体首行。
+ >- 如果第三方没有重写以上函数，则直接按照上述所示重写即可。
+ >
 5. Activity 的重写
 WebView 所属的 Activity 必须重写如下函数：
 ```
@@ -93,8 +93,8 @@ WebView 所属的 Activity 必须重写如下函数：
 	}
 ```
  >!
- >- 如果第三方 WebView 所属的 Activity 已重写以上函数，将上述函数体内容添加至第三方的对应函数体首行。
- >- 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按照上图所示重写。
+ >- 如果第三方 WebView 所属的 Activity 已重写以上函数，请将上述函数体内容添加至第三方的对应函数体首行。
+ >- 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按照上图所示重写即可。
 
 <span id='yz'></span>
 ## 兼容性验证

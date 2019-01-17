@@ -12,11 +12,11 @@
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
-| 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
+| 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
 
 ## 升级步骤
-请按照下面5个步骤升级 PHP SDK。
+请按照下面4个步骤升级 PHP SDK。
 
 **1. 更新 PHP SDK**
 
@@ -71,25 +71,16 @@ require  '/path/to/cos-sdk-v5.phar';
 **源码方式**
 源码方式安装 SDK 的步骤如下：
 
-1）在 [Github 发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases)下载相应的 cos-sdk-v5.tar.gz 压缩文件。
+1）在 [Github 发布页面](https://github.com/tencentyun/cos-php-sdk-v5/releases) 下载相应的 cos-sdk-v5.tar.gz 压缩文件。
 
 2）解压通过 autoload.php 脚本加载 SDK。
 ```
 require '/path/to/sdk/vendor/autoload.php';
 ```
 
-
-**2. 更改 SDK 鉴权方式**
-
-在 JSON PHP SDK 中您需要自己在后台计算好签名，再返回客户端使用。而 XML PHP SDK 使用了新的鉴权算法，我们强烈建议您后台接入我们的临时密钥（STS）方案。该方案您不需要了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
-您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/30172)。
-
-**3. 更改 SDK 初始化方式**
+**2. 更改 SDK 初始化方式**
 
 在 XML PHP SDK 中，我们的初始化接口发生了一些变化，请您对应进行更改。
-
-* 为了区分，`CosXmlServiceConfig` 代替了 `COSClientConfig`，`CosXmlService` 代替了 `COSClient`，但他们的作用相同。
-* 您需要在初始化时实例化一个密钥提供者 `QCloudCredentialProvider`，用于提供一个有效的密钥，建议使用临时密钥。
 
 JSON PHP SDK 的初始化方式如下：
 
@@ -119,7 +110,7 @@ $cosClient = new Qcloud\Cos\Client(array('region' => getenv('COS_REGION'),
 ```
 
 
-**4. 更改存储桶名称和可用区域简称**
+**3. 更改存储桶名称和可用区域简称**
 
 XML PHP SDK 的存储桶名称和可用区域简称与 JSON PHP SDK 的不同，需要您进行相应的更改。
 
@@ -152,19 +143,26 @@ XML PHP SDK 的存储桶可用区域简称发生了变化， 在初始化时，�
 | 莫斯科       | eu-moscow     | 无 |
 
 
-**5. 更改 API**
+**4. 更改 API**
 升级到 XML PHP SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12267)。
 
-API 变化有以下两点：
-1）不再支持目录操作
-对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，展示方式上模拟了传统文件夹。
+API 变化有以下三点：
+
+**1）没有单独的目录接口**
+
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，展示方式上模拟了传统文件夹。
 
 例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含了 a.txt 文件 。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/ `结尾的0KB 文件。这样在您调用`GetBucket`接口时，就可以将这样的文件当做文件夹。
 
+**2）签名算法不同**
 
-2）新增 API
+通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
+
+
+**3）新增 API**
+
 XML PHP SDK 增加了很多新的 API，包括：
 * 存储桶的操作，如 PutBucketRequest、GetBucketRequest、ListBucketRequest 等。
 * 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。

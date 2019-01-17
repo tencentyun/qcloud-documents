@@ -106,6 +106,7 @@ producer = KafkaProducer (
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#yourusername',
     sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 consumer = KafkaConsumer (
@@ -115,7 +116,8 @@ consumer = KafkaConsumer (
     security_protocol="SASL_PLAINTEXT",
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
-    sasl_plain_password='yourpassword'
+    sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 #SASL_SSL:
@@ -126,7 +128,8 @@ producer = KafkaProducer(
     ssl_check_hostname=False,
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
-    sasl_plain_password='yourpassword'
+    sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 consumer = KafkaConsumer (
     'yourtopic',
@@ -138,6 +141,7 @@ consumer = KafkaConsumer (
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
     sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 #SSL:
@@ -146,7 +150,8 @@ producer = KafkaProducer(
     client_id='yourinstance#youruser#yourpassword#yourclientid',
     security_protocol='SSL',
     ssl_check_hostname=False,
-    ssl_cafile='DigiCertGlobalRootCA.pem'
+    ssl_cafile='DigiCertGlobalRootCA.pem',
+    api_version=(0,10,0)
 )
 consumer = KafkaConsumer (
     'yourtopic',
@@ -155,7 +160,8 @@ consumer = KafkaConsumer (
     client_id='yourinstance#youruser#yourpassword#yourclientid',
     security_protocol='SSL',
     ssl_cafile='DigiCertGlobalRootCA.pem',
-    ssl_check_hostname=False
+    ssl_check_hostname=False,
+    api_version=(0,10,0)
 )
 ```
 更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html) 。
