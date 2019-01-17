@@ -2,10 +2,13 @@
 
 对于浏览器上传音视频的场景，腾讯云点播提供了 Web 上传 SDK 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
+源码：[https://github.com/tencentyun/vod-js-sdk-v6](https://github.com/tencentyun/vod-js-sdk-v6)
 
 ## Demo
 
 [https://tencentyun.github.io/vod-js-sdk-v6/](https://tencentyun.github.io/vod-js-sdk-v6/)
+
+Demo源码: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
 
 ## 简单视频上传
 
@@ -31,7 +34,7 @@ async function getSignature() {
 
 ###  上传视频
 
-上传视频是通过调用 `qcVideo.ugcUploader.start` 来实现的。实例如下：
+示例如下：
 
 ```js
 async () => {

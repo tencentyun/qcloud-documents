@@ -4,9 +4,14 @@ Web SDK for Tencent Cloud Video Service. Used in browser.
 
 Detail upload process can refer to [客户端上传指引](/document/product/266/9219)。
 
+source code：[https://github.com/tencentyun/vod-js-sdk-v6](https://github.com/tencentyun/vod-js-sdk-v6)
+
+
 ## Demo
 
 [https://tencentyun.github.io/vod-js-sdk-v6/](https://tencentyun.github.io/vod-js-sdk-v6/)
+
+Demo source code: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
 
 ## Simple video upload
 
