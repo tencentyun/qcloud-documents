@@ -22,10 +22,10 @@ Demo源码: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.
 ###  定义获取上传签名的函数
 
 ```js
-async function getSignature() {
-  const response = await axios.post(url)
-  const signature = response.data.signature
-  return signature
+function getSignature() {
+  return axios.post(url).then(function (response) {
+    return response.data.signature;
+  })
 };
 ```
 
@@ -37,29 +37,31 @@ async function getSignature() {
 示例如下：
 
 ```js
-async () => {
-  const tcVod = new TcVod.default({
-    getSignature: getSignature // 前文中所述的获取上传签名的函数
-  })
 
-  const uploader = tcVod.upload({
-    videoFile: videoFile, // 视频，类型为 File
-    progress(info) {
-      console.log(info.percent) // 进度
-    },
-  })
+const tcVod = new TcVod.default({
+  getSignature: getSignature // 前文中所述的获取上传签名的函数
+})
 
-  // type doneResult = {
-  //   fileId: string,
-  //   video: {
-  //     url: string
-  //   },
-  //   cover: {
-  //     url: string
-  //   }
-  // }
-  const doneResult = await uploader.done()
-}
+const uploader = tcVod.upload({
+  videoFile: videoFile, // 视频，类型为 File
+  progress(info) {
+    console.log(info.percent) // 进度
+  },
+})
+
+// type doneResult = {
+//   fileId: string,
+//   video: {
+//     url: string
+//   },
+//   cover: {
+//     url: string
+//   }
+// }
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
+
 
 ```
 
@@ -73,7 +75,9 @@ const uploader = tcVod.upload({
   coverFile: coverFile,
 })
 
-const doneResult = await uploader.done()
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 ```
 
 ### 获取上传进度
@@ -102,7 +106,9 @@ const uploader = tcVod.upload({
   },
 })
 
-const doneResult = await uploader.done()
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 ```
 
 ### 取消上传

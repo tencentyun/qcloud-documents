@@ -25,10 +25,10 @@ Demo source code: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/
 ### define a function to get signature
 
 ```js
-async function getSignature() {
-  const response = await axios.post(url)
-  const signature = response.data.signature
-  return signature
+function getSignature() {
+  return axios.post(url).then(function (response) {
+    return response.data.signature;
+  })
 };
 ```
 
@@ -40,29 +40,29 @@ async function getSignature() {
 example:
 
 ```js
-async () => {
-  const tcVod = new TcVod.default({
-    getSignature: getSignature // mentioned above
-  })
+const tcVod = new TcVod.default({
+  getSignature: getSignature // mentioned above
+})
 
-  const uploader = tcVod.upload({
-    videoFile: videoFile, // video. type should be File
-    progress(info) {
-      console.log(info.percent)
-    },
-  })
+const uploader = tcVod.upload({
+  videoFile: videoFile, // video. type should be Filev
+  progress(info) {
+    console.log(info.percent)
+  },
+})
 
-  // type doneResult = {
-  //   fileId: string,
-  //   video: {
-  //     url: string
-  //   },
-  //   cover: {
-  //     url: string
-  //   }
-  // }
-  const doneResult = await uploader.done()
-}
+// type doneResult = {
+//   fileId: string,
+//   video: {
+//     url: string
+//   },
+//   cover: {
+//     url: string
+//   }
+// }
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 
 ```
 
@@ -76,7 +76,9 @@ const uploader = tcVod.upload({
   coverFile: coverFile,
 })
 
-const doneResult = await uploader.done()
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 ```
 
 ### Get upload progress
@@ -105,7 +107,10 @@ const uploader = tcVod.upload({
   },
 })
 
-const doneResult = await uploader.done()
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
+
 ```
 
 ### Cancel upload
