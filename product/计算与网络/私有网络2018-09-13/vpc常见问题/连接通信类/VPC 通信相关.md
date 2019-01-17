@@ -7,7 +7,7 @@ VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通
 | 不同可用区 | 同 VPC： 默认互通<br>不同 VPC： 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
 | 不同VPC | 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
 | 不同子网 | 同 VPC：默认互通<br>不同 VPC： 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
-| 跨账号 | 跨账号 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 跨账号 | 跨账号 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨地域均支持）通信 |
  
 >! 同 VPC 下不同子网间（不论是否在同一可用区），**内网默认互通**，如果不通，请优先排查 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 等防火墙策略。
 
@@ -16,7 +16,7 @@ VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通
 |---------------|------------|
 | VPC 与基础网络内云服务器通信 | [基础网络互通](https://cloud.tencent.com/document/product/215/20083)|
 | 访问公网 | [NAT 网关](https://cloud.tencent.com/document/product/552) / [弹性 IP](https://cloud.tencent.com/document/product/215/20080) / [公网网关](https://cloud.tencent.com/document/product/215/20078) |
-| 与其他 VPC 通信 | [对等连接](https://cloud.tencent.com/document/product/553) / [云联网](https://cloud.tencent.com/document/product/877) （二者均支持跨地域和跨账号）|
+| 与其他 VPC 通信 | [对等连接](https://cloud.tencent.com/document/product/553) / [云联网](https://cloud.tencent.com/document/product/877) （同/跨账号均支持）|
 | 连接数据中心 | [VPN 连接](https://cloud.tencent.com/document/product/554) / [专线接入](https://cloud.tencent.com/document/product/216) / [云联网](https://cloud.tencent.com/document/product/877) |
 
 
