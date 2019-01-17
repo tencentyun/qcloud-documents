@@ -7,8 +7,8 @@ POST Object 接口请求允许使用者用表单的形式将文件（Object）�
 如果需要暂停存储桶的版本控制，则对象存储始终将其 null 用作存储在存储桶中的对象的版本 ID。
 
 ### 细节分析
-1. 需要有 Bucket 的写权限；
-2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回 200 OK。
+1. 需要有 Bucket 的写权限。
+2. 如果试图添加的 Object 的同名文件已经存在，那么新上传的文件，将覆盖原来的文件，成功时返回200 OK。
 
 ## 请求
 ### 请求示例
@@ -32,7 +32,7 @@ Form
 
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。|String| 是|
+| Content-Length | RFC 2616中定义的 HTTP 请求内容长度（字节）|String| 是|
 
 ### 表单字段
 
@@ -45,61 +45,61 @@ Form
    </tr>
    <tr>
       <td>acl</td>
-      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default(继承 Bucket 权限)；<br>**注意**：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default(继承 Bucket 权限)；<br>注意：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires</td>
-      <td>RFC 2616 中定义的头部，详见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档。</td>
+      <td>RFC 2616 中定义的头部，详见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>file</td>
-      <td>文件内容，作为表单的最后一个字段。</td>
+      <td>文件内容，作为表单的最后一个字段</td>
       <td>String</td>
       <td>是</td>
    </tr>
    <tr>
       <td>key</td>
-      <td>上传后的文件名，使用 ${filename} 则会进行替换。例如a/b/${filename}，上传文件 photo.jpg，那么最终的上传路径就是 a/b/photo.jpg。</td>
+      <td>上传后的文件名，使用 ${filename} 则会进行替换，例如a/b/${filename}，上传文件 photo.jpg，那么最终的上传路径就是 a/b/photo.jpg</td>
       <td>String</td>
       <td>是</td>
    </tr>
    <tr>
       <td>success_action_redirect</td>
-      <td>若设置优先生效，返回 303 并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数。</td>
+      <td>若设置优先生效，返回303，并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>success_action_status</td>
-      <td>可选 200，201，204 默认返回 204。若填写 success_action_redirect 则会略此设置。</td>
+      <td>可选200，201，204，默认返回204。若填写 success_action_redirect 则会略此设置</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>x-cos-meta-*</td>
-      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。</td>
+      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>x-cos-storage-class</td>
-      <td>设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD。</td>
+      <td>设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>policy</td>
-      <td>Base64 编码。用于做请求检查，如果请求的内容和 Policy 指定的条件不符，返回 403 AccessDenied。</td>
+      <td>Base64 编码。用于做请求检查，如果请求的内容和 Policy 指定的条件不符，返回 403 AccessDenied</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
       <td>x-cos-server-side-encryption</td>
-      <td>指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256。</td>
+      <td>指定将对象启用服务端加密的方式。使用 COS 主密钥加密时，填写 AES256</td>
       <td>String</td>
       <td nowrap="nowrap">如需加密，是</td>
    </tr>
@@ -113,9 +113,9 @@ Form
 | ---------------- | ----------------------------------------- |
 | policy           | 经过 Base64 加密的策略内容，策略内容将用于对请求内容的检查。如果请求内容与策略指定条件不符，则请求将被拒绝。 |
 | q-sign-algorithm | 用于计算签名的算法，腾讯云 COS 目前支持 SHA1，此处填写小写 `sha1`。 |
-| q-ak             | 用户在腾讯云的账户密钥 ID，即 SecretId。                     |
-| q-key-time      | 用于请求签名的密钥有效起止时间，通过 Unix 时间戳描述起始和结束时间，以秒为单位，格式为 [*start-seconds*];[*end-seconds*]。例如 `1480932292;1481012298`。 |
-| q-signature      | 使用上述元素计算的请求签名，COS 将会使用表单元素与签名内容做校验，若签名与所签内容不一致，则请求将被拒绝。 |
+| q-ak             | 用户在腾讯云的账户密钥 ID，即 SecretId                     |
+| q-key-time      | 用于请求签名的密钥有效起止时间，通过 Unix 时间戳描述起始和结束时间，以秒为单位，格式为 [start-seconds];[end-seconds]。例如`1480932292;1481012298` |
+| q-signature      | 使用上述元素计算的请求签名，COS 将会使用表单元素与签名内容做校验，若签名与所签内容不一致，则请求将被拒绝 |
 
 #### 签名计算
 
@@ -148,9 +148,9 @@ Form
 
 | 类型   | 描述                                       |
 | ---- | ---------------------------------------- |
-| 完全匹配 | 使用`{"key": "value"}`或`["eq", "$key", "value"]`方式表达。 |
-| 前缀匹配 | 使用 `["starts-with", "$key", "value"]`方式表达，value 可留空。 |
-| 范围匹配 | 仅用于`["content-length-range", int1, int2]`则文件字节数必须在 int1 和 int2 范围内。|
+| 完全匹配 | 使用`{"key": "value"}`或`["eq", "$key", "value"]`方式表达 |
+| 前缀匹配 | 使用`["starts-with", "$key", "value"]`方式表达，value 可留空 |
+| 范围匹配 | 仅用于`["content-length-range", int1, int2]`则文件字节数必须在 int1 和 int2 范围内|
 
 **Conditions 参数**
 所有参数均为非必选，不填可以不校验。
@@ -163,7 +163,7 @@ Form
 | key                     | 对象的存储路径                                  | 完全、前缀 |
 | success_action_redirect | 上传成功后返回的 URL                             | 完全、前缀 |
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
-| x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。  | 完全、前缀 |
+| x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线  | 完全、前缀 |
 | x-cos-\*      | 其他需要签署的 COS 头部            | 完全    |
 
 
@@ -177,16 +177,16 @@ Form
 
 |名称|描述|类型|
 |:---|:-- |:-- |
-|success_action_redirect|成功上载时客户端重定向到的URL。|String|
+|success_action_redirect|成功上载时客户端重定向到的URL|String|
 |x-cos-version-id|目标存储桶中复制对象的版本。当开启或开启后暂停的存储桶，才会响应此头部|String|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值：AES256。|string|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值：AES256|string|
 
 
 ### 响应参数
 |名称|描述|类型|
 |:---|:-- |:-- |
-| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏。|String|
-| Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径。|String|
+| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏|String|
+| Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径|String|
 
 
 ### 响应体
@@ -205,28 +205,28 @@ Form
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
-| PostResponse |无| 保存 POST Object 结果的容器。 | Container |是|
+| PostResponse |无| 保存 POST Object 结果的容器 | Container |是|
 
 Container 节点 PostResponse 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
-| Location | PostResponse | 对象的完整路径。 |  String |是|
-| Bucket | PostResponse | 对象所在的存储桶。 |  String |是|
-| Key | PostResponse | 对象 key 名。 |  String |是|
-| ETag | PostResponse | Etag 内容。 |  String |是|
+| Location | PostResponse | 对象的完整路径 |  String |是|
+| Bucket | PostResponse | 对象所在的存储桶 |  String |是|
+| Key | PostResponse | 对象 key 名 |  String |是|
+| ETag | PostResponse | Etag 内容 |  String |是|
 
 ### 错误码
 以下描述此请求可能会发生的一些特殊的且常见的错误情况。关于 COS 更多的错误码信息，请查阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                  |   HTTP 状态码                                      |    描述       |
 | ------------------- | --------------------------------------- | ------------------ |
-| InvalidDigest        |400 Bad Request     | 如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回 InvalidDigest 。|
-| KeyTooLong           |400 Bad Request     | 上传文件时携带的以 x-cos-meta 开头的自定义头部，每个自定义头部的 key 和 value 加起来不能超过 4k，否则返回 KeyTooLong 错误。 |
-| MissingContentLength | 411 Length Required |如果上传文件时，没有添加 Content-Length 头部，会返回该错误码。     |
-| NoSuchBucket         | 404 Not Found       |如果试图添加的 Object 所在的 Bucket 不存在，返回 404 Not Found 错误，错误码：NoSuchBucket。 |
-| EntityTooLarge       | 400 Bad Request     |如果添加的文件长度超过 5G，会返回 EntityTooLarge，并返回错误信息`“Your proposed upload exceeds the maximum allowed object size”`。 |
-| InvalidURI           | 400 Bad Request     | 对象 key 长度限制为 850，如果超过 850 会返回 InvalidURI。      |
+| InvalidDigest        |400 Bad Request     | 如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回 InvalidDigest |
+| KeyTooLong           |400 Bad Request     | 上传文件时携带的以 x-cos-meta 开头的自定义头部，每个自定义头部的 key 和 value 加起来不能超过4k，否则返回 KeyTooLong 错误 |
+| MissingContentLength | 411 Length Required |如果上传文件时，没有添加 Content-Length 头部，会返回该错误码     |
+| NoSuchBucket         | 404 Not Found       |如果试图添加的 Object 所在的 Bucket 不存在，返回 404 Not Found 错误，错误码：NoSuchBucket |
+| EntityTooLarge       | 400 Bad Request     |如果添加的文件长度超过5G，会返回 EntityTooLarge，并返回错误信息`“Your proposed upload exceeds the maximum allowed object size”` |
+| InvalidURI           | 400 Bad Request     | 对象 key 长度限制为850，如果超过850会返回 InvalidURI      |
 
 
 ## 实际案例
