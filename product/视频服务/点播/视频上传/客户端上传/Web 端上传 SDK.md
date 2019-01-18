@@ -44,9 +44,9 @@ const tcVod = new TcVod.default({
 
 const uploader = tcVod.upload({
   videoFile: videoFile, // 视频，类型为 File
-  progress(info) {
-    console.log(info.percent) // 进度
-  },
+})
+uploader.on('video_progress', function(info) {
+  console.log(info.percent) // 进度
 })
 
 // type doneResult = {
@@ -88,22 +88,22 @@ SDK 支持以回调的形式展示当前的上传进度，如下：
 const uploader = tcVod.upload({
   videoFile: videoFile,
   coverFile: coverFile,
-  // 视频上传完成时
-  cosSuccess(info) {
-    uploaderInfo.isVideoUploadSuccess = true;
-  },
-  // 视频上传进度
-  progress(info) {
-    uploaderInfo.progress = info.percent;
-  },
-  // 封面上传完成时
-  cosCoverSuccess(info) {
-    uploaderInfo.isCoverUploadSuccess = true;
-  },
-  // 封面上传进度
-  coverProgress(info) {
-    uploaderInfo.coverProgress = info.percent;
-  },
+})
+// 视频上传完成时
+uploader.on('video_upload', function(info) {
+  uploaderInfo.isVideoUploadSuccess = true;
+})
+// 视频上传进度
+uploader.on('video_progress', function(info) {
+  uploaderInfo.progress = info.percent;
+})
+// 封面上传完成时
+uploader.on('cover_upload', function(info) {
+  uploaderInfo.isCoverUploadSuccess = true;
+})
+// 封面上传进度
+uploader.on('cover_progress', function(info) {
+  uploaderInfo.coverProgress = info.percent;
 })
 
 uploader.done().then(function (doneResult) {
@@ -142,12 +142,17 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 | ------------ | ---- | -------- | --------- |
 | videoFile    | 否    | File     | 视频文件  |
 | coverFile    | 否    | File     | 封面文件  |
-| cosSuccess    | 否    | Function     | 视频文件上传成功时  |
-| cosCoverSuccess    | 否    | Function     | 封面上传成功时  |
-| progress    | 否    | Function     | 视频文件上传进度  |
-| coverProgress    | 否    | Function     | 封面文件上传进度  |
 | videoName    | 否    | string     | 覆盖视频文件元信息中的文件名  |
 | fileId    | 否    | string     | 当修改封面时传入  |
+
+### 事件
+
+| 事件名称         | 必填   |  事件描述      |
+| ------------ | ---- |  --------- |
+| video_upload    | 否    |  视频文件上传成功时  |
+| cover_upload    | 否    |  封面上传成功时  |
+| video_progress    | 否    |  视频文件上传进度  |
+| cover_progress    | 否    |  封面文件上传进度  |
 
 ## 常见问题
 
