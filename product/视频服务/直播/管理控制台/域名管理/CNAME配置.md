@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/8a4a3fc6179c1b09fef2d69b1a673356.png)
 
 ## DNSPod 设置方法
-若您的 DNS 服务商为DNSPod，您可通过如下步骤添加 CNAME 记录。
+若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/c78f494c6b550562ddb49a255f1caf0d.png)
 
 ## 万网设置方法
