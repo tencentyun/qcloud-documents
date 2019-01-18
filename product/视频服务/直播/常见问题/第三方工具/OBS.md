@@ -8,10 +8,10 @@ Open Broadcaster Software（简称OBS）是一款好用的第三方开源程序�
 打开OBS，可通过底部工具栏的 控件-设置 按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/e7cc6b8ca41fcaef1de58f420b598d16.jpg)
 在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入URL和流名称中，URL部分填写包含Path前的地址信息，刘明成填写包含StreamName后的地址信息，所以参数设置为：
-URL：rtmp://domain.livepush.myqcloud.com/live/
-流名称：StreamName?txSecret=ce7d4aa00dae10ad0f44a08234962875&txTime=5C1E5F7F
+URL：rtmp://push.livetest.myqcloud.com/live/
+流名称：StreamName?txSecret=xxxxx&txTime=5C1E5F7F
 
-推流地址获取请参看文档[快速获得推流地址](https://cloud.tencent.com/document/product/267/7977)。
+推流地址获取请参看如何[快速获得推流地址](https://cloud.tencent.com/document/product/267/20381)。
 
 2.进行推流引导设置
 ![](https://main.qcloudimg.com/raw/12eb2a17e185c3eeced5a32cbb60b2dd.jpg)
