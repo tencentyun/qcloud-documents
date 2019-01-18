@@ -46,9 +46,9 @@ const tcVod = new TcVod.default({
 
 const uploader = tcVod.upload({
   videoFile: videoFile, // video. type should be Filev
-  progress(info) {
-    console.log(info.percent)
-  },
+})
+uploader.on('video_progress', function(info) {
+  console.log(info.percent)
 })
 
 // type doneResult = {
@@ -89,22 +89,22 @@ Use callback to get progress
 const uploader = tcVod.upload({
   videoFile: videoFile,
   coverFile: coverFile,
-  // when video upload finish
-  cosSuccess(info) {
-    uploaderInfo.isVideoUploadSuccess = true;
-  },
-  // video progress
-  progress(info) {
-    uploaderInfo.progress = info.percent;
-  },
-  // when cover upload finish
-  cosCoverSuccess(info) {
-    uploaderInfo.isCoverUploadSuccess = true;
-  },
-  // cover progress
-  coverProgress(info) {
-    uploaderInfo.coverProgress = info.percent;
-  },
+})
+// when video upload finish
+uploader.on('video_upload', function(info) {
+  uploaderInfo.isVideoUploadSuccess = true;
+})
+// video progress
+uploader.on('video_progress', function(info) {
+  uploaderInfo.progress = info.percent;
+})
+// when cover upload finish
+uploader.on('cover_upload', function(info) {
+  uploaderInfo.isCoverUploadSuccess = true;
+})
+// cover progress
+uploader.on('cover_progress', function(info) {
+  uploaderInfo.coverProgress = info.percent;
 })
 
 uploader.done().then(function (doneResult) {
@@ -144,12 +144,18 @@ SDk support resume from break point automatically. When upload break accidently,
 | ------------ | ---- | -------- | --------- |
 | videoFile    | N    | File     | video to upload   |
 | coverFile    | N    | File     | cover to upload   |
-| cosSuccess    | N    | Function     | callback when video upload success  |
-| cosCoverSuccess    | N    | Function     | callback when cover upload success  |
-| progress    | N    | Function     | video progress callback   |
-| coverProgress    | N    | Function     | cover progress callback  |
 | videoName    | N    | string     | specify a name other than File meta info  |
 | fileId    | N    | string     | provide when alter cover  |
+
+### Events
+
+| event name         | required   |  description      |
+| ------------ | ---- |  --------- |
+| video_upload    | 否    |  when video upload success  |
+| cover_upload    | 否    |  callback when cover upload success  |
+| video_progress    | 否    |  video progress callback  |
+| cover_progress    | 否    |  cover progress callback  |
+
 
 ## FAQ
 
