@@ -9,7 +9,7 @@
 ### 创建迁移任务
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据传输】。
 2. 单击【创建任务】，填写任务名称、源库信息、目标库信息，源实例类型选择【云服务器自建SQL Server数据库】。
-3. 单击【下一步】后，需先对[源 SQL Server 实例进行相关配置](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E6.BA.90-sql-server-.E5.AE.9E.E4.BE.8B) 再继续 [配置迁移任务](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
+3. 单击【下一步】后，需先对 [源 SQL Server 实例进行相关配置](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E6.BA.90-sql-server-.E5.AE.9E.E4.BE.8B) 再继续 [配置迁移任务](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
 >?若出现报错信息为 “源实例信息校验不通过！” ，请检查以下几项进行排查：
 >- 源 SQL Server 实例 sa 账号是否存在。
 >- 源 SQL Server 实例 sa 账号密码是否正确。
