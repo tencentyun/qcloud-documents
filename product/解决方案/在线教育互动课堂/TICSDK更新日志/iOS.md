@@ -1,3 +1,34 @@
+### [1.6.6] 2019-01-14
+#### 新增
+1. 白板增加 Apple Pencil 模式开关接口，可开启或关闭 Apple Pencil 模式。
+
+```objc
+/**
+ 打开/关闭 apple pencil 模式，apple pencil 模式下只能响应 apple pencil 触发的操作
+ 
+ @param isEnable YES:打开 NO:关闭
+ */
+- (void)enableApplePencilMode:(BOOL)isEnable NS_AVAILABLE_IOS(9_1);
+```
+
+
+### [1.6.5] 2019-01-03
+#### 优化
+1. 修复橡皮擦不能擦除文字的问题。
+
+#### 新增
+1. 画笔增加 Apple Pencil 模式 `TXBoardBrushModelApplePencil`。
+2. TICSDK 增加带回调的初始化方法。
+
+```objc
+/**
+ @brief 初始化SDK，带回调接口
+ 
+ @param SDKAppID    腾讯云控制台注册的应用ID
+ @param onFinish    完成回调，resultCode：0代表成功，其他代表失败(6012 请求超时)
+ */
+- (void)initSDK:(NSString *)SDKAppID onFinish:(void(^)(int resultCode))onFinish;
+```
 
 ### [1.6.4] 2018-12-25
 #### 优化

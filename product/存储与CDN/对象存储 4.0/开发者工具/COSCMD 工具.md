@@ -23,14 +23,14 @@ Windows 或 Linux 系统。
 
 - **pip 安装**
   执行`pip`命令进行安装：
-```shell
+```sh
 pip install coscmd
 ```
 
  安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 - **pip 更新**
   执行`pip`命令进行更新：
-```shell
+```sh
 pip install coscmd -U
 ```
 >! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
@@ -45,14 +45,14 @@ python setup.py install
 >!Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
 - **离线安装**
-```
+```sh
 # 在有外网的机器下运行如下命令
 mkdir coscmd-packages
 pip download coscmd -d coscmd-packages
 tar -czvf coscmd-packages.tar.gz coscmd-packages
 ```
 >! 请确保两台机器的 python 版本保持一致，否则会出现安装失败的情况。
->```
+>```sh
 ># 将安装包拷贝到没有外网的机器后运行如下命令
 >tar -xzvf coscmd-packages.tar.gz
 >pip install coscmd --no-index -f coscmd-packages
@@ -119,7 +119,7 @@ coscmd upload -h  //查看 upload 命令使用方法
 ### 配置参数
 
 COSCMD 工具在使用前需要进行参数配置，用户可以通过如下命令来配置：
-```
+```shell
 coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
                          (-r <REGION> | -e <ENDPOINT>) [-m <MAX_THREAD>]
                          [-p <PART_SIZE>] [-u <APPID>] [--do-not-use-ssl]
@@ -158,7 +158,7 @@ schema = https
 ### 指定 Bucket 的命令
 -  通过`-b <bucket> 指定 Bucket`， 可以指定特定的 Bucket。
 -  Bucket 的命名规则为`{name}-{appid}`，此处填写的存储桶名称必须为此格式。
-```
+```sh
 #命令格式
 coscmd -b <bucket> method ...
 #操作示例-上传文件
@@ -169,7 +169,7 @@ coscmd -b AAA-12344567 createbucket
 
 ### 创建存储桶
 -  建议配合`-b <bucket> 指定 Bucket`使用。
-```
+```sh
 #命令格式
 coscmd -b <bucket> createbucket
 #操作示例
@@ -179,7 +179,7 @@ coscmd -b AAA-12344567 createbucket
 
 ### 删除存储桶
 -  建议配合`-b <bucket> 指定 Bucket`使用。
-```
+```sh
 #命令格式
 coscmd -b <bucket> deletebucket
 #操作示例
@@ -192,7 +192,7 @@ coscmd -b AAA-12344567 deletebucket -f
 
 ### 上传文件或文件夹
 - 上传文件命令如下：
-```
+```sh
 #命令格式
 coscmd upload <localpath> <cospath>
 #操作示例
@@ -200,7 +200,7 @@ coscmd upload /home/aaa/123.txt bbb/123.txt
 coscmd upload /home/aaa/123.txt bbb/
 ```
 - 上传文件夹命令如下：
-```
+```sh
 #命令格式
 coscmd upload -r <localpath> <cospath>
 #操作示例
@@ -230,7 +230,7 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
-```
+```sh
 #命令格式
 coscmd download <cospath> <localpath>
 #操作示例
@@ -238,7 +238,7 @@ coscmd download bbb/123.txt /home/aaa/111.txt
 coscmd download bbb/123.txt /home/aaa/
 ```
 - 下载文件夹命令如下：
-```
+```sh
 #命令格式
 coscmd download -r <cospath> <localpath>
 #操作示例
@@ -260,14 +260,14 @@ coscmd download -rs / bbb/aaa --ignore *.txt,*.doc
 
 ### 删除文件或文件夹
 - 删除文件命令如下：
-```
+```sh
 #命令格式
 coscmd delete <cospath>
 #操作示例
 coscmd delete bbb/123.txt
 ```
 - 删除文件夹命令如下：
-```
+```sh
 #命令格式
 coscmd delete -r <cospath>
 #操作示例
@@ -281,7 +281,7 @@ coscmd delete -r /
 
 ### 清除上传文件碎片
 - 命令如下：
-```
+```sh
 #命令格式
 coscmd abort
 #操作示例
@@ -290,14 +290,14 @@ coscmd abort
 
 ### 复制文件或文件夹
 - 复制文件命令如下：
-```
+```sh
 #命令格式
 coscmd copy <sourcepath> <cospath> 
 #操作示例
 coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt
 ```
 - 复制文件夹命令如下：
-```
+```sh
 #命令格式
 coscmd copy -r <sourcepath> <cospath>
 #操作示例
@@ -311,7 +311,7 @@ coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/
 
 ### 打印文件列表
 打印命令如下：
-```
+```sh
 #命令格式
 coscmd list <cospath>
 
@@ -328,7 +328,7 @@ coscmd list bbb/123.txt  -r -n 10
 
 ### 显示文件信息
 命令如下：
-```
+```sh
 #命令格式
 coscmd info <cospath> 
 
@@ -339,7 +339,7 @@ coscmd info bbb/123.txt
 
 ### 获取带签名的下载 URL
 命令如下：
-```
+```sh
 #命令格式
 coscmd signurl <cospath>
 
@@ -352,9 +352,8 @@ coscmd signurl bbb/123.txt -t 100
 使用 `-t time` 设置打印签名的有效时间（单位为秒）
 
 ### 设置访问控制（ACL）
-命令如下：
 使用如下命令设置 Bucket 的访问控制：
-```
+```sh
 #命令格式
 coscmd putbucketacl [--grant-read GRANT_READ]  [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL]
 
@@ -363,7 +362,7 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 ```
 
 使用如下命令设置 Object 的访问控制：
-```
+```sh
 #命令格式
 coscmd putobjectacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL] <cospath> 
 
@@ -385,7 +384,7 @@ coscmd putobjectacl  --grant-read 12345678,12345678/11111 --grant-write anyone -
 
 ### 获取访问控制（ACL）
 - 使用如下命令设置 Bucket 的访问控制：
-```
+```sh
 #命令格式
 coscmd getbucketacl 
 #操作示例
@@ -393,7 +392,7 @@ coscmd getbucketacl
 ```
 
 - 使用如下命令设置 Object 的访问控制：
-```
+```sh
 #命令格式
 coscmd putbucketacl <cospath> 
 #操作示例
@@ -402,7 +401,7 @@ coscmd getobjectacl aaa/aaa.txt
 
 ### 开启关闭版本控制
 命令如下：
-```
+```sh
 #命令格式
 coscmd putbucketversioning <status>
 
@@ -418,14 +417,14 @@ coscmd putbucketversioning Suspended
 
 ### 恢复归档文件
 - 恢复归档文件命令如下：
-```
+```sh
 #命令格式
 coscmd restore <cospath>
 #操作示例
 coscmd restore -d 3 -t Expedited a.txt 
 ```
 - 批量恢复归档文件命令如下：
-```
+```sh
 #命令格式
 coscmd restore -r <cospath>
 #操作示例
@@ -438,7 +437,7 @@ coscmd restore -r -d 3 -t Bulk folder/
 
 ### Debug 模式执行命令
 在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
-```
+```sh
 #显示upload的详细操作信息，命令格式：
 coscmd -d upload <localpath> <cospath>
 

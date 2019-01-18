@@ -1,38 +1,6 @@
 ## 标签说明
 **&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [DOC](https://cloud.tencent.com/document/product/454/16915)。
 
-## 版本要求
-- 微信 6.6.6 版本开始支持。
-
-## 效果演示
-- **PC 端**
-用 Chrome 浏览器打开 [体验页面](https://www.qcloudtrtc.com/webrtc-samples/audience/index.html) 可以体验桌面版 WebRTC 的效果。
-
-- **Android 端**
-用 Android 手机 [下载 App](http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.trtc) 或者扫码下载安装 App 即可体验 Android 的效果。
-<img src="https://a.app.qq.com/o/image/microQr.png?pkgName=com.tencent.trtc" width="160">
-
-- **iOS 端**
-用 iOS 手机 扫码后通过 Safari 打开并安装 App 即可体验 iOS 的效果。
-<img src="https://main.qcloudimg.com/raw/87b0628665001ae24b58145d7527335d.png" width="150">
-
-
-- ##### 信任证书
-> 安装 App 后，还需要配置信任证书方可打开体验 (单击打开大图)
-- 设置->通用->设备管理->选择证书->信任证书
-![https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg](https://main.qcloudimg.com/raw/ca452ae5e382a8800dabf6679726de62.jpg)
-
-- **微信端**
-发现=>小程序=>搜索“腾讯视频云”，单击 WebRTC 功能卡，就可以体验跟桌面版 Chrome 互通的效果了。
-![](https://main.qcloudimg.com/raw/11dd61144d04e22a0d215b9fa845cd14.jpg)
-
-## 对接资料
-
-| 对接资料 | 说明 | github地址 |
-|---------|---------|---------|
-| 小程序源码 | 包含&lt;webrtc-room&gt;的组件源码以及 demo 源码 | [前往](https://gitee.com/vqcloud/MiniProgram-TRTC) |
-| Web 端源码 | 基于 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) 实现的 Chrome 版 WebRTC 接入源码 |  [前往](https://gitee.com/vqcloud/webrtc-samples)|
-
 ## 标签详解
 ### 属性定义
 | 属性      | 类型    | 默认值           | 说明       |
@@ -64,9 +32,6 @@
 | smallViewHeight | String | '40vw' | 小窗口高度，只在template设置为bigsmall有效 |
 | waitingImg | String | &nbsp; | 当微信切到后台时的垫片图片 |
 | loadingImg | String | &nbsp; | 画面loading图片 |
-
-
-
 
 
 > 小程序实时音视频与 WebRTC 互通只需要保证两端的 sdkAppID 与 roomID 一致
@@ -132,7 +97,6 @@ fail | Function | 否 | 发送失败的回调
 msgObj | Object | 是 | {data: '消息内容', ext: '', desc: ''}
 succ | Function | 否 | 发送成功的回调
 fail | Function | 否 | 发送失败的回调
-
 
 ### 事件通知
 **&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回 IM 消息事件，事件参数格式如下:
@@ -232,11 +196,9 @@ Page({
 
 ## 使用指引
 
-> 请确认已经参照 [Demo部署](/document/product/647/17000) 开通了相关服务和并正确的完成了配置。
-
 ### step1: 下载自定义组件源码
 
-**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序源码](https://gitee.com/vqcloud/MiniProgram-TRTC) 下载源码包。
+**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序Demo源码](https://github.com/TencentVideoCloudTRTC/TRTCSDK/tree/master/WXMini) 下载源码包。
 
 ### step2: 在工程中引入组件
 - 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。
@@ -271,11 +233,10 @@ Page({
 |:--------:|:--------:|:--------:|:--------:|
 | sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的openid  |
-| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
+| userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器[签发](https://cloud.tencent.com/document/product/647/17275)|
 | roomID | 12345  | 房间号 | 可以由您的服务器指定 |
-| privateMapKey | 加密字符串  | 当开启权限密钥时需要传。进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器签发（[PHP / JAVA](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip)）|
+| privateMapKey | 加密字符串  | 当开启权限密钥时需要传。进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器[签发](https://cloud.tencent.com/document/product/647/32240)|
 
-下载 [sign_src.zip](http://dldir1.qq.com/hudongzhibo/mlvb/sign_src_v1.0.zip) 可以获得服务端签发 userSig 和 privateMapKey 的计算代码（生成 userSig 和 privateMapKey 的签名算法是 **ECDSA-SHA256**）。
 
 ### step4: 进入房间
 

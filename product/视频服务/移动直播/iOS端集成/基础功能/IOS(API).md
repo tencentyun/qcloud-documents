@@ -778,7 +778,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 直播时移准备，拉取该直播流的起始播放时间。
 
-使用时移功能需在播放开始后调用此方法，否者时移失败。时移的使用请参考文档 https://cloud.tencent.com/document/product/266/9237
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参考文档 https://cloud.tencent.com/document/product/266/9237
 
 非腾讯云直播地址不能时移。
 
