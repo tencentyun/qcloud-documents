@@ -73,7 +73,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
  <td>建立连接的详细信息。其中包括：
    <ul>
    <li>action：指本次请求的动作。</li>
-	 <li>secConnectionID：字符串，即标识 WebSocket 连接的 ID。原始长度为 128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
+	 <li>secConnectionID：字符串，即标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
 	 <li>secWebSocketProtocol：字符串，可选字段。</br>代表子协议列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
 	 <li>secWebSocketExtensions：字符串，可选字段。</br>代表扩展列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
   </ul>
