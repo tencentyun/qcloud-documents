@@ -468,12 +468,6 @@ public String getGroupType()
 public String getFaceUrl()
 
 /**
- * 获取自己在这个群内的群内资料
- * @return 自己在这个群内的简单群内资料，详见{@see TIMGroupBasicSelfInfo}
- */
-public TIMGroupBasicSelfInfo getSelfInfo()
-
-/**
  * 获取当前群组是否设置了全员禁言
  * @return true - 设置了全员禁言
  * @since 3.1.1
