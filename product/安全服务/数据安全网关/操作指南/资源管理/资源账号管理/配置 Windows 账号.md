@@ -1,9 +1,9 @@
 ## 操作场景
-在您需要将 Windows 资源的帐号同步到数据安全网关系统时，可以通过数据安全网关系统的“抽取”功能（需 [配置管理员账号](https://cloud.tencent.com/document/product/1025/32495)）或者直接在数据安全网关系统手动添加 Windows 普通帐号。 该指南指导您如何手动添加 Windows 资源帐号。
+该指南指导您如何在云堡垒机（数据安全网关）添加 Windows 资源普通账号。
 
 
 ## 操作步骤
-1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关系统。
+1. 进入 [云堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关。
 2. 在数据安全网关系统单击【资源管理】>【Windows】，即可进入 Windows 资源管理页面。
 3. 在您要配置账号的资源其所在行下，单击“账号”按钮，即可进入资源账号配置页面，如下图所示。
 ![1](https://main.qcloudimg.com/raw/a40c739e092e68ab12433fc646c4a4c4.png)
