@@ -3,7 +3,7 @@
 
 ## 开发环境要求
 - Xcode 9.0+
-- iOS 8.0 以上的 iPhone 或者 iPad 真机
+- OS X 10.10+ 的Mac真机
 - 项目已配置有效的开发者签名
 
 ## 集成 IMSDK
@@ -26,16 +26,16 @@ pod init
 编辑 Podfile 文件，按如下方式设置：  
 
 ```
-platform :ios, '8.0'
+platform :macos, '10.10'
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'App' do
-pod 'TXIMSDK_iOS'
+target 'mac_test' do
+pod 'TXIMSDK_Mac'
 end
 ```
 
 #### 4. 更新并安装 SDK
-在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK：
+在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK_Mac：
 ```
 pod install
 ```
@@ -48,49 +48,43 @@ pod命令执行完后，会生成集成了SDK的 .xcworkspace 后缀的工程文
 
 ### 手动集成
 #### 1. 从 [Git](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，其中SDK所在的位置如下：
-![](https://main.qcloudimg.com/raw/2ccfbe6b80be0e2f2a1a0bc5f80439d4.png)
+![](https://main.qcloudimg.com/raw/25a0fdc636ace72dc3cc22ce6531ee9b.png)
 
-- IMSDK.framework 为 IMSDK 的核心动态库文件。
+- ImSDKForMac.framework 为 IMSDK 的核心动态库文件。
 
 | 包名 | 介绍 |  ipa增量 |
 | --- | --- | --- |
-| ImSDK.framework | IM 功能包 | 1.9M|
-
-- TXLiteAVSDK_UGC.framework 是腾讯云短视频（UGC）SDK，用于实现 IM 中的短视频收发能力，为可选组件。
-
-| 包名 | 介绍 | 功能 |
-| --- | --- | --- |
-| TXLiteAVSDK_UGC.framework | 小视频录制、编辑能力扩展包 | 包含小视频录制功能、小视频编辑功能，详情请参见 [短视频 SDK 文档](https://cloud.tencent.com/product/ugsv) |
+| ImSDKForMac.framework | IM 功能包 | 1.4M|
 
 #### 2. 创建一个新工程
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20150928013356_56054.jpg)
+![](https://main.qcloudimg.com/raw/7dd7a0f99893f52c63fd3144794a12cd.png)
 
-**填入工程名（例如：IMDemo）：**
+**填入工程名：**
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20150928013638_56711.jpg)
+![](https://main.qcloudimg.com/raw/39f16307b69c8f0d766349e5ed201ef4.png)
 
 #### 2. 集成 ImSDK
 
-**添加依赖库：**选中 IMDemo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。
+**添加依赖库：**选中 Demo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。
 
-![](https://main.qcloudimg.com/raw/3a1cc30c280362be2d99058dde347d4f.png)
+![](https://main.qcloudimg.com/raw/440dd55e50d2fe52e1d83ed0aa4284be.png)
 
 **添加依赖库：**
 ```
-ImSDK.framework
+ImSDKForMac.framework
 ```
 > **注意：**
 >- 需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
 
 ## 引用 ImSDK
 项目代码中使用 SDK 有两种方式：
-- 方式一： 在Xcode -> Build Setting -> Herader Search Paths 设置ImSDK.framework/Headers 路径，在项目需要使用SDK API的文件里，直接引用头文件"ImSDK.h"
+- 方式一： 在Xcode -> Build Setting -> Herader Search Paths 设置ImSDKForMac.framework/Headers 路径，在项目需要使用SDK API的文件里，直接引用头文件"ImSDK.h"
 ```
 #import "ImSDK.h"
 ```
 
-- 方式二：在项目需要使用SDK API的文件里，引入具体的头文件 < ImSDK/ImSDK.h >
+- 方式二：在项目需要使用SDK API的文件里，引入具体的头文件 < ImSDKForMac/ImSDK.h >
 ```
-#import <ImSDK/ImSDK.h>
+#import <ImSDKForMac/ImSDK.h>
 ```
