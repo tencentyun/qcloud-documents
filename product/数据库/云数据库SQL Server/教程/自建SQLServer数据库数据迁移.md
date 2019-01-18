@@ -34,7 +34,7 @@
  5.  选择“Authentication”选项，选择“Allowed”允许密码授权。
  6.  选择”Users“选项，添加用户 tencent_vpc_migrate（该用户名不可更改），密码 tencent_vpc_migrate（该密码不可更改），配置如下图所示：
  ![](https://main.qcloudimg.com/raw/9d8658d6f44517e7554c3416780f0a58.png)
- 7.  使用一个路径（例如：D:\dbbackup\）为 SQL Server 迁移中使用的备份文件夹，**此路径不可改变**，选择“SFTP”选项，并将此路径配置到“SFTP home path”中。
+ 7.  使用 D:\dbbackup\（**此路径不可改变**）为 SQL Server 迁移中使用的备份文件夹，选择“SFTP”选项，并将此路径配置到“SFTP home path”中。
 
 ### 配置迁移任务
 选择迁移类型、设置数据库（选择需要迁移的库表），单击【保存并校验】，如校验不通过可按错误提示完成修复。
