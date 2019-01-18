@@ -15,7 +15,7 @@ dimensions.1.value为私有网络ID
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为GetMonitorData。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 GetMonitorData。
 
 ### 2.1输入参数
 
@@ -68,7 +68,7 @@ dimensions.1.value为私有网络ID
 
 ## 5. 示例
 
-输入
+**输入**
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
@@ -83,9 +83,9 @@ https://monitor.api.qcloud.com/v2/index.php?
 &endTime=2016-06-28 14:20:00
 </pre>
 
-输出
+**输出**
 
-```
+```shell
 {
     "code": 0,
     "message": "",
@@ -95,7 +95,7 @@ https://monitor.api.qcloud.com/v2/index.php?
     "period": 300,
     "dataPoints": [
         30,
-        35，
+        35,
         40
     ]
 }

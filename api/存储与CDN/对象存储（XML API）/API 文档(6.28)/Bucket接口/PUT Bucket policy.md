@@ -5,7 +5,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ### 请求示例：
 
-```
+```shell
 PUT /?policy HTTP/1.1
 Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: date
@@ -14,7 +14,7 @@ Content-MD5:MD5
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
@@ -28,7 +28,7 @@ Authorization: Auth String
 
 ### 请求体
 
-```json
+```shell
 {
     "Statement": [
         {
@@ -55,7 +55,7 @@ Authorization: Auth String
 ### 响应头
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 
 #### 特有响应头
 
@@ -71,7 +71,7 @@ Authorization: Auth String
 ## 实际案例
 ### 请求
 
-```JSON
+```shell
 PUT /?policy HTTP/1.1
 Host:bucket01-1251668577.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
@@ -102,7 +102,7 @@ Content-Length: 233
 
 ### 响应
 
-```JSON
+```shell
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
@@ -110,5 +110,4 @@ Connection: keep-alive
 Date: Thu Jan 19 16:19:22 2017
 Server: tencent-cos
 x-cos-request-id: NTg4MDc2OGFfNDUyMDRlXzc3NTlfZTc4
-
 ```

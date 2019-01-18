@@ -7,7 +7,7 @@
 
 ## 前提条件
  - 使用工具前需先清空目标 Reids 实例，否则会出现`【ERROR】 restore error: ERR Target key name is busy. for key: xxx `报错。
- - 如果其他地方有写入（可以清空实例后，观察 qps 来判断），停止其他的写入。
+ - 如果有其他客户端正写入数据到该实例中（可以清空实例后，观察监控中的 QPS 指标来判断），需停止其他的写入。
  - 需要确保执行脚本的机器时间正确，否则可能导致数据不一致。
  - 用 crs-port 导入的服务器务必保证内存配置大于导出实例的已用内存数据大小，例如源实例已用量20GB，导出 RDB 文件会压缩为12GB，需要服务器配置大于20GB。
 
@@ -22,11 +22,11 @@ crs-port restore -n 16 -i /data/dump.rdb -t 192.168.0.1:6379 -A pwd
 - -i：指定导入文件所在路径。
 - -t：要导入的目标 Reids 实例的 IP 和端口。
 - -A：目标 Reids 实例的链接密码。
-- --setdb=N：指定导入到目标实例的某个库中，N 的范围 [0,15]。
-- --filterdb=N：指定导入源文件中某个库的数据到目标实例，N 的范围 [0,15]。
+- --setdb=N：指定导入到目标实例的某个库中，N 的范围 [0 - 15]。
+- --filterdb=N：指定导入源文件中某个库的数据到目标实例，N 的范围 [0 - 15]。
 
 >?
-- 出现`【ERROR】 restore error: ERR Target key name is busy. for key: xxx `时，表示该 Key 已经存在于数据库中，出现报错后数据将不会回滚，写入到目标数据空，建议再次发起导入之前操作清理数据。
+- 出现`【ERROR】 restore error: ERR Target key name is busy. for key: xxx `时，表示该 Key 已经存在于数据库中，出现报错后数据将不会回滚，建议再次发起导入之前操作清理数据。
 - crs-port 只支持整个实例导出，如需指定库，添加导入参数： --filterdb=N。
 - dump RDB 文件后文件会被压缩，因此得到的 RDB 文件会比当前使用量小。
 
