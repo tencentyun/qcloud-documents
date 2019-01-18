@@ -1,0 +1,11 @@
+{
+    "云硬盘相关接口": {
+        "en": "Cloud Disk APIs"
+    },
+    "快照相关接口": {
+        "en": "Snapshot APIs"
+    },
+    "其他接口": {
+        "en": "Other APIs"
+    }
+}

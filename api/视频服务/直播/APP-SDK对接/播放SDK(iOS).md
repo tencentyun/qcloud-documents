@@ -58,7 +58,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
 
 ### step 5: 填充&适应&旋转
-如果你希望调整画面的显示方式，SDK也提供了多种选择：
+如果您希望调整画面的显示方式，SDK也提供了多种选择：
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
 - **setRenderMode**

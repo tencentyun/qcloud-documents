@@ -51,7 +51,7 @@ Cloud Load Balance can be used with the following services to improve applicatio
 - CVM Instance: enables the application to run on the cloud virtual server. For more information, refer to [CVM Product Documentation](https://cloud.tencent.com/doc/product/213).
 - Auto Scaling: Controls the number of instances flexibly. When a cloud load balancer instance is enabled in Auto Scaling, the scaled instance is automatically added to the cloud load balancing group, and the terminated instance is automatically moved out of the cloud load balancing group. For more information, see [Auto Scaling Product Documentation](https://cloud.tencent.com/doc/product/377).
 - Cloud Monitor: Helps you monitor the running status of cloud load balancer and all back-end instances and perform the operations accordingly. For more information, refer to [Cloud Monitor Product Documentation](https://cloud.tencent.com/doc/product/248).
-- Domain Name Registration and Resolution: Quickly and easily route requests to cloud load balancer instances by converting your custom domain name (e.g. `www.example.com`) to an IP address (e.g. ` 192.0.2.1`) for network communication. For more information, refer to [Domain Name Registration Product Documentation](https://cloud.tencent.com/doc/product/242) and [Domain Name Resolution Product Documentation](https://cloud.tencent.com/doc/ Product / 302).
+- Domain Name Registration and Resolution: Quickly and easily route requests to cloud load balancer instances by converting your custom domain name (e.g. `www.example.com`) to an IP address (e.g. ` 192.0.2.1`) for network communication. 
 
 
 

@@ -3,7 +3,7 @@ This API (RenewCbsStorage) is used to renew the specified elastic cloud storage.
 
 Domain for API call:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
+Usage restrictions:<br>
 1. Only elastic cloud storages can be renewed. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters. 
 
 

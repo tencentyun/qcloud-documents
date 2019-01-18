@@ -9,29 +9,29 @@ BindIpsToBmNatGateway 接口用于将子网的部分IP绑定到NAT网关
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=BindIpsToBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
-	&ips.0.subnetId=<子网ID>
+    &unVpcId=<vpc网络ID>
+	&ips.0.unSubnetId=<子网ID>
 	&ips.0.ipList.0=<子网内IP>
 	&ips.0.ipList.1=<子网内IP>
-	&ips.1.subnetId=<子网ID>
+	&ips.1.unSubnetId=<子网ID>
 	&ips.1.ipList.0=<子网内IP>
 ```
 
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为BindIpsToBmNatGateway。
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-| natId | 是 | String | 黑石网关统一ID，例如：nat-df5dfd |
-| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| ips.n | 是 | Array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。
+| natId | 黑石NAT网关统一ID，NAT网关需为IP转发方式，例如：nat-df5dfd | String | 是 | 
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 | 
+| ips.n | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。| Array | 是 |
 
 ips包含字段如下：
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-|ips.n.subnetId|是|String|子网ID标识|
-|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于该subnetId子网|
+|ips.n.unSubnetId|子网ID标识|String|是|
+|ips.n.ipList|子网下需要绑定NAT的IP列表，IP需要属于该unSubnetId子网|Array|是|
 
 ## 响应
 ### 响应示例
@@ -46,11 +46,11 @@ ips包含字段如下：
 ```
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 
 |---------|---------|---------|
-| code | Int | 错误码。0: 成功, 其他值: 失败|
-| message | String | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| code |错误码。0: 成功, 其他值: 失败| Int | 
+| message | 错误信息| String |
+| data |返回操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 | Array | 
 
 ## 错误码 
 | 错误代码 | 英文提示 | 错误描述 |
@@ -62,7 +62,7 @@ ips包含字段如下：
 | 13012 | BmVpcNat.SubnetUsed | 子网已被绑定到其他NAT网关。 |
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=BindIpsToBmNatGateway
@@ -70,17 +70,17 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
-	&ips.0.subnetId=subnet-111111
+	&ips.0.unSubnetId=subnet-111111
 	&ips.0.ipList.0=10.11.1.14
 	&ips.0.ipList.1=10.11.1.15
-	&ips.1.subnetId=subnet-222222
+	&ips.1.unSubnetId=subnet-222222
 	&ips.1.ipList.0=10.11.3.15
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

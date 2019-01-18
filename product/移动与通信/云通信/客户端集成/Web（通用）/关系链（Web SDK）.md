@@ -1,18 +1,16 @@
-## 1 申请增加好友 
+## 申请增加好友 
 
 ```
 /* function applyAddFriend 
  *   申请添加好友
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 applyAddFriend: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例： **
 
@@ -21,7 +19,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
     if (len > 120) {
-        alert('您输入的附言超过字数限制(最长40个汉字)');
+        alert('您输入的附言超过字数限制(最长 40 个汉字)');
         return;
     }
     var add_friend_item = [
@@ -61,21 +59,19 @@ var applyAddFriend = function () {
 };
 ```
 
-## 2 拉取好友申请 
+## 拉取好友申请 
 
 ```
 /* function getPendency 
  *   拉取好友申请
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 getPendency: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -123,21 +119,19 @@ var getPendency = function () {
 };
 ```
 
-## 3 响应好友申请 
+## 响应好友申请 
 
 ```
 /* function responseFriend 
  *   响应好友申请
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 responseFriend: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -177,21 +171,19 @@ var responseFriend = function () {
 };
 ```
 
-## 4 删除好友申请 
+## 删除好友申请 
 
 ```
 /* function deletePendency 
  *   删除好友申请
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 deletePendency: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -220,21 +212,19 @@ var deletePendency = function (del_account) {
 };
 ```
 
-## 5 我的好友列表 
+## 我的好友列表 
 
 ```
 /* function getAllFriend
  *   拉取我的好友
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 getAllFriend: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -301,21 +291,19 @@ var getAllFriend = function (cbOK, cbErr) {
 };
 ```
 
-## 6 删除好友 
+## 删除好友 
 
 ```
 /* function deleteFriend
  *   删除好友
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 deleteFriend: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -358,21 +346,19 @@ var deleteFriend = function () {
 };
 ```
 
-## 7 增加黑名单 
+## 增加黑名单 
 
 ```
 /* function addBlackList 
  *   增加黑名单
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 addBlackList: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》 
 
 **示例：** 
 
@@ -410,21 +396,19 @@ var addBlackList = function (add_account) {
 };
 ```
 
-## 8 我的黑名单 
+## 我的黑名单 
 
 ```
 /* function getBlackList  
  *   删除黑名单
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 getBlackList: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》
 
 **示例：**
 
@@ -462,21 +446,19 @@ var getBlackList = function (cbOK, cbErr) {
 };
 ```
 
-## 9 删除黑名单 
+## 删除黑名单 
 
 ```
 /* function deleteBlackList  
  *   我的黑名单
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 deleteBlackList: function(options, cbOk, cbErr) {},
 ```
-
-具体参数请参考SDK包中的《腾讯云IM开放-WebSDK-关系链管理-REST协议文档》
 
 **示例：**
 

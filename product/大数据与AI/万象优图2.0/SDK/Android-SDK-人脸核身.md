@@ -5,9 +5,9 @@
 更多示例可以参考Demo：[Android SDK Demo](https://mc.qcloudimg.com/static/archive/6e5c11cd423409f50804410e47b04e9a/FaceIdDemo+.zip)。
 
 ### 开发准备
-1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得 APPID、SecretId 和 SecretKey 等；
-2. 手机必须要有网络（GPRS、3G 或 Wifi 等）；
-3. 支持Android 4.0及其以上版本；
+- 开发者使用人脸识别功能前，需要先进行 [腾讯云账号注册](https://cloud.tencent.com/register)（详细指引请参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)），并 [创建存储桶](https://cloud.tencent.com/document/product/460/10637)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)）；
+- 手机必须要有网络（GPRS、3G 或 Wifi 等）；
+- 支持Android 4.0及其以上版本；
 
 ### SDK 配置
 1.导入下列 jar 包
@@ -202,7 +202,7 @@ ClientConfiguration.setHttpReadTimeout(100 * 1000);
 ClientConfiguration.setHttpWriteTimeout(100 * 1000);
 ```
 ### 签名获取
-所有请求均需要多次有效签名。为了方便用户测试，SDK 中提供了本地生成签名的方法，调用 CredentialProvider 对象的getMultipleSign方法即可获得有效签名。但是为了不暴露用户的 SecretKey，正式环境下请在第三方服务器上进行签名。具体签名算法可参考 [签名与鉴权](https://cloud.tencent.com/document/product/460/6968)。
+所有请求均需要多次有效签名。为了方便用户测试，SDK 中提供了本地生成签名的方法，调用 CredentialProvider 对象的getMultipleSign方法即可获得有效签名。但是为了不暴露用户的 SecretKey，正式环境下请在第三方服务器上进行签名。具体签名算法可参考 [签名与鉴权](/document/product/460/6968)。
 本地生成签名示例：
 ```
 String appid = "your appid"; 

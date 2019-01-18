@@ -1,7 +1,7 @@
 Specific feature can by implemented by adding an annotation (hint) before SQL. TDSQL provides the following hints:
 
 ## Transparent Transfer of SQL to Specified Physical Shard
-Transparent SQL transfer: SQL can be transfered to one or more corresponding physical shards (set) transparently and to the set of shardkey. Example:
+Transparent SQL transfer: SQL can be transferred to one or more corresponding physical shards (set) transparently and to the set of shardkey. Example:
 
 ```
 	mysql> /*sets:set_1*/select * from test1 where a in (select a from test1);
@@ -24,4 +24,4 @@ DCDB for Percona and MariaDB support a variety of read-write separation solution
 ```
 
 ## Others
-Execute the specific SQL of DCDB for Percona and MariaDB. For more information, please see <control instructions.>
+Execute the specific SQL of DCDB for Percona and MariaDB. For more information, please see <control instructions>

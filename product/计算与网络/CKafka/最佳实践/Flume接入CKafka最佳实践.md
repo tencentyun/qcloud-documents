@@ -80,7 +80,7 @@ https://flume.apache.org/FlumeUserGuide.html
 
 ### 准备工作
 - 在Ckafka申请页中申请实例，并且创建对应的Topic
-- apache flume ，本教程使用的是最新的flume 1.7.0 （http://flume.apache.org/download.html）
+- apache flume ，本教程使用的是最新的flume 1.7.0 （http://flume.apache.org/download.html)
 
 ### Ckafka创建
 1）	拥有实例后，可从控制台中可以看到自己的实例信息

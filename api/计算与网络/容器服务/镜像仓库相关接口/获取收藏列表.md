@@ -1,0 +1,68 @@
+## 接口描述
+本接口（GetFavor）用于获取用户收藏仓库列表。
+接口请求域名：
+
+````
+ccr.api.qcloud.com
+````
+
+## 输入参数
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](/doc/api/457/9463)。
+
+| 参数名称 | 描述 |类型 | 必选  |
+|---------|---------|---------|---------|
+| offset   | 查询偏移量，默认为 0 | Uint |否 |
+| limit   | 查询数目，默认为 20 | Uint |否 |
+
+## 输出参数
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| code | 公共错误码。0 表示成功，其他值表示失败|Int |
+| codeDesc | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因|String |
+| message |  模块错误信息描述，与接口相关|String |
+| totalCount |  查询结果数目|String |
+| repoInfo |  镜像信息|Object Array |
+
+仓库信息字段：
+
+| 参数名称 | 描述 |类型 |
+|---------|---------|---------|
+| reponame |  仓库名字|String |
+| repotype | 仓库类型。<br>QCLOUD HUB：腾讯云仓库<br>DOCKER HUB：DockerHub 镜像 |String |
+| tagCount |  tag数目|Int |
+| public | 是否公开。1：公开；0：私有 |Int |
+| isQcloudOfficial | 是否是腾讯云官方仓库。true：是；false：否 |Bool |
+| favorCount |  被所有用户收藏次数|Int |
+
+
+## 示例
+### 输入
+
+```
+  https://domain/v2/index.php?Action=GetFavor
+  &limit=20
+  &offset=0
+  &其它公共参数
+```
+### 输出
+
+```
+{
+    "code": 0,
+    "message": "", 
+    "codeDesc": "Success",
+    "data": {
+			"repoInfo": [{
+				"reponame": "library/wordpress",
+				"repotype": "QCLOUD HUB",
+				"favorCount": 62,
+				"public": 1,
+				"isQcloudOfficial": false,
+				"tagCount": 18
+			}],
+			"totalCount": 1
+		}
+}
+
+```

@@ -1,0 +1,66 @@
+控制台是用户使用 COS 的工具之一。用户无需编写代码或运行程序，使用控制台即可直接进行存储桶管理、对象管理等操作。控制台提供的具体功能如下表：
+
+<table>
+   <tr>
+      <td >控制台菜单</td>
+      <td>功能</td>
+   </tr>
+   <tr>
+      <td rowspan="8">存储桶管理</td>
+			<td><a href="https://cloud.tencent.com/document/product/436/13309">创建存储桶</a></td>
+			   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/32433">删除存储桶</a></td>
+   </tr>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13313">查询存储桶</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13315">设置访问权限</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13319">防盗链设置</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13310">回源设置</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13318">跨域访问</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/14984">静态网站设置</a></td>
+   </tr>
+   <tr>
+      <td rowspan="9">对象管理</td>
+      <td><a href="https://cloud.tencent.com/document/product/436/13321">上传对象</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13322">下载对象</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13326">查看对象信息</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13325">搜索对象</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13327">设置对象的访问权限</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13361">自定义 Headers</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13323">删除对象</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13329">创建文件夹</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/13330">删除文件夹</a></td>
+   </tr>
+   <tr>
+      <td>监控报表</td>
+      <td><a href="https://cloud.tencent.com/document/product/436/13332">查询监控报表</a></td>
+   </tr>
+   </tr>
+</table>

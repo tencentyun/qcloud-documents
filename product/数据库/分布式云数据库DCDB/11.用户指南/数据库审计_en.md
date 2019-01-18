@@ -16,13 +16,13 @@ An enterprise may face the following security risks when using databases. This s
 - Backdoors left by resigned employees.
 
 **Policy Risk**
-- Unable to satisfy the requirements defined by Classified Protection of Information Security (level three, 7.1.3.3);
+- Unable to satisfy the requirements defined by Classified Protection of Information Security (level 3, 7.1.3.3);
 - Unable to satisfy the requirements defined by industry information security compliance documents, such as Implementation Guide for Classified Protection of Information System of Financial Industry, issued by the People's Bank of China;
 ### (2) Terminology Definition
 
-**Audit policies:** These policies define which user actions will be audited and which actions will be taken. **[Audit policy] = [Audit object] + [Audit rule] + [Response action]**. That is, when configuring an audit policy, you need to specify the content to be audited. If the features of certain actions (either user actions or system actions) comply to an audit rule according to analysis when the policy is in effect, the audit engine will take responsive actions based on the responses defined by this policy, such as issuing an alarm.
+**Audit policies:** These policies define which user actions will be audited and which actions will be taken. **Audit policy = Audit object + Audit rule + Response action**. That is, when configuring an audit policy, you need to specify the content to be audited. If the features of certain actions (either user actions or system actions) comply to an audit rule according to analysis when the policy is in effect, the audit engine will take responsive actions based on the responses defined by this policy, such as issuing an alarm.
 
-**Audit rule: **In an audit policy, an audit rule defines a set of actions that need to be audited. This rule is composed of rule parameters. Each parameter defines a matching feature for a specific action.
+**Audit rule:** In an audit policy, an audit rule defines a set of actions that need to be audited. This rule is composed of rule parameters. Each parameter defines a matching feature for a specific action.
 
 ### (3) Product Capability and Limits
 
@@ -32,7 +32,7 @@ Tencent Cloud provides database auditing feature. Audit logs are kept for 15 day
 
 ### (1) Enable Database Auditing
 
-Currently, users who use Cloud Database (TDSQL) can enable database auditing free of charge. You can enable this feature in "Tencent Cloud Console" -> "Cloud Database" -> "TDSQL" -> "Database Audit".
+Currently, users who use Cloud Database (TDSQL) can enable database auditing free of charge. You can enable this feature in **Tencent Cloud Console** -> **Cloud Database** -> **TDSQL** -> **Database Audit**.
 
 Please note the following when enabling audit feature:
 
@@ -46,11 +46,11 @@ It takes several minutes to initialize auditing feature.
 
 ### (2) Create Audit Rule
 
-Once auditing is activated, logs will be automatically forwarded to audit cluster through TDSQL gateway cluster. However, since no audit rules or audit policies are created yet, the logs will not be kept or displayed. Therefore, you can store the logs in the audit cluster by "Creating Audit Rule" -> "Associating Audit Policy".
+Once auditing is activated, logs will be automatically forwarded to audit cluster through TDSQL gateway cluster. However, since no audit rules or audit policies are created yet, the logs will not be kept or displayed. Therefore, you can store the logs in the audit cluster by **Creating Audit Rule** -> **Associating Audit Policy**.
 
-1. Go to the audit interface and choose "Audit Rule" button to create a rule.
+1. Go to the audit interface and choose **Audit Rule** button to create a rule.
 ![](//mccdn.qcloud.com/static/img/10ee0d0b0eb5a49887df8419daee306d/image.png)
-2. Enter a name for the audit rule and choose "Next".
+2. Enter a name for the audit rule and choose **Next**.
 ![](//mccdn.qcloud.com/static/img/a5c1d8e4de3ca3c8e0b491372efc1644/image.png)
 3. Go to parameter configuration page and enter the rule parameters (you need to enter at least one parameter).
 Note the following when entering rule parameters:
@@ -70,18 +70,17 @@ Note the following when entering rule parameters:
 ### (3) Create Audit Policy
 
 An audit policy is a complete auditing plan which consists of "audit rule", "audit object" and "response method". Users can create multiple audit policies for one instance at a time. During the resolution process, audit engine performs policy matching **according to the sequence configured by user in priority order (from top to bottom)**. Create an audit policy by following the steps below:
-1. Go to policy creation window: Select "Audit Policy" and click the "New Policy" button.
+1. Go to policy creation window: Select **Audit Policy** and click the **New Policy** button.
 ![](//mccdn.qcloud.com/static/img/a5711897868ec47f9fcdcc1d8f95ed9c/image.png)
 2. Enter policy requirement: Select the instances to be audited based on your needs and choose corresponding rules (alarm configuration is currently not supported).
 ![](//mccdn.qcloud.com/static/img/5ee47ce0b915dfabb76c4ec071cc2fdf/image.png)
 3. Adjust priority: You can adjust priority for multiple policies under the same instance, a smaller number indicates a higher priority. Adjusted priority will take effect within an estimated one minute.
 ![](//mccdn.qcloud.com/static/img/9a0cf48a91f9cab02344a08ad9eb2333/image.png)
-  4. You can modify audit policies in real time by using the modification feature. Modified policies will take effect within an estimated 5 minutes, and logs prior to modification will not be modified.
+  4. You can modify audit policies in real time by using the modification feature. Modified policies will take effect within an estimated five minutes, and logs prior to modification will not be modified.
 
 ### (4) View logs
 
 SQL statements that match with audit policies are presented in the Audit Log page. You can click to view them, or search for logs. Note:
-
 - Due to design requirements, audit logs are presented in plaintext. Again, we recommend that you enable [Two-factor Authentication]( [https://cloud.tencent.com/help/page/erciyanzheng](https://cloud.tencent.com/help/page/erciyanzheng) to maintain control of the logs.
 - Logs are recorded starting from when an audit policy is created. History data is not recorded.
 - Transactions and storage processes may be recorded as single statements. For more information, please see [Syntax Currently Supported by Database Auditing](https://cloud.tencent.com/doc/product/237/4847).

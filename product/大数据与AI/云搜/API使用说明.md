@@ -57,7 +57,7 @@
 
 ### 1.3 接口鉴权
 
-接口鉴权方法详见[《腾讯云接口鉴权》](//cloud.tencent.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
+接口鉴权方法详见[《腾讯云接口鉴权》](https://cloud.tencent.com/document/api/270/1992)
 
 注意：在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
 
@@ -279,7 +279,7 @@
 </pre>
 </div>
 
-根据上述参数列表进行签名，得出的数字签名为：HgIYOPcx5lN6gz8JsCFBNAWp2oQ（示例），详细的数字签名的生成方法请参照：[《腾讯云接口鉴权》](//wiki/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
+根据上述参数列表进行签名，得出的数字签名为：HgIYOPcx5lN6gz8JsCFBNAWp2oQ（示例），详细的数字签名的生成方法请参照：[《腾讯云接口鉴权》](https://cloud.tencent.com/document/api/270/1992)
 注意：
 1）在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名；
 2）鉴权时，需要将参数列表按key进行排序：字典序，同时大写在前。
@@ -957,7 +957,7 @@ Type=1：当前属性越大，排序越靠前；
 
 | 开发语言 | github地址 | 下载 |
 |---------|---------|---------|
-| PHP | https://github.com/QcloudApi/qcloudapi-sdk-php | [点击下载](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip) |
-| Python | https://github.com/QcloudApi/qcloudapi-sdk-python | [点击下载](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip) |
-| Java | https://github.com/QcloudApi/qcloudapi-sdk-java | [点击下载](https://mc.qcloudimg.com/static/archive/72dbc1a82ad8e18dead2e6dc07acd5d7/qcloudapi-sdk-java-master.zip) |
-| .Net | https://github.com/QcloudApi/qcloudapi-sdk-dotnet | [点击下载](https://mc.qcloudimg.com/static/archive/b55098d83c78db530c53fb10f44c3fef/qcloudapi-sdk-dotnet-master.zip) |
+| PHP | https://github.com/QcloudApi/qcloudapi-sdk-php | [单击下载](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip) |
+| Python | https://github.com/QcloudApi/qcloudapi-sdk-python | [单击下载](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip) |
+| Java | https://github.com/QcloudApi/qcloudapi-sdk-java | [单击下载](https://mc.qcloudimg.com/static/archive/72dbc1a82ad8e18dead2e6dc07acd5d7/qcloudapi-sdk-java-master.zip) |
+| .Net | https://github.com/QcloudApi/qcloudapi-sdk-dotnet | [单击下载](https://mc.qcloudimg.com/static/archive/b55098d83c78db530c53fb10f44c3fef/qcloudapi-sdk-dotnet-master.zip) |

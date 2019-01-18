@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeDeviceClassPartition接口用来获取设备类型对应的RAID方式。
+DescribeDeviceClassPartition接口用来获取设备类型对应的 RAID 方式。
 
 接口访问域名：bm.api.qcloud.com
 
@@ -9,32 +9,20 @@ DescribeDeviceClassPartition接口用来获取设备类型对应的RAID方式。
 ### 请求示例
 ```
 https://bm.api.qcloud.com/v2/index.php?
-	Action=DescribeDeviceClassPartition
-	&<公共请求参数>
-	&deviceClass=<设备类型>
-	&cpuId=<cpuId类型>
-	&mem=<内存大小>
-	&haveRaidCard=<是否需要RAID卡>
-	&diskTypeId1=<第一种规格硬盘类型>
-	&diskNum1=<第一种规格硬盘的盘个数>
-	&diskTypeId2=<第二种规格硬盘类型>
-	&diskNum2=<第二种规格硬盘的盘个数>
+    Action=DescribeDeviceClassPartition
+    &<公共请求参数>
+    &deviceClassCode=<设备类型>
+    &instanceId=<自定义机型实例ID>
 ```
 
 ### 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，其它参数参见[公共请求参数](/doc/api/456/6718)页面。其中，此接口的Action字段为DescribeDeviceClassPartition。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，其它参数参见 [公共请求参数](/doc/api/456/6718) 页面。其中，此接口的Action字段为DescribeDeviceClassPartition。
 
-| 参数名称         | 必选   | 类型     | 描述                                       |
-| ------------ | ---- | ------ | ---------------------------------------- |
-| deviceClass  | 否    | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型。标准机型需要传入此参数。 |
-| cpuId        | 否    | Int    | cpuId类型。自定义机型需要传入此参数。 1：E5-2620v3 (6核) *  2；2：E5-2680v4 (14 核) * 2。 |
-| mem          | 否    | Int    | 内存大小，单位G。 自定义机型需要传入此参数。取值范围[64，128，256，384，512]。 |
-| haveRaidCard | 否    | Int    | 是否需要RAID卡。自定义机型需要传入此参数。0：不需要RAID卡； 1：需要RAID卡。 |
-| diskTypeId1  | 否    | Int    | 第一种规格硬盘类型。自定义机型需要传入此参数。取值通过接口获得[查询自定义机型部件信息(DescribeDeviceClassPartition)](/document/product/386/10968)。 |
-| diskNum1     | 否    | Int    | 第一种规格硬盘的盘个数。自定义机型需要传入此参数。取值1~12。如果是有RAID卡的，盘数为偶数。 |
-| diskTypeId2  | 否    | Int    | 第二种规格硬盘类型。自定义机型需要传入此参数。取值通过接口获得[查询自定义机型部件信息(DescribeDeviceClassPartition)](/document/product/386/10968)。 |
-| diskNum2     | 否    | Int    | 第二种规格硬盘的盘个数。自定义机型需要传入此参数。取值1~12。如果是有RAID卡的，盘数为偶数，且diskNum1+diskNum2不大于12。 |
+|参数名称     |            必选     |            类型          |     描述  |
+|-----|------|----|-----|
+|deviceClassCode   | 否    |            String    |       设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号(DescribeDeviceClass)](https://cloud.tencent.com/document/api/386/6636) 获得设备类型。标准机型需要传入此参数 。|  
+|instanceId   |           否      |          String      |      需要查询自定义机型 RAID 信息时，传入自定义机型实例 ID。instanceId 存在时 deviceClassCode 失效。  |
 
 ## 响应
 
@@ -115,7 +103,7 @@ RAID结构
 ```
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassPartition
-	&deviceClass=M10
+	&deviceClassCode=PS100v1
 	&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC
 	&Nonce=48476
 	&Timestamp=1476436689

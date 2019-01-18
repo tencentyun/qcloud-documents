@@ -2,14 +2,14 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/e681b228c06e53096510b3b61c012d36/QCloudAAI_IOSSDK.zip)
+实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://main.qcloudimg.com/raw/08dc7d8975ede33ecba181d38b1075ae/QCloudAAIClientSDK.zip)
 
-更多示例可参考 Demo：[iOS Demo](https://mc.qcloudimg.com/static/archive/44653a19a6f274ebc2b3f7ef028bb72b/QCloudAAI_IOSDemo.zip)
+更多示例可参考 Demo：[iOS Demo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
 
 ### 开发准备
 
 -  只支持 iOS 8.0 及以上版本，不支持 bitcode 版本；
--  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 WiFi 网络等）；
+-  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）；
 -  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 
 
@@ -17,7 +17,7 @@
 
 #### SDK 导入
 
-iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 Headers。
+iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 include。
 
 #### 工程配置
 
@@ -34,7 +34,7 @@ iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 3. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
 在工程中添加依赖库，在 build Phases  Link Binary Whith Libraries 中添加以下库：
 	- libstdc++.6.0.9.tbd
-	- libc++.tdb
+	- libc++.tbd
 
 ## 签名获取
 

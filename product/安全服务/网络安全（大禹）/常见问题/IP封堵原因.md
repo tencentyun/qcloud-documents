@@ -1,5 +1,5 @@
 封堵原因：当攻击超过您的防护上限，您的服务器将会被封堵。
-<br>封堵时长：普通封堵时长为 2 小时，大流量攻击封堵时长为 24 小时。点击查看[封堵详情](https://console.cloud.tencent.com/dayu/basic/list/bj)。
+<br>封堵时长：普通封堵时长为 2 小时，大流量攻击封堵时长为 24 小时。单击查看[封堵详情](https://console.cloud.tencent.com/dayu/basic/list/bj)。
 <br>处理方式：
 <br>1. 等待平台解封，期间您可以通过内网地址访问您的服务器
 <br>2. 如需提前解封，您可以购买或升级 BGP 高防产品

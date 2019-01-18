@@ -1,5 +1,6 @@
 ## 请求结构
-### RESTful API请求结构
+使用本接口服务之前需要在 [语音识别](https://cloud.tencent.com/product/asr) 介绍页单击【立即使用】。
+### RESTful API 请求结构
 离线语音识别的 RESTful API 请求结构如下：
 
 | 参数名称    | 必选    | 类型   | 描述    | 
@@ -8,7 +9,7 @@
 | URL  | 是         | String          | HTTPS 请求地址       | 
 | Https Headers    | 是         | 数据集合          | HTTPS 请求头部         | 
 | Https Method   |是         | String     | HTTPS 请求方法，离线语音识别请求方法为 POST
-| Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M   | 
+| Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为 1 时填充），大小不超过 5M   | 
 
 其中，URL 的结构为 ：
 ```
@@ -27,24 +28,24 @@ expired=xxx&
 nonce=xxx
 ```
 
-URL 中各字段含义如下（各字段的值需要进行 URL 编码）：
+URL 中各字段含义如下（各字段的值需要进行 URL 编码，生成鉴权签名时采用的参数是非 URL 编码参数）：
 
 | 字段           | 必选         | 类型          | 描述         | 
 | ------------- | ---------- | ------------- | ---------- |
-| APPID | 是 | uint  | 腾讯云应用 ID 值   | 
-| projectid  | 否   | uint | 腾讯云项目 ID，不填为默认项目，即 0，总长度不超过 1024 字节 | 
-| sub_service_type  | 是   | uint   | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
+| APPID | 是 | UInt   | 腾讯云应用 ID 值   | 
+| projectid  | 否   | UInt | 腾讯云项目 ID，不填为默认项目，即 0，总长度不超过 1024 字节 | 
+| sub_service_type  | 是   | UInt    | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
 | engine_model_type | 是  | String  | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型| 
 | callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于 0，小于 2048 |
-| channel_num | 否  | unit  | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1 |
-| res_text_format | 是 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
-| res_type | 否 | uint  | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回 |
-| source_type | 是 | uint  |  语音数据来源。0：语音 URL；1：语音数据（post body）|
+| channel_num | 否  | UInt   | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1 |
+| res_text_format | 是 | UInt  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
+| res_type | 否 | UInt   | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回 |
+| source_type | 是 | UInt   |  语音数据来源。0：语音 URL；1：语音数据（post body）|
 | url | 否   | String  | 语音 URL，公网可下载。当 source_type 值为 0 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048 |
 | secretid  | 是 | String | 官网 SecretId |
-| timestamp | 是 | uint | 当前时间戳，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒 | 
-| expired |  是 | uint | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；expired 必须大于 timestamp 且 expired - timestamp 小于 90 天 |
-| nonce | 是 | uint | 随机正整数。用户需自行生成，最长 10 位 |
+| timestamp | 是 | UInt  | 当前时间戳，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒 | 
+| expired |  是 | UInt  | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；expired 必须大于 timestamp 且 expired - timestamp 小于 90 天 |
+| nonce | 是 | UInt | 随机正整数。用户需自行生成，最长 10 位 |
 
 HTTPS  Headers 的结构如下：
 
@@ -57,20 +58,20 @@ HTTPS  Headers 的结构如下：
 
 ### 请求示例
 
-下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=0时，采用公网可访问 URL 语音数据，请求 Host 与路径：
+下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=0 时，采用公网可访问 URL 语音数据，请求 Host 与路径：
 ```
-http://aai.qcloud.com/asr/v1/<appid>
+https://aai.qcloud.com/asr/v1/<appid>
 ```
 请求参数： 
 ```
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":1,
-"url":"http://test.qq.com/rec_callback",
+"engine_model_type":"16k_0",
+“url":"http%3a%2f%2ftest.qq.com%2frec_callback",
 "res_text_format":0,
 "res_type":1,
-"callback_url":"http://test.qq.com/rec_callback",
+"callback_url":"http%3a%2f%2ftest.qq.com%2frec_callback",
 "source_type":0,
 "secretid":"AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv",
 "timestamp":1473752207,
@@ -100,7 +101,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 
 综上，语音全文转写识别请求 API 为：
 ```
-http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
+https://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 &expired=1473752807
 &nonce=44925
 &projectid=0
@@ -111,6 +112,7 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 &sub_service_type=0
 &timestamp=1473752207
 &url=<url>
+&callback_url=<callback_url>
 ```
 
 ## 返回结构
@@ -120,9 +122,9 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 
 | 参数名称           | 类型         | 说明          | 
 | ------------- | ---------- | ------------- | 
-|  code |int | 服务器错误码，0 为成功|
+|  code |Int | 服务器错误码，0 为成功|
 | message  | String | 服务器返回的信息  |
-| requestId  | int  | 如果成功，返回任务 ID |
+| requestId  | Int  | 如果成功，返回任务 ID |
 
 ### 返回示例
  返回消息示例如下：
@@ -140,44 +142,47 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 
 | 数值 | 返回码 | 说明 |
 |---------|---------|---------|
-|0|SUCCESS|成功|
-|1000|ERROR_BAD_REQ|请求的参数不符合要求|
-|1001|ERROR_PARSE_DATA_FAILED|解析请求参数时失败|
-|1002|ERROR_HAS_NO_VALID_PROJECTID|没有提供 projectid，或者值不合法|
-|1003|ERROR_HAS_NO_VALID_RES_TEXT_FORMAT|没有提供 res_text_format，或者值不合法|
-|1004|ERROR_HAS_NO_VALID_SUB_SERVICE_TYPE|没有提供 sub_service_type，或者值不合法|
-|1005|ERROR_HAS_NO_VALID_ENGINE_MODEL_TYPE|没有提供 engine_model_type，或者值不合法|
-|1006|ERROR_HAS_NO_VALID_CALLBACK_URL|没有提供 callback_url，或者值不合法|
-|1007|ERROR_HAS_NO_VALID_RES_TYPE|没有提供 res_type，或者值不合法|
-|1008|ERROR_HAS_NO_VALID_SOURCE_TYPE|没有提供 source_type，或者值不合法|
-|1009|ERROR_HAS_NO_VALID_URL|没有提供下载语音的 url，或者值不合法|
-|1010|ERROR_HAS_NO_VALID_SECRET_ID|没有提供 SecretId，或者值不合法|
-|1011|ERROR_HAS_NO_VALID_TIMESTAMP|没有提供 timestamp，或者值不合法|
-|1012|ERROR_HAS_NO_VALID_EXPIRED|没有提供 expired，或者值不合法|
-|1013|ERROR_HAS_NO_VALID_NONCE|没有提供 nonce，或者值不合法|
-|1016|ERROR_URL_TOO_LONG|提供的 url 长度大于 2048|
-|1018|ERROR_APPID_NOT_REG|提供的 APPID 未注册|
-|1014|ERROR_HAS_NO_VALID_TEMPLATENAME|提供的 template_name 不合法|
-|1016|ERROR_URL_TOO_LONG|提供的 url 长度大于 2048|
-|1018|ERROR_APPID_NOT_REGI|提供的 APPID 未注册|
-|1019|ERROR_APPID_PROJECTID_TEMPLATENAME_MISMATCH|提供的 APPID，ProjectId 与 template_name 不匹配|
-|1020|ERROR_PROCESS_FAILED|服务端处理出现内部错误|
-|1021|ERROR_PROXY_BAD_AUTH | 签名不符合规则|
-|1023|ERROR_PROXY_AUTH_TOO_LONG_EXPIRED |签名的有效期设置太长 |
-|1024|ERROR_PROXY_AUTH_EXPIRED|签名过期|
-|1026|ERROR_PROXY_AUTH_SECRETID_NOEXIST|签名中的 SecretId 错误|
-|1028|ERROR_PROXY_AUTH_REPLAY_ATTACK|重放攻击|
-|1029|ERROR_PROXY_AUTH_FAILED|签名验证不通过|
-|1031|ERROR_AUDIO_TOO_LARGE|发送的语音数据过大（大于 5M）|
-|1033|ERROR_UNKNOWN|其他未知错误|
+| 0 | SUCCESS | 成功 |
+| 1000 | ERROR_BAD_REQ |  请求的参数不符合要求 |
+| 1001 | ERROR_PARSE_DATA_FAILED | 解析请求参数时失败 |
+| 1002 | ERROR_HAS_NO_VALID_PROJECTID | 没有提供 projectid，或者值不合法 |
+| 1003 | ERROR_HAS_NO_VALID_RES_TEXT_FORMAT |没有提供 res_text_format，或者值不合法 |
+| 1004 | ERROR_HAS_NO_VALID_SUB_SERVICE_TYPE | 没有提供 sub_service_type，或者值不合法 |
+| 1005 | ERROR_HAS_NO_VALID_ENGINE_MODEL_TYPE | 没有提供 engine_model_type，或者值不合法 |
+| 1006 | ERROR_HAS_NO_VALID_CALLBACK_URL | 没有提供 callback_url，或者值不合法 |
+| 1007 | ERROR_HAS_NO_VALID_RES_TYPE | 没有提供 res_type，或者值不合法 |
+| 1008 | ERROR_HAS_NO_VALID_SOURCE_TYPE | 没有提供 source_type，或者值不合法 |
+| 1009 | ERROR_HAS_NO_VALID_URL | 没有提供下载语音的 url，或者值不合法 | 
+| 1010 | ERROR_HAS_NO_VALID_SECRET_ID | 没有提供 SecretId，或者值不合法 |
+| 1011 | ERROR_HAS_NO_VALID_TIMESTAMP | 没有提供 timestamp，或者值不合法 |
+| 1012 | ERROR_HAS_NO_VALID_EXPIRED | 没有提供 expired，或者值不合法 |
+| 1013 | ERROR_HAS_NO_VALID_NONCE |  没有提供 nonce，或者值不合法 |
+| 1014 | ERROR_HAS_NO_VALID_TEMPLATENAME | 提供的 template_name 不合法 |
+| 1015 | ERROR_HAS_NO_BUCKET | 没有提供 bucket，或者值不合法 |
+| 1016 | ERROR_HAS_NO_AMOUNT | 没有剩余的免费用量 |
+| 1017 | ERROR_URL_TOO_LONG | 提供的 url 长度大于 2048 |
+| 1018  | ERROR_FILEID_TOO_LONG |  提供的文件名长度大于 2048 |
+| 1019 | ERROR_APPID_NOT_REGISTER | 提供的 APPID 未注册 |
+| 1020 | ERROR_APPID_PROJECTID_TEMPLATENAME_MISMATCH | 提供的 APPID，ProjectId 与 template_name 不匹配 |
+| 1021 |  ERROR_PROCESS_FAILED | 服务端处理出现内部错误 |
+| 1022 | ERROR_PROXY_BAD_AUTH | 签名不符合规则 |
+| 1024 | ERROR_PROXY_AUTH_TOO_LONG_EXPIRED | 签名的有效期设置太长 |
+| 1025 | ERROR_PROXY_AUTH_EXPIRED | 签名过期 |
+| 1026 | ERROR_PROXY_AUTH_PROJECTID_NOEXIST | 签名中的 ProjectId 错误 |
+| 1027 | ERROR_PROXY_AUTH_SECRETID_NOEXIST | 签名中的 SecretId 错误 |
+| 1028 | ERROR_PROXY_AUTH_PROJECTID_MISMATCH | 签名中的 ProjectId 不匹配 |
+| 1029 | ERROR_PROXY_AUTH_REPLAY_ATTACK | 重放攻击 |
+| 1030 | ERROR_PROXY_AUTH_FAILED | 签名验证不通过 |
+| 1032 | ERROR_AUDIO_TOO_LARGE | 发送的语音数据过大（大于 5M）|
+| 1034 | ERROR_UNKNOWN | 其他未知错误 |
 
-## PHP代码示例
+## PHP 代码示例
 
 ```php
 <?php
 $appid = YOUR_APPID ;
 // https://console.cloud.tencent.com/capi
-// 从该页面获取APPID的SecretId和SecretKey
+// 从该页面获取 APPID 的 SecretId 和 SecretKey
 $secretid ='YOUR_SECRET_ID';
 $secretkey = 'YOUR_SECRET_KEY';
 
@@ -199,7 +204,7 @@ $args = array(
     'url' => "http://aai.qcloud.com/test.mp3",
 );
 
-// 参数按照Key的字母序排序
+// 参数按照 Key 的字母序排序
 ksort($args);
 
 $arg_str = "";
@@ -220,4 +225,5 @@ $req_url = "https://$req_url?$arg_str";
 echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
 
 ```
-
+> **注意：**
+> 在 HTML 页面中嵌入 PHP 脚本会导致 `&times` 被转译为` x`，导致返回结果 404， 纯 PHP 代码则不会出现这个问题。若出现这个问题，解决办法是：在 PHP 代码中，把 `& `替换为 `&amp；`。

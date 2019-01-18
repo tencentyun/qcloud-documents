@@ -1,0 +1,85 @@
+## 功能描述
+
+本接口可用于获取投递任务信息列表。
+
+## 请求
+
+### 请求示例
+
+```
+GET /tasks?shipper_id=xx-xx-xx-xxxx&start_time=2017-10-10+00%3A00%3A00&end_time=2017-10-10+23%3A59%3A59 HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+```
+
+### 请求行
+
+```
+GET /tasks
+```
+
+### 请求头
+
+除公共头部外，无特殊请求头部。
+
+### 请求参数
+
+| 字段名        |  类型  | 位置  | 必须 |      含义                      |
+|--------------|--------|------|---------|---------------------------------|
+| shipper_id   | string | query| 是      |查询的投递规则 id                  |
+| start_time   | string | query| 是      |查询的开始时间，支持最近 3 天的查询  |
+| end_time     | string | query| 是      |查询的结束时间                     |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 123
+
+{
+  "tasks": [
+    {
+      "task_id": "xxxxx-xx-xx-xx",
+      "shipper_id": "xxxxx-xx-xx-xx",
+      "topic_id": "xxxxx-xx-xx-xx",
+      "range_start": "2017-10-17 10:10:10",
+      "range_end": "2017-10-17 10:10:10",
+      "start_time": "2017-10-17 10:10:10",
+      "end_time": "2017-10-17 10:10:10",
+      "status": "success",
+      "message": "success",
+    }
+  ]
+}
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+|  字段名      |  类型     | 必有 |        含义                    |
+|-------------|-----------|---------|-------------------------------|
+| tasks       | JsonArray | 是      | 投递任务信息数组                |
+
+TaskInfo 格式如下：
+
+|  字段名     |  类型  | 必有 |        含义                    |
+|------------|--------|---------|-------------------------------|
+| task_id    | string | 是      | 投递任务的 ID                |
+| shipper_id | string | 是      | 投递规则的 ID                |
+| topic_id   | string | 是      | 日志主题的 ID                |
+| range_start| string | 是      | 本批投递的日志的开始时间         |
+| range_end  | string | 是      | 本批投递的日志的结束时间         |
+| start_time | string | 是      | 本次投递任务的开始时间           |
+| end_time   | string | 是      | 本次投递任务的结束时间           |
+| status     | string | 是      | 本次投递的结果，"success","running","failed","wait" |
+| message    | string | 是      | 结果的详细信息                  |
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

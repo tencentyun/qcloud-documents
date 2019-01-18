@@ -53,7 +53,7 @@ mLivePlayer.resume();
 ```
 
 ### step 5: 画面调整
-如果你希望调整画面的显示方式，SDK也提供了多种选择：
+如果您希望调整画面的显示方式，SDK也提供了多种选择：
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
 #####  setRenderMode
 * RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边
@@ -116,7 +116,7 @@ mLivePlayer.setPlayListener(this);
 |PLAY_ERR_NET_DISCONNECT	          |  -2301|  网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启播放|
 
 ### 3. 一般警告
-如下的这些事件，你可以不用关心，我们通知出来只是告诉您内部发生了什么，如果您需要做数据上报，倒是可以用一下：
+如下的这些事件，您可以不用关心，我们通知出来只是告诉您内部发生了什么，如果您需要做数据上报，倒是可以用一下：
 
 | 事件ID                           | 数值   | 含义说明                            |
 | :----------------------------- | :--- | :------------------------------ |

@@ -27,8 +27,8 @@
 
 ### 3.1 直接上传
 功能: 直接上传单张图片, 只支持POST表单(multipart/form-data)方式, 目前只支持20M以内的图片。
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/ (由后台自动生成fileid)
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` (自定义fileid)
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/` (由后台自动生成fileid)
 其中fileid为可选参数，可以包含除了'\0'外的任意字符，需要对fileid进行urlencode，utf8字符集，最大长度支持128字节，建议控制在64字节内。
 注意：userid为即将废弃字段，请使用默认值“0”，不要依赖该字段进行业务判断。
 方法: POST
@@ -68,8 +68,8 @@ data里面字段描述:
 
 | 字段名称         | 描述                                  | 格式                                       |
 | ------------ | ----------------------------------- | ---------------------------------------- |
-| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] |
-| download_url | 生成的下载资源url(用于下载)                    | http://[bucket]-[appid].image.myqcloud.com/[fileid] |
+| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` |
+| download_url | 生成的下载资源url(用于下载)                    | `http://[bucket]-[appid].image.myqcloud.com/[fileid]` |
 | fileid       | 生成的资源唯一标识符                          |                                          |
 | info         | 图片的具体信息，见下表                         |                                          |
 
@@ -108,8 +108,8 @@ Content-Type: image/jpeg
 <font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://cloud.tencent.com/doc/api/264/6006)。
 
 功能: 将文件分成固定大小片段上传, 适用于图片文件偏大的情况(如大于5MB)。目前单张图片大小限制为20MB。
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)
-接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/ (由后台自动生成fileid)
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` (自定义fileid)
+接口:`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/` (由后台自动生成fileid)
 其中fileid为可选参数，可以包含除了'\0'外的任意字符，需要对fileid进行urlencode，utf8字符集，最大长度支持128字节，建议控制在64字节内。
 注意：userid为即将废弃字段，请使用默认值“0”，不要依赖该字段进行业务判断。
 方法: POST
@@ -155,8 +155,8 @@ data里面字段描述:
 | session      | 否    | String | 唯一标识此文件传输过程的 id. (图片命中秒传则不返回此项)          |
 | offset       | 否    | Int    | 开始传输的文件位移(图片命中秒传则不返回此项)                  |
 | slice_size   | 否    | Int    | 分片大小(图片命中秒传则不返回此项)                       |
-| url          | 否    | String | 图片命中秒传或上传完成则返回。http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] |
-| download_url | 否    | string | 图片命中秒传或上传完成则返回。http://[bucket]-[appid].image.myqcloud.com/[fileid] |
+| url          | 否    | String | 图片命中秒传或上传完成则返回。`http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` |
+| download_url | 否    | string | 图片命中秒传或上传完成则返回。`http://[bucket]-[appid].image.myqcloud.com/[fileid]` |
 | fileid       | 否    | String | 图片命中秒传或上传完成则返回. 资源的唯一标识符                 |
 
 
@@ -184,8 +184,8 @@ data里面字段描述:
 
 | 字段名称         | 描述                                  | 格式                                       |
 | ------------ | ----------------------------------- | ---------------------------------------- |
-| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] |
-| download_url | 生成的下载资源url(用于下载)                    | http://[bucket]-[appid].image.myqcloud.com/[fileid] |
+| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` |
+| download_url | 生成的下载资源url(用于下载)                    |` http://[bucket]-[appid].image.myqcloud.com/[fileid]` |
 | fileid       | 生成的资源唯一标识符                          |                                          |
 | info         | 图片的具体信息，见下表                         |                                          |
 
@@ -198,7 +198,7 @@ info里面字段描述：
 
 ## 4	图片复制
 功能: 将图片复制一份(保留原有图片)。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/copy
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/copy`
 方法: POST
 请求参数HTTP头部信息:
 
@@ -225,8 +225,8 @@ data里面字段描述:
 
 | 字段名称         | 描述                                  | 格式                                       |
 | ------------ | ----------------------------------- | ---------------------------------------- |
-| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] |
-| download_url | 生成的下载资源url(用于下载)                    | http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal |
+| url          | 资源url(用于restful api交互, 如查询,复制,删除资源) | `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]` |
+| download_url | 生成的下载资源url(用于下载)                    | `http://[bucket]-[appid].image.myqcloud.com/[bucket]-[appid]/[userid]/[fileid]/orignal` |
 
 
 请求示例:
@@ -242,7 +242,7 @@ Content-Length: 0
 
 ## 5	图片查询
 功能: 查看文件的属性信息，包含：文件哈希值、文件大小、上传时间等，图片和视频返回的信息会有所不同。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/`
 方法: GET
 请求参数HTTP头部信息:
 
@@ -268,7 +268,7 @@ data里面字段描述:
 
 | 字段名称             | 描述         | 格式                                       |
 | ---------------- | ---------- | ---------------------------------------- |
-| file_url         | 图片资源的下载url | http:// [bucket]-[appid].image.myqcloud.com/[bucket]-[appid]]/[userid]/[fileid]/original |
+| file_url         | 图片资源的下载url | `http:// [bucket]-[appid].image.myqcloud.com/[bucket]-[appid]]/[userid]/[fileid]/original` |
 | file_fileid      | 图片资源的唯一id  |                                          |
 | file_upload_time | 图片上传时间     | Unix timestamp                           |
 | file_size        | 图片的大小      | 单位: Byte                                 |
@@ -286,13 +286,13 @@ Host: web.image.myqcloud.com
 
 ## 6	图片删除
 功能: 删除一个图片。
-接口: http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/del
+接口: `http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid]/del`
 方法: POST
 请求参数HTTP头部信息:
 
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
-| Host          | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
+| Host          | 是    | String | 图片云服务器域名，固定为`web.image.myqcloud.com `      |
 | Authorization | 是    | String | 单次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
@@ -371,7 +371,7 @@ download_url?imageView2/<mode>/w/<Width>/h/<Height>
 | 参数                                       | 含义                                       |
 | ---------------------------------------- | ---------------------------------------- |
 | /0/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，则另一边自适应 |
-| /1/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，剧中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为&lt;Width&gt;x&lt;Height&gt;（其中一边多余的部分会被裁剪掉） |
+| /1/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为&lt;Width&gt;x&lt;Height&gt;（其中一边多余的部分会被裁剪掉） |
 | /2/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最大值分别为Width和Height，进行等比压缩；如果只指定一边，则另一边自适应 |
 | /3/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
 | /4/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
@@ -484,7 +484,7 @@ http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumb
 /crop/!600x600a20a20: 表示从原图的坐标（x,y）为（20,20）的位置裁剪600x600的缩略图。
 /crop/!600x600-20a20: 表示从原图的坐标（x,y）为（0,20）的位置裁剪580x600的缩略图。
 注意：scrop 参数与 crop 参数同时使用，当智能裁剪没有识别到人脸时，会执行普通的裁剪。 要求使用的宽高参数一致，否则输出图片宽高是两个宽高参数中的一个。
-http://v2enhance-10000812.image.myqcloud.com/tencentyunRestfulAPITest?imageMogr2/scrop/300x400/crop/300x400
+`http://v2enhance-10000812.image.myqcloud.com/tencentyunRestfulAPITest?imageMogr2/scrop/300x400/crop/300x400`
 示例：
 
 ```

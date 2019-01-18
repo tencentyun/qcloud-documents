@@ -1,0 +1,149 @@
+## 描述
+
+本篇示例将实现三个简单的对象存储接口：创建目录，简单上传文件，删除文件。
+
+### 准备工作
+
+在任何文件上传至 COS 之前，都需要创建 Bucket 来存放文件。
+
+进入 COS 管理控制台，单击 **创建 Bucket** ，弹出如下对话框：
+
+![](//mccdn.qcloud.com/static/img/a72342e5d10c18ccba9dde905fcd8695/image.png)
+
+单击 **创建** ，即可在页面 Bucket 列表中看到创建的 Bucket：
+
+![](//mccdn.qcloud.com/static/img/0e3624e28cd0fa0f2d95da6492d55c72/image.jpg)
+
+### 使用 RESTful API
+
+您至少需要一个支持发起 HTTP RESTful 请求的客户端，例如 curl 或其他相关函数来调用 API。
+
+## 示例
+说明：以华东地区的请求为例
+
+### 创建目录
+
+在 buckettest 创建一个 foldertest 目录。
+
+#### 请求
+
+```http
+POST /files/v2/10000202/buckettest/foldertest/  HTTP/1.1
+Host: sh.file.myqcloud.com
+Content-Type: application/json
+Content-Length: 15
+Authorization: 1k2i3/EXIiTDirFg9DoKgWNHc4JhPTEwMDAwMjAyJms9QUtJRFBOUHVyNUIyN3FjdVJhakNFbXpLVjkzVTdrOFZjZXFXJmU9MTQ2NTg3NTU0OSZ0PTE0NjU4NzUzNjkmcj03MTI5NDYyMzQmZj0mYj1qb25ueHU1
+
+{
+    "op": "create"
+}
+```
+
+#### 返回
+
+```http
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 14 Jun 2016 03:36:12 GMT
+Content-Length: 109
+
+{
+    "code": 0, 
+    "message": "SUCCESS", 
+    "data": {
+        "ctime": "1465875372", 
+        "resource_path": "/10000202/buckettest/foldertest/"
+    }
+}
+```
+
+### 简单上传文件
+
+在 buckettest 的 foldertest 目录下上传一个 test_upload.pptx 文件。
+
+#### 请求
+
+``` http
+POST /files/v2/10000202/buckettest/foldertest/test_upload.pptx HTTP/1.1
+Host: sh.file.myqcloud.com
+Accept: /
+Authorization: 5iMIxdTSSxBLIkBTnUr+cIUZcTZhPTEwMDAwMjAyJms9QUtJRFBOUHVyNUIyN3FjdVJhakNFbXpLVjkzVTdrOFZjZXFXJmU9MTQ2NTg3NTU1MyZ0PTE0NjU4NzUzNzMmcj0yMDExOTAxNjkwJmY9JmI9am9ubnh1NQ==
+Content-Type: multipart/form-data; boundary=---------------8d3944816ef2585
+Content-Length: 78963
+
+-----------------8d3944816ef2585
+
+Content-Disposition: form-data; name="op"
+
+upload
+
+-----------------8d3944816ef2585
+
+Content-Disposition: form-data; name="sha"
+
+D80DFA67880831C3691AA1458589C6BED4423736
+
+-----------------8d3944816ef2585
+
+Content-Disposition: form-data; name="insertOnly"
+
+0
+
+-----------------8d3944816ef2585
+
+Content-Disposition: form-data; name="fileContent"; filename="test_upload.pptx"
+
+Content-Type: application/octet-stream
+
+```
+
+#### 返回
+
+``` http
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 14 Jun 2016 03:36:13 GMT
+Content-Type: /
+Content-Length: 330
+
+{
+    "code": 0, 
+    "message": "SUCCESS", 
+    "data": {
+        "access_url": "http://buckettest-10000202.file.myqcloud.com/foldertest/test_upload.pptx", 
+        "resource_path": "/foldertest/test_upload.pptx", 
+        "source_url": "http://buckettest-10000202.cos.myqcloud.com/foldertest/test_upload.pptx", 
+        "url": "http://region.file.myqcloud.com/files/v2/foldertest/test_upload.pptx"
+    }
+}
+```
+### 删除文件
+
+#### 请求
+
+```http
+POST /files/v2/10000202/buckettest/foldertest/test_upload.pptx  HTTP/1.1
+Host: sh.file.myqcloud.com
+Content-Type: application/json
+Content-Length: 15
+Authorization: g4THlNbztAH/beX6Pmf00q8T++thPTEwMDAwMjAyJms9QUtJRFBOUHVyNUIyN3FjdVJhakNFbXpLVjkzVTdrOFZjZXFXJmU9MCZ0PTE0NjU4NzU0MzEmcj0yNTk2NTAyNDkmZj0vMTAwMDAyMDIvam9ubnh1NS9mb2xkZXJ0ZXN0L3Rlc3RfdXBsb2FkLnBwdHgmYj1qb25ueHU1
+
+{
+    "op": "delete"
+}
+```
+
+#### 返回
+
+```http
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 14 Jun 2016 03:37:11 GMT
+Content-Type: /
+Content-Length: 30
+
+{
+    "code": 0, 
+    "message": "SUCCESS"
+}
+```

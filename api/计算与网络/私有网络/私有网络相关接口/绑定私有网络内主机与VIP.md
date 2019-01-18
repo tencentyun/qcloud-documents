@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(AssociateVip)用于私用网络云主机绑定 VIP，将预先分配的内网 VIP 绑定到指定的子机，便于多台子机做主备功能。
+本接口(AssociateVip)用于私用网络云服务器绑定 VIP，将预先分配的内网 VIP 绑定到指定的子机，便于多台子机做主备功能。
 
 <font style="color:red">本接口实现的功能已经用弹性网卡功能代替，不推荐使用该接口。</font>
 
@@ -9,7 +9,7 @@
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 1) 目前 VIP 需要联系在线客服申请。
-2) 云主机必须是VPC内的。
+2) 云服务器必须是VPC内的。
 
  
 
@@ -20,7 +20,7 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | String | 系统分配的私有网络ID，支持升级前的vpcId，也支持升级后的unVpcId，例如：vpc-2ari9m7h。 |
 | vipId | 是 | Int | VIP的ID，例如：12，VIP ID需要联系在线客服申请 |
-| lanIp | 是 | String | 云主机内网IP，例如：10.0.0.1。查询云主机IP详见<a href="https://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="查看实例列表">查看实例列表</a> |
+| lanIp | 是 | String | 云服务器内网IP，例如：10.0.0.1。查询云服务器IP详见<a href="https://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="查看实例列表">查看实例列表</a> |
  
 
 ## 3. 输出参数
@@ -36,7 +36,7 @@
 | 错误码 | 描述 |
 |---------|---------|
 | InvalidVipId.NotFound | vipId不存在，目前vip需要人工分配，如果您忘记vipId或者第一次绑定，请联系在线客服找回或者申请。 |
-| InvalidLanIp.NotFound | 云主机不存在，请核实您填写的lanIp是否正确，查询vpc下云主机详见<a href="https://cloud.tencent.com/doc/api/229/831" title="查看云主机实例列表">查看云主机实例列表</a>。 |
+| InvalidLanIp.NotFound | 云服务器不存在，请核实您填写的lanIp是否正确，查询vpc下云服务器详见<a href="https://cloud.tencent.com/doc/api/229/831" title="查看云服务器实例列表">查看云服务器实例列表</a>。 |
 | InvalidVpc.NotFound | 无效的vpc。vpc资源不存在，请再次核实您输入的资源信息是否正确。 |
 
 ## 5. 示例

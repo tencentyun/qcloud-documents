@@ -1,0 +1,68 @@
+
+## SDK 描述
+  DescribeAudits 用于获取 CloudAudit 信息。
+## 请求参数
+
+|参数名称|必选|类型|描述|
+|---------|---------|---------|--------|
+|auditNameList|	是|	Array	|auditName 列表|
+## 响应参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| auditLists | Array | 跟踪集列表 |
+
+其中 auditList 的参数如下：
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| IsMultiRegionAudit | Number | 是否开启多地域查询。0：代表否，1：代表是 |
+| KmsKeyId | String | Kms 密钥 ID |
+| Name | String | Audit 名称 |
+| CosBucketName | String | COS Bucket 名称 |
+| CosKeyPrefix | String | COS Bucket 前缀|
+| CmqTopicName | String | CMQ 主题名称 |
+| Status | Number | 	Audit 状态，0：代表关闭，1：代表开启 |
+
+
+## 实际案例
+### 请求示例
+
+```
+$config = array('SecretId'       => '你的secretId',
+                'SecretKey'      => '你的secretKey',
+                'RequestMethod'  => 'GET',
+                'DefaultRegion'  => 'gz');
+$ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
+$package = array('auditNameList'=>'["ayisunxxx"]');
+$a = $ca->DescribeAudits($package);
+if ($a === false) {
+    $error = $ca->getError();
+    echo "Error code:" . $error->getCode() . ".\n";
+    echo "message:" . $error->getMessage() . ".\n";
+    echo "ext:" . var_export($error->getExt(), true) . ".\n";
+} else {
+    var_dump($a);
+}
+echo "\nRequest :" . $ca->getLastRequest();
+echo "\nResponse :" . $ca->getLastResponse();
+echo "\n";
+```
+### 响应示例
+
+```
+{
+    "auditList": [
+        {
+            "Name": "ayisunxxx",
+            "CosBucketName": "sundehuixxx",
+            "CosKeyPrefix": "91000000009",
+            "Status": 1,
+            "IsMultiRegionAudit": 1,
+            "CmqTopicName": ""
+        }
+    ]
+}
+```
+
+

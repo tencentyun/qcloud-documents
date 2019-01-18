@@ -3,7 +3,7 @@ It is recommended to use AS (Auto Scaling) for common Web service server to get 
 
 For e-commerce websites, video websites and online education applications, client requests are sent to application server through cloud load balancer. In case of rapid changes in visits, AS service can flexibly scale up and down the number of application servers based on the number of requests.
 
-![Alt text](https://mc.qcloudimg.com/static/img/ba977d67b59a73d6a137323b61d17ec4/01+%282%29.png)
+![Alt text](https://mc.qcloudimg.com/static/img/76238c1b282534b67e80a7e4d04bba17/AS-Best+Practise-Cluster+Solution%282%29.png)
 
 ## How to Use
 Add the following clusters to a scaling group to provide further protection for the cluster:

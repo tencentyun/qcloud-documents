@@ -1,0 +1,107 @@
+## 1. 接口描述
+
+域名：monitor.api.qcloud.com
+接口：GetMonitorData
+
+内容分发网络CDN（Content Delivery Network），在现有的Internet中增加一层新的网络架构，将网站的内容发布到最接近用户的“网络”。具体介绍请参考 <a href="/doc/product/228/产品概述" title="产品概述">内容分发网络简介</a> 页面。
+
+查询内容分发网络CDN，入参取值如下：
+namespace: qce/cdn
+dimensions.0.name=projectId
+dimensions.0.value为项目ID
+dimensions.1.name=domain
+dimensions.1.value为域名
+
+## 2. 输入参数
+
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的Action字段为GetMonitorData。
+
+### 2.1 输入参数
+
+#### 2.1.1 输入参数总览
+
+| 参数名称               | 必选   | 类型       | 输入内容    | 描述                                       |
+| ------------------ | ---- | -------- | ------- | ---------------------------------------- |
+| namespace          | 是    | String   | qce/cdn | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
+| metricName         | 是    | String   | 具体的指标名称 | 指标名称，具体名称见2.2                            |
+| dimensions.n.name  | 是    | String   | 维度的名称   | 维度的名称，具体维度名称见第2.1.2小节，与dimensions.n.value配合使用。 |
+| dimensions.n.value | 是    | String   | 对应的维度的值 | 对应的维度的值，具体维度名称见第2.1.2小节，与dimensions.n.name配合使用。 |
+| period             | 否    | Int      | 60/300  | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考下方的指标详情列表。 |
+| startTime          | 否    | Datetime | 起始时间    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
+| endTime            | 否    | Datetime | 结束时间    | 结束时间，默认为当前时间。 endTime不能小于startTime       |
+
+#### 2.1.2 各维度对应参数总览
+
+| 参数名称               | 维度名称      | 维度解释 | 格式                     |
+| ------------------ | --------- | ---- | ---------------------- |
+| dimensions.0.name  | projectId | 项目   | String类型维度名称：projectId |
+| dimensions.0.value | projectId | 项目   | 具体项目 ID，如1              |
+| dimensions.1.name  | domain    | 域名   | String类型维度名称：domain    |
+| dimensions.1.value | domain    | 域名   | 具体域名，如`www.qq.com`     |
+
+### 2.2 指标名称
+
+| 指标名称（metricName） | 含义   | 单位   |
+| ---------------- | ---- | ---- |
+| bandwidth        | 带宽   | bps  |
+| requests         | 请求数  | 个    |
+
+
+## 3. 输出参数
+
+| 参数名称       | 类型       | 描述                  |
+| ---------- | -------- | ------------------- |
+| code       | Int      | 错误码， 0： 成功，其他值表示失败 |
+| message    | String   | 返回信息                |
+| startTime  | Datetime | 起始时间                |
+| endTime    | Datetime | 结束时间                |
+| metricName | String   | 指标名称                |
+| period     | Int      | 监控统计周期              |
+| dataPoints | Array    | 监控数据列表              |
+
+
+## 4. 错误码表
+
+| 错误代码 | 错误描述    | 英文描述                                 |
+| ---- | ------- | ------------------------------------ |
+| -502 | 资源不存在   | OperationDenied.SourceNotExists      |
+| -503 | 请求参数有误  | InvalidParameter                     |
+| -505 | 参数缺失    | InvalidParameter.MissingParameter    |
+| -507 | 超出限制    | OperationDenied.ExceedLimit          |
+| -509 | 错误的维度组合 | InvalidParameter.DimensionGroupError |
+| -513 | DB 操作失败  | InternalError.DBoperationFail        |
+
+## 5. 示例
+
+**输入**
+
+<pre>
+https://monitor.api.qcloud.com/v2/index.php?
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
+&namespace=qce/cdn
+&metricName=requests
+&dimensions.0.name=projectId
+&dimensions.0.value=1
+&dimensions.1.name=domain
+&dimensions.1.value=www.test.com
+&startTime=2016-06-28 14:10:00
+&endTime=2016-06-28 14:20:00
+</pre>
+
+**输出**
+
+```shell
+{
+	"code": 0,
+	"message": "",
+	"metricName": "requests",
+	"startTime": "2016-06-28 14:10:00",
+	"endTime": "2016-06-28 14:20:00",
+	"period": 300,
+	"dataPoints": [
+		5,
+		6,
+		7
+	]
+}
+```

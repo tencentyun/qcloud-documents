@@ -1,0 +1,29 @@
+{
+  "VPN网关相关接口": {
+    "en": "VPN Gateway-Related APIs"
+  }, 
+  "其他接口": {
+    "en": "Other APIs"
+  }, 
+  "子网相关接口": {
+    "en": "Subnet-Related APIs"
+  }, 
+  "安全组相关接口": {
+    "en": "Security Group-Related APIs"
+  }, 
+  "弹性公网IP相关接口": {
+    "en": "EIP-Related APIs"
+  }, 
+  "弹性网卡相关接口": {
+    "en": "ENI-Related APIs"
+  }, 
+  "私有网络相关接口": {
+    "en": "VPC-Related APIs"
+  }, 
+  "网络参数模板相关接口": {
+    "en": "Network Parameter Template-Related APIs"
+  }, 
+  "路由表相关接口": {
+    "en": "Route Table-Related APIs"
+  }
+}

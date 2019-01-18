@@ -1,8 +1,12 @@
 ## Applying for a Tunnel
 
 1) Open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.cloud.tencent.com/vpc/dcConn).
-
 2) Click "New" to initiate the application for a Direct Connect tunnel. You need to enter the following information to create a Direct Connect tunnel:
+<style>
+table th:first-of-type {
+    width: 150px;
+}
+</style>
 
 | Parameter        | Description                               | Remarks       |
 | --------- | -------------------------------- | -------- |

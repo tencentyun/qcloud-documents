@@ -1,4 +1,4 @@
-﻿Currently, Cloud Load Balance ***public network products with static IPs*** support the binding of A record and CNAME. Users can access the domain by registering one then adding A record and CNAME record.
+Currently, Cloud Load Balance ***public network products with static IPs*** support the binding of A record and CNAME. Users can access the domain by registering one then adding A record and CNAME record.
 
 ## 1. Domain Name Registration
 
@@ -14,7 +14,7 @@ Log in to Tencent Cloud "Console" - "Cloud Services" - "Domain Management" - "Re
 
 ![](//mccdn.qcloud.com/static/img/196c66e6643ccd88eba9f8b9373a297e/image.png)
 
-## 2.2. Add CNAME Record
+### 2.2. Add CNAME Record
 
 Click "Add" in "Resolution" page to add CNAME record. Instructions are shown below:
 

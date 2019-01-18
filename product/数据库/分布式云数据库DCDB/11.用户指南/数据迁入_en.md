@@ -10,7 +10,7 @@ You can use Tencent Cloud Database migration tool to migrate business data to CD
 
 ### (2) Create a Migration Task
 ![](//mccdn.qcloud.com/img56835f3f5fe77.png)
-Click "Create Migration Task", enter task name, source database and target TDSQL information.
+Click **Create Migration Task**, enter task name, source database and target TDSQL information.
 
 ![](//mccdn.qcloud.com/img56835f611f583.png)
 Select the database to be migrated, create and check migration task information.
@@ -31,16 +31,16 @@ When migration task is created, you need to verify the migration task informatio
 If verification passes, you can start the migration task. If you set a specified time for the migration task, it will be queued and executed at the specified time. Otherwise, the migration task will be executed immediately.
 When the migration is started, you can see the corresponding migration progress information under the migration task.
 ![](//mccdn.qcloud.com/img56837a6d2a476.png)
-<span style="background-color:#FFFF00">Note: Due to system design limitations, multiple migration tasks submitted or queued at the same time will be performed serially based on the queuing time.</span>
+Note: Due to system design limitations, multiple migration tasks submitted or queued at the same time will be performed serially based on the queuing time.
 
 ### (5) Incremental Synchronization
-If you selected Incremental Synchronization option when creating a migration task, the target TDSQL will be set as the slave database of the source database upon completion, and new data of the source database during the migration process will be synchronized to the target TDSQL via master-slave synchronization. At this point, any changes to the source database will be synchronized to the target TDSQL. Therefore, you can switch your business to the target TDSQL and click "Finish" to complete the migration process.
+If you selected Incremental Synchronization option when creating a migration task, the target TDSQL will be set as the slave database of the source database upon completion, and new data of the source database during the migration process will be synchronized to the target TDSQL via master-slave synchronization. At this point, any changes to the source database will be synchronized to the target TDSQL. Therefore, you can switch your business to the target TDSQL and click **Finish** to complete the migration process.
 By doing so, the master-slave synchronization relationship will be cancelled.
 
 ### (6) Terminate Migration
-During migration, if you need to terminate the process, click the "Terminate" button.
+During migration, if you need to terminate the process, click the **Terminate** button.
 ![](//mccdn.qcloud.com/img56837a93c69e0.png)
-<span style="background-color:#FFFF00">Note: Restarting the task may cause verification or task to fail. You may need to manually clear all data in the target database to start the migration task again.</span>
+Note: Restarting the task may cause verification or task to fail. You may need to manually clear all data in the target database to start the migration task again.
 
 ## 2. Migration by Third-Party Tools
 If your source database is not in Tencent Cloud or any VPC network environment, you can use a third-party tool to export and upload data from the source database to Tencent Cloud CVM, and then import it into TDSQL.

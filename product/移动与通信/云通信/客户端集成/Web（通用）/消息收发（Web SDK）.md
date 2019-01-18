@@ -1,9 +1,10 @@
 ## 监听新消息
 
+**示例：**
 
->注意：现托管模式下的群聊消息体中，已经有下发的用户基本信息。
-
-示例：
+> **注意：**
+>- 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
+>- 其中参数 newMsgList 为 webim.Msg 数组，即 [webim.Msg]。
 
 ```
 //监听新消息事件
@@ -13,10 +14,8 @@ function onMsgNotify(newMsgList) {
     var sess, newMsg;
     //获取所有聊天会话
     var sessMap = webim.MsgStore.sessMap();
-
     for (var j in newMsgList) {//遍历新消息
         newMsg = newMsgList[j];
-
         if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息
             selSess = newMsg.getSession();
             //在聊天窗体中新增一条消息
@@ -26,7 +25,6 @@ function onMsgNotify(newMsgList) {
     }
     //消息已读上报，以及设置会话自动已读标记
     webim.setAutoRead(selSess, true, true);
-
     for (var i in sessMap) {
         sess = sessMap[i];
         if (selToID != sess.id()) {//更新其他聊天对象的未读消息数
@@ -35,17 +33,15 @@ function onMsgNotify(newMsgList) {
     }
 }
 ```
-其中参数newMsgList为 webim.Msg数组，即[ webim.Msg]
 
 ## 显示一条消息
 
-示例：
+**示例：**
 
 ```
 //聊天页面增加一条消息
 function addMsg(msg) {
     var isSelfSend, fromAccount, fromAccountNick, sessType, subType;
-
     fromAccount = msg.getFromAccount();
     if (!fromAccount) {
         fromAccount = '';
@@ -55,7 +51,6 @@ function addMsg(msg) {
         fromAccountNick = fromAccount;
     }
     isSelfSend = msg.getIsSend();//消息是否为自己发的
-
     var onemsg = document.createElement("div");
     onemsg.className = "onemsg";
     var msghead = document.createElement("p");
@@ -68,8 +63,6 @@ function addMsg(msg) {
         msghead.style.color = "blue";
     //昵称  消息时间
     msghead.innerHTML = fromAccountNick + "&nbsp;&nbsp;" + webim.Tool.formatTimeStamp(msg.getTime());
-
-
     //解析消息
     //获取会话类型，目前只支持群聊
     //webim.SESSION_TYPE.GROUP-群聊，
@@ -79,11 +72,7 @@ function addMsg(msg) {
     //会话类型为群聊时，子类型为：webim.GROUP_MSG_SUB_TYPE
     //会话类型为私聊时，子类型为：webim.C2C_MSG_SUB_TYPE
     subType = msg.getSubType();
-
-
-
     switch (subType) {
-
         case webim.GROUP_MSG_SUB_TYPE.COMMON://群普通消息
             msgPre.innerHTML = convertMsgtoHtml(msg);
             break;
@@ -100,29 +89,25 @@ function addMsg(msg) {
             msgPre.innerHTML = "[群提示消息]" + convertMsgtoHtml(msg);
             break;
     }
-
     msgbody.appendChild(msgPre);
-
     onemsg.appendChild(msghead);
     onemsg.appendChild(msgbody);
     //消息列表
     var msgflow = document.getElementsByClassName("msgflow")[0];
     msgflow.appendChild(onemsg);
-    //300ms后,等待图片加载完，滚动条自动滚动到底部
+    //300ms 后,等待图片加载完，滚动条自动滚动到底部
     setTimeout(function () {
         msgflow.scrollTop = msgflow.scrollHeight;
     }, 300);
-
 }
 ```
 
-
 ## 解析一条消息
 
-示例：
+**示例：**
 
 ```
-//把消息转换成Html
+//把消息转换成 HTML
 function convertMsgtoHtml(msg) {
     var html = "", elems, elem, type, content;
     elems = msg.getElems();//获取消息包含的元素数组
@@ -166,7 +151,7 @@ function convertMsgtoHtml(msg) {
 
 ## 解析文本消息元素
 
-示例：
+**示例：**
 
 ```
 //解析文本消息元素
@@ -175,10 +160,9 @@ function convertTextMsgToHtml(content) {
 }
 ```
 
-
 ## 解析表情消息元素
 
-示例：
+**示例：**
 
 ```
 //解析表情消息元素
@@ -200,7 +184,7 @@ function convertFaceMsgToHtml(content) {
 
 ## 解析图片消息元素
 
-示例：
+**示例：**
 
 ```
 //解析图片消息元素
@@ -220,7 +204,7 @@ function convertImageMsgToHtml(content) {
 
 ## 解析语音消息元素
 
-示例：
+**示例：**
 
 ```
 //解析语音消息元素
@@ -228,7 +212,7 @@ function convertSoundMsgToHtml(content) {
     var second=content.getSecond();//获取语音时长
     var downUrl=content.getDownUrl();
     if (webim.BROWSER_INFO.type == 'ie' && parseInt(webim.BROWSER_INFO.ver) <= 8) {
-        return '[这是一条语音消息]demo暂不支持ie8(含)以下浏览器播放语音,语音URL:' + downUrl;
+        return '[这是一条语音消息]demo暂不支持 IE8(含)以下浏览器播放语音,语音URL:' + downUrl;
     }
     return '<audio src="' + downUrl + '" controls="controls" onplay="onChangePlayAudio(this)" preload="none"></audio>';
 }
@@ -236,19 +220,19 @@ function convertSoundMsgToHtml(content) {
 
 ## 解析文件消息元素
 
-示例：
+**示例：**
 
 ```
 //解析文件消息元素
 function convertFileMsgToHtml(content) {
     var fileSize = Math.round(content.getSize() / 1024);
-    return '<a href="' + content.getDownUrl() + '" title="点击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
+    return '<a href="' + content.getDownUrl() + '" title="单击下载文件" ><i class="glyphicon glyphicon-file">&nbsp;' + content.getName() + '(' + fileSize + 'KB)</i></a>';
 }
 ```
 
 ## 解析位置消息元素
 
-示例：
+**示例：**
 
 ```
 //解析位置消息元素
@@ -259,7 +243,7 @@ function convertLocationMsgToHtml(content) {
 
 ## 解析自定义消息元素
 
-示例：
+**示例：**
 
 ```
 //解析自定义消息元素
@@ -273,9 +257,7 @@ function convertCustomMsgToHtml(content) {
 
 ## 解析群提示消息元素
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。
-
-示例：
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。**示例：**
 
 ```
 //解析群提示消息元素
@@ -285,7 +267,7 @@ function convertGroupTipMsgToHtml(content) {
     var maxIndex = WEB_IM_GROUP_TIP_MAX_USER_COUNT - 1;
     var opType,opUserId,userIdList;
     opType=content.getOpType();//群提示消息类型（操作类型）
-    opUserId=content.getOpUserId();//操作人id
+    opUserId=content.getOpUserId();//操作人 id
     switch (opType) {
         case webim.GROUP_TIP_TYPE.JOIN://加入群
             userIdList=content.getUserIdList();
@@ -338,7 +320,6 @@ function convertGroupTipMsgToHtml(content) {
             }
             text += "的管理员资格";
             break;
-
         case webim.GROUP_TIP_TYPE.MODIFY_GROUP_INFO://群资料变更
             text += opUserId + "修改了群资料：";
             var groupInfoList=content.getGroupInfoList();
@@ -368,7 +349,6 @@ function convertGroupTipMsgToHtml(content) {
                 }
             }
             break;
-
         case webim.GROUP_TIP_TYPE.MODIFY_MEMBER_INFO://群成员资料变更(禁言时间)
             text += opUserId + "修改了群成员资料:";
             var memberInfoList=content.getMemberInfoList();
@@ -403,21 +383,19 @@ function convertGroupTipMsgToHtml(content) {
 
 ## 发送消息（文本+表情）
 
-本节主要介绍sdk 发消息sendMsg api。
-
-函数名：
+**SDK 发消息 sendMsg API 函数名：**
 
 ```
 webim.sendMsg
 ```
 
-定义：
+**定义：**
 
 ```
 webim.sendMsg(msg,cbOk, cbErr)
 ```
 
-参数列表：
+**参数列表：**
 
 | 名称    | 说明         | 类型        |
 | ----- | ---------- | --------- |
@@ -425,23 +403,19 @@ webim.sendMsg(msg,cbOk, cbErr)
 | cbOk  | 调用接口成功回调函数 | Function  |
 | cbErr | 调用接口失败回调函数 | Function  |
 
-
-
-示例：
+**示例：**
 
 ```
 //发送消息(文本或者表情)
 function onSendMsg() {
-
     if (!selToID) {
-        alert("你还没有选中好友或者群组，暂不能聊天");
+        alert("您还没有选中好友或者群组，暂不能聊天");
         $("#send_msg_text").val('');
         return;
     }
     //获取消息内容
     var msgtosend = document.getElementsByClassName("msgedit")[0].value;
     var msgLen = webim.Tool.getStrBytes(msgtosend);
-
     if (msgtosend.length < 1) {
         alert("发送的消息不能为空!");
         $("#send_msg_text").val('');
@@ -463,7 +437,7 @@ function onSendMsg() {
       var  selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1表示sdk自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     var subType;//消息子类型
@@ -476,8 +450,7 @@ function onSendMsg() {
         //webim.GROUP_MSG_SUB_TYPE.REDPACKET-红包消息，优先级最高
         subType = webim.GROUP_MSG_SUB_TYPE.COMMON;
     }
-    var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, loginInfo.identifier, subType, loginInfo.identifierNick);
-    
+    var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, loginInfo.identifier, subType, loginInfo.identifierNick);   
     var text_obj, face_obj, tmsg, emotionIndex, emotion, restMsgIndex;
     //解析文本和表情
     var expr = /\[[^[\]]{1,3}\]/mg;
@@ -486,7 +459,6 @@ function onSendMsg() {
         text_obj = new webim.Msg.Elem.Text(msgtosend);
         msg.addText(text_obj);
     } else {
-
         for (var i = 0; i < emotions.length; i++) {
             tmsg = msgtosend.substring(0, msgtosend.indexOf(emotions[i]));
             if (tmsg) {
@@ -495,7 +467,6 @@ function onSendMsg() {
             }
             emotionIndex = webim.EmotionDataIndexs[emotions[i]];
             emotion = webim.Emotions[emotionIndex];
-            
             if (emotion) {
                 face_obj = new webim.Msg.Elem.Face(emotionIndex, emotions[i]);
                 msg.addFace(face_obj);
@@ -511,7 +482,6 @@ function onSendMsg() {
             msg.addText(text_obj);
         }
     }
-
     webim.sendMsg(msg, function (resp) {
         if (selType == webim.SESSION_TYPE.C2C) {//私聊时，在聊天窗口手动添加一条发的消息，群聊时，长轮询接口会返回自己发的消息
             addMsg(msg);
@@ -526,10 +496,9 @@ function onSendMsg() {
 }
 ```
 
-
 ## 上传图片 （高版本浏览器）
 
-目前demo采用了H5 FileAPI读取图片，并将图片二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
+目前 Demo 采用了 H5 FileAPI 读取图片，并将图片二进制数据转换成 BASE64 编码进行分片上传，理论上没有大小限制。**函数名：**
 
 ```
 /* function uploadPic  
@@ -552,9 +521,9 @@ function uploadPic() {
     var file = uploadFiles.files[0];
     var businessType;//业务类型，1-发群图片，2-向好友发图片
     if (selType == SessionType.C2C) {//向好友发图片
-        businessType = UploadPicBussinessType.C2C_MSG;
+        businessType = webim.Upload_Pic_Bussiness_Type.C2C_MSG;
     } else if (selType == SessionType.GROUP) {//发群图片
-        businessType = UploadPicBussinessType.GROUP_MSG;
+        businessType = webim.Upload_Pic_Bussiness_Type.GROUP_MSG;
     }
     //封装上传图片请求
     var opt = {
@@ -579,9 +548,9 @@ function uploadPic() {
 }
 ```
 
-## 上传图片 （低版本浏览器IE8、9）
+## 上传图片 （低版本浏览器 IE8、9）
 
-在低版本浏览器（IE8、9）中，demo采用了表单来上传图片，最大支持10M图片的上传。
+在低版本浏览器（IE8、9）中，Demo 采用了表单来上传图片，最大支持 10M 图片的上传。**函数名：**
 
 ```
 /* function submitUploadFileForm  
@@ -598,7 +567,7 @@ submitUploadFileForm: function(options, cbOk, cbErr) {},
 **示例：**
 
 ```
-//上传图片(用于低版本IE)
+//上传图片(用于低版本 IE)
 function uploadPicLowIE() {
     var businessType;//业务类型，1-发群图片，2-向好友发图片
     if (selType == webim.SESSION_TYPE.C2C) {//向好友发图片
@@ -627,9 +596,115 @@ function uploadPicLowIE() {
 }
 ```
 
+
+
+
+
+
+## 上传文件 （高版本浏览器）
+
+目前demo采用了H5 FileAPI读取文件，并将文件二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
+
+```
+/* function uploadPicByBase64  
+ *   上传文件
+ * params:
+ *   cbOk	- function()类型, 成功时回调函数
+ *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ * return:
+ *   (无)
+ */
+uploadPicByBase64: function(options, cbOk, cbErr) {},
+```
+
+**示例：**
+
+```
+//上传文件(通过base64编码)
+function uploadFileByBase64() {
+    var businessType;//业务类型，1-发群文件，2-向好友发文件
+    if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.C2C_MSG;
+    } else if (selType == webim.SESSION_TYPE.GROUP) {//发群文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.GROUP_MSG;
+    }
+    //封装上传文件请求
+    var opt = {
+        'toAccount': selToID, //接收者
+        'businessType': businessType,//文件的使用业务类型
+        'fileType':webim.UPLOAD_RES_TYPE.FILE,//表示文件
+        'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件md5
+        'totalSize': 56805, //文件大小,Byte
+        'base64Str': 'xxxxxxxxxxx' //文件base64编码
+           
+    };
+    webim.uploadPicByBase64(opt,
+        function (resp) {
+            //alert('success');
+            //发送文件
+            sendFile(resp);
+        },
+        function (err) {
+            alert(err.ErrorInfo);
+        }
+    );
+}
+```
+
+## 上传文件 （低版本浏览器IE8、9）
+
+在低版本浏览器（IE8、9）中，demo采用了表单来上传文件，最大支持10M文件的上传。
+
+```
+/* function submitUploadFileForm  
+ *   上传文件(低版本ie)
+ * params:
+ *   cbOk	- function()类型, 成功时回调函数
+ *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ * return:
+ *   (无)
+ */
+submitUploadFileForm: function(options, cbOk, cbErr) {},
+```
+
+**示例：**
+
+```
+//上传文件(用于低版本IE)
+function uploadFileLowIE() {
+    var businessType;//业务类型，1-发群文件，2-向好友发文件
+    if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.C2C_MSG;
+    } else if (selType == webim.SESSION_TYPE.GROUP) {//发群文件
+        businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.GROUP_MSG;
+    }
+    //封装上传文件请求
+    var opt = {
+        'formId': 'updli_file_form', //上传文件表单id
+        'fileId': 'upload_low_ie_file', //file控件id
+        'To_Account': selToID, //接收者
+        'businessType': businessType,//文件的使用业务类型
+        'fileType': webim.UPLOAD_RES_TYPE.FILE//表示上传文件
+    };
+    webim.submitUploadFileForm(opt,
+        function (resp) {
+            $('#upload_file_low_ie_dialog').modal('hide');
+            //发送文件
+            sendFile(resp);
+        },
+        function (err) {
+            $('#upload_file_low_ie_dialog').modal('hide');
+            alert(err.ErrorInfo);
+        }
+    );
+}
+```
+
+
+
 ## 发送消息（图片） 
 
-在IE9（含）以下浏览器，sdk采用了jsonp方法解决ajax跨域问题，由于jsonp是采用get方法传递数据的，且get存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。
+在 IE9（含）以下浏览器，SDK 采用了 jsonp 方法解决 ajax 跨域问题，由于 jsonp 是采用 GET 方法传递数据的，且 GET 存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。**函数名：**
 
 ```
 /* function sendMsg
@@ -691,16 +766,44 @@ function sendPic(images) {
 
 ## 播放语音 
 
-目前web端只支持显示并播放android或ios im demo发的语音消息，暂不支持上传并发送语音消息。使用audio控件来播放语音，注意，确保其他终端上传的语音格式是mp3格式（所有主流浏览器下的audio控件都兼容mp3，除了IE8下不支持使用audio标签播放语音）。
+目前 Web 端只支持显示并播放 Android 或 iOS IM Demo发的语音消息，暂不支持上传并发送语音消息。使用 audio 控件来播放语音。详情参考 [解析语音消息](#.E8.A7.A3.E6.9E.90.E8.AF.AD.E9.9F.B3.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)。
 
-解析语音消息请参考第7节。
+> **注意：**
+> 确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
+## 发送消息（文件 ）
 
-## 下载文件 
+```
+function sendFile(file,fileName) {
+    if (!selToID) {
+        alert("您还没有好友，暂不能聊天");
+        return;
+    }
 
-目前web端只支持显示并下载android或ios im demo发的文件消息，暂不支持上传并发送文件消息。 
-
-解析文本消息请参考第8节。
+    if (!selSess) {
+        selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
+    }
+    var msg = new webim.Msg(selSess, true, -1, -1, -1, loginInfo.identifier, 0, loginInfo.identifierNick);
+    var uuid=file.File_UUID;//文件UUID
+    var fileSize=file.File_Size;//文件大小
+    var senderId=loginInfo.identifier;
+    var downloadFlag=file.Download_Flag;
+    if(!fileName){
+        var random=Math.round(Math.random() * 4294967296);
+        fileName=random.toString();
+    }
+    var fileObj=new webim.Msg.Elem.File(uuid,fileName, fileSize, senderId, selToID, downloadFlag, selType);
+    msg.addFile(fileObj);
+    //调用发送文件消息接口
+    webim.sendMsg(msg, function (resp) {
+        if (selType == webim.SESSION_TYPE.C2C) {//私聊时，在聊天窗口手动添加一条发的消息，群聊时，长轮询接口会返回自己发的消息
+            addMsg(msg);
+        }
+    }, function (err) {
+        alert(err.ErrorInfo);
+    });
+}
+```
 
 
 ## 发送消息(自定义)
@@ -709,19 +812,21 @@ function sendPic(images) {
 /* function sendMsg
 	 *   发送一条消息
 	 * params:
-	 *   msg	- webim.Msg类型, 要发送的消息对象
+	 *   msg	- webim.Msg 类型, 要发送的消息对象
 	 *   cbOk	- function()类型, 当发送消息成功时的回调函数
-	 *   cbErr	- function(err)类型, 当发送消息失败时的回调函数, err为错误对象
+	 *   cbErr	- function(err)类型, 当发送消息失败时的回调函数, err 为错误对象
 	 * return:
 	 *   (无)
 	 */
 	sendMsg: function(msg, cbOk, cbErr) {},
 ```
 
+**发送自定义消息入口：**
+
+![](//mccdn.qcloud.com/static/img/6ad98f6243363ced652f46a9fed727ba/image.png)
+
 **示例： **
 
-发送自定义消息入口：
-![](//mccdn.qcloud.com/static/img/6ad98f6243363ced652f46a9fed727ba/image.png)
 ```
 //弹出发自定义消息对话框
 function showEditCustomMsgDialog() {
@@ -737,9 +842,7 @@ function sendCustomMsg() {
     var data = $("#ecm_data").val();
     var desc = $("#ecm_desc").val();
     var ext = $("#ecm_ext").val();
-
     var msgLen = webim.Tool.getStrBytes(data);
-
     if (data.length < 1) {
         alert("发送的消息不能为空!");
         return;
@@ -756,7 +859,6 @@ function sendCustomMsg() {
         alert(errInfo);
         return;
     }
-
     if (!selSess) {
         selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
     }
@@ -775,18 +877,18 @@ function sendCustomMsg() {
 }
 ```
 
-## 获取未读c2c消息 
+## 获取未读 C2C 消息 
 
 ```
 /* function syncMsgs
- *   拉取最新C2C消息
- *   一般不需要使用方直接调用, SDK底层会自动同步最新消息并通知使用方,
+ *   拉取最新 C2C 消息
+ *   一般不需要使用方直接调用, SDK 底层会自动同步最新消息并通知使用方,
  *   一种有用的调用场景是用户手动触发刷新消息
  * params:
  *   cbOk	- function(notifyInfo)类型, 当同步消息成功时的回调函数, 
-*     notifyInfo同上面cbNotify中的说明,
- *    如果此参数为null或undefined则同步消息成功后会像自动同步那样回调cbNotify
- *   cbErr	- function(err)类型, 当同步消息失败时的回调函数, err为错误对象
+*     notifyInfo 同上面 cbNotify 中的说明,
+ *    如果此参数为null或undefined则同步消息成功后会像自动同步那样回调 cbNotify
+ *   cbErr	- function(err)类型, 当同步消息失败时的回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -799,32 +901,31 @@ syncMsgs: function(cbOk, cbErr) {},
 webim.syncMsgs(onMsgNotify);
 ```
 
-## 获取c2c历史消息
+## 获取 C2C 历史消息
 
 ```
 /* function getC2CHistoryMsgs
  * 拉取C2C漫游消息
  * params:
  *   options	- 请求参数
- *   cbOk	- function(msgList)类型, 成功时的回调函数, msgList为消息数组，格式为[Msg对象],
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbOk	- function(msgList)类型, 成功时的回调函数, msgList 为消息数组，格式为[Msg 对象],
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 getC2CHistoryMsgs: function(options, cbOk, cbErr) {},
 ```
 
-示例:
+**示例：**
 
 ```
- //获取最新的c2c历史消息,用于切换好友聊天，重新拉取好友的聊天消息
+ //获取最新的 C2C 历史消息,用于切换好友聊天，重新拉取好友的聊天消息
 var getLastC2CHistoryMsgs = function (cbOk, cbError) {
-
     if (selType == webim.SESSION_TYPE.GROUP) {
         alert('当前的聊天类型为群聊天，不能进行拉取好友历史消息操作');
         return;
     }
-    var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传0
+    var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传 0
     var msgKey = '';
     var options = {
         'Peer_Account': selToID, //好友帐号
@@ -837,7 +938,6 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
             function (resp) {
                 var complete = resp.Complete;//是否还有历史消息可以拉取，1-表示没有，0-表示有
                 var retMsgCount = resp.MsgCount;//返回的消息条数，小于或等于请求的消息条数，小于的时候，说明没有历史消息可拉取了
-
                 if (resp.MsgList.length == 0) {
                     webim.Log.error("没有历史消息了:data=" + JSON.stringify(options));
                     return;
@@ -862,7 +962,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
  * params:
  *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -879,7 +979,6 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
         alert('当前的聊天类型为好友聊天，不能进行拉取群历史消息操作');
         return;
     }
-
     getGroupInfo(selToID, function (resp) {
         //拉取最新的群历史消息
         var options = {
@@ -914,9 +1013,7 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
 
 ## 获取所有会话 
 
-webim.Session对象,简单理解为最近会话列表的一个条目 .
-
-webim.MsgStore是消息数据的Model对象,它提供接口访问当前存储的会话和消息数据。 
+`webim.Session` 对象，简单理解为最近会话列表的一个条目。`webim.MsgStore` 是消息数据的 Model 对象，它提供接口访问当前存储的会话和消息数据。 
 
 **示例： **
 
@@ -932,41 +1029,33 @@ for (var i in sessMap) {
 
 ## 获取会话 
 
-可以根据会话类型和会话ID取得相应会话。 
-
-**示例：** 
+可以根据会话类型和会话 ID 取得相应会话。**示例：** 
 
 ```
 selSess = webim.MsgStore.sessByTypeId(selType, selToID);
 ```
+
 ## 获取最近联系人
 
-可以拉取最近联系人的会话列表。 
-
-**示例：** 
+可以拉取最近联系人的会话列表。详情参考 Demo 代码 `recentcontact/recent_contact_list_manager.js`。 **示例：** 
 
 ```
 webim.getRecentContactList({
-	'Count': 10 //最近的会话数 ,最大为100
+	'Count': 10 //最近的会话数 ,最大为 100
 },function(resp){
 	//业务处理
 },function(resp){
 	//错误回调
 });
 ```
-请参考demo代码 recentcontact/recent_contact_list_manager.js
 
 ## 删除最近联系人
 
-删除最近联系人中的一条会话。 
+删除最近联系人中的一条会话。详情参考 Demo 代码 `switch_chat_obj.js`。**示例：** 
 
-**示例：** 
-
-注：
 ```
 sess_type == 'C2C' ? 1 : 2;
 ```
-
 ```
 	function delChat(sess_type, to_id) {
 	    var data = {
@@ -981,5 +1070,3 @@ sess_type == 'C2C' ? 1 : 2;
 	    );
 	}
 ```
-
-请参考demo代码 switch_chat_obj.js

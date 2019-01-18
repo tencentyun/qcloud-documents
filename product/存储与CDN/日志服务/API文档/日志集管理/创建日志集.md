@@ -1,0 +1,59 @@
+## 功能描述
+
+本接口用于创建日志集，返回新创建的日志集的 ID。
+
+## 请求
+
+### 请求示例
+
+```
+POST /logset HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+Content-Type: application/json
+
+{"logset_name": "testname","period": 15}
+```
+
+### 请求行
+
+```
+POST /logset
+```
+
+### 请求头
+
+除公共响应头部外，无特殊响应头部。
+
+### 请求参数
+
+| 字段名        |  类型  | 位置  | 必须 |      含义                       |
+|--------------|--------|------|---------|--------------------------------|
+| logset_name  | string | body | 是      |日志集的名字，不能重名             |
+| period       | int    | body | 是      |日志集的保存周期，单位天，最大  90    |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 123
+
+{"logset_id": "xxxx-xx-xx-xx-xxxxxxxx"}
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+|  字段名      |  类型     | 必有 |        含义                    |
+|-------------|-----------|---------|-------------------------------|
+| logset_id   | string    | 是      | 日志集的 ID                  |
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

@@ -24,7 +24,7 @@ Traffic forwarding: it provides lossy but uninterrupted services by forwarding t
 
 ### Steps of Deployment of Hybrid Cloud Disaster Recovery
 1) Create a VPC on Tencent Cloud and deploy data centers. [Click here to view VPC Instructions](https://cloud.tencent.com/document/product/215/4927#.E5.88.9B.E5.BB.BA.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E3.80.81.E5.88.9D.E5.A7.8B.E5.8C.96.E5.AD.90.E7.BD.91.E5.92.8C.E8.B7.AF.E7.94.B1.E8.A1.A8).
-2) Synchronize the local data center and the VPC data center on the cloud via Direct Connect, [Click here to view Direct Connect Instructions](https://cloud.tencent.com/document/product/215/4976#.E6.93.8D.E4 .BD.9C.E6.8C.87.E5.8D.97).
+2) Synchronize the local data center and the VPC data center on the cloud via Direct Connect.
 3) Forward the traffic to other normal data centers when a data center breaks down.
 
 ### Steps of Deployment of Cloud Disaster Recovery at Two Locations and Three Centers

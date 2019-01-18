@@ -80,8 +80,7 @@ Data structure
 ## 4. Example
  
 Input:
-<pre>
-https://domain/v2/index.php?Action=ModifyLBHealth
+<pre>`https://domain/v2/index.php?Action=ModifyLBHealth`
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &loadBalanceId=lb-abcdefgh
 &switch=1

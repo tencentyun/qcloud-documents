@@ -1,4 +1,4 @@
-﻿## How to guarantee that an LVB event goes on smoothly on mobile devices
+## How to guarantee that an LVB event goes on smoothly on mobile devices
 
 To carry out an LVB event, service end generally invites some celebrities and spends a large amount of money to attract attentions. Because of such high exposure, they are more hopeful of ensuring the fluency of playback process. Events are always restricted with site space, forms, number of people and environment, making them highly accident prone. Therefore, it is essential to make sound preparations before event. In particular, we should note that:
 
@@ -6,10 +6,10 @@ To carry out an LVB event, service end generally invites some celebrities and sp
 Use a mobile phone with the best performance, and prepare a standby device. It's better to use iPhone 6s and later models. Try to avoid Android and OS because they are complicated to use, except for those that are top brands with high performance. All in all, use the best devices you have.
 
 - **Network Environment for LVB**
-You'd better use dedicated, independent Wi-Fi, instead of public network, because large numbers of people can lead to congestion, thus causing packet loss and extra-long delay, and stutters to audios and videos. Places with poor signal and non-mainstream ISPs (Topway, Great Wall Board Network, etc) should be avoided.
+You'd better use dedicated, independent Wi-Fi instead of public network, because large numbers of people can lead to congestion, thus causing packet loss and extra-long delay, and stutters to audios and videos. Places with poor signal and non-mainstream ISPs (Topway, Great Wall Board Network, etc) should be avoided.
 
 - **Test before LBV**
-It's necessary to test devices in the field ahead of schedule according to standard event procedure. Perform multiple tests to make sure everything goes smoothly if condition permits.
+It's necessary to test devices in the field ahead of schedule according to standard event procedure. Perform multiple tests to make sure everything goes smoothly if possible.
 
 ## Example of Preparation of LVB Event (LVB for exclusive interview of Li Yuchun in Qzone)
 
@@ -32,7 +32,7 @@ Key point: Since the event is held in hotel, it is most crucial to confirm the *
 
 ## Suggestions on Switching Mobile Phone During LVB
 
-Under VJ scenario, LVB generally ends if VJ exits the room, and all the viewers are informed of exiting the room directly with IM messages. This logic is reasonable in daily use, because VJ exits, there's nothing left to watch for viewers.
+Under VJ scenario, LVB generally ends if VJ exits the room, and all the viewers are informed of exiting the room directly with IM messages. This logic is reasonable in daily use because if VJ exits, there's nothing left to watch for viewers.
 
 But in LVB event, problems may occur, for example, mobile phone runs out of battery or breaks down, network is unstable, and so on. VJ may probably need to use another mobile phone to continue with LVB. According to the previous logic, viewers who are informed of exiting the room via IM once mobile phone is changed need to re-enter the room for watching, and this may affect the enthusiasm of users.
 

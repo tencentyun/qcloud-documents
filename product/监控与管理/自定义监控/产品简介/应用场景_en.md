@@ -8,7 +8,7 @@ You only need to report the success rate of the API to the CCM platform. You can
 In the scenario where a large number of users are playing game A in peak hours, you want to monitor the process loads of key business servers, so as to notify the admin immediately when an exception occurs to contain the damage.
 ### 2.2 Capacity Provision
 Log in to the CCM console to configure the namespaces and dimension structures and report the process load metric. If the metric exceeds a certain range, the admin will be notified of this exception immediately.
-### 3. Refinement Operation of Business
+## 3. Refinement Operation of Business
 ### 3.1 Scenario Description
 To provide better service and experience for target users, you need to monitor the IP access data of different domains and different regions, so that you can analyze the target user base and deploy your service locally.
 ### 3.2 Capacity Provision

@@ -65,7 +65,7 @@ Open the exported table structure file table.sql, add primary key and shardkey t
 
 ![](https://mc.qcloudimg.com/static/img/1cd921ececbacf81226a69a0eb5b919a/image.png)
 
-## 5.Import data
+## 5. Import data
 ### 5.1 Connect to DCDB for Percona and MariaDB instance
 On CVM, use `mysql -u username -p password -h IP -P port `to log in to MySQL server, and use `use dbname` to enter the database.
 

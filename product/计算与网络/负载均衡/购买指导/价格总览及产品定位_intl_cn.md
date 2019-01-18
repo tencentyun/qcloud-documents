@@ -1,15 +1,102 @@
 ## 负载均衡实例费用及产品定位
 
-购买公网应用型以及公网有固定IP实例，将按照0.02元/小时的按量计费模式进行收费，不同类型的产品定位如下，供您选择时参考：
+## 负载均衡产品定位
 
-| 产品类型 | 公网应用型负载均衡 | 公网（固定IP型）负载均衡 |  内网型负载均衡 | 
-|---------|---------|---------|---------|
-| **定义** | 满足中大型复杂网站流量均衡的需求，可基于Http请求内容（域名/URL路径等），提供高级路由均衡能力。支持应用层HTTPS、HTTP协议转发。 | 满足90%的流量负载均衡的场景，它可以让您实现更高水平的应用程序容错能力，从而无缝提供分配应用程序流量所需的负载均衡容量。适用于中小型web网站等业务。支持HTTPS、HTTP、TCP、UDP等协议转发。 | 满足用户企业内部模块间转发的需求。只能在腾讯云内部访问，不能通过Internet访问。支持TCP/UDP四层协议。 | 
-| **英文名称** | Cloud Application Load Balancer |  Cloud Load Balancer (with fixed IP address) | Internal Cloud Load Balancer | 
-| **目标场景** | **大型电商、大型门户网站：** 适用于日PV超千万、亿级别的web业务。满足复杂二级域名、业务模块间，路由分发的需求。**基于内容的路由：** 如果您的应用程序由不同的服务构成，则应用程序负载均衡器可以基于请求内容(域名、URL)将请求路由至某个服务 **减少DNS轮询：** 通过自定义URL转发路径，可有效减少二级域名的数量，从而减少DNS轮询的次数，提升网页访问的效率 **更精准的健康检查：** 可判断二级域名/URL的健康水平，更细粒度的反馈业务的运行状况**HTTP/2 支持:** HTTP/2使用单个多路复用连接，支持通过同一连接发送多个请求。它还可以压缩标头数据并以二进制格式发送这些数据，且支持使用 TLS 连接客户端。 |  **适用于中小型网站：** 适用于日PV百万以下的，服务架构相对简单，业务模块较少，二级域名较少的web业务。**私有协议均衡：** 传输层使用TCP监听可保证您应用层的私有协议，获得可靠的流量均衡。如游戏业务服务器请求分发，使用ip会话保持，保证用户掉线后重连 **长连接：** 满足应用层（Http、websocket）的长期运行 TCP 连接的需求，如借助 WebSocket，服务器可以与最终用户交换实时消息，且最终用户无需请求（或轮询）服务器提供更新 |**局域网服务：** 用于企业内部模块间的请求转发。 |
-| **价格** | 0.02 元/小时 | 0.02 元/小时 | 免费 | 
+应用型负载均衡及传统型负载均衡的产品定位如下，供您选择时参考：
 
-> 注：当用户停用负载均衡服务时，将按照退还时间进行小时扣费，不足一小时按照一小时进行扣费。
+<table>
+        <tbody>
+                <tr>
+            <th style="width: 10%;" rowspan="2">产品类型</th>
+            <th style="width: 45%;" colspan="2" >应用型负载均衡</th>
+            <th style="width: 45%;" colspan="2">传统型负载均衡</th>
+        </tr>
+        <tr>
+            <th>公网</th>
+            <th>内网</th>
+            <th>公网</th>
+            <th>内网</th>
+        </tr>
+        <tr>
+            <td>七层转发(HTTP/HTTPS)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+        </tr>
+        <tr>
+            <td>四层转发(TCP/UDP)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>    
+                <tr>
+            <td>支持HTTP/2及websocket(secure)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+        </tr>
+        <tr>
+            <td>负载均衡策略</td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数 </td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数</td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数</td>
+                        <td>加权轮询</td>
+        </tr>   
+         <tr>
+            <td>会话保持</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>   
+        <tr>
+            <td>健康检查</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>   
+         <tr>
+            <td>自定义转发规则(域名/URL)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+            <tr>
+            <td>转发到不同的后端端口</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+         <tr>
+            <td>支持重定向功能(rewrite)</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+             <tr>
+            <td>支持跨地域绑定功能</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+        <tr>
+            <td>支持日志存储到COS功能</td>
+                        <td>✔（七层）</td>
+                        <td>即将支持</td>
+                        <td>✔（七层）</td>
+                        <td>✖</td>
+        </tr>   
+</tbody></table>
+
+> Note: When a user cancels cloud load balance service in advance, the corresponding charges will be deducted from blocked balance in the user account according to the actual usage period. The remaining balance will be returned to the account.
 
 ## 负载均衡带宽费用
 

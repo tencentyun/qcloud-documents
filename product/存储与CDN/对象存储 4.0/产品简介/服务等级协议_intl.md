@@ -2,7 +2,7 @@
 
 The persistency of Cloud Object Storage refers to the rate of stored object data that is intact within the contract period, which is: Number of intact objects of the month/(Number of intact objects of the month + Number of lost objects of the month). Statistical period is one calendar month (counted as one month if less).
 
-The persistency of Cloud Object Storage is 99.999999%. This means if a users stores 100,000,000 data objects every month, there will be only one object that is possible to be lost each month.
+The persistency of Cloud Object Storage is 99.999999999%. This means if a users stores 100,000,000 data objects every month, there will be only one object that is possible to be lost each month.
 
 ## Destroyable Data
 

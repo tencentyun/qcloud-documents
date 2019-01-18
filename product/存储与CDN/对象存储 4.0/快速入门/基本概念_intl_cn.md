@@ -15,28 +15,8 @@ SecretId & SecretKey 合称为云 API 密钥，是用户访问腾讯云 API 进�
 ### SecretKey
 SecretId & SecretKey 合称为云 API 密钥，是用户访问腾讯云 API 进行身份验证时需要用到的安全凭证。SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。一个 APPID 可以创建多个云 API 密钥，若用户还没有云 API 密钥，则需要在 [云 API 密钥控制台](https://console.cloud.tencent.com/capi) 新建，否则就无法调用云 API 接口。
 ### 默认访问地址
-默认访问地址由 APPID、存储桶名、COS 所属地标识和对象名组成，通过默认访问地址可寻址 COS 中唯一对应的对象。更多信息请参阅 [域名管理](https://cloud.tencent.com/document/product/436/6252)。
-在用户上传对象后，腾讯云会自动为对象创建如下形式的默认访问地址：
-
-```
-http://[bucketname]-[APPID].cosgz.myqcloud.com/[objectname]
-```
-例如：
-APPID 为 12345678 的用户在 COS 中创建了所属地域为华南、名为 example 的存储桶，并上传了一个名为 a.doc 的对象，该对象的默认访问地址则为：
-```
-http://example-12345678.cosgz.myqcloud.com/a.doc
-```
+默认访问地址由 APPID、存储桶名、COS 地域标识和对象名组成，通过默认访问域名可寻址 COS 中唯一对应的对象。更多信息请参阅 [域名管理](https://cloud.tencent.com/document/product/436/6252)。
 
 ### CDN 加速访问地址
-CDN 加速访问地址由 APPID、存储桶名、CDN 加速标识以及对象名组成，通过该地址可寻址 COS 中唯一对应的对象。
-CDN 加速访问地址通过 800+ 节点的 CDN 中转文件实现加速访问，更多信息请参阅 [域名管理](https://cloud.tencent.com/document/product/436/6252)。
-在用户上传对象并且开启 CDN 加速后，腾讯云会自动为对象创建如下形式的 CDN 加速访问地址：
-
-```
-http://[bucketname]-[APPID].file.myqcloud.com/[objectname]
-```
-例如：
-APPID 为 12345678 的用户在 COS 中创建了所属地域为华南、名为 example 的存储桶，并上传了一个名为 a.doc 的对象，该对象的 CDN 加速访问地址则为：
-```
-http://example-12345678.file.myqcloud.com/a.doc
-```
+CDN 加速访问地址由 APPID、存储桶名、CDN 加速标识以及对象名组成，通过该地址可寻址 COS 中唯一对应的地址。
+CDN 加速访问地址通过 CDN 节点中转文件实现加速访问，更多信息请参阅 [域名管理](https://cloud.tencent.com/document/product/436/6252)。

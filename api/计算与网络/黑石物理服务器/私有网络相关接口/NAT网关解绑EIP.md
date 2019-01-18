@@ -9,18 +9,18 @@ EipUnBindBmNatGateway 接口用于将EIP从黑石NAT网关解绑，此后NAT网�
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 	&<公共请求参数>
 	&natId=<NAT网关ID>
-	&vpcId=<vpc网络ID>
+	&unVpcId=<vpc网络ID>
 	&assignedEipSet.0=<eip>
 	&assignedEipSet.1=<eip>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为EipUnBindBmNatGateway。
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-| natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
-| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| assignedEipSet.n | 是 | Array | 弹性IP数组，例如：assignedEipSet.0=183.60.249.122 |
+| natId | NAT网关统一ID，例如：nat-8pbrkzh6| String | 是 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 | 
+| assignedEipSet.n |弹性IP数组，例如：assignedEipSet.0=183.60.249.122 | Array |  是 |
 
 ## 响应
 ### 响应示例
@@ -35,11 +35,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 ```
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | Int | 错误码。0：成功，其他值：失败|
-| message | String | 错误信息|
-| data | Array | data中包含操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| code | 错误码。0：成功，其他值：失败| Int |
+| message | 错误信息| String |
+| data |data中包含操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 | Array | 
 
 
 ## 错误码
@@ -54,7 +54,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=EipUnBindBmNatGateway
@@ -62,13 +62,13 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
 	&assignedEipSet.0=183.60.249.122
 	&Signature=xhpWkOBXHyEdddxK2KIH%2F14bMrc%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

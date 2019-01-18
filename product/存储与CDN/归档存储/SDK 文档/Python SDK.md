@@ -1,10 +1,10 @@
 ## 开发准备
 
-CAS的Python SDK包含了用于访问和操作CAS的所有API
+CAS 的 Python SDK 包含了用于访问和操作 CAS 的所有 API。
 
 ### 相关资源
 
-[GitHub地址](https://github.com/tencentyun/cas_python_sdk/tree/v1.0.0) ，欢迎贡献代码以及反馈问题
+[GitHub 地址](https://github.com/tencentyun/cas_python_sdk) ，欢迎贡献代码以及反馈问题。
 
 
 ### 环境依赖
@@ -12,7 +12,7 @@ Python 2.7
 
 
 ### 安装SDK
-安装 SDK 的方式有两种：pip 安装和手动安装
+安装 SDK 的方式有两种：pip 安装和手动安装。
 
 **方式一：使用pip安装**
 
@@ -20,17 +20,18 @@ Python 2.7
 
 **方式二：手动安装**
 
-从[Github地址](https://github.com/tencentyun/cas_python_sdk/tree/v1.0.0)下载源码，通过setup手动安装:
+从[Github 地址](https://github.com/tencentyun/cas_python_sdk)下载源码，通过 setup 手动安装:
 
     python setup.py install
-### SDK配置
+### SDK 配置
 
-要使用归档存储的API服务，首先需要获取到：appid、secret_id, secret_key，[获取地址](https://console.cloud.tencent.com/capi)
+要使用归档存储的 API 服务，首先需要获取到：appid、secret_id, secret_key，[获取地址](https://console.cloud.tencent.com/capi)
 
 ```Python
 
-	# 要使用CAS的API，首先需要初始化一个CAS的client对象，其中包含客户端访问CAS的必要信息，以及提供了http接口的低层次封装
-    client = CASClient(host, appid, secret_id, secret_key)
+	# 要使用CAS的API，首先需要初始化一个CAS的client对象，其中包含客户端访问CAS的必要信息，以及提供了http接口的底层次封装
+    client = CASClient(host, appid, secret_id, secret_key) # host：host stands for the domain name, not the host IP or host name. For example: cas.ap-chengdu.myqcloud.com
+
     response = client.list_vaults()                       # 返回HttpResponse
     ...
 

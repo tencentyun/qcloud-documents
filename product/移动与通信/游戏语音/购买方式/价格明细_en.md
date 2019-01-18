@@ -1,6 +1,7 @@
-## 1. What's DAU
-It refers to the number of daily active users. Each user who using voice service in the day is counted as a valid DAU.    
-## 2. Pricing
+## What's DAU
+It refers to the number of daily active users. Each user who using voice service in the day is counted as a valid DAU.  
+
+## Pricing
 
 | DAU< | <20K  | 20K - 100K  | >100K  |
 |--|--|--|--|

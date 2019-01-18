@@ -1,0 +1,75 @@
+**步骤预览**
+
+![](https://mc.qcloudimg.com/static/img/97181ec62777a6c37ecf688ff4aa0c25/gcd-start11_2.png)
+
+## 第一步：开通 GCD 服务
+在使用 GCD 服务前，您需要进行实名认证并申请开通 GCD，如果	您的腾讯云账号已经开通 GCD，请直接跳到第二步。
+
+### 1.  完成实名认证
+新用户登录 [海外 CDN 控制台](https://console.cloud.tencent.com/cdn/open_oversea) 可以看到实名认证指引，单击【前往认证】可进行实名认证。
+![](https://mc.qcloudimg.com/static/img/0ff3bef407b2d22f2fe3dff5e3553498/gcd-start1.jpg)
+您也可以通过进入 [帐号中心](https://console.cloud.tencent.com/developer) ，单击[【实名认证】](https://console.cloud.tencent.com/developer?to=auth)进行认证。
+![](https://mc.qcloudimg.com/static/img/2262db4f8e878f5a48ea08235471b4ce/quick-start1.png)
+
+详细认证流程请查阅 [实名认证指引](https://cloud.tencent.com/document/product/378/3629) 。个人认证会在提交审核后立即完成。企业认证约一个工作日完成，且认证成功后您将收到短信通知。您可以 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=1&level2_id=41&level1_name=%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%B1%BB%E9%97%AE%E9%A2%98&level2_name=%E8%B4%A6%E5%8F%B7%E7%B1%BB) 咨询实名认证进度。
+
+### 2.  开通海外加速服务
+目前，腾讯云 GCD 处于公测阶段，测试名额有限。完成实名认证后，您需要通过开通申请，才能使用海外加速产品。未开通 GCD 服务的用户会在登录 [海外 CDN 控制台](https://console.cloud.tencent.com/cdn/open_oversea) 后跳转至 [GCD 服务开通申请页面](https://console.cloud.tencent.com/cdn/open_oversea) 。
+
+![](https://mc.qcloudimg.com/static/img/d522ce683b30849e67887aaeab4f8593/gcd-start2.jpg)
+
+腾讯云海外加速提供两种付费模式：带宽计费（默认）和流量计费。在产品公测阶段，业务开通申请通过后，会有相关工作人员与您详细沟通定价详情。您可以根据自身业务形态选择合适的计费模式。
+
+## 第二步：同步国内 CDN 域名配置（可选）
+
+如果您已是腾讯云国内 CDN 用户，并希望同时使用海外加速服务，将已接入国内 CDN 服务的域名部署至海外 CDN，请参阅本步骤；如果您希望接入海外加速的域名未部署于腾讯云国内 CDN，请直接跳到第三步。
+
+### 1.  选择并同步已有域名配置
+
+进入 [国内 CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧菜单中【域名管理】进入相应页面，勾选您需要部署至海外 CDN 的域名，然后单击【部署至海外 CDN】，并选择【确认部署】。部署完成后，请等待域名配置下发至海外节点。域名在海外 CDN 与 国内 CDN 对应的 CNAME 相同，您无需进行额外的 CNAME 配置。
+
+![](https://mc.qcloudimg.com/static/img/ea2fccee5f5c20ec07508a133e14cffe/gcd-start9.png)
+
+请注意，配置同步功能目前暂不支持同步 HTTPS 配置至海外 CDN，如需配置请前往 [海外 CDN 控制台](https://console.cloud.tencent.com/cdn/overview_oversea) 。
+
+## 第三步：接入域名
+
+### 1.  填写域名配置
+
+进入 [海外 CDN 控制台](https://console.cloud.tencent.com/cdn/open_oversea)，单击左侧菜单中【域名管理】进入相应页面，单击【添加域名】：![](https://mc.qcloudimg.com/static/img/de86b17b4f7faf15905c68ecacfd835c/gcd-start4.png)
+
+![](https://mc.qcloudimg.com/static/img/cda07ff361abee3386ec1d6cf94678bb/gcd-start5.png)
+
+在**域名**位置填入需要加速的域名，该域名需尚未被接入过腾讯云海外加速。
+
+**业务类型** 选择，决定了域名调度的资源平台，不同资源平台加速配置存在一定差异，请选择与您业务相匹配的业务类型：
+
+- 静态加速：适用于电商类、网站类、游戏图片类静态资源加速场景。
+- 下载加速：适用于游戏安装包、音视频原文件下载、手机固件分发等场景。
+- 流媒体加速：适用于音视频点播加速等场景。
+
+![](https://mc.qcloudimg.com/static/img/dc81546c179b3fe53c624f094ca312a8/gcd-start6.png)
+
+填写其它可选配置信息。
+
+### 2.  添加完成
+
+确认信息并提交，添加域名完成。请耐心等待域名配置下发至全网节点，下发时间约 5 分钟。
+![](https://mc.qcloudimg.com/static/img/f05fb12a878ee0b3ee705b3bd883e7e5/gcd-start7.png)
+
+## 第四步：配置 CNAME
+### 1.  查看  CNAME
+
+域名配置完成后，系统会为您分配对应的 **CNAME** ，以 ```.cdn.dnsv1.com``` 为后缀，请务必按照控制台展示的CNAME进行配置。
+![](https://mc.qcloudimg.com/static/img/98b94fe0a960907de2cf1e2f5aa32c04/gcd-start8.png)
+
+### 2.  修改 CNAME
+
+您需要到接入域名的 DNS 服务商处完成 CNAME 配置，配置方法请查阅 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121)。
+
+### 3.  验证 CNAME 是否生效
+
+不同的DNS服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过 dig 的方式来查询 CNAME 是否生效，如果 dig 到后缀为 ```.cdn.dnsv1.com``` 的域名，表示域名 CNAME 已生效。![](https://mc.qcloudimg.com/static/img/58b59d06794267f8aec28b8086ebc07d/quick-start10.png)
+
+
+

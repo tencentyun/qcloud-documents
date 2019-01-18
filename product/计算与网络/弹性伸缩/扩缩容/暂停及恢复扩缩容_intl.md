@@ -8,7 +8,7 @@ If you need to troubleshoot any problems related to configurations or Web applic
 
 Open the [Console](https://console.cloud.tencent.com/autoscaling/config), select "Scaling Group" in the navigation bar, and click "Disable" at the right side of the scaling group list.
 
-![](https://mc.qcloudimg.com/static/img/ba3bfe7ebc1d21be86f8947b4ed51df9/8.jpg)
+![](https://mc.qcloudimg.com/static/img/4ab9c83f55b9a0b8fc0b340775a99c4f/1.jpg)
 
 When the setting is made, you can see **Disabled** in the **Status** column.
 
@@ -34,9 +34,5 @@ If you have finished troubleshooting or performed operations when the scaling gr
 
 Open the [Console](https://console.cloud.tencent.com/autoscaling/config), select **Scaling Group** in the navigation bar, and click **Enable** at the right side of the scaling group list.
 
-![](//mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
-
-
-
-
+![](https://mc.qcloudimg.com/static/img/7decfa58fa823b7cba12f596091e7b69/2.jpg)
 

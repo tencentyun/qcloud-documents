@@ -13,17 +13,17 @@
 GET https://bmvpc.api.qcloud.com/v2/index.php?
   &Action=DescribeBmSubnetIps
   &<公共请求参数>
-  &vpcId=<VPC实例ID>&subnetId=<子网ID>
+  &unVpcId=<VPC实例ID>&unSubnetId=<子网ID>
 
 ```
 
 ### 请求参数
  以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/229/6976" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeBmSubnetIps。
 
-| 参数名称 | 描述 | 必选 | 类型 |
+| 参数名称 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
-| vpcId | 子网所属的私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 | 是 | String |
-| subnetId | 要删除的子网ID值，可使用subnetId或unSubnetId，建议使用unsubnetId，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 | 是 | String |
+| unVpcId | 子网所属的私有网络ID值，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 | String | 是 |
+| unSubnetId | 要删除的子网ID值，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 | String | 是 |
  
 ## 响应
 
@@ -40,7 +40,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             <物理机IP>,
         ],
         "vmSet": [
-            <虚拟机IP>,
+            <云服务器IP>,
         ],
         "tgSet": [
             <托管机器IP>,
@@ -57,7 +57,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 | code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="/document/product/386/6725" title="公共错误码">公共错误码</a>。| Int |
 | message | 模块错误信息描述，与接口相关。| String |
 | data.cpmSet | 物理机类型IP信息。| Array |
-| data.vmSet | 虚拟机类型IP信息。| Array |
+| data.vmSet | 云服务器类型IP信息。| Array |
 | data.tgSet | 托管机器类型IP信息。| Array |
 
 ## 错误码
@@ -75,9 +75,13 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 ```
 
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DescribeBmSubnetIps
-    &<公共请求参数>
-    &vpcId=vpc-34cxlz7z
-    &subnetId=subnet-jv24ivq0
+    &SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+    &Nonce=6791
+    &Timestamp=1507777243
+    &Region=bj
+    &Signature=RLfmJ0mnkm2Fla4zbTGABkRA%2Ft4%3D
+    &unVpcId=vpc-34cxlz7z
+    &unSubnetId=subnet-jv24ivq0
 ```
 
 ### 输出

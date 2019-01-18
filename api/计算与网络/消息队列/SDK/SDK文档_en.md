@@ -1,4 +1,4 @@
-﻿## CMQ SDK Instructions
+## CMQ SDK Instructions
 To facilitate developers' use of CMQ SDKs, Tencent Cloud provides the following instruction documentations:
 
 [Java (Windows)](http://cmqsdk-10016717.cos.myqcloud.com/JAVA%20SDK%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%28windows%29.pdf)
@@ -15,29 +15,29 @@ To facilitate developers' use of CMQ SDKs, Tencent Cloud provides the following 
 Please ensure that JDK environment has been installed. If not, please download [JDK Installer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) on the Oracle website and install it;
 
 ### Downloading and Configuring CMQ Java SDK
-#### Instructions for Cloud API Key
-When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and select "Cloud Services" - "Cloud API Key" to get the Cloud API key, as shown in the figure below:
+#### How to Use Cloud API Key
+When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and select "Cloud Services" -> "Cloud API Key" to get the Cloud API key, as shown in the figure below:
 ![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
 
-Users can create a new Cloud API key or use an existing key. Click the key ID to enter the details page in order to get the secretId of the key and its corresponding secretKey.
+Users can create a new Cloud API key or use an existing key. Click key ID and go to the details page to get the secretId of the key and its corresponding secretKey.
 ![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
 
-#### Instructions for endpoint
+#### endpoint
 endpoint is the access address for CMQ service, and it contains the protocol used. endpoint is formatted as follows:
 
-- Private network: http://cmq-queue-region.api.tencentyun.com
-- Public network: http(s)://cmq-queue-region.api.qcloud.com
+- Private network: <font style="color:red">http ://cmq-queue-region.api.tencentyun.com</font>
+- Public network: <font style="color:red">https://cmq-queue-region.api.qcloud.com</font>
 
 
-#### Instructions for region
-region should be replaced with a specific region. The following regions are available: gz (Guangzhou), sh (Shanghai) and bj (Beijing). The option of different regions allows users to choose a region nearby to enjoy better services. The region value in the common parameters should be consistent with the region value of the domain. If there is an inconsistency, the request will be sent to the region specified by the domain.
+#### region
+"region" needs to be replaced with a specific region: gz (Guangzhou), sh (Shanghai), bj (Beijing). The option of different regions allows users to choose a region nearby to enjoy better services. "region" value in the common parameters should be consistent with that of domain name. For any inconsistency, the request is sent to the region specified by the domain name.
 
 #### Differences Between Private and Public Networks
 If the business process is also deployed on a Tencent Cloud CVM submachine, we strongly recommend that you use a private network endpoint in the same region:
 1) The latency is lower for a private network in the same region;
-2) Currently, message queue charges a fee for the downstream traffic of public networks, so using a private network can save the cost.
+2) For now, message queue charges a fee for the downstream traffic of public networks, so using a private network can save the cost.
 
-Public network domain requests both support http and https. Private network requests only support http. For instance: If your business process is deployed on a CVM of Tencent Cloud in Beijing, we recommend that you request an endpoint of Beijing to get a lower latency, and use a private network to reduce costs. Thus, the endpoint you should select is `http://cmq-queue-bj.api.tencentyun.com`.
+Public network domain requests support both http and https, while private network domain requests only support http. For instance, if your business process is deployed on a CVM of Tencent Cloud in Beijing, we recommend that you request an endpoint in Beijing for shorter latency, and use a private network for low costs. Thus, a proper endpoint you can select is `http://cmq-queue-bj.api.tencentyun.com`.
 
 #### Downloading JAVA SDK
 Download the latest version of [CMQ Java SDK](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.1.zip), or download a [jar Package](http://cmqsdk-10016717.cos.myqcloud.com/cmq.jar).

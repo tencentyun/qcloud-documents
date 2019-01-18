@@ -43,7 +43,7 @@ yum install percona-xtrabackup
 
 
 ## 2. Download Backup
-First, acquire the download address of a backup in **"Tencent Cloud Console" -> "Cloud Database" -> "Console" -> "Backup and Recovery"**
+First, acquire the download address of a backup in **"Tencent Cloud Console -> Cloud Database -> Console -> Backup and Recovery"**
 ![](//mccdn.qcloud.com/static/img/c3d9a2815d8039c37af9dd31ff7c0853/image.png)
 
 **Example of download command**

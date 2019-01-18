@@ -1,5 +1,3 @@
-## Deleting Cluster Node
-
 ## 1. API Description
  
 This API (DeleteClusterInstances) is used to delete cluster nodes.

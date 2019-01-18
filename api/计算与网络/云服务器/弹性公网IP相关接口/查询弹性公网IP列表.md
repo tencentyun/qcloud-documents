@@ -1,133 +1,117 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DescribeEip
 
-查询弹性公网IP。
+本接口 (DescribeAddresses) 用于查询一个或多个[弹性公网IP](/document/product/213/1941)（简称 EIP）的详细信息。
 
- 
+接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
+
+* 如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的 EIP。
 
 ## 2. 输入参数
- 
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> eipIds.n  <td> 否 <td> String <td> EIP实例ID列表，列表下标从0开始
-<tr>
-<td> eips.n  <td> 否 <td> String <td> EIP列表，列表下标从0开始
-<tr>
-<td> unInstanceIds.n  <td> 否 <td> String <td> 服务器实例ID列表，列表下标从0开始，可通过<a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取
-<tr>
-<td> networkInterfaceIds.n <td> 否 <td> String <td> 弹性网卡唯一ID列表，列表下标从0开始，可通过<a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a>接口返回字段中的networkInterfaceId获取
-<tr>
-<td> privateIpAddress  <td> 否 <td> String <td> 服务器内网IP
-<tr>
-<td> searchKey <td> 否 <td> String <td> EIP实例名称，模糊匹配
-<tr>
-<td> status.n  <td> 否 <td> Int <td> 状态列表，列表下标从0开始<br>0：创建中； 1：绑定中； 2：已绑定； 3：解绑中； 4：未绑定； 6：下线中； 9：创建失败
-<tr>
-<td> type  <td> 否 <td> Int <td> 0：CVM；1：NAT网关
-<tr>
-<td> limit <td> 否 <td> Int <td> 返回EIP数量，默认 20, 最大值 100
-<tr>
-<td> offset <td> 否 <td> Int <td> 偏移量，默认为0
-<tr>
-<td> orderBy <td> 否 <td> String <td> 排序字段，支持： eipId, eip, ispId, status, unInstanceId, arrears, createdAt
-<tr>
-<td> orderType <td> 否 <td> Int <td> 1倒序，0顺序，默认倒序
-</tbody></table>
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
- > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。
+| 参数名称 | 类型 | 是否必选 | 描述 |
+|---------|---------|---------|---------|
+| Version | String | 是 | 表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
+| AddressIds.N | array of String | 否 | 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。|
+| Filters.N | array of [Filter](/document/api/213/9451#filter) objects | 否 | 过滤条件，详见下表： EIP 过滤条件表。每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。|
+| Offset| Integer| 否| 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](/document/api/213/11646)中的相关小节。|
+| Limit| Integer| 否| 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/api/213/11646)中的相关小节。|
+
+
+EIP 过滤条件表
+
+| 参数名称| 类型| 是否必选| 描述|
+|---------|---------|---------|---------|
+| address-id | String| 否| （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：`eip-11112222`。|
+| address-name | String | 否| （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。|
+| address-ip| String| 否| （过滤条件）按照 EIP 的 IP 地址过滤。|
+| address-status| String| 否| （过滤条件）按照 EIP 的状态过滤。取值范围：详见 [EIP 状态列表](/document/api/213/9452#eip_state)。|
+| instance-id| String| 否| （过滤条件）按照 EIP 绑定的实例 ID 过滤。实例 ID 形如：`ins-11112222`。|
+| private-ip-address| String| 否|（过滤条件）按照 EIP 绑定的内网 IP 过滤。|
+| network-interface-id| String| 否|（过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：`eni-11112222`。|
+| is-arrears| String| 否|（过滤条件）按照 EIP 是否欠费进行过滤。取值范围：<br><li>TRUE：EIP 处于欠费状态<br><li>FALSE：EIP 费用状态正常。|
+
 
 ## 3. 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
-|  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data列表中的数量 |
-| data |   Array | 返回列表 |
-
-Data结构
+| RequestId| String|唯一请求 ID。每次请求都会返回`RequestId`。当用户调用接口失败找后台研发人员处理时需提供该`RequestId`。|
+| TotalCount| Integer | 符合条件的 EIP 数量。|
+| AddressSet| array of [Address](/document/api/213/9451#address) objects | EIP 详细信息列表。|
 
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> data.eipSet <td> Array <td> 返回EIP信息列表
-<tr>
-<td> data.eipSet.eipId <td> String <td> EIP实例ID
-<tr>
-<td> data.eipSet.eipName <td> String <td> EIP名称
-<tr>
-<td> data.eipSet.eip <td> String <td> EIP地址
-<tr>
-<td> data.eipSet.ispId <td> Int <td> 运营商ID<br> 0：电信； 1：联通； 2：移动； 3：教育网； 4：盈科； 5：BGP； 6：香港
-<tr>
-<td> data.eipSet.status <td> Int <td> 状态<br> 0：创建中； 1：绑定中； 2：已绑定； 3：解绑中； 4：未绑定； 6：下线中； 9：创建失败
-<tr>
-<td> data.eipSet.type <td> Int <td> 类型<br> 0：CVM； 1：NAT网关
-<tr>
-<td> data.eipSet.arrears <td> Int <td> 是否欠费隔离<br> 1： 欠费隔离； 0： 正常。处在欠费隔离情况下的EIP不能进行任何管理操作。
-<tr>
-<td> data.eipSet.unInstanceId <td> String <td> EIP所绑定的服务器实例ID，未绑定则为空
-<tr>
-<td> data.eipSet.networkInterfaceId <td> String <td> 弹性网卡唯一ID
-<tr>
-<td> data.eipSet.privateIpAddress <td> String <td> 服务器内网IP
-<tr>
-<td> data.eipSet.createdAt <td> String <td> 创建时间
-<tr>
-<td> data.eipSet.updatedAt <td> String <td> 更新时间
-<tr>
-<td> data.eipSet.freeSecond <td> Int <td> EIP未绑定服务器时长（单位：秒）
-</tbody></table>
+## 4. 示例代码
+### 示例1
 
- 
+> **使用`AddressIds`查询 EIP：**<br>
 
-## 4. 示例
- 
-输入
+#### 请求参数
 <pre>
-
-  https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
+&Version=2017-03-12
+&AddressIds.1=eip-hxlqja90
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
-输出
-```
-
+#### 返回参数
+<pre>
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "eipSet": [
-            {
-                "eipId": "eip-co9m2t7k",
-                "eipName": "",
-                "eip": "119.29.239.140",
-                "ispId": 5,
-                "status": 2,
-                "arrears": 0,
-                "unInstanceId": "ins-pjrzryru",
-                "createdAt": "2016-07-11 21:23:35",
-                "updatedAt": "2016-07-11 21:23:35",
-                "freeSecond": 0,
-                "type": 0,
-                "privateIpAddress": "10.104.211.58",
-                "networkInterfaceId": ""
-            }
-        ]
-    },
-    "totalCount": 1
+  "Response": {
+    "TotalCount": 1,
+    "AddressSet": [
+      {
+        "AddressId": "eip-hxlqja90",
+        "AddressName": "test",
+        "AddressIp": "123.121.34.33",
+        "AddressStatus": "BINDED",
+        "InstanceId": "ins-m2j0thu6",
+        "NetworkInterfaceId": null,
+        "PrivateAddressIp": null,
+        "IsArrears": False,
+        "IsBlocked": False,
+        "CreatedTime": "2017-09-12T07:52:00Z"
+      }
+    ],
+    "RequestId": "3c140219-cfe9-470e-b241-907877d6fb03"
+  }
 }
+</pre>
 
-```
+### 示例2
 
+> **使用`Filters`查询 EIP：**<br>
+
+#### 请求参数
+<pre>
+https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
+&Version=2017-03-12
+&Filters.1.Name=address-id
+&Filters.1.Values.1=eip-hxlqja90
+&<<a href="/document/api/213/11650">公共请求参数</a>>
+</pre>
+
+#### 返回参数
+<pre>
+{
+  "Response": {
+    "TotalCount": 1,
+    "AddressSet": [
+      {
+        "AddressId": "eip-hxlqja90",
+        "AddressName": "test",
+        "AddressIp": "123.121.34.33",
+        "AddressStatus": "BINDED",
+        "InstanceId": "ins-m2j0thu6",
+        "NetworkInterfaceId": null,
+        "PrivateAddressIp": null,
+        "IsArrears": False,
+        "IsBlocked": False,
+        "CreatedTime": "2017-09-12T07:52:00Z"
+      }
+    ],
+    "RequestId": "3c140219-cfe9-470e-b241-907877d6fb03"
+  }
+}
+</pre>

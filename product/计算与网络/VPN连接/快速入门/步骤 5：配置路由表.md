@@ -1,0 +1,9 @@
+截止至步骤 4，我们已经将一条 VPN 通道配置成功，但仍需配置路由表，将子网 A 中的流量路由至 VPN 网关上，子网 A 中的网段才能与 IDC 中的网段通信。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【私有网络】进入私有网络控制台。
+2. 在左侧目录中单击【子网】，选择私有网络所在的地域和私有网络，如示例中的**广州**和`TomVPC`，单击子网 A 所关联的路由表 ID，进入详情页。
+ ![](https://main.qcloudimg.com/raw/cdd9d95137ac9cee7f0c381d43395d73.png)
+3. 单击【+ 新增路由策略】。
+ ![](https://main.qcloudimg.com/raw/6b649b540f6e982b5a332051b1df2582.png)
+4. 在弹出框中，输入目的端网段（`10.0.1.0/24`），下一跳类型选择【VPN 网关】，下一跳选择刚创建的 VPN 网关 `TomVPNGw`。
+ ![](https://main.qcloudimg.com/raw/e0d5d841e0fca5cd1c4cdeeeefd5e23a.png)
+5. 单击【确定】即可。

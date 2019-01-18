@@ -4,7 +4,7 @@ This API (DeleteSnapshot) is used to delete snapshots that are no longer in use.
 
 Domain for API request:<font style="color:red">snapshot.api.qcloud.com</font>
 
-Usage restrictions:
+Usage restrictions:<br>
 1. The snapshot must be in `normal` status. The snapshot status can be queried through [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API. See the `status` field in output parameters. 
 
 ## 2. Input Parameters

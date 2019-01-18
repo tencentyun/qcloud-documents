@@ -3,7 +3,7 @@ Basic APIs are required for both Voice Chat and Voice Message features.
 
 ## 2 Call Basic APIs
 
-![](https://mc.qcloudimg.com/static/img/9732bfc1f2b2adb4995c59329a7ead52/1.png)  
+[1]:https://mc.qcloudimg.com/static/img/9732bfc1f2b2adb4995c59329a7ead52/1.png
 **How-To**  
 1. Implement `IGcloudVoiceNotify` callback class  
 2. Call `GetVoiceEngine` to obtain `IGcloudVoiceEngine` object  

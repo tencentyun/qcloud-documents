@@ -1,4 +1,3 @@
-
 ## Overview
 Recording & Replay means record user's entire LVB session and then replay it as VOD.
 
@@ -24,7 +23,7 @@ When the recording of all LVB streams is disabled, you can enable recording for 
 rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&record=mp4&record_interval=5400
 ```
 Notes:
-- The video wrapper formats supported by recording feature are mp4, hls and flv. For more information about the VOD formats, see [DOC](https://cloud.tencent.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F).
+- The video wrapper formats supported by recording feature are mp4, hls and flv. For more information about the VOD formats, see [DOC](https://www.cloud.tencent.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F).
 
 - record=mp4|hls|flv delimiter-based format is used to specify multiple formats in which the video is recorded at a time (mobile browsers only support playback of MP4 and HLS videos).
 
@@ -42,11 +41,11 @@ You can implement many extensions based on your business scenarios. For example,
 How to get the URL of the recorded file? in the following two ways:
 
 ### 1. Listen to notification passively
-You can use Tencent Cloud's **[Event Notification Service](https://cloud.tencent.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will be used to let Tencent Cloud notify you of the generation of a new recorded file.
+You can use Tencent Cloud's **[Event Notification Service](https://www.cloud.tencent.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will be used to let Tencent Cloud notify you of the generation of a new recorded file.
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
-The following is a typical notification message, which indicates: a new FLV recorded file with ID 9192487266581821586 has been generated, and the playback URL is:"http://200025724.vod.myqcloud.com/200025724_ac92b7y81a22c4a3e937c9e61c2624af7.f0.flv".
+The following is a typical notification message, which indicates: a new FLV recorded file with ID 9192487266581821586 has been generated, and the playback URL is:`http://200025724.vod.myqcloud.com/200025724_ac92b7y81a22c4a3e937c9e61c2624af7.f0.flv`.
 ```json
 {
     "channel_id": "2121_15919131751",
@@ -65,7 +64,7 @@ The following is a typical notification message, which indicates: a new FLV reco
 ```
 
 ### 2. Query files actively
-You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished).
+You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://www.cloud.tencent.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished).
 
 ## FAQs
 ### 1. How does LVB recording work?
@@ -98,6 +97,4 @@ Therefore, the time information sent from App client is very important. If you w
 
 
 ### 4. How to stitch fragments?
-Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](https://cloud.tencent.com/document/product/266/7821).
- 
-
+Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](/document/product/266/7821).

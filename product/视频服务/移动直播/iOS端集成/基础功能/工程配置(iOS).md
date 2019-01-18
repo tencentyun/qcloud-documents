@@ -28,7 +28,7 @@
 
 ### 二、开发环境
 
-+ Xcode 8或更高版本
++ Xcode 9或更高版本
 + OS X 10.10或更高版本
 
 ### 三、Xcode工程设置
@@ -45,20 +45,12 @@
 
 在工程中添加`TXLiteAVSDK_Professional.framework`，同时还要添加以下系统依赖库
 
-> 1. VideoToolbox.framework
-> 2. SystemConfiguration.framework
-> 3. CoreTelephony.framework
-> 4. AVFoundation.framework
-> 5. CoreMedia.framework
-> 6. CoreGraphics.framework
-> 7. libstdc++.tbd
-> 8. libz.tbd
-> 9. libiconv.tbd
-> 10. libresolv.tbd
-
-所有添加完毕，工程依赖如下图所示：
-
-![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
+> 1. libz.tbd
+> 2. libc++.tbd
+> 3. libresolv.tbd
+> 4. libsqlite3.tbd
+> 5. Accelerate.framework
+> 6. GPUImage.framework(企业版需要)
 
 ### 3、添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：
@@ -104,7 +96,7 @@
 设置是否在 xcode 的控制台打印 SDK 的相关输出。
 
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/logs** 文件夹下。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/log** 文件夹下。
 如果您需要我们的技术支持，建议将次开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 
 - **Log 文件的查看**
@@ -113,4 +105,10 @@
 ```
 [TXLiveBase setConsoleEnabled:YES];
 [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
+```
+
+- **SDK日志回调**   如果您需要将日志打印到自己的日志文件上，可以通过实现`TXLiveBaseDelegate`回调中的方法:
+
+```
+-(void) onLog:(NSString*)log LogLevel:(int)level WhichModule:(NSString*)module
 ```

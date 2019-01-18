@@ -1,22 +1,22 @@
 ## Introduction
 VPN Connection is a method you can use to connect peered IDC and VPC through public network encrypted tunnel. As shown below, Tencent Cloud VPC VPN Connection consists of the following components:
 - VPN gateway: created VPC IPsec VPN gateway
-- Peer gateway:  IPsec VPN service gateway for IDC
+- Customer gateway:  IPsec VPN service gateway for IDC
 - VPN tunnel: encrypted IPsec VPN tunnel
 ![](//mccdn.qcloud.com/static/img/a654d376b4e4e13ae2bb65b13239cef2/image.png)
 
 A VPN gateway can be established in the VPC. Each VPN gateway can establish multiple VPN tunnels. Each VPN tunnel can connect with one local IDC. It is important to note that **after establishing a VPN connection, you need to configure the routing policy in the routing table to achieve communication.**
  
 ## VPN Gateway
-VPN gateway is an outbound gateway that establishes VPN connections in the VPC, which can be used with peer gateway (IPsec VPN service gateway for IDC). VPN gateway is mainly used to establish a secure and reliable encrypted network communication between Tencent Cloud VPC and external IDC. Implementing through virtual software and adopting duplicated hot backup strategy, Tencent Cloud VPN gateway can switch automatically when a single server suffers a failure, and will not affect the normal operation of the business.
+VPN gateway is an outbound gateway that establishes VPN connections in the VPC, which can be used with customer gateway (IPsec VPN service gateway for IDC). VPN gateway is mainly used to establish a secure and reliable encrypted network communication between Tencent Cloud VPC and external IDC. Implementing through virtual software and adopting duplicated hot backup strategy, Tencent Cloud VPN gateway can switch automatically when a single server suffers a failure, and will not affect the normal operation of the business.
 
 According to the upper limit of bandwidth, VPN gateway is divided into five kinds of settings, namely: 5M, 10M, 20M, 50M and 100M. You can adjust the VPN gateway bandwidth setting at any time.
 
-## Peer Gateway
-Peer gateway refers to the IPsec VPN service gateway of IDC data center, which needs to be used with Tencent Cloud VPN gateway. A VPN gateway can establish encrypted VPN network tunnels with multiple peer gateways.
+## Customer Gateway
+Customer gateway refers to the IPsec VPN service gateway of IDC data center, which needs to be used with Tencent Cloud VPN gateway. A VPN gateway can establish encrypted VPN network tunnels with multiple customer gateways.
 
 ## VPN Tunnel
-After the VPN gateway and the peer gateway are established, the VPN tunnel used for encrypted communication between VPC and external IDC can be established. Currently, VPN tunnels support IPsec encryption protocol, which can meet the needs of most VPN connections.
+After the VPN gateway and the customer gateway are established, the VPN tunnel used for encrypted communication between VPC and external IDC can be established. Currently, VPN tunnels support IPsec encryption protocol, which can meet the needs of most VPN connections.
 
 Because the VPN tunnels are operating in the operator's public network, the block or jitter of public network will affect the quality of VPN network. Therefore, the assurance of SLA service agreement is currently unavailable. If your business is sensitive to delay and jitter, it is recommended to access the VPC via Direct Connect. For more information, refer to [Direct Connect](https://cloud.tencent.com/product/dc.html).
 
@@ -75,21 +75,21 @@ SPD policy 3 The local network segment is `10.0.2.0/24` the peer network segment
 
 ## Usage Constraints
 For VPN connections, please note that:
-- After the VPN parameters are configured, **you need to add the routing policy directed to VPN gateway in the routing table associated with subnet**, so that the network requests from CVM to peer network segment within the subnet can reach the peer gateway through VPN tunnel.
+- After the VPN parameters are configured, **you need to add the routing policy directed to VPN gateway in the routing table associated with subnet**, so that the network requests from CVM to peer network segment within the subnet can reach the customer gateway through VPN tunnel.
 - After configuring the routing table, ** you need to ping the IP of peer network segment using the CVM of VPC to activate this VPN tunnel.**
 - The stability of VPN connection depends on the public network quality of operators, so the assurance of SLA service agreement is currently unavailable.
 
 | Resource | Limit | 
 |---------|---------|
 | Number of VPN gateways per VPC | 10 | 
-| Number of peer gateways in a region | 20 | 
-| Number of VPN tunnels per peer gateway | 1 | 
+| Number of customer gateways in a region | 20 | 
+| Number of VPN tunnels per customer gateway | 1 | 
 | Number of VPN tunnels in a region | 20 | 
 | Number of SPDs per VPN tunnel | 10 | 
 | Number of peered network segments per SPD | 50 | 
 
 ## Billing Method
-- VPN tunnel and peer gateway are free of charge.
+- VPN tunnel and customer gateway are free of charge.
 - VPN gateway will be charged by month. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
 
 | Configuration (Mbps) | Except North America (Toronto) | North America (Toronto) |
@@ -107,7 +107,7 @@ For more information regarding the prices of VPC services, refer to [VPC Price O
 ## Quick Start
 IPsec VPN can be fully customized in the console. You need to complete the following steps to make the VPN connection to take effect:
 1) Create VPN gateway
-2) Create peer gateway
+2) Create customer gateway
 3) Create VPN tunnel
 4) Load the configuration file in its own IPsec VPN gateway
 5) **Configure the routing table**
@@ -124,13 +124,13 @@ You need to complete the following steps:
 3) Select the region of myVPC "**Guangzhou**" and the name of VPC `TomVPC` at the top of the list, then click "New".
 4) Fill in the name of VPN gateway (e.g. TomVPNGw), select the appropriate bandwidth configuration and make the payment. Then, the VPN gateway is created. After that, the system will randomly assign a public IP to you, such as: `203.195.147.82`.
 
-#### Step 2: Create peer gateway
-Before creating a VPN tunnel, you need to create a peer gateway:
+#### Step 2: Create customer gateway
+Before creating a VPN tunnel, you need to create a customer gateway:
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
-2) Click "VPN Connection" - "Peer Gateway" tab in the left navigation bar.
+2) Click "VPN Connection" - "Customer Gateway" tab in the left navigation bar.
 3) Select the region "**Guangzhou**" at the top of the list, then click "New".
-4) Fill in the name of peer gateway (such as: TomVPNUserGw) and the public IP of VPN gateway of IDC `202.108.22.5`.
-5) Click "Create" to view the new peer gateway in the peer gateway list.
+4) Fill in the name of customer gateway (such as: TomVPNUserGw) and the public IP of VPN gateway of IDC `202.108.22.5`.
+5) Click "Create" to view the new customer gateway in the customer gateway list.
 
 #### Step 3: Create VPN tunnel
 You need to complete the following steps to create a VPN tunnel:
@@ -138,7 +138,7 @@ You need to complete the following steps to create a VPN tunnel:
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Tunnel" tab in the left navigation bar.
 3) Select the region of myVPC "**Guangzhou**" and the name of VPC `TomVPC` at the top of the list, then click "New".
-4) Enter the name of tunnel (e.g. TomVPNConn), select the VPN gateway `TomVPNGw` and the peer gateway` TomVPNUserGw`, and enter the pre-shared key (e.g. `123456`).
+4) Enter the name of tunnel (e.g. TomVPNConn), select the VPN gateway `TomVPNGw` and the customer gateway` TomVPNUserGw`, and enter the pre-shared key (e.g. `123456`).
 5) Enter the SPD policy to limit that which local network segments can communicate with which peer network segments. The local network segment in this example is the network segment of subnet A `192.168.1.0 / 24`, and the peer network segment is` 10.0.1.0 / 24`. Then, click "Next".
 6) Step 3: configure IKE parameters (optional). If you do not need advanced configurations, click "Next".
 7) Step 4: configure IPsec parameters (optional). If you do not need these parameters, click "Finish" to complete the configuration.
@@ -165,7 +165,7 @@ VPN tunnels and VPN gateways provide monitoring data viewing function.
 
 ### Setting the Alarm
 VPN tunnel provides alarm function:
-1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
+1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
 2) Fill in the Alarm Policy Name, select "VPN Tunnel" in Policy Type, and then add the Condition of alarm trigger.
 3) **Associate alarm objects**: select the alarm receiver group, and when it is saved, you can view the set alarm polices in Policy List.
 4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).

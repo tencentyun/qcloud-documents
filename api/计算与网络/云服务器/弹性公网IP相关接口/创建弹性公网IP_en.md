@@ -1,58 +1,59 @@
 ## 1. API Description
- 
-Domain name: eip.api.qcloud.com
-API name: CreateEip
 
-Create an elastic public IP (EIP), a static IP address designed for dynamic cloud computing. With EIP, you can quickly remap the EIP to another instance, shielding off the instance failures.
-Your EIP is associated with a Tencent Cloud account, instead of an instance, until you choose to explicitly release it or your payment is more than 7 days overdue.
-* The platform imposes quotas on number of EIPs that a user can request for each region. Please refer to [Overview of EIP Products](/doc/product/213/1941). The above quotas can be obtained through [DescribeEipQuota](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D) API.
+This API (AllocateAddresses) is used to apply for one or more [Elastic IPs](/document/product/213/1941) (EIPs).
+
+Domain name for API request: eip.api.qcloud.com
+
+* EIP is a static IP address designed for dynamic cloud computing. With EIP, you can quickly remap the EIP to another instance, shielding off the instance failures.
+* Your EIP is associated with a Tencent Cloud account, instead of an instance, until you choose to explicitly release it or your payment is more than seven days overdue.
+* The platform imposes quotas on number of EIPs that a user can request for each region. Please see [Overview of EIP Products](/document/product/213/5733). The above quotas can be obtained via API [DescribeAddressQuota](/document/api/213/1378).
 
 
 ## 2. Input Parameters
- 
 
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/11650).
 
-| Parameter Name | Required | Type | Description |
+| Parameter | Type | Required | Description |
 |---------|---------|---------|---------|
-| goodsNum | No | Int | Number of EIPs that can be requested at a time (The default is 1, and the maximum is 5)
+| Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+| AddressCount | Integer| No | The number of EIPs that can be requested. Value range: [1, 5]. Default is 1. |
 
 
 ## 3. Output Parameters
-| Parameter Name | Type | Description |
+
+| Parameter | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| data | Array | Return a list |
+| RequestId | String | Unique request ID. `RequestId` is returned for each request. In case of a failed call to the API, `RequestId` needs to be provided when you contact the developer at backend. |
+| AddressSet | Array of Strings | List of unique IDs of the requested EIPs |
 
-Data structure
+## 4. Error Codes
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://cloud.tencent.com/document/api/213/11657).
 
+| Error code | Description |
+|---------|---------|
+| AddressQuotaLimitExceeded | Account quota is exceeded. Up to 20 EIPs can be created by each Tencent Cloud account in each region. |
+| AddressQuotaLimitExceeded.DailyAllocate | The maximum number of requests is exceeded. The maximum number of requests can be made by each Tencent Cloud account in each region equals to two times the quota. |
 
-| Parameter Name | Type | Description |
-|---------|---------|---------|
-| data.eipIds | Array |List of EIP instance IDs created
+## 5. Sample Codes
 
-## 4. Example
- 
-Input
+### Input
 
-```
- https://eip.api.qcloud.com/v2/index.php?
- &<<a href="https://cloud.tencent.com/doc/api/229/6976">Public request parameters</a>>
-```
+<pre>
+https://eip.api.qcloud.com/v2/index.php?Action=AllocateAddresses
+&Version=2017-03-12
+&AddressCount=1
+&<<a href="/document/api/213/11650">Common request parameters</a>>
+</pre>
 
-Output
-
-```
-
+#### Output
+<pre>
 {
-    "code": 0,
-    "message": "",
-    "data": {
-        "eipIds": [
+    "Response": {
+        "AddressSet": [
             "eip-m44ku5d2"
-        ]
+        ],
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-
-```
+</pre>
 

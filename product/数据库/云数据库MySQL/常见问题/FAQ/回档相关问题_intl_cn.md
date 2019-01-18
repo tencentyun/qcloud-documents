@@ -5,4 +5,4 @@
 ### 3. MySQL刚刚执行某个存储过程，误删了部分数据，之前没有进行备份，能把数据还原回来吗？
 可以使用控制台的回档功能 。
 可以恢复三天之内任意时间点的数据 。
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=5991032fe3c92.png)
+![](//mc.qcloudimg.com/static/img/06dc8e407e02ea57a9754f07a92118f3/image.png)

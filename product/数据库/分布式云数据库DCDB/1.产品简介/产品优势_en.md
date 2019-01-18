@@ -13,6 +13,6 @@
 
 ## Simple to Use
 
-- It is as easy to use as a stand-alone database, except for some syntax that are different from that of native MySQL/PostgreSQL. The sharding process is transparent to the business without human intervention.
+- It is as easy to use as a stand-alone database, except for some syntax that is different from that of native MySQL/PostgreSQL. The sharding process is transparent to the business without human intervention.
 - It is compatible with MySQL protocol (Percona, MariaDB and other kernels are supported).
 - It supports WEB console, read-write separation, dedicated OPS management instructions, etc.
