@@ -25,6 +25,26 @@ BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡
 <script src="https://sqimg.qq.com/expert_qq/TICSDK/1.4.0/TICSDK.mini.js"></script>
 ```
 
+## 平台兼容
+
+TICSDK 音视频低延时依赖了[腾讯云实时音视频](https://cloud.tencent.com/document/product/647)，同时也受限于实时音视频在各个平台的兼容性。
+
+| 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
+| ------------------------- | -------- | ---------------------- |------- |
+| Windows(PC)  | Chrome | 52+                |      |
+| Windows(PC)  | [QQ浏览器](https://browser.qq.com/) | 10.2 | &nbsp;     |
+| Mac          | Chrome | 47+                |      |
+| Mac          | Safari | 11+                |      |
+
+> 其中白板SDK目前只支持PC端浏览器，移动端浏览器暂时未做完全兼容。音视频部分需要注意在移动端的兼容性：
+
+| 操作系统平台  | 浏览器/webview  | 版本要求  |  备注|
+| ------------------------- | -------- | ---------------------- |------- |
+| iOS          | Safari ( 只支持Safari ) | 11.1.2 | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于iOS可以考虑使用我们的[小程序解决方案](/document/product/647/17000) |
+| Android      | TBS （微信和手机QQ的默认Webview） | 43600                | 微信和手机QQ默认内置的浏览器内核为TBS。 [TBS 介绍](http://x5.tencent.com/) |
+| Android      | Chrome | 60+               | 需要支持 H264  |
+
+> 不建议您直接在移动端浏览上使用Web方案，建议您接入体验更好的原生方案（[Android方案](https://cloud.tencent.com/document/product/680/17888)，[iOS方案](https://cloud.tencent.com/document/product/680/17891)）。
 
 ## 使用流程
 
