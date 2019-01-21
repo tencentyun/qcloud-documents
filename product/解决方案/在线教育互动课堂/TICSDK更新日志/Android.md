@@ -1,3 +1,40 @@
+### boardsdk [1.6.9] 2018-12-19
+#### 优化
+1. 解决切换可能导致涂鸦渲染位置不正确的问题。
+2. 解决激光点来回跳动问题。
+3. 修复涂鸦绘制异常问题。
+
+#### 新增
+1. 开启多端同步缩放功能。
+
+### ticsdk [1.5.6] 2018-11-26
+#### 优化
+1. 修补bug，提高稳定性。
+
+### boardsdk [1.6.8] 2018-11-26
+#### 优化
+1. 修补bug，提高稳定性。
+
+### ticsdk [1.5.5] 2018-11-16
+#### 优化
+1. 代码优化，更新时间戳算法。
+
+### boardsdk [1.6.6] 2018-11-16
+####  优化
+1. 优化白板渲染引擎。
+
+### ticsdk [1.5.4] 2018-11-09
+#### 优化
+1. 支持自己被踢的回调，通过 onMemberQuit 回调。
+
+### boardsdk [1.6.5] 2018-11-09
+#### 新增
+1. 支持文字输入和文字展示。
+
+#### 优化
+1. 修复涂鸦显示问题。
+2. 修复其它已知问题，提高稳定性。
+
 ### ticsdk [1.5.2] 2018-10-19
 #### 优化
 1. 提高稳定性。
@@ -12,7 +49,7 @@
 
 ### boardsdk [1.6.0] 2018-10-09
 #### 新增
-1. 新增文档功能，支持 PPT、PDF 等文档资源上传、转码和预览；
+1. 新增文档功能，支持 PPT、PDF 等文档资源上传、转码和预览。
 2. 新增激光笔功能。
 
 #### 优化
@@ -35,18 +72,18 @@
 1. 移除初始化接口中的 accountType 参数。
 
 #### 接口变更
-1. TICClassroomOption 中 setEnableCamera() 变更为 autoCamera()，setEnableMic 变更为 autoMic()；
-2. TICManager 中合并和精简了如 send###Message IM 消息系列发送接口；
-3. IClassroomIMListener 合并和精简了消息回调接口，由 Constants 中的 MSG_TYPE_C2C 和 MSG_TYPE_GROUP 区分消息类型；
+1. TICClassroomOption 中 setEnableCamera() 变更为 autoCamera()，setEnableMic 变更为 autoMic()。
+2. TICManager 中合并和精简了如 send###Message IM 消息系列发送接口。
+3. IClassroomIMListener 合并和精简了消息回调接口，由 Constants 中的 MSG_TYPE_C2C 和 MSG_TYPE_GROUP 区分消息类型。
 4. TICManager 中新增了 destroyClassroom 接口。
 
 ### boardsdk [1.5.0] 2018-09-03
 #### 新增
-1. 增加 COS 大账号模式；
+1. 增加 COS 大账号模式。
 
 #### 优化
-1. 增加白板背景资源预缓存逻辑和清理逻辑；
-2. 接口优化；
+1. 增加白板背景资源预缓存逻辑和清理逻辑。
+2. 接口优化。
 3. 优化激光点功能。
 
 #### 删除
@@ -58,9 +95,9 @@
 
 ### boardsdk [1.2.10] 2018-08-15
 #### 新增
-1. 增加 COS 相关业务逻辑，WhiteboardManager 增加 setCosConfig 接口；
-2. WhiteboardView 支持设置宽高比例；
-3. WhiteboardView 支持缩放和拖动；
+1. 增加 COS 相关业务逻辑，WhiteboardManager 增加 setCosConfig 接口。
+2. WhiteboardView 支持设置宽高比例。
+3. WhiteboardView 支持缩放和拖动。
 4. 内置 HTTP 下载，用户不再需实现 WhiteboardEventListener 中的 uploadImage 和 downloadImage 接口。
 
 #### 优化
@@ -71,7 +108,7 @@
 
 ### ticsdk [1.2.1] 2018-07-24
 #### 新增
-1. 新增 IM 原始类型消息回调；
+1. 新增 IM 原始类型消息回调。
 2. 新增 IM 原始类型消息发送接口。
 
 ### boardsdk [1.2.8] 2018-07-24
@@ -94,7 +131,7 @@
 
 ### ticsdk [1.0.1] 2018-06-29
 #### 新增
-1. 新增成员加入课堂和退出课堂事件回调；
+1. 新增成员加入课堂和退出课堂事件回调。
 2. 修复若干已知问题。
 
 ### boardsdk [1.2.5.6] 2018-06-29
@@ -108,8 +145,8 @@
 #### 新增
 1.0.0 版本发布，包含以下功能：
 
-1. 账号登录；
-2. 创建、加入、退出课堂；
-3. 在线课堂线上音视频互动；
-4. 数字白板功能；
+1. 账号登录。
+2. 创建、加入、退出课堂。
+3. 在线课堂线上音视频互动。
+4. 数字白板功能。
 5. 课堂 IM 消息互动。

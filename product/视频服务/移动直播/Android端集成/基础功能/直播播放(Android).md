@@ -1,13 +1,13 @@
 ## 基础知识
-本文主要介绍视频云 SDK 的直播播放功能，在此之前，先了解如下一些基本知识会大有裨益：
+本文主要介绍视频云 SDK 的直播播放功能。
 
-- **直播和点播**
-<font color='blue'>直播（LIVE）</font> 的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
+#### **直播和点播**
+- **直播（LIVE）**的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
 
- <font color='blue'>点播（VOD）</font> 的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
+- **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷、土豆等视频网站上的视频观看就是典型的点播场景。
 
-- **协议的支持**
-通常使用的直播协议如下，APP 端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
+#### **协议的支持**
+通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址(以“http”开头，以“.flv”结尾)：
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
 ## 特别说明
@@ -15,11 +15,13 @@
 视频云 SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 - **历史因素**
-SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 来负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
+SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
+
+
 ## 对接攻略
 
 ### step 1: 添加 View
-为了能够展示播放器的视频画面，我们第一步要做的就是在布局xml文件里加入如下一段代码：
+为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入如下一段代码：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
             android:id="@+id/video_view"
@@ -55,8 +57,8 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
-> **关于HLS(m3u8)**
-> 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
+> **关于 HLS(m3u8)**
+> 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用做点播），因为延迟太高。在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
 ### step 4: 画面调整
 
@@ -88,7 +90,7 @@ mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
 
 
 ### step 5: 暂停播放
-对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这跟点播是有很大不同的（点播播放器的暂停和继续与播放本地视频文件时的表现相同)。
+对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同)。
 
 ```java
 // 暂停
@@ -98,9 +100,9 @@ mLivePlayer.resume();
 ```
 
 ### step 6: 结束播放
-结束播放时 <font color='red'>**记得销毁view控件**</font> ，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
+结束播放时 <font color='red'>**记得销毁 view 控件**</font> ，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 
-同时，在退出播放界面时，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
+同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
 ```java
 @Override
 public void onDestroy() {
@@ -116,9 +118,10 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 
 <h3 id="Message">step 7: 消息接收</h3>
 此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
-（1）冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
-（2）秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
-（3）在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
+ 
+- 冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
+- 秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+- 在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈、划线。
 
 通过如下方案可以使用此功能：
 - TXLivePlayConfig 中的 **setEnableMessage** 开关置为 **true**。
@@ -181,15 +184,15 @@ mLivePlayer.startRecord(int recordType);
 mLivePlayer.stopRecord();
 ```
 
-- 录制的进度以时间为单位，由 ITXVideoRecordListener 的    onRecordProgress 通知出来。
-- 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的  onRecordComplete 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
+- 录制的进度以时间为单位，由 ITXVideoRecordListener 的 onRecordProgress 通知出来。
+- 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 onRecordComplete 通知出来。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [拍照和录制(iOS)](https://cloud.tencent.com/document/product/584/9367)。
 
 ### step 10: 清晰度无缝切换
-日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以观看更高画质。
+日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以提高观看画质。
 传统切流方式一般是重新播放，会导致切换前后画面衔接不上、黑屏、卡顿等问题。使用无缝切换方案，在不中断直播的情况下，能直接切到另条流上。
 
-清晰度切换在直播开始后，任意时间都可以调用。调用方式如下
+清晰度切换在直播开始后，任意时间都可以调用。调用方式如下：
 ```java
 // 正在播放的是流http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv，
 // 现切换到码率为900kbps的新流上
@@ -206,16 +209,16 @@ mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692
 TXLiveBase.setAppID("1253131631"); // 配置appId
 mLivePlayer.prepareLiveSeek();     // 后台请求直播起始时间
 ```
-配置正确后，在PLAY_EVT_PLAY_PROGRESS事件里，当前进度就不是从0开始，而是根据实际开播时间计算而来。
-调用seek方法，就能从历史事件点重新直播
+配置正确后，在 PLAY_EVT_PLAY_PROGRESS 事件里，当前进度就不是从0开始，而是根据实际开播时间计算而来。
+调用 seek 方法，就能从历史时间点重新直播：
 ```java
 mLivePlayer.seek(600); // 从第10分钟开始播放
 ```
 
-接入时移需要在后台打开2处配置：
+接入时移功能需要在后台打开2处配置：
 
-1. 录制：配置时移时长、时移储存时长
-2. 播放：时移获取元数据
+1. 录制：配置时移时长、时移储存时长。
+2. 播放：时移获取元数据。
 
 时移功能处于公测申请阶段，如您需要可提交工单申请使用。
 
@@ -227,7 +230,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 | 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
 |---------|---------|---------| ------ | ----- |
 | 极速模式 | 较流畅偏高 | 2s- 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如吃鸡）非常适合，卡顿率最低|
+| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如绝地求生）非常适合，卡顿率最低|
 | 自动模式 | 网络自适应 | 2s-8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
 
 
@@ -258,58 +261,68 @@ mLivePlayer.setConfig(mPlayConfig);
 > 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
-支持 <font color='red'>**400ms**</font> 左右的超低延迟播放时腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**，等等，关于这个特性，您需要知道：
+
+支持**400ms** 左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **该功能是不需要开通的**
-该功能并不需要提前开通，但是要求直播流必须位于腾讯云，跨云商实现低延时链路的难度不仅仅是技术层面的。
+该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放URL 不能用普通的 CDN URL， 必须要带防盗链签名，防盗链签名的计算方法见 [**txTime&txSecret**](https://cloud.tencent.com/document/product/454/9875)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
-目前最多同时<font color="red"> 10 路 </font>并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用， 或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于CDN线路）。
+目前最多同时<font color="red"> 10 路 </font>并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
 
-- **Obs的延时是不达标的**
-推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)， Obs 的推流端积压比较严重，是无法达到低延时效果的。
+- **Obs 的延时是不达标的**
+推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)，Obs 的推流端积压比较严重，是无法达到低延时效果的。
 
 - **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考**[价格指引](https://cloud.tencent.com/document/product/454/8008#ACC)**。
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
 
 
 
 ## SDK 事件监听
 您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
-### 1. 播放事件
-| 事件 ID                 |    数值  |  含义说明                    |   
+### 播放事件
+| 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
+| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器            |
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放 RTMP 地址时会抛送） |
-| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包（IDR）  |
-|PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
-|PLAY_EVT_PLAY_LOADING  |  2007|  视频播放 loading，如果能够恢复，之后会有 BEGIN 事件|  
-|PLAY_EVT_GET_MESSAGE   |  2012|  用于接收夹在音视频流中的消息，详情参考 [消息接受](#Message)|  
+| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 收到首帧数据，越快收到此消息说明链路质量越好  |
+| PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做 loading，会需要它 | 
+| PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，说明错用成了 TXVodPlayer |
+| PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
+| PLAY_EVT_PLAY_LOADING	|  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
+| PLAY_EVT_START_VIDEO_DECODER	|  2008| 视频解码器开始启动（2.0 版本以后新增） |  
+| PLAY_EVT_CHANGE_RESOLUTION	|  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
+| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_GET_MESSAGE	|  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
+| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
-- **不要在收到 PLAY_LOADING 后隐藏播放画面**
-因为 PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
+>**<font color='red'>不要在收到 PLAY_LOADING 后隐藏播放画面</font>**
+>因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
-### 2. 结束事件
+### 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
-|PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
+|PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放 | 
 
-- **<font color='red'>如何判断直播已结束？</font>**
-基于各种标准的实现原理不同，很多直播流通常没有结束事件（2006）抛出，此时可预期的表现是：主播结束推流后，SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
+> **<font color='red'>如何判断直播已结束？</font>**
+> RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
+>
+> 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 
- 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 
-
-### 3. 警告事件
-如下的这些事件您可以不用关心，我们只是基于白盒化的 SDK 设计理念，将事件信息同步出来
+### 警告事件
+如下的这些事件您可以不用关心，我们只是基于白盒化的 SDK 设计理念，将事件信息同步出来。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
@@ -325,23 +338,29 @@ mLivePlayer.setConfig(mPlayConfig);
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP 服务器握手失败（仅播放 RTMP 地址时会抛送）|
 
 
+## 获取视频分辨率
+通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的 100ms - 200ms 左右就能得到。
 
-## 视频宽高 
+视频的宽高信息位于 TXLivePlayListener 的 `onPlayEvent(int event, Bundle param)` 通知中的 **param** 参数中。
 
-**视频的宽高（分辨率）是多少？**
-站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
+| 参数 | 含义 | 数值 |
+|---------|---------|---------|
+| EVT_PARMA1 | 视频宽度 | 分辨率数值，如 1920 |
+| EVT_PARMA2 | 视频高度 | 分辨率数值，如 1080 |
 
- **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。 
+## 定时触发的状态通知
+
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
 | NET_STATUS_CPU_USAGE     | 当前瞬时 CPU 使用率 | 
-| **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
-| **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
-|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
+| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
+|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 

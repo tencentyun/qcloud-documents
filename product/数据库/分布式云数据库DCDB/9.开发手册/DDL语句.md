@@ -31,7 +31,7 @@
 
 ### 创建广播表
 
-**广播表：**又名小表广播功能，创建了广播表后，每个节点都有改表的全量数据，该表的所有操作都将广播到所有物理分片（set）中。广播表主要用于提升跨 set 的 join 操作的性能，常用于配置表等；
+**广播表：**又名小表广播功能，创建了广播表后，每个节点都有该表的全量数据，该表的所有操作都将广播到所有物理分片（set）中。广播表主要用于提升跨 set 的 join 操作的性能，常用于配置表等；
 ```
 	mysql> create table global_table ( a int, b int key) shardkey=noshardkey_allset;
 	Query OK, 0 rows affected (0.06 sec)

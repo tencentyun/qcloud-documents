@@ -1,5 +1,5 @@
-腾讯云提供托管腾讯云 CDB 数据库的平台：腾讯云 VPC。利用腾讯云 VPC ，您可以在 VPC 中启动腾讯云资源，如腾讯云 CDB 数据库实例。VPC 产品详细说明请参照 [私有网络](https://cloud.tencent.com/document/product/215/535)。  
-一种常见的方案是运行在同一 VPC 的腾讯云 CDB 数据库实例和 Web 服务器共享数据。在本教程中，针对此方案创建 VPC，并将云数据库添加进 VPC 以配合使用。
+腾讯云提供托管腾讯云 TencentDB 数据库的平台：腾讯云 VPC。利用腾讯云 VPC ，您可以在 VPC 中启动腾讯云资源，如腾讯云 TencentDB 数据库实例。VPC 产品详细说明请参照 [私有网络](https://cloud.tencent.com/document/product/215/535)。  
+一种常见的方案是运行在同一 VPC 的腾讯云 TencentDB 数据库实例和 Web 服务器共享数据。在本教程中，针对此方案创建 VPC，并将云数据库添加进 VPC 以配合使用。
 
 ### 步骤一：创建私有网络、初始化子网和路由表
 私有网络至少包含一个子网，只有在子网中才可以添加云服务资源。

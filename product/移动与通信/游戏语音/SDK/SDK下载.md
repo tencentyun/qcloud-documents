@@ -1,3 +1,43 @@
+## v1.1.24
+[Unity](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D_bitcode.zip)
+[Cocos](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos_bitcode.zip)
+[Win64](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_winx64_1_1_24_187446_20181225.zip)
+[Win32](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_win_1_1_24_187446_20181225.zip)
+[iOS](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_iOS.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_iOS_bitcode.zip)
+[iOS(XCode10)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_cpp_bitcode_1_1_24_187446_20181225_iOS.zip)
+[Unity3D(XCode10)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_cpp_bitcode_1_1_24_187446_20181225_Unity3D.zip )
+[Android](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_Android.zip)
+[UE4](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.24/gcloud_voice_1_1_24_187446_20181225_UE4.zip)
+
+### 更新内容
+- DNS 解析优化，提升进房成功率；
+- iOS 支持蓝牙采集切换，默认使用手机采集；
+
+>!iOS 离线语音点击录制按钮开始录音，会少录几个字。（iOS 开麦初始化有500ms延时，建议业务方延迟 UI 显示，优化体验）
+
+
+
+
+## v1.1.23
+[Unity](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Unity3D.zip)
+[Unity(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Unity3D_bitcode.zip)
+[Cocos](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Cocos.zip)
+[Cocos(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Cocos_bitcode.zip)
+[Win64](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_winx64_1_1_23_185768_20181122.zip)
+[Win32](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_win_1_1_23_185768_20181122.zip)
+[iOS](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS.zip)
+[iOS(bitcode)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS_bitcode.zip)
+[iOS(cpplib)](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_iOS_cpplib.zip)
+[Android](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_Android.zip)
+[UE4](http://lexizhang-1251557890.file.myqcloud.com/GVoice%201.1.23/gcloud_voice_1_1_23_185768_20181122_UE4.zip)
+
+### 更新说明
+- 动态 FEC 调整；
+- 增加语音相关错误码及回调结果上报；
+
 
 
 ## v1.1.22
@@ -239,3 +279,5 @@
 - 在调用 SetMode() 的时候，传入 HIGHQUALITY 枚举值即可使用高质量语音模式  
 - iOS 平台的 SDK，由 C++ 变为 Objective-C  
 - 由于关闭了 iOS bitcode 选项，SDK 包变小是正常现象 
+
+

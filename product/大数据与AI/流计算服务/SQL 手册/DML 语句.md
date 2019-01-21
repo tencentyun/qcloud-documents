@@ -37,7 +37,7 @@ WHERE s1.time_ = s2.time_ AND s1.client_ip = s2.client_ip;
 ## WHERE
 WHERE 用来过滤查询条件（谓词），多个并列的条件可以用 AND、OR 来连接。
 >**注意：**
->在与外部数据库 CDB 的表做 JOIN 时，条件的连接只支持 AND. 如需使用 OR 的功能，请参见 UNION ALL 来实现同样的效果。
+>在与外部数据库CDB 的表做 JOIN 时，条件的连接只支持 AND. 如需使用 OR 的功能，请参见 UNION ALL 来实现同样的效果。
 
 ## HAVING
 HAVING 用于过滤 GROUP BY 之后的结果。需要注意 WHERE 在GROUP BY 之前过滤，而 HAVING 在 GROUP BY 分组之后过滤。

@@ -1,4 +1,5 @@
 ## 请求结构
+使用本接口服务之前需要在 [语音识别](https://cloud.tencent.com/product/asr) 介绍页单击【立即使用】。
 ### RESTful API 请求结构
 离线语音识别的 RESTful API 请求结构如下：
 

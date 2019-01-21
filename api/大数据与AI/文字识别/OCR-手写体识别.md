@@ -1,67 +1,53 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/handwriting`
+本接口（handwriting）用于手写体识别。根据用户上传的图像，返回识别出的字段信息。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
-### 服务简介
-手写体 OCR 识别，根据用户上传的图像，返回识别出的字段信息。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
-
-### url 说明
-支持 HTTP 和 HTTPS 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/handwriting`
-
-`https://recognition.image.myqcloud.com/ocr/handwriting`
-
-## 请求方式
-
-### 请求头 header
+## 请求头 header
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
-| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 |
-| content-type   | 是|application/json 或 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url 或  image，其值为图片链接或图片 base64 编码；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。|
-| authorization  |是| 鉴权签名                                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/866/17734)|
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为6MB，不支持 .gif 类型的动图。 |
+| content-type   | 是|application/json 或 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url 或  image，其值为图片链接或图片 base64 编码；<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。|
+| authorization  |是| 鉴权签名                                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。|
 
->**注意：**
-如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+>!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
-### 请求参数
+## 输入参数
 
 | 参数名称   | 必选 | 类型            | 说明                                       |
 | ------ | ---- | ------------- | ---------------------------------------- |
-| appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
-| image  | 否   |  binary/string | 图片文件 或 图片 base64                |
-| url    | 否   | string        | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入 |
+| appid | 是   | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                 |
+| image  | 否   |  Binary/String | 图片文件 或 图片 base64。                |
+| url    | 否   | String        | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入。 |
 
-## 返回内容
+## 输出参数
 
 | 字段         | 类型          | 说明         |
 | ---------- | ----------- | ---------- |
-| code       | int         | 返回状态值      |
-| message    | string      | 返回错误消息     |
-| data.items | array(item) | 识别出的所有字段信息 |
+| code       | Int         | 返回状态值      |
+| message    | String      | 返回错误消息     |
+| data.items | Array(item) | 识别出的所有字段信息 |
 
 item 说明：
 
 | 字段         | 类型          | 说明                                       |
 | ---------- | ----------- | ---------------------------------------- |
-| itemstring | string      | 字段字符串                                    |
-| itemcoord  | object      | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width,height |
-| words      | array(word) | 字段识别出来的每个字的信息                            |
+| itemstring | String      | 字段字符串                                    |
+| itemcoord  | Object      | 字段在图像中的像素坐标，包括左上角坐标 x、y，以及宽、高 width,height |
+| words      | Array(word) | 字段识别出来的每个字的信息                            |
 
 words 说明：
 
 | 字段         | 类型     | 说明                             |
 | ---------- | ------ | ------------------------------ |
-| character  | string | 识别出的单字字符                       |
-| confidence | float  | 识别出的单字字符对应的置信度，取值范围[0,100] |
+| character  | String | 识别出的单字字符                       |
+| confidence | Float  | 识别出的单字字符对应的置信度，取值范围[0,100] |
 
-## 请求示例
-
-### 使用 url 的请求示例
-
+## 示例
+### 输入示例
+#### 使用 url 
 ```
 POST /ocr/handwriting HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -76,8 +62,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 image 的请求示例 
-
+#### 使用 image 
 ```
 POST /ocr/handwriting HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -102,7 +87,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 
-### 返回示例
+### 输出示例
 ```
 {
     "code": 0,
@@ -312,14 +297,14 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2为账号欠费停服                       |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
-| 6     | 签名中的 appid/bucket 与操作目标不匹配 |
+| 6     | 签名中的 APPID/Bucket 与操作目标不匹配 |
 | 9     | 签名过期                       |
-| 10    | appid 不存在                  |
-| 11    | secretid 不存在               |
-| 12    | appid 和 secretid 不匹配       |
+| 10    | APPID 不存在                  |
+| 11    | SecretId 不存在               |
+| 12    | APPID和 SecretId 不匹配       |
 | 13    | 重放攻击                       |
 | 14    | 签名校验失败                     |
 | 15    | 操作太频繁，触发频控                 |
@@ -339,4 +324,4 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -9011 | 识别失败                       |
 
 
-更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。

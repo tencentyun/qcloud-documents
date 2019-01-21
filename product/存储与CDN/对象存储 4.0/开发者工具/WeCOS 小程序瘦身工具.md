@@ -24,14 +24,17 @@ npm install -g wecos
 {
   "appDir": "./app",
   "cos": {
-    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "bucket": "wxapp-1251902136",
-    "region": "ap-guangzhou", //创建 bucket 时选择的地域简称
-    "folder": "/", //资源存放在 bucket 的哪个目录下
+    "region": "ap-guangzhou", 
+    "folder": "/"
   }
 }
 ```
+
+region：创建 bucket 时选择的地域简称。
+folder： 资源存放在 bucket 的哪个目录下。
 
 ### 配置项说明
 
@@ -39,15 +42,15 @@ npm install -g wecos
 | ------ | ------------ | ---------------------------------------- |
 | appDir | String | 默认 `./app`，小程序项目目录                       |
 | cos    | Object | 必填。COS 的存储桶、地域等配置信息，请查看 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) 文档，密钥等信息请在 [云API密钥控制台](https://console.cloud.tencent.com/cos4/secret) 中获取查看 |
+
+
 ## 开始使用
 在配置文件同级目录下执行以下使用命令：
-
 ```
 wecos
 ```
 
->**注意：** 
-执行使用命令前，需要在配置文件同级目录下创建 `wecos.config.json` 文件。
+>!执行使用命令前，需要在配置文件同级目录下创建 `wecos.config.json` 文件。
 
 ## 高级配置
 

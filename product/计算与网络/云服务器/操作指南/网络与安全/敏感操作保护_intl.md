@@ -14,7 +14,7 @@ When you have enabled the operation protection, the system will first perform op
 - If you have enabled **mobile verification code** for operation protection, you need to enter the mobile verification code.
 
 As shown in the following figure, when you try to shut down an instance, the following verification box pops up, and you need to verify the MFA device:
-![](https://main.qcloudimg.com/raw/daf859204edbf0f45e3e45de740ff634.png)
+![](https://main.qcloudimg.com/raw/91be83cce330c750728b5a2b2312c720.png)
 #### How do I view the MFA verification code?
 1. Turn on the MFA device:
 Open the **Tencent Cloud Assistant Mini Program** and select "Tools" to see the bound authenticator.

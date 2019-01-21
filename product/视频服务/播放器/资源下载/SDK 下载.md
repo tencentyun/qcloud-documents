@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（5.3.6004） @ 2018-11-05</td>
-        <td style="text-align:center">SDK（5.3.6004） @ 2018-11-05</td>
+        <td style="text-align:center">SDK（5.4.6097） @ 2019-01-04</td>
+        <td style="text-align:center">SDK（5.4.6097） @ 2019-01-04</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -88,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/TXLiteAVSDK_Player_iOS_5.3.6004.zip">iOS下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.3/6004/LiteAVSDK_Player_Android_5.3.6004.zip">Android下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Player_iOS_5.4.6097.zip">iOS下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Player_Android_5.4.6097.zip">Android下载</a></td>
   </tr>
 </table>
 

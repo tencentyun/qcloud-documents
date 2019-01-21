@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(ClearRedis)用于清空CRS实例。
+本接口(ClearRedis)用于清空 Redis 实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数

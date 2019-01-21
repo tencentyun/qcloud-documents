@@ -27,7 +27,7 @@ endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了�
 
 #### 请参照下面说明将域名中的 {$region} 替换成相应地域：
 
-外网接口请求域名：http(s)://cmq-queue-{$region}.api.qcloud.com
+外网接口请求域名：https://cmq-queue-{$region}.api.qcloud.com
 内网接口请求域名：http: //cmq-queue-{$region}.api.tencentyun.com
 
 #### region 说明

@@ -43,7 +43,7 @@ qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更
     params 请求参数，请参考wiki文档上对应接口的说明
     '''
     params = {
-        'userIp': '127.0.0.1',
+        'userIp': '10.0.0.1',
         'businessId': 1,
         'captchaType': 1,
         'script': 0,

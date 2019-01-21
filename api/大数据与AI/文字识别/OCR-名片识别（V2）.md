@@ -1,74 +1,59 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/ocr/businesscard`
+本接口（businesscard）用于根据用户上传的名片图片，返回识别出的20多个字段信息，详细字段包括：姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
-### 服务简介
-本接口用于根据用户上传的名片图片，返回识别出的20 多个字段信息，详细字段如下：
+>!
+- 本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+- 如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
 
-姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
-
->注意：
->如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/866/17619)。
-
-### url 说明
-支持 http 和 https 两种协议：
-
-`http://recognition.image.myqcloud.com/ocr/businesscard`
-
-`https://recognition.image.myqcloud.com/ocr/businesscard`
-
-
-## 请求方式
-
-### 请求头 header
+## 请求头 header
 
 | 参数名            |必选| 值                                        | 描述                                       |
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
-| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
-| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
-| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接；2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
-| authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/866/17734) |
-
->**注意：**
-如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为6MB，不支持 .gif 类型的动图。 | 
+| content-type   | 是| application/json 或者 multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数为 url ，其值为图片链接。<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
+| authorization  | 是| 鉴权签名                                    | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。 |
 
 
-### 请求参数
+>!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+
+
+## 输入参数
 
 | 参数名       | 必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
-| appid         | 是         | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                 |
-| image         | 否   | binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
-| url_list	    | 否  |	string 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入|
-## 返回内容
+| appid         | 是         | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看.                 |
+| image         | 否   | Binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 HTTP Body 中会返回用户设置的 filename 值。 |
+| url_list	    | 否  |	String 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入。|
+
+## 输出参数
 
 | 字段          | 类型      | 说明           |
 | ----------- | ------- | ------------ |
-| result_list | json 数组 | 具体查询数据，内容见下表 |
+| result_list | JSON 数组 | 具体查询数据，内容见下表。 |
 
-result_list（json 数组）中每一项的具体内容：
+result_list（ISON 数组）中每一项的具体内容：
 
 | 字段      | 类型     | 说明           |
 | ------- | ------ | ------------ |
-| code    | int    | 服务器错误码，0 为成功 |
-| message | string | 服务器返回的信息     |
-| url     | string | 请求参数选择url，则返回当前图片的 url    |
-| filename     | string | 请求参数选择image，当前图片的 filname    |
-| data    | array(item) | 具体查询数据，内容见下表 |
+| code    | Int    | 服务器错误码，0为成功。 |
+| message | string | 服务器返回的信息。     |
+| url     | String | 请求参数选择 url，则返回当前图片的 url。    |
+| filename     | String | 请求参数选择 image，当前图片的 filname。    |
+| data    | Array(item) | 具体查询数据，内容见下表。 |
 
-data字段具体内容：
+data 字段具体内容：
 
 | 字段               | 类型     | 说明                     |
 | ---------------- | ------ | ---------------------- |
-| item             | string | 字段字符串                     |
-| value            | string | 字段识别出来的信息                    |
-| confidence  | double | 字段识别出来的信息的置信度，取值范围[0,1]  |
+| item             | String | 字段字符串                     |
+| value            | String | 字段识别出来的信息                    |
+| confidence  | Double | 字段识别出来的信息的置信度，取值范围[0,1]  |
 
-## 请求示例
-
-### 使用 application/json 的请求示例
-
+## 示例
+### 输入示例
+#### 使用 application/json 
 ```
 POST /ocr/businesscard HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -83,8 +68,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用 multipart/form-data 的请求示例 
-
+#### 使用 multipart/form-data  
 ```
 POST /ocr/businesscard HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -108,8 +92,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 返回示例
-
+### 输出示例
 ```
 {
     "result_list": [
@@ -212,4 +195,4 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 |-5208 | 名片 OCR 服务内部出错|
 
 
-更多其他 API 错误码请看 [错误码说明](/document/product/866/17733)。
+更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。
