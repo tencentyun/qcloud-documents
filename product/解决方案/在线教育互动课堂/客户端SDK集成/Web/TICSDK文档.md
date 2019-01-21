@@ -40,7 +40,7 @@ TICSDK 音视频低延时依赖了 [腾讯云实时音视频](https://cloud.tenc
 
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( 只支持 Safari ) | 11.1.2 | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于 iOS 可以推荐使用 [小程序解决方案](/document/product/647/17000) |
+| iOS          | Safari ( 只支持 Safari ) | 11.1.2 | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于 iOS 可以推荐使用 [小程序解决方案](https://cloud.tencent.com/document/product/647/32399) |
 | Android      | TBS（微信和手机 QQ 的默认 Webview） | 43600                | 微信和手机 QQ 默认内置的浏览器内核为TBS，参见 [TBS 介绍](http://x5.tencent.com/) |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 
