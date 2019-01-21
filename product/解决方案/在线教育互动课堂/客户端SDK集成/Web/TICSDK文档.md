@@ -32,7 +32,7 @@ TICSDK 音视频低延时依赖了 [腾讯云实时音视频](https://cloud.tenc
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | Windows（PC）  | Chrome | 52+                |   -   |
-| Windows（PC）  | [QQ 浏览器](https://browser.qq.com/) | 10.2 | -    |
+| Windows（PC）  | [QQ 浏览器](https://browser.qq.com/) | 10.2+ | -    |
 | Mac          | Chrome | 47+                | -     |
 | Mac          | Safari | 11+                |  -    |
 
@@ -40,8 +40,8 @@ TICSDK 音视频低延时依赖了 [腾讯云实时音视频](https://cloud.tenc
 
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
-| iOS          | Safari ( 只支持 Safari ) | 11.1.2 | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用<br > 对于 iOS 可以推荐使用 [小程序解决方案](https://cloud.tencent.com/document/product/647/32399) |
-| Android      | TBS（微信和手机 QQ 的默认 Webview） | 43600                | 微信和手机 QQ 默认内置的浏览器内核为TBS，参见 [TBS 介绍](http://x5.tencent.com/) |
+| iOS          | Safari ( 只支持 Safari ) | 11.1.2+ | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用|
+| Android      | TBS（微信和手机 QQ 的默认 Webview） | 43600+                | 微信和手机 QQ 默认内置的浏览器内核为 TBS，参见 [TBS 介绍](http://x5.tencent.com/) |
 | Android      | Chrome | 60+               | 需要支持 H264  |
 
 >?目前不建议您直接在移动端浏览上使用 Web 方案，建议您接入体验更好的原生方案（[Android 方案](https://cloud.tencent.com/document/product/680/17888)、[iOS 方案](https://cloud.tencent.com/document/product/680/17891)）。
