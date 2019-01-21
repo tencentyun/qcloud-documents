@@ -1,6 +1,5 @@
-## UserSig 生成指引
-
-### 下载签名用的私钥 
+本文将指导您如何生成 UserSig。
+## 下载签名用的私钥 
 
 登录云通信 [控制台](https://console.cloud.tencent.com/avc)，如果您还没有应用，请新创建一个应用，完成新建应用后获得应用的 SdkAppId，单击对应 SdkAppId 的应用配置链接，在应用详情页，找到当前页面的**帐号体系集成**部分，单击**编辑**链接，配置**账号管理员**信息，然后单击【保存】，即可看到【下载公私钥】按钮：
 ![](https://main.qcloudimg.com/raw/e3ce0ef527d2d4f8d0b3a0f69cefa78e.png)
@@ -8,7 +7,7 @@
 单击【下载公私钥】按钮，会得到一个 **keys.zip** 的压缩文件，解压后会获得一个 **private_key** 和一个 **public_key** 的文件，其中 **private_key** 就是我们所需要的私钥文件。
 ![](https://main.qcloudimg.com/raw/95875a7baca63c21103bc6cd6dac0279.png)
 
-### 控制台手工生成 UserSig
+## 控制台手工生成 UserSig
 
 在 **应用配置** 页面，将私钥文件内容拷贝到 **开发辅助工具** 下的的文本框中，指定用户名，单击**生成**按钮，即可获得该云通信应用指定用户名的 UserSig。
 ![](https://main.qcloudimg.com/raw/39f858a08717d90aba5ebc1ee7f32348.png)
@@ -17,8 +16,8 @@ Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快
 >!真正要线上使用，不能采用这种做法，会有极大的安全隐患，需要使用下文介绍的服务器生成 UserSig 方案。
 
 
-### 服务器生成 UserSig
-#### 生成原理
+## 服务器生成 UserSig
+### 生成原理
 
 - 将生成代码部署在您的服务器上，并提供面向 App 的服务端接口。
 - 使用上文提到的 private_key 对 SdkAppid、Identifier 和 Expire（签名过期时间）进行非对称加密运算，并将计算结果返回给 App。
@@ -28,7 +27,7 @@ Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快
   UserSig = 非对称加密（private_key, SdkAppid, Identifier, Expire）
 ```
 
-#### 源码下载
+### 源码下载
 
 我们提供了 Java、PHP 和 Nodejs 三个版本的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
 
