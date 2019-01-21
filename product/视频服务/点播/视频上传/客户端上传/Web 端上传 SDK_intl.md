@@ -1,121 +1,177 @@
-## Overview
+## Intro
 
-The client upload SDK for browsers can be used to upload videos and cover image files to Tencent Cloud VOD system.
+Web SDK for Tencent Cloud Video Service. Used in browser.
 
-## Integration Method
+Detail upload process can refer to [客户端上传指引](/document/product/266/9219)。
 
-### Development Environment
+source code：[https://github.com/tencentyun/vod-js-sdk-v6](https://github.com/tencentyun/vod-js-sdk-v6)
 
-* Browsers must support HTML 5 to use the SDK.
-* App server is required to distribute upload signatures for clients. For information on how to generate signatures, please see [Upload Signature](/document/product/266/9221).
 
-### Integration
+## Demo
 
-Introduce ugcuploader.js into the page.
-```js
-<script src="//imgcache.qq.com/open/qcloud/js/vod/sdk/ugcUploader.js"></script>
+[https://tencentyun.github.io/vod-js-sdk-v6/](https://tencentyun.github.io/vod-js-sdk-v6/)
+
+Demo source code: [https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
+
+## Simple video upload
+
+### import SDK in the page
+
+```html
+<script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
+> We use Promise in the source code. You should imoprt Promise polyfill when target legacy browsers.
 
-### Demo
+### define a function to get signature
 
-[http://video.qcloud.com/sdk/ugcuploader.html](http://video.qcloud.com/sdk/ugcuploader.html)
-
-## Steps for Upload
-
-###  Step 1: Acquire Upload Signature
 ```js
-var getSignature = function(callback){
-    $.ajax({
-        url:  'yourinterface',  //The server acquires the URL for client upload signature
-        type:  'POST',
-        dataType:  'json',
-        success:  function(result){
-            //result.returnData.signature is the acquired signature
-            callback(result.returnData.signature);
-        }
-    });
+function getSignature() {
+  return axios.post(url).then(function (response) {
+    return response.data.signature;
+  })
 };
-
 ```
 
-###  Step 2: Specify Targets to be Uploaded
+> `url` Your url which can return signature. Refer to [客户端上传指引](/document/product/266/9219)。
+> `signature` Refer to for the computation of signature [客户端上传签名](/document/product/266/9221)。
 
-These targets include videos and cover image information. You can leave the cover image parameters empty if you only upload videos.
+### Upload video
 
-| Parameter Name |  Required | Type | Parameter Description |
-| ------ | ------ | ------ | ------ | ------ |
-| videoFile | Yes | File |  Video files to be uploaded |
-| coverFile | No | File | Cover image files to be uploaded |
-| getSignature | Yes | Function |  Callback function used to acquire signature |
-| success   | No |Function | Callback function when upload succeeds |
-| error     | No | Function | Callback function when upload fails |
-| progress  | No | Function |  Callback function for upload progress |
-| finish    | No | Function | Callback function for upload result |
-
-Callback function description
-
-| Function | Description | Parameter Type | Parameter Description |
-| ------ | ------ | ------ | ------ |
-| getSignature | Callback for acquiring signature | Function | callback: the acquired signature is used as the parameter of callback function, that is, callback (signature); |
-| success | Callback when upload succeeds | Object | type: file type of the successful upload operation, "video" or "cover" |
-| error | Callback when upload fails | Object | type: file type of the failed upload operation, "video" or "cover" |
-| progress | Callback for upload progress | Object | type: type of the file being uploaded, "video" or "cover" <br/>name: name of the file being uploaded <br/>curr: file upload progress |
-| finish   | Callback for upload result | Object | fileId: video file ID <br/>videoName: video name <br/>videoUrl: video playback address <br/>coverName: cover name <br/>coverUrl: cover display address |
-
-### Step 3: Execute the Upload Operation
-
-#### Upload Videos Only
+example:
 
 ```js
-qcVideo.ugcUploader.start({
-    videoFile: videoFile,
-    getSignature: getSignature,
-    success: function(result){
-        console.log('Type of the successfully uploaded file:' + result.type);
-    },
-    error: function(result){
-        console.log('Type of the file failed to be uploaded:' + result.type);
-        console.log('Reason for the failed upload:' + result.msg);
-    },
-    progress: function(result){
-        console.log('Type of the file during upload progress:' + result.type);
-        console.log('Name of the file during upload progress:' + result.name);
-        console.log('Upload progress:' + result.curr);
-    },
-    finish: function(result){
-        console.log('fileId in the upload result:' + result.fileId);
-        console.log('Video name in the upload result:' + result.videoName);
-        console.log('Video address in the upload result:' + result.videoUrl);
-    }
-});
+const tcVod = new TcVod.default({
+  getSignature: getSignature // mentioned above
+})
+
+const uploader = tcVod.upload({
+  videoFile: videoFile, // video. type should be Filev
+})
+uploader.on('video_progress', function(info) {
+  console.log(info.percent)
+})
+
+// type doneResult = {
+//   fileId: string,
+//   video: {
+//     url: string
+//   },
+//   cover: {
+//     url: string
+//   }
+// }
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
+
 ```
 
-#### Upload Both Videos and Cover Images
+## Advanced
+
+### Upload both video and cover
 
 ```js
-qcVideo.ugcUploader.start({
-    videoFile: videoFile,
-    coverFile: coverFile,
-    getSignature: getSignature,
-    success: function(result){
-        console.log('Type of the successfully uploaded file:' + result.type);
-    },
-    error: function(result){
-        console.log('Type of the file failed to be uploaded:' + result.type);
-        console.log('Reason for the failed upload:' + result.msg);
-    },
-    progress: function(result){
-        console.log('Type of the file during upload progress:' + result.type);
-        console.log('Name of the file during upload progress:' + result.name);
-        console.log('Upload progress:' + result.curr);
-    },
-    finish: function(result){
-        console.log('fileId in the upload result:' + result.fileId);
-        console.log('Video name in the upload result:' + result.videoName);
-        console.log('Video address in the upload result:' + result.videoUrl);
-        console.log('Cover name in the upload result:' + result.coverName);
-        console.log('Cover address in the upload result:' + result.coverUrl);
-    }
-});
+const uploader = tcVod.upload({
+  videoFile: videoFile,
+  coverFile: coverFile,
+})
+
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 ```
 
+### Get upload progress
+
+Use callback to get progress
+
+```js
+const uploader = tcVod.upload({
+  videoFile: videoFile,
+  coverFile: coverFile,
+})
+// when video upload finish
+uploader.on('video_upload', function(info) {
+  uploaderInfo.isVideoUploadSuccess = true;
+})
+// video progress
+uploader.on('video_progress', function(info) {
+  uploaderInfo.progress = info.percent;
+})
+// when cover upload finish
+uploader.on('cover_upload', function(info) {
+  uploaderInfo.isCoverUploadSuccess = true;
+})
+// cover progress
+uploader.on('cover_progress', function(info) {
+  uploaderInfo.coverProgress = info.percent;
+})
+
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
+
+```
+
+### Cancel upload
+
+You can cancel upload when uploading video or cover
+
+```js
+const uploader = tcVod.upload({
+  videoFile: videoFile,
+  coverFile: coverFile,
+})
+
+uploader.cancel()
+```
+
+### Resume from break point
+
+SDk support resume from break point automatically. When upload break accidently, just re-upload the same file.
+
+## Interface
+
+### TcVod
+
+| arg name         | required   | type       | description      |
+| ------------ | ---- | -------- | --------- |
+| getSignature    | Y    | Function     | 获取上传签名的函数  |
+
+### TcVod.upload
+
+| arg name         | required   | type       | description      |
+| ------------ | ---- | -------- | --------- |
+| videoFile    | N    | File     | video to upload   |
+| coverFile    | N    | File     | cover to upload   |
+| videoName    | N    | string     | specify a name other than File meta info  |
+| fileId    | N    | string     | provide when alter cover  |
+
+### Events
+
+| event name         | required   |  description      |
+| ------------ | ---- |  --------- |
+| video_upload    | 否    |  when video upload success  |
+| cover_upload    | 否    |  callback when cover upload success  |
+| video_progress    | 否    |  video progress callback  |
+| cover_progress    | 否    |  cover progress callback  |
+
+
+## FAQ
+
+1. How can I get a `File` object？
+Use html `input` tag
+
+2. Is there any file size limit?
+Yes. Max is 60GB
+
+3. Which browser do you support？
+Any browser has ES5 engine.
+
+
+
+  ​
+
+  ​
+
+  ​

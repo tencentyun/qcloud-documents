@@ -1,5 +1,5 @@
 ## 1. 接口描述
-活动防刷接口提供抢券、红包分发、游戏道具、刷榜等活动中用户恶意行为判断能力，根据当前用户的账号、信用、行为判断用户当前操作的恶意等级。
+活动防刷接口提供抢券、红包分发、游戏道具、刷榜等活动中用户恶意行为判断能力，可根据当前用户的账号、信用、行为判断用户当前操作的恶意等级。
 协议：HTTPS
 域名：csec.api.qcloud.com
 接口名：ActivityAntiRush
@@ -17,7 +17,7 @@
 <td> accountType
 </td><td>是
 </td><td> UInt
-</td><td> 用户账号类型（QQ 开放帐号、微信开放账号需要提交 <a href='(https://console.cloud.tencent.com/workorder/category'>工单</a> 由腾讯云进行资格审核） 
+</td><td> 用户账号类型（QQ 开放帐号、微信开放账号需要提交 <a href='https://console.cloud.tencent.com/workorder/category'>工单</a> 由腾讯云进行资格审核） 
 <br> 1：QQ 开放帐号
 <br> 2：微信开放账号
 <br> 4：手机号
@@ -65,7 +65,7 @@
 <td> phoneNumber
 </td><td> 否
 </td><td> String
-</td><td> 手机号。若 accoutType 选 4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
+</td><td> 手机号。若 accountType 选 4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
 </td></tr>
 <tr>
 <td> emailAddress

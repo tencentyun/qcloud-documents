@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(DescribeRedis)用于查询CRS实例列表。
+本接口(DescribeRedis)用于查询 Redis 实例列表。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数

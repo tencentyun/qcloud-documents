@@ -8,9 +8,9 @@
 
 | 参数        | 说明                                       | 类型   | 长度（字节） |
 | --------- | ---------------------------------------- | ---- | ------ |
-| code      | 活体验证结果的返回码，0表示活体验证成功，其他错误码表示失败 | String  |    -    |
+| code      | 身份证识别结果的返回码，0表示识别成功，其他错误码表示失败 | String  |    -    |
 | orderNo   | 订单号，由合作方上送，每次唯一，此信息为本次身份证识别上送的信息      | String    | 32     |
-|Signature | 对 URL 参数 App ID、oderNo 和 SIGN ticket 、code 的签名。具体见 [签名生成](https://cloud.tencent.com/document/product/655/13817) 和校验规则 | String    | 40     |
+|Signature | 对 URL 参数 App ID、oderNo 和 SIGN ticket 的签名。具体见 [签名生成](https://cloud.tencent.com/document/product/655/13817) 和校验规则 | String    | 40     |
 
 
 

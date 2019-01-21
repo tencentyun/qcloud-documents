@@ -13,7 +13,7 @@ public static TIMManager getInstance()
 TIMManager.getInstance();
 ```
 ## 初始化 SDK 配置
-在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制、Crash 上报等。对应的配置类为 `TIMSdkConfig`，具体 API 可以参考 SDK 下载包中的 `javadoc` 文档。
+在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`，具体 API 可以参考 SDK 下载包中的 `javadoc` 文档。
 
 ### 日志事件
 
@@ -34,7 +34,7 @@ public TIMSdkConfig setLogListener(TIMLogListener logListener)
 ```
 //设置日志回调，SDK 输出的日志将通过此接口回传一份副本
 //[NOTE] 请注意 level 定义在 TIMManager 中，如 TIMManager.ERROR 等， 并不同于 Android 系统定义
-TIMManager.getInstance().setLogListener(new TIMLogListener() {
+mTIMSdkConfig.setLogListener(new TIMLogListener() {
     @Override
     public void log(int level, String tag, String msg) {
         //可以通过此回调将 sdk 的 log 输出到自己的日志系统中
@@ -96,23 +96,6 @@ public TIMSdkConfig enableLogPrint(boolean logPrintEnabled)
 public TIMSdkConfig setLogPath(@NonNull String logPath)
 ```
 
-
-### Crash上报
-
-ImSDK 内部集成了 [Bugly系统](http://bugly.qq.com)，当应用 crash 后，会自动上报到平台，用户可以根据 Bugly 文档指示上传符号表，显示 crash 详细信息，如果用户有自己的上报组件，可通过 `TIMSdkConfig` 中的 `enableCrashReport` 接口来进行禁用上报。
-
-> **注意：**
-> 禁用 Bugly 的 crash 上报， **必须在 SDK 初始化之前调用**， 在 SDK 初始化之后设置无效。
-
-**原型：**
-```
-/**
- * 设置是否开启 Bugly 的 crash 上报功能， 必须在 SDK 初始化之前设置
- * @param crashReportEnabled true - 开启 Bugly 的 crash 上报功能（需要集成 ImSDK 内部提供的 Bugly 库）
- */
-public TIMSdkConfig enableCrashReport(boolean crashReportEnabled)
-```
-
 ## 初始化 SDK
 
 在使用 SDK 进一步操作之前，需要初始化 SDK。
@@ -150,8 +133,6 @@ TIMManager.getInstance().init(getApplicationContext(), config);
 在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。ImSDK 的用户配置分四部分，分别如下：
 + 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
 + 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
-+ 群组管理扩展用户配置 —— 通过 `TIMUserConfigGroupExt` 进行配置。
-+ 资料关系链管理扩展用户配置 —— 通过 `TIMUserConfigSnsExt` 进行配置。
 
 配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
 
@@ -168,10 +149,6 @@ public void setUserConfig(TIMUserConfig userConfig)
 ```
 //基本用户配置
 TIMUserConfig userConfig = new TIMUserConfig()
-		//设置群组资料拉取字段
-		.setGroupSettings(initGroupSettings())
-		//设置资料关系链拉取字段
-		.setFriendshipSettings(initFriendshipSettings())
 		//设置用户状态变更事件监听器
 		.setUserStatusListener(new TIMUserStatusListener() {
 			@Override
@@ -229,86 +206,6 @@ userConfig = new TIMUserConfigMsgExt(userConfig)
 		.enableStorage(false)
 		//开启消息已读回执
 		.enableReadReceipt(true);
-
-//资料关系链扩展用户配置
-userConfig = new TIMUserConfigSnsExt(userConfig)
-		//开启资料关系链本地存储
-		.enableFriendshipStorage(true)
-		//设置关系链变更事件监听器
-		.setFriendshipProxyListener(new TIMFriendshipProxyListener() {
-			@Override
-			public void OnAddFriends(List<TIMUserProfile> users) {
-				Log.i(tag, "OnAddFriends");
-			}
-
-			@Override
-			public void OnDelFriends(List<String> identifiers) {
-				Log.i(tag, "OnDelFriends");
-			}
-
-			@Override
-			public void OnFriendProfileUpdate(List<TIMUserProfile> profiles) {
-				Log.i(tag, "OnFriendProfileUpdate");
-			}
-
-			@Override
-			public void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs) {
-				Log.i(tag, "OnAddFriendReqs");
-			}
-
-			@Override
-			public void OnAddFriendGroups(List<TIMFriendGroup> friendgroups) {
-				Log.i(tag, "OnAddFriendGroups");
-			}
-
-			@Override
-			public void OnDelFriendGroups(List<String> names) {
-				Log.i(tag, "OnDelFriendGroups");
-			}
-
-			@Override
-			public void OnFriendGroupUpdate(List<TIMFriendGroup> friendgroups) {
-				Log.i(tag, "OnFriendGroupUpdate");
-			}
-		});
-
-//群组管理扩展用户配置
-userConfig = new TIMUserConfigGroupExt(userConfig)
-		//开启群组资料本地存储
-		.enableGroupStorage(true)
-		//设置群组资料变更事件监听器
-		.setGroupAssistantListener(new TIMGroupAssistantListener() {
-			@Override
-			public void onMemberJoin(String groupId, List<TIMGroupMemberInfo> memberInfos) {
-				Log.i(tag, "onMemberJoin");
-			}
-
-			@Override
-			public void onMemberQuit(String groupId, List<String> members) {
-				Log.i(tag, "onMemberQuit");
-			}
-
-			@Override
-			public void onMemberUpdate(String groupId, List<TIMGroupMemberInfo> memberInfos) {
-				Log.i(tag, "onMemberUpdate");
-			}
-
-			@Override
-			public void onGroupAdd(TIMGroupCacheInfo groupCacheInfo) {
-				Log.i(tag, "onGroupAdd");
-			}
-
-			@Override
-			public void onGroupDelete(String groupId) {
-				Log.i(tag, "onGroupDelete");
-			}
-
-			@Override
-			public void onGroupUpdate(TIMGroupCacheInfo groupCacheInfo) {
-				Log.i(tag, "onGroupUpdate");
-			}
-		});
-
 //将用户配置与通讯管理器进行绑定
 TIMManager.getInstance().setUserConfig(userConfig);
 ```

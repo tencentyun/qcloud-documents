@@ -1,7 +1,7 @@
 ## 说明
 ### 通讯说明
 - 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
-- 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
+- 请求必须传认证或签名信息。其中退款请求，可以传签名和签名算法，也可以传认证码和认证算法，二选一，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
 
@@ -86,7 +86,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
     HMAC_CTX_cleanup(&ctx);
 
     for (int i = 0; i < 32; i++) {
-        snprintf(&format_md[i * 2], 3, "%02x", md[i]);
+        snprintf(&format_md[i * 2], 3, "%02x", md[i]); //二进制转为十六进制大写
     }
     hmac->assign(format_md);
 
@@ -910,6 +910,7 @@ std::string gen_cloud_pay_refund(
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
+    //方式一：计算签名
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
@@ -924,8 +925,24 @@ std::string gen_cloud_pay_refund(
     Json::Value request;
     request["request_content"] = rc;
     request["authen_info"] = authen_info;
-
     return w.write(request);
+    
+/** 方式二：计算认证码，退款也可以按如下计算认证码打包，签名和认证码二选一即可。    
+    Json::Value authen_info, a;
+    a["authen_type"] = 1;
+
+    std::string authen_code;
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        return "";
+    }
+    a["authen_code"] = authen_code;
+    authen_info["a"] = a;
+
+    Json::Value request;
+    request["request_content"] = rc;
+    request["authen_info"] = authen_info;
+    return w.write(request);
+*/    
 }
 /*
 构造请求完毕之后，将请求通过 POST 方法发送到云支付接口对应的 URL
@@ -3070,6 +3087,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>AlipayOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayOrderContentExt</td>
    </tr>
+   <tr>
+      <td>card_order_content_ext</td>
+      <td>否</td>
+      <td>CardOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardOrderContentExt</td>
+   </tr>
 </table>
 
 #### WxpayOrderContentExt 结构
@@ -3421,6 +3444,28 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>current_trade_state</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>订单当前状态，详见 CardOrderState</td>
+   </tr>
+   <tr>
+      <td>membership_number</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>会员卡号</td>
+   </tr>
+</table>
+
 ### 退款单信息
 #### RefundOrderContent 结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3513,6 +3558,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayRefundOrderContentExt</td>
+   </tr>
+   <tr>
+      <td>card_refund_order_content_ext</td>
+      <td>是</td>
+      <td>CardRefundOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardRefundOrderContentExt</td>
    </tr>
 </table>
 
@@ -3611,6 +3662,22 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderState(枚举类型)</td>
       <td>退款状态，详见 AlipayRefundOrderState</td>
+   </tr>
+</table>
+
+#### CardRefundOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>state</td>
+      <td>是</td>
+      <td>CardRefundOrderState(枚举类型)</td>
+      <td>退款状态，详见 CardRefundOrderState</td>
    </tr>
 </table>
 
@@ -3767,7 +3834,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>author_code</td>
       <td>否</td>
       <td>String(128)</td>
-      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）</td>
+      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）；可以使用授权码前缀判断支付平台：微信支付为10~15开头，支付宝为25~30开头，会员卡为99开头</td>
    </tr>
    <tr>
       <td>time_expire</td>
@@ -4156,6 +4223,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>String(16)</td>
       <td>调用云支付 API 的机器 IP</td>
+   </tr>
+   <tr>
+      <td>sn_code</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>使用云支付机具配置方式的，刷卡支付、查询订单、申请退款、退款查询四个接口需要填机具的sn号</td>
    </tr>
 </table>
 
@@ -4640,6 +4713,10 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>2</td>
       <td>支付宝</td>
    </tr>
+   <tr>
+      <td>3</td>
+      <td>会员卡</td>
+   </tr>
 </table>
 
 #### TradeType 枚举变量
@@ -4762,6 +4839,34 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>订单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>成功</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>等待用户支付</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>已退款</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>已关单</td>
+   </tr>
+</table>
+
 #### WxpayRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4795,6 +4900,26 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 </table>
 
 #### AlipayRefundOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>退款单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>退款单成功态</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>申请退款失败</td>
+   </tr>
+</table>
+
+#### CardRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>
@@ -4860,31 +4985,52 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>
-      <td>说明</td>
+      <td>操作结果</td>
+      <td>返回内容是否带认证码</td>
+      <td>原请求是否能重试</td>
+      <td>用户操作建议</td>      
    </tr>
    <tr>
       <td>0</td>
-      <td>成功。带认证码，调用者需要验证认证码是否正确</td>
+      <td>成功</td>
+      <td>是</td>
+      <td>是</td>
+      <td>-</td>	   
    </tr>
    <tr>
       <td>3</td>
-      <td>系统内部错误，操作结果未知，可重试，不带认证码</td>
+      <td>未知</td>
+      <td>否</td>
+      <td>是</td>
+      <td>原请求重试</td>      
    </tr>
    <tr>
       <td>101</td>
-      <td>操作失败，且不建议重试，不带认证码</td>
+      <td>失败</td>
+      <td>否</td>
+      <td>否</td>
+      <td>根据description字段内容，检查调用逻辑是否有问题，如认证码计算错误</td>
    </tr>
    <tr>
       <td>102</td>
-      <td>操作失败，且建议换新单号重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>换新单号重试，并根据description字段内容，检查调用逻辑是否有问题，如单号重复</td>
    </tr>
    <tr>
       <td>103</td>
-      <td>系统内部错误，可重试，带认证码，调用者需要验证认证码是否正确</td>
+      <td>未知</td>
+      <td>是</td>
+      <td>是</td>
+      <td>隔3秒后原请求重试或查询结果</td>
    </tr>
    <tr>
       <td>104</td>
-      <td>操作失败，且不建议重试. 带认证码，调用者需要验证认证码是否正确<br><b>特别提示：在刷卡支付响应包里出现该错误码时，需要判断 internal_status 字段的值是否是407，如是，则说明说明客户端发生异常，支付时单号重复，但金额等其他信息不重复，被云支付的防重入挡住，此时，请一定不要撤单，否则会造成已支付的订单退款，给商户造成损失。</b></td>
+      <td>失败</td>
+      <td>是</td>
+      <td>否</td>
+      <td>根据description字段内容操作，如退款时顾客余额不足</td>
    </tr>
 </table>
 

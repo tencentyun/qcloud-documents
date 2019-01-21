@@ -5,7 +5,7 @@ PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL �
 ### 请求示例
 
 ```
-PUT /{ObjectName}/?acl HTTP/1.1
+PUT /<ObjectName>?acl HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
@@ -63,7 +63,6 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 AccessControlPolicy|无|保存 GET Bucket acl 结果的容器|Container|是
 
 
-
 ## 响应
 ### 响应头
 
@@ -72,8 +71,6 @@ AccessControlPolicy|无|保存 GET Bucket acl 结果的容器|Container|是
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
 
 #### 特有响应头
-
-
 该请求操作无特殊的响应头部信息。
 
 ### 响应体
@@ -94,8 +91,8 @@ InvalidRequest|请求不合法，如果错误描述中显示"header acl and body
 ### 请求
 
 ```
-PUT /test?acl HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+PUT /123.txt?acl HTTP/1.1
+Host: bucket1-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
 Content-Length: 229
@@ -122,7 +119,7 @@ Content-Type: application/x-www-form-urlencoded
 </AccessControlPolicy>
 ```
 
-### 响应:
+### 响应
 
 ```
 HTTP/1.1 200 OK
@@ -132,3 +129,4 @@ Connection: keep-alive
 Date: Fri, 25 Feb 2017 04:10:22 GMT\
 Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
+```
