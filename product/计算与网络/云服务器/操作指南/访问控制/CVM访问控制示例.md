@@ -46,9 +46,9 @@
 ### CVM 的只读策略
 如果您只想让用户拥有查询 CVM 实例的权限，但是不具有创建、删除、开关机的权限，您可以对该用户使用名称为：QcloudCVMInnerReadOnlyAccess 的策略。
 
->建议：请配置 CVM 的只读策略。</font>
 
-您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，并在右边的全部服务中选择【云服务器】，就可以在图中位置找到该策略。
+
+您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy) ，并在右边的全部服务中选择【云服务器】，就可以在图中位置找到该策略。
 ![Alt text](https://mc.qcloudimg.com/static/img/c3a3537c24dde34054a590c3fe7eccc8/1500033727016.png)
 
 策略语法如下：
