@@ -9,16 +9,15 @@
 ### 上传备份至 COS
 1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos)。
 ![](https://main.qcloudimg.com/raw/08f65940f28d9f3e2400473f4be08270.png)
-2. 选择【存储桶列表】，单击【创建Bucket】。
+2. 选择【存储桶列表】，单击【创建存储桶】。
 3. 在弹出的创建页面，配置对应信息，单击【确定】。
  - Bucket 的地域需要和迁移目标的 SQL Server 实例的地域相同。
  - Cos 迁移不支持跨地域。  
-![](https://main.qcloudimg.com/raw/91cf24568e73bad9cb3e4805017834fd.png)
+![](https://main.qcloudimg.com/raw/4638c16ce60b47ced0348c092d7b4a78.png)
 4. 返回存储桶列表，选择对应的存储桶，在【操作】列单击【文件列表】。
 5. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
 6. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
- ![](https://main.qcloudimg.com/raw/bb132685327f6b3105a5483ed45bcd1f.png)
-
+![](https://main.qcloudimg.com/raw/6f1639a7df6015e52d6a98913839352f.png)
 ### 通过 COS 源文件迁移数据
 1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【关系型数据库】>【SQL Server】，进入 SQL Server 控制台，或者直接登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
 ![](https://main.qcloudimg.com/raw/331ba40db9eaf166fa8334946e93150d.png)
