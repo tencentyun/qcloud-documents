@@ -8,7 +8,7 @@
 App 管理员可以通过该接口查询已设置的自定义脏字。
 
 ## 接口调用说明
-#### 请求 URL 示例
+### 请求 URL 示例
 ```
 https://console.tim.qq.com/v4/openim_dirty_words/get?usersig=xxx&identifier=admin&sdkappid=88888888&random=99999999&contenttype=json
 ```

@@ -55,7 +55,7 @@ def main_handler(event, context):
     print(retmsg)
     return retmsg
 ```
->! 在本函数中，您可以自行扩充其他业务逻辑。，例如，将 secConnectionID 保存到 TencentDB 中，创建并关联聊天室等。
+>! 在本函数中，您可以自行扩充其他业务逻辑。例如，将 secConnectionID 保存到 TencentDB 中，创建并关联聊天室等。
 
 ### 传输函数
 
@@ -137,15 +137,17 @@ def main_handler(event, context):
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=8)。
 2. 选择与云函数相同的地域，并单击【新建】，创建服务。
 3. 单击【API配置】，进入 “API管理” 页面。
-4. 单击【新建】，进入 “新建API” 页面。如下图所示：
+4. 单击【新建】，进入 “新建API” 页面。
 5. 在 “前端配置” 中，将 “前端类型” 设置为 “WEBSOCKET”，并根据实际需求填写 “路径” 和 “鉴权类型”。如下图所示：
 ![](https://main.qcloudimg.com/raw/255e351bf7926e1a984e2735877bbb80.png)
 6. 单击【下一步】。
 7. 在 “后端配置” 中，将 “后端类型” 设置为 “cloud function”，并根据实际需求设置 “传输函数”、“注册函数” 和 “清理函数” 等参数。如下图所示：
-![](https://main.qcloudimg.com/raw/ed7baa101cbd407f6d046b51a9ebb57b.png)
 >! 
 > - 后端超时：Client 端在建立 WebSocket 连接后，如果一直没有消息发送，将会在超时时间到达后，由 API 网关断开连接。
 > - 响应集成（建议不要勾选）：当勾选响应集成后，云函数的返回值需要按照约定的 JSON 数据结构返回。
+
+ ![](https://main.qcloudimg.com/raw/ed7baa101cbd407f6d046b51a9ebb57b.png)
+
 8. 根据页面提示，逐步完成操作。
 
 ### 发布服务
@@ -164,4 +166,4 @@ def main_handler(event, context):
 切换至【环境管理】页签，查看 API 服务地址。如下图所示：
 ![](https://main.qcloudimg.com/raw/48b5e37072da95df2238ec3cd2eec504.png)
 根据服务地址，可知 WebSocket 的 API 地址为："ws://service-0sua8j6z-1256608914.ap-beijing.apigateway.myqcloud.com/release/websocket"
->! WebSocket 的 API 地址需要带上 API 的路径 '/websocket'。
+>! WebSocket 的 API 地址需要带上 API 的路径 “/websocket”。

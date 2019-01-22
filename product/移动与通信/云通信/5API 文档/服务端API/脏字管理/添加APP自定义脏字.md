@@ -11,7 +11,7 @@
 - 默认 IM 添加脏字不能超过 50 个，如果超过 50 个则多次请求即可。
 
 ## 接口调用说明
-### 请求 URL
+### 请求 URL 示例
 ```
 https://console.tim.qq.com/v4/openim_dirty_words/add?usersig=xxx&identifier=admin&sdkappid=88888888&random=99999999&contenttype=json
 ```

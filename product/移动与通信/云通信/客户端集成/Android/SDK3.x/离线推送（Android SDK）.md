@@ -344,39 +344,23 @@ ImSDK 从 1.8.0 版本开始提供了离线推送的功能。因为离线推送�
 
 ```xml
 <!--  消息收发 service -->
-<service
-    android:name="com.tencent.qalsdk.service.QalService"
-    android:exported="false"
-    android:process=":QALSERVICE" >  
-</service>
+<service 
+    android:name="com.tencent.imsdk.session.remote.SessionService"
+    android:process=":network"/>
 <!--  消息收发辅助 service -->
-<service  
-    android:name="com.tencent.qalsdk.service.QalAssistService"  
-    android:exported="false"
-    android:process=":QALSERVICE" >
- </service>
+<service
+    android:name="com.tencent.imsdk.session.remote.AssistService"
+    android:process=":network"/>
+<service
+    android:name="com.tencent.imsdk.session.remote.KeepAliveJobService"
+    android:permission="android.permission.BIND_JOB_SERVICE"
+    android:process=":network"/>
 <!--  离线消息广播接收器 -->
-<receiver
-    android:name="com.tencent.qalsdk.QALBroadcastReceiver"
-    android:exported="false">
+<receiver android:name="com.tencent.imsdk.session.SessionBroadcastReceiver">
     <intent-filter>
-        <action android:name="com.tencent.qalsdk.broadcast.qal" />
-    </intent-filter>
-</receiver>
-<!--  系统消息广播接收器 -->
-<receiver
-    android:name="com.tencent.qalsdk.core.NetConnInfoCenter"  android:process=":QALSERVICE">  
-    <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED" />
-    </intent-filter>
-    <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-    </intent-filter>
-    <intent-filter>
-        <action android:name="android.intent.action.TIME_SET" />
-    </intent-filter>
-    <intent-filter>
-        <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+        <action android:name="com.tencent.imsdk.session.boot" />
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
     </intent-filter>
 </receiver>
 ```

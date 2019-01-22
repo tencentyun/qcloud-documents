@@ -60,11 +60,11 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
  <td>requestContext</td>
  <td>请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中包括：
   <ul>
-   <li>serviceName，path，httpMethod 指向 API 网关的服务、API 的路径和方法。</li>
-	 <li>stage 指向请求来源 API 所在的环境。</li>
-	 <li>requestId 标识当前这次请求的唯一 ID。</li>
-	 <li>identity 标识用户的认证方法和认证的信息。</li>
-	 <li>sourceIp 标识请求来源 IP。</li>
+   <li>serviceName，path，httpMethod：指向 API 网关的服务、API 的路径和方法。</li>
+	 <li>stage：指向请求来源 API 所在的环境。</li>
+	 <li>requestId：标识当前这次请求的唯一 ID。</li>
+	 <li>identity：标识用户的认证方法和认证的信息。</li>
+	 <li>sourceIp：标识请求来源 IP。</li>
   </ul>
  </td>
 </tr>
@@ -72,16 +72,16 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
  <td>websocket</td>
  <td>建立连接的详细信息。其中包括：
    <ul>
-   <li>action 指本次请求的动作。</li>
-	 <li>secConnectionID 字符串，即标识 WebSocket 连接的 ID。原始长度为 128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
-	 <li>（可选字段）secWebSocketProtocol 字符串，代表子协议列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
-	 <li>（可选字段）secWebSocketExtensions 字符串，代表扩展列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
+   <li>action：指本次请求的动作。</li>
+	 <li>secConnectionID：字符串，即标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
+	 <li>secWebSocketProtocol：字符串，可选字段。</br>代表子协议列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
+	 <li>secWebSocketExtensions：字符串，可选字段。</br>代表扩展列表。如果原始请求有该字段内容将传给云函数，否则该字段不出现。</li>
   </ul>
  </td>
 </tr>
 </table>
 
- >! 在 API 网关迭代过程中， requestContext 中的内容可能会大量增加。目前只保证数据结构内容仅增加，不删除，且不对已有结构进行破坏。
+ >! 在 API 网关迭代过程中，requestContext 中的内容可能会大量增加。目前只保证数据结构内容仅增加，不删除，且不对已有结构进行破坏。
 2. 当注册函数收到连接建立的请求后，需要在函数处理结束时，将是否同意建立连接的响应消息返回至 API 网关中。响应  Body 要求为 JSON 格式，其示例如下：
 ```
 {
@@ -112,10 +112,10 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
  <td>websocket</td>
  <td>连接建立的详细信息。其中：
   <ul>
-	 <li>action 指本次请求的动作。</li>
-	 <li>secConnectionID 字符串，是标识 WebSocket 连接的 ID，原始长度为 128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
-	 <li>（可选字段）secWebSocketProtocol 字符串，为单个子协议的值。如果原始请求有该字段内容，API 网关会透传到客户端。</li>
-	 <li>（可选字段）secWebSocketExtensions 字符串，为单个扩展的值。如果原始请求有该字段内容，API 网关会透传到客户端。</li>
+	 <li>action：指本次请求的动作。</li>
+	 <li>secConnectionID：字符串，是标识 WebSocket 连接的 ID，原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符。</li>
+	 <li>secWebSocketProtocol：字符串，可选字段。</br>为单个子协议的值。如果原始请求有该字段内容，API 网关会透传到客户端。</li>
+	 <li>secWebSocketExtensions：字符串，可选字段。</br>为单个扩展的值。如果原始请求有该字段内容，API 网关会透传到客户端。</li>
 	</ul>
  </td>
 </tr>
@@ -123,7 +123,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
  >! 
  > - SCF 请求超时默认认为连接建立失败。
- > - 当 API 网关收到云函数的响应消息后，优先判断 HTTP 响应码。如果响应码为非200，则认为 SCF 出现故障，拒绝建立连接。如果响应码为200，则解析响应 Body。
+ > - 当 API 网关收到云函数的响应消息后，优先判断 HTTP 响应码。如果响应码为200，则解析响应 Body。如果响应码为非200，则认为 SCF 出现故障，拒绝建立连接。
 
 ### 数据传输
 
@@ -146,17 +146,17 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 <table>
 <tr><th>参数</th><th>内容</th></tr>
 <tr><td>websocket</td><td>数据传输的详细信息。</td></tr>
-<tr><td>action</td><td>本次请求的动作，例如 "data recv"。</td></tr>
-<tr><td>secConnectionID</td><td>字符串。</br>是标识 websocket 连接的 ID。原始长度为 128Bit，是经过 base64 编码后的字符串，共32个字符</td></tr>
-<tr><td>dataType</td><td>传输数据的类型。"binary" 表示二进制；"text" 表示文本。</td></tr>
-<tr><td>data</td><td>传输的数据。如果 "dataType" 是 "binary"，则为 base64 编码后的二进制流；如果 "dataType" 是 "text"，则为字符串。</td></tr>
+<tr><td>action</td><td>本次请求的动作，例如 “data recv”。</td></tr>
+<tr><td>secConnectionID</td><td>字符串，是标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符</td></tr>
+<tr><td>dataType</td><td>传输数据的类型。<ul><li>“binary”：表示二进制。</li><li>“text”：表示文本。</li></ul></td></tr>
+<tr><td>data</td><td>传输的数据。如果 “dataType” 是 “binary”，则为 base64 编码后的二进制流；如果 “dataType” 是 “text”，则为字符串。</td></tr>
 <table>
 
 ##### 传输响应
 
 在传输函数运行结束后，会向 API 网关返回 HTTP 响应，API 网关会根据响应码做出相应的动作：
-- 如果响应码为 200，表示函数运行成功。
-- 如果响应码为非 200，表示系统故障，API 网关会主动给客户端发 FIN 包。
+- 如果响应码为200，表示函数运行成功。
+- 如果响应码为非200，表示系统故障，API 网关会主动给客户端发 FIN 包。
 
 >! API 网关不会处理响应 Body 中的内容。
 
@@ -188,17 +188,17 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 |    字段    | 内容 |
 | ---------- | --- |
-| websocket | 数据传输的详细信息 |
-|action | 本次请求的动作，支持内容为"data send"、"closing"两种：<li>"data send"为向客户端发送数据<li>"closing"为向客户端发起连接断开请求，可以不包含"dataType"和"data"内容 |
-|secConnectionID| 字符串，是标识 websocket 连接的 ID，原始长度为 128bit,此处是经过 base64 编码后的字符串，共 32 个字符|
-|dataType | 传输数据的类型，一共两种：<li>"binary" 表示二进制 <li>"text" 表示文本 |
-|data | 传输的数据:<li>如果 "dataType" 是 "binary"，则为 base64 编码后的二进制流 <li>如果 "dataType" 是 "text"，则为字符串|
+| websocket | 数据传输的详细信息。 |
+|action | 本次请求的动作，支持内容为 “data send”、“closing” 两种：<ul><li>“data send”：为向客户端发送数据。</li><li>“closing”：为向客户端发起连接断开请求，可以不包含 "dataType" 和 "data" 内容。</li></ul> |
+|secConnectionID| 字符串，是标识 websocket 连接的 ID，原始长度为 128bit，是经过 base64 编码后的字符串，共32个字符。|
+|dataType | 传输数据的类型，一共两种：<ul><li>“binary”：表示二进制。</li> <li>“text”：表示文本。</li></ul> |
+|data | 传输的数据：<ul><li>如果 “dataType” 是 “binary”，则为 base64 编码后的二进制流。</li> <li>如果 “dataType” 是 “text”，则为字符串。</li></ul> |
 
 ##### 回调响应
 
 在回调结束后，可根据 API 网关的响应码判断回调的结果：
-- 如果响应码为 200，表示回调成功。
-- 如果响应码为非 200，表示系统故障，此时 API 网关会主动向客户端发 FIN 包。
+- 如果响应码为200，表示回调成功。
+- 如果响应码为非200，表示系统故障，此时 API 网关会主动向客户端发 FIN 包。
 
 同时，在响应结果中可以拿到为 JSON 格式的响应 Body，示例如下：
 ```
@@ -236,18 +236,18 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 | ---------- | --- |
 | websocket | 连接断开的详细信息。 |
 | action | 本次请求的动作，此处为 "closing"。 |
-| secConnectionID | 字符串。</br>是标识 WebSocket 连接的 ID。原始长度为 128Bit，是经过 base64 编码后的字符串，共32个字符。|
+| secConnectionID | 字符串。</br>是标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符。|
 >! 在清理函数中，您可以从 event 中获取 secConnectionID，并在永久存储（如数据库）中删除该 ID。
 
 ##### 注销响应
 
 在清理函数运行结束后，会向 API 网关返回 HTTP 响应，API 网关会根据响应码做出相应的动作：
-- 如果响应码为 200，表示函数运行成功。
-- 如果响应码为非 200，表示系统故障。
+- 如果响应码为200，表示函数运行成功。
+- 如果响应码为非200，表示系统故障。
 
 >! API 网关不会处理响应 Body 中的内容。
 
-#### Server 端主动断开连接
+#### 服务端主动断开连接
 
 参考【[下行数据回调](#DownlinkDataCallback)】，在函数中发起 Request 请求，将以下数据结构封装在 Body 中，并以 POST 方法发送给 API 网关的反向推向地址。
 ```
