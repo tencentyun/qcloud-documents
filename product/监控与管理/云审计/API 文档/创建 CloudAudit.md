@@ -15,7 +15,7 @@ CreateAudit 用于创建云审计（跟踪集）。
 |CosKeyPrefix	|否|	String	|COS Bucket 前缀，命名规范参照 COS|
 |CmqTopicName	|否|	String	|CMQ 主题名称，如果开启消息队列请填写，命名规范参照 CMQ 要求|
 
->!此处每个用户只能创建50个跟踪集。
+>!此处每个用户只能创建1个跟踪集。
 
 
 ## 响应参数
