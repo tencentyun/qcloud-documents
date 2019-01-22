@@ -34,7 +34,7 @@ CreateAudit 用于创建云审计（跟踪集）。
    "IsMultiRegionAudit": "Number",
    "Name": "String",
    "CosBucketName": "String",
-   "CosKeyPrefix": "String",
+   "CosKeyPrefix": "String"
 }
 ```
 
@@ -44,6 +44,6 @@ CreateAudit 用于创建云审计（跟踪集）。
    "IsMultiRegionAudit": "Number",
    "Name": "String",
    "CosBucketName": "String",
-   "CosKeyPrefix": "String",
+   "CosKeyPrefix": "String"
 }
 ```
