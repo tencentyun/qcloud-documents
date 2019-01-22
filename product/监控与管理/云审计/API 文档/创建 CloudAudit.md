@@ -1,6 +1,6 @@
 
 ## 接口描述
-CreateAudit 用于创建云审计（CloudAudit）。
+CreateAudit 用于创建云审计（跟踪集）。
 接口访问域名：`cloudaudit.api.qcloud.com`
 
 ## 请求参数
@@ -10,12 +10,12 @@ CreateAudit 用于创建云审计（CloudAudit）。
 |---------|---------|---------|--------|
 |IsMultiRegionAudit	|否|	Number	|是否开启多地域采集。0：不开启，1：开启|
 |KmsKeyId	|否|	String	| Kms 的 scretId，用于数据加密|
-|Name	|是|	String	|CloudAudit 名称，3-128 字节，只能包含 ASCII 编码字母 `a-z，A-Z`，数字 `0-9`，下划线 `_`|
+|Name	|是|	String	|跟踪集名称，3-128字节，只能包含 ASCII 编码字母 `a-z，A-Z`，数字 `0-9`，下划线 `_`|
 |CosBucketName	|是|	String	|要投递的 COS Bucket 的名称，命名规范参照 COS 的命名要求|
 |CosKeyPrefix	|否|	String	|COS Bucket 前缀，命名规范参照 COS|
 |CmqTopicName	|否|	String	|CMQ 主题名称，如果开启消息队列请填写，命名规范参照 CMQ 要求|
-> **注意：**
-> 此处每个用户只能创建 50 个 CloudAudit 。
+
+>!此处每个用户只能创建50个跟踪集。
 
 
 ## 响应参数
@@ -23,9 +23,9 @@ CreateAudit 用于创建云审计（CloudAudit）。
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| IsMultiRegionAudit | Number | 是否开启多地域采集。1 代表是，0 代表否|
+| IsMultiRegionAudit | Number | 是否开启多地域采集，1 代表是，0 代表否|
 | KmsKeyId | String | Kms 密钥 ID |
-| Name | String | CloudAudit 名称 |
+| Name | String | 跟踪集名称 |
 | CosBucketName | String | 	COS Bucket 名称 |
 | CosKeyPrefix | String | COS Bucket 前缀 |
 | CmqTopicName | String | CMQ 主题名称 |
@@ -33,7 +33,7 @@ CreateAudit 用于创建云审计（CloudAudit）。
 ## 实际案例
 ### 请求
 
-```
+```shell
 {
    "IsMultiRegionAudit": Number,
    "KmsKeyId": "String",
@@ -43,9 +43,9 @@ CreateAudit 用于创建云审计（CloudAudit）。
    "CosTopicName": "String"
 }
 ```
-### 响应
 
-```
+### 响应
+```shell
 {
    "IsMultiRegionAudit": Number,
    "KmsKeyId": "String",
