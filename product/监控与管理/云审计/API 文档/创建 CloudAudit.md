@@ -32,11 +32,9 @@ CreateAudit 用于创建云审计（跟踪集）。
 ```shell
 {
    "IsMultiRegionAudit": "Number",
-   "KmsKeyId": "String",
    "Name": "String",
    "CosBucketName": "String",
    "CosKeyPrefix": "String",
-   "CosTopicName": "String"
 }
 ```
 
@@ -44,10 +42,8 @@ CreateAudit 用于创建云审计（跟踪集）。
 ```shell
 {
    "IsMultiRegionAudit": "Number",
-   "KmsKeyId": "String",
    "Name": "String",
    "CosBucketName": "String",
    "CosKeyPrefix": "String",
-   "CmqTopicName": "String"
 }
 ```
