@@ -11,15 +11,13 @@
 ![](https://main.qcloudimg.com/raw/08f65940f28d9f3e2400473f4be08270.png)
 2. 选择【存储桶列表】，单击【创建Bucket】。
 3. 在弹出的创建页面，配置对应信息，单击【确定】。
->!
->- Bucket 的地域需要和迁移目标的 SQL Server 实例的地域相同。
->- Cos 迁移不支持跨地域。
-   
+ - Bucket 的地域需要和迁移目标的 SQL Server 实例的地域相同。
+ - Cos 迁移不支持跨地域。  
 ![](https://main.qcloudimg.com/raw/91cf24568e73bad9cb3e4805017834fd.png)
 4. 返回存储桶列表，选择对应的存储桶，在【操作】列单击【文件列表】。
 5. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
 6. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
-![](https://main.qcloudimg.com/raw/bb132685327f6b3105a5483ed45bcd1f.png)
+ ![](https://main.qcloudimg.com/raw/bb132685327f6b3105a5483ed45bcd1f.png)
 
 ### 通过 COS 源文件迁移数据
 1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【关系型数据库】>【SQL Server】，进入 SQL Server 控制台，或者直接登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
@@ -27,11 +25,10 @@
 2. 在左侧栏选择【数据传输】，单击【创建任务】，创建新的离线迁移任务。
   - 【任务名称】：用户自定义。
   - 【源实例类型】：选择【SQL Server 备份还原(COS方式)】。
+  - 【地域】：源库信息的地域必须和 COS 源文件连接的地域相同。
   - 【COS 原文件链接】：上传源文件到 COS 后可查看文件信息，获取 COS 原文件链接。
   - 【目标库类型】和【目标库地域】：根据源库的配置由系统自动生成。
   - 【实例 ID】：选择需要迁入的实例，只能选择同一地域下的实例。
->!源库信息的【地域】必须和 COS 源文件连接的地域相同。
-
 ![](https://main.qcloudimg.com/raw/9de77ed9d505eb7e8a4d7cc6a7de056c.png)
 ![](https://main.qcloudimg.com/raw/5c884d7ede2c8a38f538108b38a100ec.png)
 3. 配置完成后，单击【下一步】。
