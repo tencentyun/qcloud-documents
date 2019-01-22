@@ -20,6 +20,7 @@
 4. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
 5. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
 ![](https://main.qcloudimg.com/raw/bb132685327f6b3105a5483ed45bcd1f.png)
+
 ### 通过 COS 源文件迁移数据
 1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【关系型数据库】>【SQL Server】，进入 SQL Server 控制台，或者直接登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
 ![](https://main.qcloudimg.com/raw/331ba40db9eaf166fa8334946e93150d.png)
