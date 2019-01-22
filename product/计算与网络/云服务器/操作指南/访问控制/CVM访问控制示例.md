@@ -3,7 +3,7 @@
 您可以通过使用 CAM （Cloud Access Management，访问管理）策略让用户拥有在 CVM （Cloud Virtual Machine，云服务器）控制台中查看和使用特定资源的权限。该部分的示例能够使用户使用控制台的特定部分的策略。
 ### CVM 的全读写策略
 如果您想让用户拥有创建和管理 CVM 实例的权限，您可以对该用户使用名称为：QcloudCVMFullAccess 的策略。
-您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，并在右边的全部服务中选择【云服务器】，就可以在图中位置找到该策略。
+您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，在右边的全部服务中选择【云服务器】，即可在图中位置找到该策略。
 
 ![Alt text](https://mc.qcloudimg.com/static/img/ac676b0e8f27c0759ad602c5fe383d3c/1500033749808.png)
 策略语法如下：
