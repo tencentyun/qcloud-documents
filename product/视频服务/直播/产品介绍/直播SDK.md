@@ -3,5 +3,5 @@
 ## SDK 与源码下载
 直播 SDK 为用户提供了 IOS、Android、Windows 等多终端 SDK 支持，同时也提供了小程序、Web（PC端）、服务端等 Demo 源码的 [下载支持](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)。
 
-## 更多SDK能力
+## 更多 SDK 能力
 如果您想了解更多直播 SDK 能力，可到 [产品页](https://cloud.tencent.com/product/mlvb) 查看。
