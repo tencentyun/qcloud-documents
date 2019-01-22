@@ -16,7 +16,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.13/bin/l
 ```shell
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.13/bin/windows/amd64/kubectl.exe
 ```
->注：v1.8.13可根据需求替换成业务所需的kubectl版本。
+>注：kubenretes版本大于1.10请使用1.10以上的kubectl工具，小于1.10版本请使用1.10以下的kubectl工具，上述命令中v1.8.13可根据需求替换成业务所需的kubectl版本。
 
 #### 添加执行权限
 使用以下命令添加执行权限：
@@ -44,7 +44,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 4. 获取访问入口。
  - 获取公网访问入口：开启公网访问地址后可参考 [步骤三](#step3) 直接使用。
 
- - 获取 VPC 内网访问入口：目前暂不支持内网 **DNS** 解析，因此需要指定客户端主机的 **hosts**，来支持域名解析。即：在`/etc/hosts`文件后追加内网返回的 **IP** 和域名。用户可以参考下面的代码，也可以手动设置。 
+ - 获取 VPC 内网访问入口：目前暂不支持内网 **DNS** 解析，因此需要指定客户端主机的 **hosts**，来支持域名解析。即：在`/etc/hosts`文件后追加内网返回的 **IP** 和域名。用户可以参考下面的代码，也可以手动设置。
 ```
 sudo sed -i '$a **IP地址** **域名**' /etc/hosts
 ```
