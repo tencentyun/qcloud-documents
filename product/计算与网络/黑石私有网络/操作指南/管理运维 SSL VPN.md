@@ -1,5 +1,5 @@
 ## 网关侧配置指引
-1. 登录腾讯云 [控制台](https://console.cloud.tencent.com/)，选择 【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】。
+1. 登录腾讯云 [控制台](https://console.cloud.tencent.com/)，选择 【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【对等连接】。
 ![](https://mc.qcloudimg.com/static/img/1575d6284717ee9626975a8eab5fca2e/image.png)
 2. 进入黑石对等连接控制台后，选择黑石服务区域，单击【新建】即可新建 SSL VPN 网关。
 ![](https://mc.qcloudimg.com/static/img/81aa737bc1091378baa3e1571794c00c/image.png)
