@@ -32,7 +32,7 @@
   - 【实例 ID】：选择需要迁入的实例，只能选择同一地域下的实例。
 >!源库信息的【地域】必须和 COS 源文件连接的地域相同。
 
-![](https://main.qcloudimg.com/raw/1e43a8a788d1790318435e1498b54d80.png)
+![](https://main.qcloudimg.com/raw/e0a197277311e8d5e704ffb32e626ef4.png)
 ![](https://main.qcloudimg.com/raw/5c884d7ede2c8a38f538108b38a100ec.png)
 3. 配置完成后，单击【下一步】。
 4. 【选择类型】和【数据库设置】目前支持调整，单击【创建任务】。
