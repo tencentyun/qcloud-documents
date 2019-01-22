@@ -21,7 +21,7 @@ OpenAuditService 用于开通跟踪集服务。
 ## 实际案例
 ### 请求
 
-```
+```shell
 {
    "ownerUin": 1150691759,
    "Uin": 1150691759,
