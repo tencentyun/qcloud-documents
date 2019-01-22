@@ -10,15 +10,15 @@
 1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos)。
 ![](https://main.qcloudimg.com/raw/08f65940f28d9f3e2400473f4be08270.png)
 2. 选择【存储桶列表】，单击【创建Bucket】。
-2. 在弹出的创建页面，配置对应信息，单击【确定】。
+3. 在弹出的创建页面，配置对应信息，单击【确定】。
 >!
 >- Bucket 的地域需要和迁移目标的 SQL Server 实例的地域相同。
 >- Cos 迁移不支持跨地域。
-
-![](https://main.qcloudimg.com/raw/91cf24568e73bad9cb3e4805017834fd.png)
-3. 返回存储桶列表，选择对应的存储桶，在【操作】列单击【文件列表】。
-4. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
-5. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
+   
+ ![](https://main.qcloudimg.com/raw/91cf24568e73bad9cb3e4805017834fd.png)
+4. 返回存储桶列表，选择对应的存储桶，在【操作】列单击【文件列表】。
+5. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
+6. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
 ![](https://main.qcloudimg.com/raw/bb132685327f6b3105a5483ed45bcd1f.png)
 
 ### 通过 COS 源文件迁移数据
@@ -32,8 +32,8 @@
   - 【实例 ID】：选择需要迁入的实例，只能选择同一地域下的实例。
 >!源库信息的【地域】必须和 COS 源文件连接的地域相同。
 
-![](https://main.qcloudimg.com/raw/e0a197277311e8d5e704ffb32e626ef4.png)
-![](https://main.qcloudimg.com/raw/5c884d7ede2c8a38f538108b38a100ec.png)
+ ![](https://main.qcloudimg.com/raw/e0a197277311e8d5e704ffb32e626ef4.png)
+ ![](https://main.qcloudimg.com/raw/5c884d7ede2c8a38f538108b38a100ec.png)
 3. 配置完成后，单击【下一步】。
 4. 【选择类型】和【数据库设置】目前支持调整，单击【创建任务】。
 5. 返回任务列表，此时任务状态为【初始化】，选择并单击【启动】同步任务。
