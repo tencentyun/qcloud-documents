@@ -38,7 +38,7 @@ public int PauseAudio()
 public int ResumeAudio()
 ```
 
-如果在早于 2.3 版本的 SDK 接口调用过程中，有调用到上面两个接口，即 ITMGAudioCtrl::PauseAudio/ResumeAudio，版本对比如下表所示：
+如果在2.3之前版本的 SDK 接口调用过程中，如有调用 ITMGAudioCtrl::PauseAudio/ResumeAudio 两个接口，可参照下表进行版本对比。
 
 
 |2.3 之前版本|升级 2.3 版本|
