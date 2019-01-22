@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 上传备份至 COS
-1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos)。
+1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos5)。
 ![](https://main.qcloudimg.com/raw/08f65940f28d9f3e2400473f4be08270.png)
 2. 选择【存储桶列表】，单击【创建存储桶】。
 3. 在弹出的创建页面，配置对应信息，单击【确定】。
