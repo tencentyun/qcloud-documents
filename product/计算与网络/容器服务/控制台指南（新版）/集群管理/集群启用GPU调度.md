@@ -1,6 +1,13 @@
 ## 操作场景
 
 如果您的业务需要进行深度学习、高性能计算等场景，您可以使用腾讯云容器服务支持 GPU 功能，通过该功能可以帮助您快速使用 GPU 容器。如需要开通 GPU 功能，您可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=容器服务TKE&step=1) 进行申请。
+启用 GPU 调度有以下两种方式：
+- [在集群中添加 GPU 节点](#addGPUNodesatCluster)
+ - [新建 GPU 云服务器](#createGPUServer)
+ - [添加已有 GPU 云服务器](#addGPUServer)
+- [创建 GPU 服务的容器](#createGPUServiceContainer)
+ - [通过控制台方式创建](#consoleCreate)
+ - [通过应用或 Kubectl 命令创建](#appOrKubectlCreate)
 
 ## 前提条件
 
@@ -13,6 +20,7 @@
 
 ## 操作步骤
 
+<span id="addGPUNodesatCluster"></span>
 ### 在集群中添加 GPU 节点
 
 添加 GPU 节点有以下两种方法：
@@ -46,6 +54,7 @@
  ![](https://main.qcloudimg.com/raw/f25f7ec3b504f346c6271ca73cf2ceb3.png)
 5. 按照页面提示逐步操作，完成添加。
 
+<span id="createGPUServiceContainer"></span>
 ### 创建 GPU 服务的容器
 
 创建 GPU 服务的容器有以下两种方法：
