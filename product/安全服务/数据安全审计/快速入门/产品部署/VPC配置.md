@@ -22,6 +22,8 @@ CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并
      - 华北地区（北京）：`vpc-q1g8oefi`。
      - 西南地区（成都）：`vpc-6kf7ekus`。
      - 西南地区（重庆）：`vpc-h22su1ll`。
+     - 华南地区（深圳金融）：`vpc-qlo9jto6`。
+     - 华东地区（上海金融）：`vpc-864mgg6d`。
      
  ![2](https://main.qcloudimg.com/raw/91f6bc95ef9abd55dcaf2b21aea9ea19.png)
 3. 配置完毕后，单击【创建】，提交对等连接申请，等待审批。如长时间未通过审批，请咨询腾讯客服或拨打电话：4009-100-100。
