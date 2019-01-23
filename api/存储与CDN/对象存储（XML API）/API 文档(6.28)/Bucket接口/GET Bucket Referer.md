@@ -45,7 +45,7 @@ Authorization: Auth String
 
 该响应体返回为 application/xml 数据，包含完整节点数据的内容展示如下：
 
-```XML
+```shell
 <RefererConfiguration>
   <Status></Status>
   <RefererType></RefererType>
@@ -76,7 +76,7 @@ Authorization: Auth String
 
 ### 请求
 
-```HTTP
+```shell
 GET /?referer HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
@@ -85,7 +85,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 
 ### 响应
 
-```HTTP
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 260

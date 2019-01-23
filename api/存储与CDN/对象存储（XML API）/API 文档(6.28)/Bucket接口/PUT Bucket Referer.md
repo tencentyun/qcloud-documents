@@ -6,7 +6,7 @@ PUT Bucket Referer 接口用于为存储桶设置 Referer 白名单或者黑名�
 
 ### 请求示例
 
-```HTTP
+```shell
 PUT /?referer HTTP 1.1
 Host:<BucketName-APPID>.<Region>.myqcloud.com
 Date:GMT Date
@@ -27,10 +27,26 @@ Content-MD5:MD5
 
 **必选头部**
 
-| 名称           | 描述                                                         | 类型   | 必选 |
-| -------------- | ------------------------------------------------------------ | ------ | ---- |
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。                | String | 是   |
-| Content-MD5    | RFC 1864 中定义的经过 Base64 编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。 | String | 是   |
+<table>
+   <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>类型</th>
+      <th>必选</th>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">Content-Length</td>
+      <td>RFC 2616中定义的 HTTP 请求内容长度（字节）。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>Content-MD5</td>
+      <td>RFC 1864中定义的经过 Base64 编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+</table>
 
 该请求操作无特殊的请求头部信息。
 
@@ -38,7 +54,7 @@ Content-MD5:MD5
 
 该请求的请求体具体节点内容为：
 
-```XML
+```shell
 <RefererConfiguration>
   <Status></Status>
   <RefererType></RefererType>
@@ -86,7 +102,7 @@ Content-MD5:MD5
 
 ### 请求
 
-```HTTP
+```shell
 PUT /?referer HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
@@ -107,7 +123,7 @@ Content-Type: application/xml
 
 ### 响应
 
-```HTTP
+```shell
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: keep-alive
