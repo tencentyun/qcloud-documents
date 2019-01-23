@@ -105,6 +105,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 ---|---
 - updateBgImageWithPath:mode:succ:failed: | 设置背景图片（本地图片路径）
 - updateBgImageWithURL:mode:succ:failed: | 设置背景图片（网络图片 URL）
+- updateCurrentImageMode | 设置当前背景图片显示模式
 - getBGImageURL: | 获取BoardId对应白板当前显示的背景图片
 - saveToAlbumWithFinish: | 将白板当前内容截图，保存到本地相册
 
