@@ -1,16 +1,14 @@
 ## REST API 简介
-REST API 是云通信给提供 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信支持的 REST API 参见 [REST API 接口列表](/doc/product/269/REST%20API接口列表)。
-
+REST API 是云通信给提供 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信支持的 REST API 参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
 除了 REST API，App 控制台也可实现简单的数据管理、单发/群发消息，开发者可以在控制台进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
 
 ## 前提条件
 要调用 REST API，您必须首先
-1. 在云通信控制台创建 App，具体方法参见 [应用接入指引](/doc/product/269/应用接入指引)；
-2. 为您的 App 指定管理员帐号，具体方法参见 [设置App管理员帐号](/doc/product/269/%E8%AE%BE%E7%BD%AEAPP%E7%AE%A1%E7%90%86%E5%91%98)。
+1. 在云通信控制台创建 App，具体方法参见 [应用接入指引](https://cloud.tencent.com/document/product/269/32577)；
+2. 为您的 App 指定管理员帐号，具体方法参见 [设置 App 管理员帐号](待补超链)。
 
->!
->- 调用 REST API 时请务必使用 App 管理员帐号，否则会导致不必要的调用错误。
+>!调用 REST API 时请务必使用 App 管理员帐号，否则会导致不必要的调用错误。
 
 ## 调用方法
 ### 请求 URL
@@ -27,20 +25,20 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$sdkappid&identif
 | servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |参见 API 详细描述 |
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |参见 API 详细描述 |
 | sdkappid  | App 在云通信控制台获取的应用标识 |在申请接入时获得 |
-| identifier  | 用户名，调用 REST API 时一般为 App 管理员帐号 |用户名（必须为 [App 管理员帐号](/doc/product/269/帐号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)） |
-| usersig  | 用户名对应的密码 |参见 [Linux 平台下生成 UserSig](/doc/product/269/TLS后台API使用手册#2-linux.E5.B9.B3.E5.8F.B0)和[Windows 平台下生成UserSig](/doc/product/269/TLS后台API使用手册#3-windows.E5.B9.B3.E5.8F.B0) |
+| identifier  | 用户名，调用 REST API 时一般为 App 管理员帐号 |用户名（必须为 [App 管理员帐号](待补超链)） |
+| usersig  | 用户名对应的密码 |参见 [Linux 平台下生成 UserSig](待补超链)和[Windows 平台下生成UserSig](待补超链) |
 | random  | 标识当前请求的随机数参数 |32 位无符号整数随机数 |
 
 >!
->1. App 服务端在调用 REST API 时，identifier 必须为 [App 管理员帐号](/doc/product/269/帐号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)；
->1. App 可以在每次调用 REST API 时都生成管理员帐号的 usersig，亦可生成一个固定的 usersig 重复使用，但请特别注意 usersig 的有效期。
+>1. App 服务端在调用 REST API 时，identifier 必须为 [App 管理员帐号](待补超链)；
+>2. App 可以在每次调用 REST API 时都生成管理员帐号的 usersig，亦可生成一个固定的 usersig 重复使用，但请特别注意 usersig 的有效期。
 
 ### HTTP 请求包体格式
 REST API 仅支持 POST 方法，其请求包体为 JSON 格式，具体的包体格式参见每个 API 的详细描述。
 需要特别注意的是，POST 包体不能为空，即使某条协议包体中不需要携带任何信息，也需要携带一个空的 JSON 对象，即`{}`。
 
 ### HTTP 返回码
-除非发生网络错误（例如 502 错误），REST API 的调用结果均为 200，真正的 API 调用错误码与错误信息是在 HTTP 应答包体中返回的。
+除非发生网络错误（例如 502 错误），否则 REST API 的调用结果均为 200，真正的 API 调用错误码与错误信息是在 HTTP 应答包体中返回的。
 
 ### HTTP 应答包体格式
 REST API 的应答包体也是 JSON 格式，其格式符合如下特征：
@@ -58,10 +56,10 @@ REST API 的应答包体也是 JSON 格式，其格式符合如下特征：
 |---------|---------|---------|
 |ActionStatus | String | 请求处理的结果，OK 表示处理成功，FAIL 表示失败，如果为 FAIL，ErrorInfo 带上失败原因 |
 |ErrorInfo  | String | 失败原因 |
-|ErrorCode  | Integer | 错误码，0 为成功，其他为失败，可查询 [错误码表](/doc/product/269/错误码) 得到具体的原因 |
+|ErrorCode  | Integer | 错误码，0 为成功，其他为失败，可查询 [错误码表](https://cloud.tencent.com/document/product/269/1671) 得到具体的原因 |
 
 ## 调用示例
-以下为通过 REST API 来[获取 App 中所有群组](/doc/product/269/1614) 示例。
+以下为通过 REST API 来 [获取 App 中所有群组](https://cloud.tencent.com/document/product/269/1614) 示例。
 
 HTTPS 请求：
 ```
@@ -111,7 +109,7 @@ Access-Control-Allow-Methods: POST
 | 60007 | REST 接口调用频率超过限制，请降低请求频率 |
 | 60008 | 服务请求超时或 HTTP 请求格式错误，请检查并重试 |
 | 60009 | 请求资源错误，请检查请求 URL |
-| 60010 | 请求需要 [App 管理员](/doc/product/269/帐号登录集成说明#3.4-app.E7.AE.A1.E7.90.86.E5.91.98)权限 |
+| 60010 | 请求需要 [App 管理员](待补超链)权限 |
 | 60011 | appid 请求频率超限，请降低请求频率 |
 | 60012 | REST 接口需要带 SdkAppid，请检查请求 URL 中的 SdkAppid |
 | 60013 | HTTP 响应包 JSON 解析错误 |

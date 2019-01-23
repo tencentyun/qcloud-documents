@@ -1,5 +1,5 @@
 ## crs-port 简介
-云数据库 Redis（Redis 版）支持通过 crs-port 工具进行实例数据导入导出：
+云数据库 Redis（社区版）支持通过 crs-port 工具进行实例数据导入导出：
 - 支持导入 Redis 4.0 及以下版本的 RDB 文件至 Redis 2.8 主从版、4.0 集群版。
 - 支持导出 Redis 2.8 单机版、主从版的数据。
 

@@ -4224,6 +4224,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>String(16)</td>
       <td>调用云支付 API 的机器 IP</td>
    </tr>
+   <tr>
+      <td>sn_code</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>使用云支付机具配置方式的，刷卡支付、查询订单、申请退款、退款查询四个接口需要填机具的sn号</td>
+   </tr>
 </table>
 
 ### 门店信息
