@@ -727,7 +727,7 @@ public class MyApplication extends Application {
 想要 ImSDK 通过小米推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及 **regId** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
 
 > **注意：**
-> 目前仅支持小米、华为设备，其他厂商设备上传无效。
+> 目前仅支持小米、华为、魅族、OPPO、vivo设备，其他厂商设备上传无效。
 
 **原型：**
 ```java
@@ -811,7 +811,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 ```
 
-#### 配置化为推送服务需要的 service 和 receiver
+#### 配置华为推送服务需要的 service 和 receiver
 
 ```xml
 <!-- 备注：Push 相关的 Android 组件需要添加到业务的 AndroidManifest.xml,
@@ -957,7 +957,7 @@ public class MyApplication extends Application {
 想要 ImSDK 通过华为推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及**设备 token** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
 
 > **注意：**
-> 目前仅支持小米、华为设备，其他厂商设备上传无效。
+> 目前仅支持小米、华为、魅族、OPPO、vivo设备，其他厂商设备上传无效。
 
 **原型：**
 
@@ -1026,7 +1026,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 > - 收到离线消息时，默认通知标题为 `a new message`。
 > - 魅族官方建议在 Flyme OS 5.0 以上设备上获得最佳效果。
 > - 此文档是根据魅族推送 PushSDK3.6 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
-> - 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+> - 如果不需要对魅族设备做专门的离线推送适配，可以忽略此章节。
 
 
 ### 添加魅族离线推送证书
@@ -1235,3 +1235,325 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
     });
 }
 ```
+
+## 集成OPPO离线推送
+
+Opush是ColorOS上的系统级通道，为开发者提供稳定，高效的消息推送服务。为了保证 App 被杀后，在OPPO设备上仍然能够收到消息，需要集成Opush。目前，**SDK 仅支持推送通知栏消息**。
+
+>注：
+> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android APP 应用。
+> - 此文档是根据 OPPO 推送 sdk 1.0.1 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考[OPPO官方接入文档](https://open.oppomobile.com/wiki/doc#id=10196)。
+> - 如果不需要对 OPPO 设备做专门的离线推送适配，可以忽略此章节。
+
+
+### 添加OPPO离线推送证书
+
+从腾讯云管理中心的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加 `Android 推送证书`。如何获得相应的推送证书可以参考 [Android 推送证书申请](/doc/product/269/5331)。添加证书成功后，可以得到一个证书 ID，这里可以把这个 ID 记录下来，在后续环节中会使用到。
+
+### PushSDK 引用配置
+
+集成Opush推送，需要引入OPPO推送 SDK，目前OPPO推荐使用 gradle 的方式引用 `jar`。需要在 `buld.gradle` 里添加以下语句。
+
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['opush_xxx.jar']) //添加opush jar
+}
+```
+
+### 配置 AndroidManifest.xml 文件
+
+#### 添加Opush推送必须的权限
+
+```xml
+<uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+```
+
+#### 配置Opush推送服务需要的 service 
+
+```xml
+<!--
+	如果应用需要解析和处理Push消息（如透传消息），则继承PushService来处理，并在此申明
+	如果不需要处理Push消息，则直接申明PsuhService即可
+-->
+<service
+	android:name="包名.component.service.PushMessageService"
+	android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+	<intent-filter>
+		<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE" />
+	</intent-filter>
+</service>
+```
+
+### 初始化 PushCallback
+
+首先初始化 PushCallback 的子类 PushAdapter， 通过调用PushManager.getInstance().register(...)来初始化Opush推送服务。注册成功后，您可以在PushCallback的onRegister回调方法中得到regId。
+
+**示例：**
+
+```java
+private PushCallback mPushCallback = new PushAdapter() {
+        @Override
+        public void onRegister(int code, String s) {
+            if (code == 0) {
+                showResult("注册成功", "registerId:" + s);
+            } else {
+                showResult("注册失败", "code=" + code + ",msg=" + s);
+            }
+        }
+				
+		......
+		
+    };
+
+```
+
+**将 `mPushCallback` 注册到 `PushManager`。**
+
+```java
+PushManager.getInstance().register(this, AppParam.appKey, AppParam.appSecret, mPushCallback);//setPushCallback接口也可设置callback
+```
+注册需要在主进程中进行,PushManager中提供了isMainProcess(...)方法用于判断是否在主进程中.即先使用isMainProcess判断,判断成立时,才调用register进行初始化.
+
+必须要注册成功获取到注册ID后才能调用其他非注册接口
+### 获取设备 token
+
+通过调用 `PushManager.getInstance().register` 方法向 OPPO 推送平台请求当前应用在当前设备上的唯一标识。请求成功后，把 `onRegister` 回调方法中得到的 `regId` 记录下来，在后续环节中会使用到。
+
+### 上报证书 ID 及设备 token
+
+想要 ImSDK 通过 Opush 推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及**设备 token** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
+
+> **注意：**
+> 目前支持小米、华为、魅族、OPPO、vivo设备，其他厂商设备上传无效。
+
+**原型：**
+
+```
+/**
+ * 设置第三方推送用户标识，需登录后设置才生效
+ * @param token 用户标识
+ */
+public void setOfflinePushToken(TIMOfflinePushToken token)
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+token|用户标识，包括证书 ID， regId， TMID 等
+
+**`TIMOfflinePushToken` 成员方法详细说明：**
+
+```java
+/**
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ */
+public class TIMOfflinePushToken {
+    /**
+     * 设置离线推送用户标识，如小米推送的 regId 和华为推送的 TMID
+     * @param token 用户标识
+     */
+    public void setToken(String token)
+
+    /**
+     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
+     * @param bussid 业务 ID
+     */
+    public void setBussid(long bussid)
+}
+```
+
+**示例：**
+
+```
+//登录成功后，上报证书 ID 及设备 token
+TIMOfflinePushToken param = new TIMOfflinePushToken();
+param.setToken(token);
+param.setBussid(bussId);
+TIMManager.getInstance().setOfflinePushToken(param);
+```
+
+### 混淆打包
+
+如果需要混淆打包应用，为了防止 Opush 离线推送功能异常，需要添加以下混淆规则，仅供参考。
+
+```
+-keep public class * extends android.app.Service
+```
+
+## 集成vivo离线推送
+
+vivo 推送是 vivo 公司向开发者提供的消息推送服务，通过在云端与客户端之间建立一条稳定、可靠的长连接，为开发者提供向客户端应用实时推送消息的服务，支持百亿级的通知/消息推送，秒级触达移动用户。
+
+开发者可以方便地通过嵌入 SDK，通过 API 调用或者Web端可视化操作，实现对特定用户推送，大幅提升用户活跃度，有效唤醒沉睡用户，并实时查看推送效果。目前，**SDK 仅支持推送通知栏消息**。
+
+>注：
+> - 此文档是根据 vivo 推送 sdk 2.3.1 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考[vivo官方接入文档](https://dev.vivo.com.cn/documentCenter/doc/180)。
+> - 如果不需要对vivo设备做专门的离线推送适配，可以忽略此章节。
+
+
+### 添加vivo离线推送证书
+
+从腾讯云管理中心的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加 `Android 推送证书`。如何获得相应的推送证书可以参考 [Android 推送证书申请](/doc/product/269/5331)。添加证书成功后，可以得到一个证书 ID，这里可以把这个 ID 记录下来，在后续环节中会使用到。
+
+### PushSDK 引用配置
+
+集成 vivo 推送，需要引入 vivo 推送 SDK，目前 vivo 推荐使用 gradle 的方式引用 `jar`。需要在 `buld.gradle` 里添加以下语句。
+
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+```
+
+### 配置 AndroidManifest.xml 文件
+
+#### 添加 vivo 推送必须的权限
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+#### 配置 vivo 推送服务需要的 service 和 receiver
+
+```xml
+<service
+	android:name="com.vivo.push.sdk.service.CommandClientService"
+	android:exported="true" />
+	<!--推送配置项-->
+<meta-data
+	android:name="com.vivo.push.api_key"
+	android:value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+<meta-data
+	android:name="com.vivo.push.app_id"
+	android:value="xxxx"/>
+	
+<!-- push 应用定义消息 receiver 声明 -->
+<receiver android:name="xxx.xxx.xxx.PushMessageReceiverImpl" >
+	<intent-filter>
+		<!-- 接收 push 消息 -->
+		<action android:name="com.vivo.pushclient.action.RECEIVE" />
+	</intent-filter>
+</receiver>
+```
+- com.vivo.push.app_id ，com.vivo.push.api_key 由开放平台生成，详见 vivo push
+操作手册。
+- 推送服务SDK支持的最低安卓版本为 Android4.0 系统。
+
+### 自定义一个 BroadcastReceiver 类
+在当前工程中新建一个类 PushMessageReceiverImpl 并实现
+OpenClientPushMessageReceiver 中的 onNotificationMessageClicked 和 onReceiveRegId 方法。
+```java
+public class PushMessageReceiverImpl extends OpenClientPushMessageReceiver {
+    /**
+     * TAG to Log
+     */
+    public static final String TAG = PushMessageReceiverImpl.class.getSimpleName();
+
+    @Override
+    public void onNotificationMessageClicked(Context context, UPSNotificationMessage msg) {
+        String customContentString = msg.getSkipContent();
+        String notifyString = "通知点击 msgId " + msg.getMsgId() + " ;customContent=" + customContentString;
+        Log.d(TAG, notifyString);
+
+        // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
+        updateContent(notifyString);
+    }
+
+    @Override
+    public void onReceiveRegId(Context context, String regId) {
+        String responseString = "onReceiveRegId regId = " + regId;
+        Log.d(TAG, responseString);
+        updateContent(responseString);
+    }
+}
+
+```
+
+### 启动 vivo 云推送
+
+在当前工程入口函数，建议在 Application 的 onCreate 函数中，添加以下代码：
+
+**示例：**
+
+```java
+PushClient.getInstance(getApplicationContext()).initialize ();
+// 当需要打开推送服务时，调用以下代码:
+PushClient.getInstance(getApplicationContext()).turnOnPush(new IPush ActionListener() {
+	@Override
+	public void onStateChanged(int state) {
+	// TODO: 开关状态处理
+	}
+});
+
+```
+
+### 获取设备 regId
+
+通过调用 `PushClient.getInstance(getApplicationContext()).turnOnPush` 方法向vivo推送平台请求当前应用在当前设备上的唯一标识。请求成功后，把 `PushMessageReceiverImpl` 回调方法中得到的 `regId` 记录下来，在后续环节中会使用到。
+
+### 上报证书 ID 及设备 token
+
+想要 ImSDK 通过 vivo 推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及**设备 regId** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
+
+> **注意：**
+> 目前支持小米、华为、魅族、OPPO、vivo设备，其他厂商设备上传无效。
+
+**原型：**
+
+```
+/**
+ * 设置第三方推送用户标识，需登录后设置才生效
+ * @param token 用户标识
+ */
+public void setOfflinePushToken(TIMOfflinePushToken token)
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+token|用户标识，包括证书 ID， regId， TMID 等
+
+**`TIMOfflinePushToken` 成员方法详细说明：**
+
+```java
+/**
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ */
+public class TIMOfflinePushToken {
+    /**
+     * 设置离线推送用户标识，如小米推送的 regId 和华为推送的 TMID
+     * @param token 用户标识
+     */
+    public void setToken(String token)
+
+    /**
+     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
+     * @param bussid 业务 ID
+     */
+    public void setBussid(long bussid)
+}
+```
+
+**示例：**
+
+```
+//登录成功后，上报证书 ID 及设备 token
+TIMOfflinePushToken param = new TIMOfflinePushToken();
+param.setToken(token);
+param.setBussid(bussId);
+TIMManager.getInstance().setOfflinePushToken(param);
+```
+
+### 混淆打包
+
+如果需要混淆打包应用，为了防止Opush离线推送功能异常，需要添加以下混淆规则，仅供参考。
+
+```
+-dontwarn com.vivo.push.**
+-keep class com.vivo.push.**{*; } 
+-keep class com.vivo.vms.**{*; }
+-keep class xxx.xxx.xxx.PushMessageReceiverImpl{*;}
+```
+
