@@ -1,7 +1,7 @@
 ## 功能描述
 COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。生命周期配置包含一个或多个将应用于一组对象规则的规则集 (其中每个规则为 COS 定义一个操作)。
 这些操作分为以下两种：
-- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建 30 天后将其转换为低频存储（STANDARD_IA，适用于不常访问) 存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内园区）。具体参数参见请求示例说明中 Transition 项。
+- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问) 存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内园区）。具体参数查看请求示例说明中 Transition 项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
 ### 细节分析
@@ -11,7 +11,7 @@ PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如
 ## 请求
 ### 请求示例
 
-```
+```shell
 PUT /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
@@ -21,12 +21,12 @@ Content-MD5: MD5
 
 Lifecycle configuration in the request body
 ```
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization： Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 180px; }</style>
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 180px; }</style>
 
 #### 非公共头部
 
@@ -41,7 +41,7 @@ Lifecycle configuration in the request body
 ### 请求体
 该 API 接口请求的请求体具体节点内容为：
 
-```
+```shell
 <LifecycleConfiguration>
   <Rule>
     <ID></ID>
@@ -96,7 +96,7 @@ Lifecycle configuration in the request body
 |Rule|    LifecycleConfiguration    |规则描述    |Container|    是|
 |Filter    |LifecycleConfiguration.Rule    |Filter 用于描述规则影响的 Object 集合    |Container    |是|
 |Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |Container    |是|
-|ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过 255 个字符    |String    |否|
+|ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过255个字符    |String    |否|
 |And    |LifecycleConfiguration.Rule.Filter    |用于组合 Prefix    |Container    |否|
 |Prefix    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |Container    |否|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
@@ -116,7 +116,7 @@ Lifecycle configuration in the request body
 ### 响应头
 
 #### 公共响应头 
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -136,7 +136,7 @@ Lifecycle configuration in the request body
 ## 实际案例
 
 ### 请求
-```
+```shell
 PUT /?lifecycle HTTP/1.1
 Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 11:59:33 GMT
@@ -171,7 +171,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0

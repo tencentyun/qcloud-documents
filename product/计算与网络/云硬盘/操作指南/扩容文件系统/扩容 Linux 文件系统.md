@@ -1,31 +1,37 @@
+## 操作场景
 云硬盘是云上可扩展的存储设备，用户可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。
 [云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
 
-## 前置操作
-### 检查文件系统大小
-在执行扩容实体云硬盘大小操作后，用户可以通过检查文件系统大小来查看实例是否识别了更大的云硬盘空间。在 Linux 上，可以使用 `df -h` 命令检查文件系统大小。
+## 注意事项
 
-如果没有看到云硬盘大小变成扩容后的值，则需要扩容此文件系统，以便实例可以使用新的空间。
+扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
 
+## 前提条件
+
+- 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
+- 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。
+- 已 [登录](https://cloud.tencent.com/document/product/213/5436) 待扩展分区及文件系统的 Linux 云服务器。
+
+## 操作步骤
 ### 确认分区表形式
-执行以下命令，确认云硬盘在扩容前使用的分区表形式。
+1. 执行以下命令，确认云硬盘在扩容前使用的分区表形式。
 ```
 fdisk -l
 ```
-- 若结果如下两图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 GPT 分区方式，请执行 [扩展分区及文件系统（GPT）](#GPT)。
+ - 若结果如下两图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 GPT 分区方式，请执行 [扩展分区及文件系统（GPT）](#GPT)。
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
-- 若结果如下图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 MBR 分区方式，请执行 [扩展分区及文件系统（MBR）](#MBR)。
+ - 若结果如下图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 MBR 分区方式，请执行 [扩展分区及文件系统（MBR）](#MBR)。
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
 
 <span id="GPT"></span>
-## 扩展分区及文件系统（GPT）
+### 扩展分区及文件系统（GPT）
 GPT 分区的云硬盘完成 [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以选择：
 - [将扩容部分的容量划分至原有分区内](#AddToTheExistingGPTPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
 - [将扩容部分的容量格式化成独立的新分区](#CreateANewGPTPart)，同时原有分区保持不变。
 
 <span id="AddToTheExistingGPTPart"></span>
-### 将扩容部分的容量划分至原有分区（GPT）
+#### 将扩容部分的容量划分至原有分区（GPT）
 **查看数据盘信息**
 1. 执行以下命令，确认云硬盘的容量变化。
  ```
@@ -80,7 +86,7 @@ parted '/dev/vdb'
 unit s
 ```
 6. 输入 `print`，查看分区信息，并记录已有分区的 Start 值。
->! 删除分区并新建后，Start 值必须保持不变，否则数据将会丢失。
+>! 删除分区并新建后，Start 值必须保持不变，否则将会引起数据丢失。
 
  ![](//mccdn.qcloud.com/static/img/67ba54c1d9d63c307d4b8a157b70c722/image.png)
 7. 执行以下命令，删除原有分区。
@@ -165,7 +171,7 @@ df -h
 ![](//mccdn.qcloud.com/static/img/a2bd04c79e8383745689e19033a0daaa/image.png)
 
 <span id="CreateANewGPTPart"></span>
-### 将扩容部分的容量格式化成独立的新分区（GPT）
+#### 将扩容部分的容量格式化成独立的新分区（GPT）
 
 **查看数据盘信息**
 1. 执行以下命令， 确认云硬盘的容量变化。
@@ -251,7 +257,7 @@ mkfs.ext3 /dev/vdb2
 ```
 
 <span id="MBR"></span>
-## 扩展分区及文件系统（MBR）
+### 扩展分区及文件系统（MBR）
 MBR 分区的云硬盘完成  [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以通过 Linux 下的分区扩容工具（fdisk/e2fsck/resize2fs）选择：
 - [将扩容部分的容量划分至原有分区内](#AddToTheExistingMBRPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
 - [将扩容部分的容量格式化成独立的新分区](#CreateANewMBRPart)，同时原有分区保持不变。
@@ -261,7 +267,7 @@ MBR 分区的云硬盘完成  [扩容](https://cloud.tencent.com/document/produc
 > - 为了内核可以识别出新的分区表，不管是添加新分区，还是扩容到已有分区，都需要先将此磁盘的所有已挂载分区解挂，再执行后续操作。
 
 <span id="AddToTheExistingMBRPart"></span>
-### 将扩容部分的容量划分至原有分区（MBR）
+#### 将扩容部分的容量划分至原有分区（MBR）
 fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新扩容的云硬盘空间添加到已有的文件系统中，扩容能够成功必须满足以下四个条件：
 - 文件系统是 EXT2/EXT3/EXT4/XFS。
 - 当前文件系统不能有错误。
@@ -337,7 +343,7 @@ ll /data
 ```
 
 <span id="CreateANewMBRPart"></span>
-### 将扩容部分的容量格式化成独立的新分区（MBR）
+#### 将扩容部分的容量格式化成独立的新分区（MBR）
 **查看数据盘信息**
 1. 执行以下命令，查看已挂载的数据盘分区信息。
 ```

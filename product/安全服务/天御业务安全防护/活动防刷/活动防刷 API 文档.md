@@ -65,7 +65,7 @@
 <td> phoneNumber
 </td><td> 否
 </td><td> String
-</td><td> 手机号。若 accoutType 选 4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
+</td><td> 手机号。若 accountType 选 4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
 </td></tr>
 <tr>
 <td> emailAddress

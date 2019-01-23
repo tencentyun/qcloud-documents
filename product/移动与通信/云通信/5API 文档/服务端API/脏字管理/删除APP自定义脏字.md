@@ -9,7 +9,7 @@
  App 管理员可以通过该接口删除自定义的脏字。
 
 ## 接口调用说明
-### 请求URL
+### 请求 URL 示例
 ```
 https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=admin&sdkappid=88888888&random=99999999&contenttype=json
 ```
@@ -24,12 +24,10 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 | identifier         | 必须为 App 管理员帐号                |
 | sdkappid           | 创建应用时云通信控制台分配的 SdkAppid |
 | random             | 32位无符号整数随机数                 |
-| contenttype        | 固定为：json                       |
+| contenttype        | 固定值为：json                       |
 
 ### 最高调用频率
-
-100次/秒。如需提升调用频率，请根据 [工单模板](/doc/product/269/云通信配置变更需求工单#2.15-rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4)提交工单申请处理。
-
+100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/云通信配置变更需求工单#2.15-rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
 ### 请求包示例
 支持批量删除 App 自定义的脏字。
 ```
@@ -66,10 +64,9 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 | ErrorInfo | String  | 错误信息   |
 
 ### 错误码说明
-
-除非发生网络错误（例如 502错误），该接口的 HTTP 返回码均为 200;真正的错误码、错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
-公共错误码（60000 到 79999）参见 [REST API公共错误码](/doc/product/269/错误码#rest-api.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
-本API私有错误码如下：
+除非发生网络错误（例如 502 错误），否则该接口的 HTTP 返回码均为 200。真正的错误码，错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
+公共错误码（60000 到 79999）参见 [错误码](https://cloud.tencent.com/document/product/269/错误码) 文档。
+本 API 私有错误码如下：
 
 | 错误码 | 含义说明|
 |---------|---------|
@@ -79,10 +76,9 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 | 10007 | 操作权限不足，比如 Public 群组中普通成员尝试执行踢人操作，但只有 App 管理员才有权限 |
 
 ## 接口调试工具
-通过 [REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/get) 调试本接口。
+通过 [REST API 在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/get) 调试本接口。
 
 ## 参考
 
-- 查询 App 的自定义脏字（[v4/openim_dirty_words/get](/doc/product/269/查询APP自定义脏字)）
-- 添加 App 的自定义脏字（[v4/openim_dirty_words/add](/doc/product/269/添加APP自定义脏字)）
-
+- 查询 App 的自定义脏字（[v4/openim_dirty_words/get](/doc/product/269/查询APP自定义脏字)）；
+- 添加 App 的自定义脏字（[v4/openim_dirty_words/add](/doc/product/269/添加APP自定义脏字)）。
