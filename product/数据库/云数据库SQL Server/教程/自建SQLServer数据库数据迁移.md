@@ -1,5 +1,5 @@
 ## 操作场景
-云数据库 SQL Server 支持云服务器自建 SQL Server 数据库之间的数据迁移。
+云数据库 SQL Server 支持数据源是云服务器自建的 SQL Server 数据库进行数据迁移，本文将指导您如何配置迁移任务，帮助您完成将云服务器上自建的 SQL Server 数据库迁移至云数据库 SQL Server。
 >!
 >- 迁移前需保证目的实例的 SQL Server 版本不低于源实例的版本。
 >- 迁移的 bak 文件需保证每个 bak 文件只包含一个库。
