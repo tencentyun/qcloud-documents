@@ -95,6 +95,7 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 | 接口                                 | 说明                                       |
 | ---------------------------------- | ---------------------------------------- |
 | setBoardBackGround                   | 设置白板背景图。  	|
+| updateCurrentFillMode                   | 更新当前背景图对齐方式。  	|
 | setBackgroundColor                   | 设置白板背景颜色(默认为白色)，当前白板生效。  	|
 | setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效。  	|
 
