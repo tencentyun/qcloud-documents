@@ -40,13 +40,13 @@ brew cask install osxfuse
 <a id="compile"> </a>
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
-```shell
+```sh
 cd /usr/cosfs
 ./autogen.sh
 ./configure
 make
 sudo make install
-cosfs --version #查看 cosfs 版本号
+cosfs --version  #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
@@ -56,7 +56,7 @@ checking for common_lib_checking... configure: error: Package requirements (fuse
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
 此时，您需要手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
-```shell
+```sh
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
 tar -zxvf fuse-2.9.4.tar.gz

@@ -1,5 +1,5 @@
 ﻿**运行前必备**：
-执行以下命令安装 node-redis：
+执行以下命令，安装 node-redis：
 `npm install hiredis redis`
 
 **示例代码**：

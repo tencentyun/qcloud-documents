@@ -2,16 +2,16 @@
 
 ### 相关资源
 
-[Github 项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
+[Github 项目下载地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
 ### 开发环境
 
-1. 安装 openssl 的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) 
-2. 安装 curl 的库和头文件 https://curl.haxx.se/download.html
-3. 安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
-4. 安装 boost 的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
-5. 安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-6. 从控制台获取 App ID、SecretID、SecretKey。
+1. 安装 [openssl](http://www.openssl.org/source/)  的库和头文件。
+2. 安装 [curl](https://curl.haxx.se/download.html) 的库和头文件。
+3. 安装 [jsoncpp](https://github.com/open-source-parsers/jsoncpp) 的库和头文件。
+4. 安装 [boost](http://www.boost.org/) 的库和头文件。
+5. 安装 [cmake](http://www.cmake.org/download/) 工具。
+6. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 获取 APPID、SecretID、SecretKey。
 
 >**注意：**
 >1. 本 SDK 仅适用于 Linux 系统和编译环境，暂不支持 Windows 环境。

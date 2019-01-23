@@ -2,34 +2,42 @@
 
 ## 可用地域及访问域名
 >!
->- 默认域名在创建好存储桶后，可通过 [对象存储控制台](https://console.cloud.tencent.com/cos5) 的存储桶【域名管理】查看。
->- bucketname 是在创建存储桶时为存储桶命名的名称，可通过 [对象存储控制台](https://console.cloud.tencent.com/cos5) 的存储桶【基础配置】查看。
->- APPID 是在成功申请腾讯云账户后，系统分配的账户标识之一，可通过 [腾讯云控制台](https://console.cloud.tencent.com) 【账号信息】查看。
->- 历史版本的可用地域说明，请参阅 [历史版本地域列表](https://cloud.tencent.com/document/product/436/7777)。
->- 有关内网与外网访问的相关信息，请参阅 [创建请求概述](https://cloud.tencent.com/document/product/436/31315) 文档。
+>- 创建存储桶后会生成对应的默认域名，您可以前往 [对象存储控制台](https://console.cloud.tencent.com/cos5)，在存储桶的【域名管理】中查看。
+>- BucketName 是您在创建存储桶时所输入的自定义名称，详情请参阅 [存储桶的命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>- APPID 是您在成功申请腾讯云账户后所得到的账号，由系统自动分配，具有固定性和唯一性。可通过 [腾讯云控制台](https://console.cloud.tencent.com)，在【账号信息】中查看。
+>- 历史版本所支持的地域信息，请参阅 [历史版本地域列表](https://cloud.tencent.com/document/product/436/7777)。
+
 
 | 地域       | 地域简称         | 默认域名（上传/下载/管理 ）                          |
 | -------- | ------------ | ---------------------------------------- |
-| 北京一区（华北） | ap-beijing-1 | &lt;bucketname-APPID&gt;.cos.ap-beijing-1.myqcloud.com |
-| 北京       | ap-beijing   | &lt;bucketname-APPID&gt;.cos.ap-beijing.myqcloud.com |
-| 上海（华东）   | ap-shanghai  | &lt;bucketname-APPID&gt;.cos.ap-shanghai.myqcloud.com |
-| 广州（华南）   | ap-guangzhou | &lt;bucketname-APPID&gt;.cos.ap-guangzhou.myqcloud.com |
-| 成都（西南）   | ap-chengdu   | &lt;bucketname-APPID&gt;.cos.ap-chengdu.myqcloud.com |
-| 重庆       | ap-chongqing | <bucketname-APPID&gt;.cos.ap-chongqing.myqcloud.com |
-| 新加坡      | ap-singapore | &lt;bucketname-APPID&gt;.cos.ap-singapore.myqcloud.com |
-| 香港       | ap-hongkong  | &lt;bucketname-APPID&gt;.cos.ap-hongkong.myqcloud.com |
-| 多伦多      | na-toronto   | &lt;bucketname-APPID&gt;.cos.na-toronto.myqcloud.com |
-| 法兰克福     | eu-frankfurt | &lt;bucketname-APPID&gt;.cos.eu-frankfurt.myqcloud.com |
-| 孟买       | ap-mumbai    | <bucketname-APPID&gt;.cos.ap-mumbai.myqcloud.com |
-| 首尔       | ap-seoul     | <bucketname-APPID&gt;.cos.ap-seoul.myqcloud.com |
-| 硅谷       | na-siliconvalley     | <bucketname-APPID&gt;.cos.na-siliconvalley.myqcloud.com |
-| 弗吉尼亚       | na-ashburn     | <bucketname-APPID&gt;.cos.na-ashburn.myqcloud.com |
-| 曼谷       | ap-bangkok     | <bucketname-APPID&gt;.cos.ap-bangkok.myqcloud.com |
-| 莫斯科       | eu-moscow     | <bucketname-APPID&gt;.cos.eu-moscow.myqcloud.com |
-|东京       |ap-tokyo  |     <bucketname-APPID&gt;.cos.ap-tokyo.myqcloud.com |
+| 北京一区（已售罄）| ap-beijing-1 | &lt;BucketName-APPID&gt;.cos.ap-beijing-1.myqcloud.com |
+| 北京       | ap-beijing   | &lt;BucketName-APPID&gt;.cos.ap-beijing.myqcloud.com |
+| 上海（华东）   | ap-shanghai  | &lt;BucketName-APPID&gt;.cos.ap-shanghai.myqcloud.com |
+| 广州（华南）   | ap-guangzhou | &lt;BucketName-APPID&gt;.cos.ap-guangzhou.myqcloud.com |
+| 成都（西南）   | ap-chengdu   | &lt;BucketName-APPID&gt;.cos.ap-chengdu.myqcloud.com |
+| 重庆       | ap-chongqing | &lt;BucketName-APPID&gt;.cos.ap-chongqing.myqcloud.com |
+| 新加坡      | ap-singapore | &lt;BucketName-APPID&gt;.cos.ap-singapore.myqcloud.com |
+| 香港       | ap-hongkong  | &lt;BucketName-APPID&gt;.cos.ap-hongkong.myqcloud.com |
+| 多伦多      | na-toronto   | &lt;BucketName-APPID&gt;.cos.na-toronto.myqcloud.com |
+| 法兰克福     | eu-frankfurt | &lt;BucketName-APPID&gt;.cos.eu-frankfurt.myqcloud.com |
+| 孟买       | ap-mumbai    | &lt;BucketName-APPID&gt;.cos.ap-mumbai.myqcloud.com |
+| 首尔       | ap-seoul     | &lt;BucketName-APPID&gt;.cos.ap-seoul.myqcloud.com |
+| 硅谷       | na-siliconvalley     | &lt;BucketName-APPID&gt;.cos.na-siliconvalley.myqcloud.com |
+| 弗吉尼亚       | na-ashburn     | &lt;BucketName-APPID&gt;.cos.na-ashburn.myqcloud.com |
+| 曼谷       | ap-bangkok     | &lt;BucketName-APPID&gt;.cos.ap-bangkok.myqcloud.com |
+| 莫斯科       | eu-moscow     | &lt;BucketName-APPID&gt;.cos.eu-moscow.myqcloud.com |
+|东京       |ap-tokyo  |     &lt;BucketName-APPID&gt;.cos.ap-tokyo.myqcloud.com |
 
 > 示例：
-> 用户在所属地域广州创建了一个存储桶，存储桶名中用户自定义字符串部分为 example，系统自动为用户生成的数字串 APPID 为1250000000，则其默认访问域名为：
+> 用户创建了一个所属地域为广州的存储桶，以 examplebucket 命名存储桶，用户的 APPID 为1250000000，则存储桶的默认域名为：
+```shell
+examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 ```
-example-1250000000.cos.ap-guangzhou.myqcloud.com
-```
+
+## 内网和外网访问
+腾讯云对象存储 COS 的访问域名使用了智能 DNS 解析，通过互联网在不同的运营商环境下，我们会检测并指向最优链路供您访问 COS。
+
+如果您在腾讯云内部署了服务用于访问 COS，则同地域范围内访问将会自动被指向到内网地址。跨地域暂不支持内网访问，默认将会解析到外网地址。
+
+有关内网与外网访问的相关信息，请前往参阅 [创建请求概述](https://cloud.tencent.com/document/product/436/31315) 文档。
+

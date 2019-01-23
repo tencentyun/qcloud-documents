@@ -1675,103 +1675,6 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 }];
 ```
 
-## 群资料存储
-
-群资料存储仅保存群相关资料，不保存群成员资料。若需要获取群成员资料，建议通过群消息中携带的用户字段进行获取。
-
-### 启用群资料存储
-
-**原型：**
-
-```
-@interface TIMUserConfig : NSObject
-/**
- *  开启群组数据本地缓存功能（加载群组扩展包有效）
- */
-@property(nonatomic,assign) BOOL enableGroupAssistant;
-@end
-```
-
-### 群组资料获取同步接口
-
-为了方便读取，可以使用群组资料的同步接口（需要开启群资料存储）。
-
-**原型：**
-
-```
-/**
- *  群组助手
- */
-@interface TIMGroupManager (Ext)
-/**
- *  获取用户所在群组信息
- *
- *  @param groups 群组 ID（NSString*）列表，nil 时返回群组列表
- *
- *  @return 群组信息（TIMGroupInfo*)列表，assistant 未同步时返回 nil
- */
-- (NSArray*)getGroupInfo:(NSArray*)groups;
-@end
-```
-
-### 群通知回调
-
-如果开启了存储，可以设置监听感知群事件，当有对应事件发生时，会进行回调。
-
-**原型：**
-
-```
-@protocol TIMGroupListener <NSObject>
-@optional
-/**
- *  有新用户加入群时的通知回调
- *
- *  @param groupId     群 ID
- *  @param membersInfo 加群用户的群资料（TIMGroupMemberInfo*）列表
- */
-- (void)onMemberJoin:(NSString*)groupId membersInfo:(NSArray*)membersInfo;
-/**
- *  有群成员退群时的通知回调
- *
- *  @param groupId 群 ID
- *  @param members 退群成员的 identifier（NSString*）列表
- */
-- (void)onMemberQuit:(NSString*)groupId members:(NSArray*)members;
-/**
- *  群成员信息更新的通知回调
- *
- *  @param groupId     群 ID
- *  @param membersInfo 更新后的群成员资料（TIMGroupMemberInfo*）列表
- */
-- (void)onMemberUpdate:(NSString*)groupId membersInfo:(NSArray*)membersInfo;
-/**
- *  加入群的通知回调
- *
- *  @param groupInfo 加入群的群组资料
- */
-- (void)onGroupAdd:(TIMGroupInfo*)groupInfo;
-/**
- *  解散群的通知回调
- *
- *  @param groupId 解散群的群 ID
- */
-- (void)onGroupDelete:(NSString*)groupId;
-/**
- *  群资料更新的通知回调
- *
- *  @param groupInfo 更新后的群资料信息
- */
-- (void)onGroupUpdate:(TIMGroupInfo*)groupInfo;
-@end
-```
-
-**参数说明：**
-
-| 参数 | 说明 |
-| --- | --- |
-| onMemberUpdate | 群成员变更回调 |
-| membersInfo | 为变更后的成员信息，可以根据字段更新界面 |
-
 ## 群事件消息 
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可选择是否予以展示，以及如何展示（例如：忽略或者根据需要展示给用户）。 提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息，参见 [新消息通知](/doc/product/269/9148#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。如下图中，展示一条修改群名的事件消息。
@@ -2371,3 +2274,4 @@ user | 操作人
 ---|---
 type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE 
 group | 群组 ID，表示哪个群被回收了 
+~~~~

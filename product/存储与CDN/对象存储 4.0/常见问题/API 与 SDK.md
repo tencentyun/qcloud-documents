@@ -8,11 +8,11 @@
 
 ### 通过 JSON API 创建的存储桶和上传的对象，是否可以使用 XML API 管理？
 
-可以，XML API 是基于 COS V4 的架构，可以通过 XML API 操作由 JSON API 产生的数据。
+可以，XML API 是基于 COS 底层架构，可以通过 XML API 操作由 JSON API 产生的数据。
 
 ### XML API 与 JSON API 之间的关系？
 
-V4 版本的 JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。V4 版本的 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
+ JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
 
 ### XML API 与 JSON API 的密钥是否通用？
 
@@ -35,7 +35,7 @@ V4 版本的 JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 A
 
 ### 最新版本 SDK 是否支持 C# SDK?
 
-暂不支持，预计 12 月上旬上线。
+暂不支持，预计1月底上线。
 
 ### SDK 能否使用 CDN 加速域名进行访问？
 

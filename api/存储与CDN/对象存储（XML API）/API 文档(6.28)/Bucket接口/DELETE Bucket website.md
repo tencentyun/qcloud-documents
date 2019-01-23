@@ -53,7 +53,7 @@ Authorization: Auth String
 
 ### 请求
 
-```shell
+```
 DELETE /?website HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Date:Thu, 21 Sep 2017 13:21:09 +0000
@@ -62,7 +62,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-
 
 ### 响应
 
-```shell
+```
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
