@@ -111,9 +111,9 @@
 }
 ```
 以上策略是通过让用户分别对如下操作具有操作权限来达到目的：
-- CVM 中以单词"Describe"开头的所有操作和所有以单词“Inquiry”开头的所有操作。
-- VPC 中以单词"Describe "开头的所有操作、以单词“Inquiry”开头的所有操作和以单词“Get”开头的所有操作。
-- CLB 中以单词" Describe "开头的所有操作。
+- CVM 中以单词“Describe”开头的所有操作和所有以单词“Inquiry”开头的所有操作。
+- VPC 中以单词“Describe”开头的所有操作、以单词“Inquiry”开头的所有操作和以单词“Get”开头的所有操作。
+- CLB 中以单词“Describe”开头的所有操作。
 - Monitor 中所有的的操作。
 
 ### 弹性云盘的相关策略
