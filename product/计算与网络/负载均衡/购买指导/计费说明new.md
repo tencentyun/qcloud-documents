@@ -105,7 +105,7 @@
             <td >3Mbps</td>
          <td>4Mpbs</td>
          <td>5Mpbs</td>
-         <td>6Mpbs以上</td>
+         <td>6Mpbs及以上</td>
         </tr>
                                 <tr>
                         <td rowspan="4">传统型&应用型</td>
@@ -200,7 +200,7 @@
         </tr>
                 <tr>
             <td >1-5Mbps</td>
-         <td>5Mpbs以上</td>
+         <td>6Mpbs及以上</td>
         </tr>
                                 <tr>
                         <td rowspan="2">传统型&应用型</td>
