@@ -1,7 +1,5 @@
-当前版本的 EMR（V1.1.3）的 WebUI 路径为[【弹性 MapReduce 控制台】](https://console.cloud.tencent.com/emr)>【集群列表】>【详情】>【快捷入口】。
-![](https://main.qcloudimg.com/raw/620fd75d73262d40b6079229eb8bd988.png)
+软件 WebUI 入口功能是 EMR 提供的组件原生 UI 访问能力，通过 Master 节点的外网 IP（建议及时配置安全策略），可以快捷访问组件原生 UI 。如果您的集群内网与您的企业网络互通，可以关闭该外网 IP，直接通过内网访问组件原生 UI。
+ ![](https://main.qcloudimg.com/raw/401effabea600670f0f6270a2e0a61fd.png)
+访问地址需要进行身份验证，用户名为 Root，默认密码为创建集群时输入的密码，如果需要修改密码，可以在该页面中单击【重置原生UI密码】进行修改。
 
-默认的用户名为 root，密码为创建集群时的初始密码。若需修改密码，可单击该页面的【修改密码】进行操作。
-![](https://main.qcloudimg.com/raw/8c240365dd68daa8d3726b10eba2e3d6.png)
->**注意：**
->当 Master 节点发生主备切换后，会导致部分功能失效。若需恢复该功能，请通过 [工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+>!访问会产生网络流量费用，按流量计费。
