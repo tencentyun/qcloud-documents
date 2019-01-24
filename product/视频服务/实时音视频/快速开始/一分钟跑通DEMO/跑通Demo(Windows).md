@@ -1,19 +1,19 @@
 本文主要介绍如何快速地将腾讯云实时音视频 Demo(Windows) 工程运行起来，您只需参考如下步骤依次执行即可。
 
 ## 1. 创建新的应用
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有创建过一个应用，可以先创建一个新应用，即可获得 SDKAppid，并且可以继续下一步：
 
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有任何一个应用，会出现如下提示，提醒您创建一个新的应用：
-![](https://main.qcloudimg.com/raw/6ca631d8a7be7d339845645f8c9f6ab6.png)
-创建完应用之后，即可获得 SDKAppid，并且可以继续下一步：
-![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
+![](https://main.qcloudimg.com/raw/32065cbcd4cac9d8051a045cb1ae5d63.png)
 
 ## 2. 购买测试套餐
 单击【购买6.6元测试体验包】按钮，为上一步中创建的 SDKAppid 充值一定分钟数的测试用视频通话时长。
-![](https://main.qcloudimg.com/raw/f0ff77dedba7017ec05e57d834ec7f48.png)
+
+![](https://main.qcloudimg.com/raw/24ee79290d7c328ee654bdb0643c55cb.png)
 
 ## 3. 下载 Demo 源码
 充值完体验包之后，回到实时音视频控制台页面，单击第一步新创建的应用名称，进入该应用的详情页，在页面的第一步指引中即可看到源码下载地址：
-![](https://main.qcloudimg.com/raw/100be38c27d503f0cfe689d7512f0131.png)
+
+![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
 
 ## 4. 下载私钥文件
 单击**下载公私钥**的链接，即可获得一个名为 **keys.zip** 的压缩包，解压后可以得到两个文件，即 public_key 和 private_key，用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步**生成Demo配置文件内容**的文本输入框中。
