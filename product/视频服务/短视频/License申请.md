@@ -60,9 +60,9 @@ TXLiveBase.getInstance().getLicenceInfo();
 
 ### 6.  关于商业版本License
 
-使用商业版本license可以开启优图实验室的AI功能，License设置方法同上, 工程需要额外进行配置，具体配置参考(动效变脸链接)。
+使用商业版本 license 可以开启优图实验室的 AI 功能，License 设置方法同上, 工程需要额外进行配置，具体配置参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
-[点击申请](https://cloud.tencent.com/product/x-magic)
+单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)。
 
 ### 7. License常见问题QA
 
