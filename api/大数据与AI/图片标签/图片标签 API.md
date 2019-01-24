@@ -42,6 +42,18 @@
 
 ## 示例
 ### 输入示例
+```
+POST /v1/detection/imagetag_detect HTTP/1.1
+Host: recognition.image.myqcloud.com
+Content-Type: application/json
+authorization: WrE/BkJAorkCm0gg3/GKdVttlqVhPTEyNTcyMzc1MTEmaz1BS0lEZVE0WnN5b2I3MHl3b0Y4aWpaRGo1SUo4YnpCSGZ1UWsmZT0xNTUwOTEzMTkwJnQ9MTU0ODMyMTE5MCZyPTE4MDQyODkzODM=
+cache-control: no-cache
+
+{
+    "appid": "1234567890",
+    "image": "图片的base64"
+}
+```
 
 ### 输出示例
 ```
@@ -50,13 +62,16 @@
     "message": "success",
     "tags": [
         {
-            "tag_name": "天空",
-            "tag_confidence": 27
+            "tag_name": "大头照",
+            "tag_confidence": 18
         },
         {
             "tag_name": "女孩",
-
-            "tag_confidence": 47
+            "tag_confidence": 65
+        },
+        {
+            "tag_name": "海报",
+            "tag_confidence": 12
         }
     ]
 }
