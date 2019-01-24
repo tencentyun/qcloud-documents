@@ -36,7 +36,7 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 ![](https://main.qcloudimg.com/raw/3c32f587941aa511fa3d1b93b5c67415.png)
 
 
-4. 把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，编译运行 TUIKitDemo 。
+4. 把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，编译运行 TUIKitDemo。
 >!TUIKitDemo 编译会依赖 TUIKit工程，要在 TUIKitDemo -> Build Settings -> Header Search Paths 配置 TUIKit 的头文件路径寻址。
 >
 ![](https://main.qcloudimg.com/raw/059163e76d60798256cc903552d2c31e.png)
