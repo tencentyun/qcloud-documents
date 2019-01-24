@@ -26,12 +26,21 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 为方便开发者接入开发测试，我们在腾讯云控制台提供了快速生成 usersig 的工具（在这之前您需要先在腾讯云创建自己的 IM 应用，可参考 [云通信 IM 入门](https://cloud.tencent.com/product/im/getting-started)）。登录控制台后选择-【云通信】-【应用列表】（选择您当前在使用的应用）-【应用配置】-【开发辅助工具】，参考上面说明即可生成 usersig。
 
 ## 集成TUIKit
-1, 从 [Git](https://github.com/TencentVideoCloudIM/TIMSDK.git) 下载 ImSDK 开发包，TUIKit 源码所在的位置如下：
+1, 从 [Git](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，TUIKit 源码工程所在的位置如下：
 ![](https://main.qcloudimg.com/raw/6b3d09ba290e78783cc764a9620b42e1.png)
 
-2 ,以 TUIKitDemo 为例，参考下图，直接把 TUIKit 拖入 TUIKitDemo 工程中，然后编译TUIKit 工程生成 TUIKit.framework , 接着把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，最后重启  TUIKitDemo 工程，TUIKit 源码就集成到 TUIKitDemo了。
+2，以 TUIKitDemo 集成 TUIKit 为例，参考下图，直接把 TUIKit 工程拖入 TUIKitDemo 工程中，然后重启Xcode（这个很重要，防止TUIKit 工程在其他地方打开，导致在 TUIKitDemo 里面链接 TUIKit 无效）。
+![](https://main.qcloudimg.com/raw/29a60fdcb5ca0b93d902671557a60679.png)
 
-![](https://main.qcloudimg.com/raw/a09cbe3019676ef182605d893ffe9e57.png)
+3，重启Xcode 之后，重新打开 TUIKitDemo ，先选择 TUIKit 工程编译生成 TUIKit.framework 。
+![](https://main.qcloudimg.com/raw/3c32f587941aa511fa3d1b93b5c67415.png)
+
+***注意：TUIKit 编译会依赖 ImSDK.framework，要在TUIKit -> Build Settings -> Framework Search Paths 里面配置 ImSDK.framework 路径寻址，在TUIKit -> Build Settings -> Header Search Paths 里面配置 ImSDK.framework 头文件路径寻址。***
+
+4，把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，编译运行 TUIKitDemo 。
+![](https://main.qcloudimg.com/raw/059163e76d60798256cc903552d2c31e.png)
+
+***注意：TUIKitDemo 编译会依赖 TUIKit工程，要在 TUIKitDemo -> Build Settings -> Header Search Paths 配置 TUIKit 的头文件路径寻址。***
 
 ## 初始化 TUIKit
 
