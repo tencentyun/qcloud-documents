@@ -5,7 +5,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ![](https://main.qcloudimg.com/raw/23f7994c383d60b00eb63e8bedae7190.jpg)
 打开 OBS，可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/e7cc6b8ca41fcaef1de58f420b598d16.jpg)
-在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入 URL 和流名称中， URL 部分填写包含 Path 前的地址信息，刘明成填写包含 StreamName 后的地址信息，所以参数设置为：
+在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入 URL 和流名称中， URL 部分填写包含 Path 前的地址信息，流名称填写包含 StreamName 后的地址信息，所以参数设置为：
 ```
 URL：rtmp://push.livetest.myqcloud.com/live/
 流名称：StreamName?txSecret=xxxxx&txTime=5C1E5F7F
@@ -31,7 +31,7 @@ URL：rtmp://push.livetest.myqcloud.com/live/
 ![](https://main.qcloudimg.com/raw/9edd48f7c1ab7da4b71d1786865f774b.jpg)
 录制文件的本地保存地址设置如下：
 ![](https://main.qcloudimg.com/raw/5d39d3a9a0f9b80cadef5bda3db33a0e.jpg)
-分辨率决定了观众看到的画面清晰程度，分辨率越高画面越清晰。FPS 是视频帧率，它控制观看视频的流畅，普通视频帧率有24 - 30帧，低于16帧画面看起来有卡顿感，而游戏对帧率要求比较高，一般小于30帧游戏会显得不连贯。分辨率与帧率设置如下图：
+分辨率决定了观众看到的画面清晰程度，分辨率越高画面越清晰。FPS 是视频帧率，它控制观看视频的流畅，普通视频帧率有24帧 - 30帧，低于16帧画面看起来有卡顿感，而游戏对帧率要求比较高，一般小于30帧游戏会显得不连贯。分辨率与帧率设置如下图：
 ![](https://main.qcloudimg.com/raw/6ce3af2a487579f131ed484de33b4ad0.jpg)
 
 	

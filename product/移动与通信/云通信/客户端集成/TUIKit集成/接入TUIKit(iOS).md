@@ -12,10 +12,10 @@ IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等�
 
 这里我们先来了解帐号相关的几个概念。
 
-- **用户标识（userId）**:
+- **用户标识（userId）**：
 userId（用户标识）用于在一个 IM 应用中唯一标识一个用户，即我们通常所说的帐号。这个一般由您自己的服务生成，即用户信息的生成（注册）需由您开发实现。
 
-- **用户签名（userSig）**:
+- **用户签名（userSig）**：
 userSig（用户签名）是用于对一个用户进行鉴权认证，确认用户是否真实的。即用户在您的服务里注册一个帐号后，您的服务需要给该帐号配置一个 usersig，后续用户登录 IM 的时候需要带上 usersig 让 IM 服务器进行校验。用户签名生成方法可参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) 文档。
 
 了解了前面的概念后，您可以通过下图了解集成了 IMSDK 应用的注册/登录流程。
@@ -44,7 +44,7 @@ TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认TUIKit配置，这�
 ![](https://main.qcloudimg.com/raw/64b0d6df1854abbb768e8b15a2c54f98.png)
 
 | 文件名 |主要用途|
-|:-:|:-:|
+|---|------|
 |setting|设置界面，目前主要用于管理程序的退出逻辑|
 |chat|聊天界面，主要用于发送和接收各种自定义消息|
 |commom|公共基类，主要用于管理公用的基础模块|
