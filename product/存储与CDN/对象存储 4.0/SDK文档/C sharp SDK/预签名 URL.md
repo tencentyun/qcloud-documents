@@ -1,6 +1,5 @@
-# 预签名 URL
-
- SDK 提供了获取对象 URL ，计算签名，获取请求预签名 URL 接口.
+## 简介
+C# SDK 提供获取对象 URL、计算签名和获取请求预签名 URL 接口。
 
 ## 获取对象 URL 
 ```C#
@@ -20,24 +19,24 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 |request|CosRequest|请求对象|
 |preSignatureStruct|PreSignatureStruct|预签名 URL 实例|
 |method|string|http 请求方法|
-|path|string|http 请求路径,即 对象键|
-|headers|`Dictionary<string, string>`|签名是否校验header|
-|queryParameters|`Dictionary<string, string>`|签名是否校验请求url中查询参数|
+|path|string|http 请求路径，即对象键|
+|headers|`Dictionary<string, string>`|签名是否校验 header|
+|queryParameters|`Dictionary<string, string>`|签名是否校验请求 url 中查询参数|
 |signDurationSecond|long|签名有效时间，单位为秒|
 
 ### PreSignatureStruct 结构体说明
-通过 PreSignatureStruct 对象获取对应预签名请求URL，用于发送请求.
+通过 PreSignatureStruct 对象获取对应预签名请求 URL，用于发送请求。
 
 |参数名称|类型|描述|
 |-----|-----|----|
-|appid|string|腾讯云账号 appid|
+|appid|string|腾讯云账号 APPID|
 |bucket|string|存储桶|
 |region|string|存储桶所在地域|
-|method|string|http 请求方法|
-|isHttps|bool|true:https请求，false：http请求|
+|method|string|HTTP 请求方法|
+|isHttps|bool|true：HTTPS 请求，false：HTTP 请求|
 |key|string|对象键|
-|headers|`Dictionary<string, string>`|签名是否校验header|
-|queryParameters|`Dictionary<string, string>`|签名是否校验请求url中查询参数|
+|headers|`Dictionary<string, string>`|签名是否校验 header|
+|queryParameters|`Dictionary<string, string>`|签名是否校验请求 url 中查询参数|
 |signDurationSecond|long|签名有效时间，单位为秒|
 
 ## 永久密钥预签名请求示例
