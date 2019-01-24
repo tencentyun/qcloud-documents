@@ -1,5 +1,5 @@
 ### 概述
-腾讯云智聆口语评测（英文版）（Smart Oral Evaluation-English，SOE-E）是腾讯云推出的语音评测产品，是基于英语口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的英语口语发音评测。腾讯云智聆口语评测（英文版）支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于英语口语类教学应用中。
+腾讯云智聆口语评测（英文版）（Smart Oral Evaluation-English，SOE-E）是腾讯云推出的语音评测产品，是基于英语口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的英语口语发音评测。腾讯云智聆口语评测（英文版）支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于英语口语类教学应用。
 本 SDK 为智聆口语测评（英文版）的 Web 版本，封装了对智聆口语测评（英文版）网络 API 的调用及本地音频文件处理，并提供简单的录音功能，使用者可以专注于从业务切入，方便简洁地进行二次开发。
 本文档只对 Web SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
@@ -19,15 +19,15 @@ new TencentSOE
 | InitUrl       | String   | 初始化接口地址 | 是 | 无 |
 | TransUrl      | String   | 评分接口地址 | 是 | 无 |
 | WorkMode      | Integer  | 上传方式：语音输入模式，0流式分片，1非流式一次性评估 | 否 | 0 |
-| EvalMode      | Integer  | 评估模式，0:词模式, 1:句子模式 | 否 | 0 |
-| ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段 | 否 | 3.5 |
-| SoeAppId      | String   | 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数 | 否 | 无 |
-| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片TransmitOralProcess 返回结果 AudioUrl 字段。 | 否 | 无 |
+| EvalMode      | Integer  | 评估模式，0：词模式，1：句子模式 | 否 | 0 |
+| ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为最小年龄段，4.0为最高年龄段 | 否 | 3.5 |
+| SoeAppId      | String   | 业务应用 ID，与账号应用 APPID 无关，是用来方便客户管理服务的参数 | 否 | 无 |
+| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
 | success       | function | 创建成功回调 | 否 | 无 |
 | error         | function | 创建失败回调 | 否 | 无 |
 
 
-> 用户需自行替换后台接口地址,nodejs版本可参考[此SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)
+> 用户需自行替换后台接口地址，nodejs 版本可参考 [此SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)
 ```
 let recorder = new TencentSOE({
   InitUrl: 'http://127.0.0.1:3000/cgi/init',
@@ -128,5 +128,4 @@ recorder.reset({
 | 10005    | 未提供测评文本             |
 | 10020    | 接口错误                  |
 
-> Tip：
-非本地环境必须使用https协议
+> ?非本地环境必须使用 https 协议
