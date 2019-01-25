@@ -585,7 +585,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 ### 群成员获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。
 
 **权限说明：**
 
