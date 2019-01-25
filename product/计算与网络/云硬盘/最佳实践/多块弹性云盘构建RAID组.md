@@ -7,7 +7,7 @@ RAID 可以将多个磁盘组合起来构成一个磁盘阵列组，提高数据
  RAID 0、RAID 1、RAID 01 和 RAID 10之间的相同点与差异点如下表所示：
 <table>
      <tr>
-         <th>RAID 级别</th>  
+         <th nowrap="nowrap">RAID 级别</th>  
          <th>简介</th>  
 		 <th>优/缺点</th>
 		 <th>使用场景（建议）</th>
