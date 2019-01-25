@@ -31,7 +31,7 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 
 
 
-### 1.3 密钥对维度，入参取值(需要开启白名单)
+### 1.3 密钥对维度，入参取值（需要开启白名单）
 
 &namespace=qce/apigateway
 &dimensions.0.name=serviceId
@@ -56,8 +56,8 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 | ------------------ | ---- | -------- | ------- | ---------------------------------------- |
 | namespace          | 是    | String   | qce/apigateway | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
 | metricName         | 是    | String   | 具体的指标名称 | 指标名称，具体名称见2.2                            |
-| dimensions.n.name  | 是    | String   | 维度的名称   | 维度的名称，具体维度名称见第2.1.2小节，与dimensions.n.value配合使用。 |
-| dimensions.n.value | 是    | String   | 对应的维度的值 | 对应的维度的值，具体维度名称见第2.1.2小节，与dimensions.n.name配合使用。 |
+| dimensions.n.name  | 是    | String   | 维度的名称   | 维度的名称，具体维度名称见第2.1.2小节，与 dimensions.n.value 配合使用。 |
+| dimensions.n.value | 是    | String   | 对应的维度的值 | 对应的维度的值，具体维度名称见第2.1.2小节，与 dimensions.n.name 配合使用。 |
 | period             | 否    | Int      | 60/300  | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考2.2的指标详情列表。 |
 | startTime          | 否    | Datetime | 起始时间    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
 | endTime            | 否    | Datetime | 结束时间    | 结束时间，默认为当前时间。 endTime不能小于startTime       |
@@ -67,12 +67,12 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 
 | 参数名称               | 维度名称             | 维度解释          | 格式                            |
 | ------------------ | ---------------- | ------------- | ----------------------------- |
-| dimensions.0.name  | serviceId              | API网关服务 ID      | String类型维度名称：serviceId              |
-| dimensions.0.value | serviceId             | API网关服务 ID       | 具体ip地址，如111.111.111.11        |
-| dimensions.1.name  | environmentName | 环境名称        | String类型维度名称：environmentName |
-| dimensions.1.value | environmentName | 环境名称        | 的环境名称，release、test、repub                     |
-| dimensions.2.name  | apiid / key       | APIid 或者密钥对            | String类型维度名称： apiid / key         |
-| dimensions.2.value | apiid / secretid       | APIid 或者密钥对公钥           | 具体的apiid或者secretid（维度为key）               |
+| dimensions.0.name  | serviceId              | API 网关服务 ID      | String类型维度名称：serviceId              |
+| dimensions.0.value | serviceId             | API 网关服务 ID       | 具体 IP 地址      |
+| dimensions.1.name  | environmentName | 环境名称        | String 类型维度名称：environmentName |
+| dimensions.1.value | environmentName | 环境名称        | 环境名称，release、test、repub                     |
+| dimensions.2.name  | apiid/key       | APIid 或者密钥对            | String类型维度名称： apiid/key         |
+| dimensions.2.value | apiid/secretid       | APIid 或者密钥对公钥           | 具体的 apiid 或者 secretid（维度为 key）               |
 
 
 ### 2.2 指标名称
