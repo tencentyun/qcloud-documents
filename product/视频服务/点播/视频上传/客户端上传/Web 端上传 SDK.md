@@ -2,13 +2,13 @@
 
 对于浏览器上传音视频的场景，腾讯云点播提供了 Web 上传 SDK 来实现。上传的流程可以参见 [客户端上传指引](/document/product/266/9219)。
 
-源码：[https://github.com/tencentyun/vod-js-sdk-v6](https://github.com/tencentyun/vod-js-sdk-v6)
+源码：[点击访问](https://github.com/tencentyun/vod-js-sdk-v6)
 
 ## Demo
 
-[https://tencentyun.github.io/vod-js-sdk-v6/](https://tencentyun.github.io/vod-js-sdk-v6/)
+Demo：[点击访问](https://tencentyun.github.io/vod-js-sdk-v6/)
 
-Demo 源码：[https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
+Demo 源码：[点击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
 
 ## 简单视频上传
 
@@ -17,6 +17,11 @@ Demo 源码：[https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/inde
 ```html
 <script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
+
+```js
+import TcVod from 'vod-js-sdk-v6'
+```
+
 >? SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
 ###  定义获取上传签名的函数
@@ -37,7 +42,8 @@ function getSignature() {
 示例如下：
 
 ```js
-
+// 通过 import 引入的话，new TcVod(opts) 即可。
+// new TcVod.default(opts) 是 script 引入 的用法
 const tcVod = new TcVod.default({
   getSignature: getSignature // 前文中所述的获取上传签名的函数
 })
