@@ -1,5 +1,4 @@
->!此文档对应服务不再更新，建议使用 [人脸识别新接口](https://cloud.tencent.com/document/product/867/32770 )。
-新接口对应域名为`iai.tencentcloudapi.com`，与旧接口不兼容，数据不通。
+
 
 ## 开发准备
 >**注意：**以下为 Linux 等类 UINX 系统使用手册，暂不支持 Windows 系统。
