@@ -20,8 +20,8 @@
 | 参数名 | 必选 | 类型   | 说明                                    |
 | ----- | ---- | ------| ---------------------------------------- |
 | appid | 是   | String |接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                     |
-| image | 否   | String | 图像 base64 编码，图像格式为 jpg/png/bmp 其中之一。 |
-| url   | 否  | String | 可下载的图片 url。如果 url 和 image 都提供, 仅使用 url。  |
+| image | 否   | String | 图像 Base64 编码，图像格式为 JPG/PNG/BMP 其中之一。 |
+| url   | 否  | String | 可下载的图片 url。如果 url 和 image 都提供，仅使用 url。  |
 
 
 
@@ -84,7 +84,7 @@ cache-control: no-cache
 | 3       | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                                |
 | 4       | 签名为空                                 |
 | 5       | 签名串错误                                |
-| 6       | APPID/存储桶/ url 不匹配                  |
+| 6       | APPID/存储桶/url 不匹配                  |
 | 7       | 签名编码失败（内部错误）                         |
 | 8       | 签名解码失败（内部错误）                         |
 | 9       | 签名过期                                 |
@@ -111,7 +111,7 @@ cache-control: no-cache
 | -5062   | url 对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 
 
-更多其他 API 错误码请查看 [**错误码说明**](/document/product/865/17722) 。
+更多其他 API 错误码请查看 [**错误码说明**](https://cloud.tencent.com/document/product/865/17722) 。
 
 
 
