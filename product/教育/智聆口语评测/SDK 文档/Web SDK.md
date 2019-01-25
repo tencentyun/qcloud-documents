@@ -28,7 +28,7 @@
 | error         | function | 创建失败回调 | 否 | 无 |
 
 
-**用户需自行替换后台接口地址，NodeJS 版本可参考 [此 SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)**
+**用户需自行替换后台接口地址，NodeJS 版本可参考 [SDK for NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)**
 
 ```
 let recorder = new TencentSOE({
