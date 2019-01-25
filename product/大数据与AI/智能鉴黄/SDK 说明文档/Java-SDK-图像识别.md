@@ -1,3 +1,6 @@
+>!此文档对应服务不再更新，建议使用 [人脸识别新接口](https://cloud.tencent.com/document/product/867/32770 )。
+新接口对应域名为`iai.tencentcloudapi.com`，与旧接口不兼容，数据不通。
+
 ## SDK 获取
 智能图像的 Java SDK 下载地址：[Java-SDK-V2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
 
