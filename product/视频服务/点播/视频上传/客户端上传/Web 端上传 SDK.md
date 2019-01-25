@@ -2,13 +2,13 @@
 
 对于浏览器上传音视频的场景，腾讯云点播提供了 Web 上传 SDK 来实现。上传的流程可以参见 [客户端上传指引](/document/product/266/9219)。
 
-源码：[点击访问](https://github.com/tencentyun/vod-js-sdk-v6)
+源码：[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 下载。
 
 ## Demo
 
-Demo：[点击访问](https://tencentyun.github.io/vod-js-sdk-v6/)
+Demo：[单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) 下载。
 
-Demo 源码：[点击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)
+Demo 源码：单击访问 [下载 Demo 源码](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)。
 
 ## 简单视频上传
 
