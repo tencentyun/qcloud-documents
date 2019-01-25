@@ -1,135 +1,124 @@
-## 主要类简介
+MySQL API 2.0 版本接口将于2019年3月31日下线，届时，调用API V2版接口将不可用。
 
-| 类                  | 说明                                       |
-| ------------------ | ---------------------------------------- |
-| BoardSDK     |  白板 SDK 初始化类，App 启动时调用 init 方法进行初始化 |
-| WhiteboardView     | 继承 SurfaceView，独立主线程渲染，白板数据采集和展示网络白板数据控件 |
-| WhiteboardManager  | 白板主要业务逻辑管理类，提供了包括绘制参数设置、撤销、重做、擦除和选择等所有白板功能接口 |
-| WhiteboardEventListener | 白板事件回调接口，业务须实现所有接口                               |
-| WhiteboardConfig   | 白板绘制参数配置                             |
-| WhiteboardEvent         | 白板事件的数据结构                 |
+### 实例相关接口
 
+| Action(V2)                     | 接口名(V2)                                                   | Action(V3)                                                   | 接口名(V3)                                                   |
+| :----------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| CreateCdb                      | [创建实例(包年包月)](https://cloud.tencent.com/document/api/236/1334) | CreateDBInstance                                             | [创建云数据库实例(包年包月)](https://cloud.tencent.com/document/api/236/15871) |
+| InquiryCdbPrice                | [查询价格(包年包月)](https://cloud.tencent.com/document/api/236/1332) | DescribeDBPrice                                              | [查询数据库价格](https://cloud.tencent.com/document/api/236/18566) |
+| CreateCdbHour                  | [创建实例(按量计费)](https://cloud.tencent.com/document/api/236/5175) | CreateDBInstanceHour                                         | [创建云数据库实例(按量计费)](https://cloud.tencent.com/document/api/236/15865) |
+| InquiryCdbPriceHour            | [查询价格(按量计费)](https://cloud.tencent.com/document/api/236/5176) | DescribeDBPrice                                              | [查询数据库价格](https://cloud.tencent.com/document/api/236/18566) |
+| DescribeCdbProductListNew      | [查询可创建规格(支持可用区、配置自定义)](https://cloud.tencent.com/document/api/236/6109) | DescribeDBZoneConfig                                         | [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) |
+| DescribeCdbProductList         | [查询可创建规格](https://cloud.tencent.com/document/api/236/1333) | DescribeDBZoneConfig                                         | [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) |
+| DescribeCdbInstances           | [查询实例列表](https://cloud.tencent.com/document/api/236/1266) | DescribeDBInstances                                          | [查询实例列表](https://cloud.tencent.com/document/api/236/15872) |
+| GetCdbReadOnlyInstances        | [查询只读实例列表](https://cloud.tencent.com/document/api/236/6417) | DescribeDBInstances                                          | [查询实例列表](https://cloud.tencent.com/document/api/236/15872) |
+| CdbMysqlInit                   | [初始化实例](https://cloud.tencent.com/document/api/236/5335) | InitDBInstances                                              | [初始化新实例](https://cloud.tencent.com/document/api/236/15873) |
+| GetCdbInitInfo                 | [查询初始化任务详情](https://cloud.tencent.com/document/api/236/5334) | DescribeAsyncRequestInfo                                     | [查询异步任务的执行结果](https://cloud.tencent.com/document/api/236/20410) |
+| UpgradeCdb                     | [升级实例](https://cloud.tencent.com/document/api/236/7164)  | UpgradeDBInstance                                            | [升级云数据库实例](https://cloud.tencent.com/document/api/236/15876) |
+| InquiryCdbUpgradePrice         | [查询升级价格](https://cloud.tencent.com/document/api/236/7193) | InquiryPriceUpgradeInstances                                 | [查询数据库升级价格](https://cloud.tencent.com/document/api/236/32665) |
+| UpgradeCdbEngineVersion        | [升级数据库引擎版本](https://cloud.tencent.com/document/api/236/8371) | UpgradeDBInstanceEngineVersion                               | [升级实例版本](https://cloud.tencent.com/document/api/236/15870) |
+| GetCdbUpgradeJobInfo           | [查询升级实例任务详情](https://cloud.tencent.com/document/api/236/8373) | DescribeAsyncRequestInfo                                     | [查询异步任务的执行结果](https://cloud.tencent.com/document/api/236/20410) |
+| RenewCdb                       | [续费实例(包年包月)](https://cloud.tencent.com/document/api/236/1331) | RenewDBInstance                                              | [续费云数据库实例](https://cloud.tencent.com/document/api/236/30160) |
+| CloseCdbHour                   | [销毁实例(按量计费)](https://cloud.tencent.com/document/api/236/6415) | IsolateDBInstance                                            | [隔离云数据库实例](https://cloud.tencent.com/document/api/236/15869) |
+| OpenCdbHour                    | [恢复实例(按量计费)](https://cloud.tencent.com/document/api/236/6416) | 不对外开放，可[提交工单](https://console.cloud.tencent.com/workorder/category)申请 | N/A                                                          |
+| SetCdbAutoRenew                | [设置自动续费](https://cloud.tencent.com/document/api/236/4112) | ModifyAutoRenewFlag                                          | [修改云数据库实例的自动续费标记](https://cloud.tencent.com/document/api/236/19652) |
+| ModifyCdbInstanceProject       | [修改所属项目](https://cloud.tencent.com/document/api/236/6541) | ModifyDBInstanceProject                                      | [修改云数据库实例的所属项目](https://cloud.tencent.com/document/api/236/15868) |
+| ResetCdbInstancesPassword      | [重置密码](https://cloud.tencent.com/document/api/236/1271)  | ModifyAccountPassword                                        | [修改云数据库实例账号的密码](https://cloud.tencent.com/document/api/236/17497) |
+| ModifyCdbInstanceName          | [修改名称](https://cloud.tencent.com/document/api/236/1270)  | ModifyDBInstanceName                                         | [修改云数据库实例名](https://cloud.tencent.com/document/api/236/15877) |
+| ModifyCdbInstanceVport         | [修改端口](https://cloud.tencent.com/document/api/236/6543)  | ModifyDBInstanceVipVport                                     | [修改云数据库实例的IP和端口号](https://cloud.tencent.com/document/api/236/15867) |
+| ModifyCdbCharset               | [修改字符集](https://cloud.tencent.com/document/api/236/4113) | ModifyInstanceParam                                          | [修改实例参数](https://cloud.tencent.com/document/api/236/15860) |
+| OpenCdbExtranetAccess          | [开通外网访问](https://cloud.tencent.com/document/api/236/7165) | OpenWanService                                               | [开通实例外网访问](https://cloud.tencent.com/document/api/236/15875) |
+| CloseCdbExtranetAccess         | [关闭外网访问](https://cloud.tencent.com/document/api/236/7166) | CloseWanService                                              | [关闭实例外网访问](https://cloud.tencent.com/document/api/236/15863) |
+| SwitchCdbDrToMaster            | [灾备实例切换为主实例](https://cloud.tencent.com/document/api/236/7460) | 不对外开放，可[提交工单](https://console.cloud.tencent.com/workorder/category)申请 | N/A                                                          |
+| OpenCdbGtid                    | [开通GTID](https://cloud.tencent.com/document/api/236/8372)  | OpenDBInstanceGTID                                           | [开启实例的GTID](https://cloud.tencent.com/document/api/236/17489) |
+| GetCdbGtidInfo                 | [查询实例GTID详情](https://cloud.tencent.com/document/api/236/8374) | DescribeDBInstanceGTID                                       | [查询云数据实例的GTID是否开通](https://cloud.tencent.com/document/api/236/15862) |
+| GetCdbInstanceNumByVpcSubnetId | [查询私有网络子网实例数量](https://cloud.tencent.com/document/api/236/5440) | 已废弃，不再支持                                             | N/A                                                          |
 
-## 白板使用方法
-### WhiteboardView 使用方法
-跟普通的自定义控制使用方法相同，在布局文件中可以直接使用、按需继承。
-```
-<com.tencent.boardsdk.board.WhiteboardView
- android:id="@+id/cbv_board"
- android:layout_width="match_parent"
- android:layout_height="match_parent" />
+### 账号相关接口
 
-```
->!为保证各端体验一致，白板视图的宽高比默认为16:9，WhiteboardView 控件内部已做处理，开发者直接使用即可。
+| Action(V2)                               | 接口名(V2)                                                   | Action(V3)                  | 接口名(V3)                                                   |
+| :--------------------------------------- | :----------------------------------------------------------- | :-------------------------- | :----------------------------------------------------------- |
+| GetCdbInstanceAccountList                | [查询账号列表](https://cloud.tencent.com/document/api/236/8010) | DescribeAccounts            | [查询云数据库的所有账号信息](https://cloud.tencent.com/document/api/236/17499) |
+| CreateCdbInstanceAccount                 | [创建账号](https://cloud.tencent.com/document/api/236/8011)  | CreateAccounts              | [创建云数据库的账户](https://cloud.tencent.com/document/api/236/17502) |
+| GetCdbInstanceAccountAvailablePrivileges | [查询账号可设置权限](https://cloud.tencent.com/document/api/236/8063) | DescribeSupportedPrivileges | [查询云数据库实例支持的权限信息](https://cloud.tencent.com/document/api/236/32825) |
+| GetCdbInstanceAccountPrivileges          | [查询账号权限](https://cloud.tencent.com/document/api/236/8062) | DescribeAccountPrivileges   | [查询云数据库账户的权限信息](https://cloud.tencent.com/document/api/236/17500) |
+| ModifyCdbInstanceAccountPrivileges       | [修改账号权限](https://cloud.tencent.com/document/api/236/8060) | ModifyAccountPrivileges     | [修改云数据库实例账号的权限](https://cloud.tencent.com/document/api/236/17496) |
+| ModifyCdbInstanceAccountPassword         | [修改账号密码](https://cloud.tencent.com/document/api/236/8061) | ModifyAccountPassword       | [修改云数据库实例账号的密码](https://cloud.tencent.com/document/api/236/17497) |
+| ModifyCdbInstanceAccountRemarks          | [修改账号备注](https://cloud.tencent.com/document/api/236/8013) | ModifyAccountDescription    | [修改云数据库实例账号的备注信息](https://cloud.tencent.com/document/api/236/17498) |
+| DelCdbInstanceAccount                    | [删除账号](https://cloud.tencent.com/document/api/236/8012)  | DeleteAccounts              | [删除云数据库的账号](https://cloud.tencent.com/document/api/236/17501) |
 
-**主要方法说明**
+### 数据库相关接口
 
-| 接口                  | 说明          |
-| ------------------- | ----------- |
-| setWhiteboardEnable | 关启白板绘制      |
-| setDragEnable       | 关启白板缩放和拖拽功能 |
-| setAspectRatio       | 设置控件宽高比例（高度/宽度，内置默认是9.0f/16.0f），控件初始化后调用 |
+| Action(V2)             | 接口名(V2)                                                   | Action(V3)        | 接口名(V3)                                                   |
+| :--------------------- | :----------------------------------------------------------- | :---------------- | :----------------------------------------------------------- |
+| QueryCdbDatabases      | [查询数据库](https://cloud.tencent.com/document/api/236/7167) | DescribeDatabases | [查询数据库](https://cloud.tencent.com/document/api/236/17493) |
+| QueryCdbDatabaseTables | [查询数据库表](https://cloud.tencent.com/document/api/236/7176) | DescribeTables    | [查询数据库表](https://cloud.tencent.com/document/api/236/18727) |
+| GetCdbInstanceSchema   | [查询数据库模式](https://cloud.tencent.com/document/api/236/8923) | 已废弃，不再支持  | N/A                                                          |
 
-### WhiteboardManager 使用方法
+### 参数相关接口
 
-#### 初始化
-从 WhiteboardManager 获取 WhiteboardConfig 实例（也可自己构建），设置相关参数后，通过 WhiteboardManager 的`init`方法进行初始化。
+| Action(V2)                | 接口名(V2)                                                   | Action(V3)                   | 接口名(V3)                                                   |
+| :------------------------ | :----------------------------------------------------------- | :--------------------------- | :----------------------------------------------------------- |
+| GetCdbParams              | [查询参数列表](https://cloud.tencent.com/document/api/236/6369) | DescribeInstanceParams       | [查询实例的可设置参数列表](https://cloud.tencent.com/document/api/236/20411) |
+| ModifyCdbParams           | [修改参数](https://cloud.tencent.com/document/api/236/6368)  | ModifyInstanceParam          | [修改实例参数](https://cloud.tencent.com/document/api/236/15860) |
+| GetCdbParamsModifyHistory | [查询参数修改记录](https://cloud.tencent.com/document/api/236/6367) | DescribeInstanceParamRecords | [查询实例参数修改历史](https://cloud.tencent.com/document/api/236/32661) |
+| GetCdbModifyParamsJobTask | [查询修改参数任务详情](https://cloud.tencent.com/document/api/236/6428) | DescribeTasks                | [查询云数据库实例任务列表](https://cloud.tencent.com/document/api/236/15848) |
+| GetCdbDefaultParamInfo    | [查询默认参数模板详情](https://cloud.tencent.com/document/api/236/7190) | DescribeParamTemplateInfo    | [查询参数模板详情](https://cloud.tencent.com/document/api/236/32660) |
+| GetCdbParamTemplateList   | [查询参数模板列表](https://cloud.tencent.com/document/api/236/7185) | DescribeParamTemplates       | [查询参数模板列表](https://cloud.tencent.com/document/api/236/32659) |
+| AddCdbParamTemplate       | [新增参数模板](https://cloud.tencent.com/document/api/236/7186) | CreateParamTemplate          | [创建参数模板](https://cloud.tencent.com/document/api/236/32663) |
+| DelCdbParamTemplate       | [删除参数模板](https://cloud.tencent.com/document/api/236/7187) | DeleteParamTemplate          | [删除参数模板](https://cloud.tencent.com/document/api/236/32824) |
+| GetCdbParamTemplateInfo   | [查询参数模板详情](https://cloud.tencent.com/document/api/236/7189) | DescribeParamTemplateInfo    | [查询参数模板详情](https://cloud.tencent.com/document/api/236/32660) |
+| ModifyCdbParamTemplate    | [修改参数模板](https://cloud.tencent.com/document/api/236/7188) | ModifyParamTemplate          | [修改参数模板](https://cloud.tencent.com/document/api/236/32658) |
 
-```
-WhiteboardConfig config = WhiteboardManager.getInstance().getConfig();
-config.setPaintSize(6).setPaintColor(Color.BLUE);
-WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
-```
-#### 主要方法说明
+### 监控相关接口
 
-**初始化和释放：**
+| Action(V2)              | 接口名(V2)                                                   | Action(V3)                | 接口名(V3)                                                   |
+| :---------------------- | :----------------------------------------------------------- | :------------------------ | :----------------------------------------------------------- |
+| GetCdbDeviceMonitorInfo | [查询监控信息(仅支持最高配置实例)](https://cloud.tencent.com/document/api/236/4687) | DescribeDeviceMonitorInfo | [物理机监控信息](https://cloud.tencent.com/document/api/236/32668) |
+| QueryCdbStatisticsInfo  | [查询统计信息](https://cloud.tencent.com/document/api/236/4688) | GetMonitorData            | [云数据库MySQL监控](https://cloud.tencent.com/document/api/248/30386) |
 
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| init                               | 初始化白板绘制参数                              |
-| release                               | 释放白板相关资源，在退出课堂时调用                              |
+### 回档相关接口
 
-**白板事件监听：**
+| Action(V2)                | 接口名(V2)                                                   | Action(V3)                | 接口名(V3)                                                   |
+| :------------------------ | :----------------------------------------------------------- | :------------------------ | :----------------------------------------------------------- |
+| QueryCdbRollbackRangeTime | [查询可回档时间](https://cloud.tencent.com/document/api/236/7168) | DescribeRollbackRangeTime | [查询可回档时间](https://cloud.tencent.com/document/api/236/18726) |
+| RollbackCdbDatabaseTables | [回档库表](https://cloud.tencent.com/document/api/236/7169)  | StartBatchRollback        | [回档数据库表](https://cloud.tencent.com/document/api/236/18725) |
+| GetCdbRollbackJobTask     | [查询回档任务详情](https://cloud.tencent.com/document/api/236/4114) | DescribeTasks             | [查询云数据库实例任务列表](https://cloud.tencent.com/document/api/236/15848) |
+| GetCdbRollbackJob         | [查询回档任务列表](https://cloud.tencent.com/document/api/236/4115) | DescribeTasks             | [查询云数据库实例任务列表](https://cloud.tencent.com/document/api/236/15848) |
 
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| setEventListener                    |设置白板绘制回调，**如果通过 TIC SDK 使用白板，不要单独设置次监听，否则会导致白板功能异常**                              |
+### 备份相关接口
 
-**白板管理接口：**
+| Action(V2)                 | 接口名(V2)                                                   | Action(V3)              | 接口名(V3)                                                   |
+| :------------------------- | :----------------------------------------------------------- | :---------------------- | :----------------------------------------------------------- |
+| ModifyCdbBackupInfo        | [修改备份信息](https://cloud.tencent.com/document/api/236/7397) | ModifyBackupConfig      | [修改数据库备份配置](https://cloud.tencent.com/document/api/236/15839) |
+| GetExportBackupUrl         | [查询备份地址(支持分库表)](https://cloud.tencent.com/document/api/236/5125) | DescribeBackups         | [查询备份日志](https://cloud.tencent.com/document/api/236/15842) |
+| GetCdbExportLogUrl(备份)   | [查询备份与日志](https://cloud.tencent.com/document/api/236/4691) | DescribeBackups         | [查询备份日志](https://cloud.tencent.com/document/api/236/15842) |
+| GetCdbExportLogUrl(日志)   | [查询备份与日志](https://cloud.tencent.com/document/api/236/4691) | DescribeBinlogs         | [查询二进制日志](https://cloud.tencent.com/document/api/236/15843) |
+| DescribeCdbSlowQueryLog    | [查询慢查询日志](https://cloud.tencent.com/document/api/236/4690) | DescribeSlowLogs        | [查询慢查询日志](https://cloud.tencent.com/document/api/236/15845) |
+| GetBackupDatabaseTableList | [查询备份数据的库表](https://cloud.tencent.com/document/api/236/5105) | DescribeBackupDatabases | [查询备份数据库列表](https://cloud.tencent.com/document/api/236/15840) |
 
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| createSubBoard                   | 创建子白板  					|
-| switchBoardById                   |切换白板  					|
-| deleteBoardById                   | 删除白板及其内容，并切换至默认白板 					|
-| whiteboardPageCtrlById             | 删除白板及其内容，并切换至指定白板，如未指定目标白板，则切换至目标白板 	|
-| getCurrentWhiteboardId                   | 获取当前白板 ID  					|
-| getBoardList                   | 获取白板 ID 列表  					|
-| getFidList                   | 获取文件 ID 列表信息，包括普通白板  					|
+### 导入相关接口
 
-**白板数据接口：**
+| Action(V2)                 | 接口名(V2)                                                   | Action(V3)              | 接口名(V3)                                                   |
+| :------------------------- | :----------------------------------------------------------- | :---------------------- | :----------------------------------------------------------- |
+| UploadCdbImportSQLFile     | [上传导入文件](https://cloud.tencent.com/document/api/236/8595) | 已废弃，不再支持        | N/A                                                          |
+| GetCdbImportSQLFileList    | [查询导入文件列表](https://cloud.tencent.com/document/api/236/8377) | DescribeUploadedFiles   | [查询导入SQL文件列表](https://cloud.tencent.com/document/api/236/30161) |
+| StartCdbImportJob          | [发起文件导入任务](https://cloud.tencent.com/document/api/236/8376) | 已废弃，不再支持        | N/A                                                          |
+| StopCdbImportJob           | [终止文件导入任务](https://cloud.tencent.com/document/api/236/8379) | 已废弃，不再支持        | N/A                                                          |
+| GetCdbImportSQLFileHistory | [查询最近导入文件记录](https://cloud.tencent.com/document/api/236/8378) | DescribeDBImportRecords | [查询数据库导入任务记录](https://cloud.tencent.com/document/api/236/15856) |
 
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| getBoardData                   | 同步课堂白板历史数据，仅在进入课堂后调用有效  	|
-| setTimePeriod                   | 设置白板数据上抛间隔（默认为200ms）		|
+### 数据库同步相关接口
 
-**白板操作接口：**
+| Action(V2)             | 接口名(V2)                                                   | Action(V3)            | 接口名(V3)                                                   |
+| :--------------------- | :----------------------------------------------------------- | :-------------------- | :----------------------------------------------------------- |
+| CreateCdbDataSyncTask  | [创建数据同步任务](https://cloud.tencent.com/document/api/236/7928) | CreateMigrateJob      | [创建数据迁移任务](https://cloud.tencent.com/document/api/571/18141) |
+| GetCdbDataSyncTaskList | [查询数据同步任务列表](https://cloud.tencent.com/document/api/236/7933) | DescribeTasks         | [查询云数据库实例任务列表](https://cloud.tencent.com/document/api/236/15848) |
+| CheckCdbDataSyncTask   | [校验数据同步任务](https://cloud.tencent.com/document/api/236/7931) | CreateMigrateCheckJob | [创建校验迁移任务](https://cloud.tencent.com/document/api/571/18142) |
+| StartCdbDataSyncTask   | [启动数据同步任务](https://cloud.tencent.com/document/api/236/7930) | StartMigrateJob       | [启动数据迁移任务](https://cloud.tencent.com/document/api/571/18137) |
+| DelCdbDataSyncTask     | [删除数据同步任务](https://cloud.tencent.com/document/api/236/7929) | DeleteMigrateJob      | [删除数据迁移任务](https://cloud.tencent.com/document/api/571/18140) |
 
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| revoke                   | 撤回本人最新的一次绘制操作  	|
-| redo                   | 取消撤回操作  					|
-| clear                   | 清除当前白板内容，并同步到各端  					|
-| clearDraws                   | 清空当前白板所绘制的涂鸦涂鸦，并同步到各端。 					|
-| clearFileDraws                   | 清空指定文件涂鸦  					|
-| setPaintColor                   | 设置画笔颜色（默认为蓝色）  					|
-| setPaintType                   | 设置绘制类型  					|
-| setPaintSize                   | 设置画笔宽度（默认为5） 					|
-| setCornerRadius                   | 设置矩形的圆角半径  					|
-| setFillStyle                   | 设置封闭图形，如矩形或者圆形的填充样式，白板目前支持 Style.FILL 和 Style.STROKE 两种模式  					|
+### 任务相关接口
 
-**背景接口：**
-
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| setBoardBackGround                   | 设置白板背景图  	|
-| updateCurrentFillMode                   | 更新当前背景图对齐模式  	|
-| setBackgroundColor                   | 设置白板背景颜色（默认为白色），当前白板生效  	|
-| setGlobalBackgroundColor                   | 设置全部白板背景色，已设置背景色或者新创建背景色均生效  	|
-
-
-**文档接口：**
-
-| 接口                                 | 说明                                       |
-| ---------------------------------- | ---------------------------------------- |
-| addFile                   | 添加文件，如 ppt、pdf 等格式文档  	|
-| deleteFile                   | 设删除文档  	|
-| switchFile                   |  切换文档  	|
-| nextPage                   | 下一页 	|
-| prePage                   | 上一页  	|
-| getAllFileInfo                   | 获取所有文档信息（包括普通白板） 	|
-
-
-#### 多终端交互
-| 接口        | 说明                           |
-| --------- | ---------------------------- |
-| onReceive | 各端白板操作数据由此接口填入，白板内部会处理并展示出来 |
-
-
-##  白板数据实时收发
-
-不同端白板间的数据传输是建立在腾讯`IMSDK`建立的即时信道上的，该功能已经封装在 TICSDK 内部，开发者无需自行实现。
-
-##  白板数据上报备份和拉取填充
-
-课堂中，老师对白板的操作，涂鸦、图片、PPT、撤销、清空等操作需要上报到后台，并进行存储，这样后面中途加入课堂的成员就能拉取之前的白板数据进行展示。
-
-该过程主要分为两步，数据上报和数据拉取：
-
-1. 白板数据上报：
-在每次对白板操作后，SDK 会将操作的数据上报到白板后台，目前 SDK 内部已经实现了该功能，白板后台服务也是由腾讯云维护，开发者无需自行实现。
-
-2. 白板数据拉取（同步）：
-每次进入课堂时，TICSDK 会拉取该课堂的所有历史白板消息，展示在白板上，该功能也已经在 TICSDK 内部实现，开发者无需自行实现。
-
+| Action(V2)    | 接口名(V2)                                                   | Action(V3)    | 接口名(V3)                                                   |
+| :------------ | :----------------------------------------------------------- | :------------ | :----------------------------------------------------------- |
+| GetCdbJobList | [查询任务列表](https://cloud.tencent.com/document/api/236/7464) | DescribeTasks | [查询云数据库实例任务列表](https://cloud.tencent.com/document/api/236/15848) |
