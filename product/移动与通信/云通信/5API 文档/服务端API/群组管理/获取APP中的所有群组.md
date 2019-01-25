@@ -29,11 +29,11 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 | identifier         | 必须为 App 管理员帐号                |
 | sdkappid           | 创建应用时云通信控制台分配的 SdkAppid |
 | random             | 32位无符号整数随机数                 |
-| contenttype        | 固定为：json                       |
+| contenttype        | 固定值为：json                       |
 
 ### 最高调用频率
 
-100次/秒。如需提升调用频率，请根据 [工单模板](/doc/product/269/云通信配置变更需求工单#2.15-rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4)提交工单申请处理。
+100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/云通信配置变更需求工单#2.15-rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
 
 ### 请求包示例
 
@@ -44,11 +44,12 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 ```
 - **分页拉取**
 可以使用 Limit 和 Next 两个值用于控制分页拉取：
--  Limit 限制回包中 GroupIdList 中群组的个数，不得超过 10000；
+ -  Limit 限制回包中 GroupIdList 中群组的个数，不得超过 10000；
  - Next 控制分页。对于分页请求，第一次填 0，后面的请求填上一次返回的 Next 字段，当返回的 Next 为 0，代表所有的群都拉取到了；
- - 例如：假设需要分页拉取，每页展示 20 个，则第一页的请求参数应当为`{“Limit” : 20, “Next” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Next” : 上次返回的Next字段}`，依此类推；
- - Limit 或者 Next 的取值不会对应答包体中的 TotalCount 造成影响。
-```
+   例如：假设需要分页拉取，每页展示 20 个，则第一页的请求参数应当为`{“Limit” : 20, “Next” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Next” : 上次返回的Next字段}`，依此类推；
+
+ Limit 或者 Next 的取值不会对应答包体中的 TotalCount 造成影响。
+ ```
 {
     "Limit": 1000,
     "Next": 0
@@ -112,8 +113,8 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 
 ## 错误码说明
 
-除非发生网络错误（例如 502 错误），该接口的 HTTP 返回码均为 200。真正的错误码、错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
-公共错误码（60000 到 79999）参见 [REST API公共错误码](/doc/product/269/错误码#rest-api.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
+除非发生网络错误（例如 502 错误），否则该接口的 HTTP 返回码均为 200。真正的错误码，错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
+公共错误码（60000 到 79999）参见 [错误码](https://cloud.tencent.com/document/product/269/错误码) 文档。
 本 API 私有错误码如下：
 
 | 错误码 |含义说明 |
@@ -125,8 +126,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 
 ## 接口调试工具
 
-通过 [REST API在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
+通过 [REST API 在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
 
 ## 参考
-
-- 获取用户所加入的群组  ([v4/group_open_http_svc/get_joined_group_list](/doc/product/269/获取用户所加入的群组))
+获取用户所加入的群组  ([v4/group_open_http_svc/get_joined_group_list](/doc/product/269/获取用户所加入的群组))。

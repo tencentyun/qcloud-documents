@@ -4,15 +4,19 @@
 
 ### 集群网络与容器网络的关系
 
-- 集群网络和容器网络网段不能冲突。
-- 同一 VPC 内，不同集群的容器网络网段不能冲突。
-- 容器网络和 VPC 路由冲突时，优先在容器网络内转发。
+- 集群网络和容器网络网段不能重叠。
+- 同一 VPC 内，不同集群的容器网络网段不能重叠。
+- 容器网络和 VPC 路由重叠时，优先在容器网络内转发。
 
 ### 集群网络与腾讯云其他资源通信
 
 - 集群内容器与容器之间互通。
 - 集群内容器与节点直接互通。
 - 集群内容器与 [云数据库 CDB](https://cloud.tencent.com/product/cdb-overview)、[云存储 Redis](/doc/product/239/3205)、[云数据库 Memcached](/doc/product/241/7489) 等资源同一 VPC 下内网互通。
+- [设置同地域集群间互通](https://cloud.tencent.com/document/product/457/32197)。
+- [设置跨地域集群间互通](https://cloud.tencent.com/document/product/457/32198)。
+- [设置容器集群与 IDC 互通](https://cloud.tencent.com/document/product/457/32199)。
+- [设置 CVM 容器集群与黑石容器集群互通](https://cloud.tencent.com/document/product/457/32200)。
 
 ### 容器网络说明
 
