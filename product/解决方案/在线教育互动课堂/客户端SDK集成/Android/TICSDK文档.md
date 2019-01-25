@@ -24,7 +24,7 @@ allprojects {
 // COS SDK 模块
 compile 'com.tencent.qcloud:cosxml:5.4.4'
 // iLiveSDK 模块
-compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.5'
+compile 'com.tencent.ilivesdk:ilivesdk:1.9.4.6'
 // 互动教育模块
 compile 'com.tencent.ticsdk:ticsdk:1.5.6'
 // 白板 SDK 模块
