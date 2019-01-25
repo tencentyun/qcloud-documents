@@ -83,6 +83,8 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 | concurrent _connections       | 并发链接数   | 条 |
 | out_traffic            | 七层外网出流量   |MB  |
 | num_of_req           | 请求次数   | 次  |
+| server_error_404        | 后台404错误数   |次 |
+|server_error_502      | 后台502错误数   | 次 |
 
 
 ## 3. 输出参数
