@@ -12,10 +12,10 @@ IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等�
 
 这里我们先来了解帐号相关的几个概念。
 
-- **用户标识（userId）**:
+- **用户标识（userId）**：
 userId（用户标识）用于在一个 IM 应用中唯一标识一个用户，即我们通常所说的帐号。这个一般由您自己的服务生成，即用户信息的生成（注册）需由您开发实现。
 
-- **用户签名（userSig）**:
+- **用户签名（userSig）**：
 userSig（用户签名）是用于对一个用户进行鉴权认证，确认用户是否真实的。即用户在您的服务里注册一个帐号后，您的服务需要给该帐号配置一个 usersig，后续用户登录 IM 的时候需要带上 usersig 让 IM 服务器进行校验。用户签名生成方法可参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) 文档。
 
 了解了前面的概念后，您可以通过下图了解集成了 IMSDK 应用的注册/登录流程。
@@ -24,11 +24,22 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 为方便您接入开发测试，我们在腾讯云 IM 控制台提供了快速生成 usersig 的工具（在这之前您需要先在腾讯云创建自己的 IM 应用，可参考 [云通信 IM 入门](https://cloud.tencent.com/product/im/getting-started)）。登录控制台后，在顶部导航栏选择 >【云通信】>【应用列表】（选择您当前在使用的应用）>【应用配置】>【开发辅助工具】，参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.89.8B.E5.B7.A5.E7.94.9F.E6.88.90-usersig) 即可生成 usersig。
 
 ## 集成 TUIKit
-1. 从 [Github](https://github.com/TencentVideoCloudIM/TIMSDK.git) 下载 IMSDK 开发包，TUIKit 源码所在的位置如下：
+1. 从 [Git](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，TUIKit 源码工程所在的位置如下：
 ![](https://main.qcloudimg.com/raw/6b3d09ba290e78783cc764a9620b42e1.png)
 
-2.  以 TUIKitDemo 为例，参考下图，直接将 TUIKit 拖入 TUIKitDemo 工程中，然后编译 TUIKit 工程生成 TUIKit.framework，接着把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里，最后重启  TUIKitDemo 工程，TUIKit 源码就集成到 TUIKitDemo了。
-![](https://main.qcloudimg.com/raw/a09cbe3019676ef182605d893ffe9e57.png)
+2. 以 TUIKitDemo 集成 TUIKit 为例，参考下图，直接把 TUIKit 工程拖入 TUIKitDemo 工程中，然后重启Xcode（这个很重要，防止TUIKit 工程在其他地方打开，导致在 TUIKitDemo 里面链接 TUIKit 无效）。
+![](https://main.qcloudimg.com/raw/29a60fdcb5ca0b93d902671557a60679.png)
+
+3. 重启 Xcode 之后，重新打开 TUIKitDemo ，先选择 TUIKit 工程编译生成 TUIKit.framework 。
+>!TUIKit 编译会依赖 ImSDK.framework，要在TUIKit -> Build Settings -> Framework Search Paths 里配置 ImSDK.framework 路径寻址，在 TUIKit -> Build Settings -> Header Search Paths 里配置 ImSDK.framework 头文件路径寻址。
+>
+![](https://main.qcloudimg.com/raw/3c32f587941aa511fa3d1b93b5c67415.png)
+
+
+4. 把 TUIKit.framework 和 Imsdk.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，编译运行 TUIKitDemo。
+>!TUIKitDemo 编译会依赖 TUIKit工程，要在 TUIKitDemo -> Build Settings -> Header Search Paths 配置 TUIKit 的头文件路径寻址。
+>
+![](https://main.qcloudimg.com/raw/059163e76d60798256cc903552d2c31e.png)
 
 
 ## 初始化 TUIKit
@@ -44,7 +55,7 @@ TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认TUIKit配置，这�
 ![](https://main.qcloudimg.com/raw/64b0d6df1854abbb768e8b15a2c54f98.png)
 
 | 文件名 |主要用途|
-|:-:|:-:|
+|---|------|
 |setting|设置界面，目前主要用于管理程序的退出逻辑|
 |chat|聊天界面，主要用于发送和接收各种自定义消息|
 |commom|公共基类，主要用于管理公用的基础模块|
