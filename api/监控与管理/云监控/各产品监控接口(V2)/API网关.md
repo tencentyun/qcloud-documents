@@ -67,7 +67,7 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 
 | 参数名称               | 维度名称             | 维度解释          | 格式                            |
 | ------------------ | ---------------- | ------------- | ----------------------------- |
-| dimensions.0.name  | serviceId              | API 网关服务 ID      | String类型维度名称：serviceId              |
+| dimensions.0.name  | serviceId              | API 网关服务 ID      | String 类型维度名称：serviceId              |
 | dimensions.0.value | serviceId             | API 网关服务 ID       | 具体 IP 地址      |
 | dimensions.1.name  | environmentName | 环境名称        | String 类型维度名称：environmentName |
 | dimensions.1.value | environmentName | 环境名称        | 环境名称，release、test、repub                     |
@@ -123,11 +123,11 @@ https://monitor.api.qcloud.com/v2/index.php?
 &namespace=qce/apigateway
 &metricName=response_time
 &dimensions.0.name=serviceId
-&dimensions.0.value serviceId的值
+&dimensions.0.value=serviceIdvalue
 &dimensions.1.name=environmentName
-&dimensions.1.value为环境名
+&dimensions.1.value=environmentNamevalue
 &dimensions.2.name=apiid
-&dimensions.2.value为API的id
+&dimensions.2.value=appiidvalue
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 </pre>
