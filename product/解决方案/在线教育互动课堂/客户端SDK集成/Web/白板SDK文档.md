@@ -1,4 +1,4 @@
-## SDK 简介
+## 白板 SDK 简介
 白板 SDK 已集成在 TICKSDK 中，可通过 getBoardInstance() 获取白板实例。
 
 ## 集成 SDK
@@ -49,7 +49,7 @@
 | addBackgroundPic | 增加一白板，并设置该白板的背景图 |
 | clearFileDraws | 清空文件涂鸦 |
 | getCosInstance | 获取 COS 对象实例 |
-| addFile | 上传文件，支持 doc、docx、excel、ppt、pdf |
+| addFile | 上传文件，支持 PPT、PDF、Word、Excel |
 | addImgFile | 上传图片 |
 | setTextSize | 设置文字输入的字号 |
 | setTextColor | 设置文字输入的颜色 |
@@ -380,7 +380,7 @@ board.getCosInstance()
 
 
 
-#### 30. 上传文件（支持 doc、docx、excel、ppt、pdf）
+#### 30. 上传文件（支持 PPT、PDF、Word、Excel）
 
 ```
 board.addFile(file, succ, fail)
