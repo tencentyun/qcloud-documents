@@ -17,12 +17,12 @@ BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡
 <script src="https://sqimg.qq.com/expert_qq/webrtc/2.6/WebRTCAPI.min.js"></script>
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
-<!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.3.0/board_sdk.mini.js"></script>
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.5/cos.mini.js"></script>
+<!-- 白板SDK -->
+<script src="https://sqimg.qq.com/expert_qq/edu/2.3.5/board_sdk.mini.js"></script>
 <!-- TIC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.4.0/TICSDK.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/TICSDK/1.4.5/TICSDK.mini.js"></script>
 ```
 
 ## 平台兼容
@@ -268,14 +268,23 @@ ticSdk.addFile(file, succ, fail)
 #### 8.2 上传图片
 
 ```
-ticSdk.addImgFile(imgFile, succ, fail)
+ticSdk.addImgFile(imgFileObj, succ, fail)
 ```
 
 | 参数 |   类型     | 必填 |说明 |
 | --- |----------- | ---- |------------------ |
-| file |  File    | 是 | 文件对象，通常通过 document.getElementById('file_input').files[0] 获取|
+| imgFileObj |  File/Object    | 是 | 当参数为File类型，则图片默认以居中方式对齐，文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
 | succ |  Function    | 否 | 上传成功的回调 |
 | fail |  Function    | 否 | 上传失败的回调 |
+
+当imgFileObj为Object
+
+| 参数 |   类型     | 必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| file |  File    | 是 | 文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
+| mode |  Number   | 否 |默认值：0<br/> 0: 以宽度或者高度为基准居中对齐等比例放大<br/> 1: 保留字段<br/> 2: 保留字段<br/> 3: 保留字段<br/> 4: 以宽度或者高度为基准居左对齐等比例放大 <br/> 5: 以宽度或者高度为基准居顶对齐等比例放大<br/> 6: 以宽度或者高度为基准居右对齐等比例放大<br/> 6: 以宽度或者高度为基准居底对齐等比例放大|
+
+> 当以宽度基准等比例放大，则居左和居右同居中对齐效果一致；当以高度基准等比例放大，则居顶和居底同居中对齐效果一致。
 
 
 ### 9. 收发消息
