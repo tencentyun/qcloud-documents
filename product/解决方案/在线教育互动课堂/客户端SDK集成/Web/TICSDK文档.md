@@ -273,7 +273,7 @@ ticSdk.addImgFile(imgFileObj, succ, fail)
 
 | 参数 |   类型     | 必填 |说明 |
 | --- |----------- | ---- |------------------ |
-| imgFileObj |  File/Object    | 是 | 当参数为File类型，则图片默认以居中方式对齐，文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
+| imgFileObj |  File/Object    | 是 | 当参数为 File 类型，则图片默认以居中方式对齐，文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
 | succ |  Function    | 否 | 上传成功的回调 |
 | fail |  Function    | 否 | 上传失败的回调 |
 
