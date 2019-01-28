@@ -1,4 +1,4 @@
-您可以按照以下操作，使用控制台提供的测试模版调用新 [创建的 Hello World 函数](https://cloud.tencent.com/document/product/583/9204)。
+您可以按照以下操作，使用控制台提供的测试模版调用 [新创建的 Hello World 函数](https://cloud.tencent.com/document/product/583/9204)。
 1. 在新创建的 hello-world 函数详情页面中，选择【函数代码】页签。
 2. 在 “函数代码” 页签中，单击【测试】，运行代码并返回测试结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/58cf73af5339844e9a6611412c3d4198.png)
