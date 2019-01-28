@@ -1,4 +1,4 @@
-## SDK 简介
+## TICSDK 简介
 
 TICSDK 是以事件驱动模式的 SDK，开发者只需调用几个方法，注册与监听业务相关事件，即可完成简单的接入。
 调用方法请参见 [TICSDK事件列表](https://cloud.tencent.com/document/product/680/17885)。
@@ -6,7 +6,7 @@ TICSDK 是以事件驱动模式的 SDK，开发者只需调用几个方法，注
 SDK | 主要功能
 --------- | ---------
 TICSDK | 整个 SDK 的入口类，提供了 SDK 初始化、登录/登出 SDK、创建/加入/销毁课堂、音视频操作、IM 操作以及获取 IMSDK 实例、WebRTCAPI 实例、白板实例的接口
-BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 ppt、pdf 等功能<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)
+BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡皮擦、上传 PPT、PDF 等功能<br>白板接口请参见 [白板 SDK](https://cloud.tencent.com/document/product/680/17886)
 
 ##  集成 SDK
 
@@ -277,7 +277,7 @@ ticSdk.addImgFile(imgFileObj, succ, fail)
 | succ |  Function    | 否 | 上传成功的回调 |
 | fail |  Function    | 否 | 上传失败的回调 |
 
-当imgFileObj为Object
+当 imgFileObj 为 Object：
 
 | 参数 |   类型     | 必填 |说明 |
 | --- |----------- | ---- |------------------ |
