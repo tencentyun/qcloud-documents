@@ -1,5 +1,5 @@
 
-### Web 端超级播放器 Demo 体验
+### Web 端播放器 Demo 体验
 
 Web 端超级播放器基于 video.js 框架开发，采用以 HTML5 `<video>`为主 Flash 为辅的播放方式，在浏览器不支持HTML5 `<video>` 的情况下采用 Flash 播放。播放器界面由 HTML CSS 实现，可以通过 CSS 定制界面。
 
