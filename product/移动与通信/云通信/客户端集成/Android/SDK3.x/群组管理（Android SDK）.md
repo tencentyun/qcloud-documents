@@ -585,7 +585,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 ### 群成员获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。
+`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料，默认拉取基本资料。
 
 **权限说明：**
 
@@ -750,7 +750,7 @@ TIMGroupManagerExt.getInstance().getGroupDetailInfo(
 
 ### 非群成员获取群组资料
 
-当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空，默认拉取基本资料。
 
 **原型：**
 
@@ -793,8 +793,6 @@ TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallB
 
 如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
 
->注：默认只拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
 **权限说明：**
 
 **直播大群：**无法获取本人在群内的资料。
@@ -812,7 +810,7 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 ### 获取群内某个人的资料
 
-获取群成员资料的接口由 `TIMGroupManagerExt` 提供。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)  进行设置。
+获取群成员资料的接口由 `TIMGroupManagerExt` 提供，默认拉取基本资料。
 
 **权限说明：**
 
