@@ -1,21 +1,21 @@
-## Nginx HTTPS 双向认证配置指南
+## Nginx HTTPS 双向认证配置流程
 
 以第三方开发者域名 `http://www.example.com` 为例，有如下两种情况：
 
 - **第三方开发者已有权威第三方签发的证书**
- - 开发者准备权威第三方为 `www.example.com` 签发的证书 `www.example.com.crt` 和派发的私钥 `www.example.com.key，`注意必须是权威的第三方机构（如天威、globalsign 等）签发的证书；
- - 云通信给开发者后台提供用于验证请求方（云通信）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)；
+ - 开发者准备权威第三方为 `www.example.com` 签发的证书 `www.example.com.crt` 和派发的私钥 `www.example.com.key，`注意必须是权威的第三方机构（如天威、globalsign 等）签发的证书。
+ - 云通信给开发者后台提供用于验证请求方（云通信）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)。
  - 参照下文 Ngin x HTTPS 双向认证配置参考进行配置。
 
 - **第三方开发者向云通信申请为域名签发证书**
- - 开发者向云通信提供开发者后台域名，例如`www.example.com`；
- - 云通信给开发者后台域名`www.example.com`签发证书和私钥，`www.example.com.crt`和 `www.example.com.key`；
- - 云通信给开发者后台提供用于验证请求方（云通信）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)；
+ - 开发者向云通信提供开发者后台域名，例如`www.example.com`。
+ - 云通信给开发者后台域名`www.example.com`签发证书和私钥，`www.example.com.crt`和 `www.example.com.key`。
+ - 云通信给开发者后台提供用于验证请求方（云通信）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)。
  - 参照下文 Ngin x HTTPS 双向认证配置参考进行配置。
 
 ## Nginx HTTPS 双向认证配置参考
 
-1. 将 `www.example.com.crt`、`www.example.com.key` 和 `TencentQQAuthCA.crt` 拷贝到 Nginx 的安装目录的 conf 文件夹下；
+1. 将 `www.example.com.crt`、`www.example.com.key` 和 `TencentQQAuthCA.crt` 拷贝到 Nginx 的安装目录的 conf 文件夹下。
 2. 修改 **nginx.conf** 配置文件，参考配置如下。
 ```
 server {
