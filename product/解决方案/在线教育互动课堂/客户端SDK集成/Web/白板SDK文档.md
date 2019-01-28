@@ -1,4 +1,4 @@
-## SDK 简介
+## 白板 SDK 简介
 白板 SDK 已集成在 TICKSDK 中，可通过 getBoardInstance() 获取白板实例。
 
 ## 集成 SDK
@@ -8,7 +8,7 @@
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.5/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.3.0/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.3.5/board_sdk.mini.js"></script>
 ```
 
 | 类                  | 说明                                       |
@@ -49,7 +49,7 @@
 | addBackgroundPic | 增加一白板，并设置该白板的背景图 |
 | clearFileDraws | 清空文件涂鸦 |
 | getCosInstance | 获取 COS 对象实例 |
-| addFile | 上传文件，支持 doc、docx、excel、ppt、pdf |
+| addFile | 上传文件，支持 PPT、PDF、Word、Excel |
 | addImgFile | 上传图片 |
 | setTextSize | 设置文字输入的字号 |
 | setTextColor | 设置文字输入的颜色 |
@@ -273,12 +273,15 @@ board.clearDraws()
 #### 22. 设置当前页的背景图
 
 ```
-board.setBackgroundPic(url)
+board.setBackgroundPic(url, mode)
 ```
 
-| 参数 |   类型     | 说明 |
-| --- |----------- | ------------------ |
-| url |  String   | 图片的 URL 地址 |
+| 参数 |   类型   | 必填  | 说明 |
+| --- |-----------| ----- | ------------------ |
+| url |  String   | 是 | 图片的 URL 地址 |
+| mode | Number  | 否 | 默认值：0<br/> 0: 以宽度或者高度为基准居中对齐等比例放大<br/> 1: 保留字段<br/> 2: 保留字段<br/> 3: 保留字段<br/> 4: 以宽度或者高度为基准居左对齐等比例放大 <br/> 5: 以宽度或者高度为基准居顶对齐等比例放大<br/> 6: 以宽度或者高度为基准居右对齐等比例放大<br/> 6: 以宽度或者高度为基准居底对齐等比例放大|
+
+>?当以宽度基准等比例放大，则居左和居右同居中对齐效果一致；当以高度基准等比例放大，则居顶和居底同居中对齐效果一致。
 
 
 #### 23. 清除全局背景色
@@ -377,7 +380,7 @@ board.getCosInstance()
 
 
 
-#### 30. 上传文件（支持 doc、docx、excel、ppt、pdf）
+#### 30. 上传文件（支持 PPT、PDF、Word、Excel）
 
 ```
 board.addFile(file, succ, fail)
@@ -393,14 +396,23 @@ board.addFile(file, succ, fail)
 #### 31. 上传图片
 
 ```
-board.addImgFile(imgFile, succ, fail)
+board.addImgFile(imgFileObj, succ, fail)
 ```
 
 | 参数 |   类型     | 必填 |说明 |
 | --- |----------- | ---- |------------------ |
-| file |  File    | 是 | 文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
+| imgFileObj |  File/Object    | 是 | 当参数为 File 类型，则图片默认以居中方式对齐，文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
 | succ |  Function    | 否 | 上传成功的回调 |
 | fail |  Function    | 否 | 上传失败的回调 |
+
+当 imgFileObj 为 Object：
+
+| 参数 |   类型     | 必填 |说明 |
+| --- |----------- | ---- |------------------ |
+| file |  File    | 是 | 文件对象，通常通过 document.getElementById('file_input').files[0] 获取 |
+| mode |  Number   | 否 |默认值：0<br/> 0: 以宽度或者高度为基准居中对齐等比例放大<br/> 1: 保留字段<br/> 2: 保留字段<br/> 3: 保留字段<br/> 4: 以宽度或者高度为基准居左对齐等比例放大 <br/> 5: 以宽度或者高度为基准居顶对齐等比例放大<br/> 6: 以宽度或者高度为基准居右对齐等比例放大<br/> 6: 以宽度或者高度为基准居底对齐等比例放大|
+
+>?当以宽度基准等比例放大，则居左和居右同居中对齐效果一致；当以高度基准等比例放大，则居顶和居底同居中对齐效果一致。
 
 
 ### 白板事件
@@ -424,26 +436,31 @@ boardSdk.on(BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE, res => {
 
 | 事件名 | 说明 | 
 |--------- | ---------|
-| BoardSDK.CONSTANT.EVENT.BOARD.HISTROY_DATA_COMPLETE | 历史数据同步完成 |
-| BoardSDK.CONSTANT.EVENT.BOARD.REAL_TIME_DATA | 接收到其他端的同步数据 |
-| BoardSDK.CONSTANT.EVENT.BOARD.ADD_BOARD | 新增白板 |
-| BoardSDK.CONSTANT.EVENT.BOARD.DELETE_BOARD | 删除白板 |
-| BoardSDK.CONSTANT.EVENT.BOARD.SWITCH_BOARD | 切换白板 |
-| BoardSDK.CONSTANT.EVENT.BOARD.ADD_GROUP | 增加组/文件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.DELETE_GROUP | 删除组/文件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.SWITCH_GROUP | 切换组/文件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.ADD_DATA_ERROR | 接收到其他端的同步数据解析错误 |
-| BoardSDK.CONSTANT.EVENT.BOARD.IMG_START_LOAD | 背景图片开始加载 |
-| BoardSDK.CONSTANT.EVENT.BOARD.IMG_LOAD | 背景图片加载完成 |
-| BoardSDK.CONSTANT.EVENT.BOARD.IMG_ERROR | 背景图片加载错误 |
-| BoardSDK.CONSTANT.EVENT.BOARD.IMG_ABORT | 背景图片加载中断 |
-| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_SUCC | 白板服务鉴权通过 |
-| BoardSDK.CONSTANT.EVENT.BOARD.VERIFY_SDK_ERROR | 白板服务鉴权失败，请先购买服务 |
-| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEDOWN | 白板鼠标点击事件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEMOVE | 白板鼠标移动事件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSEUP | 白板鼠标弹起事件 |
-| BoardSDK.CONSTANT.EVENT.BOARD.CANVAS_MOUSELEAVE | 白板鼠标移出白板范围事件 |
-
+| BoardSDK.CONSTANT.EVENT.HISTROY_DATA_COMPLETE | 历史数据同步完成 |
+| BoardSDK.CONSTANT.EVENT.REAL_TIME_DATA | 接收到其他端的同步数据 |
+| BoardSDK.CONSTANT.EVENT.ADD_BOARD | 新增白板 |
+| BoardSDK.CONSTANT.EVENT.DELETE_BOARD | 删除白板 |
+| BoardSDK.CONSTANT.EVENT.SWITCH_BOARD | 切换白板 |
+| BoardSDK.CONSTANT.EVENT.ADD_GROUP | 增加组/文件 |
+| BoardSDK.CONSTANT.EVENT.DELETE_GROUP | 删除组/文件 |
+| BoardSDK.CONSTANT.EVENT.SWITCH_GROUP | 切换组/文件 |
+| BoardSDK.CONSTANT.EVENT.ADD_DATA_ERROR | 接收到其他端的同步数据解析错误 |
+| BoardSDK.CONSTANT.EVENT.IMG_START_LOAD | 背景图片开始加载 |
+| BoardSDK.CONSTANT.EVENT.IMG_LOAD | 背景图片加载完成 |
+| BoardSDK.CONSTANT.EVENT.IMG_ERROR | 背景图片加载错误 |
+| BoardSDK.CONSTANT.EVENT.IMG_ABORT | 背景图片加载中断 |
+| BoardSDK.CONSTANT.EVENT.VERIFY_SDK_SUCC | 白板服务鉴权通过 |
+| BoardSDK.CONSTANT.EVENT.VERIFY_SDK_ERROR | 白板服务鉴权失败，请先购买服务 |
+| BoardSDK.CONSTANT.EVENT.CANVAS_MOUSEDOWN | 白板鼠标点击事件 |
+| BoardSDK.CONSTANT.EVENT.CANVAS_MOUSEMOVE | 白板鼠标移动事件 |
+| BoardSDK.CONSTANT.EVENT.CANVAS_MOUSEUP | 白板鼠标弹起事件 |
+| BoardSDK.CONSTANT.EVENT.CANVAS_MOUSELEAVE | 白板鼠标移出白板范围事件 |
+| BoardSDK.CONSTANT.EVENT.COS.GET_SIGN_ERROR |  上传图片/PPT 获取 sig 错误  |
+| BoardSDK.CONSTANT.EVENT.COS.GET_SIGN_SUCCESS |  上传图片/PPT 获取 sig 成功  |
+| BoardSDK.CONSTANT.EVENT.COS.HASH_PROGRESS |  上传图片/PPT 计算文件 MD5 值的进度回调函数  |
+| BoardSDK.CONSTANT.EVENT.COS.PROGRESS |  上传图片/PPT 的进度回调函数  |
+| BoardSDK.CONSTANT.EVENT.COS.UPLOAD_ERROR |  上传成功  |
+| BoardSDK.CONSTANT.EVENT.COS.UPLOAD_SUCCESS | 上传失败   |
 
 #### 注销事件监听
 

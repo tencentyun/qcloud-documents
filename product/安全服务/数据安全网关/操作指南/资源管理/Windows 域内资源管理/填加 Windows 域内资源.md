@@ -2,10 +2,10 @@
 该指南指导您如何添加 Windows 域内资源。
 
 ## 前提条件
-云堡垒机（数据安全网关）需已添加 Windows 域控资源。具体请您查看 [添加 Windows 域控资源](https://cloud.tencent.com/document/product/1025/32500) 文档。
+数据安全网关系统需已添加 Windows 域控资源。具体请您查看 [添加 Windows 域控资源](https://cloud.tencent.com/document/product/1025/32500) 文档。
 
 ## 操作步骤
-1. 进入 [云堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关。
+1. 进入 [腾讯云数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，使用管理员账号登录数据安全网关系统。
 2. 在数据安全网关系统单击【资源管理】>【Windows】，即可进入 Windows 资源管理页面，如下图所示。
 ![1](https://main.qcloudimg.com/raw/97994283a25d7b790a7f20862b3eaaa5.png)
 3. 在 Windows 资源管理页面，单击【新建】，配置如下信息。
