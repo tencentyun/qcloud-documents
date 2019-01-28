@@ -64,7 +64,7 @@ xff: -
 ### 5. 关联机器组
 
 从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://cloud.tencent.com/document/product/614/17412#.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 文档。
-![](https://main.qcloudimg.com/raw/66c86f2dbeb62dbd6cb70ae7e45604b3.png)
+![](https://main.qcloudimg.com/raw/3bca76c93bfa640563bef85f6aa6dbf9.png)
 
 ### 6. JSON 模式选择
 
@@ -105,6 +105,6 @@ xff: -
 ### 9. 检索结果
 
 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】，即可检索日志。
-![](https://main.qcloudimg.com/raw/f9ba8c42cc4034a5e129a5576e45f9f1.png)
+![](https://main.qcloudimg.com/raw/a81934f054d00abcf605db24ddf5ad04.png)
 
 >!检索必须开启索引配置，否则无法进行检索。
