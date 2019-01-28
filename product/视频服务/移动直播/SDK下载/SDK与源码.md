@@ -28,185 +28,42 @@ table td {
 
 <table>
   <tr>
-	  <th width="100px" style="text-align:center">功能模块</th>
-    <th width="100px" style="text-align:center">功能项</th>
-		<th width="300px" style="text-align:center">功能简介</th>
-    <th width="120px" style="text-align:center">直播精简版</th>
-    <th width="120px" style="text-align:center">全功能专业版</th>
-    <th width="120px" style="text-align:center">商用企业版</th>
+    <th width="120px" style="text-align:center">iOS SDK</th>
+    <th width="220px" style="text-align:center">BitCode<br/>是否支持BitCode<br/>(iOS提供的体积优化方案)</th>
+    <th width="220px" style="text-align:center">IPA 增量<br/>嵌入该版本后 IPA 安装包的体积增量</th>
+    <th width="160px" style="text-align:center">Pod 安装<br/>基于 Pod 的 SDK 嵌入方式</th>
+    <th width="160px" style="text-align:center">SDK 下载</th>
   </tr>
   <tr>
-	  <td rowspan='2' style="text-align:center">直播推流</td>
-    <td style="text-align:center">RTMP 推流</td>
-		<td style="text-align:left">用于实现主播端的手机推流功能(美女直播)</td>
-		<td style="text-align:center">✔</td>
-		<td style="text-align:center">✔</td>
-		<td style="text-align:center">✔</td>
-  </tr>
-	 <tr>
-    <td style="text-align:center">录屏推流</td>
-		<td style="text-align:left">用于实现主播端的屏幕推流功能(游戏直播)</td>
+    <td style="text-align:center">直播精简版</td>
     <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='3' style="text-align:center">直播播放</td>
-    <td style="text-align:center">RTMP 播放</td>
-		<td style="text-align:left">用于实现 rtmp:// 协议的直播播放功能</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-	<tr>
-    <td style="text-align:center">FLV 播放</td>
-		<td style="text-align:left">用于实现 HTTP+ FLV 协议的直播播放功能</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">HLS 播放</td>
-		<td style="text-align:left">用于实现 HLS(m3u8) 协议的直播播放功能</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td style="text-align:center">点播播放</td>
-    <td style="text-align:center">点播播放</td>
-		<td style="text-align:left">用于实现视频点播回放（类似优酷）功能</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='2' style="text-align:center">美颜滤镜</td>
-    <td style="text-align:center">基础美颜</td>
-		<td style="text-align:left">提供自然、光滑等多种不同风格的美颜算法</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-	<tr>
-    <td style="text-align:center">基础滤镜</td>
-		<td style="text-align:left">提供多套不同风格的滤镜算法</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='2' style="text-align:center">直播连麦</td>
-    <td style="text-align:center">连麦互动</td>
-		<td style="text-align:left">用于实现主播与观众之间的1vn视频连麦互动</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-	<tr>
-    <td style="text-align:center">主播PK</td>
-		<td style="text-align:left">用于实现主播与主播之间的1v1视频PK</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='4' style="text-align:center">短视频</td>
-    <td style="text-align:center">录制和拍摄</td>
-    <td style="text-align:left">用于实现带美颜滤镜的拍照和视频录制功能</td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-	<tr>
-    <td style="text-align:center">裁剪拼接</td>
-    <td style="text-align:left">用于实现简单易用的视频裁剪和拼接功能</td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">类“抖音”特效</td>
-    <td style="text-align:left">用于实现类“抖音”的视频特效编辑功能</td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">视频上传</td>
-    <td style="text-align:left">用于实现将视频上传到云端的功能</td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='4' style="text-align:center">AI特效</td>
-    <td style="text-align:center">大眼瘦脸</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
-    <td></td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">V脸隆鼻</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
-    <td></td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-  </tr>
-	<tr>
-    <td style="text-align:center">动效贴纸</td>
-    <td style="text-align:left">基于人脸关键点定位的卡通贴纸</td>
-    <td></td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">绿幕抠图</td>
-    <td style="text-align:left">基于天天P图AI特效实现背景抠图能力</td>
-    <td></td>
-    <td></td>
-    <td style="text-align:center">✔</td>
-  </tr>
-  <tr>
-	  <td rowspan='2' style="text-align:center">SDK 特性</td>
-    <td style="text-align:center">BitCode</td>
-		<td style="text-align:left">是否支持BitCode(iOS提供的体积优化方案)</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td></td>
-  </tr>
-	<tr>
-    <td style="text-align:center">IPA 增量</td>
-		<td style="text-align:left">嵌入该版本后 IPA 安装包的体积增量</td>
     <td style="text-align:center">1.43 M</td>
-    <td style="text-align:center">4.19 M</td>
-    <td style="text-align:center">5.98 M</td>
-  </tr>
-  <tr>
-	  <td rowspan='2' style="text-align:center">SDK 获取</td>
-    <td style="text-align:center">Pod 安装</td>
-		<td style="text-align:left">基于 Pod 的 SDK 嵌入方式</td>
     <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td style="text-align:center">见版本说明</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">SDK 下载</td>
-		<td style="text-align:left">直接下载包含 SDK 的 zip 压缩包</td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Smart_iOS_5.4.6097.zip">DOWNLOAD</a></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">全功能专业版</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">4.19 M</td>
+    <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Professional_iOS_5.4.6097.zip">DOWNLOAD</a></td>
+  </tr>
+	<tr>
+    <td style="text-align:center">商用企业版</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">5.98 M</td>
+    <td style="text-align:center">见版本说明</td>
     <td style="text-align:center">见如下说明</td>
   </tr>
 </table>
 
+
 - <h5>商用版本</h5>
   商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Enterprise_iOS_5.4.6097.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
   
- 使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
 
-<h2 id="Android"> Android SDK (5.4.6097) </h2>
-
+**iOS SDK功能介绍**
 <table>
   <tr>
 	  <th width="100px" style="text-align:center">功能模块</th>
@@ -349,12 +206,25 @@ table td {
     <td></td>
     <td style="text-align:center">✔</td>
   </tr>
+</table>
+
+<h2 id="Android"> Android SDK (5.4.6097) </h2>
+
+<table>
   <tr>
-    <td style="text-align:center">SDK 下载</td>
-		<td style="text-align:center">aar & jar</td>
-		<td style="text-align:left">zip 包中提供了 aar 和 jar+so 两种集成方案</td>
+    <th width="200px" style="text-align:center">iOS SDK</th>
+    <th width="500px" style="text-align:center">SDK 下载<br/>zip 包中提供了 aar 和 jar+so 两种集成方案</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">直播精简版</td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Smart_Android_5.4.6097.zip">DOWNLOAD</a></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">全功能专业版</td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Professional_Android_5.4.6097.zip">DOWNLOAD</a></td>
+  </tr>
+	<tr>
+    <td style="text-align:center">商用企业版</td>
     <td style="text-align:center">见如下说明</td>
   </tr>
 </table>
@@ -363,6 +233,151 @@ table td {
   商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Enterprise_Android_5.4.6097.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
   
   使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
+
+**Android SDK功能介绍**
+<table>
+  <tr>
+	  <th width="100px" style="text-align:center">功能模块</th>
+    <th width="100px" style="text-align:center">功能项</th>
+		<th width="300px" style="text-align:center">功能简介</th>
+    <th width="120px" style="text-align:center">直播精简版</th>
+    <th width="120px" style="text-align:center">全功能专业版</th>
+    <th width="120px" style="text-align:center">商用企业版</th>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">直播推流</td>
+    <td style="text-align:center">RTMP 推流</td>
+		<td style="text-align:left">用于实现主播端的手机推流功能(美女直播)</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	 <tr>
+    <td style="text-align:center">录屏推流</td>
+		<td style="text-align:left">用于实现主播端的屏幕推流功能(游戏直播)</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='3' style="text-align:center">直播播放</td>
+    <td style="text-align:center">RTMP 播放</td>
+		<td style="text-align:left">用于实现 rtmp:// 协议的直播播放功能</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">FLV 播放</td>
+		<td style="text-align:left">用于实现 HTTP+ FLV 协议的直播播放功能</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">HLS 播放</td>
+		<td style="text-align:left">用于实现 HLS(m3u8) 协议的直播播放功能</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td style="text-align:center">点播播放</td>
+    <td style="text-align:center">点播播放</td>
+		<td style="text-align:left">用于实现视频点播回放（类似优酷）功能</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">美颜滤镜</td>
+    <td style="text-align:center">基础美颜</td>
+		<td style="text-align:left">提供自然、光滑等多种不同风格的美颜算法</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">基础滤镜</td>
+		<td style="text-align:left">提供多套不同风格的滤镜算法</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">直播连麦</td>
+    <td style="text-align:center">连麦互动</td>
+		<td style="text-align:left">用于实现主播与观众之间的1vn视频连麦互动</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">主播PK</td>
+		<td style="text-align:left">用于实现主播与主播之间的1v1视频PK</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='4' style="text-align:center">短视频</td>
+    <td style="text-align:center">录制和拍摄</td>
+    <td style="text-align:left">用于实现带美颜滤镜的拍照和视频录制功能</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">裁剪拼接</td>
+    <td style="text-align:left">用于实现简单易用的视频裁剪和拼接功能</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">类“抖音”特效</td>
+    <td style="text-align:left">用于实现类“抖音”的视频特效编辑功能</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">视频上传</td>
+    <td style="text-align:left">用于实现将视频上传到云端的功能</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='4' style="text-align:center">AI特效</td>
+    <td style="text-align:center">大眼瘦脸</td>
+    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">V脸隆鼻</td>
+    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">动效贴纸</td>
+    <td style="text-align:left">基于人脸关键点定位的卡通贴纸</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">绿幕抠图</td>
+    <td style="text-align:left">基于天天P图AI特效实现背景抠图能力</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+</table>
 
 <h2 id="Windows"> Windows SDK (3.2.0) </h2>
 
