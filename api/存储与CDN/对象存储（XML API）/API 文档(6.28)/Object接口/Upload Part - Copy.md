@@ -1,8 +1,8 @@
 ## 功能描述
-Upload Part - Copy  请求实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为 5 MB - 5 GB）。
+Upload Part - Copy  请求实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为5MB - 5GB）。
 
 >!
->- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过 5 GB, 那么需要使用分块上传或者分块拷贝的接口来复制对象。
+>- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过5GB, 那么需要使用分块上传或者分块拷贝的接口来复制对象。
 >- 使用上传分块对象，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。
 
 ### 版本
@@ -49,18 +49,18 @@ x-cos-copy-source-if-modified-since: time_stamp
 
 | 名称          | 描述      | 类型     | 必选   |
 | ---------------- | ---------- | ------ | -------- |
-| x-cos-copy-source-range                    | 源对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示您希望拷贝源对象的开头 10 个字节的数据 ， 如果不指定，则表示拷贝整个对象。       | Integer | 是    |
-| x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
+| x-cos-copy-source-range                    | 源对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示您希望拷贝源对象的开头10个字节的数据 ， 如果不指定，则表示拷贝整个对象       | Integer | 是    |
+| x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回412<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突 | String | 否    |
+| x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回412<br>可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突 | String | 否    |
+| x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回412<br>可与 x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突 | String | 否    |
+| x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回412<br>可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突 | String | 否    |
 
 ### 请求参数
 
  名称|描述|类型|必选
 ---|---|---|---
 partNumber|分块拷贝的块号|string|是
-uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。|string|是
+uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID|string|是
 
 ### 请求体
 该请求的请求体为空。
@@ -76,7 +76,7 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 名称|描述|类型
 ---|---|---
 x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
-x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String
+x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256 | String
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -101,10 +101,10 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ### 请求
 
 ```HTTP
-PUT /bucket/example.file?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
+PUT /bucket/exampleobject.txt?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
 User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
 Accept: */*
-x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/test.file1
+x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/exampleobject1.txt
 x-cos-copy-source-range: bytes=10-100
 Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f05cb2
