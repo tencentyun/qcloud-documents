@@ -1,7 +1,7 @@
 ## 背景说明
-- 脏字指云通信为 App 配置的敏感词，如果检查的内容包含脏字，将拒绝请求，并返回 [80001错误](/doc/product/269/错误码#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)；
-- 脏字检查的内容包括群组消息（只检查文本消息 [TIMTextElem](/doc/product/269/消息格式描述#.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)，不支持对自定义消息 [TIMCustomElem](/doc/product/269/消息格式描述#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0) 的过滤）、群组资料（群名称、群简介、群公告）和群名片；
-- 云通信的脏字集已经涵盖了一批默认脏字（政治、色情等领域）；
+- 脏字指云通信为 App 配置的敏感词，如果检查的内容包含脏字，将拒绝请求，并返回 [80001错误](https://cloud.tencent.com/document/product/269/1671#.E5.90.8E.E5.8F.B0.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
+- 脏字检查的内容包括群组消息（只检查文本消息 [TIMTextElem](https://cloud.tencent.com/document/product/269/2720#.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)，不支持对自定义消息 [TIMCustomElem](https://cloud.tencent.com/document/product/269/2720#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0) 的过滤）、群组资料（群名称、群简介、群公告）和群名片。
+- 云通信的脏字集已经涵盖了一批默认脏字（政治、色情等领域）。
 - 如果 App 有除默认脏字集之外的自定义脏字需求，可以通过脏字管理的 REST API 进行配置。
 
 ## 功能说明
@@ -54,8 +54,8 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?usersig=xxx&identifier=admi
 | DirtyWordsList | Array  | 返回结果是已经设置的自定义脏字  |
 
 ## 错误码说明
-除非发生网络错误（例如 502 错误），否则该接口的 HTTP 返回码均为 200。真正的错误码，错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
-公共错误码（60000 到 79999）参见 [错误码](https://cloud.tencent.com/document/product/269/1671) 文档。
+除非发生网络错误（例如502错误），否则该接口的 HTTP 返回码均为200。真正的错误码，错误信息是通过应答包体中的 ErrorCode、ErrorInfo 来表示的。
+公共错误码（60000到79999）参见 [错误码](https://cloud.tencent.com/document/product/269/1671) 文档。
 本 API 私有错误码如下：
 
 | 错误码 | 含义说明|
@@ -69,5 +69,5 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?usersig=xxx&identifier=admi
 
 ## 参考
 
-- 添加 App 的自定义脏字（[v4/openim_dirty_words/add](/doc/product/269/2397)）；
-- 删除 App 的自定义脏字（[v4/openim_dirty_words/delete](/doc/product/269/删除APP自定义脏字)）。
+- 添加 App 的自定义脏字（[v4/openim_dirty_words/add](https://cloud.tencent.com/document/product/269/2397)）
+- 删除 App 的自定义脏字（[v4/openim_dirty_words/delete](https://cloud.tencent.com/document/product/269/2398)）

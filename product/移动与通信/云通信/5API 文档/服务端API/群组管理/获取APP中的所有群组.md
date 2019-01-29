@@ -6,13 +6,13 @@
 
 |群组类型| 支持此 REST API|
 |-----------|------------|
-|私有群（Private）|<center>是</center>|
-|公开群（Public）|<center>是</center>|
-|聊天室（ChatRoom）|<center>是</center>|
-|互动直播聊天室（AVChatRoom）|<center>是</center>|
-|在线成员广播大群（BChatRoom）|<center>是</center>|
+|私有群（Private）|是|
+|公开群（Public）|是|
+|聊天室（ChatRoom）|是|
+|互动直播聊天室（AVChatRoom）|是|
+|在线成员广播大群（BChatRoom）|是|
 
-云通信内置以上五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信内置以上五种群组类型，详情请参阅 [群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 ### 请求 URL示例
 ```
@@ -79,7 +79,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000 |
 | Next | Integer | 选填 | 群太多时分页拉取标志，第一次填 0，以后填上一次返回的值，返回的 Next 为 0 代表拉完了 |
-| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>[群组形态](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D) 包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（互动直播聊天室）和 BChatRoom（在线成员广播大群）|
+| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（互动直播聊天室）和 BChatRoom（在线成员广播大群）|
 
 ### 应答包体示例
 ```
@@ -129,4 +129,4 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 通过 [REST API 在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
 
 ## 参考
-获取用户所加入的群组  ([v4/group_open_http_svc/get_joined_group_list](/doc/product/269/获取用户所加入的群组))。
+获取用户所加入的群组  ([v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625))。
