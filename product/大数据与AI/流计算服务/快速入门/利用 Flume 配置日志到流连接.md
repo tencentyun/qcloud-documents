@@ -39,7 +39,9 @@
 &nbsp;&nbsp;agent-1.sources.avro-source1.kafka.bootstrap.servers=
 &nbsp;&nbsp;agent-1.sources.avro-source1.kafka.topics=
 &nbsp;&nbsp;agent-1.sources.avro-source1.kafka.consumer.group.id=
-&nbsp;&nbsp;如果使用本地的文件作为数据源，则配置如下：
+
+如果使用本地的文件作为数据源，则配置如下：
+
 &nbsp;&nbsp;agent-1.sources.avro-source1.type = TAILDIR
 &nbsp;&nbsp;agent-1.sources.avro-source1.channels = ch-1
 &nbsp;&nbsp;agent-1.sources.avro-source1.positionFile = ./position.json
