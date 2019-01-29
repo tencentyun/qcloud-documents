@@ -1,6 +1,7 @@
 ## 功能描述
 PUT Bucket acl 接口用来写入 Bucket 的 acl 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 acl 信息，或者通过 Body 以 XML 格式传入 acl 信息。
-><font color="#0000cc">**注意：** </font>
+
+>!
 - Header 和 Body 只能选择其中一种，否则响应返回会冲突。
 - PUT Bucket acl 是一个覆盖操作，传入新的 acl 将覆盖原有 acl。
 - 只有 Bucket 创建者才有权操作。
@@ -12,7 +13,7 @@ PUT Bucket acl 接口用来写入 Bucket 的 acl 表，您可以通过 Header：
 ## 请求
 
 语法示例：
-```
+```shell
 PUT /?acl HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -27,14 +28,14 @@ Authorization: Auth String
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
-~~~
+```shell
 PUT /?acl HTTP/1.1
-~~~
+```
 
 ### 请求头
 
 **公共头部**
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 **非公共头部** <style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
@@ -131,9 +132,9 @@ Container 节点 Grantee 的内容：
 ## 实际案例
 
 ### 请求
-```
+```shell
 PUT /?acl HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT 
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
 Content-Length: 229
@@ -161,7 +162,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
@@ -169,6 +170,4 @@ Connection: keep-alive
 Date: Fri, 25 Feb 2017 04:10:22 GMT 
 Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
-
 ```
-
