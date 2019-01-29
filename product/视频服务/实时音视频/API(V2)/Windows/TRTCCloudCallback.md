@@ -81,7 +81,7 @@ __参数__
 
 #### onUserEnter
 
-房间成员进房通知，在这个回调中调用 startRemoteView 接口。
+userid对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
 
 ```
 void onUserEnter(const char * userId)
@@ -98,7 +98,7 @@ __参数__
 
 #### onUserExit
 
-房间成员退房通知，在这个回调中调用 stopRemoteView 接口。
+userid对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
 
 ```
 void onUserExit(const char * userId, int reason)
@@ -116,7 +116,7 @@ __参数__
 
 #### onUserVideoAvailable
 
-远端用户屏蔽自己的画面。
+userid对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(const char * userId, bool available)
@@ -132,9 +132,27 @@ __参数__
 <br/>
 
 
+#### onUserSubStreamAvailable
+
+userid对应的远端辅路（屏幕分享等）画面的状态通知。
+
+```
+void onUserSubStreamAvailable(const char * userId, bool available)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| available | bool | true：视频可播放，false：视频被关闭 |
+
+<br/>
+
+
 #### onUserAudioAvailable
 
-远端用户屏蔽自己的声音。
+userid对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(const char * userId, bool available)
@@ -152,7 +170,7 @@ __参数__
 
 #### onUserVoiceVolume
 
-成员语音音量回调，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
+userid对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
@@ -162,9 +180,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100] |
-| userVolumesCount | uint32_t | 发言者的人数，即userVolumes数组的大小 |
-| totalVolume | uint32_t | 总的语音音量, 取值范围 [0, 100] |
+| userVolumes | TRTCVolumeInfo * | ：每位发言者的语音音量，取值范围 [0, 100] |
+| userVolumesCount | uint32_t | ：发言者的人数，即userVolumes数组的大小 |
+| totalVolume | uint32_t | ：总的语音音量, 取值范围 [0, 100] |
 
 <br/>
 
@@ -499,7 +517,7 @@ __说明__
 
 #### onStartPublishCDNStream
 
-接口startPublishCDNStream的状态回调。
+旁路推流到CDN的回调，对应于 TRTCCloud 的 startPublishCDNStream() 接口。
 
 ```
 void onStartPublishCDNStream(int errCode, const char * errMsg)
@@ -511,6 +529,12 @@ __参数__
 |-----|------|------|
 | errCode | int | 错误码，参考 TXLiteAVCode.h |
 | errMsg | const char * | 错误详细信息 |
+
+__说明__
+
+
+Start回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
+
 
 <br/>
 
@@ -533,38 +557,78 @@ __参数__
 <br/>
 
 
-#### onStartCloudMixTranscoding
 
-接口startCloudMixTranscoding的状态回调。
+### 屏幕分享回调
+
+#### onScreenCaptureCovered
+
+当屏幕分享窗口被遮挡无法正常捕获时，SDK会通过此回调通知，可在此回调里通知用户移开遮挡窗口。
 
 ```
-void onStartCloudMixTranscoding(int errCode, const char * errMsg)
+void onScreenCaptureCovered()
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | const char * | 错误详细信息 |
 
 <br/>
 
 
-#### onStopCloudMixTranscoding
+#### onScreenCaptureStarted
 
-接口stopCloudMixTranscoding的状态回调。
+当屏幕分享开始时，SDK会通过此回调通知。
 
 ```
-void onStopCloudMixTranscoding(int errCode, const char * errMsg)
+void onScreenCaptureStarted()
+```
+
+<br/>
+
+
+#### onScreenCapturePaused
+
+当屏幕分享暂停时，SDK会通过此回调通知。
+
+```
+void onScreenCapturePaused(int reason)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| errCode | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | const char * | 错误详细信息 |
+| reason | int | 停止原因，0表示用户主动暂停，1表示设置屏幕分享参数导致的暂停，2表示屏幕分享窗口被最小化导致的暂停，3表示屏幕分享窗口被隐藏导致的暂停 |
+
+<br/>
+
+
+#### onScreenCaptureResumed
+
+当屏幕分享恢复时，SDK会通过此回调通知。
+
+```
+void onScreenCaptureResumed(int reason)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| reason | int | 停止原因，0表示用户主动恢复，1表示屏幕分享参数设置完毕后自动恢复，2表示屏幕分享窗口从最小化被恢复，3表示屏幕分享窗口从隐藏被恢复 |
+
+<br/>
+
+
+#### onScreenCaptureStoped
+
+当屏幕分享停止时，SDK会通过此回调通知。
+
+```
+void onScreenCaptureStoped(int reason)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| reason | int | 停止原因，0表示用户主动停止，1表示屏幕分享窗口被关闭 |
 
 <br/>
 
@@ -589,31 +653,6 @@ __参数__
 | userId | const char * | 用户标识 |
 | streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 | frame | TRTCVideoFrame * | 视频帧数据 |
-
-<br/>
-
-
-
-
-## ITRTCVideoPreprocessCallback
-### 本地视频的二次加工回调
-
-#### onVideoPreprocessFrame
-
-经过 SDK 前处理后的视频数据，前处理包括对摄像头采集到的视频进行美颜、裁剪、缩放和旋转。
-
-```
-int onVideoPreprocessFrame(int textureId, int width, int height, TRTCVideoStreamType streamType)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| textureId | int | 回调的 OpenGL 纹理ID |
-| width | int | 画面宽度 |
-| height | int | 画面长度 |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 
 <br/>
 
