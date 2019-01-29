@@ -55,7 +55,7 @@ echo ckafka3 >> testlog
 
 
 ### SASL/PLAINTEXT 模式
-如果用户需要进行 SALS/PLAINTEXT 配置，则需要配置用户名与密码。 在 Kafka 配置区域新增加 username 和 password 配置即可。
+如果您需要进行 SALS/PLAINTEXT 配置，则需要配置用户名与密码。 在 Kafka 配置区域新增加 username 和 password 配置即可。
 ```
 # sasl需要配置下列信息，如果不需要则下面两个选项可不配置
   username: "instance-will#user"
