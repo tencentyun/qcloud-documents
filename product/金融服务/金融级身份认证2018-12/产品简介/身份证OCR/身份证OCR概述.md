@@ -3,8 +3,8 @@
 目前，身份证 OCR 中，身份证号码识别准确率达99.9%以上，姓名识别准确率达98%以上，适应图像模糊、光照不均、透视畸变、任意背景等实际应用中存在的各种情况，具备对复印件等进行检测和告警的防伪能力，具备自动裁边、修正倾斜等能力。
 ## 身份证 OCR 接入方式
 - SDK 接入
-SDK 接入身份证 OCR 实现身份证识别，识别率高，详情请参见 [SDK 接入](https://cloud.tencent.com/document/product/655/31876)。
+SDK 接入身份证 OCR 实现身份证识别，识别率高，详情请参见 [SDK 接入](https://cloud.tencent.com/document/product/655/31876#sdk-.E8.BA.AB.E4.BB.BD.E8.AF.81-ocr)。
 - 公众号接入
-公众号接入身份证 OCR 实现身份证识别，基于微信原生接口，完美解决兼容性问题，详情请参见 [公众号接入](https://cloud.tencent.com/document/product/655/31877)。
+公众号接入身份证 OCR 实现身份证识别，基于微信原生接口，完美解决兼容性问题，详情请参见 [公众号接入](https://cloud.tencent.com/document/product/655/31876#.E5.85.AC.E4.BC.97.E5.8F.B7.E8.BA.AB.E4.BB.BD.E8.AF.81-ocr)。
 - API 接入
-Paas 服务模式，直接调用后台身份证 OCR 接口，上传身份证人像面或者国徽面图片进行身份证识别，无前端页面，详情请参见 [API 接入](https://cloud.tencent.com/document/product/655/31879)。
+Paas 服务模式，直接调用后台身份证 OCR 接口，上传身份证人像面或者国徽面图片进行身份证识别，无前端页面，详情请参见 [API 接入](https://cloud.tencent.com/document/product/655/31876#api-.E8.BA.AB.E4.BB.BD.E8.AF.81-ocr)。
