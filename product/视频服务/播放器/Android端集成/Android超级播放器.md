@@ -10,7 +10,7 @@ Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，�
 
 ## 快速集成
 
-### aar集成
+### aar 集成
 
 1. 下载 SDK + Demo 开发包，下载地址为 （[Android](https://cloud.tencent.com/document/product/881/20205)）。
 2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
@@ -78,7 +78,7 @@ model.videoURL = "http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad
 mSuperPlayerView.playWithMode(model);
 ```
 
-运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可以状态。
+运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
 ![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
 
 ## 多清晰度
