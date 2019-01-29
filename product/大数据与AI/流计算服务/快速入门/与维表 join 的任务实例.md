@@ -1,6 +1,6 @@
-实际需求场景里 JOIN 操作比较常见，这里在之前单表聚合统计的基础上演示如何与维表 join 后进行聚合计算。
+实际需求场景里 JOIN 操作比较常见，本文在之前单表聚合统计的基础上演示如何与维表 join 后进行聚合计算。
 
-**1. 在 CDB for MySQL 里创建维表**
+**1. 在 TencentDB for MySQL 里创建维表**
 ```
  CREATE TABLE `dim_page` (
   `page_id` varchar(32) NOT NULL,
@@ -27,16 +27,13 @@
 <br>
 
 **4. 新建 Topic**
-
- 按之前的操作在 project 再新建一个topic当做join的结果输出流，用作记录按 record_time、page_name聚合后的 pv、uv 数。
+按之前操作在 project 再新建一个 topic 当做 join 的结果输出流，用作记录按 record_time、page_name 聚合后的 pv、uv 数。
  
  ![](https://main.qcloudimg.com/raw/d52ea278487645f5e6100ee12bd2b278.png)
  
 **5. 新建 Integrator**
-
- 新建 Integrator 与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
- 
-  在之前代码基础上添加以下代码，补全 TencentDB 相关信息。 
+新建 Integrator 与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
+在之前代码基础上添加以下代码，补全 TencentDB 相关信息。 
 	
  ```
  CREATE TABLE `dimPage` (
@@ -78,5 +75,4 @@ GROUP BY SUBSTRING(a.record_time, 1, 16),b.page_name;
 <br>
 
 **6. 调试、保存、发布运行**
-
- 按照之前的流程调试、保存、发布运行就可以看到两表 join 后的计算结果了。
+按之前流程调试、保存、发布运行，即可看到两表 join 后的计算结果。
