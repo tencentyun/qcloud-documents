@@ -15,7 +15,7 @@
 | resourceName| 是| String |资源名称，和resourceType相关如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称 |
 | operation| 是| Int|ACL操作方式(0:UNKNOWN，1:ANY，2:ALL，3:READ，4:WRITE，5:CREATE，6:DELETE，7:ALTER，8:DESCRIBE，9:CLUSTER_ACTION，10:DESCRIBE_CONFIGS，11:ALTER_CONFIGS，12:IDEMPOTEN_WRITE) |
 | permissionType| 是 | Int |权限类型(0:UNKNOWN，1:ANY，2:DENY，3:ALLOW) |
-| host| 是 | String | ACL策略作用的主机IP，默认为  \*，表示任何host都可以访问 |
+| host| 是 | String | ACL策略作用的主机IP，默认为  \*，表示任何host |
 | principal| 是| String | ACL策略关联的用户列表，默认为User:\*，表示实例所有的用户|
 
 ## 3. 示例
