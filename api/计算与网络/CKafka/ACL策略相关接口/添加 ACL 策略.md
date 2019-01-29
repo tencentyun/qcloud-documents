@@ -13,7 +13,7 @@
 | instanceId | 是 | String | 实例 ID |
 | resourceType| 是 | Int|ACL 资源类型，（0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID） |
 | resourceName| 是| String |资源名称，和 resourceType 相关如当 resourceType 为 TOPIC 时，则该字段表示 topic 名称，当 resourceType 为 GROUP 时，该字段表示 group 名称 |
-| operation| 是| Int|ACL 操作方式(0:UNKNOWN，1:ANY，2:ALL，3:READ，4:WRITE，5:CREATE，6:DELETE，7:ALTER，8:DESCRIBE，9:CLUSTER_ACTION，10:DESCRIBE_CONFIGS，11:ALTER_CONFIGS，12:IDEMPOTEN_WRITE) |
+| operation| 是| Int|ACL 操作方式（0:UNKNOWN，1:ANY，2:ALL，3:READ，4:WRITE，5:CREATE，6:DELETE，7:ALTER，8:DESCRIBE，9:CLUSTER_ACTION，10:DESCRIBE_CONFIGS，11:ALTER_CONFIGS，12:IDEMPOTEN_WRITE）|
 | permissionType| 是 | Int |权限类型（0:UNKNOWN，1:ANY，2:DENY，3:ALLOW） |
 | host| 否 | String | 默认为  \*，表示任何 host 都可以访问 |
 | principal| 否| String | 用户列表，默认为*，表示任何 user 都可以访问，当前用户只能是用户列表中包含的用户 |
