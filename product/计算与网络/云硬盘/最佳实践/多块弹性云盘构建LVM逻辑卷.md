@@ -52,12 +52,12 @@ vgextend 卷组名 新物理卷路径
 ```
 lvcreate [-L <逻辑卷大小>][ -n <逻辑卷名称>] <VG名称>
 ```
-本文以创建一个8G的名为“lv_0”的逻辑卷为例，则执行：
+本文以创建一个8GB的名为“lv_0”的逻辑卷为例，则执行：
 ```
 lvcreate -L 8G -n lv_0 lvm_demo0
 ```
 ![](//mccdn.qcloud.com/static/img/6a333909caf1197979f433b5144725ea/image.png)
->?执行`pvs`命令，可查看到此时只有`/dev/vdc`被使用了8G。
+>?执行`pvs`命令，可查看到此时只有`/dev/vdc`被使用了8GB。
 >![](//mccdn.qcloud.com/static/img/0de6857e273bf94736e601d691aff855/image.png)
 
 ### 步骤四 创建并挂载文件系统
@@ -78,12 +78,12 @@ mount /dev/lvm_demo0/lv_0 vg0/
 ```
 lvextend [-L +/- <增减容量>] <逻辑卷路径>
 ```
-本文以向逻辑卷“lv_0”扩展4G容量为例，则执行：
+本文以向逻辑卷“lv_0”扩展4GB容量为例，则执行：
 ```
 lvextend -L + 4G /dev/lvm_demo0/lv_0
 ```
 ![](//mccdn.qcloud.com/static/img/a56f7ab937831f3bef2ba68962a543fc/image.png)
->?执行`pvs`命令，可查看到此时`/dev/vdc`已被完全使用，`/dev/vdd`被使用了2G。
+>?执行`pvs`命令，可查看到此时`/dev/vdc`已被完全使用，`/dev/vdd`被使用了2GB。
 >![](//mccdn.qcloud.com/static/img/59a3c0ce8fa6c004144eb2c8ea8d12cc/image.png)
 
 2. 执行以下命令，扩展文件系统。
