@@ -75,5 +75,4 @@ NAT 网关和 EIP 是物理主机访问 Internet 两种方式，可以选择其�
 | 中型 | 1.5元/h |
 | 大型 | 5元/h |
 
-## 操作指南
-控制台操作详情，请查看 [操作总览](https://cloud.tencent.com/document/product/215/20140)。
+
