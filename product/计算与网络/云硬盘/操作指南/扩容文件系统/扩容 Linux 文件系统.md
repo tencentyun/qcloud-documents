@@ -38,7 +38,7 @@ fdisk -l
 	     <td>同样适用于未分区直接格式化的场景。</td>
      </tr> 
 	 <tr>
-         <td><a href="#CreateANewGPTPart" target="_self">将扩容部分的容量格式化成独立的新分区（GPT）</a></td> 
+         <td><a href="#CreateANewGPTPart" target="_self">新分区（GPT）</a></td> 
 	     <td>可保持原有分区不变。</td>
      </tr> 
 	 <tr>
