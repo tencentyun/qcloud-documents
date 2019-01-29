@@ -1,12 +1,22 @@
-## 示例说明
+## 操作场景
 
-本示例主要说明怎样通过SCF结合API网关，快速实现一个对公网服务的web页面。
+本示例主要为您介绍如何通过 SCF 结合 API 网关，快速实现一个对公网服务的 Web 页面。
 
-## 步骤详情
-1. 登录[【无服务器云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=1)，选择`上海`地域，单击【创建】按钮，进入新建函数页面。
-2. 选择`模板函数`，填写函数名称为“HtmlDemo”，选择“API 网关返回自定义html页面”模板，单击【下一步】，单击【完成】完成函数创建。
-    ![](https://main.qcloudimg.com/raw/eea9313e0901df670020c29f20574c5b.jpg) 
-3. 选择【触发方式】选项页，单击【添加触发方式】，为云函数添加API网关 触发器。API触发器参数选择默认参数即可。单击【保存】完成创建。
-    ![](https://main.qcloudimg.com/raw/2f00115a1f26f346ddd905c2fdad0151.jpg) 
-4. 单击API网关触发器的访问路径，查看自定义的HTML页面。如果需要自定义页面展示内容，可以在【函数代码】选项页进行配置。页面效果如下：
-    ![](https://main.qcloudimg.com/raw/4f0b9e29419f69aef24e922a9c016faf.png) 
+## 操作步骤
+
+1. 登录[【无服务器云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=1)，进入【函数服务】页面。
+2. 选择**广州**地域，单击【新建】，进入新建函数页面。
+3. 填写以下参数信息，单击【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/eea9313e0901df670020c29f20574c5b.jpg) 
+ - 创建方式：选择 “模板函数”。
+ - 函数名称：命名为 “HtmlDemo”。
+ - 模板搜索：选择 “语言” 为 “Python2.7” 的 “API 网关返回自定义html页面” 模板。
+4. 保持默认配置，单击【完成】，完成函数的创建。
+5. 选择【触发方式】页签，单击【添加触发方式】，为云函数添加 API 网关触发器。如下图所示：
+![](https://main.qcloudimg.com/raw/2f00115a1f26f346ddd905c2fdad0151.jpg) 
+>? “触发方式” 选择 “API网关触发器”，其它参数保持默认参数。
+6. 单击 API网关触发器的 “访问路径”，查看自定义的 HTML 页面。如下图所示：
+![](https://main.qcloudimg.com/raw/4f0b9e29419f69aef24e922a9c016faf.png) 
+>? 如果您需要自定义页面展示内容，可以在【函数代码】页签中进行配置。
+
+    
