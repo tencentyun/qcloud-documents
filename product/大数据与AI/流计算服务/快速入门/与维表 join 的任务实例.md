@@ -10,7 +10,6 @@
 ```
 
 2. 添加数据进维表
-
 ![](https://main.qcloudimg.com/raw/f512d88911729c8a9baecd0a8ee2add5.png)
 
 3. 创建结果表
@@ -25,14 +24,11 @@
 ```
 
 4. 新建 Topic 
-
  按之前的操作在 project 再新建一个topic当做join的结果输出流，用作记录按 record_time、page_name聚合后的 pv、uv 数。
  ![](https://main.qcloudimg.com/raw/d52ea278487645f5e6100ee12bd2b278.png)
  
 5. 新建 Integrator
-
- 新建 Integrator 与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
- 
+  新建 Integrator 与刚才创建的 demo_join_sink 表绑定并启动 Integrator。
   在之前代码基础上添加以下代码，补全 TencentDB 相关信息。 
  ```
  CREATE TABLE `dimPage` (
