@@ -3,7 +3,7 @@
 
 Web 端超级播放器基于 video.js 框架开发，采用以 HTML5 `<video>`为主 Flash 为辅的播放方式，在浏览器不支持HTML5 `<video>` 的情况下采用 Flash 播放。播放器界面由 HTML CSS 实现，可以通过 CSS 定制界面。
 
-[点击体验 Web 端超级播放器](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)
+[单击体验 Web 端超级播放器](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)
 
 ### 终端播放器 Demo 体验
 
