@@ -50,7 +50,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?usersig=xxx&identifier=admi
 | 字段 | 类型 | 说明 |
 |---------|---------|---------|
 | ActionStatus | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败 |
-| ErrorCode | Integer | 错误码  |
+| ErrorCode|	Integer	|错误码，0表示成功，非0表示失败 |
 | DirtyWordsList | Array  | 返回结果是已经设置的自定义脏字  |
 
 ## 错误码说明

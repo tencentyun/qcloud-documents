@@ -60,7 +60,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 | 字段 | 类型 | 说明 |
 |---------|---------|---------|
 | ActionStatus | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败 |
-| ErrorCode | Integer | 错误码  |
+| ErrorCode|	Integer	|错误码，0表示成功，非0表示失败 |
 | ErrorInfo | String  | 错误信息   |
 
 ### 错误码说明
