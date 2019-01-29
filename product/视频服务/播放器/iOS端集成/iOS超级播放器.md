@@ -24,7 +24,7 @@ pod 'SuperPlayer'
 
 ![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
 
-其中，播放器代码位于 Demo/SuperPlayer，SDK 库位于 SDK 目录。
+其中，播放器代码位于`Demo/SuperPlayer`，SDK 库位于 SDK 目录。
 
 在您的 Podfile 文件，添加下面代码：
 ```
@@ -53,7 +53,7 @@ playerModel.videoURL = @"http://200024424.vod.myqcloud.com/200024424_709ae516bdf
 // 开始播放
 [_playerView playWithModel:playerModel];
 ```
-运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可以状态。
+运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
 ![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
 
 
