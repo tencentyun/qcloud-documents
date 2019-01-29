@@ -4,7 +4,7 @@ iOS 播放器 SDK 是腾讯云开源的一款播放器组件，简单几行代�
 iOS 播放器 SDK 完全免费开源，不对播放地址来源做限制，可放心使用。
 
 ## 阅读对象
-本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com/) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
+本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com/) 相关服务，未注册用户可 [注册账号](https://cloud.tencent.com/login)。
 
 
 ## 快速集成
