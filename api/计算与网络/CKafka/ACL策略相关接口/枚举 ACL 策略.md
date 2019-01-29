@@ -15,7 +15,7 @@
 | instanceId | 是 | String | 实例 ID |
 | resourceType| 是 | Int|ACL 资源类型，（0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID） |
 | resourceName| 是| String |资源名称，和 resourceType 相关如当 resourceType 为 TOPIC 时，则该字段表示 topic 名称，当 resourceType 为 GROUP 时，该字段表示 group 名称 |
-| searchWord| 否 | String |（过滤条件）按照资源名称过滤，支持模糊查询。 |
+| searchWord| 否 | String |（过滤条件）按照资源名称过滤，支持模糊查询 |
 | offset| 否| String |偏移量，不填默认为0 |
 | limit| 否 | String |返回数量，不填则默认10，最大值20 |
 
