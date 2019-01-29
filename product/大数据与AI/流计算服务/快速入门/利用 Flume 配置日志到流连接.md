@@ -1,6 +1,6 @@
 ## 准备工作
 ### 1.	获取用户信息
-登录腾讯云 [账号中心](https://console.cloud.tencent.com/developer)，在【账号信息】页获取用户的 APPID；选择【访问管理】>【云API秘钥】>【API秘钥管理】获取用户的 SecretId 和 SecretKey。
+登录腾讯云 [账号中心](https://console.cloud.tencent.com/developer)，在【账号信息】页获取用户的 APPID；选择【访问管理】>【云API密钥】>【API密钥管理】获取用户的 SecretId 和 SecretKey。
 ![](https://main.qcloudimg.com/raw/e577edac94f63b6afc1218a56b31291c.png)
 ![](https://main.qcloudimg.com/raw/8703f7da8eb323a76182ed7ea8158d62.png)
  
