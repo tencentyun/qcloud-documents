@@ -90,7 +90,7 @@ playerModel.videoURL = url1.url; // 设置默认播放的清晰度
 ```objc
 playerModel.appId = 1252463788;
 ```
-> appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查到。
+>? appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查到。
 
 播放的直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击【返回直播】可观看最新直播流。
 
@@ -100,7 +100,6 @@ playerModel.appId = 1252463788;
 
 ## FileId 播放
 设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
-
 1. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C) 到客户端。
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
@@ -121,9 +120,8 @@ playerModel.fileId = @"4564972819219071679";
 #### 视频缩略图&打点信息
 在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
-[截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
-
-[增加打点信息](https://cloud.tencent.com/document/product/266/14190)
+- [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
+- [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
 ![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
