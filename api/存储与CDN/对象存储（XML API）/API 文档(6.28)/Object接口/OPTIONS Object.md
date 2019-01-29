@@ -4,7 +4,7 @@ OPTIONS Object 接口实现 Object 跨域访问配置的预请求。即在发送
 ## 请求
 ### 请求示例
 
-```
+```shell
 OPTIONS /<ObjectName> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -14,7 +14,7 @@ Access-Control-Request-Headers: RequestHeader
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 ### 请求头
 #### 公共头部
@@ -55,9 +55,9 @@ Access-Control-Request-Headers|string|模拟跨域访问的请求头部|否
 
 ### 请求
 
-```
-OPTIONS /123 HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+```shell
+OPTIONS /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2017 17:26:53 GMT
 Origin: http://www.qq.com
 Access-Control-Request-Method: PUT
@@ -66,7 +66,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q
 
 ### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 16087

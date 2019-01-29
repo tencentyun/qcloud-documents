@@ -18,8 +18,8 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 |-----|-----|----|
 |request|CosRequest|请求对象|
 |preSignatureStruct|PreSignatureStruct|预签名 URL 实例|
-|method|string|http 请求方法|
-|path|string|http 请求路径，即对象键|
+|method|string|HTTP 请求方法|
+|path|string|HTTP 请求路径，即对象键|
 |headers|`Dictionary<string, string>`|签名是否校验 header|
 |queryParameters|`Dictionary<string, string>`|签名是否校验请求 url 中查询参数|
 |signDurationSecond|long|签名有效时间，单位为秒|
@@ -167,8 +167,8 @@ try
 {
 	//使用临时密钥初始化 CosXml
 	CosXmlConfig config = new CosXmlConfig.Builder()
-	.SetConnectionTimeoutMs(60000)  //设置连接超时时间，单位 毫秒 ，默认 45000ms
-	.SetReadWriteTimeoutMs(40000)  //设置读写超时时间，单位 毫秒 ，默认 45000ms
+	.SetConnectionTimeoutMs(60000)  //设置连接超时时间，单位毫秒 ，默认45000ms
+	.SetReadWriteTimeoutMs(40000)  //设置读写超时时间，单位毫秒 ，默认45000ms
 	.IsHttps(true)  //设置默认 https 请求
 	.SetAppid("1250000000")  //设置腾讯云账户的账户标识 APPID
 	.SetRegion("ap-beijing")  //设置一个默认的存储桶地域
