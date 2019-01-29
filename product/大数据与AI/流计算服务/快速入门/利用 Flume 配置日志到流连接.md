@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/8703f7da8eb323a76182ed7ea8158d62.png)
  
 ### 2. 创建流连接 Topic
-请参见 [创建新的流连接](https://cloud.tencent.com/document/product/849/17857) 创建流连接 Topic。
+请参见 [创建新的流连接](https://cloud.tencent.com/document/product/849/17857) 来创建 Topic。
 
 ## 运行 Flume 插件
 流连接（CDP）提供一个 Flume 的 Sink 插件，通过该插件，能够将 Flume 中数据上报到流连接（CDP）中。 
