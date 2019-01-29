@@ -39,7 +39,7 @@ fdisk -l
      </tr> 
 	 <tr>
          <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td> 
-	     <td>可原有分区保持不变。</td>
+	     <td>可保持原有分区不变。</td>
      </tr> 
 	 <tr>
          <td rowspan="2">MBR</td>   
@@ -48,7 +48,7 @@ fdisk -l
      </tr> 
 	 <tr>
          <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td> 
-	     <td>可原有分区保持不变。</td>
+	     <td>可保持原有分区不变。</td>
      </tr> 
 </table>
 
