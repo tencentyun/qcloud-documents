@@ -1,8 +1,8 @@
 ## 1. 接口描述
 
-本接口 (ListAcl) 用于为实例的用户删除ACL策略
+本接口 (ListAcl) 用于枚举实例的ACL策略
 
-接口请求域名：<font style="color:red">ckafka.api.qcloud.com</font>
+接口请求域名：`ckafka.api.qcloud.com`
 
 ## 2. 输入参数
 
@@ -17,7 +17,20 @@
 | offset| 否| String |偏移量，不填默认为0 |
 | limit| 否 | String |返回数量，不填则默认 10，最大值20 |
 
-## 3. 示例
+## 3. 出参
+| 参数名称 | 类型 | 描述 |
+| --- | --- | --- |
+| acls  | Array | ACL策略的列表 |
+| acls::resourceType | Int | ACL资源类型，（0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID） |
+| acls::resourceName | String |资源名称，和resourceType相关如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称 |
+| acls::operation | Int | ACL操作方式，(0:UNKNOWN，1:ANY，2:ALL，3:READ，4:WRITE，5:CREATE，6:DELETE，7:ALTER，8:DESCRIBE，9:CLUSTER_ACTION，10:DESCRIBE_CONFIGS，11:ALTER_CONFIGS，12:IDEMPOTEN_WRITE) |
+| acls::permissionType | Int | 权限类型(0:UNKNOWN，1:ANY，2:DENY，3:ALLOW） |
+| acls::host | String | ACL策略作用的主机IP  |
+| acls::principal | Int | ACL关联的用户列表 |
+
+
+
+## 4. 示例
 
 输入：
 
@@ -36,19 +49,30 @@
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data":{
-    "totalCount":1
-    "users":[
-    {
-        "userId":123,
-        "name":"test",
-        "ctime":"2018-01-01 15:32:12",
-        "mtime":"2018-01-01 16:32:!2"
-    }]
+"code":0,
+"message":"",
+"codeDesc":"Success",
+"data":{
+	"acls":[
+		{
+			"resourceType":2,
+			"resourceName":"topic-a",
+			"host":"*",
+			"permissionType":3,
+			"operation":3,
+			"principal":"User:anonymous"
+		},
+		{
+			"resourceType":2,
+			"resourceName":"topic-a",
+			"host":"*",
+			"permissionType":3,
+			"operation":3,
+			"principal":"User:blob"
+		}
+	]
 }
+
 
 ```
 > 备注：该功能目前处于灰度测试阶段，如需要在控制台试用，请通过 提交工单的方式开通白名单。
