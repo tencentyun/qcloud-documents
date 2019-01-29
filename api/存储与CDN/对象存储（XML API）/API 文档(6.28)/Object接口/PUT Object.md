@@ -81,7 +81,7 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 ### 请求
 
 ```shell
-PUT /filename.jpg HTTP/1.1
+PUT /picture.jpg HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2015 20:32:00 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
