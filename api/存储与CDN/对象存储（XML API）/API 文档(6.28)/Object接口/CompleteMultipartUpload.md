@@ -1,17 +1,17 @@
 ## 功能描述
 Complete Multipart Upload 接口请求用来实现完成整个分块上传。当使用 Upload Parts 上传完所有块以后，必须调用该 API 来完成整个文件的分块上传。在使用该 API 时，您必须在请求 Body 中给出每一个块的 PartNumber 和 ETag，用来校验块的准确性。
-由于分块上传完后需要合并，而合并需要数分钟时间，因而当合并分块开始的时候，COS 就立即返回 200 的状态码，在合并的过程中，COS 会周期性的返回空格信息来保持连接活跃，直到合并完成，COS会在 Body 中返回合并后块的内容。
-当上传块小于 1 MB 的时候，在调用该 API 时，会返回 400 EntityTooSmall；
-当上传块编号不连续的时候，在调用该 API 时，会返回 400 InvalidPart；
-当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回 400 InvalidPartOrder；
-当 UploadId 不存在的时候，在调用该 API 时，会返回 404 NoSuchUpload。
-><font color="#0000cc">**注意：** </font>
->建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
+由于分块上传完后需要合并，而合并需要数分钟时间，因而当合并分块开始的时候，COS 就立即返回200的状态码，在合并的过程中，COS 会周期性的返回空格信息来保持连接活跃，直到合并完成，COS会在 Body 中返回合并后块的内容。
+当上传块小于1MB的时候，在调用该 API 时，会返回400 EntityTooSmall。
+当上传块编号不连续的时候，在调用该 API 时，会返回400 InvalidPart。
+当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回400 InvalidPartOrder。
+当 UploadId 不存在的时候，在调用该 API 时，会返回404 NoSuchUpload。
+
+>!建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 
 ## 请求
 
 语法示例：
-```
+```shell
 POST /ObjectName?uploadId=UploadId HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -19,16 +19,16 @@ Content-length: Size
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 ### 请求行
-```
+```shell
 POST /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 该 API 接口接受 POST 请求。
 #### 请求参数 <style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 包含所有请求参数的请求行示例：
-```
+```shell
 POST /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 具体内容如下：
@@ -47,7 +47,7 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 
 ### 请求体
 该 API 接口请求的请求体具体节点内容为：
-```
+```shell
 <CompleteMultipartUpload>
   <Part>
     <PartNumber></PartNumber>
@@ -75,6 +75,7 @@ Container 节点 Part 的内容：
 | :--------- | :--------------------------- | :--------------- | :------ | :--- |
 | PartNumber | CompleteMultipartUpload.Part | 块编号              | Integer | 是    |
 | ETag       | CompleteMultipartUpload.Part | 每个块文件的 MD5 算法校验值 | String  | 是    |
+
 ## 响应
 
 ### 响应头
@@ -91,7 +92,7 @@ Container 节点 Part 的内容：
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
-```
+```shell
 <CompleteMultipartUploadResult>
   <Location></Location>
   <Bucket></Bucket>
@@ -109,17 +110,17 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 
 | 节点名称（关键字） | 父节点                           | 描述                                       | 类型     |
 | :-------- | :---------------------------- | :--------------------------------------- | :----- |
-| Location  | CompleteMultipartUploadResult | 创建的Object的外网访问域名                         | URL    |
-| Bucket    | CompleteMultipartUploadResult | 分块上传的目标Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 | String |
-| Key       | CompleteMultipartUploadResult | Object的名称                                | String |
+| Location  | CompleteMultipartUploadResult | 创建 Object 的外网访问域名                         | URL    |
+| Bucket    | CompleteMultipartUploadResult | 分块上传的目标Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：examplebucket-1250000000 | String |
+| Key       | CompleteMultipartUploadResult | Object 名称                                | String |
 | ETag      | CompleteMultipartUploadResult | 合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性                        | String |
 
 ## 实际案例
 
 ### 请求
-```
+```shell
 POST /ObjectName?uploadId=1484728886e63106e87d8207536ae8521c89c42a436fe23bb58854a7bb5e87b7d77d4ddc48 HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484729794;32557625794&q-key-time=1484729794;32557625794&q-header-list=host&q-url-param-list=uploadId&q-signature=23627c8fddb3823cce4257b33c663fd83f9f820d
 Content-Length: 138
@@ -128,7 +129,7 @@ Content-Length: 138
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 277
@@ -138,7 +139,7 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 
 <CompleteMultipartUploadResult>
-    <Location>arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com/ObjectName</Location>
+    <Location>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/ObjectName</Location>
     <Bucket>arlenhuangtestsgnoversion-1251668577</Bucket>
     <Key>ObjectName</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
