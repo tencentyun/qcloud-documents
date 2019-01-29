@@ -22,14 +22,14 @@ table td {
 
 
 ## 特别提醒
-[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1 - 2 周时间，这段时间我们会用来进行 bugfix 和 系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
+[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS SDK (5.4.6097) </h2>
+<h2 id="iOS"> iOS SDK（5.4.6097）</h2>
 
 <table>
   <tr>
     <th width="120px" style="text-align:center">iOS SDK</th>
-    <th width="220px" style="text-align:center">BitCode<br/>是否支持BitCode<br/>(iOS提供的体积优化方案)</th>
+    <th width="220px" style="text-align:center">BitCode<br/>是否支持 BitCode<br/>（iOS 提供的体积优化方案）</th>
     <th width="220px" style="text-align:center">IPA 增量<br/>嵌入该版本后 IPA 安装包的体积增量</th>
     <th width="160px" style="text-align:center">Pod 安装<br/>基于 Pod 的 SDK 嵌入方式</th>
     <th width="160px" style="text-align:center">SDK 下载</th>
@@ -61,7 +61,7 @@ table td {
 - <h5>商用版本</h5>
   商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Enterprise_iOS_5.4.6097.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
   
-  使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018)。
 
 **iOS SDK功能介绍**
 <table>
@@ -76,14 +76,14 @@ table td {
   <tr>
 	  <td rowspan='2' style="text-align:center">直播推流</td>
     <td style="text-align:center">RTMP 推流</td>
-		<td style="text-align:left">用于实现主播端的手机推流功能(美女直播)</td>
+		<td style="text-align:left">用于实现主播端的手机推流功能（美女直播）</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
 	 <tr>
     <td style="text-align:center">录屏推流</td>
-		<td style="text-align:left">用于实现主播端的屏幕推流功能(游戏直播)</td>
+		<td style="text-align:left">用于实现主播端的屏幕推流功能（游戏直播）</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -98,7 +98,7 @@ table td {
   </tr>
 	<tr>
     <td style="text-align:center">FLV 播放</td>
-		<td style="text-align:left">用于实现 HTTP+ FLV 协议的直播播放功能</td>
+		<td style="text-align:left">用于实现 HTTP+FLV 协议的直播播放功能</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -142,8 +142,8 @@ table td {
     <td style="text-align:center">✔</td>
   </tr>
 	<tr>
-    <td style="text-align:center">主播PK</td>
-		<td style="text-align:left">用于实现主播与主播之间的1v1视频PK</td>
+    <td style="text-align:center">主播 PK</td>
+		<td style="text-align:left">用于实现主播与主播之间的1v1视频 PK</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -178,16 +178,16 @@ table td {
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
-	  <td rowspan='4' style="text-align:center">AI特效</td>
+	  <td rowspan='4' style="text-align:center">AI 特效</td>
     <td style="text-align:center">大眼瘦脸</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
     <td style="text-align:center">V脸隆鼻</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
@@ -201,14 +201,14 @@ table td {
   </tr>
   <tr>
     <td style="text-align:center">绿幕抠图</td>
-    <td style="text-align:left">基于天天P图AI特效实现背景抠图能力</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现背景抠图能力</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
   </tr>
 </table>
 
-<h2 id="Android"> Android SDK (5.4.6097) </h2>
+<h2 id="Android"> Android SDK（5.4.6097） </h2>
 
 <table>
   <tr>
@@ -234,7 +234,7 @@ table td {
   
   使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
-**Android SDK功能介绍**
+**Android SDK 功能介绍**
 <table>
   <tr>
 	  <th width="100px" style="text-align:center">功能模块</th>
@@ -247,14 +247,14 @@ table td {
   <tr>
 	  <td rowspan='2' style="text-align:center">直播推流</td>
     <td style="text-align:center">RTMP 推流</td>
-		<td style="text-align:left">用于实现主播端的手机推流功能(美女直播)</td>
+		<td style="text-align:left">用于实现主播端的手机推流功能（美女直播）</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
 	 <tr>
     <td style="text-align:center">录屏推流</td>
-		<td style="text-align:left">用于实现主播端的屏幕推流功能(游戏直播)</td>
+		<td style="text-align:left">用于实现主播端的屏幕推流功能（游戏直播）</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -269,7 +269,7 @@ table td {
   </tr>
 	<tr>
     <td style="text-align:center">FLV 播放</td>
-		<td style="text-align:left">用于实现 HTTP+ FLV 协议的直播播放功能</td>
+		<td style="text-align:left">用于实现 HTTP+FLV 协议的直播播放功能</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -313,8 +313,8 @@ table td {
     <td style="text-align:center">✔</td>
   </tr>
 	<tr>
-    <td style="text-align:center">主播PK</td>
-		<td style="text-align:left">用于实现主播与主播之间的1v1视频PK</td>
+    <td style="text-align:center">主播 PK</td>
+		<td style="text-align:left">用于实现主播与主播之间的1v1视频 PK</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
@@ -349,16 +349,16 @@ table td {
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
-	  <td rowspan='4' style="text-align:center">AI特效</td>
+	  <td rowspan='4' style="text-align:center">AI 特效</td>
     <td style="text-align:center">大眼瘦脸</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
     <td style="text-align:center">V脸隆鼻</td>
-    <td style="text-align:left">基于天天P图AI特效实现五官实时美型功能</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现五官实时美型功能</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
@@ -372,14 +372,14 @@ table td {
   </tr>
   <tr>
     <td style="text-align:center">绿幕抠图</td>
-    <td style="text-align:left">基于天天P图AI特效实现背景抠图能力</td>
+    <td style="text-align:left">基于天天P图 AI 特效实现背景抠图能力</td>
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
   </tr>
 </table>
 
-<h2 id="Windows"> Windows SDK (3.2.0) </h2>
+<h2 id="Windows"> Windows SDK（3.2.0） </h2>
 
 <table>
   <tr align="center">
@@ -395,7 +395,7 @@ table td {
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
   </tr>
   <tr align="center">
-    <td>RTMP播放</td>
+    <td>RTMP 播放</td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
     <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
@@ -409,8 +409,8 @@ table td {
   <tr align="center">
     <td>对接要求</td>
     <td>具备网页开发经验</td>
-    <td>具备C#（.NET）开发经验</td>
-    <td>具备C++开发经验</td>
+    <td>具备 C#（.NET）开发经验</td>
+    <td>具备 C++ 开发经验</td>
   </tr>
   <tr align="center">
     <td>开发环境</td>
@@ -433,7 +433,7 @@ table td {
 </table>
 
 - **跟 OBS 的差异?**
-移动直播 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
+移动直播 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到400ms以内的延迟效果。
 
 <h2 id="XiaoChengXu">小程序源码（1.2.693）</h2>
 
@@ -453,13 +453,13 @@ table td {
 </table>
 
 - **一键部署**
--此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部
+ 此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在5分钟时间里即拥有一个自己的调试环境，部
 
-<h2 id="PCWeb">Web（PC端）源码（1.0.0）</h2>
+<h2 id="PCWeb">Web（PC 端）源码（1.0.0）</h2>
 
 | 所属平台 | 版本号 | 说明 | 下载链接 |
 |---------|---------|---------|------|
-| PC浏览器 | 1.0.0| 源码实现了一个网页唤起 EXE 桌面程序，并跟小程序互通的简单Demo，<br>可以用实现 浏览器[(IE或Chrome)](https://cloud.tencent.com/document/product/454/17004) =>TXCloudRoom.exe + 微信[(小程序)](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebEXE](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) |
+| PC 浏览器 | 1.0.0| 源码实现了一个网页唤起 EXE 桌面程序，并跟小程序互通的简单 Demo，<br>可以用实现浏览器[（IE 或 Chrome）](https://cloud.tencent.com/document/product/454/17004) => TXCloudRoom.exe + 微信[（小程序）](https://cloud.tencent.com/document/product/454/16914) 的组合解决方案。 | [WebEXE](https://github.com/TencentVideoCloudMLVBDev/webexe_web.git) |
 
 <h2 id="Server">服务端源码（1.1.0）</h2>
  
@@ -473,13 +473,13 @@ table td {
 	<tr align="center">
     <td>计算安全签名</td>
     <td>1.1.0</td>
-    <td style="vertical-align:middle; text-align:left;">用于计算 IM、LiveRoom、RTCRoom 以及 WebRTC 等方案中所需要使用的 UserSig 和 privateMapKey 签名，算法基于 ECDSA-SHA256 实现 </a></td>
+    <td style="vertical-align:middle; text-align:left;">用于计算 IM、LiveRoom、RTCRoom 以及 WebRTC 等方案中所需要使用的 UserSig 和 privateMapKey 签名，算法基于 ECDSA-SHA256 实现。 </a></td>
     <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_sign") href="https://github.com/TencentVideoCloudMLVBDev/sign_srv">JAVA & PHP & Node.js</a</td>
   </tr>
   <tr align="center">
     <td rowspan="2"> RoomService</td>
     <td rowspan="2">1.1.0</td>
-    <td rowspan="2" style="vertical-align:middle; text-align:left;">RoomService 是 <a href="https://cloud.tencent.com/document/product/454/14606#Server">LiveRoom</a>（直播连麦） 和 <a href="https://cloud.tencent.com/document/product/454/14617#Server">RTCRoom</a>（视频通话） 的后台组件，源码下载后可部署于自己的业务服务器上。 </td>
+    <td rowspan="2" style="vertical-align:middle; text-align:left;">RoomService 是 <a href="https://cloud.tencent.com/document/product/454/14606#Server">LiveRoom</a>（直播连麦）和 <a href="https://cloud.tencent.com/document/product/454/14617#Server">RTCRoom</a>（视频通话）的后台组件，源码下载后可部署于自己的业务服务器上。 </td>
     <td><a onclick=MtaH5.clickStat("wiki_download_sdk_server_java") href="https://github.com/TencentVideoCloudMLVBDev/roomservice_java
 ">JAVA</a</td>
   </tr>
@@ -496,7 +496,7 @@ table td {
 
 <h2 id="Xiaozhibo">小直播源码（5.1）</h2>
 
-小直播是腾讯视频云终端产品中心打造的一款集各种功能（文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动）于一体的开源 APP，致力于帮您快速搭建自己的直播产品原型。您可以参考 [搭建指引](https://cloud.tencent.com/document/product/454/15187) 了解如何快速让下面的代码跑起来。
+小直播是腾讯视频云终端产品中心打造的一款集各种功能（文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动）于一体的开源 App，致力于帮您快速搭建自己的直播产品原型。您可以参考 [搭建指引](https://cloud.tencent.com/document/product/454/15187) 了解如何快速让下面的代码跑起来。
 
 <table width="850px">
   <tr align="center">
@@ -518,15 +518,15 @@ table td {
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_5.1.5300.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
-    <td style="text-align:center">PHP源码包</td>
+    <td style="text-align:center">PHP 源码包</td>
     <td style="text-align:center">4.4</td>
     <td style="text-align:left">为观众端提供直播间列表和回放列表</td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="https://github.com/TencentVideoCloudMLVBDev/xiaozhibo_business_svr_php">DOWNLOAD</a></td>
   </tr>
   <tr>
-    <td style="text-align:center">Web分享页</td>
+    <td style="text-align:center">Web 分享页</td>
     <td style="text-align:center">1.1</td>
-    <td style="text-align:left">基于HTML5技术构建的Web分享页面，支持在常规手机浏览器和PC浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[朋友圈分享]</a></td>
+    <td style="text-align:left">基于 HTML5 技术构建的 Web 分享页面，支持在常规手机浏览器和 PC 浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[朋友圈分享]</a></td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="https://github.com/TencentVideoCloudMLVBDev/web_share">DOWNLOAD</a></td>
   </tr>
 </table>
