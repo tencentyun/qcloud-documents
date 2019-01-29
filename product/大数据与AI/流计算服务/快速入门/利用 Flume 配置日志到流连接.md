@@ -26,7 +26,8 @@
 &nbsp;&nbsp;agent-1.channels.ch-1.type = memory
 &nbsp;&nbsp;agent-1.channels.ch-1.capacity = 100000
 &nbsp;&nbsp;agent-1.channels.ch-1.transactionCapacity = 100000
-&nbsp;&nbsp;根据业务数据量，设置数据管道的capacity，以及transactionCapacity；
+
+根据业务数据量，设置数据管道的capacity，以及transactionCapacity；
 
 ### 2.	配置数据源
 
@@ -45,7 +46,8 @@
 &nbsp;&nbsp;agent-1.sources.avro-source1.skipToEnd = false
 &nbsp;&nbsp;agent-1.sources.avro-source1.filegroups = f1
 &nbsp;&nbsp;agent-1.sources.avro-source1.filegroups.f1 =
-&nbsp;&nbsp;如果使用kafka作为数据源，则需要指定对应的bootstrap.servers，以及对应的topics，以及对应的消费者的group.id；如果使用本地文件作为数据源，需要指定本地文件的路径，在如上图的agent-1.sources.avro-source1.filegroup.f1 处指定；
+
+如果使用kafka作为数据源，则需要指定对应的bootstrap.servers，以及对应的topics，以及对应的消费者的group.id；如果使用本地文件作为数据源，需要指定本地文件的路径，在如上图的agent-1.sources.avro-source1.filegroup.f1 处指定；
 
 ### 3.	配置数据目的
 
