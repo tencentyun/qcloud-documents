@@ -12,8 +12,7 @@
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。
 - 已 [登录](https://cloud.tencent.com/document/product/213/5436) 待扩展分区及文件系统的 Linux 云服务器。
 
-## 操作步骤
-### 确认分区表形式
+## 确认分区表形式
 1. 以 root 用户执行以下命令，确认云硬盘在扩容前使用的分区表形式。
 ```
 fdisk -l
@@ -25,14 +24,13 @@ fdisk -l
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
 
 <span id="GPT"></span>
-### 扩展分区及文件系统（GPT）
+## 扩展分区及文件系统（GPT）
 GPT 分区的云硬盘完成 [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以选择：
 - [将扩容部分的容量划分至原有分区内](#AddToTheExistingGPTPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
 - [将扩容部分的容量格式化成独立的新分区](#CreateANewGPTPart)，同时原有分区保持不变。
 
 <span id="AddToTheExistingGPTPart"></span>
-#### 将扩容部分的容量划分至原有分区（GPT）
-**查看数据盘信息**
+### 将扩容部分的容量划分至原有分区（GPT）
 1. 以 root 用户执行以下命令，确认云硬盘的容量变化。
  ```
 parted <磁盘路径> print
@@ -46,7 +44,6 @@ parted /dev/vdb print
 如下图所示，扩容后的云硬盘大小为107GB，已有分区的大小为10.7GB。
 ![](//mccdn.qcloud.com/static/img/01a0a7a8fdfe6f05f2739f0326a74ef9/image.png)
 
-**卸载已挂载数据盘**
 2. 执行以下命令，确认该云硬盘是否还有分区已挂载。
 ```
 mount | grep '<磁盘路径>' 
@@ -72,7 +69,6 @@ mount | grep '/dev/vdb'
 ![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
 
 <span id="step4"></span>
-**数据盘分区** 
 4. 执行以下命令，进入 parted 分区工具。
 ```
 parted '<磁盘路径>'
@@ -120,8 +116,6 @@ print
 ```
 quit
 ```
-
-**检查扩容后分区的文件系统**
 11. 执行以下命令，检查扩容后的分区。
 ```
 e2fsck -f <分区路径>
@@ -132,8 +126,6 @@ e2fsck -f /dev/vdb1
 ```
 返回如下图所示结果。
 ![](//mccdn.qcloud.com/static/img/307f7a0c98eea05ca1d4560fe4e96f57/image.png)
-
-**扩容 EXT 文件系统**
 12. 执行以下命令，对新分区上 EXT 文件系统进行扩容操作。
 ```
 resize2fs <分区路径>
@@ -143,8 +135,6 @@ resize2fs <分区路径>
 resize2fs /dev/vdb1
 ```
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
-
-**扩容 XFS 文件系统**
 13. 执行以下命令，对新分区上 XFS 文件系统进行扩容操作。
 ```
 xfs_growfs <分区路径>
@@ -153,8 +143,6 @@ xfs_growfs <分区路径>
 ```
 xfs_growfs /dev/vdb1
 ```
-
-**挂载新分区**
 14. 执行以下命令，手动挂载新分区。
 ```
 mount <分区路径> <挂载点>
@@ -171,9 +159,8 @@ df -h
 ![](//mccdn.qcloud.com/static/img/a2bd04c79e8383745689e19033a0daaa/image.png)
 
 <span id="CreateANewGPTPart"></span>
-#### 将扩容部分的容量格式化成独立的新分区（GPT）
+### 将扩容部分的容量格式化成独立的新分区（GPT）
 
-**查看数据盘信息**
 1. 以 root 用户执行以下命令， 确认云硬盘的容量变化。
  ```
 parted <磁盘路径> print
@@ -186,8 +173,6 @@ parted /dev/vdb print
 ![](//mccdn.qcloud.com/static/img/cf51cda9a12085f76949ab0d5dd0fbfc/image.png)
 如下图所示，扩容后的云硬盘大小为107GB，已有分区的大小为10.7GB。
 ![](//mccdn.qcloud.com/static/img/01a0a7a8fdfe6f05f2739f0326a74ef9/image.png)
-
-** 卸载已挂载数据盘**
 2. 执行以下命令，确认该云硬盘是否还有分区已挂载。
 ```
 mount | grep '<磁盘路径>' 
@@ -211,9 +196,7 @@ umount /data
 mount | grep '/dev/vdb'
 ```
 ![](https://main.qcloudimg.com/raw/d1a9a33f0d4e3725aed677f2403c91ae.png)
-
 <span id="Step4"></span>
-**数据盘分区**
 4. 执行以下命令，进入 parted 分区工具。
 ```
 parted '<磁盘路径>'
@@ -244,8 +227,6 @@ print
 ```
 quit
 ```
-
-**格式化新建分区**
 9. 执行以下命令，格式化新建的分区。
 ```
 mkfs.<fstype> <分区路径> 
@@ -257,7 +238,7 @@ mkfs.ext3 /dev/vdb2
 ```
 
 <span id="MBR"></span>
-### 扩展分区及文件系统（MBR）
+## 扩展分区及文件系统（MBR）
 MBR 分区的云硬盘完成  [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以通过 Linux 下的分区扩容工具（fdisk/e2fsck/resize2fs）选择：
 - [将扩容部分的容量划分至原有分区内](#AddToTheExistingMBRPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
 - [将扩容部分的容量格式化成独立的新分区](#CreateANewMBRPart)，同时原有分区保持不变。
@@ -267,14 +248,14 @@ MBR 分区的云硬盘完成  [扩容](https://cloud.tencent.com/document/produc
 > - 为了内核可以识别出新的分区表，不管是添加新分区，还是扩容到已有分区，都需要先将此磁盘的所有已挂载分区解挂，再执行后续操作。
 
 <span id="AddToTheExistingMBRPart"></span>
-#### 将扩容部分的容量划分至原有分区（MBR）
+### 将扩容部分的容量划分至原有分区（MBR）
 fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新扩容的云硬盘空间添加到已有的文件系统中，扩容能够成功必须满足以下四个条件：
 - 文件系统是 EXT2/EXT3/EXT4/XFS。
 - 当前文件系统不能有错误。
 - 扩容后的磁盘大小不超过2TB。
 - 当前工具仅支持 Python 2 版本，不支持 Python 3 版本。
 
-**卸载正在使用的硬盘分区**
+
 1. 以 root 用户执行以下命令，卸载分区。
 ```
 umount <挂载点>
@@ -284,14 +265,10 @@ umount <挂载点>
 umount /data
 ```
 ![](//mccdn.qcloud.com/static/img/c0acc05057941681627a5fd34979d194/image.jpg)
-
-**下载一键扩容工具**
 2. 执行以下命令，下载工具。
 ```
 wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
-
-**执行扩容工具**
 3. 执行以下命令，使用扩容工具进行扩容。
 ```
 python /tmp/devresize.py <硬盘路径>
@@ -315,9 +292,7 @@ fsck -a /dev/vdb1
 ```
 python /tmp/devresize.py /dev/vdb
 ```
-
 <span id="step4MBR"></span>
-**重新挂载扩容后的分区**
 4. 执行以下命令，手动挂载扩容后的分区。
 ```
 mount <分区路径> <挂载点>
@@ -331,20 +306,19 @@ mount /dev/vdb1 /data
 ```
 mount /dev/vdb /data
 ```
-2. 执行以下命令，查看扩容后的分区容量。
+5. 执行以下命令，查看扩容后的分区容量。
 ```
 df -h
 ```
 若返回类似如下图所示的信息，说明挂载成功，即可以查看到数据盘：
 ![](//mccdn.qcloud.com/static/img/2367f3e70cd0c3c1bef665cc47c1c3bc/image.jpg)
-5. 执行以下命令，查看扩容后原分区的数据信息，确认新增加的存储空间是否扩容到文件系统中。
+6. 执行以下命令，查看扩容后原分区的数据信息，确认新增加的存储空间是否扩容到文件系统中。
 ```
 ll /data
 ```
 
 <span id="CreateANewMBRPart"></span>
-#### 将扩容部分的容量格式化成独立的新分区（MBR）
-**查看数据盘信息**
+### 将扩容部分的容量格式化成独立的新分区（MBR）
 1. 以 root 用户执行以下命令，查看已挂载的数据盘分区信息。
 ```
 df -h
@@ -355,8 +329,6 @@ df -h
 fdisk -l
 ```
 ![](//mccdn.qcloud.com/static/img/594671a1215dee3036b7940892438f62/image.png)
-
-**解挂所有已挂载的分区**
 3. 执行以下命令，解挂所有已挂载的分区。
 ```
 umount <挂载点>
@@ -365,10 +337,8 @@ umount <挂载点>
 ```
 umount /data
 ```
->? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR) 操作。
-
+>? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR) 。
 <span id="Step4MBR"></span>
-**数据盘分区**
 4. 执行以下命令，新建一个新分区。
 ```
 fdisk <硬盘路径>
@@ -380,16 +350,12 @@ fdisk /dev/xvdc
 按照界面的提示，依次输入”p”（查看现有分区信息）、“n”（新建分区）、“p”（新建主分区）、“2”（新建第2个主分区），两次回车（使用默认配置），输入 “w”（保存分区表），开始分区。如下图所示：
 ![](//mccdn.qcloud.com/static/img/8c35d6f4dfb367e74edc27ce6822c317/image.png)
 >? 本文以创建一个分区为例，您也可以根据实际需求创建多个分区。
-
-**查看新分区**
 5. 执行以下命令，查看新分区。
 ```
 fdisk -l
 ```
 如下图所示，表示新的分区 xvdc2 已经创建完成。
 ![](//mccdn.qcloud.com/static/img/e04e924d62317bc2c605c8abaac394f5/image.png)
-
-**格式化新分区并创建文件系统**
 6. 执行以下命令，格式化新分区并创建文件系统。
 ```
 mkfs.<fstype> <分区路径> 
@@ -400,8 +366,6 @@ mkfs.<fstype> <分区路径>
 mkfs.ext3 /dev/xvdc2
 ```
 ![](//mccdn.qcloud.com/static/img/074e23eaa580495f96fb532b688d2d68/image.png)
-
-**挂载新分区**
 7. 执行以下命令，创建新的挂载点。
 ```
 mkdir <新挂载点>
@@ -428,8 +392,6 @@ df -h
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要 [添加新分区信息](#AddNewPartINFO) 至`/etc/fstab`中。
 
 <span id="AddNewPartINFO"></span>
-**（可选）添加新分区信息**
-
 10. 执行以下命令，添加信息。
 ```
 echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab
