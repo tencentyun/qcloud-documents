@@ -19,7 +19,7 @@
 
 流连接（CDP）提供一个 Flume 的 Sink 插件，通过该插件，能够将 Flume 中数据上报到流连接（CDP）中。 
 
-### 1.	配置Flume sink插件
+### 1.	配置 Flume sink 插件
 
 首先需要安装标准版本的 Flume（需 1.7.0 版本以上），然后在 Flume 的根目录下新建 plugins.d 目录，解压 Sink 插件到新建的 plugins.d 目录下面即可。解压后在 plugins.d 目录下有 flume-datapipeline-sink 这个目录，该目录下是 lib 和 libext；然后在Flume的conf目录下新建一个flume-conf.properties文件，进行数据源和数据目的的配置，首先配置数据管道如下：
 
@@ -76,7 +76,7 @@
 
 设置用户的appId，用户的secretId，secretKey，以及CDP的上报地址，上报的CDP的Project名字，Topic的名字，上报的格式（dataType），以及分割符（delimiter），上报的批量大小（batchsize）等。
 
-### 4.	启动Flume
+### 4.	启动 Flume
 以上都配置完成后，在Flume的安装目录下执行以下命令
 
 &nbsp;&nbsp;nohup bin/flume-ng agent --conf conf -f ./conf/flume-conf.properties -n agent-1 &
