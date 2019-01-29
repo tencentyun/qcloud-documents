@@ -1,6 +1,6 @@
 ## 操作场景
 云硬盘是云上可扩展的存储设备，您可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。
-[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，根据云硬盘使用的实际分区方式，您可以选择：
+[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，根据云硬盘使用的分区方式，您可以选择：
 <table>
      <tr>
          <th>分区方式</th>  
@@ -8,17 +8,17 @@
      </tr>
 	 <tr>      
          <td   rowspan="2" nowrap="nowrap">GPT</td>   
-	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a>（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。</td>
+	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a></td>
      </tr> 
 	 <tr>
-         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a>，同时原有分区保持不变。</td>
+         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td>
      </tr>
 	 <tr>
          <td   rowspan="2">MBR</td>   
-	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a>（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。</td>
+	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a></td>
      </tr> 
 	 <tr>
-         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a>，同时原有分区保持不变。</td>
+         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td>
      </tr>
 </table>
 
