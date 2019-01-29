@@ -10,7 +10,7 @@ Upload Part 接口请求实现将对象按照分块的方式上传到 COS。最�
 ### 请求示例
 
 ```shell
-PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
+PUT /<ObjectKey>?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: Size
@@ -74,7 +74,7 @@ Authorization: Auth String
 
 ### 请求
 ```shell
-PUT /ObjectName?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
+PUT /<ObjectKey>?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727403;32557623403&q-key-time=1484727403;32557623403&q-header-list=host&q-url-param-list=partNumber;uploadId&q-signature=bfc54518ca8fc31b3ea287f1ed2a0dd8c8e88a1d
