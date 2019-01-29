@@ -2,9 +2,9 @@
 PUT Bucket acl 接口用来写入 Bucket 的 acl 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 acl 信息，或者通过 Body 以 XML 格式传入 acl 信息。
 
 >!
-- Header 和 Body 只能选择其中一种，否则响应返回会冲突。
-- PUT Bucket acl 是一个覆盖操作，传入新的 acl 将覆盖原有 acl。
-- 只有 Bucket 创建者才有权操作。
+>- Header 和 Body 只能选择其中一种，否则响应返回会冲突。
+>- PUT Bucket acl 是一个覆盖操作，传入新的 acl 将覆盖原有 acl。
+>- 只有 Bucket 创建者才有权操作。
 
 ### 细节分析
 1. 既可以通过头部设置，也可以通过 xml body 设置，建议只使用一种方法。
