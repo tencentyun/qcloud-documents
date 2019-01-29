@@ -34,20 +34,20 @@ fdisk -l
      </tr>
 	 <tr>      
          <td rowspan="2">GPT</td>   
-	     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a></td>
+	     <td nowrap="nowrap"><a target="_self" href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a></td>
 	     <td>同样适用于未分区直接格式化的场景。</td>
      </tr> 
 	 <tr>
-         <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td> 
+         <td><a target="_self" href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td> 
 	     <td>可保持原有分区不变。</td>
      </tr> 
 	 <tr>
          <td rowspan="2">MBR</td>   
-	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a></td> 
+	     <td><a target="_self" href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a></td> 
 	     <td>同样适用于未分区直接格式化的场景。</td>
      </tr> 
 	 <tr>
-         <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td> 
+         <td><a target="_self" href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td> 
 	     <td>可保持原有分区不变。</td>
      </tr> 
 </table>
