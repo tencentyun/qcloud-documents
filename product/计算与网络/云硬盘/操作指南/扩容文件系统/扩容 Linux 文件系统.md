@@ -1,10 +1,10 @@
 ## 操作场景
 云硬盘是云上可扩展的存储设备，您可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。
-[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。根据云硬盘使用的分区方式，您可以选择：
+[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，根据云硬盘使用的实际分区方式，您可以选择：
 <table>
      <tr>
          <th>分区方式</th>  
-         <th nowrap="nowrap">扩展分区及文件系统的模式</th>  
+         <th nowrap="nowrap">操作指引</th>  
      </tr>
 	 <tr>      
          <td   rowspan="2" nowrap="nowrap">GPT</td>   
