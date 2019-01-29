@@ -1,4 +1,4 @@
-本文主要介绍腾讯云 Im SDK(iOS) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 ImSDK(iOS&Mac) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
 ## 初始化
 - ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
 - SdkAppId 和 accountType 可以在云通信 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
