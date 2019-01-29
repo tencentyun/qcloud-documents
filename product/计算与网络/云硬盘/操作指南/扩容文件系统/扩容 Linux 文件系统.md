@@ -1,27 +1,6 @@
 ## 操作场景
 云硬盘是云上可扩展的存储设备，您可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。
-[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，根据云硬盘使用的分区方式，您可以选择：
-<table>
-     <tr>
-         <th>分区方式</th>  
-         <th nowrap="nowrap">操作指引</th>  
-     </tr>
-	 <tr>      
-         <td   rowspan="2" nowrap="nowrap">GPT</td>   
-	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a></td>
-     </tr> 
-	 <tr>
-         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td>
-     </tr>
-	 <tr>
-         <td   rowspan="2">MBR</td>   
-	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a></td>
-     </tr> 
-	 <tr>
-         <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td>
-     </tr>
-</table>
-
+[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
 ## 注意事项
 
 扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
@@ -32,22 +11,46 @@
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。
 - 已 [登录](https://cloud.tencent.com/document/product/213/5436) 待扩展分区及文件系统的 Linux 云服务器。
 
-## 确认磁盘分区方式
-以 root 用户执行以下命令，确认云硬盘在扩容前使用的分区方式。
+## 操作步骤
+### 确认扩展方式
+<span id="fdisk"></span>
+1. 以 root 用户执行以下命令，查询云硬盘使用的分区方式。
 ```
 fdisk -l
 ```
- - 若结果如下两图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 GPT 分区方式，请执行 [扩展分区及文件系统（GPT）](#GPT)。
+ - 若结果如下两图所示（根据操作系统不同略有不同），则说明使用 GPT 分区方式。
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
- - 若结果如下图所示（根据操作系统不同略有不同），则说明云服务器扩容前为 MBR 分区方式，请执行 [扩展分区及文件系统（MBR）](#MBR)。
+ - 若结果如下图所示（根据操作系统不同略有不同），则说明使用 MBR 分区方式。
+ >! MBR 格式分区支持的磁盘最大容量为2TB。如果您的硬盘分区为 MBR 格式，且需要扩容到超过 2TB 时，建议您重新创建并挂载一块数据盘，使用 GPT 分区方式后将数据拷贝至新盘上。
+ >
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
-
-<span id="GPT"></span>
-## 扩展分区及文件系统（GPT）
-GPT 分区的云硬盘完成 [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以选择：
-- [将扩容部分的容量划分至原有分区内](#AddToTheExistingGPTPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
-- [将扩容部分的容量格式化成独立的新分区](#CreateANewGPTPart)，同时原有分区保持不变。
+2. 根据 [步骤1](#fdisk) 查询到的云硬盘分区方式，选择对应的操作指引。
+<table>
+     <tr>
+         <th nowrap="nowrap">分区方式</th>  
+         <th>操作指引</th>  
+         <th>说明</th>  
+     </tr>
+	 <tr>      
+         <td rowspan="2">GPT</td>   
+	     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingGPTPart">将扩容部分的容量划分至原有分区（GPT）</a></td>
+	     <td>同样适用于未分区直接格式化的场景。</td>
+     </tr> 
+	 <tr>
+         <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewGPTPart">将扩容部分的容量格式化成独立的新分区（GPT）</a></td> 
+	     <td>可原有分区保持不变。</td>
+     </tr> 
+	 <tr>
+         <td rowspan="2">MBR</td>   
+	     <td><a href="https://cloud.tencent.com/document/product/362/6738#AddToTheExistingMBRPart">将扩容部分的容量划分至原有分区（MBR）</a></td> 
+	     <td>同样适用于未分区直接格式化的场景。</td>
+     </tr> 
+	 <tr>
+         <td><a href="https://cloud.tencent.com/document/product/362/6738#CreateANewMBRPart">将扩容部分的容量格式化成独立的新分区（MBR）</a></td> 
+	     <td>可原有分区保持不变。</td>
+     </tr> 
+</table>
 
 <span id="AddToTheExistingGPTPart"></span>
 ### 将扩容部分的容量划分至原有分区（GPT）
@@ -256,16 +259,6 @@ mkfs.<fstype> <分区路径>
 ```
 mkfs.ext3 /dev/vdb2
 ```
-
-<span id="MBR"></span>
-## 扩展分区及文件系统（MBR）
-MBR 分区的云硬盘完成  [扩容](https://cloud.tencent.com/document/product/362/5747)  后，您可以通过 Linux 下的分区扩容工具（fdisk/e2fsck/resize2fs）选择：
-- [将扩容部分的容量划分至原有分区内](#AddToTheExistingMBRPart)（包括未分区直接格式化的场景），并且保持原有分区的数据不丢失。
-- [将扩容部分的容量格式化成独立的新分区](#CreateANewMBRPart)，同时原有分区保持不变。
-
->! 
-> - MBR 格式分区支持的磁盘最大容量为2TB。如果您的硬盘分区为 MBR 格式，且需要扩容到超过 2TB 时，建议您重新创建并挂载一块数据盘，使用 GPT 分区方式后将数据拷贝至新盘上。
-> - 为了内核可以识别出新的分区表，不管是添加新分区，还是扩容到已有分区，都需要先将此磁盘的所有已挂载分区解挂，再执行后续操作。
 
 <span id="AddToTheExistingMBRPart"></span>
 ### 将扩容部分的容量划分至原有分区（MBR）
