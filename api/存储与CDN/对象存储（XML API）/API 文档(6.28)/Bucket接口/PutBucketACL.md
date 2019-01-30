@@ -19,7 +19,7 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
->Authorization: Auth String (详细参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 
 ### 请求头
@@ -84,7 +84,7 @@ Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
+| Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息，一个 AccessControlList 可以拥有100条 Grant | Container    |是|
 
 Container 节点 Grant 的内容：
 
