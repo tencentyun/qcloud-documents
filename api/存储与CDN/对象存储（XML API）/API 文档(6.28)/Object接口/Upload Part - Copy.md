@@ -81,7 +81,7 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <?xml version="1.0" encoding="UTF-8" ?>
 <CopyPartResult>
    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
