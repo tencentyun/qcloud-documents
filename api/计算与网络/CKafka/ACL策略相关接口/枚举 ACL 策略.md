@@ -37,46 +37,43 @@
 输入：
 
 ```
- "code":0,
-"message":"",
-"codeDesc":"Success",
-"data":{
-	"acls":[
-		{
-			"resourceType":2,
-			"resourceName":"topic-a",
-			"host":"*",
-			"permissionType":3,
-			"operation":3,
-			"principal":"User:anonymous"
-		},
-		{
-			"resourceType":2,
-			"resourceName":"topic-a",
-			"host":"*",
-			"permissionType":3,
-			"operation":3,
-			"principal":"User:blob"
-		}
-	]
+https://domain/v2/index.php?Action=ListAcl
+  &instanceId=ckafka-tadfqa0
+  &resourceType=2
+  &resourceName=test-topic
+  &operation=0
+  &permissionType=3
+  &host=*
+  &principal=User:user1
+  &<公共请求参数>
 ```
 
 输出：
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data":{
-    "totalCount":1
-    "users":[
-    {
-        "userId":123,
-        "name":"test",
-        "ctime":"2018-01-01 15:32:12",
-        "mtime":"2018-01-01 16:32:!2"
-    }]
+"code":0,
+"message":"",
+"codeDesc":"Success",
+"data":{
+ "acls":[
+  {
+   "resourceType":2,
+   "resourceName":"topic-a",
+   "host":"*",
+   "permissionType":3,
+   "operation":3,
+   "principal":"User:anonymous"
+  },
+  {
+   "resourceType":2,
+   "resourceName":"topic-a",
+   "host":"*",
+   "permissionType":3,
+   "operation":3,
+   "principal":"User:blob"
+  }
+ ]
 }
 
 ```
