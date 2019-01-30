@@ -396,8 +396,7 @@ __介绍__
 abstract void startLocalAudio()
 ```
 
->?
-TRTC SDK 并不会默认打开本地的麦克风采集。 
+>?TRTC SDK 并不会默认打开本地的麦克风采集。 
 该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 
 
@@ -782,8 +781,7 @@ __参数__
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY |
 | listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次 |
 
->?
-设置此方法后，SDK 内部会把采集到的数据回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
+>?设置此方法后，SDK 内部会把采集到的数据回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 
 
 <br/>
@@ -806,8 +804,7 @@ __参数__
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY |
 | listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次 |
 
->?
-设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
+>?设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 
 
 <br/>
@@ -833,8 +830,7 @@ __参数__
 | reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
 | ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
->?
-限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息。
+>?限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息。
 限制2：每个包最大为 1 KB，超过则很有可能会被中间路由器或者服务器丢弃。
 限制3：每个客户端每秒最多能发送总计 8 KB 数据。
 
@@ -1003,7 +999,7 @@ __参数__
 
 ### startSpeedTest
 
-开始进行网络测速(视频通话期间请勿测试，以免影响通话质量)。
+开始进行网络测速（视频通话期间请勿测试，以免影响通话质量）。
 
 ```
 abstract void startSpeedTest(int sdkAppId, String userId, String userSig)
