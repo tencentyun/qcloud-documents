@@ -89,7 +89,7 @@ __参数__
 
 ### onUserEnter
 
-成员进入房间事件。
+userid对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
 
 ```
 void onUserEnter(String userId)
@@ -106,7 +106,7 @@ __参数__
 
 ### onUserExit
 
-成员离开房间事件。
+userid对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
 
 ```
 void onUserExit(String userId, int reason)
@@ -124,7 +124,7 @@ __参数__
 
 ### onUserVideoAvailable
 
-成员屏蔽自己的画面。
+userid对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(String userId, boolean available)
@@ -140,9 +140,27 @@ __参数__
 <br/>
 
 
+### onUserSubStreamAvailable
+
+userid对应的远端辅路（屏幕分享等）画面的状态通知。
+
+```
+void onUserSubStreamAvailable(String userId, boolean available)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | String | 用户标识 |
+| available | boolean | true：屏幕分享可播放，false：屏幕分享被关闭 |
+
+<br/>
+
+
 ### onUserAudioAvailable
 
-成员屏蔽自己的声音。
+userid对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(String userId, boolean available)
@@ -160,7 +178,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-成员语音音量回调 通过调用 TRTCCloud enableAudioVolumeEvaluation 来开关这个回调。
+userid对应的成员语音音量 通过调用 TRTCCloud enableAudioVolumeEvaluation 来开关这个回调。
 
 ```
 void onUserVoiceVolume(ArrayList< TRTCCloudDef.TRTCVolumeInfo > userVolumes, int totalVolume)
@@ -297,7 +315,7 @@ void onConnectionRecovery()
 
 ### onSpeedTest
 
-服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
+：6.4 服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
 
 ```
 void onSpeedTest(TRTCCloudDef.TRTCSpeedTestResult currentResult, int finishedCount, int totalCount)
@@ -407,76 +425,29 @@ __说明__
 
 
 
-## 旁路转推和混流回调
+## CDN旁路转推
 
 ### onStartPublishCDNStream
 
-接口startPublishCDNStream的状态回调。
+旁路推流到CDN的回调，对应于 TRTCCloud 的 startPublishCDNStream() 接口。
 
 ```
 void onStartPublishCDNStream(int err, String errMsg)
 ```
 
-__参数__
+__说明__
 
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | String | 错误详细信息 |
+
+Start回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
+
 
 <br/>
 
 
 ### onStopPublishCDNStream
-
-接口stopPublishCDNStream的状态回调。
-
 ```
 void onStopPublishCDNStream(int err, String errMsg)
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | String | 错误详细信息 |
-
-<br/>
-
-
-### onStartCloudMixTranscoding
-
-接口startCloudMixTranscoding的状态回调。
-
-```
-void onStartCloudMixTranscoding(int err, String errMsg)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | String | 错误详细信息 |
-
-<br/>
-
-
-### onStopCloudMixTranscoding
-
-接口stopCloudMixTranscoding的状态回调。
-
-```
-void onStopCloudMixTranscoding(int err, String errMsg)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | String | 错误详细信息 |
 
 <br/>
 
@@ -504,6 +475,38 @@ __参数__
 | userId | String | 用户标识 |
 | streamType | int | 视频流类型 |
 | frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧 |
+
+<br/>
+
+
+
+## ITRTCVideoPostProcessListener
+### 本地视频的二次加工回调
+
+#### onVideoPostProcess
+
+经过 SDK 前处理后的视频数据，前处理包括对摄像头采集到的视频进行美颜、裁剪、缩放和旋转。
+
+```
+int onVideoPostProcess(TRTCCloudDef.TRTCVideoFrame frame)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCVideoFrame | 返回给用户处理的 自定义数据（目前只支持 纹理textureId） |
+
+<br/>
+
+
+#### onVideoPostProcessGLDestroy
+
+自定义预处理，Opengl环境销毁通知回调; 用户可以在此回调里，进行opengl资源回收；保证跟sdk 的opengl 在同一个线程；否则可能会显存泄漏，或 崩溃。
+
+```
+void onVideoPostProcessGLDestroy()
+```
 
 <br/>
 

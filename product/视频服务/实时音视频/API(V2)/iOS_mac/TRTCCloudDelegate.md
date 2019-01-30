@@ -89,7 +89,7 @@ __参数__
 
 ### onUserEnter
 
-成员进入房间事件。
+userid对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
 
 ```
  - (void)onUserEnter:(NSString *)userId 
@@ -106,7 +106,7 @@ __参数__
 
 ### onUserExit
 
-成员离开房间事件。
+userid对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
 
 ```
  - (void)onUserExit:(NSString *)userId reason:(NSInteger)reason 
@@ -124,7 +124,7 @@ __参数__
 
 ### onUserVideoAvailable
 
-成员屏蔽自己的画面。
+userid对应的远端主路（即摄像头）画面的状态通知。
 
 ```
  - (void)onUserVideoAvailable:(NSString *)userId available:(BOOL)available 
@@ -140,9 +140,27 @@ __参数__
 <br/>
 
 
+### onUserSubStreamAvailable
+
+userid对应的远端辅路（屏幕分享等）画面的状态通知。
+
+```
+ - (void)onUserSubStreamAvailable:(NSString *)userId available:(BOOL)available 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 用户标识 |
+| available | BOOL | 屏幕分享是否开启 |
+
+<br/>
+
+
 ### onUserAudioAvailable
 
-成员屏蔽自己的声音。
+userid对应的远端声音的状态通知。
 
 ```
  - (void)onUserAudioAvailable:(NSString *)userId available:(BOOL)available 
@@ -160,7 +178,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-成员语音音量回调 通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来开关这个回调。
+userid对应的成员语音音量 通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来开关这个回调。
 
 ```
  - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume 
@@ -335,7 +353,7 @@ __参数__
 
 ### onDevice
 
-本地设备通断回调，。
+本地设备通断回调。
 
 ```
  - (void)onDevice:(NSString *)deviceId type:(TRTCMediaDeviceType)deviceType stateChanged:(NSInteger)state 
@@ -406,77 +424,92 @@ __说明__
 <br/>
 
 
+### onScreenCaptureStarted
 
-## 旁路转推和混流回调
+当屏幕分享开始时，SDK会通过此回调通知。
+
+```
+ - (void)onScreenCaptureStarted
+```
+
+<br/>
+
+
+### onScreenCapturePaused
+
+当屏幕分享暂停时，SDK会通过此回调通知。
+
+```
+ - (void)onScreenCapturePaused:(int)reason 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| reason | int | 原因，0:用户主动暂停 1:屏幕窗口不可见暂停 |
+
+<br/>
+
+
+### onScreenCaptureResumed
+
+当屏幕分享开始时，SDK会通过此回调通知。
+
+```
+ - (void)onScreenCaptureResumed:(int)reason 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| reason | int | 原因，0:用户主动恢复 1:屏幕窗口恢复可见导致恢复分享 |
+
+<br/>
+
+
+### onScreenCaptureStoped
+
+当屏幕分享开始时，SDK会通过此回调通知。
+
+```
+ - (void)onScreenCaptureStoped:(int)reason 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| reason | int | 原因，0:用户主动停止 1:屏幕窗口关闭导致停止 |
+
+<br/>
+
+
+
+## CDN旁路转推回调
 
 ### onStartPublishCDNStream
 
-接口startPublishCDNStream的状态回调。
+旁路推流到CDN的回调，对应于 TRTCCloud 的 startPublishCDNStream() 接口。
 
 ```
  - (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
 
-__参数__
+__说明__
 
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | NSString * | 错误详细信息 |
+
+Start回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
+
 
 <br/>
 
 
 ### onStopPublishCDNStream
-
-接口stopPublishCDNStream的状态回调。
-
 ```
  - (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | NSString * | 错误详细信息 |
-
-<br/>
-
-
-### onStartCloudMixTranscoding
-
-接口startCloudMixTranscoding的状态回调。
-
-```
- - (void)onStartCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | NSString * | 错误详细信息 |
-
-<br/>
-
-
-### onStopCloudMixTranscoding
-
-接口stopCloudMixTranscoding的状态回调。
-
-```
- - (void)onStopCloudMixTranscoding:(int)err errMsg:(NSString *)errMsg 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| err | int | 错误码，参考 TXLiteAVCode.h |
-| errMsg | NSString * | 错误详细信息 |
 
 <br/>
 
