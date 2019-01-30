@@ -1,9 +1,9 @@
 >?该功能目前处于灰度测试阶段，如需要在控制台试用，请通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式开通白名单。
 
 ## 1. 接口描述
-本接口 (AddAcl) 用于为实例的用户添加 ACL 策略
+本接口（AddAcl）用于为实例的用户添加 ACL 策略
 
-接口请求域名：<font style="color:red">ckafka.api.qcloud.com</font>
+接口请求域名：`ckafka.api.qcloud.com`
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/doc/api/431/5883) 页面。
@@ -15,8 +15,8 @@
 | resourceName| 是| String |资源名称，和 resourceType 相关如当 resourceType 为 TOPIC 时，则该字段表示 topic 名称，当 resourceType 为 GROUP 时，该字段表示 group 名称 |
 | operation| 是| Int|ACL 操作方式（0:UNKNOWN，1:ANY，2:ALL，3:READ，4:WRITE，5:CREATE，6:DELETE，7:ALTER，8:DESCRIBE，9:CLUSTER_ACTION，10:DESCRIBE_CONFIGS，11:ALTER_CONFIGS，12:IDEMPOTEN_WRITE）|
 | permissionType| 是 | Int |权限类型（0:UNKNOWN，1:ANY，2:DENY，3:ALLOW） |
-| host| 否 | String | 默认为  \*，表示任何 host 都可以访问 |
-| principal| 否| String | 用户列表，默认为*，表示任何 user 都可以访问，当前用户只能是用户列表中包含的用户 |
+| host| 否 | String | ACL 策略作用的主机 IP，默认为  \*，表示任何 host 都可以访问 |
+| principal| 否| String | ACL 策略关联的用户列表，默认为 User:\*，表示实例所有的用户 |
 
 ## 3. 示例
 
