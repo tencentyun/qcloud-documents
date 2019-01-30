@@ -37,14 +37,10 @@
 输入：
 
 ```
-https://domain/v2/index.php?Action=ListAcl
+ https://domain/v2/index.php?Action=ListAcl
   &instanceId=ckafka-tadfqa0
   &resourceType=2
   &resourceName=test-topic
-  &operation=0
-  &permissionType=3
-  &host=*
-  &principal=User:user1
   &<公共请求参数>
 ```
 
