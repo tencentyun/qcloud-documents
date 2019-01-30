@@ -7,7 +7,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ```shell
 PUT /?policy HTTP/1.1
-Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
+Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: date
 Content-Type:application/json
 Content-MD5:MD5
@@ -73,7 +73,7 @@ Authorization: Auth String
 
 ```shell
 PUT /?policy HTTP/1.1
-Host:bucket01-1251668577.cos.ap-guangzhou.myqcloud.com
+Host:examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
 Content-Type: application/json
 Content-Length: 233
