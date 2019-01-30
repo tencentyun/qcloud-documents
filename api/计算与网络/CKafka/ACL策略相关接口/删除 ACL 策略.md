@@ -24,13 +24,14 @@
 输入：
 
 ```
- https://domain/v2/index.php?Action=DeleteAcl
+  https://domain/v2/index.php?Action=AddAcl
   &instanceId=ckafka-tadfqa0
   &resourceType=2
   &resourceName=test-topic
   &operation=0
   &permissionType=3
   &host=*
+  &principal=User:user1
   &<公共请求参数>
 ```
 
