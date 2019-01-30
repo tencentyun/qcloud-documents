@@ -78,12 +78,12 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 |:-------:|---------|
 | appid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。 |
 | bizid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。 |
-| url | RTMP 推流 URL 的获取，各家云服务商都有各自的方案，腾讯云的方案非常简单，您可以参考文档：[“快速获得推流地址”](https://cloud.tencent.com/document/product/267/7977) 或 [“后台自动拼装”](https://cloud.tencent.com/document/product/267/13457) 了解详情。 |
+| url | RTMP 推流 URL 的获取，各家云服务商都有各自的方案。腾讯云的方案非常简单：<br>您可以在云直播控制台中使用[地址生成器](https://console.cloud.tencent.com/live/livecodemanage)生成一个临时的推流URL，<br>也可以参考文档：[“如何自主拼装推流URL”](https://cloud.tencent.com/document/product/267/32720) 了解详情。 |
 
  >! 
  >1. 如果您看到 appid 和 bizid 数值为空，说明您还没有开通直播服务，在腾讯云直播 [控制台](https://console.cloud.tencent.com/live) 开通直播服务即可。
  >
- >2. 填写在 `TRTCPublishCDNParam` 里的 url 参数是推流 url （特点是以  rtmp:\\\\  打头），也就是只能用来推流不能用来播放，不过每一个推流url都有其对应的播放 url。以腾讯云为例，您可以参考文档 [DOC：直播码模式获取播放地址](https://cloud.tencent.com/document/product/267/13484) 或 [DOC：业务后台生成播放地址](https://cloud.tencent.com/document/product/267/13485)，从而了解如何获取对应的播放URL。
+ >2. 填写在 `TRTCPublishCDNParam` 里的 url 参数是推流 url （特点是以  rtmp:\\\\  打头），也就是只能用来推流不能用来播放，不过每一个推流url都有其对应的播放 url。以腾讯云为例，您可以参考文档 [“如何获取播放地址”](https://cloud.tencent.com/document/product/267/32733#.E5.A6.82.E4.BD.95.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80) ，从而了解如何获取对应的播放URL。
 
 
 ## 如何播放
