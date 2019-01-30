@@ -19,4 +19,4 @@ SDK 支持微信支付和支付宝。
 	- `CloudPayAPI\_SDK\_CPP`目录，包含源码，开发者可自行编译。  
 - [C](https://main.qcloudimg.com/raw/daa50afec21c3d8c8030b783448ba10a.zip)：所有接口均为同步接口。
 - [C#](https://main.qcloudimg.com/raw/3c71322c842e00154f0ed6d2fa08e729.zip)：所有接口均为同步接口。
-- [Java](https://main.qcloudimg.com/raw/e5f53c5d02d748edf8a91b2a80689b95.zip)：所有接口均为同步接口。
+- [Java](https://main.qcloudimg.com/raw/62d9c93cedc727f959474e6d669ca2dc.zip)：所有接口均为同步接口。

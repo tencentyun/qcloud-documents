@@ -11,7 +11,7 @@ DELETE Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object�
 
 语法示例：
 ```shell
-DELETE /ObjectName HTTP/1.1
+DELETE /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
@@ -22,7 +22,7 @@ Authorization: Auth String
 
 ### 请求行
 ```shell
-DELETE /ObjectName HTTP/1.1
+DELETE /<ObjectKey> HTTP/1.1
 ```
 该 API 接口接受 DELETE 请求。
 
@@ -68,7 +68,7 @@ DELETE /ObjectName HTTP/1.1
 
 ### 请求
 ```shell
-DELETE /123 HTTP/1.1
+DELETE /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213409;32557109409&q-key-time=1484213409;32557109409&q-header-list=host&q-url-param-list=&q-signature=1c24fe260ffe79b8603f932c4e916a6cbb0af44a
