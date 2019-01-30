@@ -4,7 +4,7 @@ GET Bucket location 接口用于获取 Bucket 所在的地域信息，该 GET �
 ## 请求
 ### 请求示例
 
-```shell
+```
 GET /?location HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -34,7 +34,7 @@ Authorization: Auth String
 ### 响应体
 响应体返回地域信息。
 
-```shell
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <LocationConstraint>cos.ap-beijing</LocationConstraint>
 ```
@@ -53,7 +53,7 @@ LocationConstraint|无|说明 Bucket 所在地域，枚举值参见 [地域和�
 
 ### 请求
 
-```shell
+```
 GET /?location HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 18 Oct 2014 22:32:00 GMT
@@ -62,7 +62,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应
 
-```shell
+```
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 92
