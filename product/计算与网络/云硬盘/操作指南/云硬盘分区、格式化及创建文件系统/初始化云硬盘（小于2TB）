@@ -1,0 +1,180 @@
+## 操作场景
+手动挂载云硬盘后，云硬盘作为云服务器的数据盘使用，默认为脱机状态。您需要对数据盘进行格式化、分区及创建文件系统等初始化操作。 常用的磁盘分区形式有主启动记录分区（MBR）和全局分区表（Guid Partition Table，GPT），磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
+两种分区形式的简介如下表所示。
+
+| 分区形式 | 支持最大磁盘容量 | 支持分区数量 | 分区工具 |
+|---------|---------|---------|---------|
+|MBR | 2TB |<li>4个主分区</li><li>3个主分区和1个扩展分区</li>|Windows 操作系统：磁盘管理</br>Linux 操作系统：<ul><li>fdisk 工具</li><li>parted 工具</li></ul> |
+|GPT | 18EB</br>目前云硬盘支持的最大容量为16TB | 不限制分区数量|Windows 操作系统：磁盘管理</br>Linux 操作系统：parted 工具|
+
+请根据磁盘容量大小、云服务器操作系统等选择合适的操作指引：
+- 磁盘容量小于2TB时：
+ - [初始化云硬盘（Windows）](#Windows2008)
+ - [初始化云硬盘（Linux）](#Linux)
+- 磁盘容量大于等于2TB时：
+ - [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6735#2TBWindows2012)
+ - [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6735#2TBLinux)
+
+## 注意事项
+- 格式化数据盘会将数据将被全部清空。请确保数据盘中没有数据或已备份重要数据。
+- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
+
+## 前提条件
+已 [挂载云硬盘](/doc/product/362/5745) 至云服务器。
+
+## 操作步骤
+<span id="Windows2008"></span>
+### 初始化云硬盘（Windows）
+>?本文将以 Windows Server 2008 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+
+1. [登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/5435)。
+2. 在云服务器桌面，单击【开始】。
+3. 右键单击开始菜单中的【计算机】，选择【管理】。
+4. 在左侧导航树中，选择【存储】>【磁盘管理】。进入【磁盘管理】页面。
+ ![](https://main.qcloudimg.com/raw/6ccd2a2958137036311a9eb02c0b430b.png)
+
+>?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤5](#online) 联机后再执行 [步骤6](#initialize) 进行初始化。否则直接执行 [步骤6](#initialize) 进行初始化。
+
+<span id="online"></span>
+5. 在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。
+ ![](https://main.qcloudimg.com/raw/a6b5296ab23c0c361440b7d5b97bc493.png)
+<span id="initialize"></span>
+6. 右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。
+ ![](https://main.qcloudimg.com/raw/b38f04f488ff40b26e12d33aa1f83ee1.png)
+7. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。
+ ![](https://main.qcloudimg.com/raw/a7de4fb54fb5585a3a2ee808566679af.png)
+8. 右键单击磁盘上未分配的区域，选择【新建简单卷】。
+ ![](https://main.qcloudimg.com/raw/f7d4e90dfd4d766ca80a6ab35b991d89.png)
+9. 弹出【新建简单卷向导】对话框，根据界面提示，单击【下一步】。
+ ![](https://main.qcloudimg.com/raw/205037d66e5f7fbd844be0a9c1ba3852.png)
+11. 根据实际情况指定卷大小，默认为最大值，单击【下一步】。
+12. 分配驱动器号，单击【下一步】。
+ ![](https://main.qcloudimg.com/raw/68478d5a03ce84be545c8792ea355324.png)
+12. 勾选【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
+ ![](https://main.qcloudimg.com/raw/3519b7d616dadbea6789ae2201a6f5ea.png)
+13. 单击【完成】完成向导。需要等待片刻让系统完成初始化操作，当卷状态为【状态良好】时，表示初始化磁盘成功。
+  ![](https://main.qcloudimg.com/raw/bb944e741233634c15b957a6ea1b1fee.png)
+  初始化成功后，进入【计算机】界面可以查看到新磁盘。
+  ![](https://main.qcloudimg.com/raw/f54cd20f227707853eb8c9a8a6142ebf.png)
+
+<span id="Linux"></span>
+### 初始化云硬盘（Linux）
+>?本文将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb`设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在`/data/newpart`下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+
+1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)
+2. 以 root 用户执行以下命令，查看磁盘名称。
+ ```
+fdisk -l
+```
+回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
+3. 执行以下命令，进入 fdisk 分区工具，开始对新增数据盘执行分区操作。
+```
+fdisk <新增数据盘>
+```
+以新挂载的数据盘`/dev/vdb`为例：
+```
+fdisk /dev/vdb
+```
+回显信息类似如下图：
+![](https://main.qcloudimg.com/raw/db1fe212e2559ac635c52e5e397e7531.png)
+4. 输入`n`，按 Enter，开始新建分区。
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/c89b572c0ac2af1302189f8e7e1a849e.png)
+ 表示磁盘有两种分区类型：
+ - 【p】表示主要分区。
+ - 【e】表示延伸分区。
+5. 以创建一个主要分区为例，输入`p`，按 Enter，开始创建一个主分区。
+  回显信息类似如下图：
+	![](https://main.qcloudimg.com/raw/efb65b60631d95e9b0213e6fd6125bbb.png)
+	【Partition number】表示主分区编号，可以选择1-4。
+6. 以选择分区编号1为例，输入主分区编号`1`，按 Enter。
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/e1a1a7755a3bb392ec6d623e6774c315.png)
+ 【First sector】表示初始磁柱区域，可以选择2048 - 20971519，默认为2048。
+7. 以选择默认初始磁柱编号2048为例，按 Enter。
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/58a8202531b239a73fd3182d0ea0cf34.png)
+ 【Last sector】表示截止磁柱区域，可以选择2048 - 20971519，默认为20971519。
+8. 以选择默认截止磁柱编号20971519为例，按 Enter。
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/ad3a6459a6eaf154aed578b37dfc89d0.png)
+ 表示分区完成，即为60GB的数据盘新建了1个分区。
+9. 输入`p`，按 Enter，查看新建分区的详细信息。
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/98427c11e0a181e02eb23a95fc1e908c.png)
+ 表示新建分区`/dev/vdb1`的详细信息。
+
+>?若上述分区操作有误，请输入`q`，退出 fdisk 分区工具，之前的分区结果将不会被保留。
+
+10. 输入`w`，按 Enter，将分区结果写入分区表中。
+  回显信息类似如下图：
+	![](https://main.qcloudimg.com/raw/7011369be260150fcddf272b4a4ab2fa.png)
+	表示分区创建完成。
+11. 执行以下命令，将新的分区表变更同步至操作系统。
+```
+partprobe
+```
+12. 执行以下命令，将新建分区文件系统设置为系统所需格式。
+```
+mkfs -t <文件系统格式> /dev/vdb1
+```
+不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 EXT4 为例：
+```
+mkfs -t ext4 /dev/vdb1
+```
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/6de097cea77634f8847816dd795292a7.png)
+ 格式化需要等待一段时间，请观察系统运行状态，不要退出。
+13. 执行以下命令，新建挂载点。
+```
+mkdir <挂载点>
+```
+以新建挂载点`/data/newpart`为例：
+```
+mkdir /data/newpart
+```
+14. 执行以下命令，将新建分区挂载至新建的挂载点。
+```
+mount /dev/vdb1 <挂载点>
+```
+以新建挂载点`/data/newpart`为例：
+```
+mount /dev/vdb1 /data/newpart
+```
+15. 执行以下命令，查看挂载结果。
+```
+df -TH
+```
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/b7e5501fed8d7d648b48dc66685baf94.png)
+ 表示新建分区`/dev/vdb1`已挂载至`/data/newpart`。
+ 
+>?若无需设置开机自动挂载磁盘，则跳过后续步骤。
+
+16. 执行以下命令，查询磁盘分区的 UUID。
+```
+blkid <磁盘分区>
+```
+以查询磁盘分区`/dev/vdb1`的 UUID 为例：
+```
+blkid /dev/vdb1
+```
+ 回显信息类似如下图：
+ ![](https://main.qcloudimg.com/raw/0423400e7e8dc7f5ab21927895b3ec85.png)
+17. 执行以下命令，使用 VI 编辑器打开`fstab`文件。
+```
+vi /etc/fstab
+```
+18.按`i`，进入编辑模式。 
+19.将光标移至文件末尾，按 Enter，添加如下内容。
+```
+UUID=<UUID> <挂载点>   <文件系统格式> defaults     0   2
+```
+结合前文示例，则添加：
+```
+UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   2
+```
+![](https://main.qcloudimg.com/raw/d3ea92ac8d9e26901f45876d275616e9.png)
+20. 按 Esc，输入`:wq`，按 Enter。
+保存设置并退出编辑器。
