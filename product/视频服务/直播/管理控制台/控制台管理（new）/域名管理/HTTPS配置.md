@@ -5,7 +5,7 @@ HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证�
 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
 
 ## 操作步骤
-1. 登录 [云直播控制台](https://console.cloud.tencent.com/live)，选择左侧菜单栏的【域名管理】，单击【管理】或需配置的播放域名进入域名管理。
+1. 选择左侧菜单栏的【域名管理】，单击【管理】或需配置的播放域名进入域名管理。
  ![](https://main.qcloudimg.com/raw/ba9fa1cab68838873a319f10729a1657.png)
 
 2. 在【高级配置】菜单栏下，可以看见该域名的【HTTPS 配置】模块。
