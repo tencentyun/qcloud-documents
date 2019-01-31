@@ -1,19 +1,6 @@
 ## 操作场景
-手动挂载云硬盘后，云硬盘作为云服务器的数据盘使用，默认为脱机状态。您需要对数据盘进行格式化、分区及创建文件系统等初始化操作。 常用的磁盘分区形式有主启动记录分区（MBR）和全局分区表（Guid Partition Table，GPT），磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
-两种分区形式的简介如下表所示。
-
-| 分区形式 | 支持最大磁盘容量 | 支持分区数量 | 分区工具 |
-|---------|---------|---------|---------|
-|MBR | 2TB |<li>4个主分区</li><li>3个主分区和1个扩展分区</li>|Windows 操作系统：磁盘管理</br>Linux 操作系统：<ul><li>fdisk 工具</li><li>parted 工具</li></ul> |
-|GPT | 18EB</br>目前云硬盘支持的最大容量为16TB | 不限制分区数量|Windows 操作系统：磁盘管理</br>Linux 操作系统：parted 工具|
-
-请根据磁盘容量大小、云服务器操作系统类型选择合适的操作指引：
-- 磁盘容量小于2TB时：
- - [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6734#Windows2008)
- - [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6734#Linux)
-- 磁盘容量大于等于2TB时：
- - [初始化云硬盘（Windows）](#2TBWindows2012)
- - [初始化云硬盘（Linux）](#2TBLinux)
+本文以云硬盘容量大于等于2TB为例，提供云硬盘的初始化操作指导。关于云磁盘初始化场景的更多介绍，请参考 [初始化场景介绍](https://cloud.tencent.com/document/product/362/33065)。
+MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分区时，请采用GPT 分区形式。对于 Linux 操作系统而言，当磁盘分区形式选用 GPT 时，fdisk 分区工具将无法使用，需要采用 parted 工具。
 
 ## 注意事项
 - 格式化数据盘会将数据将被全部清空。请确保数据盘中没有数据或已备份重要数据。
@@ -53,7 +40,7 @@
  ![](https://main.qcloudimg.com/raw/4a6b81ca6a0034fd409289fee70374a1.png)
 12. 分配驱动器号，单击【下一步】。
  ![](https://main.qcloudimg.com/raw/4c6f82f8e0027ffbbf20869ed4df5dfb.png)
-13. 勾选【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
+13. 选择【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
  ![](https://main.qcloudimg.com/raw/952b5425be9d7b3c44730801b3563d6b.png)
 14. 确认信息无误后，单击【创建】。
  ![](https://main.qcloudimg.com/raw/61f81b09d6244962379dda362e07b660.png)
