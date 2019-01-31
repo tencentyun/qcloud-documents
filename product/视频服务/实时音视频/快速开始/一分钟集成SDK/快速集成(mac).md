@@ -58,14 +58,17 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://github.com/TencentVideoCloudTRTC/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.md) ，完成后进行解压。
-2. 打开您的 Xcode 工程项目，选择要运行的 target，选中 Build Phases 项。
+1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的Mac 版本 。
+
+2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
+
+3. 选择要运行的 target，选中 Build Phases 项。
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
 
-3. 单击 **Link Binary with Libraries** 项展开，单击底下的 + 号图标去添加依赖库。
+4. 单击 **Link Binary with Libraries** 项展开，单击底下的 + 号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/17046154417930f9d31b6452782df55d.jpg)
 
-4. 依次添加所下载的 SDK Framework 及其所需依赖库：
+5. 依次添加所下载的 SDK Framework 及其所需依赖库：
     - `AudioUnit.framework` 
     - `libc++.tbd`
     
