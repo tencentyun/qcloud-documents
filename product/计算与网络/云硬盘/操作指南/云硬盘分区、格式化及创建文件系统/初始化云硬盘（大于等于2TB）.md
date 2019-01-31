@@ -85,8 +85,8 @@ mklabel gpt
  回显信息类似如下图：
 	![](https://main.qcloudimg.com/raw/3dfec9aba75cd3cb6dcfb06729f5ff26.png)
  【Partition Table: gpt】表示磁盘分区形式为 GPT。
-7. 输入“unit s”，按“Enter”，设置磁盘的计量单位为磁柱。
-8. 以为整个磁盘创建一个分区为例，输入“mkpart opt 2048s 100%”，按 Enter。
+7. 输入`unit s`，按 Enter，设置磁盘的计量单位为磁柱。
+8. 以为整个磁盘创建一个分区为例，输入`mkpart opt 2048s 100%`，按 Enter。
  2048s表示磁盘起始容量，100%表示磁盘截止容量，此处仅供参考，您可以根据业务需要自行规划磁盘分区数量及容量。
 9. 输入`p`，按 Enter，查看新建分区的详细信息。
   回显信息类似如下图：
