@@ -7,7 +7,7 @@
 |MBR | 2TB |<li>4个主分区</li><li>3个主分区和1个扩展分区</li>|Windows 操作系统：磁盘管理</br>Linux 操作系统：<ul><li>fdisk 工具</li><li>parted 工具</li></ul> |
 |GPT | 18EB</br>目前云硬盘支持的最大容量为16TB | 不限制分区数量|Windows 操作系统：磁盘管理</br>Linux 操作系统：parted 工具|
 
-请根据磁盘容量大小、云服务器操作系统等选择合适的操作指引：
+请根据磁盘容量大小、云服务器操作系统类型选择合适的操作指引：
 - 磁盘容量小于2TB时：
  - [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6734#Windows2008)
  - [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6734#Linux)
