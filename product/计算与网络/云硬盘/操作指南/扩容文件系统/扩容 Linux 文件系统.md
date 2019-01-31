@@ -28,7 +28,7 @@ fdisk -l
 2. 根据 [步骤1](#fdisk) 查询到的云硬盘分区形式，选择对应的操作指引。
 <table>
      <tr>
-         <th nowrap="nowrap">分区方式</th>  
+         <th nowrap="nowrap">分区形式</th>  
          <th>操作指引</th>  
          <th>说明</th>  
      </tr>
