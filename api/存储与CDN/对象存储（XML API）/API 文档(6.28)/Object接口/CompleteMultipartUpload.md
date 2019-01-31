@@ -10,7 +10,7 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 
 ## 请求
 
-语法示例：
+### 请求示例
 ```shell
 POST /<ObjectKey>?uploadId=UploadId HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -21,21 +21,6 @@ Authorization: Auth String
 
 > Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
 
-### 请求行
-```shell
-POST /<ObjectKey>?uploadId=UploadId HTTP/1.1
-```
-该 API 接口接受 POST 请求。
-#### 请求参数
-包含所有请求参数的请求行示例：
-```shell
-POST /<ObjectKey>?uploadId=UploadId HTTP/1.1
-```
-具体内容如下：
-
-| 参数名称     | 描述                                       | 类型     | 必选   |
-| :------- | :--------------------------------------- | :----- | :--- |
-| uploadId | 标识本次分块上传的 ID 。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String | 是    |
 
 ### 请求头
 
@@ -50,10 +35,14 @@ POST /<ObjectKey>?uploadId=UploadId HTTP/1.1
 ```shell
 <CompleteMultipartUpload>
   <Part>
-    <PartNumber></PartNumber>
-    <ETag></ETag>
+    <PartNumber>1</PartNumber>
+    <ETag>"fc392a65890e447ff4e2d256489a9773"</ETag>
   </Part>
-  ...
+  <Part>
+    <PartNumber>2</PartNumber>
+    <ETag>"fc392a65890e447ff4e2d256489a9773"</ETag>
+  </Part>
+    ...
 </CompleteMultipartUpload>
 ```
 
@@ -94,10 +83,10 @@ Container 节点 Part 的内容：
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```shell
 <CompleteMultipartUploadResult>
-  <Location></Location>
-  <Bucket></Bucket>
-  <Key></Key>
-  <ETag></ETag>
+    <Location>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/ObjectName</Location>
+    <Bucket>examplebucket-1250000000</Bucket>
+    <Key>examplebucket</Key>
+    <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUploadResult>
 ```
 具体的数据内容如下：
@@ -125,7 +114,16 @@ Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484729794;32557625794&q-key-time=1484729794;32557625794&q-header-list=host&q-url-param-list=uploadId&q-signature=23627c8fddb3823cce4257b33c663fd83f9f820d
 Content-Length: 138
 
-<CompleteMultipartUpload><Part><PartNumber>1</PartNumber><ETag>"fc392a65890e447ff4e2d256489a9773"</ETag></Part></CompleteMultipartUpload>
+<CompleteMultipartUpload>
+  <Part>
+    <PartNumber>1</PartNumber>
+    <ETag>"fc392a65890e447ff4e2d256489a9773"</ETag>
+  </Part>
+  <Part>
+    <PartNumber>2</PartNumber>
+    <ETag>"fc392a65890e447ff4e2d256489a9774"</ETag>
+  </Part>
+</CompleteMultipartUpload>
 ```
 
 ### 响应
@@ -141,8 +139,7 @@ x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 <CompleteMultipartUploadResult>
     <Location>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/ObjectName</Location>
     <Bucket>examplebucket-1250000000</Bucket>
-    <Key>ObjectName</Key>
+    <Key>examplebucket</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUploadResult>
-
 ```
