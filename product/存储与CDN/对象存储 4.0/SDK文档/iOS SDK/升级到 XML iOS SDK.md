@@ -37,7 +37,7 @@
 
 **工程配置**
 完成上述步骤之后，在 Build Settings 中设置 Other Linker Flags，加入以下参数：
-```
+```shell
 -ObjC
 -all_load
 ```
