@@ -22,7 +22,7 @@ fdisk -l
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
  - 若结果如下图所示（根据操作系统不同略有不同），则说明使用 MBR 分区形式。
- >! MBR 格式分区支持的磁盘最大容量为2TB。如果您的硬盘分区为 MBR 格式，且需要扩容到超过 2TB 时，建议您重新创建并挂载一块数据盘，使用 GPT 分区方式后将数据拷贝至新盘上。
+ >! MBR 分区形式支持的磁盘最大容量为2TB。如果您的硬盘分区为 MBR 格式，且需要扩容到超过 2TB 时，建议您重新创建并挂载一块数据盘，使用 GPT 分区方式后将数据拷贝至新盘上。对于 Linux 操作系统而言，当磁盘分区形式选用 GPT 时，fdisk 分区工具将无法使用，需要采用 parted 工具。
  >
 ![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
 2. 根据 [步骤1](#fdisk) 查询到的云硬盘分区形式，选择对应的操作指引。
