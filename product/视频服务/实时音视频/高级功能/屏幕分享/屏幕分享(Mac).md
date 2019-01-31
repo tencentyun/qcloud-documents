@@ -1,6 +1,5 @@
-## 内容介绍
 
-腾讯云 TRTC 服务支持屏幕分享功能，屏幕分享的画面走单独的一路音视频流，跟摄像头的画面可以并行，而且支持音画同步。一般而言，我们称摄像头这一路画面为“主路（或主画面）”，屏幕分享这一路画面为“辅路（**substream**）”。本文主要介绍如何使用 TRTC SDK 提供的屏幕分享功能。
+腾讯云 TRTC 服务支持屏幕分享功能，屏幕分享的画面走单独的一路音视频流，与摄像头的画面可以并行，而且支持音画同步。一般而言，我们称摄像头这一路画面为“主路（或主画面）”，屏幕分享这一路画面为“辅路（**substream**）”。本文主要介绍在 Mac OS 平台下如何使用 TRTC SDK 提供的屏幕分享功能。
 
 ## 支持的平台
 
@@ -10,14 +9,15 @@
 
 ## 获取分享目标
 通过 `getScreenCaptureSourcesWithThumbnailSize` 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
-Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 type 为 TRTCScreenCaptureSourceTypeWindow，桌面屏幕的 type 为 TRTCScreenCaptureSourceTypeScreen。
 
-除了 type，每一个 TRTCScreenCaptureSourceInfo 还有如下字段信息：
+Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 type 为 `TRTCScreenCaptureSourceTypeWindow`，桌面屏幕的 type 为 `TRTCScreenCaptureSourceTypeScreen`。
+
+除了 type，每一个 `TRTCScreenCaptureSourceInfo` 还有如下字段信息：
 
 | 字段 | 类型 | 含义|
 |:-------:|:--------:| :---------------:|
 | type |TRTCScreenCaptureSourceType| 采集源类型：指定类型为窗口或屏幕|
-| sourceId | NSString| 采集源ID：对于窗口，该字段指示窗口句柄；<br>对于屏幕，该字段指示屏幕ID |
+| sourceId | NSString| 采集源 ID：对于窗口，该字段指示窗口句柄；<br>对于屏幕，该字段指示屏幕 ID |
 | sourceName| NSString | 窗口名字，如果是屏幕则返回 Screen0 Screen1... |
 | extInfo| NSDictionary | 共享窗口的附加信息 | 
 | thumbnail| NSImage | 窗口缩略图 |
@@ -41,7 +41,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 即把目标窗口的内容分享出去，需要用户选择要分享的是哪一个窗口。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 captureRect 设为 { 0, 0, 0, 0 }。
 
 
-> 两个额外参数：
+>? 两个额外参数：
 > - 参数 capturesCursor 用于指定是否捕获鼠标指针。
 > - 参数 highlight 用于指定是否高亮正在共享的窗口，以及当捕获图像被遮挡时提示用户移走遮挡。（这一分部的 UI 特效是 SDK 内部实现的）
 
@@ -79,7 +79,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 ```
 
 ## 设定画面质量
-您可以通过 `setSubStreamEncoderParam` 接口设定屏幕分享的画面质量，包括分辨率、码率和帧率，我提供如下建议参考值：
+您可以通过 `setSubStreamEncoderParam` 接口设定屏幕分享的画面质量，包括分辨率、码率和帧率，我们提供如下建议参考值：
 
 | 清晰度级别 | 分辨率 | 码率 | 帧率 | 
 |:-------------:|:---------:|:---------:| :---------: | 
@@ -104,10 +104,10 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 ```
 
 ## 常见问题
-- **一个房间里可以同时有多个人共享屏幕吗？**
+**一个房间里可以同时有多个人共享屏幕吗？**
 目前一个 TRTC 音视频房间只能有一路屏幕分享。
 
-- **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
+**指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
 不会跟着变化，当窗口大小变化时，窗口画面会被等比例缩放到目标分辨率上。
 
 
