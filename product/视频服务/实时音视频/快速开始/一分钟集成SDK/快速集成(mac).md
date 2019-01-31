@@ -3,7 +3,7 @@
 
 ## 开发环境要求
 - Xcode 9.0+。
-- OS X10.10+的 Mac 真机。
+- OS X10.10+ 的 Mac 真机。
 - 项目已配置有效的开发者签名。
 
 ## 集成 TRTC SDK
@@ -58,7 +58,7 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的Mac 版本 。
+1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的 Mac 版本 。
 
 2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
 
