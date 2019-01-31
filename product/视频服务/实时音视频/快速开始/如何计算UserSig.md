@@ -22,7 +22,7 @@
 
 <h3 id="GetForDebug"> 控制台手工生成 </h3>
 
-在应用详情页面，将私钥文件内容拷贝到第三步的文本框中，再单击【生成Demo配置文件内容】按钮，即可获得一个 json 文件，文件中有一组 userid 和 usersig。
+在应用详情页面，将私钥文件内容拷贝到第三步的文本框中，再单击【生成 Demo 配置文件内容】按钮，即可获得一个 json 文件，文件中有一组 userid 和 usersig。
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
 这一批 userid 和 usersig 可以直接用在我们提供的 Demo 中，便于您快速开始测试和调试。
@@ -42,7 +42,7 @@
 
 我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
 
-- **新版本源码
+- **新版本源码**
 
 | 语言版本 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|
@@ -53,7 +53,7 @@
 | C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
 | Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
 
-- **老版本源码
+- **老版本源码**
 
 | 语言版本 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|
