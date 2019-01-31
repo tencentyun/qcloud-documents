@@ -11,7 +11,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
 
 ### 请求头
 
@@ -82,7 +82,7 @@ Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |
+| Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息。一个 AccessControlList 可以拥有100条 Grant | Container    |
 
 Container 节点 Grant 的内容：
 
@@ -107,7 +107,7 @@ Container 节点 Grantee 的内容：
 ### 请求
 ``` 
 GET /?acl HTTP/1.1
-Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
 ```
@@ -122,14 +122,14 @@ Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 <AccessControlPolicy>
   <Owner>
-    <ID>qcs::cam::uin/12345:uin/12345</ID>
-    <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+    <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+    <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"CanonicalUser\">
-        <ID>qcs::cam::uin/12345:uin/12345</ID>
-        <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+        <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+        <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>

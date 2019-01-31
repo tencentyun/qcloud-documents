@@ -12,7 +12,7 @@ Upload Part - Copy  请求实现将一个对象的分块内容从源路径复制
 ### 请求示例
 
 ```http
-PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
+PUT /examplebucket?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
@@ -75,7 +75,7 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 
 名称|描述|类型
 ---|---|---
-x-cos-copy-source-version-id|如果已在源存储桶上启用多版本，则复制源对象的版本。|string
+x-cos-copy-source-version-id|如果已在源存储桶上启用版本控制，则复制源对象的版本|string
 x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256 | String
 
 ### 响应体
@@ -84,8 +84,8 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ```shell
 <?xml version="1.0" encoding="UTF-8" ?>
 <CopyPartResult>
-  <ETag>string</ETag>
-  <LastModified>string</LastModified>
+   <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+   <LastModified>2017-09-04T04:45:45</LastModified>
 </CopyPartResult>
 ```
 
@@ -101,10 +101,10 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 ### 请求
 
 ```HTTP
-PUT /bucket/exampleobject.txt?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
+PUT /exampleobject?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
 User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
 Accept: */*
-x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/exampleobject1.txt
+x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/exampleobject1
 x-cos-copy-source-range: bytes=10-100
 Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f05cb2

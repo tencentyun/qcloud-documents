@@ -18,15 +18,13 @@ Content-Length: length
 Date: GMT Date
 Authorization: Auth String 
 Content-MD5: MD5
-
-Lifecycle configuration in the request body
 ```
-> Authorization： Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>Authorization： Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 180px; }</style>
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -101,14 +99,14 @@ Lifecycle configuration in the request body
 |Prefix    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |Container    |否|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
-|Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数    |Integer    |否|
+|Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数，最大支持3650天    |Integer    |否|
 |Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作    |String    |否|
 |ExpiredObjectDeleteMarker    |LifecycleConfiguration.Rule.Expiration    |删除过期对象删除标记，枚举值 true，false    |String    |否|
 |AbortIncompleteMultipartUpload    |LifecycleConfiguration.Rule    |设置允许分片上传保持运行的最长时间    |Container    |否|
 |DaysAfterInitiation    |LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|
 |NoncurrentVersionExpiration    |LifecycleConfiguration.Rule    |指明非当前版本对象何时过期    |Container    |否|
-|NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE    |Container    |否|
-|NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数    |Integer    |否|
+|NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE   |Container   |否|
+|NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数，最大支持3650天 |Integer   |否|
 |StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, ARCHIVE   |String    |是|
 
 
@@ -138,7 +136,7 @@ Lifecycle configuration in the request body
 ### 请求
 ```shell
 PUT /?lifecycle HTTP/1.1
-Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com
+Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 11:59:33 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654
 Content-MD5: LcNUuow8OSZMrEDnvndw1Q==

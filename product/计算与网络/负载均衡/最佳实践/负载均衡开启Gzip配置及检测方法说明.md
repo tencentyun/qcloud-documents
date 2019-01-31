@@ -11,7 +11,7 @@ gzip on;
 ```
 application/atom+xml application/javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/plain text/x-component;
 ```
-注：负载均衡后端ECS业务软件中必须同步开启对上述文件类型的GZIP支持。
+注：负载均衡后端CVM业务软件中必须同步开启对上述文件类型的GZIP支持。
 - **客户端请求中必须带有压缩请求标记**
 需要启用压缩，还要求客户端请求时必须携带如下标记：
 ```

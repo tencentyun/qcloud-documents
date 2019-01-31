@@ -10,7 +10,7 @@ Upload Part 接口请求实现将对象按照分块的方式上传到 COS。最�
 ### 请求示例
 
 ```shell
-PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
+PUT /<ObjectKey>?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: Size
@@ -19,12 +19,12 @@ Authorization: Auth String
 [Object]
 ```
 
-> Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详请请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 **必选头部**
@@ -57,7 +57,7 @@ Authorization: Auth String
 
 ### 响应头
 #### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 **服务端加密响应头**
 
@@ -74,7 +74,7 @@ Authorization: Auth String
 
 ### 请求
 ```shell
-PUT /ObjectName?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
+PUT /exampleobject?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727403;32557623403&q-key-time=1484727403;32557623403&q-header-list=host&q-url-param-list=partNumber;uploadId&q-signature=bfc54518ca8fc31b3ea287f1ed2a0dd8c8e88a1d
