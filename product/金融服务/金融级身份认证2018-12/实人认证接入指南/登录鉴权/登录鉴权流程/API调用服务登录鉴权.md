@@ -1,12 +1,12 @@
-## 整体登录鉴权流程
-### 第一步：Access Token 获取
+## 第一步：Access Token 获取
 Access Token 有效期7200秒，建议合作方缓存在服务器，必须在临近过期和使用中失效时重新获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/655/31946)。
-### 第二步：生成签名
+## 第二步：生成签名
 合作伙伴获取 SIGN ticket，有效期3600秒，且仅一次性有效，建议合作方缓存在服务器，必须在临近过期和使用中失效时重新获取。流程中，获取 API ticket 请求的 type 为 SIGN。获取方式请参见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/655/31956)。
-### 第三步：调用 API 服务
+## 第三步：调用 API 服务
 服务端查询结果：合作伙伴服务后台校验 SIGN，查询身份认证结果。
 
-流程图示
+## 流程图示
+API调用服务登录鉴权流程图示：
 ![](https://main.qcloudimg.com/raw/211a6e63c095c1098c8052cf9e76d404.png)
  
 >! 
