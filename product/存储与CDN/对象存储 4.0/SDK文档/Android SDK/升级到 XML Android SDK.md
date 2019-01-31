@@ -118,16 +118,16 @@ XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要�
 
 **存储桶 Bucket**
 
-XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
 ```
-String bucket = "mybucket1-1250000000";
-String cosPath = "test.txt";
-String srcPath = Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+String bucket = "examplebucket-1250000000";
+String cosPath = "exampleobject.doc";
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
 //上传文件
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 ```
@@ -188,7 +188,7 @@ API 变化有以下三点：
 
 在 XML SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
-* 支持断点下载。
+* 支持上传下载过程的暂停和恢复。
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
 * 支持任务状态的监听。
 
@@ -211,8 +211,8 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
 String bucket = "存储桶名称";
-String cosPath = [对象键](https://cloud.tencent.com/document/product/436/13324)，即存储到 COS 上的绝对路径; //格式如 cosPath = "test.txt";
-String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+String cosPath = [对象键](https://cloud.tencent.com/document/product/436/13324)，即存储到 COS 上的绝对路径; //格式如 cosPath = "exampleobject.doc";
+String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
 String uploadId = "分片上传的UploadId";//用于续传，若无，则为null.
 //上传文件
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
