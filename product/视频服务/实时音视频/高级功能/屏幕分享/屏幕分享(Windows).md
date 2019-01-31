@@ -10,21 +10,21 @@
 
 ## 获取分享目标
 通过 `getScreenCaptureSources` 可以枚举可共享的窗口列表，列表通过出参 sourceInfoList 返回。
-> Windows 里的桌面屏幕也是一个窗口，叫桌面窗口（Desktop），有两台显示器时，每一台显示器都有一个对应的桌面窗口。所以，getScreenCaptureSources 返回的窗口列表里也会有 Desktop 窗口。
+>? Windows 里的桌面屏幕也是一个窗口，叫桌面窗口（Desktop），有两台显示器时，每一台显示器都有一个对应的桌面窗口。所以，getScreenCaptureSources 返回的窗口列表里也会有 Desktop 窗口。
 
 sourceInfoList 中每一个 sourceInfo 可以分享的目标，它由如下字段描述。
 
 | 字段 | 类型 | 含义|
 |:-------:|:--------:| :---------------:|
-| type |TRTCScreenCaptureSourceType| 采集源类型：某个窗口？还是某个屏幕？|
+| type |TRTCScreenCaptureSourceType| 采集源类型：指定类型为窗口或屏幕|
 | sourceId | HWND| 采集源ID：对于窗口，该字段指示窗口句柄；<br>对于屏幕，该字段指示屏幕ID |
 | sourceName| string | 窗口名字，如果是屏幕则返回 Screen0 Screen1... |
 | thumbWidth| int32 | 窗口缩略图宽度 | 
 | thumbHeight| int32 | 窗口缩略图高度 |
-| thumbBGRA| buffer | 窗口缩略图的二进制buffer |
+| thumbBGRA| buffer | 窗口缩略图的二进制 buffer |
 | iconWidth | int32 | 窗口图标的宽度 |
 | iconHeight| int32 | 窗口图标的高度 |
-| iconBGRA | buffer | 窗口图标的二进制buffer |
+| iconBGRA | buffer | 窗口图标的二进制 buffer |
 
 有了上面这些信息，您就可以实现一个简单的列表页面，将可以分享的目标罗列出来供用户选择，如下图：
 
@@ -44,7 +44,6 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 
 > 两个额外参数：
-> 
 > - 参数 captureMouse 用于指定是否捕获鼠标指针。
 > - 参数 highlightWindow 用于指定是否高亮正在共享的窗口，以及当捕获图像被遮挡时提示用户移走遮挡。（这一分部的 UI 特效是 SDK 内部实现的。）
 
@@ -52,9 +51,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 ## 开始屏幕分享
 
  - 选取分享目标之后，使用 `startScreenCapture` 接口可以启动屏幕分享。
- 
  - 分享过程中，您依然可以通过调用 `selectScreenCaptureTarget` 更换分享目标。
- 
  - `pauseScreenCapture` 和  `stopScreenCapture` 的区别在于 pause 会停止屏幕内容的采集，并以暂停那一刻的画面垫片，所以在远端看到一直都是最后一帧画面，直到 resume。
  
 ```C++
@@ -107,10 +104,10 @@ void CTRTCCloudSDK::onUserSubStreamAvailable(const char * userId, bool available
 ```
 
 ## 常见问题
-**1. 一个房间里可以同时有多个人共享屏幕吗？**
+- **一个房间里可以同时有多个人共享屏幕吗？**
 目前一个 TRTC 音视频房间只能有一路屏幕分享。
 
-**2. 指定窗口分享(SourceTypeWindow)，当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
+- **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
 不会跟着变化，当窗口大小变化时，窗口画面会被等比例缩放到目标分辨率上。
 
 
