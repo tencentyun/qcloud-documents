@@ -74,9 +74,9 @@ Authorization: Auth String
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```shell
 <InitiateMultipartUploadResult>
-  <Bucket></Bucket>
-  <Key></Key>
-  <UploadId></UploadId>
+    <Bucket>examplebucket-1250000000</Bucket>
+    <Key>exampleobject</Key>
+    <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
 </InitiateMultipartUploadResult>
 ```
 具体的数据内容如下：
@@ -97,7 +97,7 @@ Container 节点 InitiateMultipartUploadResult 的内容：
 
 ### 请求
 ```shell
-POST /<ObjectKey>?uploads HTTP/1.1
+POST /exampleobject?uploads HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727259;32557623259&q-key-time=1484727259;32557623259&q-header-list=host&q-url-param-list=uploads&q-signature=b5f46c47379aeaee74be7578380b193c01b28045
@@ -116,7 +116,7 @@ x-cos-request-id: NTg3ZjIzZTZfOWIxZjRlXzZmMzhfMWRj
 
 <InitiateMultipartUploadResult>
     <Bucket>examplebucket-1250000000</Bucket>
-    <Key>ObjectName</Key>
+    <Key>exampleobject</Key>
     <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
 </InitiateMultipartUploadResult>
 ```
