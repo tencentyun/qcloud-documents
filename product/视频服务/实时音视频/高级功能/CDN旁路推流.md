@@ -1,5 +1,5 @@
 ## 内容介绍
-腾讯云实时音视频（TRTC）服务同时支持 **视频会议** 及 **在线直播** 两种场景：
+腾讯云实时音视频（TRTC）服务同时支持**视频会议**和**在线直播**两种场景：
 
 #### 视频会议
 所有人都可以直接加入 TRTC 房间进行观看，延迟更低、流畅性更好。但这种方案对于人数较多的直播场景并不适用，原因有二：
@@ -15,7 +15,7 @@
 
 ## 支持的平台
 
-| iOS | Android | Mac OS | Windows | 微信小程序 | Chrome浏览器|
+| iOS | Android | Mac OS | Windows | 微信小程序 | Chrome 浏览器|
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |     ✔  |    ✔    |    ✔   |    ✔    |    ✖     |   ✖     |
 
@@ -28,11 +28,8 @@
 
 假如一个 TRTC 房间里有三个用户，分别是 userA，userB 和 userC，那么现在一共有四路播放地址可以观看，分别是：
 - **userA** 的播放地址：开启旁路服务后默认开启，地址中只有 userA 的一路画面。
-
 - **userB** 的播放地址：开启旁路服务后默认开启，地址中只有 userB 的一路画面。
-
 - **userC** 的播放地址：开启旁路服务后默认开启，地址中只有 userC 的一路画面。
-
 - **混合画面**：即将 userA、userB 和 userC 按照您指定的排版方式混合后的播放地址，非默认开启。
 
 > ! 混合画面需要您通过 `startCloudMixTranscoding` 和 `startPublishCDNStream` 接口手动开启。
@@ -45,10 +42,8 @@
 http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 ```
 - streamid = MD5 (房间号\_用户名\_流类型)
-
 - bizid： 一个直播服务相关的数字，您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。
 ![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
-
 - 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，Web端目前屏幕分享的流类型也是 main）。
 
 ```
@@ -65,12 +60,12 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 
 由于多路画面的混合需要您指定画面间的叠加方式，所以混合画面并没有默认的播放地址，需要您按照如下两步进行获取。
 
-#### step1: setMixTranscodingConfig() 多路画面混合成一路
+#### step1：setMixTranscodingConfig() 多路画面混合成一路
 如果开启混流转码，您需要调用 TRTCCloud 的 `startCloudMixTranscoding` 对各路画面的摆放位置以及最终的画面质量进行配置，这里的配置方法需要您参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
 
 >? `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，由云端进行混流和转码，所以不用担心这里的性能问题。
 
-#### step2: startPublishCDNStream() 旁路转推到直播 CDN
+#### step2：startPublishCDNStream() 旁路转推到直播 CDN
 
 通过 TRTCCloud 的 `startPublishCDNStream` 可以将当前房间中的音视频流，转推到其参数 `TRTCPublishCDNParam` 指定的 url 上，该参数有如下字段需要您填写：
 
@@ -95,13 +90,13 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 - [TXLivePlayer(Windows)](https://cloud.tencent.com/document/product/454/13676#.E6.92.AD.E6.94.BE.E5.8A.9F.E8.83.BD)
 
 ## 常见问题
-- **1. 为什么房间里只有一个人的时候画面又卡又模糊?**
+- **为什么房间里只有一个人的时候画面又卡又模糊?**
 请将 `enterRoom` 中 TRTCAppScene 参数指定为 **TRTCAppSceneLIVE**，VideoCall 模式针对视频通话做了优化，所以在房间中只有一个用户时，画面会保持较低的码率和帧率以节省用户的网络流量，因此看起来会感觉又卡又模糊。
  
-- **2. 能不能转推到非腾讯云的 CDN 地址？**
+- **能不能转推到非腾讯云的 CDN 地址？**
 支持，但目前尚需要手工配置白名单开启，如果需要开启此功能，请通过 400 电话或者 [工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
-- **3. 此服务是否收费？**
+- **此服务是否收费？**
 旁路推流到腾讯云直播 CDN 是不收取转推费用的，到其他云商 CDN 会收取一定的转推费用。
 
 
