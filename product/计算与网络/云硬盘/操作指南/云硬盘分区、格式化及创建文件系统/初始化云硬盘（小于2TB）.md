@@ -154,7 +154,7 @@ df -TH
  
 >?若无需设置开机自动挂载磁盘，则跳过后续步骤。
 
-16. 执行以下命令，查询磁盘分区的 UUID。
+16. 执行以下命令，查询磁盘分区的 UUID（universally unique identifier）。
 ```
 blkid <磁盘分区>
 ```
