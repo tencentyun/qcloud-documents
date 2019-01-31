@@ -83,7 +83,7 @@ Content-Length: 233
     {
       "Principal": {
         "qcs": [
-          "qcs::cam::uin/909619481:uin/909619481"
+          "qcs::cam::uin/1250000000:uin/1250000000"
         ]
       },
       "Effect": "allow",
@@ -91,7 +91,7 @@ Content-Length: 233
         "name/cos:GetBucket"
       ],
       "Resource": [
-        "qcs::cos:ap-chengdu:uid/1252336075:aaa-1252336075/*"
+        "qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ],
