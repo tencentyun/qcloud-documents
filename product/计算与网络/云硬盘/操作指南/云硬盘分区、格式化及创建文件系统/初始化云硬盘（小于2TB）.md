@@ -42,6 +42,8 @@
 6. 右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。
  ![](https://main.qcloudimg.com/raw/b38f04f488ff40b26e12d33aa1f83ee1.png)
 7. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。
+>!磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
+>
  ![](https://main.qcloudimg.com/raw/a7de4fb54fb5585a3a2ee808566679af.png)
 8. 右键单击磁盘上未分配的区域，选择【新建简单卷】。
  ![](https://main.qcloudimg.com/raw/f7d4e90dfd4d766ca80a6ab35b991d89.png)
