@@ -4,7 +4,7 @@
 
 ## 支持的平台
 
-| iOS | Android | Mac OS | Windows | 微信小程序 | Chrome浏览器|
+| iOS | Android | Mac OS | Windows | 微信小程序 | Chrome 浏览器|
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |     ✖  |    ✖    |    ✔   |    ✔    |    ✖     |   ✔     |
 
