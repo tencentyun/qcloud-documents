@@ -40,17 +40,23 @@
 
 #### 源码下载
 
-我们提供了 java、php 和 nodejs 三个版本的 UserSig 计算代码，您可以直接下载并集成到您的服务端。
+我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
+
+- **新版本源码
+
+| 语言版本 | 关键函数 | 下载链接 |
+|:---------:|:---------:|:---------:|
+| Java | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-java)|
+| GO | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
+| PHP | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-php)|
+| Nodejs | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-node)|
+| C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
+| Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+
+- **老版本源码
 
 | 语言版本 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|
 | java | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/java)|
 | php | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/php)|
 | nodejs | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/nodejs)|
-
-
-
-
-
-
-
