@@ -50,7 +50,7 @@ dependencies {
 **2. 更改 SDK 鉴权方式**
 
 在 JSON Android SDK 中您需要自己在后台计算好签名，再返回客户端使用。而在 XML SDK 使用了新的鉴权算法，在 XML Android SDK 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
-您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068) 以及 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/30172)。
+您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068) 以及 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。
 
 如果您仍然采用后台手动计算签名，再返回客户端使用的方式，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档更新您签名的实现。
 
@@ -210,7 +210,7 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
 String bucket = "存储桶名称";
-String cosPath = [对象键](https://cloud.tencent.com/document/product/436/13324)，即存储到 COS 上的绝对路径; //格式如 cosPath = "exampleobject.doc";
+String cosPath = "对象键"; // 即存储到 COS 上的绝对路径,格式如 cosPath = "exampleobject.doc";
 String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
 String uploadId = "分片上传的UploadId";//用于续传，若无，则为null.
 //上传文件
