@@ -162,3 +162,6 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 ![](https://main.qcloudimg.com/raw/66e80816c9a952f86387d4359386b764.png)
 20. 按 Esc，输入`:wq`，按 Enter。
 保存设置并退出编辑器。
+
+## 相关操作
+[初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
