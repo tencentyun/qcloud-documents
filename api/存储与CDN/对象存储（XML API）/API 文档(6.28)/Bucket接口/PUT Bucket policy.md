@@ -3,7 +3,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ## 请求
 
-### 请求示例：
+### 请求示例
 
 ```shell
 PUT /?policy HTTP/1.1
