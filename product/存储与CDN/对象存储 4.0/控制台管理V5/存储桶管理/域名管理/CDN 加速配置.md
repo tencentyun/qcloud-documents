@@ -47,7 +47,7 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 ![](https://main.qcloudimg.com/raw/439f408aae267d3052758a1fdaa93743.png)
  3. 单击【保存】之后，可以看到默认加速域名在部署中了。同时下方会出现**CDN 鉴权**的状态提示，单击【鉴权配置】开始配置 CDN 鉴权，如下图所示：
 ![](https://main.qcloudimg.com/raw/8ed30acab9085f97f052e9eda83e6740.png)
- 4. 在跳转界面中单击“鉴权配置”旁边的开启按钮，输入鉴权 Key 和有效时间，如下图所示：
+ 4. 在跳转界面中开启“鉴权配置”按钮，输入鉴权 Key 和有效时间，如下图所示：
 ![](https://main.qcloudimg.com/raw/7b8f499321fbe7a61e304397a945215f.png)
  5. 单击【鉴权计算器】，如果上一步已经配置好，鉴权 Key 和有效时间会自动填入，通常只用输入需要访问的对象的 Path，然后单击【生成】即可得到鉴权 URL，使用鉴权 URL 能直接访问到目标对象。如之前没有输入，需在鉴权计算器上输入鉴权 Key 、有效时间和目标路径，如下图所示：
 ![鉴权计算器](https://main.qcloudimg.com/raw/572b32410086d49cbfc00a650eb6f514.png)
@@ -60,7 +60,7 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 
 ### 操作步骤
 
-1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，进入左侧菜单栏【存储桶列表】，单击需要配置域名的存储桶（如 example），进入存储桶配置界面，如下图所示： 
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，进入左侧菜单栏【存储桶列表】，单击需要配置域名的存储桶，进入存储桶配置界面，如下图所示： 
 ![](https://main.qcloudimg.com/raw/b90ad17947a0ec530db87210f4b9027d.png)
 2. 从存储桶页面上方进入【域名管理】，在第二栏“自定义加速域名”处单击【添加域名】，输入待绑定的自定义域名（如 ` www.example.com`），选择开启回源鉴权，单击右侧的【保存】即可完成域名添加，如下图所示：
 ![](https://main.qcloudimg.com/raw/0bfbd7e43e19f9bf8e0d42e2957fc1b8.png)
