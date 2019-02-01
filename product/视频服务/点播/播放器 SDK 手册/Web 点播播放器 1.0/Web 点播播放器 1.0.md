@@ -39,16 +39,13 @@ SDK 上传视频格式支持：
 #### step 2：上传文件
 点播服务开通之后，进入 [点播视频管理](https://console.cloud.tencent.com/video/videomanage) 就可以上传新的视频文件，因为我们本篇文档主要介绍播放器的使用，所以这一步是为了让您先有个自己的在线视频地址，如果您没有开通点播服务，则无法进入该页面。
 
-#### step 3：获取 ID 和 APPID
-上传完视频之后，您就可以在视频管理页面查到该文件的 ID ，与此同时，本款播放器有质量统计功能，在使用之前需要先确认 APPID。
-1. 获取 ID
+#### step 3：获取 fileid 和 APPID
+上传完视频之后，您就可以在视频管理页面查到该文件的 ID（fileid） ，与此同时，本款播放器有质量统计功能，在使用之前需要先确认 APPID。
+1. 获取 ID（fileid）
 在点播视频管理页面，找到您需要获取 ID 的视频，在其操作一栏中单击【管理】，在【基本信息】选项卡下，可查看 ID，如下图所示：
 ![](https://main.qcloudimg.com/raw/28e0da3aaea156ec0eecb840f2da5350.png)
 2. 获取 APPID 
- 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com) ，在右上角单击【账号信息】，如下图所示：
- ![](https://main.qcloudimg.com/raw/74f61246221fa9b6f011115a80c127a4.png)
- 2. 在账号信息一栏下，即可查看 APPID。
-  ![](https://main.qcloudimg.com/raw/e12c8556be46198b89056e9749f8bec8.png)
+在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查看。
 
 #### step 4：页面准备
 在需要播放视频的页面（包括 PC 或 H5）中引入初始化脚本：
