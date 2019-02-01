@@ -53,23 +53,23 @@ Authorization: Auth String
 ```shell
 <AccessControlPolicy>
    <Owner>
-        <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-        <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
+     <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+     <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
    </Owner>
    <AccessControlList>
-        <Grant>
-           <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-               <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-           </Grantee>
-               <Permission>READ</Permission>
-        </Grant>
-        <Grant>
-           <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-               <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-               <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-           </Grantee>
-               <Permission>FULL_CONTROL</Permission>
-        </Grant>
+     <Grant>
+        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+           <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+        </Grantee>
+        <Permission>READ</Permission>
+     </Grant>
+     <Grant>
+        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+           <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+           <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
+        </Grantee>
+        <Permission>FULL_CONTROL</Permission>
+     </Grant>
    </AccessControlList>
 </AccessControlPolicy>
 ```
@@ -93,6 +93,7 @@ Container 节点 Owner 的内容：
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
 | ID | AccessControlPolicy.Owner | Bucket 持有者的 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
+|DisplayName	|AccessControlPolicy.Owner |Bucket 所有者的名字信息	|string	|是|
 
 Container 节点 AccessControlList 的内容：
 
@@ -112,7 +113,7 @@ Container 节点 Grantee 的内容：
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
 | ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
-
+|DisplayName|AccessControlPolicy.AccessControlList.Grant.Grantee |Bucket 所有者的名字信息|string	|是|
 
 
 ## 响应
@@ -120,7 +121,7 @@ Container 节点 Grantee 的内容：
 
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
 
 #### 特有响应头
 该请求操作无特殊的响应头部信息。
@@ -130,6 +131,7 @@ Container 节点 Grantee 的内容：
 
 ### 错误码
 该响应可能会出现如下错误码信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 <table>
    <tr>
       <th>错误码</th>
@@ -172,23 +174,23 @@ Content-Type: application/x-www-form-urlencoded
 
 <AccessControlPolicy>
    <Owner>
-        <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-        <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
+     <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+     <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
    </Owner>
    <AccessControlList>
-        <Grant>
-           <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-               <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-           </Grantee>
-               <Permission>READ</Permission>
-        </Grant>
-        <Grant>
-           <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-               <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-               <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-           </Grantee>
-               <Permission>FULL_CONTROL</Permission>
-        </Grant>
+     <Grant>
+        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+           <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+        </Grantee>
+        <Permission>READ</Permission>
+     </Grant>
+     <Grant>
+        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+           <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+           <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
+        </Grantee>
+        <Permission>FULL_CONTROL</Permission>
+     </Grant>
    </AccessControlList>
 </AccessControlPolicy>
 ```
