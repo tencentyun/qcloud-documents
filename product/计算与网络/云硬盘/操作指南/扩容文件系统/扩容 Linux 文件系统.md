@@ -416,3 +416,6 @@ cat /etc/fstab
 ```
 若返回如下图所示信息，则表示添加分区信息成功。
 ![](//mccdn.qcloud.com/static/img/f0b5c14bf08fd3629ddf6d9b1ae01ffc/image.png)
+
+## 相关操作
+[扩展分区及文件系统（Windows）](https://cloud.tencent.com/document/product/362/6737)
