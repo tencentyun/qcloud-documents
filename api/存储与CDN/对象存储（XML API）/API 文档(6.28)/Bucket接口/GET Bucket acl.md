@@ -6,7 +6,7 @@ GET Bucket acl 接口用来获取存储桶的访问权限控制列表。
 
 ```
 GET /?acl HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -34,13 +34,6 @@ Authorization: Auth String
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Content-Length: 266
-Connection: keep-alive
-Date: Fri, 10 Mar 2016 09:45:46 GMT
-Server: tencent-cos
-x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 <AccessControlPolicy>
   <Owner>
     <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
