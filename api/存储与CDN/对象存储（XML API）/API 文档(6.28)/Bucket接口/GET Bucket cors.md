@@ -37,14 +37,14 @@ Authorization: Auth String
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CORSConfiguration>
-  <CORSRule>
-    <ID>string</ID>
-    <AllowedOrigin>string</AllowedOrigin>
-    <AllowedMethod>string</AllowedMethod>
-    <AllowedHeader>string</AllowedHeader>
-    <MaxAgeSeconds>0</MaxAgeSeconds>
-    <ExposeHeader>string</ExposeHeader>
-  </CORSRule>
+    <CORSRule>
+        <ID>bucketid</ID>
+        <AllowedOrigin>http: //www.qq.com</AllowedOrigin>
+        <AllowedMethod>PUT</AllowedMethod>
+        <AllowedHeader>x-cos-meta-test</AllowedHeader>
+        <ExposeHeader>x-cos-meta-test1</ExposeHeader>
+        <MaxAgeSeconds>500</MaxAgeSeconds>
+    </CORSRule>
 </CORSConfiguration>
 ```
 
@@ -99,7 +99,7 @@ x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZTBh
 
 <CORSConfiguration>
     <CORSRule>
-        <ID>1234</ID>
+        <ID>bucketid</ID>
         <AllowedOrigin>http: //www.qq.com</AllowedOrigin>
         <AllowedMethod>PUT</AllowedMethod>
         <AllowedHeader>x-cos-meta-test</AllowedHeader>
