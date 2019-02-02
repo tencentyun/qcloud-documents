@@ -23,37 +23,44 @@
 
 ## 示例
 
-在 APPID 为 1250000000 ，创建存储桶名称为 example。存储桶根目录下上传了对象 exampleobject.txt。
+在 APPID 为 1250000000 ，创建存储桶名称为 examplebucket-1250000000。存储桶根目录下上传了对象 exampleobject.txt。
 
 未自定义对象的 HTTP 头部时，浏览器或客户端下载时得到的对象头部范例如下：
+#### 请求
 ```http
-> GET /exampleobject.txt HTTP/1.1
-> Host: examplebucket-1250000000.file.myqcloud.com
-> Accept: */*
+GET /exampleobject.txt HTTP/1.1
+Host: examplebucket-1250000000.file.myqcloud.com
+Accept: */*
+```
 
-< HTTP/1.1 200 OK
-< Content-Language:zh-CN
-< Content-Type: text/plain
-< Content-Disposition: attachment; filename*="UTF-8''exampleobject.txt"
-< Access-Control-Allow-Origin: *
-< Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT 
-
+#### 响应
+```http
+HTTP/1.1 200 OK
+Content-Language:zh-CN
+Content-Type: text/plain
+Content-Disposition: attachment; filename*="UTF-8''exampleobject.txt"
+Access-Control-Allow-Origin: *
+Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT 
 ```
 
 添加如下配置：
 ![设置HTTP头部3](//mc.qcloudimg.com/static/img/bcba7754ca585143371935a9f4f0228a/image.png)
 再次发起请求，浏览器或客户端得到的对象头部范例如下：
+#### 请求
 ```http
-> GET /exampleobject.txt HTTP/1.1
-> Host: examplebucket-1250000000.file.myqcloud.com
-> Accept: */*
+GET /exampleobject.txt HTTP/1.1
+Host: examplebucket-1250000000.file.myqcloud.com
+Accept: */*
+```
 
-< HTTP/1.1 200 OK
-< Content-Language:zh-CN
-< Cache-Control: no-cache
-< Content-Type: image/jpeg
-< Content-Disposition: attachment; filename*="abc.txt"
-< x-cos-meta-md5: 1234
-< Access-Control-Allow-Origin: *
-< Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
+#### 响应
+```http
+HTTP/1.1 200 OK
+Content-Language:zh-CN
+Cache-Control: no-cache
+Content-Type: image/jpeg
+Content-Disposition: attachment; filename*="abc.txt"
+x-cos-meta-md5: 1234
+Access-Control-Allow-Origin: *
+Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
 ```
