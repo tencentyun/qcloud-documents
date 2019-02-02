@@ -7,7 +7,7 @@
 ## 操作步骤
 1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录数据安全网关。
 2. 单击【资源管理】>【Linux】，进入管理页面。
-3. 找到您要配置账号的资源，在其所在行中，单击【账号】，即可进入资源账号配置页面。
+3. 找到您要配置账号的资源，在其所在行中，单击<img src="https://main.qcloudimg.com/raw/6ce56e0ba623b3c88ac789505dd16234.png"  style="margin:0;">，即可进入资源账号配置页面。
 ![1](https://main.qcloudimg.com/raw/b04669730acd62048622192f6211c8d3.png)
 4. 单击【新建】，进入创建账号页面，请配置如下信息：
  - **账号**：填写 Linux 资源的管理员账号。
