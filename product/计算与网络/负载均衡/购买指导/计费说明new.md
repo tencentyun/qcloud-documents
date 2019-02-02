@@ -199,7 +199,7 @@
 
 ## 跨地域绑定计费说明
 
-负载均衡跨地域绑定功能，允许您修改后端主机的地域属性，实现北京、上海等地的 LB 跨地域绑定到后端集群如广州。当前该功能灰度中，如果您需要体验该功能，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)
+负载均衡跨地域绑定功能，允许您修改后端主机的地域属性，实现北京、上海等地的 LB 跨地域绑定到后端集群如广州。当前该功能灰度中，如果您需要体验该功能，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
 
 其收费方式如下：
 1) 同地域绑定：免费。
