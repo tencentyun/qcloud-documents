@@ -38,7 +38,7 @@ gzip_types text/html application/json;
 上述代码的语法详解：
 gzip：开启或关闭 gzip 模块。
 
-语法：`gzip on/off	`
+语法：`gzip on/off`
 作用域：http, server, location
 	
 gzip_min_length：设置允许压缩的页面最小字节数，页面字节数从 header 头中的 Content-Length 中进行获取。默认值是1k。
