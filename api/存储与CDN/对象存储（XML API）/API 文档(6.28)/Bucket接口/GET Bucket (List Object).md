@@ -1,5 +1,5 @@
 ## 功能描述
-GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。
+GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。该 API 的操作者需要对 Bucket 有 Read 权限。
 
 ## 请求
 ### 请求示例
@@ -71,49 +71,49 @@ max-keys|string|单次返回最大的条目数量，默认值为1000，最大为
 
 具体的数据描述如下：
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-ListBucketResult|无|保存 Get Bucket 请求结果的所有信息|Container|是
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+ListBucketResult|无|保存 Get Bucket 请求结果的所有信息|Container
 
 **Container 节点 ListBucketResult 内容：**
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-Name|ListBucketResult|说明 Bucket 的信息|string|是
-Encoding-Type|ListBucketResult|编码格式|string|是
-Prefix|ListBucketResult|前缀匹配，用来规定响应请求返回的文件前缀地址|string|是
-Marker|ListBucketResult|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string|是
-MaxKeys|ListBucketResult|单次响应请求内返回结果的最大的条目数量|string|是
-Delimiter|ListBucketResult|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始|string|否
-IsTruncated|ListBucketResult|响应请求条目是否被截断，布尔值：true，false|boolean|是
-NextMarker|ListBucketResult|假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点|string|是
-Contents|ListBucketResult|元数据信息|Container|是
-CommonPrefixes|ListBucketResult|将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix|Container|是
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+Name|ListBucketResult|说明 Bucket 的信息|string
+Encoding-Type|ListBucketResult|编码格式|string
+Prefix|ListBucketResult|前缀匹配，用来规定响应请求返回的文件前缀地址|string
+Marker|ListBucketResult|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string
+MaxKeys|ListBucketResult|单次响应请求内返回结果的最大的条目数量|string
+Delimiter|ListBucketResult|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始|string
+IsTruncated|ListBucketResult|响应请求条目是否被截断，布尔值：true，false|boolean
+NextMarker|ListBucketResult|假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点|string
+Contents|ListBucketResult|元数据信息|Container
+CommonPrefixes|ListBucketResult|将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix|Container
 
 
 **Container 节点 Contents 内容：**
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-Key|ListBucketResult.Contents|Object 的 Key|string|是
-LastModified|ListBucketResult.Contents|说明 Object 最后被修改时间|string|是
-ETag|ListBucketResult.Contents|文件的 MD-5 算法校验值|string|是
-Size|ListBucketResult.Contents|说明文件大小，单位是 Byte|string|是
-Owner|ListBucketResult.Contents|Bucket 持有者信息|Container|是
-StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string|是
+节点名称（关键字）|父节点|描述|类型
+---|---|---|--
+Key|ListBucketResult.Contents|Object 的 Key|string
+LastModified|ListBucketResult.Contents|说明 Object 最后被修改时间|string
+ETag|ListBucketResult.Contents|文件的 MD-5 算法校验值|string
+Size|ListBucketResult.Contents|说明文件大小，单位是 Byte|string
+Owner|ListBucketResult.Contents|Bucket 持有者信息|Container
+StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string
 
 **Container 节点 Owner 内容：**
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-ID|ListBucketResult.Contents.Owner|Bucket 的 AppID|string|是
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+ID|ListBucketResult.Contents.Owner|Bucket 的 AppID|string
 
 
 **Container 节点 CommonPrefixes 内容：**
 
-节点名称（关键字）|父节点|描述|类型|必选
----|---|---|---|---
-Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string|是
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string
 
 
 ### 错误码
