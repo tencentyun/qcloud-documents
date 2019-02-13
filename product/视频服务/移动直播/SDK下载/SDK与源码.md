@@ -43,14 +43,14 @@ table td {
   </tr>
   <tr>
     <td style="text-align:center">全功能专业版</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center"></td>
     <td style="text-align:center">4.19M</td>
     <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Professional_iOS_5.4.6097.zip">DOWNLOAD</a></td>
   </tr>
 	<tr>
     <td style="text-align:center">商用企业版</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center"></td>
     <td style="text-align:center">5.98M</td>
     <td style="text-align:center">见版本说明</td>
     <td style="text-align:center">见如下说明</td>
