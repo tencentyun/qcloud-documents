@@ -11,7 +11,7 @@
 
 ### 1. 下载  SDK
 
-[下载 SDK](https://github.com/TencentVideoCloudTRTC/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.md)，解压并打开，包含以下几个部分：
+在 Github 上获取 [TRTC SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK/liteav/Win32) 的最新版本，包含以下几个部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
@@ -20,7 +20,7 @@
 
 ### 2. 新建工程
 
-打开Visual Studio，新建一个名字叫 TRTCDemo 的 MFC 应用程序，如下图所示：
+打开 Visual Studio，新建一个名字叫 TRTCDemo 的 MFC 应用程序，如下图所示：
 ![](https://main.qcloudimg.com/raw/645623e01a65858e23123af52ec15bc2.png)
 
 为了便于介绍如何快速集成，在向导的**应用程序类型**页面，我们选择比较简单的**基于对话框**类型，如下图所示：

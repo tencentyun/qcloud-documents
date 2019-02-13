@@ -16,7 +16,7 @@ PUT Object 接口请求可以将本地的对象（Object）上传至指定存储
 
 ```shell
 PUT /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

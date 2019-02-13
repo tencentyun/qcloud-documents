@@ -7,7 +7,6 @@
 | 功能       | XML PHP SDK         | JSON PHP SDK                         |
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
-| 文件下载 | 支持断点续传 | 不支持断点续传 |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
@@ -105,8 +104,8 @@ XML PHP SDK 的初始化方式如下：
 require '/path/to/sdk/vendor/autoload.php';
 $cosClient = new Qcloud\Cos\Client(array('region' => getenv('COS_REGION'),
     'credentials'=> array(
-        'secretId'    => getenv('COS_KEY'),
-        'secretKey' => getenv('COS_SECRET'))));
+        'secretId'    => getenv(' COS_SECRETID'),
+        'secretKey' => getenv(' COS_SECRETKEY'))));
 ```
 
 
@@ -116,7 +115,7 @@ XML PHP SDK 的存储桶名称和可用区域简称与 JSON PHP SDK 的不同，
 
 **存储桶 Bucket**
 XML PHP SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。
-例如`mybucket1-1250000000`，其中`mybucket1`为用户自定义字符串，`1250000000`为 APPID。
+例如`examplebucket-1250000000`，其中`examplebucket`为用户自定义字符串，`1250000000`为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可登录 [腾讯云控制台](https://console.cloud.tencent.com/)， 在【账号信息】查看 APPID。
 

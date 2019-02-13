@@ -36,3 +36,6 @@
 1. 右键单击磁盘空间的任一空白处，选择【扩展卷】。
 2. 根据扩展卷向导的指引完成扩展卷操作。完成后新增的数据盘空间将会合入原有卷中。如下图所示：
 ![](https://main.qcloudimg.com/raw/f2be002e959f6b309ff3b674dee9078f.png)
+
+## 相关操作
+[扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)

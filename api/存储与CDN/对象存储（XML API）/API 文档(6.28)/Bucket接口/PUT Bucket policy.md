@@ -3,7 +3,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ## 请求
 
-### 请求示例：
+### 请求示例
 
 ```shell
 PUT /?policy HTTP/1.1
@@ -83,7 +83,7 @@ Content-Length: 233
     {
       "Principal": {
         "qcs": [
-          "qcs::cam::uin/909619481:uin/909619481"
+          "qcs::cam::uin/1250000000:uin/1250000000"
         ]
       },
       "Effect": "allow",
@@ -91,7 +91,7 @@ Content-Length: 233
         "name/cos:GetBucket"
       ],
       "Resource": [
-        "qcs::cos:ap-chengdu:uid/1252336075:aaa-1252336075/*"
+        "qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ],
