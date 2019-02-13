@@ -6,27 +6,27 @@ GET Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 
 ```shell
 GET / HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
 #### 请求参数
 
-名称|类型|必选|描述
+名称|类型|描述|必选
 ---|---|---|---
-prefix|string|否|前缀匹配，用来规定返回的文件前缀地址
-delimiter|string|否|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
-encoding-type|string|否|规定返回值的编码方式，可选值：url
-marker|string|否|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
-max-keys|string|否|单次返回最大的条目数量，默认值为1000
+prefix|string|前缀匹配，用来规定返回的文件前缀地址 |否
+delimiter|string|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始|否
+encoding-type|string|规定返回值的编码方式，可选值：url |否
+marker|string|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|否
+max-keys|string|单次返回最大的条目数量，默认值为1000，最大为1000 |否
 
 ### 请求体
 该请求请求体为空。
@@ -35,7 +35,7 @@ max-keys|string|否|单次返回最大的条目数量，默认值为1000
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -43,28 +43,29 @@ max-keys|string|否|单次返回最大的条目数量，默认值为1000
 查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息。
 
 ```shell
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-  <Name>string</Name>
-  <Encoding-Type>string</Encoding-Type>
-  <Prefix>string</Prefix>
-  <Marker>string</Marker>
-  <MaxKeys>string</MaxKeys>
-  <IsTruncated>true</IsTruncated>
-  <NextMarker>string</NextMarker>
-  <Contents>
-    <Key>string</Key>
-    <LastModified>string</LastModified>
-    <ETag>string</ETag>
-    <Size>string</Size>
-    <Owner>
-      <ID>string</ID>
-    </Owner>
-    <StorageClass>string</StorageClass>
-  </Contents>
-  <CommonPrefixes>
-    <Prefix>string</Prefix>
-  </CommonPrefixes>
+    <Name>examplebucket-1250000000</Name>
+    <Encoding-Type>url</Encoding-Type>
+    <Prefix>ela</Prefix>
+    <Marker/>
+    <MaxKeys>1000</MaxKeys>
+    <Delimiter>/</Delimiter>
+    <IsTruncated>false</IsTruncated>
+    <NextMarker>exampleobject.txt</NextMarker>
+    <Contents>
+        <Key>photo</Key>
+        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
+        <ETag>\"79f2a852fac7e826c9f4dbe037f8a63b\"</ETag>
+        <Size>10485760</Size>
+        <Owner>
+           <ID>1250000000</ID>
+        </Owner>
+        <StorageClass>STANDARD</StorageClass>
+    </Contents>
+    <CommonPrefixes>
+      <Prefix>example</Prefix>
+    </CommonPrefixes>
 </ListBucketResult>
 ```
 
@@ -83,6 +84,7 @@ Encoding-Type|ListBucketResult|编码格式|string|是
 Prefix|ListBucketResult|前缀匹配，用来规定响应请求返回的文件前缀地址|string|是
 Marker|ListBucketResult|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string|是
 MaxKeys|ListBucketResult|单次响应请求内返回结果的最大的条目数量|string|是
+Delimiter|ListBucketResult|定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始|string|否
 IsTruncated|ListBucketResult|响应请求条目是否被截断，布尔值：true，false|boolean|是
 NextMarker|ListBucketResult|假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点|string|是
 Contents|ListBucketResult|元数据信息|Container|是
@@ -115,7 +117,7 @@ Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string|是
 
 
 ### 错误码
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -149,44 +151,44 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
     <MaxKeys>1000</MaxKeys>
     <Delimiter>/</Delimiter>
     <IsTruncated>false</IsTruncated>
-    <NextMarker>1234.txt</NextMarker>
+    <NextMarker>exampleobject.txt</NextMarker>
     <Contents>
-        <Key>testL</Key>
+        <Key>photo</Key>
         <LastModified>2017-06-23T12:33:26.000Z</LastModified>
         <ETag>\"79f2a852fac7e826c9f4dbe037f8a63b\"</ETag>
         <Size>10485760</Size>
         <Owner>
-            <ID>1252375641</ID>
+            <ID>1250000001</ID>
         </Owner>
     <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
-        <Key>testL1</Key>
+        <Key>picture</Key>
         <LastModified>2017-06-23T12:33:26.000Z</LastModified>
         <ETag>\"3f9a5dbff88b25b769fa6304902b5d9d\"</ETag>
         <Size>10485760</Size>
         <Owner>
-            <ID>1252375642</ID>
+            <ID>1250000002</ID>
         </Owner>
     <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
-        <Key>testLLL</Key>
+        <Key>file</Key>
         <LastModified>2017-06-23T12:33:26.000Z</LastModified>
         <ETag>\"39bfb88c11c65ed6424d2e1cd4db1826\"</ETag>
         <Size>10485760</Size>
         <Owner>
-            <ID>1252375643</ID>
+            <ID>1250000003</ID>
         </Owner>
     <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
-        <Key>testLOL</Key>
+        <Key>world</Key>
         <LastModified>2017-06-23T12:33:26.000Z</LastModified>
         <ETag>\"fb31459ad10289ff49327fd91a3e1f6a\"</ETag>
         <Size>4</Size>
         <Owner>
-            <ID>1252375644</ID>
+            <ID>1250000004</ID>
         </Owner>
         <StorageClass>STANDARD</StorageClass>
     </Contents>
