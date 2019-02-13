@@ -3,6 +3,17 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
+- 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392)或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
+
+## 局限性
+**COSFS 仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。**需注意以下不适用的场景，例如：
+
+- 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
+- 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
+- 文件/文件夹的 rename 操作不是原子的。
+- 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
+- 不支持 hard link，不适合高并发读/写的场景。
+- 不可以同时在一个挂载点上挂载、和卸载文件。您可以先使用 cd 命令切换到其他目录，再对挂载点进行挂载、卸载操作。
 
 ## 安装和使用 
 ### 适用操作系统版本 
@@ -40,13 +51,13 @@ brew cask install osxfuse
 <a id="compile"> </a>
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
-```shell
+```sh
 cd /usr/cosfs
 ./autogen.sh
 ./configure
 make
 sudo make install
-cosfs --version #查看 cosfs 版本号
+cosfs --version  #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
@@ -56,7 +67,7 @@ checking for common_lib_checking... configure: error: Package requirements (fuse
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
 ```
 此时，您需要手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
-```shell
+```sh
 yum -y remove fuse-devel
 wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
 tar -zxvf fuse-2.9.4.tar.gz
@@ -166,15 +177,6 @@ fusermount -u /mnt 或者 umount -l /mnt
 ### -ouid=[uid]
 该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
 获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
-
-## 局限性
-COSFS 提供的功能、性能和本地文件系统相比，存在一些局限性。例如：
-- 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个园区的 CVM 加速文件的上传下载。
-- 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
-- 文件/文件夹的 rename 操作不是原子的。
-- 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
-- 不支持 hard link，不适合高并发读/写的场景。
-- 不可以同时在一个挂载点上挂载、和卸载文件。您可以先使用 cd 命令切换到其他目录，再对挂载点进行挂载、卸载操作。
 
 ## 常见问题
 如果您在使用 COSFS 工具过程中，有相关的疑问，请参阅 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。

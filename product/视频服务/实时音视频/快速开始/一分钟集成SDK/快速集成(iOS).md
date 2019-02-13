@@ -56,7 +56,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://github.com/TencentVideoCloudTRTC/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
+1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的 + 号图标去添加依赖库。
