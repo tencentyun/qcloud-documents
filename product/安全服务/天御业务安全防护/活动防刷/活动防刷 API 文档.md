@@ -20,16 +20,16 @@
 | emailAddress       | 否        | String | 用户邮箱地址（非系统自动生成）                          |
 | registerTime       | 否        | UInt   | 注册时间戳，单位：秒                               |
 | registerIp         | 否        | String | 注册来源的外网 IP                               |
-| cookieHash         | 否        | String | 用户 Http 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可 |
+| cookieHash         | 否        | String | 用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可 |
 | address            | 否        | String | 地址                                       |
 | loginSource        | 否        | UInt   | 登录来源<br/>0：其他<br/>1：PC 网页<br/>2：移动页面<br/>3：App<br/>4：微信公众号   |
 | loginType          | 否        | UInt   | 登录方式<br/>0：其他<br/>1：手动帐号密码输入<br/>2：动态短信密码登录<br/>3：二维码扫描登录 |
 | loginSpend         | 否        | UInt   | 登录耗时，单位：秒                                |
 | rootId             | 否        | String | 用户操作的目的 ID 比如：点赞，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID |
-| referer            | 否        | String | 用户 Http 请求的 referer 值                    |
+| referer            | 否        | String | 用户 HTTP 请求的 referer 值                    |
 | jumpUrl            | 否        | String | 登录成功后跳转页面                                |
-| userAgent          | 否        | String | 用户 Http 请求的 userAgent                    |
-| xForwardedFor      | 否        | String | 用户 Http 请求中的 x_forward_for               |
+| userAgent          | 否        | String | 用户 HTTP 请求的 userAgent                    |
+| xForwardedFor      | 否        | String | 用户 HTTP 请求中的 x_forward_for               |
 | mouseClickCount    | 否        | UInt   | 用户操作过程中鼠标单击次数                            |
 | keyboardClickCount | 否        | UInt   | 用户操作过程中键盘单击次数                            |
 | macAddress         | 否        | String | mac地址或设备唯一标识                             |
