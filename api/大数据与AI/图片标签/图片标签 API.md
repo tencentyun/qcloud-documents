@@ -4,6 +4,7 @@
 >!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
+>!如果选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式，设置请求的 contenttype，不推荐直接调用 setheader 等方法进行设置，否则可能导致由于 boundary 缺失引起的请求失败。
 
 所有请求都要求含有以下头部信息：
 
@@ -13,7 +14,6 @@
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（Byte）。 |
 | content-type   | 是|application/json 或  multipart/form-data   | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json。<br/>2. 使用图片文件，选择 multipart/form-data。  |
 | authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/865/17723)。     |
->!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ## 输入参数
 
@@ -112,15 +112,3 @@ cache-control: no-cache
 
 
 更多其他 API 错误码请查看 [**错误码说明**](https://cloud.tencent.com/document/product/865/17722) 。
-
-
-
-
-
-
-
-
-
-
-
-
