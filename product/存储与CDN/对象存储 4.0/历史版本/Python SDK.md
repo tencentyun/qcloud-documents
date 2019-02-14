@@ -97,7 +97,7 @@ def upload_file(self, request)
 |  cos_path   |   unicode    |  无   | 构造函数或 set 方法 | cos 路径, 必须从 bucket 下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 | local_path  |   unicode    |  无   | 构造函数或 set 方法 |              要上传的本地文件的绝对路径               |
 |  biz_attr   |   unicode    |  空   | 构造函数或 set 方法 |           文件的备注，主要用于对该文件用途的描述            |
-| insert_only | int     (枚举) |  1   | 构造函数或 set 方法 | 是否直插入不覆盖已存在的文件， 1表示只直插入不覆盖, 当文件存在返回错误0表示允许覆盖 |
+
 
 #### 返回值
 
