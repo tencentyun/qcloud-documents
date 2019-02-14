@@ -98,16 +98,16 @@ riskType 详细说明
 ## 5. 响应示例
 ```
 {
-"Nonce":516529719,
-"associateAccount":"373909726",
-"code":0,"
-level":1,
-"message":"NoError",
-"postTime":"11254",
-"rootId":"sdsds234sd",
-"uid":"D692D87319F2098C3877C3904B304706",
-"userIp":"10.23.23.20"
-"riskType":[1]
+	"Nonce": 516529719,
+	"associateAccount": "373909726",
+	"code": 0,
+	"level ": 1,
+	"message": "NoError",
+	"postTime": "11254",
+	"rootId": "sdsds234sd",
+	"uid": "D692D87319F2098C3877C3904B304706",
+	"userIp": "10.23.23.20",
+	"riskType": [1]
 }
 ```
 ## 6. 错误码说明
