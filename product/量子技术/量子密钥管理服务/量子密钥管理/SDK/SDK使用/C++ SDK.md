@@ -4,9 +4,9 @@
 [GitHub 地址](https://github.com/tencentyun/kms-cpp-sdk.git)，欢迎贡献代码以及反馈问题。
 
 ### 开发环境
-1. [安装openssl的库和头文件](http://www.openssl.org/source/)
-2. [安装libcurl](https://curl.haxx.se/download.html)
-3. [安装cmake工具](https://cmake.org/download/)
+1. [安装 openssl 的库和头文件](http://www.openssl.org/source/)
+2. [安装 libcurl](https://curl.haxx.se/download.html)
+3. [安装 cmake工具](https://cmake.org/download/)
 4. 从控制台获取 AppID, SecretID,SecretKey。
 
 
@@ -34,6 +34,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
     string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的 region , 例如 sh 表示上海， gz表示广州，bj表示北京
     KMSAccount account(endpoint,secretId,secretKey);
 ```
+
 ### 初始化客户端配置
 客户端默认使用 sha1 签名算法，可以调用签名算法修改签名方式
 
@@ -58,11 +59,11 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 |Alias|string|空字符串|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
 
-#### 返回值 KeyMetadata 结构体 描述如下：
+#### 返回值 KeyMetadata 结构体，描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 Id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -90,14 +91,14 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 |KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 
-返回值 KeyMetadata 结构体 描述如下：
+#### 返回值 KeyMetadata 结构体，描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 Id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -123,7 +124,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 |Alias|string|无|主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 
 
@@ -168,14 +169,14 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 |KeySpec|string|None|生成数据密钥算法|
 |NumberOfBytes|int|None|生成指定长度的数据密钥|
 |EncryptionContext|json string |无|生成数据密钥时提供的额外的 json key-value|
 |Plaintext|string|无|生成的数据密钥明文|
 |CiphertextBlob|string|无|生成的数据密钥密文|
 
-返回值(入参中)
+#### 返回值（入参中）
 
 |参数名|类型|参数描述|
 |---------|---------|---------|
@@ -200,9 +201,9 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 
-返回值 无
+#### 返回值：无
 
 #### 使用示例
 
@@ -221,7 +222,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 
 #### 返回值：无
 
@@ -244,7 +245,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 |Plaintext|string|空字符串|明文|
 |EncryptionContext|string|None|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数|
 
