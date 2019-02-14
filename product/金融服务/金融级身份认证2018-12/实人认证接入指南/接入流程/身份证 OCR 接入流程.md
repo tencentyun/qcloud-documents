@@ -29,9 +29,9 @@ SDK 接入分为：iOS 接入、Android 接入，您可根据需求选择接入�
 
 ## 小程序接入步骤
 1. [鉴权](https://cloud.tencent.com/document/product/655/32002)
-2. [生成签名]()
-3. [启动身份证 OCR 小程序]()
-4. [身份证 OCR 小程序识别结果跳转]()
+2. [生成签名](https://cloud.tencent.com/document/product/655/33095)
+3. [启动身份证 OCR 小程序](https://cloud.tencent.com/document/product/655/33096)
+4. [身份证 OCR 小程序识别结果跳转](https://cloud.tencent.com/document/product/655/33097)
 5. [验证结果](https://cloud.tencent.com/document/product/655/33009)
 
 ## API 接入步骤
