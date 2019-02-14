@@ -20,7 +20,7 @@
 |     ✔  |    ✔    |    ✔   |    ✔    |    ✖     |   ✖     |
 
 ## 如何开启旁路服务
-在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的**功能配置**页面里可以开启自动旁路推，开启此功能的前提是需要先开通腾讯云直播服务，可以在云直播 [控制台](https://console.cloud.tencent.com/live) 开通。
+在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的【功能配置】页面里可以开启自动旁路推，开启此功能的前提是需要先开通腾讯云直播服务，可以在云直播 [控制台](https://console.cloud.tencent.com/live) 开通。
 
 ![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
 
@@ -42,7 +42,7 @@
 http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 ```
 - streamid = MD5 (房间号\_用户名\_流类型)
-- bizid： 一个直播服务相关的数字，您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。
+- bizid： 一个直播服务相关的数字，您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（【账号信息】>【直播信息】）页面看到这两个信息。
 ![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
 - 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，Web 端目前屏幕分享的流类型也是 main）。
 
@@ -71,8 +71,8 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 
 | 参数字段 | 参数说明 |
 |:-------:|---------|
-| appid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。 |
-| bizid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。 |
+| appid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（【账号信息】>【直播信息】）页面看到这两个信息。 |
+| bizid | 您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（【账号信息】>【直播信息】）页面看到这两个信息。 |
 | url | RTMP 推流 URL 的获取，各家云服务商都有各自的方案。腾讯云的方案非常简单：<br>您可以在云直播控制台中使用 [地址生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成一个临时的推流 URL，<br>也可以参考文档：[“如何自主拼装推流 URL”](https://cloud.tencent.com/document/product/267/32720) 了解详情。 |
 
  >! 
