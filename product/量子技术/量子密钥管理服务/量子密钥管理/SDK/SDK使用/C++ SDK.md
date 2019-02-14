@@ -58,7 +58,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 |Alias|string|空字符串|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
 
-返回值 KeyMetadata 结构体 描述如下：
+#### 返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
@@ -223,7 +223,8 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥 Id|
 
-返回值 无
+#### 返回值：无
+
 #### 使用示例
 
 ```
@@ -247,7 +248,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 |Plaintext|string|空字符串|明文|
 |EncryptionContext|string|None|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数|
 
-返回值  
+#### 返回值  
 
 |参数名|类型|参数描述|
 |---------|---------|---------|
@@ -276,7 +277,7 @@ sample/kms_sample.cpp 里面有常见的 API 例子，生成的 kms_sample 可�
 |CiphertextBlob|string|空字符串|密文|
 |EncryptionContext|string|None|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数。|
 
-返回值  
+#### 返回值  
 
 |参数名|类型|参数描述|
 |---------|---------|---------|
