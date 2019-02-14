@@ -521,7 +521,6 @@ RemoveEmptyDirResult result = cos.removeEmptyDir(removeEmptyDirRequest);
 | bucket     | String              | 是    | 目录所属bucket 名称                          |
 | cosPath    | String              | 是    | 远程相对路径                                 |
 | srcPath    | String              | 是    | 本地绝对路径                                 |
-| insertOnly | String              | 否    | 是否覆盖相同文件名："0"，允许覆盖；"1",不允许覆盖；默认为："1" . |
 | slice_size | int                 | 否    | 分片上传时，设置的分片大小，默认为:1M                   |
 | sign       | String              | 是    | 签名信息，此处使用多次签名                          |
 | listener   | IUploadTaskListener | 否    | 结果回调                                   |
