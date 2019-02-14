@@ -356,7 +356,6 @@ string CosAPI::FileUpload(FileUploadReq& request);
 | srcPath    | String | 无       | 构造函数                 | 待上传的本地文件路径                             |
 | cosPath    | String | 无       | 构造函数                 | 文件的全路径                                 |
 | bizAttr    | string | 无       | setBizAttr()         | 文件属性                                   |
-| insertOnly | int    | 1       | 构造函数及setInsertOnly() | 同名文件是否覆盖。0：表示覆盖同名文件，1：表示不覆盖, 当文件存在返回错误 |
 | sliceSize  | int    | 1048576 | setSliceSize()       | 分片大小，可选值512K/1M/2M/3M；默认1M，均需转换为字节数值   |
 
 #### 返回结果说明
