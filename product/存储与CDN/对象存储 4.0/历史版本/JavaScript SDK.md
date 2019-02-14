@@ -104,7 +104,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
-| insertOnly       | Int      | 否        | 无       | insertOnly==0 表示允许覆盖文件 1表示不允许 其他值忽略 |
+
 
 #### 返回结果说明（json字符串）
 
@@ -167,7 +167,7 @@ cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, pa
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
-| insertOnly       | Int      | 否        | 无       | insertOnly==0 表示允许覆盖文件 1表示不允许 其他值忽略 |
+
 
 #### 返回结果说明(json字符串)
 
