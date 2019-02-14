@@ -84,8 +84,9 @@ riskType 详细说明
 ## 4. 示例代码
 代码下载：  [Python 示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip)、 [PHP 示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip)、 [Java 示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip) 、[.Net 示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)。
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。
+
+**请求示例:**
 ```
-请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?
 Action=LoginProtection
 &<公共请求参数>
@@ -97,7 +98,7 @@ Action=LoginProtection
 &associateAccount="SpFsjpyvaJ27329"
 ```
 
-## 5. 响应示例
+**响应示例:**
 ```
 {
 "code": 0,
