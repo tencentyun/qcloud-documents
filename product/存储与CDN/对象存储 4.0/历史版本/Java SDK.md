@@ -87,10 +87,9 @@ String uploadFile(UploadFileRequest request);
 |     cosPath     |     String      |          无          | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 |    localPath    |     String      |          无          | 构造函数或set方法 |             通过磁盘文件上传的本地绝对路径              |
 |  contentBufer   |     byte[]      |          无          | 构造函数或set方法 |             通过内存上传的buffer内容              |
-|     bizAttr     |     String      |          空          | 构造函数或set方法 |           文件的备注，主要用于对该文件用途的描述            |
-|   insertOnly    | InsertOnly (枚举) | NO_OVER_WRITE (不覆盖) |   set方法    | 是否直插入不覆盖已存在的文件。 NO_OVER_WRITE 表示只直插入不覆盖，当 COS 上存在该文件，且 COS 上的文件与本地要上传的文件内容不一致时，会返回错误； OVER_WRITE 表示允许覆盖，当文件存在时覆盖原有文件，覆盖不会产生错误。|
+|     bizAttr     |     String      |          空          | 构造函数或set方法 | 文件的备注，主要用于对该文件用途的描述     |
 | enableShaDigest |     boolean     |        false        |   set方法    | 是否计算 sha 摘要，如果开启 sha，并且 bucket 下有相同内容文件，则会触发秒传。sha 计算会耗费一定的 CPU 和时间，建议大文件不开启。 |
-|     taskNum     |       int       |         16          |   set方法    |                 文件上传的并发数                 |
+|     taskNum     |       int       |         16          |   set方法    |      文件上传的并发数                 |
 
 #### 返回值
 
