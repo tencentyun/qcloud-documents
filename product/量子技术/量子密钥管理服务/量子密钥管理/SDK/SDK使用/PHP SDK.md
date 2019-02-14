@@ -44,7 +44,7 @@
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 Id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -71,13 +71,13 @@
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 
 返回值 KeyMetadata 结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥 Id|
+|KeyId|string|密钥 ID|
 |CreateTime|uinx time|创建时间|
 |Description|string|密钥描述|
 |KeyState|string|密钥状态|
@@ -103,7 +103,7 @@
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 |Alias|string|无|设置的主密钥别名|
 
 #### 返回值：无
