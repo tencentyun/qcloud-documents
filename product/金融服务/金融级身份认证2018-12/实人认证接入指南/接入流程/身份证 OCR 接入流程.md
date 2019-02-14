@@ -21,20 +21,20 @@ SDK 接入分为：iOS 接入、Android 接入，您可根据需求选择接入�
 8. [验证结果](https://cloud.tencent.com/document/product/655/33009)
 
 ## 公众号接入步骤
-1. [鉴权]()
-2. [生成签名]()
-3. [公众号启动 H5 身份识别]()
-4. [H5 身份证识别结果跳转]()
-5. [验证结果]()
+1. [鉴权](https://cloud.tencent.com/document/product/655/32001)
+2. [生成签名](https://cloud.tencent.com/document/product/655/33003)
+3. [公众号启动 H5 身份识别](https://cloud.tencent.com/document/product/655/33004)
+4. [H5 身份证识别结果跳转](https://cloud.tencent.com/document/product/655/33005)
+5. [验证结果](https://cloud.tencent.com/document/product/655/33009)
 
 ## 小程序接入步骤
-1. [鉴权]()
+1. [鉴权](https://cloud.tencent.com/document/product/655/32002)
 2. [生成签名]()
 3. [启动身份证 OCR 小程序]()
 4. [身份证 OCR 小程序识别结果跳转]()
-5. [验证结果]()
+5. [验证结果](https://cloud.tencent.com/document/product/655/33009)
 
 ## API 接入步骤
-1. [鉴权]()
-2. [合作方生成签名]()
-3. [调用身份证识别 API]()
+1. [鉴权](https://cloud.tencent.com/document/product/655/31920)
+2. [合作方生成签名](https://cloud.tencent.com/document/product/655/33007)
+3. [调用身份证识别 API](https://cloud.tencent.com/document/product/655/33008)
