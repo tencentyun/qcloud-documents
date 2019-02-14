@@ -44,7 +44,7 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 - streamid = MD5 (房间号\_用户名\_流类型)
 - bizid： 一个直播服务相关的数字，您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的（账号信息>>直播信息）页面看到这两个信息。
 ![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
-- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，Web端目前屏幕分享的流类型也是 main）。
+- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，Web 端目前屏幕分享的流类型也是 main）。
 
 ```
 假如，bizid = 8888， 房间号 = 12345，用户名 = userA， 用户当前使用了摄像头。
@@ -77,7 +77,7 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 
  >! 
  >1. 如果您看到 appid 和 bizid 数值为空，说明您还没有开通直播服务，在腾讯云直播 [控制台](https://console.cloud.tencent.com/live) 开通直播服务即可。
- >2. 填写在 `TRTCPublishCDNParam` 里的 url 参数是推流 url （特点是以  rtmp:\\\\  打头），也就是只能用来推流不能用来播放，不过每一个推流url都有其对应的播放 url。以腾讯云为例，您可以参考文档 [“如何获取播放地址”](https://cloud.tencent.com/document/product/267/32733#.E5.A6.82.E4.BD.95.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80) ，从而了解如何获取对应的播放URL。
+ >2. 填写在 `TRTCPublishCDNParam` 里的 url 参数是推流 url （特点是以  rtmp:\\\\  打头），也就是只能用来推流不能用来播放，不过每一个推流 url 都有其对应的播放 url。以腾讯云为例，您可以参考文档 [“如何获取播放地址”](https://cloud.tencent.com/document/product/267/32733#.E5.A6.82.E4.BD.95.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80) ，从而了解如何获取对应的播放 URL。
 
 
 ## 如何播放
@@ -90,13 +90,13 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 - [TXLivePlayer(Windows)](https://cloud.tencent.com/document/product/454/13676#.E6.92.AD.E6.94.BE.E5.8A.9F.E8.83.BD)
 
 ## 常见问题
-- **为什么房间里只有一个人的时候画面又卡又模糊?**
+**为什么房间里只有一个人的时候画面又卡又模糊?**
 请将 `enterRoom` 中 TRTCAppScene 参数指定为 **TRTCAppSceneLIVE**，VideoCall 模式针对视频通话做了优化，所以在房间中只有一个用户时，画面会保持较低的码率和帧率以节省用户的网络流量，因此看起来会感觉又卡又模糊。
  
-- **能不能转推到非腾讯云的 CDN 地址？**
+ **能不能转推到非腾讯云的 CDN 地址？**
 支持，但目前尚需要手工配置白名单开启，如果需要开启此功能，请通过 400 电话或者 [工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
-- **此服务是否收费？**
+**此服务是否收费？**
 旁路推流到腾讯云直播 CDN 是不收取转推费用的，到其他云商 CDN 会收取一定的转推费用。
 
 
