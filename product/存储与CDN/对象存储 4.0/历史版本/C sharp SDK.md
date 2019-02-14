@@ -280,7 +280,6 @@ public string UploadFile(string bucketName, string remotePath, string localPath,
 | 参数名        | 类型     | 必填   | 参数描述                                     |
 | ---------- | ------ | ---- | ---------------------------------------- |
 | biz_attr   | string | 否    | 文件属性                                     |
-| insertOnly | string | 否    | 同名文件是否覆盖；0：覆盖，1：不覆盖（默认）                  |
 | slice_size | string | 否    | 可选取值为:64*1024 512*1024，1*1024*1024（默认），2*1024*1024，3*1024*1024 |
 
 #### 返回结果说明
