@@ -4,8 +4,8 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
    - 本地数据：将本地存储的数据迁移到 COS。
    - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
    - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
-   - Bucket 相互复制：COS 的 Bucket 数据相互复制, 支持跨账号跨地域的数据复制。
-- 断点续传：工具支持上传时断点续传。对于一些大文件, 如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
+   - Bucket 相互复制：COS 的 Bucket 数据相互复制，支持跨账号跨地域的数据复制。
+- 断点续传：工具支持上传时断点续传。对于一些大文件，如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
 - 分块上传：将对象按照分块的方式上传到 COS。
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
@@ -108,7 +108,7 @@ executeTimeWindow=00:00,24:00
 | cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/aaa/bbb/` 表示要迁移到 Bucket的` /aaa/bbb/` 下，若 `/aaa/bbb/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
 | tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如` /a/b/c`； <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`。<br>默认为工具所在路径下的 tmp 目录|./tmp|
-| smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认 5MB |5242880|
+| smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认5MB |5242880|
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
@@ -251,7 +251,7 @@ srcCosPath=/
 双击 **start_migrate.bat** 即可运行。
 
 #### Linux
-1.从config.ini配置文件读入配置，运行命令为：
+1.从 config.ini 配置文件读入配置，运行命令为：
 <pre>
 sh start_migrate.sh
 </pre>
