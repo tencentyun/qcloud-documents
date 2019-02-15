@@ -64,7 +64,7 @@ public class InvokeTransaction
             // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey
             Credential cred = new Credential("secretId", "secretKey");
             // 设置访问域名
-            // SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+            // SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务，
 // 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("tbaas.tencentcloudapi.com");
