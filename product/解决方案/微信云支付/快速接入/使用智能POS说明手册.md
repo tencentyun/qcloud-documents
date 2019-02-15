@@ -13,7 +13,7 @@
 新建设备后，在设备列表中选择刚刚创建的设备进入设备详情页面。此时页面出现“配置设备”的按钮，点击该按钮即可生成配置二维码，如下图所示。
 
 ![](https://main.qcloudimg.com/raw/7ae49eb286579ca95e50bfa88855155f.png)
-![](https://main.qcloudimg.com/raw/b6aef528fd9835a5fb549f5ad0831829.png)
+![](https://main.qcloudimg.com/raw/5f7a98a74b75de3cbfce8abca368bcff.png)
 
 注意：此二维码涉及商户信息，请注意保密。
 
