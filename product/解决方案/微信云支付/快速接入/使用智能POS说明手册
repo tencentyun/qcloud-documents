@@ -8,20 +8,3 @@
 首先需要进入腾讯云支付微信公众号，在管理后台-菜单选择-商户后台-进入。同时选择相应的商户及门店，添加相关设备，如下图所示。
 ![](https://main.qcloudimg.com/raw/c54bde9a34b9227aa7ea2fe2576ca09e.png)
 填写对应的设备名称，并选择设备类型为智能POS。填写完成后点击保存即可成功创建设备。
-
-## 第三方支付平台
-SDK 支持微信支付和支付宝。
-
-## SDK 平台和语言
-- Windows 环境下的 C++
-- C
-- .NET C#
-- Java
-
-## 下载地址
-- [Windows 环境 C++]其中刷卡支付和扫码支付为异步方式，解压后包含以下两个目录：   
-	- `CloudPayAPI\_SDK\_CPP\_DLL`目录，包含编译好的 dll 库，可直接使用。  
-	- `CloudPayAPI\_SDK\_CPP`目录，包含源码，开发者可自行编译。  
-- [C](https://main.qcloudimg.com/raw/daa50afec21c3d8c8030b783448ba10a.zip)：所有接口均为同步接口。
-- [C#](https://main.qcloudimg.com/raw/3c71322c842e00154f0ed6d2fa08e729.zip)：所有接口均为同步接口。
-- [Java](https://main.qcloudimg.com/raw/62d9c93cedc727f959474e6d669ca2dc.zip)：所有接口均为同步接口。
