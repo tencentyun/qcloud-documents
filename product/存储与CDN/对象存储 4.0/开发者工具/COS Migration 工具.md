@@ -12,14 +12,14 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 
 ## 使用环境
 ### 系统环境
-Linux 或 Windows 环境
+Windows、Linux 和 macOS 系统。
 
 ### 软件依赖
-- JDK1.7 X64 或以上, 有关 JDK 的安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK1.7 X64 或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
-下载链接：[COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)。
+前往下载 [COS Migration 工具](https://github.com/tencentyun/cos_migrate_tool_v5)。
 
 ### 2. 解压缩工具包
 #### Windows
@@ -81,9 +81,9 @@ type=migrateLocal
 <pre>
 # 迁移工具的公共配置分节，包含了要迁移到得目标 COS 的账户信息 
 [common]
-secretId=AKIDXXXXXXXXXXXXXXXXX
-secretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-bucketName=mybcket-1251668577
+secretId="COS_SECRETID"
+secretKey="COS_SECRETKEY"
+bucketName=examplebucket-1250000000
 region=ap-guangzhou
 storageClass=Standard
 cosPath=/
@@ -93,8 +93,8 @@ smallFileThreshold=5242880
 smallFileExecutorNum=64
 bigFileExecutorNum=8
 entireFileMd5Attached=on
-daemonMode=off
-daemonModeInterVal=60
+damonMode=off
+damonModeInterVal=60
 executeTimeWindow=00:00,24:00
 </pre>
 
@@ -102,7 +102,7 @@ executeTimeWindow=00:00,24:00
 | ------| ------ |----- |
 | secretId| 用户密钥 SecretId，可在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 查看 |-|
 | secretKey| 用户密钥 SecretKey，可在 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 查看|-|
-| bucketName| 目的 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000 |-|
+| bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
 | region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224) |-|
 | storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
 | cosPath|要迁移到的 COS 路径。**/** 表示迁移到 Bucket 的根路径下，**/aaa/bbb/** 表示要迁移到 Bucket的 /aaa/bbb/ 下，若 /aaa/bbb/ 不存在，则会自动创建路径|/|
@@ -112,8 +112,8 @@ executeTimeWindow=00:00,24:00
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
-| daemonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
-| daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
+| damonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
+| damonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00, 表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 
 #### 3.3 配置数据源信息
@@ -141,10 +141,10 @@ ignoreModifiedTimeLessThanSeconds=
 若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从阿里 OSS 迁移到 COS 配置分节
 [migrateAli]
-bucket=mybucket-test
-accessKeyId=xxxxxxxxxx
-accessKeySecret=yyyyyyyyyyy
-endPoint= OSS-cn-shenzhen.aliyuncs.com
+bucket=bucket-aliyun
+accessKeyId="<yourAccessKeyId>"
+accessKeySecret="<yourAccessKeySecret>"
+endPoint= oss-cn-hangzhou.aliyuncs.com
 prefix=
 proxyHost=
 proxyPort=
@@ -165,9 +165,9 @@ proxyPort=
 若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从 AWS 迁移到 COS 配置分节
 [migrateAws]
-bucket=aws-emr-test
-accessKeyId=xxxxxxxxxx
-accessKeySecret=yyyyyyyyyyyyyyyy
+bucket=bucket-aws
+accessKeyId=”AccessKeyId”
+accessKeySecret=”SecretAccessKey”
 endPoint=s3.us-east-1.amazonaws.com
 prefix=
 proxyHost=
@@ -184,16 +184,16 @@ proxyPort=
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
- 
+ 
 **3.3.4 配置七牛数据源 migrateQiniu**
 
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre># 从七牛迁移到COS配置分节
 [migrateQiniu]
-bucket=mybuckettest
-accessKeyId=xxxxxxxxxx
-accessKeySecret=yyyyyyyyyyyyyyyy
-endPoint=wwww.bkt.clouddn.com
+bucket=bucket-qiniu
+accessKeyId=”AccessKey”
+accessKeySecret=”SecretKey”
+endPoint=www.bkt.clouddn.com
 prefix=
 proxyHost=
 proxyPort=
@@ -209,7 +209,7 @@ proxyPort=
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
- 
+ 
 **3.3.5 配置 URL 列表数据源 migrateUrl**
 
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
@@ -223,24 +223,24 @@ urllistPath=D:\\folder\\urllist.txt
 | ------| ------ |
 |urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址(如 `http://aaa.bbb.com/yyy/zzz.txt`, 无需添加任何双引号或其他符号)。URL 列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c.txt <br>Windows  下分隔符为两个反斜杠，如 E:\\\a\\\b\\\c.txt。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
- 
+ 
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
 
 若从 COS 的一个指定 Bucket 迁移至另一个 Bucket，则进行该部分配置，具体配置项及说明如下：
 <pre>
 # 从源 Bucket 迁移到目标 Bucket 配置分节
 [migrateBucketCopy]
-srcRegion=ap-shanghai  
-srcBucketName=mysrcbucket-1251668555
-srcSecretId=xxxxxxxxxxx
-srcSecretKey=yyyyyyyyyyyyyyyy
+srcRegion=ap-shanghai
+srcBucketName=examplebucket-1250000000
+srcSecretId="COS_SECRETID"
+srcSecretKey="COS_SECRETKEY"
 srcCosPath=/
 </pre>
 
 | 配置项 | 描述 |
 | ------| ------ |
 |srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)。|
-|srcBucketName|源 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000。|
+|srcBucketName|源 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000。|
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝。|
 |srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝。|
 |srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket。|
