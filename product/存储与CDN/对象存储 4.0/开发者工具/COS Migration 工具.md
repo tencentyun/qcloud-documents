@@ -5,7 +5,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
    - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
    - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
    - Bucket 相互复制：COS 的 Bucket 数据相互复制, 支持跨账号跨地域的数据复制。
-- 断点续传：工具支持上传时断点续传。对于一些大文件, 如果中途退出或者因为服务故障，可重新运行工具, 会对未上传完成的文件进行续传。
+- 断点续传：工具支持上传时断点续传。对于一些大文件, 如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
 - 分块上传：将对象按照分块的方式上传到 COS。
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
@@ -105,9 +105,9 @@ executeTimeWindow=00:00,24:00
 | bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
 | region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224) |-|
 | storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
-| cosPath|要迁移到的 COS 路径。**/** 表示迁移到 Bucket 的根路径下，**/aaa/bbb/** 表示要迁移到 Bucket的 /aaa/bbb/ 下，若 /aaa/bbb/ 不存在，则会自动创建路径|/|
+| cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/aaa/bbb/` 表示要迁移到 Bucket的` /aaa/bbb/` 下，若 `/aaa/bbb/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
-| tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>默认为工具所在路径下的 tmp 目录|./tmp|
+| tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如` /a/b/c`； <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`。<br>默认为工具所在路径下的 tmp 目录|./tmp|
 | smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认 5MB |5242880|
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
@@ -132,9 +132,9 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。|
+|localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c`； <br>Windows 下分隔符为两个反斜杠，如 `E:\\a\\b\\c`。|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
-|ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒, 默认不设置, 表示不根据lastmodified时间进行筛选, 适用于客户在更新文件的同时又在运行迁移工具, 并要求不把正在更新的文件迁移上传到COS, 比如设置为300, 表示只上传更新了5分钟以上的文件|
+|ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，比如设置为300，表示只上传更新了5分钟以上的文件|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
 
@@ -166,8 +166,8 @@ proxyPort=
 <pre># 从 AWS 迁移到 COS 配置分节
 [migrateAws]
 bucket=bucket-aws
-accessKeyId=”AccessKeyId”
-accessKeySecret=”SecretAccessKey”
+accessKeyId="AccessKeyId"
+accessKeySecret="SecretAccessKey"
 endPoint=s3.us-east-1.amazonaws.com
 prefix=
 proxyHost=
@@ -179,8 +179,8 @@ proxyPort=
 |bucket| AWS 对象存储 Bucket 名称|
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
-|endPoint|AWS 的 endpoint 地址,  必须使用域名, 不能使用 region|
-|prefix|要迁移的路径的前缀, 如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
+|endPoint|AWS 的 endpoint 地址，必须使用域名，不能使用 region|
+|prefix|要迁移的路径的前缀, 如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
@@ -221,7 +221,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址(如 `http://aaa.bbb.com/yyy/zzz.txt`, 无需添加任何双引号或其他符号)。URL 列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c.txt <br>Windows  下分隔符为两个反斜杠，如 E:\\\a\\\b\\\c.txt。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址(如 `http://aaa.bbb.com/yyy/zzz.txt`, 无需添加任何双引号或其他符号)。URL 列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 `/a/b/c.txt` <br>Windows  下分隔符为两个反斜杠，如 `E:\\a\\b\\c.txt`。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
@@ -239,11 +239,11 @@ srcCosPath=/
 
 | 配置项 | 描述 |
 | ------| ------ |
-|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)。|
-|srcBucketName|源 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000。|
-|srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝。|
-|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝。|
-|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket。|
+|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
+|srcBucketName|源 Bucket 的名称，命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000|
+|srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
+|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝|
+|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
 
 
 ### 4. 运行迁移工具
@@ -273,10 +273,10 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 ### 迁移流程步骤
 1. 读取配置文件，根据迁移 type，读取响应的配置分节，并执行参数的检查。
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功, condition_not_match表示因为表示因不满足迁移条件而跳过的文件(如lastmodifed和excludes)。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因为表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会跳过。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)
 
 ## 常见问题
-如您在使用COS Migration 工具过程中，遇到迁移失败、运行报错等异常情况，请参阅 [COS Migration 工具类常见问题](https://cloud.tencent.com/document/product/436/30745) 寻求解决。
+如您在使用 COS Migration 工具过程中，遇到迁移失败、运行报错等异常情况，请参阅 [COS Migration 工具类常见问题](https://cloud.tencent.com/document/product/436/30745) 寻求解决。
