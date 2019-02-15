@@ -37,7 +37,7 @@ pip install coscmd -U
 ```
 >! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
-- **源码安装(不推荐)**
+- **源码安装（不推荐）**
   下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。
 ```shell
 git clone https://github.com/tencentyun/coscmd.git
