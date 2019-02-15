@@ -1,6 +1,6 @@
 
 ## 接口描述
-DeleteAudit 用于删除云审计（跟踪集）。
+DeleteAudit 用于删除云审计跟踪集。
 接口访问域名：`cloudaudit.api.qcloud.com`
 
 ## 请求参数

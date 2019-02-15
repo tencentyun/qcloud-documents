@@ -21,10 +21,7 @@
 具体操作请参考 [创建集群](https://cloud.tencent.com/document/product/457/32189)。创建过程中，请注意以下两点：
 - 在 “选择机型” 页面，将 “Node机型” 中的 “机型” 设置为 GPU 机型。如下图所示：
 ![](https://main.qcloudimg.com/raw/75841abda27c525c4eef1ce15d5c32be.png)
-- 在 “云主机配置” 页面，将 “操作系统” 设置为 GPU 类型的操作系统。如下图所示：
-![](https://main.qcloudimg.com/raw/fbe25b6d8c92bc65664a64cd2138a349.png)
-
-TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。
+- 在 “云主机配置” 页面，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
 <span id="addGPUService"></span>
 ### 添加已有 GPU 云服务器
@@ -32,7 +29,5 @@ TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，�
 具体操作请参考 [添加已有节点](https://cloud.tencent.com/document/product/457/32203#addExistingNode)。添加过程中，请注意以下两点：
 - 在 “选择节点” 页面，勾选已有的 GPU 节点。如下图所示：
 ![](https://main.qcloudimg.com/raw/cd222f6e694f281662ccc8df289816c6.png)
-- 在 “云主机配置” 页面，将 “操作系统” 设置为 GPU 类型的操作系统。如下图所示：
-![](https://main.qcloudimg.com/raw/719ac8a9b8624b56b7cd3e36091d028e.png)
+- 在 “云主机配置” 页面，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
-TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。

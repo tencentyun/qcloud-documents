@@ -42,14 +42,15 @@ __参数__
 进入房间。
 
 ```
-void enterRoom(const TRTCParams & params)
+void enterRoom(const TRTCParams & params, TRTCAppScene scene)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| params | const TRTCParams & | 进房参数，详情参考TRTCParams定义。 |
+| params | const TRTCParams & | 进房参数，详情参考TRTCParams定义 |
+| scene | TRTCAppScene | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景 |
 
 __说明__
 
@@ -184,7 +185,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
+| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中 TRTCVideoEncParam 的定义 |
 
 <br/>
 
@@ -201,7 +202,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| params | const TRTCNetworkQosParam & | 网络流控参数，详情请参考 TRTCCloudDef.h 中的 TRTCNetworkQosParam 定义 |
+| params | const TRTCNetworkQosParam & | 网络流控参数，详情请参考 TRTCCloudDef.h 中 TRTCNetworkQosParam 的定义 |
 
 <br/>
 
@@ -696,6 +697,202 @@ __参数__
 <br/>
 
 
+### setWaterMark
+
+设置水印。
+
+```
+void setWaterMark(TRTCVideoStreamType streamType, const char * srcData, TRTCWaterMarkSrcType srcType, uint32_t nWidth, uint32_t nHeight, float xOffset, float yOffset, float fWidthRatio)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| streamType | TRTCVideoStreamType | 要设置水印的流类型(TRTCVideoStreamTypeBig、TRTCVideoStreamTypeSub) |
+| srcData | const char * | 水印图片源数据（传 NULL 表示去掉水印） |
+| srcType | TRTCWaterMarkSrcType | 水印图片源数据类型（传 NULL 时忽略该参数） |
+| nWidth | uint32_t | 水印图片像素宽度（源数据为文件路径时忽略该参数） |
+| nHeight | uint32_t | 水印图片像素高度（源数据为文件路径时忽略该参数） |
+| xOffset | float | 水印显示的左上角x轴偏移 |
+| yOffset | float | 水印显示的左上角y轴偏移 |
+| fWidthRatio | float | 水印显示的宽度占画面宽度比例（水印按该参数等比例缩放显示） |
+
+__说明__
+
+
+大小流暂未支持。
+
+
+<br/>
+
+
+
+## 辅流相关接口函数
+
+### startRemoteSubStreamView
+
+开始渲染远端用户辅流画面，对应于 startRemoteView() 用于观看远端的主路画面，该接口只能用于观看辅路（屏幕分享、远程播片）画面。
+
+```
+void startRemoteSubStreamView(const char * userId, HWND rendHwnd)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 远端用户标识 |
+| rendHwnd | HWND | - 承载预览画面的 HWND |
+
+<br/>
+
+
+### stopRemoteSubStreamView
+
+停止渲染远端用户辅流画面。
+
+```
+void stopRemoteSubStreamView(const char * userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 远端用户标识 |
+
+<br/>
+
+
+### getScreenCaptureSources
+
+【屏幕共享】枚举可共享的窗口列表，列表通过出参 sourceInfoList 返回。
+
+```
+void getScreenCaptureSources(TRTCScreenCaptureSourceInfoList & sourceInfoList, const SIZE & thumbSize, const SIZE & iconSize)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| sourceInfoList | TRTCScreenCaptureSourceInfoList & | - 用于接收枚举窗口列表 |
+| thumbSize | const SIZE & | - 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
+| iconSize | const SIZE & | - 指定要获取的窗口图标大小 |
+
+<br/>
+
+
+### selectScreenCaptureTarget
+
+【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：。
+
+```
+void selectScreenCaptureTarget(const TRTCScreenCaptureSourceInfo & source, const RECT & captureRect, bool captureMouse, bool highlightWindow)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| source | const TRTCScreenCaptureSourceInfo & | - 指定分享源 |
+| captureRect | const RECT & | - 指定捕获的区域 |
+| captureMouse | bool | - 指定是否捕获鼠标指针 |
+| highlightWindow | bool | - 指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
+
+__说明__
+
+
+: 您可以在屏幕分享的过程中掉用该函数来切换目标窗口或者调整目标区域。
+
+
+<br/>
+
+
+### startScreenCapture
+
+【屏幕共享】启动屏幕分享。
+
+```
+void startScreenCapture(HWND rendHwnd)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+
+<br/>
+
+
+### pauseScreenCapture
+
+【屏幕共享】暂停屏幕分享。
+
+```
+void pauseScreenCapture()
+```
+
+<br/>
+
+
+### resumeScreenCapture
+
+【屏幕共享】恢复屏幕分享。
+
+```
+void resumeScreenCapture()
+```
+
+<br/>
+
+
+### stopScreenCapture
+
+【屏幕共享】关闭屏幕分享。
+
+```
+void stopScreenCapture()
+```
+
+<br/>
+
+
+### setSubStreamEncoderParam
+
+设置辅路视频编码器参数，对应于 setVideoEncoderParam() 设置主路画面的编码质量 该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+```
+void setSubStreamEncoderParam(const TRTCVideoEncParam & params)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| params | const TRTCVideoEncParam & | 辅流编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
+
+<br/>
+
+
+### setSubStreamMixVolume
+
+设置辅流的混音音量大小，这个数值越高，辅流音量占比就约高，麦克风音量占比就越小。
+
+```
+void setSubStreamMixVolume(uint32_t volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| volume | uint32_t | 设置的混音音量大小，范围是[0, 100] |
+
+<br/>
+
+
 
 ## 音视频自定义接口
 
@@ -718,7 +915,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过HWND渲染逻辑 调用setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, NULL)停止回调。
+设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过HWND渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。
 
 
 <br/>
@@ -744,32 +941,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 调用setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)停止回调。 
-
-
-<br/>
-
-
-### setLocalVideoPreprocessCallback
-
-设置本地视频的二次加工回调。
-
-```
-void setLocalVideoPreprocessCallback(ITRTCVideoPreprocessCallback * callback)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| callback | ITRTCVideoPreprocessCallback * | 自定义渲染回调 |
-
-__说明__
-
-
-设置之后，SDK会在送编码器之前将该帧视频画面回调出来，供您进行二次图像加工（比如叠加字幕，角标等等），之后SDK会将处理后的画面送入编码器 
-注意：由于该回调过程是同步的，所以请注意控制二次加工的时间，不宜超过 20ms，否则会导致画面卡顿 
-setLocalVideoPreprocessCallback(null)可以停止回调。
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过HWND渲染逻辑 调用 setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。 
 
 
 <br/>
@@ -985,7 +1157,7 @@ __参数__
 
 ### stopCameraDeviceTest
 
-停止摄像头测试。         
+停止摄像头测试。
 
 ```
 void stopCameraDeviceTest()
@@ -1078,8 +1250,8 @@ __介绍__
 
 由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。
 目前支持两种发布方案：
-【1】先混流在发布，TRTCPublishCDNParam.enableTranscoding = YES 需要您先调用startCloudMixTranscoding对多路画面进行混合，发布到CDN上的是混合之后的音视频流
-【2】不混流直接发布，TRTCPublishCDNParam.enableTranscoding = NO 发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响，调用startCloudMixTranscoding将无效。
+【1】需要您先调用 setMixTranscodingConfig 对多路画面进行混合，发布到CDN上的是混合之后的音视频流
+【2】发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响。
 
 
 <br/>
@@ -1096,19 +1268,19 @@ void stopPublishCDNStream()
 <br/>
 
 
-### startCloudMixTranscoding
+### setMixTranscodingConfig
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
+启动(更新)云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
-void startCloudMixTranscoding(const TRTCTranscodingConfig & config)
+void setMixTranscodingConfig(TRTCTranscodingConfig * config)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | const TRTCTranscodingConfig & | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 传入NULL取消云端混流转码 |
 
 __介绍__
 
@@ -1123,17 +1295,6 @@ __介绍__
 
         
 
-
-<br/>
-
-
-### stopCloudMixTranscoding
-
-停止云端的混流转码。
-
-```
-void stopCloudMixTranscoding()
-```
 
 <br/>
 
@@ -1259,7 +1420,6 @@ __参数__
 | showType | int | 0: 不显示 1: 显示精简版 2: 显示全量版 |
 
 <br/>
-
 
 
 

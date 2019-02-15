@@ -76,8 +76,8 @@ x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，
 
 ```shell
 <CopyObjectResult>
-  <ETag>String</ETag>
-  <LastModified>String</LastModified>
+    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
+    <LastModified>2017-08-04T02:41:45</LastModified>
 </CopyObjectResult>
 ```
 

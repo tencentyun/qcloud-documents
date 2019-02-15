@@ -107,7 +107,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |✔       |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)         |✔       | ✔      | ✔      | 操作级   | ✔        | -    |	
-| Sparkling 数据仓库套件         |✔       | -      | ✔      | 资源级   | -        | -    |	
+| [Sparkling 数据仓库套件](https://cloud.tencent.com/document/product/1002)         |✔       | -      | ✔      | 资源级   | -        | -    |	
 
  ## 云智大数据应用服务	
  

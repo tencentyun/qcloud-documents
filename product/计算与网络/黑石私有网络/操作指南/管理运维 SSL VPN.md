@@ -1,5 +1,13 @@
-## 网关侧配置指引
-1. 登录腾讯云 [控制台](https://console.cloud.tencent.com/)，选择 【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【对等连接】。
+## 操作场景
+本文档主要指导您如何进行黑石 SSL VPN 网关侧配置、客户端配置，以及黑石 SSL VPN 规则和业务约束相关说明。
+
+## 前提条件
+已登录腾讯云 [控制台](https://console.cloud.tencent.com/)。
+
+
+## 操作步骤
+### 网关侧配置指引
+1. 选择 【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【对等连接】。
 ![](https://mc.qcloudimg.com/static/img/1575d6284717ee9626975a8eab5fca2e/image.png)
 2. 进入黑石对等连接控制台后，选择黑石服务区域，单击【新建】即可新建 SSL VPN 网关。
 ![](https://mc.qcloudimg.com/static/img/81aa737bc1091378baa3e1571794c00c/image.png)
@@ -30,10 +38,10 @@
 ![](https://mc.qcloudimg.com/static/img/dca907e21219eb56670041b5c11556d4/image.png)
 10. 至此，黑石 VPC 的 SSL VPN 创建和配置完毕。用户从客户端发起拨号即可接入。
 
-## 客户端配置指引
+### 客户端配置指引
 >!在 SSL VPN 拨号之前，用户需要先安装 SSL VPN 客户端软件。
 
-1. 登录腾讯云 [控制台](https://console.cloud.tencent.com/)，在【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【SSL VPN】>【SSL VPN 客户端】页面选择对应的 OS 版本，下载安装即可。如下图所示。
+1. 在【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【SSL VPN】>【SSL VPN 客户端】页面选择对应的 OS 版本，下载安装即可。如下图所示。
 ![](https://mc.qcloudimg.com/static/img/c6bd5bf6eb1d9df80d25009414c3bc99/image.png)
 2. 用户也可以使用第三方的 SSL VPN 客户端软件，原理是一样的。下面会继续以腾讯云官网推荐的 Windows 客户端软件为例，说明 SSL VPN 客户端的配置和拨号流程。在进入 SSL VPN 拨号之前，先回到 SSL VPN 控制台【物理计算与网络】>【黑石私有网络】>【SSL VPN】>【SSL VPN 网关】查看并记录好 SSL VPN 的相关配置信息，如下图所示。本示例中，SSL VPN 网关地址为 139.x.x.x，VPN 域为 2xxxx。
 ![](https://mc.qcloudimg.com/static/img/1fcbae9062ec7995cff0720388d680b1/image.png)

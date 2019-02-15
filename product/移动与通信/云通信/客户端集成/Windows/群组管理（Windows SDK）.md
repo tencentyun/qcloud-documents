@@ -968,7 +968,7 @@ Description:	修改群员信息
 TIM_DECL void TIMModifyGroupMemberInfo(TIMModifyGroupMemberInfoOptionHandle opt, TIMCommCB * callback);
 ```
 
-#### 修改用户群内身份 
+### 修改用户群内身份 
 
 **权限说明：**
  
@@ -988,7 +988,7 @@ TIM_DECL int SetRole4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMemberInfoO
 ---|---
 role | 群内身份：<br>200 普通群成员<br>300 群管理员<br>400 群主
 
-#### 对群成员进行禁言 
+### 对群成员进行禁言 
 
 **权限说明：**
  
@@ -1007,7 +1007,7 @@ TIM_DECL int SetShutupTime4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMembe
 ---|---
 time | 禁言时间，单位秒 
 
-#### 修改群名片 
+### 修改群名片 
 
 **原型：**
 
@@ -1023,7 +1023,7 @@ TIM_DECL int SetNameCard4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMemberI
 name_card | 要设置的群名片 
 len| 群名片长度
 
-#### 修改群成员维度自定义字段 
+### 修改群成员维度自定义字段 
 
 **原型：**
 
@@ -1037,7 +1037,7 @@ TIM_DECL int SetCustomInfo4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMembe
 ---|---
 custom_info_handle | 自定义字段集合，key 和 value 是二进制类型
 
-#### 修改接收群消息选项
+### 修改接收群消息选项
 
 **原型：**
 

@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 上传备份至 COS
-1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos)。
+1. 登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，在左上角选择【云产品】>【对象存储】，进入 COS 控制台，或者直接登录 [COS 控制台](https://console.cloud.tencent.com/cos5)。
 ![](https://main.qcloudimg.com/raw/08f65940f28d9f3e2400473f4be08270.png)
 2. 选择【存储桶列表】，单击【创建存储桶】。
 3. 在弹出的创建页面，配置对应信息，单击【确定】。
@@ -16,7 +16,7 @@
 ![](https://main.qcloudimg.com/raw/4638c16ce60b47ced0348c092d7b4a78.png)
 4. 返回存储桶列表，选择对应的存储桶，在【操作】列单击【文件列表】。
 5. 在文件列表页，单击【上传文件】，可以选择单个或多个文件上传。
-6. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【原文件链接】。
+6. 文件上传完后，可在【操作】列单击【文件信息】，查看获取【对象地址】。
 ![](https://main.qcloudimg.com/raw/6f1639a7df6015e52d6a98913839352f.png)
 
 ### 通过 COS 源文件迁移数据
@@ -26,7 +26,7 @@
   - 【任务名称】：用户自定义。
   - 【源实例类型】：选择【SQL Server 备份还原(COS方式)】。
   - 【地域】：源库信息的地域必须和 COS 源文件连接的地域相同。
-  - 【COS 原文件链接】：上传源文件到 COS 后可查看文件信息，获取 COS 原文件链接。
+  - 【COS 原文件链接】：上传源文件到 COS 后可查看文件信息，获取 COS 对象地址。
   - 【目标库类型】和【目标库地域】：根据源库的配置由系统自动生成。
   - 【实例 ID】：选择需要迁入的实例，只能选择同一地域下的实例。
 ![](https://main.qcloudimg.com/raw/9de77ed9d505eb7e8a4d7cc6a7de056c.png)
