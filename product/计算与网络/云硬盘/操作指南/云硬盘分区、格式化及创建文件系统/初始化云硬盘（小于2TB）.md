@@ -138,31 +138,69 @@ df -TH
  表示新建分区`/dev/vdb1`已挂载至`/data/newpart`。
  
 >?若无需设置开机自动挂载磁盘，则跳过后续步骤。
+>
+16. 确认挂载方式并获取对应信息。
+ 您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或操作系统中识别到的磁盘名称自动挂载磁盘，相关说明和信息获取获取方式如下：
+ <table>
+     <tr>
+         <th>挂载方式</th>  
+         <th>优缺点</th>  
+         <th>信息获取方式</th>  
+     </tr>
+	   <tr>      
+         <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
+	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
+	       <td nowrap="nowrap">请参考 <a href="#byid">查看弹性云硬盘的软链接</a>。</td>
+     </tr> 
+	   <tr>      
+         <td nowrap="nowrap">使用文件系统的 UUID</td>   
+	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+	       <td nowrap="nowrap">请参考 <a href="#UUID">查看文件系统的 UUID</a>。</td>
+     </tr> 
+	   <tr>      
+         <td nowrap="nowrap">使用操作系统中识别到的磁盘名称</td>   
+	       <td>可能会因磁盘名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该盘时，名称可能会变化。</td>
+	       <td>请参考 <a href="#fdisk">查看磁盘名称</a>。</td>
+     </tr> 
+</table>
 
-16. 执行以下命令，查询磁盘分区的 UUID（universally unique identifier）。
+ <span id="byid"></span>
+ a. 执行以下命令，查看弹性云硬盘的软链接。
+  ```
+  ls -l /dev/disk/by-id
+  ```	
+ <span id="UUID"></span>
+ b. 执行以下命令，查看文件系统的 UUID。
+  ```
+  blkid <磁盘分区>
+  ```
+ <span id="fdisk"></span>
+c. 执行以下命令，查看磁盘名称。
  ```
-blkid <磁盘分区>
+fdisk -l
 ```
- 以查询磁盘分区`/dev/vdb1`的 UUID 为例：
- ```
-blkid /dev/vdb1
-```
- 回显信息类似如下图：
- ![](https://main.qcloudimg.com/raw/0423400e7e8dc7f5ab21927895b3ec85.png)
-17. 执行以下命令，使用 VI 编辑器打开`fstab`文件。
+17. 备份`fstab`文件。
+18. 执行以下命令，使用 VI 编辑器打开`fstab`文件。
  ```
 vi /etc/fstab
 ```
-18. 按`i`，进入编辑模式。 
-19. 将光标移至文件末尾，按 Enter，添加如下内容。
+19. 按`i`，进入编辑模式。 
+20. 将光标移至文件末尾，按 Enter，添加如下内容。
  ```
-UUID=<UUID> <挂载点>   <文件系统格式> defaults     0   2
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
- 结合前文示例，则添加：
+ - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，则添加：
+ ```
+/dev/disk/by-id/virtio-disk-drkhklpe-part1 /data/newpart   ext4 defaults     0   2
+```
+ - 以使用磁盘分区的 UUID 自动挂载为例，则添加：
 ```
 UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   2
 ```
- ![](https://main.qcloudimg.com/raw/d3ea92ac8d9e26901f45876d275616e9.png)
+ - 以使用操作系统中识别到的磁盘名称自动挂载为例，则添加：
+```
+/dev/vdb /data/newpart   ext4 defaults     0   2
+```
 20. 按 Esc，输入`:wq`，按 Enter。
  保存设置并退出编辑器。
 
