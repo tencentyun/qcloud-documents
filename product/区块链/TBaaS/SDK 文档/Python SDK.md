@@ -52,7 +52,7 @@ try:
     cred = credential.Credential("secretId", "secretKey")
 
     # 配置访问域名
-# SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+# SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务，
 # 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
 httpProfile = HttpProfile()
     httpProfile.endpoint = "tbaas.tencentcloudapi.com"
