@@ -61,16 +61,19 @@ public class InvokeTransaction
 {
     public static void main(String [] args) {
         try{
-            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+            // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey
             Credential cred = new Credential("secretId", "secretKey");
             // 设置访问域名
+            // SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+// 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("tbaas.tencentcloudapi.com");
-            // 实例化tbaas的client对象
+            // 实例化Tbaas的client对象
             ClientProfile clientProfile = new ClientProfile();
-            clientProfile.setHttpProfile(httpProfile);            
-            TbaasClient client = new TbaasClient(cred, "", clientProfile);
-            // 实例化一个请求对象
+            clientProfile.setHttpProfile(httpProfile);
+            // 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
+            TbaasClient client = new TbaasClient(cred, "ap-guangzhou", clientProfile);
+            // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
             String params = "{\"Module\":\"transaction\",\"Operation\": \"invoke\",\"ClusterId\" : \"251005746ctestenv\",\"Peers\":[{\"PeerName":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"},{\"PeerName\": \"peer0.youtucorg.ctestenv\",\"OrgName\": \"youtucOrg\"},],\"ChannelName\" : \"pettyc1\",\"ChaincodeName\" : \"pettycc1\",\"FuncName\" : \"invoke\",\"Args\" : [\"b\",\"a\",\"25\"],\"AsyncFlag\" : 0}";
             InvokeRequest req = InvokeRequest.fromJsonString(params, InvokeRequest.class);
             // 通过client对象调用想要访问的接口，需要传入请求对象
@@ -82,4 +85,5 @@ public class InvokeTransaction
         }
     }
 }
+
 ```

@@ -48,20 +48,22 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 # 导入对应产品模块的client models。
 from tencentcloud.tbaas.v20180416 import tbaas_client, models
 try:
-    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    # 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey
     cred = credential.Credential("secretId", "secretKey")
 
     # 配置访问域名
-    httpProfile = HttpProfile()
+# SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+# 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
+httpProfile = HttpProfile()
     httpProfile.endpoint = "tbaas.tencentcloudapi.com"
-    # 实例化要请求产品的client对象
+    # 实例化Tbaas的client对象
     clientProfile = ClientProfile()
-    clientProfile.httpProfile = httpProfile
-    client = tbaas_client.TbaasClient(cred, "", clientProfile) 
+clientProfile.httpProfile = httpProfile
+#第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
+    client = tbaas_client.TbaasClient(cred, "ap-guangzhou", clientProfile) 
 
-    # 请求参数
+# 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
     params = '{\"Module\":\"transaction\",\"Operation\": \"invoke\",\"ClusterId\" : \"251005746ctestenv\",\"Peers\":[{\"PeerName":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"},{\"PeerName\": \"peer0.youtucorg.ctestenv\",\"OrgName\": \"youtucOrg\"},],\"ChannelName\" : \"pettyc1\",\"ChaincodeName\" : \"pettycc1\",\"FuncName\" : \"invoke\",\"Args\" : [\"b\",\"a\",\"25\"],\"AsyncFlag\" : 0}'
-    # 实例化一个请求对象
     req = models.InvokeRequest()
     req.from_json_string(params)
 
@@ -73,4 +75,5 @@ try:
 
 except TencentCloudSDKException as err:
     print(err)
+
 ```
