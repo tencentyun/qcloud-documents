@@ -10,7 +10,7 @@ COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可�
 - [COSBrowser macOS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 ## 软件界面
-![cosbrowser](https://main.qcloudimg.com/raw/fdb4665917c2dc638068824999153fc6.png)
+![cosbrowser](https://main.qcloudimg.com/raw/b0376b38276541addc65afc491ddbce7.png)
 
 ## 使用方法
 
