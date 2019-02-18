@@ -88,8 +88,6 @@ npm run example
 ```
 
 ## 支持功能
-* 信息认证
-    - [身份证信息认证](https://cloud.tencent.com/document/product/641/13391) - authIdCard
 
 * 人脸识别
     -  [多脸检索](https://cloud.tencent.com/document/product/867/17590) - faceMultiple
@@ -125,12 +123,12 @@ npm run example
     -  [图片标签](https://cloud.tencent.com/document/product/865/17592) - imgTagDetect
     -  [图片鉴黄](https://cloud.tencent.com/document/product/864/17609) - imgPornDetect
 
-* 人脸核身
-    -  [人脸静态活体检测](https://cloud.tencent.com/document/product/868/17575) - faceLiveDetectPic
-    -  [唇语活体检测视频身份信息核验](https://cloud.tencent.com/document/product/868/17577) - faceIdCardLiveDetectFour
-    -  [活体检测—获取唇语验证码](https://cloud.tencent.com/document/product/868/17579) - faceLiveGetFour
-    -  [活体检测视频与用户照片的对比](https://cloud.tencent.com/document/product/868/17578) - faceLiveDetectFour
-    -  [用户上传照片身份信息核验](https://cloud.tencent.com/document/product/868/17580) - faceIdCardCompare
+* 人脸核身-云智慧眼
+    -  [获取动作顺序](https://cloud.tencent.com/document/api/1007/31822) - GetActionSequence
+    -  [获取数字验证码](https://cloud.tencent.com/document/api/1007/31821) - GetLiveCode
+    -  [照片人脸核身](https://cloud.tencent.com/document/api/1007/31820) - ImageRecognition
+    -  [活体人脸比对](https://cloud.tencent.com/document/api/1007/31819) - LivenessCompare
+    -  [活体人脸核身](https://cloud.tencent.com/document/api/1007/31818) - LivenessRecognition
 
 * 人脸融合
     -  [人脸融合](https://cloud.tencent.com/document/product/670/14357) - faceFusion

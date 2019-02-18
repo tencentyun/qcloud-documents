@@ -1,3 +1,34 @@
+### [1.6.8] 2019-01-24
+#### 优化
+1. 白板文件上传图片预加载优化。
+2. 修复了已知 bug。
+
+### [1.6.7] 2019-01-23
+#### 新增
+1. 白板背景图片展示模式新增靠左、靠上、靠右、靠下4种模式。
+
+```oc
+/** 背景图片展示模式 */
+typedef NS_ENUM(NSInteger, TXBoardImageMode) {
+    TXBoardImageModeFit = 0,    // 自适应
+    TXBoardImageModeFill = 1,   // 铺满
+    TXBoardImageModeLeft = 4,   // 靠左展示
+    TXBoardImageModeTop = 5,    // 靠上展示
+    TXBoardImageModeRight = 6,  // 靠右展示
+    TXBoardImageModeBottom = 7, // 靠下展示
+};
+```
+2. 新增 updateCurrentImageMode 方法，用于更新当前背景图片显示模式。
+
+```oc
+/**
+ 设置当前背景图片显示模式
+ 
+ @param mode 图片显示模式
+ */
+- (void)updateCurrentImageMode:(TXBoardImageMode)mode;
+```
+
 ### [1.6.6] 2019-01-14
 #### 新增
 1. 白板增加 Apple Pencil 模式开关接口，可开启或关闭 Apple Pencil 模式。
@@ -256,7 +287,7 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 ### [1.0.0] 2018-06-13
 #### 新增
-1.0.0版本发布，包含以下功能：
+1.0.0 版本发布，包含以下功能：
 
 1. 账号登录。
 2. 创建、加入、退出课堂。

@@ -21,7 +21,7 @@ Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快
 
 - 将生成代码部署在您的服务器上，并提供面向 App 的服务端接口。
 - 使用上文提到的 private_key 对 SdkAppid、Identifier 和 Expire（签名过期时间）进行非对称加密运算，并将计算结果返回给 App。
-- 如果出现 private_key 泄露的情况，请根据 [云通信配置变更需求工单](https://cloud.tencent.com/document/product/269/3916#.E4.BF.AE.E6.94.B9.E6.AF.8F.E6.97.A5.E5.88.9B.E5.BB.BA.E7.BE.A4.E7.BB.84.E9.85.8D.E9.A2.9D) 模版给我们 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1) 进行更换。
+- 如果出现 private_key 泄露的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1) 申请更换。
 
 ```
   UserSig = 非对称加密（private_key, SdkAppid, Identifier, Expire）
@@ -29,13 +29,16 @@ Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快
 
 ### 源码下载
 
-我们提供了 Java、PHP 和 Nodejs 三个版本的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
+我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
 
 | 语言版本 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|
-| java | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/java)|
-| php | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/php)|
-| nodejs | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/nodejs)|
+| Java | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-java)|
+| GO | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
+| PHP | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-php)|
+| Nodejs | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-node)|
+| C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
+| Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
 
 
 

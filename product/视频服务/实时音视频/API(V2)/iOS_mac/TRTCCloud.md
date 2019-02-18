@@ -5,7 +5,7 @@
 进入房间。
 
 ```
- - (void)enterRoom:(TRTCParams *)param 
+ - (void)enterRoom:(TRTCParams *)param appScene:(TRTCAppScene)scene 
 ```
 
 __参数__
@@ -13,6 +13,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | param | TRTCParams * | 进房参数，请参考 TRTCParams |
+| scene | TRTCAppScene | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景 |
 
 __说明__
 
@@ -862,7 +863,7 @@ __参数__
 添加水印。
 
 ```
- - (void)setWatermark:(TXImage *)image rect:(CGRect)rect 
+ - (void)setWatermark:(TXImage *)image streamType:(TRTCVideoStreamType)streamType rect:(CGRect)rect 
 ```
 
 __参数__
@@ -870,13 +871,232 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | image | TXImage * | 水印图片 |
+| streamType | TRTCVideoStreamType | (TRTCVideoStreamTypeBig、TRTCVideoStreamTypeSub) |
 | rect | CGRect | 水印相对于编码分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height |
 
 <br/>
 
 
 
+## 辅流相关接口函数(MAC)
+
+### startRemoteSubStreamView
+
+开始渲染远端用户辅流画面 对应于 startRemoteView() 用于观看远端的主路画面，该接口只能用于观看辅路（屏幕分享、远程播片）画面。
+
+```
+ - (void)startRemoteSubStreamView:(NSString *)userId view:(TXView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 对方的用户标识 |
+| view | TXView * | 渲染控件所在的父控件 |
+
+<br/>
+
+
+### stopRemoteSubStreamView
+
+停止渲染远端用户屏幕分享画面。
+
+```
+ - (void)stopRemoteSubStreamView:(NSString *)userId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 对方的用户标识 |
+
+<br/>
+
+
+### setRemoteSubStreamViewFillMode
+
+设置辅流画面的渲染模式 对应于setRemoteViewFillMode() 于设置远端的主路画面，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+
+```
+ - (void)setRemoteSubStreamViewFillMode:(NSString *)userId mode:(TRTCVideoFillMode)mode 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 用户的id |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+
+<br/>
+
+
+### getScreenCaptureSourcesWithThumbnailSize
+
+【屏幕共享】枚举可用的屏幕分享窗口。
+
+```
+ - (NSArray< TRTCScreenCaptureSourceInfo * > *)getScreenCaptureSourcesWithThumbnailSize:(CGSize)thumbnailSize iconSize:(CGSize)iconSize 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| thumbnailSize | CGSize | - 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
+| iconSize | CGSize | - 指定要获取的窗口图标大小 |
+
+<br/>
+
+
+### selectScreenCaptureTarget
+
+【屏幕共享】设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。
+
+```
+ - (void)selectScreenCaptureTarget:(TRTCScreenCaptureSourceInfo *)screenSource rect:(CGRect)rect capturesCursor:(BOOL)capturesCursor highlight:(BOOL)highlight 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| screenSource | TRTCScreenCaptureSourceInfo * | 指定分享源 |
+| rect | CGRect | 指定捕获的区域(传CGRectZero则默认分享全屏); |
+| capturesCursor | BOOL | 是否捕获鼠标光标 |
+| highlight | BOOL | 是否高亮正在分享的窗口 |
+
+<br/>
+
+
+### startScreenCapture
+
+【屏幕共享】启动屏幕分享。
+
+```
+ - (void)startScreenCapture:(NSView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| view | NSView * | 渲染控件所在的父控件 |
+
+<br/>
+
+
+### stopScreenCapture
+
+【屏幕共享】停止屏幕采集。
+
+```
+ - (int)stopScreenCapture
+```
+
+<br/>
+
+
+### pauseScreenCapture
+
+【屏幕共享】暂停屏幕分享。
+
+```
+ - (int)pauseScreenCapture
+```
+
+<br/>
+
+
+### resumeScreenCapture
+
+【屏幕共享】恢复屏幕分享。
+
+```
+ - (int)resumeScreenCapture
+```
+
+<br/>
+
+
+### setSubStreamEncoderParam
+
+设置辅路视频编码器参数，对应于 setVideoEncoderParam() 设置主路画面的编码质量 该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+```
+ - (void)setSubStreamEncoderParam:(TRTCVideoEncParam *)param 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | TRTCVideoEncParam * | 辅流编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
+
+<br/>
+
+
+### setSubStreamMixVolume
+
+设置辅流的混音音量大小，这个数值越高，辅流音量占比就约高，麦克风音量占比就越小。
+
+```
+ - (void)setSubStreamMixVolume:(NSInteger)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| volume | NSInteger | 设置的音量大小，范围[0,100] |
+
+<br/>
+
+
+
 ## 音视频自定义接口
+
+### enableCustomVideoCapture
+
+启用视频自定义采集模式，即放弃SDK原来的视频采集流程，改用sendCustomVideoData向SDK塞入自己采集的视频画面。
+
+```
+ - (void)enableCustomVideoCapture:(BOOL)enable 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| enable | BOOL | 是否启用 |
+
+<br/>
+
+
+### sendCustomVideoData
+
+发送自定义的SampleBuffer。
+
+```
+ - (void)sendCustomVideoData:(TRTCVideoFrame *)frame 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCVideoFrame * | 视频数据 仅支持PixelBuffer I420数据 |
+
+__说明__
+
+
+SDK内部不做帧率控制,请务必保证调用该函数的频率和TXLivePushConfig中设置的帧率一致,否则编码器输出的码率会不受控制。
+
+
+<br/>
+
 
 ### setLocalVideoRenderDelegate
 
@@ -924,7 +1144,7 @@ __说明__
 
 
 设置此方法后，SDK内部会把远端的数据解码后回调出来，SDK跳过自己原来的渲染流程，您需要自己完成画面的渲染 
-需要调用 startRemoteView 来决定回调哪一路 userid 的视频画面。
+setRemoteVideoRenderDelegate 之前需要调用 startRemoteView 来开启对应 userid 的视频画面，才有数据回调出来。
 
 
 <br/>
@@ -1140,7 +1360,7 @@ __参数__
 __介绍__
 
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
 注意：测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
 
 
@@ -1256,10 +1476,9 @@ __参数__
 __介绍__
 
 
-由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。
-目前支持两种发布方案：
-【1】先混流在发布，TRTCPublishCDNParam.enableTranscoding = YES 需要您先调用startCloudMixTranscoding对多路画面进行混合，发布到CDN上的是混合之后的音视频流
-【2】不混流直接发布，TRTCPublishCDNParam.enableTranscoding = NO 发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响，调用startCloudMixTranscoding将无效。
+由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。 目前支持两种发布方案：
+【1】需要您先调用 setMixTranscodingConfig 对多路画面进行混合，发布到CDN上的是混合之后的音视频流
+【2】发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响。
 
 
 <br/>
@@ -1276,19 +1495,19 @@ __介绍__
 <br/>
 
 
-### startCloudMixTranscoding
+### setMixTranscodingConfig
 
-启动云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
+启动(更新)云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
- - (void)startCloudMixTranscoding:(TRTCTranscodingConfig *)config 
+ - (void)setMixTranscodingConfig:(TRTCTranscodingConfig *)config 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 传入nil取消云端混流转码 |
 
 __介绍__
 
@@ -1303,17 +1522,6 @@ __介绍__
 
         
 
-
-<br/>
-
-
-### stopCloudMixTranscoding
-
-停止云端的混流转码。
-
-```
- - (void)stopCloudMixTranscoding
-```
 
 <br/>
 
