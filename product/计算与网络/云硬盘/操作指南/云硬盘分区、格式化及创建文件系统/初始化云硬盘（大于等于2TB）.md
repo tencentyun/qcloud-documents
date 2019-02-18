@@ -120,11 +120,11 @@ mkdir /data/newpart2
 ```
 14. 执行以下命令，将新建分区挂载至新建的挂载点。
 ```
-mount /dev/vdb1 <挂载点>
+mount /dev/vdc1 <挂载点>
 ```
 以新建挂载点`/data/newpart2`为例：
 ```
-mount /dev/vdb1 /data/newpart2
+mount /dev/vdc1 /data/newpart2
 ```
 15. 执行以下命令，查看挂载结果。
 ```
@@ -169,7 +169,7 @@ df -TH
  <span id="StepUUID"></span>
  b. 执行以下命令，查看文件系统的 UUID。
   ```
-  blkid /dev/vdb1
+  blkid /dev/vdc1
   ```
  <span id="Stepfdisk"></span>
 c. 执行以下命令，查看设备名称。
@@ -196,7 +196,7 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 ```
  - 以使用设备名称自动挂载为例，结合前文示例则添加：
 ```
-/dev/vdb1 /data/newpart2   ext4 defaults     0   2
+/dev/vdc1 /data/newpart2   ext4 defaults     0   2
 ```
 20. 按 Esc，输入`:wq`，按 Enter。
  保存设置并退出编辑器。
