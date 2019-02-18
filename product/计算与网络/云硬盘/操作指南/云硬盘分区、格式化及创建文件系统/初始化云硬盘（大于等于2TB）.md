@@ -200,6 +200,11 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 ```
 20. 按 Esc，输入`:wq`，按 Enter。
  保存设置并退出编辑器。
+21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
+```
+ mount -a 
+```
+如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
 ## 相关操作
 [初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
