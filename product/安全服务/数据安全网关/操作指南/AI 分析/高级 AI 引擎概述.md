@@ -6,4 +6,6 @@ AI 引擎分为基础版 AI 引擎和高级版 AI 引擎，在您购买了数据
 - [访问概览](https://cloud.tencent.com/document/product/1025/32682)
 - [高危用户排行](https://cloud.tencent.com/document/product/1025/32690)
 - [异常行为详情](https://cloud.tencent.com/document/product/1025/32691)
+- [系统监控](https://cloud.tencent.com/document/product/1025/33107)
+
 
