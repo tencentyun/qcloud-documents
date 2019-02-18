@@ -3,7 +3,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
 - MD5 数据校验功能。
-- 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392)或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
+- 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
 
 ## 局限性
 **COSFS 仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。**需注意以下不适用的场景，例如：
