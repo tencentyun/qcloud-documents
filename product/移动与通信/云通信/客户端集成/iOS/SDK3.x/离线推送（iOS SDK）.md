@@ -1,4 +1,4 @@
-### 推送原理
+## 推送原理
 如想要接收 APNs 离线消息通知，需要在腾讯云管理平台提交 Push 证书，在客户端每次登录时，获取并通过 API 接口上报 Token。APNs 推送功能只用于通知用户，如果 App 在前台，以 `onNewMessage` 回调获取新消息为准，`didReceiveRemoteNotification` 获取到的消息由于不可控，可以忽略。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 
 ### 证书申请流程
@@ -152,7 +152,7 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 | 图片 Elem | 显示 [图片] |
 | 自定义 Elem | 显示 desc 字段内容 |
 
-## 多 App 支持
+### 多 App 支持
 
 对于需要多 App 互通的场景，可在多个 App 中写同一个 `sdkappid`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在 IM 通讯云上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.AE.9E.E7.8E.B0apns.E6.8E.A8.E9.80.81) 设置证书，并提供当前证书的编号。
 
