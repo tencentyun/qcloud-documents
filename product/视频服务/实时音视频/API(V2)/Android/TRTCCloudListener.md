@@ -412,7 +412,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识 |
-| cmdID | int | 数据流ID |
+| cmdID | int | 数据流 ID |
 | errCode | int | 错误码，当前版本为-1 |
 | missed | int | 丢失的消息数量 |
 

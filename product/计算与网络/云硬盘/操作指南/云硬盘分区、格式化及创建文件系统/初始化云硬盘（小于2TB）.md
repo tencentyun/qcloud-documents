@@ -172,7 +172,7 @@ df -TH
  <span id="UUID"></span>
  b. 执行以下命令，查看文件系统的 UUID。
   ```
-  blkid <磁盘分区>
+  blkid /dev/vdb1
   ```
  <span id="fdisk"></span>
 c. 执行以下命令，查看设备名称。
@@ -199,10 +199,15 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   
 ```
  - 以使用设备名称自动挂载为例，结合前文示例则添加：
 ```
-/dev/vdb /data/newpart   ext4 defaults     0   2
+/dev/vdb1 /data/newpart   ext4 defaults     0   2
 ```
 20. 按 Esc，输入`:wq`，按 Enter。
  保存设置并退出编辑器。
+21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
+```
+ mount -a 
+```
+如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
 ## 相关操作
 [初始化云硬盘（大于等于2TB）](https://cloud.tencent.com/document/product/362/6735)
