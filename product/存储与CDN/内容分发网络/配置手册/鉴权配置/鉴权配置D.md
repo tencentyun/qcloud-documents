@@ -27,9 +27,9 @@ md5hash=MD5(秘钥+路径+时间戳)
 ## 配置指引
 
 1. 登录 CDN 控制台，进入【域名管理】页面，选择需要设置的域名，单击【管理】
-   ![](https://main.qcloudimg.com/raw/ae4ba32915020737649e5698ea15ebd6.png)
+![](https://main.qcloudimg.com/raw/801ab697e2728cb0ab8d56ac5204e433.png)
 2. 在【安全配置】中找到【鉴权配置】模块，单击开启【鉴权配置】
-   ![3](https://main.qcloudimg.com/raw/46b59b59fbc0a270930b8ca7d38f6836.png)
+![](https://main.qcloudimg.com/raw/f83e9780cd0ad338b71bbe8aa1ddea2f.png)
 3. 弹出【鉴权配置】弹窗，选中模式 D 并展示模式示例：
    ![](https://main.qcloudimg.com/raw/f59922fddc0d708fd5e681b285a7f460.png)
 4. 单击【下一步】，进入**设置参数**窗口，填写鉴权密钥、签名参数、时间戳参数名、有效时间及时间格式：
