@@ -18,7 +18,7 @@ qce/apigateway支持以下几种维度组合的查询方式，入参取值如下
 
 
 
-### 1.2 API维度，入参取值
+### 1.2 API 维度，入参取值
 
 &namespace=qce/apigateway
 &dimensions.0.name=serviceId
