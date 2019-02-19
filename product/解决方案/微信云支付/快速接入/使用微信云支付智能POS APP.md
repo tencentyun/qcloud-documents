@@ -54,8 +54,7 @@
 
 ## 交接班
 交接班提供交班和交接班记录两个功能。其中，交接班页面店员可以看到从上班开始至当前的交易汇总数据；交班记录页面可查看某时间段内该设备的交班记录。如下图所示：
-![](https://main.qcloudimg.com/raw/c18f9e565eb4ad33fdf448b399854e1f.jpg)
-![](https://main.qcloudimg.com/raw/c33b4c174d7793b878c562aed432272d.jpg)
+![](https://main.qcloudimg.com/raw/719ff57f8e8f64803ea64552fd71cae7.png)
 在交接班中，可以通过选择开关某个汇总项的【是否打印】选项，来决定是否打印该汇总项。
 
 ## 设置
