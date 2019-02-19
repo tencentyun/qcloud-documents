@@ -14,15 +14,11 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 | 时间戳参数 | 自定义时间戳参数，格式为1 - 100个字符，由数字、英文大小写字母及下划线组成，不能以数字开头 |
 
 ## 算法说明
-
 - 访问加密 URL 格式：
-
 ```
 http://DomainName/Filename?auth_key= MD5( PrivateKey + path + timestamp)
 ```
-
 - 字段解析：
-
 ```1.    
 privateKey： 设置的秘钥
 Path：文件路径，不包括“？”之后的参数
