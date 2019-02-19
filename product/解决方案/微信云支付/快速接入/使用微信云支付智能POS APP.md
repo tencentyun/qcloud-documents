@@ -22,16 +22,13 @@
 
 ### 配置扫码
 在首次进入微信云支付智能 POS App 时，单击【扫描配置二维码】，扫描之前生成的配置二维码，即可完成商户配置及设备绑定，如下图所示：
-![](https://main.qcloudimg.com/raw/1bc3b47ee9173e501d1809e6f22c1ec8.png)
-
+![](https://main.qcloudimg.com/raw/d43bc9f3fe391be100bc2a664b645661.jpg)
 ## 登录
 支持微信扫码登录和账户密码登录，店员可使用自身的员工 ID 和密码进行登录，如下图所示：
-![](https://main.qcloudimg.com/raw/9182ae4113ac23546c4023eba94e6aa7.png)
-
+![](https://main.qcloudimg.com/raw/4c49831ef8093093ca318bccb83c9ccc.jpg)
 ## 收银
 支持微信支付、支付宝及会员卡等支付方式，收银页面如下图所示：
-![](https://main.qcloudimg.com/raw/7f4875d39a36687cd941bd17a4b17a1b.png)
-
+![](https://main.qcloudimg.com/raw/e4c0f4fd6a607c3200ee39f63591756a.jpg)
 ## 交易明细
 - 交易明细页面可以查询当前员工在本设备的交易数据，包括支付单和退款单。
 - 订单详情里可以对该订单进行退款和打印小票。
@@ -40,8 +37,7 @@
 
 ## 交易汇总
 选择功能列表中的【交易汇总】即可使用该功能。在交易汇总中可以查询某个员工在某个时间段的交易汇总数据，如下图所示：
-![](https://main.qcloudimg.com/raw/1bf467ca1771630f6e9d02c454e9a4c3.png)
-
+![](https://main.qcloudimg.com/raw/ee7dec8655efca8062d0b709de0d237b.jpg)
 >?
 >- 管理员或者店长可以查看所有员工在该台设备上的汇总数据。
 >- 店员只能查看自身订单汇总数据。
@@ -54,20 +50,18 @@
 
 ## 会员充值
 进入【其他】页面，选择功能列表中的【会员充值】即可使用该功能。会员充值可以通过直接扫付款码为会员进行充值。
-![](https://main.qcloudimg.com/raw/95c2cbc2441617bd416947f0016d97ea.png)
-
+![](https://main.qcloudimg.com/raw/3d2f4ab287e285a80dc83d4a52d29c13.jpg)
 >?在该功能中，只能给付款人的会员卡充值。
 
 ## 交接班
 交接班提供交班和交接班记录两个功能。其中，交接班页面店员可以看到从上班开始至当前的交易汇总数据；交班记录页面可查看某时间段内该设备的交班记录。如下图所示：
-![](https://main.qcloudimg.com/raw/79ca1f6d8276f6e9c402e28857d8ed9f.png)
-![](https://main.qcloudimg.com/raw/1353684449051bea264d176fd97f9c66.png)
+![](https://main.qcloudimg.com/raw/c18f9e565eb4ad33fdf448b399854e1f.jpg)
+![](https://main.qcloudimg.com/raw/c33b4c174d7793b878c562aed432272d.jpg)
 在交接班中，可以通过选择开关某个汇总项的【是否打印】选项，来决定是否打印该汇总项。
 
 ## 设置
 选择功能列表中的【设置】即可使用该功能。其主要功能如下所示：
-![](https://main.qcloudimg.com/raw/cc2f993545712ce6d9223a70cf727800.png)
-
+![](https://main.qcloudimg.com/raw/2450f3cf0d9309c54d7ca8821be84099.jpg)
 ## 解绑设备
 解绑设备功能目前仅由商户管理员可见。在【其他】页面中单击【解绑设备】，即可解绑该设备。**解绑设备后，该设备不再能进行交易，请谨慎使用此功能。**
 如果再次启用设备，可以继续通过之前的“配置商户及设备”流程，重新绑定设备即可。
