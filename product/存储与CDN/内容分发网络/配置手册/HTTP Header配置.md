@@ -33,14 +33,24 @@ Content-Language 是用于定义页面所使用的语言代码，常用配置如
 跨域是指某一个域名，如 ```www.abc.com``` 下的某资源，向另一个域名 ```www.def.com``` 下的某资源发起请求，此时由于资源所属域名不同，即出现 **跨域**，不同的协议、不同的端口均会造成跨域访问的出现。此时必须在 Response Header 中增加跨域相关配置，才能让前者成功拿到数据。
 
 #### Access-Control-Allow-Origin
-Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，也可以设置通配符“*”，允许被所有域请求。常用配置如下：
-> Access-Control-Allow-Origin: *
-> Access-Control-Allow-Origin: ```http://www.test.com```
+- 功能介绍
+Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，支持配置最多10个域，若来源请求 Host 在域名配置列表之内，则直接填充对应值在返回头部中。也可以设置通配符“*”，允许被所有域请求。
+- 操作步骤
+   1. 登录 CDN 控制台，进入【域名管理】页面，选择需要设置的域名，单击【管理】。
+   2. 在【高级配置】中找到【HTTP Header 配置】模块，单击【添加 HTTP header】可添加头部：
+![](https://main.qcloudimg.com/raw/0861e8ace2c9d426810595b31a6ce3ef.png)
+>! 支持最多10个域名配置，一个一行，每个以回车分隔。
 
-配置 Access-Control-Allow-Origin，有以下限制条件：
-+ 不支持泛域名，如 ```*.qq.com```
-+ 仅可配置为“*”，或指定一个 URI
-+ 在配置指定域名时，需要加上 “http://” 或 “https://” 前缀
+- 匹配模式介绍
+
+| **匹配模式**   | **域值**   | **说明**    |
+| -------------- | --------------------------- | ------------------------------------ |
+| 全匹配         | *                                                            | 设置为 * 时，则返回 response-header 中添加头部：Access-Control-Allow-Origins，且值为：```*```。 |
+| 固定匹配       | ```http://www.test.com```<br/>```https://www.test.com```<br/>```http://www.b.com``` | <li>若来源为 ```https://www.test.com```，在列表中命中，则返回 response-header 中添加头部：Access-Control-Allow-Origins，且值为：```https://www.test.com```。</li><li>若来源为 ```https://www.b.com```，未在列表中命中，因此返回 response-header 中无需添加头部：Access-Control-Allow-Origins。</li> |
+| 二级泛域名匹配 | ```http://*.test.com```                                      | <li>若来源为 ```http://www.test.com```，匹配，则返回 response-header 中添加头部：Access-Control-Allow-Origins，且值为：```http://www.test.com```。</li><li>若来源为 ```https://www.test.com```，不匹配，因此返回 response-header 中无需添加头部：Access-Control-Allow-Origins。</li> |
+| 端口匹配       | ```https://www.test.com:8080```                              | <li>若来源为 ```https://www.test.com:8080```，匹配，则返回 response-header 中添加头部：Access-Control-Allow-Origins，且值为：```https://www.test.com:8080```。</li><li>若来源为 ```https://www.test.com```，不匹配，因此返回 response-header 中无需添加头部：Access-Control-Allow-Origins。</li> |
+
+>! 若存在特殊端口，则需要在列表中填写相关信息，不支持任意端口匹配，必须指定。
 
 #### Access-Control-Allow-Methods 
 Access-Control-Allow-Methods 用于设置跨域允许的 HTTP 请求方法，可同时设置多个方法，如下：
