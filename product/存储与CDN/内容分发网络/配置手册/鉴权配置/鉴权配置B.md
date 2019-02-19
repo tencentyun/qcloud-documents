@@ -28,7 +28,7 @@ md5hash：MD5（URI-Timestamp-rand-uid-PrivateKey）
 
 ## 配置指引
 
-1. 登录 CDN 控制台，进入【域名管理】页面，选择需要设置的域名，单击【管理】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn/access/manage/1444090?tab=secure)，进入【域名管理】页面，选择需要设置的域名，单击【管理】。
 ![](https://main.qcloudimg.com/raw/801ab697e2728cb0ab8d56ac5204e433.png)
 2. 在【安全配置】中找到【鉴权配置】模块，单击开启【鉴权配置】
 ![](https://main.qcloudimg.com/raw/f83e9780cd0ad338b71bbe8aa1ddea2f.png)
