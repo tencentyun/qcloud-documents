@@ -1276,7 +1276,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 传入 NULL 取消云端混流转码 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍，传入 NULL 取消云端混流转码 |
 
 __介绍__
 
