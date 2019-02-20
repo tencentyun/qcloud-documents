@@ -19,11 +19,10 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 http://DomainName/Filename?auth_key= MD5( PrivateKey + path + timestamp)
 ```
 - 字段解析：
-```1.    
-privateKey： 设置的秘钥
-Path：文件路径，不包括“？”之后的参数
-timestamp：UTC时间，十进制
-```
+   - `privateKey`： 设置的密钥。
+   - `Path`：文件路径，不包括“？”之后的参数。
+   - `timestamp`：UTC 时间，十进制。
+
 
 ## 配置指引
 
