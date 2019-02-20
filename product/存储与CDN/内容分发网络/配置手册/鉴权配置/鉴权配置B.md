@@ -43,7 +43,7 @@ md5hash：MD5（URI-Timestamp-rand-uid-PrivateKey）
 
 您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
 
-- 选择模式 B，填写鉴权密钥、访问路径、时间设置及有效时间：
+1. 选择模式 B，填写鉴权密钥、访问路径、时间设置及有效时间：
   ![](https://main.qcloudimg.com/raw/0c187b452e0b2fb509e50828e756ccdc.png)
-- 单击【生成】，下框会展示鉴权 URL 及过期时间：
+2. 单击【生成】，下框会展示鉴权 URL 及过期时间：
   ![](https://main.qcloudimg.com/raw/802de90d0495fd611467166638179edb.png)
