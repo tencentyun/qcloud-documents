@@ -20,7 +20,7 @@ http:// DomainName/timestamp/md5hash/FileName
 ```
 - 字段解析：
    - `timestamp`：时间戳，格式为 YYYYMMDDHHMM
-   - `rand`：随机数，0~100位随机数，大小写字母与数字组成
+   - `rand`：随机数，0 - 100位随机数，大小写字母与数字组成
    - `uid`：0
    - `md5hash`：MD5（PrivateKey + timestamp + FileName)
 
