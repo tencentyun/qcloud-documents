@@ -20,7 +20,7 @@ http://DomainName/{<md5hash>/<timestamp>}/FileName
 ```
 - 字段解析：
    - `timestamp`：十六进制 UTC 时间
-   - `md5hash=MD5`：(密钥+路径+时间戳)
+   - `md5hash=MD5`：（密钥+路径+时间戳）
 
 ## 配置指引
 
