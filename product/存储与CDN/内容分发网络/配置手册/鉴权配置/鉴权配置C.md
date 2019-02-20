@@ -19,12 +19,10 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 http:// DomainName/timestamp/md5hash/FileName
 ```
 - 字段解析：
-```
-timestamp：时间戳，格式为 YYYYMMDDHHMM
-rand：随机数，0~100位随机数，大小写字母与数字组成
-uid：0
-md5hash：MD5（PrivateKey + timestamp + FileName)
-```
+   - `timestamp`：时间戳，格式为 YYYYMMDDHHMM
+   - `rand`：随机数，0~100位随机数，大小写字母与数字组成
+   - `uid`：0
+   - `md5hash`：MD5（PrivateKey + timestamp + FileName)
 
 ## 配置指引
 
