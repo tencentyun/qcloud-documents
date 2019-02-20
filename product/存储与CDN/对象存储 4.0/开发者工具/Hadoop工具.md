@@ -16,7 +16,7 @@ Hadoop-2.6.0及以上版本。
 
 ### 安装 hadoop-cos 插件
 
-1. 将 dep 目录下的cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
+1. 将 dep 目录下的 cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
 2. 修改 hadoop_env.sh
@@ -42,10 +42,10 @@ done
 |fs.cosn.impl                      | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem| 无 |是|
 |fs.AbstractFileSystem.cosn.impl   | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN | 无 |是|
 |fs.cosn.userinfo.region           | 请填写您的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等 | 无 | 是|
-|fs.cosn.userinfo.endpoint_suffix | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的region配置即可。|无|否|
-|fs.cosn.tmp.dir                | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。| /tmp/hadoop_cos | 否|
+|fs.cosn.userinfo.endpoint_suffix | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的region配置即可|无|否|
+|fs.cosn.tmp.dir                | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处| /tmp/hadoop_cos | 否|
 |fs.cosn.buffer.size        | 向 COS 流式上传文件时，本地使用的内存缓冲区的大小。要求至少大于等于一个 block 的大小 | 33554432（32MB）|否|
-|fs.cosn.block.size                | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB 时，最大能够支持78GB 的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB| 8388608（8MB） | 否 |
+|fs.cosn.block.size                | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB| 8388608（8MB） | 否 |
 |fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目 | CPU核心数*5 | 否 |
 |fs.cosn.copy_thread_pool          |目录拷贝操作时，可用于并发拷贝文件的线程数目 | CPU核心数目*3 | 否 |
 |fs.cosn.read.ahead.block.size     | 预读块的大小                                 | 524288（512KB） |  否 |
@@ -197,7 +197,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordco
 ```
 
 执行成功会返回统计信息，示例如下：
-```
+```shell
 File System Counters
 COSN: Number of bytes read=72
 COSN: Number of bytes written=40
