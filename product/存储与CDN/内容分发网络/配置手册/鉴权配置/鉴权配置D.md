@@ -19,10 +19,8 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 http://DomainName/{<md5hash>/<timestamp>}/FileName
 ```
 - 字段解析：
-```
-timestamp：十六进制UTC时间
-md5hash=MD5(秘钥+路径+时间戳)
-```
+   - `timestamp`：十六进制 UTC 时间
+   - `md5hash=MD5`：(密钥+路径+时间戳)
 
 ## 配置指引
 
