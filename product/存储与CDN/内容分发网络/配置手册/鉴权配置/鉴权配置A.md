@@ -39,7 +39,7 @@ http://DomainName/Filename?auth_key= MD5( PrivateKey + path + timestamp)
 
 ## 鉴权计算器
 
-您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
+>? 您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
 
 1. 进入页面默认是模式 A，填写鉴权密钥、签名参数、访问路径、时间设置及有效时间：
   ![](https://main.qcloudimg.com/raw/3531d94ea75de2cd636eb94c43d71f9a.png)
