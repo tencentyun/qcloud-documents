@@ -3,7 +3,7 @@
 
 #### onError
 
-错误回调，SDK不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
+错误回调，SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 
 ```
 void onError(TXLiteAVError errCode, const char * errMsg, void * arg)
@@ -81,7 +81,7 @@ __参数__
 
 #### onUserEnter
 
-userid对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
+userid 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
 
 ```
 void onUserEnter(const char * userId)
@@ -98,7 +98,7 @@ __参数__
 
 #### onUserExit
 
-userid对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
+userid 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
 
 ```
 void onUserExit(const char * userId, int reason)
@@ -116,7 +116,7 @@ __参数__
 
 #### onUserVideoAvailable
 
-userid对应的远端主路（即摄像头）画面的状态通知。
+userid 对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(const char * userId, bool available)
@@ -127,14 +127,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识 |
-| available | bool | true：视频可播放，false：视频被关闭 |
+| available | bool | true：视频可播放；false：视频被关闭 |
 
 <br/>
 
 
 #### onUserSubStreamAvailable
 
-userid对应的远端辅路（屏幕分享等）画面的状态通知。
+userid 对应的远端辅路（屏幕分享等）画面的状态通知。
 
 ```
 void onUserSubStreamAvailable(const char * userId, bool available)
@@ -145,14 +145,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识 |
-| available | bool | true：视频可播放，false：视频被关闭 |
+| available | bool | true：视频可播放；false：视频被关闭 |
 
 <br/>
 
 
 #### onUserAudioAvailable
 
-userid对应的远端声音的状态通知。
+userid 对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(const char * userId, bool available)
@@ -163,14 +163,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识 |
-| available | bool | true：音频可播放，false：音频被关闭 |
+| available | bool | true：音频可播放；false：音频被关闭 |
 
 <br/>
 
 
 #### onUserVoiceVolume
 
-userid对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
+userid 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
@@ -180,9 +180,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userVolumes | TRTCVolumeInfo * | ：每位发言者的语音音量，取值范围 [0, 100] |
-| userVolumesCount | uint32_t | ：发言者的人数，即userVolumes数组的大小 |
-| totalVolume | uint32_t | ：总的语音音量, 取值范围 [0, 100] |
+| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围 [0, 100] |
+| userVolumesCount | uint32_t | 发言者的人数，即 userVolumes 数组的大小 |
+| totalVolume | uint32_t |总的语音音量，取值范围 [0, 100] |
 
 <br/>
 
@@ -192,7 +192,7 @@ __参数__
 
 #### onNetworkQuality
 
-网络质量: 该回调每 2 秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 
 ```
 void onNetworkQuality(TRTCQualityInfo localQuality, TRTCQualityInfo * remoteQuality, uint32_t remoteQualityCount)
@@ -226,7 +226,7 @@ __参数__
 __介绍__
 
 
-如果您是熟悉音视频领域相关术语，可以通过这个回调获取SDK的所有技术指标， 如果您是首次开发音视频相关项目，可以只关注 onNetworkQuality 回调。
+如果您是熟悉音视频领域相关术语，可以通过这个回调获取 SDK 的所有技术指标， 如果您是首次开发音视频相关项目，可以只关注 onNetworkQuality 回调。
 
 
 <br/>
@@ -237,7 +237,7 @@ __介绍__
 
 #### onFirstVideoFrame
 
-首帧视频画面到达，界面此时可以结束loading，并开始显示视频画面。
+首帧视频画面到达，界面此时可以结束 loading，并开始显示视频画面。
 
 ```
 void onFirstVideoFrame(const char * userId, uint32_t width, uint32_t height)
@@ -361,7 +361,7 @@ void onConnectionRecovery()
 
 #### onSpeedTest
 
-服务器测速的回调，SDK 对多个服务器IP做测速，每个IP的测速结果通过这个回调通知。
+服务器测速的回调，SDK 对多个服务器IP做测速，每个 IP 的测速结果通过这个回调通知。
 
 ```
 void onSpeedTest(const TRTCSpeedTestResult & currentResult, uint32_t finishedCount, uint32_t totalCount)
@@ -415,7 +415,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | const char * | 设备ID |
+| deviceId | const char * | 设备 ID |
 | type | TRTCDeviceType | 设备类型 |
 | state | TRTCDeviceState | 事件类型 |
 
@@ -472,7 +472,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识 |
-| cmdId | int32_t | 命令ID |
+| cmdId | int32_t | 命令 ID |
 | seq | uint32_t | 消息序号 |
 | msg | const uint8_t * | 消息数据 |
 | msgSize | uint32_t | 消息数据大小 |
@@ -482,7 +482,7 @@ __参数__
 
 #### onMissCustomCmdMsg
 
-TRTC所使用的传输通道为UDP通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
+TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
 
 ```
 void onMissCustomCmdMsg(const char * userId, int32_t cmdId, int32_t errCode, int32_t missed)
@@ -493,7 +493,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 用户标识 |
-| cmdId | int32_t | 命令ID |
+| cmdId | int32_t | 命令 ID |
 | errCode | int32_t | 错误码，当前版本为-1 |
 | missed | int32_t | 丢失的消息数量 |
 
@@ -506,7 +506,7 @@ __介绍__
 __说明__
 
 
-只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
+只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
 
 <br/>
@@ -517,7 +517,7 @@ __说明__
 
 #### onStartPublishCDNStream
 
-旁路推流到CDN的回调，对应于 TRTCCloud 的 startPublishCDNStream() 接口。
+旁路推流到 CDN 的回调，对应于 TRTCCloud 的 startPublishCDNStream() 接口。
 
 ```
 void onStartPublishCDNStream(int errCode, const char * errMsg)
@@ -533,7 +533,7 @@ __参数__
 __说明__
 
 
-Start回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
+Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
 
 
 <br/>
@@ -541,7 +541,7 @@ Start回调如果成功，只能说明转推请求已经成功告知给腾讯云
 
 #### onStopPublishCDNStream
 
-接口stopPublishCDNStream的状态回调。
+接口 stopPublishCDNStream 的状态回调。
 
 ```
 void onStopPublishCDNStream(int errCode, const char * errMsg)
@@ -562,7 +562,7 @@ __参数__
 
 #### onScreenCaptureCovered
 
-当屏幕分享窗口被遮挡无法正常捕获时，SDK会通过此回调通知，可在此回调里通知用户移开遮挡窗口。
+当屏幕分享窗口被遮挡无法正常捕获时，SDK 会通过此回调通知，可在此回调里通知用户移开遮挡窗口。
 
 ```
 void onScreenCaptureCovered()
@@ -573,7 +573,7 @@ void onScreenCaptureCovered()
 
 #### onScreenCaptureStarted
 
-当屏幕分享开始时，SDK会通过此回调通知。
+当屏幕分享开始时，SDK 会通过此回调通知。
 
 ```
 void onScreenCaptureStarted()
@@ -584,7 +584,7 @@ void onScreenCaptureStarted()
 
 #### onScreenCapturePaused
 
-当屏幕分享暂停时，SDK会通过此回调通知。
+当屏幕分享暂停时，SDK 会通过此回调通知。
 
 ```
 void onScreenCapturePaused(int reason)
@@ -594,14 +594,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 停止原因，0表示用户主动暂停，1表示设置屏幕分享参数导致的暂停，2表示屏幕分享窗口被最小化导致的暂停，3表示屏幕分享窗口被隐藏导致的暂停 |
+| reason | int | 停止原因。0表示用户主动暂停，1表示设置屏幕分享参数导致的暂停，2表示屏幕分享窗口被最小化导致的暂停，3表示屏幕分享窗口被隐藏导致的暂停 |
 
 <br/>
 
 
 #### onScreenCaptureResumed
 
-当屏幕分享恢复时，SDK会通过此回调通知。
+当屏幕分享恢复时，SDK 会通过此回调通知。
 
 ```
 void onScreenCaptureResumed(int reason)
@@ -611,14 +611,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 停止原因，0表示用户主动恢复，1表示屏幕分享参数设置完毕后自动恢复，2表示屏幕分享窗口从最小化被恢复，3表示屏幕分享窗口从隐藏被恢复 |
+| reason | int | 停止原因。0表示用户主动恢复，1表示屏幕分享参数设置完毕后自动恢复，2表示屏幕分享窗口从最小化被恢复，3表示屏幕分享窗口从隐藏被恢复 |
 
 <br/>
 
 
 #### onScreenCaptureStoped
 
-当屏幕分享停止时，SDK会通过此回调通知。
+当屏幕分享停止时，SDK 会通过此回调通知。
 
 ```
 void onScreenCaptureStoped(int reason)
@@ -628,7 +628,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| reason | int | 停止原因，0表示用户主动停止，1表示屏幕分享窗口被关闭 |
+| reason | int | 停止原因。0表示用户主动停止，1表示屏幕分享窗口被关闭 |
 
 <br/>
 
@@ -676,7 +676,7 @@ __参数__
 |-----|------|------|
 | log | const char * | 日志内容 |
 | level | TRTCLogLevel | 日志类型 |
-| module | const char * | 暂无具体意义，目前为固定值TXLiteAVSDK |
+| module | const char * | 暂无具体意义，目前为固定值 TXLiteAVSDK |
 
 <br/>
 
