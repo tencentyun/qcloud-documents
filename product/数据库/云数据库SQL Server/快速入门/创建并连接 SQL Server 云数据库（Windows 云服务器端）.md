@@ -26,7 +26,7 @@
 
 ## 连接云数据库 SQL Server 实例（Windows 云服务器）
 1. 登录腾讯云 Windows 云服务器。如果您还没有腾讯云 Windows 云服务器，请参见 [快速入门 Windows 云服务器](/doc/product/213/2764)。本文以 Windows Server 2012 R2 标准版 64 位中文版为例。
-2. 在腾讯云 Windows 云服务器中下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)。更多有关 SQL Server Management Studio 的文档请参见微软官方文档 [使用 SQL Server Management Studio](https://docs.microsoft.com/zh-cn/previous-versions/sql/sql-server-2008-r2/ms174173(v=sql.105))。
+2. 在腾讯云 Windows 云服务器中下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)。更多有关 SQL Server Management Studio 的文档请参见微软官方文档 [使用 SQL Server Management Studio](https://docs.microsoft.com/zh-cn/sql/database-engine/use-sql-server-management-studio?view=sql-server-2014)。
 3. 在云数据库 SQL Server 实例详情页，单击【实例详情】，查看云数据库 SQL Server 实例的内网 IP 及端口号。**该内网 IP 及端口号会在连接云数据库时使用。**
 ![](https://main.qcloudimg.com/raw/05866d097de8b621b3a27b230ed6de8c.png)
 4. 在 Windows 云服务器上启动 SQL Server Management Studio。在【Connect to server】界面，填写相关信息连接云数据库。单击【Connect】，稍等几分钟后，SQL Server Management Studio 将连接到您的数据库实例。
@@ -37,7 +37,7 @@
  -  Login 和 Password：在创建实例的创建帐号时，填写的帐号名和密码。本教程以“test”为例。
 5. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](//mc.qcloudimg.com/static/img/a39d9db6f6a4050d1fa4285a53b55157/image.png)
-6. 此时您可以开始创建您自己的数据库并对数据库运行查询。选择【File】>【New】>【Query with Current Connection】，键入以下 SQL 查询：
+6. 现在您可以开始创建您自己的数据库并对数据库运行查询。选择【File】>【New】>【Query with Current Connection】，键入以下 SQL 查询：
 ```
 select @@VERSION
 ```

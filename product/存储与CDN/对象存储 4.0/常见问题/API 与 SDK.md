@@ -33,10 +33,6 @@
 
 详情请查阅 [获取预签名下载链接](https://cloud.tencent.com/document/product/436/12270#.E8.8E.B7.E5.8F.96.E9.A2.84.E7.AD.BE.E5.90.8D.E4.B8.8B.E8.BD.BD.E9.93.BE.E6.8E.A5) 文档。
 
-### 最新版本 SDK 是否支持 C# SDK?
-
-暂不支持，预计1月底上线。
-
 ### SDK 能否使用 CDN 加速域名进行访问？
 
 支持，请根据您所使用的编程语言，并参阅对应的 [SDK 文档](https://cloud.tencent.com/document/sdk) 进行操作。
@@ -44,7 +40,7 @@
 
 ### 小程序里请求多个域名，或者存储桶名称不确定，怎么解决白名单配置和限制问题？
 
-SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下 https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>后缀式请求，在签名时会存储桶名称 /<BucketName-APPID> 也会加入签名计算。
+SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下`https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>`后缀式请求，在签名时会存储桶名称`/<BucketName-APPID>`也会加入签名计算。
 
 ### 小程序如何保存图片到本地？
-先预先通过`cos.getObjectUrl`获取图片 url，而后调用`wx.downloadFile`下载图片得到临时路径，界面显示保存图片按钮，用户单击按钮后，调用`wx.saveImageToPhotosAlbum 保存到相册。
+先预先通过`cos.getObjectUrl`获取图片 url，而后调用`wx.downloadFile`下载图片得到临时路径，界面显示保存图片按钮，用户单击按钮后，调用`wx.saveImageToPhotosAlbum` 保存到相册。

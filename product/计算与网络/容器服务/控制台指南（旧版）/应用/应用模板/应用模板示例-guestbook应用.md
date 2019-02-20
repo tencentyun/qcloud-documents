@@ -128,7 +128,7 @@ spec:
       - env:
         - name: GET_HOSTS_FROM
           value: dns
-        image: ccr.ccs.tencentyun.com/library/gb-redisslave :{{.REDIS_SLAVE_VERSION}}
+        image: ccr.ccs.tencentyun.com/library/gb-redisslave:{{.REDIS_SLAVE_VERSION}}
         imagePullPolicy: Always
         name: slave
         resources:

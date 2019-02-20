@@ -7,7 +7,7 @@
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式：简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB）| 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传。<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
-| 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
+| 存储桶 ACL操作 | 设置存储桶 ACL<br>获取设置存储桶 ACL<br>删除设置存储桶 ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
 | 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
@@ -40,22 +40,22 @@ XML Java SDK 的存储桶名称和可用区域简称与 JSON Java SDK 的不同�
 **存储桶 Bucket**
 
 XML SDK 存储桶名称由两部分组成：用户自定义字符串和 APPID，两者以中划线“-”相连。
-例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/)【账号信息】查看 APPID。
 
 设置 Bucket，请参考以下示例代码：
 
 ```java
-COSCredentials cred = new BasicCOSCredentials("AKIDXXXXXXXX", "1A2Z3YYYYYYYYYY");
+COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
 // 采用了新的region名字，可用region的列表可以在官网文档中获取，也可以参考下面的XML SDK和JSON SDK的地域对照表
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 COSClient cosclient = new COSClient(cred, clientConfig);
 // bucket的名字需要的包含appid
-String bucketName = "mybucket-1251668577";
+String bucketName = "examplebucket-1250000000";
 
 // 以下是向这个存储桶上传一个文件的示例
-String key = "aaa/bbb.txt";
+String key = "docs/exampleobject.doc";
 File localFile = new File("src/test/resources/len10M.txt");
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
 // 设置存储类型, 默认是标准(Standard), 低频(standard_ia)
@@ -133,7 +133,7 @@ API 主要有以下变化：
 ```java
 TransferManager transferManager = new TransferManager(cosclient, threadPool);
 
-String key = "aaa/bbb.txt";
+String key = "docs/exampleobject.doc";
 File localFile = new File("src/test/resources/len30M.txt");
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
 try {

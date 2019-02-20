@@ -4,12 +4,12 @@ DELETE Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object�
 
 ### 细节分析
 
-- 在 DELETE Object 请求中删除一个不存在的 Object，仍然认为是成功的，返回 `204 No Content`。
+- 在 DELETE Object 请求中删除一个不存在的 Object，仍然认为是成功的，返回`204 No Content`。
 - DELETE Object 要求用户对该 Object 要有写权限。
 
 ## 请求
 
-语法示例：
+### 请求示例
 ```shell
 DELETE /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -18,19 +18,13 @@ Content-Length: length
 Authorization: Auth String
 ```
 
-> Authorization: Auth String （详细参见 [请求签名](/document/product/436/7778) 文档）。
-
-### 请求行
-```shell
-DELETE /<ObjectKey> HTTP/1.1
-```
-该 API 接口接受 DELETE 请求。
+> Authorization: Auth String （详情请参阅 [请求签名](/document/product/436/7778) 文档）。
 
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 

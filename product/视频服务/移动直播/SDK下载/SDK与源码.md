@@ -212,7 +212,7 @@ table td {
 
 <table>
   <tr>
-    <th width="200px" style="text-align:center">iOS SDK</th>
+    <th width="200px" style="text-align:center">Android SDK</th>
     <th width="500px" style="text-align:center">SDK 下载<br/>zip 包中提供了 aar 和 jar+so 两种集成方案</th>
   </tr>
   <tr>
