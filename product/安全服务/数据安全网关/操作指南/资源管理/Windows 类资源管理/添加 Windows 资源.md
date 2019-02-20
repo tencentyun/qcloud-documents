@@ -11,7 +11,7 @@
     - **名称**：填写资源名称。
     - **状态**：默认状态为上线。
     - **IP**：填写资源 IP 地址。
-    - **归属组**：配置资源隶属于某个组织结构。建议您事先添加组织结构，具体您可查看 [添加组织结构](https://cloud.tencent.com/document/product/1025/32049) 文档。 
+    - **归属组**：配置资源隶属于某个组织结构。建议您事先添加组织结构，详细操作请常见 [添加组织结构](https://cloud.tencent.com/document/product/1025/32049) 文档。 
     - **字符集**：填写 Windows 系统的字符集。
     ![1](https://main.qcloudimg.com/raw/98a8378ddbdf8bd516bb1c88123a65b1.png)
 4. 单击【保存】，即可添加 Windows 资源。
