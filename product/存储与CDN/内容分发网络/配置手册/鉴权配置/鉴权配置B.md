@@ -19,12 +19,10 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 http://DomainName/Filename?auth_key=timestamp-rand-uid-md5hash
 ```
 - 字段解析：
-```
-timestamp：UTC时间，十进制
-rand：随机数，0~100位随机数，大小写字母与数字组成
-uid：0
-md5hash：MD5（URI-Timestamp-rand-uid-PrivateKey）
-```
+   - `timestamp`：UTC时间，十进制
+   - `rand`：随机数，0~100位随机数，大小写字母与数字组成
+   - `uid`：0
+   - `md5hash`：MD5（URI-Timestamp-rand-uid-PrivateKey）
 
 ## 配置指引
 
