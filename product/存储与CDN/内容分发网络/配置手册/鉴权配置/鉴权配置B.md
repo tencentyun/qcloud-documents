@@ -39,7 +39,7 @@ http://DomainName/Filename?auth_key=timestamp-rand-uid-md5hash
 
 ## 鉴权计算器
 
-您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
+>? 您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
 
 1. 选择模式 B，填写鉴权密钥、访问路径、时间设置及有效时间：
   ![](https://main.qcloudimg.com/raw/0c187b452e0b2fb509e50828e756ccdc.png)
