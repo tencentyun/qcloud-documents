@@ -8,7 +8,7 @@ SDK 接入分为：iOS 接入、Android 接入，您可根据需求选择接入�
 3. [配置流程](https://cloud.tencent.com/document/product/655/32999)
 4. [接口调用](https://cloud.tencent.com/document/product/655/33000)
 5. [	错误码描述](https://cloud.tencent.com/document/product/655/33001)
-6. [验证结果](https://cloud.tencent.com/document/product/655/33009)
+6. [验证结果](https://cloud.tencent.com/document/product/655/33010)
 
 **Android 接入步骤**
 1. [鉴权](https://cloud.tencent.com/document/product/655/32000)
@@ -18,14 +18,14 @@ SDK 接入分为：iOS 接入、Android 接入，您可根据需求选择接入�
 5. [接口调用](https://cloud.tencent.com/document/product/655/33035)
 6. [错误码描述](https://cloud.tencent.com/document/product/655/33036)
 7. [接入示例](https://cloud.tencent.com/document/product/655/33037)
-8. [验证结果](https://cloud.tencent.com/document/product/655/33009)
+8. [验证结果](https://cloud.tencent.com/document/product/655/33010)
 
 ## 公众号接入步骤
 1. [鉴权](https://cloud.tencent.com/document/product/655/32001)
 2. [生成签名](https://cloud.tencent.com/document/product/655/33003)
 3. [公众号启动 H5 身份识别](https://cloud.tencent.com/document/product/655/33004)
 4. [H5 身份证识别结果跳转](https://cloud.tencent.com/document/product/655/33005)
-5. [验证结果](https://cloud.tencent.com/document/product/655/33009)
+5. [验证结果](https://cloud.tencent.com/document/product/655/33010)
 
 ## 小程序接入步骤
 1. [鉴权](https://cloud.tencent.com/document/product/655/32002)
