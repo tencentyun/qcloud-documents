@@ -11,7 +11,7 @@ TRTCCloudListener 是 TRTCCloud 的主要回调接口。
 
 ### onError
 
-错误回调：SDK不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
+错误回调：SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 
 ```
 void onError(int errCode, String errMsg, Bundle extraInfo)
@@ -69,7 +69,7 @@ __参数__
 
 ### onExitRoom
 
-离开房间 离开房间成功的回调。
+离开房间，离开房间成功的回调。
 
 ```
 void onExitRoom(int reason)
@@ -386,7 +386,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 用户标识 |
-| cmdID | int | 命令ID |
+| cmdID | int | 命令 ID |
 | seq | int | 消息序号 |
 | message | byte [] | 消息数据 |
 
@@ -439,7 +439,7 @@ void onStartPublishCDNStream(int err, String errMsg)
 __说明__
 
 
-Start回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
+Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
 
 
 <br/>
@@ -503,7 +503,7 @@ __参数__
 
 #### onVideoPostProcessGLDestroy
 
-自定义预处理，Opengl 环境销毁通知回调; 用户可以在此回调里，进行opengl 资源回收；保证跟 sdk 的 opengl 在同一个线程；否则可能会显存泄漏或崩溃。
+自定义预处理，Opengl 环境销毁通知回调; 用户可以在此回调里，进行 opengl 资源回收；保证跟 sdk 的 opengl 在同一个线程；否则可能会显存泄漏或崩溃。
 
 ```
 void onVideoPostProcessGLDestroy()
@@ -539,7 +539,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | log | String | 日志内容 |
-| level | int | 日志等级 参见 TRTC_LOG_LEVEL |
+| level | int | 日志等级，参见 TRTC_LOG_LEVEL |
 | module | String | 值暂无具体意义，目前为固定值 TXLiteAVSDK |
 
 <br/>
