@@ -37,7 +37,7 @@ http://DomainName/{<md5hash>/<timestamp>}/FileName
 
 ## 鉴权计算器
 
-您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
+>? 您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
 
 1. 选择模式 D，填写鉴权密钥、签名参数、访问路径、时间设置、时间格式、时间戳参数名及有效时间：
   ![](https://main.qcloudimg.com/raw/15dc41e44f995037fcba4e4fa6470d1e.png)
