@@ -39,7 +39,7 @@
 </AccessControlPolicy>
 ```
 
-如上 ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了匿名的读取权限，其表述形式为 `qcs::cam::anyone:anyone`的 READ 权限。
+如上 ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了匿名的读取权限，其表述形式为 `http://cam.qcloud.com/groups/global/AllUsers`的 READ 权限。
 
 ### 权限被授予者
 #### 主账号
@@ -57,7 +57,7 @@ qcs::cam::uin/100000000001:uin/100000000011
 #### 匿名用户
 您可以对匿名用户授予访问权限，使用 CAM 中对委托人（principal）的定义进行授权。描述为：
 ```
-qcs::cam::anyone:anyone
+http://cam.qcloud.com/groups/global/AllUsers
 ```
 
 ### 权限操作组
