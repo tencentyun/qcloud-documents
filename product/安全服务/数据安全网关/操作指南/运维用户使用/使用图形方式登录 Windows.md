@@ -3,7 +3,7 @@
 
 ## 前提条件
 1. 已下载安装 [控件](https://cloud.tencent.com/document/product/1025/32034)。
-2. 拥有访问 Windows 资源权限，若去权限，请联系管理员进行配置。
+2. 拥有访问 Windows 资源权限，若无权限，请联系管理员进行配置。
 
 
 ## 操作步骤
