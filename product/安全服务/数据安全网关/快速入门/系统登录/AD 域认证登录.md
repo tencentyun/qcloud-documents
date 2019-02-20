@@ -6,5 +6,5 @@
 ## 登录系统
 1. 进入 [腾讯云控制台](https://console.cloud.tencent.com/)，单击【云产品】>【安全】>【数据安全网关（堡垒机）】，进入数据安全网关系统。
 2. 在登录界面输入用户名和 AD 口令，完成认证即可登录系统。
-![1](C:\Users\v_kxianli\AppData\Roaming\Typora\typora-user-images\1550216018679.png)
+![1](https://main.qcloudimg.com/raw/7e7b18457a6de89657724e64424404c1.png)
 

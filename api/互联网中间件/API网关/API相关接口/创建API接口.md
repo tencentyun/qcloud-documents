@@ -100,13 +100,13 @@ https://apigateway.api.qcloud.com/v2/index.php?
 
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
@@ -130,20 +130,20 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &requestParameters.0.desc=年龄
 &serviceType=MOCK
 &serviceTimeout=60
-&serviceMockReturnMessage=MOCK的返回信息
+&serviceMockReturnMessage=MOCK 的返回信息
 ```
 
 返回示例如下：
 
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XXX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XXX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
@@ -174,13 +174,13 @@ https://apigateway.api.qcloud.com/v2/index.php?
 
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XXXX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XXXX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
