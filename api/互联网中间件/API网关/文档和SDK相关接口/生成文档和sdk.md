@@ -21,7 +21,7 @@
 | sdkURL | String | 生成的 SDK 会存放到 COS 中，此出参返回产生 SDK 文件的下载链接        |
 
 ## 示例 
-```
+```http
 https://apigateway.api.qcloud.com/v2/index.php?
 &<公共请求参数>
 &Action=GenerateApiDocument
@@ -30,7 +30,7 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &environment=release
 ```
 返回示例如下：
-```
+```json
 {
 	"code": "0",
 	"message": "",
