@@ -34,7 +34,7 @@ Mac:
 ![](https://main.qcloudimg.com/raw/7fef1d44f93872111a4498601d4dd61b.png)
 
 ## 5. 配置工程
-根据步骤一获取的 SdkAppid ，步骤二获取的 AccountType 、步骤三获取的四对 identifier 和 userSig，参考下图在 Demo 工程 AppDelegate.h 文件配置。
+根据步骤一获取的 SdkAppId ，步骤二获取的 AccountType 、步骤三获取的四对 identifier 和 userSig，参考下图在 Demo 工程 AppDelegate.h 文件配置。
 ![](https://main.qcloudimg.com/raw/de93117513ed5ae405f3a65448ef32e5.png)
 > ! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 demo 和功能调试，userSig 正确的签发方式请参考 [帐号登录集成说明](https://cloud.tencent.com/document/product/269/1507)。
 
