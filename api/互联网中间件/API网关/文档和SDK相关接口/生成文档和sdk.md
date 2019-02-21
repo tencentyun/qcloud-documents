@@ -9,7 +9,7 @@
 | 参数名称        | 是否必选 | 类型     | 描述            |
 | ----------- | ---- | ------ | ------------- |
 | serviceId   | 是    | String | 待创建文档的服务唯一 ID |
-| language    | 是    | String | 待创建 SDK 的语言。当前只支持 python 和 javascript |
+| language    | 是    | String | 待创建 SDK 的语言。当前只支持 Python 和 javascript |
 | environment | 是    | String | 待创建 SDK 的服务所在环境 |
 
 ## 输出参数
