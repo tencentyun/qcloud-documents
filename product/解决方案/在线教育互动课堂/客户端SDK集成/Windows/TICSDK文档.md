@@ -1,10 +1,11 @@
-## 1. 快速集成	
+## 1. 快速集成
+### 1.1 SDK下载
 为方便开发者集成使用，腾讯云准备了面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 >!开发者 Demo 主要向开发者展示 TICSDK 的基本使用方法，简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
 SDK 下载：[TICSDK ](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zip)
 
-### 1.1 编译集成
+### 1.2 编译集成
 在 VisualStudio 工程里面，选择编译平台为 x86。
 
 ![](https://main.qcloudimg.com/raw/944398e69196f1cb5a1d6a3db63d1dd6.png)
