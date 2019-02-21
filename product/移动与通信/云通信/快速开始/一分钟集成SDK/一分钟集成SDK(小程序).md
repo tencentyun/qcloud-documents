@@ -1,20 +1,20 @@
-本文主要介绍如何快速地将腾讯云 TRTC 小程序 SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云 IM SDK 集成到您的小程序项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
 
 ## 准备工作
-在集成小程序 SDK 前，请确保您已完成以下骤，详见[跑通Demo(小程序)](https://cloud.tencent.com/document/product/647/32399)。
-- 创建了腾讯云通信应用，并获取到SDKAppid。
+在集成小程序 SDK 前，请确保您已完成以下骤，详见 [跑通Demo(小程序)](https://cloud.tencent.com/document/product/647/32399)。
+- 创建了腾讯云通信应用，并获取到 SDKAppId。
 - 获取私钥文件。
 - 小程序服务器域名配置。
 
 ## 开发环境要求
-- 最新版微信web开发者工具。
+- 最新版微信 Web 开发者工具。
 - 小程序基础库最低版本要求：1.7.0。
 - 微信 App iOS 最低版本要求：6.5.21。
 - 微信 App Android 最低版本要求：6.5.19。
 
 ## 下载组件源码
-您可以直接从 [Github](https://github.com/tencentyun/TIMSDK) 上下载 IMSDK WXMini 开发包。 
+您可以直接从 [Github](https://github.com/tencentyun/TIMSDK) 上下载 IM SDK WXMini 开发包。
 SDK 路径为 WXMini\utils\webim_wx.js
 
 ## 集成组件
@@ -24,9 +24,9 @@ SDK 路径为 WXMini\utils\webim_wx.js
 ## 常见问题
 
 ### 1. 如果需要上线或者部署正式环境怎么办？
-请将以下域名在 【微信公众平台】-【开发】-【开发设置】-【服务器域名】中进行配置，添加到 **request 合法域名**中：
+请将以下域名在 【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行配置，添加到 **request 合法域名**中：
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
-|`https://webim.tim.qq.com` | WebIM 业务域名 | 必须|
-|`https://sxb.qcloud.com` | 测试demo域名 | 非必须，使用测试 Demo 时配置|
+|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://sxb.qcloud.com` | 测试 Demo 域名 | 非必须，使用测试 Demo 时配置|
