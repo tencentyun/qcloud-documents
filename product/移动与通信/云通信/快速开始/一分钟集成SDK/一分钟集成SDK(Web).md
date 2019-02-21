@@ -45,4 +45,4 @@ SDK 存放路径为 TIMSDK\H5\sdk\，相关文件清单如下：
 
 ## 支持的平台
 - ImSDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
-- Demo 支持 IE 8+ ( windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
