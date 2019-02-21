@@ -27,16 +27,13 @@
 ![](https://main.qcloudimg.com/raw/7b1bcd172ca430dd5d022dbd7bc9764c.png)
 2. 单击【自定义创建】按钮。
 ![](https://main.qcloudimg.com/raw/1e3b845388d0f66ca80db92c5ee27c9f.png)
-
 3. 按照要求填写用户相关信息。
 **用户名**：支持输入大小写英文字母、数字[即a-z,A-Z,0-9]，支持`@、._[]-:`。
 **邮箱**：您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
 **访问方式**：选择编程访问和腾讯云控制台访问。
 ![](https://main.qcloudimg.com/raw/ccb56ea4d723988e541b9a93ef5ebd45.png)
-
 4. 根据系统提供的策略选择，可配置简单的策略，如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [步骤二：新建自定义策略](#新建自定义策略)。
 ![](https://main.qcloudimg.com/raw/71f052ed73144bee6bf6fab9be1bca97.png)
-
 5. 确认输入的信息无误后，单击【完成】即可创建子账号。
 ![](https://main.qcloudimg.com/raw/ee3bfab6657f15b8e08c05b8786ccc9e.png)
 
@@ -64,7 +61,6 @@ COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 ![](https://main.qcloudimg.com/raw/0470d3941e878fbb6e6ff794a2c9391d.png)
 2. 登录后，单击按钮【新建密钥】，即可创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
 ![11](https://main.qcloudimg.com/raw/79a7ec6f2a3f083a152b841f679edb76.png)
-
 
 >!
 - 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
