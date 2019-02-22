@@ -23,14 +23,15 @@
 
 ### 步骤一：创建子账号
 在 CAM 控制台可创建子账号，并配置授予子账号的访问权限。具体操作如下所示：
-1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)，单击左侧菜单栏【用户】，单击【新建用户】按钮。
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
+2. 单击【用户】>【新建用户】，如下图所示。
 ![](https://main.qcloudimg.com/raw/7b1bcd172ca430dd5d022dbd7bc9764c.png)
-2. 单击【自定义创建】按钮。
+2. 单击【自定义创建】。
 ![](https://main.qcloudimg.com/raw/1e3b845388d0f66ca80db92c5ee27c9f.png)
 3. 按照要求填写用户相关信息。
-**用户名**：支持输入大小写英文字母、数字[即a-z,A-Z,0-9]，支持`@、._[]-:`。
-**邮箱**：您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
-**访问方式**：选择编程访问和腾讯云控制台访问。
+ - **用户名**：支持输入大小写英文字母、数字[即a-z,A-Z,0-9]，支持`@、._[]-:`。
+ - **邮箱**：您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
+ - **访问方式**：选择编程访问和腾讯云控制台访问。
 ![](https://main.qcloudimg.com/raw/ccb56ea4d723988e541b9a93ef5ebd45.png)
 4. 根据系统提供的策略选择，可配置简单的策略，如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [步骤二：新建自定义策略](#新建自定义策略)。
 ![](https://main.qcloudimg.com/raw/71f052ed73144bee6bf6fab9be1bca97.png)
@@ -40,13 +41,13 @@
 <span id="对子账号授予权限"></span>
 ### 步骤二：对子账号授予权限
 对子账号授予权限可通过 CAM，对子账号（用户）或用户组进行策略配置。
-1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)，单击左侧菜单栏【策略】，然后单击【新建自定义策略】按钮。
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)，单击左侧菜单栏【策略】，然后单击【新建自定义策略】。
 ![](https://main.qcloudimg.com/raw/c21ff705edcc38a69629c07c7b327483.png)
 2. 选择【按策略语法创建】，进入创建页面。
 ![](https://main.qcloudimg.com/raw/71f06c6317ecab4ddcd8dd1d2b7dc79e.png)
 3. 可供选择的模版有**空白模板**和与 COS 相关联的**预设策略模板**，选择您需要授予子账号的策略模板，然后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/f086c895e1e2408c204cdb0c90cd4021.png)
-4. 输入便于您记忆的策略名称，如您选择**空白模板**，则需要输入您的策略语法，详见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【编辑策略内容】输入框内，然后单击【创建策略】按钮。
+4. 输入便于您记忆的策略名称，如您选择**空白模板**，则需要输入您的策略语法，详见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【编辑策略内容】输入框内，单击【创建策略】。
 ![](https://main.qcloudimg.com/raw/880f49ec0df3199c2e301fd86b108580.png)
 5. 创建完成后，将刚才已创建的策略关联到子账号。
 ![](https://main.qcloudimg.com/raw/481057a2b826bf038bffa4f49817b380.png)
@@ -59,7 +60,7 @@ COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 
 1. 子账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  时，需切换对应的主账号（开发商账号）。
 ![](https://main.qcloudimg.com/raw/0470d3941e878fbb6e6ff794a2c9391d.png)
-2. 登录后，单击按钮【新建密钥】，即可创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
+2. 登录后，单击【新建密钥】，即可创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
 ![11](https://main.qcloudimg.com/raw/79a7ec6f2a3f083a152b841f679edb76.png)
 
 >!
@@ -81,11 +82,11 @@ COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJ
 
 #### COSCMD 命令行工具访问示例
 以 COSCMD `config`命令行为例，需填入参数如下：
-```
+```sh
 coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
 ```
 实例如下：
-```
+```sh
 coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b examplebucket -r ap-beijing
 ```
 
