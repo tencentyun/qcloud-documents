@@ -5,7 +5,7 @@ TUIKit 是基于腾讯云 IMSDK 的一款 UI 组件库，里面提供了一些�
 IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等。TUIKit 提供了这一类的组件，并提供了灵活的 UI 和交互扩展接口，方便用户做个性化开发。
 
 #### IMSDK 与 TUIKit 的结合
-腾讯云 IMSDK 提供了 IM 通信所需的各种基础能力，如通信网络，消息收发、存储，好友关系链，用户资料等。 TUIKit 中的组件在实现 UI 功能的同时调用 IMSDK 相应的接口实现了 IM 相关逻辑和数据的处理，因而开发者在使用 TUKit 时只需关注自身业务或做一些个性化的扩展即可。
+腾讯云 IMSDK 提供了 IM 通信所需的各种基础能力，如通信网络，消息收发、存储，好友关系链，用户资料等。 TUIKit 中的组件在实现 UI 功能的同时调用 IMSDK 相应的接口实现了 IM 相关逻辑和数据的处理，因而开发者在使用 TUIKit 时只需关注自身业务或做一些个性化的扩展即可。
 下面我们将指导您如何快速的接入和使用 TUIKit。
 
 ## 帐号相关的基本概念
@@ -242,7 +242,7 @@ public class PersonalChatFragment extends BaseFragment {
 
 #### 群聊面板（GroupChatPanel）使用：
 
-群聊面板与单聊面板的使用基本一致，在Activity或Fragment（Demo示例为创建一个Fragment,即下面代码的GroupChatFragment）的布局文件里引用GroupChatPanel
+群聊面板与单聊面板的使用基本一致，在 Activity 或 Fragment（Demo 示例为创建一个 Fragment，即下面代码的 GroupChatFragment）的布局文件里引用GroupChatPanel
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -414,7 +414,7 @@ public abstract class IMEventListener {
 |setAudioRecordMaxTime|语音消息的最大时长|int|
 |setVideoRecordMaxTime|视频消息的摄像时长|int|
 |setFaceConfigs|自定义表情配置|ArrayList&lt;CustomFaceGroupConfigs&gt;|
-|setTIMSdkConfig|自定义TIMSdkConfig(可参考 [IMSDK初始化](https://cloud.tencent.com/document/product/269/9229))|TIMSdkConfig|
+|setTIMSdkConfig|自定义 TIMSdkConfig(可参考 [IM SDK初始化](https://cloud.tencent.com/document/product/269/9229))|TIMSdkConfig|
 
 配置类本身为建造者模式，可以一行代码完成配置。
 

@@ -22,7 +22,7 @@ public abstract int EnterRoom();
 ### ExitRoom 
 退房操作由同步改为异步调用，参照 RoomExitComplete 回调函数处理，返回值为 AV_OK 时，表示异步投递成功。
 
->!如果应用中有退房后立即进房的场景，在接口调用流程上，开发者需要等待 ExitRoom 的回调 RoomExitComplete 通知后，再调用 EnterRoom 接口。
+>!如果应用中有退房后立即进房的场景，在接口调用流程上，开发者无需要等待 ExitRoom 的回调 RoomExitComplete 通知，只需直接调用接口。
 
 ```
 public abstract int ExitRoom();
