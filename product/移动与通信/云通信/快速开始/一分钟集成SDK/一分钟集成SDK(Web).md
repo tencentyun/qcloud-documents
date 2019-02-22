@@ -9,7 +9,7 @@
 
 ## 下载组件源码
 您可以直接从 [Github](https://github.com/tencentyun/TIMSDK) 上下载 IM SDK H5 开发包。
-SDK 存放路径为 TIMSDK\H5\sdk\，相关文件清单如下：
+SDK 存放路径为 TIMSDK/TIMSDK/H5/sdk/，相关文件清单如下：
 
 | 目录| 说明 |
 |:-------:|---------|
@@ -31,19 +31,19 @@ SDK 存放路径为 TIMSDK\H5\sdk\，相关文件清单如下：
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
 | SDK 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 SDK，需要传入当前用户信息，新消息通知回调函数等，注意，为了版本向下兼容，仍保留了老版本的初始化 init 接口，它和 login 是一样的，开发者调用其中一个即可。|
-| 监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息））|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 SDK |
-| 上报已读消息|webim.setAutoRead(selSess, isOn, isResetAll);|设置聊天会话自动已读标识|
-| 发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息(私聊和群聊) |
-| 获取消息 |webim.getC2CHistoryMsgs (options,cbOk, cbErr);|获取好友历史消息 |
-| 获取消息 |webim.syncGroupMsgs(options,cbOk, cbErr);|获取群历史消息 |
-| 资料管理 |webim.getProfilePortrait(options,cbOk, cbErr);|查询个人资料 |
-| 资料管理 |webim.setProfilePortrait(options,cbOk, cbErr);|设置个人资料 |
-| 好友管理|webim.applyAddFriend(options,cbOk, cbErr);|申请添加好友|
-| 好友管理|webim.getAllFriend(options,cbOk, cbErr);等|获取我的好友等|
-| 群组管理|webim.createGroup(options,cbOk, cbErr);|创建群|
-| 群组管理|webim.applyJoinGroup(options,cbOk,cbErr);等|申请加群等|
-| SDK 登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
+| 监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息））|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 SDK。 |
+| 上报已读消息|webim.setAutoRead(selSess, isOn, isResetAll);|设置聊天会话自动已读标识。|
+| 发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息（私聊和群聊）。 |
+| 获取消息 |webim.getC2CHistoryMsgs (options,cbOk, cbErr);|获取好友历史消息。 |
+| 获取消息 |webim.syncGroupMsgs(options,cbOk, cbErr);|获取群历史消息。 |
+| 资料管理 |webim.getProfilePortrait(options,cbOk, cbErr);|查询个人资料。 |
+| 资料管理 |webim.setProfilePortrait(options,cbOk, cbErr);|设置个人资料。 |
+| 好友管理|webim.applyAddFriend(options,cbOk, cbErr);|申请添加好友。|
+| 好友管理|webim.getAllFriend(options,cbOk, cbErr);等|获取我的好友等。|
+| 群组管理|webim.createGroup(options,cbOk, cbErr);|创建群。|
+| 群组管理|webim.applyJoinGroup(options,cbOk,cbErr);等|申请加群等。|
+| SDK 登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录。 |
 
 ## 支持的平台
-- ImSDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 - Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
