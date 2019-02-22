@@ -35,7 +35,8 @@
   "statement": [
     {
       "action": [
-            "name/ckafka:*"
+            "name/ckafka:*",
+            "name/monitor:GetMonitorData"
       ],
       "resource": "*",
       "effect": "allow"
@@ -52,14 +53,10 @@
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限【QcloudCKafkaFullAccess】，单击【下一步】。
 6. 单击【创建策略】。
 
-### CKafka 单个实例读写策略
-
-授权一个子用户某个特定实例的 CKafka 服务的完全管理权限（创建、管理等全部操作）。
->!List* 接口不支持资源粒度的鉴权。
 
 
-### CKafka 单个实例只读策略
-按照策略生成器创建，授权产品监控权限。
+### CKafka 实例只读策略
+1. 按照策略生成器创建，授权列表类权限和产品监控权限。
 ```
 {
     "version": "2.0",
@@ -67,7 +64,29 @@
         {
             "effect": "allow",
             "action": [
+                "name/ckafka:ListInstance",
                 "name/monitor:GetMonitorData"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+2. 授权单实例只读权限
+>!List* 接口不支持资源粒度的鉴权。
+
+ ```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "name/monitor:GetMonitorData",
+                "name/ckafka:Get*"
             ],
             "resource": [
                 "qcs::ckafka:gz::ckafkaId/uin/$createUin/$instanceId" 
@@ -76,6 +95,7 @@
     ]
 }
 ```
+
 您也可以通过设置系统的 [只读策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 
 2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
@@ -83,6 +103,5 @@
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）只读访问策略【QcloudCkafkaReadOnlyAccess】，单击【下一步】。
 6. 单击【创建策略】。
-
 
 

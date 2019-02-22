@@ -1,18 +1,17 @@
 ## 功能描述
-DELETE Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
-><font color="#0000cc">**注意：** </font>
->此请求必须携带 Content-MD5 用来校验 Body 的完整性。
+DELETE Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除1000个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
+>!此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
 ### 细节分析
-1. 每一个批量删除请求，最多只能包含 1000个 需要删除的对象；
-2. 批量删除支持二种模式的放回，verbose 模式和 quiet 模式，默认为 verbose 模式。verbose 模式返回每个 key 的删除情况，quiet 模式只返回删除失败的 key 的情况；
-3. 批量删除需要携带 Content-MD5 头部，用以校验请求 body 没有被修改；
+1. 每一个批量删除请求，最多只能包含1000需要删除的对象。
+2. 批量删除支持二种模式的放回，verbose 模式和 quiet 模式，默认为 verbose 模式。verbose 模式返回每个 key 的删除情况，quiet 模式只返回删除失败的 key 的情况。
+3. 批量删除需要携带 Content-MD5 头部，用以校验请求 body 没有被修改。
 4. 批量删除请求允许删除一个不存在的 key，仍然认为成功。
 
 ## 请求
 
 语法示例：
-```
+```shell
 POST /?delete HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -31,13 +30,12 @@ Authorization: Auth String
   </Object>
   ...
 </Delete>
-
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求行
-```
+```shell
 POST /?delete HTTP/1.1
 ```
 该 API 接口接受 POST 请求。
@@ -45,7 +43,7 @@ POST /?delete HTTP/1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 **必选头部**
@@ -59,7 +57,7 @@ POST /?delete HTTP/1.1
 
 ### 请求体
 该请求的请求体具体节点内容为：
-```
+```shell
 <Delete>
   <Quiet></Quiet>
   <Object>
@@ -70,8 +68,8 @@ POST /?delete HTTP/1.1
   </Object>
   ...
 </Delete>
-
 ```
+
 具体内容描述如下：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
@@ -86,13 +84,13 @@ POST /?delete HTTP/1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该请求操作无特殊的响应头。
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
-```
+```shell
 <DeleteResult>
   <Deleted>
     <Key></Key>
@@ -137,15 +135,17 @@ Container 节点 Error 的内容：
 
 | 错误码            |  HTTP状态码         |描述                                       |
 | ------------- | --------------------------------------- | -------------- |
-| InvalidRequest | 400 Bad Request |没有携带必填字段 Content-MD5，同时返回 `“Missing required header for this request: Content-MD5”` 错误信息 | 
-| MalformedXML   | 400 Bad Request |如果请求的 key 的个数，超过了 1000，会返回 MalformedXML 错误，同时返回 `“delete key size is greater than 1000”` | 
+| InvalidRequest | 400 Bad Request |没有携带必填字段 Content-MD5，同时返回 `Missing required header for this request: Content-MD5` 错误信息 | 
+| MalformedXML   | 400 Bad Request |如果请求的 key 的个数，超过1000，则会返回 MalformedXML 错误，同时返回 `delete key size is greater than 1000` | 
 | InvalidDigest  | 400 Bad Request |携带的 Content-MD5 和服务端计算的请求 body 的不一致          | 
+
+
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 ### 请求
-```
+```shell
 POST /?delete HTTP/1.1
 Host: lelu06-1252400000.cos.ap-guangzhou.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
@@ -166,11 +166,10 @@ Content-Length: 125
     <Key>aaa</Key>
   </Object>
 </Delete>
-
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 17
@@ -183,7 +182,7 @@ x-cos-request-id: NTk5YzFjZjBfZWFhZDM1MGFfMjkwZV9lZGM3ZQ==
 ```
 
 ### 请求
-```
+```shell
 POST /?delete HTTP/1.1
 Host: lelu06-1252400000.cos.ap-guangzhou.myqcloud.com
 Date: Tue, 22 Aug 2017 12:16:35 GMT
@@ -204,11 +203,10 @@ Content-Length: 126
     <Key>aaa</Key>
   </Object>
 </Delete>
-
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 111
@@ -225,6 +223,5 @@ x-cos-request-id: NTk5YzIwYTNfMzFhYzM1MGFfMmNmOWZfZWVhNjQ=
   <Key>aaa</Key>
  </Deleted>
 </DeleteResult>
-
 ```
 

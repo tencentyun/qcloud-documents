@@ -6,7 +6,7 @@ TICSDK 使用了实时音视频服务（iLiveSDK）、云通讯服务（IMSDK）
 - [云通讯服务（IMSDK）](https://cloud.tencent.com/document/product/269/1504)
 - [COS 服务](https://cloud.tencent.com/document/product/436/6225)
 
-###  资源下载	
+**资源下载**	
 
 为方便开发者集成使用，腾讯云准备了面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
 

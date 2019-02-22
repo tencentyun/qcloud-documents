@@ -6,10 +6,7 @@
 
 ## 接入流程
 
-登录 [腾讯云点播控制台](https://console.cloud.tencent.com/video/license) 在线申请为期两周的商业版试用LICENSE，可免费申请两次。Licence有两种：
-
-- 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
-- 正式Licence：有效期根据最终的合同而定，一般为一年。
+单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)。
 
 ## 版本下载
 可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 的获取参考接入流程）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
