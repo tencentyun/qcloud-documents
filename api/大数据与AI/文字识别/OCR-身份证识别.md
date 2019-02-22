@@ -1,3 +1,8 @@
+>!
+- 身份证识别全面升级接口，算法更强、性能更优，立即体验 [新版身份证识别](http://139.199.214.26/document/product/1024/31300?!document=1&!preview)。
+- 新老版本的身份证识别接口均在控制台汇总展示，计费模式和定价保持一致。
+- 老版本接口我们仍继续维护，但建议您使用 [新版身份证识别](http://139.199.214.26/document/product/1024/31300?!document=1&!preview)，体验更优服务。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
 本接口（idcard）用于识别身份证上的姓名、证件号、地址等信息。
