@@ -34,7 +34,7 @@
 1. 登录腾讯云 [负载均衡服务购买页](https://buy.cloud.tencent.com/lb)。
 2. 本例地域选择与云服务器相同的【广州】，实例类型选择【应用型】，网络属性选择【公网】，网络选择【Default-VPC(默认)】，实例名称填写【clb-test】。
 3. 单击【立即购买】按钮，完成付款。
-有关负载均衡实例的更多内容，请参考 [购买属性选择指引](待发布) 。
+有关负载均衡实例的更多内容，请参考 [购买属性指引](待发布) 。
 ![](https://main.qcloudimg.com/raw/ce5c1f23b671760a8e14f06f28040da4.png)
 4. 在【LB 实例列表】页，选择对应的地域即可看到新建的实例。
 ![](https://main.qcloudimg.com/raw/36e75ded1d8a0e93bd25b9c24ee850c5.png)
