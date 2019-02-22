@@ -41,11 +41,12 @@
 <span id="对子账号授予权限"></span>
 ### 步骤二：对子账号授予权限
 对子账号授予权限可通过 CAM，对子账号（用户）或用户组进行策略配置。
-1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)，单击左侧菜单栏【策略】，然后单击【新建自定义策略】。
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
+2. 单击【策略】>【新建自定义策略】，如下图所示。
 ![](https://main.qcloudimg.com/raw/c21ff705edcc38a69629c07c7b327483.png)
 2. 选择【按策略语法创建】，进入创建页面。
 ![](https://main.qcloudimg.com/raw/71f06c6317ecab4ddcd8dd1d2b7dc79e.png)
-3. 可供选择的模版有**空白模板**和与 COS 相关联的**预设策略模板**，选择您需要授予子账号的策略模板，然后单击【下一步】。
+3. 可供选择的模版有**空白模板**和与 COS 相关联的**预设策略模板**，选择您需要授予子账号的策略模板，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/f086c895e1e2408c204cdb0c90cd4021.png)
 4. 输入便于您记忆的策略名称，如您选择**空白模板**，则需要输入您的策略语法，详见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【编辑策略内容】输入框内，单击【创建策略】。
 ![](https://main.qcloudimg.com/raw/880f49ec0df3199c2e301fd86b108580.png)
