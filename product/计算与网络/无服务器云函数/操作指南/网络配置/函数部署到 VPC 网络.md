@@ -40,7 +40,7 @@ def main_handler(event,context):
     return r.get('foo')
 ```
 
-云函数切换至 VPC 网络环境后，将失去原有独立网络环境中的外网访问能力，如需继续访问外网，在 VPC 上通过 [配置公网网关](https://cloud.tencent.com/document/product/215/11119)、[配置 NAT 网关](https://cloud.tencent.com/document/product/215/4975) 等方式，打通 VPC 访问外网的能力，具体可以参考另外一篇文章《函数在 VPC 网络中访问外网》，给 VPC 添加 NAT 网关。
+云函数切换至 VPC 网络环境后，将失去原有独立网络环境中的外网访问能力，如需继续访问外网，在 VPC 上通过 [配置公网网关](https://cloud.tencent.com/document/product/215/20078)、[配置 NAT 网关](https://cloud.tencent.com/document/product/552) 等方式，打通 VPC 访问外网的能力，具体可以参考另外一篇文章《函数在 VPC 网络中访问外网》，给 VPC 添加 NAT 网关。
 
 ### VPC 网络中的 Name server 配置
 

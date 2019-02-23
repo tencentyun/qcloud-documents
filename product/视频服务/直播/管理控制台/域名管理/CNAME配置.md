@@ -3,7 +3,7 @@
 ## 腾讯云设置方法
 若您的 DNS 服务商为腾讯云，您可通过如下步骤添加 CNAME 记录：
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)，单击要添加 CNAME 记录的域名右侧的【解析】。
-![](https://main.qcloudimg.com/raw/8132a8dc0f0194a951063c6115fe333a.png)
+![](https://main.qcloudimg.com/raw/67dda19da4a1995507648eedd85af37b.png)
 
 2. 跳转到指定域名的域名解析页面，单击【添加记录】。
 ![](https://main.qcloudimg.com/raw/edc2202d3906cae23163e1ca62e89dfe.png)
@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/8a4a3fc6179c1b09fef2d69b1a673356.png)
 
 ## DNSPod 设置方法
-若您的 DNS 服务商为DNSPod，您可通过如下步骤添加 CNAME 记录。
+若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/c78f494c6b550562ddb49a255f1caf0d.png)
 
 ## 万网设置方法

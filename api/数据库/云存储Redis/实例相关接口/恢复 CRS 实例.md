@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口(RestoreInstance)用于恢复CRS实例。
+本接口(RestoreInstance)用于恢复 Redis 实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 - 目标实例只能恢复到自身的备份，不能恢复到别的实例的备份。

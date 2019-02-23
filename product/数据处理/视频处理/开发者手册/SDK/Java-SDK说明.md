@@ -4,11 +4,10 @@
 </p>
 
 ### 1.1	前期准备
+1.	sdk采用1.8版本的jdk开发， 推荐使用相同的版本。如果使用其他版本，建议不要直接导入jar包，自行编译为佳；
+2.	通过项目设置获取appid，secret_id和secret_key；
+3.	Sdk开发采用netbeans，本文档以netbeans为例，其他IDE请适当调整。
 
-<p>1.	sdk采用1.8版本的jdk开发， 推荐使用相同的版本。如果使用其他版本，建议不要直接导入jar包，自行编译为佳；<br>
-2.	通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
-3.	Sdk开发采用netbeans，本文档以netbeans为例，其他IDE请适当调整。<br>
-</p>
 
 ### 1.2	导入SDK
 

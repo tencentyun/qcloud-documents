@@ -4,11 +4,11 @@
 
 ### 1.1	前期准备
 
-<p>1.	sdk采用Node.js v0.10.29版本开发， 推荐使用相同的版本。<br>
-2.	通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
+<p>1.	sdk 采用 Node.js v0.10.29 版本开发， 推荐使用相同的版本。<br>
+2.	通过<a href="https://console.cloud.tencent.com/cam/capi" class="external text" title="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
 </p>
 
-### 1.2	导入SDK
+### 1.2	导入 SDK
 
 <p>1.	下载Node.js sdk<br>
 方法一：执行 npm install qcloud_video 直接安装。<br>
@@ -25,12 +25,12 @@ var qcloud = require('qcloud_video');
 <p>3.	参照api说明和sdk中提供的demo，开发代码。<br>
 </p>
 
-### 1.3	HTTPS支持
-<p>如果想使用https协议上传，则将qcloud_video/lib/conf.js文件中变量API_VIDEO_END_POINT中的http修改为https即可。<br>
+### 1.3	HTTPS 支持
+<p>如果想使用 https 协议上传，则将qcloud_video/lib/conf.js文件中变量API_VIDEO_END_POINT中的http修改为https即可。<br>
 <br>
 </p>
 
-## 2	API详细说明
+## 2	API 详细说明
 
 ### 2.1	生成签名
 

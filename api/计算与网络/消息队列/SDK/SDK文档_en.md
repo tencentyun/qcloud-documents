@@ -26,7 +26,7 @@ Users can create a new Cloud API key or use an existing key. Click key ID and go
 endpoint is the access address for CMQ service, and it contains the protocol used. endpoint is formatted as follows:
 
 - Private network: <font style="color:red">http ://cmq-queue-region.api.tencentyun.com</font>
-- Public network: <font style="color:red">http(s)://cmq-queue-region.api.qcloud.com</font>
+- Public network: <font style="color:red">https://cmq-queue-region.api.qcloud.com</font>
 
 
 #### region

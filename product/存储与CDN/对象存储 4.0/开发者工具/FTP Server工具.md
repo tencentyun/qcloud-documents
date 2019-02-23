@@ -1,41 +1,72 @@
-COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
-## 使用环境
+COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
+
+## 开始使用
+
 ### 系统环境
-操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
+
+操作系统：Linux，推荐使用腾讯 CentOS 系列 [云服务器](https://cloud.tencent.com/document/product/213)，暂时不支持 Windows 系统。
 
 Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 
-依赖库：
-- requests
-- argparse
+依赖包：
+- cos-python-sdk-v5 （>=1.6.5）
+- pyftpdlib （>=1.5.2）
 
-### 下载与安装
-GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
 
-下载完成后，直接运行`cos ftp server`目录下的`setup.py`即可，需要联网安装依赖库。
+### 使用限制
+
+适用于COS XML 版本。
+
+### 安装运行
+
+获取链接：[cos-ftp-server](https://github.com/tencentyun/cos-ftp-server-V5)
+
+1. 运行 setup.py 安装 FTP Server 及其相关的依赖库（需要联网）：
+```bash
+python setup.py install   # 这里可能需要您的账号 sudo 或者拥有 root 权限。
 ```
-python setup.py install   # 这里可能需要sudo或者root权限
+2. 将配置示例文件 conf/vsftpd.conf.example 复制命名为 conf/vsftpd.conf，参考 [配置文件](#conf) 章节，正确配置 bucket 和用户信息。
+3. 运行 ftp_server.py 启动 FTP Server：
+```bash
+python ftp_server.py
+```
+此外还有两种方式启动 FTP Server，如下：
+ - 使用 nohup 命令，以后台进程方式启动：
+```bash
+nohup python ftp_server.py >> /dev/null 2>&1 &
+```
+ - 使用 screen 命令放入后台运行（需要安装 screen 工具)：
+```bash
+screen -dmS ftp
+screen -r ftp
+python ftp_server.py
+#使用快捷键，切回主 screen 即可：
+Ctrl+A+D 
 ```
 
-### 特别说明
-本工具使用 COS XML 接口开发
+### 停止
+
+- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键`Ctrl+C`停止 FTP Server 运行。 
+
+- 若您是通过 nohup 命令启动，可以使用下面方式停止：
+```bash
+ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xargs -I{} kill {}
+```
+
 
 ## 功能说明
-#### 上传机制
-流式上传，不落本地磁盘，只要按照标准的 FTP 协议配置工作目录即可，不占用实际的磁盘存储空间。
 
-#### 下载机制
-直接流式返回给客户端。
+**上传机制**：流式上传，不落本地磁盘，只要按照标准的 FTP 协议配置工作目录即可，不占用实际的磁盘存储空间。
+**下载机制**：直接流式返回给客户端
+**目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
+**多 bucket 绑定**：支持同时绑定多个 bucket。
+**删除操作限制**：在新的 FTP Serve 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
 
-#### 目录机制
-Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个子目录。
+>?多 bucket 绑定：通过不同的 FTP Server 工作路径（`home_dir`）来实现，因此，指定不同的 bucket 和用户信息时必须保证`home_dir`不同。
 
-#### 说明
-- 目前只支持操作一个 Bucket，后期可能会支持同时操作多个 Bucket。
-- FTP Server 工具暂不支持断点续传功能。
-- 不支持上传空文件（0B），支持的最大文件为 200 GB。
 
-## 支持的 FTP 命令
+### 支持的FTP命令
+
 - put
 - mput
 - get
@@ -48,82 +79,75 @@ Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个
 - quite
 - size
 
-## 不支持的 FTP 命令
+### 不支持FTP命令
+
 - append
-- mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，如 FileZilla。）
+- mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
+>?FTP Serve 工具暂时不支持断点续传功能。
 
+<a id="conf"></a>
 ## 配置文件
-`conf/vsftpd.conf`为 FTP Server 工具的配置文件，相关配置项的说明如下：
+
+ Ftp Server 工具的配置示例文件为 conf/vsftpd.conf.example，请复制命名为 vsftpd.conf，并按照以下的配置项进行配置：
 ```conf
-[COS_ACCOUNT]
+[COS_ACCOUNT_0]
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
-# SecretId 和 SecretKey 可以在以下地址获取：https://console.cloud.tencent.com/cam/capi
-cos_bucket = BucketName-appid
-# 要操作的bucket，bucket的格式为：bucektname-appid组成。示例：cos_bucket = mybucket-125888888888。
+cos_bucket = {bucket name}-123
 cos_region = ap-xxx
-# Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://cloud.tencent.com/document/product/436/6224
-cos_user_home_dir = /home/cos_ftp/data
-# FTP Server 的工作目录。
-[FTP_ACCOUNT]
-login_users = user1:pass1:RW;user2:pass2:RW
-# FTP 账户配置。配置格式为<用户名:密码:读写权限>，多个账户用分号分割。
+cos_protocol = https
+#cos_endpoint = ap-xxx.myqcloud.com
+home_dir = /home/user0
+ftp_login_user_name=user0
+ftp_login_user_password=pass0
+authority=RW
+delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)，false 为禁止该用户进行删除操作
+
+[COS_ACCOUNT_1]
+cos_secretid = XXXX
+cos_secretkey = XXXXX
+cos_bucket = {bucket name}-123
+cos_region = ap-xxx
+cos_protocol = https
+#cos_endpoint = ap-xxx.myqcloud.com
+home_dir = /home/user1
+ftp_login_user_name=user1
+ftp_login_user_password=pass1
+authority=RW
+delete_enable=false
 
 [NETWORK]
-masquerade_address = XXX.XXX.XXX.XXX
-# 当 FTP Server 处于某个网关或 NAT 后时，可以通过该配置项将网关的 IP 地址或域名指定给 FTP Server。一般情况下，无需配置。
-listen_port = 2121
-# Ftp Server 的监听端口，默认为 2121，请注意防火墙需要放行该端口。
-passive_port = 60000,65535             
-# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择。
+masquerade_address = XXX.XXX.XXX.XXX        # 如果 FTP SERVER 处于某个网关或NAT后，可以通过该配置项将网关的IP 地址或域名指定给 FTP
+listen_port = 2121					   # Ftp Server的监听端口，默认为2121，注意防火墙需要放行该端口
+
+passive_port = 60000,65535             # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择
 
 [FILE_OPTION]
+# 默认单文件大小最大支持到200G，不建议设置太大
 single_file_max_size = 21474836480
-# 默认单文件大小最大支持到 200 GB，不建议设置太大。
 
 [OPTIONAL]
-# 以下设置，如无特殊需要，建议保留default设置。如需设置，请填写一个合理的整数。
-min_part_size       = default
+# 以下设置，如无特殊需要，建议保留 default 设置  如需设置，请合理填写一个整数
+min_part_size       = default
 upload_thread_num   = default
 max_connection_num  = 512
 max_list_file       = 10000                # ls命令最大可列出的文件数目，建议不要设置太大，否则ls命令延时会很高
 log_level           = INFO                 # 设置日志输出的级别
 log_dir             = log                  # 设置日志的存放目录，默认是在ftp server目录下的log目录中
 ```
-配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
-## 运行
-正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合screen 的命令将 FTP Server 放到后台运行。
-```
-python ftp_server.py
-```
-运行命令后，见到如下图示，即代表 FTP Server 服务启动成功，您可以开始使用 FTP 客户端对配置的 IP 和端口进行访问了。
-![运行成功](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
 
-## 停止
-`Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
-## FAQ
+如果要将每个用户绑定到不同的 bucket 上，则只需要添加`[COS_ACCOUNT_X]`的 section 即可。
 
-### 配置文件中的 masquerade_address 这个选项有何作用？何时需要配置 masquerade_address
-当 FTP Server 运行在一个多网卡的 Server 上，并且 FTP Server 采用了 PASSIVE 模式时（一般地，FTP 客户端位于一个NAT网关之后时，都需要启用 PASSIVE 模式），此时需要使用 masquerade_address 选项来唯一绑定一个 passive 模式下用于 reply 的 IP。 例如，FTP Server 有多个 IP 地址，如内网 IP 为 10.XXX.XXX.XXX，外网 IP 为 123.XXX.XXX.XXX。 客户端通过外网 IP 连接到 FTP Server，同时客户端使用的是 PASSIVE 模式传输，此时，若 FTP Server 未指定 masquerade_address 具体绑定到外网IP地址，则 Server 在 PASSIVE 模式下，reply 时，有可能会走内网地址。就会出现客户端能连接上 Ftp server，但是不能从 Server 端获取任何数据回复的问题。
+针对每个不同的`COS_ACCOUNT_X`的 section 有如下说明：
 
-如果需要配置 masquerade_address，建议指定为客户端连接 Server 所使用的那个IP地址。
+1. 每个 ACCOUNT 下的用户名（`ftp_login_user_name`）和用户的主目录（`home_dir`）必须各不相同，并且主目录必须是系统中真实存在的目录。
+2. 每个 COS FTP Server 允许同时登录的用户数目不能超过100。
+3. `endpoint`和`region`不会同时生效，使用公有云COS服务只需要正确填写`region`字段即可，`endpoint`常用于私有化部署环境中。当同时填写了`region`和`endpoint`，则会`endpoint`会优先生效。
 
-### 正确配置了 masquerade_address 选项以后，ftp server 可以正常登录，但是执行 FTP 命令：list 或者 get 等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误
+配置文件中的 OPTIONAL 选项是提供给高级用户用于调整上传性能的可选项，根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度，一般用户不需要调整，保持默认值即可。
+同时，提供最大连接数的限制选项。 这里如果不想限制最大连接数，可以填写0，即表示不限制最大连接数目（不过需要根据您机器的性能合理评估）。
 
-这个 case 多半是因为 ftp server 机器 iptables 或防火墙策略配置 reject 或者 drop 掉所有 ICMP 协议包，而 FTP 客户端在拿到 FTP Server 被动模式下返回的数据连接 IP 后，会首先发送一个 ICMP 包探测 IP 的连通性，所以客户端会提示“服务器返回不可路由的地址”等错误。
 
-建议解决方案是：将 iptables 策略按需配置为只 reject 或 drop 希望限制的 ICMP 包类型，如只想禁掉外部 ping 类型的 ICMP 包，可以将策略修改为：iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j [REJECT/DROP]
-或者单独放开要访问 ftp server 的客户端的 IP。
-
-### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
-由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
-
-### 为什么 FTP Server 配置中要设置最大上传文件的限制？
-COS 的分片上传数目最大只能为 10000 块，且每个分片的大小限制为 1 MB ~ 5 G。 这里设置最大上传文件的限制是为了合理计算一个上传分片的大小。
-FTP Server 默认支持 200 GB 以内的单文件上传，但是不建议用户设置过大，因为单文件大小设置越大，上传时的分片缓冲区也会相应的增大，这可能会耗费用户的内存资源。因此，建议用户根据自己的实际情况，合理设置单文件的大小限制。
-
-### 如果上传的文件超过最大限制，会怎么样？
-当实际上传的单文件大小超过了配置文件中的限制，系统会返回一个 IOError 的异常，并且在日志中标注错误信息。
-
-### 其他问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category)，并在工单上附上完整的`cos_v5.log`日志，便于我们进一步排查和解决问题。
+## 常见问题
+如您在使用 FTP Server 工具过程中，有报错或对上传限制有疑问，请参阅 [FTP Server 工具类常见问题](https://cloud.tencent.com/document/product/436/30742)。

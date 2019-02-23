@@ -9,41 +9,43 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 		<tr>
 			<th scope="col" style="width: 145px;">Billing Model</th>
 			<th scope="col" style="width: 154px;">Bandwidth Tiers</th>
-			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Month)</th>
+			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Day)</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="4" style="text-align: center; width: 145px;">Bandwidth Peak</td>
 			<td style="text-align: center; width: 154px;">0 - 500Mbps</td>
-			<td style="text-align: center; width: 180px;">4.80</td>
+			<td style="text-align: center; width: 180px;">0.094</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">500Mbps - 5Gbps</td>
-			<td style="text-align: center; width: 180px;">4.20</td>
+			<td style="text-align: center; width: 180px;">0.092</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">5Gbps - 50Gbps</td>
-			<td style="text-align: center; width: 180px;">3.90</td>
+			<td style="text-align: center; width: 180px;">0.086</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">>= 50Gbps</td>
-			<td style="text-align: center; width: 180px;"><3.30, subject to the contract price</td>
+			<td style="text-align: center; width: 180px;">0.084, or subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
 
+
 ### Calculation Method
 Assume that the CDN peak bandwidth for the previous day is X, the tiered calculation is performed as follows:
 
-> If X < 500 Mbps, the charge billed is X  &times; 4.80;
-> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 4.20;
-> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 3.90;
-> If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
+> If X < 500 Mbps, the charge billed is X  &times; 0.094;
+> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 0.092;
+> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 0.086;
+> If X >= 50000Mbps, the charge billed is X &times; 0.084. You may also contact us for off-line contracting. We have more discount options available for you.
 
-You can use [Price Calculator](https://buy.cloud.tencent.com/calculator/cdn) for a charge estimation.
+
 
 ## Pay by Traffic
+
 ### Tiered Prices
 CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with the tiered prices shown as below:
 <table  style="width:494px">
@@ -56,28 +58,29 @@ CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with 
 	</thead>
 	<tbody>
 		<tr>
-			<td colspan="1" rowspan="5" style="text-align:center; width:98px">Monthly Traffic</td>
+			<td colspan="1" rowspan="5" style="text-align:center; width:98px">Monthly Tiered Traffic</td>
 			<td style="text-align: center; width: 170px;">0GB - 2TB</td>
-			<td style="text-align: center; width: 189px;">0.055</td>
+			<td style="text-align: center; width: 189px;">0.037</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">2TB - 10TB</td>
-			<td style="text-align: center; width: 189px;">0.053</td>
+			<td style="text-align: center; width: 189px;">0.035</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">10TB - 50TB</td>
-			<td style="text-align: center; width: 189px;">0.049</td>
+			<td style="text-align: center; width: 189px;">0.032</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">50TB - 100TB</td>
-			<td style="text-align: center; width: 189px;">0.046</td>
+			<td style="text-align: center; width: 189px;">0.026</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">>= 100TB</td>
-			<td style="text-align: center; width: 189px;">< 0.040, subject to the contract price</td>
+			<td style="text-align: center; width: 189px;"> 0.02, or subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
+
 
 ### Calculation Method
 
@@ -94,12 +97,7 @@ Unlike "Pay by Bandwidth", "Pay by Traffic" method takes a tiered progressive ap
 
 By such a way, the charge for each day in January can be calculated. From February 1, a new progressive billing process will be started from scratch.
 
-You can use [Price Calculator](https://buy.cloud.tencent.com/calculator/cdn) for calculating the charge.
-
-### Note on Traffic Package Deduction
-+ The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.
-
-## Billing for Key Customers
+## Billing for Key Account Customers
 If your monthly consumption amount in Tencent Cloud is or will be more than USD 20,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
 
 + **Pay by monthly average value of daily bandwidth peaks**: There are 288 CDN bandwidth statistical points each day. Divide the sum of peaks on each effective day (generating consumption) by the number of effective days to get the monthly average value of daily bandwidth peaks to use as billing bandwidth. Then calculate the charge based on contract price;

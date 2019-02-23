@@ -40,6 +40,7 @@
 2）解压所有文件，找到其中的 index.js 文件并打开。
 3）在代码里修改替换成您的具备调用 CDN 刷新接口权限的 SecretId、SecretKey 和需要刷新的域名。如下图所示：
 ![](https://main.qcloudimg.com/raw/b2b0eba560e3229fc402490f0737712b.png)
+4）如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的 `RefreshCdnUrl` 修改为 `RefreshCdnOverSeaUrl`。
 
 #### 2.2 上传函数代码
 
@@ -69,6 +70,5 @@
 2）完成上传后，即可在 SCF 控制台的 "运行日志" 查询到调用成功的日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/99b84dec0d0d3599fbffecef2d8e4d95.png)
 3）在 CDN 控制台的 “缓存刷新 - 操作记录” 中，可查询到自动调用刷新的记录。
-
 
 4）以上测试通过后，即可访问 CDN 加速后的 URL 获取到最新的资源。

@@ -1,5 +1,5 @@
 ## SDK 准备
-下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5ef28eba111891591f576dbbbaed601c.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
+下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5066e0eda60b0e00c9e78e0acfa7ec55/%E6%B0%B4%E5%8D%B0SDK.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
 
 ## Android 接入
 ### 预备工作

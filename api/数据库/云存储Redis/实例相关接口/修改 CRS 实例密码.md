@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口(ModfiyRedisPassword)用于修改CRS实例密码。
+本接口(ModfiyRedisPassword)用于修改 Redis 实例密码。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 密码规则： 长度为8-16个字符；至少包含字母、数字和字符（!@#%^()）中的两种

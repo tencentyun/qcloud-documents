@@ -47,7 +47,7 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779) | ✔        | ✔      | ✔      | 资源级   | ✔        |    -  |	
-| [私有网络](https://cloud.tencent.com/document/product/215/9510) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
+| [私有网络](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
 
 ## 云数据库 TencentDB	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |	
@@ -107,7 +107,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |✔       |
 | [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)         |✔       | ✔      | ✔      | 操作级   | ✔        | -    |	
-| Sparkling 数据仓库套件         |✔       | -      | ✔      | 资源级   | -        | -    |	
+| [Sparkling 数据仓库套件](https://cloud.tencent.com/document/product/1002)         |✔       | -      | ✔      | 资源级   | -        | -    |	
 
  ## 云智大数据应用服务	
  
@@ -179,12 +179,6 @@
 | [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        |✔    |
 | [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        |✔    |	
 | [迁移服务平台](https://cloud.tencent.com/document/product/659)         |-        | -      | -      | -   | -        |✔    |	
-
-## 开发者工具	
-
-| 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时证书 | 角色 |
-| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [织云](https://cloud.tencent.com/document/product/609)                |-        | -      | -      | -   | -        |✔    |
 
 
  ## 数据处理	
