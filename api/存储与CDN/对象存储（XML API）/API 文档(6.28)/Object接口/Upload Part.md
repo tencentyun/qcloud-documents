@@ -51,7 +51,7 @@ Authorization: Auth String
 | uploadId   | 标识本次分块上传的 ID，<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String | 是    |
 
 ### 请求体
-该请求的请求体为空。
+该请求的请求体为该分块的数据内容。
 
 ## 响应
 
