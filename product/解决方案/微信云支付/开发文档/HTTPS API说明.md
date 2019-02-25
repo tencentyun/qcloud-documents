@@ -884,7 +884,7 @@ std::string gen_cloud_pay_refund(
     Json::Value request_content;
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value pay_mch_key, pay_content, order_client;
+    Json::Value pay_mch_key, refund_content, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -892,12 +892,12 @@ std::string gen_cloud_pay_refund(
     pay_mch_key["out_shop_id"]     = out_shop_id;
     request_content["pay_mch_key"] = pay_mch_key;
 
-    pay_content["out_trade_no"]    = out_trade_no;
-    pay_content["out_refund_no"]   = out_refund_no;
-    pay_content["total_fee"]       = total_fee;
-    pay_content["refund_fee"]      = refund_fee;
-    pay_content["refund_fee_type"] = refund_fee_type;
-    request_content["pay_content"] = pay_content;
+    refund_content["out_trade_no"]    = out_trade_no;
+    refund_content["out_refund_no"]   = out_refund_no;
+    refund_content["total_fee"]       = total_fee;
+    refund_content["refund_fee"]      = refund_fee;
+    refund_content["refund_fee_type"] = refund_fee_type;
+    request_content["refund_content"] = refund_content;
 
     order_client["device_id"]        = device_id;
     order_client["staff_id"]         = staff_id;

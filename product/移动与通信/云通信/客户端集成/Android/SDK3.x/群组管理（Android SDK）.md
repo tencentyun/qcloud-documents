@@ -26,9 +26,9 @@ public static TIMGroupManagerExt getInstance()
 
 ### 创建群组
 
-云通信中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
-- **互动直播聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
+- **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
 > **注意：**
@@ -50,7 +50,7 @@ public void createGroup(@NonNull CreateGroupParam param, @NonNull TIMValueCallBa
 /**
  * 创建群组参数类的构造函数
  * @param type 群类型, 目前支持的群类型：私有群（Private）、公开群（Public）、
- *             聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
+ *             聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
  * @param name 群名称
  */
 public CreateGroupParam(@NonNull String type, @NonNull String name
@@ -119,7 +119,7 @@ List<TIMGroupMemberInfo> infos = new ArrayList<TIMGroupMemberInfo>();
 TIMGroupMemberInfo member = new TIMGroupMemberInfo();
 member.setUser("cat");
 member.setRoleType(TIMGroupMemberRoleType.Normal);
-infos.add(member);        
+infos.add(member);
 param.setMembers(infos);
 
 //设置群自定义字段，需要先到控制台配置相应的 key
@@ -151,9 +151,9 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 
 - **私有群：**群成员无需受邀用户同意，直接将其拉入群中。
 - **公开群/聊天室：**不允许群成员邀请他人入群。
-- **互动直播聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
+- **音视频聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
 
-**原型：**  
+**原型：**
 
 ```
 /**
@@ -429,7 +429,7 @@ TIMGroupManagerExt.getInstance().getGroupMembers(
 **权限说明：**
 
 - **私有群、公开群和聊天室：**支持使用本接口获取用户加入的群组。
-- **互动直播聊天室和在线成员广播大群：**因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
+- **音视频聊天室和在线成员广播大群：**因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
 
 **原型：**
 
@@ -585,7 +585,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 ### 群成员获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料，默认拉取基本资料。
 
 **权限说明：**
 
@@ -750,7 +750,7 @@ TIMGroupManagerExt.getInstance().getGroupDetailInfo(
 
 ### 非群成员获取群组资料
 
-当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空，默认拉取基本资料。
 
 **原型：**
 
@@ -793,8 +793,6 @@ TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallB
 
 如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
 
->注：默认只拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
 **权限说明：**
 
 **直播大群：**无法获取本人在群内的资料。
@@ -812,7 +810,7 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 ### 获取群内某个人的资料
 
-获取群成员资料的接口由 `TIMGroupManagerExt` 提供。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)  进行设置。
+获取群成员资料的接口由 `TIMGroupManagerExt` 提供，默认拉取基本资料。
 
 **权限说明：**
 
@@ -1257,7 +1255,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 **权限说明：**
 
 - **公开群和私有群：**默认消息接收方式为接收并提醒。
-- **聊天室和互动直播聊天室：**默认为接收不提醒。
+- **聊天室和音视频聊天室：**默认为接收不提醒。
 
 
 ** `TIMGroupReceiveMessageOpt` 接口定义如下：**
@@ -1383,7 +1381,7 @@ public void refuse(String msg, TIMCallBack cb)
 
 ### 拉取群未决列表
 
-通过 `TIMGroupManagerExt` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。  
+通过 `TIMGroupManagerExt` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
 **权限说明：**
 
@@ -1391,7 +1389,7 @@ public void refuse(String msg, TIMCallBack cb)
 
 >例如：
 >- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。
->- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。  
+>- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
 
 **原型：**
 
@@ -1494,13 +1492,13 @@ public void refuse(String msg, TIMCallBack cb)
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。另外，除了从**新消息通知**中获取群事件消息，还可以在**登录前**通过 `TIMUserConfig` 中的 `setGroupEventListener` 接口设置群事件监听器来统一监听相应的事件。另外，**从群事件消息中可以拿到当前群成员数**。
 
->注：聊天室（ChatRoom）和互动直播聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
+>注：聊天室（ChatRoom）和音视频聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
 
 如下图中，展示一条修改群名的事件消息。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151014031645_92316.jpg)
 
-**`TIMGroupTipsElem` 成员方法：**    
+**`TIMGroupTipsElem` 成员方法：**
 
 ```
 //获取群资料变更信息列表，仅当 tipsType 值为 TIMGroupTipsType.ModifyGroupInfo 时有效

@@ -132,4 +132,3 @@ WhiteboardManager.getInstance().init(getActivity().getBaseContext(), config);
 
 2. 白板数据拉取（同步）：
 每次进入课堂时，TICSDK 会拉取该课堂的所有历史白板消息，展示在白板上，该功能也已经在 TICSDK 内部实现，开发者无需自行实现。
-
