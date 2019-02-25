@@ -8,7 +8,7 @@
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.5/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.3.5/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.4.0/board_sdk.mini.js"></script>
 ```
 
 | 类                  | 说明                                       |
