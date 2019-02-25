@@ -1,16 +1,16 @@
 ### v1.1.24
-[Unity](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D.zip)
-[Unity(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D_bitcode.zip)
-[Cocos](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos.zip)
-[Cocos(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos_bitcode.zip)
-[Win64](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_winx64_1_1_24_187446_20181225.zip)
-[Win32](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_win_1_1_24_187446_20181225.zip)
-[iOS](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_iOS.zip)
-[iOS(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_iOS_bitcode.zip)
-[iOS(XCode10)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_cpp_bitcode_1_1_24_187446_20181225_iOS.zip)
-[iOS(XCode10-bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187795_20190103_iOS_cpplib.zip)
-[Android](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Android.zip)
-[UE4](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_UE4.zip)
+[Unity](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Unity3D.zip)
+[Unity(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Unity3D_bitcode.zip)
+[Cocos](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Cocos.zip)
+[Cocos(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Cocos_bitcode.zip)
+[Win64](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_winx64_1_1_24_189174_20190220.zip)
+[Win32](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_win_1_1_24_189174_20190220.zip)
+[iOS](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_iOS.zip)
+[iOS(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_iOS_bitcode.zip)
+[iOS(XCode10)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_cpp_bitcode_1_1_24_189174_20190219_iOS_cpplib.zip)
+[Unity3D(XCode10-bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_cpp_bitcode_1_1_24_189174_20190219_Unity3D_cpplib.zip )
+[Android](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Android.zip)
+[UE4](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_2190219_UE4.zip)
 
 ### 更新说明
 - DNS 解析优化，提升进房成功率；
