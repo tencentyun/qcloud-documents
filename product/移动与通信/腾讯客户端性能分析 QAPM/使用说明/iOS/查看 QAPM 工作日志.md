@@ -1,4 +1,4 @@
-## 查看 QAPM 工作日志
+
 ### 设置查看工作日志
 在调用```[QAPM startWithAppKey:]```启动 QAPM SDK 前，设置日志输出函数。
 可以根据不同发布版本情况进行输出日志控制，具体见如下参考 Demo。（[Demo下载](http://qapm-1253358381.cosgz.myqcloud.com/QAPM_SDK_Outer_v3.0.3.zip)）：
