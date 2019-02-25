@@ -10,6 +10,8 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
 
+>?COS Migration 的编码格式只支持 UTF-8 格式。
+
 ## 使用环境
 ### 系统环境
 Windows、Linux 和 macOS 系统。
