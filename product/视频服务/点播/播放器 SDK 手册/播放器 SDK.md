@@ -14,5 +14,5 @@
 
 ## Web SDK
 
-- [视频播放](/document/product/454/7479)
+- [视频播放](https://cloud.tencent.com/document/product/881/30818)
 - Web SDK 不需要下载，直接在页面中引入 js 即可，详情请见以上链接。

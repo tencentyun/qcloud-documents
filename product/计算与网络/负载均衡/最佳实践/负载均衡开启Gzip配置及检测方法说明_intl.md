@@ -11,7 +11,7 @@ gzip on;
 ```
 application/atom+xml application/javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/plain text/x-component;
 ```
-Note: GZIP support for the above file types must be enabled synchronously in the backend ECS business software of cloud load balancer.
+Note: GZIP support for the above file types must be enabled synchronously in the backend CVM business software of cloud load balancer.
 - **A compression request flag must be contained in the client request**
 You need to enable compression, and the client must carry the following flag for requests:
 ```
