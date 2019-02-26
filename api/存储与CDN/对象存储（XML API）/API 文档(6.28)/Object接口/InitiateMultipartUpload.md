@@ -11,12 +11,12 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 **推荐头部**
@@ -30,7 +30,7 @@ Authorization: Auth String
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。 | String | 否    |
 | Expires             | RFC 2616 中定义的文件日期和时间，将作为 Object 元数据保存      | String | 否    |
 | x-cos-meta-\*      | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线   | String | 否    |
-| x-cos-storage-class | 设置 Object 的存储级别，枚举值：STANDARD, STANDARD_IA，默认值：STANDARD | String | 否    |
+| x-cos-storage-class | 设置 Object 的存储级别，枚举值：STANDARD, STANDARD_IA，ARCHIVE。默认值：STANDARD | String | 否    |
 
 **权限相关头部**
 该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Object 访问权限。目前 Object 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
@@ -39,9 +39,8 @@ Authorization: Auth String
 
 | 名称                       | 描述                                       | 类型     | 必选   |
 | :----------------------- | :--------------------------------------- | :----- | :--- |
-| x-cos-acl                | 定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限 | String | 否    |
+| x-cos-acl                | 定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限 | String | 否    |
 | x-cos-grant-read |赋予被授权者读的权限，格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限，格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
 | x-cos-grant-full-control | 赋予被授权者所有的权限，格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
 
 **服务端加密相关头部**
@@ -53,14 +52,13 @@ Authorization: Auth String
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
 ### 请求体
-
 该请求的操作请求体为空。
 
 ## 响应
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头,了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 **服务端加密相关响应**
 
