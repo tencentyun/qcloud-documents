@@ -57,7 +57,7 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 
 ### 请求
 
-```
+```shell
 HEAD /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2017 17:26:53 GMT
@@ -66,7 +66,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 16087
