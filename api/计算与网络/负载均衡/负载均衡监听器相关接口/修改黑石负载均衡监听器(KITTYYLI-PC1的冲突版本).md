@@ -1,0 +1,52 @@
+## 1. 接口描述
+域名:lb.api.qcloud.com
+接口名:ModifyBmLoadBalancerListener
+
+修改黑石负载均衡监听器
+
+## 2. 输入参数
+| 参数名称 | 必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| loadBalancerId | 是 | String | 负载均衡器ID|
+| listenerId | 是 | String | 监听器ID|
+| listenerName | 否 | String | 监听器名称|
+| sessionExpire | 否 | Int | 会话保持时间，0为关闭。|
+| healthSwitch | 否 | Int | 是否开启健康检查，支持：1（开启）、0（关闭）|
+| timeOut | 否 | Int | 响应超时时间，默认2秒|
+| intervalTime | 否 | Int | 检查间隔，默认5秒|
+| healthNum | 否 | Int | 健康阀值，默认3次|
+| unhealthNum | 否 | Int | 不健康阀值，默认3次|
+
+
+## 3. 输出参数
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 错误码, 0: 成功, 其他值: 失败|
+| message | String | 错误信息|
+| requestId | Int | 任务Id |
+
+
+## 4. 示例
+输入
+<pre>
+https://lb.api.qcloud.com/v2/index.php?Action=ModifyBmLoadBalancerListener
+&loadBalancerId=lb-l9w92y5p
+&listenerId=lbl-815iz539
+&listenerName=hh
+&healthSwitch=1
+&timeOut=6
+&intervalTime=10
+&healthNum=8
+&unhealthNum=8
+&sessionExpire=800
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
+</pre>
+输出
+```
+{
+    "code":"0",
+    "message":"",
+    "requestId":"2375553"
+}
+```
+

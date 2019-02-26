@@ -1,0 +1,4 @@
+1. Open the [Tencent Cloud Console](https://console.cloud.tencent.com/), select **Virtual Private Cloud** in the top navigation bar, and click the **Direct Connect Gateway** tab in the left navigation bar.
+2. Click the **+ New** button to enter the Direct Connect creation page.
+3. Enter the name, VPC and address mapping mode, and select whether to enable the network address translation feature. (**This feature is only available in the beta test for now**. Please activate it via a ticket or your customer manager.)
+4. Click **OK** to confirm the information and complete the creation of the Direct Connect gateway.

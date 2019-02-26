@@ -19,7 +19,7 @@ The job configuration of Batch is provided in JSON format as described below. Tw
                 "EnvType": "MANAGED",   // Computing environment types: MANAGED and UNMANAGED
                 "EnvData": {        // Detailed configuration (the current type is MANAGED. See description of CVM instance creation)
                     "InstanceType": "S1.SMALL1",    // CVM instance type
-                    "ImageId": "img-i91njcmx",      // CVM image ID
+                    "ImageId": "img-m4q71qnf",      // CVM image ID
                 }
             },
             "RedirectInfo": {       // Configuration of standard output redirection           
@@ -46,7 +46,7 @@ The job configuration of Batch is provided in JSON format as described below. Tw
                 "EnvType": "MANAGED",   // Computing environment types: MANAGED and UNMANAGED
                 "EnvData": {        // Detailed configuration (the current type is MANAGED. See description of CVM instance creation)
                     "InstanceType": "S1.SMALL1",    // CVM instance type
-                    "ImageId": "img-i91njcmx",      // CVM image ID (replaceable)
+                    "ImageId": "img-m4q71qnf",      // CVM image ID (replaceable)
                     "VirtualPrivateCloud": {        // CVM network configuration (optional)
                         "VpcId": "vpc-cg18la4l",             // VpcId (to be replaced)
                         "SubnetId": "subnet-8axej2jc"           // SubnetId (to be replaced)
@@ -130,7 +130,7 @@ EnvData | EnvData object | Yes | The parameters of computing environment |
 #### EnvData
 Name | Type | Required | Description | Example
 -----|------|-----|------|------
-InstanceType | String | Yes | CVM instance type. This is required for MANAGED type | img-i91njcmx
+InstanceType | String | Yes | CVM instance type. This is required for MANAGED type | img-m4q71qnf
 ImageId | String | Yes | CVM image ID. This is required for MANAGED type | S1.SMALL1
 others | others | No | Refer to the parameters provided in the CVM API document [Create Instance](https://cloud.tencent.com/document/api/213/9384) | SystemDisk, DataDisks, and VirtualPrivateCloud are supported
 

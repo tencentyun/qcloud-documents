@@ -1,65 +1,50 @@
-DCDB 支持通用的 DDL 语句，如建库，建表，修改表结构等。
+> 如果您期望阅读或下载全量开发文档，请参考 [《TDSQL开发指南》](https://cloud.tencent.com/document/product/557/7714)。
 
-## 创建表
+### 创建分表
 
-DCDB 可以创建三种类型的表：分表，广播表以及单表。分表适用于表数据在单个数据库中存储不下的情况。广播表在所有物理分片中都是全量数据，适用于跨物理分片的 join 操作。单表适用于用于数据量能在单个数据库存储，同时 sql 比较复杂的情况。
+**分表：**即自动水平拆分的表，水平拆分是基于分表键（shardkey）采用类似于一致性 hash 方式，根据 hash 后的值分配到不同的节点组中的一种技术方案，该能力是几乎所有分布式数据库的核心特性。TDSQL 的设计目标是**期望开发者完全无需关注后端分表策略**，像使用普通数据库一样使用 TDSQL，因此我们在设计上隐藏了分表的细节方案。
 
-### 分表
-DCDB 支持分表，通过分表键（shardkey）把一个大表水平拆分到多个数据库，形成“独立”的数据库“分片”。多个分片共同组成一个逻辑完整的数据库实例。关于创建分表的详情请见[创建分表](https://cloud.tencent.com/document/product/557/8767)。
-
-### 广播表
-广播表即小表广播功能，设置为广播表后，该表的所有操作都将广播到所有物理分片（set）中，每个分片都有改表的全量数据。
+普通的分表创建时必须在最后面指定 shardkey 的值，该值为表中的一个字段名字，会用于后续 sql 的路由选择：
 ```
-mysql> create table test.global_table ( a int, b  int,primary key(b)) shardkey=noshardkey_allset
-```
-小表广播功能主要方便跨物理分片（set）的 join 操作和复杂运算,常用于某些更改频率相对低但使用频率高的表，例如配置表等。
-如果要更新广播表，只有当所有分片都完成更新后，才会给予事务应答，因此您无需担心每个分片中的数据不一致。
-
-### 单表
-单表主要用于存储一些无需分片的表，该表的数据全量存在第一个物理分片（set）中，所有该类型的表都放在第一个物理分片（set）中，语法和使用防范和 MySQL 完全一样，可理解为一个非分布式的表。
-```
-mysql> create table test.noshard_table ( a int, b  int,primary key(b)) 
-```
-
-> **注意：**
-> 系统会自动均衡第一个物理分片（set）的存储容量，避免多个单表将第一个物理分片写爆。
-
-## 修改表
-修改表和 MySQL 的语法一样，但目前暂不支持修改 shardkey 对应的列。
-
-### 增加列
-```
-	mysql> alter table test.test1 add column d varchar(20);
-	Query OK, 0 rows affected (0.10 sec)
-```	
-### 增加索引
-```
-mysql> alter table test.test1 add index index_c(c);
-Query OK, 0 rows affected (0.06 sec)
-```
-### 删除列
-```
-	mysql> alter table test.test1 drop column b;
-	Query OK, 0 rows affected (0.10 sec)
-```
-### 删除索引
-```
-	mysql> alter table test.test1 drop index index_c;
-	Query OK, 0 rows affected (0.06 sec)
-```
-### 修改字段
-```
-	mysql> alter table test.test1 modify column b varchar(20);
-	Query OK, 0 rows affected (0.16 sec)
-```
-### 清除表数据
-```	
-	mysql> truncate table test.test1;
-	Query OK, 0 rows affected (0.16 sec)	
-```
-## 删除表
-删除表和 MySQL 的语法完全一样，DCDB 会根据表的类型，自动在一个或多个后端数据库删除表。
-```
-	mysql> drop table test.ff;
+	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c) ) shardkey=a;
 	Query OK, 0 rows affected (0.07 sec)
 ```
+由于在 TDSQL 下，shardkey 对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则无法建表；
+```
+	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c),unique key u_2(b,c) ) shardkey=a;;
+```
+此时有一个唯一索引 u_2 不包含 shardkey，没法创建表，会报如下错误：
+```
+	ERROR 1105 (HY000): A UNIQUE INDEX must include all columns in the table's partitioning function
+```
+因为主键索引或者 unique key 索引意味着需要全局唯一，而要实现全局唯一索引则必须包含 shardkey 字段。
+
+**综述：shardkey 的要求如下：**
+1. shardkey 必须是主键以及所有唯一索引的一部分；
+2. shardkey 字段的类型必须是 int,bigint,smallint/char/varchar；
+3. shardkey 字段的值不能有中文；
+4. 不要 update shardkey 字段的值（如必须，请先 delete 该行，再 insert 新值）；
+5. shardkey=a 放在 create 语句的最后；
+6. 访问数据尽量都能带上 shardkey 字段（这不是强制要求，但是如果不带 shardkey 将会导致该条 SQL 发送到所有节点，影响效率）；
+
+> **注意**：某些分表方案可以支持“非主键或唯一索引”成为 shardkey，但此类方案会导致数据不一致，因此 TDSQL 默认禁止了“非主键或唯一索引”成为 shardkey。
+
+### 创建广播表
+
+**广播表：**又名小表广播功能，创建了广播表后，每个节点都有该表的全量数据，该表的所有操作都将广播到所有物理分片（set）中。广播表主要用于提升跨 set 的 join 操作的性能，常用于配置表等；
+```
+	mysql> create table global_table ( a int, b int key) shardkey=noshardkey_allset;
+	Query OK, 0 rows affected (0.06 sec)
+```
+>注意：广播表采用分布式事务机制，确保数据写入操作的原子性，因此广播表的数据天然情况下是完全一致的。
+
+### 创建普通表（单表）
+
+**普通表（又名单表）：**，语法和 mysql 完全一样，此时该表的数据全量存在第一个 set 中，所有该类型的表都放在第一个 set 中：
+```
+	mysql> create table noshard_table ( a int, b int key);
+	Query OK, 0 rows affected (0.02 sec)
+```
+### 其他 DDL 操作
+
+alter，drop 等其他 DDL 操作，与 MySQL 语法完全一致，此处不再复述。

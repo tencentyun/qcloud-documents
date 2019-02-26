@@ -26,7 +26,7 @@ The client signs the HTTP request, and then sends it to Tencent Cloud for signat
 
 ## Preparations
 1. APPID, SecretId and SecretKey. 
-   They are available on the [Cloud API Key](https://console.cloud.tencent.com/capi) page of console.
+   They are available on the [Cloud API Key](https://buy.cloud.tencent.com/capi) page of console.
 2. Specify the development languages:
    Support but not limited to Java, PHP, C Sharp, C++, node.js, Python, and specify the corresponding HMAC-SHA1, SHA1 functions.
 
@@ -112,7 +112,7 @@ Parameter | Description
 [q-key-time] | must be consistent with the q-key-time descripted in [Key Description](#signaturesplit).
 [HttpMethod] | HTTP request method. Only lowercase is supported, such as get, post, put, delete, head, and options.<br><br>**For example:** Suppose an HTTP request "GET /testfile". Its HttpMethod is get.
 [HttpURI] | The URI part of an HTTP request. Namely the part starting from the "/" virtual root path.<br><br>**For example:** Suppose an HTTP request "GET /testfile". Its HttpURI is /testfile.
-[HttpParameters] | HTTP request parameter. This is the part after “?” and linked with "&" in URI. You need to select part or all of key=value pairs, and the key and value are required to be converted to lowercase. Many pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "GET /?prefix=abc&max-keys=20". Its HttpParameters is max-keys=20&prefix=abc or prefix=abc.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-url-param-list descripted in [Key Description](#signaturesplit).
+[HttpParameters] | HTTP request parameter. This is the part after “?” and linked with "&" in URI. You need to select part or all of key=value pairs. Besides, the key needs to be converted to lowercase, and the URLEncode conversion is to perform on its value. Many pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "GET /?prefix=abc&max-keys=20". Its HttpParameters is max-keys=20&prefix=abc or prefix=abc.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-url-param-list descripted in [Key Description](#signaturesplit).
 [HttpHeaders] | HTTP request header. You need to select part or all of the key:value pairs, and convert them into the key=value format. Besides, the key needs to be converted to lowercase, and the URLEncode conversion is to perform on its value. Multiple pairs of key=value are linked with "&" and sorted in the lexicographical order.<br><br>**For example:** Suppose an HTTP request "Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com Content-Type: image/jpeg". Its HttpHeaders is content-type=image%2Fjpeg&host=bucket1-1254000000.cos.ap-beijing.myqcloud.com.<br><br><font color="#0000cc">**Note:** </font><br>The key in the key=value pair it contains must be consistent with the key in q-header-list descripted in [Key Description](#signaturesplit).
 [q-sign-algorithm] | sha1. Only sha1 encryption algorithm is currently supported.
 [q-sign-time] | Must be consistent with the q-sign-time descripted in [Key Description](#signaturesplit).

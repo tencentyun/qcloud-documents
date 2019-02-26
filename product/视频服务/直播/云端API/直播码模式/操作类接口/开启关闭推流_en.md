@@ -6,7 +6,7 @@
   This API is used to set the status of an LVB stream to: disabled, interrupted and enabled for push.** Disabled** means the stream ID is no longer available for push. During push process, the push can be interrupted and will not be restarted after interruption.** Interrupted** means the stream being pushed is interrupted and can be re-pushed after interruption. Enabled for push** means the stream ID is enabled for push.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API:` http://fcgi.video.qcloud.com/common_access`
 
 - **Use**
   - This API is used to **ban** an LVB during porn detection. For example, if a VJ is found to play porny or rebellious content, this LVB stream can be interrupted or disabled at any time.

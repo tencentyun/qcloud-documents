@@ -5,7 +5,7 @@
   - **Live_Queue_Get**: This API is used to query the screenshot files generated in a channel during LVB.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API:` http://fcgi.video.qcloud.com/common_access`
 
 - **Use**
   - Tencent Cloud provides scheduled screenshot service for LVB. If you enable this service, you will receive a screenshot file of the LVB stream every several seconds.

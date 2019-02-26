@@ -7,11 +7,11 @@
 
 **1. 命令行方式**
 步骤1：登录腾讯云 [管理控制台](https://console.cloud.tencent.com/) ，进入管理中心后，在【云产品】模块单击【云数据库】，进入关系型数据库页面。
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=598bca5955b8a.png)
+![](//mc.qcloudimg.com/static/img/00ff8ac563c02a5f661a1b47284f92dc/image.png)
 
 步骤2：在关系型数据库页面，单击【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中待重置密码的 MySQL 数据库实例，单击【管理】按钮，进入 MySQL 数据库管理页面。
 
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=598bcac7af14c.png)
+![](//mc.qcloudimg.com/static/img/62b1e4ab9953e54eab6c53da62ad6436/image.png)
 步骤3：在 MySQL 数据库管理页面，单击管理列表下的参数设置，其中常见的 var\_name 包括如下变量：
 <table class="t">
 <tbody><tr>
@@ -60,15 +60,15 @@
 
 ### 3. 如何设置开启 MySQL 的定时器功能？
 进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改将 event 开启 。
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59830b371dcb1.png)
+![](//mc.qcloudimg.com/static/img/3843219af515499661c4335800253c6a/image.png)
    
 ### 4. MySQL 超时连接设置太短，如何增加时间？
 进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改 wait_timeout 参数 。
-![](https://mc.qcloudimg.com/static/img/e70e9a76b6651794552bd5253099c285/2017-09-01_094218.png)
+![](//mc.qcloudimg.com/static/img/e70e9a76b6651794552bd5253099c285/image.png)
 
 ### 5. 数据库CDB for MySQL 怎样调整 group_concat 参数？
 进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改参数 。
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59830f85a8714.png)
+![](//mc.qcloudimg.com/static/img/67cfe78563599245bd12c07d55aad191/image.png)
 
 ### 6. MySQL 全表扫描的 SQL 语句有什么方法可以找到吗？
 默认是不记录全表扫描的语句，可在云数据库控制台参数设置中开启 log_queries_not_using_indexes 参数。注意：不要开太久。

@@ -17,5 +17,5 @@ Tencent provides a "One Server Covering the Globe" solution for game companies:
 
 ## Steps
 1) Centrally deploy databases, and create a VPC near the user's region. Click to view [Deploy Databases and CVMs Within a VPC](https://cloud.tencent.com/document/product/215/4927#.E5.90.91.E5 . AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A.E.E4.BA.91.E4.B8.BB.E6.9C.BA).
-2) Use DNSPod cloud resolution intelligent scheduling to enable players to access to the nearest system. Click to view [DNSPod Cloud Resolution Instructions](https://cloud.tencent.com/document/product/302/3446).
+2) Use DNSPod cloud resolution intelligent scheduling to enable players to access to the nearest system.
 3) Use Tencent Cloud cross-region peering connection to achieve VPC high-speed data interconnection between regions. Click to view [Peering Connection Instructions](https://cloud.tencent.com/document/product/215/5000#.E5. BF.AB.E9.80.9F.E5.85.A5.E9.97.A8).

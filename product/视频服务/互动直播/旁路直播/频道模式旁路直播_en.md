@@ -1,8 +1,8 @@
-## Non-interactive broadcasting
+## Non-interactive Broadcasting
 Non-interactive broadcasting feature can transcode the uplink ILVB data to a general format for pushing and distributing, to help users watch videos through Web or streaming media players.<br/><br/>
-**You can use the non-interactive broadcasting feature only after the Tencent Cloud LVB service is activated in the console.**
+**You can use the non-interactive broadcasting feature only after the Tencent Cloud LVB service is activated in the console**.
 
-### 1. Client SDK APIs
+### 1 Client SDK APIs
 #### Android
 ##### Starting Non-interactive Broadcasting
 ###### 1. Configure Push Parameters
@@ -65,7 +65,7 @@ Parameter | Parameter Type | Description
 :--:|:--:|:--:
 ids | List<Long> | Array of IDs of channels that need to stop push
 
-For more information on how to implement Android non-interactive broadcasting feature, please see [New FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos)
+For more information on how to implement non-interactive broadcasting on Android, please see [New FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos)
 
 #### iOS
 ##### Starting Non-interactive Broadcasting
@@ -100,7 +100,7 @@ channelName | NSString | Required | Name of LVB channel
 channelDesc | NSString | Optional | Description of LVB channel
 channelPassword | NSString | Optional | Password configured for the receiver's player
 
-###### 2. Start Non-interactive push
+###### 2. Start Non-interactive Push
 
 ```
 [[ILiveRoomManager getInstance] startPushStream:option succ:^(id selfPtr) {
@@ -142,14 +142,14 @@ Parameter | Parameter Type | Description
 :--:|:--:|:--:
 channelIds | NSArray | Array of IDs of channels that need to stop push
 
-For more information on how to implement iOS non-interactive broadcasting feature, please see [New FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos)
+For more information on how to implement non-interactive broadcasting on iOS, please see [New FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos)
 
 
 ### 2. Solutions for Watching Videos
 
 #### 2.1 Tencent Cloud Web Player
 
-Tencent Cloud Web Player is developed by Tencent Video Cloud, and supports both RTMP and HLS. Demo address is <http://live.qcloud.com/dy/test.html>. Enter the playback URL generated after push starts into the text box to watch the video. For more information, please see [official documentation](http://video.qcloud.com/download/docs/QLIVE_Player_Web_SDK_Developer_Guide.pdf) Example of simple code is as follows:
+Tencent Cloud Web Player is developed by Tencent Video Cloud, and supports both RTMP and HLS. The demo URL is <http://live.qcloud.com/dy/test.html>. Enter the playback URL generated after push starts into the text box to watch the video. For more information, please see [Official Documentation](http://video.qcloud.com/download/docs/QLIVE_Player_Web_SDK_Developer_Guide.pdf). Example of simple code is as follows:
 
 ```javascript
 <div id="id_video_container" style="width:100%;height:1px;"></div>
@@ -169,31 +169,55 @@ Tencent Cloud Web Player is developed by Tencent Video Cloud, and supports both 
 </script>
 ```
 
-#### 2.2 Open-source Web Player (jwplayer)
+#### 2.2 Tencent Video Cloud TcPlayer
 
-JW Media Player is an open-source web media player. Demo address is <http://live.qcloud.com/dy/jwplayer.html>. Example of simple code is as follows:
+TcPlayer is developed by Tencent Video Cloud, and supports RTMP, FLV, and HLS. The demo URL is http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html. For more information, please see [Official Documentation](https://cloud.tencent.com/document/product/267/7479).
 
 ```javascript
-<div id="id_video_container" style="width:100%;height:1px;"></div>
-<script src="http://qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js" charset="utf-8"></script>
+<div id="id_test_video" style="width:100%; height:auto;"></div>
+<script src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js" charset="utf-8"></script>
 <script>
-	(function(){
-		var player = new qcVideo.Player(
-			" id_video_container ",//Place the element ID of playback position in the page
-			{
-				"width": 640, //Height of player (in pixel) (Required)
-				"height": 480, //Width of player (in pixel) (Required)
-				"live_url": "rtmp://http://xxx.liveplay.qcloud.com/live/xxx",//LVB URL. HLS, RTMP and FLV are supported (Required)
-				"live_url2": "http://http://xxx.liveplay.qcloud.com/live/xxx.m3u8"//LVB URL (Ditto) (Optional)
-			}
-		);
-	})();
-</script>
+    (function(){
+        var player = new TcPlayer('id_test_video', {
+            "rtmp": "rtmp://http://xxx.liveplay.qcloud.com/live/xxx", //Replace the address with a functional playback address.
+            "flv": "http://http://xxx.liveplay.qcloud.com/live/xxx.flv", //Replace the address with a functional playback address.
+            "m3u8": "http://http://xxx.liveplay.qcloud.com/live/xxx.m3u8", //Replace the address with a functional playback address.
+            "live": true,
+            "coverpic" : "http://www.test.com/myimage.jpg",
+            "width" :  '480',//Video display width. Use the video definition width if possible.
+            "height" : '320'//Video display height. Use the video definition height if possible.
+        });
+    })();
+</script> 
+
 ```
+
+If the advertisement feature needs to be used, introduce Google IMA SDK on the page. 
+```javascript
+<script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+```
+
+You can use the advertisement feature using adTagUrl and auth parameters. Visit https://tcplayer.qcloud.com to apply for an account and license information, or send an email to tcplayer@tencent.com for consultation.
+```javascript
+var player = new TcPlayer('id_test_video', {
+  /* Advertisement-related parameter */
+  "adTagUrl": "http://ad_tag_url",	//Tags of VAST, VMAP and VAPID video ads
+  "auth": {
+    "user_id": "your_user_id",		//Ad account ID 
+    "app_id": "your_app_id",		//Application ID 
+    "license": "your_license"		//Application license
+  }
+});
+
+```
+
+
+
 
 #### 2.3 Client SDK Player (ffmpeg)
 
-ffmpeg is an open-source audio/video processing tool used to provide cross-platform solutions. The latest version of ffmpeg comes with rtmp. The download address of ffmpeg is <http://www.ffmpeg.org> (note: ffmpeg uses LGPL or GPL license depending on the component you selected. If any one is used, please abide by the rules of the license). Its simple development steps are as follows:
+ffmpeg is an open-source audio/video processing tool used to provide cross-platform solutions. The latest version of ffmpeg comes with rtmp. You can download ffmpeg at <http://www.ffmpeg.org> Note: ffmpeg uses LGPL or GPL license depending on the component you selected. If any is used, follow the license rules. For more information on codes, please see ffplay.c. If the codes need to be compiled, install the SDL. The development steps are briefed as follows:
 
 ```c++
 //Initialize
@@ -232,7 +256,7 @@ avcodec_decode_video2(pVideoCodecCtx, pVideoFrame, &got_picture, pkt);
 avcodec_decode_audio4(pAudioCodecCtx, pAudioFrame, &got_frame, pkt);
 ```
 
-Now, we get the original audio/video data. Play, render, and use a dependency solution. For example, use SDL2, then call SDL_CreateWindow, SDL_CreateRenderer, SDL_CreateTexture in sequence, and copy data to display:
+Now, you have obtained the original audio/video data. Choose a solution to play and render it. For example, use SDL2 to call SDL_CreateWindow, SDL_CreateRenderer, SDL_CreateTexture in sequence, and then copy the data to display:
 
 ```c++
 SDL_Texture *txt;
@@ -282,29 +306,29 @@ imshow("title", frame);
 You can play audio using DirectShow, which is not discussed here. Note: The above is an example of simplified calling steps. In practice, you need to develop independently, and pay attention to more details, for example, using jitterbuf for anti-shake, audio/video synchronization, etc.
 
 ### 3. FAQs
-#### 3.1 Can I combine multiple streams of one audio/video room (including mixing)?
+#### 3.1 Can I combine (or mix) multiple streams in one audio/video room?
 
-Currently, non-interactive push of a QAVSDK instance only supports the push of one audio channel and one video channel (video is required). Even though an ILVB room can bypass 4 unparallel video streams, they are independent from each other, and cannot be overlaid or mixed.
+Non-interactive push of a QAVSDK instance only supports the push of one audio channel and one video channel (video is required). Even though an ILVB room can bypass 4 unparallel video streams, they are independent from each other, and cannot be overlaid or mixed.
 
 #### 3.2 What is the impact of running App at the backend to non-interactive push?
 + For **`Windows`**, running App at the backend is the same with running at the frontend.
 + For **`iOS`**, running App at the backend may be suspended by the system and cause interruption of push. For more information, please see relevant technical documents of Apple.
-+ For **`Android`**, if App is running at the backend, in theory, the system can not kill the process automatically. However, the behaviors of various highly-customized Android systems are different, depending on the specific conditions. In addition, Android system's protection mechanism can end the process automatically in some cases (such as insufficient resource).
++ For **`Android`**, if App is running at the backend, the system cannot kill the process automatically in theory. However, the behaviors of various highly-customized Android systems are different, depending on the specific conditions. In addition, Android system's protection mechanism can end the process automatically in some cases (such as insufficient resource).
 
 
 #### 3.3 What is the impact of interrupted uplink network to non-interactive push during LVB? How to resume push?
 
-If the uplink network is interrupted:
+When the uplink network is interrupted:
 
 + If users who watch LVB through RTMP join the room after 7 seconds upon network interruption, they are prompted that LVB has ended.
 + For users who watch LVB through HLS, the LVB is interrupted after the playback of the fragment cached at the backend is completed.
 
-When the uplink network of video is disconnected after timeout, the channel is retained for an hour at the push backend, during which the **_playback URL returned after the push is restarted remains unchanged_**. If the push has not been restarted within an hour, the channel is reclaimed, that is, the palyback URL returned after the push is restarted can be **_re-generated_**.
+When the uplink network of video is disconnected after timeout, the channel is retained for an hour at the push backend, during which the **_playback URL returned after the push is restarted remains unchanged_**. If the push has not been restarted within an hour, the channel is reclaimed, that is, the playback URL returned after the push is restarted can be **_re-generated_**.
 
 
 #### 3.4 Is the number of LVB channels related to App or Tencent Cloud account?
 
-The maximum number of LVB channels are bound to Tencent Cloud account. Channel resources are shared among multiple Apps under an account. For example, if the number of channels for an account is limited to 50, App A under the account uses 30, and the rest Apps can only use 20 channels.
+The maximum number of LVB channels is bound to Tencent Cloud account. Channel resources are shared among multiple Apps under an account. For example, if the number of channels for an account is limited to 50, App A under the account uses 30, and the rest Apps can only use 20 channels.
 
 
 
@@ -315,15 +339,15 @@ The maximum number of LVB channels are bound to Tencent Cloud account. Channel r
 |---------|---------|---------|
 | 1001	| Permission error	| It is generally caused by wrong input of sdkappid |
 | 1002	| Account does not exist	| Check whether the user data entered in API parameters is correct |
-| 6012	| Push timeout	| Please check the uplink network condition. The retry mechanism should also be introduced on the App level as needed. It is recommended to retry every 30 seconds. If the problem remains unsolved, contact us for troubleshooting |
+| 6012	| Push timeout	| Check the uplink network condition. The retry mechanism should also be introduced on the App level as needed. It is recommended to retry every 30 seconds. If the problem remains unsolved, contact us for troubleshooting |
 | 20101	| The number of channels exceeds the limit 	| The number of push channels is limited. Check and delete unnecessary channels in the push console, or expand the capacity based on actual needs |
 | 20318	| LVB identity verification has not been completed	| Please activate Tencent Cloud LVB service first |
 | 20406	| Account overdraft	| Check whether the account is in arrears |
 | 50002	| Incorrect input parameters | Check whether user ID and sdkappid are entered correctly |
-| 50003	| Pull URL is not pulled at the backend	| Report to Tencent Cloud customer service |
+| 50003	| Pull URL is not fetched at the backend	| Report to Tencent customer service |
 | 50004	| Push type of push request is incorrect	| Check whether the push type field is entered correctly |
-| 50005	| Backend console connection timeout	| This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
-| 50006	| Backend console connection timeout	| This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
+| 50005	| Backend console connection timeout	| It is probably due to network failure. Try again. Send feedback to Tencent Cloud customer service if retry failed |
+| 50006	| Backend console connection timeout	| It is probably due to network failure. Try again. Send feedback to Tencent Cloud customer service if retry failed |
 | 50007	| The parameter returned from the backend is null	| Report to Tencent Cloud customer service |
 | 40000000	| Failed to resolve SDK request	| Check whether the push request fields are complete |
 | 40000001	| Failed to resolve SDK request - The push request packet is missing	| Check whether the push request fields are complete |
@@ -331,23 +355,23 @@ The maximum number of LVB channels are bound to Tencent Cloud account. Channel r
 | 40000003	| Failed to resolve SDK request - The output coding (HLS/RTMP, etc.) of push request is missing	| Check whether the push request fields are complete |
 | 40000004	| Failed to resolve SDK request - The video source type is incorrect (camera/desktop, etc.)	| Check whether the push request fields are complete |
 | 40000005	| Failed to resolve SDK request - Incorrect request operation (request for push, stop push)	| Check whether the push request fields are complete |
-| 40000006	| User ID is incorrect when you send request for push	| Check whether the push request fields are entered correctly |
+| 40000006	| User ID is incorrect when you send request for push	| Check whether the push request fields are correct |
 | 40000007	| Push room ID is 0	| Check whether the push room ID is correct |
 | 40000201 | An error occurred while requesting server for internal data packing | Report to Tencent customer service |
 | 40000202 | An error occurred while requesting server for internal data packing | Report to Tencent customer service |
 | 40000203 | An error occurred while requesting server for internal data packing | Report to Tencent customer service |
-| 40000207	| A communication error occurred while requesting push server - Failed to fetch the address of push server	| This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
-| 40000208 | A communication error occurred while requesting push server - Request for push server timed out | This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
+| 40000207 | A communication error occurred while requesting pushing server - Failed to fetch the address of pushing server | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
+| 40000208 | A communication error occurred while requesting pushing server - Timeout of request for pushing server | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
 | 40000301 | An error occurred while resolving the response packet from push server - Failed to resolve the data packet | Report to Tencent customer service |
 | 40000302 | An error occurred while resolving the response packet from push server - Failed to resolve the data packet | Report to Tencent customer service |
 | 40000303 | An error occurred while resolving the response packet from push server - No IP is returned | Report to Tencent Cloud customer service |
-| 40000304 | An error occurred while resolving the response packet from push server - No port is returned | Report to Tencent Cloud customer service |
+| 40000304 | An error occurred while resolving the response packet from push server - No port is returned | Report to Tencent customer service |
 | 40000305 | An error occurred while resolving the response packet from push server - No result is returned | Report to Tencent Cloud customer service |
 | 40000306	| An error occurred while resolving the response packet from push server - Overflow of length of returned URL	| Report to Tencent Cloud customer service |
-| 40000401 |An error occurred while obtaining the grocery service IP by querying room | This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
-| 40000402 | An error occurred while fetching grocery data by querying room | This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
+| 40000401 |An error occurred while obtaining the grocery service IP by querying room | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
+| 40000402 | An error occurred while fetching grocery data by querying room | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
 | 40000403 | grocery does not exist and cannot be fetched by querying room (the room requesting push does not exist) | Check whether the room has been activated successfully, and whether the user ID and groupid are correctly entered |
-| 40000404 | Timeout while querying room stream-control server | This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
+| 40000404 | Timeout while querying room stream-control server | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
 | 40000405 |An error occurred with the response packet while querying room - Failed to resolve the data packet | Report to Tencent customer service |
 | 40000406 |An error occurred with the response packet while querying room - Failed to resolve the data packet | Report to Tencent customer service |
 | 40000407 |An error occurred with the response packet while querying room - Failed to resolve the data packet | Report to Tencent customer service |
@@ -357,9 +381,9 @@ The maximum number of LVB channels are bound to Tencent Cloud account. Channel r
 | 40000411	| The user who initiates the push does not exist in the room	| Check whether the room has been activated successfully, and whether the user ID and groupid for the push are entered correctly, or whether the user has quitted the room |
 | 40000412	| Request for ending push has been sent more than once and the user has ended push	| This indicates that push has ended. No action is needed for this. |
 | 40000413	| Request for ending push has been sent more than once and the user has ended push	| This indicates that push has ended. No action is needed for this. |
-| 40000414	| An error occurred with internal server operation type while querying room | This may be caused by network problem, please try again. If the problem persists, report to Tencent customer service |
+| 40000414	| An error occurred with internal server operation type while querying room | This may be caused by network problem. Try again. If the problem persists, report to Tencent customer service |
 | 40000415	| Request for starting push has been sent more than once and the user is pushing stream	| This indicates that push is already in progress. No action is needed for this |
-| 40000500	| The control over push frequency is enabled | Non-exception. This error is returned if a user sends push request more than once within 3 seconds. The retry request should be initiated 3 seconds after the last request |
+| 40000500	| Control the frequency of starting push	| Unexceptional. Error is returned if a user sends a push request repeatedly within 3 seconds. The request should be retried after 3 seconds upon initiation of the last request |
 
 
 

@@ -35,7 +35,7 @@
 
 - **Recommendation to Users**: Hash the source address of the request and dispatch request to a matching server according to server weight. This will allow all requests from the same client IP to be constantly dispatched to a certain server. This scheduling method is suitable for TCP protocols for cloud load balancer without cookie feature.
 
-## Choosing Load Balance Scheduling Method and Configuring Weight
+## 2. Choosing Load Balance Scheduling Method and Configuring Weight
 
 According to the new features of the upcoming cloud load balancer, ***Layer-7 forwarding will support the Least-Connection balance method.*** In order to allow RS clusters to undertake business in a stable manner in different scenarios, we've provided several reference cases regarding how to choose cloud load balance scheduling method and configure weight.
 

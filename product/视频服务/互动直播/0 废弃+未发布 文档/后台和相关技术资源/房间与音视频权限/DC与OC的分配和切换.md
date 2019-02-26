@@ -10,7 +10,7 @@ EnterRoomParam.auth_buffer用于设置该实例在房间内的权限，具体权
 
 ![用户权限位说明](//mccdn.qcloud.com/img56cdd6a958dff.png)
 
-EnterRoomParam.auth_bits是权限位的明文形式，EnterRoomParam.auth_buffer是权限位的密文形式。可以只使用权限位的明文形式；而一旦申请开启了加密秘钥，则权限位密文必填，且后台会校验明文和密文的内容是否对应以及密文的有效期等，业务的逻辑后台也要及时更新App中的密文避免过期。需要注意的是，密文形式由于应用场景过少所有暂时没有开放使用，请尽量使用明文形式。
+EnterRoomParam.auth_bits是权限位的明文形式，EnterRoomParam.auth_buffer是权限位的密文形式。可以只使用权限位的明文形式；而一旦申请开启了加密密钥，则权限位密文必填，且后台会校验明文和密文的内容是否对应以及密文的有效期等，业务的逻辑后台也要及时更新App中的密文避免过期。需要注意的是，密文形式由于应用场景过少所有暂时没有开放使用，请尽量使用明文形式。
 
 如果EnterRoomParam.auth_bits/EnterRoomParam.auth_buffer将AUTH_BITS_SEND_AUDIO/AUTH_BITS_SEND_VEDIO/AUTH_BITS_SEND_SUB中的任意一个置为1，则实例会被分配接入DC；反之则该实例被分配接入OC。
 

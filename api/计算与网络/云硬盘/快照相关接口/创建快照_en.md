@@ -1,19 +1,19 @@
 
 ## 1. API Description
 
-This API (CreateSnapshot) is used to create snapshots for the specified cloud disk. This API will return the ID of the newly created snapshot, and users can use this ID to call [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API to query the snapshot creation progress (percent). For snapshot introductions, refer to [Snapshot Features](https://cloud.tencent.com/doc/product/213/502).
+This API (CreateSnapshot) is used to create snapshots for the specified cloud disk. This API will return the ID of the newly created snapshot, and users can use this ID to call [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API to query the snapshot creation progress (percent). For snapshot introductions, refer to [Snapshot Features](https://cloud.tencent.com/document/product/213/502).
 
 Domain for API request:<font style="color:red">snapshot.api.qcloud.com</font>
 
 
-Usage restrictions:
-1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. 
-2. For the number of snapshots that can be created, refer to [Product Usage Restriction](https://cloud.tencent.com/doc/product/362/5145).
+Usage restrictions:<br>
+1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. <br>
+2. For the number of snapshots that can be created, refer to [Product Usage Restriction](https://intl.cloud.tencent.com/doc/product/362/5145).
 
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://intl.cloud.tencent.com/document/api/213/6976
 ).
 
 

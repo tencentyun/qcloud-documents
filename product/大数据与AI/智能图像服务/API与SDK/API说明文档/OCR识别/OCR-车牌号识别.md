@@ -1,71 +1,59 @@
-## 简介
+## 接口概述
 
-OCR - 车牌号识别用于识别图像上的车牌号码。
+### 服务简介
+本接口用于识别用户上传照片的车牌号码。
 
-## 计费
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-请查看[计费说明](/document/product/641/12399)。
+### url 说明
+支持 http 和 https 两种协议：
 
-## 说明
+`http://recognition.image.myqcloud.com/ocr/plate`
 
-(1) 每个请求的包体大小限制为6MB。
-
-(2) 所有接口都为POST方法。
-
-(3) 不支持 .gif这类的多帧动图。
-
-## 调用URL
-
-```
-http://recognition.image.myqcloud.com/ocr/plate
-```
+`https://recognition.image.myqcloud.com/ocr/plate`
 
 ## 请求方式
+### 请求头 header
 
-OCR接口采用http协议，支持指定图片URL和上传本地图片文件两种方式。
-
-#### 请求包header
-
-所有请求都要求含有下表列出的头部信息
-
-| 参数名            | 值                              | 描述                                       |
-| -------------- | ------------------------------ | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com | 图像识别服务器域名                                |
-| Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json               | 标准json格式                                 |
-| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](/document/product/641/12409) |
+| 参数名            |必选| 值                                        | 描述                                       |
+| -------------- | -----|----------------------------------- | ---------------------------------------- |
+| host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名                       |
+| content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图 | 
+| content-type   | 是 |application/json 或者 multipart/form-data    | 标准 json 格式                               |
+| authorization  | 是 |鉴权签名             | 用于鉴权的签名，使用 [多次有效签名](/document/product/641/12409) |
 
 #### 请求参数
 
-| 参数名   | 是否必须 | 类型     | 参数说明                                  |
+| 参数名   | 必选 | 类型     | 参数说明                                  |
 | ----- | ---- | ------ | ------------------------------------- |
-| appid | 必须   | String | 项目ID                                  |
-| image | 可选   | String | 使用base64编码的二进制图片数据                    |
-| url   | 可选   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
+| appid | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                  |
+| image | 否   | string | 使用 base64 编码的二进制图片数据。                    |
+| url   | 否   | string | 图片的 url, image 和 url 只提供一个即可,如果都提供,只使用 url。 |
 
 #### 返回内容
 
 | 字段         | 类型          | 说明                     |
 | ---------- | ----------- | ---------------------- |
-| code       | Int         | 返回码                    |
-| message    | String      | 返回错误消息                 |
-| data.items | Array(Item) | 识别出的所有字段信息，详见下文istem说明 |
+| code       | int         | 返回码                    |
+| message    | string      | 返回错误消息                 |
+| data.items | array(Item) | 识别出的所有字段信息，详见下文 items 说明 |
 
-items说明
+items 说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
-| item       | &nbsp; | String | 字段名称      |
-| itemstring | &nbsp; | String | 字段内容      |
-| itemcoord  | x      | Int    | item框左上角x |
-| &nbsp;     | y      | Int    | item框左上角y |
-| &nbsp;     | width  | Int    | item框宽度   |
-| &nbsp;     | height | Int    | item框高度   |
-| itemconf   | &nbsp; | Float  | 字段识别结果置信度 |
+| item       | &nbsp; | string | 字段名称      |
+| itemstring | &nbsp; | string | 字段内容      |
+| itemcoord  | x      | int    | item框左上角x |
+| &nbsp;     | y      | int    | item框左上角y |
+| &nbsp;     | width  | int    | item框宽度   |
+| &nbsp;     | height | int    | item框高度   |
+| itemconf   | &nbsp; | float  | 字段识别结果置信度 |
 
-## 示例
+## 请求示例
 
-#### 使用url的请求包
+#### 使用 url 的请求示例
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -80,7 +68,7 @@ Content-Type: application/json
 }
 ```
 
-#### 使用image的请求包
+#### 使用 image 的请求示例
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -95,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-#### 回包
+#### 返回示例
 
 ```
 HTTP/1.1 200 OK
@@ -121,7 +109,7 @@ Content-Type: text/json
 
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求                      |
+| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                      |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |
@@ -144,6 +132,8 @@ Content-Type: text/json
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
+| -5208 | 服务器内部错误                 |
+| -9702 | 车牌识别失败                   |
 
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。

@@ -1,6 +1,6 @@
 ## Introduction
 Classiclink means to associate CVMs in the basic network with specified VPCs, thus allowing CVMs in the basic network to communicate with cloud services in VPCs (such as CVMs and databases). By default, VPC network is completely isolated. Neither other VPCs nor the basic network is able to communicate with it. [Peering Connection](https://cloud.tencent.com/doc/product/215/5000) made it possible for different VPCs to communicate with each other. While communication between the basic network and a certain VPC is made possible by Classiclink. As shown in the figure below, the basic network CVM can access cloud resources within the VPC such as CVM, cloud database, private network cloud load balancer, cloud cache and so on. However, the CVM in the VPC can only access the basic network CVM which is interconnected with it, but not the other computing resources within the basic network. This feature only supports interconnection within the same region, as shown below.
-![](//mccdn.qcloud.com/static/img/ec304e11bfe74202087af2ecdc043397/image.png)
+![](https://mc.qcloudimg.com/static/img/dfdbaa364ad46920f10053536fb6363f/VPC-Classiclink.png)
 
 ## Influence on Basic Network Interconnected CVMs Caused by Router, Security Group and Network ACL
 - The private IP of the associated basic network CVM will be automatically added to the Local policy of the VPC's routing table, in which case the CVM in the VPC and services in this basic network will be able to communicate with each other. You do not need to manually modify the routing table rules in the current VPC. 
@@ -49,7 +49,7 @@ If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via Classicli
 4) Click "OK" to complete the disassociation process.
 
 ## Related APIs
-You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909) for more information about VPC API services.
+You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909) for more information about VPC API services.
 
 
 

@@ -25,7 +25,7 @@ Upload the file to the input folder created in Preparations.
 Open file 3_StoreMapping.py with an editor.
 ```
  # custom (Change to your info)
-imageId = "img-i91njcmx"
+imageId = "img-m4q71qnf"
 Application = {
     "DeliveryForm": "PACKAGE",
     "Command": "python ./codepkg/countnum.py",

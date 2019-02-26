@@ -16,7 +16,6 @@
 <!--通过width和height设置验证码初始宽高，未设置会导致显示异常，默认触发式-->
 <div id="TCaptcha" style="width:300px;height:40px;" ></div>
 ```
-[不同样式体验入口](http://open.captcha.qq.com/cap_web/experience-character.html)
 ### 2.3 初始化并显示验证码
 ```
 <script type="text/javascript">

@@ -1,83 +1,176 @@
-## Price Description of Block Storage Devices
+## Price Overview
+
+### Price Overview of CBS
+<table>
+        <tbody><tr>
+            <th style="width: 10%;" rowspan="2">Price Overview of CBS</th>
+            <th style="width: 40%;" colspan="3">Price for Prepaid CBS (in CNY/GB*month)</th>
+            <th style="width: 50%;" colspan="3">Price for Postpaid CBS (in CNY/GB*hour)</th>
+            
+        </tr>
+        <tr>
+			<th>HDD Cloud Storage</th>
+            <th>Premium Cloud Storage</th>
+			<th>SSD Cloud Storage</th>
+            
+            <th>HDD Cloud Storage</th>
+            <th>Premium Cloud Storage</th>
+			<th>SSD Cloud Storage</th>
+            
+        </tr>
+        <tr>
+            <td>South China (Guangzhou)</td>
+            <td>0.3</td>
+            <td>0.35</td>
+			<td>1.1</td>
+            <td>0.00042</td>
+            <td>0.0009</td>
+			<td>0.0033</td>
+        </tr>
+        <tr>
+            <td>East China (Shanghai)</td>
+            <td>0.3</td>
+            <td>0.35</td>
+			<td>1.1</td>
+            <td>0.00042</td>
+            <td>0.0009</td>
+			<td>0.0033</td>
+        </tr>
+					<tr>
+            <td>North China (Beijing)</td>
+            <td>0.3</td>
+            <td>0.35</td>
+			<td>1.1</td>
+            <td>0.00042</td>
+            <td>0.0009</td>
+			<td>0.0033</td>
+        </tr>
+               </tr>
+					<tr>
+            <td>Southwest (Chengdu)</td>
+            <td>0.3</td>
+            <td>0.35</td>
+			<td>1.1</td>
+            <td>0.00042</td>
+            <td>0.0009</td>
+			<td>0.0033</td>
+        </tr>
+				        </tr>
+					<tr>
+            <td>Southeast Asia (Hong Kong)</td>
+            <td>0.3</td>
+            <td>Not available</td>
+			<td>1.1</td>
+            <td>0.00068</td>
+            <td>Not available</td>
+			<td>0.0033</td>
+        </tr>
+					<tr>
+            <td>North America (Toronto)</td>
+            <td>0.3</td>
+            <td>Not available</td>
+			<td>1.1</td>
+            <td>0.00068</td>
+            <td>Not available</td>
+			<td>0.0033</td>
+        </tr>
+					<tr>
+            <td>Southeast Asia (Singapore)</td>
+            <td>0.6</td>
+            <td>Not available</td>
+			<td>2.0</td>
+            <td>0.0009</td>
+            <td>Not available</td>
+			<td>0.0027</td>
+        </tr>
+					<tr>
+            <td>Western U.S. (Silicon Valley)</td>
+            <td>0.3</td>
+            <td>Not available</td>
+			<td>1.6</td>
+            <td>0.00068</td>
+            <td>Not available</td>
+			<td>0.0025</td>
+        </tr>
+					<tr>
+            <td>Europe (Frankfurt)</td>
+            <td>0.5</td>
+            <td>Not available</td>
+			<td>1.55</td>
+            <td>0.0008</td>
+            <td>Not available</td>
+			<td>0.0025</td>
+        </tr>
+					<tr>
+            <td>Asia Pacific (Seoul)</td>
+            <td>0.5</td>
+            <td>Not available</td>
+			<td>1.66</td>
+            <td>0.0008</td>
+            <td>Not available</td>
+			<td>0.0025</td>
+        </tr>
+							
+        
+    </tbody></table>
+
+
+### Performance of Disks
+
 <table class="cvmMonth">
         <tbody><tr>
             <th style="width: 10%;" rowspan="2">Item</th>
-            <th style="width: 40%;" colspan="2">Local disk</th>
-            <th style="width: 50%;" colspan="3">Cloud disk</th>
+            <th style="width: 40%;" colspan="2">Local Disk</th>
+            <th style="width: 50%;" colspan="3">Cloud Disk</th>
         </tr>
         <tr>
             <th>Local HDD</th>
-            <th>SSD local disk</th>
-			<th>HDD cloud disk</th>
-			<th>SSD cloud disk</th>
-            <th>Premium cloud disk</th>
+            <th>Local SSD</th>
+			<th>HDD Cloud Storage</th>
+			<th>SSD Cloud Storage</th>
+            <th>Premium Cloud Storage</th>
         </tr>
+       
         <tr>
-            <td>Capacity of a single disk (used as a data disk)</td>
-            <td>10 GB - 1,000 GB</td>
-            <td>10 GB - 250 GB</td>
-						<td>10 GB - 16,000 GB</td>
-            <td>250 GB - 4,000 GB</td>
-            <td>50 GB - 4,000 GB</td>
-        </tr>
-        <tr>
-            <td>Maximum throughput</td>
-            <td>40-hundreds MB/s</td>
+            <td>Maximum Throughput</td>
+            <td>40-100+ MB/s</td>
             <td>300 MB/s</td>
 						<td>40-100 MB/s</td>
-            <td>150-260 MB/s</td>
+            <td>128-260 MB/s</td>
             <td>75-130 MB/s</td>
         </tr>
 					<tr>
-            <td>Formula for calculating throughput performance </td>
+            <td>Formula for Calculating Throughput Performance</td>
             <td>N/A</td>
             <td>N/A</td>
 						<td>N/A</td>
-            <td>Throughput={min 150+0.147*(purchased capacity-250 GB), max 260} MB/s<br>
-The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB and the upper limit is 260 MB/s;</td>
-            <td>Throughput={min 75+disk capacity*0.147, max 130} MB/s<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s;
+            <td>Throughput={min 128+0.147*(Purchased capacity - 100 GB), max 260} MB/s<br>
+The minimum throughput value is 128 MB/s with an increment of 0.147 MB/s per GB and the upper limit is 260 MB/s.</td>
+            <td>Throughput={min 75+Disk capacity*0.147, max 130} MB/s<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s.
 </td>
         </tr>
         <tr>
             <td>Maximum IOPS</td>
-            <td>Hundreds-2,000</td>
-            <td>30,000</td>
-						<td>Hundreds-1,000</td>
-            <td>6,000-24,000</td>
+            <td>100+ - 1,000 </td>
+            <td>30000</td>
+						<td>100+ - 1,000 </td>
+            <td>2,400-24,000</td>
             <td>1,500-4,500</td>
         </tr>
 				<tr>
-            <td>Formula for calculating IOPS performance</td>
+            <td>Formula for Calculating IOPS Performance</td>
             <td>N/A</td>
             <td>N/A</td>
 						<td>N/A</td>
-            <td>IOPS={min 6,000+24*capacity, max 24,000}<br>
-24 IOPS are provided per GB, and the upper limit is 24,000; the minimum IOPS value is 6,000;</td>
-            <td>IOPS={min 1,500+8*capacity, max 4,500}<br>
-8 IOPS are provided per GB, and the upper limit is 4,500; the minimum IOPS value is 1,500;
+            <td>IOPS={24*Disk Capacity}<br>
+24 IOPS are provided per GB, and the upper limit is 24,000. The minimum IOPS value is 2,400.</td>
+            <td>IOPS={min 1,500+8*Capacity, max 4,500}<br>
+8 IOPS are provided per GB, and the upper limit is 4,500. The minimum IOPS value is 1,500.
 </td>
         </tr>
-								<tr>
-            <td>Price</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/100G/hour</td>
-            <td>Annual or monthly plan: RMB 0.8/GB/month<br>
-Pay by usage: RMB 0.33/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/hour/100GB</td>
-						<td>Annual or monthly plan: RMB 1.1/GB/month<br>
-Pay by usage: RMB 0.332/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.35/GB/month<br>
-Pay by usage: RMB 0.09/hour/100GB</td>
-        </tr>
+							
         
     </tbody></table>
-    
-**Note:**
 
-- System disk must be purchased when you purchase a CVM, and cannot be purchased separately.
 
-- You can enjoy 2-month discount if you choose annual or monthly plan. In other words, annual billing price equals monthly price multiplied by 10.
- 
- 
 

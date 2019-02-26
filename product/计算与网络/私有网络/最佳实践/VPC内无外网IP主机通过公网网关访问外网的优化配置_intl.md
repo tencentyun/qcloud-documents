@@ -1,7 +1,7 @@
 ## 1. Environment Description
 
 If you need to access the public network but the CVM on the Tencent Cloud VPC has no public IP, you can purchase a CVM with public network gateway as the public network egress during access to the Internet for the CVM without public IP. The public network gateway CVM will carry out source address translation for outbound traffic, and the source IP of traffic by all other CVMs accessing the public network is converted to the IP address of public network gateway CVM after passing through the public network gateway, as shown below:
-![](//mccdn.qcloud.com/img56c6b95099539.png)
+![](https://mc.qcloudimg.com/static/img/c756ed0cfe20c76f071a93ce95a97f7c/VPC-Best+Practise.png)
 
 Ordinary CVM has no public IP, but it can use the public network gateway to access the Internet.
 
@@ -14,7 +14,7 @@ The public network gateway can only forward the route forwarding request of the 
 ![](https://mc.qcloudimg.com/static/img/80a5ea57ab46f6b2e480d088d9929a93/Best_Allow_1.jpg)
 
 ### 2.2. Purchasing a Public Network Gateway
-To purchase the public network gateway in the gateway subnet created above, please refer to [Purchasing a VPC Public Network Gateway](http://cloud.tencent.com/doc/product/215/%E8%B4%AD%E4%B9%B0%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E5%85%AC%E7%BD%91%E7%BD%91%E5%85%B3)
+To purchase the public network gateway in the gateway subnet created above, please refer to Purchasing a VPC Public Network Gateway
 
 ### 2.3. Creating the Routing Table of Gateway Subnet
 Gateway subnet and ordinary subnet cannot be associated with the same routing table. You need to create a separate gateway routing table and associate it with the gateway subnet.

@@ -1,6 +1,6 @@
 ## 1 接入流程
-智营网优 Unity SDK 1.1.0 下载地址：[Unity SDK](https://mc.qcloudimg.com/static/archive/87bebd75229e0dab77e32525db734cfb/unity+v1.1.0.zip).
-
+登录腾讯云控制台,在智营网优管理后台下载 SDK。  
+*** 注意：本产品需要申请通过后才能访问管理后台 ***
 
 ### 1.1 Android
 1) 将下列文件导入到项目中：

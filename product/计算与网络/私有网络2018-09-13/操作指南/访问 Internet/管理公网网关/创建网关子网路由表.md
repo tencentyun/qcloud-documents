@@ -1,0 +1,2 @@
+网关子网和普通子网不能关联同一张路由表，需要新建一张独立的网关路由表，并将这张路由表关联到创建的网关子网，路由策略可以只保留默认的 Local 策略。
+详细操作步骤，请参见可以参考 [新建路由表](https://cloud.tencent.com/document/product/215/8115) 和 [创建子网](https://cloud.tencent.com/document/product/215/8114)。

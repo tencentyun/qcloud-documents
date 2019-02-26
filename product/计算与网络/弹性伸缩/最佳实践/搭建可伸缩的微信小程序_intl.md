@@ -1,6 +1,6 @@
 ## Deployment Architecture
 We can create a WeChat Lite App with the following architecture. Auto Scaling is required for business server cluster and session server cluster.
-![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/solution/css/img/wx/fw-pic.png)
+![](https://mc.qcloudimg.com/static/img/e2de0c6b3a406e867c26d2310f2cf228/AS-Best+Practise-WeChat.png)
 
 ## Why Is the Auto Scaling Configuration Required?
 
@@ -8,7 +8,7 @@ Auto Scaling in the following two scenarios may reduce costs and improve busines
 
 1. Lite Apps visits with obvious peak and idle hours: According to the prediction, if more than 1 set of CVM for business server cluster and session server cluster with less than 8 peak hours are required, 30% of the cost shall be saved if the method of **fixed servers only for idle hours + temporary servers added for peak hours** is used. With AS's scheduled scaling capability, Tencent Cloud allows you to add temporary servers in peak hours and reclaim and terminate the surplus servers in idle hours.
 
-2. Constant lite Apps visits: You can configure monitoring and alarm based scaling policy to deal with unexpected high load, maintain continuous service and earn time for troubleshooting. Abnormally high load includes [CC attack](http://baike.baidu.com/link?url=aSNcL5Q_xzDxPvFYRU3qbS11NIQXD5vwvI5yxtJTVlL0xhjAaLntwmDHVW8buUlH4bbNJqMzCPp8b1N2LX-OnwAUR3MnE9GhH-F7fomUac3) and unexpected traffic (for example, superfast spreading speed of "MYOTee" upon its launch, or burst visits brought by a certain event). Refer to the cases at the public welfare website [baobeihuijia](https://cloud.tencent.com/community/article/651089001483090830).
+2. Constant lite Apps visits: You can configure monitoring and alarm based scaling policy to deal with unexpected high load, maintain continuous service and earn time for troubleshooting. Abnormally high load includes CC attack and unexpected traffic (for example, superfast spreading speed of "MYOTee" upon its launch, or burst visits brought by a certain event).
 
 > Note: Auto Scaling is free, but the scaled CVM will be charged by seconds.
 
@@ -21,7 +21,7 @@ It will:
 
 
 ## Preconditions of Configuration
-Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.cloud.tencent.com/la/guide).
+Your WeChat Lite App should support auto scaling.
 
 ## Configuring Auto Scaling Policy for Session Servers
 

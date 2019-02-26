@@ -12,12 +12,12 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
 | version | String | 回调版本号，固定为4.0 |
 | eventType | String | 回调类型，固定为PullComplete |
 | data | Object | 具体回调数据 |
+| data.vodTaskId | String | 拉取上传任务 ID |
 | data.status | Integer | 错误码，0: 成功；其他值: 失败 |
 | data.message | String | 错误信息  |
 | data.fileId | String | 发起拼接请求后获取到的唯一id |
-| data.fileUrl | String | 视频上传完成之后的URL  |
+| data.fileUrl | String | 视频上传完成之后的URL |
 | data.transcodeTaskId | String | 如果该视频上传之后发起了转码，则该参数为转码任务id |
-| data.porncheckTaskId | String | 如果该视频上传之后发起了鉴黄，则该参数为鉴黄任务id |
 
 
 ## 示例
@@ -35,8 +35,7 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
         "vodTaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8",
         "fileId": "14508071098244959037",
         "fileUrl": "http://251000330.vod2.myqcloud.com/vod251000330/14508071098244959037/f0.flv",
-        "transcodeTaskId": "transcode-0bee89b07a248e27c83fc3d5951213c1",
-        "porncheckTaskId": "porncheck-f5ac8127b3b6b85cdc13f237c6005d80"
+        "transcodeTaskId": "transcode-0bee89b07a248e27c83fc3d5951213c1"
     }
 }
 ```

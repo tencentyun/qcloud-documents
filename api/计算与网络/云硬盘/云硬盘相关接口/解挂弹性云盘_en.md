@@ -4,8 +4,8 @@ This API (DetachCbsStorages) is used to unmount the specified elastic cloud stor
 
 Domain for API call:<font style="color:red">cbs.api.qcloud.com</font>
  
-Usage restrictions:
-1. Only elastic cloud storages are supported. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters.
+Usage restrictions:<br>
+1. Only elastic cloud storages are supported. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters.<br>
 2. The cloud disk must be mounted and the status is `normal`. The mount status of a cloud storage can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `storageStatus` and `attached` fields in output parameters. 
 
 ## 2. Input Parameters

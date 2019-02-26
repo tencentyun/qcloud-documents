@@ -1,7 +1,7 @@
 ## Application Scenarios
 For the isolation deployment of multi-layer Web applications, the users not only want to ensure that the Web access layer can access the Internet and respond to massive requests, but also need to protect the security of database server through network isolation.
 Then, you can create different subnets within a VPC and put the entire Web layer in a subnet. Moreover, you can communicate with the Internet through configuring elastic IP/gateway CVM/NAT gateway. By configuring the cloud load balance service, the access traffic will be automatically assigned to multiple Web access layer CVM. The logical layer is put in another subnet, only communicating with the Web layer and the data layer. The data layer is put in a third subnet, only communicating with the logical layer.
-![](https://mc.qcloudimg.com/static/img/b127c404a42371721b7cc4c08b8ce7e0/image.png)
+![](https://mc.qcloudimg.com/static/img/dbc20d9b05da9cabbc78869f64787dcf/VPC-Multi-layer+Web.png)
 
 ## Solutions:
 **VPC**: CIDR(10.0.0.0/16), and create three subnets within the VPC.

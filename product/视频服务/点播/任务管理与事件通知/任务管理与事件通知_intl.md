@@ -23,9 +23,7 @@ The basic process of HTTP callback is as follows: An HTTP service is built at th
 ### How to Configure
 Enter the "Console" -> "Global Settings" -> "Callback Configuration" page, set the "Callback URL" to the address for the APP backend to receive the callback, select "Normal Callback" in the "Callback Model", and select the event callback type you need.
 
-As shown in the figure below:
-
-![](//mc.qcloudimg.com/static/img/349c36d65d5c42163ec131e1689db5a4/image.png)
+[1]://mc.qcloudimg.com/static/img/349c36d65d5c42163ec131e1689db5a4/image.png
 
 ### Callback Protocol
 Request: HTTP POST request. The packet body content is JSON. For the specific packet body content for each type of callback, refer to the related documentation.
@@ -108,9 +106,7 @@ APP server may encounter network problems or failures such as crashes. For simpl
 ### Configuration Method
 Enter the "Console" -> "Global Settings" -> "Callback Configuration" page, select "Reliable Callback" in the "Callback Model", and select the event callback type you need. Note: In the model of reliable callback, the "Callback URL" will not take effect.
 
-As shown in the figure below:
-
-![](//mc.qcloudimg.com/static/img/e448c807e093ecae7651c9c94987137c/image.png)
+[2]://mc.qcloudimg.com/static/img/e448c807e093ecae7651c9c94987137c/image.png
 
 ### Basic Principle
 
@@ -119,9 +115,7 @@ As shown in the figure below:
 - The APP backend plays the role of consumer, and acquires contents of the message queue through a long polling way. Long polling means that the APP backend must cyclically call the API [PullEvent](/document/product/266/7818) to pull the event notification. If there is a message in the current message queue, the API will return the content immediately; if there is no unconsumed event notification, the VOD backend will suspend the request until a new event is generated; each request can be suspended for up to 5 seconds.
 - After the APP backend pulls the message via [PullEvent](/document/product/266/7818), it must call the API [ConfirmEvent](/document/product/266/7819) to confirm that the event notification has been consumed, otherwise the message may be consumed again.
 
-As shown in the following figure: The first dashed box describes the complete consumption process of an event notification; the second dashed box indicates that the PullEvent does not get a new event notification, and the APP backend needs to continue to call the PullEvent.
-
-![](//mc.qcloudimg.com/static/img/740ef842285aef44ff4911cc702ee178/image.png)
+[3]://mc.qcloudimg.com/static/img/740ef842285aef44ff4911cc702ee178/image.png "As shown in the following figure: The first dashed box describes the complete consumption process of an event notification; the second dashed box indicates that the PullEvent does not get a new event notification, and the APP backend needs to continue to call the PullEvent."
 
 ### Related APIs
 The reliable callback based on message queue is achieved through two server APIs:

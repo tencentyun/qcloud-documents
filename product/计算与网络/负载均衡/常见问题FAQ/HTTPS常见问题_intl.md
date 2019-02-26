@@ -11,7 +11,7 @@ Cloud Load Balancer HTTPS currently supports the following SSL protocols: TLSv1,
 
 There is no mandatory requirement for this. Port 443 is recommended.
 
-## Why is HTTPS mutual authentication needed?
+## 4. Why is HTTPS mutual authentication needed?
 
 Some customers have a higher requirement for data security, such as those who deal with financial services. They require HTTPS authentication to be carried out on both server and client. In order to cater for the needs of such customers, we have launched HTTPS mutual authentication.
 

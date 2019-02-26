@@ -5,7 +5,7 @@
   - **channel_manager**: This API is used to stop push and delay the availability of API.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API: `http://fcgi.video.qcloud.com/common_access`
 
 - **Use**
   - This API can be called when VJ push is not allowed for certain reasons.

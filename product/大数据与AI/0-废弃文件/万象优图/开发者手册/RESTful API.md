@@ -292,7 +292,7 @@ Host: web.image.myqcloud.com
 
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
-| Host          | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
+| Host          | 是    | String | 图片云服务器域名，固定为`web.image.myqcloud.com `      |
 | Authorization | 是    | String | 单次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
@@ -371,7 +371,7 @@ download_url?imageView2/<mode>/w/<Width>/h/<Height>
 | 参数                                       | 含义                                       |
 | ---------------------------------------- | ---------------------------------------- |
 | /0/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，则另一边自适应 |
-| /1/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，剧中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为&lt;Width&gt;x&lt;Height&gt;（其中一边多余的部分会被裁剪掉） |
+| /1/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为&lt;Width&gt;x&lt;Height&gt;（其中一边多余的部分会被裁剪掉） |
 | /2/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最大值分别为Width和Height，进行等比压缩；如果只指定一边，则另一边自适应 |
 | /3/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
 | /4/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
@@ -484,7 +484,7 @@ http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumb
 /crop/!600x600a20a20: 表示从原图的坐标（x,y）为（20,20）的位置裁剪600x600的缩略图。
 /crop/!600x600-20a20: 表示从原图的坐标（x,y）为（0,20）的位置裁剪580x600的缩略图。
 注意：scrop 参数与 crop 参数同时使用，当智能裁剪没有识别到人脸时，会执行普通的裁剪。 要求使用的宽高参数一致，否则输出图片宽高是两个宽高参数中的一个。
-http://v2enhance-10000812.image.myqcloud.com/tencentyunRestfulAPITest?imageMogr2/scrop/300x400/crop/300x400
+`http://v2enhance-10000812.image.myqcloud.com/tencentyunRestfulAPITest?imageMogr2/scrop/300x400/crop/300x400`
 示例：
 
 ```

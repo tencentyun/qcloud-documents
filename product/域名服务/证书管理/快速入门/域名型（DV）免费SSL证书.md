@@ -1,7 +1,7 @@
-## 1. 注册帐号
-腾讯云平台申请证书首先需要注册腾讯云帐号并且完成实名认证。
+## 1. 注册账号
+腾讯云平台申请证书首先需要注册腾讯云账号并且完成实名认证。
 
-1) 新用户请点击腾讯云官网顶部的【注册】按钮，进入注册页面。
+1) 新用户请单击腾讯云官网顶部的【注册】按钮，进入注册页面。
 ![](https://mc.qcloudimg.com/static/img/cc760f13d5e89b06ff3c48b9aeb66c63/0.png)
 
 2) 填写资料完成注册。
@@ -12,7 +12,7 @@
 
 ## 2. 申请免费证书
 
-1) 进入[SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，点击【申请证书】。
+1) 进入[SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，单击【申请证书】。
 
 ![](https://mc.qcloudimg.com/static/img/2363dce283c66901c4662f48784661e7/3.png)
 

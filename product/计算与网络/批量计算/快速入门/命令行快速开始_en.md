@@ -42,7 +42,7 @@ qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
                 "EnvType": "MANAGED",   // Computing environment types: MANAGED and UNMANAGED
                 "EnvData": {        // Detailed configuration (the current type is MANAGED. See description of CVM instance creation)
                     "InstanceType": "S1.SMALL1",    // CVM instance type
-                    "ImageId": "img-i91njcmx",      // CVM image ID (to be replaced)
+                    "ImageId": "img-m4q71qnf",      // CVM image ID (to be replaced)
                 }
             },
             "RedirectInfo": {       // Configuration of standard output redirection           
@@ -76,7 +76,7 @@ The command SubmitJob of Batch contains 3 parameters.
 ``* 3. For more information on Job configuration, please see ``[Job Configuration](https://cloud.tencent.com/document/product/599/11040)``.``
 
 ```
-qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "img-i91njcmx" }  }, "RedirectInfo": {"StdoutRedirectPath": "To be replaced", "StderrRedirectPath":   "To be replaced"}, "MaxRetryCount":  1, "Authentications": [{"Scene": "COS", "SecretId":   "To be replaced", "SecretKey":  "To be replaced"} ] } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
+qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "img-m4q71qnf" }  }, "RedirectInfo": {"StdoutRedirectPath": "To be replaced", "StderrRedirectPath":   "To be replaced"}, "MaxRetryCount":  1, "Authentications": [{"Scene": "COS", "SecretId":   "To be replaced", "SecretKey":  "To be replaced"} ] } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
 ```
 
 ### Modify Configuration
@@ -84,7 +84,7 @@ qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "
 #### 1. Enter ImageId
 ```"ImageId": "To be replaced"```
 
-A configured Cloud-init service-based image is needed for internal trial. A CentOS 6.5 image (ID: img-i91njcmx) that is officially provided can be used directly.
+A configured Cloud-init service-based image is needed for internal trial. A CentOS 6.5 image (ID: img-m4q71qnf) that is officially provided can be used directly.
 
 #### 2. Configure StdoutRedirectPath and StderrRedirectPath
 ```"StdoutRedirectPath": "To be replaced", "StderrRedirectPath":   "To be replaced"```

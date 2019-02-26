@@ -1,7 +1,1 @@
-请求格式和 Http 相同，接入节点为 119.29.29.229，域名 dns.qq.com。示例如下：
-```
-//dn参数对应为加密后的字符串，id对应为您的密钥ID
-https://119.29.29.229/d?dn=ac7875d400dacdf09954edd788887719&id=1&ttl=1
-```
-
-> 注意：仅对企业版提供 Https 接入
+目前该服务仅对企业版提供 Https 接入申请，如需申请，请注明具体使用场景及预计调用频率 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。

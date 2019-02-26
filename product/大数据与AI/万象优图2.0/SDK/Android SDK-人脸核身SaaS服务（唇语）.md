@@ -4,7 +4,7 @@
 
 ### 1、开发准备
 
-[参考demo：](https://github.com/rickenwang/facein-sdk-android/tree/master)请点击此链接查看Android开发参考demo。
+[参考demo：](https://github.com/rickenwang/facein-sdk-android/tree/master)请单击此链接查看Android开发参考demo。
 
 #### 获取账号
 

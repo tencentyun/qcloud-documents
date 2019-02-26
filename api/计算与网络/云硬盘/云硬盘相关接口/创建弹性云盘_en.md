@@ -4,8 +4,8 @@ This API (CreateCbsStorages) is used to create new elastic cloud storages.
 
 Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
-1. For restrictions on the sales of HDD elastic cloud storages and SSD elastic cloud storages, refer to [Cloud Block Storage Usage Restrictions](https://cloud.tencent.com/doc/product/362/5145)
+Usage restrictions:<br>
+1. For restrictions on the sales of HDD elastic cloud storages and SSD elastic cloud storages, refer to [Cloud Block Storage Usage Restrictions](https://cloud.tencent.com/doc/product/362/5145).
 
 
 ## 2. Input Parameters
@@ -15,12 +15,12 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 | ------- | ------- | ------- | ------- |
-| storageType | Yes | String | Type of hard disk medium. Only two values are available: cloudBasic refers to a HDD cloud storage; cloudSSD refers to a SSD cloud storage | 
-| goodsNum | Yes | Int | Number of purchase. The maximum value is 10 | 
+| storageType | Yes | String | Type of hard disk medium. <br><li> cloudBasic refers to a HDD cloud storage; <br><li>cloudSSD refers to a SSD cloud storage | 
+| goodsNum | Yes | Int | Number of purchase. The maximum value refer to [Cloud Block Storage Usage Restrictions](https://cloud.tencent.com/doc/product/362/5145). | 
 | payMode | Yes | String | Payment mode. Currently, only Prepaid `prePay` is supported |
 | period | Yes | Int | Length of purchase (month) | 
 | zoneId | Yes | Int | ID of the availability zone of the cloud disk purchased, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://cloud.tencent.com/doc/api/229/1286) API |
-| storageSize | No | Int | Size of the disk (GB). If "snapshotId" is passed, "storageSize" can be unpassed. In this case, the size of the new cloud disk is the snapshot size. <br>If the snapshot ID and the disk size are both passed, the disk size must be greater than or equal to the snapshot size. <br>The value range is 10GB - 4,000GB (HDD cloud storages) or 250GB - 4,000GB (SSD cloud storages). The increment is 10GB |
+| storageSize | No | Int | Size of the disk (GB). <br><li>If "snapshotId" is passed, "storageSize" can be unpassed. In this case, the size of the new cloud disk is the snapshot size. <br><li>If the snapshot ID and the disk size are both passed, the disk size must be greater than or equal to the snapshot size.<br><li>The value range is 10GB - 4,000GB (HDD cloud storages), 100GB - 4,000GB (SSD cloud storages). The increment is 10GB |
 | projectId | No | Int | Project ID. Creation will be performed under the default project if this parameter is not passed. This can be queried via the [DescribeProject (Query Project List)](/doc/api/229/1330) API. |
 | snapshotId | No | String | Snapshot ID. If it is passed, a cloud disk will be created based on this snapshot. The snapshot type must be data disk snapshot. The snapshot ID can be queried through [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API | 
 

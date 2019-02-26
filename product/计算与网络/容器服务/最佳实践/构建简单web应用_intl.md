@@ -1,7 +1,7 @@
-## Constructing a Web Application Using Tencent Cloud Container Service
+## Constructing a Web Application Using Tencent Kubernetes Engines
 
 
-This document shows how to build a simple Web application in Tencent Cloud's CCS
+This document shows how to build a simple Web application in Tencent Cloud's TKE
 
 ### The Web Application Consists of Two Sections:
 
@@ -19,7 +19,7 @@ Step 5: Select model for the cluster node (CPU and memory).
 Step 6: Set cluster node configurations such as its disk space and bandwidth. Configure password and security group.
 Step 7: Select the number of nodes for the cluster.
 Step 8: Wait for several minutes for the cluster to be created.
-![](https://mc.qcloudimg.com/static/img/eb422ca4c0700f11c7854fd12678fcd7/1.jpg)
+![](https://mc.qcloudimg.com/static/img/fe9384a44101d0d01078a59c91a956ab/ccs_revise_3.jpg)
 ![](https://mc.qcloudimg.com/static/img/7f563298d97f80a35b38bdda088bfab6/2.jpg)
 ![](https://mc.qcloudimg.com/static/img/fda579b3a63b015d88f9eafd6f60a0f0/3.jpg)
 
@@ -30,13 +30,14 @@ Step 8: Wait for several minutes for the cluster to be created.
 Step 1: Specify service name: redis-master.
 Step 2: Choose the cluster we just created as the cluster.
 Step 3: Configure pod information for the service (a pod may include multiple containers):
-  - Add a container named "master".
-  - Specify image "ccr.ccs.tencentyun.com/library/redis" for the master container. Version is "latest".
+- Add a container named "master".
+- Specify image "ccr.ccs.tencentyun.com/library/redis" for the master container. Version is "latest".
+
 Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the redis-master service needs to run one pod.
 Step 5: Select access method for the service. Since our redis service is an internal service which only provides access to other services within the cluster, we choose "Access Within Cluster Only".
 Step 6: Lastly, configure service access port. Our service pod includes 1 redis container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our container "master" using its service name (redis-master) and port (6379).
 
-![](https://mc.qcloudimg.com/static/img/933da18db1782732749f0de79919d10b/4.jpg)
+![](https://mc.qcloudimg.com/static/img/5b07ff233d2b528dc248ac29a42e9d64/ccs_revise_4.jpg)
 
 
 #### (2) Create redis-slave Service
@@ -49,26 +50,27 @@ Step 3: Configure pod information for the service:
   - Specify maximum CPU and memory (optional) available for the container. You can also configure these limits for the master container mentioned above.
   - For operation commands and launch parameters, you may leave them empty since we can use the default ones in the image.
   - Add an environment variable with the name "GET_HOSTS_FROM" and the value "dns". This is mandatory because the variable is required by programs in the gb-redisslave image.
+
 Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the redis-slave service needs to run one pod.
 Step 5: Select access method for the service. Since our redis slave service is an internal service which only provides access to other services within the cluster, we choose "Access Within Cluster Only".
 Step 6: Lastly, configure service access port. Our service pod includes 1 redis slave container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our slave container "redis-slave" using its service name (redis-master) and port (6379).
 
-![](https://mc.qcloudimg.com/static/img/d73b6f66add2f36ac0a8da7933683d61/5.jpg)
-
+![](https://mc.qcloudimg.com/static/img/cb20b7af15096fc4edc9a0057a209ac2/ccs_revise_5.jpg)
 
 #### (3) Create frontend Service
 
-1. Specify service name: frontend
+Step 1. Specify service name: frontend
 Step 2: Choose the "cls-km7rvck4(yunyxiao_test)" we just created as the cluster.
 Step 3: Configure pod information for the service:
   - Add a container called "frontend".
   - Specify image "ccr.ccs.tencentyun.com/library/gb-frontend" for the slave container. Version is "latest".
   - Add an environment variable with the name "GET_HOSTS_FROM" and the value "dns". This is mandatory because the variable is required by programs in the gb-frontend image.
+ 
 Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the frontend service needs to run one pod.
 Step 5: Select access method for the service. Since our frontend needs to provide access to Internet browsers, we choose "Public Network Load Balancer Access".
 Step 6: Lastly, configure service access port. Our service pod includes 1 frontend container which listens the port 80, so we configure the mapping container port as 80, and set the service port to the same value as the container port, which is also 80. When this is done, users will be able to access our frontend container when they access our load balancer IP through browsers.
 
-![](https://mc.qcloudimg.com/static/img/c65963912a502858dd0c85f1970af853/6.jpg)
+![](https://mc.qcloudimg.com/static/img/bd5571ad5b6186c5aa58cf3880004a03/ccs_revise_6.jpg)
 
 #### (4) View Service
 

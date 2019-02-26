@@ -1,6 +1,6 @@
 ## 1 SMS messages cannot be received
 First, check the returned message after you call the API. If a message indicating success is returned, check whether the status in the status report is "Successful". You can query the status of the SMS message in the SMS console.
-If a message indicating failure is returned, check the failure description in the response packet. The reason may be the request hits the frequency control policy, the format of the content is wrong or the phone number is listed in the blacklist.
+If a message indicating failure is returned, check the failure description in the response packet. The reason may be the request hits the frequency control policy, the format of the SMS message is wrong or the phone number is listed in the blacklist.
 Under any of the following circumstances, users cannot receive SMS messages even if a message indicating success is returned:
 1. The phone is powered off, or the number is in arrears or out of service. You can dial the number to check it out.
 2. The number is listed in the blacklist because the subscriber has complained against the operator or unsubscribed from some services.
@@ -46,10 +46,10 @@ For example: `{"Name":"Xiao Ming", "Age":23}`,"Name " is a JSON string and "Age"
 
 ## 6 Description of error 1014
 When you send SMS messages using Tencent Cloud SMS API, if the response packet returns error 1014, use the following methods to locate and solve the problem:
-1. Check the format of the content template. For example, "{}" should be used and the numeral enclosed in the brackets should be a consecutive integer starting from 1, for example: {1}, {2}…
-2. Check whether the content template is approved.
-3. Check whether the value (0 indicates common SMS messages and 1 indicates marketing SMS messages) of the parameter "type" in the request packet matches the type of the used content template.
-4. Check whether the format of the content in the SMS message matches that of the used template. Note whether the mismatch is caused by **invisible characters such as space**.
+1. Check the format of the main body template. For example, "{}" should be used and the numeral enclosed in the brackets should be a consecutive integer starting from 1, for example: {1}, {2}…
+2. Check whether the body template is approved.
+3. Check whether the value (0 indicates common SMS messages and 1 indicates marketing SMS messages) of the parameter "type" in the request packet matches the type of the used body template.
+4. Check whether the format of the main body in the SMS message matches that of the used template. Note whether the mismatch is caused by **invisible characters such as space**.
 5. If the message contains Chinese characters, check whether the Chinese characters are encoded using UTF-8.
 
 ## 7 Description of error 60008

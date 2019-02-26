@@ -5,7 +5,7 @@ Domain name for API request: <font style='color:red'>redis.api.qcloud.com </font
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='/doc/api/260/1753' title='Common Request Parameters'>Common Request Parameters</a>. The Action field for this API is InquiryRedisPrice.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/api/239/7200' title='Common Request Parameters'>Common Request Parameters</a>. The Action field for this API is InquiryRedisPrice.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -48,7 +48,7 @@ The following error codes include the business logic error codes for this API.
 
 ## 5. Example
 Input
-<pre>
+```
 https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 &zoneId=100002
@@ -56,7 +56,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &memSize=1024
 &goodsNum=1
 &period=2
-</pre>
+```
 Output
 ```
 {

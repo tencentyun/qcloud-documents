@@ -47,7 +47,7 @@ All cloud APIs related to LVB code adopt the same security check mechanism - **t
 MD5 is an irreversible HASH algorithm. As long as the key is not disclosed, attackers cannot calculate the key or launch spoofing attacks even if they get many pairs of t and sign.
 
 - **Example**
-   If the current time is 2016-08-22 15:16:27 and the validity period is 1 minute, the request or notification that comes with this t received later than 2016-08-22 15:16:27 is invalid.
+   If the current time is 2016-08-22 15:16:27 and the validity period is 1 minute, the request or notification that comes with this t received later than 2016-08-22 15:17:27 is invalid.
 ```
 	t = "2016-08-22 15:17:27" = 1471850187
 ```

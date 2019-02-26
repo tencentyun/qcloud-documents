@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口(ManualBackupInstance)用于手动备份CRS实例。
+本接口(ManualBackupInstance)用于手动备份 Redis 实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 - 请不要频繁的调用该接口，最好每天调用次数不超过24次，否则调用可能会失败。

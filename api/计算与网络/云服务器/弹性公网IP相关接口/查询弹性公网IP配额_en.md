@@ -1,83 +1,51 @@
 ## 1. API Description
- 
-Domain name: eip.api.qcloud.com
-API name: DescribeEipQuota
 
-This API is used to query the quota on EIPs for a specified region.
+This API (DescribeAddressQuota) is used to query the quota information of the [Elastic IP](/document/product/213/1941) (EIP) in your account in the current region. For more information about the EIP quota, please see [Overview of EIP Products](/document/product/213/5733).
 
- 
+Domain name for API request: eip.api.qcloud.com
+
 
 ## 2. Input Parameters
- 
 
-<table class="t"><tbody><tr>
-<th>Parameter Name</th>
-<th>Required</th>
-<th>Type</th>
-<th>Description</th>
-<tr>
-<th>null</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-</tbody></table>
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/11650).
 
- 
+| Parameter | Type | Required | Description |
+|---------|---------|---------|---------|
+| Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+
 
 ## 3. Output Parameters
-| Parameter Name | Type | Description |
+
+| Parameter| Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| data | Array | Returned data structure|
+| RequestId | String | Unique request ID. `RequestId` is returned for each request. In case of a failed call to the API, `RequestId` needs to be provided when you contact the developer at backend. |
+| QuotaSet | Array of [Quota](/document/api/213/9451#quota) objects| The information of EIP quota in an account |
 
-Data structure
 
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> data.eipNumQuota <td> Int <td> Total quota on the number of EIPs that can be requested.
-<tr>
-<td> data.currentEipNum <td> Int <td> Current number of EIPs
-<tr>
-<td> data.dailyApplyQuota <td> Int <td> Daily quota on the number of requests for EIPs
-<tr>
-<td> data.dailyApplyCount <td> Int <td> Number of requests for EIPs on current day
-<tr>
-<td> data.dailyAllocWanIpQuota <td> Int <td> Daily quota on the operations to reallocate an ordinary public IP when an EIP is unbound
-<tr>
-<td> data.dailyAllocWanIpCount <td> Int <td> Number of operations to reallocate an ordinary public IP when an EIP is unbound on current day
-</tbody></table>
 
- 
 
-## 4. Example
- 
-Input
+## 4. Sample Codes
+
+### Request Parameters
 <pre>
-
-  https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Public request parameters</a>>
-
+  https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddressQuota
+  &Version=2017-03-12
+  &<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
-Output
-```
-
+#### Response Parameters
+<pre>
 {
-    "code": 0,
-    "message": "",
-    "data": {
-        "eipNumQuota": 20,
-        "currentEipNum": 2,
-        "dailyApplyQuota": 10,
-        "dailyApplyCount": 7,
-        "dailyAllocWanIpQuota": 10,
-        "dailyAllocWanIpCount": 2    
+    "Response": {
+        {
+            'QuotaSet': [
+            {'QuotaId': 'TOTAL_EIP_QUOTA', 'QuotaCurrent': 0, 'QuotaLimit': 20},
+            {'QuotaId': 'DAILY_EIP_APPLY', 'QuotaCurrent': 0, 'QuotaLimit': 40},
+            {'QuotaId': 'DAILY_EIP_ASSIGN','QuotaCurrent': 0, 'QuotaLimit': 40},
+             ]
+        }
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-
-```
+</pre>
 

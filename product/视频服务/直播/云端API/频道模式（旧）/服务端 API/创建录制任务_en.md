@@ -66,7 +66,7 @@ Or view the fragment on the VOD page
 <tr>
 <td> task_id
 <td> Int
-<td> Task ID
+<td> Task ID, 64 bit unsigned integer
 </tbody></table>
 
 </b></th>
@@ -86,7 +86,7 @@ Output 1
 {
    "code": 0,
    "message": "",
-   "task_id": "1"
+   "task_id": 1
 
 }
 

@@ -3,7 +3,7 @@
 > 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
 
 ### 实例化 CosXmlServiceConfig
-调用 CosXmlServiceConfig.Builder().build() 实例化 CosXmlServiceConfig 对象。
+调用 CosXmlServiceConfig.Builder().builder() 实例化 CosXmlServiceConfig 对象。
 
 #### 参数说明
 | 参数名称   |参数描述   | 类型 |必填 | 
@@ -17,9 +17,6 @@
 |----------|-----------|
 |   setAppidAndRegion(String, String) |设置 appid 和 bucket 所属地域   |
 |   isHttps(boolean)  | true：https请求； false：http请求； 默认 http 请求|
-|   setConnectionTimeout(int) |     连接超时设置   |
-|   setSocketTimeout(int)   |     读写超时设置   |
-|   setMaxRetryCount(int)  |     失败请求重试次数   |
 
 
 #### 示例
@@ -29,13 +26,11 @@ String region = "存储桶所在的地域"; //所属地域：在创建好存储�
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .setAppidAndRegion(appid, region)
        .setDebuggable(true)
-       .setConnectionTimeout(45000)
-       .setSocketTimeout(30000)
-       .build();
+       .builder();
 ```
 
 ### 实例化 CosXmlService
-调用 `CosXmlService(Context context, CosXmlServiceConfig serviceConfig, CosXmlCredentialProvider cloudCredentialProvider)` 构造方法，实例化 CosXmlService 对象。
+调用 `CosXmlService(Context context, CosXmlServiceConfig serviceConfig, QCloudCredentialProvider cloudCredentialProvider)` 构造方法，实例化 CosXmlService 对象。
 
 #### 参数说明
 | 参数名称   |  参数描述   |类型 | 必填 |
@@ -53,13 +48,11 @@ String region = "存储桶所在的地域";
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .setAppidAndRegion(appid, region)
        .setDebuggable(true)
-       .setConnectionTimeout(45000)
-       .setSocketTimeout(30000)
-       .build();
+       .builder();
 
 /**
 * 
-* 创建 LocalCredentialProvider 签名获取类对象，用于使用对象存储服务时计算签名. 
+* 创建 ShortTimeCredentialProvider 签名获取类对象，用于使用对象存储服务时计算签名. 
 * 参考 SDK 提供签名格式，可实现自己的签名方法(extends BasicLifecycleCredentialProvider 以及实现       * * fetchNewCredentials() 方法).
 * 此处使用SDK提供的默认签名计算方法.
 *
@@ -67,7 +60,7 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 String secretId = "云 API 密钥 secretId";
 String secretKey ="云 API 密钥 secretKey";
 long keyDuration = 600; //secretKey 的有效时间,单位秒
-LocalCredentialProvider localCredentialProvider = new LocalCredentialProvider(secretId, secretKey, keyDuration);
+ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
 
 //创建 CosXmlService 对象，实现对象存储服务各项操作.
 Context context = getApplicationContext()； //应用的上下文
@@ -146,7 +139,7 @@ public class LocalCredentialProvider extends BasicLifecycleCredentialProvider{
 | signDuration    | 签名的有效期，单位为秒   |Long           | 是  | 
 | checkHeaderListForSign    | 签名中需要验证的请求头    |Set&lt;String>           | 否  | 
 | checkParameterListForSing   | 签名中需要验证的请求参数      |Set&lt;String>           | 否  | 
-| qCloudProgressListener   | 上传进度回调     |QCloudProgressListener          | 否  | 
+| qCloudProgressListener   | 上传进度回调     |CosXmlProgressListener          | 否  | 
 | cosXmlResultListener   | 上传结果回调     |CosXmlResultListener          | 否  | 
 
 
@@ -168,7 +161,7 @@ String srcPath = "本地文件的绝对路径";
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
 putObjectRequest.setSign(signDuration,null,null);
 
-putObjectRequest.setProgressListener(new QCloudProgressListener() {
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
@@ -316,7 +309,7 @@ serviceException)  {
 | signDuration    |签名的有效期，单位为秒 | Long           | 否  |
 | checkHeaderListForSign    |  签名中需要验证的请求头    |Set&lt;String>           | 否  |
 | checkParameterListForSing   |  签名中需要验证的请求参数      |Set&lt;String>           | 否  |
-| qCloudProgressListener   |上传进度回调     | QCloudProgressListener          | 否  | 
+| qCloudProgressListener   |上传进度回调     | CosXmlProgressListener          | 否  | 
 | cosXmlResultListener   | 上传结果回调     |CosXmlResultListener          | 否  | 
 
 #### 返回结果说明
@@ -339,7 +332,7 @@ String srcPath = "本地文件的绝对路径";
 UploadPartRequest uploadPartRequest = new UploadPartRequest(bucket, cosPath, partNumber, srcPath, uploadId);
 uploadPartRequest.setSign(signDuration,null,null);
 
-uploadPartRequest.setProgressListener(new QCloudProgressListener() {
+uploadPartRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
@@ -720,6 +713,7 @@ objectList.add("/2/test.txt");
 
 DeleteMultiObjectRequest deleteMultiObjectRequest = new DeleteMultiObjectRequest();
 deleteMultiObjectRequest.setQuiet(quiet);
+deleteMultiObjectRequest.setObjectList(listObject);
 completeMultiUploadRequest.setSign(signDuration,null,null);
 
 //使用同步方法删除
@@ -777,7 +771,7 @@ serviceException)  {
 | signDuration    |签名的有效期，单位为秒   | Long           | 是  | 
 | checkHeaderListForSign    | 签名中需要验证的请求头    |Set&lt;String>           | 否  | 
 | checkParameterListForSing   | 签名中需要验证的请求参数      |Set&lt;String>           | 否  | 
-| qCloudProgressListener   | 下载进度回调     |QCloudProgressListener          | 否  | 
+| qCloudProgressListener   | 下载进度回调     |CosXmlProgressListener          | 否  | 
 | cosXmlResultListener   | 上传结果回调     |CosXmlResultListener          | 否  | 
 
 #### 返回结果说明
@@ -798,7 +792,7 @@ String savePath = "savePath";
 GetObjectRequest getObjectRequest = GetObjectRequest(bucket, cosPath, savePath);
 
 getObjectRequest.setSign(signDuration,null,null);
-getObjectRequest.setProgressListener(new QCloudProgressListener() {
+getObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
@@ -956,21 +950,18 @@ putBucketRequest.setSign(signDuration,null,null);
 putBucketRequest.setXCOSACL("private");
 
 //赋予被授权者读的权限
-ACLAccounts readACLS = new ACLAccounts();
-ACLAccount readAccount = new ACLAccount("OwnerUin", "SubUin");
-readACLS.addACLAccount(readAccount);
+ACLAccount readACLS = new ACLAccount();
+readACLS.addACLAccount("OwnerUin", "SubUin");
 putBucketRequest.setXCOSGrantRead(readACLS);
 
 //赋予被授权者写的权限
-ACLAccounts writeACLS = new ACLAccounts();
-ACLAccount writeAccount = new ACLAccount("OwnerUin", "SubUin");
-writeACLS.addACLAccount(writeAccount);
+ACLAccount writeACLS = new ACLAccount();
+writeACLS.addACLAccount("OwnerUin", "SubUin");
 putBucketRequest.setXCOSGrantRead(writeACLS);
 
 //赋予被授权者读写的权限
-ACLAccounts writeandReadACLS = new ACLAccounts();
-ACLAccount writeandReadAccount = new ACLAccount("OwnerUin", "SubUin");
-writeandReadACLS.addACLAccount(writeandReadAccount);
+ACLAccount writeandReadACLS = new ACLAccount();
+writeandReadACLS.addACLAccount("OwnerUin", "SubUin");
 putBucketRequest.setXCOSGrantRead(writeandReadACLS);
 
 //使用同步方法
@@ -1238,9 +1229,9 @@ serviceException)  {
 | -------- | --------------- | -- | ----------- |
 | bucket    | 存储桶名称   |String           | 是  |
 | xcosACL    | 设置 Bucket 访问权限，有效值为：private，public-read-write，public-read；默认值：private  |String           | 否  |
-| xcosGrantRead    | 赋予被授权者读的权限   |ACLAccounts           | 否  |
-| xcosGrantWrite    |赋予被授权者写的权限   | ACLAccounts           | 否  |
-| xcosGrantRead    | 赋予被授权者读写的权限   |ACLAccounts           | 否  |
+| xcosGrantRead    | 赋予被授权者读的权限   |ACLAccount           | 否  |
+| xcosGrantWrite    |赋予被授权者写的权限   | ACLAccount           | 否  |
+| xcosGrantRead    | 赋予被授权者读写的权限   |ACLAccount           | 否  |
 | signDuration    |签名的有效期，单位为秒   | Long           | 是  | 
 | checkHeaderListForSign    |签名中需要验证的请求头    | Set&lt;String>           | 否  | 
 | checkParameterListForSing   |签名中需要验证的请求参数      | Set&lt;String>           | 否  | 
@@ -1262,20 +1253,20 @@ putBucketACLRequest.setSign(signDuration,null,null);
 //设置 bucket 访问权限
 putBucketACLRequest.setXCOSACL("public-read");
 
-//设置赋予被授权者读的权限
-ACLAccounts readAccounts = new ACLAccounts();
-readAccounts.addACLAccount(new ACLAccount("OwnerUin", "OwnerUin or SubUin"));
-putBucketACLRequest.setXCOSGrantRead(readAccounts);
+//赋予被授权者读的权限
+ACLAccount readACLS = new ACLAccount();
+readACLS.addACLAccount("OwnerUin", "SubUin");
+putBucketRequest.setXCOSGrantRead(readACLS);
 
-//设置赋予被授权者写的权限
-ACLAccounts writeAccounts = new ACLAccounts();
-writeAccounts.addACLAccount(new ACLAccount("OwnerUin", "OwnerUin or SubUin"));
-putBucketACLRequest.setXCOSGrantWrite(writeAccounts);
+//赋予被授权者写的权限
+ACLAccount writeACLS = new ACLAccount();
+writeACLS.addACLAccount("OwnerUin", "SubUin");
+putBucketRequest.setXCOSGrantRead(writeACLS);
 
-//设置赋予被授权者读写的权限
-ACLAccounts readAndWriteAccounts = new ACLAccounts();
-readAndWriteAccounts.addACLAccount(new ACLAccount("OwnerUin", "OwnerUin or SubUin"));
-putBucketACLRequest.setXCOSReadWrite(readAndWriteAccounts)
+//赋予被授权者读写的权限
+ACLAccount writeandReadACLS = new ACLAccount();
+writeandReadACLS.addACLAccount("OwnerUin", "SubUin");
+putBucketRequest.setXCOSGrantRead(writeandReadACLS);
 
 //使用同步方法
 try {
@@ -1425,7 +1416,7 @@ corsRule.allowedMethod: 允许的 HTTP 操作，如：GET，PUT，HEAD，POST，
 corsRule.allowedHeader：在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *
 corsRule.exposeHeader： 设置浏览器可以接收到的来自服务器端的自定义头部信息
 */
-CORSRule corsRule = new CORSRule();
+CORSConfiguration.CORSRule corsRule = new CORSConfiguration.CORSRule();
 
 corsRule.id = "123";
 corsRule.allowedOrigin = "http://www.qcloud.com";
@@ -1662,7 +1653,7 @@ getBucketLocationRequest.setSign(signDuration,null,null);
 try {
    GetBucketLocationResult getBucketLocationResult = cosXmlService.getBucketLocation(getBucketLocationRequest);
        //成功
-	  Log.w("TEST","success : " + getBucketLocationResult.region);
+	  Log.w("TEST","success : " + getBucketLocationResult.locationConstraint.location);
 
   } catch (CosXmlClientException e) {
 
@@ -1707,7 +1698,7 @@ serviceException)  {
 | 参数名称   |  参数描述   |类型 | 必填 |
 | -------- | --------------- | -- | ----------- |
 | bucket    | 存储桶名称   |String           | 是  |
-| rule    | 生命周期配置规则 |Rule           | 是  |
+| rule    | 生命周期配置规则 |LifecycleConfiguration.Rule           | 是  |
 | signDuration    | 签名的有效期，单位为秒   | Long           | 是  |
 | checkHeaderListForSign    | 签名中需要验证的请求头    |Set&lt;String>           | 否  | 
 | checkParameterListForSing   |  签名中需要验证的请求参数      |Set&lt;String>           | 否  |
@@ -1728,13 +1719,13 @@ PutBucketLifecycleRequest putBucketLifecycleRequest = new PutBucketLifecycleRequ
 putBucketLifecycleRequest.setSign(signDuration,null,null);
 
 //声明周期配置规则信息
-Rule rule = new Rule();
+LifecycleConfiguration.Rule rule = new LifecycleConfiguration.Rule();
 rule.id = "Lifecycle ID";
-Filter filter = new Filter();
+LifecycleConfiguration.Filter filter = new LifecycleConfiguration.Filter();
 filter.prefix = "prefix/";
 rule.filter = filter;
 rule.status = "Enabled or Disabled";
-Transition transition = new Transition();
+LifecycleConfiguration.Transition transition = new LifecycleConfiguration.Transition();
 transition.days = 100;
 transition.storageClass = COSStorageClass.NEARLINE.getStorageClass();
 putBucketLifecycleRequest.setRuleList(rule);

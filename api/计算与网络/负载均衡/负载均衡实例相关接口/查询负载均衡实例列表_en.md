@@ -1,206 +1,103 @@
-## 1. API Description
- DescribeLoadBalancers is used to get the user's list of cloud load balancer instances. The cloud load balancer instance matching the criteria will be returned based on the parameters you entered. The name, type, and public VIP of the cloud load balancer instance can be entered for filtering. If no parameter is entered, all cloud load balancer instances in the account will be returned.
- 
-Domain for API access: lb.api.qcloud.com
+# API Description
+ This API (DescribeLoadBalancers) is used to obtain the list of load balancer instances. Load balancer instances matching the criteria are returned based on the parameters you entered.
+
+Domain name for API access: `lb.api.qcloud.com`
 
 
-## 2. Request Parameters
- The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](/doc/api/244/4183). The Action field for this API is DescribeLoadBalancers.
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Required</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> loadBalancerIds.n
-<td> No
-<td> String
-<td> The unique ID of the cloud load balancer instance. This can be loadBalancerId or unLoadBalancerId (recommended).
-<tr>
-<td> loadBalancerType
-<td> No
-<td> Int
-<td> Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network.
-<tr>
-<td> loadBalancerName
-<td> No
-<td> String
-<td> Name of the cloud load balancer instance.
-<tr>
-<td> domain
-<td> No
-<td> String
-<td> Domain of the cloud load balancer instance. Naming rule: 1-60 characters, including English letters (in lowercase), numbers, "." or "-". This field is not applicable to the cloud load balancer of private network.
-<tr>
-<td> loadBalancerVips.n
-<td> No
-<td> String
-<td> VIP address of the cloud load balancer instance. You may enter multiple addresses.
-<tr>
-<td> backendWanIps.n
-<td> No
-<td> String
-<td> Public IP of the backend CVM.
-<tr>
-<td> offset
-<td> No
-<td> Int
-<td> Data offset, default is 0.
-<tr>
-<td> limit
-<td> No
-<td> Int
-<td> Length of returned data. Default: 20.
-<tr>
-<td> orderBy
-<td> No
-<td> String
-<td> Sorting field, which can be:
-loadBalancerName, createTime, domain and loadBalancerType.
-<tr>
-<td> orderType
-<td> No
-<td> Int
-<td>  1: Backward sequence; 0: Forward sequence. The default is backward sequence.
-<tr>
-<td> searchKey
-<td> No
-<td> String
-<td> Search field: name, domain, and VIP (fuzzy match).
-<tr>
-<td> projectId
-<td> No
-<td> Int
-<td>The project ID of the cloud load balancer instance.　You can query it via <a href="/doc/api/403/4400">DescribeProject</a>.
-</tbody></table>
+## Request Parameters
+ The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/214/4183) page. The Action field for this API is DescribeLoadBalancers.
 
-## 3. Response Parameters
- 
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> code
-<td> Int
-<td> Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page.
-<tr>
-<td> message
-<td> String
-<td> Module error message description depending on API.
-<tr>
-<td> totalCount
-<td> Int
-<td> The total number of cloud load balancer instances matching the filter criteria.
-<tr>
-<td> loadBalancerSet
-<td> Array
-<td> The returned array of the cloud load balancer instance.
-</tbody></table>
+| Parameter Name | Required | Type | Description |
+|---|---|---|---|
+| loadBalancerIds.n | No | String | ID of the load balancer instance. |
+| loadBalancerType | No | Int | Network type of the load balancer instance: <br>2: Public network-based; 3: Private network-based. |
+| forward | No | Int | 1: Application-based; 0: Conventional; -1: All types. |
+| loadBalancerName | No | String | Name of the load balancer instance. |
+| domain | No | String | Domain name assigned by Tencent Cloud for a conventional public network-based load balancing instance. This field is not applicable to private network-based and application-based cloud load balancing instances.|
+| loadBalancerVips.n | No | String | VIP address of load balancer instance. You may enter multiple addresses. |
+| backendWanIps.n | No | String | Public IP of the backend CVM |
+| backendLanIps.n | No | String | Private IP of the backend CVM |
+| offset | No | Int | Data offset. Default is 0. |
+| limit | No | Int | The number of returned load balancer instances. Default is 20. |
+| orderBy | No | String | Sorting field, which can be: loadBalancerName, createTime, domain, loadBalancerType |
+| orderType | No | Int | 1: Descending; 0: Ascending. The default is descending by creation time. |
+| searchKey | No | String | Search field: name, domain, and VIP (fuzzy match). |
+| projectId | No | Int | ID of the project to which the load balancer instance belongs.　It can be obtained via the API <a href="https://cloud.tencent.com/document/api/214/1261">DescribeProject</a>. |
+| withRs | No | Int | Whether the load balancer to be queried is bound to the backend CVM. 0: Not bound to CVM , 1: Bound to CVM, 2: All. |
 
-</b></th>loadBalancerSet structure</b></th>
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> loadBalancerId
-<td> String
-<td> The unique ID of the cloud load balancer instance.
-<tr>
-<td> unLoadBalancerId
-<td> String
-<td> The unified unique ID of the cloud load balancer instance.
-<tr>
-<td> loadBalancerName
-<td> String
-<td> Name of the cloud load balancer instance.
-<tr>
-<td> loadBalancerType
-<td> Int
-<td> Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network.
-<tr>
-<td> domain
-<td> String
-<td> Domain of the cloud load balancer instance. There is no domain for cloud load balancer instances of private network.
-<tr>
-<td> loadBalancerVips
-<td> Array
-<td> VIP list of the cloud load balancer instance.
-<tr>
-<td> status
-<td> Int
-<td> Status of the cloud load balancer instance, <br>0: creating, 1: running.
-<tr>
-<td> createTime
-<td> String
-<td> Creation time of the cloud load balancer instance.
-<tr>
-<td> statusTime
-<td> String
-<td> Time of the last status change of the cloud load balancer instance.
-<tr>
-<td> projectId
-<td> Int
-<td> The project ID of the cloud load balancer instance. 0: default project.
-<tr>
-<td> vpcId
-<td> Int
-<td> The numerical digits of VPC ID. 0: basic network.
-<tr>
-<td> subnetId
-<td> Int
-<td> The numerical digits of VPC subnet ID. 0: default subnet.
-</tbody></table>
+## Response Parameters
 
- 
+| Parameter Name | Type | Description |
+|----|---|----|
+| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Codes page. |
+| message | String | Module error message description depending on API. |
+| codeDesc | String | Error code. For a successful operation, "Success" is returned. For a failed operation, a message describing the failure is returned. |
+| totalCount | Int | The total number of load balancer instances meeting the filter criteria. |
+| loadBalancerSet | Array | Returned array of load balancer instances. |
 
-## 4. Example
- 
-Use the default parameters to query the list of cloud load balancer instances:
-<pre>
+- `loadBalancerSet` is composed as follows:
+
+| Parameter Name | Type | Description |
+|----|---|----|
+| loadBalancerId | String | ID of the load balancer instance. |
+| unLoadBalancerId | String | ID of the load balancer instance. |
+| loadBalancerName | String | Name of the load balancer instance. |
+| loadBalancerType | Int | Network type of the cloud load balancer instance: <br>2: Public network-based, 3: Private network-based. |
+| forward | Int | Indicate whether it is an application-based cloud load balancer. 1: Application-based cloud load balancer; 0: Conventional cloud load balancer. |
+| domain | String | Domain name assigned by Tencent Cloud for a conventional public network-based load balancing instance. This field is not applicable to private network-based and application-based cloud load balancing instances. |
+| loadBalancerVips | Array | VIP list of the load balancer instance. |
+| status | Int | Status of the load balancer instance. <br>0: Creating; 1: Running. |
+| createTime | String | The time when the load balancer instance is created. |
+| statusTime | String | Time of the last status change for the load balancer instance. |
+| projectId | Int | ID of the project to which the load balancer instance belongs. 0: Default project. |
+| vpcId | Int | The numerical digits of VPC ID. 0: Basic network. |
+| subnetId | Int | The numerical digits of VPC subnet ID. 0: Default subnet. |
+| openBgp | Int | Indicate whether it is a high defense LB. 1: High defense LB; 0: Non-high defense LB. |
+| snat | Bool | `snat` is enabled for all conventional private network-based load balancers created prior to December 2016. |
+| isolation | Int | 0: Not isolated; 1: Isolated. |
+| log | String | Whether log is activated by users. Log is only applicable to public network-based load balancers with HTTP and HTTPS listeners created. |
+
+
+## Example
+
+Use the default parameters to query the list of load balancer instances:
+```
 https://lb.api.qcloud.com/v2/index.php?Action=DescribeLoadBalancers
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
-
-Output
+&<Common request parameters>
+&forward=-1
 ```
 
+Response
+```
 {
-  "code" : 0,
-  "message" : "",
-  "totalCount" : 2,
-  "loadBalancerSet":[
-  {
-    "loadBalancerId" : "my-lb-id1",
-    "unLoadBalancerId" : "lb-abcdefgh",
-    "loadBalancerName" : "my-lb-name1",
-    "loadBalancerType" : 2,
-    "domain" : "LB607.clb.myqcloud.com",
-    "loadBalancerVips":["203.195.179.123"],
-    "createTime" : "2014-07-29 15:08:39",
-    "statusTime" : "2014-08-29 15:08:39",
-    "status" : 1,
-    "sessionExpire" : 0
-  },
-  {
-    "loadBalancerId" : "my-lb-id2",
-    "unLoadBalancerId" : "lb-xxxxx2",
-    "loadBalancerName" : "my-lb-name2",
-    "loadBalancerType" : 2,
-    "domain" : "LB608.clb.myqcloud.com",
-    "loadBalancerVips":["203.195.179.124"],
-    "createTime" : "2014-07-29 15:08:39",
-    "statusTime" : "2014-08-29 15:08:39",
-    "status" : 1,
-    "sessionExpire" : 1000,
-    "projectId":0,
-    "vpcId":0,
-    "subnetId":0
-  }]
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "loadBalancerSet": [
+        {
+            "loadBalancerId": "lb-hc1vni0f",
+            "unLoadBalancerId": "lb-hc1vni0f",
+            "loadBalancerName": "cls-qbesvs66_ng1",
+            "loadBalancerType": 2,
+            "domain": "cls-qbesvs66-ng1.gz.1251707795.clb.myqcloud.com",
+            "loadBalancerVips": [
+                "111.230.83.36"
+            ],
+            "status": 1,
+            "createTime": "2017-11-30 14:28:45",
+            "statusTime": "2017-11-30 14:29:11",
+            "vpcId": 2968,
+            "uniqVpcId": "vpc-b2h3xykt",
+            "subnetId": 1,
+            "projectId": 0,
+            "forward": 0,
+            "snat": false,
+            "openBgp": 0,
+            "isolation": 0,
+            "log": "",
+        }
+    ],
+    "totalCount": 1
 }
 
 ```
-
-
-

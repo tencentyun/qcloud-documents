@@ -12,7 +12,7 @@
 ### 密钥管理相关接口
 | 接口功能 | Action ID | 功能描述|
 |---------|---------|---------|
-| [创建主密钥](https://cloud.tencent.com/document/product/573/8893) |CreateKey |创建用户管理数据秘钥的主秘钥CMK（Custom Master Key）。|
+| [创建主密钥](https://cloud.tencent.com/document/product/573/8893) |CreateKey |创建用户管理数据密钥的主密钥CMK（Custom Master Key）。|
 | [获取主密钥列表](https://cloud.tencent.com/document/product/573/8897) | ListKey | 用于获取用户所有的keyId。|
 |[获取主密钥属性](https://cloud.tencent.com/document/product/573/8898)  | GetKeyAttributes| 用于获取指定keyId的属性信息。|
 | [禁用主密钥](https://cloud.tencent.com/document/product/573/8896) | DisableKey |用于禁用一个指定的keyId。|

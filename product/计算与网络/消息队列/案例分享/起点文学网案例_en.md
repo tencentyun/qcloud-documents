@@ -11,5 +11,5 @@ With a QPS for API requests of over 100,000 and a request volume per day of over
 Users are unknown about the cluster in CMQ backend. CMQ controller server can relocate a queue according to the load of the cluster. If the request volume of a queue exceeds the service threshold of the current cluster, controller server will distribute queue routing to several clusters to improve concurrent volume, realizing infinite message retention and super-high QPS in theory.
 
 
-- Please refer to the following figure:
+Please refer to the following figure:
 ![](//mc.qcloudimg.com/static/img/af7190c78d702f61b900b194e9034546/image.png)

@@ -68,9 +68,10 @@ The following error codes only include the business logic error codes for this A
 
 ## 5. Example
 Input
+<pre>
 https://cdb.api.qcloud.com/v2/index.php?Action=DescribeCdbProductListNew
-&<Common request parameters>
-
+&<<a href="/document/product/236/6921">Common request parameters</a>>
+</pre>
 
 Output
 ```

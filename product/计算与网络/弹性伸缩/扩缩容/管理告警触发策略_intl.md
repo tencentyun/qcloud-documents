@@ -16,7 +16,7 @@ As shown in the figure below:
 
 For example, you have an e-commerce web application that currently runs on five instances. You carry out an operating activity, and worry about that the number of visits is much greater than you've expected. You can launch two new instances when the load on the current instance increases to 70%, and terminate these instances when the load decreases to 40%. You can configure the scaling group to scale automatically based on these conditions.
 
-![](https://mc.qcloudimg.com/static/img/d3320376422b51e1241591e432e2f3c5/7.jpg)
+![](https://mc.qcloudimg.com/static/img/92435c4281be33320200ce3f69bbc36c/AS-Expanding+and+Reducing-Managing+Alarm+Triggering+Policies.jpg)
 
 ## Steps
 

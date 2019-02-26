@@ -1,6 +1,6 @@
 ## 1. API Description
-This API (DeleteScalingGroup) is used to delete scaling configurations.
-Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
+This API (DeleteScalingConfiguration) is used to delete scaling configurations.
+Domain for API request: scaling.api.qcloud.com
 
 1) If a scaling configuration in the scaling group is in active status, then it cannot be deleted.
 
@@ -8,7 +8,7 @@ Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a>. The Action field for this API is DeleteScalingGroup.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a>. The Action field for this API is DeleteScalingConfiguration.
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|

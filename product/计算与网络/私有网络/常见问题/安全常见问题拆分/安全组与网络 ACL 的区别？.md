@@ -1,2 +1,2 @@
 您好，安全组与网络 ACL 有以下区别：
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=599bd13122901.png)
+![](//mc.qcloudimg.com/static/img/76cfef7865d70048973d7d9126d383a5/image.png)

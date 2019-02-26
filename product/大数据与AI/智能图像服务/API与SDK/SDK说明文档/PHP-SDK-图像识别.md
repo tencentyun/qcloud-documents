@@ -1,6 +1,6 @@
 ## 开发准备
 ### SDK获取
-万象优图的 php SDK 下载地址：[php-SDK-V2.0](https://github.com/tencentyun/image-php-sdk-v2.0)。
+智能图像的 php SDK 下载地址：[php-SDK-V2.0](https://github.com/tencentyun/image-php-sdk-v2.0)。
 ## 快速入门
 
 ### 在腾讯云申请业务的授权
@@ -140,7 +140,7 @@ var_dump ($client->faceCompare(array('file'=>'F:\pic\yang.jpg'), array('file'=>'
 var_dump ($client->faceCompare(array('file'=>'F:\pic\yang.jpg'), array('file'=>'F:\pic\yang2.jpg')));
 ```
 #### 人脸检索
-对于一个待识别的人脸图片，在一个 Group 中识别出最相似的 Top5 Person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
+对一张待识别的人脸图片，在一个或多个 group 中识别出最相似的 Top5 person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
 
 ```
 //单个文件url

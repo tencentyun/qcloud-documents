@@ -53,7 +53,7 @@ data.data 结构
 | detail  | Array  |  云资源详情。 |
 | detail.n.region  | String  |  云资源地域。 |
 | detail.n.type  | String  |  云资源类型。|
-| detail.n.id  | String  |  云资源 Id。|
+| detail.n.id  | String  |  云资源 ID。|
 | detail.n.name  | String  |  云资源名称。 |
 
 ## 5. 错误码表

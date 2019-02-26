@@ -1,6 +1,6 @@
 ## 1. API Description
  API DescribeForwardLBHealthStatus is used to query the health check result of application-based cloud load balancer instances.
- 
+
 Domain for API access: lb.api.qcloud.com
 
 ## 2. Request Parameters
@@ -10,10 +10,10 @@ Domain for API access: lb.api.qcloud.com
 |-|-|-|-|
 | loadBalancerIds.n | Yes | String | Uniform ID of application-based cloud load balancer instance, i.e. unLoadBalancerId. It can be queried by entering 1 or -1 in input parameter "forward" field of API <a href="https://cloud.tencent.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
 
- 
+
 ## 3. Response Parameters
- 
- 
+
+
 | Parameter Name | Type | Description |
 |-------|---|---------------|
 | code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to [Common Error Code](/doc/api/244/1530) in the Error Code page. |
@@ -63,7 +63,7 @@ Input:
 ```
 https://lb.api.qcloud.com/v2/index.php?Action=DescribeForwardLBHealthStatus
 &<Common request parameters>
-&loadBalanceId=lb-6efswuxa
+&loadBalancerId=lb-6efswuxa
 ```
 Output:
 ```
@@ -161,5 +161,3 @@ Output:
     ]
 }
 ```
-
-

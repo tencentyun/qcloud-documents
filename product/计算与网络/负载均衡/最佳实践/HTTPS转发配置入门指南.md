@@ -10,12 +10,12 @@
 
 ## 2. HTTP、HTTPS 头部标识
 
-CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。这时开发者无法分辨前端的请求是 HTTPS 还是 HTTPS。
+CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。这时开发者无法分辨前端的请求是 HTTP 还是 HTTPS。
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 
-X-Client-Proto: http （前端为 HTTP 请求）
-X-Client-Proto: https  （前端为 HTTPS 请求）
+X-Client-Proto: HTTP（前端为 HTTP 请求）
+X-Client-Proto: HTTPS（前端为 HTTPS 请求）
 
 ## 3. 入门配置
 
@@ -50,7 +50,7 @@ server {
 }
 ```
 
-或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx http页面重定向到https页面：
+或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx HTTP 页面重定向到 HTTPS 页面：
 
 ```
 server { 	

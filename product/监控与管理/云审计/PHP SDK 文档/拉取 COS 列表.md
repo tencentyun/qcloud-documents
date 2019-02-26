@@ -1,32 +1,32 @@
 
 ## SDK 描述
  ListCosBuckets 用于拉取 COS 的 Bucket 列表。
-## SDK 使用参数
-详见 [公共请求参数](https://cloud.tencent.com/document/api/214/4183)  页面。
+## 请求参数
+详见 [公共请求参数](https://cloud.tencent.com/document/product/599/12707)  页面。
 
 ## 响应参数
 
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| cosBucketsList | Array | COS Bucket 数组 |
+| cosBucketsList | Array | COS Bucket 列表 |
 
 其中 cosBucketsList 的参数如下：
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | name | String | COS Bucket 名称 |
-| region | String | Bucket 所在的区域 |
-| appId | String | 账号 appId 或者项目 appId |
+| region | String | Bucket 所在的地域 |
+| appId | String | 账号 APPID 或者项目 APPID |
 ## 实际案例
-### SDK 使用示例
+### 请求示例
 
 ```
 $config = array('SecretId'       => '你的secretId',
                 'SecretKey'      => '你的secretKey',
                 'RequestMethod'  => 'GET',
                 'DefaultRegion'  => 'gz');
-$ca = QcloudApi::load(QcloudApi::MODULE_CA, $config);
+$ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
 $package = array();
 $a = $ca->ListCosBuckets($package);
 if ($a === false) {

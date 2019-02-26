@@ -16,7 +16,7 @@ c. Other policies need to be explicitly specified, including "allow" and "deny" 
     
 5) If no policy is matched, the result is determined as "deny", and the resource access request is denied.
 
-![](https://mc.qcloudimg.com/static/img/b2bd42353bee28c55cc1bb1c3e8bb35d/395.png)
+![](https://mc.qcloudimg.com/static/img/9f6a095cb693996d0653b488e67d1234/CAM-User+Guide-Policy+Syntax-Evalution+Logic.png)
 
 
 The following table contains general policies that are currently supported:

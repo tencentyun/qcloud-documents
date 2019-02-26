@@ -1,279 +1,286 @@
-ENI is a virtual network interface. You can bind an ENI to a CVM and connect it to the network. ENI is very useful when configuring management networks and establishing highly reliable network solutions.
+ENI is a virtual network interface. You can bind an ENI to a CVM for connection to network. It is very useful for configuring management networks and establishing highly reliable network solutions.
 
-ENI has VPC, availability zone and subnet attributes. You can only bind it to CVMs under the same availability zone. Each CVM may have multiple ENIs bound to it. The allowed number of ENIs depends on the specifications of the host.
+An ENI is VPC, availability zone and subnet-specific, and can only be bound to a CVM that resides in the same availability zone as it. A CVM can be bound with multiple ENIs. The maximum number of ENIs allowed to be bound to a CVM depends on the CVM's specification.
 
 ## Basic Information
 
-An ENI has the following major relevant information:
+The following information is associated with an ENI:
 
-1. Primary ENI or secondary ENI: The ENI that was created when creating the CVM within the VPC is the primary ENI. And ENIs created by the user will be secondary ENIs. You can bind/unbind secondary ENIs but not the primary one.
+1. Primary ENI or secondary ENI: The ENI created with the creation of CVM within VPC is the primary ENI, and those created by users are secondary ENIs. The primary ENI does not support binding and unbinding, while secondary ENIs support.
 
-2. Primary private IP: The primary private IP of the ENI is assigned by the system, or specified by the user when the ENI was created. You can modify the primary private IP of the primary ENI, but not the ones for secondary ENIs.
+2. Primary private IP: The primary private IP of an ENI is assigned by the system or specified by user when the ENI is created. The primary private IP of primary ENI can be modified, but that of secondary ENI cannot.
 
-3. Secondary private IP: Secondary private IPs that are bound to the ENI, other than the primary IP, are configured by the user when he/she creates of modifies the ENI. You can bind/unbind these IPs.
+3. Secondary private IP: The secondary private IP bound to an ENI in addition to the primary IP. It is configured by user during the creation or editing of ENI, and supports binding and unbinding.
 
-4. Elastic public IP: Bound with private IPs of the ENI in a one-to-one correspondence manner.
+4. EIP: Bound with private IPs of an ENI in a one-to-one manner.
 
-5. Security group: Each ENI may bind one or multiple security groups.
+5. Security group: An ENI can be bound with one or more security groups.
 
 6. MAC address: Each ENI has a unique global MAC address.
 
 
-## Usage Constraints
+## Use Limits
 
-The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
+The maximum number of ENIs that can be bound to a CVM and that of private IPs that can be bound to each ENI vary greatly with CPU and memory configurations. The limits are shown in the following table. For more information, please see [Use Limits on Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
 
-| CVM Configuration               | Number of ENIs | Number of IPs for Each ENI |
+| CVM Configuration | Max. Number of ENIs | Max. Number of IPs Bound to Each ENI |
 | ------------------- | :---- | :------ |
-| CPU:  Single core   RAM:  1 G    | 2     | 2       |
-| CPU:  Single core   RAM:  >1 G   | 2     | 6       |
-| CPU:  Dual core             | 2     | 10      |
-| CPU:  4-core   RAM:  < 16 G | 4     | 10      |
-| CPU:  4-core   RAM:  > 16 G | 4     | 20      |
-| CPU:  8 to 12 cores          | 6     | 20      |
-| CPU:  >12-core           | 8     | 30      |
+| CPU: 1-core   Memory: 1 GB | 2 | 2 |
+| CPU: 1-core   Memory: >1 GB | 2 | 6 |
+| CPU: 2-core | 2 | 10 |
+| CPU: 4-core   Memory: < 16G | 4     | 10      |
+| CPU: 4-core  Memory: >16 GB | 4 | 20 |
+| CPU: 8-12 core | 6 | 20 |
+| CPU: >12-core | 8 | 30 |
 
 ## Billing Method
-Free. For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
+Free of charge. For more information about the prices of VPC services, please see [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
-## Instructions
+## Operation Instructions
 
-### Viewing ENI
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+### View the ENI information
 
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-3) Click the **Instance ID** of an ENI to go to its detail page and view its information.
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-### Creating ENI
+3) Click the **Instance ID** of an ENI to go to its details page to view its information.
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+### Create an ENI
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-3) Click "New" in the top-left corner and choose the parameters of the ENI in the pop-up window.
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-4) Click "OK" to complete the creation process.
+3) Click **Create** in the upper left corner, and then select the VPC and subnet of the ENI in the pop-up window.
 
-### Binding CVM
+4) Select the private IP assigned to the ENI. It can be generated automatically or specified manually.
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+5) Click **OK** to complete the creation.
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+### Bind and configure an ENI (important)
 
-3) Find the line of the ENI and click "Bind CVM" in the action bar.
+**Step 1: Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).**
 
-4) Select the CVM to be bound and click "OK" to finish the binding process.
+**Step 2: Click **ENI** in the left sidebar to go to the ENI list page.**
 
-### Unbinding CVM
+**Step 3: Locate the line of the ENI, and click **Bind to CVM** in the operation column (only CVMs in the same availability zone as the ENI are supported).**
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+**Step 4: Select the CVM to bind to and click **OK** to complete the binding.**
 
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Find the line of the ENI and click **Unbind CVM** in the action bar.
 
-4) Click **OK** to complete the unbinding process.
+**Step 5: Configure the bound ENI in the CVM (important)**
+>Note: After being bound on the console, the ENI needs to be configured in the CVM before it can be used normally. The following is the operation procedure for centos 7.2:
 
-Tips: Once you unbind an ENI, information such as its associated private IPs, elastic public IPs, security groups will be retained.
+a. Log in to the CVM as an administrator, and execute the following command:
 
-### Deleting ENI
-
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
-
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
-
-3) Find the line of the ENI and click **Delete** in the action bar.
-
-4) Click **OK** to complete the deletion process.
-
-Note 1: Once the ENI is deleted, its private IPs, elastic public IPs and security groups will be disassociated.
-
-Note 2: You can only delete ENIs that are not currently associated with CVMs.
-
-Note 3: The primary ENI will be deleted as the CVM is deleted.
-
-### Assigning Private IP (Tencent Cloud Console)
-
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
-
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
-
-3) Click the **Instance ID** of the ENI to go to its detail page and view its information.
-
-4) Click **IP Management** tab to view the private IPs and elastic public IPs that are already bound to the ENI.
-
-5) Click **Assign Private IP** button to open the **Assign Private IP** window.
-
-6) You can choose to "Auto Assign" or "Manually Enter" private IP.
-
-7) You can click the **Add** button to assign multiple IPs for the ENI in the "Assign Private IP" window.
-
-8) Click "OK" button to complete the assigning process.
-
-Note: You need to configure the private IPs in the CVM as well before they can take effect.
-
-### Assigning Private IP (In the CVM System)
-
-There are two ways to configure private IPs in CVMs. The example below is based on centos 7.2.
-
-**Method 1**
-
-1) Log in to the CVM as administrator.
-
-2) Execute command
-
-`ip addr add [ip/mask] dev [ifname]` 
-
-Example: If you wish to add the IP "192.168.0.5" within subnet 192.168.0.0/24 for the ENI "eth0" of the CVM, execute the command
-
- `ip addr add 192.168.0.5/24 dev eth0`
-
-3) The private IP is configured.
-
-Note: Private IPs configured in this way are only written in the system memory of the CVM, they will disappear if the CVM restarts, in which case you will need to configure again.
-
-**Method 2**
-
-1) Log in to the CVM as administrator.
-
-2) Execute the following command
 
 `cd /etc/sysconfig/network-scripts/`
 
-`ls`
 
-3) Find the ENI name from the list. Take Tencent Cloud centos 7.2 CVM as an example: If you need to bind private IP for an ENI named "ifcfg-eth0", execute the vim command to open the configuration file of this ENI
+b. Create the configuration file ifcfg-eth1 for the new ENI:
 
-`vim ifcfg-eth0`
+Enter the command:
 
-The original system configuration file is:
+`cp ifcfg-eth0 ifcfg-eth1`
 
-`DEVICE='eth0'`
 
-`MM_CONTROLLED='yes'`
+Enter the command to modify the configuration file:
 
-`ONBOOT='yes'`
+`vim ifcfg-eth1`
 
-`IPADDR='192.168.0.3'`
+Modify the configuration file as follows:
 
-`NETMASK='255.255.255.0'`
 
-`GATEWAY='192.168.0.1'`
+`DEVICE='eth1'`
 
-Change the configuration into:
-
-`DEVICE='eth0'`
-
-`MM_CONTROLLED='yes'`
+`NM_CONTROLLED='yes'`
 
 `ONBOOT='yes'`
 
-`IPADDR0='192.168.0.3'`
+`IPADDR='192.168.1.62'  #Enter the actual address of the ENI`
 
-`IPADDR1='192.168.0.5'`
+`NETMASK='255.255.255.192'  #Enter the actual subnet mask`
 
-`NETMASK='255.255.255.0'`
+`GATEWAY='192.168.1.1'  #Enter the actual gateway`
 
-`GATEWAY='192.168.0.1'`
 
-Save the modified configuration file and exit vim.
+Save the modified configuration file and exit (enter "wq!" in the last line of vim and press Enter).
 
-4) Restart ENI
+
+**Step 6: Disable rp_filter check**
+
+
+Disable reverse path filtering in etc/sysctl.conf.
+
+> Note: Reverse path filter means that when receiving an IP packet from an IP, the system checks whether the source IP is valid and discards the IP packet if the source IP is invalid. For example, an IP packet from IP B is received on ENI A. If ENI A is not the ENI intended for sending data to IP B, this IP packet is discarded. Because the route uses the primary ENI by default, after the reverse path filtering is enabled, the Ping test of the IP on the secondary ENI will fail.
+
+Open the configuration file:
+
+`vim /etc/sysctl.conf`
+
+Modify
+
+`net.ipv4.conf.default.rp_filter = 1`
+
+to:
+
+`net.ipv4.conf.default.rp_filter = 0`
+`net.ipv4.conf.all.rp_filter = 0`
+`net.ipv4.conf.eth0.rp_filter = 0`
+`net.ipv4.conf.eth1.rp_filter = 0`
+
+**Step 7: Restart network service**
+
+Enter the following command:
 
 `systemctl restart network`
 
-Check whether the IP address has been added into ENI "eth0"
+**Step 8: Check and verify**
+
+Enter the following command to check the IP
 
 `ip addr`
 
-5) The private IP binding process is finished.
+Verify whether the secondary ENI and the IP on it are visible. Refer to the figure below:
 
-Note: Private IPs configured in this way will still be in effect after the CVM restarts. But if you create a custom image of this CVM and use the image to create other CVMs, you will need to manually update private IP configurations for those CVMs.
+![](https://mc.qcloudimg.com/static/img/682c0cda0fcbdbdb508785b12e102b4a/ip.png)
 
-### Releasing Private IP
+### Release private IP
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-3) Click the "Instance ID" of the ENI to go to its detail page and view its information.
+3) Click the **Instance ID** of an ENI to go to its details page to view its information.
 
-4) Click "IP Management" tab to view the private IPs and elastic public IPs that are already bound to the ENI.
+4) Click **IP Management** tab to check the private IPs and EIPs already bound to the ENI.
 
-5) Click "Release" button from the action bar of the private IP line.
+5) Click **Release** button in the operation column for the line of the private IP.
 
-6) Click "OK" to complete the operation.
+6) Click **OK** to complete the operation.
 
-Note 1: You can only release secondary IPs of ENIs, but not the primary one.
+>Note 1: The primary IP of an ENI cannot be released. Only secondary IPs can be released.
 
-Note 2: Once the private IP is unbound, the elastic public IP will be automatically disassociated.
+>Note 2: When the private IP is unbound, the EIP is automatically disassociated.
 
-### Binding Elastic Public IP
+### Unbind from CVM
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-3) Click the **Instance ID** of the ENI to go to its detail page and view its information.
+3) Locate the line of the ENI and click **Unbind from CVM** in the operation column.
 
-4) Click **IP Management** tab to view the private IPs that are already bound to the ENI.
+4) Click **OK** to unbind the ENI from the CVM.
 
-5) Click "Bind" button in the "Bound Elastic Public IP" column of the line to which the private IP belongs.
+>**Tips:** After the ENI is unbound, its associated private IPs, EIPs, security groups and other information are retained.
 
-6) Select to bind an IP from the "Existing Elastic IP" list, or "Create Elastic IP", from the pop-up window.
+### Delete ENI
 
-7) Click "OK" to complete the binding process.
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-### Unbinding Elastic Public IP
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+3) Locate the line of the ENI and click **Delete** in the operation column.
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+4) Click **OK** to complete the deletion.
 
-3) Click the "Instance ID" of the ENI to go to its detail page and view its information.
+>Note 1: When the ENI is deleted, its associated private IPs, EIPs and security groups are automatically disassociated.
 
-4) Click "IP Management" tab to view the private IPs and elastic public IPs that are already bound to the ENI.
+>Note 2: You can only delete ENIs that are not associated with CVMs.
 
-5) Click "Unbind" button in the "Bound Elastic Public IP" column of the line to which the private IP belongs.
+>Note 3: The primary ENI is deleted as the CVM is deleted.
 
-6) Click "OK" to complete the unbinding process.
+### Bind an EIP
 
-### Modifying the Primary Private IP
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+3) Click the **Instance ID** of an ENI to go to its details page to view its information.
 
-3) Click the "Instance ID" of the ENI to go to its detail page and view its information.
+4) Click **IP Management** tab to check the private IPs already bound to the ENI.
 
-4) Click "IP Management" tab to view the primary private IP that is already bound to the ENI.
+5) Click **Bind** button in the "Bound EIPs" column for the line of the private IP.
 
-5) Click "Modify Main IP" button in the action bar for the line of the primary private IP.
+6) Select to bind an EIP from the **Existing EIPs** list or **New EIP** in the pop-up window.
 
-6) Enter the new primary private IP in the pop-up window and click "OK" to modify.
+7) Click **OK** to complete the binding.
 
-### Modifying ENI's Subnet
+### Unbind an EIP
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left sidebar to go to the ENI list page.
 
-3) Click the "Instance ID" of the ENI to go to its detail page.
+3) Click the **Instance ID** of an ENI to go to its details page to view its information.
 
-4) In the basic information page of the detail page, click "Change Subnet" button.
+4) Click **IP Management** tab to check the private IPs and EIPs already bound to the ENI.
+
+5) Click **Unbind** button in the "Bound EIPs" column for the line of the private IP.
+
+6) Click **OK** to complete the unbinding.
+
+### Modify primary private IP
+
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
+
+2) Click **ENI** in the left sidebar to go to the ENI list page.
+
+3) Click the **Instance ID** of an ENI to go to its details page to view its information.
+
+4) Click **IP Management** tab to view the primary private IPs already bound to the ENI.
+
+5) Click **Modify Primary IP** button in the operation column for the line of the primary private IP.
+
+6) Enter the new primary private IP in the pop-up window and click **OK**.
+
+### Modify the subnet of ENI
+
+1) Log in to the [VPC Console](https://console.cloud.tencent.com/vpc).
+
+2) Click **ENI** in the left sidebar to go to the ENI list page.
+
+3) Click the **Instance ID** of the ENI to go to its details page.
+
+4) In the basic information page of the details page, click **Change** button for the subnet.
 
 5) Select the subnet to change to for the ENI and specify a new primary IP.
 
-6) Click "Save" to finish the subnet changing process.
+6) Click **Save** to finish the change of subnet.
 
-Note 1: You can only change subnet for the primary ENI.
+>Note 1: You can only change the subnet of primary ENI.
 
-Note 2: You must unbind all secondary IPs before you can change subnet for the ENI.
+>Note 2: You must unbind all secondary IPs before you can change the subnet of an ENI.
 
-Note 3: When changing subnet for the ENI, you can only choose another subnet under the same availability zone.
+>Note 3: The subnet of an ENI can only be changed to another one under the same availability zone.
+
+## FAQ
+### In Windows system, what should be done if IP information is lost when the hot-plug ENI is restarted?
+You need to manually configure the IP information for hot-plug ENI, and it may be lost when the server is restarted. You can download the following tool for configuration. (tool link: http://enipackage-1251740579.cosgz.myqcloud.com/NetCardIPSet%20%281%29.exe).
+
+Follow the steps below:</BR>
+1. Download the tool for Windows CVM.
+</BR>
+2. Insert the ENI and bind the IP.</BR>
+3. Run the downloaded tool.
+
+
 
 ## API Overview
-Refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909) for more information about other VPC resources.
+The APIs for ENI and their features are listed below. For more information about other VPC resources, please see [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+
+
+| Feature | Action ID | Description |
+|---------|---------|---------|
+| Create ENI | [CreateNetworkInterface] (https://cloud.tencent.com/doc/api/245/4811) | Create an ENI |
+| Delete ENI | [DeleteNetworkInterface](https://cloud.tencent.com/doc/api/245/4813) | Delete an ENI |
+| Query ENI Information | [DescribeNetworkInterfaces](https://cloud.tencent.com/doc/api/245/4814) | Query the information of an ENI |
+| Assign Private IP for ENI | [AssignPrivateIpAddresses](https://cloud.tencent.com/doc/api/245/4817) | Assign a private IP for an ENI |
+| Unassign Private IP for ENI | [UnassignPrivateIpAddresses](https://cloud.tencent.com/doc/api/245/4819) | Unassign a private IP for an ENI |
+| Bind ENI to CVM | [AttachNetworkInterface](https://cloud.tencent.com/doc/api/245/4820) | Bind an ENI to a CVM |
+| Unbind ENI from CVM | [DetachNetworkInterface](https://cloud.tencent.com/document/product/215/4822) | Unbind an ENI from a CVM |
 

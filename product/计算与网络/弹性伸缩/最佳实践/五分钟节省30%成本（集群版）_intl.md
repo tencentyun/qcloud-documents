@@ -15,7 +15,7 @@ This document takes a leisure website as an example, for which the peak period i
 - Pay-by-usage CVMs can be used for insufficient part in peak hours. With the scheduled task, the server increases one CVM at 20:00 and scales down at 24:00.
 
 Comparison of old and new solutions:
-![](https://mc.qcloudimg.com/static/img/cd4f9a05923871165c6e7184b984336e/image.png)
+![](https://mc.qcloudimg.com/static/img/46cc4300131254282b894c9b1ed691ac/AS-Best+Practise-Cluster+Solution%281%29.png)
 
 ## Revenue
 Assume that the original solution needs two 4-core 8GB CVMs working for 24 hours every day. The new solution changes it to one 4-core 4GB CVM working for 24 hours every day and one temporary CVM working for 4 hours every day, which can save you around 41% in expenses.
@@ -82,11 +82,11 @@ The small website in Guangzhou in this example thus can save 1440 USD per year:
 
 The website for an instance is simply structured - there is only the application server cluster. For complex websites, there will be application server cluster, frontend server cluster, and cache server cluster, etc. Each cluster can carry out similar operations and each cluster corresponds to one scaling group.
 
-![](https://mc.qcloudimg.com/static/img/ba977d67b59a73d6a137323b61d17ec4/image.png)
+![](https://mc.qcloudimg.com/static/img/76238c1b282534b67e80a7e4d04bba17/AS-Best+Practise-Cluster+Solution%282%29.png)
 
 ### Step 1. Create a custom image for the cluster CVM
 
-This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image >>](https://www.cloud.tencent.com/document/product/213/4942)
+This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image](https://intl.cloud.tencent.com/document/product/213/4942)
 
 > Note:
 > You need to deploy the environment in the image in advance, ensuring that the application of the image can be activated with the operating system. In such case, the scaled CVM can work directly without manual intervention.

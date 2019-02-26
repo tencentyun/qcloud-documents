@@ -3,7 +3,7 @@ Basic APIs are required for both Voice Chat and Voice Message features.
 
 ## 2 Call Basic APIs
 
-![](https://mc.qcloudimg.com/static/img/d709f155acaeb336df5ee93ddc708105/2.png)
+[1]:https://mc.qcloudimg.com/static/img/d709f155acaeb336df5ee93ddc708105/2.png
 
 **How-To**   
 1.Implement `Handler` event entrustment.   

@@ -14,17 +14,17 @@
 （1）数据被清空后，不可以再恢复，请在清空前确认表中的数据已经备份或不再使用。
 （2）单个应用每天只能清理累计50GB的表占用空间。如果超过50GB，请提交工单联系技术支持。
 
-在管理中心的云缓存Memcached管理视图页面，在需要清空的的表后点击“清空”按钮，确认清空后，后台开始清空操作。清空完成后，页面会提示清空成功。
+在控制台的云缓存Memcached页面，在需要清空的的表后单击“清空”按钮，确认清空后，后台开始清空操作。清空完成后，页面会提示清空成功。
 
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLClearTable.jpg)
+![](https://main.qcloudimg.com/raw/f4700dc39466e19b105da4b663b043e5.png)
 
 ## 4 表退还
 注意：
 表退还后，不可以再恢复，请在退还前确认表中的数据已经备份或不再使用。
 
-进入管理中心的云缓存Memcached管理视图页面，勾选需要退还的表，然后点击“退还选中表”按钮，点击“提交退还”按钮后，后台开始清理表数据并删除表。
+进入控制台的云缓存Memcached页面，勾选需要退还的表，然后单击“退还选中表”按钮，单击“提交退还”按钮后，后台开始清理表数据并删除表。
 
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLDeleteTable.jpg)
+![](https://main.qcloudimg.com/raw/cc748a169a35e705c215bdd596a8e79d.png)
 
 ## 5 开启expire过期删除
 1、要使用expire功能，首先需要在腾讯云管理控制台打开对应CMEM实例的expire开关
@@ -34,7 +34,7 @@
 
 ## 6 查看监控信息
 
-在NoSQL管理页面点击左侧监控视图按钮进入监控信息页面。
+在NoSQL管理页面单击左侧监控视图按钮进入监控信息页面。
 
 指标说明详见：[云缓存Memcached监控指标说明](/doc/product/248/云缓存Memcached监控指标说明)
 

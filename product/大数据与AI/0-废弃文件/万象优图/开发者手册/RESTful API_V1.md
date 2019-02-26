@@ -11,7 +11,7 @@ fileid|	资源存储的唯一标识
 开发者可以通过[服务器SDK文档(V1版本)](/doc/product/275/SDK文档#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk.E6.96.87.E6.A1.A3)生成签名，也可以参考我们的签名函数自行生成签名，，具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档-V1)。
 ## 3	图片上传
 功能: 直接上传单张图片, 只支持POST表单(multipart/form-data)方式, 目前只支持20M以内的图片。
-接口: http://web.image.myqcloud.com/photos/v1/[appid]/[userid]/[fileid] 
+接口: `http://web.image.myqcloud.com/photos/v1/[appid]/[userid]/[fileid]` 
 注：</b>fileid为可选参数，fileid为空表示由后台自动生成fileid；不为空表示自定义fileid，fileid不可重复。
 方法: POST
 请求参数HTTP头部信息:
@@ -218,7 +218,7 @@ http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d21847
 http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d218475e0/original
 ```
 ### 8.2	普通缩放功能
-url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80`
 
 参数名称|	参数值|	说明
 ---------|---------|---------
@@ -227,9 +227,9 @@ h|	图片高|	取值范围10-16383
 ss|	1: 限定长边，短边自适应缩放;0：限定短边，长边自适应缩放;默认为0	|缩放方式
 domain, appid, userid, fileid, pattern等参数参见[基本格式参数说明](#8-.E5.9B.BE.E5.83.8F.E5.A4.84.E7.90.86)。
 注：假如样式[parttern]图大小（wh）为200400，将其缩放为10080，按照等比缩放，采用不同的缩放方式可以缩放为100200或者4080两种，具体如下：
-url=http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=0&amp;w=100&amp;h=80
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=0&amp;w=100&amp;h=80`
 限定短边的缩放方式，返回的缩略图大小为4080（等比缩放，缩略后的图片宽最多100，高最多80）
-url=http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80`
 限定长边的缩放方式，返回的缩略图大小为100200（等比缩放，缩略后的图片宽最少100，高最少80）
 示例:
 ```
@@ -287,7 +287,7 @@ domain, appid, userid, fileid, pattern等参数参见[基本格式参数说明](
 
 
 scrop 参数与 crop 参数同时使用，当智能裁剪没有识别到人脸时，会执行普通的裁剪。 
-http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d218475e0/original?scrop=1&amp;crop=1&amp;w=300&amp;h=300
+`http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d218475e0/original?scrop=1&amp;crop=1&amp;w=300&amp;h=300`
 示例:
 ```
 //myPattern为开发者自定义样式

@@ -1,0 +1,136 @@
+## 开发前准备
+
+### 相关资源
+
+对象存储服务的 XML Java SDK 资源下载地址：[XML Java SDK](https://github.com/tencentyun/cos-java-sdk-v5)。
+
+### 环境依赖
+
+- SDK 支持 JDK 1.7、1.8及以上版本。
+- JDK安装方式请参考 [Java 安装与配置](/document/product/436/10865)。
+
+> ?关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
+
+### 安装 SDK
+
+安装 SDK 的方式有两种：maven 安装和源码安装。
+
+- maven安装
+  在 maven 工程中使用 pom.xml 添加相关依赖，内容如下：
+```shell
+<dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>5.4.10</version>
+</dependency>
+```
+
+- 源码安装
+  从 [XML Java SDK](https://github.com/tencentyun/cos-java-sdk-v5) 下载源码，通过 maven 导入。比如 eclipse，依次选择 File -> Import -> maven -> Existing Maven Projects。
+
+### 卸载 SDK
+
+通过删除 pom 依赖或源码即可卸载 SDK。
+
+## 快速入门
+
+### 初始化客户端 COSClient
+
+`COSClient`是调用 COS API 接口的对象。在生成一个`COSClient`实例后可反复使用，线程安全。最后程序或服务退出时，关闭客户端即可。
+
+#### 使用永久云 API 密钥信息初始化
+
+云 API 密钥为永久密钥，通过在腾讯云 [CAM 控制台](https://console.qcloud.com/cam/capi) 获取生成，适用于大部分的应用场景。
+
+Java SDK 云 API 密钥的初始化方法如下所示。
+
+```java
+// 1 初始化用户身份信息（secretId, secretKey）。
+COSCredentials cred = new BasicCOSCredentials("AKIDXXXXXX", "XXXXXXXXXXXXXXX");
+// 2 设置bucket的区域, COS地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
+// clientConfig中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者接口文档 FAQ 中说明。
+ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
+// 3 生成 cos 客户端。
+COSClient cosClient = new COSClient(cred, clientConfig);
+// bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+String bucketName = "mybucket-1251668577";
+```
+
+#### 使用临时密钥初始化
+
+通过向腾讯云 CAM 服务申请临时密钥，关于临时密钥生成和使用可参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。
+
+Java SDK 支持传入临时密钥来初始化客户端，临时密钥的初始化方法如下所示。
+
+```java
+// 1 传入获取到的临时密钥 (tmpSecretId, tmpSecretKey, sessionToken)
+BasicSessionCredentials cred = new BasicSessionCredentials("a-demo-secretId", "a-demo-secretKey", "a-demo-session-token");
+// 2 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
+// clientConfig 中包含了设置 region, https(默认http), 超时, 代理等 set 方法, 使用可参见源码或者接口文档 FAQ
+ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
+// 3 生成 cos 客户端
+COSClient cosClient = new COSClient(cred, clientConfig);
+// bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+String bucketName = "mybucket-1251668577";
+```
+
+### 上传文件
+
+将本地文件或者已知长度的输入流内容上传到 COS，适用于20M以下图片类小文件上传，最大支持上传不超过5GB文件。5GB以上的文件必须使用分块上传或高级 API 上传。
+
+- 若本地文件大部分在20M以上, 建议您参考使用接口文档的高级 API 进行上传。
+- 若 COS 上已存在同样 Key 的对象，上传时则会进行覆盖。
+- 若要创建目录对象，因为在对象存储中不存在目录，请您参考 [接口文档](https://cloud.tencent.com/document/product/436/12263#.E5.B8.B8.E8.A7.81.E9.97.AE.E9.A2.98)  FAQ 部分。
+- 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg` 中，对象键为 doc1/pic1.jpg, 详情参考 [对象键](https://cloud.tencent.com/document/product/436/13324) 的说明。
+- 上传之后，您可以用同样的 `key`，调用 `GetObject` 接口将文件下载到本地，也可以生成预签名链接（下载请指定 method 为 `GET`，具体接口说明见 [接口文档](https://cloud.tencent.com/document/product/436/12263)），分享到其他端来进行下载。但注意如果您的文件是私有读权限，那么预签名链接只有一定的有效期。
+
+示例代码如下：
+
+```java
+File localFile = new File("src/test/resources/len5M.txt");
+// 指定要上传到的存储桶
+String bucketName = "demoBucket-1250000000";
+// 指定要上传到 COS 上对象键
+String key = "upload_single_demo.txt";
+
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
+PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
+```
+
+### 下载文件
+
+文件下载到本地或者获取文件下载输入流，请参考如下示例代码。
+
+```java
+// 指定要下载到的本地路径
+File downFile = new File("src/test/resources/mydown.txt");
+// 指定文件所在的存储桶
+String bucketName = "demoBucket-1250000000";
+// 指定文件在 COS 上的对象键
+String key = "upload_single_demo.txt";
+
+GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, key);
+ObjectMetadata downObjectMeta = cosClient.getObject(getObjectRequest, downFile);
+```
+
+### 删除文件
+
+删除 COS 上指定路径的文件，代码如下。
+
+```java
+// 指定文件所在的存储桶
+String bucketName = "demoBucket-1250000000";
+// 指定文件在 COS 上的对象键
+String key = "upload_single_demo.txt";
+
+cosClient.deleteObject(bucketName, key);
+```
+
+### 关闭客户端
+
+关闭 cosClient，并释放 HTTP 连接的后台管理线程，代码如下。
+
+```
+// 关闭客户端(关闭后台线程)
+cosClient.shutdown();
+```

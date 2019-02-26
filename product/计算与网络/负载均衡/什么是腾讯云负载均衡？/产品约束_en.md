@@ -23,5 +23,4 @@
 </tbody>
 </table>
 
-If the CLB-associated CVM is isolated (put into recycle bin, or canceled in accordanc with Bill-by-Traffic) for arrears , the CLB will be forcibly unbound from this CVM.
-
+If the CLB-associated CVM is isolated (put into recycle bin, or canceled in accordanc with Bill-by-Traffic) for arrears , the CLB still binds this CVM.

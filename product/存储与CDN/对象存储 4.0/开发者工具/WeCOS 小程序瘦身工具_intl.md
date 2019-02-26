@@ -1,182 +1,117 @@
+## Feature Description
+To improve smoothness of Mini Programs, WeChat only supports uploading compiled code packages with a size smaller than 1 MB. However, during development of Mini Programs, image resources often take up large space, and code packages may exceed 1 MB. WeCOS allows you to shift your focus from image resource size to logic development.
 
-By using WeCOS, image resources in mini-app projects will be automatically uploaded to COS. In addition, WeCOS will automatically replace the address references of image resources in the codes with online addresses to remove the image resources from the project directories, which will reduce the size of mini-app packages and prevent the packages from going over the size limit. 
+With WeCOS, image resources in Mini Programs can be automatically uploaded to COS, and then removed from the project directory with the image resource address in codes replaced by online address. As a result, the size of the code package is reduced to the allowed limit.
 
+## Service Limits
 
-## Why Use WeCOS?
+Only applicable to COS V4. Not available in Chongqing (ap-chongqing), Seoul (ap-seoul), and Mumbai (ap-mumbai).
 
-    
-```
-To make the user experience of mini-apps more fluent, compiled code packages need to be smaller than 1 MB. Code packages larger than 1 MB cannot be uploaded successfully.
-```
-
-When developing mini-apps, image resources usually take up a great deal of space, which will make it more likely for the packages to go beyond the official size limit (1 MB). In this case, you can use WeCOS so that you won't need to worry about storage occupied by image resources during development process and concentrate on your logic development.
-
-
-
-## Preparation
-* Go to [Tencent Cloud Official Site](https://cloud.tencent.com) and register an account
-* Log in to [Cloud Object Storage Service (COS) Console](https://console.cloud.tencent.com/cos4), activate COS service and create Bucket
-* Download the [WeCOS Tool](https://github.com/tencentyun/wecos)
-* Install [Node.js](https://nodejs.org) environment
-
-
+## Preparations
+1. Sign up for a Tencent Cloud account at [Tencent Cloud official website](https://cloud.tencent.com/). For more information, please see [Sign up for Tencent Cloud](/doc/product/378/9603).
+- Log in to [COS Console](https://console.cloud.tencent.com/cos4), activate COS service, and then create a bucket. For more information, please see [Create Bucket](/doc/product/436/6232).
+- Download WeCOS at [GitHub address](https://github.com/tencentyun/wecos).
+- Download the environment at [Node.js official website](https://nodejs.org/) and install it.
 
 ## Installation
-
-```js
+Execute the following command to install WeCOS:
+```
 npm install -g wecos
 ```
-
-
-
 ## Basic Configuration
-Create `wecos.config.json` file in a sibling directory as your mini-app directory
-
-Example of the configurations in `wecos.config.json`:
-```json
+Create the `wecos.config.json` file under a directory at the same level as the Mini Program directory. The file configuration example and configuration items are described as follows:
+```
 {
   "appDir": "./app",
   "cos": {
-    "appid": "1234567890",
-    "bucketname": "wxapp",
-    "folder": "/", //Under which bucket directory the resources are stored
-    "region": "wx", //Abbreviation of the region that you chose when creating the bucket
-    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "secret_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    "secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "bucket": "wxapp-1251902136",
+    "region": "ap-guangzhou", //创建bucket时选择的地域简称
+    "folder": "/" //资源存放在bucket的哪个目录下
   }
 }
 ```
-
-| Configuration | Type | Description |
-|:-- |:-- |:-- |
-| appDir | **[String]** | Default `./app`, project directory of the mini-app |
-| cos | **[Object]** | (Required) configuration information of the COS to upload resources to. You can view some of the information from the [COS Console](https://console.cloud.tencent.com/cos4/secret) |
-
-
-## Use
-
-Execute the following command from the sibling directory as the configuration file 
-```js 
+| Configuration Item | Type | Description |
+| ------ | ------------ | ---------------------------------------- |
+| appDir | **[String]** | The directory of a Mini Program project. Default: `./app`. |
+| cos | **[Object]** | Configuration information of the bucket on COS (required). Some of the information can be found in the [Console](https://console.cloud.tencent.com/cos4/secret). |
+## Usage
+Execute the following command under a directory at the same level as the configuration file:
+```
 wecos
 ```
-Note that you need to create the `wecos.config.json` file in this directory before executing the command
-
+> <font color="#0000cc">**Note:** </font>
+ Before executing the command, you need to create the `wecos.config.json` file under a directory at the same level as the configuration file.
 
 ## Advanced Configuration
-
-| Configuration | Type | Description |
-|:-- |:-- |:-- |
-| backupDir | **[String]** | Default is `./wecos_backup`. Backup directory |
-| uploadFileSuffix | **[Array]** | Default is `[".jpg", ".png", ".gif"]`. Suffix configuration for uploaded image files |
-| uploadFileBlackList | **[Array]** | Default is `[]`, image resource blacklist |
-| replaceHost | **[String]** | Default is `''`. Replace specified host with targetHost |
-| targetHost | **[String]** | Default is `''`. Use custom domain |
-| compress | **[Boolean]** | Default is `false`. Whether to enable image compression |
-| watch | **[Boolean]** | Default is `true`. Whether to enable project directory real-time listening |
-
-</br>
-#### Configure Backup Directory
-
-When running, WeCOS will automatically upload images under projects onto COS, then delete them, so it is possible to lose the source files. We provide source file backup feature, each time an image is uploaded, it will be backed up in a certain sibling directory of the project
-
-To make it more convenient, you can change the name of the backup directory by modifying the following configuration. Leave the value empty if you do not wish to use this feature
-```json
+| Configuration Item | Type | Description |
+| ------------------- | ------------- | --------------------------------------- |
+| backupDir | **[String]** | Backup directory. Default: `./wecos_backup`. |
+| uploadFileSuffix | **[Array]** | Suffix of the uploaded image. Default: .jpg	&#166;	.png	&#166;	.gif |
+| uploadFileBlackList | **[Array]** | Blacklist of image resources. Default: [] |
+| replaceHost | **[String]** | Replacing the specified domain name with targetHost. Default: '' |
+| targetHost | **[String]** | Custom domain name is used. Default: '' |
+| compress | **[Boolean]** | Whether to compress images. Default: false |
+| watch | **[Boolean]** | Whether to listen to the project directory in real time. Default: true |
+#### Configuring Backup Directory
+WeCOS deletes the images under a project after uploading them to COS, which may result in risks of source file loss. Therefore, the backup feature is provided to back up each uploaded image to a directory at the same level as the project directory. You can modify the name of the backup directory using the following configurations. If you want to disable the feature, set the value to null:
+```
   "backupDir": "./wecos_backup"
 ```
-
-#### Configure Image File Suffix
-
-Sometimes we need to restrict the format of uploaded images (for example, only allow `jpg` format). You can define this restriction by using image file suffix configuration provided by WeCOS
-
-WeCOS supports three formats `jpg, png, gif` by default. You can add other formats to this configuration if necessary (such as webp)
-
-```json
+#### Configuring Image Suffix
+You can use image suffix provided by WeCOS to define the format of images allowed to be uploaded. Images in jpg, png, and gif are supported by WeCOS by default. If you want to upload images in other formats (such as webp), add the format in the configuration item, as shown below:
+```
   "uploadFileSuffix": [".jpg",".png",".gif",".webp"]
 ```
-
-#### Configure Image Blacklist
-
-During development, there can be certain images which we do not wish to be uploaded. You can use the blacklist configuration of WeCOS to solve this problem. Once configured, the program will automatically ignore these images when uploading
-
-You can either configure directories or enter specific file names for the blacklist configuration
-```json
+#### Configuring Image Blacklist
+During the development, you can use WeCOS blacklist to prevent some images from being uploaded to COS. You can add either a directory or a file name to the blacklist.
+```
   "uploadFileBlackList": ["./images/logo.png","./logo/"]
 ```
-
-#### Custom Domain
-
-If you wish to use custom domain in COS file links, you can configure targetHost to replace the default domain. (`http://` can be omitted):
-
-```json
+#### Custom Domain Name
+If you want to use your domain name as the file link in COS, replace the default domain name with targetHost (`http://` can be omitted):
+```
   "targetHost": "http://example.com"
 ```
-
-If you want to change the domain for the image link in the codes, you can configure replaceHost targetHost.
-
-```json
+If you want to change the domain name for the image link in codes, configure replaceHost targetHost.
+```
   "replaceHost": "http://wx-12345678.myqcloud.com",
   "targetHost": "https://example.com"
 ```
-
-#### Enable Image Compression
-
-Uploading images onto COS will reduce the size of app packages, but this will also reduce access speed if the images are too large, which will in turn affect user experience
-
-In addition to uploading images to the cloud, WeCOS also provides image compression feature which is base on [Tencent Cloud Image](https://cloud.tencent.com/product/ci).
-
-First, you need to create a bucket with the same name that of COS in the [Cloud Image Console](https://console.cloud.tencent.com/ci)
-
-Next, enable this option, after which the resources will be uploaded after being compressed (Note: Compression may not reduce the size of certain images that are already small enough)
-
-```json
+#### Enabling Image Compression
+Although the program package size decreases significantly with images uploaded to COS, excessive image dimension may also cause access delay, thus affecting user experience.
+Apart from uploading images to the cloud, WeCOS also provides image compression based on [Tencent Cloud's Cloud Image](https://cloud.tencent.com/product/ci). On [Cloud Image Console](https://console.cloud.tencent.com/ci), create a bucket that has the same name with the bucket used to store the uploaded resource in COS, enter the bucket and enable image compression in the style page, and then the resources will be compressed before being uploaded.
+```
   "compress": true
 ```
-
-#### Configure Real-time Listening
-
-WeCOS listens to the changes of project directories in real-time and automatically processes the image resources by default. During development, if you find this feature inconvenient, or you only need to process the resources once, you may modify this configuration to exit the app after one execution
-```json
+#### Configuring Real-time Listener
+By default, WeCOS listens to project directory in real time and automatically process image resources. During the development, if you want to disable the real-time listener after one-off processing, modify the configuration by executing the following the command line, and then the listener will be disabled after one execution.
+```
   "watch": false
 ```
-
-
-## Advanced Use
-Apart from the execution method by using command lines mentioned above, if you wish to use other methods (for example, customizing your own modules), we also provide direct reference to satisfy your personalization demands
-
-```js
+## Advanced Usage
+If the command line still cannot meet your demands, you can use other methods, such as customizing your modules. We also provides the direct referencing mode to satisfy your requirements. The configuration example is as follows:
+```
 var wecos = require('wecos');
 
-/**
-* option, optional [String|Object]
-* Pass String, specify the path of configuration file
-* Pass Object, specify configuration item
-*/
+// option is optional (String|Object)
+// Enter a string to specify the configuration file path
+// Pass an object to specify the configuration item
 wecos([option]);
 
-//Specify the path of configuration file
+// Specify the configuration file path
 wecos('./wecos-config.js');
 
-//Specify configuration item
+// Specify the configuration item
 wecos({
-	appDir: './xxx',
-	cos: {
-		...
-	}
+    appDir: './xxx',
+    cos: {
+        ...
+    }
 });
-
 ```
-
-
-## Relevant Resource
-
-* [WeCOS-UGC-DEMO](https://github.com/tencentyun/wecos-ugc-upload-demo)--DEMO: Uploading resources to COS for mini-app user
-
-* [COS-AUTH](https://github.com/tencentyun/cos-auth)--DEMO: COS authentication server
-
-
-
-
-
-
-
+## Related Resources
+- [WeCOS-UGC-DEMO](https://github.com/tencentyun/wecos-ugc-upload-demo) - Demo on Uploading Resources of Mini Programs to COS
+- [COS-AUTH](https://github.com/tencentyun/cos-auth) - Demo on the COS Authentication Server
 

@@ -5,7 +5,7 @@
   - **Get_LivePlayStatHistory**: This API is used to obtain the historical statistics of playback.
 
 - **URL**
-  - URL for calling API: http://statcgi.video.qcloud.com/common_access
+  - URL for calling API:` http://statcgi.video.qcloud.com/common_access`
 
 - **Note**
   - Used to obtain the playback information for specified time period.

@@ -5,7 +5,7 @@
   - **Live_Tape_Stop**: This API is used to end a recording task.
 
 - **URL**
-  - URL for calling API: http://fcgi.video.qcloud.com/common_access
+  - URL for calling API: `http://fcgi.video.qcloud.com/common_access`
 
 - **Note**
   - End recording task.

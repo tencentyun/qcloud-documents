@@ -247,7 +247,7 @@ ret = image.FaceCompare(fcReq);
 cout<<ret<<endl;  
 ```
 #### 人脸检索
-对于一个待识别的人脸图片，在一个 Group 中识别出最相似的 Top5 Person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
+对一张待识别的人脸图片，在一个或多个 group 中识别出最相似的 Top5 person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
 ```
 //单个图片Url
 FaceIdentifyReq identifyReq(BUCKET);
