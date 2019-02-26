@@ -20,7 +20,7 @@ BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.5/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.3.5/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.4.0/board_sdk.mini.js"></script>
 <!-- TIC SDK -->
 <script src="https://sqimg.qq.com/expert_qq/TICSDK/1.4.5/TICSDK.mini.js"></script>
 ```
@@ -161,7 +161,7 @@ boardMode | Number | 否 | 白板表现形式，默认0白板模式<li> 0：白�
 canDraw | Boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感
 thin | Number | 否，默认100 | 线条的粗细，实际转换为 thin * 白板的高度 / 10000，<font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚</font>
-aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br> 传字符串宽高比，例如设置4:3，白板 SDK 会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9<br>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br> 传字符串宽高比，例如设置4:3，白板 SDK 会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认true，采用16:9<br>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感
 
 
