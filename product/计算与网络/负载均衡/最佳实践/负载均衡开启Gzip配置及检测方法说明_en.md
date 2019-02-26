@@ -11,7 +11,7 @@ gzip on;
 ```
 application/atom+xml application/javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/plain text/x-component;
 ```
-Note: GZIP support for the above file types must be enabled synchronously in the backend ECS business software of cloud load balancer.
+Note: GZIP support for the above file types must be enabled synchronously in the backend CVM business software of cloud load balancer.
 - **A compression request flag must be contained in the client request**
 You need to enable compression, and the client must carry the following flag for requests:
 ```
@@ -38,24 +38,24 @@ gzip_types text/html application/json;
 Detailed syntax of the above codes:
 gzip: enable or disable gzip module.
 
-> 	Syntax: gzip on/off	
+> 	Syntax: gzip on/off
 >   Scope: http, server, location
-	
+
 gzip_min_length: Set the minimum bytes for a page allowed to be compressed. The number of bytes for a page is obtained from the Content-Length of header. The default value is 1k.
 
 > 	Syntax: gzip_min_length length
 >   Scope: http, server, location
-	
+
 gzip_buffers: Set how many units of cache are used by system to store the gzip compressed result data flow. 4 16k represents the unit is 16k, and memory is applied by four times of 16k according to the original data size.
 
 > 	Syntax: gzip_buffers number size
 >   Scope: http, server, location
-	
+
 gzip_comp_level: gzip compression ratio. The range is 1 ~ 9. 1 presents the minimum compression ratio with the fastest processing speed, while 9 presents the maximum compression ratio with the slowest processing speed (faster transmission but more CPU consumption).
 
 > 	Syntax: gzip_comp_level 1..9
 >   Scope: http, server, location
-	
+
 gzip_http_level: The lowest version of HTTP allowed to use the gzip feature. If HTTP/1.0 is set, the gzip feature can be used for HTTP/1.0 and is upward compatible with HTTP/1.1. Since Tencent Cloud now supports HTTP/1.1 across the network, no changes are required.
 
 >   Syntax: gzip_http_version 1.0 | 1.1;
@@ -76,4 +76,3 @@ The supported types are as follows:
 ```
 curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```
-
