@@ -101,7 +101,7 @@ public TIMSdkConfig setLogPath(@NonNull String logPath)
 在使用 SDK 进一步操作之前，需要初始化 SDK。
 
 > **注意：**
-> 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化。
+> 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化，调用接口`SessionWrapper.isMainProcess(Context context)`判断。
 
 **原型：**
 
