@@ -81,6 +81,3 @@ According to the following figures, the cloud load balancer can access the two b
 
 ![](//mccdn.qcloud.com/static/img/6db39e63f01e0212b85811d17467e5be/image.png)
 ![](//mccdn.qcloud.com/static/img/3a3df321b536f701c172f200f36bddc7/image.png)
-
-
-
