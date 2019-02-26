@@ -46,7 +46,7 @@ room.getRoomDetail(event => {
 });
 ```
 
->!gameInfo.gameId、gameInfo.secretKey、config.url 都需要从控制台上获取。
+>!请从控制台获取 gameInfo.gameId、gameInfo.secretKey、config.url 相关信息。
 
 ![SDK接入后台测试](https://main.qcloudimg.com/raw/6c52b8f680d59ac03624cb245b9edbda.png)
 
