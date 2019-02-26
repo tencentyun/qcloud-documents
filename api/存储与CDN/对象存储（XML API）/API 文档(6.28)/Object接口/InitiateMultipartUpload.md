@@ -58,7 +58,7 @@ Authorization: Auth String
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 **服务端加密相关响应**
 
