@@ -28,4 +28,4 @@
 如遇到播放问题，请查看 [常见问题文档](https://cloud.tencent.com/document/product/881/20219)
 
 
->? Web 播放器是集成到网页里，并运行在浏览器里的播放器，与运行在终端系统（ Android\iOS ）里的播放器 SDK 不同。
+>? Web 播放器是集成到网页里，并运行在浏览器里的播放器，与运行在终端系统（ Android/iOS ）里的播放器 SDK 不同。
