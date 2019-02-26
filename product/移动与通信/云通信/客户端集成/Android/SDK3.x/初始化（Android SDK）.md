@@ -119,14 +119,17 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 
 ```
 //初始化 SDK 基本配置
-TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-		.enableCrashReport(false);
-		.enableLogPrint(true)
-		.setLogLevel(TIMLogLevel.DEBUG)
-		.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
+//判断是否是在主线程
+if (SessionWrapper.isMainProcess(getApplicationContext())) {
+	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
+			.enableCrashReport(false);
+			.enableLogPrint(true)
+			.setLogLevel(TIMLogLevel.DEBUG)
+			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
 
-//初始化 SDK
-TIMManager.getInstance().init(getApplicationContext(), config);
+	//初始化 SDK
+	TIMManager.getInstance().init(getApplicationContext(), config);
+}
 ```
 ## 用户配置
 
