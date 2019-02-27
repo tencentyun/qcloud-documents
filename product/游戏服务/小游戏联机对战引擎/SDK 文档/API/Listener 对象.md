@@ -22,7 +22,7 @@ GameInfoPara 定义如下：
 |gameId|number|游戏 ID|
 |openId|string|玩家 OpenID|
 |wxAppid|string|小游戏 APPID|
-|secretKey|string|游戏秘钥|
+|secretKey|string|游戏密钥|
 
 ConfigPara 定义如下：
 
