@@ -132,7 +132,7 @@ TAIOralEvaluationParam 参数说明：
 |fileType|TAIOralEvaluationFileType|是|数据格式（目前支持 MP3）|
 |storageMode|TAIOralEvaluationStorageMode|式|是否存储音频文件|
 |serverType|TAIOralEvaluationServerType|是|语言类型|
-|scoreCoeff|float|是|苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段|
+|scoreCoeff|Float|是|苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段|
 |refText|NSString|是|被评估语音对应的文本|
 
 TAIOralEvaluationData 参数说明：
@@ -148,9 +148,9 @@ TAIMathCorrectionRet 参数说明：
 | 参数|类型|说明 |
 |---|---|---|
 |sessionId|NSString|一次批改唯一标识|
-|pronAccuracy|float|发音精准度，取值范围[-1, 100]，当取-1时指完全不匹配|
-|pronFluency|float|发音流利度，取值范围[0, 1]，当为词模式时，取值无意义|
-|pronCompletion|float|发音完整度，取值范围[0, 1]，当为词模式时，取值无意义|
+|pronAccuracy|Float|发音精准度，取值范围[-1, 100]，当取-1时指完全不匹配|
+|pronFluency|Float|发音流利度，取值范围[0, 1]，当为词模式时，取值无意义|
+|pronCompletion|Float|发音完整度，取值范围[0, 1]，当为词模式时，取值无意义|
 |audioUrl|NSString|保存语音音频文件的下载地址（TAIOralEvaluationStorageMode_Enable 有效）|
 |words|NSArray<TAIOralEvaluationWord *>|详细发音评估结果|
 
@@ -159,12 +159,12 @@ TAIOralEvaluationWord 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
-|beginTime|int|当前单词语音起始时间点，单位为ms|
-|endTime|int|当前单词语音终止时间点，单位为ms|
-|pronAccuracy|float|单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配|
-|pronFluency|float|单词发音流利度，取值范围[0, 1]|
+|beginTime|Int|当前单词语音起始时间点，单位为ms|
+|endTime|Int|当前单词语音终止时间点，单位为ms|
+|pronAccuracy|Float|单词发音准确度，取值范围[-1, 100]，当取-1时指完全不匹配|
+|pronFluency|Float|单词发音流利度，取值范围[0, 1]|
 |word|NSString|当前词|
-|matchTag|int|当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词|
+|matchTag|Int|当前词与输入语句的匹配情况，0：匹配单词、1：新增单词、2：缺少单词|
 
 
 
