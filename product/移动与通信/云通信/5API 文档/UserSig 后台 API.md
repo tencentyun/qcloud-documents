@@ -7,7 +7,7 @@
 单击【下载公私钥】按钮，会得到一个 **keys.zip** 的压缩文件，解压后会获得一个 **private_key** 和一个 **public_key** 的文件，其中 **private_key** 就是我们所需要的私钥文件。
 ![](https://main.qcloudimg.com/raw/95875a7baca63c21103bc6cd6dac0279.png)
 
-## 控制台手工生成 UserSig
+## 控制台手动生成 UserSig
 
 在 **应用配置** 页面，将私钥文件内容拷贝到 **开发辅助工具** 下的的文本框中，指定用户名，单击**生成**按钮，即可获得该云通信应用指定用户名的 UserSig。
 ![](https://main.qcloudimg.com/raw/39f858a08717d90aba5ebc1ee7f32348.png)
@@ -32,10 +32,11 @@ Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快
 我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
 
 | 语言版本 | 关键函数 | 下载链接 |
-|:---------:|:---------:|:---------:|
+|---------|---------|---------|
 | Java | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-java)|
 | GO | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
 | PHP | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-php)|
+| C# | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Nodejs | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-node)|
 | C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
 | Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|

@@ -7,14 +7,14 @@ HEAD Object 接口请求可以获取对应 Object 的 meta 信息数据，HEAD �
 
 ## 请求
 请求示例：
-```
+```shell
 HEAD /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
@@ -25,7 +25,7 @@ Authorization: Auth String
 
 名称|类型|必选|描述
 ---|---|---|---
-If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304
+If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回304
 
 
 ### 请求体
@@ -45,8 +45,8 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 |---|---|---|
 |x-cos-meta- *|string|用户自定义的 meta|
 |x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal|
-|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD,STANDARD_IA，ARCHIVE|
-|x-cos-version-id|string|返回的对象的版本ID。|
+|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|
+|x-cos-version-id|string|返回的对象的版本ID|
 |x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|
 
 
@@ -57,7 +57,7 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 
 ### 请求
 
-```
+```shell
 HEAD /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2017 17:26:53 GMT
@@ -66,7 +66,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 16087
