@@ -1,6 +1,4 @@
-
-## ErrCode 错误码
-该属性是一个 object，记录了 SDK 全部错误码，具体的 key 和 value 与“错误码”文档相对应。如
+该属性是一个 Object，记录了 SDK 全部错误码，具体的 key 和 value 与错误码文档相对应。详情请参考 [错误码](https://cloud.tencent.com/document/product/1038/33317)。示例代码如下：
 ```
 ErrCode = {
 	//返回成功
