@@ -5,7 +5,7 @@
 用户输入验证码之后会获取 API 返回的票据，必须将此票据通过本接口进行校验，以确认票据是从安全 API 返回的，否则将可能导致验证码功能被绕过。
 
 ## 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://cloud.tencent.com/document/product/295/7279"target="blank">公共请求参数</a>页面。其中，此接口的Action字段为CaptchaCheck。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 页面。其中，此接口的 Action 字段为 CaptchaCheck。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -15,28 +15,28 @@
 </th></tr>
 <tr>
 <td> ticket
-</td><td>必选
+</td><td>是
 </td><td> String
-</td><td>API返回给用户的票据
+</td><td>API 返回给用户的票据
 </td></tr>
 <tr>
 <td> captchaType
-</td><td>必选
+</td><td>是
 </td><td> Int
 </td><td> <a href="https://cloud.tencent.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
 </td></tr>
 <td> userIp
-</td><td>必选
+</td><td>是
 </td><td> String
-</td><td> 用户操作来源的外网IP
+</td><td> 用户操作来源的外网 IP
 </td></tr>
 <tr>
 <td> accountType
-</td><td> 必选
+</td><td> 是
 </td><td> UInt
 </td><td> 用户账号类型
 <br> 0：其他账号
-<br> 1：QQ开放帐号
+<br> 1：QQ 开放帐号
 <br> 2：微信开放帐号
 <br> 4：手机账号
 <br> 6：手机动态码
@@ -44,55 +44,55 @@
 </td></tr>
 <tr>
 <td> appId
-</td><td> 建议
+</td><td>否，但建议选择
 </td><td> String
-</td><td> accountType是QQ或微信开放账号时，该参数必填，表示QQ或微信分配给给网站或应用的appId，用来唯一标识网站或应用
+</td><td> accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用
 </td></tr>
 <tr>
 <td> businessId
-</td><td> 可选
+</td><td> 否
 </td><td> UInt
-</td><td> 业务ID，网站或应用在多个业务中使用此服务，通过此ID区分统计数据
+</td><td> 业务 ID，网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据
 </td></tr>
 <tr>
 <td> sceneId
-</td><td> 可选
+</td><td> 否
 </td><td> UInt
-</td><td> 场景ID，网站或应用的业务下有多个场景使用此服务，通过此ID区分统计数据
+</td><td> 场景 ID，网站或应用的业务下有多个场景使用此服务，通过此 ID 区分统计数据
 </td></tr>
 <tr>
 <tr>
 <td> uid
-</td><td> 可选
+</td><td> 否
 </td><td> String
-</td><td> 用户ID，accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId
+</td><td> 用户 ID，accountType 不同对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId
 </td></tr>
 <td> associateAccount
-</td><td> 可选
+</td><td> 否
 </td><td> String
-</td><td> accountType是QQ或微信开放账号时，用于标识QQ或微信用户登录后关联业务自身的账号ID
+</td><td> accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID
 </td></tr>
 <tr>
 <td> registerTime
-</td><td> 可选
+</td><td> 否
 </td><td> UInt
 </td><td> 注册时间戳，单位秒
 </td></tr>
 <tr>
 <td> xForwardedFor
-</td><td> 可选
+</td><td> 否
 </td><td> String
-</td><td> 用户Http请求中的x_forward_for
+</td><td> 用户 HTTP 请求中的 x_forward_for
 </td></tr>
 <tr>
 <td> macAddress
-</td><td> 可选
+</td><td> 否
 </td><td> String
-</td><td> mac地址或设备唯一标识
+</td><td> mac 地址或设备唯一标识
 </td></tr>
 <tr>
 <td> imei
-</td><td> 可选
+</td><td> 否
 </td><td> String
 </td><td> 手机设备号
 </td></tr>
@@ -108,11 +108,11 @@
 <tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/document/product/295/7285)
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的 <a href='https://cloud.tencent.com/document/product/295/7285'>公共错误码</a>
 </td></tr>
 <tr><td> codeDesc
 </td><td> String
-</td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
+</td><td> 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。
 </td></tr>
 <tr>
 <td> message
