@@ -59,16 +59,18 @@ Authorization: Auth String
 #### 公共响应头 
 该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-**服务端加密响应头**
-
-如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+该响应将可能返回如下响应头部信息：
 
 | 名称                           | 描述                                       | 类型     |
 | ---------------------------- | ---------------------------------------- | ------ |
-| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
+| x-cos-server-side-encryption | 如果在上传时指定使用了服务端加密，响应头部将会返回该响应头，枚举值有 AES256 | String |
+|x-cos-storage-class|返回对象的存储类型信息，COS 为除了 Standard 存储类型之外的所有对象返回此响应头部。枚举值：STANDARD_IA 和 ARCHIVE| String |
 
 ### 响应体
-该响应体为空。
+该请求的响应体为空。
+
+### 错误码
+该请求操作无特殊错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
