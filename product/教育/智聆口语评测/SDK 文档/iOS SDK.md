@@ -11,7 +11,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
-## SDK 集成
+## 集成 SDK 
 ### 1. 导入 SDK
 从 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 中获取 SDK 并导入到工程。
 ![](http://dldir1.qq.com/hudongzhibo/taisdk/document/taisdk_ios_1.png)
