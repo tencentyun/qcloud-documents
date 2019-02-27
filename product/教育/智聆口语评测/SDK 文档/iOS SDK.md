@@ -113,6 +113,7 @@ __weak typeof(self) ws = self;
 secretKey属于安全敏感参数，线上版本一般由业务后台生成[临时secretKey](https://cloud.tencent.com/document/api/598/13895)或者SDK外部签名返回到客户端。
 
 >（1）内部签名：sdk内部通过用户提供的secretKey和secretId计算签名，用户无需关心签名细节
+
 >（2）外部签名：sdk外部调用getStringToSign获取签名字符串，然后根据[签名规则（参考步骤三）](https://cloud.tencent.com/document/product/884/30657) 进行签名。口语评测时需提供secretId、timestamp和signature参数
 
 
