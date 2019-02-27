@@ -1,10 +1,10 @@
 ## 概述
-- SDK工具包目录结构说明：
- - TCWebCodesSDK.framework:包含TCWebCodesSDK.framework。
- - TCWebCodesSDKDemo:示例工程,演示了如何使用TCWebCodesSDK.framework。
+- SDK 工具包目录结构说明：
+ - TCWebCodesSDK.framework：包含 TCWebCodesSDK.framework。
+ - TCWebCodesSDKDemo：示例工程，演示了如何使用 TCWebCodesSDK.framework。
 - 本 SDK 运行环境与项目要求：
  - 适用于 iOS6.0 及以上的系统版本。
- - [IOS-SDK下载](https://mc.qcloudimg.com/static/archive/e712602cb7317ed4642b2d785caf2f60/iOS_SDK_Demo_20170816.zip)。
+ - [IOS-SDK 下载](https://mc.qcloudimg.com/static/archive/e712602cb7317ed4642b2d785caf2f60/iOS_SDK_Demo_20170816.zip)。
 
 ## 接口说明
 主要函数，设置验证结果的 callback 回调：
@@ -17,7 +17,7 @@
 @property (nonatomic, copy) void (^callback)(NSDictionary *resultJSON, UIView *webView);
 ```
 
-主要函数，通过腾讯云返回的验证码URL创建一个用于显示的webView控件：
+主要函数，通过腾讯云返回的验证码 URL 创建一个用于显示的 webView 控件：
 ```
 /**
  开始加载H5
@@ -38,7 +38,7 @@
 + (instancetype)sharedBridge;  
 ```
 
-配置函数，设置是否显示H5页面的头部，默认不显示；
+配置函数，设置是否显示 H5 页面的头部，默认不显示：
 ```
 /**
 设置是否显示H5的内部导航头部
@@ -46,7 +46,7 @@
 @property (nonatomic) BOOL showHeader;
 ```
 
-可扩展函数，用于设置后续显示H5界面的一些样式：
+可扩展函数，用于设置后续显示 H5 界面的一些样式：
 ```
 /**
 设置其余属性
