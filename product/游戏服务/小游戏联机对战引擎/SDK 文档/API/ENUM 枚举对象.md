@@ -3,14 +3,14 @@
 
 该对象记录了 SDK 常用的几种枚举数据，这些枚举数据都是由枚举名称（key）和值（value）组成的 object。ENUM 对象全部属性如下：
 
-|属性名|描述|
-|:---|---|
-|CreateType|创建房间方式枚举|
-|JoinType|加入房间方式枚举|
-|MatchType|匹配类型枚举|
-|NetworkState|网络状态枚举|
-|UserLocate|用户位置枚举|
-|RoomStatusType|房间状态|
+|属性名|类型|描述|
+|:---|---|---|
+|CreateType|lagame.CreateType|创建房间方式枚举|
+|JoinType|lagame.JoinType|加入房间方式枚举|
+|MatchType|lagame.MatchType|匹配类型枚举|
+|NetworkState|lagame.NetworkState|网络状态枚举|
+|UserLocate|lagame.UserLocate|用户位置枚举|
+|RoomStatusType|lagame.RoomStatusType|房间状态|
 
 lagame.CreateType 定义如下：
 
