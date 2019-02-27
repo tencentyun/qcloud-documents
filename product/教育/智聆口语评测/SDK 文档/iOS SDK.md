@@ -18,7 +18,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管
 
 
 ## 使用示例
-SDK 详细使用流程请参见 [TSOEDemo 工程](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe/tree/master/demo/TSOEDemo)。
+
 #### 初始化 SDK
 ```
 [TXTencentSOE shareTencentSOE].VoiceSecretID = @"";

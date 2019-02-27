@@ -19,18 +19,16 @@ CDN 上分发的内容为默认公开资源，为了避免恶意用户通过技�
 http:// DomainName/timestamp/md5hash/FileName
 ```
 - 字段解析：
-```
-timestamp：时间戳，格式为 YYYYMMDDHHMM
-rand：随机数，0~100位随机数，大小写字母与数字组成
-uid：0
-md5hash：MD5（PrivateKey + timestamp + FileName)
-```
+   - `timestamp`：时间戳，格式为 YYYYMMDDHHMM
+   - `rand`：随机数，0 - 100位随机数，大小写字母与数字组成
+   - `uid`：0
+   - `md5hash`：MD5（PrivateKey + timestamp + FileName)
 
 ## 配置指引
 
-1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn/access/manage/1444090?tab=secure)，进入【域名管理】页面，选择需要设置的域名，单击【管理】
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn/access/manage/1444090?tab=secure)，进入【域名管理】页面，选择需要设置的域名，单击【管理】。
 ![](https://main.qcloudimg.com/raw/801ab697e2728cb0ab8d56ac5204e433.png)
-2. 在【安全配置】中找到【鉴权配置】模块，单击开启【鉴权配置】
+2. 在【安全配置】中找到【鉴权配置】模块，单击开启【鉴权配置】。
 ![](https://main.qcloudimg.com/raw/f83e9780cd0ad338b71bbe8aa1ddea2f.png)
 3. 弹出【鉴权配置】弹窗，选中模式 C 并展示模式示例：
    ![](https://main.qcloudimg.com/raw/f1114a807d781a650e93a30cbabc0f5a.png)
@@ -41,7 +39,7 @@ md5hash：MD5（PrivateKey + timestamp + FileName)
 
 ## 鉴权计算器
 
-您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
+>? 您可以使用鉴权计算器来核对请求路径、签名是否计算正确。
 
 1. 选择模式 C，填写鉴权密钥、访问路径、时间设置及有效时间：
   ![](https://main.qcloudimg.com/raw/c52f6f37637cdf477a6e0378beafa75a.png)

@@ -87,7 +87,7 @@ Form
    </tr>
    <tr>
       <td>x-cos-storage-class</td>
-      <td>设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，默认值：STANDARD</td>
+      <td>设置 Object 的存储级别，枚举值：STANDARD、STANDARD_IA 和 ARCHIVE，默认值：STANDARD</td>
       <td>String</td>
       <td>否</td>
    </tr>

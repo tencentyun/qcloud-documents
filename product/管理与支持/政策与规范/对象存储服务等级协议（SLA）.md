@@ -99,7 +99,7 @@
 
 
 
->如您对可用性计算有疑问，请查阅 [COS 可用性计算示例](https://cloud.tencent.com/document/product/436/30748#cos-.E5.8F.AF.E7.94.A8.E6.80.A7.E5.A6.82.E4.BD.95.E8.AE.A1.E7.AE.97.EF.BC.9F)。
+>!如您对可用性的计算存在疑问，请查阅 [COS 可用性计算示例](https://cloud.tencent.com/document/product/436/30748#cos-.E5.8F.AF.E7.94.A8.E6.80.A7.E5.A6.82.E4.BD.95.E8.AE.A1.E7.AE.97.EF.BC.9F)。
 
 
 

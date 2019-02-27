@@ -60,12 +60,12 @@ xff: -
 | ---- | -------------- | ------------ | ------------------------------------------------------------ |
 | 1.   | /var/log/nginx | access.log   | 此例中，日志路径配置为`/var/log/nginx/**/access.log`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`access.log`命名的日志文件 |
 | 2.   | /var/log/nginx | \*.log       | 此例中，日志路径配置为`/var/log/nginx/**/*.log`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`.log`结尾的日志文件 |
-| 3.   | /var/log/nginx | error\*      | 此例中，日志路径配置为`/var/log/nginx/**/error`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`error`开头命名的日志文件 |
+| 3.   | /var/log/nginx | error\*      | 此例中，日志路径配置为`/var/log/nginx/**/error*`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`error`开头命名的日志文件 |
 
 >!
-1. 多层目录和通配符配置方式依赖 loglistener 版本2.2.2及以上，为兼容低版本 loglistener 路径配置修改方式，用户可切换旧配置进行历史修改，旧采集路径方式不支持多目录采集。
-2. 一个日志文件只能被一个日志主题采集。
-3. LogListener 不支持监听软连接方式的日志文件和 NFS、CIFS 等共享文件目录上的日志文件。
+>1. 多层目录和通配符配置方式依赖2.2.2及以上版本的 loglistener，为兼容低版本 loglistener 路径配置修改方式，用户可切换旧配置进行历史修改，旧采集路径方式不支持多目录采集。
+>2. 一个日志文件只能被一个日志主题采集。
+>3. LogListener 不支持监听软连接方式的日志文件和 NFS、CIFS 等共享文件目录上的日志文件。
 
 ### 5. 关联机器组
 
@@ -109,7 +109,7 @@ xff: -
 
 ### 9. 检索结果
 
-登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，左侧导航栏单击【日志检索】，然后在日志检索界面选择日志集与日志主题，单击【搜索】，即可检索日志。
+登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中，单击【日志检索】，输入日志集与日志主题，单击【搜索】，系统将开始检索日志。
 ![](https://main.qcloudimg.com/raw/a81934f054d00abcf605db24ddf5ad04.png)
 
 >!检索必须开启索引配置，否则无法进行检索。
