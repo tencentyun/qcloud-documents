@@ -6,11 +6,6 @@ TAISDK是一款封装了腾讯云教育AI能力的SDK，通过集成SDK，用户
 本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
 ## 使用说明
-#### 工程及 Demo 源码
-[工程及 Demo 源码的 GitHub 地址>>](https://github.com/TencentCloud/tencentcloud-sdk-android-soe)
-本 SDK 的主文件为 tencentsoe-sdk-release.aar，直接引入项目中即可。
-- 如果您需要调用 MP3录音功能，则还需引入 mp3recorder.aar。
-- 如果您需要运行 Demo，请对 SECRET_ID 和 SECRET_KEY 赋值。
 
 ####  第三方库依赖
 本 SDK 依赖以下第三方库：
@@ -44,7 +39,7 @@ secretId和secretKey是使用SDK的安全凭证，通过以下方式获取
 在build.gradle引入依赖包
 
 ```java
-implementation 'com.tencent.taisdk:taisdk:1.2.0.59'
+implementation 'com.tencent.taisdk:taisdk:1.2.0.61'
 ```
 
 #### 2、接口调用
