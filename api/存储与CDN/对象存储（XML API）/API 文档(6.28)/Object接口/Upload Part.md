@@ -19,12 +19,12 @@ Authorization: Auth String
 [Object]
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详请请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详请请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 **必选头部**
@@ -57,14 +57,14 @@ Authorization: Auth String
 
 ### 响应头
 #### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应将可能返回如下响应头部信息：
 
 | 名称                           | 描述                                       | 类型     |
 | ---------------------------- | ---------------------------------------- | ------ |
 | x-cos-server-side-encryption | 如果在上传时指定使用了服务端加密，响应头部将会返回该响应头，枚举值有 AES256 | String |
-|x-cos-storage-class|返回对象的存储类型信息，COS 为除了 Standard 存储类型之外的所有对象返回此响应头部。枚举值：STANDARD_IA 和 ARCHIVE| String |
+|x-cos-storage-class|返回对象的存储类型信息，COS 为除了 Standard 存储类型之外的所有对象返回此响应头部，枚举值：STANDARD_IA 和 ARCHIVE| String |
 
 ### 响应体
 该请求的响应体为空。
@@ -95,5 +95,4 @@ Date: Wed，18 Jan 2017 16:17:03 GMT
 Etag: "e1e5b4965bc7d30880ed6d226f78a5390f1c09fc"
 Server: tencent-cos
 x-cos-request-id: NTg3ZjI0NzlfOWIxZjRlXzZmNGJfMWYy
-
 ```
