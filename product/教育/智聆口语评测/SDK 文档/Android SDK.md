@@ -1,19 +1,18 @@
 
 ##  概述
 腾讯云智聆口语评测（英文版）（Smart Oral Evaluation-English，SOE-E）是腾讯云推出的语音评测产品，是基于英语口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的英语口语发音评测。腾讯云智聆口语评测（英文版）支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于英语口语类教学应用中。
-TAISDK是一款封装了腾讯云教育AI能力的SDK，通过集成SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测Android SDK相关说明，如需其他产品的调用说明，可到对应产品的产品文档查看。
-
+TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 Android SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
 本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
-## 使用说明
+## 使用前提
 
-####  第三方库依赖
+####  添加第三方库依赖
 本 SDK 依赖以下第三方库：
 ```gradle
 implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 ```
-#### 使用权限
+#### 添加使用权限
 本 SDK 需要以下权限：
 ```xml
 android.permission.INTERNET
@@ -22,39 +21,26 @@ android.permission.READ_EXTERNAL_STORAGE
 android.permission.WRITE_EXTERNAL_STORAGE
 ```
 
-
-### 一、获取密钥
-
-secretId和secretKey是使用SDK的安全凭证，通过以下方式获取
-
-![](http://dldir1.qq.com/hudongzhibo/taisdk/document/taisdk_cloud_1.png)
+#### 获取密钥
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。
+![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 
-### 二、SDK集成
+## 集成 SDK 
 
-#### 1、导入SDK
-
-[Demo源码下载](https://github.com/TencentCloud/tencentcloud-sdk-android-soe)
-
-在build.gradle引入依赖包
-
+### 1. 导入 SDK
+下载 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-android-soe)，并在 build.gradle 引入依赖包。
 ```java
 implementation 'com.tencent.taisdk:taisdk:1.2.0.61'
 ```
 
-#### 2、接口调用
-
-
-
-##### 智聆口语评测
-
+### 2. 接口调用
+声明并定义对象：
 ```java
-//一、声明并定义对象
 private TAIOralEvaluation oral = new TAIOralEvaluation();
 ```
-
+设置数据回调：
 ```java
-//二、设置数据回调
 this.oral.setListener(new TAIOralEvaluationListener() {
     @Override
     public void onEvaluationData(final TAIOralEvaluationData data, final TAIOralEvaluationRet result, final TAIError error) {
@@ -63,10 +49,10 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 });
 ```
 
-* 内部录制（SDK内部录制音频并传输，推荐）
-
+### 3. 录制音频
+* **内部录制**（SDK 内部录制音频并传输，推荐）
 ```java
-//三、初始化参数
+//1.初始化参数
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
@@ -80,18 +66,14 @@ param.scoreCoeff = 1.0;
 param.refText = "";
 param.secretId = "";
 param.secretKey = "";
-//四、开始录制
+//2.开始录制
 this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
     @Override
     public void onResult(final TAIError error) {
         //结果返回
     }
 });
-
-```
-
-```java
-//五、结束录制
+//3.结束录制
 this.oral.stopRecordAndEvaluation(new TAIOralEvaluationCallback() {
     @Override
     public void onResult(final TAIError error) {
@@ -100,12 +82,9 @@ this.oral.stopRecordAndEvaluation(new TAIOralEvaluationCallback() {
 });
 ```
 
-
-* 外部录制（SDK外部录制音频数据作为Api调用参数）
-
-
+* **外部录制**（SDK 外部录制音频数据作为 API 调用参数）
 ```java
-//三、初始化参数
+//1.初始化参数
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
@@ -119,7 +98,7 @@ param.scoreCoeff = 1.0;
 param.refText = "hello guagua";
 param.secretId = "";
 param.secretKey = "";
-//四、传输数据
+//2.传输数据
 try{
     InputStream is = getAssets().open("hello_guagua.mp3");
     byte[] buffer = new byte[is.available()];
@@ -137,63 +116,53 @@ try{
     });
 }
 catch (Exception e){
-
 }
 ```
-
-注意事项
-
-> 外部录制三种格式目前仅支持16k采样率16bit编码单声道，如有不一致可能导致评估不准确或失败
+>!外部录制三种格式目前仅支持16k采样率16bit编码单声道，如有不一致可能导致评估不准确或失败。
 
 
-#### 3、签名
+### 4. 签名
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13895) 或者 SDK 外部签名返回到客户端。
 
-secretKey属于安全敏感参数，线上版本一般由业务后台生成[临时secretKey](https://cloud.tencent.com/document/api/598/13895)或者SDK外部签名返回到客户端。
-
->（1）内部签名：sdk内部通过用户提供的secretKey和secretId计算签名，用户无需关心签名细节
-
->（2）外部签名：sdk外部调用getStringToSign获取签名字符串，然后根据[签名规则（参考步骤三）](https://cloud.tencent.com/document/product/884/30657) 进行签名。口语评测时需提供secretId、timestamp和signature参数
+- 内部签名：SDK 内部通过用户提供的 SecretKey 和 SecretId 计算签名，用户无需关心签名细节
+- 外部签名：SDK 外部调用 getStringToSign 获取签名字符串，然后根据 [签名规则-计算签名](https://cloud.tencent.com/document/product/884/30657#3.-.E8.AE.A1.E7.AE.97.E7.AD.BE.E5.90.8D) 进行签名。口语评测时需提供 SecretId、timestamp 和 signature 参数。
 
 ```java
 //获取签名所需字符串
 public String getStringToSign(long timestamp);
 ```
-
-注意事项
-
->时间戳timestamp必须和TAIEvaluationParam参数的timestamp一致
+>！时间戳 timestamp 必须和 TAIEvaluationParam 参数的 timestamp 一致。
 
 
 
-#### 4、参数说明
+## 参数说明
 
-##### 公共参数
-* TAICommonParam参数说明
+### 公共参数
+TAICommonParam 参数说明：
 
 | 参数|类型|必填|说明 |
 |---|---|---|---|
 |context|Context|是|上下文|
-|appId|String|是|appId|
+|appId|String|是|AppId|
 |timeout|int|否|超时时间，默认30秒|
-|secretId|String|是|密钥Id|
-|secretKey|String|内部签名：必填|密钥Key|
+|secretId|String|是|密钥 ID|
+|secretKey|String|内部签名：必填|密钥 Key|
 |signature|String|外部签名：必填|签名|
 |timestamp|long|外部签名：必填|秒级时间戳|
 
 
-* TAIError参数说明
+TAIError 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
 |code|int|错误码|
 |desc|String|错误描述|
-|requestId|String|请求id，定位错误信息|
+|requestId|String|请求 ID，定位错误信息|
 
 
 
-##### 智聆口语评测
-
-* TAIOralEvaluationParam参数说明
+### 智聆口语评测
+TAIOralEvaluationParam 参数说明：
 
 | 参数|类型|必填|说明 |
 |---|---|---|---|
@@ -206,7 +175,7 @@ public String getStringToSign(long timestamp);
 |scoreCoeff|double|是|苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段|
 |refText|String|是|被评估语音对应的文本|
 
-* TAIOralEvaluationData参数说明
+TAIOralEvaluationData 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
@@ -215,7 +184,7 @@ public String getStringToSign(long timestamp);
 |audio|NSData|音频数据|
 
 
-* TAIMathCorrectionRet参数说明
+TAIMathCorrectionRet 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
@@ -226,7 +195,7 @@ public String getStringToSign(long timestamp);
 |audioUrl|String|保存语音音频文件的下载地址（TAIOralEvaluationStorageMode.Enable有效）|
 |words|List<TAIOralEvaluationWord>|详细发音评估结果|
 
-* TAIOralEvaluationWord参数说明
+TAIOralEvaluationWord 参数说明：
 
 | 参数|类型|说明 |
 |---|---|---|
