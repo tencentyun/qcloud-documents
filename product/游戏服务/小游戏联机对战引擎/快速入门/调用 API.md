@@ -48,5 +48,7 @@ room.getRoomDetail(event => {
   }
 });
 ```
-在微信开发者工具中编译该项目，控制台中输出“查询成功”信息即表示接入成功。如下图所示：
+3. 在微信开发者工具中编译该项目，控制台中输出“查询成功”信息即表示接入成功。如下图所示：
 ![SDK接入后台测试](https://main.qcloudimg.com/raw/ce9a2bdbd748fcd8e2b288d7568142e4.png)
+
+详细的 API 的使用方法您可以参考 [SDK 使用流程](https://cloud.tencent.com/document/product/1038/33315) 。
