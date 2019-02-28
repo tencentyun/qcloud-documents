@@ -21,7 +21,7 @@
 
 ### 导入 SDK
 
-SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 或 global 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。请参考 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406)
+SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 或 global 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。请参考 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406)。
 
 #### 微信小游戏原生环境
 
