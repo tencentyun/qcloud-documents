@@ -6,4 +6,4 @@
  - 主分发协议类型：支持 HTTP 和 HTTPS。
  - 主分发域名：默认使用系统分配的`xxx.vod2.myqcloud.com`，也可以选择自定义 [添加]() 并完成 [解析]() 的域名作为主分发域名。
 
- ![](https://main.qcloudimg.com/raw/0909c748bd370e689f9cf5a9bbc2f54e.png)
+ ![](https://main.qcloudimg.com/raw/79f80fab63425e219f44a1f663c43870.png)
