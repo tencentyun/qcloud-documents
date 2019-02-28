@@ -1,4 +1,4 @@
-1. 将 SDK 文件中的 MGOBE.js 拷贝到项目的 js/libs 文件夹下。
+1. 将 SDK 文件中的 MGOBE.js 拷贝到项目的 js/libs 文件夹下。请参考 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406)。
 2. 参考以下示例代码，MGOBE.js 导入至 game.js。
 ```
 // 导入 MGOBE.js
