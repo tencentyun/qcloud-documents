@@ -101,7 +101,7 @@ public TIMSdkConfig setLogPath(@NonNull String logPath)
 在使用 SDK 进一步操作之前，需要初始化 SDK。
 
 > **注意：**
-> 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化。
+> 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化，调用接口`SessionWrapper.isMainProcess(Context context)`判断。
 
 **原型：**
 
@@ -119,14 +119,17 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 
 ```
 //初始化 SDK 基本配置
-TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-		.enableCrashReport(false);
-		.enableLogPrint(true)
-		.setLogLevel(TIMLogLevel.DEBUG)
-		.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
+//判断是否是在主线程
+if (SessionWrapper.isMainProcess(getApplicationContext())) {
+	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
+			.enableCrashReport(false);
+			.enableLogPrint(true)
+			.setLogLevel(TIMLogLevel.DEBUG)
+			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
 
-//初始化 SDK
-TIMManager.getInstance().init(getApplicationContext(), config);
+	//初始化 SDK
+	TIMManager.getInstance().init(getApplicationContext(), config);
+}
 ```
 ## 用户配置
 
