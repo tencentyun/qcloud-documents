@@ -6,11 +6,11 @@
 1. 登录腾讯云 [点播控制台](https://console.cloud.tencent.com/video)。
 2. 选择【分发播放设置】>【域名设置】。
 3. 在目标域名所在行，单击【设置】，进入配置页面。
-4. 在【Referer 防盗链】模块下，单击【编辑】，并开启【启用Referer防盗链】，配置以下选项：
+4. 单击【Referer 防盗链】模块中的【编辑】，并开启【启用Referer防盗链】，配置以下选项：
  - 是否允许空 Referer：选择是否允许空 Referer 请求视频（即是否允许在浏览器中直接输入视频 URL 播放视频）。
  - 选择添加对象：选择黑名单或白名单，并填写域名。配置说明请查看 [注意事项](#referer)。
 ![](https://main.qcloudimg.com/raw/040def2f466235c943d2d94b60e32cfe.png)
-5. 单击【确定】保存 Referer 防盗链配置，大约需要5分钟使该配置在所有 CDN 节点生效。
+5. 单击【确定】保存 Referer 防盗链配置，该配置在所有 CDN 节点生效大约需要5分钟。
 
 <a id="referer"></a>
 ## 注意事项
