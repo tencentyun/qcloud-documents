@@ -7,7 +7,7 @@
 
 ## 配置向导
 1. 登录腾讯云 [点播控制台](https://console.cloud.tencent.com/video)。
-2. 单击【分发播放设置】>【域名设置】。
+2. 单击【分发播放设置】>【域名管理】。
 3. 在目标域名所在行，单击【设置】，进入配置页面。
 4. 单击【Key防盗链】模块中的【编辑】，如下图所示：
  ![](https://main.qcloudimg.com/raw/a53061db324c8cbce895729210ad00cd.png)
