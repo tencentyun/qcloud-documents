@@ -6,12 +6,6 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ## 使用前提
 
-####  添加第三方库依赖
-本 SDK 依赖以下第三方库：
-```gradle
-implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-implementation 'com.google.code.gson:gson:2.8.5'
-```
 #### 添加使用权限
 本 SDK 需要以下权限：
 ```xml
