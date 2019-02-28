@@ -1,43 +1,41 @@
 ## 操作场景
+
 本文档指导您如何使用小游戏联机对战引擎 SDK。
 
-
 ## 前提条件
+
 - 已在小游戏联机对战引擎控制台创建小游戏实例，并开通联机对战服务。
 - 已获取游戏 gameID 和 secretKey。SDK 需要对这两个参数进行校验。
 
-
 ## 操作步骤
 
-### 1. 设置请求域名
+### 设置请求域名
 
->!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPs、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置 socket 合法域名。
+>! 出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置 socket 合法域名。
 
 1. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
-2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。
-3. 进入开发设置详情页，在服务器域名中添加一条“socket 合法域名”记录。
+2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。如下图所示：
 ![控制台游戏信息](https://main.qcloudimg.com/raw/d9148b71fbc9d377d440e645fa7e2a1e.png)
+3. 进入开发设置详情页，在 “服务器域名” 中添加一条 “socket合法域名” 记录。如下图所示：
 ![微信公共平台](https://main.qcloudimg.com/raw/40e50b0457f1928efe98e2665d396c32.png)
 
-
-
-
-### 2. 导入 SDK
+### 导入 SDK
 
 SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 或 global 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。
 
-#### 2.1 微信小游戏原生环境
-在微信原生环境中，只需要将 MGOBE.js 放到项目下任意位置，在  game.js 中 import SDK 文件后即可使用 MGOBE 的方法。
+#### 微信小游戏原生环境
+
+在微信原生环境中，您只需将 MGOBE.js 放到项目下任意位置，在 game.js 中 import SDK 文件后即可使用 MGOBE 的方法。导入示例代码如下：
 ```
 // 只需要在使用 MGOBE 之前 import 一次该文件
 import "./js/libs/MGOBE.js";
 // 直接使用 MGOBE
 const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
-
+界面示例如下图所示：
 ![微信原生环境](https://main.qcloudimg.com/raw/db99a5a7a6103aec2219fc8df5c7c202.png)
-
-也可以使用 import/from、require 语法显式导入 MGOBE 模块：
+您也可以使用 import/from、require 语法显式导入 MGOBE 模块。
+import/from 代码示例如下：
 ```
 // 使用 import/from
 import * as MGOBE from "./js/libs/MGOBE.js";
@@ -46,6 +44,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 // 或者
 import { Room, Listener, ErrCode, ENUM, DebuggerLog } from "./js/libs/MGOBE.js";
 ```
+require 代码示例如下：
 ```
 // 使用 require
 const MGOBE = require("./js/libs/MGOBE.js");
@@ -55,9 +54,9 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 const { Room, Listener, ErrCode, ENUM, DebuggerLog } = require("./js/libs/MGOBE.js");
 ```
 
-#### 2.2 TypeScript 环境
+#### TypeScript 环境
 
-在 Laya、Cocos 等支持直接使用 TypeScript 进行开发的集成环境中，可以使用 TypeScript 自带的 import 语法导入 SDK。由于 TypeScript 支持 .d.ts 定义文件，为了方便开发，可以将 MGOBE.js 和 MGOBE.d.ts 一同复制到项目中，然后调用 import 语句即可。下面以 Cocos Creator 和 LayaAir IDE 为例：
+在 Laya、Cocos 等支持直接使用 TypeScript 进行开发的集成环境中，您可以使用 TypeScript 自带的 import 语法导入 SDK。由于 TypeScript 支持 .d.ts 定义文件，为了方便开发，您可以将 MGOBE.js 和 MGOBE.d.ts 一同复制到项目中，再调用 import 语句即可。以 Cocos Creator 和 LayaAir IDE 为例：
 
 **Cocos Creator：**
 ```
@@ -82,6 +81,7 @@ export default class Helloworld extends cc.Component {
     }
 }
 ```
+界面示例如下图所示：
 ![Cocos Creator](https://main.qcloudimg.com/raw/5665b37c207102eede0a58140c66d8ec.png)
 
 **LayaAir IDE：**
@@ -91,18 +91,20 @@ import "../libs/js/MGOBE";
 // 直接使用 MGOBE
 const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
+界面示例如下图所示：
 ![LayaAir IDE](https://main.qcloudimg.com/raw/d789bacefb48b0a2b0a37ebdd644e260.png)
 
-此外，在 LayaAir IDE 中，也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 SDK 文件先执行一遍即可。
-
-在 TypeScript 环境中，也可以使用 import/from 语法导入 MGOBE.js，但由于 TS 导入 .d.ts 的优先级高于导入 .js，所以需要把 MGOBE.js 和 MGOBE.d.ts 文件放在不同文件夹，然后使用 import/from 导入 .js 文件，这种导入将无法使用 .d.ts 提示：
+此外，在 LayaAir IDE 中，您也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 SDK 文件先执行一遍即可。
+在 TypeScript 环境中，您也可以使用 import/from 语法导入 MGOBE.js，但由于 TS 导入 .d.ts 的优先级高于导入 .js，所以您需要将 MGOBE.js 和 MGOBE.d.ts 文件放在不同文件夹，并使用 import/from 导入 .js 文件。
+>! 使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
+>
 ```
 // import/from 导入 .js，无法使用 .d.ts 提示
 import * as MGOBE from "../libs/js/MGOBE";
 const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
 
-### 3. 初始化监听器 Listener
+### 初始化监听器 Listener
 
 在使用 MGOBE API 接口时，主要用到 Listener 对象和 Room 对象。导入 SDK 后，需要先初始化 Listener 对象。
 ```
@@ -132,7 +134,7 @@ Listener.init(gameInfo, config);
 
 每个字段的具体含义可以参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
 
-### 4. 实例化 Room 对象
+### 实例化 Room 对象
 
 在开发游戏过程中的大部分业务接口都位于 Room 对象中。由于每个玩家只能加入一个房间，在游戏生命周期中可以实例化一个 Room 对象进行接口调用：
 
@@ -158,9 +160,9 @@ room.getRoomDetail(event => {
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->!getRoomList 接口是 Room 对象的静态方法，需要使用 Room.getRoomList 进行调用。Room 的实例无法直接访问 getRoomList。（ getRoomList 本质上属于构造器的属性 ）。
+>! getRoomList 接口是 Room 对象的静态方法，您需要使用 Room.getRoomList 进行调用。Room 的实例无法直接访问 getRoomList。（getRoomList 本质上属于构造器的属性 ）。
 
-### 5. Room 接收广播
+### Room 接收广播
 
 一个房间对象会有很多广播事件与其相关，比如该房间有新成员加入、房间属性变化、房间开始对战等广播。Room 实例需要在 Listener 中注册广播监听，并且实现广播的回调函数。
 
@@ -194,7 +196,7 @@ room.dismissRoomBroadcast = event => console.log("房间被解散");
 Listener.remove(room);
 ```
 
-### 6. 游戏对战
+### 游戏对战
 
 如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
 
