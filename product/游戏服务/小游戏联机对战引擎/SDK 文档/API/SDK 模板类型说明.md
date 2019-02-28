@@ -42,7 +42,8 @@ interface BroadcastEvent<T> {
 |:---|---|---|
 |data|object|消息数据，由各消息回调接口定义|
 
-广播消息是由服务端主动发起，只含有 data 一个字段。Responses 对象各个广播接口中有具体 data 定义。如 ```BroadcastEvent<lagame.BroadcastDismissRoomRsp>``` 定义了解散房间广播消息，其中 data 的类型为```lagame.BroadcastDismissRoomRsp```。
+广播消息是由服务端主动发起，只含有 data 一个字段。Responses 对象各个广播接口中有具体 data 定义。
+如 ```BroadcastEvent<lagame.BroadcastDismissRoomRsp>``` 定义了解散房间广播消息，其中 data 的类型为```lagame.BroadcastDismissRoomRsp```。
 
 ### 响应回调函数
 #### 响应回调函数定义
