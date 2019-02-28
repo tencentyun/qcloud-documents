@@ -27,8 +27,8 @@
 | message | String | 模块错误信息描述，与接口相关|
 | codeDesc | String | 业务侧错误码英文描述。成功时返回 Success，错误时返回具体业务错误原因 |
 | totalCount | Int | 实例数 |
-| data | Array |  |
-| data.redisSet | Array | | 
+| data | Array |-  |
+| data.redisSet | Array |- | 
 | data.redisSet.redisName | String | 实例名称 | 
 | data.redisSet.redisId | String | 实例唯一串号| 
 | data.redisSet.appid | Int | appid | 
