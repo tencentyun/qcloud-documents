@@ -33,7 +33,7 @@ ConfigPara 定义如下：
 |resendInterval|number|消息重发时间间隔，毫秒|1000|
 |resendTimeout|number|消息重发超时时间，毫秒|20000|
 |url|string|服务地址|无|
-|autoRequestFrame|boolean|是否自动补帧|否|
+|autoRequestFrame|boolean|是否自动补帧|false|
 
 
 >?
