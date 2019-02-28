@@ -30,13 +30,13 @@ export JAVA_HOME=/usr/java/jdk1.8.0_201
 export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 ```
-3. 按下 Esc 键退出编辑模式，输入 :wq 保存并关闭文件。
+3. 按下 Esc 键退出编辑模式，输入`:wq`保存并关闭文件。
 4. 加载环境变量
 ```
 source /etc/profile
 ```
 ### 查看 JDK 是否安装成功
-运行 java -version 命令，显示JDK版本信息时，表示 JDK 已经安装成功。
+运行`java -version`命令，显示 JDK 版本信息时，表示 JDK 已经安装成功。
 ![](https://main.qcloudimg.com/raw/42b10335d8bf6b38246bf2d853a7e08e.png)
 
 
@@ -48,11 +48,12 @@ wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-
 tar -xzvf apache-tomcat-8.5.37.tar.gz
 mv apache-tomcat-8.5.37 /usr/local/tomcat/
 ```
-在 /usr/local/tomcat/目录中：
-bin：脚本文件，包含启动和关闭 Tomcat 服务脚本。
-conf：各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
-webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
-logs：存放 Tomcat 执行时的日志文件。
+在`/usr/local/tomcat/`目录中：
+- bin：脚本文件，包含启动和关闭 Tomcat 服务脚本。
+- conf：各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
+- webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
+- logs：存放 Tomcat 执行时的日志文件。
+
 ### 添加用户
 ```
 # 创建一般用户 www来运行Tomcat
@@ -71,13 +72,13 @@ chown -R www.www /data/wwwroot
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-按下i键进入编辑模式，添加如下内容并保存
+按下 i 键进入编辑模式，添加如下内容并保存。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8'
 ```
 
 ### 配置 server.xml
-1. 切换到 /usr/local/tomcat/conf/ 目录。
+1. 切换到 `/usr/local/tomcat/conf/` 目录。
 ```
 cd /usr/local/tomcat/conf/
 ```
@@ -135,31 +136,31 @@ prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot;
 5. 按 Esc 键退出编辑模式，输入 :wq 保存并退出编辑。
 
 ## 启动 Tomcat
-###方法一
-进入 Tomcat 服务器的 bin 目录，然后执行"./startup.sh"命令启动Tomcat服务器
+### 方法一
+进入 Tomcat 服务器的 bin 目录，然后执行"./startup.sh"命令启动 Tomcat 服务器。
 ```
 cd /usr/local/tomcat/bin
 ./startup.sh
 ```
 ![](https://main.qcloudimg.com/raw/c118899986968ecd5982eb8cdb2beff9.png)
 
-###方法二
-设置快捷启动，在任何地方都可以通过 service tomcat start 来启动 Tomcat
+### 方法二
+设置快捷启动，在任何地方都可以通过 service tomcat start 来启动 Tomcat。
 ```
 wget https://github.com/lj2007331/oneinstack/raw/master/init.d/Tomcat-init
 mv Tomcat-init /etc/init.d/tomcat
 chmod +x /etc/init.d/tomcat
 ```
-运行以下命令，设置启动脚本JAVA_HOME
+运行以下命令，设置启动脚本 JAVA_HOME
 ```
 sed -i 's@^export JAVA_HOME=.*@export JAVA_HOME=/usr/java/jdk1.8.0_201@' /etc/init.d/tomcat
 ```
-设置自启动
+设置自启动。
 ```
 chkconfig --add tomcat
 chkconfig tomcat on
 ```
-启动 Tomcat
+启动 Tomcat。
 ```
 # 启动 Tomcat
 service tomcat start
@@ -171,14 +172,14 @@ service tomcat status
 service tomcat stop
 ```
 ![](https://main.qcloudimg.com/raw/78800e85c09820d98a0a15dc2792aaa8.png)
-若提示没有权限则输入
+若提示没有权限则输入。
 ```
 cd /usr/local
 chmod -R 777 tomcat
 ```
-在浏览器地址栏中输入 http://公网IP:端口(端口为 server.xml 中设置的 connector port)进行访问。出现下图所示页面时表示安装成功。
+在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
 ![](https://main.qcloudimg.com/raw/74ec003775915c33a61f7f2434d59a23.png)
 
 ### 配置安全组
-如果访问不通，请检查安全组。如上示例中 server.xml 中的 connector port 是 8080，因此需在对应的云主机所绑定的安全组上放通 TCP:8080。
+如果访问不通，请检查安全组。如上示例中 server.xml 中的 connector port 是 8080，因此需在对应的云服务器所绑定的安全组上放通 TCP:8080。
 ![](https://main.qcloudimg.com/raw/8f6fcdade7dec6c1a80dbb9af3711796.png)
