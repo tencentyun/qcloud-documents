@@ -1,6 +1,5 @@
-1. 在 game.js 中输入以下内容，完成 SDK 初始化，并得到 room 实例。
-2. 然后调用 room 对象的查询房间接口，即可验证是否成功接入对战平台。
-3. 在微信开发者工具中编译该项目，控制台中输出“查询成功”信息即表示接入成功。
+1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。
+>!gameInfo.gameId、gameInfo.secretKey、config.url 都需要从控制台上获取。
 
 ```
 const gameInfo = {
@@ -28,7 +27,11 @@ Listener.init(gameInfo, config);
 
 // 实例化 Room 对象
 const room = new Room();
+```
 
+2. 调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
+ 
+ ```
 // 查询玩家自己的房间
 room.getRoomDetail(event => {
   if (event.code !== 0 && event.code !== 20011) {
@@ -45,9 +48,5 @@ room.getRoomDetail(event => {
   }
 });
 ```
-
->!gameInfo.gameId、gameInfo.secretKey、config.url 都需要从控制台上获取。
-
+在微信开发者工具中编译该项目，控制台中输出“查询成功”信息即表示接入成功。如下图所示：
 ![SDK接入后台测试](https://main.qcloudimg.com/raw/ce9a2bdbd748fcd8e2b288d7568142e4.png)
-
-API 接口的使用流程可以参考 [SDK 使用流程 ](https://cloud.tencent.com/document/product/1038/33315)。
