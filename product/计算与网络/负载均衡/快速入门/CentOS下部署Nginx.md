@@ -17,7 +17,7 @@ rpm -ql nginx
 service nginx start
 ```
 2. 访问该云服务器的公网 IP 地址，出现如下页面则表示 Nginx 部署完成：
-![](https://main.qcloudimg.com/raw/c3d248fcfdfa45ad40c96cdca6769551.png)
+![](https://main.qcloudimg.com/raw/8807f9fd819eb93d46c5646ba3572fac.png)
 3. Nginx 的默认根目录 root 是`/usr/share/nginx/html`，直接修改 html 下的 index.html 静态页面，用来标识这个页面的特殊性。
 ```
 vim /usr/share/nginx/html/index.html
@@ -40,6 +40,6 @@ URL is image/index.html
 ## 验证 Nginx 服务
 访问云服务器的公网 IP+路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
 - rs-1 的 index.html 页面：
-![](https://main.qcloudimg.com/raw/02c7524bedbd68ae25a36577a2fcb148.png)
+![](https://main.qcloudimg.com/raw/6293722f700526a41386fb348b523e9c.png)
 - rs-1 的 /image/index.html 页面：
-![](https://main.qcloudimg.com/raw/5663e2ee65aede1069a8ecf0d6003cc4.png)
+![](https://main.qcloudimg.com/raw/3c43253a92de6b6fa216e320e84a68b1.png)
