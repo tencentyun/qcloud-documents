@@ -7,7 +7,7 @@
 
 ### 新建 DTS 数据迁移任务
 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页，单击【新建任务】。
-![](https://mc.qcloudimg.com/static/img/2ad6200dc53556f2c03f45e7a1af8320/image.png)
+![](https://main.qcloudimg.com/raw/f77219716e287a9621b3636492761cd6.png)
 
 ### 设置源和目标数据库
 跳转页面后，填写任务设置、源库设置和目标库设置。
@@ -20,11 +20,11 @@
 
 | 源库类型 | 说明 | 
 |---------|---------|
-| 有公网 IP 的 PostgreSQL |  有公网 IP 的 PostgreSQL：能够通过公网 IP 访问的 PostgreSQL 数据库。所需信息：<br><li>PostgreSQL 主机地址<li>PostgreSQL 端口<li>PostgreSQL 账号<li>PostgreSQL 密码 | 
+| 有公网 IP 的 PostgreSQL |  能够通过公网 IP 访问的 PostgreSQL 数据库。所需信息：<br><li>PostgreSQL 主机地址<li>PostgreSQL 端口<li>PostgreSQL 账号<li>PostgreSQL 密码 | 
 | 云服务器上的自建 PostgreSQL |  支持基础网络和私有网络两种环境下基于云服务器 CVM 的自建 PostgreSQL 数据库。使用时需要指定云服务器 CVM 的实例 ID 和所处的网络环境。所需信息：<br><li>所属地域：目前仅支持同地域内的 CVM 自建 PostgreSQL 迁移 TencentDB。若 CVM 与 TencentDB 分处于不同地域，使用 CVM 公网网络，选择【有公网 IP 的 PostgreSQL】项实现迁移<li>CVM 网络：支持基础网络和私有网络<li>私有网络：如选择私有网络，需选择所属的私有网络及子网<li>云服务器实例 ID<li>PostgreSQL 端口<li>PostgreSQL 账号<li>PostgreSQL 密码 | 
 | 专线接入的 PostgreSQL |  本地 IDC 自建 PostgreSQL 使用 [专线接入DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<br><li> 专线网关：接入腾讯云的数据库服务器所使用的专线网关，[了解专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li> PostgreSQL主机地址：IDC 内的 PostgreSQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li>PostgreSQL 端口<li>PostgreSQL 账号<li>PostgreSQL 密码		 | 
 | VPN 接入的 PostgreSQL |  本地 IDC 自建 PostgreSQL 通过 [VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<br><li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：[云 VPN 服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN<li>VPN 网关：仅 [云 VPN 服务](https://cloud.tencent.com/product/vpn) 需要补充 VPN 网关信息，[了解 VPN](https://cloud.tencent.com/product/vpn)<li>私有网络：VPN 服务所属的私有网络<li>PostgreSQL 主机地址：IDC 内的 PostgreSQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li>PostgreSQL 端口<li>PostgreSQL 账号<li>PostgreSQL 密码		 | 
-| 云数据库 PostgreSQL |   | 
+| 云数据库 PostgreSQL |TencentDB for PostgreSQL 云数据库实例。所需信息：<br><li>PostgreSQL 实例 ID<li>PostgreSQL 账号<li>PostgreSQL 密码   | 
 	
 ![](https://main.qcloudimg.com/raw/c57aaf34e4a594d2e22e525339e83927.png)
 
@@ -60,20 +60,19 @@
 >- 迁移单独的表时，需保证所有表外键依赖的表必须被迁移。
 
 ### 完成迁移
-![](https://main.qcloudimg.com/raw/4c6727dbdfcc9ced708406ca75ac97eb.png)
+![](https://main.qcloudimg.com/raw/ae86eb048301493f2eb4d687f91f9cb5.png)
 
 ## 同步插件配置
 1. 下载并拷贝 [dts_decoding](https://main.qcloudimg.com/raw/97b6b39254c963fcafc228a9c565a2e0.zip) 到 PostgreSQL 安装路径的 lib 目录下。
-![](https://main.qcloudimg.com/raw/7958a443bc4564a95242949b2951d648.png)
+![](https://main.qcloudimg.com/raw/1fdb249844a331ffb073cf0544ac8c3f.png)
 2. 修改 data 目录 postgresql.conf 配置文件。
 ```
 wal_level >= logical
  可用 max_replication_slots >= 迁移的数据库数目
  可用 max_wal_senders       >= 迁移的数据库数目
- ```
-![](https://main.qcloudimg.com/raw/231de9bb2bead27f73beed2a9279eeb4.png)
-![](https://main.qcloudimg.com/raw/dd91f8795d5d8a06349e50b99ccb54ce.png)
-
+```
+![](https://main.qcloudimg.com/raw/1a6819eff953e9d885175f0ff7cdde42.png)
+![](https://main.qcloudimg.com/raw/41a8bb56280c4f6e82c9a9025e611b49.png)
 3. 修改 data 目录 pg_hba.conf 配置文件。
  需要配置 replication 连接 
 ![](https://main.qcloudimg.com/raw/9ea1ec694a672b98f168a81ee7080c6a.png)
