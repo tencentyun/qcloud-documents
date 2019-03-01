@@ -6,13 +6,14 @@
 - JDK 版本：JDK 1.8.0_201
 
 ## 安装JDK
-购买完成后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参考 [购买并启动云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
+购买负载均衡服务后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参考 [购买并启动云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
 
-### 下载 JDK，输入命令
+### 下载 JDK
+输入以下命令：
 ```
-mkdir /usr/java  # 创建java文件夹
-cd /usr/java     # 进入java文件夹
-# 直接使用命令： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD许可；每个人的 cookie 不一样，请前往https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html页面同意许可协议并获取带有自己 cookie 的下载链接（您也可以直接下载 JDK 安装压缩包，再上传到实例上）
+mkdir /usr/java  # 创建Java文件夹
+cd /usr/java     # 进入Java文件夹
+# 直接使用命令： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可；每个人的 cookie 不一样，请前往https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html页面同意许可协议并获取带有自己 cookie 的下载链接（您也可以直接下载 JDK 安装压缩包，再上传到实例上）
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
 # 解压
 chmod +x jdk-8u201-linux-x64.tar.gz
@@ -20,7 +21,7 @@ tar -xzvf jdk-8u201-linux-x64.tar.gz
 ```
 
 ### 设置环境变量
-1. 打开 `/etc/profile`。
+1. 打开 `/etc/profile` 文件。
 ```
 vi /etc/profile
 ```
@@ -32,7 +33,7 @@ export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 3. 按下 Esc 键退出编辑模式，输入`:wq`保存并关闭文件。
-4. 加载环境变量
+4. 加载环境变量。
 ```
 source /etc/profile
 ```
@@ -43,14 +44,15 @@ source /etc/profile
 
 
 ## 安装 Tomcat
-### 下载 tomcat，输入命令
+### 下载 Tomcat
+输入以下命令：
 ```
 # 下载并解压 Tomcat
 wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
 tar -xzvf apache-tomcat-8.5.37.tar.gz
 mv apache-tomcat-8.5.37 /usr/local/tomcat/
 ```
-在`/usr/local/tomcat/`目录中：
+在`/usr/local/tomcat/`目录中包含一下文件：
 - bin：脚本文件，包含启动和关闭 Tomcat 服务脚本。
 - conf：各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
 - webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
@@ -63,13 +65,12 @@ useradd www
 # 创建网站根目录
 mkdir -p /data/wwwroot/default
 # 将需要部署的 Java Web 项目文件 WAR 包上传到网站根目录下，然后将网站根目录下文件权限改为 www。本示例将直接在网站根目录下新建一个 Tomcat 测试页面：
-试用
 echo Hello Tomcat! > /data/wwwroot/default/index.jsp
 chown -R www.www /data/wwwroot
 ```
 
 ### 设置 JVM 内存参数
-1. 创建 `/usr/local/tomcat/bin/setenv.sh`。
+1. 创建一个`/usr/local/tomcat/bin/setenv.sh`脚本文件。
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
@@ -83,7 +84,7 @@ JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Df
 ```
 cd /usr/local/tomcat/conf/
 ```
-2. 备份 server.xml。
+2. 备份 server.xml 文件。
 ```
 mv server.xml server_default.xml
 ```
@@ -143,6 +144,7 @@ prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot;
 cd /usr/local/tomcat/bin
 ./startup.sh
 ```
+运行结果如下：
 ![](https://main.qcloudimg.com/raw/c118899986968ecd5982eb8cdb2beff9.png)
 
 ### 方法二
@@ -170,6 +172,7 @@ service tomcat status
 # 关闭 Tomcat
 service tomcat stop
 ```
+运行结果如下：
 ![](https://main.qcloudimg.com/raw/78800e85c09820d98a0a15dc2792aaa8.png)
 5. 若提示没有权限则输入。
 ```
