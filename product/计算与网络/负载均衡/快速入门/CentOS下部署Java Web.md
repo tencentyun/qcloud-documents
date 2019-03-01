@@ -40,8 +40,7 @@ source /etc/profile
 
 ### 查看 JDK 是否安装成功
 运行`java -version`命令，显示 JDK 版本信息时，表示 JDK 已经安装成功。
-![](https://main.qcloudimg.com/raw/42b10335d8bf6b38246bf2d853a7e08e.png)
-
+![](https://main.qcloudimg.com/raw/6d3531f4d466e5428885ec38a3542c2e.png)
 
 ## 安装 Tomcat
 ### 下载 Tomcat
@@ -146,7 +145,6 @@ cd /usr/local/tomcat/bin
 ```
 运行结果如下：
 ![](https://main.qcloudimg.com/raw/c118899986968ecd5982eb8cdb2beff9.png)
-
 ### 方法二
 1. 设置快捷启动，在任何地方都可以通过 service tomcat start 来启动 Tomcat。
 ```
@@ -180,8 +178,8 @@ cd /usr/local
 chmod -R 777 tomcat
 ```
 6. 在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
-![](https://main.qcloudimg.com/raw/74ec003775915c33a61f7f2434d59a23.png)
+![](https://main.qcloudimg.com/raw/0d28a69249da06f4455281013c848189.png)
 
 ### 配置安全组
 如果访问不通，请检查安全组。如上示例中 server.xml 中的 connector port 是 8080，因此需在对应的云服务器所绑定的安全组上放通 TCP:8080。
-![](https://main.qcloudimg.com/raw/8f6fcdade7dec6c1a80dbb9af3711796.png)
+![](https://main.qcloudimg.com/raw/5114271785fbb5ef011b54fc5a4c6adf.png)
