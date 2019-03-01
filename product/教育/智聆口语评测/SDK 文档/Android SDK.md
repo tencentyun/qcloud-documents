@@ -155,7 +155,7 @@ TAIError 参数说明：
 
 
 
-### 智聆口语评测
+### 智聆口语评测参数
 TAIOralEvaluationParam 参数说明：
 
 | 参数|类型|必填|说明 |
