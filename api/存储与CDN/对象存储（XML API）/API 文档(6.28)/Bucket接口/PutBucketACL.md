@@ -19,13 +19,13 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
->Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)
 
 
 ### 请求头
 
 **公共头部**
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 **非公共头部** 
 该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限，也可以单独明确赋予用户读、写或读写权限。内容如下：
@@ -43,18 +43,18 @@ Authorization: Auth String
 ```
 <AccessControlPolicy>
   <Owner>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>
     <Grant>
       <Grantee>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
       </Grantee>
       <Permission>READ</Permission>
     </Grant>
@@ -90,7 +90,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， SubAccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，可以在 ID 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表主账号，Subaccount 代表子账号 | Container    |是|
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， SubAccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，可以在 ID 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表主账号，Subaccount 代表子账号 | Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |是|
 
 Container 节点 Grantee 的内容：
@@ -104,7 +104,7 @@ Container 节点 Grantee 的内容：
 
 ### 响应头
 #### 公共响应头
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
@@ -116,7 +116,7 @@ Container 节点 Grantee 的内容：
 |错误码|描述|HTTP 状态码|
 |------|------|------|
 |InvalidDigest|400 Bad Request|用户带的 Content-MD5 和 COS 计算 body 的 Content-MD5 不一致|
-|MalformedXM|400 Bad Request|传入的 xml 格式有误，请跟 restful api 文档仔细比对|
+|MalformedXML|400 Bad Request|传入的 xml 格式有误，请跟 restful api 文档仔细比对|
 |InvalidArgument|400 Bad Request|参数错误，具体可以参考错误信息|
 
 ## 实际案例
@@ -132,18 +132,18 @@ Content-Type: application/x-www-form-urlencoded
 
 <AccessControlPolicy>
   <Owner>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>
     <Grant>
       <Grantee>
-      <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
+      <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
       </Grantee>
       <Permission>READ</Permission>
     </Grant>
