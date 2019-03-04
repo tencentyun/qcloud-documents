@@ -364,9 +364,9 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 
 ### step 14: 结束推流
-结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
+用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 无法多实例并行运转，在结束推流时必须进行清理，否则会导致下次直播时无法正常使用对应功能。
 ```java
-//结束推流，注意做好清理工作
+//结束推流并进行清理
 public void stopRtmpPublish() {
     mLivePusher.stopCameraPreview(true); //停止摄像头预览
     mLivePusher.stopPusher();            //停止推流
