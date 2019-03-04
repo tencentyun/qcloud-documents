@@ -123,7 +123,6 @@ pod 'TACPaymentPluginWechat'
 </plist>
 ~~~
 
-###
 
 ### 配置程序需要脚本
 
