@@ -1,5 +1,5 @@
 ## 建立 Rollup 任务
-在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据。而时序数据的最主要的特点就是海量性、时效性和趋势性，因此通常情况下，使用数据的系统（例如监控系统或数据分析系统）通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup任务会自动根据base_metric建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
+在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据。而时序数据的最主要的特点就是海量性、时效性和趋势性，因此通常情况下，使用数据的系统（例如监控系统或数据分析系统）通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup 任务会自动根据base_metric建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
 
 ### 1. 请求地址
 地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200
@@ -23,7 +23,7 @@
 | function      | 是   | Map    | 指定聚合的名称、方法和字段，其字段只能选自 base_metric 里的 fields 字段，如果 base_metric 的 fields 为空，则无法设置 rollup，function 有 sum、avg、min、max、set、any、first、last、percentiles 等。例如：`{"cost_total":{"sum": {"field":"cost"}},"cpu_usage_avg":{ "avg": { "field":"cpu_usage"}}}` |
 | interval      | 是   | string | 聚合粒度（rollup 产生数据的时间精度），例如1s、5m（5分钟）、1h、1d等 |
 | frequency     | 否   | string | 调度频率，例如5m、1h、1d等，默认等于 interval                   |
-| delay         | 否   | string | 延迟执行时间，写入数据通常有一定的延时，避免丢失数据，如5m、1h等 |
+| delay         | 否   | string | 延迟执行时间，写入数据通常有一定的延时，避免丢失数据，例如5m、1h等 |
 | start_time    | 否   | string | 开始时间，从该时间开始周期性执行 Rollup，默认为当前时间       |
 | end_time      | 否   | string | 结束时间，到达该时间后不再调度 ，默认为时间戳最大值          |
 | options       | 否   | map    | rollup_metric 选项，跟新建 metric 选项一致                      |
