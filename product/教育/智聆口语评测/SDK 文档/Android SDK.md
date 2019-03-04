@@ -125,7 +125,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 //获取签名所需字符串
 public String getStringToSign(long timestamp);
 ```
->！时间戳 timestamp 必须和 TAIEvaluationParam 参数的 timestamp 一致。
+>!时间戳 timestamp 必须和 TAIEvaluationParam 参数的 timestamp 一致。
 
 
 
