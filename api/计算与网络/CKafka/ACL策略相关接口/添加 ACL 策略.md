@@ -40,6 +40,6 @@
 {
       "code" : 0,
       "codeDesc":"Success",
-      "message" : "ok",
+      "message" : "ok"
   }
 ```
