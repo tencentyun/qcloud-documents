@@ -14,7 +14,7 @@
 
 ## 第二步：添加配置文件
 
-创建好应用后，您可以点击红框中的【下载配置】来下载该应用的配置文件的压缩包：
+创建好应用后，您可以单击红框中的【下载配置】来下载该应用的配置文件的压缩包：
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
@@ -34,7 +34,7 @@
 
 > 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
-每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
+每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 App 中，下表展示了 MobileLine 各种服务所对应的库。
 
 
 以下库分别对应各种移动开发平台（MobileLine）的功能。
@@ -178,7 +178,7 @@ end
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
+3. 单击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
 > **注意：**
 请确保该脚本在 `Build Phases` 中排序为第二。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
@@ -211,7 +211,7 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
+3. 单击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
 > **注意：**
 >  请确保该脚本在 `Build Phases` 中排序需要放到最后。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
