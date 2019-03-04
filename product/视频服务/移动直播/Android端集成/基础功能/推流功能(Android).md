@@ -11,7 +11,7 @@
 ## 准备工作
 
 - **获取开发包**
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 App 开发工程。
 
 - **获取测试 URL**
 [开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放 URL](https://cloud.tencent.com/document/product/454/7915)。
@@ -57,7 +57,7 @@ mLivePusher.startCameraPreview(mCaptureView);
 
 
 ### step 3+: 纯音频推流
-如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+如果您的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
 
 ```java
 // 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
@@ -67,7 +67,7 @@ mLivePusher.setConfig(mLivePushConfig);      // 重新设置 config
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 ```
-如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
 
 
 ### step 4: 设定清晰度
@@ -159,7 +159,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 - **设置镜像效果**
-主播一般是采用前置摄像头进行直播。所以对比主播端预览画面和观众端的画面，会发现左右颠倒。这个跟我们照镜子的原理是一样的。如果你想要让画面保持一致，需要设置播放端水平镜像。
+主播一般是采用前置摄像头进行直播。所以对比主播端预览画面和观众端的画面，会发现左右颠倒。这个跟我们照镜子的原理是一样的。如果您想要让画面保持一致，需要设置播放端水平镜像。
 ```Java
 // 需在 mLivePusher.setConfig(mLivePushConfig); 之后调用
 mLivePusher.setMirror(true);
@@ -175,7 +175,7 @@ mLivePusher.setMirror(true);
  （2）在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  （3）在云端打水印会引入额外的 3s 以上的视频延迟，这是转码服务所引入的。
 
-SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您可千万别把 jpg 图片在 windows 下改个后缀名就塞进去了，专业的png图标都是需要由专业的美工设计师处理的）
+SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您可千万别把 jpg 图片在 Windows 下改个后缀名就塞进去了，专业的png图标都是需要由专业的美工设计师处理的）
 
 ```java
 //设置视频水印
@@ -210,7 +210,7 @@ mLivePushConfig.setHardwareAcceleration(mHWVideoEncode ?
     TXLiveConstants.ENCODE_VIDEO_HARDWARE : TXLiveConstants.ENCODE_VIDEO_SOFTWARE);
 mLivePusher.setConfig(mLivePushConfig);  
 
-// 如果你不清楚要何时开启硬件加速, 建议设置为 ENCODE_VIDEO_AUTO
+// 如果您不清楚要何时开启硬件加速, 建议设置为 ENCODE_VIDEO_AUTO
 // 默认是启用软件编码, 但手机 CPU 使用率超过 80% 或者帧率 <= 10, SDK 内部会自动切换为硬件编码
 ```
 
@@ -282,7 +282,7 @@ public interface ITXVideoRecordListener {
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更衣等场景；
 
 - **10.3、切后台处理**
-推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
+推流中，如果 App 被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
 // activity 的 onStop 生命周期函数
 @Override
@@ -293,7 +293,7 @@ public void onStop(){
 }
 ```
 - **10.4、切前台处理**
-等待App切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
+等待 App 切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
 ```java
 // activity 的 onStop 生命周期函数
 @Override
@@ -321,7 +321,7 @@ public void onResume() {
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
-此时可以提示主播 **“您当前的网络状况不佳，推荐您离 WiFi 近一点，尽量不要让 WiFi 穿墙”**。
+此时可以提示主播 **“您当前的网络状况不佳，推荐您离 Wi-Fi 近一点，尽量不要让 Wi-Fi 穿墙”**。
 
 ### step 12: 横屏推流
 有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
@@ -405,7 +405,7 @@ SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相�
 |PUSH_EVT_CHANGE_BITRATE | 1006 | 推流动态调整码率 |
 
 ### 3. 错误通知 
-SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
+SDK发现了一些严重问题，推流无法继续了，比如用户禁用了 App 的 Camera 权限导致摄像头打不开。
 
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
