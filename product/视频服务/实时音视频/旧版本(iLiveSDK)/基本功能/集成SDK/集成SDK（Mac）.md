@@ -21,7 +21,7 @@
 #### 获取SDK
 
 >Mac版 ILiveSDK 包含如下一些子 SDK：
-> - IMSDK：提供 IM 即时通信功能
+> - IMSDK：提供 IM 即时通讯功能
 > - AVSDK：提供底层音视频功能
 > - ILiveSDK：在 AVSDK 基础上封装而成，提供更简单易用的音视频功能接口
 
