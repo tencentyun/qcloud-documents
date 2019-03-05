@@ -26,7 +26,7 @@
 </th><th width="100"> <b>描述</b>
 </th></tr>
 <tr>
-<td> code </td><td> Int32 </td><td> 错误码，0表示成功, 其他值表示失败
+<td> code </td><td> Int32 </td><td> 错误码，0表示成功，其他值表示失败
 </td></tr>
 <tr>
 <td> message </td><td> String </td><td> 错误信息
