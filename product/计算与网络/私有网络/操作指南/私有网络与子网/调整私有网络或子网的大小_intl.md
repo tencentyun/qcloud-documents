@@ -1,0 +1,1 @@
+Once the VPC/subnet is created, the network block cannot be resized. If the capacity of your VPC/subnet is insufficient to satisfy your need, you must return all the computing resources in the VPC/subnet and create a new VPC/subnet with a larger capacity. It is recommended to reserve a larger network segment for later use.

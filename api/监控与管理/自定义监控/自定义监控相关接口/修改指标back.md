@@ -30,7 +30,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=ModifyMetric
 &metricName=secret0
 &metricCname=修改后的指标
 &unit=兆
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 输出
 ```

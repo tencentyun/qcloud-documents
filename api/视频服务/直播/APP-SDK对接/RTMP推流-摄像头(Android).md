@@ -7,7 +7,7 @@
 ![rtmp sdk push](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_cloud_push_sdk_struct.jpg)
 
 ## 下载RTMP SDK
-在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(Android)](https://www.qcloud.com/doc/api/258/5319) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
+在 [SDK下载区](https://cloud.tencent.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(Android)](https://cloud.tencent.com/doc/api/258/5319) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
 ## 对接攻略
@@ -141,7 +141,13 @@ mLivePusher.setConfig(mLivePushConfig);
 
 - **8.1) 设置pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
-- **8.2) 切后台处理**
+- **8.2) 设置setPauseFlag**
+在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据。
+>  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
+>         
+>  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更新等场景；
+
+- **8.3) 切后台处理**
 推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -149,11 +155,10 @@ mLivePusher.setConfig(mLivePushConfig);
 public void onStop(){
     super.onStop();
     mCaptureView.onPause();  // mCaptureView 是摄像头的图像渲染view
-    mLivePusher.stopCameraPreview(false); // 停止摄像头采集（就算不停止也采集不到了）
     mLivePusher.pausePusher(); // 通知 SDK 进入“后台推流模式”了
 }
 ```
-- **8.3) 切前台处理**
+- **8.4) 切前台处理**
 等待App切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，RTMP SDK 会继续采集摄像头的画面进行推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -161,8 +166,7 @@ public void onStop(){
 public void onResume() {
     super.onResume();
     mCaptureView.onResume();     // mCaptureView 是摄像头的图像渲染view
-    mLivePusher.resumePusher();  // 通知 SDK 重回前台推流 
-    mLivePusher.startCameraPreview(mCaptureView); // 恢复摄像头的图像采集
+    mLivePusher.resumePusher();  // 通知 SDK 重回前台推流
 }
 ```
 
@@ -243,7 +247,7 @@ RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机�
 
 | 接口 | 说明 |
 |---------|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|

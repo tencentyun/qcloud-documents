@@ -1,62 +1,118 @@
-## 1. 接口描述
+## 功能描述
 
-本接口 (DescribeDeviceClassPartition) 获取设备类型对应的RAID方式。
-接口请求域名：<font style="color:red">bm.api.qcloud.com</font>
+DescribeDeviceClassPartition接口用来获取设备类型对应的 RAID 方式。
 
+接口访问域名：bm.api.qcloud.com
 
+## 请求
 
-## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/doc/api/456/6718)页面。
-
-| 参数名称 | 是否必选  | 类型 | 描述 |
-|---------|---------|---------|---------|
-| deviceClass | 是 | String | 设备类型。腾讯的设备类型deviceClass，通过接口[DescribeDeviceClass](查询设备型号) 获得设备类型 |
-
-
-
-## 3. 输出参数
-
-| 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/doc/api/456/6725)。|
-| message | String | 模块错误信息描述，与接口相关。|
-| data | Obj | 数组元素为各个RAID信息 |
-
-RAID信息字段
-
-| 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
-| raidId | Int | RAID类型ID |
-| raid | String | RAID名称 |
-| raidDisplay | String | RAID前台展示 |
-| description | String | RAID描述 |
-| systemDiskSize | Int | 系统盘大小。 在购买机器和重装机器分区指定时，可以参考此值设定分区大小 |
-| dataDiskSize | Int | 数据盘大小 |
-| sysIsUefiType | boolean | 标识是否是uefi启动。决定了分区中是否有/boot/efi分区 |
-| sysRootSpace | Int | 根分区默认大小。 用户调用无须关注 |
-| sysSwaporuefiSpace | Int | swap或/boot/efi分区默认大小。 用户调用无须关注 |
-| sysUsrlocalSpace | Int | /usr/local分区默认大小。 用户调用无须关注 |
-| sysDataSpace | Int | /data分区默认大小。 用户调用无须关注 |
-
-  
-
-
-
-
-## 4. 模块错误码
-
-| code |codeDesc| 描述 |
-|------|------|------|
-| 9001 |InternalError.DbError| 操作数据库错误 |
-
-
-
-## 5. 示例
-输入
+### 请求示例
 ```
-https://bm.api.qcloud.com/v2/index.php?Action=DescribeDeviceClassRaid&deviceClass=M10&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC&Nonce=48476&Timestamp=1476436689&Region=bj&Signature=afRlJQ0disdT97B7uIfVB4v2KWo%3D
+https://bm.api.qcloud.com/v2/index.php?
+    Action=DescribeDeviceClassPartition
+    &<公共请求参数>
+    &deviceClassCode=<设备类型>
+    &instanceId=<自定义机型实例ID>
 ```
-输出
+
+### 请求参数
+
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，其它参数参见 [公共请求参数](/doc/api/456/6718) 页面。其中，此接口的Action字段为DescribeDeviceClassPartition。
+
+|参数名称     |            必选     |            类型          |     描述  |
+|-----|------|----|-----|
+|deviceClassCode   | 否    |            String    |       设备类型。腾讯的设备类型 deviceClass，通过接口 [查询设备型号(DescribeDeviceClass)](https://cloud.tencent.com/document/api/386/6636) 获得设备类型。标准机型需要传入此参数 。|  
+|instanceId   |           否      |          String      |      需要查询自定义机型 RAID 信息时，传入自定义机型实例 ID。instanceId 存在时 deviceClassCode 失效。  |
+
+## 响应
+
+### 响应示例
+```
+{
+  "version": "1.0",
+  "eventId": 121,
+  "timestamp": 1352121016,
+  "componentName": "bmApi",
+  "returnCode": 0,
+  "returnMessage": "OK",
+  "data": {
+    "1": {
+      "raidId": 1,
+      "raid": "RAID0",
+      "raidDisplay": "RAID0",
+      "description": "",
+      "systemDiskSize": 3352,
+      "sysRootSpace": 10,
+      "sysSwaporuefiSpace": 2,
+      "sysUsrlocalSpace": 20,
+      "sysDataSpace": 3320,
+      "sysIsUefiType": true,
+      "dataDiskSize": 0
+    },
+    "2": {
+      "raidId": 2,
+      "raid": "RAID5",
+      "raidDisplay": "RAID5",
+      "description": "",
+      "systemDiskSize": 3073,
+      "sysRootSpace": 10,
+      "sysSwaporuefiSpace": 2,
+      "sysUsrlocalSpace": 20,
+      "sysDataSpace": 3041,
+      "sysIsUefiType": true,
+      "dataDiskSize": 0
+    }
+  }
+}
+```
+
+### 响应参数
+响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括RAID等信息。
+
+| 参数名称    | 类型     | 描述                                       |
+| ------- | ------ | ---------------------------------------- |
+| code    | Int    | 错误码，0：成功， 其他值：失败，具体含义参见[错误码](/doc/api/456/6725)。 |
+| message | String | 错误信息。                                    |
+| data    | Object | 以RAID ID为key，对应的值为对象，对象为RAID信息的描述。具体结构描述如RAID结构所示。 |
+
+RAID结构
+
+| 参数名称               | 类型      | 描述                                   |
+| ------------------ | ------- | ------------------------------------ |
+| raidId             | Int     | RAID类型ID。                            |
+| raid               | String  | RAID名称。                              |
+| raidDisplay        | String  | RAID前台展示。                            |
+| description        | String  | RAID描述。                              |
+| systemDiskSize     | Int     | 系统盘大小。在购买机器和重装机器分区指定时，可以参考此值设定分区大小。 |
+| dataDiskSize       | Int     | 数据盘大小。                               |
+| sysIsUefiType      | Boolean | 标识是否是uefi启动。决定了分区中是否有/boot/efi分区。    |
+| sysRootSpace       | Int     | 根分区默认大小。 用户调用无须关注。                   |
+| sysSwaporuefiSpace | Int     | swap或/boot/efi分区默认大小。 用户调用无须关注。      |
+| sysUsrlocalSpace   | Int     | /usr/local分区默认大小。 用户调用无须关注。          |
+| sysDataSpace       | Int     | /data分区默认大小。 用户调用无须关注。               |
+
+## 错误码
+| 错误码  | 英文提示                  | 错误描述    |
+| ---- | --------------------- | ------- |
+| 9001 | InternalError.DbError | 操作数据库错误 |
+
+## 实际案例
+
+### 输入
+
+```
+https://bm.api.qcloud.com/v2/index.php?
+	Action=DescribeDeviceClassPartition
+	&deviceClassCode=PS100v1
+	&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC
+	&Nonce=48476
+	&Timestamp=1476436689
+	&Region=bj
+	&Signature=afRlJQ0disdT97B7uIfVB4v2KWo%3D
+```
+
+### 输出
+
 ```
 {
   "version": "1.0",

@@ -7,7 +7,7 @@
 ![rtmp sdk push](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_cloud_push_sdk_struct.jpg)
 
 ## 下载RTMP SDK
-在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(iOS)](https://www.qcloud.com/doc/api/258/5320) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
+在 [SDK下载区](https://cloud.tencent.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(iOS)](https://cloud.tencent.com/doc/api/258/5320) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
 > **x86 模拟器调试**
@@ -237,7 +237,7 @@ RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机�
 
 | 接口 | 说明 |
 |---------|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|

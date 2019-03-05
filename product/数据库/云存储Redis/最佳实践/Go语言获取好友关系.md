@@ -1,4 +1,4 @@
-﻿# Go语言获取好友关系
+
 ```
 package main
 

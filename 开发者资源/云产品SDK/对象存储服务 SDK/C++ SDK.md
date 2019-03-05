@@ -10,7 +10,7 @@
 2. 安装curl的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) 
 3. 安装jsoncpp的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-5. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
+5. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
 
 
 
@@ -73,7 +73,7 @@ static string AppSignMuti(const uint64_t appId,
 | secretId     | String   | 是        | 无       | 用户 Secret ID                             |
 | secretKey    | String   | 是        | 无       | 用户 SecretKey                             |
 | expired_time | uint64_t | 否        | 无       | 过期时间，Unix时间戳                             |
-| bucketName   | String   | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName   | String   | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 
 #### 返回结果说明
 
@@ -107,7 +107,7 @@ static string AppSignOnce(const uint64_t appId,
 | appId      | uint64_t | 是      | 无       | 项目 APP ID                                |
 | secretId   | String   | 是      | 无       | 项目 SecretID                              |
 | secretKey  | String   | 是      | 无       | 项目 SecretKey                             |
-| bucketName | String   | 否      | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String   | 否      | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String   | 是      | 无       | 文件路径，以斜杠开头，例如/filepath/filename，为文件在此bucketname下的全路径 |
 
 #### 返回结果说明
@@ -121,7 +121,7 @@ string path= "/myFloder/myFile.rar";
 sign = AuthUtility::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 ```
 
-更多签名相关详细说明，请参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+更多签名相关详细说明，请参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
 
 ## 初始化操作
 
@@ -157,7 +157,7 @@ string CreateFolder(const string &bucketName,
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String        | 是        | 无       | 需要创建目录的全路径，以"/"开头,以"/"结尾，api会补齐          |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -201,7 +201,7 @@ string UpdateFolder(const string &bucketName,
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cost) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cost) |
 | path       | String        | 是        | 无       | 需要创建目录的全路径，以"/"开头,以"/"结尾，api会补齐          |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -246,7 +246,7 @@ string StatFolder(const string &bucketName, const string &path);
 
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String | 是        | 无       | 目录的全路径，以"/"开头,以"/"结尾，api会补齐              |
 
 #### 返回结果说明
@@ -287,7 +287,7 @@ string DelFolder(const string &bucketName, const string &path);
 
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String | 是        | 无       | 目录的全路径，以"/"开头,以"/"结尾，api会补齐              |
 
 #### 返回结果说明
@@ -325,7 +325,7 @@ string ListFolder(const string &bucketName,
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String        | 是        | 无       | 目录的全路径，以"/"开头,以"/"结尾，api会补齐              |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -392,7 +392,7 @@ string PrefixSearch(const string &bucketName,
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | prefix     | String        | 是        | 无       | 列出含此前缀的所有文件(带全路径)                        |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -458,7 +458,7 @@ string Upload(const string &srcPath,
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
 | srcPath    | String        | 是        | 无       | 本地要上传文件的全路径                              |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | dstPath    | String        | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -512,7 +512,7 @@ string UploadSlice(const string &srcPath,
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
 | srcPath    | String        | 是        | 无       | 本地要上传文件的全路径                              |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | dstPath    | String        | 是        | 无       | 上传到cos的路径                                |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -566,7 +566,7 @@ int UpdateFile(const string &bucketName,
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String        | 是        | 无       | 文件在对象存储服务端的全路径，不包括/appid/bucketname      |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |
 
@@ -609,7 +609,7 @@ int Stat(const string &bucketName, const string &path);
 
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String | 是        | 无       | 文件在COS服务端的全路径，不包括/appid/bucketname       |
 
 #### 返回结果说明
@@ -654,7 +654,7 @@ int DelFile(const string &bucketName, const string &path);
 
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String | 是        | 无       | 文件在对象存储服务端的全路径，不包括/appid/bucketname      |
 
 #### 返回结果说明
@@ -694,7 +694,7 @@ std::string MoveFile(
 
 | **参数名**    | **类型**        | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------------- | -------- | ------- | ---------------------------------------- |
-| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String        | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | srcPath    | String        | 是        | 无       | 要移动文件的源地址                                |
 | dstPath    | String        | 是        | 无       | 要移动到的目的地址                                |
 | options    | CustomOptions | 否        | 空       | 用户自定义选项，为一组key-value对                    |

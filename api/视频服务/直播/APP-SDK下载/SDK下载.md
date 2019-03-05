@@ -5,8 +5,8 @@
 
 **【详细说明】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
-- 开发环境的工程配置请参考 [IOS平台](https://www.qcloud.com/doc/api/258/5320) & [Android平台](https://www.qcloud.com/doc/api/258/5319)。
-- 每个版本的更新情况详见[历史更新记录](https://www.qcloud.com/doc/api/258/6173)
+- 开发环境的工程配置请参考 [IOS平台](https://cloud.tencent.com/doc/api/258/5320) & [Android平台](https://cloud.tencent.com/doc/api/258/5319)。
+- 每个版本的更新情况详见[历史更新记录](https://cloud.tencent.com/doc/api/258/6173)
 
 **【测试情况】**
 - 总用例数：351，通过用例数：325，不通过用例数：26
@@ -18,6 +18,14 @@
 | IOS  | 1.8.0.1459  | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.8.0.1459.zip)  |
 | Android  | 1.8.0.1459 | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.8.0.1459.zip)  |
 
+1.8.1 SDK Develop Preview版，主要包含连麦功能
+
+
+| 操作系统 | 版本号 | 更新时间|下载链接 |
+| ---- | ----------- | ---- | ---- | 
+| IOS完整版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSDevelopPreview1.8.1.1590.zip)  |
+| IOSRename版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSRenameDevelopPreview1.8.1.1590.zip)  |
+| Android  | 1.8.1.1590 | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKAndroidDevelopPreview1.8.1.1590.zip)  |
 
 ## DEMO体验
 **【界面截图】**

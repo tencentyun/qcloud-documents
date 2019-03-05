@@ -24,7 +24,7 @@ pom.xml 添加依赖
 
 - 源码安装
 
-从[github](https://www.qcloud.com/doc/product/227/3387)下载源码
+从[github](https://cloud.tencent.com/doc/product/227/3387)下载源码
 
 ### 卸载SDK
 

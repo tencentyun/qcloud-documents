@@ -28,7 +28,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=DeleteMetricAggeration
 &metricName=zqmetric1
 &dimensionNames.0=d1
 &dimensionNames.1=d2
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 输出
 ```

@@ -50,7 +50,7 @@ https://monitor.api.qcloud.com/v2/index.phpAction=GetMonitorRealtimeData
 &dimensions.0.value=v0
 &dimensions.1.value=v1
 &dimensions.2.value=v2
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 输出
 ```

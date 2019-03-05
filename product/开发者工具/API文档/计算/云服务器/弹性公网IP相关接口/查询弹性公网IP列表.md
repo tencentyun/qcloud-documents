@@ -20,7 +20,7 @@
 <tr>
 <td> eips.n  <td> 否 <td> String <td> EIP列表，数组下标从0开始
 <tr>
-<td> unInstanceIds.n  <td> 否 <td> String <td> 服务器实例ID列表，数组下标从0开始，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取
+<td> unInstanceIds.n  <td> 否 <td> String <td> 服务器实例ID列表，数组下标从0开始，可通过<a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取
 <tr>
 <td> networkInterfaceIds.n <td> 否 <td> String <td> 弹性网卡唯一ID列表，数组下标从0开始，可通过<a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a>接口返回字段中的networkInterfaceId获取
 <tr>
@@ -46,7 +46,7 @@
 ## 3. 输出参数
  | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/doc/api/229/1234" title="错误码">错误码</a>。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/document/product/213/6982" title="错误码">错误码</a>。 |
 | message |   String | 错误信息 |
 |  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data数组中的数量 |
 | data |   Array | 返回数组 |

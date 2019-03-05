@@ -60,7 +60,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 目前负载均衡只支持PEM格式的证书，其他格式的证书需要转换成PEM格式后才能上传到负载均衡中，建议通过openssl 工具进行转换。下面是几种比较流行的证书格式转换为PEM格式的方法。
 
-### 4.1. DER转换为PEM
+### 4.1. DER格式证书转换为PEM格式
 
 DER格式一般出现在java平台中。
 
@@ -68,7 +68,7 @@ DER格式一般出现在java平台中。
 
 私钥转换：```openssl rsa -inform DER -outform PEM -in privatekey.der -out privatekey.pem```
 
-### 4.2. P7B转换为PEM
+### 4.2. P7B格式证书转换为PEM格式
 
 P7B格式一般出现在windows server和tomcat中。
 
@@ -78,10 +78,14 @@ P7B格式一般出现在windows server和tomcat中。
 
 私钥转换：私钥一般在IIS服务器里可导出
 
-### 4.3. PFX转换为PEM
+### 4.3. PFX格式证书转换为PEM格式
 
 PFX格式一般出现在windows server中。
 
 证书转换：```openssl pkcs12 -in certname.pfx -nokeys -out cert.pem```
 
 私钥转换：```openssl pkcs12 -in certname.pfx -nocerts -out key.pem -nodes```	
+
+### 4.4. CER/CRT格式证书转换为PEM格式
+
+对于 CER/CRT 格式的证书，您可通过直接修改证书文件扩展名的方式进行转换。例如，将“servertest.crt”证书文件直接重命名为“servertest.pem”即可。

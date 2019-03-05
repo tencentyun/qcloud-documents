@@ -59,7 +59,7 @@ alarmList的内容：
 https://monitor.api.qcloud.com/v2/index.php?Action= DescribeAlarmList
 &namespace=name1
 &metricName= metric1
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 输出
 ```

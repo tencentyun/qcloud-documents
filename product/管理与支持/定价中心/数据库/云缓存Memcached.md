@@ -27,7 +27,7 @@
 ## 购买指导
 
 ### 购买新表
-1.登录腾讯云首页www.qcloud.com
+1.登录腾讯云首页cloud.tencent.com
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLBuy1.png)
 
@@ -37,7 +37,7 @@
 
 【注意事项】
 
-- 如果需要新建大量的表且初始表总空间大于100GB，或者单个表初始空间大于20GB，请[提交工单](http://console.qcloud.com/ticket)。如果访问量超过10000次/秒/GB，则新建表成功后，请填写[工单](/doc/product/282/联系我们#4-开发者运维需求申请)**接口/端口扩容**进行申请。
+- 如果需要新建大量的表且初始表总空间大于100GB，或者单个表初始空间大于20GB，请[提交工单](http://console.cloud.tencent.com/ticket)。如果访问量超过10000次/秒/GB，则新建表成功后，请填写[工单](/doc/product/282/联系我们#4-开发者运维需求申请)**接口/端口扩容**进行申请。
 
 3.购买成功后，可在“管理中心 - 控制台 - 云缓存Memcached”看到购买的表。单击表名称可以修改名称。
 

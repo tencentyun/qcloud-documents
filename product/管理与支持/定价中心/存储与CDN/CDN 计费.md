@@ -1,4 +1,4 @@
-CDN 为您提供了两种计费模式：**流量计费** 和 **带宽计费**，您可以根据自身业务形态选择合适的计费模式。（如何选择？请参考[计费模式选择](https://www.qcloud.com/doc/product/228/2949)）。
+CDN 为您提供了两种计费模式：**流量计费** 和 **带宽计费**，您可以根据自身业务形态选择合适的计费模式。（如何选择？请参考[计费模式选择](https://cloud.tencent.com/doc/product/228/2949)）。
 
 ## 价格概览
 CDN 带宽计费采用 **阶梯到达** 计费方式，价格阶梯如下：
@@ -65,10 +65,10 @@ CDN 流量计费采用 **月度阶梯累进** 计费方式，阶梯价格如下�
 	</tbody>
 </table>
 
-详细价格算法请参考[价格总览](https://www.qcloud.com/doc/product/228/2949)，您也可以使用 [价格计算器](https://buy.qcloud.com/calculator/cdn) 估算价格。
+详细价格算法请参考[价格总览](https://cloud.tencent.com/doc/product/228/2949)，您也可以使用 [价格计算器](https://buy.cloud.tencent.com/calculator/cdn) 估算价格。
 
 ## 流量包使用
-选择流量计费的客户，可以使用流量包抵扣，更多详情[点击查看](https://www.qcloud.com/doc/product/228/2949)。
+选择流量计费的客户，可以使用流量包抵扣，更多详情[点击查看](https://cloud.tencent.com/doc/product/228/2949)。
 
 ## 大客户计费
 若您已经在腾讯云，或未来预期在腾讯云的月消耗金额大于10万元，您可以通过商务洽谈的方式获得更优惠的价格及月结等更加灵活的计费方式，欢迎拨打 4009-100-100 或提交工单咨询更多详情。

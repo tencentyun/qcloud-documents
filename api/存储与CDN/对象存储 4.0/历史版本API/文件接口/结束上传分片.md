@@ -1,0 +1,109 @@
+## 描述
+
+使用 API 对大于 20 MB 的文件进行逐片上传之前，需要先使用「初始化分片上传」API，从腾讯云获取到分片上传所需的参数（session 和 slice_size）。
+
+前置条件：指定目录已存在，且已获得分片上传所需参数（session 和 slice_size）。
+
+当分片数据上传完成后，需调用此接口结束文件上传流程，腾讯云会返回文件的信息。
+
+**分片上传使用流程说明**
+
+1. 发送「初始化分片上传」请求。
+2. 腾讯云会判断文件的上传状态，若未完成上传，会返回-4019错误，用户需调用查询上传分片接口查询已经上传完的分片，并进行断点续传的操作；若文件从未传输过，则返回用户上传的session。
+3. 设置 session 和 offset 参数，构造「逐个分片上传」请求，逐片上传后续文件。
+4. 循环执行第 3 步直到文件的分片数据上传完成。
+5. 调用finish接口结束分片上传。
+
+## 请求
+
+### 请求语法
+
+``` http
+POST /files/v2/<appid>/<bucket_name>[/dir_name]/<file_name>  HTTP/1.1
+Host: <Region>.file.myqcloud.com
+Content-Type: multipart/form-data
+Authorization: <multi_effect_signature>
+```
+
+说明：<箭头括号>表示 ***必须***  替换为有效值的变量，[英文方括号]表示可选的命令或参数。
+
+### 请求内容
+
+| **参数名称**    | **必选** | **类型** | **描述**                        |
+| ----------- | ------ | ------ | ----------------------------- |
+| op          | 是      | String | 操作类型，填 “upload_slice_finish”         |
+| session     | 是      | String | 唯一标识此文件传输过程的 ID，由后台下发，  调用方透传 |
+| filesize      | 是      | Int 64 | 文件大小                        |
+| sha      | 否      | String | 文件的 SHA-1 校验码， **如果初始化上传携带了该参数，finish操作的时候也必须携带上，否则会返回-29094的错误**                     |
+
+## 返回
+
+### 返回内容
+
+| **参数名称** | **必选** | **类型** | **描述**     |
+| -------- | ------ | ------ | ---------- |
+| code     | 是      | Int    | 服务端返回码     |
+| message  | 是      | String | 服务端提示内容    |
+| data     | 是      | 数据集合   | 服务器返回的应答数据 |
+
+data 数据集合：
+
+| 参数名称          | 必选   | 类型     | 描述                                       |
+| ------------- | ---- | ------ | ---------------------------------------- |
+| access_url    | 否    | String | 通过 CDN 访问该文件的资源链接（访问速度更快）                |
+| resource_path | 否    | String | 该文件在COS中的相对路径名，可作为其 ID 标识。 格式 /appid/bucket/filename。推荐业务端存储 resource_path ，然后根据业务需求灵活拼接资源 url（通过 CDN 访问 COS 资源的 url 和直接访问 COS 资源的 url 不同）。 |
+| source_url    | 否    | String | （不通过 CDN ）直接访问 COS 的资源链接                 |
+| url           | 否    | String | 操作文件的 url。业务端可以将该 url 作为请求地址来进一步操作文件，对应 API：查询文件属性、更新文件、删除文件、移动文件中的请求地址。 |
+
+说明：腾讯云对象存储会默认为每个资源生成经 CDN 的访问链接 access_url，当业务端尚未开通 CDN 时，仍然可以获得该链接，但是无法访问。
+
+## 示例
+
+### 逐个分片上传
+
+#### 请求
+
+``` http
+POST /files/v2/10055004/accesslog/testfolder/111.txt HTTP/1.1
+Host: sh.file.myqcloud.com
+Authorization: uusZlBVdpHf800YuKImvK5zvw75hPTEwMDU1MDA0Jms9QUtJRHpuOHd3S3VYanhpeFFBa1JCQzJEUlhCdFBkN0NybEpRJmU9MTQ3MjY0Nzc4MCZ0PTE0NzI2NDc2MDAmcj0xMDYwMzQ1OTM4JmY9JmI9YWNjZXNzbG9n
+Content-Length: 450
+Content-Type: multipart/form-data; boundary=----------------------------2335c30f02ab
+
+------------------------------2335c30f02ab
+Content-Disposition: form-data; name="op"
+
+upload_slice_finish
+------------------------------2335c30f02ab
+Content-Disposition: form-data; name="session"
+
+58ccd1b3120e85c4ebb7b786154408df4fe22230cb8f328d41599b237661855d6242793ba2481c1ac0b1277051003cab
+------------------------------2335c30f02ab
+Content-Disposition: form-data; name="filesize"
+
+36864
+------------------------------2335c30f02ab--
+```
+
+#### 返回
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 434
+Date: Wed Aug 31 20:46:41 2016
+Server: tencent-cos
+
+{
+    "code": 0, 
+    "message": "SUCCESS", 
+    "data": {
+        "access_url": "http://accesslog-10055004.file.myqcloud.com/testfolder/111.txt", 
+        "preview_url": "http://accesslog-10055004.preview.myqcloud.com/testfolder/111.txt?cmd=txt_preview", 
+        "resource_path": "/10055004/accesslog/testfolder/111.txt", 
+        "source_url": "http://accesslog-10055004.cossh.myqcloud.com/testfolder/111.txt", 
+        "url": "http://sh.file.myqcloud.com/files/v2/10055004/accesslog/testfolder/111.txt"
+    }
+}
+```
+

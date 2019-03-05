@@ -1,0 +1,186 @@
+## 开发准备
+- 下载和安装 [Python SDK](https://cloud.tencent.com/document/sdk/Python) 。
+- 首次使用批量计算，参考 [开始前的准备](https://cloud.tencent.com/document/product/599/10807)。
+- 了解更多作业配置参数，参考 [提交作业 API 文档](https://cloud.tencent.com/document/product/599/12683)。
+
+## 快速入门
+
+```
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+from QcloudApi.qcloudapi import QcloudApi
+
+# 公共配置
+module = 'batch'
+
+config = {
+    'Region': 'ap-guangzhou',  # 目标地域
+    'secretId': '您的secretId',
+    'secretKey': '您的secretKey',
+}
+
+service = QcloudApi(module, config)
+```
+
+## 提交作业
+
+```
+try:
+    action = 'SubmitJob'
+    action_params = {
+        'Version': '2017-03-12',
+        'Job': {
+            'JobName': 'batch-job', # 作业名称
+            'JobDescription': 'batch job',  # 作业描述
+            'Priority': '1',  # 作业优先级
+            'Tasks': [
+                {
+                    'TaskName': 'task1',  # 任务名称
+                    'TaskInstanceNum':  1,  # 任务实例数目
+                    'FailedAction': 'FAST_INTERRUPT',  # 失败作业的处理方式
+                    'Application': {
+                        'DeliveryForm': 'LOCAL',  # 程序包来源
+                        'Command': 'echo hello',  # 命令行
+                        },
+                    'EnvId': 'env-gbyctcy9',  # 计算环境标识
+                    'RedirectInfo': {
+                        'StdoutRedirectPath': 'cos://bucketgz-1251783334.cos.ap-guangzhou.myqcloud.com/stdout/',  # 标准输出存储路径
+                        'StderrRedirectPath': 'cos://bucketgz-1251783334.cos.ap-guangzhou.myqcloud.com/stderr/',  # 标准错误存储路径
+                        }
+                    }
+                ]
+            },
+        'Placement': {
+            'Zone': 'ap-guangzhou-2'  # 可用区
+            },
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [提交作业 API 文档](https://cloud.tencent.com/document/product/599/12683)。
+
+## 终止作业
+
+```
+try:
+    action = 'TerminateJob'
+    action_params = {
+        'Version': '2017-03-12',
+        'JobId': 'job-8kwnzki7',  # 作业标识
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [终止作业 API 文档](https://cloud.tencent.com/document/product/599/12689)。
+
+## 删除作业
+
+```
+try:
+    action = 'DeleteJob'
+    action_params = {
+        'Version': '2017-03-12',
+        'JobId': 'job-8kwnzki7',  # 作业标识
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [删除作业 API 文档](https://cloud.tencent.com/document/product/599/12682)。
+
+## 查看作业的提交信息
+
+```
+try:
+    action = 'DescribeJobSubmitInfo'
+    action_params = {
+        'Version': '2017-03-12',
+        'JobId': 'job-8kwnzki7',  # 作业标识
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [查看作业的提交信息 API 文档](https://cloud.tencent.com/document/product/599/12687)。
+
+## 查看作业信息
+
+```
+try:
+    action = 'DescribeJob'
+    action_params = {
+        'Version': '2017-03-12',
+        'JobId': 'job-8kwnzki7',  # 作业标识
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [查看作业信息 API 文档](https://cloud.tencent.com/document/product/599/12685)。
+
+## 查看作业列表
+
+```
+try:
+    action = 'DescribeJobs'
+    action_params = {
+        'Version': '2017-03-12'
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [查看作业列表 API 文档](https://cloud.tencent.com/document/product/599/12686)。
+
+## 查看任务信息
+
+```
+try:
+    action = 'DescribeTask'
+    action_params = {
+        'Version': '2017-03-12',
+	'JobId': 'job-8kwnzki7',  # 作业标识
+	'TaskName': 'task A'  # 任务名称
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [查看任务信息 API 文档](https://cloud.tencent.com/document/product/599/12684)。
+
+## 终止任务实例
+
+```
+try:
+    action = 'TerminateTaskInstance'
+    action_params = {
+        'Version': '2017-03-12',
+	'JobId': 'job-8kwnzki7',  # 作业标识
+	'TaskName': 'task A',  # 任务名称
+	'TaskInstanceIndex': 1  # 第1个实例
+        }
+    print(service.generateUrl(action, action_params))
+    print(service.call(action, action_params))
+except Exception as e:
+    import traceback
+    print('traceback.format_exc():\n%s' % traceback.format_exc())
+```
+更多参数说明及错误信息，详见 [终止任务实例 API 文档](https://cloud.tencent.com/document/product/599/12688)。

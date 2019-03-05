@@ -9,10 +9,81 @@
 | ui| 小直播界面层代码|
 | ui/customviews| 小直播ui用到的自定义控件|
 | jniLibs| 小直播依赖的腾讯相关sdk，主要是BuglySDK、TLSSDK、IMSDK及RTMPSDK|
-### 依赖第三方库 
-- 网络：volley，gson
-- 界面:appcompat，design，recyclerview
-- 弹幕：dfm
+### 库使用说明
+##### [直播 SDK](https://cloud.tencent.com/document/product/454/7873)  (必选)
+移动直播最主要的 SDK，其提供了推流、直播、点播、连麦、录屏等功能。
+- jar 包
+txrtmpsdk.jar
+- so 库
+    移动直播因使用连麦功能，所以选择集成完整版。目前完整版只支持 armeabi 和 armeabi-v7 两种架构。
+		
+|  库名 | 描述 |
+|  --------- | ---------- |
+| libtxrtmpsdk.so | 直播核心组件 |
+| libtraeimp-rtmp-armeabi.so | 连麦功能库 |
+| libstlport_shared.so  | 连麦功能库 |
+
+##### IM SDK  (必选)
+提供消息收发功能。
+- jar 包
+
+| 包名      |    描述  |
+| :--------: | :--------:| 
+| imsdk.jar           |   ImSDK基础包，只提供消息、资料关系链管理、群组管理等的最基础功能 | 
+| qalsdk.jar |   SDK网络层jar包 |  
+| soload.jar      |   提高imsdk so库的加载成功率 | 
+| mobilepb.jar |   protobuffer处理相关jar包 |  
+| tls_sdk.jar      |   帐号系统jar包 |   
+| wup-1.0.0-SNAPSHOT.jar      |   无线统一协议jar包 | 
+
+- so 库
+移动直播目前只集成 armeabi 架构
+	- lib_imcore_jni_gyp.so
+	- libqalcodecwrapper.so
+	- libqalmsfboot.so
+  - libwtcrypto.so
+
+##### [UGC 小视频](https://cloud.tencent.com/document/product/454/8843)（非必选）
+UGC 小视频的录制和发布以及编辑功能。
+- jar 包
+
+
+| 包名      |    描述  |
+| :--------: | :--------:| 
+| ugcupload.jar | UGC 上传文件到点播系统 jar 包|
+| sha1utils.jar | UGC 计算上传文件的 SHA 值 jar 包|
+| okio-1.6.0.jar | 网络操作 I/O 库 |
+| okhttp-3.2.0.jar | 网络请求库 |
+| cos-sdk-android.1.4.3.6.jar |  对象存储 COS 相关的 jar 包|
+
+- so 库
+
+
+| 库名      |    描述  |
+| :--------: | :--------:| 
+| libTcHevcDec.so | 用于 H265 播放 |
+| libTXSHA1.so | UGC 计算上传文件的 SHA 值 |
+
+
+##### 商业增值版 (小直播源码中没有)
+基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能。如果没有用到该功能，可以删除相关 so 库。
+- libblasV8.so   
+- librsjni.so  
+- libRSSupport.so  
+
+##### volley  (非必选)
+第三方的网络请求库
+
+##### Gson  (非必选)
+第三方的用来在Java 对象和JSON 数据之间进行映射的Java 类库
+
+#### Glide  (非必选)
+第三方的图片加载库
+
+##### dfm  (非必选)
+第三方弹幕库。如果您希望在聊天中有弹幕效果，建议保留。
+
+
 
 ## 2.模块介绍
 小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
@@ -20,8 +91,8 @@
 ### 帐号模块
 #### 模块简介
 - 帐号模块负责处理用户登录/注册以及登录缓存的逻辑
-- 登录注册功能使用[TLSSDK托管](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
-- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCLoginMgr的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://www.qcloud.com/doc/api/258/6441)
+- 登录注册功能使用[TLSSDK托管](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
+- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCLoginMgr的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://cloud.tencent.com/doc/api/258/6441)
 - 在TLSSDK登录鉴权成功后，可以通过鉴权返回的UserId与UserSig调用ImSDK的login接口完成IM模块的登录
 - 用户可以通过帐号密码/手机验证码两种方式进行注册与登录
 - 帐号模块会缓存最后登录的用户基本信息（UserId与UserSig）在本地，通过接口调用可以获取最近登录的用户信息并判断是否需要重新登录
@@ -90,7 +161,7 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 
 ### 消息
 #### 模块介绍
-- 小直播的互动消息功能主要基于[ImSDK](https://www.qcloud.com/doc/product/269/1561)的群聊功能实现，需要在IMSDK登录后才能调用
+- 小直播的互动消息功能主要基于[ImSDK](https://cloud.tencent.com/doc/product/269/1561)的群聊功能实现，需要在IMSDK登录后才能调用
 - 每个直播间都是一个直播大群，推流端在推流之前需要创建直播大群，结束推流时，解散该群；播放端在进入该直播间时，加入该群，退出直播间时，则退出该群
 - 通过实现消息收发的监听类，可以在监听接口中获取相应的消息通知，目前实现的消息类型：文本消息、弹幕消息、点赞消息、用户加入/退出消息、群组解散消息
 - 各种类型的消息都是以文本消息形式发送，采用统一的JSON格式，在JSON中携带消息类型、发送者id、昵称、头像、消息文本的信息，接收端收到消息后解析JSON格式，向上层回调各种类型的消息
@@ -122,3 +193,4 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 	- TCEditUseInfoActivity.java: 用户资料修改页面
 	- TCLineEditTextView.java: 文本修改控件，对控件EditText的简单封装，可以用来修改文本，并显示相关信息
 	- TCTextEditActivity.java: 文本修改页面，对控件EditText的封装，使用单独的页面来修改文本，并显示相关信息
+

@@ -1,0 +1,43 @@
+
+**请求示例:**
+
+``` GET /?acl HTTP/1.1
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
+Date: Fri, 10 Mar 2016 09:45:46 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
+```
+
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 266
+Connection: keep-alive
+Date: Fri, 10 Mar 2016 09:45:46 GMT
+Server: tencent-cos
+x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
+
+<AccessControlPolicy>
+  <Owner>
+    <ID>qcs::cam::uin/12345:uin/12345</ID>
+    <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"CanonicalUser\">
+        <ID>qcs::cam::uin/12345:uin/12345</ID>
+        <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"Group\">
+        <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+      </Grantee>
+      <Permission>READ</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
+```

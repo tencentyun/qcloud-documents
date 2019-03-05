@@ -1,0 +1,1759 @@
+## 基本 API 描述
+> 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
+
+### 获取 Bucket 列表
+#### 方法原型
+```php
+public Guzzle\Service\Resource\Model listBucket(array $args = array())
+```
+
+#### 请求示例
+
+```php
+//获取 bucket 列表
+$result = $cosClient->listBuckets();
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Owner] => Array
+                (
+                    [ID] => qcs::cam::uin/3210232098:uin/3210232098
+                    [DisplayName] => 3210232098
+                )
+
+            [Buckets] => Array
+                (
+                    [0] => Array
+                        (
+                            [Name] => accesslog-10055004
+                            [Location] => ap-shanghai
+                            [CreationDate] => 2016-07-29T03:09:54Z
+                        )
+
+                    [1] => Array
+                        (
+                            [Name] => accesslogbj-10055004
+                            [Location] => ap-beijing
+                            [CreationDate] => 2017-08-02T04:00:24Z
+                        )
+
+                )
+
+            [RequestId] => NWE3YzgxZmFfYWZhYzM1MGFfMzc3MF9iOGY5OQ==
+        )
+
+)
+```
+### 创建 Bucket
+
+#### 方法原型
+
+```php
+// 创建桶
+public Guzzle\Service\Resource\Model createBucket(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :---------: |    :-----------------: | :--------:   | :-------------: |
+| Bucket   |      bucket 名称    |    string     |  是              |
+| Acl      |         ACL 权限控制         |    string     | 否           | 
+
+#### 请求示例
+
+```php
+//创建桶
+//bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+$result = $cosClient->createBucket(array('Bucket' => 'testbucket-125000000'));
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Location] => 
+            [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ1OF8xNjEyYmE=
+        )
+)
+```
+### 删除 Bucket
+
+#### 方法原型
+
+```php
+// 删除桶
+public Guzzle\Service\Resource\Model deleteBucket(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: |    :------------: |  :--------:   | :----------------------------------: |
+| Bucket  |  bucket名称        |     string         |         是                     |
+
+#### 请求示例
+
+```php
+//删除桶
+//bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式。
+$result = $cosClient->deleteBucket(array('Bucket' => 'testbucket-125000000'));
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzgzMTZfMTdiMjk0MGFfNTQ2MF8xNjBjZTI=
+        )
+)
+```
+### 简单文件上传
+
+#### 方法原型
+
+```php
+public Guzzle\Service\Resource\Model putObject(array $args = array())
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  |  Bucket 名称，由数字和小写字母以及中划线 "-" 构成 | string |   是 |
+ |  Body  | 上传文件的内容，可以为文件流或字节流 |  file/string |  是 |
+ |  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg | string |  是 | 
+ |  ACL  | 设置文件的 ACL，如 'private，public-read'，'public-read-write' | string |   否 | 
+ |  GrantFullControl  |赋予指定账户对文件的读写权限 |  string |  否 | 
+ |  GrantRead  |  赋予指定账户对文件读权限 | string |  否 |
+ |  GrantWrite  |  赋予指定账户对文件的写权限 | string |  否 |
+ |  StorageClass  |  设置文件的存储类型，STANDARD,STANDARD_IA，默认值：STANDARD | String |   否 |
+ |  Expires  | 设置 Content-Expires | string|  否 | 
+ |  CacheControl  |  缓存策略，设置 Cache-Control | string |   否 |
+ |  ContentType  | 内容类型，设置 Content-Type |string |   否 |  
+ |  ContentDisposition  |  文件名称，设置 Content-Disposition | string |   否 |
+ |  ContentEncoding  |  编码格式，设置 Content-Encoding | string |   否 |
+ |  ContentLanguage  |  语言类型，设置 Content-Language | string |   否 |
+ |  ContentLength  | 设置传输长度 | string |   否 | 
+ |  ContentMD5  | 设置上传文件的 MD5 值用于校验 | string |   否 | 
+ |  Metadata | 用户自定义的文件元信息 | array |   否 |
+ |  ServerSideEncryption | 服务端加密方法 | string |   否 |
+
+#### 请求示例
+```php
+# 上传文件
+## putObject(上传接口，最大支持上传5G文件)。
+## 当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请不要设置，默认继承 Bucket 权限。
+### 上传内存中的字符串。
+try {
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => 'Hello World!'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 上传文件流
+try {
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => fopen($local_path, 'rb')));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 设置 header 和 meta
+try {
+    $result = $cosClient->putObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => fopen($local_path, 'rb'),
+        'CacheControl' => 'string',
+        'ContentDisposition' => 'string',
+        'ContentEncoding' => 'string',
+        'ContentLanguage' => 'string',
+        'ContentLength' => integer,
+        'ContentType' => 'string',
+        'Expires' => 'mixed type: string (date format)|int (unix timestamp)|\DateTime',
+        'GrantFullControl' => 'string',
+        'GrantRead' => 'string',
+        'GrantWrite' => 'string',
+        'Metadata' => array(
+            'string' => 'string',
+        ),
+        'StorageClass' => 'string'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Expiration] => 
+            [ETag] => "ed076287532e86365e841e92bfc50d8c"
+            [ServerSideEncryption] => AES256
+            [VersionId] => 
+            [SSECustomerAlgorithm] => 
+            [SSECustomerKeyMD5] => 
+            [SSEKMSKeyId] => 
+            [RequestCharged] => 
+            [RequestId] => NWE3Yzg0M2NfOTcyMjViNjRfYTE1YV8xNTQzYTY=
+            [ObjectURL] => http://testbucket-1252448703.cos.cn-south.myqcloud.com/11%2F%2F32%2F%2F43
+        )
+)
+```
+
+### 分块文件上传
+
+分块文件上传是通过将文件拆分成多个小块进行上传，多个小块可以并发上传, 最大支持40TB。
+
+分块文件上传的步骤为：
+
+1. 初始化分块上传，获取 uploadid，（createMultipartUpload）。
+2. 分块数据上传（可并发），（uploadPart）。
+3. 完成分块上传，（completeMultipartUpload）。
+
+另外还包含获取已上传分块（listParts）， 终止分块上传（abortMultipartUpload）。
+
+#### 方法原型
+
+```php
+// 初始化分块上传
+public Guzzle\Service\Resource\Model createMultipartUpload(array $args = array());
+
+// 上传数据分块
+public Guzzle\Service\Resource\Model uploadPart(array $args = array());
+            
+// 完成分块上传
+public Guzzle\Service\Resource\Model completeMultipartUpload(array $args = array());
+
+// 罗列已上传分块
+public Guzzle\Service\Resource\Model listParts(array $args = array());
+
+// 终止分块上传
+public Guzzle\Service\Resource\Model abortMultipartUpload(array $args = array());
+```
+### 上传文件
+#### 请求示例
+```php
+## Upload(高级上传接口，默认使用分块上传最大支持50TB)。
+## 当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请不要设置，默认继承 Bucket 权限。
+### 上传内存中的字符串
+try {
+    $result = $cosClient->Upload(
+        $bucket = $bucket,
+        $key = $key,
+        $body = 'Hello World!');
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 上传文件流
+try {
+    $result = $cosClient->Upload(
+        $bucket = $bucket,
+        $key = $key,
+        $body = fopen($local_path, 'rb'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 设置 header 和 meta
+try {
+    $result = $cosClient->Upload(
+        $bucket= $bucket,
+        $key = $key,
+        $body = fopen($local_path, 'rb'),
+        $options = array(
+            'CacheControl' => 'string',
+            'ContentDisposition' => 'string',
+            'ContentEncoding' => 'string',
+            'ContentLanguage' => 'string',
+            'ContentLength' => integer,
+            'ContentType' => 'string',
+            'Expires' => 'mixed type: string (date format)|int (unix timestamp)|\DateTime',
+            'GrantFullControl' => 'string',
+            'GrantRead' => 'string',
+            'GrantWrite' => 'string',
+            'Metadata' => array(
+                'string' => 'string',
+            ),
+            'StorageClass' => 'string'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+```
+
+>?单文件小于5M时，使用单文件上传，反之使用分片上传。
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Location] => testbucket-1252448703.cos.cn-south.myqcloud.com/111.txt
+            [Bucket] => testbucket
+            [Key] => 111.txt
+            [ETag] => "715691804ee474f2eb94adb2c5c01155-1"
+            [Expiration] => 
+            [ServerSideEncryption] => AES256
+            [VersionId] => 
+            [SSEKMSKeyId] => 
+            [RequestCharged] => 
+            [RequestId] => NWE3Yzg0YTRfOTUyMjViNjRfNWYyZF8xNTI5ZDQ=
+        )
+)
+```
+### 下载文件
+
+将文件下载到本地或者下载到内存中。
+
+#### 方法原型
+
+```php
+// 下载文件
+public Guzzle\Service\Resource\Model getObject(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: |    :------------:   | :--------:   | :----------------------------------: |
+| Bucket   |      bucket 名称               |   string     | 是           |       
+| Key      |   对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg         |    string      | 是           |       
+| SaveAs   |   保存到本地的本地文件路径                 |   string      | 否           |
+| VersionId     |   对象版本号        |   string      | 否           |       
+
+#### 请求示例
+
+```php
+# 下载文件
+## getObject(下载文件)
+### 下载到内存
+try {
+    $result = $cosClient->getObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key));
+    echo($result['Body']);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 下载到本地
+try {
+    $result = $cosClient->getObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'SaveAs' => $local_path));
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 指定下载范围
+/*
+ * Range 字段格式为 'bytes=a-b'
+ */
+try {
+    $result = $cosClient->getObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Range' => 'bytes=0-10',
+        'SaveAs' => $local_path));
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+### 设置返回 header
+try {
+    $result = $cosClient->getObject(array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'ResponseCacheControl' => 'string',
+        'ResponseContentDisposition' => 'string',
+        'ResponseContentEncoding' => 'string',
+        'ResponseContentLanguage' => 'string',
+        'ResponseContentType' => 'string',
+        'ResponseExpires' => 'mixed type: string (date format)|int (unix timestamp)|\DateTime',
+        'SaveAs' => $local_path));
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Body] =>
+            [DeleteMarker] => 
+            [AcceptRanges] => bytes
+            [Expiration] => 
+            [Restore] => 
+            [LastModified] => Fri, 09 Feb 2018 01:10:56 GMT
+            [ContentLength] => 5242880
+            [ETag] => "715691804ee474f2eb94adb2c5c01155-1"
+            [MissingMeta] => 
+            [VersionId] => 
+            [CacheControl] => private
+            [ContentDisposition] => attachment; filename*="UTF-8''111.txt"
+            [ContentEncoding] => 
+            [ContentLanguage] => 
+            [ContentRange] => 
+            [ContentType] => text/plain; charset=utf-8
+            [Expires] => 
+            [WebsiteRedirectLocation] => 
+            [ServerSideEncryption] => AES256
+            [SSECustomerAlgorithm] => 
+            [SSECustomerKeyMD5] => 
+            [SSEKMSKeyId] => 
+            [StorageClass] => 
+            [RequestCharged] => 
+            [ReplicationStatus] => 
+            [RequestId] => NWE3Yzg4ODlfMThiMjk0MGFfMmI3OV8xNWQxNDg=
+        )
+)
+```
+
+### 删除文件
+
+删除 COS 上的对象.
+
+#### 方法原型
+
+```php
+// 删除文件
+public Guzzle\Service\Resource\Model deleteObject(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   | 
+| Bucket   |                bucket 名称               |   string     |  是           | 
+| Key      |         对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg         |  string     |   是           |   
+| VersionId      |         对象版本号        |   string    | 否           |  
+
+#### 请求示例
+
+```php
+// 删除 COS 对象
+$result = $cosClient->deleteObject(array(
+    //bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+    'Bucket' => 'testbucket-125000000',
+    'Key' => 'hello.txt'));
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [DeleteMarker] => 
+            [VersionId] => 
+            [RequestCharged] => 
+            [RequestId] => NWE3Yzg5MzJfY2FhMzNiMGFfNDVjOV8yY2QyMzg=
+        )
+)
+```
+
+
+### 获取对象属性
+
+查询获取 COS 上的对象属性。
+
+#### 方法原型
+
+```php
+// 获取文件属性
+public Guzzle\Service\Resource\Model headObject(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |    bucket 名称     |    string   | 是           |   
+| Key      |     对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg         |    string   | 是           |    
+| VersionId      |          对象版本号        |   string    | 否           | 
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [DeleteMarker] => 
+            [AcceptRanges] => 
+            [Expiration] => 
+            [Restore] => 
+            [LastModified] => Thu, 08 Feb 2018 17:34:53 GMT
+            [ContentLength] => 12
+            [ETag] => "ed076287532e86365e841e92bfc50d8c"
+            [MissingMeta] => 
+            [VersionId] => 
+            [CacheControl] => 
+            [ContentDisposition] => 
+            [ContentEncoding] => 
+            [ContentLanguage] => 
+            [ContentType] => application/octet-stream
+            [Expires] => 
+            [WebsiteRedirectLocation] => 
+            [ServerSideEncryption] => AES256
+            [SSECustomerAlgorithm] => 
+            [SSECustomerKeyMD5] => 
+            [SSEKMSKeyId] => 
+            [StorageClass] => 
+            [RequestCharged] => 
+            [ReplicationStatus] => 
+            [RequestId] => NWE3YzhhM2RfMWViZTk0MGFfNWMzMF8xNTFiZDg=
+        )
+)
+```
+
+#### 请求示例
+
+```php
+// 获取 COS 文件属性
+ //bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+$result $cosClient->headObject(array('Bucket' => 'testbucket-125000000', 'Key' => 'hello.txt'));
+```
+
+### 查询Bucket是否存在
+
+查询获取 COS 上的 Bucket 是否存在。
+
+#### 方法原型
+
+```php
+// 获取文件属性
+public Guzzle\Service\Resource\Model headBucket(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |     对象版本号      |   string   | 是           |      
+
+
+
+#### 请求示例
+
+```php
+// 获取 COS 文件属性
+ //bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+$result $cosClient->headBucket(array('Bucket' => 'testbucket-125000000'));
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzhhN2VfY2VhMzNiMGFfMmNmXzJjNzc3Zg==
+        )
+)
+```
+
+### 获取文件列表
+
+查询获取 COS 上的文件列表
+
+#### 方法原型
+
+
+```php
+// 获取文件列表
+public Guzzle\Service\Resource\Model listObjects(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称               |    string     |是           |     
+| Delimiter      |      分隔符         |    string     |  否          |    
+| Marker      |          标记        |   string     |  否          | 
+| MaxKeys      |           最大对象个数         |  int     |   否          | 
+| Prefix      |            前缀         |string     |  否           |  
+
+#### 请求示例
+
+```php
+// 获取 bucket 下成员。
+//bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式。
+$result = $cosClient->listObjects(array('Bucket' => 'testbucket-125000000'));
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Name] => testbucket-1252448703
+            [Prefix] => 
+            [Marker] => 
+            [MaxKeys] => 1000
+            [IsTruncated] => 
+            [Contents] => Array
+                (
+                    [0] => Array
+                        (
+                            [Key] => 11/32/43
+                            [LastModified] => 2018-02-08T17:09:16.000Z
+                            [ETag] => "ed076287532e86365e841e92bfc50d8c"
+                            [Size] => 12
+                            [Owner] => Array
+                                (
+                                    [ID] => 1252448703
+                                    [DisplayName] => 1252448703
+                                )
+
+                            [StorageClass] => STANDARD
+                        )
+
+                    [1] => Array
+                        (
+                            [Key] => 111
+                            [LastModified] => 2018-02-08T17:41:11.000Z
+                            [ETag] => "ed076287532e86365e841e92bfc50d8c"
+                            [Size] => 12
+                            [Owner] => Array
+                                (
+                                    [ID] => 1252448703
+                                    [DisplayName] => 1252448703
+                                )
+
+                            [StorageClass] => STANDARD
+                        )
+
+                    [2] => Array
+                        (
+                            [Key] => 111.txt
+                            [LastModified] => 2018-02-08T17:11:00.000Z
+                            [ETag] => "715691804ee474f2eb94adb2c5c01155-1"
+                            [Size] => 5242880
+                            [Owner] => Array
+                                (
+                                    [ID] => 1252448703
+                                    [DisplayName] => 1252448703
+                                )
+
+                            [StorageClass] => STANDARD
+                        )
+
+                )
+
+            [RequestId] => NWE3YzhiYjdfMWJiMjk0MGFfMzA4M18xNjdiNDM=
+        )
+)
+```
+
+### putBucketACL
+
+#### 方法原型
+
+```php
+// 设置桶的权限列表
+public Guzzle\Service\Resource\Model putBucketAcl(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |              bucket 名称               |     string      | 是           | 
+| ACL      |        ACL 权限控制         |   string       | 否           |   
+| GrantRead |       赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'         |  string       | 否           |     
+| GrantWrite |   赋予被授权者写的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'       |     string        | 否          |      
+| GrantFullControl |  赋予被授权者读写权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'         |   string       | 否           |          
+
+
+#### 请求示例
+
+```php
+#putBucketACL
+try {
+    $result = $cosClient->putBucketAcl(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+        'Grants' => array(
+            array(
+                'Grantee' => array(
+                    'DisplayName' => 'qcs::cam::uin/327874225:uin/327874225',
+                    'ID' => 'qcs::cam::uin/327874225:uin/327874225',
+                    'Type' => 'CanonicalUser',
+                ),
+                'Permission' => 'FULL_CONTROL',
+            ),
+            // ... repeated
+        ),
+        'Owner' => array(
+            'DisplayName' => 'qcs::cam::uin/3210232098:uin/3210232098',
+            'ID' => 'qcs::cam::uin/3210232098:uin/3210232098',
+        ),));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzhiZTZfZDRiMjk0MGFfODMwXzJjODllYw==
+        )
+)
+```
+
+
+### getBucketACL
+#### 方法原型
+
+```php
+// 获取桶的权限列表
+public Guzzle\Service\Resource\Model getBucketAcl(array $args = array());
+```
+
+#### 请求参数
+
+| 字段名   |       类型     | 默认值 | 是否必填字段 |                  描述                  |
+| :------: |    :------------: | :--:   | :--------:   | :----------------------------------: |
+| Bucket   |     string     |  无    | 是           |               bucket名称               |
+
+
+
+#### 请求示例
+```php
+#getBucketACL
+try {
+    $result = $cosClient->getBucketAcl(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Owner] => Array
+                (
+                    [ID] => qcs::cam::uin/3210232098:uin/3210232098
+                    [DisplayName] => qcs::cam::uin/3210232098:uin/3210232098
+                )
+
+            [Grants] => Array
+                (
+                    [0] => Array
+                        (
+                            [Grantee] => Array
+                                (
+                                    [ID] => qcs::cam::uin/327874225:uin/327874225
+                                    [DisplayName] => qcs::cam::uin/327874225:uin/327874225
+                                )
+
+                            [Permission] => FULL_CONTROL
+                        )
+
+                )
+
+            [RequestId] => NWE3YzhjMTRfYzdhMzNiMGFfYjdiOF8yYzZmMzU=
+        )
+)
+```
+
+### putObjectACL
+
+当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请不要设置，默认继承 Bucket 权限。
+
+#### 方法原型
+
+```php
+// 设置对象的权限列表
+public Guzzle\Service\Resource\Model putObjectAcl(array $args = array());
+```
+
+#### 请求参数
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |              bucket 名称               |     string      | 是           | 
+ |  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg | string |  是 | 
+| ACL      |        ACL 权限控制         |   string       | 否           |   
+| GrantRead |       赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'         |  string       | 否           |     
+| GrantWrite |   赋予被授权者写的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'       |     string        | 否          |      
+| GrantFullControl |  赋予被授权者读写权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'         |   string       | 否           |          
+
+
+#### 请求示例
+```php
+#putObjectACL
+try {
+    $result = $cosClient->putObjectAcl(array(
+        'Bucket' => 'testbucket-1252448703',
+        'Key' => '111.txt',
+        'Grants' => array(
+            array(
+                'Grantee' => array(
+                    'DisplayName' => 'qcs::cam::uin/327874225:uin/327874225',
+                    'ID' => 'qcs::cam::uin/327874225:uin/327874225',
+                    'Type' => 'CanonicalUser',
+                ),
+                'Permission' => 'FULL_CONTROL',
+            ),
+            // ... repeated
+        ),
+        'Owner' => array(
+            'DisplayName' => 'qcs::cam::uin/3210232098:uin/3210232098',
+            'ID' => 'qcs::cam::uin/3210232098:uin/3210232098',
+        ),));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### getObjectACL
+#### 方法原型
+
+```php
+// 获取对象的权限列表
+public Guzzle\Service\Resource\Model getObjectAcl(array $args = array());
+```
+
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |          bucket 名称               |   string     | 是           |        
+| Key |     对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg              |    string   | 是           |        
+
+#### 请求示例
+```php
+#getObjectACL
+try {
+    $result = $cosClient->getObjectAcl(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+        'Key' => '11'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Owner] => Array
+                (
+                    [ID] => qcs::cam::uin/3210232098:uin/3210232098
+                    [DisplayName] => qcs::cam::uin/3210232098:uin/3210232098
+                )
+
+            [Grants] => Array
+                (
+                    [0] => Array
+                        (
+                            [Grantee] => Array
+                                (
+                                    [ID] => qcs::cam::uin/327874225:uin/327874225
+                                    [DisplayName] => qcs::cam::uin/327874225:uin/327874225
+                                )
+
+                            [Permission] => FULL_CONTROL
+                        )
+
+                )
+
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjU5OF8yYzlkMmE=
+        )
+)
+```
+
+### putBucketCors
+#### 方法原型
+
+```php
+// 设置桶的跨域配置
+public Guzzle\Service\Resource\Model putBucketCors(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称               |    string        | 是           |         
+| CORSRules |        CORS 规则        |    array     | 是            | 
+| AllowedMethods |        允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE        |    array   | 否           |  
+| AllowedOrigins |           允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com       |   array   | 否           |
+| AllowedHeaders |        在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *        |   array    | 否           |    
+| ExposeHeaders |       设置浏览器可以接收到的来自服务器端的自定义头部信息       |    array    | 否           |   
+| MaxAgeSeconds |    设置 OPTIONS 请求得到结果的有效期        |   string       | 否           |       
+| ID |         配置规则的 ID       | string   | 否           |    
+
+#### 请求示例
+```php
+###putBucketCors
+try {
+    $result = $cosClient->putBucketCors(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+        // CORSRules is required
+        'CORSRules' => array(
+            array(
+                'AllowedHeaders' => array('*',),
+            // AllowedMethods is required
+            'AllowedMethods' => array('Put', ),
+            // AllowedOrigins is required
+            'AllowedOrigins' => array('*', ),
+            'ExposeHeaders' => array('*', ),
+            'MaxAgeSeconds' => 1,
+        ),
+        // ... repeated
+    ),
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### getBucketCors
+#### 方法原型
+
+```php
+// 获取桶的跨域配置
+public Guzzle\Service\Resource\Model getBucketCors(array $args = array());
+```
+#### 请求参数
+
+
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称            |     string     | 是           | 
+
+
+#### 请求示例
+```php
+#getBucketCors
+try {
+    $result = $cosClient->getBucketCors(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [CORSRules] => Array
+                (
+                    [0] => Array
+                        (
+                            [ID] => 1234
+                            [AllowedHeaders] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [AllowedMethods] => Array
+                                (
+                                    [0] => PUT
+                                )
+
+                            [AllowedOrigins] => Array
+                                (
+                                    [0] => http://www.qq.com
+                                )
+
+                        )
+
+                )
+
+            [RequestId] => NWE3YzhkMmRfMTdiMjk0MGFfNTQzZl8xNWUwMGU=
+        )
+)
+```
+
+### deleteBucketCors
+#### 方法原型
+
+```php
+// 删除桶的跨域配置
+public Guzzle\Service\Resource\Model deleteBucketCors(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称            |     string     | 是           | 
+
+
+#### 请求示例
+```php
+#deleteBucketCors
+try {
+    $result = $cosClient->deleteBucketCors(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### putBucketReplication
+#### 方法原型
+
+```php
+// 设置桶的跨区域复制配置
+public Guzzle\Service\Resource\Model putBucketReplication(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称               |    string        | 是           |         
+| Role |        发起者身份标示：qcs::cam::uin/<OwnerUin>:uin/<SubUin>        |    string     | 是            | 
+| Rules |        具体配置信息，最多支持1000个      |    array   |  是           |  
+| ID |           用来标注具体 Rule 的名称       |   string   | 是           |
+| Status |        标识 Rule 是否生效，枚举值：Enabled, Disabled      |   String    |   是        |    
+| Prefix |       前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空       |    string    | 是           |   
+| Destination |   目标存储桶信息    |   array       |  是          |       
+| Bucket   |   资源标识符：qcs::cos:[region]::[bucketname-AppId]    |   array       |  是          |       
+| StorageClass |   存储级别，枚举值：STANDARD, STANDARD_IA, NEARLINE；默认值：原存储桶级别    |   array       |  否          |      
+
+#### 请求示例
+```php
+###putBucketCors
+try {
+    $result = $cosClient->PutBucketReplication(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+        'Role' => 'qcs::cam::uin/320000000:uin/320000000',
+        'Rules'=>array(
+            array(
+                'Status' => 'Enabled',
+                'ID' => 'string',
+                'Prefix' => 'string',
+                'Destination' => array(
+                    'Bucket' => 'qcs::cos:ap-guangzhou::testbucket01-125000000',
+                    'StorageClass' => 'standard',
+                ),
+                // ...repeated
+            ),
+        ),
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo($e);
+}
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### getBucketReplication
+#### 方法原型
+
+```php
+// 获取桶的跨区域复制配置
+public Guzzle\Service\Resource\Model getBucketReplication(array $args = array());
+```
+#### 请求参数
+
+
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称            |     string     | 是           | 
+
+
+#### 请求示例
+```php
+#getBucketReplication
+try {
+    $result = $cosClient->GetBucketReplication(array(
+        'Bucket' => 'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo($e);
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+	[data:protected] => Array
+	(
+	    [Role] => qcs::cam::uin/320000000:uin/320000000
+	    [Rules] => Array
+	        (
+	            [0] => Array
+	                (
+	                    [ID] => string
+	                    [Status] => Enabled
+	                    [Prefix] => string
+	                    [Destination] => Array
+	                        (
+	                            [Bucket] => qcs::cos:ap-guangzhou::testbucket01-125000000
+	                            [StorageClass] => Standard
+	                        )
+
+	                )
+
+	        )
+
+	    [RequestId] => NWI2YWFlN2NfMjNiMjM1MGFfNTQ0OF80NzMzNWY=
+	)
+)
+```
+
+### deleteBucketReplication
+#### 方法原型
+
+```php
+// 删除桶的跨区域复制配置
+public Guzzle\Service\Resource\Model deleteBucketReplication(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |       bucket 名称            |     string     | 是           |  
+
+
+#### 请求示例
+```php
+#deleteBucketReplication
+try {
+    $result = $cosClient->deleteBucketReplication(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### 复制对象
+#### 方法原型
+
+```php
+// 复制对象
+public Guzzle\Service\Resource\Model copyObject(array $args = array());
+```
+
+#### 请求参数
+| 参数名称   | 描述   |类型 | 是否必填字段 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  |  Bucket 名称，由数字和小写字母以及中划线 "-" 构成 | string |   是 |
+|  CopySource  | 复制来源     |  string |  是 |
+|  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg | string |  是 | 
+|  ACL  | 设置文件的 ACL，如 'private，public-read'，'public-read-write' | string |   否 | 
+|  GrantFullControl  |赋予指定账户对文件的读写权限 |  string |  否 | 
+|  GrantRead  |  赋予指定账户对文件读权限 | string |  否 |
+|  GrantWrite  |  赋予指定账户对文件的写权限 | string |  否 |
+|  StorageClass  |  设置文件的存储类型，STANDARD,STANDARD_IA，默认值：STANDARD | String |   否 |
+|  Expires  | 设置 Content-Expires | string|  否 | 
+|  CacheControl  |  缓存策略，设置 Cache-Control | string |   否 |
+|  ContentType  | 内容类型，设置 Content-Type |string |   否 |  
+|  ContentDisposition  |  文件名称，设置 Content-Disposition | string |   否 |
+|  ContentEncoding  |  编码格式，设置 Content-Encoding | string |   否 |
+|  ContentLanguage  |  语言类型，设置 Content-Language | string |   否 |
+|  ContentLength  | 设置传输长度 | string |   否 | 
+|  ContentMD5  | 设置上传文件的 MD5 值用于校验 | string |   否 | 
+|  Metadata | 用户自定义的文件元信息 | array |   否 |
+|  ServerSideEncryption | 服务端加密方法 | string |   否 |
+| MetadataDirective | 是否使用源文件的头部，可选值 Copy，Replaced ，默认值为 Copy，Copy 使用源文件的头部，Replaced 使用该接口的头部 |string | 否 |
+
+#### 请求示例
+
+```php
+#copyobject
+#简单 copy 接口
+try {
+    $result = $cosClient->copyObject(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' => 'testbucket-125000000',
+        // CopySource is required
+        'CopySource' => 'lewzylu03-1252448703.cos.ap-guangzhou.myqcloud.com/tox.ini',
+        // Key is required
+        'Key' => 'string',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+#copy
+#大于5G会自动使用分块 copy接口。
+try {
+    $result = $cosClient->Copy($bucket = 'lewzylu01-1252448703',
+        $key = 'string',
+        $copysource = 'lewzylu02-1252448703.cos.ap-guangzhou.myqcloud.com/test1G',
+        $options = array('VersionId'=>'MTg0NDY3NDI1NTk0MzUwNDQ1OTg'));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+### putBucketLifecycle
+#### 方法原型
+
+```php
+// 配置桶的生命周期
+public Guzzle\Service\Resource\Model putBucketLifecycle(array $args = array());
+```
+#### 请求参数
+| 参数名称   | 描述   |类型 | 是否必填字段 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  |  Bucket 名称，由数字和小写字母以及中划线 "-" 构成 | string |   是 |
+|  Rules  | 设置对应的规则，包括 ID，Filter，Status，Expiration，Transition，NoncurrentVersionExpiration，NoncurrentVersionTransition，AbortIncompleteMultipartUpload       |  array |  是 |
+|  ID     | 配置规则的 ID  | string |  否 | 
+|  Filter  | 用于描述规则影响的 Object 集合 | array |   是 | 
+|  Status  |设置 Rule 是否启用，可选值为 Enabled 或者 Disabled |  string |  是 | 
+|  Expiration  |  设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date | array |  否 |
+|  Transition  |  设置 Object 转换存储类型规则，可以指定天数 Days 或者指定日期 Date，StorageClass 可选 Standard_IA| array |  否 |
+
+
+#### 请求示例
+
+```php
+#putBucketLifecycle
+try {
+    $result = $cosClient->putBucketLifecycle(array(
+    //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+    'Bucket' => 'testbucket-125000000',
+    // Rules is required
+    'Rules' => array(
+        array(
+            'Expiration' => array(
+                'Days' => 1,
+            ),
+            'ID' => 'id1',
+            'Filter' => array(
+                'Prefix' => 'documents/'
+            ),
+            // Status is required
+            'Status' => 'Enabled',
+            'Transitions' => array(
+                array(
+                    'Days' => 200,
+                    'StorageClass' => 'Standard_IA')),
+            // ... repeated
+        ),
+    )));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### getBucketLifecycle
+#### 方法原型
+
+```php
+// 获取桶的生命周期配置
+public Guzzle\Service\Resource\Model getBucketLifecycle(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |              bucket名称               |   string   | 是           |    
+
+
+#### 请求示例
+```php
+#getBucketLifecycle
+try {
+    $result = $cosClient->getBucketLifecycle(array(
+        //bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' =>'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Rules] => Array
+                (
+                    [0] => Array
+                        (
+                            [ID] => id1
+                            [Filter] => Array
+                                (
+                                    [Prefix] => documents/
+                                )
+
+                            [Status] => Enabled
+                            [Transition] => Array
+                                (
+                                    [Days] => 200
+                                    [StorageClass] => Standard_IA
+                                )
+
+                            [Expiration] => Array
+                                (
+                                    [Days] => 1000
+                                )
+
+                        )
+
+                )
+
+            [RequestId] => NWE3YzhlZjNfY2FhMzNiMGFfNDVkNF8yZDIxODE=
+        )
+)
+```
+
+### deleteBucketLifecycle
+#### 方法原型
+
+```php
+// 删除桶的生命周期配置
+public Guzzle\Service\Resource\Model deleteBucketLifecycle(array $args = array());
+```
+#### 请求参数
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |            bucket 名称               |      string    | 是           |   
+
+#### 请求示例
+
+```php
+#deleteBucketLifecycle
+try {
+    $result = $cosClient->deleteBucketLifecycle(array(
+        //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+        'Bucket' =>'testbucket-125000000',
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### 获得 object 下载 url
+
+获得 object 带签名的下载 url。
+
+#### 请求示例
+
+```php
+//获得 object 的下载 url
+//bucket 的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+$bucket =  'testbucket-125000000';
+$key = 'hello.txt';
+$signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes');
+```
+### 使用临时密钥
+
+```php
+$cosClient = new Qcloud\Cos\Client(
+    array(
+        'region' => 'cn-south',
+        'timeout' => ,
+        'credentials'=> array(
+            'appId' => '',
+            'secretId'    => '',
+            'secretKey' => '',
+            'token' => '')));
+```
+
+
+### 恢复归档文件
+
+#### 方法原型
+
+```php
+//  恢复归档文件
+public Guzzle\Service\Resource\Model restoreObject(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |                bucket 名称               |  string    | 是           |  
+| Key      |     对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg 中，对象键为 doc1/pic1.jpg        |  string   | 是           |      
+| Days      |        保存时间        |   integer |  是          |   
+| Tier   |         恢复类型        | string |   否          |    
+
+#### 请求示例
+
+```php
+  try {
+    $result = $cosClient->restoreObject(array(
+        // Bucket is required
+        'Bucket' => 'lewzylu02',
+        // Objects is required
+        'Key' => '11',
+        'Days' => 7,
+        'CASJobParameters' => array(
+            'Tier' =>'Bulk'
+        )
+    ));
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+
+
+### 开启版本控制
+
+#### 方法原型
+
+```php
+// 开启版本控制
+public Guzzle\Service\Resource\Model putBucketVersioning(array $args = array());
+```
+
+#### 请求参数
+
+$args是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |           bucket 名称               |    string        | 是           |     
+| Status   |          版本控制状态              |   string       | 是           |       
+
+#### 请求示例
+```php
+#putBucketVersioning
+try {
+    $result = $cosClient->putBucketVersioning(
+    array('Bucket' => 'lewzylu02',
+    'Status' => 'Enabled')
+    );
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [RequestCharged] => 
+            [RequestId] => NWE3YzhjZDdfY2JhMzNiMGFfNjVhOV8yZDJhNjY=
+        )
+)
+```
+
+### 获取 bucket 版本
+
+#### 方法原型
+
+```php
+// 获取bucket版本
+public Guzzle\Service\Resource\Model getBucketVersioning(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |        bucket 名称               |    string  | 是           |        
+
+#### 请求示例
+
+```php
+try {
+    $result = $cosClient->getBucketVersioning(
+        array('Bucket' => 'lewzylu02',)
+    );
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+```
+
+#### 返回结果示例
+```php
+Array
+(
+    [data:protected] => Array
+        (
+            [Status] => Enabled
+            [RequestId] => NWE3YzhmZTVfNjIyNWI2NF80YzQ3XzJkNjU4NQ==
+        )
+)
+```
+
+### 打印各个版本的文件列表
+
+#### 方法原型
+
+```php
+// 打印各个版本的文件列表
+public Guzzle\Service\Resource\Model listObjectVersions(array $args = array());
+```
+
+#### 请求参数
+
+$args 是包含以下字段的关联数组：
+
+| 参数名称   | 描述   | 类型 | 是否必填字段 | 
+| :------: | :------------: | :--:   | :--------:   |
+| Bucket   |        bucket 名称               |  string      | 是           |          
+| Delimiter      |     分隔符         |   string      | 否          |      
+| Marker      |     标记        |   string       | 否          |      
+| MaxKeys      |     最大对象个数         |  int        | 否          |       
+| Prefix      |          前缀         |   string       | 否           | 
+
+#### 请求示例
+
+```php
+try {
+    $result = $cosClient->listObjectVersions(
+        array('Bucket' => 'lewzylu02',
+            'Prefix'=>'test1G')
+    );
+    print_r($result);
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+
+```
+#### 返回结果示例
+```php
+Array
+(
+   [data:protected] => Array
+        (
+            [Name] => lewzylu02-1252448703
+            [Prefix] => test1G
+            [KeyMarker] => 
+            [VersionIdMarker] => 
+            [MaxKeys] => 1000
+            [IsTruncated] => 
+            [Versions] => Array
+                (
+                    [0] => Array
+                        (
+                            [Key] => test1G
+                            [VersionId] => MTg0NDY3NDI1NTg1ODc4Nzk3NjI
+                            [IsLatest] => 1
+                            [LastModified] => 2018-01-05T03:07:51.000Z
+                            [ETag] => "202cb962ac59075b964b07152d234b70"
+                            [Size] => 3
+                            [StorageClass] => STANDARD
+                            [Owner] => Array
+                                (
+                                    [UID] => 1252448703
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [Key] => test1G
+                            [VersionId] => MTg0NDY3NDI1NTk0MzI3NDU3NTk
+                            [IsLatest] => 
+                            [LastModified] => 2017-12-26T08:26:50.000Z
+                            [ETag] => "13ddf6552868644926ba606cd287106b-1"
+                            [Size] => 5242880
+                            [StorageClass] => STANDARD
+                            [Owner] => Array
+                                (
+                                    [UID] => 1252448703
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [Key] => test1G
+                            [VersionId] => MTg0NDY3NDI1NTk0MzI3ODAzODc
+                            [IsLatest] => 
+                            [LastModified] => 2017-12-26T08:26:16.000Z
+                            [ETag] => "3c86b7371340b2174b875fa7bcc0bd9a-1"
+                            [Size] => 5242880
+                            [StorageClass] => STANDARD
+                            [Owner] => Array
+                                (
+                                    [UID] => 1252448703
+                                )
+
+                        )
+                )
+
+            [RequestId] => NWE3YzkwMGFfMTliYjk0MGFfMWUwOWRfMmJlZWIx
+        )
+)
+```
+### 预签名链接
+#### 请求示例
+```
+try {
+    #此处可以替换为其他任何接口
+    $command = $cosClient->getCommand('putObject', array(
+        'Bucket' => $bucket,
+        'Key' => $key,
+        'Body' => '', //Body可以任意
+    ));
+    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    echo ($signedUrl);
+} catch (\Exception $e) {
+    echo($e);
+}
+```

@@ -1,136 +1,153 @@
-COS FTP V4 用于通过FTP协议往COS上传和下载文件.
+COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
+
+## 开始使用
+
+### 系统环境
+
+操作系统：Linux，推荐使用腾讯 CentOS 系列 [云服务器](https://cloud.tencent.com/document/product/213)，暂时不支持 Windows 系统。
+
+Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
+
+依赖包：
+- cos-python-sdk-v5 （>=1.6.5）
+- pyftpdlib （>=1.5.2）
+
+
+### 使用限制
+
+适用于COS XML 版本。
+
+### 安装运行
+
+获取链接：[cos-ftp-server](https://github.com/tencentyun/cos-ftp-server-V5)
+
+1. 运行 setup.py 安装 FTP Server 及其相关的依赖库（需要联网）：
+```bash
+python setup.py install   # 这里可能需要您的账号 sudo 或者拥有 root 权限。
+```
+2. 将配置示例文件 conf/vsftpd.conf.example 复制命名为 conf/vsftpd.conf，参考 [配置文件](#conf) 章节，正确配置 bucket 和用户信息。
+3. 运行 ftp_server.py 启动 FTP Server：
+```bash
+python ftp_server.py
+```
+此外还有两种方式启动 FTP Server，如下：
+ - 使用 nohup 命令，以后台进程方式启动：
+```bash
+nohup python ftp_server.py >> /dev/null 2>&1 &
+```
+ - 使用 screen 命令放入后台运行（需要安装 screen 工具)：
+```bash
+screen -dmS ftp
+screen -r ftp
+python ftp_server.py
+#使用快捷键，切回主 screen 即可：
+Ctrl+A+D 
+```
+
+### 停止
+
+- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键`Ctrl+C`停止 FTP Server 运行。 
+
+- 若您是通过 nohup 命令启动，可以使用下面方式停止：
+```bash
+ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xargs -I{} kill {}
+```
+
 
 ## 功能说明
 
-COS FTP v4是依赖COS 4.X的FTP服务端工具。通过COS FTP工具可以通过FTP协议从COS上传和下载文件。
+**上传机制**：流式上传，不落本地磁盘，只要按照标准的 FTP 协议配置工作目录即可，不占用实际的磁盘存储空间。
+**下载机制**：直接流式返回给客户端
+**目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
+**多 bucket 绑定**：支持同时绑定多个 bucket。
+**删除操作限制**：在新的 FTP Serve 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
 
-**上传机制**：上传先落地FTP的本地磁盘, 上传COS后删除，返回给客户端成功。（后期版本流式上传COS，不落本地磁盘）
+>?多 bucket 绑定：通过不同的 FTP Server 工作路径（`home_dir`）来实现，因此，指定不同的 bucket 和用户信息时必须保证`home_dir`不同。
 
-**下载机制**：下载直接流式返回给客户端
 
-### 支持FTP命令
+### 支持的FTP命令
 
 - put
-- get
 - mput
-- mget
+- get
+- rename
 - delete
 - mkdir
 - ls
 - cd
 - bye
-- quit
+- quite
 - size
 
 ### 不支持FTP命令
 
 - append
+- mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
+>?FTP Serve 工具暂时不支持断点续传功能。
 
-## 依赖环境
+<a id="conf"></a>
+## 配置文件
 
-### COS版本 
+ Ftp Server 工具的配置示例文件为 conf/vsftpd.conf.example，请复制命名为 vsftpd.conf，并按照以下的配置项进行配置：
+```conf
+[COS_ACCOUNT_0]
+cos_secretid = XXXXXX
+cos_secretkey = XXXXXX
+cos_bucket = {bucket name}-123
+cos_region = ap-xxx
+cos_protocol = https
+#cos_endpoint = ap-xxx.myqcloud.com
+home_dir = /home/user0
+ftp_login_user_name=user0
+ftp_login_user_password=pass0
+authority=RW
+delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)，false 为禁止该用户进行删除操作
 
-4.x
+[COS_ACCOUNT_1]
+cos_secretid = XXXX
+cos_secretkey = XXXXX
+cos_bucket = {bucket name}-123
+cos_region = ap-xxx
+cos_protocol = https
+#cos_endpoint = ap-xxx.myqcloud.com
+home_dir = /home/user1
+ftp_login_user_name=user1
+ftp_login_user_password=pass1
+authority=RW
+delete_enable=false
 
-### 系统要求
+[NETWORK]
+masquerade_address = XXX.XXX.XXX.XXX        # 如果 FTP SERVER 处于某个网关或NAT后，可以通过该配置项将网关的IP 地址或域名指定给 FTP
+listen_port = 2121					   # Ftp Server的监听端口，默认为2121，注意防火墙需要放行该端口
 
-Linux (推荐腾讯云Centos系列CVM)
+passive_port = 60000,65535             # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择
 
-### 依赖库
+[FILE_OPTION]
+# 默认单文件大小最大支持到200G，不建议设置太大
+single_file_max_size = 21474836480
 
-针对Centos等使用yum安装的系统，build.sh会自动下载以下依赖。其他系统请自行安装。
-
-```
-cmake
-boost
-openssl-devel
-asio-devel
-libidn-devel
-```
-
-## 使用方法
-
-### 获取程序包
-
-下载地址：[COS FTP V4 github](https://github.com/tencentyun/cos_ftp_v4)
-
-### 源码结构
-
-|    目录    |              说明               |
-| :------: | :---------------------------: |
-|   bin    |          编译后生成的可执行程序          |
-|   conf   |            配置文件目录             |
-|   data   |    上传时存储临时数据的目录，上传成功或失败后删除    |
-|   dep    | FTP Server所依赖的COS 4.X CPP SDK |
-| include  |           头文件所在的目录            |
-|   lib    |            依赖的库目录             |
-|   log    |             日志目录              |
-|  opbin   |        有关清理日志, 自动拉起的脚本        |
-|   src    |            FTP源码目录            |
-| build.sh |             编译脚本              |
-| start.sh |        启动FTP server的脚本        |
-| stop.sh  |            停止程序的脚本            |
-
-### 配置
-
-配置文件conf/vsftpd.conf中的是vsftpd的相关配置,可以参考以下配置说明
-
-```ini
-1. COS账户信息配置
-    #cos, set your app info in cos                                                   
-    cos_appid=1000000                                                   
-    cos_secretid=xxxxxxxxxxxxxxxxxxxxxxxxx                              
-    cos_secretkey=xxxxxxxxxxxxxxxxxx 
-    # bucket信息，包括bucket的名字，以及bucket所在的区域。目前有效值华南广州(gz), 华东上海(sh), 华北天津(tj)
-    cos_bucket=test                                                     
-    cos_region=gz
-    # domain设置为cos表示通过cos源站下载(推荐服务器为腾讯云机器用户设置)
-    # domain设置为cdn表示通过cdn下载(推荐服务器为非腾讯云机器用户设置)
-    cos_download_domain=cos                                             
-    # 此项不用设置, build.sh脚本会自动设置
-    cos_user_home_dir=/home/test/cosftp_data/                                        
-
-2. FTP账户配置(格式-用户名:密码:读写权限. 多个账户用分号分割)
-    login_users=user1:pass1:RW;user2:pass2:RW  
-    
-3. 外网IP设置, 把外网IP设置服务器的外网IP(仅针对通过外网IP访问FTP服务的用户，如客户机和FTP服务器均在腾讯云CVM机器上，通过内网IP访问，则不用设置)
-	pasv_address=115.115.115.115
-	
-4. 控制端口与数据端口设置, 可以使用默认设置(建议端口在1025 ~ 65535， 并保证未被防火墙iptables过滤)
-	listen_port=2121
-```
-### 编译
-
-1. 因为FTP需要使用本地磁盘，因此请将FTP源码程序放在一个存储空间较大的盘。(腾讯云初始的机器购买的数据盘需要手动格式化并挂载, 请参考 [https://www.qcloud.com/doc/product/213/2974](https://www.qcloud.com/doc/product/213/2974)
-2. 以**root 身份运行build.sh**(因为build.sh里会调用yum进行安装依赖库，推荐使用腾讯云主流的Centos系列系统，如果是其他系列系统，如ubuntu，请修改opbin/env_init.sh )
-
-### 运行
-
-```
-1. 切换到cos_ftp账户(这个账户是在build.sh脚本里建立的), su cos_ftp
-2. sh start.sh (会启动FTP进程和monitor程序,以及安装自动清理日志的CT脚本)
-3. 使用FTP客户端连接server的控制端口(默认是2121)，为避免客户机限制端口，建议使用pasv模式连接。
-可以先用服务器本机的FTP命令进行测试(此客户端程序可通过yum install ftp安装)。 通过执行FTP 127.0.0.1 2121来测试。
-4. 执行FTP的上传下载等命令
+[OPTIONAL]
+# 以下设置，如无特殊需要，建议保留 default 设置  如需设置，请合理填写一个整数
+min_part_size       = default
+upload_thread_num   = default
+max_connection_num  = 512
+max_list_file       = 10000                # ls命令最大可列出的文件数目，建议不要设置太大，否则ls命令延时会很高
+log_level           = INFO                 # 设置日志输出的级别
+log_dir             = log                  # 设置日志的存放目录，默认是在ftp server目录下的log目录中
 ```
 
-### 停止
+如果要将每个用户绑定到不同的 bucket 上，则只需要添加`[COS_ACCOUNT_X]`的 section 即可。
 
-```
-sh  stop.sh
-```
+针对每个不同的`COS_ACCOUNT_X`的 section 有如下说明：
 
-##  常见问题
+1. 每个 ACCOUNT 下的用户名（`ftp_login_user_name`）和用户的主目录（`home_dir`）必须各不相同，并且主目录必须是系统中真实存在的目录。
+2. 每个 COS FTP Server 允许同时登录的用户数目不能超过100。
+3. `endpoint`和`region`不会同时生效，使用公有云COS服务只需要正确填写`region`字段即可，`endpoint`常用于私有化部署环境中。当同时填写了`region`和`endpoint`，则会`endpoint`会优先生效。
 
-```
-1. 连接不上，请查看账户密码端口号，连接模式是否正确，以及服务器上进程是否起来(netstat -tulnp | grep vsftpd)
-2. 并发上传一个文件失败，FTP不支持并发上传文件，会对文件进行加锁，导致只有一个会成功。
-3. 上传文件过大，本地磁盘不足导致失败。通过FTP上传会先临时落FTP服务器磁盘(存放在FTP服务的data目录下)，然后上传COS，上传成功后会删除本地文件。下载不落本地，不受磁盘空间限制，因此建议把FTP服务部署在空间较大的分区上。
-4. 使用FileZilla等客户端上传大文件失败, 第一版本的FTP服务器不支持append模式，而FileZilla等客户端在上传一些大文件时，会通过append操作。
-5. 其他问题，请提供log目录的压缩包。
-```
+配置文件中的 OPTIONAL 选项是提供给高级用户用于调整上传性能的可选项，根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度，一般用户不需要调整，保持默认值即可。
+同时，提供最大连接数的限制选项。 这里如果不想限制最大连接数，可以填写0，即表示不限制最大连接数目（不过需要根据您机器的性能合理评估）。
 
- 
 
- 
+## 常见问题
+如您在使用 FTP Server 工具过程中，有报错或对上传限制有疑问，请参阅 [FTP Server 工具类常见问题](https://cloud.tencent.com/document/product/436/30742)。

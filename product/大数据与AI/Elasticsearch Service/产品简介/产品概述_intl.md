@@ -1,0 +1,5 @@
+
+Tencent Cloud Elasticsearch Service (ES) is a highly available and scalable cloud-hosted service built on the open source search engine Elasticsearch. ES not only has technical and resource advantages in computing, storage, security and other fields of Tencent Cloud Computing, but also maintains the compatibility and openness of Elasticsearch. It provides stable, elastic and scalable cloud-hosted services and various cluster management features, helping you avoid the deployment and debugging of software and hardware and focus on your business. ES is suitable for the storage and search of massive data, real-time log analysis and other scenarios, such as website search navigation, enterprise-grade search, service log exception monitoring, clickstream analysis and so on.
+
+ES is built on the Elasticsearch 5.6.4 and comes with two components (Elasticsearch and Kibana) deployed in a VPC, allowing you to easily integrate it with the existing services in the VPC. It also provides the Kibana monitoring page accessed via the public network for you to easily search and statistically analyze cluster data in a browser.
+
