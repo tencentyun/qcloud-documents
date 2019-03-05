@@ -27,7 +27,7 @@ private TAIMathCorrection correction = new TAIMathCorrection();
 TAIMathCorrectionParam param = new TAIMathCorrectionParam();
 param.context = this;
 param.appId = "";
-param.sessionId = String.format("%d", System.currentTimeMillis() / 1000);
+param.sessionId = UUID.randomUUID().toString();
 
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream(this.bitmap.getByteCount());
 this.bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
