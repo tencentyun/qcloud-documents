@@ -6,7 +6,7 @@
 
 ## 设置离线推送配置
 ### 设置全局离线推送配置
-ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `configOfflinePushSettings`。
+ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `setOfflinePushSettings`。
 
 >!
 > - 必须在登录成功后调用才生效。
@@ -19,7 +19,7 @@ ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，�
  * 初始化离线推送配置，需登录后设置才生效
  * @param settings 离线推送配置信息
  */
-public void configOfflinePushSettings(TIMOfflinePushSettings settings)
+public void setOfflinePushSettings(TIMOfflinePushSettings settings)
 
 /**
  * 从服务器获取离线推送配置，需登录后才能获取
@@ -546,7 +546,7 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 由于小米 ROM 深度定制了安卓系统，加强了权限的控制，第三方 App 默认不会在系统的自启动白名单里，App 在后台很容易被系统杀掉，或者用户手动将 App 杀死， 因为没有自启动权限，App 的 service 无法自动重启，从而导致被杀死后无法收到消息。为了保证 App 被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK 仅支持推送通知栏消息**。
 
->注：
+>!
 >- 收到离线消息时，默认通知标题为 `a new message`。
 >- 此指引文档是根据小米推送 SDKv3.0.3 来写的，可能不适用于新版本的小米推送 SDK，新版本的接入请直接参考小米官方文档。
 >- 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。

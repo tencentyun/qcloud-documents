@@ -10,12 +10,14 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
 
+>?COS Migration 的编码格式只支持 UTF-8 格式。
+
 ## 使用环境
 ### 系统环境
 Windows、Linux 和 macOS 系统。
 
 ### 软件依赖
-- JDK1.7 X64 或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK 1.7 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
@@ -107,14 +109,14 @@ executeTimeWindow=00:00,24:00
 | storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
 | cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/aaa/bbb/` 表示要迁移到 Bucket的` /aaa/bbb/` 下，若 `/aaa/bbb/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
-| tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如` /a/b/c`； <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`。<br>默认为工具所在路径下的 tmp 目录|./tmp|
+| tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`<br>默认为工具所在路径下的 tmp 目录|./tmp|
 | smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认5MB |5242880|
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
 | damonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
 | damonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
-| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00, 表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
+| executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -132,7 +134,7 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c`； <br>Windows 下分隔符为两个反斜杠，如 `E:\\a\\b\\c`。|
+|localPath|本地路径，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，如 `E:\\a\\b\\c`|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，比如设置为300，表示只上传更新了5分钟以上的文件|
 
@@ -156,7 +158,7 @@ proxyPort=
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
 |endPoint|阿里云 endpoint 地址|
-|prefix|要迁移的路径的前缀, 如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
+|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
@@ -180,7 +182,7 @@ proxyPort=
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
 |endPoint|AWS 的 endpoint 地址，必须使用域名，不能使用 region|
-|prefix|要迁移的路径的前缀, 如果是迁移 Bucket 下所有的数据，则 prefix 为空|
+|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
@@ -205,7 +207,7 @@ proxyPort=
 |accessKeyId|用户的密钥 accessKeyId |
 |accessKeySecret| 用户的密钥 accessKeySecret|
 |endPoint|七牛下载地址，对应 downloadDomain|
-|prefix|要迁移的路径的前缀, 如果是迁移 Bucket 下所有的数据，则 prefix 为空|
+|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
@@ -221,7 +223,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址(如 `http://aaa.bbb.com/yyy/zzz.txt`, 无需添加任何双引号或其他符号)。URL 列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 `/a/b/c.txt` <br>Windows  下分隔符为两个反斜杠，如 `E:\\a\\b\\c.txt`。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
+|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（如 `http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<br>Linux 下分隔符为单斜杠，如 `/a/b/c.txt` <br>Windows  下分隔符为两个反斜杠，如 `E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
