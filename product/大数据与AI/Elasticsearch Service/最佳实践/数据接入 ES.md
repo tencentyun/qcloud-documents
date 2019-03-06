@@ -54,7 +54,7 @@ docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.
 ![](https://main.qcloudimg.com/raw/ca620ea07e70c2739b6c1cabd942756a.png)
 
 5. 配置运行参数
-![](https://main.qcloudimg.com/raw/e4e401ff8b1fccdf795aa1271f106b06.png)
+![](https://main.qcloudimg.com/raw/e42a892ade6499b6e734d76de2b564bd.png)
 
 6. 根据需要配置服务参数并创建服务
 ![](https://main.qcloudimg.com/raw/eb55d7e14f020775db4e756d440fab74.png)
