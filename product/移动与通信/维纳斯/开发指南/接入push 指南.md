@@ -25,7 +25,7 @@ plaintext（原文）：“appid&timestamp”。
 | tm | int | 是 | 时间戳，防请求重放 |
 | uid | string | 是 | 用户唯一标识 |
 | wid | string | 是 | 用户名下的某个设备标识，需要指定某台设备时才需填写 |
-| plat | string | 否 | 推送目标手机平台，默认 0= 所有平台 1=iphone 2= 安卓 |
+| plat | string | 否 | 推送目标手机平台，默认 0= 所有平台 1=iphone 2= Android |
 | tag | string | 是 | 消息标签，会填在 STMsg.Tag 推给客户端 |
 | content | string | 是 | 消息内容 |
 | aps | string | 否 | os 离线消息内容，json 格式，见苹果文档 |
@@ -34,7 +34,7 @@ plaintext（原文）：“appid&timestamp”。
 
 >!
 - uid/wid： 填写一个即可
-- 参数格式： 将参数按 query_string 格式拼接，用 http post 发送到接口
+- 参数格式： 将参数按 query_string 格式拼接，用 HTTP post 发送到接口
 
 响应参数：
 
@@ -77,7 +77,7 @@ plaintext（原文）：“appid&timestamp”。
 
 >!
 - 参数格式：json
-- uid/wid：填写一个即可，按填写的 id 获取在线状态
+- uid/wid：填写一个即可，按填写的 ID 获取在线状态
 - 批量：支持批量获取，上限是 100 个
 
 示例：
