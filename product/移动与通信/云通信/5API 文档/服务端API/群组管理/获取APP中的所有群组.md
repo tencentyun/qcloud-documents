@@ -95,7 +95,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
         {
             "GroupId": "@TGS#2C5SZEAEF"
         }
-    ]，
+    ],
     "Next": 4454685361
 }
 ```
