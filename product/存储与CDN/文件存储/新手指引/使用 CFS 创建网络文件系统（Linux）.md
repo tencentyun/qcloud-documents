@@ -1,5 +1,3 @@
-
-
 ## 一、创建和配置 CVM 实例
 要访问文件系统，您需要将文件系统挂载在基于 Linux 或者 Windows 的腾讯云云服务器实例上。在此步骤中，您将创建和配置一个基于 Linux 的腾讯云 CVM 实例。如果您想要使用基于 Windows 的云服务器，请参考文档 [使用 CFS 创建网络文件系统（Windows）](/doc/product/582/11524)。如果已经创建 CVM 实例，请跳转至步骤二 [创建文件系统及挂载点](#1)。
 
@@ -50,9 +48,7 @@
 <span id="1"></span>
 ## 二、创建文件系统及挂载点
 
-1. 进入腾讯云 [控制台](https://console.cloud.tencent.com/)，单击【云产品】>【存储】>【文件存储】，即可进入 CFS 控制台。
-![](//mc.qcloudimg.com/static/img/4fee6ea61cfba11927f6891527237610/image.png)
-
+1. 登录 [CFS 控制台](https://console.cloud.tencent.com/cfs)。
 2. 在腾讯云 CFS 控制台，单击【新建】，弹出创建文件系统弹窗。在创建文件系统弹窗中填写相关信息，确认无误后，单击【确定】即可创建文件系统。
 ![](https://main.qcloudimg.com/raw/3797c04469bf0da994d2e2876a2a39ad.png)
  - 名称：您可以为创建的文件系统进行命名。
@@ -60,7 +56,7 @@
  - 文件协议：NFS（更适用于Linux、Unix客户端),CIFS/SMB（更适用于 Windows 客户端）。
  - 网络类型：腾讯云提供基础网络或私有网络两种可选。基础网络适合新手用户，同一用户的云服务器内网互通。私有网络适合更高阶的用户，不同私有网络间逻辑隔离。
   	
- > **注意：**
+ >!
  > 请根据您的 CVM 实例所在网络来创建并挂载文件系统。
  > - 若您要实现私有网络（VPC）下 CVM 对文件系统的共享，您需要在创建文件系统时选择私有网络。当文件系统属于私有网络时，如果未进行特殊网络设置，则只有同一私有网络内的 CVM 实例能够挂载。
  > - 若您要实现基础网络下 CVM 对文件系统的共享，您需要在创建文件系统时选择基础网络。当文件系统属于基础网络时，如果未进行特殊网络设置，则只有同在基础网路内的 CVM 实例能够挂载。
@@ -89,7 +85,7 @@ CIFS/SMB 文件系统挂载点信息如下:
 ![](//mc.qcloudimg.com/static/img/73cc4f9f702f80d95717c7a35063ab41/image.png)
 - 输入帐号（root ，Ubuntu 系统用户为 ubuntu）和密码即可登录。
 
->**注意：**
+>!
 >该终端为独享，即同一时间只有一个用户可以使用控制台登录。
 
 
@@ -102,7 +98,7 @@ NFS 3.0 | 111，892， 2049 |  telnet 111 或者 892 或者 2049
 NFS 4.0 | 2049 |  telnet 2049
 CIFS/SMB | 445 |  telnet 445 
 
-注：CFS 暂不支持 ping。
+>!CFS 暂不支持 ping。
 
 ## 四、挂载文件系统
 ### 挂载 NFS 文件系统
@@ -133,24 +129,25 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
-sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目标目录>
+sudo mount -t nfs -o vers=4,noresvport <挂载点IP>:/ <待挂载目录>
 ```
+
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - 目前默认挂载的是文件系统的根目录 "/"。 在文件系统中创建子目录后，可以挂载该子目录。
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
-> **注意：**
+>!
 > `<挂载点IP>:/`与`<待挂载目标目录>`之间有一个空格。
 
 
 示例：
 - 挂载 CFS 根目录：
 ```
-sudo mount -t nfs -o vers=4 10.0.0.1:/ /local/test
+sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录 subfolder：
 ```
-sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
+sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/subfolder /localfolder 
 ```
 
  ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
@@ -158,21 +155,21 @@ sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
 ```
-sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/<FSID> <待挂载目标目录>
+sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <待挂载目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - NFS v3.0 仅支持子目录挂载，缺省文件系统子目录为 FSID。
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 示例
 
-> **注意：**
+>!
 > `<挂载点IP>:/<FSID>` 与 `<待挂载目标目录>`之间有一个空格。
 
 
 示例：
 - 挂载 CFS 子目录 subfolder：
 ```
-mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/z3r6k95r /local/test
+sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 10.0.24.4:/z3r6k95r /localfolder 
 ```
 ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
@@ -214,7 +211,7 @@ mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
 - 目前默认挂载使用文件系统的FSID。 
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
-> **注意：**
+>!
 > `<FSID>` 与 `/<待挂载目标目录>`之间有一个空格。
 
 示例：
