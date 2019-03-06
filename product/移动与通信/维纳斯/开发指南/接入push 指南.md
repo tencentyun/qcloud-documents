@@ -47,6 +47,7 @@ plaintext（原文）：“appid&timestamp”。
 >!
 - 数据格式：json 格式
 - errno 为 0 时，detail 是详细信息
+
 示例：
 
 ```
@@ -104,7 +105,7 @@ plaintext（原文）：“appid&timestamp”。
 | uid |  uid在线数组 | 否 | 每个 uid 的在线状态( 0:离线  1:在线) |
 | wid |  wid在线数组 | 否 | 每个 wid 的在线状态( 0:离线  1:在线) |
 
->!：
+>!
 - 参数格式：json
 - uid 和 wid 关系：wid 是设备 ID，一个用户(uid)可以最多登录 5 个设备(wid)
 
