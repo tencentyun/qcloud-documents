@@ -92,72 +92,71 @@ Content-Type: "application/json"
 
 ```
 {
-    "result_list": [
-        {
-            "code": 0,
-            "message": "OK",
-            "url": " http://www.test.com/aaa.jpg",
-            "data": {
-                "name": "某某",
-                "sex": "男",
-                "nation": "汉",
-                "birth": "2000/1/1",
-                "address": "某地",
-                "id": "123456200001011234",
-                "name_confidence_all": [
-                    38,28
-                ],
-                "sex_confidence_all": [
-                    28
-                ],
-                "nation_confidence_all": [
-                    34
-                ],
-                "birth_confidence_all": [
-                    38, 38, 20, 46, 50, 49
-                ],
-                "address_confidence_all": [
-                    13, 30,
-                ],
-                "id_confidence_all": [
-49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
-                    45, 55, 54, 47
-                ]
-            }
-        },
-        {
-            "code": 0,
-            "message": "OK",
-            "url": " http://www.test.com/bbb.jpg",
-            "data": {
-                "name": "某某某",
-                "sex": "女",
-                "nation": "汉",
-                "birth": "2001/1/1",
-                "address": "某地",
-                "id": "123456200101011234",
-                "name_confidence_all": [
-                    38,28,55
-                ],
-                "sex_confidence_all": [
-                    28
-                ],
-                "nation_confidence_all": [
-                    34
-                ],
-                "birth_confidence_all": [
-                    38, 38, 20, 46, 50, 49
-                ],
-                "address_confidence_all": [
-                    13, 30,
-                ],
-                "id_confidence_all": [
-49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
-                    45, 55, 54, 47
-                ]
-            }
-        }
-    ]
+	"result_list": [{
+			"code": 0,
+			"message": "OK",
+			"url": " http://www.test.com/aaa.jpg",
+			"data": {
+				"name": "某某",
+				"sex": "男",
+				"nation": "汉",
+				"birth": "2000/1/1",
+				"address": "某地",
+				"id": "123456200001011234",
+				"name_confidence_all": [
+					38, 28
+				],
+				"sex_confidence_all": [
+					28
+				],
+				"nation_confidence_all": [
+					34
+				],
+				"birth_confidence_all": [
+					38, 38, 20, 46, 50, 49
+				],
+				"address_confidence_all": [
+					13, 30
+				],
+				"id_confidence_all": [
+					49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
+					45, 55, 54, 47
+				]
+			}
+		},
+		{
+			"code": 0,
+			"message": "OK",
+			"url": " http://www.test.com/bbb.jpg",
+			"data": {
+				"name": "某某某",
+				"sex": "女",
+				"nation": "汉",
+				"birth": "2001/1/1",
+				"address": "某地",
+				"id": "123456200101011234",
+				"name_confidence_all": [
+					38, 28, 55
+				],
+				"sex_confidence_all": [
+					28
+				],
+				"nation_confidence_all": [
+					34
+				],
+				"birth_confidence_all": [
+					38, 38, 20, 46, 50, 49
+				],
+				"address_confidence_all": [
+					13, 30
+				],
+				"id_confidence_all": [
+					49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
+					45, 55, 54, 47
+				]
+			}
+		}
+	]
 }
 ```
 
