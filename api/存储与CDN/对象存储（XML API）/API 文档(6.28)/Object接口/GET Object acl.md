@@ -6,7 +6,7 @@ GET Object acl 接口用来获取某个存储桶下的某个对象的访问权�
 
 ## 请求
 ### 请求示例
-```
+```shell
 GET /<ObjectKey>?acl HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -39,7 +39,7 @@ Authorization: Auth String
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <AccessControlPolicy>
   <Owner>
     <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
@@ -108,7 +108,7 @@ Container 节点 Grantee 的内容：
 ## 实际案例
 
 ### 请求
-```
+```shell
 GET /exampleobject?acl HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
@@ -116,7 +116,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB&q-sign-time=14842130
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 266
