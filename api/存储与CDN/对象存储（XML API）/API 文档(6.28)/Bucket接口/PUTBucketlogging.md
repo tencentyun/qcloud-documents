@@ -6,7 +6,7 @@ PUT Bucket Logging 接口用于为源存储桶开启日志记录，将源存储�
 ## 请求
 
 ### 请求示例
-```
+```shell
 PUT /?logging HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date:date
@@ -32,7 +32,7 @@ Authorization: Auth String
 
 ### 请求体
 该请求操作的实现需要有请求体。帯所有节点的请求体内容示例如下：
-```
+```shell
 <BucketLoggingStatus>
   <LoggingEnabled>
     <TargetBucket>logbucket</TargetBucket>
@@ -74,7 +74,7 @@ Container 节点 LoggingEnabled 的内容：
 ## 实际案例
 
 ### 请求
-```
+```shell
 PUT /?logging HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2017 09:45:46 GMT
@@ -91,7 +91,7 @@ Content-Length: 147
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
