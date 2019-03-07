@@ -6,14 +6,14 @@ GET Bucket logging 用于获取源存储桶的日志配置信息。
 ## 请求
 
 ### 请求示例
-```
+```shell
 GET /?logging HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
@@ -32,7 +32,7 @@ Authorization: Auth String
 该响应无特殊的响应头。
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
-```
+```shell
 <BucketLoggingStatus>
   <LoggingEnabled>
     <TargetBucket>logs</TargetBucket>
@@ -62,7 +62,7 @@ Container 节点 LoggingEnabled 的内容：
 ## 实际案例
 
 ### 请求
-```
+```shell
 GET /?logging HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2017 21:32:00 GMT
@@ -70,7 +70,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9&q-sign-time=1484815
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 142
