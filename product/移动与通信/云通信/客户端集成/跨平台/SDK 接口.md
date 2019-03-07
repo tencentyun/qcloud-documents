@@ -15,11 +15,10 @@ TIM_DECL void TIMSetRecvNewMsgCallback(TIMRecvNewMsgCallback cb, const void* use
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMRecvNewMsgCallback | 新消息回调函数，声明 [TIMRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33486#TIMRecvNewMsgCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->如果用户是登录状态，ImSDK 收到新消息会通过此接口设置的回调抛出，另外需要注意，抛出的消息不一定是未读的消息， 只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。 在用户登录之后，ImSDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。 详情  [新消息通知](https://cloud.tencent.com/document/product/269/1581#新消息通知#新消息通知)  和  [接收消息](https://cloud.tencent.com/document/product/269/1587#接收消息#接收消息) 。
+>?
+如果用户是登录状态，ImSDK 收到新消息会通过此接口设置的回调抛出，另外需要注意，抛出的消息不一定是未读的消息， 只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。 在用户登录之后，ImSDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。 详情  [新消息通知](https://cloud.tencent.com/document/product/269/1581#新消息通知#新消息通知)  和  [接收消息](https://cloud.tencent.com/document/product/269/1587#接收消息#接收消息) 。
 
 
 ### TIMSetMsgReadedReceiptCallback
@@ -37,11 +36,10 @@ TIM_DECL void TIMSetMsgReadedReceiptCallback(TIMMsgReadedReceiptCallback cb, con
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMMsgReadedReceiptCallback | 消息已读回执回调 TIMMsgReadedReceiptCallback (TIMCloudCallback.h) |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->发送方发送消息，接收方调用接口 [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33485#TIMMsgReportReaded) 上报该消息已读，发送方ImSDK会通过此接口设置的回调抛出。 详情消息属性  [消息是否已读](https://cloud.tencent.com/document/product/269/1587#消息是否已读#消息是否已读) 。
+>?
+发送方发送消息，接收方调用接口 [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33485#TIMMsgReportReaded) 上报该消息已读，发送方ImSDK会通过此接口设置的回调抛出。 详情消息属性  [消息是否已读](https://cloud.tencent.com/document/product/269/1587#消息是否已读#消息是否已读) 。
 
 
 ### TIMSetMsgRevokeCallback
@@ -59,11 +57,10 @@ TIM_DECL void TIMSetMsgRevokeCallback(TIMMsgRevokeCallback cb, const void* user_
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMMsgRevokeCallback | 消息撤回通知回调。回调声明 [TIMMsgRevokeCallback](https://cloud.tencent.com/document/product/269/33486#TIMMsgRevokeCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->发送方发送消息，接收方收到消息。此时发送方调用接口 [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33485#TIMMsgRevoke) 撤回该消息，接收方的ImSDK会通过此接口设置的回调抛出。
+>?
+发送方发送消息，接收方收到消息。此时发送方调用接口 [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33485#TIMMsgRevoke) 撤回该消息，接收方的ImSDK会通过此接口设置的回调抛出。
 
 
 ### TIMSetMsgElemUploadProgressCallback
@@ -81,11 +78,10 @@ TIM_DECL void TIMSetMsgElemUploadProgressCallback(TIMMsgElemUploadProgressCallba
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMMsgElemUploadProgressCallback | 文件上传进度回调。回调声明 [TIMMsgElemUploadProgressCallback](https://cloud.tencent.com/document/product/269/33486#TIMMsgElemUploadProgressCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->设置消息元素上传进度回调。当消息内包含图片、声音、文件、视频元素时，ImSDK会上传这些文件，并触发此接口设置的回调，用户可以根据回调感知上传的进度。
+>?
+设置消息元素上传进度回调。当消息内包含图片、声音、文件、视频元素时，ImSDK会上传这些文件，并触发此接口设置的回调，用户可以根据回调感知上传的进度。
 
 
 ### TIMSetGroupTipsEventCallback
@@ -103,11 +99,10 @@ TIM_DECL void TIMSetGroupTipsEventCallback(TIMGroupTipsEventCallback cb, const v
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMGroupTipsEventCallback | 群消息回调。回调声明 [TIMGroupTipsEventCallback](https://cloud.tencent.com/document/product/269/33486#TIMGroupTipsEventCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->群组系统消息事件包括 加入群、退出群、踢出群、设置管理员、取消管理员、群资料变更、群成员资料变更。此消息是针对所有群组成员下发的。
+>?
+群组系统消息事件包括 加入群、退出群、踢出群、设置管理员、取消管理员、群资料变更、群成员资料变更。此消息是针对所有群组成员下发的。
 
 
 ### TIMSetConvEventCallback
@@ -125,11 +120,10 @@ TIM_DECL void TIMSetConvEventCallback(TIMConvEventCallback cb, const void* user_
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMConvEventCallback | 会话事件回调。回调声明 [TIMConvEventCallback](https://cloud.tencent.com/document/product/269/33486#TIMConvEventCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->会话事件包括：会话新增、会话删除、会话更新。 任何产生一个新会话的操作都会触发会话新增事件，比如调用接口 [TIMConvCreate](https://cloud.tencent.com/document/product/269/33485#TIMConvCreate) 创建会话，接收到未知会话的第一条消息等。 任何已有会话变化的操作都会触发会话更新事件，比如收到会话新消息，消息撤回，已读上报等。 调用接口 [TIMConvDelete](https://cloud.tencent.com/document/product/269/33485#TIMConvDelete) 删除会话成功时会触发会话删除事件。
+>?
+会话事件包括：会话新增、会话删除、会话更新。 任何产生一个新会话的操作都会触发会话新增事件，比如调用接口 [TIMConvCreate](https://cloud.tencent.com/document/product/269/33485#TIMConvCreate) 创建会话，接收到未知会话的第一条消息等。 任何已有会话变化的操作都会触发会话更新事件，比如收到会话新消息，消息撤回，已读上报等。 调用接口 [TIMConvDelete](https://cloud.tencent.com/document/product/269/33485#TIMConvDelete) 删除会话成功时会触发会话删除事件。
 
 
 ### TIMSetNetworkStatusListenerCallback
@@ -147,11 +141,10 @@ TIM_DECL void TIMSetNetworkStatusListenerCallback(TIMNetworkStatusListenerCallba
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMNetworkStatusListenerCallback | 连接事件回调。回调声明 [TIMNetworkStatusListenerCallback](https://cloud.tencent.com/document/product/269/33486#TIMNetworkStatusListenerCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->当调用接口  [TIMInit](https://cloud.tencent.com/document/product/269/33485#TIMInit) 时，ImSDK会去连接云后台。此接口设置的回调用于监听网络连接的状态。 网络连接状态包含四个：正在连接、连接失败、连接成功、已连接。 详情 [网络事件通知](https://cloud.tencent.com/document/product/269/1581#网络事件通知#网络事件通知) 。
+>?
+当调用接口  [TIMInit](https://cloud.tencent.com/document/product/269/33485#TIMInit) 时，ImSDK会去连接云后台。此接口设置的回调用于监听网络连接的状态。 网络连接状态包含四个：正在连接、连接失败、连接成功、已连接。 详情 [网络事件通知](https://cloud.tencent.com/document/product/269/1581#网络事件通知#网络事件通知) 。
 
 
 ### TIMSetKickedOfflineCallback
@@ -169,11 +162,10 @@ TIM_DECL void TIMSetKickedOfflineCallback(TIMKickedOfflineCallback cb, const voi
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMKickedOfflineCallback | 踢下线回调。回调声明 [TIMKickedOfflineCallback](https://cloud.tencent.com/document/product/269/33486#TIMKickedOfflineCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->用户如果在其他终端登录，会被踢下线，这时会收到用户被踢下线的通知，出现这种情况常规的做法是提示用户进行操作（退出，或者再次把对方踢下线）。 详情 [用户状态变更 （互踢）](https://cloud.tencent.com/document/product/269/1581#用户状态变更 （互踢）#用户状态变更 （互踢）) 。
+>?
+用户如果在其他终端登录，会被踢下线，这时会收到用户被踢下线的通知，出现这种情况常规的做法是提示用户进行操作（退出，或者再次把对方踢下线）。 详情 [用户状态变更 （互踢）](https://cloud.tencent.com/document/product/269/1581#用户状态变更 （互踢）#用户状态变更 （互踢）) 。
 
 
 ### TIMSetUserSigExpiredCallback
@@ -191,11 +183,10 @@ TIM_DECL void TIMSetUserSigExpiredCallback(TIMUserSigExpiredCallback cb, const v
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMUserSigExpiredCallback | 票据过期回调。回调声明 [TIMUserSigExpiredCallback](https://cloud.tencent.com/document/product/269/33486#TIMUserSigExpiredCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->用户票据，可能会存在过期的情况，如果用户票据过期，此接口设置的回调会调用。  [TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin) 也将会返回 70001 错误码。开发者可根据错误码或者票据过期回调进行票据更换。
+>?
+用户票据，可能会存在过期的情况，如果用户票据过期，此接口设置的回调会调用。  [TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin) 也将会返回 70001 错误码。开发者可根据错误码或者票据过期回调进行票据更换。
 
 
 ### TIMSetLogCallback
@@ -213,11 +204,10 @@ TIM_DECL void TIMSetLogCallback(TIMLogCallback cb, const void* user_data);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMLogCallback | 日志回调。回调声明 [TIMLogCallback](https://cloud.tencent.com/document/product/269/33486#TIMLogCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->设置日志监听的回调之后，ImSDK内部的日志会回传到此接口设置的回调。 客户可以通过接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33485#TIMSetConfig) 配置哪些日志级别的日志回传到回调函数。
+>?
+设置日志监听的回调之后，ImSDK内部的日志会回传到此接口设置的回调。 客户可以通过接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33485#TIMSetConfig) 配置哪些日志级别的日志回传到回调函数。
 
 
 ### TIMSetMsgUpdateCallback
@@ -235,14 +225,13 @@ TIM_DECL void TIMSetMsgUpdateCallback(TIMMsgUpdateCallback cb, const void* user_
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMMsgUpdateCallback | 消息更新回调。回调声明 [TIMMsgUpdateCallback](https://cloud.tencent.com/document/product/269/33486#TIMMsgUpdateCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
-**注释：**
-
->1. 当您发送的消息在服务端被修改后，SDK会通过该回调通知给您  。
->2. 您可以在您自己的服务器上拦截所有 IM 消息  [发单聊消息之前回调](https://cloud.tencent.com/document/product/269/1632#发单聊消息之前回调)  。
->3. 设置成功之后，腾讯云IM服务器会将您的用户发送的每条消息都同步地通知给您的业务服务器。 。
->4. 您的业务服务器可以对该条消息进行修改（比如过滤敏感词），如果您的服务器对消息进行了修改，SDK就会通过此回调通知您。
+>?
+1. 当您发送的消息在服务端被修改后，SDK会通过该回调通知给您  。
+2. 您可以在您自己的服务器上拦截所有 IM 消息  [发单聊消息之前回调](https://cloud.tencent.com/document/product/269/1632#发单聊消息之前回调)  。
+3. 设置成功之后，腾讯云IM服务器会将您的用户发送的每条消息都同步地通知给您的业务服务器。 。
+4. 您的业务服务器可以对该条消息进行修改（比如过滤敏感词），如果您的服务器对消息进行了修改，SDK就会通过此回调通知您。
 
 
 
@@ -271,11 +260,11 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功，其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 在使用 ImSDK 进一步操作之前，需要先初始化 ImSDK 。
->2. json_sdk_config可以为NULL或者""空字符串，在此情况下SdkConfig均为默认值。 。
->3. json_sdk_config里面的每个Json key都是选填的，详见 [SdkConfig](https://cloud.tencent.com/document/product/269/33487#SdkConfig)  。
+>?
+1. 在使用 IM SDK 进一步操作之前，需要先初始化 IM SDK 。
+2. json_sdk_config可以为NULL或者""空字符串，在此情况下SdkConfig均为默认值。 。
+3. json_sdk_config里面的每个Json key都是选填的，详见 [SdkConfig](https://cloud.tencent.com/document/product/269/33487#SdkConfig)  。
 
 
 **示例：**
@@ -321,9 +310,8 @@ ImSDK卸载。
 TIM_DECL int TIMUninit();
 ```
 
-**注释：**
-
->卸载DLL或退出进程前需此接口卸载ImSDK，清理ImSDK相关资源。
+>?
+卸载DLL或退出进程前需此接口卸载ImSDK，清理ImSDK相关资源。
 
 
 **示例：**
@@ -360,16 +348,16 @@ TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const voi
 |-----|-----|-----|
 | json_config | const char* | 其他配置选项 |
 | cb | TIMCommCallback | 返回设置配置之后所有配置的回调，此 cb 可为空，表示不获取所有配置信息。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMSetConfig](https://cloud.tencent.com/document/product/269/33486#TIMSetConfig)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->目前支持设置的配置有代理的ip和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。 每项配置可以单独设置、也可以一起配置。详见  [SetConfig](https://cloud.tencent.com/document/product/269/33487#SetConfig) 。
+>?
+目前支持设置的配置有代理的ip和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。 每项配置可以单独设置、也可以一起配置。详见  [SetConfig](https://cloud.tencent.com/document/product/269/33487#SetConfig) 。
 
 
 **示例：**
@@ -397,11 +385,11 @@ TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const voi
 
 
 
-## 登录登出
+## 登入登出
 
 ### TIMLogin
 
-登录。
+登入。
 
 **原型：**
 
@@ -415,17 +403,17 @@ TIM_DECL int TIMLogin(const char* user_id, const char* user_sig, TIMCommCallback
 |-----|-----|-----|
 | user_id | const char* | indentifier |
 | user_sig | const char* | 用户的sig |
-| cb | TIMCommCallback | 登录成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| cb | TIMCommCallback | 登入成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供identifier、userSig等信息，具体含义可参阅  [登录鉴权](https://cloud.tencent.com/document/product/269/31999#登录鉴权) 。
+>?
+用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供identifier、userSig等信息，具体含义可参阅  [登录鉴权](https://cloud.tencent.com/document/product/269/31999#登录鉴权) 。
 
 
 ### TIMLogout
@@ -443,16 +431,16 @@ TIM_DECL int TIMLogout(TIMCommCallback cb, const void* user_data);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMCommCallback | 登出成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->如用户主动登出或需要进行用户的切换，则需要调用登出操作 。
+>?
+如用户主动登出或需要进行用户的切换，则需要调用登出操作 。
 
 
 
@@ -477,17 +465,17 @@ TIM_DECL int TIMConvCreate(const char* conv_id, TIMConvType conv_type, TIMCommCa
 | conv_id | const char* | 会话的id |
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | cb | TIMCommCallback | 创建会话的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMConvCreate](https://cloud.tencent.com/document/product/269/33486#TIMConvCreate)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息 。
->2. 此接口创建或者获取会话信息，需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。会话信息通过cb回传。
+>?
+1. 会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息 。
+2. 此接口创建或者获取会话信息，需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。会话信息通过cb回传。
 
 
 **示例： 1. 获取对方 `identifier` 为『Windows-02』的单聊会话示例：**
@@ -541,16 +529,16 @@ TIM_DECL int TIMConvDelete(const char* conv_id, TIMConvType conv_type, TIMCommCa
 | conv_id | const char* | 会话的id |
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | cb | TIMCommCallback | 删除会话成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->此接口用于删除会话，删除会话是否成功通过回调返回。
+>?
+此接口用于删除会话，删除会话是否成功通过回调返回。
 
 
 ### TIMConvGetConvList
@@ -568,13 +556,14 @@ TIM_DECL int TIMConvGetConvList(TIMCommCallback cb, const void* user_data);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMCommCallback | 获取会话缓存列表的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMConvGetConvList](https://cloud.tencent.com/document/product/269/33486#TIMConvGetConvList)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
+
 ### TIMConvSetDraft
 
 设置指定会话的草稿。
@@ -598,9 +587,9 @@ TIM_DECL int TIMConvSetDraft(const char* conv_id, TIMConvType conv_type, const c
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功，其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->会话草稿一般用在保存用户当前输入的未发送的消息。
+>?
+会话草稿一般用在保存用户当前输入的未发送的消息。
 
 
 **示例：**
@@ -660,6 +649,7 @@ TIM_DECL int TIMConvCancelDraft(const char* conv_id, TIMConvType conv_type);
 | int | 返回 TIM_SUCC 表示接口调用成功，其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
 
 
+
 ## 消息相关接口
 
 >[消息](https://cloud.tencent.com/document/product/269/3662)。
@@ -684,26 +674,26 @@ TIM_DECL int TIMMsgSendNewMsg(const char* conv_id, TIMConvType conv_type, const 
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_param | const char* | 消息json字符串 |
 | cb | TIMCommCallback | 发送新消息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 发送新消息，单聊消息和群消息的发送均采用此接口。发送单聊消息时conv_id为对方的identifier，conv_type为kTIMConv_C2C；发送群聊消息时conv_id为群ID，conv_type为kTIMConv_Group。 。
->2. 注意发送消息时不能发送kTIMElem_GroupTips、kTIMElem_GroupReport，他们由为后台下发，用于更新(通知)群的信息。其他消息元素均可发送 。
->3. 可以的发送消息内元素 。
->   文本消息元素  [TextElem](https://cloud.tencent.com/document/product/269/33487#TextElem)  。
->   表情消息元素  [FaceElem](https://cloud.tencent.com/document/product/269/33487#FaceElem)  。
->   位置消息元素  [LocationElem](https://cloud.tencent.com/document/product/269/33487#LocationElem)  。
->   图片消息元素  [ImageElem](https://cloud.tencent.com/document/product/269/33487#ImageElem)  。
->   声音消息元素  [SoundElem](https://cloud.tencent.com/document/product/269/33487#SoundElem)  。
->   自定义消息元素  [CustomElem](https://cloud.tencent.com/document/product/269/33487#CustomElem)  。
->   文件消息元素  [FileElem](https://cloud.tencent.com/document/product/269/33487#FileElem)  。
->   视频消息元素  [VideoElem](https://cloud.tencent.com/document/product/269/33487#VideoElem) 。
+>?
+1. 发送新消息，单聊消息和群消息的发送均采用此接口。发送单聊消息时conv_id为对方的identifier，conv_type为kTIMConv_C2C；发送群聊消息时conv_id为群ID，conv_type为kTIMConv_Group。 。
+2. 注意发送消息时不能发送kTIMElem_GroupTips、kTIMElem_GroupReport，他们由为后台下发，用于更新(通知)群的信息。其他消息元素均可发送 。
+3. 可以的发送消息内元素 。
+文本消息元素  [TextElem](https://cloud.tencent.com/document/product/269/33487#TextElem)  。
+表情消息元素  [FaceElem](https://cloud.tencent.com/document/product/269/33487#FaceElem)  。
+位置消息元素  [LocationElem](https://cloud.tencent.com/document/product/269/33487#LocationElem)  。
+图片消息元素  [ImageElem](https://cloud.tencent.com/document/product/269/33487#ImageElem)  。
+声音消息元素  [SoundElem](https://cloud.tencent.com/document/product/269/33487#SoundElem)  。
+自定义消息元素  [CustomElem](https://cloud.tencent.com/document/product/269/33487#CustomElem)  。
+文件消息元素  [FileElem](https://cloud.tencent.com/document/product/269/33487#FileElem)  。
+视频消息元素  [VideoElem](https://cloud.tencent.com/document/product/269/33487#VideoElem) 。
 
 
 **示例：**
@@ -760,16 +750,16 @@ TIM_DECL int TIMMsgReportReaded(const char* conv_id, TIMConvType conv_type, cons
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_param | const char* | 消息json字符串 |
 | cb | TIMCommCallback | 消息上报已读成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->上报此消息已读状态，最好用接收新消息获取的消息数组里面的消息Json 或者用消息定位符查找到的消息Json，避免重复构造消息Json。
+>?
+上报此消息已读状态，最好用接收新消息获取的消息数组里面的消息Json 或者用消息定位符查找到的消息Json，避免重复构造消息Json。
 
 
 ### TIMMsgRevoke
@@ -790,16 +780,16 @@ TIM_DECL int TIMMsgRevoke(const char* conv_id, TIMConvType conv_type, const char
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_param | const char* | 消息json字符串 |
 | cb | TIMCommCallback | 消息撤回成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->消息撤回。使用保存的消息Json或者用消息定位符查找到的消息Json，避免重复构造消息Json。
+>?
+消息撤回。使用保存的消息Json或者用消息定位符查找到的消息Json，避免重复构造消息Json。
 
 
 ### TIMMsgFindByMsgLocatorList
@@ -820,17 +810,17 @@ TIM_DECL int TIMMsgFindByMsgLocatorList(const char* conv_id, TIMConvType conv_ty
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_Locator_array | const char* | 消息定位符数组 |
 | cb | TIMCommCallback | 根据消息定位精准查找指定会话的消息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMMsgFind](https://cloud.tencent.com/document/product/269/33486#TIMMsgFind)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 此接口根据消息定位符精准查找指定会话的消息，该功能一般用于消息撤回时查找指定消息等 。
->2. 一个消息定位符对应一条消息。
+>?
+1. 此接口根据消息定位符精准查找指定会话的消息，该功能一般用于消息撤回时查找指定消息等 。
+2. 一个消息定位符对应一条消息。
 
 
 **示例：**
@@ -880,16 +870,16 @@ TIM_DECL int TIMMsgImportMsgList(const char* conv_id, TIMConvType conv_type, con
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_array | const char* | 消息数组 |
 | cb | TIMCommCallback | 导入消息列表到指定会话成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->批量导入消息，可以自己构造消息去导入。也可以将之前要导入的消息数组Json保存，然后导入的时候直接调用接口，避免构造消息数组。
+>?
+批量导入消息，可以自己构造消息去导入。也可以将之前要导入的消息数组Json保存，然后导入的时候直接调用接口，避免构造消息数组。
 
 
 **示例：**
@@ -947,16 +937,16 @@ TIM_DECL int TIMMsgSaveMsg(const char* conv_id, TIMConvType conv_type, const cha
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msg_param | const char* | 消息json字符串 |
 | cb | TIMCommCallback | 保存自定义消息成功与否的回调。调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->消息保存接口，一般是自己构造一个消息Json字符串，然后保存到指定会话。
+>?
+消息保存接口，一般是自己构造一个消息Json字符串，然后保存到指定会话。
 
 
 ### TIMMsgGetMsgList
@@ -977,16 +967,16 @@ TIM_DECL int TIMMsgGetMsgList(const char* conv_id, TIMConvType conv_type, const 
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msgget_param | const char* | 消息获取参数 |
 | cb | TIMCommCallback | 获取指定会话的消息列表成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMMsgGet](https://cloud.tencent.com/document/product/269/33486#TIMMsgGet)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->从{msg_getmsglist_param_last_msg}指定的消息开始获取本地消息列表，{msg_getmsglist_param_count}为要获取的消息数目。 若指定{msg_getmsglist_param_is_remble}为true则本地消息获取不够指定数目时，则会去获取云端漫游消息。 {msg_getmsglist_param_is_forward}指定向前获取还是向后获取。
+>?
+从{msg_getmsglist_param_last_msg}指定的消息开始获取本地消息列表，{msg_getmsglist_param_count}为要获取的消息数目。 若指定{msg_getmsglist_param_is_remble}为true则本地消息获取不够指定数目时，则会去获取云端漫游消息。 {msg_getmsglist_param_is_forward}指定向前获取还是向后获取。
 
 
 **示例：**
@@ -1030,18 +1020,18 @@ TIM_DECL int TIMMsgDelete(const char* conv_id, TIMConvType conv_type, const char
 | conv_type | TIMConvType | 会话类型。 [TIMConvType](https://cloud.tencent.com/document/product/269/33486#TIMConvType)  |
 | json_msgdel_param | const char* | 消息获取参数 |
 | cb | TIMCommCallback | 删除指定会话的消息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1、当设置 msg_del_param_msg 时，在会话中删除指定本地消息 。
->2、当未设置 msg_del_param_msg 时， msg_del_param_is_remble 为false表示删除会话所有本地消息，true表示删除会话所有漫游消息(删除漫游消息暂时不支持) 。
->3、一般直接使用保存的消息Json，或者通过消息定位符查找得到的Json。不用删除的时候构造消息Json。
+>?
+1、当设置 msg_del_param_msg 时，在会话中删除指定本地消息 。
+2、当未设置 msg_del_param_msg 时， msg_del_param_is_remble 为false表示删除会话所有本地消息，true表示删除会话所有漫游消息(删除漫游消息暂时不支持) 。
+3、一般直接使用保存的消息Json，或者通过消息定位符查找得到的Json。不用删除的时候构造消息Json。
 
 
 **示例：**
@@ -1079,16 +1069,16 @@ TIM_DECL int TIMMsgDownloadElemToPath(const char* json_download_elem_param, cons
 | json_download_elem_param | const char* | 下载的参数Json字符串 |
 | path | const char* | 下载文件保存路径 |
 | cb | TIMCommCallback | 下载成功与否的回调以及下载进度回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMMsgDownloadElemToPath](https://cloud.tencent.com/document/product/269/33486#TIMMsgDownloadElemToPath)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->此接口用于下载消息内图片、文件、声音、视频等元素。下载的参数kTIMMsgDownloadElemParamFlag、kTIMMsgDownloadElemParamId、kTIMMsgDownloadElemParamBusinessId、kTIMMsgDownloadElemParamUrl均可以 在相应元素内找到。其中kTIMMsgDownloadElemParamType为下载文件类型 [TIMDownloadType](https://cloud.tencent.com/document/product/269/33487#TIMDownloadType) 。
+>?
+此接口用于下载消息内图片、文件、声音、视频等元素。下载的参数kTIMMsgDownloadElemParamFlag、kTIMMsgDownloadElemParamId、kTIMMsgDownloadElemParamBusinessId、kTIMMsgDownloadElemParamUrl均可以 在相应元素内找到。其中kTIMMsgDownloadElemParamType为下载文件类型 [TIMDownloadType](https://cloud.tencent.com/document/product/269/33487#TIMDownloadType) 。
 
 
 **示例：**
@@ -1123,16 +1113,16 @@ TIM_DECL int TIMMsgBatchSend(const char* json_batch_send_param, TIMCommCallback 
 |-----|-----|-----|
 | json_batch_send_param | const char* | 群发消息json字符串 |
 | cb | TIMCommCallback | 群发消息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMMsgBatchSend](https://cloud.tencent.com/document/product/269/33486#TIMMsgBatchSend)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->批量发送消息的接口，每个identifier发送成功与否，通过回调cb返回。
+>?
+批量发送消息的接口，每个identifier发送成功与否，通过回调cb返回。
 
 
 **示例：**
@@ -1201,17 +1191,17 @@ TIM_DECL int TIMGroupCreate(const char* json_group_create_param, TIMCommCallback
 |-----|-----|-----|
 | json_group_create_param | const char* | 创建群组的参数Json字符串 |
 | cb | TIMCommCallback | 创建群组成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupCreate](https://cloud.tencent.com/document/product/269/33486#TIMGroupCreate)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 创建群组时可以指定群ID，若未指定时IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，群组 ID通过创建群组时传入的回调返回 。
->2. 创建群参数的Json Key详见 [CreateGroupParam](https://cloud.tencent.com/document/product/269/33487#CreateGroupParam) 。
+>?
+1. 创建群组时可以指定群ID，若未指定时IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，群组 ID通过创建群组时传入的回调返回 。
+2. 创建群参数的Json Key详见 [CreateGroupParam](https://cloud.tencent.com/document/product/269/33487#CreateGroupParam) 。
 
 
 **示例：**
@@ -1274,19 +1264,19 @@ TIM_DECL int TIMGroupDelete(const char* group_id, TIMCommCallback cb, const void
 |-----|-----|-----|
 | group_id | const char* | 要删除的群组ID |
 | cb | TIMCommCallback | 删除群组成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   对于私有群，任何人都无法解散群组。 。
->   对于公开群、聊天室和直播大群，群主可以解散群组。 。
->2. 删除指定群组group_id的接口，删除成功与否可根据回调cb的参数判断。
+>?
+1. 权限说明： 。
+对于私有群，任何人都无法解散群组。 。
+对于公开群、聊天室和直播大群，群主可以解散群组。 。
+2. 删除指定群组group_id的接口，删除成功与否可根据回调cb的参数判断。
 
 
 ### TIMGroupJoin
@@ -1306,21 +1296,21 @@ TIM_DECL int TIMGroupJoin(const char* group_id, const char* hello_msg, TIMCommCa
 | group_id | const char* | 要加入的群组ID |
 | hello_msg | const char* | 申请理由（选填） |
 | cb | TIMCommCallback | 申请加入群组成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   私有群不能由用户主动申请入群。 。
->   公开群和聊天室可以主动申请进入。 。
->   如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功。 。
->   直播大群可以任意加入群组。 。
->2. 申请加入指定群组group_id的接口，申请加入的操作成功与否可根据回调cb的参数判断。
+>?
+1. 权限说明： 。
+私有群不能由用户主动申请入群。 。
+公开群和聊天室可以主动申请进入。 。
+如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功。 。
+直播大群可以任意加入群组。 。
+2. 申请加入指定群组group_id的接口，申请加入的操作成功与否可根据回调cb的参数判断。
 
 
 ### TIMGroupQuit
@@ -1339,19 +1329,19 @@ TIM_DECL int TIMGroupQuit(const char* group_id, TIMCommCallback cb, const void* 
 |-----|-----|-----|
 | group_id | const char* | 要退出的群组ID |
 | cb | TIMCommCallback | 退出群组成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   对于私有群，全员可退出群组。 。
->   对于公开群、聊天室和直播大群，群主不能退出。 。
->2. 退出指定群组group_id的接口，退出成功与否可根据回调cb的参数判断。
+>?
+1. 权限说明： 。
+对于私有群，全员可退出群组。 。
+对于公开群、聊天室和直播大群，群主不能退出。 。
+2. 退出指定群组group_id的接口，退出成功与否可根据回调cb的参数判断。
 
 
 ### TIMGroupInviteMember
@@ -1370,20 +1360,20 @@ TIM_DECL int TIMGroupInviteMember(const char* json_group_invite_param, TIMCommCa
 |-----|-----|-----|
 | json_group_invite_param | const char* | 邀请加入群组的 Json 字符串 |
 | cb | TIMCommCallback | 邀请加入群组成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupInviteMember](https://cloud.tencent.com/document/product/269/33486#TIMGroupInviteMember)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明 。
->   只有私有群可以拉用户入群 。
->   公开群、聊天室邀请用户入群 。
->   需要用户同意；直播大群不能邀请用户入群。 。
->2. 此接口支持批量邀请成员加入群组。Json Key详见 [GroupInviteMemberParam](https://cloud.tencent.com/document/product/269/33487#GroupInviteMemberParam) 。
+>?
+1. 权限说明 。
+只有私有群可以拉用户入群 。
+公开群、聊天室邀请用户入群 。
+需要用户同意；直播大群不能邀请用户入群。 。
+2. 此接口支持批量邀请成员加入群组。Json Key详见 [GroupInviteMemberParam](https://cloud.tencent.com/document/product/269/33487#GroupInviteMemberParam) 。
 
 
 **示例：**
@@ -1431,20 +1421,20 @@ TIM_DECL int TIMGroupDeleteMember(const char* json_group_delete_param, TIMCommCa
 |-----|-----|-----|
 | json_group_delete_param | const char* | 删除群组成员的 Json 字符串 |
 | cb | TIMCommCallback | 删除群组成员成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupDeleteMember](https://cloud.tencent.com/document/product/269/33486#TIMGroupDeleteMember)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   对于私有群：只有创建者可删除群组成员。 。
->   对于公开群和聊天室：只有管理员和群主可以踢人。 。
->   对于直播大群：不能踢人。 。
->2. 此接口支持批量删除群成员。Json Key详见 [GroupDeleteMemberParam](https://cloud.tencent.com/document/product/269/33487#GroupDeleteMemberParam) 。
+>?
+1. 权限说明： 。
+对于私有群：只有创建者可删除群组成员。 。
+对于公开群和聊天室：只有管理员和群主可以踢人。 。
+对于直播大群：不能踢人。 。
+2. 此接口支持批量删除群成员。Json Key详见 [GroupDeleteMemberParam](https://cloud.tencent.com/document/product/269/33487#GroupDeleteMemberParam) 。
 
 
 **示例：**
@@ -1484,19 +1474,19 @@ TIM_DECL int TIMGroupGetJoinedGroupList(TIMCommCallback cb, const void* user_dat
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cb | TIMCommCallback | 获取已加入群组列表成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupGetJoinedGroupList](https://cloud.tencent.com/document/product/269/33486#TIMGroupGetJoinedGroupList)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   此接口可以获取自己所加入的群列表 。
->   此接口只能获得加入的部分直播大的列表。 。
->2. 此接口用于获取当前用户已加入的群组列表，返回群组的基础信息。具体返回的群组基本信息字段参考 [GroupBaseInfo](https://cloud.tencent.com/document/product/269/33487#GroupBaseInfo) 。
+>?
+1. 权限说明： 。
+此接口可以获取自己所加入的群列表 。
+此接口只能获得加入的部分直播大的列表。 。
+2. 此接口用于获取当前用户已加入的群组列表，返回群组的基础信息。具体返回的群组基本信息字段参考 [GroupBaseInfo](https://cloud.tencent.com/document/product/269/33487#GroupBaseInfo) 。
 
 
 ### TIMGroupGetGroupInfoList
@@ -1515,16 +1505,16 @@ TIM_DECL int TIMGroupGetGroupInfoList(const char* json_group_getinfo_param, TIMC
 |-----|-----|-----|
 | json_group_getinfo_param | const char* | 获取群组信息列表参数的 Json 字符串 |
 | cb | TIMCommCallback | 获取群组信息列表成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupGetGroupInfoList](https://cloud.tencent.com/document/product/269/33486#TIMGroupGetGroupInfoList)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->此接口用于获取指定群ID列表的群详细信息。具体返回的群组详细信息字段参考 [GroupDetailInfo](https://cloud.tencent.com/document/product/269/33487#GroupDetailInfo) 。
+>?
+此接口用于获取指定群ID列表的群详细信息。具体返回的群组详细信息字段参考 [GroupDetailInfo](https://cloud.tencent.com/document/product/269/33487#GroupDetailInfo) 。
 
 
 **示例：**
@@ -1558,22 +1548,22 @@ TIM_DECL int TIMGroupModifyGroupInfo(const char* json_group_modifyinfo_param, TI
 |-----|-----|-----|
 | json_group_modifyinfo_param | const char* | 设置群信息参数的 Json 字符串Json字符串 |
 | cb | TIMCommCallback | 设置群信息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 修改群主（群转让）的权限说明： 。
->   只有群主才有权限进行群转让操作。 。
->   直播大群不能进行群转让操作。 。
->2. 修改群其他信息的权限说明 。
->   对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介。 。
->   对于私有群，任何人可修改群简介。 。
->3. kTIMGroupModifyInfoParamModifyFlag 可以按位或设置多个值。不同的flag 设置不同的键。详见 [GroupSetInfoParam](https://cloud.tencent.com/document/product/269/33487#GroupSetInfoParam) 。
+>?
+1. 修改群主（群转让）的权限说明： 。
+只有群主才有权限进行群转让操作。 。
+直播大群不能进行群转让操作。 。
+2. 修改群其他信息的权限说明 。
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介。 。
+对于私有群，任何人可修改群简介。 。
+3. kTIMGroupModifyInfoParamModifyFlag 可以按位或设置多个值。不同的flag 设置不同的键。详见 [GroupSetInfoParam](https://cloud.tencent.com/document/product/269/33487#GroupSetInfoParam) 。
 
 
 **示例： 设置群所有者**
@@ -1634,19 +1624,19 @@ TIM_DECL int TIMGroupGetMemberInfoList(const char* json_group_getmeminfos_param,
 |-----|-----|-----|
 | json_group_getmeminfos_param | const char* | 获取群成员信息列表参数的 Json 字符串 |
 | cb | TIMCommCallback | 获取群成员信息列表成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupGetMemberInfoList](https://cloud.tencent.com/document/product/269/33486#TIMGroupGetMemberInfoList)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   任何群组类型都可以获取成员列表。 。
->   直播大群只能拉取部分成员列表：包括群主、管理员和部分成员。 。
->2. 根据不同的选项，获取群成员信息列表。成员信息的各个字段含义参考 [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33487#GroupMemberInfo) 。
+>?
+1. 权限说明： 。
+任何群组类型都可以获取成员列表。 。
+直播大群只能拉取部分成员列表：包括群主、管理员和部分成员。 。
+2. 根据不同的选项，获取群成员信息列表。成员信息的各个字段含义参考 [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33487#GroupMemberInfo) 。
 
 
 **示例：**
@@ -1699,20 +1689,20 @@ TIM_DECL int TIMGroupModifyMemberInfo(const char* json_group_modifymeminfo_param
 |-----|-----|-----|
 | json_group_modifymeminfo_param | const char* | 设置群信息参数的 Json 字符串 |
 | cb | TIMCommCallback | 设置群成员信息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 权限说明： 。
->   只有群主或者管理员可以进行对群成员的身份进行修改。 。
->   直播大群不支持修改用户群内身份。 。
->   只有群主或者管理员可以进行对群成员进行禁言。  。
->2. kTIMGroupModifyMemberInfoParamModifyFlag 可以按位或设置多个值，不同的flag 设置不同的键。详见 [GroupSetMemberInfoParam](https://cloud.tencent.com/document/product/269/33487#GroupSetMemberInfoParam) 。
+>?
+1. 权限说明： 。
+只有群主或者管理员可以进行对群成员的身份进行修改。 。
+直播大群不支持修改用户群内身份。 。
+只有群主或者管理员可以进行对群成员进行禁言。  。
+2. kTIMGroupModifyMemberInfoParamModifyFlag 可以按位或设置多个值，不同的flag 设置不同的键。详见 [GroupSetMemberInfoParam](https://cloud.tencent.com/document/product/269/33487#GroupSetMemberInfoParam) 。
 
 
 **示例：**
@@ -1756,22 +1746,22 @@ TIM_DECL int TIMGroupGetPendencyList(const char* json_group_getpendence_list_par
 |-----|-----|-----|
 | json_group_getpendence_list_param | const char* | 设置群未决信息参数的 Json 字符串 |
 | cb | TIMCommCallback | 获取群未决信息列表成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback) ，回调参数解析见  [TIMGroupGetPendencyList](https://cloud.tencent.com/document/product/269/33486#TIMGroupGetPendencyList)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。 。
->2. UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取此未决信息。 。
->3. 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批 。
->4. 权限说明： 。
->   只有审批人有权限拉取相关未决信息。 。
->5. kTIMGroupPendencyOptionStartTime设置拉取时间戳,第一次请求填0,后边根据server返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33487#GroupPendencyResult) 键kTIMGroupPendencyResultNextStartTime指定的时间戳进行填写。 。
->6. kTIMGroupPendencyOptionMaxLimited拉取的建议数量,server可根据需要返回或多或少,不能作为完成与否的标志。
+>?
+1. 此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。 。
+2. UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取此未决信息。 。
+3. 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批 。
+4. 权限说明： 。
+只有审批人有权限拉取相关未决信息。 。
+5. kTIMGroupPendencyOptionStartTime设置拉取时间戳,第一次请求填0,后边根据server返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33487#GroupPendencyResult) 键kTIMGroupPendencyResultNextStartTime指定的时间戳进行填写。 。
+6. kTIMGroupPendencyOptionMaxLimited拉取的建议数量,server可根据需要返回或多或少,不能作为完成与否的标志。
 
 
 **示例：**
@@ -1810,16 +1800,16 @@ TIM_DECL int TIMGroupReportPendencyReaded(uint64_t time_stamp, TIMCommCallback c
 |-----|-----|-----|
 | time_stamp | uint64_t | 已读时间戳(单位秒)。与 [GroupPendency](https://cloud.tencent.com/document/product/269/33487#GroupPendency) 键kTIMGroupPendencyAddTime指定的时间比较 |
 | cb | TIMCommCallback | 上报群未决信息已读成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->在time_stamp此时间戳以前的群未决请求都将置为已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
+>?
+在time_stamp此时间戳以前的群未决请求都将置为已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
 
 
 ### TIMGroupHandlePendency
@@ -1838,17 +1828,17 @@ TIM_DECL int TIMGroupHandlePendency(const char* json_group_handle_pendency_param
 |-----|-----|-----|
 | json_group_handle_pendency_param | const char* | 处理群未决信息参数的 Json 字符串 |
 | cb | TIMCommCallback | 处理群未决信息成功与否的回调。回调函数定义见  [TIMCommCallback](https://cloud.tencent.com/document/product/269/33486#TIMCommCallback)  |
-| user_data | const void* | 用户自定义数据， ImSDK 只负责传回给回调函数 cb ，不做任何处理 |
+| user_data | const void* | 用户自定义数据， IM SDK 只负责传回给回调函数 cb ，不做任何处理 |
 
 **返回值**
 
 | 类型 | 含义 |
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC ，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义见  [TIMResult](https://cloud.tencent.com/document/product/269/33486#TIMResult)  |
-**注释：**
 
->1. 对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 。
->2. 处理未决信息时需要带一个未决信息 [GroupPendency](https://cloud.tencent.com/document/product/269/33487#GroupPendency) ，可以在接口TIMGroupGetPendencyList返回的未决信息列表将未决信息保存下来，   在处理未决信息的时候将 [GroupPendency](https://cloud.tencent.com/document/product/269/33487#GroupPendency) 传入键kTIMGroupHandlePendencyParamPendency。
+>?
+1. 对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 。
+2. 处理未决信息时需要带一个未决信息 [GroupPendency](https://cloud.tencent.com/document/product/269/33487#GroupPendency) ，可以在接口TIMGroupGetPendencyList返回的未决信息列表将未决信息保存下来，   在处理未决信息的时候将 [GroupPendency](https://cloud.tencent.com/document/product/269/33487#GroupPendency) 传入键kTIMGroupHandlePendencyParamPendency。
 
 
 **示例：**
