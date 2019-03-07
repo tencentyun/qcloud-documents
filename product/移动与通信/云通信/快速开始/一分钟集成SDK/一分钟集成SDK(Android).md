@@ -15,10 +15,12 @@ IM SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载�
  找到 tuikit lib 工程的 build.gradle，在 dependencies 中添加 IMSDK 的依赖。
 ```
 dependencies {
-		api 'com.tencent.imsdk:imsdk:3.5.0.211'
+		api 'com.tencent.imsdk:imsdk:版本号'
 }
 ```
-![](https://main.qcloudimg.com/raw/211945758a897f53299951d415209ea6.png)
+>?“版本号”应替换为 [SDK下载链接](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs) 中的最新版本号，例如`4.0.10`。
+>
+ ![](https://main.qcloudimg.com/raw/211945758a897f53299951d415209ea6.png)
 - **第二步：指定 App 使用架构**
 在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 IM SDK 支持 armeabi-v7a)：
 ```
