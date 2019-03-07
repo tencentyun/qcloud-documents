@@ -25,11 +25,11 @@
 
 ### 2. 新建工程
 
-打开 Visual Studio，新建一个名字叫做 IMDemo 的 MFC 应用程序，如下图所示：
+打开 Visual Studio，新建一个名字叫做 IMDemo 的【MFC 应用程序】，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/0968bf8f93c69212760bd4651839d29f.png)
 
-为了便于介绍如何快速集成，在向导的 应用程序类型 页面，我们选择比较简单的 基于对话框 类型，如下图所示：
+为了便于介绍如何快速集成，在向导的【应用程序类型】页面，我们选择比较简单的【基于对话框】类型，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/8a6372d71853148fe6a6c5073f1512b3.png)
 
@@ -43,34 +43,34 @@
 
 ### 4. 修改工程配置
 
-IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针对这两种有些地方要专门配置。打开 IMDemo属性页，在 [解决方案资源管理器]->[IMDemo工程的右键菜单]->[属性]。
+IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针对这两种有些地方要专门配置。打开 IMDemo属性页，在 【解决方案资源管理器】->【IMDemo工程的右键菜单】->【属性】。
 
 **Debug模式**下，请按照以下步骤进行配置：
 
 - **添加包含目录**
-  在 [C/C++]->[常规]->[附件包含目录]，添加 IM SDK 头文件目录 $(ProjectDir)ImSDK\includes，如下图所示：
+  在 【C/C++】->【常规】->【附件包含目录】，添加 IM SDK 头文件目录 $(ProjectDir)ImSDK\includes，如下图所示：
   ![](https://main.qcloudimg.com/raw/7b3dddadf6d3993ab3f83522e7e1f869.png)
 
 - **添加库目录**
-  在 [链接器]->[常规]->[附加库目录]，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\ 
+  在 【链接器】->【常规】->【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\ 
   ![](https://main.qcloudimg.com/raw/40e2d19d9dbf6c1db7e05ac0051367c0.png)
 
 - **添加库文件**
-  在 [链接器]->[输入]->[附加依赖项]，添加 IM SDK 库文件 imsdk.lib ，如下图所示：
+  在 【链接器】->【输入】->【附加依赖项】，添加 IM SDK 库文件 imsdk.lib ，如下图所示：
   ![](https://main.qcloudimg.com/raw/e4e180c8867bb4ad6e7fa09f69c2ff0e.png)
   
 - **拷贝DLL到执行目录**  
-  在 [生成事件]->[预先生成事件]->[命令行]，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+  在 【生成事件】->【预先生成事件】->【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/3fc1828ee8bc4bab7197092ff1d73c45.png)
 
 **Release模式**，跟**Debug模式**设置大部分相同，不同在于 IM SDK 的库目录，其他的与**Debug模式**一样。具体设置如下：
 
 - **添加库目录**
-  在 [链接器]->[常规]->[附加库目录]，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Release，如下图所示：
+  在 【链接器】->【常规】->【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Release，如下图所示：
   ![](https://main.qcloudimg.com/raw/92422bab96a1f2585671f7a5225106e4.png)
   
 - **拷贝DLL到执行目录**  
-  在 [生成事件]->[预先生成事件]->[命令行]，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+  在 【生成事件】->【预先生成事件】->【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/8ddf5dd09c24a77a9b8dcbd7c33f292e.png)
   
   
@@ -84,10 +84,8 @@ IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针�
 - 在 CIMDemoDlg::OnInitDialog 函数中，添加下面的测试代码
 ```c++
 std::string version = TIMGetSDKVersion();
-
 CString szText;
 szText.Format(L"SDK version: %hs", version.c_str());
-
 CWnd* pStatic = GetDlgItem(IDC_STATIC);
 pStatic->SetWindowTextW(szText);
 ```
@@ -105,7 +103,8 @@ fatal error C1083: 无法打开包括文件: “TIMCloud.h”: No such file or d
 - 出现以下错误，请按照前面的工程配置，检查 IM SDK 库目录和库文件是否正确添加：
 ```
 LINK : fatal error LNK1104: 无法打开文件“imsdk.lib”
-
+```
+```
 error LNK2019: 无法解析的外部符号 __imp__TIMGetSDKVersion，该符号在函数 "protected: virtual int __thiscall CIMDemoDlg::OnInitDialog(void)" (?OnInitDialog@CIMDemoDlg@@MAEHXZ) 中被引用
 ```
 
