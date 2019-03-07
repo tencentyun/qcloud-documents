@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
 
 ## 请求
 ### 请求示例
@@ -51,7 +51,7 @@ Authorization: Auth String
 ### 请求体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <AccessControlPolicy>
   <Owner>
     <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
