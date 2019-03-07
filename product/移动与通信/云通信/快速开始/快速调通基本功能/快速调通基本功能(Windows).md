@@ -24,7 +24,7 @@ TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 - sdkAppId 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 
-**更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/1581)**
+**更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33485#sdk.E5.88.9D.E5.A7.8B.E5.8C.96)**
 
 ## 登录/登出
 ### 登录
@@ -51,11 +51,11 @@ TIMLogin(id, user_sig, [](int32_t code, const char* desc, const char* json_param
 
 **onForceOffline**
 
-如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`），如果用户被踢了，请务必用 Alert 等提示窗提示用户，关于被踢的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/1581#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`），如果用户被踢了，请务必用 Alert 等提示窗提示用户，关于被踢的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/33485#timsetkickedofflinecallback)。
 
 
 **onUserSigExpired**
-每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/1581#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/33485#timsetusersigexpiredcallback)。
 
 
 ### 登出
@@ -78,7 +78,7 @@ TIMLogout([](int32_t code, const char* desc, const char* json_param, const void*
 > !在需要切换帐号时，需要 `Logout` 回调成功或者失败后才能再次 `Login`，否则 `Login` 可能会失败。
 
 
-**更多登录/登出操作请参考 [登录](https://cloud.tencent.com/document/product/269/1590)**
+**更多登录/登出操作请参考 [登录登出](https://cloud.tencent.com/document/product/269/33485#.E7.99.BB.E5.BD.95.E7.99.BB.E5.87.BA)**
 
 ## 消息发送
 
@@ -181,7 +181,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 }, user_data);
 ```
 
-**更多消息收发操作请参考 [消息收发](https://cloud.tencent.com/document/product/269/1587)**
+**更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33485#.E6.B6.88.E6.81.AF.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 和 [消息接收](https://cloud.tencent.com/document/product/269/33485#timsetrecvnewmsgcallback)**
 
 ## 群组管理
 
@@ -233,7 +233,7 @@ int ret = TIMGroupCreate(json_param.c_str(), [](int32_t code, const char* desc, 
 }, user_data))
 ```
 
-**更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/1592)**
+**更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/33485#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3)**
 
 ### 群组消息
-群组消息与 C2C （单聊）消息相同，仅在发送时填写群组的ID和类型`kTIMConv_Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/1587#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
+群组消息与 C2C （单聊）消息相同，仅在发送时填写群组的ID和类型`kTIMConv_Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/33485#.E6.B6.88.E6.81.AF.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 部分。
