@@ -18,7 +18,13 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk:版本号'
 }
 ```
->?“版本号”应替换为 [SDK下载链接](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs) 中的最新版本号，例如`4.0.10`。
+>?“版本号”应替换为您 [下载](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs) 的 SDK 实际版本号，建议下载最新版本。
+>以版本号是`4.0.10`为例：
+>```
+dependencies {
+		api 'com.tencent.imsdk:imsdk:4.0.10'
+}
+```
 >
  ![](https://main.qcloudimg.com/raw/211945758a897f53299951d415209ea6.png)
 - **第二步：指定 App 使用架构**
