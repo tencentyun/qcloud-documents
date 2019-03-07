@@ -25,7 +25,7 @@
 | [容器服务-集群](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
 | [容器服务-镜像仓库](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
 | 容器服务-持续集成                                             | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
-| [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 服务级   | -        | -    |	
+| [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [黑石负载均衡](https://cloud.tencent.com/document/product/386/13351) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
