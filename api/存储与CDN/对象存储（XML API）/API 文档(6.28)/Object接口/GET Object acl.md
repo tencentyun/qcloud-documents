@@ -80,7 +80,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式为：qcs::cam::uin/&lt;root_uin&gt;:uin/&lt;sub_uin&gt; 如果是主帐号，&lt;root_uin&gt; 和 &lt;sub_uin&gt; 是同一个值 |  String |
+| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |
 | DisplayName | AccessControlPolicy.Owner |  Object 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
@@ -101,7 +101,7 @@ Container 节点 Grantee 的内容：
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
 |URI|   AccessControlPolicy.Owner| 指定所有用户|  String |
-| ID | AccessControlPolicy.Owner | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;root_uin&gt;:uin/&lt;root_uin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;root_uin&gt;:uin/&lt;sub_uin&gt;|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 
 
