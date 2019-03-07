@@ -17,9 +17,8 @@ typedef void (*TIMRecvNewMsgCallback)(const char* json_msg_array, const void* us
 | json_msg_array | const char* | 新消息数组 |
 | user_data | const void* | SDK负责透传的用户自定义数据，未做任何处理 |
 
-**注释：**
-
->此回调可以获取新接收的消息数组。注意 消息内的元素也是一个数组。每个元素的定义由elem_type字段决定。
+>?
+此回调可以获取新接收的消息数组。注意 消息内的元素也是一个数组。每个元素的定义由elem_type字段决定。
 
 
 **示例： 1. 消息数组解析示例**
@@ -497,9 +496,8 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 | json_msg_array | const char* | 更新的消息数组 |
 | user_data | const void* | SDK负责透传的用户自定义数据，未做任何处理 |
 
-**注释：**
-
->参考  [TIMRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33486#TIMRecvNewMsgCallback) 。
+>?
+参考  [TIMRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33486#TIMRecvNewMsgCallback) 。
 
 
 
@@ -525,9 +523,8 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 | json_params | const char* | Json字符串，不同的接口，Json字符串不一样 |
 | user_data | const void* | SDK负责透传的用户自定义数据，未做任何处理 |
 
-**注释：**
-
->所有回调均需判断code是否等于ERR_SUC，若不等于说明接口调用失败了，具体原因可以看code的值以及desc描述。详细请看 [错误码](https://cloud.tencent.com/document/product/269/1671#错误码) 。
+>?
+所有回调均需判断code是否等于ERR_SUC，若不等于说明接口调用失败了，具体原因可以看code的值以及desc描述。详细请看 [错误码](https://cloud.tencent.com/document/product/269/1671#错误码) 。
 
 
 **示例： 接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33485#TIMSetConfig) 的回调TIMCommCallback参数json_params的Json。Json Key参考 [SetConfig](https://cloud.tencent.com/document/product/269/33487#SetConfig) 。**
@@ -852,24 +849,26 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
  
 ```
 
-**注释： 其他接口的回调TIMCommCallback参数json_params均为空字符串""**
+>?
+所有回调均需判断code是否等于ERR_SUC，若不等于说明接口调用失败了，具体原因可以看code的值以及desc描述。详细请看 [错误码](https://cloud.tencent.com/document/product/269/1671#错误码) 。
 
->  [TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin)   。
->  [TIMLogout](https://cloud.tencent.com/document/product/269/33485#TIMLogout)   。
->  [TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33485#TIMMsgSendNewMsg)  。
->  [TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33485#TIMMsgSaveMsg)  。
->  [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33485#TIMMsgReportReaded)  。
->  [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33485#TIMMsgRevoke)  。
->  [TIMMsgImportMsgList](https://cloud.tencent.com/document/product/269/33485#TIMMsgImportMsgList)  。
->  [TIMMsgDelete](https://cloud.tencent.com/document/product/269/33485#TIMMsgDelete)  。
->  [TIMConvDelete](https://cloud.tencent.com/document/product/269/33485#TIMConvDelete)  。
->  [TIMGroupDelete](https://cloud.tencent.com/document/product/269/33485#TIMGroupDelete)  。
->  [TIMGroupJoin](https://cloud.tencent.com/document/product/269/33485#TIMGroupJoin)  。
->  [TIMGroupQuit](https://cloud.tencent.com/document/product/269/33485#TIMGroupQuit)  。
->  [TIMGroupSetGroupInfo](https://cloud.tencent.com/document/product/269/33485#TIMGroupSetGroupInfo)  。
->  [TIMGroupSetMemberInfo](https://cloud.tencent.com/document/product/269/33485#TIMGroupSetMemberInfo)  。
->  [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33485#TIMGroupReportPendencyReaded)  。
->  [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33485#TIMGroupHandlePendency) 。
+其他接口的回调TIMCommCallback参数json_params均为空字符串""
+[TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin)   。
+[TIMLogout](https://cloud.tencent.com/document/product/269/33485#TIMLogout)   。
+[TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33485#TIMMsgSendNewMsg)  。
+[TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33485#TIMMsgSaveMsg)  。
+[TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33485#TIMMsgReportReaded)  。
+[TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33485#TIMMsgRevoke)  。
+[TIMMsgImportMsgList](https://cloud.tencent.com/document/product/269/33485#TIMMsgImportMsgList)  。
+[TIMMsgDelete](https://cloud.tencent.com/document/product/269/33485#TIMMsgDelete)  。
+[TIMConvDelete](https://cloud.tencent.com/document/product/269/33485#TIMConvDelete)  。
+[TIMGroupDelete](https://cloud.tencent.com/document/product/269/33485#TIMGroupDelete)  。
+[TIMGroupJoin](https://cloud.tencent.com/document/product/269/33485#TIMGroupJoin)  。
+[TIMGroupQuit](https://cloud.tencent.com/document/product/269/33485#TIMGroupQuit)  。
+[TIMGroupSetGroupInfo](https://cloud.tencent.com/document/product/269/33485#TIMGroupSetGroupInfo)  。
+[TIMGroupSetMemberInfo](https://cloud.tencent.com/document/product/269/33485#TIMGroupSetMemberInfo)  。
+[TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33485#TIMGroupReportPendencyReaded)  。
+[TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33485#TIMGroupHandlePendency) 。
 
 
 

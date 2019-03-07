@@ -34,11 +34,11 @@
 | [TIMSetConfig](https://cloud.tencent.com/document/product/269/33485#TIMSetConfig) | 设置额外的用户配置。 | 
 
 
-### 登录登出
+### 登入登出
 
 | API | 描述 | 
 |-----|-----| 
-| [TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin) | 登录。 | 
+| [TIMLogin](https://cloud.tencent.com/document/product/269/33485#TIMLogin) | 登入。 | 
 | [TIMLogout](https://cloud.tencent.com/document/product/269/33485#TIMLogout) | 登出。 | 
 
 
