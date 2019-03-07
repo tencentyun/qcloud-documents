@@ -64,28 +64,27 @@ Authorization: Auth
 
 ```JSON
 {
-  "JobList": [
-    {     
-      "Action": String,
-      "JobId": String,
-      "JobDescription": String,
-      "CallBackUrl":String,
-      "CreationDate": String,
-      "CompletionDate": String,
-      "Completed": Boolean,
-      "StatusCode": String,
-      "StatusMessage": String,
-      "VaultQCS": String,
-      "ArchiveId": String,
-      "ArchiveSizeInBytes": Number,
-      "ArchiveSHA256TreeHash": String,
-      "RetrievalByteRange": String,
-      "SHA256TreeHash": String,
-      "Tier": String
-    },
-  ...
-  ],
-  "Marker": String
+	"JobList": [{
+			"Action": "String",
+			"JobId": "String",
+			"JobDescription": "String",
+			"CallBackUrl": "String",
+			"CreationDate": "String",
+			"CompletionDate": "String",
+			"Completed": "Boolean",
+			"StatusCode": "String",
+			"StatusMessage": "String",
+			"VaultQCS": "String",
+			"ArchiveId": "String",
+			"ArchiveSizeInBytes": "Number",
+			"ArchiveSHA256TreeHash": "String",
+			"RetrievalByteRange": "String",
+			"SHA256TreeHash": "String",
+			"Tier": "String"
+		},
+		...
+	],
+	"Marker": "String"
 }
 ```
 
