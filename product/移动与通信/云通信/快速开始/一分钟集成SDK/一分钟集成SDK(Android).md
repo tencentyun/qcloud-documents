@@ -18,7 +18,7 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk:版本号'
 }
 ```
->?“版本号”应替换为您 [下载](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs) 的 SDK 实际版本号，建议下载最新版本。
+>?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs)。
 >以版本号是`4.0.10`为例：
 >```
 dependencies {
