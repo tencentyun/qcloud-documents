@@ -72,7 +72,7 @@ var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
 var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
 //templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
-var smsSign = "腾讯云";  // NOTE: 这里的签名只是示例，请使用真实的已申请的签名, 签名参数使用的是`签名内容`，而不是`签名ID`
+var smsSign = "腾讯云";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 
 // 实例化QcloudSms
 var qcloudsms = QcloudSms(appid, appkey);
