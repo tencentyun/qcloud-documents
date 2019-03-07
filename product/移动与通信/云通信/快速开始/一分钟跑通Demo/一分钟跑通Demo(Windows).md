@@ -25,17 +25,20 @@
 
 
 ## 4. 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Windows) 下载 ImSDK Demo工程代码。
+从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK Windows IMApp asdsad工程代码。
+
+![](https://main.qcloudimg.com/raw/59d2838566813ba6f5d49079e3dcbb0b.png)
 
 ## 5. 修改源码配置
-- 使用 Visual Stuido（建议 VS2015）双击源码目录下的 ImApp.sln 工程文件，打开ImApp工程
+- 使用 Visual Stuido（建议 VS2015）双击源码目录下的 ImApp.sln 工程文件，打开 ImApp 工程
 
 - 工程中默认配置了测试的 SDKAPPID 以及在控制台生成的四个测试账号，由于每个账号同时只能有一个端登录，所以您需要按照 step 3 中指引拿到自己的四组测试账号配置进去。
 
 - 在 文件main.cpp 中替换您的 SDKAPPID，以及替换 step 3 中指引拿到的 userId 和 userSig。
+
 ![](https://main.qcloudimg.com/raw/3440cb91cac41c6e84b584fdb2c8543f.png)
 
-> ! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通demo和功能调试，userSig 正确的签发方式请参考 [服务器获取方案](https://cloud.tencent.com/document/product/269/1507)。
+> ! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 demo 和功能调试，userSig 正确的签发方式请参考 [服务器获取方案](https://cloud.tencent.com/document/product/269/1507)。
 
 ## 6. 编译运行
 程序启动后，在不同的客户端上登录不同的账号，搜索对方的 userId 创建会话，就可以体验发消息了。
