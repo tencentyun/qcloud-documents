@@ -6,7 +6,7 @@
 ```
 //初始化 SDK 基本配置
 TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-	.setAccoutType(accountType)
+	.setAccoutType(36862)
         .enableLogPrint(true)              // 是否在控制台打印Log?
         .setLogLevel(TIMLogLevel.DEBUG)    // Log输出级别（debug级别会很多）
         .setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
