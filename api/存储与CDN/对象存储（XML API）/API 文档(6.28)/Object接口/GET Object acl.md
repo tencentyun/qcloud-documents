@@ -100,9 +100,9 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-|URI|   AccessControlPolicy.Owner| 指定所有用户|  String |
-| ID | AccessControlPolicy.Owner | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
-| DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
+|URI|  AccessControlPolicy.AccessControlList.Grant.Grantee| 指定所有用户|  String |
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
+| DisplayName | AccessControlPolicy.AccessControlList.Grant.Grantee |  用户的名称 |  String |
 
 
 ## 实际案例
