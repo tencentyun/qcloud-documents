@@ -5,7 +5,7 @@
 
 **ImSDK 下载链接**
 
->windows平台 [ImSDK](URL_For_Download_Windows_ImSDK)。
+>windows平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/Windows)。
 
 ### 注册SDK回调
 
