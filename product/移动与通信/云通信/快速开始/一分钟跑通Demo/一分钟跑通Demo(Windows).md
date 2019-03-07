@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云IM Demo(Windows) 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速地将腾讯云 IM Demo(Windows) 工程运行起来，您只需参考如下步骤依次执行即可。
 
 ## 1. 创建应用
 登录腾讯云通信（IM）[控制台](https://console.cloud.tencent.com/avc)，在**应用列表**页，单击【创建应用接入】，在**创建新应用**弹框中，填写新建应用的信息，单击【确认】：
@@ -33,7 +33,7 @@
 - 在 文件 main.cpp 中替换您的 SdkAppId，以及替换 step 3 中指引拿到的 userId 和 userSig。
 ![](https://main.qcloudimg.com/raw/3440cb91cac41c6e84b584fdb2c8543f.png)
 
->! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/1507)。
+>! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
 
 ## 6. 编译运行
 程序启动后，在不同的客户端上登录不同的账号，搜索对方的 userId 创建会话，就可以体验发消息了。
