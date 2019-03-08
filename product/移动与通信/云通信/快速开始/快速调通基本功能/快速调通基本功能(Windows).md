@@ -2,8 +2,7 @@
 
 ## 初始化
 
-- 在使用 SDK 进行云通信操作之前，需要初始 SDK。
-
+在使用 SDK 进行云通信操作之前，需要初始 SDK。
 **示例：**
 ```c
 int sdk_app_id = 12345678;
@@ -22,14 +21,14 @@ json_value_init[kTIMSdkConfigDeviceInfo] = json_value_dev;
 TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 ```
 
-- SDKAppid 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
-
+SDKAppid 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 **更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33485#sdk.E5.88.9D.E5.A7.8B.E5.8C.96)**
 
+
 ## 登录/登出
 ### 登录
-- 用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供`identifier`、`userSig`。详细请参阅 [帐号登录集成说明](https://cloud.tencent.com/document/product/269/1507)。
+- 用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供`identifier`、`userSig`。详细请参阅 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
 - 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败会主动调用提供的回调。
 
 **示例：**
@@ -48,7 +47,7 @@ TIMLogin(id, user_sig, [](int32_t code, const char* desc, const char* json_param
 }, user_data);
 ```
 
-> code表示错误码，具体可参阅 [错误码](https://cloud.tencent.com/document/product/269/1671)，desc表示错误描述。
+>!code表示错误码，具体可参阅 [错误码](https://cloud.tencent.com/document/product/269/1671)，desc表示错误描述。
 
 **onForceOffline**
 
@@ -76,16 +75,14 @@ TIMLogout([](int32_t code, const char* desc, const char* json_param, const void*
 }, user_data);
 ```
 
-> !在需要切换帐号时，需要 `Logout` 回调成功或者失败后才能再次 `Login`，否则 `Login` 可能会失败。
+>!在需要切换帐号时，需要 `Logout` 回调成功或者失败后才能再次 `Login`，否则 `Login` 可能会失败。
 
 
 **更多登录/登出操作请参考 [登录登出](https://cloud.tencent.com/document/product/269/33485#.E7.99.BB.E5.BD.95.E7.99.BB.E5.87.BA)**
 
 ## 消息发送
 
-### 通用消息发送
-
-#### 会话获取
+### 会话获取
 
 会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。
 
@@ -117,7 +114,7 @@ if (ret != TIM_SUCC) {
 ```
 
 
-#### 消息发送
+### 消息发送
 
  IM SDK 中的消息由 `TIMMessage` 表示， 每个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 单元可以是文本，也可以是图片，也就是说每一条消息可包含多个文本、多张图片、以及其他类型的单元。
 
@@ -201,7 +198,7 @@ IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组
 
 ### 创建群组
 
-以下示例创建一个叫做"Windows-Group-01"公开群组，并且把用户 Windows_002 拉入群组。 
+以下示例创建一个叫做 Windows-Group-01 公开群组，并且把用户 Windows_002 拉入群组。 
 **示例：**
 
 ```c

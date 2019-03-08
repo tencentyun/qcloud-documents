@@ -5,7 +5,7 @@
 进入腾讯云通讯（IM）[控制台](https://console.cloud.tencent.com/avc)，会出现“应用列表”，单击“创建应用接入”，会出现下图的内容：
 ![](https://main.qcloudimg.com/raw/27314e92cd2972a8eada8cfba4055ac6.png)
 
-创建应用后，腾讯云会给您的新应用分配一个应用标识：sdkappid，如下图：
+创建应用后，腾讯云会给您的新应用分配一个应用标识： SDKAppid，如下图：
 ![](https://main.qcloudimg.com/raw/a2c23af3e5a969ff15a6f6fc6889b5d4.png)
 
 ## 2. 配置应用
@@ -32,9 +32,9 @@
 ## 5. 修改源码配置
 - 使用 Visual Stuido（建议 VS2015）双击源码目录下的 ImApp.sln 工程文件，打开 ImApp 工程
 
-- 工程中默认配置了测试的 SDKAPPID 以及在控制台生成的四个测试账号，由于每个账号同时只能有一个端登录，所以您需要按照 step 3 中指引拿到自己的四组测试账号配置进去。
+- 工程中默认配置了测试的 SDKAppid 以及在控制台生成的四个测试账号，由于每个账号同时只能有一个端登录，所以您需要按照 step 3 中指引拿到自己的四组测试账号配置进去。
 
-- 在 文件main.cpp 中替换您的 SDKAPPID，以及替换 step 3 中指引拿到的 userId 和 userSig。
+- 在 文件 main.cpp 中替换您的 SDKAppid，以及替换 step 3 中指引拿到的 userId 和 userSig。
 
 ![](https://main.qcloudimg.com/raw/3440cb91cac41c6e84b584fdb2c8543f.png)
 
