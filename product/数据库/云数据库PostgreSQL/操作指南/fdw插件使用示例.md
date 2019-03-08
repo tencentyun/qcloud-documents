@@ -1,3 +1,4 @@
+## 简介
 FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于访问外部数据源的一类插件，外部数据源包括本实例其他库中数据或者其他实例的数据。
 FDW 插件有很多分类，根据不同目标数据库实例类型可以定义不同的 FDW 插件，例如：postgres_fdw、mysql_fdw、mongo_fdw 等。使用过程包含以下步骤：
  1. 使用 “CREATE EXTENSION” 语句安装 FDW 插件。
@@ -8,7 +9,7 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
 由于 FDW 插件可以直接跨实例访问，基于安全性考虑，云数据库 PostgreSQL 对创建外部服务器对象时进行了权限控制优化，根据目标实例所在环境进行分类管理。在开源版本基础上增加了额外辅助参数，来验证用户身份和调整网络策略。
 
 ## CREATE SERVER 辅助参数
-#### postgres_fdw、mysql_fdw 等插件辅助参数    
+### 1. postgres_fdw、mysql_fdw 等插件辅助参数    
 
  - host
     必须项。目标实例的内网 IP 地址，postgres_fdw 使用。
@@ -46,7 +47,7 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
  - region
     非必须项。目标实例所在地域，如 “ap-guangzhou” 表示广州。如果需要跨地域访问数据，则需要提供该参数值。
 
-### COS_FDW 插件的辅助参数
+### 2. COS_FDW 插件的辅助参数
 - host
 必须项。腾讯云对象存储 COS 的访问域名，例如：`https://xxxx-xxxxxx.cos.ap-beijing.myqcloud.com。`
 - bucket
@@ -56,7 +57,7 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
 - key
 必须项。腾讯云 API 密钥的 SecretKey 值，可从 [访问管理控制台](https://console.cloud.tencent.com/capi) 的云 API 密钥中查询。
 
-### FDW 支持
+### 3. FDW 支持
 
 | 名称 			| 是否可直接使用 				| 跨地域使用 					|
 | :- :			| :-: 						| :-: 						|
@@ -64,9 +65,7 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
 | mysql_fdw 	| 2018年4月26日之前创建的实例重启后可使用，新实例可以直接使用							| 默认不支持，可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=340&source=0&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93CDB%20for%20PostgreSQL&level3_id=345&radio_title=%E5%90%AF%E5%8A%A8%E6%8F%92%E4%BB%B6%E9%97%AE%E9%A2%98&queue=29&scene_code=12333&step=2 "提交工单") 申请 	|
 | cos_fdw 		| 灰度中，可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=340&source=0&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93CDB%20for%20PostgreSQL&level3_id=345&radio_title=%E5%90%AF%E5%8A%A8%E6%8F%92%E4%BB%B6%E9%97%AE%E9%A2%98&queue=29&scene_code=12333&step=2 "提交工单") 申请试用	| 默认不支持，可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=340&source=0&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93CDB%20for%20PostgreSQL&level3_id=345&radio_title=%E5%90%AF%E5%8A%A8%E6%8F%92%E4%BB%B6%E9%97%AE%E9%A2%98&queue=29&scene_code=12333&step=2 "提交工单") 申请 	|
 
-
- 
-### 参考链接
+### 4. 参考链接
 
 [9.3 版本 SERVER 创建](https://www.postgresql.org/docs/9.3/static/sql-createserver.html)
 [9.5 版本 SERVER 创建](https://www.postgresql.org/docs/9.5/static/sql-createserver.html)
