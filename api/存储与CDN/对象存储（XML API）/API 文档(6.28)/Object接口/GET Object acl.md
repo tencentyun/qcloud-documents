@@ -2,7 +2,7 @@
 GET Object acl 接口用来获取某个存储桶下的某个对象的访问权限，只有存储桶的持有者才有权限操作。
 
 ### 版本
-默认情况下，该 GET 操作返回对象的当前版本。您如果需要返回不同的版本，请使用 version Id 子资源。
+默认情况下，该 GET 操作返回对象的当前版本。您如果需要返回不同的版本，请使用 versionId 子资源。
 
 ## 请求
 ### 请求示例
@@ -101,7 +101,7 @@ Container 节点 Grantee 的内容：
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
 |URI|  AccessControlPolicy.AccessControlList.Grant.Grantee| 指定所有用户|  String |
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值。|  String |
 | DisplayName | AccessControlPolicy.AccessControlList.Grant.Grantee |  用户的名称 |  String |
 
 
