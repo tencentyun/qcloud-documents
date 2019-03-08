@@ -9,7 +9,7 @@
 | TIM_SUCC | 0 | 接口调用成功 |
 | TIM_ERR_SDKUNINIT | -1 | 接口调用失败，SDK 未初始化 |
 | TIM_ERR_NOTLOGIN | -2 | 接口调用失败，用户未登录 |
-| TIM_ERR_JSON | -3 | 接口调用失败，错误的 Json 格式或 Json Key |
+| TIM_ERR_JSON | -3 | 接口调用失败，错误的 JSON 格式或 JSON Key |
 | TIM_ERR_PARAM | -4 | 接口调用成功，参数错误 |
 | TIM_ERR_CONV | -5 | 接口调用成功，无效的会话 |
 | TIM_ERR_GROUP | -6 | 接口调用成功，无效的群组 |
@@ -79,7 +79,7 @@
 
 设备信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMDeviceInfoDevId | string | 只写（必填） | 设备 ID |
 | kTIMDeviceInfoPlatform | uint  [TIMPlatform](https://cloud.tencent.com/document/product/269/33487#timplatform)  | 只写（必填） | 平台 |
@@ -89,7 +89,7 @@
 
 初始化 SDK 的配置。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMSdkConfigAccountType | string | 只写（选填） | 账号类型，默认为0 |
 | kTIMSdkConfigConfigFilePath | string | 只写（选填） | 配置文件路径，默认路径为"/" |
@@ -125,7 +125,7 @@
 
 获取群组成员信息的选项。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupMemberGetInfoOptionInfoFlag | uint64  [TIMGroupMemberInfoFlag](https://cloud.tencent.com/document/product/269/33487#timgroupmemberinfoflag)  | 读写（选填） | 根据想要获取的信息过滤，默认值为0xffffffff（获取全部信息） |
 | kTIMGroupMemberGetInfoOptionRoleFlag | uint64  [TIMGroupMemberRoleFlag](https://cloud.tencent.com/document/product/269/33487#timgroupmemberroleflag)  | 读写（选填） | 根据成员角色过滤，默认值为kTIMGroupMemberRoleFlag_All，获取所有角色 |
@@ -163,7 +163,7 @@
 
 获取群组信息的选项。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupGetInfoOptionInfoFlag | uint64  [TIMGroupGetInfoFlag](https://cloud.tencent.com/document/product/269/33487#timgroupgetinfoflag)  | 读写（选填） | 根据想要获取的信息过滤，默认值为0xffffffff（获取全部信息） |
 | kTIMGroupGetInfoOptionCustomArray | array string | 只写(选填) | 详见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
@@ -172,7 +172,7 @@
 
 用于配置信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMUserConfigIsReadReceipt | bool | 只写（选填） | true 表示要收已读回执事件 |
 | kTIMUserConfigIsSyncReport | bool | 只写（选填） | true 表示服务端要删掉已读状态 |
@@ -184,7 +184,7 @@
 
 代理信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMProxyInfoIp | string | 只写（必填） | 代理的 IP |
 | kTIMProxyInfoPort | int | 只写（必填） | 代理的端口 |
@@ -193,7 +193,7 @@
 
 更新配置。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMSetConfigLogLevel | uint  [TIMLogLevel](https://cloud.tencent.com/document/product/269/33487#timloglevel)  | 只写（选填） | 输出到日志文件的日子级别 |
 | kTIMSetConfigCackBackLogLevel | uint  [TIMLogLevel](https://cloud.tencent.com/document/product/269/33487#timloglevel)  | 只写（选填） | 日子回调的日志级别 |
@@ -205,7 +205,7 @@
 
 ## 消息关键类型
 
-消息相关宏定义，以及相关结构成员存取 Json Key 定义。
+消息相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### TIMMsgStatus
 
@@ -233,9 +233,9 @@
 
 ### Message
 
-消息Json Keys。
+消息 JSON Keys。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgElemArray | array  [Elem](https://cloud.tencent.com/document/product/269/33487#elem)  | 读写（必填） | 消息内元素列表 |
 | kTIMMsgConvId | string | 读写（选填） | 消息所属会话 ID |
@@ -257,13 +257,13 @@
 - 针对群组的红包和点赞消息。
 对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 TIMCustomElem 进行定义，发送消息时，可使用不同接口定义消息优先级。具体消息优先级的策略，可参阅 [互动直播集成多人聊天方案](https://cloud.tencent.com/document/product/269/3885)。
 - 消息自定义字段。
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据(必须转换成 String，Json 不支持二进制传输)，可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
+开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据(必须转换成 String，JSON 不支持二进制传输)，可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
 
 ### MessageReceipt
 
 消息已读回执。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgReceiptConvId | string | 只读 | 会话 ID |
 | kTIMMsgReceiptConvType | uint  [TIMConvType](https://cloud.tencent.com/document/product/269/33487#timconvtype)  | 只读 | 会话类型 |
@@ -290,7 +290,7 @@
 
 元素的类型。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMElemType | uint  [TIMElemType](https://cloud.tencent.com/document/product/269/33487#timelemtype)  | 读写（必填） | 元素类型 |
 
@@ -298,7 +298,7 @@
 
 文本元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMTextElemContent | string | 读写（必填） | 文本内容 |
 
