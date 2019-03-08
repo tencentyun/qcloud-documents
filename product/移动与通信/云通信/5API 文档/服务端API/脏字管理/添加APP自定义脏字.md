@@ -46,7 +46,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/add?usersig=xxx&identifier=admi
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字；添加的新脏字和已有的脏字数量之和不超过50个，每个脏字的长度不能超过200字节  |
+| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字；单次最多可以添加50个脏字，每个脏字的长度不能超过200字节 |
 
 ### 应答包体示例
 ```
