@@ -8,7 +8,7 @@
 |-----|-----|-----|
 | TIM_SUCC | 0 | 接口调用成功 |
 | TIM_ERR_SDKUNINIT | -1 | 接口调用失败，SDK未初始化 |
-| TIM_ERR_NOTLOGIN | -2 | 接口调用失败，用户未登入 |
+| TIM_ERR_NOTLOGIN | -2 | 接口调用失败，用户未登录 |
 | TIM_ERR_JSON | -3 | 接口调用失败，错误的Json格式或Json Key |
 | TIM_ERR_PARAM | -4 | 接口调用成功，参数错误 |
 | TIM_ERR_CONV | -5 | 接口调用成功，无效的会话 |
