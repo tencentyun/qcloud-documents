@@ -12,7 +12,7 @@
 1. 打开微信开发者工具，创建一个名为 HelloWorld 的小游戏项目。
 >!注意不要选择快速启动模板，直接创建空项目，从零开始完成项目。详细操作请参考 [小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/index.html) 。
 
-![创建一个微信小游戏项目](https://main.qcloudimg.com/raw/97cd731bfad0493f14984866cd6bc712.png)
+ ![创建一个微信小游戏项目](https://main.qcloudimg.com/raw/97cd731bfad0493f14984866cd6bc712.png)
 
 2. 进入编辑界面后，在根目录创建 game.js 和 game.json 文件，如下图所示：
  >!在开发过程中可以先跳过微信的域名检查。微信开发者工具上可以通过右侧【详情】设置，手机预览小程序/小游戏时可以打开调试功能跳过检查。
