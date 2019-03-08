@@ -95,7 +95,7 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [点播](https://cloud.tencent.com/document/product/266)       | ✔        | -      | ✔      | 服务级   | -        |  -  |	
-| [直播](https://cloud.tencent.com/document/product/267)       | ✔        | -      | ✔      | 服务级   | -        |  -    |	
+| [直播](https://cloud.tencent.com/document/product/267)       | ✔        | ✔      | ✔      | 操作级   | ✔        |  -    |	
 | [互动直播](https://cloud.tencent.com/document/product/268)   | ✔        | -      | ✔      | 服务级   | -        | -     |	
 
  ## 云智大数据平台服务	
