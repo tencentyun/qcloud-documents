@@ -13,7 +13,7 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | sdk_app_id | uint64_t | 官网申请的 SDKAppid |
-| json_sdk_config | const char\* | SDK 配置选项 Json 字符串，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33487#sdkconfig)  |
+| json_sdk_config | const char\* | SDK 配置选项 JSON 字符串，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33487#sdkconfig)  |
 
 **返回值**
 
@@ -24,7 +24,7 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 >?
 - 在使用 IM SDK 进一步操作之前，需要先初始化 IM SDK。
 - `json_sdk_config`可以为`NULL`或者""空字符串，在此情况下 SdkConfig 均为默认值。
-- `json_sdk_config`里面的每个 Json key 都是选填的，详情请参考  [SdkConfig](https://cloud.tencent.com/document/product/269/33487#sdkconfig)。
+- `json_sdk_config`里面的每个 JSON key 都是选填的，详情请参考  [SdkConfig](https://cloud.tencent.com/document/product/269/33487#sdkconfig)。
 
 **示例：**
 
@@ -45,7 +45,7 @@ if (TIM_SUCC != TIMInit(sdk_app_id, json_value_init.toStyledString().c_str())) {
     // TIMInit 接口调用错误，ImSDK初始化失败   
 }
 
-// json_value_init.toStyledString() 得到 json_sdk_config Json字符串如下
+// json_value_init.toStyledString() 得到 json_sdk_config JSON 字符串如下
 {
    "sdk_config_account_type" : "107",
    "sdk_config_config_file_path" : "D:\\",
@@ -129,7 +129,7 @@ if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t co
     //TIMSetConfig接口调用失败
 } 
 
-// json_config.toStyledString().c_str() 得到 json_config Json字符串如下
+// json_config.toStyledString().c_str() 得到 json_config JSON 字符串如下
 {
    "set_config_user_config" : {
       "user_config_is_read_receipt" : true
