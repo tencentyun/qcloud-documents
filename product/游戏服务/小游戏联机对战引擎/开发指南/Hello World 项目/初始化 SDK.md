@@ -2,6 +2,7 @@
 
 1. 在 game.js 文件中，将启动页改为 MainView，
 2. 并完成 SDK 监听器初始化、实例化 Room 对象。玩家的 openId 使用 Util.js 中的 mockOpenId 方法生成。
+
 game.js 最终代码如下所示：
 ```
 // 导入 MGOBE.js
