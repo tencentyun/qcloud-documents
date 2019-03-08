@@ -14,7 +14,7 @@ COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可�
 
 ## 使用方法
 
-用户可使用云 API 密钥 SecretId 和 SecretKey 进行登录，该密钥可在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，登录后会保留登录信息。（不支持项目密钥）
+用户可使用云 API 密钥 SecretId 和 SecretKey （不支持项目密钥）进行登录，该密钥可在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，登录后会保留登录信息。
 目前支持批量上传、下载、删除功能。拖拽上传下载暂不支持。
 
 ## 更新日志
