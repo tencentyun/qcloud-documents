@@ -30,7 +30,7 @@
 
 
 >?您需要自行替换后台接口地址，NodeJS 版本可参考 [Tencent Cloud API 3.0 SDK for NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)。
->
+
 ```
 let recorder = new TencentSOE({
   InitUrl: 'http://127.0.0.1:3000/cgi/init',
