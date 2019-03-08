@@ -306,18 +306,18 @@
 
 表情元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFaceElemIndex | int | 读写（必填） | 表情索引 |
-| kTIMFaceElemBuf | string | 读写（选填） | 其他额外数据，可由用户自定义填写。若要传输二进制，麻烦先转码成字符串。Json 只支持字符串 |
+| kTIMFaceElemBuf | string | 读写（选填） | 其他额外数据，可由用户自定义填写。若要传输二进制，麻烦先转码成字符串。JSON 只支持字符串 |
 
->?SDK 并不提供表情包，如果开发者有表情包，可使用 `kTIMFaceElemIndex` 存储表情在表情包中的索引，由用户自定义。或者直接使用 `kTIMFaceElemBuf` 存储表情二进制信息（必须转换成 String，Json 不支持二进制传输），由用户自定义，SDK 内部只做透传。
+>?SDK 并不提供表情包，如果开发者有表情包，可使用 `kTIMFaceElemIndex` 存储表情在表情包中的索引，由用户自定义。或者直接使用 `kTIMFaceElemBuf` 存储表情二进制信息（必须转换成 String，JSON 不支持二进制传输），由用户自定义，SDK 内部只做透传。
 
 ### LocationElem
 
 位置元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMLocationElemDesc | string | 读写（选填） | 位置描述 |
 | kTIMLocationElemLongitude | double | 读写（必填） | 经度 |
@@ -337,7 +337,7 @@
 
 图片元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMImageElemOrigPath | string | 读写（必填） | 发送图片的路径 |
 | kTIMImageElemLevel | uint [TIMImageLevel](https://cloud.tencent.com/document/product/269/33487#timimagelevel)  | 读写（必填） | 发送图片的质量级别 |
@@ -373,7 +373,7 @@
 
 声音元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMSoundElemFilePath | string | 读写（必填） | 语音文件路径，需要客户自己先保存语言然后指定路径 |
 | kTIMSoundElemFileSize | int | 读写（必填） | 语言数据文件大小，以秒为单位 |
@@ -392,7 +392,7 @@
 
 自定义元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMCustomElemData | string | 读写  | 数据，支持二进制数据 |
 | kTIMCustomElemDesc | string | 读写 | 自定义描述 |
@@ -405,7 +405,7 @@
 
 文件元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFileElemFilePath | string | 读写（必填） | 文件所在路径（包含文件名） |
 | kTIMFileElemFileName | string | 读写（选填） | 文件名，显示的名称 |
@@ -422,7 +422,7 @@
 
 视频元素。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMVideoElemVideoType | string | 读写（必填） | 视频文件类型，发送消息时进行设置 |
 | kTIMVideoElemVideoSize | uint | 读写（必填） | 视频文件大小 |
@@ -458,7 +458,7 @@
 
 群组系统消息-群组信息修改。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupTipGroupChangeInfoFlag | uint  [TIMGroupTipGroupChangeFlag](https://cloud.tencent.com/document/product/269/33487#timgrouptipgroupchangeflag)  | 只读 | 群消息修改群信息标志 |
 | kTIMGroupTipGroupChangeInfoValue | string | 只读 | 修改的后值，不同的`info_flag`字段，具有不同的含义 |
@@ -467,7 +467,7 @@
 
 群组系统消息-群组成员禁言。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupTipMemberChangeInfoIdentifier | string | 只读 | 群组成员 ID |
 | kTIMGroupTipMemberChangeInfoShutupTime | uint | 只读 | 禁言时间 |
@@ -476,7 +476,7 @@
 
 用户个人资料。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMUserProfileIdentifier | string | 只读 | 用户 ID |
 | kTIMUserProfileNickName | string | 只读 | 用户的昵称 |
@@ -503,7 +503,7 @@
 
 群组系统消息元素（针对所有群成员）。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupTipsElemTipType | uint  [TIMGroupTipType](https://cloud.tencent.com/document/product/269/33487#timgrouptiptype)  | 只读 | 群消息类型 |
 | kTIMGroupTipsElemOpUser | string | 只读 | 操作者 ID |
@@ -548,7 +548,7 @@
 
 群组系统通知元素（针对个人）。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupReportElemReportType | uint  [TIMGroupReportType](https://cloud.tencent.com/document/product/269/33487#timgroupreporttype)  | 只读 | 类型 |
 | kTIMGroupReportElemGroupId | string | 只读 | 群组 ID |
@@ -564,7 +564,7 @@
 
 消息群发接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgBatchSendParamIdentifierArray | array string | 只写（必填） | 群发的 ID 列表 |
 | kTIMMsgBatchSendParamMsg | object  [Message](https://cloud.tencent.com/document/product/269/33487#message)  | 只写（必填） | 群发的消息 |
@@ -573,7 +573,7 @@
 
 消息群发接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgBatchSendResultIdentifier | string | 只读 | 群发的单个 ID |
 | kTIMMsgBatchSendResultCode | int  [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 消息发送结果 |
@@ -583,7 +583,7 @@
 
 消息定位符。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgLocatorConvId | bool | 读写 | 要查找的消息是否是被撤回。true 被撤回的，false 非撤回的。默认值为 false |
 | kTIMMsgLocatorConvType | bool | 读写 | 要查找的消息是否是被撤回。true 被撤回的，false 非撤回的。默认值为 false |
@@ -597,7 +597,7 @@
 
 消息获取接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgGetMsgListParamLastMsg | object  [Message](https://cloud.tencent.com/document/product/269/33487#message)  | 只写（选填） | 指定的消息，不允许为 null |
 | kTIMMsgGetMsgListParamCount | uint | 只写（选填） | 从指定消息往后的消息数 |
@@ -608,7 +608,7 @@
 
 消息删除接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgDeleteParamMsg | object  [Message](https://cloud.tencent.com/document/product/269/33487#message)  | 只写（选填） | 指定在会话中要删除的消息 |
 | kTIMMsgDeleteParamIsRamble | bool | 只写（选填） | 是否删除本地/漫游所有消息。true 删除漫游消息，false 删除本地消息，默认值 false |
@@ -628,7 +628,7 @@ UUID 类型。
 
 下载元素接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgDownloadElemParamFlag | uint | 只写 | 从消息元素里面取出来，元素的下载类型 |
 | kTIMMsgDownloadElemParamType | uint  [TIMDownladType](https://cloud.tencent.com/document/product/269/33487#timdownladtype)  | 只写 | 从消息元素里面取出来，元素的类型 |
@@ -640,7 +640,7 @@ UUID 类型。
 
 下载元素接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgDownloadElemResultCurrentSize | uint | 只读 | 当前已下载的大小 |
 | kTIMMsgDownloadElemResultTotalSize | uint | 只读 | 需要下载的文件总大小 |
@@ -649,13 +649,13 @@ UUID 类型。
 
 ## 会话关键类型
 
-会话相关宏定义，以及相关结构成员存取 Json Key 定义。
+会话相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### Draft
 
 草稿信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMDraftMsg | object  [Message](https://cloud.tencent.com/document/product/269/33487#message)  | 只读 | 草稿内的消息 |
 | kTIMDraftUserDefine | string | - | - |
@@ -665,7 +665,7 @@ UUID 类型。
 
 草稿信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMConvId | string | 只读 | 会话 ID |
 | kTIMConvType | uint  [TIMConvType](https://cloud.tencent.com/document/product/269/33487#timconvtype)  | 只读 | 会话类型 |
@@ -681,7 +681,7 @@ UUID 类型。
 
 ## 群组关键类型
 
->群组相关宏定义，以及相关结构成员存取 Json Key 定义。
+>群组相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### TIMGroupAddOption
 
@@ -719,7 +719,7 @@ UUID 类型。
 
 群组成员信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupMemberInfoIdentifier | string | 读写(必填) | 群组成员ID |
 | kTIMGroupMemberInfoJoinTime | uint | 只读 | 群组成员加入时间 |
@@ -734,7 +734,7 @@ UUID 类型。
 
 创建群组接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMCreateGroupParamGroupName | string | 只写（必填） | 群组名称 |
 | kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组 ID，不填时创建成功回调会返回一个后台分配的群 ID |
@@ -751,7 +751,7 @@ UUID 类型。
 
 创建群组接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMCreateGroupResultGroupId | string | 只读 | 创建的群 ID |
 
@@ -759,7 +759,7 @@ UUID 类型。
 
 邀请成员接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupInviteMemberParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupInviteMemberParamIdentifierArray | array string | 只写（必填） | 被邀请加入群组用户 ID 数组 |
@@ -780,7 +780,7 @@ UUID 类型。
 
 邀请成员接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupInviteMemberResultIdentifier | string | 只读 | 被邀请加入群组的用户 ID |
 | kTIMGroupInviteMemberResultResult | uint  [HandleGroupMemberResult](https://cloud.tencent.com/document/product/269/33487#handlegroupmemberresult)  | 只读 | 邀请结果 |
@@ -789,7 +789,7 @@ UUID 类型。
 
 删除成员接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupDeleteMemberParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupDeleteMemberParamIdentifierArray | array string | 只写（必填） | 被删除群组成员数组 |
@@ -799,7 +799,7 @@ UUID 类型。
 
 删除成员接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupDeleteMemberResultIdentifier | string | 只读 | 删除的成员 ID |
 | kTIMGroupDeleteMemberResultResult | uint  [HandleGroupMemberResult](https://cloud.tencent.com/document/product/269/33487#handlegroupmemberresult)  | 只读 | 删除结果 |
@@ -818,7 +818,7 @@ UUID 类型。
 
 群组内本人的信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupSelfInfoJoinTime | uint | 只读 | 加入群组时间 |
 | kTIMGroupSelfInfoRole | uint | 只读 | 用户在群组中的角色 |
@@ -829,7 +829,7 @@ UUID 类型。
 
 获取已加入群组列表接口的返回(群组基础信息)。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupBaseInfoGroupId | string | 只读 | 群组 ID |
 | kTIMGroupBaseInfoGroupName | string | 只读 | 群组名称 |
@@ -846,7 +846,7 @@ UUID 类型。
 
 群组详细信息。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupDetialInfoGroupId | string | 只读 | 群组 ID |
 | kTIMGroupDetialInfoGroupType | uint  [TIMGroupType](https://cloud.tencent.com/document/product/269/33487#timgrouptype)  | 只读 | 群组类型 |
@@ -873,7 +873,7 @@ UUID 类型。
 
 获取群组信息列表接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGetGroupInfoResultCode | int  [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 获取群组详细信息的结果 |
 | kTIMGetGroupInfoResultDesc | string | 只读 | 获取群组详细失败的描述信息 |
@@ -901,7 +901,7 @@ UUID 类型。
 
 设置群信息接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupModifyInfoParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupModifyInfoParamModifyFlag | uint  [TIMGroupSetInfoFlag](https://cloud.tencent.com/document/product/269/33487#timgroupsetinfoflag)  | 只写（必填） | 修改标识，可设置多个值按位或 |
@@ -921,7 +921,7 @@ UUID 类型。
 
 获取群成员列表接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupGetMemberInfoListParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupGetMemberInfoListParamIdentifierArray | array string | 只写（选填） | 群成员 ID 列表 |
@@ -932,7 +932,7 @@ UUID 类型。
 
 获取群成员列表接口的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupGetMemberInfoListResultNexSeq | uint64 | 只读 | 下一次拉取的标志，server 返回0表示没有更多的数据，否则在下次获取数据的时候填入这个标志 |
 | kTIMGroupGetMemberInfoListResultInfoArray | array  [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33487#groupmemberinfo)  | 只读 | 成员信息列表 |
@@ -953,7 +953,7 @@ UUID 类型。
 
 设置群成员信息接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupModifyMemberInfoParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupModifyMemberInfoParamIdentifier | string | 只写（必填） | 被设置信息的成员 ID |
@@ -968,7 +968,7 @@ UUID 类型。
 
 获取群未决信息列表的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyOptionStartTime | uint64 | 只写（必填） | 设置拉取时间戳，第一次请求填0，后边根据server返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33487#grouppendencyresult) 键`kTIMGroupPendencyResultNextStartTime`指定的时间戳进行填写 |
 | kTIMGroupPendencyOptionMaxLimited | uint | 只写（选填） | 拉取的建议数量，server 可根据需要返回或多或少，不能作为完成与否的标志 |
@@ -1006,7 +1006,7 @@ UUID 类型。
 
 群未决信息定义。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
 | kTIMGroupPendencyFromIdentifier | string | 读写  | 请求者的 ID，比如：请求加群：请求者，邀请加群：邀请人 |
@@ -1024,7 +1024,7 @@ UUID 类型。
 
 获取群未决信息列表的返回。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyResultNextStartTime | uint64 | 只读 | 下一次拉取的起始时戳，server 返回0表示没有更多的数据，否则在下次获取数据的时候以这个时间戳作为开始时间戳 |
 | kTIMGroupPendencyResultReadTimeSeq | uint64 | 只读 | 已读上报的时间戳 |
@@ -1035,7 +1035,7 @@ UUID 类型。
 
 处理群未决消息接口的参数。
 
-| Json 键 | 值类型 | 属性 | 含义 |
+| JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupHandlePendencyParamIsAccept | bool | 只写（选填） | true accept false refuse，默认为 false |
 | kTIMGroupHandlePendencyParamHandleMsg | string | 只写（选填） | 同意或拒绝信息，默认为空字符串 |
