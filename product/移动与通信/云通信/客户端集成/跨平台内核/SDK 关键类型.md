@@ -1,58 +1,4 @@
-## 错误码
-
-### TIMErrCode
-
-错误码。
-
-| 名称 | 值 | 含义 |
-|-----|-----|-----|
-| ERR_SUCC | 0 | 成功                |
-| ERR_PARSE_RESPONSE_FAILED | 6001 | 回包解析失败,内部错误 |
-| ERR_SERIALIZE_REQ_FAILED | 6002 | 文档未定义 |
-| ERR_NO_SUCC_RESULT | 6003 | 批量操作无成功结果,请检查输入列表是否合法（如用户是否存在,传入列表类型是否与 API 匹配） |
-| ERR_INVALID_CONVERSATION | 6004 | 会话无效,getConversation 时检查是否已经登录,如未登录获取会话,会有此错误码返回 |
-| ERR_LOADMSG_FAILED | 6005 | 加载本地消息存储失败,可能存储文件有损坏 |
-| ERR_FILE_TRANS_AUTH_FAILED | 6006 | 文件传输-鉴权失败 |
-| ERR_FILE_TRANS_NO_SERVER | 6007 | 文件传输-获取 Server 列表失败 |
-| ERR_FILE_TRANS_UPLOAD_FAILED | 6008 | 文件传输-上传失败,请检查网络是否连接 |
-| ERR_FILE_TRANS_DOWNLOAD_FAILED | 6009 | 文件传输-下载失败,请检查网络,或者文件、语音是否已经过期,目前资源文件存储 7 天 |
-| ERR_HTTP_REQ_FAILED | 6010 | HTTP 请求失败 |
-| ERR_TO_USER_INVALID | 6011 | 消息接收方无效,对方用户不存在（接收方需登录过 IMSDK 或用帐号导入接口导入） |
-| ERR_REQUEST_TIMEOUT | 6012 | 请求超时,请等网络恢复后重试。（Android SDK 1.8.0 以上需要参考 Android 服务进程配置方式进行配置,否则会出现此错误） |
-| ERR_SDK_NOT_INITIALIZED | 6013 | SDK 未初始化或者用户未登录成功,请先登录,成功回调之后重试 |
-| ERR_SDK_NOT_LOGGED_IN | 6014 | SDK 未登录,请先登录,成功回调之后重试,或者被踢下线,可使用 TIMManager getLoginUser 检查当前是否在线 |
-| ERR_IN_PROGESS | 6015 | 请做好接口调用控制,第一次 login 操作回调前,后续的 login 操作会返回该错误码 |
-| ERR_INVALID_MSG_ELEM | 6016 | 注册超时,需要重试 |
-| ERR_INVALID_PARAMETERS | 6017 | API 参数无效,请检查参数是否符合要求,具体可查看错误信息进一步定义哪个字段 |
-| ERR_INIT_CORE_FAIL | 6018 | SDK 初始化失败,可能是部分目录无权限 |
-| ERR_DATABASE_OPERATE_FAILED | 6019 | 本地数据库操作失败,可能是部分目录无权限或者数据库文件已损坏 |
-| ERR_EXPIRED_SESSION_NODE | 6020 | Session Node 过期 |
-| ERR_INVALID_SDK_OBJECT | 6021 | 下载资源文件参数错误,如还未上传成功调用接口下载资源,或者用户自己生成 TIMImage 等对象 |
-| ERR_IO_OPERATION_FAILED | 6022 | 操作本地 IO 错误,检查是否有读写权限,磁盘是否已满 |
-| ERR_LOGGED_OUT_BEFORE_LOGIN_FINISHED | 6023 | 在登录操作没有完成前进行了登出操作（或者被踢下线） |
-| ERR_TLSSDK_NOT_INITIALIZED | 6024 | TLSSDK未初始化 |
-| ERR_TLSSDK_FIND_NO_USER | 6025 | TLSSDK没有找到相应的用户信息 |
-| ERR_REQUEST_NO_NET_ONREQ | 6200 | 请求时没有网络,请等网络恢复后重试 |
-| ERR_REQUEST_NO_NET_ONRSP | 6201 | 响应时没有网络,请等网络恢复后重试 |
-| ERR_SERIVCE_NOT_READY | 6205 | QAL服务未启动 |
-| ERR_USER_SIG_EXPIRED | 6206 | 票据过期(imcore) |
-| ERR_LOGIN_KICKED_OFF_BY_OTHER | 6208 | 其他终端登录帐号被踢,需重新登录 |
-| ERR_NEVER_CONNECT_AFTER_LAUNCH | 6209 | 程序启动后没有尝试联网 |
-| ERR_REQUEST_FAILED | 6210 | QAL执行失败 |
-| ERR_REQUEST_INVALID_REQ | 6211 | 请求非法,toMsgService非法 |
-| ERR_REQUEST_OVERLOADED | 6212 | 请求队列満 |
-| ERR_REQUEST_KICK_OFF | 6213 | 已经被其他终端踢了 |
-| ERR_REQUEST_SERVICE_SUSPEND | 6214 | 服务被暂停 |
-| ERR_REQUEST_INVALID_SIGN | 6215 | SSO签名错误 |
-| ERR_REQUEST_INVALID_COOKIE | 6216 | SSO cookie无效 |
-| ERR_LOGIN_TLS_RSP_PARSE_FAILED | 6217 | 登录时TLS回包校验,包体长度错误 |
-| ERR_LOGIN_OPENMSG_TIMEOUT | 6218 | 登录时OPENSTATSVC向OPENMSG上报状态时超时 |
-| ERR_LOGIN_OPENMSG_RSP_PARSE_FAILED | 6219 | 登录时OPENSTATSVC向OPENMSG上报状态时解析回包失败 |
-| ERR_LOGIN_TLS_DECRYPT_FAILED | 6220 | 登录时TLS解密失败 |
-| ERR_WIFI_NEED_AUTH | 6221 | 连接上的wifi需要认证（不认证的情况下,无法连接网络） |
-| ERR_USER_CANCELED | 6222 | 用户已取消 |
-| ERR_REVOKE_TIME_LIMIT_EXCEED | 6223 | 消息撤回超过了时间限制（默认2分钟） |
-| ERR_QAL_NO_SHORT_CONN_AVAILABLE | 6300 | 没有可用的短连接sso |
+## 常用宏和基础配置选项
 
 ### TIMResult
 
@@ -61,16 +7,15 @@
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
 | TIM_SUCC | 0 | 接口调用成功 |
-| TIM_ERR_SDKUNINIT | -1 | 接口调用失败,SDK未初始化 |
-| TIM_ERR_NOTLOGIN | -2 | 接口调用失败,用户未登入 |
-| TIM_ERR_JSON | -3 | 接口调用失败,错误的Json格式或Json Key |
-| TIM_ERR_PARAM | -4 | 接口调用成功,参数错误 |
-| TIM_ERR_CONV | -5 | 接口调用成功,无效的会话 |
-| TIM_ERR_GROUP | -6 | 接口调用成功,无效的群组 |
+| TIM_ERR_SDKUNINIT | -1 | 接口调用失败，SDK未初始化 |
+| TIM_ERR_NOTLOGIN | -2 | 接口调用失败，用户未登录 |
+| TIM_ERR_JSON | -3 | 接口调用失败，错误的Json格式或Json Key |
+| TIM_ERR_PARAM | -4 | 接口调用成功，参数错误 |
+| TIM_ERR_CONV | -5 | 接口调用成功，无效的会话 |
+| TIM_ERR_GROUP | -6 | 接口调用成功，无效的群组 |
 
-
-
-## 相关配置选项
+>?
+若接口参数中有回调，只有当接口返回 TIM_SUCC 时，回调才会被调用。
 
 ### TIMLogLevel
 
@@ -107,6 +52,17 @@
 | kTIMConvEvent_Del | 1 | 会话删除,比如自己删除某会话时会触发 |
 | kTIMConvEvent_Update | 2 | 会话更新,会话内消息的未读计数变化和收到新消息时触发 |
 
+### TIMConvType
+
+会话类型。
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMConv_Invalid | 0 | 无效会话 |
+| kTIMConv_C2C | 1 | 个人会话 |
+| kTIMConv_Group | 2 | 群组会话 |
+| kTIMConv_System | 3 | 系统会话 |
+
 ### TIMPlatform
 
 平台类型。
@@ -120,20 +76,137 @@
 | kTIMPlatform_Windows | 4 | Windows平台 |
 | kTIMPlatform_Other | 5 | 其他 |
 
+### DeviceInfo
 
+设备信息。
 
-## 消息相关结构 
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMDeviceInfoDevId | string | 只写(必填) | 设备ID |
+| kTIMDeviceInfoPlatform | uint  [TIMPlatform](https://cloud.tencent.com/document/product/269/33487#timplatform)  | 只写(必填) | 平台 |
+| kTIMDeviceInfoDevType | string | 只写(必填) | 设备类型 |
 
-### TIMConvType
+### SdKConfig
 
-会话类型。
+初始化SDK的配置。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMSdkConfigAccountType | string | 只写(选填) | 账号类型，默认为0 |
+| kTIMSdkConfigConfigFilePath | string | 只写(选填) | 配置文件路径，默认路径为"/" |
+| kTIMSdkConfigDeviceInfo | string | 只写(选填) | 设备信息 |
+| kTIMSdkConfigLogFilePath | string | 只写(选填) | 日志文件路径，默认路径为"/" |
+
+### TIMGroupMemberInfoFlag
+
+群组成员信息标识。
 
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
-| kTIMConv_Invalid | 0 | 无效会话 |
-| kTIMConv_C2C | 1 | 个人会话 |
-| kTIMConv_Group | 2 | 群组会话 |
-| kTIMConv_System | 3 | 系统会话 |
+| kTIMGroupMemberInfoFlag_None | 0x00 | 无 |
+| kTIMGroupMemberInfoFlag_JoinTime | 0x01 | 加入时间 |
+| kTIMGroupMemberInfoFlag_MsgFlag | 0x01 << 1 | 群消息接收选项 |
+| kTIMGroupMemberInfoFlag_MsgSeq | 0x01 << 2 | 成员已读消息seq |
+| kTIMGroupMemberInfoFlag_MemberRole | 0x01 << 3 | 成员角色 |
+| kTIMGroupMemberInfoFlag_ShutupUntill | 0x01 << 4 | 禁言时间。0: 没有禁言 |
+| kTIMGroupMemberInfoFlag_NameCard | 0x01 << 5 | 群名片 |
+
+### TIMGroupMemberRoleFlag
+
+群组成员角色标识。
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMGroupMemberRoleFlag_All | 0x00 | 获取全部角色类型 |
+| kTIMGroupMemberRoleFlag_Owner | 0x01 | 获取所有者(群主) |
+| kTIMGroupMemberRoleFlag_Admin | 0x01 << 1 | 获取管理员，不包括群主 |
+| kTIMGroupMemberRoleFlag_Member | 0x01 << 2 | 获取普通群成员，不包括群主和管理员 |
+
+### GroupMemberGetInfoOption
+
+获取群组成员信息的选项。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupMemberGetInfoOptionInfoFlag | uint64  [TIMGroupMemberInfoFlag](https://cloud.tencent.com/document/product/269/33487#timgroupmemberinfoflag)  | 读写(选填) | 根据想要获取的信息过滤，默认值为0xffffffff(获取全部信息) |
+| kTIMGroupMemberGetInfoOptionRoleFlag | uint64  [TIMGroupMemberRoleFlag](https://cloud.tencent.com/document/product/269/33487#timgroupmemberroleflag)  | 读写(选填) | 根据成员角色过滤，默认值为kTIMGroupMemberRoleFlag_All，获取所有角色 |
+| kTIMGroupMemberGetInfoOptionCustomArray | array string | 只写(选填) | 详见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+
+### TIMGroupGetInfoFlag
+
+群组成员信息标识。
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMGroupInfoFlag_None | 0x00 |  |
+| kTIMGroupInfoFlag_Name | 0x01 | 群组名称 |
+| kTIMGroupInfoFlag_CreateTime | 0x01 << 1 | 群组创建时间 |
+| kTIMGroupInfoFlag_OwnerUin | 0x01 << 2 | 群组创建者帐号 |
+| kTIMGroupInfoFlag_Seq | 0x01 << 3 |  |
+| kTIMGroupInfoFlag_LastTime | 0x01 << 4 | 群组信息最后修改时间 |
+| kTIMGroupInfoFlag_NextMsgSeq | 0x01 << 5 |  |
+| kTIMGroupInfoFlag_LastMsgTime | 0X01 << 6 | 最新群组消息时间 |
+| kTIMGroupInfoFlag_AppId | 0x01 << 7 |  |
+| kTIMGroupInfoFlag_MemberNum | 0x01 << 8 | 群组成员数量 |
+| kTIMGroupInfoFlag_MaxMemberNum | 0x01 << 9 | 群组成员最大数量 |
+| kTIMGroupInfoFlag_Notification | 0x01 << 10 | 群公告内容 |
+| kTIMGroupInfoFlag_Introduction | 0x01 << 11 | 群简介内容 |
+| kTIMGroupInfoFlag_FaceUrl | 0x01 << 12 | 群头像URL |
+| kTIMGroupInfoFlag_AddOpton | 0x01 << 13 | 加群选项 |
+| kTIMGroupInfoFlag_GroupType | 0x01 << 14 | 群类型 |
+| kTIMGroupInfoFlag_LastMsg | 0x01 << 15 | 群组内最新一条消息 |
+| kTIMGroupInfoFlag_OnlineNum | 0x01 << 16 | 群组在线成员数 |
+| kTIMGroupInfoFlag_Visible | 0x01 << 17 | 群组是否可见 |
+| kTIMGroupInfoFlag_Searchable | 0x01 << 18 | 群组是否可以搜索 |
+| kTIMGroupInfoFlag_ShutupAll | 0x01 << 19 | 群组是否全禁言 |
+
+### GroupGetInfoOption
+
+获取群组信息的选项。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupGetInfoOptionInfoFlag | uint64  [TIMGroupGetInfoFlag](https://cloud.tencent.com/document/product/269/33487#timgroupgetinfoflag)  | 读写(选填) | 根据想要获取的信息过滤，默认值为0xffffffff(获取全部信息) |
+| kTIMGroupGetInfoOptionCustomArray | array string | 只写(选填) | 详见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+
+### UserConfig
+
+用于配置信息。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMUserConfigIsReadReceipt | bool | 只写(选填) | true表示要收已读回执事件 |
+| kTIMUserConfigIsSyncReport | bool | 只写(选填) | true是表示服务端要删掉已读状态 |
+| kTIMUserConfigIsIngoreGroupTipsUnRead | bool | 只写(选填) | true表示群tips不计入群消息已读计数 |
+| kTIMUserConfigGroupGetInfoOption | object  [GroupGetInfoOption](https://cloud.tencent.com/document/product/269/33487#groupgetinfooption)  | 只写(选填) | 获取群组信息默认选项 |
+| kTIMUserConfigGroupMemberGetInfoOption | object  [GroupMemberGetInfoOption](https://cloud.tencent.com/document/product/269/33487#groupmembergetinfooption)  | 只写(选填) | 获取群组成员信息默认选项 |
+
+### ProxyInfo
+
+代理信息。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMProxyInfoIp | string | 只写(必填) | 代理的ip |
+| kTIMProxyInfoPort | int | 只写(必填) | 代理的端口 |
+
+### SetConfig
+
+更新配置。
+
+| Json 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMSetConfigLogLevel | uint  [TIMLogLevel](https://cloud.tencent.com/document/product/269/33487#timloglevel)  | 只写(选填) | 输出到日志文件的日子级别 |
+| kTIMSetConfigCackBackLogLevel | uint  [TIMLogLevel](https://cloud.tencent.com/document/product/269/33487#timloglevel)  | 只写(选填) | 日子回调的日志级别 |
+| kTIMSetConfigIsLogOutputConsole | bool | 只写(选填) | 是否输出到控制台 |
+| kTIMSetConfigUserConfig | object  [UserConfig](https://cloud.tencent.com/document/product/269/33487#userconfig)  | 只写(选填) | 用户配置 |
+| kTIMSetConfigProxyInfo | object  [ProxyInfo](https://cloud.tencent.com/document/product/269/33487#proxyinfo)  | 只写(选填) | 设置代理 |
+
+
+
+## 消息关键类型
+
+>消息相关宏定义，以及相关结构成员存取 Json Key 定义。
 
 ### TIMMsgStatus
 
@@ -507,7 +580,7 @@ SDK 并不提供表情包，如果开发者有表情包，可使用 `kTIMFaceEle
 | Json 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgBatchSendResultIdentifier | string | 只读 | 群发的单个ID |
-| kTIMMsgBatchSendResultCode | int [TIMErrCode](https://cloud.tencent.com/document/product/269/33487#timerrcode)  | 只读 | 消息发送结果 |
+| kTIMMsgBatchSendResultCode | int  [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 消息发送结果 |
 | kTIMMsgBatchSendResultDesc | string | 只读 | 消息发送的描述 |
 
 ### MsgLocator
@@ -578,7 +651,9 @@ UUID类型。
 
 
 
-## 会话相关结构
+## 会话关键类型
+
+>会话相关宏定义，以及相关结构成员存取 Json Key 定义。
 
 ### Draft
 
@@ -608,7 +683,9 @@ UUID类型。
 
 
 
-## 群组相关结构
+## 群组关键类型
+
+>群组相关宏定义，以及相关结构成员存取 Json Key 定义。
 
 ### TIMGroupAddOption
 
@@ -802,7 +879,7 @@ UUID类型。
 
 | Json 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMGetGroupInfoResultCode | uint | 只读 | 获取群组详细信息的结果 |
+| kTIMGetGroupInfoResultCode | int  [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 获取群组详细信息的结果 |
 | kTIMGetGroupInfoResultDesc | string | 只读 | 获取群组详细失败的描述信息 |
 | kTIMGetGroupInfoResultInfo | json object  [GroupDetailInfo](https://cloud.tencent.com/document/product/269/33487#groupdetailinfo)  | 只读 | 群组详细信息 |
 
