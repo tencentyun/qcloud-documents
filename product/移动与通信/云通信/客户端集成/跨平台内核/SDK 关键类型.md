@@ -394,10 +394,10 @@
 
 | Json 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMCustomElemData | string | 读写() | 数据，支持二进制数据 |
-| kTIMCustomElemDesc | string | 读写() | 自定义描述 |
-| kTIMCustomElemExt | string | 读写() | 后台推送对应的 ext 字段 |
-| kTIMCustomElemSound | string | 读写() | 自定义声音，这个声音是给谁听的 |
+| kTIMCustomElemData | string | 读写  | 数据，支持二进制数据 |
+| kTIMCustomElemDesc | string | 读写 | 自定义描述 |
+| kTIMCustomElemExt | string | 读写  | 后台推送对应的 ext 字段 |
+| kTIMCustomElemSound | string | 读写  | 自定义声音，这个声音是给谁听的 |
 
 >?自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。
 
@@ -1008,17 +1008,17 @@ UUID 类型。
 
 | Json 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMGroupPendencyGroupId | string | 读写() | 群组id |
-| kTIMGroupPendencyFromIdentifier | string | 读写() | 请求者的 ID，比如：请求加群：请求者，邀请加群：邀请人 |
-| kTIMGroupPendencyToIdentifier | string | 读写() | 判决者的 ID，请求加群：""，邀请加群：被邀请人 |
-| kTIMGroupPendencyAddTime | uint64 | 只读() | 未决信息添加时间 |
-| kTIMGroupPendencyPendencyType | uint  [TIMGroupPendencyType](https://cloud.tencent.com/document/product/269/33487#timgrouppendencytype)  | 只读() | 未决请求类型 |
-| kTIMGroupPendencyHandled | uint  [TIMGroupPendencyHandle](https://cloud.tencent.com/document/product/269/33487#timgrouppendencyhandle)  | 只读() | 群未决处理状态 |
-| kTIMGroupPendencyHandleResult | uint  [TIMGroupPendencyHandleResult](https://cloud.tencent.com/document/product/269/33487#timgrouppendencyhandleresult)  | 只读() | 群未决处理操作类型 |
-| kTIMGroupPendencyApplyInviteMsg | string | 只读() | 申请或邀请附加信息 |
-| kTIMGroupPendencyFromUserDefinedData | string | 只读() | 申请或邀请者自定义字段 |
-| kTIMGroupPendencyApprovalMsg | string | 只读() | 审批信息：同意或拒绝信息 |
-| kTIMGroupPendencyToUserDefinedData | string | 只读() | 审批者自定义字段 |
+| kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
+| kTIMGroupPendencyFromIdentifier | string | 读写  | 请求者的 ID，比如：请求加群：请求者，邀请加群：邀请人 |
+| kTIMGroupPendencyToIdentifier | string | 读写  | 判决者的 ID，请求加群：""，邀请加群：被邀请人 |
+| kTIMGroupPendencyAddTime | uint64 | 只读  | 未决信息添加时间 |
+| kTIMGroupPendencyPendencyType | uint  [TIMGroupPendencyType](https://cloud.tencent.com/document/product/269/33487#timgrouppendencytype)  | 只读  | 未决请求类型 |
+| kTIMGroupPendencyHandled | uint  [TIMGroupPendencyHandle](https://cloud.tencent.com/document/product/269/33487#timgrouppendencyhandle)  | 只读  | 群未决处理状态 |
+| kTIMGroupPendencyHandleResult | uint  [TIMGroupPendencyHandleResult](https://cloud.tencent.com/document/product/269/33487#timgrouppendencyhandleresult)  | 只读  | 群未决处理操作类型 |
+| kTIMGroupPendencyApplyInviteMsg | string | 只读  | 申请或邀请附加信息 |
+| kTIMGroupPendencyFromUserDefinedData | string | 只读  | 申请或邀请者自定义字段 |
+| kTIMGroupPendencyApprovalMsg | string | 只读 | 审批信息：同意或拒绝信息 |
+| kTIMGroupPendencyToUserDefinedData | string | 只读  | 审批者自定义字段 |
 
 ### GroupPendencyResult
 
