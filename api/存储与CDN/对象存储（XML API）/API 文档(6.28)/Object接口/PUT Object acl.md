@@ -113,7 +113,7 @@ Container 节点 Grantee 的内容：
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:---|
 |URI|  AccessControlPolicy.AccessControlList.Grant.Grantee| 指定所有用户|  String |是|
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是主帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 。如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |是|
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值|  String |是|
 | DisplayName | AccessControlPolicy.AccessControlList.Grant.Grantee |  用户的名称 |  String |是|
 
 
