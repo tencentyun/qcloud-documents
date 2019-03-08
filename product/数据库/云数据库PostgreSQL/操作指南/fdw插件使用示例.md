@@ -20,9 +20,9 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
  - instanceid
     必须项。目标实例的资源 ID。
   1. 如果目标实例类型为 TencentDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：
-![](https://main.qcloudimg.com/raw/da92d46f8b152ffda53300fa577e9399.png)
+![](https://main.qcloudimg.com/raw/e9e87dc6d6c13afa7cbe1e9633c3b3ad.png)
   2. 如果目标实例在腾讯云 CVM 上，则为 CVM 机器的实例 ID，格式类似 ins-xxxxx。
-![](https://main.qcloudimg.com/raw/9dd32f99dfb6ea8b3d1f39a89944aab1.png)
+![](https://main.qcloudimg.com/raw/6b6c41e427d19722c64d9adeac6c110e.png)
  - access_type
     非必须项。目标实例所属类型：
     - 目标实例为 TencentDB 实例，包括云数据库 PostgreSQL、云数据库 MySQL 等，如果不显示指定，则默认该项。
