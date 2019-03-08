@@ -3,7 +3,7 @@ FDW(FOREIGN DATA WRAPPER, 外部数据包装器)是 PostgreSQL 提供用于访�
  1. 使用 “CREATE EXTENSION” 语句安装 FDW 插件。
  2. 使用 “CREATE SERVER” 语句,为每个需要连接的远程数据库创建一个外部服务器对象。指定除了 user 和 password 以外的连接信息作为服务器对象的选项。
  3. 使用 “CREATE USER MAPPING” 语句，为每个需要通过外部服务器访问的数据库创建用户映射。指定远程的账号和密码作为映射用户的 user 和 password。
- 4. 使用 “CREATE FOREIGN TABLE” 语句，为每个需要访问的远程表创建外部表。 创建的外部表的对应列必须与远程表匹配。也可以在外部表中使用与远程表不同的表名和列名， 但前提是你必须将正确的远程对象名作为创建外部表对象的选项。
+ 4. 使用 “CREATE FOREIGN TABLE” 语句，为每个需要访问的远程表创建外部表。 创建的外部表的对应列必须与远程表匹配。也可以在外部表中使用与远程表不同的表名和列名， 但前提是您必须将正确的远程对象名作为创建外部表对象的选项。
 
 由于 FDW 插件可以直接跨实例访问，基于安全性考虑，TencentDB For PostgreSQL 对创建外部服务器对象时进行了权限控制优化，根据目标实例所在环境进行分类管理。在开源版本基础上增加了额外辅助参数，来验证用户身份和调整网络策略。
 
@@ -11,25 +11,25 @@ FDW(FOREIGN DATA WRAPPER, 外部数据包装器)是 PostgreSQL 提供用于访�
 #### postgres_fdw、mysql_fdw 等插件辅助参数    
 
  - host
-    必须项。目标实例的内网 ip 地址，postgres_fdw 使用。
+    必须项。目标实例的内网 IP 地址，postgres_fdw 使用。
  - address
-    必须项。目标实例的内网 ip 地址，mysql_fdw 使用。
+    必须项。目标实例的内网 IP 地址，mysql_fdw 使用。
  - port
     必须项。目标实例的内网 port。
  - instanceid
     必须项。目标实例的资源 ID。
-     1. 如果目标实例类型为 CDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：
+     1. 如果目标实例类型为 TencentDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：
 ![](https://main.qcloudimg.com/raw/da92d46f8b152ffda53300fa577e9399.png)
      2. 如果目标实例在腾讯云 CVM 上，则为 CVM 机器的实例 ID，格式类似 ins-xxxxx。
 ![](https://main.qcloudimg.com/raw/9dd32f99dfb6ea8b3d1f39a89944aab1.png)
 
  - access_type
     非必须项。目标实例所属类型：
-    1. 目标实例为 CDB 实例，包括 TencentDB For PostgreSQL、TencentDB For MySQL 等，如果不显示指定，则默认该项；
+    1. 目标实例为 TencentDB 实例，包括 TencentDB For PostgreSQL、TencentDB For MySQL 等，如果不显示指定，则默认该项；
     2. 目标实例在腾讯云 CVM 机器上；
     3. 目标实例为腾讯云外网自建；
-    4. 目标实例为云 vpn 接入的实例;
-    5. 目标实例为自建 vpn 接入的实例;
+    4. 目标实例为云 VPN 接入的实例;
+    5. 目标实例为自建 VPN 接入的实例;
     6. 目标实例为专线接入的实例;
     7. 目标实例为腾讯云 COS 数据；
  - uin
@@ -43,7 +43,7 @@ FDW(FOREIGN DATA WRAPPER, 外部数据包装器)是 PostgreSQL 提供用于访�
  - dcgid
     非必须项。专线 ID，目标实例如果需要通过专线网络连接，则需要提供该参数值。
  - vpngwid
-    非必须项。VPN 网关 ID，目标实例如果需要通过 vpn 网络连接，则需要提供该参数值。
+    非必须项。VPN 网关 ID，目标实例如果需要通过 VPN 网络连接，则需要提供该参数值。
  - region
     非必须项。目标实例所在地域，如 “ap-guangzhou” 表示广州。如果需要跨地域访问数据，则需要提供该参数值。
 
@@ -178,7 +178,7 @@ INSERT 0 1
 ### postgres_fdw 使用注意
 如果目标实例在 CVM 上，需要注意以下几点：
  1. 需要放开 PostgreSQL 的 hba 限制，允许创建的映射用户（如：user2）以 MD5 方式访问。hba 的修改可参考 [PostgreSQL 官方说明](https://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html)。
- 2. 如果目标实例非 CDB 实例，且搭建有热备模式，当主备切换后，需要自行更新 server 连接地址或者重新创建 server。
+ 2. 如果目标实例非 TencentDB 实例，且搭建有热备模式，当主备切换后，需要自行更新 server 连接地址或者重新创建 server。
 
 ### 参考文档
 
