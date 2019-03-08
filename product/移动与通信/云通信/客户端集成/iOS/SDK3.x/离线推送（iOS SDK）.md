@@ -16,7 +16,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 >- 注意生产环境的选择，发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
 >- 上传的 p12 证书必须是自己申请的真实有效的证书。
 
-<img src="http://mc.qcloudimg.com/static/img/d34bd0d7d3fe35a9171d396230df0fc6/image.png" width=480 />
+![](https://main.qcloudimg.com/raw/e0d5f6d5f93d3d6c4412c2c9acf2d162.png)
 
 ### 客户端实现 APNs 推送
 
