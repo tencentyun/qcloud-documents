@@ -2,7 +2,7 @@
 本文为您详细介绍如何使用 CFS 文件系统。
 
 ## 操作步骤
-使用 CFS 文件系统操作步骤流程：“[创建和配置 CVM 实例](#.E4.B8.80.E3.80.81.E5.88.9B.E5.BB.BA.E5.92.8C.E9.85.8D.E7.BD.AE-cvm-.E5.AE.9E.E4.BE.8B)” > “[创建文件系统及挂载点](#.E4.BA.8C.E3.80.81.E5.88.9B.E5.BB.BA.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F.E5.8F.8A.E6.8C.82.E8.BD.BD.E7.82.B9)” > “[连接实例](#.E4.B8.89.E3.80.81.E8.BF.9E.E6.8E.A5.E5.AE.9E.E4.BE.8B)” > “[挂载文件系统](#.E5.9B.9B.E3.80.81.E6.8C.82.E8.BD.BD.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F)” > “[终止资源](#.E4.BA.94.E3.80.81.E7.BB.88.E6.AD.A2.E8.B5.84.E6.BA.90)”。详细操作步骤请阅读本文以下章节。
+使用 CFS 文件系统操作步骤流程：“[创建和配置 CVM 实例](#.E5.88.9B.E5.BB.BA.E5.92.8C.E9.85.8D.E7.BD.AE-cvm-.E5.AE.9E.E4.BE.8B)” > “[创建文件系统及挂载点](#.E5.88.9B.E5.BB.BA.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F.E5.8F.8A.E6.8C.82.E8.BD.BD.E7.82.B9)” > “[连接实例](#.E8.BF.9E.E6.8E.A5.E5.AE.9E.E4.BE.8B)” > “[挂载文件系统](#.E6.8C.82.E8.BD.BD.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F)” > “[终止资源](#.E7.BB.88.E6.AD.A2.E8.B5.84.E6.BA.90)”。详细操作步骤请阅读本文以下章节。
 
 
 ### 创建和配置 CVM 实例
@@ -244,7 +244,7 @@ umount /local/test
 
 ### 终止资源
 您可以从腾讯云控制台轻松终止 CVM 实例和文件系统。事实上，最好终止不再使用的资源，以免继续为其付费。
-1. 终止腾讯云实例。进入腾讯云云服务器 [控制台](https://console.cloud.tencent.com/cvm/index)，选中需要终止的实例，单击【更多】>【云主机状态】，可以选中【销毁】以终止 CVM 实例。
+1. 终止腾讯云实例。进入云服务器 [控制台](https://console.cloud.tencent.com/cvm/index)，选中需要终止的实例，单击【更多】>【云主机状态】，可以选中【销毁】以终止 CVM 实例。
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
