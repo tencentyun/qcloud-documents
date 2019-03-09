@@ -1,3 +1,8 @@
+>! 
+- 身份证识别全面升级接口，算法更强、性能更优，欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
+- 新老版本的接口计费模式相同，且共享计费阶梯，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
+- 老版本接口我们仍继续维护，但建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
 本接口（idcard）用于识别身份证上的姓名、证件号、地址等信息。
