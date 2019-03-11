@@ -6,7 +6,7 @@
 
 ## 设置离线推送配置
 ### 设置全局离线推送配置
-ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `configOfflinePushSettings`。
+ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `setOfflinePushSettings`。
 
 >!
 > - 必须在登录成功后调用才生效。
@@ -19,7 +19,7 @@ ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，�
  * 初始化离线推送配置，需登录后设置才生效
  * @param settings 离线推送配置信息
  */
-public void configOfflinePushSettings(TIMOfflinePushSettings settings)
+public void setOfflinePushSettings(TIMOfflinePushSettings settings)
 
 /**
  * 从服务器获取离线推送配置，需登录后才能获取
@@ -85,7 +85,7 @@ settings.setC2cMsgRemindSound(Uri.parse("android.resource://" + getPackageName()
 //设置收到群离线消息时的提示声音，这里把声音文件放到了 res/raw 文件夹下
 settings.setGroupMsgRemindSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dudulu));
 
-TIMManager.getInstance().configOfflinePushSettings(settings);
+TIMManager.getInstance().setOfflinePushSettings(settings);
 ```
 
 ### 设置单条消息的离线推送配置
@@ -546,7 +546,7 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 由于小米 ROM 深度定制了安卓系统，加强了权限的控制，第三方 App 默认不会在系统的自启动白名单里，App 在后台很容易被系统杀掉，或者用户手动将 App 杀死， 因为没有自启动权限，App 的 service 无法自动重启，从而导致被杀死后无法收到消息。为了保证 App 被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK 仅支持推送通知栏消息**。
 
->注：
+>!
 >- 收到离线消息时，默认通知标题为 `a new message`。
 >- 此指引文档是根据小米推送 SDKv3.0.3 来写的，可能不适用于新版本的小米推送 SDK，新版本的接入请直接参考小米官方文档。
 >- 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
@@ -1237,7 +1237,7 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
 Opush 是 ColorOS 上的系统级通道，为开发者提供稳定，高效的消息推送服务。为了保证 App 被杀后，在 OPPO 设备上仍然能够收到消息，需要集成 Opush。目前，**SDK 仅支持推送通知栏消息**。
 
 >!
-> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android APP 应用。
+> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android App 应用。
 > - 此文档是根据 OPPO 推送 sdk 1.0.1 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考 [OPPO官方接入文档](https://open.oppomobile.com/wiki/doc#id=10196)。
 > - 如果不需要对 OPPO 设备做专门的离线推送适配，可以忽略此章节。
 
@@ -1342,7 +1342,7 @@ token|用户标识，包括证书 ID， regId， TMID 等
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
@@ -1513,7 +1513,7 @@ token|用户标识，包括证书 ID， regId， TMID 等
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
