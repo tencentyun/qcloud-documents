@@ -110,7 +110,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| param | String | json形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
+| param | String | JSON 形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
 
 
 
@@ -1246,7 +1246,7 @@ String getSDKVersion()
 
 ### setLogLevel
 
-设置 log 输出级别。
+设置 Log 输出级别。
 
 ```
 void setLogLevel(int level)
@@ -1280,7 +1280,7 @@ __参数__
 
 ### setLogCompressEnabled
 
-启用或禁用 Log 的本地压缩。 开启压缩后，log 存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log 采用明文存储，可以直接用记事本打开阅读，但占用空间较大。         
+启用或禁用 Log 的本地压缩。 开启压缩后，Log 存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，Log 采用明文存储，可以直接用记事本打开阅读，但占用空间较大。         
 
 ```
 void setLogCompressEnabled(boolean enabled)
@@ -1297,7 +1297,7 @@ __参数__
 
 ### setLogDirPath
 
-修改日志保存路径, 默认保存在 /sdcard//log/tencent/liteav 下，如需修改, 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
+修改日志保存路径, 默认保存在 /sdcard/log/tencent/liteav 下，如需修改, 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
 
 ```
 void setLogDirPath(String path)

@@ -111,7 +111,7 @@ __参数__
 
 ### onUserEnter
 
-userid 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
+userId 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userId 的视频画面。
 
 ```
  - (void)onUserEnter:(NSString *)userId 
@@ -128,7 +128,7 @@ __参数__
 
 ### onUserExit
 
-userid 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
+userId 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userId 的视频画面。
 
 ```
  - (void)onUserExit:(NSString *)userId reason:(NSInteger)reason 
@@ -146,7 +146,7 @@ __参数__
 
 ### onUserVideoAvailable
 
-userid 对应的远端主路（即摄像头）画面的状态通知。
+userId 对应的远端主路（即摄像头）画面的状态通知。
 
 ```
  - (void)onUserVideoAvailable:(NSString *)userId available:(BOOL)available 
@@ -164,7 +164,7 @@ __参数__
 
 ### onUserSubStreamAvailable
 
-userid 对应的远端辅路（屏幕分享等）画面的状态通知。
+userId 对应的远端辅路（屏幕分享等）画面的状态通知。
 
 ```
  - (void)onUserSubStreamAvailable:(NSString *)userId available:(BOOL)available 
@@ -182,7 +182,7 @@ __参数__
 
 ### onUserAudioAvailable
 
-userid 对应的远端声音的状态通知。
+userId 对应的远端声音的状态通知。
 
 ```
  - (void)onUserAudioAvailable:(NSString *)userId available:(BOOL)available 
@@ -200,7 +200,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-userid 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来开关这个回调。
+userId 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation:smooth: 来开关这个回调。
 
 ```
  - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume 
@@ -222,7 +222,7 @@ __参数__
 ### onNetworkQuality
 
 网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
->!userid == nil 代表自己当前的视频质量。
+>!userId == nil 代表自己当前的视频质量。
 
 ```
  - (void)onNetworkQuality:(TRTCQualityInfo *)localQuality remoteQuality:(NSArray< TRTCQualityInfo * > *)remoteQuality 
@@ -579,7 +579,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息 |
-| userId | NSString *__nullable | 视频源的 userid，如果是本地视频回调，该参数可以不用理会 |
+| userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调，该参数可以不用理会 |
 | streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等 |
 
 <br/>
