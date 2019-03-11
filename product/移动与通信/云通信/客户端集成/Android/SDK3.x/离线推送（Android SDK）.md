@@ -1237,7 +1237,7 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
 Opush 是 ColorOS 上的系统级通道，为开发者提供稳定，高效的消息推送服务。为了保证 App 被杀后，在 OPPO 设备上仍然能够收到消息，需要集成 Opush。目前，**SDK 仅支持推送通知栏消息**。
 
 >!
-> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android APP 应用。
+> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android App 应用。
 > - 此文档是根据 OPPO 推送 sdk 1.0.1 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考 [OPPO官方接入文档](https://open.oppomobile.com/wiki/doc#id=10196)。
 > - 如果不需要对 OPPO 设备做专门的离线推送适配，可以忽略此章节。
 
@@ -1342,7 +1342,7 @@ token|用户标识，包括证书 ID， regId， TMID 等
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
@@ -1513,7 +1513,7 @@ token|用户标识，包括证书 ID， regId， TMID 等
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
