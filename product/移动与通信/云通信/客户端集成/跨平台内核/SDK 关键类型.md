@@ -738,7 +738,7 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMCreateGroupParamGroupName | string | 只写（必填） | 群组名称 |
 | kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组 ID，不填时创建成功回调会返回一个后台分配的群 ID |
-| kTIMCreateGroupParamGroupType | uint。 [TIMGroupType](https://cloud.tencent.com/document/product/269/33553#timgrouptype)  | 只写（选填） | 群组类型，默认为 Public |
+| kTIMCreateGroupParamGroupType | uint [TIMGroupType](https://cloud.tencent.com/document/product/269/33553#timgrouptype)  | 只写（选填） | 群组类型，默认为 Public |
 | kTIMCreateGroupParamGroupMemberArray | array  [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33553#groupmemberinfo)  | 只写（选填） | 群组初始成员数组 |
 | kTIMCreateGroupParamNotification | string | 只写（选填） | 群组公告 |
 | kTIMCreateGroupParamIntroduction | string | 只写（选填） | 群组简介 |

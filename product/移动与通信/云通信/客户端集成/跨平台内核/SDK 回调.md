@@ -349,7 +349,7 @@ typedef void (*TIMConvEventCallback)(TIMConvEvent conv_event, const char* json_c
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| conv_event | TIMConvEvent | 会话事件类型。 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent)  |
+| conv_event | TIMConvEvent | 会话事件类型，请参考 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent)  |
 | json_conv_array | const char\* | 会话信息列表 |
 | user_data | const void\* | SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -394,8 +394,8 @@ typedef void (*TIMNetworkStatusListenerCallback)(TIMNetworkStatus status, int32_
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| status | TIMNetworkStatus | 日志级别。 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus)  |
-| code | int32_t | ERR_SUCC 表示成功，其他值表示失败。详情请参考  [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| status | TIMNetworkStatus | 日志级别，请参考 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus)  |
+| code | int32_t | ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
 | desc | const char\* | 错误描述字符串 |
 | user_data | const void\* | SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -471,7 +471,7 @@ typedef void (*TIMLogCallback)(TIMLogLevel level, const char* log, const void* u
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | TIMLogLevel | 日志级别。 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  |
+| level | TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  |
 | log | const char\* | 日子字符串 |
 | user_data | const void\* | SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -512,7 +512,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int32_t | ERR_SUCC 表示成功，其他值表示失败。详情请参考  [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| code | int32_t | ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
 | desc | const char\* | 错误描述字符串 |
 | json_params | const char\* | JSON 字符串，不同的接口，JSON 字符串不一样 |
 | user_data | const void\* | SDK 负责透传的用户自定义数据，未做任何处理 |
