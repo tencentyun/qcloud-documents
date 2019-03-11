@@ -85,7 +85,7 @@ settings.setC2cMsgRemindSound(Uri.parse("android.resource://" + getPackageName()
 //设置收到群离线消息时的提示声音，这里把声音文件放到了 res/raw 文件夹下
 settings.setGroupMsgRemindSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dudulu));
 
-TIMManager.getInstance().configOfflinePushSettings(settings);
+TIMManager.getInstance().setOfflinePushSettings(settings);
 ```
 
 ### 设置单条消息的离线推送配置
