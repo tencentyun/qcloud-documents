@@ -25,7 +25,7 @@
 
 腾讯云提供如下方式进行云服务器CVM的配置和管理：
 
-- **控制台：**腾讯云提供的Web服务界面，用于管理云服务器CVM。关于如何使用控制台管理您的云服务器实例和资源，请参考XXXX。
+- **控制台**：腾讯云提供的Web服务界面，用于管理云服务器CVM。
 - **API**：腾讯云也提供了API接口方便您管理云服务器CVM。关于API说明，请参考XXX。
 - **SDK**：您可以使用 [SDK编程](https://cloud.tencent.com/document/sdk)或使用腾讯云[命令行CLI](https://cloud.tencent.com/document/product/440/6317)工具调用CVM API。
 
