@@ -19,7 +19,7 @@
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |     ✔  |    ✔    |    ✔   |    ✔    |    ✖     |   ✖     |
 
->?小程序不支持 `startCloudMixTranscoding` 和 `startPublishCDNStream` 接口，只能通过 [控制台](https://console.cloud.tencent.com/rav) 开启自动旁路直播来实现旁路直播到 CDN。
+>?小程序不支持 `startCloudMixTranscoding` 和 `startPublishCDNStream` 接口，只能通过实时音视频 [控制台](https://console.cloud.tencent.com/rav) 开启自动旁路直播来实现旁路直播到 CDN。
 
 ## 如何开启旁路服务
 在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的【功能配置】页面里可以开启自动旁路，开启此功能的前提是需要先开通腾讯云直播服务，可以在云直播 [控制台](https://console.cloud.tencent.com/live) 开通。
