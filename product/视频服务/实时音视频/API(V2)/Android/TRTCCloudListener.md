@@ -5,7 +5,7 @@ __功能__
 TRTCCloudListener 是 TRTCCloud 的主要回调接口。
 
 
-<br/>
+
 
 ## 通用事件回调
 
@@ -25,7 +25,7 @@ __参数__
 | errMsg | String | 错误信息 |
 | extraInfo | Bundle | 额外信息，如错误发生的用户，一般不需要关注，默认是本地错误 |
 
-<br/>
+
 
 
 ### onWarning
@@ -44,7 +44,7 @@ __参数__
 | warningMsg | String | 警告信息 |
 | extraInfo | Bundle | 额外信息，如警告发生的用户，一般不需要关注，默认是本地错误 |
 
-<br/>
+
 
 
 
@@ -64,7 +64,7 @@ __参数__
 |-----|------|------|
 | elapsed | long | 加入房间耗时，单位毫秒 |
 
-<br/>
+
 
 
 ### onExitRoom
@@ -80,7 +80,7 @@ __参数__
 |-----|------|------|
 | reason | int | 离开房间原因 |
 
-<br/>
+
 
 
 ### onConnectOtherRoom
@@ -91,7 +91,7 @@ __参数__
 void onConnectOtherRoom(final String userID, final int err, final String errMsg)
 ```
 
-<br/>
+
 
 
 ### onDisConnectOtherRoom
@@ -102,7 +102,7 @@ void onConnectOtherRoom(final String userID, final int err, final String errMsg)
 void onDisConnectOtherRoom(final int err, final String errMsg)
 ```
 
-<br/>
+
 
 
 
@@ -122,7 +122,7 @@ __参数__
 |-----|------|------|
 | userId | String | 用户标识 |
 
-<br/>
+
 
 
 ### onUserExit
@@ -140,7 +140,7 @@ __参数__
 | userId | String | 用户标识 |
 | reason | int | 退出原因 |
 
-<br/>
+
 
 
 ### onUserVideoAvailable
@@ -158,7 +158,7 @@ __参数__
 | userId | String | 用户标识 |
 | available | boolean | true：视频可播放，false：视频被关闭 |
 
-<br/>
+
 
 
 ### onUserSubStreamAvailable
@@ -176,7 +176,7 @@ __参数__
 | userId | String | 用户标识 |
 | available | boolean | true：屏幕分享可播放，false：屏幕分享被关闭 |
 
-<br/>
+
 
 
 ### onUserAudioAvailable
@@ -194,7 +194,7 @@ __参数__
 | userId | String | 用户标识 |
 | available | boolean | true：音频可播放，false：音频被关闭 |
 
-<br/>
+
 
 
 ### onUserVoiceVolume
@@ -212,7 +212,7 @@ __参数__
 | userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围 [0, 100] |
 | totalVolume | int | 总的语音音量, 取值范围 [0, 100] |
 
-<br/>
+
 
 
 
@@ -234,7 +234,7 @@ __参数__
 | localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量 |
 | remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量 |
 
-<br/>
+
 
 
 ### onStatistics
@@ -257,7 +257,7 @@ __说明__
 每2秒回调一次。
 
 
-<br/>
+
 
 
 
@@ -279,7 +279,7 @@ __参数__
 | width | int | 视频宽度 |
 | height | int | 视频高度 |
 
-<br/>
+
 
 
 ### onFirstAudioFrame
@@ -296,7 +296,7 @@ __参数__
 |-----|------|------|
 | userId | String | 用户标识 |
 
-<br/>
+
 
 
 
@@ -310,7 +310,7 @@ SDK 跟服务器的连接断开。
 void onConnectionLost()
 ```
 
-<br/>
+
 
 
 ### onTryToReconnect
@@ -321,7 +321,7 @@ SDK 尝试重新连接到服务器。
 void onTryToReconnect()
 ```
 
-<br/>
+
 
 
 ### onConnectionRecovery
@@ -332,7 +332,7 @@ SDK 跟服务器的连接恢复。
 void onConnectionRecovery()
 ```
 
-<br/>
+
 
 
 ### onSpeedTest
@@ -351,7 +351,7 @@ __参数__
 | finishedCount | int | 已完成测速的服务器数量 |
 | totalCount | int | 需要测速的服务器总数量 |
 
-<br/>
+
 
 
 
@@ -365,7 +365,7 @@ __参数__
 void onCameraDidReady()
 ```
 
-<br/>
+
 
 
 ### onMicDidReady
@@ -376,7 +376,7 @@ void onCameraDidReady()
 void onMicDidReady()
 ```
 
-<br/>
+
 
 
 ### onAudioRouteChanged
@@ -387,7 +387,7 @@ void onMicDidReady()
 void onAudioRouteChanged(int newRoute, int oldRoute)
 ```
 
-<br/>
+
 
 
 
@@ -417,7 +417,7 @@ __说明__
 该消息由 sendCustomCmdMsg 发送。
 
 
-<br/>
+
 
 
 ### onMissCustomCmdMsg
@@ -443,7 +443,7 @@ __说明__
 只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
 
-<br/>
+
 
 
 ### onRecvSEIMsg
@@ -461,7 +461,7 @@ __参数__
 | userId | String | 用户标识 |
 | data | byte [] | 数据 |
 
-<br/>
+
 
 
 
@@ -481,7 +481,7 @@ __说明__
 Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
 
 
-<br/>
+
 
 
 ### onStopPublishCDNStream
@@ -489,7 +489,7 @@ Start 回调如果成功，只能说明转推请求已经成功告知给腾讯�
 void onStopPublishCDNStream(int err, String errMsg)
 ```
 
-<br/>
+
 
 
 
@@ -501,7 +501,7 @@ __功能__
 自定义视频渲染回调对象。
 
 
-<br/>
+
 
 ### onRenderVideoFrame
 ```
@@ -516,7 +516,7 @@ __参数__
 | streamType | int | 视频流类型 |
 | frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧 |
 
-<br/>
+
 
 
 
@@ -537,7 +537,7 @@ __参数__
 |-----|------|------|
 | frame | TRTCCloudDef.TRTCVideoFrame | 返回给用户处理的 自定义数据（目前只支持纹理 textureId） |
 
-<br/>
+
 
 
 #### onVideoPostProcessGLDestroy
@@ -548,7 +548,7 @@ __参数__
 void onVideoPostProcessGLDestroy()
 ```
 
-<br/>
+
 
 
 
@@ -566,7 +566,7 @@ __介绍__
 建议在一个比较早初始化的类中设置回调对象，如 Application。
 
 
-<br/>
+
 
 ### onLog
 ```
@@ -581,7 +581,7 @@ __参数__
 | level | int | 日志等级，参见 TRTC_LOG_LEVEL |
 | module | String | 值暂无具体意义，目前为固定值 TXLiteAVSDK |
 
-<br/>
+
 
 
 
