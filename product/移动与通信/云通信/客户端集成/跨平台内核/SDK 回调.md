@@ -519,7 +519,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 
 >?所有回调均需判断`code`是否等于`ERR_SUC`，若不等于说明接口调用失败了，具体原因可以看`code`的值以及`desc`描述。详细请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 
-**示例： 接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33546#TIMSetConfig) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig) 。**
+**示例： 接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33546#timsetconfig) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig) 。**
 
 ```c
 {
@@ -548,7 +548,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 }
 ```
 
-**示例： 接口 [TIMConvCreate](https://cloud.tencent.com/document/product/269/33548#TIMConvCreate) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [ConvInfo](https://cloud.tencent.com/document/product/269/33553#convinfo) 。**
+**示例： 接口 [TIMConvCreate](https://cloud.tencent.com/document/product/269/33548#timconvcreate) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [ConvInfo](https://cloud.tencent.com/document/product/269/33553#convinfo) 。**
 
 ```c
 {
@@ -580,7 +580,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 }
 ```
 
-**示例： 接口 [TIMConvGetConvList](https://cloud.tencent.com/document/product/269/33548#TIMConvGetConvList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [ConvInfo](https://cloud.tencent.com/document/product/269/33553#convinfo) 。**
+**示例： 接口 [TIMConvGetConvList](https://cloud.tencent.com/document/product/269/33548#timconvgetconvlist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [ConvInfo](https://cloud.tencent.com/document/product/269/33553#convinfo) 。**
 
 ```c
 [
@@ -614,7 +614,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMMsgFindByMsgLocatorList](https://cloud.tencent.com/document/product/269/33549#TIMMsgFindByMsgLocatorList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [Message](https://cloud.tencent.com/document/product/269/33553#message) 。**
+**示例： 接口 [TIMMsgFindByMsgLocatorList](https://cloud.tencent.com/document/product/269/33549#timmsgfindbymsglocatorlist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [Message](https://cloud.tencent.com/document/product/269/33553#message) 。**
 
 ```c
 [
@@ -640,7 +640,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMMsgGetMsgList](https://cloud.tencent.com/document/product/269/33549#TIMMsgGetMsgList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [Message](https://cloud.tencent.com/document/product/269/33553#message) 。**
+**示例： 接口 [TIMMsgGetMsgList](https://cloud.tencent.com/document/product/269/33549#timmsggetmsglist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [Message](https://cloud.tencent.com/document/product/269/33553#message) 。**
 
 ```c
 [
@@ -666,7 +666,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMMsgDownloadElemToPath](https://cloud.tencent.com/document/product/269/33549#TIMMsgDownloadElemToPath) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [MsgDownloadElemResult](https://cloud.tencent.com/document/product/269/33553#msgdownloadelemresult) 。**
+**示例： 接口 [TIMMsgDownloadElemToPath](https://cloud.tencent.com/document/product/269/33549#timmsgdownloadelemtopath) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [MsgDownloadElemResult](https://cloud.tencent.com/document/product/269/33553#msgdownloadelemresult) 。**
 
 ```c
 {
@@ -675,7 +675,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 }
 ```
 
-**示例： 接口 [TIMMsgBatchSend](https://cloud.tencent.com/document/product/269/33549#TIMMsgBatchSend) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [MsgBatchSendResult](https://cloud.tencent.com/document/product/269/33553#msgbatchsendresult) 。**
+**示例： 接口 [TIMMsgBatchSend](https://cloud.tencent.com/document/product/269/33549#timmsgbatchsend) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [MsgBatchSendResult](https://cloud.tencent.com/document/product/269/33553#msgbatchsendresult) 。**
 
 ```c
 [
@@ -692,7 +692,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMGroupCreate](https://cloud.tencent.com/document/product/269/33550#TIMGroupCreate) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key参考 [CreateGroupResult](https://cloud.tencent.com/document/product/269/33553#creategroupresult) 。**
+**示例： 接口 [TIMGroupCreate](https://cloud.tencent.com/document/product/269/33550#timgroupcreate) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key参考 [CreateGroupResult](https://cloud.tencent.com/document/product/269/33553#creategroupresult) 。**
 
 ```c
 {
@@ -700,7 +700,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 }
 ```
 
-**示例： 接口 [TIMGroupInviteMember](https://cloud.tencent.com/document/product/269/33550#TIMGroupInviteMember) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupInviteMemberResult](https://cloud.tencent.com/document/product/269/33553#groupinvitememberresult)**
+**示例： 接口 [TIMGroupInviteMember](https://cloud.tencent.com/document/product/269/33550#timgroupinvitemember) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupInviteMemberResult](https://cloud.tencent.com/document/product/269/33553#groupinvitememberresult)**
 
 ```c
 [
@@ -715,7 +715,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMGroupDeleteMember](https://cloud.tencent.com/document/product/269/33550#TIMGroupDeleteMember) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupDeleteMemberResult](https://cloud.tencent.com/document/product/269/33553#groupdeletememberresult)**
+**示例： 接口 [TIMGroupDeleteMember](https://cloud.tencent.com/document/product/269/33550#timgroupdeletemember) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupDeleteMemberResult](https://cloud.tencent.com/document/product/269/33553#groupdeletememberresult)**
 
 ```c
 [
@@ -730,7 +730,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMGroupGetJoinedGroupList](https://cloud.tencent.com/document/product/269/33550#TIMGroupGetJoinedGroupList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupBaseInfo](https://cloud.tencent.com/document/product/269/33553#groupbaseinfo)**
+**示例： 接口 [TIMGroupGetJoinedGroupList](https://cloud.tencent.com/document/product/269/33550#timgroupgetjoinedgrouplist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupBaseInfo](https://cloud.tencent.com/document/product/269/33553#groupbaseinfo)**
 
 ```c
 [
@@ -754,7 +754,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMGroupGetGroupInfoList](https://cloud.tencent.com/document/product/269/33550#TIMGroupGetGroupInfoList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GetGroupInfoResult](https://cloud.tencent.com/document/product/269/33553#getgroupinforesult)**
+**示例： 接口 [TIMGroupGetGroupInfoList](https://cloud.tencent.com/document/product/269/33550#timgroupgetgroupinfolist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GetGroupInfoResult](https://cloud.tencent.com/document/product/269/33553#getgroupinforesult)**
 
 ```c
 [
@@ -787,7 +787,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ]
 ```
 
-**示例： 接口 [TIMGroupGetMemberInfoList](https://cloud.tencent.com/document/product/269/33550#TIMGroupGetMemberInfoList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupGetMemberInfoListResult](https://cloud.tencent.com/document/product/269/33553#groupgetmemberinfolistresult)**
+**示例： 接口 [TIMGroupGetMemberInfoList](https://cloud.tencent.com/document/product/269/33550#timgroupgetmemberinfolist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupGetMemberInfoListResult](https://cloud.tencent.com/document/product/269/33553#groupgetmemberinfolistresult)**
 
 ```c
 {
@@ -807,7 +807,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 }
 ```
 
-**示例： 接口 [TIMGroupGetPendencyList](https://cloud.tencent.com/document/product/269/33550#TIMGroupGetPendencyList) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33553#grouppendencyresult)**
+**示例： 接口 [TIMGroupGetPendencyList](https://cloud.tencent.com/document/product/269/33550#timgroupgetpendencylist) 的回调`TIMCommCallback`参数`json_params`的 JSON。JSON Key 请参考 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33553#grouppendencyresult)**
 
 ```c
 {
@@ -834,22 +834,23 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 
 >?所有回调均需判断`code`是否等于`ERR_SUC`，若不等于说明接口调用失败了，具体原因可以看`code`的值以及`desc`描述。详细请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 >其他接口的回调`TIMCommCallback`参数`json_params`均为空字符串：
-- [TIMLogin](https://cloud.tencent.com/document/product/269/33547#TIMLogin)
-- [TIMLogout](https://cloud.tencent.com/document/product/269/33547#TIMLogout)
-- [TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33549#TIMMsgSendNewMsg)
-- [TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33549#TIMMsgSaveMsg)
-- [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33549#TIMMsgReportReaded)
-- [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33549#TIMMsgRevoke)
-- [TIMMsgImportMsgList](https://cloud.tencent.com/document/product/269/33549#TIMMsgImportMsgList)
-- [TIMMsgDelete](https://cloud.tencent.com/document/product/269/33549#TIMMsgDelete)
-- [TIMConvDelete](https://cloud.tencent.com/document/product/269/33548#TIMConvDelete)
-- [TIMGroupDelete](https://cloud.tencent.com/document/product/269/33550#TIMGroupDelete)
-- [TIMGroupJoin](https://cloud.tencent.com/document/product/269/33550#TIMGroupJoin)
-- [TIMGroupQuit](https://cloud.tencent.com/document/product/269/33550#TIMGroupQuit)
-- [TIMGroupSetGroupInfo](TIMCloud.h)
-- [TIMGroupSetMemberInfo](TIMCloud.h)
-- [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33550#TIMGroupReportPendencyReaded)
-- [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33550#TIMGroupHandlePendency)
+- [TIMLogin](https://cloud.tencent.com/document/product/269/33547#timlogin)
+- [TIMLogout](https://cloud.tencent.com/document/product/269/33547#timlogout)
+- [TIMMsgSendNewMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsendnewmsg)
+- [TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsavemsg)
+- [TIMMsgReportReaded](https://cloud.tencent.com/document/product/269/33549#timmsgreportreaded)
+- [TIMMsgRevoke](https://cloud.tencent.com/document/product/269/33549#timmsgrevoke)
+- [TIMMsgImportMsgList](https://cloud.tencent.com/document/product/269/33549#timmsgimportmsglist)
+- [TIMMsgDelete](https://cloud.tencent.com/document/product/269/33549#timmsgdelete)
+- [TIMConvDelete](https://cloud.tencent.com/document/product/269/33548#timconvdelete)
+- [TIMGroupDelete](https://cloud.tencent.com/document/product/269/33550#timgroupdelete)
+- [TIMGroupJoin](https://cloud.tencent.com/document/product/269/33550#timgroupjoin)
+- [TIMGroupQuit](https://cloud.tencent.com/document/product/269/33550#timgroupquit)
+- [TIMGroupSetGroupInfo](https://cloud.tencent.com/document/product/269/33550#timgroupsetgroupinfo)
+- [TIMGroupSetMemberInfo](https://cloud.tencent.com/document/product/269/33550#timgroupsetmemberinfo)
+- [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33550#timgroupreportpendencyreaded)
+- [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33550#timgrouphandlependency)
+
 
 
 
