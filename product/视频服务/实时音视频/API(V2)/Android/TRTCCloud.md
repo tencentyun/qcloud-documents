@@ -20,7 +20,7 @@ __说明__
 可以调用 destroySharedInstance 销毁单例对象。
 
 
-<br/>
+
 
 
 ### destroySharedInstance
@@ -37,7 +37,7 @@ __说明__
 销毁实例后，外部缓存的 TRTCCloud 实例不能再使用，需要重新调用 sharedInstance 获取新实例。
 
 
-<br/>
+
 
 
 ### setListener
@@ -48,7 +48,7 @@ __说明__
 abstract void setListener(TRTCCloudListener listener)
 ```
 
-<br/>
+
 
 
 ### setListenerHandler
@@ -59,7 +59,7 @@ abstract void setListener(TRTCCloudListener listener)
 abstract void setListenerHandler(Handler listenerHandler)
 ```
 
-<br/>
+
 
 
 
@@ -84,7 +84,7 @@ __参数__
 >?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
 
-<br/>
+
 
 
 ### exitRoom
@@ -95,7 +95,7 @@ __参数__
 abstract void exitRoom()
 ```
 
-<br/>
+
 
 
 ### ConnectOtherRoom
@@ -112,7 +112,7 @@ __参数__
 |-----|------|------|
 | param | String | json形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
 
-<br/>
+
 
 
 ### DisconnectOtherRoom
@@ -123,7 +123,7 @@ __参数__
 abstract void DisconnectOtherRoom()
 ```
 
-<br/>
+
 
 
 
@@ -144,7 +144,7 @@ __参数__
 | frontCamera | boolean | true：前置摄像头；false：后置摄像头 |
 | view | TXCloudVideoView | 指定渲染控件所在的父控件，SDK 会在 view 内部创建一个等大的子控件用来渲染本地摄像头的视频画面 |
 
-<br/>
+
 
 
 ### stopLocalPreview
@@ -155,7 +155,7 @@ __参数__
 abstract void stopLocalPreview()
 ```
 
-<br/>
+
 
 
 ### startRemoteView
@@ -179,7 +179,7 @@ __说明__
 在 onUserVideoAvailable 回调时，调用这个接口。
 
 
-<br/>
+
 
 
 ### stopRemoteView
@@ -196,7 +196,7 @@ __参数__
 |-----|------|------|
 | userId | String | 对方的用户标识 |
 
-<br/>
+
 
 
 ### stopAllRemoteView
@@ -207,7 +207,7 @@ __参数__
 abstract void stopAllRemoteView()
 ```
 
-<br/>
+
 
 
 ### muteLocalVideo
@@ -224,7 +224,7 @@ __参数__
 |-----|------|------|
 | mute | boolean | true：屏蔽；false：开启 |
 
-<br/>
+
 
 
 ### setVideoEncoderParam
@@ -241,7 +241,7 @@ __参数__
 |-----|------|------|
 | param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义 |
 
-<br/>
+
 
 
 ### setNetworkQosParam
@@ -258,7 +258,7 @@ __参数__
 |-----|------|------|
 | param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义 |
 
-<br/>
+
 
 
 ### setLocalViewFillMode
@@ -275,7 +275,7 @@ __参数__
 |-----|------|------|
 | mode | int | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
-<br/>
+
 
 
 ### setRemoteViewFillMode
@@ -293,7 +293,7 @@ __参数__
 | userId | String | 用户标识 |
 | mode | int | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
-<br/>
+
 
 
 ### setLocalViewRotation
@@ -310,7 +310,7 @@ __参数__
 |-----|------|------|
 | rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
-<br/>
+
 
 
 ### setRemoteViewRotation
@@ -328,7 +328,7 @@ __参数__
 | userId | String | 对方的用户标识 |
 | rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
-<br/>
+
 
 
 ### setVideoEncoderRotation
@@ -345,7 +345,7 @@ __参数__
 |-----|------|------|
 | rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
-<br/>
+
 
 
 ### setGSensorMode
@@ -362,7 +362,7 @@ __参数__
 |-----|------|------|
 | mode | int | 重力感应模式，详情请参考 TRTC_GSENSOR_MODE 的定义 |
 
-<br/>
+
 
 
 ### enableEncSmallVideoStream
@@ -380,7 +380,7 @@ __参数__
 | enable | boolean | 是否开启小画面编码 |
 | smallVideoEncParam | TRTCCloudDef.TRTCVideoEncParam | 小流的视频参数 |
 
-<br/>
+
 
 
 ### setRemoteVideoStreamType
@@ -404,7 +404,7 @@ __介绍__
 此功能需要该 uid 通过 enableEncSmallVideoStream 提前开启双路编码模式 如果该 uid 没有开启双路编码模式，则此操作无效。
 
 
-<br/>
+
 
 
 ### setPriorRemoteVideoStreamType
@@ -427,7 +427,7 @@ __介绍__
 低端设备推荐优先选择低清晰度的小画面 如果对方没有开启双路视频模式，则此操作无效。
 
 
-<br/>
+
 
 
 
@@ -445,7 +445,7 @@ abstract void startLocalAudio()
 该函数会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 
 
-<br/>
+
 
 
 ### stopLocalAudio
@@ -456,7 +456,7 @@ abstract void startLocalAudio()
 abstract void stopLocalAudio()
 ```
 
-<br/>
+
 
 
 ### muteLocalAudio
@@ -473,7 +473,7 @@ __参数__
 |-----|------|------|
 | mute | boolean | true：屏蔽；false：开启 |
 
-<br/>
+
 
 
 ### setAudioRoute
@@ -490,7 +490,7 @@ __参数__
 |-----|------|------|
 | route | int | 音频路由即声音由哪里输出 如：扬声器(TRTC_AUDIO_ROUTE_SPEAKER)、听筒(TRTC_AUDIO_ROUTE_EARPIECE） |
 
-<br/>
+
 
 
 ### muteRemoteAudio
@@ -508,7 +508,7 @@ __参数__
 | userId | String | 对方的用户标识 |
 | mute | boolean | true：静音；false：非静音 |
 
-<br/>
+
 
 
 ### muteAllRemoteAudio
@@ -525,7 +525,7 @@ __参数__
 |-----|------|------|
 | mute | boolean | true：静音；false：非静音 |
 
-<br/>
+
 
 
 ### enableAudioVolumeEvaluation
@@ -543,7 +543,7 @@ __参数__
 | intervalMs | int | 报告间隔单位为 ms, 最小间隔20ms, 如果小于等于0则会关闭回调，建议设置为大于200ms |
 | smoothLevel | int | 灵敏度，[0,10]，数字越大，波动越灵敏 |
 
-<br/>
+
 
 
 
@@ -557,7 +557,7 @@ __参数__
 abstract void switchCamera()
 ```
 
-<br/>
+
 
 
 ### isCameraZoomSupported
@@ -568,7 +568,7 @@ abstract void switchCamera()
 abstract boolean isCameraZoomSupported()
 ```
 
-<br/>
+
 
 
 ### setZoom
@@ -585,7 +585,7 @@ __参数__
 |-----|------|------|
 | distance | int | 取值范围1 - 5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清 |
 
-<br/>
+
 
 
 ### isCameraTorchSupported
@@ -596,7 +596,7 @@ __参数__
 abstract boolean isCameraTorchSupported()
 ```
 
-<br/>
+
 
 
 ### enableTorch
@@ -613,7 +613,7 @@ __参数__
 |-----|------|------|
 | enable | boolean | true：开启；false：关闭 |
 
-<br/>
+
 
 
 ### isCameraFocusPositionInPreviewSupported
@@ -624,7 +624,7 @@ __参数__
 abstract boolean isCameraFocusPositionInPreviewSupported()
 ```
 
-<br/>
+
 
 
 ### setFocusPosition
@@ -642,7 +642,7 @@ __参数__
 | x | int | 焦点位置 x 坐标 |
 | y | int | 焦点位置 y 坐标 |
 
-<br/>
+
 
 
 ### isCameraAutoFocusFaceModeSupported
@@ -653,7 +653,7 @@ __参数__
 abstract boolean isCameraAutoFocusFaceModeSupported()
 ```
 
-<br/>
+
 
 
 
@@ -676,7 +676,7 @@ __参数__
 | whitenessLevel | int | 美白级别，取值范围0 - 9；0 表示关闭，1 - 9值越大，效果越明显 |
 | ruddinessLevel | int | 红润级别，取值范围0 - 9；0 表示关闭，1 - 9值越大，效果越明显 |
 
-<br/>
+
 
 
 ### setFilter
@@ -691,9 +691,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| image | Bitmap | 指定素材，即颜色查找表图片。注意：一定要用 png 格式！！！ |
+| image | Bitmap | 指定素材，即颜色查找表图片。注意：一定要用 png 格式 |
 
-<br/>
+
 
 
 ### setFilterConcentration
@@ -710,7 +710,7 @@ __参数__
 |-----|------|------|
 | concentration | float | 从0到1，越大滤镜效果越明显，默认取值0.5 |
 
-<br/>
+
 
 
 ### setWatermark
@@ -731,7 +731,7 @@ __参数__
 | y | float | 归一化水印位置的 Y 轴坐标，取值[0,1] |
 | width | float | 归一化水印宽度，取值[0,1] |
 
-<br/>
+
 
 
 
@@ -739,7 +739,7 @@ __参数__
 
 ### startRemoteSubStreamView
 
-开始渲染远端用户辅流画面（屏幕分享） 对应于 startRemoteView() 用于观看远端的主路画面，该接口只能用于观看辅路（屏幕分享、远程播片）画面。
+开始渲染远端用户辅流画面（屏幕分享）对应于 startRemoteView() 用于观看远端的主路画面，该接口只能用于观看辅路（屏幕分享、远程播片）画面。
 
 ```
 abstract void startRemoteSubStreamView(String userId, TXCloudVideoView view)
@@ -758,7 +758,7 @@ __说明__
 在 onUserSubStreamAvailable 回调时，调用这个接口。
 
 
-<br/>
+
 
 
 ### stopRemoteSubStreamView
@@ -775,7 +775,7 @@ __参数__
 |-----|------|------|
 | userId | String | 对方的用户标识 |
 
-<br/>
+
 
 
 ### setRemoteSubStreamViewFillMode
@@ -793,7 +793,7 @@ __参数__
 | userId | String | 用户的 id |
 | mode | int | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
-<br/>
+
 
 
 
@@ -813,7 +813,7 @@ __参数__
 |-----|------|------|
 | enable | boolean | 是否启用，true：启用；false：关闭 |
 
-<br/>
+
 
 
 ### sendCustomVideoData
@@ -830,7 +830,7 @@ __参数__
 |-----|------|------|
 | frame | TRTCCloudDef.TRTCVideoFrame | 视频数据 |
 
-<br/>
+
 
 
 ### setLocalVideoRenderListener
@@ -852,7 +852,7 @@ __参数__
 >?设置此方法后，SDK 内部会把采集到的数据回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 
 
-<br/>
+
 
 
 ### setRemoteVideoRenderListener
@@ -875,7 +875,7 @@ __参数__
 >?设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 
 
-<br/>
+
 
 
 ### callExperimentalAPI
@@ -898,7 +898,7 @@ __说明__
 该接口用于调用一些实验性功能。
 
 
-<br/>
+
 
 
 
@@ -926,7 +926,7 @@ __参数__
 限制3：每个客户端每秒最多能发送总计 8 KB 数据。
 
 
-<br/>
+
 
 
 ### sendSEIMsg
@@ -951,11 +951,11 @@ __说明__
 限制2：发送消息到房间内所有用户，每秒最多能发送30条消息 (与 sendCustomCmdMsg 共享限制)。
 限制3：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (与 sendCustomCmdMsg 共享限制) 。
 限制4：每个客户端每秒最多能发送总计 8 KB 数据 (与 sendCustomCmdMsg 共享限制)。
-限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+限制5：若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
 限制6: 如果repeatCount>1,多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
-<br/>
+
 
 
 
@@ -976,7 +976,7 @@ __参数__
 | path | String | 音乐文件路径 |
 | notify | BGMNotify | 播放背景音乐的回调 |
 
-<br/>
+
 
 
 ### stopBGM
@@ -987,7 +987,7 @@ __参数__
 abstract void stopBGM()
 ```
 
-<br/>
+
 
 
 ### pauseBGM
@@ -998,7 +998,7 @@ abstract void stopBGM()
 abstract void pauseBGM()
 ```
 
-<br/>
+
 
 
 ### resumeBGM
@@ -1009,7 +1009,7 @@ abstract void pauseBGM()
 abstract void resumeBGM()
 ```
 
-<br/>
+
 
 
 ### getBGMDuration
@@ -1026,7 +1026,7 @@ __参数__
 |-----|------|------|
 | path | String | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长 |
 
-<br/>
+
 
 
 ### setBGMPosition
@@ -1043,7 +1043,7 @@ __参数__
 |-----|------|------|
 | pos | int | 单位毫秒 |
 
-<br/>
+
 
 
 ### setMicVolumeOnMixing
@@ -1060,7 +1060,7 @@ __参数__
 |-----|------|------|
 | volume | int | 音量大小，100为正常音量，建议值为0 - 200 |
 
-<br/>
+
 
 
 ### setBGMVolume
@@ -1077,7 +1077,7 @@ __参数__
 |-----|------|------|
 | volume | int | 音量大小，100为正常音量，建议值为0 - 200，如果需要调大背景音量可以设置更大的值 |
 
-<br/>
+
 
 
 ### setReverbType
@@ -1094,7 +1094,7 @@ __参数__
 |-----|------|------|
 | reverbType | int | 混响类型 ，详见 TRTC_REVERB_TYPE |
 
-<br/>
+
 
 
 ### setVoiceChangerType
@@ -1111,7 +1111,7 @@ __参数__
 |-----|------|------|
 | voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE |
 
-<br/>
+
 
 
 
@@ -1140,7 +1140,7 @@ __介绍__
 >!测速本身会消耗一定的流量，所以也会产生少量额外的流量费用 测试结果通过 TRTCCloudListener.onSpeedTest 回调出来。
 
 
-<br/>
+
 
 
 ### stopSpeedTest
@@ -1151,7 +1151,7 @@ __介绍__
 abstract void stopSpeedTest()
 ```
 
-<br/>
+
 
 
 
@@ -1180,7 +1180,7 @@ __介绍__
 【2】发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响。
 
 
-<br/>
+
 
 
 ### stopPublishCDNStream
@@ -1191,7 +1191,7 @@ __介绍__
 abstract void stopPublishCDNStream()
 ```
 
-<br/>
+
 
 
 ### setMixTranscodingConfig
@@ -1222,7 +1222,7 @@ __介绍__
         
 
 
-<br/>
+
 
 
 
@@ -1230,7 +1230,7 @@ __介绍__
 
 ### mTXLogListener
 
-<br/>
+
 
 
 ### getSDKVersion
@@ -1241,7 +1241,7 @@ __介绍__
 String getSDKVersion()
 ```
 
-<br/>
+
 
 
 ### setLogLevel
@@ -1258,7 +1258,7 @@ __参数__
 |-----|------|------|
 | level | int | 参见 TRTC_LOG_LEVEL |
 
-<br/>
+
 
 
 ### setConsoleEnabled
@@ -1275,7 +1275,7 @@ __参数__
 |-----|------|------|
 | enabled | boolean | 指定是否启用 true：启用，false：不启用 |
 
-<br/>
+
 
 
 ### setLogCompressEnabled
@@ -1292,7 +1292,7 @@ __参数__
 |-----|------|------|
 | enabled | boolean | 指定是否启用 true：启用，false：不启用 |
 
-<br/>
+
 
 
 ### setLogDirPath
@@ -1309,7 +1309,7 @@ __参数__
 |-----|------|------|
 | path | String | 存储日志路径 |
 
-<br/>
+
 
 
 ### setLogListener
@@ -1320,7 +1320,7 @@ __参数__
 void setLogListener(final TRTCCloudListener.TRTCLogListener logListener)
 ```
 
-<br/>
+
 
 
 ### showDebugView
@@ -1337,7 +1337,7 @@ __参数__
 |-----|------|------|
 | showType | int | 0：不显示；1：显示精简版；2：显示全量版 |
 
-<br/>
+
 
 
 ### setDebugViewMargin
@@ -1355,7 +1355,7 @@ __参数__
 | userId | String | 用户标识 |
 | margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1 |
 
-<br/>
+
 
 
 
@@ -1367,7 +1367,7 @@ __相关类__
 `TRTCCloud.BGMNotify`
 
 
-<br/>
+
 
 ### onBGMStart
 
@@ -1383,7 +1383,7 @@ __参数__
 |-----|------|------|
 | errCode | int | 0：播放成功；-1：播放失败 |
 
-<br/>
+
 
 
 ### onBGMProgress
@@ -1401,7 +1401,7 @@ __参数__
 | progress | long | 当前 BGM 已播放时间(ms) |
 | duration | long | 当前 BGM 总时间(ms) |
 
-<br/>
+
 
 
 ### onBGMComplete
@@ -1418,7 +1418,7 @@ __参数__
 |-----|------|------|
 | err | int | 0：正常结束；-1：出错结束 |
 
-<br/>
+
 
 
 
@@ -1430,7 +1430,7 @@ __相关类__
 `TRTCCloud.TRTCViewMargin`
 
 
-<br/>
+
 
 ### 属性列表
 #### leftMargin
@@ -1441,7 +1441,7 @@ __相关类__
 float leftMargin
 ```
 
-<br/>
+
 
 #### topMargin
 
@@ -1451,7 +1451,7 @@ float leftMargin
 float topMargin
 ```
 
-<br/>
+
 
 #### rightMargin
 
@@ -1461,7 +1461,7 @@ float topMargin
 float rightMargin
 ```
 
-<br/>
+
 
 #### bottomMargin
 
@@ -1471,7 +1471,7 @@ float rightMargin
 float bottomMargin
 ```
 
-<br/>
+
 
 
 #### TRTCViewMargin
@@ -1482,7 +1482,6 @@ float bottomMargin
  TRTCViewMargin(float leftMargin, float rightMargin, float topMargin, float bottomMargin)
 ```
 
-<br/>
 
 
 
