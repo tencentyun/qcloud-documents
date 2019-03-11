@@ -110,7 +110,7 @@ void onDisConnectOtherRoom(final int err, final String errMsg)
 
 ### onUserEnter
 
-userid 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
+userId 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userId 的视频画面。
 
 ```
 void onUserEnter(String userId)
@@ -127,7 +127,7 @@ __参数__
 
 ### onUserExit
 
-userid 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
+userId 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userId 的视频画面。
 
 ```
 void onUserExit(String userId, int reason)
@@ -145,7 +145,7 @@ __参数__
 
 ### onUserVideoAvailable
 
-userid 对应的远端主路（即摄像头）画面的状态通知。
+userId 对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(String userId, boolean available)
@@ -163,7 +163,7 @@ __参数__
 
 ### onUserSubStreamAvailable
 
-userid 对应的远端辅路（屏幕分享等）画面的状态通知。
+userId 对应的远端辅路（屏幕分享等）画面的状态通知。
 
 ```
 void onUserSubStreamAvailable(String userId, boolean available)
@@ -181,7 +181,7 @@ __参数__
 
 ### onUserAudioAvailable
 
-userid 对应的远端声音的状态通知。
+userId 对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(String userId, boolean available)
@@ -199,7 +199,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-userid 对应的成员语音音量 通过调用 TRTCCloud enableAudioVolumeEvaluation 来开关这个回调。
+userId 对应的成员语音音量 通过调用 TRTCCloud enableAudioVolumeEvaluation 来开关这个回调。
 
 ```
 void onUserVoiceVolume(ArrayList< TRTCCloudDef.TRTCVolumeInfo > userVolumes, int totalVolume)
@@ -221,7 +221,7 @@ __参数__
 ### onNetworkQuality
 
 网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
->!userid 为""代表自己当前的视频质量。
+>!userId 为""代表自己当前的视频质量。
 
 ```
 void onNetworkQuality(TRTCCloudDef.TRTCQuality localQuality, ArrayList< TRTCCloudDef.TRTCQuality > remoteQuality)

@@ -102,7 +102,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| params | const char * | json形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
+| params | const char * | JSON 形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
 
 <br/>
 
@@ -1136,7 +1136,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| jsonStr | const char * | 接口及参数描述的 json 字符串 |
+| jsonStr | const char * | 接口及参数描述的 JSON 字符串 |
 
 __说明__
 
@@ -1552,7 +1552,7 @@ __参数__
 
 ### setLogLevel
 
-设置 log 输出级别。
+设置 Log 输出级别。
 
 ```
 void setLogLevel(TRTCLogLevel level)
@@ -1601,7 +1601,7 @@ __参数__
 __介绍__
 
 
-开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
+开启压缩后，Log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，Log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
         
 
 

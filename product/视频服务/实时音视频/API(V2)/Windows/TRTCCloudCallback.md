@@ -118,7 +118,7 @@ __参数__
 
 #### onUserEnter
 
-userid 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
+userId 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userId 的视频画面。
 
 ```
 void onUserEnter(const char * userId)
@@ -135,7 +135,7 @@ __参数__
 
 #### onUserExit
 
-userid 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
+userId 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userId 的视频画面。
 
 ```
 void onUserExit(const char * userId, int reason)
@@ -153,7 +153,7 @@ __参数__
 
 #### onUserVideoAvailable
 
-userid 对应的远端主路（即摄像头）画面的状态通知。
+userId 对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(const char * userId, bool available)
@@ -171,7 +171,7 @@ __参数__
 
 #### onUserSubStreamAvailable
 
-userid 对应的远端辅路（屏幕分享等）画面的状态通知。
+userId 对应的远端辅路（屏幕分享等）画面的状态通知。
 
 ```
 void onUserSubStreamAvailable(const char * userId, bool available)
@@ -189,7 +189,7 @@ __参数__
 
 #### onUserAudioAvailable
 
-userid 对应的远端声音的状态通知。
+userId 对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(const char * userId, bool available)
@@ -207,7 +207,7 @@ __参数__
 
 #### onUserVoiceVolume
 
-userid 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
+userId 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
