@@ -1,3 +1,21 @@
+## 创建与销毁
+
+### getTRTCShareInstance
+
+创建 TRTCCloud 单例。
+
+```
+ITRTCCloud* getTRTCShareInstance()
+```
+
+### destroyTRTCShareInstance
+释放 ITRTCCloud 单例对象。
+
+```
+void destroyTRTCShareInstance()
+```
+<br/>
+
 ## 设置 TRTCCloudCallback 回调
 
 ### addCallback
@@ -72,6 +90,34 @@ void exitRoom()
 <br/>
 
 
+### connectOtherRoom
+
+开启跨房连麦。
+
+```
+void connectOtherRoom(const char * params)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| params | const char * | json形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
+
+<br/>
+
+
+### disconnectOtherRoom
+
+关闭跨房连麦。
+
+```
+void disconnectOtherRoom()
+```
+
+<br/>
+
+
 
 ## 视频相关接口函数
 
@@ -117,6 +163,12 @@ __参数__
 |-----|------|------|
 | userId | const char * | 远端用户标识 |
 | rendHwnd | HWND | 承载预览画面的窗口句柄 |
+
+__说明__
+
+
+在 onUserVideoAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -185,7 +237,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
+| params | const TRTCVideoEncParam & | 视频编码参数，详情请参考 TRTCCloudDef.h 中 TRTCVideoEncParam 的定义 |
 
 <br/>
 
@@ -254,7 +306,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
 
 <br/>
 
@@ -272,7 +324,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 远端用户标识 |
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
 
 <br/>
 
@@ -289,7 +341,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
 
 <br/>
 
@@ -312,7 +364,7 @@ __参数__
 __介绍__
 
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式。开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流） 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。对于同一房间的远程观众而言， 如果有些人的下行网络很好，可以选择观看【高清】画面；如果有些人的下行网络不好，可以选择观看【低清】画面。
+如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流） 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源 对于同一房间的远程观众而言， 如果有些人的下行网络很好，可以选择观看【高清】画面 如果有些人的下行网络不好，可以选择观看【低清】画面。
 
 
 <br/>
@@ -359,7 +411,7 @@ __参数__
 __介绍__
 
 
-低端设备推荐优先选择低清晰度的小画面，如果对方没有开启双路视频模式，则此操作无效。
+低端设备推荐优先选择低清晰度的小画面 如果对方没有开启双路视频模式，则此操作无效。
 
 
 <br/>
@@ -448,7 +500,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户 ID |
+| userId | const char * | 用户id |
 | mute | bool | 开关 |
 
 <br/>
@@ -483,8 +535,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| interval | uint32_t | 建议设置为大于200毫秒，最小不小于20毫秒, 设置为0表示关闭 |
-| smoothLevel | uint32_t | 灵敏度，[0,10]，数字越大，波动越灵敏 |
+| interval | uint32_t | 建议设置为大于200 毫秒，最小不小于20 毫秒, 设置为0 表示关闭 |
+| smoothLevel | uint32_t | 灵敏度，[0,10], 数字越大，波动越灵敏 |
 
 __介绍__
 
@@ -503,8 +555,15 @@ __介绍__
 查询摄像头列表。
 
 ```
-TXStringList getCameraDevicesList()
+ITRTCDeviceCollection * getCameraDevicesList()
 ```
+
+__说明__
+
+
+如果delete ITRTCDeviceCollection*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
+ITRTCDeviceCollection 对象的生命周期。 
+
 
 <br/>
 
@@ -521,7 +580,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | const char * | 摄像头 ID，getCameraDevicesList 接口获取得到 |
+| deviceId | const char * | 摄像头ID，getCameraDevicesList 接口获取得到 |
 
 <br/>
 
@@ -531,7 +590,7 @@ __参数__
 获取当前使用的摄像头。
 
 ```
-TXString getCurrentCameraDevice()
+const char * getCurrentCameraDevice()
 ```
 
 <br/>
@@ -545,8 +604,15 @@ TXString getCurrentCameraDevice()
 查询麦克风列表。
 
 ```
-TXStringList getMicDevicesList()
+ITRTCDeviceCollection * getMicDevicesList()
 ```
+
+__说明__
+
+
+如果delete ITRTCDeviceCollection*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
+ITRTCDeviceCollection 对象的生命周期。 
+
 
 <br/>
 
@@ -563,7 +629,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| micId | const char * | 麦克风 ID，getMicDevicesList 接口查询获取 |
+| micId | const char * | 麦克风Id，getMicDevicesList 接口查询获取 |
 
 <br/>
 
@@ -573,7 +639,7 @@ __参数__
 获取当前选择的麦克风。
 
 ```
-TXString getCurrentMicDevice()
+const char * getCurrentMicDevice()
 ```
 
 <br/>
@@ -612,8 +678,15 @@ __参数__
 查询扬声器列表。
 
 ```
-TXStringList getSpeakerDevicesList()
+ITRTCDeviceCollection * getSpeakerDevicesList()
 ```
+
+__说明__
+
+
+如果delete ITRTCDeviceCollection*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
+ITRTCDeviceCollection 对象的生命周期。 
+
 
 <br/>
 
@@ -630,7 +703,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| speakerId | const char * | 麦克风 ID，getSpeakerDevicesList 接口查询获取 |
+| speakerId | const char * | 麦克风Id，getSpeakerDevicesList 接口查询获取 |
 
 <br/>
 
@@ -640,7 +713,7 @@ __参数__
 获取已选择的扬声器。
 
 ```
-TXString getCurrentSpeakerDevice()
+const char * getCurrentSpeakerDevice()
 ```
 
 <br/>
@@ -690,9 +763,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | style | TRTCBeautyStyle | 美颜风格 |
-| beauty | uint32_t | 美颜级别，取值范围0 - 9：0表示关闭，值越大，效果越明显 |
-| white | uint32_t | 美白级别，取值范围0 - 9：0表示关闭，值越大，效果越明显 |
-| ruddiness | uint32_t | 红润级别，取值范围0 - 9：0表示关闭，值越大，效果越明显，该参数暂未生效 |
+| beauty | uint32_t | 美颜级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显 |
+| white | uint32_t | 美白级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显 |
+| ruddiness | uint32_t | 红润级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显，该参数暂未生效 |
 
 <br/>
 
@@ -709,7 +782,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| streamType | TRTCVideoStreamType | 要设置水印的流类型（TRTCVideoStreamTypeBig、TRTCVideoStreamTypeSub） |
+| streamType | TRTCVideoStreamType | 要设置水印的流类型(TRTCVideoStreamTypeBig、TRTCVideoStreamTypeSub) |
 | srcData | const char * | 水印图片源数据（传 NULL 表示去掉水印） |
 | srcType | TRTCWaterMarkSrcType | 水印图片源数据类型（传 NULL 时忽略该参数） |
 | nWidth | uint32_t | 水印图片像素宽度（源数据为文件路径时忽略该参数） |
@@ -743,7 +816,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 远端用户标识 |
-| rendHwnd | HWND |  承载预览画面的 HWND |
+| rendHwnd | HWND | - 承载预览画面的 HWND |
+
+__说明__
+
+
+在 onUserSubStreamAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -765,28 +844,52 @@ __参数__
 <br/>
 
 
-### getScreenCaptureSources
+### setRemoteSubStreamViewFillMode
 
-【屏幕共享】枚举可共享的窗口列表，列表通过出参 sourceInfoList 返回。
+设置辅流画面的渲染模式对应于setRemoteViewFillMode() 于设置远端的主路画面，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
 
 ```
-void getScreenCaptureSources(TRTCScreenCaptureSourceInfoList & sourceInfoList, const SIZE & thumbSize, const SIZE & iconSize)
+void setRemoteSubStreamViewFillMode(const char * userId, TRTCVideoFillMode mode)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| sourceInfoList | TRTCScreenCaptureSourceInfoList & |  用于接收枚举窗口列表 |
-| thumbSize | const SIZE & |  指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
-| iconSize | const SIZE & |  指定要获取的窗口图标大小 |
+| userId | const char * | 用户的id |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+
+<br/>
+
+
+### getScreenCaptureSources
+
+【屏幕共享】枚举可共享的窗口列表，。
+
+```
+ITRTCScreenCaptureSourceList * getScreenCaptureSources(const SIZE & thumbSize, const SIZE & iconSize)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| thumbSize | const SIZE & | - 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
+| iconSize | const SIZE & | - 指定要获取的窗口图标大小 |
+
+__说明__
+
+
+如果delete ITRTCScreenCaptureSourceList*指针会编译错误，SDK维护 ITRTCScreenCaptureSourceList 对象的生命周期。 
+ITRTCScreenCaptureSourceList 对象的生命周期。 
+
 
 <br/>
 
 
 ### selectScreenCaptureTarget
 
-【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：
+【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：。
 
 ```
 void selectScreenCaptureTarget(const TRTCScreenCaptureSourceInfo & source, const RECT & captureRect, bool captureMouse, bool highlightWindow)
@@ -796,12 +899,15 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| source | const TRTCScreenCaptureSourceInfo & |  指定分享源 |
-| captureRect | const RECT & |  指定捕获的区域 |
-| captureMouse | bool |  指定是否捕获鼠标指针 |
-| highlightWindow | bool |  指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
+| source | const TRTCScreenCaptureSourceInfo & | - 指定分享源 |
+| captureRect | const RECT & | - 指定捕获的区域 |
+| captureMouse | bool | - 指定是否捕获鼠标指针 |
+| highlightWindow | bool | - 指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
 
->?您可以在屏幕分享的过程中调用该函数来切换目标窗口或者调整目标区域。
+__说明__
+
+
+您可以在屏幕分享的过程中掉用该函数来切换目标窗口或者调整目标区域。
 
 
 <br/>
@@ -847,7 +953,7 @@ void resumeScreenCapture()
 
 ### stopScreenCapture
 
-【屏幕共享】关闭屏幕分享。
+* 【屏幕共享】关闭屏幕分享。
 
 ```
 void stopScreenCapture()
@@ -858,7 +964,7 @@ void stopScreenCapture()
 
 ### setSubStreamEncoderParam
 
-设置辅路视频编码器参数，对应于 setVideoEncoderParam() 设置主路画面的编码质量，该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+设置辅路视频编码器参数，对应于 setVideoEncoderParam() 设置主路画面的编码质量 该设置决定了远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
 
 ```
 void setSubStreamEncoderParam(const TRTCVideoEncParam & params)
@@ -875,7 +981,7 @@ __参数__
 
 ### setSubStreamMixVolume
 
-设置辅流的混音音量大小，这个数值越高，辅流音量占比就越高，麦克风音量占比就越小。
+设置辅流的混音音量大小，这个数值越高，辅流音量占比就约高，麦克风音量占比就越小。
 
 ```
 void setSubStreamMixVolume(uint32_t volume)
@@ -891,7 +997,47 @@ __参数__
 
 
 
-## 音视频自定义接口
+## 自定义采集和渲染
+
+### enableCustomVideoCapture
+
+启用视频自定义采集模式，即放弃 SDK 原来的视频采集流程，改用 sendCustomVideoData 向SDK塞入自己采集的视频画面。
+
+```
+void enableCustomVideoCapture(bool enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| enable | bool | 是否启用 |
+
+<br/>
+
+
+### sendCustomVideoData
+
+发送自定义的SampleBuffer。
+
+```
+void sendCustomVideoData(TRTCVideoFrame * frame)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCVideoFrame * | 视频数据，仅支持PixelBuffer I420数据 |
+
+__说明__
+
+
+SDK内部不做帧率控制,请务必保证调用该函数的频率和 setVideoEncoderParam 中设置的帧率一致,否则编码器输出的码率会不受控制。
+
+
+<br/>
+
 
 ### setLocalVideoRenderCallback
 
@@ -912,7 +1058,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK 内部会把采集到的数据回调出来，SDK 跳过 HWND 渲染逻辑 调用  setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)  停止回调。
+设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过 HWND 渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。
 
 
 <br/>
@@ -938,7 +1084,64 @@ __参数__
 __说明__
 
 
-设置此方法，SDK 内部会把远端的数据解码后回调出来，SDK 跳过 HWND 渲染逻辑，调用  setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr)  停止回调。 
+设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过 HWND 渲染逻辑 调用 setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。 
+
+
+<br/>
+
+
+### setAudioFrameCallback
+
+设置音频数据的相关回调。
+
+```
+int setAudioFrameCallback(ITRTCAudioFrameCallback * callback)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| callback | ITRTCAudioFrameCallback * | 声音帧数据（PCM格式）的回调 |
+
+__说明__
+
+
+设置此方法，SDK内部会把声音模块的数据（PCM格式）回调出来，包括：
+本地麦克风录制的到的声音每一路远程用户的声音混合后的要送往喇叭进行播放的声音 调用 setAudioFrameCallback(nullptr) 停止回调。
+
+
+本地麦克风录制的到的声音每一路远程用户的声音混合后的要送往喇叭进行播放的声音 调用 setAudioFrameCallback(nullptr) 停止回调。
+
+本地麦克风录制的到的声音
+本地麦克风录制的到的声音
+每一路远程用户的声音
+每一路远程用户的声音
+混合后的要送往喇叭进行播放的声音 调用 setAudioFrameCallback(nullptr) 停止回调。
+混合后的要送往喇叭进行播放的声音 调用 setAudioFrameCallback(nullptr) 停止回调。
+
+
+<br/>
+
+
+### callExperimentalAPI
+
+调用实验性 API 接口。
+
+```
+void callExperimentalAPI(const char * jsonStr)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| jsonStr | const char * | 接口及参数描述的 json 字符串 |
+
+__说明__
+
+
+该接口用于调用一些实验性功能。
 
 
 <br/>
@@ -959,16 +1162,43 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| cmdId | uint32_t | 消息 ID，取值范围为1 - 10 |
+| cmdId | uint32_t | 消息ID，取值范围为1 - 10 |
 | data | const uint8_t * | 待发送的数据，最大支持1KB（1000字节）的数据大小 |
 | dataSize | uint32_t | 待发送的数据大小 |
 | reliable | bool | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
 | ordered | bool | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
 __说明__
-限制1：发送消息到房间内所有用户，每秒最多能发送30条消息。
-限制2：每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。 
-限制3：每个客户端每秒最多能发送总计8KB 数据。
+
+
+限制1：发送消息到房间内所有用户，每秒最多能发送30 条消息 限制2：每个包最大为1 KB，超过则很有可能会被中间路由器或者服务器丢弃 限制3：每个客户端每秒最多能发送总计8 KB 数据。
+
+
+<br/>
+
+
+### sendSEIMsg
+
+发送自定义消息给房间内所有用户。
+
+```
+bool sendSEIMsg(const uint8_t * data, uint32_t dataSize, int32_t repeatCount)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| data | const uint8_t * | 待发送的数据，最大支持1kb（1000字节）的数据大小 |
+| repeatCount | int32_t | 发送数据次数 |
+
+__说明__
+
+
+限制1：数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送 限制2：发送消息到房间内所有用户，每秒最多能发送30 条消息 (与 sendCustomCmdMsg 共享限制) 限制2：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (与 sendCustomCmdMsg 共享限制) 限制4：每个客户端每秒最多能发送总计8 KB 数据 (与 sendCustomCmdMsg 共享限制) 限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大 限制6: 如果repeatCount>1,多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重 
+与 sendCustomCmdMsg 共享限制) 限制2：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (
+与 sendCustomCmdMsg 共享限制) 限制4：每个客户端每秒最多能发送总计8 KB 数据 (
+与 sendCustomCmdMsg 共享限制) 限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大 限制6: 如果repeatCount>1,多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 <br/>
@@ -1100,7 +1330,7 @@ __参数__
 
 ### startSpeedTest
 
-开始进行网络测速（视频通话期间请勿测试，以免影响通话质量）。
+开始进行网络测速(视频通话期间请勿测试，以免影响通话质量)。
 
 ```
 void startSpeedTest(uint32_t sdkAppId, const char * userId, const char * userSig)
@@ -1116,8 +1346,14 @@ __参数__
 
 __介绍__
 
-监听 
->!测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
+
+监听。
+
+
+__说明__
+
+
+测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
 
 
 <br/>
@@ -1174,7 +1410,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于200毫秒 |
+| interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于200 毫秒 |
 
 <br/>
 
@@ -1202,12 +1438,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| testAudioFilePath | const char * | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式：wav、mp3 |
+| testAudioFilePath | const char * | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式: wav、mp3 |
 
 __介绍__
 
 
-该方法测试扬声器是否能正常工作。SDK 播放指定的音频文件，测试者如果能听到声音，说明播放设备能正常工作。
+该方法测试扬声器是否能正常工作。SDK播放指定的音频文件，测试者如果能听到声音，说明播放设备能正常工作。
 
 
 <br/>
@@ -1225,7 +1461,7 @@ void stopSpeakerDeviceTest()
 
 
 
-## 混流转码并发布到 CDN
+## 混流转码并发布到CDN
 
 ### startPublishCDNStream
 
@@ -1246,7 +1482,7 @@ __介绍__
 
 由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播 CDN 上是一种较为理想的选择。
 目前支持两种发布方案：
-【1】需要您先调用 setMixTranscodingConfig 对多路画面进行混合，发布到 CDN 上的是混合之后的音视频流。
+【1】需要您先调用 setMixTranscodingConfig 对多路画面进行混合，发布到 CDN 上的是混合之后的音视频流
 【2】发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响。
 
 
@@ -1266,7 +1502,7 @@ void stopPublishCDNStream()
 
 ### setMixTranscodingConfig
 
-启动（更新）云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
+启动(更新)云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 
 ```
 void setMixTranscodingConfig(TRTCTranscodingConfig * config)
@@ -1276,7 +1512,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍，传入 NULL 取消云端混流转码 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍 传入 NULL 取消云端混流转码 |
 
 __介绍__
 
@@ -1296,15 +1532,20 @@ __介绍__
 
 
 
-## 调试相关函数
+## LOG相关接口函数
 
 ### getSDKVersion
 
 获取 SDK 版本信息。
 
 ```
-TXString getSDKVersion()
+const char * getSDKVersion()
 ```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
 
 <br/>
 
@@ -1360,7 +1601,7 @@ __参数__
 __介绍__
 
 
-开启压缩后，log 存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log 采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
+开启压缩后，log存储体积明显减小，但需要腾讯云提供的 python 脚本解压后才能阅读 禁用压缩后，log采用明文存储，可以直接用记事本打开阅读，但占用空间较大。 
         
 
 
@@ -1403,7 +1644,7 @@ __参数__
 
 ### showDebugView
 
-显示仪表盘（状态统计和事件消息浮层 view），方便调试。
+显示仪表盘（状态统计和事件消息浮层view），方便调试。
 
 ```
 void showDebugView(int showType)
@@ -1416,7 +1657,6 @@ __参数__
 | showType | int | 0：不显示；1：显示精简版；2：显示全量版 |
 
 <br/>
-
 
 
 

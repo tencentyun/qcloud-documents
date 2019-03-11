@@ -11,7 +11,7 @@
 - 带宽成本相对较低。
 - 支持超过1000人的大房间应用场景。
 
-本文主要介绍，如何使用 TRTCCloud 的 `startCloudMixTranscoding` 和 `startPublishCDNStream` 接口，实现多路画面混合并发布到 CDN 上，从而支持高并发低成本的直播需求。
+本文主要介绍，如何使用 TRTCCloud 的 `setMixTranscodingConfig` 和 `startPublishCDNStream` 接口，实现多路画面混合并发布到 CDN 上，从而支持高并发低成本的直播需求。
 
 ## 支持的平台
 
@@ -34,7 +34,7 @@
 - **userC** 的播放地址：开启旁路服务后默认开启，地址中只有 userC 的一路画面。
 - **混合画面**：即将 userA、userB 和 userC 按照您指定的排版方式混合后的播放地址，非默认开启。
 
-> ! 混合画面需要您通过 `startCloudMixTranscoding` 和 `startPublishCDNStream` 接口手动开启。
+> ! 混合画面需要您通过 `setMixTranscodingConfig` 和 `startPublishCDNStream` 接口手动开启。
 
 ![](https://main.qcloudimg.com/raw/96dc6cf35659f03d8ec9739f1fde2c5a.png)
 
@@ -63,7 +63,7 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 由于多路画面的混合需要您指定画面间的叠加方式，所以混合画面并没有默认的播放地址，需要您按照如下两步进行获取。
 
 #### step1：setMixTranscodingConfig() 多路画面混合成一路
-如果开启混流转码，您需要调用 TRTCCloud 的 `startCloudMixTranscoding` 对各路画面的摆放位置以及最终的画面质量进行配置，这里的配置方法需要您参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
+如果开启混流转码，您需要调用 TRTCCloud 的 `setMixTranscodingConfig` 对各路画面的摆放位置以及最终的画面质量进行配置，这里的配置方法需要您参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
 
 >? `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，由云端进行混流和转码，所以不用担心这里的性能问题。
 

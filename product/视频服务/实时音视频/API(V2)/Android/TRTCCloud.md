@@ -1,30 +1,41 @@
 ## 基础方法
 
-### create
+### sharedInstance
 
-创建 TRTCEngine 实例（同一时间只会存在一个实例）。
+获取 TRTCCloud 单例对象。
 
 ```
-TRTCCloud create(Context context, TRTCCloudListener listener)
+TRTCCloud sharedInstance(Context context)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| context | Context | 上下文 |
-| listener | TRTCCloudListener | 事件回调（可通过 setListener 额外添加） |
+| context | Context | android 上下文，内部会转为 ApplicationContext 用于系统 api 调用 |
+
+__说明__
+
+
+可以调用 destroySharedInstance 销毁单例对象。
+
 
 <br/>
 
 
-### destroy
+### destroySharedInstance
 
-销毁 TRTCEngine 实例。
+销毁 TRTCCloud 单例对象。
 
 ```
-abstract void destroy()
+void destroySharedInstance()
 ```
+
+__说明__
+
+
+销毁实例后，外部缓存的 TRTCCloud 实例不能再使用，需要重新调用 sharedInstance 获取新实例。
+
 
 <br/>
 
@@ -87,6 +98,34 @@ abstract void exitRoom()
 <br/>
 
 
+### ConnectOtherRoom
+
+开启跨房连麦。
+
+```
+abstract void ConnectOtherRoom(String param)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| param | String | json形式的参数 {"roomId":910,"userId":"userA","sign":"sign string ..."} |
+
+<br/>
+
+
+### DisconnectOtherRoom
+
+关闭跨房连麦。
+
+```
+abstract void DisconnectOtherRoom()
+```
+
+<br/>
+
+
 
 ## 视频相关接口函数
 
@@ -133,6 +172,12 @@ __参数__
 |-----|------|------|
 | userId | String | 对方的用户标识 |
 | view | TXCloudVideoView | 指定渲染控件所在的父控件，SDK 会在 view 内部创建一个等大的子控件用来渲染远端画面 |
+
+__说明__
+
+
+在 onUserVideoAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -263,7 +308,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | int | 支持 90、180、270 旋转角度 |
+| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
 <br/>
 
@@ -281,7 +326,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | String | 对方的用户标识 |
-| rotation | int | 支持 90、180、270 旋转角度 |
+| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
 <br/>
 
@@ -298,7 +343,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | int | 支持 90、180、270 旋转角度 |
+| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度 |
 
 <br/>
 
@@ -651,6 +696,23 @@ __参数__
 <br/>
 
 
+### setFilterConcentration
+
+设置滤镜浓度。
+
+```
+abstract void setFilterConcentration(float concentration)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| concentration | float | 从0到1，越大滤镜效果越明显，默认取值0.5 |
+
+<br/>
+
+
 ### setWatermark
 
 添加水印，height 不用设置，sdk 内部会根据水印宽高比自动计算 height。
@@ -689,6 +751,12 @@ __参数__
 |-----|------|------|
 | userId | String | 对方的用户标识 |
 | view | TXCloudVideoView | 指定渲染控件所在的父控件，SDK 会在 view 内部创建一个等大的子控件用来渲染远端画面 |
+
+__说明__
+
+
+在 onUserSubStreamAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -729,7 +797,7 @@ __参数__
 
 
 
-## 音视频自定义接口
+## 自定义采集和渲染
 
 ### enableCustomVideoCapture
 
@@ -810,6 +878,29 @@ __参数__
 <br/>
 
 
+### callExperimentalAPI
+
+调用实验性 API 接口。
+
+```
+abstract void callExperimentalAPI(String jsonStr)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| jsonStr | String | 接口及参数描述的 json 字符串 |
+
+__说明__
+
+
+该接口用于调用一些实验性功能。
+
+
+<br/>
+
+
 
 ## 自定义消息发送
 
@@ -830,9 +921,38 @@ __参数__
 | reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
 | ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
->?限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息。
+>?限制1：发送消息到房间内所有用户，每秒最多能发送30条消息。
 限制2：每个包最大为 1 KB，超过则很有可能会被中间路由器或者服务器丢弃。
 限制3：每个客户端每秒最多能发送总计 8 KB 数据。
+
+
+<br/>
+
+
+### sendSEIMsg
+
+发送自定义消息给房间内所有用户。
+
+```
+abstract boolean sendSEIMsg(byte [] data, int repeatCount)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| data | byte [] | 待发送的数据，最大支持 1kb（1000字节）的数据大小 |
+| repeatCount | int | 发送数据次数 |
+
+__说明__
+
+
+>?限制1：数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
+限制2：发送消息到房间内所有用户，每秒最多能发送30条消息 (与 sendCustomCmdMsg 共享限制)。
+限制3：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (与 sendCustomCmdMsg 共享限制) 。
+限制4：每个客户端每秒最多能发送总计 8 KB 数据 (与 sendCustomCmdMsg 共享限制)。
+限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+限制6: 如果repeatCount>1,多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 <br/>

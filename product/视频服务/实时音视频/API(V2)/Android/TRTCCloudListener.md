@@ -70,7 +70,6 @@ __参数__
 ### onExitRoom
 
 离开房间，离开房间成功的回调。
-
 ```
 void onExitRoom(int reason)
 ```
@@ -80,6 +79,28 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | reason | int | 离开房间原因 |
+
+<br/>
+
+
+### onConnectOtherRoom
+
+跨房连麦回调。
+
+```
+void onConnectOtherRoom(final String userID, final int err, final String errMsg)
+```
+
+<br/>
+
+
+### onDisConnectOtherRoom
+
+断开跨房连麦回调。
+
+```
+void onDisConnectOtherRoom(final int err, final String errMsg)
+```
 
 <br/>
 
@@ -421,6 +442,24 @@ __说明__
 
 只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
+
+<br/>
+
+
+### onRecvSEIMsg
+
+当房间中的某个用户使用 sendSEIMsg 发送数据时，房间中的其它用户可以通过 onRecvSEIMsg 接口接收数据。
+
+```
+void onRecvSEIMsg(String userId, byte [] data)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | String | 用户标识 |
+| data | byte [] | 数据 |
 
 <br/>
 
