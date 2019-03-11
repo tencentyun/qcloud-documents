@@ -1,22 +1,23 @@
 # 登录Windows实例
 
-创建Windows实例后，您可以根据本地操作系统以及是否可以被Internet访问，来选择不同的登录方式连接并登录ECS实例。登录方式可以参考以下表格：
+创建Windows实例后，您可以根据**本地操作系统**以及**是否可以被Internet访问**来选择不同的登录方式连接并登录CVM实例。登录方式可以参考以下表格：
 
-| 本地操作系统 | 实例是否可以被Internet访问（？）                    | 实例不能被Internet访问 |
-| ------------ | --------------------------------------------------- | ---------------------- |
-| Windows      | 远程桌面连接<br>VNC登录（不推荐？）                 |                        |
-| Linux        | rdesktop登录<br>VNC登录（不推荐？）                 |                        |
-| Mac OS       | remote desktop软件登录（？）<br>VNC登录（不推荐？） |                        |
+| 本地操作系统 | 实例可以被Internet访问                    | 实例不能被Internet访问 |
+| ------------ | --------------------------------- | ---------------------- |
+| Windows      | 使用RDP登录<br> 远程桌面登录         |         VNC登录（不推荐）               |
+| Linux<br>Mac OS | 使用RDP登录<br>rdesktop登录        |         VNC登录（不推荐）          |
+
 
 ## 前提条件
 
 远程登录Windows实例需要使用实例的管理员账号和对应的密码。对于Windows实例的管理员账号统一为**Administrator**。
 
-- 若您在购买（还是启动？）实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。
+- 若您在购买实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。
 
-- 若您在购买（还是启动？原文写的启动）实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过XXXX对密码进行重置。
+- 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。
 
-  
+## 使用RDP方式登录
+待补充
 
 ## 使用远程桌面登录
 
@@ -29,8 +30,8 @@ Windows
 ### 操作步骤：
 
 1. 在本地Windows机器上，单击【开始】-【运行】，输入<code>mstsc</code>，打开远程桌面连接对话框。
-2. 输入您要登录的Windows实例的公网IP。
-3. 点击【连接】，在打开的界面中输入在前提条件（link）准备的管理员账号对应的密码。
+2. 输入您要登录的Windows实例的公网IP。您可以登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)查看云服务器的公网IP。
+3. 点击【连接】，在打开的界面中输入管理员账号对应的密码。
 4. 点击【确定】即可登录到Windows实例。
 
 
@@ -41,7 +42,7 @@ Windows
 
 ### 适用本地操作系统
 
-LInux
+Linux
 
 ### 操作步骤：
 
@@ -65,14 +66,8 @@ make install
    rdesktop -u Administrator -p <your-password> <hostname or ip address>
    ```
 
-   其中 <code>-u</code> 连接用户名即 `Administrator`，<code>-p</code> 连接在先决条件中获得的密码，<hostname or ip address>为您的 Windows 实例公网 IP 或 自定义域名。
-
-注意：
-
-如果登录失败，请检查您的云服务器实例是否允许 3389 端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于 [私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
-
-
-
+   其中 <code>-u</code> 连接用户名即 `Administrator`，<code>-p</code> 连接在先决条件中获得的密码，<hostname or ip address>为您的 Windows实例公网IP或自定义域名。
+  
 ## 使用Microsoft Remote Desktop for Mac登录
 
 介绍如何使用Microsoft Remote Desktop for Mac远程登录Windows实例
@@ -87,11 +82,9 @@ Mac OS
 
    该测试版本客户端由微软官方维护，我们推荐您优先使用该版本客户端（微软已于 2017 年取消其官网提供的下载链接，转而通过其子公司 HockeyApp 的页面进行 Beta 版本的发布）。
 
-2. 在输入框输入 Windows 服务器的公网 IP。
+2. 在输入框输入Windows服务器的公网IP。
 
 3. 单击【连接】，在新打开的界面中输入前提条件中获取的管理员账号和对应的密码。
-
-补截图。。
 
 
 
@@ -109,9 +102,6 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 
 Windows，Linux和MacOS系统
 
-### 鉴权方式：
-
-待确定
 
 ### 操作步骤：
 
@@ -120,11 +110,8 @@ Windows，Linux和MacOS系统
 2. 在 “云主机” 页面中，选择需要登录的 Linux 云服务器，单击【登录】。
 
 3. 在弹出的 “登录Linux云服务器” 窗口中，选择 “浏览器 VNC 方式登录”，单击【立即登录】。如下图所示：
-
-   带截图。
-
    
 
 ## 远程连接出现问题？
 
-xxxx
+如果登录失败，请检查您的云服务器实例是否允许 3389 端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于 [私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
