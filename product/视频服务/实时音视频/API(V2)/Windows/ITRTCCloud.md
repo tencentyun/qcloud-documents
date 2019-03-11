@@ -1,3 +1,21 @@
+## 创建与销毁
+
+### getTRTCShareInstance
+
+创建 TRTCCloud 单例。
+
+```
+ITRTCCloud* getTRTCShareInstance()
+```
+
+### destroyTRTCShareInstance
+释放 ITRTCCloud 单例对象。
+
+```
+void destroyTRTCShareInstance()
+```
+<br/>
+
 ## 设置 TRTCCloudCallback 回调
 
 ### addCallback
