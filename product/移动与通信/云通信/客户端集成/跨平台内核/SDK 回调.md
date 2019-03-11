@@ -846,8 +846,8 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 - [TIMGroupDelete](https://cloud.tencent.com/document/product/269/33550#timgroupdelete)
 - [TIMGroupJoin](https://cloud.tencent.com/document/product/269/33550#timgroupjoin)
 - [TIMGroupQuit](https://cloud.tencent.com/document/product/269/33550#timgroupquit)
-- [TIMGroupSetGroupInfo](https://cloud.tencent.com/document/product/269/33550#timgroupsetgroupinfo)
-- [TIMGroupSetMemberInfo](https://cloud.tencent.com/document/product/269/33550#timgroupsetmemberinfo)
+- [TIMGroupModifyGroupInfo](https://cloud.tencent.com/document/product/269/33550#timgroupmodifygroupinfo)
+- [TIMGroupModifyMemberInfo](https://cloud.tencent.com/document/product/269/33550#timgroupmodifymemberinfo)
 - [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33550#timgroupreportpendencyreaded)
 - [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33550#timgrouphandlependency)
 
