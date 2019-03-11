@@ -76,7 +76,7 @@ Windows
 1. 下载[PuTTY](https://www.putty.org/)软件。
 2. 打开 PuTTY 客户端，在**PuTTY Configuration** 窗口中输入：
    - **Host Name**：输入你要连接的腾讯云服务器实例的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com/)，可在列表页及详情页中获取主机公网IP
-   - **Port**：云服务器的端口，此处填写为22。
+   - **Port**：云服务器的端口，此处填写为22，请确保云服务器 22 端口已开放，详见查看 [安全组]()及 [网络ACL]()。
    - **Connection Type**：选择**SSH**。
 3. 在弹出的对话框中，输入云服务器的管理员账号和密码登录。如果您不知道云服务器的管理员账号或密码，请在[云服务器控制台](https://console.cloud.tencent.com/)查找或重置。
 
@@ -84,7 +84,7 @@ Windows
 
 1. 下载[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)主页的putty.exe和puttygen.exe两个文件。
 2. 选择私钥。打开putty.exe并单击【Load】，选择您从腾讯云服务器下载的密钥，并单击【打开】。
-3. 密钥转换。在 key comment 栏中输入密钥名，输入加密私钥的密码，单击【Save private key】，在弹窗中选择您存放密钥的目录，然后在文件名栏输入 密钥名 +".ppk"，单击【保存】按钮。——补截图。
+3. 密钥转换。在 key comment 栏中输入密钥名，输入加密私钥的密码，单击【Save private key】，在弹窗中选择您存放密钥的目录，然后在文件名栏输入 密钥名 +".ppk"，单击【保存】按钮。
 4. 打开putty.exe，点击【Auth】进入配置。
 5. 单击【Browse】，选择刚刚保存到本地的密钥并单击【打开】，返回配置界面，进入【Session】配置。
 6. 在【Session】配置中配置服务器的IP，端口和连接类型。
@@ -175,4 +175,3 @@ Windows，Linux和MacOS系统
 1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在 【云主机】 页面中，选择需要登录的 Linux 云服务器，单击【登录】。
 3. 在弹出的 【登录Linux云服务器】 窗口中，选择 【浏览器 VNC 方式登录】，单击【立即登录】。
-4. 在弹出的
