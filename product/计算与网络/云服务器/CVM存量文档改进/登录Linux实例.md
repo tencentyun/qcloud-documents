@@ -148,14 +148,6 @@ ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<host
 
    (其中：`username`即为前提条件中获得的管理员帐号， `hostname or ip address`为您的 Linux 实例公网 IP 或 自定义域名。例如：`ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`）。
 
-注意：
-
-如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/doc/product/213/5221) ，若您的云服务器处于 [私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
-
-
-
-   
-
 ## 使用VNC远程登录实例（不推荐）
 
 VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装远程登录客户端或者客户端远程登录无法使用的情况下，用户可以通过 VNC 登录连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作。
@@ -175,3 +167,5 @@ Windows，Linux和MacOS系统
 1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在 【云主机】 页面中，选择需要登录的 Linux 云服务器，单击【登录】。
 3. 在弹出的 【登录Linux云服务器】 窗口中，选择 【浏览器 VNC 方式登录】，单击【立即登录】。
+
+## 远程登录失败？
