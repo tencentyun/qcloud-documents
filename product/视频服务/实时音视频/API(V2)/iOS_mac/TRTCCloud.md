@@ -1,3 +1,28 @@
+## 创建与销毁
+
+### sharedInstance
+
+创建 TRTCCloud 单例。
+
+```
+ + (instancetype)sharedInstance
+```
+
+<br/>
+
+
+### destroySharedIntance
+
+销毁 TRTCCloud 单例。
+
+```
+ + (void)destroySharedIntance
+```
+
+<br/>
+
+
+
 ## 房间相关接口函数
 
 ### enterRoom
@@ -104,6 +129,12 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 对方的用户标识 |
 | view | TXView * | 指定渲染控件所在的父控件，SDK 会在 view 内部创建一个等大的子控件用来渲染远端画面 |
+
+__说明__
+
+
+在 onUserVideoAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -718,7 +749,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | NSString * | 从getMicDevicesList中得到的设备 ID |
+| deviceId | NSString * | 从 getMicDevicesList 中得到的设备 ID |
 
 <br/>
 
@@ -858,6 +889,23 @@ __参数__
 <br/>
 
 
+### setFilterConcentration
+
+设置滤镜浓度。
+
+```
+ - (void)setFilterConcentration:(float)concentration 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| concentration | float | 从0到1，越大滤镜效果越明显，默认值为0.5 |
+
+<br/>
+
+
 ### setWatermark
 
 添加水印。
@@ -894,6 +942,12 @@ __参数__
 |-----|------|------|
 | userId | NSString * | 对方的用户标识 |
 | view | TXView * | 渲染控件所在的父控件 |
+
+__说明__
+
+
+在 onUserSubStreamAvailable 回调时，调用这个接口。
+
 
 <br/>
 
@@ -1040,7 +1094,7 @@ __参数__
 
 ### setSubStreamMixVolume
 
-设置辅流的混音音量大小，这个数值越高，辅流音量占比就约高，麦克风音量占比就越小。
+设置辅流的混音音量大小，这个数值越高，辅流音量占比就越高，麦克风音量占比就越小。
 
 ```
  - (void)setSubStreamMixVolume:(NSInteger)volume 
@@ -1056,7 +1110,7 @@ __参数__
 
 
 
-## 音视频自定义接口
+## 自定义采集和渲染
 
 ### enableCustomVideoCapture
 
@@ -1143,8 +1197,31 @@ __参数__
 __说明__
 
 
-设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染 
+设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 setRemoteVideoRenderDelegate 之前需要调用 startRemoteView 来开启对应 userid 的视频画面，才有数据回调出来。
+
+
+<br/>
+
+
+### callExperimentalAPI
+
+调用实验性 API 接口。
+
+```
+ - (void)callExperimentalAPI:(NSString *)jsonStr 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| jsonStr | NSString * | 接口及参数描述的 json 字符串 |
+
+__说明__
+
+
+该接口用于调用一些实验性功能。
 
 
 <br/>
@@ -1173,9 +1250,38 @@ __参数__
 __说明__
 
 
-限制1：发送消息到房间内所有用户，每秒最多能发送30条消息。
-限制2：每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
-限制3：每个客户端每秒最多能发送总计8KB 数据。
+>?限制1：发送消息到房间内所有用户，每秒最多能发送 30 条消息。
+限制2：每个包最大为 1 KB，超过则很有可能会被中间路由器或者服务器丢弃。
+限制3：每个客户端每秒最多能发送总计 8 KB 数据。
+
+
+<br/>
+
+
+### sendSEIMsg
+
+发送自定义消息给房间内所有用户。
+
+```
+ - (BOOL)sendSEIMsg:(NSData *)data repeatCount:(int)repeatCount 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| data | NSData * | 待发送的数据，最大支持 1kb（1000字节）的数据大小 |
+| repeatCount | int | 发送数据次数 |
+
+__说明__
+
+
+>?限制1：数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
+限制2：发送消息到房间内所有用户，每秒最多能发送 30 条消息 (与 sendCustomCmdMsg 共享限制)。
+限制3：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (与 sendCustomCmdMsg 共享限制).
+限制4：每个客户端每秒最多能发送总计 8 KB 数据 (与 sendCustomCmdMsg 共享限制)。
+限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+限制6: 如果repeatCount>1,多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重 。
 
 
 <br/>
@@ -1463,7 +1569,7 @@ __说明__
 
 ### startPublishCDNStream
 
-启动CDN发布：通过腾讯云将当前房间的音视频流发布到直播 CDN 上。
+启动 CDN 发布：通过腾讯云将当前房间的音视频流发布到直播 CDN 上。
 
 ```
  - (void)startPublishCDNStream:(TRTCPublishCDNParam *)param 
@@ -1478,7 +1584,7 @@ __参数__
 __介绍__
 
 
-由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播CDN上是一种较为理想的选择。 目前支持两种发布方案：
+由于 TRTC 的线路费用是按照时长收费的，并且房间容量有限（< 1000人） 当您有大规模并发观看的需求时，将房间里的音视频流发布到低成本高并发的直播 CDN 上是一种较为理想的选择。目前支持两种发布方案：
 【1】需要您先调用 setMixTranscodingConfig 对多路画面进行混合，发布到 CDN 上的是混合之后的音视频流。
 【2】发布当前房间里的各路音视频画面，每一路画面都有一个独立的地址，相互之间无影响。
 
@@ -1530,53 +1636,6 @@ __介绍__
 
 
 ## LOG相关接口函数
-
-### showDebugView
-
-显示仪表盘。
-
-```
- - (void)showDebugView:(NSInteger)showType 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| showType | NSInteger | 0：不显示；1：显示精简版；2：显示全量版 |
-
-__介绍__
-
-
-仪表盘是状态统计和事件消息浮层 view，方便调试。
-
-
-<br/>
-
-
-### setDebugViewMargin
-
-设置仪表盘的边距。
-
-```
- - (void)setDebugViewMargin:(NSString *)userId margin:(TXEdgeInsets)margin 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| userId | NSString * | 用户 ID |
-| margin | TXEdgeInsets | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是 0 - 1 |
-
-__介绍__
-
-
-必须在 showDebugView 调用前设置才会生效。
-
-
-<br/>
-
 
 ### getSDKVersion
 
@@ -1681,6 +1740,53 @@ __说明__
 <br/>
 
 
+### showDebugView
+
+显示仪表盘。
+
+```
+ - (void)showDebugView:(NSInteger)showType 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| showType | NSInteger | 0：不显示；1：显示精简版；2：显示全量版 |
+
+__介绍__
+
+
+仪表盘是状态统计和事件消息浮层view，方便调试。
+
+
+<br/>
+
+
+### setDebugViewMargin
+
+设置仪表盘的边距。
+
+```
+ - (void)setDebugViewMargin:(NSString *)userId margin:(TXEdgeInsets)margin 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 用户Id |
+| margin | TXEdgeInsets | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin的取值范围是0 - 1 |
+
+__介绍__
+
+
+必须在 showDebugView 调用前设置才会生效。
+
+
+<br/>
+
+
 
 ## 属性列表
 ### delegate
@@ -1702,5 +1808,3 @@ __说明__
 ```
 
 <br/>
-
-

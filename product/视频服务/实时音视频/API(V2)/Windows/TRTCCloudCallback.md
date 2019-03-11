@@ -76,6 +76,43 @@ __参数__
 <br/>
 
 
+#### onConnectOtherRoom
+
+跨房连麦成功回调。
+
+```
+void onConnectOtherRoom(const char * userId, TXLiteAVError errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+
+<br/>
+
+
+#### onDisconnectOtherRoom
+
+断开跨房连麦回调。
+
+```
+void onDisconnectOtherRoom(TXLiteAVError errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+
+<br/>
+
+
 
 ### 成员事件回调
 
@@ -512,6 +549,24 @@ __说明__
 <br/>
 
 
+#### onRecvSEIMsg
+
+当房间中的某个用户使用 sendSEIMsg 发送数据时，房间中的其它用户可以通过 onRecvSEIMsg 接口接收数据。
+
+```
+void onRecvSEIMsg(const char * userId, const uint8_t * message, uint32_t msgSize)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| message | const uint8_t * | 数据 |
+
+<br/>
+
+
 
 ### 旁路转推和混流回调
 
@@ -653,6 +708,74 @@ __参数__
 | userId | const char * | 用户标识 |
 | streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 | frame | TRTCVideoFrame * | 视频帧数据 |
+
+<br/>
+
+
+
+
+## ITRTCAudioFrameCallback
+
+音频相关回调。
+
+
+__说明__
+
+请按需定义相关函数实现，减少不必要的性能损耗。
+
+
+<br/>
+
+### 自定义音频回调
+
+#### onCapturedAudioFrame
+
+本机采集到的声音回调。
+
+```
+void onCapturedAudioFrame(TRTCAudioFrame * frame)
+```
+
+<br/>
+
+
+#### onPlayAudioFrame
+
+混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+void onPlayAudioFrame(TRTCAudioFrame * frame, const char * userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据 |
+| userId | const char * | 用户标识 |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+<br/>
+
+
+#### onMixedPlayAudioFrame
+
+经过混合后的声音。
+
+```
+void onMixedPlayAudioFrame(TRTCAudioFrame * frame)
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
 
 <br/>
 

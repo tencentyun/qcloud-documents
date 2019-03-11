@@ -84,6 +84,28 @@ __参数__
 <br/>
 
 
+### onConnectOtherRoom
+
+跨房连麦成功回调。
+
+```
+ - (void)onConnectOtherRoom:(NSString *)userId errCode:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg 
+```
+
+<br/>
+
+
+### onDisconnectOtherRoom
+
+断开跨房连麦回调。
+
+```
+ - (void)onDisconnectOtherRoom:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg 
+```
+
+<br/>
+
+
 
 ## 成员事件回调
 
@@ -419,8 +441,26 @@ __参数__
 __说明__
 
 
-只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
+只有在发送端设置了可靠传输(reliable)，接收方才能收到消息的丢失回调。
 
+
+<br/>
+
+
+### onRecvSEIMsg
+
+当房间中的某个用户使用 sendSEIMsg 发送数据时，房间中的其它用户可以通过 onRecvSEIMsg 接口接收数据。
+
+```
+ - (void)onRecvSEIMsg:(NSString *)userId message:(NSData *)message 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | NSString * | 用户标识 |
+| message | NSData * | 数据 |
 
 <br/>
 
