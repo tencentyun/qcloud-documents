@@ -462,7 +462,7 @@ public String getConversationId()
 public TIMConversationType getConversationType()
 ```
 
-#### 获取发送方用户ID
+#### 获取发送方用户 ID
 
 通过 `getSenderIdentifier` 可以获取到消息发送方的用户ID，失败时返回 null。
 
@@ -714,7 +714,7 @@ public void setOfflinePushToken(TIMOfflinePushToken token)
 ---|---
 token|用户标识，包括证书 ID， regId， TMID 等
 
-**`TIMOfflinePushToken`原型：**
+**`TIMOfflinePushToken`成员方法详细说明：**
 
 ```
 /**
