@@ -896,7 +896,7 @@ typedef NS_ENUM(NSInteger, TIMMessageStatus){
 ### 消息发送者以及相关资料
 
 - **对于群消息**，可以通过 `TIMMessage` 的方法 `sender` 得到发送用户，另外也可以通过方法 `GetSenderProfile` 和 `GetSenderGroupMemberProfile` 获取用户自己的资料和所在群的资料。
-- **对于单聊消息**，通过通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getReceiver` 可以得到正在聊天的用户。
+- **对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getReceiver` 可以得到正在聊天的用户。
 
 >! 此字段在消息发送时获取用户资料并写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
 
