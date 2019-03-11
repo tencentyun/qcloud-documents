@@ -1,10 +1,9 @@
 ## 开发步骤
-1. 页面头部引入 JS
+1. 页面头部引入 JS（[获取 JS 地址](https://cloud.tencent.com/doc/product/295/6620)）。
 ```
 <script type="text/javascript" src="xxx"></script>
 ```
-[JS地址的获取方法](https://cloud.tencent.com/doc/product/295/6620)
-2. 添加验证码展示控件
+2. 添加验证码展示控件（[不同样式体验入口](http://open.captcha.qq.com/cap_web/experience-character.html)）。
 ```
 <!--显示验证码的地方预留的最小空间，小于该值会导致显示异常-->
 <!--触发式：300px*40px（宽*高）-->
@@ -13,7 +12,6 @@
 <!--通过width和height设置验证码初始宽高，未设置会导致显示异常，默认触发式-->
 <div id="TCaptcha" style="width:300px;height:40px;" ></div>
 ```
-[不同样式体验入口](http://open.captcha.qq.com/cap_web/experience-character.html)。
 3. 初始化并显示验证码
 ```
 <script type="text/javascript">

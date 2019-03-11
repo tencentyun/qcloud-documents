@@ -1,8 +1,8 @@
 
 ## 1. 快速集成
-### 1.1 SDK下载
+### 1.1 SDK 下载
 为方便开发者集成使用，腾讯云准备了面向开发者的 Demo，开发者可以参照该 Demo 使用 TICSDK，[下载开发者 Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC_Demo.zip)。
-> 开发者 Demo 主要向开发者展示 TICSDK 的基本使用方法，简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
+>? 开发者 Demo 主要向开发者展示 TICSDK 的基本使用方法，简化了很多不必要的 UI 代码，使开发者更加专注于了解 TICSDK 的使用方法。
 
 SDK 下载：[TICSDK ](http://dldir1.qq.com/hudongzhibo/TICSDK/PC/TICSDK_PC.zip)
 
@@ -53,7 +53,7 @@ TICSDK 进出房间状态流程可参考下图：
 
 ![房间流程](https://main.qcloudimg.com/raw/62a414b2cf7c28cf63846bfb870eda95.png) 
 
-因为涉及到IM消息的收发，所以必须先登录：
+因为涉及到 IM 消息的收发，所以必须先登录：
 
 ```C++
 > TICManager.h
@@ -75,8 +75,8 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 
 >!
 > 1. 开发调试阶段， 开发者可以使用腾讯云实时音视频控制台的开发辅助工具来生成临时的 uid 和 userSig 用于开发测试。
-> 2. 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。为了保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
-> 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回 70001 错误码，开发者可根据错误码进行票据更换。
+> 2. 如果此用户在其他终端被踢，登录将会失败，返回错误码 ERR_IMSDK_KICKED_BY_OTHERS：6208。为保证用户体验，建议开发者进行登录错误码 ERR_IMSDK_KICKED_BY_OTHERS 的判断，在收到被踢错误码时，提示用户是否重新登录。
+> 3. 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login 将会返回70001错误码，开发者可根据错误码进行票据更换。
 > 4. 关于以上错误的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
 登录成功之后，就可以创建或者加入课堂了，创建课堂调用方法如下，需要用户生成课堂房间 roomID 并传入：
@@ -97,9 +97,9 @@ success 和 err 为登录 SDK 成功和失败回调，data 为用户自定义数
 	*/
 	virtual void joinClassroom(TICClassroomOption& opt, ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data) = 0;
 ```
-该接口需要参数中，opt 是`TICClassroomOption`对象，代表加入课堂时的一些配置.
+该接口需要参数中，opt 是`TICClassroomOption`对象，代表加入课堂时的一些配置。
 
-基础配置有 3 个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
+基础配置有3个，加入课堂时是否为老师（只有老师才可以创建课堂，其他人以学生身份加入），进入课的房间 ID，以及透传给 iliveSDK 的 roomOption 参数项。该类还有三个代理对象，用来监听课堂内的一些事件。
 
 加入房间后要注意监听如下一些事件回调：
 
@@ -178,7 +178,7 @@ iliveSDK 提供了一个 iLiveRootView 对象实现了对视频数据的渲染�
 ```C++
 	m_sdk->getTICWhiteBoardManager()->getBoardData();
 ```
-开发者可以通过 getTICWhiteBoardManager() 获得白板管理类里面封装好的方法，也可以直接调用 BoardSDK.h 里面的接口对白板进行操作，BoardSDK 详见 [白板SDK文档](/document/product/680/17884) 。
+开发者可以通过 getTICWhiteBoardManager() 获得白板管理类里面封装好的方法，也可以直接调用 BoardSDK.h 里面的接口对白板进行操作，BoardSDK 详见 [白板 SDK 文档](/document/product/680/17884) 。
 
 ### 2.5 使用 PPT
 用户想使用 PPT，可先将 PPT 上传到腾讯云对象存储 COS。TICSDK 内部集成了 COSSDK。开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置 COS 账号并自行维护。
@@ -217,7 +217,7 @@ boardSDk->uploadFile(filePath, sig);
 	*/
 	virtual void openWhiteBoardShare(HWND hwnd) = 0;
 ```
-打开窗口分享涂鸦后可调用 BoarSDK 接口函数对画笔进行操作。BoardSDK 接口详见 [白板SDK文档](/document/product/680/17884) 。
+打开窗口分享涂鸦后可调用 BoarSDK 接口函数对画笔进行操作。BoardSDK 接口详见 [白板 SDK 文档](/document/product/680/17884) 。
 
 ### 2.7 收发消息
 IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也只封装了一些常用接口：
@@ -245,7 +245,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 	*/
 	virtual void sendMessage(TIMConversationType type, const char * userId, TIMConversationHandle msg) = 0;
 ```
-课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `IClassroomIMListener`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知:
+课堂内成员在调用以上方法发送消息时，会触发 IM 事件，如果在加入课堂前设置了 IM 事件监听代理 `IClassroomIMListener`，一端发送 IM 消息时，另一端就可以在课堂内 IM 消息回调对应方法中得到通知：
 
 ```C++
 	/**
@@ -291,7 +291,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 	virtual void onSendWBData(int err, const char * errMsg) = 0;
 
 ```
-前 4 个代理方法，分别对应了前面 4 个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。接下来`onRecvGroupSystemMsg`监听了课堂内群组系统消息，`onSendMsg`和`onSendWBData`则对应发普通消息和 IM 消息是否成功的回调。
+前4个代理方法，分别对应了前面4个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调给课堂内所有成员（发消息本人除外），其他端收到后可以将消息展示在界面上。接下来`onRecvGroupSystemMsg`监听了课堂内群组系统消息，`onSendMsg`和`onSendWBData`则对应发普通消息和 IM 消息是否成功的回调。
 
 ### 2.8 监听事件
 TICSDK 提供了三个事件监听对象，如下
@@ -354,7 +354,7 @@ class IClassroomIMListener
 
 创建课堂这步通过`onCreateClassroom`方法通知上层是否成功；课堂内断线事件会通过`onLiveVideoDisconnect`方法通知给上层也便做异常处理。
 
-课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id 表示事件类型（开关摄像头等），ids 表示触发事件的用户 ID 集合。其他端触发回调之后，可以根据事件类型，进行相应的处理。比如，收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 emo）。
+课堂内的成员音视频事件都会通过`onMemStatusChange`方法回调到其他端（包括操作者的），event_id 表示事件类型（开关摄像头等），ids 表示触发事件的用户 ID 集合。其他端触发回调之后，可以根据事件类型，进行相应的处理。例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头时间，就移除对应用户的渲染视图（详细用法可以参照 emo）。
 
 房间内成员进出消息通过`onMemberJoin`和`onMemberQuit`方法通知房间内所有成员；而老师销毁课堂消息通过`onClassroomDestroy`方法通知房间内所有成员。
 
@@ -374,7 +374,7 @@ class IClassroomIMListener
 	*/
 	virtual void quitClassroom(ilive::iLiveSucCallback success, ilive::iLiveErrCallback err, void* data) = 0;
 ```
-若要销毁创建好的课堂，则调用
+若要销毁创建好的课堂，则调用：
 ```C++
 	/**
 	* \brief 老师销毁课堂

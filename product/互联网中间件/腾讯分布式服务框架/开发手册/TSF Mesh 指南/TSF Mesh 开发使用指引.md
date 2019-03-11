@@ -60,6 +60,9 @@ spec:
         path: /health
 ```
 
+>!
+- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。
+- `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 nginx 配置的 server_name），则需将 local-service 加到白名单。
 
 ## API 定义和上报（可选）
 TSF 支持 Mesh 应用 API 上报功能，用于 API 级别的服务治理，如路由、鉴权和限流等，不需要可以跳过。
