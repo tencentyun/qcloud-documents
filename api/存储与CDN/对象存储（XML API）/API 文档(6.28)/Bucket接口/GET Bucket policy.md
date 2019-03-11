@@ -7,16 +7,16 @@ GET Bucket policy 请求可以向 Bucket 读取权限策略。
 
 ```shell
 GET /?policy HTTP/1.1
-Host:<bucketname-APPID>.cos.<Region>.myqcloud.com
+Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date:date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -36,23 +36,23 @@ Authorization: Auth String
 
 ```shell
 {
-    "Statement": [
-        {
-            "Principal": {
-                "qcs": [
-                    "qcs::cam::uin/${owner_uin}:uin/${sub_uin}"
-                ]
-            },
-            "Effect": "${effect}",
-            "Action": [
-                "name/cos:${action}"
-            ],
-            "Resource": [
-                "qcs::cos:${region}:uid/${appid}:${bucket}/*"
-            ]
-        }
-    ],
-    "version": "2.0"
+  "Statement": [
+    {
+      "Principal": {
+        "qcs": [
+          "qcs::cam::uin/100000000001:uin/100000000001"
+        ]
+      },
+      "Effect": "allow",
+      "Action": [
+        "name/cos:GetBucket"
+      ],
+      "Resource": [
+        "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
+      ]
+    }
+  ],
+  "version": "2.0"
 }
 ```
 
@@ -84,7 +84,7 @@ x-cos-request-id: NTg4MDc3MWFfOWIxZjRlXzZmNDVfZTBl
     {
       "Principal": {
         "qcs": [
-          "qcs::cam::uin/909619481:uin/909619481"
+          "qcs::cam::uin/100000000001:uin/100000000001"
         ]
       },
       "Effect": "allow",
@@ -92,7 +92,7 @@ x-cos-request-id: NTg4MDc3MWFfOWIxZjRlXzZmNDVfZTBl
         "name/cos:GetBucket"
       ],
       "Resource": [
-        "qcs::cos:ap-chengdu:uid/1252336075:aaa-1252336075/*"
+        "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ],

@@ -48,7 +48,6 @@ pod init
 ```
 platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
-
 target 'App' do
 # TUIKit 需要依赖 ImSDK ，这里要加载 ImSDK
 pod 'TXIMSDK_iOS' 

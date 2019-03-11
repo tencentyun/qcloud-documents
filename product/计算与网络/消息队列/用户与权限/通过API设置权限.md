@@ -1,6 +1,6 @@
 ## 前提：子用户的密钥
 
-使用子账户的账户及密码登录，在控制台的【云产品】- 【[云API密钥](https://console.cloud.tencent.com/capi)】，找到子用户的密钥。密钥用于生成签名，认证通过后可访问相关腾讯云资源。
+使用子账户的账户及密码登录，在控制台的【云产品】-【[云API密钥](https://console.cloud.tencent.com/capi)】，找到子用户的密钥。密钥用于生成签名，认证通过后可访问相关腾讯云资源。
 
 签名的作用：
 - **验证请求用户身份：**通过用户密钥来确认。
@@ -12,48 +12,48 @@
 
 ### 1. 接口协议
 
-编码类型：utf8
-编码格式：json
-传输方式：post
-请求协议：http
+编码类型：UTF8
+编码格式：JSON
+传输方式：POST
+请求协议：HTTP
 
 调用规范示例如下：
 ```
 {
-	"version"	: 1,
-  "componentName"	:"MC",
-	"eventId"	:123456,
-	"interface":{
-  "interfaceName" : "接口名"
-  "para" : {
-                接口对应参数
-                    }
-}
+	"version": 1,
+	"componentName": "MC",
+	"eventId": 123456,
+	"interface": {
+		"interfaceName": "接口名"
+		"para": {
+			接口对应参数
+		}
+	}
 }
 ```
 返回结果：各返回结果如果出错则 returnCode 不为0，returnMessage 内容为出错信息。
 
 ```
 {
-"version" : 1,
-"eventId" :   123456,
-"componentName" :  "CONSOLE_LOGICAL_SERVER",
-"returnValue" :   0,
-"returnCode" :   0,
-"returnMessage" :  "OK",
-"data" : {
-"ownerUin":123,
-"uin":124,
-"ownerAppid":323
-}
+	"version": 1,
+	"eventId": 123456,
+	"componentName": "CONSOLE_LOGICAL_SERVER",
+	"returnValue": 0,
+	"returnCode": 0,
+	"returnMessage": "OK",
+	"data": {
+		"ownerUin": 123,
+		"uin": 124,
+		"ownerAppid": 323
+	}
 }
 ```
 
->注：后续对输入参数中的 interfaceName 、para 和输出参数中的 data 进行说明。
+>!后续对输入参数中的 interfaceName 、para 和输出参数中的 data 进行说明。
 
 ### 2. 接口说明
 
-有关用户与权限 CAM 的详细 API 接口介绍，可 [点击此处查阅 >>](https://mc.qcloudimg.com/static/pdf/0d1b37b99bb74fd6a796d6ca7fd0353c/docfile.pdf) 
+有关用户与权限 CAM 的详细 API 接口介绍，可查看 [API 文档](https://mc.qcloudimg.com/static/pdf/0d1b37b99bb74fd6a796d6ca7fd0353c/docfile.pdf)。
 
 ### 3. 调用示例
 
@@ -77,7 +77,7 @@
 ```
 {
 "strategyName":"strategy1",
-"strategyInfo":'{"version":"2.0","principal":{"qcs":["qcs::cam::uin/1238423:uin/3232","qcs::cam::uin/1238423:groupid/13"]},"statement":[{"effect":"allow","action":"name/cmqqueue:ListQueue","resource":"*"},{"effect":"allow","action":["name/cmqqueue:ReceiveMessage","name/cmqqueue:BatchDeleteMessage"],"resource":["qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1","qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1"]}]}',
+"strategyInfo":{"version":"2.0","principal":{"qcs":["qcs::cam::uin/1238423:uin/3232","qcs::cam::uin/1238423:groupid/13"]},"statement":[{"effect":"allow","action":"name/cmqqueue:ListQueue","resource":"*"},{"effect":"allow","action":["name/cmqqueue:ReceiveMessage","name/cmqqueue:BatchDeleteMessage"],"resource":["qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1","qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1"]}]},
 "remark":"horace test"
 }
 ```
@@ -111,7 +111,7 @@
 
 
 ## 调用说明
-> 注：该小节内容适用于各种业务的用户与权限管理，在设置 CMQ 业务时，请根据以下说明判断 CMQ 的相关取值。
+>!该小节内容适用于各种业务的用户与权限管理，在设置 CMQ 业务时，请根据以下说明判断 CMQ 的相关取值。
 
 1. principal 可以不填，后续通过关联策略接口去关联用户；
 2. principal、action、resource，当只有一个元素时，可以不加[]。

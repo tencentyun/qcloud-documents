@@ -1,22 +1,22 @@
 ### v1.1.24
-[Unity](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D.zip)
-[Unity(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Unity3D_bitcode.zip)
-[Cocos](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos.zip)
-[Cocos(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Cocos_bitcode.zip)
-[Win64](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_winx64_1_1_24_187446_20181225.zip)
-[Win32](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_win_1_1_24_187446_20181225.zip)
-[iOS](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_iOS.zip)
-[iOS(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_iOS_bitcode.zip)
-[iOS(XCode10)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_cpp_bitcode_1_1_24_187446_20181225_iOS.zip)
-[iOS(XCode10-bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187795_20190103_iOS_cpplib.zip)
-[Android](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_Android.zip)
-[UE4](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24/gcloud_voice_1_1_24_187446_20181225_UE4.zip)
+[Unity](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Unity3D.zip)
+[Unity(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Unity3D_bitcode.zip)
+[Cocos](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Cocos.zip)
+[Cocos(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Cocos_bitcode.zip)
+[Win64](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_winx64_1_1_24_189174_20190220.zip)
+[Win32](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_win_1_1_24_189174_20190220.zip)
+[iOS](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_iOS.zip)
+[iOS(bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_iOS_bitcode.zip)
+[iOS(XCode10)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_cpp_bitcode_1_1_24_189174_20190219_iOS_cpplib.zip)
+[Unity3D(XCode10-bitcode)](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_cpp_bitcode_1_1_24_189174_20190219_Unity3D_cpplib.zip )
+[Android](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_Android.zip)
+[UE4](https://gvoice-1258556906.cos.ap-shanghai.myqcloud.com/V1.1.24%EF%BC%882%EF%BC%89/gcloud_voice_1_1_24_189174_20190219_UE4.zip)
 
 ### 更新说明
 - DNS 解析优化，提升进房成功率；
 - iOS 支持蓝牙采集切换，默认使用手机采集；
 
->!iOS 离线语音点击录制按钮开始录音，会少录几个字。（iOS 开麦初始化有500ms延时，建议业务方延迟 UI 显示，优化体验）
+>!iOS 离线语音单击录制按钮开始录音，会少录几个字。（iOS 开麦初始化有500ms延时，建议业务方延迟 UI 显示，优化体验）
 
 
 
@@ -104,7 +104,7 @@
 #### 1、新增功能
 - 音质优化，流畅性优化;
 - 蓝牙耳机兼容性优化；
-- 第三方 app 中断响应（QQ，微信，系统闹钟，电话等）优化;
+- 第三方 App 中断响应（QQ，微信，系统闹钟，电话等）优化;
 - 服务器动态调整算法参数支持。
 
 #### 2、新增接口

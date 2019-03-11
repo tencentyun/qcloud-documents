@@ -136,7 +136,7 @@
     "statement": [
         {
             "action": [
-                "name/cvm:ModifyCbsStorageAttributes",
+                "name/cvm:ModifyCbsStorageAttributes"
             ],
             "resource": [
                 "qcs::cvm::uin/1410643447:*"
@@ -262,7 +262,7 @@
 
 方案A：
 
-企业帐号 CompanyExample 直接将预设策略 QcloudCVMFullAccess 授权给子账号 Developer。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。
+企业帐号 CompanyExample 直接将预设策略 QcloudCVMFullAccess 授权给子账号 Developer。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 方案B：
 
@@ -279,7 +279,7 @@
     ]
 }
 ```
-2. 将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。
+2. 将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 
 ### 授予子账号拥有项目管理的操作权限
