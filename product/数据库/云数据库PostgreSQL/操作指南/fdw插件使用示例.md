@@ -25,13 +25,13 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
 ![](https://main.qcloudimg.com/raw/6b6c41e427d19722c64d9adeac6c110e.png)
  - access_type
     非必须项。目标实例所属类型：
-    - 目标实例为 TencentDB 实例，包括云数据库 PostgreSQL、云数据库 MySQL 等，如果不显示指定，则默认该项。
-    2. 目标实例在腾讯云 CVM 机器上。
-    3. 目标实例为腾讯云外网自建。
-    4. 目标实例为云 VPN 接入的实例。
-    5. 目标实例为自建 VPN 接入的实例。
-    6. 目标实例为专线接入的实例。
-    7. 目标实例为腾讯云 COS 数据。
+    1：目标实例为 TencentDB 实例，包括云数据库 PostgreSQL、云数据库 MySQL 等，如果不显示指定，则默认该项。
+    2：目标实例在腾讯云 CVM 机器上。
+    3：目标实例为腾讯云外网自建。
+    4：目标实例为云 VPN 接入的实例。
+    5：目标实例为自建 VPN 接入的实例。
+    6：目标实例为专线接入的实例。
+    7：目标实例为腾讯云 COS 数据。
  - uin
     非必须项。实例所属的账号 ID，通过该信息鉴定用户权限，可参见 [查询 uin](https://console.cloud.tencent.com/developer)。
  - own_uin
