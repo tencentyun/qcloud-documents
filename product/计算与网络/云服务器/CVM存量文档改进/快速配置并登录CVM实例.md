@@ -40,7 +40,7 @@
 
 若推荐的配置不能满足您的需求，您可以在[更多机型](https://buy.cloud.tencent.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-%E9%85%8D%E7%BD%AE%E5%8D%87%E7%BA%A7) 或  [配置降级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-%E9%85%8D%E7%BD%AE%E9%99%8D%E7%BA%A7) 。
 
-### 确定付费方式（按量付费只支持预付费？）
+### 确定付费方式
 
 腾讯云提供**包年包月**和**按量付费**两种付费模式。具体详情可参见 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180) 。
 若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
@@ -82,11 +82,8 @@
 
 ### Linux系统格式化及数据盘分区
 
-对于Linux实例中创建的大于2TB的硬盘，请 [使用GPT分区表分区并格式化](https://cloud.tencent.com/doc/product/213/2043) 。
-
-1. 输入命令'fdisk -l'查看您的数据盘信息。本示例中，有一个54GB的数据盘(/vdb)需要挂载。
-
 ### Windows系统格式化及数据盘分区
 
+这里沿用愿文档中的分区内容，但是需要测试过程是否正确。
 
 
