@@ -37,7 +37,7 @@ public void getOfflinePushSettings(final TIMValueCallBack<TIMOfflinePushSettings
 ---|---
 settings|离线推送配置
 
-**`TIMOfflinePushSettings` 原型：**
+**`TIMOfflinePushSettings` 说明：**
 
 ```java
 /**
@@ -109,7 +109,7 @@ public void setOfflinePushSettings(TIMMessageOfflinePushSettings settings)
 public TIMMessageOfflinePushSettings getOfflinePushSettings()
 ```
 
-**`TIMMessageOfflinePushSettings`原型：**
+**`TIMMessageOfflinePushSettings`说明：**
 
 ```java
 /**
@@ -199,7 +199,7 @@ public NotifyMode getNotifyMode()
 public void setNotifyMode(NotifyMode mode)
 ```
 
-**`TIMMessageOfflinePushSettings.NotifyMode` 原型：**
+**`TIMMessageOfflinePushSettings.NotifyMode` 说明：**
 
 >注：`NotifyMode` 只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
 
@@ -214,7 +214,7 @@ NotifyMode.Normal
 NotifyMode.Custom
 ```
 
-**`TIMMessageOfflinePushSettings.IOSSettings` 原型：**
+**`TIMMessageOfflinePushSettings.IOSSettings` 说明：**
 
 ```java
 /**
@@ -933,7 +933,7 @@ public void setOfflinePushToken(TIMOfflinePushToken token)
 ---|---
 token|用户标识，包括证书 ID， regId， TMID 等
 
-**`TIMOfflinePushToken` 原型：**
+**`TIMOfflinePushToken` 成员方法详细说明：**
 
 ```java
 /**
