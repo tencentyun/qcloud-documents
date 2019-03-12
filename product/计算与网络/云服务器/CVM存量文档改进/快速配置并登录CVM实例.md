@@ -54,6 +54,7 @@
 ![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
 
 完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
+![](https://main.qcloudimg.com/raw/9143f0b429dbeb6280e0263e099eadc9.png)
 
 
 
@@ -61,12 +62,12 @@
 
 配置及购买CVM实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。
 
-**补实例登录界面的截图**
+![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
 
-- [连接及登录Linux实例]()。
-- [连接及登录Windows实例]()。
+- [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
+- [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
 
 
 
