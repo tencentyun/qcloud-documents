@@ -11,7 +11,7 @@
 查看应用的软件包，获取服务配置信息（spec.yaml），检查服务名是否为期望暴露的服务名、端口号是否为服务真实监听的端口号、健康检查接口是否存在、检查健康接口格式是否正确（不含 ip:port，类似`/health`是符合的）。
 
 - 服务配置文件格式错误
-将 spec.yaml 内容，拷贝到 [yamllink](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如过格式正确，则继续检查字段名称，是否与下面示例的格式一致。
+将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如过格式正确，则继续检查字段名称，是否与下面示例的格式一致。
 ```yaml
 apiVersion: v1
 kind: Application
@@ -29,13 +29,13 @@ spec:
 ```
 
 -  服务配置没有挂载到正确的位置
-  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录，拷贝到挂载路径`/opt/tsf/app_config`下面。
- - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录，如果没有，则需要修改。
+  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录（可选），拷贝到挂载路径`/opt/tsf/app_config`下面。
+ - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录（可选），如果没有，则需要修改。
 
 #### 2. 查看健康检查返回
-登录应用所在的容器或者虚拟机，通过调用本地的健康检查路径，查看返回码是否为200，如果不是200，证明服务存在健康问题。
+登录应用所在的容器或者虚拟机，通过调用本地的健康检查路径，查看返回码是否为200，如果不是200，证明服务存在健康问题。详情参考 [TSF Mesh 开发指引](https://cloud.tencent.com/document/product/649/19049)。
 ```shell
-curl -i http://127.0.0.1:<服务端口>/<healthCheck_path>
+curl -i -H 'Host: local-service' {ip}:{Port}/<healthCheck_path>
 ```
 
 #### 3. 调用 clusters 接口

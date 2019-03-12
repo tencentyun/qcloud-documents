@@ -40,7 +40,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
         "eipIds": [
             "eip-qcloudv5"
         ],
-        "requestId": <异步任务ID>
+        "requestId": "<异步任务ID>"
     }
 }
 ```

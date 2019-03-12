@@ -22,7 +22,7 @@
 <table class="t">
 <tr>
 <th width="80"> <b>参数名称</b>
-</th><th width="80"> <b>必选</b>
+</th><th width="80"> <b>类型</b>
 </th><th width="100"> <b>描述</b>
 </th></tr>
 <tr>
@@ -32,10 +32,10 @@
 <td> message </td><td> String </td><td> 错误信息
 </td></tr>
 <tr>
-<td> title </td><td> String </td><td> 返回输入 uri 对应网页的标题
+<td> title </td><td> String </td><td> 返回输入 URI 对应网页的标题
 </td></tr>
 <tr>
-<td> content </td><td> String </td><td> 返回输入 uri 对应网页的正文
+<td> content </td><td> String </td><td> 返回输入 URI 对应网页的正文
 </td></tr></table>
 
   下载抽取 API 错误码详细信息如下：

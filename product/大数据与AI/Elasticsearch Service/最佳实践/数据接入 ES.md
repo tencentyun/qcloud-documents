@@ -1,21 +1,20 @@
 
-腾讯云 Elasticsearch 服务提供在用户 VPC 内通过私有网 VIP 访问集群的方式，用户可以通过 Elasticsearch REST client 编写代码访问集群并将自己的数据导入到集群中，当然也可以通过官方提供的组件如 logstash 和 beat 接入自己的数据。下面以官方的 logstash 和 beats 为例，介绍不同类型的数据源接入 ES 的方式。
+腾讯云 Elasticsearch 服务提供在用户 VPC 内通过私有网络 VIP 访问集群的方式，用户可以通过 Elasticsearch REST client 编写代码访问集群并将自己的数据导入到集群中，当然也可以通过官方提供的组件（如 logstash 和 beat）接入自己的数据。
+本文以官方的 logstash 和 beats 为例，介绍不同类型的数据源接入 ES 的方式。
 
 ## 准备工作
-
-因为访问 ES 集群需要在用户 VPC 内进行，因此用户需要创建一台和 ES 集群相同 VPC 下的 CVM 实例或者 Docker 集群。
+因访问 ES 集群需要在用户 VPC 内进行，因此用户需要创建一台和 ES 集群相同 VPC 下的 CVM 实例或者 Docker 集群。
 
 ## 使用 logstash 接入 ES 集群
-
 ### CVM 中访问 ES 集群
-
 1. 安装部署 logstash 与 java8。
 ```
 wget https://artifacts.elastic.co/downloads/logstash/logstash-5.6.4.tar.gz
 tar xvf logstash-5.6.4.tar.gz
 yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel -y
 ```
-2. 根据数据源类型自定义配置文件\*.conf，配置文件内容可参考后面介绍的数据源配置文件说明。
+>?请注意 logstash 版本，建议与 Elasticsearch 版本保持一致。
+2. 根据数据源类型自定义配置文件 \*.conf，配置文件内容可参考 [数据源配置文件说明](https://cloud.tencent.com/document/product/845/17343#.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6.E8.AF.B4.E6.98.8E)。
 3. 执行 logstash。
 ```
 	nohup ./bin/logstash -f ~/*.conf 2>&1 >/dev/null &
@@ -23,44 +22,35 @@ yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel -y
 
 ### Docker 中访问 ES 集群
 #### 自建 Docker 集群
-
 1. 拉取 logstash 官方镜像。
 ```
 	docker pull docker.elastic.co/logstash/logstash:5.6.9
 ```
 2. 根据数据源类型自定义配置文件 \*.conf，放置在 `/usr/share/logstash/pipeline/`目录下，目录可自定义。
-
 3. 运行 logstash。
 ```
 docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.co/logstash/logstash:5.6.9
 ```
 
 #### 使用腾讯云容器服务
-
-腾讯云的 Docker 集群运行于 CVM 实例上，所以需要先在容器服务的控制台上创建 CVM 集群。
-
-1. 创建集群
+腾讯云 Docker 集群运行于 CVM 实例上，所以需要先在容器服务控制台上创建 CVM 集群。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)，在【集群】页，单击【新建】创建集群。
 ![](https://main.qcloudimg.com/raw/94ddeea6ba96ecedbecafde039dfa194.png)
-
-2. 创建服务
+2. 在【服务】页，单击【新建】创建服务。
 ![](https://main.qcloudimg.com/raw/d2b5b6d76e362394c4b3c7cd2b4a44e8.png)
-
-3. 选取 logstash 镜像
+3. 选取 logstash 镜像。
 本例中使用 TencentHub 镜像仓库提供的 logstash 镜像，用户也可以自行创建 logstash 镜像。
 ![](https://main.qcloudimg.com/raw/fe5d516ee0727c1319509f09d097e48a.png)
-
-4. 创建数据卷
+4. 创建数据卷。
 创建存放 logstash 配置文件的数据卷，本例中在 CVM 的`/data/config`目录下添加了名为 logstash.conf 的配置文件，并将其挂在到 Docker 的`/data`目录下，从而使得容器启动时可以读取到 logstash.conf 文件。
 ![](https://main.qcloudimg.com/raw/ca620ea07e70c2739b6c1cabd942756a.png)
-
-5. 配置运行参数
-![](https://main.qcloudimg.com/raw/e4e401ff8b1fccdf795aa1271f106b06.png)
-
-6. 根据需要配置服务参数并创建服务
+5. 配置运行参数。
+![](https://main.qcloudimg.com/raw/e42a892ade6499b6e734d76de2b564bd.png)
+6. 根据需要配置服务参数并创建服务。
 ![](https://main.qcloudimg.com/raw/eb55d7e14f020775db4e756d440fab74.png)
 
-## 配置文件说明
-### File 数据源
+### 配置文件说明
+#### File 数据源
 
 ```
 input {
@@ -77,10 +67,10 @@ output {
  }
 }
 ```
-更多有关 File 数据源的接入，请查阅官方文档 [file input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-file.html) 。
+更多有关 File 数据源的接入，请参见官方文档 [file input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-file.html)。
 
 
-### Kafka 数据源
+#### Kafka 数据源
 
 ```
 input{
@@ -103,9 +93,9 @@ output {
  }
 }
 ```
-更多有关 kafka 数据源的接入，请查阅官方文档 [kafka input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-kafka.html)。
+更多有关 kafka 数据源的接入，请参见官方文档 [kafka input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-kafka.html)。
 
-### JDBC 连接的数据库数据源
+#### JDBC 连接的数据库数据源
 
 ```
 input {
@@ -139,17 +129,14 @@ output {
     }
 }
 ```
-更多有关 JDBC 数据源的接入，请查阅官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
+更多有关 JDBC 数据源的接入，请参见官方文档 [jdbc input plugin](https://www.elastic.co/guide/en/logstash/5.6/plugins-inputs-jdbc.html)。
 
 
 ## 使用 Beats 接入 ES 集群
-
 Beats 包含多种单一用途的的采集器，这些采集器比较轻量，可以部署并运行在服务器中收集日志、监控等数据，相对 logstashBeats 占用系统资源较少。
-
-Beats 包含用于收集文件类型数据的 FileBeat, 收集监控指标数据的 MetricBeat, 收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beat 组件。
+Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数据的 MetricBeat、 收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beat 组件。
 
 ### CVM 中访问 ES 集群
-
 1. 安装部署 filebeat。
 ```
 	wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.4-linux-x86_64.tar.gz
@@ -163,19 +150,17 @@ Beats 包含用于收集文件类型数据的 FileBeat, 收集监控指标数据
 
 ###  Docker 中访问 ES 集群
 #### 自建 Docker 集群
-
 1. 拉取 filebeat 官方镜像。
 ```
 	docker pull docker.elastic.co/beats/filebeat:5.6.9
 ```
-2. 根据数据源类型自定义配置文件\*.conf, 放置在`/usr/share/logstash/pipeline/` 目录下，目录可自定义。
+2. 根据数据源类型自定义配置文件 \*.conf, 放置在`/usr/share/logstash/pipeline/` 目录下，目录可自定义。
 3. 运行 filebeat。
 ```
 	docker run docker.elastic.co/beats/filebeat:5.6.9
 ```
 
 #### 使用腾讯云容器服务
-
 使用腾讯云容器服务部署 filebeat 的方式和部署 logstash 类似，镜像可以使用腾讯云官方提供的 filebeat 镜像。
 ![](https://main.qcloudimg.com/raw/bfdea2c720d4a91304125dd608104157.png)
 
