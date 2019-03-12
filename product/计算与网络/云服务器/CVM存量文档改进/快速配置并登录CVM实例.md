@@ -53,7 +53,7 @@
 ![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
 
 完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
-![](https://main.qcloudimg.com/raw/9143f0b429dbeb6280e0263e099eadc9.png)
+![](https://main.qcloudimg.com/raw/3e9630ea483d4154d58187091d51cecf.png)
 
 
 
