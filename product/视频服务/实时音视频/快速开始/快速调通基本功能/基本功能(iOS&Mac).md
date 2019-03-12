@@ -197,7 +197,7 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 - 在您调用`exitRoom`之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
 ```Objective-C
-- (void)exitRoom: {
+- (void)exitRoom {
 {
 	[trtcCloud exitRoom];
 }
