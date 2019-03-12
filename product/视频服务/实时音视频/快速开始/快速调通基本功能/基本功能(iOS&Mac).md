@@ -5,7 +5,7 @@
 
 使用 TRTC SDK 的第一步，是先获取 `TRTCCloud` 的单例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudDelegate`虚接口类并重写您需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 先继承`TRTCCloudDelegate`虚接口类并重写您需要监听的事件（例如：用户加入房间、用户退出房间、警告信息、错误信息等）。
 - 获取`TRTCCloud`单例对象，调用setDelegate方法设置`TRTCCloudDelegate`回调。
 
 ```Objective-C
@@ -28,7 +28,7 @@
 }
 
 
-// 销毁 trtcCloud 实例，在不再使用SDK能力时，销毁单例，节省开销
+// 销毁 trtcCloud 实例，在不再使用 SDK 能力时，销毁单例，节省开销
 - (void)dealloc {
     if (trtcCloud != nil) {
         [trtcCloud exitRoom];
@@ -86,7 +86,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 	params.userId      = userid;
 	params.userSig     = usersig;
 	params.roomId      = 908; //输入您想进入的房间
-	[trtcCloud enterRoom:param, TRTCAppSceneVideoCall];
+	[trtcCloud enterRoom:params appScene:TRTCAppSceneVideoCall];
 }
 
 - (void)onError:(int)errCode errMsg:(NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo {
@@ -102,7 +102,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 }
 ```
 
-><font color='red'>注意：</font>
+>!
 >请根据应用场景选择合适的 scene 参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
 
 
@@ -122,7 +122,7 @@ TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRe
 
 ```Objective-C
 - (void)onUserEnter:(NSString *)userId {
-	// 设置playerview
+	// 设置 playerview
 	UIView *remoteView = [[UIView alloc] init];
 	/* 注：Mac平台下为NSView */
 	//NSView *remoteView = [[NSView alloc] init];
@@ -150,10 +150,10 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 
 启动本地预览前，可调用`setLocalViewFillMode`指定视频显示模式为`Fill`或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
-- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+- `Fit` 模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 另外，iOS 和 Mac 两个平台的 startLocalPreivew 函数会有一些差异：
--  (`iOS`) 调用`startLocalPreview`：参数：`frontCamera`（YES：前置摄像头  NO：后置摄像头）、`view`（UIView 控件）。
+-  (`iOS`) 调用`startLocalPreview`：参数：`frontCamera`（YES：前置摄像头，NO：后置摄像头）、`view`（UIView 控件）。
 -  (`Mac`) 调用`startLocalPreview`，参数：`view` : NSView 控件。
 
 >? Mac 版的 SDK 默认会使用当前系统默认设备。如有多个摄像头可以通过调用 `setCurrentCameraDevice`接口设置所要使用的摄像头，参数 `deviceId` 为摄像头设备 ID， 您可以通过 `getCameraDevicesList`接口返回的摄像头设备列表中获得期望的 `deviceId` 。
