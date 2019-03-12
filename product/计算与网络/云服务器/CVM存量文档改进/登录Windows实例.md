@@ -57,13 +57,13 @@ Linux
 
    并在相应目录下运行以下命令解压和安装：
 
-```
-tar xvzf rdesktop-<x.y.z>.tar.gz ##替换x.y.z为下载的版本号 
-cd rdesktop-x.y.z
-./configure 
-make 
-make install
-```
+   ```
+   tar xvzf rdesktop-<x.y.z>.tar.gz ##替换x.y.z为下载的版本号 
+   cd rdesktop-x.y.z
+     ./configure 
+   make 
+   make install
+   ```
 
 2. 远程连接Windows实例。
 
