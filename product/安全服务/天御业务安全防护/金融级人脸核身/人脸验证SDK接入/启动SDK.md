@@ -1,5 +1,5 @@
 ### 生成签名
-1.**前置条件**：必须按照[获取NONCE ticket](https://cloud.tencent.com/document/product/295/10136?!preview&lang=cn).
+1.**前置条件**：必须按照[获取NONCE ticket](https://cloud.tencent.com/document/product/295/10136).
 2.合作方根据本次人脸验证的如下参数生成签名,需要签名的参数信息如下：
 
 | 参数 | 说明 | 
@@ -7,7 +7,7 @@
 | appId | 腾讯服务分配的app_id |
 | userId | 用户唯一标识 |
 | version | 1.0.0|
-| ticket | 合作伙伴服务端缓存的tikcet,注意是NONCE 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?!preview&lang=cn)|
+| ticket | 合作伙伴服务端缓存的tikcet,注意是NONCE 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118)|
 | nonceStr | 必须是32位随机数 |
 生成一个 32 位的随机字符串(字母和数字) nonceStr(登录时也要用到)，将appId、userId、version 连同ticket、nonceStr 共五个参数的值进行字典序排序。
 1.将排序后的所有参数字符串拼接成一个字符串进行SHA1编码

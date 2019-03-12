@@ -1,6 +1,6 @@
 You can create a cloud disk and connect it to any CVM instance in the same availability zone. Through block storage device mapping, the cloud disk is recognized and used by CVM instances. You can also launch a new cloud disk based on the snapshots you just created. For more information, please see [Create Cloud Disk from Snapshot](/doc/product/362/5757). The created cloud disk can reach its optimal performance without warm-up.
 
-The method to create cloud disk varies with types of cloud disks. For more information about cloud disk types, please see [Categories of Cloud Disks](/doc/product/362/2353).
+The method to create cloud disk varies with types of cloud disks. For more information about cloud disk types, please see [Categories of Cloud Disks](https://cloud.tencent.com/document/product/362/2353).
 
 ## Creating an Elastic Cloud Disk 
 
@@ -43,4 +43,4 @@ For more information, please see [API CreateCbsStorage](https://cloud.tencent.co
 Non-elastic cloud disks are cloud disks created with instances and have the same lifecycle as instances. For more information about how to create an instance with non-elastic cloud disk selected, please see [Purchase and Launch Instances](/doc/product/213/4855).
 
 ### Creating a non-elastic cloud disk using API
-Non-elastic cloud disks are cloud disks created with instances and have the same lifecycle as instances. For more information about how to create an instance with non-elastic cloud disk selected, please see [API RunInstances](https://cloud.tencent.com/doc/api/229/1248) and [API RunInstancesHour](https://cloud.tencent.com/doc/api/229/1350)
+Non-elastic cloud disks are cloud disks created with instances and have the same lifecycle as instances. For more information about how to create an instance with non-elastic cloud disk selected, please see [API RunInstances](https://intl.cloud.tencent.com/doc/api/229/1248) and [API RunInstancesHour](https://intl.cloud.tencent.com/doc/api/229/1350)

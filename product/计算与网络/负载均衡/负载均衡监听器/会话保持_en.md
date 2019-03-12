@@ -23,15 +23,15 @@ TCP connection timeout is not adjustable for now and the default is `900` second
 
 **Assuming that Client access protocol is HTTP/1.1, and Connection: keep-alive is set in header information, if the backend CVM is accessed through the CLB with session persistence disabled, is it possible to access the same CVM next time?**
 
-**A:**No.
+**A:**No. 
 
-First of all, HTTP keep-alive means that the TCP connection will remain connected after requests are sent. Therefore, the browser can continue to send requests over the same connection. Keeping connected saves the time taken to set up a new connection for each request and also bandwidth. The default timeout for a CLB cluster is `75` seconds (if there is no new request within `75` seconds, the TCP connection is disconnected by default).
+First of all, HTTP keep-alive means that the TCP connection will remain connected after requests are sent. Therefore, the browser can continue to send requests over the same connection. Keeping connected saves the time taken to set up a new connection for each request and also bandwidth. The default timeout for a CLB cluster is 75s (if there is no new request within 75s, the TCP connection is disconnected by default).
 
 HTTP keep-alive is established by the Client with the CLB. If the cookie session persistence is disabled, the CLB will randomly select a backend CVM according to the polling policy. The previous persistent connection is in vain.
 
 Therefore, it is recommended to enable session persistence.
 
-If the cookie session persistence is set to `1,000` seconds and the Client initiates another request, TCP connection needs to be re-established, because it has been more than 75s since the last request. The application layer finds the same CVM by cookie and the CVM accessed by the Client is still the one for the last access.
+If the cookie session persistence is set to 1000s and the Client initiates another request, TCP connection needs to be re-established, because it has been more than 75s since the last request. The application layer finds the same CVM by cookie and the CVM accessed by the Client is still the one for the last access.
 
 ### Scenario 2: TCP Layer-4 Business
 
@@ -39,4 +39,5 @@ If the cookie session persistence is set to `1,000` seconds and the Client initi
 
 **A:**Uncertain.
 
-First of all, according to the Layer-4 implementation mechanism, if the persistent connection is enabled for TCP and keeps connected, the same machine can be accessed, because the two accesses use the same connection. But if the first connection is released due to some reason (network restart or connection timeout) during the second access, the second access may be dispatched to other backend CVMs. And the global timeout for persistent connection is `900` seconds by default, which means that the persistent connection will be released if there is no new request.
+First of all, according to the Layer-4 implementation mechanism, if the persistent connection is enabled for TCP and keeps connected, the same machine can be accessed, because the two accesses use the same connection. But if the first connection is released due to some reason (network restart or connection timeout) during the second access, the second access may be dispatched to other backend CVMs. And the global timeout for persistent connection is 900s by default, which means that the persistent connection will be released if there is no new request.
+

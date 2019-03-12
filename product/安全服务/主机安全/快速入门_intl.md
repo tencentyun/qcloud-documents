@@ -132,4 +132,3 @@ You can activate Professional Protection by either of the following two ways:
 -  Click **Buy Now** in the [Host Security Introduction page](https://intl.cloud.tencent.com/product/hs) on the Tencent Cloud official website to go to the login page of Tencent Cloud console. After login, you can activate Professional Protection for your CVM as needed.
 
 - Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click **Products** -> **Security** -> **Host Security** to go to the Host Security configuration page, and then click **Activate Professional Protection** in the **Operation** column in the **Security Overview** page to activate Professional Protection for your CVM.
-

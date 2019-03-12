@@ -15,4 +15,3 @@ The vulnerability management module presents the vulnerability risks on the curr
 
 ### Upgrade and Maintenance
 The upgrade and maintenance module is used to remind you to upgrade the client to enjoy the latest security protection services. The client software needs to collect the Host Security version number, operating system configuration information, and security rule version number to the cloud for analysis and reminding users. No data related to user privacy is fetched during the process. 
-

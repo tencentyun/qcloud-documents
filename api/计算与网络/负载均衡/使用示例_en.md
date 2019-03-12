@@ -28,7 +28,7 @@ The returned result of the above request is as follows:
 {
     "code" : 0,
     "message" : "",
-    "unLoadBalanceIds":[
+    "unLoadBalancerIds":[
         "lb-abcdefgh"
     ],
     "dealIds":[
@@ -68,7 +68,7 @@ https://lb.api.qcloud.com/v2/index.php?Action=CreateLoadBalancerListeners
 &listeners.1.protocol=2
 &listeners.1.healthSwitch=1
 &listeners.1.listenerName=listenerTest
-  
+
 ```
 The returned result of the above request is as follows:
 ```
@@ -168,4 +168,3 @@ Output
 ```
 
 Based on the query results, you can use the cloud load balancer instance's VIP (203.195.128.180) or domain (20de02-0.gz.1251000011.clb.myqcloud.com) to forward the request to the backend CVMs bound to the instance according to the rule of cloud load balancer listener to achieve the Cloud Load Balance service.
-

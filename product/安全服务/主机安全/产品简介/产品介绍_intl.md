@@ -38,4 +38,3 @@ It issues real-time alerts and provides repair solution for high-risk vulnerabil
 ### Asset Management
 
 It manages servers by grouping and labeling them, giving you a quick picture of distribution of software, processes and ports in each server based on component identification technology.
-

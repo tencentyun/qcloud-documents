@@ -1,5 +1,5 @@
 An instance can recognize the connected cloud disk and regard it as an HDD cloud disk. You can use any file system to format and partition the cloud block storage device, and create file systems. Any data written to the file systems is then written to the cloud disk and is transparent to the applications that use the device. This document uses an example to demonstrate how to use a block storage device in a CVM and describes some important considerations. For more information about how to use cloud disks on Windows instances,
-please see [Making cloud disk online, partitioning and formating cloud disk, and creating file systems on Windows](https://cloud.tencent.com/document/product/362/6734).
+please see [Making cloud disk online, partitioning and formating cloud disk, and creating file systems on Windows](https://intl.cloud.tencent.com/document/product/362/6734).
 
 In this example, the user purchased a 20-GB system disk and a 30-GB data disk (non-elastic cloud disk) when the CVM is launched, and then purchased a 10-GB elastic cloud disk in the CBS Console.
 

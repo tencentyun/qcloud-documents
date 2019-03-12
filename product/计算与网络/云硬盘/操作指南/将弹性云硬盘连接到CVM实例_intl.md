@@ -1,4 +1,4 @@
-A non-elastic cloud disk (a cloud disk whose lifecycle follows the CVM instance) is automatically connected to the created CVM instance when it is created, and cannot be changed. Meanwhile, you can manually mount the elastic cloud disk to any instance in the same availability zone. You can determine how many more cloud disks can be mounted on each instance during mounting. For more information on cloud disk quantity limits, please see [Usage Constraints](/doc/product/362/5145). For more information on elastic and non-elastic cloud disks, please see [Classification of Cloud Disks](/doc/product/362/2353).
+A non-elastic cloud disk (a cloud disk whose lifecycle follows the CVM instance) is automatically connected to the created CVM instance when it is created, and cannot be changed. Meanwhile, you can manually mount the elastic cloud disk to any instance in the same availability zone. You can determine how many more cloud disks can be mounted on each instance during mounting. For more information on cloud disk quantity limits, please see [Usage Constraints](/doc/product/362/5145). For more information on elastic and non-elastic cloud disks, please see [Classification of Cloud Disks](https://cloud.tencent.com/document/product/362/2353).
 
 ## Connecting Elastic Cloud Disk to Instance via Console
 The ordinary HDD cloud disk can be mounted as a <font color="red">data disk</font>, but cannot be mounted as a system disk.
@@ -12,7 +12,7 @@ Or on the cloud disk list page, select the cloud disks in the status of <font co
 
 4) In the pop-up box, select the CVM on which to mount the cloud disk, and click **OK**. After the mounting is completed, you can log in to the CVM to view the cloud disk mounting status.
 
-The mounted cloud disk cannot be used immediately. It requires a series of operations such as partitioning and formatting. For more information on how to perform the operations, please see [Partitioning, Formatting, and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
+The mounted cloud disk cannot be used immediately. It requires a series of operations such as partitioning and formatting. For more information on how to perform the operations, please see [Partitioning, Formatting, and File System Creation on Windows System](https://intl.cloud.tencent.com/document/product/362/6734
 ) and [Partitioning, Formatting, Mounting and File System Creation on Linux System](/document/product/362/6735).
 
 ## Connecting Elastic Cloud Disk to Instance via API

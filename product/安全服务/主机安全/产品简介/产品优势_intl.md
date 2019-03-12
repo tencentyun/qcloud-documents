@@ -1,9 +1,5 @@
 The advantages of Host Security in comparison with other host security products are listed as follows:
-<style>
-table th:first-of-type {
-    width: 150px;
-}
-</style>
+
 
 
 | Feature | Host Security | Other host security products |
@@ -13,4 +9,3 @@ table th:first-of-type {
 | Free of installation and maintenance |**Associated with cloud platform server OPS information automatically and is ready for use upon the purchase of CVM; the security policy is updated automatically on the cloud, without the need to maintain various security detection scripts manually.** | Login to server and manual installation are needed; security policies need to be configured by the personnel who has adequate security expertise. |
 | Centralized OPS | **Security incidents are managed centrally in the console, eliminating the need to log in to multiple servers; centralized management of server assets and rapid building of a security visualization OPS platform.** | User needs to log in to the server to handle a single security incident. |
 | Low resource utilization | **With self-developed lightweight agent, most of the computing and protection activities are performed on the cloud with a low consumption of server resources.** | Client has a high memory consumption, which is more than 100 MB generally; the server performance is affected during peak hours of business. |
-

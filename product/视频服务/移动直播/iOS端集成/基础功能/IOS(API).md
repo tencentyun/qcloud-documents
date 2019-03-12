@@ -1,3 +1,5 @@
+下面是腾讯视频云iOS SDK的主要接口列表，分为TXLivePush和TXLivePlayer两个类及相应的回调接口，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_ios_doc/index.html)。
+
 ## 接口概览
 
 ### TXLivePush
@@ -138,7 +140,7 @@
 
 ## 接口详情
 
-### TXLivePusher
+### TXLivePush
 
 #### 1.initWithConfig
 
@@ -776,7 +778,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 直播时移准备，拉取该直播流的起始播放时间。
 
-使用时移功能需在播放开始后调用此方法，否者时移失败。时移的使用请参考文档 https://cloud.tencent.com/document/product/266/9237
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参考文档 https://cloud.tencent.com/document/product/266/9237
 
 非腾讯云直播地址不能时移。
 

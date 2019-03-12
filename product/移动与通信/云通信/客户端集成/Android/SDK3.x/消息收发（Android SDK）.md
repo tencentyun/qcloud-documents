@@ -888,6 +888,9 @@ TIMMessageStatus.SendFail
 
 //删除
 TIMMessageStatus.HasDeleted
+
+//消息被撤回
+TIMMessageStatus.HasRevoked
 ```
 
 ### 是否自己发出的消息
@@ -1012,7 +1015,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 已读回执
 
-ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候会给聊天对方发送已读回执。
+ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1020,7 +1023,7 @@ ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfi
 
 ```
 /**
- * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊会话有效
+ * 启用已读回执，启用后在已读上报时会发送回执给对方，只对单聊会话有效
  */
 public void enableReadReceipt()
 

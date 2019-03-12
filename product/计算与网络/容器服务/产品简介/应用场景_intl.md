@@ -5,7 +5,7 @@ The micro-service architecture is suitable for creating complex applications. It
 2. It seamlessly connects to Tencent Cloud's computing, network, storage, monitoring, security capabilities, and directly uses Tencent Cloud's IAAS capability.
 3. It is easy to use, and supports service choreography and application management at service granularity. Resources are highly isolated while services are highly available.
 
-![](https://mc.qcloudimg.com/static/img/0581dbeb97c869bbe6e62025dbc592d7/image.png)
+![](https://main.qcloudimg.com/raw/a72d88c7decea42ae1bd4d5e851d34a9.png)
 
 ## Continuous Integration and Continuous Delivery
 Excellent DevOps environment is provided through Continuous Integration and Continuous Delivery to greatly increase the efficiency of software publishing.
@@ -15,13 +15,13 @@ Excellent DevOps environment is provided through Continuous Integration and Cont
 **Advantages**: 
 By deploying services on Tencent Cloud TKE, developers can perform such operations as creation, testing, package and integration immediately after they submit new code. Then, they deploy the integrated code into the pre-release environment and existing network environment based on Continuous Integration.
 
-![](https://mc.qcloudimg.com/static/img/1c6637249c43409e014d14558969ec78/image+%281%29.png)
+![](https://main.qcloudimg.com/raw/e73913097243ee022ceda66c5985b375.png)
 
-## Migrating Business on Cloud Quickly
-To migrate individual or enterprise services to Tencent Cloud, you can use Tencent Cloud TKE to simplify cloud configuration and cluster management, so as to improve the efficiency of business delivery.
-Tencent Cloud TKE allows you to quickly create services with one-click, to realize containerization deployment of applications, and also achieve auto-scaling, on-demand deployment, high availability, easy capacity expansion, friendly development and labor cost reduction.
+## Elastic Scaling
 
-![](https://mc.qcloudimg.com/static/img/ba241e06581e58a7a342a4cf76fd3140/image+%282%29.png)
+TKE features elastic scalability at both the cluster and service levels. It can automatically scale up or down by monitoring container indicators such as CPU, memory and bandwidth based on the operation status of the business. Meanwhile, it can automatically scale the cluster according to the deployment conditions of the container when resources are insufficient or excessive.
+
+![](https://main.qcloudimg.com/raw/f603d876ba25baa9abce71a227c4a6f2.png)
 
 
 

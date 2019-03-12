@@ -33,4 +33,3 @@ If any undetected Trojan file is found, please submit a ticket to Tencent Cloud 
 
 ### How do I uninstall the Tencent Cloud CVM security component?
 Log in to the Tencent Cloud CVM security product console, click **Uninstall** on the server list page, or open the installation directory to uninstall it through the uninstall.exe in the directory.
-

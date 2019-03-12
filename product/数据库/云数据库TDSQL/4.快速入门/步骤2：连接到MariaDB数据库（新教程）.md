@@ -1,5 +1,5 @@
 连接到MariaDB数据库的方式有两种：
-- 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
+- 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/20046" target="_blank">VPC概述</a>。）
 - 外网访问：在外网的Windows或者Linux主机中，安装数据库客户端来访问腾讯云中的MariaDB数据库实例的外网地址。
 
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。
@@ -15,11 +15,11 @@
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 查看帐号权限的配置是否正确，然后单击**关闭**完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-如需了解更多关于帐号创建的信息，请参考https://cloud.tencent.com/document/product/237/7054。
+如需了解更多关于帐号创建的信息，请参考[帐号创建](https://cloud.tencent.com/document/product/237/7054)。
 
 ## 访问数据库
 连接到MariaDB数据库的方式有两种：
- - 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
+ - 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/20046" target="_blank">VPC概述</a>。）
  - 外网访问：在外网的Windows或者Linux主机中，安装数据库客户端来访问腾讯云中的MariaDB数据库实例的外网地址。
 
 ### 内网访问
@@ -89,4 +89,5 @@ mysql -h hostname -P port -u username -p
 <https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
 下图中以 `show databases；`为例。
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+
 

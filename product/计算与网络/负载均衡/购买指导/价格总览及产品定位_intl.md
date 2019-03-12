@@ -9,7 +9,7 @@ When selecting products, you can refer to the following product positioning of a
                 <tr>
             <th style="width: 10%;" rowspan="2">Product Type</th>
             <th style="width: 45%;" colspan="2" >Application Cloud Load Balancer</th>
-            <th style="width: 45%;" colspan="2">Classic Cloud Load Balancer</th>
+            <th style="width: 45%;" colspan="2">Conventional Cloud Load Balancer</th>
         </tr>
         <tr>
             <th>Public Network</th>

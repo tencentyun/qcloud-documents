@@ -2,18 +2,18 @@
 
 `TXBoardSDK.framework`即白板 SDK，提供了包括画笔、橡皮擦、背景图设置、标准图形、框选等基本功能，同时还支持文档展示和多端互动。
 
-> 注意: TICSDK 中已经包含了白板 SDK，开发者无需单独集成，也不需要关心代理设置，协议方法等逻辑，这些功能已经在 TICSDK 内部实现，开发者只需要创建白板对象，并调用白板对象的相应接口来操作白板即可。
+>!TICSDK 中已经包含了白板 SDK，开发者无需单独集成，也不需要关心代理设置，协议方法等逻辑，这些功能已经在 TICSDK 内部实现，开发者只需要创建白板对象，并调用白板对象的相应接口来操作白板即可。
 
 #### 头文件概览
 
-先总体说明下 SDK 中暴露的公开头文件的主要功能：
+SDK 中暴露的公开头文件的主要功能：
 
 类名 | 主要功能
 --------- | ---------
 TXBoardSDK.h | SDK 的全局管理类
 TXBoardView.h | 白板视图类，白板操作类，包含了所有白板相关的操作接口
 TXBoardCommon.h | 白板定义类，定义了一些与白板视图相关的枚举，类和代理方法
-TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、wrod、Excel、pdf、图片等）的上传、下载、在线转码预览等
+TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSSDK，负责文件（PPT、PDF、Word、Excle、图片等）的上传、下载、在线转码预览等
 
 
 ## 2. 接口概述
@@ -23,7 +23,7 @@ TXFileManager.h | 文件管理类，内部封装了腾讯云对象云存储 COSS
 ---|---
 -initSDK:uid:userSig:succ:failed: | 初始化白板 TXBoardSDK
 
-使用`TXBoardSDK`必须先初始化（使用 TICSDK 无需单独调用该接口，TICSDK 内部已将`TXBoardSDK`初始化）
+使用`TXBoardSDK`必须先初始化（使用 TICSDK 无需单独调用该接口，TICSDK 内部已将`TXBoardSDK`初始化）。
 
 
 ### 2.2 创建一块白板
@@ -40,7 +40,7 @@ TXBoardView *boardView = [[TXBoardView alloc] initWithRoomID:_classID];
 boardView.frame = ...;
 ```
 
-> 注意：为了保证数据的准确展示，各端白板视图的长宽比需保持一致，demo 中为 16：9。
+>!为保证数据的准确展示，各端白板视图的长宽比需保持一致，demo 中为16:9。
 
 ### 2.3 选择白板工具
 白板工具定义为一个枚举，开发者可以根据业务场景自行设置：
@@ -63,6 +63,8 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
     TXBoardBrushModelRectangle,     //矩形
     TXBoardBrushModelRectangleFill, //实心矩形
     TXBoardBrushModelTransform,     // 缩放(双指)/移动(单指)
+    TXBoardBrushModelText,          // 文字输入
+    TXBoardBrushModelApplePencil,   // Apple Pencil，iOS 9.1 及以上系统使用
 };
 ```
 
@@ -90,16 +92,24 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 - clearFileDraws: | 清空指定文件的涂鸦（不包括背景图片）
 + clearHistoryDataWithRoomID: | 清空指定课堂的历史数据（该方法为类方法，白板对象销毁后也能调用）
 
-### 2.5 图片操作接口
+### 2.5 文字输入相关接口
+接口 | 说明
+---|---
+- setTextColor: | 设置文字颜色
+- getTextColor | 获取当前文字颜色
+- setTextSize: | 设置文字大小
+
+### 2.6 图片操作接口
 
 接口 | 说明
 ---|---
 - updateBgImageWithPath:mode:succ:failed: | 设置背景图片（本地图片路径）
 - updateBgImageWithURL:mode:succ:failed: | 设置背景图片（网络图片 URL）
-- getBGImageURL: | 获取BoardId对应白板当前显示的背景图片
+- updateCurrentImageMode | 设置当前背景图片显示模式
+- getBGImageURL: | 获取 BoardId 对应白板当前显示的背景图片
 - saveToAlbumWithFinish: | 将白板当前内容截图，保存到本地相册
 
-### 2.6 多白板接口
+### 2.7 多白板接口
 
 接口 | 说明
 ---|---
@@ -111,17 +121,13 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 
 ## 3. 文档展示功能介绍
 
-### 必备知识点：
+### 必备知识点
 
-1. 白板SDK实现文档的原理为多白板（白板组）
-
-2. 每个白板展示一页文档，即每个文档会对应一组白板
-
-3. 每个文档有一个 fid (文件唯一标识)
-
-4. 每个白板有一个 boardID
-
-5. 非文档白板的白板全部合成一个白板组，叫做普通白板，该白板组的 fid 为 #DEFAULT
+* 白板 SDK 实现文档的原理为多白板（白板组）。
+* 每个白板展示一页文档，即每个文档会对应一组白板。
+* 每个文档有一个 fid（文件唯一标识）。
+* 每个白板有一个 boardID。
+* 非文档白板的白板全部合成一个白板组，叫做普通白板，该白板组的 fid 为 #DEFAULT。
 
 ### 添加文档（以 PPT 为例）
 
@@ -129,9 +135,9 @@ typedef NS_ENUM(NSInteger, TXBoardBrushModel)
 ---|---
 addFile:onProgress:onFinish: |  添加本地文档
 
-调用`addFile`接口，传入本地文件路径即可，添加文档完成会在回调中通知，如果完成回调中的errror参数为空，则代表添加成功，添加成功后会自动跳转到文档的第一页。
+调用`addFile`接口，传入本地文件路径即可，添加文档完成会在回调中通知，如果完成回调中的 error 参数为空，则代表添加成功，添加成功后会自动跳转到文档的第一页。
 
-* 代码实例：
+代码示例：
 
 ```objc
 [self.boardView addFile:filePath onProgress:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
@@ -154,9 +160,9 @@ addFile:onProgress:onFinish: |  添加本地文档
 
 接口 | 说明
 ---|---
-getAllFileInfo | 获取所有文档信息(包括普通白板组，fid 为 #DEFAULT)
+getAllFileInfo | 获取所有文档信息（包括普通白板组，fid 为 #DEFAULT）
 
-调用`getAllFileInfo`方法即可获得当前课堂内所有的文件信息，返回的数据是一个 `TXBoardFileInfo` 数组：
+调用`getAllFileInfo`方法即可获得当前课堂内所有的文件信息，返回的数据是一个`TXBoardFileInfo`数组：
 
 ```objc
 /** 文件信息模型 */
@@ -175,32 +181,33 @@ getAllFileInfo | 获取所有文档信息(包括普通白板组，fid 为 #DEFAU
 ---|---
 getCurrentFid |  获取当前展示的文件 fid
 
-`getCurrentFid` 可以获取当前正在展示文件的 fid
+`getCurrentFid`可以获取当前正在展示文件的 fid。
 
 ### 翻页/切换
 接口 | 说明
 ---|---
 prePage |  切换到当前文件的前一页
 nextPage |  切换到当前文件的后一页
-SDK 提供了便捷的翻页接口，调用以上两个方法即可轻松实现向前翻页，向后翻页
+
+SDK 提供了便捷的翻页接口，调用以上两个方法即可轻松实现向前翻页，向后翻页。
 
 
 接口 | 说明
 ---|---
 switchPage: |  切换到当前文件的指定页（页码从0开始）
-如果想跳页翻页，可以调用`switchPage:`该方法接收一个页码参数，可以跳转到当前文件的对应页面
+
+如果想跳页翻页，可以调用`switchPage:`方法接收一个页码参数，可以跳转到当前文件的对应页面。
 
 接口 | 说明
 ---|---
-switchFile: |  切换到fid对应文件
+switchFile: |  切换到 fid 对应文件
 
-调用`switchFile:`可实现切换文件，该方法接收文件的fid作为参数。切换文件会跳转到对应文件最近展示的页面。
+调用`switchFile:`可实现切换文件，该方法接收文件的 fid 作为参数。切换文件会跳转到对应文件最近展示的页面。
 
 ### 删除文档
 接口 | 说明
 ---|---
 deleteFiles:stay: |  删除文档，支持一次删除多个
 
-最后，如果要删除某个文档，只需调用 `deleteFiles`方法，传入要删除文件的 fid 即可
-
+如果要删除某个文档，只需调用`deleteFiles`方法，传入要删除文件的 fid 即可。
 

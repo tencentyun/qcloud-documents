@@ -43,7 +43,7 @@ The following list only provides API request parameters. For common parameters, 
 | searchWord | No | String | (Filter condition) Filter by instance name, support fuzzy query. |
 | status | No | Int | (Filter condition) The status of the instances, which are listed above.
 | projectId | No | Int | (Filter condition) [Project ID](/document/api/378/4398). |
-| zoneId | No | Int | (Filter condition) [Availability Zone ID](/document/api/213/806). |
+| zoneId | No | Int | (Filter condition) [Availability Zone ID](/document/api/213/15707). |
 | offset | No | Int | Offset; default value is 0. For more information about `offset`, please see [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
 | limit | No | Int | Number of returned results. The default value is 20, and the maximum is 100. For more information about `limit`, please see [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
 

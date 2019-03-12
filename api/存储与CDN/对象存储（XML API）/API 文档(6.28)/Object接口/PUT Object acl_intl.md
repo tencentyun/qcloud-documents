@@ -5,11 +5,11 @@ The PUT Object acl API is used to configure the ACL table for an Object in a buc
 Request example:
 ```
 PUT /{ObjectName}/?acl HTTP/1.1
-Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Host: .cos..myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
-<AccessControlPolicy>
+
 ```
 > Authorization: Auth String (see [Request Signature](https://cloud.tencent.com/document/product/436/7778) for details)
 
@@ -34,8 +34,8 @@ x-cos-grant-full-control | Give the authorized person read and write permissions
 ### Request Body
 The requested request body is an ACL configuration rule.
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<AccessControlPolicy>
+
+
 ```
 
 
@@ -43,7 +43,7 @@ The specific data is described as follows:
 
 Node Name (Keyword)|Parent Node|Description|Type|Required
 ---|---|---|---|---
-AccessControlPolicy|None|Save GET Bucket acl result container|Container|Yes
+AccessControlPolicy|None|Save GET Bucket acl result container|Container|
 
 
 
@@ -84,25 +84,25 @@ Authorization: q-sign-algorithm = sha1 & q-ak = AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj
 Content-Length: 229
 Content-Type: application/x-www-form-urlencoded
 
-<AccessControlPolicy>
-  <Owner>
-    <ID>qcs::cam::uin/12345:uin/12345</ID>
-  </Owner>
-  <AccessControlList>
-    <Grant>
-      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"CanonicalUser\">
-        <ID>qcs::cam::uin/12345:uin/12345</ID>
-      </Grantee>
-      <Permission>FULL_CONTROL</Permission>
-    </Grant>
-    <Grant>
-      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"Group\">
-        <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-      </Grantee>
-      <Permission>READ</Permission>
-    </Grant>
-  </AccessControlList>
-</AccessControlPolicy>
+
+  
+    qcs::cam::uin/12345:uin/12345
+  
+  
+    
+      
+        qcs::cam::uin/12345:uin/12345
+      
+      FULL_CONTROL
+    
+    
+      
+        http://cam.qcloud.com/groups/global/AllUsers
+      
+      READ
+    
+  
+
 ```
 
 ### Response:

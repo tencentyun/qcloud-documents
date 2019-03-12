@@ -8,13 +8,13 @@
 ## 创建 Nginx 服务
 1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
 2) 单击左侧导航栏中的【服务】，单击服务列表页的【+ 新建】。
-![](https://mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
+![](https://main.qcloudimg.com/raw/c384dfc1a29e48d0e19955aee4ad56b4.png)
 3) 设置服务的基本信息。
  - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。本例中，服务名称为 nginx 。
  - **所在地域**：建议您根据所在地理位置选择靠近的地域。
  - **运行集群**：选择服务所要运行的集群。运行集群需要选择运行中和集群内有可用主机的集群。
  - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
-    ![](https://mc.qcloudimg.com/static/img/abb593719ae3c4b7b3b3f79ce68b75a7/image.png)
+    ![](https://main.qcloudimg.com/raw/0e41d912536e13fbe80ea3e8bd172632.png)
 
 4) 选择镜像。输入运行容器的名称，此处以 nginx 为例。单击【选择镜像】。
 ![](https://mc.qcloudimg.com/static/img/2ecf52cd54db7b3cd44eda24f3b3a452/image.png)
@@ -32,9 +32,10 @@
 ## 访问 Nginx 服务
 1) 提供三种方式访问 nginx 服务。
  - 通过**负载均衡 IP** 来访问 nginx 服务。单击服务页面的【服务信息】查看负载均衡 IP 和负载均衡 ID。 
-  ![](https://mc.qcloudimg.com/static/img/ce1634fd0c84c6aecfec315f3126d9d6/image.png)
+  ![](https://main.qcloudimg.com/raw/8b16f1fac9120334621db2914664969e.png)
+	![](https://main.qcloudimg.com/raw/b15ceac096903b0b4cca525dec03e413.png)
  - 通过 **域名** 来访问 nginx 服务。在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，找到对应的负载均衡 ID，复制域名访问服务。
-    ![](https://mc.qcloudimg.com/static/img/23885bb932bdffb91d0a03b899429225/image.png)
+    ![](https://main.qcloudimg.com/raw/b9ec2f70ba04ff578a980a65bac5acbf.png)
  - 集群内的其他服务或容器可以直接通过服务名称访问。
 
 2) 进入 nginx 服务器的默认欢迎页。

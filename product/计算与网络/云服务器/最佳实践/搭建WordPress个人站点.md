@@ -14,7 +14,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
 
-**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。单击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
+**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。
 
 ## 步骤 一：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。
@@ -38,7 +38,7 @@ PHP：Web 服务器生成网页的程序。
 > 搭建过程中将会用到 Yum 命令、Vim 命令以及相关 PuTTY 命令 。
 
 ### 2.1 运行 PuTTY 连接 Linux 云服务器
-1. 请 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524) 到您的电脑，打开下载所在文件夹，解压文件；双击 “putty.exe”，出现配置界面。
+1. 请下载 PuTTY 到您的电脑，打开下载所在文件夹，解压文件；双击 “putty.exe”，出现配置界面。
 2. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP，如 “server1” 或 “192.168.2.10”。本教程输入的是云服务器实例的公网 IP。其他配置保持默认。
 3. 在 “Saved Sessions” 输入栏中命名会话，单击 “Save” ，即可保存会话配置。
 ![putty1](//mc.qcloudimg.com/static/img/a7f57ac399e06522be67de3cf9d264e0/image.png)
@@ -267,7 +267,7 @@ mv * /usr/share/nginx/html/
 ![配置WP1](//mc.qcloudimg.com/static/img/6012d2bcc2f5a5a78e333e57f08545f6/image.png)
 3. 将其余安装信息输入WordPress 安装向导，单击 “安装 WordPress” 完成安装。
 
-| 所需信息 | 备注 | 
+| 所需信息 | 说明 | 
 |---------|---------|
 | 站点标题 |  WordPress 网站名称。 |
 | 用户名 | WordPress 管理员名称。出于安全考虑，建议设置一个不同于 admin 的名称。因为与默认用户名称 admin 相比，该名称更难破解。 |
@@ -289,8 +289,3 @@ mv * /usr/share/nginx/html/
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
-
-您还可以参考以下视频，完成 WordPress 在 Ubuntu 上的搭建。
-> 注：视频中演示操作界面仅为参考，请以实际操作界面为准。
-
-**查看视频：**

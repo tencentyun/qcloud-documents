@@ -31,8 +31,7 @@
 **问题表现：**在 PC 端无法播放视频，浏览器控制台报跨域相关的错误。
 **问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的 corssdomain.xml 文件。
 >**corssdomain.xml 的作用简介**
-
-> * 位于 `www.a.com` 域中的SWF文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
+> * 位于 `www.a.com` 域中的 SWF 文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
 > * 这里要区分 SWF 文件的域名和嵌入 SWF 文件的页面域名，crossdomain.xml 中配置的是 SWF 文件的域名。
 
 在 PC 端的现代浏览器使用 HTML5 播放 hls、flv 时，视频服务器需要配置跨域资源共享 [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)。
@@ -64,11 +63,11 @@
 **解决方案：**在 PC 软件或 App 中升级浏览器内核，或者集成 Flash 插件，并允许调用 Flash 插件。
 
 ### HLS 加密视频播放失败
-HLS加密视频的播放流程有别于常规视频，通常需要确保获取 KEY 这个步骤是正常的，常见问题如下。
+HLS 加密视频的播放流程有别于常规视频，通常需要确保获取 KEY 这个步骤是正常的，常见问题如下。
 
 #### 获取 key 失败
 **问题表现：**获取密钥接口无返回，或者返回非密钥数据。
-**解决方案：**检查 m3u8 文件格式是否符合规范，获取密钥的地址是否正确，密钥接口是否正常返回。
+**解决方案：**检查 m3u8 文件格式是否符合规范，获取密钥的地址是否正确，密钥接口服务端鉴权是否正常，密钥接口是否正常返回。
 
 #### 解密失败
 **问题表现：**获取密钥接口正常返回，仍无法播放。
@@ -77,12 +76,12 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 ## 浏览器劫持视频播放
  
 ### 什么是浏览器劫持视频播放？
-目前大部分情况下，在网页上播放视频是通过浏览器实现的，浏览器对视频播放拥有最高的处理权限，可以使用浏览器自带的播放器替换原始的 video 控件，并且禁止通过JS、CSS修改。劫持播放通常出现在移动端浏览器中，其表现为，播放器的样式不是期望的样式，视频播放时出现额外的 UI 以及广告等内容，或者强制全屏播放等现象。
+目前大部分情况下，在网页上播放视频是通过浏览器实现的，浏览器对视频播放拥有最高的处理权限，可以使用浏览器自带的播放器替换原始的 video 控件，并且禁止通过 JS、CSS 修改。劫持播放通常出现在移动端浏览器中，其表现为，播放器的样式不是期望的样式，视频播放时出现额外的 UI 以及广告等内容，或者强制全屏播放等现象。
 
 以下是由于浏览器劫持造成的问题，以及对应的解决方案：
 
 ### 视频激活播放后强制全屏
-**问题表现：**在单击视频激活播放后，直接全屏播放，通常出现在 Android iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
+**问题表现：**在单击视频激活播放后，直接全屏播放，通常出现在 Android、iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
 
 **解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playsinline 和 webkit-playsinline 属性，腾讯云播放器默认会在`<Vdieo>`标签中加上 playsinline 和 webkit-playsinline 属性。iOS10+ 识别 playsinline 属性，版本小于 10 的系统识别 webkit-playsinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playsinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，比如，在 TBS 内核的浏览器（包括不限于 Android：微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（ [接入文档](https://x5.tencent.com/tbs/guide/video.html) 、[使用说明](https://x5.tencent.com/tbs/guide/web/x5-video.html)），避免系统强制全屏视频。
 
@@ -123,19 +122,19 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 由于 Flash 逐步被浏览器限制运行，腾讯云点播 Web 播放器采用了 HTML5 标准进行开发，并减少对于 Flash 的使用，在部分老旧的浏览器上，全屏功能使用受限制。旧版点播播放器1.0采用 Flash 开发，使用 Flash 插件实现的屏幕全屏。如需在不支持 Fullscreen API 的浏览器进行屏幕全屏，只能使用旧版点播播放器1.0。
 
 目前已知的全屏情况：
-x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
-Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
-iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
-IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
-桌面端微信浏览器：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
-其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
+- x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
+- Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
+- iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
+- IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
+- 桌面端微信浏览器：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
+- 其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
 
 ### 默认全屏播放
 与问题“视频激活播放后强制全屏”相同，参考其解决方案。
 
 ### 在 iOS Hybrid App 的 WebView 中默认全屏播放
 **问题表现：**在 App WebView 里播放视频默认全屏播放。
-**解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频
+**解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频。
 
 ### 在 iframe 里使用播放器不能全屏
 **问题表现：**在 iframe 中嵌入播放器页面，单击全屏按钮无效。
@@ -149,8 +148,9 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 **解决方案：**在不支持 Full Screen API 的老旧浏览器中，腾讯云点播播放器使用 CSS 实现网页全屏，配合浏览器全屏可以实现屏幕全屏效果（浏览器全屏快捷键通常为“F11”），这里需要页面的 CSS 不能限制播放器的页面内全屏样式，比如不能设置播放器的父容器 overflow: hidden。
 如果在 iframe 中，播放器无法修改 iframe 外部的 CSS 样式，需要外部页面提供脚本以及样式支持，通常情况下外部页面需要跨域支持，才能实现网页全屏，因此不建议使用 iframe 的方式使用播放器。
 
->**备注：**
-> * IE8、9、10 浏览器不支持 Full Screen API ，因此不能通过 Full Screen API 进行屏幕全屏。
+>?
+> - IE8、9、10 浏览器不支持 Full Screen API ，因此不能通过 Full Screen API 进行屏幕全屏。
+> - macOS 微信自带的浏览器不能实现视频全屏。
 
 ## 拖拽、时移播放失败
 **问题表现：**拖拽到某个时间点无法播放，或者跳到片头。

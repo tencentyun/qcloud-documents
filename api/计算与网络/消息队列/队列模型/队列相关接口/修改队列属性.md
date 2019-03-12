@@ -3,7 +3,7 @@
 本接口 (SetQueueAttributes) 用于修改消息队列的属性。
 
 **请参照下面说明将域名中的 {$region} 替换成相应地域：**
-- 外网接口请求域名：`http(s)://cmq-queue-{$region}.api.qcloud.com`
+- 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
 >**注意：**

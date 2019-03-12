@@ -63,7 +63,7 @@ public void setAllowType(TIMFriendAllowType allowType,
 allowType | 加好友选项 
 cb | 回调 
 
-**`TIMFriendAllowType` 原型： **
+**`TIMFriendAllowType` 原型：**
 
 ```
 //允许任何人添加好友
@@ -184,8 +184,7 @@ public void setGender(TIMFriendGenderType type, TIMCallBack cb)
 
 云通信支持设置自己的生日，设置后所有人可见。设置方法为 `TIMFriendshipManager` 中的 `setBirthday`。
 
-> **注意：**
-> 生日信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
+>!生日信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
 
 **原型：**
 
@@ -202,8 +201,7 @@ public void setBirthday(long birthday, TIMCallBack cb)
 
 云通信支持设置自己的语言，设置后所有人可见。设置方法为 `TIMFriendshipManager` 中的 `setLanguage`。
 
->**注意：**
-语言信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
+>!语言信息是一个长整形，结果只保留低 32 位，具体含义由应用自行定义和解析。
 
 **原型：**
 
@@ -314,7 +312,7 @@ public long getLanguage()
 public String getLocation()
 ```
 
-**示例： **
+**示例：**
 
 ```
 //获取自己的资料
@@ -338,7 +336,7 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 
 可通过 `TIMFriendshipManager` 的 `getFriendsProfile` 方法获取好友的资料（1.9 版本之前可以获取任何人资料，1.9 版本之后调用 `getUsersProfile` 获取），默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网路获取数据。
 
-**原型： **  
+**原型：**  
 
 ```
 public void getFriendsProfile(java.util.List<java.lang.String> users,
@@ -382,7 +380,7 @@ TIMFriendshipManager.getInstance().getFriendsProfile(users, new TIMValueCallBack
 
 可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取好友的资料（1.9 版本之前可以获取任何人资料，1.9 版本之后调用 `getFriendsProfile` 获取），默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网路获取数据。
 
-**原型： **  
+**原型：**  
 
 ```
 public void getUsersProfile(java.util.List<java.lang.String> users,
@@ -502,9 +500,9 @@ cb | 回调
 
 ### 添加好友
 
-通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个。
+通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为3000个。
 
-**原型：   **
+**原型：**
 
 ```
 public void addFriend(java.util.List<TIMAddFriendRequest> users,
@@ -518,10 +516,10 @@ public void addFriend(java.util.List<TIMAddFriendRequest> users,
 | users | 要添加的用户列表 TIMAddFriendRequest 列表 |
 | cb | 回调，onSuccess 函数的参数中返回 TIMFriendResult 列表，详见 TIMFriendResult |
 
-**`TIMAddFriendRequest` 成员方法： **
+**`TIMAddFriendRequest` 成员方法：**
 
 ```
-//添加来源，固定字串，在页面上申请，留空表示未知来源
+//添加来源，固定字f符串，在页面上申请，留空表示未知来源
 void	setAddrSource(java.lang.String addSource)
 //添加请求说明，最大 120 字节，如果用户设置为添加好友需要审核，对方会收到此信息并决定是否通过。
 void	setAddWording(java.lang.String addWording)

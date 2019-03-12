@@ -6,7 +6,7 @@ The charge for Direct Connect tunnels depends on whether the physical direct con
 
 - If they are in the same region, direct connect tunnel is free of charge.
 - If they are in different regions and both endpoints are within Mainland China (excluding Hong Kong, Macao and Taiwan), a fee for inner-China cross-region interconnection is charged.
-- If they are in different regions and at least one endpoint is located outside Mainland China (including Hong Kong, Macao and Taiwan), then consult with your sales rep.
+ - If they are in different regions and at least one endpoint is located outside Mainland China (including Hong Kong, Macao and Taiwan), then consult with your sales rep.
 
 Special offer: Direct Connect tunnels between Beijing and Tianjin/Guangzhou and Shenzhen are free of charge until March 1, 2019. A further notice will be given before the end of the special offer.
 

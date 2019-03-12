@@ -69,7 +69,7 @@ Domain for API access: lb.api.qcloud.com
 <tr>
 <td> healthStatus
 <td> Int
-<td> Health check result. 1: healthy; 0: unhealthy; -1: incomplete target.
+<td> Health check result. 1: healthy; 0: unhealthy.
 </tbody></table>
  
 

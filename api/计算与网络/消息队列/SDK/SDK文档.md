@@ -27,11 +27,11 @@ endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了�
 
 #### 请参照下面说明将域名中的 {$region} 替换成相应地域：
 
-外网接口请求域名：http(s)://cmq-queue-{$region}.api.qcloud.com
+外网接口请求域名：https://cmq-queue-{$region}.api.qcloud.com
 内网接口请求域名：http: //cmq-queue-{$region}.api.tencentyun.com
 
 #### region 说明
-{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港）,ca(北美)，cd（成都），usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint，原因如下：
@@ -57,6 +57,7 @@ endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了�
 ### 使用 CMQ JAVA SDK
 
 下面的代码也是 Java SDK 中的sample，从创建队列、获取队列属性、发送消息、接收消息、删除消息、删除队列等操作演示了整个消息队列操作的全过程。
+> **注意：** 由于分配资源和释放资源有 1s 左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有 1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
 
 ```
 	import com.qcloud.cmq.*; 

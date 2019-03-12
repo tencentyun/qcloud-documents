@@ -92,7 +92,7 @@ coscmd upload -h  //View the usage of upload command
 ### Configure parameters
 You need to configure parameters before using the COSCMD tool. Run the following command for configuration:
 ```
-coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_thread>] [-p <parts_size>]      
+coscmd config -a  -s  -b  -r  [-m ] [-p ]      
 ```
 In the above example, fields in "<>" are required, and those in "[]" are optional. Parameters are described below:
 
@@ -123,25 +123,25 @@ schema = https
 
 
 ### Command for specifying a bucket
--  You can specify a bucket with `-b <bucket>` command and upload files to it using relevant commands, such as the command for uploading files.
+-  You can specify a bucket with `-b ` command and upload files to it using relevant commands, such as the command for uploading files.
 - The bucket entered must be in a format of `{name}-{appid}`.
 ```
-coscmd -b <bucket> method ...  //Command format
+coscmd -b  method ...  //Command format
 coscmd -b AAA-12345567 upload a.txt b.txt  //Example - Upload files
 coscmd -b AAA-12344567 createbucket  //Example - Create a bucket
 ```
 
 ### Create a bucket
--  It should be used together with `-b <bucket>` command.
+-  It should be used together with `-b ` command.
 ```
-coscmd -b <bucket> createbucket //Command format
+coscmd -b  createbucket //Command format
 coscmd -b AAA-12344567 createbucket  //Example
 ```
 
 ### Delete a bucket
--  It should be used together with `-b <bucket>` command.
+-  It should be used together with `-b ` command.
 ```
-coscmd -b <bucket> deletebucket //Command format
+coscmd -b  deletebucket //Command format
 coscmd -b AAA-12344567 deletebucket  //Example
 ```
 
@@ -149,13 +149,13 @@ coscmd -b AAA-12344567 deletebucket  //Example
 
 - Command for file upload is as follows:
 ```
-coscmd upload <localpath> <cospath>  //Command format
+coscmd upload    //Command format
 coscmd upload /home/aaa/123.txt bbb/123.txt  //Example
 coscmd upload /home/aaa/123.txt bbb/  //Example
 ```
 - Command for folder upload is as follows:
 ```
-coscmd upload -r <localpath> <cospath>  //Command format
+coscmd upload -r    //Command format
 coscmd upload -r /home/aaa/ bbb/aaa  //Example
 coscmd upload -r /home/aaa/ bbb/  //Example
 coscmd upload -r /home/aaa/ /  //Upload to the bucket root directory
@@ -170,20 +170,20 @@ Replace the parameters in "<>" with the path of the local file to be uploaded (l
 * COSCMD performs MD5 verification on each part in multipart upload.
 * `x-cos-meta-md5` header is carried by default when COSCMD uploads a file, and its value is the `md5` of the file.
 * Use -s parameter to upload files synchronously and skip those with the same md5 (only if the source files on COS are uploaded using COSCMD 1.8.3.2 or above, and x-cos-meta-md5 header is carried by default).
-* HTTP header that is set with -H parameter must be in json format. For example: `coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`.
+* HTTP header that is set with -H parameter must be in json format. For example: `coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}'  `.
 * You can ignore a certain type of files using ` --ignore` parameter when uploading files. Multiple Shell wildcard rules (separated by commas) are supported.
 * File size is limited to 40 TB for a single file upload.
 
 ### Download files or folder
 - Command for file download is as follows:
 ```
-coscmd download <cospath> <localpath>  //Command format
+coscmd download    //Command format
 coscmd download bbb/123.txt /home/aaa/111.txt  //Example
 coscmd download bbb/123.txt /home/aaa/  //Example
 ```
 - Command for folder download is as follows:
 ```
-coscmd download -r <cospath> <localpath> //Command format
+coscmd download -r   //Command format
 coscmd download -r /home/aaa/ bbb/aaa  //Example
 coscmd download -r /home/aaa/ bbb/  //Example
 coscmd download -rf / bbb/aaa  //Download all the files under the current bucket root directory and overwrite local files
@@ -202,12 +202,12 @@ Replace the parameters in "<>" with the path of the file to be downloaded on COS
 ### Delete files or folder
 - Command for file deletion is as follows:
 ```
-coscmd delete <cospath>  //Command format
+coscmd delete   //Command format
 coscmd delete bbb/123.txt  //Example
 ```
 - Command for folder deletion is as follows:
 ```
-coscmd delete -r <cospath>  //Command format
+coscmd delete -r   //Command format
 coscmd delete -r bbb/  //Example
 coscmd delete -r /  //Example
 ```
@@ -219,12 +219,12 @@ Replace the parameter in "<>" with the path of the file to be deleted on COS (co
 ### Copy files or folder
 - Command for file copying is as follows:
 ```
-coscmd copy <sourcepath> <cospath>  //Command format
+coscmd copy    //Command format
 coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt  //Example
 ```
 - Command for folder copying is as follows:
 ```
-coscmd copy -r <sourcepath> <cospath>  //Command format
+coscmd copy -r    //Command format
 coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa //Example
 coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/ //Example
 ```
@@ -232,12 +232,12 @@ coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/ //Example
 Replace the parameters in "<>" with the path of the file to be copied on COS (sourcepath) and the path to which the file is copied on COS (cospath).
 
 > **Note:** 
-The format of sourcepath:```<bucketname>-<appid>.cos.<region>.myqcloud.com/<cospath>```
+The format of sourcepath:```-.cos..myqcloud.com/```
 
 ### Print file list
 - Print command is as follows:
 ```
-coscmd list <cospath>  //Command format
+coscmd list   //Command format
 coscmd list -a //Example
 coscmd list bbb/123.txt  -r -n 10 //Example
 ```
@@ -247,12 +247,12 @@ Replace the parameter in "<>" with the path of the file list to be printed on CO
 * Use `-n num` to set the maximum number of files to be printed.
 
 > **Note:** 
-If `<cospath>` is left empty, the files under the current Bucket root directory are printed by default.
+If `` is left empty, the files under the current Bucket root directory are printed by default.
 
 ### Display file information
 - Command is as follows:
 ```
-coscmd info <cospath>  //Command format
+coscmd info   //Command format
 coscmd info bbb/123.txt //Example
 ```
 Replace the parameter in "<>" with the path of the file to be displayed on COS (cospath).
@@ -260,7 +260,7 @@ Replace the parameter in "<>" with the path of the file to be displayed on COS (
 ### Get signed download URL
 - Command is as follows:
 ```
-coscmd signurl <cospath>  //Command format
+coscmd signurl   //Command format
 coscmd signurl bbb/123.txt //Example
 coscmd signurl bbb/123.txt -t 100//Example
 ```
@@ -276,7 +276,7 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 ```
 Set Object ACL using the following command:
 ```
-coscmd putobjectacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL] <cospath> //Command format
+coscmd putobjectacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL]  //Command format
 coscmd putobjectacl --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222 aaa/aaa.txt //Example
 ```
 
@@ -300,14 +300,14 @@ coscmd getbucketacl //Example
 ```
 - Get the Object ACL using the following command:
 ```
-coscmd getobjectacl <cospath> //Command format
+coscmd getobjectacl  //Command format
 coscmd getobjectacl aaa/aaa.txt //Example
 ```
 
 ### Restore archived files
 - Command is as follows:
 ```
-coscmd restore <cospath>  //Command format
+coscmd restore   //Command format
 coscmd restore a.txt -d 3 -t  Expedited//Example
 coscmd restore a.txt -d 3 -t  Bulk///Example
 ```
@@ -319,7 +319,6 @@ Replace the parameter in "<>" with the path of the file list to be printed on CO
 If `-d` or `-debug` is added before each command, the details of operation during command execution are displayed. Here's an example:
 ```
 //Display details of upload operation
-coscmd -d upload <localpath> <cospath>  //Command format
+coscmd -d upload    //Command format
 coscmd -d upload /home/aaa/123.txt bbb/123.txt  //Example
 ```
-

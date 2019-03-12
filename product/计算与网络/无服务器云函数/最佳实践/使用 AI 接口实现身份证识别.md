@@ -1,5 +1,4 @@
 ## 概述
-在本 Demo 中，我们用到了无服务器云函数 SCF，对象存储 COS，人工智能 AI 提供的文字识别接口。其中，对象存储 COS 用来存储身份证的正面或者反面图片，云函数 SCF 实现从 COS 下载图片并调用文字识别接口对图片进行识别。
 
 
 ## 步骤 1. 创建 COS Bucket
@@ -157,7 +156,7 @@ def main_handler(event, context):
 2. 选择 **本地上传zip包**，执行方法填写：idcard_detect.main_handler，保存后单击【下一步】。
 3. 添加触发方式为 COS 触发，选择之前创建好的 Bucket：idcard-detect，事件类型为文件上传，单击【保存】>【完成】，完成函数部署。
 
-您也可以直接从 [GitHub 下载](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card) 项目文件，并打成 zip 包，通过控制台创建函数并完成部署，请注意在函数代码中需修改 appid、secret_id 和 secret_key 并保存。
+您也可以直接从 [GitHub下载](https://github.com/Masonlu/SCF-Demo/tree/master/Demo2_ID%20Card) 项目文件，并打成 zip 包，通过控制台创建函数并完成部署，请注意在函数代码中需修改 appid、secret_id 和 secret_key 并保存。
 
 ## 步骤 4. 测试函数功能
 1. 进入对象存储控制台，选择创建好的 Bucket：idcard-detect，单击【上传文件】，选择自己拍好的身份证照片，照片要清晰可读且尽可能大的占满图片，然后上传。

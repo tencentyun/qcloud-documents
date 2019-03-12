@@ -143,6 +143,7 @@ You have three ways to acquire the authentication credentials for your instance 
 
 
 ## Static Methods
+
 ### COS.getAuthorization
 
 For COS XML API requests, the authentication credential Authorization is required for all operations on private resources to identify whether the current request is valid.
@@ -183,10 +184,13 @@ var Authorization = COS.getAuthorization({
 | Headers | Indicates the requested header parameter object | Object | No |
 
 #### Returned Result
+
 The calculated authentication credential string "authorization" is returned.
 
 ## Tool-based Methods
+
 ### Get Auth
+
 The cos.getAuth method is equivalent to the edition of COS.getAuthorization mounted to the instance. The difference is that cos.getAuth does not require passing in SecretId and SecretKey, but uses the method to acquire authentication credentials for the object itself instead.
 
 #### Use Case
@@ -273,8 +277,6 @@ function(err, data) { ... }
 
 ### Head Bucket
 
-#### Feature description
-
 The Head Bucket request is used to determine whether the Bucket and the permission to access the Bucket exist. The same permission applies to Head and Read. HTTP status code 200 will be returned if the Bucket exists, 403 if there is no permission, and 404 if the Bucket does not exist.
 
 #### Use Case
@@ -312,8 +314,6 @@ function(err, data) { ... }
 
 
 ### Get Bucket
-
-#### Feature description
 
 Get Bucket request is identical to List Object request. It is used to list partial or all of the Objects under the Bucket. The caller of this API requires Read permission for the Bucket.
 
@@ -360,8 +360,6 @@ cos.getBucket({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -391,13 +389,9 @@ function(err, data) { ... }
 ### Delete Bucket
 
 
-#### Feature description
-
 Delete Bucket API request is used to delete a Bucket under a specified account. The Bucket must be empty before it can be deleted. The Bucket can be deleted only if its content is removed. The HTTP status code 200 or 204 is returned upon a successful deletion.
 
 #### Use Case
-
-Call Delete Bucket:
 
 ```js
 cos.deleteBucket({
@@ -421,8 +415,6 @@ cos.deleteBucket({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -434,8 +426,6 @@ function(err, data) { ... }
 
 
 ### Get Bucket ACL
-
-#### Feature description
 
 This API (Get Bucket ACL) is used to obtain the ACL (access control list) of the Bucket. Only the Bucket owner has the access to this API.
 
@@ -463,8 +453,6 @@ cos.getBucketAcl({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -485,13 +473,12 @@ function(err, data) { ... }
 
 ### Put Bucket ACL
 
-#### Feature description
-
 The API Put Bucket ACL is used to write ACL for a Bucket. You can import ACL information either by using Header: "x-cos-acl", "x-cos-grant-read", "x-cos-grant-write", "x-cos-grant-full-control", or by using body in XML format.
 
 #### Use Case
 
 ## Set Public Read for Buckets
+
 ```js
 cos.putBucketAcl({
     Bucket: 'test-1250000000', /* Required */
@@ -570,8 +557,6 @@ cos.putBucketAcl({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -584,12 +569,9 @@ function(err, data) { ... }
 
 ### Get Bucket CORS
 
-#### Feature description
-
 This API (Get Bucket CORS) is used by the Bucket owner to configure cross-origin resource sharing on a bucket. (Cross-origin Resource Sharing (CORS) is a W3C standard.) By default, the Bucket owner has the permission of this API and can grant it to others.
 
 #### Use Case
-Call Get Bucket CORS:
 
 ```js
 cos.getBucketCors({
@@ -613,8 +595,6 @@ cos.getBucketCors({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -634,13 +614,9 @@ function(err, data) { ... }
 > 1. To change the `cross-origin access configuration`, make sure the Bucket provides cross-origin support. Go to the `console` to make `cross-origin access configuration`. For more information, please see [Development Environment](#Development Environment).
 > 2. Make sure that changing `cross-origin access configuration` does not affect the cross-origin requests under the current origin.
 
-#### Feature description
-
 The API Put Bucket CORS is used to set cross-origin resource sharing permission for your Bucket. You can do so by importing configuration files of XML format (file size limit: 64 KB). By default, the Bucket owner has the permission of this API and can grant it to others.
 
 #### Use Case
-
-Call Put Bucket CORS:
 
 ```js
 cos.putBucketCors({
@@ -678,8 +654,6 @@ cos.putBucketCors({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -696,13 +670,9 @@ function(err, data) { ... }
 >1. Deleting the `cross-origin access configuration` information of the current Bucket may cause all the cross-origin requests to fail. Please proceed with caution.
 >2. This method is not recommend for use at the browser end.
 
-#### Feature description
-
 Delete Bucket CORS API request is used to delete configuration information of cross-domain access.
 
 #### Use Case
-
-Call Delete Bucket CORS:
 
 ```js
 cos.deleteBucketCors({
@@ -726,8 +696,6 @@ cos.deleteBucketCors({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -740,13 +708,9 @@ function(err, data) { ... }
 
 ### Get Bucket Location
 
-#### Feature description
-
 This API (Get Bucket Location) is used to obtain the information of the region where the Bucket resides. This GET operation returns the region where the Bucket resides via the location sub-resource. Only the Bucket owner is allowed to operate on this API.
 
 #### Use Case
-
-Call Get Bucket Location:
 
 ```js
 cos.getBucketLocation({
@@ -770,8 +734,6 @@ cos.getBucketLocation({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -785,12 +747,13 @@ function(err, data) { ... }
 
 
 ## Object Operations
+
 ### Head Object
-#### Feature description
+
 The Head Object request is used to obtain the metadata of the corresponding Object. The same permission applies to Head and Get.
 
 #### Use Case
-Call Head Object:
+
 ```js
 cos.headObject({
     Bucket: 'test-1250000000', /* Required */
@@ -816,8 +779,6 @@ cos.headObject({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -832,12 +793,10 @@ function(err, data) { ... }
 | - NotModified | Indicates whether the Object is left unmodified since the specified time |Boolean|
 
 ### Get Object
-#### Feature description
 
 Get Object API request is used to download one file (Object) in Bucket of COS to the local computer. This action requires that the user has the read permission for the target Object or the read permission for the target Object has been made available for everyone (public-read).
 
 #### Use Case
-Call Get Object:
 
 ```js
 cos.getObject({
@@ -882,11 +841,10 @@ cos.getObject({
 	
 
 #### Callback function description
+
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|----------|------|
@@ -904,7 +862,6 @@ function(err, data) { ... }
 
 
 ### Put Object
-#### Feature description
 
 Put Object request allows you to upload a local file (Object) to the specified Bucket. This action requires that the user has the WRITE permission for the Bucket.
 
@@ -914,7 +871,6 @@ Put Object request allows you to upload a local file (Object) to the specified B
 
 #### Use Case
 
-Call Put Object to upload files:
 ```js
 cos.putObject({
     Bucket: 'test-1250000000', /* Required */
@@ -1000,8 +956,6 @@ cos.putObject({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1013,12 +967,10 @@ function(err, data) { ... }
 | - ETag |Returns the MD5 algorithm check value for the file. The ETag value can be used to check whether the Object is corrupted in the upload process. <br>**Note: The ETag value must be enclosed in double quotation marks, such as `"09cba091df696af91549de27b8e7d0f6"`** | String |
 
 ### Delete Object
-#### Feature description
 
 Delete Object API request is used to delete one file (Object) in Bucket of COS. This action requires that the user has the WRITE permission for the Bucket.
 
 #### Use Case
-Call Delete Object:
 
 ```js
 cos.deleteObject({
@@ -1031,6 +983,7 @@ cos.deleteObject({
 ```
 
 #### Parameters
+
 | Parameter Name | Description | Type | Required |
 |--------|----------|------|------|
 | Bucket | Bucket name. The bucket entered must be in a format of {name}-{appid} | String | Yes |
@@ -1044,8 +997,6 @@ cos.deleteObject({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1057,13 +1008,10 @@ function(err, data) { ... }
 
 ### Options Object
 
-#### Feature description
-
 This API (Options Object) is used to implement a pre-request for cross-origin access configuration. This is how it works. Before any cross-origin request is sent, an OPTIONS request, along with the specific source origin, HTTP method and header information, to COS to determine whether a true cross-origin request can be sent. When the CORS configuration does not exist, 403 Forbidden is returned for the request.
 **Use the Put Bucket CORS API to enable CORS support for the Bucket.**
 
 #### Use Case
-Call Options Object:
 
 ```js
 cos.optionsObject({
@@ -1090,11 +1038,10 @@ cos.optionsObject({
 | AccessControlRequestHeaders | Simulates the origin from which the request for cross-origin access is sent | String | Yes |
 
 #### Callback function description
+
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1113,12 +1060,9 @@ function(err, data) { ... }
 
 ### Get Object ACL
 
-#### Feature description
 The API Get Object ACL is used to obtain access permission of an Object under a Bucket. Only the Bucket owner is allowed to perform the action.
 
 #### Use Case
-
-Call Get Object ACL:
 
 ```js
 cos.getObjectAcl({
@@ -1144,8 +1088,6 @@ cos.getObjectAcl({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1165,13 +1107,12 @@ function(err, data) { ... }
 
 
 ### Put Object ACL
-#### Feature description
 
 This API (Put Object ACL) is used to configure ACL for an Object in a Bucket.
 **The number of ACL policies under a single Bucket is limited to 1000. Therefore, under a single Bucket, up to 999 files can be set with ACL permissions.**
 
 #### Use Case
-Call Put Object ACL to modify file permissions:
+
 ```js
 cos.putObjectAcl({
     Bucket: 'test-1250000000', /* Required */
@@ -1230,11 +1171,10 @@ cos.putObjectAcl({
 | GrantFullControl | Grants read and write permissions to the authorized user.<br> Format: id=" ",id=" ". For authorization to a subaccount, id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"; <br>for authorization to the root account, id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>".<br> For example: 'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"' | String | No |
 
 #### Callback function description
+
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|----------|------|
@@ -1247,10 +1187,11 @@ function(err, data) { ... }
 
 
 ### Delete Multiple Object
-#### Feature description
+
 This API (Delete Multiple Object) is used to delete files in batches in specific Bucket. A maximum of 1,000 Objects are allowed to be deleted in batches at a time. COS provides two modes for returned results: Verbose and Quiet. Verbose mode returns the result of deletion of each Object, while Quiet mode only returns the information of the Objects with an error.
 
 #### Use Case
+
 Deleting multiple files:
 ```js
 cos.deleteMultipleObject({
@@ -1266,6 +1207,7 @@ cos.deleteMultipleObject({
 ```
 
 #### Parameters
+
 | Parameter Name | Description | Type | Required |
 |--------|----------|------|------|
 | Bucket | Bucket name. The bucket entered must be in a format of {name}-{appid} | String | Yes |
@@ -1275,11 +1217,10 @@ cos.deleteMultipleObject({
 | Objects | The file list to be deleted | Array | Yes |
 
 #### Callback function description
+
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|----------|------|
@@ -1298,13 +1239,10 @@ function(err, data) { ... }
 
 
 ### Put Object Copy
-#### Feature description
 
 This API (Put Object Copy) is used to copy a file from source path to the destination path. The recommended file size is 1 MB-5 GB. For any file above 5 GB, please use multipart upload (Upload - Copy). In the process of copying, file meta-attributes and ACLs can be modified. Users can use this API to move or rename a file, modify file attributes and create a copy.
 
 #### Use Case
-
-Call Put Object ACL:
 
 ```js
 cos.putObjectCopy({
@@ -1350,8 +1288,6 @@ cos.putObjectCopy({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1370,12 +1306,9 @@ function(err, data) { ... }
 
 ### Initiate Multipart Upload
 
-#### Feature description
 This API (Initiate Multipart Upload) is used to initialize multipart upload. After the request is executed successfully, Upload ID is returned for the subsequent Upload Part requests.
 
 #### Use Case
-
-Call Initiate Multipart Upload:
 
 ```js
 cos.multipartInit({
@@ -1412,8 +1345,6 @@ cos.multipartInit({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1425,14 +1356,11 @@ function(err, data) { ... }
 
 ### Upload Part
 
-#### Feature description
-
 Upload Part request is used to implement the multipart upload after initialization. The allowed number of parts is limited to 10,000, and the size of part should be between 1 MB and 5 GB.
 You can obtain an uploadid when you use the API "Initiate Multipart Upload" to initiate multipart upload. This ID exclusively identifies this multipart data, and the relative position of this multipart in the entire file. Upload Part should be used with partNumber and uploadId. partNumber is the part No. and supports out-of-order upload.
 If the uploadId and partNumber are the same, the parts uploaded later will overwrite the parts uploaded earlier. A 404 error "NoSuchUpload" will be returned if the uploadId does not exist.
 
 #### Use Case
-Call Upload Part:
 
 ```js
 cos.multipartUpload({
@@ -1464,8 +1392,6 @@ cos.multipartUpload({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1479,8 +1405,6 @@ function(err, data) { ... }
 
 ### Complete Multipart Upload
 
-#### Feature description
-
 This API (Complete Multipart Upload) is used to complete the entire multipart upload. You must use this API to complete the multipart upload operation of the entire file when you have uploaded all parts using Upload Parts. When using this API, you need to provide the PartNumber and ETag for every part in request Body, to verify the accuracy of parts.
 The merging of parts is required and takes several minutes, thus COS returns status code 200 immediately when the merging process begins. During merging, COS may returns blank information periodically to keep the connection active, until the merging process completes, upon which the COS will return the content of the merged parts in Body.
 - When this API is called, "400 EntityTooSmall" is returned if the uploaded part is smaller than 1 MB.
@@ -1490,7 +1414,6 @@ The merging of parts is required and takes several minutes, thus COS returns sta
 
 #### Use Case
 
-Call Complete Multipart Upload:
 ```js
 cos.multipartComplete({
     Bucket: 'test-1250000000', /* Required */
@@ -1523,8 +1446,6 @@ cos.multipartComplete({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1541,13 +1462,10 @@ function(err, data) { ... }
 
 ### List Parts
 
-#### Feature description
-
 This API (List Parts) is used to query the uploaded file chunks in a specific multipart upload, listing all the uploaded chunks under the specified UploadId.
 
 #### Use Case
 
-Call List Parts:
 ```js
 cos.multipartListPart({
     Bucket: 'test-1250000000', /* Required */
@@ -1576,8 +1494,6 @@ cos.multipartListPart({
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|----------|------|
@@ -1611,15 +1527,11 @@ function(err, data) { ... }
 
 ### Abort Multipart Upload
 
-#### Feature description
-
 This API (Abort Multipart Upload) is used to abort a multipart upload operation and delete uploaded file chunks. When Abort Multipart Upload is called, the Upload Parts returns failure to any request that is using the Upload Parts. "404 NoSuchUpload" is returned if the UploadID does not exist.
 
 **It is recommended that you complete multipart upload in time or abort the upload operation for the reason that parts that have been uploaded but not aborted can take up storage, incurring cost.**
 
 #### Use Case
-
-Call Abort Multipart Upload:
 
 ```js
 cos.multipartAbort({
@@ -1648,8 +1560,6 @@ cos.multipartAbort({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1661,8 +1571,6 @@ function(err, data) { ... }
 
 
 ### List Multipart Uploads
-
-#### Feature description
 
 This API (List Multiparts Uploads) is used to query multipart upload operations that are still in process. Up to 1000 such operations can be listed each time.
 
@@ -1697,8 +1605,6 @@ cos.multipartList({
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|----------|------|
@@ -1741,13 +1647,9 @@ This kind of method is the encapsulation of the above native method, realizes th
 
 ### Slice Upload File
 
-#### Feature description
-
 This API (Slice Upload File) is used to upload a file in parts.
 
 #### Use Case
-
-Call Slice Upload File:
 
 ```js
 cos.sliceUploadFile({
@@ -1799,8 +1701,6 @@ cos.sliceUploadFile({
 function(err, data) { ... }
 ```
 
-#### Callback parameter description
-
 | Parameter Name | Description | Type |
 |--------|----------|------|
 | err | Indicates the object returned when a request fails, including network error and business error. If the request is successful, it is left empty. [Error Code Document](https://cloud.tencent.com/document/product/436/7730) | Object |
@@ -1816,13 +1716,9 @@ function(err, data) { ... }
 
 ### Cancel Task
 
-#### Feature description
-
 This API (Cancel Task) is used to cancel the multipart upload task based on the taskid.
 
 #### Use Case
-
-Call Cancel Task.
 
 ```js
 var taskId = 'xxxxx';                   /* Required */
@@ -1837,13 +1733,9 @@ cos.cancelTask(taskId);
 
 ### Pause Task
 
-#### Feature description
-
 This API (Pause Task) is used to pause the multipart upload task based on the taskid.
 
 #### Use Case
-
-Call Pause Task.
 
 ```js
 var taskId = 'xxxxx';                   /* Required */
@@ -1859,13 +1751,9 @@ cos.pauseTask(taskId);
 
 ### Restart Task
 
-#### Feature description
-
 This API (Get Service) is used to restart the upload task based on the taskid, including the upload task that the user manually stopped (stop by calling pauseTask) or stopped because of an upload error.
 
 #### Use Case
-
-Call Restart Task:
 
 ```js
 var taskId = 'xxxxx';                   /* Required */
@@ -1880,8 +1768,6 @@ cos.restartTask(taskId);
 
 
 ###  Slice Copy File
-
-#### Feature description
 
 This API (Slice Copy File) is used to copy a file from the source path to the destination path through multipart copy. In the process of copying, file meta-attributes and ACLs can be modified. Users can use this API to move or rename a file, modify file attributes and create a copy.
 
@@ -1925,8 +1811,6 @@ cos.sliceCopyFile({
 ```js
 function(err, data) { ... }
 ```
-
-#### Callback parameter description
 
 | Parameter Name | Description | Type |
 |--------|---------|--------|

@@ -2,8 +2,8 @@ COS supports multi-region storage, and different regions have different access d
 
 ## Available Regions and Access Domain Names
 ><font color="#0000cc">**Note:** </font>
-- After creating the bucket, the default domain name can be viewed through the bucket "Domain Management" of [Object Storage Console](https://console.cloud.tencent.com/cos4).
-- bucketname is the name given upon creating a bucket, and it can be viewed through the bucket "Basic Configuration" of [Object Storage Console](https://console.cloud.tencent.com/cos4).
+- After creating the bucket, the default domain name can be viewed through the bucket "Domain Management" of [Object Storage Console](https://console.cloud.tencent.com/cos5).
+- bucketname is the name given upon creating a bucket, and it can be viewed through the bucket "Basic Configuration" of [Object Storage Console](https://console.cloud.tencent.com/cos5).
 - APPID is one of the account identifiers assigned by the system after the successful application of Tencent Cloud account, which can be viewed through "Account Information" of [Tencent Cloud Console](https://console.cloud.tencent.com/developer).
 
 | Region                        | Abbreviation     | Default Domain Name (Upload/Download/Management)             |

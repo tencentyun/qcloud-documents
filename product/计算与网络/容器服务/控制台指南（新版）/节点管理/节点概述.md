@@ -1,0 +1,12 @@
+## 简介
+
+节点是容器集群组成的基本元素。节点取决与业务，既可以是虚拟机，也可以是物理机。每个节点都包含运行 Pod 所需要的基本组件，包括 Kubelet、Kube-proxy 等。
+
+## 节点相关操作
+
+- [新增节点](https://cloud.tencent.com/document/product/457/32203)
+- [移除节点](https://cloud.tencent.com/document/product/457/32204)
+- [驱逐或封锁节点](https://cloud.tencent.com/document/product/457/32205)
+- [设置节点的启动脚本](https://cloud.tencent.com/document/product/457/32206)
+- [使用 GPU 节点](https://cloud.tencent.com/document/product/457/32207)
+

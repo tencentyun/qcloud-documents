@@ -1,36 +1,51 @@
-CLS supports shipping logs to COS to store log data persistently. You can deliver logs at a certain time interval or based on certain file size to buckets of COS V4 or later.
+## Overview
+CLS supports shipping logs to Cloud Object Storage (COS), allowing persistent storage of log data. You just need to make configurations on the console, so that the logs can be shipped to COS based on the shipping interval, file size, shipping path and filtering rules. 
 
-## Permission Requirements
+## How to Use
+### Prerequisites
 
-Configuring log shipper means you grant CLS the write permission for the bucket you specify. If you configure log shipper as a collaborator, make sure that you have grant CLS the write permission for the bucket under your main account. Otherwise, the shipping fails.
+1. Activate the CLS, create a logset and a log topic, and the log data can be successfully collected.
+2. Activate Tencent Cloud COS, and create a bucket in the region of the logset to which shipping tasks belong.
+3. The current account has the **permission to write to** the specified bucket. If you configure log shipping as a collaborator, make sure that you have granted CLS the **permission to write to** the bucket under your primary account. Otherwise, shipping will fail. 
 
-## Configuration Instructions
+### Procedure
+1. Log in to the [CLS console](https://console.cloud.tencent.com/cls), and click **Logset** in the left navigation bar. Select the logset to which a shipping task needs to be added, click the **Logset ID/Name** to go to the its details page.
+![](https://main.qcloudimg.com/raw/b4560b57c179e20441fa56bd65803971.png)
+2. Locate the log topic to be shipped, click **Configure** -> **Shipping to COS Configuration** to go to the **Shipping Configuration** page.
+![](https://main.qcloudimg.com/raw/df645d270b696a380253435e079a8949.png)
+3. Click **Add Shipping Task** to go to the **Ship to COS** page to complete the configuration information, and then click **OK**. For more information, please see [Configuration Items](#config).
+![](https://main.qcloudimg.com/raw/b6a605b37631fbde4953c142c4f4c306.png)
+4. Check whether the shipping status is enabled.
+![](https://main.qcloudimg.com/raw/bf469f1b5cafb4c2445ff00a9b2da2ed.png)
 
-On the logset details page, select a log topic and click **Configure** to create shipping configurations on the log topic configuration page. A log topic can have multiple shipping configurations.
+<a id="config"></a>
+### Configuration items
+#### (Optional) Directory prefix
+CLS allows you to define a directory prefix. Log files are shipped to the directory of the COS bucket. Log files are stored under the bucket by default with the path `{COS bucket}{directory prefix}{partition format}_{random}_{index}.{type}`, where `{random}_{index}` is a random number.
 
-### Enabling/Disabling Shipping Tasks
+#### (Required) Partition format
+A directory is generated automatically for the creation times of shipping tasks based on strftime syntax. "/" represents the first level of COS directory. The following is an example where directory prefix is `bucket_test/` and shipping time is 2018/7/31 17:14.
 
-You can enable or disable shipping tasks in the management list of shipping configuration.
+| Bucket Name | Directory Prefix | Partition Format | COS File Path |
+| ----------- | -------- | ----------- | ------------------------------------------------- |
+| bucket_test | logset/ | %Y/%m/%d    | bucket\_test:logset/2018/7/31\_{random}\_{index}    |
+| bucket_test | logset/ | %Y%m%d/%H  | bucket\_test:logset/20180731/14\_{random}\_{index} |
+| bucket_test | logset/ | %Y%m%d/log | bucket\_test:logset/20180731/log\_{random}\_{index} |
 
-### Basic Configuration
+#### (Optional) Compress logs for shipping
+You can compress log files before shipping. The size of an uncompressed file to be shipped is limited to 10 GB. Supported compress methods are gzip and lzop.
 
-- Shipping task name: It can contain numbers, letters, underscores, and dashes.
-- COS bucket: Select the bucket to which logs are shipped. CLS only supports shipping to the bucket in the area where the logset is located.
-- Directory prefix (optional): CLS allows you to define directory prefixes. Logs are delivered to `COS-BUCKET/{prefix}/{logset}/{topic}/{Y}/{m}/{d}/{time}_{random}_{index}.gz`, a partition of the COS bucket. A new directory will be created under this bucket each day. The time in the path refers to the actual log time in the log file. random_index is a random number.
-- Shipping interval: The shipping interval can be specified from 1 minute to 1 hour. If you set the shipping interval to 5 minutes, a file of your log data will be created every five minutes, and stored in the COS bucket. Log data will be shipped to your bucket in half an hour.
-- File size: Specifies the maximum size of uncompressed shipped files within the shipping interval, which refers to the maximum size of the log file that can be shipped at the interval. A file greater than this size will be split into multiple log files. The maximum size supported can be set from 100 MB to 10 GB.
+#### (Required) File size
+It specifies the maximum size of **an uncompressed file to be shipped** within the shipping interval, which refers to the maximum size of the log file that can be shipped at the interval. A file greater than this size will be split into multiple log files. The maximum supported size is **from 100 MB to 10 GB**. 
 
-![](
-https://main.qcloudimg.com/raw/b99205d486e476f05cb815695d0b5653.png)
+#### (Required) Shipping interval
+The shipping interval shall be **limited to 1 minute to 1 hour**. If you set it to 5 minutes, a log file is generated from your log data every 5 minutes, and multiple log files will be shipped together to your bucket at a regular interval (within half an hour). 
 
-### Advanced Configuration
 
-Log shipper also allows you to determine whether to ship logs based on log content, which is an advanced configuration. You can specify a key, perform regular extraction of the key's value, and set a value to match with the extracted value. A log can be shipped only when the log data matches your configuration. Unmatched logs are not shipped. As shown in the figure below, if the "action" field is set to "write", the log is shipped. You can set a maximum of 5 rules to determine whether to ship or not.
+#### (Optional) Advanced options
+Log shipping also allows you to filter logs based on log content before shipping, which is an advanced configuration. You can specify a key, perform regular extraction of the key value, and set a value to match with the extracted value. A log can be shipped only when the log data matches your configuration. Unmatched logs are not shipped. As shown in the figure below, if the "action" field is set to "write", the log is shipped. You can set a maximum of 5 shipping filters. 
+![](https://main.qcloudimg.com/raw/fa774d5a865c2129f707465c55e416c7.png)
 
-![](
-https://main.qcloudimg.com/raw/1117434e1b4ef2a3ff4046a724f19004.png)
-
-### Query of Shipping Tasks
-
-You can query the shipping status and details of tasks within the last three days in the shipping task query menu.
+> **Note:**
+For the log search in the mode of full text in a single line or full text in multi lines, default key is **CONTENT**.
 
