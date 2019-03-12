@@ -14,3 +14,13 @@
 ![](https://main.qcloudimg.com/raw/b14824ae09efbf014af246866b79dc48.png)
 
 
+
+## 导出不同平台
+
+从 Unreal 引擎导出不同平台，需要做相应的工程配置：
+
+|平台       | 工程配置           
+| ------------- |:-------------:|
+| Android |[Android 工程配置文档](https://cloud.tencent.com/document/product/607/15203)|
+| iOS     	|[iOS 工程配置文档](https://cloud.tencent.com/document/product/607/15219)|
+| Mac     	|[Mac 工程配置文档](https://cloud.tencent.com/document/product/607/18617)|
