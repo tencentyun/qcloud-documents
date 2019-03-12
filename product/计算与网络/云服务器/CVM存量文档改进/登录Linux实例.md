@@ -28,7 +28,7 @@ Webshell登录方式的优点：
 
 ## 使用WebShell登录实例（推荐）
 
-WebShell为腾讯云推荐的登录方式。无论您的本地系统为Windows，Linux或者Mac OS，只要实例购买了公网IP，都可以通过WebShell登录。~~通过WebShell方式登录需要开启SSH端口（默认为22）。~~
+WebShell为腾讯云推荐的登录方式。无论您的本地系统为Windows，Linux或者Mac OS，只要实例购买了公网IP，都可以通过WebShell登录。通过WebShell方式登录需要开启SSH端口（默认为22）。
 
 ### 适用本地操作系统：
 
@@ -42,7 +42,7 @@ Window，Linux或者Mac OS
 
 实例是否购买公网IP。
 
-~~开启SSH（22号）端口，您可以通过[安全组]()的设置确认是否开启22号端口。~~
+开启SSH（22号）端口，您可以通过[安全组LINK]()的设置确认是否开启22号端口。
 
 ### 操作步骤
 
