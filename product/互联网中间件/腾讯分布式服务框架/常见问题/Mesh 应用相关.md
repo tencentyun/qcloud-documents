@@ -38,12 +38,11 @@ spec:
 curl -i -H 'Host: local-service' {ip}:{Port}/<healthCheck_path>
 ```
 
-#### 3. 通过运维接口查看sidecar相关信息
+#### 3. 通过运维接口查看 sidecar 相关信息
 
-登录应用所在的容器或者虚拟机，调用pilot-agent的运维接口，查看sidecar容器的相关状态信息。
-
+登录应用所在的容器或者虚拟机，调用 pilot-agent 的运维接口，查看 sidecar 容器的相关状态信息。
 - 查看接口列表
-调用GET 127.0.0.1:15020/help接口可查看
+调用`GET 127.0.0.1:15020/help`接口查看接口列表：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/help
 admin commands are:
@@ -64,19 +63,19 @@ admin commands are:
 ```
 
 - 查看版本号
-调用GET 127.0.0.1:15020/version接口可查看
+调用`GET 127.0.0.1:15020/version`接口查看版本号：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/version                
 1.0.13.release-20190225_103608
 ```
 
-- 查看sidecar健康状态
-调用GET 127.0.0.1:15020/health接口可查看
+- 查看 sidecar 健康状态
+调用`GET 127.0.0.1:15020/health`接口查看 sidecar 健康状态：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/health
 {"envoy":{"status":"UP"},"mesh-dns":{"status":"UP"},"status":"UP"}
 ```
-如果出现部件不健康的组件（status不为UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 
 #### 4. 调用 clusters 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地 cluster（格式为 in#port#serviceName）是否存在或者健康状态是否 healthy。
