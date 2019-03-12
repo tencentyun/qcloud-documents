@@ -14,7 +14,7 @@ BoardSDK | 白板提供了画曲线、直线、矩形、圆形、激光笔、橡
 
 ```
 <!-- WebRTC SDK -->
-<script src="https://sqimg.qq.com/expert_qq/webrtc/2.6/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/2.6.8/WebRTCAPI.min.js"></script>
 <!-- WebIM SDK -->
 <script src="https://sqimg.qq.com/expert_qq/webim/1.7.1/webim.min.js"></script>
 <!-- COS SDK -->
