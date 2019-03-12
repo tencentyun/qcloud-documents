@@ -38,7 +38,47 @@ spec:
 curl -i -H 'Host: local-service' {ip}:{Port}/<healthCheck_path>
 ```
 
-#### 3. 调用 clusters 接口
+#### 3. 通过运维接口查看sidecar相关信息
+
+登录应用所在的容器或者虚拟机，调用pilot-agent的运维接口，查看sidecar容器的相关状态信息。
+
+- 查看接口列表
+调用GET 127.0.0.1:15020/help接口可查看
+```
+[root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/help
+admin commands are:
+ GET /health: print out the health info for data-plane
+ GET /config_dump/{component}: print out the configuration of the component, component can be pilot-agent/envoy/mesh-dns
+ GET /help: print out list of admin commands
+ GET /config/agent: print out the pilot-agent configuration
+ GET /config/global: print out the global mesh configuration
+ GET /config/envoy: print out the envoy startup configuration
+ GET /version: print out the pilot-agent version
+ GET /version/{component}: print out the version of the component, component can be pilot-agent/envoy/mesh-dns
+ GET /latest_error: print out the latest error info
+ GET /status: print out the status, result could be <INIT>, <CONFIG_READY>, <FLOW_TAKEOVER>, <SERVICE_REGISTERED>
+ GET /epoch/{component}: print out the component restart epoch, component can be envoy/mesh-dns
+ POST /hot_restart/{component}: hot restart the component process, component can be envoy/mesh-dns
+ PUT /update: Update the component
+ PUT /logging/{scope}/{level}: dynamic change logging level, scope can be healthz/admin/ads/default/model, level can be info/warn/error/none/debug
+```
+
+- 查看版本号
+调用GET 127.0.0.1:15020/version接口可查看
+```
+[root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/version                
+1.0.13.release-20190225_103608
+```
+
+- 查看sidecar健康状态
+调用GET 127.0.0.1:15020/health接口可查看
+```
+[root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/health
+{"envoy":{"status":"UP"},"mesh-dns":{"status":"UP"},"status":"UP"}
+```
+如果出现部件不健康的组件（status不为UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+
+#### 4. 调用 clusters 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地 cluster（格式为 in#port#serviceName）是否存在或者健康状态是否 healthy。
 输入：
 ```shell
@@ -76,7 +116,7 @@ in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 
 
 
-#### 4. 调用 config_dump 接口
+#### 5. 调用 config_dump 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地的路由配置信息：
 ```shell
 curl http://127.0.0.1:15000/config_dump -o config.json
