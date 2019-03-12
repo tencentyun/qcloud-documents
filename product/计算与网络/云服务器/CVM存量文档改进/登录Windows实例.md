@@ -16,7 +16,7 @@
 
 - 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。
 
-**这里补实例登录页面的截图**
+![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
 
 ## 使用RDP方式登录
 待补充
