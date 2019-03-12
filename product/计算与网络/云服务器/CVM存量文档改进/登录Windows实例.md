@@ -59,7 +59,7 @@ Linux
 
 ```
 tar xvzf rdesktop-<x.y.z>.tar.gz ##替换x.y.z为下载的版本号 
-cd rdesktop-x.y.z/////这里对么？？？？？？
+cd rdesktop-x.y.z
 ./configure 
 make 
 make install
@@ -101,7 +101,7 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 
 - 使用VNC登录暂时不支持复制粘贴功能、中文输入法以及文件的上传、下载。
 - 要使用VNC登录，需要使用主流浏览器，如Chrome，Firefox以及IE10以上版本。
-- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。（这个待确认）
+- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
 
 ### 适用本地操作系统：
 
