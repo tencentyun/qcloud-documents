@@ -28,10 +28,10 @@ if (!reader.parse(json_msg_array, json_value_msgs)) {
     printf("reader parse failure!%s", reader.getFormattedErrorMessages().c_str());
     return;
 }
-for (Json::ArrayIndex i = 0; i < json_value_msgs.size(); i++) {  // 遍历Message
+for (Json::ArrayIndex i = 0; i < json_value_msgs.size(); i++) {  // 遍历 Message
     Json::Value& json_value_msg = json_value_msgs[i];
     Json::Value& elems = json_value_msg[kTIMMsgElemArray];
-    for (Json::ArrayIndex m = 0; m < elems.size(); m++) {   // 遍历Elem
+    for (Json::ArrayIndex m = 0; m < elems.size(); m++) {   // 遍历 Elem
         Json::Value& elem = elems[i];
 
         uint32_t elem_type = elem[kTIMElemType].asUInt();
