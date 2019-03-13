@@ -1,6 +1,7 @@
 ## 功能描述
 
-List Bucket Inventory Configurations 请求返回一个存储桶中的所有清单任务。每一个存储桶中最多配置1000条清单任务。  
+List Bucket Inventory Configurations 用于请求返回一个存储桶中的所有清单任务。每一个存储桶中最多配置1000条清单任务。  
+
 该请求支持列表分页，每页一次最多返回100条清单任务。请确认请求中的 IsTruncated 节点的值，如果 IsTruncated 为 false ，则表明已经将存储桶中的所有清单任务全部列出。如果 IsTruncated 为 true ，且 NextContinuationToken 节点中存在参数值，则您可以将 NextContinuationToken 节点的值传递至 continuation-token 节点中，获取下一分页的清单任务信息。有关清单的详细特性，请查阅 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
 
 > !调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作；存储桶所有者默认拥有该权限，如您无该项权限，请先向存储桶所有者申请该项操作的权限。
@@ -161,7 +162,7 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 **清单任务 list2**
 
 分析存储桶 examplebucket-1250000000 中前缀为 myPrefix2 的对象及其所有版本。
-分析的频次为每周一次；分析的维度包括 Size ， LastModifiedDate ，  StorageClass ， ETag。
+分析频次为每周一次；分析的维度包括 Size ， LastModifiedDate ，  StorageClass ， ETag。
 分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list2 且用 SSE-COS 加密。  
 
 假设本页有100条清单任务，当 IsTruncated 为 true 时，COS 将会进一步返回 NextContinuationToken ，其中的值可作为 GET 请求中 continuation-token 的参数，以获取下一页信息。
