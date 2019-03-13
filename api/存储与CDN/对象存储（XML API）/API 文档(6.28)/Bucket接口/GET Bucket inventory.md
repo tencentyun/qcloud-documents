@@ -1,10 +1,10 @@
 ## 功能描述
 
-GET Bucket inventory 接口用于查询存储桶中用户的清单任务信息。用户在提起该请求时，需要用户提供清单任务的名称，发起该请求时需获得请求签名，表明该请求已获得许可。有关清单的详细特性，请参阅 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
+GET Bucket inventory 接口用于查询存储桶中用户的清单任务信息。用户在发起该请求时，需要用户提供清单任务的名称，发起该请求时需获得请求签名，表明该请求已获得许可。有关清单的详细特性，请参阅 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
 
 > !
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。
-> - 存储桶所有者默认拥有该权限，如您无该项权限，请先向存储桶所有者申请该项操作的权限。  
+> - 存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。  
 
 ## 请求
 
@@ -132,7 +132,11 @@ Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 
 ### 响应
 
-上述请求后，COS 返回以下响应，表明当前该存储桶内的清单任务 list1 处于启用状态。该清单任务分析存储桶 examplebucket-1250000000 中前缀为 myPrefix 的对象及其所有版本；分析的频次为每天一次；分析的维度包括 Size，LastModifiedDate， StorageClass，ETag，IsMultipartUploaded， ReplicationStatus；分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。
+上述请求后，COS 返回以下响应，表明当前该存储桶内的清单任务 list1 处于启用状态。
+该清单任务分析存储桶 examplebucket-1250000000 中前缀为 myPrefix 的对象及其所有版本。
+分析频次为每天一次。
+分析维度包括 Size，LastModifiedDate， StorageClass，ETag，IsMultipartUploaded， ReplicationStatus。
+分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。
 
 ```shell
 HTTP/1.1 200 OK
