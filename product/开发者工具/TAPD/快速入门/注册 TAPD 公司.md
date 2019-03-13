@@ -5,7 +5,7 @@
 ![](//mc.qcloudimg.com/static/img/69028abc0449522643f8a3dacde8a927/image.png)
 4.  按照提示完善公司信息和个人信息注册 TAPD 敏捷研发版本。
 ![](//mc.qcloudimg.com/static/img/d1c08e060baf21660353cf41c894730b/image.png)
-5. 进入邮箱查收激活邮件，点击验证完成注册。注册成功后，你将成为该公司的管理员。
+5. 进入邮箱查收激活邮件，单击验证完成注册。注册成功后，您将成为该公司的管理员。
 ![](//mc.qcloudimg.com/static/img/a79fc6e9ef85d550ff69fd8df553b8d6/image.png)
 
 >**注意：**
