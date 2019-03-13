@@ -1,16 +1,12 @@
-#### SQL语法概要
-
-##### 终止
-
-终止当前事务
+### 终止
+终止当前事务。
 
 ```sql
 ABORT [WORK | TRANSACTION]
 ```
 
-##### 修改聚集函数
-
-改变聚集函数的定义
+### 修改聚集函数
+改变聚集函数的定义。
 
 ```sql
 ALTER AGGREGATE name ( type [ , ... ] ) RENAME TO new_name
@@ -20,8 +16,7 @@ ALTER AGGREGATE name ( type [ , ... ] ) OWNER TO new_owner
 ALTER AGGREGATE name ( type [ , ... ] ) SET SCHEMA new_schema
 ```
 
-##### 修改转换
-
+### 修改转换
 修改转换的定义。
 
 ```sql
@@ -30,9 +25,8 @@ ALTER CONVERSION name RENAME TO newname
 ALTER CONVERSION name OWNER TO newowner
 ```
 
-##### 修改数据库
-
-修改数据库属性
+### 修改数据库
+修改数据库属性。
 
 ```sql
 ALTER DATABASE name [ WITH CONNECTION LIMIT connlimit ]
@@ -46,9 +40,8 @@ ALTER DATABASE name RENAME TO newname
 ALTER DATABASE name OWNER TO new_owner
 ```
 
-##### 修改域
-
-改变域的定义
+### 修改域
+改变域的定义。
 
 ```sql
 ALTER DOMAIN name { SET DEFAULT expression | DROP DEFAULT }
@@ -64,8 +57,7 @@ ALTER DOMAIN name OWNER TO new_owner
 ALTER DOMAIN name SET SCHEMA new_schema
 ```
 
-##### 修改扩展
-
+### 修改扩展
 改变在数据库中注册的扩展的定义。
 
 ```sql
@@ -110,8 +102,7 @@ aggregate_signature 是：
     ORDER BY [ argmode ] [ argname ] argtype [ , ... ]
 ```
 
-##### 修改外部表
-
+### 修改外部表
 改变外部表的定义。
 
 ```sql
@@ -124,9 +115,8 @@ ALTER EXTERNAL TABLE name SET SCHEMA new_schema
 ALTER EXTERNAL TABLE name action [, ... ]
 ```
 
-##### 修改文件空间
-
-改变文件空间的定义
+### 修改文件空间
+改变文件空间的定义。
 
 ```sql
 ALTER FILESPACE name RENAME TO newname
@@ -134,9 +124,8 @@ ALTER FILESPACE name RENAME TO newname
 ALTER FILESPACE name OWNER TO newowner
 ```
 
-##### 修改函数
-
-改变函数的定义
+### 修改函数
+改变函数的定义。
 
 ```sql
 ALTER FUNCTION name ( [ [argmode] [argname] argtype [, ...] ] ) 
@@ -152,9 +141,8 @@ ALTER FUNCTION name ( [ [argmode] [argname] argtype [, ...] ] )
    SET SCHEMA new_schema
 ```
 
-##### 修改组
-
-改变角色名字或者成员信息
+### 修改组
+改变角色名字或者成员信息。
 
 ```sql
 ALTER GROUP groupname ADD USER username [, ... ]
@@ -164,9 +152,8 @@ ALTER GROUP groupname DROP USER username [, ... ]
 ALTER GROUP groupname RENAME TO newname
 ```
 
-##### 修改索引
-
-改变索引的定义
+### 修改索引
+改变索引的定义。
 
 ```sql
 ALTER INDEX name RENAME TO new_name
@@ -178,27 +165,24 @@ ALTER INDEX name SET ( FILLFACTOR = value )
 ALTER INDEX name RESET ( FILLFACTOR )
 ```
 
-##### 修改语言
-
-改变程序语言的名字
+### 修改语言
+改变程序语言的名字。
 
 ```sql
 ALTER LANGUAGE name RENAME TO newname
 ALTER LANGUAGE name OWNER TO new_owner
 ```
 
-##### 修改操作符
-
-改变操作符的定义
+### 修改操作符
+改变操作符的定义。
 
 ```sql
 ALTER OPERATOR name ( {lefttype | NONE} , {righttype | NONE} ) 
    OWNER TO newowner
 ```
 
-##### 修改操作符类
-
-改变操作符类的定义
+### 修改操作符类
+改变操作符类的定义。
 
 ```sql
 ALTER OPERATOR CLASS name USING index_method RENAME TO newname
@@ -206,9 +190,8 @@ ALTER OPERATOR CLASS name USING index_method RENAME TO newname
 ALTER OPERATOR CLASS name USING index_method OWNER TO newowner
 ```
 
-##### 修改操作符族
-
-修改操作符族的定义
+### 修改操作符族
+修改操作符族的定义。
 
 ```sql
 ALTER OPERATOR FAMILY name USING index_method ADD
@@ -225,9 +208,8 @@ ALTER OPERATOR FAMILY name USING index_method RENAME TO newname
 ALTER OPERATOR FAMILY name USING index_method OWNER TO newowner
 ```
 
-##### 修改协议
-
-修改协议的定义
+### 修改协议
+修改协议的定义。
 
 ```sql
 ALTER PROTOCOL name RENAME TO newname
@@ -235,16 +217,14 @@ ALTER PROTOCOL name RENAME TO newname
 ALTER PROTOCOL name OWNER TO newowner
 ```
 
-##### 修改资源队列
-
-修改资源队列的限制
+### 修改资源队列
+修改资源队列的限制。
 
 ```sql
 ALTER RESOURCE QUEUE name WITH ( queue_attribute=value [, ... ] ) 
 ```
 
-##### 修改角色
-
+### 修改角色
 修改数据库角色（用户或组）。
 
 ```sql
@@ -259,9 +239,8 @@ ALTER ROLE name RESOURCE QUEUE {queue_name | NONE}
 ALTER ROLE name [ [WITH] option [ ... ] ]
 ```
 
-##### 修改模式
-
-改变模式的定义
+### 修改模式
+改变模式的定义。
 
 ```sql
 ALTER SCHEMA name RENAME TO newname
@@ -269,9 +248,8 @@ ALTER SCHEMA name RENAME TO newname
 ALTER SCHEMA name OWNER TO newowner
 ```
 
-##### 修改序列
-
-改变序列生成器的定义
+### 修改序列
+改变序列生成器的定义。
 
 ```sql
 ALTER SEQUENCE name [INCREMENT [ BY ] increment] 
@@ -286,9 +264,8 @@ ALTER SEQUENCE name RENAME TO new_name
 ALTER SEQUENCE name SET SCHEMA new_schema
 ```
 
-##### 修改表
-
-改变的表的定义
+### 修改表
+改变的表的定义。
 
 ```sql
 ALTER TABLE [ONLY] name RENAME [COLUMN] column TO new_column
@@ -310,8 +287,7 @@ ALTER TABLE name
    partition_action
 ```
 
-##### 修改表空间
-
+### 修改表空间
 改变表空间的定义。
 
 ```sql
@@ -320,17 +296,15 @@ ALTER TABLESPACE name RENAME TO newname
 ALTER TABLESPACE name OWNER TO newowner
 ```
 
-##### 修改类型
-
-改变数据类型的定义
+### 修改类型
+改变数据类型的定义。
 
 ```sql
 ALTER TYPE name
    OWNER TO new_owner | SET SCHEMA new_schema
 ```
 
-##### 修改用户
-
+### 修改用户
 修改数据库角色（用户）的定义。
 
 ```sql
@@ -343,50 +317,44 @@ ALTER USER name RESET config_parameter
 ALTER USER name [ [WITH] option [ ... ] ]
 ```
 
-##### 修改视图
-
-改变视图的定义
+### 修改视图
+改变视图的定义。
 
 ```sql
 ALTER VIEW name RENAME TO newname
 ```
 
-##### 分析
-
-收集关于数据库的数据
+### 分析
+收集关于数据库的数据。
 
 ```sql
 ANALYZE [VERBOSE] [ROOTPARTITION [ALL] ] 
    [table [ (column [, ...] ) ]]
 ```
 
-##### 开始
-
-启动事务块
+### 开始
+启动事务块。
 
 ```sql
 BEGIN [WORK | TRANSACTION] [transaction_mode]
       [READ ONLY | READ WRITE]
 ```
 
-##### 检查点
-
-强制事务记录检查点
+### 检查点
+强制事务记录检查点。
 
 ```sql
 CHECKPOINT
 ```
 
-##### 关闭
-
-关闭游标
+### 关闭
+关闭游标。
 
 ```sql
 CLOSE cursor_name
 ```
 
-##### 集簇
-
+### 集簇
 根据索引对磁盘上的堆存储表进行物理重新排序。不是数据库的推荐操作。
 
 ```sql
@@ -397,8 +365,7 @@ CLUSTER tablename
 CLUSTER
 ```
 
-##### 注释
-
+### 注释
 定义或者修改对一个对象的注释。
 
 ```sql
@@ -430,16 +397,14 @@ COMMENT ON
 IS 'text'
 ```
 
-##### 提交
-
-提交当前事务
+### 提交
+提交当前事务。
 
 ```sql
 COMMIT [WORK | TRANSACTION]
 ```
 
-##### 复制
-
+### 复制
 在文件和表之间拷贝数据。
 
 ```sql
@@ -472,9 +437,8 @@ COPY {table [(column [, ...])] | (query)} TO {'file' | STDOUT}
       [IGNORE EXTERNAL PARTITIONS ]
 ```
 
-##### 创建聚集函数
-
-定义一个新的聚集函数
+### 创建聚集函数
+定义一个新的聚集函数。
 
 ```sql
 CREATE [ORDERED] AGGREGATE name (input_data_type [ , ... ]) 
@@ -486,8 +450,7 @@ CREATE [ORDERED] AGGREGATE name (input_data_type [ , ... ])
         [, SORTOP = sort_operator] )
 ```
 
-##### 创建投影
-
+### 创建投影
 定义一个新的投影。
 
 ```sql
@@ -499,8 +462,7 @@ CREATE CAST (sourcetype AS targettype) WITHOUT FUNCTION
        [AS ASSIGNMENT | AS IMPLICIT]
 ```
 
-##### 创建转换
-
+### 创建转换
 定义一个新的编码转换。
 
 ```sql
@@ -508,8 +470,7 @@ CREATE [DEFAULT] CONVERSION name FOR source_encoding TO
      dest_encoding FROM funcname
 ```
 
-##### 创建数据库
-
+### 创建数据库
 创建一个信息的数据库。
 
 ```sql
@@ -520,8 +481,7 @@ CREATE DATABASE name [ [WITH] [OWNER [=] dbowner]
                      [CONNECTION LIMIT [=] connlimit ] ]
 ```
 
-##### 创建域
-
+### 创建域
 定义一个新的域。
 
 ```sql
@@ -531,8 +491,7 @@ CREATE DOMAIN name [AS] data_type [DEFAULT expression]
        | CHECK (expression) [...]]
 ```
 
-##### 创建扩展
-
+### 创建扩展
 在数据库中注册一个扩展。
 
 ```sql
@@ -543,9 +502,8 @@ CREATE EXTENSION [ IF NOT EXISTS ] extension_name
            [ CASCADE ]
 ```
 
-##### 创建外部表
-
-定义一张外部表
+### 创建外部表
+定义一张外部表。
 
 ```sql
 CREATE [READABLE] EXTERNAL TABLE table_name     
@@ -671,9 +629,8 @@ CREATE WRITABLE EXTERNAL WEB TABLE table_name
     [ DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY ]
 ```
 
-##### 创建函数
-
-定义一个新的函数
+### 创建函数
+定义一个新的函数。
 
 ```sql
 CREATE [OR REPLACE] FUNCTION name    
@@ -694,16 +651,14 @@ CREATE [OR REPLACE] FUNCTION name
            } [, ...] ) ]
 ```
 
-##### 创建组
-
+### 创建组
 定义一个新的数据库角色。
 
 ```sql
 CREATE GROUP name [ [WITH] option [ ... ] ]
 ```
 
-##### 创建索引
-
+### 创建索引
 定义一个新的索引。
 
 ```sql
@@ -715,8 +670,7 @@ CREATE [UNIQUE] INDEX name ON table
        [WHERE predicate]
 ```
 
-##### 创建语言
-
+### 创建语言
 定义一个新的程序语言。
 
 ```sql
@@ -726,8 +680,7 @@ CREATE [TRUSTED] [PROCEDURAL] LANGUAGE name
        HANDLER call_handler [ INLINE inline_handler ] [VALIDATOR valfunction]
 ```
 
-##### 创建操作符
-
+### 创建操作符
 定义一个新的操作符。
 
 ```sql
@@ -741,9 +694,8 @@ CREATE OPERATOR name (
        [, LTCMP = less_than_op] [, GTCMP = greater_than_op] )
 ```
 
-##### 创建操作符类
-
-定义一个新的操作符类
+### 创建操作符类
+定义一个新的操作符类。
 
 ```sql
 CREATE OPERATOR CLASS name [DEFAULT] FOR TYPE data_type  
@@ -755,16 +707,14 @@ CREATE OPERATOR CLASS name [DEFAULT] FOR TYPE data_type
   } [, ... ]
 ```
 
-##### 创建操作符族
-
-定义一个新的操作符族
+### 创建操作符族
+定义一个新的操作符族。
 
 ```sql
 CREATE OPERATOR FAMILY name  USING index_method  
 ```
 
-##### 创建协议
-
+### 创建协议
 注册自定义数据访问协议，当定义数据库外部表时可以指定。
 
 ```sql
@@ -773,25 +723,22 @@ CREATE [TRUSTED] PROTOCOL name (
    [, validatorfunc='validate_handler' ])
 ```
 
-##### 创建资源队列
-
+### 创建资源队列
 定义一个新的资源队列。
 
 ```sql
 CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 ```
 
-##### 创建角色
-
+### 创建角色
 定义一个新的数据库角色（用户或组）。
 
 ```sql
 CREATE ROLE name [[WITH] option [ ... ]]
 ```
 
-##### 创建规则
-
-定义一个新的重写规则
+### 创建规则
+定义一个新的重写规则。
 
 ```sql
 CREATE [OR REPLACE] RULE name AS ON event
@@ -800,8 +747,7 @@ CREATE [OR REPLACE] RULE name AS ON event
   ...) }
 ```
 
-##### 创建模式
-
+### 创建模式
 定义一个新的模式。
 
 ```sql
@@ -811,8 +757,7 @@ CREATE SCHEMA schema_name [AUTHORIZATION username]
 CREATE SCHEMA AUTHORIZATION rolename [schema_element [ ... ]]
 ```
 
-##### 创建序列
-
+### 创建序列
 定义一个新的序列生成器。
 
 ```sql
@@ -826,8 +771,7 @@ CREATE [TEMPORARY | TEMP] SEQUENCE name
        [OWNED BY { table.column | NONE }]
 ```
 
-##### 创建表
-
+### 创建表
 定义一个新的表。
 
 ```sql
@@ -860,8 +804,7 @@ CREATE [[GLOBAL | LOCAL] {TEMPORARY | TEMP}] TABLE table_name (
     )
 ```
 
-##### 创建表如（AS）
-
+### 创建表如（AS）
 从查询的结果中定义一个新的表。
 
 ```sql
@@ -874,8 +817,7 @@ CREATE [ [GLOBAL | LOCAL] {TEMPORARY | TEMP} ] TABLE table_name
    [DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY]
 ```
 
-##### 创建表空间
-
+### 创建表空间
 定义一个新的表空间。
 
 ```sql
@@ -883,8 +825,7 @@ CREATE TABLESPACE tablespace_name [OWNER username]
        FILESPACE filespace_name
 ```
 
-##### 创建类型
-
+### 创建类型
 定义一个新的类型。
 
 ```sql
@@ -910,17 +851,15 @@ CREATE TYPE name (
 CREATE TYPE name
 ```
 
-##### 创建用户
-
+### 创建用户
 定义一个默认带有 LOGIN 权限的数据库角色。
 
 ```sql
 CREATE USER name [ [WITH] option [ ... ] ]
 ```
 
-##### 创建视图
-
-定义一个新的视图
+### 创建视图
+定义一个新的视图。
 
 ```sql
 CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
@@ -928,16 +867,14 @@ CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
        AS query
 ```
 
-##### 取消分配
-
-取消分配一个已经准备（预编译）的语句
+### 取消分配
+取消分配一个已经准备（预编译）的语句。
 
 ```sql
 DEALLOCATE [PREPARE] name
 ```
 
 ##### 声明
-
 定义一个游标。
 
 ```sql
@@ -946,8 +883,7 @@ DECLARE name [BINARY] [INSENSITIVE] [NO SCROLL] CURSOR
      FOR query [FOR READ ONLY]
 ```
 
-##### 函数
-
+### 函数
 从表中删除行。
 
 ```sql
@@ -956,88 +892,77 @@ DELETE FROM [ONLY] table [[AS] alias]
       [WHERE condition | WHERE CURRENT OF cursor_name ]
 ```
 
-##### 丢弃
-
+### 丢弃
 丢弃会话的状态。
 
 ```sql
 DISCARD { ALL | PLANS | TEMPORARY | TEMP }
 ```
 
-##### 删除聚集函数
-
+### 删除聚集函数
 删除聚集函数。
 
 ```sql
 DROP AGGREGATE [IF EXISTS] name ( type [, ...] ) [CASCADE | RESTRICT]
 ```
 
-##### （做）DO
-
+### （做）DO
 执行匿名代码块作为暂时匿名函数。
 
 ```sql
 DO [ LANGUAGE lang_name ] code
 ```
 
-##### 删除投影
-
+### 删除投影
 删除一个投影。
 
 ```sql
 DROP CAST [IF EXISTS] (sourcetype AS targettype) [CASCADE | RESTRICT]
 ```
 
-##### 删除转换
-
+### 删除转换
 删除一个转换。
 
 ```sql
 DROP CONVERSION [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
-##### 删除数据库
-
+### 删除数据库
 删除一个数据库。
 
 ```sql
 DROP DATABASE [IF EXISTS] name
 ```
 
-##### 删除域
-
+### 删除域
 删除一个域。
 
 ```sql
 DROP DOMAIN [IF EXISTS] name [, ...]  [CASCADE | RESTRICT]
 ```
 
-##### 删除扩展
-
+### 删除扩展
 从数据库中删除一个扩展。
 
 ```sql
 DROP EXTENSION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
 ```
 
-##### 删除外部表
-
+### 删除外部表
 删除一个外部表定义。
 
 ```sql
 DROP EXTERNAL [WEB] TABLE [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
-##### 删除文件空间
-
+### 删除文件空间
 删除一个文件空间。
 
 ```sql
 DROP FILESPACE [IF EXISTS] filespacename
 ```
 
-##### 删除函数
-
+### 删除函数
 删除一个函数。
 
 ```sql
@@ -1045,32 +970,28 @@ DROP FUNCTION [IF EXISTS] name ( [ [argmode] [argname] argtype
     [, ...] ] ) [CASCADE | RESTRICT]
 ```
 
-##### 删除组
-
+### 删除组
 删除一个数据库角色。
 
 ```sql
 DROP GROUP [IF EXISTS] name [, ...]
 ```
 
-##### 删除索引
-
+### 删除索引
 删除一个索引。
 
 ```sql
 DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除语言
-
+### 删除语言
 删除一个程序语言。
 
 ```sql
 DROP [PROCEDURAL] LANGUAGE [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
-##### 删除操作符
-
+### 删除操作符
 删除一个操作符。
 
 ```sql
@@ -1078,153 +999,134 @@ DROP OPERATOR [IF EXISTS] name ( {lefttype | NONE} ,
     {righttype | NONE} ) [CASCADE | RESTRICT]
 ```
 
-##### 删除操作符类
-
+### 删除操作符类
 删除一个操作符类。
 
 ```sql
 DROP OPERATOR CLASS [IF EXISTS] name USING index_method [CASCADE | RESTRICT]
 ```
 
-##### 删除操作符族
-
+### 删除操作符族
 删除一个操作符族。
 
 ```sql
 DROP OPERATOR FAMILY [IF EXISTS] name USING index_method [CASCADE | RESTRICT]
 ```
 
-##### 删除拥有（owned）
-
-珊瑚数据库角色所拥有的数据库对象。
+### 删除拥有（owned）
+删除数据库角色所拥有的数据库对象。
 
 ```sql
 DROP OWNED BY name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除协议
-
+### 删除协议
 从数据库中删除外部表的访问协议。
 
 ```sql
 DROP PROTOCOL [IF EXISTS] name
 ```
 
-##### 删除资源队列
-
+### 删除资源队列
 删除一个资源队列。
 
 ```sql
 DROP RESOURCE QUEUE queue_name
 ```
 
-##### 删除角色
-
+### 删除角色
 删除一个数据库角色。
 
 ```sql
 DROP ROLE [IF EXISTS] name [, ...]
 ```
 
-##### 删除规则
-
+### 删除规则
 删除一个重写规则。
 
 ```sql
 DROP RULE [IF EXISTS] name ON relation [CASCADE | RESTRICT]
 ```
 
-##### 删除模式
-
+### 删除模式
 删除一个模式。
 
 ```sql
 DROP SCHEMA [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除序列
-
-删除一个序列
+### 删除序列
+删除一个序列。
 
 ```sql
 DROP SEQUENCE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除表
-
+### 删除表
 删除一个表。
 
 ```sql
 DROP TABLE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除表空间
-
-删除一个表空间
+### 删除表空间
+删除一个表空间。
 
 ```sql
 DROP TABLESPACE [IF EXISTS] tablespacename
 ```
 
-##### 删除类型
-
-删除一个数据类型
+### 删除类型
+删除一个数据类型。
 
 ```sql
 DROP TYPE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 删除用户
-
-删除一个数据库角色
+### 删除用户
+删除一个数据库角色。
 
 ```sql
 DROP USER [IF EXISTS] name [, ...]
 ```
 
-##### 删除视图
-
-删除一个视图
+### 删除视图
+删除一个视图。
 
 ```sql
 DROP VIEW [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 结束（END）
-
-提交当前事务
+### 结束（END）
+提交当前事务。
 
 ```sql
 END [WORK | TRANSACTION]
 ```
 
-##### 执行
-
+### 执行
 执行一个已经准备好的SQL语句。
 
 ```sql
 EXECUTE name [ (parameter [, ...] ) ]
 ```
 
-##### 解释
-
+### 解释
 展示语句的查询计划。
 
 ```sql
 EXPLAIN [ANALYZE] [VERBOSE] statement
 ```
 
-##### 提取
-
+### 提取
 使用游标获取查询结果的行。
 
 ```sql
 FETCH [ forward_direction { FROM | IN } ] cursorname
 ```
 
-##### 授权
-
-定义一个访问权限
+### 授权
+定义一个访问权限。
 
 ```sql
 GRANT { {SELECT | INSERT | UPDATE | DELETE | REFERENCES | 
@@ -1266,9 +1168,8 @@ GRANT { SELECT | INSERT | ALL [PRIVILEGES] }
     TO username
 ```
 
-##### 插入
-
-在表中创建新的行
+### 插入
+在表中创建新的行。
 
 ```sql
 INSERT INTO table [( column [, ...] )]
@@ -1276,64 +1177,56 @@ INSERT INTO table [( column [, ...] )]
    [, ...] | query}
 ```
 
-##### 加载
-
-加载或重新加载共享库文件
+### 加载
+加载或重新加载共享库文件。
 
 ```sql
 LOAD 'filename'
 ```
 
-##### 锁
-
-锁住一张表
+### 锁
+锁住一张表。
 
 ```sql
 LOCK [TABLE] name [, ...] [IN lockmode MODE] [NOWAIT]
 ```
 
-##### 移动
-
-放置一个游标
+### 移动
+放置一个游标。
 
 ```sql
 MOVE [ forward_direction {FROM | IN} ] cursorname
 ```
 
-##### 准备
-
-准备一个执行的语句
+### 准备
+准备一个执行的语句。
 
 ```sql
 PREPARE name [ (datatype [, ...] ) ] AS statement
 ```
 
-##### 重新分配拥有
-
+### 重新分配拥有
 改变数据库角色所拥有的数据库对象的所有权。
 
 ```sql
 REASSIGN OWNED BY old_role [, ...] TO new_role
 ```
 
-##### 重新索引
-
-重新构建索引
+### 重新索引
+重新构建索引。
 
 ```sql
 REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 ```
 
-##### 释放 SAVEPOINT
-
+### 释放SAVEPOINT
 销毁一个之前定义过的savepoint。
 
 ```sql
 RELEASE [SAVEPOINT] savepoint_name
 ```
 
-##### 重置
-
+### 重置
 恢复系统配置参数的值为默认值。
 
 ```sql
@@ -1342,9 +1235,8 @@ RESET configuration_parameter
 RESET ALL
 ```
 
-##### 撤销
-
-撤销访问权限
+### 撤销
+撤销访问权限。
 
 ```sql
 REVOKE [GRANT OPTION FOR] { {SELECT | INSERT | UPDATE | DELETE 
@@ -1392,32 +1284,28 @@ REVOKE [ADMIN OPTION FOR] parent_role [, ...]
        [CASCADE | RESTRICT]
 ```
 
-##### 回滚
-
-中止当前事务
+### 回滚
+中止当前事务。
 
 ```sql
 ROLLBACK [WORK | TRANSACTION]
 ```
 
-##### 回滚到 SAVEPOINT
-
-将当前事务回滚到某个 savepoint。
+### 回滚到SAVEPOINT
+将当前事务回滚到某个savepoint。
 
 ```sql
 ROLLBACK [WORK | TRANSACTION] TO [SAVEPOINT] savepoint_name
 ```
 
-##### SAVEPOINT
-
-在当前事务定义一个新的 savepoint。
+### SAVEPOINT
+在当前事务定义一个新的savepoint。
 
 ```sql
 SAVEPOINT savepoint_name
 ```
 
-##### 选择（SELECT）
-
+### 选择（SELECT）
 从表或者视图中检索行。
 
 ```sql
@@ -1436,8 +1324,7 @@ SELECT [ALL | DISTINCT [ON (expression [, ...])]]
   [FOR {UPDATE | SHARE} [OF table_name [, ...]] [NOWAIT] [...]]
 ```
 
-##### 选择到（SELECT INTO）
-
+### 选择到（SELECT INTO）
 从查询结果中定义一个新的表。
 
 ```sql
@@ -1457,8 +1344,7 @@ SELECT [ALL | DISTINCT [ON ( expression [, ...] )]]
     [...]]
 ```
 
-##### 设置
-
+### 设置
 改变数据库配置参数的值。
 
 ```sql
@@ -1468,8 +1354,7 @@ SET [SESSION | LOCAL] configuration_parameter {TO | =} value |
 SET [SESSION | LOCAL] TIME ZONE {timezone | LOCAL | DEFAULT}
 ```
 
-##### 设置角色
-
+### 设置角色
 设置当前会话当前角色的标识符。
 
 ```sql
@@ -1480,8 +1365,7 @@ SET [SESSION | LOCAL] ROLE NONE
 RESET ROLE
 ```
 
-##### 设置会话授权
-
+### 设置会话授权
 设置会话角色标识符和当前会话当前角色的标识符。
 
 ```sql
@@ -1492,8 +1376,7 @@ SET [SESSION | LOCAL] SESSION AUTHORIZATION DEFAULT
 RESET SESSION AUTHORIZATION
 ```
 
-##### 设置事务（SET TRANSACTION）
-
+### 设置事务（SET TRANSACTION）
 设置当前事务的特征。
 
 ```sql
@@ -1503,8 +1386,7 @@ SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode
      [READ ONLY | READ WRITE]
 ```
 
-##### 显示（SHOW）
-
+### 显示（SHOW）
 显示当前系统配置参数的值。
 
 ```sql
@@ -1513,8 +1395,7 @@ SHOW configuration_parameter
 SHOW ALL
 ```
 
-##### 开始事务
-
+### 开始事务
 开始一个事务块。
 
 ```sql
@@ -1522,16 +1403,14 @@ START TRANSACTION [SERIALIZABLE | READ COMMITTED | READ UNCOMMITTED]
                   [READ WRITE | READ ONLY]
 ```
 
-##### 截断（TRUNCATE）
-
+### 截断（TRUNCATE）
 清空表的所有行。
 
 ```sql
 TRUNCATE [TABLE] name [, ...] [CASCADE | RESTRICT]
 ```
 
-##### 更新
-
+### 更新
 更新表的行。
 
 ```sql
@@ -1542,8 +1421,7 @@ UPDATE [ONLY] table [[AS] alias]
    [WHERE condition | WHERE CURRENT OF cursor_name ]
 ```
 
-##### 清理
-
+### 清理
 垃圾收集和选择性分析数据库。
 
 ```sql
@@ -1553,8 +1431,7 @@ VACUUM [FULL] [FREEZE] [VERBOSE] ANALYZE
               [table [(column [, ...] )]]
 ```
 
-##### 值
-
+### 值
 计算一组行。
 
 ```sql
