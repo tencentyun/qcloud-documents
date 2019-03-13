@@ -1,7 +1,7 @@
 ## 功能描述
 PUT Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能创建新的 Bucket 。创建  Bucket 的用户默认成为 Bucket 的持有者。
 ### 细节分析
-1. 创建 Bucket 时，如果没有指定访问权限，则默认使用私有读写（private）权限。
+创建 Bucket 时，如果没有指定访问权限，则默认使用私有读写（private）权限。
 
 ## 请求
 ### 请求示例
@@ -12,7 +12,7 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
->Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+>Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
@@ -21,7 +21,7 @@ Authorization: Auth String
 
 #### 非公共头部
 该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前有三种 Bucket 的访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。用户也可以单独明确赋予用户读、写或读写权限。内容如下：
->了解更多 acl 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
+>?了解更多 acl 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -37,7 +37,7 @@ Authorization: Auth String
 
 ### 响应头
 #### 公共响应头
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
@@ -57,7 +57,7 @@ Authorization: Auth String
 ## 实际案例
 
 ### 请求
-```
+```shell
 PUT / HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2016 19:12:22 GMT
@@ -65,7 +65,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ```
 
 ### 响应
-```
+```shell
 HTTP /1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
@@ -73,5 +73,4 @@ Connection: keep-alive
 Date: Thu, 12 Jan 2016 19:12:22 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3ZWRiODJfOWIxZjRlXzZmNDBfMTUz
-
 ```
