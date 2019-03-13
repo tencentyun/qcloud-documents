@@ -6,7 +6,7 @@ PUT Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接
 ## 请求
 ### 请求示例
 
-```
+```shell
 PUT / HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
