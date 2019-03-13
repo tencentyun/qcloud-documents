@@ -12,11 +12,11 @@ FDW 插件有很多分类，根据不同目标数据库实例类型可以定义�
 ### 1. postgres_fdw、mysql_fdw 等插件辅助参数    
 
  - host
-    必须项。目标实例的内网 IP 地址，postgres_fdw 使用。
+    必须项。目标实例的 IP 地址，postgres_fdw 使用。
  - address
-    必须项。目标实例的内网 IP 地址，mysql_fdw 使用。
+    必须项。目标实例的 IP 地址，mysql_fdw 使用。
  - port
-    必须项。目标实例的内网 port。
+    必须项。目标实例的 port。
  - instanceid
     必须项。目标实例的资源 ID。
   1. 如果目标实例类型为 TencentDB 类型，则为实例 ID，例如格式类似 postgres-xxxxx、mysql-xxxxx 等，可在实例控制台查看，如 PostgreSQL 为：
