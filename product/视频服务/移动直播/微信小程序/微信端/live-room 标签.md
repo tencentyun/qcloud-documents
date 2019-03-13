@@ -61,7 +61,7 @@ liveroom.pause();
 	muted="{{muted}}"
 	debug="{{debug}}"
 	bindonRoomEvent="onRoomEvent">
-</rtcroom>
+</live-room>
 
 
 // Page.js 文件
