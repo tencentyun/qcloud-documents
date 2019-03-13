@@ -1,3 +1,4 @@
+## 操作场景
 黑石公网普通型与内网负载均衡采用的是 FULLNAT 模式，源目 IP 都做了地址转换，后端物理服务器无法获取 Client IP，可以通过 TOA（Tcp Option Address）方式获取 Client IP。
 公网增强型负载均衡采用 DNAT 模式，只做目的地址转换，后端物理服务器可以直接获取 Client IP。
 
