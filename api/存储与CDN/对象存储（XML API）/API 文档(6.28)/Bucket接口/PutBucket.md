@@ -50,6 +50,7 @@ Authorization: Auth String
 | BucketAlreadyExists |409 Conflict|当请求创建的 Bucket 已经存在，并且请求创建的用户就是拥有者| 
 | InvalidBucketName | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述|
 | InvalidRequest | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述| 
+
 如果 Bucket 设置的 ACL 不正确，也会导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 相关的文档
 
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
