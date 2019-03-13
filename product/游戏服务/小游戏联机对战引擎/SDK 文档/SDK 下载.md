@@ -1,7 +1,7 @@
-## 变更历史
+
 为方便开发者接入小游戏联机对战引擎产品，在下载 SDK 之前，请查阅 [变更历史](https://cloud.tencent.com/document/product/1038/33730)。
 
-## SDK 下载
+
 | 平台  | 更新时间   | 版本   | SDK 下载    | 文档    |
 | ---- | ---- | ---- | ---- | ---- |
 | 微信小游戏（JavaScript）   | 2019/3/13    | v1.0.1    | [下载](https://main.qcloudimg.com/raw/ed454bb9dd3b91c095dd4306dba9d4bf.zip)   |[快速入门](https://cloud.tencent.com/document/product/1038/33299)    [接口文档](https://cloud.tencent.com/document/product/1038/33315)    |
