@@ -1,7 +1,7 @@
 ## 功能描述
-PUT Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能创建新的 Bucket 。创建  Bucket 的用户默认成为 Bucket 的持有者。
-### 细节分析
-创建 Bucket 时，如果没有指定访问权限，则默认使用私有读写（private）权限。
+PUT Bucket 接口请求可以在指定账号下创建一个存储桶。该 API 接口不支持匿名请求，您需要使用带 Authorization 签名认证的请求才能创建新的 Bucket 。创建  存储桶的用户默认成为存储桶的持有者。
+
+>?创建存储桶时，如果没有指定访问权限，则默认使用私有读写（private）权限。
 
 ## 请求
 ### 请求示例
@@ -20,8 +20,7 @@ Authorization: Auth String
 该请求操作的实现使用公共请求头,了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
-该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前有三种 Bucket 的访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。用户也可以单独明确赋予用户读、写或读写权限。内容如下：
->?了解更多 acl 请求可详细请参见 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 文档。
+该请求操作的实现可以使用如下头部信息，如需了解 acl 的相关信息请参阅 [ACL 概述](https://cloud.tencent.com/document/product/436/30752) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -37,13 +36,13 @@ Authorization: Auth String
 
 ### 响应头
 #### 公共响应头
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头,了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 ### 响应体
 该响应体返回为空。
-### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+### 错误码
+以下描述此请求可能会发生的一些特殊的且常见的错误情况，获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 |错误码|HTTP 状态码|描述|
 |--------|--------|--------------|
@@ -51,9 +50,9 @@ Authorization: Auth String
 | InvalidBucketName | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述|
 | InvalidRequest | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述| 
 
-如果 Bucket 设置的 ACL 不正确，也会导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 相关的文档
+如果 Bucket 设置的 ACL 不正确，也会导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 相关的文档。
 
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 
 ## 实际案例
 
