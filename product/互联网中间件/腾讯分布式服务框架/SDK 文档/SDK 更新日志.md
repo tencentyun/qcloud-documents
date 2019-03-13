@@ -22,7 +22,7 @@
 
 ### 版本
 
-- 1.12.0-Edwage-RELEASE 版本SDK, 支持 springboot 1.5.x
+- 1.12.0-Edgware-RELEASE 版本SDK, 支持 springboot 1.5.x
 - 1.12.0-Finchely-RELEASE 版本SDK，支持 spring boot 2.0.x
 
 
