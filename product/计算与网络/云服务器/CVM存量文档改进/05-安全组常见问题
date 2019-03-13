@@ -1,6 +1,6 @@
 本文介绍与安全组以及端口配置相关的常见用户问题。
-- 如果您想了解在控制台中如何新建、配置和进行安全组操作，请参考(配置安全组)[https://cloud.tencent.com/document/product/213/15377]和(安全组操作)[https://cloud.tencent.com/document/product/213/18197]
-- 如果您熟练使用腾讯云服务器API，也可以通过(安全组API)[https://cloud.tencent.com/document/product/213/12447]对安全组进行配置和操作。
+- 如果您想了解在控制台中如何新建、配置和进行安全组操作，请参考[配置安全组](https://cloud.tencent.com/document/product/213/15377)和[安全组操作](https://cloud.tencent.com/document/product/213/18197)
+- 如果您熟练使用腾讯云服务器API，也可以通过[安全组API](https://cloud.tencent.com/document/product/213/12447)对安全组进行配置和操作。
 
 ## 端口相关
 
