@@ -9,14 +9,14 @@ GET Object 接口请求可以在 COS 的存储桶中将一个文件（对象）�
 ## 请求
 
 ### 请求示例
-```
+```shell
 GET /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -41,10 +41,10 @@ Authorization: Auth String
 | 名称                |  描述                                                         |类型   | 必选 |
 | ------------------- | ------ | ---- | ------------------------------------------------------------ |
 | Range               | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位     |string | 否   | 
-| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed) |string | 否   | 
-| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304(not modified) |string | 否   | 
-| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed) | string | 否   | 
-| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified) |string | 否   | 
+| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回412（precondition failed） |string | 否   | 
+| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回304（not modified） |string | 否   | 
+| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回412（precondition failed） | string | 否   | 
+| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回304（not modified） |string | 否   | 
 
 ### 请求体
 
@@ -67,8 +67,8 @@ Authorization: Auth String
 |x-cos-meta- \*|用户自定义的元数据|string|
 |x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|string|
 |x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|string|
-|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID。|string|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|string|
+|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID|string|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
 
 
 ### 响应体
@@ -87,7 +87,7 @@ Authorization: Auth String
 
 ### 请求一
 
-```
+```shell
 GET /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2014 22:32:00 GMT
@@ -96,7 +96,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应一
 
-```
+```shell
 HTTP/1.1 200 OK
 Date: Wed, 28 Oct 2014 22:32:00 GMT
 Content-Type: application/octet-stream
@@ -118,7 +118,7 @@ x-cos-storage-class: STANDARD
 
 **携带 response-xxx 参数**
 
-```
+```shell
 GET /exampleobject?response-content-type=application%2fxml HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2014 22:32:00 GMT
@@ -128,7 +128,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 
 ### 响应二
 
-```
+```shell
 HTTP/1.1 200 OK
 Date: Wed, 28 Oct 2014 22:32:00 GMT
 Content-Type: application/xml
