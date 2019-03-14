@@ -59,11 +59,10 @@
 
 ## 设置
 选择功能列表中的【设置】即可使用该功能。其主要功能如下所示：
-![](https://main.qcloudimg.com/raw/21bf31bdc186e741a00adb8c907e8079.png)
-
+![](https://main.qcloudimg.com/raw/82b95c72e62f5bd44739e3d5a92b1e4c.png)
 ## 一码支付打印
 单击设置页面，进入一码支付打印设置页面。通过【开启一码支付打印】，并选择本门店下的二维码【保存】，之后智能 POS 会自动打印所选二维码上的交易小票并进行语音播报。
-![](https://main.qcloudimg.com/raw/a5316eb2cdb527f42009a26e71972c78.png)
+![](https://main.qcloudimg.com/raw/1ad1c9e8be6bfca06745e4eec5495c4b.png)
 
 ## 解绑设备
 解绑设备功能目前仅由商户管理员可见。在【其他】页面中单击【解绑设备】，即可解绑该设备。**解绑设备后，该设备不再能进行交易，请谨慎使用此功能。**
