@@ -1,6 +1,8 @@
 ## 获取 Demo
 
-[Demo 下载 >> ](https://main.qcloudimg.com/raw/082d94a76b7c0a34feb909c130b72179/tsf-demo-simple-1120.zip) 
+基于 1.12.0-Edgware-RELEASE 版本SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/e84785be5b1fcbd0809e892025840f6e/tsf-demo-simple-1.12.0-E.zip) 
+
+基于 1.12.0-Finchley-RELEASE 版本SDK 的  [Demo 下载 >> ](https://main.qcloudimg.com/raw/71d3686eb13dc528b2d4be0e3d7f26f2/tsf-demo-simple-1.12.0-F.zip) 
 
 ## 工程目录
 
