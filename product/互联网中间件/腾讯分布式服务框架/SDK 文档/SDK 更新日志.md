@@ -21,8 +21,8 @@
 
 ### 版本
 
-- 版本号`1.12.0-Edgware-RELEASE`，基于 Spring Cloud Edgware 版本 SDK, 支持 springboot 1.5.x
-- 版本号`1.12.0-Finchley-RELEASE`，基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x
+- 版本号`1.12.0-Edgware-RELEASE`，基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+- 版本号`1.12.0-Finchley-RELEASE`，基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
 
 ## 1.10.0 - RELEASE（2018-11-12）
