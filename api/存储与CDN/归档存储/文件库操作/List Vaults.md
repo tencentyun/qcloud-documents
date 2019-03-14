@@ -50,19 +50,17 @@ Authorization: Auth
 | VaultName         | 文件库名称                                    | String |
 
 ```JSON
-
 {
-  "Marker": String,
-  "VaultList": [ 
-   {
-    "CreationDate": String,
-    "LastInventoryDate": String,
-    "NumberOfArchives": Number,
-    "SizeInBytes": Number,
-    "VaultQCS": String,
-    "VaultName": String
-   }
-   ...
-  ]
+	"Marker": "String",
+	"VaultList": [{
+			"CreationDate": "String",
+			"LastInventoryDate": "String",
+			"NumberOfArchives": "Number",
+			"SizeInBytes": "Number",
+			"VaultQCS": "String",
+			"VaultName": "String"
+		}
+		...
+	]
 }
 ```

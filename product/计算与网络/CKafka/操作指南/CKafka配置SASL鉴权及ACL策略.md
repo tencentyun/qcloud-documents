@@ -10,6 +10,8 @@
 单击实例列表页的【新建】按钮，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
 ###  添加路由
+>!一个实例最多可创建5条路由。选择 SASL_PLAINTEXT 接入方式的路由有且仅可以有1条。例如，路由类型为公网域名接入选择了 SASL_PLAINTEXT，则其他方式的路由不可以再创建接入方式为 SASL_PLAINTEXT 的项目。
+
 1. 在实例基本信息页面，单击接入方式模块中的【添加路由策略】。
 2. 在弹窗中，选择路由类型和接入方式。
  - 路由类型：公网域名接入
@@ -106,6 +108,7 @@ producer = KafkaProducer (
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#yourusername',
     sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 consumer = KafkaConsumer (
@@ -115,7 +118,8 @@ consumer = KafkaConsumer (
     security_protocol="SASL_PLAINTEXT",
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
-    sasl_plain_password='yourpassword'
+    sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 #SASL_SSL:
@@ -126,7 +130,8 @@ producer = KafkaProducer(
     ssl_check_hostname=False,
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
-    sasl_plain_password='yourpassword'
+    sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 consumer = KafkaConsumer (
     'yourtopic',
@@ -138,6 +143,7 @@ consumer = KafkaConsumer (
     sasl_mechanism='PLAIN',
     sasl_plain_username='yourinstance#youruser',
     sasl_plain_password='yourpassword',
+    api_version=(0,10,0)
 )
 
 #SSL:
@@ -146,7 +152,8 @@ producer = KafkaProducer(
     client_id='yourinstance#youruser#yourpassword#yourclientid',
     security_protocol='SSL',
     ssl_check_hostname=False,
-    ssl_cafile='DigiCertGlobalRootCA.pem'
+    ssl_cafile='DigiCertGlobalRootCA.pem',
+    api_version=(0,10,0)
 )
 consumer = KafkaConsumer (
     'yourtopic',
@@ -155,7 +162,8 @@ consumer = KafkaConsumer (
     client_id='yourinstance#youruser#yourpassword#yourclientid',
     security_protocol='SSL',
     ssl_cafile='DigiCertGlobalRootCA.pem',
-    ssl_check_hostname=False
+    ssl_check_hostname=False,
+    api_version=(0,10,0)
 )
 ```
 更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html) 。

@@ -6,7 +6,7 @@
 
 - 单击查看 [直播聊天室 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4105)
 
-- 单击下载 [SDK 包](https://cloud.tencent.com/product/im.html)
+- 单击下载 [SDK 包](http://sqimg.qq.com/expert_qq/webim/WEB_IMSDK.zip)
 
 ## 准备环境
 

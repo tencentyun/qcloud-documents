@@ -60,7 +60,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.28/demo/common/cos-auth.min.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js"></script>
 <script>
     (function () {
         // 请求用到的参数
@@ -68,6 +68,16 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+
+        // 对更多字符编码的 url encode 格式
+        var camSafeUrlEncode = function (str) {
+            return encodeURIComponent(str)
+                .replace(/!/g, '%21')
+                .replace(/'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29')
+                .replace(/\*/g, '%2A');
+        };
 
         // 计算签名
         var getAuthorization = function (options, callback) {
@@ -113,7 +123,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
                 var auth = info.Authorization;
                 var XCosSecurityToken = info.XCosSecurityToken;
-                var url = prefix + Key;
+                var url = prefix + camSafeUrlEncode(Key).replace(/%2F/, '/');
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
@@ -194,7 +204,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.28/demo/common/cos-auth.min.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js"></script>
 <script>
     (function () {
 
@@ -205,6 +215,16 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
+
+        // 对更多字符编码的 url encode 格式
+        var camSafeUrlEncode = function (str) {
+            return encodeURIComponent(str)
+                .replace(/!/g, '%21')
+                .replace(/'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29')
+                .replace(/\*/g, '%2A');
+        };
 
         // 计算签名
         var getAuthorization = function (options, callback) {
@@ -262,7 +282,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                     arr = items[i].split('=');
                     data[arr[0]] = decodeURIComponent(arr[1] || '');
                 }
-                showMessage(null, {url: prefix + encodeURIComponent(Key).replace(/%2F/g, '/'), ETag: data.etag});
+                showMessage(null, {url: prefix + camSafeUrlEncode(Key).replace(/%2F/g, '/'), ETag: data.etag});
             } else {
             }
         };

@@ -6,7 +6,6 @@ CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并
 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【私有网络】进入私有网络控制台。
 ## 配置对等网络
 1. 在左侧导航中单击【对等连接】进入配置页面。
- ![1](https://main.qcloudimg.com/raw/517a59aacb75ee6eac2c50b07ff49d3a.png)
 2. 单击 【新建】，填写配置信息，配置项填写说明如下：
  - 名称：填写任意方便好记的名称即可（如 test）。
  - 本端地域：选择本端数据库服务器所处的地域。
@@ -22,6 +21,8 @@ CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并
      - 华北地区（北京）：`vpc-q1g8oefi`。
      - 西南地区（成都）：`vpc-6kf7ekus`。
      - 西南地区（重庆）：`vpc-h22su1ll`。
+     - 华南地区（深圳金融）：`vpc-qlo9jto6`。
+     - 华东地区（上海金融）：`vpc-864mgg6d`。
      
  ![2](https://main.qcloudimg.com/raw/91f6bc95ef9abd55dcaf2b21aea9ea19.png)
 3. 配置完毕后，单击【创建】，提交对等连接申请，等待审批。如长时间未通过审批，请咨询腾讯客服或拨打电话：4009-100-100。
@@ -29,7 +30,6 @@ CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并
 ## 配置路由表
 配置完对等网络后，我们开始配置 “路由表”。
 1. 同样在私有网络界面左侧导航单击 【路由表】进入配置页面。
- ![3](https://main.qcloudimg.com/raw/c19ff4c88fd5bec52484b7a2446789e3.png)
 2. 找到需要部署 Agent 的 CVM 所属子网路由表，单击路由表 ID，进入详情页。
  ![](https://main.qcloudimg.com/raw/7bc26580390dddde22c1dc725c1005fe.png)
 3. 单击【新增路由策略】，填写策略信息，说明如下：

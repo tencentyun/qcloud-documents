@@ -1,8 +1,6 @@
 ## 1. 接口描述
-  域名：wenzhi.api.qcloud.com
-  接口名: TextKeywords
-	
-  基于关键词抽取平台, 为用户实现诸如新闻内容关键词自动提取、评论关键词提取等提供基础服务。支持用户自定义词典，提高在垂直领域的抽取效果。目前已经接入的业务包括腾讯新闻客户端、手机腾讯网等。
+接口请求域名：wenzhi.api.qcloud.com
+本接口（TextKeywords）基于关键词抽取平台，为用户实现诸如新闻内容关键词自动提取、评论关键词提取等提供基础服务。目前已经接入的业务包括腾讯新闻客户端、手机腾讯网等。
 
 ## 2. 输入参数
 <table class="t">
@@ -75,7 +73,7 @@
 <tr>
 <td> code
 </td><td>Int32
-</td><td colspan="4">错误码, 0: 成功, 其他值: 失败
+</td><td colspan="4">错误码，0：成功, 其他值：失败
 </td></tr>
 <tr>
 <td> message
@@ -85,7 +83,7 @@
 <tr>
 <td rowspan="5">keywords
 </td><td rowspan="5">Array
-</td><td colspan="4">关键词提取结果，其中Array元素包含以下字段
+</td><td colspan="4">关键词提取结果，其中 Array 元素包含以下字段
 </td></tr>
 <tr>
 <td> score
@@ -109,17 +107,17 @@
 </td></tr></table>
 
 
-  关键词提取API错误码详细信息如下：
+  关键词提取 API 错误码详细信息如下：
 <table class="t">
 <tr>
 <th width="50"> <b>错误码</b>
 </th><th width="100"> <b>含义说明</b>
 </th></tr>
 <tr>
-<td> 400 </td><td> HTTP Method不正确
+<td> 400 </td><td> HTTP Method 不正确
 </td></tr>
 <tr>
-<td> 401 </td><td> HTTP请求参数不符合要求
+<td> 401 </td><td> HTTP 请求参数不符合要求
 </td></tr>
 <tr>
 <td> 503 </td><td> 调用额度已超出限制
@@ -129,7 +127,7 @@
 </td></tr></table>
 
 ## 4. 详细示例
-  示例业务详细信息如下表：
+示例业务详细信息如下表：
 <table class="t">
 <tr>
 <th width="100"> <br />
@@ -151,17 +149,18 @@
 <td> Nonce </td><td> 随机正整数 </td><td> 是 </td><td> 345122
 </td></tr>
 <tr>
-<td rowspan="3">业务参数 </td><td> title </td><td> 新闻标题 </td><td> 是 </td><td> Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330
+<td rowspan="3">业务参数 </td><td> title </td><td> 新闻标题 </td><td> 是 </td><td> Dior 新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330
 </td></tr>
 <tr>
 <td> channel </td><td> 新闻频道(选填 不填默认是科技) </td><td> 否 </td><td> <br />
 </td></tr>
 <tr>
-<td> content </td><td> 新闻正文 </td><td> 是 </td><td> Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330
+<td> content </td><td> 新闻正文 </td><td> 是 </td><td> Dior 新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330
 </td></tr></table>
 
 
   下面以上述业务为例，详细说明“关键词提取API”接口的使用方法。
+	
 ### 4.1 接口鉴权
   示例要调用服务的数据为：{"title":"Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330","content":"Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330"}
   则上述业务的参数列表如下：
@@ -178,15 +177,16 @@
     }</pre>
 </div>
 
-  根据上述参数列表进行签名，得出的数字签名为：HgIYOPcx5lN6gz8JsCFBNAWp2oQ（示例），详细的数字签名的生成方法请参照：《腾讯云接口鉴权》。
-  <b>注意：</b>
-  1）在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名；
-  2）鉴权时，需要将参数列表按key进行排序：字典序，同时大写在前。
-### 4.2 API调用
-  根据上一步（6.4.1）中得到的数字签名，以POST请求为例构造请求URL，将数字签名加入到参数Signature中。
+根据上述参数列表进行签名，得出的数字签名为：HgIYOPcx5lN6gz8JsCFBNAWp2oQ（示例），详细的数字签名的生成方法请参照 [接口鉴权](https://cloud.tencent.com/document/product/271/2053)。
+>!
+- 在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
+- 鉴权时，需要将参数列表按 key 进行排序：字典序，同时大写在前。
+
+### 4.2 API 调用
+根据上一步中得到的数字签名，以 POST 请求为例构造请求 URL，将数字签名加入到参数 Signature 中。
 	
-   <div class="code">
- <pre>  https://wenzhi.api.qcloud.com/v2/index.php?
+<div class="code">
+<pre>https://wenzhi.api.qcloud.com/v2/index.php?
 	Action=TextKeywords
 	&Nonce=345122
 	&Region=sz
@@ -198,11 +198,11 @@
 </div>
 
   执行上述操作之后，会将数据{"title":"Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330","content":"Dior新款，秋冬新款娃娃款甜美圆领配毛领毛呢大衣外套、码数：SM、P330"}发送给API接口，进行相应分析。
-  <b>注意：</b>在发送请求过程中，不能将参数字符串中包含的“_”改写成“.”。
-  上述指令返回的数据结构如下：
-	
-   <div class="code">
- <pre> {
+>!在发送请求过程中，不能将参数字符串中包含的“_”改写成“.”。
+ 
+上述指令返回的数据结构如下：
+<div class="code">
+<pre> {
         "code": 0,
         "message": "",
         "keywords": [
