@@ -106,7 +106,6 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 
 ### Egret 环境
 在 Egret 引擎中使用第三方库的时候，需要先将第三方库编译为 Egret 所要求的模块结构，然后才能正常使用。步骤如下：
-
 1. 使用命令行工具运行下面的命令，当前目录下会生成 MGOBE_Module 文件夹。MGOBE_Module 包含 package.json、tsconfig.json 两个文件。
 ```
  egret create_lib MGOBE_Module
@@ -290,7 +289,6 @@ room.frameBroadcast = event => {
 
 #### 停止帧同步
 使用 room.stopFrameSync 接口可以停止帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家停止接收帧广播。
-
 ```
 // 发起请求
 room.stopFrameSync({}, event => {
