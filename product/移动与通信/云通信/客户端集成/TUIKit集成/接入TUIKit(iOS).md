@@ -20,11 +20,11 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 了解了前面的概念后，您可以通过下图了解集成了 IMSDK 应用的注册/登录流程。
 ![](https://main.qcloudimg.com/raw/00900a1542cef0820f3dac4cd89bfe23.jpg)
-首先用户的终端需要向您的服务器注册帐号(userId)，您的服务器在进行注册业务处理时，按照用户签名文档中的方法生成一个该用户的 userSig，并返回给客户端。客户端再通过该 userId 和 userSig 到 IMSDK 进行登录操作。
+首先用户的终端需要向您的服务器注册帐号(userId)，您的服务器在进行注册业务处理时，按照用户签名文档中的方法生成一个该用户的 userSig，并返回给客户端。客户端再通过该 userId 和 userSig 到 IM SDK 进行登录操作。
 为方便您接入开发测试，我们在腾讯云 IM 控制台提供了快速生成 userSig 的工具（在这之前您需要先在腾讯云创建自己的 IM 应用，可参考 [云通信 IM 入门](https://cloud.tencent.com/product/im/getting-started)）。登录控制台后，在顶部导航栏选择 >【云通信】>【应用列表】（选择您当前在使用的应用）>【应用配置】>【开发辅助工具】，参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.89.8B.E5.B7.A5.E7.94.9F.E6.88.90-usersig) 即可生成 userSig。
 
 ## TUIKit 工程集成
-如果您需要快速上线，不太关心 TUIKit 源码，可以选择方式一直接集成 TUIKit.framework ，如果您自定义需求比较多，需要修改 TUIKit 源码，可以选择方式二直接集成 TUIKit  源码。
+如果您需要快速上线，不太关心 TUIKit 源码，可以选择方式一直接集成 TUIKit.framework，如果您自定义需求比较多，需要修改 TUIKit 源码，可以选择方式二直接集成 TUIKit 源码。
 
 ### 方式一：集成 TUIKit.framework
 您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK 再将其导入到您当前的工程项目中。
@@ -48,14 +48,14 @@ pod init
 platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
 target 'App' do
-# TUIKit 需要依赖 ImSDK ，这里要加载 ImSDK
+# TUIKit 需要依赖 IM SDK ，这里要加载 IM SDK
 pod 'TXIMSDK_iOS' 
 pod 'TXIMSDK_TUIKit_iOS'
 end
 ```
 
 4. **更新并安装 SDK**
-在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK 和 TXIMSDK_TUIKit ：
+在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK 和 TXIMSDK_TUIKit：
 ```
 pod install
 ```
@@ -123,11 +123,11 @@ ImSDK.framework
 ![](https://main.qcloudimg.com/raw/508382b9c253972e5a00201410419398.png)
 ![](https://main.qcloudimg.com/raw/7737c781a93c609dee999dbf79e99a86.png)
 
-2. **在 TUIKitDemo 里面用 pod 集成了 ImSDK ，编译 TUIKit 为什么报错找不到 ImSDK ？**
-因为 TUIKit 并没有链接 ImSDK，你需要参考下图在 TUIKit 工程里面配置 ImSDK 的路径寻址。
+2. **在 TUIKitDemo 里面用 pod 集成了 ImSDK ，编译 TUIKit 为什么报错找不到 IM SDK？**
+因为 TUIKit 并没有链接 ImSDK，您需要参考下图在 TUIKit 工程里面配置 ImSDK 的路径寻址。
 ![](https://main.qcloudimg.com/raw/854281df7f83a82d2bbdfddc2514be78.png)
 ![](https://main.qcloudimg.com/raw/7be7014e0e9ce81563dbd9d757bafdcf.png)
->!无论出于什么样的业务逻辑，整个工程只能链接一份 IM SDK ,否则会导致 API 调用异常，一些客户用我们的 Demo 测试调用 API 没有问题，用自己的 Demo 测试就出现了莫名其妙的错误，大部分都是这个原因导致，一个工程只需要链接一份 IM SDK，如果要在其他位置使用 IM SDK，只需要参考上面的步骤配置下 IM SDK 路径寻址就可以了。
+>!无论出于什么样的业务逻辑，整个工程只能链接一份 IM SDK，否则会导致 API 调用异常，一些客户用我们的 Demo 测试调用 API 没有问题，用自己的 Demo 测试就出现了莫名其妙的错误，大部分都是这个原因导致，一个工程只需要链接一份 IM SDK，如果要在其他位置使用 IM SDK，只需要参考上面的步骤配置下 IM SDK 路径寻址就可以了。
 
 ## TUIkit API 调用
 ### 目录结构
@@ -164,7 +164,7 @@ NSString *userSig = @"";        //填入签名userSig
 }];
 ```
 ### UI 主界面
-当您登录成功后，可以直接创建主界面管理类 TabBarController ，在 TabBarController 添加会话列表类和信息设置类，在具体方式如下：
+当您登录成功后，可以直接创建主界面管理类 TabBarController，在 TabBarController 添加会话列表类和信息设置类，在具体方式如下：
 ```
 //1，创建TabBarController
 TTabBarController *tbc = [[TTabBarController alloc] init];
@@ -194,7 +194,7 @@ tbc.tabBarItems = items;
 ![](https://main.qcloudimg.com/raw/46aa2633fbdee137fd7a838870309615.jpg)
 
 您可以单击会话列表右上角的添加按钮，选择 "发起群聊" 或 "添加会话"，具体步骤如下：
-**第一步**：进入会话列表类 ConversationController ，创建并添加 TUIKit  的列表UI类 TConversationController，并且设置代理监听。
+**第一步**：进入会话列表类 ConversationController，创建并添加 TUIKit  的列表UI类 TConversationController，并且设置代理监听。
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -287,7 +287,7 @@ tbc.tabBarItems = items;
 
 ### 会话界面
 #### 添加会话界面
-进入上一步创建跳转的会话类 ChatViewController ，创建并添加 TUIKit 的会话UI类 TChatController ，并且设置代理监听。
+进入上一步创建跳转的会话类 ChatViewController，创建并添加 TUIKit 的会话 UI 类 TChatController，并且设置代理监听。
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -370,7 +370,7 @@ tbc.tabBarItems = items;
 
 #### 图片、视频、文件消息查看
 查看消息列表的图片、视频、文件消息需要先下载对应的消息内容，具体操作步骤如下：
-**第1步**：在会话类 ChatViewController 监听代理 TChatControllerDelegate  ，在下面的回调跳转到对应的消息查看类。
+**第1步**：在会话类 ChatViewController 监听代理 TChatControllerDelegate，在下面的回调跳转到对应的消息查看类。
 ```
 - (void)chatController:(TChatController *)chatController didSelectMessages:(NSMutableArray *)msgs atIndex:(NSInteger)index
 {
