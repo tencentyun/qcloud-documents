@@ -24,7 +24,7 @@ newname
 newowner
 该表空间的新拥有者。
 
-### 示例
+## 示例
 
 重命名表空间index_space为fast_raid：
 
