@@ -166,6 +166,8 @@ java -version
 
 通过 Maven 获取 TSF SDK。在 [Demo 工程](https://cloud.tencent.com/document/product/649/20261)  中，`pom.xml` 所在目录执行 `mvn clean package` 即可下载 TSF SDK。
 
+最新 SDK 版本参考 [《SDK 更新日志》]( https://cloud.tencent.com/document/product/649/20230)。
+
 ![](https://main.qcloudimg.com/raw/d6d4c2e76bd308671472682999eb78d3.png)
 
 > **注意：**如果无法下载相关依赖，请检查网络是否有防火墙限制。

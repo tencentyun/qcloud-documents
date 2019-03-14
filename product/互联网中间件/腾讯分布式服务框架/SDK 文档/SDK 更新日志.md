@@ -1,3 +1,32 @@
+## 1.12.0 - RELEASE (2019-03-13)
+
+### 新特性
+
+- 支持自动重注册，服务鉴权/路由/限流策略本地缓存
+- 服务路由支持基于可用区和地域就近访问策略。
+- 发布F版SDK, 支持spring boot2.0
+
+### 优化
+
+- 升级分布式配置监听，精确并减小监听范围，处理更新为空的场景，避免大范围key刷新事件。
+- 优化分部署配置回调触发逻辑。
+
+### bug 修复
+
+- spring-cloud-commons 升级到1.3.1 解决RetryTemplate 会导致LoadBalanceInterceptor thread unsafe 问题
+- 修复启用hystrix时配置会导致tsf-route与feignbuilder冲突的问题
+
+### 版本建议
+
+- 支持向后兼容, 建议全量升级
+
+### 版本
+
+- 1.12.0-Edgware-RELEASE 版本SDK, 支持 springboot 1.5.x
+- 1.12.0-Finchely-RELEASE 版本SDK，支持 spring boot 2.0.x
+
+
+
 ## 1.10.0 - RELEASE（2018-11-12）
 
 ### 新特性
@@ -15,6 +44,8 @@
 
 - 支持向后兼容。
 - 新功能建议全量升级。
+
+
 
 ## 1.1.1 - RELEASE（2018-08-26）
 
