@@ -1,7 +1,8 @@
 ## 获取 Demo
 
-- 基于 1.12.0-Edgware-RELEASE 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/e84785be5b1fcbd0809e892025840f6e/tsf-demo-simple-1.12.0-E.zip) 
-- 基于 1.12.0-Finchley-RELEASE 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/71d3686eb13dc528b2d4be0e3d7f26f2/tsf-demo-simple-1.12.0-F.zip) 
+基于 Spring Cloud Edgware 版本SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/e84785be5b1fcbd0809e892025840f6e/tsf-demo-simple-1.12.0-E.zip) 
+
+基于 Spring Cloud Finchley 版本SDK 的  [Demo 下载 >> ](https://main.qcloudimg.com/raw/71d3686eb13dc528b2d4be0e3d7f26f2/tsf-demo-simple-1.12.0-F.zip) 
 
 ## 工程目录
 
@@ -14,7 +15,7 @@
 ```
 
 其中 consumer-demo 表示服务消费者， provider-demo 表示服务提供者。
-pom.xml 中定义了工程需要的依赖包：
+pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finchley 版本SDK 举例说明）：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -24,12 +25,12 @@ pom.xml 中定义了工程需要的依赖包：
     <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version>1.10.0-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
+        <version>1.12.0-Finchley-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
     </parent>
 
 	<groupId>com.tsf.demo</groupId>
 	<artifactId>tsf-demo</artifactId>
-	<version>1.10.0-RELEASE</version>
+	<version>1.12.0-Finchley-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -60,7 +61,7 @@ pom.xml 中定义了工程需要的依赖包：
 <parent>
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version>1.1.1-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
+        <version>1.12.0-Finchley-RELEASE</version> <!--- 使用最新 SDK 版本号替换 -->
 </parent>
 ```
 
