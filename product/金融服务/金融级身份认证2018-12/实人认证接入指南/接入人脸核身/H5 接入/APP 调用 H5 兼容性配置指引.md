@@ -1,7 +1,7 @@
 ## 概述
 ![](https://main.qcloudimg.com/raw/e2b8ff1a050e043bbc50bd0e65926a54.png)
-- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/655/32103#pz) 指引进行 iOS 及安卓手机的兼容性适配。
-- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/655/32103#yz)，需覆盖安卓系统版本4.0 - 8.0。
+- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/655/32103#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
+- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/655/32103#yz)，需覆盖 Android 系统版本4.0 - 8.0。
 
 <span id='pz'></span>
 ## 兼容性配置
@@ -102,8 +102,8 @@ WebView 所属的 Activity 必须重写如下函数：
 - 从下面的机型列表中选择覆盖 Android4.0 - 8.0 版本号的机型进行测试。
 - 每个系统版本号选取至少2款不同手机。
 
-|手机品牌	|手机型号|	安卓系统版本|
-|-|-|-|
+|手机品牌	|手机型号|	Android 系统版本|
+|------------|----------|-----------------------|
 |华为	|Mate 9 pro	|8.0.0|
 |华为	|Mate 10|	8.0.0|
 |华为|	华为荣耀 8|	7.0.0|
