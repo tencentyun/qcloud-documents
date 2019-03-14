@@ -33,19 +33,22 @@
 
 5. 验证CNAME生效。CNAME设置完成后约15分钟生效，当云直播域名管理中域名对应CNAME值显示![](https://main.qcloudimg.com/raw/8283d3a1d6e6993df5b81f5034b3bbb9.png)则CNAME成功。若CNAME设置完成后长时间未显示成功，可参考[CNAME配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
 
+> 特别说明：
+> 本文档基于阿里云 2019年03月01日版本进行说明，如阿里云控制台更新，本文档暂未更新，请根据说明路径自行调整。如无法设置成功的，请与客服联系。
+
 ## 百度云设置方法
 若您的域名服务商为百度云，且已完成域名备案，可参考下述步骤进行CNAME设置。
 1. 登录腾讯云控制台，通过导航栏进入[云直播服务](https://console.cloud.tencent.com/live)。点击左侧侧边栏「域名管理」，进入域名管理页，获取CNAME地址。
 ![](https://main.qcloudimg.com/raw/cc49dc693d41eefdc0130f0b8b3439e1.png)
 
 2. 登录百度云控制台，通过导航栏进入[域名服务](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)。点击左侧边栏「域名管理」，进入域名管理列表页。
-![](https://main.qcloudimg.com/raw/1b8d8f895ea8931e26ae9df516fb63c0.png)
+![](https://main.qcloudimg.com/raw/3e992eb24f22f68f36cb987813a1b6cd.png)
 
 3. 选择腾讯云直播添加的域名，在操作列点击【解析】进入DNS解析页面，如下图所示：
-![](https://main.qcloudimg.com/raw/24cf3d618cf2d06423b498da0d1d3031.png)
+![](https://main.qcloudimg.com/raw/f139c87b258c48981075de341c92e603.png)
 
 4. 添加解析记录，如下图所示：
-![](https://main.qcloudimg.com/raw/34e6079b2cee79e83f055182e9fe70be.png)
+![](https://main.qcloudimg.com/raw/e7c11bc00e33e59676eb2945f1a4f963.png)
  - 主机记录：填写二级域名，即域名前缀。若播放域名为play.myqcloud.com，则添加play；若需直接解析主域名myqloud.com，则输入@；若需解析泛域名，则输入*
  - 记录类型：CNAME记录
  - 解析路线：建议选择“默认”
@@ -55,6 +58,8 @@
 
 5. 验证CNAME生效。CNAME设置完成后约15分钟生效，当云直播域名管理中域名对应CNAME值显示![](https://main.qcloudimg.com/raw/8283d3a1d6e6993df5b81f5034b3bbb9.png)则CNAME成功。若CNAME设置完成后长时间未显示成功，可参考[CNAME配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
 
+> 特别说明：
+> 本文档基于百度云 2019年03月01日版本进行说明，如百度云控制台更新，本文档暂未更新，请根据说明路径自行调整。如 无法设置成功，请与客服联系。
 
 ## DNSPod 设置方法
 若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
