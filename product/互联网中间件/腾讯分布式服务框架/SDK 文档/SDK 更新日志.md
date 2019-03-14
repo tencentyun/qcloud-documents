@@ -1,4 +1,4 @@
-## 1.12.0 - RELEASE (2019-03-13)
+## 1.12.0 - RELEASE（2019-03-13）
 
 ### 新特性
 - 支持自动重注册，服务鉴权/路由/限流策略本地缓存。
@@ -7,7 +7,7 @@
 
 ### 优化
 
-- 升级分布式配置监听，精确并减小监听范围，处理更新为空的场景，避免大范围key刷新事件。
+- 升级分布式配置监听，精确并减小监听范围，处理更新为空的场景，避免大范围 key 刷新事件。
 - 优化分部署配置回调触发逻辑。
 
 ### Bug 修复
@@ -21,9 +21,8 @@
 
 ### 版本
 
-- 1.12.0-Edgware-RELEASE 版本SDK，支持 springboot 1.5.x。
-- 1.12.0-Finchely-RELEASE 版本SDK，支持 spring boot 2.0.x。
-
+- 版本号`1.12.0-Edgware-RELEASE`，基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+- 版本号`1.12.0-Finchley-RELEASE`，基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
 
 ## 1.10.0 - RELEASE（2018-11-12）
