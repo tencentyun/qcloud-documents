@@ -19,7 +19,7 @@
 在开始开发云短信应用之前，需要准备如下信息：
 
 - **获取 SDK AppID 和 AppKey**
-云短信应用 SDK **AppID **和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
+云短信应用 SDK **AppID**和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
 
 - **申请签名**
 一个完整的短信由短信 **签名** 和 **短信正文内容** 两部分组成，短信 **签名** 须申请和审核，**签名** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请。
