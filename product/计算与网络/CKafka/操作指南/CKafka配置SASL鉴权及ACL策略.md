@@ -74,7 +74,7 @@ username="INSTANCE-2#admin" password="admin";
 ```bash
 /yourkafka/bin/kafka-console-producer.sh --broker-list yourservers --topic yourtopic --producer.config producer.properties
 ```
-将 SASL_PLAINTEXT 方式需要的配置写入consumer.properties（配置内容参见 [配置文件示例](#配置文件示例)）文件中，运行如下命令消费消息：
+将 SASL_PLAINTEXT 方式需要的配置写入 consumer.properties（配置内容参见 [配置文件示例](#配置文件示例)）文件中，运行如下命令消费消息：
 ```bash
 /yourkafka/bin/kafka-console-consumer.sh --bootstrap-server yourservers --from-beginning --new-consumer --topic yourtopic --consumer.config consumer.properties
 ```
