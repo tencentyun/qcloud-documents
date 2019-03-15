@@ -8,7 +8,7 @@ TDSQL 提供和 mysql 兼容的连接方式，用户通过IP地址、端口号�
 
 ### 概述
 
-TDSQL 实现水平分表，业务只需在创建表的时候指定一个分表字段，后续操作对业务透明，由DCDB负责数据的路由以及汇总。
+TDSQL 实现水平分表，业务只需在创建表的时候指定一个分表字段，后续操作对业务透明，由TDSQL负责数据的路由以及汇总。
 
 -   提供了灵活的读写分离模式
 - 	支持全局的 order by，group by，limit 操作；
@@ -269,7 +269,7 @@ note：TDSQL 不支持设置全局参数，需要调用 OSS 接口设置
 ```
 ### 数据类型
 
-DCDB支持MySQL的所有数据类型，包括数字，字符，日期，空间类型，Json
+TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间类型，Json
 
 #### 数字
 
@@ -355,7 +355,7 @@ DCDB支持MySQL的所有数据类型，包括数字，字符，日期，空间�
 	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c) ) shardkey=a;
 	Query OK, 0 rows affected (0.07 sec)
 ```
-由于在DCDB下，shardkey对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则没法创建表：
+由于在TDSQL下，shardkey对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则没法创建表：
 ```
 	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c),unique key u_2(b,c) ) shardkey=a;;
 ```
@@ -416,7 +416,7 @@ delete/update：为了安全考虑，执行该类sql的时候必须带有where�
 ```
 #### 聚合
 
-DCDB支持如下全局聚合函数和全局的排序分组：sum，min，max，count，avg，order by和group by
+TDSQL支持如下全局聚合函数和全局的排序分组：sum，min，max，count，avg，order by和group by
 
 使用方式和单机mysql一样，对于order by和group by对应的字段需要在select列表中显示指定
 ```
@@ -426,7 +426,7 @@ DCDB支持如下全局聚合函数和全局的排序分组：sum，min，max，c
 ```
 #### 透传sql
 
-在DCDB，proxy会对sql进行语法解析，会有比较严格的限制，如果用户想在某个set中执行sql，可以使用透传sql的功能：
+在TSQL，proxy会对sql进行语法解析，会有比较严格的限制，如果用户想在某个set中执行sql，可以使用透传sql的功能：
 ```
 	mysql> select * from test1 where a in (select a from test1);
 	ERROR 808 (HY000): Proxy ERROR:sql should has one shardkey
@@ -694,7 +694,7 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 	mysqldump --compact --single-transaction --no-create-info -c
                      shard sbtest1  -utest -h10.231.136.34 -P3336  -ptest123
 ```
-    具体参数根据实际情况选择，如果导出的数据要导入到另外一套DCDB环境的话，必须加上-c选项
+    具体参数根据实际情况选择，如果导出的数据要导入到另外一套TDSQL环境的话，必须加上-c选项
 
 如果要导入数据的话，提供专门的导入工具，完成load data outfile对应数据的导入：
 ```
@@ -756,7 +756,7 @@ Sql类型的支持：
 
 #### 子查询
 
-DCDB对于子查询这块支持比较有限，目前只支持带shardkey的derived table
+TDSQL对于子查询这块支持比较有限，目前只支持带shardkey的derived table
 ```
 	mysql> select a from (select * from test1) as t;
 	ERROR 7012 (HY000): Proxy ERROR:sql should has one shardkey
@@ -771,9 +771,9 @@ DCDB对于子查询这块支持比较有限，目前只支持带shardkey的deriv
 
 #### 两级分区
 
-DCDB只用HASH方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为了解决这个问题，可以使用两级分区。
+TDSQL只用HASH方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为了解决这个问题，可以使用两级分区。
 
-DCDB支持range和list格式的两级分区，具体建表语法和mysql分区语法类似
+TDSQL支持range和list格式的两级分区，具体建表语法和mysql分区语法类似
 
 range支持类型
 ```
@@ -850,7 +850,7 @@ list支持类型
 	);
 
 ```
-注意：分区使用的是小于符号，因此如果要存储当年的数据的话（2017），需要创建<2018的分区，用户只需创建到当前的时间分区，DCDB会自动增加后续分区，默认往后创建3个分区，以YEAR为例，DCDB会自动创建2018，2019，2020的分区，后续也会自动增减
+注意：分区使用的是小于符号，因此如果要存储当年的数据的话（2017），需要创建<2018的分区，用户只需创建到当前的时间分区，TDSQL会自动增加后续分区，默认往后创建3个分区，以YEAR为例，TDSQL会自动创建2018，2019，2020的分区，后续也会自动增减
 
 
 
@@ -1074,9 +1074,9 @@ Cast Functions and Operators
 
 ## 读写分离
 
-DCDB支持三种模式的读写分离。
+TDSQL支持三种模式的读写分离。
 
-- DCDB开启语法解析的配置，通过语法解析过滤出用户的select读请求，默认把读请求直接发给备机；(该功能风险较大，需提交工单方能开启)
+- TDSQL开启语法解析的配置，通过语法解析过滤出用户的select读请求，默认把读请求直接发给备机；(该功能风险较大，需提交工单方能开启)
 - 通过增加slave注释标记，将指定的sql发往备机。即在sql中添加/*slave*/这样的标记，该sql会发送给备机；
 - 由只读帐号发送的请求会根据配置的属性发给备机
 	
@@ -1091,8 +1091,8 @@ proxy增加如下错误编码
 	
 	    ER_PROXY_SANITY_ERROR, /*sql类型错误*/
 	    ER_PROXY_BAD_COMMAND,/*sql命令不支持*/
-	    ER_PROXY_SQL_NOT_SUPPORT,/*DCDB不支持类型*/
-	    ER_PROXY_SQLUSE_NOT_SUPPORT,/*DCDB不支持该用法*/
+	    ER_PROXY_SQL_NOT_SUPPORT,/*TDSQL不支持类型*/
+	    ER_PROXY_SQLUSE_NOT_SUPPORT,/*TDSQL不支持该用法*/
 	    ER_PROXY_ERROR_SHARDKEY, /*建表时一级二级分区键选择有问题，如两者要不一样，是表中某一列*/
 	
 	    ER_PROXY_ERROR_SUB_SHARDKEY, /*暂时不用*/
