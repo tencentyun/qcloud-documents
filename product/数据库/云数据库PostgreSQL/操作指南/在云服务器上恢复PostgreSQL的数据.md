@@ -3,7 +3,7 @@ mkdir recovery
 注: recovery 只是示例目录，用户可以自行修改为自己的目录。
 
 ### 2.	下载全量备份文件
-进入 PostgreSQL 的管理页面——“腾讯云控制台>云产品>关系型数据库>PostgreSQL 实例列表>管理>备份管理”点击下载，获取您所需的备份文件下周地址。（服务器需与数据库处于同一网络中）
+进入 PostgreSQL 的管理页面——“腾讯云控制台>云产品>关系型数据库>PostgreSQL 实例列表>管理>备份管理”单击下载，获取您所需的备份文件下周地址。（服务器需与数据库处于同一网络中）
 
 ![](https://mc.qcloudimg.com/static/img/a5de09aeecb4bf1d9ce20423c0c8ddd5/1.png)
 

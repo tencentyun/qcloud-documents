@@ -1,4 +1,4 @@
-您在使用云硬盘时，可能碰到诸如管理云硬盘、管理快照、访问控制以及监控与告警等问题。本文将介绍使用云硬盘的常用操作，供您参考。
+您在使用云硬盘时，可能碰到诸如管理云硬盘、管理快照以及监控与告警等问题。本文将介绍使用云硬盘的常用操作，供您参考。
 ## 云硬盘
 - [创建云硬盘](https://cloud.tencent.com/document/product/362/5744)
 - [挂载云硬盘](https://cloud.tencent.com/document/product/362/5745)
@@ -21,9 +21,6 @@
 - [定期快照](https://cloud.tencent.com/document/product/362/8191)
 - [跨地域复制快照](https://cloud.tencent.com/document/product/362/18152)
 - [删除快照](https://cloud.tencent.com/document/product/362/5758)
-
-## 访问控制
-[访问控制](https://cloud.tencent.com/document/product/362/32457)
 
 ## 监控与告警
 [监控与告警](https://cloud.tencent.com/document/product/362/6742)

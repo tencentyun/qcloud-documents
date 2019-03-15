@@ -51,8 +51,8 @@ NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](
 ### 请求
 
 ```
-DELETE /?lifecycle HTTP/1.1
-Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com
+DELETE /?cors HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 12:59:09 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502859472;1502939472&q-key-time=1502859472;1502939472&q-header-list=host&q-url-param-list=lifecycle&q-signature=49c1414c700643f11139219384332a3ec4e9485b
 ```

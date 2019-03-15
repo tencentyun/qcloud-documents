@@ -10,6 +10,8 @@
 单击实例列表页的【新建】按钮，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
 ###  添加路由
+>!一个实例最多可创建5条路由。选择 SASL_PLAINTEXT 接入方式的路由有且仅可以有1条。例如，路由类型为公网域名接入选择了 SASL_PLAINTEXT，则其他方式的路由不可以再创建接入方式为 SASL_PLAINTEXT 的项目。
+
 1. 在实例基本信息页面，单击接入方式模块中的【添加路由策略】。
 2. 在弹窗中，选择路由类型和接入方式。
  - 路由类型：公网域名接入
@@ -25,20 +27,35 @@
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
-1. 在 client.properties 配置文件中，增加如下配置：
+1. 在配置文件（参见 [配置文件示例](#配置文件示例)）中，增加如下配置：
 ```
 sasl.mechanism=PLAIN
 security.protocol=SASL_PLAINTEXT
 ```
 2. 配置用户名及密码：
 ```
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginM
-odule required
-username="INSTANCE-2#admin" password="admin";
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
+username="instanceId#admin" password="admin";
 ```
 其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
- - username：包含实例名和用户名，使用`#`拼接，实例名为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
+ - username：包含实例 ID 和用户名，使用`#`拼接，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
  - password：部分为用户名对应的密码。
+ 
+**配置文件示例**<span id="配置文件示例"></span>
+- 生产者配置文件名称为 producer.properties，SASL_PLAINTEXT 相关配置如下：
+```
+sasl.mechanism=PLAIN
+security.protocol=SASL_PLAINTEXT
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
+username="INSTANCE-2#admin" password="admin";
+```
+- 消费者配置文件名称为 consumer.properties，SASL_PLAINTEXT 相关配置如下：
+```
+sasl.mechanism=PLAIN
+security.protocol=SASL_PLAINTEXT
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
+username="INSTANCE-2#admin" password="admin";
+```
 
 ###  配置 ACL 策略
 1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的【编辑 acl 策略】。
@@ -52,11 +69,12 @@ username="INSTANCE-2#admin" password="admin";
 
 ###  连通性测试
 ####  Kafka 自带工具脚本
-将 SASL_PLAINTEXT 方式需要的配置写入 producer.properties 文件中，运行下列命令生产消息：
+
+将 SASL_PLAINTEXT 方式需要的配置写入 producer.properties（配置内容参见 [配置文件示例](#配置文件示例)）文件中，运行下列命令生产消息：
 ```bash
 /yourkafka/bin/kafka-console-producer.sh --broker-list yourservers --topic yourtopic --producer.config producer.properties
 ```
-将 SASL_PLAINTEXT 方式需要的配置写入consumer.properties 文件中，运行如下命令消费消息：
+将 SASL_PLAINTEXT 方式需要的配置写入 consumer.properties（配置内容参见 [配置文件示例](#配置文件示例)）文件中，运行如下命令消费消息：
 ```bash
 /yourkafka/bin/kafka-console-consumer.sh --bootstrap-server yourservers --from-beginning --new-consumer --topic yourtopic --consumer.config consumer.properties
 ```

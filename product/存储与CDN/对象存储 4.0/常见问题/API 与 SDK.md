@@ -33,10 +33,6 @@
 
 详情请查阅 [获取预签名下载链接](https://cloud.tencent.com/document/product/436/12270#.E8.8E.B7.E5.8F.96.E9.A2.84.E7.AD.BE.E5.90.8D.E4.B8.8B.E8.BD.BD.E9.93.BE.E6.8E.A5) 文档。
 
-### 最新版本 SDK 是否支持 C# SDK?
-
-暂不支持，预计2月中旬上线。
-
 ### SDK 能否使用 CDN 加速域名进行访问？
 
 支持，请根据您所使用的编程语言，并参阅对应的 [SDK 文档](https://cloud.tencent.com/document/sdk) 进行操作。

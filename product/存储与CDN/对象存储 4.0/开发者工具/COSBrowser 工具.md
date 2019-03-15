@@ -10,11 +10,11 @@ COSBrowser 工具即 COS 桌面版工具，用户可以使用该工具进行可�
 - [COSBrowser macOS 桌面端](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)
 
 ## 软件界面
-![cosbrowser](https://main.qcloudimg.com/raw/fdb4665917c2dc638068824999153fc6.png)
+![](https://main.qcloudimg.com/raw/c6c3f9cfe9e62607f46d4bbaabf4bab2.png)
 
 ## 使用方法
 
-用户可使用云 API 密钥 SecretId 和 SecretKey 进行登录，该密钥可在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，登录后会保留登录信息。
+用户可使用云 API 密钥 SecretId 和 SecretKey （不支持项目密钥）进行登录，该密钥可在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，登录后会保留登录信息。
 目前支持批量上传、下载、删除功能。拖拽上传下载暂不支持。
 
 ## 更新日志

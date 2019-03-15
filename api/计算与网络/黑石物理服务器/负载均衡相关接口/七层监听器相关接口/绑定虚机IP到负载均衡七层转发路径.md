@@ -46,9 +46,9 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success"
 }
 ```
 
@@ -103,9 +103,9 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL7LocationVmIp
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success"
 }
 
 ```

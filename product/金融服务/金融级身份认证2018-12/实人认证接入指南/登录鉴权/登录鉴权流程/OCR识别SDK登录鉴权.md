@@ -9,9 +9,9 @@ SIGN ticket 有效期3600秒，建议合作方缓存在服务器，必须在临�
 - 方式一：签名验证
 合作伙伴 App 端调用其服务后台验证签名，验证成功后即可信任前端的返回结果。
 - 方式二：服务端查询结果
-合伙伙伴 App 端调用其服务后台查询识别结果，由 OCR 识别服务端鉴权并返回最终结果。
+合作伙伴 App 端调用其服务后台查询识别结果，由 OCR 识别服务端鉴权并返回最终结果。
 
-详细接入开发指南请参见：[身份证 OCR SDK接入](https://cloud.tencent.com/document/product/655/31876)
+详细接入开发指南请参见：[身份证 OCR SDK 接入](https://cloud.tencent.com/document/product/655/32069)
 
 ## 流程图示
 OCR 识别 SDK 登录鉴权流程图示：

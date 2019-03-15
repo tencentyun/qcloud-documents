@@ -1,9 +1,9 @@
 
-## 群组综述 
+## 群组综述
 
 IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
-## 群组消息 
+## 群组消息
 
 群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照 [消息发送](/doc/product/269/消息收发（iOS%20SDK）#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
 
@@ -13,7 +13,7 @@ IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组
 
 ### 创建内置类型群组
 
-`TIMCreateGroup` 创建群，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。云通信中内置了私有群、公开群、聊天室互动直播聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。另外使用 `AVChatRoom` 类型创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [互动直播集成多人聊天方案](/doc/product/269/互动直播集成多人聊天方案)。
+`TIMCreateGroup` 创建群，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。云通信中内置了私有群、公开群、聊天室音视频聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。另外使用 `AVChatRoom` 类型创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [互动直播集成多人聊天方案](/doc/product/269/互动直播集成多人聊天方案)。
 
 **原型：**
 
@@ -33,17 +33,17 @@ TIM_DECL void TIMCreateGroup(const char* group_type, const char** members, uint3
 
 **参数说明：**
 
-> 注：公开群和聊天室调用方式和参数相同，仅参数不同。 
+> 注：公开群和聊天室调用方式和参数相同，仅参数不同。
 
 参数 | 说明
 ---|---
 group_type | 群组类型<br>Private 私有群<br>Public 公开群<br>ChatRoom 聊天室<br>AVChatRoom 直播大群
-members | 用户 ID 列表，指定加入群组的成员，创建者默认加入，无需指定（群内最多 10000 人） 
+members | 用户 ID 列表，指定加入群组的成员，创建者默认加入，无需指定（群内最多 10000 人）
 members_count | 成员个数
-group_name |  指定群组名称（最长 30 字节） 
-cb | 回调，返回群组 ID 
+group_name |  指定群组名称（最长 30 字节）
+cb | 回调，返回群组 ID
 
-示例创建一个私有群组，并且把用户『c9_1』等三人拉入群组，创建者默认加入群组，无需显式指定。 **示例：  **  
+示例创建一个私有群组，并且把用户『c9_1』等三人拉入群组，创建者默认加入群组，无需显式指定。 **示例：  **
 
 ```
 #define DEMO_MEM_COUNT 10
@@ -127,7 +127,7 @@ max_member_num | 最大成员数
 `TTIMInviteGroupMember` 接口 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于共有群，需要对方同意才可进入。
 
 **权限说明：**
- 
+
 - 只有私有群可以拉用户入群。
 - 公开群、聊天室邀请用户入群，需要用户同意。
 - 直播大群不能邀请用户入群。
@@ -148,15 +148,15 @@ TIM_DECL void TIMInviteGroupMember(const char* groupid, const char** members, ui
 ```
 
 **参数说明：**
- 
+
 参数|说明
 ---|---
-groupid | 群组 ID 
+groupid | 群组 ID
 members | 成员 ID 数组
 members_count	| 成员个数
-cb | 回调，TIMGroupMemberResult 数组，返回成功加入群组的用户列表以及成功状态 
+cb | 回调，TIMGroupMemberResult 数组，返回成功加入群组的用户列表以及成功状态
 ·
-示例中邀请『c9_1』等三人加入群组 ID 『test_groupid』，成功后返回操作列表以及成功状态。 **示例：**   
+示例中邀请『c9_1』等三人加入群组 ID 『test_groupid』，成功后返回操作列表以及成功状态。 **示例：**
 
 ```
 void DemoInviteGroupMember()
@@ -190,13 +190,13 @@ void CBInviteGroupMemberOnErrorImp(int code, const char* desc, void* data)
 }
 ```
 
-### 申请加入群组 
+### 申请加入群组
 
-`TIMApplyJoinGroup` 接口可以主动申请进入群组，此操作只对公开群和聊天室有效。 
+`TIMApplyJoinGroup` 接口可以主动申请进入群组，此操作只对公开群和聊天室有效。
 
 **权限说明：**
- 
-- 私有群不能由用户主动申请入群。 
+
+- 私有群不能由用户主动申请入群。
 - 公开群和聊天室可以主动申请进入。
 - 如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功。
 - 直播大群可以任意加入群组。
@@ -220,15 +220,15 @@ TIM_DECL void TIMApplyJoinGroup(const char* groupid, const char* hello_msg, TIMC
 参数|说明
 ---|---
 groupid | 群组 ID
-hello_msg  | 申请理由 
-callback | 回调 
+hello_msg  | 申请理由
+callback | 回调
 
-### 退出群组 
+### 退出群组
 
-群组成员可以主动退出群组。 
+群组成员可以主动退出群组。
 
 **权限说明：**
- 
+
 - 对于私有群，全员可退出群组。
 - 对于公开群、聊天室和直播大群，群主不能退出。
 
@@ -237,7 +237,7 @@ callback | 回调
 ```
 /**
 Description:	退出群组
-@param	[in]	groupid		群组 ID	
+@param	[in]	groupid		群组 ID
 @param	[in]	callback	回调
 @return			void
 @exception      none
@@ -249,8 +249,8 @@ TIM_DECL void TIMQuitGroup(const char* groupid, TIMCommCB* callback);
 
 参数|说明
 ---|---
-groupid | 群组 ID 
-callback | 回调 
+groupid | 群组 ID
+callback | 回调
 
 示例中主动退出群组『TGID1JYSZEAEQ』。  **示例：**
 
@@ -267,21 +267,21 @@ void DemoQuiteGroup()
 }
 ```
 
-### 删除群组成员 
+### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。 
+群组成员也可以删除其他成员，函数参数信息与加入群组相同。
 
 **权限说明：**
- 
+
 - 对于私有群：只有创建者可删除群组成员。
-- 对于公开群和聊天室：只有管理员和群主可以踢人。 
+- 对于公开群和聊天室：只有管理员和群主可以踢人。
 - 对于直播大群：不能踢人。
 
 **原型：**
 
 ```
 /**
-Description:	删除群组成员 
+Description:	删除群组成员
 @param	[in]	groupid		群组 ID
 @param	[in]	members		群成员 ID
 @param	[in]	members_count	群成员个数
@@ -298,14 +298,14 @@ TIM_DECL void TIMDeleteGroupMember(const char* groupid, const char** members, ui
 
 参数|说明
 ---|---
-groupid | 群组 ID 
+groupid | 群组 ID
 members | 群成员 ID
 members_count |	群成员个数
 reason | 踢人原因描述
 reason_len | 原因长度
 callback | 回调
 
-示例中把好友『WIN_001』等 3 人从群组『TGID1JYSZEAEQ』中删除，执行成功后返回操作列表以及操作状。**示例：** 
+示例中把好友『WIN_001』等 3 人从群组『TGID1JYSZEAEQ』中删除，执行成功后返回操作列表以及操作状。**示例：**
 
 ```
 void DemoDeleteGroupMember()
@@ -340,12 +340,12 @@ void CBDeleteGroupMemberOnErrorImp(int code, const char* desc, void* data)
 }
 ```
 
-### 获取群成员列表 
+### 获取群成员列表
 
 `TIMGetGroupMembers` 方法可获取群内成员列表，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **权限说明：**
- 
+
 - 任何群组类型都可以获取成员列表。
 - 直播大群只能拉取部分成员列表：包括群主、管理员和部分成员。
 
@@ -353,7 +353,7 @@ void CBDeleteGroupMemberOnErrorImp(int code, const char* desc, void* data)
 
 ```
  /**
- Description:	获取群成员列表 
+ Description:	获取群成员列表
  @param	[in]	groupid	群组 ID
  @param	[in]	cb		回调
  @return			void
@@ -397,15 +397,15 @@ void CBGetGroupMemberInfoOnErrorImp(int code, const char* desc, void* data)
 }
 ```
 
-### 获取加入的群组列表 
+### 获取加入的群组列表
 
-通过 `GetGroupList` 可以获取当前用户加入的所有群组。 
+通过 `GetGroupList` 可以获取当前用户加入的所有群组。
 
 **权限说明：**
- 
+
 - 此接口可以获取自己所加入的群列表，返回的 `TIMGroupInfo` 只包含 group\groupName\groupType 信息，想要获取更加详细的字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 - 此接口只能获得加入的部分直播大的列表。
- 
+
 **原型：**
 
 ```
@@ -433,7 +433,7 @@ int GetGroupBaseInfoType(TIMGroupBaseInfoHandle handle, char* type, uint32_t* le
 
 参数|说明
 ---|---
-cb | 回调，返回群组 ID 列表，TIMGroupBaseInfoHandle 数组 
+cb | 回调，返回群组 ID 列表，TIMGroupBaseInfoHandle 数组
 
 **属性说明 :**
 
@@ -477,10 +477,10 @@ void CBGetGroupListOnErrorImp(int code, const char* desc, void* data)
 
 ### 解散群组
 
-通过 `DeleteGroup` 可以解散群组。 
+通过 `DeleteGroup` 可以解散群组。
 
 **权限说明：**
- 
+
 - 对于私有群，任何人都无法解散群组。
 - 对于公开群、聊天室和直播大群，群主可以解散群组。
 
@@ -501,15 +501,15 @@ TIM_DECL void TIMDeleteGroup(const char* groupid, TIMCommCB * callback);
 
 参数 | 说明
 ---|---
-groupid | 群组 ID 
-callback | 回调，返回群组 ID 列表，NSString 数组 
+groupid | 群组 ID
+callback | 回调，返回群组 ID 列表，NSString 数组
 
-### 转让群组 
+### 转让群组
 
-通过 `ModifyGroupOwner` 可以转让群组。 
+通过 `ModifyGroupOwner` 可以转让群组。
 
 **权限说明：**
- 
+
 - 只有群主才有权限进行群转让操作。
 - 直播大群不能进行群转让操作。
 
@@ -597,7 +597,7 @@ memberinfoopt| 拉取群成员信息设置<br>flag 需要获取的群成员标�
 `TIMGetGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。通过 `TIMGetGroupDetailInfo` 可获取群组资料。 群资料信息由 `TIMGroupDetailInfoHandleo` 定义。
 
 **权限说明：**
- 
+
 - 获取群组资料接口只能由群成员调用。
 - 非群成员无法通过此方法获取资料，需要调用。
 
@@ -645,9 +645,9 @@ TIM_DECL TIMMessageHandle CloneMessageHandleFromGroupDetailInfo(TIMGroupDetailIn
 
 参数|说明
 ---|---
-groupids |群组 ID 数组，需要获取资料的群组列表 
+groupids |群组 ID 数组，需要获取资料的群组列表
 groupid_count | 群组 ID 个数
-cb | 回调，返回群组资料列表，TIMGetGroupDetailInfo 
+cb | 回调，返回群组资料列表，TIMGetGroupDetailInfo
 
 **属性说明：**
 
@@ -700,7 +700,7 @@ void CBGetGroupDetailInfoOnErrorImp(int code, const char* desc, void* data)
 `TIMGetGroupDetailInfo` 方法只对群成员有效，非成员需要调用 `TIMGetGroupPublicInfo` 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **权限说明：**
- 
+
 - 任意用户可以获取群公开资料。
 
 **原型：**
@@ -723,7 +723,7 @@ TIM_DECL void TIMGetGroupPublicInfo(const char** groupids, const uint32_t group_
 
 参数|说明
 ---|---
-groupids |群组 ID 数组，需要获取资料的群组列表 
+groupids |群组 ID 数组，需要获取资料的群组列表
 group_num | 群组 ID 个数
 flag|群信息标记位
 custom|群扩展信息 接口预留，暂不支持。
@@ -745,14 +745,14 @@ callback|回调
 
 - 直播大群只能获得部分成员的资料：包括群主、管理员和部分群成员；
 
-## 修改群资料 
+## 修改群资料
 
-### 修改群名 
+### 修改群名
 
 通过 `TIMModifyGroupName` 可以修改群组名称。
 
 **权限说明：**
- 
+
 - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群名。
 - 对于私有群，任何人可修改群名。
 
@@ -795,12 +795,12 @@ void DemoModifyGroupName()
 }
 ```
 
-### 修改群简介 
+### 修改群简介
 
 通过 `TIMModifyGroupIntroduction` 可以修改群组简介。
 
 **权限说明：**
- 
+
 - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介。
 - 对于私有群，任何人可修改群简介。
 
@@ -808,7 +808,7 @@ void DemoModifyGroupName()
 
 ```
 /**
-Description:	修改群简介 
+Description:	修改群简介
 @param	[in]	groupid			群 ID
 @param	[in]	introduction	群简介
 @param	[in]	introduction_len 群简介长度
@@ -824,16 +824,16 @@ TIM_DECL void TIMModifyGroupIntroduction(const char* groupid, const char* introd
 参数 |说明
 ---|---
 groupid			|群 ID
-introduction	|群简介，简介最长 120 字节 
+introduction	|群简介，简介最长 120 字节
 introduction_len|群简介长度
 callback	|	回调
 
-### 修改群公告 
+### 修改群公告
 
 通过 `ModifyGroupNotification` 可以修改群组公告。
 
 **权限说明：**
- 
+
 - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群公告。
 - 对于私有群，任何人可修改群公告。
 
@@ -856,17 +856,17 @@ TIM_DECL void TIMModifyGroupNotification(const char* groupid, const char* notifi
 
 参数|说明
 ---|---
-groupid | 群 ID 
-notification | 群公告，群公告最长 150 字节 
+groupid | 群 ID
+notification | 群公告，群公告最长 150 字节
 notification_len | 群公告长度
-callback | 回调 
+callback | 回调
 
-### 修改群头像 
+### 修改群头像
 
 通过 `TIMModifyGroupFaceUrl` 可以修改群头像。
 
 **权限说明：**
- 
+
 - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群头像。
 - 对于私有群，任何人可修改群头像。
 
@@ -889,17 +889,17 @@ TIM_DECL void TIMModifyGroupFaceUrl(const char* groupid, const char* face_url, u
 
 参数|说明
 ---|---
-groupid | 群 ID 
-face_url| 群头像地址（最长 100 字节） 
+groupid | 群 ID
+face_url| 群头像地址（最长 100 字节）
 face_url_len|群头像 URL 长度
 callback | 回调
 
-### 修改加群选项 
+### 修改加群选项
 
 通过 `TIMModifyGroupAddOpt` 可以修改加群选项。
 
 **权限说明：**
- 
+
 - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改加群选项。
 - 对于私有群，只能通过邀请加入群组，不能主动申请加入某个群组。
 
@@ -921,16 +921,16 @@ TIM_DECL void TIMModifyGroupAddOpt(const char* groupid, const TIMGroupAddOpt opt
 
 参数|说明
 ---|---
-groupid | 群 ID 
-opt| 加群选项，可设置为允许任何人加入、需要审核、禁止任何人加入 
-callback | 回调 
+groupid | 群 ID
+opt| 加群选项，可设置为允许任何人加入、需要审核、禁止任何人加入
+callback | 回调
 
-### 修改群维度自定义字段 
+### 修改群维度自定义字段
 
 通过 `TIMModifyGroupDatilInfoV2` 可对群未读自定义字段进行修改，详细使用情况见后面介绍。
 
 **权限说明：**
- 
+
 后台配置相关的 key 和权限。
 
 ### 修改群员信息
@@ -968,10 +968,10 @@ Description:	修改群员信息
 TIM_DECL void TIMModifyGroupMemberInfo(TIMModifyGroupMemberInfoOptionHandle opt, TIMCommCB * callback);
 ```
 
-### 修改用户群内身份 
+### 修改用户群内身份
 
 **权限说明：**
- 
+
 - 只有群主或者管理员可以进行对群成员的身份进行修改。
 - 直播大群不支持修改用户群内身份。
 
@@ -988,11 +988,11 @@ TIM_DECL int SetRole4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMemberInfoO
 ---|---
 role | 群内身份：<br>200 普通群成员<br>300 群管理员<br>400 群主
 
-### 对群成员进行禁言 
+### 对群成员进行禁言
 
 **权限说明：**
- 
-- 只有群主或者管理员可以进行对群成员进行禁言。 
+
+- 只有群主或者管理员可以进行对群成员进行禁言。
 
 **原型：**
 
@@ -1005,9 +1005,9 @@ TIM_DECL int SetShutupTime4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMembe
 
 参数|说明
 ---|---
-time | 禁言时间，单位秒 
+time | 禁言时间，单位秒
 
-### 修改群名片 
+### 修改群名片
 
 **原型：**
 
@@ -1020,10 +1020,10 @@ TIM_DECL int SetNameCard4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMemberI
 
 参数|说明
 ---|---
-name_card | 要设置的群名片 
+name_card | 要设置的群名片
 len| 群名片长度
 
-### 修改群成员维度自定义字段 
+### 修改群成员维度自定义字段
 
 **原型：**
 
@@ -1050,15 +1050,15 @@ TIM_DECL int SetMsgFlag4ModifyGroupMemberInfoOptionHandle(TIMModifyGroupMemberIn
 ---|---
 flag | 消息屏蔽选项（0：接收；1：拒绝）
 
-## 群组未决信息 
+## 群组未决信息
 
-### 拉取群未决相关信息 
+### 拉取群未决相关信息
 
 `TIMGetGroupPendency` 接口可拉取群未决相关信息。此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
 > 注：
->- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。 
->- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。 
+>- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。
+>- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
 
 **权限说明：**
 
@@ -1083,7 +1083,7 @@ TIM_DECL void TIMGetGroupPendency(TIMGetGroupPendencyOptHandle opt, TIMGetGroupP
 ---|---
 opt|未决参数配置
 callback|回调，返回未决列表
- 
+
 **拉取未决的 `option` 相关操作： **
 
 ```
@@ -1110,7 +1110,7 @@ TIM_DECL int SetMaxCount4GetGroupPendencyOptHandle(TIMGetGroupPendencyOptHandle 
 
 参数|说明
 ---|---
-meta|拉取操作返回的相关信息，包含分页信息和拉取状态等 
+meta|拉取操作返回的相关信息，包含分页信息和拉取状态等
 items|拉取的未决条目 TIMGroupPendencyItemHandle 数组
 
 **`meta` 属性说明： **
@@ -1127,7 +1127,7 @@ TIM_DECL uint32_t GetUnreadCount4GroupPendencyMetaHandle(TIMGroupPendencyMetaHan
 
 属性|说明
 ---|---
-NextStartTime|拉取下一个分页的起始时戳，用于传入拉取配置中。为 0 时表示没有后面的分页了 
+NextStartTime|拉取下一个分页的起始时戳，用于传入拉取配置中。为 0 时表示没有后面的分页了
 ReportTimeStamp|已读时戳，用来判定未决条目是否已读
 UnreadCount|所有未读条目个数。不限制于本次分页中
 
@@ -1156,13 +1156,13 @@ TIM_DECL int GetRspUserData4GroupPendencyItemHandle(TIMGroupPendencyItemHandle h
 
 属性|说明
 ---|---
-GroupId|群 ID 
-ReqId|未决发起者 ID 
-RspId|未决审批者 ID 
-Time|添加未决时间 
-PendencyType|枚举未决条目类型： 请求加群；邀请加群 
+GroupId|群 ID
+ReqId|未决发起者 ID
+RspId|未决审批者 ID
+Time|添加未决时间
+PendencyType|枚举未决条目类型： 请求加群；邀请加群
 PendencyHandleFlag|枚举未决条目状态：未决；他人已决；操作者已决 说明：UserA 申请加入 Group，AdminA 审批通过。则 AdminB 拉取的此未决条目的类型为，他人已决
-PendencyHandleResult|枚举审批结果：同意；拒绝 
+PendencyHandleResult|枚举审批结果：同意；拒绝
 ApplyInviteMsg/ApprovalMsg|申请、审批时的留言信息
 
 **示例：**
@@ -1198,7 +1198,7 @@ void DemoGetGroupPendency()
 	auto opt = CreateGetGroupPendencyOptHandle();
 	int ret = SetStartTime4GetGroupPendencyOptHandle(opt, 0);
 	SetStartTime4GetGroupPendencyOptHandle(opt, 0);
-	SetMaxCount4GetGroupPendencyOptHandle(opt, 1);	
+	SetMaxCount4GetGroupPendencyOptHandle(opt, 1);
 	TIMGetGroupPendencyCB cb;
 	void* handle_copy = 0;
 	cb.OnSuccess = CBGetGroupPendencyOnSuccessImp;
@@ -1210,9 +1210,9 @@ void DemoGetGroupPendency()
 }
 ```
 
-### 上报群未决已读 
+### 上报群未决已读
 
-对于未决信息，SDK 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。 
+对于未决信息，SDK 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
 
 **原型：**
 
@@ -1231,8 +1231,8 @@ TIM_DECL void TIMGroupPendencyReport(uint64_t report_time, TIMCommCB* cb);
 
 参数|说明
 ---|---
-report_time|上报已读时戳。对于单条未决信息，时戳包含在其属性里。 
-cb|回调 
+report_time|上报已读时戳。对于单条未决信息，时戳包含在其属性里。
+cb|回调
 
 
 **示例：**
@@ -1249,9 +1249,9 @@ void DemoReportGroupPendency()
 }
 ```
 
-### 处理群未决信息 
+### 处理群未决信息
 
-对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 
+对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。
 
 **原型：**
 
@@ -1362,7 +1362,7 @@ void TIMSetGroupAssistantCallBack(TIMGroupAssistantCallBack* cb);
 
 群成员变更时通过 `onMemberUpdate` 回调。
 
-## 群事件消息 
+## 群事件消息
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见 [新消息通知](/doc/product/269/1581#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)），调用方可选择是否予以展示，以及如何展示。 如下图中，展示一条修改群名的事件消息。
 
@@ -1375,11 +1375,11 @@ typedef enum_E_TIM_GROUPTIPS_TYPE
 {
 	TIM_GROUP_TIPS_TYPE_INVITE              = 0x01, //邀请加入群
 	TIM_GROUP_TIPS_TYPE_QUIT_GRP            = 0x02, //退出群
-	TIM_GROUP_TIPS_TYPE_KICKED              = 0x03, //踢出群 
+	TIM_GROUP_TIPS_TYPE_KICKED              = 0x03, //踢出群
 	TIM_GROUP_TIPS_TYPE_SET_ADMIN           = 0x04, //设置管理员
 	TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN        = 0x05, //取消管理员
 	TIM_GROUP_TIPS_TYPE_INFO_CHANGE         = 0x06, //群资料变更
-	TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE  = 0x07, //群成员资料变更 
+	TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE  = 0x07, //群成员资料变更
 }E_TIM_GROUPTIPS_TYPE;
 //群 Tips 类型
 typedef void* TIMMsgGroupTipsElemHandle;
@@ -1415,7 +1415,7 @@ int GetGroupTipsInfoMemberChangeInfo(TIMMsgGroupTipsElemHandle handle, TIMGroupM
 | 变更的群信息 | 在各种群信息变更类型下对应的信息 |
 | 群员变更列表 | TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE类型时对应的信息 包括的属性有：群成员禁言时间  |
 
-**群信息变更类型：** 
+**群信息变更类型：**
 
 ```
 #defineTIM_GROUP_INFO_CHAGE_TYPE_GROUP_NAME	0x1 //群名更改
@@ -1474,15 +1474,15 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 				printf("shutup time :%d", TIMGetGroupMemberChangeInfoShutTime(change_infos[i]));
 			}
 			delete []change_infos;
-			break; 
+			break;
 		}
 	}
 }
 ```
 
-### 用户加入群组 
+### 用户加入群组
 
-当有用户加入群组时（包括申请入群和被邀请入群），群组内会由系统发出通知，开发者可选择展示样式。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_INVITE`。 
+当有用户加入群组时（包括申请入群和被邀请入群），群组内会由系统发出通知，开发者可选择展示样式。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_INVITE`。
 
 **参数说明：**
 
@@ -1493,9 +1493,9 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 | 群名 | 群名 |
 | 被操作人列表 | 入群的用户列表 |
 
-### 用户退出群组 
+### 用户退出群组
 
-当有用户主动退群时，群组内会由系统发出通知。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_QUIT_GRP`。 
+当有用户主动退群时，群组内会由系统发出通知。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_QUIT_GRP`。
 
 **参数说明： **
 
@@ -1505,9 +1505,9 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 | 操作人 | 退出用户 identifier |
 | 群名 | 群名 |
 
-### 用户被踢出群组 
+### 用户被踢出群组
 
-当有用户被踢出群组时，群组内会由系统发出通知。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_KICKED`。 
+当有用户被踢出群组时，群组内会由系统发出通知。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_KICKED`。
 
 **参数说明：**
 
@@ -1518,10 +1518,10 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 | 群名 | 群名 |
 | 被操作人列表 | 被踢用户列表 |
 
-### 被设置/取消管理员 
+### 被设置/取消管理员
 
 当有用户被设置为管理员或者被取消管理员身份时，群组内会由系统发出通知。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_SET_ADMIN` 和 `TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN` 。
- 
+
 **`TIMGroupTipsElem` 参数说明：**
 
 | 参数 | 说明 |
@@ -1531,9 +1531,9 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 | 群名 | 群名 |
 | 被操作人列表 | 被设置/取消管理员身份的用户列表  |
 
-### 群资料变更 
+### 群资料变更
 
-当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。 
+当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。
 
 **`TIMGroupTipsElem` 参数说明：**
 
@@ -1544,7 +1544,7 @@ TIMGroupChangeInfoHandle* change_infos = new TIMGroupChangeInfoHandle[change_num
 | 群名 | 群名 |
 | 群信息变更列表 | 群变更的具体资料信息，为 TIMGroupChangeInfoHandle 数组 |
 
-**`TIMGroupChangeInfoHandle` 原型：**  
+**`TIMGroupChangeInfoHandle` 原型：**
 
 ```
 #define TIM_GROUP_INFO_CHAGE_TYPE_GROUP_NAME	0x1
@@ -1568,9 +1568,9 @@ uint32_t GetGroupChangeInfo(TIMGroupChangeInfoHandle handle, char* info, uint32_
 | faceUrl | 变更后的群头像 URL，如果没有变更则为 NULL  |
 | owner | 变更后的群主，如果没有变更则为 NULL  |
 
-### 群成员资料变更 
+### 群成员资料变更
 
-当群成员的资料变更时，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。 
+当群成员的资料变更时，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。
 
 **`TIMGroupTipsElem` 参数说明：**
 
@@ -1596,9 +1596,9 @@ uint32_t TIMGetGroupMemberChangeInfoShutTime(TIMGroupMemberInfoChangeHanlde hand
 | identifier | 变更的用户 identifier  |
 | shutupTime | 被禁言的时间 |
 
-## 群系统消息 
+## 群系统消息
 
-当有用户申请加群等事件发生时，管理员会收到邀请加群系统消息，用户可根据情况接受请求或者拒绝，相应的消息通过群系统消息展示给用户。 
+当有用户申请加群等事件发生时，管理员会收到邀请加群系统消息，用户可根据情况接受请求或者拒绝，相应的消息通过群系统消息展示给用户。
 
 **群系统消息类型定义： **
 
@@ -1642,36 +1642,36 @@ int HandleJoinRequest(TIMMsgGroupReportElemHandle handle, int flag, TIMCommCB* c
 | Flag | 0x00：拒绝入群 0x01：同意入群  |
 
 **示例：**
- 
-示例中收到群系统消息，如果是入群申请，默认同意，如果是群解散通知，打印信息。其他类型消息解析方式相同。 
 
-### 申请加群消息 
+示例中收到群系统消息，如果是入群申请，默认同意，如果是群解散通知，打印信息。其他类型消息解析方式相同。
 
-**触发时机：**当有用户申请加群时，群管理员会收到申请加群消息，可展示给用户，由用户决定是否同意对方加群，如果管理员同意，可调用 `HandleJoinRequest` 方法。 消息类型为：`TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE`。 
+### 申请加群消息
 
-**参数说明：**
-
-参数 | 说明
----|---
-type | TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE 
-group | 群组 ID，表示是哪个群的申请 
-user | 申请人 
-msg | 申请理由，（可选） 
- 
-### 申请加群同意/拒绝消息 
-
-**触发时机：**当管理员同意加群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。 
+**触发时机：**当有用户申请加群时，群管理员会收到申请加群消息，可展示给用户，由用户决定是否同意对方加群，如果管理员同意，可调用 `HandleJoinRequest` 方法。 消息类型为：`TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE`。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | 同意：TIM_GROUP_SYSTEM_ADD_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_ADD_GROUP_REFUSE_TYPE 
-group | 群组 ID，表示是哪个群通过/拒绝了 
-user | 处理请求的管理员 identifier 
-msg | 同意或者拒绝理由（可选） 
- 
-### 邀请入群消息 
+type | TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE
+group | 群组 ID，表示是哪个群的申请
+user | 申请人
+msg | 申请理由，（可选）
+
+### 申请加群同意/拒绝消息
+
+**触发时机：**当管理员同意加群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。
+
+**参数说明：**
+
+参数 | 说明
+---|---
+type | 同意：TIM_GROUP_SYSTEM_ADD_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_ADD_GROUP_REFUSE_TYPE
+group | 群组 ID，表示是哪个群通过/拒绝了
+user | 处理请求的管理员 identifier
+msg | 同意或者拒绝理由（可选）
+
+### 邀请入群消息
 
 **触发时机：**当有用户被邀请群时，该用户会收到邀请入群消息，可展示给用户，由用户决定是否同意入群，如果同意，调用可调用 `HandleJoinRequest` 方法。消息类型为：`TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE`。
 
@@ -1679,108 +1679,107 @@ msg | 同意或者拒绝理由（可选）
 
 参数 | 说明
 ---|---
-type | TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE 
-group | 群组 ID，表示是哪个群的邀请 
-user | 邀请人 
+type | TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE
+group | 群组 ID，表示是哪个群的邀请
+user | 邀请人
 
-### 邀请入群同意/拒绝消息 
+### 邀请入群同意/拒绝消息
 
-**触发时机：**当被邀请者同意入群请求时，邀请者会收到同意入群的消息；当被邀请者拒绝时，邀请者会收到拒绝入群的消息。 
-
-**参数说明：**
-
-参数 | 说明
----|---
-type | 同意：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE 
-group | 群组 ID，表示是对哪个群通过/拒绝了 
-user | 处理请求的用户 identifier 
-msg | 同意或者拒绝理由（可选） 
-
-### 被管理员踢出群组 
-
-**触发时机：**当用户被管理员踢出群组时，申请人会收到被踢出群的消息。 
+**触发时机：**当被邀请者同意入群请求时，邀请者会收到同意入群的消息；当被邀请者拒绝时，邀请者会收到拒绝入群的消息。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | TIM_GROUP_SYSTEM_KICK_OFF_FROM_GROUP_TYPE 
-group | 群组 ID，表示在哪个群里被踢了 
-user | 操作管理员 identifier 
+type | 同意：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE
+group | 群组 ID，表示是对哪个群通过/拒绝了
+user | 处理请求的用户 identifier
+msg | 同意或者拒绝理由（可选）
 
-### 群被解散 
+### 被管理员踢出群组
 
-**触发时机：**当群被解散时，全员会收到解散群消息。 
-
-**参数说明：**
-
-参数 | 说明
----|---
-type | TIM_GROUP_SYSTEM_DELETE_GROUP_TYPE 
-group | 群组 ID，表示哪个群被解散了 
-user | 操作管理员 identifier 
-
-### 创建群消息 
-
-**触发时机：**当群创建时，创建者会收到创建群消息。当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，作为更新群列表的时机，本终端可以选择忽略。 
+**触发时机：**当用户被管理员踢出群组时，申请人会收到被踢出群的消息。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | TIM_GROUP_SYSTEM_CREATE_GROUP_TYPE 
-group | 群组 ID，表示创建的群 ID 
-user | 创建者，这里也就是用户自己 
+type | TIM_GROUP_SYSTEM_KICK_OFF_FROM_GROUP_TYPE
+group | 群组 ID，表示在哪个群里被踢了
+user | 操作管理员 identifier
 
-### 邀请加群 
+### 群被解散
 
-**触发时机：**当用户被邀请加入群组时，该用户会收到邀请消息，**创建群组时初始成员无需邀请即可入群**。 
+**触发时机：**当群被解散时，全员会收到解散群消息。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | TIM_GROUP_SYSTEM_INVITED_TO_GROUP_TYPE 
-group | 群组 ID，邀请进入哪个群 
-user | 操作人，表示哪个用户的邀请 
+type | TIM_GROUP_SYSTEM_DELETE_GROUP_TYPE
+group | 群组 ID，表示哪个群被解散了
+user | 操作管理员 identifier
+
+### 创建群消息
+
+**触发时机：**当群创建时，创建者会收到创建群消息。当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，作为更新群列表的时机，本终端可以选择忽略。
+
+**参数说明：**
+
+参数 | 说明
+---|---
+type | TIM_GROUP_SYSTEM_CREATE_GROUP_TYPE
+group | 群组 ID，表示创建的群 ID
+user | 创建者，这里也就是用户自己
+
+### 邀请加群
+
+**触发时机：**当用户被邀请加入群组时，该用户会收到邀请消息，**创建群组时初始成员无需邀请即可入群**。
+
+**参数说明：**
+
+参数 | 说明
+---|---
+type | TIM_GROUP_SYSTEM_INVITED_TO_GROUP_TYPE
+group | 群组 ID，邀请进入哪个群
+user | 操作人，表示哪个用户的邀请
 
 **方法说明：**
 
-- 当用户同意入群，可调用 `accept` 方法 
-- 当用户不同意，可调用 `refuse` 方法。 
+- 当用户同意入群，可调用 `accept` 方法
+- 当用户不同意，可调用 `refuse` 方法。
 
-### 主动退群 
+### 主动退群
 
-**触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以作为更新群列表的时机，本终端可以选择忽略。 
-
-**参数说明：**
-
-参数 | 说明
----|---
-type | TIM_GROUP_SYSTEM_QUIT_GROUP_TYPE 
-group | 群组 ID，表示退出的哪个群 
-user | 操作人，这里即为用户自己 
-
-### 设置/取消管理员 
-
-**触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。 
+**触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以作为更新群列表的时机，本终端可以选择忽略。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | 取消管理员身份：TIM_GROUP_SYSTEM_GRANT_ADMIN_TYPE<br>授予管理员身份：TIM_GROUP_SYSTEM_CANCEL_ADMIN_TYPE 
-group | 群组 ID，表示哪个群的事件 
-user | 操作人 
+type | TIM_GROUP_SYSTEM_QUIT_GROUP_TYPE
+group | 群组 ID，表示退出的哪个群
+user | 操作人，这里即为用户自己
 
-### 群被回收 
+### 设置/取消管理员
 
-**触发时机：**当群组被系统回收时，全员可收到群组被回收消息。 
+**触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE 
-group | 群组 ID，表示哪个群被回收了 
+type | 取消管理员身份：TIM_GROUP_SYSTEM_GRANT_ADMIN_TYPE<br>授予管理员身份：TIM_GROUP_SYSTEM_CANCEL_ADMIN_TYPE
+group | 群组 ID，表示哪个群的事件
+user | 操作人
 
+### 群被回收
+
+**触发时机：**当群组被系统回收时，全员可收到群组被回收消息。
+
+**参数说明：**
+
+参数 | 说明
+---|---
+type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
+group | 群组 ID，表示哪个群被回收了

@@ -45,6 +45,12 @@ pod update
 ```
 
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
+>?若 pod 搜索失败，建议尝试更新 pod 的本地 repo 缓存。更新命令如下：
+>```
+pod setup
+pod repo update
+rm ~/Library/Caches/CocoaPods/search_index.json
+```
 
 ### 手动集成
 #### 1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，其中 SDK 所在的位置如下：
