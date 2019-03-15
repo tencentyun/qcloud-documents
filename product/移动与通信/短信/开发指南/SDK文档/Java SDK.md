@@ -36,14 +36,14 @@ qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种�
 <dependency>
   <groupId>com.github.qcloudsms</groupId>
   <artifactId>qcloudsms</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 
 ```
 
 #### sbt
 ```
-libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.5"
+libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 ```
 
 #### 其他
