@@ -18,7 +18,7 @@
 2. 登录阿里云控制台，通过导航栏进入 [域名服务](https://dns.console.aliyun.com/#/dns/domainList)。单击左侧边栏【云解析 DNS】，进入域名管理页。
 ![](https://main.qcloudimg.com/raw/bd8dd79b92fd4e1200f76df1366dc47e.png)
 
-3. 在操作列点击【解析设置】进入 DNS 解析页面，如下图所示：
+3. 在操作列单击【解析设置】进入 DNS 解析页面，如下图所示：
 ![](https://main.qcloudimg.com/raw/af1df31710fa114949efdc334678308f.png)
 
 4. 选择需要配置的域名，选择右上角【添加记录】，如下图所示：
@@ -43,7 +43,7 @@
 2. 登录百度云控制台，通过导航栏进入 [域名服务](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)。单击左侧边栏「域名管理」，进入域名管理列表页。
 ![](https://main.qcloudimg.com/raw/3e992eb24f22f68f36cb987813a1b6cd.png)
 
-3. 选择腾讯云直播添加的域名，在操作列点击【解析】进入 DNS 解析页面，如下图所示：
+3. 选择腾讯云直播添加的域名，在操作列单击【解析】进入 DNS 解析页面，如下图所示：
 ![](https://main.qcloudimg.com/raw/f139c87b258c48981075de341c92e603.png)
 
 4. 添加解析记录，如下图所示：
