@@ -12,7 +12,7 @@
 
 - 服务配置文件格式错误
 将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如过格式正确，则继续检查字段名称，是否与下面示例的格式一致。
-```yaml
+```
 apiVersion: v1
 kind: Application
 metadata:
@@ -52,6 +52,7 @@ admin commands are:
  GET /config_dump/{component}: print out the configuration of the component, component can be pilot-agent/envoy/mesh-dns
  GET /help: print out list of admin commands
  GET /config/agent: print out the pilot-agent configuration
+ GET /config/services: print out the services info
  GET /config/global: print out the global mesh configuration
  GET /config/envoy: print out the envoy startup configuration
  GET /version: print out the pilot-agent version
