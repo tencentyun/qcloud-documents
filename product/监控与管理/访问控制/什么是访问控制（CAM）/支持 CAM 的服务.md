@@ -84,7 +84,7 @@
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [DDoS 防护](https://cloud.tencent.com/product/ddos?idx=2) | ✔        | ✔      | ✔      | 服务级   | -        | - |
+| [DDoS 基础防护](https://cloud.tencent.com/document/product/1020) | ✔        | ✔      | ✔      | 服务级   | -        | - |
 | [主机安全（云镜）](https://cloud.tencent.com/document/product/296) | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [态势感知](https://cloud.tencent.com/document/product/664)   | ✔        | ✔      | ✔      | 服务级   | -        | - |	
 | [Web 应用防火墙](https://cloud.tencent.com/document/product/627)         |✔       | ✔      | ✔      | 操作级   | ✔      | - |
