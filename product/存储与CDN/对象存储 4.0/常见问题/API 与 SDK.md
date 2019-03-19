@@ -1,3 +1,6 @@
+### 调用 API 接口时，出现“Time out”等错误信息，是什么原因？该如何处理？
+出现该提示，存在有两种可能：一是因为您发起请求的时间超过了签名的有效时间。二是您的本地系统时间与北京时间不一致。针对第一种可能，建议重新获取有效的请求签名再进行 API 操作；如是第二种可能，请将您的本地系统时间按照北京时间进行校正。
+
 ### 如何调用 API 删除掉未完成上传文件？
 
 首先调用接口 ListMultipartUploads 列出未完成上传文件，然后调用 Abort Multipart upload 接口舍弃一个分块上传并删除已上传的块。
@@ -12,11 +15,11 @@
 
 ### XML API 与 JSON API 之间的关系？
 
- JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
+JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
 
 ### XML API 与 JSON API 的密钥是否通用？
 
-通用，密钥可通过 [云 API 密钥控制台](https://console.cloud.tencent.com/capi) 查看。
+通用。有关密钥信息可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的**云 API 密钥**页面进行查看和获取。
 
 ### XML API 与 JSON API 的签名是否通用？
 
