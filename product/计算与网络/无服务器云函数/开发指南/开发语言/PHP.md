@@ -145,18 +145,18 @@ PHP 环境下的入参包括 $event 、$context。
 
 * Zend OPcache
 
-* ### mongodb
+* mongodb
 
-* ### memcached 
+* memcached 
 
-* ### redis 
+* redis 
 
-* ### gd2 
+* gd2 
 
-* ### ImageMagick 
+* ImageMagick 
 
-* ### imagick
+* imagick
 
-* ### swoole (PHP7)
+* swoole (PHP7)
 
 您也可以随时在函数中通过 `print_r(get_loaded_extensions());` 代码打印查看已安装的扩展。
