@@ -58,48 +58,105 @@ PHP 环境下的入参包括 $event 、$context。
 
 
 * date
+
 * libxml
+
 * openssl
+
 * pcre
+
 * sqlite3
+
 * zlib
+
 * bcmath
+
 * bz2
+
 * calendar
+
 * ctype
+
 * curl
+
 * dom
+
 * hash
+
 * fileinfo
+
 * filter
+
 * ftp
+
 * SPL
+
 * iconv
+
 * json
+
 * mbstring
+
 * session
+
 * standard
+
 * mysqlnd
+
 * PDO
+
 * pdo_mysql
+
 * pdo_sqlite
+
 * Phar
+
 * posix
+
 * Reflection
+
 * mysqli
+
 * SimpleXML
+
 * soap
+
 * sockets
+
 * exif
+
 * tidy
+
 * tokenizer
+
 * xml
+
 * xmlreader
+
 * xmlwriter
+
 * zip
+
 * eio
+
 * protobuf
+
 * redis
+
 * Zend OPcache
+
+* ### mongodb
+
+* ### memcached 
+
+* ### redis 
+
+* ### gd2 
+
+* ### ImageMagick 
+
+* ### imagick
+
+* ### swoole (PHP7)
 
 您也可以随时在函数中通过 `print_r(get_loaded_extensions());` 代码打印查看已安装的扩展。
