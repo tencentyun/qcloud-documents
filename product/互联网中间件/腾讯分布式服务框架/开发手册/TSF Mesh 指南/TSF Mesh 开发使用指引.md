@@ -47,17 +47,18 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 **如果是虚拟机部署**，需要在应用程序所在目录中设置创建 `spec.yaml` 文件；**如果是容器部署**，需要在应用启动时，在`/opt/tsf/app_config`下写入 `spec.yaml` 文件，该文件用于描述服务信息。
 Sidecar 会通过服务描述文件将服务注册到服务注册中心。
 spec.yaml 格式如下：
+
 ```yaml
 apiVersion: v1
 kind: Application
 spec:
   services:
-    - name: user # service name
-      ports:
-        - targetPort: 8091 
-        protocol: http
-      healthCheck:
-        path: /health
+  - name: user # 服务名
+    ports:     	
+    - targetPort: 8091 # 服务监听端口 
+      protocol: http # 目前仅支持 http
+    healthCheck:
+      path: /health # 健康检查 URL
 ```
 
 >!
