@@ -2,9 +2,9 @@
 
 ### 相关资源
 
-* [GitHub 地址](https://github.com/tencentyun/cos-python-sdk-v4) GitHub 项目地址，欢迎贡献代码以及反馈问题。
+* [Python-SDK 项目](https://github.com/tencentyun/cos-python-sdk-v4) GitHub 地址，欢迎贡献代码以及反馈问题。
 
-* [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi 项目地址 。
+* [PyPi 项目](https://pypi.python.org/pypi/qcloud_cos_v4)  GitHub 地址 。
 （本版本 SDK 基于 JSON API 封装组成）
 
 ### 环境依赖
@@ -58,11 +58,11 @@ pip uninstall qcloud_cos_v4
 
 
 ```python
-	appid = 100000                  # 替换为用户的 appid
-    secret_id = u'xxxxxxxx'         # 替换为用户的 secret_id
-    secret_key = u'xxxxxxx'         # 替换为用户的 secret_key
-    region_info = "sh"             # 替换为用户的 region，例如 sh 表示华东园区, gz 表示华南园区, tj 表示华北园区
-    cos_client = CosClient(appid, secret_id, secret_key, region=region_info)
+appid = 100000                  # 替换为用户的 appid
+secret_id = u'xxxxxxxx'         # 替换为用户的 secret_id
+secret_key = u'xxxxxxx'         # 替换为用户的 secret_key
+region_info = "sh"             # 替换为用户的 region，例如 sh 表示华东园区, gz 表示华南园区, tj 表示华北园区
+cos_client = CosClient(appid, secret_id, secret_key, region=region_info)
 ```
 
 
@@ -71,8 +71,8 @@ pip uninstall qcloud_cos_v4
 
 如果需要使用自定义的接入域名，可以通过下面的方式设置
 ```python
-	conf = CosConfig(hostname='', download_hostname='')
-	cos_client.set_config(conf)
+conf = CosConfig(hostname='', download_hostname='')
+cos_client.set_config(conf)
 ```
 
 ## 文件操作
@@ -97,19 +97,19 @@ def upload_file(self, request)
 |  cos_path   |   unicode    |  无   | 构造函数或 set 方法 | cos 路径, 必须从 bucket 下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 | local_path  |   unicode    |  无   | 构造函数或 set 方法 |              要上传的本地文件的绝对路径               |
 |  biz_attr   |   unicode    |  空   | 构造函数或 set 方法 |           文件的备注，主要用于对该文件用途的描述            |
-| insert_only | int     (枚举) |  1   | 构造函数或 set 方法 | 是否直插入不覆盖已存在的文件, 1 表示只直插入不覆盖, 当文件存在返回错误 0 表示允许覆盖 |
+
 
 #### 返回值
 
 | 返回值类型 |                  返回值描述                   |
 | :---: | :--------------------------------------: |
-| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code 为 0 表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
+| dict  | {'code':\$code,  'message':$mess, 'data':\$data}， code 为0表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
 
 ```python
-    request = UploadFileRequest(bucket, u'/sample_file.txt', u'local_file_1.txt')
-    upload_file_ret = cos_client.upload_file(request)
+request = UploadFileRequest(bucket, u'/sample_file.txt', u'local_file_1.txt')
+upload_file_ret = cos_client.upload_file(request)
 ```
 
 ### 获取文件属性
@@ -135,13 +135,13 @@ def stat_file(self, request)
 
 | 返回值类型 |                  返回值描述                   |
 | :---: | :--------------------------------------: |
-| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code 为 0 表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
+| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code 为0表示成功,  message 为 SUCCESS 或者失败原因, data 中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
 
 ```python
-    request = StatFileRequest(bucket, u'/sample_file.txt')
-    stat_file_ret = cos_client.stat_file(request)
+request = StatFileRequest(bucket, u'/sample_file.txt')
+stat_file_ret = cos_client.stat_file(request)
 ```
 
 ### 更新文件属性
@@ -182,18 +182,16 @@ def update_file(self, request)
 #### 示例
 
 ```python
-    request = UpdateFileRequest(bucket, u'/sample_file.txt')
-
-    request.set_biz_attr(u'这是个demo文件')            # 设置文件 biz_attr 属性
-    request.set_authority(u'eWRPrivate')              # 设置文件的权限
-    request.set_cache_control(u'cache_xxx')           # 设置 Cache-Control
-    request.set_content_type(u'application/text')     # 设置 Content-Type
-    request.set_content_disposition(u'ccccxxx.txt')   # 设置 Content-Disposition
-    request.set_content_language(u'english')          # 设置 Content-Language
-    request.set_x_cos_meta(u'x-cos-meta-xxx', u'xxx') # 设置自定义的 x-cos-meta- 属性
-    request.set_x_cos_meta(u'x-cos-meta-yyy', u'yyy') # 设置自定义的 x-cos-meta- 属性
-
-    update_file_ret = cos_client.update_file(request)
+request = UpdateFileRequest(bucket, u'/sample_file.txt')
+request.set_biz_attr(u'这是个demo文件')            # 设置文件 biz_attr 属性
+request.set_authority(u'eWRPrivate')              # 设置文件的权限
+request.set_cache_control(u'cache_xxx')           # 设置 Cache-Control
+request.set_content_type(u'application/text')     # 设置 Content-Type
+request.set_content_disposition(u'ccccxxx.txt')   # 设置 Content-Disposition
+request.set_content_language(u'english')          # 设置 Content-Language
+request.set_x_cos_meta(u'x-cos-meta-xxx', u'xxx') # 设置自定义的 x-cos-meta- 属性
+request.set_x_cos_meta(u'x-cos-meta-yyy', u'yyy') # 设置自定义的 x-cos-meta- 属性
+update_file_ret = cos_client.update_file(request)
 ```
 
 ### 下载文件
@@ -226,8 +224,8 @@ def download_file(self, request)
 #### 示例
 
 ```python
-    request = DownloadFileRequest(bucket, u'/sample_file_move.txt', u'/tmp/a.txt')
-    download_ret = cos_client.download_file(request)
+request = DownloadFileRequest(bucket, u'/sample_file_move.txt', u'/tmp/a.txt')
+download_ret = cos_client.download_file(request)
 ```
 
 
@@ -259,8 +257,8 @@ def del_file(self, request)
 #### 示例
 
 ```python
-    request = DelFileRequest(bucket, u'/sample_file_move.txt')
-    del_ret = cos_client.del_file(request)
+request = DelFileRequest(bucket, u'/sample_file_move.txt')
+del_ret = cos_client.del_file(request)
 ```
 
 ## 目录操作
@@ -294,8 +292,8 @@ def create_folder(self, request)
 #### 示例
 
 ```python
-    request = CreateFolderRequest(bucket, u'/sample_folder/')
-    create_folder_ret = cos_client.create_folder(request)
+request = CreateFolderRequest(bucket, u'/sample_folder/')
+create_folder_ret = cos_client.create_folder(request)
 ```
 
 ### 获取目录属性
@@ -326,8 +324,8 @@ def stat_folder(self, request)
 #### 示例
 
 ```python
-    request = StatFolderRequest(bucket, u'/sample_folder/')
-    stat_folder_ret = cos_client.stat_folder(request)
+request = StatFolderRequest(bucket, u'/sample_folder/')
+stat_folder_ret = cos_client.stat_folder(request)
 ```
 
 
@@ -361,9 +359,9 @@ def update_folder(self, request)
 #### 示例
 
 ```python
-    request = UpdateFolderRequest(bucket, u'/sample_folder/')
-    request.set_biz_attr(u'这是一个测试目录')
-    update_folder_ret = cos_client.update_folder(request)
+request = UpdateFolderRequest(bucket, u'/sample_folder/')
+request.set_biz_attr(u'这是一个测试目录')
+update_folder_ret = cos_client.update_folder(request)
 ```
 
 ### 获取目录列表
@@ -397,8 +395,8 @@ def list_folder(self, request)
 #### 示例
 
 ```python
-    request = ListFolderRequest(bucket, u'/sample_folder/')
-    list_folder_ret = cos_client.list_folder(request)
+request = ListFolderRequest(bucket, u'/sample_folder/')
+list_folder_ret = cos_client.list_folder(request)
 ```
 
 ### 删除目录
@@ -429,8 +427,8 @@ def del_folder(self, request)
 #### 示例
 
 ```python
-    request = DelFolderRequest(bucket, u'/sample_folder/')
-    delete_folder_ret = cos_client.del_folder(request)
+request = DelFolderRequest(bucket, u'/sample_folder/')
+delete_folder_ret = cos_client.del_folder(request)
 ```
 
 ## 签名管理
@@ -486,7 +484,7 @@ def sign_once(self, bucket, cos_path)
 
 #### 返回值
 
-base64 编码的字符串
+base64 编码的字符串。
 
 #### 示例
 
@@ -504,7 +502,7 @@ def sign_download(self, bucket, cos_path, expired)
 
 #### 使用场景
 
-生成文件的下载签名, 用于下载私有bucket的文件
+生成文件的下载签名, 用于下载私有 bucket 的文件。
 
 #### 参数说明
 
@@ -516,7 +514,7 @@ def sign_download(self, bucket, cos_path, expired)
 
 #### 返回值
 
-base64 编码的字符串
+base64 编码的字符串。
 
 #### 示例
 

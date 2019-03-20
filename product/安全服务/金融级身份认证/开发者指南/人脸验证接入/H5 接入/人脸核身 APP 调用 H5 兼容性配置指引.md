@@ -77,7 +77,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
 ```
 > **注意：**
 > - 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可
-> - 如果第三方没有重写以上函数，则直接按上述所示重写。
+> - 如果第三方没有重写以上函数，则直接按照上述所示重写。
 
 5. Activity 的重写
 WebView 所属的 Activity 必须重写如下函数：
@@ -96,7 +96,7 @@ WebView 所属的 Activity 必须重写如下函数：
 ```
 >**注意：**
 > - 如果第三方 WebView 所属的 Activity 已重写以上函数，则将如上图所示的函数体内容添加至第三方的对应函数体首行即可。
-> - 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按上图所示重写。
+> - 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按照上图所示重写。
  
 ## 兼容性验证
 为了验证合作方 Android 端已经兼容了摄像头的处理，建议合作方做如下兼容性测试。

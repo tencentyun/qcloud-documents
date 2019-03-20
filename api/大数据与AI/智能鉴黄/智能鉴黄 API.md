@@ -58,7 +58,7 @@ data 字段具体内容：
 ```
 POST /detection/porn_detect HTTP/1.1
 Authorization: FCHXddYbhZEBfTeZ0j8mn9Og16JhPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJiUkp3Sk5zbTN3V1lEeHN1JnQ9MTQ2ODQ3NDY2MiZyPTU3MiZ1PTAmYj10ZXN0YnVja2V0JmU9MTQ3MTA2NjY2Mg==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 238
 Content-Type: "application/json"
 
@@ -145,7 +145,7 @@ data 字段具体内容：
 POST /detection/porn_detect HTTP/1.1
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
 Authorization:FCHXddYbhZEBfTeZ0j8mn9Og16JhPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJiUkp3Sk5zbTN3V1lEeHN1JnQ9MTQ2ODQ3NDY2MiZyPTU3MiZ1PTAmYj10ZXN0YnVja2V0JmU9MTQ3MTA2NjY2Mg==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 61478
 
 ---------------------------acebdf13572468

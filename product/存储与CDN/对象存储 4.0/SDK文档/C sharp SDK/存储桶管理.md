@@ -1,0 +1,586 @@
+## 简介
+本文档提供关于跨域访问和生命周期相关的 API 概览以及 SDK 示例代码。
+
+**跨域访问**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) | 设置跨域配置 | 设置 Bucket 的跨域访问权限     |
+| [GET Bucket cors](https://cloud.tencent.com/document/product/436/8274) | 获取跨域配置 | 获取 Bucket 的跨域访问配置信息 |
+| [DELETE Bucket cors](https://cloud.tencent.com/document/product/436/8283) | 删除跨域配置 | 删除 Bucket 的跨域访问配置信息 |
+
+**生命周期**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | 设置生命周期   | 设置 Bucket 的生命周期管理的配置 |
+| [GET Bucket lifecycle](https://cloud.tencent.com/document/product/436/8278) | 查询生命周期 | 查询 Bucket 生命周期管理的配置 |
+| [DELETE Bucket lifecycle](https://cloud.tencent.com/document/product/436/8284) | 删除生命周期 | 删除 Bucket 生命周期管理的配置 |
+
+## 跨域访问
+### 设置跨域配置
+
+#### 功能说明
+
+设置指定存储桶的跨域访问配置信息（CORS）（Put Bucket CORS）。
+
+#### 方法原型
+```C#
+PutBucketCORSResult PutBucketCORS(PutBucketCORSRequest request);
+
+void PutBucketCORS(PutBucketCORSRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	PutBucketCORSRequest request = new PutBucketCORSRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//设置跨域访问配置CORS
+	COSXML.Model.Tag.CORSConfiguration.CORSRule corsRule = new COSXML.Model.Tag.CORSConfiguration.CORSRule();
+	corsRule.id = "corsconfigureId";
+	corsRule.maxAgeSeconds = 6000;
+	corsRule.allowedOrigin = "http://cloud.tencent.com";
+
+	corsRule.allowedMethods = new List<string>();
+	corsRule.allowedMethods.Add("PUT");
+
+	corsRule.allowedHeaders = new List<string>();
+	corsRule.allowedHeaders.Add("Host");
+
+	corsRule.exposeHeaders = new List<string>();
+	corsRule.exposeHeaders.Add("x-cos-meta-x1");
+
+	request.SetCORSRule(corsRule);
+
+	//执行请求
+	PutBucketCORSResult result = cosXml.PutBucketCORS(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+ 	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+PutBucketCORSRequest request = new PutBucketCORSRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+
+//设置跨域访问配置CORS
+COSXML.Model.Tag.CORSConfiguration.CORSRule corsRule = new COSXML.Model.Tag.CORSConfiguration.CORSRule();
+corsRule.id = "corsconfigureId";
+corsRule.maxAgeSeconds = 6000;
+corsRule.allowedOrigin = "http://cloud.tencent.com";
+
+corsRule.allowedMethods = new List<string>();
+corsRule.allowedMethods.Add("PUT");
+
+corsRule.allowedHeaders = new List<string>();
+corsRule.allowedHeaders.Add("Host");
+
+corsRule.exposeHeaders = new List<string>();
+corsRule.exposeHeaders.Add("x-cos-meta-x1");
+
+request.SetCORSRule(corsRule);
+
+cosXml.PutBucketCORS(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		PutBucketCORSResult result = cosResult as PutBucketCORSResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{	
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+	});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|corsRule|SetCORSRule|设置存储桶的跨域访问配|CORSConfiguration.CORSRule|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验header|`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求url中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 PutBucketCORSResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200, 300)之间表示操作成功，否则表示操作失败|
+
+### 获取跨域配置
+
+#### 功能说明
+
+获取指定存储桶的跨域访问配置信息（CORS）（Get Bucket CORS）。
+
+#### 方法原型
+```C#
+GetBucketCORSResult GetBucketCORS(GetBucketCORSRequest request);
+
+void GetBucketCORS(GetBucketCORSRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	GetBucketCORSRequest request = new GetBucketCORSRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//执行请求
+	GetBucketCORSResult result = cosXml.GetBucketCORS(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+GetBucketCORSRequest request = new GetBucketCORSRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+//执行请求
+cosXml.GetBucketCORS(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		GetBucketCORSResult result = cosResult as GetBucketCORSResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{	
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验header|`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求url中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 GetBucketCORSResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200, 300)之间表示操作成功，否则表示操作失败|
+|corsConfiguration|[CORSConfiguration](https://github.com/tencentyun/qcloud-sdk-dotnet/blob/master/QCloudCSharpSDK/COSXML/Model/Tag/CORSConfiguration.cs)|返回 Bucket 跨域资源共享配置的信息|
+
+### 删除跨域配置
+
+#### 功能说明
+
+删除指定存储桶的跨域访问配置（CORS）（Delete Bucket CORS）。
+
+#### 方法原型
+```C#
+DeleteBucketCORSResult DeleteBucketCORS(DeleteBucketCORSRequest request);
+
+void DeleteBucketCORS(DeleteBucketCORSRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	DeleteBucketCORSRequest request = new DeleteBucketCORSRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//执行请求
+	DeleteBucketCORSResult result = cosXml.DeleteBucketCORS(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+DeleteBucketCORSRequest request = new DeleteBucketCORSRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+//执行请求
+cosXml.DeleteBucketCORS(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		DeleteBucketCORSResult result = cosResult as DeleteBucketCORSResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{	
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验header|`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求url中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 DeleteBucketCORSResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200, 300)之间表示操作成功，否则表示操作失败|
+
+
+## 生命周期
+### 设置生命周期
+
+#### 功能说明
+
+设置指定存储桶的生命周期配置信息（Lifecycle）（Put Bucket LifeCycle）。
+
+#### 方法原型
+```shell
+PutBucketLifecycleResult PutBucketLifecycle(PutBucketLifecycleRequest request);
+
+void PutBucketLifecycle(PutBucketLifecycleRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	PutBucketLifecycleRequest request = new PutBucketLifecycleRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//设置 lifecycle
+	COSXML.Model.Tag.LifecycleConfiguration.Rule rule = new COSXML.Model.Tag.LifecycleConfiguration.Rule();
+	rule.id = "lfiecycleConfigureId";
+	rule.status = "Enabled"; //Enabled，Disabled
+
+	rule.filter = new COSXML.Model.Tag.LifecycleConfiguration.Filter();
+	rule.filter.prefix = "2/";
+
+	//指定分片过期删除操作
+	rule.abortIncompleteMultiUpload = new COSXML.Model.Tag.LifecycleConfiguration.AbortIncompleteMultiUpload();
+	rule.abortIncompleteMultiUpload.daysAfterInitiation = 2;
+
+	request.SetRule(rule);
+
+	//执行请求
+	PutBucketLifecycleResult result = cosXml.PutBucketLifecycle(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+PutBucketLifecycleRequest request = new PutBucketLifecycleRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+//设置 lifecycle
+COSXML.Model.Tag.LifecycleConfiguration.Rule rule = new COSXML.Model.Tag.LifecycleConfiguration.Rule();
+rule.id = "lfiecycleConfigureId";
+rule.status = "Enabled"; //Enabled，Disabled
+
+rule.filter = new COSXML.Model.Tag.LifecycleConfiguration.Filter();
+rule.filter.prefix = "2/";
+
+rule.abortIncompleteMultiUpload = new COSXML.Model.Tag.LifecycleConfiguration.AbortIncompleteMultiUpload();
+rule.abortIncompleteMultiUpload.daysAfterInitiation = 2;
+
+request.SetRule(rule);
+
+//执行请求
+cosXml.PutBucketLifecycle(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		PutBucketLifecycleResult result = cosResult as PutBucketLifecycleResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{	
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|rule|SetRule|设置存储桶的生命周期配置|LifecycleConfiguration.Rule|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验 header |`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求 url 中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 PutBucketLifecycleResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200, 300)之间表示操作成功，否则表示操作失败|
+
+
+### 查询生命周期
+
+#### 功能说明
+
+获取指定存储桶的的生命周期（Lifecycle）（Get Bucket Lifecycle）。
+
+#### 方法原型
+```shell
+GetBucketLifecycleResult GetBucketLifecycle(GetBucketLifecycleRequest request);
+
+void GetBucketLifecycle(GetBucketLifecycleRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	GetBucketLifecycleRequest request = new GetBucketLifecycleRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//执行请求
+	GetBucketLifecycleResult result = cosXml.GetBucketLifecycle(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+GetBucketLifecycleRequest request = new GetBucketLifecycleRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+//执行请求
+cosXml.GetBucketLifecycle(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		 GetBucketLifecycleResult result = cosResult as GetBucketLifecycleResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{	
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验 header|`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求 url 中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 GetBucketLifecycleResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200，300)之间表示操作成功，否则表示操作失败|
+|lifecycleConfiguration|[LifecycleConfiguration](https://github.com/tencentyun/qcloud-sdk-dotnet/blob/master/QCloudCSharpSDK/COSXML/Model/Tag/LifecycleConfiguration.cs)|返回 Bucket 的生命周期配置信息|
+
+
+### 删除生命周期
+
+#### 功能说明
+
+删除指定存储桶的的生命周期（Lifecycle）（Delete Bucket Lifecycle）。
+
+#### 方法原型
+```shell
+DeleteBucketLifecycleResult DeleteBucketLifecycle(DeleteBucketLifecycleRequest request);
+
+void DeleteBucketLifecycle(DeleteBucketLifecycleRequest request, COSXML.Callback.OnSuccessCallback<CosResult> successCallback, COSXML.Callback.OnFailedCallback failCallback);
+```
+
+#### 请求示例
+```C#
+try
+{
+	string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+	DeleteBucketLifecycleRequest request = new DeleteBucketLifecycleRequest(bucket);
+	//设置签名有效时长
+	request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+	//执行请求
+	DeleteBucketLifecycleResult result = cosXml.DeleteBucketLifecycle(request);
+	//请求成功
+	Console.WriteLine(result.GetResultInfo());
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{	
+	//请求失败
+	Console.WriteLine("CosClientException: " + clientEx.Message);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+	//请求失败
+	Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+
+/**
+//异步方法
+string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+DeleteBucketLifecycleRequest request = new DeleteBucketLifecycleRequest(bucket);
+//设置签名有效时长
+request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
+//执行请求
+cosXml.DeleteBucketLifecycle(request, 
+	delegate(COSXML.Model.CosResult cosResult)
+	{
+		//请求成功
+		DeleteBucketLifecycleResult result = cosResult as DeleteBucketLifecycleResult;
+		Console.WriteLine(result.GetResultInfo());
+
+	}, 
+	delegate(COSXML.CosException.CosClientException clientEx, COSXML.CosException.CosServerException serverEx)
+	{
+		//请求失败
+		if (clientEx != null)
+		{
+			Console.WriteLine("CosClientException: " + clientEx.Message);
+		}
+		else if (serverEx != null)
+		{
+			Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+		}
+	});
+*/
+```
+
+#### 参数说明
+|参数名称|设置方法|描述|类型|
+|-----|-----|-----|------|
+|bucket|构造方法|存储桶名称，格式：BucketName-APPID|string|
+|signStartTimeSecond|SetSign|签名有效期起始时间|long|
+|durationSecond|SetSign|签名有效期时长|long|
+|headerKeys|SetSign|签名是否校验 header|`List<string>`|
+|queryParameterKeys|SetSign|签名是否校验请求 url 中查询参数|`List<string>`|
+
+#### 返回结果说明
+通过 DeleteBucketLifecycleResult 返回请求结果。
+
+|成员变量|类型|描述|
+|-----|-----|----|
+|httpCode|int|HTTP Code， [200，300)之间表示操作成功，否则表示操作失败|

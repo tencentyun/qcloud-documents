@@ -1,5 +1,5 @@
-MongoDB 官方命令请参考[链接](https://docs.mongodb.com/master/reference/command/?spm=a2c4g.11186623.2.3.ADiuQo)。<br>
-腾讯云 MongoDB 3.6版本不支持的命令如下表所示：<br>
+MongoDB 官方命令请参见 [官网文档](https://docs.mongodb.com/master/reference/command/?spm=a2c4g.11186623.2.3.ADiuQo)。
+腾讯云 MongoDB 3.6 版本不支持的命令如下表所示：
 
 <table>
 	<tr>
