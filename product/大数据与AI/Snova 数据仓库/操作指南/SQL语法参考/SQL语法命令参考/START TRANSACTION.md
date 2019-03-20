@@ -20,7 +20,7 @@ SQL 标准定义四个事务隔离级别：READ COMMITTED、READ UNCOMMITTED、 
 
 READ WRITE
 READ ONLY
-决定事务是 read/write 还是 read-only。默认为 read/write。当一个事务是 read-only，下面的 SQ L命令是不被允许的：
+决定事务是 read/write 还是 read-only。默认为 read/write。当一个事务是 read-only，下面的 SQL 命令是不被允许的：
 INSERT、 UPDATE、 DELETE 以及 COPY FROM（这种情况是如果将要写的表不是临时表） ； 所有的 CREATE、 ALTER 和 DROP 命令； GRANT、REVOKE、TRUNCATE；以及 EXPLAIN ANALYZE 和 EXECUTE要执行的命令是上述列举的中间。
 
 ## 示例
