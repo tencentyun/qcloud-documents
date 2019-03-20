@@ -1,15 +1,18 @@
-为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于开发的接口升级技术文档（GME 2.2 升级 GME 2.3）。
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于开发的接口升级技术文档（GME 2.2 升级 GME 2.3.5）。
 
 ## SDK 变更
 ### 新增功能
 - 支持实时语音过程中使用离线语音。
 - 支持实时语音过滤，可识别暴恐、涉黄、涉政等信息。
 - 支持 H5 实时语音，实现全平台实时语音互通。
+- 新增Android v8a架构支持。
+- Android 低延时采集播放适配。
 
 ### 优化能力
 - 优化 SDK 的范围语音功能接口，降低接入门槛。
 - 语音降噪效果优化。
 - 大幅降低 SDK 内存消耗。
+- 稳定性提升。
 
 ## 主要接口变更
 ### EnterRoom 
@@ -75,3 +78,23 @@ ITMGContext virtual void SetLogLevel(ITMG_LOG_LEVEL levelWrite, ITMG_LOG_LEVEL l
 |TMG_LOG_LEVEL_INFO=2			|打印提示日志		|
 |TMG_LOG_LEVEL_DEBUG=3		|打印开发调试日志	|
 |TMG_LOG_LEVEL_VERBOSE=4		|打印高频日志		|
+
+### SpeechToText(String fileID,String speechLanguage,String translateLanguage)
+
+```
+public void SpeechToText(String fileID,String speechLanguage,String translateLanguage)
+```
+
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| fileID    |char*                     |语音文件 url|
+| speechLanguage    |char*                     |识别出指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)|
+| translatelanguage    |char*                  |翻译成指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)（此参数暂时无效，填入参数应与 speechLanguage 一致）|
+
+原接口保留。与 2.2 版本相比，增加参数 translateLanguage，用于指定翻译语言（此参数暂时无效，填入参数应与 speechLanguage 一致）。
+
+
+### 返回值 
+如果需要对所有错误码统一处理，请使用!AV_OK；
+
+如果需要单独处理每一类错误，请关注接口返回的错误类型。错误码“1”没有明确含义，且2.3.5以后版本不再返回，故删除。
