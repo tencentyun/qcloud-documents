@@ -1,13 +1,13 @@
 
 
 ## 开发准备
->**注意：**以下为 Linux 等类 UINX 系统使用手册，暂不支持 Windows 系统。
+>! 以下为 Linux 等类 UINX 系统使用手册，暂不支持 Windows 系统。
 
 ### SDK 获取
 智能图像 C++ SDK 下载地址：[cpp-SDK-V2.0](https://github.com/tencentyun/image-cpp-sdk-v2.0) 。
 ### 开发准备
-依赖静态库: curl jsoncpp (在 lib 文件夹下)；
-依赖动态库: ssl crypto rtz (需要安装)；
+依赖静态库：curl jsoncpp (在 lib 文件夹下)；
+依赖动态库： ssl crypto rtz (需要安装)；
 (1)安装 openssl 的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) ；
 (2)安装 curl 的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) ；
 (3)安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) ；
@@ -45,14 +45,14 @@ ImageAPI image(config);
 图片识别包括：图片鉴黄、图片标签、OCR - 身份证识别及 OCR - 名片识别。
 #### 图片鉴黄
 ```
-//单个或多个图片Url
+//单个或多个图片 Url
 vector<string> pornUrls;   pornUrls.push_back("http://hearthstone.nos.netease.com/1/artworkGvG/GoblinBlastmagel.jpg");
 pornUrls.push_back("http://hearthstone.nos.netease.com/1/artworknaxx/Faerlinal.jpg");
 pornUrls.push_back("http://hearthstone.nos.netease.com/1/artworknaxx/KelThuzadl.jpg");
 PornDetectReq pornReq(BUCKET, pornUrls);
 ret = image.PornDetect(pornReq);
 cout<<ret<<endl;
-//单个或多个图片File
+//单个或多个图片 File
 map<string, string> pornImages;
 pornImages["1.jpg"] = FileUtil::getFileContent("pic/1.jpg");
 pornImages["2.jpg"] = FileUtil::getFileContent("pic/2.jpg");
@@ -63,12 +63,12 @@ cout<<ret<<endl;     
 ```
 #### 图片标签
 ```
-//单个图片url
+//单个图片 Url
 TagDetectReq tagReq(BUCKET);
 tagReq.SetUrl("http://img3.a0bi.com/upload/ttq/20160814/1471155260063.png");
 ret = image.TagDetect(tagReq);
 cout<<ret<<endl;
-//单个图片file
+//单个图片 File
 TagDetectReq tagReq(BUCKET);
 tagReq.SetImage("hot1.jpg");
 ret = image.TagDetect(tagReq);
@@ -77,26 +77,26 @@ cout<<ret<<endl;
 
 #### OCR - 身份证识别
 ```
-//单个或多个图片Url,识别身份证正面
+//单个或多个图片 Url,识别身份证正面
 vector<string> idZUrls;
 idZUrls.push_back("http://imgs.focus.cn/upload/sz/5876/a_58758051.jpg");
 idZUrls.push_back("http://img5.iqilu.com/c/u/2013/0530/1369896921237.jpg");
 IdCardOcrReq idReq(BUCKET, idZUrls,0);
 ret = image.IdCardOcr(idReq);
 cout<<ret<<endl;
-//单个或多个图片file,识别身份证正面
+//单个或多个图片 File,识别身份证正面
 map<string, string> idZImages;
 idZImages["id6zheng.jpg"] = FileUtil::getFileContent("id6zheng.jpg");
 idZImages["id2zheng.jpg"] = FileUtil::getFileContent("id2zheng.jpg");
 IdCardOcrReq idReq2(BUCKET, idZImages, 0);
 ret = image.IdCardOcr(idReq2);
 cout<<ret<<endl;
-//单个或多个图片Url,识别身份证反面
+//单个或多个图片 Url,识别身份证反面
 vector<string> idFUrls;    idFUrls.push_back("http://www.csx.gov.cn/cwfw/bszn/201403/W020121030349825312574.jpg");    idFUrls.push_back("http://www.4009951551.com/upload/image/20151026/1445831136187479.png");
 IdCardOcrReq idReq3(BUCKET, idFUrls,1);
 ret = image.IdCardOcr(idReq3);
 cout<<ret<<endl;
-//单个或多个图片file,识别身份证反面
+//单个或多个图片 File,识别身份证反面
 map<string, string> idFImages;
 idFImages["id5fan.jpg"] = FileUtil::getFileContent("id5fan.jpg");
 idFImages["id7fan.jpg"] = FileUtil::getFileContent("id7fan.jpg");
@@ -106,14 +106,14 @@ cout<<ret<<endl;
 ```
 #### OCR - 名片识别
 ```
-//单个或多个图片Url
+//单个或多个图片 Url
 vector<string> nameUrls;
 nameUrls.push_back("http://pic1.nipic.com/2008-12-03/2008123181119306_2.jpg");
 nameUrls.push_back("http://pic.58pic.com/58pic/12/49/04/80k58PICzYP.jpg");
 NameCardOcrReq nameReq(BUCKET, nameUrls, 0);
 ret = image.NameCardOcr(nameReq);
 cout<<ret<<endl;
-//单个或多个图片file
+//单个或多个图片 File
 map<string, string> nameImages;
 nameImages["r.jpg"] = FileUtil::getFileContent("r.jpg");
 nameImages["name2.jpg"] = FileUtil::getFileContent("name2.jpg");
