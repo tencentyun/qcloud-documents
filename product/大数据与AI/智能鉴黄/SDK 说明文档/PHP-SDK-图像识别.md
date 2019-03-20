@@ -26,7 +26,7 @@ $client->setTimeout(30);
 var_dump ($client->pornDetect(array('urls'=>array('http://img3.a0bi.com/upload/ttq/20160814/1471155260063.png',
 "http://jiangsu.china.com.cn/uploadfile/2015/1102/1446443026382534.jpg"))));
 //单个或多个图片 file
-var_dump ($client->pornDetect(array('files'=>array('F:\pic\你好.jpg','G:\pic\test2.jpg'))));
+var_dump ($client->pornDetect(array('files'=>array('F:\pic\您好.jpg','G:\pic\test2.jpg'))));
 ```
 #### 图片标签
 ```
