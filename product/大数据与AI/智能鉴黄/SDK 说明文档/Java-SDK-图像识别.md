@@ -3,8 +3,8 @@
 智能图像的 Java SDK 下载地址：[Java-SDK-V2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
 
 ## 使用前准备
-1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）。
-2. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，单击【新建密钥】（目前只支持主账号及密钥进行调用）。
+1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)）。
+2. 取得 **APPID**、**SecretId**、**SecretKey**：请前往 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) ，单击【新建密钥】（目前只支持主账号及密钥进行调用）。
 
 ## 如何集成到您的项目中
 ### 获得 SDK jar 文件
