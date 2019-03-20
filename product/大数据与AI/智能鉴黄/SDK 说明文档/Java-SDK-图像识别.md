@@ -18,14 +18,14 @@
 ## 使用简介
 ### 初始化
 
-```java
+```Java
 ImageClient imageClient = new ImageClient(APPID, SecretId, SecretKey);
 ```
 
 ### 设置代理
 根据实际网络环境设置代理，例如：
 
-```java
+```Java
 Proxy proxy = new Proxy(Type.HTTP, new InetSocketAddress("127.0.0.1", 8080));
 imageClient.setProxy(proxy);
 ```
@@ -37,7 +37,7 @@ SDK 提供功能如下：
 
 **文字识别（OCR）**：身份证、名片、通用、驾驶证行驶证、营业执照、银行卡、车牌号  
 
-```java
+```Java
 // 调用车牌识别 API 示例
 String imageUrl = "http://youtu.qq.com/app/img/experience/char_general/icon_ocr_license_3.jpg";
 String result = imageClient.ocrPlate(new OcrPlateRequest("bucketName", imageUrl));
