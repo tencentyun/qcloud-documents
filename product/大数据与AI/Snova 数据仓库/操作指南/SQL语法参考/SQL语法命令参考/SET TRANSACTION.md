@@ -24,7 +24,7 @@ SET TRANSACTION 命令设置当前会话的特性。它对任何子序列事务�
 - **READ COMMITTED**：一个语句只能看到在它开始前提交的行。这是默认值。
 - **SERIALIZABLE**：当前事务的所有语句只能看到这个事务中执行的第一个查询或者数据修改语句之前提交的行。
 
-SQL 标准定义了两种额外的级别，READ UNCOMMITTED 和 REPEATABLE READ。在数据库中 READ UNCOMMITTED 被当做为 READ COMMITTED。 REPEATABLE READ 还不支持；如果需要 REPEATABLE READ 行为，使用 SERIALIZABLE。
+SQL 标准定义了两种额外的级别，READ UNCOMMITTED 和 REPEATABLE READ。在数据库中 READ UNCOMMITTED 被当作为 READ COMMITTED。 REPEATABLE READ 还不支持；如果需要 REPEATABLE READ 行为，使用 SERIALIZABLE。
 
 一个事务执行了第一个查询或者数据修改语句（SELECT、INSERT、 DELETE、UPDATE、FETCH 或 COPY）之后就无法更改事务隔离级别。
 
