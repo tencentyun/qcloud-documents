@@ -23,7 +23,7 @@ ImageClient imageClient = new ImageClient(APPID, SecretId, SecretKey);
 ```
 
 ### 设置代理
-根据实际网络环境，可能要设置代理，例如：
+根据实际网络环境设置代理，例如：
 
 ```java
 Proxy proxy = new Proxy(Type.HTTP, new InetSocketAddress("127.0.0.1", 8080));
@@ -47,7 +47,7 @@ System.out.println(result);
 更多例子详情可参见 [Demo.java](https://github.com/tencentyun/image-java-sdk-v2.0/blob/master/src/main/java/com/qcloud/image/demo/Demo.java) 的代码。
 
 
-## 运行 Demo 工程
+##  Demo 工程
 1. 修改文件 src/main/java/com/qcloud/image/demo/Demo.java 的 main() 方法，填入上述申请到的**APPID**、**SecretId**、**SecretKey**
 
 2. 导入到 IDE：这个 Demo 工程是用 Maven 构建的，以 Intellij IDEA 为例，导入方式为：Import Project > 选择工程目录 > Import project from external model > Maven
