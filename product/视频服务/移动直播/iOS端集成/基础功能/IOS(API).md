@@ -1,4 +1,4 @@
-下面是腾讯视频云iOS SDK的主要接口列表，分为TXLivePush和TXLivePlayer两个类及相应的回调接口，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_ios_doc/index.html)。
+下面是腾讯视频云 iOS SDK 的主要接口列表，分为 TXLivePush 和 TXLivePlayer 两个类及相应的回调接口，详细接口请查看 [API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_ios_doc/index.html)。
 
 ## 接口概览
 
@@ -23,7 +23,7 @@
 | (void)setFaceScaleLevel:(float)faceScaleLevel;       | 设置瘦脸级别                  |
 | (void)setFilter:(UIImage \*)image;                    | 设置滤镜                      |
 | (void)setSpecialRatio:(float)specialValue            |  设置滤镜效果程度             |
-| (void)setFaceVLevel:(float)faceVLevel;               | 设置V脸                      |
+| (void)setFaceVLevel:(float)faceVLevel;               | 设置 V 脸                      |
 | (void)setChinLevel:(float)chinLevel;                 | 设置下巴拉伸或收缩            |
 | (void)setFaceShortLevel:(float)faceShortlevel;       | 设置瘦脸                     |
 | (void)setNoseSlimLevel:(float)noseSlimLevel;         | 设置瘦鼻                     |
@@ -47,8 +47,8 @@
 | (BOOL)setVoiceChangerType                            | 设置变声类型                   |
 | (void)setGreenScreenFile:(NSURL \*)file;              | 设置绿幕文件。仅增值版有效      |
 | (void)selectMotionTmpl                               | 选择动效                       |
-| (void)setLogViewMargin                               | 设置状态浮层view在渲染view上的边距 |
-| (void)showVideoDebugLog                              | 是否显示播放状态统计及事件消息浮层view|
+| (void)setLogViewMargin                               | 设置状态浮层 view 在渲染 view 上的边距 |
+| (void)showVideoDebugLog                              | 是否显示播放状态统计及事件消息浮层 view|
 | (void)snapshot                                       | 推流截图.仅对硬编起效           |
 | (BOOL)sendMessageEx                                  | 发送消息                       |
 
@@ -56,9 +56,9 @@
 
 | 名称                                       | 描述                  |
 | ---------------------------------------- | ---------------------- |
-| setupVideoWidget                         | 创建Video渲染Widget     |
-| removeVideoWidget                        | 移除Video渲染Widget     |
-| setPlayListener                          | 设置TXLivePlayer 的回调 |
+| setupVideoWidget                         | 创建 Video 渲染 Widget     |
+| removeVideoWidget                        | 移除 Video 渲染 Widget     |
+| setPlayListener                          | 设置 TXLivePlayer 的回调 |
 | startPlay                                | 开始播放                |
 | stopPlay                                 | 停止播放                |
 | pause                                    | 暂停播放                |
@@ -75,47 +75,47 @@
 | stopRecord                               | 结束录制短视频           |
 | snapshot                                 | 通过回调返回当前图像     |
 | setRate                                  | 设置播放速率。点播有效    |
-| setLogViewMargin                         | 设置状态浮层view在渲染view上的边距    |
-| showVideoDebugLog                        | 是否显示播放状态统计及事件消息浮层view |
-| setAudioRoute                            | 设置声音播放模式(切换扬声器，听筒)     |
-| switchStream                             | flv直播无缝切换           |
+| setLogViewMargin                         | 设置状态浮层 view 在渲染 view 上的边距    |
+| showVideoDebugLog                        | 是否显示播放状态统计及事件消息浮层 view |
+| setAudioRoute                            | 设置声音播放模式（切换扬声器，听筒）    |
+| switchStream                             | flv 直播无缝切换           |
 
 ### TXLivePushConfig
 
 | 属性名              | 类型                      | 说明                                           |
 | --------           | ------------------------- | ---------------------------------------------  |
 | customModeType          | int                     | 客户自定义模式 |
-| beautyFilterDepth | float                    | 美颜强度 0 ~ 9, 默认值为0 |
-| whiteningFilterDepth | float                 | 播美白强度:0 ~ 9, 默认值为0 |
-| enableHWAcceleration | BOOL                  | 开启硬件加速, iOS系统版本>8.0 默认开启 |
-| homeOrientation      | int                      |  home键所在方向，用来切换横竖屏推流（tips：此参数的设置可能会改变推流端本地视频流方向，此参数设置后，请调用TXLivePush 里的setRenderRotation 来修正推流端本地视频流方向，具体请参考demo设置 ）,默认值为HOME_ORIENTATION_DOWN |
-| videoFPS             | int                        | 视频采集帧率, 默认值为 15 |
+| beautyFilterDepth | float                    | 美颜强度0 - 9, 默认值为0 |
+| whiteningFilterDepth | float                 | 播美白强度0 - 9, 默认值为0 |
+| enableHWAcceleration | BOOL                  | 开启硬件加速, iOS 系统版本 > 8.0 默认开启 |
+| homeOrientation      | int                      |  home 键所在方向，用来切换横竖屏推流（tips：此参数的设置可能会改变推流端本地视频流方向，此参数设置后，请调用 TXLivePush 里的 setRenderRotation 来修正推流端本地视频流方向，具体请参考demo设置 ）,默认值为 HOME_ORIENTATION_DOWN |
+| videoFPS             | int                        | 视频采集帧率, 默认值为15 |
 | enableAEC        | BOOL                        | 是否开启回声消除， 默认值为 NO                   |
-| videoResolution    | int                        | 视频分辨率, 默认值为VIDEO_RESOLUTION_TYPE_360_640  |
+| videoResolution    | int                        | 视频分辨率, 默认值为 VIDEO_RESOLUTION_TYPE_360_640  |
 | videoBitratePIN | int                          | 视频固定码率，默认值为700 |
 | videoEncodeGop | int                          | 视频编码 GOP，单位 second 秒， 默认值为3 |
 | audioSampleRate | int                          | 音频采样率 , 取值设置为 枚举值 TX_Enum_Type_AudioSampleRate，也可直接设置为对应的采样率 ，比如 audioSampleRate = AUDIO_SAMPLE_RATE_48000 或  audioSampleRate = 48000, 默认值为AUDIO_SAMPLE_RATE_48000 |
 | audioChannels | int                          | 音频声道数, 默认值为1 |
-| enableAutoBitrate | BOOL                          | 码率自适应: SDK会根据网络情况自动调节视频码率, 调节范围在 (videoBitrateMin - videoBitrateMax)， 默认值为NO |
-| autoAdjustStrategy | int                          | 码率自适应: SDK会根据网络情况自动调节视频码率，同时自动调整分辨率, 默认值为AUTO_ADJUST_BITRATE_STRATEGY_1 |
-| videoBitrateMax | int                          | 视频最大码率，仅当enableAutoBitrate = YES 时有效， 默认值为 1000 |
-| videoBitrateMin | int                          | 视频最小码率，仅当enableAutoBitrate = YES时有效， 默认值为 400 |
+| enableAutoBitrate | BOOL                          | 码率自适应: SDK 会根据网络情况自动调节视频码率, 调节范围在 (videoBitrateMin - videoBitrateMax)， 默认值为NO |
+| autoAdjustStrategy | int                          | 码率自适应: SDK 会根据网络情况自动调节视频码率，同时自动调整分辨率, 默认值为AUTO_ADJUST_BITRATE_STRATEGY_1 |
+| videoBitrateMax | int                          | 视频最大码率，仅当 enableAutoBitrate = YES 时有效， 默认值为1000 |
+| videoBitrateMin | int                          | 视频最小码率，仅当 enableAutoBitrate = YES 时有效， 默认值为400 |
 | enableNAS | BOOL                          | 噪音抑制, 默认值为 YES |
 | frontCamera | BOOL                          | 是否前置 camera, 默认值为 YES |
 | touchFocus | BOOL                          | 是否允许点击曝光聚焦, 默认为 YES |
 | enableZoom | BOOL                          | 是否允许双指手势放大预览画面，默认为 NO |
-| connectRetryCount | int                          | 推流器连接重试次数 : 最小值为 1， 最大值为 10, 默认值为 3 |
-| connectRetryInterval | int                          | 推流器连接重试间隔 : 单位秒，最小值为 3, 最大值为 30， 默认值为 3 |
+| connectRetryCount | int                          | 推流器连接重试次数 : 最小值为1， 最大值为10, 默认值为3 |
+| connectRetryInterval | int                          | 推流器连接重试间隔 : 单位秒，最小值为3, 最大值为30， 默认值为3 |
 | watermark     | UIImage *                          | 设置水印图片. 设为nil等同于关闭水印 |
 | watermarkPos | CGPoint                          | 设置水印图片位置，水印大小为图片实际大小 |
-| watermarkNormalization | CGRect                          | 水印相对于推流分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height |
-| pVideoFuncPtr | PVideoProcessHookFunc        | 视频预处理Hook       |
-| pAudioFuncPtr | PAudioProcessHookFunc        | 音频预处理Hook       |
-| sampleBufferSize | CGSize                    | 发送自定义 CMSampleBuffer 的输出分辨率。当设置此属性时，videoResolution 自动失效。此值设置需与源 SampleBuffer 的画面比例一致，否则会引起画面变形。调用 sendVideoSampleBuffer 必须设置此值，或者设置autoSampleBufferSize=YES |
+| watermarkNormalization | CGRect                          | 水印相对于推流分辨率的归一化坐标，x,y,width,height 取值范围0 - 1；height 不用设置，sdk内部会根据水印宽高比自动计算height |
+| pVideoFuncPtr | PVideoProcessHookFunc        | 视频预处理 Hook       |
+| pAudioFuncPtr | PAudioProcessHookFunc        | 音频预处理 Hook       |
+| sampleBufferSize | CGSize                    | 发送自定义 CMSampleBuffer 的输出分辨率。当设置此属性时，videoResolution 自动失效。此值设置需与源 SampleBuffer 的画面比例一致，否则会引起画面变形。调用 sendVideoSampleBuffer 必须设置此值，或者设置 autoSampleBufferSize = YES |
 | autoSampleBufferSize | BOOL                  | 设置 YES 时，调用 sendVideoSampleBuffer 输出分辨率等于输入分辨率, 默认值为 NO |
 | enableAudioAcceleration | BOOL               | 开启音频硬件加速， 默认值为 YES |
-| pauseTime               | int                | 后台推流时长，单位秒，默认 300 秒 |
-| pauseFps | UIImage *                         | 后台推流图片, 图片最大尺寸不能超过 1920*1920 |
+| pauseTime               | int                | 后台推流时长，单位秒，默认300秒 |
+| pauseFps | UIImage *                         | 后台推流图片, 图片最大尺寸不能超过1920 \* 1920 |
 | enableAEC | BOOL                            |  是否开启回声消除, 默认值为 YES |
 | enableAudioPreview | BOOL                   | 是否开启耳返, 默认值为 NO |
 | enablePureAudioPush | BOOL                  | 是否纯音频推流, 默认值为 NO |
@@ -130,10 +130,10 @@
 | bAutoAdjustCacheTime | BOOL                    | 是否自动调整播放器缓存时间，默认值为 YES</br>YES：表示启用自动调整，自动调整的最大值和最小值可以分别通过修改 maxCacheTime 和 minCacheTime 来设置</br>NO：表示关闭自动调整，采用默认的指定缓存时间(1s)，可以通过修改 cacheTime 来调整缓存时间 |
 | maxAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最大时间 : 单位秒，取值需要大于0, 默认值为5 |
 | minAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最小时间 : 单位秒，取值需要大于0, 默认值为5 |
-| videoBlockThreshold | int                      | 播放器视频卡顿报警阈值，只有渲染间隔超过这个阈值的卡顿才会有PLAY_WARNING_VIDEO_PLAY_LAG通知 |
+| videoBlockThreshold | int                      | 播放器视频卡顿报警阈值，只有渲染间隔超过这个阈值的卡顿才会有 PLAY_WARNING_VIDEO_PLAY_LAG 通知 |
 | connectRetryCount | int                        | 播放器连接重试次数 : 最小值为1， 最大值为10, 默认值为3 |
-| enableAEC        | BOOL                        | 是否开启回声消除， 默认值为NO                   |
-| enableMessage    | BOOL                        | 是否开启消息通道， 默认值为NO                   |
+| enableAEC        | BOOL                        | 是否开启回声消除， 默认值为 NO                   |
+| enableMessage    | BOOL                        | 是否开启消息通道， 默认值为 NO                   |
 | playerPixelFormatType | OSType                 | 视频渲染对象回调的视频格式. 仅支持 kCVPixelFormatType_420YpCbCr8Planar 和 kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, 默认值为 kCVPixelFormatType_420YpCbCr8Planar |
 | enableNearestIP | BOOL                         | 只对加速拉流生效，用于指定加速拉流是否开启就近选路 (当前版本不启用) |
 | rtmpChannelType | int                          | RTMP传输通道的类型，取值为枚举值：TX_Enum_Type_RTMPChannel, 默认值为 RTMP_CHANNEL_TYPE_AUTO |
@@ -160,13 +160,13 @@ init 时候初始化 config.
 
 接口详情：`(int)startPush:(NSString *)rtmpURL`
 
-启动到指定URL推流（rtmpURL 腾讯云的推流地址）
+启动到指定 URL 推流（rtmpURL 腾讯云的推流地址）
 
 - **参数说明**
 
 | 参数   | 类型                | 说明          |
 | ------ | ------------------ | ------------ |
-| url    | NSString *         | RTMP完整的URL |
+| url    | NSString *         | RTMP 完整的 URL |
 
 
 - **返回值**
