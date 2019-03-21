@@ -4,11 +4,6 @@
 ![](https://main.qcloudimg.com/raw/bcdbc0a8d6360f7846c40e90a5b1bbdb.png)
 
 
-如果您是首次购买和使用云服务器CVM的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接CVM实例。
-
-![](https://main.qcloudimg.com/raw/bcdbc0a8d6360f7846c40e90a5b1bbdb.png)
-
-
 ## 1. 注册账号与选型
 
 ### 注册腾讯云账号
