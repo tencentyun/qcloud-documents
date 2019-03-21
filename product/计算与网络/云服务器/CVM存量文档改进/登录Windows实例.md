@@ -67,9 +67,9 @@ make install
 2. 连接远程 Windows 实例
 运行以下命令（将示例中的参数改为您自己的参数）：
 ```
-rdesktop -u Administrator -p <your-password> <hostname or ip address>
+rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
-其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or ip address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
+其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
 >! 如果登录失败，请检查您的云服务器实例是否允许 3389 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221)，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
 
 ## 本地为 Mac OS 计算机
@@ -108,7 +108,7 @@ Windows，Linux和MacOS系统
 
 1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 
-2. 在【云主机】页面中，选择需要登录的云服务器，单击【登录】。
+2. 在【云服务器】页面中，选择需要登录的云服务器，单击【登录】。
 
 3. 在弹出的【登录Windows云服务器】窗口中，选择【浏览器 VNC 方式登录】，单击【立即登录】。
 
