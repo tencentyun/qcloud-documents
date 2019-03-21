@@ -5,7 +5,7 @@
 - mongodb ([PHP官网文档](http://php.net/manual/en/set.mongodb.php))  - MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
 - mongo ([PHP官网文档](http://php.net/manual/en/book.mongo.php)) - mongo 比较老旧，但也可以用，如果要用请选择 1.6 版本。
 
-下面分别用上述两个驱动演示一下连接腾讯云 MongoDB 并进行读写。
+下面分别用上述两个驱动演示连接腾讯云 MongoDB 并进行读写。
 
 ### 使用 mongodb 驱动
 mongodb 安装方法参考 [官方安装步骤](http://php.net/manual/zh/mongodb.installation.php)。

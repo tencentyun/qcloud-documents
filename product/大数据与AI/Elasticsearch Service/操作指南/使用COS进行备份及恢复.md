@@ -5,22 +5,23 @@ PUT _snapshot/my_cos_backup
 {
     "type": "cos",
     "settings": {
-        "app_id": "xxxxxxx", <1>
-        "access_key_id": "xxxxxx", <2>
-        "access_key_secret": "xxxxxxx", <3>
-        "bucket": "xxxxxx",  <4>
-        "region": "ap-guangzhou", <5>
+        "app_id": "xxxxxxx",
+        "access_key_id": "xxxxxx",
+        "access_key_secret": "xxxxxxx",
+        "bucket": "xxxxxx",
+        "region": "ap-guangzhou",
         "compress": true,
         "chunk_size": "500mb",
-        "base_path": "/", <6>
+        "base_path": "/"
     }
 }
 ```
-- <1> 腾讯云账号 APPID   
-- <2><3> 腾讯云 API 密钥 SecretId、SecretKey
-- <4> COS Bucket 名字
-- <5> COS Bucket 地域，建议与 ES 集群同地域  
-- <6> 备份目录   
+- app_id：腾讯云账号 APPID。
+- access_key_id：腾讯云 API 密钥 SecretId。
+- access_key_secret：腾讯云 API 密钥 SecretKey。
+- bucket：COS Bucket 名字。
+- region：COS Bucket 地域，建议与 ES 集群同地域。
+- base_path：备份目录。   
 
 ## 列出仓库信息
 您可通过如下命令获取仓库信息：
@@ -43,19 +44,19 @@ PUT _snapshot/my_cos_backup/snapshot_1
 ```
 PUT _snapshot/my_cos_backup/snapshot_1?wait_for_completion=true
 ```
->**注意：**
->命令执行的时间与索引大小相关。
+
+>!命令执行的时间与索引大小相关。
 
 ### 备份指定索引
 您可以在创建快照的时候指定要备份的索引：
 ```
 PUT _snapshot/my_cos_backup/snapshot_2
 {
-    "indices": "index_1,index_2"  <1>
+    "indices": "index_1,index_2"
 }
 ```
->**注意：**
->参数 indices 的值为多个索引的时候，需要用`,`隔开且不能有空格。
+
+>!参数 indices 的值为多个索引的时候，需要用`,`隔开且不能有空格。
 
 ## 查询快照
 查询单个快照信息：
@@ -97,8 +98,8 @@ GET _snapshot/my_cos_backup/snapshot_1
 ```
 DELETE _snapshot/my_cos_backup/snapshot_1
 ```
->**注意：**
->如果存在还未完成的快照，删除快照命令依旧会执行，并取消未完成快照的创建进程。
+
+>!如果存在还未完成的快照，删除快照命令依旧会执行，并取消未完成快照的创建进程。
 
 ## 从快照恢复
 将快照中备份的所有索引都恢复到 ES 集群中：
@@ -111,14 +112,14 @@ POST _snapshot/my_cos_backup/snapshot_1/_restore
 ```
 POST /_snapshot/my_cos_backup/snapshot_1/_restore
 {
-    "indices": "index_1", <1>
-    "rename_pattern": "index_(.+)", <2>
-    "rename_replacement": "restored_index_$1" <3>
+    "indices": "index_1",
+    "rename_pattern": "index_(.+)",
+    "rename_replacement": "restored_index_$1"
 }
 ```
-- <1> 只恢复 index_1 索引，忽略快照中存在的其他索引。
-- <2> 查找所提供的模式能匹配上的正在恢复的索引。
-- <3> 将匹配的索引重命名成替代的模式。   
+- indices：只恢复 index_1 索引，忽略快照中存在的其他索引。
+- rename_pattern：查找所提供的模式能匹配上的正在恢复的索引。
+- rename_replacement：将匹配的索引重命名成替代的模式。   
 
 ## 查询快照恢复状态
 您可以通过执行`_recovery`命令，查看快照恢复的状态并监控快照恢复的进度。   
@@ -133,12 +134,12 @@ GET index_1/_recovery
         "shards": [
             {
                 "id": 1,
-                "type": "SNAPSHOT",     <1>
+                "type": "SNAPSHOT",
                 "stage": "INDEX",
                 "primary": true,
                 "start_time_in_millis": 1525766148333,
                 "total_time_in_millis": 8718,
-                "source": {     <2>
+                "source": {
                     "repository": "my_cos_backup",
                     "snapshot": "snapshot",
                     "version": "5.6.4",
@@ -162,7 +163,7 @@ GET index_1/_recovery
                         "total": 132,
                         "reused": 0,
                         "recovered": 20,
-                        "percent": "15.2%"      <3>
+                        "percent": "15.2%"
                     },
                     "total_time_in_millis": 8716,
                     "source_throttle_time_in_millis": 0,
@@ -184,9 +185,9 @@ GET index_1/_recovery
     }
 }
 ```
-- <1> type 字段描述了恢复的本质；该分片是在从一个快照恢复。
-- <2> source 哈希描述了作为恢复来源的特定快照和仓库。
-- <3> percent 字段描述恢复的状态。该特定分片目前已经恢复了 94% 的文件；它就快完成了。   
+- type：描述了恢复的本质；该分片是在从一个快照恢复。
+- source：哈希描述了作为恢复来源的特定快照和仓库。
+- percent：描述恢复的状态。该特定分片目前已经恢复了 94% 的文件；它就快完成了。   
 
 输出会列出所有目前正在恢复的索引，以及这些索引里的所有分片。每个分片里会有启动/停止时间、持续时间、恢复百分比、传输字节数等统计值。
 
