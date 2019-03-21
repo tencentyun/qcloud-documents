@@ -16,7 +16,7 @@ pip.main(['install', "package_name"])
 1. **添加组件**
 从左侧菜单栏中，选择【组件】>【深度学习】列表下的 PyTorch 节点，将其拖拽至画布中。
 ![](https://main.qcloudimg.com/raw/65b0b8335db814cf4b361d91fb7ce536.png)
-2.**配置参数**
+2. **配置参数**
  - 脚本及依赖包文件上传：
   将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过 依赖包文件 框上传。
 ![](https://main.qcloudimg.com/raw/f502e40c73117cfddef50af122cec760.png)
