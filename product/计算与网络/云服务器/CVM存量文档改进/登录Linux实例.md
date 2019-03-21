@@ -18,11 +18,24 @@ Webshell登录方式的优点：
 
 ## 前提条件
 
-您可以选择通过密码或者密钥的方式登录，Windows系统实例仅支持密码登录。
+您可以选择通过密码或者密钥的方式登录。
+
+### 使用密码登录
+**管理员账号**：对于不同类型的 Linux 实例，管理员帐号不同，如下表。
+
+| 实例操作系统 | 管理员帐号 | 
+|---------|---------|
+| SUSE/CentOS/Debian | root |
+| Ubuntu | ubuntu |
 
 - 如果您选择密码登录，可以登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击右侧站内信按钮，查收新购买的服务器页面中将包含云服务器登录管理员帐号及初始密码。
+ ![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
+
+
 - 如果您在购买实例时选择了自定义密码，则密码为用户在购买云服务器实例时指定的密码。
-- 如果您选择密钥登录，需要先 [创建密钥](https://cloud.tencent.com/document/product/213/16691)，然后下载保存到本地。
+
+### 使用密钥登录
+如果您选择密钥登录，需要先 [创建密钥](https://cloud.tencent.com/document/product/213/16691)、下载私钥、绑定 Linux 云服务器。有关密钥操作的更多内容，请参阅 [SSH 密钥](/doc/product/213/6092)。
 
 
 
@@ -46,18 +59,20 @@ Window，Linux或者Mac OS
 
 ### 操作步骤
 
-1. 查找[腾讯云控制台](https://console.cloud.tencent.com/)，点击【实例】，选择您需要登录的云服务器并点击【登录】。
-2. 在弹出的选择**浏览器WebShell方式登录**，并点击【立即登录】。
-3. 在登录页面选择密码或者密钥的方式登录。
-   - 如果您选择密码登录，输入您在购买腾讯云实例时设置的密码。如果您在购买腾讯云实例时使用了自动生成密码，可以在站内信中查找。如果您忘记密码，可以[重置密码]()。
-   - 如果您选择密钥登录，需上传您保留在本地的密钥。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】>【云计算与网络】>【云服务器】。
+2.  如图所示进入云服务器列表，在需要登录的 Linux 云服务器中单击【登录】按钮。
+![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
+3. 在跳转的新标签页中可看到如下图的界面，可以选择【密码登录】或者【密钥登录】两种方式进行登录。
+![](https://mc.qcloudimg.com/static/img/ed96f4638ad6b343ff38fc19452b8188/Snipaste_2018-02-02_18-20-17.png)
+4. 若密码或密钥无误，将会通过系统验证，成功使用 Webshell 方式登录 Linux 云服务器。
+![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
 4. 如果登录成功，WebShell界面会出现Socket connection established提示。
 
 
 
-## 使用Putty软件远程登录实例
+## 本地为Windows系统密码登录
 
-介绍以PuTTY为例如何使用远程登录软件登录您在腾讯云的Linux实例。
+介绍如何使用PuTTy通过密码登录您在腾讯云的Linux实例。
 
 ### 适用本地操作系统：
 
@@ -65,37 +80,54 @@ Windows
 
 ### 鉴权方式：
 
-密码 或 密钥。
+密码
 
 ### 操作步骤：
 
-您可以根据需要需要的鉴权方式选择通过密码或者通过密钥登录腾讯云实例。
+1. 安装 Windows 远程登录软件，参考[下载PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)。
+2. 使用 PuTTY 连接 Linux 云服务器。打开 PuTTY 客户端，在PuTTY Configuration 窗口中输入以下内容：
+  - Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP）。
+  - Port：云服务器的端口，必须填 22。（请确保云服务器 22 端口已开放，详见查看 [安全组](/doc/product/213/5221) 及 [网络ACL](/doc/product/215/5132)）
+  - Connect type：选择“ SSH ”。
+3. 输入完后，单击【Open】，创建一个新对话。
+  ![](//mccdn.qcloud.com/img56a5d38a4ffbc.png)
+4. 在 PuTTY 会话窗口中，输入前提条件中获得的管理员帐号，按回车键。再输入前提条件中获取的登录密码，回车完成登录过程。
+  ![](//mccdn.qcloud.com/img56a5d47b8b5da.png)
 
-#### 通过密码登录：
+>! 如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ,若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。
 
-1. 下载[PuTTY](https://www.putty.org/)软件。
-2. 打开 PuTTY 客户端，在**PuTTY Configuration** 窗口中输入：
-   - **Host Name**：输入你要连接的腾讯云服务器实例的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com/)，可在列表页及详情页中获取主机公网IP
-   - **Port**：云服务器的端口，此处填写为22，请确保云服务器 22 端口已开放，详见查看 [安全组--LINK]()及 [网络ACL--LINK]()。
-   - **Connection Type**：选择**SSH**。
-3. 在弹出的对话框中，输入云服务器的管理员账号和密码登录。如果您不知道云服务器的管理员账号或密码，请在[云服务器控制台](https://console.cloud.tencent.com/)查找或重置。
+## 本地为Windows系统SSH密钥登录
+介绍如何使用PuTTy通过SSH密钥登录您在腾讯云的Linux实例。
 
-#### 通过密钥登录：
+### 适用本地操作系统：
 
-1. 下载[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)主页的putty.exe和puttygen.exe两个文件。
-2. 选择私钥。打开putty.exe并单击【Load】，选择您从腾讯云服务器下载的密钥，并单击【打开】。
+Windows
+
+### 鉴权方式：
+
+密码
+
+### 操作步骤：
+1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
+2. 选择私钥。打开 puttygen.exe，单击【Load】按钮，在弹窗中首先进入您存放前提条件中下载下来的私钥的路径，然后选择“All File（\*.\*）”，选择下载好的私钥（例子中为文件david，david是密钥的名称），单击【打开】。
+![](//mccdn.qcloud.com/img56a5c48fb810a.png)
 3. 密钥转换。在 key comment 栏中输入密钥名，输入加密私钥的密码，单击【Save private key】，在弹窗中选择您存放密钥的目录，然后在文件名栏输入 密钥名 +".ppk"，单击【保存】按钮。
-4. 打开putty.exe，点击【Auth】进入配置。
-5. 单击【Browse】，选择刚刚保存到本地的密钥并单击【打开】，返回配置界面，进入【Session】配置。
-6. 在【Session】配置中配置服务器的IP，端口和连接类型。
-   - **Host Name**：输入你要连接的腾讯云服务器实例的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com/)，可在列表页及详情页中获取主机公网IP
-   - **Port**：云服务器的端口，此处填写为22。
-   - **Connection Type**：选择**SSH**。
+![](//mccdn.qcloud.com/img56a5c4ff657cc.png)
+4. 打开 putty.exe ，进入【Auth】配置。
+![](//mccdn.qcloud.com/img56a5c61c61e42.png)
+5. 单击【Browse】按钮，打开弹窗后进入密钥存储的路径，并选择密钥，单击【打开】，返回配置界面，进入【Session】配置。
+  ![](//mccdn.qcloud.com/img56a5c67ea3edb.png)
+6. 在Session配置页中，配置服务器的IP，端口，连接类型。
+ - IP：云服务器的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP。
+ - 端口：云服务器的端口，必须填 22 。（请确保云服务器 22 端口已开放，详见查看 安全组 及 网络ACL）。
 7. 在【Saved Sessions】输入框中中输入会话名称（本例为 test ），再单击【Save】按钮，然后双击会话名称或者单击【Open】按钮发起登录请求。
+![](//mccdn.qcloud.com/img56a5c6bca781f.png)
+
+>! 如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
 
 
 
-## Linux/Mac OS X 系统的电脑（使用密码登录）
+## Linux/Mac系统的电脑（使用密码登录）
 
 介绍本地为Linux/Mac OS系统的电脑通过密码远程登录Linux实例。
 
@@ -120,7 +152,7 @@ ssh <username>@<hostname or ip address>
 
 2. 输入前提条件中获得的密码（此时仅有输入没有显示输出），回车后即可完成登录。
 
-## Linux/Mac OS X 系统的电脑（使用密钥登录）
+## Linux/Mac系统的电脑（使用密钥登录）
 
 介绍本地为Linux/Mac OS系统的电脑通过密钥远程登录Linux实例。
 
