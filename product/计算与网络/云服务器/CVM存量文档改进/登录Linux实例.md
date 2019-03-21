@@ -13,8 +13,8 @@ Webshell登录方式的优点：
 
 | 本地操作系统    | 实例有公网IP                               | 实例没有公网IP    |
 | --------------- | ------------------------------------------ | ----------------- |
-| Windows         | WebShell 登录（推荐）<br> 远程登录软件登录 | VNC登录（不推荐） |
-| Linux<br>Mac OS | WebShell 登录（推荐）<br/>SSH 登录         | VNC登录（不推荐） |
+| Windows         | WebShell 登录（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录（不推荐） |
+| Linux<br>Mac OS | WebShell 登录（推荐）<br/>使用SSH密钥登录<br>使用密码登录         | VNC登录（不推荐） |
 
 ## 前提条件
 
