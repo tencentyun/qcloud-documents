@@ -105,14 +105,17 @@ Windows，Linux和MacOS系统
 
 
 ### 操作步骤：
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。
+2. 在 “云主机” 页面中，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
+![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
+3. 在弹出的 “登录Windows实例” 窗口中，选择 “浏览器 VNC 方式登录”，单击【立即登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/e63bfe80603c771ac5e748798dcc2329.png)
 
-1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+>! 
+> - 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
+> - 要正常使用 VNC 登录，需要使用现代浏览器，如：chrome，firefox，IE10及以上版本等。
+> - 暂不支持文件上传下载。
 
-2. 在【云服务器】页面中，选择需要登录的云服务器，单击【登录】。
-
-3. 在弹出的【登录Windows云服务器】窗口中，选择【浏览器 VNC 方式登录】，单击【立即登录】。
-
-4. 登录成功后，出现远程登录的界面。
 
 ## 远程连接出现问题？
 
