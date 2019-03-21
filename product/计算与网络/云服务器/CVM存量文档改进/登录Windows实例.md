@@ -5,8 +5,8 @@
 | 本地操作系统 | 实例有公网IP                    | 实例没有公网IP |
 | ------------ | --------------------------------- | ---------------------- |
 | Windows      | 使用RDP登录<br> 远程桌面登录         |         VNC登录（不推荐）               |
-| Linux<br>Mac OS | 使用RDP登录<br>rdesktop登录        |         VNC登录（不推荐）          |
-
+| Linux | 使用RDP登录<br>rdesktop登录        |         VNC登录（不推荐）          |
+| Mac OS | 使用RDP登录<br>使用Microsoft Remote Desktop for Mac登录        |         VNC登录（不推荐）          |
 
 ## 前提条件
 
