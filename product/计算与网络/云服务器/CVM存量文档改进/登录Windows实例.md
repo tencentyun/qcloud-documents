@@ -116,4 +116,4 @@ Windows，Linux和MacOS系统
 
 ## 远程连接出现问题？
 
-如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于[私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
+如果登录失败，请检查您的云服务器实例是否允许3389端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于[私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
