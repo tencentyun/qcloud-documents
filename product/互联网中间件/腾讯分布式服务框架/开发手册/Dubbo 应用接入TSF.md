@@ -95,3 +95,13 @@ TSF demo (**注册中心地址使用注册中心 IP 和端口替换**)：
 
 ##  部署应用
 请参考 [应用基本操作](https://cloud.tencent.com/document/product/649/13686) 。
+
+
+
+## 关于 Dubbo 兼容的说明
+
+1. TSF 提供服务注册中心，Dubbo 应用通过依赖 jar 包的方式使用
+2. TSF 支持 Dubbo 应用的部署和日志采集、展示
+3.  Dubbo 应用的其他能力（如 filter 机制 等），可以继续使用
+4. TSF 平台提供的服务限流、鉴权、路由功能目前只支持基于 Spring Cloud 和 Service Mesh 框架开发的应用
+
