@@ -49,8 +49,8 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |	
-| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        |✔    |
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
+| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        |✔    |
 
 
 ## CDN 与加速	
@@ -223,8 +223,8 @@
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [视频处理](https://cloud.tencent.com/document/product/314)                |-        | -      | -      | -   | -        |✔    |	
 | [数据万象](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | ✔ |
+| [视频处理](https://cloud.tencent.com/document/product/314)                |-        | -      | -      | -   | -        |✔    |	
 
  ## 解决方案	
  
@@ -236,8 +236,8 @@
 
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [实验室相关](https://cloud.tencent.com/document/product/658/13897)       | -      | -     | -    | -   | -      |✔   |	
 | [渠道合作伙伴](https://cloud.tencent.com/document/product/563) | ✔       | -      | ✔      | 操作级 | -        | -    |	
+| [实验室相关](https://cloud.tencent.com/document/product/658/13897)       | -      | -     | -    | -   | -      |✔   |	
 
  ## 内部服务	
  
