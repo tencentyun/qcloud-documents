@@ -24,7 +24,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // 导入短视频SDK aar
+    // 导入短视频SDK aar，LiteAVSDK_UGC_x.x.xxxx 请自行修改为最新版本号
     compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
 }
 ```
@@ -136,7 +136,7 @@ dependencies {
 ```
 public class DemoApplication extends Application {
     String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
-    String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                                                                 //您从控制台申请的licence key
+    String ugcKey = "xxxxxxxxxxxxxxx";                                                                 //您从控制台申请的licence key
 
     @Override
     public void onCreate() {
