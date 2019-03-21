@@ -1,5 +1,3 @@
-# 登录Linux实例
-
 创建Linux实例后，您可以根据本地操作系统以及是否有公网IP来选择不同的登录方式连接并登录CVM实例。**腾讯云推荐您使用WebShell方式登录。**
 
 Webshell登录方式的优点：
@@ -55,7 +53,7 @@ Window，Linux或者Mac OS
 
 实例是否购买公网IP。
 
-开启SSH（22号）端口，您可以通过[安全组LINK]()的设置确认是否开启22号端口。
+开启SSH（22号）端口，您可以通过[安全组](https://cloud.tencent.com/document/product/213/12452)的设置确认是否开启22号端口。
 
 ### 操作步骤
 
@@ -144,10 +142,10 @@ Linux 或 Mac OS
 1. Mac OS 用户请打开系统自带的终端（Terminal）并输入以下命令，Linux 用户请直接运行以下命令：
 
 ```
-ssh <username>@<hostname or ip address>
+ssh <username>@<hostname or IP address>
 ```
 
-   其中：`username`即为前提条件中获得的管理员帐号， `hostname or ip address`为您的 Linux 实例公网 IP 或 自定义域名。
+   其中：`username`即为前提条件中获得的管理员帐号， `hostname or IP address`为您的 Linux 实例公网 IP 或 自定义域名。
 	 
 
 2. 输入前提条件中获得的密码（此时仅有输入没有显示输出），回车后即可完成登录。
@@ -175,10 +173,10 @@ chmod 400 <下载的与云服务器关联的私钥的绝对路径>
 2. 运行以下远程登录命令：
 
 ```
-ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<hostname or ip address>
+ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<hostname or IP address>
 ```
 
-   (其中：`username`即为前提条件中获得的管理员帐号， `hostname or ip address`为您的 Linux 实例公网 IP 或 自定义域名。例如：`ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`）。
+   (其中：`username`即为前提条件中获得的管理员帐号， `hostname or IP address`为您的 Linux 实例公网 IP 或 自定义域名。例如：`ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`）。
 
 ## 使用VNC远程登录实例（不推荐）
 
@@ -197,10 +195,10 @@ Windows，Linux和MacOS系统
 ### 操作步骤：
 
 1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在 【云主机】 页面中，选择需要登录的 Linux 云服务器，单击【登录】。
+2. 在 【云服务器】 页面中，选择需要登录的 Linux 云服务器，单击【登录】。
 3. 在弹出的 【登录Linux云服务器】 窗口中，选择 【浏览器 VNC 方式登录】，单击【立即登录】。
 
 ## 远程登录失败？
-如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考[安全组]() ，若您的云服务器处于**私有网络**环境下，请同时查看相关子网的[网络ACL]() 。
+如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/document/product/213/12452) ，若您的云服务器处于**私有网络**环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/document/product/215/20088) 。
 更多登录失败的原因，可以参考[登录及远程连接常见问题](https://cloud.tencent.com/document/product/213/17278)。
 
