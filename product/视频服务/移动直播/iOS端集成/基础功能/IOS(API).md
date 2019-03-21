@@ -6,22 +6,22 @@
 
 | 名称                                                 | 描述                         |
 | ---------------------------------------------------- | --------------------------- |
-| (id)initWithConfig:(TXLivePushConfig *)config;       | 设置推流配置信息              |
-| (int)startPush:(NSString *)rtmpURL;                  | 启动到指定URL推流             |
+| (id)initWithConfig:(TXLivePushConfig \*)config;       | 设置推流配置信息              |
+| (int)startPush:(NSString \*)rtmpURL;                  | 启动到指定URL推流             |
 | (void)stopPush;                                      | 停止推流                     |
 | (void)pausePush;                                     | 暂停推流                     |
 | (void)resumePush;                                    | 恢复推流                     |
 | (bool)isPublishing;                                  | 是否正在推流中                |
-| (int) startRecord:(NSString *)videoPath;             | 开始录制短视频                |
+| (int) startRecord:(NSString \*)videoPath;             | 开始录制短视频                |
 | (int) stopRecord                                     | 结束录制短视频                |
-| (int)startPreview:(UIView *)view;                    | 开始推流画面的预览            |
+| (int)startPreview:(UIView \*)view;                    | 开始推流画面的预览            |
 | (void)stopPreview;                                   | 停止预览                     |
 | (int)switchCamera;                                   | 切换前后摄像头                |
 | (void)setMirror:(BOOL)isMirror                       | 设置是否为镜像画面            |
 | (void)setBeautyStyle                                 | 设置美颜 和 美白 效果级别      |
 | (void)setEyeScaleLevel:(float)eyeScaleLevel;         | 设置大眼级别                  |
 | (void)setFaceScaleLevel:(float)faceScaleLevel;       | 设置瘦脸级别                  |
-| (void)setFilter:(UIImage *)image;                    | 设置滤镜                      |
+| (void)setFilter:(UIImage \*)image;                    | 设置滤镜                      |
 | (void)setSpecialRatio:(float)specialValue            |  设置滤镜效果程度             |
 | (void)setFaceVLevel:(float)faceVLevel;               | 设置V脸                      |
 | (void)setChinLevel:(float)chinLevel;                 | 设置下巴拉伸或收缩            |
@@ -36,16 +36,16 @@
 | (void)setSendAudioSampleBufferMuted:(BOOL)muted;     | Replaykit发送静音包           |
 | (void)setFocusPosition:(CGPoint)touchPoint;          |  调用手动对焦功能              |
 | (void)setZoom:(CGFloat)distance;                     | 推送自定义视频数据             |
-| (BOOL)playBGM:(NSString *)path;                      | 播放背景音乐                  |
+| (BOOL)playBGM:(NSString \*)path;                      | 播放背景音乐                  |
 | (BOOL)stopBGM;                                       | 停止播放背景音乐               |
 | (BOOL)resumeBGM;                                     | 继续播放背景音乐               |
-| (int)getMusicDuration:(NSString *)path;              | 获取音乐文件总时长，单位毫秒    |
+| (int)getMusicDuration:(NSString \*)path;              | 获取音乐文件总时长，单位毫秒    |
 | (BOOL)setMicVolume:(float)volume;                    | 设置麦克风的音量大小            |
 | (BOOL)setBGMVolume:(float)volume;                    | 设置背景音乐的音量大小          |
 | (BOOL)setBgmPitch:(float)pitch;                      | 设置背景音的变声类型            |
 | (BOOL)setReverbType:(TXReverbType)reverbType;        | 设置混响效果, 详见 TXReverbType |
 | (BOOL)setVoiceChangerType                            | 设置变声类型                   |
-| (void)setGreenScreenFile:(NSURL *)file;              | 设置绿幕文件。仅增值版有效      |
+| (void)setGreenScreenFile:(NSURL \*)file;              | 设置绿幕文件。仅增值版有效      |
 | (void)selectMotionTmpl                               | 选择动效                       |
 | (void)setLogViewMargin                               | 设置状态浮层view在渲染view上的边距 |
 | (void)showVideoDebugLog                              | 是否显示播放状态统计及事件消息浮层view|
@@ -127,16 +127,16 @@
 | 属性名              | 类型                      | 说明                                           |
 | --------           | ------------------------- | ---------------------------------------------  |
 | cacheTime          | float                     | 播放器缓存时间 : 单位秒，取值需要大于0, 默认值为5 |
-| bAutoAdjustCacheTime | BOOL                    | 播放器缓存时间 : 单位秒，取值需要大于0, 默认值为5 |
+| bAutoAdjustCacheTime | BOOL                    | 是否自动调整播放器缓存时间，默认值为 YES</br>YES：表示启用自动调整，自动调整的最大值和最小值可以分别通过修改 maxCacheTime 和 minCacheTime 来设置</br>NO：表示关闭自动调整，采用默认的指定缓存时间(1s)，可以通过修改 cacheTime 来调整缓存时间 |
 | maxAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最大时间 : 单位秒，取值需要大于0, 默认值为5 |
 | minAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最小时间 : 单位秒，取值需要大于0, 默认值为5 |
 | videoBlockThreshold | int                      | 播放器视频卡顿报警阈值，只有渲染间隔超过这个阈值的卡顿才会有PLAY_WARNING_VIDEO_PLAY_LAG通知 |
-| connectRetryCount | int                        | 播放器连接重试次数 : 最小值为 1， 最大值为 10, 默认值为 3 |
-| enableAEC        | BOOL                        | 是否开启回声消除， 默认值为 NO                   |
-| enableMessage    | BOOL                        | 是否开启消息通道， 默认值为 NO                   |
-| playerPixelFormatType | OSType                 | 视频渲染对象回调的视频格式. 仅支持 kCVPixelFormatType_420YpCbCr8Planar和kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, 默认值为kCVPixelFormatType_420YpCbCr8Planar |
+| connectRetryCount | int                        | 播放器连接重试次数 : 最小值为1， 最大值为10, 默认值为3 |
+| enableAEC        | BOOL                        | 是否开启回声消除， 默认值为NO                   |
+| enableMessage    | BOOL                        | 是否开启消息通道， 默认值为NO                   |
+| playerPixelFormatType | OSType                 | 视频渲染对象回调的视频格式. 仅支持 kCVPixelFormatType_420YpCbCr8Planar 和 kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, 默认值为 kCVPixelFormatType_420YpCbCr8Planar |
 | enableNearestIP | BOOL                         | 只对加速拉流生效，用于指定加速拉流是否开启就近选路 (当前版本不启用) |
-| rtmpChannelType | int                          | RTMP传输通道的类型，取值为枚举值：TX_Enum_Type_RTMPChannel, 默认值为RTMP_CHANNEL_TYPE_AUTO |
+| rtmpChannelType | int                          | RTMP传输通道的类型，取值为枚举值：TX_Enum_Type_RTMPChannel, 默认值为 RTMP_CHANNEL_TYPE_AUTO |
 
 ## 接口详情
 
