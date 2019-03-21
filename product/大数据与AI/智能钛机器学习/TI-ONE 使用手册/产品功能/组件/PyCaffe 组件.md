@@ -153,5 +153,5 @@ caffe.set_mode_gpu()
 solver = caffe.SGDSolver(solver_file)
 solver.solve()
 ```
-示例代码下载：PyCaffe_LenetTrain.py
+示例代码下载：[PyCaffe_LenetTrain.py](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/PyCaffe_LenetTrain.py)
 
