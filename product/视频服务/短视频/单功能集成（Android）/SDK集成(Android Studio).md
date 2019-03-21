@@ -135,7 +135,7 @@ dependencies {
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```
 public class DemoApplication extends Application {
-    String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
+    String ugcLicenceUrl = "http://xxxxxxxx.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
     String ugcKey = "xxxxxxxxxxxxxxx";                                                                 //您从控制台申请的licence key
 
     @Override
