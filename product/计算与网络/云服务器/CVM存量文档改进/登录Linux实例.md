@@ -201,9 +201,9 @@ Windows，Linux和MacOS系统
 ![](https://main.qcloudimg.com/raw/e5dda4dcf3b03150fd94cb07bcedfd4b.png)
 
 >! 
-> - 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
-> - 要正常使用 VNC 登录，需要使用主流浏览器，如：chrome，firefox，IE10 及以上版本等。
-> - 暂不支持文件上传下载。
+- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
+- 要正常使用 VNC 登录，需要使用主流浏览器，如：chrome，firefox，IE10 及以上版本等。
+- 暂不支持文件上传下载。
 
 ## 远程登录失败？
 如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/document/product/213/12452) ，若您的云服务器处于**私有网络**环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/document/product/215/20088) 。
