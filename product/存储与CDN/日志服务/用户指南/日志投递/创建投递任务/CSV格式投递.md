@@ -29,16 +29,16 @@
       <th>是否必填</th>
    </tr>
    <tr>
-      <td>投递任务名称</td>
+      <td nowrap="nowrap">投递任务名称</td>
       <td>配置投递任务的名称。</td>
       <td nowrap="nowrap">字母、数字、_和-</td>
-      <td>是</td>
+      <td>必填</td>
    </tr>
    <tr>
-      <td>COS存储桶</td>
+      <td nowrap="nowrap">COS存储桶</td>
       <td>与当前日志主题同地域的存储桶作为投递目标存储桶 。</td>
       <td>列表选择</td>
-      <td>是</td>
+      <td>必填</td>
    </tr>
    <tr>
       <td>目录前缀</td>
@@ -50,19 +50,19 @@
       <td>分区格式</td>
       <td>将投递任务创建时间按照 strftime 的语法自动生成目录 ，其中斜线/表示一级 COS 目录。</td>
       <td>strftime 格式</td>
-      <td>是</td>
+      <td>必填</td>
    </tr>
    <tr>
-      <td>投递文件大小</td>
+      <td nowrap="nowrap">投递文件大小</td>
       <td>指定在该投递时间间隔中未压缩的投递文件上限，意味着在该时间间隔中，日志文件最大将为您设置的值，超过该上限，将被分成多个日志文件，上限支持100MB - 10GB。</td>
       <td nowrap="nowrap">100MB - 10GB</td>
-      <td>是</td>
+      <td>必填</td>
    </tr>
    <tr>
-      <td>投递间隔时间</td>
+      <td nowrap="nowrap">投递间隔时间</td>
       <td>指定投递的时间间隔，支持60s - 3600s。假设您设置投递时间间隔为5分钟，那么意味着您的日志数据将每5分钟产生一个日志文件，每隔一段时间（半小时内），多个日志文件会一起投递至您的存储桶。</td>
       <td>60s - 3600s</td>
-      <td>是</td>
+      <td>必填</td>
    </tr>
 </table>
 
@@ -86,7 +86,7 @@
       <th>是否必填</th>
    </tr>
    <tr>
-      <td>键值名称（key）</td>
+      <td nowrap="nowrap">键值名称（key）</td>
       <td>指定写入 CSV 文件的键值（key）字段（填写的 key 必须是日志结构化后的 key 名称或保留字段，否则将视为无效 key）。</td>
       <td nowrap="nowrap">字母、数字、_和-</td>
       <td>必填</td>
