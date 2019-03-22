@@ -42,7 +42,7 @@ pip.main(['install', "package_name"])
 ![](https://main.qcloudimg.com/raw/4c2f9e2163fa984a6328fc8719f80c9c.png)
  
 
-## PySpark 使用建议
+## 使用建议
 使用 PySpark 的目的是更好地借助其分布式计算的优势，以解决单机完成不了的计算。如果您在 PySpark 中仍然是调用常规的 Python 库做单机计算，那就失去了使用 PySpark 的意义。下面举例说明如何编写 PySpark 分布式计算代码。
 
 #### 使用 Spark 的 DataFrame，而不要使用 Pandas 的 DataFrame
