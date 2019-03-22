@@ -7,22 +7,21 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
-![](https://main.qcloudimg.com/raw/bd83f2f9976cab19c9117a5fe6d63a07.png)
+ ![](https://main.qcloudimg.com/raw/bd83f2f9976cab19c9117a5fe6d63a07.png)
 4. 填写 Connection Profile 相关信息和 General 信息。
-![](https://main.qcloudimg.com/raw/86649d2431efe8794fe31885b33775af.png)
+ ![](https://main.qcloudimg.com/raw/86649d2431efe8794fe31885b33775af.png)
 5. 填写 User Credentials 信息。
-![](https://main.qcloudimg.com/raw/d8c9e225e48f2ae7ef23df34c8b1e07b.png)
- >?
- - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + sdkappid + connid。如："QICJYEM1T4Demo1;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
- - **Password**	：Password 必须填写，由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
+ ![](https://main.qcloudimg.com/raw/d8c9e225e48f2ae7ef23df34c8b1e07b.png)
+  >?
+  - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + sdkappid + connid。如："QICJYEM1T4Demo1;12010126;12345"，仅替换  示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
+  - **Password**	：Password 必须填写，由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后 台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
 6. 选择开启 SSL/TLS，勾选 Self signed Certificates，上传相关内容。
->!由于 IoT Cloud 使用安全加密链路，因此还需要设置 SSL/TLS 信息。MQTT.fx 不支持对称加密 PSK，本文仅演示非对称加密连接设置。
+  >!由于 IoT Cloud 使用安全加密链路，因此还需要设置 SSL/TLS 信息。MQTT.fx 不支持对称加密 PSK，本文仅演示非对称加密连接设置。
 
-![](https://main.qcloudimg.com/raw/e68e018aed4f9088d4be0180ec9b3cf3.png)
-6. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
-
-当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
-![](https://main.qcloudimg.com/raw/138f172fbda398a91758c7b20cdaf748.png)
+ ![](https://main.qcloudimg.com/raw/e68e018aed4f9088d4be0180ec9b3cf3.png)
+7. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
+8. 当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
+ ![](https://main.qcloudimg.com/raw/138f172fbda398a91758c7b20cdaf748.png)
 
 ### 参数说明
 上文涉及到的相关参数及文件说明，请参考下表：
