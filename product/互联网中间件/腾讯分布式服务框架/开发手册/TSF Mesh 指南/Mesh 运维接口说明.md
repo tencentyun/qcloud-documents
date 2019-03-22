@@ -50,13 +50,13 @@ REDIRECT   tcp  --  0.0.0.0/0            0.0.0.0/0            redir ports 15001
 ```
 
 **DNS_OUTPUT**
-- 托管本地的 DNS 请求到 mesh-dns 进程
+- 托管本地的 DNS 请求到 mesh-dns 进程。
 - 第一条 RETURN 规则非常重要，不再托管从 mesh-dns 转发出来的 DNS 请求。
-- 后面两条是托管本地的53端口（即dns原生请求端口）的流量。
+- 后面两条是托管本地的53端口（即 DNS 原生请求端口）的流量。
 
 **ISTIO_INBOUND**
 - 托管访问本地服务的流量。
-- 可以看到托管的流量非常细粒度，只托管注册到 Mesh 框架的9.77.7.28:8089的流量。
+- 可以看到托管的流量非常细粒度，只托管注册到 Mesh 框架的`9.77.7.28:8089`的流量。
 
 **ISTIO_OUTPUT**
 - 托管从本地流出的流量。
@@ -138,4 +138,4 @@ admin commands are:
 ```
 其中主要的接口如下：
 - /clusters：查看各个部署组下的实例信息和健康信息，例如查看本地服务节点的健康信息`curl -s 127.0.0.1:15000/clusters | grep "in#"`。
-- /config_dump：将服务路由信息打印出来，一般调用如下 `curl -s 127.0.0.1:15000/config_dump -o 1.json`，打开1.json即可查看路由信息。
+- /config_dump：将服务路由信息打印出来，一般调用`curl -s 127.0.0.1:15000/config_dump -o 1.json`，打开1.json即可查看路由信息。
