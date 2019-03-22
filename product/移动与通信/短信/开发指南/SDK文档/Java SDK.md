@@ -15,6 +15,11 @@
 语音通知支持操作：[发送语音验证码](#发送语音验证码)、[发送语音通知](#发送语音通知)、[上传语音文件](#上传语音文件)、[查询语音文件审核状态](#查询语音文件审核状态)、[按语音文件 fid 发送语音通知](#按语音文件fid发送语音通知)、[指定模板发送语音通知](#指定模板发送语音通知)。
 
 ## 开发
+
+### 相关资料
+各个接口及其参数的详情介绍请参考 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+
+
 ### 开发前准备
 在开始开发云短信应用之前，需要准备如下信息：
 
@@ -56,8 +61,6 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 
-### 相关资料
-若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ### 示例
 
