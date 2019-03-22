@@ -1,8 +1,6 @@
-#### CREATE VIEW
-
 定义一个新的视图。
 
-##### 概要
+## 概要
 
 ```sql
 CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
@@ -10,7 +8,7 @@ CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
        AS query
 ```
 
-##### 描述
+## 描述
 
 CREATE VIEW 定义一个视图查询。该视图没有实际物。相反，每次在查询中引用该视图时，都会运行查询。
 
@@ -18,27 +16,22 @@ CREATE OR REPLACE VIEW 是相似的，但是如果同名的视图已经存在，
 
 如果给定了模式名称，则在指定的模式名称中创建视图。否则，在当前的模式中创建该视图。临时视图存在于特殊的模式中，所以创建临时模式时不会给定模式名。该视图的名称与同模式中其他任何视图，表，序列或索引的名称必须不同。
 
-##### 参数
+## 参数
 
 TEMPORARY | TEMP
-
-如果指定，该视图创建为临时表。临时表在当前事务结束时自动删除。当临时表存在时，具有相同的名字的永久表在当前会话中不可见，除非他们使用方案限定名来引用。如果视图引用的任何表是临时的话，该视图会创建成一个临时表（（不管）是否指定 TEMPORARY ）。
+如果指定，该视图创建为临时表。临时表在当前事务结束时自动删除。当临时表存在时，具有相同的名字的永久表在当前会话中不可见，除非他们使用方案限定名来引用。如果视图引用的任何表是临时的话，该视图会创建成一个临时表（不管是否指定 TEMPORARY ）。
 
 name
-
 要创建的表的名字（可选方案限定）。
 
 column_name
-
 可选名字列表用于视图的列。如果没有给定，该列名将从查询中推导而来。
 
 query
+SELECT 或 VALUES 命令，二者会提供视图的列和行。
 
-SELECT 或 VALUES命令，二者会提供视图的列和行。
-
-##### 注意
-
-数据库中的视图是只读的。该系统不允许在视图上插入，更新，或者删除。用户可以通过在视图上创建重写规则到其他表上的适当操作来获得可更新视图的效果。更多信息，请参阅 CREATE RULE。
+## 注意
+数据库中的视图是只读的。该系统不允许在视图上插入，更新或者删除。用户可以通过在视图上创建重写规则到其他表上的适当操作来获得可更新视图的效果。更多信息，请参阅 CREATE RULE。
 
 请注意，视图列的名字和数据类型可以按照用户想要的方式分配。例如：
 
@@ -56,11 +49,10 @@ CREATE VIEW vista AS SELECT text 'Hello World' AS hello;
 
 但是，视图中调用函数的处理方式与使用视图从查询中直接调用的方式相同。因此，视图的用户必须要有具有调用视图使用的任何函数的权限。
 
-如果用户使用 ORDER BY 子句创建了一个视图，则当用户从视图中执行SELECT 时将忽略ORDER BY子句。
+如果用户使用 ORDER BY 子句创建了一个视图，则当用户从视图中执行 SELECT 时将忽略 ORDER BY 子句。
 
-##### 例子
-
-创建所有包含comedy电影的视图：
+## 示例
+创建所有包含 comedy 电影的视图：
 
 ```sql
 CREATE VIEW comedies AS SELECT * FROM films WHERE kind = 
@@ -74,18 +66,14 @@ CREATE VIEW topten AS SELECT name, rank, gender, year FROM
 names, rank WHERE rank < '11' AND names.id=rank.id;
 ```
 
-##### 兼容性
+## 兼容性
 
-该 SQL 标准指定了不在数据库中的 CREATE VIEW 语句的一些附加功能。标准完整SQL命令的可选子句包括：
+该 SQL 标准指定了不在数据库中的 CREATE VIEW 语句的一些附加功能。标准完整 SQL 命令的可选子句包括：
+- **CHECK OPTION**：该选项和可更新视图有关。将检查视图上所有 INSERT 和 UPDATE 命令来确保数据满足视图定义条件（即新的数据将通过视图可见）。如果不满足条件，则拒绝该更新。
+- **LOCAL**：检查视图上的完整性。
+- **CASCADED**：检查此视图的和任何从属视图的完整性，假定为 CASCADED 如果不指定 CASCADED 或 LOCAL。
 
-·         **CHECK OPTION** — 该选项和可更新视图有关。 将检查视图上所有 INSERT 和 UPDATE 命令来确保数据满足视图定义条件（即，新的数据将通过视图可见）。如果不满足条件，则拒绝该更新。
+CREATE OR REPLACE VIEW 是数据库语言扩展，临时视图的概念也是如此。
 
-·         **LOCAL** — 检查视图上的完整性
-
-·         **CASCADED** — 检查此视图的和任何从属视图的完整性，假定为CASCADED 如果不指定 CASCADED 或 LOCAL。
-
-CREATE OR REPLACE VIEW是数据库语言扩展，临时视图的概念也是如此。
-
-##### 另见
-
-SELECT, DROP VIEW
+## 另见
+SELECT、DROP VIEW
