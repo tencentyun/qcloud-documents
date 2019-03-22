@@ -9,7 +9,7 @@
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-auth</artifactId>
-    <version>1.1.1-RELEASE</version><!-- 调整为 SDK 最新版本号 -->
+    <version><!-- 调整为 SDK 最新版本号 --></version>
 </dependency>
 ```
 
