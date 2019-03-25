@@ -9,7 +9,7 @@
 |-262 |源实例在 ONLINE 迁移模式下，binlog 格式不能为 statement|online 迁移模式，源实例的 binlog 格式需为 row 或者 mixed|
 |-267 |源实例的 innodb_stats_on_metadata 需要设置为 off|迁移过程需要配置 innodb_stats_on_metadata 为 off|
 |-264 |源实例在 ONLINE 迁移模式下，server_id 需要配置为非 0 正数，且与目标实例不同|online 迁移模式，源实例需要配置正确的 server_id，同时与目标实例不同|
-|-418 |指定库表迁移（非 schema）模式下，源实例 events 需要为 disable 状态|对于 online、backup 模式下的指定库表迁移，源实例的 events 需要配置为disable 状态|
+|-418 |指定库表迁移（非 schema）模式下，源实例 events 需要为 disable 状态|对于 online、backup 模式下的指定库表迁移，源实例的 events 需要配置为 disable（状态配置源实例 set global event_scheduler=OFF）|
 |2001041 |源实例是正在同步的 slave，但没有开启 log_slave_update|对于源实例是 slave 且正在同步的情况，需要配置 log_slave_updates 为 on|
 |2001040 |源实例是 5.7，包含不支持的列类型|源实例是5.7的情况，目前不支持 json 和虚拟列|
 |-257 |源和目标兼容性不满足要求|兼容性要求： <br>目前迁移支持同大版本 mysql 迁移（源和目标版本相同） <br>对于不同大版本，只支持(5.1 > 5.5，5.5 > 5.6)<br>character_set_server lower_case_table_names 这两个 global 配置需要源和目标相同|
