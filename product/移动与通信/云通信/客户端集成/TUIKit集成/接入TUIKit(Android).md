@@ -33,14 +33,14 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 android {
     defaultConfig {
         ndk {
-            abiFilters 'armeabi-v7a' //目前仅提供armeabi-v7a的so库
+            abiFilters 'armeabi-v7a' //目前仅提供 armeabi-v7a 的 so 库
         }
     }
 }
 
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.198'
+    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //替换成线上最新的版本
 }
 
 ```
