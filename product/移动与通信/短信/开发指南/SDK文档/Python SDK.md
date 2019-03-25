@@ -45,7 +45,7 @@ pip install qcloudsms_py
 
  1.手动下载或 clone 最新版本 qcloudsms_py 代码。
  2.在 qcloudsms_py 目录运行 `python setup.py install`或直接把 qcloudsms_py 所在目录加入`sys.path`。
- >python2/python3都支持。
+ >?python2/python3 都支持。
 
  ### 相关资料
  若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
