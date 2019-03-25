@@ -19,7 +19,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 Windows、Linux 和 macOS 系统。
 
 ### 软件依赖
-- JDK 1.7 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK 1.8 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
