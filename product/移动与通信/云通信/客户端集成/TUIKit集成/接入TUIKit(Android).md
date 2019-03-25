@@ -45,7 +45,7 @@ dependencies {
 
 ```
 
-TUIKit 会自动加载所需的 IMSDK。目前加载的 IMSDK 版本是 V3.5.0.198。
+TUIKit 会自动加载所需的 IMSDK。
 
 ## 初始化 TUIKit
 
