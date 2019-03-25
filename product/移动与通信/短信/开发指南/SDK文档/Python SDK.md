@@ -72,7 +72,7 @@ sms_sign = "腾讯云"  # NOTE: 签名参数使用的是`签名内容`，而不�
 
 <a id="指定模板单发短信" ></a>
 
-- **指定模板ID单发短信**
+- **指定模板 ID 单发短信**
 
 ```python
 from qcloudsms_py import SmsSingleSender
@@ -96,7 +96,7 @@ print(result)
 
 <a id="指定模板群发短信" ></a>
 
-- **指定模板ID群发短信**
+- **指定模板 ID 群发短信**
 
 ```python
 from qcloudsms_py import SmsMultiSender
