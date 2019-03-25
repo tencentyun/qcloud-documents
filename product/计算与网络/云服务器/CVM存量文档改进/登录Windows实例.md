@@ -21,14 +21,12 @@
 ### 适用本地操作系统
 Windows，Linux和Mac OS
 
-### 操作步骤
+### Windows系统使用RDP登录
 1. 登录[云服务器控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。在顶部菜单中选择【云产品】>【云计算与网络】>【云服务器】。
 2. 如图所示进入云服务器列表，在需要登录的 Windows 云服务器中单击【登录】按钮。![](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
 3. 在“登录Windows实例”对话框，选择使用RDP文件登录。![](https://main.qcloudimg.com/raw/8847c7b1e41c75fe362fd46bbf21d729.png)
-4. 根据您本地的操作系统（Windows，Linux或者MacOS），根据以下步骤操作：
 
-#### Windows系统使用RDP登录：
-#### Linux系统使用RDP登录：
+### Linux系统使用RDP登录：
 您需要安装相应的远程桌面连接程序，这里推荐使用 rdesktop 进行连接。有关 rdesktop 的更多内容，请参考 [rdesktop官方说明](http://www.rdesktop.org/) 
 1. 安装 rdesktop
 运行 `rdesktop` 命令检查系统是否已经安装，若未安装则请 [转到 github 下载最新安装包](https://github.com/rdesktop/rdesktop/releases)。
@@ -52,7 +50,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
 其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
  
-####  MacOS系统使用RDP登录：
+###  MacOS系统使用RDP登录：
 当本地为 Mac OS 计算机时，使用 Microsoft Remote Desktop for Mac 登录 Windows 实例。
 Microsoft Remote Desktop for Mac 下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
 
@@ -61,7 +59,7 @@ Microsoft Remote Desktop for Mac 下载指引参见 [用于 Mac OS 的远程登�
 3. 双击新添加的远程桌面图标，在新打开的界面中输入实例的管理员账号（默认为Administrator）和对应的密码。如果忘记密码，可以通过控制台重置实例密码。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
 
-## 使用远程桌面连接Windows实例
+## 使用远程桌面登录
 ### 适用本地操作系统
 Windows
 
