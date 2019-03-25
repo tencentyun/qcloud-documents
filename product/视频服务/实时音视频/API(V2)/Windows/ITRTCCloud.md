@@ -864,7 +864,7 @@ __参数__
 
 ### getScreenCaptureSources
 
-【屏幕共享】枚举可共享的窗口列表，。
+【屏幕共享】枚举可共享的窗口列表。
 
 ```
 ITRTCScreenCaptureSourceList * getScreenCaptureSources(const SIZE & thumbSize, const SIZE & iconSize)
@@ -889,7 +889,7 @@ ITRTCScreenCaptureSourceList 对象的生命周期。
 
 ### selectScreenCaptureTarget
 
-【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：
+【屏幕共享】选择要分享的目标窗口或目标区域。
 
 ```
 void selectScreenCaptureTarget(const TRTCScreenCaptureSourceInfo & source, const RECT & captureRect, bool captureMouse, bool highlightWindow)
@@ -903,6 +903,15 @@ __参数__
 | captureRect | const RECT & | 指定捕获的区域 |
 | captureMouse | bool | 指定是否捕获鼠标指针 |
 | highlightWindow | bool | 指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
+
+
+source 从 getScreenCaptureSources 接口获取。
+以下为四种场景对应参数说明：
+
+1. 共享整个屏幕 : source.type 为 Screen，captureRect 设为 { 0, 0, 0, 0 }
+2. 共享指定区域 : source.type 为 Screen，captureRect 设为非 NULL，比如 { 100, 100, 300, 300 }
+3. 共享整个窗口 : source.type 为 Window，captureRect 设为 { 0, 0, 0, 0 }
+4. 共享窗口区域 : source.type 为 Window，captureRect 设为非 NULL，比如 { 100, 100, 300, 300 }
 
 __说明__
 
@@ -925,7 +934,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-
+| rendHwnd | HWND | 承载预览画面的 HWND |
 
 
 
