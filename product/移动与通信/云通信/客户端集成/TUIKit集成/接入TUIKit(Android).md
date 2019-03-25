@@ -368,9 +368,9 @@ public abstract class IMEventListener {
     }
 
     /**
-     * WIFI需要验证
+     * Wi-Fi 需要验证
      *
-     * @param name wifi名称
+     * @param name Wi-Fi 名称
      */
     public void onWifiNeedAuth(String name){
         QLog.d(TAG, "recv onWifiNeedAuth, wifi name " + name);
