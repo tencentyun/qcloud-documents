@@ -49,7 +49,7 @@ qcloudsms_php 采用 composer 进行安装，要使用 qcloudsms 功能，只需
 
  1.手动下载或 clone 最新版本 qcloudsms_php 代码。
  2.把 qcloudsms_php src 目录下的代码放入 Autoloading 目录。
- 3.引入 require qcloudsms_php src 目录下面的 index.php，即可使用，如把 qcloudsms 放在当前目录下，只需要执行以下命令:
+ 3.引入 require qcloudsms_php src 目录下面的 index.php，即可使用，如把 qcloudsms 放在当前目录下，只需要执行以下命令：
 ```
 require __DIR__ . "/qcloudsms_php/src/index.php";
 ```
