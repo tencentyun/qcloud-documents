@@ -74,7 +74,7 @@ riskType 详细说明
 <td>环境异常<br></td><td>201</td></tr><tr>
 <td>js 上报异常<br></td><td>202</td></tr><tr>
 <td>撞库<br></td><td>203</td></tr><tr>
-<td>非分网有效 IP<br></td><td>205</td></tr><tr>
+<td>非公网有效 IP<br></td><td>205</td></tr><tr>
 </tr>
 </td></tr></tbody></table>
 

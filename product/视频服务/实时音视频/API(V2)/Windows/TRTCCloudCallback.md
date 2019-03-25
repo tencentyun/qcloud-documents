@@ -17,7 +17,7 @@ __参数__
 | errMsg | const char * | 错误信息 |
 | arg | void * | 保留参数 |
 
-<br/>
+
 
 
 #### onWarning
@@ -36,7 +36,7 @@ __参数__
 | warningMsg | const char * | 警告信息 |
 | arg | void * | 保留参数 |
 
-<br/>
+
 
 
 
@@ -56,7 +56,7 @@ __参数__
 |-----|------|------|
 | elapsed | uint64_t | 进房耗时 |
 
-<br/>
+
 
 
 #### onExitRoom
@@ -73,7 +73,44 @@ __参数__
 |-----|------|------|
 | reason | int | 退出原因 |
 
-<br/>
+
+
+
+#### onConnectOtherRoom
+
+跨房连麦成功回调。
+
+```
+void onConnectOtherRoom(const char * userId, TXLiteAVError errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+
+
+
+
+#### onDisconnectOtherRoom
+
+断开跨房连麦回调。
+
+```
+void onDisconnectOtherRoom(TXLiteAVError errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| errCode | TXLiteAVError | 错误码 |
+| errMsg | const char * | 错误信息 |
+
+
 
 
 
@@ -81,7 +118,7 @@ __参数__
 
 #### onUserEnter
 
-userid 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userid 的视频画面。
+userId 对应的成员的进房通知，您可以在这个回调中调用 startRemoteView 显示该 userId 的视频画面。
 
 ```
 void onUserEnter(const char * userId)
@@ -93,12 +130,12 @@ __参数__
 |-----|------|------|
 | userId | const char * | 用户标识 |
 
-<br/>
+
 
 
 #### onUserExit
 
-userid 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userid 的视频画面。
+userId 对应的成员的退房通知，您可以在这个回调中调用 stopRemoteView 关闭该 userId 的视频画面。
 
 ```
 void onUserExit(const char * userId, int reason)
@@ -111,12 +148,12 @@ __参数__
 | userId | const char * | 用户标识 |
 | reason | int | 退出原因 |
 
-<br/>
+
 
 
 #### onUserVideoAvailable
 
-userid 对应的远端主路（即摄像头）画面的状态通知。
+userId 对应的远端主路（即摄像头）画面的状态通知。
 
 ```
 void onUserVideoAvailable(const char * userId, bool available)
@@ -129,12 +166,12 @@ __参数__
 | userId | const char * | 用户标识 |
 | available | bool | true：视频可播放；false：视频被关闭 |
 
-<br/>
+
 
 
 #### onUserSubStreamAvailable
 
-userid 对应的远端辅路（屏幕分享等）画面的状态通知。
+userId 对应的远端辅路（屏幕分享等）画面的状态通知。
 
 ```
 void onUserSubStreamAvailable(const char * userId, bool available)
@@ -147,12 +184,12 @@ __参数__
 | userId | const char * | 用户标识 |
 | available | bool | true：视频可播放；false：视频被关闭 |
 
-<br/>
+
 
 
 #### onUserAudioAvailable
 
-userid 对应的远端声音的状态通知。
+userId 对应的远端声音的状态通知。
 
 ```
 void onUserAudioAvailable(const char * userId, bool available)
@@ -165,12 +202,12 @@ __参数__
 | userId | const char * | 用户标识 |
 | available | bool | true：音频可播放；false：音频被关闭 |
 
-<br/>
+
 
 
 #### onUserVoiceVolume
 
-userid 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
+userId 对应的成员语音音量，通过调用 TRTCCloud enableAudioVolumeEvaluation 来触发这个回调。
 
 ```
 void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
@@ -184,7 +221,7 @@ __参数__
 | userVolumesCount | uint32_t | 发言者的人数，即 userVolumes 数组的大小 |
 | totalVolume | uint32_t |总的语音音量，取值范围 [0, 100] |
 
-<br/>
+
 
 
 
@@ -206,7 +243,7 @@ __参数__
 | remoteQuality | TRTCQualityInfo * | 下行网络质量的数组 |
 | remoteQualityCount | uint32_t | 下行网络质量的数组大小 |
 
-<br/>
+
 
 
 #### onStatistics
@@ -229,7 +266,7 @@ __介绍__
 如果您是熟悉音视频领域相关术语，可以通过这个回调获取 SDK 的所有技术指标， 如果您是首次开发音视频相关项目，可以只关注 onNetworkQuality 回调。
 
 
-<br/>
+
 
 
 
@@ -251,7 +288,7 @@ __参数__
 | width | uint32_t | 画面宽度 |
 | height | uint32_t | 画面高度 |
 
-<br/>
+
 
 
 #### onFirstAudioFrame
@@ -268,7 +305,7 @@ __参数__
 |-----|------|------|
 | userId | const char * | 用户标识 |
 
-<br/>
+
 
 
 #### onPlayBGMBegin
@@ -285,7 +322,7 @@ __参数__
 |-----|------|------|
 | errCode | TXLiteAVError | 错误码 |
 
-<br/>
+
 
 
 #### onPlayBGMProgress
@@ -303,7 +340,7 @@ __参数__
 | progressMS | uint32_t | 已播放时间 |
 | durationMS | uint32_t | 总时间 |
 
-<br/>
+
 
 
 #### onPlayBGMComplete
@@ -320,7 +357,7 @@ __参数__
 |-----|------|------|
 | errCode | TXLiteAVError | 错误码 |
 
-<br/>
+
 
 
 
@@ -334,7 +371,7 @@ SDK 跟服务器的连接断开。
 void onConnectionLost()
 ```
 
-<br/>
+
 
 
 #### onTryToReconnect
@@ -345,7 +382,7 @@ SDK 尝试重新连接到服务器。
 void onTryToReconnect()
 ```
 
-<br/>
+
 
 
 #### onConnectionRecovery
@@ -356,7 +393,7 @@ SDK 跟服务器的连接恢复。
 void onConnectionRecovery()
 ```
 
-<br/>
+
 
 
 #### onSpeedTest
@@ -375,7 +412,7 @@ __参数__
 | finishedCount | uint32_t | 已完成测速的服务器数量 |
 | totalCount | uint32_t | 需要测速的服务器总数量 |
 
-<br/>
+
 
 
 
@@ -389,7 +426,7 @@ __参数__
 void onCameraDidReady()
 ```
 
-<br/>
+
 
 
 #### onMicDidReady
@@ -400,7 +437,7 @@ void onCameraDidReady()
 void onMicDidReady()
 ```
 
-<br/>
+
 
 
 #### onDeviceChange
@@ -419,7 +456,7 @@ __参数__
 | type | TRTCDeviceType | 设备类型 |
 | state | TRTCDeviceState | 事件类型 |
 
-<br/>
+
 
 
 #### onTestMicVolume
@@ -436,7 +473,7 @@ __参数__
 |-----|------|------|
 | volume | uint32_t | 音量值，取值范围 [0, 100] |
 
-<br/>
+
 
 
 #### onTestSpeakerVolume
@@ -453,7 +490,7 @@ __参数__
 |-----|------|------|
 | volume | uint32_t | 音量值，取值范围 [0, 100] |
 
-<br/>
+
 
 
 
@@ -477,12 +514,12 @@ __参数__
 | msg | const uint8_t * | 消息数据 |
 | msgSize | uint32_t | 消息数据大小 |
 
-<br/>
+
 
 
 #### onMissCustomCmdMsg
 
-TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。         
+TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。
 
 ```
 void onMissCustomCmdMsg(const char * userId, int32_t cmdId, int32_t errCode, int32_t missed)
@@ -509,7 +546,25 @@ __说明__
 只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
 
-<br/>
+
+
+
+#### onRecvSEIMsg
+
+当房间中的某个用户使用 sendSEIMsg 发送数据时，房间中的其它用户可以通过 onRecvSEIMsg 接口接收数据。
+
+```
+void onRecvSEIMsg(const char * userId, const uint8_t * message, uint32_t msgSize)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| userId | const char * | 用户标识 |
+| message | const uint8_t * | 数据 |
+
+
 
 
 
@@ -536,7 +591,7 @@ __说明__
 Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标服务器有异常，还是有可能会转推失败。
 
 
-<br/>
+
 
 
 #### onStopPublishCDNStream
@@ -554,7 +609,7 @@ __参数__
 | errCode | int | 错误码，参考 TXLiteAVCode.h |
 | errMsg | const char * | 错误详细信息 |
 
-<br/>
+
 
 
 
@@ -568,7 +623,7 @@ __参数__
 void onScreenCaptureCovered()
 ```
 
-<br/>
+
 
 
 #### onScreenCaptureStarted
@@ -579,7 +634,7 @@ void onScreenCaptureCovered()
 void onScreenCaptureStarted()
 ```
 
-<br/>
+
 
 
 #### onScreenCapturePaused
@@ -596,7 +651,7 @@ __参数__
 |-----|------|------|
 | reason | int | 停止原因。0表示用户主动暂停，1表示设置屏幕分享参数导致的暂停，2表示屏幕分享窗口被最小化导致的暂停，3表示屏幕分享窗口被隐藏导致的暂停 |
 
-<br/>
+
 
 
 #### onScreenCaptureResumed
@@ -613,7 +668,7 @@ __参数__
 |-----|------|------|
 | reason | int | 停止原因。0表示用户主动恢复，1表示屏幕分享参数设置完毕后自动恢复，2表示屏幕分享窗口从最小化被恢复，3表示屏幕分享窗口从隐藏被恢复 |
 
-<br/>
+
 
 
 #### onScreenCaptureStoped
@@ -630,7 +685,7 @@ __参数__
 |-----|------|------|
 | reason | int | 停止原因。0表示用户主动停止，1表示屏幕分享窗口被关闭 |
 
-<br/>
+
 
 
 
@@ -654,7 +709,75 @@ __参数__
 | streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享 |
 | frame | TRTCVideoFrame * | 视频帧数据 |
 
-<br/>
+
+
+
+
+
+## ITRTCAudioFrameCallback
+
+音频相关回调。
+
+
+__说明__
+
+请按需定义相关函数实现，减少不必要的性能损耗。
+
+
+
+
+### 自定义音频回调
+
+#### onCapturedAudioFrame
+
+本机采集到的声音回调。
+
+```
+void onCapturedAudioFrame(TRTCAudioFrame * frame)
+```
+
+
+
+
+#### onPlayAudioFrame
+
+混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+void onPlayAudioFrame(TRTCAudioFrame * frame, const char * userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据 |
+| userId | const char * | 用户标识 |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
+
+
+#### onMixedPlayAudioFrame
+
+经过混合后的声音。
+
+```
+void onMixedPlayAudioFrame(TRTCAudioFrame * frame)
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
 
 
 
@@ -677,9 +800,3 @@ __参数__
 | log | const char * | 日志内容 |
 | level | TRTCLogLevel | 日志类型 |
 | module | const char * | 暂无具体意义，目前为固定值 TXLiteAVSDK |
-
-<br/>
-
-
-
-

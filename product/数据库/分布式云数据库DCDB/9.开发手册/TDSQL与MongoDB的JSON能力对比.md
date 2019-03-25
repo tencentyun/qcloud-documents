@@ -25,7 +25,7 @@ sh.shardCollection("test.inventory", {"_id":"hashed"})
      <span style="font-size:14px;">MongoDB</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB</span><br>
+     <span style="font-size:14px;">TDSQL</span><br>
     </td>
    </tr>
    <tr>
@@ -179,7 +179,7 @@ where value->"$.item"="paper" limit 1
      <span style="font-size:14px;">MongoDB</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB</span><br>
+     <span style="font-size:14px;">TDSQL</span><br>
     </td>
    </tr>
    <tr>
@@ -266,7 +266,7 @@ db.stores.createIndex( { name: "text", description: "text" } )<br><br>
 db.stores.find( { $text: { $search: "java coffee shop" } } )</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB暂时不支持，mysql5.7可以按照如下方法进行<br><br>
+     <span style="font-size:14px;">TDSQL暂时不支持，mysql5.7可以按照如下方法进行<br><br>
 插入数据<br>
 create table stores(id int primary key auto_increment, value json);<br>
 insert into stores(value) values('{ "name": "Java Hut", "description": "Coffee and cakes" }'),<br>
@@ -381,7 +381,7 @@ db.users.aggregate([{
 ]);
 
 ```
-相对 MongoDB，而 DCDB 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 DCDB 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
+相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
 ```
 插入数据
 create table users(id int primary key auto_increment, value json);

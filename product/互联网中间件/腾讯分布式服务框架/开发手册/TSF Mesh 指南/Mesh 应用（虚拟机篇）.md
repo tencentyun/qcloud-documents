@@ -12,7 +12,7 @@
    - 应用名：填写应用名称
    - 部署方式：选择**虚拟机部署**  
    - 应用类型：选择 **Mesh 应用**
-
+   
 1.4 单击【提交】按钮，完成应用创建。
 
 
@@ -41,19 +41,23 @@
    ![](https://main.qcloudimg.com/raw/0316c7d95288b8111884f64e04703451/WX20181119-180443@2x.png)
 
 ## 三、验证服务调用
-使用同样的步骤一和步骤二部署 user、shop 和 promotion 三个应用，并创建服务与应用关联。
+使用同样的步骤一和步骤二部署 user、shop 和 promotion 三个应用。user、shop、promotion 三个服务的接口间调用关系如下：
+![](https://main.qcloudimg.com/raw/4b4cfb3f587dcca35f975db0c924542a.png)
 
 用户可以登录容器集群 VPC 下的任一机器，然后通过`curl`命令验证 user 服务是否健康，以及触发 user 服务调用 shop 和 promotion 服务。
 
-#### 1. 触发 user 服务调用 shop 和 promotion 服务
-user、shop、promotion 三个服务的接口间调用关系如下：
-user (`/api/v6/user/account/query`)  => shop (`/api/v6/shop/order`) => promotion (`/api/v6/promotion/query`)
-
+#### 1. 登录服务器验证服务间调用
 为了验证 user 服务能通过服务名来调用 shop 服务，需要用户通过以下几种方式来触发 user 服务的接口调用：
-- 登录 user 所在云服务器，在服务器上执行如下`curl`命令。
+- 登录 user 所在云服务器，执行如下`curl`命令调用 user 服务接口。
 ```
 curl localhost:<user端口>/api/v6/user/account/query
 ```
+- 登录 user 所在云服务器，执行如下`curl`命令调用 shop 服务接口（注意使用服务名来调用）。
+
+```
+curl shop:<shop端口>/api/v6/shop/order
+```
+
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 user 服务的接口。关于如何配置微服务 API 网关，请参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。
 
 

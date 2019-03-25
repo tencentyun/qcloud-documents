@@ -3,16 +3,16 @@
 
 ## 初始化 SDK
 
-使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
+使用 TRTC SDK 的第一步，是先获取 `TRTCCloud` 的单例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudListener`抽象类并重写您需要监听的事件（用户加入房间、用户退出房间、警告信息、错误信息等）。
-- 创建`TRTCCloud`实例对象，调用 setListener 方法设置`TRTCCloudListener `回调。
+- 先继承`TRTCCloudListener`抽象类并重写你需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 获取`TRTCCloud`单例对象，调用setListener方法设置`TRTCCloudListener `回调。
 
 ```java
 import com.tencent.trtc.TRTCCloud;
 import com.tencent.trtc.TRTCCloudListener;
 
-// 继承 TRTCCloudListener 回调 
+// 继承 TRTCCloudListener 回调
 static class TRTCCloudListenerImpl extends TRTCCloudListener {
 	private WeakReference<TRTCMainActivity> mContext;
     public TRTCCloudListenerImpl(TRTCMainActivity activity) {
@@ -34,36 +34,37 @@ static class TRTCCloudListenerImpl extends TRTCCloudListener {
 	}
 }
 
-// 创建 trtcCloud 实例
+// 在activity创建时获取 trtcCloud 单例
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	....
 	trtcListener = new TRTCCloudListenerImpl(this);
-    trtcCloud 	= TRTCCloud.create(this, trtcListener);
+    trtcCloud = TRTCCloud.sharedInstance(this);
+    trtcCloud.setListener(listener);
 }
 
-// 销毁 trtcCloud 实例
+// 销毁 trtcCloud 实例，在不再使用SDK能力时，销毁单例，节省开销
 @Override
 protected void onDestroy() {
     super.onDestroy();
     //销毁 trtc 实例
     if (trtcCloud != null) {
         trtcCloud.setListener(null);
-        trtcCloud.destroy();
     }
     trtcCloud = null;
+    TRTCCloud.destroySharedInstance();
 }
 
 ```
 
 ## 组装 TRTCParams
 
-TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 SDKAppid，userId，userSig 和 roomId。
+TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
 
-- **SDKAppid**
-进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
-![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
+- **sdkAppId**
+进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
+![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
@@ -80,10 +81,10 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 调用 `enterRoom` 函数进入房间时，除了需要 TRTCParams 参数，还需要一个叫 **appScene** 的参数，该参数是指定应用场景用的。
 
 - **VideoCall** 对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
-- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更加。						
+- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更加。
 - 如进入房间，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed`代表进入耗时，单位ms。
 - 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
-- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
+- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。
 
 ```java
 void enterRoom() {
@@ -132,8 +133,8 @@ TRTC SDK 并不会默认拉取远端的视频流，您可以通过调用`startRe
 - 当收到 `onUserEnter`回调后，可以调用`startRemoteView`方法来观看新进 userId 的视频画面。
 - 当收到 `onUserExit`回调后，可以调用`stopRemoteView`停止观看。
 - 通过 `setRemoteViewFillMode` 可以指定视频显示模式为`Fill`或`Fit`模式。两种模式下视频尺寸都是等比缩放，区别在于：
- - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
- - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+- `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
+- `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 ```java
 @Override

@@ -42,9 +42,14 @@ public class SASRtest {
             return;
         }
 
-        //调用sendVoice函数获得音频识别结果
-        SASRsdk.sendVoice();
-    }
-}
-```
+          //调用sendVoice函数获得音频识别结果
+       try{ 
+            SASRsdk.sendVoice(); 
+       }catch (Exception e){ 
+          e.printStackTrace(); 
+           } 
+                }
+           }
+  ```
+
 

@@ -101,9 +101,8 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 ```xml
 <dependency>
         <groupId>com.tencentcloudapi</groupId>
-        <!-- 注：这里的版本号请参考github或者maven仓库最新版本号  -->
         <artifactId>tencentcloud-sdk-java</artifactId>
-        <version>3.0.8</version>
+        <version>3.0.8</version><!-- 注：这里只是示例版本号，请到 https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java 获取最新版本号 -->
 </dependency>
 ```
 3. 引用方法可参考示例。

@@ -96,7 +96,7 @@ VNC 登录的场景至少包括以下几种：
 2. 在 “云主机” 页面中，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择 “浏览器 VNC 方式登录”，单击【立即登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/0f7b9453555a03dcf105d80e4ee0a750.png)
+![](https://main.qcloudimg.com/raw/e63bfe80603c771ac5e748798dcc2329.png)
 
 >! 
 > - 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。

@@ -55,7 +55,7 @@ TencentDB for MySQL 采用的主备 M-M 的高可用架构，其主备之间的�
 TencentDB for MySQL 的数据库版本，内存/硬盘规格均支持在线的动态热升级。升级过程不会中断您的业务，您无需担心业务规模增长带来的数据库瓶颈。
 
 #### 1.7 将 CVM 和 TencentDB 配合使用
-通常情况下，在购买成功后您需要将 CVM 和 TencentDB 配合使用。详细可参阅 [查看如何使用云主机 CVM 访问 TencentDB](https://cloud.tencent.com/document/product/236/3130)。
+通常情况下，在购买成功后您需要将 CVM 和 TencentDB 配合使用。详细可参阅 [查看如何使用 CVM 访问 TencentDB](https://cloud.tencent.com/document/product/236/3130)。
 
 ## 2. 使用只读实例作为读扩展
 在常见的互联网业务中，数据库读写比例通常为 4：1 至 10：1 之间。在这类业务场景下，数据库的读负载远高于写负载，在遇到性能瓶颈时一个常见的解决方案就是增加读负载。
