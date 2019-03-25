@@ -13,15 +13,15 @@
 ### 配置消息队列
 #### 配置推送类型
 1. 在配置消息队列页面，根据需求勾选消息类型，CKafka 配置消息类型有以下两种。
-  -    设备上报消息
-  -    设备状态变化通知
+  - 设备上报消息
+  - 设备状态变化通知
 2. 完成消息类型选择后，单击【立即开通】。
 3. 此时会弹出确认保存的窗口。单击【确定】后，物联网通信会立即向默认队列 `topic-iot-{productID}` 推送选择的消息类型。
-![](https://main.qcloudimg.com/raw/a1c77802fe5f4faefabebfbff5eb4979.png) 
+ ![](https://main.qcloudimg.com/raw/a1c77802fe5f4faefabebfbff5eb4979.png) 
 
->! 
-- 消息类型不能配置空选项；
-- 修改消息类型不能和上次配置的消息类型相同。
+ >! 
+ - 消息类型不能配置空选项；
+ - 修改消息类型不能和上次配置的消息类型相同。
 
 #### 配置推送实例
 >?若当前账号没有实例，可前往 [CKafka](https://console.cloud.tencent.com/ckafka) 购买和创建实例。
