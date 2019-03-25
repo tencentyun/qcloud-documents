@@ -5,7 +5,7 @@
 
 ## 工程目录
 
-`tsf-simple-demo` 的工程目录如下：
+`tsf-simple-demo`的工程目录如下：
 
 ```
 |- consumer-demo
@@ -54,7 +54,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 </project>
 ```
 
-其中 parent 描述了 `provider-demo` 和 `consumer-demo` 共同的 TSF 依赖。
+其中 parent 描述了`provider-demo`和`consumer-demo`共同的 TSF 依赖。
 
 ```xml
 <parent>
