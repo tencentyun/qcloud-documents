@@ -1,3 +1,20 @@
+## 1.12.1 - RELEASE (2019-03-25)
+
+### Bug 修复
+
+- 修复配置回调功能未生效
+
+### 版本建议
+
+支持向后兼容, 建议全量升级。
+
+### 版本
+
+- 版本号`1.12.1-Edgware-RELEASE`，基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+- 版本号`1.12.1-Finchley-RELEASE`，基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
+
+
+
 ## 1.12.0 - RELEASE（2019-03-13）
 
 ### 新特性
