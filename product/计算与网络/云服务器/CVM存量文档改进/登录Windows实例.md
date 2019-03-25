@@ -10,9 +10,9 @@
 
 1. 远程登录Windows实例需要使用实例的管理员账号和对应的密码。对于Windows实例的管理员账号统一为**Administrator**。
 
-- 若您在购买实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。
+- 若您在购买实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。![](https://main.qcloudimg.com/raw/52034cac55d0a5fd77ac90def4393615.png)
 
-- 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。
+- 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
 2. 确保请云服务器3389号端口已开放，详见查看[安全组](https://cloud.tencent.com/doc/product/213/5221)及[网络ACL](https://cloud.tencent.com/doc/product/215/5132)。
 
@@ -56,9 +56,9 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 当本地为 Mac OS 计算机时，使用 Microsoft Remote Desktop for Mac 登录 Windows 实例。
 Microsoft Remote Desktop for Mac 下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
 
-1. 打开客户端工具。
-2. 在输入框输入 Windows 服务器的公网 IP。
-3. 单击【连接】，在新打开的界面中输入前提条件中获取的管理员账号和对应的密码。
+1. 打开客户端工具，点击【Add Deskop】。![](https://main.qcloudimg.com/raw/c0ec6b04c59e37e95f7b5eb84ffcb83b.png)
+2. 在弹出的对话框中，输入框输入 Windows 实例的公网 IP后点击【Add】添加远程桌面。![](https://main.qcloudimg.com/raw/d0f1c1ce9574f3ce191267b3beaff557.png)
+3. 双击新添加的远程桌面图标，在新打开的界面中输入实例的管理员账号（默认为Administrator）和对应的密码。如果忘记密码，可以通过控制台重置实例密码。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
 
 ## 使用远程桌面连接Windows实例
