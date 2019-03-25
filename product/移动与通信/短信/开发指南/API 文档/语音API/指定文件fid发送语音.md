@@ -4,7 +4,7 @@
 
 ### URL 示例
 `POST https://cloud.tim.qq.com/v5/tlsvoicesvr/sendfvoice?sdkappid=xxxxx&random=xxxx`
-**注**：sdkappid 请填写您在腾讯云上申请到的，random 请填成随机数。
+**注**：sdkappid 请填写您在腾讯云上申请到的，random 请填成随机正整数。
 
 ## 请求参数
 
@@ -53,7 +53,7 @@
 |--------|------|--------|-----------------------------------------------|
 | result | 是   | number | 错误码，0 表示成功(计费依据)，非0表示失败      |
 | errmsg | 是   | string | 错误消息，result 非 0 时的具体错误信息           |
-| callid | 否   | string | 标识本次发送 id，标识一次下发记录              |
+| callid | 否   | string | 标识本次发送 ID，标识一次下发记录              |
 | ext    | 否   | string | 用户的 session 内容，腾讯 server 回包中会原样返回 |
 
 ### App 凭证计算
