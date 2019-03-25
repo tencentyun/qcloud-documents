@@ -1,14 +1,19 @@
-当云硬盘空间不足时，可以采用以下两种处理方式扩充存储空间：
-- [创建](https://cloud.tencent.com/document/product/362/5744) 一块新的云硬盘，将其 [挂载](https://cloud.tencent.com/document/product/362/5745) 到对应的云服务器并完成 [初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)或 [初始化云硬盘（大于等于2TB）](https://cloud.tencent.com/document/product/362/6735)的操作。
-- [扩容](https://cloud.tencent.com/document/product/362/5747) 原有云硬盘空间。 您可在控制台对下列云硬盘进行扩容：
- - 【待挂载】的弹性云硬盘。
- - 【已挂载】且云服务器处于【运行中】状态的弹性云硬盘（作数据盘用）。
- - 【已挂载】且云服务器处于【已关机】状态的云硬盘（系统盘和数据盘均支持）。
+### 扩容类型为系统盘的云硬盘
 
->!如果云硬盘的最大容量仍无法满足您的业务需求，您可以使用 [多块弹性云硬盘构建 RAID 1](https://cloud.tencent.com/document/product/362/2932) 或 [构建 LVM 逻辑卷](https://cloud.tencent.com/document/product/362/2933) 。
+出于数据安全的角度考虑，云服务器系统盘不能直接在控制台操作扩容，必须经过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 操作来扩充系统盘空间。
+>! 通过重装系统变更系统盘容量时，只能保持容量不变或扩充容量，不能缩小系统盘容量。
+>
 
+### 扩容类型为数据盘的云硬盘
 
-[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 后，需要完成相关后续操作才能使用：
+类型为数据盘的云硬盘均支持通过控制台和 API 进行硬盘扩容操作，注意只能保持容量不变或扩充容量，不能缩小容量。
+根据 CBS 数据盘“可卸载”属性的不同，您可选择不同的操作入口对数据盘进行扩容
+- 若当前硬盘为“可卸载”的 CBS 数据盘，您可经由云硬盘控制台或使用 [CBS 扩容云硬盘接口](https://cloud.tencent.com/document/product/362/16310) 进行扩容操作。
+- 若当前硬盘为“不可卸载”的 CBS 数据盘，您可经由云服务器实例控制台或使用 [CVM 扩容实例磁盘接口](https://cloud.tencent.com/document/product/362/16310) 进行扩容操作。
+
+>! 如果云硬盘的最大容量仍无法满足您的业务需求，您可以使用 [多块弹性云硬盘构建 RAID 1](https://cloud.tencent.com/document/product/362/2932) 或 [构建 LVM 逻辑卷](https://cloud.tencent.com/document/product/362/2933)。
+>
+数据盘扩容完成后，需要进行相关后续操作才能为实例识别并使用：
 <table>
      <tr>
          <th nowrap="nowrap">扩容前</th>  
