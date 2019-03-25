@@ -11,13 +11,13 @@
 
 | 本地操作系统    | 实例有公网IP                               | 实例没有公网IP    |
 | --------------- | ------------------------------------------ | ----------------- |
-| Windows         | WebShell 登录（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录（不推荐） |
-| Linux<br>Mac OS | WebShell 登录（推荐）<br/>使用SSH登录（密码或密钥）<br>使用密码登录    | VNC登录（不推荐） |
+| Windows         | WebShell 登录（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录 |
+| Linux<br>Mac OS | WebShell 登录（推荐）<br/>使用SSH登录（密码或密钥）<br>使用密码登录    | VNC登录 |
 
 ## 前提条件
 
 - 准备好登录实例前的密码或者密钥。
-- 确保云服务器实例的22号端口已打开，您可以通过[安全组](https://cloud.tencent.com/document/product/213/12452)的设置确认是否开启22号端口。
+- 确保云服务器实例的22号端口已打开，您可以通过[安全组](https://cloud.tencent.com/document/product/213/12452)的设置确认是否开启22号端口。。
 
 ### 使用密码登录
 **管理员账号**：对于不同类型的 Linux 实例，管理员帐号不同，如下表。
@@ -72,7 +72,7 @@ Window，Linux或者Mac OS
 
 ## 远程登录软件登录（Windows）
 
-介绍如何使用PuTTy通过密码或者密钥登录您在腾讯云的Linux实例。
+以PuTTy软件为例，介绍如何使用密码或者密钥登录Linux实例。
 
 ### 适用本地操作系统：
 
@@ -120,7 +120,7 @@ Windows
 
 
 
-## 使用SSH登录（密码或密钥）
+## 使用SSH登录（Linux/Mac OS）
 
 介绍本地为Linux/Mac OS系统的电脑通过SSH登录Linux实例。
 
