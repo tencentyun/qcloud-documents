@@ -26,7 +26,7 @@ Windows，Linux和Mac OS
 2. 如图所示进入云服务器列表，在需要登录的 Windows 云服务器中单击【登录】按钮。![](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
 3. 在“登录Windows实例”对话框，选择使用RDP文件登录。![](https://main.qcloudimg.com/raw/8847c7b1e41c75fe362fd46bbf21d729.png)
 
-### Linux系统使用RDP登录：
+### Linux系统使用RDP登录
 您需要安装相应的远程桌面连接程序，这里推荐使用 rdesktop 进行连接。有关 rdesktop 的更多内容，请参考 [rdesktop官方说明](http://www.rdesktop.org/) 
 1. 安装 rdesktop
 运行 `rdesktop` 命令检查系统是否已经安装，若未安装则请 [转到 github 下载最新安装包](https://github.com/rdesktop/rdesktop/releases)。
@@ -51,15 +51,18 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
  
 ###  MacOS系统使用RDP登录：
-当本地为 Mac OS 计算机时，使用 Microsoft Remote Desktop for Mac 登录 Windows 实例。
-Microsoft Remote Desktop for Mac 下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
+以Microsoft Remote Desktop for Mac为例介绍本地为 Mac OS 计算机时如何登录 Windows实例。
 
-1. 打开客户端工具，点击【Add Deskop】。![](https://main.qcloudimg.com/raw/c0ec6b04c59e37e95f7b5eb84ffcb83b.png)
-2. 在弹出的对话框中，输入框输入 Windows 实例的公网 IP后点击【Add】添加远程桌面。![](https://main.qcloudimg.com/raw/d0f1c1ce9574f3ce191267b3beaff557.png)
+1. 下载[Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) ，更多下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
+
+2. 打开客户端工具，点击【Add Deskop】。![](https://main.qcloudimg.com/raw/c0ec6b04c59e37e95f7b5eb84ffcb83b.png)
+2. 在弹出的对话框中，输入框输入 Windows 实例的公网 IP后点击【Add】添加远程桌面。<img src="https://main.qcloudimg.com/raw/d0f1c1ce9574f3ce191267b3beaff557.png" width = "350" height = "400" alt="图片名称" align=center />
+
 3. 双击新添加的远程桌面图标，在新打开的界面中输入实例的管理员账号（默认为Administrator）和对应的密码。如果忘记密码，可以通过控制台重置实例密码。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
 
 ## 使用远程桌面登录
+除了RDP的登录方式之外，本地为Windows的用户还可以通过远程桌面登录云服务器实例。
 ### 适用本地操作系统
 Windows
 
