@@ -617,3 +617,66 @@ __参数__
 | log | nullable NSString * | 日志内容 |
 | level | TRTCLogLevel | 日志等级，参见 TRTCLogLevel |
 | module | nullable NSString * | 值暂无具体意义，目前为固定值 TXLiteAVSDK |
+
+
+## TRTCAudioFrameDelegate
+
+__功能__
+
+
+音频数据回调。
+
+
+
+### onCapturedAudioFrame
+
+本机采集到的音频数据回调。
+
+```
+ - (void)onCapturedAudioFrame:(TRTCAudioFrame *)frame 
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
+
+### onPlayAudioFrame
+
+混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+ - (void)onPlayAudioFrame:(TRTCAudioFrame *)frame userId:(NSString *)userId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据 |
+| userId | NSString * | 用户标识 |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
+
+### onMixedPlayAudioFrame
+
+各路音频数据混合后送入喇叭播放的音频数据。
+
+```
+ - (void)onMixedPlayAudioFrame:(TRTCAudioFrame *)frame 
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+

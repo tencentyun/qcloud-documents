@@ -544,9 +544,27 @@ __介绍__
 开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。
 
 
+### setAudioFrameDelegate
 
+设置音频数据回调
 
+```
+- (void)setAudioFrameDelegate:(id<TRTCAudioFrameDelegate>)delegate
+```
 
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| delegate | id<TRTCAudioFrameDelegate> | 音频数据回调， delegate = nil 则停止回调数据 |
+
+__介绍__
+
+设置此方法，SDK内部会把音频数据（PCM格式）回调出来，包括 ：
+
+1. 本机采集到的音频数据
+2. 混音前的每一路远程用户的音频数据
+3. 各路音频数据混合后送入喇叭播放的音频数据
 
 ## 摄像头相关接口函数
 
@@ -1141,16 +1159,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| frame | TRTCVideoFrame * | 视频数据，仅支持 PixelBuffer I420 数据 |
+| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420 格式数据 |
 
 __说明__
 
-
-SDK 内部不做帧率控制，请务必保证调用该函数的频率和 TXLivePushConfig 中设置的帧率一致，否则编码器输出的码率会不受控制。
-
-
-
-
+SDK内部有帧率控制, 发送太快会自动丢帧，超时则会重发最后一帧。
 
 ### setLocalVideoRenderDelegate
 
@@ -1201,8 +1214,34 @@ __说明__
 setRemoteVideoRenderDelegate 之前需要调用 startRemoteView 来开启对应 userid 的视频画面，才有数据回调出来。
 
 
+### enableCustomAudioCapture
+
+启用音频自定义采集模式（iOS），即放弃 SDK 原来的音频采集流程，改用 sendCustomAudioData 向 SDK 塞入自己采集的音频。
+
+```
+- (void)enableCustomAudioCapture:(BOOL)enable
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| enable | BOOL | 是否启用 true：启用；false：关闭 |
 
 
+### sendCustomAudioData
+
+ 发送自定义的音频数据（iOS）。
+
+```
+- (void)sendCustomAudioData:(TRTCAudioFrame *)frame
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据 |
 
 ### callExperimentalAPI
 
