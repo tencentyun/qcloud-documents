@@ -11,7 +11,7 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-swagger</artifactId> 
-    <version>1.1.2-RELEASE</version> <!-- 调整为 SDK 最新版本号 -->
+    <version><!-- 调整为 SDK 最新版本号 --></version>
     <scope>compile</scope>
 </dependency>
 ```
