@@ -11,7 +11,7 @@
 
 ### 1. 下载  SDK
 
-[下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.2/TXLiteAVSDK_TRTC_Win_6.2.0.7009.zip)，解压并打开，包含以下几个部分：
+[下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下几个部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
