@@ -548,5 +548,4 @@ CustomHTTPClient httpclient = new CustomHTTPClient();
 SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 ```
 
->  **注意：**
->  上面的这个示例代码只作参考，无法直接编译和运行，需要作相应修改。
+>!上述示例代码只作参考，无法直接编译和运行，需要作相应修改。
