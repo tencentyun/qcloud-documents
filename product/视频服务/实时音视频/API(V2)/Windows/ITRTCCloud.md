@@ -1041,6 +1041,44 @@ SDK内部不做帧率控制,请务必保证调用该函数的频率和 setVideoE
 
 
 
+### enableCustomAudioCapture
+
+启用音频自定义采集模式，即放弃 SDK 原来的音频采集流程，改用 sendCustomAudioData 向 SDK 塞入自己采集的音频数据。
+
+```
+void enableCustomAudioCapture(bool enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| enable | bool | 是否启用 |
+
+
+
+
+### sendCustomAudioData
+
+发送自定义的SampleBuffer。
+
+```
+void sendCustomAudioData(TRTCAudioFrame * frame)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCAudioFrame * | 音频数据，仅支持 PCM，48K/16K，单声道数据 |
+
+__说明__
+
+
+SDK 内部不做帧率控制，请务必保证调用该函数的帧率。
+
+
+
 
 ### setLocalVideoRenderCallback
 
