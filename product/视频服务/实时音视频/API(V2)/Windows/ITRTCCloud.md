@@ -611,10 +611,6 @@ __说明__
 
 
 如果delete ITRTCDeviceCollection\*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
-ITRTCDeviceCollection 对象的生命周期。 
-
-
-
 
 
 ### setCurrentMicDevice
@@ -685,7 +681,6 @@ __说明__
 
 
 如果delete ITRTCDeviceCollection\*指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。 
-ITRTCDeviceCollection 对象的生命周期。 
 
 
 
@@ -881,7 +876,6 @@ __说明__
 
 
 如果delete ITRTCScreenCaptureSourceList\*指针会编译错误，SDK维护 ITRTCScreenCaptureSourceList 对象的生命周期。 
-ITRTCScreenCaptureSourceList 对象的生命周期。 
 
 
 
@@ -1166,9 +1160,6 @@ __参数__
 | reliable | bool | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
 | ordered | bool | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
-__说明__
-
-
 >?限制1：发送消息到房间内所有用户，每秒最多能发送30条消息 
 >限制2：每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃
 >限制3：每个客户端每秒最多能发送总计8KB数据。
@@ -1191,8 +1182,6 @@ __参数__
 |-----|------|------|
 | data | const uint8_t * | 待发送的数据，最大支持1kb（1000字节）的数据大小 |
 | repeatCount | int32_t | 发送数据次数 |
-
-__说明__
 
 
 >?限制1：数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
@@ -1348,8 +1337,9 @@ __参数__
 
 __介绍__
 
-
-监听。
+打开后需要通过监听 ITRTCCloudCallback::onSpeedTest 回调获取测速结果
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器
+同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络
 
 
 __说明__
