@@ -213,7 +213,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | bool | true：关闭视频上行；false：开启视频上行 |
+| mute | bool | true：关闭视频上行</br>false：开启视频上行 |
 
 __介绍__
 
@@ -306,7 +306,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180以及270旋转角度 |
 
 
 
@@ -324,7 +324,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 远端用户标识 |
-| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180以及270旋转角度 |
 
 
 
@@ -341,7 +341,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| rotation | TRTCVideoRotation | 支持90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180以及270旋转角度 |
 
 
 
@@ -477,7 +477,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| mute | bool | true：关闭音频上行；false：开启音频上行 |
+| mute | bool | true：关闭音频上行</br>false：开启音频上行 |
 
 __说明__
 
@@ -500,7 +500,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户id |
+| userId | const char * | 用户 ID |
 | mute | bool | 开关 |
 
 
@@ -535,8 +535,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| interval | uint32_t | 建议设置为大于200 毫秒，最小不小于20 毫秒, 设置为0 表示关闭 |
-| smoothLevel | uint32_t | 灵敏度，[0,10], 数字越大，波动越灵敏 |
+| interval | uint32_t | 建议设置为大于200毫秒，最小不小于20毫秒, 设置为0表示关闭 |
+| smoothLevel | uint32_t | 灵敏度，取值范围：0 - 10, 数字越大，波动越灵敏 |
 
 __介绍__
 
@@ -580,7 +580,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| deviceId | const char * | 摄像头ID，getCameraDevicesList 接口获取得到 |
+| deviceId | const char * | 摄像头 ID，getCameraDevicesList 接口获取得到 |
 
 
 
@@ -610,7 +610,7 @@ ITRTCDeviceCollection * getMicDevicesList()
 __说明__
 
 
-如果delete ITRTCDeviceCollection*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
+如果delete ITRTCDeviceCollection\*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
 ITRTCDeviceCollection 对象的生命周期。 
 
 
@@ -629,7 +629,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| micId | const char * | 麦克风Id，getMicDevicesList 接口查询获取 |
+| micId | const char * | 麦克风 ID，getMicDevicesList 接口查询获取 |
 
 
 
@@ -668,7 +668,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 设置的音量大小，范围是[0, 100] |
+| volume | uint32_t | 设置的音量大小，取值范围：0 - 100 |
 
 
 
@@ -684,7 +684,7 @@ ITRTCDeviceCollection * getSpeakerDevicesList()
 __说明__
 
 
-如果delete ITRTCDeviceCollection*指针会编译错误，SDK维护 ITRTCDeviceCollection 对象的生命周期。 
+如果delete ITRTCDeviceCollection\*指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。 
 ITRTCDeviceCollection 对象的生命周期。 
 
 
@@ -703,7 +703,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| speakerId | const char * | 麦克风Id，getSpeakerDevicesList 接口查询获取 |
+| speakerId | const char * | 麦克风 ID，getSpeakerDevicesList 接口查询获取 |
 
 
 
@@ -742,7 +742,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 设置的音量大小，范围是[0, 100] |
+| volume | uint32_t | 设置的音量大小，取值范围：0 - 100 |
 
 
 
@@ -763,9 +763,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | style | TRTCBeautyStyle | 美颜风格 |
-| beauty | uint32_t | 美颜级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显 |
-| white | uint32_t | 美白级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显 |
-| ruddiness | uint32_t | 红润级别，取值范围0 - 9: 0表示关闭，值越大，效果越明显，该参数暂未生效 |
+| beauty | uint32_t | 美颜级别，取值范围：0 - 9: 0表示关闭，值越大，效果越明显 |
+| white | uint32_t | 美白级别，取值范围：0 - 9: 0表示关闭，值越大，效果越明显 |
+| ruddiness | uint32_t | 红润级别，取值范围：0 - 9: 0表示关闭，值越大，效果越明显，该参数暂未生效 |
 
 
 
@@ -816,7 +816,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|------|------|
 | userId | const char * | 远端用户标识 |
-| rendHwnd | HWND | - 承载预览画面的 HWND |
+| rendHwnd | HWND | 承载预览画面的 HWND |
 
 __说明__
 
@@ -856,7 +856,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| userId | const char * | 用户的id |
+| userId | const char * | 用户的 ID |
 | mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
 
@@ -874,13 +874,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| thumbSize | const SIZE & | - 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
-| iconSize | const SIZE & | - 指定要获取的窗口图标大小 |
+| thumbSize | const SIZE & | 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
+| iconSize | const SIZE & | 指定要获取的窗口图标大小 |
 
 __说明__
 
 
-如果delete ITRTCScreenCaptureSourceList*指针会编译错误，SDK维护 ITRTCScreenCaptureSourceList 对象的生命周期。 
+如果delete ITRTCScreenCaptureSourceList\*指针会编译错误，SDK维护 ITRTCScreenCaptureSourceList 对象的生命周期。 
 ITRTCScreenCaptureSourceList 对象的生命周期。 
 
 
@@ -889,7 +889,7 @@ ITRTCScreenCaptureSourceList 对象的生命周期。
 
 ### selectScreenCaptureTarget
 
-【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：。
+【屏幕共享】选择要分享的目标窗口或目标区域，支持如下四种情况：
 
 ```
 void selectScreenCaptureTarget(const TRTCScreenCaptureSourceInfo & source, const RECT & captureRect, bool captureMouse, bool highlightWindow)
@@ -899,10 +899,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| source | const TRTCScreenCaptureSourceInfo & | - 指定分享源 |
-| captureRect | const RECT & | - 指定捕获的区域 |
-| captureMouse | bool | - 指定是否捕获鼠标指针 |
-| highlightWindow | bool | - 指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
+| source | const TRTCScreenCaptureSourceInfo & | 指定分享源 |
+| captureRect | const RECT & | 指定捕获的区域 |
+| captureMouse | bool | 指定是否捕获鼠标指针 |
+| highlightWindow | bool | 指定是否高亮正在共享的窗口以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡 |
 
 __说明__
 
@@ -953,7 +953,7 @@ void resumeScreenCapture()
 
 ### stopScreenCapture
 
-* 【屏幕共享】关闭屏幕分享。
+【屏幕共享】关闭屏幕分享。
 
 ```
 void stopScreenCapture()
@@ -991,7 +991,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 设置的混音音量大小，范围是[0, 100] |
+| volume | uint32_t | 设置的混音音量大小，取值范围：0 - 100 |
 
 
 
@@ -1001,7 +1001,7 @@ __参数__
 
 ### enableCustomVideoCapture
 
-启用视频自定义采集模式，即放弃 SDK 原来的视频采集流程，改用 sendCustomVideoData 向SDK塞入自己采集的视频画面。
+启用视频自定义采集模式，即放弃 SDK 原来的视频采集流程，改用 sendCustomVideoData 向 SDK 塞入自己采集的视频画面。
 
 ```
 void enableCustomVideoCapture(bool enable)
@@ -1028,7 +1028,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| frame | TRTCVideoFrame * | 视频数据，仅支持PixelBuffer I420数据 |
+| frame | TRTCVideoFrame * | 视频数据，仅支持 PixelBuffer I420 数据 |
 
 __说明__
 
@@ -1058,7 +1058,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK内部会把采集到的数据回调出来，SDK跳过 HWND 渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。
+设置此方法，SDK 内部会把采集到的数据回调出来，SDK 跳过 HWND 渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。
 
 
 
@@ -1084,7 +1084,7 @@ __参数__
 __说明__
 
 
-设置此方法，SDK内部会把远端的数据解码后回调出来，SDK跳过 HWND 渲染逻辑 调用 setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。 
+设置此方法，SDK 内部会把远端的数据解码后回调出来，SDK 跳过 HWND 渲染逻辑 调用 setRemoteVideoRenderCallback(userid,TRTCVideoPixelFormat_Unknown, TRTCVideoBufferType_Unknown, nullptr) 停止回调。 
 
 
 
@@ -1102,12 +1102,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| callback | ITRTCAudioFrameCallback * | 声音帧数据（PCM格式）的回调 |
+| callback | ITRTCAudioFrameCallback * | 声音帧数据（PCM 格式）的回调 |
 
 __说明__
 
 
-设置此方法，SDK内部会把声音模块的数据（PCM格式）回调出来，包括：
+设置此方法，SDK内部会把声音模块的数据（PCM 格式）回调出来，包括：
 1. 本地麦克风录制的到的声音
 2. 每一路远程用户的声音
 3. 混合后的要送往喇叭进行播放的声音
@@ -1151,7 +1151,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| cmdId | uint32_t | 消息ID，取值范围为1 - 10 |
+| cmdId | uint32_t | 消息 ID，取值范围：1 - 10 |
 | data | const uint8_t * | 待发送的数据，最大支持1KB（1000字节）的数据大小 |
 | dataSize | uint32_t | 待发送的数据大小 |
 | reliable | bool | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
@@ -1160,9 +1160,9 @@ __参数__
 __说明__
 
 
->?限制1：发送消息到房间内所有用户，每秒最多能发送30 条消息 
-限制2：每个包最大为1 KB，超过则很有可能会被中间路由器或者服务器丢弃
-限制3：每个客户端每秒最多能发送总计8 KB 数据。
+>?限制1：发送消息到房间内所有用户，每秒最多能发送30条消息 
+限制2：每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃
+限制3：每个客户端每秒最多能发送总计8KB数据。
 
 请将 reliable 和 ordered 同时设置为 YES 或 NO, 暂不支持交叉设置。
 有序性（ordered）是指相同 cmdID 的消息流一定跟发送方的发送顺序相同，
@@ -1187,11 +1187,11 @@ __说明__
 
 
 >?限制1：数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
-限制2：发送消息到房间内所有用户，每秒最多能发送30 条消息 (与 sendCustomCmdMsg 共享限制) 。
+限制2：发送消息到房间内所有用户，每秒最多能发送30条消息 (与 sendCustomCmdMsg 共享限制) 。
 限制2：每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿 (与 sendCustomCmdMsg 共享限制)。
-限制4：每个客户端每秒最多能发送总计8 KB 数据 (与 sendCustomCmdMsg 共享限制)。
+限制4：每个客户端每秒最多能发送总计8KB数据 (与 sendCustomCmdMsg 共享限制)。
 限制5：若指定多次发送（repeatCount>1）,则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
-限制6：如果repeatCount>1，多次发送，接收消息onRecvSEIMsg回调也可能会收到多次相同的消息，需要去重。
+限制6：如果repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 
@@ -1296,7 +1296,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量大小，100为正常音量，值为0 - 200 |
+| volume | uint32_t | 音量大小，100为正常音量，取值范围：0 - 200 |
 
 
 
@@ -1313,7 +1313,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| volume | uint32_t | 音量大小，100为正常音量，值为0 - 200 |
+| volume | uint32_t | 音量大小，100为正常音量，取值范围：0 - 200 |
 
 
 
@@ -1403,7 +1403,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|------|------|
-| interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于200 毫秒 |
+| interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于200毫秒 |
 
 
 
