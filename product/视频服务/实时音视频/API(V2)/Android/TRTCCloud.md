@@ -545,6 +545,20 @@ __参数__
 
 
 
+### setAudioFrameListener
+设置音频数据回调
+
+```
+abstract void setAudioFrameListener(TRTCCloudListener.TRTCAudioFrameListener listener);
+```
+
+>! 回调函数是在SDK内部线程同步抛出来的，请不要做耗时操作
+> 请按需定义相关函数实现，减少不必要的性能损耗
+
+__参数__
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| listener | TRTCCloudListener.TRTCAudioFrameListener | 音频数据回调， listener = null 则停止回调数据 |
 
 
 ## 摄像头相关操作
@@ -875,6 +889,37 @@ __参数__
 >?设置此方法后，SDK 内部会把远端的数据解码后回调出来，SDK 跳过自己原来的渲染流程，您需要自己完成画面的渲染。
 
 
+
+
+### enableCustomAudioCapture
+
+启用音频自定义采集模式，即放弃 SDK 原来的音频采集流程，改用 sendCustomAudioData 向 SDK 塞入自己采集的音频。
+
+```
+abstract void enableCustomAudioCapture(boolean enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| enable | boolean | 是否启用 true：启用；false：关闭 |
+
+
+
+### sendCustomAudioData
+
+发送自定义的音频数据。
+
+```
+abstract void sendCustomAudioData(TRTCCloudDef.TRTCAudioFrame frame)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据 |
 
 
 

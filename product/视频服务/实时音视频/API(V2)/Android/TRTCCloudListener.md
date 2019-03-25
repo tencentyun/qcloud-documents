@@ -519,39 +519,6 @@ __参数__
 
 
 
-
-## ITRTCVideoPostProcessListener
-### 本地视频的二次加工回调
-
-#### onVideoPostProcess
-
-经过 SDK 前处理后的视频数据，前处理包括对摄像头采集到的视频进行美颜、裁剪、缩放和旋转。
-
-```
-int onVideoPostProcess(TRTCCloudDef.TRTCVideoFrame frame)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|------|------|
-| frame | TRTCCloudDef.TRTCVideoFrame | 返回给用户处理的 自定义数据（目前只支持纹理 textureId） |
-
-
-
-
-#### onVideoPostProcessGLDestroy
-
-自定义预处理，Opengl 环境销毁通知回调; 用户可以在此回调里，进行 opengl 资源回收；保证跟 sdk 的 opengl 在同一个线程；否则可能会显存泄漏或崩溃。
-
-```
-void onVideoPostProcessGLDestroy()
-```
-
-
-
-
-
 ## TRTCLogListener
 
 __功能__
@@ -584,4 +551,62 @@ __参数__
 
 
 
+## TRTCAudioFrameListener
 
+__功能__
+
+音频相关回调。
+
+
+
+### onCapturedAudioFrame
+
+本机采集到的声音回调。
+
+```
+void onCapturedAudioFrame(TRTCCloudDef.TRTCAudioFrame frame)
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
+
+### onPlayAudioFrame
+
+混音前的每一路声音（比如您要对某一路的语音进行文字转换，必须要使用这里的数据，混音后的数据不适合用于语音识别）。
+
+```
+void onPlayAudioFrame(TRTCCloudDef.TRTCAudioFrame frame, String userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|------|------|
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据 |
+| userId | String | 用户标识 |
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
+
+
+
+
+### onMixedPlayAudioFrame
+
+经过混合后的声音。
+
+```
+void onMixedPlayAudioFrame(TRTCCloudDef.TRTCAudioFrame frame)
+```
+
+__说明__
+
+
+此接口回调的音频数据不可修改。
