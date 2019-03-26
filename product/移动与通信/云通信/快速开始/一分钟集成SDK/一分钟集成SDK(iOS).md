@@ -7,7 +7,7 @@
 - 项目已配置有效的开发者签名。
 
 ## 集成 IMSDK
-您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK 再将其导入到您当前的工程项目中。
+您可以选择使用 CocoaPods 自动加载的方式，或者先 [下载](https://github.com/tencentyun/TIMSDK) SDK 再将其导入到您当前的工程项目中。
 
 ### CocoaPods 自动加载
 #### 1. 安装 CocoaPods

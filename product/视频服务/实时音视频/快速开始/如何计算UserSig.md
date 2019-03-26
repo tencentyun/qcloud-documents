@@ -51,6 +51,7 @@
 | PHP | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-php)|
 | Nodejs | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-node)|
 | C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
+| C# | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
 
 - **老版本源码**
