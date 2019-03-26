@@ -1,5 +1,5 @@
 ## 操作场景
-HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，要比 HTTP 协议安全。若您需开启HTTPS加速，可通过开启播放域名的HTTPS功能、并配置正确有效的证书来实现。您可以在腾讯云SSL证书购买相应证书，若您已有HTTPS证书可上传至云直播控制台进行配置。直播目前仅支持PEM格式，若您的证书为其它格式需转化为PEM。证书格式要求和配置方法如下：
+HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认证的网络协议，比 HTTP 协议安全。若需要开启 HTTPS 加速，可通过开启播放域名的 HTTPS 功能和配置正确有效的证书来实现。您可以在腾讯云 SSL 证书购买相应证书，若您已有 HTTPS 证书，可上传至云直播控制台进行配置。直播目前仅支持 PEM 格式，若您的证书为其它格式，需要转化为 PEM。证书的格式要求和配置方法如下：
 
 ## 操作步骤
  ### 第一步：进入控制台
@@ -15,15 +15,15 @@ HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证�
 
   1、证书名称：自定义证书名称，便于标识证书。
 
-  2、证书内容：CA提供的证书包括Apache/IIS/Nginx/Tomcat四种，云直播的加密服务给予Nginx，故配置时需选择Nginx文件中的内容。
+  2、证书内容：CA 提供的证书包括 Apache/IIS/Nginx/Tomcat四种，云直播的加密服务给予Nginx，故配置时需选择Nginx文件中的内容。
   
   ![](https://main.qcloudimg.com/raw/f67e31bfa2c233cf8dc0c4a1e58cb6fc.png)
   
-  .crt文件中内容为证书内容，内容如下：
+  .crt 文件中内容为证书内容，内容如下：
   
   ![](https://main.qcloudimg.com/raw/dc6e10861dbe5c4043e07073240cf3b0.png)
   
-  请于HTTPS证书内容输入框填写包含-----BEGIN CERTIFICATE-----和-----END CERTIFICATE-----的所有内容。
+  请于 HTTPS 证书内容输入框填写包含-----BEGIN CERTIFICATE-----和-----END CERTIFICATE-----的所有内容。
 
 > 说明：若您的证书为中级机构颁发、包含多个证书，请按照下述方式拼接：
 > -----BEGIN CERTIFICATE-----
@@ -31,11 +31,11 @@ HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证�
 > -----BEGIN CERTIFICATE-----
 > -----END CERTIFICATE-----
 
-  3、证书私钥：Nginx文件中.key文件内容为证书私钥，内容如下：
+  3、证书私钥：Nginx 文件中 .key 文件内容为证书私钥，内容如下：
   
   ![](https://main.qcloudimg.com/raw/fdfe6829c5910da0742e2c3d845a8447.png)
   
-  请于HTTPS证书内容输入框填写包含-----BEGIN RSA PRIVATE KEY-----和-----END RSA PRIVATE KEY-----的所有内容。
+  请于 HTTPS 证书内容输入框填写包含-----BEGIN RSA PRIVATE KEY-----和-----END RSA PRIVATE KEY-----的所有内容。
 
  ### 第三步：验证配置
  HTTPS配置生效时间约2小时，请于提交证书后2小时左右访问该域名，若浏览器地址栏显示为HTTPS则说明配置成功。
