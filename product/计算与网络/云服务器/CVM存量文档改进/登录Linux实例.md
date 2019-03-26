@@ -11,8 +11,8 @@
 
 | 本地操作系统    | 实例有公网IP                               | 实例没有公网IP    |
 | --------------- | ------------------------------------------ | ----------------- |
-| Windows         | WebShell 登录（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录 |
-| Linux<br>Mac OS | WebShell 登录（推荐）<br/>使用SSH登录（密码或密钥）<br>使用密码登录    | VNC登录 |
+| Windows         | 标准（WebShell） 登录方式（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录 |
+| Linux<br>Mac OS | 标准（WebShell） 登录方式（推荐）<br/>使用SSH登录（密码或密钥）   | VNC登录 |
 
 ## 前提条件
 
@@ -54,7 +54,7 @@ Window，Linux或者Mac OS
 
 实例是否购买公网IP。
 
-开启SSH（22号）端口，您可以通过[安全组](https://cloud.tencent.com/document/product/213/12452)的设置确认是否开启22号端口。
+开启SSH（22号）端口，您可以通过[配置安全组](https://cloud.tencent.com/document/product/213/15377)的设置确认是否开启22号端口。
 
 ### 操作步骤
 
@@ -72,7 +72,7 @@ Window，Linux或者Mac OS
 
 ## 远程登录软件登录（Windows）
 
-以PuTTy软件为例，介绍如何使用密码或者密钥登录Linux实例。
+以PuTTy软件为例，介绍如何使用远程登录软件通过密码或者密钥登录Linux实例。
 
 ### 适用本地操作系统：
 
