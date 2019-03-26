@@ -1,6 +1,6 @@
 本文档主要介绍将腾讯云直播截图或鉴黄数据存储至腾讯云对象存储中，以实现通过存储桶（COS Bucket）存储云直播截图或鉴黄数据。
 
-您需要先创建 COS Bucket ，然后通过对 COS Bucket 授权给云直播和并进行直播截图鉴黄设置，云直播截图或鉴黄数据可写入指定 COS Bucket（新版控制台功能）。
+您需要先创建 COS Bucket ，然后通过对 COS Bucket 授权给云直播，再在直播控制台进行直播截图鉴黄设置，云直播截图或鉴黄数据即可写入指定 COS Bucket（新版控制台功能）。
 
 ## 创建 COS Bucket
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
