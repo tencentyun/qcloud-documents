@@ -103,7 +103,3 @@ Windows，Linux和MacOS系统
 > - 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
 > - 要正常使用 VNC 登录，需要使用现代浏览器，如：Chrome，firefox，IE10及以上版本等。
 > - 暂不支持文件上传下载。
-
-## 远程连接出现问题？
-
-如果登录失败，请检查您的云服务器实例是否允许3389端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于[私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
