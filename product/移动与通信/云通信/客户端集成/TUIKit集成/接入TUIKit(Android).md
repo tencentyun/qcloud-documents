@@ -30,6 +30,7 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。
 
 <pre>
+<code class="language-java">
 android {
     defaultConfig {
         ndk {
@@ -42,7 +43,7 @@ dependencies {
     ...
     implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的版本</a>
 }
-
+</code>
 </pre>
 
 TUIKit 会自动加载所需的 IMSDK。
