@@ -1,5 +1,5 @@
 
-创建Windows实例后，您可以根据**本地操作系统**以及**是否是否有公网IP**来选择不同的登录方式登录Windows实例。登录方式可以参考以下表格：
+创建Windows实例后，您可以根据**本地操作系统**以及**是否有公网IP**来选择不同的登录方式登录Windows实例。登录方式可以参考以下表格：
 
 | 本地操作系统 | 实例有公网IP                    | 实例没有公网IP |
 | ------------ | --------------------------------- | ---------------------- |
@@ -14,7 +14,7 @@
 
 - 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
-2. 确保请云服务器3389号端口已开放，详见查看[安全组](https://cloud.tencent.com/doc/product/213/5221)及[网络ACL](https://cloud.tencent.com/doc/product/215/5132)。
+2. 确保请云服务器3389号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查3389号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
 
 ## 使用RDP文件登录（推荐）
 
@@ -49,7 +49,7 @@ make install
 ```
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
-其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
+其中：-u 连接用户名即 `Administrator`，-p 连接在您设置的登录密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
  
 ###  MacOS系统使用RDP登录：
 以Microsoft Remote Desktop for Mac为例介绍本地为 Mac OS 计算机时如何登录 Windows实例。
@@ -103,7 +103,3 @@ Windows，Linux和MacOS系统
 > - 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
 > - 要正常使用 VNC 登录，需要使用现代浏览器，如：Chrome，firefox，IE10及以上版本等。
 > - 暂不支持文件上传下载。
-
-## 远程连接出现问题？
-
-如果登录失败，请检查您的云服务器实例是否允许3389端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/doc/product/213/5221)，若您的云服务器处于[私有网络](https://cloud.tencent.com/doc/product/213/5227) 环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/doc/product/215/5132) 。
