@@ -1,5 +1,7 @@
 对接的 HTTP 服务可以是运行于 CVM 上或 CCS 上的 Web 服务，也可以是外网的某个服务。
 对接到具体的 HTTP 服务，需要提供服务地址、服务路径、HTTP 方法、超时时间和映射参数等信息。
+>?对接 VPC 功能目前需要开通白名单，您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开启。
+
 - **服务地址：**具体的服务主机地址，可以是内部地址或外部地址，也可以是 IP+Port 或域名。服务地址格式形如`http://10.186.51.24:8080`或`https://demo.test.com`
 - **服务路径：**具体的后端服务请求路径。如果需要在路径中配置动态参数，请使用`{}`符号，并在其中填入参数名，此参数名将用于在参数映射的配置中配置为来源于前端配置的入参。
 - **HTTP 方法：**可选择 GET、POST、PUT、DELETE、HEAD 方法，您需要根据后端服务具体的方法选择。前端配置中的 HTTP 方法和后端配置的 HTTP 方法可不同。HTTP 方法支持 HTTPS。
@@ -9,5 +11,5 @@
  - 如果您的 body 参数仅有表单格式，则可直接在前后端参数配置时映射。若为 json 格式，则 json 参数 API 网关会直接透传。
 
 ![HTTP](https://main.qcloudimg.com/raw/b93201d1c5a20579cf34ae86c586533e.png)
->?对接 VPC 功能目前需要开通白名单，您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开启。
+
 
