@@ -1,5 +1,5 @@
 
-创建Windows实例后，您可以根据**本地操作系统**以及**是否是否有公网IP**来选择不同的登录方式登录Windows实例。登录方式可以参考以下表格：
+创建Windows实例后，您可以根据**本地操作系统**以及**是否有公网IP**来选择不同的登录方式登录Windows实例。登录方式可以参考以下表格：
 
 | 本地操作系统 | 实例有公网IP                    | 实例没有公网IP |
 | ------------ | --------------------------------- | ---------------------- |
@@ -49,7 +49,7 @@ make install
 ```
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
-其中：-u 连接用户名即 `Administrator`，-p 连接在先决条件中获得的密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
+其中：-u 连接用户名即 `Administrator`，-p 连接在您设置的登录密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
  
 ###  MacOS系统使用RDP登录：
 以Microsoft Remote Desktop for Mac为例介绍本地为 Mac OS 计算机时如何登录 Windows实例。
