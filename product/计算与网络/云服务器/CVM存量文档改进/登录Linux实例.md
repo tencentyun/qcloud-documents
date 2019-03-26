@@ -17,7 +17,7 @@
 ## 前提条件
 
 - 准备好登录实例前的密码或者密钥。
-- 确保云服务器实例的22号端口已打开，您可以通过[安全组](https://cloud.tencent.com/document/product/213/12452)的设置确认是否开启22号端口。
+- 确保云服务器实例的22号端口已打开。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查22号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
 
 ### 使用密码登录
 **管理员账号**：对于不同类型的 Linux 实例，管理员帐号不同，如下表。
@@ -189,8 +189,4 @@ Windows，Linux和MacOS系统
 	- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
 	- 要正常使用 VNC 登录，需要使用主流浏览器，如：Chrome，firefox，IE10 及以上版本等。
 	- 暂不支持文件上传下载。
-
-## 远程登录失败？
-如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考[安全组](https://cloud.tencent.com/document/product/213/12452) ，若您的云服务器处于**私有网络**环境下，请同时查看相关子网的[网络ACL](https://cloud.tencent.com/document/product/215/20088) 。
-更多登录失败的原因，可以参考[登录及远程连接常见问题](https://cloud.tencent.com/document/product/213/17278)。
 
