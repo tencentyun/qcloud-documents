@@ -14,7 +14,7 @@
 
 - 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。![](https://main.qcloudimg.com/raw/f8b0d37083569624f689aca5f40191b4.png)
 
-2. 确保请云服务器3389号端口已开放，详见查看[安全组](https://cloud.tencent.com/doc/product/213/5221)及[网络ACL](https://cloud.tencent.com/doc/product/215/5132)。
+2. 确保请云服务器3389号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查3389号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
 
 ## 使用RDP文件登录（推荐）
 
