@@ -16,9 +16,13 @@ HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证�
   1、证书名称：自定义证书名称，便于标识证书。
 
   2、证书内容：CA提供的证书包括Apache/IIS/Nginx/Tomcat四种，云直播的加密服务给予Nginx，故配置时需选择Nginx文件中的内容。
+  
   ![](https://main.qcloudimg.com/raw/f67e31bfa2c233cf8dc0c4a1e58cb6fc.png)
+  
   .crt文件中内容为证书内容，内容如下：
+  
   ![](https://main.qcloudimg.com/raw/dc6e10861dbe5c4043e07073240cf3b0.png)
+  
   请于HTTPS证书内容输入框填写包含-----BEGIN CERTIFICATE-----和-----END CERTIFICATE-----的所有内容。
 
 > 说明：若您的证书为中级机构颁发、包含多个证书，请按照下述方式拼接：
@@ -28,7 +32,9 @@ HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证�
 > -----END CERTIFICATE-----
 
   3、证书私钥：Nginx文件中.key文件内容为证书私钥，内容如下：
+  
   ![](https://main.qcloudimg.com/raw/fdfe6829c5910da0742e2c3d845a8447.png)
+  
   请于HTTPS证书内容输入框填写包含-----BEGIN RSA PRIVATE KEY-----和-----END RSA PRIVATE KEY-----的所有内容。
 
  ### 第三步：验证配置
