@@ -75,6 +75,10 @@ func hello(ctx context.Context, event DefineEvent)
 
 自定义数据结构对应的 JSON 结构，通常与函数执行时的入参对应。在函数调用时，入参的 JSON 数据结构将会转换为自定义数据结构变量并传递和入口函数。
 
+>注意：
+部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。可通过 [cloud event 定义](https://github.com/tencentyun/scf-go-lib/tree/master/cloudevents/scf)获取 golang 的库并使用。通过在代码中引用 `import "github.com/tencentyun/scf-go-lib/cloudevents/scf"` 来直接使用。如果使用过程中发现问题，可以通过[提交 issue ](https://github.com/tencentyun/scf-go-lib/issues/new)或提交工单说明。
+
+
 #### 返回值
 
 入口函数可以带有 0 ~ 2 个返回值，例如：
