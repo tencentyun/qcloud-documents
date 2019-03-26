@@ -226,10 +226,6 @@ public void setNotifyMode(NotifyMode mode)
  */
 NotifyMode.Normal
 
-/**
- * 自定义消息模式，离线消息下发后，单击通知栏消息会给应用进行回调
- */
-NotifyMode.Custom
 ```
 
 **TIMMessageOfflinePushSettings.IOSSettings：**
@@ -296,7 +292,7 @@ TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOf
 //TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
 //推送自定义通知栏消息，接收方收到消息后单击通知栏消息会给应用回调（针对小米、华为离线推送）
-androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Custom);
+androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Normal);
 //设置 Android 设备收到消息时的提示音，声音文件需要放置到 raw 文件夹
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
 settings.setAndroidSettings(androidSettings);
@@ -548,6 +544,7 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 >!
 >- 收到离线消息时，默认通知标题为 `a new message`。
+>- 目前小米推送新版本中不会触发 onNotificationMessageClicked 事件回调，后续会做适配。
 >- 此指引文档是根据小米推送 SDKv3.0.3 来写的，可能不适用于新版本的小米推送 SDK，新版本的接入请直接参考小米官方文档。
 >- 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
 

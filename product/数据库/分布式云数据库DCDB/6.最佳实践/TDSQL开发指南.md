@@ -1,4 +1,4 @@
-# TDSQL 开发指南
+
 TDSQL 提供和 mysql 兼容的连接方式，用户通过IP地址、端口号以及用户名、密码连接 TDSQL 系统：
 ```
 	mysql -h10.231.136.34 -P3306 -utest12 -ptest123 -c

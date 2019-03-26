@@ -10,14 +10,16 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
 
->?COS Migration 的编码格式只支持 UTF-8 格式。
+>!
+>- COS Migration 的编码格式只支持 UTF-8 格式。
+>- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
 ## 使用环境
 ### 系统环境
 Windows、Linux 和 macOS 系统。
 
 ### 软件依赖
-- JDK 1.7 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK 1.8 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
