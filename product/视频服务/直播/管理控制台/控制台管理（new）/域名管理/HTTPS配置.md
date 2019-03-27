@@ -7,7 +7,7 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
  ![](https://main.qcloudimg.com/raw/ba9fa1cab68838873a319f10729a1657.png)
 
 ### 第二步：编辑 HTTPS 配置
-在**高级配置**菜单栏下，单击**HTTPS 配置**模块的【编辑】，开启 HTTPS 服务并输入证书名称、证书内容和私钥内容，保存后就可以开启 HTTPS 服务。
+在**高级配置**菜单栏下，单击 **HTTPS 配置**模块的【编辑】，开启 HTTPS 服务并输入证书名称、证书内容和私钥内容，保存后就可以开启 HTTPS 服务。
 ![](https://main.qcloudimg.com/raw/679034a43612bd5bcb01d72d8b5eebd6.png)
 - **证书名称**：自定义证书名称，便于标识证书。
 - **证书内容**：CA 提供的证书包括 Apache、IIS、Nginx 以及 Tomcat，云直播的加密服务使用 Nginx，故配置需选择 Nginx 文件中的内容。
