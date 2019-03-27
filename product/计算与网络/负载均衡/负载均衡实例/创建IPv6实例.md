@@ -1,4 +1,4 @@
-负载均衡支持创建 IPv6 实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 vip），该 vip 转发来自 IPv6 客户端的请求。该功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/qk4z8jli43)。
+负载均衡支持创建 IPv6 实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 vip），该 vip 转发来自 IPv6 客户端的请求。
 
 ## 什么叫 IPv6？
 IPv6 指网际协议第6版（Internet Protocol version 6），是网际协议（IP）的最新版本。IPv6 是 IETF（互联网工程任务组，Internet Engineering Task Force）设计的用于替代现行版本 IP 协议（IPv4）的下一代 IP 协议。与 IPv4 相比，IPv6 的主要特点：
