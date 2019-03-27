@@ -11,7 +11,7 @@
 ## 准备工作
 
 - **获取开发包**
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 App 开发工程。
 
 - **获取测试 URL**
 [开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放 URL](https://cloud.tencent.com/document/product/454/7915)。
@@ -57,7 +57,7 @@ mLivePusher.startCameraPreview(mCaptureView);
 
 
 ### step 3+: 纯音频推流
-如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+如果您的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
 
 ```java
 // 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
@@ -67,7 +67,7 @@ mLivePusher.setConfig(mLivePushConfig);      // 重新设置 config
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 ```
-如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
 
 
 ### step 4: 设定清晰度
@@ -79,7 +79,7 @@ mLivePusher.startPusher(rtmpUrl);
 - **推荐参数设置**
 
 | 应用场景 | quality |  adjustBitrate | adjustResolution |
-|:-------:|:-------:|:-------:|
+|-------|-------|------|-----|
 | 秀场直播 | VIDEO_QUALITY_HIGH_DEFINITION 或 <br> VIDEO_QUALITY_SUPER_DEFINITION  | false | false |
 | 手游直播 | VIDEO_QUALITY_SUPER_DEFINITION  | true | true |
 | 连麦（主画面） | VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | true | true | 
@@ -89,24 +89,24 @@ mLivePusher.startPusher(rtmpUrl);
 - **内部数据指标**
 
 | quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| STANDARD | true | true | 300~800kbps| 270x480 ~ 360x640| 
-| STANDARD | true | false |300~800kbps|360x640| 
-| STANDARD | true | false | 800kbps | 360x640| 
-| HIGH | true | true |600~1500kbps| 360x640~540x960| 
-| HIGH | true | false |600~1500kbps| 540x960| 
-| HIGH | false | false |1200kbps| 540x960| 
-| SUPER | true | true | 600~1800kbps|360x640~720x1280|
-| SUPER | true | false |600~1800kbps|720x1280|
-| SUPER | false | false |1800kbps|720x1280|
-| MAIN_PUBLISHER | true | true |600~1500kbps| 360x640~540x960| 
-| SUB_PUBLISHER | false | false |350kbps| 320x480| 
-| VIDEOCHAT | true | true | 200~800kbps| 190x320~360x640| 
+|------|-------|-------|-------|-------|
+| STANDARD | true | true | 300kbps - 800kbps| 270 \* 480 - 360 \* 640| 
+| STANDARD | true | false |300kbps - 800kbps|360 \* 640| 
+| STANDARD | true | false | 800kbps | 360 \* 640| 
+| HIGH | true | true |600kbps - 1500kbps| 360 \* 640 - 540 \* 960| 
+| HIGH | true | false |600kbps - 1500kbps| 540 \* 960| 
+| HIGH | false | false |1200kbps| 540 \* 960| 
+| SUPER | true | true | 600kbps - 1800kbps|360 \* 640 - 720 \* 1280|
+| SUPER | true | false |600kbps - 1800kbps|720 \* 1280|
+| SUPER | false | false |1800kbps|720 \* 1280|
+| MAIN_PUBLISHER | true | true |600kbps - 1500kbps| 360 \* 640 - 540 \* 960| 
+| SUB_PUBLISHER | false | false |350kbps| 320 \* 480| 
+| VIDEOCHAT | true | true | 200kbps - 800kbps| 190 \* 320 - 360 \* 640| 
 
 ### step 5: 美颜滤镜
 ![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
 - **美颜**
-setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
+setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 \* 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```java
  //style             磨皮风格：  0：光滑  1：自然  2：朦胧
  //beautyLevel       磨皮等级： 取值为 0-9.取值为 0 时代表关闭美颜效果.默认值: 0,即关闭美颜效果.
@@ -119,7 +119,7 @@ setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和�
 - **滤镜**
 setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了 Demo 中，您可以随意使用，不用担心版权问题。
 
- setSpecialRatio 接口则可以设置滤镜的程度，从 0 到 1，越大滤镜效果越明显，默认取值 0.5。
+ setSpecialRatio 接口则可以设置滤镜的程度，从0到1，越大滤镜效果越明显，默认取值0.5。
 ```java
 Bitmap bmp = null;
 bmp = decodeResource(getResources(), R.drawable.langman);
@@ -127,11 +127,11 @@ if (mLivePusher != null) {
        mLivePusher.setFilter(bmp);
 }
 ```
-> 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
+>?如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG</font>。
 
 - **曝光**
 setExposureCompensation 可以调节曝光值，这个调整项在 iOS 端是没有的（我们使用了系统的自动曝光）。但是 Android 机型差异太大，很多千元机的自动曝光效果实在一般，所以我们推荐在您的 UI 界面上提供一个自动曝光的操作滑竿，让主播可以自己调节曝光值大小。
->setExposureCompensation 的参数为 -1 到 1 的浮点数： 0 表示不调整， -1 是将曝光降到最低， 1 表示是将曝光加强到最高。
+>?setExposureCompensation 的参数为-1到1的浮点数： 0表示不调整， -1是将曝光降到最低， 1表示是将曝光加强到最高。
 
 ### step 6: 控制摄像头
 - **切换前置或后置摄像头** 
@@ -159,7 +159,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 - **设置镜像效果**
-主播一般是采用前置摄像头进行直播。所以对比主播端预览画面和观众端的画面，会发现左右颠倒。这个跟我们照镜子的原理是一样的。如果你想要让画面保持一致，需要设置播放端水平镜像。
+主播一般是采用前置摄像头进行直播。所以对比主播端预览画面和观众端的画面，会发现左右颠倒。这个跟我们照镜子的原理是一样的。如果您想要让画面保持一致，需要设置播放端水平镜像。
 ```Java
 // 需在 mLivePusher.setConfig(mLivePushConfig); 之后调用
 mLivePusher.setMirror(true);
@@ -170,12 +170,12 @@ mLivePusher.setMirror(true);
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
-这里我们特别建议您使用<font color='red'>SDK 添加水印</font>，因为在云端打水印有三个明显的问题：
+这里我们特别建议您使用 <font color='red'>SDK 添加水印</font>，因为在云端打水印有三个明显的问题：
  （1）这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本；
  （2）在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  （3）在云端打水印会引入额外的 3s 以上的视频延迟，这是转码服务所引入的。
 
-SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您可千万别把 jpg 图片在 windows 下改个后缀名就塞进去了，专业的png图标都是需要由专业的美工设计师处理的）
+SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您可千万别把 jpg 图片在 Windows 下改个后缀名就塞进去了，专业的png图标都是需要由专业的美工设计师处理的）
 
 ```java
 //设置视频水印
@@ -210,14 +210,14 @@ mLivePushConfig.setHardwareAcceleration(mHWVideoEncode ?
     TXLiveConstants.ENCODE_VIDEO_HARDWARE : TXLiveConstants.ENCODE_VIDEO_SOFTWARE);
 mLivePusher.setConfig(mLivePushConfig);  
 
-// 如果你不清楚要何时开启硬件加速, 建议设置为 ENCODE_VIDEO_AUTO
+// 如果您不清楚要何时开启硬件加速, 建议设置为 ENCODE_VIDEO_AUTO
 // 默认是启用软件编码, 但手机 CPU 使用率超过 80% 或者帧率 <= 10, SDK 内部会自动切换为硬件编码
 ```
 
 mHWVideoEncode 有以下选项。
 
 |  硬件加速选项 | 含义 |
-| :-----------| :-----------|
+| -----------| -----------|
 | ENCODE_VIDEO_HARDWARE | 开启硬件加速 |
 | ENCODE_VIDEO_SOFTWARE | 禁用硬件加速，默认禁用硬件加速 |
 | ENCODE_VIDEO_AUTO | 自动选择是否启用硬件加速 |
@@ -282,7 +282,7 @@ public interface ITXVideoRecordListener {
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更衣等场景；
 
 - **10.3、切后台处理**
-推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
+推流中，如果 App 被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
 // activity 的 onStop 生命周期函数
 @Override
@@ -293,7 +293,7 @@ public void onStop(){
 }
 ```
 - **10.4、切前台处理**
-等待App切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
+等待 App 切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
 ```java
 // activity 的 onStop 生命周期函数
 @Override
@@ -321,7 +321,7 @@ public void onResume() {
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
-此时可以提示主播 **“您当前的网络状况不佳，推荐您离 WiFi 近一点，尽量不要让 WiFi 穿墙”**。
+此时可以提示主播 **“您当前的网络状况不佳，推荐您离 Wi-Fi 近一点，尽量不要让 Wi-Fi 穿墙”**。
 
 ### step 12: 横屏推流
 有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
@@ -364,9 +364,9 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 
 ### step 14: 结束推流
-结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
+用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 无法多实例并行运转，在结束推流时必须进行清理，否则会导致下次直播时无法正常使用对应功能。
 ```java
-//结束推流，注意做好清理工作
+//结束推流并进行清理
 public void stopRtmpPublish() {
     mLivePusher.stopCameraPreview(true); //停止摄像头预览
     mLivePusher.stopPusher();            //停止推流
@@ -397,7 +397,7 @@ SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相�
 一次成功的推流都会通知的事件，比如收到 1003 就意味着摄像头的画面会开始渲染了
 
 | 事件 ID                 |    数值  |  含义说明                    |   
-| :-------------------  |:-------- |  :------------------------ | 
+| -------------------  |-------- |  ----------------------- | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
 |PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（Android 部分手机这个过程需要1-2秒）| 
@@ -405,10 +405,10 @@ SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相�
 |PUSH_EVT_CHANGE_BITRATE | 1006 | 推流动态调整码率 |
 
 ### 3. 错误通知 
-SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
+SDK发现了一些严重问题，推流无法继续了，比如用户禁用了 App 的 Camera 权限导致摄像头打不开。
 
 | 事件 ID                 |    数值  |  含义说明                    |   
-| :-------------------  |:-------- |  :------------------------ | 
+| -------------------  |-------- |  ----------------------- | 
 |PUSH_ERR_OPEN_CAMERA_FAIL        | -1301| 打开摄像头失败|
 |PUSH_ERR_OPEN_MIC_FAIL           | -1302| 打开麦克风失败|
 |PUSH_ERR_VIDEO_ENCODE_FAIL       | -1303| 视频编码失败|
@@ -427,7 +427,7 @@ SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 推流请求被后台拒绝了。出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流 URL 同时只能有一个端推流）。
 
 | 事件ID                 |    数值  |  含义说明                    |   
-| :-------------------  |:-------- |  :------------------------ | 
+| -------------------  |-------- |  ----------------------- | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|

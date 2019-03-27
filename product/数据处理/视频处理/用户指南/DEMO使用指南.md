@@ -1,4 +1,3 @@
-<font color="red">以下 Demo 均为旧版微视频 Demo ，只适用于从微视频升级至视频处理的用户！</font>
 
 新用户请直接参考 COS [iOS Demo](https://cloud.tencent.com/document/product/436/6530) 和 [Android Demo](https://cloud.tencent.com/document/product/436/6517)。
 

@@ -10,7 +10,7 @@
 ### 一、下载 EIP 配置脚本
 由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本并上传至 CVM。步骤如下：
 1. 下载 EIP 直通配置脚本，该步骤可选。下载路径：
- -  [Linux 脚本下载](https://mc.qcloudimg.com/static/archive/e66c8253642e37c62c8e581d6f0299de/eip_linux.zip)
+ -  [Linux 脚本下载](https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip)
  -  [Windows 脚本下载](https://mc.qcloudimg.com/static/archive/af1eee0dbe7d9407cddb3e1bd510cb3a/eip_windows.zip)
 
   > **注意：**

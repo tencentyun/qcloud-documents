@@ -35,7 +35,7 @@
 
 ### 请求示例
 
-```
+```shell
   https://cfs.api.qcloud.com/v2/index.php?Action=QueryMountTarget
   &Region=bj
   &FileSystemId=cfs-h97kuqvr
@@ -44,7 +44,7 @@
 
 ### 响应示例
 
-```
+```shell
 {
     "code": 0,
     "message": "",
@@ -63,14 +63,9 @@
                 "VpcName": "vpc-4h0fngoa",
                 "SubnetId": "12904934",
                 "SubnetName": "subnet-pdloiv75",
-                "ZoneId": 800001,
+                "ZoneId": 800001
             }
         ]
     }
 }
-
 ```
-
-
-
-

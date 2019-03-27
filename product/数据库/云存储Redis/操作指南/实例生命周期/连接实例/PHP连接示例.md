@@ -1,19 +1,19 @@
 ﻿**运行前必备**：
 
-使用客户端 [phpredis](https://github.com/phpredis/phpredis)。
+下载客户端 [phpredis](https://github.com/phpredis/phpredis)。
 
 **示例代码**：
 
 ```
 <?php
-  /**以下参数分别填写您的redis实例内网IP，端口号，实例id和密码*/
+  /**以下参数分别填写您的Redis实例内网IP，端口号，实例ID和密码*/
   $host = "192.168.0.2";
   $port = 6379;
   $instanceid = "c532952f-55dc-4c22-a941-63057e560788";
   $pwd = "1234567q";
 
   $redis = new Redis();
-  //连接redis
+  //连接Redis
   if ($redis->connect($host, $port) == false) {
     die($redis->getLastError());
   }
@@ -22,15 +22,15 @@
     die($redis->getLastError());
   }
   
-  /**接下来可以愉快的开始操作redis实例，可以参考：https://github.com/phpredis/phpredis */
+  /**接下来可以开始操作Redis实例，可以参考：https://github.com/phpredis/phpredis */
   
-  //设置key
+  //设置Key
   if ($redis->set("redis", "tencent") == false) {
     die($redis->getLastError());
   }
   echo "set key redis suc, value is:tencent\n";
   
-  //获取key
+  //获取Key
   $value = $redis->get("redis");
   echo "get key redis is:".$value."\n";
 ?>

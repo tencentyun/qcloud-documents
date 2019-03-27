@@ -14,11 +14,11 @@
 
 ## 第二步：添加配置文件
 
-创建好应用后，您可以点击红框中的【下载配置】来下载该应用的配置文件的压缩包：
+创建好应用后，您可以单击红框中的【下载配置】来下载该应用的配置文件的压缩包：
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
-解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续单击【下一步】。
 
 
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
@@ -34,7 +34,7 @@
 
 > 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
-每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
+每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 App 中，下表展示了 MobileLine 各种服务所对应的库。
 
 
 以下库分别对应各种移动开发平台（MobileLine）的功能。
@@ -89,7 +89,7 @@ pod 'TACCrash'
 
 ### 配置程序需要脚本
 
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+为了简化 SDK 的接入流程，我们使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
 脚本主要包括两个：
 
@@ -178,7 +178,7 @@ end
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
+3. 单击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
 > **注意：**
 请确保该脚本在 `Build Phases` 中排序为第二。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
@@ -211,7 +211,7 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
+3. 单击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
 > **注意：**
 >  请确保该脚本在 `Build Phases` 中排序需要放到最后。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。

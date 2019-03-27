@@ -12,7 +12,7 @@
 ### 2.1 导入 SDK 到项目
 在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
-1. 从菜单中依次选择`视图`-`解决方案资源管理器`；
+1. 从菜单中依次选择`视图`>`解决方案资源管理器`；
 2. 在`解决方案资源管理器`中，右键单击要导入 SDK 的项目名称；
 3. 在弹出菜单内单击`属性`选项，弹出`项目属性`对话框；
 4. 从左侧`配置属性`列表中，选择`VC++目录`项；
@@ -45,9 +45,9 @@ delete boardMgr；
 boardMgr->initBoardSDK(roomId, hwnd);
 BoardSDK* boardSDk = boardMgr->getBoardSDK();
 ```
-使用TICSDK推荐TICSDK的方法`initWhiteBoard`
+使用 TICSDK 推荐 TICSDK 的方法`initWhiteBoard`
 
-> **注意：**白板长宽比推荐固定为 16：9。
+>!白板长宽比推荐固定为16:9。
 
 其中第一个参数`roomId`指定当前房间 ID，第二个参数`hWnd`用于指定父窗口；`hWnd`参数为可选参数，留空表示白板窗口没有父窗口，此时创建出来的白板窗口为独立窗口。
 白板窗口创建完后，可通过如下代码获取白板窗口句柄，方便对白板窗口进行操作：
@@ -69,11 +69,12 @@ ShowWindow(hWnd, SW_SHOW);
 
 ```C++
 boardSDk->useTool(BoardTool::Rectangle);//使用矩形工具
-boardSDk->setLineWidth(100);//设置画笔宽度
+boardSDk->setLineWidth(2);//设置画笔宽度
 boardSDk->setBrushColor(255，0，255，255);//设置画笔颜色，按照red，green，blue和alpha通道值顺序
 boardSDk->setFill(true);//填充图形
-boardSDk->setRadius(30);//设置圆角半径
+boardSDk->setRadius(10);//设置圆角半径
 boardSDk->setFontSize(20);//设置文字大小
+boardSDk->setScale(200); //设置缩放系数
 ```
 
 可选的工具定义如下：
@@ -89,6 +90,7 @@ boardSDk->setFontSize(20);//设置文字大小
 |矩形|BoardTool::Rectangle|宽度、颜色、是否填充、圆角半径|
 |文字|BoardTool::Text|颜色、大小|
 |选区|BoardTool::Select|无|
+|移动|BoardTool::Shift|无|
 
 ### 2.5 页面操作、背景设置及页面清除
 白板 SDK 支持多页面操作，可通过 BoardMgr 如下接口来进行页面操作：
@@ -165,13 +167,13 @@ boardSDk->useTool(BoardTool::Select);
 boardSDk->copy();//复制选中图形
 boardSDk->remove();//删除选中图形
 ```
-以上复制及删除操作支持撤销重做。
+>?复制及删除操作支持撤销重做。
 
 
 ### 2.7 上传文档
 
-用户想使用 PPT，可先上传到腾讯云对象存储 COS。目前白板内部集成了 COSSDK。
-开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置 COS。账号并自行维护。
+用户想使用 PPT，可先上传至腾讯云对象存储 COS。目前白板内部集成了 COSSDK。
+开发者可以使用我们维护内置的公共账号（每个客户对应一个存储桶，推荐），也可以自己申请配置 COS 账号并自行维护。
 
 使用如下接口可以将 PPT 上传至 COS：
 ```C++
@@ -245,7 +247,7 @@ boardSDk->redo();//重做
 在每次对白板操作后，SDK 会将操作的数据上报到白板后台，目前表白 SDK 已经内部实现了该功能，白板后台服务也是我们在维护，用户无需自行实现。
 
 白板数据拉取（同步）：
-数据拉取在白板中提供了一个接口，用户只需要在进房成功之后调用该接口拉取白板数据即可， 方法内部已经实现了数据的解析即填充到白板的功能。（包括异常退出重新进入房间时同步数据的场景）
+数据拉取在白板中提供了一个接口，用户只需要在进房成功之后调用该接口拉取白板数据即可， 方法内部已经实现了数据的解析即填充到白板的功能（包括异常退出重新进入房间时同步数据的场景）。
 ```C++
 boardSDk->getBoardData();
 ```

@@ -36,7 +36,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "requestId": <EIP异步任务ID>
+        "requestId": "<EIP异步任务ID>"
     }
 }
 ```
