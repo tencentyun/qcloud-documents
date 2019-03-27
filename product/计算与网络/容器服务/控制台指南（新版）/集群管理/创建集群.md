@@ -32,7 +32,7 @@
     - **机型**：机型选择方案参看 [实例类型概述](https://cloud.tencent.com/document/product/213/11518#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2) 和 [确定云服务器配置方案](https://cloud.tencent.com/document/product/213/2764#.E7.A1.AE.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88)。
     - **系统盘**：默认为“本地硬盘50G”，您可以根据机型选择本地硬盘、云硬盘、SSD云硬盘、高性能云硬盘等。存储盘选择请参考 [存储概述](https://cloud.tencent.com/document/product/213/4952)。
     - **数据盘**：Master 因为不建议部署其他应用，默认不配置数据盘，您可以购置后再添加云盘。Node 可以在购置时配置数据盘。
-    - **公网宽带**：勾选**访问公网** ，系统将免费分配公网 IP，提供两种计费模式，详细对比请参看 [公网计费模式](https://cloud.tencent.com/document/product/213/10578)。
+    - **公网宽带**：勾选**访问公网**，系统将免费分配公网 IP，提供两种计费模式，详细对比请参看 [公网计费模式](https://cloud.tencent.com/document/product/213/10578)。
 7. <span id="step7">单击【下一步】。</span>
 8. 在 “云主机配置” 中，配置云服务器的其他配置。如下图所示：
 ![云主机配置](https://main.qcloudimg.com/raw/6f1a1f36812d3379f721e73575761fef.png)
@@ -52,8 +52,8 @@
 
 - 操作系统属于集群级别，决定集群后续新增节点、伸缩组、添加已有节点、集群节点升级的后的操作系统。
 - 修改操作系统只影响后续新增的节点或重装的节点，对存量的节点操作系统无影响。
-- 目前仅支持同类型的操作系统修改如：Centos->CentOS类的自定义镜像。
-- 如需使用自定义镜像功能，请[提交工单](https://console.qcloud.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&level3_id=718&radio_title=%E5%AE%B9%E5%99%A8%E9%9B%86%E7%BE%A4%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&queue=97&scene_code=16798&step=2)申请。
+- 目前仅支持同类型的操作系统修改如：CentOS > CentOS 类的自定义镜像。
+- 如需使用自定义镜像功能，请 [提交工单](https://console.qcloud.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&level3_id=718&radio_title=%E5%AE%B9%E5%99%A8%E9%9B%86%E7%BE%A4%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&queue=97&scene_code=16798&step=2) 申请。
 
 >! 如果您使用自定义镜像功能，请使用容器服务提供的基础镜像来制作自定义镜像。
 
