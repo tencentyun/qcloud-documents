@@ -129,17 +129,17 @@ NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood
 
 **参数说明：**
 
-参数 | 说明
---- | ---
-succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
+|参数 | 说明|
+|--- | ---|
+|succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 |
+|fail | 失败回调，会返回错误码和错误信息，详见 [错误码](https://cloud.tencent.com/document/product/269/1671) |
 
 **返回值：**
 
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
+|返回 | 说明|
+|--- | ---|
+|0 | 表示发送数据成功 |
+|非 0 | 表示发送数据失败|
 
 
 

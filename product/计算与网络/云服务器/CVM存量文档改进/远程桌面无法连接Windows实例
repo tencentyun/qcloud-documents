@@ -39,7 +39,7 @@
 ###  检查是否购买公网带宽
 检查公网带宽是否为>0Mb（最少1Mbps）。
  - 是，请执行下一步。
- - 否，请通过 [调整网络](https://cloud.tencent.com/document/product/213/15517) 将带宽调整到1Mbps或以上。
+ - 否，请通过 [调整网络](https://cloud.tencent.com/document/product/213/15517) 将带宽调整到1Mbps或以上，再测试远程连接是否成功。
 ![](https://main.qcloudimg.com/raw/4ac1c8bbd717df472375f456c6a0d91c.png)
 
 ### 检查实例远程登录端口（3389）是否放通
