@@ -34,8 +34,7 @@ security.protocol=SASL_PLAINTEXT
 ```
 2. 配置用户名及密码：
 ```
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
-username="instanceId#admin" password="admin";
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="instanceId#admin" password="admin";
 ```
 其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
  - username：包含实例 ID 和用户名，使用`#`拼接，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
@@ -46,15 +45,13 @@ username="instanceId#admin" password="admin";
 ```
 sasl.mechanism=PLAIN
 security.protocol=SASL_PLAINTEXT
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
-username="INSTANCE-2#admin" password="admin";
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="INSTANCE-2#admin" password="admin";
 ```
 - 消费者配置文件名称为 consumer.properties，SASL_PLAINTEXT 相关配置如下：
 ```
 sasl.mechanism=PLAIN
 security.protocol=SASL_PLAINTEXT
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required
-username="INSTANCE-2#admin" password="admin";
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="INSTANCE-2#admin" password="admin";
 ```
 
 ###  配置 ACL 策略
