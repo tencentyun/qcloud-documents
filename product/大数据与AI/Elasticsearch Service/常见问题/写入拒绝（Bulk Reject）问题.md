@@ -16,7 +16,7 @@ GET _cat/thread_pool/bulk?s=queue:desc&v
 引起 bulk reject 的大多原因是 shard 容量过大或 shard 分配不均，具体可通过以下方法进行定位分析。
 
 #### 1. 分片（shard）数据量过大
-分片数据量过大，有可能引起 Bulk Reject，建议单个分片大小控制在20G - 50G 左右。可在 kibana 控制台，通过命令查看索引各个分片的大小。
+分片数据量过大，有可能引起 Bulk Reject，建议单个分片大小控制在20GB - 50GB左右。可在 kibana 控制台，通过命令查看索引各个分片的大小。
 ```
 GET _cat/shards?index=index_name&v
 ```
@@ -35,14 +35,14 @@ curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $
 ### 解决方案
 
 #### 1. 设置分片大小
-分片大小，可以通过 index 模版下的 number_of_shards 参数进行配置（模板创建完成后，再次新创建索引时生效，老的索引不能调整）。
+分片大小可以通过 index 模版下的 number_of_shards 参数进行配置（模板创建完成后，再次新创建索引时生效，老的索引不能调整）。
 
 #### 2. 调整分片数据不均匀
-（1）临时解决方案
-如果发现集群有分片分配不均的现象，可以通过设置routing.allocation.total_shards_per_node 参数动态调整某个index解决，[参考](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/allocation-total-shards.html) 注：total_shards_per_node要留有一定的buffer，防止机器故障导致分片无法分配。（比如10台机器，索引有20个分片，则total_shards_per_node设置要大于2，可以取3）
-
+- 临时解决方案：
+如果发现集群有分片分配不均的现象，可以通过设置 routing.allocation.total_shards_per_node 参数，动态调整某个 index 解决，[参考地址](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/allocation-total-shards.html)。
+>!total_shards_per_node 要留有一定的 buffer，防止机器故障导致分片无法分配（例如10台机器，索引有20个分片，则 total_shards_per_node 设置要大于2，可以取3）。
+>
 参考命令：
-
 ```
 PUT {index_name}/_settings
  {
@@ -56,12 +56,9 @@ PUT {index_name}/_settings
       }
     }
  }
-
 ```
-
-（2）索引生产前设置
+- 索引生产前设置：
 通过索引模板，设置其在每个节点上的分片个数。
-
 ```
 PUT _template/｛template_name｝
 {
@@ -69,7 +66,7 @@ PUT _template/｛template_name｝
     "template": "｛index_prefix@｝*",  //要调整的index前缀
     "settings": {
       "index": {
-        "number_of_shards": "30",   //指定index分配的shard数，可以根据一个shard 30G左右的空间来分配
+        "number_of_shards": "30",   //指定index分配的shard数，可以根据一个shard 30GB左右的空间来分配
         "routing.allocation.total_shards_per_node":3  //指定一个节点最多容纳的shards数
       }
     },
