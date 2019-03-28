@@ -14,4 +14,6 @@
  - TTL：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
 4. 单击【保存】，完成添加。
 
+>? 操作过程中如果出现问题，请您联系 [技术支持](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&source=0)。
+
 
