@@ -27,7 +27,7 @@
 |ERR_SCREEN_CAPTURE_START_FAIL|-1308|开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了，如果在 Windows 或 Mac 系统的设备出现，请检查录屏接口的参数是否符合要求|
 |ERR_SCREEN_CAPTURE_UNSURPORT|-1309|录屏失败，在 Android 平台，需要5.0以上的系统|
 |ERR_RTMP_PUSH_INVALID_ADDRESS|-1313|直播，推流地址非法，例如不是 RTMP 协议的地址|
-|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，ip 全部失败）|
+|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，IP 全部失败） |
 |ERR_RTMP_PUSH_NO_NETWORK|-1325|直播，网络不可用，请确认 WiFi、移动数据或者有线网络是否正常|
 |ERR_RTMP_PUSH_SERVER_REFUSE|-1326|直播，服务器拒绝连接请求，可能是该推流地址已经被占用，或者 TXSecret 校验失败，或者是过期了，或者是欠费了|
 |ERR_PIXEL_FORMAT_UNSUPPORTED|-1327|设置的 pixel format 不支持|
@@ -41,7 +41,7 @@
 |ERR_PLAY_LIVE_STREAM_SWITCH_FAIL|-2307|直播，切流失败（切流可以播放不同画面大小的视频）|
 |ERR_PLAY_LIVE_STREAM_SERVER_REFUSE|-2308|直播，服务器拒绝连接请求|
 |ERR_RTMP_ACC_FETCH_STREAM_FAIL|-2309|直播，RTMPACC 低延时拉流失败，且经过多次重试无法恢复|
-|ERR_ROOM_ENTER_FAIL|-3301|进入房间失败 [例如 token 过期等原因，server 错误码梳理中，待细化]|
+|ERR_ROOM_ENTER_FAIL|-3301|进入房间失败（例如token过期等原因）|
 |ERR_ROOM_HEARTBEAT_FAIL|-3302|心跳失败，客户端定时向服务器发送数据包，告诉服务器自己活着，这个错误通常是发包超时|
 |ERR_ROOM_REQUEST_IP_FAIL|-3303|拉取接口机服务器地址失败|
 |ERR_ROOM_CONNECT_FAIL|-3304|连接接口机服务器失败|
@@ -66,13 +66,16 @@
 |ERR_PUBLISH_CDN_STREAM_RESPON_ERROR|-3323|旁路转推回包异常|
 |ERR_CLOUD_MIX_TRANSCODING_RESPON_ERROR|-3324|云端混流回包异常|
 |ERR_ROOM_REQUEST_QUIT_ROOM_TIMEOUT|-3325|请求退房超时|
+|ERR_ROOM_REQUEST_CONN_ROOM_TIMEOUT|-3326|请求连麦超时|
+|ERR_ROOM_REQUEST_DISCONN_ROOM_TIMEOUT|-3327|请求退出连麦超时|
+|ERR_ROOM_REQUEST_CONN_ROOM_INVALID_PARAM|-3328|无效参数|
 |ERR_SERVER_INFO_UNPACKING_ERROR|-100000|请求解包错误|
 |ERR_SERVER_INFO_TOKEN_ERROR|-100001|TOKEN 错误|
 |ERR_SERVER_INFO_ALLOCATE_ACCESS_FAILED|-100002|分配接口机错误|
 |ERR_SERVER_INFO_GENERATE_SIGN_FAILED|-100003|生成签名错误|
 |ERR_SERVER_INFO_TOKEN_TIMEOUT|-100004|token 超时|
 |ERR_SERVER_INFO_INVALID_COMMAND|-100005|无效的命令字|
-|ERR_SERVER_INFO_PRIVILEGE_FLAG_ERROR|-100006|权限位校验失败|
+|ERR_SERVER_INFO_PRIVILEGE_FLAG_ERROR|-100006|加密权限错误，包含：解密错误、过期和内容不符合|
 |ERR_SERVER_INFO_GENERATE_KEN_ERROR|-100007|https 请求时，生成加密 key 错误|
 |ERR_SERVER_INFO_GENERATE_TOKEN_ERROR|-100008|https 请求时，生成 token 错误|
 |ERR_SERVER_ACC_TOKEN_TIMEOUT|-101000|token 超时|
@@ -167,7 +170,7 @@
 枚举名：TXLiteAVEvent
 
 | 符号 | 值 | 含义 |
-|---|---|---|  
+|---|---|---|
 |EVT_RTMP_PUSH_CONNECT_SUCC|1001|直播，已经连接 RTMP 推流服务器|
 |EVT_RTMP_PUSH_BEGIN|1002|直播，已经与 RTMP 服务器握手完毕，开始推流|
 |EVT_CAMERA_START_SUCC|1003|打开摄像头成功|
