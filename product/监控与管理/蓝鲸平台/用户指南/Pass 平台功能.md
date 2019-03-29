@@ -48,7 +48,9 @@ PaaS 平台承载了各种功能的 APP，单击【开发者中心】 > 【内�
 >?蓝鲸 PaaS 平台后续会推出“开发样例”，将提供 KendoUI、官方组件调用等功能样例。
 
 ### 企业服务总线（ESB 和 API Gateway）
-企业服务总线有两个作用：其一，为整个蓝鲸体系服务，蓝鲸的其他平台，如：配置平台、作业平台、数据平台、容器管理平台、AI 平台，均可以将各平台的特性以 API 的形式对接到组件中，便于PaaS平台上的 SaaS 调用，整合各个平台的强大功能，发挥最实用的价值。其二，第三方系统，如微信公众号/企业号、邮件系统、OA 系统、AD 系统、财务系统等非蓝鲸体系内的运营系统，同样以 API 的形式将特性对接到组件，丰富和完善整个PaaS平台企业服务总线的服务。从而使PaaS平台之上的 SaaS 可以调度一些，连接一切。
+企业服务总线有两个作用：
+- 其一：为整个蓝鲸体系服务，蓝鲸的其他平台，如：配置平台、作业平台、数据平台、容器管理平台、AI 平台，均可以将各平台的特性以 API 的形式对接到组件中，便于PaaS平台上的 SaaS 调用，整合各个平台的强大功能，发挥最实用的价值。
+- 其二：第三方系统，如微信公众号/企业号、邮件系统、OA 系统、AD 系统、财务系统等非蓝鲸体系内的运营系统，同样以 API 的形式将特性对接到组件，丰富和完善整个PaaS平台企业服务总线的服务。从而使PaaS平台之上的 SaaS 可以调度一些，连接一切。
 
 “ESB 管理”仅限于“管理员”角色操作，从“开发者中心”—>“ESB 管理”进入使用。
  ![](https://main.qcloudimg.com/raw/c47b732f5f6abcdf735699cabbf908ae.png)
@@ -67,7 +69,7 @@ PaaS 平台承载了各种功能的 APP，单击【开发者中心】 > 【内�
 APP 部署时，平台为会它们创建独立的 Virtualenv，保证每个 APP 拥有一套“隔离”的 Python 运行环境。APP 的服务进程则是以 uWSGI 的 cheaper 模式托管，由于采用了 Busyness 算法，uWSGI 能够根据繁忙度，动态的调配 worker 个数，从而达到合理利用系统资源的目的。
 
 ### MagicBox
-MagicBox（链接：http://magicbox.bk.tencent.com/ ），又称为前端魔盒。是一个前端资源PaaS平台，为蓝鲸应用开发者提供丰富的前端资源，包括常用的 UI 组件、JS 插件及基础模版，开发者可以通过蓝鲸 MagicBox 快速构建页面。它还提供完整的套餐样例供开发者选择，开发者也可以在线拖拽组件组装页面，让前端布局可视化。
+[MagicBox](http://magicbox.bk.tencent.com/ )，又称为前端魔盒。是一个前端资源 PaaS 平台，为蓝鲸应用开发者提供丰富的前端资源，包括常用的 UI 组件、JS 插件及基础模版，开发者可以通过蓝鲸 MagicBox 快速构建页面。它还提供完整的套餐样例供开发者选择，开发者也可以在线拖拽组件组装页面，让前端布局可视化。
  ![](https://main.qcloudimg.com/raw/22a41b2a45ca4f1bcc399994cc4da22c.png)
 
 ### 部署操作记录展示
@@ -75,9 +77,7 @@ MagicBox（链接：http://magicbox.bk.tencent.com/ ），又称为前端魔盒�
  ![](https://main.qcloudimg.com/raw/db64f43c4b923e7b0293f32ea2a2602b.png)
 
 ### 线上基础开发培训
-蓝鲸为开发者提供了详细的线上视频教程。https://cloud.tencent.com/developer/edu/major-100008
- ![](https://main.qcloudimg.com/raw/7530dc6d504214a566a9cb08ed8ab636.png)
-
+蓝鲸为开发者提供了详细的 [线上视频教程](https://cloud.tencent.com/developer/edu/major-100008)。
 
 >?关注“蓝鲸”微信公众号，点击 “技术干货" > “培训视频”也可以获得培训课程。
 
@@ -90,24 +90,23 @@ MagicBox（链接：http://magicbox.bk.tencent.com/ ），又称为前端魔盒�
 
 ### 个人定制桌面
 公有云版和企业版中提供了蓝鲸桌面，其功能远远高于社区版的“工作台”，除了基本的 APP 导航和定制 APP 顺序以外，还集合了很多定制化的功能，如：权限统一管理、换肤、搜索、统计等。
- ![](https://main.qcloudimg.com/raw/20140c770679573ac21998a45b6576b4.png)
+
 
 ### 开发框架增值模块（功能开关、权限控制等）
 将蓝鲸平台与企业内的系统整合后，可以提供更便捷的开发框架增值模块，如功能开关，权限控制等，最大效率地降低开发成本，提高开发效率。
- ![](https://main.qcloudimg.com/raw/fac9a8432778aed2de5f1e5a53f4d5f0.png)
 
 ### 可扩展的应用变量
 对应有些敏感变量，比如外部数据库 IP，账号密码等，直接写到代码中会有暴露风险，而且每次修改，需要拉取代码，修改提测上线后才能使用，蓝鲸开发者中心针对该场景，使用变量设置功能完全可以解决开发者的变量硬编码问题。
- ![](https://main.qcloudimg.com/raw/2cee5edf7684915e99ef8ee7ccd94b05.png)
+
 
 ### 日志可视化管理
 蓝鲸 PaaS 平台提供在线日志服务，开发者可以在“服务” > “日志查询”菜单中查看应用全方位日志信息，包括：普通日志/组件调用`/uWSGI/Celery/Nginx/Gunicorn`，也可以通过环境，日志级别和时间过滤查看。
  ![](https://main.qcloudimg.com/raw/ab61cd0384f56724dcd36be1cde9f185.png)
-- uWSGI/Nginx/Gunicorn 为系统日志，部署时平台负责将日志输出到固定目录，开发者不能定义内容。
+- `uWSGI/Nginx/Gunicorn` 为系统日志，部署时平台负责将日志输出到固定目录，开发者不能定义内容。
 - 普通/组件调用/Celery 为开发框架中定义的 logger 输出的日志，开发者可以自定义内容。
 日志产生后，由采集 Agent 进程采集，解析，汇总入日志查询引擎，在“开发者中心”提供的应用“服务”中可以查询到。
  ![](https://main.qcloudimg.com/raw/9d879ab82461933b9ce5e0f707379115.png)
-- 时间：默认最近1小时，可选最近 1 小时/12 小时/1 天/7 天/14 天，支持自定义时间段，最长可以查 30 天内日志。
+- 时间：默认最近1小时，可选最近1小时/12小时/1天/7天/14天，支持自定义时间段，最长可以查 30 天内日志。
 - 环境： 默认全部，可选测试环境/正式环境。
 - 类型：默认普通日志，可选普通/组件调用/uWSGI/Celery/Nginx/Gunicorn。
 - 日志级别: 普通/组件调用/Celery 均有五个级别的日志标示，分别是 DEBUG、INFO、WARNNING、ERROR、CRITICAL；uWSGI/Nginx/Guniorn为HTTP 状态码。
@@ -138,7 +137,7 @@ MagicBox（链接：http://magicbox.bk.tencent.com/ ），又称为前端魔盒�
 申请后由 ESB 团队统一审批，通过后即可正常使用组件了。
  ![](https://main.qcloudimg.com/raw/525eb1db949eed11d003e1ea01c2cb80.png)
 
-### ESB健康度报告
+### ESB 健康度报告
 以天/周/月为维度，根据组件实时监控状态，会输出组件的健康度报告，包括：组件的调用频率，响应时间，可用率等。
  ![](https://main.qcloudimg.com/raw/d25e30dc0572a3d8e6087c85799a837c.png)
 ![](https://main.qcloudimg.com/raw/6b0f0478aa9ba29536419568bad0fdb8.png)
