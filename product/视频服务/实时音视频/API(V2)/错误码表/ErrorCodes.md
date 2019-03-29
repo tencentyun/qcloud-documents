@@ -27,7 +27,7 @@
 |ERR_SCREEN_CAPTURE_START_FAIL|-1308|开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了，如果在 Windows 或 Mac 系统的设备出现，请检查录屏接口的参数是否符合要求|
 |ERR_SCREEN_CAPTURE_UNSURPORT|-1309|录屏失败，在 Android 平台，需要5.0以上的系统|
 |ERR_RTMP_PUSH_INVALID_ADDRESS|-1313|直播，推流地址非法，例如不是 RTMP 协议的地址|
-|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，ip 全部失败）|
+|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，IP 全部失败）|
 |ERR_RTMP_PUSH_NO_NETWORK|-1325|直播，网络不可用，请确认 WiFi、移动数据或者有线网络是否正常|
 |ERR_RTMP_PUSH_SERVER_REFUSE|-1326|直播，服务器拒绝连接请求，可能是该推流地址已经被占用，或者 TXSecret 校验失败，或者是过期了，或者是欠费了|
 |ERR_PIXEL_FORMAT_UNSUPPORTED|-1327|设置的 pixel format 不支持|
