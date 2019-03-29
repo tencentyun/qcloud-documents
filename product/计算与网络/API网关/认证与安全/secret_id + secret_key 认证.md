@@ -1,8 +1,10 @@
 您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们将称为 secret_id/secret_key 对。
-在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。在服务发布时，您可以在选择发布服务的认证方式时选定为使用 secret_id + secret_key，然后在 secret_id/secret_key 对的选择处选择已经创建好的 secret_id/secret_key 对。
-一对 secret_id/secret_key 可用于多个已发布的服务，一个已发布的服务也可以选择使用多个 secret_id/secret_key 对。
+在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。
 
-使用 secret_id + secret_key 完成认证的方式如下：
+## 密钥对鉴权 API
+用户在创建 API 时，可以选择鉴权类型为“密钥对鉴权”。当选择密钥对鉴权类型的 API 发布时，当且仅当使用正确密钥对发起的访问能够通过 API 网关的校验，不携带密钥或携带错误的密钥对不能通过 API 网关的鉴权。
+
+API创建完成后，用户需要使用 “使用计划” 功能将密钥对与 API 或 API所在服务进行绑定。配置详情请参考 [使用计划](https://cloud.tencent.com/document/product/628/11815)。
 
 ## 密钥内容
 
