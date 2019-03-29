@@ -19,7 +19,7 @@
 >? 实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在“云主机”管理页面中，选择需要 ping 通的实例 ID/主机名，进入该实例的详情页面。如下图所示：
+2. 在“实例列表”页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/133d6bd76dd3eb2a4da2ef0e657f7bee.png)
 3. 在“网络信息”栏，查看实例是否配置了公网 IP。
 若该实例未配置公网 IP，可 [绑定弹性公网 IP](https://cloud.tencent.com/document/product/213/16586#.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip-.E7.BB.91.E5.AE.9A.E4.BA.91.E4.BA.A7.E5.93.81)。
