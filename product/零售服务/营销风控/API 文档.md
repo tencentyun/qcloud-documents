@@ -17,31 +17,31 @@
       <td>accountType</td>
       <td>必须</td>
       <td>Uint</td>
-      <td>用户账号类型：<br>1：QQ开放帐号<br>2：微信开放账号 <br>4：手机号 （暂仅支持国内手机号）<br>10004： 手机号MD5，</td>
+      <td>用户账号类型：<br>1：QQ开放帐号<br>2：微信开放账号 <br>4：手机号 （暂仅支持国内手机号）<br>10004： 手机号MD5</td>
    </tr>
    <tr>
       <td>uid</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户 ID 值，如微信/QQ openid，或手机号等（如15912345687）。</td>
+      <td>用户 ID 值，如微信/QQ openid，或手机号等（如15912345687）</td>
    </tr>
    <tr>
       <td>userIP</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户领取奖励时的真实外网 IP。</td>
+      <td>用户领取奖励时的真实外网 IP</td>
    </tr>
    <tr>
       <td>postTime</td>
       <td>必须</td>
       <td>Uint</td>
-      <td>用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。</td>
+      <td>用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）</td>
    </tr>
    <tr>
       <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用。</td>
+      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用</td>
    </tr>
    <tr>
       <td>goodInfo</td>
@@ -53,43 +53,43 @@
       <td>encryptedCode</td>
       <td nowrap="nowrap">可选（建议填写）</td>
       <td>String</td>
-      <td>领奖码的唯一加密码（请注意信息安全，使用加密码，确保唯一 ID 即可）。</td>
+      <td>领奖码的唯一加密码（请注意信息安全，使用加密码，确保唯一 ID 即可）</td>
    </tr>
    <tr>
       <td>cookie</td>
       <td>可选</td>
       <td>string</td>
-      <td>码MD5</td>
+      <td>用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可</td>
    </tr>
    <tr>
       <td>share</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
-      <td>单个红包允许领取的用户数量（分享红包）。<br> 举例：<br>1：单个红包仅支持1个用户领取（非分享红包）。<br>2：单个红包可允许2个用户领取。</td>
+      <td>单个红包允许领取的用户数量（分享红包）<br> 举例：<br>1：单个红包仅支持1个用户领取（非分享红包）<br>2：单个红包可允许2个用户领取</td>
    </tr>
    <tr>
       <td>dayTimes</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
-      <td>单日内，单个账号每日领取奖励的最大次数。</td>
+      <td>单日内，单个账号每日领取奖励的最大次数</td>
    </tr>
    <tr>
       <td>totaltimes</td>
       <td>可选（建议填写）</td>
       <td>Uint</td>
-      <td>整个活动周期内，单个账号能领取奖励的最大次数。</td>
+      <td>整个活动周期内，单个账号能领取奖励的最大次数</td>
    </tr>
    <tr>
       <td>phoneNumber</td>
       <td>可选（建议填写）</td>
       <td>String</td>
-      <td>若 accountType 非手机号码， 且能获取到手机号。则填入对应的手机号（如：15912345687）。</td>
+      <td>若 accountType 非手机号码， 且能获取到手机号。则填入对应的手机号（如：15912345687）</td>
    </tr>
    <tr>
       <td>address</td>
       <td>可选（建议填写）</td>
       <td>String</td>
-      <td>用户参加活动的地址位置信息。如可填入用经纬度信息转化为的具体地址信息。</td>
+      <td>用户参加活动的地址位置信息。如可填入用经纬度信息转化为的具体地址信息</td>
    </tr>
    <tr>
       <td>latitude</td>
@@ -137,13 +137,13 @@
       <td>randNum</td>
       <td>可选</td>
       <td>String</td>
-      <td>Token 签名随机数，微信小程序必填，建议16个字符。</td>
+      <td>Token 签名随机数，微信小程序必填，建议16个字符</td>
    </tr>
    <tr>
       <td>wxToken</td>
       <td>可选</td>
       <td>String</td>
-      <td>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。<br>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</td>
+      <td>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）<br>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a></td>
    </tr>
 </table>
 
@@ -164,7 +164,7 @@
    <tr>
       <td>codeDesc</td>
       <td>String</td>
-      <td>业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。</td>
+      <td>业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因</td>
    </tr>
    <tr>
       <td>message</td>
@@ -204,7 +204,7 @@
    <tr>
       <td>associateAccount</td>
       <td>String</td>
-      <td>accountType是QQ或微信开放账号时，用于标识QQ或微信用户登录后关联业务自身的账号ID</td>
+      <td>accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID</td>
    </tr>
 </table>
 
@@ -261,7 +261,7 @@
    <tr>
       <td>登录态无效</td>
       <td>104</td>
-      <td>检查wxtoken参数，是否已经失效；</td>
+      <td>检查wxtoken参数，是否已经失效</td>
    </tr>
    <tr>
       <td rowspan="4">环境风险</td>
@@ -282,14 +282,14 @@
    <tr>
       <td>非公网有效 IP</td>
       <td>205</td>
-      <td>传进来的IP地址为内网ip地址或者ip保留地址 </td>
+      <td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 </td>
    </tr>
 </table>
 
 
 ## 示例代码
-代码下载： [Python](https://main.qcloudimg.com/raw/a874d5a874f3747201e6ad5cb11fb8f1/IntelligentQRCode-python.rar) 示例、[Java](https://main.qcloudimg.com/raw/53f234f553fccbe08e3d98454defa2a9/IntelligentQRCode-java.rar) 示例。
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 公共请求参数 。
+代码示例下载： [Python](https://main.qcloudimg.com/raw/a874d5a874f3747201e6ad5cb11fb8f1/IntelligentQRCode-python.rar) 示例、[Java](https://main.qcloudimg.com/raw/53f234f553fccbe08e3d98454defa2a9/IntelligentQRCode-java.rar) 示例。
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文列出了接口请求参数，未列出公共请求参数，有关公共请求参数的更多说明，请参阅 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 文档。
 
 ### 请求示例
 ```
@@ -298,16 +298,16 @@ Action=LoginProtection
 &<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
-&cookie = "asdasldkjaslkjdsfjlsad"(码MD5后的内容)
-&goodInfo="good" (业务侧自定义内容)
+&cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
+&goodInfo="good"  //业务侧自定义内容
 &uid=D692D87319F2098C3877C3904B304706
-&userIP=127.0.0.1（调用时必须是外网有效 IP 地址）
-&postTime=11254（uinx 时间戳，仅需要精确到秒）
+&userIP=127.0.0.1 //调用时必须是外网有效 IP 地址
+&postTime=11254 //uinx 时间戳，仅需要精确到秒
 &associateAccount="SpFsjpyvaJ27329"
 ```
 
 ### 响应示例
-```
+```json
 {
 	"code": 0,
 	"message": "No Error",
