@@ -10,6 +10,7 @@
 <pre><code>http://service-kuy3rwbs-1251762227.ap-guangzhou.apigateway.myqcloud.com/release
 //请填入您所要调用的API服务URL
 </code></pre>
+URL拼接规则为：服务路径+环境参数+ API path
 
 #### 方法
 
@@ -64,3 +65,5 @@ X-RateLimit-Limit:500
 X-RateLimit-Used:100/125
 //使用计划中的限流使用情况
 </code></pre>
+
+请注意，发起请求不是在 API网关 控制台上进行。用户可以通过浏览器、浏览器插件、postman、客户端等来源发起请求。
