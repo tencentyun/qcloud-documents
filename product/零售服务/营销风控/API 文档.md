@@ -23,7 +23,7 @@
       <td>uid</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户 ID 值，如微信/QQ openid，或手机号等（如15912345687）</td>
+      <td>用户 ID 值，如微信或QQ openid，或手机号等（如15912345687）</td>
    </tr>
    <tr>
       <td>userIP</td>
@@ -192,7 +192,7 @@
       <td>操作来源的外网 IP</td>
    </tr>
    <tr>
-      <td>Level（*重要：风险值）</td>
+      <td>level（*重要：风险值）</td>
       <td>Int</td>
       <td>0：表示无恶意<br>1 - 4：恶意等级由低到高</td>
    </tr>
@@ -214,7 +214,7 @@
       <th>风险类型</th>
       <th>风险详情</th>
       <th>风险码</th>
-      <th>解释说明</th>
+      <th>描述</th>
    </tr>
    <tr>
       <td rowspan="5">账号风险</td>
@@ -230,7 +230,7 @@
    <tr>
       <td>无效账号</td>
       <td>3</td>
-      <td>送检账号参数无法成功解析，若为微信/QQ openid 请检查是否送检数据错误</td>
+      <td>送检账号参数无法成功解析，若为微信或QQ openid，请检查是否送检数据错误</td>
    </tr>
    <tr>
       <td>黑名单</td>
@@ -246,7 +246,7 @@
       <td rowspan="4">行为风险</td>
       <td>批量操作</td>
       <td>101</td>
-      <td>存在 IP/设备/环境等因素的聚集性异常</td>
+      <td>存在 IP、设备、环境等因素的聚集性异常</td>
    </tr>
    <tr>
       <td>自动机</td>
@@ -261,13 +261,13 @@
    <tr>
       <td>登录态无效</td>
       <td>104</td>
-      <td>检查wxtoken参数，是否已经失效</td>
+      <td>检查 wxtoken 参数，是否已经失效</td>
    </tr>
    <tr>
       <td rowspan="4">环境风险</td>
       <td>环境异常</td>
       <td>201</td>
-      <td>操作 IP/设备/环境存在异常。如当前 IP 非常用 IP 或恶意 IP 段</td>
+      <td>操作 IP、设备、环境存在异常。如当前 IP 非常用 IP 或恶意 IP 段</td>
    </tr>
    <tr>
       <td>JS 上报异常</td>
@@ -282,7 +282,7 @@
    <tr>
       <td>非公网有效 IP</td>
       <td>205</td>
-      <td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 </td>
+      <td>传进来的 IP 地址为内网 IP 地址，或者为 IP 保留地址 </td>
    </tr>
 </table>
 
@@ -312,7 +312,7 @@ Action=IntelligentQRCode
 	"code": 0,
 	"message": "No Error",
 	"level": 0,
-	"userIP": "121.14.96.121",
+	"userIP": "127.0.0.1",
 	"postTime": 1436673889,
 	"uid": "00000000000000000000000033121475",
 	"associateAccount": "SpFsjpyvaJ27329"
