@@ -288,13 +288,13 @@
 
 
 ## 示例代码
-代码示例下载： [Python](https://main.qcloudimg.com/raw/a874d5a874f3747201e6ad5cb11fb8f1/IntelligentQRCode-python.rar) 示例、[Java](https://main.qcloudimg.com/raw/53f234f553fccbe08e3d98454defa2a9/IntelligentQRCode-java.rar) 示例。
+代码示例下载： [Python](https://main.qcloudimg.com/raw/d5cd31a586972fcb7fba9b1d181afed9/IntelligentQRCode-python.rar) 示例、[Java](https://main.qcloudimg.com/raw/41c42df463a8e2995461e3cf451badf1/IntelligentQRCode-java.rar) 示例。
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文列出了接口请求参数，未列出公共请求参数，有关公共请求参数的更多说明，请参阅 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 文档。
 
 ### 请求示例
 ```
 https://csec.api.qcloud.com/v2/index.php?
-Action=LoginProtection
+Action=IntelligentQRCode
 &<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
