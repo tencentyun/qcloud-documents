@@ -1,4 +1,4 @@
-## 1. 接口描述
+## 接口描述
 协议：HTTPS
 域名：`csec.api.qcloud.com`
 接口名：RegisterProtection
