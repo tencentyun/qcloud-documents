@@ -10,31 +10,31 @@
 | uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 OpenID。 |
 | registerTime       | 是      | UInt     | 注册时间戳，单位：秒。                                         |
 | accountType        | 是      | UInt     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号</li><li>0：其他</li><li>10004：手机号 MD5</li> |
-| appId              | 是      | Ulnt     | accountType   是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
-| associateAccount   | 是      | String   | accountType   是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
-| nickName           | 是      | String   | 昵称，UTF-8 编码。                                             |
-| phoneNumber        | 是      | String   | 手机号：国家代码-手机号， 如0086-15912345687（0086前不需要+号）。 |
-| emailAddress       | 是      | String   | 用户邮箱地址（非系统自动生成）。                               |
-| address            | 是      | String   | 地址。                                                         |
-| cookieHash         | 是      | String   | 用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可。 |
-| registerSource     | 是      | String   | 注册来源：<li>0：其他</li><li>1：PC 网页</li><li>2：移动页面</li><li>3：App</li><li>4：微信公众号</li> |
-| referer            | 是      | String   | 用户 HTTP 请求的 referer 值。                                  |
-| jumpUrl            | 是      | String   | 注册成功后跳转页面。                                           |
-| userAgent          | 是      | String   | 用户 HTTP 请求的 userAgent。                                   |
-| xForwardedFor      | 是      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
-| mouseClickCount    | 是      | Uint     | 用户操作过程中鼠标单击次数。                                   |
-| keyboardClickCount | 是      | Uint     | 用户操作过程中键盘单击次数。                                   |
-| result             | 是      | Uint     | 注册结果：<li>0：失败</li><li>1：成功</li>                                 |
-| reason             | 是      | Uint     | 失败原因：<li>0：其他</li><li>1：参数错误   </li><li>2：帐号冲突</li><li>3：验证错误</li>|
-| registerSpend      | 是      | Uint     | 登录耗时，单位：秒。                                           |
-| macAddress         | 是      | String   | MAC 地址或设备唯一标识。                                        |
-| vendorId           | 是      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |
-| appVersion         | 是      | String   | App 客户端版本。                                               |
-| imei               | 是      | String   | 手机设备号。                                                   |
-| businessId         | 是      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
-| wxSubType          | 是      | Int      | <li>1：微信公众号</li><li>2：微信小程序</li>                                |
-| randNum            | 是      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
-| wxToken            | 是      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| appId              | 否      | Ulnt     | accountType   是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
+| associateAccount   | 否      | String   | accountType   是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
+| nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
+| phoneNumber        | 否      | String   | 手机号：国家代码-手机号， 如0086-15912345687（0086前不需要+号）。 |
+| emailAddress       | 否      | String   | 用户邮箱地址（非系统自动生成）。                               |
+| address            | 否      | String   | 地址。                                                         |
+| cookieHash         | 否      | String   | 用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可。 |
+| registerSource     | 否      | String   | 注册来源：<li>0：其他</li><li>1：PC 网页</li><li>2：移动页面</li><li>3：App</li><li>4：微信公众号</li> |
+| referer            | 否      | String   | 用户 HTTP 请求的 referer 值。                                  |
+| jumpUrl            | 否      | String   | 注册成功后跳转页面。                                           |
+| userAgent          | 否      | String   | 用户 HTTP 请求的 userAgent。                                   |
+| xForwardedFor      | 否      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
+| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标单击次数。                                   |
+| keyboardClickCount | 否      | Uint     | 用户操作过程中键盘单击次数。                                   |
+| result             | 否      | Uint     | 注册结果：<li>0：失败</li><li>1：成功</li>                                 |
+| reason             | 否      | Uint     | 失败原因：<li>0：其他</li><li>1：参数错误   </li><li>2：帐号冲突</li><li>3：验证错误</li>|
+| registerSpend      | 否      | Uint     | 登录耗时，单位：秒。                                           |
+| macAddress         | 否      | String   | MAC 地址或设备唯一标识。                                        |
+| vendorId           | 否      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |
+| appVersion         | 否      | String   | App 客户端版本。                                               |
+| imei               | 否      | String   | 手机设备号。                                                   |
+| businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
+| wxSubType          | 否      | Int      | <li>1：微信公众号</li><li>2：微信小程序</li>                                |
+| randNum            | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
+| wxToken            | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
 
 ## 响应参数
 
