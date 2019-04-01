@@ -229,7 +229,7 @@ x-cos-request-id: NWM5ZDg0OWNfMTc5ZDA4MDlfOTJjOF8yYjU3MTc=
 ### 列出下级目录
 
 #### 请求
-```
+```sh
 GET /?prefix=folder/ HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -238,7 +238,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ```
 
 #### 响应
-```
+```sh
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 545
@@ -272,7 +272,7 @@ x-cos-request-id: NWM5ZDg0ZGFfMjA5ZDA4MDlfYjYwZV8yYmQxZjI=
 ### 遍历目录
 
 #### 请求
-```
+```sh
 GET /?marker=exampleobject2 HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -281,7 +281,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q
 ```
 
 #### 响应
-```
+```sh
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 850
