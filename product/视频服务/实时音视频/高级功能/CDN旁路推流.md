@@ -53,7 +53,7 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 
 那么，streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
 
-所以，rexchang 这一路的腾讯云 CDN 观看地址（推荐 http-flv）是：
+所以，userA 这一路的腾讯云 CDN 观看地址（推荐 http-flv）是：
 
 http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 ```
