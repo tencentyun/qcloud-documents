@@ -88,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Player_iOS_6.3.7088.zip">iOS下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/LiteAVSDK_Player_Android_6.3.7089.zip">Android下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Player_iOS_6.3.7088.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/LiteAVSDK_Player_Android_6.3.7089.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
@@ -98,7 +98,7 @@
   </tr>
 </table>
 
-详细介绍可[参考此文档](https://github.com/tencentyun/SuperPlayer)
+详细介绍可参考 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流
