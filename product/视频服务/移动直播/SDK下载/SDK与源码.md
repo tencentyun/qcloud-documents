@@ -24,7 +24,7 @@ table td {
 ## 特别提醒
 [Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS SDK（5.4.6097）</h2>
+<h2 id="iOS"> iOS SDK（6.3.7088）</h2>
 
 <table>
   <tr>
@@ -39,14 +39,14 @@ table td {
     <td style="text-align:center">✔</td>
     <td style="text-align:center">1.43M</td>
     <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Smart_iOS_5.4.6097.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Smart_iOS_6.3.7088.zip">DOWNLOAD</a></td>
   </tr>
   <tr>
     <td style="text-align:center">全功能专业版</td>
     <td style="text-align:center"></td>
     <td style="text-align:center">4.19M</td>
     <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Professional_iOS_5.4.6097.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Professional_iOS_6.3.7088.zip">DOWNLOAD</a></td>
   </tr>
 	<tr>
     <td style="text-align:center">商用企业版</td>
@@ -59,7 +59,7 @@ table td {
 
 
 - <h5>商用版本</h5>
-  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Enterprise_iOS_5.4.6097.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+  商用企业版相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7088.zip">【Enterprise(iOS).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
   
   使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018)。
 
@@ -208,7 +208,7 @@ table td {
   </tr>
 </table>
 
-<h2 id="Android"> Android SDK（5.4.6097） </h2>
+<h2 id="Android"> Android SDK（6.3.7089） </h2>
 
 <table>
   <tr>
@@ -217,11 +217,11 @@ table td {
   </tr>
   <tr>
     <td style="text-align:center">直播精简版</td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Smart_Android_5.4.6097.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Smart_Android_6.3.7089.zip">DOWNLOAD</a></td>
   </tr>
   <tr>
     <td style="text-align:center">全功能专业版</td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Professional_Android_5.4.6097.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Professional_Android_6.3.7089.zip">DOWNLOAD</a></td>
   </tr>
 	<tr>
     <td style="text-align:center">商用企业版</td>
@@ -230,7 +230,7 @@ table td {
 </table>
 
 - <h4>商用版本</h4>
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Enterprise_Android_5.4.6097.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Enterprise_Android_6.3.7089.zip">【Enterprise(Android).zip】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
   
   使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
