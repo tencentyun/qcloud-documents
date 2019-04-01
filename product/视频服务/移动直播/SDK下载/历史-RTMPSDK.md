@@ -1,7 +1,7 @@
 ### Version 6.3 @ 2019-03-29
 【SDK内核】
-- Android：Android新增ARM64支持，更好的支持64位手机系统
-- iOS&Android：专业版支持实时音视频能力，文档参考[实时音视频](https://cloud.tencent.com/document/product/647) 
+- Android：Android 新增 ARM64 支持，更好的支持64位手机系统
+- iOS&Android：专业版支持实时音视频能力，文档请参考 [实时音视频](https://cloud.tencent.com/document/product/647) 
 
 【Bugfix】
 - iOS&Android：修复偶现频繁缓冲的问题
