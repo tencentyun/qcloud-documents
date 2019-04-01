@@ -1,7 +1,6 @@
 腾讯云通信的跨平台`C`接口（API），暂不支持`64`位编译。
 
 **各个平台的下载链接**
-
 - Windows 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)。
  - Windows 快速开始 [集成 SDK](https://cloud.tencent.com/document/product/269/33489) 和 [跑通 demo](https://cloud.tencent.com/document/product/269/33488)。
 - iOS 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
