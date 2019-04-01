@@ -1,7 +1,7 @@
 腾讯云通信的跨平台 C 接口（API）。
 
 **IM SDK 下载链接：**
-- Windows 平台  [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Windows)。
+- Windows 平台  [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform)。
 - Windows 快速开始  [集成SDK](https://cloud.tencent.com/document/product/269/33489)  和  [跑通demo](https://cloud.tencent.com/document/product/269/33488)。
 
 ### 注册 SDK 回调

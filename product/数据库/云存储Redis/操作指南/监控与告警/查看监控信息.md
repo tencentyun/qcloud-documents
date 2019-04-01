@@ -4,10 +4,8 @@
 
 
 ## 操作步骤
-1. 登录 [控制台](https://console.cloud.tencent.com/redis)，在实例列表中，单击实例名称进入实例详情页。
-2. 选择“系统监控”可以查看实例的各项数据。
+1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)，在实例列表中，单击实例名称进入实例详情页。
+2. 在【系统监控】页可以查看实例的各项数据，并单击【导出数据】保存数据至本地。
  - 监控展示实例的内网入流量、内网出流量、连接数、Get 数、Set 数、Key 总数、已使用容量、容量使用率、QPS、CPU  负载。
- - 监控数据可选择近1小时、近24小时、近7天、近30天。
-
-![](https://main.qcloudimg.com/raw/d49aa11a2ab8068ecc49400c79b441c6.jpg)
-
+ - 监控数据展示时间可选择实时、近24小时、近7天、自定义选择日期。
+![](https://main.qcloudimg.com/raw/361e5b55459887f23f2f6621d59c69b6.png)
