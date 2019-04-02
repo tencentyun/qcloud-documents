@@ -13,7 +13,8 @@ FROM house_monitor/thermometer/get
 WHERE house="tencent" AND temperature > 40
 ```
 
-此规则从消息中提取了 `t` 和 `house` 这两个字段的值，假定 `house` 字段的内容为 `tencent`，此时如果定义了转发给 `house_monitor/app/{house}` 这个 Topic，那么规则引擎就会把这个 Topic 中的 `${house}` 变量替换为 "tencent", 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/app/tencent` 这个 Topic。
+此规则从消息中提取了 `t` 和 `house` 这两个字段的值，假定 `house` 字段的内容为 `tencent`。
+此时如果定义了转发给 `house_monitor/app/{house}` 这个 Topic，那么规则引擎就会把这个 Topic 中的 `${house}` 变量替换为 "tencent", 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/app/tencent` 这个 Topic。
 
 转发全过程如下图所示：
 ![image](https://mc.qcloudimg.com/static/img/2fd61f602479ab39f47e7d6eb4f93558/gui3.png)
