@@ -32,7 +32,7 @@
 //mPlayerView即step1中添加的界面view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
 //创建player对象
-TXVodPlayer mVodPlayer = new mVodPlayer(getActivity());
+TXVodPlayer mVodPlayer = new TXVodPlayer(getActivity());
 //关键player对象与界面view
 mVodPlayer.setPlayerView(mView);
 ```
