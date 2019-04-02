@@ -1,14 +1,23 @@
 
-如果您是首次购买和使用云服务器CVM实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接CVM实例。
+如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
+本文主要介绍Windows实例的购买和配置方法、如果您想购买和配置Linux实例，请参考快速配置[Linux云服务器](https://cloud.tencent.com/document/product/213/2764)。
 
 ![](https://main.qcloudimg.com/raw/37ade775b8f369f5bf673dd4e69090cf.png)
 
 
 ## 1. 注册账号与选型
 
-### 注册腾讯云账号
-
 新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/doc/product/378/9603) 。
+
+腾讯云提供**快速配置**和**自定义配置**两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Windows 云服务器](https://cloud.tencent.com/doc/product/213/10516) 文档进行配置。
+
+![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
+
+### 确定付费方式
+
+腾讯云提供**包年包月**和**按量付费**两种付费模式，对于选择快速配置的用户，腾讯云只提供**包年包月**的付费方式。
+
+## 2. 快速配置及购买CVM实例
 
 ### 确定云服务器所在地域及可用区
 
@@ -39,23 +48,11 @@
 
 若推荐的配置不能满足您的需求，您可以在[更多机型](https://buy.cloud.tencent.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-%E9%85%8D%E7%BD%AE%E5%8D%87%E7%BA%A7) 或  [配置降级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-%E9%85%8D%E7%BD%AE%E9%99%8D%E7%BA%A7) 。
 
-### 确定付费方式
-
-腾讯云提供**包年包月**和**按量付费**两种付费模式。具体详情可参见 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180) 。
-若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
-
-
-
-## 2. 快速配置及购买CVM实例
-
-腾讯云提供**快速配置**和**自定义配置**两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Linux 云服务器](https://cloud.tencent.com/doc/product/213/10517) 文档进行配置。
-
-![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
+### 选择镜像
+本文介绍Windows实例的购买及登录，请选择Windows提供镜像。
 
 完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
 ![](https://main.qcloudimg.com/raw/3e9630ea483d4154d58187091d51cecf.png)
-
-
 
 ## 3. 登录及连接CVM实例
 
@@ -64,8 +61,6 @@
 ![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
-
-- [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
 - [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
 
 
@@ -74,6 +69,5 @@
 对于购买了数据盘的用户，需要在登录实例后对数据盘进行格式化和分区。**未购买数据盘的用户可以跳过此步骤。**
 >! 使用快速配置购买的云服务器默认没有购买数据盘，不需要执行此步骤操作。
 
-- 对于Linux系统实例，请参考[Linux实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10517)。
-- 对于Windows系统实例，请参考[Windows实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516)
+- 请参考[Windows实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516)对Windows实例进行数据盘分区及格式化。
 
