@@ -75,7 +75,7 @@ chkconfig php-fpm on
 vim /etc/nginx/conf.d/default.conf
 ```
 2. 按字母“I”键或 “Insert” 键切换至编辑模式，将已有内容全部清除，复制并粘贴以下内容到 `default.conf`文件。
-<div class="code"><p></p><pre> 
+```
 server {
     listen       80;
     root   /usr/share/nginx/html;
@@ -106,7 +106,8 @@ server {
         include        fastcgi_params;
      }
 
- }</pre></div>
+ }
+ ```
 修改完成后，按 “Esc” 键，输入 “:wq”，保存文件并返回。
 3. 启动 Nginx。
 ```
