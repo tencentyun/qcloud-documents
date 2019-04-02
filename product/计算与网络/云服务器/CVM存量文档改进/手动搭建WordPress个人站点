@@ -60,6 +60,7 @@ Nginx：1.10.2
 MySQL：5.1.73
 PHP：5.3.3
 >! 实际安装版本可能与示例版本有所差异。
+> 如果您使用CentOS 7以上版本，已不再支持使用MySQL，请替换为MariaDB。
 2. 将各软件设置为开机启动：
 ```
 chkconfig nginx on
