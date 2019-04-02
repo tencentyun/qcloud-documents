@@ -10,6 +10,7 @@ HttpDNS 的 Android SDK，主要提供了基于 HttpDNS 服务的域名解析和
 - HttpDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HttpDNS 解析结果的缓存管理。
 
 HttpDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HttpDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
+智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)
 
 ## 接入
 
