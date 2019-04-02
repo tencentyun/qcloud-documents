@@ -4,42 +4,41 @@
 COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID 为1250000000，地域为`ap-beijing`，存储桶为`examplebucket-1250000000` ，路径前缀为`doc`的上传操作（包括简单上传、表单上传、分片上传等操作）的权限，路径前缀为`doc2`的下载操作权限的策略内容如下所示：
 
 ```shell
-{ 
-"version": "2.0", 
-"statement": [ 
-{ 
-"action": [ 
-//简单上传操作 
-"name/cos:PutObject", 
-//表单上传对象 
-"name/cos:PostObject", 
-//分片上传：初始化分片操作 
-"name/cos:InitiateMultipartUpload", 
-//分片上传：List 已上传分片操作 
-"name/cos:ListParts", 
-//分片上传：上传分片块操作 
-"name/cos:UploadPart", 
-//分片上传：完成所有分片上传操作 
-"name/cos:CompleteMultipartUpload", 
-//取消分片上传操作 
-"name/cos:AbortMultipartUpload" 
-], 
-"effect": "allow", 
-"resource": [ 
-"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*" 
-] 
-}, 
-{ 
-"action": [ 
-//下载操作 
-"name/cos:GetObject" 
-], 
-"effect": "allow", 
-"resource": [ 
-"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*" 
-] 
-} 
-] 
+{
+	"version": "2.0",
+	"statement": [{
+			"action": [
+				//简单上传操作 
+				"name/cos:PutObject",
+				//表单上传对象 
+				"name/cos:PostObject",
+				//分片上传：初始化分片操作 
+				"name/cos:InitiateMultipartUpload",
+				//分片上传：List 已上传分片操作 
+				"name/cos:ListParts",
+				//分片上传：上传分片块操作 
+				"name/cos:UploadPart",
+				//分片上传：完成所有分片上传操作 
+				"name/cos:CompleteMultipartUpload",
+				//取消分片上传操作 
+				"name/cos:AbortMultipartUpload"
+			],
+			"effect": "allow",
+			"resource": [
+				"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
+			]
+		},
+		{
+			"action": [
+				//下载操作 
+				"name/cos:GetObject"
+			],
+			"effect": "allow",
+			"resource": [
+				"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"
+			]
+		}
+	]
 }
 ```
 
