@@ -11,25 +11,25 @@
 ![](//mc.qcloudimg.com/static/img/1575622f1b1366c8bcff8d71c777b561/image.jpg)
 2. 选择安装路径、选择 FileZilla Server 启动方式以及管理端口。
 3 种 FileZilla Server 安装启动方式：
-  - 作为服务安装，随 Windows 系统启动；
-  - 作为服务安装，手动启动；
+  - 作为服务安装，随 Windows 系统启动。
+  - 作为服务安装，手动启动。
   - 不作为服务安装，随 Windows 系统启动。
   
  一般情况选择第一种，管理端口选择未被占用的端口即可。
  ![](//mc.qcloudimg.com/static/img/7091c25ad8381f3702dfc37b3d9d56fd/image.jpg)
 3. 配置控制台启动方式。
  3 种控制台启动方式：
-  - 所有用户适用，自动启动；
-  - 仅对当前用户适用，自动启动；
+  - 所有用户适用，自动启动。
+  - 仅对当前用户适用，自动启动。
   - 手动启动。
   
  一般情况选择第一种，单击【Install】开始安装。
  ![](//mc.qcloudimg.com/static/img/129d6460bae48c8e59fe770ac5f08430/image.jpg)
-4. 安装完成后，启动 FileZilla Server 。出现配置 IP 、管理端口对话框，输入本地 IP （即 127.0.0.1）、第 2 步配置的管理端口（本例为 14147 ），单击【OK】。
+4. 安装完成后，启动 FileZilla Server 。出现配置 IP 、管理端口对话框，输入服务器 IP （即 127.0.0.1）、第 2 步配置的管理端口（本例为 14147 ），单击【OK】。
 ![](//mc.qcloudimg.com/static/img/3953153a08d6fb1eda1fa087e8f19264/image.jpg)
 5. 用户配置。单击工具栏左上角 user 按钮小图标，单击【Add】按钮新增用户；在弹出的对话框中输入用户名（本例测试用户名为 tencent-qcloud ），单击【OK】。
 ![](//mc.qcloudimg.com/static/img/2a000f0e725f8d830a29e1ed18392ec0/image.png)
-6. 密码设置。勾选 “password” ，为新增的用户设置密码后，单击【OK】按钮。
+6. 密码设置。勾选 “password” ，为新增的用户设置密码后，单击【OK】。
 ![](//mc.qcloudimg.com/static/img/2635b4a5c6dc8d1debcb593b5307fe79/image.jpg)
 7. 弹出提示框告知添加用户目录，单击【确定】进入设置界面。单击【Add】新增用户目录。
  ![](//mc.qcloudimg.com/static/img/10e37b8b35a6a81381e2a398ae4d9764/image.jpg)
