@@ -6,9 +6,17 @@
 
 ## 1. 注册账号与选型
 
-### 注册腾讯云账号
-
 新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/doc/product/378/9603) 。
+
+腾讯云提供**快速配置**和**自定义配置**两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Linux 云服务器](https://cloud.tencent.com/doc/product/213/10517) 文档进行配置。
+
+![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
+
+### 确定付费方式
+
+腾讯云提供**包年包月**和**按量付费**两种付费模式，对于选择快速配置的用户，腾讯云只提供**包年包月**的付费方式
+
+## 2. 快速配置及购买CVM实例
 
 ### 确定云服务器所在地域及可用区
 
@@ -39,23 +47,11 @@
 
 若推荐的配置不能满足您的需求，您可以在[更多机型](https://buy.cloud.tencent.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-%E9%85%8D%E7%BD%AE%E5%8D%87%E7%BA%A7) 或  [配置降级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-%E9%85%8D%E7%BD%AE%E9%99%8D%E7%BA%A7) 。
 
-### 确定付费方式
-
-腾讯云提供**包年包月**和**按量付费**两种付费模式。具体详情可参见 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180) 。
-若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
-
-
-
-## 2. 快速配置及购买CVM实例
-
-腾讯云提供**快速配置**和**自定义配置**两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Linux 云服务器](https://cloud.tencent.com/doc/product/213/10517) 文档进行配置。
-
-![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
+### 选择镜像
+本文介绍Windows实例的购买及登录，请选择Windows提供镜像。
 
 完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
 ![](https://main.qcloudimg.com/raw/3e9630ea483d4154d58187091d51cecf.png)
-
-
 
 ## 3. 登录及连接CVM实例
 
@@ -64,8 +60,6 @@
 ![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
-
-- [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
 - [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
 
 
