@@ -26,9 +26,9 @@
 
 
 ## 4. 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IM SDK Windows IMApp asdsad工程代码。
+从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IM SDK Windows IMApp 工程代码。
 
-![](https://main.qcloudimg.com/raw/59d2838566813ba6f5d49079e3dcbb0b.png)
+![](https://main.qcloudimg.com/raw/356319843b9560be6a9b17a679659a4b.png)
 
 ## 5. 修改源码配置
 - 使用 Visual Stuido（建议 VS2015）双击源码目录下的 ImApp.sln 工程文件，打开 ImApp 工程
