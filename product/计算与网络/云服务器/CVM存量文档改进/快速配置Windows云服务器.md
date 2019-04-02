@@ -1,6 +1,6 @@
 
 如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
-本文主要介绍Windows实例的购买和配置方法、如果您想购买和配置Linux实例，请参考快速配置[Linux云服务器](https://cloud.tencent.com/document/product/213/2764)。
+本文主要介绍Windows实例的购买和配置方法、如果您想购买和配置Linux实例，请参考[快速配置Linux云服务器](https://cloud.tencent.com/document/product/213/2764)。
 
 ![](https://main.qcloudimg.com/raw/37ade775b8f369f5bf673dd4e69090cf.png)
 
