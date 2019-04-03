@@ -1,101 +1,20 @@
 Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。本教程介绍在 LAMP （Linux + Apache + MySQL + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。
 
-本教程提供两种搭建 Discuz! 论坛的方式，您可根据需求自由选择：
-- 使用 Discuz! 镜像快速安装
-推荐第一次进行 Discuz! 论坛搭建，不熟悉相关命令操作的用户使用。
-- 自主安装 LAMP 环境并搭建论坛
-推荐具备相关论坛搭建经验和一定的命令操作基础的用户使用。
+本教程提供两种搭建 Discuz! 论坛的方式，本文主要介绍自主安装 LAMP 环境并搭建Discuz!论坛的方法，推荐具备相关论坛搭建经验和一定的命令操作基础的用户使用。
+如果您第一次搭建Discuz!论坛且不熟悉Linux命令，你可以参考[使用镜像搭建Discuz!论坛](https://cloud.tencent.com/document/product/213/9753)。
 
-> Linux：Linux 系统；
-Apache：最流行的 Web 服务器端软件之一，用来解析 Web 程序；
-MySQL：一个数据库管理系统；
-PHP：Web 服务器生成网页的程序。
 
-## 镜像安装 
+## 相关简介
 以下是本教程中，将会使用的服务或工具：
-**云服务器 CVM**：本教程使用云服务器 CVM （以下简称 CVM ），来完成 Discuz! 搭建工作。
-**域名注册**：如果想要使用易记的域名访问您的 Discuz! 论坛，可以使用腾讯云域名注册服务来购买域名。
-**网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
-**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
+
+**云服务器 CVM**：本教程使用腾讯云云服务器 CVM （以下简称 CVM ）创建云服务器实例，来完成 WordPress 搭建工作。
  
-镜像安装流程图如下：
-![流程图1](//mc.qcloudimg.com/static/img/db454d696e269f0f29c9c63abf11db59/image.png)
-
-### 步骤一：安装 Discuz! 相关镜像 
-请根据您的实际情况，安装 Discuz! 相关镜像：
-- 已有腾讯云云服务器，只安装镜像。
-- 需要购买腾讯云云服务器。
-
-#### 已有腾讯云服务器，只安装镜像
-1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，单击左侧导航【云主机】，找到您想要搭建 Discuz! 的云服务器。
-单击右侧菜单的【更多】，选择【重装系统】
-![云主机](//mc.qcloudimg.com/static/img/5abc4a177ce635a8357b03ee7061c57e/image.png)
-2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据您的需要进行选择。
-![获取Discuz3（改）](//mc.qcloudimg.com/static/img/f9970cfef97cb508581f3519dfd98bd2/image.png)
-
-#### 需要购买云服务器
-1. 获取 Discuz! 镜像
-请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](http://market.cloud.tencent.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
-![获取Discuz1](//mc.qcloudimg.com/static/img/54021a861602cdf6560306848cdcef0f/image.png)
-2. 购买云服务器
-购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://cloud.tencent.com/document/product/213/2972)。
-![购买服务器](//mc.qcloudimg.com/static/img/f62666aee21008a0dee3b16422be9bcd/image.png)
-3. 创建云服务器实例
-完成购买后，控制台开始创建一个新的云服务器实例。创建完成后，云服务器实例会自动处于运行中，请耐心等待 2-3 分钟后再进入步骤二。
-![获取Discuz2改](//mc.qcloudimg.com/static/img/8c9ac3bbd8464cc9621f95f9a775889e/image.png)
+**域名注册**：如果想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
  
-#### 注意：云服务器实例的公网 IP 在后续步骤会使用到，请注意复制保存。
-### 步骤二：验证 Discuz! 镜像 
-为确保镜像能够正常使用，需要进行镜像验证。镜像安装成功后，等待 3 分钟左右，即可使用浏览器打开网址 `http://云服务器实例的公网 IP`， 访问正常会出现如下页面：
-![安装Discuz1改](//mc.qcloudimg.com/static/img/865f57d34c75853887597c361b629eeb/image.png)
-若等待很久都无反应，上图的页面不显示，请按照如下建议依次排除问题：
-- 重启服务器再试。
-- Ping 云服务器实例的公网 IP 地址，查看网络连接是否可用。
-- 重装系统，如步骤一所指示。
-- 查看服务器的 [安全组配置](https://cloud.tencent.com/document/product/213/5221)，排除是否禁止了 HTTP 的默认端口。
+**网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云[网站备案](https://cloud.tencent.com/product/ba)产品为您的域名备案。
 
-以上四个建议都正确尝试，却还打不开初始化页面的情况我们还没有碰到。
+**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的[云解析](https://cloud.tencent.com/product/cns)服务来解析域名。
 
-### 步骤三：配置域名（可选）
-您可以给自己的 Discuz! 论坛网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
-如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤四。
-如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤。
-1. 请通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://cloud.tencent.com/document/product/242/8582)。
-2. 请进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
-域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间为20天左右。
-3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
- 1. 登录 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，选择域名或添加您已有的域名。
- 2. 单击【解析】，进入该域名的域名记录管理界面。
-![配置域名1](//mc.qcloudimg.com/static/img/c2e3da7449cf42697a15f5c2bf9e80cf/image.png)
- 3. 单击【添加记录】，添加需要解析的记录。
-![配置域名2](//mc.qcloudimg.com/static/img/4a5054890890418d83ced42db4f3a98a/image.png)
-
-### 步骤四：安装配置 Discuz! 
-1. 首先通过浏览器访问步骤三中已经配置好的域名，单击  Discuz!【安装配置】进入安装页面。
-![安装0](//mc.qcloudimg.com/static/img/9c158431b6de083811f5a93d545309ed/image.png)
-2. 单击【我同意】，进入安装步骤第一步：检查安装环境。
-![安装1](//mc.qcloudimg.com/static/img/ad97b179b5b4977d86ca09a78ef05a7d/image.png)
-3. 确认当前状态正常，单击 【下一步】，进入设置运行环境步骤。
-![安装2](//mc.qcloudimg.com/static/img/c5a521673ed6f1a3528ba67ca5886ee4/image.png)
-4. 选择全新安装，单击【下一步】，进入创建数据库步骤。
-![安装3](//mc.qcloudimg.com/static/img/11a44bd86bfdfcd1fe3dcce6e8f200e6/image.png)
-5. 为 Discuz! 创建一个数据库，使用镜像默认的 MySQL 账号和密码（默认为 root/123456）连接数据库。并设置好系统信箱、管理员账号、密码和 Email。单击【下一步】，开始安装。
-**注意**：请记住自己的管理员账号和密码。
-![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
-6. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
-![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
- 
-您还可以参考底部的视频，了解更多有关镜像安装 Discuz! 的信息。（仅供参考，以实际操作为准。）
-镜像安装更多相关问题，请参考 [Discuz! 镜像安装手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
-
-## 自主安装
-以下是本教程中，将会使用的服务或工具：
-**云服务器 CVM**：本教程使用腾讯云云服务器 CVM （以下简称 CVM ）创建云服务器实例，来完成 Discuz! 搭建工作。
-**域名注册**：如果想要使用易记的域名访问您的 Discuz! 论坛，可以使用腾讯云域名注册服务来购买域名。
-**网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
-**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
-**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。单击 [下载 PuTTY ](https://www.putty.org/)。
- 
 自主安装流程图如下：
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
 ### 步骤一：创建云服务器 
@@ -136,6 +55,8 @@ service httpd start
 service mysqld start
 service php-fpm start
 ```
+>! 实际安装版本可能与示例版本有所差异。
+> 如果您使用CentOS 7以上版本，已不再支持使用MySQL，请替换为MariaDB。
 3. 配置 MySQL 数据库
 我们需要为 Discuz! 程序创建一个独立的数据库和用户来存储数据，上一步骤已启动了数据库服务，本步骤需要给 MySQL 设定一个 root 密码，使 root 用户可以访问数据库。
 ```
@@ -174,6 +95,7 @@ http://云服务器的公网 IP/test.php
 
 ### 步骤三：配置域名（可选）
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
+
 如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤四。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤。
 1. 请通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://cloud.tencent.com/document/product/242/8582)。
@@ -221,4 +143,3 @@ chmod -R 777 /var/www/html
 5. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
  
-**观看视频**：
