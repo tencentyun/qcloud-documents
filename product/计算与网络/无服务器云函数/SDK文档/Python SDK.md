@@ -51,7 +51,7 @@ action = 'Invoke'
 
 # 接口参数,输入需要调用的函数名，RequestResponse(同步) 和 Event(异步)
 action_params = {
-    'FunctionName': "test"
+    'FunctionName': "test",
 	'InvocationType': "Event"
 }
 
