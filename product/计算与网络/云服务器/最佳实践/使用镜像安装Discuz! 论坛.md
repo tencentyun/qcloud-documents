@@ -12,10 +12,10 @@
 1. 登录 [腾讯云管理控制台](https://console.cloud.tencent.com/)，在【云产品】下找到【云服务器】，单击【新建】。
 ![](https://main.qcloudimg.com/raw/e0a131e816a2e351bcdf3b6a3eb4d4c0.png)
 
-2. 在【选择镜像】页签选择【镜像市场】，然后点击【从镜像市场选择】。
+2. 在【选择镜像】页签选择【镜像市场】，然后单击【从镜像市场选择】。
 ![](https://main.qcloudimg.com/raw/bc90e2119fa15094edd90ea096851efa.png)
 
-3. 在【建站系统】页签选择 Discuz! 论坛的系统，并点击【免费使用】。
+3. 在【建站系统】页签选择 Discuz! 论坛的系统，并单击【免费使用】。
 ![](https://main.qcloudimg.com/raw/ab97215edf4ff3a66f1b2d04e2efc9c1.png)
 
 4. 其他配置根据您需要选择存储介质、带宽并设置安全组等，并选择购买完成 Discuz! 建站系统的购买。
