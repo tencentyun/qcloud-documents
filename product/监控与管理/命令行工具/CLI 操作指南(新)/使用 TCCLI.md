@@ -3,10 +3,10 @@
 * 通过 tccli cvm DescribeInstances 命令查看当前账号有哪些云服务器。
 * 通过 tccli cbs DescribeDisks 命令查看有 CBS 盘列表。
 
-## 操作步骤
+## 操作示例
 >!请注意 demo 中非简单类型的参数必须为标准 json 格式。
 
-1. 以创建一台 cvm 为例，执行以下命令。
+以创建一台 CVM 为例，执行以下命令。
 ```bash
 tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}'
  --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}'
