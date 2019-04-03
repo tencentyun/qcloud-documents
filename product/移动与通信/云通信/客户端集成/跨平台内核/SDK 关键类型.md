@@ -70,7 +70,7 @@
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSdkConfigAccountType | string | 只写（选填） | 账号类型，默认为 0 |
+| kTIMSdkConfigAccountType | string | 只写（选填） | 账号类型，默认为0 |
 | kTIMSdkConfigConfigFilePath | string | 只写（选填） | 配置文件路径，默认路径为"/" |
 | kTIMSdkConfigLogFilePath | string | 只写（选填） | 日志文件路径，默认路径为"/" |
 
@@ -341,10 +341,10 @@
 >?
 - 图片规格说明：每幅图片有三种规格，分别是 Original（原图）、Large（大图）、Thumb（缩略图）。
  - 原图：指用户发送的原始图片，尺寸和大小都保持不变。
- - 大图：是将原图等比压缩，压缩后宽、高中较小的一个等于 720 像素。
- - 缩略图：是将原图等比压缩，压缩后宽、高中较小的一个等于 198 像素。
-- 如果原图尺寸就小于 198 像素，则三种规格都保持原始尺寸，不需压缩。
-- 如果原图尺寸在 198-720 之间，则大图和原图一样，不需压缩。
+ - 大图：是将原图等比压缩，压缩后宽、高中较小的一个等于720像素。
+ - 缩略图：是将原图等比压缩，压缩后宽、高中较小的一个等于198像素。
+- 如果原图尺寸就小于198像素，则三种规格都保持原始尺寸，不需压缩。
+- 如果原图尺寸在198 - 720之间，则大图和原图一样，不需压缩。
 - 在手机上展示图片时，建议优先展示缩略图，用户单击缩略图时再下载大图，单击大图时再下载原图。当然开发者也可以选择跳过大图，单击缩略图时直接下载原图。
 - 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户单击大图时再下载原图。
 
@@ -360,12 +360,12 @@
 | kTIMSoundElemFileTime | int | 读写（必填） | 语音时长 |
 | kTIMSoundElemFileId | string | 只读 | 下载声音文件时的 ID |
 | kTIMSoundElemBusinessId | int | 只读 | 下载时用到的 businessID |
-| kTIMSoundElemDownloadFlag | int | 只读 | 是否需要申请下载地址（0：到架平申请 1：到 cos 申请 2：不需要申请，直接拿 URL 下载） |
+| kTIMSoundElemDownloadFlag | int | 只读 | 是否需要申请下载地址（0：到架平申请，1：到 cos 申请，2：不需要申请，直接拿 URL 下载） |
 | kTIMSoundElemUrl | string | 只读 | 下载的 URL |
 | kTIMSoundElemTaskId | int | 只读 | 任务 ID |
 
 >?
-- 语音是否已经播放，可使用消息自定义字段实现，如定义一个字段值 0 表示未播放，1 表示播放，当用户单击播放后可设置改字段的值为 1。
+- 语音是否已经播放，可使用消息自定义字段实现，如定义一个字段值0表示未播放，1表示播放，当用户单击播放后可设置改字段的值为1。
 - 一条消息只能添加一个声音元素，添加多个声音元素时，发送消息可能失败。
 
 
@@ -913,7 +913,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMGroupGetMemberInfoListResultNexSeq | uint64 | 只读 | 下一次拉取的标志，server 返回 0 表示没有更多的数据，否则在下次获取数据时填入这个标志 |
+| kTIMGroupGetMemberInfoListResultNexSeq | uint64 | 只读 | 下一次拉取的标志，server 返回0表示没有更多的数据，否则在下次获取数据时填入这个标志 |
 | kTIMGroupGetMemberInfoListResultInfoArray |  array [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33553#groupmemberinfo)  | 只读 | 成员信息列表 |
 
 ### TIMGroupMemberModifyInfoFlag
@@ -949,7 +949,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMGroupPendencyOptionStartTime | uint64 | 只写（必填） | 设置拉取时间戳，第一次请求填 0，后边根据 server 返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33553#grouppendencyresult) 键 kTIMGroupPendencyResultNextStartTime 指定的时间戳进行填写 |
+| kTIMGroupPendencyOptionStartTime | uint64 | 只写（必填） | 设置拉取时间戳，第一次请求填0，后边根据 server 返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33553#grouppendencyresult) 键 kTIMGroupPendencyResultNextStartTime 指定的时间戳进行填写 |
 | kTIMGroupPendencyOptionMaxLimited | uint | 只写（选填） | 拉取的建议数量，server 可根据需要返回或多或少，不能作为完成与否的标志 |
 
 ### TIMGroupPendencyType
@@ -1005,7 +1005,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMGroupPendencyResultNextStartTime | uint64 | 只读 | 下一次拉取的起始时戳，server 返回 0 表示没有更多的数据，否则在下次获取数据时以这个时间戳作为开始时间戳 |
+| kTIMGroupPendencyResultNextStartTime | uint64 | 只读 | 下一次拉取的起始时戳，server 返回0表示没有更多的数据，否则在下次获取数据时以这个时间戳作为开始时间戳 |
 | kTIMGroupPendencyResultReadTimeSeq | uint64 | 只读 | 已读上报的时间戳 |
 | kTIMGroupPendencyResultUnReadNum | uint | 只读 | 未决请求的未读数？ |
 | kTIMGroupPendencyResultPendencyArray |  array [GroupPendency](https://cloud.tencent.com/document/product/269/33553#grouppendency)  | 只读 | 群未决信息列表 |
