@@ -10,7 +10,7 @@
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
 
 1. 登录 [腾讯云管理控制台](https://console.cloud.tencent.com/)，在【云产品】下找到【云服务器】，单击【新建】。
-![](https://main.qcloudimg.com/raw/e0a131e816a2e351bcdf3b6a3eb4d4c0.png)
+![](https://main.qcloudimg.com/raw/4da026b1a7db16019effb5eec1c216f2.png)
 
 2. 在【选择镜像】页签选择【镜像市场】，然后单击【从镜像市场选择】。
 ![](https://main.qcloudimg.com/raw/bc90e2119fa15094edd90ea096851efa.png)
@@ -23,7 +23,7 @@
 ### 安装并启动 Discuz! 论坛
 
 1. 查看云服务器控制台，当云服务器实例状态处于运行中时，就可以测试 Discuz! 论坛了。在云服务器实例的 **主 IP 地址** 下，复制云服务器实例的公网 IP。
-![运行中1](https://main.qcloudimg.com/raw/881825eab025c8cdd5c57bfc9f136de1.png)
+![运行中1](https://main.qcloudimg.com/raw/93188b6702282ec3d799b5fa9224cb01.png)
 2. 从新建的CVM实例的实例列表中复制实例的公网 IP 地址，然后打开浏览器输入公网 IP 地址，进入Discuz！安装页面。![](https://main.qcloudimg.com/raw/c55ce0a0a24ef524c0bf0352b6651feb.png)
 
 3. 确认当前状态正常，单击【下一步】，进入设置运行环境步骤。
