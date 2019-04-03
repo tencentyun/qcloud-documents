@@ -6,7 +6,7 @@
 [安装 TCCLI](https://cloud.tencent.com/document/product/440/34011)
 
 ## 操作步骤
-要使用腾讯云命令行工具，您还需要进行一些初始化配置，使其完成使用 云 API 的必要前提条件。
+要使用腾讯云命令行工具，您还需要进行一些初始化配置，使其完成使用云 API 的必要前提条件。
 1. 交互模式，您可以通过 tccli configure 命令进入交互模式快速配置。
 ```bash
 $ tccli configure
