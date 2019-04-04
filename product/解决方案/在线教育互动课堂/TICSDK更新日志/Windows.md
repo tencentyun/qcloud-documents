@@ -1,7 +1,7 @@
 ### [1.7.1] 2019-04-04
 #### 优化
-1. 白板手写板支持优化
-2. TICSDK废弃掉switchCamera	switchMic switchPlayer接口
+1. 白板手写板支持优化。
+2. TICSDK 废弃掉 switchCamera	switchMic switchPlayer 接口。
 
 
 ### [1.7.0] 2019-03-06
