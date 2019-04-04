@@ -6,6 +6,20 @@
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
 	
 
+### v2.3.1
+
+- 发布日期：2019/03/12
+- 开发语言：C 语言
+- 开发环境：Linux，GNU Make
+- 内容：
+1、SDK 增加设备端日志上报功能，方便用户通过云端控制台远程监控及诊断设备联网状况。目前仅支持 MQTT 模式。
+2、精简 SDK 日志打印内容，修复若干 Bug，优化部分代码设计。
+3、修改设备名称最大长度为48位，与 IoT Hub 云端控制台保持一致。
+
+
+
+
+
 ### 版本 v2.3.0
 
 - 发布日期：2019/02/25
@@ -64,8 +78,8 @@
 - 发布日期：2018/02/02
 - 开发语言：C 语言
 - 开发环境：Linux, GNU Make
-- 内容：
-	1、修复 Publish 消息超时回调的错误逻辑。
+- 内容：修复 Publish 消息超时回调的错误逻辑。
+
 
 ### 版本 v1.2.0
 - 发布日期：2018/1/17
@@ -81,25 +95,25 @@
 - 开发语言：C 语言
 - 开发环境：Linux, GNU Make
 - 内容：
-  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT协议详解](https://github.com/mcxiaoke/mqtt)。
+  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT 协议详解](https://github.com/mcxiaoke/mqtt)。
   2、设备影子功能支持：具体可查看 [设备影子详情](https://cloud.tencent.com/document/product/634/11918)。
   3、提供对称和非对称两种加密方式支持。
 
 ## Android SDK
 
 ### 代码托管
-- 自 v1.0.0 版本开始，Android 设备端 SDK 代码使用 Github 托管
+- 自 v1.0.0 版本开始，Android 设备端 SDK 代码使用 Github 托管。
   [https://github.com/tencentyun/qcloud-iot-sdk-android](https://github.com/tencentyun/qcloud-iot-sdk-android)
   
 ### 版本v2.0.0
 - 发布日期：2018/03/12
-- 内容：
-	1、新增固件升级（OTA-MQTT 通道）能力
+- 内容：新增固件升级（OTA-MQTT 通道）能力。
+	
 
 ### 版本v1.2.0
 - 发布日期：2018/1/17
 - 内容：
-  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT协议详解](https://github.com/mcxiaoke/mqtt)
-  2、设备影子功能支持：具体可查看 [设备影子详情](https://cloud.tencent.com/document/product/634/11918)
-  3、MQTT 和设备影子均提供跨进程调用 API
-  4、提供非对称加密方式支持
+  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT 协议详解](https://github.com/mcxiaoke/mqtt)。
+  2、设备影子功能支持：具体可查看 [设备影子详情](https://cloud.tencent.com/document/product/634/11918)。
+  3、MQTT 和设备影子均提供跨进程调用 API。
+  4、提供非对称加密方式支持。
