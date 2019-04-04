@@ -18,6 +18,6 @@ pip install tccli
 ```
 2. 安装完成之后，执行`tccli version`检测是否安装成功。
 >?如果您的环境是 Linux 环境，您可以通过以下命令启动自动补全功能：
-```
+```sh
 complete -C 'tccli_completer' tccli
 ```
