@@ -21,41 +21,43 @@ Authorization: Auth String
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请查阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求参数
 无特殊请求参数。
 
 ### 请求体
+下面的示例表示给主账号100000000001下的子账号100000000011授权以允许访问存储桶名为 examplebucket-1250000000 中的对象列表。关于访问策略中的元素介绍，请参阅 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023)，以及授权策略示例请参阅 [COS API 授权策略使用指引](https://cloud.tencent.com/document/product/436/31923)。
 
 ```shell
 {
-    "Statement": [
-        {
-            "Principal": {
-                "qcs": [
-                    "qcs::cam::uin/${owner_uin}:uin/${sub_uin}"
-                ]
-            },
-            "Effect": "${effect}",
-            "Action": [
-                "name/cos:${action}"
-            ],
-            "Resource": [
-                "qcs::cos:${region}:uid/${appid}:${bucket}/*"
-            ]
-        }
-    ],
-    "version": "2.0"
+  "Statement": [
+    {
+      "Principal": {
+        "qcs": [
+          "qcs::cam::uin/100000000001:uin/100000000011"
+        ]
+      },
+      "Effect": "allow",
+      "Action": [
+        "name/cos:GetBucket"
+      ],
+      "Resource": [
+        "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
+      ]
+    }
+  ],
+  "version": "2.0"
 }
 ```
+
 
 ## 响应
 
 ### 响应头
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -73,7 +75,7 @@ Authorization: Auth String
 
 ```shell
 PUT /?policy HTTP/1.1
-Host:examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
 Content-Type: application/json
 Content-Length: 233
@@ -83,7 +85,7 @@ Content-Length: 233
     {
       "Principal": {
         "qcs": [
-          "qcs::cam::uin/1250000000:uin/1250000000"
+          "qcs::cam::uin/100000000001:uin/100000000001"
         ]
       },
       "Effect": "allow",
@@ -91,13 +93,12 @@ Content-Length: 233
         "name/cos:GetBucket"
       ],
       "Resource": [
-        "qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ],
   "version": "2.0"
 }
-
 ```
 
 ### 响应

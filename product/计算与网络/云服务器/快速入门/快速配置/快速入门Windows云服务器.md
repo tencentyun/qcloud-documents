@@ -4,7 +4,7 @@
 <div id="page1"></div>
 ## 步骤一：准备与选型
 ### 注册腾讯云账号
-新用户需在腾讯云官网进行[【注册】](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
+新用户需在腾讯云官网进行[注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
 ### 确定云服务器所在地域及可用区
 地域选择原则：

@@ -157,4 +157,4 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![Android二维码下载](https://main.qcloudimg.com/raw/f2ce2c1c8fadc90bba73b605549a730c.png)
+![Android二维码下载](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
