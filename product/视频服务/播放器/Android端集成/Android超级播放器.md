@@ -73,7 +73,7 @@ mSuperPlayerView = findViewById(R.id.main_super_player_view);
 
 SuperPlayerModel model = new SuperPlayerModel();
 
-model.videoURL = "http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4";
+model.url = "http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4";
 
 mSuperPlayerView.playWithMode(model);
 ```
@@ -90,18 +90,14 @@ mSuperPlayerView.playWithMode(model);
 这里有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
 ```java
-SuperPlayerModel superPlayerModel = new SuperPlayerModel();
+SuperPlayerModel model = new SuperPlayerModel();
+model.multiURLs = new ArrayList<>();
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f10.mp4", "流畅"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f20.mp4", "标清"));
+model.multiURLs.add(new SuperPlayerModel.SuperPlayerURL("http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f30.mp4", "高清"));
+model.playDefaultIndex = 1;// 默认播放标清
 
-superPlayerModel.videoURL = "http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4.flv";
-
-superPlayerModel.multiVideoURLs = new ArrayList<>();
-
-superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("超清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4.flv"));
-
-superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("高清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_900.flv"));
-
-superPlayerModel.multiVideoURLs.add(new SuperPlayerUrl("标清","http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_550.flv"));
-mSuperPlayerView.playWithMode(superPlayerModel);
+mSuperPlayerView.playWithModel(model);
 ```
 
 在播放器中即可看到这几个清晰度，单击即可立即切换。
@@ -140,12 +136,11 @@ playerModel.appId = 1252463788;
 播放 fileId 的代码如下：
 
 ```java
-//通过fileid方式的视频信息配置
 SuperPlayerModel model = new SuperPlayerModel();
-model.appid = 1252463788;   // 默认的app id
-model.fileid = "5285890781763144364"; // 视频的fileid；
-// 开始播放
-mSuperPlayerView.playWithMode(model);
+model.appId = 1252463788;// 配置AppId
+model.videoId = new SuperPlayerVideoId();
+model.videoId.fileId = "5285890781763144364"; // 配置FileId
+mSuperPlayerView.playWithModel(model);
 ```
 
 视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)。转码完成后，播放器会自动显示多个清晰度。
