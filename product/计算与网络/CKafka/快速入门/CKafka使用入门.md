@@ -64,19 +64,23 @@ cd  $JAVA_HOME/bin
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
 ### 2. 下载 Kafka 工具包
+> **注意：**
+
+> 以下步骤操作过程中提到的$ip $port 变量，指ckafka的接入ip 和prot；
+
+> ckafka实例可提供多个接入点（接入点指$ip:$port，最多支持6个接入点。）满足多种网络环境下客户端的访问请求，在进行测试时，客户选择对应网络环境的接入点即可。例如 客户端cvm是vpc环境，则选择vpc网络下的ckafka接入点$ip $port 进行测试即可。 接入点信息可以在实例详情页查看。
 
 下载并解压 kafka 安装包。（[Kafka 安装包官网下载地址>>](http://kafka.apache.org/downloads)）
-当前 CKafka 100% 兼容 Kafka 0.9 0.10 版本，建议您下载相应版本的安装包。
+当前 CKafka 100% 兼容 Kafka 0.9 0.10 版本，推荐0.10.2版本的安装包。建议您下载相应版本的安装包。
 
 ```
-tar -xzvf kafka_2.10-0.10.2.0.tgz
-mv kafka_2.10-0.10.2.0 /opt/
+tar -C /opt -xzvf kafka_2.10-0.10.2.0.tgz    //解压到相应的目录中
 ```
 
 下载解压完成后，无需配置其他环境，直接可用。
 可以通过 telnet 指令测试本机是否连通到 CKafka 实例：
 ```
-telnet IP 9092
+telnet $ip $port
 ```
 ![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
@@ -84,26 +88,26 @@ telnet IP 9092
 
 **发送消息：**
 ```
-./kafka-console-producer.sh --broker-list xxx.xxx.xxx.xxx:9092 --topic topicName
+./kafka-console-producer.sh --broker-list $ip:$port --topic topicName
 This is a message
 This is another message
 ```
-其中 broker-list 中的 IP 即为 CKafka 实例中的 VIP，topicName 为 CKafka 实例中的 topic 名称。
+其中 broker-list 中的 $ip:$port 即为 CKafka 实例的接入点 $ip和$port，topicName 为 CKafka 实例中的 topic 名称。
 
 **接收消息(CKafka 默认隐藏 Zookeeper 集群)：**
 
 ```
-./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName
+./kafka-console-consumer.sh --bootstrap-server $ip:$port --from-beginning --new-consumer --topic topicName
 This is a message
 This is another message
 ```
 上述命令中，由于没有指定 consumer group 进行消费，系统会随机生成一个 group 进行消费。这样做容易达到 group 上限。因此推荐 **指定 Group** 的方式接收消息，首先需要在 consumer.properties 中配置下指定的 group name，如下图所示：
 
-![](https://mc.qcloudimg.com/static/img/b39a4b9b75a734830a69cc66a7273485/111.png)
+![](https://main.qcloudimg.com/raw/7ec8a2311776ac360ba0f4c18703fd8b.jpg)
 
 配置完成后，指定 consumer group 的命令如下所示：
 ```
-./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
+./kafka-console-consumer.sh --bootstrap-server $ip:$port --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
 > **注意：**
 ConsumerConfig参数配置中，建议将auto.offset.reset配置为earliest，防止新的消费者分组不存在时，漏消费消息的情况发生。 

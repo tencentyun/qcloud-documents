@@ -240,7 +240,7 @@ srcCosPath=/
 | srcRegion | Region information of the source bucket. For more information, please see [Available Regions](https://cloud.tencent.com/document/product/436/6224) |
 | srcBucketName | Source bucket name. Bucket is named in a format of {name}-{appid}, which means a bucket name must contain APPID, such as movie-1251000000. |
 | srcSecretId | SecretId for the key of the source bucket user. For more information, please see [Cloud API Key](https://console.cloud.tencent.com/cam/capi). For data migration under the same user account, SecretId described in srcSecretId should be the same as that in common. Otherwise, the migration is cross-account bucket replication. |
-| srcSecretKey| | secret_key for the key of the source bucket user. For more information, please see [Cloud API Key](https://console.cloud.tencent.com/cam/capi). For data migration under the same user account, secretId described in srcSecretId should be the same as that in common. Otherwise, the migration is cross-account bucket replication. |
+| srcSecretKey|  secret_key for the key of the source bucket user. For more information, please see [Cloud API Key](https://console.cloud.tencent.com/cam/capi). For data migration under the same user account, secretId described in srcSecretId should be the same as that in common. Otherwise, the migration is cross-account bucket replication. |
 | srcCosPath | COS path under which files are to be migrated to the destination bucket |
 
 

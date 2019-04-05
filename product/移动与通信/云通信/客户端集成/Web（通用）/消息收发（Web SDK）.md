@@ -604,6 +604,7 @@ function uploadPicLowIE() {
 ## 上传文件 （高版本浏览器）
 
 目前demo采用了H5 FileAPI读取文件，并将文件二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
+>?当前版本仅支持上传图片文件。
 
 ```
 /* function uploadPicByBase64  
@@ -654,6 +655,8 @@ function uploadFileByBase64() {
 ## 上传文件 （低版本浏览器IE8、9）
 
 在低版本浏览器（IE8、9）中，demo采用了表单来上传文件，最大支持10M文件的上传。
+>?当前版本仅支持上传图片文件。
+
 
 ```
 /* function submitUploadFileForm  

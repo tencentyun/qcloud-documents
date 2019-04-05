@@ -10,7 +10,7 @@
 
 ### 下载 SDK
 
-从官网下载 [SDK 包](https://cloud.tencent.com/product/im.html)，包含以下库文件，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 webim SDK 库，提供了登录，加群，收发消息，退群，登出功能。
+从官网下载 [SDK 包](https://cloud.tencent.com/product/im/developer)，包含以下库文件，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 webim SDK 库，提供了登录，加群，收发消息，退群，登出功能。
 
 ```
 sdk/webim.js

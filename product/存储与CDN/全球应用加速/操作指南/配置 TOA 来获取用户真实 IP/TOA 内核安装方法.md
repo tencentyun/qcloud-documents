@@ -80,7 +80,7 @@ rpm -hiv kernel-xxxx.rpm --force
 7. 执行 `make install`；
 8. 修改 `/boot/grub/menu.lst`，将 default 改为新安装的内核（title 顺序从 0 开始）；
 9. 执行 `Reboot` 重启后即为 toa 内核；
-10. 执行`lsmode | grep toa` 检查 toa 模块是否加载，没有加载的话，可通过 `modprobe toa`命令 开启。
+10. 执行`lsmod | grep toa` 检查 toa 模块是否加载，没有加载的话，可通过 `modprobe toa`命令 开启。
 
 ## Ubuntu TOA 内核安装方法
 单击下面的链接，下载内核包和 Headers 包：
@@ -95,7 +95,7 @@ dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 ```
 2. 安装完成后请重启主机。
 
-3. 执行 `lsmode | grep toa` 检查 toa 模块是否加载，若没加载，可通过 `modprobe toa` 开启，执行命令如下：
+3. 执行 `lsmod | grep toa` 检查 toa 模块是否加载，若没加载，可通过 `modprobe toa` 开启，执行命令如下：
 ```
 echo “modprobe toa” >> /etc/rc.d/rc.local
 ```
@@ -113,7 +113,7 @@ dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 ```
 2. 安装完成后请重启主机。
 
-3. 执行 `lsmode | grep toa` 检查 toa 模块是否加载，若没加载，可通过 `modprobe toa` 开启，执行命令如下：
+3. 执行 `lsmod | grep toa` 检查 toa 模块是否加载，若没加载，可通过 `modprobe toa` 开启，执行命令如下：
 ```
 echo “modprobe toa” >> /etc/rc.d/rc.local
 ```

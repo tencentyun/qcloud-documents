@@ -127,7 +127,7 @@ Uploading from Server involves multiple server-side APIs, so you need to obtain 
 
 ## Initiating Upload
 
-The video upload is divided into [Upload Application](/document/product/266/9756), [Upload Files](/document/product/266/9758), and [Upload Confirmation](/document/product/266/9757), which respectively correspond to step 1, 2, and 3 in the upload flow chart.
+The video upload is divided into [Upload Application](/document/product/266/31767), [Upload Files](/document/product/266/31784), and [Upload Confirmation]((/document/product/266/31766), which respectively correspond to step 1, 2, and 3 in the upload flow chart.
 
 ### Initiating Upload with the VOD SDK for Uploading from Server
 Tencent Cloud VOD provides the Demos based on SDKs of different language platforms to make it easier for users to develop their upload features. See: 
@@ -142,9 +142,9 @@ If the language used in the App backend is not included in the upload SDK provid
 
 Compared to the SDK-based upload, the API-based uploading from server needs to complete [Upload Application], [Video File Upload] and other steps itself. Furthermore, [Video File Upload] is not as convenient as the SDK-based upload for it needs to perform multipart upload for large files. For more information, please see:
 
-- [Server API: Upload Application](/document/product/266/9756);
-- [Server API: File Upload](/document/product/266/9758);
-- [Server API: Upload Confirmation](/document/product/266/9757).
+- [Server API: Upload Application](/document/product/266/31767);
+- [Server API: File Upload](/document/product/266/31784);
+- [Server API: Upload Confirmation](/document/product/266/31766).
 
 ## Event Notification
 After a video file is uploaded successfully, Tencent Cloud VOD initiates an [Event Notification - Video Upload Completed](/document/product/266/7830) to the App backend, and the App backend becomes aware of the upload based on the notification.

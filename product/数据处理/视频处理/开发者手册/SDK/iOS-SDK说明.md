@@ -35,7 +35,7 @@
 3) MobileCoreServices.framework<br>
 4) libxml2.dylib<br>
 5) libz.dylib<br>
-</p>
+
 ## 2	上传SDK
 ### 2.1	初始化
 <p>先引入上传SDK的头文件“TXYUploadManager.h”，创建TXYUploadManager对象，需要执行上传类型

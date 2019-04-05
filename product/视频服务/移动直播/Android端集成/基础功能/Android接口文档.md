@@ -73,7 +73,7 @@
 | setPauseImg(img)                      | 设置后台暂停,后台播放的暂停图片    |
 | setPauseImg(time, fps)                | 设置推流暂停时,后台播放暂停图片的方式 |
 | setVideoEncodeGop(gop)                | 设置视频编码GOP           |
-| setVideoResolution(resolution)        | 设置视频帧率              |
+| setVideoResolution(resolution)        | 设置视频分辨率              |
 | setWatermark(watermark, x, y, width)  | 设置水印图片              |
 | setWatermark(watermark, x,y)          | 设置水印图片              |
 
@@ -1780,7 +1780,7 @@ mLivePlayer.resume();
 
 接口详情：int  prepareLiveSeek()
 
-直播时移准备，拉取该直播流的起始播放时间。使用时移功能需在播放开始后调用此方法，否者时移失败。不支持非腾讯云地址。
+直播时移准备，拉取该直播流的起始播放时间。使用时移功能需在播放开始后调用此方法，否则时移失败。不支持非腾讯云地址。
 
 - **示例代码** : 
 

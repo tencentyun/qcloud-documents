@@ -19,7 +19,7 @@ For example:
 - You need to go through identity verification before purchasing postpaid CVM instances. Unverified users cannot purchase postpaid CVM instances.
   **Steps for identity verification:**
   Go to the [User Center](https://console.cloud.tencent.com/developer). Click **Verification** in **Account Information** to complete identity verification.
-  ![](https://mc.qcloudimg.com/static/img/bfaa7958ea8f41573e40b8ce3ef920ad/2.png)For more information on verification steps, please see [Identity Verification Guide](https://cloud.tencent.com/document/product/378/3629).
+  ![](https://main.qcloudimg.com/raw/5cd828fc5980561043e4052e70491dc7.png)For more information on verification steps, please see [Identity Verification Guide](https://cloud.tencent.com/document/product/378/3629).
 
   The followings are **not supported** for postpaid CVM instances:
 

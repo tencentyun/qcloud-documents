@@ -3,7 +3,7 @@
 本接口 (GetQueueAttributes) 用于获取某个已创建队列的属性。返回属性除了创建队列时设置的可设置属性外，还可以取到队列创建时间，最后一次修改队列属性时间，以及队列中消息的统计数据（近似值）。
 
 **请参照下面说明将域名中的 {$region} 替换成相应地域：**
-- 外网接口请求域名：`http(s)://cmq-queue-{$region}.api.qcloud.com`
+- 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
 

@@ -27,7 +27,7 @@ Note: For the project of CustomServiceDemo, Visual Studio 2015 and later as well
 
 ### Qt project settings
 
-After installing Qt 5.9 and Visual Studio Add-in For Qt plug-in, add Qt Versions to the Qt VS Tools-Qt Options in Visual Studio, as shown below:
+After installing Qt 5.9 32bit and Visual Studio Add-in For Qt plug-in, add Qt Versions to the Qt VS Tools-Qt Options in Visual Studio, as shown below:
 
  ![Qt Configuration](https://mc.qcloudimg.com/static/img/346ddef0ba104dc80d9c97c26cbb491c/image.png)
 
@@ -84,7 +84,7 @@ Add additional include directories from **Project Attribute** -> **C/C++** -> **
 Note that this operation is not mandatory. If you do not add the header file search path for LiteAV/include, "LiteAV/include" needs to be added before the SDK-related header file when the header file is referenced, as shown below:
 
 ```
-#include "LiteAV\include\TXLivePush.h"
+#include "LiteAV\include\TXLivePusher.h"
 ```
 
 
@@ -104,7 +104,7 @@ Open HelloSDK.ui from the project "From Files", and drag a Widget control to the
 Reference the SDK header file at the beginning of HelloSDK.cpp:
 
 ```
-#include "TXLivePush.h"
+#include "TXLivePusher.h"
 ```
 
 
@@ -118,7 +118,7 @@ Declaration
 
 #include <QtWidgets/QMainWindow>
 #include "ui_HelloSDK.h"
-#include "TXLivePush.h"
+#include "TXLivePusher.h"
 
 class HelloSDK : public QMainWindow
 {

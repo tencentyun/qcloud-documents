@@ -12,7 +12,6 @@ You can adjust an instance's configuration when the instance has been either sta
 - Upgrading configuration
 No limit is imposed on the number of times configuration upgrade can be performed. The upgrade takes effect immediately.
 - Degrading configuration
- - Prepaid instances can be degraded at any time, and each prepaid instance can only be degraded **once**.
  - Postpaid instances can be degraded at any time and for unlimited times.
 
 ### Hardware 
@@ -32,10 +31,9 @@ You can upgrade the configuration of CVMs to adapt to you growing business. For 
 
 3. In the popup box, select the configuration you want to upgrade to, and then click **OK**.
 
- - **Popup box for prepaid instances:**
-![](//mc.qcloudimg.com/static/img/c58002204cb5a0481fed03c7ad9903b1/image.png)
+
  - **Popup box for postpaid instances:**
-![](//mc.qcloudimg.com/static/img/2736588533362e5904a7d006136ceb01/image.png)
+![](https://main.qcloudimg.com/raw/83c89f2a8d2fa39c875a7e4ffce2d38b.png)
 
 ### Upgrading via API
 You can upgrade instance configuration using the APIs ResizeInstance and ResizeInstanceHour. For more information, please see [APIs for adjusting instance configuration](/doc/product/213/9394).
@@ -43,19 +41,12 @@ You can upgrade instance configuration using the APIs ResizeInstance and ResizeI
 ## Degrading Configuration
 You can also degrade the configuration of CVM instances in console to adapt to your shrinking business.
 The degrade method varies with different CVM types.
-### Degrading prepaid instances
-1. Log in to the [console](https://console.cloud.tencent.com/), and then click the **CVM** tab on the left to go to the CVM list.
 
-2. Locate the Operation column next to the **prepaid** instance to be adjusted, and click **More** -> **CVM Configuration** -> **Adjust Configuration**.
-
-3. In the popup box, select the configuration you want to degrade to, and click **OK** to degrade the CVM configuration and extend the expiration time immediately.
-![](//mc.qcloudimg.com/static/img/69febeee0dc1b7bfadc7c71411f1e6a9/image.png)
 
 ### Degrading postpaid instances
 1. Log in to the [console](https://console.cloud.tencent.com/), and then click the **CVM** tab on the left to go to the CVM list.
 
 2. Locate the Operation column next to the **postpaid** instance to be adjusted, and click **More** -> **CVM Configuration** -> **Adjust Configuration**.
 
-3. In the popup box, select the configuration you want to upgrade to, and then click **OK**.
-![](//mc.qcloudimg.com/static/img/724fc68d5876c20c81e83706b7effcdc/image.png)
-
+3. In the popup box, select the configuration you want to degrade to, and then click **OK**.
+![](https://main.qcloudimg.com/raw/4898656c35e6b28e52eeb3db03f105ab.png)

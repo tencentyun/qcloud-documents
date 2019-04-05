@@ -4,4 +4,4 @@
  ![1](https://main.qcloudimg.com/raw/21597ebdfa10067721a2df74203506fc.png)
 4. 在弹出框中，输入名称，选择所属的私有网络。
  ![2](https://main.qcloudimg.com/raw/81d8ece2b2ccce60cf0dac568c7688f5.png)
- 5. 单击【确定】即可。
+5. 单击【确定】即可。

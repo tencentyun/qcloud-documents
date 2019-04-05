@@ -1,0 +1,34 @@
+## 配置项数据卷应用场景
+将配置项中指定 key 映射到容器中（key作为文件名,Value作为文件内容），使用配置项数据卷主要用于业务配置文件的挂载，可以用于挂载配置文件到指定容器目录.
+
+## 使用配置项数据卷操作流程
+1. 第一步：[创建配置项](https://cloud.tencent.com/document/product/457/10173#.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6.E7.9A.84.E5.88.9B.E5.BB.BA)（如已有配置项可跳过本步骤）
+2. 第二步：创建服务页面 **数据卷** 选项下单击【添加数据卷】。
+![][createVolume]
+3. 第三步：配置数据卷。
+ - **类型**：单击【∨】，在下拉框中选择数据卷的类型，选择使用配置项。
+ - **名称**：数据卷的名称，由小写字母和数字和连接符 “-” 组成，必须是小写字母开头，且在 20 个字符以内。
+ - **配置**：选择所需的配置项对应的key，可以多选。
+
+ ![][setVolumeConfig]
+4. 第四步：设置挂载路径：在 **实例内容器**填写挂载点。
+ - **数据卷名称**：选择上述设置的数据卷
+ - **目标路径**：设置数据卷挂载到容器内的路径
+ - **权限**：设置该路径的读写权限。
+
+ ![][setVolumeMountPath]
+
+5. 设置完成，登录容器验证。最终将以`配置项-版本号`作为configMap的名称，将配置项的内容导入集群， Key作为文件名，Value作为文件内容挂载到容器的指定路径。
+  - 登录容器验证挂载情况：
+
+    ![][verification1]
+
+  - kubectl查看configMap生成情况：
+
+    ![][verification2]
+
+[createVolume]:https://mc.qcloudimg.com/static/img/0286498ec3ada210c6c01f9ef8ca7b52/image.png
+[setVolumeConfig]:https://mc.qcloudimg.com/static/img/eeded2a4004698e1d80d7aefa2c8ec89/%7B93E0B701-53FC-4A2D-8F2D-3BEC63D74B6C%7D.png
+[setVolumeMountPath]:https://mc.qcloudimg.com/static/img/e01549058b6a3d247b1984dc9e7b7ae6/%7B3EDDC270-1C72-45FB-80B9-0E48C9F2EBA9%7D.png
+[verification1]:https://mc.qcloudimg.com/static/img/f7c1d19ddbaf27c8f02dd26812131d02/%7BBFC5C7DC-67B0-4845-A29B-4A2DB5F2F527%7D.png
+[verification2]:https://mc.qcloudimg.com/static/img/0511cf8b32247d3d86cd2a1b8041f74a/%7BAB51D5B6-6CB4-4613-B49F-4E33BD174564%7D.png

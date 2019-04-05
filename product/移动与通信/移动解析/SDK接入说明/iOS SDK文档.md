@@ -1,5 +1,7 @@
 ## 功能介绍
 HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理是使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+您可以通过以下方式获取智营解析 iOS SDK：
+[从 Github 获取最新版本SDK >>](https://github.com/tencentyun/httpdns-ios-sdk)
 
 ## 安装包结构
 压缩文件中包含 demo 工程，其中包含：

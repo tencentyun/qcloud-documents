@@ -1,162 +1,198 @@
-在购买并启动了 Linux 类型的实例后，您可以连接并登录它。根据您本地的操作系统和 CVM 实例是否可被 Internet 访问，不同情况下可以使用不同的登录方式，具体内容可参考下表：
-<table><tbody>
-<tr><th>本地操作系统类型</th><th> Linux 云服务器实例有公网 IP</th><th> Linux 云服务器实例没有公网 IP</th></tr>
-<tr><td>Windows</td><td>WebShell 登录<br>VNC 登录<br>远程登录软件登录<br>密钥登录</td><td rowspan="3">VNC登录</td></tr>
-<tr><td>Linux</td><td>WebShell 登录<br>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
-<tr><td>Mac OS</td><td>WebShell 登录<br>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
-</tbody></table>
+创建Linux实例后，您可以根据本地操作系统以及是否有公网IP来选择不同的登录方式连接并登录CVM实例。**腾讯云推荐您使用标准登录方式（WebShell）。**
 
-## 前提条件
-### 使用密码登录的前提条件
-**使用密码登录需要使用管理员帐号和对应的密码。**
-- 管理员账号：对于不同类型的 Linux 实例，管理员帐号不同，如下表。
+标准登录方式（Webshell）的优点：
 
-| 实例操作系统             | 管理员帐号  |
-| ------------------ | ------ |
-| SUSE/CentOS/Debian | root   |
-| Ubuntu             | ubuntu |
-
-- 密码：
-  - 若用户在启动实例时选择【自动生成密码】，则初始密码由系统随机分配。您可以登录[腾讯云控制台](https://console.cloud.tencent.com)，单击右侧站内信按钮，查收新购买的服务器页面中将包含云服务器登录管理员帐号及初始密码，如下图所示。
-    ![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
-
-  - 若用户在启动实例时选择了自定义密码，则密码为用户在购买云服务器实例时指定的密码。有关密码的更多内容，如忘记登录密码应该如何操作，请参考 [登录密码](/doc/product/213/6093)。
-
-### 使用密钥登录的前提条件
-**使用密钥登录到云服务器时需要创建并下载私钥。**
-首先需要创建 SSH 密钥、下载私钥、绑定 Linux 云服务器。有关密钥操作的更多内容，请参阅 [SSH 密钥](/doc/product/213/6092)。
-
-## 本地 Windows 计算机密码登录
-### 登录工具
-使用 **远程登录软件** ，采用密码登录 Linux 实例（本例中选择使用 PuTTY，用户也可以选择其他类型的登录软件）。
-### 操作步骤
-1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-
-2. 使用 PuTTY 连接 Linux 云服务器。打开 PuTTY 客户端，在PuTTY Configuration 窗口中输入以下内容：
-  >- Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP）。
-  >- Port：云服务器的端口，必须填 22。（请确保云服务器 22 端口已开放，详见查看 [安全组](/doc/product/213/5221) 及 [网络ACL](/doc/product/215/5132)）
-  >- Connect type：选择“ SSH ”。
-
-3. 输入完后，单击【Open】，创建一个新对话。
-  ![](//mccdn.qcloud.com/img56a5d38a4ffbc.png)
-
-4. 在 PuTTY 会话窗口中，输入前提条件中获得的管理员帐号，按回车键。再输入前提条件中获取的登录密码，回车完成登录过程。
-  ![](//mccdn.qcloud.com/img56a5d47b8b5da.png)
-
->**注意：**
->如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ,若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
-
-## 本地 Windows 计算机 SSH 密钥登录
-### 登录工具
-使用 **远程登录软件** ，采用 SSH 密钥登录 Linux 实例（本例中选择使用 PuTTY，用户也可以选择其他类型的登录软件）。
-
-### 操作步骤
-1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
-
-2. 选择私钥。打开 puttygen.exe，单击【Load】按钮，在弹窗中首先进入您存放前提条件中下载下来的私钥的路径，然后选择“All File（\*.\*）”，选择下载好的私钥（例子中为文件david，david是密钥的名称），单击【打开】。
-  ![](//mccdn.qcloud.com/img56a5c48fb810a.png)
-
-3. 密钥转换。在 key comment 栏中输入密钥名，输入加密私钥的密码，单击【Save private key】，在弹窗中选择您存放密钥的目录，然后在文件名栏输入 密钥名 +".ppk"，单击【保存】按钮。
-  ![](//mccdn.qcloud.com/img56a5c4ff657cc.png)
-
-4. 打开 putty.exe ，进入【Auth】配置。
-  ![](//mccdn.qcloud.com/img56a5c61c61e42.png)
-
-5. 单击【Browse】按钮，打开弹窗后进入密钥存储的路径，并选择密钥，单击【打开】，返回配置界面，进入【Session】配置。
-  ![](//mccdn.qcloud.com/img56a5c67ea3edb.png)
-
-6. 在Session配置页中，配置服务器的IP，端口，连接类型。
- - IP：云服务器的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP。
- - 端口：云服务器的端口，必须填 22 。（请确保云服务器 22 端口已开放，详见查看 安全组 及 网络ACL）。
-
-6. 在【Saved Sessions】输入框中中输入会话名称（本例为 test ），再单击【Save】按钮，然后双击会话名称或者单击【Open】按钮发起登录请求。
-  ![](//mccdn.qcloud.com/img56a5c6bca781f.png)
-
->**注意：**
->如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
-
-## 本地 Linux/Mac OS 计算机使用密码登录
-### 登录工具
-使用 Mac OS 系统自带的终端（Terminal）登录，SSH 方式。
-
-### 操作步骤
-1. Mac OS 用户请打开系统自带的终端（Terminal）并输入以下命令，Linux 用户请直接运行以下命令：	`ssh <username>@<hostname or ip address>` 
-  (其中：`username`即为前提条件中获得的管理员帐号， `hostname or ip address`为您的 Linux 实例公网 IP 或 自定义域名）
-
-2. 输入前提条件中获得的密码（此时仅有输入没有显示输出），回车后即可完成登录。
-
->**注意：**
->如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
-
-
-## 本地为 Linux/Mac OS 使用密钥登录
-### 登录工具
-使用 Mac OS 系统自带的终端（Terminal）登录。
-
-### 操作步骤
-1. Mac OS 用户请打开系统自带的终端（Terminal）并输入以下命令，Linux 用户请直接运行以下命令，赋予私钥文件仅本人可读权限。`chmod 400 <下载的与云服务器关联的私钥的绝对路径> `
-
-2. 运行以下远程登录命令：`ssh -i "<下载的与云服务器关联的私钥的绝对路径>" <username>@<hostname or ip address>。`
-  (其中：`username`即为前提条件中获得的管理员帐号， `hostname or ip address`为您的 Linux 实例公网 IP 或 自定义域名。例如：`ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`）。
-
->**注意：**
->如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
-
-## 使用 WebShell 登录实例（推荐）
-### 登录工具
-WebShell 登录是腾讯云提供的 Web 浏览器远程连接云服务器的方式。相比 VNC，WebShell 的各方面体验更接近于使用 PuTTY 和 SSH 等客户端登录方式，在云服务器拥有公网 IP 和开启了对应登录端口情况下，使用 WebShell 可以获取更好的远程访问体验。
-
-**优点：**
 - 支持快捷键复制粘贴。
 - 支持鼠标滚屏。
 - 支持中文输入法。
 - 安全性高，每次登录需要输入密码或密钥。
 
+<br>
+
+| 本地操作系统    | 实例有公网IP                               | 实例没有公网IP    |
+| --------------- | ------------------------------------------ | ----------------- |
+| Windows         | 标准（WebShell） 登录方式（推荐）<br> 远程登录软件登录（密码或密钥） | VNC登录 |
+| Linux<br>Mac OS | 标准（WebShell） 登录方式（推荐）<br/>使用SSH登录（密码或密钥）   | VNC登录 |
+
+## 前提条件
+
+- 准备好登录实例前的密码或者密钥。
+- 确保云服务器实例的22号端口已打开。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查22号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
+
+### 使用密码登录
+**管理员账号**：对于不同类型的 Linux 实例，管理员帐号不同，如下表。
+
+| 实例操作系统 | 管理员帐号 | 
+|---------|---------|
+| SUSE/CentOS/Debian | root |
+| Ubuntu | ubuntu |
+
+- 如果您选择密码登录，可以登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击右侧站内信按钮，查收新购买的服务器页面中将包含云服务器登录管理员帐号及初始密码。
+ ![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
+
+
+- 如果您在购买实例时选择了自定义密码，则密码为用户在购买云服务器实例时指定的密码。
+
+### 使用密钥登录
+如果您选择密钥登录，需要先 [创建密钥](https://cloud.tencent.com/document/product/213/16691)、下载私钥、绑定 Linux 云服务器。有关密钥操作的更多内容，请参阅 [SSH 密钥](/doc/product/213/6092)。
+
+
+
+## 使用标准登录方式（WebShell）登录实例（推荐）
+
+WebShell为腾讯云推荐的登录方式。无论您的本地系统为Windows，Linux或者Mac OS，只要实例购买了公网IP，都可以通过WebShell登录。通过WebShell方式登录需要开启SSH端口（默认为22）。
+
+### 适用本地操作系统：
+
+Window，Linux或者Mac OS
+
+### 鉴权方式：
+
+密码 或 密钥
+
+### 前提条件：
+
+实例是否购买公网IP。
+
+开启SSH（22号）端口，您可以通过[配置安全组](https://cloud.tencent.com/document/product/213/15377)的设置确认是否开启22号端口。
+
 ### 操作步骤
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】>【云计算与网络】>【云服务器】。
 2.  如图所示进入云服务器列表，在需要登录的 Linux 云服务器中单击【登录】按钮。
-  ![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
-	
-3. 在跳转的新标签页中可看到如下图的界面，可以选择【密码登录】或者【密钥登录】两种方式进行登录。
-![](https://mc.qcloudimg.com/static/img/ed96f4638ad6b343ff38fc19452b8188/Snipaste_2018-02-02_18-20-17.png)
-
+![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
+3. 在【登录Linux实例】页面，选择【标准登录方式】。![](https://main.qcloudimg.com/raw/8c0fbe2b618902a3f57ae303517956ae.png)
+4. 在跳转的新标签页中可看到如下图的界面，可以选择【密码登录】或者【密钥登录】两种方式进行登录。
+![](https://main.qcloudimg.com/raw/f33c4591b249bbca1ddba3868aacc033.png)
 4. 若密码或密钥无误，将会通过系统验证，成功使用 Webshell 方式登录 Linux 云服务器。
 ![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
-
->**注意：**
->- 需要云服务器有公网 IP。
->- 需要云服务器打开 SSH 远程登录端口（默认 22）。
+4. 如果登录成功，WebShell界面会出现Socket connection established提示。
 
 
-## 使用 VNC 登录实例
-### 登录工具
+
+## 远程登录软件登录（Windows）
+
+以PuTTy软件为例，介绍如何使用远程登录软件通过密码或者密钥登录Linux实例。
+
+### 适用本地操作系统：
+
+Windows
+
+### 鉴权方式：
+
+密码 或 密钥
+
+### 使用密码登录
+
+#### 操作步骤：
+
+1. 安装 Windows 远程登录软件，参考[下载PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)。
+2. 使用 PuTTY 连接 Linux 云服务器。打开 PuTTY 客户端，在PuTTY Configuration 窗口中输入以下内容：
+  - Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP）。
+  - Port：云服务器的端口，必须填 22。（请确保云服务器 22 端口已开放，详见查看 [安全组](/doc/product/213/5221) 及 [网络ACL](/doc/product/215/5132)）
+  - Connect type：选择“ SSH ”。
+3. 输入完后，单击【Open】，创建一个新对话。
+  ![](//mccdn.qcloud.com/img56a5d38a4ffbc.png)
+4. 在 PuTTY 会话窗口中，输入前提条件中获得的管理员帐号，按回车键。再输入前提条件中获取的登录密码，回车完成登录过程。
+  ![](//mccdn.qcloud.com/img56a5d47b8b5da.png)
+
+>! 如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ,若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。
+
+### 使用密钥登录
+
+#### 操作步骤：
+1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
+2. 选择私钥。打开 puttygen.exe，单击【Load】按钮，在弹窗中首先进入您存放前提条件中下载下来的私钥的路径，然后选择“All File（\*.\*）”，选择下载好的私钥（例子中为文件david，david是密钥的名称），单击【打开】。
+![](//mccdn.qcloud.com/img56a5c48fb810a.png)
+3. 密钥转换。在 key comment 栏中输入密钥名，输入加密私钥的密码，单击【Save private key】，在弹窗中选择您存放密钥的目录，然后在文件名栏输入 密钥名 +".ppk"，单击【保存】按钮。
+![](//mccdn.qcloud.com/img56a5c4ff657cc.png)
+4. 打开 putty.exe ，进入【Auth】配置。
+![](//mccdn.qcloud.com/img56a5c61c61e42.png)
+5. 单击【Browse】按钮，打开弹窗后进入密钥存储的路径，并选择密钥，单击【打开】，返回配置界面，进入【Session】配置。
+  ![](//mccdn.qcloud.com/img56a5c67ea3edb.png)
+6. 在Session配置页中，配置服务器的IP，端口，连接类型。
+ - IP：云服务器的公网IP。登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP。
+ - 端口：云服务器的端口，必须填 22 。（请确保云服务器 22 端口已开放，详见查看 安全组 及 网络ACL）。
+7. 在【Saved Sessions】输入框中中输入会话名称（本例为 test ），再单击【Save】按钮，然后双击会话名称或者单击【Open】按钮发起登录请求。
+![](//mccdn.qcloud.com/img56a5c6bca781f.png)
+
+>! 如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络ACL](/doc/product/215/5132) 。 
+
+
+
+## 使用SSH登录（Linux/Mac OS）
+
+介绍本地为Linux/Mac OS系统的电脑通过SSH登录Linux实例。
+
+### 适用本地操作系统：
+
+Linux 或 Mac OS
+
+### 鉴权方式：
+
+密码 或 密钥
+
+### 使用密码登录
+#### 操作步骤：
+
+1. Mac OS 用户请打开系统自带的终端（Terminal）并输入以下命令，Linux 用户请直接运行以下命令：
+
+```
+ssh <username>@<hostname or IP address>
+```
+
+   其中：`username`即为前提条件中获得的管理员帐号， `hostname or IP address`为您的 Linux 实例公网 IP 或 自定义域名。
+	 
+
+2. 输入前提条件中获得的密码（此时仅有输入没有显示输出），回车后即可完成登录。
+
+### 使用密钥登录
+#### 操作步骤：
+
+1. Mac OS 用户请打开系统自带的终端（Terminal）并输入以下命令，Linux 用户请直接运行以下命令，赋予私钥文件仅本人可读权限。
+
+```
+chmod 400 <下载的与云服务器关联的私钥的绝对路径>
+```
+
+2. 运行以下远程登录命令：
+
+```
+ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<hostname or IP address>
+```
+
+   (其中：`username`即为前提条件中获得的管理员帐号， `hostname or IP address`为您的 Linux 实例公网 IP 或 自定义域名。例如：`ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx`）。
+
+## 使用VNC远程登录实例（不推荐）
+
 VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装远程登录客户端或者客户端远程登录无法使用的情况下，用户可以通过 VNC 登录连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作。
 
-VNC 登录的场景至少包括以下几种:
-- 查看云服务器的启动进度。
-- 无法通过客户端 SSH 或 mstsc 登录时，通过 VNC 登录来登录服务器 。
+### 使用限制：
 
+- 使用VNC登录暂时不支持复制粘贴功能、中文输入法以及文件的上传、下载。
+- 要使用VNC登录，需要使用主流浏览器，如Chrome，Firefox以及IE10以上版本。
+- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
 
-### 操作步骤
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】>【云计算与网络】>【云服务器】。
+### 适用本地操作系统：
 
-2. 如图所示进入云服务器列表，在需要登录的 Linux 云服务器中单击【登录】按钮。
+Windows，Linux和MacOS系统
+
+### 操作步骤：
+
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 。
+2. 在 “云服务器” 页面中，选择需要登录的 Linux 云服务器，单击【登录】。如下图所示：
   ![](https://mc.qcloudimg.com/static/img/0c9dd598a6b9405e43e54dd412fc7ffd/Snipaste_2018-02-02_18-32-54.png)
-	
-3. 在跳转的新标签页中可看到如下图的界面，由于中间的白色窗口是 Webshell 登录所使用的，因此单击白色窗口右上角的【x】以切换登录方式（如下图）。
-![](https://mc.qcloudimg.com/static/img/1ea9873436a2a0fbe6741a56b3f59a78/Snipaste_2018-02-02_18-44-59.png)
+3. 在弹出的 “登录Linux云服务器” 窗口中，选择 “其他方式（VNC）”，单击【立即登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/11316c461d7e0090ccbabd9373ce4735.png)
+4. 在弹出的对话框中，输入用户名和密码登录。
+>! 
+	- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
+	- 要正常使用 VNC 登录，需要使用主流浏览器，如：Chrome，firefox，IE10 及以上版本等。
+	- 暂不支持文件上传下载。
 
-4. 然后单击页面右上角的【其他登录方式】。
-  ![](https://mc.qcloudimg.com/static/img/1113ca3bde85dbc223a99f5a250d3088/%5E6AAAB397B29FEF3319E3BBD6157AB6D86C902D693A752276A2%5Epimgpsh_mobile_save_distr.jpg)
+## 登录后续操作
+当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作，相关操作可参考：<br>
+[搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 
-5. 在接下来的画面中将会弹出新的白色窗口，在窗口下方找到【浏览器 VNC 方式登录】一栏，然后单击其中的【立即登录】。
-  ![](https://mc.qcloudimg.com/static/img/cbf20e70e6c24f2348b4aa7e12c9225e/Snipaste_2018-02-02_18-47-05.png)
-	
-6. 完成以上步骤即可以成功使用 VNC 方式登录 Linux 云服务器。
-   ![](https://mc.qcloudimg.com/static/img/079533e90ee16b95a63e19064a742a64/%5EDD57BACBDC8B333FCD0FFD6CA385F54D9D9CD790697DEB8847%5Epimgpsh_mobile_save_distr.jpg) 
+[搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
 
-
->**注意：**
->- 该终端为独享，即同一时间只有一个用户可以使用 VNC 登录。
->- 要正常使用 VNC 登录，需要使用主流浏览器，如：chrome，firefox，IE10 及以上版本等。
->- 暂不支持文件上传下载。

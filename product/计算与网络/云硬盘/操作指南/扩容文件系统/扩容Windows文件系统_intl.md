@@ -8,7 +8,7 @@ In the two scenarios above, after your Windows cloud disk is successfully upgrad
 ## Prerequisites
 - You need to download [Partition Assistant](http://www.disktool.cn/).
 - Complete the [capacity expansion of cloud disk](/doc/product/362/5747).
-- If the cloud disk is not formatted and no file system is created, and the capacity is directly added to the original empty cloud disk, you can refer to [Partitioning, Formatting, and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734) 
+- If the cloud disk is not formatted and no file system is created, and the capacity is directly added to the original empty cloud disk, you can refer to [Partitioning, Formatting, and File System Creation on Windows System](https://intl.cloud.tencent.com/document/product/362/6734) 
 to perform subsequent operations.
 
 ## Formatting New Space as an Independent Partition

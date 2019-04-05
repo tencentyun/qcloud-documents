@@ -26,11 +26,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 ### 响应示例
 ```
 {
-	"code": 0,
-	"message": "",
-	"data": {
-		"taskId": <NAT异步任务ID>
-	}
+ "code": 0,
+ "message": "",
+ "data": {
+  "taskId": "<NAT异步任务ID>"
+ }
 }
 ```
 ### 响应参数

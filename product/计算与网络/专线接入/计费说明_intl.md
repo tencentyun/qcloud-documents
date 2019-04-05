@@ -2,11 +2,11 @@
 For Tencent Cloud physical Direct Connect, a one-off access fee of 2,500 USD is charged for each line.
 
 ## Billing of Direct Connect Tunnel
-The charge for Direct Connect tunnels depends on whether the physical direct connect access point and the VPC are located in the same city:
+The charge for Direct Connect tunnels depends on whether the physical direct connect access point and the VPC are located in the same region:
 
 - If they are in the same region, direct connect tunnel is free of charge.
-- If they are in different regions and both endpoints are within Mainland China (excluding Hong Kong, Macao and Taiwan), a fee for domestic and cross-region interconnection is charged.
-- If they are in different regions and at least one endpoint is located outside Mainland China (including Hong Kong, Macao and Taiwan), then consult with your business manager.
+- If they are in different regions and both endpoints are within Mainland China (excluding Hong Kong, Macao and Taiwan), a fee for inner-China cross-region interconnection is charged.
+ - If they are in different regions and at least one endpoint is located outside Mainland China (including Hong Kong, Macao and Taiwan), then consult with your sales rep.
 
 Special offer: Direct Connect tunnels between Beijing and Tianjin/Guangzhou and Shenzhen are free of charge until March 1, 2019. A further notice will be given before the end of the special offer.
 
@@ -37,5 +37,5 @@ The tiered unit prices corresponding to the bandwidth usage are shown as below:
 | 1000Mbps - 2000Mbps | 11            |
 | > 2000Mbps         | 10            |
 
-*For the data interoperability between Mainland China and other regions, consult with your business manager.*
+*For the data interoperability between Mainland China and other regions, consult with your sales rep.*
 

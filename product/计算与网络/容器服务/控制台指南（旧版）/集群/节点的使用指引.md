@@ -1,0 +1,94 @@
+节点是指一台已注册到集群内的云服务器，一个集群由 n 个节点组成。腾讯云容器服务支持新增节点到容器集群，同时也支持添加已有的节点到集群内。
+>**注意：**
+>当前添加已有节点功能仅支持与集群在同一 VPC (私有网络) 内的主机。
+
+## 前提条件
+如果之前没有创建过集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [新建集群](/doc/product/457/9091) 。
+
+## 扩展节点
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+2. 单击左侧导航栏中的【集群】 ，在集群列表中单击右侧 【新增节点】。
+![](https://mc.qcloudimg.com/static/img/6f842ea0270b86af8801b49f4073bf4b/image.png)
+3. 设置新建节点所属 **网络**、**机型** 和 **配置信息**。
+![](https://mc.qcloudimg.com/static/img/8a0438fb5a25298866264957d3932b09/image.png)
+4. 新添加的节点将出现在节点列表中。
+![](https://mc.qcloudimg.com/static/img/ac46f838fe7b70f8cecbe4b60944e3e3/image.png)
+
+## 添加已有节点
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+2. 单击左侧导航栏中的【集群】 ，在集群列表中单击右侧 【添加已有节点】。
+![](https://mc.qcloudimg.com/static/img/f0b39ebea4f0edf6b54c2d813d79587f/image.png)
+3. 在左侧可用节点列表栏选择要添加的节点，选择的节点 ID 将显示在右侧已选择栏。
+![](//mc.qcloudimg.com/static/img/991fc9fe1e65e0ab3c80c49043ac639b/image.png)
+4. 填写云服务器配置。提供三种对应登录方式。
+ - **设置密码**：请根据提示设置对应密码。
+ - **立即关联密钥**：密钥对是通过一种算法生成的一对参数，是一种比常规密码更安全的登录云服务器的方式。详细参阅 [SSH 密钥](/doc/product/213/503) 。
+ - **自动生成密码**：自动生成的密码将通过站内信发送给您。
+![](//mc.qcloudimg.com/static/img/54696123752de29c95f72e4345de7afb/image.png)
+5. 单击【完成】，新添加的节点将出现在节点列表中。
+![](//mc.qcloudimg.com/static/img/0dbd5ce537c8f97f90545d40d45aeafb/image.png)
+>**注意：**
+>1. 当前仅支持添加同一 VPC 下的云服务器。
+>2. 添加存量的云服务器到集群，将重装该云服务器的操作系统。
+
+## 查看节点信息
+1. 在集群列表中，单击集群的 **ID/名称** （如 cls-098dghzt）。
+![](https://mc.qcloudimg.com/static/img/95bb9c61973221b3d0cd40e8e84326f2/image.png)
+2. 进入**节点列表**查看集群节点信息。
+![](https://mc.qcloudimg.com/static/img/d6ea88d3ffd8127d6e052b5a4ff14fa3/image.png)
+
+## 移出节点
+1. 在集群列表中，单击集群的 **ID/名称** （如 cls-098dghzt）。
+![](https://mc.qcloudimg.com/static/img/95bb9c61973221b3d0cd40e8e84326f2/image.png)
+2. 进入**节点列表**页面，单击右侧【移出】。
+![](https://mc.qcloudimg.com/static/img/08f4bafe5a866cdb472234a25f95ee0f/image.png)
+3. 弹出提示页面，显示要移出的节点信息，单击【确定】删除节点。
+![](https://mc.qcloudimg.com/static/img/96ff26792f78dfb550ad5296e84f7f5e/image.png)
+
+## 封锁（cordon）节点
+封锁节点后，将不接受新的 Pod 调度到该节点，需要手动取消封锁的节点。
+### 方法一 
+在新增节点时在高级设置中勾选封锁节点，用于先进行业务所需的初始化操作。
+![][1]
+
+### 方法二
+在节点列表页对选中节点进行封锁。
+![][2]
+
+## 取消封锁（uncordon）节点
+取消封锁节点后，将允许新的 Pod 调度到该节点。
+### 方法一
+在新增节点时的脚本中添加取消封锁的命令。
+如下，执行完成您的自定义命令后，再执行 kubectl uncordon 的命令，即可取消封锁节点。
+```shell
+#!/bin/sh
+# your initialization script
+echo "hello world!"
+
+
+# If you set unschedulable when you create a node, 
+# after executing your initialization script, 
+# use the following command to make the node schedulable.
+node=`ifconfig eth0 | grep inet | awk '{print $2}' | tr -d "addr:"`
+#echo ${node}
+kubectl uncordon ${node} --kubeconfig=/root/.kube/config
+
+```
+### 方法二
+在节点列表页对已封锁的节点进行取消封锁。
+![][3]
+
+## 驱逐（drain）节点
+驱逐可以用于在节点上执行维护之前安全地从节点中逐出 Pod，节点驱逐后，将会把节点内的所有 Pod（不包含 DaemonSet 管理的 Pod）从节点中驱逐到集群内其他节点，并将节点设置为封锁状态。对应 kubectl 的 drain 命令。
+
+> **注意：**
+本地存储的 Pod 被驱逐后数据将丢失，请谨慎操作。
+
+### 操作方法
+在节点列表页对需要维护的节点进行驱逐操作。
+![][4]
+
+[1]:https://main.qcloudimg.com/raw/e7e73745c1f08d6ed0d1e051f1f32789.png
+[2]:https://main.qcloudimg.com/raw/15aa4c05898b04be8c76b02c87d3c752.png
+[3]:https://main.qcloudimg.com/raw/aae86e2d0fe900ed7b403b94ffd62529.png
+[4]:https://main.qcloudimg.com/raw/80a25f15f92ed3253c264e0d6cfce355.png

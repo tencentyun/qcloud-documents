@@ -28,4 +28,3 @@ This section describes how to purchase protection services in Tencent Cloud Aegi
 3. On the purchase page, choose the protection scope, number of IPs, region, peak bandwidth for protection, peak bandwidth for elastic protection, quantity and duration based on the actual conditions and needs;
 4. After confirming the order, make the payment;
 5. After the payment is made, wait for 1 to 5 minutes before you can see the high-defense packet resources on the DDoS high-defense packet management page where you can perform subsequent configuration and management.
-

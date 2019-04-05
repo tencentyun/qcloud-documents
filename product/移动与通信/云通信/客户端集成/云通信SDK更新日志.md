@@ -132,7 +132,7 @@
 
 **接口变更：**
 1. TIMMessageOfflinePushSettings.AndroidSettings 及 TIMMessageOfflinePushSettings.IOSSettings 构造方式变更。
-详情请参见官网文档（https://cloud.tencent.com/document/product/269/3899）
+详情请参见官网文档 [离线推送](https://cloud.tencent.com/document/product/269/3899) 文档。
 
 #### IM Android SDK 2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码 6205）
@@ -175,13 +175,12 @@
 
 #### IM SDK 2.3 2016-9-13
 1. 支持同一 appid 多应用消息推送
-2. Android 版本增加 google 推送支持（FCM实现）
-3. Android 版本增加带回调的 setOfflinePushToken 接口
-4. 消息删除逻辑优化，拉取消息时，自动过滤状态为DELETED的消息
-5. iOS 版本将数据库文件从 Library/Caches/ 子目录搬迁到 Document/ 子目录，避免被系统清除
-6. iOS 版本可以添加和删除多个 TIMMessageListener
-7. iOS 版本对常驻线程进行统一命名
-8. 获取会话列表接口，自动过滤消息数为0的会话
+2. Android 版本增加带回调的 setOfflinePushToken 接口
+3. 消息删除逻辑优化，拉取消息时，自动过滤状态为DELETED的消息
+4. iOS 版本将数据库文件从 Library/Caches/ 子目录搬迁到 Document/ 子目录，避免被系统清除
+5. iOS 版本可以添加和删除多个 TIMMessageListener
+6. iOS 版本对常驻线程进行统一命名
+7. 获取会话列表接口，自动过滤消息数为0的会话
 
 #### IM Web SDK 1.6 2016-8-15
 1. Web 广播消息需求

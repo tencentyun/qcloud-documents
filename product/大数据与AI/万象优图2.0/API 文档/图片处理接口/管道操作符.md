@@ -1,0 +1,36 @@
+## 简介
+腾讯云数据万象的管道操作符“|”能够实现对图片按顺序进行多种处理。用户可以通过管道操作符将多个处理参数分隔开，从而实现在一次访问中按顺序对图片进行不同处理。目前支持大小在 20M 以内、长宽小于 9999 像素的图片处理。
+
+## 接口形式
+用户在图片 url 链接后以样式分隔符“？”与处理样式相连接，多个处理样式之间以管道操作符“|”分隔，样式按照先后顺序执行，目前最多支持三层管道。
+
+## 示例
+````
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/thumbnail/!50p|watermark/2/text/Q0xPVUQgSU1BR0U=/gravity/southeast/fontsize/30/fill/IzAwMDAwMA==
+````
+
+该示例会先将原图做 50% 的缩放，之后再在右下角添加“Cloud Data Processing”的文字水印。
+首先，原图 url 为 
+````
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg
+````
+
+图片如下：
+![](https://main.qcloudimg.com/raw/77a16fa70e2eba652fb42e8a639c52f2.jpg)
+
+增加缩放操作的 url 为
+````
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/thumbnail/!50p
+````
+
+图片如下:
+![](https://main.qcloudimg.com/raw/88304b1ca69938f579225e3e76e290cb.jpg)
+
+之后使用管道操作符再添加文字水印的样式处理，url 为
+
+````
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/thumbnail/!50p|watermark/2/text/5pWw5o2u5LiH6LGh/fill/I0ZGRkZGRg==/fontsize/30/dx/20/dy/20
+````
+
+图片最终处理效果如下：
+![](https://main.qcloudimg.com/raw/9bc40115f6d6e0b0800f42a5bd02ef5a.jpeg)

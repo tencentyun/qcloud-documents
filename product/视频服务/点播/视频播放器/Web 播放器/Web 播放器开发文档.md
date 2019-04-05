@@ -30,6 +30,7 @@ options 对象可配置的参数：
 |  languages|  Object|  无|  设置多语言词典|  
 |  controlBar|  Object|  无|  设置控制栏属性的参数组合，后面有详细介绍|  
 |  plugins|  Object|  无|  设置插件功能属性的参数组合，后面有详细介绍|  
+|  hlsConfig|  Object|  无|  hls.js 的启动配置，详细内容请看官方文档 [hls.js](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)|  
 
 #### controlBar 参数列表
 controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
@@ -46,6 +47,8 @@ controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
 |  fullscreenToggle|  Boolean|  true|  是否显示全屏按钮|  
 |  QualitySwitcherMenuButton|  Boolean|  true|  是否显示清晰度切换菜单|  
 
+>**注意事项：**
+> * controlBar 参数在浏览器劫持播放的状态下将无效。[什么是劫持播放？](https://cloud.tencent.com/document/product/266/1303#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)
 
 #### plugins 插件参数列表
 plugins 参数可以配置播放器插件的功能，支持的属性有：
@@ -80,7 +83,7 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  videoHeight()|  无|  (Number)|  获取视频分辨率的高度|  
 |  dispose()|  无|  无|  销毁播放器|  
 
->**注意事项：** 
+>**注意事项：**
 > * 对象方法不能同步调用，需要在相应的事件（例如 loadedmetadata ）触发后才可以调用，除了ready、on、one、off。
 
 ## 事件
@@ -112,7 +115,7 @@ player.on(type, function);
 |  waiting|  播放停止，下一帧内容不可用时触发|  
 |  ended|  视频播放已结束时触发。此时 currentTime 值等于媒体资源最大值|  
 |  resolutionswitching|  清晰度切换进行中|  
-|  resolutionswitched|  清晰度切换完毕|
+|  resolutionswitched|  清晰度切换完毕|  
 |  fullscreenchange| 全屏状态切换时触发|
 
 ## 错误码
@@ -130,4 +133,8 @@ player.on(type, function);
 |  10|  点播服务接口请求超时|  
 |  11|  点播服务接口没有响应|  
 |  12|  点播服务接口返回异常数据|  
-|  13|  点播视频没有转码，需在点播控制台进行转码|  
+|  13|  点播视频没有转码，需在点播控制台进行转码|
+|  14|  HTML5 + hls.js 模式下播放 hls 出现网络异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Network Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#network-errors)|  
+|  15|  HTML5 + hls.js 模式下播放 hls 出现多媒体异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Media Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#media-errors)|  
+|  16|  HTML5 + hls.js 模式下播放 hls 出现多路复用异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Mux Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#mux-errors)|  
+|  17|  HTML5 + hls.js 模式下播放 hls 出现其他异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Other Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#other-errors)|  

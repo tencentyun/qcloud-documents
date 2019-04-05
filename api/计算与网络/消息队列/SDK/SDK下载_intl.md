@@ -24,7 +24,7 @@ Instructions for endpoint:
 	
 Private network endpoint: `http://cmq-queue-region.api.tencentyun.com`
 
-Public network endpoint: `http(s)://cmq-queue-region.api.qcloud.com`
+Public network endpoint: `https://cmq-queue-region.api.qcloud.com`
 
 - If the business process is also deployed on a Tencent Cloud CVM, we strongly recommend that you use a private network endpoint in the same region. For example, if your business process is deployed on a CVM of Tencent Cloud in Beijing, we recommend that you use `http://cmq-queue-bj.api.tencentyun.com`.
 Reasons: 1) The latency is lower for a private network in the same region; 2) Currently, message queue charges a fee for the downstream traffic of public networks, so using a private network can save the cost.

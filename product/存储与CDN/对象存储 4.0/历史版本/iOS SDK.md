@@ -8,11 +8,8 @@
 ### SDK 获取
 
 对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git)
-
-[iOS SDK 本地下载]( https://github.com/tencentyun/COS_iOS_SDK/archive/master.zip)
-
 更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git)
-（本版本SDK基于JSON API封装组成）
+（本版本 SDK 基于 JSON API 封装组成）
 
 ### 开发准备
 
@@ -440,7 +437,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
 | attrs      | NSString * | 否    | 文件自定义属性                              |
 | directory  | NSString * | 是    |文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。              |
-| insertOnly | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
 
 #### 返回结果说明
 
@@ -681,7 +678,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | fileName        | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
 | attrs           | NSString * | 否    | 文件自定义属性                              |
 | directory       | NSString * | 是    | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。              |
-| insertOnly      | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
 
 
 #### 返回结果说明
@@ -737,7 +734,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
 | attrs      | NSString * | 否    | 文件自定义属性                              |
 | directory  | NSString * | 是    | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。               |
-| insertOnly | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
 
 #### 返回结果说明
 

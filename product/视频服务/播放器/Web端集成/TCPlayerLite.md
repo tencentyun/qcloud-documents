@@ -1,6 +1,6 @@
 ## 功能介绍
 
-腾讯云 Web 播放器主要解决在手机浏览器和 PC 浏览器上播放音视频流的问题，使您的视频内容可以不依赖用户安装 App 就可以在朋友圈、微博等社交平台进行传播，本文档适合有一定 Javascript 语言基础的开发人员阅读。
+腾讯云 Web 超级播放器 TCPlayerLite 主要解决在手机浏览器和 PC 浏览器上播放音视频流的问题，使您的视频内容可以不依赖用户安装 App 就可以在朋友圈、微博等社交平台进行传播，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 基础知识
 对接之前先要了解如下的基础知识，非常有必要：
@@ -10,7 +10,7 @@
 点播是指视频源是一个服务器上的文件，文件只要没有被提供方删除，就随时可以播放， 而且由于整个视频都在服务器上，所以播放器在播点播视频的时候是有进度条的。
 
 - **协议的支持**
-Web 播放器的视频播放能力本身不是网页代码实现的，而是靠浏览器的支持，所以其兼容性并不像我们想象的那么好，您必须要接受一个事实：**不是所有的手机浏览器都能有符合预期的表现**，有些手机浏览器甚至根本就不支持视频播放。最常见的用于网页直播的视频源地址是以 m3u8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，由于苹果的影响力，目前各手机浏览器产品对这种格式的兼容性最好，但它有个天然的问题，就是延迟比较大，一般是 20-30 秒左右的延迟，在手机浏览器上我们并没有其它选择。
+TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠浏览器的支持，所以其兼容性并不像我们想象的那么好，您必须要接受一个事实：**不是所有的手机浏览器都能有符合预期的表现**，有些手机浏览器甚至根本就不支持视频播放。最常见的用于网页直播的视频源地址是以 m3u8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，由于苹果的影响力，目前各手机浏览器产品对这种格式的兼容性最好，但它有个天然的问题，就是延迟比较大，一般是 20-30 秒左右的延迟，在手机浏览器上我们并没有其它选择。
 
  在 PC 上情况会好很多，因为 PC 上的浏览器目前还没有抛弃 flash 控件，而 flash 控件不追求洁癖，支持的视频源格式挺多的，而且各浏览器上的 flash 控件都是 Adobe 自己开发，所以兼容性非常好。
 ![](//mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
@@ -24,7 +24,7 @@ Web 播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ```
 
 >**注意：**
->**直接用本地网页是调试不了的，**因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -78,13 +78,13 @@ var player =  new TcPlayer('id_test_video', {
 如果是点播 URL，那要检查您要播放的文件是否还在服务器上，比如要播放的地址是否已经被其它人从点播系统移除。
 
 - **原因二：本地网页调试**
-目前腾讯云的 Web 播放器是不支持本地网页去调试的（即通过`file://`协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个`test.html`文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
+目前 TCPlayerLite 是不支持本地网页去调试的（即通过 file:// 协议来打开视频播放的网页），主要是浏览器有跨域安全限制，所以您如果是在 Windows 上随便放一个 test.html 文件然后测试是肯定播放不了的，需要将其上传到一个服务器上进行测试。前端工程师可以通过反向代理的方式对线上的页面进行本地代理以实现本地调试，这是主流可行的本地调试办法。
 
 - **原因三：手机兼容问题**
 FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的 QQ 浏览器支持 FLV 协议的播放，但普及度还不高），只能用 HLS（m3u8)。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件`crossdomain.xml`中增加`qq.com`域名：
+PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件 crossdomain.xml 中增加 qq.com 域名：
 ```xml
 <cross-domain-policy>
 <allow-access-from domain="*.qq.com" secure="false"/>
@@ -102,7 +102,7 @@ coverpic 可以传入一个图片地址作为播放器的封面，将在播放�
 "coverpic" : "http://www.test.com/myimage.jpg"
 ```
 #### 4.2 设置封面的展现样式
-coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。<br>
+coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
 
 style 支持的样式有 3 种：
 - default：居中并且以图片的实际分辨率进行显示；
@@ -170,7 +170,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 **PC 端现已支持多种清晰度播放并支持切换的功能，移动端尚未支持。**
 
 ### Step 6：定制错误提示语
-我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
+我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
 #### 6.1 代码实现
 如下是让播放器支持自定义提示语的核心代码，设置的提示语主要落在 wording 属性上。
@@ -231,25 +231,25 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
-| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
-| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
-| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
-| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
-| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例： `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
-| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
-| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
-| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
-| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
-| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
-| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
+| m3u8            | String   | 无       |  原画 m3u8 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535a.m3u8  |
+| m3u8_hd         | String   | 无       |  高清 m3u8 播放URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8  |
+| m3u8_sd         | String   | 无       |  标清 m3u8 播放URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8  |
+| flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535a.flv  |
+| flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535ahd.flv  |
+| flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535asd.flv  |
+| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
+| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
+| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
+| rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
+| rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
+| rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
 | width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素   <br> 示例：640   |
 | height          | Number   | 无       | **必选**，设置播放器高度，单位为像素   <br> 示例：480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例：0.6   |
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放<br>**备注：该选项只对大部分 PC 平台生效**  <br> 示例：  true |
-| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "`http://www.test.com/myimage.jpg`" <br>或者<br>{"style": "cover", "src": h`ttp://www.test.com/myimage.jpg`} |
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 **备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html) ** <br> 示例："system"  |
+| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": http://www.test.com/myimage.jpg} |
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)  <br> 示例："system"  |
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url <br>**备注：该选项只对 PC 平台生效** [v2.2.1+]  |
@@ -280,7 +280,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>**备注：只适用于点播** | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
-|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 rtmp、flv、hls、mp4 ，H5 模式支持 mp4、hls、flv（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load('http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4')  |
+|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 rtmp、flv、hls、mp4 ，H5 模式支持 mp4、hls、flv（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load(http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4)  |
 
 >**注意：**
 >**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
@@ -289,7 +289,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 这里介绍一些视频播放器 SDK 的进阶使用方法。
 
 ### 使用广告SDK
-TcPlayer 提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
+TCPlayerLite 提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
 
 ```
 <!-- Google IMA SDK  -->
@@ -298,7 +298,7 @@ TcPlayer 提供了集成 IMA SDK 的版本，若需使用广告功能，需在�
 <script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
 ```
 
-通过 adTagUrl 和 auth 参数使用广告功能，帐号及 License 信息可登录 `https://tcplayer.qcloud.com` 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
+通过 adTagUrl 和 auth 参数使用广告功能，帐号及 License 信息可登录 https://tcplayer.qcloud.com 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
 
 ```
 var player = new TcPlayer('id_test_video', {
@@ -315,21 +315,21 @@ var player = new TcPlayer('id_test_video', {
 >TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
 
 ### ES Module
-TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
+TCPlayerLite 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.2.js
 ```
 ### 开启优先 H5 播放模式
-TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
+TCPlayerLite 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
 
-虽然目前浏览器厂商已经开始逐步放弃对 Flash 插件的支持，但是在国内仍有大量的浏览器不支持 MSE，在播放 FLV HLS（m3u8）时无法切换到 H5 `<video>`的播放模式，而播放 RTMP 必须使用 Flash 模式才可以播放，因此 TcPlayer 仍是默认优先启用 Flash 播放模式，如果在检测到 Flash 插件不可用的情况下，将采用 H5 `<video>`进行播放。
+虽然目前浏览器厂商已经开始逐步放弃对 Flash 插件的支持，但是在国内仍有大量的浏览器不支持 MSE，在播放 FLV HLS（m3u8）时无法切换到 H5 `<video>`的播放模式，而播放 RTMP 必须使用 Flash 模式才可以播放，因此 TCPlayerLite 仍是默认优先启用 Flash 播放模式，如果在检测到 Flash 插件不可用的情况下，将采用 H5 `<video>`进行播放。
 
 默认 Flash 模式的原因是 Flash 支持的视频格式最广，而 H5 `<video>`默认只支持 MP4（h.264）（其他非腾讯云提供的视频格式这里就不列出），在特定条件下才能支持HLS（m3u8）、FLV。
 
 从 2.2.0 版本开始，提供了可以设置播放模式优先级的属性，如果想优先采用 H5 `<video>`播放模式，需要把 Flash 属性设置为 false ，这样在播放时默认将启用 H5 `<video>`播放，如果 H5 `<video>`不可用将采用 Flash 播放，没有检测到 Flash 插件将会提示“当前系统环境不支持播放该视频格式”。
 
 ### 监听事件
-TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5 `<video>` 的规范为准，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，TcPlayer 对这两种播放方式所触发的原生事件进行了捕获和透传。
+TCPlayerLite 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5 `<video>` 的规范为准，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，TcPlayer 对这两种播放方式所触发的原生事件进行了捕获和透传。
 
 [H5 事件参考列表](https://www.w3.org/wiki/HTML/Elements/video#Media_Events)
 [Flash 事件参考列表](http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NetStatusEvent.html)
@@ -356,7 +356,7 @@ volumechange
 >**注意：**
 >如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
 
-Flash 模式下特有的事件：`netStatus`
+Flash 模式下特有的事件：netStatus
 
 **备注：由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
 
@@ -371,7 +371,7 @@ Flash 模式下特有的事件：`netStatus`
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
 
 ## 更新日志
-TcPlayer 在不断的更新以及完善中，为了方便大家了解版本情况，下面列出的是 TcPlayer 发布的主版本介绍，而一些历史 bug 修复，小功能版本没有列出。
+TCPlayerLite 在不断的更新以及完善中，为了方便大家了解版本情况，下面列出的是 TCPlayerLite 发布的主版本介绍，而一些历史 bug 修复，小功能版本没有列出。
 
 | 日期             | 版本     | 更新内容
 |-----------------|--------- |-------------------------------------------- |

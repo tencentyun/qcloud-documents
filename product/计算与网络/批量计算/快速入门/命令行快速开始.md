@@ -1,6 +1,6 @@
 
 ## 一个最简单的例子
-本例介绍如何使用命令行来提交一个简单的作业，例子是用 Python 实现的对斐波那契数列求和，代码直接由 Batch 提供的任务命令配置部分输入，结果直接输出到任务配置的 stdout 输出地址上。
+本例介绍如何使用命令行来提交一个简单的作业，例子是用 Python 实现的对斐波那契数列求和，Python 代码由任务中 Application 参数的 Command 字段指定，结果直接输出到任务配置的 stdout 输出地址上。
 
 ## 开始前的准备
 开始前请根据文档 [开始前的准备](
@@ -24,8 +24,7 @@ DescribeJobs                            	|TerminateTaskInstance
 
 ## 作业配置简介
 
-您可以从官方提供的例子来修改出一个在您的账号下可执行的 Batch 作业配置，在这之前先看一下作业的配置项各代表什么含义。
-
+您可以将官方提供的例子修改为在您的账号下可执行的 Batch 计算环境。在此之前，请先查看计算环境配置的各项含义。
 ```
 qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
     "JobName": "TestJob",       // 作业名称
@@ -57,16 +56,15 @@ qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
 }'
 ```
 
-Batch 的 SubmitJob 命令包含 3 个参数
-* **Version**：版本号，目前固定填写 2017-03-12
-* **Job**：作业配置，JSON 格式，详细字段意义见示例
-* **Placement**：执行作业的可用区
+Batch 的 SubmitJob 命令包含3个参数
+- **Version**：版本号，目前固定填写2017-03-12
+- **Job**：作业配置，JSON 格式，详细字段意义见示例
+- **Placement**：执行作业的可用区
 
-``* 1. Job 里标识需替换的字段，需要替换成用户自己的信息后才可以执行，比如自定义镜像 Id，VPC相关信息，COS Bucket 地址和对应 SecretId、SecretKey。``
 
-``* 2. 上面的例子加入了注释文字，因此无法直接在命令行工具运行，请复制下方的示例然后填写完『待填写』字段后再执行。命令较长，请使用后方复制按钮防止复制不完整。``
-
-``* 3. 详细 Job 配置说明请参考 `` [作业配置说明](https://cloud.tencent.com/document/product/599/11040) ``。``
+1. Job 里标识需替换的字段，需要替换成用户自己的信息后才可以执行，比如自定义镜像 Id，VPC 相关信息，COS Bucket 地址和对应 SecretId、SecretKey。
+2. 上面的例子加入了注释文字，因此无法直接在命令行工具运行，请复制下方的示例然后填写完『待填写』字段后再执行。命令较长，请使用后方复制按钮防止复制不完整。
+3. 详细 Job 配置说明请参考 [作业配置说明](https://cloud.tencent.com/document/product/599/11040) 。
 
 ```
 qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
@@ -75,13 +73,18 @@ qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "
 ### 修改配置
 
 #### 1. 填写 ImageId
-```"ImageId": "待替换"```
+
+```
+"ImageId": "待替换"
+```
 
 内测需要使用基于 Cloud-init 服务和配置过的镜像，官方提供 CentOS 6.5 的可直接使用镜像，镜像 ID 是 img-m4q71qnf，Windows Server 2012 的官方镜像 ID 是 img-er9shcln。
 
 #### 2. 配置 StdoutRedirectPath 和 StderrRedirectPath
-```"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"```
 
+```
+"StdoutRedirectPath": "待替换", "StderrRedirectPath": "待替换"
+```
 将您在前置准备里创建 COS Bucket 的访问地址填写到 StdoutRedirectPath 和 StderrRedirectPath 中。
 
 #### 3. 修改可用区（可选）
@@ -89,10 +92,11 @@ qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "
 --Placement '{"Zone": "ap-guangzhou-2"}'
 ```
 
-例子中指定在广州二区申请资源，您可以根据您在命令行工具配置的默认地域，选择相应的可用区申请资源，地域和可用区的详细信息请查看[地域和可用区>>](/doc/product/213/6091)。
+例子中指定在广州二区申请资源，您可以根据您在命令行工具配置的默认地域，选择相应的可用区申请资源，地域和可用区的详细信息请查看 [地域和可用区>>](/doc/product/213/6091)。
 
-#### 4. Windows下命令行输入JSON格式修改（可选）
-Windows 下的命令行工具输入 JSON 格式数据会区别于 Linux，比如 " 号需要替换成 \"，详细请见 [快速使用腾讯云命令行工具](/doc/product/440/6185) 的 『JSON 格式作为入参』章节。
+#### 4. Windows下命令行输入JSON格式（可选）
+
+Windows 下的命令行工具输入 JSON 格式数据不同于 Linux，比如 双引号(")需要用反斜杠(\\)方式表示，详细请见 [快速使用腾讯云命令行工具](/doc/product/440/6185) 的 『JSON 格式作为入参』章节。
 
 ## 查看结果
 
@@ -137,8 +141,8 @@ $ qcloudcli batch DescribeJobs  --Version 2017-03-12
 
 这个是一个最简单的例子，它是一个单任务的作业，也没有使用到远程存储映射能力，仅仅是向用户展示最基本的能力，您可以根据 API 说明文档继续测试 Batch 更高阶的能力。
 
-* **更简单的操作方法**：Batch 的能力强大，配置项较多，通过脚本来调用会更加简便快捷，从 [前置准备](/doc/product/599/10548) 和 [1_简单开始](/doc/product/599/10551) 开始尝试这种方式。
+* **更简单的操作方法**：Batch 的能力强大，配置项较多，通过脚本来调用会更加简便快捷，从 [前置准备](/doc/product/599/10548) 和 [简单开始](/doc/product/599/10551) 开始尝试这种方式。
 
-* **执行远程代码包**：Batch 提供**自定义镜像 + 远程代码包 + 命令行**的方式，在技术上全方位的覆盖您的业务需要，详细查看 [2_执行远程代码包](/doc/product/599/10552)。
+* **执行远程代码包**：Batch 提供**自定义镜像 + 远程代码包 + 命令行**的方式，在技术上全方位的覆盖您的业务需要，详细查看 [执行远程代码包](/doc/product/599/10552)。
 
-* **远程存储映射**：Batch 在存储访问上进行优化，将对远程存储服务的访问简化为对本地文件系统操作，详细查看 [3_远程存储映射](/doc/product/599/10983)。
+* **远程存储映射**：Batch 在存储访问上进行优化，将对远程存储服务的访问简化为对本地文件系统操作，详细查看 [远程存储映射](/doc/product/599/10983)。
