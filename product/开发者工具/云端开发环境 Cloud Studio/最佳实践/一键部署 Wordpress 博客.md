@@ -2,6 +2,26 @@
 一键部署可以帮助您快速部署动态（PHP，支持 MySQL）或静态网站，可用于部署 Wordpress、CMS、Vuepress、Hexo 等应用。本文指导您在云端开发环境 Cloud Studio 控制台中，通过一键部署快速搭建一个 Wordpress 站点。
 静态网站部署请参考 [一键部署静态网站](https://cloud.tencent.com/document/product/1039/34041)。
 
+## 限制条件
+- 一键部署的磁盘空间和数据库空间限制都是128MB，部署文件的限制是100MB，超出会导致部署出错。
+- 一键部署禁止访问外网，在后台无法安装插件、主题，如需安装请使用上传的方式进行。
+- 由于安全原因，一键部署禁了以下函数，请避免使用：
+ - exec
+ - passthru
+ - shell_exec
+ - system
+ - proc_open
+ - popen
+ - show_source
+ - curl_exec
+ - curl_multi_exec
+ - stream_socket_client
+ - putenv
+ - dl
+ - fsockopen
+ - pfsockopen
+
+
 ## 操作步骤
 ### 创建工作空间
 1. 登录云端开发环境 Cloud Studio 控制台。
@@ -48,23 +68,4 @@
 
 #### 强制 HTTPS 访问
 一键部署会自动申请证书，强制 HTTPS 访问，这有助于提高您的网站安全性。请**不要随意更改 DNS 配置**，否则将有可能导致证书续期失败。
-
-#### 限制说明
-- 一键部署的磁盘空间和数据库空间限制都是128MB，部署文件的限制是100MB，超出会导致部署出错。
-- 一键部署禁止访问外网，在后台无法安装插件、主题，如需安装请使用上传的方式进行。
-- 由于安全原因，一键部署禁了以下函数，请避免使用：
- - exec,
- - passthru
- - shell_exec
- - system
- - proc_open
- - popen
- - show_source
- - curl_exec
- - curl_multi_exec
- - stream_socket_client
- - putenv
- - dl
- - fsockopen
- - pfsockopen
 
