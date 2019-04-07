@@ -1,18 +1,18 @@
-### 常见错误码
+API 网关常见错误码如下：
 
 | 错误码 | 日志中错误提示                                               | 说明                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 401    | HMAC apikey is invalid for API                               | APIKey没有绑定到该API                                        |
-| 401    | HMAC signature cannot be verified, a valid x-date header is required for   HMAC Authentication | Hmac认证时没有在header中带上x-date，或者其值非法             |
-| 401    | HMAC signature cannot be verified, the x-date header is out of date for   HMAC Authentication | x-date时间戳超时，默认900s                                   |
-| 401    | HMAC signature cannot be verified, a valid date or x-date header is   required | 如果没有x-date, 那么需要header中包含date                     |
-| 401    | HMAC id or signature missing                                 | Authorization中id或者signatrue字段缺失                       |
-| 401    | HMAC do not support multiple HTTP header                     | 不支持一个header包含多个值的形式                             |
-| 401    | HMAC signature cannot be verified, a valid xxx header is required | 请求中缺少xxx header                                         |
-| 401    | HMAC algorithm xxx not supported                             | Hmac算法不支持,目前支持hmac-sha1, hmac-sha256，hmac-sha384, hmac-sha512 |
-| 401    | HMAC authorization format error                              | Authorization格式错误                                        |
-| 401    | HMAC authorization headers is invalidate                     | Authorization缺少足够的参数，请参考说明文档                  |
-| 401    | HMAC signature cannot be verified                            | 无法检验签名，可能原因为apikey无法识别      通常是APIKEY没有绑定到这个服务或者没有绑定到这个API |
+| 401    | HMAC apikey is invalid for API                               | APIKey没有绑定到该 API。                                        |
+| 401    | HMAC signature cannot be verified, a valid x-date header is required for   HMAC Authentication | Hmac 认证时没有在 header 中带上  x-date，或者 Hmac 值非法。             |
+| 401    | HMAC signature cannot be verified, the x-date header is out of date for   HMAC Authentication | x-date 时间戳超时，默认为900s。                                   |
+| 401    | HMAC signature cannot be verified, a valid date or x-date header is   required | 如果没有 x-date，则 header 中包含 date。        |
+| 401    | HMAC id or signature missing                                 | Authorization 中 ID 或者 signatrue 字段缺失。                       |
+| 401    | HMAC do not support multiple HTTP header                     | 不支持一个 header 包含多个值的形式。                             |
+| 401    | HMAC signature cannot be verified, a valid xxx header is required | 请求中缺少 xxx header。                                         |
+| 401    | HMAC algorithm xxx not supported                             | Hmac算法不支持 xxx，目前支持 hmac-sha1、hmac-sha256、hmac-sha384、hmac-sha512。 |
+| 401    | HMAC authorization format error                              | Authorization 格式错误。                                        |
+| 401    | HMAC authorization headers is invalidate                     | Authorization 缺少足够的参数，请参考说明文档。                  |
+| 401    | HMAC signature cannot be verified                            | 无法检验签名，可能原因为 apikey 无法识别      通常是 APIKEY 没有绑定到这个服务或者没有绑定到这个API |
 | 401    | HMAC signature does not match                                | 签名不一致                                                   |
 | 401    | Oauth call authentication server fail.                       | 调用认证服务器失败                                           |
 | 401    | Oauth found no related Oauth api                             | 没有查到关联的Aouth认证api, 无法认证id_token                 |
