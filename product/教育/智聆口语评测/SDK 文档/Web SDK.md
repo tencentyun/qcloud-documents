@@ -22,8 +22,8 @@ New TencentSOE
 | WorkMode      | Integer  | 上传方式：语音输入模式，0流式分片，1非流式一次性评估。 | 否 | 0 |
 | EvalMode      | Integer  | 评估模式，0:词模式, 1:句子模式。 | 否 | 0 |
 | ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段。 | 否 | 3.5 |
-| SoeAppId      | String   | 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数。 | 否 | 无 |
-| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片TransmitOralProcess 返回结果 AudioUrl 字段 。| 否 | 无 |
+| SoeAppId      | String   | 业务应用 ID，与账号应用 APPID 无关，是用来方便客户管理服务的参数。 | 否 | 无 |
+| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 。| 否 | 无 |
 | ServerType    | Integer  | 评估语言，0：英文，1：中文 。| 否 | 0 |
 | success       | function | 创建成功回调。| 否 | 无 |
 | error         | function | 创建失败回调。 | 否 | 无 |
