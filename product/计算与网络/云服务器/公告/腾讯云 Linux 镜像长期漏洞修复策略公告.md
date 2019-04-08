@@ -67,6 +67,4 @@ Debian 官方维护两个主要分支系统：stable 和 oldstable，其中 stab
 - FreeBSD 10.1 64位（ FreeBSD 官方已停止维护）
 
 ### 商业版系统
-腾讯云不提供对商业版本系统的漏洞更新与维护，腾讯云当前提供的商业版镜像包括：
-- SUSE Linux Enterprise Server 12 64位
-- SUSE Linux Enterprise Server 11 SP3 64位
+腾讯云不提供对商业版本系统的漏洞更新与维护。
