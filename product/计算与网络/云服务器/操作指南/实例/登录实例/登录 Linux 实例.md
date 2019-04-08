@@ -60,7 +60,7 @@ Window，Linux 或者 Mac OS
 ![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
 
 
-## 远程登录软件登录（本地系统 Windows）
+## 远程登录软件登录（本地系统为 Windows）
 
 以 PuTTy 软件为例，介绍本地为 Windows 系统的电脑如何使用远程登录软件通过密码或者密钥登录 Linux 实例。
 
@@ -113,7 +113,7 @@ PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 9. 双击会话名称或者单击【Open】，发起登录请求。
 >! 如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/document/product/213/12452)，若您的云服务器处于 [私有网络](https://cloud.tencent.com/document/product/213/5227) 环境下，请同时查看相关子网的 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 。
 
-## 使用 SSH 登录（本地系统 Linux/Mac OS）
+## 使用 SSH 登录（本地系统为 Linux/Mac OS）
 
 介绍本地为 Linux/Mac OS 系统的电脑通过 SSH 登录 Linux 实例。
 
