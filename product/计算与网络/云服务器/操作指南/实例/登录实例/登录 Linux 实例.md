@@ -111,7 +111,7 @@ PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
  - Port：云服务器的端口，必须填 22 。（请确保云服务器 22 端口已开放，详见查看 安全组 及 网络 ACL）。
  - Saved Sessions：填写会话名称，例如 test。
 9. 双击会话名称或者单击【Open】，发起登录请求。
->! 如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考 [安全组](/doc/product/213/5221) ，若您的云服务器处于 [私有网络](/doc/product/213/5227) 环境下，请同时查看相关子网的 [网络 ACL](/doc/product/215/5132) 。 
+>! 如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/document/product/213/12452)，若您的云服务器处于 [私有网络](https://cloud.tencent.com/document/product/213/5227) 环境下，请同时查看相关子网的 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 。
 
 ## 使用 SSH 登录（Linux/Mac OS）
 
