@@ -11,7 +11,7 @@ API 网关常见错误码如下：
 | 401    | HMAC signature cannot be verified, a valid xxx header is required. | 请求中缺少 xxx header。                                         |
 | 401    | HMAC algorithm xxx not supported.                             | Hmac算法不支持 xxx，目前支持 hmac-sha1、hmac-sha256、hmac-sha384、hmac-sha512。 |
 | 401    | HMAC authorization format error.                              | Authorization 格式错误。                                        |
-| 401    | HMAC authorization headers is invalidate.                     | Authorization 缺少足够的参数，请参考说明文档。                  |
+| 401    | HMAC authorization headers is invalidate.                     | Authorization 缺少足够的参数，请参考 [密钥对认证-最终发送内容](https://cloud.tencent.com/document/product/628/11819#.E6.9C.80.E7.BB.88.E5.8F.91.E9.80.81.E5.86.85.E5.AE.B9)。                  |
 | 401    | HMAC signature cannot be verified.                            | 无法检验签名，可能原因为 APIKey 无法识别，通常是 APIKey 没有绑定到这个服务或者没有绑定到这个 API。 |
 | 401    | HMAC signature does not match.                                | 签名不一致。                                                   |
 | 401    | Oauth call authentication server fail.                       | 调用认证服务器失败。                                           |
