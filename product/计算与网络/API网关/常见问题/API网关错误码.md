@@ -3,13 +3,13 @@ API 网关常见错误码如下：
 | 错误码 | 日志中错误提示                                               | 说明                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 401    | HMAC apikey is invalid for API.                               | APIKey 没有绑定到该 API。                                        |
-| 401    | HMAC signature cannot be verified, a valid x-date header is required for   HMAC Authentication. | Hmac 认证时没有在 header 中带上  x-date，或者 Hmac 值非法。             |
+| 401    | HMAC signature cannot be verified, a valid x-date header is required for   HMAC Authentication. | HMAC 认证时没有在 header 中带上  x-date，或者 HMAC 值非法。             |
 | 401    | HMAC signature cannot be verified, the x-date header is out of date for   HMAC Authentication. | x-date 时间戳超时，默认为900s。                                   |
 | 401    | HMAC signature cannot be verified, a valid date or x-date header is   required. | 如果没有 x-date，则 header 中包含 date。        |
 | 401    | HMAC id or signature missing.                                 | Authorization 中 ID 或者 signatrue 字段缺失。                       |
 | 401    | HMAC do not support multiple HTTP header.                     | 不支持一个 header 包含多个值的形式。                             |
 | 401    | HMAC signature cannot be verified, a valid xxx header is required. | 请求中缺少 xxx header。                                         |
-| 401    | HMAC algorithm xxx not supported.                             | Hmac算法不支持 xxx，目前支持 hmac-sha1、hmac-sha256、hmac-sha384、hmac-sha512。 |
+| 401    | HMAC algorithm xxx not supported.                             | HMAC 算法不支持 xxx，目前支持 hmac-sha1、hmac-sha256、hmac-sha384、hmac-sha512。 |
 | 401    | HMAC authorization format error.                              | Authorization 格式错误。                                        |
 | 401    | HMAC authorization headers is invalidate.                     | Authorization 缺少足够的参数，请参考 [密钥对认证-最终发送内容](https://cloud.tencent.com/document/product/628/11819#.E6.9C.80.E7.BB.88.E5.8F.91.E9.80.81.E5.86.85.E5.AE.B9)。                  |
 | 401    | HMAC signature cannot be verified.                            | 无法检验签名，可能原因为 APIKey 无法识别，通常是 APIKey 没有绑定到这个服务或者没有绑定到这个 API。 |
