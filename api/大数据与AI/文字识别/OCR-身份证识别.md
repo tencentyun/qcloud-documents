@@ -1,3 +1,8 @@
+>! 
+- 身份证识别全面升级接口，算法更强、性能更优，欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
+- 新老版本的接口计费模式相同，且共享计费阶梯，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
+- 老版本接口我们仍继续维护，但建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
 本接口（idcard）用于识别身份证上的姓名、证件号、地址等信息。
@@ -92,72 +97,71 @@ Content-Type: "application/json"
 
 ```
 {
-    "result_list": [
-        {
-            "code": 0,
-            "message": "OK",
-            "url": " http://www.test.com/aaa.jpg",
-            "data": {
-                "name": "某某",
-                "sex": "男",
-                "nation": "汉",
-                "birth": "2000/1/1",
-                "address": "某地",
-                "id": "123456200001011234",
-                "name_confidence_all": [
-                    38,28
-                ],
-                "sex_confidence_all": [
-                    28
-                ],
-                "nation_confidence_all": [
-                    34
-                ],
-                "birth_confidence_all": [
-                    38, 38, 20, 46, 50, 49
-                ],
-                "address_confidence_all": [
-                    13, 30,
-                ],
-                "id_confidence_all": [
-49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
-                    45, 55, 54, 47
-                ]
-            }
-        },
-        {
-            "code": 0,
-            "message": "OK",
-            "url": " http://www.test.com/bbb.jpg",
-            "data": {
-                "name": "某某某",
-                "sex": "女",
-                "nation": "汉",
-                "birth": "2001/1/1",
-                "address": "某地",
-                "id": "123456200101011234",
-                "name_confidence_all": [
-                    38,28,55
-                ],
-                "sex_confidence_all": [
-                    28
-                ],
-                "nation_confidence_all": [
-                    34
-                ],
-                "birth_confidence_all": [
-                    38, 38, 20, 46, 50, 49
-                ],
-                "address_confidence_all": [
-                    13, 30,
-                ],
-                "id_confidence_all": [
-49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
-                    45, 55, 54, 47
-                ]
-            }
-        }
-    ]
+	"result_list": [{
+			"code": 0,
+			"message": "OK",
+			"url": " http://www.test.com/aaa.jpg",
+			"data": {
+				"name": "某某",
+				"sex": "男",
+				"nation": "汉",
+				"birth": "2000/1/1",
+				"address": "某地",
+				"id": "123456200001011234",
+				"name_confidence_all": [
+					38, 28
+				],
+				"sex_confidence_all": [
+					28
+				],
+				"nation_confidence_all": [
+					34
+				],
+				"birth_confidence_all": [
+					38, 38, 20, 46, 50, 49
+				],
+				"address_confidence_all": [
+					13, 30
+				],
+				"id_confidence_all": [
+					49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
+					45, 55, 54, 47
+				]
+			}
+		},
+		{
+			"code": 0,
+			"message": "OK",
+			"url": " http://www.test.com/bbb.jpg",
+			"data": {
+				"name": "某某某",
+				"sex": "女",
+				"nation": "汉",
+				"birth": "2001/1/1",
+				"address": "某地",
+				"id": "123456200101011234",
+				"name_confidence_all": [
+					38, 28, 55
+				],
+				"sex_confidence_all": [
+					28
+				],
+				"nation_confidence_all": [
+					34
+				],
+				"birth_confidence_all": [
+					38, 38, 20, 46, 50, 49
+				],
+				"address_confidence_all": [
+					13, 30
+				],
+				"id_confidence_all": [
+					49, 50, 58, 63, 51, 52, 55, 48, 48, 47, 58, 47, 48, 56,
+					45, 55, 54, 47
+				]
+			}
+		}
+	]
 }
 ```
 

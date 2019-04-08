@@ -8,7 +8,7 @@
 <!-- COS SDK -->
 <script src="https://sqimg.qq.com/expert_qq/cos/5.0.5/cos.mini.js"></script>
 <!-- 白板SDK -->
-<script src="https://sqimg.qq.com/expert_qq/edu/2.4.0/board_sdk.mini.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/edu/2.5.0/board_sdk.mini.js"></script>
 ```
 
 | 类                  | 说明                                       |
@@ -64,14 +64,14 @@ this.boardSdk = new BoardSDK(options);
 
 参数	| 类型	| 必填 | 说明
 --------- | --------- | ----- | --------- |
-id | String | 是 | 白板渲染的 dom 节点 ID，需保证该节点有 position: relative 样式，否则可能引起白板定位异常的问题
+id | String | 是 | 白板渲染的 dom 节点 id，需保证该节点有 position: relative 样式，否则可能引起白板定位异常的问题
 conf_id | integer | 是 | 课堂 ID
 user | String | 否 | 白板用户昵称
 canDraw | boolean | 否，默认 true | 白板是否可以涂鸦
 color | String | 否，默认红色 |画笔颜色，只接受  Hex 色值，例如：#ff00ff，大小写不敏感
 thin | Number | 否，默认100 | 线条的粗细，实际转换为 thin * 白板的高度 / 10000， <font color="red">如果实际转换结果小于1px，则涂鸦的线条会比较虚</font>
 globalBackgroundColor | String | 否，默认白色 | 全局的白板背景色，只接受 Hex 色值，例如：#ff00ff，大小写不敏感
-aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br> 传字符串宽高比，例如设置4:3，白板SDK会以参数 ID 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9<br>false 时不采用比例，采用参数 ID 所在节点的宽高作为白板的宽高
+aspect | Boolean/String | 否，默认16:9 | 白板尺寸/比例<br> 传字符串宽高比，例如设置4:3，白板SDK会以参数 id 所在节点的宽高以4:3的方式来计算出白板的宽高，默认采用16:9<br>false 时不采用比例，采用参数 id 所在节点的宽高作为白板的宽高
 tlsData | Object | 是 | 白板用户鉴权信息
 
 tlsData 参数：
@@ -293,8 +293,13 @@ board.clearGlobalBgColor()
 #### 24. 删除文件
 
 ```
-board.deleteFile()
+board.deleteFile(fid)
 ```
+
+| 参数 |   类型     | 说明 |
+| --- |----------- | ------------------ |
+| fid |  String   | 文件 ID，为空时表示默认的分组 |
+
 
 #### 25. 获取白板中上传的所有的文件
 

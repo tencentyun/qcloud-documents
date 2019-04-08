@@ -47,19 +47,23 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 **如果是虚拟机部署**，需要在应用程序所在目录中设置创建 `spec.yaml` 文件；**如果是容器部署**，需要在应用启动时，在`/opt/tsf/app_config`下写入 `spec.yaml` 文件，该文件用于描述服务信息。
 Sidecar 会通过服务描述文件将服务注册到服务注册中心。
 spec.yaml 格式如下：
+
 ```yaml
 apiVersion: v1
 kind: Application
 spec:
   services:
-    - name: user # service name
-      ports:
-        - targetPort: 8091 
-        protocol: http
-      healthCheck:
-        path: /health
+  - name: user # 服务名
+    ports:     	
+    - targetPort: 8091 # 服务监听端口 
+      protocol: http # 目前仅支持 http
+    healthCheck:
+      path: /health # 健康检查 URL
 ```
 
+>!
+- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。
+- `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 nginx 配置的 server_name），则需将 local-service 加到白名单。
 
 ## API 定义和上报（可选）
 TSF 支持 Mesh 应用 API 上报功能，用于 API 级别的服务治理，如路由、鉴权和限流等，不需要可以跳过。

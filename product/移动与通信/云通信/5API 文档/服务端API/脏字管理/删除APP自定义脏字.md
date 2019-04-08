@@ -20,7 +20,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 | https              | 请求协议为 HTTPS，请求方式为 POST       |
 | console.tim.qq.com | 固定域名                             |
 | v4/openim_dirty_words/delete  | 请求接口                  |
-| usersig            | App 管理员帐号生成的签名               |
+| usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688)               |
 | identifier         | 必须为 App 管理员帐号                |
 | sdkappid           | 创建应用时云通信控制台分配的 SdkAppid |
 | random             | 32位无符号整数随机数                 |
@@ -29,7 +29,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 ### 最高调用频率
 100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
 ### 请求包示例
-支持批量删除 App 自定义的脏字。
+支持批量删除 App 自定义的脏字，单次最多可以删除50个脏字。
 ```
 {
     "DirtyWordsList": [  // 自定义脏字列表（必填），列表中的脏字不能超过50个
@@ -43,7 +43,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=ad
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字；添加的新脏字和已有的脏字数量之和不超过 50 个，每个脏字的长度不能超过 200 字节  |
+| DirtyWordsList | Array | 必填 |该字段用来指定需要删除的自定义脏字；单次最多可以删除50个脏字，每个脏字的长度不能超过200字节  |
 
 ### 应答包体示例
 

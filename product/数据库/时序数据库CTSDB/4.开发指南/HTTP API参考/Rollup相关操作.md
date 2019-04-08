@@ -1,9 +1,8 @@
 ## 建立 Rollup 任务
-在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据，而时序数据的最主要的特点就是海量性、时效性和趋势性。因此，通常情况下，使用数据的系统（例如监控系统或数据分析系统），通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。
-用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup 任务会自动根据 base_metric 建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
+在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据。而时序数据的最主要的特点就是海量性、时效性和趋势性，因此通常情况下，使用数据的系统（例如监控系统或数据分析系统）通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup 任务会自动根据 base_metric 建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
 
 ### 1. 请求地址
-地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200。
+地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200
 
 ### 2. 请求路径和方法
 路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称
@@ -14,60 +13,89 @@
 
 ### 4. 请求内容
 
-| 参数      | 必选 | 类型   | 描述                                                         |
+| 参数名称      | 必选 | 类型   | 描述                                                         |
 | ------------- | ---- | ------ | ------------------------------------------------------------ |
 | base_metric   | 是   | string | Rollup 依赖的 metric 名称（父表）                               |
 | rollup_metric | 是   | string | Rollup 产生的 metric 名称（子表）                               |
-| base_rollup   | 否   | string | 依赖的 Rollup 任务，任务执行前会检查相应时间段的依赖任务是否完成执行（可以不指定） |
+| base_rollup   | 否   | string | 依赖的 Rollup 任务，任务执行前会检查相应时间段的依赖任务是否完成执行 |
 | query         | 否   | string | 过滤数据的查询条件，由很多个元素和操作对组成，例如：`name:host AND type:max OR region:gz` |
-| group_tags    | 是   | Array  | 进行聚合的维度列，可以包含多列                               |
-| copy_tags     | 否   | Array  | 不需要聚合的维度列，group_tags 确定时，多条数据的 copy_tags 的值相同 |
-| fields        | 是   | Map    | 指定聚合的名称、方法和字段，其字段只能选自 base_metric 里的 fields 字段，如果 base_metric 的 fields 为空，则无法设置 rollup 。<br>例如：`{"cost_total":{"sum": {"field":"cost"}},"cpu_usage_avg":{ "avg": { "field":"cpu_usage"}}}` |
-| interval      | 是   | string | 聚合粒度，例如：1s、5minute、1h、1d等                            |
-| delay         | 否   | string | 延迟执行时间，写入数据通常有一定的延时，避免丢失数据         |
+| group_by      | 是   | Array  | 进行聚合的维度列，可以包含多列                               |
+| function      | 是   | Map    | 指定聚合的名称、方法和字段，其字段只能选自 base_metric 里的 fields 字段，如果 base_metric 的 fields 为空，则无法设置 rollup，function 有 sum、avg、min、max、set、any、first、last、percentiles 等。例如：`{"cost_total":{"sum": {"field":"cost"}},"cpu_usage_avg":{ "avg": { "field":"cpu_usage"}}}` |
+| interval      | 是   | string | 聚合粒度（rollup 产生数据的时间精度），例如1s、5m（5分钟）、1h、1d等 |
+| frequency     | 否   | string | 调度频率，例如5m、1h、1d等，默认等于 interval                   |
+| delay         | 否   | string | 延迟执行时间，写入数据通常有一定的延时，避免丢失数据，例如5m、1h等 |
 | start_time    | 否   | string | 开始时间，从该时间开始周期性执行 Rollup，默认为当前时间       |
 | end_time      | 否   | string | 结束时间，到达该时间后不再调度 ，默认为时间戳最大值          |
-| options       | 否   | map    | 聚合选项，跟新建 metric 选项一致                               |
+| options       | 否   | map    | rollup_metric 选项，跟新建 metric 选项一致                      |
 
-以下通过一个示例来说明 group_tag s与 copy_tags：
-例如我们需要 rollup 机器的监控数据，为了区分具体的机器，会指定 IP 作为聚合的维度列，也将其加入 group_tags，而对于 region、host 等，只要 IP 确定后，对于同一个 IP 的 region 与 host 是相同的，不需要作为聚合的维度列，只需要原封不动的拷贝到相应的聚合结果即可，因此将其加入 copy_tags。
+
 
 ### 5. 返回内容
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. JSON 示例说明
 请求：`POST /_rollup/ctsdb_rollup_task_test`
-请求数据：
 
+请求数据：
 ```
 {
-    "base_metric": "ctsdb_test",
-    "rollup_metric": "ctsdb_rollup_metric_test",
-    "query" : "cpuUsage:20",
-    "group_tags": ["ip"],
-	"copy_tags": ["region", "host"], 
-    "fields": 
-	{
-	    "cpuUsage_total": 
-		{
-		    "sum": 
-			{
-		    	"field": "cpuUsage"
-		    }
-	    }
+    "base_metric": %{base_metric_name},      
+    "rollup_metric": %{rollup_metric_name},    
+    "base_rollup": %{base_rollup_name},        
+    "query" : "name:host AND type:max",   
+    "group_by": ["host"],   
+    "function": {
+        "cost_total":  {
+            "sum": { 
+                "field": "cost"
+            }
+        },
+        "cpu_usage_avg": {
+            "avg": {
+                "field": "cpu_usage"
+            }
+        },
+        "value": {   
+          "percentiles": {      // 百分位聚合, 得到value字段的95百分位的值
+            "field": "value",
+            "percents": [
+              95
+            ]
+          }
+        },
+        "metricName": {
+          "set": {              // 设置metricName的值为cpu_usage
+            "value": "cpu_usage"
+          }
+        },
+        "appid": {
+          "any": {              // 原封不动的拷贝appid字段到聚合结果
+            "field": "appid"
+          }
+        },
+         "first_value": { 
+          "first": {            // 得到value字段在时间轴上的第一个值，即在每个interval时间段中最老的值。
+            "field": "value"
+          }
+        },
+         "last_value": {
+          "last": {             // 得到value字段在时间轴上的最后一个值。即每个interval时间段中最新的值。
+            "field": "value"
+          }
+        }
     },
-    "interval": "1h",
-    "delay": "5m",
-    "start_time": "1511918989",
-    "options": 
-	{
-    	"expire_day": 365
+    "interval": "1m",           // 聚合后，每1分钟为每个host产生一个数据点
+    "frequency": "5m",          // 每5分钟执行调度一次聚合任务，聚合过去5分钟内的数据
+    "delay": "1m",              // 延迟1分钟后执行聚合任务
+    "start_time": "1502892000",
+    "end_time": "2147483647",
+    "options": {
+        "expire_day": 365
     }
 }
 ```
 
 返回：
-
 ```
 {
     "acknowledged": true,
@@ -75,10 +103,10 @@
 }
 ```
 
-## 获取所有 Rollup 任务
+## 获取所有 Rollup 任务的名称
 
 ### 1. 请求地址
-地址为实例的 IP 和 PORT，可从控制台获取到，例如:10.13.20.15:9200。
+地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200
 
 ### 2. 请求路径和方法
 路径：`/_rollups`
@@ -95,6 +123,7 @@
 
 ### 6. JSON 示例说明
 请求：`GET /_rollups`
+
 返回：
 
 ```
@@ -111,10 +140,10 @@
 }
 ```
 
-## 获取某个 Rollup 任务
+## 获取某个 Rollup 任务的详细信息
 
 ### 1. 请求地址
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
 
 ### 2. 请求路径和方法
 路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称
@@ -130,37 +159,52 @@
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. JSON 示例说明
-
 请求：`GET /_rollup/rollup_jgq_6?v`
+
 返回：
 
 ```
 {
   "result": {
     "rollup_jgq_6": {
-      "base_metric": "hgh1",
-      "rollup_metric": "rollup_hgh1",
-      "group_tags": [
-        "appid",
-        "domain",
-        "paymode"
-      ],
-      "copy_tags": [
-        "protocol",
-        "vip"
-      ],
-      "fields": {},
-      "interval": "1h",
-      "delay": "5m",
-      "depend_rollup": "hello",
-      "options": {
-        "expire_day": 93
-      },
-      "start_time": 1504310400,
-      "end_time": 2147483647,
-      "@state": "running",
-      "@timestamp": 1512205503000,
-      "@last_end_time": 1512205200
+    "base_metric": "cvm_device-300",
+       "rollup_metric": "cvm_device-86400",
+       "query": "metricName:cpu_usage AND statType:max",
+       "group_by": [
+         "vm_uuid"
+       ],
+       "function": {
+         "value": {
+           "percentiles": {
+             "field": "value",
+             "percents": [
+               95
+             ]
+           }
+         },
+         "metricName": {
+           "set": {
+             "value": "cpu_usage"
+           }
+         },
+         "appid": {
+           "any": {
+             "field": "appid"
+           }
+         }
+       },
+       "interval": "1d",
+       "delay": "5m",
+       "options": {
+         "expire_day": 186
+       },
+       "frequency": "1d",
+       "start_time": 1534003200,
+       "end_time": 2147483647,
+       "@state": "running",             // 运行状态
+       "@timestamp": 1550766085000,     // rollup任务信息更新的时间点
+       "@last_end_time": 1550764800     // rollup任务正确执行到的时间点
+
     }
   },
   "status": 200
@@ -170,7 +214,7 @@
 ## 删除 Rollup 任务
 
 ### 1. 请求地址
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
 
 ### 2. 请求路径和方法
 路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`，为 Rollup 任务的名称
@@ -187,6 +231,7 @@
 
 ### 6. JSON 示例说明
 请求：`DELETE /_rollup/ctsdb_rollup_task_test`
+
 返回：
 
 ```
@@ -196,11 +241,10 @@
 }
 ```
 
-## 启停 Rollup 任务
+## 更新 Rollup 任务
 
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
 
 ### 2. 请求路径和方法
 路径：`/_rollup/${rollup_task_name}/update`，`${rollup_task_name}`为 Rollup 任务的名称
@@ -211,7 +255,7 @@
 
 ### 4. 请求内容
 
-| 参数   | 必选 | 类型   | 描述                                                   |
+| 参数名称   | 必选 | 类型   | 描述                                                   |
 | ---------- | ---- | ------ | ------------------------------------------------------ |
 | state      | 是   | string | running/pause                                          |
 | start_time | 否   | string | 开始时间，从该时间开始周期性执行 Rollup，默认为当前时间 |
@@ -238,7 +282,6 @@
 ```
 
 返回：
-
 ```
 {
     "acknowledged": true,
