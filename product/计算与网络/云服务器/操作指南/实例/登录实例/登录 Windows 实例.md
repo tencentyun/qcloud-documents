@@ -8,7 +8,7 @@
 
 ## 前提条件
 
-1. 远程登录Windows实例需要使用实例的管理员账号和对应的密码。对于Windows实例的管理员账号统一为**Administrator**。
+1. 远程登录Windows实例需要使用实例的管理员账号和对应的密码。对于Windows实例的账号统一为**Administrator**。
 
 - 若您在购买实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。![](https://main.qcloudimg.com/raw/f8358314a291828d55ab83b830bd69d4.png)
 
