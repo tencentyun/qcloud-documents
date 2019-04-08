@@ -22,7 +22,7 @@
 <tr><td>SUSE/CentOS/Debian</td><td>root</td></tr>
 <tr><td>Ubuntu</td><td>ubuntu</td></tr>
 </table>
-- 已获取登录实例的密码或者密钥。
+- 已获取登录实例的密码或者密钥，且购买时选择自动生成密码。
  - 如果您选择**密码登录**，可以登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img> ，进入“【腾讯云】请查收您新购买的云服务器”页面，该页面将包含云服务器登录管理员帐号及初始密码。如下图所示：
  ![](https://main.qcloudimg.com/raw/eb8a0f48427121dbea61b30a5a2f3b24.png)
  - 如果您在购买实例时选择了**自定义密码**，则密码为您在购买云服务器实例时指定的密码。
@@ -60,9 +60,9 @@ Window，Linux 或者 Mac OS
 ![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
 
 
-## 远程登录软件登录（Windows）
+## 远程登录软件登录（本地系统为 Windows）
 
-以 PuTTy 软件为例，介绍如何使用远程登录软件通过密码或者密钥登录 Linux 实例。
+以 PuTTy 软件为例，介绍本地为 Windows 系统的电脑如何使用远程登录软件通过密码或者密钥登录 Linux 实例。
 
 ### 适用本地操作系统
 
@@ -113,7 +113,7 @@ PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 9. 双击会话名称或者单击【Open】，发起登录请求。
 >! 如果登录失败，请检查您的云服务器实例是否允许22端口的入流量。端口的查看请参考 [安全组](https://cloud.tencent.com/document/product/213/12452)，若您的云服务器处于 [私有网络](https://cloud.tencent.com/document/product/213/5227) 环境下，请同时查看相关子网的 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 。
 
-## 使用 SSH 登录（Linux/Mac OS）
+## 使用 SSH 登录（本地系统为 Linux/Mac OS）
 
 介绍本地为 Linux/Mac OS 系统的电脑通过 SSH 登录 Linux 实例。
 
