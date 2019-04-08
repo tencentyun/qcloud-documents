@@ -15,7 +15,7 @@ API 网关常见错误码如下：
 | 401    | HMAC signature cannot be verified.                            | 无法检验签名，可能原因为 APIKey 无法识别，通常是 APIKey 没有绑定到这个服务或者没有绑定到这个 API。 |
 | 401    | HMAC signature does not match.                                | 签名不一致。                                                   |
 | 401    | Oauth call authentication server fail.                       | 调用认证服务器失败。                                           |
-| 401    | Oauth found no related Oauth api.                             | 没有查到关联的 Aouth 认证 API，无法认证 id_token。                 |
+| 401    | Oauth found no related Oauth api.                             | 没有查到关联的 Oauth 认证 API，无法认证 id_token。                 |
 | 401    | Oauth miss Oauth id_token.                                    | 请求缺少 id_token。                                             |
 | 401    | Oauth signature cannot be verified, a validate authorization header is   required. | 没有认证头部。                                                     |
 | 401    | Oauth authorization header format error.                      | Oauth 头部格式错误。                                            |
