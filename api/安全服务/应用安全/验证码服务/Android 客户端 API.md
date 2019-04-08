@@ -64,7 +64,7 @@ private VerifyListener mListener = new VerifyListener() {
                 }
                 @Override
                 public void onVerifyFail() {
-                                //验证不成功回调，如用户点击返回或关闭按钮
+                                //验证不成功回调，如用户单击返回或关闭按钮
                                 setResult(Activity.RESULT_CANCELED);
                                 finish();
                 }
