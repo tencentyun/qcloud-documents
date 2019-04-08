@@ -84,7 +84,7 @@ private VerifyListener mListener = new VerifyListener() {
                 }
 }; 
 ```
-6. 获取到jsurl后调用 startVerifyActivityForResult(Context context,String jsurl,int requestCode) 并实现 onActivityResult 来接收是否验证成功的通知。
+6. 获取到 jsurl 后调用 startVerifyActivityForResult(Context context,String jsurl,int requestCode) 并实现 onActivityResult 来接收是否验证成功的通知。
 ```
 Intent intent = new Intent(this,VerifyFullScreenActivity.class);
 intent.putExtra("jsurl", jsurl); startActivityForResult(it,requestCode); //onActivityResult实现实例： @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) { if (requestCode == 1) {//此处对应startVerifyActivityForResult的参数值 if(resultCode==Activity.RESULT_OK){
