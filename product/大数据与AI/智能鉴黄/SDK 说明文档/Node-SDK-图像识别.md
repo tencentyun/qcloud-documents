@@ -88,28 +88,6 @@ npm run example
 ```
 
 ## 支持功能
-* 信息认证
-    - [身份证信息认证](https://cloud.tencent.com/document/product/641/13391) - authIdCard
-
-* 人脸识别
-    -  [多脸检索](https://cloud.tencent.com/document/product/867/17590) - faceMultiple
-    -  [人脸检测与分析](https://cloud.tencent.com/document/product/867/17588) - faceDetect
-    -  [五官定位](https://cloud.tencent.com/document/product/867/17585) - faceShape
-    -  [个体信息管理-个体创建](https://cloud.tencent.com/document/product/867/17583#.E4.B8.AA.E4.BD.93.E5.88.9B.E5.BB.BA) - faceNewPerson
-    -  [个体信息管理-删除个体](https://cloud.tencent.com/document/product/867/17583#.E5.88.A0.E9.99.A4.E4.B8.AA.E4.BD.93) - faceDelPerson
-    -  [个体信息管理-增加人脸](https://cloud.tencent.com/document/product/867/17583#.E5.A2.9E.E5.8A.A0.E4.BA.BA.E8.84.B8) - faceAddFace
-    -  [个体信息管理-删除人脸](https://cloud.tencent.com/document/product/867/17583#.E5.88.A0.E9.99.A4.E4.BA.BA.E8.84.B8) - faceDelFace
-    -  [个体信息管理-设置信息](https://cloud.tencent.com/document/product/867/17583#.E8.AE.BE.E7.BD.AE.E4.BF.A1.E6.81.AF) - faceSetInfo
-    -  [个体信息管理-获取信息](https://cloud.tencent.com/document/product/867/17583#.E8.8E.B7.E5.8F.96.E4.BF.A1.E6.81.AF) - faceGetInfo
-    -  [个体信息管理-获取组列表](https://cloud.tencent.com/document/product/867/17583#.E8.8E.B7.E5.8F.96.E7.BB.84.E5.88.97.E8.A1.A8) - faceGetGpIds
-    -  [个体信息管理-获取人列表](https://cloud.tencent.com/document/product/867/17583#.E8.8E.B7.E5.8F.96.E4.BA.BA.E5.88.97.E8.A1.A8) - faceGetPersonIds
-    -  [个体信息管理-获取人脸列表](https://cloud.tencent.com/document/product/867/17583#.E8.8E.B7.E5.8F.96.E4.BA.BA.E8.84.B8.E5.88.97.E8.A1.A8) - faceGetFaceIds
-    -  [个体信息管理-获取人脸信息](https://cloud.tencent.com/document/product/867/17583#.E8.8E.B7.E5.8F.96.E4.BA.BA.E8.84.B8.E4.BF.A1.E6.81.AF) - faceGetFaceInfo
-    -  [个体信息管理-新增组信息](https://cloud.tencent.com/document/product/867/17583#person-.E6.96.B0.E5.A2.9E.E7.BB.84.E4.BF.A1.E6.81.AF) - faceAddGPIds
-    -  [个体信息管理-删除组信息](https://cloud.tencent.com/document/product/867/17583#person-.E5.88.A0.E9.99.A4.E7.BB.84.E4.BF.A1.E6.81.AF) - faceDelGPIds
-    -  [人脸验证](https://cloud.tencent.com/document/product/867/17589) - faceVerify
-    -  [人脸检索](https://cloud.tencent.com/document/product/867/17586) - faceIdentify
-    -  [人脸比对](https://cloud.tencent.com/document/product/867/17584) - faceCompare
 
 * 文字识别 OCR
     -  [手写体识别](https://cloud.tencent.com/document/product/866/17596) - ocrHandWriting
@@ -125,12 +103,3 @@ npm run example
     -  [图片标签](https://cloud.tencent.com/document/product/865/17592) - imgTagDetect
     -  [图片鉴黄](https://cloud.tencent.com/document/product/864/17609) - imgPornDetect
 
-* 人脸核身
-    -  [人脸静态活体检测](https://cloud.tencent.com/document/product/868/17575) - faceLiveDetectPic
-    -  [唇语活体检测视频身份信息核验](https://cloud.tencent.com/document/product/868/17577) - faceIdCardLiveDetectFour
-    -  [活体检测—获取唇语验证码](https://cloud.tencent.com/document/product/868/17579) - faceLiveGetFour
-    -  [活体检测视频与用户照片的对比](https://cloud.tencent.com/document/product/868/17578) - faceLiveDetectFour
-    -  [用户上传照片身份信息核验](https://cloud.tencent.com/document/product/868/17580) - faceIdCardCompare
-
-* 人脸融合
-    -  [人脸融合](https://cloud.tencent.com/document/product/670/14357) - faceFusion

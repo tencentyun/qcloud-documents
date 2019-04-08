@@ -52,7 +52,7 @@ ips包含字段如下：
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": <NAT异步任务ID>
+		"taskId": "<NAT异步任务ID>"
 	}
 }
 ```

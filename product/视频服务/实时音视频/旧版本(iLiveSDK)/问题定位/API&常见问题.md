@@ -6,4 +6,4 @@
 
 ## 常见问题
 
-[常见问题及其解决方案](http://sxb.qcloud.com/)
+[常见问题及其解决方案](https://faq.qcloudtrtc.com/)

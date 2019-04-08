@@ -61,7 +61,7 @@ liveroom.pause();
 	muted="{{muted}}"
 	debug="{{debug}}"
 	bindonRoomEvent="onRoomEvent">
-</rtcroom>
+</live-room>
 
 
 // Page.js 文件
@@ -193,9 +193,9 @@ liveroom.getRoomList({
 </live-room>
 ```
 
-- 如果您希望由后台房间服务（RoomService）自动分配一个 roomid， 那么您只需要给 &lt;live-room&gt; 指定 roomName 就可以。
+- 如果您希望由后台房间服务（RoomService）自动分配一个 roomID， 那么您只需要给 &lt;live-room&gt; 指定 roomName 就可以。
 ```javascript
-//创建房间（RoomService 自动分配 roomid）
+//创建房间（RoomService 自动分配 roomID）
 this.setData({
 	roomName: '测试'
 });
@@ -203,9 +203,9 @@ var liveroom = this.selectComponent("#liveroomid");
 liveroom.start();
 ```
 
-- 如果您希望自己指定 roomid， 那么您需要先设定 roomID 属性，才可以调用 start() 函数。
+- 如果您希望自己指定 roomID， 那么您需要先设定 roomID 属性，才可以调用 start() 函数。
 ```javascript
-//创建房间 (由您来指定 roomid)
+//创建房间 (由您来指定 roomID)
 this.setData({
 	roomID: 12345
 });
@@ -231,7 +231,7 @@ liveroom.start();
 
 - 如果一个 roomID 对应的房间已经被创建了，那么 start() 就不再是创建房间，而是直接进入房间。
 ```javascript
-//创建房间 (由您来指定 roomid)
+//创建房间 (由您来指定 roomID)
 this.setData({
 	roomID: 12345
 });

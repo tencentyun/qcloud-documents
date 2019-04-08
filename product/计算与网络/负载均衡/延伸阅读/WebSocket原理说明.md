@@ -64,4 +64,4 @@ Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8=
 - 设置负载均衡7层的proxy_read_timeout默认为60s
 - 设置心跳为50s，即可长期保持Websocket不断开
 
-近期Websocket将开放自定义配置，敬请期待。
+近期Websocket将开放自定义配置。

@@ -1,0 +1,19 @@
+## 问题描述
+当添加域名时，提示域名已被其他用户添加，如下图所示，该如何取回域名？
+![1](//mc.qcloudimg.com/static/img/d8bf385c475f6bee85c55c4d63794d54/image.png)  
+## 解决方法
+### 方法一：使用 whois 邮箱取回
+首先，请确认此邮箱是否是您本人所有，如果是您本人所有，请单击确定，然后会发送验证邮件到您的邮箱中，验证半小时内有效。
+在使用 whois 邮箱取回时，若显示如下图：
+![3](//mc.qcloudimg.com/static/img/452b533f0e7e9d4d0a3694d4bad0894e/image.png)
+若出现的邮箱是“whoisprotect@dnspod.com”，请您先去域名注册商，关闭“隐私保护”后，再重新取回即可。
+>**注意：**
+>腾讯云注册的域名只能使用 whois 邮箱取回的方式。
+
+### 方法二：通过添加 TXT 记录取回 
+此方式仅适用于 DNS 解析服务器不在 DNSPod 的域名，可在当前要添加解析的服务商处设置该记录来取回域名。
+![5](//mc.qcloudimg.com/static/img/5a5534e4d61aeccd4476c5787aa8f93c/image.png)
+>**注意：**
+>vip 解析的域名不能自助取回，请联系客服人员协助您操作。
+
+如有问题可以 [提交工单](https://console.cloud.tencent.com/workorder/create?level1_id=16&level2_id=17&level1_name=%E5%85%B6%E5%AE%83%E6%9C%8D%E5%8A%A1&level2_name=%E5%9F%9F%E5%90%8D) 联系客服处理。

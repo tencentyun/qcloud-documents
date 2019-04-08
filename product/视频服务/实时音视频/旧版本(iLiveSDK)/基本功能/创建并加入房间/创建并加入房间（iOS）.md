@@ -23,7 +23,7 @@
 创建房间的方法在 `ILiveRoomManager.h` 中，该方法需要传入两个重要参数，房间 ID（roomId）和房间配置对象（option）：
 * 房间 ID 可以搭建一个界面（如 demo 中）让用户输入，也可在代码中 hard code 用于测试，但是 roomID 需要符合前面预备知识中介绍的规则。
     
-* 配置对象需要您创建，ILiveRoomOption 是用来对您准备创建的这个房间的音视频，即时通信等功能进行配置的类，这里我们可以使用默认配置 defaultHostLiveOption。
+* 配置对象需要您创建，ILiveRoomOption 是用来对您准备创建的这个房间的音视频，即时通讯等功能进行配置的类，这里我们可以使用默认配置 defaultHostLiveOption。
 
 最后，创建房间的结果会以回调 Block 的方式返回，您可以根据自己的业务逻辑，在成功或者失败回调中做相应的处理。
 

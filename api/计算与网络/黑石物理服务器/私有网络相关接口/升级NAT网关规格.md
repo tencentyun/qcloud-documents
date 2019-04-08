@@ -29,7 +29,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": <NAT异步任务ID>
+		"taskId": "<NAT异步任务ID>"
 	}
 }
 ```
