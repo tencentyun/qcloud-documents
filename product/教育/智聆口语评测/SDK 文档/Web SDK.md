@@ -165,6 +165,6 @@ recorder.reset({
 | Windows(PC) | QQ浏览器                        | 10.2   | |
 
 > Tip：
-非本地环境必须使用https协议。
+非本地环境必须使用 https 协议。
 
 
