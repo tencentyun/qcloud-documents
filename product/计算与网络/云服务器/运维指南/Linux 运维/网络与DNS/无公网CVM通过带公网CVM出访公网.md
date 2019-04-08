@@ -4,10 +4,10 @@
 无公网 IP 的 CVM 欲通过带公网 IP 的 CVM 访问公网，可以使用 PPTP VPN 来实现这一目标。即无公网 IP 的 CVM，通过 PPTP 协议与带公网 IP 的 CVM 连接起来，并且在 PPTP 网络中，将带公网 IP 的 CVM 设置为网关。
 
 ## 操作步骤
-
-### 对带公网 IP 的 CVM 进行配置
 >? 以下操作步骤以 CentOS 为例，根据操作系统的不同，详细操作步骤略有区别。
 >
+### 对带公网 IP 的 CVM 进行配置
+
 1.  执行以下命令，安装 PPTP。
 ```
 yum install pptpd
