@@ -14,7 +14,7 @@
 
 - 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。![](https://main.qcloudimg.com/raw/3e1629f983de71cb1514e973533bb6c5.png)
 
-2. 确保请云服务器 3389 号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查3389号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
+2. 确保请云服务器 3389 号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查 3389 号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
 
 ## 使用 RDP 文件登录（推荐）
 
@@ -61,7 +61,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 2. 打开客户端工具，点击【Add Deskop】。![](https://main.qcloudimg.com/raw/d310a22009134182def49929625e6f1d.png)
 2. 在弹出的对话框中，输入框输入 Windows 实例的公网 IP后点击【Add】添加远程桌面。<img src="https://main.qcloudimg.com/raw/f37d19193aff614a8057566da1c59b6e.png" width = "350" height = "400" alt="图片名称" align=center />
 
-3. 双击新添加的远程桌面图标，在新打开的界面中输入实例的管理员账号（默认为Administrator）和对应的密码。如果忘记密码，可以通过控制台重置实例密码。![](https://main.qcloudimg.com/raw/3e1629f983de71cb1514e973533bb6c5.pngmac)
+3. 双击新添加的远程桌面图标，在新打开的界面中输入实例的管理员账号（默认为 Administrator）和对应的密码。如果忘记密码，可以通过控制台重置实例密码。![](https://main.qcloudimg.com/raw/3e1629f983de71cb1514e973533bb6c5.pngmac)
 
 
 ## 使用远程桌面登录
