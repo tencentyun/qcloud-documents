@@ -3,7 +3,7 @@
 <table>
 <tr><th>本地操作系统</th><th>实例有公网 IP</th><th>实例没有公网 IP</th></tr>
 <tr><td>Windows</td><td><ul style="margin: 0;"><li>标准（WebShell） 登录方式（推荐）</li><li>远程登录软件登录（密码或密钥）</li></ul></td><td rowspan="3">VNC 登录</td></tr>
-<tr><td>Linux</td><td rowspan="3"><ul style="margin: 0;"><li>标准（WebShell） 登录方式（推荐）</li><li>使用SSH登录（密码或密钥）</li></ul></td></tr>
+<tr><td>Linux</td><td rowspan="2"><ul style="margin: 0;"><li>标准（WebShell） 登录方式（推荐）</li><li>使用SSH登录（密码或密钥）</li></ul></td></tr>
 <tr><td>Mac OS</td></tr>
 </table>
 
