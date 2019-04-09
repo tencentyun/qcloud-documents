@@ -103,7 +103,7 @@ cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/ cp -a linux-2.6.32-220.23.1.el6.
 4. 在复制出来的源码目录中打 toa 补丁。
 ```
 cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64_new/ 
-			patch -p1 < /usr/local/src/linux-2.6.32-220.23.1.el6.x86_64.rs/toa-2.6.32-220.23.1.el6.patch
+patch -p1 < /usr/local/src/linux-2.6.32-220.23.1.el6.x86_64.rs/toa-2.6.32-220.23.1.el6.patch
 ```			
 5. 编辑 .config 并拷贝到 SOURCE 目录。
 ```
@@ -113,14 +113,14 @@ cp .config ~/rpmbuild/SOURCES/config-x86_64-generic
 ```	
 6. 删除原始源码中的 .config。
 ```
-			cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64 
-			rm -rf .config
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64 
+rm -rf .config
 ```
 7. 生成最终 patch。
 ```
-			cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/
-			diff -uNr linux-2.6.32-220.23.1.el6.x86_64 linux-2.6.32-220.23.1.el6.x86_64_new/ >
-			~/rpmbuild/SOURCES/toa.patch
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/
+diff -uNr linux-2.6.32-220.23.1.el6.x86_64 linux-2.6.32-220.23.1.el6.x86_64_new/ >
+~/rpmbuild/SOURCES/toa.patch
 ```
 8. 编辑 kernel.spec。
 ```
@@ -128,16 +128,16 @@ vim ~/rpmbuild/SPECS/kernel.spec
 ```  
 在 ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名）： 
 ```
-		Patch999999: toa.patch
-    ApplyOptionalPatch toa.patch
+Patch999999: toa.patch
+ApplyOptionalPatch toa.patch
 ```
 9. 制作 rpm 包。
 ```
-			rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec
+rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec
 ```
 10. 安装内核 rpm 包。
 ```
-		 rpm -hiv kernel-xxxx.rpm --force
+rpm -hiv kernel-xxxx.rpm --force
 ```	 
 11. 重启，加载 toa 模块。
 
