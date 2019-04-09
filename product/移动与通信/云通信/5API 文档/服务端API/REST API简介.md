@@ -22,7 +22,7 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$sdkappid&identif
 | 参数  | 含义  | 取值  |
 |---------|---------|---------|
 | https    |请求协议      | 请求协议为 HTTPS，请求方式为 POST       |
-| console.tim.qq.com |请求域名  | 固定为 console.tim.qq.com         |
+| console.tim.qq.com |请求域名  | 固定为`console.tim.qq.com`      |
 | ver  | 协议版本号 | 固定为 v4 |
 | servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |各个 API 所对应的该字段取值可参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |各个 API 所对应的该字段取值可参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
