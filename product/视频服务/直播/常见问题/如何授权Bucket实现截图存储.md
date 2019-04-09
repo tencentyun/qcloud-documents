@@ -11,15 +11,15 @@
 
 ## 授权给云直播截图存储
 1. 为腾讯云截图存储开通数据写入权限，授权的根账号 ID：3508645126。
-	1) 在存储桶的【权限管理】-【存储桶访问权限】添加用户，用户类型选择根账号，**并输入根账号 ID：3508645126**。
-   >! **此处需填入根账号 ID：3508645126 进行授权**。
-![](https://main.qcloudimg.com/raw/5b34ac022488d04d7a3d88ae1381aacb.jpg)
-	2) 存储桶访问权限设置 API 可参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
+	1. 在存储桶的【权限管理】-【存储桶访问权限】添加用户，用户类型选择根账号，**并输入根账号 ID：3508645126**
+	>! **此处需填入根账号 ID：3508645126 进行授权**。
+	![](https://main.qcloudimg.com/raw/5b34ac022488d04d7a3d88ae1381aacb.jpg)
+	2. 存储桶访问权限设置 API 可参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
 
 2. 获取已授权 COS Bucket 信息。
-	1) 在存储桶的【基础配置】里即可查看到 COS 的所有信息。访问域名（源站域名）包含 bucket name、cos appid 和 bucket region。
-![](https://main.qcloudimg.com/raw/238ce3abafa0d10614a47c422e16db65.png)
+	1. 在存储桶的【基础配置】里即可查看到 COS 的所有信息。访问域名（源站域名）包含 bucket name、cos appid 和 bucket region。
+	![](https://main.qcloudimg.com/raw/238ce3abafa0d10614a47c422e16db65.png)
 	 - bucket name：buckettest123
 	 - cos appid：1251775094
 	 - bucket region：ap-chengdu
-	2) 提交以上3个字段信息，系统将会把直播截图数据存于已授权的 COS Bucket 中。
+	2. 提交以上3个字段信息，系统将会把直播截图数据存于已授权的 COS Bucket 中。
