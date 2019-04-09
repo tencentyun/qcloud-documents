@@ -23,11 +23,11 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$sdkappid&identif
 |---------|---------|---------|
 | https    |请求协议      | 请求协议为 HTTPS，请求方式为 POST       |
 | console.tim.qq.com |请求域名  | 固定为`console.tim.qq.com`      |
-| ver  | 协议版本号 | 固定为 v4 |
+| ver  | 协议版本号 | 固定为`v4`  |
 | servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | sdkappid  | App 在云通信控制台获取的应用标识 |在申请接入时获得 |
-| identifier  | 用户名，调用 REST API 时必须为 App 管理员帐号 |App 管理员帐号，设置方法参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)  |
+| identifier  | 用户名，调用 REST API 时必须为 App 管理员帐号 |参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)  |
 | usersig  | 用户名对应的密码 |参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) |
 | random  | 标识当前请求的随机数参数 |32 位无符号整数随机数 |
 | contenttype   |请求格式     | 固定为`json`                      |
