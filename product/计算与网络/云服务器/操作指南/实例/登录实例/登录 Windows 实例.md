@@ -1,33 +1,33 @@
 
-创建Windows实例后，您可以根据**本地操作系统**以及**是否有公网IP**来选择不同的登录方式登录Windows实例。登录方式可以参考以下表格：
+创建Windows实例后，您可以根据**本地操作系统**以及**是否有公网 IP**来选择不同的登录方式登录 Windows 实例。登录方式可以参考以下表格：
 
-| 本地操作系统 | 实例有公网IP                    | 实例没有公网IP |
+| 本地操作系统 | 实例有公网 IP                    | 实例没有公网 IP |
 | ------------ | --------------------------------- | ---------------------- |
 | Windows      | 使用RDP文件登录（推荐）<br> 远程桌面登录         |         VNC登录               |
 | Linux/Mac OS | 使用RDP文件登录（推荐）<br>        |         VNC登录          |
 
 ## 前提条件
 
-1. 远程登录Windows实例需要使用实例的管理员账号和对应的密码。对于Windows实例的管理员账号统一为**Administrator**。
+1. 远程登录 Windows 实例需要使用实例的管理员账号和对应的密码。对于Windows实例的管理员账号统一为 **Administrator**。
 
 - 若您在购买实例时选择**自动生成密码**，您可以在[腾讯云控制台](https://cloud.tencent.com/login)的右上角**消息中心**查找初始密码。![](https://main.qcloudimg.com/raw/f8358314a291828d55ab83b830bd69d4.png)
 
 - 若您在购买实例时选择**自定义密码**，登录密码为您在购买实例时设置的密码。如果您忘记密码，可以通过[重置实例密码](https://cloud.tencent.com/document/product/213/16566)对密码进行重置。![](https://main.qcloudimg.com/raw/3e1629f983de71cb1514e973533bb6c5.png)
 
-2. 确保请云服务器3389号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查3389号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
+2. 确保请云服务器 3389 号端口已开放。您可以通过[检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7)检查3389号端口是否放通。如果端口不通，您可以在[配置安全组](https://cloud.tencent.com/document/product/213/15377)时设置端口的入站/出站规则。
 
-## 使用RDP文件登录（推荐）
+## 使用 RDP 文件登录（推荐）
 
 ### 适用本地操作系统
-Windows，Linux和Mac OS
+Windows，Linux 和 Mac OS
 
-### Windows系统使用RDP登录
+### Windows系统使用 RDP 登录
 1. 登录[云服务器控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。在顶部菜单中选择【云产品】>【云计算与网络】>【云服务器】。
 2. 如图所示进入云服务器列表，在需要登录的 Windows 云服务器中单击【登录】按钮。![](https://main.qcloudimg.com/raw/bc452fce3b682d24933e73f4d15c0d7b.png)
-3. 在“登录Windows实例”对话框，选择使用RDP文件登录，点击【下载RDP文件】到本地。![](https://main.qcloudimg.com/raw/bfbdf813684e34b236b90b9e1a19009b.png)
+3. 在“登录Windows实例”对话框，选择使用 RDP 文件登录，点击【下载 RDP 文件】到本地。![](https://main.qcloudimg.com/raw/bfbdf813684e34b236b90b9e1a19009b.png)
 4. 双击下载到本地的RDP文件，远程连接到Windows云服务器。
 
-### Linux系统使用RDP登录
+### Linux系统使用 RDP 登录
 您需要安装相应的远程桌面连接程序，这里推荐使用 rdesktop 进行连接。有关 rdesktop 的更多内容，请参考 [rdesktop官方说明](http://www.rdesktop.org/) 
 1. 安装 rdesktop
 运行 `rdesktop` 命令检查系统是否已经安装，若未安装则请 [转到 github 下载最新安装包](https://github.com/rdesktop/rdesktop/releases)。
@@ -51,7 +51,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
 其中：-u 连接用户名即 `Administrator`，-p 连接在您设置的登录密码，&lt;hostname or IP address&gt;为您的 Windows 实例公网 IP 或 自定义域名。
  
-###  MacOS系统使用RDP登录：
+###  MacOS 系统使用 RDP 登录：
 以Microsoft Remote Desktop for Mac为例介绍本地为 Mac OS 计算机时如何登录 Windows实例。
 
 1. 下载[Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) （该测试版本客户端由微软官方维护，我们推荐您优先使用该版本客户端。微软已于 2017 年取消其官网提供的下载链接，转而通过其子公司 HockeyApp 的页面进行 Beta 版本的发布）。
@@ -65,7 +65,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 
 
 ## 使用远程桌面登录
-除了RDP的登录方式之外，本地为Windows的用户还可以通过远程桌面登录云服务器实例。
+除了 RDP 的登录方式之外，本地为Windows的用户还可以通过远程桌面登录云服务器实例。
 ### 适用本地操作系统
 Windows
 
