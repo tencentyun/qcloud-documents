@@ -22,8 +22,8 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$sdkappid&identif
 | 参数  | 含义  | 取值  |
 |---------|---------|---------|
 | ver  | 协议版本号 | 固定为 v4 |
-| servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |参见 API 详细描述 |
-| command  | 命令字，与 servicename 组合用来标识具体的业务功能 |参见 API 详细描述 |
+| servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |各个 API 所对应的该字段取值可参见 [REST API接口列表](https://cloud.tencent.com/document/product/269/1520) |
+| command  | 命令字，与 servicename 组合用来标识具体的业务功能 |各个 API 所对应的该字段取值可参见 [REST API接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | sdkappid  | App 在云通信控制台获取的应用标识 |在申请接入时获得 |
 | identifier  | 用户名，调用 REST API 时一般为 App 管理员帐号 |用户名（必须为 App 管理员帐号） |
 | usersig  | 用户名对应的密码 |参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) |
