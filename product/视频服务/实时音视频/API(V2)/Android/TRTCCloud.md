@@ -96,13 +96,12 @@ TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，�
 - roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
 - userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
 跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom 回调通知给您。
-<pre>
 
+<pre>
 JSONObject jsonObj = new JSONObject();
 jsonObj.put("roomId"， 678);
 jsonObj.put("userId"， "userB");
 trtcCloud.ConnectOtherRoom(jsonObj.toString());
-
 </pre>
 
 
@@ -779,8 +778,8 @@ Android 平台有两种的方案：buffer
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 >?
->1. SDK 内部有帧率控制逻辑，目标帧率以您在 setVideoEncoderParam 中设置的为准，太快会自动丢帧，太慢则会自动补帧。
->2. 可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomVideoData 的调用间隔，否则会导致视频帧率不稳定。
+>- SDK 内部有帧率控制逻辑，目标帧率以您在 setVideoEncoderParam 中设置的为准，太快会自动丢帧，太慢则会自动补帧。
+>- 可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomVideoData 的调用间隔，否则会导致视频帧率不稳定。
 
 
 ### setLocalVideoRenderListener
@@ -890,9 +889,9 @@ __参数__
 __介绍__
 
 设置此方法，SDK 内部会把音频数据（PCM 格式）回调出来，包括：
-1. onCapturedAudioFrame：本机麦克风采集到的音频数据
-2. onPlayAudioFrame：混音前的每一路远程用户的音频数据
-3. onMixedPlayAudioFrame：各路音频数据混合后送入扬声器播放的音频数据。
+- onCapturedAudioFrame：本机麦克风采集到的音频数据
+- onPlayAudioFrame：混音前的每一路远程用户的音频数据
+- onMixedPlayAudioFrame：各路音频数据混合后送入扬声器播放的音频数据。
 
 
 
@@ -922,11 +921,11 @@ __介绍__
 该接口可以借助音视频数据通道向当前房间里的其他用户广播您自定义的数据，但因为复用了音视频数据通道， 请务必严格控制自定义消息的发送频率和消息体的大小，否则会影响音视频数据的质量控制逻辑，造成不确定性的问题。
 
 >?本接口有以下限制：
->1. 发送消息到房间内所有用户，每秒最多能发送30条消息。
->2. 每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
->3. 每个客户端每秒最多能发送总计8KB 数据。
->4. 将 reliable 和 ordered 同时设置为 YES 或 NO，暂不支持交叉设置。
->5. 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息。
+>- 每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
+>- 每个客户端每秒最多能发送总计8KB 数据。
+>- 将 reliable 和 ordered 同时设置为 YES 或 NO，暂不支持交叉设置。
+>- 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
 
 
 
@@ -954,12 +953,12 @@ __介绍__
 最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
 
 >?本接口有以下限制：
->1. 数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
->2. 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
->3. 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
->4. 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）。
->5. 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
->6. 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
+>- 数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
+>- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
+>- 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）。
+>- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+>- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 
@@ -1158,8 +1157,8 @@ __介绍__
 </pre>
 
 >?关于云端混流的注意事项：
->1. 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
->2. 调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
+>- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
+>- 调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
 
 
 ### startPublishCDNStream
@@ -1182,9 +1181,9 @@ __介绍__
 由于仅转推单独的一路画面到直播 CDN 并没有什么太大的意义，所以该方案通常是跟云端转码混合使用的。 也就是先通过 setMixTranscodingConfig 将房间里的多路画面混合到一路上，再转推出去。
 
 >?关于旁路转推的注意事项：
->1. 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
->2. 调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
->3. TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
+>- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
+>- 调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
+>- TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
 
 
 ### stopPublishCDNStream
