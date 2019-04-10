@@ -241,7 +241,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 
 ### setRemoteViewFillMode
@@ -256,7 +256,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 
 ### setLocalViewRotation
@@ -761,7 +761,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户的 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 __介绍__
 
@@ -955,7 +955,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频帧，仅支持 PCM 数据<br>frame.data：PCM 缓冲frame.length：PCM 缓冲长度frame.sampleRate：音频采样率，目前只支持48K，16Kframe.channel：音频声道数，目前只支持单声道。frame.audioFormat：音频数据格式，目前只支持 LiteAVAudioFrameFormatPCM 格式。 |
+| frame | TRTCAudioFrame * | 音频帧，仅支持 PCM 数据<br><li>frame.data：PCM 缓冲</li><li>frame.length：PCM 缓冲长度</li><li>frame.sampleRate：音频采样率，目前只支持48K，16K</li><li>frame.channel：音频声道数，目前只支持单声道</li><li>frame.audioFormat：音频数据格式，目前只支持 LiteAVAudioFrameFormatPCM 格式</li> |
 
 >?frame.timestamp 填写无效，SDK 内部会重打时间戳。为了保证时间戳正常，建议根据发送的音频数据量来控制 sendCustomAudioData 的调用间隔。
 
@@ -1340,7 +1340,7 @@ __参数__
 __介绍__
 
 该接口会向腾讯云的转码服务器发送一条指令，目的是将房间里的多路画面叠加到一路画面上。
-如果您在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播[CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
+如果您在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播 [CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
 您可以通过转码参数来调整每一路画面的位置以及最终输出的画面质量。
 参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。 示例代码：我们在 Demo 中增加了该功能的体验入口，您可以在“更多功能”面板中看到“云端画面混合”和“分享播放地址”体验到该功能。
 <pre>
@@ -1355,7 +1355,7 @@ __介绍__
 
 >?关于云端混流的注意事项：
 >- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
->- 调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
+>- 调用该函数的用户，会将多路画面混合到自己这一路的 [CDN 地址](https://cloud.tencent.com/document/product/647/16826) 上。
 
 
 
@@ -1375,11 +1375,11 @@ __参数__
 __介绍__
 
 该接口会向腾讯云的转推服务器发送一条指令，腾讯云会将当前一路的音视频画面转推到您指定的 rtmp 推流地址上。
-在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能后， 房间里的每一路画面都有一路默认的腾讯云 CDN 地址，所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
+在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能后， 房间里的每一路画面都有一路默认的腾讯云 CDN 地址，所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
 由于仅转推单独的一路画面到直播 CDN 并没有什么太大的意义，所以该方案通常是跟云端转码混合使用的。 也就是先通过 setMixTranscodingConfig 将房间里的多路画面混合到一路上，再转推出去。
 
 >?关于旁路转推的注意事项：
->- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
+>- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720) 上，转推其他云的需求请通过工单联系我们。
 >- 调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
 >- TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
 
