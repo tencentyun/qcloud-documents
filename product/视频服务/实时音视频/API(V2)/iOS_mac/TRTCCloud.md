@@ -510,7 +510,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| concentration | float | 从0到1，越大滤镜效果越明显，默认值为0.5。 |
+| concentration | float | 从0到1，越大滤镜效果越明显，默认值为0.5 |
 
 __介绍__
 
@@ -529,8 +529,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | image | TXImage * | 水印图片，**必须使用透明底的 png 格式** |
-| streamType | TRTCVideoStreamType | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark。 |
-| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x, y, width, height 取值范围0 - 1。 |
+| streamType | TRTCVideoStreamType | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark |
+| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x, y, width, height 取值范围0 - 1 |
 
 __介绍__
 
@@ -592,7 +592,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户的 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）。 |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
 __介绍__
 
@@ -630,7 +630,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420格式数据。 |
+| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420格式数据 |
 
 __介绍__
 
@@ -659,7 +659,7 @@ __参数__
 |-----|-----|-----|
 | delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调 |
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式 |
-| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
+| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据 |
 
 __返回__
 
@@ -683,10 +683,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 指定目标 userId。 |
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调。 |
-| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。 |
-| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
+| userId | NSString * | 指定目标 userId |
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调 |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式 |
+| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据 |
 
 __返回__
 
@@ -716,7 +716,7 @@ __参数__
 | cmdID | NSInteger | 消息 ID，取值范围为1 - 10 |
 | data | NSData * | 待发送的消息，最大支持1KB（1000字节）的数据大小 |
 | reliable | BOOL | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
-| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
+| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
 __返回__
 
@@ -762,7 +762,7 @@ __介绍__
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）
 >- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）
 >- 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）
->- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
+>- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
 >- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重
 
 
@@ -820,7 +820,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长。 |
+| path | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长 |
 
 __返回__
 
@@ -856,7 +856,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200 |
 
 
 ### setBGMVolume
@@ -870,7 +870,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值 |
 
 
 ### setReverbType
@@ -917,7 +917,7 @@ __参数__
 | sdkAppId | uint32_t | 应用标识 |
 | userId | NSString * | 用户标识 |
 | userSig | NSString * | 用户签名 |
-| completion | void(^)(TRTCSpeedTestResult *result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调 |
+| completion | void(^)(TRTCSpeedTestResult \*result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调 |
 
 __介绍__
 
@@ -948,12 +948,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍。如果传入 nil 则取消云端混流转码。 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍。如果传入 nil 则取消云端混流转码 |
 
 __介绍__
 
 该接口会向腾讯云的转码服务器发送一条指令，目的是将房间里的多路画面叠加到一路画面上。
-如果您在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播[CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
+如果您在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播 [CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
 您可以通过转码参数来调整每一路画面的位置以及最终输出的画面质量。
 参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。 示例代码：我们在 Demo 中增加了该功能的体验入口，您可以在“更多功能”面板中看到“云端画面混合”和“分享播放地址”体验到该功能。
 <pre>
@@ -968,7 +968,7 @@ __介绍__
 
 >?关于云端混流的注意事项：
 >- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
->- 调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
+>- 调用该函数的用户，会将多路画面混合到自己这一路的 [CDN 地址](https://cloud.tencent.com/document/product/647/16826) 上。
 
 
 ### startPublishCDNStream
@@ -982,7 +982,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于 TRTCPublishCDNParam 的介绍。 |
+| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于 TRTCPublishCDNParam 的介绍 |
 
 __介绍__
 
