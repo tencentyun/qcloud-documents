@@ -27,3 +27,32 @@ API 注册功能，基于 Swagger 原生规范来实现。提供多个配置来�
 |tsf.swagger.excludePath|String|否|（空）|排除扫描的包路径|
 |tsf.swagger.group|String|否|default|swagger docket 分组|
 
+## 代码和示例
+
+- SDK 会自动扫描 API 的 path 和 出入参
+- 如果需要上报 API 的描述，需要 `import io.swagger.annotations.ApiOperation; `，同时在 API 上加上注解` @ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
+
+```java
+package com.tsf.demo.provider.controller;
+// 省略掉部分import
+import io.swagger.annotations.ApiOperation;
+
+import com.tsf.demo.provider.config.ProviderNameConfig;
+
+@RestController
+public class ProviderController {
+    private static final Logger LOG = LoggerFactory.getLogger(ProviderController.class);
+
+    @Autowired
+    private ProviderNameConfig providerNameConfig;
+    @ApiOperation(value= "/echo/{param}", notes = "示例描述") // notes 对应 API 描述
+    @RequestMapping(value = "/echo/{param}", method = RequestMethod.GET)
+    public String echo(@PathVariable String param) {
+        LOG.info("provider-demo -- request param: [" + param + "]");
+        String result = "request param: " + param + ", response from " + providerNameConfig.getName();
+        LOG.info("provider-demo -- provider config name: [" + providerNameConfig.getName() + ']');
+        LOG.info("provider-demo -- response info: [" + result + "]");
+        return result;
+    }
+}
+```
