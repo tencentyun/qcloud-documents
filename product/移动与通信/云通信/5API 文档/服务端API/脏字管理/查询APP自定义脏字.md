@@ -18,7 +18,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?sdkappid=88888888&identifie
 
 | 参数               | 说明                                 |
 | ------------------ | ------------------------------------ |
-| v4/openim_dirty_words | 请求接口                             |
+| v4/openim_dirty_words/get | 请求接口                             |
 | sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号                |
 | usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/1519#.E8.AF.B7.E6.B1.82-url)                |
