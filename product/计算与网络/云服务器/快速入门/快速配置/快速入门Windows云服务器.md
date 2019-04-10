@@ -13,7 +13,7 @@
 
 >! 初次购买的账户默认进入【快速配置】页面。对于购买过的云服务器的用户，默认进入【自定义配置】页面，可单击【快速配置】进行快速配置操作。
 
-![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
+![](https://main.qcloudimg.com/raw/1ec1a6e1071c7fa52f7c733ba1b0cf6b.png)
 
 ### 确定付费方式
 
@@ -62,7 +62,7 @@
 
 配置及购买CVM实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。
 
-![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
+![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
 - [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
