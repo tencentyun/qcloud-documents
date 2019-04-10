@@ -83,7 +83,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const char * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
+| params | const char * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID |
 
 __介绍__
 
