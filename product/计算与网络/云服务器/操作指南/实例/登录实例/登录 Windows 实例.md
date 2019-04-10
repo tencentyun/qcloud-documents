@@ -1,5 +1,5 @@
 ## 操作场景
-创建Windows实例后，您可以根据**本地操作系统**以及**是否有公网 IP**来选择不同的登录方式登录 Windows 实例。登录方式可以参考以下表格：
+创建 Windows 实例后，您可以根据**本地操作系统**以及**是否有公网 IP**来选择不同的登录方式登录 Windows 实例。登录方式可以参考以下表格：
 
 <table>
 <tr><th>本地操作系统</th><th>实例有公网 IP</th><th>实例没有公网 IP</th></tr>
@@ -81,7 +81,7 @@ Windows
 ### 操作步骤
 
 1. 在本地 Windows 机器上，单击【开始菜单】>【Run】，输入 `mstsc` 命令，即可打开远程桌面连接对话框。
-2. 在远程桌面连接对话框中，输入 Windows 服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com) 可查看云服务器的公网 IP），单击【连接】，如下图所示：
+2. 在远程桌面连接对话框中，输入 Windows 服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 可查看云服务器的公网 IP），单击【连接】，如下图所示：
 ![](https://main.qcloudimg.com/raw/d2bce1a25772f662b934173b02c1e92a.png)
 3. 在新打开的界面中，输入实例的管理员账号和对应的密码，如下图所示：
 ![](https://main.qcloudimg.com/raw/54c1ec9ec62c2499686dd3f78ef4b11e.png)
