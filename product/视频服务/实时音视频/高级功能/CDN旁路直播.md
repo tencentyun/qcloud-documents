@@ -104,6 +104,7 @@ config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
 **为什么房间里只有一个人的时候画面又卡又模糊?**
 请将 `enterRoom` 中 TRTCAppScene 参数指定为 **TRTCAppSceneLIVE**，VideoCall 模式针对视频通话做了优化，所以在房间中只有一个用户时，画面会保持较低的码率和帧率以节省用户的网络流量，因此看起来会感觉又卡又模糊。
  
+ 
 
 
 
