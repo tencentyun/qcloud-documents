@@ -53,7 +53,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | NSString * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
+| param | NSString * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID |
 
 __介绍__
 
