@@ -95,20 +95,7 @@ df -TH
 >? 若无需设置开机自动挂载磁盘，则跳过后续步骤。
 7. 确认挂载方式并获取对应信息。
 您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或设备名称自动挂载磁盘，相关说明和信息获取方式如下：
-<table><tr><th>挂载方式</th><th>优缺点</th><th>	信息获取方式</th></tr><tr><td>使用弹性云硬盘的软链接<b>（推荐）</b></td><td><b>优点：</b>每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6734#byid">查看弹性云硬盘的软链接</a>。</td></tr><tr><td>使用文件系统的 UUID</td><td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6734#UUID">查看文件系统的 UUID</a>。</td></tr><tr><td>使用设备名称</td><td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6734#fdisk">查看设备名称</a>。</td></tr></table>
-
- 1. 执行以下命令，查看弹性云硬盘的软链接。
-```
-ls -l /dev/disk/by-id
-```
- 2. 执行以下命令，查看文件系统的 UUID。
-```
-blkid/dev/vdb
-```
- 3. 执行以下命令，查看设备名称。
-```
-fdisk -l
-```
+<table><tr><th>挂载方式</th><th>优缺点</th><th>	信息获取方式</th></tr><tr><td>使用弹性云硬盘的软链接<b>（推荐）</b></td><td><b>优点：</b>每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td><td>执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td></tr><tr><td>使用文件系统的 UUID</td><td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td><td>执行以下命令，查看文件系统的 UUID。</br><pre>blkid/dev/vdb</pre></td></tr><tr><td>使用设备名称</td><td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td><td>>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td></tr></table>
 8. 备份 `/etc/fstab` 文件。
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
@@ -162,36 +149,36 @@ fdisk /dev/vdb
 ```
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/db1fe212e2559ac635c52e5e397e7531.png)
-4. 输入`n`，按 Enter，开始新建分区。
+4. 输入`n`，按 **Enter**，开始新建分区。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/c89b572c0ac2af1302189f8e7e1a849e.png)
  表示磁盘有两种分区类型：
   - 【p】表示主要分区。
   - 【e】表示延伸分区。
-5. 以创建一个主要分区为例，输入`p`，按 Enter，开始创建一个主分区。
+5. 以创建一个主要分区为例，输入`p`，按 **Enter**，开始创建一个主分区。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/efb65b60631d95e9b0213e6fd6125bbb.png)
  【Partition number】表示主分区编号，可以选择1-4。
-6. 以选择分区编号1为例，输入主分区编号`1`，按 Enter。
+6. 以选择分区编号1为例，输入主分区编号`1`，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/e1a1a7755a3bb392ec6d623e6774c315.png)
  【First sector】表示初始磁柱区域，可以选择2048 - 20971519，默认为2048。
-7. 以选择默认初始磁柱编号2048为例，按 Enter。
+7. 以选择默认初始磁柱编号2048为例，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/58a8202531b239a73fd3182d0ea0cf34.png)
  【Last sector】表示截止磁柱区域，可以选择2048 - 20971519，默认为20971519。
-8. 以选择默认截止磁柱编号20971519为例，按 Enter。
+8. 以选择默认截止磁柱编号20971519为例，按 **Enter**。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/ad3a6459a6eaf154aed578b37dfc89d0.png)
  表示分区完成，即为60GB的数据盘新建了1个分区。
-9. 输入`p`，按 Enter，查看新建分区的详细信息。
+9. 输入`p`，按 **Enter**，查看新建分区的详细信息。
  回显信息类似如下图：
  ![](https://main.qcloudimg.com/raw/98427c11e0a181e02eb23a95fc1e908c.png)
  表示新建分区`/dev/vdb1`的详细信息。
 
 >?若上述分区操作有误，请输入`q`，退出 fdisk 分区工具，之前的分区结果将不会被保留。
 
-10. 输入`w`，按 Enter，将分区结果写入分区表中。
+10. 输入`w`，按 **Enter**，将分区结果写入分区表中。
  回显信息类似如下图，表示分区创建完成。
  ![](https://main.qcloudimg.com/raw/7011369be260150fcddf272b4a4ab2fa.png)
 11. 执行以下命令，将新的分区表变更同步至操作系统。
@@ -246,42 +233,26 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
 	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-	       <td nowrap="nowrap">请参考 <a href="#byid">查看弹性云硬盘的软链接</a>。</td>
+	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
 	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">请参考 <a href="#UUID">查看文件系统的 UUID</a>。</td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre> blkid /dev/vdc1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
 	       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-	       <td>请参考 <a href="#fdisk">查看设备名称</a>。</td>
+	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-
- <span id="byid"></span>
- a. 执行以下命令，查看弹性云硬盘的软链接。
-  ```
-  ls -l /dev/disk/by-id
-  ```	
- <span id="UUID"></span>
- b. 执行以下命令，查看文件系统的 UUID。
-  ```
-  blkid /dev/vdb1
-  ```
- <span id="fdisk"></span>
-c. 执行以下命令，查看设备名称。
- ```
-fdisk -l
-```
 17. 备份`/etc/fstab`文件。
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab
 ```
-19. 按`i`，进入编辑模式。 
-20. 将光标移至文件末尾，按 Enter，添加如下内容。
+19. 按 **i**，进入编辑模式。 
+20. 将光标移至文件末尾，按 **Enter**，添加如下内容。
  ```
 <设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
@@ -297,7 +268,7 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   
 ```
 /dev/vdb1 /data/newpart   ext4 defaults     0   2
 ```
-20. 按 Esc，输入`:wq`，按 Enter。
+20. 按 **Esc**，输入 **:wq**，按 **Enter**。
  保存设置并退出编辑器。
 21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
 ```
