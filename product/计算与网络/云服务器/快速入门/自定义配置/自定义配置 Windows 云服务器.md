@@ -5,9 +5,12 @@
 
 ## 前提条件
 
- 1. 开始自定义配置前，您需完成[【快速入门 Windows 云服务器】](/doc/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B)文档中的步骤一。
+ 1. 注册账号与选型
+新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/doc/product/378/9603) 。
  2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
+>! 腾讯云提供**快速配置**和**自定义配置**两种方式，本部分以自定义配置为例说明。相比与快速配置方案，自定义配置提供您更丰富的镜像平台，以及存储、带宽以及安全组等高级设置。若您需要快速配置，可参考[快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 文档进行配置。
+
 
 ## 选择地域与机型
 ![选择地域与机型](https://main.qcloudimg.com/raw/17ffe6b77c5389a42bb11817de4cc206.png)
