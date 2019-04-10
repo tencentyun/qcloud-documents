@@ -77,7 +77,6 @@
 ![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
 - [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
-- [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
 
 ## 数据盘分区及格式化
 
