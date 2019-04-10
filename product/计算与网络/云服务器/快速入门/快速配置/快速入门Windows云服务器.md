@@ -1,6 +1,6 @@
 
 如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
-本文主要介绍Windows实例的购买和配置方法、如果您想购买和配置Linux实例，请参考[快速配置Linux云服务器](https://cloud.tencent.com/document/product/213/2764)。
+本文主要介绍Windows实例的购买和配置方法、如果您想购买和配置Linux实例，请参考[快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2764)。
 
 ![](https://main.qcloudimg.com/raw/37ade775b8f369f5bf673dd4e69090cf.png)
 
@@ -51,7 +51,7 @@
 若推荐的配置不能满足您的需求，您可以在[更多机型](https://buy.cloud.tencent.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-%E9%85%8D%E7%BD%AE%E5%8D%87%E7%BA%A7) 或  [配置降级](https://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-%E9%85%8D%E7%BD%AE%E9%99%8D%E7%BA%A7) 。
 
 ### 选择镜像
-本文介绍Windows实例的购买及登录，请选择Windows提供镜像。
+本文介绍 Windows 实例的购买及登录，请选择 Windows 提供镜像。
 ![](https://main.qcloudimg.com/raw/f26a5d9f1b0d2c8f1f04975c19c2aff4.png)
 >! Windows 云服务器无法作为 [公网网关](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](/doc/product/213/2936) 。
 
