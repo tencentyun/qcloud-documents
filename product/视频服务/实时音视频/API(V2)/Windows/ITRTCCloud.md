@@ -83,7 +83,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const char * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
+| params | const char * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID |
 
 __介绍__
 
@@ -241,7 +241,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 
 ### setRemoteViewFillMode
@@ -256,7 +256,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 
 ### setLocalViewRotation
@@ -270,7 +270,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
 
 
 ### setRemoteViewRotation
@@ -285,7 +285,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID |
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
 
 
 ### setVideoEncoderRotation
@@ -299,7 +299,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持 90、180、270 旋转角度 |
+| rotation | TRTCVideoRotation | 支持90、180、270旋转角度 |
 
 
 ### enableSmallVideoStream
@@ -318,7 +318,7 @@ __参数__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
 - 如果有些人的下行网络很好，可以选择观看【高清】画面
 - 如果有些人的下行网络不好，可以选择观看【低清】画面。
@@ -671,10 +671,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| style | TRTCBeautyStyle | 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。 |
-| beauty | uint32_t | 美颜级别，取值范围0 - 9: 0表示关闭，1 - 9值越大，效果越明显 |
-| white | uint32_t | 美白级别，取值范围0 - 9: 0表示关闭，1 - 9值越大，效果越明显 |
-| ruddiness | uint32_t | 红润级别，取值范围0 - 9: 0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效 |
+| style | TRTCBeautyStyle | 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景 |
+| beauty | uint32_t | 美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显 |
+| white | uint32_t | 美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显 |
+| ruddiness | uint32_t | 红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效 |
 
 __介绍__
 
@@ -761,7 +761,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户的 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
 
 __介绍__
 
@@ -790,8 +790,8 @@ __介绍__
 
 如果您要给您的 App 增加屏幕分享功能，一般需要先显示一个窗口选择界面，这样用户可以选择希望分享的窗口。 通过如下函数，您可以获得可分享窗口的 ID、类型、窗口名称以及缩略图。 拿到这些信息后，您就可以实现一个窗口选择界面，当然，您也可以使用我们在 Demo 源码中已经实现好的一个界面。
 
->?返回的列表中，第一个窗口其实是整个屏幕
->如果 delete ITRTCScreenCaptureSourceList*指针会编译错误，SDK 维护 ITRTCScreenCaptureSourceList 对象的生命周期。
+>?返回的列表中包括屏幕和应用窗口，屏幕会在列表的前面几个元素中。
+>如果 delete ITRTCScreenCaptureSourceList\* 指针会编译错误，SDK 维护 ITRTCScreenCaptureSourceList 对象的生命周期。
 
 
 ### selectScreenCaptureTarget
@@ -814,10 +814,10 @@ __介绍__
 
 如果您期望在屏幕分享的过程中，切换想要分享的窗口，可以再次调用这个函数而不需要重新开启屏幕分享。
 支持如下四种情况：
-1. 共享整个屏幕 : sourceInfoList 中 type 为 Screen 的 source，captureRect 设为 { 0， 0， 0， 0 }
-2. 共享指定区域 : sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }
-3. 共享整个窗口 : sourceInfoList 中 type 为 Window 的 source，captureRect 设为 { 0， 0， 0， 0 }
-4. 共享窗口区域 : sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }。
+- 共享整个屏幕 : sourceInfoList 中 type 为 Screen 的 source，captureRect 设为 { 0， 0， 0， 0 }
+- 共享指定区域 : sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }
+- 共享整个窗口 : sourceInfoList 中 type 为 Window 的 source，captureRect 设为 { 0， 0， 0， 0 }
+- 共享窗口区域 : sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }。
 
 
 ### startScreenCapture
@@ -955,7 +955,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频帧，仅支持 PCM 数据<br>frame.data：PCM 缓冲frame.length：PCM 缓冲长度frame.sampleRate：音频采样率，目前只支持48K，16Kframe.channel：音频声道数，目前只支持单声道。frame.audioFormat：音频数据格式，目前只支持 LiteAVAudioFrameFormatPCM 格式。 |
+| frame | TRTCAudioFrame * | 音频帧，仅支持 PCM 数据<br><li>frame.data：PCM 缓冲</li><li>frame.length：PCM 缓冲长度</li><li>frame.sampleRate：音频采样率，目前只支持48K，16K</li><li>frame.channel：音频声道数，目前只支持单声道</li><li>frame.audioFormat：音频数据格式，目前只支持 LiteAVAudioFrameFormatPCM 格式</li> |
 
 >?frame.timestamp 填写无效，SDK 内部会重打时间戳。为了保证时间戳正常，建议根据发送的音频数据量来控制 sendCustomAudioData 的调用间隔。
 
@@ -1031,9 +1031,9 @@ __返回__
 __介绍__
 
 设置此方法，SDK 内部会把声音模块的数据（PCM 格式）回调出来，包括：
-1. onCapturedAudioFrame：本机麦克风采集到的音频数据
-2. onPlayAudioFrame：混音前的每一路远程用户的音频数据
-3. onMixedPlayAudioFrame：各路音频数据混合后送入扬声器播放的音频数据。
+- onCapturedAudioFrame：本机麦克风采集到的音频数据
+- onPlayAudioFrame：混音前的每一路远程用户的音频数据
+- onMixedPlayAudioFrame：各路音频数据混合后送入扬声器播放的音频数据。
 
 
 
@@ -1064,12 +1064,12 @@ __介绍__
 该接口可以借助音视频数据通道向当前房间里的其他用户广播您自定义的数据，但因为复用了音视频数据通道， 请务必严格控制自定义消息的发送频率和消息体的大小，否则会影响音视频数据的质量控制逻辑，造成不确定性的问题。
 
 >?本接口有以下限制：
->1.&nbsp;发送消息到房间内所有用户，每秒最多能发送30条消息。
->2.&nbsp;每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
->3.&nbsp;每个客户端每秒最多能发送总计8KB 数据。
->4.&nbsp;将 reliable 和 ordered 同时设置为 true 或 false，暂不支持交叉设置。
->5.&nbsp;强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
->
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息。
+>- 每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
+>- 每个客户端每秒最多能发送总计8KB 数据。
+>- 将 reliable 和 ordered 同时设置为 true 或 false，暂不支持交叉设置。
+>- 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
+
 
 
 ### sendSEIMsg
@@ -1097,13 +1097,13 @@ __介绍__
 最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
 
 >?本接口有以下限制：
->1.&nbsp;数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送
->2.&nbsp;发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）
->3.&nbsp;每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）
->4.&nbsp;每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）
->5.&nbsp;若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
->6.&nbsp;如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重
->
+>- 数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）
+>- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）
+>- 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）
+>- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
+>- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重
+
 
 
 
@@ -1340,7 +1340,7 @@ __参数__
 __介绍__
 
 该接口会向腾讯云的转码服务器发送一条指令，目的是将房间里的多路画面叠加到一路画面上。
-如果您在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播[CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
+如果您在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播 [CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
 您可以通过转码参数来调整每一路画面的位置以及最终输出的画面质量。
 参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。 示例代码：我们在 Demo 中增加了该功能的体验入口，您可以在“更多功能”面板中看到“云端画面混合”和“分享播放地址”体验到该功能。
 <pre>
@@ -1354,9 +1354,9 @@ __介绍__
 </pre>
 
 >?关于云端混流的注意事项：
->1.&nbsp;云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
->2.&nbsp;调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
->
+>- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
+>- 调用该函数的用户，会将多路画面混合到自己这一路的 [CDN 地址](https://cloud.tencent.com/document/product/647/16826) 上。
+
 
 
 ### startPublishCDNStream
@@ -1375,14 +1375,13 @@ __参数__
 __介绍__
 
 该接口会向腾讯云的转推服务器发送一条指令，腾讯云会将当前一路的音视频画面转推到您指定的 rtmp 推流地址上。
-在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能后， 房间里的每一路画面都有一路默认的腾讯云 CDN 地址，所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
+在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能后， 房间里的每一路画面都有一路默认的腾讯云 CDN 地址，所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
 由于仅转推单独的一路画面到直播 CDN 并没有什么太大的意义，所以该方案通常是跟云端转码混合使用的。 也就是先通过 setMixTranscodingConfig 将房间里的多路画面混合到一路上，再转推出去。
 
 >?关于旁路转推的注意事项：
->1.&nbsp;默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
->2.&nbsp;调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
->3.&nbsp;TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
->
+>- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720) 上，转推其他云的需求请通过工单联系我们。
+>- 调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
+>- TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
 
 
 ### stopPublishCDNStream

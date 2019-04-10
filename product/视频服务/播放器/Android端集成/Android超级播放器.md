@@ -14,7 +14,7 @@ Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，�
 
 1. 下载 SDK + Demo 开发包，下载地址为 （[Android](https://cloud.tencent.com/document/product/881/20205)）。
 2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
-3. 在 `app/build.gralde` 中添加依赖：
+3. 在 `app/build.gradle` 中添加依赖：
 
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
@@ -23,7 +23,7 @@ compile(name: 'lib_tcsuperplayer', ext: 'aar')
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
 
-4. 在项目`build.gralde`中添加：
+4. 在项目`build.gradle`中添加：
 
 ```
 ...
@@ -60,7 +60,7 @@ allprojects {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
->!`lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+>!`lib_tcsuperplayer.aar` 以 module 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
 
 
 

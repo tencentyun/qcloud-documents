@@ -5,10 +5,12 @@
 
 ## 前提条件
 
- 1. 开始自定义配置前，您需完成[【快速入门 Windows 云服务器】](/doc/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B)文档中的步骤一。
+ 1. 注册账号与选型
+新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/doc/product/378/9603) 。
  2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
-
+>! 腾讯云提供**快速配置**和**自定义配置**两种方式，本部分以自定义配置为例说明。相比与快速配置方案，自定义配置提供您更丰富的镜像平台，以及存储、带宽以及安全组等高级设置。若您需要快速配置，可参考[快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 文档进行配置。
+![](https://main.qcloudimg.com/raw/9132b6a02f067fda7336b2b709c23661.png)
 ## 选择地域与机型
 ![选择地域与机型](https://main.qcloudimg.com/raw/17ffe6b77c5389a42bb11817de4cc206.png)
  1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation) ）。更多信息请看 [计费模式说明](https://cloud.tencent.com/document/product/213/2180) 。
@@ -79,4 +81,56 @@
 5. 单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Windows 登录密码保障主机安全性。
 
-单击 [这里](/doc/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E7.99.BB.E5.BD.95-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) ，继续 Windows 云服务器的登录、格式化与分区数据盘等后续配置。
+## 登录及连接实例
+
+配置及购买实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
+根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
+- [连接及登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
+
+## 格式化与分区数据盘
+
+这里以 Windows 2012 R2 为例进行格式化说明。
+
+### 前提条件
+ - 已购买数据盘的用户，需要格式化数据盘才可使用。未购买数据盘的用户可以跳过此步骤。
+ - 请确保您已登录到云服务器。
+
+### 格式化数据盘
+
+ 1. 通过步骤三介绍的方法登录 Windows 云服务器。
+ 2. 单击【开始】-【服务器管理器】-【工具】-【计算机管理】-【存储】-【磁盘管理】。
+ 3. 在磁盘1上右键单击，选择【联机】：
+	![](//mc.qcloudimg.com/static/img/1217193557509925a622dcdb81aa2e35/image.png)
+ 4. 右键单击，选择【初始化磁盘】：
+	![](//mc.qcloudimg.com/static/img/94ab92867d77ea69bc803a0b20f2b941/image.png)
+ 5. 根据分区方式的不同，选择【GPT】或【MBR】，单击【确定】按钮：
+
+### 磁盘分区（可选）
+
+ 1. 在未分配的空间处右击，选择【新建简单卷】：
+	![](//mc.qcloudimg.com/static/img/a6ca720af2082d7a470ece17a8e13f5d/image.png)
+配置及购买CVM实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。
+
+ 2. 在弹出的“新建简单卷向导”窗口中，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/10fdcd70b510a57919c6a40cf43452a7/image.png)
+![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
+
+ 3. 输入分区所需磁盘大小，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/05c8d1425a0208597b1d2c75a9c811b6/image.png)
+根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
+- [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
+
+ 4. 输入驱动器号，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/737ed569049ad617715efb06fe44e7b2/image.png)
+
+ 5. 选择文件系统，格式化分区，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/896cb3f2705fb9fcd04c236b8fb9ec59/image.png)
+
+ 6. 完成新建简单卷，单击【完成】：
+	![](//mc.qcloudimg.com/static/img/1e257b9c76d80f30b34f612496b8007b/image.png)
+
+ 7. 在【开始】中打开【这台电脑】，查看新分区：
+	![](//mc.qcloudimg.com/static/img/1cbb4ad1c3c01852a00a1415526a3e12/image.png)
+
+**至此，您已完成 Windows 系统的云服务器的创建和基础配置。**
