@@ -80,7 +80,7 @@ Windows
 PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 2. 打开 PuTTY 客户端，在 PuTTY Configuration 窗口中输入以下内容，并单击【Open】，创建一个新对话。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ac87da9721ef7d64fe8cac81a3dab33.png)
-  - Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网 IP）。
+  - Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，可在列表页及详情页中获取主机公网 IP）。
   - Port：云服务器的端口，必须填22。（请确保云服务器22端口已开放，详见查看 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088)）
   - Connect type：选择 “SSH ”。
 4. 在 PuTTY 会话窗口中，输入已获取的管理员帐号，按 **Enter**。
@@ -107,7 +107,7 @@ PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 ![](https://main.qcloudimg.com/raw/343d94c6e7ec992c8084b08071cbe331.png)
 8. 切换至 Session 配置界面，配置服务器的 IP、端口，以及连接类型，单击【Save】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddfd58429288ce0e195e86a6cb1c9cd6.png)
- - Host Name (IP address)：云服务器的公网 IP。登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP。
+ - Host Name (IP address)：云服务器的公网 IP。登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，可在列表页及详情页中获取主机公网IP。
  - Port：云服务器的端口，必须填 22 。（请确保云服务器 22 端口已开放，详见查看 安全组 及 网络 ACL）。
  - Saved Sessions：填写会话名称，例如 test。
 9. 双击会话名称或者单击【Open】，发起登录请求。
@@ -174,7 +174,6 @@ Windows，Linux 和 Mac OS 系统
 3. 在弹出的【登录Linux实例】窗口，选择【其它方式（VNC）】，单击【立即登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b73f070779ec3a42f949099fd4ed5d61.png)
 4. 在弹出的对话框中，输入用户名和密码登录，即可完成登录。
-
 
 ## 登录后续操作
 当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作，相关操作可参考：
