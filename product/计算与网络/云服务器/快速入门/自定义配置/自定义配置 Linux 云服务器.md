@@ -5,7 +5,7 @@
 ## 前提条件
 
  1. 登录腾讯云官网，选择【产品】-【计算】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
- 2. 单击【自定义配置】，进入自定义配置界面。![](https://main.qcloudimg.com/raw/d87aef98975f54f5c24394bea06fe463.png)
+ 2. 单击【自定义配置】，进入自定义配置界面。![](https://main.qcloudimg.com/raw/c7fa2a52a70e061c508d8be0199bcc2c.png)
 
 ## 选择地域与机型
 ![自定义配置](https://main.qcloudimg.com/raw/17ffe6b77c5389a42bb11817de4cc206.png)
@@ -78,7 +78,7 @@
 
 配置及购买实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。
 
-![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
+![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
 
