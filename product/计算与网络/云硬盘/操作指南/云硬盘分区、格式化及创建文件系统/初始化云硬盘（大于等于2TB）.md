@@ -97,20 +97,7 @@ df -TH
 >? 若无需设置开机自动挂载磁盘，则跳过后续步骤。
 7. 确认挂载方式并获取对应信息。
 您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或设备名称自动挂载磁盘，相关说明和信息获取方式如下：
-<table><tr><th>挂载方式</th><th>优缺点</th><th>	信息获取方式</th></tr><tr><td>使用弹性云硬盘的软链接<b>（推荐）</b></td><td><b>优点：</b>每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6735#byid">查看弹性云硬盘的软链接</a>。</td></tr><tr><td>使用文件系统的 UUID</td><td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6735#UUID">查看文件系统的 UUID</a>。</td></tr><tr><td>使用设备名称</td><td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td><td>请参考 <a href="https://cloud.tencent.com/document/product/362/6735#fdisk">查看设备名称</a>。</td></tr></table>
-
- 1. <span id="byid">执行以下命令，查看弹性云硬盘的软链接。</span>
-```
-ls -l /dev/disk/by-id
-```
- 2. <span id="UUID">执行以下命令，查看文件系统的 UUID。</span>
-```
-blkid/dev/vdb
-```
- 3. <span id="fdisk">执行以下命令，查看设备名称。</span>
-```
-fdisk -l
-```
+<table><tr><th>挂载方式</th><th>优缺点</th><th>	信息获取方式</th></tr><tr><td>使用弹性云硬盘的软链接<b>（推荐）</b></td><td><b>优点：</b>每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td><td>执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td></tr><tr><td>使用文件系统的 UUID</td><td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td><td>执行以下命令，查看文件系统的 UUID。</br><pre>blkid/dev/vdb</pre></td></tr><tr><td>使用设备名称</td><td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td><td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td></tr></table>
 8. 备份 `/etc/fstab` 文件。
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
@@ -241,42 +228,26 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
 	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-	       <td nowrap="nowrap">请参考 <a href="#Stepbyid">查看弹性云硬盘的软链接</a>。</td>
+	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
-	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">请参考 <a href="#StepUUID">查看文件系统的 UUID</a>。</td>
+	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre> blkid /dev/vdc1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
-	       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-	       <td>请参考 <a href="#Stepfdisk">查看设备名称</a>。</td>
+	       <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
+	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-
- <span id="Stepbyid"></span>
- a. 执行以下命令，查看弹性云硬盘的软链接。
-  ```
-  ls -l /dev/disk/by-id
-  ```	
- <span id="StepUUID"></span>
- b. 执行以下命令，查看文件系统的 UUID。
-  ```
-  blkid /dev/vdc1
-  ```
- <span id="Stepfdisk"></span>
-c. 执行以下命令，查看设备名称。
- ```
-fdisk -l
-```
 17. 备份`/etc/fstab`文件。
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab
 ```
-19. 按`i`，进入编辑模式。 
-20. 将光标移至文件末尾，按 Enter，添加如下内容。
+19. 按 **i**，进入编辑模式。 
+20. 将光标移至文件末尾，按 **Enter**，添加如下内容。
  ```
 <设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
@@ -292,7 +263,7 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 ```
 /dev/vdc1 /data/newpart2   ext4 defaults     0   2
 ```
-20. 按 Esc，输入`:wq`，按 Enter。
+20. 按 **Esc**，输入 **:wq**，按 **Enter**。
  保存设置并退出编辑器。
 21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
 ```
