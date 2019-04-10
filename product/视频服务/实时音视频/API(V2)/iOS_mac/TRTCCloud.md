@@ -53,7 +53,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | NSString * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
+| param | NSString * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID |
 
 __介绍__
 
@@ -63,14 +63,12 @@ TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，�
 - userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
 跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom 回调通知给您。
 <pre>
-
   NSMutableDictionary * jsonDict = [[NSMutableDictionary alloc] init];
   [jsonDict setObject:@(678) forKey:"roomId"];
   [jsonDict setObject:@"userB" forKey:@"userId"];
   NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:nil];
   NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
   [trtc connectOtherRoom:jsonString];
-
 </pre>
 
 
@@ -151,7 +149,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | BOOL | YES:屏蔽；NO:开启 |
+| mute | BOOL | YES：屏蔽；NO：开启 |
 
 __介绍__
 
@@ -300,11 +298,11 @@ __参数__
 
 __返回__
 
-0:成功；-1:大画面已经是最低画质。
+0：成功；-1：大画面已经是最低画质。
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人...），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
 - 如果有些人的下行网络很好，可以选择观看【高清】画面
 - 如果有些人的下行网络不好，可以选择观看【低清】画面。
@@ -478,9 +476,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | beautyStyle | TRTCBeautyStyle | 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。 |
-| beautyLevel | NSInteger | 美颜级别，取值范围0 - 9； 0 表示关闭，1 - 9值越大，效果越明显。 |
-| whitenessLevel | NSInteger | 美白级别，取值范围0 - 9；0 表示关闭，1 - 9值越大，效果越明显。 |
-| ruddinessLevel | NSInteger | 红润级别，取值范围0 - 9；0 表示关闭，1 - 9值越大，效果越明显。 |
+| beautyLevel | NSInteger | 美颜级别，取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显。 |
+| whitenessLevel | NSInteger | 美白级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+| ruddinessLevel | NSInteger | 红润级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 
 __介绍__
 
@@ -498,7 +496,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | TXImage * | 指定素材，即颜色查找表图片。注意：一定要用 png 格式！！！ |
+| image | TXImage * | 指定素材，即颜色查找表图片。**必须使用 png 格式** |
 
 
 ### setFilterConcentration
@@ -512,7 +510,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| concentration | float | 从0到1，越大滤镜效果越明显，默认值为0.5。 |
+| concentration | float | 从0到1，越大滤镜效果越明显，默认值为0.5 |
 
 __介绍__
 
@@ -530,9 +528,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | TXImage * | 水印图片，注意：一定要用透明底的 png 格式！！！ |
-| streamType | TRTCVideoStreamType | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark。 |
-| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x, y, width, height 取值范围0 - 1。 |
+| image | TXImage * | 水印图片，**必须使用透明底的 png 格式** |
+| streamType | TRTCVideoStreamType | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark |
+| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x, y, width, height 取值范围0 - 1 |
 
 __介绍__
 
@@ -541,7 +539,7 @@ __介绍__
 - y：水印的坐标，取值范围为0 - 1的浮点数。
 - width：水印的宽度，取值范围为0 - 1的浮点数。
 - height：是不用设置的，SDK 内部会根据水印图片的宽高比自动计算一个合适的高度。
-举例：如果当前编码分辨率是 540x960，rect 设置为（0.1， 0.1， 0.2， 0.0） 那么：水印的左上坐标点就是 (540*0.1， 960*0.1)，也就是 (54， 96)，水印的宽度是 540*0.2 = 108px，高度自动计算。
+举例：如果当前编码分辨率是540 × 960，rect 设置为（0.1， 0.1， 0.2， 0.0） 那么：水印的左上坐标点就是 (540 × 0.1， 960 × 0.1)，也就是 (54， 96)，水印的宽度是540 × 0.2 = 108px，高度自动计算。
 
 
 
@@ -594,7 +592,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户的 ID |
-| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边）。 |
+| mode | TRTCVideoFillMode | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
 
 __介绍__
 
@@ -632,7 +630,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420格式数据。 |
+| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420格式数据 |
 
 __介绍__
 
@@ -643,8 +641,9 @@ TRTCVideoFrame 中有很多字段，推荐如下填写方式（其他字段不�
 - timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
->?1.&nbsp;SDK 内部有帧率控制逻辑，目标帧率以您在 setVideoEncoderParam 中设置的为准，太快会自动丢帧，太慢则会自动补帧。
->2.&nbsp;可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomVideoData 的调用间隔，否则会导致视频帧率不稳定。
+>?
+>- SDK 内部有帧率控制逻辑，目标帧率以您在 setVideoEncoderParam 中设置的为准，太快会自动丢帧，太慢则会自动补帧。
+>- 可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomVideoData 的调用间隔，否则会导致视频帧率不稳定。
 
 
 ### setLocalVideoRenderDelegate
@@ -660,7 +659,7 @@ __参数__
 |-----|-----|-----|
 | delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调 |
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式 |
-| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
+| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据 |
 
 __返回__
 
@@ -684,10 +683,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 指定目标 userId。 |
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调。 |
-| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。 |
-| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
+| userId | NSString * | 指定目标 userId |
+| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调 |
+| pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式 |
+| bufferType | TRTCVideoBufferType | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据 |
 
 __返回__
 
@@ -717,7 +716,7 @@ __参数__
 | cmdID | NSInteger | 消息 ID，取值范围为1 - 10 |
 | data | NSData * | 待发送的消息，最大支持1KB（1000字节）的数据大小 |
 | reliable | BOOL | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
-| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
+| ordered | BOOL | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
 
 __返回__
 
@@ -728,12 +727,11 @@ __介绍__
 该接口可以借助音视频数据通道向当前房间里的其他用户广播您自定义的数据，但因为复用了音视频数据通道， 请务必严格控制自定义消息的发送频率和消息体的大小，否则会影响音视频数据的质量控制逻辑，造成不确定性的问题。
 
 >?本接口有以下限制：
->1.&nbsp;发送消息到房间内所有用户，每秒最多能发送30条消息。
->2.&nbsp;每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
->3.&nbsp;每个客户端每秒最多能发送总计8KB 数据。
->4.&nbsp;将 reliable 和 ordered 同时设置为 YES 或 NO，暂不支持交叉设置。
->5.&nbsp;强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
->
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息。
+>- 每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
+>- 每个客户端每秒最多能发送总计8KB 数据。
+>- 将 reliable 和 ordered 同时设置为 YES 或 NO，暂不支持交叉设置。
+>- 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
 
 
 ### sendSEIMsg
@@ -760,13 +758,12 @@ __介绍__
 最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
 
 >?本接口有以下限制：
->1.&nbsp;数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送
->2.&nbsp;发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）
->3.&nbsp;每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）
->4.&nbsp;每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）
->5.&nbsp;若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
->6.&nbsp;如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重
->
+>- 数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送
+>- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）
+>- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）
+>- 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）
+>- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大
+>- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重
 
 
 
@@ -823,7 +820,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长。 |
+| path | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长 |
 
 __返回__
 
@@ -859,7 +856,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200 |
 
 
 ### setBGMVolume
@@ -873,7 +870,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值 |
 
 
 ### setReverbType
@@ -920,7 +917,7 @@ __参数__
 | sdkAppId | uint32_t | 应用标识 |
 | userId | NSString * | 用户标识 |
 | userSig | NSString * | 用户签名 |
-| completion | void(^)(TRTCSpeedTestResult *result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调 |
+| completion | void(^)(TRTCSpeedTestResult \*result, NSInteger completedCount, NSInteger totalCount) | 测试回调，会分多次回调 |
 
 __介绍__
 
@@ -951,12 +948,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍。如果传入 nil 则取消云端混流转码。 |
+| config | TRTCTranscodingConfig * | 请参考 TRTCCloudDef.h 中关于 TRTCTranscodingConfig 的介绍。如果传入 nil 则取消云端混流转码 |
 
 __介绍__
 
 该接口会向腾讯云的转码服务器发送一条指令，目的是将房间里的多路画面叠加到一路画面上。
-如果您在实时音视频[控制台](https://console.cloud.tencent.com/rav/)中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播[CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
+如果您在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播 [CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
 您可以通过转码参数来调整每一路画面的位置以及最终输出的画面质量。
 参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。 示例代码：我们在 Demo 中增加了该功能的体验入口，您可以在“更多功能”面板中看到“云端画面混合”和“分享播放地址”体验到该功能。
 <pre>
@@ -970,9 +967,8 @@ __介绍__
 </pre>
 
 >?关于云端混流的注意事项：
->1.&nbsp;云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
->2.&nbsp;调用该函数的用户，会将多路画面混合到自己这一路的[CDN 地址](https://cloud.tencent.com/document/product/647/16826)上。
->
+>- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
+>- 调用该函数的用户，会将多路画面混合到自己这一路的 [CDN 地址](https://cloud.tencent.com/document/product/647/16826) 上。
 
 
 ### startPublishCDNStream
@@ -986,7 +982,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于 TRTCPublishCDNParam 的介绍。 |
+| param | TRTCPublishCDNParam * | 请参考 TRTCCloudDef.h 中关于 TRTCPublishCDNParam 的介绍 |
 
 __介绍__
 
@@ -995,10 +991,10 @@ __介绍__
 由于仅转推单独的一路画面到直播 CDN 并没有什么太大的意义，所以该方案通常是跟云端转码混合使用的。 也就是先通过 setMixTranscodingConfig 将房间里的多路画面混合到一路上，再转推出去。
 
 >?关于旁路转推的注意事项：
->1.&nbsp;默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
->2.&nbsp;调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
->3.&nbsp;TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
->
+>- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720)上，转推其他云的需求请通过工单联系我们。
+>- 调用该函数的用户，只会转推自己这一路画面到指定的 rtmp 推流地址上，因此一般需要配合 setMixTranscodingConfig 一起使用。
+>- TRTC 房间里的每一路画面都有一路默认的腾讯云 CDN 地址（需要开启），所以该功能并不常用，仅在您需要适配多家 CDN 服务商时才需要关注该功能。
+
 
 
 ### stopPublishCDNStream
