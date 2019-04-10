@@ -1,6 +1,6 @@
 
 如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
-本文主要介绍Linux实例的购买和配置方法、如果您想购买和配置Windows实例，请参考[快速配置Windows云服务器](https://cloud.tencent.com/document/product/213/2936)。
+本文主要介绍 Linux 实例的购买和配置方法、如果您想购买和配置 Windows 实例，请参考[快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ![](https://main.qcloudimg.com/raw/1ec1a6e1071c7fa52f7c733ba1b0cf6b.png)
 
@@ -17,7 +17,7 @@
 
 腾讯云提供**包年包月**和**按量付费**两种付费模式，对于选择快速配置的用户，腾讯云只提供**包年包月**的付费方式。
 
-## 2. 快速配置及购买CVM实例
+## 2. 快速配置及购买 CVM 实例
 
 ### 确定云服务器所在地域及可用区
 
@@ -61,7 +61,7 @@
 ![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
 
 根据您实例的类型，可以参考以下连接中的方式远程登录实例。
-- [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
+- [连接及登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 
 
 
@@ -69,5 +69,5 @@
 对于购买了数据盘的用户，需要在登录实例后对数据盘进行格式化和分区。**未购买数据盘的用户可以跳过此步骤。**
 >! 使用快速配置购买的云服务器默认没有购买数据盘，不需要执行此步骤操作。
 
-- 请参考[Linux实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10517)对Linux实例进行数据盘分区及格式化。
+- 请参考[ Linux 实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10517)对Linux实例进行数据盘分区及格式化。
 
