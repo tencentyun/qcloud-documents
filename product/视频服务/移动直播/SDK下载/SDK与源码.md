@@ -502,9 +502,9 @@ table td {
   </tr>
   <tr align="center">
     <td style="text-align:center">iOS 源码包</td>
-    <td style="text-align:center">5.1</td>
+    <td style="text-align:center">6.3</td>
     <td style="text-align:left">由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">iOS 代码说明</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_5.1.5300.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_6.3.7092.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td style="text-align:center">Android 源码包</td>
