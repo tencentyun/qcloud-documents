@@ -1,8 +1,6 @@
-#### ALTER ROLE
-
 更改一个数据库角色（用户或组）。
 
-##### 概要
+## 概要
 
 ```sql
 ALTER ROLE name RENAME TO newname
@@ -37,65 +35,56 @@ ALTER ROLE name [ [WITH] option [ ... ] ]
     | [ DROP DENY FOR deny_point ]
 ```
 
-##### 描述
+## 描述
+ALTER ROLE更改数据库角色的属性。此命令有几种变体：
 
-ALTER ROLE 更改数据库角色的属性。此命令有几种变体：
+**RENAME** 
+更改角色的名称。数据库超级用户可以重命名任何角色。角色有CREATEROLE特权可以重命名非超级用户角色。无法重命名当前会话用户（以其他用户身份连接重命名角色）。因为MD5加密的密码使用角色名称作为密钥，如果密码为MD5加密，则重命名角色将清除其密码。
 
-·         **RENAME** —更改角色的名称。数据库超级用户可以重命名任何角色。角色有 CREATEROLE 特权 可以重命名非超级用户角色。无法重命名当前会话用户（以其他用户身份连接重命名角色）。因为MD5加密的密码使用角色名称作为密钥，如果密码为MD5加密，则重命名角色将清除其密码
+**SET | RESET** 
+更改指定配置参数的角色的会话默认值。 每当角色随后启动新会话时，指定的值将成为会话默认值，覆盖服务器配置文件中存在的任何设置（postgresql.conf）。
+对于没有LOGIN权限的角色，会话默认值没有任何效果。
+普通角色可以更改自己的会话默认值。
+超级用户可以更改任何人的会话默认值。 
+有CREATEROLE特权的角色可以更改非超级用户角色的默认值。参考“数据库管理员指南”获取有关所有用户可设置的配置参数的信息。
 
-·         **SET | RESET** — 更改指定配置参数的角色的会话默认值。 每当角色随后启动新会话时，指定的值将成为会话默认值，覆盖服务器配置文件中存在的任何设置(postgresql.conf). 对于没有 LOGIN 权限的角色, 会话默认值没有任何效果。普通角色可以更改自己的会话默认值。超级用户可以更改任何人的会话默认值。 有 CREATEROLE 特权的角色可以更改非超级用户角色的默认值。 参阅 *数据库管理员指南* 获取有关所有用户可设置的配置参数的信息
+**RESOURCE QUEUE** 
+将角色分配给工作负载管理资源队列。在发出查询时，角色将受到分配资源队列的限制。指定NONE将角色分配给默认资源队列。一个角色只能属于一个资源队列。对于没有LOGIN 特权的角色，会话默认值没有任何作用。参考**CREATE RESOURCE QUEUE**获取更多信息。
 
-·         **RESOURCE QUEUE** — 将角色分配给工作负载管理资源队列。 在发出查询时，角色将受到分配资源队列的限制。指定 NONE 将角色分配给默认资源队列。一个角色只能属于一个资源队列。对于没有LOGIN 特权的角色，会话默认值没有任何作用。 参考 **CREATE RESOURCE QUEUE** 获取更多信息。
+**WITH** 
+更改在**CREATE ROLE**中指定的角色的许多属性。命令中未提及的属性保留其以前的设置。数据库超级用户可以更改任何这些设置的任何角色。角色有CREATEROLE权限可以更改任何这些设置，但只能用于非超级用户角色。普通角色只能改变自己的密码。
 
-·         **WITH** 选项 — 更改在  **CREATE ROLE** 中指定的角色的许多属性。命令中未提及的属性保留其以前的设置。 数据库超级用户可以更改任何这些设置的任何角色。角色有 CREATEROLE 权限可以更改任何这些设置，但只能用于非超级用户角色。普通角色只能改变自己的密码。
-
-##### 参数
+## 参数
 
 name
-
 角色的名称，其属性将被更改。
 
 newname
-
 角色的新名称。
 
 config_parameter=value
-
-将指定配置参数的此角色的会话默认值设置为给定值。如果值为 DEFAULT或者如果 RESET被使用时，角色特定的变量设置被删除，因此该角色将在新会话中继承系统范围的默认设置。使用RESET ALL 清除所有特定于角色的设置。 
+将指定配置参数的此角色的会话默认值设置为给定值。如果值为DEFAULT或者如果RESET被使用时，角色特定的变量设置被删除，因此该角色将在新会话中继承系统范围的默认设置。使用RESET ALL清除所有特定于角色的设置。 
 
 queue_name
-
-要分配用户级角色的资源队列的名称。 只有有LOGIN特权的角色 可以分配给资源队列。要从资源队列中取消分配角色并将其置于默认资源队列中，请指定NONE。 角色只能属于一个资源队列。
+要分配用户级角色的资源队列的名称。 只有有LOGIN特权的角色可以分配给资源队列。要从资源队列中取消分配角色并将其置于默认资源队列中，请指定NONE。角色只能属于一个资源队列。
 
 SUPERUSER | NOSUPERUSER
-
 CREATEDB | NOCREATEDB
-
 CREATEROLE | NOCREATEROLE
-
 CREATEEXTTABLE | NOCREATEEXTTABLE [(attribute='value')]
-
-如果CREATEEXTTABLE 被指定， 允许定义的角色创建外部表。如果没被指定，默认 类型是可读 并且默认 协议 是gpfdist 。 NOCREATEEXTTABLE （默认）拒绝角色有创建外部表的能力。 注意使用的外部表 file 或 execute 协议只能由超级用户创建。
+如果CREATEEXTTABLE 被指定， 允许定义的角色创建外部表。如果没被指定，默认类型是可读并且默认协议是gpfdist 。NOCREATEEXTTABLE（默认）拒绝角色有创建外部表的能力。 注意使用的外部表file或execute协议只能由超级用户创建。
 
 INHERIT | NOINHERIT
-
 LOGIN | NOLOGIN
-
 CONNECTION LIMIT connlimit
-
 PASSWORD password
-
 ENCRYPTED | UNENCRYPTED
-
 VALID UNTIL 'timestamp'
-
 这些子句通过CREATE ROLE改变了原来设置的角色属性。
 
 DENY deny_point
-
 DENY BETWEEN deny_point AND deny_point
-
-DENY 和DENY BETWEEN 关键字设置了在登录时强制执行的基于时间的约束。DENY设置一天或一天的时间来拒绝访问。DENY BETWEEN设置访问被拒绝的间隔。 两者都使用以下格式的参数 deny_point ：
+DENY 和DENY BETWEEN关键字设置了在登录时强制执行的基于时间的约束。DENY设置一天或一天的时间来拒绝访问。DENY BETWEEN设置访问被拒绝的间隔。两者都使用以下格式的参数 deny_point：
 
 ```sql
 DAY day [ TIME 'time' ]
@@ -103,14 +92,14 @@ DAY day [ TIME 'time' ]
 
 deny_point两部分参数使用以下格式：
 
-对于day:
+对于day：
 
 ```sql
 {'Sunday' | 'Monday' | 'Tuesday' |'Wednesday' | 'Thursday' | 'Friday' | 
 'Saturday' | 0-6 }
 ```
 
-对于time:
+对于time：
 
 { 00-23 : 00-59 | 01-12 : 00-59 { AM | PM }}
 
@@ -120,21 +109,18 @@ DENY BETWEEN子句使用两种deny_point参数。
 DENY BETWEEN deny_point AND deny_point
 ```
 
-有关基于时间的约束和示例的更多信息，参阅*数据库管理员指南*中的“管理角色和特权”。
+有关基于时间的约束和示例的更多信息，参考“数据库管理员指南”中的“管理角色和特权”。
 
 DROP DENY FOR deny_point
+该DROP DENY FOR子句从角色中删除基于时间的约束。它使用上述的deny_point 参数。
 
-该DROP DENY FOR 子句从角色中删除基于时间的约束。它使用上述的deny_point 参数。
+有关基于时间的约束和示例的更多信息，参考“数据库管理员指南”中的“管理角色和特权”。
 
-有关基于时间的约束和示例的更多信息，参阅*数据库管理员指南*中的“管理角色和特权”。
+## 注解
+使用GRANT和REVOKE用于添加和删除角色成员资格。
+使用此命令指定未加密的密码时，必须小心。密码将以明文形式发送到服务器，也可能会记录在客户端的命令历史记录或服务器日志中。 该psql命令行客户端包含一个元命令\password可用于安全地更改角色的密码。
 
-##### 注解
-
-使用GRANT 和 REVOKE用于添加和删除角色成员资格。
-
-使用此命令指定未加密的密码时，必须小心。密码将以明文形式发送到服务器，也可能会记录在客户端的命令历史记录或服务器日志中。 该 psql 命令行客户端包含一个元命令\password可用于安全地更改角色的密码。
-
-还可以将会话默认值与特定数据库而不是角色绑定。如果存在冲突，则特定于角色的设置将覆盖数据库特定的设置。参阅 ALTER DATABASE.
+还可以将会话默认值与特定数据库而不是角色绑定。如果存在冲突，则特定于角色的设置将覆盖数据库特定的设置。参考 ALTER DATABASE。
 
 更改角色的密码：
 
@@ -190,10 +176,8 @@ ALTER ROLE user3 DENY DAY 'Sunday';
 ALTER ROLE user3 DROP DENY FOR DAY 'Sunday';
 ```
 
-##### 兼容性
+## 兼容性
+ALTER ROLE语句是一个数据库扩展。
 
-ALTER ROLE 语句是一个数据库扩展。
-
-##### 另见
-
-CREATE ROLE, DROP ROLE, SET, CREATE RESOURCE QUEUE, GRANT, REVOKE
+## 另见
+CREATE ROLE、DROP ROLE、SET、CREATE RESOURCE QUEUE、GRANT、REVOKE
