@@ -160,3 +160,6 @@ COSFS 内部逻辑中，会 Head 请求去判断父目录和文件是否存在�
 
 ### 使用 rsync 命令拷贝一个文件到 COSFS 中，进度已经显示100%，但是服务器上只看到一个临时文件，这是怎么回事?
 rsync 命令会在挂载目录中，创建一个临时文件，进度显示100%只表示该临时文件在本地写入100%，临时文件写入完毕后，还会将其上传到 COS 中，并进行重命名拷贝操作。通常，往 COSFS 挂载目录中拷贝数据，使用 rsync 命令会比 cp 命令耗费更多时间。
+
+### 使用 docker 挂载 COSFS 时，报错：fuse: failed to open /dev/fuse: Operation not permitted？
+启动 docker 镜像的时候，您需要添加参数 --privileged。
