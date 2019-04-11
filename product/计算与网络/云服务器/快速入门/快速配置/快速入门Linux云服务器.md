@@ -1,15 +1,12 @@
 
-如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
-本文主要介绍 Linux 实例的购买和配置方法、如果您想购买和配置 Windows 实例，请参考 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照以下流程快速配置、购买和连接实例。
 ![](https://main.qcloudimg.com/raw/37ade775b8f369f5bf673dd4e69090cf.png)
+本文档主要介绍如何快速使用 Linux 系统的云服务器实例的相关功能，引导您快速了解腾讯云云服务器的创建和配置。
 >? 腾讯云提供**快速配置**和**自定义配置**两种方式。本文档以快速配置为例进行说明。若快速配置不能满足您的需求，您可参考 [自定义配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/10517) 文档进行配置。
 
 ## 1. 注册账号与选型
 
 新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/doc/product/378/9603) 。
-
-
-
 ![](https://main.qcloudimg.com/raw/1ec1a6e1071c7fa52f7c733ba1b0cf6b.png)
 
 ### 确定付费方式
