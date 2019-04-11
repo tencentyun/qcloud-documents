@@ -333,11 +333,6 @@ __参数__
 |-----|-----|-----|
 | deviceId | NSString * | 设备 ID |
 | deviceType | TRTCMediaDeviceType | 设备类型 |
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
 | state | NSInteger | 0: 设备断开 1: 设备连接 |
 
 
