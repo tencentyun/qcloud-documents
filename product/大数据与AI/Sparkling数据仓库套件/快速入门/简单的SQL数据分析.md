@@ -13,17 +13,17 @@
 ![](https://main.qcloudimg.com/raw/488a8fcb1ec3f7be04d97aba6bf8ad37.png)
 
 ### 2. 查找数据库及数据表
-在命令行输入以下命令后，使用快捷键 Shift + Enter 或单击右上角运行按钮运行该命令行，查找当前集群下包含的数据库名。
+a. 在命令行输入以下命令后，使用快捷键 Shift + Enter 或单击右上角运行按钮运行该命令行，查找当前集群下包含的数据库名。
 ```
 show databases
 ```
 ![](https://main.qcloudimg.com/raw/f9462809f8c722ac8087f2b978f0ab23.png)
-输入以下命令进入 default 数据库。
+b. 输入以下命令进入 default 数据库。
 ```
 use default
 ```
 ![](https://main.qcloudimg.com/raw/3fa7a16a31a74cab4bd174182a6edd42.png)
-输入以下命令查找 default 数据库中包含的数据表名，可以看到之前导入的数据表 new_table 已经存在于 Sparkling 集群中。
+c. 输入以下命令查找 default 数据库中包含的数据表名，可以看到之前导入的数据表 new_table 已经存在于 Sparkling 集群中。
 ```
 show tables
 ```
