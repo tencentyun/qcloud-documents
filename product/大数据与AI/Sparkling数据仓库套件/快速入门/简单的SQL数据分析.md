@@ -2,8 +2,7 @@
 本文为您介绍如何使用 Sparkling 笔记簿功能实现简单的 SQL 数据查询及数据可视化分析。更多数据开发细节，请参见 [数据开发](https://cloud.tencent.com/document/product/1002/30555)。
 
 ## 前提条件
-- 已完成集群创建，详细操作请参见 [创建集群](https://cloud.tencent.com/document/product/1002/30551)。
-- 已完成数据导入，详细操作请参见 [导入数据](https://cloud.tencent.com/document/product/1002/34144)。
+在进行数据分析之前，请确保您已根据  [创建集群](https://cloud.tencent.com/document/product/1002/30551) 指引建立 Sparkling 集群，并已根据  [导入数据](https://cloud.tencent.com/document/product/1002/34144) 指引将数据导入集群中。
 
 ## 操作步骤
 进入 [集群管理](https://sparkling.cloud.tencent.com) 页面，在左侧导航单击【工作区】进入数据开发页面。
