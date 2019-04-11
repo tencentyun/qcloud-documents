@@ -32,7 +32,7 @@ ROOTPARTITION子句对VACUUM ANALYZE不合法。命令VACUUM ANALYZE ROOTPARTITI
 
 运行ANALYZE ROOTPARTITION所需的时间类似于分析一个有着相同数据的非分区表所需的时间，因为ANALYZE ROOTPARTITION仅采样叶子子分区数据。
 
-对于分区表*sales_curr_yr*，这个命令例子只在分区表的根分区上收集统计信息。
+对于分区表sales_curr_yr，这个命令例子只在分区表的根分区上收集统计信息。
 
 ANALYZE ROOTPARTITION sales_curr_yr
 这个ANALYZE命令的例子在数据库中所有分区表的根分区上收集统计信息。
