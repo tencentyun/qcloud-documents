@@ -30,7 +30,15 @@ spec:
 
 -  服务配置没有挂载到正确的位置
   - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录(可选)，拷贝到挂载路径`/opt/tsf/app_config`下面。
- - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录(可选)，如果没有，则需要修改。
+  - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录(可选)，如果没有，则需要修改。
+  - 通用排查方法。
+    - step1: 检查pilot-agent加载配置文件的绝对目录。
+      curl 127.0.0.1:15020/config/agent|grep appConfigDir，输出
+      ```
+      appConfigDir: /data/demo/shopService
+      ```
+      代表pilot-agent会从/data/demo/shopService中加载spec.yaml
+    - step2: 确认appConfigDir指向的目录存在spec.yaml
 
 #### 2. 查看健康检查返回
 登录应用所在的容器或者虚拟机，通过调用本地的健康检查路径，查看返回码是否为200，如果不是200，证明服务存在健康问题。
