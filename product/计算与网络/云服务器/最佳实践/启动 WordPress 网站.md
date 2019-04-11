@@ -8,10 +8,9 @@
 1. 请单击 [购买云服务器](https://buy.cloud.tencent.com/cvm)，进入购买页面。
 2. 点击购买页的【自定义配置】，在第二步【选择镜像】时单击【镜像市场】，并选择【从镜像市场选择】。
 ![](https://main.qcloudimg.com/raw/9ba27bcd697702022e6341e10ff0c2bb.png)
->! 关于自定义配置的其他步骤、包括地域、可用区、存储带宽等的选择，可以参考[自定义配置Linux云服务器](https://cloud.tencent.com/document/product/213/10517)或者[自定义配置Windows云服务器](https://cloud.tencent.com/document/product/213/10516)。
 3. 在【选择镜像】对话框，单击【建站系统】，并选择WordPress博客平台。
 ![](https://main.qcloudimg.com/raw/3e0965a65bcdc83501d46fc45c4add35.png)
-4. 按照[自定义配置Linux云服务器](https://cloud.tencent.com/document/product/213/10517)或者[自定义配置Windows云服务器](https://cloud.tencent.com/document/product/213/10516)的操作完成云服务器购买。
+4. 关于自定义配置的其他步骤、包括地域、可用区、存储带宽等的选择，可以参考[自定义配置Linux云服务器](https://cloud.tencent.com/document/product/213/10517)或者[自定义配置Windows云服务器](https://cloud.tencent.com/document/product/213/10516)。
 
 
 
