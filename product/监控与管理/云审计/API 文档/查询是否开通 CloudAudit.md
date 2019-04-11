@@ -21,7 +21,7 @@ GetAuditServiceStatus 用于查询是否开通跟踪集。
 
 ```
 {
-   "ownerUin": Number
+   "ownerUin": "Number"
 }
 ```
 ### 响应

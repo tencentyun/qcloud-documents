@@ -12,8 +12,9 @@ Android 5.0 系统以后开始支持，主播只需要在直播前安装并启�
 iOS 10.0 系统以后开始支持，基于iOS系统的扩展方式实现，即游戏直播开始时，iOS系统会唤起支持录屏直播的系统扩展（由直播App负责安装），并将屏幕图像传给这个系统扩展并由它完成编码和直播推流。
 
 ## 功能体验
-我们在小直播Demo中，基于腾讯云 RTMP SDK 实现了两个平台的手机录屏功能，您可以扫描下图中的二维码安装并体验之。
-![](//mc.qcloudimg.com/static/img/3939152d7b9a6fd0812b886ea049dc83/image.png)
+我们在小直播Demo中，基于腾讯云 RTMP SDK 实现了两个平台的手机录屏功能，您可以扫描下图中的二维码安装并体验。
+![](https://mc.qcloudimg.com/static/img/92f5be86a4f0f7f85e45ff5cc3688825/image.png)
+![](https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png)
 
 ## 对接攻略
 

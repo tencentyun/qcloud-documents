@@ -7,7 +7,7 @@
 - 项目已配置有效的开发者签名。
 
 ## 集成 IMSDK
-您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK 再将其导入到您当前的工程项目中。
+您可以选择使用 CocoaPods 自动加载的方式，或者先 [下载](https://github.com/tencentyun/TIMSDK) SDK 再将其导入到您当前的工程项目中。
 
 ### CocoaPods 自动加载
 #### 1. 安装 CocoaPods
@@ -45,6 +45,12 @@ pod update
 ```
 
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
+>?若 pod 搜索失败，建议尝试更新 pod 的本地 repo 缓存。更新命令如下：
+>```
+pod setup
+pod repo update
+rm ~/Library/Caches/CocoaPods/search_index.json
+```
 
 ### 手动集成
 #### 1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，其中 SDK 所在的位置如下：

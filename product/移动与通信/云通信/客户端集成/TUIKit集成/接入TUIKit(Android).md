@@ -5,7 +5,7 @@ TUIKit 是基于腾讯云 IMSDK 的一款 UI 组件库，里面提供了一些�
 IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等。TUIKit 提供了这一类的组件，并提供了灵活的 UI 和交互扩展接口，方便用户做个性化开发。
 
 #### IMSDK 与 TUIKit 的结合
-腾讯云 IMSDK 提供了 IM 通信所需的各种基础能力，如通信网络，消息收发、存储，好友关系链，用户资料等。 TUIKit 中的组件在实现 UI 功能的同时调用 IMSDK 相应的接口实现了 IM 相关逻辑和数据的处理，因而开发者在使用 TUKit 时只需关注自身业务或做一些个性化的扩展即可。
+腾讯云 IMSDK 提供了 IM 通信所需的各种基础能力，如通信网络，消息收发、存储，好友关系链，用户资料等。 TUIKit 中的组件在实现 UI 功能的同时调用 IMSDK 相应的接口实现了 IM 相关逻辑和数据的处理，因而开发者在使用 TUIKit 时只需关注自身业务或做一些个性化的扩展即可。
 下面我们将指导您如何快速的接入和使用 TUIKit。
 
 ## 帐号相关的基本概念
@@ -16,7 +16,7 @@ IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等�
 userId（用户标识）用于在一个 IM 应用中唯一标识一个用户，即我们通常所说的帐号。这个一般由开发者自己的服务生成，即用户信息的生成（注册）需由开发者实现。
 
 - **用户签名（userSig）**:
-userSig（用户签名）是用于对一个用户进行鉴权认证，确认用户是否真实的。即用户在开发者的服务里注册一个帐号后，开发者的服务需要给该帐号配置一个由 usersig，后续用户登录 IM 的时候需要带上 usersig 让 IM 服务器进行校验。用户签名生成方法可参考 [生成签名](https://cloud.tencent.com/document/product/647/17275) 文档。
+userSig（用户签名）是用于对一个用户进行鉴权认证，确认用户是否真实的。即用户在开发者的服务里注册一个帐号后，开发者的服务需要给该帐号配置一个 usersig，后续用户登录 IM 的时候需要带上 usersig 让 IM 服务器进行校验。用户签名生成方法可参考 [生成签名](https://cloud.tencent.com/document/product/647/17275) 文档。
 
 了解了前面的概念后，您可以通过下图了解集成了 IMSDK 应用的注册/登录流程。
 
@@ -29,23 +29,22 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。
 
-```java
+<pre>
 android {
     defaultConfig {
         ndk {
-            abiFilters 'armeabi-v7a' //目前仅提供armeabi-v7a的so库
+            abiFilters 'armeabi-v7a' //目前仅提供 armeabi-v7a 的 so 库
         }
     }
 }
 
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.198'
+    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
 }
+</pre>
 
-```
-
-TUIKit 会自动加载所需的 IMSDK。目前加载的 IMSDK 版本是 V3.5.0.198。
+TUIKit 会自动加载所需的 IMSDK。
 
 ## 初始化 TUIKit
 
@@ -242,7 +241,7 @@ public class PersonalChatFragment extends BaseFragment {
 
 #### 群聊面板（GroupChatPanel）使用：
 
-群聊面板与单聊面板的使用基本一致，在Activity或Fragment（Demo示例为创建一个Fragment,即下面代码的GroupChatFragment）的布局文件里引用GroupChatPanel
+群聊面板与单聊面板的使用基本一致，在 Activity 或 Fragment（Demo 示例为创建一个 Fragment，即下面代码的 GroupChatFragment）的布局文件里引用GroupChatPanel
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -368,9 +367,9 @@ public abstract class IMEventListener {
     }
 
     /**
-     * WIFI需要验证
+     * Wi-Fi 需要验证
      *
-     * @param name wifi名称
+     * @param name Wi-Fi 名称
      */
     public void onWifiNeedAuth(String name){
         QLog.d(TAG, "recv onWifiNeedAuth, wifi name " + name);
@@ -414,7 +413,7 @@ public abstract class IMEventListener {
 |setAudioRecordMaxTime|语音消息的最大时长|int|
 |setVideoRecordMaxTime|视频消息的摄像时长|int|
 |setFaceConfigs|自定义表情配置|ArrayList&lt;CustomFaceGroupConfigs&gt;|
-|setTIMSdkConfig|自定义TIMSdkConfig(可参考 [IMSDK初始化](https://cloud.tencent.com/document/product/269/9229))|TIMSdkConfig|
+|setTIMSdkConfig|自定义 TIMSdkConfig(可参考 [IM SDK初始化](https://cloud.tencent.com/document/product/269/9229))|TIMSdkConfig|
 
 配置类本身为建造者模式，可以一行代码完成配置。
 

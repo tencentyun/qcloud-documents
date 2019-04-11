@@ -9,27 +9,27 @@
 |私有群（Private）|是|
 |公开群（Public）|是|
 |聊天室（ChatRoom）|是|
-|互动直播聊天室（AVChatRoom）|是|
+|音视频聊天室（AVChatRoom）|是|
 |在线成员广播大群（BChatRoom）|是|
 
 云通信内置以上五种群组类型，详情请参阅 [群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 ### 请求 URL示例
 ```
-https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=xxx&identifier=admin&sdkappid=88888888&random=99999999&contenttype=json
+https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json
 ```
 ### 请求参数说明
 
+下表仅列出调用本接口时涉及修改的参数及其说明，更多参数详情请参考 [REST API 简介](https://cloud.tencent.com/document/product/269/1519)。
+
 | 参数               | 说明                                 |
 | ------------------ | ------------------------------------ |
-| https              | 请求协议为 HTTPS，请求方式为 POST       |
-| console.tim.qq.com | 固定域名                             |
-| v4/group_open_http_svc/get_appid_group_list  | 请求接口                  |
-| usersig            | App 管理员帐号生成的签名                           |
+| v4/group_open_http_svc/get_appid_group_list  | 请求接口                             |
+| sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号                |
-| sdkappid           | 创建应用时云通信控制台分配的 SdkAppid |
-| random             | 32位无符号整数随机数                 |
-| contenttype        | 固定值为：json                       |
+| usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/1519#.E8.AF.B7.E6.B1.82-url)                |
+| random             | 请输入32位无符号整数                 |
+
 
 ### 最高调用频率
 
@@ -79,7 +79,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000 |
 | Next | Integer | 选填 | 群太多时分页拉取标志，第一次填 0，以后填上一次返回的值，返回的 Next 为 0 代表拉完了 |
-| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（互动直播聊天室）和 BChatRoom（在线成员广播大群）|
+| GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（音视频聊天室）和 BChatRoom（在线成员广播大群）|
 
 ### 应答包体示例
 ```
@@ -95,7 +95,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?usersig=x
         {
             "GroupId": "@TGS#2C5SZEAEF"
         }
-    ]，
+    ],
     "Next": 4454685361
 }
 ```

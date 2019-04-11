@@ -83,8 +83,7 @@ data.data 结构
 ## 6. 示例
 	执行一个参数模板的异步调用，然后使用 DescribeNetTaskResult 查询结果。
 例如查询一个参数模板是否被云资源引用：
-### 步骤1：
-
+### 步骤1
 输入
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeAddressInstances
@@ -103,7 +102,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeAddressInstances
 }
 ```
 
-### 步骤2：
+### 步骤2
 输入
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
@@ -113,45 +112,45 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
 输出
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "status": 0,
-        "output": {
-            "code": 0,
-            "message": "OK"
-        },
-        "data": {
-            "total": 4,
-            "detail": [
-                {
-                    "region": "ca",
-                    "type": "sg",
-                    "id": "sg-b2qce888",
-                    "name": "北美"
-                },
-                {
-                    "region": "gz",
-                    "type": "sg",
-                    "id": "sg-5y2ta666",
-                    "name": "createPolicy"
-                },
-                {
-                    "region": "sh",
-                    "type": "sg",
-                    "id": "sg-gt6an666",
-                    "name": "上海安全组"
-                },
-                {
-                    "region": "gz",
-                    "type": "sg",
-                    "id": "sg-jn3hnxyj",
-                    "name": "广州安全组"
-                }
-            ]
-        }
-    }
+	"code": 0,
+	"message": "",
+	"codeDesc": "Success",
+	"data": {
+		"status": 0,
+		"output": {
+			"code": 0,
+			"message": "OK"
+		},
+		"data": {
+			"total": 4,
+			"detail": [{
+					"region": "ca",
+					"type": "sg",
+					"id": "sg-b2qce888",
+					"name": "北美"
+				},
+				{
+					"region": "gz",
+					"type": "sg",
+					"id": "sg-5y2ta666",
+					"name": "createPolicy"
+				},
+				{
+					"region": "sh",
+					"type": "sg",
+					"id": "sg-gt6an666",
+					"name": "上海安全组"
+				},
+				{
+					"region": "gz",
+					"type": "sg",
+					"id": "sg-jn3hnxyj",
+					"name": "广州安全组"
+				}
+			]
+		}
+	}
+}
 ```
 
  

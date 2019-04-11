@@ -61,7 +61,7 @@ cosfs --version  #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
-- 在 CentOS 6.5及更低版本的操作系统进行 configure 操作时，可能会因 fuse 版本太低而出现如下提示：
+- 在 fuse 版本低于 2.8.4 的操作系统上，进行 configure 操作时会出现如下的报错提示：：
 ```shell
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 

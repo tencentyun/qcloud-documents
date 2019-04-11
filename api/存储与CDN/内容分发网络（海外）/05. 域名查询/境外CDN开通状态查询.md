@@ -55,12 +55,10 @@ array (
 	"code": 0,
 	"message": "",
 	"codeDesc": "Success",
-	"data":[
- {
-		"appId": 123456789
-        "openStatus":"approved"
-	}
-]
+	"data": [{
+		"appId": 123456789,
+		"openStatus": "approved"
+	}]
 
 }
 

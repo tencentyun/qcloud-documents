@@ -1,0 +1,94 @@
+## 应用型和传统型对比
+负载均衡的实例类型分为应用型和传统型，其中传统型为早期版本，应用型为增强版本，且应用型几乎可覆盖传统型的所有功能。从产品功能、产品性能等多方面考虑，建议您使用应用型负载均衡。二者的详细对比如下：
+
+<table>
+        <tbody>
+                <tr>
+            <th style="width: 10%;" rowspan="2">产品类型</th>
+            <th style="width: 45%;" colspan="2" >应用型负载均衡</th>
+            <th style="width: 45%;" colspan="2">传统型负载均衡</th>
+        </tr>
+        <tr>
+            <th>公网</th>
+            <th>内网</th>
+            <th>公网</th>
+            <th>内网</th>
+        </tr>
+        <tr>
+            <td>七层转发(HTTP/HTTPS)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+        </tr>
+        <tr>
+            <td>四层转发(TCP/UDP)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>    
+                <tr>
+            <td>支持HTTP/2及websocket(secure)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+        </tr>
+        <tr>
+            <td>负载均衡策略</td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数 </td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数</td>
+                        <td>ip hash(七层)<br>加权轮询<br>加权最小连接数</td>
+                        <td>加权轮询</td>
+        </tr>   
+         <tr>
+            <td>会话保持</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>   
+        <tr>
+            <td>健康检查</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+        </tr>   
+         <tr>
+            <td>自定义转发规则(域名/URL)</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+            <tr>
+            <td>转发到不同的后端端口</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+         <tr>
+            <td>支持重定向功能(rewrite)</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+             <tr>
+            <td>支持跨地域绑定功能</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                        <td>✖</td>
+                        <td>✖</td>
+        </tr>   
+        <tr>
+            <td>支持日志存储到COS功能</td>
+                        <td>即将支持</td>
+                        <td>即将支持</td>
+                        <td>即将支持</td>
+                        <td>✖</td>
+        </tr>   
+</tbody></table>

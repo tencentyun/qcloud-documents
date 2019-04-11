@@ -135,7 +135,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 ### 支持版本
 
 - ImSDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
-- Demo 支持 IE 8+ ( windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 ## ImSDK 基本概念
 
 **会话：**ImSDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
@@ -157,7 +157,7 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 |webim.SESSION_TYPE  |会话类型，取值范围：<br/>1) webim.SESSION_TYPE.C2C-私聊<br/>2) webim.SESSION_TYPE.GROUP-群聊| 区分消息属于哪种聊天类型 |
 |webim.C2C_MSG_SUB_TYPE  | C2C 消息子类型，取值范围：<br/>1) webim.C2C_MSG_SUB_TYPE.COMMON-普通消息 | 区分 C2C 消息类型|
 | webim.GROUP_MSG_SUB_TYPE |群消息子类型，取值范围：<br/>1)	webim.GROUP_MSG_SUB_TYPE.COMMON-普通消息<br/>2)	webim.GROUP_MSG_SUB_TYPE.LOVEMSG –点赞消息<br/>3)	webim.GROUP_MSG_SUB_TYPE.TIP –提示消息<br/>4)	webim.GROUP_MSG_SUB_TYPE.REDPACKET –红包消息(优先级最高)|  区分群消息类型，业务可针对不同的消息作出不同的操作。|
-| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>7)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>8)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
+| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>7)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
 |webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE  | 群资料变更类型，取值范围：<br/>1)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL-群头像发生变更<br/>2)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME -群名称发生变更<br/>3)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER-群主发生变更<br/>4)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION -群公告发生变更<br/>5)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION-群简介发生变更| 区分群资料变更类型 |
 | webim.GROUP_SYSTEM_TYPE | 群系统消息类型，取值范围：<br/>1)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST-申请加群请求（只有管理员会收到）<br/>2)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT -申请加群被同意（只有申请人能够收到）<br/>3)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE -申请加群被拒绝（只有申请人能够收到）<br/>4)	webim.GROUP_SYSTEM_TYPE.KICK-被管理员踢出群(只有被踢者接收到)<br/>5)	webim.GROUP_SYSTEM_TYPE.DESTORY -群被解散(全员接收)<br/>6)	webim.GROUP_SYSTEM_TYPE.CREATE -创建群(创建者接收, 不展示)<br/>7)	webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST -邀请加群(被邀请者接收)<br/>8)	webim.GROUP_SYSTEM_TYPE.QUIT-主动退群(主动退出者接收, 不展示)<br/>9)	webim.GROUP_SYSTEM_TYPE.SET_ADMIN -设置管理员(被设置者接收)<br/>10)	webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN -取消管理员(被取消者接收)<br/>11)	webim.GROUP_SYSTEM_TYPE.REVOKE -群已被回收(全员接收, 不展示)<br/>12)	webim.GROUP_SYSTEM_TYPE.CUSTOM -用户自定义通知(默认全员接收)| 区分群系统消息类型 |
 |webim.MSG_ELEMENT_TYPE  | 消息元素类型，取值范围：<br/>1)	webim.MSG_ELEMENT_TYPE.TEXT-文本消息<br/>2)	webim.MSG_ELEMENT_TYPE.FACE表情消息<br/>3)	webim.MSG_ELEMENT_TYPE.IMAGE-图片消息<br/>4)	webim.MSG_ELEMENT_TYPE.SOUND-语音消息<br/>5)	webim.MSG_ELEMENT_TYPE.FILE-文件消息<br/>6)	webim.MSG_ELEMENT_TYPE.LOCATION-位置消息<br/>7)	webim.MSG_ELEMENT_TYPE.CUSTOM-自定义消息<br/>8)	webim.MSG_ELEMENT_TYPE.GROUP_TIP-群提示消息（只有群聊天才会出现）|区分消息元素类型  |
@@ -179,7 +179,8 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
 ### 会话对象 Session
 
-当前用户和某个群或者好友的聊天描述类。目前主要在发送消息时用得到。**对象名：**
+当前用户和某个群或者好友的聊天描述类。目前主要在发送消息时用得到。
+**对象名：**
 
 ```
 webim.Session
@@ -220,7 +221,8 @@ webim.Session (
 
 ### 消息存储对象 MsgStore
 
-webim.MsgStore 是消息数据的 Model 对象（参考 MVC 概念）， 它提供接口访问当前存储的会话和消息数据。**对象名：**
+webim.MsgStore 是消息数据的 Model 对象（参考 MVC 概念）， 它提供接口访问当前存储的会话和消息数据。
+**对象名：**
 
 ```
 webim.MsgStore
@@ -237,7 +239,8 @@ webim.MsgStore
 
 ### 消息对象 Msg
 
-一条消息的描述类, 消息发送、接收的 API 中都会涉及此类型的对象。**对象名：**
+一条消息的描述类, 消息发送、接收的 API 中都会涉及此类型的对象。
+**对象名：**
 
 ```
 webim.Msg
@@ -290,7 +293,8 @@ webim.Msg(
 
 ### 消息元素对象 Msg.Elem
 
-一个消息元素的描述类，一条消息 `webim.Msg` 可以由多个 `webim.Msg.Elem` 组成。**对象名：**
+一个消息元素的描述类，一条消息 `webim.Msg` 可以由多个 `webim.Msg.Elem` 组成。
+**对象名：**
 
 ```
 webim.Msg.Elem
@@ -448,7 +452,8 @@ webim.Msg.Elem.Images.Image(type,size,width,height,url)
 
 ### 消息元素对象（位置）
 
-暂不支持。**对象名：**
+暂不支持。
+**对象名：**
 
 ```
 webim.Msg.Elem.Location
@@ -557,7 +562,8 @@ webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 
 ### 消息元素对象（自定义）
 
-Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。**对象名：**
+Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。
+**对象名：**
 
 ```
 webim.Msg.Elem.Custom
@@ -703,7 +709,8 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 
 ### 工具对象 Tool
 
-`webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。**对象名：**
+`webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。
+**对象名：**
 
 ```
 webim.Tool
@@ -718,7 +725,8 @@ webim.Tool
 
 ### 控制台打印日志对象 Log
 
-主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。**对象名：**
+主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。
+**对象名：**
 
 ```
 webim.Log

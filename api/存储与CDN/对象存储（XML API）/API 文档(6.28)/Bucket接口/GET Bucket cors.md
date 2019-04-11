@@ -39,7 +39,7 @@ Authorization: Auth String
 <CORSConfiguration>
     <CORSRule>
         <ID>bucketid</ID>
-        <AllowedOrigin>http: //www.qq.com</AllowedOrigin>
+        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
         <AllowedMethod>PUT</AllowedMethod>
         <AllowedHeader>x-cos-meta-test</AllowedHeader>
         <ExposeHeader>x-cos-meta-test1</ExposeHeader>
@@ -100,7 +100,7 @@ x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZTBh
 <CORSConfiguration>
     <CORSRule>
         <ID>bucketid</ID>
-        <AllowedOrigin>http: //www.qq.com</AllowedOrigin>
+        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
         <AllowedMethod>PUT</AllowedMethod>
         <AllowedHeader>x-cos-meta-test</AllowedHeader>
         <ExposeHeader>x-cos-meta-test1</ExposeHeader>

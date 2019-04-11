@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:"x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+PUT Object acl 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
 
 ## 请求
 ### 请求示例
@@ -29,7 +29,7 @@ Authorization: Auth String
    </tr>
    <tr>
       <td nowrap="nowrap">x-cos-acl</td>
-      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default（继承 Bucket 权限）。<br>注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default（继承 Bucket 权限）。<br>注：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
       <td>string</td>
       <td>否</td>
    </tr>
@@ -49,71 +49,72 @@ Authorization: Auth String
 
 
 ### 请求体
-该请求的请求体为 ACL 配置规则。
+该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
 ```shell
 <AccessControlPolicy>
-   <Owner>
-     <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-     <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-   </Owner>
-   <AccessControlList>
-     <Grant>
-        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+  <Owner>
+    <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+    <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
            <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-        </Grantee>
-        <Permission>READ</Permission>
+      </Grantee>
+      <Permission>READ</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+        <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+        <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
      </Grant>
-     <Grant>
-        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-           <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-           <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-        </Grantee>
-        <Permission>FULL_CONTROL</Permission>
-     </Grant>
-   </AccessControlList>
+  </AccessControlList>
 </AccessControlPolicy>
 ```
-
 
 具体的数据内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| AccessControlPolicy |无| 保存 GET Bucket acl 结果的容器 | Container |是|
+|:---|:-- |:--|:--|:---|
+| AccessControlPolicy |无| 保存 GET Object acl 结果的容器 | Container |是|
 
 Container 节点 AccessControlPolicy 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| Owner | AccessControlPolicy | Bucket 持有者信息 |  Container |是|
+|:---|:-- |:--|:--|:---|
+| Owner | AccessControlPolicy | Object 持有者信息 |  Container |是|
 | AccessControlList | AccessControlPolicy | 被授权者信息与权限信息 |  Container |是|
 
 Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| ID | AccessControlPolicy.Owner | Bucket 持有者的 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
-|DisplayName	|AccessControlPolicy.Owner |Bucket 所有者的名字信息	|string	|是|
+|:---|:-- |:--|:--|:---|
+| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
+| DisplayName | AccessControlPolicy.Owner |  Object 持有者的名称 |  String |是|
 
 Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|:--|
-| Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息，一个 AccessControlList 可以拥有100条 Grant | Container    |是|
+| ------------ | ------------------------------------- | --------- |:--|:---|
+| Grant | AccessControlPolicy.AccessControlList | 单个 Object 的授权信息。一个 AccessControlList 可以拥有100条 Grant | Container    |是|
 
 Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， SubAccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，可以在 ID 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表主账号，Subaccount 代表子账号 | Container    |是|
+| ------------ | ------------------------------------- | --------- |:--|:---|
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 说明被授权者的信息。type 类型可以为 RootAccount，Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是主帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号| Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，FULL_CONTROL  | String    |是|
 
 Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|:--|
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
-|DisplayName|AccessControlPolicy.AccessControlList.Grant.Grantee |Bucket 所有者的名字信息|string	|是|
+| ------------ | ------------------------------------- | --------- |:--|:---|
+|URI|  AccessControlPolicy.AccessControlList.Grant.Grantee| 指定所有用户|  String |是|
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值|  String |是|
+| DisplayName | AccessControlPolicy.AccessControlList.Grant.Grantee |  用户的名称 |  String |是|
 
 
 ## 响应
@@ -173,25 +174,25 @@ Content-Length: 229
 Content-Type: application/x-www-form-urlencoded
 
 <AccessControlPolicy>
-   <Owner>
-     <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-     <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-   </Owner>
-   <AccessControlList>
-     <Grant>
-        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+  <Owner>
+    <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+    <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
            <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-        </Grantee>
-        <Permission>READ</Permission>
+      </Grantee>
+      <Permission>READ</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+        <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+        <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
      </Grant>
-     <Grant>
-        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-           <ID>qcs::cam::uin/1250000000:uin/1250000000</ID>
-           <DisplayName>qcs::cam::uin/1250000000:uin/1250000000</DisplayName>
-        </Grantee>
-        <Permission>FULL_CONTROL</Permission>
-     </Grant>
-   </AccessControlList>
+  </AccessControlList>
 </AccessControlPolicy>
 ```
 

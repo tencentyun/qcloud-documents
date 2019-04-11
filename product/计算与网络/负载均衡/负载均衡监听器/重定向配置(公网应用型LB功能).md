@@ -1,4 +1,4 @@
-LoadBalance 团队在 4 月推出**公网应用型 LB**独家能力：自定义重定向。该能力可解决两大难题：
+LoadBalance 团队在 4 月推出**公网应用型 LB** 能力：自定义重定向。该能力可解决两大难题：
 1. 强制 HTTPS
 PC、手机浏览器等以 HTTP 请求访问 Web 服务，LoadBalance 代理后，返回 HTTPS 的 respond。默认强制以 HTTPS 访问网页。
 2. 自定义重定向
