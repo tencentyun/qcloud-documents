@@ -305,6 +305,42 @@ SDK 跟服务器的连接恢复。
 ```
 
 
+### onAudioRouteChanged
+
+音频路由发生变化（仅 iOS），音频路由即声音由哪里输出（扬声器、听筒）。
+```
+- (void)onAudioRouteChanged:(TRTCAudioRoute)route fromRoute:(TRTCAudioRoute)fromRoute 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| route | TRTCAudioRoute | 当前音频路由 |
+| fromRoute | TRTCAudioRoute | 变更前的音频路由 |
+
+
+### onDevice
+
+本地设备通断回调。
+```
+- (void)onDevice:(NSString *)deviceId type:(TRTCMediaDeviceType)deviceType stateChanged:(NSInteger)state 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| deviceId | NSString * | 设备 ID |
+| deviceType | TRTCMediaDeviceType | 设备类型 |
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| state | NSInteger | 0: 设备断开 1: 设备连接 |
+
+
 
 ## 自定义消息的接收回调
 ### onRecvCustomCmdMsgUserId
