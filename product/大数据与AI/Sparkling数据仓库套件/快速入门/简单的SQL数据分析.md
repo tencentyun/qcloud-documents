@@ -29,7 +29,7 @@ show tables
 ```
 ![](https://main.qcloudimg.com/raw/e3ee9c1c2d8cab750b92d821fd7bbaa1.png)
 
-### 3. 执行简单的 sql 语句
+### 3. 执行简单的 SQL 语句
 执行以下命令查看 new_table 中的数据信息，其中 pt 列是 Sparkling 集群导入时增加的一列时间戳，默认定义为数据导入日期的前一天00:00。
 ```
 select * from new_table
