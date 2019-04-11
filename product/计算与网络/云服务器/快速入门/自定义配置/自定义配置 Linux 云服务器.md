@@ -74,8 +74,8 @@
 
 配置及购买实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
-根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
-- [连接及登录Linux实例](https://cloud.tencent.com/document/product/213/5436)。
+根据您实例的类型，可以参考以下连接中的方式远程登录 CVM 实例，腾讯云推荐您使用标准方式（Webshell）登录云服务器。
+- 如果先更了解更多登录实例的方式，可以参考[连接及登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 
 ## 数据盘分区及格式化
 
