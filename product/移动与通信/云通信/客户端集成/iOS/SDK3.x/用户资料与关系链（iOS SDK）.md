@@ -433,7 +433,7 @@ fail | 失败回调，会返回错误码和错误信息，详见 [错误码表](
 
 ### 添加好友
  
-通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个。
+通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为3000个。
 
 **原型：**
 

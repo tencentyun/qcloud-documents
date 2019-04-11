@@ -13,7 +13,7 @@
 
 签名分为单次签名和多次签名，区别为: 如果针对资源进行写操作(资源删除)，那么这个签名必须是单次有效的。重复使用该签名则会返回签名失败。如果是上传或下载资源，签名必须是多次有效的，有效时长最多为三个月。
 
-开发者可以通过[服务器SDK文档](https://cloud.tencent.com/document/product/314/3499#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290)。
+开发者可以通过服务器SDK生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290)。
 
 ## 3	目录操作
 
@@ -769,7 +769,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 | url         | String | 视频文件的原始URL        |
 | url_f0      | String | 视频文件的原始路径         |
 | v_type      | String | 视频文件类型            |
-| region      | String | 存储地区              |
+| bucket_region     | String | 存储地区              |
 | status      | Int    | 1：待处理， 2：已获取视频基本信息 ，3：转码中 ，4：转码失败 ，5：转码成功 |
 | error_code  | Int    | 转码错误码             |
 | error_msg   | String | 转码错误描述            |
@@ -1306,7 +1306,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | url         | String | 音频文件的原始URL        |
 | url_f0      | String | 音频文件的原始路径         |
 | v_type      | String | 音频文件类型            |
-| region      | String | 存储地区              |
+| bucket_region   | String | 存储地区              |
 | status      | Int    | 详细说明见备注           |
 | error_code  | Int    | 转码错误码             |
 | error_msg   | String | 转码错误描述            |

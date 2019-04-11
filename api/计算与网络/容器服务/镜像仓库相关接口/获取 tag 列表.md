@@ -59,7 +59,7 @@ tag 字段详细说明：
 {
     "code": 0,
     "message": "", 
-    "codeDesc": "Success"
+    "codeDesc": "Success",
     "data": {
 	    "reponame": "test/kubetest",
 	    "server": "ccr.ccs.tencentyun.com",

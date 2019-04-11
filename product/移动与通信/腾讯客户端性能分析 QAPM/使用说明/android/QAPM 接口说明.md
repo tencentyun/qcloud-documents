@@ -16,14 +16,7 @@
 
 >?
 - SymbolId 用于关联一个版本的符号表，方便后续对该版本上报的堆栈作反混淆，格式需要为 UUID。
-- 如何生成 SymbolId 并没有严格限定，只要是与 AppVersion 相关的一种映射方式即可。
-
-下面介绍一种比较简单的方式：
-
-```Java
-String version = "2.1";
-String symbolId = UUID.nameUUIDFromBytes(version.getBytes()).toString();
-```
+- 可以使用上传符号表插件，自动生成UUID格式的SymbolId，并在混淆编译完成时，自动上传mapping文件。
 
 
 ### 启动监控

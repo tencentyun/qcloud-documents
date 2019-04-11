@@ -7,15 +7,14 @@
 | 功能       | XML Python SDK         | JSON Python SDK                         |
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式，支持断点续传<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB）| 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB|
-| 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
-| 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
+| 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
 
 ## 升级步骤
-
+请按照下面4个步骤升级 Python SDK。
 **1. 更新 Python SDK**
 
 通过 pip 命令您可以方便获取到最新的 XML Python SDK：
@@ -35,10 +34,10 @@ XML Python SDK 新增 CosConfig 对象来管理您访问 COS 的配置，您可�
 JSON Python SDK 的初始化方式如下：
 
 ```
-secret_id = u'xxxxxxxx'      # 替换为用户的 secretId
-secret_key = u'xxxxxxx'      # 替换为用户的 secretKey
+secret_id = u'COS_SECRETID'      # 替换为用户的 secretId
+secret_key = u'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'sh'                # 替换为用户的 Region
-appid = 100000               # 替换为用户的appid
+appid = 100000               # 替换为用户的 appid
 cos_client = CosClient(appid, secret_id, secret_key, region=region)
 ```
 
@@ -55,8 +54,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-secret_id = 'xxxxxxxx'      # 替换为用户的 secretId
-secret_key = 'xxxxxxx'      # 替换为用户的 secretKey
+secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
+secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'ap-shanghai'      # 替换为用户的 Region
 token = None                # 使用临时密钥需要传入 Token，默认为空，可不填
 scheme = 'https'            # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
@@ -77,7 +76,7 @@ XML Python SDK 存储桶名称由两部分组成：用户自定义字符串 和 
 
 设置 Bucket ，请参考以下示例代码：
 ```
-bucket = "mybucket1-1250000000"
+bucket = "examplebucket-1250000000"
 file_name = "test.txt"
 local_path = 'local.txt'
 response = client.upload_file(
@@ -114,10 +113,11 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 
 **4. 更改 API**
 升级到 XML Python SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12270)。
-API 变化有以下三点：
+API 变化有以下四点：
 
-**1）不再支持目录操作**
-在 XML SDK 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
+**1）没有单独的目录接口**
+
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
 例如：上传对象`project/doc/a.txt`，分隔符` / `会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
 
@@ -133,7 +133,7 @@ API 变化有以下三点：
 
 ```
 response = client.upload_file(
-    Bucket='test04-123456789',
+    Bucket='examplebucket-1250000000',
     LocalFilePath='local.txt',
     Key=file_name,
     PartSize=10,
@@ -141,7 +141,11 @@ response = client.upload_file(
 )
 ```
 
-**3）新增 API**
+**3）签名算法不同**
+
+通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
+
+**4）新增 API**
 
 XML Python SDK 新增 API，您可根据需求进行调用。包括：
 

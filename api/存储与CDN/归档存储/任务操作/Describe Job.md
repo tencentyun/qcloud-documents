@@ -57,23 +57,23 @@ Authorization: Auth
 | Tier                  | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk` | String   |
 
 ```JSON
-{     
-  "Action": String,
-  "JobId": String,
-  "JobDescription": String,
-  "CallBackUrl":String,
-  "CreationDate": String,
-  "CompletionDate": String,
-  "Completed": Boolean,
-  "StatusCode": String,
-  "StatusMessage": String,
-  "VaultQCS": String,
-  "ArchiveId": String,
-  "ArchiveSizeInBytes": Number,
-  "ArchiveSHA256TreeHash": String,
-  "RetrievalByteRange": String,
-  "SHA256TreeHash": String,
-  "Tier": String
+{
+	"Action": "String",
+	"JobId": "String",
+	"JobDescription": "String",
+	"CallBackUrl": "String",
+	"CreationDate": "String",
+	"CompletionDate": "String",
+	"Completed": "Boolean",
+	"StatusCode": "String",
+	"StatusMessage": "String",
+	"VaultQCS": "String",
+	"ArchiveId": "String",
+	"ArchiveSizeInBytes": "Number",
+	"ArchiveSHA256TreeHash": "String",
+	"RetrievalByteRange": "String",
+	"SHA256TreeHash": "String",
+	"Tier": "String"
 }
 ```
 
@@ -100,24 +100,24 @@ Authorization: Auth
 
 ```JSON
 {
-  "Action": String,
-  "JobId": String,
-  "JobDescription": String,
-  "CallBackUrl":String,
-  "CreationDate": String,
-  "CompletionDate": String,
-  "Completed": Boolean,
-  "StatusCode": String,
-  "StatusMessage": String,
-  "VaultQCS": String,
-  "InventorySizeInBytes": String,
-  "InventoryRetrievalParameters": { 
-    "Format": String,
-    "StartDate": String,
-    "EndDate": String,
-    "Limit": String,
-    "Marker": String
-  }
+	"Action": "String",
+	"JobId": "String",
+	"JobDescription": "String",
+	"CallBackUrl": "String",
+	"CreationDate": "String",
+	"CompletionDate": "String",
+	"Completed": "Boolean",
+	"StatusCode": "String",
+	"StatusMessage": "String",
+	"VaultQCS": "String",
+	"InventorySizeInBytes": "String",
+	"InventoryRetrievalParameters": {
+		"Format": "String",
+		"StartDate": "String",
+		"EndDate": "String",
+		"Limit": "String",
+		"Marker": "String"
+	}
 }
 ```
 
@@ -145,22 +145,22 @@ Authorization: Auth
 
 ```JSON
 {
-  "Action": String,
-  "JobId": String,
-  "JobDescription": String,
-  "CallBackUrl":String,
-  "CreationDate": String,
-  "CompletionDate": String,
-  "Completed": Boolean,
-  "StatusCode": String,
-  "StatusMessage": String,
-  "VaultQCS": String,
-  "ArchiveId": String,
-  "ArchiveSizeInBytes": Number,
-  "RetrievalByteRange"：String,
-  "Bucket"：String,
-  "Object":String,
-  "Tier":String 
+	"Action": "String",
+	"JobId": "String",
+	"JobDescription": "String",
+	"CallBackUrl": "String",
+	"CreationDate": "String",
+	"CompletionDate": "String",
+	"Completed": "Boolean",
+	"StatusCode": "String",
+	"StatusMessage": "String",
+	"VaultQCS": "String",
+	"ArchiveId": "String",
+	"ArchiveSizeInBytes": "Number",
+	"RetrievalByteRange": "String",
+	"Bucket": "String",
+	"Object": "String",
+	"Tier": "String"
 }
 ```
 
@@ -190,29 +190,31 @@ Authorization: Auth
 | If-Match           | 如果文件ETag与指定的一致，返回文件内容。          | String   |
 | If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。        | String   |
 | ArchiveDescription | 档案文件描述                                   | String   |
+
+
 ```JSON
 {
-  "Action": String,
-  "JobId": String,
-  "JobDescription": String,
-  "CallBackUrl":String,
-  "CreationDate": String,
-  "CompletionDate": String,
-  "Completed": Boolean,
-  "StatusCode": String,
-  "StatusMessage": String,
-  "VaultQCS": String,
-  "ArchiveId": String,
-  "ArchiveSizeInBytes": Number,
-  "Bucket"：String,
-  "Object":String,
-  "Condition":{
-     "If-Modified-Since":String,
-     "If-Umodified-Since":String,
-     "If-Match":String,
-     "If-None-Match":String
-  },
-  "ArchiveDescription":String 
+	"Action": "String",
+	"JobId": "String",
+	"JobDescription": "String",
+	"CallBackUrl": "String",
+	"CreationDate": "String",
+	"CompletionDate": "String",
+	"Completed": "Boolean",
+	"StatusCode": "String",
+	"StatusMessage": "String",
+	"VaultQCS": "String",
+	"ArchiveId": "String",
+	"ArchiveSizeInBytes": "Number",
+	"Bucket": "String",
+	"Object": "String",
+	"Condition": {
+		"If-Modified-Since": "String",
+		"If-Umodified-Since": "String",
+		"If-Match": "String",
+		"If-None-Match": "String"
+	},
+	"ArchiveDescription": "String"
 }
 ```
 

@@ -1,6 +1,6 @@
 
 ## 操作场景
-本文档为 Tcaplus Protobuf API Windows(x64) 用户手册。
+本文档教您如何在 Windows(x64) 系统上操作 Tcaplus Protobuf API 。
 ## 运行环境
 
 操作系统 - Microsoft Windows x86\_64
@@ -9,7 +9,7 @@
 ## 操作步骤
 ### 下载软件包
 
-1. 下载依赖包和 Tcaplus Protobuf API 软件包： [SDK 下载]()。
+1. 下载依赖包和 Tcaplus Protobuf API 软件包： [SDK 下载](https://cloud.tencent.com/document/product/596/31925)。
 2. 解压缩，以下是软件包的结构。
 ```
 Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
@@ -108,8 +108,7 @@ set/
 3. 检查输出。
 4. 如果需要了解运行详细信息，请查看日志文件`tcaplus_pb.log`。
 5. 如果需要运行`*_crypto`示例, 请确保`libcrypto-1_1-x64.dll`文件在系统Path路径下,这个文件能够在 openssl 的编译目录下找到。
-
-  ![Output](https://main.qcloudimg.com/raw/40627a3a2dff8a4a4aeea57cda2bb8bb.png)
+![Output](https://main.qcloudimg.com/raw/40627a3a2dff8a4a4aeea57cda2bb8bb.png)
 
 
 ## Tcaplus Pb API 命令列表

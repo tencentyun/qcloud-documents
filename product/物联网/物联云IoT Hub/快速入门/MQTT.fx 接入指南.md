@@ -1,8 +1,11 @@
+
+## 操作场景
 MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux，可以快速验证是否可以与 IoT Cloud 进行连接并发布或订阅消息，下面将通过图文并茂的形式演示 MQTT.fx 如何与腾讯云 IoT Cloud 交互。
 
+## 操作步骤
 ### 连接 IoT Cloud
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端，本文以 MQTT.fx 1.7.0 for Mac 版本为例。
-2. 打开 MQTT.fx 客户端程序，点击设置按钮打开设置页面，并点击" + "按钮，创建一个新的配置文件。
+2. 打开 MQTT.fx 客户端程序，单击【设置】，进入设置页面，并单击【+】，创建一个新的配置文件。
 ![](https://main.qcloudimg.com/raw/bd83f2f9976cab19c9117a5fe6d63a07.png)
 3. 填写 Connection Profile 相关信息和 General 信息。
 ![](https://main.qcloudimg.com/raw/86649d2431efe8794fe31885b33775af.png)
@@ -66,7 +69,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 </tr>
 <tr>
 	<td>ca.crt</td>
-	<td>根证书，点击 <a href="https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt">ca.crt</a> 链接下载文件</td>
+	<td>根证书，单击 <a href="https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt">ca.crt</a> 链接下载文件</td>
 </tr>
 <tr>
 	<td>Client Certificate File</td>
@@ -81,13 +84,14 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 	<td>由于物联网通信根证书、设备证书、设备密钥均由 openssl 生成使用 PEM 格式，而 MQTT.fx 是 Java 客户端，所以不识别 PEM 证书，这里需要勾选由该客户端自动转换为 Java 识别的 JKS 格式</td>
 </tr>
 </table>
-6. 完成以上步骤设置后，点击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，点击【Connect】按钮。当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
+
+6. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
 ![](https://main.qcloudimg.com/raw/1058d3742bc592a02c6e2bf73e803023.png)
 
 ### 发布消息
-选择客户端 Publish Tab，输入主题名称、Qos 等级，点击【Publish】按钮进行发布。发布结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
+选择客户端 Publish Tab，输入主题名称、Qos 等级，单击【Publish】进行发布。发布结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
 ![](https://main.qcloudimg.com/raw/1c8d6ce44ec57b66dadbdfc63f64aa7d.png)
 
 ### 订阅主题
-选择客户端 Subscribe Tab，输入主题名称、Qos 等级，点击【Subscribe】按钮进行主题订阅，订阅结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
+选择客户端 Subscribe Tab，输入主题名称、Qos 等级，单击【Subscribe】进行主题订阅，订阅结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
 ![](https://main.qcloudimg.com/raw/495a058f78a548a182a61fbeabc6ea5d.png)

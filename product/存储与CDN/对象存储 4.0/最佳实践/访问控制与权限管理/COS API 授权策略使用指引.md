@@ -1,7 +1,7 @@
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
-COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID 为1253653367，地域为`ap-beijing`，存储桶为`example-1253653367` ，路径前缀为`tes`的上传操作权限，路径前缀为`tes2`的下载操作权限的策略内容如下所示：
+COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID 为1250000000，地域为`ap-beijing`，存储桶为`examplebucket-1250000000` ，路径前缀为`doc`的上传操作权限，路径前缀为`doc2`的下载操作权限的策略内容如下所示：
 
 ```shell
 {
@@ -18,7 +18,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     },
     {
@@ -27,7 +27,7 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"
       ]
     }
   ]
@@ -79,8 +79,8 @@ COS API 授权策略（policy）是一种 json 字符串。例如，授予 APPID
 Bucket API 策略的`resource`可以归纳为以下几种情况：
 
 - 可操作任意地域的存储桶，策略的`resource`为`*`。
-- 只可操作指定地域的存储桶，如只可操作 APPID 为1253653367 ，地域为`ap-beijing`的存储桶，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/*`。
-- 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1253653367 ，地域为`ap-beijing`且名称为`example-1253653367`的存储桶， 则策略的`resource`为`qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/`。
+- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为`ap-beijing`的存储桶，则策略的 `resource` 为 `qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+- 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1250000000 ，地域为`ap-beijing`且名称为`examplebucket-1250000000`的存储桶， 则策略的`resource`为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
 
 
 
@@ -92,7 +92,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予可在 APPID 为1253653367 ，地域为`ap-beijing`中创建任意名称的存储桶的操作权限， 其策略详细内容如下：
+授予可在 APPID 为1250000000 ，地域为`ap-beijing`中创建任意名称的存储桶的操作权限， 其策略详细内容如下：
 
 ```shell
 {
@@ -104,7 +104,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ]
@@ -117,7 +117,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能检索 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的操作权限，其策略详细内容如下：
+授予只能检索 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -129,7 +129,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -142,7 +142,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能查询 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`的存储桶地域信息的操作权限， 其策略详细内容如下：
+授予只能查询 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`的存储桶地域信息的操作权限， 其策略详细内容如下：
 
 ```shell
 {
@@ -154,7 +154,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -167,7 +167,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`的对象列表的操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`的对象列表的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -179,7 +179,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
       ]
     }
   ]
@@ -192,7 +192,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能删除 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的存储桶的操作权限，其策略详细内容如下：
+授予只能删除 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的存储桶的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -204,7 +204,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -217,7 +217,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能设置 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的 ACL 的操作权限，其策略详细内容如下：
+授予只能设置 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的 ACL 的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -229,7 +229,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -242,7 +242,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的 ACL 的操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的 ACL 的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -254,7 +254,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -267,7 +267,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能设置 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的跨域配置的操作权限，其策略详细内容如下：
+授予只能设置 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的跨域配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -279,7 +279,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -292,7 +292,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的跨域配置的操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的跨域配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -304,7 +304,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -317,7 +317,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能删除 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的跨域配置的操作权限，其策略详细内容如下：
+授予只能删除 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的跨域配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -329,7 +329,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -342,7 +342,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能设置 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的生命周期配置的操作权限，其策略详细内容如下：
+授予只能设置 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的生命周期配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -354,7 +354,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -367,7 +367,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`的生命周期配置的操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`的生命周期配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -379,7 +379,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -392,7 +392,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能删除 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`的生命周期配置的操作权限，其策略详细内容如下：
+授予只能删除 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`的生命周期配置的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -404,7 +404,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -417,7 +417,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`中的正在分片上传信息的操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`中的正在分片上传信息的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -429,7 +429,7 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -443,9 +443,9 @@ Bucket API 策略的`action`则因操作不同而取值不同，以下列举所�
 Object API 策略的`resource`可以归纳为以下几种情况：<br>
 
 - 可操作任意对象，策略的`resource`为`*`。
-- 只可操作指定存储桶中的任意对象，如只可操作 APPID 为1253653367 ， 地域为`ap-beijing`，且名称为`example-1253653367`的存储桶中的任意对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/*`。
-- 只可操作指定存储桶 且 指定路径前缀下的任意对象，如只可操作 APPID 为1253653367 ， 地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`下的任意对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*`。
-- 只可操作指定绝对路径的对象，如只可操作 APPID 为1253653367 ， 地域为`ap-beijing`，存储桶为`example-1253653367`，绝对路径为`test/audio.mp3`的对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/audio.mp3`。
+- 只可操作指定存储桶中的任意对象，如只可操作 APPID 为1250000000 ， 地域为`ap-beijing`，且名称为`examplebucket-1250000000`的存储桶中的任意对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+- 只可操作指定存储桶 且 指定路径前缀下的任意对象，如只可操作 APPID 为1250000000 ， 地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下的任意对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*`。
+- 只可操作指定绝对路径的对象，如只可操作 APPID 为1250000000 ， 地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，绝对路径为`doc/audio.mp3`的对象，则策略的`resource`为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/audio.mp3`。
 
 
 
@@ -457,7 +457,7 @@ Object API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能在 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`下进行简单上传的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下进行简单上传的操作权限，其策略详细内容如下：
 
 ```shell
  {
@@ -469,7 +469,7 @@ Object API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -482,7 +482,7 @@ Object API 策略的`action`则因操作不同而取值不同，以下列举所�
 
 #### 示例 
 
-授予只能在 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`，路径前缀为`test`下进行分片上传的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下进行分片上传的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -498,7 +498,7 @@ Object API 策略的`action`则因操作不同而取值不同，以下列举所�
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -511,7 +511,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予只能在 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`，路径前缀为`test`下进行Post上传的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下进行Post上传的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -523,7 +523,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -536,7 +536,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予只能检索 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`，路径前缀为`test`中的对象的操作权限，其策略详细内容如下：
+授予只能检索 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`，路径前缀为`doc`中的对象的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -548,7 +548,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -561,7 +561,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予只能下载 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`中的对象的操作权限，其策略详细内容如下：
+授予只能下载 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`中的对象的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -573,7 +573,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -586,7 +586,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予在APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`的路径前缀为`test`和路径前缀为`test2`间进行分片复制的操作权限，其策略详细内容如下：
+授予在APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`的路径前缀为`doc`和路径前缀为`doc2`间进行分片复制的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -598,7 +598,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     },
     {
@@ -607,14 +607,14 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"
       ]
     }
   ]
 }
 ```
 
-其中`"qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"`为源对象。
+其中`"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"`为源对象。
 
 ### 分片复制
 
@@ -622,7 +622,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予在 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`的路径前缀为`test`和路径前缀为`test2`间进行分片复制的操作权限，其策略详细内容如下：
+授予在 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`的路径前缀为`doc`和路径前缀为`doc2`间进行分片复制的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -638,7 +638,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     },
     {
@@ -647,14 +647,14 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*" 
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*" 
       ]
     }
   ]
 }
 ```
 
-其中`"qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test2/*"`为源对象。
+其中`"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"`为源对象。
 
 ### 设置对象 ACL
 
@@ -662,7 +662,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予只能设置 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`，路径前缀为`test`中的对象 ACL 操作权限，其策略详细内容如下：
+授予只能设置 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`，路径前缀为`doc`中的对象 ACL 操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -674,7 +674,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -687,7 +687,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
 
 #### 示例 
 
-授予只能获取 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`中的对象 ACL 操作权限，其策略详细内容如下：
+授予只能获取 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`中的对象 ACL 操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -699,7 +699,7 @@ Post 上传：Post Object，若授予其操作权限，则策略的`action`为`n
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -712,7 +712,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 #### 示例 
 
-授予只能在 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`下进行 Options 请求 的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下进行 Options 请求 的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -724,7 +724,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -737,7 +737,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 #### 示例 
 
-授予只能在 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`，路径前缀为`test`下进行恢复归档的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`，路径前缀为`doc`下进行恢复归档的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -749,7 +749,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/test/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]
@@ -762,7 +762,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 #### 示例 
 
-授予只能删除 APPID 为1253653367 ，地域为`ap-beijing` ，存储桶为`example-1253653367`中的`audio.mp3`这个对象的操作权限，其策略详细内容如下：
+授予只能删除 APPID 为1250000000 ，地域为`ap-beijing` ，存储桶为`examplebucket-1250000000`中的`audio.mp3`这个对象的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -774,7 +774,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/audio.mp3"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/audio.mp3"
       ]
     }
   ]
@@ -787,7 +787,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 
 #### 示例 
 
-授予只能批量删除 APPID 为1253653367 ，地域为`ap-beijing`，存储桶为`example-1253653367`中的`audio.mp3`和`video.mp4`两个对象的操作权限，其策略详细内容如下：
+授予只能批量删除 APPID 为1250000000 ，地域为`ap-beijing`，存储桶为`examplebucket-1250000000`中的`audio.mp3`和`video.mp4`两个对象的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -799,8 +799,8 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/audio.mp3",
-        "qcs::cos:ap-beijing:uid/1253653367:prefix//1253653367/example/video.mp4"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/audio.mp3",
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/video.mp4"
       ]
     }
   ]
@@ -851,7 +851,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
 ```
 
 ### 授予指定路径前缀的读写操作
-授予用户只能访问存储桶 example-1253653367 中路径前缀为 userID123456 下的文件，且无法操作其它路径文件的操作权限，该策略详细内容如下：
+授予用户只能访问存储桶 examplebucket-1250000000 中路径前缀为 doc 下的文件，且无法操作其它路径文件的操作权限，该策略详细内容如下：
 ```shell
 {
   "version": "2.0",
@@ -862,7 +862,7 @@ Options 请求：Options Object，若授予其操作权限，则策略的 `actio
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-shanghai:uid/1253653367:prefix//1253653367/example/userID123456/*"
+        "qcs::cos:ap-shanghai:uid/1250000000:examplebucket-1250000000/doc/*"
       ]
     }
   ]

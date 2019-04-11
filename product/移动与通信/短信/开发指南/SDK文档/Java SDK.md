@@ -15,11 +15,16 @@
 语音通知支持操作：[发送语音验证码](#发送语音验证码)、[发送语音通知](#发送语音通知)、[上传语音文件](#上传语音文件)、[查询语音文件审核状态](#查询语音文件审核状态)、[按语音文件 fid 发送语音通知](#按语音文件fid发送语音通知)、[指定模板发送语音通知](#指定模板发送语音通知)。
 
 ## 开发
+
+### 相关资料
+各个接口及其参数的详情介绍请参考 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+
+
 ### 开发前准备
 在开始开发云短信应用之前，需要准备如下信息：
 
 - **获取 SDK AppID 和 AppKey**
-云短信应用 SDK **AppID **和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
+云短信应用 SDK **AppID**和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
 
 - **申请签名**
 一个完整的短信由短信 **签名** 和 **短信正文内容** 两部分组成，短信 **签名** 须申请和审核，**签名** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请。
@@ -36,14 +41,14 @@ qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种�
 <dependency>
   <groupId>com.github.qcloudsms</groupId>
   <artifactId>qcloudsms</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 
 ```
 
 #### sbt
 ```
-libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.5"
+libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 ```
 
 #### 其他
@@ -56,8 +61,6 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.5"
 将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 
-### 相关资料
-若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ### 示例
 
@@ -77,7 +80,7 @@ String[] phoneNumbers = {"21212313123", "12345678902", "12345678903"};
 int templateId = 7839; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
 //templateId7839对应的内容是"您的验证码是: {1}"
 // 签名
-String smsSign = "腾讯云"; // NOTE: 这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台中申请，另外签名参数使用的是`签名内容`，而不是`签名ID`
+String smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 ```
 
 <a id="指定模板单发短信"></a>
@@ -140,7 +143,7 @@ try {
 }
 ```
 
-> 群发一次请求最多支持 200 个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持(QQ:3012203387)。
+> 群发一次请求最多支持 200 个号码。
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="发送语音验证码" ></a>

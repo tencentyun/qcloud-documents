@@ -8,10 +8,9 @@
 您可以通过以下步骤进行排查：
 #### 1. 查看服务配置信息
 - 服务配置信息错误
-查看应用的软件包，获取服务配置信息（spec.yaml），检查服务名是否为期望暴露的服务名、端口号是否为服务真实监听的端口号、健康检查接口是否存在、检查健康接口格式是否正确（不含 ip:port，类似`/health`是符合的）。
-
+  查看应用的软件包，获取服务配置信息（spec.yaml），检查服务名是否为期望暴露的服务名、端口号是否为服务真实监听的端口号、健康检查接口是否存在、检查健康接口格式是否正确（不含 ip:port，类似`/health`是符合的）。
 - 服务配置文件格式错误
-将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如过格式正确，则继续检查字段名称，是否与下面示例的格式一致。
+  将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如果格式正确，则继续检查字段名称，是否与下面示例的格式一致。
 ```
 apiVersion: v1
 kind: Application
@@ -40,19 +39,18 @@ spec:
       代表pilot-agent会从/data/demo/shopService中加载spec.yaml
     - step2: 确认appConfigDir指向的目录存在spec.yaml
 
+
 #### 2. 查看健康检查返回
-登录应用所在的容器或者虚拟机，通过调用本地的健康检查路径，查看返回码是否为200，如果不是200，证明服务存在健康问题。
+登录应用所在的容器或者虚拟机，通过调用本地的健康检查路径，查看返回码是否为200，如果不是200，证明服务存在健康问题。详情参考 [TSF Mesh 开发指引](https://cloud.tencent.com/document/product/649/19049)。
 ```shell
 curl -i -H 'Host: local-service' {ip}:{Port}/<healthCheck_path>
 ```
-详情参考 [TSF Mesh 开发指引](https://cloud.tencent.com/document/product/649/19049)。
 
-#### 3. 通过运维接口查看sidecar相关信息
+#### 3. 通过运维接口查看 sidecar 相关信息
 
-登录应用所在的容器或者虚拟机，调用pilot-agent的运维接口，查看sidecar容器的相关状态信息。
-
+登录应用所在的容器或者虚拟机，调用 pilot-agent 的运维接口，查看 sidecar 容器的相关状态信息。
 - 查看接口列表
-调用GET 127.0.0.1:15020/help接口可查看
+调用`GET 127.0.0.1:15020/help`接口查看接口列表：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/help
 admin commands are:
@@ -74,19 +72,19 @@ admin commands are:
 ```
 
 - 查看版本号
-调用GET 127.0.0.1:15020/version接口可查看
+调用`GET 127.0.0.1:15020/version`接口查看版本号：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/version                
 1.0.13.release-20190225_103608
 ```
 
-- 查看sidecar健康状态
-调用GET 127.0.0.1:15020/health接口可查看
+- 查看 sidecar 健康状态
+调用`GET 127.0.0.1:15020/health`接口查看 sidecar 健康状态：
 ```
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/health
 {"envoy":{"status":"UP"},"mesh-dns":{"status":"UP"},"status":"UP"}
 ```
-如果出现部件不健康的组件（status不为UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 
 #### 4. 调用 clusters 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地 cluster（格式为 in#port#serviceName）是否存在或者健康状态是否 healthy。

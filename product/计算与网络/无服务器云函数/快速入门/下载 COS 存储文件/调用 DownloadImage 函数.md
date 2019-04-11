@@ -1,69 +1,40 @@
-请按照以下步骤测试新创建的 “DownloadImage” 函数。
+调用 DownloadImage 函数有以下两种方式，您可以根据实际需求，选择测试：
+- [手动模拟测试](#ManualSimulationTest)
+- [使用 COS 上传文件测试](#UploadFileTestUsingCOS)
 
-## 使用 COS 上传文件测试
+<span id="ManualSimulationTest"></span>
+### 手动模拟测试
 
-1. 登录腾讯云控制台，切换至【对象存储服务】。
-2. 在 Bucket 列表中，选择 [创建 DownloadImage 函数](https://cloud.tencent.com/document/product/583/9211) 中创建的 “TestBucket” Bucket，单击【上传文件】，上传一张 [示例图片:testimage.jpeg](https://mc.qcloudimg.com/static/img/e683e8627510ec92344329c5219c1939/testimage.jpeg)（您可将此示例图片下载到本地并用作测试）。
-3. 切换至【无服务器云函数】，选择新创建的 “DownloadImage”。
-4. 单击【日志】选项卡，检查是否存在上传图片后的函数运行日志。日志中应有本地下载下来的图片的日志，如以下日志：
-```
-Loading function
-Uri is http://TestBucket-1251111111.cosgz.myqcloud.com/testimage.jpeg?sign=QlEyq+WH8g5RpD+L6sPk05XhVQthPTEyNTE3NjIyMjcmaz1BS0lEWURoMDg1eFFwNDgxNjF1T24yQ0tLVmJlZWJ2RHU2ak8mZT0xNDk2ODM5NDQ3JnQ9MTQ5NjgzOTE0NyZyPTk1NDI3NjgyNCZmPS8xNDcyNjQwNzgwXzg0X3cxNjE0X2g0NDAucG5nJmI9ZG9uZ3l1YW50ZXEE
-Starting new HTTP connection (1): TestBucket-1251111111.cosgz.myqcloud.com
-http://TestBucket-1251111111.cosgz.myqcloud.com:80 "GET /testimage.jpeg?sign=QlEyq+WH8g5RpD+L6sPk05XhVQthPTEyNTE3NjIyMjcmaz1BS0lEWURoMDg1eFFwNDgxNjF1T24yQ0tLVmJlZWJ2RHU2ak8mZT0xNDk2ODM5NDQ3JnQ9MTQ5NjgzOTE0NyZyPTk1NDI3NjgyNCZmPS8xNDcyNjQwNzgwXzg0X3cxNjE0X2g0NDAucG5nJmI9ZG9uZ3l1YW50ZXEE HTTP/1.1" 200 62296
-Download file [/testimage.jpeg] Success
-testimage.jpeg
-```
+1. 在新创建的 DownloadImage 函数详情页面中，选择【函数代码】页签。
+2. 单击【更换】，弹出 “更换测试模版” 窗口。
+3. 在弹出的 “更换测试模版” 窗口中，选择 “COS 上传/删除文件事件模板”，单击【提交】。
+4. 单击【测试】，运行代码并返回测试结果。如下图所示：
+![](https://main.qcloudimg.com/raw/1fdf28934da1eb51f76b9dbcad497b62.png)
+ - 返回结果：显示代码中 **return** 语句返回的函数执行结果。
+ - 摘要：显示函数运行的时间、内存等信息。
+ - 日志：显示函数运行时生成的日志，包括用户代码中的打印语句、函数运行失败 trace stack 等。
+   
+ >? 根据上图所示，测试模板在模拟 “COS 上传文件” 消息时，需要将模板中 “COS” 对象下的 Bucket name、appid 等信息替换为真实数据，如果未替换，下载文件时将抛出 “NoSuchBucket” 异常，导致执行结果返回 “Fail”。因此，**建议您直接采用 [使用 COS 上传文件测试](#UploadFileTestUsingCOS)。** 
+5. 单击【配置】弹出 “配置测试模版” 窗口。
+6. 在弹出的 “配置测试模版” 窗口中，选择 “新建模板”，填写以下信息，并单击【提交】。如下图所示：
+ ![](https://main.qcloudimg.com/raw/5b54a54f4ae3df3ab32f78f5b4b803b3.png)
+ - 测试事件模版：命名为 “test-scf”。
+ - 引用模版代码：选择 “COS 上传/删除文件事件模板”，并修改 “引用模版代码” 中的 **cosBucket** 和 **cosObject** 结构体的参数。
+    - 将 “cosBucket” 中的 “name” 更换为 “test-scf”。
+    - 将 “cosBucket” 中的 “appid” 更换为 “账号的 appid”。
+    - 将 “cosBucket” 中的 “region” 更换为 “guangzhou”。
+    - 将 “cosObject” 中的 “key” 更换为真实数据。
+    >! “key” 参数中的文件名需替换为 “test-scf” bucket 中的真实文件名。
+2. 单击【测试】，运行代码并返回测试结果。如下图所示：
+![](https://main.qcloudimg.com/raw/fb05ce67cf556c2b94fa8ba84922a0d3.png)
+>? 您也可切换至【运行日志】页签，查看运行结果。
 
-## 手动模拟测试
-您还可以通过手动输入如 COS 触发的测试数据来观察函数运行状态。
-1. 在测试函数弹出框中，从测试模版中选择`COS 上传/删除文件测试代码`，默认测试数据将出现在窗口中。需要做以下修改：
- - 将`cosBucket`中的`name`更换成新创建的`TestBucket`。
- - 将`cosObject`中的`key`的值更换成上传的文件`\testimage.jpeg`。
+<span id="UploadFileTestUsingCOS"></span>
+### 使用 COS 上传文件测试
 
- 如下：
-```
-{  
-   "Records":[  
-      {
-        "event": {
-          "eventVersion":"1.0",
-          "eventSource":"qcs::cos",
-          "eventName":"cos:ObjectCreated:*,
-          "eventTime":"1970-01-01T00:00:00.000Z",
-          "eventQueue":"qcs:0:cos:gz:1251111111:cos",
-          "requestParameters":{
-            "requestSourceIP": "111.111.111.111",
-            "requestHeaders":{
-              "Authorization": "Example"
-            }
-          }
-         },
-         "cos":{  
-            "cosSchemaVersion":"1.0",
-            "cosNotificationId":"设置的或返回的 ID",
-            "cosBucket":{  
-               "name":"TestBucket", # Notice Here
-               "appid":"1251111111",
-               "region":"gz",
-            },
-            "cosObject":{  
-               "key":"/testimage.jpg", # Notice Here
-               "size":"1024",
-               "meta":{
-                 "Content-Type": "text/plain",
-                 "x-cos-meta-test": "自定义的 meta",
-                 "x-image-test": "自定义的 meta"
-               },
-               "url": "访问文件的源站url"
-            }
-         }
-      }
-   ]
-}  
-```
-2. 单击【运行】，代码开始运行并将显示测试结果。其中：
- - 函数返回值部分将显示运行结果，还将显示代码中 `return` 语句返回的函数执行结果。
- - 运行信息部分将显示函数运行的时间、内存等信息。
- - 日志部分将显示函数运行时生成的日志，包括用户代码中的打印语句、函数运行失败 trace stack 等，将会写入至日志模块。
-3. 您可以多运行几次，并单击【日志】选项卡来查看每一次运行的日志信息。
+1. 登录 [对象存储服务控制台](https://console.cloud.tencent.com/cos5/bucket)，进入【存储桶列表】页面。
+2. 在 “Bucket列表” 中，选择 “test-scf” bucket，进入 “ test-scf” 详情页面。
+3. 单击【上传文件】，上传一张图片或者一个文件。
+3. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，并选择 “DownloadImage” 函数。
+4. 在 “DownloadImage” 详情页面，选择【运行日志】页签，检查运行结果及运行日志。如下图所示：
+![](https://main.qcloudimg.com/raw/40fd92e598472c43f669b5982b04bb8c.png)

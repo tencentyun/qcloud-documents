@@ -65,18 +65,18 @@ https://aai.qcloud.com/asr/v1/<appid>
 请求参数： 
 ```
 {
-"projectid":0,
-"sub_service_type":0,
-"engine_model_type":"16k_0",
-“url":"http%3a%2f%2ftest.qq.com%2frec_callback",
-"res_text_format":0,
-"res_type":1,
-"callback_url":"http%3a%2f%2ftest.qq.com%2frec_callback",
-"source_type":0,
-"secretid":"AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv",
-"timestamp":1473752207,
-"expired":1473752807,
-"nonce":"44925",
+	"projectid": 0,
+	"sub_service_type": 0,
+	"engine_model_type": "16k_0",
+	"url ": "http % 3 a % 2 f % 2 ftest.qq.com % 2 frec_callback ",
+	"res_text_format": 0,
+	"res_type": 1,
+	"callback_url": "http%3a%2f%2ftest.qq.com%2frec_callback",
+	"source_type": 0,
+	"secretid": "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv",
+	"timestamp": 1473752207,
+	"expired": 1473752807,
+	"nonce": "44925"
 }
 ```
 这里以`< appid > = 200001, < SecretKey >=bLcPnl88WU30VY57ipRhSePfPdOfSruK` 为例拼接签名原文，则拼接的签名原文为：

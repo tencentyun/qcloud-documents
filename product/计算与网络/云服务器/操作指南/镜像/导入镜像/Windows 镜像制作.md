@@ -41,7 +41,7 @@ bootmenupolicy          Standard
 
 - 卸载会产生冲突的驱动和软件（包括 VMware tools，Xen tools， Virtualbox GuestAdditions 以及一些自带底层驱动的软件）。
 
-- 安装 cloud-base：请参考 [cloud-base 安装文档](https://cloud.tencent.com/document/product/213/12587)。
+- 安装 cloud-base：请参考 [cloud-base 安装文档](https://cloud.tencent.com/document/product/213/30000)。
 
 - 检查或安装 virtio 驱动
 在【控制面板】>【程序和功能】中搜索到 virtio，如下图示，则说明已安装 virtio：

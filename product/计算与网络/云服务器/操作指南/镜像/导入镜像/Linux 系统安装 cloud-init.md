@@ -64,7 +64,6 @@ python setup.py install --init-system systemd
 1. 根据不同操作系统，下载 cloud.cfg。
  - [ubuntu 操作系统的 cloud.cfg](http://cloudinit-1251783334.cosgz.myqcloud.com/ubuntu-cloud.cfg)
  - [centos 操作系统的 cloud.cfg](http://cloudinit-1251783334.cosgz.myqcloud.com/centos-cloud.cfg)
- - 其他操作系统待补充
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ### 添加 syslog 用户
@@ -170,7 +169,6 @@ apt-get/yum install cloud-init
 1. 根据不同操作系统，下载 cloud.cfg。
  - [ubuntu 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg)
  - [centos 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg)
- - 其他操作系统待补充
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ## 安装 cloud-init 后的相关操作
@@ -185,7 +183,7 @@ rm -rf /var/lib/cloud
 ```
 rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 ```
-3. 将 `/etc/network/interfaces` 修改为以下内容：
+3. 针对 ubuntu 或 debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
 ```
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).

@@ -2,9 +2,9 @@
 
 tcaplus_client 是在 TcaplusServiceAPI 发布包 bin 目录中的一个 TcaplusDB 表访问工具，它本身也是 TcaplusServiceAPI 的一个应用程序。
 
-Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，接下来的演示将基于 Linux x86_64 版本的工具进行。
+Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，接下来的演示将基于 Linux x86_64 版本的工具进行。
 
-> ! 相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
+>!相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
 
 在本例中，假设用户获取到如下接入点信息，并且在 ZoneId 为1的部署单元中创建了表 tb_online
 
@@ -26,7 +26,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 linux 版本的
 
     the params in [] are optional, and theire order is not important.
 
-    -a(--ap_id)    APP ID
+    -a(--ap_id)    App ID
 
     -z(--zone_id)    ZONE ID    -s(--signature)    PASSWORD
 
