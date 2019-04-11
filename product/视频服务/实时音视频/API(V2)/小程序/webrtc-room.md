@@ -25,7 +25,6 @@
 | enableCamera | Boolean | true | 可选，开启\关闭摄像头 |
 | pureAudioPushMod | Number | &nbsp; | 可选，纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制mp3文件 <br/> 2 => 本次是纯音频推流,录制文件为mp3 |
 | recordId | Number | &nbsp; | 可选，自动录制时业务自定义id，将在录制完成后通过[直播录制回调](https://console.cloud.tencent.com/live/livecodemanage) 接口通知业务方，`注意：如果小程序与小程序或者小程序与Web端互通，且传了recordId，必须保证web端和小程序传递的值一致` |
-| enableCamera | Boolean | true | 是否开启摄像头 |
 | smallViewLeft | String | '1vw' | 小窗口距离大画面左边的距离，只在template设置为bigsmall有效 |
 | smallViewTop | String | '1vw' | 小窗口距离大画面顶部的距离，只在template设置为bigsmall有效 |
 | smallViewWidth | String | '30vw' | 小窗口宽度，只在template设置为bigsmall有效 |
