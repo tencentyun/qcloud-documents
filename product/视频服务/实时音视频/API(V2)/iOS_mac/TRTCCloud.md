@@ -86,6 +86,39 @@ __介绍__
 
 
 ## 视频相关接口函数
+### startLocalPreview
+
+开启本地视频的预览画面 (iOS 版本)。
+```
+- (void)startLocalPreview:(BOOL)frontCamera view:(TXView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frontCamera | BOOL | YES：前置摄像头；NO：后置摄像头。 |
+| view | TXView * | 承载视频画面的控件 |
+
+
+### startLocalPreview
+
+开启本地视频的预览画面 (Mac 版本)。
+```
+- (void)startLocalPreview:(TXView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| view | TXView * | 承载视频画面的控件 |
+
+__介绍__
+
+在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带的摄像头还是外接摄像头。
+
+
 ### stopLocalPreview
 
 停止本地视频采集及预览。
@@ -348,6 +381,20 @@ __介绍__
 低端设备推荐优先选择低清晰度的小画面。 如果对方没有开启双路视频模式，则此操作无效。
 
 
+### setLocalVideoMirror
+
+设置摄像头本地预览是否开镜像。
+```
+- (void)setLocalVideoMirror:(BOOL)mirror 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | BOOL | 是否开启预览镜像 |
+
+
 
 ## 音频相关接口函数
 ### startLocalAudio
@@ -460,6 +507,296 @@ __参数__
 __介绍__
 
 开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。
+
+
+
+## 摄像头相关接口函数
+### switchCamera
+
+切换摄像头。
+```
+- (void)switchCamera
+```
+
+
+### isCameraZoomSupported
+
+查询当前摄像头是否支持缩放。
+```
+- (BOOL)isCameraZoomSupported
+```
+
+
+### setZoom
+
+设置摄像头缩放因子（焦距）。
+```
+- (void)setZoom:(CGFloat)distance 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| distance | CGFloat | 取值范围为1 - 5，数值越大，焦距越远 |
+
+__介绍__
+
+取值范围1 - 5，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头）。 这里最大值推荐为5，超过5后视频数据会变得模糊不清。
+
+
+### isCameraTorchSupported
+
+查询是否支持开关闪光灯（手电筒模式）。
+```
+- (BOOL)isCameraTorchSupported
+```
+
+
+### enbaleTorch
+
+开关闪光灯。
+```
+- (BOOL)enbaleTorch:(BOOL)enable 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | BOOL | YES：开启；NO：关闭 |
+
+
+### isCameraFocusPositionInPreviewSupported
+
+查询是否支持设置焦点。
+```
+- (BOOL)isCameraFocusPositionInPreviewSupported
+```
+
+
+### setFocusPosition
+
+设置摄像头焦点。
+```
+- (void)setFocusPosition:(CGPoint)touchPoint 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| touchPoint | CGPoint | 对焦位置 |
+
+
+### isCameraAutoFocusFaceModeSupported
+
+查询是否支持自动识别人脸位置。
+```
+- (BOOL)isCameraAutoFocusFaceModeSupported
+```
+
+
+### enableAutoFaceFoucs
+
+自动识别人脸位置。
+```
+- (void)enableAutoFaceFoucs:(BOOL)enable 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | BOOL | YES：开启；NO：关闭 |
+
+
+### getCameraDevicesList
+
+获取摄像头设备列表。
+```
+- (NSArray< TRTCMediaDeviceInfo * > *)getCameraDevicesList
+```
+
+__返回__
+
+摄像头设备列表，第一项为当前系统默认设备。
+
+__介绍__
+
+Mac 主机本身自带一个质量很好的摄像头，但它也允许插入 USB 摄像头。 如果您希望用户选择自己外接的摄像头，可以提供一个多摄像头选择的功能。
+
+
+### getCurrentCameraDevice
+
+获取当前要使用的摄像头。
+```
+- (TRTCMediaDeviceInfo *)getCurrentCameraDevice
+```
+
+
+### setCurrentCameraDevice
+
+设置要使用的摄像头。
+```
+- (int)setCurrentCameraDevice:(NSString *)deviceId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| deviceId | NSString * | 从 getCameraDevicesList 中得到的设备 ID |
+
+__返回__
+
+0：成功；-1：失败。
+
+
+
+## 音频设备相关接口函数
+### getMicDevicesList
+
+获取麦克风设备列表。
+```
+- (NSArray< TRTCMediaDeviceInfo * > *)getMicDevicesList
+```
+
+__返回__
+
+麦克风设备列表，第一项为当前系统默认设备。
+
+__介绍__
+
+Mac 主机本身自带一个质量很好的麦克风，但它也允许用户外接其他的麦克风，而且很多 USB 摄像头上也自带麦克风。 如果您希望用户选择自己外接的麦克风，可以提供一个多麦克风选择的功能。
+
+
+### getCurrentMicDevice
+
+获取当前的麦克风设备。
+```
+- (TRTCMediaDeviceInfo *)getCurrentMicDevice
+```
+
+__返回__
+
+当前麦克风设备信息。
+
+
+### setCurrentMicDevice
+
+设置要使用的麦克风。
+```
+- (int)setCurrentMicDevice:(NSString *)deviceId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| deviceId | NSString * | 从 getMicDevicesList 中得到的设备 ID |
+
+__返回__
+
+0：成功；<0：失败。
+
+
+### getCurrentMicDeviceVolume
+
+获取当前麦克风设备音量。
+```
+- (float)getCurrentMicDeviceVolume
+```
+
+__返回__
+
+麦克风音量。
+
+
+### setCurrentMicDeviceVolume
+
+设置麦克风设备的音量。
+```
+- (void)setCurrentMicDeviceVolume:(NSInteger)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | NSInteger | 麦克风音量值，范围0 - 100 |
+
+
+### getSpeakerDevicesList
+
+获取扬声器设备列表。
+```
+- (NSArray< TRTCMediaDeviceInfo * > *)getSpeakerDevicesList
+```
+
+__返回__
+
+扬声器设备列表，第一项为当前系统默认设备。
+
+
+### getCurrentSpeakerDevice
+
+获取当前的扬声器设备。
+```
+- (TRTCMediaDeviceInfo *)getCurrentSpeakerDevice
+```
+
+__返回__
+
+当前扬声器设备信息。
+
+
+### setCurrentSpeakerDevice
+
+设置要使用的扬声器。
+```
+- (int)setCurrentSpeakerDevice:(NSString *)deviceId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| deviceId | NSString * | 从 getSpeakerDevicesList 中得到的设备 ID |
+
+__返回__
+
+0：成功；<0：失败。
+
+
+### getCurrentSpeakerDeviceVolume
+
+当前扬声器设备音量。
+```
+- (float)getCurrentSpeakerDeviceVolume
+```
+
+__返回__
+
+扬声器音量。
+
+
+### setCurrentSpeakerDeviceVolume
+
+设置当前扬声器音量。
+```
+- (int)setCurrentSpeakerDeviceVolume:(NSInteger)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | NSInteger | 设置的扬声器音量，范围0 - 100 |
+
+__返回__
+
+0：成功；<0：失败。
 
 
 
@@ -599,6 +936,139 @@ __介绍__
 对应于 setRemoteViewFillMode() 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
 
 
+### getScreenCaptureSourcesWithThumbnailSize
+
+枚举可分享的屏幕窗口。
+```
+- (NSArray< TRTCScreenCaptureSourceInfo * > *)getScreenCaptureSourcesWithThumbnailSize:(CGSize)thumbnailSize iconSize:(CGSize)iconSize 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| thumbnailSize | CGSize | 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上 |
+| iconSize | CGSize | 指定要获取的窗口图标大小 |
+
+__返回__
+
+窗口列表包括屏幕。
+
+__介绍__
+
+如果您要给您的 App 增加屏幕分享功能，一般需要先显示一个窗口选择界面，这样用户可以选择希望分享的窗口。 通过如下函数，您可以获得可分享窗口的 ID、类型、窗口名称以及缩略图。 拿到这些信息后，您就可以实现一个窗口选择界面，当然，您也可以使用我们在 Demo 源码中已经实现好的一个界面。
+
+>?返回的列表中，第一个是屏幕，即 type 为 TRTCScreenCaptureSourceTypeWindow。
+
+
+
+### selectScreenCaptureTarget
+
+设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。
+```
+- (void)selectScreenCaptureTarget:(TRTCScreenCaptureSourceInfo *)screenSource rect:(CGRect)rect capturesCursor:(BOOL)capturesCursor highlight:(BOOL)highlight 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| screenSource | TRTCScreenCaptureSourceInfo * | 指定分享源 |
+| rect | CGRect | 指定捕获的区域（传 CGRectZero 则默认分享全屏） |
+| capturesCursor | BOOL | 是否捕获鼠标光标 |
+| highlight | BOOL | 是否高亮正在分享的窗口 |
+
+__介绍__
+
+如果您期望在屏幕分享的过程中，切换想要分享的窗口，可以再次调用这个函数而不需要重新开启屏幕分享。
+
+
+### startScreenCapture
+
+启动屏幕分享。
+```
+- (void)startScreenCapture:(NSView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| view | NSView * | 渲染控件所在的父控件 |
+
+
+### stopScreenCapture
+
+停止屏幕采集。
+```
+- (int)stopScreenCapture
+```
+
+__返回__
+
+0：成功；<0：失败。
+
+
+### pauseScreenCapture
+
+暂停屏幕分享。
+```
+- (int)pauseScreenCapture
+```
+
+__返回__
+
+0：成功；<0：失败。
+
+
+### resumeScreenCapture
+
+恢复屏幕分享。
+```
+- (int)resumeScreenCapture
+```
+
+__返回__
+
+0：成功；<0：失败。
+
+
+### setSubStreamEncoderParam
+
+设置屏幕分享的编码器参数。
+```
+- (void)setSubStreamEncoderParam:(TRTCVideoEncParam *)param 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| param | TRTCVideoEncParam * | 辅流编码参数，详情请参考 TRTCCloudDef.h 中的 TRTCVideoEncParam 定义 |
+
+__介绍__
+
+对应于 setVideoEncoderParam() 设置主画面的编码参数，该函数仅用于设置辅路（屏幕分享、远程播片）的编码参数。 该设置决定了远端用户看到的画面质量，同时也是云端录制出的视频文件的画面质量。
+
+
+### setSubStreamMixVolume
+
+设置屏幕分享的混音音量大小。
+```
+- (void)setSubStreamMixVolume:(NSInteger)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | NSInteger | 设置的音量大小，范围0 - 100 |
+
+__介绍__
+
+这个数值越高，辅路音量的占比就约高，麦克风音量占比就越小，所以不推荐设置得太大，否则麦克风的声音就被压制了。
+
+
 
 ## 自定义采集和渲染
 ### enableCustomVideoCapture
@@ -698,6 +1168,65 @@ __介绍__
 
 >?调用此函数之前，需要先调用 startRemoteView 来获取远端用户的视频流（view 设置为 nil 即可），否则不会有数据回调出来。
 
+
+
+### enableCustomAudioCapture
+
+启用音频自定义采集模式。
+```
+- (void)enableCustomAudioCapture:(BOOL)enable 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | BOOL | 是否启用, true：启用；false：关闭 |
+
+__介绍__
+
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 sendCustomAudioData() 不断地向 SDK 塞入自己采集的视频画面。
+
+>?由于回声抵消（AEC）需要严格的控制声音采集和播放的时间，所以开启自定义音频采集后，AEC 能力可能会失效。
+
+
+
+### sendCustomAudioData
+
+向 SDK 投送自己采集的音频数据。
+```
+- (void)sendCustomAudioData:(TRTCAudioFrame *)frame 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frame | TRTCAudioFrame * | 音频数据 |
+
+>?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
+
+
+
+### setAudioFrameDelegate
+
+设置音频数据回调。
+```
+- (void)setAudioFrameDelegate:(id< TRTCAudioFrameDelegate >)delegate 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| delegate | id< TRTCAudioFrameDelegate > | 音频数据回调，delegate = nil 则停止回调数据 |
+
+__介绍__
+
+设置此方法，SDK 内部会把音频数据（PCM 格式）回调出来，包括：
+1. onCapturedAudioFrame：本机麦克风采集到的音频数据
+2. onPlayAudioFrame：混音前的每一路远程用户的音频数据
+3. onMixedPlayAudioFrame：各路音频数据混合后送入扬声器播放的音频数据。
 
 
 
@@ -932,6 +1461,71 @@ __介绍__
 停止服务器测速。
 ```
 - (void)stopSpeedTest
+```
+
+
+### startCameraDeviceTestInView
+
+开始进行摄像头测试。
+```
+- (void)startCameraDeviceTestInView:(NSView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| view | NSView * | 预览控件所在的父控件 |
+
+>?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
+
+
+
+### stopCameraDeviceTest
+
+结束视频测试预览。
+```
+- (void)stopCameraDeviceTest
+```
+
+
+### startMicDeviceTest
+
+开始进行麦克风测试。
+```
+- (void)startMicDeviceTest:(NSInteger)interval testEcho:(void(^)(NSInteger volume))testEcho 
+```
+
+__介绍__
+
+该方法测试麦克风是否能正常工作，volume 的取值范围为0 - 100。
+
+
+### stopMicDeviceTest
+
+停止麦克风测试。
+```
+- (void)stopMicDeviceTest
+```
+
+
+### startSpeakerDeviceTest
+
+开始扬声器测试。
+```
+- (void)startSpeakerDeviceTest:(NSString *)audioFilePath onVolumeChanged:(void(^)(NSInteger volume, BOOL isLastFrame))volumeBlock 
+```
+
+__介绍__
+
+该方法播放指定的音频文件测试播放设备是否能正常工作。如果能听到声音，说明播放设备能正常工作。
+
+
+### stopSpeakerDeviceTest
+
+停止扬声器测试。
+```
+- (void)stopSpeakerDeviceTest
 ```
 
 
