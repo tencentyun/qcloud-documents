@@ -46,7 +46,6 @@ pod repo update
 |libc++.tbd|
 |libiconv.tbd|
 |libicucore.tbd|
-|libprotobuf.tbd|
 |libresolv.tbd|
 |libsqlite3.tbd|
 |libz.tbd|
