@@ -2,7 +2,7 @@
 ## 软件版本
 本文在示例步骤中的软件版本如下，在实际操作时，请您以实际软件版本为准。
 - 操作系统：CentOS 7.5
-- Tomcat 版本：apache-tomcat-8.5.37
+- Tomcat 版本：apache-tomcat-8.5.39
 - JDK 版本：JDK 1.8.0_201
 
 ## 安装JDK
@@ -46,16 +46,17 @@ source /etc/profile
 ### 下载 Tomcat
 输入以下命令：
 ```
-# 下载并解压 Tomcat
-wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
-tar -xzvf apache-tomcat-8.5.37.tar.gz
-mv apache-tomcat-8.5.37 /usr/local/tomcat/
+wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
+tar -xzvf apache-tomcat-8.5.39.tar.gz
+mv apache-tomcat-8.5.39 /usr/local/tomcat/
 ```
-在`/usr/local/tomcat/`目录中包含一下文件：
+在`/usr/local/tomcat/`目录中包含以下文件：
 - bin：脚本文件，包含启动和关闭 Tomcat 服务脚本。
 - conf：各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
 - webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
 - logs：存放 Tomcat 执行时的日志文件。
+
+>!如果下载链接失效，请替换为 [Tomcat 官网](https://tomcat.apache.org/download-80.cgi ) 的最新下载链接。
 
 ### 添加用户
 ```
