@@ -4,7 +4,7 @@ Tensorflow 组件为用户提供了基于 Python API 的 Tensorflow 运行环境
 Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
    - Python 2.7.12
    - SciPy 1.0.0
-   - numpy 1.14.0
+   - NumPy 1.14.0
    
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
