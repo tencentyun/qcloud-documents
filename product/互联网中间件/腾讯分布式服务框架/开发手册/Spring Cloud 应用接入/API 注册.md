@@ -7,7 +7,6 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
 ## 添加依赖
 
 在 pom.xml 中添加以下代码：
-
 ```xml
 <dependency>
     <groupId>com.tencent.tsf</groupId>
@@ -16,12 +15,11 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
     <scope>compile</scope>
 </dependency>
 ```
-
 添加依赖包后，TSF API 注册功能即生效。
 
 ## 配置选项
 
-API 注册功能，基于 Swagger 原生规范来实现。提供多个配置来适配 Swagger 不同配置应用场景，可用配置如下表所示：
+API 注册功能基于 Swagger 原生规范实现，提供多个配置以适配 Swagger 不同配置应用场景，可用配置如下表所示：
 
 | 配置项                  | 类型    | 必填 | 默认值                          | 说明                                                         |
 | :---------------------- | :------ | :--- | :------------------------------ | :----------------------------------------------------------- |
@@ -32,12 +30,12 @@ API 注册功能，基于 Swagger 原生规范来实现。提供多个配置来�
 
 ## 代码和示例
 
-- SDK 会自动扫描 API 的 path 和 出入参
-- 如果需要上报 API 的描述，需要 `import io.swagger.annotations.ApiOperation; `，同时在 API 上加上注解` @ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
+- SDK 会自动扫描 API 的 path 和 出入参。
+- 如果需要上报 API 的描述，需要`import io.swagger.annotations.ApiOperation; `，同时在 API 上加上注解` @ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
 
 ```java
 package com.tsf.demo.provider.controller;
-// 省略掉部分import
+// 省略掉部分 import
 import io.swagger.annotations.ApiOperation;
 
 import com.tsf.demo.provider.config.ProviderNameConfig;
