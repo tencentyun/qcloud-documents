@@ -20,11 +20,13 @@
 - 您只需要在您的 Web 页面中添加如下代码即可：
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0.6/WebRTCAPI.min.js"></script>
 ```
 
 ## 更新日志
-
+#### 3.0.6（ 2019-04-08 ）
+- 修复已知问题
+  
 #### 3.0（ 2018-09-11 ）
 - 调整初始化接口 [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)。
 - 弃用字段 accountType 
