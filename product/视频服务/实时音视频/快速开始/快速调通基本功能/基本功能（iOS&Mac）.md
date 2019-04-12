@@ -45,7 +45,6 @@
 	}
 }
 ```
->?`TRTCCloud` 单例的创建与销毁详情请参考 [创建与销毁](https://cloud.tencent.com/document/product/647/32258#.E5.88.9B.E5.BB.BA.E4.B8.8E.E9.94.80.E6.AF.81)。
 
 ## 组装 TRTCParams
 
