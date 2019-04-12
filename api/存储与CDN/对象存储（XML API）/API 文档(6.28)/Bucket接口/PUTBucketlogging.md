@@ -16,7 +16,7 @@ Content-MD5: MD5
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
@@ -26,7 +26,7 @@ Authorization: Auth String
 
 |名称|描述|类型|必选 |
 |:---|:-- |:--|:--|
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。 | String| 是 |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值，此头部用来校验文件内容是否发生变化。 | String| 是 |
 
 ### 请求体
 该请求操作的实现需要有请求体。带所有节点的请求体内容示例如下：
