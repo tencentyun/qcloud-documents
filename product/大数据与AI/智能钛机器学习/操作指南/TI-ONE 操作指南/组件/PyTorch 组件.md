@@ -3,8 +3,8 @@ PyTorch 是一种基于 Python 为接口的深度学习框架，允许用户利�
 ## 版本说明
 PyTorch 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
 - Python 3.6
-- scipy 1.0.0
-- numpy 1.14.3
+- SciPy 1.0.0
+- NumPy 1.14.3
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
