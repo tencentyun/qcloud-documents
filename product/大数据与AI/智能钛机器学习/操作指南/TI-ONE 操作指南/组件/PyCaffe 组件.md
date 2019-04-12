@@ -40,7 +40,7 @@ pip.main(['install', "package_name"])
 
 
 ## 示例
-以下代码展示了在 PyCaffe 框架中，构建一个卷积神经网络（Lenet）的方法。[示例代码下载 >>](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/PyCaffe_LenetTrain.py)
+以下代码展示了在 PyCaffe 框架中，构建一个卷积神经网络（Lenet）的方法。
 ```
 import os
 import sys
