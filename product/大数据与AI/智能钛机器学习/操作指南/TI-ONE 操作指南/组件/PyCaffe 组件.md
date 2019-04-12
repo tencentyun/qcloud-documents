@@ -4,8 +4,8 @@ Caffe（Convolutional Architecture for Fast Embedding）是一种清晰且高效
 Pycaffe 组件内核是 Caffe 1.0 版本。
 Pycaffe 组件中使用的 Python 版本和支持的第三方模块信息如下：
 - Python 2.7.12
-- scipy 0.17.0
-- numpy 1.11.0
+- SciPy 0.17.0
+- NumPy 1.11.0
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
