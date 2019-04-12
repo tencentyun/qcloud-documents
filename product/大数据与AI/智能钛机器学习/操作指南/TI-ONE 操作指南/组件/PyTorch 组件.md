@@ -40,8 +40,7 @@ pip.main(['install', "package_name"])
 
 
 ## 示例
-以下代码展示了在 PyTorch 框架中，调用 torch.nn 构建一个典型神经网络（NN）的方法。[示例代码下载 >>](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/pytorch_nn_example.py)
-
+以下代码展示了在 PyTorch 框架中，调用 torch.nn 构建一个典型神经网络（NN）的方法。
 输入：
 ```
 import torch
