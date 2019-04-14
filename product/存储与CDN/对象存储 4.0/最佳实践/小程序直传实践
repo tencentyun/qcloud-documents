@@ -44,9 +44,10 @@ var ForcePathStyle = false; // 是否使用后缀式，涉及签名计算和域�
 var uploadFile = function () {
 
     // 请求用到的参数
-    // var prefix = 'https://cos.' + Region + '.myqcloud.com/' + Bucket + '/'; // 这个是后缀式，签名也要指定 Pathname: '/' + Bucket + '/'
-    var prefix = ForcePathStyle ? 'https://cos.' + Region + '.myqcloud.com/' + Bucket + '/'
-        : 'https://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+    var prefix = 'https://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+    if (ForcePathStyle) {
+        prefix = 'https://cos.' + Region + '.myqcloud.com/' + Bucket + '/'; // 这个是后缀式，签名也要指定 Pathname: '/' + Bucket + '/'
+    }
 
     // 对更多字符编码的 url encode 格式
     var camSafeUrlEncode = function (str) {
@@ -103,6 +104,10 @@ var uploadFile = function () {
     // 上传文件
     var uploadFile = function (filePath) {
         var Key = filePath.substr(filePath.lastIndexOf('/') + 1); // 这里指定上传的文件名
+        var signPathname = '/'; // PostObject 接口 Key 是放在 Body 传输，所以请求路径和签名路径是 /
+        if (ForcePathStyle) {
+            signPathname = '/' + Bucket + '/'; // 如果使用后缀式请求，域名是园区域名，Bucket 是放在路径里
+        }
         getAuthorization({Method: 'POST', Pathname: '/'}, function (AuthData) {
             var requestTask = wx.uploadFile({
                 url: prefix,
