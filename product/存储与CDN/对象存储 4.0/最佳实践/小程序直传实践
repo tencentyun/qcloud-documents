@@ -35,9 +35,9 @@ cos.postObject 使用 wx.uploadFile 方法。
 在小程序上传使用 wx.uploadFile 接口，该接口只支持 POST 格式，所以当前方案使用 [POST Object ](https://cloud.tencent.com/document/product/436/14690)  文档，操作指引如下：
 
 ```js
-var CosAuth = require('./cos-auth');
+var CosAuth = require('./cos-auth'); //  COS 签名方法
 
-var Bucket = 'examplebucket-1250000000'
+var Bucket = 'examplebucket-1250000000';
 var Region = 'ap-shanghai';
 var ForcePathStyle = false; // 是否使用后缀式，涉及签名计算和域名白名单配置
 
@@ -108,7 +108,7 @@ var uploadFile = function () {
         if (ForcePathStyle) {
             signPathname = '/' + Bucket + '/'; // 如果使用后缀式请求，域名是园区域名，Bucket 是放在路径里
         }
-        getAuthorization({Method: 'POST', Pathname: '/'}, function (AuthData) {
+        getAuthorization({Method: 'POST', Pathname: signPathname}, function (AuthData) {
             var requestTask = wx.uploadFile({
                 url: prefix,
                 name: 'file',
