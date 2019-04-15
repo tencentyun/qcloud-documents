@@ -13,27 +13,42 @@
 ```
 
 #### 创建对象
-New TencentSOE
+new TencentSOE
 
 |      参数      |  类型    |  说明    |  是否必填 | 默认值 |
 |     :---:     | :---:    | :---    | :----: | :----  |
-| InitUrl       | String   | 初始化接口地址。 | 是 | 无 |
-| TransUrl      | String   | 评分接口地址。 | 是 | 无 |
-| WorkMode      | Integer  | 上传方式：语音输入模式，0流式分片，1非流式一次性评估。 | 否 | 0 |
-| EvalMode      | Integer  | 评估模式，0:词模式, 1:句子模式。 | 否 | 0 |
-| ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段。 | 否 | 3.5 |
-| SoeAppId      | String   | 业务应用 ID，与账号应用 APPID 无关，是用来方便客户管理服务的参数。 | 否 | 无 |
-| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 。| 否 | 无 |
-| ServerType    | Integer  | 评估语言，0：英文，1：中文 。| 否 | 0 |
-| success       | function | 创建成功回调。| 否 | 无 |
-| error         | function | 创建失败回调。 | 否 | 无 |
+| SecretId      | String   | 用户SecretId | 否| 无 |
+| SecretKey     | String   | 用户SecretKey | 否 | 无 |
+| InitUrl       | String   | 初始化接口地址 | 否 | 无 |
+| TransUrl      | String   | 评分接口地址 | 否 | 无 |
+| WorkMode      | Integer  | 上传方式：语音输入模式，0流式分片，1非流式一次性评估 | 否 | 0 |
+| EvalMode      | Integer  | 评估模式，0:词模式, 1:句子模式 | 否 | 0 |
+| ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段 | 否 | 3.5 |
+| SoeAppId      | String   | 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数 | 否 | 无 |
+| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
+| ServerType    | Integer  | 评估语言，0：英文，1：中文 | 否 | 0 |
+| success       | function | 创建成功回调 | 否 | 无 |
+| error         | function | 创建失败回调 | 否 | 无 |
+> 必须同时提供SecretId和SecretId 或者 InitUrl和TransUrl
 
-
->?您需要自行替换后台接口地址，NodeJS 版本可参考 [Tencent Cloud API 3.0 SDK for NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)。
+- 方式一（推荐）：自行替换后台接口地址（可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)），提供InitUrl和TransUrl
 ```
 let recorder = new TencentSOE({
   InitUrl: 'http://127.0.0.1:3000/cgi/init',
   TransUrl: 'http://127.0.0.1:3000/cgi/trans',
+  success() {
+    // TODO
+  },
+  error(err) {
+    console.log(err);
+  }
+});
+```
+- 方式2（不推荐）：前端使用固定密钥计算授权凭证，该方式适用于前端调试，若使用此方式，请避免泄露密钥
+```
+let recorder = new TencentSOE({
+  SecretId: 'your secretid',
+  SecretKey: 'your secretkey',
   success() {
     // TODO
   },
@@ -112,12 +127,16 @@ recorder.stop({
  * 上传本地文件进行测评，仅支持mp3文件
  * @param {
  *   RefText: 'about', // 测评文本
+ *   load: function() {} // 文件加载完成回调
  *   success: function() {} // 成功回调
  *   error: function() {} // 失败回调
  * }
  */
  recorder.uploadLocalFile({
    RefText: 'about',
+   load() {
+     console.log('文件加载完成');
+   }
    success(res) {
      console.log(res); // 输出测评结果
    },
@@ -139,19 +158,20 @@ recorder.reset({
 ```
 
 ## 示例 Demo
-您可以通过单击 [示例](https://soe.cloud.tencent.com)，在线使用智聆口语测评（英文版）的 Web 版本。
+您可以通过单击 [示例](https://soe.cloud.tencent.com)，体验在线使用智聆口语测评（英文版）的 Web 版本。
+sdk调试可单击[这里](https://imgcache.qq.com/open/qcloud/soe/demo.html)
 
 ### 错误码
 |   code   | 错误说明                  |
 |  :---:   | :---                    |
-| 10000    | 参数格式错误。              |
-| 10001    | 当前浏览器不支持录音功能。    |
-| 10002    | 未开启麦克风访问权限。       |
-| 10003    | 未提供发音评估初始化接口。     |
-| 10004    | 未提供发音数据传输接口接口。   |
-| 10005    | 未提供测评文本。             |
-| 10006    | 上传文件必须是mp3类型。       |
-| 10020    | 接口错误。                  |
+| 10000    | 参数格式错误              |
+| 10001    | 当前浏览器不支持录音功能     |
+| 10002    | 未开启麦克风访问权限        |
+| 10003    | 未提供发音评估初始化接口     |
+| 10004    | 未提供发音数据传输接口接口   |
+| 10005    | 未提供测评文本             |
+| 10006    | 上传文件必须是mp3类型       |
+| 10020    | 接口错误                  |
 
 ### 平台和兼容性
 |   操作系统平台	   | 浏览器/webview          | 版本要求 | 备注|
@@ -165,6 +185,4 @@ recorder.reset({
 | Windows(PC) | QQ浏览器                        | 10.2   | |
 
 > Tip：
-非本地环境必须使用 https 协议。
-
-
+非本地环境必须使用https协议
