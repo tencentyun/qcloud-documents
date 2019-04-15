@@ -93,7 +93,7 @@ try
 
 	//String urlWithSign = cosXml.getPresignedURL(putObjectResutl)； //直接使用PutObjectRequest
 
-	string srcPath = @"F:\exampleobject"；//本地文件绝地路径
+	string srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
 	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 UR L
 	putObjectRequest.setRequestURL(urlWithSign);
@@ -105,13 +105,13 @@ try
 	    }
 	});
 	// 使用同步方法上传
-	try {
-	    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
-	} catch (CosXmlClientException e) {
-	    e.printStackTrace();
-	} catch (CosXmlServiceException e) {
-	    e.printStackTrace();
-	}
+	PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+} catch (CosXmlClientException e) {
+	e.printStackTrace();
+} catch (CosXmlServiceException e) {
+	e.printStackTrace();
+}
+	    
 ```
 
 ### 下载请求示例
@@ -160,14 +160,13 @@ try
 	        // todo Do something to update progress...
 	    }
 	});
-	// 使用同步方法上传
-	try {
-	    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
-	} catch (CosXmlClientException e) {
-	    e.printStackTrace();
-	} catch (CosXmlServiceException e) {
-	    e.printStackTrace();
-	}
+	// 使用同步方法下载
+	GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
+} catch (CosXmlClientException e) {
+	e.printStackTrace();
+} catch (CosXmlServiceException e) {
+	e.printStackTrace();
+}
 ```
 
 
@@ -208,7 +207,7 @@ try
 
 	//String urlWithSign = cosXml.getPresignedURL(putObjectResutl)； //直接使用PutObjectRequest
 
-	string srcPath = @"F:\exampleobject"；//本地文件绝地路径
+	string srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
 	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 UR L
 	putObjectRequest.setRequestURL(urlWithSign);
@@ -220,13 +219,12 @@ try
 	    }
 	});
 	// 使用同步方法上传
-	try {
-	    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
-	} catch (CosXmlClientException e) {
-	    e.printStackTrace();
-	} catch (CosXmlServiceException e) {
-	    e.printStackTrace();
-	}
+	PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+} catch (CosXmlClientException e) {
+	e.printStackTrace();
+} catch (CosXmlServiceException e) {
+	e.printStackTrace();
+}
 ```
 
 ### 下载请求示例
@@ -277,12 +275,11 @@ try
 	        // todo Do something to update progress...
 	    }
 	});
-	// 使用同步方法上传
-	try {
-	    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
-	} catch (CosXmlClientException e) {
-	    e.printStackTrace();
-	} catch (CosXmlServiceException e) {
-	    e.printStackTrace();
-	}
+	// 使用同步方法下载
+	GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
+} catch (CosXmlClientException e) {
+	e.printStackTrace();
+} catch (CosXmlServiceException e) {
+	e.printStackTrace();
+}
 ```
