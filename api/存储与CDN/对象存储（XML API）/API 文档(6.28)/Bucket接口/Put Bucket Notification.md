@@ -6,14 +6,14 @@ Put Bucket Notification接口实现配置用户回调通知。目前支持用户
 
 | 回调关联事件 | 描述 |
 | ---------------------------------------- | ---------------------------------------- |
-| cos:ObjectCreated:Put | 使用Put Object接口创建文件 |
-| cos:ObjectCreated:Post | 使用Post Object接口创建文件 |
-| cos:ObjectCreated:Copy | 使用Put Object - Copy接口创建文件 |
-| cos:ObjectCreated:Append | 使用Append Object接口创建文件 |
-| cos:ObjectCreated:CompleteMultipartUpload | 使用CompleteMultipartUploadt接口创建文件 |
+| cos:ObjectCreated:Put | 使用 Put Object 接口创建文件 |
+| cos:ObjectCreated:Post | 使用 Post Object 接口创建文件 |
+| cos:ObjectCreated:Copy | 使用 Put Object - Copy 接口创建文件 |
+| cos:ObjectCreated:Append | 使用 Append Object 接口创建文件 |
+| cos:ObjectCreated:CompleteMultipartUpload | 使用 CompleteMultipartUploadt 接口创建文件 |
 | cos:ObjectCreated:* | 使用以上提到的"ObjectCreated"类型接口创建文件 |
-| cos:ObjectRemove:Delete | 在未开启版本管理的Bucket下使用Delete Object接口删除的Object，或者使用versionid删除指定版本的Object |
-| cos:ObjectRemove:DeleteMarkerCreated | 在开启或者暂停版本管理的Bucket下使用Delete Object接口删除的Object |
+| cos:ObjectRemove:Delete | 在未开启版本管理的 Bucket下 使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object |
+| cos:ObjectRemove:DeleteMarkerCreated | 在开启或者暂停版本管理的 Bucket 下使用 Delete Object 接口删除的 Object |
 | cos:ObjectRemove:* | 使用以上提到的"ObjectRemove"类型接口删除文件 |
 
 ## 请求
