@@ -166,7 +166,7 @@ Android SDK 可以播放云点播两种方式加密的输出：
 关于 DRM 的更多详情，您可以参考此篇文档：[如何对内容做版权保护](<https://cloud.tencent.com/document/product/266/34105#.E5.95.86.E4.B8.9A.E7.BA.A7-drm>)。
 
 
-#### 如何在Android平台使用腾讯云DRM服务
+#### 如何在 Android 平台使用腾讯云 DRM 服务
 
 - 步骤1：集成 [超级播放器 Library ](<https://cloud.tencent.com/document/product/881/20213>)到您的工程中。
 - 步骤2：从您的**业务后台**获取 Token，关于 Token 的内容，您可以参考此篇文档：[播放加密视频 - Token 生成](<https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90>)。
