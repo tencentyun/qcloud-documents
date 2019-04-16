@@ -230,13 +230,13 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 -enableMic:succ:failed: | 打开/关闭 麦克风
 -enableSpeaker:succ:failed: | 打开/关闭 扬声器
 
-课堂内成员在进行打开/关闭摄像头、麦克风操作时，会触发音视频事件，如果在加入课堂前设置了课堂事件监听代理 `id<TICClassroomEventListener> eventListener`，一端进行音视频操作时，另一端就可以在课堂内音视频事件回调中得到通知：
+课堂内成员在进行打开/关闭摄像头、屏幕分享、播片时，会触发视频事件，如果在加入课堂前设置了课堂事件监听代理 `id<TICClassroomEventListener> eventListener`，一端进行音视频操作时，另一端就可以在课堂内音视频事件回调中得到通知：
 
 接口 | 说明
 ---|---
--onUserUpdateInfo:users: | 课堂内音视频事件回调
+-onUserUpdateInfo:users: | 课堂内视频事件回调
 
-课堂内的音视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参考 [Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
+课堂内的视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参考 [Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
 
 ```objc
 /**
