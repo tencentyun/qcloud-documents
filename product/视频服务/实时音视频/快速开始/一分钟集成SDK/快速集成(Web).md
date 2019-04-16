@@ -20,11 +20,13 @@
 - 您只需要在您的 Web 页面中添加如下代码即可：
 
 ```html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0/WebRTCAPI.min.js"></script>
+<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0.6/WebRTCAPI.min.js"></script>
 ```
 
 ## 更新日志
-
+#### 3.0.6（ 2019-04-08 ）
+- 修复已知问题
+  
 #### 3.0（ 2018-09-11 ）
 - 调整初始化接口 [WebRTCAPI](https://cloud.tencent.com/document/product/647/17251#webrtcapi)。
 - 弃用字段 accountType 
@@ -44,7 +46,7 @@
 
 ## 常见问题
 
-### 1. 防火墙限制
+### 防火墙限制
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下域名和端口加入防火墙的安全白名单中。
 域名：qcloud.rtc.qq.com
 
