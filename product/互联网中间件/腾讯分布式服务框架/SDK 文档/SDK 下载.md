@@ -7,7 +7,7 @@
 ```
 java -version
 ```
-如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请[下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 
 
 #### 1.2 设置 Java 环境
@@ -133,7 +133,7 @@ java -version
    - Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
    - ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
 
->?执行正确的 Maven 命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+>?执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
 ## 安装 SDK
 通过 Maven 获取 TSF SDK。在 [Demo 工程](https://cloud.tencent.com/document/product/649/20261)  中，`pom.xml`所在目录执行`mvn clean package`即可下载 TSF SDK。
