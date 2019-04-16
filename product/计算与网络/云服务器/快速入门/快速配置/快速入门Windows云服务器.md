@@ -58,5 +58,5 @@
 对于购买了数据盘的用户，需要在登录实例后对数据盘进行格式化和分区。**未购买数据盘的用户可以跳过此步骤。**
 >! 使用快速配置购买的云服务器默认没有购买数据盘，不需要执行此步骤操作。
 >
-具体操作请参考 [Windows 实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516) 对 Windows 实例进行数据盘分区及格式化。
+具体操作请参考 [Windows 实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516#.E6.A0.BC.E5.BC.8F.E5.8C.96.E4.B8.8E.E5.88.86.E5.8C.BA.E6.95.B0.E6.8D.AE.E7.9B.98) 对 Windows 实例进行数据盘分区及格式化。
 
