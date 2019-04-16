@@ -96,5 +96,6 @@
 请根据磁盘容量大小、云服务器操作系统类型选择合适的操作指引：
 磁盘容量小于2TB时：
 - [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6734#Linux)
+
 磁盘容量大于等于2TB时：
 - [初始化云硬盘（Linux）](https://cloud.tencent.com/document/product/362/6735#2TBLinux)
