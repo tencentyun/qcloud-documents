@@ -22,7 +22,7 @@ plaintext（原文）：“appid&timestamp”。
 | appid | int | 是 | 第三方 appid |
 | secretid | string | 是 | 第三方加密用的密钥 ID |
 | sign | string | 是 | 第三方签名 |
-| tm | int | 是 | 时间戳，防请求重放 |
+| tm | int | 是 | 时间戳，防重复请求 |
 | uid | string | 是 | 用户唯一标识 |
 | wid | string | 是 | 用户名下的某个设备标识，需要指定某台设备时才需填写 |
 | plat | string | 否 | 推送目标手机平台，默认 0= 所有平台 1=iphone 2= Android |
