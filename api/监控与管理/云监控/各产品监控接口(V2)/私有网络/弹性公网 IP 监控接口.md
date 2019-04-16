@@ -58,7 +58,7 @@ dimensions.0.value 为弹性公网IP的唯一 ID
 ### 输入
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<a href="https://cloud.tencent.com/doc/api/405/%E5%85%AC%E5%85%B1%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0">公共请求参数</a> 
+&<a href="https://cloud.tencent.com/document/product/248/4478">公共请求参数</a> 
 &namespace=qce/lb
 &metricName=vip_intraffic
 &dimensions.0.name=eip
