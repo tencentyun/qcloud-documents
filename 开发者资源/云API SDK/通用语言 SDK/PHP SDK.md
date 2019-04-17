@@ -53,7 +53,7 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 <td><a href="https://cloud.tencent.com/document/api/656/18281">催收机器人</a></td>
 <td><a href="https://cloud.tencent.com/document/api/884/19310">智聆口语评测</a></td>
 <td><a href="https://cloud.tencent.com/document/api/853/18384">腾讯优评</a></td>
-<td><a href="https://cloud.tencent.com/document/api/860/18448">腾讯优Mall</a></td>
+<td><a href="https://cloud.tencent.com/document/api/845/30620">Elasticsearch Service</a></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/634/19469">物联网通信</a></td>
@@ -76,8 +76,8 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
    <tr>
 <td><a href="https://cloud.tencent.com/document/api/867/32770">人脸识别</a></td>
 <td><a href="https://cloud.tencent.com/document/api/1000/30698">数字版权管理</a></td>
-<td><a href="https://cloud.tencent.com/document/api/845/30620">Elasticsearch Service</a></td>
-<td></td>
+<td>-</td>
+<td>-</td>
 </tr>
   </table>
 
@@ -103,9 +103,9 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
-2. 在 composer.json 的 require 结构体中加入依赖：**注意这里的版本号只是举例,您可以在composer仓库上看到最新的版本号。**
+2. 在 composer.json 的 require 结构体中加入依赖：**注意这里的版本号只是举例，您可以在 composer 仓库上看到最新的版本号。**
 ```
-"tencentcloud/tencentcloud-sdk-php": "3.0.8"
+"tencentcloud/tencentcloud-sdk-php": "3.0.*"
 ```
 3. 运行 composer install 下载安装 PHP SDK。
 4. 添加以下引用代码，引用方法可参考示例。

@@ -17,7 +17,7 @@ TRTC SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载
 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
 dependencies {
-	compile 'com.tencent.liteav:LiteAVSDK_TRTC:6.0.1688'
+    compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
 
@@ -31,7 +31,7 @@ dependencies {
     }
 ```
 
-- **第三步：同步 SDK**  
+- **第三步：同步 SDK**
 单击 Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 
@@ -64,7 +64,7 @@ dependencies {
     }
 ```
 
-- **第六步：同步 SDK**  
+- **第六步：同步 SDK**
 单击 Sync Now 按钮，完成 TRTC SDK 的集成工作。
 
 
@@ -99,7 +99,7 @@ dependencies {
     }
 ```
 
-- **第六步：同步 SDK**  
+- **第六步：同步 SDK**
 单击 Sync Now 按钮，完成 TRTC SDK 的集成工作。
 
 
@@ -116,6 +116,7 @@ dependencies {
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.Camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```

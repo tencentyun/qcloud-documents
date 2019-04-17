@@ -64,28 +64,27 @@ Authorization: Auth
 
 ```JSON
 {
-  "JobList": [
-    {     
-      "Action": String,
-      "JobId": String,
-      "JobDescription": String,
-      "CallBackUrl":String,
-      "CreationDate": String,
-      "CompletionDate": String,
-      "Completed": Boolean,
-      "StatusCode": String,
-      "StatusMessage": String,
-      "VaultQCS": String,
-      "ArchiveId": String,
-      "ArchiveSizeInBytes": Number,
-      "ArchiveSHA256TreeHash": String,
-      "RetrievalByteRange": String,
-      "SHA256TreeHash": String,
-      "Tier": String
-    },
-  ...
-  ],
-  "Marker": String
+	"JobList": [{
+			"Action": "String",
+			"JobId": "String",
+			"JobDescription": "String",
+			"CallBackUrl": "String",
+			"CreationDate": "String",
+			"CompletionDate": "String",
+			"Completed": "Boolean",
+			"StatusCode": "String",
+			"StatusMessage": "String",
+			"VaultQCS": "String",
+			"ArchiveId": "String",
+			"ArchiveSizeInBytes": "Number",
+			"ArchiveSHA256TreeHash": "String",
+			"RetrievalByteRange": "String",
+			"SHA256TreeHash": "String",
+			"Tier": "String"
+		},
+		...
+	],
+	"Marker": "String"
 }
 ```
 
@@ -113,30 +112,29 @@ Authorization: Auth
 
 ```JSON
 {
-  "JobList": [
-    {     
-      "Action": String,
-      "JobId": String,
-      "JobDescription": String,
-      "CallBackUrl":String,
-      "CreationDate": String,
-      "CompletionDate": String,
-      "Completed": Boolean,
-      "StatusCode": String,
-      "StatusMessage": String,
-      "VaultQCS": String,
-      "InventorySizeInBytes": String,
-      "InventoryRetrievalParameters": { 
-          "Format": String,
-          "StartDate": String,
-          "EndDate": String,
-          "Limit": String,
-          "Marker": String
-      }    
-    },
-  ...
-  ],
-  "Marker": String
+	"JobList": [{
+			"Action": "String",
+			"JobId": "String",
+			"JobDescription": "String",
+			"CallBackUrl": "String",
+			"CreationDate": "String",
+			"CompletionDate": "String",
+			"Completed": "Boolean",
+			"StatusCode": "String",
+			"StatusMessage": "String",
+			"VaultQCS": "String",
+			"InventorySizeInBytes": "String",
+			"InventoryRetrievalParameters": {
+				"Format": "String",
+				"StartDate": "String",
+				"EndDate": "String",
+				"Limit": "String",
+				"Marker": "String"
+			}
+		},
+		...
+	],
+	"Marker": "String"
 }
 ```
 
@@ -164,28 +162,27 @@ Authorization: Auth
 
 ```JSON
 {
-  "JobList": [
-    {     
-      "Action": String,
-      "JobId": String,
-      "JobDescription": String,
-      "CallBackUrl":String,
-      "CreationDate": String,
-      "CompletionDate": String,
-      "Completed": Boolean,
-      "StatusCode": String,
-      "StatusMessage": String,
-      "VaultQCS": String,
-      "ArchiveId": String,
-      "ArchiveSizeInBytes": Number,
-      "RetrievalByteRange"：String,
-      "Bucket"：String,
-      "Object":String,
-      "Tier":String  
-    },
-  ...
-  ],
-  "Marker": String
+	"JobList": [{
+			"Action": "String",
+			"JobId": "String",
+			"JobDescription": "String",
+			"CallBackUrl": "String",
+			"CreationDate": "String",
+			"CompletionDate": "String",
+			"Completed": "Boolean",
+			"StatusCode": "String",
+			"StatusMessage": "String",
+			"VaultQCS": "String",
+			"ArchiveId": "String",
+			"ArchiveSizeInBytes": "Number",
+			"RetrievalByteRange": "String",
+			"Bucket": "String",
+			"Object": "String",
+			"Tier": "String"
+		},
+		...
+	],
+	"Marker": String
 }
 ```
 
@@ -215,35 +212,36 @@ Authorization: Auth
 | If-Match           | 如果文件ETag与指定的一致，返回文件内容。         | String   |
 | If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。         | String   |
 | ArchiveDescription | 档案文件描述                                   | String   |
+
+
 ```JSON
 {
-  "JobList": [
-    {     
-      "Action": String,
-      "JobId": String,
-      "JobDescription": String,
-      "CallBackUrl":String,
-      "CreationDate": String,
-      "CompletionDate": String,
-      "Completed": Boolean,
-      "StatusCode": String,
-      "StatusMessage": String,
-      "VaultQCS": String,
-      "ArchiveId": String,
-      "ArchiveSizeInBytes": Number,
-      "Bucket"：String,
-      "Object":String,
-      "Condition":{
-       "If-Modified-Since":String,
-       "If-Umodified-Since":String,
-       "If-Match":String,
-       "If-None-Match":String
-      },
-      "ArchiveDescription":String 
-    },
-  ...
-  ],
-  "Marker": String
+	"JobList": [{
+			"Action": "String",
+			"JobId": "String",
+			"JobDescription": "String",
+			"CallBackUrl": "String",
+			"CreationDate": "String",
+			"CompletionDate": "String",
+			"Completed": "Boolean",
+			"StatusCode": "String",
+			"StatusMessage": "String",
+			"VaultQCS": "String",
+			"ArchiveId": "String",
+			"ArchiveSizeInBytes": "Number",
+			"Bucket": "String",
+			"Object": "String",
+			"Condition": {
+				"If-Modified-Since": "String",
+				"If-Umodified-Since": "String",
+				"If-Match": "String",
+				"If-None-Match": "String"
+			},
+			"ArchiveDescription": "String"
+		},
+		...
+	],
+	"Marker": "String"
 }
 ```
 

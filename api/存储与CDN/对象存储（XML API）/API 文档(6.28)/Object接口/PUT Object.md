@@ -15,17 +15,17 @@ PUT Object 接口请求可以将本地的对象（Object）上传至指定存储
 ### 请求示例
 
 ```shell
-PUT /<ObjectName> HTTP/1.1
+PUT /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization: Auth String （详请请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 该操作的实现还可以使用以下请求头。
@@ -34,14 +34,13 @@ Authorization: Auth String
 ---|---|---|---
 Content-Disposition|RFC 2616 中定义的文件名称，将作为 Object 元数据保存|string|否
 Content-Encoding|RFC 2616 中定义的编码格式，将作为 Object 元数据保存|string|否
-Expect|当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容|string|否
+Expect|当使用 Expect：100-continue 时，在收到服务端确认后，才会发送请求内容|string|否
 Expires|RFC 2616 中定义的缓存策略，将作为 Object 元数据保存|string|否
-x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB。<br>**注意：**用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线。|string|否
-x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD|string|否
-x-cos-acl|定义 Object 的 ACL 属性，有效值：private，public-read-write，public-read，default；默认值：default(继承 Bucket 权限)；注：当前访问策略条目限制为 1000 条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限。|string|否
-x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
-x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 
-x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String| 否 
+x-cos-meta-\*|包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB<br>**注意**：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线|string|否
+x-cos-storage-class|设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD|string|否
+x-cos-acl|定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default（继承 Bucket 权限）<br>**注意**：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限|string|否
+x-cos-grant-read |赋予被授权者读的权限，格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 
+x-cos-grant-full-control | 赋予被授权者所有的权限，格式：x-cos-grant-full-control: id="[OwnerUin]" | String| 否 
 
 #### 服务端加密相关头部
 
@@ -58,7 +57,7 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -68,7 +67,7 @@ x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-gr
 |---|---|---|
 |ETag|string|上传文件内容的 MD5 值|
 |x-cos-version-id|string|返回对象的版本|
-|x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。|
+|x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|
 
 ### 响应体
 该请求响应体为空。
@@ -93,7 +92,7 @@ Content-Length: 64
 ### 响应
 
 ```shell
-HTTP/1.1200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed,16 Aug 2017 11: 59: 33 GMT

@@ -22,7 +22,7 @@
 
 >ILiveSDK 其实是一套SDK的集合，其中包含了以下一些子 SDK：
 > - BeautySDK：提供美颜预处理功能
-> - IMSDK：提供 IM 即时通信功能
+> - IMSDK：提供 IM 即时通讯功能
 > - AVSDK：提供底层音视频功能
 > - ILiveSDK：在 AVSDK 基础上封装而成，提供更简单易用的音视频功能接口
 > - TILLiveSDK：在 ILiveSDK 的基础上，针对直播场景相关接口进行的封装，方便快速实现直播相关功能

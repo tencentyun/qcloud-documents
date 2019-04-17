@@ -15,11 +15,9 @@
 | clientType       | 是       | UInt   | 客户端类型<br/>1：手机 Web 页面<br/>2：PCWeb 页面<br/>4：App          |
 | accountType      | 是       | UInt   | 用户账号类型<br/>0：其他账号<br/>1：QQ 开放帐号<br/>2：微信开放帐号 <br/>4：手机账号<br/>6：手机动态码<br/>7：邮箱账号 |
 | appId            | 是       | String | accountType 是 QQ 或微信开放账号时，表示 QQ 或微信分配给给网站或应用的appId，用来唯一标识网站或应用 |
-|                  |          |        |                                          |
-| uid              | 建议       | String | 不同的用户 IDaccountType 对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId |
-| businessId       | 建议       | UInt   | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据        |
+| uid              | 否，但建议选择       | String | 不同的用户 IDaccountType 对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId |
+| businessId       | 否，但建议选择       | UInt   | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据        |
 | registerTime     | 否       | UInt   | 注册时间戳，单位秒                                |
-|                  |          |        |                                          |
 | userIp           | 否       | String | 用户操作来源的外网 IP                              |
 | xForwardedFor    | 否       | String | 用户 HTTP 请求中的 x_forward_for                  |
 | macAddress       | 否       | String | Mac 地址或设备唯一标识                             |

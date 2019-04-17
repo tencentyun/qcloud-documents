@@ -1,4 +1,4 @@
-Django是一个开放源代码的Web应用框架，由 Python 写成。
+Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 本教程指导如何部署默认 Django 网站至运行 Python 2.7 的 CVM 云服务器。
 
 使用的软件环境为：CentOS7.2 | Python2.7  | Django1.11。
@@ -70,7 +70,7 @@ LoadModule  wsgi_module modules/mod_wsgi.so
 cd /usr/local
 django-admin.py startproject testProject
 ```
-2. 在项目根目录中新建文件 django.wsgi 作为 apache 支持。
+2. 在项目根目录中新建文件 django.wsgi 作为 Apache 支持。
 ```
 cd /usr/local/testProject
 vim django.wsgi
@@ -115,10 +115,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysql',
-        'USER': 'root', # CDB 账户名
-        'PASSWORD': '123456', # CDB 账户密码
-        'HOST': '0.0.0.0', # CDB 内网地址
-        'PORT': '3306', # CDB 端口
+        'USER': 'root', # TencentDB 账户名
+        'PASSWORD': '123456', # TencentDB 账户密码
+        'HOST': '0.0.0.0', # TencentDB 内网地址
+        'PORT': '3306', # TencentDB 端口
     }
 }
 ```
