@@ -62,7 +62,7 @@ spec:
 ```
 
 >!
-- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。
+- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。如果没有返回200，通常是程序没有运行或者没有 /health 接口，如果是前者需要检查启动脚本是否正确，如果是后者需要添加 /health 接口。 
 - `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 nginx 配置的 server_name），则需将 local-service 加到白名单。
 
 ## API 定义和上报（可选）

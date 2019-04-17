@@ -11,20 +11,20 @@
 ## 接口调用说明
 ### 请求 URL 示例
 ```
-https://console.tim.qq.com/v4/openim_dirty_words/delete?usersig=xxxidentifier=admin&sdkappid=88888888&random=99999999&contenttype=json
-```
+https://console.tim.qq.com/v4/openim_dirty_words/delete?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json
+ ```
 ### 请求参数说明
+ 
+下表仅列出调用本接口时涉及修改的参数及其说明，更多参数详情请参考 [REST API 简介](https://cloud.tencent.com/document/product/269/1519)。
 
 | 参数               | 说明                                 |
 | ------------------ | ------------------------------------ |
-| https              | 请求协议为 HTTPS，请求方式为 POST       |
-| console.tim.qq.com | 固定域名                             |
-| v4/openim_dirty_words/delete  | 请求接口                  |
-| usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688)               |
+| v4/openim_dirty_words/delete  | 请求接口                             |
+| sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号                |
-| sdkappid           | 创建应用时云通信控制台分配的 SdkAppid |
-| random             | 32位无符号整数随机数                 |
-| contenttype        | 固定值为：json                       |
+| usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/1519#.E8.AF.B7.E6.B1.82-url)                |
+| random             | 请输入32位无符号整数                 |
+
 
 ### 最高调用频率
 100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。

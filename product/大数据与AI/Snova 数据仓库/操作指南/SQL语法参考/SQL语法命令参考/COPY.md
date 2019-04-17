@@ -33,7 +33,7 @@ COPY {table [(column [, ...])] | (query)} TO {'file' | STDOUT}
 ```
 
 ## 描述
-COPY在数据库表和标准文件系统文件之间移动数据。COPY TO把一个表的内容复制到另一个文件（如果复制，则根据Segment的ID复制多个文件ON SEGMENT），而COPY FROM 则从一个文件复制数据到一个表（把数据追加到表中原有数据）。COPY TO也能复制一个SELECT查询的结果。
+COPY用于数据库表和标准文件系统文件之间移动数据。COPY TO把一个表的内容复制到另一个文件（如果复制，则根据Segment的ID复制多个文件ON SEGMENT），而COPY FROM 则从一个文件复制数据到一个表（把数据追加到表中原有数据）。COPY TO也能复制一个SELECT查询的结果。
 
 >!COPY FROM当前不支持FROM带ON SEGMENT选项的COPY TO产生的Segment文件拷贝数据，但是其他工具可以被用来恢复数据。
 

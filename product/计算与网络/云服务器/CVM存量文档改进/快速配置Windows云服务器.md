@@ -11,6 +11,8 @@
 
 腾讯云提供**快速配置**和**自定义配置**两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Windows 云服务器](https://cloud.tencent.com/doc/product/213/10516) 文档进行配置。
 
+>! 初次购买的账户默认进入【快速配置】页面。对于购买过的云服务器的用户，默认进入【自定义配置】页面，可单击【快速配置】进行快速配置操作。
+
 ![](https://main.qcloudimg.com/raw/1070f6c81fa7ae94e70dd6df9387ad9c.png)
 
 ### 确定付费方式
@@ -50,6 +52,8 @@
 
 ### 选择镜像
 本文介绍Windows实例的购买及登录，请选择Windows提供镜像。
+![](https://main.qcloudimg.com/raw/f26a5d9f1b0d2c8f1f04975c19c2aff4.png)
+>! Windows 云服务器无法作为 [公网网关](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](/doc/product/213/2936) 。
 
 完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
 ![](https://main.qcloudimg.com/raw/3e9630ea483d4154d58187091d51cecf.png)

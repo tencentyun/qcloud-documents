@@ -25,8 +25,8 @@ public void modifySelfProfile(@NonNull HashMap<String, Object> profileMap, @NonN
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_NICK, "我的昵称");
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_GENDER, TIMFriendGenderType.Male.value());
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_NICK, "我的昵称");
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_GENDER, TIMFriendGenderType.Male.value());
 TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
@@ -40,7 +40,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 });
 ```
 
-设置不存在的键值可能会导致失败，在 `TIMFriendshipManager` 中定义了一些常用的键值：
+设置不存在的键值可能会导致失败，在 `TIMUserProfile` 中定义了一些常用的键值：
 
 | Key                                  | Value       | 说明           |
 | ------------------------------------ | ----------- | -------------- |
@@ -60,7 +60,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX + "Blood", 1);
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX + "Blood", 1);
 TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
