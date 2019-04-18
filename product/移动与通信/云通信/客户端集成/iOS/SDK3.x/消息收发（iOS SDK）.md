@@ -677,7 +677,8 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
 	//遍历所有的消息
 	for (TIMMessage * msg in msgList) {
 		//遍历一条消息的所有元素
-		for (TIMImageElem * elem in TIMImageElem) {
+		for (int i = 0; i < msg.elemCount; ++i) {
+		  TIMElem *elem = [msg getElem:i];
 		   //图片元素
 			if ([elem isKindOfClass:[TIMImageElem class]]) {
 				TIMImageElem * image_elem = (TIMImageElem * )elem;
