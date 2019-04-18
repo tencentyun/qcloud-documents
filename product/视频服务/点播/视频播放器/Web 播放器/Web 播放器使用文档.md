@@ -57,11 +57,11 @@
 
 >?
 >- 播放器容器必须为 `<video>` 标签。
-> - 示例中的 `player-container-id` 为播放器容器的 ID，可自行设置。
-> - 播放器容器区域的尺寸，建议通过 CSS 进行设置，通过 CSS 设置比属性设置更灵活，可以实现例如铺满全屏、容器自适应等效果。
-> - 示例中的 `preload` 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 `auto`，其他可选值：`meta`（当页面加载后只载入元数据），`none`（当页面加载后不载入视频），移动端由于系统限制不会自动加载视频。
-> - `playsinline` 和 `webkit-playsinline` 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
-> - 设置 `x5-playsinline` 属性在 TBS 内核会使用 X5 UI 的播放器。
+>- 示例中的 `player-container-id` 为播放器容器的 ID，可自行设置。
+>- 播放器容器区域的尺寸，建议通过 CSS 进行设置，通过 CSS 设置比属性设置更灵活，可以实现例如铺满全屏、容器自适应等效果。
+>- 示例中的 `preload` 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 `auto`，其他可选值：`meta`（当页面加载后只载入元数据），`none`（当页面加载后不载入视频），移动端由于系统限制不会自动加载视频。
+>- `playsinline` 和 `webkit-playsinline` 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
+>- 设置 `x5-playsinline` 属性在 TBS 内核会使用 X5 UI 的播放器。
 
 ### step 3：初始化代码
 在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID 与 appID。
@@ -342,7 +342,7 @@ var player = TCPlayer('player-container-id', {
 >- 如果开启了播放 DRM 内容的功能，sign 的计算方法为：sign = md5(KEY+appId+fileId+playDefinition+t+us) [DRM 防盗链参数说明](https://cloud.tencent.com/document/product/266/34101)。
 
 ### 试看功能
-使用试看功能需要先开启 Key 防盗链，开启流程请看 [Key 防盗链](https://cloud.tencent.com/document/product/266/14047) 文档。播放器初始化需增加参数如下：`sign = md5(KEY+appId+fileId+playDefinition+t+us)`
+使用试看功能需要先开启 Key 防盗链，开启流程请看 [Key 防盗链](https://cloud.tencent.com/document/product/266/14047) 文档。播放器初始化需增加参数如下：
 ```
 var player = TCPlayer('player-container-id', {
      fileID: '', // 请传入需要播放的视频 filID 必须
@@ -415,15 +415,15 @@ var player = TCPlayer('player-container-id', {
   plugins: {
     DRM: {
       token: '', // 传入您的后台服务签发的 token，播放 DRM 内容必须
-      certificateUri: '', // 传入 FPS 证书的下载地址，播放 FairPlay 加密内容必须
+      certificateUri: '', // 传入 FairPlay 证书的下载地址，播放 FairPlay 加密内容必须
     }
   }``
 });
 ```
-播放器会根据传入的 [播放模版](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF) ID 和当前浏览器的支持情况，选择合适的播放方案。DRM 方案选择优先级为 Widevine > FairPlay > SimpleAES，例如：
+播放器会根据传入的 [播放模版](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF) ID 和当前浏览器的支持情况，按优先级选择合适的播放方案，DRM 方案选择优先级为 Widevine > FairPlay > SimpleAES，例如：
 - 传入`playDefinition`为 20 ，播放器依次选择 Widevine 或 FairPlay ，SimpleAES 的加密输出播放。
 - 传入`playDefinition`为 12 ，播放器依次选择 Widevine 或 FairPlay 的加密输出播放。
-- 传入`playDefinition`为 10 ，播放器将会选择未加密的 HLS 或 Dash 输出播放。
+- 传入`playDefinition`为 10 ，播放器将会选择未加密的 HLS 或 DASH 输出播放。
 
 示例：
 [DRM 自动识别播放](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-drm-token-auto.html)
@@ -433,3 +433,4 @@ var player = TCPlayer('player-container-id', {
 >- [Token 生成指引](https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90)
 >- [FairPlay 证书生成指引](https://cloud.tencent.com/document/product/266/34102#ask-.E5.92.8C-fps-.E8.AF.81.E4.B9.A6)
 >- 商业级 DRM 内容只能在 HTTPS 协议下的页面进行播放。
+>- DRM 内容目前只支持自适应码率。

@@ -1,5 +1,5 @@
 ## 前言
-本文档介绍腾讯云视频点播服务的 Web 播放器的相关参数以及 API，需结合 [《使用文档》](https://cloud.tencent.com/document/product/266/14424) 使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+本文档是介绍腾讯云 Web 视频点播服务的超级播放器的相关参数以及 API，需结合**使用文档**使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 初始化参数
 播放器初始化需要传入两个参数，第一个为播放器容器 ID，第二个为功能参数对象。
@@ -17,7 +17,7 @@ options 对象可配置的参数：
 |  width|  String / Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  height |  String /Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|  
 |  controls|  Boolean|  true|  是否显示播放器的控制栏|  
-|  poster|  String|  无|  设置封面图片完整地址|  
+|  poster|  String|  无|  设置封面图片完整地址（如果上传的视频已生成封面图，优先使用生成的封面图，详情请看控制台【云点播】-【视频管理】）|  
 |  autoplay|  Boolean|  false|  是否自动播放|  
 |  playbackRates|  Array| [0.5, 1, 1.25, 1.5, 2]|  设置变速播放倍率选项，仅 H5 有效|  
 |  loop|Boolean|  false|  是否循环播放|  
@@ -47,8 +47,8 @@ controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
 |  fullscreenToggle|  Boolean|  true|  是否显示全屏按钮|  
 |  QualitySwitcherMenuButton|  Boolean|  true|  是否显示清晰度切换菜单|  
 
->**注意事项：**
-> * controlBar 参数在浏览器劫持播放的状态下将无效。[什么是劫持播放？](https://cloud.tencent.com/document/product/266/1303#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)
+>!
+>- controlBar 参数在浏览器劫持播放的状态下将无效。[什么是劫持播放？](https://cloud.tencent.com/document/product/266/1303#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)
 
 #### plugins 插件参数列表
 plugins 参数可以配置播放器插件的功能，支持的属性有：
@@ -83,8 +83,8 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  videoHeight()|  无|  (Number)|  获取视频分辨率的高度|  
 |  dispose()|  无|  无|  销毁播放器|  
 
->**注意事项：**
-> * 对象方法不能同步调用，需要在相应的事件（例如 loadedmetadata ）触发后才可以调用，除了ready、on、one、off。
+>!
+>- 对象方法不能同步调用，需要在相应的事件（例如 loadedmetadata ）触发后才可以调用，除了ready、on、one、off。
 
 ## 事件
 播放器可以通过初始化返回的对象进行事件监听，示例：
