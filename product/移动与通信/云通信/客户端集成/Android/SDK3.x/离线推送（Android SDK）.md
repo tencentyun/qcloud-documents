@@ -552,6 +552,8 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 从腾讯云控制台的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的【应用配置】页面，在基本配置中根据指引添加【Android 推送证书】。如何获得相应的推送证书可以参考 [小米证书申请](https://cloud.tencent.com/document/product/269/9225#.E5.B0.8F.E7.B1.B3.E8.AF.81.E4.B9.A6.E7.94.B3.E8.AF.B7) 。添加证书成功后，可以得到一个证书 ID，这里可以把这个 ID 记录下来，在后续环节中会使用到。
 
+![](https://main.qcloudimg.com/raw/6289c9027a58c924dbd92cc1d41bffa2.png)
+
 ### 配置 AndroidManifest.xml 文件
 
 应用要集成小米推送，必须集成小米推送的客户端 SDK。可以到 [小米开放平台](http://dev.xiaomi.com/mipush/downpage/) 进行下载。下载完成后，解压，将 SDK 目录下的 `MiPush_SDK_client_**.jar` 库文件添加到自己应用的 `libs` 库目录下，并添加引用。
@@ -728,16 +730,16 @@ public class MyApplication extends Application {
 ```java
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID、 regId、 TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 ```
@@ -752,12 +754,14 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID，见下图
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
 ```
+
+![](https://main.qcloudimg.com/raw/6289c9027a58c924dbd92cc1d41bffa2.png)
 
 **示例：**
 ```java
@@ -958,16 +962,16 @@ public class MyApplication extends Application {
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
@@ -983,8 +987,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -995,8 +999,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // 小米推送的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 
@@ -1213,8 +1217,8 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
 
     //上报 busiid 和 pushid 到腾讯云，需要在登录成功后进行上报
     TIMOfflinePushToken token = new TIMOfflinePushToken();
-    token.setBussid(busiid);
-    token.setToken(registerStatus.getPushId());
+    token.setBussid(busiid); // 腾讯云控制台生成的证书 ID
+    token.setToken(registerStatus.getPushId()); // 魅族注册的 PushId
     TIMManager.getInstance().setOfflinePushToken(token, new TIMCallBack() {
         @Override
         public void onError(int i, String s) {
@@ -1324,16 +1328,16 @@ PushManager.getInstance().register(this, AppParam.appKey, AppParam.appSecret, mP
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
@@ -1349,8 +1353,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -1361,8 +1365,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // oppo 回调的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 
@@ -1495,16 +1499,16 @@ PushClient.getInstance(getApplicationContext()).turnOnPush(new IPush ActionListe
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
@@ -1520,8 +1524,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -1532,8 +1536,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // vivo 回调中的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 
