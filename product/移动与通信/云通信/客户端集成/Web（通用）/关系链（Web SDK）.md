@@ -32,7 +32,6 @@ var applyAddFriend = function () {
         }
     ];
     var options = {
-        'From_Account': loginInfo.identifier,
         'AddFriendItem': add_friend_item
     };
     webim.applyAddFriend(
