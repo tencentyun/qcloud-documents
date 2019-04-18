@@ -58,7 +58,7 @@ table td {
 </table>
 
 
->?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，下载地址为 [Enterprise(iOS).zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7091.zip)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+>?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，下载地址为 [Enterprise(iOS).zip](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zipenterpri)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 >商用企业版的使用方法请参考 [特效功能指引](https://cloud.tencent.com/document/product/454/9018)。
 
 **iOS SDK功能介绍**
