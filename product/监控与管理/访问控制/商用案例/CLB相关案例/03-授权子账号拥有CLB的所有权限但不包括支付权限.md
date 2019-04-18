@@ -1,4 +1,3 @@
-### 授权子账号拥有CLB的所有权限但不包括支付权限
 
 企业帐号CompanyExample（ownerUin为12345678）下有一个子账号Developer，该子账号需要拥有对企业帐号CompanyExample的CLB服务的所有权限管理权限（创建、管理等全部操作），但不包括支付权限，可以下单但无法支付。
 
