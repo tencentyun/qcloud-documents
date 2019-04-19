@@ -61,7 +61,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 7. 选择 “使用已有PVC” 方式，填写名称，选择已有的 PVC。如下图所示：
 ![使用已有PVC](https://main.qcloudimg.com/raw/aa1e843d3ea02d6af12298b6566e552b.png)
 8. 单击【创建Workload】，完成创建。
->!仅支持挂载到同一台node主机上。
+>!仅支持挂载到同一台 node 主机上。
 >
 
 ## Kubectl 操作 PV&PVC 指引
