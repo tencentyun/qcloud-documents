@@ -195,7 +195,7 @@ TIMProfileTypeKey_Custom_Prefix | NSString,NSData,NSNumber | 自定义字段前�
 NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood"];
 [[TIMFriendshipManager sharedInstance] modifySelfProfile:@{key:@1} succ:nil fail:nil];
 ```
-> 当设置自定义字的值NSString对象时，后台会将其转为UTF8保存在数据库中。由于部分用户迁移资料时可能不是UTF8类型，所以在获取资料时，统一返回NSData类型。
+>?当设置自定义字段值 NSString 对象时，后台会将其转为 UTF8 保存在数据库中。由于部分用户迁移资料时可能不是 UTF8 类型，所以在获取资料时，统一返回 NSData 类型。
 
 ## 好友关系
 
