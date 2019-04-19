@@ -1,3 +1,9 @@
+
+TRTCCloud @ TXLiteAVSDK。
+
+腾讯云视频通话功能的主要接口类。
+
+
 ## 基础方法
 ### sharedInstance
 ```
@@ -8,7 +14,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
+| context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用。 |
 
 __返回__
 
@@ -62,8 +68,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCParams | 进房参数，请参考 TRTCParams |
-| appScene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景 |
+| param | TRTCCloudDef.TRTCParams | 进房参数，请参考 TRTCParams。 |
+| appScene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
 >?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -87,7 +93,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | String | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID  |
+| param | String | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
 
 __介绍__
 
@@ -95,7 +101,10 @@ TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，�
 跨房通话的参数采用了 JSON 格式，要求至少包含两个字段：
 - roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
 - userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
+
+
 跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom 回调通知给您。
+
 
 <pre>
 JSONObject jsonObj = new JSONObject();
@@ -130,8 +139,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frontCamera | boolean | true：前置摄像头；false：后置摄像头 |
-| view | TXCloudVideoView | 承载视频画面的控件 |
+| frontCamera | boolean | true：前置摄像头；false：后置摄像头。 |
+| view | TXCloudVideoView | 承载视频画面的控件。 |
 
 
 ### stopLocalPreview
@@ -153,8 +162,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户标识 |
-| view | TXCloudVideoView | 承载视频画面的控件 |
+| userId | String | 对方的用户标识。 |
+| view | TXCloudVideoView | 承载视频画面的控件。 |
 
 __介绍__
 
@@ -172,7 +181,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户标识 |
+| userId | String | 对方的用户标识。 |
 
 
 ### stopAllRemoteView
@@ -197,7 +206,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：屏蔽；false：开启 |
+| mute | boolean | true：屏蔽；false：开启。 |
 
 __介绍__
 
@@ -215,7 +224,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义 |
+| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义。 |
 
 __介绍__
 
@@ -233,7 +242,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义 |
+| param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义。 |
 
 __介绍__
 
@@ -251,7 +260,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
 
 
 ### setRemoteViewFillMode
@@ -265,8 +274,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
-| mode | int | 填充（画面可能会被拉伸裁剪）还是适应（画面可能会有黑边） |
+| userId | String | 用户 ID。 |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
 
 
 ### setLocalViewRotation
@@ -280,7 +289,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | rotation 支持90、180、270旋转角度 |
+| rotation | int | rotation 支持90、180、270旋转角度。 |
 
 
 ### setRemoteViewRotation
@@ -294,8 +303,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
-| rotation | int | 支持90、180、270旋转角度 |
+| userId | String | 用户 ID。 |
+| rotation | int | 支持90、180、270旋转角度。 |
 
 
 ### setVideoEncoderRotation
@@ -309,7 +318,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | 目前支持0和180两个旋转角度 |
+| rotation | int | 目前支持0和180两个旋转角度。 |
 
 __介绍__
 
@@ -327,7 +336,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | int | 重力感应模式，详情请参考 TRTC_GSENSOR_MODE 的定义 |
+| mode | int | 重力感应模式，详情请参考 TRTC_GSENSOR_MODE 的定义。 |
 
 
 ### enableEncSmallVideoStream
@@ -341,8 +350,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否开启小画面编码 |
-| smallVideoEncParam | TRTCCloudDef.TRTCVideoEncParam | 小流的视频参数 |
+| enable | boolean | 是否开启小画面编码。 |
+| smallVideoEncParam | TRTCCloudDef.TRTCVideoEncParam | 小流的视频参数。 |
 
 __返回__
 
@@ -370,8 +379,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
-| streamType | int | 视频流类型，即选择看大画面还是小画面 |
+| userId | String | 用户 ID。 |
+| streamType | int | 视频流类型，即选择看大画面还是小画面。 |
 
 __介绍__
 
@@ -389,7 +398,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 默认观看大画面还是小画面 |
+| streamType | int | 默认观看大画面还是小画面。 |
 
 __介绍__
 
@@ -436,7 +445,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：屏蔽；false：开启 |
+| mute | boolean | true：屏蔽；false：开启。 |
 
 __介绍__
 
@@ -455,7 +464,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | int | 音频路由，即声音由哪里输出（扬声器、听筒） |
+| route | int | 音频路由，即声音由哪里输出（扬声器、听筒）。 |
 
 __介绍__
 
@@ -473,8 +482,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户 ID |
-| mute | boolean | true：静音；false：非静音 |
+| userId | String | 对方的用户 ID。 |
+| mute | boolean | true：静音；false：非静音。 |
 
 
 ### muteAllRemoteAudio
@@ -488,7 +497,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：静音；false：非静音 |
+| mute | boolean | true：静音；false：非静音。 |
 
 
 ### enableAudioVolumeEvaluation
@@ -502,8 +511,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| intervalMs | int | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms |
-| smoothLevel | int | 灵敏度，[0,10]，数字越大，波动越灵敏 |
+| intervalMs | int | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
+| smoothLevel | int | 灵敏度，[0,10]，数字越大，波动越灵敏。 |
 
 __介绍__
 
@@ -539,7 +548,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| distance | int | 取值范围为1 - 5，数值越大，焦距越远 |
+| distance | int | 取值范围为1 - 5，数值越大，焦距越远。 |
 
 __介绍__
 
@@ -565,7 +574,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false：关闭 |
+| enable | boolean | true：开启；false：关闭。 |
 
 
 ### isCameraFocusPositionInPreviewSupported
@@ -587,8 +596,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| x | int | 对焦位置 x 坐标 |
-| y | int | 对焦位置 y 坐标 |
+| x | int | 对焦位置 x 坐标。 |
+| y | int | 对焦位置 y 坐标。 |
 
 
 ### isCameraAutoFocusFaceModeSupported
@@ -633,7 +642,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | Bitmap | 指定素材，即颜色查找表图片。**必须使用 png 格式** |
+| image | Bitmap | 指定素材，即颜色查找表图片。**必须使用 png 格式**。 |
 
 
 ### setFilterConcentration
@@ -665,11 +674,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | Bitmap | 水印图片，**必须使用透明底的 png 格式** |
+| image | Bitmap | 水印图片，**必须使用透明底的 png 格式**。 |
 | streamType | int | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark。 |
-| x | float | 归一化水印位置的 X 轴坐标，取值[0,1] |
-| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1] |
-| width | float | 归一化水印宽度，取值[0,1] |
+| x | float | 归一化水印位置的 X 轴坐标，取值[0,1]。 |
+| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1]。 |
+| width | float | 归一化水印宽度，取值[0,1]。 |
 
 __介绍__
 
@@ -677,6 +686,8 @@ __介绍__
 - x：水印的坐标，取值范围为0 - 1的浮点数。
 - y：水印的坐标，取值范围为0 - 1的浮点数。
 - width：水印的宽度，取值范围为0 - 1的浮点数。
+
+
 举例：如果当前编码分辨率是540 × 960，(x， y， width) 设置为（0.1， 0.1， 0.2） 那么：水印的左上坐标点就是 (540 × 0.1， 960 × 0.1)，也就是 (54， 96)，水印的宽度是 540 × 0.2 = 108px，高度自动计算。
 
 
@@ -693,12 +704,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户标识 |
-| view | TXCloudVideoView | 渲染控件 |
+| userId | String | 对方的用户标识。 |
+| view | TXCloudVideoView | 渲染控件。 |
 
 __介绍__
 
-对应于 startRemoteView()用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
+对应于 startRemoteView() 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
 
 >?请在 onUserSubStreamAvailable 回调后再调用这个接口。
 
@@ -715,7 +726,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户标识 |
+| userId | String | 对方的用户标识。 |
 
 
 ### setRemoteSubStreamViewFillMode
@@ -729,12 +740,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户的 ID |
-| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边） |
+| userId | String | 用户的 ID。 |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
 
 __介绍__
 
-对应于 setRemoteViewFillMode()于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+对应于 setRemoteViewFillMode() 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
 
 
 
@@ -750,11 +761,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否启用 true：启用；false：关闭 |
+| enable | boolean | 是否启用 true：启用；false：关闭。 |
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 sendCustomVideoData()不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 sendCustomVideoData() 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomVideoData
@@ -774,7 +785,9 @@ __介绍__
 
 Android 平台有两种的方案：buffer
 - buffer 方案：对接起来比较简单，但是性能较差，不适合分辨率较高的场景。
-- texture 方案：对接需要一定的 OpenGL 基础，但是性能较好，640x360 以上的分辨率请采用该方案。
+- texture 方案：对接需要一定的 OpenGL 基础，但是性能较好，640 × 360 以上的分辨率请采用该方案。
+
+
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 >?
@@ -795,17 +808,19 @@ __参数__
 |-----|-----|-----|
 | pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_NV21。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次 |
+| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
-0：成功；< 0：错误。
+0：成功；<0：错误。
 
 __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
 - pixelFormat 指定回调的数据格式，目前暂时只支持 NV21 和 I420 两种格式，纹理方案我们稍后提供。
 - bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 java 层的直接操作。
+
+
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 
@@ -820,10 +835,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户标识 |
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 |
-| bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次 |
+| userId | String | 对方的用户标识。 |
+| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
+| bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
+| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
@@ -849,11 +864,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否启用 true：启用；false：关闭 |
+| enable | boolean | 是否启用 true：启用；false：关闭。 |
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 sendCustomAudioData()不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 sendCustomAudioData() 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomAudioData
@@ -867,7 +882,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据 |
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据。 |
 
 >?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 
@@ -884,7 +899,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | TRTCCloudListener.TRTCAudioFrameListener | 音频数据回调，listener = null 则停止回调数据 |
+| listener | TRTCCloudListener.TRTCAudioFrameListener | 音频数据回调，listener = null 则停止回调数据。 |
 
 __介绍__
 
@@ -907,10 +922,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| cmdID | int | 消息 ID，取值范围为1 - 10 |
-| data | byte [] | 待发送的消息，最大支持1KB（1000字节）的数据大小 |
-| reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传 |
-| ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息 |
+| cmdID | int | 消息 ID，取值范围为1 - 10。 |
+| data | byte [] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
+| reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传。 |
+| ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
 
 __返回__
 
@@ -928,7 +943,6 @@ __介绍__
 >- 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
 
 
-
 ### sendSEIMsg
 
 将小数据量的自定义数据嵌入视频帧中。
@@ -940,8 +954,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| data | byte [] | 待发送的数据，最大支持1kb（1000字节）的数据大小 |
-| repeatCount | int | 发送数据次数 |
+| data | byte [] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
+| repeatCount | int | 发送数据次数。 |
 
 __返回__
 
@@ -956,8 +970,8 @@ __介绍__
 >- 数据在接口调用完后不会被即时发送出去，而是从下一帧视频帧开始带在视频帧中发送。
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
 >- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
->- 每个客户端每秒最多能发送总计8KB 数据（与 sendCustomCmdMsg 共享限制）。
->- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+>- 每个客户端每秒最多能发送总计8KB数据（与 sendCustomCmdMsg 共享限制）。
+>- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
 >- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
@@ -974,8 +988,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | String | 音乐文件路径 |
-| notify | BGMNotify | 播放背景音乐的回调 |
+| path | String | 音乐文件路径。 |
+| notify | BGMNotify | 播放背景音乐的回调。 |
 
 
 ### stopBGM
@@ -1013,7 +1027,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | String | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长 |
+| path | String | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长。 |
 
 __返回__
 
@@ -1029,7 +1043,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pos | int | 单位毫秒 |
+| pos | int | 单位毫秒。 |
 
 __返回__
 
@@ -1047,7 +1061,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小，100为正常音量，取值范围为0 - 200 |
+| volume | int | 音量大小，100为正常音量，取值范围为0 - 200。 |
 
 
 ### setBGMVolume
@@ -1061,7 +1075,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值 |
+| volume | int | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值。 |
 
 
 ### setReverbType
@@ -1075,7 +1089,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | int | 混响类型，详见 TRTC_REVERB_TYPE |
+| reverbType | int | 混响类型，详见 TRTC_REVERB_TYPE。 |
 
 
 ### setVoiceChangerType
@@ -1089,7 +1103,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE |
+| voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE。 |
 
 
 
@@ -1105,9 +1119,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdkAppId | int | 应用标识 |
-| userId | String | 用户标识 |
-| userSig | String | 用户签名 |
+| sdkAppId | int | 应用标识。 |
+| userId | String | 用户标识。 |
+| userSig | String | 用户签名。 |
 
 __介绍__
 
@@ -1146,14 +1160,14 @@ __介绍__
 如果您在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能， 房间里的每一路画面都会有一个对应的直播 [CDN 地址](https://cloud.tencent.com/document/product/647/16826)， 此时您可以通过云端混流，将多路直播地址的画面混合成一路，这样直播 CDN 上就可以看到混合后的画面。
 您可以通过转码参数来调整每一路画面的位置以及最终输出的画面质量。
 参考文档：[云端混流转码](https://cloud.tencent.com/document/product/647/16827)。 示例代码：我们在 Demo 中增加了该功能的体验入口，您可以在“更多功能”面板中看到“云端画面混合”和“分享播放地址”体验到该功能。
-<pre>
 
+
+<pre>
 【画面1】=> 解码 => =>
                         \
 【画面2】=> 解码 =>  画面混合 => 编码 => 【混合后的画面】
                         /
 【画面3】=> 解码 => =>
-
 </pre>
 
 >?关于云端混流的注意事项：
@@ -1172,7 +1186,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍 |
+| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍。 |
 
 __介绍__
 
@@ -1215,7 +1229,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 参见 TRTC_LOG_LEVEL |
+| level | int | 参见 TRTC_LOG_LEVEL。 |
 
 
 ### setConsoleEnabled
@@ -1229,7 +1243,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | boolean | 指定是否启用 |
+| enabled | boolean | 指定是否启用。 |
 
 
 ### setLogCompressEnabled
@@ -1243,7 +1257,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | boolean | 指定是否启用 |
+| enabled | boolean | 指定是否启用。 |
 
 __介绍__
 
@@ -1261,7 +1275,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | String | 存储日志路径 |
+| path | String | 存储日志路径。 |
 
 >?日志文件默认保存在 /sdcard/log/tencent/liteav 下，如需修改， 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
 
@@ -1286,7 +1300,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| showType | int | 0：不显示；1：显示精简版；2：显示全量版 |
+| showType | int | 0：不显示；1：显示精简版；2：显示全量版。 |
 
 __介绍__
 
@@ -1304,8 +1318,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
-| margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1 |
+| userId | String | 用户 ID。 |
+| margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
 
 __介绍__
 
@@ -1323,10 +1337,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| jsonStr | String | 接口及参数描述的 JSON 字符串 |
+| jsonStr | String | 接口及参数描述的 JSON 字符串。 |
 
 >?该接口用于调用一些实验性功能。
-
 
 
 
@@ -1349,7 +1362,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | int | 0：播放成功；-1：播放失败 |
+| errCode | int | 0：播放成功；-1：播放失败。 |
 
 
 ### onBGMProgress
@@ -1363,8 +1376,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| progress | long | 当前 BGM 已播放时间(ms) |
-| duration | long | 当前 BGM 总时间(ms) |
+| progress | long | 当前 BGM 已播放时间(ms)。 |
+| duration | long | 当前 BGM 总时间(ms)。 |
 
 
 ### onBGMComplete
@@ -1378,7 +1391,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| err | int | 0：正常结束；-1：出错结束 |
+| err | int | 0：正常结束；-1：出错结束。 |
 
 
 
@@ -1396,10 +1409,10 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| leftMargin | float | 距离左边的百分比，取值范围为0 - 1 |
-| topMargin | float | 距离顶部的百分比，取值范围为0 - 1 |
-| rightMargin | float | 距离右边的百分比，取值范围为0 - 1 |
-| bottomMargin | float | 距离底部的百分比，取值范围为0 - 1 |
+| leftMargin | float | 距离左边的百分比，取值范围为0 - 1。 |
+| topMargin | float | 距离顶部的百分比，取值范围为0 - 1。 |
+| rightMargin | float | 距离右边的百分比，取值范围为0 - 1。 |
+| bottomMargin | float | 距离底部的百分比，取值范围为0 - 1。 |
 
 
 
