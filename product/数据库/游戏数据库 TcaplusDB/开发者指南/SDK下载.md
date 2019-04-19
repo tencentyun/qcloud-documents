@@ -19,7 +19,8 @@
 |MT|3.32.0.174230|2018/06/06|[下载](https://main.qcloudimg.com/raw/35485390674fbdd07a630b4dd3eb0c79.zip)|
 |MD|3.32.0.174230|2018/06/06|[下载](https://main.qcloudimg.com/raw/e9665d4364e1250acfe7ba526ddfad02.zip)|
 
-|依赖包|版本  | 更新时间 |下载|
+## 依赖包下载
+|运行库|版本  | 更新时间 |下载|
 |-----|-------------| ------------- | ------------- |
-|TSF4G_BASE|2.7.28.164975|2018/06/06|[下载](https://main.qcloudimg.com/raw/27532163a98e4abd5e3ac1e99aad4ee6/TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip)|
+|MT|2.7.28.164975|2018/06/06|[下载](https://main.qcloudimg.com/raw/27532163a98e4abd5e3ac1e99aad4ee6/TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip)|
 
