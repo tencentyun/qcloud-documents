@@ -77,8 +77,8 @@ chmod +x cfs_barad_plugin_installer_release_v11
 ## 安装插件
 ./cfs_barad_plugin_installer_release_v11
 ```
-命令执行成功显示“cfs barad plugin install success”，如下图所示：
-![](https://main.qcloudimg.com/raw/70d02beff4e28724faf40b872a1a529d.png)
+安装成功将显示“cfs barad plugin install success”，如下图所示：
+![](https://main.qcloudimg.com/raw/684e7b1aab65b372c1ea70cd89266b29.png)
 
 ## Windows 安装指引
 Windows 客户端暂未支持。
