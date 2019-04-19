@@ -20,7 +20,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括 PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.3.js" charset="utf-8"></script>;
 ```
 
 >**注意：**
