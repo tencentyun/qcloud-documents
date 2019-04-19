@@ -81,7 +81,7 @@ chmod +x cfs_barad_plugin_installer_release_v11
 ![](https://main.qcloudimg.com/raw/70d02beff4e28724faf40b872a1a529d.png)
 
 ## Windows 安装指引
-Windows 客户端暂未支持，敬请期待。
+Windows 客户端暂未支持。
 
 
 ## 监控来访客户端
