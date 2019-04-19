@@ -16,12 +16,19 @@
 ### 输出参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| credentials | Array Of Credentials | 对象里面包含 token,tmpSecretId,tmpSecretKey 三元组 |
-| --sessionToken | String | token 值 |
-| --tmpSecretId| String | 临时安全证书 ID |
-| --tmpSecretKey | String | 临时安全证书 Key |
+|  credentials | [credentials](#dataStructure)  | 对象里面包含 token，tmpSecretId，tmpSecretKey 三元组  |
 | expiredTime | Integer |证书无效的时间，返回 Unix 时间戳，精确到秒 |
-| expiration |String | 证书无效的时间，以 iso8601 格式的 UTC 时间表示 |
+| expiration |String | 证书无效的时间，以 ISO8601 格式的 UTC 时间表示 |
+
+<span id="dataStructure"></span>
+### Credentials 数据结构
+
+| 字段  | 类型  | 描述  |
+|---------|---------|---------|
+| token | String | token 值 |
+| tmpSecretId | String | 临时安全证书 ID |
+| tmpSecretKey | String | 临时安全证书 Key |
+
 
 ### 示例
 创建一个名称为 IdP 的 SAML 身份提供商。

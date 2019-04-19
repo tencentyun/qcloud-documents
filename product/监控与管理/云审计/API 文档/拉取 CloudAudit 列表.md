@@ -1,6 +1,6 @@
 
 ## 接口描述
-ListAudits 用于拉取 CloudAudit 列表。
+ListAudits 用于拉取跟踪集列表。
 接口访问域名：`cloudaudit.api.qcloud.com`
 
 ## 请求参数
@@ -16,11 +16,11 @@ ListAudits 用于拉取 CloudAudit 列表。
 
 |参数名称|类型|描述|
 |---------|---------|---------|
-|Name|String|CloudAudit 名称|
+|Name|String|跟踪集名称|
 |bucketName|String|COS Bucket 名称|
 |prefix|String|日志前缀|
 |status|Number|Audit 状态，0 代表关闭，1 代表开启|
-|IsMultiRegionAudit|Number|是否开启多地域采集。0：否，1：是|
+|IsMultiRegionAudit|Number|是否开启多地域采集，0：否，1：是|
 
 ## 实际案例
 ### 请求
@@ -45,7 +45,7 @@ ListAudits 用于拉取 CloudAudit 列表。
             "name": "xxx-1",
             "bucketName":"xxx",
             "prefix":"xxx",
-            "status":1
+            "status":1,
             "IsMultiRegionAudit":0
         }
     ]

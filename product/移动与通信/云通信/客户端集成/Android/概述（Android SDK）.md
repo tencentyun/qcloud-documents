@@ -57,7 +57,7 @@ libs/x86_64/libwtcrypto.so
 ### 创建应用
 
 **创建一个新工程，并在 `AndroidManifest.xml` 中添加以下权限：**
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.CAMERA" />
@@ -76,7 +76,10 @@ libs/x86_64/libwtcrypto.so
 
 **1.8.0 及以上版本需要在 `AndroidManifest.xml` 的 `<application></application>` 中添加以下配置：**
 
-```
+```xml
+<!-- Android 9.0兼容配置 -->
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
 <!--  消息收发 service -->
 <service
 	android:name="com.tencent.qalsdk.service.QalService"
@@ -122,6 +125,7 @@ libs/x86_64/libwtcrypto.so
 >注：
 >- 集成 ImSDK 1.9.0 以上的版本时，需要引用 Android SDK API LEVEL 23+ 版本的 android-support-v4.jar。
 >- 由于从 Android SDK 从 API LEVEL 23 开始去掉了 HTTP 相关特性，所以在用 API LEVEL 23 以上 Android SDK 版本进行编译时，需要增加对 `org.apache.http.legacy.jar` 的引用。具体参考 [Android 6.0 Changes](http://developer.android.com/intl/zh-cn/about/versions/marshmallow/android-6.0-changes.html)。
+>- 因为 Android 9.0 彻底废弃了 `org.apache.http.legacy.jar`，但ImSDK又依赖于这个库，所以需要在manifest的`application`节点中增加以下配置：\<uses-library android:name="org.apache.http.legacy" android:required="false"/\>
 
 
 ### 功能开发
