@@ -13,18 +13,12 @@
 ![](https://main.qcloudimg.com/raw/1f07c6b9437fbcb2fbff10bffca2f29d.jpg)
 
 ## 读写分离计费
-- 开启读写分离，将对只读副本收取一定的费用，具体费用请参见 [产品定价](https://cloud.tencent.com/document/product/239/9894)。
+开启读写分离，将对只读副本收取一定的费用，具体费用请参见 [产品定价](https://cloud.tencent.com/document/product/239/9894)。
 
 ## 开启读写分离
-
-1. 登录 [控制台](https://console.cloud.tencent.com/redis)。
-2. 在实例列表中，选择需要创建只读实例的云数据库，单击实例名称，进入实例详情页。
-3. 在“节点管理”，单击副本只读按钮，开启读写分离。
-![](https://main.qcloudimg.com/raw/76c933b3bfbc77689538b464c10d8d56.png)
-
-
-
-
-
+1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)。
+2. 在实例列表页中，选择需要创建只读实例的云数据库，单击实例名称，进入实例详情页。
+3. 在【节点管理】页，单击副本只读按钮，开启读写分离。
+![](https://main.qcloudimg.com/raw/bc8c10e7481cf81ef4d97ce615870b4f.png)
 
 

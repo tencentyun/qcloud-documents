@@ -44,10 +44,10 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "requestId" : <异步任务ID>
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "requestId": "< 异步任务ID >"
 }
 ```
 

@@ -6,7 +6,7 @@
 
 ## 设置离线推送配置
 ### 设置全局离线推送配置
-ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `configOfflinePushSettings`。
+ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `setOfflinePushSettings`。
 
 >!
 > - 必须在登录成功后调用才生效。
@@ -19,7 +19,7 @@ ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，�
  * 初始化离线推送配置，需登录后设置才生效
  * @param settings 离线推送配置信息
  */
-public void configOfflinePushSettings(TIMOfflinePushSettings settings)
+public void setOfflinePushSettings(TIMOfflinePushSettings settings)
 
 /**
  * 从服务器获取离线推送配置，需登录后才能获取
@@ -85,7 +85,7 @@ settings.setC2cMsgRemindSound(Uri.parse("android.resource://" + getPackageName()
 //设置收到群离线消息时的提示声音，这里把声音文件放到了 res/raw 文件夹下
 settings.setGroupMsgRemindSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dudulu));
 
-TIMManager.getInstance().configOfflinePushSettings(settings);
+TIMManager.getInstance().setOfflinePushSettings(settings);
 ```
 
 ### 设置单条消息的离线推送配置
@@ -94,7 +94,7 @@ ImSDK 从 2.2.0 版本开始提供针对单独每一条消息进行离线推送�
 >!
 > - 针对单条消息设置的离线推送配置优先级是最高的，也就是在同时设置了全局离线推送配置及单条消息离线推送配置的情况下，将以单条消息离线推送配置为准。
 > - 目前 Android 设备的声音仅支持应用内置的声音文件。
-> - 此章节是根据 ImSDK 2.5.3 来说明的，在接入低于 2.5.3 版本的 ImSDK 时，单条消息的离线推送配置请参考 SDK 下载包中的 javadoc 进行配置。
+
 
 **原型：**
 
@@ -226,10 +226,6 @@ public void setNotifyMode(NotifyMode mode)
  */
 NotifyMode.Normal
 
-/**
- * 自定义消息模式，离线消息下发后，单击通知栏消息会给应用进行回调
- */
-NotifyMode.Custom
 ```
 
 **TIMMessageOfflinePushSettings.IOSSettings：**
@@ -296,7 +292,7 @@ TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOf
 //TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
 //推送自定义通知栏消息，接收方收到消息后单击通知栏消息会给应用回调（针对小米、华为离线推送）
-androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Custom);
+androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Normal);
 //设置 Android 设备收到消息时的提示音，声音文件需要放置到 raw 文件夹
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
 settings.setAndroidSettings(androidSettings);
@@ -398,7 +394,7 @@ public void setOfflinePushListener(TIMOfflinePushListener listener)
 
 参数|说明
 ---|---
-listener|离线推送监听器，详情请参考 javadoc 中类 TIMOfflinePushListener 的说明。
+listener|离线推送监听器。
 
 **示例：**
 ```java
@@ -546,14 +542,17 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 由于小米 ROM 深度定制了安卓系统，加强了权限的控制，第三方 App 默认不会在系统的自启动白名单里，App 在后台很容易被系统杀掉，或者用户手动将 App 杀死， 因为没有自启动权限，App 的 service 无法自动重启，从而导致被杀死后无法收到消息。为了保证 App 被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK 仅支持推送通知栏消息**。
 
->注：
+>!
 >- 收到离线消息时，默认通知标题为 `a new message`。
+>- 目前小米推送新版本中不会触发 onNotificationMessageClicked 事件回调，后续会做适配。
 >- 此指引文档是根据小米推送 SDKv3.0.3 来写的，可能不适用于新版本的小米推送 SDK，新版本的接入请直接参考小米官方文档。
 >- 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
 
 ### 添加小米离线推送证书
 
 从腾讯云控制台的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的【应用配置】页面，在基本配置中根据指引添加【Android 推送证书】。如何获得相应的推送证书可以参考 [小米证书申请](https://cloud.tencent.com/document/product/269/9225#.E5.B0.8F.E7.B1.B3.E8.AF.81.E4.B9.A6.E7.94.B3.E8.AF.B7) 。添加证书成功后，可以得到一个证书 ID，这里可以把这个 ID 记录下来，在后续环节中会使用到。
+
+![](https://main.qcloudimg.com/raw/6289c9027a58c924dbd92cc1d41bffa2.png)
 
 ### 配置 AndroidManifest.xml 文件
 
@@ -731,16 +730,16 @@ public class MyApplication extends Application {
 ```java
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID、 regId、 TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 ```
@@ -755,12 +754,14 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID，见下图
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
 ```
+
+![](https://main.qcloudimg.com/raw/6289c9027a58c924dbd92cc1d41bffa2.png)
 
 **示例：**
 ```java
@@ -961,16 +962,16 @@ public class MyApplication extends Application {
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
@@ -986,8 +987,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -998,8 +999,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // 小米推送的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 
@@ -1216,8 +1217,8 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
 
     //上报 busiid 和 pushid 到腾讯云，需要在登录成功后进行上报
     TIMOfflinePushToken token = new TIMOfflinePushToken();
-    token.setBussid(busiid);
-    token.setToken(registerStatus.getPushId());
+    token.setBussid(busiid); // 腾讯云控制台生成的证书 ID
+    token.setToken(registerStatus.getPushId()); // 魅族注册的 PushId
     TIMManager.getInstance().setOfflinePushToken(token, new TIMCallBack() {
         @Override
         public void onError(int i, String s) {
@@ -1237,7 +1238,7 @@ public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
 Opush 是 ColorOS 上的系统级通道，为开发者提供稳定，高效的消息推送服务。为了保证 App 被杀后，在 OPPO 设备上仍然能够收到消息，需要集成 Opush。目前，**SDK 仅支持推送通知栏消息**。
 
 >!
-> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android APP 应用。
+> - OPPO 官方仅支持 OPPO 手机系统 (ColorOS) Android App 应用。
 > - 此文档是根据 OPPO 推送 sdk 1.0.1 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考 [OPPO官方接入文档](https://open.oppomobile.com/wiki/doc#id=10196)。
 > - 如果不需要对 OPPO 设备做专门的离线推送适配，可以忽略此章节。
 
@@ -1327,22 +1328,22 @@ PushManager.getInstance().register(this, AppParam.appKey, AppParam.appSecret, mP
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
@@ -1352,8 +1353,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -1364,8 +1365,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // oppo 回调的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 
@@ -1498,22 +1499,22 @@ PushClient.getInstance(getApplicationContext()).turnOnPush(new IPush ActionListe
 ```
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
- * @param token 用户标识
+ * @param offlinePushToken 用户标识
  */
-public void setOfflinePushToken(TIMOfflinePushToken token)
+public void setOfflinePushToken(TIMOfflinePushToken offlinePushToken)
 ```
 
 **参数说明：**
 
 参数|说明
 ---|---
-token|用户标识，包括证书 ID， regId， TMID 等
+TIMOfflinePushToken|用户标识，其中的参数 token 填 regId；bussid 填 证书 ID 
 
 **TIMOfflinePushToken 成员方法详细说明：**
 
 ```java
 /**
- * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO推送、VIVO推送
+ * 离线推送 token 配置类，目前只适用于第三方推送接入，比如小米推送、华为推送、魅族推送，OPPO 推送、vivo 推送
  */
 public class TIMOfflinePushToken {
     /**
@@ -1523,8 +1524,8 @@ public class TIMOfflinePushToken {
     public void setToken(String token)
 
     /**
-     * 设置业务 ID，这里的业务 ID 是指将离线推送相关证书上传到腾讯云的时候分配的 ID
-     * @param bussid 业务 ID
+     * 设置证书 ID，这里的证书 ID 是指将离线推送相关证书上传到腾讯云的时候分配的证书 ID
+     * @param bussid 证书 ID
      */
     public void setBussid(long bussid)
 }
@@ -1535,8 +1536,8 @@ public class TIMOfflinePushToken {
 ```
 //登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
-param.setToken(token);
-param.setBussid(bussId);
+param.setToken(token); // vivo 回调中的 regId
+param.setBussid(bussId); // 腾讯云控制台生成的证书 ID
 TIMManager.getInstance().setOfflinePushToken(param);
 ```
 

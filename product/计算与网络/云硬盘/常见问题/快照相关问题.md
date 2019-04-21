@@ -39,3 +39,6 @@
 ### 如何删除快照？
 - 对于云硬盘的快照，可直接在控制台或通过 API 删除，具体操作请参考 [删除快照](https://cloud.tencent.com/document/product/362/5758)。
 - 对于自定义镜像的关联快照，需要先删除自定义镜像，才能 [删除快照](https://cloud.tencent.com/document/product/362/5758)。
+
+### 定期快照有什么限制？
+单地域下定期最多支持创建30个定期快照策略，每个定期快照策略最多支持10个时间点，且每个定期快照策略最多支持绑定200个云硬盘。同时，定期快照策略创建出来的快照遵循快照的配额限制，详情可参考 [快照概述](https://cloud.tencent.com/document/product/362/5754#Constraint)。

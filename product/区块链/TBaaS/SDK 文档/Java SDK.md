@@ -1,11 +1,11 @@
 ## 简介
 
-欢迎使用腾讯云 TBaas 产品开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。为方便 Java 开发者调试和接入腾讯云 TBaas 产品 API，这里向您介绍适用于 Java 的腾讯云 TBaas 产品开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 TBaas 产品 Java SDK 并开始调用。
+欢迎使用腾讯云 TBaaS 产品开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。为方便 Java 开发者调试和接入腾讯云 TBaaS 产品 API，这里向您介绍适用于 Java 的腾讯云 TBaaS 产品开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 TBaaS 产品 Java SDK 并开始调用。
 
 ## 依赖环境
 
 1.	依赖环境：JDK 7版本及以上。
-2.	通过腾讯云控制台开通 TBaas 产品。
+2.	通过腾讯云控制台开通 TBaaS 产品。
 3.	获取 [SecretID、SecretKey](https://console.cloud.tencent.com/cam/capi) 以及调用地址（tbaas.tencentcloudapi.com）。
 
 ## 获取安装

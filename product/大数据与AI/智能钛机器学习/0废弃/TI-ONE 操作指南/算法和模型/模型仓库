@@ -1,0 +1,57 @@
+## 模型仓库
+
+模型仓库用于存放所有用户从任务流中保存的以及从外部导入的模型。在模型仓库页面用户可以对所有模型进行集中的管理，包括版本管理、服务部署、离线批量预测等。
+
+### 保存到模型仓库
+
+![https://main.qcloudimg.com/raw/02aeabc531935b483a56031acf448648.png](https://main.qcloudimg.com/raw/02aeabc531935b483a56031acf448648.png)
+
+在任务流页面，右击模型组件，点击选择保存方式，支持两种方式：A. 新建模型 B.
+添加已有模型版本
+
+![https://main.qcloudimg.com/raw/467e7ec8e8d2366794a0766d789a6ce4.png](https://main.qcloudimg.com/raw/467e7ec8e8d2366794a0766d789a6ce4.png)
+
+1. 新建模型 直接输入模型名称，点击保存，将模型保存到数据库。
+
+   ![https://main.qcloudimg.com/raw/920bc4b295af07fb94bf9fd99a219d76.png](https://main.qcloudimg.com/raw/920bc4b295af07fb94bf9fd99a219d76.png)
+
+2. 添加已有模型版本
+   搜索选中已有模型名称，版本自动在现有最新版本上自动+1，自动版本管理，不可手动编辑。
+
+默认勾选自动保存预处理节点。预处理节点可用于离线批量预测作业。
+
+### 模型信息与操作
+
+![https://main.qcloudimg.com/raw/378ef938fc86d8b0cbf361f64cf2e622.png](https://main.qcloudimg.com/raw/378ef938fc86d8b0cbf361f64cf2e622.png)
+
+模型仓库页面中，所有保存过的模型将在此呈现。
+
+![https://main.qcloudimg.com/raw/a37f0ba785e4740405facecd6f458447.png](https://main.qcloudimg.com/raw/a37f0ba785e4740405facecd6f458447.png)
+
+![https://main.qcloudimg.com/raw/a7504e42d6e42c014bc16e03ef84f8cf.png](https://main.qcloudimg.com/raw/a7504e42d6e42c014bc16e03ef84f8cf.png)
+
+点击模型名称可以显示此模型的详细信息，在模型详情弹窗中点击“任务流快照”按钮，跳转当前版本模型的任务流快照。
+
+点击版本切换按钮可对模型版本进行自由切换。
+
+模型自动生成分类TAG，便于用户搜寻。
+
+点击“部署”“离线预测”按钮进行部署与离线预测设置。详细流程见下面章节中的“部署”和“离线预测”设置流程。
+
+点击“×”按钮，弹窗确定后删除此版本模型，勾选“删除此模型下所有版本信息”清除所有版本信息。
+
+### 导入模型
+
+![https://main.qcloudimg.com/raw/bbff3fc47b987fd27863363c360ed250.png](https://main.qcloudimg.com/raw/bbff3fc47b987fd27863363c360ed250.png)
+
+点击页面上方“导入模型”按钮，可以将外部的模型导入平台进行统一管理，支持的来源为用户的COS路径与本地上传，支持的格式为PMML/
+ANGEL/ TFServing。
+
+与保存模型时一样，导入模型也需要设置模型的名称和版本。
+
+### 搜索与筛选
+
+![https://main.qcloudimg.com/raw/f2251047b4aad760a73542a75dd9b240.png](https://main.qcloudimg.com/raw/f2251047b4aad760a73542a75dd9b240.png)
+
+用户可以通过搜索框对模型名称进行搜索。或通过筛选框筛选模型的TAG。
+

@@ -140,7 +140,7 @@
 <td rowspan="4">腾讯云公共参数 </td><td> Action </td><td> 方法名 </td><td> 是 </td><td> TextKeywords
 </td></tr>
 <tr>
-<td> SecretId </td><td> SecretId </td><td> 是 </td><td> AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+<td> SecretId  </td><td> Secret 的 ID </td><td> 是 </td><td> AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 </td></tr>
 <tr>
 <td> Timestamp </td><td> 当前时间戳 </td><td> 是 </td><td> 1408704141
