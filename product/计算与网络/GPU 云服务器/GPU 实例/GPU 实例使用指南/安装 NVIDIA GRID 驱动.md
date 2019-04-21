@@ -1,4 +1,4 @@
-腾讯云提供的 **计算型GPU实例（GN6/GN6S/GN8/GN10/GN10S/GN10X）** 采用的 NVIDIA P4、P40以及V100 等。Tesla 系列 GPU 可同时支持 **通用计算** 和 **图形图像处理**。
+腾讯云提供的 **计算型GPU实例（GN6/GN6S/GN8/GN10X）** 采用的 NVIDIA P4、P40以及V100 等。Tesla 系列 GPU 可同时支持 **通用计算** 和 **图形图像处理**。
 - 安装免费的 Tesla Driver 和 CUDA SDK ，可用作深度学习、科学计算等通用计算场景。
 - 安装 GRID Driver 并且配置相关的 License 服务器，可打开 GPU 的 OpenGL 或 DirectX 图形加速能力。
 
@@ -38,7 +38,7 @@
    ![](https://main.qcloudimg.com/raw/0eb8fedc852592d0c204412a3fabc66e.png)
 
 ## 安装 GRID Driver
-1. 购买并创建一台计算型 GPU 实例（GN6/GN6S/GN8/GN10/GN10/G10X）。
+1. 购买并创建一台计算型 GPU 实例（GN6/GN6S/GN8/G10X）。
 
 2. 登录新建的计算型 GPU 实例，安装 GRID Driver，即安装 NVIDIA vGPU for Windows 驱动程序。
 
