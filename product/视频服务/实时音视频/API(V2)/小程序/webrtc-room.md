@@ -24,7 +24,7 @@
 | autoplay | Boolean | false | 可选，进入房间后是否自动播放房间中其他的远程画面 true 自动播放 false 不自动播放 |
 | enableCamera | Boolean | true | 可选，开启\关闭摄像头 |
 | pureAudioPushMod | Number | &nbsp; | 可选，纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制mp3文件 <br/> 2 => 本次是纯音频推流,录制文件为mp3 |
-| recordId | Number | &nbsp; | 可选，自动录制时业务自定义id，将在录制完成后通过 [直播录制回调](https://console.cloud.tencent.com/live/livecodemanage) 接口通知业务方，`注意：如果小程序与小程序或者小程序与Web端互通，且传了recordId，必须保证web端和小程序传递的值一致` |
+| recordId | Number | &nbsp; | 可选，自动录制时业务自定义id，将在录制完成后通过直播录制回调接口通知业务方，相关文档：[控制台-直播录制回调](https://console.cloud.tencent.com/live/livecodemanage)，[直播录制文件获取](https://cloud.tencent.com/document/product/267/32739#.E5.BD.95.E5.88.B6.E6.96.87.E4.BB.B6.E8.8E.B7.E5.8F.96)，[事件消息通知](https://cloud.tencent.com/document/product/267/32744) `注意：如果小程序与小程序或者小程序与Web端互通，且传了recordId，必须保证web端和小程序传递的值一致` |
 | smallViewLeft | String | '1vw' | 小窗口距离大画面左边的距离，只在template设置为bigsmall有效 |
 | smallViewTop | String | '1vw' | 小窗口距离大画面顶部的距离，只在template设置为bigsmall有效 |
 | smallViewWidth | String | '30vw' | 小窗口宽度，只在template设置为bigsmall有效 |
