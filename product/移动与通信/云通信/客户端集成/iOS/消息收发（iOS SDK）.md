@@ -22,7 +22,7 @@
 @end
 ```
 
-**参数说明： **
+**参数说明：**
 
 参数 | 说明
 ---|---
@@ -135,7 +135,7 @@ path | 存储要发送的图片路径，必须是本地路径，可参考下面�
 imageList | 发送时不用关注，接收时保存生成的图片所有规格，可以参阅图片消息接收部分
 level | 发送图片前对图片进行压缩，level 表示压缩等级，详见 TIM_IMAGE_COMPRESS_TYPE 定义
 
-以下示例中发送了一张绝对路径是 `/xxx/imgPath.jpg` 的图片。**示例： **
+以下示例中发送了一张绝对路径是 `/xxx/imgPath.jpg` 的图片。**示例：**
 
 ```
 /**
@@ -263,7 +263,7 @@ dataSize|语音数据大小
 second|语音长度
 getUploadingProgress | 查询上传进度
 
-**示例： **
+**示例：**
 
 ```
 TIMSoundElem * sound_elem = [[TIMSoundElem alloc] init];
@@ -299,7 +299,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 @end
 ```
 
-**示例： **
+**示例：**
 
 ```
 NSString *desc= @"腾讯大厦";
@@ -472,7 +472,7 @@ video | 视频信息，发送消息时设置 type、duration 参数
 snapshotPath | 发送短视频时，本地截图文件的路径
 snapshot | 截图信息，发送消息时设置 type、width、height 参数
 
-以下示例中发送了一个短视频消息。**示例： **
+以下示例中发送了一个短视频消息。**示例：**
 
 ```
 /**
@@ -615,7 +615,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 @end
 ```
 
-**示例： **
+**示例：**
 
 ```
 TIMMessage * message = /* 消息 */
@@ -660,7 +660,7 @@ for (int i = 0; i < cnt; i++) {
 path | 收消息时不用关注，为 nil
 imageList | 保存本图片的所有规格，目前最多包含三种规格：缩略图、大图、原图， 每种规格保存在一个 TIMImage对象中
 
-**`TIMImage` 说明： **
+**`TIMImage` 说明：**
 
 获取到消息时通过 `imageList` 得到所有的图片规格，为 `TIMImage` 数据，得到 `TIMImage` 后可通过图片大小进行占位，通过接口 `getImage` 下载不同规格的图片进行展示。**下载的数据需要由开发者缓存，ImSDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。**
 
@@ -1308,7 +1308,7 @@ ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会�
 
 ImSDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参阅[消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)，下载后的真实数据不会缓存，需要调用方进行缓存。
 
-**原型： **
+**原型：**
 
 ```
 @interface TIMConversation : NSObject
@@ -1486,7 +1486,7 @@ UI 展示最近联系人列表时，时常会展示用户的最后一条消息�
 
 直播场景下，群组类型会话的消息量很大，时常需要禁用直播群的本地消息存储功能。在 2.2 以后版本增加了针对单个会话禁用本地存储的功能，可以实现不存储直播群消息，同时存储 C2C 私聊消息。
 
-**原型： **
+**原型：**
 
 ```
 @interface TIMConversation : NSObject
