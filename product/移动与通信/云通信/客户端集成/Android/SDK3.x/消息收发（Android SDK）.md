@@ -1250,17 +1250,24 @@ TIMManagerExt.getInstance().deleteConversation(TIMConversationType.C2C, "hello")
 
 ### 同步获取会话最后的消息
 
-UI 展示最近联系人列表时，时常会展示用户的最后一条消息，ImSDK 在 `TIMConverstionExt` 中提供了同步获取会话最近消息的接口 `getLastMsgs`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。
+UI 展示最近联系人列表时，时常会展示用户的最后一条消息，ImSDK 在 `TIMConverstionExt` 中提供了同步获取会话最近消息的接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
  
 **原型： **
 
 ```
 /**
- * 从 cache 中获取最后几条消息
- * @param count 需要获取的消息数，最多为 20
- * @return 消息列表，第一条为最新消息。会话非法时，返回 null。
+ * 从 cache 中获取最后一条消息
+ * @return 最后一条消息。会话非法时，返回 null
  */
-public List<TIMMessage> getLastMsgs(long count)
+public TIMMessage getLastMsg()
+
+/**
+ * 获取聊天记录
+ * @param count 从最后一条消息往前的消息数
+ * @param lastMsg 已取得的最后一条消息
+ * @param callback 回调, 参数中返回获取的消息列表
+ */
+public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
 ### 禁用会话本地存储
