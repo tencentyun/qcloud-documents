@@ -5,7 +5,7 @@
 ### 属性定义
 | 属性      | 类型    | 默认值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
-| template  | String  | float             | 必要，标识组件使用的界面模版，demo 中内置 bigsmall，float 和 grid 三种布局（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
+| template  | String  | 'float'             | 必要，标识组件使用的界面模版，demo 中内置 bigsmall，float 和 grid 三种布局（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
 | sdkAppID    | String  |        &nbsp;               | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
 | userID     | String  |         &nbsp;          |必要，用户 ID |
 | userSig    | String  |        &nbsp;             | 必要，身份签名，相当于登录密码的作用    |
