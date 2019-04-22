@@ -40,7 +40,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的版本</a>
+    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
 }
 </pre>
 

@@ -47,7 +47,7 @@ pip install qcloudsms_py
  >?python2/python3 都支持。
 
  ### 相关资料
- 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+ 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://github.com/qcloudsms/qcloudsms_py) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 
 ### 示例
@@ -79,7 +79,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 
 ssender = SmsSingleSender(appid, appkey)
-params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = ssender.send_with_param(86, phone_numbers[0],
         template_id, params, sign=sms_sign, extend="", ext="")  # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -103,7 +103,7 @@ from qcloudsms_py import SmsMultiSender
 from qcloudsms_py.httpclient import HTTPError
 
 msender = SmsMultiSender(appid, appkey)
-params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = msender.send_with_param(86, phone_numbers,
         template_id, params, sign=sms_sign, extend="", ext="")   # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -280,7 +280,7 @@ from qcloudsms_py import TtsVoiceSender
 from qcloudsms_py.httpclient import HTTPError
 
 template_id = 12345
-params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 tvsender = TtsVoiceSender(appid, appkey)
 Try:
     result = tvsender.send(template_id, params, phone_numbers[0],

@@ -93,9 +93,9 @@ function callback(err, res, resData) {
 
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
-  params, SmsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+  params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 >?无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
@@ -106,7 +106,7 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
 
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
@@ -206,7 +206,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 
 ```javascript
 var templateId = 12345;
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 var tvsender = qcloudsms.TtsVoiceSender();
 tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 ```

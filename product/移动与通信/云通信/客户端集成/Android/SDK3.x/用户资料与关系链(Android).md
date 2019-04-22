@@ -1,5 +1,5 @@
-﻿
-IM 通讯云提供了**用户资料托管**，App 开发者使用简单的接口就可实现用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料的自定义字段。
+
+云通信 IM 提供了**用户资料托管**，App 开发者使用简单的接口就可实现用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料的自定义字段。
 
 ## 用户资料介绍
 
@@ -25,8 +25,8 @@ public void modifySelfProfile(@NonNull HashMap<String, Object> profileMap, @NonN
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_NICK, "我的昵称");
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_GENDER, TIMFriendGenderType.Male.value());
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_NICK, "我的昵称");
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_GENDER, TIMFriendGenderType.GENDER_MALE);
 TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
@@ -40,7 +40,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 });
 ```
 
-设置不存在的键值可能会导致失败，在 `TIMFriendshipManager` 中定义了一些常用的键值：
+设置不存在的键值可能会导致失败，在 `TIMUserProfile` 中定义了一些常用的键值：
 
 | Key                                  | Value       | 说明           |
 | ------------------------------------ | ----------- | -------------- |
@@ -60,7 +60,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
-profileMap.put(TIMFriendshipManager.TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX + "Blood", 1);
+profileMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX + "Blood", 1);
 TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
@@ -149,10 +149,10 @@ public Map<String, byte[]> getCustomInfo()
 public Map<String, Long> getCustomInfoUint()
 
 /**
-* 获取用户性别类型
+* 获取用户性别类型， 见TIMFriendGenderType中的常量定义
 * @return 用户性别类型
  */
-public TIMFriendGenderType getGender()
+public int getGender()
 
 /**
 * 获取用户生日信息

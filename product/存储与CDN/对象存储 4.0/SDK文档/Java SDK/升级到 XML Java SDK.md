@@ -42,27 +42,27 @@ XML Java SDK 的存储桶名称和可用区域简称与 JSON Java SDK 的不同�
 XML SDK 存储桶名称由两部分组成：用户自定义字符串和 APPID，两者以中划线“-”相连。
 例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/)【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID，您可登录腾讯云控制台通过 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket，请参考以下示例代码：
 
 ```java
 COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
-// 采用了新的region名字，可用region的列表可以在官网文档中获取，也可以参考下面的XML SDK和JSON SDK的地域对照表
+// 采用了新的 region 名字，可用 region 的列表可以在官网文档中获取，也可以参考下面的 XML SDK 和 JSON SDK 的地域对照表
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 COSClient cosclient = new COSClient(cred, clientConfig);
-// bucket的名字需要的包含appid
+// 存储桶名称，格式为：BucketName-APPID
 String bucketName = "examplebucket-1250000000";
 
 // 以下是向这个存储桶上传一个文件的示例
 String key = "docs/exampleobject.doc";
 File localFile = new File("src/test/resources/len10M.txt");
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
-// 设置存储类型, 默认是标准(Standard), 低频(standard_ia)
+// 设置存储类型：标准存储(Standard), 低频存储(Standard_IA)和归档存储(ARCHIVE)。默认是标准存储(Standard)
 putObjectRequest.setStorageClass(StorageClass.Standard_IA);
 try {
 	PutObjectResult putObjectResult = cosclient.putObject(putObjectRequest);
-	// putobjectResult会返回文件的etag
+	// putobjectResult 会返回文件的 etag
     String etag = putObjectResult.getETag();
 } catch (CosServiceException e) {
 	e.printStackTrace();
@@ -72,7 +72,6 @@ try {
 
 // 关闭客户端
 cosclient.shutdown();
-
 ```
 
 **存储桶可用区域简称 Region**
@@ -102,7 +101,6 @@ XML SDK 的存储桶可用区域简称发生了变化，不同区域在 JSON SDK
 ```java
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 COSClient cosclient = new COSClient(cred, clientConfig);
-
 ```
 
 **3. 更改 API**
@@ -112,9 +110,9 @@ API 主要有以下变化：
 
 **1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/text.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
+例如：上传对象`project/doc/text.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 text.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 
@@ -137,7 +135,7 @@ String key = "docs/exampleobject.doc";
 File localFile = new File("src/test/resources/len30M.txt");
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
 try {
-    // 返回一个异步结果Upload, 可同步的调用waitForUploadResult等待upload结束, 成功返回UploadResult, 失败抛出异常.
+    // 返回一个异步结果 Upload, 可同步的调用 waitForUploadResult 等待 upload 结束, 成功返回 UploadResult, 失败抛出异常.
     Upload upload = transferManager.upload(putObjectRequest);
     Thread.sleep(10000);
     // 暂停任务

@@ -1,5 +1,5 @@
 ## 计算上传签名
-客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参考点播[客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
+客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参考点播 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
 
 ### 总体介绍
 客户端上传的整体流程如下图所示：
@@ -13,14 +13,14 @@
 * 客户端首先向签名派发服务请求上传签名；
 * 签名派发服务校验该用户是否有上传权限，若校验通过，则生成签名并下发；否则返回错误码，上传流程结束；
 * 客户端拿到签名后使用短视频 SDK 中集成的上传功能来上传视频；
-* 上传完成后，点播后台会发送[上传完成事件通知](https://cloud.tencent.com/document/product/266/7830)给开发者的事件通知接收服务；
-* 如果签名派发服务在签名中指定了视频处理[任务流](https://cloud.tencent.com/document/product/266/11700)，点播服务会在视频上传完成后根据指定流程自动进行视频处理。短视频场景下的视频处理一般为 [AI 鉴黄](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E9.89.B4.E9.BB.84)；
-* 视频处理完成之后，点播后台会发送[任务流状态变更事件通知](https://cloud.tencent.com/document/product/266/9636)给开发者的事件通知接收服务；
+* 上传完成后，点播后台会发送 [上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 给开发者的事件通知接收服务；
+* 如果签名派发服务在签名中指定了视频处理 [任务流](https://cloud.tencent.com/document/product/266/11700)，点播服务会在视频上传完成后根据指定流程自动进行视频处理。短视频场景下的视频处理一般为 [AI 鉴黄](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E9.89.B4.E9.BB.84)；
+* 视频处理完成之后，点播后台会发送 [任务流状态变更事件通知](https://cloud.tencent.com/document/product/266/9636) 给开发者的事件通知接收服务；
 
 至此整个视频上传-处理流程结束。
 
 ### 签名生成
-有关客户端上传签名的详细介绍请参考点播[客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+有关客户端上传签名的详细介绍请参考点播 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 ### 签名派发服务实现示例
 
@@ -130,4 +130,4 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 
 #### 4、播放视频
 
-- 第3步上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372)可以直接传入 fileId 播放，或者 url 播放。
+- 第3步上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 url 播放。

@@ -58,7 +58,7 @@ table td {
 </table>
 
 
->?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，[下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7088.zip) 后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+>?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，下载地址为 [Enterprise(iOS).zip](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zip)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 >商用企业版的使用方法请参考 [特效功能指引](https://cloud.tencent.com/document/product/454/9018)。
 
 **iOS SDK功能介绍**
@@ -227,7 +227,7 @@ table td {
   </tr>
 </table>
 
->?**商用企业版**相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，此版本非免费提供，[下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Enterprise_Android_6.3.7089.zip) 后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+>?**商用企业版**相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，此版本非免费提供，下载地址为 [Enterprise(Android).zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Enterprise_Android_6.3.7089.zip)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 >商用企业版的使用方法请参考 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 **Android SDK 功能介绍**
@@ -489,7 +489,7 @@ table td {
   </tr>
 </table>
 
-<h2 id="Xiaozhibo">小直播源码（5.1）</h2>
+<h2 id="Xiaozhibo">小直播源码（6.3）</h2>
 
 小直播是腾讯视频云终端产品中心打造的一款集各种功能（文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动）于一体的开源 App，致力于帮您快速搭建自己的直播产品原型。您可以参考 [搭建指引](https://cloud.tencent.com/document/product/454/15187) 了解如何快速让下面的代码跑起来。
 
@@ -502,15 +502,15 @@ table td {
   </tr>
   <tr align="center">
     <td style="text-align:center">iOS 源码包</td>
-    <td style="text-align:center">5.1</td>
+    <td style="text-align:center">6.3</td>
     <td style="text-align:left">由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">iOS 代码说明</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_5.1.5300.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_ios_source") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_6.3.7092.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td style="text-align:center">Android 源码包</td>
-    <td style="text-align:center">5.1</td>
+    <td style="text-align:center">6.3</td>
     <td style="text-align:left">由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">Android 代码说明</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_5.1.5300.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_android_source") href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_6.3.7090.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td style="text-align:center">PHP 源码包</td>
