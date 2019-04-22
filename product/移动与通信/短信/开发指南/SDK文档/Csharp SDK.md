@@ -391,7 +391,7 @@ using System;
 try
 {
     int templateId = 45221;
-    string[] parameters = { "5678" };//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个。
+    string[] parameters = { "5678" };//数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个。
     TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
     TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
         templateId, parameters, 2, "");

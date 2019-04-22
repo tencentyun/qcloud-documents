@@ -1,7 +1,13 @@
+
+TRTCCloudListener @ TXLiteAVSDK。
+
+腾讯云视频通话功能的事件回调接口。
+
+
 ## 通用事件回调
 ### onError
 
-错误回调: SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
+错误回调：SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 ```
 void onError(int errCode, String errMsg, Bundle extraInfo)
 ```
@@ -10,9 +16,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | int | 错误码 TRTCErrorCode |
-| errMsg | String | 错误信息 |
-| extraInfo | Bundle | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题 |
+| errCode | int | 错误码 TRTCErrorCode。 |
+| errMsg | String | 错误信息。 |
+| extraInfo | Bundle | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
 
 
 ### onWarning
@@ -26,9 +32,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| warningCode | int | 错误码 TRTCWarningCode |
-| warningMsg | String | 警告信息 |
-| extraInfo | Bundle | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题 |
+| warningCode | int | 错误码 TRTCWarningCode。 |
+| warningMsg | String | 警告信息。 |
+| extraInfo | Bundle | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
 
 
 
@@ -44,7 +50,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| elapsed | long | 加入房间耗时，单位毫秒 |
+| elapsed | long | 加入房间耗时，单位毫秒。 |
 
 
 ### onExitRoom
@@ -58,7 +64,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | int | 离开房间原因 |
+| reason | int | 离开房间原因。 |
 
 
 ### onConnectOtherRoom
@@ -90,7 +96,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
+| userId | String | 用户标识。 |
 
 __介绍__
 
@@ -114,7 +120,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
+| userId | String | 用户标识。 |
 | reason | int | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
 
 
@@ -129,8 +135,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| available | boolean | 画面是否开启 |
+| userId | String | 用户标识。 |
+| available | boolean | 画面是否开启。 |
 
 __介绍__
 
@@ -148,8 +154,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| available | boolean | 屏幕分享是否开启 |
+| userId | String | 用户标识。 |
+| available | boolean | 屏幕分享是否开启。 |
 
 >?显示辅路画面使用的函数不是 startRemoteView 而是 startRemoteSubStreamView。
 
@@ -166,8 +172,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| available | boolean | true：音频可播放，false：音频被关闭 |
+| userId | String | 用户标识。 |
+| available | boolean | true：音频可播放，false：音频被关闭。 |
 
 
 ### onUserVoiceVolume
@@ -181,8 +187,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围0 - 100 |
-| totalVolume | int | 总的语音音量, 取值范围0 - 100 |
+| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围0 - 100。 |
+| totalVolume | int | 总的语音音量, 取值范围0 - 100。 |
 
 __介绍__
 
@@ -202,8 +208,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量 |
-| remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量 |
+| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。 |
+| remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量。 |
 
 >?userid 为"" 代表自己当前的视频质量。
 
@@ -219,7 +225,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statics | TRTCStatistics | 状态数据 |
+| statics | TRTCStatistics | 状态数据。 |
 
 __介绍__
 
@@ -241,9 +247,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
-| width | int | 画面宽度 |
-| height | int | 画面高度 |
+| userId | String | 用户 ID。 |
+| width | int | 画面宽度。 |
+| height | int | 画面高度。 |
 
 
 ### onFirstAudioFrame
@@ -257,7 +263,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户 ID |
+| userId | String | 用户 ID。 |
 
 
 
@@ -297,9 +303,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果 |
-| finishedCount | int | 已完成测速的服务器数量 |
-| totalCount | int | 需要测速的服务器总数量 |
+| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果。 |
+| finishedCount | int | 已完成测速的服务器数量。 |
+| totalCount | int | 需要测速的服务器总数量。 |
 
 
 
@@ -341,10 +347,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| cmdID | int | 命令 ID |
-| seq | int | 消息序号 |
-| message | byte [] | 消息数据 |
+| userId | String | 用户标识。 |
+| cmdID | int | 命令 ID。 |
+| seq | int | 消息序号。 |
+| message | byte [] | 消息数据。 |
 
 __介绍__
 
@@ -362,10 +368,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| cmdID | int | 数据流 ID |
-| errCode | int | 错误码，当前版本为-1 |
-| missed | int | 丢失的消息数量 |
+| userId | String | 用户标识。 |
+| cmdID | int | 数据流 ID。 |
+| errCode | int | 错误码，当前版本为-1。 |
+| missed | int | 丢失的消息数量。 |
 
 __介绍__
 
@@ -385,8 +391,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户标识 |
-| data | byte [] | 数据 |
+| userId | String | 用户标识。 |
+| data | byte [] | 数据。 |
 
 __介绍__
 
@@ -422,7 +428,7 @@ void onStopPublishCDNStream(int err, String errMsg)
 
 __功能__
 
-自定义视频渲染回调对象。
+视频数据帧的自定义处理回调。
 
 
 
@@ -437,9 +443,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderListener），该参数可以不用理会 |
-| streamType | int | 视频流类型，比如是摄像头画面还是屏幕分享画面等等 |
-| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧 |
+| userId | String | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderListener），该参数可以不用理会。 |
+| streamType | int | 视频流类型，比如是摄像头画面还是屏幕分享画面等等。 |
+| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧。 |
 
 
 
@@ -447,7 +453,7 @@ __参数__
 
 __功能__
 
-音频相关回调。
+声音数据帧的自定义处理回调（只读）。
 
 
 
@@ -474,8 +480,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据 |
-| userId | String | 用户标识 |
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据。 |
+| userId | String | 用户标识。 |
 
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
@@ -499,7 +505,7 @@ void onMixedPlayAudioFrame(TRTCCloudDef.TRTCAudioFrame frame)
 
 __功能__
 
-日志事件回调对象。
+日志相关回调。
 
 __介绍__
 
@@ -518,9 +524,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| log | String | 日志内容 |
-| level | int | 日志等级 参见 TRTC_LOG_LEVEL |
-| module | String | 值暂无具体意义，目前为固定值 TXLiteAVSDK |
+| log | String | 日志内容。 |
+| level | int | 日志等级 参见 TRTC_LOG_LEVEL。 |
+| module | String | 值暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 
 
