@@ -1,10 +1,10 @@
-## 1.12.2 -RELEASE (2019-04-22)
+## 1.12.2 -RELEASE（2019-04-22）
 
 ### Bug 修复
 
-- 修复 Edgware 版本自定义 tag 问题
-- 修复 Finchley 版本 TSF Route 启动问题
-- 修复 Finchley 版本 Feign HttpClient 调用链问题
+- 修复 Edgware 版本自定义 tag 问题。
+- 修复 Finchley 版本 TSF Route 启动问题。
+- 修复 Finchley 版本 Feign HttpClient 调用链问题。
 
 ### 版本建议
 
