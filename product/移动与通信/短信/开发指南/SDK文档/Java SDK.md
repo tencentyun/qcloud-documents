@@ -95,7 +95,7 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -126,7 +126,7 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     SmsMultiSenderResult result =  msender.sendWithParam("86", phoneNumbers,
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -403,7 +403,7 @@ import java.io.IOException;
 
 try {
     int templateId = 45221;
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
     TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
         templateId, params, 2, "");
@@ -437,7 +437,7 @@ try {
    // 创建一个代理httpclient
     ProxyHTTPClient httpclient = new ProxyHTTPClient("127.0.0.1", 8080, "http");
 
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信

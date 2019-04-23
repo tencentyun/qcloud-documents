@@ -29,15 +29,13 @@ API 注册功能基于 Swagger 原生规范实现，提供多个配置以适配 
 | tsf.swagger.group       | String  | 否   | default                         | swagger docket 分组                                          |
 
 ## 代码和示例
-
 - SDK 会自动扫描 API 的 path 和 出入参。
-- 如果需要上报 API 的描述，需要`import io.swagger.annotations.ApiOperation; `，同时在 API 上加上注解` @ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
+- 如果需要上报 API 的描述，需要`import io.swagger.annotations.ApiOperation;` ，同时在 API 上加上注解 `@ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
 
 ```java
 package com.tsf.demo.provider.controller;
 // 省略掉部分 import
 import io.swagger.annotations.ApiOperation;
-
 import com.tsf.demo.provider.config.ProviderNameConfig;
 
 @RestController

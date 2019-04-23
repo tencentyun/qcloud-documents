@@ -89,47 +89,24 @@
 
 ## 格式化与分区数据盘
 
-这里以 Windows 2012 R2 为例进行格式化说明。
+对于购买了数据盘的用户，需要在登录实例后对数据盘进行格式化和分区。**如果您未购买数据盘，可以跳过此步骤。**
 
-### 前提条件
- - 已购买数据盘的用户，需要格式化数据盘才可使用。未购买数据盘的用户可以跳过此步骤。
- - 请确保您已登录到云服务器。
+对数据盘进行格式化、分区及创建文件系统等初始化操作，请根据您实际使用场景选择初始化方式：
+- 若整块硬盘只呈现为一个独立的分区（即不存在多个逻辑盘，如 D盘和E盘 ），推荐您不使用分区，直接在裸设备上构建文件系统。
+- 若整块硬盘需要呈现为多个逻辑分区（即存在多个逻辑盘），则您需要先进行分区操作，再在分区上构建文件系统。
 
-### 格式化数据盘
+常用的磁盘分区形式有主启动记录分区（Main Boot Record，MBR）和全局分区表（Guid Partition Table，GPT），磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
+两种分区形式的简介如下表所示。
 
- 1. 通过步骤三介绍的方法登录 Windows 云服务器。
- 2. 单击【开始】-【服务器管理器】-【工具】-【计算机管理】-【存储】-【磁盘管理】。
- 3. 在磁盘1上右键单击，选择【联机】：
-	![](//mc.qcloudimg.com/static/img/1217193557509925a622dcdb81aa2e35/image.png)
- 4. 右键单击，选择【初始化磁盘】：
-	![](//mc.qcloudimg.com/static/img/94ab92867d77ea69bc803a0b20f2b941/image.png)
- 5. 根据分区方式的不同，选择【GPT】或【MBR】，单击【确定】按钮：
+| 分区形式 | 支持最大磁盘容量 | 支持分区数量 | 分区工具 |
+|---------|---------|---------|---------|
+|MBR | 2TB |<li>4个主分区</li><li>3个主分区和1个扩展分区</li>|Windows 操作系统：磁盘管理</br> |
+|GPT | 18EB</br>目前云硬盘支持的最大容量为16TB | 不限制分区数量|Windows 操作系统：磁盘管理</br>|
 
-### 磁盘分区（可选）
+请根据磁盘容量大小、云服务器操作系统类型选择合适的操作指引：
 
- 1. 在未分配的空间处右击，选择【新建简单卷】：
-	![](//mc.qcloudimg.com/static/img/a6ca720af2082d7a470ece17a8e13f5d/image.png)
-配置及购买CVM实例后，您购买的实例会显示在控制台的实例列表中，选择您需要登录的实例，单击右侧【登录】。
+磁盘容量小于2TB时：
+ - [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6734#Windows2008)
 
- 2. 在弹出的“新建简单卷向导”窗口中，单击【下一步】：
-	![](//mc.qcloudimg.com/static/img/10fdcd70b510a57919c6a40cf43452a7/image.png)
-![](https://main.qcloudimg.com/raw/876fcf96c4d24635906bd311f223a8a2.png)
-
- 3. 输入分区所需磁盘大小，单击【下一步】：
-	![](//mc.qcloudimg.com/static/img/05c8d1425a0208597b1d2c75a9c811b6/image.png)
-根据您实例的类型，可以参考以下连接中的方式远程登录CVM实例。
-- [连接及登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
-
- 4. 输入驱动器号，单击【下一步】：
-	![](//mc.qcloudimg.com/static/img/737ed569049ad617715efb06fe44e7b2/image.png)
-
- 5. 选择文件系统，格式化分区，单击【下一步】：
-	![](//mc.qcloudimg.com/static/img/896cb3f2705fb9fcd04c236b8fb9ec59/image.png)
-
- 6. 完成新建简单卷，单击【完成】：
-	![](//mc.qcloudimg.com/static/img/1e257b9c76d80f30b34f612496b8007b/image.png)
-
- 7. 在【开始】中打开【这台电脑】，查看新分区：
-	![](//mc.qcloudimg.com/static/img/1cbb4ad1c3c01852a00a1415526a3e12/image.png)
-
-**至此，您已完成 Windows 系统的云服务器的创建和基础配置。**
+磁盘容量大于等于2TB时：
+ - [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6735#2TBWindows2012)

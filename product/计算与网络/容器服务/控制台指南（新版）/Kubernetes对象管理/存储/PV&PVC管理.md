@@ -57,10 +57,12 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 ![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
 5. 单击【新建】，进入 “新建Workload” 页面。
 6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击【添加数据卷】，添加数据卷。如下图所示：
-![添加数据卷](https://main.qcloudimg.com/raw/2e036dc898bd3fecfc59edd8742ff18a.png)
+![添加数据卷](https://main.qcloudimg.com/raw/110d1c5754b97df1388f39546263aaee.png)
 7. 选择 “使用已有PVC” 方式，填写名称，选择已有的 PVC。如下图所示：
 ![使用已有PVC](https://main.qcloudimg.com/raw/aa1e843d3ea02d6af12298b6566e552b.png)
-9. 单击【创建Workload】，完成创建。
+8. 单击【创建Workload】，完成创建。
+>!使用 PVC 挂载模式，数据卷只能挂载到一台 node 主机上
+>
 
 ## Kubectl 操作 PV&PVC 指引
 
