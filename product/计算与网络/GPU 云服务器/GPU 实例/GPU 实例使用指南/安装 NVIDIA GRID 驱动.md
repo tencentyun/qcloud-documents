@@ -1,8 +1,8 @@
-腾讯云提供的 **计算型GPU实例（GN6/GN6S/GN8/GN10X）** 采用的 NVIDIA P4、P40以及V100 等。Tesla 系列 GPU 可同时支持 **通用计算** 和 **图形图像处理**。
+腾讯云提供的**计算型 GPU 实例（GN6/GN6S/GN8/GN10X）**采用的 NVIDIA P4、P40以及 V100 等。Tesla 系列 GPU 可同时支持**通用计算**和**图形图像处理**。
 - 安装免费的 Tesla Driver 和 CUDA SDK ，可用作深度学习、科学计算等通用计算场景。
 - 安装 GRID Driver 并且配置相关的 License 服务器，可打开 GPU 的 OpenGL 或 DirectX 图形加速能力。
 
-使用 Tesla 系列 GPU 用作图形图像处理，需要向 NVIDIA 或其代理商购买对应的 License。此外，NVIDIA 也提供了 90天 试用 License 的申请。
+使用 Tesla 系列 GPU 用作图形图像处理，需要向 NVIDIA 或其代理商购买对应的 License。此外，NVIDIA 也提供了 90天试用 License 的申请。
 
 本文将介绍如何申请试用 License，如何配置 License 服务器和安装 GRID driver。
 
@@ -42,7 +42,7 @@
 
 2. 登录新建的计算型 GPU 实例，安装 GRID Driver，即安装 NVIDIA vGPU for Windows 驱动程序。
 
-3. 安装 VNC / Citrix HDX / PCoIP等第三方桌面协议，使用户可通过远程桌面连接方式操作 GPU 实例的图形图像处理程序。
+3. 安装 VNC/Citrix HDX/PCoIP 等第三方桌面协议，使用户可通过远程桌面连接方式操作 GPU 实例的图形图像处理程序。
 
 4. 使用远程桌面连接方式登录 GPU 实例。
 
