@@ -112,7 +112,7 @@ API 主要有以下变化：
 
 **1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和delimiter，模拟「文件夹」或「目录」的展示方式。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/test.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和delimiter，模拟「文件夹」或「目录」的展示方式。
 
 例如：您上传了四个对象`project/folder1/picture.jpg`、`project/folder2/test.txt`、`project/folder2/music.mp3`、`project/video.mp4`。在JAVA SDK中，您可以调用 listObjects 方法，指定 prefix 为 `project/` 和 delimiter 为 `/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
 ```java
