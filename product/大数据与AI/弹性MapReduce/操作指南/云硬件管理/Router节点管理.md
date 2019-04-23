@@ -1,4 +1,4 @@
-## Router节点管理
+
 
 通常情况下，Hive、Hue、Spark等进程默认部署在Master节点，任务都在Master节点上部署和提交。当集群规模较大或者部署了太多应用程序时，Master节点可能出现内存不足等情况，这个时候，可以通过扩展一台或者多台Router节点，将主节点部分进程分担到其他Router节点上，和在Master节点一样的方式使用它们，来分担主节点的压力。
 Router节点可以当提交机使用，可以在router节点上向集群正常提交计算Yarn、Hive、Spark等计算任务。
