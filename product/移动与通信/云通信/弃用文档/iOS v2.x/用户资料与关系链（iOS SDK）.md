@@ -1074,7 +1074,7 @@ users | 申请的好友列表
 --- | ---
 identifier |  用户 identifier 
 wording |  申请理由 
-source | 申请来源，申请时填写，由系统页面分配的固定字串 
+source | 申请来源 
 
 ### 删除未决请求通知
 
