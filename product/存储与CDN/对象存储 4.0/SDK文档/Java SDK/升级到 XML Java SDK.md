@@ -110,11 +110,44 @@ API 主要有以下变化：
 
 **1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/text.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和delimiter，模拟「文件夹」或「目录」的展示方式。
 
-例如：上传对象`project/doc/text.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 text.txt 文件。
+例如：您上传了四个对象`project/folder1/picture1.jpg`、`project/folder2/picture2.jpg`、`project/folder2/picture3.jpg`、`project/video.mp4`。
+在 JAVA SDK 中，您可以调用 listObjects 方法，指定 prefix 为`project/`和 delimiter 为`/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
 
-因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
+```java
+cosClient.putObject(bucketName, "project/folder1/picture1.jpg", "content");
+cosClient.putObject(bucketName, "project/folder2/picture2.jpg", "content");
+cosClient.putObject(bucketName, "project/folder2/picture3.jpg", "content");
+cosClient.putObject(bucketName, "project/video.mp4", "content");
+
+ListObjectsRequest listObjectsRequest = new ListObjectsRequest();
+listObjectsRequest.setBucketName(bucketName);
+listObjectsRequest.setPrefix("project/");
+listObjectsRequest.setDelimiter("/");
+// 实际使用，您可以将 maxKeys 设为最大值 1000，以减少请求次数
+listObjectsRequest.setMaxKeys(2);
+String nextMarker = "";
+for(;;) {
+    listObjectsRequest.setMarker(nextMarker);
+    ObjectListing objectListing = cosClient.listObjects(listObjectsRequest);
+    // getCommonPrefixes + getObjectSummaries 返回条目数 <= maxKeys
+    // 两次循环会输出 project/folder1/ 和 project/folder2/
+    for(String prefix: objectListing.getCommonPrefixes()) {
+	System.out.println(prefix);
+    }
+    // 两次循环会输出 project/video.mp4
+    for(COSObjectSummary object: objectListing.getObjectSummaries()) {
+	System.out.println(object.getKey());
+    }
+    // 判断是否还有条目
+    if(!objectListing.isTruncated()) {
+	break;
+    }
+    // 一次未获取完毕，以 nextMarker 作为下一次 listObjects 请求的 marker
+    nextMarker = objectListing.getNextMarker();
+}
+```
 
 **2）TransferManager**
 
