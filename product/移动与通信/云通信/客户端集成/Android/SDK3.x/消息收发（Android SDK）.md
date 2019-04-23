@@ -916,13 +916,13 @@ public boolean isSelf()
 public String getSender()
 
 /**
- * 获取发送者资料
+ * 获取发送者资料（发送者为本人时可能为空）
  * @return 发送者资料，null 表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
  */
 public TIMUserProfile getSenderProfile()
 
 /**
- * 获取发送者群内资料
+ * 获取发送者群内资料（发送者为本人时可能为空）
  * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前只有字段：user、nameCard、role、customInfo
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()

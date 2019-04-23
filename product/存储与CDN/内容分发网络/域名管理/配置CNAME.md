@@ -4,7 +4,7 @@
 ## 腾讯云设置方法
 若您的 DNS 服务商为腾讯云，您可通过如下步骤添加 CNAME 记录。
 1. 登录 [域名服务](https://console.cloud.tencent.com/domain) 控制台，在列表中，找到需要添加 CNAME 记录的域名所在行，单击操作栏的【解析】。
- ![](https://main.qcloudimg.com/raw/35e4bff79f342aabc0f62e0b7236b09b.png)
+![CNAME配置](https://main.qcloudimg.com/raw/996a233473d54e8a23030deec1695313.png)
 2. 在跳转到的页面中，单击【添加记录】。
  ![](https://main.qcloudimg.com/raw/88a0cda619aeaf1a88120ad5294250fa.png)
 3. 在 **主机记录** 处填写域名前缀（如：www），将 **记录类型** 设置为 CNAME，在 **记录值** 处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
