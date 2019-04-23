@@ -147,7 +147,7 @@ Response:
 
 ## 示例程序
 
-以下通过简单的 Python 代码来实现上面所演示的两个功能。更多的表操作请参考 [《Tcaplus RESTful API接口文档》]()。
+以下通过简单的 Python 代码来实现上面所演示的两个功能。更多的表操作请参考 [《Tcaplus RESTful API接口文档》](https://cloud.tencent.com/document/product/596/31664)。
 
 ```
 #!/usr/bin/env python
