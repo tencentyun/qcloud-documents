@@ -52,3 +52,9 @@ tcb deploy --start
 ```shell
 tcb deploy
 ```
+
+## 验证
+
+访问购买机器后分配好的域名，就能看到带有 `Hello World!` 字样的页面。
+
+![](https://main.qcloudimg.com/raw/d35b36607d5f02ee4b47b36a3401b0a9.png)
