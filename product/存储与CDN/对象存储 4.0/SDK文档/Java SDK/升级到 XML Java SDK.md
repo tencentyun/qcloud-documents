@@ -110,7 +110,7 @@ API 主要有以下变化：
 
 **1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
 
 例如：您上传了四个对象
 `project/folder1/picture1.jpg`、`project/folder2/picture2.jpg`、`project/folder2/picture3.jpg`、 `project/video.mp4`。
@@ -135,15 +135,15 @@ for(;;) {
     // getCommonPrefixes + getObjectSummaries 返回条目数 <= maxKeys
     // 两次循环会输出 project/folder1/ 和 project/folder2/
     for(String prefix: objectListing.getCommonPrefixes()) {
-	System.out.println(prefix);
+		System.out.println(prefix);
     }
     // 两次循环会输出 project/video.mp4
     for(COSObjectSummary object: objectListing.getObjectSummaries()) {
-	System.out.println(object.getKey());
+		System.out.println(object.getKey());
     }
     // 判断是否还有条目
     if(!objectListing.isTruncated()) {
-	break;
+		break;
     }
     // 一次未获取完毕，以 nextMarker 作为下一次 listObjects 请求的 marker
     nextMarker = objectListing.getNextMarker();
