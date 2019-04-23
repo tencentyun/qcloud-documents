@@ -104,6 +104,7 @@ TICSDK 使用流程如下：
 - (void)setUserStatusListener:(id<TIMUserStatusListener>)listener;
 ```
 
+
 ### 2.4 登录
 
 接口 | 说明
