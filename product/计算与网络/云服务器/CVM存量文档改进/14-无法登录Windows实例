@@ -1,0 +1,26 @@
+# 无法连接Windows实例
+本文主要介绍无法连接Windows实例时的问题排查方法和几种主要可能的原因，您可以通过逐一排查的方法定位并解决问题。
+
+## 可能原因
+无法登录Windows实例的主要原因包括：
+
+1. 忘记登录密码
+2. 实例CPU内存异常，CPU负载过高
+3. 防火墙配置异常
+4. 远程端口配置异常
+5. CredSSP加密Oracle修正
+
+
+## 通过VNC方式登录
+当您无法通过RDP或者远程登录软件登录Windows实例时，建议您尝试使用腾讯云VNC登录的方式登录，帮助您定位故障原因。
+
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。在实例列表中选择你需要登录的实例，并单击右侧【登录】
+![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
+2. 在弹出的【登录Windows实例】页面，选择【其他方式（VNC）】并单击【立即登录】。
+<img src="https://main.qcloudimg.com/raw/dd283cdbf36755b01face8ad5c55a1b5.png" height="300" width="400" />
+3. 如果连接成功，在弹出的远程连接对话框选择【发送远程命令（Ctrl+Alt+Delete）】，并输入该实例的管理员密码登录。
+<img src="https://main.qcloudimg.com/raw/6914369ccf184f7259cb54cef1234130.png" height="300" width="400" />
+4. 如果您忘记密码，您可以在控制台重置该实例的密码。具体可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 。
+
+## 故障排查思路
+### 1. 登录密码重置
