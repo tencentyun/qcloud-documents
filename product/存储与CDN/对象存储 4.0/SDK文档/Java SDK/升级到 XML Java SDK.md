@@ -116,7 +116,7 @@ API 主要有以下变化：
 
 例如：您上传了四个对象`project/forlder-first/a.txt`、`project/forlder-second/b.txt`、`project/forlder-second/c.txt`、`project/d.txt`，在JAVA SDK中，您可以调用 listObjects 方法，指定 prefix 为 `project/` 和 delimiter 为 `/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
 
-```
+```java
 cosClient.putObject(bucketName, "project/forlder-first/a.txt", "content");
 cosClient.putObject(bucketName, "project/forlder-second/b.txt", "content");
 cosClient.putObject(bucketName, "project/forlder-second/c.txt", "content");
