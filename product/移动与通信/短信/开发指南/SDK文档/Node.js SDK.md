@@ -73,7 +73,7 @@ var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真
 // 签名
 var smsSign = "腾讯云";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 
-// 实例化QcloudSms
+// 实例化 QcloudSms
 var qcloudsms = QcloudSms(appid, appkey);
 
 // 设置请求回调处理, 这里只是演示，用户需要自定义相应处理回调
@@ -179,7 +179,7 @@ var fs = require("fs");
 var filePath = "/home/pf/data/download/scripts/voice/4162.mp3";
 var fileContent = fs.readFileSync(filePath);
 var uploader = qcloudsms.VoiceFileUploader();
-// 上传成功后，callback里会返回语音文件的fid
+// 上传成功后，callback 里会返回语音文件的 fid
 uploader.upload(fileContent, "mp3", callback);
 ```
 >?语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
