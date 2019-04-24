@@ -224,7 +224,7 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    // Note: 短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387）开通权限
+    // Note：短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限
     int maxNum = 10;  // 单次拉取最大量
     SmsStatusPuller spuller = new SmsStatusPuller(appid, appkey);
 
@@ -247,7 +247,7 @@ try {
 }
 ```
 
->? 短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>? 短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
 
@@ -325,7 +325,7 @@ try {
 }
 
 ```
->? 语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="查询语音文件审核状态" > </a>
 - **查询语音文件审核状态**
@@ -355,7 +355,7 @@ try {
     e.printStackTrace();
 }
 ```
->? 查询语音文件审核状态功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 查询语音文件审核状态功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -388,7 +388,7 @@ try {
 }
 
 ```
->? 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
@@ -541,9 +541,9 @@ public class SmsTest {
 }
 ```
 
-### 使用自定义 HTTP client 实现
+### 使用自定义 httpclient 实现
 
-如果需要使用自定义的 HTTP client 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 httpclient 即可，一个参考示例如下：
+如果需要使用自定义的 httpclient 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 httpclient 即可，一个参考示例如下：
 
 ```java
 import com.github.qcloudsms.httpclient.HTTPClient;
