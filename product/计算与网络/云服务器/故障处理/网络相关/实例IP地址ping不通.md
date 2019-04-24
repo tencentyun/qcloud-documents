@@ -5,7 +5,7 @@
 - 域名没有正确解析
 - 链路故障
 
-在确保本地网络正常的前提下，即您可以正常 ping 通其他网站，可根据以下操作进行排查：
+在确保本地网络正常的前提下（即您可以正常 ping 通其他网站），可根据以下操作进行排查：
 - [检查实例是否配置公网 IP](#isConfigurePublicIP)
 - [检查安全组设置](#CheckSecurityGroupSetting)
 - [检查系统设置](#CheckOSSetting)
