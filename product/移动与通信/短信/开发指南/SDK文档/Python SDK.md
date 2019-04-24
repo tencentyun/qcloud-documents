@@ -326,9 +326,9 @@ from qcloudsms_py import QcloudSms
 # 创建 QcloudSms 对象
 qcloudsms = QcloudSms(appid, appkey)
 
-# 创建单发短信(SmsSingleSender)对象
+# 创建单发短信 SmsSingleSender 对象
 ssender = qcloudsms.SmsSingleSender()
 
-# 创建上传语音文件(VoiceFileUploader)对象
+# 创建上传语音文件 VoiceFileUploader 对象
 uploader = qcloudsms.VoiceFileUploader()
 ```
