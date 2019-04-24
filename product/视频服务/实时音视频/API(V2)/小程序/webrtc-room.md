@@ -10,7 +10,7 @@
 | userID     | String  |         &nbsp;          |必要，用户 ID |
 | userSig    | String  |        &nbsp;             | 必要，身份签名，相当于登录密码的作用    |
 | roomID    | Number  |         &nbsp;             | 必要，房间号                           |
-| privateMapKey    | String  |        &nbsp;         | 可选，房间权限 key，相当于进入指定房间 roomID 的钥匙，如果trtc控制台开启了权限密钥，则需要传 privateMapKey（[trtc控制台](https://console.cloud.tencent.com/rav)>选择您的应用>账号信息）      |
+| privateMapKey    | String  |        &nbsp;         | 可选，房间权限 key，相当于进入指定房间 roomID 的钥匙，如果 trtc 控制台开启了权限密钥，则需要传 privateMapKey（[trtc 控制台](https://console.cloud.tencent.com/rav)>选择您的应用>账号信息）      |
 | beauty    | Number  | 0                     | 可选， 美颜指数，取值0 - 9，数值越大效果越明显  |
 | whiteness | String | 0                      | 可选， 美白指数，取值0 - 9，数值越大效果越明显 |
 | muted     | Boolean | false             | 可选，true 静音 false 不静音    |
