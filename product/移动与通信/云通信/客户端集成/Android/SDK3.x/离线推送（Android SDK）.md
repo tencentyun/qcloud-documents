@@ -540,7 +540,7 @@ iconID|要显示在提醒中的图标的资源 ID。
 
 ## 集成小米离线推送
 
-由于小米 ROM 深度定制了安卓系统，加强了权限的控制，第三方 App 默认不会在系统的自启动白名单里，App 在后台很容易被系统杀掉，或者用户手动将 App 杀死， 因为没有自启动权限，App 的 service 无法自动重启，从而导致被杀死后无法收到消息。为了保证 App 被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK 仅支持推送通知栏消息**。
+由于小米 ROM 深度定制了 Android 系统，加强了权限的控制，第三方 App 默认不会在系统的自启动白名单里，App 在后台很容易被系统杀掉，或者用户手动将 App 杀死， 因为没有自启动权限，App 的 service 无法自动重启，从而导致被杀死后无法收到消息。为了保证 App 被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK 仅支持推送通知栏消息**。
 
 >!
 >- 收到离线消息时，默认通知标题为 `a new message`。
@@ -785,7 +785,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ## 集成华为离线推送
 
-同小米设备一样，华为手机同样对安卓系统进行了深度定制，第三方 App 默认不会在系统的自启动白名单中，导致 App 被杀后，App 的 service 无法自动重启。为了保证 App 被 kill 后，在华为设备上仍然能够收到消息，需要集成华为推送。目前，**SDK 仅支持推送通知栏消息**。
+同小米设备一样，华为手机同样对 Android 系统进行了深度定制，第三方 App 默认不会在系统的自启动白名单中，导致 App 被杀后，App 的 service 无法自动重启。为了保证 App 被 kill 后，在华为设备上仍然能够收到消息，需要集成华为推送。目前，**SDK 仅支持推送通知栏消息**。
 
 >!
 - 收到离线消息时，默认通知标题为 `a new message`。
@@ -1435,7 +1435,7 @@ dependencies {
 ```
 >?
 - com.vivo.push.app_id ，com.vivo.push.api_key 由开放平台生成，详见 vivo push 操作手册。
-- 推送服务 SDK 支持的最低安卓版本为 Android4.0 系统。
+- 推送服务 SDK 支持的最低 Android 版本为 Android4.0 系统。
 
 ### 自定义一个 BroadcastReceiver 类
 在当前工程中新建一个类 PushMessageReceiverImpl 并实现 OpenClientPushMessageReceiver 中的 onNotificationMessageClicked 和 onReceiveRegId 方法。
