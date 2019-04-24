@@ -60,9 +60,9 @@
 3. 修复部分历史问题
 
 #### IM SDK 3.1.2 2017-12-12
-1. 安卓端网络超时问题优化
-2. 安卓端语音下载异常问题修复
-3. 安卓端若干 crash 问题修复
+1. Android 端网络超时问题优化
+2. Android 端语音下载异常问题修复
+3. Android 端若干 crash 问题修复
 
 #### IM SDK 2.5.7 2017-11-08
 1. 修复了 SDK 在 App 进程被杀时出现 Crash 的问题
@@ -132,7 +132,7 @@
 
 **接口变更：**
 1. TIMMessageOfflinePushSettings.AndroidSettings 及 TIMMessageOfflinePushSettings.IOSSettings 构造方式变更。
-详情请参见官网文档 [离线推送](https://cloud.tencent.com/document/product/269/3899) 文档。
+详情请参见官网文档 [离线推送](https://cloud.tencent.com/document/product/269/9234) 文档。
 
 #### IM Android SDK 2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码 6205）
