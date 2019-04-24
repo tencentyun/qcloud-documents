@@ -58,7 +58,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 >?由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar) , [httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar), [httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和  [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar) 采用方法 1 需要将以上四个 jar 包导入工程。
 
 - 方法2
-将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
+将 [JAR 包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 
 
@@ -516,7 +516,7 @@ public class SmsTest {
         // 创建一个连接池 httpclient, 并设置最大连接量为10
         PoolingHTTPClient httpclient = new PoolingHTTPClient(10);
 
-        // 创建 SmsSingleSender 时传入连接池 http client
+        // 创建 SmsSingleSender 时传入连接池 httpclient
         SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 
         // 创建线程
@@ -543,7 +543,7 @@ public class SmsTest {
 
 ### 使用自定义 HTTP client 实现
 
-如果需要使用自定义的 HTTP client 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 HTTP client 即可，一个参考示例如下：
+如果需要使用自定义的 HTTP client 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 httpclient 即可，一个参考示例如下：
 
 ```java
 import com.github.qcloudsms.httpclient.HTTPClient;
@@ -564,10 +564,10 @@ public class CustomHTTPClient implements HTTPClient {
         // 1. 创建自定义 HTTP request
         // MyHTTPrequest req = MyHTTPRequest.build(request)
 
-        // 2. 创建自定义 HTTP cleint
+        // 2. 创建自定义 httpclient
         // MyHTTPClient client = new MyHTTPClient();
 
-        // 3. 使用自定义 HTTP client 获取 HTTP 响应
+        // 3. 使用自定义 httpclient 获取 HTTP 响应
         // MyHTTPResponse response = client.fetch(req);
 
         // 4. 转换 HTTP 响应到 HTTPResponse
@@ -582,9 +582,9 @@ public class CustomHTTPClient implements HTTPClient {
     }
 }
 
-// 创建自定义 HTTP client
+// 创建自定义 httpclient
 CustomHTTPClient httpclient = new CustomHTTPClient();
-// 构造 API 对象时传入自定义 HTTP client
+// 构造 API 对象时传入自定义 httpclient
 SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 ```
 
