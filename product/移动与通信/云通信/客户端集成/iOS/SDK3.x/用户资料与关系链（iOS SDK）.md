@@ -28,7 +28,7 @@
 @interface TIMUserProfile : TIMCodingModel
 
 /**
- *  用户identifier
+ *  用户 identifier
  */
 @property(nonatomic,strong) NSString* identifier;
 
@@ -102,7 +102,7 @@
 /**
  *  获取指定好友资料
  *
- *  @param users 用户id
+ *  @param users 用户 ID
  *  @prarm forceUpdate 强制从后台拉取
  *  @param succ 成功回调
  *  @param fail 失败回调
@@ -223,7 +223,7 @@ NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood
 @interface TIMFriend : TIMCodingModel
 
 /**
- *  好友identifier
+ *  好友 identifier
  */
 @property(nonatomic,strong) NSString *identifier;
 
@@ -351,7 +351,7 @@ TIMFriendTypeKey_Custom_Prefix | NSNumber、NSData | 自定义字段前缀
 @interface TIMFriendRequest : TIMCodingModel
 
 /**
- *  用户identifier
+ *  用户 identifier
  */
 @property(nonatomic,strong) NSString* identifier;
 
@@ -534,7 +534,7 @@ typedef NS_ENUM(NSInteger, TIMFriendResponseType) {
 @property(nonatomic,assign) TIMFriendResponseType responseType;
 
 /**
- *  用户identifier
+ *  用户 identifier
  */
 @property(nonatomic,strong) NSString* identifier;
 
