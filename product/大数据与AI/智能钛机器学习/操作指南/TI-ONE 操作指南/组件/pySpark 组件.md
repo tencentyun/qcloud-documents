@@ -39,7 +39,7 @@ pip.main(['install', "package_name"])
 在 PySpark 节点上单击右键菜单，可查看任务状态和详细日志。
 ![](https://main.qcloudimg.com/raw/3ec62ffb32a86b4bc57545098b219537.png)
 详细日志如下：
-![](https://main.qcloudimg.com/raw/4c2f9e2163fa984a6328fc8719f80c9c.png)
+![](https://main.qcloudimg.com/raw/c06588803bf9f03e753d1d7a39642452.png)
  
 
 ## 使用建议
