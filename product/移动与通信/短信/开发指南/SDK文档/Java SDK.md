@@ -371,7 +371,7 @@ import java.io.IOException;
 
 try {
     // Note: 这里 fid 来自`上传语音文件`接口返回的响应，要按语音
-    // 文件 fid 发送语音通知，需要先上传语音文件获取fid
+    // 文件 fid 发送语音通知，需要先上传语音文件获取 fid
     String fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
     FileVoiceSender fvsender = new FileVoiceSender(appid, appkey);
     FileVoiceSenderResult result = fvsender.send("86", phoneNumbers[0], fid, 2, "");
