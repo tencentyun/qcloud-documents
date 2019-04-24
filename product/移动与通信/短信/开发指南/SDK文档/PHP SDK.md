@@ -260,7 +260,7 @@ use Qcloud\Sms\FileVoiceSender;
 
 try {
     // Note：这里 $fid 来自`上传语音文件`接口返回的响应，要按语音
-    //    文件fid发送语音通知，需要先上传语音文件获取$fid
+    // 文件 fid 发送语音通知，需要先上传语音文件获取 $fid
     $fid = "73844bb649ca38f37e596ec2781ce6a56a2a3a1b.mp3";
     $fvsender = new FileVoiceSender($appid, $appkey);
     $result = $fvsender->send("86", $phoneNumbers[0], $fid);
