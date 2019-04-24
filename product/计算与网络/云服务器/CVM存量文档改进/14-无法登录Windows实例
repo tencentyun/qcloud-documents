@@ -12,8 +12,10 @@
 7. 远程桌面连接出现身份验证错误
 
 ## 自助诊断工具
-腾讯云提供自助诊断工具，可以帮助您定位可能引起无法登录的故障原因。您可以点击 [自助诊断](https://console.cloud.tencent.com/workorder/check) 并输入需要诊断的云服务器instance-id进行诊断。
+腾讯云提供自助诊断工具，可以帮助您定位可能引起无法登录的故障原因。您可以点击 [自助诊断](https://console.cloud.tencent.com/workorder/check) 并输入需要诊断的云服务器 instance-id 进行诊断。
 ![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
+比如在下面的例子中，无法访问云服务器的原因是安全组规则配置的问题，您可以通过参考 安全组规则不当 解决问题。
+<img src="https://main.qcloudimg.com/raw/eeaafbd0699c90954207d181f76ad82e.png" height="400" width="350" />
 
 ## 通过VNC方式登录
 当您无法通过 RDP 或者远程登录软件登录 Windows 实例时，建议您尝试使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
