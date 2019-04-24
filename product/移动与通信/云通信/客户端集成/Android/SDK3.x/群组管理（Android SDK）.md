@@ -116,9 +116,7 @@ param.setNotification("welcome to our group");
 
 //添加群成员
 List<TIMGroupMemberInfo> infos = new ArrayList<TIMGroupMemberInfo>();
-TIMGroupMemberInfo member = new TIMGroupMemberInfo();
-member.setUser("cat");
-member.setRoleType(TIMGroupMemberRoleType.Normal);
+TIMGroupMemberInfo member = new TIMGroupMemberInfo("cat");
 infos.add(member);
 param.setMembers(infos);
 
@@ -187,7 +185,7 @@ public String getUser()
 
 ```
 //创建待加入群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 
@@ -251,12 +249,12 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
     public void onError(int code, String desc) {
         //接口返回了错误码 code 和错误描述 desc，可用于原因
         //错误码 code 列表请参见错误码表
-        Log.e(tag, "disconnected");
+        Log.e(tag, "applyJoinGroup err code = " + code + ", desc = " + desc);
     }
 
     @java.lang.Override
     public void onSuccess() {
-        Log.i(tag, "join group");
+        Log.i(tag, "applyJoinGroup success");
     }
 });
 ```
@@ -306,7 +304,7 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。退出群组的接口由 `TIMGroupManagerExt` 提供。
+群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -346,7 +344,7 @@ public DeleteMemberParam setReason(@NonNull String reason)
 
 ```
 //创建待踢出群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 //添加用户
