@@ -1,6 +1,6 @@
 ## 登录
 
-用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `accountType`、`identifier`、`userSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `70001` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
+用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `accountType`、`identifier`、`userSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `6206` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 
 > **注意：**
 >- 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）。开发者必须进行登录错误码 `ERR_IMSDK_KICKED_BY_OTHERS` 的判断。关于被踢的详细描述，参见 [用户状态变更](/doc/product/269/9148#5.-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
@@ -56,10 +56,11 @@ fail | 登录失败回调
 
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
-// identifier 为用户名，userSig 为用户登录凭证
-// appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+// identifier 为用户名
 login_param.identifier = @"iOS_001";
+//userSig 为用户登录凭证
 login_param.userSig = @"usersig";
+//appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
     NSLog(@"Login Succ");
@@ -67,7 +68,7 @@ login_param.appidAt3rd = @"123456";
     NSLog(@"Login Failed: %d->%@", code, err);
 }];
 ```
-
+userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
 ## 登出
 
 如用户主动注销或需要进行用户的切换，则需要调用注销操作。

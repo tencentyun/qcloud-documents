@@ -1,6 +1,6 @@
 ## 1. 快速集成
 
-`TICSDK`支持 iOS8+ 系统，支持 Cocoapods 集成，集成完之后还需进行相应的工程配置。
+TICSDK 支持 iOS8+ 系统，支持 Cocoapods 集成，集成完之后还需进行相应的工程配置。
 
 ### Cocoapods 集成（推荐）
 
@@ -46,7 +46,6 @@ pod repo update
 |libc++.tbd|
 |libiconv.tbd|
 |libicucore.tbd|
-|libprotobuf.tbd|
 |libresolv.tbd|
 |libsqlite3.tbd|
 |libz.tbd|
@@ -117,7 +116,7 @@ SDK 中暴露的公开头文件的主要功能：
 --------- | ---------
 TICSDK.h | SDK头文件类，包含了开发者可能用到的所有头文件，开发者集成时，只需导入该头文件即可
 TICManager.h | 互动课堂管理类，互动课堂SDK对外主要接口类，提供了【初始化】、【登录/登出SDK】、【创建/加入/销毁课堂】、【添加白板】、【音视频操作】、【IM操作】等接口。
-TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生 or 老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的代理对象，一个是复制监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。
+TICClassroomOption.h | 加入课堂时的课堂配置类，主要用来配置加入课堂时的角色（学生或老师）、是否自动开启摄像头，麦克风等，另外课堂配置对象还带有两个可选的代理对象，一个是复制监听课堂内部事件，另一个则负责监听课堂内的 IM 消息。
 
 
 ### 2.2 使用流程
@@ -177,14 +176,14 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 该方法需要传入两个参数 uid 和 userSig，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要由开发者业务服务器生成并传给客户端，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
-> 开发调试阶段，可使用腾讯云 [实时音视频控制台](https://console.cloud.tencent.com/rav) >【开发辅助】>【签名(UserSig)生成工具】生成临时的 uid 和 userSig 用于开发测试（在控制台 >【功能配置】下载公私钥）。
+>?开发调试阶段，可使用腾讯云 [实时音视频控制台](https://console.cloud.tencent.com/rav) 的【开发辅助】>【签名(UserSig)生成工具】生成临时的 uid 和 userSig 用于开发测试（在控制台的【功能配置】下载公私钥）。
 
 ### 2.5 创建课堂
 登录成功之后，就可以加入课堂了，如果当前没有课堂需要先创建一个，创建课堂接口如下：
 
 接口 | 说明
 ---|---
--createClassroomWithRoomID:succ:failed: | 创建课堂(老师端调用)
+-createClassroomWithRoomID:succ:failed: | 创建课堂（老师端调用）
 
 
 其中参数`roomID`由业务层自行指定（必须为正整数）。该方法会根据传进去的 roomID 创建了一个 IM 群组并进行一些准备工作。
@@ -226,18 +225,18 @@ st->op0->op1->op2->op3->op4->op5->op6->op7->e
 
 接口 | 说明
 ---|---
--enableCamera:enable:succ:failed: | 打开/关闭 摄像头
+-enableCamera:enable:succ:failed: | 打开/关闭摄像头
 -switchCamera:failed: | 切换当前相机方向
--enableMic:succ:failed: | 打开/关闭 麦克风
--enableSpeaker:succ:failed: | 打开/关闭 扬声器
+-enableMic:succ:failed: | 打开/关闭麦克风
+-enableSpeaker:succ:failed: | 打开/关闭扬声器
 
-课堂内成员在进行打开/关闭摄像头、麦克风操作时，会触发音视频事件，如果在加入课堂前设置了课堂事件监听代理 `id<TICClassroomEventListener> eventListener`，一端进行音视频操作时，另一端就可以在课堂内音视频事件回调中得到通知：
+课堂内成员在进行打开/关闭摄像头、屏幕分享、播片时，会触发视频事件，如果在加入课堂前设置了课堂事件监听代理 `id<TICClassroomEventListener> eventListener`，一端进行音视频操作时，另一端就可以在课堂内音视频事件回调中得到通知：
 
 接口 | 说明
 ---|---
--onUserUpdateInfo:users: | 课堂内音视频事件回调
+-onUserUpdateInfo:users: | 课堂内视频事件回调
 
-课堂内的音视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参考 [Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
+课堂内的视频事件都会通过该方法回调给所有人（包括操作者自己），event 表示事件类型（开关摄像头等），user 表示触发事件的用户 ID，收到回调之后，可以根据事件类型，进行相应的处理，例如收到开摄像头事件，就添加一个对应用户的渲染视图，收到关摄像头事件，就移除对应用户的渲染视图（具体用法可参考 [Demo](http://dldir1.qq.com/hudongzhibo/TICSDK/iOS/TICSDK_Demo.zip)）：
 
 ```objc
 /**
@@ -285,7 +284,7 @@ TICSDK 只是对`iLiveSDK`一些基础接口进行了封装，如果开发者需
 
 ### 2.8 使用互动白板
 
-> 使用白板前，需确认已开通 [白板服务](https://cloud.tencent.com/document/product/680/14782#2.-.E5.BC.80.E9.80.9A.E7.99.BD.E6.9D.BF.E6.9C.8D.E5.8A.A1)。
+>?使用白板前，需确认已开通 [白板服务](https://cloud.tencent.com/document/product/680/14782#2.-.E5.BC.80.E9.80.9A.E7.99.BD.E6.9D.BF.E6.9C.8D.E5.8A.A1)。
 
 TICSDK 中只有添加一个白板视图对象的接口：
 
@@ -295,7 +294,7 @@ TICSDK 中只有添加一个白板视图对象的接口：
 
 开发者使用时，只需创建一个 boardView 对象，并调用该接口将其添加到 TICManager 中，即可使用白板进行涂鸦并与各端互动了。
 
->!为保证数据的准确展示，各端白板视图的长宽比需保持一致，demo中为16：9。
+>!为保证数据的准确展示，各端白板视图的长宽比需保持一致，demo中为16:9。
 
 关于白板的更多高级操作及文档功能，请参考 [TXBoardSDK 文档](/document/product/680/17890)。
 
@@ -316,11 +315,11 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 ---|---
 -onRecvTextMsg:from:type: | 收到文本消息
 -onRecvCustomMsg:from:type: | 收到自定义消息
--onRecvMessage: | 收到消息(所有类型的消息，自行解析)
+-onRecvMessage: | 收到消息（所有类型的消息，自行解析）
 
 这3个接口，分别对应了前面3个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调，收到回调后可将消息展示在界面上。
 
-TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他高级功能，可直接调用`IMSDK`的接口，详情请参考 [IMSDK接口文档](https://cloud.tencent.com/document/product/269/1566)。
+TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他高级功能，可直接调用`IMSDK`的接口，详情请参考 [IMSDK 接口文档](https://cloud.tencent.com/document/product/269/9148)。
 
 ### 2.10 课堂内其他事件监听
 

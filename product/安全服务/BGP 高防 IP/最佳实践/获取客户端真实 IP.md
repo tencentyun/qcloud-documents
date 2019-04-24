@@ -1,78 +1,145 @@
 ## 使用非网站业务转发规则
 BGP 高防 IP 使用非网站业务转发规则时，源站需使用 toa 模块获取客户端的真实 IP。
+业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，可以使用如下 TOA 的方案。在业务服务的 Linux 服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
-### 基本原理
-BGP 高防 IP 使用公网代理模式，因此数据包的源地址和目标地址均会被修改。源站看到的数据包源地址是 BGP 高防 IP 实例的回源 IP，而并非是客户端的真实 IP。为了将客户端 IP 传给服务器，转发时 BGP 高防 IP 将客户端的 IP 和 Port 记录在自定义的 tcp option 字段中。如下：
-```
-#define TCPOPT_ADDR  200
-#define TCPOLEN_ADDR 8      /* |opcode|size|ip+port| = 1 + 1 + 6 */
+### TOA 原理
+高防转发后，数据包同时会做 SNAT 和 DNAT，数据包的源地址和目标地址均修改。
+TCP 协议下，为了将客户端 IP 传给服务器，会将客户端的 IP，port 在转发时放入了自定义的 tcp option 字段。
+		
+    #define TCPOPT_ADDR	200  
+    #define TCPOLEN_ADDR 8	/* |opcode|size|ip+port| = 1 + 1 + 6 */
 
-/*
- * insert client ip in tcp option, now only support IPV4,
- * must be 4 bytes alignment.
- */
-struct ip_vs_tcpo_addr {
+    /*
+    *insert client ip in tcp option, now only support IPV4,
+    *must be 4 bytes alignment.
+    */
+    struct ip_vs_tcpo_addr {
     __u8 opcode;
     __u8 opsize;
     __u16 port;
     __u32 addr;
-};
-```
+    }; 
+Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_REVC` 状态进入到 `TCP_ESTABLISHED` 状态。这时内核会调用 `tcp_v4_syn_recv_sock` 函数。 Hook 函数 `tcp_v4_syn_recv_sock_toa `首先调用原有的` tcp_v4_syn_recv_sock `函数，然后调用 `get_toa_data` 函数从 TCP OPTION 中提取出 TOA OPTION，并存储在 `sk_user_data` 字段中。
 
-### 支持操作系统
-•	CentOS 6.x
-•	CentOS 7.x
->!
-- Windows 操作系统不支持使用 toa 模块获取客户端的真实 IP。
-- Linux 其他版本操作系统，请联系 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 咨询。
+然后用 `inet_getname_toa hook inet_getname`，在获取源 IP 地址和端口时，首先调用原来的`inet_getname`，然后判断 `sk_user_data` 是否为空，如果有数据从其中提取真实的 IP 和 port，替换 `inet_getname` 的返回。
 
-### 注意事项
-- 建议先在测试环境中进行安装和测试，确认功能可用、运行稳定后再部署到正式环境。
-- 如需升级内核，建议升级内核前将原内核保存，以防出现升级失败等意外。
--  toa 仅支持 IPv4，若环境默认获取 IPv6 则无法正确获得客户端 IP。
+客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
-### 获取客户端真实 IP
-1. 以 root 用户执行以下命令，安装编译环境。
-`yum install gcc kernel-headers kernel-devel -y `
-2. [下载](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip) 安装文件并解压。
- ```
-wget  https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/TOA_CentOS_v1.zip
-unzip TOA_CentOS_v1.zip
- ```
- <span id="step3"></span>
-3. 执行`uname -r`命令，查看内核版本。
- 示例：
+### 内核包安装步骤
+#### Centos 6.x/7.x
+1. 下载安装包：
+ - [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
+ - [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
+2. 安装包文件。
 ```
-[root@VM_0_2_centos toa]# uname -r
-3.10.0-514.26.2.el7.x86_64
+rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force	
+```						
+3. 安装完成之后重启主机。
 ```
-4. 根据 [步骤3](#step3) 的查询结果，修改 Makefile 配置文件中的路径参数 KERNEL_DIR。
-示例：
+reboot
 ```
-[root@VM_0_2_centos toa]# vim Makefile 
-obj-m := toa.o
-KERNEL_DIR := /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/
-PWD := $(shell pwd)
-#EXTRA_CFLAGS+=-D__GENKSYMS__
-all:
-        make -C $(KERNEL_DIR) M=$(PWD) modules
-clean:    
-        rm *.o *.ko *.mod.c  Module.symvers modules.order
+4. 执行命令检查 toa 模块是否加载成功。
 ```
-5. 执行`make`命令进行编译。
-6. 移动模块并启动加载。
+lsmod | grep toa
 ```
-mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
-insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
+5. 没有加载的话手工开启。
 ```
- - 加载成功后，可正常获取真实客户端源 IP 。
- - 如果仍无法获取客户端源 IP，可执行`lsmod | grep toa`命令检测 toa 模块加载情况。
+modprobe toa
+```		
+6. 可用下面的命令开启自动加载 toa 模块。
+```
+echo “modprobe toa” >> /etc/rc.d/rc.local
+```
+			
+####  Ubuntu 16.04
+1. 下载安装包：
+ - [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
+ - [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
+2. 安装步骤：
+```
+dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
+```	
+Headers 包可不装，如需要做相关开发则安装。
+3. 安装完成之后重启主机，然后` lsmod | grep toa `检查 toa 模块是否加载 没有加载的话 `modprobe toa` 开启。
+可用下面的命令开启加载 toa 模块：
+```
+echo “modprobe toa” >> /etc/rc.d/rc.local
+```
+		 
+#### Debian 8
+1. 下载安装包：
+ - [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
+ - [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
+2. 安装方法与 Ubuntu 相同。
+请根据业务服务器 Linux 操作系统的类型和版本下载对应的内核包，按如下步骤操作。如果没有和用户操作系统一致的内核包，用户还可以参考下文的 **TOA 源代码安装指引**。
 
-### 卸载 toa 模块
-以 root 用户执行以下命令，卸载 toa 模块。
+### TOA 源代码内核安装指引
+####  源码安装
+1. 下载打好 [ toa 补丁](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz) 的源码包，单击 toa 补丁即可下载安装包。
+2. 解压。
+3. 编辑 .config，将 `CONFIG_IPV6=M` 改成 `CONFIG_IPV6=y`。
+4. 如果需要加上一些自定义说明，可以编辑 Makefile。
+5. make -jn (n 为线程数)。
+6. `make modules_install`。
+7. `make install`。
+8. 修改 /boot/grub/menu.lst	将 default 改为新安装的内核（title 顺序从0开始）。
+9. Reboot 重启后即为 toa 内核。
+10. `lsmode | grep toa` 检查 toa 模块是否加载	没有加载的话 `modprobe toa` 开启。
+
+#### 内核包制作
+您可自己制作 rpm 包，也可由我们提供。
+1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm。
 ```
-rmmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
+rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm
+```	
+2. 生成内核源码目录。
 ```
+rpmbuild -bp ~/rpmbuild/SPECS/kernel.spec
+```		
+3. 复制一份源码目录。
+```
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/ cp -a linux-2.6.32-220.23.1.el6.x86_64/ linux-2.6.32-220.23.1.el6.x86_64_new
+```			   
+4. 在复制出来的源码目录中打 toa 补丁。
+```
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64_new/ 
+patch -p1 < /usr/local/src/linux-2.6.32-220.23.1.el6.x86_64.rs/toa-2.6.32-220.23.1.el6.patch
+```			
+5. 编辑 .config 并拷贝到 SOURCE 目录。
+```
+sed -i 's/CONFIG_IPV6=m/CONFIG_IPV6=y/g' .config 
+echo -e '\n# toa\nCONFIG_TOA=m' >> .config
+cp .config ~/rpmbuild/SOURCES/config-x86_64-generic
+```	
+6. 删除原始源码中的 .config。
+```
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64 
+rm -rf .config
+```
+7. 生成最终 patch。
+```
+cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/
+diff -uNr linux-2.6.32-220.23.1.el6.x86_64 linux-2.6.32-220.23.1.el6.x86_64_new/ >
+~/rpmbuild/SOURCES/toa.patch
+```
+8. 编辑 kernel.spec。
+```
+vim ~/rpmbuild/SPECS/kernel.spec
+```  
+在 ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名）： 
+```
+Patch999999: toa.patch
+ApplyOptionalPatch toa.patch
+```
+9. 制作 rpm 包。
+```
+rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec
+```
+10. 安装内核 rpm 包。
+```
+rpm -hiv kernel-xxxx.rpm --force
+```	 
+11. 重启，加载 toa 模块。
 
 ## 使用网站业务转发规则
 BGP 高防 IP 使用网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。

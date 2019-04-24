@@ -51,7 +51,7 @@ https://wenzhi.api.qcloud.com/v2/index.php?
 	&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 	&Timestamp=1408704141
 	&Signature=HgIYOPcx5lN6gz8JsCFBNAWp2oQ
-	&content=六四事件是一个历史问题
+	&content=***********
 	&type=2
 ```
 

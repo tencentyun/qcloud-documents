@@ -117,6 +117,8 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
+`xxx_upload` 与 `xxx_progress` 的回调值请参考 [分块上传/复制任务操作](https://cloud.tencent.com/document/product/436/12260#slice-upload-file)。
+
 ### 取消上传
 
 SDK 支持取消正在上传的视频或封面：

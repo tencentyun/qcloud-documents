@@ -1619,7 +1619,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ### 支付成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
+服务商在云支付管理后台配置的回调地址（HTTPS），即“交易完成回调 URL”。
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1725,7 +1725,7 @@ content_type：application/json
 
 ### 退款成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
+服务商在云支付管理后台配置的回调地址（HTTPS），即“交易完成回调 URL”。
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
