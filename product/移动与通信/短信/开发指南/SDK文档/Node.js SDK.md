@@ -148,7 +148,7 @@ spuller.pullCallback(maxNum, callback);
 // 拉取回复
 spuller.pullReply(maxNum, callback);
 ```
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
 
@@ -162,7 +162,7 @@ mspuller.pullCallback("86", phoneNumbers[0], beginTime, endTime, maxNum, callbac
 // 拉取回复
 mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 ```
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
@@ -182,7 +182,7 @@ var uploader = qcloudsms.VoiceFileUploader();
 // 上传成功后，callback 里会返回语音文件的 fid
 uploader.upload(fileContent, "mp3", callback);
 ```
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -196,7 +196,7 @@ var fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
 var fvsender = qcloudsms.FileVoiceSender();
 fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 ```
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 
