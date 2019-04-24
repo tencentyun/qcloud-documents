@@ -12,13 +12,13 @@
 5. 远程桌面连接出现身份验证错误
 
 ## 自助诊断工具
-腾讯云提供自助诊断工具，可以帮助您定位可能引起无法登录的故障原因。您可以点击 [自助诊断](https://console.cloud.tencent.com/workorder/check) 并输入需要诊断的云主机instance-id进行诊断。
+腾讯云提供自助诊断工具，可以帮助您定位可能引起无法登录的故障原因。您可以点击 [自助诊断](https://console.cloud.tencent.com/workorder/check) 并输入需要诊断的云服务器instance-id进行诊断。
 ![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
 
 ## 通过VNC方式登录
 当您无法通过RDP或者远程登录软件登录Windows实例时，建议您尝试使用腾讯云VNC登录的方式登录，帮助您定位故障原因。
 
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。在实例列表中选择你需要登录的实例，并单击右侧【登录】
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。在实例列表中选择您需要登录的实例，并单击右侧【登录】
 ![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
 2. 在弹出的【登录Windows实例】页面，选择【其他方式（VNC）】并单击【立即登录】。
 <img src="https://main.qcloudimg.com/raw/dd283cdbf36755b01face8ad5c55a1b5.png" height="300" width="400" />
