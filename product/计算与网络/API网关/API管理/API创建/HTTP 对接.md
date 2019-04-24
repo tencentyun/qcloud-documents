@@ -1,4 +1,4 @@
-对接的 HTTP 服务可以是运行于云服务器（CVM）上或容器服务（TKE）上的 Web 服务，也可以是外网的某个服务。
+对接的 HTTP 服务可以是运行于 CVM 上或 CCS 上的 Web 服务，也可以是外网的某个服务。
 对接到具体的 HTTP 服务，需要提供服务地址、服务路径、HTTP 方法、超时时间和映射参数等信息。
 >?对接 VPC 功能目前需要开通白名单，您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通该服务。
 

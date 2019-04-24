@@ -58,7 +58,7 @@ paket add qcloud.qcloudsms_csharp --version 0.1.5
 ```
 
 ### 相关资料
-若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://github.com/qcloudsms/qcloudsms_csharp) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ## 示例
 - **准备必要参数**
@@ -391,7 +391,7 @@ using System;
 try
 {
     int templateId = 45221;
-    string[] parameters = { "5678" };//数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个。
+    string[] parameters = { "5678" };//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个。
     TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
     TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
         templateId, parameters, 2, "");
