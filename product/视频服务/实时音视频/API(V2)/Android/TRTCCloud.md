@@ -325,6 +325,38 @@ __介绍__
 当用户的手机或者 Android Pad 做了一个180度旋转时，由于摄像头的采集方向没有变，所以另一边的用户看到的画面是上下颠倒的， 在这种情况下，您可以通过该接口将 SDK 输出到对方的画面旋转180度，这样可以可以确保对方看到的画面依然正常。
 
 
+### setLocalViewMirror
+
+设置本地预览画面镜像方式。
+```
+abstract void setLocalViewMirror(int mirrorType)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像； TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像； TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 |
+
+
+### setVideoEncoderMirror
+
+设置编码器输出的画面镜像模式。
+```
+abstract void setVideoEncoderMirror(boolean mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | boolean | mirror true:镜像；false:不镜像；默认是false。 |
+
+__介绍__
+
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+
+
 ### setGSensorMode
 
 设置重力感应的适应模式。
@@ -504,15 +536,14 @@ __参数__
 
 启用音量大小提示。
 ```
-abstract void enableAudioVolumeEvaluation(int intervalMs, int smoothLevel)
+abstract void enableAudioVolumeEvaluation(int intervalMs)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| intervalMs | int | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
-| smoothLevel | int | 灵敏度，[0,10]，数字越大，波动越灵敏。 |
+| intervalMs | int | 决定了 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；详细的回调规则请参考 onUserVoiceVolume 的注释说明。 |
 
 __介绍__
 
@@ -689,6 +720,140 @@ __介绍__
 
 
 举例：如果当前编码分辨率是540 × 960，(x， y， width) 设置为（0.1， 0.1， 0.2） 那么：水印的左上坐标点就是 (540 × 0.1， 960 × 0.1)，也就是 (54， 96)，水印的宽度是 540 × 0.2 = 108px，高度自动计算。
+
+
+### setEyeScaleLevel
+
+setEyeScaleLevel 设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setEyeScaleLevel(int eyeScaleLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| eyeScaleLevel | int | 大眼级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceSlimLevel
+
+设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceSlimLevel(int faceScaleLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceScaleLevel | int | 瘦脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceVLevel
+
+设置V脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceVLevel(int faceVLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceVLevel | int | V脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceShortLevel
+
+设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceShortLevel(int faceShortlevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceShortlevel | int | 短脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setChinLevel
+
+设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setChinLevel(int chinLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| chinLevel | int | 下巴拉伸或收缩级别取值范围0 - 9；0表示关闭，<0表示收缩，>0表示拉伸。 |
+
+
+### setNoseSlimLevel
+
+设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setNoseSlimLevel(int noseSlimLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| noseSlimLevel | int | 瘦鼻级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setGreenScreenFile
+
+设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract boolean setGreenScreenFile(String file)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| file | String | 视频文件路径。支持 MP4；null：表示关闭特效。 |
+
+__介绍__
+
+此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
+
+
+### selectMotionTmpl
+
+选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void selectMotionTmpl(String motionPath)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| motionPath | String | 动效完整路径。 |
+
+
+### setMotionMute
+
+设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setMotionMute(boolean motionMute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| motionMute | boolean | true：静音；false：不静音。 |
+
+__介绍__
+
+有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
 
 
 
@@ -882,10 +1047,20 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据。 |
+| frame | TRTCCloudDef.TRTCAudioFrame | 音频帧。目前只支持单声道，仅支持48K采样率。 |
+
+__介绍__
+
+TRTCAudioFrame 推荐如下填写方式：
+- data：音频帧 buffer。音频帧数据必须是 PCM 格式，推荐每帧20ms采样数。【48000采样率、单声道的帧长度：48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+- sampleRate：采样率，仅支持48000。
+- channel：频道数量（如果是立体声，数据是交叉的），单声道：1； 双声道：2。
+- timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+
+
+参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 >?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
-
 
 
 ### setAudioFrameListener

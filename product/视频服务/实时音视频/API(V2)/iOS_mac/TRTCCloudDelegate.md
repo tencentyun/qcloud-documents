@@ -178,7 +178,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-userId 对应的成员语音音量。
+用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
 - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume 
 ```
@@ -187,19 +187,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围0 - 100。 |
-| totalVolume | NSInteger | 总的语音音量, 取值范围0 - 100。 |
+| userVolumes | NSArray< TRTCVolumeInfo * > * | 所有正在说话的房间成员的音量（取值范围0 - 100）。即 userVolumes 内仅包含音量不为0（正在说话）的用户音量信息。其中 userId 为 null 表示 local 的音量，也就是自己的音量。 |
+| totalVolume | NSInteger | 所有远端成员的总音量, 取值范围0 - 100。 |
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调。
+您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调;如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 
 
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 - (void)onNetworkQuality:(TRTCQualityInfo *)localQuality remoteQuality:(NSArray< TRTCQualityInfo * > *)remoteQuality 
 ```
@@ -483,6 +483,21 @@ __介绍__
 __介绍__
 
 对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+设置云端的混流转码参数的回调，对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。
+```
+- (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| err | int | 0表示成功，其余值表示失败。 |
+| errMsg | NSString * | 具体错误原因。 |
 
 
 
