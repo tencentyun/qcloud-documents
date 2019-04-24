@@ -69,7 +69,7 @@ var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
 
 // 短信模板ID，需要在短信应用中申请
 var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-//templateId 7839 对应的内容是"您的验证码是: {1}"
+// templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
 var smsSign = "腾讯云";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 
@@ -93,7 +93,7 @@ function callback(err, res, resData) {
 
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
@@ -106,7 +106,7 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
 
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
@@ -191,7 +191,7 @@ uploader.upload(fileContent, "mp3", callback);
 
 ```javascript
 // Note：这里fid来自`上传语音文件`接口返回的响应，要按语音
-//    文件fid发送语音通知，需要先上传语音文件获取fid
+// 文件fid发送语音通知，需要先上传语音文件获取fid
 var fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
 var fvsender = qcloudsms.FileVoiceSender();
 fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
@@ -206,7 +206,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 
 ```javascript
 var templateId = 12345;
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
 var tvsender = qcloudsms.TtsVoiceSender();
 tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 ```
