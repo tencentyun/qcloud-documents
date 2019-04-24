@@ -1388,7 +1388,7 @@ public void refuse(String msg, TIMCallBack cb)
 **只有审批人**有权限拉取相关信息。
 
 >例如：
->- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取未决信息。
+>- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。
 >- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
 
 **原型：**

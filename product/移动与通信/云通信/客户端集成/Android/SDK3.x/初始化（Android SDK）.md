@@ -13,7 +13,7 @@ public static TIMManager getInstance()
 TIMManager.getInstance();
 ```
 ## 初始化 SDK 配置
-在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`。
+在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`，具体 API 可以参考 SDK 下载包中的 `javadoc` 文档。
 
 ### 日志事件
 

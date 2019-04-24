@@ -54,9 +54,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ###  MacOS系统使用RDP登录：
 以Microsoft Remote Desktop for Mac为例介绍本地为 Mac OS 计算机时如何登录 Windows实例。
 
-1. 下载[Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) （该测试版本客户端由微软官方维护，我们推荐您优先使用该版本客户端。微软已于 2017 年取消其官网提供的下载链接，转而通过其子公司 HockeyApp 的页面进行 Beta 版本的发布）。
->! 您也可以从[Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417)下载 Microsoft 远程桌面客户端。该客户端不面向中国地区用户开放，您需要有其他地区 AppleID 账号才可下载。
-
+1. 下载[Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) ，更多下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
 
 2. 打开客户端工具，点击【Add Deskop】。![](https://main.qcloudimg.com/raw/c0ec6b04c59e37e95f7b5eb84ffcb83b.png)
 2. 在弹出的对话框中，输入框输入 Windows 实例的公网 IP后点击【Add】添加远程桌面。<img src="https://main.qcloudimg.com/raw/d0f1c1ce9574f3ce191267b3beaff557.png" width = "350" height = "400" alt="图片名称" align=center />

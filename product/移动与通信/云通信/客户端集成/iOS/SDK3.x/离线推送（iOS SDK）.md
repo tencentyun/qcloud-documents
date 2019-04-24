@@ -38,12 +38,11 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
     }
 }
 /**
- *  在 AppDelegate 的回调中会返回 deviceToken，需要在登录后上报给腾讯云后台
+ *  在AppDelegate的回调中会返回DeviceToken，需要在登录后上报给腾讯云后台
 /**
 -(void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    //记录下 Apple 返回的 deviceToken
-    _deviceToken = deviceToken;
+    [[IMAPlatform sharedInstance] configOnAppRegistAPNSWithDeviceToken:deviceToken];
 }
 ```
 
@@ -53,9 +52,11 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 > busiId 需要和控制台分配的证书 ID 保持一致。
 
 ```
-  __weak typeof(self) ws = self;
- //这里如果使用了 TUIKit，请在 TUKit 登录回调里面设置 Token，如果没有使用，请在 TIMManager 的 login 回调里面设置 Token。
- [[TUIKit sharedInstance] loginKit:identifier userSig:userSig succ:^{
+- (void)configOnAppRegistAPNSWithDeviceToken:(NSData *)deviceToken
+{
+    DebugLog(@"didRegisterForRemoteNotificationsWithDeviceToken:%ld", (unsigned long)deviceToken.length);
+    NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
+    [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
 /* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiId 参数中。*/
 #if kAppStoreVersion
@@ -69,16 +70,14 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
     //企业证书 ID
     param.busiId = 2516;
 #endif    
-    [param setToken:ws.deviceToken];    
+    [param setToken:deviceToken];    
+//    [[TIMManager sharedInstance] setToken:param];
     [[TIMManager sharedInstance] setToken:param succ:^{       
         NSLog(@"-----> 上传 token 成功 ");
     } fail:^(int code, NSString *msg) {
         NSLog(@"-----> 上传 token 失败 ");
     }];
- } fail:^(int code, NSString *msg) {
-        NSLog(@"登录失败！");
-    }];
-  }
+}
 ```
 
 **App 进入后台时上报切后台事件：**
@@ -92,24 +91,18 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
         [application endBackgroundTask: bgTaskID];
         bgTaskID = UIBackgroundTaskInvalid;
     }];
-     //获取未读计数
-    int unReadCount = 0;
-    NSArray *convs = [[TIMManager sharedInstance] getConversationList];
-    for (TIMConversation *conv in convs) {
-        if([conv getType] == TIM_SYSTEM){
-            continue;
-        }
-        unReadCount += [conv getUnReadMessageNum];
-    }
+    [[IMAPlatform sharedInstance] configOnAppEnterBackground];
+}
+- (void)configOnAppEnterBackground
+{
+    NSUInteger unReadCount = [[IMAPlatform sharedInstance].conversationMgr unReadMessageCount];
     [UIApplication sharedApplication].applicationIconBadgeNumber = unReadCount;
-    
-    //doBackground
     TIMBackgroundParam  *param = [[TIMBackgroundParam alloc] init];
-    [param setC2cUnread:unReadCount];
+    [param setC2cUnread:(int)unReadCount];
     [[TIMManager sharedInstance] doBackground:param succ:^() {
-        NSLog(@"doBackgroud Succ");
+        DebugLog(@"doBackgroud Succ");
     } fail:^(int code, NSString * err) {
-        NSLog(@"Fail: %d->%@", code, err);
+        DebugLog(@"Fail: %d->%@", code, err);
     }];
 }
 ```
@@ -117,12 +110,13 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 **App 进入前台时上报切前台事件：**
 
 ```
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[TIMManager sharedInstance] doForeground:^() {
-        NSLog(@"doForegroud Succ");
-    } fail:^(int code, NSString * err) {
-        NSLog(@"Fail: %d->%@", code, err);
-    }];
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+   [[TIMManager sharedInstance] doForeground:^() {
+	       DebugLog(@"doForegroud Succ");
+	 } fail:^(int code, NSString * err) {
+	       DebugLog(@"Fail: %d->%@", code, err);
+	 }];
 }
 ```
 

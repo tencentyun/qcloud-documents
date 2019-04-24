@@ -373,4 +373,3 @@ function webimLogin() {
     );
 }
 ```
->? 当您集成 SDK 出现错误时，请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) 进行处理。

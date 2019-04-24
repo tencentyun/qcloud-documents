@@ -20,7 +20,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括 PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.0.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>;
 ```
 
 >**注意：**
@@ -248,7 +248,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例：0.6   |
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放<br>**备注：该选项只对大部分 PC 平台生效**  <br> 示例：  true |
-| poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": http://www.test.com/myimage.jpg}  [v2.3.0+] |
+| coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": http://www.test.com/myimage.jpg} |
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)  <br> 示例："system"  |
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
@@ -262,9 +262,6 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | clarity         | String   | 'od'     | 默认播放清晰度 [v2.2.1+] <br> 示例: clarity: 'od'  |
 | clarityLabel    | Object   | {od: '超清', hd: '高清', sd: '标清'} | 自定义清晰度文案 [v2.2.1+] <br> 示例: clarityLabel: {od: '蓝光', hd: '高清', sd: '标清'}  |
 | listener        | Function | 无       | 事件监听回调函数，回调函数将传入一个 JSON 格式的对象  <br> 示例：function(msg){<br>//进行事件处理 <br>}  |
-| pausePosterEnabled| Boolean | true    | 暂停时显示封面   [v2.3.0+]|
-| preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效   [v2.3.0+]|
-| hlsConfig         | Object | 无       | hls.js 初始化配置项  [v2.3.0+]|
 
 ## 实例方法列表
 下面列出了播放器实例支持的方法：
@@ -382,7 +379,5 @@ TCPlayerLite 在不断的更新以及完善中，为了方便大家了解版本�
 | 2017.3.4        | 2.1.0    | 至 2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player；<br>2. 调整播放器初始化逻辑，优化错误提示效果；<br>3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 flv；<br>4. 支持 x5-video-orientation 属性；<br>5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放；<br>6. 启用版本号发布方式，避免影响旧版本的使用者；<br> 7. 优化事件触发的时间戳，统一为标准时间；<br>8. bug 修复。|
 | 2017.12.7       | 2.2.1    | 1. 增加 systemFullscreen 参数；<br> 2. 增加 flashUrl 参数；<br>3. 修复音量 max 后进行静音切换的 UI 问题；<br> 4. 修复 ios11 微信下需要单击两次才能播放的问题；<br> 5. 修复 safari 11 系统样式被遮挡的问题；<br>6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况；<br>7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题；<br> 8. 切换清晰度保持音量不变；<br> 9. 修复页面宽度为 0，播放器宽度判断失败问题；<br> 10. destroy 方法增加完全销毁播放器节点。|
-| 2017.12.20      | 2.2.1    | 1. 增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3. 支持切换清晰度方法。|
-| 2018.5.3        | 2.2.2    | 1. 优化loading组件;<br> 2. 优化Flash destroy方法;<br> 3. 默认使用 H5 播放。<br> 4.修复已知问题|
-| 2018.12.17       | 2.2.3    | 1. 优化播放逻辑。<br> 2. 解决 iOS 微信 没有播放事件触发的情况下，出现 loading 动画的问题 <br> 3. 修复其他已知问题|
-| 2019.4.19        | 2.3.0    | 1. 增加部分功能参数选项 <br> 2. 参数 coverpic 改为 poster <br> 3. destroy 销毁 flv.js 实例<br> 4. 修复其他已知问题|
+| 2017.12.20      | 2.2.1    | 1. 增加可配置清晰度文案功能;<br> 2.设置默认清晰度;<br> 3.支持切换清晰度方法。|
+| 2018.5.3        | 2.2.2    | 1. 优化loading组件;<br> 2.优化Flash destroy方法;<br> 3.默认使用 H5 播放。<br> 4.修复已知问题|
