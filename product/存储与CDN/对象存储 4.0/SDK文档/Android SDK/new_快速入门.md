@@ -1,5 +1,15 @@
 ## 快速接入
 
+### 相关资源
+**源码和示例工程**
+
+COS Android SDK 相关源码请参见 [COS Android SDK Github 地址](https://github.com/tencentyun/qcloud-sdk-android)。
+示例 demo 请参见 [COS Android SDK 示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)。
+
+**更新日志**
+
+COS Android SDK 更新日志请参见 [COS Android SDK 更新日志](https://github.com/tencentyun/qcloud-sdk-android/blob/master/CHANGELOG.md)。
+
 ### 接入准备
 
 1. SDK 支持 Android 2.2及以上版本的手机系统。
@@ -8,6 +18,17 @@
 4. 从 [COS 控制台](https://console.cloud.tencent.com/cos4/secret) 获取 APPID、SecretId、SecretKey。
 
 >?关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
+
+### 配置权限
+
+使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0 以上还需要动态获取权限）：
+```html
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
 
 ### 集成 SDK
 
@@ -85,45 +106,26 @@ dependencies {
 
 您可以在这里 [COS XML Android SDK-release](https://github.com/tencentyun/qcloud-sdk-android/releases) 下载所有的 jar 包，建议您使用最新的 release 包。
 
-### 配置权限
-
-使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0 以上还需要动态获取权限）：
-```html
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-```
-
-### 更多资源
-
-**源码和示例工程**
-
-COS Android SDK 相关源码请参见 [COS Android SDK Github 地址](https://github.com/tencentyun/qcloud-sdk-android)。
-示例 demo 请参见 [COS Android SDK 示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)。
-
-**更新日志**
-
-COS Android SDK 更新日志请参见 [COS Android SDK 更新日志](https://github.com/tencentyun/qcloud-sdk-android/blob/master/CHANGELOG.md)。
-
-## 快速入门
+## 开始使用
+下面为您介绍如何使用 COS Android SDK 完成一个基础操作，如初始化客户端、创建存储桶、查询存储桶列表、上传对象、查询对象列表、下载对象和删除对象.
 
 ### 初始化 
 
-在执行任何和 COS 服务相关请求之前，都需要先实例化 CosXmlService 对象，具体可分为如下几步。
+在执行任何和 COS 服务相关请求之前，都需要先实例化 CosXmlService 对象，具体可分为如下几步:
+1. 初始化配置类 CosXmlServiceConfig；
+2. 初始化授权类 QCloudCredentialProvider；
+3. 初始化COS 服务类 CosXmlService.
 
 #### 初始化配置类
 
 **CosXmlServiceConfig** 是 COS 服务的配置类，您可以使用如下代码来初始化：
 
 ```
-String appid = "对象存储的服务 APPID";
 String region = "存储桶所在的地域"; 
 
 //创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-       .setAppidAndRegion(appid, region)
+       .setRegion(region)
        .setDebuggable(true)
        .builder();
 ```
@@ -136,7 +138,7 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 - 标准响应体授权
 
-如果您已经搭建临时密钥服务，并直接将 STS SDK 中得到的 JSON 数据作为临时密钥服务的响应体（cossign 即采用了这种方式），那么您可以使用如下代码来创建 COS SDK 中的授权类。
+如果您已经搭建临时密钥服务，并直接将 STS SDK 中得到的 JSON 数据作为临时密钥服务的响应体，那么您可以使用如下代码来创建 COS SDK 中的授权类。
 ```
 /**
  * 获取授权服务的 url 地址
@@ -215,13 +217,50 @@ QCloudCredentialProvider credentialProvider = new ShortTimeCredentialProvider(se
 ```
 
 
-#### 初始化 COS 服务类
+#### 初始化 CosXmlService 服务类
 
 **CosXmlService** 是 COS 服务类，可用来操作各种 COS 服务，当您实例化配置类和授权类后，您可以很方便的实例化一个 COS 服务类，具体代码如下。
 
-````java
-CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
-````
+```java
+CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credentialProvider);
+```
+
+### 创建存储桶
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+PutBucketRequest putBucketRequest = new PutBucketRequest(bucket);
+//发送请求
+cosXmlService.putBucketAsync(putBucketRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Put Bucket success
+		PutBucketResult putBucketResult = (putBucketResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Put Bucket failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+### 查询存储桶列表
+```java
+GetServiceRequest getServiceRequest = new GetServiceRequest();
+//发送请求
+cosXmlService.getServiceAsync(getServiceRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Put Bucket Lifecycle success
+		GetServiceResult getServiceResult = (GetServiceResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Put Bucket Lifecycle failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
 
 ### 上传文件
 
@@ -242,7 +281,7 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 */
 
 //初始化 TransferManager
-TransferManager transferManager = new TransferManager(cosXmlService, transferConfig);
+TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
 String bucket = "存储桶名称";
 String cosPath = "对象键"; //即存储到 COS 上的绝对路径, 格式如 cosPath = "test.txt";
@@ -312,6 +351,38 @@ cosxmlUploadTask.pause();
 cosxmlUploadTask.resume();
 
 ```
+
+### 查询对象列表
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID;  
+GetBucketRequest getBucketRequest = new GetBucketRequest(bucket);
+
+//前缀匹配，用来规定返回的文件前缀地址
+getBucketRequest.setPrefix("prefix");
+
+//单次返回最大的条目数量，默认 1000
+getBucketRequest.setMaxKeys(100);
+
+//定界符为一个符号，如果有 Prefix，
+//则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，
+//然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
+getBucketRequest.setDelimiter('/');
+
+//发送请求
+cosXmlService.getBucketAsync(getBucketRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Get Bucket success
+		GetBucketResult getBucketResult = (GetBucketResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Get Bucket failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
 ### 下载文件
 **TransferManager**、**COSXMLDownloadTask** 封装了下载接口的异步请求，并支持暂停、恢复以及取消下载请求，同时支断点下载功能。我们推荐使用这种方式来下载文件，示例代码如下。
 ```java
@@ -368,6 +439,7 @@ cosxmlDownloadTask.pause();
 cosxmlDownloadTask.resume();
 
 ```
+
 ### 复制文件
 **TransferManager**、**COSXMLCopyTask** 封装了简单复制、分片复制接口的异步请求，并支持暂停、恢复以及取消复制请求。我们推荐使用这种方式来复制文件，示例代码如下。
 ```java
@@ -413,4 +485,25 @@ cosxmlCopyTask.pause();
 
 //恢复复制
 cosxmlCopyTask.resume();
+```
+
+### 删除对象
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置，即称对象键.
+
+DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(bucket, cosPath);
+//发送请求 
+cosXmlService.deleteObjectAsync(deleteObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Delete Object success...
+		DeleteObjectResult deleteObjectResult  = (DeleteObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Delete Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
 ```
