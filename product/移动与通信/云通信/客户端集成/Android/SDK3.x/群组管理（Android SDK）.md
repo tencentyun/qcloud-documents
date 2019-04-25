@@ -148,7 +148,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 **权限说明：**
 
 - **私有群：**群成员无需受邀用户同意，直接将其拉入群中。
-- **公开群/聊天室：**不允许群成员邀请他人入群。
+- **公开群/聊天室：**不允许群成员邀请他人入群。只能由 App 管理员通过 REST API 邀请他人入群。
 - **音视频聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
 
 **原型：**

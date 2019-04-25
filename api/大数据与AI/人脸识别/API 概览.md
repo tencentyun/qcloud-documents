@@ -16,5 +16,4 @@
 | 人脸验证   | [查看文档](https://cloud.tencent.com/document/product/867/17589) |
 | 人脸检索   | [查看文档](https://cloud.tencent.com/document/product/867/17586) |
 | 多脸检索   | [查看文档](https://cloud.tencent.com/document/product/867/17590) |
-| 人脸融合   | [查看文档](https://cloud.tencent.com/document/product/670/14357) |
 | 人脸静态活体检测   | [查看文档](https://cloud.tencent.com/document/product/867/17587) |

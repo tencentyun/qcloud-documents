@@ -35,7 +35,7 @@ pip.main(['install', "package_name"])
 在 PyCaffe 节点上单击右键，可查看任务状态和详细日志。
 ![](https://main.qcloudimg.com/raw/e59b70aa550f2bc571f6c9238358e711.png)
 详细日志如下：
-![](https://main.qcloudimg.com/raw/4eb6a08b1ab47025901a205013eb48fd.png)
+![](https://main.qcloudimg.com/raw/cccec2ede364c78096352d4f27a6a53e.png)
 >?stdout.log 为全部日志，stderr.log 为错误日志。
 
 
