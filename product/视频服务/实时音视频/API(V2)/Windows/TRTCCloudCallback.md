@@ -218,7 +218,7 @@ __介绍__
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 void onNetworkQuality(TRTCQualityInfo localQuality, TRTCQualityInfo * remoteQuality, uint32_t remoteQualityCount)
 ```
@@ -532,7 +532,7 @@ __介绍__
 
 ### onStopPublishCDNStream
 
-接口 stopPublishCDNStream 的状态回调。
+停止旁路推流到 CDN 的回调。
 ```
 void onStopPublishCDNStream(int errCode, const char * errMsg)
 ```
@@ -547,6 +547,25 @@ __参数__
 __介绍__
 
 对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+混流接口的状态回调。
+```
+void onSetMixTranscodingConfig(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | int | 错误码，参考 TXLiteAVCode.h。 |
+| errMsg | const char * | 错误详细信息。 |
+
+__介绍__
+
+对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。
 
 
 

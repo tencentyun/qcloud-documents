@@ -312,6 +312,52 @@ __介绍__
 在 iPad、iPhone 等设备180度旋转时，由于摄像头的采集方向没有变，所以另一边的用户看到的画面是上下颠倒的， 在这种情况下，您可以通过该接口将 SDK 输出到对方的画面旋转180度，这样可以可以确保对方看到的画面依然正常。
 
 
+### setLocalViewMirror
+
+设置本地摄像头预览画面的镜像模式（iOS）。
+```
+- (void)setLocalViewMirror:(TRTCLocalVideoMirrorType)mirror 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | TRTCLocalVideoMirrorType | 镜像模式。 |
+
+
+### setLocalViewMirror
+
+设置本地摄像头预览画面的镜像模式（Mac）。
+```
+- (void)setLocalViewMirror:(BOOL)mirror 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | BOOL | 镜像模式。 |
+
+
+### setVideoEncoderMirror
+
+设置编码器输出的画面镜像模式。
+```
+- (void)setVideoEncoderMirror:(BOOL)mirror 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | BOOL | 是否开启远端镜像，YES:开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
+
+__介绍__
+
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+
+
 ### setGSensorMode
 
 设置重力感应的适应模式。
@@ -390,20 +436,6 @@ __参数__
 __介绍__
 
 低端设备推荐优先选择低清晰度的小画面。 如果对方没有开启双路视频模式，则此操作无效。
-
-
-### setLocalVideoMirror
-
-设置摄像头本地预览是否开镜像。
-```
-- (void)setLocalVideoMirror:(BOOL)mirror 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| mirror | BOOL | 是否开启预览镜像。 |
 
 
 
@@ -505,15 +537,14 @@ __参数__
 
 启用音量大小提示。
 ```
-- (void)enableAudioVolumeEvaluation:(NSUInteger)interval smooth:(NSInteger)smoothLevel 
+- (void)enableAudioVolumeEvaluation:(NSUInteger)interval 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | NSUInteger | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
-| smoothLevel | NSInteger | 灵敏度，[0,10]，数字越大，波动越灵敏。 |
+| interval | NSUInteger | 决定了 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；详细的回调规则请参考 onUserVoiceVolume 的注释说明。 |
 
 __介绍__
 
@@ -878,11 +909,11 @@ __参数__
 |-----|-----|-----|
 | image | TXImage * | 水印图片，**必须使用透明底的 png 格式**。 |
 | streamType | TRTCVideoStreamType | 如果要给屏幕分享的一路也设置水印，需要调用两次的 setWatermark。 |
-| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x，y，width，height 取值范围0 - 1。 |
+| rect | CGRect | 水印相对于编码分辨率的归一化坐标，x, y, width, height 取值范围0 - 1。 |
 
 __介绍__
 
-水印的位置是通过 rect 来指定的，rect 的格式为 (x， y， width， height)
+水印的位置是通过 rect 来指定的，rect 的格式为 (x，y，width，height)
 - x：水印的坐标，取值范围为0 - 1的浮点数。
 - y：水印的坐标，取值范围为0 - 1的浮点数。
 - width：水印的宽度，取值范围为0 - 1的浮点数。
@@ -890,6 +921,140 @@ __介绍__
 
 
 举例：如果当前编码分辨率是540 × 960，rect 设置为（0.1，0.1，0.2，0.0） 那么：水印的左上坐标点就是 (540 × 0.1，960 × 0.1)，也就是 (54，96)，水印的宽度是 540 × 0.2 = 108px，高度自动计算。
+
+
+### setEyeScaleLevel
+
+设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setEyeScaleLevel:(float)eyeScaleLevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| eyeScaleLevel | float | 大眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceScaleLevel
+
+设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setFaceScaleLevel:(float)faceScaleLevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceScaleLevel | float | 瘦脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceVLevel
+
+设置V脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setFaceVLevel:(float)faceVLevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceVLevel | float | V脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setChinLevel
+
+设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setChinLevel:(float)chinLevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| chinLevel | float | 下巴拉伸或收缩级别，取值范围 -9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。 |
+
+
+### setFaceShortLevel
+
+设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setFaceShortLevel:(float)faceShortlevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceShortlevel | float | 短脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setNoseSlimLevel
+
+设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setNoseSlimLevel:(float)noseSlimLevel 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| noseSlimLevel | float | 瘦鼻级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setGreenScreenFile
+
+设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setGreenScreenFile:(NSURL *)file 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
+
+__介绍__
+
+此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
+
+
+### selectMotionTmpl
+
+选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)selectMotionTmpl:(NSString *)tmplPath 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| tmplPath | NSString * | 动效文件路径。 |
+
+
+### setMotionMute
+
+设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+```
+- (void)setMotionMute:(BOOL)motionMute 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| motionMute | BOOL | YES：静音；NO：不静音。 |
+
+__介绍__
+
+有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
 
 
 
@@ -1114,15 +1279,18 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420格式数据。 |
+| frame | TRTCVideoFrame * | 视频数据，支持 PixelBuffer NV12，BGRA，I420 格式数据。 |
 
 __介绍__
 
-TRTCVideoFrame 中有很多字段，推荐如下填写方式（其他字段不需要填写）：
+TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）：
 - pixelFormat：推荐选择 TRTCVideoPixelFormat_NV12。
 - bufferType：推荐选择 TRTCVideoBufferType_PixelBuffer。
 - pixelBuffer：iOS 平台上常用的视频数据格式。
+- data：视频裸数据格式，bufferType 为 NSData 时使用。
 - timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+- width：视频图像长度，bufferType 为 NSData 时填写。
+- height：视频图像宽度，bufferType 为 NSData 时填写。
 
 
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
@@ -1221,6 +1389,18 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | frame | TRTCAudioFrame * | 音频数据。 |
+
+__介绍__
+
+TRTCAudioFrame 推荐如下填写方式：
+
+- data：音频帧 buffer。音频帧数据必须是 PCM 格式，推荐每帧20ms采样数。【48000采样率、单声道的帧长度：48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+- sampleRate：采样率，仅支持48000。
+- channel：频道数量（如果是立体声，数据是交叉的），单声道：1； 双声道：2。
+- timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+
+
+参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 >?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 

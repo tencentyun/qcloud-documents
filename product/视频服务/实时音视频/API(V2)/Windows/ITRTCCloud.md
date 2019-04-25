@@ -1,3 +1,4 @@
+
 ITRTCCloud @ TXLiteAVSDK。
 
 ## 创建与销毁
@@ -306,6 +307,38 @@ __参数__
 | rotation | TRTCVideoRotation | 支持90、180、270旋转角度。 |
 
 
+### setLocalViewMirror
+
+设置摄像头本地预览是否开镜像。
+```
+void setLocalViewMirror(bool mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | bool | 是否开启预览镜像。 |
+
+
+### setVideoEncoderMirror
+
+设置远端看到的画面是否镜像。
+```
+void setVideoEncoderMirror(bool mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | bool | 是否开启远端镜像, true：远端画面镜像；false：远端画面非镜像。默认值为 false。 |
+
+__介绍__
+
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+
+
 ### enableSmallVideoStream
 
 开启大小画面双路编码模式。
@@ -363,20 +396,6 @@ __参数__
 __介绍__
 
 低端设备推荐优先选择低清晰度的小画面。 如果对方没有开启双路视频模式，则此操作无效。
-
-
-### setLocalVideoMirror
-
-设置摄像头本地预览是否开镜像。
-```
-void setLocalVideoMirror(bool mirror)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| mirror | bool | 是否开启预览镜像。 |
 
 
 
@@ -459,15 +478,14 @@ __参数__
 
 启用或关闭音量大小提示。
 ```
-void enableAudioVolumeEvaluation(uint32_t interval, uint32_t smoothLevel)
+void enableAudioVolumeEvaluation(uint32_t interval)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
-| smoothLevel | uint32_t | 灵敏度，[0,10]，数字越大，波动越灵敏。 |
+| interval | uint32_t | 报告间隔单位为ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
 
 __介绍__
 
@@ -922,7 +940,7 @@ __介绍__
 
 ### sendCustomVideoData
 
-发送自定义的 SampleBuffer。
+向 SDK 投送自己采集的视频数据。
 ```
 void sendCustomVideoData(TRTCVideoFrame * frame)
 ```
@@ -931,9 +949,25 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame * | 视频数据，仅支持 PixelBuffer I420数据。 |
+| frame | TRTCVideoFrame * | 视频数据，支持 I420 格式数据。 |
 
->?SDK 内部不做帧率控制，请务必保证调用该函数的频率和 setVideoEncoderParam 中设置的帧率一致，否则编码器输出的码率会不受控制。
+__介绍__
+
+TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）：
+- pixelFormat：仅支持 LiteAVVideoPixelFormat_I420。
+- bufferType：仅支持 LiteAVVideoBufferType_Buffer。
+- data：视频帧 buffer。
+- length：视频帧数据长度，I420 格式下，其值等于：width × height × 3 / 2。
+- width：视频图像长度。
+- height：视频图像宽度。
+- timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+
+
+参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
+
+>?
+>- SDK 内部有帧率控制逻辑，目标帧率以您在 setVideoEncoderParam 中设置的为准，太快会自动丢帧，太慢则会自动补帧。
+>- 可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomVideoData 的调用间隔，否则会导致视频帧率不稳定。
 
 
 ### enableCustomAudioCapture
@@ -961,10 +995,22 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频帧，仅支持 PCM 数据。目前只支持单声道，48K或16K音频采样率，LiteAVAudioFrameFormatPCM 格式。 |
+| frame | TRTCAudioFrame * | 音频帧，仅支持 LiteAVAudioFrameFormatPCM 格式。目前只支持单声道，仅支持48K采样率，LiteAVAudioFrameFormatPCM 格式。 |
 
->?frame.timestamp 填写无效，SDK 内部会重打时间戳。为了保证时间戳正常，建议根据发送的音频数据量来控制 sendCustomAudioData 的调用间隔。
+__介绍__
 
+TRTCAudioFrame 推荐如下填写方式（其他字段不需要填写）：
+- audioFormat：仅支持 LiteAVAudioFrameFormatPCM。
+- data：音频帧 buffer。
+- length：音频帧数据长度，推荐每帧20ms采样数。【PCM格式、48000采样率、单声道的帧长度：48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+- sampleRate：采样率，仅支持48000。
+- channel：频道数量（如果是立体声，数据是交叉的），单声道：1； 双声道：2。
+- timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+
+
+参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
+
+>?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 
 
 ### setLocalVideoRenderCallback
@@ -1310,7 +1356,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| testAudioFilePath | const char * | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式: WAV、MP3。 |
+| testAudioFilePath | const char * | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式：WAV、MP3。 |
 
 __介绍__
 
