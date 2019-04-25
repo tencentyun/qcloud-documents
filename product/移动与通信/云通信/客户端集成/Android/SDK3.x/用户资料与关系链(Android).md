@@ -332,11 +332,11 @@ TIMFriendshipManager.getInstance().getFriendList(new TIMValueCallBack<List<TIMFr
 修改好友调用`modifyFriend`方法进行。与修改自己资料方法类似，可一次更新多个字段。
 ```
 /**
-* 修改好友资料
-* @param identifier 好友标识
-* @param profileMap 修改的字段，见TIMFriend中的TIM_FRIEND_PROFILE_TYPE_KEY_XXX
-* @param cb 回调
-*/
+ * 修改好友资料
+ * @param identifier 好友标识
+ * @param profileMap 修改的字段，见TIMFriend中的TIM_FRIEND_PROFILE_TYPE_KEY_XXX
+ * @param cb 回调
+ */
 public void modifyFriend(@NonNull String identifier, @NonNull HashMap<String, Object> profileMap, @NonNull TIMCallBack cb)
 ```
 设置不存在的键值可能会导致失败，后台定义了一些常用的键值
