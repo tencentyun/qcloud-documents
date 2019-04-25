@@ -89,8 +89,8 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 ### 通过 Composer 安装
 通过 Composer 获取安装是使用 PHP SDK 的推荐方法，Composer 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Composer 详细可参考 [Composer 官网 ](https://www.phpcomposer.com/)。
 1. 安装 Composer：
-    windows 环境请访问 [Composer官网](https://getcomposer.org/download/) 下载安装包安装。
-    unix 环境在命令行中执行以下命令安装。
+    Windows 环境请访问 [Composer官网](https://getcomposer.org/download/) 下载安装包安装。
+    UNIX 环境在命令行中执行以下命令安装。
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
@@ -145,7 +145,7 @@ catch(TencentCloudSDKException $e) {
 
 ## 更多示例
 
-您可以在 GitHub仓库 中 examples 目录下找到更详细的示例。
+您可以在 GitHub 仓库中 examples 目录下找到更详细的示例。
 
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请到[旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。
