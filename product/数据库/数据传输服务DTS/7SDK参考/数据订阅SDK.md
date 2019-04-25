@@ -67,10 +67,10 @@ public class Main {
         SubscribeContext context=new SubscribeContext();
 
         //用户secretId、secretKey
-        context.setSecretId("AKID-522dabaa14dceed746ba8ccfb58e9e6f");
-        context.setSecretKey("AKEY-0ff4c4557c1183fc572baecfa505869d");
+        context.setSecretId("AKID-522dabxxxxxxxxxxxxxxxxxx");
+        context.setSecretKey("AKEY-0ff4cxxxxxxxxxxxxxxxxxxxx");
 
-        // 设置channel所在的region。2.8.0以后的SDK推荐设置region参数.
+        // 设置channel所在的region，2.8.0以后的SDK推荐设置region参数
         // region值参照：https://cloud.tencent.com/document/product/236/15833#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
         context.setRegion("ap-beijing");
         // 订阅的serviceIp和servicePort
@@ -115,7 +115,8 @@ public class Main {
  3. 最后启动客户端，开始流程。
 在监听器`ClusterListener`中，可以根据用户自身的需求，对收到的数据进行操作，还可以对收到 Binlog 数据根据类型进行过滤，例如过滤掉所有`drop`语句等。
  
-示例代码中，用户需要提供五个参数。其中`secretId`和`secretKey`是跟用户腾讯云账号关联的密钥值，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看。SDK 用这两个参数来对用户操作进行鉴权；另外三个参数`serviceIp`、`servicePort`、`channelId`都是与用户 Binlog 订阅相关的，在云数据库 MySQL 相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
-
+示例代码中，用户需要提供五个参数。
+- 其中`secretId`和`secretKey`是跟用户腾讯云账号关联的密钥值，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看，SDK 用这两个参数来对用户操作进行鉴权。
 >!数据订阅 SDK 已经接入了 CAM 权限控制，根账号默认有所有的权限，可以直接用根账号的云 API 密钥访问；子账号默认没有任何权限，需要根账号给子账号赋予`name/dts:AuthenticateSubscribeSDK`操作的权限，或者赋予 DTS 所有操作的权限`QcloudDTSFullAccess`。
-
+- 另外三个参数`serviceIp`、`servicePort`、`channelId`都是与用户 Binlog 订阅相关的，在云数据库 MySQL 相应页面配置好订阅内容后，可在 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/dss) 的【数据订阅】页查看。
+>?`serviceIp`即数据订阅控制台的【通道ID】、`servicePort`即【服务地址】里的 IP、`channelId`即【服务地址】里的端口号。
