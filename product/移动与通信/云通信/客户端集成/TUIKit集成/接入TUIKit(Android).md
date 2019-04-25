@@ -27,26 +27,26 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 ## 集成TUIKit
 
-首先开发者需在自身主工程的 build.gradle 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。同时在 <a href="https://github.com/tencentyun/TIMSDK">项目</a>中 TIMSDK/Android/tuikit/libs/ 目录下，下载最新的TUIKit组件。
+首先开发者需在自身主工程的 build.gradle 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。同时在 <a href="https://github.com/tencentyun/TIMSDK">项目 </a>中 TIMSDK/Android/tuikit/libs/ 目录下，下载最新的TUIKit组件。
 
-接下来要使用aar文件，需要经过以下几步：
-
-<pre>
+#### 集成步骤：
 
 1、在 app 的 build.gradle 中加入以下配置
 
+<pre>
 repositories {    
     flatDir {        
         dirs 'libs'   // aar目录
       }
 }
+</pre>
 
 2、将 aar 文件拷贝到工程app/libs目录下
 
 3、在 dependencies 中加入aar引用
 
+<pre>
 implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
-
 </pre>
 
 TUIKit 会自动加载所需的 IMSDK。
