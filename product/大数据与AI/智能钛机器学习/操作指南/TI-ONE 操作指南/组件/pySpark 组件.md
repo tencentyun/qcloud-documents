@@ -103,6 +103,6 @@ filtered = processed.filter(judge_fn)
 process_fn 或 judge_fn 会分发到每个节点上分布式执行，您可以在 process_fn 或 judge_fn 中使用任何 Python 库（如 numpy、scikit-learn 等）。
 
 更多关于 Spark 的使用可以参考以下文档：
-* [RDD](http://spark.apache.org/docs/2.1.1/programming-guide.html)
-* [DataFrame](http://spark.apache.org/docs/2.1.1/sql-programming-guide.html)
-* [Python API](http://spark.apache.org/docs/2.1.1/api/python/index.html)
+* [RDD](http://spark.apache.org/docs/2.2.1/programming-guide.html)
+* [DataFrame](http://spark.apache.org/docs/2.2.1/sql-programming-guide.html)
+* [Python API](http://spark.apache.org/docs/2.2.1/api/python/index.html)
