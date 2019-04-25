@@ -869,13 +869,27 @@ public void getFriendGroups(List<String> groupNames, @NonNull TIMValueCallBack<L
  */
 public class TIMSNSSystemElem extends TIMElem {
     private int subType = 0;
-    private List<String> requestAddFriendUserList = new ArrayList<>();             // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_FRIEND
-    private List<String> delRequestAddFriendUserList = new ArrayList<>();          // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_FRIEND
-    private List<String> addBlacklistUserList = new ArrayList<>();                 // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_BLACKLIST
-    private List<String> delBlacklistUserList = new ArrayList<>();                 // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_BLACKLIST
-    private List<TIMFriendPendencyInfo> friendAddPendencyList = new ArrayList<>(); // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_FRIEND_REQ
-    private List<String> delFriendAddPendencyList = new ArrayList<>();             // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_FRIEND_REQ
-    private List<TIMSNSChangeInfo>  changeInfoList = new ArrayList<>();            // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_SNS_PROFILE_CHANGE
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_FRIEND
+    private List<String> requestAddFriendUserList = new ArrayList<>();
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_FRIEND
+    private List<String> delRequestAddFriendUserList = new ArrayList<>();
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_BLACKLIST
+    private List<String> addBlacklistUserList = new ArrayList<>();
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_BLACKLIST
+    private List<String> delBlacklistUserList = new ArrayList<>();
+
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_ADD_FRIEND_REQ
+    private List<TIMFriendPendencyInfo> friendAddPendencyList = new ArrayList<>();
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_DEL_FRIEND_REQ
+    private List<String> delFriendAddPendencyList = new ArrayList<>();
+    
+    // subType 对应 TIMSNSSystemType.TIM_SNS_SYSTEM_SNS_PROFILE_CHANGE
+    private List<TIMSNSChangeInfo>  changeInfoList = new ArrayList<>();
 		
     public TIMSNSSystemElem() { type = TIMElemType.SNSTips; }
 		
