@@ -46,7 +46,10 @@ repositories {
 3、在 dependencies 中加入 aar 引用
 
 <pre>
-implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
+dependencies {
+    ...
+    implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
+}
 </pre>
 
 TUIKit 会自动加载所需的 IMSDK。
