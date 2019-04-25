@@ -1,4 +1,4 @@
-# vemo 入门案例
+# vemo 案例
 
 基于 [vemo](https://github.com/vemoteam/vemo) 框架的 `hello world` 示例。
 
@@ -9,9 +9,15 @@
 
 ## 获取机器的 IP 和密码
 
-购买主机后，到腾讯云 `云主机控制台` 获取机器的 `IP` 并且到 `消息中心` 获取主机的密码。
+购买主机后，到腾讯云 `云主机控制台` 获取机器的 IP 并且到 `消息中心` 获取主机的密码。
 
 ![消息中心](https://main.qcloudimg.com/raw/bbcd54b3d0501881b37cd3ffa62121e6.png)
+
+## 获取腾讯云 SecretId 和 SecretKey
+
+获取 `secretId` 和 `secretKey`。通过此[链接](https://www.qcloud.com/login/mp?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcam%2Fcapi)登录小程序对应的腾讯云帐号(需要小程序管理员或拥有者权限)，然后在[云API密钥](https://console.cloud.tencent.com/cam/capi) 里获取。
+
+![](https://main.qcloudimg.com/raw/63512b321eee6c8779d6cb5b20f641cf.png)
 
 ## 初始化项目
 
@@ -39,15 +45,18 @@ npm start
 ```shell
 ## 安装命令行工具
 npm i -g @cloudbase/cli
+
+## 登陆并填入腾讯云云主机 IP， SSH 登陆密码，secretId 和 secretKey
+tcb login
 ```
 
-然后基于 `tcb.example.json` 创建 `tcb.json` 配置文件，然后填入机器的 `IP` 和 `SSH` 登陆密码。然后运行以下命令进行部署。
+然后运行以下命令进行首次部署。
 
 ```shell
 tcb deploy --start
 ```
 
-如果是进行重启，则运行以下命令：
+如果是进行二次部署及重启，则运行以下命令：
 
 ```shell
 tcb deploy
