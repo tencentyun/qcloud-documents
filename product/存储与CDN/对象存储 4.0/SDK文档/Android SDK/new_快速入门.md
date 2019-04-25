@@ -1,27 +1,29 @@
-## 快速接入
+## 下载与安装
 
 ### 相关资源
 **源码和示例工程**
 
-COS Android SDK 相关源码请参见 [COS Android SDK Github 地址](https://github.com/tencentyun/qcloud-sdk-android)。
-示例 demo 请参见 [COS Android SDK 示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)。
+- COS Android SDK 相关源码请参见 [COS Android SDK Github 地址](https://github.com/tencentyun/qcloud-sdk-android)。
+- 示例 demo 请参见 [COS Android SDK 示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)。
 
 **更新日志**
 
-COS Android SDK 更新日志请参见 [COS Android SDK 更新日志](https://github.com/tencentyun/qcloud-sdk-android/blob/master/CHANGELOG.md)。
+COS Android SDK 更新日志请参阅 [COS Android SDK 更新日志](https://github.com/tencentyun/qcloud-sdk-android/blob/master/CHANGELOG.md)。
 
-### 接入准备
+### 环境依赖
 
 1. SDK 支持 Android 2.2及以上版本的手机系统。
 2. 手机必须要有网络（GPRS、3G 或 WIFI 网络等）。
-3. 手机可以没有存储空间，但会使部分功能无法正常工作。
-4. 从 [COS 控制台](https://console.cloud.tencent.com/cos4/secret) 获取 APPID、SecretId、SecretKey。
+3. 手机存储空间不足会使部分功能无法正常工作，请预留一定的手机存储空间。
+4. 从访问管理控制台中的 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取 SecretId、SecretKey，以及在 [账号设置](https://console.cloud.tencent.com/developer) 中获取 APPID 信息。
 
->?关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
+>?关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参阅 [COS 术语信息](https://cloud.tencent.com/document/product/436/7751)。
 
-### 配置权限
+### 安装 SDK
 
-使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0 以上还需要动态获取权限）：
+#### 配置权限
+
+使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中添加如下权限声明（Android 5.0 以上还需要动态获取权限）：
 ```html
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -30,9 +32,10 @@ COS Android SDK 更新日志请参见 [COS Android SDK 更新日志](https://git
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
-### 集成 SDK
+#### 集成 SDK
+您可以通过两个方式集成 SDK：自动集成和手动集成。
 
-#### 自动集成（**推荐**）
+**自动集成（推荐）**
 
 1、在您的项目根目录下的 build.gradle 文件中添加 maven 仓库：
 
@@ -75,7 +78,7 @@ dependencies {
 	...
     // 增加这行
    compile ('com.tencent.qcloud:cosxml:5.4.23'){
-        exclude group:'com.tencent.qcloud', module: 'mtaUtils' //关闭mta上报功能
+        exclude group:'com.tencent.qcloud', module: 'mtaUtils' //关闭 mta 上报功能
     }
 }
 ```
@@ -86,11 +89,12 @@ dependencies {
 	...
     // 增加这行
     compile ('com.tencent.qcloud:cosxml-lite:5.4.23'){
-        exclude group:'com.tencent.qcloud', module: 'mtaUtils' //关闭mta上报功能
+        exclude group:'com.tencent.qcloud', module: 'mtaUtils' //关闭 mta上报功能
     }
 }
 ```
-#### 手动集成
+
+**手动集成**
 
 需要在工程项目中导入下列 jar 包，存放在 libs 文件夹下：
 
@@ -107,14 +111,14 @@ dependencies {
 您可以在这里 [COS XML Android SDK-release](https://github.com/tencentyun/qcloud-sdk-android/releases) 下载所有的 jar 包，建议您使用最新的 release 包。
 
 ## 开始使用
-下面为您介绍如何使用 COS Android SDK 完成一个基础操作，如初始化客户端、创建存储桶、查询存储桶列表、上传对象、查询对象列表、下载对象和删除对象.
+下面为您介绍如何使用 COS Android SDK 完成一个基础操作，如初始化客户端、创建存储桶、查询存储桶列表、上传对象、查询对象列表、下载对象和删除对象。
 
 ### 初始化 
 
-在执行任何和 COS 服务相关请求之前，都需要先实例化 CosXmlService 对象，具体可分为如下几步:
+在执行任何和 COS 服务相关请求之前，都需要先实例化 CosXmlService 对象，具体可分为如下几步：
 1. 初始化配置类 CosXmlServiceConfig；
 2. 初始化授权类 QCloudCredentialProvider；
-3. 初始化COS 服务类 CosXmlService.
+3. 初始化 COS 服务类 CosXmlService.
 
 #### 初始化配置类
 
@@ -132,9 +136,9 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 #### 初始化授权类
 
-在终端直接通过永久密钥来进行身份认证会存在泄漏密钥的风险，COS 终端 SDK（Android/IOS）均支持通过临时密钥来授权请求，您只需要搭建一个返回临时密钥的服务，即可给终端 COS 请求进行授权，我们强烈建议您使用这种方式，具体请参考 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068)。
+在终端直接通过永久密钥来进行身份认证会存在泄漏密钥的风险，COS 终端 SDK（Android/IOS）均支持通过临时密钥来授权请求，您只需要搭建一个返回临时密钥的服务，即可给终端 COS 请求进行授权，我们强烈建议您使用这种方式，具体请参阅 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068)。
 
-#### 通过临时密钥进行授权（推荐）
+##### 通过临时密钥进行授权（推荐）
 
 - 标准响应体授权
 
@@ -158,7 +162,7 @@ QCloudCredentialProvider credentialProvider = new SessionCredentialProvider(new 
                 .method("GET")
                 .build());
 ```
->!标准响应体授权方式下签名的开始时间为手机本地时间，因此如果手机本地时间偏差较大（十分钟以上），可能会导致签名出错，这种情况可以使用下述的自定义响应体授权。
+>!标准响应体授权方式下，签名的开始时间为手机本地时间，因此如果手机本地时间偏差较大（十分钟以上），可能会导致签名出错，这种情况可以使用下述的自定义响应体授权。
 
 - 自定义响应体授权
 
@@ -176,13 +180,13 @@ public class MyCredentialProvider extends BasicLifecycleCredentialProvider {
         ....
         
         // 然后解析响应，获取密钥信息
-        String tmpSecretId = ...;
-        String tmpSecretKey = ...;
-        String sessionToken = ...;
-        long expiredTime = ...;
+        String tmpSecretId = "COS_SECRETID"; //临时密钥 secretId
+        String tmpSecretKey = "COS_SECRETKEY"; //临时密钥 secretKey
+        String sessionToken = "TOKEN"; //临时密钥 Token
+        long expiredTime = 1556183496L;//临时密钥有效截止时间
         
         // 返回服务器时间作为签名的起始时间
-        long beginTime = ...;
+        long beginTime = 1556182000L; //临时密钥有效起始时间
          
         // todo something you want
          
@@ -201,7 +205,7 @@ public class MyCredentialProvider extends BasicLifecycleCredentialProvider {
 QCloudCredentialProvider credentialProvider = new MyCredentialProvider();
 ```
 
-#### 通过永久密钥进行授权
+##### 通过永久密钥进行授权
 
 如果您没有搭建临时密钥服务，则可以使用永久密钥来初始化授权类。由于该方式会存在泄漏密钥的风险，我们**强烈不推荐您使用这种方式**，建议您仅在安全的环境下临时测试时使用，代码如下。
 
@@ -262,7 +266,7 @@ cosXmlService.getServiceAsync(getServiceRequest, new CosXmlResultListener() {
 });
 ```
 
-### 上传文件
+### 上传对象
 
 **TransferManager**、**COSXMLUploadTask** 封装了简单上传、分片上传接口的异步请求，并支持暂停、恢复以及取消上传请求，同时支持续传功能。我们推荐使用这种方式来上传文件，示例代码如下。
 
@@ -335,8 +339,8 @@ cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
 /**
 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
- putObjectRequest.setRegion(region); //设置存储桶所在的园区
- putObjectRequest.setNeedMD5(true); //是否启用Md5校验
+ putObjectRequest.setRegion(region); //设置存储桶所在的地域
+ putObjectRequest.setNeedMD5(true); //是否启用 Md5 校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
 */
 
@@ -383,7 +387,7 @@ cosXmlService.getBucketAsync(getBucketRequest, new CosXmlResultListener() {
 });
 ```
 
-### 下载文件
+### 下载对象
 **TransferManager**、**COSXMLDownloadTask** 封装了下载接口的异步请求，并支持暂停、恢复以及取消下载请求，同时支断点下载功能。我们推荐使用这种方式来下载文件，示例代码如下。
 ```java
 Context applicationContext = "application 上下文"； // getApplicationContext()
@@ -438,53 +442,6 @@ cosxmlDownloadTask.pause();
 //恢复下载
 cosxmlDownloadTask.resume();
 
-```
-
-### 复制文件
-**TransferManager**、**COSXMLCopyTask** 封装了简单复制、分片复制接口的异步请求，并支持暂停、恢复以及取消复制请求。我们推荐使用这种方式来复制文件，示例代码如下。
-```java
-String bucket = "存储桶名称"; //目标文件的存储桶
-String cosPath = "对象键"; //即目标文件存储到 COS 上的绝对路径, 格式如 cosPath = "test.txt";
-CopyObjectRequest.CopySourceStruct copySourceStruct = new CopyObjectRequest.CopySourceStruct(
-                "源文件存储桶所在的appid", "源文件存储桶", "源文件存储桶所在的园区", "源文件的对象键");// 源文件所在 cos 的位置描述
-//复制文件
-COSXMLCopyTask cosxmlCopyTask = transferManager.copy(bucket, cosPath, copySourceStruct);
-//设置返回结果回调
-cosxmlCopyTask.setCosXmlResultListener(new CosXmlResultListener() {
-            @Override
-            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-				COSXMLCopyTaskResult cOSXMLCopyTaskResult = (COSXMLCopyTaskResult)result;
-                Log.d("TEST",  "Success: " + cOSXMLCopyTaskResult.printResult());
-            }
-
-            @Override
-            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
-            }
-        });
-//设置任务状态回调, 可以查看任务过程
-cosxmlCopyTask.setTransferStateListener(new TransferStateListener() {
-            @Override
-            public void onStateChanged(TransferState state) {
-                Log.d("TEST", "Task state:" + state.name());
-            }
-        });
-/**
-若有特殊要求，则可以如下操作：
-CopyObjectRequest copyObjectRequest = new CopyObjectRequest(bucket, cosPath, copySourceStruct);
-copyObjectRequest.setRegion(region); //设置存储桶所在的园区
-COSXMLCopyTask cosxmlCopyTask = transferManager.copy(copyObjectRequest);
-*/
-
-//取消复制
-cosxmlCopyTask.cancel();
-
-
-//暂停复制
-cosxmlCopyTask.pause();
-
-//恢复复制
-cosxmlCopyTask.resume();
 ```
 
 ### 删除对象
