@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-        // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+        // 实例化一个认证对象，入参需要传入腾讯云账户 secretId，secretKey
         credential := common.NewCredential(
                 "your-secret-id",
                 "your-secret-key",
@@ -119,11 +119,11 @@ func main() {
         cpf.HttpProfile.ReqTimeout = 5
         cpf.SignMethod = "HmacSHA1"
 
-        // 实例化要请求产品(以cvm为例)的client对象
+        // 实例化要请求产品(以 CVM 为例)的 client 对象
         client, _ := cvm.NewClient(credential, "ap-beijing", cpf)
         // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
         request := cvm.NewDescribeZonesRequest()
-        // 通过client对象调用想要访问的接口，需要传入请求对象
+        // 通过 client 对象调用想要访问的接口，需要传入请求对象
         response, err := client.DescribeZones(request)
         // 处理异常
         if _, ok := err.(*errors.TencentCloudSDKError); ok {
@@ -134,11 +134,11 @@ func main() {
         if err != nil {
                 panic(err)
         }
-        // 打印返回的json字符串
+        // 打印返回的 JSON 字符串
         fmt.Printf("%s", response.ToJsonString())
 }
 ```
 
 ## 更多示例
 
-更多示例参见 [examples](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples) 目录。对于复杂接口的 Request 初始化例子，可以参考 examples/cvm/v20170312/run_instances.go 。对于使用 json 字符串初始化 Request 的例子，可以参考 examples/cvm/v20170312/describe_instances.go 。
+更多示例参见 [examples](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples) 目录。对于复杂接口的 Request 初始化例子，可以参考 examples/cvm/v20170312/run_instances.go 。对于使用 JSON 字符串初始化 Request 的例子，可以参考 examples/cvm/v20170312/describe_instances.go 。
