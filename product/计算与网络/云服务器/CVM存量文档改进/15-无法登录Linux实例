@@ -23,7 +23,7 @@
 
 
 ## 通过 VNC 方式登录
-<span id="VNC">
+<span id="VNC"></span>
 当您无法通过标准方式（Webshell）或者远程登录软件登录 Linux 实例时，建议您尝试使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。在实例列表中选择您需要登录的实例，并单击右侧【登录】
@@ -31,7 +31,7 @@
 2. 在弹出的【登录 Linux 实例】页面，选择【其他方式（VNC）】并单击【立即登录】。
 <img src="https://main.qcloudimg.com/raw/d737c215e47d261574abb5792ef3cd8f.png" height="300" width="400" />
 3. 在弹出的对话框中，输入用户名和密码登录。 如果您忘记密码，您可以在控制台重置该实例的密码。具体可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 。
-</span>
+
 
 ## 故障排查思路
 ### 密码问题导致无法登录
