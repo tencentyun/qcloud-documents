@@ -38,7 +38,7 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 <pre>
 repositories {    
     flatDir {        
-        dirs 'libs'   // aar目录
+        dirs 'libs'   // aar 目录
       }
 }
 </pre>
