@@ -1,4 +1,4 @@
-以下为连接 TDSQL 后一些简单的数据库操作介绍，这里以分表为例。
+以下为连接 TDSQL 后一些简单的数据库操作介绍，本文以分表为例。
 
 ## 建表
 - 分表、单表、广播表的区别详情请参考 [相关表详情文档](https://cloud.tencent.com/document/product/557/8764#.E5.88.86.E8.A1.A8.EF.BC.9A.E5.8F.82.E8.80.83.26lt.3B.E5.88.86.E8.A1.A8.26gt.3B)。
@@ -33,6 +33,6 @@ mysql> select id from test1 where id=1;
 
 删除代码示例如下：
 ```
-mysql> delete from test1 where a=1;
+mysql> delete from test1 where id=1;
 Query OK, 1 row affected (0.02 sec)
 ```
