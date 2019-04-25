@@ -27,20 +27,28 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 ## 集成TUIKit
 
-首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。
+首先开发者需在自身主工程的 build.gradle 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。同时在 <a href="https://github.com/tencentyun/TIMSDK">项目 </a>中 TIMSDK/Android/tuikit/libs/ 目录下，下载最新的 TUIKit 组件。
+
+#### 集成步骤：
+
+1、将下载的 aar 文件拷贝到您工程的 app/libs 目录下
+
+2、在 app 的 build.gradle 中加入以下配置
 
 <pre>
-android {
-    defaultConfig {
-        ndk {
-            abiFilters 'armeabi-v7a' //目前仅提供 armeabi-v7a 的 so 库
-        }
-    }
+repositories {    
+    flatDir {        
+        dirs 'libs'   // aar 目录
+      }
 }
+</pre>
 
+3、在 dependencies 中加入 aar 引用
+
+<pre>
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
+    implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
 }
 </pre>
 
@@ -302,7 +310,7 @@ public class GroupChatFragment extends BaseFragment {
 
 
 - <span id="configs">IMSDK 的版本指定</span>
-目前 TUIKit 所依赖的 IMSDK 版本为 V3.5.0.133。后续 TUIKit 将支持更多版本的腾讯云 IMSDK，届时将在文档里说明如何指定 TUIKit 所依赖的 IMSDK 版本。敬请期待。
+目前 TUIKit 所依赖的 IMSDK 版本为 V3.5.0.133。后续 TUIKit 将支持更多版本的腾讯云 IMSDK，届时将在文档里说明如何指定 TUIKit 所依赖的 IMSDK 版本。
 
 
 - <span id="iminit">和已有的 IM SDK 相结合</span>
@@ -587,7 +595,7 @@ public interface IChatPanel {
 
 ## 快速体验
 
-欢迎扫码体验我们的 DEMO，后续会继续完善，敬请期待。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
+欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
 
 ![](https://main.qcloudimg.com/raw/fe3ef4a58c3efa5388e57a653133f392.png)
 
