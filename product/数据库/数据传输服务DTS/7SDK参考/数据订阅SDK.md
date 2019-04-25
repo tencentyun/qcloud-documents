@@ -119,4 +119,4 @@ public class Main {
 - 其中`secretId`和`secretKey`是跟用户腾讯云账号关联的密钥值，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看，SDK 用这两个参数来对用户操作进行鉴权。
 >!数据订阅 SDK 已经接入了 CAM 权限控制，根账号默认有所有的权限，可以直接用根账号的云 API 密钥访问；子账号默认没有任何权限，需要根账号给子账号赋予`name/dts:AuthenticateSubscribeSDK`操作的权限，或者赋予 DTS 所有操作的权限`QcloudDTSFullAccess`。
 - 另外三个参数`serviceIp`、`servicePort`、`channelId`都是与用户 Binlog 订阅相关的，在云数据库 MySQL 相应页面配置好订阅内容后，可在 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/dss) 的【数据订阅】页查看。
->?`serviceIp`即数据订阅控制台的【通道ID】、`servicePort`即【服务地址】里的 IP、`channelId`即【服务地址】里的端口号。
+>?`serviceIp`即数据订阅控制台【服务地址】里的 IP、`servicePort`即【服务地址】里的端口号、`channelId`即【通道ID】。
