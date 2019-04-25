@@ -10,11 +10,17 @@
 4. 远程端口配置异常
 5. 安全组规则不当
 
-## 自助诊断工具
+## 故障排查工具
+### 自助诊断工具
 腾讯云提供自助诊断工具，可以帮助您定位可能引起无法登录的故障原因。您可以点击 [自助诊断](https://console.cloud.tencent.com/workorder/check) 并输入需要诊断的云服务器 instance-id 进行诊断。
 ![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
-比如在下面的例子中，无法访问云服务器的原因是安全组规则配置的问题，您可以通过参考 安全组规则不当 解决问题。
-<img src="https://main.qcloudimg.com/raw/eeaafbd0699c90954207d181f76ad82e.png" height="400" width="350" />
+
+### 实例安全组（端口）验通工具
+如果通过自助诊断工具判断无法连接实例的原因是 **安全组规则不当**，建议您通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 进一步检测，
+![](https://main.qcloudimg.com/raw/c90a6b24338daaf1e092657c0e40260a.png)
+并可以通过工具中的【一键放通】功能放通端口。
+<img src="https://main.qcloudimg.com/raw/d8c43bf2df7e893e0ded86862432fb3a.png" height="400" width="400" />
+
 
 ## 通过 VNC 方式登录
 当您无法通过标准方式（Webshell）或者远程登录软件登录 Linux 实例时，建议您尝试使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
