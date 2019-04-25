@@ -1,7 +1,7 @@
 ## 获取 Demo
 
-- 基于 Spring Cloud Edgware 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/914efff04730993123f73ab6c1935124/tsf-demo-simple-1.12.1-Edware.zip) 
-- 基于 Spring Cloud Finchley 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/08bc178d3f085822c4e2021f8789ec7e/tsf-demo-simple_1.12.1-finchley.zip) 
+- 基于 Spring Cloud Edgware 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/a3e2ddbf8bea79631d64986f72a7f083/tsf-demo-simple-1.12.2-Edware.zip) 
+- 基于 Spring Cloud Finchley 版本 SDK 的 [Demo 下载 >> ](https://main.qcloudimg.com/raw/d26190f5a5a2f6e7f9c57ef47142c6b9/tsf-demo-simple-develop_1.12.2-finchley.zip) 
 
 ## 工程目录
 
