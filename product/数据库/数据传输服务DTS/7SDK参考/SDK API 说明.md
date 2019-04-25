@@ -24,7 +24,7 @@ public void setSecretId(String secretId)
 **抛出异常**
 无
 
-#### 设置安全凭证secretKey
+#### 设置安全凭证 secretKey
 
 **函数原型**
 public void setSecretKey(String secretKey)
@@ -35,10 +35,10 @@ public void setSecretKey(String secretKey)
 |:-------------:|:-------------|:-------------|
 | secretKey| String| 安全凭证 secretKey，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看 |
 
-** 返回结果**
+**返回结果**
 无
 
-** 抛出异常**
+**抛出异常**
 无
 
 
@@ -47,7 +47,7 @@ public void setSecretKey(String secretKey)
 **函数原型**
 public void setServiceIp(String serviceIp)
 
-** 输入参数**
+**输入参数**
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
@@ -101,7 +101,7 @@ public DefaultSubscribeClient(SubscribeContext context, boolean isSync) throws E
 **返回结果**
  DefaultSubscribeClient 实例
  
-** 抛出异常**
+**抛出异常**
  - 	IllegalArgumentException：如果用户提交的参数 context，有参数不合理将抛此异常。不合理包括：没有安全凭证或者格式出错，没有服务的 IP 和端口，或者格式出错。
  - Excetion：如果 SDK 内部初始化出错，将抛 Exception 异常。
   
@@ -111,7 +111,7 @@ public DefaultSubscribeClient(SubscribeContext context, boolean isSync) throws E
 **函数原型**
 public DefaultSubscribeClient(SubscribeContext context) throws Exception
 
-** 输入参数**
+**输入参数**
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
@@ -176,7 +176,7 @@ public void start() throws Exception
 **返回结果**
 无
 
-** 抛出异常**
+**抛出异常**
 Exception：如果 SDK 内部启动出错，将抛 Exception 异常。
 
 
@@ -222,7 +222,7 @@ public abstract void notify(List&lt;ClusterMessage&gt; messages) throws Exceptio
 **返回结果**
 无
 
-** 抛出异常**
+**抛出异常**
 消费订阅数据时，如果有异常会抛到用户实现的 onException 函数中，用户可以根据需求自行处理。
 
 ### 消费订阅数据时的异常处理
@@ -297,10 +297,10 @@ Exception：如果确认过程出现内部错误，将抛出异常。
 ### 类方法
 #### 获取 Record 的属性值
 
-** 函数原型**
+**函数原型**
 public String getAttribute(String key)
 
-** 输入参数**
+**输入参数**
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
@@ -334,19 +334,19 @@ public String getAttribute(String key)
 
 #### **获取记录的变更类型**
 
-** 函数原型**
+**函数原型**
 public DataMessage.Record.Type getOpt()
 
 **输入参数**
 无
 
-** 返回结果**
+**返回结果**
 
 | 类型 | 参数含义 |
 |:-------------|:-------------|
 | DataMessage.Record.Type| 记录类型 DataMessage.Record.Type 可能的取值包括：insert、delete、update、replace、ddl、begin、commit、heartbeat。其中 heartbeat 为数据传输内部定义的心跳表，主要用于检查订阅通道是否健康，理论上每秒都会产生一条 heartbeat。
 
-** 抛出异常**
+**抛出异常**
 无
 
 
@@ -424,7 +424,7 @@ public String getTableName()
 
 #### 获取记录的对应的主键列名
 
-** 函数原型**
+**函数原型**
 public String getPrimaryKeys()
 
 **输入参数**
@@ -436,7 +436,7 @@ public String getPrimaryKeys()
 |:-------------|:-------------|
 |String|主键列名，如果是联合主键，这些列名之间用逗号分隔|
 
-** 抛出异常**
+**抛出异常**
 无
 
 #### 获取订阅实例的数据库类型
@@ -444,10 +444,10 @@ public String getPrimaryKeys()
 **函数原型**
 public DBType getDbType()
 
-** 输入参数**
+**输入参数**
 无
 
-** 返回结果**
+**返回结果**
 
 | 类型 | 参数含义 |
 |:-------------|:-------------|
@@ -459,7 +459,7 @@ public DBType getDbType()
 
 #### 获取 Record 的字段个数
 
-** 函数原型**
+**函数原型**
 public int getFieldCount()
 
 **输入参数**
@@ -479,7 +479,7 @@ public int getFieldCount()
 **函数原型**
 public Boolean isFirstInLogevent()
 
-** 输入参数**
+**输入参数**
 无
 
 **返回结果**
@@ -494,7 +494,7 @@ public Boolean isFirstInLogevent()
 
 #### 获取记录对应表的字段定义列表
 
-** 函数原型**
+**函数原型**
 public List&lt;Field&gt; getFieldList()
 
 **输入参数**
@@ -511,8 +511,7 @@ public List&lt;Field&gt; getFieldList()
 - 对于 DELETE 类型的记录，List 中 Field 是按订阅表的定义顺序按序对应，Field 中记录的值是删除前的值，也即是前镜像。
 - 对于 UPDATE 类型的记录，List 中包含修改前后的值，也即是同时包含前镜像、后镜像；其中前镜像（ 修改前的值 ）在list的偶数位，后镜像在list的奇数位；前镜像、后镜像的列表也与订阅表的定义顺序按序对应，因而此时 List 中 Field 的数量是对应订阅表列数的两倍。
 
-
-** 抛出异常**
+**抛出异常**
 无
 
 ## Field 类
@@ -559,7 +558,7 @@ public String getFieldname()
 
 #### 获取字段的数据类型
 
-** 函数原型**
+**函数原型**
 public Field.Type getType()
 
 **输入参数**
@@ -580,10 +579,10 @@ public Field.Type getType()
 **函数原型**
 public ByteString getFieldname()
 
-** 输入参数**
+**输入参数**
 无
 
-** 返回结果**
+**返回结果**
 
 | 类型 | 参数含义 |
 |:-------------|:-------------|
