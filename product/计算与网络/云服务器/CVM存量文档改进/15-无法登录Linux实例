@@ -21,8 +21,9 @@
 并可以通过工具中的【一键放通】功能放通端口。
 <img src="https://main.qcloudimg.com/raw/d8c43bf2df7e893e0ded86862432fb3a.png" height="400" width="400" />
 
-<span id="VNC">
+
 ## 通过 VNC 方式登录
+<span id="VNC">
 当您无法通过标准方式（Webshell）或者远程登录软件登录 Linux 实例时，建议您尝试使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。在实例列表中选择您需要登录的实例，并单击右侧【登录】
