@@ -17,7 +17,10 @@
 ![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
 
 ### 实例安全组（端口）验通工具
-如果通过自助诊断工具判断无法连接实例的原因是 **安全组规则不当**，建议您通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 进一步检测，并可以通过工具中的【一键放通】功能放通端口。
+如果通过自助诊断工具判断无法连接实例的原因是 **安全组规则不当**，建议您通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 进一步检测，
+![](https://main.qcloudimg.com/raw/c90a6b24338daaf1e092657c0e40260a.png)
+并可以通过工具中的【一键放通】功能放通端口。
+<img src="https://main.qcloudimg.com/raw/d8c43bf2df7e893e0ded86862432fb3a.png" height="400" width="400" />
 
 ## 通过VNC方式登录
 当您无法通过 RDP 或者远程登录软件登录 Windows 实例时，您可以尝试使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
