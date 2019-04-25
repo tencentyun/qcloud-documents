@@ -16,7 +16,7 @@ public void setSecretId(String secretId)
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------| 
-| secretId | String| 安全凭证secretId，可以在【 腾讯云管理中心 】-【 云产品 】-【 云 API 密钥 】-【 API 密钥中查看 】 |
+| secretId | String| 安全凭证secretId，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看 |
 
 **返回结果**
 无
@@ -33,7 +33,7 @@ public void setSecretKey(String secretKey)
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
-| secretKey| String| 安全凭证 secretKey，可以在【 腾讯云管理中心 】-【 云产品 】-【 云API密钥 】-【 API密钥中查看 】 |
+| secretKey| String| 安全凭证 secretKey，可以在控制台的【访问管理】>【访问密钥】>【API密钥管理】查看 |
 
 ** 返回结果**
 无
