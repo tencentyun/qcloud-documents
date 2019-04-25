@@ -18,14 +18,14 @@ __参数__
 
 __返回__
 
-TRTCCloud 实例。
+[TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 实例。
 
 >?可以调用 destroySharedInstance 销毁单例对象。
 
 
 ### destroySharedInstance
 
-销毁 TRTCCloud 单例。
+销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 单例。
 ```
 void destroySharedInstance()
 ```
@@ -33,26 +33,26 @@ void destroySharedInstance()
 
 ### setListener
 
-设置回调接口 TRTCCloudListener，用户获得来自 TRTCCloud 的各种状态通知。
+设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 的各种状态通知。
 ```
 abstract void setListener(TRTCCloudListener listener)
 ```
 
 __介绍__
 
-您可以通过 TRTCCloudListener 获得来自 SDK 的各种状态通知，详见 TRTCCloudListener 中的定义。
+您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的定义。
 
 
 ### setListenerHandler
 
-设置驱动 TRTCCloudListener 回调的队列。
+设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调的队列。
 ```
 abstract void setListenerHandler(Handler listenerHandler)
 ```
 
 __介绍__
 
-SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 TRTCCloudListener 回调都将由 Main Thread 来调用。此时您在 TRTCCloudListener 的回调函数里操作 UI 是线程安全的。
+SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 的回调函数里操作 UI 是线程安全的。
 
 
 
@@ -68,7 +68,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCParams | 进房参数，请参考 TRTCParams。 |
+| param | [TRTCCloudDef.TRTCParams](https://cloud.tencent.com/document/product/647/32266#trtcparams) | 进房参数，请参考 TRTCParams。 |
 | appScene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
 >?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
@@ -224,7 +224,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义。 |
+| param | [TRTCCloudDef.TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32266#trtcvideoencparam) | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义。 |
 
 __介绍__
 
@@ -242,7 +242,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义。 |
+| param | [TRTCCloudDef.TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32266#trtcnetworkqosparam) | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义。 |
 
 __介绍__
 
@@ -383,7 +383,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | enable | boolean | 是否开启小画面编码。 |
-| smallVideoEncParam | TRTCCloudDef.TRTCVideoEncParam | 小流的视频参数。 |
+| smallVideoEncParam | [TRTCCloudDef.TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32266#trtcvideoencparam) | 小流的视频参数。 |
 
 __返回__
 
@@ -874,7 +874,7 @@ __参数__
 
 __介绍__
 
-对应于 startRemoteView() 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
+对应于 [startRemoteView()](https://cloud.tencent.com/document/product/647/32264#startremoteview) 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
 
 >?请在 onUserSubStreamAvailable 回调后再调用这个接口。
 
@@ -910,7 +910,7 @@ __参数__
 
 __介绍__
 
-对应于 setRemoteViewFillMode() 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
 
 
 
@@ -930,7 +930,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 sendCustomVideoData() 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 [sendCustomVideoData()](https://cloud.tencent.com/document/product/647/32264#sendcustomvideodata) 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomVideoData
@@ -944,7 +944,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCVideoFrame | 视频数据，如果是 buffer 方案，请设置 data 字段；如果是 texture 方案，请设置 TRTCTexture 对象。 |
+| frame | [TRTCCloudDef.TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32266#trtcvideoframe) | 视频数据，如果是 buffer 方案，请设置 data 字段；如果是 texture 方案，请设置 TRTCTexture 对象。 |
 
 __介绍__
 
@@ -973,7 +973,7 @@ __参数__
 |-----|-----|-----|
 | pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_NV21。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
+| listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
@@ -1003,7 +1003,7 @@ __参数__
 | userId | String | 对方的用户标识。 |
 | pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
+| listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
@@ -1033,7 +1033,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 sendCustomAudioData() 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32264#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomAudioData
@@ -1047,7 +1047,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频帧。目前只支持单声道，仅支持48K采样率。 |
+| frame | [TRTCCloudDef.TRTCAudioFrame](https://cloud.tencent.com/document/product/647/32266#trtcaudioframe) | 音频帧。目前只支持单声道，仅支持48K采样率。 |
 
 __介绍__
 
@@ -1063,6 +1063,7 @@ TRTCAudioFrame 推荐如下填写方式：
 >?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 
 
+
 ### setAudioFrameListener
 
 设置音频数据回调。
@@ -1074,7 +1075,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | TRTCCloudListener.TRTCAudioFrameListener | 音频数据回调，listener = null 则停止回调数据。 |
+| listener | [TRTCCloudListener.TRTCAudioFrameListener](https://cloud.tencent.com/document/product/647/32265#trtcaudioframelistener) | 音频数据回调，listener = null 则停止回调数据。 |
 
 __介绍__
 
@@ -1164,7 +1165,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | path | String | 音乐文件路径。 |
-| notify | BGMNotify | 播放背景音乐的回调。 |
+| notify | [BGMNotify](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 播放背景音乐的回调。 |
 
 
 ### stopBGM
@@ -1300,7 +1301,7 @@ __参数__
 
 __介绍__
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。 测试结果通过 TRTCCloudListener.onSpeedTest 回调出来。
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。 测试结果通过 [TRTCCloudListener.onSpeedTest](https://cloud.tencent.com/document/product/647/32265#onspeedtest) 回调出来。
 
 >?测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
 
@@ -1327,7 +1328,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | TRTCCloudDef.TRTCTranscodingConfig | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍。如果传入 null 则取消云端混流转码。 |
+| config | [TRTCCloudDef.TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32266#trtctranscodingconfig) | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍。如果传入 null 则取消云端混流转码。 |
 
 __介绍__
 
@@ -1361,7 +1362,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍。 |
+| param | [TRTCCloudDef.TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32266#trtcpublishcdnparam) | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍。 |
 
 __介绍__
 
@@ -1494,7 +1495,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
+| margin | [TRTCViewMargin](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
 
 __介绍__
 
