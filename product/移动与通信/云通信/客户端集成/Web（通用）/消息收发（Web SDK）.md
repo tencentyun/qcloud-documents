@@ -1073,9 +1073,7 @@ selSess = webim.MsgStore.sessByTypeId(selType, selToID);
 可以拉取最近联系人的会话列表。详情参考 Demo 代码 `recentcontact/recent_contact_list_manager.js`。 **示例：** 
 
 ```javascript
-webim.getRecentContactList({
-	'Count': 10 //最近的会话数 ,最大为 100
-},function(resp){
+webim.getRecentContactList({},function(resp){
 	//业务处理
 },function(resp){
 	//错误回调
