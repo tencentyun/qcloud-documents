@@ -22,7 +22,7 @@ dependencies {
 ```
 
 - **第二步：指定 App 使用架构**
-在 defaultConfig 中，指定 App 使用的 cpu 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
 ```
    defaultConfig {
         ndk {
@@ -55,7 +55,7 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/98b4806ed2484e96d47eb1ad165e900d.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 cpu 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
 ```
    defaultConfig {
         ndk {
@@ -90,7 +90,7 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/10003cdc49d4856ee4feb840f24680a7.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 cpu 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a) 。 
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a) 。 
 ```
    defaultConfig {
         ndk {
