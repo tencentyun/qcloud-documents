@@ -39,7 +39,7 @@ dependencies {
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 
 - **第一步：下载 TRTC SDK**  
-在 Github 上可以下载到最新版本的 [TRTC SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Android/app/libs)：
+在 Github 上可以下载到最新版本的 [TRTC SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)：
 ![](https://main.qcloudimg.com/raw/75434db66f21ed185b30528d45128cd4.png)
 
 - **第二步：拷贝 TRTC SDK 到工程目录**  
