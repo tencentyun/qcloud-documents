@@ -45,7 +45,7 @@
 ```json
 string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
-string strRand = "7226249334"; //url 中的 random 字段的值
+string strRand = "7226249334"; //URL 中的 random 字段的值
 string strTime = "1457336869"; //UNIX 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb;
