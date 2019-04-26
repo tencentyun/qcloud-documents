@@ -22,23 +22,19 @@
 ping + 云服务器实例公网 IP 地址
 ```
 例如，执行 `ping 139.199.XXX.XXX` 命令。
- - 如果网络正常，返回的类似结果如下图所示：
+ - 如果网络正常，返回的类似结果如下图所示，进行下一步排查。
 ![](//mc.qcloudimg.com/static/img/9596963f31d642deb9417e0a7c0a4085/image.png)
- - 如果网络异常，则出现【请求超时】提示，您可以参考 Ping 不通问题XXXX。
+ - 如果网络异常，则出现【请求超时】提示，您可以参考 [实例IP地址Ping不通](https://cloud.tencent.com/document/product/213/14639)。
 3. 通过 **telent** 判断端口是否可以访问。执行以下命令，按 **Enter**，测试远程端口开启情况。
 ```
 telnet + 云服务器实例公网 IP 地址 + 端口号
 ```
 例如，执行 `telnet 139.199.XXX.XXX 3389` 命令。如下图所示：
 ![](//mc.qcloudimg.com/static/img/e18be3704977545d5c952d3a583f2ccc/image.png)
- - 正常情况：黑屏，仅显示光标。
- - 异常情况：连接失败。如下图所示：
-
+ - 正常情况：黑屏，仅显示光标。说明远程端口（3389）可访问。请继续 [检查实例远程桌面服务是否开启](#F2)。
+ - 异常情况：连接失败，如下图所示。说明网络出现问题，请检查问题网络相应部分。
  ![](//mc.qcloudimg.com/static/img/4b3d0e492b8c005fb1a43bc0cbd1496c/image.png)
-4. 根据以上操作，判断网络是否出现问题。
- - 若网络出现问题，请检查问题网络相应部分。
- - 若远程端口（3389）可访问，说明XXXX。请继续 [检查实例远程桌面服务是否开启](#F2)。
-
+ 
 <span id = "F2"></span>
 ### 第二步 检查远程桌面服务配置
 **通过 VNC 的方式登录云服务器。**
@@ -64,7 +60,7 @@ VNC 方式是您通过标准方式无法登录服务器时建议的登录方式�
 ```
 netstat -ant | findstr 3389
 ```
- - 若返回类似以下结果，表示正常情况，您可以尝试 [重启远程桌面](#F4) 后再次尝试远程连接：
+ - 若返回类似以下结果，表示正常情况，您可以尝试 [重启远程桌面](#F4) 后再次尝试远程连接。
 ![](//mc.qcloudimg.com/static/img/45484df01fb678058a23c2f2e122eee1/image.png)
  - 若不显示任何连接，表示异常情况，进行下一步排查端口是否异常。
 
@@ -91,5 +87,4 @@ netstat -ant | findstr 3389
 
 1. 在云服务器中，单击【开始】> <img src="https://main.qcloudimg.com/raw/5b5e3abb2f39cb719a4119ba77b74447.png" style="margin: 0;"></img>，输入 **services.msc**，按 **Enter**。
 2. 找到 Remote Desktop Services ，右键单击，选择【重新启动】。如下图所示：
-3. 
 ![](//mc.qcloudimg.com/static/img/973afc9859e44bb4ff6628abcb6f0ca1/image.png)
