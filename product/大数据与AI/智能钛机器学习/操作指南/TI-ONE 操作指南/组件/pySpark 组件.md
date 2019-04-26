@@ -39,7 +39,7 @@ pip.main(['install', "package_name"])
 在 PySpark 节点上单击右键菜单，可查看任务状态和详细日志。
 ![](https://main.qcloudimg.com/raw/3ec62ffb32a86b4bc57545098b219537.png)
 详细日志如下：
-![](https://main.qcloudimg.com/raw/4c2f9e2163fa984a6328fc8719f80c9c.png)
+![](https://main.qcloudimg.com/raw/c06588803bf9f03e753d1d7a39642452.png)
  
 
 ## 使用建议
@@ -103,6 +103,6 @@ filtered = processed.filter(judge_fn)
 process_fn 或 judge_fn 会分发到每个节点上分布式执行，您可以在 process_fn 或 judge_fn 中使用任何 Python 库（如 numpy、scikit-learn 等）。
 
 更多关于 Spark 的使用可以参考以下文档：
-* [RDD](http://spark.apache.org/docs/2.1.1/programming-guide.html)
-* [DataFrame](http://spark.apache.org/docs/2.1.1/sql-programming-guide.html)
-* [Python API](http://spark.apache.org/docs/2.1.1/api/python/index.html)
+* [RDD](http://spark.apache.org/docs/2.2.1/programming-guide.html)
+* [DataFrame](http://spark.apache.org/docs/2.2.1/sql-programming-guide.html)
+* [Python API](http://spark.apache.org/docs/2.2.1/api/python/index.html)

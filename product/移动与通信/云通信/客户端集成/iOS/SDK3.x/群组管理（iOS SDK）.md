@@ -1945,7 +1945,7 @@ shutupTime | 被禁言的时间
 
 ### 群事件消息监听器
 
-聊天室和直播大群的群事件消息需要通过注册监听器获得，消息 `Elem` 中包含群的成员数。
+聊天室和直播大群的群事件消息需要通过注册监听器获得（设置监听位置在 TIMManager > setUserConfig > TIMUserConfig > groupEventListener），消息 `Elem` 中包含群的成员数。
 
 ```
 /**

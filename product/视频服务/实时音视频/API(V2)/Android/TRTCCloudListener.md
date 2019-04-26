@@ -178,7 +178,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-userid 对应的成员语音音量。
+用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
 void onUserVoiceVolume(ArrayList< TRTCCloudDef.TRTCVolumeInfo > userVolumes, int totalVolume)
 ```
@@ -187,19 +187,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 每位发言者的语音音量，取值范围0 - 100。 |
-| totalVolume | int | 总的语音音量, 取值范围0 - 100。 |
+| userVolumes | ArrayList< TRTCCloudDef.TRTCVolumeInfo > | 所有正在说话的房间成员的音量（取值范围0 - 100）。即 userVolumes 内仅包含音量不为0（正在说话）的用户音量信息。其中本地进房 userId 对应的音量，表示 local 的音量，也就是自己的音量。 |
+| totalVolume | int | 所有远端成员的总音量, 取值范围 [0, 100]。 |
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔. 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调;如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 
 
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 void onNetworkQuality(TRTCCloudDef.TRTCQuality localQuality, ArrayList< TRTCCloudDef.TRTCQuality > remoteQuality)
 ```
@@ -208,7 +208,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。 |
+| localQuality | [TRTCCloudDef.TRTCQuality](https://cloud.tencent.com/document/product/647/32266#trtcquality) | 上行网络质量。 |
 | remoteQuality | ArrayList< TRTCCloudDef.TRTCQuality > | 下行网络质量。 |
 
 >?userid 为"" 代表自己当前的视频质量。
@@ -225,7 +225,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statics | TRTCStatistics | 状态数据。 |
+| statics | [TRTCStatistics](https://cloud.tencent.com/document/product/647/32266#trtcstatistics) | 状态数据。 |
 
 __介绍__
 
@@ -303,7 +303,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| currentResult | TRTCCloudDef.TRTCSpeedTestResult | 当前完成的测速结果。 |
+| currentResult | [TRTCCloudDef.TRTCSpeedTestResult](https://cloud.tencent.com/document/product/647/32266#trtcspeedtestresult) | 当前完成的测速结果。 |
 | finishedCount | int | 已完成测速的服务器数量。 |
 | totalCount | int | 需要测速的服务器总数量。 |
 
@@ -403,7 +403,7 @@ __介绍__
 ## CDN 旁路转推
 ### onStartPublishCDNStream
 
-启动旁路推流到 CDN 完成的回调，对应于 TRTCCloud 中的 startPublishCDNStream() 接口。
+启动旁路推流到 CDN 完成的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 startPublishCDNStream() 接口。
 ```
 void onStartPublishCDNStream(int err, String errMsg)
 ```
@@ -414,13 +414,28 @@ void onStartPublishCDNStream(int err, String errMsg)
 
 ### onStopPublishCDNStream
 
-停止旁路推流到 CDN 完成的回调，对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+停止旁路推流到 CDN 完成的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 stopPublishCDNStream() 接口。
 ```
 void onStopPublishCDNStream(int err, String errMsg)
 ```
 
 >?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
 
+
+
+### onSetMixTranscodingConfig
+
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 setMixTranscodingConfig() 接口。
+```
+void onSetMixTranscodingConfig(int err, String errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| err | int | 0表示成功，其余值表示失败。 |
+| errMsg | String | 具体错误原因。 |
 
 
 
@@ -445,7 +460,7 @@ __参数__
 |-----|-----|-----|
 | userId | String | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderListener），该参数可以不用理会。 |
 | streamType | int | 视频流类型，比如是摄像头画面还是屏幕分享画面等等。 |
-| frame | TRTCCloudDef.TRTCVideoFrame | 待渲染视频帧。 |
+| frame | [TRTCCloudDef.TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32266#trtcvideoframe) | 待渲染视频帧。 |
 
 
 
@@ -480,7 +495,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据。 |
+| frame | [TRTCCloudDef.TRTCAudioFrame](https://cloud.tencent.com/document/product/647/32266#trtcaudioframe) | 音频数据。 |
 | userId | String | 用户标识。 |
 
 >?

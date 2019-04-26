@@ -121,10 +121,10 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 //判断是否是在主线程
 if (SessionWrapper.isMainProcess(getApplicationContext())) {
 	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-			.enableCrashReport(false);
+			.enableCrashReport(false)
 			.enableLogPrint(true)
 			.setLogLevel(TIMLogLevel.DEBUG)
-			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
+			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/");
 
 	//初始化 SDK
 	TIMManager.getInstance().init(getApplicationContext(), config);
