@@ -60,7 +60,7 @@ pTrtcCloud->enterRoom(...);
 iLiveSDK 和 LiteAV 都是用了 TRAE 库，LiteAV 中使用的 TRAE 版本较新，包含 iLiveSDK 中使用的 TRAE，只选用 LiteAV 中的 TRAE 库。
 
 aar 方式集成工程配置如下：
->?app 目录下的 build.gradle， android{} 节点中。
+>?在 app 目录下的 build.gradle， android{} 节点中进行配置。
 >
 ```java
 android{
