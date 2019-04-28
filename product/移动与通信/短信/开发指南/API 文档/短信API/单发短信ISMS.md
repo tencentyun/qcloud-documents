@@ -38,15 +38,14 @@
 **注**：
 
 1. "msg" 字段需要匹配审核通过的模板内容
-如果您的模板是 `您的验证码是{ 1 }`，则 "msg" 字段可赋值为：`您的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
+如果您的模板是“您的验证码是{ 1 }”，则 "msg" 字段可赋值为：“您的验证码是xxxx”。（其中 "xxxx" 为下发的验证码）
 如果您有多个短信签名，请将需要的短信签名放在短信内容前面，例如您有 "【腾讯科技】"，"【腾讯云】" 两个签名，但是想以 "【腾讯云】" 签名发送短信，
-则 "msg" 字段可赋值为：`【腾讯云】您的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
-3. "sig" 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&tel=$tel）`生成
-伪代码如下：
+则 "msg" 字段可赋值为：“【腾讯云】您的验证码是xxxx”。（其中 "xxxx" 为下发的验证码）
+3. "sig" 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&tel=$tel）`生成，其伪代码如下：
 ```json
 string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
-string strRand = "7226249334"; //url 中的 random 字段的值
+string strRand = "7226249334"; //URL 中的 random 字段的值
 string strTime = "1457336869"; //UNIX 时间戳
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = f272b136949f9e6faa5fae01cfc240caf5e6d89f2e18e8d47adf3d87ea0715fb;
@@ -67,12 +66,12 @@ string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&ti
 
 | 参数       | 必选 | 类型   | 描述                                          |
 |------------|------|--------|-----------------------------------------------|
-| result | 是   | number | 错误码，0 表示成功（计费依据），非 0 表示失败, 参考 [错误码](https://cloud.tencent.com/document/product/382/3771)     |
-| errmsg     | 是   | string | 错误消息，result 非 0 时的具体错误信息           |
+| result | 是   | number | 错误码，0表示成功（计费依据），非0表示失败, 参考 [错误码](https://cloud.tencent.com/document/product/382/3771)     |
+| errmsg     | 是   | string | 错误消息，result 非0时的具体错误信息           |
 | ext        | 否   | string | 用户的 session 内容，腾讯 server 回包中会原样返回 |
 | nationcode | 是   | string | 国家码                                        |
-| fee    | 否   | number | 短信计费的条数，["fee" 字段计费说明](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99)                                |
-| sid        | 否   | string | 本次发送标识 id，标识一次短信下发记录          |
+| fee    | 否   | number | 短信计费的条数，计费规则请参考 [国内短信内容长度计算规则](https://cloud.tencent.com/document/product/382/18058#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99) 或 [国际短信内容长度计算规则](https://cloud.tencent.com/document/product/382/18052#.E5.9B.BD.E9.99.85.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99)                             |
+| sid        | 否   | string | 本次发送标识 ID，标识一次短信下发记录          |
 
 
 

@@ -261,16 +261,16 @@ _config.maxAutoAdjustCacheTime = 5;
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放 RTMP 地址时会抛送） |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 收到首帧数据，越快收到此消息说明链路质量越好  |
 | PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做 loading，会需要它 | 
-| PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，说明错用成了 TXVodPlayer |
+| PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，可以忽略 |
 | PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
 | PLAY_EVT_PLAY_LOADING	|  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
 | PLAY_EVT_START_VIDEO_DECODER	|  2008| 视频解码器开始启动（2.0 版本以后新增） |  
 | PLAY_EVT_CHANGE_RESOLUTION	|  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
-| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，可以忽略|  
+| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，可以忽略|  
 | PLAY_EVT_GET_MESSAGE	|  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
-| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，可以忽略|  
+| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，可以忽略|  
 | PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
 >**<font color='red'>不要在收到 PLAY_LOADING 后隐藏播放画面</font>**

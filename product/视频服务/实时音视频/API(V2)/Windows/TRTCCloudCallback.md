@@ -205,7 +205,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | TRTCVolumeInfo * | 每位发言者的语音音量，取值范围0 - 100。 |
+| userVolumes | [TRTCVolumeInfo](https://cloud.tencent.com/document/product/647/32271#trtcvolumeinfo) * | 每位发言者的语音音量，取值范围0 - 100。 |
 | userVolumesCount | uint32_t | 发言者的人数，即 userVolumes 数组的大小。 |
 | totalVolume | uint32_t | 总的语音音量, 取值范围0 - 100。 |
 
@@ -218,7 +218,7 @@ __介绍__
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 void onNetworkQuality(TRTCQualityInfo localQuality, TRTCQualityInfo * remoteQuality, uint32_t remoteQualityCount)
 ```
@@ -227,8 +227,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | TRTCQualityInfo | 上行网络质量。 |
-| remoteQuality | TRTCQualityInfo * | 下行网络质量的数组。 |
+| localQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32271#trtcqualityinfo) | 上行网络质量。 |
+| remoteQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32271#trtcqualityinfo) * | 下行网络质量的数组。 |
 | remoteQualityCount | uint32_t | 下行网络质量的数组大小。 |
 
 
@@ -243,7 +243,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statis | const TRTCStatistics & | 状态数据。 |
+| statis | const [TRTCStatistics](https://cloud.tencent.com/document/product/647/32271#trtcstatistics) & | 状态数据。 |
 
 __介绍__
 
@@ -364,7 +364,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| currentResult | const TRTCSpeedTestResult & | 当前完成的测速结果。 |
+| currentResult | const [TRTCSpeedTestResult](https://cloud.tencent.com/document/product/647/32271#trtcspeedtestresult) & | 当前完成的测速结果。 |
 | finishedCount | uint32_t | 已完成测速的服务器数量。 |
 | totalCount | uint32_t | 需要测速的服务器总数量。 |
 
@@ -399,8 +399,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | deviceId | const char * | 设备 ID。 |
-| type | TRTCDeviceType | 设备类型。 |
-| state | TRTCDeviceState | 事件类型。 |
+| type | [TRTCDeviceType](https://cloud.tencent.com/document/product/647/32271#trtcdevicetype) | 设备类型。 |
+| state | [TRTCDeviceState](https://cloud.tencent.com/document/product/647/32271#trtcdevicestate) | 事件类型。 |
 
 
 ### onTestMicVolume
@@ -532,7 +532,7 @@ __介绍__
 
 ### onStopPublishCDNStream
 
-接口 stopPublishCDNStream 的状态回调。
+停止旁路推流到 CDN 的回调。
 ```
 void onStopPublishCDNStream(int errCode, const char * errMsg)
 ```
@@ -547,6 +547,25 @@ __参数__
 __介绍__
 
 对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+混流接口的状态回调。
+```
+void onSetMixTranscodingConfig(int errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | int | 错误码，参考 TXLiteAVCode.h。 |
+| errMsg | const char * | 错误详细信息。 |
+
+__介绍__
+
+对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。
 
 
 
@@ -631,7 +650,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户标识。 |
-| streamType | TRTCVideoStreamType | 流类型：即摄像头还是屏幕分享。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 流类型：即摄像头还是屏幕分享。 |
 | frame | TRTCVideoFrame * | 视频帧数据。 |
 
 __介绍__
@@ -713,7 +732,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | log | const char * | 日志内容。 |
-| level | TRTCLogLevel | 日志等级 参见 TRTCLogLevel。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32271#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
 | module | const char * | 暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 

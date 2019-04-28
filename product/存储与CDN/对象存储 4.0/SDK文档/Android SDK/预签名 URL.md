@@ -58,7 +58,7 @@ String urlWithSign = cosXml.getPresignedURL(putObjectResutl);
 Log.d("TEST", ex.getMessage());
 }
 ```
-## 临时密钥预签名请求示例
+## 永久密钥预签名请求示例
 
 ### 上传请求示例
 ```java

@@ -116,9 +116,7 @@ param.setNotification("welcome to our group");
 
 //添加群成员
 List<TIMGroupMemberInfo> infos = new ArrayList<TIMGroupMemberInfo>();
-TIMGroupMemberInfo member = new TIMGroupMemberInfo();
-member.setUser("cat");
-member.setRoleType(TIMGroupMemberRoleType.Normal);
+TIMGroupMemberInfo member = new TIMGroupMemberInfo("cat");
 infos.add(member);
 param.setMembers(infos);
 
@@ -150,7 +148,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 **权限说明：**
 
 - **私有群：**群成员无需受邀用户同意，直接将其拉入群中。
-- **公开群/聊天室：**不允许群成员邀请他人入群。
+- **公开群/聊天室：**不允许群成员邀请他人入群。只能由 App 管理员通过 REST API 邀请他人入群。
 - **音视频聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
 
 **原型：**
@@ -187,7 +185,7 @@ public String getUser()
 
 ```
 //创建待加入群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 
@@ -251,12 +249,12 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
     public void onError(int code, String desc) {
         //接口返回了错误码 code 和错误描述 desc，可用于原因
         //错误码 code 列表请参见错误码表
-        Log.e(tag, "disconnected");
+        Log.e(tag, "applyJoinGroup err code = " + code + ", desc = " + desc);
     }
 
     @java.lang.Override
     public void onSuccess() {
-        Log.i(tag, "join group");
+        Log.i(tag, "applyJoinGroup success");
     }
 });
 ```
@@ -306,7 +304,7 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。退出群组的接口由 `TIMGroupManagerExt` 提供。
+群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -346,7 +344,7 @@ public DeleteMemberParam setReason(@NonNull String reason)
 
 ```
 //创建待踢出群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 //添加用户
@@ -1388,7 +1386,7 @@ public void refuse(String msg, TIMCallBack cb)
 **只有审批人**有权限拉取相关信息。
 
 >例如：
->- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。
+>- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取未决信息。
 >- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
 
 **原型：**

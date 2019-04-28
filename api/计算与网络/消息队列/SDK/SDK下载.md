@@ -18,7 +18,7 @@
 
 #### GitHub 地址
 - [Java SDK](https://github.com/tencentyun/cmq-java-sdk)
-- [Python SDK](https://github.com/tencentyun/cmq-python-sdk)
+- [Python SDK](https://github.com/tencentyun/cmq-python-sdk)（默认为 Python2 SDK，您可切换至 Python3 分支中查看 Python3 SDK ）
 - [PHP SDK](https://github.com/tencentyun/cmq-php-sdk)
 - [C++ SDK](https://github.com/tencentyun/cmq-cpp-sdk)
 
