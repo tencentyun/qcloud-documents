@@ -1,4 +1,5 @@
-﻿### 离线识别 SDK 和 API 文档中提供的各类 SDK 区别是什么？
+
+ ### 离线识别 SDK 和 API 文档中提供的各类 SDK 区别是什么？
 API 文档中提供的各类 SDK，即 Tencent Cloud SDK 3.0 for Python/Java/PHP/Go/NodeJS/.Net 等，是为了方便您通过不同的开发语言快速使用我们的在线 AP I服务。
 
 离线识别 SDK，是将我们的人脸识别服务集成到一个离线的 SDK 中，您无需联网，可以在设备端本地化进行实时处理。
