@@ -6,8 +6,7 @@
 ## 操作步骤
 
 1. 手机扫描下方的二维码，下载备案 App（App 名称：shbeian）。
->! 
-> - 上海备案 App 目前暂时从苹果 App Store 下架，因此只支持通过 Android 系统的手机下载并使用。
+>! 上海备案 App 目前暂时从苹果 App Store 下架，因此只支持通过 Android 系统的手机下载并使用。
 >
 ![](https://main.qcloudimg.com/raw/3f55d24f3639b2ffa9962106dcc17512.png)
 2. 打开备案 App，并单击【立即核验】。如下图所示：
