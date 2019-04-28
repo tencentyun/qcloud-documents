@@ -25,6 +25,7 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
+| [黑石 Stack-V](https://cloud.tencent.com/document/product/599)   | ✔        | -      | ✔      | 服务级   | -        | -    |
 
 
  ## 存储	
