@@ -83,8 +83,8 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [DDoS 基础防护](https://cloud.tencent.com/document/product/1020) | ✔        | ✔      | ✔      | 服务级   | -        | - |
-| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)       |-        | -      | -      | -   | -        |  ✔    |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/685)       | ✔       |  ✔      | -      |资源级   |  ✔        | -    |
+| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)       |-        | -      | -      | -   | -        |  ✔    |
 
  ## 主机安全	
  
