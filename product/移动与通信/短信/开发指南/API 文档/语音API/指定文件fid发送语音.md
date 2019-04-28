@@ -25,10 +25,10 @@
 | 参数      | 必选 | 类型   | 描述                                                                                             |
 |-----------|------|--------|--------------------------------------------------------------------------------------------------|
 | fid       | 是   | string | 语音文件 fid，由语音文件上传接口返回的唯一语音文件标识
-| playtimes | 否   | number | 播放次数，可选，最多 3 次，默认 2次                                                                 |
+| playtimes | 否   | number | 播放次数，可选，最多3次，默认2次                                                                 |
 | sig       | 是   | string | App 凭证，具体计算方式见下注                                                                      |
 | tel       | 是   | object | 电话号码                                                                                         |
-| time      | 是   | number | 请求发起时间，UNIX 时间戳(单位秒)，如果和系统时间相差超过 10 分钟则会返回失败                               |
+| time      | 是   | number | 请求发起时间，UNIX 时间戳(单位秒)，如果和系统时间相差超过10分钟则会返回失败                               |
 | ext       | 否   | string | 用户的 session 内容，腾讯 server 回包中会原样返回                                                    |
 
 - 参数`tel`:
@@ -51,8 +51,8 @@
 
 | 参数   | 必选 | 类型   | 描述                                          |
 |--------|------|--------|-----------------------------------------------|
-| result | 是   | number | 错误码，0 表示成功(计费依据)，非0表示失败      |
-| errmsg | 是   | string | 错误消息，result 非 0 时的具体错误信息           |
+| result | 是   | number | 错误码，0表示成功（计费依据），非0表示失败      |
+| errmsg | 是   | string | 错误消息，result 非0时的具体错误信息           |
 | callid | 否   | string | 标识本次发送 ID，标识一次下发记录              |
 | ext    | 否   | string | 用户的 session 内容，腾讯 server 回包中会原样返回 |
 
@@ -63,15 +63,15 @@
 ```c++
 // 格式字符串
 string fmt = "appkey=%s&random=%lu&time=%lu&mobile=%s";
-// sdkappid对应的appkey，业务方需高度保密
+// sdkappid 对应的 appkey，业务方需高度保密
 string appkey = "5f03a35d00ee52a21327ab048186a2c4";
-// 请求url中的随机值
+// 请求 URL 中的随机值
 uint64_t random = 7226249334;
 // 当前请求时间，UNIX 时间戳，单位秒
 time_t now = time(NULL);
 // 手机号码
 string mobile = "13788888888";
-// 计算sig
+// 计算 sig
 string sig = sha256hex(format(fmt, appkey, random, now, mobile));
 ```
 
@@ -83,15 +83,15 @@ import time
 
 # 格式字符串
 fmt = "appkey={}&random={}&time={}&mobile={}"
-# sdkappid对应的appkey，业务方需高度保密
+# sdkappid 对应的 appkey，业务方需高度保密
 appkey = "5f03a35d00ee52a21327ab048186a2c4"
-# 请求url中的随机值
+# 请求 URL 中的随机值
 random = 1234
 # 当前请求时间，UNIX 时间戳，单位秒
 now = int(time.time())
 # 手机号码
 mobile = "13788888888"
-# 计算sig
+# 计算 sig
 sig = hashlib.sha256(fmt.format(appkey, random, now, mobile)).hexdigest()
 ```
 
