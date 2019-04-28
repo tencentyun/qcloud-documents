@@ -72,10 +72,29 @@ Container 节点 OriginRule 的内容：
 
 Container 节点 OriginInfo 的内容：
 
-| 节点名称（关键字） | 父节点                                    | 描述                                                         | 类型   | 必选 |
-| :----------------- | :---------------------------------------- | :----------------------------------------------------------- | :----- | :--- |
-| Protocol           | OriginConfiguration.OriginRule.OriginInfo | 回源使用的协议，目前只支持HTTP                               | String | 是   |
-| HostName           | OriginConfiguration.OriginRule.OriginInfo | 回源地址，填入地址时只需填入域名或 IP 地址，无需带前缀“`http://`”，亦支持以“`:[port]`”方式填写对应的端口号，“`:`”使用英文字符，注意内网 IP 无效 | String | 是   |
+<table>
+   <tr>
+      <th nowrap="nowrap">节点名称（关键字）</th>
+      <th>父节点</th>
+      <th>描述</th>
+      <th>类型</th>
+      <th>必选</th>
+   </tr>
+   <tr>
+      <td>Protocol</td>
+      <td>OriginConfiguration.OriginRule.OriginInfo</td>
+      <td>回源使用的协议，目前只支持 HTTP</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+   <tr>
+      <td>HostName</td>
+      <td>OriginConfiguration.OriginRule.OriginInfo</td>
+			<td>回源地址，填入地址时只需填入域名或 IP 地址，无需带前缀“<code>http://</code>”，亦支持以“<code>:[port]</code>”方式填写对应的端口号，“<code>:</code>”使用英文字符，注意内网 IP 无效</td>
+      <td>String</td>
+      <td>是</td>
+   </tr>
+</table>
 
 ## 响应
 
@@ -111,7 +130,6 @@ Host: zuhaotestshanghai-1251668566.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
 Content-Length: 347
 
-以下为请求体：
 <?xml version="1.0" encoding="UTF-8"?>
 <OriginConfiguration>
   <OriginRule>
