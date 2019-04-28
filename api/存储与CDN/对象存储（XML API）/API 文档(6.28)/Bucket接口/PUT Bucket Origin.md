@@ -6,18 +6,13 @@ PUT Bucket Origin 接口用于设置 Bucket 的回源。
 
 ### 请求示例
 
-请求示例：
-
 ```http
 PUT /?origin HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<BucketName-APPID>.<Region>.myqcloud.com
 Date:date
-Authorization: Auth
-
-<XML file>
+Authorization: Auth String
 ```
 
->?
 > - Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 该请求需结合请求体一起使用。
 
@@ -35,7 +30,7 @@ Authorization: Auth
 
 请求的请求体为回源规则。
 
-```shell
+```http
 <?xml version="1.0" encoding="UTF-8"?>
 <OriginConfiguration>
   <OriginRule>
@@ -90,7 +85,7 @@ Container 节点 OriginInfo 的内容：
    <tr>
       <td>HostName</td>
       <td>OriginConfiguration.OriginRule.OriginInfo</td>
-			<td>回源地址，填入地址时只需填入域名或 IP 地址，无需带前缀“<code>http://</code>”，亦支持以“<code>:[port]</code>”方式填写对应的端口号，“<code>:</code>”使用英文字符，注意内网 IP 无效</td>
+			<td>回源地址，填入地址时只需填入域名或 IP 地址，无需带前缀<code>http://</code>，亦支持以<code>:[port]</code>方式填写对应的端口号，<code>:</code>使用英文字符，注意内网 IP 无效</td>
       <td>String</td>
       <td>是</td>
    </tr>
@@ -114,19 +109,19 @@ Container 节点 OriginInfo 的内容：
 
 ### 错误码
 
-| 错误码/返回码         | 描述                                 | HTTP 状态码     |
-| --------------------- | ------------------------------------ | --------------- |
-| InvalidArgument       | 提供的参数错误                       | 400 Bad Request |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码   | 403 Forbidden   |
+| 错误码/返回码         | 描述                                   | HTTP 状态码     |
+| --------------------- | -------------------------------------- | --------------- |
+| InvalidArgument       | 提供的参数错误                         | 400 Bad Request |
+| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码     | 403 Forbidden   |
 | NoSuchKey             | 如果设置的 Bucket 不存在，返回该错误码 | 404 Not Found   |
 
 ## 实际案例
 
 ### 请求
 
-```shell
+```http
 PUT /?origin= HTTP/1.1
-Host: zuhaotestshanghai-1251668566.cos.ap-shanghai.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
 Content-Length: 347
 
