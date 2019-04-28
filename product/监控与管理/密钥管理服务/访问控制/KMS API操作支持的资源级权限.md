@@ -30,7 +30,6 @@
    <tr>
       <td>kms:Encrypt</td>
       <td>qcs::kms:$region:$account:key/creatorUin/$creatorUin/$keyid（授权单个资源） qcs::kms:$region:$account:key/creatorUin/$creatorUin/* （授权某个创建者的所有资源） qcs::kms:$region:$account:key/* （授权某个根帐号的所有资源）</td>
-      <td></td>
    </tr>
    <tr>
       <td>kms:Decrypt</td>
