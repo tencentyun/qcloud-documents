@@ -57,11 +57,7 @@ WebRTCAPI.fn.detectRTC({
 var RTC = new WebRTCAPI({
     sdkAppId: sdkappid, // [必选]开通实时音视频服务创建应用后分配的 sdkappid
     userId: userId, // [必选]用户 ID，可以由您的服务指定
-    userSig: userSig, // [必选]身份签名，需要从自行搭建的签名服务获取
-}, function () {
-    // 初始化成功的回调，可以开始创建或进入房间
-}, function (error) {
-    console.warn("init error", error)
+    userSig: userSig // [必选]身份签名，需要从自行搭建的签名服务获取
 });
 ```
 
