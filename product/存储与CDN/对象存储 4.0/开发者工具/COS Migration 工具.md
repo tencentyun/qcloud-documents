@@ -108,7 +108,7 @@ executeTimeWindow=00:00,24:00
 | secretKey| 用户密钥 SecretKey，请将`COS_SECRETKEY`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取|-|
 | bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
 | region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) |-|
-| storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
+| storageClass|存储类型：Standard（标准存储），Standard_IA（低频存储），Archive（归档存储） |Standard|
 | cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/folder/doc/` 表示要迁移到 Bucket的`/folder/doc/` 下，若 `/folder/doc/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
 | tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`<br>默认为工具所在路径下的 tmp 目录|./tmp|
