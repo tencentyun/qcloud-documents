@@ -2,54 +2,44 @@
 PUT Bucket cors 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为 64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
-请求示例：
+### 请求示例
 
 ```
 PUT /?cors HTTP/1.1
-Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
 Content-MD5: MD5
 Authorization: Auth String
 
-<XML file>
 ```
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
-
-### 请求行
-
-```
-PUT /?cors HTTP/1.1
-```
-
-该 API 接口接受 `PUT` 请求。
+> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
 
 
 ### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 文档。
 
 #### 非公共头部
-
-
 该请求操作无特殊的请求头部信息。
 
 ### 请求体
 请求的请求体为跨域规则。
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CORSConfiguration>
-  <CORSRule>
-    <ID>string</ID>
-    <AllowedOrigin>string</AllowedOrigin>
-    <AllowedMethod>string</AllowedMethod>
-    <AllowedHeader>string</AllowedHeader>
-    <MaxAgeSeconds>0</MaxAgeSeconds>
-    <ExposeHeader>string</ExposeHeader>
-  </CORSRule>
+    <CORSRule>
+        <ID>1234</ID>
+        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
+        <AllowedMethod>PUT</AllowedMethod>
+        <AllowedHeader>x-cos-meta-test</AllowedHeader>
+        <MaxAgeSeconds>500</MaxAgeSeconds>
+        <ExposeHeader>x-cos-meta-test1</ExposeHeader>
+    </CORSRule>
 </CORSConfiguration>
 ```
 
@@ -83,11 +73,9 @@ Container 节点 CORSRule 的内容：
 
 #### 公共响应头
 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 章节。
+该响应使用公共响应头,了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
 
 #### 特有响应头
-
-
 该请求操作无特殊的响应头部信息。
 
 ### 响应体
@@ -106,7 +94,7 @@ Container 节点 CORSRule 的内容：
 
 ```
 PUT /?cors HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2017 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814927;32557710927&q-key-time=1484814927;32557710927&q-header-list=host&q-url-param-list=cors&q-signature=8b9f05dabce2578f3a79d732386e7cbade9033e3
 Content-Type: application/xml
@@ -115,7 +103,7 @@ Content-Length: 280
 <CORSConfiguration>
     <CORSRule>
         <ID>1234</ID>
-        <AllowedOrigin>http: //www.qq.com</AllowedOrigin>
+        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
         <AllowedMethod>PUT</AllowedMethod>
         <AllowedHeader>x-cos-meta-test</AllowedHeader>
         <MaxAgeSeconds>500</MaxAgeSeconds>
