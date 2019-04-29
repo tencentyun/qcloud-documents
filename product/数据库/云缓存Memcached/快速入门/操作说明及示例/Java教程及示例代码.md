@@ -32,7 +32,7 @@ import java.util.Date;
 public class MemcachedDemo {
     public static void main(String[] args){
 
-        //管理中心，点击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
+        //管理中心，单击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
         //需要在内网IP上访问, 不需要账号密码
         final String ip = "**.***.***.**";
         final String port = "****";

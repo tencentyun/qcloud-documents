@@ -1,0 +1,29 @@
+
+**请求示例**
+
+```
+PUT /?tagging HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: chengwus3sdktj-1251668577.cos.ap-beijing-1.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa873003759404
+Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
+Content-Length: 127
+Content-Type: application/xml
+
+<Tagging><TagSet><Tag><Key>name</Key><Value>xiaoming</Value></Tag><Tag><Key>age</Key><Value>18</Value></Tag></TagSet></Tagging>
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 204 No Content
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Fri, 19 Jan 2018 11:40:22 GMT
+Server: tencent-cos
+x-cos-request-id: NWE2MWQ5MjZfMTBhYzM1MGFfMTA5ODVfMTVjNDM=
+```
+
+

@@ -1,0 +1,23 @@
+
+**请求示例:**
+
+```
+OPTIONS /coss3/ObjectName HTTP/1.1
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Date: Thu, 12 Jan 2017 17:26:53 GMT
+Origin: http://www.qq.com
+Access-Control-Request-Method: PUT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487070734;32466654734&q-key-time=1487070734;32559966734&q-header-list=host&q-url-param-list=&q-signature=2ac3ada19910f44836ae0df72a0ec1003f34324b
+```
+
+**响应示例:**
+
+```
+OPTIONS /<ObjectName> HTTP/1.1
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
+Origin: Origin
+Access-Control-Request-Method: HTTPMethod
+Access-Control-Request-Headers: RequestHeader
+Authorization: Auth String
+```

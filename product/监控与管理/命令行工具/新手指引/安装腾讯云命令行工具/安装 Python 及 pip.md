@@ -35,4 +35,4 @@ $ sudo make install
 ```
 $ curl "https://bootstrap.pypa.io/get-pip.py" -o "pip-install.py"
 $ sudo python pip-install.py
-``
+```

@@ -17,7 +17,7 @@ return $sign;
 | key | 参数名 |
 | value | 值 |
 | secret_key | 注册成功后每个 App 对应返回的 secret_key |
-| 文本1 | 文本2 |
+
 
 ### 返回参数说明
 

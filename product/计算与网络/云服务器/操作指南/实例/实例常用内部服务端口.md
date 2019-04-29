@@ -1,0 +1,152 @@
+以下为云服务器 CVM 实例常用端口列表：
+## Linux 常用服务
+<table>
+<tr>
+<th><b>服务</b></th>
+<th><b>功能</b></th>
+<th><b>服务类型</b></th>
+<th><b>服务名称</b></th>
+<th><b>访问后端服务域名</b></th>
+<th><b>访问后端服务端口</b></th>
+</tr>
+<tr>
+<td rowspan="5">实例初始化服务</td> 
+<td rowspan="5">提供实例初始化功能</td> 
+<td rowspan="5">非常驻服务，<br>执行完成后退出</td> 
+<td rowspan="2">cloud-init</td> 
+<td>mirrors.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td>tlinux-mirrors.tencentyun.com</td>
+<td>443</td>
+</tr>
+<tr>
+<td rowspan="3">公共服务</td>    
+<td>ntpupdate.tencentyun.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>DHCP Server</td> 
+<td>67、68</td> 
+</tr>
+<tr>
+<td>DNS</td> 
+<td>53</td> 
+</tr>
+<tr>
+<td rowspan="3">云监控</td> 
+<td rowspan="2">提供云监控能力</td> 
+<td rowspan="2">常驻服务</td> 
+<td rowspan="2">barad_agent</td> 
+<td>receiver.barad.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td>eventproxy.tencentyun.com</td>
+<td>80</td>
+</tr>
+<tr>
+<td>安装云监控以及<br>云监控的升级</td>    
+<td>常驻服务</td>
+<td>startgate</td>
+<td>update2.agent.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td rowspan="4">主机安全（云镜）</td> 
+<td rowspan="4">提供云安全能力</td> 
+<td rowspan="4">常驻服务</td> 
+<td rowspan="4">YDService</td> 
+<td>metadata.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td>l.yd.tencentyun.com</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>s.yd.tencentyun.com</td>    
+<td>5574</td>
+</tr>
+<tr>
+<td>u.yd.tencentyun.com</td> 
+<td>9080、80</td> 
+</tr>
+</table>
+
+## Windows 常用服务
+<table>
+<tr>
+<th><b>服务</b></th>
+<th><b>功能</b></th>
+<th><b>服务类型</b></th>
+<th><b>服务名称</b></th>
+<th><b>访问后端服务域名</b></th>
+<th><b>访问后端服务端口</b></th>
+</tr>
+<tr>
+<td rowspan="5">实例初始化服务</td> 
+<td rowspan="5">提供实例初始化功能</td> 
+<td rowspan="5">非常驻服务，执<br>行完成后退出</td> 
+<td rowspan="2">cloudbase-init</td> 
+<td>kms.tencentyun.com</td> 
+<td>1688</td> 
+</tr>
+<tr>
+<td>kms1.tencentyun.com</td>
+<td>1688</td>
+</tr>
+<tr>
+<td rowspan="3">公共服务</td>    
+<td>ntpupdate.tencentyun.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>DHCP Server</td> 
+<td>67、68</td> 
+</tr>
+<tr>
+<td>DNS</td> 
+<td>53</td> 
+</tr>
+<tr>
+<td rowspan="3">云监控</td> 
+<td rowspan="2">提供云监控能力</td> 
+<td rowspan="2">常驻服务</td> 
+<td rowspan="2">BaradAgentSvc</td> 
+<td>update2.agent.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td>custom.message.tencentyun.com</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>安装云监控以及<br>云监控的升级</td>    
+<td>常驻服务</td>
+<td>startgate</td>
+<td>update2.agent.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td rowspan="4">主机安全<br>（云镜）</td> 
+<td rowspan="4">提供云安全能力</td> 
+<td rowspan="4">常驻服务</td> 
+<td rowspan="4">YDService</td> 
+<td>metadata.tencentyun.com</td> 
+<td>80</td> 
+</tr>
+<tr>
+<td>l.yd.tencentyun.com</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>s.yd.tencentyun.com</td>    
+<td>5574</td>
+</tr>
+<tr>
+<td>u.yd.tencentyun.com</td> 
+<td>9080、80</td> 
+</tr>
+</table>

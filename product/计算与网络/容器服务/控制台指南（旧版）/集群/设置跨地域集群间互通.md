@@ -1,0 +1,51 @@
+您可以通过对等连接实现跨地域不同集群互通。
+对等连接（Peering Connection）是一种大带宽、高质量的云上资源互通服务，可以打通腾讯云上的资源通信链路，关于建立对等连接可以参考 [详情](https://cloud.tencent.com/document/product/553/18836)。
+
+> **注意：**  
+>1. 本文的假设：已经 **创建集群** 并已添加节点（单击了解 [创建集群](https://cloud.tencent.com/document/product/457/11741)）。  
+>2. 请先确保对等连接成功建立，子机间能互通，若对等连接建立有问题，请着重排查 **控制台路由表项、CVM 安全组、子网 ACL** 是否设置有问题。
+
+
+### 步骤 1
+
+1. 登录腾讯云 [容器服务控制台](https://console.cloud.tencent.com/ccs)， 单击左侧导航栏中的【集群】。
+![image](http://upload-images.jianshu.io/upload_images/13878457-4e1931dad4a96656?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+2. 在集群列表页中单击某集群的【ID/名称】，单击后界面单击红框中【集群信息】。
+![image](http://upload-images.jianshu.io/upload_images/13878457-53a419af695ee86f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+3. 记录下 A 集群容器网络的地域、VPCID、容器网段和掩码。
+![image](http://upload-images.jianshu.io/upload_images/13878457-524c4e70fbbceab1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+4. 重复操作上边的操作，记录 B 集群容器网络的地域、VPCID、容器网段和掩码。
+![image](http://upload-images.jianshu.io/upload_images/13878457-c9619636e10bbd0c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+5. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，选择左侧对等连接，记录 **对等连接 ID**。
+![](http://upload-images.jianshu.io/upload_images/13878457-93f15178e4fbda5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 步骤 2
+
+1. 登录腾讯云 [私有网络控制台](https://console.cloud.tencent.com/vpc) 。
+
+2. 单击左侧目录中的【子网】，进入管理页面。
+
+3. 单击对等连接本端指定子网（子网 A）的关联路由表 ID（路由表 A），进入路由表的详情页。
+![](https://main.qcloudimg.com/raw/d3d66095baa06ca55bb23504e349f729.png)
+
+4. 单击【+ 新增路由策略】。
+![](https://main.qcloudimg.com/raw/1ccf8028f9b2815478298a7ccab0d1cc.png)
+
+5. 目的端中填入 B 集群容器的网段 CIDR ，下一跳类型选择【对等连接】，下一跳选择已建立的对等连接。
+![](https://main.qcloudimg.com/raw/4af8b6b606002dd9c8e0bae7ae9f1ac3.png)
+
+6. 对端路由表配置方法与本端相同。
+
+
+### 步骤 3
+
+测试容器间是否能互通，可以分别登录集群 A、B 的两个容器（登录方法请单击 [详情](https://cloud.tencent.com/document/product/457/9120) )互相访问验证。
+上海 pod 访问北京 pod
+![上海pod访问北京pod](http://upload-images.jianshu.io/upload_images/13878457-2be2ee954cabf0a4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+北京 pod 访问上海 pod
+![北京pod访问上海pod](http://upload-images.jianshu.io/upload_images/13878457-f849ccbd9ed89294?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+

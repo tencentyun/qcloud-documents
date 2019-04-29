@@ -38,11 +38,10 @@ ips包含字段如下：
 ### 响应示例
 ```
 {
-	"code": 0,
-	"message": "",
-	"data": {
-		"taskId": <NAT异步任务ID>
-	}
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "requestId": "< 异步任务ID >"
 }
 ```
 ### 响应参数

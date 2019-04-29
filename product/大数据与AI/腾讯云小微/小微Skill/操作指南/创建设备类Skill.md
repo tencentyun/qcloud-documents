@@ -8,19 +8,19 @@
 
  1.输入【名称】，在【QSkill类型】处勾选【设备类型】，完成后单击右下角【提交】。
 
-![](https://mc.qcloudimg.com/static/img/c3af40c4f106eb179eb4c363ced3a0c2/image.png)
+![](https://main.qcloudimg.com/raw/cb8f0a2109013664c6442a91f10ac9a5.png)
 
  2.选择【基本配置】，填写完必要信息后单击右下角【开始配置】。
 
-![](https://mc.qcloudimg.com/static/img/364a31032144d487fc620ca112d4d219/image.png)
+![](https://main.qcloudimg.com/raw/f431a011ce9c9b5f83be3d8abe4bb71e.png)
 
- 3.授权模式选择【授权码访问模式】，填写完必要信息后点击【保存】
+ 3.授权模式选择【授权码访问模式】，填写完必要信息后单击【保存】
 
 ![](https://mc.qcloudimg.com/static/img/67323870ffd1a86866c9fe7585d3454d/image.png)
 
 ## 开启测试训练
 
- 1.选择【测试训练】，在【是否开启测试训练】勾选。
+ 1.选择【测试训练】，勾选【是否开启测试训练】。
 
  ![](https://mc.qcloudimg.com/static/img/3d0a0daa425291b8b43681eee60784d4/image.png)
 

@@ -1,28 +1,28 @@
-## 1.接口描述
+## 接口描述
 本接口（UpdateCfsRule）用于更新权限规则。
 接口请求域名：**cfs.api.qcloud.com**
-## 2.输入参数
+## 输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| PGroupId    | 是  | string | 权限组ID |
-| RuleId       | 是  | string | 规则ID|
-| ClientIp         | 否   | string |  允许访问的客户端IP |
-| RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro为只读，rw为读写 |
-| UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash为将来访的root用户映射为匿名用户或用户组；no_root_squash为来访的root用户保持root帐号权限。|
-| Priority       | 否 | int    | 规则优先级，参数范围1-100。 其中 1 为最高，100为最低 |
+| PGroupId    | 是  | string | 权限组 ID |
+| RuleId       | 是  | string | 规则 ID|
+| ClientIp         | 否   | string |  允许访问的客户端 IP |
+| RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro 为只读，rw 为读写 |
+| UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中 all_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash 为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash 为将来访的 root 用户映射为匿名用户或用户组；no_root_squash 为来访的 root 用户保持 root 帐号权限|
+| Priority       | 否 | int    | 规则优先级，参数范围 1-100。 其中 1 为最高，100 为最低 |
 
-## 3.输出参数
+## 输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-| PGroupId    | string | 权限组ID |
-| RuleId       |  string | 规则ID|
-| ClientIp         |   string |  允许访问的客户端IP |
+| PGroupId    | string | 权限组 ID |
+| RuleId       |  string | 规则 ID|
+| ClientIp         |   string |  允许访问的客户端 IP |
 | RWPermission   |  string | 读写权限|
 | UserPermission |  string | 用户权限 |
 | Priority       | int    | 优先级 |
 
 
-## 4.示例 
+## 示例 
 
 ### 输入
 

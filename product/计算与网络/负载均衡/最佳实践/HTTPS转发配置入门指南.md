@@ -5,7 +5,7 @@
 1.	使用 HTTPS 并不会降低 Client 端的访问速度。
 2.	集群内单台服务器 SSL 加解密性能，高达 6.5W cps 的完全握手。相比高性能 CPU 提升了至少3.5倍，节省了服务端成本，极大提升了业务运营及流量突涨时的服务能力，增强了计算型的防攻击能力。
 3.	支持多种协议卸载及转换。减少业务适配客户端各种协议的压力，业务后端只需要支持 HTTP1.1 就能使用 HTTP2、SPDY、SSL3.0 及 TLS1.2等各版本协议。
-4.	一站式 SSL 证书申请、监控、替换。我们和国际顶级的证书厂商 comodo，symantec 展开对话，探讨合作，大幅缩减证书申请流程及成本。
+4.	一站式 SSL 证书申请、监控、替换。我们和国际证书厂商 comodo，symantec 展开对话，探讨合作，大幅缩减证书申请流程及成本。
 5.	防 CC 及 WAF 功能。能够有效杜绝慢连接、高频定点攻击、SQL 注入、网页挂马等应用层攻击。
 
 ## 2. HTTP、HTTPS 头部标识
@@ -14,8 +14,8 @@ CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 
-X-Client-Proto: http （前端为 HTTP 请求）
-X-Client-Proto: https  （前端为 HTTPS 请求）
+X-Client-Proto: HTTP（前端为 HTTP 请求）
+X-Client-Proto: HTTPS（前端为 HTTPS 请求）
 
 ## 3. 入门配置
 
@@ -50,7 +50,7 @@ server {
 }
 ```
 
-或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx http页面重定向到https页面：
+或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx HTTP 页面重定向到 HTTPS 页面：
 
 ```
 server { 	

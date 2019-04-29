@@ -1,70 +1,151 @@
-## 1. API Description
- 
-This API (DescribeDevice) is used to query the list of CPMs.
+## Description
 
-Domain for API request: bm.api.qcloud.com
+This API (DescribeDevice) is used to query the server list.
 
+Domain name for API access: bm.api.qcloud.com
 
-## 2. Input Parameters
+## Request
 
-The following request parameter list only provides API request parameters. For additional parameters, see [Common Request Parameters](/doc/api/456/6718) page.
+### Request Example
+```
+https://bm.api.qcloud.com/v2/index.php?
+	Action=DescribeDevice
+	&<Common request parameters>
+	&offset=<Offset value>
+	&limit=<The number of returned CPMs>
+	&unVpcId=<VPC ID>
+	&deviceClassCode=<Device class>
+	&instanceIds.0=<Device ID1>
+	&instanceIds.1=<Device ID2>
+	&lanIps.0=<Business private IP 1>
+	&lanIps.1=<Business private IP 2>
+	&alias=<Instance name>
+```
+
+### Request Parameter
+The following request parameter list only provides API request parameters. Common request parameters are required when the API is called. For other parameters, please see [Common Request Parameters](/doc/api/456/6718) page. The Action field for this API is DescribeDevice.
 
 | Parameter Name | Required | Type | Description |
-|---------|---------|---------|---------|
-| offset | No | Int | Offset. Default is 0 |
-| limit | No | Int | Number of returned CPMs. Default is 20 | 
-| vpcId | No | Int | VPC ID | 
-| subnetId | No | Int | Private subnet ID |
-| deviceClass | No | String | Device class. You can acquire device class information by using the [DescribeDeviceClass](/doc/api/456/6636) API |
-| lanIps | No | Array | List of business private IPs |
-| wanIps | No | Array | List of public IPs |
-| instanceIds | No | Array | Unique device ID |
+| ----------------- | ---- | ------------- | ---------------------------------------- |
+| offset | No | Int | Offset value. Default is 0. |
+| limit | No | Int | The number of returned CPMs. Default is 20. |
+| unVpcId | No | String | VPC ID. You can obtain the VPC information using the API [Query VPC List (DescribeBmVpcEx)](/doc/api/456/6646), and take the value of unVpcId field, such as vpc-8e0ypm3z. |
+| unSubnetId | No | String | Subnet ID. You can obtain the VPC subnet information using the API [Query Subnet List (DescribeBmSubnetEx)](/doc/api/456/6648), and take the value of unSubnetId field, such as subnet-34xt45as. |
+| deviceClassCode | No | String | Device class. The device class information can be obtained via the API [DescribeDeviceClass](/doc/api/456/6636). |
+| lanIps | No | Array (String) | List of business private IPs |
+| wanIps | No | Array (String) | List of public IPs |
+| instanceIds | No | Array (String) | List of device IDs |
 | alias | No | String | Device alias, used for fuzzy search |
-| deadlineStartTime | No | String | Filter operation is based on device expiration time (start time). Time format: "2016-05-25 12:00:00" |
-| deadlineEndTime | No | String | Filter operation is based on device expiration time (end time). Time format: "2016-05-25 13:00:00" |
-| autoRenewFlag | No | Int | Auto-renewal flag. 0: Disable auto renewal. 1: Enable auto renewal |
-  
+| deadlineStartTime | No | String | Filter operation is performed based on device expiration time (start time). Time format: "2016-05-25 12:00:00". |
+| deadlineEndTime | No | String | Filter operation is performed based on device expiration time (end time). Time format: "2016-05-25 13:00:00". |
+| autoRenewFlag | No | Int | Auto renewal flag. 0: Disable auto renewal. 1: Enable auto renewal. |
 
 
-## 3. Output Parameters
+## Response
+
+### Response Example
+```
+{
+  "code": 0,
+  "message": "OK",
+  "data": {
+    "totalNum": 2,
+    "deviceList": [
+      {
+        "instanceId": "cpm-d1y5rcex3",
+        "subnetId": "3",
+        "vpcId": "1025",
+        "unVpcId": "vpc-8e0ypm3z",
+        "unSubnetId" : "subnet-34xt45as",
+        "lanIp": "10.6.10.67",
+        "deviceStatus": "4",
+        "operateStatus": "1",
+        "osTypeId": "1",
+        "raidId": "1",
+        "alias": "Gateway device",
+        "appId": "1251000000",
+        "zoneId": "1000800001",
+        "projectId": "0",
+        "wanIp": "",
+        "deliverTime": "2016-05-10 17:54:48",
+        "deadline": "2018-05-10 00:00:00",
+        "isVpcGateway": "1",
+        "autoRenewFlag": "1",
+        "deviceClass" : "M10",
+		"deviceClassCode" : "PS100v1"
+      },
+      {
+        "instanceId": "cpm-lad4pu06",
+        "subnetId": "4",
+        "vpcId": "1025",
+		"unVpcId": "vpc-8e0ypm3z",
+        "unSubnetId" : "subnet-34xt45as",
+        "lanIp": "10.6.10.73",
+        "deviceStatus": "4",
+        "operateStatus": "1",
+        "osTypeId": "1",
+        "raidId": "1",
+        "alias": "Server",
+        "appId": "1251001002",
+        "zoneId": "1000800001",
+        "projectId": "0",
+        "wanIp": "115.159.240.23",
+        "deliverTime": "2016-05-17 18:23:24",
+        "deadline": "2017-03-18 22:40:09",
+        "isVpcGateway": "0",
+        "autoRenewFlag": "0",
+        "deviceClass" : "TS60",
+		"deviceClassCode" : "PI102v1"
+      }
+    ],
+    "serverTimestamp": 1464164820301
+  }
+}
+```
+
+## Response Parameters
+The response parameter section contains two layers of structure. The outer layer shows the response result of the API, and the inner layer shows the specific API contents, including servers.
 
 | Parameter Name | Type | Description |
-|---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, please see [Common Error Codes](/doc/api/456/6725) in the Error Codes page. |
-| message | String | Module error message description depending on API. |
-| data | obj | Device list |
+| ------- | ------ | ---------------------------------------- |
+| code | Int | Error code. 0: Successful; other values: Failed. For more information, please see [Error Codes](/doc/api/456/6725). |
+| message | String | Error Message |
+| data | Object | Device list. See details below. |
 
-data is the json information of the device list. It contains the following fields
+
+Parameter data is composed as follows:
 
 | Parameter Name | Type | Description |
-|---------|---------|---------|
+| ---------- | ------------- | ------------------------------------- |
 | totalNum | Int | Total number of devices |
-| deviceList | Array | Array. Array element is device information |
+| deviceList | Array (Object) | An array of objects. Array element is the device information. See details below. |
 
-Device information element in deviceList
+Parameter deviceList is composed as follows:
 
 | Parameter Name | Type | Description |
-|---------|---------|---------|
-| instanceId | String | Unique device ID |
-| vpcId | Int | VPC ID |
-| subnetId | Int | Private subnet ID |
-| deviceStatus | Int | Running status of the device. [View](#deviceStatus) |
-| operateStatus | Int | Operation status of the device. [View](#operateStatus) |
-| osTypeId | Int | Operating system ID. For the meanings of operating systems, please see the [Query List of Operating Systems (DescribeOs)](/doc/api/456/6727) API |
-| raidId | Int | RAID method ID. For the meanings of RAID, please see the [Query RAID Method of Device Class and System Disk Size (DescribeDeviceClassPartition)](/document/product/386/7370) API |
+| ------------- | ------ | ---------------------------------------- |
+| instanceId | String | Device ID |
+| vpcId | Int | VPC ID (Integer) |
+| subnetId | Int | VPC subnet ID (Integer) |
+| unVpcId | String | VPC ID (String) |
+| unSubnetId | String | VPC subnet ID (String) |
+| deviceStatus | Int | Running status of the device. [See](#deviceStatus). |
+| operateStatus | Int | Operation status of the device. [See](#operateStatus). |
+| osTypeId | Int | Operating system ID. For the meaning of operating system, please see the API [Query OS List (DescribeOs)](/doc/api/456/6727). |
+| raidId | Int | RAID mode ID. For the meaning of RAID, please see the API [Query RAID Mode of Device Class and System Disk Size (DescribeDeviceClassPartition)](/document/product/386/7370). |
 | alias | String | Device alias |
-| wanIp | String | Elastic IP |
+| wanIp | String | EIP |
 | lanIp | String | Business private IP |
 | deliverTime | String | Device delivery time |
 | deadline | String | Device expiration time |
-| autoRenewFlag | Int | Auto-renewal flag. 0: Disable auto renewal. 1: Enable auto renewal |
+| autoRenewFlag | Int | Auto renewal flag. 0: Disable auto renewal. 1: Enable auto renewal. |
+| deviceClass | String | Device class |
+| deviceClassCode | String | Device classes sold on Tencent Cloud |
 
-
-<br/>
-<span id="deviceStatus">Running status of the device</span>
+#### Running Status of Device
 
 | Status ID | Meaning |
-|---------|---------|
+| ---- | ------- |
 | 1 | Applying for device |
 | 2 | Initializing device |
 | 3 | Initialization failed |
@@ -76,61 +157,62 @@ Device information element in deviceList
 | 9 | Isolation failed |
 | 10 | De-isolating |
 | 11 | De-isolation failed |
-| 12 | Going offline |
-| 13 | Offline |
+| 12 | Deactivating |
+| 13 | Deactivated |
 | 14 | Expired |
 
-<br/>
-
-<span id="operateStatus">Operation status of the device</span>
+#### Operation Status of Device
 
 | Status ID | Meaning |
-|---------|---------|
+| ---- | ------ |
 | 1 | Running |
 | 2 | Shutting down |
 | 3 | Shut down |
-| 4 | Shut down failed |
-| 5 | Booting |
-| 6 | Boot failed |
-| 7 | Rebooting |
-| 8 | Reboot failed |
-| 9 | Re-installing system |
-| 10 | System re-installation failed |
+| 4 | Shutdown failed |
+| 5 | Starting up |
+| 6 | Startup failed |
+| 7 | Restarting |
+| 8 | Restart failed |
+| 9 | Reinstalling system |
+| 10 | System reinstallation failed |
 | 11 | Resetting password |
 | 12 | Binding EIP |
 | 13 | Unbinding EIP |
 | 14 | Binding BM load balancer |
 | 15 | Unbinding BM load balancer |
 
+## Error Codes
 
-
-## 4. Module Error Codes
-
-| code | codeDesc | Description |
-|------|------|------|
-| 9001 | InternalError.DbError | An error occurred when operating the database |
+| Error Code | Error Message | Error Description |
+| ----- | --------------------- | ------- |
+| 9001 | InternalError.DbError | An error occurred while operating the database |
 | 10001 | InvalidParameter | Invalid parameter |
 
 
-## 5. Example
- 
-Input
+## Practical Case
 
-<pre>
-	https://domain/v2/index.php?
+### Input
+
+```
+https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDevice
+	&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC
+	&Nonce=48476
+	&Timestamp=1476436689
+	&Region=bj
+	&Signature=afRlJQ0disdT97B7uIfVB4v2KWo%3D
 	&offset=1
 	&limit=30
-	&vpcId=1024
+	&unVpcId=vpc-8e0ypm3z
     &deviceClass=M10
-    &instanceIds.1=cpm-34xw423x
-    &instanceIds.2=cpm-34xw234y
-    &lanIps.1=10.1.1.1
-    &lanIps.2=10.1.2.2
+    &instanceIds.0=cpm-34xw423x
+    &instanceIds.1=cpm-34xw234y
+    &lanIps.0=10.1.1.1
+    &lanIps.1=10.1.2.2
 	&alias=Instance name
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
-Output
+```
+
+### Output
 
 ```
 {
@@ -143,12 +225,14 @@ Output
         "instanceId": "cpm-d1y5rcex3",
         "subnetId": "3",
         "vpcId": "1025",
+		"unVpcId": "vpc-8e0ypm3z",
+        "unSubnetId" : "subnet-34xt45as",
         "lanIp": "10.6.10.67",
         "deviceStatus": "4",
         "operateStatus": "1",
         "osTypeId": "1",
         "raidId": "1",
-        "alias": "Gateway Device",
+        "alias": "Gateway device",
         "appId": "1251000000",
         "zoneId": "1000800001",
         "projectId": "0",
@@ -156,18 +240,22 @@ Output
         "deliverTime": "2016-05-10 17:54:48",
         "deadline": "2018-05-10 00:00:00",
         "isVpcGateway": "1",
-        "autoRenewFlag": "1"
+        "autoRenewFlag": "1",
+        "deviceClass" : "M10",
+		"deviceClassCode" : "PS100v1"
       },
       {
         "instanceId": "cpm-lad4pu06",
         "subnetId": "4",
         "vpcId": "1025",
+		"unVpcId": "vpc-8e0ypm3z",
+        "unSubnetId" : "subnet-34xt45as",
         "lanIp": "10.6.10.73",
         "deviceStatus": "4",
         "operateStatus": "1",
         "osTypeId": "1",
         "raidId": "1",
-        "alias": "CPM",
+        "alias": "Server",
         "appId": "1251001002",
         "zoneId": "1000800001",
         "projectId": "0",
@@ -176,11 +264,11 @@ Output
         "deadline": "2017-03-18 22:40:09",
         "isVpcGateway": "0",
         "autoRenewFlag": "0",
-        "updateTime": "2016-05-19 19:34:33"
+        "deviceClass" : "TS60",
+		"deviceClassCode" : "PI102v1"
       }
     ],
     "serverTimestamp": 1464164820301
   }
 }
-
 ```

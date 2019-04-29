@@ -19,8 +19,8 @@ MtaLinkH5.pageBasicStats({
 >确定联动分析 js sdk 已载入，并且设置了 title 名称；
 >title 为必填项目，并且每页的 title 都要求不重复，重复影响统计。
 
-### 设置登陆帐号
-用于设置用户登陆帐号信息：
+### 设置登录帐号
+用于设置用户登录帐号信息：
 
 ```js
 MtaLinkH5.setLoginUin(uin);
@@ -41,7 +41,7 @@ MtaLinkH5.eventStats(event_id, param_json);
 >event_id 为事件 ID，在事件中添加后拷贝过来；
 >param_json 为事件参数以及事件参数值，每个参数对应一个参数值，为 json 格式。
 
-**例子：**
+#### 例子：
 ```html
 <button onclick="MtaLinkH5.eventStats('test_event')">事件-不带参数</button>
 <button onclick="MtaLinkH5.eventStats('test_event', {'param1':'value1'})">事件-单个参数</button>

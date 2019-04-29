@@ -15,7 +15,7 @@
 | zone | String | 否 | （过滤条件）按照可用区过滤。 |
 | instance-family | String | 否 | （过滤条件）按照实例机型系列过滤。实例机型系列形如：S1、I1、M1等。 |
 
-### 3. 输出参数
+## 3. 输出参数
 | 参数名称| 类型| 是否必选| 描述|
 |---------|---------|---------|---------|
 | RequestId | String | 唯一请求ID。每次请求都会返回RequestId。当用户调用接口失败找后台研发人员处理时需提供该RequestId。 |
@@ -59,3 +59,10 @@
     }
 }
 ```
+
+## 4. 错误码
+错误码 | 描述
+-----|------
+CallCvmException | 调用CVM异常。
+InvalidZoneMismatchRegion | 非法的zone名称。
+InternalServerError | 内部服务错误。

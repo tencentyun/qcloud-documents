@@ -1,21 +1,21 @@
-## 1.接口描述
+## 接口描述
 本接口（UpdateCfsPGroup）更新权限组信息。
 接口请求域名：**cfs.api.qcloud.com**
-## 2.输入参数
+## 输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|-----|--------|--------------------------------------------------------------|
 | Name   |  否  | string | 权限组名称 |
-| PGroupId   |是   | string | 权限组ID                                |                                   
+| PGroupId   |是   | string | 权限组 ID                                |                                   
 | DescInfo  | 否   | string | 描述信息                   |
 
-## 3.输出参数
+## 输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-|PGroupId|   string |权限组ID|
+|PGroupId|   string |权限组 ID|
 |Name |   string    |权限组名称|
 |DescInfo  |  string |描述信息|
 
-## 4.示例 
+## 示例 
 
 ### 输入
 

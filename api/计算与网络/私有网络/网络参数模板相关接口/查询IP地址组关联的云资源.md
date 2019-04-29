@@ -53,7 +53,7 @@ data.data 结构
 | detail  | Array  |  云资源详情。 |
 | detail.n.region  | String  |  云资源地域。 |
 | detail.n.type  | String  |  云资源类型。|
-| detail.n.id  | String  |  云资源 Id。|
+| detail.n.id  | String  |  云资源 ID。|
 | detail.n.name  | String  |  云资源名称。 |
 
 ## 5. 错误码表
@@ -112,45 +112,45 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
 输出
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "status": 0,
-        "output": {
-            "code": 0,
-            "message": "OK"
-        },
-        "data": {
-            "total": 4,
-            "detail": [
-                {
-                    "region": "ca",
-                    "type": "sg",
-                    "id": "sg-b2qce888",
-                    "name": "北美"
-                },
-                {
-                    "region": "gz",
-                    "type": "sg",
-                    "id": "sg-5y2ta666",
-                    "name": "createPolicy"
-                },
-                {
-                    "region": "sh",
-                    "type": "sg",
-                    "id": "sg-gt6an666",
-                    "name": "上海安全组"
-                },
-                {
-                    "region": "gz",
-                    "type": "sg",
-                    "id": "sg-jn3hnxyj",
-                    "name": "广州安全组"
-                }
-            ]
-        }
-    }
+	"code": 0,
+	"message": "",
+	"codeDesc": "Success",
+	"data": {
+		"status": 0,
+		"output": {
+			"code": 0,
+			"message": "OK"
+		},
+		"data": {
+			"total": 4,
+			"detail": [{
+					"region": "ca",
+					"type": "sg",
+					"id": "sg-b2qce888",
+					"name": "北美"
+				},
+				{
+					"region": "gz",
+					"type": "sg",
+					"id": "sg-5y2ta666",
+					"name": "createPolicy"
+				},
+				{
+					"region": "sh",
+					"type": "sg",
+					"id": "sg-gt6an666",
+					"name": "上海安全组"
+				},
+				{
+					"region": "gz",
+					"type": "sg",
+					"id": "sg-jn3hnxyj",
+					"name": "广州安全组"
+				}
+			]
+		}
+	}
+}
 ```
 
  

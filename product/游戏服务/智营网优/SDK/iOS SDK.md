@@ -1,7 +1,8 @@
 ## 1 iOS 接入
 
 ### 1.1 SDK 获取
-智营网优 iOS SDK 1.1.2 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/8a6c017abe3dd3c12b4952c7ee28344a/qcloud-ino-IOS-1.1.2.zip).
+登录腾讯云控制台,在智营网优管理后台下载 SDK。  
+*** 注意：本产品需要申请通过后才能访问管理后台 ***
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构

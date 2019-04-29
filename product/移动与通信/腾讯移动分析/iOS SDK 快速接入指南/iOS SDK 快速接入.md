@@ -1,3 +1,6 @@
+本章节将帮助您快速接入使用的 MTA 统计功能，高级功能接入请参考 [高级功能接入](/document/product/549/14976)或者 [接口说明](/document/product/549/12859) MTA.h 以及 MTAConfig.h 头文件。
+使用 CocoaPods 的开发者可前往 [https://github.com/tegdata/mta](https://github.com/tegdata/mta)。
+
 ## 配置 Xcode 工程
 1. 前往[【SDK 下载中心】](http://mta.qq.com/mta/ctr_index/download)下载对应压缩包到本地；
 2. 解压 mta-ios-sdk-x.x.x.zip 到本地目录，可以看到其中 SDK 目录下的三个文件 libmtasdk.a，MTA.h，MTAConfig.h；
@@ -8,25 +11,23 @@
 ![](//mc.qcloudimg.com/static/img/dbd8742a715f2e1b414b731b6b28743b/image.png)
 
 ## 嵌入 MTA 代码
-1. 切换到工程目录，打开 AppDelegate.m，在文件开头 import 部分增加 import：
+1.切换到工程目录，打开 AppDelegate.m，在文件开头 import 部分增加 import：
 ```
 #import "MTA.h"
 #import "MTAConfig.h"
 ```
-2. 在启动方法内添加如下语句
+2.在启动方法内添加如下语句：
 该启动方法为：
 
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
-
 添加该语句：
 ```
 [MTA startWithAppkey:@"xxxx"]; //xxxx为注册App时得到的APPKEY
 ```
 添加完成后的代码如下：
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -35,6 +36,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // ...
 }
 ```
+
 ## 验证数据上报
 成功嵌入 SDK 后，在模拟器或手机运行您上面已经编译好的应用（确保已执行 MTA 代码），便会自动上报数据。
 ![](//mc.qcloudimg.com/static/img/4b864a1a4a7a2cfbb70e73a86a30fef3/image.png)

@@ -36,7 +36,7 @@ memcached_return cache_return;
 memcached_server_st *server = NULL;
 
 client = memcached_create(NULL);
-server = memcached_server_list_append(server, "***.***.***.***", ****, &cache_return);//管理中心，点击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
+server = memcached_server_list_append(server, "***.***.***.***", ****, &cache_return);//管理中心，单击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
 cache_return = memcached_server_push(client, server);
 
 if(MEMCACHED_SUCCESS != cache_return){

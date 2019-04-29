@@ -33,13 +33,13 @@ Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
 
 ## 5. Example
 Input
-<pre>
+```
   https://bm.api.qcloud.com/v2/index.php?Action=RebootDevice
   &instanceIds.1=cpm-34xs43xs
   &instanceIds.2=cpm-34xs43ab
   &opUin=23234234
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
+```
 Output
 ```
 {

@@ -1,0 +1,7 @@
+目前 容器实例服务 CIS 支持的可选地域和可用区有： 
+
+| 地域         | 可用区          | 说明        |
+| :-----------: | :--------------: | :----------: |
+| ap-guangzhou | ap-guangzhou-2  | 广州可用区 2 |
+| ap-guangzhou | ap-guangzhou-3 | 广州可用区 3 |
+| ap-guangzhou | ap-guangzhou-4 | 广州可用区 4 |

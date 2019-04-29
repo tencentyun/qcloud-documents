@@ -10,7 +10,7 @@
 以下简要介绍一下WebSocket的原理及运行机制。
 
 WebSocket是HTML5下一种新的协议。它实现了浏览器与服务器全双工通信，能更好的节省服务器资源和带宽并达到实时通讯的目的。它与HTTP一样通过已建立的TCP连接来传输数据，但是它和HTTP最大不同是：
-- WebSocket是一种双向通信协议。在建立连接后，WebSocket服务器端和客户端都能主动向对方发送或接收数据，就像Socket一样；
+- WebSocket是一种双向通信协议。在建立连接后，WebSocket服务器端和客户端都能主动发送数据给对方或向对方接收数据，就像Socket一样；
 - WebSocket需要像TCP一样，先建立连接，连接成功后才能相互通信。
 
 传统HTTP客户端与服务器请求响应模式如下图所示：
@@ -64,4 +64,4 @@ Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8=
 - 设置负载均衡7层的proxy_read_timeout默认为60s
 - 设置心跳为50s，即可长期保持Websocket不断开
 
-近期Websocket将开放自定义配置，敬请期待。
+近期Websocket将开放自定义配置。

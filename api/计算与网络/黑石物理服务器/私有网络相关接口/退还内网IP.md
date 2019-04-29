@@ -14,7 +14,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
     &ips=<释放的IP数组>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为RegisterBatchIp。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为ReturnIps。
 
 | 参数名称 |描述 | 类型 |  必选  |
 |---------|---------|---------|---------|

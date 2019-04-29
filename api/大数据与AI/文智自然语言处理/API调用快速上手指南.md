@@ -87,8 +87,8 @@
 ### 3.1 首先请在腾讯云官方SDK下载地址
 
 下载或更新最新版本的SDK（本次以php-sdk为例）
-- [从 github 获取最新版本SDK >> ](https://github.com/QcloudApi/qcloudapi-sdk-php)（推荐）
-- [点击此处下载 SDK >>](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip)
+- [从 github 获取最新版本 SDK >> ](https://github.com/QcloudApi/qcloudapi-sdk-php)
+
 
 ### 3.2 修改demo.php文件，修改点如下
 
@@ -118,8 +118,8 @@ $a = $wenzhi->TextSentiment($package);
 error_reporting(E_ALL ^ E_NOTICE);
 require_once './src/QcloudApi/QcloudApi.php';
 
-$config = array('SecretId'        => '你在腾讯云上的SecretId',
-             'SecretKey'       => '你在腾讯云上的SecretKey',
+$config = array('SecretId'        => '您在腾讯云上的SecretId',
+             'SecretKey'       => '您在腾讯云上的SecretKey',
              'RequestMethod'  => 'POST',
              'DefaultRegion'    => 'gz');
 

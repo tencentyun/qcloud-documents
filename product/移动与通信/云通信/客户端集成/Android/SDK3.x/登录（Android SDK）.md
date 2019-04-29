@@ -1,9 +1,9 @@
-## 1 登录
-用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供identifier、userSig等信息，具体含义可参阅[帐号集成文档](/doc/product/269/账号登录集成说明)。
+## 登录
+用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 等信息，具体含义可参阅 [帐号集成文档](/doc/product/269/帐号登录集成说明) 。
 
-> 注意：
-> 如果此用户在其他终端被踢，登录将会失败，返回错误码（ERR_IMSDK_KICKED_BY_OTHERS：6208）。开发者必须进行登录错误码ERR_IMSDK_KICKED_BY_OTHERS的判断。关于被踢的详细描述，请参考[用户状态变更](/doc/product/269/9229#4.2-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B411)。
-> 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，login将会返回 70001 错误码，开发者可根据错误码进行票据更换。
+> **注意：**
+> * 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）。开发者必须进行登录错误码 `ERR_IMSDK_KICKED_BY_OTHERS` 的判断。关于被踢的详细描述，请参考 [用户状态变更](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B411)。
+> * 如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `70001` 错误码，开发者可根据错误码进行票据更换。
 
 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。
 
@@ -20,14 +20,13 @@ public void login(@NonNull String identifier, @NonNull String userSig, @NonNull 
 
 **示例：**
 
-
 ```
 // identifier为用户名，userSig 为用户登录凭证
 TIMManager.getInstance().login(identifier, userSig, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.d(tag, "login failed. code: " + code + " errmsg: " + desc);
 	}
 
@@ -38,16 +37,16 @@ TIMManager.getInstance().login(identifier, userSig, new TIMCallBack() {
 });
 ```
 
-## 2 登出
+## 登出
 
-如用户主动注销或需要进行用户的切换，则需要调用注销操作：
+如用户主动注销或需要进行用户的切换，则需要调用注销操作。
 
 **原型：**
 
 ```
 /**
  * 注销
- * @param callback 回调，不需要可以填null
+ * @param callback 回调，不需要可以填 null
  */
 public void logout(@Nullable TIMCallBack callback) 
 ```
@@ -61,8 +60,8 @@ TIMManager.getInstance().logout(new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
  
-        //错误码code和错误描述desc，可用于定位请求失败原因
-        //错误码code列表请参见错误码表
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 列表请参见错误码表
         Log.d(tag, "logout failed. code: " + code + " errmsg: " + desc);
     }
  
@@ -73,23 +72,25 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 });
 ```
 
-## 3 无网络情况下查看消息
+## 无网络情况下查看消息
 
-如用当前网络异常，或者想在不调用login的时候查看用户消息，可调用`TIMManagerExt`中的`initStorage`方法初始化存储，完成后可获取会话列表和消息。
+如用当前网络异常，或者想在不调用 `login` 的时候查看用户消息，可调用 `TIMManagerExt` 中的 `initStorage` 方法初始化存储，完成后可获取会话列表和消息。
 
-> 注意：
-> 1. 这个方法仅供登录失败或者没有网络的情况下查看历史消息使用，**如需要收发消息，请务必调用登录接口`login`**。
-> 2. 如果登录成功，SDK会自动初始化本地存储，无需手动调用这个接口。
+> **注意：**
+> * 这个方法仅供登录失败或者没有网络的情况下查看历史消息使用，**如需要收发消息，请务必调用登录接口 `login`**。
+> * 如果登录成功，SDK 会自动初始化本地存储，无需手动调用这个接口。
 
 **原型：**
 
 ```
 /** 初始化本地存储，可以在无网络情况下加载本地会话和消息
- * @param identifier 用户ID
+ * @param identifier 用户 ID
  * @param cb 回调
  */
 public int initStorage(@NonNull String identifier, @NonNull TIMCallBack cb) 
 ```
+
+以下示例中初始化存储，成功后可获取会话列表。
 
 **示例：**
 
@@ -125,19 +126,16 @@ ext.getLocalMessage(5, null, new TIMValueCallBack<List<TIMMessage>>() {
 });
 ```
 
-示例中初始化存储，成功后可获取会话列表。
-
-## 4 获取当前登录用户
-通过TIMManager成员方法getLoginUser可以获取当前用户名，也可以通过这个方法判断是否已经登陆。
+## 获取当前登录用户
+通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。
 
 **原型：**
 
 ```
 public String getLoginUser()
 ```
-获取当前登陆的用户。
 
->说明：
-返回值为当前登陆的用户名，需要注意的是，如果是自有账号登陆，用户名与登陆所传入的identifier相同，如果是第三方账号，如微信登陆，QQ登陆等，登陆后会有内部转换过的identifer，后续搜索好友，入群等，都需要使用转换后的identifier操作。
+>**注意：**
+返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方帐号，如微信登录，QQ 登录等，登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
 
 

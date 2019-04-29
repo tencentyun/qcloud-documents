@@ -9,7 +9,7 @@ Session是WEB程序中常用的功能，默认情况下其数据是以文件方�
 1. 修改php.ini配置文件实现。
 修改session存储方式
 session.save_handler = memcache
-修改session存储地址，***号替换为你的IP:Port, 在管理中心，点击“云缓存Memcached”，在云缓存Memcached“管理视图”，可以看到系统分配的IP:Port
+修改session存储地址，***号替换为您的IP:Port, 在管理中心，单击“腾讯云数据库 Memcached”，在腾讯云数据库 Memcached“管理视图”，可以看到系统分配的IP:Port
 session.save_path = "tcp://***.***.***.***:****"
 设置一个合理时间，只缓存热点数据
 session.gc_maxlifetime = 1500
@@ -25,7 +25,7 @@ ini_set("session.gc_maxlifetime",1500);
 1. 修改php.ini配置文件实现。
 修改session存储方式
 session.save_handler = memcached
-修改session存储地址，***号替换为你的IP:Port, 在管理中心，点击“云缓存Memcached”，在云缓存Memcached“管理视图”，可以看到系统分配的IP:Port
+修改session存储地址，***号替换为您的IP:Port, 在管理中心，单击“腾讯云数据库 Memcached”，在腾讯云数据库 Memcached“管理视图”，可以看到系统分配的IP:Port
 session.save_path = "***.***.***.***:****"
 设置一个合理时间，只缓存热点数据
 session.gc_maxlifetime = 1500

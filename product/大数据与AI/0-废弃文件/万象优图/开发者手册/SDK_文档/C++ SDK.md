@@ -21,10 +21,10 @@ cd build
 cmake .. 
 make 
 ```
-需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成你自己的。
+需要将sample.cpp里的appid、secretId、secretKey、bucket等信息换成您自己的。
 生成的sample就可以直接运行，试用，生成的静态库，名称为:libimagesdk.a。 
-生成的libimagesdk.a放到你自己的工程里lib路径下， 
-include目录下的 Auth.h Imageapi.h curl json都放到你自己的工程的include路径下。 
+生成的libimagesdk.a放到您自己的工程里lib路径下， 
+include目录下的 Auth.h Imageapi.h curl json都放到您自己的工程的include路径下。 
 例如我的项目里只有一个sample.cpp,项目目录和sdk在同级目录， 
 copy libimagesdk.a 到项目所在目录那么编译命令为：
 

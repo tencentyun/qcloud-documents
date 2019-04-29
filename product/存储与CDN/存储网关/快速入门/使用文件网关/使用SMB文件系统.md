@@ -15,7 +15,7 @@
 
 
 ### 打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
@@ -24,7 +24,7 @@
 ![](https://mc.qcloudimg.com/static/img/004ef32b0b934ed6d666405a38fff999/image.png)
 
 ### 输入用户名密码
-点击【完成】按钮后，在弹出的窗口中输入第一步创建的用户名密码，点击确认完成挂载。
+单击【完成】按钮后，在弹出的窗口中输入第一步创建的用户名密码，单击确认完成挂载。
 ![](https://mc.qcloudimg.com/static/img/27f2f6fdcb2f75ea974ef96bdb90ef28/image.png)
 
 <p style="color: red;">注意，请勿从多台客户端主机上使用相同用户名密码访问同一文件系统，该操作会被系统自动识别为非法（文件系统会锁住）。</p>
@@ -34,7 +34,7 @@
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
 ### 断开文件系统
-要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中点击【断开】选项，即可断开文件系统的连接。
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
 ![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
 
 

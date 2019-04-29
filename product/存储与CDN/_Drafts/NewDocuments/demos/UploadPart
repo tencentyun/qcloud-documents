@@ -1,0 +1,25 @@
+
+**请求示例:**
+
+```
+PUT /ObjectName?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Date: Wed，18 Jan 2017 16:17:03 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727403;32557623403&q-key-time=1484727403;32557623403&q-header-list=host&q-url-param-list=partNumber;uploadId&q-signature=bfc54518ca8fc31b3ea287f1ed2a0dd8c8e88a1d
+Content-Length: 10485760
+
+[Object]
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Wed，18 Jan 2017 16:17:03 GMT
+Etag: "e1e5b4965bc7d30880ed6d226f78a5390f1c09fc"
+Server: tencent-cos
+x-cos-request-id: NTg3ZjI0NzlfOWIxZjRlXzZmNGJfMWYy
+```

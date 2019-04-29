@@ -25,7 +25,7 @@
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
 | DiskType | String | No | Data disk type. For information on limits of data disk type, please see [CVM Instance Configuration](https://cloud.tencent.com/document/product/213/2177). Value range: <br><li>LOCAL_BASIC: local HDD<br><li>LOCAL_SSD: local SSD disk<br><li>CLOUD_BASIC: HDD cloud disk<br><li>CLOUD_PREMIUM: premium cloud disk<br><li>CLOUD_SSD: SSD cloud disk<br><br>Default value: LOCAL_BASIC. <br><br>This parameter is invalid for the API `ResizeInstanceDisk`. |
-| DiskId | String | No | System disk ID. LOCAL_BASIC and LOCAL_SSD do not have an ID. This parameter is not supported currently. |
+| DiskId | String | No | Data disk ID. LOCAL_BASIC and LOCAL_SSD do not have an ID. This parameter is not supported currently. |
 | DiskSize | Integer | No | Data disk size, in GB. The minimum adjustment increment is 10 GB. Different types of data disks have different value ranges. For information on limits, please see [CVM Instance Configuration](https://cloud.tencent.com/document/product/213/2177). Default is 0, indicating that no data disk is purchased. For more information on limit, please see the product documentation. |
 
 ### VirtualPrivateCloud

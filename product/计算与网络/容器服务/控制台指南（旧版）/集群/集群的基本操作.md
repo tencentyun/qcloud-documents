@@ -1,0 +1,84 @@
+## 创建集群
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+2. 单击左侧导航栏中的 **集群**，单击集群列表页的 【新建】。
+![](https://main.qcloudimg.com/raw/7259346ed52c613a31001750ab3ba7de/basic1.png)
+3. 设置集群的基本信息。
+ - **集群名称**：要创建的集群的名称。不超过60个字符。
+ - **Kubernetes版本**：提供多个 Kubernetes 版本选择，各版本特性对比请查看 [Supported Versions of the Kubernetes Documentation](https://kubernetes.io/docs/home/supported-doc-versions/)。
+ - **所在地域**：建议您根据所在地理位置选择靠近的地域。可降低访问延迟，提高下载速度。
+ - **可用区**：同地域内，内网互通；不同地域，内网不通。需要多个内网通信的用户须选择相同的地域。
+ - **节点网络**：为集群内主机分配在节点网络地址范围内的 IP 地址。参阅 [容器及节点网络设置](/doc/product/457/9083)。
+ - **容器网络**：为集群内容器分配在容器网络地址范围内的 IP 地址。参阅 [容器及节点网络设置](/doc/product/457/9083)。
+ - **集群描述**：创建集群的相关信息。该信息将显示在 **集群信息** 页面。
+![Alt text](https://main.qcloudimg.com/raw/6d8768b09d2f3b09e4c3455ba90ae0db.png)
+
+4. 集群高级设置。
+ - **ipvs**：ipvs 适用于将在集群中运行大规模服务的场景，开启后不能关闭。参阅 [集群启用 IPVS](/doc/product/457/19742)。
+![](https://main.qcloudimg.com/raw/97904313b5449333c8c3171d586e74ad.png)
+5. 选择部署模式和机型。
+ - **Master**：Master 的部署方法决定了您集群的管理模式，我们提供了两种集群托管模式选择。参阅[集群托管模式说明](/doc/product/457/31013)。
+ - **Node**：Node 配置的是集群运行服务真正使用的工作节点。您可以在创建集群时购置 CVM 作为 Node 节点，也可以在集群创建完成后再添加 Node 节点。
+ - **计费模式**：提供包年包月和按量计费两种计费模式，详细对比请查看 [计费模式说明](/doc/product/213/2180)。
+ - **可用区和节点网络**：您可以同时选择多个可用区和子网的资源来部署您的 Master 或 Node 节点，来保证集群更高的可用性。
+ - **机型**：机型选择方案参看[实例类型概述](/doc/product/213/7153#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2) 和 [确定云服务器配置方案](/doc/product/213/2764#.E7.A1.AE.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88)。
+ - **系统盘**：默认为 50G，可以根据机型选择本地硬盘、云硬盘、SSD云硬盘、高性能云硬盘等，存储盘选择请参考[存储概述](https://cloud.tencent.com/document/product/213/4952)。
+ - **数据盘**：Master 因为不建议部署其他应用，默认不配置数据盘，但也可以购置后再添加云盘。Node 可以在购置时配置数据盘。
+ - **公网宽带**：勾选 **访问公网** ，系统将免费分配公网 IP，提供两种计费模式，详细对比参看 [购买网络带宽](/doc/product/213/509)。
+ ![Alt text](https://main.qcloudimg.com/raw/d6b8bd2e83df3de1e937b0ec8c2e1879.png)  
+
+6. 云服务器其他配置。
+ - **操作系统**：默认提供通过我们兼容性调整和验证的主流操作系统版本。如果选择了GPU机型，请选择GPU版本的操作系统。
+ - **安全组**：安全组具有防火墙的功能，用于设置云服务器 CVM 的网络访问控制。参阅  [容器服务安全组设置](/doc/product/457/9084) 。
+ - **登录方式**：提供三种对应登录方式。
+    i.**设置密码**：请根据提示设置对应密码。
+	ii.**立即关联密钥**：密钥对是通过一种算法生成的一对参数，是一种比常规密码更安全的登录云服务器的方式。详细参阅[SSH 密钥](/doc/product/213/503)。
+	iii.**自动生成密码**：自动生成的密码将通过站内信发送给您。
+![Alt text](https://main.qcloudimg.com/raw/5cb63a0c4ad87f61a37c014755fc8cfe.png)
+
+7. 创建完成的集群将出现在集群列表中。
+![Alt text](https://main.qcloudimg.com/raw/d0a9b1c98aefc50fa9f8b9ca32c5f11f.png)
+
+## 添加云服务器
+1. 在集群列表页中，单击右侧 **新建节点**。
+![](https://main.qcloudimg.com/raw/1aa5aef795341706e825402bd49f8c7e.png)
+
+2. 设置添加云服务器的所属 **网络**、**机型** 和 **配置信息**。
+   允许将主机创建在同一地域下不同可用区下的不同子网中。
+![Alt text](https://main.qcloudimg.com/raw/9720633d02d94a5548ce60895ce061b2/basic7.png)
+
+3. 新添加的云服务器将出现在 **ID/节点名** 列表中。
+![](https://main.qcloudimg.com/raw/349b90b4ed98bf93f73a9e2e14396e71/basic8.png)
+
+## 销毁云服务器
+1. 在集群列表页中单击某集群的 **ID/名称**，进入如下界面，选择需销毁的云服务器，单击右侧 **移出** 。
+![](https://main.qcloudimg.com/raw/654b84285699fe83188ee0645c997bf8/basic9.png)
+
+2. 弹出提示页面，显示要移出的节点信息，单击【确定】删除节点。
+![](https://main.qcloudimg.com/raw/d96f5f2ff7ee31d4ce3c6556c4049a49/basic10.png)
+
+## 查看节点信息
+
+1. 在集群列表中集群的 **ID/名称** 。
+2. 单击【节点列表】来查看集群节点列表信息。
+![](https://main.qcloudimg.com/raw/e963384ec8f72283b3ad84d8f57740dd/basic11.png)
+
+## 登录到节点
+当前节点支持腾讯云云服务器，如何登录请查看 [登录到云服务器](https://cloud.tencent.com/doc/product/213/5436) 。
+
+## 创建集群 Namespace
+
+1. 在集群列表页中选择某集群的 **ID/名称**。
+2. 单击 **Namespace 列表** ，单击【新建 Namespace 】。
+![](https://main.qcloudimg.com/raw/c94facbafe6a7e101795156b2b5946c9/basic12.png)
+3. 填写信息并单击【提交】。
+![](https://main.qcloudimg.com/raw/66e867fa347dfb0504f91c963ca710ad/basic13.png)
+
+## 删除集群 Namespace
+
+1. 在集群列表页中选择某集群的 **ID/名称**。
+2. 单击 **Namespace 列表** ，选择需删除的 Namespace ，单击右侧【删除】。
+![](https://main.qcloudimg.com/raw/08c0f7206b50074ec02b1475819b25de/basic14.png)
+3. 弹出提示页面，显示要删除的 Namespace 信息，单击【确定】删除 Namespace 。
+![](https://main.qcloudimg.com/raw/7259346ed52c613a31001750ab3ba7de/basic1.png)
+>**注意**： 
+>删除 Namespace 将销毁 Namespace 下的所有资源，销毁后所有数据将被清除且不可恢复，清除前将请提前备份数据。
