@@ -254,7 +254,6 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
- "ErrorMsg": "Succeed",
  "RecordVersion": 1,
  "Record": {
   "name": "calvinshao",
