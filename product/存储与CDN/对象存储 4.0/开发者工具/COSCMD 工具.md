@@ -1,9 +1,4 @@
 # COSCMD
-
-[![Build Status](https://travis-ci.org/tencentyun/coscmd.svg?branch=master)](https://travis-ci.org/tencentyun/coscmd)
-[![](https://img.shields.io/pypi/v/coscmd.svg)](https://pypi.org/project/coscmd/)
-[![](https://img.shields.io/pypi/dm/coscmd.svg)](https://pypi.org/project/coscmd/#files)
-
 ## 功能说明
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。
 
