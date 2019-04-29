@@ -127,7 +127,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 #### 5.1 原理介绍
 我们知道优酷、土豆、腾讯上的视频有些是有多清晰度选择的，这个效果如何实现呢？
 ![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
-**播放器本身是没有能力去改变视频的清晰度的**，在视频源产生的地方其实只有一种清晰度，我们称之为原画，而原画视频编码格式和封装格式有很多种，在 Web 端无法完全支持播放所有的视频格式，点播支持必须是以 H.264 为视频编码，以 mp4 和 FLV 为封装格式的视频。
+**播放器本身是没有能力去改变视频的清晰度的**，在视频源产生的地方其实只有一种清晰度，我们称之为原画，而原画视频编码格式和封装格式有很多种，在 Web 端无法完全支持播放所有的视频格式，点播支持必须是以 H.264 为视频编码，以 MP4 和 FLV 为封装格式的视频。
 
 那么多清晰度是怎么实现的呢？ 这里就是视频云发挥作用的地方了：
 - 对于直播，来自主播那一端的原始视频会在腾讯云进行实时的转码，分出多路转码后的视频，比如我们常说的“高清-HD”以及“标清-SD”，每一路视频都有其对应的地址：
@@ -237,9 +237,9 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | flv             | String   | 无       |  原画 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535a.flv  |
 | flv_hd          | String   | 无       |  高清 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535ahd.flv  |
 | flv_sd          | String   | 无       |  标清 flv 播放 URL  <br> 示例：  http://2157.liveplay.myqcloud.com/2157_358535asd.flv  |
-| mp4             | String   | 无       |  原画 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| mp4_hd          | String   | 无       |  高清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
-| mp4_sd          | String   | 无       |  标清 mp4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
+| mp4             | String   | 无       |  原画 MP4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
+| mp4_hd          | String   | 无       |  高清 MP4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
+| mp4_sd          | String   | 无       |  标清 MP4 播放 URL  <br> 示例： http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
 | rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
 | rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
 | rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
@@ -284,7 +284,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>**备注：只适用于点播** | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
-|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 rtmp、flv、hls、mp4 ，H5 模式支持 mp4、hls、flv（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load(http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4)  |
+|load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频<br>**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 RTMP、FLV、HLS 和 MP4 ，H5 模式支持 MP4、HLS 和 FLV（hls、flv取决于浏览器是否支持）** [v2.2.2+] | player.load(http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4)  |
 
 >**注意：**
 >**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
