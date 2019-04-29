@@ -99,7 +99,7 @@ mTXVideoEditer.setSpeedList(list);
 
 ## 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
-注意：**setTXVideoReverseListener()**  老版本(SDK 4.5以前)首次监听需要手动调用,新版本不需要调用即可生效。
+注意：**setTXVideoReverseListener()**  老版本(SDK 4.5以前)首次监听需要手动调用，新版本不需要调用即可生效。
 
 Demo示例：
 ```
