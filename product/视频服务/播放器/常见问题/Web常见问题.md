@@ -16,7 +16,7 @@
 **解决方案：**HTTP 协议的页面播放 HTTP 的视频，HTTPS 协议的页面播放 HTTPS 的视频。
 
 #### CDN无视频
-**问题表现：**访问视频地址返回 404。
+**问题表现：**访问视频地址返回404。
 **解决方案：**通过腾讯云技术人员定位并修复 CDN 资源。
 
 #### CDN鉴权失败
@@ -31,10 +31,10 @@
 **问题表现：**在 PC 端无法播放视频，浏览器控制台报跨域相关的错误。
 **问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的 corssdomain.xml 文件。
 >**corssdomain.xml 的作用简介**
-> * 位于 `www.a.com` 域中的 SWF 文件要访问 `www.b.com` 的文件时，SWF首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
+> * 位于 `www.a.com` 域中的 SWF 文件要访问 `www.b.com` 的文件时，SWF 首先会检查 `www.b.com `服务器根目录下是否有 crossdomain.xml 文件，如果没有，则访问不成功；若 crossdomain.xml 文件存在，且里边设置了允许 `www.a.com` 域访问，那么通信正常。
 > * 这里要区分 SWF 文件的域名和嵌入 SWF 文件的页面域名，crossdomain.xml 中配置的是 SWF 文件的域名。
 
-在 PC 端的现代浏览器使用 HTML5 播放 hls、flv 时，视频服务器需要配置跨域资源共享 [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)。
+在 PC 端的现代浏览器使用 HTML5 播放 hls 和 flv 时，视频服务器需要配置跨域资源共享 [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)。
 正常情况下腾讯云服务会自动配置这两项跨域策略，如遇到异常情况请联系客服。
 
 **解决方案：**视频存储服务器需要部署 corssdomain.xml 文件并配置正确的访问策略，以及开启 CORS 支持。
@@ -51,15 +51,15 @@
 首先需要了解的是通常情况下在 Web 端播放视频依赖浏览器自带的解码器，或者 Flash 解码器，不支持播放通常会出现 error code 为3或4的错误。浏览器不支持播放的常见问题如下。
 
 #### 浏览器不支持Flash
-**问题表现：**无法播放 RTMP、flv，或者无法在 IE 浏览器中播放视频。
-**解决方案：**播放 RTMP、flv 以及在 IE 中播放视频依赖 Flash 插件，请安装 Flash 插件并启用 Flash 插件。
+**问题表现：**无法播放 RTMP 和 FLV，或者无法在 IE 浏览器中播放视频。
+**解决方案：**播放 RTMP、FLV 以及在 IE 中播放视频依赖 Flash 插件，请安装 Flash 插件并启用 Flash 插件。
 
 #### 浏览器不支持MSE
 **问题表现：**在 PC 浏览器不支持 Flash 的情况下使用 H5 方式无法播放 hls、flv。
-**解决方案：**不支持 Flash 的情况下，播放器将使用 MSE 播放 hls、flv，如浏览器不支持只能更换、升级浏览器，目前完整支持通过 MSE 播放 hls、flv 的浏览器有 Edge、Chrome、Firefox、Safari11+。
+**解决方案：**不支持 Flash 的情况下，播放器将使用 MSE 播放 hls、flv，如浏览器不支持只能更换、升级浏览器，目前完整支持通过 MSE 播放 hls、flv 的浏览器有 Edge、Chrome、Firefox 和 Safari11+。
 
-#### 浏览器不支持解码 H264 或者不支持播放 mp4、hls
-**问题表现：**排除其他情况后仍无法播放 mp4、hls，通常出现在部分 PC 软件或者 App 集成精简版本的浏览器内核中，没有对应的视频解码器，会出现无法播放 mp4、hls 的情况。
+#### 浏览器不支持解码 H264 或者不支持播放 MP4、HLS
+**问题表现：**排除其他情况后仍无法播放 MP4、HLS，通常出现在部分 PC 软件或者 App 集成精简版本的浏览器内核中，没有对应的视频解码器，会出现无法播放 MP4、HLS 的情况。
 **解决方案：**在 PC 软件或 App 中升级浏览器内核，或者集成 Flash 插件，并允许调用 Flash 插件。
 
 ### HLS 加密视频播放失败
@@ -114,15 +114,15 @@ HLS 加密视频的播放流程有别于常规视频，通常需要确保获取 
 
 ## 全屏相关问题
 这里主要介绍全屏相关的问题，首先需要了解屏幕全屏（系统全屏）、网页全屏（页面全屏、伪全屏）两个概念。
-- **屏幕全屏** 是指在屏幕范围内全屏，全屏后只有视频画面内容，看不到浏览器的地址栏等界面，这种全屏需要浏览器提供接口支持。支持屏幕全屏的接口有两种，一种称为 Fullscreen API，通过 Fullscreen API 进入屏幕全屏后的特点是，进入全屏后仍然可以看到由 HTML CSS 组成的播放器界面。另一种接口为 webkitEnterFullScreen，该接口只能作用于 `<video>` 标签，通常用于移动端不支持 Fullscreen API 的情况，通过该接口全屏后播放器界面为系统自带的界面。
-- **网页全屏** 是指在网页显示区域范围内全屏，全屏后仍可以看到浏览器的地址栏等界面，通常情况下网页全屏是为了应对浏览器不支持系统全屏而实现类似全屏的一种方式，所以又称为伪全屏。该全屏方式由 CSS 实现。
+- **屏幕全屏**：是指在屏幕范围内全屏，全屏后只有视频画面内容，看不到浏览器的地址栏等界面，这种全屏需要浏览器提供接口支持。支持屏幕全屏的接口有两种，一种称为 Fullscreen API，通过 Fullscreen API 进入屏幕全屏后的特点是，进入全屏后仍然可以看到由 HTML CSS 组成的播放器界面。另一种接口为 webkitEnterFullScreen，该接口只能作用于 `<video>` 标签，通常用于移动端不支持 Fullscreen API 的情况，通过该接口全屏后播放器界面为系统自带的界面。
+- **网页全屏**：是指在网页显示区域范围内全屏，全屏后仍可以看到浏览器的地址栏等界面，通常情况下网页全屏是为了应对浏览器不支持系统全屏而实现类似全屏的一种方式，所以又称为伪全屏。该全屏方式由 CSS 实现。
 
 腾讯云点播 Web 播放器采用屏幕全屏为主，网页全屏为辅的全屏方案。全屏模式的优先级为 Fullscreen API > webkitEnterFullScreen > 网页全屏。
 
 由于 Flash 逐步被浏览器限制运行，腾讯云点播 Web 播放器采用了 HTML5 标准进行开发，并减少对于 Flash 的使用，在部分老旧的浏览器上，全屏功能使用受限制。旧版点播播放器1.0采用 Flash 开发，使用 Flash 插件实现的屏幕全屏。如需在不支持 Fullscreen API 的浏览器进行屏幕全屏，只能使用旧版点播播放器1.0。
 
 目前已知的全屏情况：
-- x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
+- x5 内核（包括 Android 端的微信、手机 QQ 和 QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
 - Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
 - iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
 - IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
