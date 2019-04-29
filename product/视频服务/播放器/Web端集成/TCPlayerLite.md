@@ -292,7 +292,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ## 进阶攻略
 这里介绍一些视频播放器 SDK 的进阶使用方法。
 
-### 使用广告SDK
+### 使用广告 SDK
 TCPlayerLite 提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
 
 ```
