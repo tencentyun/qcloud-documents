@@ -4,7 +4,7 @@
 在使用基本功能前，请确保您已完成以下骤，详见 [跑通Demo(Web)](https://cloud.tencent.com/document/product/647/32398)，[快速集成(Web)](https://cloud.tencent.com/document/product/647/16863)。
 - 创建了腾讯云实时音视频应用，购买了相应的套餐，并获取到SDKAppid。
 - 获取私钥文件。
-- 在 WEB 项目里集成了 WebRTCAPI.min.js
+- 在 Web 项目里集成了 WebRTCAPI.min.js
 
 ## 部署签名服务
 在初始化组件时需要签名服务进行签发 userSig，详情可以参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
