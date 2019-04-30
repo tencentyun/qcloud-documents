@@ -49,7 +49,7 @@ http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8播放地址
 var player = new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8", //请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
@@ -64,7 +64,7 @@ var player =  new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
@@ -92,17 +92,17 @@ PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开
 ```
 
 ### Step 4：给播放器设置封面
-在前面的代码例子中，您应该注意到 “coverpic” 这个参数了，在这里将详细介绍这个属性的使用方法。
+在前面的代码例子中，您应该注意到 “poster” 这个参数了，在这里将详细介绍这个属性的使用方法。
 **备注：封面功能有可能在部分移动端播放环境下失效，由于移动端视频播放环境相对 PC 来说比较复杂，各个浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，如果遇到功能失效的情况，欢迎向我们的技术支持反馈（反馈内容包括系统、浏览器或 App 的版本等关键信息），我们将尽可能去支持。**
 
 #### 4.1 简单设置封面
-coverpic 可以传入一个图片地址作为播放器的封面，将在播放器区域内居中并且以图片的实际分辨率进行显示。
+poster 可以传入一个图片地址作为播放器的封面，将在播放器区域内居中并且以图片的实际分辨率进行显示。
 
 ```
-"coverpic" : "http://www.test.com/myimage.jpg"
+"poster" : "http://www.test.com/myimage.jpg"
 ```
 #### 4.2 设置封面的展现样式
-coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
+poster 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
 
 style 支持的样式有3种：
 - default：居中并且以图片的实际分辨率进行显示；
@@ -110,7 +110,7 @@ style 支持的样式有3种：
 - cover：优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。
 
 ```
-"coverpic" : {"style":"stretch", "src":"http://www.test.com/myimage.jpg"}
+"poster" : {"style":"stretch", "src":"http://www.test.com/myimage.jpg"}
 ```
 #### 4.3 实现用例
 
@@ -155,7 +155,7 @@ var player = new TcPlayer('id_test_video', {
 "m3u8_hd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
 "m3u8_sd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
 "autoplay"  : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic"  : "http://www.test.com/myimage.jpg",
+"poster"  : "http://www.test.com/myimage.jpg",
 });
 ```
 
@@ -178,7 +178,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 var player = new TcPlayer('id_test_video', {
 "m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "wording": {
     2032: "请求视频失败，请检查网络",
     2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
