@@ -10,3 +10,5 @@
 
 ![消息中心](https://main.qcloudimg.com/raw/bbcd54b3d0501881b37cd3ffa62121e6.png)
 
+## 命令行工具 @cloudbase/cli 使用 `tcb login` 的时候验证失败怎么办
+
