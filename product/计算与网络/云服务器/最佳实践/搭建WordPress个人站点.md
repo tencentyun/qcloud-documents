@@ -1,5 +1,7 @@
-WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言和 MySQL 数据库开发。您可借助腾讯云云服务器 CVM，通过简单的操作即可运行 Wordpress，发布个人博客。
-腾讯云实验室提供了实践动手的教程，可帮助您一步一步完成 LNMP 环境和 WordPress 网站的搭建。您可单击进入 [实验室](https://cloud.tencent.com/developer/labs?utm_source=doc8044&utm_medium=qclab)。其中，搭建 WordPress 网站的实践教程可参考 [基于 CentOS 搭建 WordPress 个人博客](https://cloud.tencent.com/developer/labs/lab/10001)。
+WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言和 MySQL 数据库开发。您可通过在腾讯云服务器的简单操作部署Wordpress，发布个人博客。
+
+本文介绍手动部署WordPress的方法，如果您网站的可扩展性需求要求不高，腾讯云还提供镜像的方式部署WordPress，具体可参考[使用镜像部署WordPress](https://cloud.tencent.com/document/product/213/9740)。
+
 
 本教程以 Linux 系统 CentOS 6.8 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
 ![步骤流程](//mc.qcloudimg.com/static/img/6b7d99e96b495d10cd44624892c2ee46/image.png)
@@ -10,22 +12,21 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
  
 **域名注册**：如果想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
  
-** 网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
+**网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云[网站备案](https://cloud.tencent.com/product/ba)产品为您的域名备案。
 
-**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
+**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的[云解析](https://cloud.tencent.com/product/cns)服务来解析域名。
 
 **PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。
 
 ## 步骤 一：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。
-以下创建指引供您参考：
-[创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2972)
+以下创建指引供您参考：[快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)
 2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云服务器实例状态。
-![](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 本教程中云服务器实例的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
-- 云服务器实例用户名和密码；
-- 云服务器实例公网 IP。
+- 云服务器实例用户名和密码
+- 云服务器实例公网 IP
+![](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 ## 步骤 二：搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MySQL 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建好云服务器实例之后，您可以开始进行 LNMP 环境搭建。
@@ -58,6 +59,8 @@ yum install nginx php php-fpm php-mysql mysql-server -y
 Nginx：1.10.2
 MySQL：5.1.73
 PHP：5.3.3
+>! 实际安装版本可能与示例版本有所差异。
+> 如果您使用CentOS 7以上版本，已不再支持使用MySQL，请替换为MariaDB。
 2. 将各软件设置为开机启动：
 ```
 chkconfig nginx on
@@ -65,7 +68,6 @@ chkconfig mysqld on
 chkconfig php-fpm on
 ```
 
-更多详细操作，可参考 [CentOS 环境下通过 Yum 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ### 2.3 软件配置
 将 Nginx、MySQL、PHP 等各软件安装好之后，还需要对各软件分别进行配置。以下是详细步骤：
@@ -74,46 +76,62 @@ chkconfig php-fpm on
 ```
 vim /etc/nginx/conf.d/default.conf
 ```
-2. 按字母“I”键或 “Insert” 键切换至编辑模式，将已有内容全部清除，复制并粘贴以下内容到 `default.conf`文件。
-<div class="code"><p></p><pre> 
+2. 按字母“I”键或 “Insert” 键切换至编辑模式，将已有内容全部清除，复制并粘贴以下内容到 `default.conf`文件。 
+
+```
 server {
-    listen       80;
-    root   /usr/share/nginx/html;
-    server_name  localhost;
+listen       80;
+root   /usr/share/nginx/html;
+server_name  localhost;
 
-    #charset koi8-r;
-    #access_log  /var/log/nginx/log/host.access.log  main;
+#charset koi8-r;
+#access_log  /var/log/nginx/log/host.access.log  main;
 
-    location / {
-            index index.php index.html index.htm;
-    }
 
-    #error_page  404              /404.html;
+location / {
 
-    #redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
 
-    #pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    location ~ .php$ {
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index   index.php;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-     }
+    index index.php index.html index.htm;
 
- }</pre></div>
+}
+
+
+#error_page  404              /404.html;
+
+
+#redirect server error pages to the static page /50x.html
+#
+error_page   500 502 503 504  /50x.html;
+location = /50x.html {
+
+
+root   /usr/share/nginx/html;
+
+}
+
+
+#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+location ~ .php$ {
+
+
+fastcgi_pass   127.0.0.1:9000;
+fastcgi_index   index.php;
+fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+include        fastcgi_params;
+
+ }
+
+
+}
+```
 修改完成后，按 “Esc” 键，输入 “:wq”，保存文件并返回。
 3. 启动 Nginx。
 ```
 service nginx start
 ```
 
-4. 测试 Nginx 服务是否正常运行
+4. 测试 Nginx 服务是否正常运行。
 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功：
 ![ 测试Nginx2](//mc.qcloudimg.com/static/img/1a992f4caab3388effc70a856eaac941/image.png)
@@ -127,6 +145,7 @@ service mysqld start
 ```
  /usr/bin/mysqladmin -u root password "123456"
 ```
+>! 如果您使用CentOS 7以上版本，已不再支持使用MySQL，请替换为MariaDB。
 
 #### 2.3.3 配置 PHP
 1. 启动 PHP-FPM 服务。
@@ -285,7 +304,7 @@ mv * /usr/share/nginx/html/
 
 
 此外，您还可以在腾讯云平台横向和纵向扩展服务容量，例如：
-- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/5730)
+- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。

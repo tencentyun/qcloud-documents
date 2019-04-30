@@ -84,7 +84,7 @@ metadata:
 
 #### annotations: 指定节点绑定 Loadbalances
 
-如果您的集群规模较大，入口类型的应用需设置亲和性调度到部分节点， 您可以通过配置 Servce 的 Loadbalance，只绑定指定节点， annotations 如下：
+如果您的集群规模较大，入口类型的应用需设置亲和性调度到部分节点， 您可以通过配置 Service 的 Loadbalance，只绑定指定节点， annotations 如下：
 ```yaml
 metadata:
   annotations:

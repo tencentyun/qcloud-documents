@@ -58,7 +58,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 >?由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar) , [httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar), [httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和  [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar) 采用方法 1 需要将以上四个 jar 包导入工程。
 
 - 方法2
-将 [JAR包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
+将 [JAR 包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 
 
@@ -67,18 +67,18 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 - **准备必要参数**
 
 ```java
-// 短信应用SDK AppID
+// 短信应用 SDK AppID
 int appid = 1400009099; // 1400开头
 
-// 短信应用SDK AppKey
+// 短信应用 SDK AppKey
 String appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
 
 // 需要发送短信的手机号码
 String[] phoneNumbers = {"21212313123", "12345678902", "12345678903"};
 
-// 短信模板ID，需要在短信应用中申请
-int templateId = 7839; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-//templateId7839对应的内容是"您的验证码是: {1}"
+// 短信模板 ID，需要在短信应用中申请
+int templateId = 7839; // NOTE: 这里的模板 ID`7839`只是一个示例，真实的模板 ID 需要在短信控制台中申请
+// templateId7839对应的内容是"您的验证码是: {1}"
 // 签名
 String smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 ```
@@ -95,19 +95,19 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -126,25 +126,25 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     SmsMultiSenderResult result =  msender.sendWithParam("86", phoneNumbers,
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
 
->? 群发一次请求最多支持200个号码。
-> 无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+>?群发一次请求最多支持200个号码。
+>无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="发送语音验证码" ></a>
 
@@ -164,13 +164,13 @@ try {
         "5678", 2, "");
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -196,13 +196,13 @@ try {
         2, 2, "5678", "");
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -224,7 +224,7 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    // Note: 短信拉取功能需要联系腾讯云短信技术支持(QQ:3012203387)开通权限
+    // Note：短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限
     int maxNum = 10;  // 单次拉取最大量
     SmsStatusPuller spuller = new SmsStatusPuller(appid, appkey);
 
@@ -236,18 +236,18 @@ try {
     SmsStatusPullReplyResult replyResult = spuller.pullReply(naxNum);
     System.out.println(replyResult);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
 
->? 短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>? 短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
 
@@ -261,8 +261,8 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    int beginTime = 1511125600;  // 开始时间(UNIX timestamp)
-    int endTime = 1511841600;    // 结束时间(UNIX timestamp)
+    int beginTime = 1511125600;  // 开始时间（UNIX timestamp）
+    int endTime = 1511841600;    // 结束时间（UNIX timestamp）
     int maxNum = 10;             // 单次拉取最大量
     SmsMobileStatusPuller mspuller = new SmsMobileStatusPuller(appid, appkey);
 
@@ -276,13 +276,13 @@ try {
         phoneNumbers[0], beginTime, endTime, maxNum);
     System.out.println(replyResult);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -311,21 +311,21 @@ try {
     byte[] content = Files.readAllBytes(Paths.get(filePath));
     VoiceFileUploader uploader = new VoiceFileUploader(appid, appkey);
     VoiceFileUploaderResult result = uploader.upload(content, VoiceFileUploader.ContentType.MP3);
-    // 上传成功后，result里会带有语音文件的fid
+    // 上传成功后，result 里会带有语音文件的 fid
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 
 ```
->? 语音文件上传 功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="查询语音文件审核状态" > </a>
 - **查询语音文件审核状态**
@@ -337,25 +337,25 @@ import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
 
 try {
-    // Note: 这里fid来自`上传语音文件`接口返回的响应，要按语音
-    //       文件fid发送语音通知，需要先上传语音文件获取fid
+    // Note: 这里 fid 来自`上传语音文件`接口返回的响应，要按语音
+    // 文件 fid 发送语音通知，需要先上传语音文件获取 fid
     String fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
     VoiceFileStatus vfstatus = new VoiceFileStatus(appid, appkey);
     VoiceFileStatusResult result = vfstatus.get(fid);
-    // result里会带有语音文件审核状态status, {0: 待审核, 1: 通过, 2: 拒绝, 3: 语音文件不存在}
+    // result 里会带有语音文件审核状态status, {0: 待审核, 1: 通过, 2: 拒绝, 3: 语音文件不存在}
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
->? 查询语音文件审核状态 功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 查询语音文件审核状态功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -370,25 +370,25 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-    // Note: 这里fid来自`上传语音文件`接口返回的响应，要按语音
-    //       文件fid发送语音通知，需要先上传语音文件获取fid
+    // Note: 这里 fid 来自`上传语音文件`接口返回的响应，要按语音
+    // 文件 fid 发送语音通知，需要先上传语音文件获取 fid
     String fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
     FileVoiceSender fvsender = new FileVoiceSender(appid, appkey);
     FileVoiceSenderResult result = fvsender.send("86", phoneNumbers[0], fid, 2, "");
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 
 ```
->? 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>? 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
@@ -403,19 +403,19 @@ import java.io.IOException;
 
 try {
     int templateId = 45221;
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
     TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
         templateId, params, 2, "");
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -434,22 +434,22 @@ import org.json.JSONException;
 import java.io.IOException;
 
 try {
-   // 创建一个代理httpclient
+   // 创建一个代理 httpclient
     ProxyHTTPClient httpclient = new ProxyHTTPClient("127.0.0.1", 8080, "http");
 
-    String[] params = {"5678"};//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    String[] params = {"5678"};// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
         templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     System.out.println(result);
 } catch (HTTPException e) {
-    // HTTP响应码错误
+    // HTTP 响应码错误
     e.printStackTrace();
 } catch (JSONException e) {
-    // json解析错误
+    // JSON 解析错误
     e.printStackTrace();
 } catch (IOException e) {
-    // 网络IO错误
+    // 网络 IO 错误
     e.printStackTrace();
 }
 ```
@@ -487,13 +487,13 @@ class SmsThread extends Thread {
             SmsSingleSenderResult result = sender.send(0, nationCode, phoneNumber, msg, "", "");
             System.out.println(result);
         } catch (HTTPException e) {
-            // HTTP响应码错误
+            // HTTP 响应码错误
             e.printStackTrace();
         } catch (JSONException e) {
-            // json解析错误
+            // JSON 解析错误
             e.printStackTrace();
         } catch (IOException e) {
-            // 网络IO错误
+            // 网络 IO 错误
             e.printStackTrace();
         }
     }
@@ -513,10 +513,10 @@ public class SmsTest {
             "21212313127", "12345678906", "12345678907",
         };
 
-        // 创建一个连接池httpclient, 并设置最大连接量为10
+        // 创建一个连接池 httpclient, 并设置最大连接量为10
         PoolingHTTPClient httpclient = new PoolingHTTPClient(10);
 
-        // 创建SmsSingleSender时传入连接池http client
+        // 创建 SmsSingleSender 时传入连接池 httpclient
         SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 
         // 创建线程
@@ -530,20 +530,20 @@ public class SmsTest {
             threads[i].start();
         }
 
-        // join线程
+        // join 线程
         for (int i = 0; i < threads.length; i++) {
             threads[i].join();
         }
 
-        // 关闭连接池httpclient
+        // 关闭连接池 httpclient
         httpclient.close();
     }
 }
 ```
 
-### 使用自定义 HTTP client 实现
+### 使用自定义 httpclient 实现
 
-如果需要使用自定义的 HTTP client 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 HTTP client 即可，一个参考示例如下：
+如果需要使用自定义的 httpclient 实现，只需实现 `com.github.qcloudsms.httpclient.HTTPClient` 接口，并在构造 API 对象时传入自定义 httpclient 即可，一个参考示例如下：
 
 ```java
 import com.github.qcloudsms.httpclient.HTTPClient;
@@ -561,19 +561,19 @@ import java.net.URISyntaxException;
 public class CustomHTTPClient implements HTTPClient {
 
     public HTTPResponse fetch(HTTPRequest request) throws IOException, URISyntaxException {
-        // 1. 创建自定义HTTP request
+        // 1. 创建自定义 HTTP request
         // MyHTTPrequest req = MyHTTPRequest.build(request)
 
-        // 2. 创建自定义HTTP cleint
+        // 2. 创建自定义 httpclient
         // MyHTTPClient client = new MyHTTPClient();
 
-        // 3. 使用自定义HTTP client获取HTTP响应
+        // 3. 使用自定义 httpclient 获取 HTTP 响应
         // MyHTTPResponse response = client.fetch(req);
 
-        // 4. 转换HTTP响应到HTTPResponse
+        // 4. 转换 HTTP 响应到 HTTPResponse
         // HTTPResponse res = transformToHTTPResponse(response);
 
-        // 5. 返回HTTPResponse实例
+        // 5. 返回 HTTPResponse 实例
         // return res;
     }
 
@@ -582,9 +582,9 @@ public class CustomHTTPClient implements HTTPClient {
     }
 }
 
-// 创建自定义HTTP client
+// 创建自定义 httpclient
 CustomHTTPClient httpclient = new CustomHTTPClient();
-// 构造API对象时传入自定义HTTP client
+// 构造 API 对象时传入自定义 httpclient
 SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 ```
 

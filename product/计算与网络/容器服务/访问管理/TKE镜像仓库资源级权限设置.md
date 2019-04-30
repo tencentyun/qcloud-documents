@@ -6,7 +6,7 @@
 - `${name}`: 镜像名字。
 
 >! 命名空间 `${namespace}` 及镜像名字 `${name}` 中不能包含斜杠 “ / ”。
-> `${tag}` 字段目前只实现了删除操作鉴权，请参考 [镜像Tag权限](#镜像Tag权限)。
+> `${tag}` 字段目前只实现了删除操作鉴权，请参考 [镜像Tag权限](#Tag)。
 
 通过`${namespace}`，`${name}`两个字段，开发商可以为协作者制定详细的权限方案，实现灵活的权限管理。  
 例如：
@@ -14,13 +14,14 @@
 * 禁止协作者A删除镜像
 * 禁止协作者B拉取命名空间ns1中的镜像
 
-如果您不需要详细管理镜像仓库权限，可以使用[预设策略授权](#预设策略授权)。
-如果您需要细致地管理协作者权限，请使用[自定义策略授权](#自定义策略授权)。
+如果您不需要详细管理镜像仓库权限，可以使用[预设策略授权](#PresetPpolicyAuthorization)。
+如果您需要细致地管理协作者权限，请使用[自定义策略授权](#CustomPolicyAuthorization)。
 容器镜像服务权限基于腾讯云CAM进行管理，您可以详细了解CAM的使用方法：
 - [用户管理](https://cloud.tencent.com/document/product/598/17289)
 - [策略管理](https://cloud.tencent.com/document/product/598/10601)
 - [授权管理](https://cloud.tencent.com/document/product/598/10602)
 
+<span id="PresetPpolicyAuthorization"></span>
 ## 预设策略授权
 
 为了简化容器镜像服务权限管理，容器镜像服务内置了两个预设策略:
@@ -37,6 +38,7 @@
 
 如果您不了解如何为协作者关联预设策略，请参考CAM文档：[预设策略介绍](https://cloud.tencent.com/document/product/598/10601#.E9.A2.84.E8.AE.BE.E7.AD.96.E7.95.A5)、[预设策略关联用户](https://cloud.tencent.com/document/product/598/10602#.E9.A2.84.E8.AE.BE.E7.AD.96.E7.95.A5.E5.85.B3.E8.81.94.E7.94.A8.E6.88.B7)
 
+<span id="CustomPolicyAuthorization"></span>
 ## 自定义策略授权
 
 通过自定义策略，开发商可以为不同的协作者关联不同的权限。
@@ -168,6 +170,7 @@ action：
 }
 ```
 
+<span id="Tag"></span>
 #### 镜像Tag权限
 
 resource： `qcs::ccr:::repo/${namespace}/${name}:${tag}`  

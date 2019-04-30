@@ -32,7 +32,7 @@
 //mPlayerView即step1中添加的界面view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
 //创建player对象
-TXVodPlayer mVodPlayer = new mVodPlayer(getActivity());
+TXVodPlayer mVodPlayer = new TXVodPlayer(getActivity());
 //关键player对象与界面view
 mVodPlayer.setPlayerView(mView);
 ```
@@ -398,15 +398,15 @@ downloader.setListener(this);
 1. void onDownloadStart(TXVodDownloadMediaInfo mediaInfo)
    任务开始，表示SDK已经开始下载。
 2. void onDownloadProgress(TXVodDownloadMediaInfo mediaInfo)
-   任务进度，下载过程中，SDK会频繁回调此接口，你可以在这里更新进度显示
+   任务进度，下载过程中，SDK会频繁回调此接口，你可以在这里更新进度显示。
 3. void onDownloadStop(TXVodDownloadMediaInfo mediaInfo)
-   任务停止，当您调用是`stopDownload`停止下载，收到此消息表示停止成功
+   任务停止，当您调用是`stopDownload`停止下载，收到此消息表示停止成功。
 4. void onDownloadFinish(TXVodDownloadMediaInfo mediaInfo)
-   下载完成，收到此回调表示已全部下载。此时下载文件可以给TXVodPlayer播放
+   下载完成，收到此回调表示已全部下载。此时下载到本地的文件可以给 TXVodPlayer 播放。
 5. void onDownloadError(TXVodDownloadMediaInfo mediaInfo, int error, String reason)
    下载错误，下载过程中遇到网络断开会回调此接口，同时下载任务停止。错误码位于`TXVodDownloadManager`中。
 
-由于downloader可以同时下载多个任务，所以回调接口里带上了`TXVodDownloadMediaInfo`对象，您可以访问url或dataSource判断下载源，同时还可以获取到下载进度、文件大小等信息。
+由于 downloader 可以同时下载多个任务，所以回调接口里带上了`TXVodDownloadMediaInfo`对象，您可以访问url或dataSource判断下载源，同时还可以获取到下载进度、文件大小等信息。
 
 ### step4：中断下载
 

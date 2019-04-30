@@ -3,8 +3,8 @@ PyTorch 是一种基于 Python 为接口的深度学习框架，允许用户利�
 ## 版本说明
 PyTorch 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
 - Python 3.6
-- scipy 1.0.0
-- numpy 1.14.3
+- SciPy 1.0.0
+- NumPy 1.14.3
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
@@ -34,14 +34,13 @@ pip.main(['install', "package_name"])
 在 PyTorch 节点上单击右键菜单可查看任务状态和详细日志。
 ![](https://main.qcloudimg.com/raw/8624254d83e02991dcf1cb3e1ff47367.png)
 详细日志如下：
-![](https://main.qcloudimg.com/raw/a9f7d66a87ea43259165dc2c9fceb7f2.png)
+![](https://main.qcloudimg.com/raw/d9339d4a8d678627a8ebf1dbc0275b4e.png)
 >?stdout.log 为全部日志，stderr.log 为错误日志。
 
 
 
 ## 示例
-以下代码展示了在 PyTorch 框架中，调用 torch.nn 构建一个典型神经网络（NN）的方法。[示例代码下载 >>](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/pytorch_nn_example.py)
-
+以下代码展示了在 PyTorch 框架中，调用 torch.nn 构建一个典型神经网络（NN）的方法。
 输入：
 ```
 import torch

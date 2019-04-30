@@ -1,4 +1,4 @@
-## REST API 简介
+
 REST API 是云通信给提供 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信支持的 REST API 参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
 除了 REST API，App 控制台也可实现简单的数据管理、单发/群发消息，开发者可以在控制台进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
@@ -21,13 +21,16 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$sdkappid&identif
 
 | 参数  | 含义  | 取值  |
 |---------|---------|---------|
-| ver  | 协议版本号 | 固定为 v4 |
-| servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |参见 API 详细描述 |
-| command  | 命令字，与 servicename 组合用来标识具体的业务功能 |参见 API 详细描述 |
+| https    |请求协议      | 请求协议为 HTTPS，请求方式为 POST       |
+| console.tim.qq.com |请求域名  | 固定为`console.tim.qq.com`      |
+| ver  | 协议版本号 | 固定为`v4`  |
+| servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
+| command  | 命令字，与 servicename 组合用来标识具体的业务功能 |参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | sdkappid  | App 在云通信控制台获取的应用标识 |在申请接入时获得 |
-| identifier  | 用户名，调用 REST API 时一般为 App 管理员帐号 |用户名（必须为 App 管理员帐号） |
+| identifier  | 用户名，调用 REST API 时必须为 App 管理员帐号 |参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)  |
 | usersig  | 用户名对应的密码 |参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) |
-| random  | 标识当前请求的随机数参数 |32 位无符号整数随机数 |
+| random  | 标识当前请求的随机数参数 |32位无符号整数随机数 |
+| contenttype   |请求格式     | 固定值为`json`                      |
 
 >!
 >1. App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号；

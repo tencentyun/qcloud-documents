@@ -55,12 +55,6 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SLAVEOF
 - SYNC / PSYNC
 
-集群版暂时不支持事务相关的命令，相关命令包括如下：
-- MULTI
-- EXEC
-- DISCARD
-- UNWATCH
-
 其他不支持的命令：
 - DEBUG 
 - PFDEBUG
@@ -86,12 +80,12 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 集群版目前支持跨 Slot 访问的命令包括：
 - MGET
 - MSET
+- DEL
 
 目前不支持跨 Slot 执行的命令，系统会返回如下错误：
  `(error) CROSSSLOT Keys in request don't hash to the same slot`
  
 不支持跨 Slot 访问的命令如下：
-- DEL
 - UNLINK
 - EXISTS
 - BRPOP
@@ -104,6 +98,14 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - MSETNX
 - PFCOUNT
 - PFMERGE
+
+**事务支持**
+集群版支持事务相关的命令，但是事务必须以WATCH命令开始，事务中的KEY要求存储在相同的SLOT中，WATCH的KEY需要和事务相关的KEY保持在同一SLOT，集群模式下的事务使用建议使用HashTag。支持的相关命令包括如下：
+- WATCH
+- MULTI
+- EXEC
+- DISCARD
+- UNWATCH
      
 **自定义命令：**
 Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用体验，对业务的使用带来的极大的便利，但是对运维不够透明，因此通过自定义命令来弥补这块空缺，支持集群中每个节点的访问，支持方式为在原有命令的参数列表最右边新增一个参数【节点ID】，COMMAND arg1 arg2 ... [节点ID]，节点 ID 可通过`cluster nodes`命令，或者在控制台中获取：
@@ -133,6 +135,8 @@ Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用
 - INFO	 
 - MEMORY
 - SLOWLOG
+- FLUSHDB
+- PING
 - KEYS （支持 hashtag，优先匹配 hashtag）
 - SCAN（支持 hashtag，优先匹配 hashtag）
 

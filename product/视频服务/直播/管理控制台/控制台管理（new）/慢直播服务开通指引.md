@@ -1,0 +1,56 @@
+## 操作入门
+使用腾讯慢直播产品，主要有以下几步：
+1. 开通慢直播服务。
+2. 添加自有域名。
+3. 域名 CNAME。
+4. 获取推流地址。
+5. 推流。
+6. 获取播放地址，开始播放。
+
+### 开通慢直播服务
+在使用腾讯慢直播服务之前，需要先开通云直播。然后在慢直播介绍页勾选同意《腾讯云服务协议》，并单击【立即开通】即可开通直播服务，如图所示。
+ ![](https://main.qcloudimg.com/raw/c565f6bf6008bcb6b7c0eae481e9133c.jpg)
+### 添加自有域名
+- 使用腾讯慢直播服务，至少需要2个域名，一个作为推流域名，一个作为播放域名，推流和播放不能使用相同的域名。
+- 您可以通过腾讯云【云产品】>【域名与网站】>【域名注册】来注册购买域名。您也可以通过其他域名服务商购买域名。
+- 根据国家工信部规定，域名必须进行备案，您可以在腾讯云的“域名备案”中进行备案。
+- 您也可以在其他域名服务商那进行备案，备案往往需要几个工作日，建议您提前进行备案。
+- 如果您的域名已经备案，则需要通过慢直播控制台的【域名管理】>【添加域名】来添加您的推流域名和播放域名。
+
+假设您的推流域名为 `push.livetest.myqcloud.com`，播放域名为 `play.livetest.myqcloud.com`。
+添加推流域名：
+  ![](https://main.qcloudimg.com/raw/90f7123a7a67e36ea95cb53b885b008b.png)
+	
+添加播放域名：
+ ![](https://main.qcloudimg.com/raw/904ba1401a833fb43eb09c1f3ed12a46.png)
+ 
+如果您的域名已经备案，添加域名成功后，可以在域名列表中查看您的域名。
+ ![](https://main.qcloudimg.com/raw/9a1f4ebc1764d6ef6e2b4727ea8a2a61.png)
+### 域名 CNAME
+当您添加域名成功后，您的域名需要指向腾讯慢直播的云服务集群。根据域名列表中的提示，您需要在您注册的域名服务商处将域名解析地址 CNAME 到慢直播控制台域名列表中对应域名的 CNAME 地址。
+![](https://main.qcloudimg.com/raw/67afdc24eedadc8707b6acd706a9e781.png)
+>!CNAME 成功后通常需要一定时间生效，CNAME 失败则无法使用腾讯慢直播。如果 CNAME 操作后，检测始终不成功，建议您向您的域名注册服务商咨询。
+
+### 获取推流地址
+1. 进入【域名管理】，单击域名 `push.livetest.myqcloud.com` 或者该域名后面的【管理】，进入【推流配置】。
+2. 在 StreamName 中输入您的流名称，例如 liveteststream，单击【生成推流地址】，您将获得一个推流地址：
+`rtmp://push.livetest.myqcloud.com/live/liveteststream?txSecret=2f7927c99345d4df37ac3a8a81831fb1&txTime=5E0CC1FF`
+![](https://main.qcloudimg.com/raw/bfe98f64babdac3270e03824513e9d64.png)
+>? `txSecret` 为推流的签名，`txTim`为推流地址的有效时间，等于【时间设置】的时间。若您开启了播放鉴权，实际过期时间等于 `txTime` + 鉴权有效时间。详情可参考 [文档]( https://cloud.tencent.com/document/product/267/32463#.E9.85.8D.E7.BD.AE.E6.A1.88.E4.BE.8B)。
+ 
+### 推流
+将推流地址设置到推流软件的推流地址内容中。
+
+- PC 上使用 OBS 推流 时，推流 FMS URL 为：`rtmp://push.livetest.myqcloud.com/live/`，播放路径/串码流为：
+`liveteststream?txSecret=2f7927c99345d4df37ac3a8a81831fb1&txTime=5E0CC1FF`
+- 移动端推流测试时，下载腾讯视频云 Demo，安装后，选择【调试工具】>【RTMP 推流】，将第4步（获取推流地址）中的推流地址输入到推流地址编辑框内，单击左下角三角符号开始推流。您也可通过搜索微信小程序“腾讯视频云”，使用其【调试工具】中的【RTMP 推流】，填入推流地址，来进行推流测试。
+- 定制化的 App，可以集成腾讯云提供的手机直播 SDK 来实现您的推流功能。
+
+### 模板配置
+- [录制模板配置](https://cloud.tencent.com/document/product/267/20384)
+- [回调模板配置](https://cloud.tencent.com/document/product/267/20388)
+
+### 统计分析
+流量带宽和录制路数统计分析如下图所示，支持近30天查询。
+ ![](https://main.qcloudimg.com/raw/7d836d3eda9cfc438c15f2e5d8a06b88.png)
+ ![](https://main.qcloudimg.com/raw/3c7a1c6614a933c7c76896443aad6eb2.png)

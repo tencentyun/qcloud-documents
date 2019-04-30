@@ -1,3 +1,20 @@
+## 1.12.2 -RELEASE（2019-04-22）
+
+### Bug 修复
+
+- 修复 Edgware 版本自定义 tag 问题。
+- 修复 Finchley 版本 TSF Route 启动问题。
+- 修复 Finchley 版本 Feign HttpClient 调用链问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+### 版本说明
+
+- 版本号`1.12.2-Edgware-RELEASE`，基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+- 版本号`1.12.2-Finchley-RELEASE`，基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
+
 ## 1.12.1 - RELEASE（2019-03-25）
 
 ### Bug 修复
