@@ -46,9 +46,7 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 
 - bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
 ![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
-
-- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main。）
-
+- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
 - streamid：将“房间号”、“用户名”和“流类型” 用下划线连接在一起，然后计算 MD5，得到的就是 streamId，也就是说，`streamid = MD5 (房间号_用户名_流类型)`。
 
 
