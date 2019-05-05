@@ -22,7 +22,7 @@
 ### 开发准备
 **1. 申请 SDK AppID 以及 App Key：**
 在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
->!SDK AppID 是以 14xxxxx 开头。
+>!SDK AppID 是以14xxxxx开头。
 
 **2. 申请签名：**
 下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
@@ -47,24 +47,24 @@ pip install qcloudsms_py
  >?python2/python3 都支持。
 
  ### 相关资料
- 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+ 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://github.com/qcloudsms/qcloudsms_py) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 
 ### 示例
 - **准备必要参数**
 
 ```python
-# 短信应用SDK AppID
-appid = 1400009099  # SDK AppID是1400开头
+# 短信应用 SDK AppID
+appid = 1400009099  # SDK AppID 是1400开头
 
-# 短信应用SDK AppKey
+# 短信应用 SDK AppKey
 appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad"
 
 # 需要发送短信的手机号码
 phone_numbers = ["21212313123", "12345678902", "12345678903"]
 
-# 短信模板ID，需要在短信应用中申请
-template_id = 7839  # NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
+# 短信模板 ID，需要在短信应用中申请
+template_id = 7839  # NOTE: 这里的模板 ID`7839`只是一个示例，真实的模板 ID 需要在短信控制台中申请
 # templateId 7839 对应的内容是"您的验证码是: {1}"
 # 签名
 sms_sign = "腾讯云"  # NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
@@ -79,7 +79,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 
 ssender = SmsSingleSender(appid, appkey)
-params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"]  # 当模板没有参数时，`params = []`，数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = ssender.send_with_param(86, phone_numbers[0],
         template_id, params, sign=sms_sign, extend="", ext="")  # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -103,7 +103,7 @@ from qcloudsms_py import SmsMultiSender
 from qcloudsms_py.httpclient import HTTPError
 
 msender = SmsMultiSender(appid, appkey)
-params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"] # 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 try:
     result = msender.send_with_param(86, phone_numbers,
         template_id, params, sign=sms_sign, extend="", ext="")   # 签名参数未提供或者为空时，会使用默认签名发送短信
@@ -115,7 +115,7 @@ except Exception as e:
 print(result)
 ```
 
->?群发一次请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ:3012203387）。
+>?群发一次请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="发送语音验证码" ></a>
@@ -189,7 +189,7 @@ print(callback_result)
 print(reply_result)
 ```
 
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
 
@@ -197,8 +197,8 @@ print(reply_result)
 from qcloudsms_py import SmsMobileStatusPuller
 from qcloudsms_py.httpclient import HTTPError
 
-begin_time = 1511125600  # 开始时间(UNIX timestamp)
-end_time = 1511841600    # 结束时间(UNIX timestamp)
+begin_time = 1511125600  # 开始时间（UNIX timestamp）
+end_time = 1511841600    # 结束时间（UNIX timestamp）
 max_num = 10             # 单次拉取最大量
 mspuller = SmsMobileStatusPuller(appid, appkey)
 try:
@@ -216,7 +216,7 @@ except Exception as e:
 print(callback_result)
 print(reply_result)
 ```
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
@@ -240,10 +240,10 @@ except HTTPError as e:
 except Exception as e:
     print(e)
 
-# 上传成功后，result里会带有语音文件的fid
+# 上传成功后，result 里会带有语音文件的 fid
 print(result)
 ```
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -254,8 +254,8 @@ print(result)
 from qcloudsms_py import FileVoiceSender
 from qcloudsms_py.httpclient import HTTPError
 
-# Note：这里fid来自`上传语音文件`接口返回的响应，要按语音
-#   文件fid发送语音通知，需要先上传语音文件获取fid
+# Note：这里 fid 来自`上传语音文件`接口返回的响应，要按语音
+#   文件 fid 发送语音通知，需要先上传语音文件获取 fid
 fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3"
 fvsender = FileVoiceSender(appid, appkey)
 try:
@@ -269,7 +269,7 @@ except Exception as e:
 print(result)
 
 ```
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" ></a>
 
@@ -280,7 +280,7 @@ from qcloudsms_py import TtsVoiceSender
 from qcloudsms_py.httpclient import HTTPError
 
 template_id = 12345
-params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+params = ["5678"]# 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 tvsender = TtsVoiceSender(appid, appkey)
 Try:
     result = tvsender.send(template_id, params, phone_numbers[0],
@@ -323,12 +323,12 @@ print(result)
 ```python
 from qcloudsms_py import QcloudSms
 
-# 创建QcloudSms对象
+# 创建 QcloudSms 对象
 qcloudsms = QcloudSms(appid, appkey)
 
-# 创建单发短信(SmsSingleSender)对象
+# 创建单发短信 SmsSingleSender 对象
 ssender = qcloudsms.SmsSingleSender()
 
-# 创建上传语音文件(VoiceFileUploader)对象
+# 创建上传语音文件 VoiceFileUploader 对象
 uploader = qcloudsms.VoiceFileUploader()
 ```

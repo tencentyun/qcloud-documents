@@ -4,7 +4,7 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 
 ## SDK 下载
 
-点播 Android 超级播放器的下载地址是 [SuperPlayer_iOS](https://github.com/tencentyun/SuperPlayer_Android)。
+点播 Android 超级播放器的下载地址是 [SuperPlayer_Android](https://github.com/tencentyun/SuperPlayer_Android)。
 
 ## 阅读对象
 

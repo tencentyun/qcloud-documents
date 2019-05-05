@@ -29,11 +29,11 @@ TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因�
 - 可以使用MySQL客户端链接到TDSQL上。
 
 ## TDSQL和MySQL5.6的不兼容性
->MariaDB(TDSQL)与MySQL5.6高度兼容，却有极少点不兼容；值得说明的时，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
+>MariaDB(TDSQL)与MySQL5.6高度兼容，却有极少点不兼容；值得说明的是，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
 
 
 ### 1.GTID不兼容
-- MariaDB(TDSQL)的GTID和MySQL 5.6的GTID不能兼容，也就是说MySQL不能作为TDSQL的从库；
+- MariaDB(TDSQL)的GTID和MySQL 5.6的GTID不能兼容，也就是说MySQL不能作为TDSQL的从库。
 
 ### 2.Binlog默认配置不同
 - MariaDB(TDSQL)的Binlog默认采用row格式，而MySQL、MariaDB默认采用statement格式。

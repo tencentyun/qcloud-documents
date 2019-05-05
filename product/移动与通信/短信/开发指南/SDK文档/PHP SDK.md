@@ -3,7 +3,7 @@
 ### 国内短信
 国内短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
 
->? 短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限，量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 ### 国际短信
 国际短信支持操作： [指定模板单发短信](#指定模板单发短信)、[指定模板群发短信](#指定模板群发短信)、[拉取短信回执和短信回复状态](#拉取短信回执)。
@@ -22,7 +22,7 @@
 **1. 申请 SDK AppID 以及 App Key：**
 在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
 
->? SDK AppID 是以 14xxxxx 开头。
+>? SDK AppID 是以14xxxxx开头。
 
 **2. 申请签名：**
 下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
@@ -56,22 +56,22 @@ require __DIR__ . "/qcloudsms_php/src/index.php";
 
 ## 示例
 
-若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)、[SDK文档](https://qcloudsms.github.io/qcloudsms_php/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)、[SDK 文档](https://qcloudsms.github.io/qcloudsms_php/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 - **准备必要参数**
 
 ```php
-/ 短信应用SDK AppID
+// 短信应用 SDK AppID
 $appid = 1400009099; // 1400开头
 
-// 短信应用SDK AppKey
+// 短信应用 SDK AppKey
 $appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
 
 // 需要发送短信的手机号码
 $phoneNumbers = ["21212313123", "12345678902", "12345678903"];
-//templateId7839对应的内容是"您的验证码是: {1}"
-// 短信模板ID，需要在短信应用中申请
-$templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
+// templateId7839对应的内容是"您的验证码是: {1}"
+// 短信模板 ID，需要在短信应用中申请
+$templateId = 7839;  // NOTE: 这里的模板 ID`7839`只是一个示例，真实的模板 ID 需要在短信控制台中申请
 
 $smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请
 ```
@@ -86,7 +86,7 @@ use Qcloud\Sms\SmsSingleSender;
 
 try {
     $ssender = new SmsSingleSender($appid, $appkey);
-    $params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    $params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     $result = $ssender->sendWithParam("86", $phoneNumbers[0], $templateId,
         $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     $rsp = json_decode($result);
@@ -108,7 +108,7 @@ use Qcloud\Sms\SmsMultiSender;
 
 try {
     $msender = new SmsMultiSender($appid, $appkey);
-    $params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中 templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+    $params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
     $result = $msender->sendWithParam("86", $phoneNumbers,
         $templateId, $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
     $rsp = json_decode($result);
@@ -118,7 +118,7 @@ try {
 }
 ```
 
->? 群发一次请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ:3012203387）。
+>? 群发一次请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 > 无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
@@ -195,8 +195,8 @@ try {
 use Qcloud\Sms\SmsMobileStatusPuller;
 
 try {
-    $beginTime = 1511125600;  // 开始时间(UNIX timestamp)
-    $endTime = 1511841600;    // 结束时间(UNIX timestamp)
+    $beginTime = 1511125600;  // 开始时间（UNIX timestamp）
+    $endTime = 1511841600;    // 结束时间（UNIX timestamp）
     $maxNum = 10;             // 单次拉取最大量
     $mspuller = new SmsMobileStatusPuller($appid, $appkey);
 
@@ -240,7 +240,7 @@ try {
     $contentType = VoiceFileUploader::MP3;
     $uploader = new VoiceFileUploader($appid, $appkey);
     $result = $uploader->upload($fileContent, $contentType);
-    // 上传成功后，$rsp里会带有语音文件的fid
+    // 上传成功后，$rsp 里会带有语音文件的 fid
     $rsp = json_decode($result);
     echo $result;
 } catch (\Exception $e) {
@@ -248,7 +248,7 @@ try {
 }
 ```
 
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -259,8 +259,8 @@ try {
 use Qcloud\Sms\FileVoiceSender;
 
 try {
-    // Note：这里$fid来自`上传语音文件`接口返回的响应，要按语音
-    //    文件fid发送语音通知，需要先上传语音文件获取$fid
+    // Note：这里 $fid 来自`上传语音文件`接口返回的响应，要按语音
+    // 文件 fid 发送语音通知，需要先上传语音文件获取 $fid
     $fid = "73844bb649ca38f37e596ec2781ce6a56a2a3a1b.mp3";
     $fvsender = new FileVoiceSender($appid, $appkey);
     $result = $fvsender->send("86", $phoneNumbers[0], $fid);
@@ -271,7 +271,7 @@ try {
 }
 ```
 
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" ></a>
 
@@ -282,7 +282,7 @@ use Qcloud\Sms\TtsVoiceSender;
 
 try {
     $templateId = 1013;
-    $params = ["54321"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:54321对应一个变量，参数数组中元素个数也必须是一个
+    $params = ["54321"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:54321 对应一个变量，参数数组中元素个数也必须是一个
     $tvsender = new TtsVoiceSender($appid, $appkey);
     $result = $tvsender->send("86", $phoneNumbers[0], $templateId, $params);
     $rsp = json_decode($result);

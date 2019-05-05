@@ -12,7 +12,9 @@
 applyAddFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
+
+>?关于`applyAddFriend`参数的详细说明请参考 [请求包字段说明](https://cloud.tencent.com/document/product/269/1643#.E8.AF.B7.E6.B1.82.E5.8C.85.E5.AD.97.E6.AE.B5.E8.AF.B4.E6.98.8E)。
 
 ```
 //申请加好友
@@ -30,7 +32,6 @@ var applyAddFriend = function () {
         }
     ];
     var options = {
-        'From_Account': loginInfo.identifier,
         'AddFriendItem': add_friend_item
     };
     webim.applyAddFriend(

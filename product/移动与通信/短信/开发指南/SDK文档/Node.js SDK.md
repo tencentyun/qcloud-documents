@@ -22,7 +22,7 @@
 ### 开发准备
 **1. 申请 SDK AppID 以及 App Key：**
 在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
->!SDK AppID 是以 14xxxxx 开头。
+>!SDK AppID 是以14xxxxx开头。
 
 **2. 申请签名：**
 下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
@@ -48,7 +48,7 @@ npm install qcloudsms_js
 
 
  ### 相关资料
- 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://qcloudsms.github.io/qcloudsms_java/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+ 若您对接口存在疑问，可以查阅 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://qcloudsms.github.io/qcloudsms_js/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 
 ## 示例
@@ -58,22 +58,22 @@ npm install qcloudsms_js
 ```javascript
 var QcloudSms = require("qcloudsms_js");
 
-// 短信应用SDK AppID
-var appid = 1400009099;  // SDK AppID是1400开头
+// 短信应用 SDK AppID
+var appid = 1400009099;  // SDK AppID 是1400开头
 
-// 短信应用SDK AppKey
+// 短信应用 SDK AppKey
 var appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
 
 // 需要发送短信的手机号码
 var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
 
-// 短信模板ID，需要在短信应用中申请
-var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
-//templateId 7839 对应的内容是"您的验证码是: {1}"
+// 短信模板 ID，需要在短信应用中申请
+var templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板 ID 需要在短信控制台中申请
+// templateId 7839 对应的内容是"您的验证码是: {1}"
 // 签名
 var smsSign = "腾讯云";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是一个示例，真实的签名需要在短信控制台申请。
 
-// 实例化QcloudSms
+// 实例化 QcloudSms
 var qcloudsms = QcloudSms(appid, appkey);
 
 // 设置请求回调处理, 这里只是演示，用户需要自定义相应处理回调
@@ -93,11 +93,11 @@ function callback(err, res, resData) {
 
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
->?无论单发/群发短信还是指定模板ID单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
+>?无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
 <a id="指定模板群发短信" ></a>
@@ -106,7 +106,7 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
 
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
@@ -148,13 +148,13 @@ spuller.pullCallback(maxNum, callback);
 // 拉取回复
 spuller.pullReply(maxNum, callback);
 ```
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **拉取单个手机短信状态**
 
 ```javascript
-var beginTime = 1511125600;  // 开始时间(UNIX timestamp)
-var endTime = 1511841600;    // 结束时间(UNIX timestamp)
+var beginTime = 1511125600;  // 开始时间（UNIX timestamp）
+var endTime = 1511841600;    // 结束时间（UNIX timestamp）
 var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
@@ -162,7 +162,7 @@ mspuller.pullCallback("86", phoneNumbers[0], beginTime, endTime, maxNum, callbac
 // 拉取回复
 mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 ```
->?短信拉取功能需要联系腾讯云短信技术支持（QQ:3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
+>?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
@@ -179,10 +179,10 @@ var fs = require("fs");
 var filePath = "/home/pf/data/download/scripts/voice/4162.mp3";
 var fileContent = fs.readFileSync(filePath);
 var uploader = qcloudsms.VoiceFileUploader();
-// 上传成功后，callback里会返回语音文件的fid
+// 上传成功后，callback 里会返回语音文件的 fid
 uploader.upload(fileContent, "mp3", callback);
 ```
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 <a id="按语音文件fid发送语音通知" ></a>
@@ -190,13 +190,13 @@ uploader.upload(fileContent, "mp3", callback);
 - **按语音文件 fid 发送语音通知**
 
 ```javascript
-// Note：这里fid来自`上传语音文件`接口返回的响应，要按语音
-//    文件fid发送语音通知，需要先上传语音文件获取fid
+// Note：这里 fid 来自`上传语音文件`接口返回的响应，要按语音
+// 文件 fid 发送语音通知，需要先上传语音文件获取 fid
 var fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
 var fvsender = qcloudsms.FileVoiceSender();
 fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 ```
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ:3012203387）才能开通。
+>?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 
 
@@ -206,7 +206,7 @@ fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
 
 ```javascript
 var templateId = 12345;
-var params = ["5678"];//数组具体的元素个数和模板中变量个数必须一致，例如事例中templateId:5678对应一个变量，参数数组中元素个数也必须是一个
+var params = ["5678"];// 数组具体的元素个数和模板中变量个数必须一致，例如示例中 templateId:5678 对应一个变量，参数数组中元素个数也必须是一个
 var tvsender = qcloudsms.TtsVoiceSender();
 tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 ```
