@@ -210,8 +210,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2032	| 获取视频失败，请检查播放链接是否有效。|   （Flash 提示的错误）              |
 | 2048	| 无法加载视频文件，跨域访问被拒绝。 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误）。 |
 
->**备注：**
->**Code 1 - 4 对应的是 H5 的原生事件；**
+>?**Code 1 - 4 对应的是 H5 的原生事件；**
 >**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
 
 ## 源码参考
@@ -362,7 +361,7 @@ volumechange
 
 Flash 模式下特有的事件：netStatus
 
-**备注：由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
+>?**由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
@@ -370,7 +369,7 @@ Flash 模式下特有的事件：netStatus
 **PC Flash：**
 ![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
 
-**备注：以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
+>?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
 
