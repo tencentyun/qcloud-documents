@@ -23,8 +23,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.1.js" charset="utf-8"></script>;
 ```
 
->**注意：**
->直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>! 直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -120,8 +119,7 @@ style 支持的样式有3种：
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
 
->**注意：**
->**在某些移动端设置封面会无效，具体说明请查看常见问题。**
+>!**在某些移动端设置封面会无效，具体说明请查看常见问题。**
 
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
@@ -143,8 +141,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8         // 原画，
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
->**注意：**
->**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
+>!**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
 
 #### 5.2 代码实现
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
@@ -210,7 +207,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2032	| 获取视频失败，请检查播放链接是否有效。|   （Flash 提示的错误）              |
 | 2048	| 无法加载视频文件，跨域访问被拒绝。 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误）。 |
 
->?**Code 1 - 4 对应的是 H5 的原生事件；**
+>?**Code 1 - 4 对应的是 H5 的原生事件。**
 >**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
 
 ## 源码参考
@@ -285,8 +282,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+]。 | player.switchClarity('od')  |
 |load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频。<br>（**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 RTMP、FLV、HLS 和 MP4 ，H5 模式支持 MP4、HLS 和 FLV（HLS、FLV 取决于浏览器是否支持）** [v2.2.2+]） | player.load(http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4)  |
 
->**注意：**
->**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
+>!**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
 
 ## 进阶攻略
 这里介绍一些视频播放器 SDK 的进阶使用方法。
@@ -314,8 +310,7 @@ var player = new TcPlayer('id_test_video', {
   }
 });
 ```
->**注意：**
->TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
+>! TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
 
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
@@ -356,8 +351,7 @@ seeked
 resize
 volumechange
 ```
->**注意：**
->如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
+>! 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
 
 Flash 模式下特有的事件：netStatus
 
