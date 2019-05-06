@@ -32,4 +32,4 @@ Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时，提示 “T
 8. 在弹出的 “远程（RDP）连接要求使用指定的安全层” 窗口中，将 “远程（RDP）连接要求使用指定的安全层” 设置为 “已启用”，并将 “安全层” 选择为 “RDP”。如下图所示：
 ![配置修改](https://main.qcloudimg.com/raw/35b2ab9d3b34e6f39ba1a31641f66446.png)
 9. 单击【应用】及【确认】。 
-10. 重启实例后再次尝试连接是否成功，如果还是无法成功，请提交工单来联系客服解决。
+10. 重启实例后再次尝试连接是否成功，如果还是无法成功，请请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 联系客服解决。
