@@ -8,12 +8,10 @@
 
 ## 操作步骤
 
-[腾讯云实验室](https://cloud.tencent.com/developer/labs?utm_source=doc8042&utm_medium=qclab) 提供了实践动手的教程，帮助您熟悉腾讯云云服务器的使用。
-点此 [体验 Windows 系统 CVM](https://cloud.tencent.com/developer/labs/lab/10157)。
-
-## 操作视频
-
+腾讯云实验室提供了实践动手的教程，可帮助您熟悉腾讯云 CVM 的使用。[点此进入实验室 >>](https://cloud.tencent.com/developer/labs?utm_source=doc8042&utm_medium=qclab) 
+Windows 云服务器使用指引可参考精选推荐中的 [体验 Windows 系统 CVM](https://cloud.tencent.com/developer/labs/lab/10157) 或者观看以下视频：
 >? 视频中的操作界面仅为示例参考操作，请以实际界面为准。
 >
+
 
 

@@ -18,7 +18,7 @@
 </tr>
 <tr>
 <td>secret</td>
-<td>腾讯云线下对接分配的 AppID 的密钥</td>
+<td>请参考 <a href="https://cloud.tencent.com/document/product/655/31892">接入前须知</a>，按照指引进入链接在线申请</td>
 <td>String</td>
 <td>腾讯云线下对接决定</td>
 <td>是</td>
