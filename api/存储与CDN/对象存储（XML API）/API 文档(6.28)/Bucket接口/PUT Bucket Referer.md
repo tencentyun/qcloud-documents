@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT Bucket Referer 接口用于为存储桶设置 Referer 白名单或者黑名单。
+PUT Bucket referer 接口用于为存储桶设置 Referer 白名单或者黑名单。
 
 ## 请求
 
@@ -56,13 +56,13 @@ Content-MD5:MD5
 
 ```shell
 <RefererConfiguration>
-  <Status></Status>
-  <RefererType></RefererType>
+  <Status>Enabled</Status>
+  <RefererType>White-List</RefererType>
   <DomainList>
-    <Domain></Domain>
-    <Domain></Domain>
+    <Domain>*.qq.com</Domain>
+    <Domain>*.qcloud.com</Domain>
   </DomainList>
-  <EmptyReferConfiguration></EmptyReferConfiguration>
+  <EmptyReferConfiguration>Allow</EmptyReferConfiguration>
 </RefererConfiguration>
 ```
 
