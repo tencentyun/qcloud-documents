@@ -32,7 +32,7 @@
 
 ## 开发
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://qcloudsms.github.io/qcloudsms_js/) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ### 获取 SDK
 短信 Node.js SDK 在 Github 中的下载地址：[短信 Node.js SDK](https://github.com/qcloudsms/qcloudsms_js)。
