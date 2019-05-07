@@ -74,7 +74,7 @@ require __DIR__ . "/qcloudsms_php/src/index.php";
 
 ```php
 // 短信应用 SDK AppID
-$appid = 1400009099; // 1400开头
+$appid = 1400009099; // SDK AppID 以1400开头
 
 // 短信应用 SDK AppKey
 $appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
