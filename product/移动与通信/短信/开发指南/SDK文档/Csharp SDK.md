@@ -70,7 +70,7 @@ dotnet add package qcloud.qcloudsms_csharp --version 0.1.5
 paket add qcloud.qcloudsms_csharp --version 0.1.5
 ```
 
-## 示例
+### 示例
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
 
 #### 准备必要参数
@@ -584,7 +584,7 @@ public class SmsTest
 }
 ```
 
-## 使用自定义 httpclient 实现
+### 使用自定义 httpclient 实现
 
 如果需要使用自定义的 httpclient 实现，只需实现 `qcloudsms_csharp.httpclient.IHTTPClient` 接口，并在构造 API 对象时传入自定义 httpclient 即可，参考示例如下：
 
