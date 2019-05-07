@@ -41,9 +41,9 @@
 - **申请 SDK AppID 和 App Key：**
 在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
 - **申请签名：**
-一个完整的短信由短信 **签名** 和 **短信正文内容** 两部分组成，短信 **签名** 需申请和审核，**签名** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
+一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信 **签名** 需申请和审核，**签名** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
 - **申请模板：**
-短信或语音正文内容 **模板** 需申请和审核，**模板** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作参考 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
+短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作参考 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
 
 ### SDK 配置
 
@@ -68,7 +68,7 @@ require __DIR__ . "/qcloudsms_php/src/index.php";
 ```
 
 ## 示例
->?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况做相应修改。
+>?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
 
 - **准备必要参数**
 
