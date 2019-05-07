@@ -1,56 +1,27 @@
-**更新日志**
+## 操作场景
+本文为您介绍商业直播小程序插件解决方案的制定。
 
-**1.0.0（20190221）**
+## 前提条件
+- 注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
+- 注册完成后提供腾讯云账号 APPID 以及 bizname。bziname 为您的唯一品牌标识，将会在域名前缀等被使用。bziname 一旦确定不可变更。
+- 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序。小程序类目请根据您的实际场景选择。
+- 下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)。
+- 使用小程序之前，请先阅读微信小程序提供的 [插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
 
-1. 商业直播小程序插件解决方案制定
-
-------
-
-1. 注册腾讯云账号
-
-打开 [腾讯云官网](https://cloud.tencent.com) 注册腾讯云帐号，并完成企业实名认证。注册完成后提供腾讯云帐号 APPID 以及 bizname。
-
-- 1.1 [腾讯云注册指引](https://cloud.tencent.com/document/product/378/17985)
-- 1.2 [企业实名认证指引](https://cloud.tencent.com/document/product/378/10496)
-
-1.3 bziname 为您的唯一品牌标识，将会在域名前缀等被使用。 bziname 一旦确定不可变更。
-
-
-
-2. 注册小程序
-
-打开 [微信公众平台](https://mp.weixin.qq.com) 注册并登陆小程序。小程序类目请根据您的实际场景选择。
-
-3. 安装微信小程序开发工具
-
-下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html) ，使用小程序绑定的微信号扫码登录开发者工具。
-
-![](pic_2.png)
-
-4. 如何推流及拉流
-
-4.1 配置防盗链
-
+## 操作步骤
+### 推流及拉流
+**1. 配置防盗链**
 直播防盗链用于对推流端/播放端身份的权限鉴定，通过使用加密算法对推流 URL 或者播放 URL 进行加密，防止非法用户恶意盗推或者盗播。您可以提供推流密钥/播放密钥到腾讯云为您配置推流防盗链/播放防盗链。
-
 默认情况下，为您自动开启推流防盗链配置。
-
-4.2 生成推流/播放地址
-
+**2. 生成推流/播放地址**
 打开 https://bizlive.myqcloud.com/tools/address.html?bizname=bizname 工具页面( url 中的 bizname 参数为您的 bizname )，您可以在工具页面中填写流名称以及鉴权密钥，自动生成推流地址以及播放地址。
 
-5. 什么是小程序插件
-
-> 在使用之前，请先阅读微信小程序提供的[插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
-
-6. 如何使用插件
-   6.1 申请插件使用权限
-
-   - 在小程序管理后台的【设置】>【第三方设置】中选择【添加插件】，在弹出的面板中搜索【腾讯云直播助手】，选中插件并添加。
-   6.2 在小程序中引入插件代码，可以参考 [demo源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。
-   - 对于插件的使用者，使用插件前要在 app.json 中声明需要使用的插件，例如：
-
-   ```js
+### 使用插件
+6.1 申请插件使用权限
+ - 在小程序管理后台的【设置】>【第三方设置】中选择【添加插件】，在弹出的面板中搜索【腾讯云直播助手】，选中插件并添加。
+6.2 在小程序中引入插件代码，可以参考 [demo源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。
+对于插件的使用者，使用插件前要在 app.json 中声明需要使用的插件，例如：
+```js
    {
        ……
        "plugins": {
@@ -60,12 +31,9 @@
             }
         }
     }
-   ```
-
-   6.3 使用插件中的推、拉流组件
-
+```
+6.3 使用插件中的推、拉流组件
 - 在page的.json文件中定义需要引入的live-room-play组件，使用plugin://协议
-
 ```js
   {
   		"usingComponents": {
@@ -73,7 +41,6 @@
   		}
   }
 ```
-
 - 在 page 的 .wxml 文件加载上一步引入的 live-room-play 组件
 
 ```xml
@@ -151,7 +118,7 @@
 6.4 在播放区域叠加额外展示信息
 	- 组件提供了一个`<slot>`节点，用于承载组件引用时提供的子节点。本功能受限于微信，只能在组件上叠加 cover-image 、 cover-view 和 canvas。
 
-7. 获取 live-room-play 组件实例
+### 7. 获取 live-room-play 组件实例
    7.1 为什么要获取 live-room-play 组件实例
 
    >  live-room 组件支持播放、停止播放、全屏等接口，要调用这些接口需要先获取到live-room-play的实例。
@@ -165,7 +132,7 @@
    var liveRoomComponent = plugin.instance.getLiveRoomInstance();
    ```
 
-8.  live-room-play 接口
+### 8.  live-room-play 接口
      live-room-play 组件提供如下接口
 
 8.1 start
