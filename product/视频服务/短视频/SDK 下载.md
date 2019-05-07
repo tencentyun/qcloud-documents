@@ -13,7 +13,7 @@
    <tr>
       <td>界面</td>
       <td>自定义 UI</td>
-	    <td>开发者自定义 UI；小视频 APP 提供了一套完整的 UI 交互源码，可复用或自定义</td>
+	    <td>开发者自定义 UI；小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
 	    <td style="text-align:center">✔</td>
