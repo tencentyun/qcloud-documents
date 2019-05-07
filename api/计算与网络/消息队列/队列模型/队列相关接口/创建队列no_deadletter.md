@@ -39,19 +39,7 @@
 </th><th> <b>英文提示</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr>
-<td> 4000
-</td><td> 10020
-</td><td> queue name format error
-</td><td> 队列名字格式错误。<a href="https://cloud.tencent.com/doc/api/431/5832">规则</a> 详见创建队列接口的 queueName 字段说明。
-</td></tr>
-<tr>
-<td> 4450
-</td><td> 10220
-</td><td> number of queues has reached the limit
-</td><td> 队列数量达到最大值。一个账户的队列数量是有限（1000）的，达到最大值后，就不能创建新的队列了。
-</td></tr>
-<tr>
+
 <td> 6040
 </td><td> 10660
 </td><td> it will take some time to release resources of previous queue before you create a new one with the same name, please try later
