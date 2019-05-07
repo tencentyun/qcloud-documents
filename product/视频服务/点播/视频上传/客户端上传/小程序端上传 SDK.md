@@ -4,7 +4,7 @@
 ## Demo 体验
 
 请打开微信，扫一扫下方二维码体验 Demo：
-> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://share.weiyun.com/5lUcLLN)。
+> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/61a308e78a46fb4c7ec21a6e90836c3b.zip)。
 
 ![](https://main.qcloudimg.com/raw/16143ffa52c1e94d05d68202de273ef3.jpg)
 
@@ -78,4 +78,4 @@ getSignature: function(callback) {
 
 1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
 1. 不支持断点续传和分片上传。
-1. request 和 uploadFile 合法域名，只需加上 vod2.qcloud.com 即可（必须是V5.1版本的SDK）。
+1. request 和 uploadFile 合法域名，只需加上 vod2.qcloud.com 即可（必须是 V5.1 版本的 SDK）。
