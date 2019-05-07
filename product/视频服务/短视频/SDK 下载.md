@@ -1,5 +1,5 @@
 
-## 腾讯云短视频SDK各版本下载
+## 腾讯云短视频 SDK 各版本下载
 <table>
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
@@ -337,7 +337,7 @@
 #### 1. 如果您对 SDK 支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
 #### 2. 如果您想了解 SDK 版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
 
-## 全功能 APP("小视频")源代码
+## 全功能小视频 App（demo）源代码
 
 <table width="850px">
   <tr align="center">
