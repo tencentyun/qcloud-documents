@@ -3,7 +3,6 @@
 #### 代码托管
 
 - 自 V1.0.0 版本开始，设备端 SDK 代码使用 [Github](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c) 托管
-
 - 下载最新版 [SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
 
 
