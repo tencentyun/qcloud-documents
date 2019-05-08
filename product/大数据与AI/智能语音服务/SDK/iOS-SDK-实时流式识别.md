@@ -8,18 +8,15 @@
 
 ### 开发准备
 
--  QCloudSDK支持*iOS 9.0*及以上版本
--  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）
--  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)
++ QCloudSDK支持**iOS 9.0**及以上版本
++ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）
++ 从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)
 
-
-### SDK 配置
-
-#### SDK 导入
+### SDK 导入
 
 iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
 
-#### 工程配置
+### 工程配置
 
 在工程` info.plist` 添加以下设置:
 
@@ -31,21 +28,23 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` libWX
         <true/> 
    </dict>
 ```
-2. 申请系统的麦克风的权限，添加如下内容:
+2. 申请系统麦克风权限，添加如下内容:
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
 3. 在工程中添加依赖库，在build Phases Link Binary With Libraries中添加以下库：
 
-   -  AVFoundation.framework
-   -  AudioToolbox.framework
-   -  QCloudSDK.framework
-   -  libWXVoiceSpeex.a
+   + AVFoundation.framework
+   + AudioToolbox.framework
+   + QCloudSDK.framework
+   + libWXVoiceSpeex.a
    
 添加完如图所示：
 ![](https://github.com/heavensword/resources/blob/master/images/framework.png?raw=true)
 
+
+### 类说明
 #### **QCloudRealTimeRecognizer**初始化说明
 ***QCloudRealTimeRecognizer***是实时语音识别类，提供两种初始化方法。
 ```objective-c
@@ -64,14 +63,14 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` libWX
 ```
 
 #### **QCloudConfig**初始化方法说明
-
+腾讯云appId，腾讯云secretId，腾讯云secretKey，腾讯云projectId从控制台获取。基本概念见(https://cloud.tencent.com/document/product/441/6194)
 ```objective-c
 /**
  * 初始化方法
- * @param appid     腾讯云appId     基本概念见https://cloud.tencent.com/document/product/441/6194
- * @param secretId  腾讯云secretId  基本概念见https://cloud.tencent.com/document/product/441/6194
- * @param secretKey 腾讯云secretKey 基本概念见https://cloud.tencent.com/document/product/441/6194
- * @param projectId 腾讯云projectId 基本概念见https://cloud.tencent.com/document/product/441/6194
+ * @param appid     腾讯云appId 
+ * @param secretId  腾讯云secretId
+ * @param secretKey 腾讯云secretKey
+ * @param projectId 腾讯云projectId
  */
 - (instancetype)initWithAppId:(NSString *)appid
                      secretId:(NSString *)secretId
@@ -235,7 +234,7 @@ recognizer.delegate = self;
 
 @end
 ```
-#### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***初始化说明</div>
+#### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***协议说明</div>
 ```objective-c
 /**
  * 语音数据数据源，如果调用者需要自己提供语音数据需要, 调用者实现此协议中所有方法
