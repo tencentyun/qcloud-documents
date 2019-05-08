@@ -2,28 +2,28 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://main.qcloudimg.com/raw/08dc7d8975ede33ecba181d38b1075ae/QCloudAAIClientSDK.zip)
+实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://github.com/heavensword/resources/blob/master/sdk/QCloudSDK.zip)
 
 更多示例可参考 Demo：[iOS Demo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
 
 ### 开发准备
 
--  只支持 iOS 8.0 及以上版本，不支持 bitcode 版本；
--  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）；
--  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
+-  QCloudSDK支持*iOS 9.0*及以上版本
+-  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）
+-  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)
 
 
 ### SDK 配置
 
 #### SDK 导入
 
-iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` 静态库和QCloudSDK.framework。
+iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
 
 #### 工程配置
 
-在工程` info.plist` 文件中设置：
+在工程` info.plist` 添加以下设置:
 
-1. 设置NSAppTransportSecurity策略，在工程` info.plist`添加如下内容:
+1. 设置NSAppTransportSecurity策略，添加如下内容:
 ```objective-c
    <key>NSAppTransportSecurity</key>
    <dict>
@@ -31,20 +31,22 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
         <true/> 
    </dict>
 ```
-2. 申请系统的麦克风的权限，在工程` info.plist`添加如下内容:
+2. 申请系统的麦克风的权限，添加如下内容:
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
 3. 在工程中添加依赖库，在build Phases Link Binary With Libraries中添加以下库：
 
-   + QCloudSDK.framework
-   + AVFoundation.framework
-   + AudioToolbox.framework
-   + libWXVoiceSpeex.a
+   -  AVFoundation.framework
+   -  AudioToolbox.framework
+   -  QCloudSDK.framework
+   -  libWXVoiceSpeex.a
+   
+添加完如图所示：
+![](https://github.com/heavensword/resources/blob/master/images/framework.png?raw=true)
 
-
-#### ***QCloudRealTimeRecognizer***初始化说明
+#### **QCloudRealTimeRecognizer**初始化说明
 ***QCloudRealTimeRecognizer***是实时语音识别类，提供两种初始化方法。
 ```objective-c
 /**
@@ -61,7 +63,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 - (instancetype)initWithConfig:(QCloudConfig *)config dataSource:(id<QCloudAudioDataSource>)dataSource;
 ```
 
-#### ***QCloudConfig***初始化方法说明
+#### **QCloudConfig**初始化方法说明
 
 ```objective-c
 /**
