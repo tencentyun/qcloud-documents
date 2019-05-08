@@ -17,6 +17,7 @@
 - [指定模板单发短信](#指定模板单发短信)
 - [群发短信](#群发短信)
 - [指定模板群发短信](#指定模板群发短信)
+- [拉取短信回执](#拉取短信回执)
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
@@ -313,7 +314,7 @@ try
     var callbackResult = spuller.pullCallback(maxNum);
     Console.WriteLine(callbackResult);
 
-    // 拉取回复
+    // 拉取回复，仅国内短信支持拉取回复状态
     var replyResult = spuller.pullReply(maxNum);
     Console.WriteLine(replyResult);
 }
@@ -354,7 +355,7 @@ try
         phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(callbackResult);
 
-    // 拉取回复
+    // 拉取回复，国际短信不支持回复功能
     var replyResult = mspuller.pullReply("86",
         phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(replyResult);
