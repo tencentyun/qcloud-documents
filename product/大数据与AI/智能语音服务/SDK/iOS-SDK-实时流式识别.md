@@ -199,3 +199,76 @@ recognizer.delegate = self;
 ```objective-c
  [recognizer stop];
 ```
+
+### 调用者提供语音数据示例
+#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
+```objective-c
+#import<QCloudSDK/QCloudSDK.h>
+```
+#### 2.创建***QCloudConfig***实例
+```objective-c
+ //1.创建QCloudConfig实例
+ QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
+  						  secretId:kQDSecretId 
+					         secretKey:kQDSecretKey 
+					         projectId:kQDProjectId];
+ config.sliceTime = 600;                             	           //语音分片时常600ms
+ config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
+ config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
+```
+#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现***QCloudAudioDataSource***协议
+```objective-c
+ QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
+```
+#### 4.创建***QCloudRealTimeRecognizer***实例
+```objective-c
+ QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
+```
+#### 5.设置delegate，实现***QCloudRealTimeRecognizerDelegate***方法
+```objective-c
+recognizer.delegate = self;
+```
+#### 6.开始识别
+```objective-c
+ [recognizer start];
+```
+#### 7.结束识别
+```objective-c
+ [recognizer stop];
+```
+
+#### <span id="QCloudAudioDataSource">***QCloudAudioDataSource***初始化说明</span>
+```objective-c
+/**
+ * 语音数据数据源，如果调用者需要自己提供语音数据需要, 调用者实现此协议中所有方法
+ * 提供符合以下要求的语音数据:
+ * 采样率：16k
+ * 音频格式：pcm
+ * 编码：16bit位深的单声道
+ */
+@protocol QCloudAudioDataSource <NSObject>
+
+@required
+
+/**
+ * 标识data source是否开始工作，执行完start后需要设置成YES， 执行完stop后需要设置成NO
+ */
+@property (nonatomic, assign) BOOL running;
+
+/**
+ * SDK会调用start方法，实现此协议的类需要初始化数据源。
+ */
+- (void)start:(void(^)(BOOL didStart, NSError *error))completion;
+/**
+ * SDK会调用stop方法，实现此协议的类需要停止提供数据
+ */
+- (void)stop;
+/**
+ * SDK会调用实现此协议的对象的此方法读取语音数据, 如果语音数据不足expectLength，则直接返回nil。
+ * @param expectLength 期望读取的字节数，如果返回的NSData不足expectLength个字节，SDK会抛出异常。
+ */
+- (nullable NSData *)readData:(NSInteger)expectLength;
+
+@end
+
+```
