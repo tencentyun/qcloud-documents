@@ -2,9 +2,9 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://github.com/heavensword/resources/blob/master/sdk/QCloudSDK.zip)
+实时流式语音识别的 iOS SDK 的下载地址：[QCloudSDK](https://github.com/heavensword/resources/blob/master/sdk/QCloudSDK.zip)
 
-更多示例可参考 Demo：[iOS Demo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
+详细示例可参考Demo：[QCloudSDKDemo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
 
 ### 使用须知
 
@@ -236,9 +236,10 @@ recognizer.delegate = self;
 @end
 ```
 #### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***协议说明</div>
+调用者不适用SDK内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见Demo工程里的QDAudioDataSource实现
 ```objective-c
 /**
- * 语音数据数据源，如果调用者需要自己提供语音数据需要, 调用者实现此协议中所有方法
+ * 语音数据数据源，如果调用者需要自己提供语音数据, 调用者实现此协议中所有方法
  * 提供符合以下要求的语音数据:
  * 采样率：16k
  * 音频格式：pcm
