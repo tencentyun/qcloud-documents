@@ -18,6 +18,7 @@
 - [指定模板单发短信](#指定模板单发短信)
 - [群发短信](#群发短信)
 - [指定模板群发短信](#指定模板群发短信)
+- [拉取短信回执](#拉取短信回执)
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
@@ -181,7 +182,7 @@ var maxNum = 10;  // 单次拉取最大量
 var spuller = qcloudsms.SmsStatusPuller();
 // 拉取短信回执
 spuller.pullCallback(maxNum, callback);
-// 拉取回复
+// 拉取回复，国际短信不支持回复功能
 spuller.pullReply(maxNum, callback);
 ```
 
@@ -196,7 +197,7 @@ var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
 mspuller.pullCallback("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
-// 拉取回复
+// 拉取回复，国际短信不支持回复功能
 mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 ```
 
