@@ -51,9 +51,9 @@
 qcloudsms_php 采用 composer 进行安装，要使用 qcloudsms 功能，只需要在 composer.json 中添加如下依赖：
 ```json
 {
-  "require": {
-    "qcloudsms/qcloudsms_php": "0.1.*"
-  }
+    "require": {
+        "qcloudsms/qcloudsms_php": "0.1.*"
+    }
 }
 ```
 >? Composer 的使用可以参考 demo 目录下面的示例。
