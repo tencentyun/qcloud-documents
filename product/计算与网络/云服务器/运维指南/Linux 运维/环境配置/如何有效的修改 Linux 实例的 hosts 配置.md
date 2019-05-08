@@ -12,7 +12,7 @@ Cloud-Init 在**每次启动**时会根据 `/etc/cloud/templates/hosts.${os_type
 ## 解决方案
 
 1. 登录 Linux 服务器。
-2. 执行以下命令，将 `/etc/cloud/cloud.cfg` 配置文件中的 `- update_ect_hosts` 修改为 `- ['update-etc-hosts', 'once-per-instance']`，并在 `/var/lib/cloud/instance/sem/` 路径下创建 `config_update_etc_hosts` 文件。
+2. 执行以下命令，将 `/etc/cloud/cloud.cfg` 配置文件中的 `- update_etc_hosts` 修改为 `- ['update-etc-hosts', 'once-per-instance']`，并在 `/var/lib/cloud/instance/sem/` 路径下创建 `config_update_etc_hosts` 文件。
 ```
 sed -i "/update_etc_hosts/c \ - ['update_etc_hosts', 'once-per-instance']" /etc/cloud/cloud.cfg
 touch /var/lib/cloud/instance/sem/config_update_etc_hosts
