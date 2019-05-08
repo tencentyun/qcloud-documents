@@ -26,16 +26,16 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 1. App Transport Security Settings 类型，然后在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型 Boolean，值设为 `YES`；
 2. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
 3. 在工程中添加依赖库，在build Phases Link Binary With Libraries中添加以下库：
-    QCloudSDK.framework
-    AVFoundation.framework
-    AudioToolbox.framework
-    libWXVoiceSpeex.a
+   + QCloudSDK.framework
+   + AVFoundation.framework
+   + AudioToolbox.framework
+   + libWXVoiceSpeex.a
 
 
 ### 说明
 
-#### QCloudRealTimeRecognizer初始化说明
-*QCloudRealTimeRecognizer*是实时语音识别类，提供两种初始化方法。
+#### ***QCloudRealTimeRecognizer***初始化说明
+***QCloudRealTimeRecognizer***是实时语音识别类，提供两种初始化方法。
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -51,7 +51,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 - (instancetype)initWithConfig:(QCloudConfig *)config dataSource:(id<QCloudAudioDataSource>)dataSource;
 ```
 
-#### QCloudConfig初始化方法说明
+#### ***QCloudConfig***初始化方法说明
 
 ```objective-c
 /**
@@ -67,7 +67,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
                     projectId:(NSString *)projectId;
 ```
 
-#### QCloudRealTimeRecognizerDelegate方法说明
+#### ***QCloudRealTimeRecognizerDelegate***方法说明
 
 ```objective-c
 /**
@@ -156,11 +156,11 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 
 ## 示例
 ### 使用内置录音器采集语音识别示例
-#### 1.引入上传 SDK 的头文件，将使用QCloudSDK的文件名后缀有*.m->.mm*
+#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
-#### 2.创建QCloudConfig实例
+#### 2.创建***QCloudConfig***实例
 ```objective-c
  //1.创建QCloudConfig实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
@@ -171,11 +171,11 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
  config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
  config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
 ```
-#### 3.创建QCloudRealTimeRecognizer实例
+#### 3.创建***QCloudRealTimeRecognizer***实例
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
-#### 4.设置delegate，实现*QCloudRealTimeRecognizerDelegate*方法
+#### 4.设置delegate，实现***QCloudRealTimeRecognizerDelegate***方法
 ```objective-c
 recognizer.delegate = self;
 ```
