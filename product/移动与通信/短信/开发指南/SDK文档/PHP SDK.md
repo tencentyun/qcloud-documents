@@ -131,7 +131,7 @@ try {
 
 
 <a id="群发短信" ></a>
-- **指定模板 ID 群发短信**
+- **群发短信**
 
 ```php
 use Qcloud\Sms\SmsMultiSender;
