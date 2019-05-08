@@ -566,7 +566,7 @@ public class SmsTest
         // 运行线程
         for (int i = 0; i < threads.Length; i++)
         {
-            threads[i].Start(new SmsArg(ssender, "86", phoneNumbers[i], "您验证码是：5678"));
+            threads[i].Start(new SmsArg(ssender, "86", phoneNumbers[i], "您验证码是："));
         }
 
         // join线程
