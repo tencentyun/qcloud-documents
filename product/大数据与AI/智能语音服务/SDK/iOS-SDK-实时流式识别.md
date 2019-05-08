@@ -44,8 +44,6 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
    + libWXVoiceSpeex.a
 
 
-### 说明
-
 #### ***QCloudRealTimeRecognizer***初始化说明
 ***QCloudRealTimeRecognizer***是实时语音识别类，提供两种初始化方法。
 ```objective-c
@@ -79,8 +77,78 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
                     projectId:(NSString *)projectId;
 ```
 
-#### ***QCloudRealTimeRecognizerDelegate***方法说明
+## 示例
+### 使用内置录音器采集语音识别示例
+#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
+```objective-c
+#import<QCloudSDK/QCloudSDK.h>
+```
+#### 2.创建***QCloudConfig***实例
+```objective-c
+ //1.创建QCloudConfig实例
+ QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
+  						  secretId:kQDSecretId 
+					         secretKey:kQDSecretKey 
+					         projectId:kQDProjectId];
+ config.sliceTime = 600;                             	           //语音分片时常600ms
+ config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
+ config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
+```
+#### 3.创建***QCloudRealTimeRecognizer***实例
+```objective-c
+ QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
+```
+#### 4.设置delegate，实现[***QCloudRealTimeRecognizerDelegate***](#QCloudRealTimeRecognizerDelegate)方法
+```objective-c
+recognizer.delegate = self;
+```
+#### 5.开始识别
+```objective-c
+ [recognizer start];
+```
+#### 6.结束识别
+```objective-c
+ [recognizer stop];
+```
 
+### 调用者提供语音数据示例
+#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
+```objective-c
+#import<QCloudSDK/QCloudSDK.h>
+```
+#### 2.创建***QCloudConfig***实例
+```objective-c
+ //1.创建QCloudConfig实例
+ QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
+  						  secretId:kQDSecretId 
+					         secretKey:kQDSecretKey 
+					         projectId:kQDProjectId];
+ config.sliceTime = 600;                             	           //语音分片时常600ms
+ config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
+ config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
+```
+#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现[***QCloudAudioDataSource***](#QCloudAudioDataSource)协议
+```objective-c
+ QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
+```
+#### 4.创建***QCloudRealTimeRecognizer***实例
+```objective-c
+ QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
+```
+#### 5.设置delegate，实现[***QCloudRealTimeRecognizerDelegate***](#QCloudRealTimeRecognizerDelegate)方法
+```objective-c
+recognizer.delegate = self;
+```
+#### 6.开始识别
+```objective-c
+ [recognizer start];
+```
+#### 7.结束识别
+```objective-c
+ [recognizer stop];
+```
+
+#### <div id="QCloudRealTimeRecognizerDelegate">***QCloudRealTimeRecognizerDelegate***方法说明</div>
 ```objective-c
 /**
  * 一次实时录音识别，分为多个flow，每个flow可形象的理解为一句话，一次识别中可以包括多句话。
@@ -165,78 +233,6 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 
 @end
 ```
-
-## 示例
-### 使用内置录音器采集语音识别示例
-#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
-```objective-c
-#import<QCloudSDK/QCloudSDK.h>
-```
-#### 2.创建***QCloudConfig***实例
-```objective-c
- //1.创建QCloudConfig实例
- QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
-  						  secretId:kQDSecretId 
-					         secretKey:kQDSecretKey 
-					         projectId:kQDProjectId];
- config.sliceTime = 600;                             	           //语音分片时常600ms
- config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
- config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
-```
-#### 3.创建***QCloudRealTimeRecognizer***实例
-```objective-c
- QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
-```
-#### 4.设置delegate，实现***QCloudRealTimeRecognizerDelegate***方法
-```objective-c
-recognizer.delegate = self;
-```
-#### 5.开始识别
-```objective-c
- [recognizer start];
-```
-#### 6.结束识别
-```objective-c
- [recognizer stop];
-```
-
-### 调用者提供语音数据示例
-#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
-```objective-c
-#import<QCloudSDK/QCloudSDK.h>
-```
-#### 2.创建***QCloudConfig***实例
-```objective-c
- //1.创建QCloudConfig实例
- QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
-  						  secretId:kQDSecretId 
-					         secretKey:kQDSecretKey 
-					         projectId:kQDProjectId];
- config.sliceTime = 600;                             	           //语音分片时常600ms
- config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
- config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
-```
-#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现[***QCloudAudioDataSource***](#QCloudAudioDataSource)协议
-```objective-c
- QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
-```
-#### 4.创建***QCloudRealTimeRecognizer***实例
-```objective-c
- QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
-```
-#### 5.设置delegate，实现***QCloudRealTimeRecognizerDelegate***方法
-```objective-c
-recognizer.delegate = self;
-```
-#### 6.开始识别
-```objective-c
- [recognizer start];
-```
-#### 7.结束识别
-```objective-c
- [recognizer stop];
-```
-
 #### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***初始化说明</div>
 ```objective-c
 /**
