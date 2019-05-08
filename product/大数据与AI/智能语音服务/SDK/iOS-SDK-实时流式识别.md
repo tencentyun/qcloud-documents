@@ -23,9 +23,21 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 
 在工程` info.plist` 文件中设置：
 
-1. App Transport Security Settings 类型，然后在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型 Boolean，值设为 `YES`；
-2. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
+1. 设置NSAppTransportSecurity策略，在工程` info.plist`添加如下内容:
+```objective-c
+   <key>NSAppTransportSecurity</key>
+   <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/> 
+   </dict>
+```
+2. 申请系统的麦克风的权限，在工程` info.plist`添加如下内容:
+```objective-c
+   <key>NSMicrophoneUsageDescription</key>
+   <string>需要使用了的麦克风采集音频</string>
+```
 3. 在工程中添加依赖库，在build Phases Link Binary With Libraries中添加以下库：
+
    + QCloudSDK.framework
    + AVFoundation.framework
    + AudioToolbox.framework
