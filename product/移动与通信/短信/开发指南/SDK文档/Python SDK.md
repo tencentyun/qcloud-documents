@@ -17,6 +17,7 @@
 - [指定模板单发短信](#指定模板单发短信)
 - [群发短信](#群发短信)
 - [指定模板群发短信](#指定模板群发短信)
+- [拉取短信回执](#拉取短信回执)
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
@@ -228,7 +229,7 @@ spuller = SmsStatusPuller(appid, appkey)
 try:
     # 拉取短信回执
     callback_result = spuller.pull_callback(max_num)
-    # 拉取回复
+    # 拉取回复，国际短信不支持回复功能
     reply_result = spuller.pull_reply(max_num)
 except HTTPError as e:
     print(e)
@@ -255,7 +256,7 @@ try:
     # 拉取短信回执
     callback_result = mspuller.pull_callback("86", phone_numbers[0],
         begin_time, end_time, max_num)
-    # 拉取回复
+    # 拉取回复，国际短信不支持回复功能
     reply_result = mspuller.pull_reply("86", phone_numbers[0],
         begin_time, end_time, max_num)
 except HTTPError as e:
