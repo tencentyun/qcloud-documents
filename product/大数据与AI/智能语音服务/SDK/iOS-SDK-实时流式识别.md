@@ -216,7 +216,7 @@ recognizer.delegate = self;
  config.enableDetectVolume = _volumeDetectSwitch.on;                //是否检测音量
  config.endRecognizeWhenDetectSilence = _silenceDetectEndSwitch.on; //是否检测到静音停止识别
 ```
-#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现***QCloudAudioDataSource***协议
+#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现[***QCloudAudioDataSource***](#QCloudAudioDataSource)协议
 ```objective-c
  QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
 ```
@@ -237,7 +237,7 @@ recognizer.delegate = self;
  [recognizer stop];
 ```
 
-#### <span id="QCloudAudioDataSource">***QCloudAudioDataSource***初始化说明</span>
+#### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***初始化说明</div>
 ```objective-c
 /**
  * 语音数据数据源，如果调用者需要自己提供语音数据需要, 调用者实现此协议中所有方法
