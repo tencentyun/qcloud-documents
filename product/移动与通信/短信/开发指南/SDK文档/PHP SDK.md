@@ -16,6 +16,7 @@
 - [指定模板单发短信](#指定模板单发短信)
 - [群发短信](#群发短信)
 - [指定模板群发短信](#指定模板群发短信)
+- [拉取短信回执](#拉取短信回执)
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
@@ -221,7 +222,7 @@ try {
     $callbackRsp = json_decode($callbackResult);
     echo $callbackResult;
 
-    // 拉取回复
+    // 拉取回复，国际短信不支持回复功能
     $replyResult = $spuller->pullReply(10);
     $replyRsp = json_decode($replyResult);
     echo $replyResult;
@@ -249,7 +250,7 @@ try {
     $callbackRsp = json_decode($callbackResult);
     echo $callbackResult;
 
-    // 拉取回复
+    // 拉取回复，国际短信不支持回复功能
     $replyResult = $mspuller->pullReply("86", $phoneNumbers[0],
         $beginTime, $endTime, $maxNum);
     $replyRsp = json_decode($replyResult);
