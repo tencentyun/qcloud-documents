@@ -273,7 +273,7 @@ using System;
 try
 {
     SmsVoicePromptSender vspsender = new SmsVoicePromptSender(appid, appkey);
-    var result = vspsender.send("86", phoneNumbers[0], 2, "您的验证码是: 54321", 2, "");
+    var result = vspsender.send("86", phoneNumbers[0], 2, "您的验证码是: 5678", 2, "");
     Console.WriteLine(result);
 }
 catch (JSONException e)
