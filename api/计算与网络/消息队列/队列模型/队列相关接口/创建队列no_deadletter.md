@@ -1,5 +1,5 @@
 ## 接口描述
-本接口 (CreateQueue) 用于在用户账户下创建一个新队列。
+本接口（CreateQueue）用于在用户账户下创建一个新队列。
 - 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
@@ -13,9 +13,9 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| queueName| 是| String| 队列名字，在单个地域同一帐号下唯一。队列名称是一个不超过64个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)。|
-| maxMsgHeapNum| 否| Int| 最大堆积消息数。取值范围在公测期间为 `1,000,000 - 10,000,000`，正式上线后范围可达到 `1000,000-1000,000,000`。默认取值在公测期间为 `10,000,000`，正式上线后为 `100,000,000`。|
-| pollingWaitSeconds| 否| Int| 消息接收长轮询等待时间。取值范围 0 - 30秒，默认值0。|
+| queueName| 是| String| 队列名字，在单个地域同一帐号下唯一。队列名称是一个不超过64个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线（-）。|
+| maxMsgHeapNum| 否| Int| 最大堆积消息数。取值范围在公测期间为`1,000,000 - 10,000,000`，正式上线后范围可达到 `1000,000-1000,000,000`。默认取值在公测期间为`10,000,000`，正式上线后为 `100,000,000`。|
+| pollingWaitSeconds| 否| Int| 消息接收长轮询等待时间。取值范围200ms - 30s，默认值200ms。|
 | visibilityTimeout| 否| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
 | maxMsgSize| 否| Int| 消息最大长度。取值范围1024 - 1048576 Byte（即1 - 1024K），默认值65536。|
 | msgRetentionSeconds| 否| Int| 消息保留周期。取值范围60 - 1296000秒（1min-15天），默认值345600 (4 天)。|
@@ -39,19 +39,7 @@
 </th><th> <b>英文提示</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr>
-<td> 4000
-</td><td> 10020
-</td><td> queue name format error
-</td><td> 队列名字格式错误。<a href="https://cloud.tencent.com/doc/api/431/5832">规则</a> 详见创建队列接口的 queueName 字段说明。
-</td></tr>
-<tr>
-<td> 4450
-</td><td> 10220
-</td><td> number of queues has reached the limit
-</td><td> 队列数量达到最大值。一个账户的队列数量是有限（1000）的，达到最大值后，就不能创建新的队列了。
-</td></tr>
-<tr>
+
 <td> 6040
 </td><td> 10660
 </td><td> it will take some time to release resources of previous queue before you create a new one with the same name, please try later

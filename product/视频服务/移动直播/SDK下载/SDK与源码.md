@@ -22,7 +22,7 @@ table td {
 
 
 ## 特别提醒
-[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
+[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性暂时在 SDK 中找不到对应的接口。
 
 <h2 id="iOS"> iOS SDK（6.3.7088）</h2>
 
