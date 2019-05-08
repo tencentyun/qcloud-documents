@@ -13,7 +13,7 @@ public static TIMManager getInstance()
 TIMManager.getInstance();
 ```
 ## 初始化 SDK 配置
-在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`，具体 API 可以参考 [SDK 下载包](https://github.com/tencentyun/TIMSDK/tree/master/Android) 中的 `javadoc` 文档。
+在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`。
 
 ### 日志事件
 
@@ -121,10 +121,10 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 //判断是否是在主线程
 if (SessionWrapper.isMainProcess(getApplicationContext())) {
 	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-			.enableCrashReport(false);
+			.enableCrashReport(false)
 			.enableLogPrint(true)
 			.setLogLevel(TIMLogLevel.DEBUG)
-			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
+			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/");
 
 	//初始化 SDK
 	TIMManager.getInstance().init(getApplicationContext(), config);

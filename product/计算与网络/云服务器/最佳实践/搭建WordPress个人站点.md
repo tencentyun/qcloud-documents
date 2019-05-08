@@ -20,7 +20,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 ## 步骤 一：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。
-以下创建指引供您参考：[快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2972)
+以下创建指引供您参考：[快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)
 2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云服务器实例状态。
 
 本教程中云服务器实例的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
@@ -304,7 +304,7 @@ mv * /usr/share/nginx/html/
 
 
 此外，您还可以在腾讯云平台横向和纵向扩展服务容量，例如：
-- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/5730)
+- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。

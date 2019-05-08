@@ -28,7 +28,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?sdkappid=88888888&identifie
 ### 最高调用频率
 100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
 ### 请求包示例
-查询已经对 App 设置的自定义脏字。
+此接口为 GET 请求，不需要请求体。
 
 ### 应答包体示例
 ```
