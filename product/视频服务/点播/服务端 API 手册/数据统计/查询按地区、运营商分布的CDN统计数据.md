@@ -29,7 +29,7 @@ vod.api.qcloud.com
 | statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li></ul>                                           |
 | regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                              |
 | ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                        |
-| COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
+| COMMON_PARAMS | 是   |        | 参见[公共参数](https://cloud.tencent.com/document/api/213/6976)                                                                                                     |
 
 ## 接口应答
 
