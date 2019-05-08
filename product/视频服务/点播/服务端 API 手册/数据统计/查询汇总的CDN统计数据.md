@@ -22,7 +22,7 @@ vod.api.qcloud.com
 | startDate     | 是   | String | 起始日期，格式为 yyyy-MM-dd ，如2018-03-01                                                                                                                                                                                                        |
 | endDate       | 是   | String | 结束日期，格式为 yyyy-MM-dd ，如2018-03-02                                                                                                                                                                                                        |
 | statType      | 是   | String | 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li><li>hitrate：请求命中率，单位为万分比</li><li>ip_visits：IP 访问次数（海外 CDN 节点不支持查询 IP 访问次数）</li></ul> |
-| COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                                                                                   |
+| COMMON_PARAMS | 是   |        | 参见[公共参数](https://cloud.tencent.com/document/api/213/6976)                                                                                                                                                                   |
 
 ## 接口应答
 
