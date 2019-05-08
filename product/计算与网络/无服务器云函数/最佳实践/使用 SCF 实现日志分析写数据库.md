@@ -6,7 +6,7 @@
 登录 [对象存储控制台](https://console.cloud.tencent.com/cos) 创建一个 Bucket，我们命名为 loganalysis，并选择北京地域，权限选择“公有读-私有写”。
 
 ## 步骤 2. 创建 MySQL 云数据库
-由于数据库需要花钱购买，您可以选择在北京地域购买最便宜的 [云数据库MySQL入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)，价格为 12 元/月。
+由于数据库需要付费购买，您可以选择在北京地域购买 [云数据库MySQL入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)。
 
 ## 步骤 3. 创建云函数 SCF
 ### 创建准备
