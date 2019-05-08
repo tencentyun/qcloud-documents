@@ -175,7 +175,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。压缩包中包含了一个` .a` �
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
-#### 4.设置delegate，实现*QCloudRealTimeRecognizerDelegate*方法，QCloudRealTimeRecognizerDelegate定义详见上面说明
+#### 4.设置delegate，实现*QCloudRealTimeRecognizerDelegate*方法
 ```objective-c
 recognizer.delegate = self;
 ```
