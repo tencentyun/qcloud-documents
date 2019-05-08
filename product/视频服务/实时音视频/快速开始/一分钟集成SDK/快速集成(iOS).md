@@ -90,6 +90,6 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
 
-### 2. TRTC SDK 是否支持开启Bitcode？
+### 2. TRTC SDK 是否支持开启 Bitcode？
 支持 Bitcode， App 项目可根据具体需要，在 **Build Settings** 下启用或禁用 Bitcode，如下图所示：
 ![](https://main.qcloudimg.com/raw/c429a3a559018c661e273421fa299d9a.jpg)
