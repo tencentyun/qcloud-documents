@@ -47,10 +47,10 @@ REST API 仅支持 POST 方法，其请求包体为 JSON 格式，具体的包�
 REST API 的应答包体也是 JSON 格式，其格式符合如下特征：
 ```
 {
-"ActionStatus": "OK",
-"ErrorInfo": "",
-"ErrorCode": 0,
-// REST API 其他应答内容
+    "ActionStatus": "OK", 
+    "ErrorInfo": "", 
+    "ErrorCode": 0
+    // REST API 其他应答内容
 }
 ```
 应答包体中必然包含 ActionStatus、ErrorInfo、ErrorCode 这三个属性，其含义如下：
