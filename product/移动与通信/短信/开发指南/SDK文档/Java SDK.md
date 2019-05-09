@@ -38,7 +38,7 @@
 ### 配置 SDK
 qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种方法供用户使用：
 
-#### maven
+- **maven**
 使用 qcloudsms_java 功能前，需要先在 pom.xml 中添加如下依赖：
 ```
 <dependency>
@@ -48,19 +48,19 @@ qcloudsms_java 可以采用多种方式进行安装，我们提供以下三种�
 </dependency>
 ```
 
-#### sbt
+- **sbt**
 ```
 libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 ```
 
-#### 其他
+- **其他**
 
-- 方法1
-将 [源代码](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
->?由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar)，[httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar)，[httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和 [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar)。若采用方法1，需要将以上四个 jar 包一并导入工程。
+ - 方法1
+ 将 [源代码](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
+ >?由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar)，[httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar)，[httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和 [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar)。若采用方法1，需要将以上四个 jar 包一并导入工程。
 
-- 方法2
-将 [JAR 包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
+ - 方法2
+ 将 [JAR 包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
 
 ### 示例代码
 
