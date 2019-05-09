@@ -35,7 +35,7 @@ tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 
 开发者可以参考 port 目录的 HAL 层 API 在 STM32 和 FreeRTOS 中移植，切换为新的软硬件平台的相关接口。
 
-##### 2.1 hal_export.h
+#### 2.1 hal_export.h
 hal 层对外的 API 接口及 HAL 层宏开关控制。
 
 | 序号 | 宏定义                  | 说明                                                         |
@@ -45,7 +45,7 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 3    | AUTH_MODE_KEY           | 认证方式，证书认证还是密钥认证。                             |
 | 4    | DEBUG_DEV_INFO_USED     | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。 |
 
-##### 2.2 hal_os.c
+#### 2.2 hal_os.c
 该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等
 
 | 序号 | HAL_API                  | 说明                                                         |
@@ -77,7 +77,7 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 25   | HAL_GetDevPrivateKeyName | 获取设备证书私钥文件名，证书认证方式为必选实现。             |
 | 26   | HAL_SetDevPrivateKeyName | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。 |
 
-##### 2.3 hal_at.c
+#### 2.3 hal_at.c
 该源文件主要实现 AT 串口初始化、串口收发、模组开关机。
 
 | 序号  | HAL_API                        | 说明                                 		|
@@ -87,7 +87,7 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 2    | AT_UART_IRQHandler          | A T串口接收中断 ISR，将收取到的数据放入 ringbuff 中，AT 解析线程会实时解析数据，必选实现|
 | 3    | at_send_data                   | AT 串口发送接口                             |
 
-##### 2.4 module_api_inf.c
+#### 2.4 module_api_inf.c
 配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的 API（module_register_network）需要根据模组适配。
 
 示例基于 [ESP8266腾讯定制AT固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
@@ -120,7 +120,7 @@ eAtResault module_register_network(eModuleType eType)
 }
 ```
 
-##### 2.5 设备信息修改
+#### 2.5 设备信息修改
 
 调试时，在 hal_export.h 将设备信息调试宏定义打开。量产时需要关闭该宏定义，实现 hal-os 中序列 17-26 的设备信息存取 API。
 
@@ -146,7 +146,7 @@ char sg_device_secret[MAX_SIZE_OF_DEVICE_SERC + 1] = "ttOARy0PjYgzd9OSs4Z3RA==";
 #endif
 ```
 
-##### 2.6 示例说明
+#### 2.6 示例说明
 
 Smaple 目录一共有四个示例，分别是 mqtt_sample.c、shadow_sample.c、data_template_sample.c、light_data_template_sample.c。
 通过 main.c 中宏定义 RUN_SAMPLE_TYPE 控制具体运行哪个个示例。
@@ -184,7 +184,7 @@ void demoTask(void)
 | 2    | data_template_sample.c         | 通用数据模板及事件功能示例，示例如何基于腾讯物联网平台的数据模板功能快速开发产品。|
 | 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。                |
 
-##### 2.7 示例运行
+#### 2.7 示例运行
 
 按照上述描述，修改宏定义 RUN_SAMPLE_TYPE 为目标示例，编译烧录后，即可运行。
 
