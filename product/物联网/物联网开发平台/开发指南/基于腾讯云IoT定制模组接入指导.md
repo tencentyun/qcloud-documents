@@ -26,7 +26,7 @@ tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 
 ## 使用指导
 
-### 1. 软硬件环境说明
+#### 1. 软硬件环境说明
 
 硬件原理图在 docs 目录，为保证示例的通用性，示例代码除了 MCU 本身的资源没有无特定外设的访问。
 软件的基础工程基于 ST 的开发工具 cubeMX 生成，cubeMX 工程参加目录下 Tc-Iot-STM32F103-Dev-Kit.ioc。
@@ -92,7 +92,33 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 
 示例基于 [ESP8266腾讯定制AT固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
 
-<img src="https://main.qcloudimg.com/raw/3d8e6135365099c15ab67bbe816b7a01.jpg"/>
+```
+//模组联网（NB/2/3/4G注册网络）、wifi配网（一键配网/softAP）暂时很难统一,需要用户根据具体模组适配。
+//开发者参照 module_handshake API使用AT框架的API和模组交互，实现适配。
+eAtResault module_register_network(eModuleType eType)
+{
+	eAtResault result = AT_ERR_SUCCESS;
+	
+#if (MODULE_TYPE == eMODULE_ESP8266)
+	#define WIFI_SSID	"youga_wifi"
+	#define WIFI_PW		"Iot@2018"
+
+
+	/*此处示例传递热点名字直接联网，通常的做法是特定产品根据特定的事件（譬如按键）触发wifi配网（一键配网/softAP）*/
+	result = wifi_connect(WIFI_SSID, WIFI_PW);
+	//result |= wifi_set_test_server_ip("111.230.126.244");
+	if(AT_ERR_SUCCESS != result)
+	{
+		Log_e("wifi connect fail,ret:%d", result);	
+	}
+	
+#else
+	/*模组网络注册、或者wifi配网需要用户根据所选模组实现*/			
+#endif
+
+	return result;
+}
+```
 
 ##### 2.5 设备信息修改
 
@@ -368,7 +394,7 @@ DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\shadow\shadow
 INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\light_data_template_sample.c|light_data_template_demo_task(559): shadow update(desired) success
 ```
 
-#### 相关文档
+### 相关文档
 
 - [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
 - [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
