@@ -27,7 +27,7 @@
 | pollingWaitSeconds| Int| 消息接收长轮询等待时间。取值范围0 - 30秒，默认值0。|
 | visibilityTimeout| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
 | maxMsgSize| Int| 消息最大长度。取值范围1024 - 1048576 Byte（即1K - 1024K），默认值65536。|
-| msgRetentionSeconds| Int| 消息保留周期。取值范围 60-1296000秒（1min-15天），默认值 345600 秒 (4 天)。|
+| msgRetentionSeconds| Int| 消息保留周期。取值范围60-1296000秒（1min-15天），默认值345600秒（4 天）。|
 | createTime| Int| 队列的创建时间。返回 Unix 时间戳，精确到秒。|
 | lastModifyTime| Int| 最后一次修改队列属性的时间。返回 Unix 时间戳，精确到秒。|
 | activeMsgNum| Int| 在队列中处于 Active 状态（不处于被消费状态）的消息总数，为近似值。|
