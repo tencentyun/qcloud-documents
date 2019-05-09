@@ -9,7 +9,7 @@
 
 **示例：**
 
-```
+```javascript
 //监听大群新消息（普通，点赞，提示，红包）
 function onBigGroupMsgNotify(msgList) {
     for (var i = msgList.length - 1; i >= 0; i--) {//遍历消息，按照时间从后往前
@@ -25,7 +25,7 @@ function onBigGroupMsgNotify(msgList) {
 
 **示例：**
 
-```
+```javascript
 //显示消息（群普通+点赞+提示+红包）
 function showMsg(msg) {
     var isSelfSend, fromAccount, fromAccountNick, sessType, subType;
@@ -258,7 +258,7 @@ function convertCustomMsgToHtml(content) {
 
 **示例：**
 
-```
+```javascript
 //解析群提示消息元素
 function convertGroupTipMsgToHtml(content) {
     var WEB_IM_GROUP_TIP_MAX_USER_COUNT=10;
@@ -383,13 +383,13 @@ function convertGroupTipMsgToHtml(content) {
 
 **`sendMsg` 函数名：**
 
-```
+```javascript
 webim.sendMsg
 ```
 
 **定义：**
 
-```
+```javascript
 webim.sendMsg(msg,cbOk, cbErr)
 ```
 
@@ -403,20 +403,13 @@ webim.sendMsg(msg,cbOk, cbErr)
 
 **示例：**
 
-```
+```javascript
 	//发送消息(普通消息)
 function onSendMsg() {
     if (!loginInfo.identifier) {//未登录
-        if (accountMode == 1) {//托管模式
-            //将account_type保存到cookie中,有效期是 1 天
-            webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
-            //调用tls登录服务
-            tlsLogin();
-        } else {//独立模式
-            //to do
-        }
         return;
     }
+    // selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
     if (!selToID) {
         alert("您还没有进入房间，暂不能聊天");
         $("#send_msg_text").val('');
@@ -513,19 +506,11 @@ function onSendMsg() {
 
 **示例：**
 
-```
+```javascript
 //发送消息(群点赞消息)
 function sendGroupLoveMsg() {
 
     if (!loginInfo.identifier) {//未登录
-        if (accountMode == 1) {//托管模式
-            //将 account_type 保存到 cookie 中,有效期是 1 天
-            webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
-            //调用 TLS 登录服务
-            tlsLogin();
-        } else {//独立模式
-            //to do
-        }
         return;
     }
     if (!selToID) {
@@ -570,3 +555,4 @@ function sendGroupLoveMsg() {
 **示例：**
 
 同发送群消息（点赞）示例，只需把 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。
+
