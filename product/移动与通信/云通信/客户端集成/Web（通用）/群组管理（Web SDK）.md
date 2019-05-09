@@ -13,7 +13,6 @@
 createGroup: function(options, cbOk, cbErr) {},
 </pre>
 
-
 **示例： **
 
 ```
