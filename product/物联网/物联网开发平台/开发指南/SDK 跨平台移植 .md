@@ -7,7 +7,7 @@
 ### 架构图
 ![](https://main.qcloudimg.com/raw/d6e90e6ccaf01f45e0ca1b7a2c18e54c.jpg)
 
-### C-SDK 移植流程图
+### 代码相关文件
 ![](https://main.qcloudimg.com/raw/53cc5618138a93c05ab87ba51ac323ba.png)
 
 ### 架构说明
