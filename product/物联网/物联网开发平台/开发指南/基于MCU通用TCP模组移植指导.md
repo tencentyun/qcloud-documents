@@ -4,7 +4,7 @@ IOT 设备从联网的方式来看大的情形分为两种，一种是 MCU+模�
 
 ## 操作步骤
 
-### 移植操作步骤
+### 移植操作
 
 #### 1. 下载最新版本设备端 [C-SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
 #### 2. 代码放置
@@ -49,7 +49,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 | 3    | HAL_DTLS_Write      | 从一个 DTLS 连接中写数据。                               |
 | 4    | HAL_DTLS_Read       | 从一个 DTLS 连接中读数据。                               |
 
-基于模组的 TCP AT 指令如何实现网络读写的 HAL 层适配参考[示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git)移植实现。参考示例头文件`at_for_bc206.h`相关接口的适配实现，注意处理好各接口返回值。对于 TLS/DTLS，一般使用 mbedTLS 库，需要解决 mbedTSL 的移植依赖，SDK 调用的是 SSL_TLS 层的标准 API。移植好的示例工程目录结构如下：
+基于模组的 TCP AT 指令如何实现网络读写的 HAL 层适配，请参考 [示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) 移植实现。参考示例头文件`at_for_bc206.h`相关接口的适配实现，注意处理好各接口返回值。对于 TLS/DTLS，一般使用 mbedTLS 库，需要解决 mbedTSL 的移植依赖，SDK 调用的是 SSL_TLS 层的标准 API。移植好的示例工程目录结构如下：
 ![](https://main.qcloudimg.com/raw/2189a594ccc658e1b6f4ffc432565f00.png)
 
 
