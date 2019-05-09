@@ -15,7 +15,7 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 | 特别说明 |
 |-----|-----|-----|-----|-----|
-| homeOrientation | int | HOME 键所在方向，用来切换横竖屏推流，默认值：HOME_ORIENTATION_DOWN（竖屏推流）。 | - | 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 [TXLivePush](https://cloud.tencent.com/document/product/647/LINK_IOS_TXLIVEPUSH#txlivepush) 的 setRenderRotation 进行矫正。 |
+| homeOrientation | int | HOME 键所在方向，用来切换横竖屏推流，默认值：HOME_ORIENTATION_DOWN（竖屏推流）。 | - | 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755#txlivepush) 的 setRenderRotation 进行矫正。 |
 | touchFocus | BOOL | 是否允许点击曝光聚焦，默认值：NO。 | - | - |
 | enableZoom | BOOL | 是否允许双指手势放大预览画面，默认值：NO。 | - | - |
 | watermark | TXImage * | 水印图片，设为 nil 等同于关闭水印。 | - | - |
