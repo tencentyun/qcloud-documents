@@ -1,13 +1,10 @@
-## 自动生成MCU SDK代码说明
-##  qcloud-iot-sdk-tecent-at-based 
-
-### 介绍
-
+## 简介
+###  qcloud-iot-sdk-tecent-at-based 
 qcloud-iot-sdk-tecent-at-based 面向使用MCU+腾讯定制AT模组(2/3/4/5G、NB、WIFI等)接入腾讯物联网平台的终端设备开发者，SDK完成实现了MCU和模组数据交互的AT框架，并基于AT框架配合腾讯AT指令，实现了腾讯物联网平台的接入。开发者需要实现的HAL层适配接口见hal_export.h，需要实现串口的收发接口(中断接收)，延时函数，模组上下电及os相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在port目录。
 
-### qcloud-iot-sdk-tecent-at-based 软件架构
-
-![](https://main.qcloudimg.com/raw/caade2409b3c48f0c39be79c04688957.jpg)
+### 软件架构
+qcloud-iot-sdk-tecent-at-based 软件架构见下图：
+![](https://main.qcloudimg.com/raw/0e49d40088a7b54102f73facf953ee23.jpg)
 
 ### 目录结构
 
