@@ -98,7 +98,7 @@ find data -type d -exec chmod 770 {} \;
 
 2. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将 22 修改为其他非默认端口，修改之后重启 SSH 服务。可使用命令重启
 ```
-/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian / Ubuntu）
+/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian/Ubuntu）
 ```
 
 3. 如果必须使用 SSH 密码进行管理，选择一个好密码。
