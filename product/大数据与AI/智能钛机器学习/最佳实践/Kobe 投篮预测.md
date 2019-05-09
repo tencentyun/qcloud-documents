@@ -39,7 +39,10 @@
 - 已完成 [新建工程和工作流](https://cloud.tencent.com/document/product/851/19069)
 
 ## 案例相关材料
-相关材料下载链接：[Kobe 投篮预测 Demo 资料](https://main.qcloudimg.com/raw/7e333d78c73d191bb42f54f1e4c7d390.zip)
+请点击下载链接下载demo所需资料（Python文件和csv数据文件）：
+
+[Kobe 投篮预测 Demo 资料](https://main.qcloudimg.com/raw/7e333d78c73d191bb42f54f1e4c7d390.zip)
+
 
 ## 操作步骤
 该 Demo 的整体流程如下：
