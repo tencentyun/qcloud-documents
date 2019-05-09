@@ -44,7 +44,7 @@ __介绍__
 ***
 #### config
 
-设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/647/LINK_IOS_TXLIVEPLAYCONFIG#txliveplayconfig) 播放配置项，见 “TXLivePlayConfig.h” 文件中的详细定义。
+设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见 “TXLivePlayConfig.h” 文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePlayConfig * config;
 ```
@@ -107,7 +107,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | url | NSString * | 完整的 URL（如果播放的是本地视频文件，这里传本地视频文件的完整路径）。 |
-| playType | [TX_Enum_PlayType](https://cloud.tencent.com/document/product/647/LINK_IOS_TXLIVEPLAYER#tx_enum_playtype) | 播放类型。 |
+| playType | [TX_Enum_PlayType](https://cloud.tencent.com/document/product/454/34762#tx_enum_playtype) | 播放类型。 |
 
 __返回__
 
