@@ -2,12 +2,13 @@
 
 本文档介绍如何将设备端 C-SDK 移植到目标硬件平台。
 
-## C-SDK 架构图及架构说明
+## C-SDK
 
 ### 架构图
-![](https://main.qcloudimg.com/raw/fcdf19ddfcc0f4b9818692862e1cd933.jpg)
+![](https://main.qcloudimg.com/raw/d6e90e6ccaf01f45e0ca1b7a2c18e54c.jpg)
 
-![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/SDK代码结构v1.2.jpg)
+### C-SDK 移植流程图
+![](https://main.qcloudimg.com/raw/53cc5618138a93c05ab87ba51ac323ba.png)
 
 ### 架构说明
 - [硬件平台抽象层（HAL 层）](#step1)
@@ -28,16 +29,13 @@
 
 
 
-
-
 <span id="step1"></span>
 ### 硬件平台抽象层（HAL 层）
 
 所有 HAL 层函数都在 `src/sdk-impl/qcloud_iot_import.h` 中进行声明，以下是需要实现的 HAL 层接口，详细信息可以参考注释。
+>!`src/sdk-impl/qcloud_iot_import.h` 包含了 imports 目录下的子文件，各功能点引入的 HAL 层接口依赖在 `src/sdk-impl/imports/qcloud_iot_import_*.h` 中列出。
 
-> `src/sdk-impl/qcloud_iot_import.h` 包含了 `imports` 目录下的子文件，各功能点引入的 HAL 层接口依赖在 `src/sdk-impl/imports/qcloud_iot_import_*.h` 中列出。
-
-**必须实现：**
+**需要实现的 HAL 层接口：**
 
 | 序号 | 函数名                 | 说明                                       |
 | ---- | ---------------------- | ------------------------------------------ |
@@ -75,9 +73,9 @@
 <span id="step2"></span>
 ### SDK 内核实现层
 
-1、所有被提供的函数的声明都在 `src/sdk-impl/qcloud_iot_export.h` 这个头文件中列出。
-2、这些 exports 目录下的子文件, 都被 `src/sdk-impl/qcloud_iot_export.h` 包含。
-3、`src/sdk-impl/exports/qcloud_iot_export_*.h` 中列出各功能点提供的 API。
+- 所有被提供的函数的声明都在`src/sdk-impl/qcloud_iot_export.h`这个头文件中列出。
+- 这些 exports 目录下的子文件, 都被`src/sdk-impl/qcloud_iot_export.h`包含。
+- `src/sdk-impl/exports/qcloud_iot_export_*.h` 中列出各功能点提供的 API。
 
 
 <span id="step3"></span>
