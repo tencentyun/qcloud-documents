@@ -1,8 +1,9 @@
 ## 云通信 IM 配置变更需求工单的提交方式
-1. 访问 [云通信 IM 工单页面](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1)。
-2. “选择常见问题”一项选择“申请配置变更”。
-3. 在 [云通信 IM 配置变更需求工单模版](https://cloud.tencent.com/document/product/269/3916#.E4.BA.91.E9.80.9A.E4.BF.A1-im-.E9.85.8D.E7.BD.AE.E5.8F.98.E6.9B.B4.E9.9C.80.E6.B1.82.E5.B7.A5.E5.8D.95.E6.A8.A1.E7.89.88) 中找到您的配置需求所对应的模版，并将相关信息填写完整。
-4. 提交需求工单，我们将在一个工作日内处理完毕。
+1. 登录 [云通信 IM 工单页面](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1)。
+2. 选择【选择常见问题】为【申请配置审批】。
+3. 根据 [云通信 IM 配置变更需求工单模版](https://cloud.tencent.com/document/product/269/3916#.E4.BA.91.E9.80.9A.E4.BF.A1-im-.E9.85.8D.E7.BD.AE.E5.8F.98.E6.9B.B4.E9.9C.80.E6.B1.82.E5.B7.A5.E5.8D.95.E6.A8.A1.E7.89.88) 中对应模版填写配置变更所需信息，填写手机号等联系方式。
+4. 单击【提交工单】。
+ >?工单提交后，我们将在一个工作日内处理完毕。
 
 ## 云通信 IM 配置变更需求工单模版
 
