@@ -4,7 +4,7 @@
 /* function createGroup
  *   创建群
  * params:
- *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269">API 文档</a>
+ *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269/1615">API 文档</a>
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -12,6 +12,7 @@
  */
 createGroup: function(options, cbOk, cbErr) {},
 </pre>
+
 
 **示例： **
 
