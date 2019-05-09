@@ -60,14 +60,14 @@
 > SDKAppID：// 请在这里填写您的 App 在云通信中的 AppID
 > 每天最多新增群个数：// 仅为新增群组数，创建之后销毁不计入总数
 
-### REST API调用频率调整
+### REST API 调用频率调整
 > 配置变更类型：REST API 调用频率调整
 > SDKAppID：// 请在这里填写您的 App 在云通信中的 AppID
 > ServiceName/Command: // 填请求的 REST API 名称, 如 group_svc/get_group_list
 > 预期最大频率: // 最多 XXX 次每分钟，默认6000次每分钟
 
 
-### https证书签发
+### HTTPS 证书签发
 > 配置变更类型：HTTPS 证书签发
 > SDKAppID：// 请在这里填写您的 App 在云通信中的 AppID
 > 回调域名: //  请在这里填写您的回调地址的域名，如`https://www.example.com`
