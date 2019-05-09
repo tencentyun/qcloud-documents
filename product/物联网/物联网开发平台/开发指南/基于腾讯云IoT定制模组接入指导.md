@@ -1,6 +1,6 @@
 ## 简介
 ###  tc-iot-at-sdk-stm32-freertos-based-example
-tc-iot-at-sdk-stm32-freertos-based-example 面向使用支持腾讯AT指令的模组（2/3/4/5G、NB、WIFI等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 os 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
+tc-iot-at-sdk-stm32-freertos-based-example 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、WIFI 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 代码工程框架
 
@@ -22,9 +22,9 @@ tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 |   ├───── README.md   | AT-SDK 代码目录说明。|
 | README.md       | 代码工程目录说明。 |
 
-### 操作步骤
+## 使用指导
 
-#### 1. 软硬件环境说明
+### 1. 软硬件环境说明
 硬件原理图在 docs 目录，为保证示例的通用性，示例代码除了 MCU 本身的资源没有无特定外设的访问。
 软件的基础工程基于 ST 的开发工具 cubeMX 生成，cubeMX 工程参加目录下 Tc-Iot-STM32F103-Dev-Kit.ioc。
 
@@ -72,7 +72,7 @@ tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 | 26   | HAL_SetDevPrivateKeyName           | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。   |
 
 
-##### 2.3 **hal_at.c**:该源文件主要实现AT串口初始化、串口收发、模组开关机
+##### 2.3 **hal_at.c**:该源文件主要实现AT串口初始化、串口收发、模组开关机。
 
 | 序号  | HAL_API                        | 说明                                 		|
 | ---- | -------------------------------| ----------------------------------		|
@@ -81,14 +81,14 @@ tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 | 2    | AT_UART_IRQHandler          | AT串口接收中断ISR，将收取到的数据放入ringbuff中，AT解析线程会实时解析数据，必选实现|
 | 3    | at_send_data                   | AT串口发送接口                             |
 
-##### 2.4 **module_api_inf.c**：配网/注网 API业务适配
-该源文件基于腾讯定义的AT指令实现了MQTT的交互，但有一个关于联网/注网的API(module_register_network)需要根据模组适配。
-示例基于[ESP8266腾讯定制AT固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git)示例了WIFI直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266有封装配网指令和示例APP。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照module_handshake应用AT-SDK的AT框架添加和模组的AT指令交互。 
+##### 2.4 **module_api_inf.c**：配网/注网 API 业务适配。
+该源文件基于腾讯定义的AT指令实现了 MQTT 的交互，但有一个关于联网/注网的 API（module_register_network）需要根据模组适配。
+示例基于[ESP8266腾讯定制AT固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git)示例了WIFI直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266有封装配网指令和示例 APP。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
 
 <img src="https://main.qcloudimg.com/raw/3d8e6135365099c15ab67bbe816b7a01.jpg"/>
 
-##### 2.5 设备信息修改
-调试时，在hal_export.h将设备信息调试宏定义打开。量产时需要关闭该宏定义，实现hal-os中序列17-26的设备信息存取API
+##### 2.5 设备信息修改。
+调试时，在 hal_export.h 将设备信息调试宏定义打开。量产时需要关闭该宏定义，实现 hal-os 中序列 17-26 的设备信息存取 API。
 ```
 #define 	DEBUG_DEV_INFO_USED
 ```
@@ -109,8 +109,8 @@ char sg_device_secret[MAX_SIZE_OF_DEVICE_SERC + 1] = "ttOARy0PjYgzd9OSs4Z3RA==";
 #endif
 ```
 ##### 2.6 示例说明
-Smaple目录一共有四个示例，分别是mqtt_sample.c、shadow_sample.c、data_template_sample.c、light_data_template_sample.c。
-通过main.c中宏定义 *RUN_SAMPLE_TYPE* 控制具体运行哪个个示例。
+Smaple 目录一共有四个示例，分别是 mqtt_sample.c、shadow_sample.c、data_template_sample.c、light_data_template_sample.c。
+通过 main.c 中宏定义 RUN_SAMPLE_TYPE 控制具体运行哪个个示例。
 
 ```
 void demoTask(void)
@@ -194,7 +194,7 @@ DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\mqtt_sampl
 
 **影子示例**
 
-修改 宏定义 *RUN_SAMPLE_TYPE* 为 *SHADOW_SAMPLE*，AT串口接ESP8266（已烧录腾讯定制AT固件），编译后运行日志如下：
+修改宏定义 RUN_SAMPLE_TYPE 为 SHADOW_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
 
 ```
 ===========Build Time 20190425===============
@@ -240,11 +240,11 @@ INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\shadow_sam
 
 **影子协议说明**
 
-影子基于 MQTT 的基础上，通过订阅特定的 topic，payload 部分基于为 json 格式实现数据协议交互，参见官网影子协议说明和影子快速入门。
+影子基于 MQTT 的基础上，通过订阅特定的 topic，payload 部分基于为 JSON 格式实现数据协议交互，参见官网影子协议说明和影子快速入门。
 
 
 **数据模板示例**
-修改 宏定义 RUN_SAMPLE_TYPE 为 DATATEMPLATE_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
+修改宏定义 RUN_SAMPLE_TYPE 为 DATATEMPLATE_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
 
 ```
 ===========Build Time 20190425===============
