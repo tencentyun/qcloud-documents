@@ -70,7 +70,7 @@ POST /v4/group_open_http_svc/get_appid_group_list?usersig=xxx&identifier=admin&s
 Host: console.tim.qq.com
 Content-Length: 22
 {
-"Limit" : 2
+    "Limit": 2
 }
 ```
 HTTPS应答：
@@ -85,17 +85,17 @@ Access-Control-Allow-Headers: X-Requested-With
 Access-Control-Allow-Methods: POST
 
 {
-"ActionStatus": "OK",
-"ErrorCode": 0,
-"GroupIdList": [
-{
-"GroupId": "@TGS#1YTTZEAEG"
-},
-{
-"GroupId": "@TGS#1KVTZEAEZ"
-}
-],
-"TotalCount": 58530
+    "ActionStatus": "OK", 
+    "ErrorCode": 0, 
+    "GroupIdList": [
+        {
+            "GroupId": "@TGS#1YTTZEAEG"
+        }, 
+        {
+            "GroupId": "@TGS#1KVTZEAEZ"
+        }
+    ], 
+    "TotalCount": 58530
 }
 ```
 
