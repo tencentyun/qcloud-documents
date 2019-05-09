@@ -1,77 +1,75 @@
-## 基于腾讯云IoT定制模组接入指导
+## 简介
 ###  tc-iot-at-sdk-stm32-freertos-based-example
+tc-iot-at-sdk-stm32-freertos-based-example 面向使用支持腾讯AT指令的模组（2/3/4/5G、NB、WIFI等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 os 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
-### 介绍
+### 代码工程框架
 
-tc-iot-at-sdk-stm32-freertos-based-example 面向使用支持腾讯AT指令的模组(2/3/4/5G、NB、WIFI等)接入腾讯物联网平台的终端设备开发者，mcu侧使用[腾讯AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)的移植示例，示例了基于STM32F103 MCU和FreeRTOS的软硬件环境如何实现HAL层的移植，主要有串口的收发接口(中断接收)，延时函数及os相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在port目录。
-
-### tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架
-
+tc-iot-at-sdk-stm32-freertos-based-example 代码工程框架见下图：
 <img src="https://main.qcloudimg.com/raw/d161af7e13cf42536639936bf303a848.jpg"/>
 
 ### 目录结构
 
 | 名称            | 说明 |
 | ----            | ---- |
-| docs            | 文档目录,包含硬件原理图|
-| Drivers            | STM32 F1xx HAL驱动|
-| Inc          | 头文件|
-| MDK-ARM            | Keil工程目录 |
-| src            | 板级初始化及驱动适配 |
-| Middlewares\Third_Party            | 第三方软件包 |
-| ├─FreeRTOS  | freeRTOS 软件包 |
-| ├─qcloud-iot-sdk-tencent-at-based  | AT_SDK适配支持腾讯AT指令的模组 |
-|   ├───── README.md   | AT-SDK 代码目录说明|
-| README.md       | 代码工程目录说明 |
+| docs            | 文档目录，包含硬件原理图。|
+| Drivers            | STM32 F1xx HAL驱动。|
+| Inc          | 头文件。|
+| MDK-ARM            | Keil 工程目录。 |
+| src            | 板级初始化及驱动适配。 |
+| Middlewares\Third_Party            | 第三方软件包。 |
+| ├─FreeRTOS  | freeRTOS 软件包。 |
+| ├─qcloud-iot-sdk-tencent-at-based  | AT_SDK 适配支持腾讯 AT 指令的模组。 |
+|   ├───── README.md   | AT-SDK 代码目录说明。|
+| README.md       | 代码工程目录说明。 |
 
-### 使用指导
+### 操作步骤
 
-#### 1.软硬件环境说明
-硬件原理图在docs目录，为保证示例的通用性，示例代码除了MCU本身的资源没有无特定外设的访问。
-软件的基础工程基于ST的开发工具cubeMX生成，cubeMX工程参加目录下Tc-Iot-STM32F103-Dev-Kit.ioc。
+#### 1. 软硬件环境说明
+硬件原理图在 docs 目录，为保证示例的通用性，示例代码除了 MCU 本身的资源没有无特定外设的访问。
+软件的基础工程基于 ST 的开发工具 cubeMX 生成，cubeMX 工程参加目录下 Tc-Iot-STM32F103-Dev-Kit.ioc。
 
-#### 2.AT-SDK移植说明
-开发者可以参考port目录的HAL层API在STM32和FreeRTOS中移植，切换为新的软硬件平台的相关接口。
+#### 2. AT-SDK 移植说明
+开发者可以参考 port 目录的 HAL 层 API 在 STM32 和 FreeRTOS 中移植，切换为新的软硬件平台的相关接口。
 
-##### 2.1 **hal_export.h**：hal层对外的API接口及HAL层宏开关控制。
+##### 2.1 **hal_export.h**：hal 层对外的 API 接口及 HAL 层宏开关控制。
 
 | 序号 | 宏定义                       | 说明                                |
 | ----| ---------------------------- | -----------------------------------|
-| 1   | PARSE_THREAD_STACK_SIZE      | 串口at解析线程栈大小                          							|
-| 2   | OS_USED                      | 是否使用OS，目前的AT-SDK是基于多线程框架的，所以OS是必须的                  |
-| 3   | AUTH_MODE_KEY                | 认证方式，证书认证还是秘钥认证                       					  |
-| 4   | DEBUG_DEV_INFO_USED          | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口     |
+| 1   | PARSE_THREAD_STACK_SIZE      | 串口 at 解析线程栈大小。                          							|
+| 2   | OS_USED                      | 是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。                  |
+| 3   | AUTH_MODE_KEY                | 认证方式，证书认证还是秘钥认证。                       					  |
+| 4   | DEBUG_DEV_INFO_USED          | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。     |
 
 ##### 2.2 **hal_os.c**:该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等
 
 | 序号  | HAL_API                            | 说明                                 |
 | ---- | -----------------------------------| ----------------------------------  |
-| 1    | HAL_Printf                         | 打印函数，log输出需要，可选实现                    |
-| 2    | HAL_Snprintf                       | 格式化打印，json数据处理需要，必须实现              |
-| 3    | HAL_Vsnprintf                      | 格式化输出， 可选实现                             |
-| 4    | HAL_DelayMs                        | 毫秒延时，必选实现                                |
-| 5    | HAL_DelayUs                        | 微妙延时，可选实现                                |
-| 6    | HAL_GetTimeMs                      | 获取毫秒数，必选实现                              |
-| 7    | HAL_GetTimeSeconds                 | 获取时间戳，必须实现，时戳不需绝对准确，但不可重复    |
-| 8    | hal_thread_create                  | 线程创建，必选实现                                |
-| 9    | hal_thread_destroy                 | 线程销毁，必选实现                                |
-| 10   | HAL_SleepMs                   		| 放权延时，必选实现                                |
-| 11   | HAL_MutexCreate                 	| 互斥锁创建，必选实现                              |
-| 12   | HAL_MutexDestroy                  	| 互斥锁销毁，必选实现                              |
-| 13   | HAL_MutexLock                     	| 获取互斥锁，必选实现                              |
-| 14   | HAL_MutexUnlock                   	| 释放互斥锁，必选实现                              |
-| 15   | HAL_Malloc                			| 动态内存申请，必选实现                            |
-| 16   | HAL_Free                          	| 动态内存释放，必选实现                            |
-| 17   | HAL_GetProductID                 	| 获取产品ID，必选实现   							 |
-| 18   | HAL_SetProductID                  	| 设置产品ID，必须存放在非易失性存储介质，必选实现    |
-| 19   | HAL_GetDevName                     | 获取设备名，必选实现                              |
-| 20   | HAL_SetDevName                   	| 设置设备名，必须存放在非易失性存储介质，必选实现      |
-| 21   | HAL_GetDevSec                		| 获取设备密钥，密钥认证方式为必选实现                            |
-| 22   | HAL_SetDevSec                      | 设置设备密钥，必须存放在非易失性存储介质，密钥认证方式为必选实现   |
-| 23   | HAL_GetDevCertName                	| 获取设备证书文件名，证书认证方式为必选实现                            |
-| 24   | HAL_SetDevCertName                 | 设置设备证书文件名，必须存放在非易失性存储介质，证书认证方式为必选实现   |
-| 25   | HAL_GetDevPrivateKeyName           | 获取设备证书私钥文件名，证书认证方式为必选实现                      |
-| 26   | HAL_SetDevPrivateKeyName           | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现   |
+| 1    | HAL_Printf                         | 打印函数，log 输出需要，可选实现。                    |
+| 2    | HAL_Snprintf                       | 格式化打印，json 数据处理需要，必须实现。              |
+| 3    | HAL_Vsnprintf                      | 格式化输出， 可选实现。                             |
+| 4    | HAL_DelayMs                        | 毫秒延时，必选实现。                                |
+| 5    | HAL_DelayUs                        | 微妙延时，可选实现。                                |
+| 6    | HAL_GetTimeMs                      | 获取毫秒数，必选实现。                              |
+| 7    | HAL_GetTimeSeconds                 | 获取时间戳，必须实现，时戳不需绝对准确，但不可重复。    |
+| 8    | hal_thread_create                  | 线程创建，必选实现。                                |
+| 9    | hal_thread_destroy                 | 线程销毁，必选实现。                                |
+| 10   | HAL_SleepMs                   		| 放权延时，必选实现。                                |
+| 11   | HAL_MutexCreate                 	| 互斥锁创建，必选实现。                              |
+| 12   | HAL_MutexDestroy                  	| 互斥锁销毁，必选实现。                              |
+| 13   | HAL_MutexLock                     	| 获取互斥锁，必选实现。                              |
+| 14   | HAL_MutexUnlock                   	| 释放互斥锁，必选实现。                              |
+| 15   | HAL_Malloc                			| 动态内存申请，必选实现。                            |
+| 16   | HAL_Free                          	| 动态内存释放，必选实现。                            |
+| 17   | HAL_GetProductID                 	| 获取产品 ID，必选实现。   							 |
+| 18   | HAL_SetProductID                  	| 设置产品 ID，必须存放在非易失性存储介质，必选实现。    |
+| 19   | HAL_GetDevName                     | 获取设备名，必选实现。                              |
+| 20   | HAL_SetDevName                   	| 设置设备名，必须存放在非易失性存储介质，必选实现。      |
+| 21   | HAL_GetDevSec                		| 获取设备密钥，密钥认证方式为必选实现。                            |
+| 22   | HAL_SetDevSec                      | 设置设备密钥，必须存放在非易失性存储介质，密钥认证方式为必选实现。   |
+| 23   | HAL_GetDevCertName                	| 获取设备证书文件名，证书认证方式为必选实现。                            |
+| 24   | HAL_SetDevCertName                 | 设置设备证书文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。   |
+| 25   | HAL_GetDevPrivateKeyName           | 获取设备证书私钥文件名，证书认证方式为必选实现。                      |
+| 26   | HAL_SetDevPrivateKeyName           | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。   |
 
 
 ##### 2.3 **hal_at.c**:该源文件主要实现AT串口初始化、串口收发、模组开关机
@@ -142,17 +140,17 @@ void demoTask(void)
 
 | 序号  | 示例名称                        | 说明                                 		|
 | ---- | -------------------------------| ----------------------------------		|
-| 1    | mqtt_sample.c                  | MQTT示例，该示例示例基于定制的AT指令如何便捷的接入腾讯物联网平台及收发数据|
-| 1    | shadow_sample.c                | 影子示例，基于AT实现的MQTT协议，进一步封装的影子协议               |
-| 2    | data_template_sample.c         | 通用数据模板及事件功能示例，示例如何基于腾讯物联网平台的数据模板功能快速开发产品|
-| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能                |
+| 1    | mqtt_sample.c                  | MQTT示例，该示例示例基于定制的AT指令如何便捷的接入腾讯物联网平台及收发数据。|
+| 1    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
+| 2    | data_template_sample.c         | 通用数据模板及事件功能示例，示例如何基于腾讯物联网平台的数据模板功能快速开发产品。|
+| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。                |
 
 ##### 2.7 示例运行
-按照上述描述，修改宏定义 *RUN_SAMPLE_TYPE* 为目标示例，编译烧录后，即可运行
+按照上述描述，修改宏定义 RUN_SAMPLE_TYPE 为目标示例，编译烧录后，即可运行。
 
-**MQTT示例**
+**MQTT 示例**
 
-修改 宏定义 *RUN_SAMPLE_TYPE* 为 *MQTT_SAMPLE*，AT串口接ESP8266（已烧录腾讯定制AT固件），编译后运行日志如下：
+修改宏定义 RUN_SAMPLE_TYPE 为 MQTT_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
 
 ```
 ===========Build Time 20190425===============
@@ -238,16 +236,15 @@ DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\shadow\shadow
 INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\shadow_sample.c|OnShadowUpdateCallback(42): recv shadow update response, response ack: 0
 DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\shadow\shadow_client.c|IOT_Shadow_Update(239): UPDATE Request Document: {\"version\":34127\, \"state\":{\"reported\":{\"updateCount\":1}}\, \"clientToken\":\"03UKNYBUZG-2\"}
 INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\shadow_sample.c|OnShadowUpdateCallback(42): recv shadow update response, response ack: 0
-
 ```
 
 **影子协议说明**
 
-影子基于MQTT的基础上，通过订阅特定的topic，payload部分基于为json格式实现数据协议交互,参见官网影子协议说明和影子快速入门。
+影子基于 MQTT 的基础上，通过订阅特定的 topic，payload 部分基于为 json 格式实现数据协议交互，参见官网影子协议说明和影子快速入门。
 
 
 **数据模板示例**
-修改 宏定义 *RUN_SAMPLE_TYPE* 为 *DATATEMPLATE_SAMPLE*，AT串口接ESP8266（已烧录腾讯定制AT固件），编译后运行日志如下：
+修改 宏定义 RUN_SAMPLE_TYPE 为 DATATEMPLATE_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
 
 ```
 ===========Build Time 20190425===============
@@ -303,7 +300,7 @@ INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\event\qcloud_
 ``` 
 
 **基于数据模板功能的智能灯实例**
-修改 宏定义 *RUN_SAMPLE_TYPE* 为 *LIGHT_SCENARY_SAMPLE*，AT串口接ESP8266（已烧录腾讯定制AT固件），编译后运行日志如下：
+修改宏定义 RUN_SAMPLE_TYPE 为 LIGHT_SCENARY_SAMPLE，AT 串口接 ESP8266（已烧录腾讯定制 AT 固件），编译后运行日志如下：
 ``` 
 ===========Build Time 20190425===============
 Board init over
@@ -356,11 +353,12 @@ DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\shadow\shadow
 DBG|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\src\shadow\shadow_client.c|_update_ack_cb(173): Received Json Document={"clientToken":"V8YCF1RWFJ-1","payload":{"metadata":null,"state":null,"timestamp":1556459380784,"version":11},"result":0,"timestamp":1556459380784,"type":"update"}
 INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\light_data_template_sample.c|light_data_template_demo_task(559): shadow update(desired) success
 ``` 
-**相关文档链接**   
-[影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
-[影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
-[数据模板编程](https://cloud.tencent.com/document/product/634/)
+
+#### 相关文档
+- [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
+- [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
+- [数据模板编程](https://cloud.tencent.com/document/product/634/)
 
 
 ### SDK接口说明
- 关于 AT-SDK 的更多使用方式及接口了解, [腾讯AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)
+关于 AT-SDK 的更多使用方式及接口说明，请参阅 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)。
