@@ -49,9 +49,9 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 | 3    | HAL_DTLS_Write      | 从一个 DTLS 连接中写数据。                               |
 | 4    | HAL_DTLS_Read       | 从一个 DTLS 连接中读数据。                               |
 
-基于模组的TCP AT指令如何实现网络读写的HAL层适配参考[示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git)移植实现。参考示例头文件`at_for_bc206.h`相关接口的适配实现，注意处理好各接口返回值。对于TLS/DTLS，一般使用mbedTLS库，需要解决mbedTSL的移植依赖，SDK调用的是SSL_TLS层的标准API。移植好的示例工程目录结构如下：
+基于模组的 TCP AT 指令如何实现网络读写的 HAL 层适配参考[示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git)移植实现。参考示例头文件`at_for_bc206.h`相关接口的适配实现，注意处理好各接口返回值。对于 TLS/DTLS，一般使用 mbedTLS 库，需要解决 mbedTSL 的移植依赖，SDK 调用的是 SSL_TLS 层的标准 API。移植好的示例工程目录结构如下：
+![](https://main.qcloudimg.com/raw/2189a594ccc658e1b6f4ffc432565f00.png)
 
-![](https://main.qcloudimg.com/raw/512465151c8cacfe9fcc0f28367d2a01.jpg)
 
 ### 设备创建、配置、鉴权及通信
 
@@ -72,7 +72,6 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 #### 3.2 设备侧设备信息配置
 
 设备创建完毕后，根据认证方式，将截图4或5的信息赋给示例程序的相应宏，量产产品，需要实现这些信息的生产写入及运行过程的获取，建议对这些信息写入与读取进行加密加扰增加产品安全性。
-
 ```
 #ifdef AUTH_MODE_CERT
 	/* 产品名称, 与云端同步设备状态时需要  */
@@ -80,19 +79,19 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 	/* 设备名称, 与云端同步设备状态时需要 */
 	#define QCLOUD_IOT_MY_DEVICE_NAME           "YOUR_DEVICE_NAME"
     /* 客户端证书文件名  非对称加密使用*/
-    #define QCLOUD_IOT_CERT_FILENAME          "YOUR_DEVICE_NAME_cert.crt"
+    #define QCLOUD_IOT_CERT_FILENAME            "YOUR_DEVICE_NAME_cert.crt"
     /* 客户端私钥文件名 非对称加密使用*/
-    #define QCLOUD_IOT_KEY_FILENAME           "YOUR_DEVICE_NAME_private.key"
+    #define QCLOUD_IOT_KEY_FILENAME             "YOUR_DEVICE_NAME_private.key"
 
     static char sg_cert_file[PATH_MAX + 1];      //客户端证书全路径
     static char sg_key_file[PATH_MAX + 1];       //客户端密钥全路径
 
 #else
 	/* 产品名称, 与云端同步设备状态时需要  */
-	#define QCLOUD_IOT_MY_PRODUCT_ID    "YOUR_PRODUCT_ID"
+	#define QCLOUD_IOT_MY_PRODUCT_ID            "YOUR_PRODUCT_ID"
 	/* 设备名称, 与云端同步设备状态时需要 */
-	#define QCLOUD_IOT_MY_DEVICE_NAME   "YOUR_DEVICE_NAME"
-	#define QCLOUD_IOT_DEVICE_SECRET    "YOUR_IOT_PSK"
+	#define QCLOUD_IOT_MY_DEVICE_NAME           "YOUR_DEVICE_NAME"
+	#define QCLOUD_IOT_DEVICE_SECRET            "YOUR_IOT_PSK"
 #endif
 ```
 
@@ -101,8 +100,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 
 #### 3.3 设备和平台通信
 
-C-SDK的sample目录 工程目录/qcloud-iot-sdk-embedded-c/samples示例了设备和平台的多种通信协议和应用场景：Coap、Mqtt、Ota、Shadow、GateWay等，各示例的数据流，参阅[文档中心](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程STM32+BC26](https://git
-.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git)exhibitor_shadow_sample.c是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在doc目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
+C-SDK 的 sample 目录 工程目录/qcloud-iot-sdk-embedded-c/samples示例了设备和平台的多种通信协议和应用场景：Coap、Mqtt、Ota、Shadow、GateWay等，各示例的数据流，参阅 [文档中心](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
 
 #### 3.4 云日志
 
