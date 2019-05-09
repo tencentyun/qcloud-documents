@@ -12,9 +12,9 @@
 applyAddFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例：**
+**示例： **
 
->?关于`applyAddFriend`参数的详细说明请参考 [请求包字段说明](https://cloud.tencent.com/document/product/269/1643#.E8.AF.B7.E6.B1.82.E5.8C.85.E5.AD.97.E6.AE.B5.E8.AF.B4.E6.98.8E)。
+>   关于`applyAddFriend`参数的详细说明请[点击这里](https://cloud.tencent.com/document/product/269/1643#.E8.AF.B7.E6.B1.82.E5.8C.85.E5.AD.97.E6.AE.B5.E8.AF.B4.E6.98.8E)
 
 ```
 //申请加好友
@@ -273,9 +273,9 @@ var getAllFriend = function (cbOK, cbErr) {
                     if (selType == SessionType.C2C) {
                         //清空聊天界面
                         document.getElementsByClassName("msgflow")[0].innerHTML = "";
-                        //默认选中当前聊天对象
+                        //默认选中当前聊天对象，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
                         selToID = friends[0].Info_Account;
-                        //设置当前选中用户的样式为选中样式
+                        //设置当前选中用户的样式为选中样式 
                         var selSessDiv = $("#sessDiv_" + selToID)[0];
                         selSessDiv.className = "sessinfo-sel";
                         var selBadgeDiv = $("#badgeDiv_" + selToID)[0];
