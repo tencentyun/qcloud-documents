@@ -50,14 +50,17 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 
 
 **效果如下：**
-![](//mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
+
+![](https://mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
 
 **模拟手机访问，按 F12，单击下图箭头所指的手机图标：**
-![](//mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
+
+
+![]( https://mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
 
 填写登录用户信息 `identifier` 和 `userSig`，`userSig` 需要开发者在自己的服务器调用 TLS API 生成。详情请参考 [TLS 后台 API 使用手册](https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)。
 
-![](//mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
+![](https://mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
 
 单击【确定】，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
 
@@ -75,7 +78,7 @@ var loginInfo = {
 
 **登录成功可以进行评论，点赞：**
 
-![](//mccdn.qcloud.com/static/img/aa37dcc2c32aa47c57f107bd0ea8785c/image.png)
+![](https://mccdn.qcloud.com/static/img/aa37dcc2c32aa47c57f107bd0ea8785c/image.png)
 
 
 
