@@ -53,7 +53,7 @@
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |	
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/240)         |✔         | ✔      | ✔     | 资源级   |✔        | -   |
-| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        |✔    |
+| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |✔        |✔     | ✔      |资源级   |✔        |✔    |
 
 
 ## CDN 与加速	
