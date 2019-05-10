@@ -1,92 +1,21 @@
-## TLS 登录（托管模式）
-
-Demo 集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于 TLS 帐号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在 Demo 中如何集成托管模式下的 Web 版 TLS SDK。
-
-**在 `index.html` 引入 Web 版 TLS SDK：** 
-
-```
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
-```
-
-然后在页面中调用 `TLSHelper.getQuery('tmpsig')`，判断是否获取到了临时身份凭证，没有，则调用`TLSHelper.goLogin({sdkappid: loginInfo.sdkAppID,acctype: loginInfo.accountType,url: callBackUrl})`，跳转到 TLS 登录页面，登录成功会跳转到回调地址 `callBackUrl`。**示例： **
-
-```
-//判断是否已经拿到临时身份凭证
-if (TLSHelper.getQuery('tmpsig')) {
-    if (loginInfo.identifier == null) {
-        console.info('start fetchUserSig');
-        //获取正式身份凭证，成功后会回调 tlsGetUserSig(res) 函数
-        TLSHelper.fetchUserSig();
-    }
-} else {//未登录
-    if (loginInfo.identifier == null) {
-        //弹出选择应用类型对话框
-        $('#select_app_dialog').modal('show');
-        $("body").css("background-color", 'white');
-    }
-}
-//TLS 登录
-function tlsLogin() {
-    //跳转到 TLS 登录页面
-    TLSHelper.goLogin({
-        sdkappid: loginInfo.sdkAppID,
-        acctype: loginInfo.accountType,
-        url: callBackUrl
-    });
-}
-```
-
-如果已经拿到了临时凭证，则继续调用`TLSHelper.fetchUserSig()`获取正式身份凭证，成功之后会回调`tlsGetUserSig(res)`函数。**示例： **
-	
-> 注：独立模式可直接用已生成的 `usersig` 与 `usersig` 对应的帐号放入 `loginInfo` 中，然后进行下一步去登录 SDK。详情可参考 Demo。
-
-```
-//第三方应用需要实现这个函数，并在这里拿到 UserSig
-function tlsGetUserSig(res) {
-    //成功拿到凭证
-    if (res.ErrorCode == TlsErrorCode.OK) {
-        //从当前 URL 中获取参数为 identifier 的值
-        loginInfo.identifier = TLSHelper.getQuery("identifier");
-        //拿到正式身份凭证
-        loginInfo.userSig = res.UserSig;
-        //从当前 URL 中获取参数为 sdkappid 的值
-        loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(TLSHelper.getQuery("sdkappid"));
-        //从 cookie 获取 accountType
-        var accountType = webim.Tool.getCookie('accountType');
-        if (accountType) {
-            loginInfo.accountType = accountType;
-            initDemoApp();
-        } else {
-            alert('accountType非法');
-        }
-    } else {
-        //签名过期，需要重新登录
-        if (res.ErrorCode == TlsErrorCode.SIGNATURE_EXPIRATION) {
-            tlsLogin();
-        } else {
-            alert("[" + res.ErrorCode + "]" + res.ErrorInfo);
-        }
-    }
-}
-```
 
 ## SDK 登录
 
 **登录 `login` 函数名：**
 
-```
+```javascript
 webim.login
 ```
 
 **定义：**
 
-```
+```javascript
 webim.login(loginInfo, listeners, options,cbOk,cbErr)
 ```
 
 **示例：**
 
-```
+```javascript
 //SDK 登录
 function sdkLogin() {
     //Web SDK 登录
@@ -113,7 +42,6 @@ function sdkLogin() {
 |---------|---------|---------|
 |sdkAppID	|用户标识接入 SDK 的应用 ID，必填|	String|
 |appIDAt3rd	|App 用户使用 OAuth 授权体系分配的 Appid，必填	|String|
-|accountType|	帐号类型，必填|	Integer|
 |identifier	|用户帐号，选填	|String|
 |identifierNick|	用户昵称，选填	|String|
 |userSig	|鉴权 Token，identifier 不为空时，必填	|String|
@@ -132,7 +60,7 @@ function sdkLogin() {
 
 **示例：**
 
-```
+```javascript
 //监听事件
 var listeners = {
     "onConnNotify": onConnNotify, //选填
@@ -148,7 +76,7 @@ var listeners = {
 
 **示例：**
 
-```
+```javascript
 //监听连接状态回调变化事件
 var onConnNotify = function (resp) {
     switch (resp.ErrorCode) {
@@ -177,7 +105,7 @@ var onConnNotify = function (resp) {
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
-```
+```javascript
 //位于 js/demo_base.js 中
 //IE9(含)以下浏览器用到的 jsonp 回调函数
 function jsonpCallback(rspData) {
@@ -196,7 +124,7 @@ function jsonpCallback(rspData) {
 
 用来监听直播聊天室消息。其中参数 `msgList` 为 `webim.Msg` 数组，即 `[webim.Msg]`。**示例：**
 
-```
+```javascript
 //监听大群新消息（普通，点赞，提示，红包）
 function onBigGroupMsgNotify(msgList) {
     for (var i = msgList.length - 1; i >= 0; i--) {//遍历消息，按照时间从后往前
@@ -212,7 +140,7 @@ function onBigGroupMsgNotify(msgList) {
 
 用来监听新消息（私聊（包括普通消息和全员推送消息），普通群（非直播聊天室）消息）。其中参数 `newMsgList` 为 `webim.Msg` 数组，即 `[webim.Msg]`。**示例：**
 
-```
+```javascript
 //监听新消息(私聊(包括普通消息、全员推送消息)，普通群(非直播聊天室)消息)事件
 //newMsgList 为新消息数组，结构为 [Msg]
 function onMsgNotify(newMsgList) {
@@ -226,7 +154,7 @@ function onMsgNotify(newMsgList) {
 
 **其中 `handlderMsg` 示例代码如下：**
 
-```
+```javascript
 //处理消息（私聊(包括普通消息和全员推送消息)，普通群(非直播聊天室)消息）
 function handlderMsg(msg) {
     var fromAccount, fromAccountNick, sessType, subType,contentHtml;
@@ -275,7 +203,7 @@ function handlderMsg(msg) {
 
 **示例：**
 
-```
+```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 demo_group_notice.js 文件中
 //注意每个数字代表的含义，比如，
 //1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息等
@@ -299,7 +227,7 @@ var onGroupSystemNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听 群资料变化 群提示消息
 function onGroupInfoChangeNotify(groupInfo) {
     webim.Log.warn("执行 群资料变化 回调： " + JSON.stringify(groupInfo));
@@ -341,7 +269,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
-```
+```javascript
 //SDK 登录
 function sdkLogin() {
     //Web SDK 登录
