@@ -108,7 +108,7 @@ var applyAddFriend = function () {
 getPendency: function(options, cbOk, cbErr) {},
 ```
 
-示例代码如下：
+### 示例代码
 
 ```
 //读取好友申请列表
