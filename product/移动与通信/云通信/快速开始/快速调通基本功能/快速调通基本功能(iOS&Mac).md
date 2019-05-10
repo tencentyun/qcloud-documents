@@ -15,7 +15,7 @@ sdkConfig.logPath =  logPath; //Log文件存放在哪里？
 ```
 
 ## 登录
-- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 详细请参阅 [帐号登录集成说明](https://cloud.tencent.com/document/product/269/1507)。
+- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 详细请参阅 [登录鉴权简介](https://cloud.tencent.com/document/product/269/31999)。
 - 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];

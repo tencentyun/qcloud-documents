@@ -1,19 +1,17 @@
-以下是通过 RESTful API 方式访问 TcaplusDB 表的步骤。
+本文为您介绍通过 RESTful API 方式访问 TcaplusDB 表的操作。
 
-通过注册游戏，开通服务，添加表步骤后，您就有了属于自己的 TcaplusDB 业务数据表，通过获取到的访问点信息就能够对业务数据表进行读写访问。本例子将分别采用 SetRecord 和 GetRecord 接口对目标表进行写和读操作。
+通过注册游戏、开通服务、添加表步骤后，您就有了属于自己的 TcaplusDB 业务数据表，通过获取到的访问点信息就能够对业务数据表进行读写访问。本示例将分别采用 SetRecord 和 GetRecord 接口对目标表进行写和读操作。
 
->! 相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
+>!相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
 
-在本例中，假设获取到如下接入点信息，并且在 ZoneId 为1的部署单元中创建了表 tb_online
-
+在本例中，假设获取到如下接入点信息，并且在 ZoneId 为1的部署单元中创建了表 tb_online。
 * AppId：2
 * AppKey：3aa84dd773826cd655e9f24a249d68bb
 * RESTful 接入点：10.123.9.70:31002
 * ZoneId：1
 
 ## 写操作
-
-通过如下 HTTP 请求向表中写入一条数据。对应的请求 url，http 请求头，请求数据和回包如下：
+通过如下 HTTP 请求向表中写入一条数据。对应的请求 url、HTTP 请求头、请求数据和回包如下：
 
 ```
 HTTP Method: POST
@@ -97,7 +95,7 @@ Response
 
 ## 读操作
 
-通过如下 HTTP 请求将上一步写入的记录读取出来。对应的请求 url，http 请求头和回包如下：
+通过如下 HTTP 请求将上一步写入的记录读取出来。对应的请求 url、HTTP 请求头和回包如下：
 
 ```
 HTTP Method: GET
@@ -147,7 +145,7 @@ Response:
 
 ## 示例程序
 
-以下通过简单的 Python 代码来实现上面所演示的两个功能。更多的表操作请参考 [《Tcaplus RESTful API接口文档》]()。
+以下通过简单的 Python 代码来实现上面所演示的两个功能。更多的表操作请参考 [Tcaplus RESTful API 接口文档](https://cloud.tencent.com/document/product/596/31664)。
 
 ```
 #!/usr/bin/env python

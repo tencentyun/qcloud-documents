@@ -1,7 +1,7 @@
 
 如果您是首次购买和使用云服务器实例的个人用户，腾讯云推荐您按照本文介绍的流程快速配置、购买和连接实例。
-本文主要介绍 Windows 实例的购买和配置方法、如果您想购买和配置 Linux 实例，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2764)。
 ![](https://main.qcloudimg.com/raw/37ade775b8f369f5bf673dd4e69090cf.png)
+本文档主要介绍如何快速使用 Windows 系统的云服务器实例的相关功能，引导您快速了解腾讯云云服务器的创建和配置。
 >? 腾讯云提供**快速配置**和**自定义配置**两种方式。本文档以快速配置为例进行说明。若快速配置不能满足您的需求，您可参考 [自定义配置 Windows 云服务器](https://cloud.tencent.com/doc/product/213/10516) 文档进行配置。
 
 ## 1. 注册账号与选型
@@ -58,5 +58,5 @@
 对于购买了数据盘的用户，需要在登录实例后对数据盘进行格式化和分区。**未购买数据盘的用户可以跳过此步骤。**
 >! 使用快速配置购买的云服务器默认没有购买数据盘，不需要执行此步骤操作。
 >
-具体操作请参考 [Windows 实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516) 对 Windows 实例进行数据盘分区及格式化。
+具体操作请参考 [Windows 实例数据盘分区及格式化](https://cloud.tencent.com/document/product/213/10516#.E6.A0.BC.E5.BC.8F.E5.8C.96.E4.B8.8E.E5.88.86.E5.8C.BA.E6.95.B0.E6.8D.AE.E7.9B.98) 对 Windows 实例进行数据盘分区及格式化。
 

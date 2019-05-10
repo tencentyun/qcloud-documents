@@ -27,20 +27,28 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 
 ## 集成TUIKit
 
-首先开发者需在自身主工程的 build.grale 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。
+首先开发者需在自身主工程的 build.gradle 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。同时在 <a href="https://github.com/tencentyun/TIMSDK">项目 </a>中 TIMSDK/Android/tuikit/libs/ 目录下，下载最新的 TUIKit 组件。
+
+#### 集成步骤：
+
+1、将下载的 aar 文件拷贝到您工程的 app/libs 目录下
+
+2、在 app 的 build.gradle 中加入以下配置
 
 <pre>
-android {
-    defaultConfig {
-        ndk {
-            abiFilters 'armeabi-v7a' //目前仅提供 armeabi-v7a 的 so 库
-        }
-    }
+repositories {    
+    flatDir {        
+        dirs 'libs'   // aar 目录
+      }
 }
+</pre>
 
+3、在 dependencies 中加入 aar 引用
+
+<pre>
 dependencies {
     ...
-    implementation 'com.tencent.imsdk:tuikit:0.0.1.198' //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
+    implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
 }
 </pre>
 
@@ -146,7 +154,7 @@ public class SessionFragment extends BaseFragment {
         sessionPanel = baseView.findViewById(R.id.session_panel);
         // 会话面板初始化默认功能
         sessionPanel.initDefault();
-        // 这里设置会话列表点击的跳转逻辑，告诉添加完SessionPanel后会话被点击后该如何处理
+        // 这里设置会话列表单击的跳转逻辑，告诉添加完SessionPanel后会话被单击后该如何处理
         sessionPanel.setSessionClick(new SessionClickListener() {
             @Override
             public void onSessionClick(SessionInfo session) {
@@ -173,7 +181,7 @@ public class SessionFragment extends BaseFragment {
 
 ## 聊天面板 
 
-在会话列表里点击会话条目后应跳转到相应的聊天界面。聊天界面是一个非常复杂的交互，所以 TUIKit 为您提供了聊天面板供您直接使用。聊天面板分为 C2C 单聊面板和群聊面板，分别对应单聊和群聊的使用场景。
+在会话列表里单击会话条目后应跳转到相应的聊天界面。聊天界面是一个非常复杂的交互，所以 TUIKit 为您提供了聊天面板供您直接使用。聊天面板分为 C2C 单聊面板和群聊面板，分别对应单聊和群聊的使用场景。
 
 - C2C 单聊面板
 ![](http://dldir1.qq.com/hudongzhibo/im/c2c.jpg)
@@ -228,7 +236,7 @@ public class PersonalChatFragment extends BaseFragment {
         //单聊组件的默认UI和交互初始化
         chatPanel.initDefault();
         /*
-         * 需要指定会话ID（即聊天对象的identify，具体可参考IMSDK接入文档）来加载聊天消息。在上一章节SessionClickListener中回调函数的参数SessionInfo对象中持有每一会话的会话ID，所以在会话列表点击时都可传入会话ID。
+         * 需要指定会话ID（即聊天对象的identify，具体可参考IMSDK接入文档）来加载聊天消息。在上一章节SessionClickListener中回调函数的参数SessionInfo对象中持有每一会话的会话ID，所以在会话列表单击时都可传入会话ID。
         * 特殊的如果用户应用不具备类似会话列表相关的组件，则需自行实现逻辑获取会话ID传入。
         */
         chatPanel.setBaseChatId(chatId);
@@ -282,7 +290,7 @@ public class GroupChatFragment extends BaseFragment {
         //单聊组件的默认UI和交互初始化
         chatPanel.initDefault();
         /*
-         * GroupChatPanel在初始化完成后需要入会话ID（即群组ID，具体可参考IMSDK接入文档）来加载聊天消息。在上一章节SessionClickListener中回调函数的参数SessionInfo对象中持有每一会话的会话ID，如果是群会话则为群组ID，所以在会话列表点击时都可传入会话ID。
+         * GroupChatPanel在初始化完成后需要入会话ID（即群组ID，具体可参考IMSDK接入文档）来加载聊天消息。在上一章节SessionClickListener中回调函数的参数SessionInfo对象中持有每一会话的会话ID，如果是群会话则为群组ID，所以在会话列表单击时都可传入会话ID。
 
         * 特殊的如果用户应用不具备类似会话列表相关的组件，则在使用群聊面板时需自行实现逻辑获取群组ID传入。
         */
@@ -302,7 +310,7 @@ public class GroupChatFragment extends BaseFragment {
 
 
 - <span id="configs">IMSDK 的版本指定</span>
-目前 TUIKit 所依赖的 IMSDK 版本为 V3.5.0.133。后续 TUIKit 将支持更多版本的腾讯云 IMSDK，届时将在文档里说明如何指定 TUIKit 所依赖的 IMSDK 版本。敬请期待。
+目前 TUIKit 所依赖的 IMSDK 版本为 V3.5.0.133。后续 TUIKit 将支持更多版本的腾讯云 IMSDK，届时将在文档里说明如何指定 TUIKit 所依赖的 IMSDK 版本。
 
 
 - <span id="iminit">和已有的 IM SDK 相结合</span>
@@ -427,10 +435,10 @@ SessionPanel 对外暴露了相关的子组件，开发者可自行对其进行�
 
 |组件名称|描述|类型|
 | --- | --- | --- |
-|mTitleBar|一般用来控制组件的跳转和标题栏的点击，开发者可自行修改和控制，详见 [通用标题栏](#pageTitleBar)<br>会话面板的标题栏默认实现了右边菜单栏的点击 |PageTitleBar|
+|mTitleBar|一般用来控制组件的跳转和标题栏的单击，开发者可自行修改和控制，详见 [通用标题栏](#pageTitleBar)<br>会话面板的标题栏默认实现了右边菜单栏的单击 |PageTitleBar|
 |mSessionList|会话列表 ListView|SessionListView|
 |mSessionPopList|会话 Item 长按弹框 List|ListView|
-|mPopMenuList|标题栏右边点击弹框 List|ListView|
+|mPopMenuList|标题栏右边单击弹框 List|ListView|
 
 除对外开放的UI子组件外，SessionPanel 实现了 ISessionPanel 接口，该接口的将一些常用的定制化处理函数抽离处理。开发者可通过 ISessionPanel 教直观的操作 SessionPanel。
 
@@ -446,7 +454,7 @@ public interface ISessionPanel {
 
 
     /**
-     * 设置会话列表点击回调事件，控制会话点击时的界面跳转
+     * 设置会话列表单击回调事件，控制会话单击时的界面跳转
      *
      * @param clickListener
      */
@@ -505,7 +513,7 @@ C2CChatPanel 和 GroupChatPanel 对外暴露了相关的子组件是一致的，
 
 |组件名称|描述|类型|
 | --- | --- | --- |
-|mTitleBar|一般用来控制组件的跳转和标题栏的点击，开发者可自行修改和控制，详见 [通用标题栏](#pageTitleBar)<br>聊天面板的标题栏默认实现了左边返回按钮点击（群聊面板实现了边群信息 Icon 点击的跳转）|PageTitleBar|
+|mTitleBar|一般用来控制组件的跳转和标题栏的单击，开发者可自行修改和控制，详见 [通用标题栏](#pageTitleBar)<br>聊天面板的标题栏默认实现了左边返回按钮单击（群聊面板实现了边群信息 Icon 单击的跳转）|PageTitleBar|
 |mChatList|消息面板 List|ChatListView|
 |mInputGroup|聊天面板底部输入控件|ChatBottomInputGroup|
 |mItemPopMenuList|消息长按弹框 List|ListView|
@@ -573,12 +581,12 @@ public interface IChatPanel {
 
 - <span id="pageTitleBar">通用标题栏PageTitleBar</span>
 ![](	http://dldir1.qq.com/hudongzhibo/im/titlebar.jpg)
-一般的界面都有一个标题栏，如上图中的标红区域，包含返回点击按钮，标题，右边跳转按钮等，TUIKit提供了一个内部通用的标题栏（SessionPanel，ChatPanel都有集成该组件），开发者可根据自己的使用场景做定制修改，包括文案、图标修改、跳转控制等。
+一般的界面都有一个标题栏，如上图中的标红区域，包含返回单击按钮，标题，右边跳转按钮等，TUIKit提供了一个内部通用的标题栏（SessionPanel，ChatPanel都有集成该组件），开发者可根据自己的使用场景做定制修改，包括文案、图标修改、跳转控制等。
 
 |组件名称|描述|类型|
 | --- | --- | --- |
-|mLeftGroup|左边区域，一般用来设置点击事件（如 mLeftGroup.setOnClickListener(...)）|LinearLayout|
-|mRightGroup|右边区域，一般用来设置点击事件（如 mRightGroup.setOnClickListener(...)|LinearLayout|
+|mLeftGroup|左边区域，一般用来设置单击事件（如 mLeftGroup.setOnClickListener(...)）|LinearLayout|
+|mRightGroup|右边区域，一般用来设置单击事件（如 mRightGroup.setOnClickListener(...)|LinearLayout|
 |mLeftTitle|左边标题，如果标题栏左边需要文案，可通过此属性来设置|TextView|
 |mRightTitle|右边标题，如果标题栏右边需要文案，可通过此属性来设置|TextView|
 |mCenterTitle|中间边标题，如果标题栏右边需要文案，可通过此属性来设置|TextView|
@@ -587,7 +595,7 @@ public interface IChatPanel {
 
 ## 快速体验
 
-欢迎扫码体验我们的 DEMO，后续会继续完善，敬请期待。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
+欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
 
 ![](https://main.qcloudimg.com/raw/fe3ef4a58c3efa5388e57a653133f392.png)
 

@@ -1,71 +1,3 @@
-## TLS 登录（托管模式）
-
-Demo 集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于 TLS 帐号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在 Demo 中如何集成托管模式下的 Web 版 TLS SDK。
-
-**在 `index.html` 引入 Web 版 TLS SDK：**
-
-```
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
-```
-
-然后在页面中调用 `TLSHelper.getQuery('tmpsig')`，判断是否获取到了临时身份凭证，没有，则调用 `TLSHelper.goLogin({sdkappid: loginInfo.sdkAppID,url: callBackUrl})`，跳转到 TLS 登录页面，登录成功会跳转到回调地址 `callBackUrl`。 **示例： **
-
-```
-//判断是否已经拿到临时身份凭证
-if (TLSHelper.getQuery('tmpsig')) {
-    if (loginInfo.identifier == null) {
-        console.info('start fetchUserSig');
-        //获取正式身份凭证，成功后会回调tlsGetUserSig(res)函数
-        TLSHelper.fetchUserSig();
-    }
-} else {//未登录
-    if (loginInfo.identifier == null) {
-        //弹出选择应用类型对话框
-        $('#select_app_dialog').modal('show');
-        $("body").css("background-color", 'white');
-    }
-}
-//tls登录
-function tlsLogin() {
-    //跳转到TLS登录页面
-    TLSHelper.goLogin({
-        sdkappid: loginInfo.sdkAppID,
-        url: callBackUrl
-    });
-}
-```
-
-如果已经拿到了临时凭证，则继续调用 `TLSHelper.fetchUserSig()` 获取正式身份凭证，成功之后会回调`tlsGetUserSig(res)` 函数。
-
->注：独立模式可直接用已生成的 `usersig` 与 `usersig` 对应的帐号放入 `loginInfo` 中，然后进行下一步去登录 SDK。详情可参考 Demo。
-
-**示例： **
-
-```
-//第三方应用需要实现这个函数，并在这里拿到 UserSig
-function tlsGetUserSig(res) {
-    //成功拿到凭证
-    if (res.ErrorCode == TlsErrorCode.OK) {
-        //从当前 URL 中获取参数为 identifier 的值
-        loginInfo.identifier = TLSHelper.getQuery("identifier");
-        //拿到正式身份凭证
-        loginInfo.userSig = res.UserSig;
-        //从当前 URL 中获取参数为 sdkappid 的值
-        loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(TLSHelper.getQuery("sdkappid"));
-        //从 cookie 获取 accountType
-        initDemoApp();
-    } else {
-        //签名过期，需要重新登录
-        if (res.ErrorCode == TlsErrorCode.SIGNATURE_EXPIRATION) {
-            tlsLogin();
-        } else {
-            alert("[" + res.ErrorCode + "]" + res.ErrorInfo);
-        }
-    }
-}
-```
-
-## SDK 登录
 
 **SDK 登录 login API 函数名：**
 
@@ -97,7 +29,7 @@ function webimLogin() {
 }
 ```
 
-### 用户信息对象 loginInfo
+## 用户信息对象 loginInfo
 
 
 **属性名：**
@@ -115,7 +47,7 @@ function webimLogin() {
 >- Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
 
 
-### 事件回调对象 listeners
+## 事件回调对象 listeners
 
 
 **属性名：**
@@ -153,7 +85,7 @@ var listeners = {
 };
 ```
 
-### 事件回调对象 listeners.onConnNotify
+## 事件回调对象 listeners.onConnNotify
 
 **示例：**
 
@@ -192,7 +124,7 @@ var onConnNotify = function (resp) {
 
 
 
-### 事件回调对象 listeners.jsonpCallback
+## 事件回调对象 listeners.jsonpCallback
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
@@ -213,7 +145,7 @@ function jsonpCallback(rspData) {
 
 
 
-### 事件回调对象 listeners.onMsgNotify
+## 事件回调对象 listeners.onMsgNotify
 
 **示例：**
 
@@ -247,7 +179,7 @@ function onMsgNotify(newMsgList) {
 }
 ```
 
-### 事件回调对象 listeners.onGroupSystemNotifys
+## 事件回调对象 listeners.onGroupSystemNotifys
 
 **示例：**
 
@@ -271,7 +203,7 @@ var groupSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onFriendSystemNotifys
+## 事件回调对象 listeners.onFriendSystemNotifys
 
 **示例：**
 
@@ -287,7 +219,7 @@ var onFriendSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onProfileSystemNotifys
+## 事件回调对象 listeners.onProfileSystemNotifys
 
 **示例：**
 
@@ -298,7 +230,7 @@ var onProfileSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onC2cEventNotifys
+## 事件回调对象 listeners.onC2cEventNotifys
 
 **示例：**
 
@@ -309,7 +241,7 @@ var onC2cEventNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onGroupInfoChangeNotify
+## 事件回调对象 listeners.onGroupInfoChangeNotify
 
 **示例：**
 
@@ -343,7 +275,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 | GroupIntroduction | 新的群简介，为空，则表示没有变化  | String |
 
 
-### 其他对象 options
+## 其他对象 options
 
 **属性名：**
 
@@ -354,7 +286,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 
 
-### 回调函数 cbOk & cbErr
+## 回调函数 cbOk & cbErr
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 

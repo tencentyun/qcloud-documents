@@ -143,13 +143,13 @@ model.videoId.fileId = "5285890781763144364"; // 配置FileId
 mSuperPlayerView.playWithModel(model);
 ```
 
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考此篇文档：[点播超级播放器使用文档 - key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考此篇文档：[点播超级播放器使用文档 - key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
 ### 视频缩略图&打点信息
 
 在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
-- [截取雪碧图](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite))
+- [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
@@ -170,7 +170,6 @@ Android SDK 可以播放云点播两种方式加密的输出：
 
 - 步骤1：集成 [超级播放器 Library ](<https://cloud.tencent.com/document/product/881/20213>)到您的工程中。
 - 步骤2：从您的**业务后台**获取 Token，关于 Token 的内容，您可以参考此篇文档：[播放加密视频 - Token 生成](<https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90>)。
-
 - 步骤3：通过 FileId + Token 方式进行播放。
 
 ```java
@@ -190,10 +189,10 @@ try {
 }
 mSuperPlayerView.playWithModel(model);
 ```
-
+>?
 - 关于 FileId 的内容，您可以参考此篇文档：[超级播放器 - FileId 播放](<https://cloud.tencent.com/document/product/881/20213#667643674>)。
 - 关于播放模板的内容，您可以参考此篇文档：[使用播放器播放视频 - 播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF)。
-- 播放器会根据播放模板 ID 指定的行为播放，例如当模板 ID 为 20 时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
+- 播放器会根据播放模板 ID 指定的行为播放，例如当模板 ID 为20时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
 - 关于使用 DRM 防盗链内容，您可以参考此篇文档：[使用播放器播放视频](https://cloud.tencent.com/document/product/266/34101)。
 
 ## 小窗播放

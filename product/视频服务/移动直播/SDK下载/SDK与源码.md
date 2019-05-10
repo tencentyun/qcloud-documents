@@ -22,7 +22,7 @@ table td {
 
 
 ## 特别提醒
-[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
+[Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1周 - 2周时间，这段时间我们会用来进行 bugfix 和系统测试工作，所以部分 Demo 中的特性暂时在 SDK 中找不到对应的接口。
 
 <h2 id="iOS"> iOS SDK（6.3.7088）</h2>
 
@@ -58,7 +58,7 @@ table td {
 </table>
 
 
->?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，下载地址为 [Enterprise(iOS).zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7091.zip)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+>?**商用企业版**相比于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能。此版本非免费提供，下载地址为 [Enterprise(iOS).zip](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zip)，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 >商用企业版的使用方法请参考 [特效功能指引](https://cloud.tencent.com/document/product/454/9018)。
 
 **iOS SDK功能介绍**
