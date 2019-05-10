@@ -1,5 +1,5 @@
-## 腾讯短信服务
-目前腾讯云短信为客户提供**国内短信、国内语音**和**国际短信**三大服务，腾讯云短信 SDK 支持以下操作：
+## SDK 功能简介
+目前腾讯云短信为客户提供**国内短信、国际短信**和**国内语音**三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
 国内短信支持以下操作：
@@ -21,31 +21,18 @@
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
-### 语音通知
+### 国内语音
 语音通知支持以下操作：
 - [发送语音验证码](#发送语音验证码)
 - [发送语音通知](#发送语音通知)
 - [指定模板发送语音通知](#指定模板发送语音通知)
 
 
-## 开发
+## SDK 使用指南
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [API 文档](https://cloud.tencent.com/document/product/382/13297) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 文档](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_py)和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
-### 获取 SDK 
-短信 Python SDK 在 Github 中的下载地址：[短信 Python SDK](https://github.com/qcloudsms/qcloudsms_py)。
-
-### 开发准备
-在开始开发云短信应用之前，需要准备以下信息：
-- **申请 SDK AppID 以及 App Key：**
-云短信应用 SDK **AppID**和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
-- **申请签名：**
-一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
-- **申请模板：**
-短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
-
-
-### SDK 配置
+### 配置 SDK
 
 - **pip 配置：**
 qcloudsms_py 采用 pip 进行安装，要使用 qcloudsms 功能, 只需要执行：
@@ -58,7 +45,7 @@ pip install qcloudsms_py
  2. 在 qcloudsms_py 目录运行 `python setup.py install`或直接把 qcloudsms_py 所在目录加入`sys.path`。
  >?python2/python3 都支持。
 
-### 示例
+### 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
 
 - **准备必要参数**
@@ -273,54 +260,6 @@ print(reply_result)
 - **发送国际短信**
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
-<a id="上传语音文件" ></a>
-- **上传语音文件**
-
-```python
-from qcloudsms_py import VoiceFileUploader
-from qcloudsms_py.httpclient import HTTPError
-
-# Note: 语音文件大小上传限制400K字节
-with open("/path/to/example.mp3", "rb") as f:
-    content = f.read()
-uploader = VoiceFileUploader(appid, appkey)
-try:
-    result = uploader.upload(content, content_type="mp3")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-# 上传成功后，result 里会带有语音文件的 fid
-print(result)
-```
-
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
-
-
-<a id="按语音文件fid发送语音通知" ></a>
-
-- **按语音文件 fid 发送语音通知**
-
-```python
-from qcloudsms_py import FileVoiceSender
-from qcloudsms_py.httpclient import HTTPError
-
-# Note：这里 fid 来自`上传语音文件`接口返回的响应，如果需要按语音文件fid发送语音通知，需先上传语音文件获取 fid
-fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3"
-fvsender = FileVoiceSender(appid, appkey)
-try:
-    result = fvsender.send(fid, phone_numbers[0],
-        nationcode="86", playtimes=2, ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-
-print(result)
-```
-
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" ></a>
 - **指定模版发送语音通知**
