@@ -15,7 +15,7 @@ createGroup: function(options, cbOk, cbErr) {},
 
 >?详细参数说明请参考 [创建群组 API](https://cloud.tencent.com/document/product/269/1615)。
 
-**示例： **
+**示例：**
 
 
 ```
@@ -235,7 +235,7 @@ var options = {
 };
 ```
 
-**示例： **
+**示例：**
 
 ```
 //删除已处理的加群未决消息
@@ -268,7 +268,7 @@ var deleteApplyJoinGroupPendency = function (opts) {
 quitGroup: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```
 //退群
@@ -318,7 +318,7 @@ destroyGroup: function(options, cbOk, cbErr) {},
 
 >?详细参数说明请参考 [解散群组 API](https://cloud.tencent.com/document/product/269/1624)。
 
-**示例： **
+**示例：**
 
 ```
 //解散群组
@@ -366,7 +366,7 @@ var destroyGroup = function (group_id) {
 getJoinedGroupListHigh: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```
 //获取我的群组
@@ -470,7 +470,7 @@ getGroupInfo: function(options, cbOk, cbErr) {},
 
 >?详细参数说明请参考 [获取群组详细资料 API](https://cloud.tencent.com/document/product/269/1616)。
 
-**示例： **
+**示例：**
 
 ```
 //读取群组基本资料-高级接口
@@ -516,7 +516,7 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 };
 ```
 
-##  修改群基本资料
+## 修改群基本资料
 
 ```
 /* function modifyGroupBaseInfo
@@ -533,7 +533,7 @@ modifyGroupBaseInfo: function(options, cbOk, cbErr) {},
 
 >?详细参数说明请参考[修改群资本资料 API](https://cloud.tencent.com/document/product/269/1620)
 
-**示例： **
+**示例：**
 
 
 
