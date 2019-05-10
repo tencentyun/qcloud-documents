@@ -1,6 +1,6 @@
 ## 获取群成员列表 
 
-```
+```js
 /* function getGroupMemberInfo  
  *   获取群组成员列表
  * params:
@@ -15,7 +15,7 @@ getGroupMemberInfo: function(options, cbOk, cbErr) {},
 
 **示例： **
 
-```
+```js
 //读取群组成员
 var getGroupMemberInfo = function (group_id) {
     initGetGroupMemberTable([]);
@@ -69,7 +69,7 @@ var getGroupMemberInfo = function (group_id) {
 
 ## 邀请好友加群 
 
-```
+```js
 /* function addGroupMember  
  *   邀请好友加群
  * params:
@@ -84,7 +84,7 @@ addGroupMember: function(options, cbOk, cbErr) {},
 
 **示例： **
 
-```
+```js
 //邀请好友加群
 var addGroupMember = function () {
     var options = {
@@ -116,7 +116,7 @@ var addGroupMember = function () {
 
 ## 修改群消息提示 
 
-```
+```js
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
@@ -131,7 +131,7 @@ modifyGroupMember: function(options, cbOk, cbErr) {},
 
 **示例： **
 
-```
+```js
 //修改群消息提示类型
 var modifyGroupMsgFlag = function () {
     var msg_flag_en = $('input[name="mgmf_msg_flag_radio"]:checked').val();
@@ -164,7 +164,7 @@ var modifyGroupMsgFlag = function () {
 
 ## 修改群成员角色 
 
-```
+```js
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
@@ -179,7 +179,7 @@ modifyGroupMember: function(options, cbOk, cbErr) {},
 
 **示例： **
 
-```
+```js
 //修改群组成员角色
 var modifyGroupMemberRole = function () {
     var role_en = $('input[name="mgm_role_radio"]:checked').val();
@@ -211,7 +211,7 @@ var modifyGroupMemberRole = function () {
 
 ## 设置群成员禁言时间 
 
-```
+```js
 /* function forbidSendMsg  
  *   设置群成员禁言时间
  * params:
@@ -226,7 +226,7 @@ forbidSendMsg: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //设置成员禁言时间
 var forbidSendMsg = function () {
     if (!webim.Tool.validNumber($('#fsm_shut_up_time').val())) {
@@ -271,7 +271,7 @@ var forbidSendMsg = function () {
 
 ## 删除群成员 
 
-```
+```js
 /* function deleteGroupMember  
  *   删除群成员
  * params:
@@ -286,7 +286,7 @@ deleteGroupMember: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //删除群组成员
 var deleteGroupMember = function () {
     if (!confirm("确定移除该成员吗？")) {

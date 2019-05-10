@@ -1,6 +1,6 @@
 ## 创建群 
 
-```
+```js
 /* function createGroup
  *   创建群
  * params:
@@ -18,7 +18,7 @@ createGroup: function(options, cbOk, cbErr) {},
 **示例：**
 
 
-```
+```js
 //创建群组
 var createGroup = function () {
     var sel_friends = $('#select_friends').val();
@@ -81,7 +81,7 @@ var createGroup = function () {
 
 ## 申请加群
 
-```
+```js
 /* function applyJoinGroup
  *   申请加群
  * params:
@@ -97,7 +97,7 @@ applyJoinGroup: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //申请加群
 var applyJoinGroup = function () {
     if (webim.Tool.getStrBytes($("#ajg_apply_msg").val()) > 300) {
@@ -131,7 +131,7 @@ var applyJoinGroup = function () {
 
 ## 处理申请加群（同意或拒绝）
 
-```
+```js
 /* function handleApplyJoinGroup
 *   处理申请加群(同意或拒绝)
 * params:
@@ -146,7 +146,7 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 
 **其中 options 定义如下：**
 
-```
+```js
 {
     'GroupId': //群 ID
     'Applicant_Account': //申请人 ID
@@ -160,7 +160,7 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //处理加群申请
 var handleApplyJoinGroupPendency = function () {
     var options = {
@@ -206,7 +206,7 @@ var handleApplyJoinGroupPendency = function () {
 
 在处理完加群申请之后，需要删除对应的加群申请 。**函数名：**
 
-```
+```js
 /* function deleteApplyJoinGroupPendency
  *   删除加群申请
  * params:
@@ -221,7 +221,7 @@ deleteApplyJoinGroupPendency: function(options, cbOk, cbErr) {},
 
 **其中 options 定义如下：**
 
-```
+```js
 //要删除的群未决消息(支持批量删除)
 var options = {
 //需要删除的消息列表
@@ -237,7 +237,7 @@ var options = {
 
 **示例：**
 
-```
+```js
 //删除已处理的加群未决消息
 var deleteApplyJoinGroupPendency = function (opts) {
    webim.deleteApplyJoinGroupPendency(opts,
@@ -255,7 +255,7 @@ var deleteApplyJoinGroupPendency = function (opts) {
 
 ## 主动退群
 
-```
+```js
 /* function quitGroup
  *  主动退群
  * params:
@@ -270,7 +270,7 @@ quitGroup: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //退群
 var quitGroup = function (group_id) {
     var options = null;
@@ -303,7 +303,7 @@ var quitGroup = function (group_id) {
 
 ## 解散群
 
-```
+```js
 /* function destroyGroup
  *  解散群
  * params:
@@ -320,7 +320,7 @@ destroyGroup: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //解散群组
 var destroyGroup = function (group_id) {
     var options = null;
@@ -353,7 +353,7 @@ var destroyGroup = function (group_id) {
 
 ## 我的群组列表
 
-```
+```js
 /* function getJoinedGroupListHigh
  *   获取我的群组-高级接口
  * params:
@@ -368,7 +368,7 @@ getJoinedGroupListHigh: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //获取我的群组
 var getMyGroup = function () {
     initGetMyGroupTable([]);
@@ -455,7 +455,7 @@ var getMyGroup = function () {
 
 ## 读取群详细资料
 
-```
+```js
 /* function getGroupInfo
  *   读取群详细资料-高级接口
  * params:
@@ -472,7 +472,7 @@ getGroupInfo: function(options, cbOk, cbErr) {},
 
 **示例：**
 
-```
+```js
 //读取群组基本资料-高级接口
 var getGroupInfo = function (group_id, cbOK, cbErr) {
     var options = {
@@ -518,7 +518,7 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 
 ## 修改群基本资料
 
-```
+```js
 /* function modifyGroupBaseInfo
  *   修改群基本资料
  * params:
@@ -537,7 +537,7 @@ modifyGroupBaseInfo: function(options, cbOk, cbErr) {},
 
 
 
-```
+```js
 //修改群资料
 var modifyGroup = function () {
     if ($("#mg_name").val().length == 0) {

@@ -2,7 +2,7 @@
 
 ### 函数名
 
-```
+```js
 /* function applyAddFriend 
  *   申请添加好友
  * params:
@@ -49,7 +49,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //申请加好友
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
@@ -96,7 +96,7 @@ var applyAddFriend = function () {
 ## 拉取好友申请 
 ### 函数名
 
-```
+```js
 /* function getPendency 
  *   拉取好友申请
  * params:
@@ -110,7 +110,7 @@ getPendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //读取好友申请列表
 var getPendency = function () {
     initGetPendencyTable([]);
@@ -157,7 +157,7 @@ var getPendency = function () {
 
 ### 函数名
 
-```
+```javascript
 /* function responseFriend 
  *   响应好友申请
  * params:
@@ -171,7 +171,7 @@ responseFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //处理好友申请
 var responseFriend = function () {
     var response_friend_item = [
@@ -209,7 +209,7 @@ var responseFriend = function () {
 ## 删除好友申请 
 ### 函数名
 
-```
+```js
 /* function deletePendency 
  *   删除好友申请
  * params:
@@ -223,7 +223,7 @@ deletePendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //删除申请列表
 var deletePendency = function (del_account) {
     var options = {
@@ -250,7 +250,7 @@ var deletePendency = function (del_account) {
 ## 我的好友列表 
 ### 函数名
 
-```
+```js
 /* function getAllFriend
  *   拉取我的好友
  * params:
@@ -298,7 +298,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //初始化聊天界面左侧好友列表框
 var getAllFriend = function (cbOK, cbErr) {
     var options = {
@@ -363,7 +363,7 @@ var getAllFriend = function (cbOK, cbErr) {
 ## 删除好友 
 ### 函数名
 
-```
+```js
 /* function deleteFriend
  *   删除好友
  * params:
@@ -404,7 +404,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //删除好友
 var deleteFriend = function () {
     if (!confirm("确定删除该好友吗？")) {
@@ -445,7 +445,7 @@ var deleteFriend = function () {
 ## 增加黑名单 
 ### 函数名
 
-```
+```js
 /* function addBlackList 
  *   增加黑名单
  * params:
@@ -485,7 +485,7 @@ addBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //添加黑名单
 var addBlackList = function (add_account) {
     var to_account = [];
@@ -521,7 +521,7 @@ var addBlackList = function (add_account) {
 ## 我的黑名单
 ### 函数名
 
-```
+```js
 /* function getBlackList  
  *   删除黑名单
  * params:
@@ -562,7 +562,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //我的黑名单
 var getBlackList = function (cbOK, cbErr) {
     initGetBlackListTable([]);
@@ -598,7 +598,7 @@ var getBlackList = function (cbOK, cbErr) {
 ## 删除黑名单 
 ### 函数名
 
-```
+```js
 /* function deleteBlackList  
  *   我的黑名单
  * params:
@@ -638,7 +638,7 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```js
 //删除黑名单
 var deleteBlackList = function (del_account) {
     var to_account = [
