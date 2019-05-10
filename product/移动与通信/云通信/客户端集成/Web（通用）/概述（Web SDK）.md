@@ -20,8 +20,7 @@ Demo 目录结构如下：
 Demo 主要 JavaScript 文件功能说明如下：
 
 ```html
-<!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
+
 <!--用于获取文件MD5 js api(发送图片时用到)-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 <!--web im sdk-->
@@ -88,33 +87,13 @@ Demo 主要 JavaScript 文件功能说明如下：
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 ```
 
-此外，如果业务的帐号体系是托管模式，还需要引入TLS Web SDK：
-
-```
-<!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
-```
 
 **说明：**如果帐号采用的是独立模式，开发者需要在自己的服务器调用 TLS API 生成用户票据，然后调用 ImSdk 提供的接口进行相关操作。
 
 ### SDK 函数调用顺序
 
-如果帐号是 [托管模式](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用 SDK 登录 API 之前，需要先进行以下操作：
 
-| 步骤 | 对应函数 | 说明 |
-|---------|---------|---------|
-|TLS登录|	TLSHelper.goLogin(tlsLoginInfo);	|TLS 登录，需要传入业务 ID，帐号类型和回调 URL |
-|获取userSig|	TLSHelper.fetchUserSig();|	TLS 登录成功之后，在回调 URL 中会回传临时票据 tmpsig，此时需要根据tmpsig 获取正式的 userSig，fetchUserSig 成功之后，会回调 tlsGetUserSig(res) 函数。|
-|监听fetchUserSig()成功回调	|tlsGetUserSig(res){} |业务需要定义回调函数 tlsGetUserSig(res)，判断res.ErrorCode，当为 WebBigGroupIM.TLS_ERROR_CODE.OK 时则表示成功，为其他值，表示失败。|
-
-其中 `TLSHelper.goLogin` 的参数 `tlsLoginInfo` 对象属性定义如下：
-
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|sdkappid	|业务 ID|	Integer|
-|url	|TLS 登录成功回调地址，一般为业务网站首页地址|	String|
-
-当帐号模式为[独立模式](https://cloud.tencent.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。SDK 函数使用顺序，如下：
+SDK 函数使用顺序，如下：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
@@ -165,7 +144,6 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 | webim.Emotions |表情对象  | 键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码 |
 | webim.EmotionDataIndexs | 表情标识字符串和 index 的 Map | 键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息。 |
 | webim.BROWSER_INFO | 当前浏览器信息<br/>1)	webim.BROWSER_INFO.type-浏览器类型( 包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’)<br/>2)	webim.BROWSER_INFO.ver-版本号| 区分浏览器版本 |
-|webim.TLS_ERROR_CODE  | TLS 错误码<br/>1)	webim.TLS_ERROR_CODE.OK-成功<br/>2)	webim.TLS_ERROR_CODE.SIGNATURE_EXPIRATION –用户UserSig过期|用于帐号为托管模式的情况 |
 | webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息<br/>3)	webim.CONNECTION_STATUS.RECONNECT-连接重新建立| 用于区分用户的当前连接状态 |
 
 **类对象：**
