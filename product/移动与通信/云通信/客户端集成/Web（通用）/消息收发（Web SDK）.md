@@ -2,9 +2,9 @@
 
 **示例：**
 
-> **注意：**
+>!
 >- 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
->- 其中参数 newMsgList 为由 webim.Msg对象组成的数组，即 [webim.Msg]。
+>- 其中参数 newMsgList 为由 webim.Msg对象组成的数组，即 \[webim.Msg]。
 
 ```javascript
 //监听新消息事件
