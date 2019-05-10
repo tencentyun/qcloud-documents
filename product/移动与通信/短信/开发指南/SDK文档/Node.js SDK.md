@@ -1,5 +1,5 @@
 
-## 腾讯短信服务
+## SDK 功能简介
 目前腾讯云短信为客户提供**国内短信、国际短信**和**国内语音**三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
@@ -28,7 +28,7 @@
 - [发送语音通知](#发送语音通知)
 - [指定模板发送语音通知](#指定模板发送语音通知)
 
-## 开发
+## SDK 使用指南
 ### 相关资料
 各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js)和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
