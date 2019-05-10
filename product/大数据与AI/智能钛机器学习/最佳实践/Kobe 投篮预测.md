@@ -71,7 +71,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 data_transformation.py
 ![](https://main.qcloudimg.com/raw/694c903c3af1839640f393e25958feb8.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 四、特征选择
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow Job】。
@@ -79,7 +79,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 feature_selection.py
 ![](https://main.qcloudimg.com/raw/d93eb137811e0bf40f5addb6e695c36f.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 五、分类器
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow Job】。
@@ -87,7 +87,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 classifier.py
 ![](https://main.qcloudimg.com/raw/9fa50daf0b271ee81a01819f21f70028.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 六、模型评估
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输出】>【模型评估】>【BinaryEvaluator】。
