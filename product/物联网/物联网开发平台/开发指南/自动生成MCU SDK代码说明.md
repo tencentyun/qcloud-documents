@@ -1,9 +1,9 @@
 ## 简介
-###  qcloud-iot-sdk-tecent-at-based 
-qcloud-iot-sdk-tecent-at-based 面向使用 MCU+腾讯定制AT模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，SDK 完成实现了 MCU 和模组数据交互的 AT 框架，并基于 AT 框架配合腾讯 AT 指令，实现了腾讯物联网平台的接入。开发者需要实现的 HAL 层适配接口见 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在port目录。
+qcloud-iot-sdk-tecent-at-based 面向使用 MCU+腾讯定制 AT 模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，SDK 完成实现了 MCU 和模组数据交互的 AT 框架，并基于 AT 框架配合腾讯 AT 指令，实现了腾讯物联网平台的接入。
+开发者需要实现的 HAL 层适配接口见 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 软件架构
-qcloud-iot-sdk-tecent-at-based 软件架构见下图：
+
 ![](https://main.qcloudimg.com/raw/0e49d40088a7b54102f73facf953ee23.jpg)
 
 ### 目录结构
@@ -28,10 +28,12 @@ qcloud-iot-sdk-tecent-at-based 软件架构见下图：
 | README.md       | SDK 使用说明。 |
 
 ## 移植指导
-根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 hal 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。可参考基于STM32+FreeRTOS的AT-SDK[移植示例](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git)
+根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 HAL 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。详细操作可参考基于 STM32+FreeRTOS 的 AT-SDK [移植示例](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git)。
 
-####  **hal_export.h**：
-hal 层对外的 API 接口及 HAL 层宏开关控制。
+
+
+####  **hal_export.h**
+HAL 层对外的 API 接口及 HAL 层宏开关控制。
 
 | 序号 | 宏定义                       | 说明                                |
 | ----| ---------------------------- | -----------------------------------|
@@ -40,13 +42,13 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 3   | AUTH_MODE_KEY                | 认证方式，证书认证还是秘钥认证。                       					  |
 | 4   | DEBUG_DEV_INFO_USED          | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。     |
 
-####  **hal_os.c**:
+####  **hal_os.c**
 该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等。
 
 | 序号  | HAL_API                            | 说明                                 |
 | ---- | -----------------------------------| ----------------------------------  |
 | 1    | HAL_Printf                         | 打印函数，log 输出需要，可选实现。                    |
-| 2    | HAL_Snprintf                       | 格式化打印，json 数据处理需要，必须实现。              |
+| 2    | HAL_Snprintf                       | 格式化打印，JSON 数据处理需要，必须实现。              |
 | 3    | HAL_Vsnprintf                      | 格式化输出， 可选实现。                             |
 | 4    | HAL_DelayMs                        | 毫秒延时，必选实现。                                |
 | 5    | HAL_DelayUs                        | 微妙延时，可选实现。                                |
@@ -72,7 +74,7 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 25   | HAL_GetDevPrivateKeyName           | 获取设备证书私钥文件名，证书认证方式为必选实现。                      |
 | 26   | HAL_SetDevPrivateKeyName           | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。   |
 
-####  **hal_at.c**:
+####  **hal_at.c**
 该源文件主要实现 AT 串口初始化、串口收发、模组开关机。
 
 | 序号  | HAL_API                         | 说明                                 		|
@@ -82,8 +84,10 @@ hal 层对外的 API 接口及 HAL 层宏开关控制。
 | 2    | AT_UART_IRQHandler             | 串口接收中断 ISR，将收取到的数据放入 ringbuff 中，AT 解析线程会实时解析数据，必选实现。|
 | 3    | at_send_data                   | AT 串口发送接口。                             |
 
-####  **module_api_inf.c**：
-配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266腾讯定制AT固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266有封装配网指令和示例 APP。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的AT指令交互。 
+####  **module_api_inf.c**
+配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯定制 AT 固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。
+
+ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
 
 ```	
 //模组联网（NB/2/3/4G注册网络）、wifi配网（一键配网/softAP）暂时很难统一,需要用户根据具体模组适配。
@@ -177,9 +181,9 @@ Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑
 
 
 ### 相关文档
-[影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
-[影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
-[数据模板说明](https://cloud.tencent.com/document/product/634/)
+- [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
+- [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
+- [数据模板说明](https://cloud.tencent.com/document/product/634/)
 
 
 ### SDK接口说明
@@ -187,4 +191,4 @@ Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑
 
 
 ### 模组列表
-腾讯定义的MQTT AT指令见文档目录，已经支持的 [模组列表](https://cloud.tencent.com/document/product/634/)。
+腾讯定义的 MQTT AT 指令见文档目录，已经支持的 [模组列表](https://cloud.tencent.com/document/product/634/)。

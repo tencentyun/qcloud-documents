@@ -1,20 +1,16 @@
 本教程将详细地指导您如何使用云点播的 DRM 功能，包括视频上传、视频加密、部署鉴权服务及播放器解密播放的全部流程。
 
-开始教程前，您需要准备以下工具：
+## 前提条件
 
-* Python 2.7 运行环境。
-* Chrome 浏览器。
+- 准备工具：
+	* Python 2.7 运行环境。
+	* Chrome 浏览器。
+- [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
-接下来，您可以开始进行本次教程的实践操作。
-
-## 注册与登录
-
-使用腾讯云点播服务，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F266)。
-完成注册后，请登录 [腾讯云控制台](https://console.cloud.tencent.com)。选择左上角【云产品】>【视频服务】>【云点播】，进入云点播控制台。
+登录 [腾讯云控制台](https://console.cloud.tencent.com)，选择左上角【云产品】>【视频服务】>【云点播】，进入云点播控制台。
 
 ![](https://main.qcloudimg.com/raw/38c85e14bc8c3332e5face6ea6c33cad.png)
 
-经过该步骤，您已经注册了腾讯云账号，并可以使用云点播服务。
 
 ## 上传视频
 
@@ -38,7 +34,7 @@
  
 您可以通过 [API 工具](https://cloud.tencent.com/document/product/266/33427#API-Explorer) 执行 `ProcessMedia` 命令，对上传的视频发起“转加密的自适应码流”任务，具体步骤如下：
  
-1. 首先，进入 [云点播 ProcessMedia 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=ProcessMedia&SignVersion=)，填写您的“**个人密钥**”（可单击【查看密钥】，从 [API 密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取）。
+1. 进入 [云点播 ProcessMedia 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=ProcessMedia&SignVersion=)，填写您的“**个人密钥**”（可单击【查看密钥】，从 [API 密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取）。
 ![](https://main.qcloudimg.com/raw/a834509d249b2e44b95cf1cf37c13f34.jpg)
 2. 在“**FileId**”输入框中，填写您上传的视频的 ID。
 ![](https://main.qcloudimg.com/raw/ba89291239caccaedfd040693df711dc.png)
@@ -55,7 +51,7 @@
 
 您可以通过 [API 工具](https://cloud.tencent.com/document/product/266/33427#API-Explorer) 执行`DescribeTaskDetail`命令，查询“转加密的自适应码流”任务的执行状态，具体步骤如下。
 
-1. 首先，进入 [云点播 DescribeTaskDetail 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=DescribeTaskDetail&SignVersion=)，填写您的“**个人密钥**”。
+1. 进入 [云点播 DescribeTaskDetail 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=DescribeTaskDetail&SignVersion=)，填写您的“**个人密钥**”。
 ![](https://main.qcloudimg.com/raw/b8aa2ff34580749bb126bf58e0df1fea.jpg)
 2. 在【TaskId】输入框中，填写您发起任务后获取的 TaskId。
 ![](https://main.qcloudimg.com/raw/006e1462b20417eff77256e650044290.png)
@@ -79,7 +75,7 @@
 
 播放 DRM 加密的视频，播放器需要先从鉴权服务获取 Token，这里将介绍如何部署一个派发 Token 的鉴权服务。
 
-1. 首先，请下载 [源码压缩包](http://document-1251659802.coscd.myqcloud.com/DrmTuition.zip)，并解压到您的工作目录。
+1. 请下载 [源码压缩包](http://document-1251659802.coscd.myqcloud.com/DrmTuition.zip)，并解压到您的工作目录。
 2. 修改 AuthenticationServer.py 文件，填写您的 SECRET_ID 和 SECRET_KEY。
 ![](https://main.qcloudimg.com/raw/c323e2b6cfaec4c2638fe63a8d2f7e58.png)
 3. 在工作目录下执行命令:
@@ -96,7 +92,7 @@ python AuthenticationServer.py
 
 这里将介绍如何使用 Web 播放器，播放加密后的自适应码流视频。
 
-1. 首先，修改解压文件中的 Player.html 文件，fileID 填写您的视频 ID，appID 填写您的 AppId。
+1. 修改解压文件中的 Player.html 文件，fileID 填写您的视频 ID，appID 填写您的 AppId。
 >?Player.html 中的 playDefinition 保持为20，是 [播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF)  ID，表示仅播放加密后的自适应码流视频。
 
 	![](https://main.qcloudimg.com/raw/d392603910330e90c9ab5228141e3a7c.png)

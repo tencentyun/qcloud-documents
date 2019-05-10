@@ -29,7 +29,7 @@
 
 ## SDK 使用指南
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [API 文档](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_csharp)和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 文档](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_csharp) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 ### 配置 SDK
 
@@ -178,7 +178,7 @@ catch (Exception e)
 }
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="指定模板群发短信" ></a>
@@ -211,7 +211,7 @@ catch (Exception e)
 }
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="发送语音验证码" ></a>

@@ -1,3 +1,4 @@
+## SDK 登录
 
 **SDK 登录 login API 函数名：**
 
@@ -29,25 +30,26 @@ function webimLogin() {
 }
 ```
 
-## 用户信息对象 loginInfo
+### 用户信息对象 loginInfo
 
 
 **属性名：**
 
-| 名称             | 说明                                      | 类型      |
-| -------------- | --------------------------------------- | ------- |
-| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填                       | String  |
-| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String  |
-| identifier     | 用户帐号，必填                                 | String  |
-| identifierNick | 用户昵称，选填                                 | String  |
-| userSig        | 鉴权 Token，identifier 不为空时，必填        | String  |
+| 名称           | 说明                                          | 类型   |
+| -------------- | --------------------------------------------- | ------ |
+| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填              | String |
+| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String |
+| identifier     | 用户帐号，必填                                | String |
+| identifierNick | 用户昵称，选填                                | String |
+| userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
 > **特别注意：**
->- `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
->- Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
+>
+> - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
+> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
 
 
-## 事件回调对象 listeners
+### 事件回调对象 listeners
 
 
 **属性名：**
@@ -58,8 +60,8 @@ function webimLogin() {
 | jsonpCallback           | 用于 IE9（含）以下浏览器中 jsonp 回调函数,移动端可不填，PC 端必填 | Function |
 | onMsgNotify             | 监听新消息函数，必填                           | Function |
 | onBigGroupMsgNotify     | 监听新消息(直播聊天室)事件，**直播场景**下必填           | Function |
-| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Object   |
-| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，选填                  | Object   |
+| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Function |
+| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，必填                  | Object   |
 | onFriendSystemNotifys   | 监听好友系统通知事件，选填                        | Object   |
 | onProfileSystemNotifys  | 监听资料系统（自己或好友）通知事件，选填                 | Object   |
 | onKickedEventCall       | 被其他登录实例踢下线，选填                        | Function |
@@ -85,7 +87,7 @@ var listeners = {
 };
 ```
 
-## 事件回调对象 listeners.onConnNotify
+### 事件回调对象 listeners.onConnNotify
 
 **示例：**
 
@@ -116,15 +118,15 @@ var onConnNotify = function (resp) {
 
 **其中回调返回的参数 `resp` 对象属性定义如下：**
 
-| 名称           | 说明                                      | 类型      |
-| ------------ | --------------------------------------- | ------- |
-| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败             | String  |
-| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Integer |
-| ErrorInfo    | 错误提示信息                                  | String  |
+| 名称         | 说明                                                     | 类型   |
+| ------------ | -------------------------------------------------------- | ------ |
+| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败          | String |
+| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Number |
+| ErrorInfo    | 错误提示信息                                             | String |
 
 
 
-## 事件回调对象 listeners.jsonpCallback
+### 事件回调对象 listeners.jsonpCallback
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
@@ -145,7 +147,7 @@ function jsonpCallback(rspData) {
 
 
 
-## 事件回调对象 listeners.onMsgNotify
+### 事件回调对象 listeners.onMsgNotify
 
 **示例：**
 
@@ -161,7 +163,7 @@ function onMsgNotify(newMsgList) {
     var sessMap = webim.MsgStore.sessMap();
     for (var j in newMsgList) {//遍历新消息
         newMsg = newMsgList[j];
-        if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息
+        if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
             selSess = newMsg.getSession();
             //在聊天窗体中新增一条消息
             //console.warn(newMsg);
@@ -179,7 +181,7 @@ function onMsgNotify(newMsgList) {
 }
 ```
 
-## 事件回调对象 listeners.onGroupSystemNotifys
+### 事件回调对象 listeners.onGroupSystemNotifys
 
 **示例：**
 
@@ -203,7 +205,7 @@ var groupSystemNotifys = {
 };
 ```
 
-## 事件回调对象 listeners.onFriendSystemNotifys
+### 事件回调对象 listeners.onFriendSystemNotifys
 
 **示例：**
 
@@ -219,7 +221,7 @@ var onFriendSystemNotifys = {
 };
 ```
 
-## 事件回调对象 listeners.onProfileSystemNotifys
+### 事件回调对象 listeners.onProfileSystemNotifys
 
 **示例：**
 
@@ -230,7 +232,7 @@ var onProfileSystemNotifys = {
 };
 ```
 
-## 事件回调对象 listeners.onC2cEventNotifys
+### 事件回调对象 listeners.onC2cEventNotifys
 
 **示例：**
 
@@ -241,7 +243,7 @@ var onC2cEventNotifys = {
 };
 ```
 
-## 事件回调对象 listeners.onGroupInfoChangeNotify
+### 事件回调对象 listeners.onGroupInfoChangeNotify
 
 **示例：**
 
@@ -275,7 +277,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 | GroupIntroduction | 新的群简介，为空，则表示没有变化  | String |
 
 
-## 其他对象 options
+### 其他对象 options
 
 **属性名：**
 
@@ -286,7 +288,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 
 
-## 回调函数 cbOk & cbErr
+### 回调函数 cbOk & cbErr
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
@@ -306,3 +308,4 @@ function webimLogin() {
 }
 ```
 >? 当您集成 SDK 出现错误时，请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) 进行处理。
+

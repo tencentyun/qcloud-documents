@@ -4,11 +4,11 @@
 
 > **注意：**
 >- 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
->- 其中参数 newMsgList 为 webim.Msg 数组，即 [webim.Msg]。
+>- 其中参数 newMsgList 为由 webim.Msg对象组成的数组，即 [webim.Msg]。
 
 ```javascript
 //监听新消息事件
-//newMsgList 为新消息数组，结构为[Msg]
+//newMsgList 为新消息数组，结构为[webim.Msg]
 function onMsgNotify(newMsgList) {
     //console.warn(newMsgList);
     var sess, newMsg;
@@ -16,7 +16,7 @@ function onMsgNotify(newMsgList) {
     var sessMap = webim.MsgStore.sessMap();
     for (var j in newMsgList) {//遍历新消息
         newMsg = newMsgList[j];
-        if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息
+        if (newMsg.getSession().id() == selToID) {// 为当前聊天对象的消息，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
             selSess = newMsg.getSession();
             //在聊天窗体中新增一条消息
             //console.warn(newMsg);
@@ -438,7 +438,7 @@ webim.sendMsg(msg,cbOk, cbErr)
 ```javascript
 //发送消息(文本或者表情)
 function onSendMsg() {
-    if (!selToID) {
+    if (!selToID) {	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         alert("您还没有选中好友或者群组，暂不能聊天");
         $("#send_msg_text").val('');
         return;
@@ -561,7 +561,7 @@ function uploadPic() {
         'onProgressCallBack': onProgressCallBack, //上传图片进度条回调函数
         //'abortButton': document.getElementById('upd_abort'), //停止上传图片按钮
         'From_Account': loginInfo.identifier, //发送者帐号
-        'To_Account': selToID, //接收者
+        'To_Account': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType//业务类型
     };
     //上传图片
@@ -609,7 +609,7 @@ function uploadPicLowIE() {
     var opt = {
         'formId': 'updli_form', //上传图片表单id
         'fileId': 'updli_file', //file控件id
-        'To_Account': selToID, //接收者
+        'To_Account': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType//图片的使用业务类型
     };
     webim.submitUploadFileForm(opt,
@@ -661,7 +661,7 @@ function uploadFileByBase64() {
     }
     //封装上传文件请求
     var opt = {
-        'toAccount': selToID, //接收者
+        'toAccount': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType,//文件的使用业务类型
         'fileType':webim.UPLOAD_RES_TYPE.FILE,//表示文件
         'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件md5
@@ -715,7 +715,7 @@ function uploadFileLowIE() {
     var opt = {
         'formId': 'updli_file_form', //上传文件表单id
         'fileId': 'upload_low_ie_file', //file控件id
-        'To_Account': selToID, //接收者
+        'To_Account': selToID, // 接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType,//文件的使用业务类型
         'fileType': webim.UPLOAD_RES_TYPE.FILE//表示上传文件
     };
@@ -757,7 +757,7 @@ sendMsg: function(msg, cbOk, cbErr) {},
 ```javascript
 //发送图片
 function sendPic(images) {
-    if (!selToID) {
+    if (!selToID) {	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         alert("您还没有好友，暂不能聊天");
         return;
     }
@@ -808,7 +808,7 @@ function sendPic(images) {
 
 ```javascript
 function sendFile(file,fileName) {
-    if (!selToID) {
+    if (!selToID) {	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         alert("您还没有好友，暂不能聊天");
         return;
     }
@@ -825,7 +825,7 @@ function sendFile(file,fileName) {
         var random=Math.round(Math.random() * 4294967296);
         fileName=random.toString();
     }
-    var fileObj=new webim.Msg.Elem.File(uuid,fileName, fileSize, senderId, selToID, downloadFlag, selType);
+    var fileObj=new webim.Msg.Elem.File(uuid,fileName, fileSize, senderId, selToID, downloadFlag, selType);	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
     msg.addFile(fileObj);
     //调用发送文件消息接口
     webim.sendMsg(msg, function (resp) {
@@ -868,7 +868,7 @@ function showEditCustomMsgDialog() {
 }
 //发送自定义消息
 function sendCustomMsg() {
-    if (!selToID) {
+    if (!selToID) {	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         alert("您还没有好友或群组，暂不能聊天");
         return;
     }
@@ -961,7 +961,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
     var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传 0
     var msgKey = '';
     var options = {
-        'Peer_Account': selToID, //好友帐号
+        'Peer_Account': selToID, //好友帐号，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'MaxCnt': reqMsgCount, //拉取消息条数
         'LastMsgTime': lastMsgTime, //最近的消息时间，即从这个时间点向前拉取历史消息
         'MsgKey': msgKey
@@ -1012,6 +1012,7 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
         alert('当前的聊天类型为好友聊天，不能进行拉取群历史消息操作');
         return;
     }
+    // selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
     getGroupInfo(selToID, function (resp) {
         //拉取最新的群历史消息
         var options = {
@@ -1054,7 +1055,7 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
 var sessMap = webim.MsgStore.sessMap();
 for (var i in sessMap) {
        sess = sessMap[i];
-       if (selToID != sess.id()) {//更新其他聊天对象的未读消息数
+       if (selToID != sess.id()) {//更新其他聊天对象的未读消息数，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
            updateSessDiv(sess.type(), sess.id(), sess.unread());
        }
 }
@@ -1065,7 +1066,7 @@ for (var i in sessMap) {
 可以根据会话类型和会话 ID 取得相应会话。**示例：** 
 
 ```javascript
-selSess = webim.MsgStore.sessByTypeId(selType, selToID);
+selSess = webim.MsgStore.sessByTypeId(selType, selToID);	// selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
 ```
 
 ## 获取最近联系人
@@ -1101,3 +1102,4 @@ sess_type == 'C2C' ? 1 : 2;
 	    );
 	}
 ```
+
