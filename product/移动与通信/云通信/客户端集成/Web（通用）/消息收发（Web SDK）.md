@@ -415,13 +415,13 @@ function convertGroupTipMsgToHtml(content) {
 
 **SDK 发消息 sendMsg API 函数名：**
 
-```js
+```javascript
 webim.sendMsg
 ```
 
 **定义：**
 
-```js
+```javascript
 webim.sendMsg(msg,cbOk, cbErr)
 ```
 

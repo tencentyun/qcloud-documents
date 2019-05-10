@@ -1,8 +1,12 @@
 ## 申请增加好友 
 
+<<<<<<< HEAD
 ### 函数名
 
 ```js
+=======
+```javascript
+>>>>>>> doc: 语种全称和增加接口的详细参数描述链接
 /* function applyAddFriend 
  *   申请添加好友
  * params:
@@ -49,7 +53,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //申请加好友
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
@@ -96,7 +100,7 @@ var applyAddFriend = function () {
 ## 拉取好友申请 
 ### 函数名
 
-```js
+```javascript
 /* function getPendency 
  *   拉取好友申请
  * params:
@@ -110,7 +114,7 @@ getPendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //读取好友申请列表
 var getPendency = function () {
     initGetPendencyTable([]);
@@ -155,8 +159,11 @@ var getPendency = function () {
 
 ## 响应好友申请 
 
+<<<<<<< HEAD
 ### 函数名
 
+=======
+>>>>>>> doc: 语种全称和增加接口的详细参数描述链接
 ```javascript
 /* function responseFriend 
  *   响应好友申请
@@ -171,7 +178,7 @@ responseFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //处理好友申请
 var responseFriend = function () {
     var response_friend_item = [
@@ -209,7 +216,7 @@ var responseFriend = function () {
 ## 删除好友申请 
 ### 函数名
 
-```js
+```javascript
 /* function deletePendency 
  *   删除好友申请
  * params:
@@ -223,7 +230,7 @@ deletePendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //删除申请列表
 var deletePendency = function (del_account) {
     var options = {
@@ -250,7 +257,7 @@ var deletePendency = function (del_account) {
 ## 我的好友列表 
 ### 函数名
 
-```js
+```javascript
 /* function getAllFriend
  *   拉取我的好友
  * params:
@@ -298,7 +305,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //初始化聊天界面左侧好友列表框
 var getAllFriend = function (cbOK, cbErr) {
     var options = {
@@ -363,7 +370,7 @@ var getAllFriend = function (cbOK, cbErr) {
 ## 删除好友 
 ### 函数名
 
-```js
+```javascript
 /* function deleteFriend
  *   删除好友
  * params:
@@ -404,7 +411,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //删除好友
 var deleteFriend = function () {
     if (!confirm("确定删除该好友吗？")) {
@@ -445,7 +452,7 @@ var deleteFriend = function () {
 ## 增加黑名单 
 ### 函数名
 
-```js
+```javascript
 /* function addBlackList 
  *   增加黑名单
  * params:
@@ -485,7 +492,7 @@ addBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //添加黑名单
 var addBlackList = function (add_account) {
     var to_account = [];
@@ -521,7 +528,7 @@ var addBlackList = function (add_account) {
 ## 我的黑名单
 ### 函数名
 
-```js
+```javascript
 /* function getBlackList  
  *   删除黑名单
  * params:
@@ -562,7 +569,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //我的黑名单
 var getBlackList = function (cbOK, cbErr) {
     initGetBlackListTable([]);
@@ -598,7 +605,7 @@ var getBlackList = function (cbOK, cbErr) {
 ## 删除黑名单 
 ### 函数名
 
-```js
+```javascript
 /* function deleteBlackList  
  *   我的黑名单
  * params:
@@ -638,7 +645,7 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```js
+```javascript
 //删除黑名单
 var deleteBlackList = function (del_account) {
     var to_account = [

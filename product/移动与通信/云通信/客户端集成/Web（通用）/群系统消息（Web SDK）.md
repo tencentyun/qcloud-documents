@@ -1,6 +1,6 @@
 当有用户申请加群等事件发生时，管理员会收到邀请加群系统消息，相应的消息会通过群系统消息展示给用户。**群系统消息类型主要有以下几种：**
 
-```js
+```javascript
 //群系统消息类型
 var WEB_IM_GROUP_SYSTEM_TYPE = {
     "JOIN_GROUP_REQUEST": 1, //申请加群请求（只有管理员会收到）
@@ -20,7 +20,7 @@ var WEB_IM_GROUP_SYSTEM_TYPE = {
 
 目前是通过定义群系统消息监听事件来处理群系统消息的。**示例：**
 
-```js
+```javascript
 //监听（多终端同步）群系统消息，方法都定义在 webim_demo_group_notice.js 文件中
 //注意每个数字代表的含义，比如，
 //1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息
@@ -54,7 +54,7 @@ var groupSystemNotifys = {
 
 **示例：**
 
-```js
+```javascript
 //监听 申请加群 系统消息
 function onApplyJoinGroupRequestNotify(notify) {
    console.info("执行 加群申请 回调： %s", JSON.stringify(notify));
@@ -79,7 +79,7 @@ function onApplyJoinGroupRequestNotify(notify) {
 
 **示例：**
 
-```js
+```javascript
 //监听 申请加群被同意 系统消息
 function onApplyJoinGroupAcceptNotify(notify) {
    console.info("执行 申请加群被同意 回调： %s", JSON.stringify(notify));
@@ -98,7 +98,7 @@ function onApplyJoinGroupAcceptNotify(notify) {
 
 **示例： **
 
-```js
+```javascript
 //监听 申请加群被拒绝 系统消息
 function onApplyJoinGroupRefuseNotify(notify) {
    console.info("执行 申请加群被拒绝 回调： %s", JSON.stringify(notify));
@@ -115,7 +115,7 @@ function onApplyJoinGroupRefuseNotify(notify) {
 
 **示例：**
 
-```js
+```javascript
 //监听 被踢出群 系统消息
 function onKickedGroupNotify(notify) {
    console.info("执行 被踢出群  回调： %s", JSON.stringify(notify));
@@ -134,7 +134,7 @@ function onKickedGroupNotify(notify) {
 
 **示例： **
 
-```js
+```javascript
 //监听 解散群 系统消息
 function onDestoryGroupNotify(notify) {
    console.info("执行 解散群 回调： %s", JSON.stringify(notify));
@@ -153,7 +153,7 @@ function onDestoryGroupNotify(notify) {
 
 **示例： **
 
-```js
+```javascript
 //监听 创建群 系统消息
 function onCreateGroupNotify(notify) {
    console.info("执行 创建群 回调： %s", JSON.stringify(notify));
@@ -170,7 +170,7 @@ function onCreateGroupNotify(notify) {
 
 **示例：**
 
-```js
+```javascript
 //监听 被邀请加群 系统消息
 function onInvitedJoinGroupNotify(notify) {
    console.info("执行 被邀请加群  回调： %s", JSON.stringify(notify));
@@ -189,7 +189,7 @@ function onInvitedJoinGroupNotify(notify) {
 
 **示例：**
 
-```js
+```javascript
 //监听 主动退群 系统消息
 function onQuitGroupNotify(notify) {
    console.info("执行 主动退群  回调： %s", JSON.stringify(notify));
@@ -206,7 +206,7 @@ function onQuitGroupNotify(notify) {
 
 **示例： **
 
-```js
+```javascript
 //监听 被设置为管理员 系统消息
 function onSetedGroupAdminNotify(notify) {
    console.info("执行 被设置为管理员  回调： %s", JSON.stringify(notify));
@@ -223,7 +223,7 @@ function onSetedGroupAdminNotify(notify) {
 
 **示例：**
 
-```js
+```javascript
 //监听 被取消管理员 系统消息
 function onCanceledGroupAdminNotify(notify) {
    console.info("执行 被取消管理员 回调： %s", JSON.stringify(notify));
@@ -240,7 +240,7 @@ function onCanceledGroupAdminNotify(notify) {
 
 **示例： **
 
-```js
+```javascript
 //监听 群被回收 系统消息
 function onRevokeGroupNotify(notify) {
    console.info("执行 群被回收 回调： %s", JSON.stringify(notify));
@@ -259,11 +259,11 @@ function onRevokeGroupNotify(notify) {
 
 **发送 API：**
 
-```js
+```javascript
 /* function sendCustomGroupNotify
 	 *   发送自定义群通知
 	 * params:
-	 *   options	- 请求参数，详见 API 文档
+	 *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269/1630">API 文档</a>
 	 *   cbOk	- function()类型, 成功时回调函数
 	 *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
 	 * return:
@@ -278,7 +278,7 @@ Demo 增加了发送自定义通知入口，在 Demo 中单击【菜单】-【�
 
 **发送 Demo：**
 
-```js
+```javascript
 //发送自定义群系统通知
 var sendCustomGroupNotify = function () {
     var content=$("#sgsm_content").val();
@@ -309,7 +309,7 @@ var sendCustomGroupNotify = function () {
 
 **监听解析 Demo：**
 
-```js
+```javascript
 //监听 用户自定义 群系统消息
 function onCustomGroupNotify(notify) {
    console.info("执行 用户自定义系统消息 回调： %s", JSON.stringify(notify));
