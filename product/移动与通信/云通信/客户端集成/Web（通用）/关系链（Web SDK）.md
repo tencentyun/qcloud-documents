@@ -1,7 +1,3 @@
-
-
-
-
 ## 申请增加好友 
 
 ```
@@ -27,8 +23,8 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 | AddFriendItem.GroupName  | String | 选填 | To_Account 的分组信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.AddSource  | String | 必填 | 加好友来源字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.AddWording | String | 选填 | To_Account 形成好友关系时的附言信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
-| AddType                  | String | 选填 | 加好友方式（默认双向加好友方式）： <li>"Add_Type_Single" 表示单向加好友； <li>"Add_Type_Both" 表示双向加好友 |
-| ForceAddFlags            | Number | 选填 | 管理员强制加好友标记：1 表示强制加好友；0 表示常规加好友方式 |
+| AddType                  | String | 选填 | 加好友方式（默认双向加好友方式），“Add_Type_Single” 表示单向加好友 “Add_Type_Both” 表示双向加好友 |
+| ForceAddFlags            | Number | 选填 | 管理员强制加好友标记，1表示强制加好友，0表示常规加好友方式 |
 
 ### 响应参数说明
 
@@ -36,7 +32,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 | --------------------- | ------ | ------------------------------------------------------------ |
 | ResultItem            | Array  | 批量加好友的结果对象数组                                     |
 | ResultItem.To_Account | String | 请求添加的好友的 Identifier                                  |
-| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0 表示业务成功，非 0 表示失败 |
+| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示业务成功，非0表示失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空                  |
 | Fail_Account          | Array  | 返回处理失败的用户列表                                       |
 | Invalid_Account       | Array  | 返回请求包中的非法用户列表                                   |
@@ -47,16 +43,16 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/1643#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1643#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例
+### 示例代码
 
 ```
 //申请加好友
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
     if (len > 120) {
-        alert('您输入的附言超过字数限制(最长 40 个汉字)');
+        alert('您输入的附言超过字数限制(最长40个汉字)');
         return;
     }
     var add_friend_item = [
@@ -109,7 +105,7 @@ var applyAddFriend = function () {
 getPendency: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+示例代码如下：
 
 ```
 //读取好友申请列表
@@ -168,7 +164,7 @@ var getPendency = function () {
 responseFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+示例代码如下：
 
 ```
 //处理好友申请
@@ -219,7 +215,7 @@ var responseFriend = function () {
 deletePendency: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+示例代码如下：
 
 ```
 //删除申请列表
@@ -264,17 +260,17 @@ getAllFriend: function(options, cbOk, cbErr) {},
 
 | 字段                 | 类型   | 属性 | 说明                                                         |
 | -------------------- | ------ | ---- | ------------------------------------------------------------ |
-| TimeStamp            | Number | 选填 | 上次拉取的时间戳，不填或为 0 时表示全量拉取                  |
+| TimeStamp            | Number | 选填 | 上次拉取的时间戳，不填或为0时表示全量拉取                  |
 | StartIndex           | Number | 必填 | 拉取的起始位置                                               |
-| TagList              | Array  | 选填 | 指定要拉取的字段 Tag，支持拉取的字段有： 1. 标配资料字段，详情可参见 [标配资料字段](https://cloud.tencent.com/document/product/269/1500#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)； 2. 自定义资料字段，详情可参见 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)； 3. 标配好友字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5)； 4. 自定义好友字段，详情可参见 [自定义好友字段](https://cloud.tencent.com/document/product/269/1501#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| TagList              | Array  | 选填 | 指定要拉取的字段 Tag，支持拉取的字段有：<li>1. 标配资料字段，详情可参见 [标配资料字段](https://cloud.tencent.com/document/product/269/1500#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)<li>2. 自定义资料字段，详情可参见 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)<li>3. 标配好友字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5)<li>4. 自定义好友字段，详情可参见 [自定义好友字段](https://cloud.tencent.com/document/product/269/1501#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | LastStandardSequence | Number | 选填 | 上次拉取标配关系链的 Sequence，仅在只拉取标配关系链字段时有用 |
-| GetCount             | Number | 选填 | 每页需要拉取的好友数量： 1. 默认每页返回 100 个好友； 2. 每页最多返回 100 个好友的数据； 3. 如果拉取好友超时，请适量减少每页拉取的好友数 |
+| GetCount             | Number | 选填 | 每页需要拉取的好友数量：<li>1. 默认每页返回100个好友<li>2. 每页最多返回100个好友的数据<li>3. 如果拉取好友超时，请适量减少每页拉取的好友数 |
 
 ### 响应参数说明
 
 | 字段                          | 类型                | 说明                                                         |
 | ----------------------------- | ------------------- | ------------------------------------------------------------ |
-| NeedUpdateAll                 | String              | 是否需要全量更新： "GetAll_Type_YES" 表示需要全量更新； "GetAll_Type_NO"表示不需要全量更新 |
+| NeedUpdateAll                 | String              | 是否需要全量更新： "GetAll_Type_YES" 表示需要全量更新， "GetAll_Type_NO"表示不需要全量更新 |
 | TimeStampNow                  | Number              | 本次拉取的时间戳，客户端需要保存该时间，下次请求时通过 TimeStamp 字段返回给后台 |
 | StartIndex                    | Number              | 下页拉取的起始位置                                           |
 | InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem |
@@ -291,9 +287,9 @@ getAllFriend: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/1647#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1647#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例
+### 示例代码
 
 ```
 //初始化聊天界面左侧好友列表框
@@ -377,7 +373,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 | 字段       | 类型   | 属性 | 说明                                                         |
 | ---------- | ------ | ---- | ------------------------------------------------------------ |
 | To_Account | Array  | 必填 | 待删除的好友的 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
-| DeleteType | String | 选填 | 删除模式，详情可参见 [删除好友](https://cloud.tencent.com/document/product/269/1501#.E5.88.A0.E9.99.A4.E5.A5.BD.E5.8F.8B) |
+| DeleteType | String | 选填 | 删除模式，详情请参考 [删除好友](https://cloud.tencent.com/document/product/269/1501#.E5.88.A0.E9.99.A4.E5.A5.BD.E5.8F.8B) |
 
 ### 响应参数说明
 
@@ -385,7 +381,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量删除好友的结果对象数组                               |
 | ResultItem.To_Account | String | 请求删除的好友的 Identifier                              |
-| ResultItem.ResultCode | Number | To_Account 的处理结果，0 表示删除成功，非 0 表示删除失败 |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account列表                            |
 | Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
@@ -396,9 +392,9 @@ deleteFriend: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/1644#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1644#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例 
+### 示例代码
 
 ```
 //删除好友
@@ -465,7 +461,7 @@ addBlackList: function(options, cbOk, cbErr) {},
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量添加黑名单的结果对象数组                             |
 | ResultItem.To_Account | String | 请求添加为黑名单的用户 Identifier                        |
-| ResultItem.ResultCode | Number | To_Account 的处理结果，0 表示删除成功，非 0 表示删除失败 |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
 | Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
@@ -476,9 +472,9 @@ addBlackList: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/3718#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3718#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例
+### 示例代码
 
 ```
 //添加黑名单
@@ -513,7 +509,7 @@ var addBlackList = function (add_account) {
 };
 ```
 
-## 我的黑名单 
+## 我的黑名单
 
 ```
 /* function getBlackList  
@@ -543,7 +539,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 | BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp |
 | BlackListItem.To_Account        | String | 黑名单的 Identifier                                          |
 | BlackListItem.AddBlackTimeStamp | Number | 添加黑名单的时间                                             |
-| StartIndex                      | Number | 下页拉取的起始位置，0 表示已拉完                             |
+| StartIndex                      | Number | 下页拉取的起始位置，0表示已拉完                             |
 | CurruentSequence                | Number | 黑名单最新的 Seq                                             |
 | ActionStatus                    | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败           |
 | ErrorCode                       | Number | 错误码，0表示成功，非0表示失败                               |
@@ -552,9 +548,9 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/3722#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3722#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例
+### 示例代码
 
 ```
 //我的黑名单
@@ -608,7 +604,7 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 | 字段       | 类型  | 属性 | 说明                                                         |
 | ---------- | ----- | ---- | ------------------------------------------------------------ |
-| To_Account | Array | 必填 | 待删除的黑名单的 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
+| To_Account | Array | 必填 | 待删除的黑名单的 Identifier 列表，单次请求的 To_Account 数不得超过1000 |
 
 ### 响应参数说明
 
@@ -616,7 +612,7 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量删除黑名单的结果对象数组                             |
 | ResultItem.To_Account | String | 请求删除的黑名单的 Identifier                            |
-| ResultItem.ResultCode | Number | To_Account 的处理结果，0 表示删除成功，非 0 表示删除失败 |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
 | Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
@@ -627,9 +623,9 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-> 参考：[错误码说明](https://cloud.tencent.com/document/product/269/3719#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)
+详情请参考[错误码说明](https://cloud.tencent.com/document/product/269/3719#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
-### 示例
+### 示例代码
 
 ```
 //删除黑名单
