@@ -45,7 +45,7 @@
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779) | ✔        | ✔      | ✔      | 资源级   | ✔        |    -  |	
 | [私有网络](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
-| [专线接入](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        |✔  |	
+| [专线接入](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        |-  |	
 
 ## 数据库	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
