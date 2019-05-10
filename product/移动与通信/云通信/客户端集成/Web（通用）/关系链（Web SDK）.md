@@ -1,5 +1,7 @@
 ## 申请增加好友 
 
+### 函数名
+
 ```
 /* function applyAddFriend 
  *   申请添加好友
@@ -92,6 +94,7 @@ var applyAddFriend = function () {
 ```
 
 ## 拉取好友申请 
+### 函数名
 
 ```
 /* function getPendency 
@@ -152,6 +155,8 @@ var getPendency = function () {
 
 ## 响应好友申请 
 
+### 函数名
+
 ```
 /* function responseFriend 
  *   响应好友申请
@@ -164,7 +169,7 @@ var getPendency = function () {
 responseFriend: function(options, cbOk, cbErr) {},
 ```
 
-示例代码如下：
+### 示例代码
 
 ```
 //处理好友申请
@@ -202,6 +207,7 @@ var responseFriend = function () {
 ```
 
 ## 删除好友申请 
+### 函数名
 
 ```
 /* function deletePendency 
@@ -215,7 +221,7 @@ var responseFriend = function () {
 deletePendency: function(options, cbOk, cbErr) {},
 ```
 
-示例代码如下：
+### 示例代码
 
 ```
 //删除申请列表
@@ -242,6 +248,7 @@ var deletePendency = function (del_account) {
 ```
 
 ## 我的好友列表 
+### 函数名
 
 ```
 /* function getAllFriend
@@ -354,6 +361,7 @@ var getAllFriend = function (cbOK, cbErr) {
 ```
 
 ## 删除好友 
+### 函数名
 
 ```
 /* function deleteFriend
@@ -435,6 +443,7 @@ var deleteFriend = function () {
 ```
 
 ## 增加黑名单 
+### 函数名
 
 ```
 /* function addBlackList 
@@ -510,6 +519,7 @@ var addBlackList = function (add_account) {
 ```
 
 ## 我的黑名单
+### 函数名
 
 ```
 /* function getBlackList  
@@ -586,6 +596,7 @@ var getBlackList = function (cbOK, cbErr) {
 ```
 
 ## 删除黑名单 
+### 函数名
 
 ```
 /* function deleteBlackList  
