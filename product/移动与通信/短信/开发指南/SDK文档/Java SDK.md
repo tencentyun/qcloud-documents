@@ -385,7 +385,7 @@ try {
 例如，当 msg=“5678” 时，您收到的语音通知为“您的语音验证码是五千六百七十八。”。当 msg=“5,6,7,8”时，您收到的语音通知为“您的语音验证码是五六七八。”。
 
 - **使用代理**
-有的环境需要使用代理才能上网，可使用 ProxyHTTPClient 来发送请求, 示例如下：
+有的环境需要使用代理才能上网，可使用 ProxyHTTPClient 来发送请求，示例如下：
 
 ```java
 import com.github.qcloudsms.SmsSingleSender;
