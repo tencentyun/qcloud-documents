@@ -1,6 +1,6 @@
 
 智能钛机器学习平台目前已开放体验，您只需为与智能钛机器学习平台关联的其他服务付费。
 
-例如通过智能钛机器学习平台使用对象存储COS服务，了解更多有关COS 价格，请参见[COS购买指导文档](https://cloud.tencent.com/product/cos/pricing)
+例如通过智能钛机器学习平台使用对象存储COS服务，了解更多有关COS 价格，请参见[COS购买指导文档](https://cloud.tencent.com/document/product/436/6240 )
 
 当您遇到问题时，可以直接致电 4009-100-100，联系客服人员寻求相应的帮助。
