@@ -1,19 +1,22 @@
 ## 创建群 
 
-<pre>
+```
 /* function createGroup
  *   创建群
  * params:
- *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 createGroup: function(options, cbOk, cbErr) {},
-</pre>
+```
 
-**示例： **
+>?详细参数说明请参考 [创建群组 API](https://cloud.tencent.com/document/product/269/1615)。
+
+**示例：**
+
 
 ```
 //创建群组
@@ -82,7 +85,7 @@ var createGroup = function () {
 /* function applyJoinGroup
  *   申请加群
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -90,6 +93,7 @@ var createGroup = function () {
  */
 applyJoinGroup: function(options, cbOk, cbErr) {},
 ```
+
 
 **示例：**
 
@@ -131,7 +135,7 @@ var applyJoinGroup = function () {
 /* function handleApplyJoinGroup
 *   处理申请加群(同意或拒绝)
 * params:
-*   options	- 请求参数，详见 API 文档
+*   options	- 请求参数
 *   cbOk	- function()类型, 成功时回调函数
 *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
 * return:
@@ -144,9 +148,9 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 
 ```
 {
-    'GroupId': //群 id
-    'Applicant_Account': //申请人 id
-    'HandleMsg': //是否同意,Agree-同意 Reject-拒绝
+    'GroupId': //群 ID
+    'Applicant_Account': //申请人 ID
+    'HandleMsg': //是否同意,Agree 表示同意 Reject 表示拒绝
     'Authentication': //申请凭证（包含在管理员收到的加群申请系统消息中）
     'MsgKey': //消息key（包含在管理员收到的加群申请系统消息中）
     'ApprovalMsg': //处理附言
@@ -160,9 +164,9 @@ handleApplyJoinGroup: function(options, cbOk, cbErr) {},
 //处理加群申请
 var handleApplyJoinGroupPendency = function () {
     var options = {
-        'GroupId': $("#hajg_group_id").val(), //群 id
-        'Applicant_Account': $("#hajg_to_account").val(), //申请人 id
-        'HandleMsg': $('input[name="hajg_action_radio"]:checked').val(), //Agree-同意 Reject-拒绝
+        'GroupId': $("#hajg_group_id").val(), //群 ID
+        'Applicant_Account': $("#hajg_to_account").val(), //申请人 ID
+        'HandleMsg': $('input[name="hajg_action_radio"]:checked').val(), //Agree 表示同意 Reject 表示拒绝
         'Authentication': $("#hajg_authentication").val(), //申请凭证
         'MsgKey': $("#hajg_msg_key").val(),
         'ApprovalMsg': $("#hajg_approval_msg").val(), //处理附言
@@ -206,7 +210,7 @@ var handleApplyJoinGroupPendency = function () {
 /* function deleteApplyJoinGroupPendency
  *   删除加群申请
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -231,7 +235,7 @@ var options = {
 };
 ```
 
-**示例： **
+**示例：**
 
 ```
 //删除已处理的加群未决消息
@@ -255,7 +259,7 @@ var deleteApplyJoinGroupPendency = function (opts) {
 /* function quitGroup
  *  主动退群
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -264,7 +268,7 @@ var deleteApplyJoinGroupPendency = function (opts) {
 quitGroup: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```
 //退群
@@ -312,7 +316,9 @@ var quitGroup = function (group_id) {
 destroyGroup: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+>?详细参数说明请参考 [解散群组 API](https://cloud.tencent.com/document/product/269/1624)。
+
+**示例：**
 
 ```
 //解散群组
@@ -351,7 +357,7 @@ var destroyGroup = function (group_id) {
 /* function getJoinedGroupListHigh
  *   获取我的群组-高级接口
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
  * return:
@@ -360,7 +366,7 @@ var destroyGroup = function (group_id) {
 getJoinedGroupListHigh: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```
 //获取我的群组
@@ -453,7 +459,7 @@ var getMyGroup = function () {
 /* function getGroupInfo
  *   读取群详细资料-高级接口
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -462,7 +468,9 @@ var getMyGroup = function () {
 getGroupInfo: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+>?详细参数说明请参考 [获取群组详细资料 API](https://cloud.tencent.com/document/product/269/1616)。
+
+**示例：**
 
 ```
 //读取群组基本资料-高级接口
@@ -508,13 +516,13 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 };
 ```
 
-##  修改群基本资料
+## 修改群基本资料
 
 ```
 /* function modifyGroupBaseInfo
  *   修改群基本资料
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
  * return:
@@ -523,7 +531,11 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 modifyGroupBaseInfo: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+>?详细参数说明请参考[修改群资本资料 API](https://cloud.tencent.com/document/product/269/1620)
+
+**示例：**
+
+
 
 ```
 //修改群资料

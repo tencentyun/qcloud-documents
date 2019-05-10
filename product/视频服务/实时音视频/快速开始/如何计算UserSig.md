@@ -40,9 +40,7 @@
 
 #### 源码下载
 
-我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。
-
-- **新版本源码**
+我们提供了下列语言或平台的 UserSig 生成代码，您可以直接下载并集成到您的服务端。如果对下面使用到的平台代码或者其他方面有疑问，欢迎在 github 的相应项目中提交 issue，我们非常乐意为您解答和处理。
 
 | 语言版本 | 关键函数 | 下载链接 |
 |:---------:|:---------:|:---------:|
@@ -53,11 +51,3 @@
 | C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
 | C# | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
-
-- **老版本源码**
-
-| 语言版本 | 关键函数 | 下载链接 |
-|:---------:|:---------:|:---------:|
-| java | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/java)|
-| php | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/php)|
-| nodejs | `genUserSig` | [Github](https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/tree/master/nodejs)|

@@ -45,9 +45,9 @@ public String getSelfSignature()
 
 /**
  * 获取用户加好友的选项
- * @return 用户好友选项
+ * @return 用户好友选项，见 TIMFriendAllowType 中常量
  */
-public TIMFriendAllowType getAllowType()
+public String getAllowType()
 
 /**
  * 获取用户备注
@@ -218,7 +218,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 | ------------------------------------ | ----------- | -------------- |
 | `TIM_PROFILE_TYPE_KEY_NICK`          | String      | 昵称           |
 | `TIM_PROFILE_TYPE_KEY_FACEURL`       | String      | 头像           |
-| `TIM_PROFILE_TYPE_KEY_ALLOWTYPE`     | int         | 好友申请       |
+| `TIM_PROFILE_TYPE_KEY_ALLOWTYPE`     | String         | 好友申请       |
 | `TIM_PROFILE_TYPE_KEY_GENDER`        | int         | 性别           |
 | `TIM_PROFILE_TYPE_KEY_BIRTHDAY`      | int         | 生日           |
 | `TIM_PROFILE_TYPE_KEY_LOCATION`      | String      | 位置           |
@@ -290,13 +290,13 @@ public String getAddSource()
 public List<String> getGroupNames()
 
 /**
- * 获取好友自定义信息，key值按照后台配置的字符串传入，不包括 TIM_FRIEND_PROFILE_TYPE_KEY_CUSTOM_PREFIX 前缀
+ * 获取好友自定义信息，key 值按照后台配置的字符串传入，不包括 TIM_FRIEND_PROFILE_TYPE_KEY_CUSTOM_PREFIX 前缀
  * @return 自定义信息 Map
  */
 public Map<String, byte[]> getCustomInfo()
 
 /**
- * 获取uint类型的好友自定义信息，key值按照后台配置的字符串传入，不包括 
+ * 获取 uint 类型的好友自定义信息，key 值按照后台配置的字符串传入，不包括 
  * TIM_FRIEND_PROFILE_TYPE_KEY_CUSTOM_PREFIX 前缀
  * @return 自定义信息 Map
  */
@@ -380,7 +380,7 @@ TIMFriendshipManager.getInstance().modifyFriend(identifier, hashMap, new TIMCall
 public void addFriend(@NonNull TIMFriendRequest timFriendRequest, @NonNull TIMValueCallBack<TIMFriendResult> cb)
 ```
 
-加好友需要传入request参数，该参数类型定义如下：
+加好友需要传入 request 参数，该参数类型定义如下：
 ```
 /**
  *  用户 identifier
@@ -528,7 +528,7 @@ TIMFriendshipManager.getInstance().deleteFriends(identifiers, TIMDelFriendType.T
 ```
 /**
  * 处理好友请求
- * @param response 请求参数，包含好友id，预备注，回应类型
+ * @param response 请求参数，包含好友 ID，预备注，回应类型
  * @param cb
  */
 public void doResponse(TIMFriendResponse response, @NonNull TIMValueCallBack<TIMFriendResult> cb)
@@ -560,7 +560,7 @@ public class TIMFriendResponse {
     /**
      * 响应的好友id
      */
-    private String identifier = ""; // 回应好友的id
+    private String identifier = ""; // 回应好友的 ID
 
     /**
      * 备注好友（可选，如果要加对方为好友）。备注最大96字节
@@ -673,7 +673,7 @@ public List<TIMFriendPendencyItem> getItems()
 
 ```
 /**
- * 获取用户 id
+ * 获取用户 ID
  * 
  * @return id
  */
@@ -721,7 +721,7 @@ public int getType()
  * 未决删除
  * 
  * @param pendencyType 未决类型，见 TIMPendencyType, 删除只支持 TIM_PENDENCY_COME_IN 和 TIM_PENDENCY_SEND_OUT
- * @param users 要删除的未决用户 id 列表
+ * @param users 要删除的未决用户 ID 列表
  * @param cb 回调
  */
 public void deletePendency(int pendencyType, List<String> users, @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
@@ -864,7 +864,7 @@ public void getFriendGroups(List<String> groupNames, @NonNull TIMValueCallBack<L
 
 ```
 /**
- * 关系链相关操作后，后台push同步下来的消息元素
+ * 关系链相关操作后，后台 push 同步下来的消息元素
  *
  */
 public class TIMSNSSystemElem extends TIMElem {
@@ -954,7 +954,7 @@ public class TIMSNSSystemType {
  */
 public class TIMSNSChangeInfo {
     /**
-     * 变更资料的用户 id
+     * 变更资料的用户 ID
      */
     private String updateUser = "";
 

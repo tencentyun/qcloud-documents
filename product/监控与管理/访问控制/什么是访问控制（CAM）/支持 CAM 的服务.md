@@ -25,6 +25,7 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
+| [黑石 Stack-V](https://cloud.tencent.com/document/product/599)   | ✔        | -      | ✔      | 服务级   | -        | -    |
 
 
  ## 存储	
@@ -44,13 +45,15 @@
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779) | ✔        | ✔      | ✔      | 资源级   | ✔        |    -  |	
 | [私有网络](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
+| [专线接入](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        |-  |	
 
 ## 数据库	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |	
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
-| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        |✔    |
+| [云数据库 Redis](https://cloud.tencent.com/document/product/240)         |✔         | ✔      | ✔     | 资源级   |✔        | -   |
+| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |✔        |✔     | ✔      |资源级   |✔        |✔    |
 
 
 ## CDN 与加速	
@@ -81,6 +84,7 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [DDoS 基础防护](https://cloud.tencent.com/document/product/1020) | ✔        | ✔      | ✔      | 服务级   | -        | - |
+| [样本智能分析平台](https://cloud.tencent.com/document/product/685)       | ✔       |  ✔      | -      |资源级   |  ✔        | -    |
 | [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)       |-        | -      | -      | -   | -        |  ✔    |
 
  ## 主机安全	
@@ -158,19 +162,13 @@
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851) | ✔        | -      | ✔      | 服务级   | -        |   ✔   |	  
+| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851) | -        | -      | -      | -   | -        |   ✔   |	  
 
 ## 游戏服务
 
 | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)         |✔        | -      | ✔      | 资源级   | ✔       | -    |	
-
-## 零售服务
-
-| 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
-| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [腾讯优 Mall](https://cloud.tencent.com/document/product/860)         |-        | -      | -      | -   | -        |✔    |	
 
  ## 移动服务	
  
