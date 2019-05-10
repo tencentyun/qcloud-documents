@@ -35,17 +35,18 @@ function webimLogin() {
 
 **属性名：**
 
-| 名称             | 说明                                      | 类型      |
-| -------------- | --------------------------------------- | ------- |
-| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填                       | String  |
-| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String  |
-| identifier     | 用户帐号，必填                                 | String  |
-| identifierNick | 用户昵称，选填                                 | String  |
-| userSig        | 鉴权 Token，identifier 不为空时，必填        | String  |
+| 名称           | 说明                                          | 类型   |
+| -------------- | --------------------------------------------- | ------ |
+| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填              | String |
+| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String |
+| identifier     | 用户帐号，必填                                | String |
+| identifierNick | 用户昵称，选填                                | String |
+| userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
 > **特别注意：**
->- `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
->- Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
+>
+> - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
+> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
 
 
 ### 事件回调对象 listeners
@@ -59,8 +60,8 @@ function webimLogin() {
 | jsonpCallback           | 用于 IE9（含）以下浏览器中 jsonp 回调函数,移动端可不填，PC 端必填 | Function |
 | onMsgNotify             | 监听新消息函数，必填                           | Function |
 | onBigGroupMsgNotify     | 监听新消息(直播聊天室)事件，**直播场景**下必填           | Function |
-| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Object   |
-| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，选填                  | Object   |
+| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Function |
+| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，必填                  | Object   |
 | onFriendSystemNotifys   | 监听好友系统通知事件，选填                        | Object   |
 | onProfileSystemNotifys  | 监听资料系统（自己或好友）通知事件，选填                 | Object   |
 | onKickedEventCall       | 被其他登录实例踢下线，选填                        | Function |
@@ -117,11 +118,11 @@ var onConnNotify = function (resp) {
 
 **其中回调返回的参数 `resp` 对象属性定义如下：**
 
-| 名称           | 说明                                      | 类型      |
-| ------------ | --------------------------------------- | ------- |
-| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败             | String  |
-| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Integer |
-| ErrorInfo    | 错误提示信息                                  | String  |
+| 名称         | 说明                                                     | 类型   |
+| ------------ | -------------------------------------------------------- | ------ |
+| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败          | String |
+| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Number |
+| ErrorInfo    | 错误提示信息                                             | String |
 
 
 
