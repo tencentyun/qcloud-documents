@@ -388,6 +388,7 @@ try {
 
 - **使用代理**
 有的环境需要使用代理才能上网，可使用 ProxyHTTPClient 来发送请求, 示例如下：
+
 ```java
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
