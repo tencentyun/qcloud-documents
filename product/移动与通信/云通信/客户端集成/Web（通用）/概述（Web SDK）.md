@@ -82,7 +82,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 然后，引入获取图片 MD5 的 JavaScript 库，用于上传图片：
 
-```
+```js
 <!--用于获取文件MD5，上传图片需要先获取文件的 MD5-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 ```
@@ -160,13 +160,13 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 当前用户和某个群或者好友的聊天描述类。目前主要在发送消息时用得到。
 **对象名：**
 
-```
+```js
 webim.Session
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Session (
 	type, id, name, icon, time, seq
 )
@@ -202,7 +202,7 @@ webim.Session (
 webim.MsgStore 是消息数据的 Model 对象（参考 MVC 概念）， 它提供接口访问当前存储的会话和消息数据。
 **对象名：**
 
-```
+```js
 webim.MsgStore
 ```
 
@@ -220,13 +220,13 @@ webim.MsgStore
 一条消息的描述类, 消息发送、接收的 API 中都会涉及此类型的对象。
 **对象名：**
 
-```
+```js
 webim.Msg
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg(
 	sess, isSend, seq, random,time,fromAccount,subType,fromAccountNick
 )
@@ -274,13 +274,13 @@ webim.Msg(
 一个消息元素的描述类，一条消息 `webim.Msg` 可以由多个 `webim.Msg.Elem` 组成。
 **对象名：**
 
-```
+```js
 webim.Msg.Elem
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem(type,content)
 ```
 
@@ -303,13 +303,13 @@ webim.Msg.Elem(type,content)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Text
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Text(text)
 ```
 
@@ -331,13 +331,13 @@ webim.Msg.Elem.Text(text)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Face
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Face(index,data)
 ```
 
@@ -363,13 +363,13 @@ webim.Msg.Elem.Face(index,data)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Images
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Images(imageId)
 ```
 
@@ -396,13 +396,13 @@ webim.Msg.Elem.Images(imageId)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Images.Image
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Images.Image(type,size,width,height,url)
 ```
 
@@ -433,13 +433,13 @@ webim.Msg.Elem.Images.Image(type,size,width,height,url)
 暂不支持。
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Location
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Location(longitude,latitude,desc)
 ```
 
@@ -467,13 +467,13 @@ webim.Msg.Elem.Location(longitude,latitude,desc)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Sound
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Sound(uuid,second,size,senderId,downUrl)
 ```
 
@@ -505,13 +505,13 @@ webim.Msg.Elem.Sound(uuid,second,size,senderId,downUrl)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.File
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 ```
 
@@ -543,13 +543,13 @@ webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.Custom
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.Custom(data,desc,ext)
 ```
 
@@ -577,13 +577,13 @@ webim.Msg.Elem.Custom(data,desc,ext)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.GroupTip
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 ```
 
@@ -618,13 +618,13 @@ webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.GroupTip.GroupInfo
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.GroupTip.GroupInfo(type,value)
 ```
 
@@ -647,13 +647,13 @@ webim.Msg.Elem.GroupTip.GroupInfo(type,value)
 
 **对象名：**
 
-```
+```js
 webim.Msg.Elem.GroupTip.MemberInfo
 ```
 
 **构造函数：**
 
-```
+```js
 webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 ```
 
@@ -690,7 +690,7 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 `webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。
 **对象名：**
 
-```
+```js
 webim.Tool
 ```
 
@@ -706,7 +706,7 @@ webim.Tool
 主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。
 **对象名：**
 
-```
+```js
 webim.Log
 ```
 
