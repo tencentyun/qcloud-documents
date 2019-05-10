@@ -42,7 +42,7 @@ DescribeCdnRegionIspDetailStat
 | data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致      |
 | data.hostData | Array   | 每个域名的统计数据，见 HostRegionIspStatData 说明 |
 
-#### HostRegionIspData数据说明
+#### HostRegionIspData 数据说明
 | 参数名称                    | 类型   | 说明                                               |
 | --------------------------- | ------ | -------------------------------------------------- |
 | host                        | String | 域名                                               |
