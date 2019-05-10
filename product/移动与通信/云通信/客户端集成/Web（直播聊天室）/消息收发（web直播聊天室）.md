@@ -1,8 +1,7 @@
-## 消息收发
 
 目前支持实时拉取群消息（普通、点赞、提示和系统）和发送群消息（普通、点赞和红包）。
 
-### 监听群消息（普通、点赞、提示和红包）
+## 监听群消息（普通、点赞、提示和红包）
 
 >!现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
 
@@ -20,7 +19,7 @@ function onBigGroupMsgNotify(msgList) {
 }
 ```
 
-### 显示群消息（普通、点赞、提示和红包）
+## 显示群消息（普通、点赞、提示和红包）
 
 示例代码如下：
 
@@ -97,7 +96,7 @@ function showMsg(msg) {
 }
 ```
 
-### 解析群消息（普通、点赞、提示和红包）
+## 解析群消息（普通、点赞、提示和红包）
 
 示例代码如下：
 
@@ -144,7 +143,7 @@ function convertMsgtoHtml(msg) {
 }
 ```
 
-### 解析文本消息元素
+## 解析文本消息元素
 
 示例代码如下：
 
@@ -156,7 +155,7 @@ function convertTextMsgToHtml(content) {
 ```
 
 
-### 解析表情消息元素
+## 解析表情消息元素
 
 示例代码如下：
 
@@ -178,7 +177,7 @@ function convertFaceMsgToHtml(content) {
 }
 ```
 
-### 解析图片消息元素
+## 解析图片消息元素
 
 示例代码如下：
 
@@ -198,7 +197,7 @@ function convertImageMsgToHtml(content) {
 }
 ```
 
-### 	解析语音消息元素
+## 解析语音消息元素
 
 示例代码如下：
 
@@ -214,7 +213,7 @@ function convertSoundMsgToHtml(content) {
 }
 ```
 
-### 解析文件消息元素
+## 解析文件消息元素
 
 示例代码如下：
 
@@ -226,7 +225,7 @@ function convertFileMsgToHtml(content) {
 }
 ```
 
-### 解析位置消息元素
+## 解析位置消息元素
 
 示例代码如下：
 
@@ -237,7 +236,7 @@ function convertLocationMsgToHtml(content) {
 }
 ```
 
-### 解析自定义消息元素
+## 解析自定义消息元素
 
 示例代码如下：
 
@@ -251,7 +250,7 @@ function convertCustomMsgToHtml(content) {
 }
 ```
 
-### 解析群提示消息元素
+## 解析群提示消息元素
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要选择是否展示给群组用户。
 
@@ -378,7 +377,7 @@ function convertGroupTipMsgToHtml(content) {
 }
 ```
 
-### 发送群消息（普通）
+## 发送群消息（普通）
 
 **`sendMsg` 函数名：**
 
@@ -501,7 +500,7 @@ function onSendMsg() {
 }
 ```
 
-### 发送群消息（点赞）
+## 发送群消息（点赞）
 
 示例代码如下：
 
@@ -547,7 +546,7 @@ function sendGroupLoveMsg() {
 }
 ```
 
-### 发送群消息（红包）
+## 发送群消息（红包）
 
 红包消息的下发优先级最高，保证不丢消息。
 发送群消息（红包）的示例代码只需将发送群消息（点赞）示例代码中的 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。
