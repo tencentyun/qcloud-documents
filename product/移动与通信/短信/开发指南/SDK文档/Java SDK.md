@@ -30,7 +30,7 @@
 ## SDK 使用指南
 
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [开发指南](https://cloud.tencent.com/document/product/382/13297) 、[API 文档](https://qcloudsms.github.io/qcloudsms_java) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://qcloudsms.github.io/qcloudsms_java) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
 
 ### 配置 SDK
