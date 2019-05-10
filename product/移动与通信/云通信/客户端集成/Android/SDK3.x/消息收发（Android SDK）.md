@@ -27,7 +27,6 @@ conversation = TIMManager.getInstance().getConversation(
  
 //获取群聊会话
 String groupId = "TGID1EDABEAEO";  //获取与群组 "TGID1LTTZEAEO" 的会话
-
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.Group,      //会话类型：群组
         groupId);                       //群组 ID

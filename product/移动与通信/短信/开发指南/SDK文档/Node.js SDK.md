@@ -1,6 +1,6 @@
 
-## 腾讯短信服务
-目前腾讯云短信为客户提供**国内短信、国内语音**和**国际短信**三大服务，腾讯云短信 SDK 支持以下操作：
+## SDK 功能简介
+目前腾讯云短信为客户提供**国内短信、国际短信**和**国内语音**三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
 国内短信支持以下操作：
@@ -18,32 +18,21 @@
 - [指定模板单发短信](#指定模板单发短信)
 - [群发短信](#群发短信)
 - [指定模板群发短信](#指定模板群发短信)
+- [拉取短信回执](#拉取短信回执)
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
-### 语音通知
+### 国内语音
 语音通知支持以下操作：
 - [发送语音验证码](#发送语音验证码)
 - [发送语音通知](#发送语音通知)
 - [指定模板发送语音通知](#指定模板发送语音通知)
 
-## 开发
+## SDK 使用指南
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
 
-### 获取 SDK
-短信 Node.js SDK 在 Github 中的下载地址：[短信 Node.js SDK](https://github.com/qcloudsms/qcloudsms_js)。
-
-### 开发前准备
-在开始开发云短信应用之前，需要准备以下信息：
-- **获取 SDK AppID 和 AppKey**
-云短信应用 SDK **AppID**和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
-- **申请签名**
-一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信 **签名** 需申请和审核，**签名** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
-- **申请模板**
-短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
-
-### SDK 配置
+### 配置 SDK
 
 - **npm 配置：**
 qcloudsms_js 采用 npm 进行安装，要使用 qcloudsms 功能，只需要执行：
@@ -52,14 +41,12 @@ npm install qcloudsms_js
 ```
 
 - **手动配置：**
- 1. 手动下载或 clone 最新版本 qcloudsms_js 代码。
- 2. 把 qcloudsms_js 把代码放入项目目录。
- 3. 在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
+ 1.手动下载或 clone 最新版本 qcloudsms_js 代码。
+ 2.把 qcloudsms_js 把代码放入项目目录。
+ 3.在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
 
 
-
-
-## 示例
+### 示例代码
 
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
 
@@ -133,7 +120,7 @@ msender.send(smsType, "86", phoneNumbers,
   "【腾讯云】您的验证码是: 5678", "", "", callback);
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="指定模板群发短信" ></a>
@@ -146,7 +133,7 @@ msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 
@@ -181,7 +168,7 @@ var maxNum = 10;  // 单次拉取最大量
 var spuller = qcloudsms.SmsStatusPuller();
 // 拉取短信回执
 spuller.pullCallback(maxNum, callback);
-// 拉取回复
+// 拉取回复，国际短信不支持回复功能
 spuller.pullReply(maxNum, callback);
 ```
 
@@ -196,44 +183,15 @@ var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
 mspuller.pullCallback("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
-// 拉取回复
+// 拉取回复，国际短信不支持回复功能
 mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 ```
 
 >?短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387），量大客户可以使用此功能批量拉取，其他客户不建议使用。
 
 - **发送国际短信**
-国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
+国际短信与国内短信发送类似，发送国际短信只需替换相应国家码。
 
-
-<a id="上传语音文件" ></a>
-- **上传语音文件**
-
-```javascript
-var fs = require("fs");
-
-// Note: 语音文件大小上传限制400K字节
-var filePath = "/home/pf/data/download/scripts/voice/4162.mp3";
-var fileContent = fs.readFileSync(filePath);
-var uploader = qcloudsms.VoiceFileUploader();
-// 上传成功后，callback 里会返回语音文件的 fid
-uploader.upload(fileContent, "mp3", callback);
-```
-
->?语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
-
-
-<a id="按语音文件fid发送语音通知" ></a>
-- **按语音文件 fid 发送语音通知**
-
-```javascript
-// Note：这里 fid 来自`上传语音文件`接口返回的响应，如果需要按语音文件 fid 发送语音通知，需先上传语音文件获取 fid
-var fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
-var fvsender = qcloudsms.FileVoiceSender();
-fvsender.send("86", phoneNumbers[0], fid, 2, "", callback);
-```
-
->?按语音文件 fid 发送语音通知功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
 
 <a id="指定模板发送语音通知" ></a>
 - **指定模板发送语音通知**
