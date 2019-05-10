@@ -1,5 +1,5 @@
 ## SDK 功能简介
-目前腾讯云短信为客户提供**国内短信、国内语音**和**国际短信**三大服务，腾讯云短信 SDK 支持以下操作：
+目前腾讯云短信为客户提供**国内短信、国际短信**和**国内语音**三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
 国内短信支持以下操作：
@@ -21,7 +21,7 @@
 
 >? 国际短信和国内短信使用同一接口，只需替换相应的国家码与手机号码，每次请求群发接口手机号码需全部为国内或者国际手机号码。
 
-### 语音通知
+### 国内语音
 语音通知支持以下操作：
 - [发送语音验证码](#发送语音验证码)
 - [发送语音通知](#发送语音通知)
@@ -354,100 +354,6 @@ try {
 国际短信与国内短信发送类似, 发送国际短信只需替换相应国家码。
 
 
-<a id="上传语音文件" ></a>
-- **上传语音文件**
-
-```java
-import com.github.qcloudsms.VoiceFileUploader;
-import com.github.qcloudsms.VoiceFileUploaderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-try {
-    // Note: 语音文件大小上传限制400K字节
-    String filePath = "path/to/example.mp3";
-    byte[] content = Files.readAllBytes(Paths.get(filePath));
-    VoiceFileUploader uploader = new VoiceFileUploader(appid, appkey);
-    VoiceFileUploaderResult result = uploader.upload(content, VoiceFileUploader.ContentType.MP3);
-    // 上传成功后，result 里会带有语音文件的 fid
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
->? 语音文件上传功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
-
-<a id="查询语音文件审核状态" > </a>
-- **查询语音文件审核状态**
-
-```java
-import com.github.qcloudsms.VoiceFileStatus;
-import com.github.qcloudsms.VoiceFileStatusResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-
-try {
-    // Note: fid 来自`上传语音文件`接口返回的响应，如果需要按语音文件 fid 发送语音通知，需先上传语音文件获取 fid
-    String fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
-    VoiceFileStatus vfstatus = new VoiceFileStatus(appid, appkey);
-    VoiceFileStatusResult result = vfstatus.get(fid);
-    // result 里会带有语音文件审核状态 status, {0: 待审核, 1: 通过, 2: 拒绝, 3: 语音文件不存在}
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
->? 查询语音文件审核状态功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
-
-
-<a id="按语音文件fid发送语音通知" ></a>
-- **按语音文件 fid 发送语音通知**
-
-```java
-import com.github.qcloudsms.FileVoiceSender;
-import com.github.qcloudsms.FileVoiceSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-
-import java.io.IOException;
-
-try {
-    // Note: 这里 fid 来自`上传语音文件`接口返回的响应，如果需要按语音文件 fid 发送语音通知，需先上传语音文件获取 fid
-    String fid = "c799d10a43ec109f02f2288ca3c85b79e7700c98.mp3";
-    FileVoiceSender fvsender = new FileVoiceSender(appid, appkey);
-    FileVoiceSenderResult result = fvsender.send("86", phoneNumbers[0], fid, 2, "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
->? 按语音文件 fid 发送语音通知 功能需要联系腾讯云短信技术支持（QQ：3012203387）才能开通。
-
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
 
@@ -511,6 +417,7 @@ try {
     e.printStackTrace();
 }
 ```
+
 - **使用连接池**
 
 多个线程可以共用一个连接池发送 API 请求，多线程并发单发短信示例如下：
