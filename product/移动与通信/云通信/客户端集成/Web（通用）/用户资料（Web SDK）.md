@@ -1,6 +1,6 @@
 ## 设置个人资料 
 
-```js
+```javascript
 /* function setProfilePortrait
  *   设置个人资料
  * params:
@@ -70,7 +70,7 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### 代码示例 
 
-```js
+```javascript
 //设置个人资料
 var setProfilePortrait = function () {
     if ($("#spp_nick").val().length == 0) {
@@ -121,7 +121,7 @@ var setProfilePortrait = function () {
 
 ## 获取个人资料 
 
-```js
+```javascript
 /* function getProfilePortrait
  *   拉取资料（搜索用户）
  * params:
@@ -430,7 +430,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### 代码示例 
 
-```js
+```javascript
 //搜索用户
 var searchProfileByUserId = function () {
     if ($("#sp_to_account").val().length == 0) {
