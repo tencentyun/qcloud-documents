@@ -30,9 +30,7 @@ qcloud-iot-sdk-tecent-at-based 面向使用 MCU+腾讯定制 AT 模组（2/3/4/5
 ## 移植指导
 根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 HAL 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。详细操作可参考基于 STM32+FreeRTOS 的 AT-SDK [移植示例](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git)。
 
-
-
-####  **hal_export.h**
+ **1. hal_export.h**
 HAL 层对外的 API 接口及 HAL 层宏开关控制。
 
 | 序号 | 宏定义                       | 说明                                |
@@ -42,7 +40,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | 3   | AUTH_MODE_KEY                | 认证方式，证书认证还是秘钥认证。                       					  |
 | 4   | DEBUG_DEV_INFO_USED          | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。     |
 
-####  **hal_os.c**
+**2. hal_os.c**
 该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等。
 
 | 序号  | HAL_API                            | 说明                                 |
@@ -74,7 +72,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | 25   | HAL_GetDevPrivateKeyName           | 获取设备证书私钥文件名，证书认证方式为必选实现。                      |
 | 26   | HAL_SetDevPrivateKeyName           | 设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。   |
 
-####  **hal_at.c**
+**3. hal_at.c**
 该源文件主要实现 AT 串口初始化、串口收发、模组开关机。
 
 | 序号  | HAL_API                         | 说明                                 		|
@@ -84,7 +82,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | 2    | AT_UART_IRQHandler             | 串口接收中断 ISR，将收取到的数据放入 ringbuff 中，AT 解析线程会实时解析数据，必选实现。|
 | 3    | at_send_data                   | AT 串口发送接口。                             |
 
-####  **module_api_inf.c**
+**4. module_api_inf.c**
 配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯定制 AT 固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。
 
 ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
@@ -117,7 +115,7 @@ eAtResault module_register_network(eModuleType eType)
 }
 ```
 
-####  设备信息修改
+**5. 设备信息修改**
 调试时，在 hal_export.h 将设备信息调试宏定义打开。量产时需要关闭该宏定义，实现 hal-os 中序列 17-26 的设备信息存取 API。
 ```
 #define 	DEBUG_DEV_INFO_USED
@@ -139,8 +137,10 @@ char sg_device_secret[MAX_SIZE_OF_DEVICE_SERC + 1] = "ttOARy0PjYgzd9OSs4Z3RA==";
 #endif
 ```
 
-#### 业务逻辑开发
-自动生成的代码 data_template_usr_logic.c，已实现数据、事件收发及响应的通用处理逻辑。但是具体的数据处理的业务逻辑需要用户自己根据业务逻辑添加，上下行业务逻辑添加的入口函数分别为 deal_up_stream_user_logic 、deal_down_stream_user_logic，如果有字符串或 json 类型的数据模板，用户需要在函数 update_self_define_value 中完成数据的解析（其他数据类型会根据模板定义自动更新，字符串/json只有你懂你自己哦），可以参考基于场景的示例 light_data_template_sample.c 添加业务处理逻辑。
+**6. 业务逻辑开发**
+自动生成的代码 data_template_usr_logic.c，已实现数据、事件收发及响应的通用处理逻辑。但是具体的数据处理的业务逻辑需要用户自己根据业务逻辑添加，上下行业务逻辑添加的入口函数分别为 deal_up_stream_user_logic 、deal_down_stream_user_logic。
+
+如果有字符串或 JSON 类型的数据模板，用户需要在函数 update_self_define_value 中完成数据的解析（其他数据类型会根据模板定义自动更新，字符串/json只有你懂你自己哦），可以参考基于场景的示例 light_data_template_sample.c 添加业务处理逻辑。
 
 - **下行业务逻辑实现：**
 ```
@@ -169,7 +169,7 @@ static int deal_up_stream_user_logic(DeviceProperty *pReportDataList[], int *pCo
 }
 ```
 
-#### 示例说明
+**7. 示例说明**
 Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑开发，分别是 mqtt_sample.c、shadow_sample.c、light_data_template_sample.c。
 各示例说明如下：
 
@@ -180,15 +180,15 @@ Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑
 | 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。        |
 
 
-### 相关文档
+## 相关文档
 - [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
 - [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
 - [数据模板说明](https://cloud.tencent.com/document/product/634/)
 
 
-### SDK接口说明
+## SDK接口说明
  关于 SDK 的更多使用方式及接口了解，请参阅 qcloud_iot_api_export.h 文件。
 
 
-### 模组列表
+## 模组列表
 腾讯定义的 MQTT AT 指令见文档目录，已经支持的 [模组列表](https://cloud.tencent.com/document/product/634/)。
