@@ -1,6 +1,6 @@
-## SDK 登录
+## SDK login API 函数名
 
-**SDK 登录 login API 函数名：**
+
 
 ```
 webim.login
@@ -30,7 +30,7 @@ function webimLogin() {
 }
 ```
 
-### 用户信息对象 loginInfo
+## 用户信息对象 loginInfo
 
 
 **属性名：**
@@ -43,13 +43,12 @@ function webimLogin() {
 | identifierNick | 用户昵称，选填                                | String |
 | userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
-> **特别注意：**
->
+>!
 > - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
-> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
+> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
 
 
-### 事件回调对象 listeners
+## 事件回调对象 listeners
 
 
 **属性名：**
@@ -72,12 +71,11 @@ function webimLogin() {
 
 ```
 //监听事件
-//监听事件
 var listeners = {
     "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
-    ,"jsonpCallback": jsonpCallback//IE9(含)以下浏览器用到的 jsonp 回调函数，
-    ,"onMsgNotify": onMsgNotify//监听新消息(私聊，普通群(非直播聊天室)消息，全员推送消息)事件，必填
-    ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息(直播聊天室)事件，直播场景下必填
+    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数，
+    ,"onMsgNotify": onMsgNotify//监听新消息（私聊，普通群（非直播聊天室）消息，全员推送消息）事件，必填
+    ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息（直播聊天室）事件，直播场景下必填
     ,"onGroupSystemNotifys": onGroupSystemNotifys//监听（多终端同步）群系统消息事件，如果不需要监听，可不填
     ,"onGroupInfoChangeNotify": onGroupInfoChangeNotify//监听群资料变化事件，选填
     ,"onFriendSystemNotifys": onFriendSystemNotifys//监听好友系统通知事件，选填
@@ -87,7 +85,7 @@ var listeners = {
 };
 ```
 
-### 事件回调对象 listeners.onConnNotify
+## 事件回调对象 listeners.onConnNotify
 
 **示例：**
 
@@ -120,19 +118,19 @@ var onConnNotify = function (resp) {
 
 | 名称         | 说明                                                     | 类型   |
 | ------------ | -------------------------------------------------------- | ------ |
-| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败          | String |
+| ActionStatus | 连接状态标识，OK 表示连接成功 FAIL 表示连接失败          | String |
 | ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Number |
 | ErrorInfo    | 错误提示信息                                             | String |
 
 
 
-### 事件回调对象 listeners.jsonpCallback
+## 事件回调对象 listeners.jsonpCallback
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
 ```
 //位于 js/demo_base.js 中
-//IE9(含)以下浏览器用到的 jsonp 回调函数
+//IE9（含）以下浏览器用到的 jsonp 回调函数
 function jsonpCallback(rspData) {
 //设置 jsonp 返回的
     webim.setJsonpLastRspData(rspData);
@@ -147,11 +145,11 @@ function jsonpCallback(rspData) {
 
 
 
-### 事件回调对象 listeners.onMsgNotify
+## 事件回调对象 listeners.onMsgNotify
 
 **示例：**
 
->注：其中参数 newMsgList 为 webim.Msg 数组，即 [webim.Msg]。
+>注：其中参数 newMsgList 为 webim.Msg 数组，即 \[webim.Msg]。
 
 ```
 //监听新消息事件
@@ -181,7 +179,7 @@ function onMsgNotify(newMsgList) {
 }
 ```
 
-### 事件回调对象 listeners.onGroupSystemNotifys
+## 事件回调对象 listeners.onGroupSystemNotifys
 
 **示例：**
 
@@ -193,19 +191,19 @@ var groupSystemNotifys = {
     "1": onApplyJoinGroupRequestNotify, //申请加群请求（只有管理员会收到）
     "2": onApplyJoinGroupAcceptNotify, //申请加群被同意（只有申请人能够收到）
     "3": onApplyJoinGroupRefuseNotify, //申请加群被拒绝（只有申请人能够收到）
-    "4": onKickedGroupNotify, //被管理员踢出群(只有被踢者接收到)
-    "5": onDestoryGroupNotify, //群被解散(全员接收)
-    "6": onCreateGroupNotify, //创建群(创建者接收)
-    "7": onInvitedJoinGroupNotify, //邀请加群(被邀请者接收)
-    "8": onQuitGroupNotify, //主动退群(主动退出者接收)
-    "9": onSetedGroupAdminNotify, //设置管理员(被设置者接收)
-    "10": onCanceledGroupAdminNotify, //取消管理员(被取消者接收)
-    "11": onRevokeGroupNotify, //群已被回收(全员接收)
-    "255": onCustomGroupNotify//用户自定义通知(默认全员接收)
+    "4": onKickedGroupNotify, //被管理员踢出群（只有被踢者接收到）
+    "5": onDestoryGroupNotify, //群被解散（全员接收）
+    "6": onCreateGroupNotify, //创建群（创建者接收）
+    "7": onInvitedJoinGroupNotify, //邀请加群（被邀请者接收）
+    "8": onQuitGroupNotify, //主动退群（主动退出者接收）
+    "9": onSetedGroupAdminNotify, //设置管理员（被设置者接收）
+    "10": onCanceledGroupAdminNotify, //取消管理员（被取消者接收）
+    "11": onRevokeGroupNotify, //群已被回收（全员接收）
+    "255": onCustomGroupNotify//用户自定义通知（默认全员接收）
 };
 ```
 
-### 事件回调对象 listeners.onFriendSystemNotifys
+## 事件回调对象 listeners.onFriendSystemNotifys
 
 **示例：**
 
@@ -221,7 +219,7 @@ var onFriendSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onProfileSystemNotifys
+## 事件回调对象 listeners.onProfileSystemNotifys
 
 **示例：**
 
@@ -232,7 +230,7 @@ var onProfileSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onC2cEventNotifys
+## 事件回调对象 listeners.onC2cEventNotifys
 
 **示例：**
 
@@ -243,7 +241,7 @@ var onC2cEventNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onGroupInfoChangeNotify
+## 事件回调对象 listeners.onGroupInfoChangeNotify
 
 **示例：**
 
