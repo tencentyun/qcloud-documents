@@ -30,18 +30,18 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 
 ### 响应参数说明
 
-| 字段                  | 类型   | 说明                                                         |
-| --------------------- | ------ | ------------------------------------------------------------ |
-| ResultItem            | Array  | 批量加好友的结果对象数组                                     |
-| ResultItem.To_Account | String | 请求添加的好友的 Identifier                                  |
-| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示业务成功，非0表示失败 |
-| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空                  |
-| Fail_Account          | Array  | 返回处理失败的用户列表                                       |
-| Invalid_Account       | Array  | 返回请求包中的非法用户列表                                   |
-| ActionStatus          | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败           |
-| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                               |
-| ErrorInfo             | String | 详细错误信息                                                 |
-| ErrorDisplay          | String | 详细的客户端展示信息                                         |
+| 字段                  | 类型   | 说明                                                      |
+| --------------------- | ------ | --------------------------------------------------------- |
+| ResultItem            | Array  | 批量加好友的结果对象数组                                  |
+| ResultItem.To_Account | String | 请求添加的好友的 Identifier                               |
+| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0 表示成功，非 0 表示失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空               |
+| Fail_Account          | Array  | 返回处理失败的用户列表。成功时响应体无该字段              |
+| Invalid_Account       | Array  | 返回请求包中的非法用户列表。成功时响应体无该字段          |
+| ActionStatus          | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败        |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                            |
+| ErrorInfo             | String | 详细错误信息                                              |
+| ErrorDisplay          | String | 详细的客户端展示信息                                      |
 
 ### 错误码说明
 
@@ -280,7 +280,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 | NeedUpdateAll                 | String              | 是否需要全量更新： "GetAll_Type_YES" 表示需要全量更新， "GetAll_Type_NO"表示不需要全量更新 |
 | TimeStampNow                  | Number              | 本次拉取的时间戳，客户端需要保存该时间，下次请求时通过 TimeStamp 字段返回给后台 |
 | StartIndex                    | Number              | 下页拉取的起始位置                                           |
-| InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem |
+| InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem。若无该字段返回则表示没有好友。 |
 | InfoItem.Info_Account         | String              | 好友的 Identifier                                            |
 | InfoItem.SnsProfileItem       | Array               | 好友的详细信息数组，数组每一个元素都包括 Tag 和 Value        |
 | InfoItem.SnsProfileItem.Tag   | String              | 好友的资料字段或好友字段的名称                               |
@@ -391,8 +391,8 @@ deleteFriend: function(options, cbOk, cbErr) {},
 | ResultItem.To_Account | String | 请求删除的好友的 Identifier                              |
 | ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
-| Fail_Account          | Array  | 返回处理失败的 To_Account列表                            |
-| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
+| Fail_Account          | Array  | 返回处理失败的 To_Account列表，成功时响应体无该字段      |
+| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表，成功时响应体无该字段 |
 | ActionStatus          | String | 请求包的处理结果，“OK”表示处理成功，“FAIL”表示失败       |
 | ErrorCode             | Number | 错误码，0表示成功，非0表示失败                           |
 | ErrorInfo             | String | 详细错误信息                                             |
@@ -546,7 +546,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 | 字段                            | 类型   | 说明                                                         |
 | ------------------------------- | ------ | ------------------------------------------------------------ |
-| BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp |
+| BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp。若无该字段返回则表示没有用户在黑名单中 |
 | BlackListItem.To_Account        | String | 黑名单的 Identifier                                          |
 | BlackListItem.AddBlackTimeStamp | Number | 添加黑名单的时间                                             |
 | StartIndex                      | Number | 下页拉取的起始位置，0表示已拉完                             |
