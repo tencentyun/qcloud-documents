@@ -52,7 +52,7 @@ qcloudsms_php 采用 composer 进行安装，要使用 qcloudsms 功能，只需
 require __DIR__ . "/qcloudsms_php/src/index.php";
 ```
 
-## 示例代码
+### 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
 
 - **准备必要参数**
