@@ -1,13 +1,12 @@
 ## 消息收发
 
-目前支持实时拉取群消息（普通，点赞，提示，系统）和发送群消息（普通，点赞，红包）。
+目前支持实时拉取群消息（普通、点赞、提示和系统）和发送群消息（普通、点赞和红包）。
 
-### 监听群消息（普通，点赞，提示，红包）
+### 监听群消息（普通、点赞、提示和红包）
 
-> **注意：**
-> 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
+>!现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
 
-**示例：**
+示例代码如下：
 
 ```javascript
 //监听大群新消息（普通，点赞，提示，红包）
@@ -21,9 +20,9 @@ function onBigGroupMsgNotify(msgList) {
 }
 ```
 
-### 显示群消息（普通，点赞，提示，红包）
+### 显示群消息（普通、点赞、提示和红包）
 
-**示例：**
+示例代码如下：
 
 ```javascript
 //显示消息（群普通+点赞+提示+红包）
@@ -98,9 +97,9 @@ function showMsg(msg) {
 }
 ```
 
-### 解析群消息（普通，点赞，提示，红包）
+### 解析群消息（普通、点赞、提示和红包）
 
-**示例：**
+示例代码如下：
 
 ```
 //把消息转换成 HTML
@@ -147,7 +146,7 @@ function convertMsgtoHtml(msg) {
 
 ### 解析文本消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析文本消息元素
@@ -159,7 +158,7 @@ function convertTextMsgToHtml(content) {
 
 ### 解析表情消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析表情消息元素
@@ -181,7 +180,7 @@ function convertFaceMsgToHtml(content) {
 
 ### 解析图片消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析图片消息元素
@@ -201,7 +200,7 @@ function convertImageMsgToHtml(content) {
 
 ### 	解析语音消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析语音消息元素
@@ -217,7 +216,7 @@ function convertSoundMsgToHtml(content) {
 
 ### 解析文件消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析文件消息元素
@@ -229,7 +228,7 @@ function convertFileMsgToHtml(content) {
 
 ### 解析位置消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析位置消息元素
@@ -240,7 +239,7 @@ function convertLocationMsgToHtml(content) {
 
 ### 解析自定义消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析自定义消息元素
@@ -254,9 +253,9 @@ function convertCustomMsgToHtml(content) {
 
 ### 解析群提示消息元素
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要选择是否展示给群组用户。
 
-**示例：**
+示例代码如下：
 
 ```javascript
 //解析群提示消息元素
@@ -504,7 +503,7 @@ function onSendMsg() {
 
 ### 发送群消息（点赞）
 
-**示例：**
+示例代码如下：
 
 ```javascript
 //发送消息(群点赞消息)
@@ -521,7 +520,7 @@ function sendGroupLoveMsg() {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1 表示 SDK 自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     //群消息子类型如下：
@@ -551,8 +550,5 @@ function sendGroupLoveMsg() {
 ### 发送群消息（红包）
 
 红包消息的下发优先级最高，保证不丢消息。
-
-**示例：**
-
-同发送群消息（点赞）示例，只需把 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。
+发送群消息（红包）的示例代码只需将发送群消息（点赞）示例代码中的 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。
 
