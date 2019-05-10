@@ -4,11 +4,11 @@
 
 > **注意：**
 >- 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
->- 其中参数 newMsgList 为 webim.Msg 数组，即 [webim.Msg]。
+>- 其中参数 newMsgList 为由 webim.Msg对象组成的数组，即 [webim.Msg]。
 
 ```javascript
 //监听新消息事件
-//newMsgList 为新消息数组，结构为[Msg]
+//newMsgList 为新消息数组，结构为[webim.Msg]
 function onMsgNotify(newMsgList) {
     //console.warn(newMsgList);
     var sess, newMsg;
