@@ -49,10 +49,7 @@ SDK 内部需要访问如下地址，请将以下域名在 【微信公众平台
 ### 1. 小程序 SDK 与 WebIM SDK 有什么区别？
 小程序 SDK 是基于 WebIM SDK 的兼容版本，因此相关接口文档请参考 [Web(通用)](https://cloud.tencent.com/document/product/269/1595) 及 [Web（直播聊天室）](https://cloud.tencent.com/document/product/269/4066) 的相关接口文档。
 
-但由于小程序运行时环境的差异，目前 IMSDK 的部分接口在小程序尚未支持
-
-- 图片上传
-- 文件上传
+但由于小程序运行时环境的差异，目前 IMSDK 在小程序中仅支持文本格式消息。
 
 以上接口需要业务方自己通过小程序文件上传接口实现，再通过 IMSDK 消息通道发送消息。
 

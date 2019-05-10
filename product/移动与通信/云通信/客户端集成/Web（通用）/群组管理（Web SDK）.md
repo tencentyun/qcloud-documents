@@ -1,19 +1,21 @@
 ## 创建群 
 
-<pre>
+```
 /* function createGroup
  *   创建群
  * params:
- *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269">API 文档</a>
+ *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269/1615">API 文档</a>
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
 createGroup: function(options, cbOk, cbErr) {},
-</pre>
+```
 
 **示例： **
+
+> 详细参数说明参考后端API：[创建群组](https://cloud.tencent.com/document/product/269/1615)
 
 ```
 //创建群组
@@ -255,7 +257,7 @@ var deleteApplyJoinGroupPendency = function (opts) {
 /* function quitGroup
  *  主动退群
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -313,6 +315,8 @@ destroyGroup: function(options, cbOk, cbErr) {},
 ```
 
 **示例： **
+
+> 详细参数说明参考后端API：[解散群组](<https://cloud.tencent.com/document/product/269/1624>)
 
 ```
 //解散群组
@@ -514,7 +518,7 @@ var getGroupInfo = function (group_id, cbOK, cbErr) {
 /* function modifyGroupBaseInfo
  *   修改群基本资料
  * params:
- *   options	- 请求参数，详见 API 文档
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
  * return:
@@ -524,6 +528,8 @@ modifyGroupBaseInfo: function(options, cbOk, cbErr) {},
 ```
 
 **示例： **
+
+> 详细参数说明参考后端API：[修改群资本资料](<https://cloud.tencent.com/document/product/269/1620>)
 
 ```
 //修改群资料

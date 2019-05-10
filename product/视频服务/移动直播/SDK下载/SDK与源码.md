@@ -518,12 +518,7 @@ table td {
     <td style="text-align:left">为观众端提供直播间列表和回放列表</td>
     <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_php_source") href="https://github.com/TencentVideoCloudMLVBDev/xiaozhibo_business_svr_php">DOWNLOAD</a></td>
   </tr>
-  <tr>
-    <td style="text-align:center">Web 分享页</td>
-    <td style="text-align:center">1.1</td>
-    <td style="text-align:left">基于 HTML5 技术构建的 Web 分享页面，支持在常规手机浏览器和 PC 浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">朋友圈分享</a></td>
-    <td style="text-align:center"><a onclick=MtaH5.clickStat("wiki_download_xzb_web_source") href="https://github.com/TencentVideoCloudMLVBDev/web_share">DOWNLOAD</a></td>
-  </tr>
+  
 </table>
 
 <script>
