@@ -107,7 +107,7 @@ delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)�
 [COS_ACCOUNT_1]
 cos_secretid = XXXX
 cos_secretkey = XXXXX
-cos_bucket = {bucket name}-123
+cos_bucket = bucketname-123456789
 cos_region = ap-xxx
 cos_protocol = https
 #cos_endpoint = ap-xxx.myqcloud.com
