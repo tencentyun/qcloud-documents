@@ -37,7 +37,7 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 ![](https://main.qcloudimg.com/raw/0634a472dbee443542d89b9364f75515.png)
 
 ### 3. 添加权限声明
-在工程 info.plist 中，增加如下字串：
+在工程 info.plist 中，增加如下字符串：
 ``` xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>需要您的同意才能读取照片库</string>
