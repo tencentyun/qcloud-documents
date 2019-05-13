@@ -60,7 +60,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 **下载机制**：直接流式返回给客户端
 **目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
 **多 bucket 绑定**：支持同时绑定多个 bucket。
-**删除操作限制**：在新的 FTP Serve 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
+**删除操作限制**：在新的 FTP Server 中可以针对每个 ftp 用户配置`delete_enable`选项，以标识是否允许该 ftp 用户删除文件。
 
 >?多 bucket 绑定：通过不同的 FTP Server 工作路径（`home_dir`）来实现，因此，指定不同的 bucket 和用户信息时必须保证`home_dir`不同。
 
@@ -84,7 +84,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 - append
 - mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
->?FTP Serve 工具暂时不支持断点续传功能。
+>?FTP Server 工具暂时不支持断点续传功能。
 
 <a id="conf"></a>
 ## 配置文件
@@ -94,7 +94,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 [COS_ACCOUNT_0]
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
-cos_bucket = {bucket name}-123
+cos_bucket = examplebucket-1250000000
 cos_region = ap-xxx
 cos_protocol = https
 #cos_endpoint = ap-xxx.myqcloud.com
@@ -107,7 +107,7 @@ delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)�
 [COS_ACCOUNT_1]
 cos_secretid = XXXX
 cos_secretkey = XXXXX
-cos_bucket = {bucket name}-123
+cos_bucket = examplebucket-1250000000
 cos_region = ap-xxx
 cos_protocol = https
 #cos_endpoint = ap-xxx.myqcloud.com

@@ -45,9 +45,9 @@ public String getSelfSignature()
 
 /**
  * 获取用户加好友的选项
- * @return 用户好友选项
+ * @return 用户好友选项，见 TIMFriendAllowType 中常量
  */
-public TIMFriendAllowType getAllowType()
+public String getAllowType()
 
 /**
  * 获取用户备注
@@ -218,7 +218,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 | ------------------------------------ | ----------- | -------------- |
 | `TIM_PROFILE_TYPE_KEY_NICK`          | String      | 昵称           |
 | `TIM_PROFILE_TYPE_KEY_FACEURL`       | String      | 头像           |
-| `TIM_PROFILE_TYPE_KEY_ALLOWTYPE`     | int         | 好友申请       |
+| `TIM_PROFILE_TYPE_KEY_ALLOWTYPE`     | String         | 好友申请       |
 | `TIM_PROFILE_TYPE_KEY_GENDER`        | int         | 性别           |
 | `TIM_PROFILE_TYPE_KEY_BIRTHDAY`      | int         | 生日           |
 | `TIM_PROFILE_TYPE_KEY_LOCATION`      | String      | 位置           |
