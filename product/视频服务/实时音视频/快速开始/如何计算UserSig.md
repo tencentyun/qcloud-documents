@@ -1,4 +1,4 @@
-为了避免有恶意攻击者盗用您的通话时长，腾讯云实时音视频（TRTC）服务需要您正确的生成 UserSig 才能顺利使用。本文主要介绍 UserSig 的作用和生成方法。
+本文主要介绍 UserSig 的作用和生成方法。为了避免有恶意攻击者盗用您的通话时长，腾讯云实时音视频服务（TRTC）需要您正确的生成 UserSig 才能使用。
 
 <h2 id="UserSig"> UserSig 介绍 </h2>
 
@@ -17,14 +17,17 @@ UserSig 是腾讯云实时音视频服务（TRTC）会用到的一种“签名�
 <h2 id="PrivateKey"> 下载签名私钥 (PrivateKey) </h2>
 
 进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，创建一个应用，单击应用名称进入应用详情页面，即可以获得签名用的私钥下载链接：
+
 ![](https://main.qcloudimg.com/raw/8d4b35085f3e774d70f403f92d273d4b.png)
 
 单击【点击下载公私钥】，会得到 **keys.zip** 的压缩文件，解压后会生成 **private_key** 和 **public_key** 两个文件，其中 **private_key** 就是我们需要的私钥文件。
+
 ![](https://main.qcloudimg.com/raw/9df4f826d9ccc9c3d1a3ab1021f99dfb.png)
 
 <h2 id="GetForDebug"> 控制台生成 </h2>
 
 在应用详情页面，将私钥文件内容拷贝到第三步即“**生成 Demo 配置文件内容**”的输入框中，再单击【生成Demo配置文件内容】，即可生成一个 JSON 文件，文件中有一组或多组 userid 和 usersig。
+
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
 这一批 userid 和 usersig 可以直接在我们提供的 Demo 中使用，便于您快速开始测试及调试。
