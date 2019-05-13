@@ -2,9 +2,9 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloudSDK](https://github.com/heavensword/resources/blob/master/sdk/QCloudSDK.zip)
+实时流式语音识别的 iOS SDK 的下载地址：[QCloudSDK](https://main.qcloudimg.com/raw/a1ccdaebb361cf55493c863a66b43b6e/QCloudSDK.zip)
 
-详细示例可参考Demo：[QCloudSDKDemo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
+详细示例可参考Demo：[QCloudSDKDemo](https://main.qcloudimg.com/raw/e38bafda7afca61f0f27eecc8bd183aa/QCloudSDKDemo.zip)
 
 ### 使用须知
 
@@ -42,7 +42,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
    + libWXVoiceSpeex.a
    
 添加完如图所示：
-![](https://github.com/heavensword/resources/blob/master/images/framework.png?raw=true)
+![](https://main.qcloudimg.com/raw/5e8684e61118f82bd1ade27bd0a7df9e/framework.png)
 
 
 ### 类说明
