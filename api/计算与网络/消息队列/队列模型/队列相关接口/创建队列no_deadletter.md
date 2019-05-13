@@ -18,7 +18,7 @@
 | pollingWaitSeconds| 否| Int| 消息接收长轮询等待时间。取值范围200ms - 30s，默认值200ms。|
 | visibilityTimeout| 否| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
 | maxMsgSize| 否| Int| 消息最大长度。取值范围1024 - 1048576 Byte（即1 - 1024K），默认值65536。|
-| msgRetentionSeconds| 否| Int| 消息保留周期。取值范围60 - 1296000秒（1min-15天），默认值345600 (4 天)。|
+| msgRetentionSeconds| 否| Int| 消息生命周期。取值范围60 - 1296000秒（1min-15天），默认值345600 (4 天)。|
 |rewindSeconds|否|Int|队列是否开启回溯消息能力，该参数取值范围 0-msgRetentionSeconds，即最大的回溯时间为消息在队列中的保留周期，0表示不开启。|
 
 ## 输出参数
