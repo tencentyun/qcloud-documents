@@ -8,9 +8,9 @@
 
 ### 使用须知
 
-+ QCloudSDK 支持** iOS 9.0**及以上版本
-+ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）
-+ 从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)
++ QCloudSDK 支持 **iOS 9.0** 及以上版本。
++ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等。
++ 从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 
 ### SDK导入
 
@@ -19,7 +19,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 
 ### 工程配置
 
-在工程` info.plist` 添加以下设置:
+在工程` info.plist` 添加以下设置：
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 
 ```objective-c
