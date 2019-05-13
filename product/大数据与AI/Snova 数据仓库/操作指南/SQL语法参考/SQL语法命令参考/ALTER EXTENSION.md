@@ -1,8 +1,6 @@
-#### ALTER EXTENSION
+更改在数据库中注册的扩展的定义。
 
-更改在数据库中注册的扩展的定义
-
-##### 概要
+## 概要
 
 ```sql
 ALTER EXTENSION name UPDATE [ TO new_version ]
@@ -46,41 +44,32 @@ aggregate_signature 是：
     ORDER BY [ argmode ] [ argname ] argtype [ , ... ]
 ```
 
-##### 描述
-
-ALTER EXTENSION 更改已安装扩展的定义。 有几种子形式:
+## 描述
+ALTER EXTENSION更改已安装扩展的定义。有几种子形式：
 
 UPDATE
-
 此形式将扩展更新到一个较新版本。该扩展必须提供一个合适的更新脚本（或一系列脚本），可以将当前安装的版本修改为所要求的版本。
 
 SET SCHEMA
-
-这种形式将扩展对象移动到另一个模式中。 扩展名必须 是 *可重定位*。
+这种形式将扩展对象移动到另一个模式中。扩展名必须是“可重定位”。
 
 ADD member_object
-
-这种形式将一个现有对象添加到该扩展中。这在扩展更新脚本中很有用。 该对象后续将被当作该扩展的一个成员。尤其是该对象只有通过删除扩展 才能删除。
+这种形式将一个现有对象添加到该扩展中。这在扩展更新脚本中很有用。该对象后续将被当作该扩展的一个成员。尤其是该对象只有通过删除扩展才能删除。
 
 DROP member_object
+这种形式从扩展中删除一个成员对象。这主要对扩展更新脚本有用。只有撤销该对象与其扩展之间的关联后才能删除该对象。
 
-这种形式从扩展中删除一个成员对象。这这主要对扩展更新脚本有用。只有 撤销该对象与其扩展之间的关联后才能删除该对象。
+用户必须拥有扩展功能，对于 ALTER EXTENSION. ADD 和 DROP 形式还要求被增加/删除对象的所有权。
 
-用户必须拥有扩展功能对于 ALTER EXTENSION. ADD 和 DROP 形式还要求被增加/删除对象的所有权。
-
-##### 参数
-
+## 参数
 name
-
-T一个已安装扩展的名称
+T一个已安装扩展的名称。
 
 new_version
-
-新版本的扩展。 new_version 可以是标识符或字符串文字。如果未指定，该命令将尝试更新到扩展控制文件中的默认版本。
+新版本的扩展。new_version可以是标识符或字符串文字。如果未指定，该命令将尝试更新到扩展控制文件中的默认版本。
 
 new_schema
-
-扩展的新模式
+扩展的新模式。
 
 object_name
 
@@ -89,75 +78,60 @@ aggregate_name
 function_name
 
 operator_name
-
-要从该扩展增加或者移除的对象的名称。表、聚集、域、外部表、函数、 操作符、操作符类、操作符族、序列、文本搜索对象、类型和视图的名称 可以被方案限定。
+要从该扩展增加或者移除的对象的名称。表、聚集、域、外部表、函数、 操作符、操作符类、操作符族、序列、文本搜索对象、类型和视图的名称可以被方案限定。
 
 source_type
-
 该转换的源数据类型的名称。
 
 target_type
-
 cast的目标数据类型的名称。
 
 argmode
-
-函数或聚集参数的模式：IN, OUT, INOUT, or VARIADIC. 默认为 IN。
-
-该命令忽略了 OUT 参数。 只需要输入参数来确定函数的身份。列出 IN, INOUT, and VARIADIC 参数就足够了。
+函数或聚集参数的模式：IN、OUT、INOUT、VARIADIC。默认为IN。
+该命令忽略了OUT参数。 只需要输入参数来确定函数的身份。列出IN、INOUT、VARIADIC 参数就足够了。
 
 argname
-
 函数或聚集参数的名称。
-
 该命令忽略参数名称，因为只需要参数数据类型来确定函数标识。
 
 argtype
-
 函数或聚集参数的数据类型。
 
 left_type
 
 right_type
-
-操作符参数的数据类型（可以是方案限定）。 指定 NONE 对于一个前缀或后缀操作符的缺失的参数.
+操作符参数的数据类型（可以是方案限定）。指定NONE对于一个前缀或后缀操作符的缺失的参数。
 
 PROCEDURAL
-
-这是一个噪声词。
+是一个噪声词。
 
 type_name
-
 该转换的数据类型的名称。
 
 lang_name
-
 该转换的语言的名称。
 
-##### 示例
-
+## 示例
 要将hstore扩展更新为2.0版本：
 
 ```sql
 ALTER EXTENSION hstore UPDATE TO '2.0';
 ```
 
-更改 hstore 的扩展模式为 utils:
+更改hstore的扩展模式为utils：
 
 ```sql
 ALTER EXTENSION hstore SET SCHEMA utils;
 ```
 
-要将现有函数添加到 hstore 扩展中:
+要将现有函数添加到hstore扩展中：
 
 ```sql
 ALTER EXTENSION hstore ADD FUNCTION populate_record(anyelement, hstore);
 ```
 
-##### 兼容性
+## 兼容性
+ALTER EXTENSION是一个数据库扩展。
 
-ALTER EXTENSION 是一个数据库扩展。
-
-##### 参考
-
-CREATE EXTENSION, DROP EXTENSION
+## 参考
+CREATE EXTENSION、DROP EXTENSION

@@ -27,7 +27,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 
 ### 创建 StatefulSet 挂载自动创建 PersistentVolumeClaim 类型
 
-参照 [StatefulSet 管理](https://cloud.tencent.com/document/product/457/31707) 中的 “[创建 StatefulSet](#createStatefulSet)”，创建 StatefulSet。并在设置 StatefulSet 参数时，单击【添加数据卷】，选择 “使用新的PVC” 方式，设置PVC。如下图所示：
+参照 [StatefulSet 管理](https://cloud.tencent.com/document/product/457/31707) 中的 “[创建 StatefulSet](https://cloud.tencent.com/document/product/457/31707#createStatefulSet)”，创建 StatefulSet。并在设置 StatefulSet 参数时，单击【添加数据卷】，选择 “使用新的 PVC” 方式，设置 PVC。如下图所示：
 ![](https://main.qcloudimg.com/raw/34f50be497c21d28423afe3bf68baba1.png)
 
 ## Kubectl 操作 StorageClass 指引

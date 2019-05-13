@@ -17,6 +17,7 @@
 ## 下载组件源码
 您可以直接从 [Github](https://github.com/tencentyun/TIMSDK) 上下载 IM SDK WXMini 开发包。
 SDK 路径为 TIMSDK/WXMini/utils/webim_wx.js
+![](https://main.qcloudimg.com/raw/418f52960facd081c932cd34e77ce0a6.png)
 
 ## 集成组件
 将 webim_wx.js 拷贝到您的小程序项目里合适的目录下（例如 components 文件夹）。

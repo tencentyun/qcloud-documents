@@ -25,7 +25,7 @@ Form
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 该请求操作需要用到如下必选请求头：
@@ -173,11 +173,10 @@ Form
 该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
-该请求将返回如下响应头部：
+该请求可能会返回如下响应头部：
 
 |名称|描述|类型|
 |:---|:-- |:-- |
-|success_action_redirect|成功上载时客户端重定向到的URL|String|
 |x-cos-version-id|目标存储桶中复制对象的版本。当开启或开启后暂停的存储桶，才会响应此头部|String|
 |x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值：AES256|string|
 
@@ -203,28 +202,30 @@ Form
 
 具体的数据描述如下：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| PostResponse |无| 保存 POST Object 结果的容器 | Container |是|
+| 节点名称（关键字） | 父节点 | 描述                        | 类型      |
+| :----------------- | :----- | :-------------------------- | :-------- |
+| PostResponse       | 无     | 保存 POST Object 结果的容器 | Container |
+
 
 Container 节点 PostResponse 的内容：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| Location | PostResponse | 对象的完整路径 |  String |是|
-| Bucket | PostResponse | 对象所在的存储桶 |  String |是|
-| Key | PostResponse | 对象 key 名 |  String |是|
-| ETag | PostResponse | Etag 内容 |  String |是|
+| 节点名称（关键字） | 父节点       | 描述             | 类型   |
+| :----------------- | :----------- | :--------------- | :----- |
+| Location           | PostResponse | 对象的完整路径   | String |
+| Bucket             | PostResponse | 对象所在的存储桶 | String |
+| Key                | PostResponse | 对象 key 名      | String |
+| ETag               | PostResponse | Etag 内容        | String |
+
 
 ### 错误码
 以下描述此请求可能会发生的一些特殊的且常见的错误情况。关于 COS 更多的错误码信息，请查阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                  |   HTTP 状态码                                      |    描述       |
 | ------------------- | --------------------------------------- | ------------------ |
-| InvalidDigest        |400 Bad Request     | 如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回 InvalidDigest |
+| InvalidDigest        |400 Bad Request     | 如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 MD5 和用户携带的 MD5 是否一致，如果不一致将返回 InvalidDigest |
 | KeyTooLong           |400 Bad Request     | 上传文件时携带的以 x-cos-meta 开头的自定义头部，每个自定义头部的 key 和 value 加起来不能超过4k，否则返回 KeyTooLong 错误 |
 | MissingContentLength | 411 Length Required |如果上传文件时，没有添加 Content-Length 头部，会返回该错误码     |
-| NoSuchBucket         | 404 Not Found       |如果试图添加的 Object 所在的 Bucket 不存在，返回 404 Not Found 错误，错误码：NoSuchBucket |
+| NoSuchBucket         | 404 Not Found       |如果试图添加的 Object 所在的 Bucket 不存在，返回404 Not Found 错误，错误码：NoSuchBucket |
 | EntityTooLarge       | 400 Bad Request     |如果添加的文件长度超过5G，会返回 EntityTooLarge，并返回错误信息`“Your proposed upload exceeds the maximum allowed object size”` |
 | InvalidURI           | 400 Bad Request     | 对象 key 长度限制为850，如果超过850会返回 InvalidURI      |
 
@@ -245,7 +246,7 @@ Content-Type: multipart/form-data; boundary=e07f2a7876ae4755ae18d300807ad879
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="key"
 
-a/${filename}
+photo.jpg
 --e07f2a7876ae4755ae18d300807ad879
 Content-Disposition: form-data; name="success_action_status"
 

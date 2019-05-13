@@ -6,7 +6,7 @@
 ```
 //初始化 SDK 基本配置
 TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-	.setAccoutType(accountType)          // 您可以从 IM 控制台获取 accoutType 信息。目前仅支持独立模式，即36862
+	.setAccoutType(accountType)          // 您可以从 IM 控制台获取 accountType 信息。目前仅支持独立模式，即36862
         .enableLogPrint(true)              // 是否在控制台打印Log?
         .setLogLevel(TIMLogLevel.DEBUG)    // Log输出级别（debug级别会很多）
         .setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
@@ -17,7 +17,7 @@ TIMManager.getInstance().init(getApplicationContext(), config);
 ```
 
 ## 登录
-- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 详细请参阅 [帐号登录集成说明](https://cloud.tencent.com/document/product/269/31999)。
+- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 详细请参阅 [登录鉴权简介](https://cloud.tencent.com/document/product/269/31999)。
 - 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 ```
 // identifier为用户名，userSig 为用户登录凭证

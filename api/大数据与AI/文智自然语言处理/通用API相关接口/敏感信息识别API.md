@@ -2,6 +2,7 @@
 域名：wenzhi.api.qcloud.com
 接口名: TextSensitivity <br />
 识别信息的色情、政治等敏感程度。可用于敏感信息过滤，舆情监控等。
+>?敏感词库自动更新，暂不支持客户自定义。
 
 ## 2. 输入参数
 <table class="t">
@@ -50,7 +51,7 @@ https://wenzhi.api.qcloud.com/v2/index.php?
 	&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 	&Timestamp=1408704141
 	&Signature=HgIYOPcx5lN6gz8JsCFBNAWp2oQ
-	&content=六四事件是一个历史问题
+	&content=***********
 	&type=2
 ```
 

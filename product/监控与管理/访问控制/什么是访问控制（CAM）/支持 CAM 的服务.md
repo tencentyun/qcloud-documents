@@ -21,16 +21,12 @@
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云服务器](https://cloud.tencent.com/document/product/213/10314) | ✔        | ✔      | ✔      | 资源级   | ✔        |   ✔  |	
 | [黑石物理服务器](https://cloud.tencent.com/document/product/386/13245) | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
-| [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
-| [容器服务-集群](https://cloud.tencent.com/document/product/457/11542) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
-| [容器服务-镜像仓库](https://cloud.tencent.com/document/product/457/11527) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
-| 容器服务-持续集成                                             | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |
+| [容器服务](https://cloud.tencent.com/document/product/457) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔    |	
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
-| [黑石负载均衡](https://cloud.tencent.com/document/product/386/13351) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
-| [黑石私有网络](https://cloud.tencent.com/document/product/386/13352) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
-| [黑石弹性公网 IP](https://cloud.tencent.com/document/product/386/13350) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
+| [黑石 Stack-V](https://cloud.tencent.com/document/product/599)   | ✔        | -      | ✔      | 服务级   | -        | -    |
+
 
  ## 存储	
  
@@ -40,6 +36,7 @@
 | [文件存储](https://cloud.tencent.com/document/product/582/14679) | ✔        | ✔      | -      | 服务级   | ✔        | -    |
 | [归档存储](https://cloud.tencent.com/document/product/572)   | ✔        | ✔      | -      | 资源级   | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)   | ✔        | -      | ✔      | 服务级   | -        | -    |
+| [云硬盘](https://cloud.tencent.com/document/product/362)     | ✔        | ✔      | ✔      | 资源级   | ✔        | -    |
 | [日志服务](https://cloud.tencent.com/document/product/614)   | ✔        | -      | ✔      | 服务级   | -        |  ✔ |	
 
  ## 网络	
@@ -48,13 +45,15 @@
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779) | ✔        | ✔      | ✔      | 资源级   | ✔        |    -  |	
 | [私有网络](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
+| [专线接入](https://cloud.tencent.com/document/product/215/20171) | ✔        | ✔      | ✔      | 资源级   | ✔        |-  |	
 
-## 云数据库 TencentDB	
+## 数据库	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔ |	
-| [时序数据库](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
-| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |-        | -      | -      | -   | -        |✔    |
+| [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
+| [云数据库 Redis](https://cloud.tencent.com/document/product/240)         |✔         | ✔      | ✔     | 资源级   |✔        | -   |
+| [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |✔        |✔     | ✔      |资源级   |✔        |✔    |
 
 
 ## CDN 与加速	
@@ -69,8 +68,8 @@
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | ✔        | ✔      | ✔      | 资源级   | ✔        | - |	
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597/17989) | ✔        | ✔      | ✔      | 资源级   | ✔        | ✔   |
 | [API 网关](https://cloud.tencent.com/document/product/628)         | ✔       | ✔      | ✔      | 资源级   | -        | ✔    |
-| [分布式服务治理平台](https://cloud.tencent.com/document/product/649)         |-        | -      | -      | -   | -        | ✔    |
-| 数据库中间件        |-        | -      | -      | -   | -        | ✔    |
+| [腾讯微服务平台](https://cloud.tencent.com/document/product/649)         |-        | -      | -      | -   | -        | ✔    |
+
 
  ## 域名与网站	
  
@@ -80,79 +79,104 @@
 | [网站备案](https://cloud.tencent.com/document/product/243)   | ✔        | -      | ✔      | 服务级   | -        | - |	
 | [移动解析 HttpDNS](https://cloud.tencent.com/document/product/379) | ✔        | -      | ✔      | 服务级   | -        | - |	
 
- ## 安全	
+ ## 网络安全	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [大禹网络安全](https://cloud.tencent.com/document/product/297) | ✔        | ✔      | ✔      | 服务级   | -        | - |
+| [DDoS 基础防护](https://cloud.tencent.com/document/product/1020) | ✔        | ✔      | ✔      | 服务级   | -        | - |
+| [样本智能分析平台](https://cloud.tencent.com/document/product/685)       | ✔       |  ✔      | -      |资源级   |  ✔        | -    |
+| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)       |-        | -      | -      | -   | -        |  ✔    |
+
+ ## 主机安全	
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [主机安全（云镜）](https://cloud.tencent.com/document/product/296) | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
+
+ ## 安全管理
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [态势感知](https://cloud.tencent.com/document/product/664)   | ✔        | ✔      | ✔      | 服务级   | -        | - |	
-| [网站管家](https://cloud.tencent.com/document/product/627)         |✔       | ✔      | ✔      | 操作级   | ✔      | - |
-| [宙斯盾安全防护](https://cloud.tencent.com/product/aegis)       |-        | -      | -      | -   | -        |  ✔    |
+
+ ## 应用安全
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [Web 应用防火墙](https://cloud.tencent.com/document/product/627)         |✔       | ✔      | ✔      | 操作级   | ✔      | - |
 
 ## 视频服务
 
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [点播](https://cloud.tencent.com/document/product/266)       | ✔        | -      | ✔      | 服务级   | -        |  -  |	
-| [直播](https://cloud.tencent.com/document/product/267)       | ✔        | ✔      | ✔      | 操作级   | ✔        |  -    |	
+| [云直播](https://cloud.tencent.com/document/product/267)       | ✔        | ✔      | ✔      | 操作级   | ✔        |  -    |	
+| [云点播](https://cloud.tencent.com/document/product/266)       | ✔        | -      | ✔      | 服务级   | -        |  -  |	
 | [互动直播](https://cloud.tencent.com/document/product/268)   | ✔        | -      | ✔      | 服务级   | -        | -     |	
 
- ## 云智大数据平台服务	
+ ## 云智大数据平台
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589/14625) | ✔        | ✔      | ✔      | 操作级   | ✔        | ✔  |	
+| [云数据仓库套件 Sparkling](https://cloud.tencent.com/document/product/1002)         |✔       | -      | ✔      | 资源级   | -        | ✔    |	
 | [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | ✔        | ✔      | ✔      | 操作级   | ✔        | - |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | ✔        | ✔      | ✔      | 服务级   | ✔        |✔       |
-| [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)         |✔       | ✔      | ✔      | 操作级   | ✔        | -    |	
-| [Sparkling 数据仓库套件](https://cloud.tencent.com/document/product/1002)         |✔       | -      | ✔      | 资源级   | -        | -    |	
+| [数据工坊](https://cloud.tencent.com/document/product/564)   | ✔        | -      | ✔      | 服务级   | -        | - |
 
- ## 云智大数据应用服务	
+ ## 云智大数据应用
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [云搜](https://cloud.tencent.com/document/product/270)       | ✔        | -      | ✔      | 服务级   | -        | - |	
 | [智能推荐](https://cloud.tencent.com/document/product/587) | ✔        | -      | ✔      | 服务级   | ✔        | - |	
 | [数字营销](https://cloud.tencent.com/document/product/588) | ✔        | -      | ✔      | 服务级   | ✔        | - |	
+| [云搜](https://cloud.tencent.com/document/product/270)       | ✔        | -      | ✔      | 服务级   | -        | - |	
 
- ## 云智 AI 应用服务	
+ ## 人脸识别
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [人脸核身-云智慧眼](https://cloud.tencent.com/document/product/1007) | ✔        |✔     | ✔      | 服务级   | ✔        | - |	
+
+ ## 语音技术	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [智能语音服务](https://cloud.tencent.com/document/product/441) | ✔        | -      | ✔      | 服务级   | -        | - |	
-| [文智自然语言处理](https://cloud.tencent.com/document/product/271) | ✔        | -      | ✔      | 服务级   | -      | -|	
-| [机器翻译](https://cloud.tencent.com/document/product/551)   | ✔        | -      | ✔      | 服务级   | -        | - |
-| [腾讯云小微](https://cloud.tencent.com/document/product/645) | ✔        | -      | ✔      | 服务级   | -        | - |
 
-
- ## 云智 AI 平台服务	
+ ## 自然语言处理	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851) | ✔        | -      | ✔      | 服务级   | -        |   ✔   |	
-| [智能图像](https://cloud.tencent.com/document/product/641)       |-        | -      | -      | -   | -        |  ✔   
+| [文智自然语言处理](https://cloud.tencent.com/document/product/271) | ✔        | -      | ✔      | 服务级   | -      | -|	
+| [机器翻译](https://cloud.tencent.com/document/product/551)   | ✔        | -      | ✔      | 服务级   | -        | - |
+
+ ## 智能机器人	
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [腾讯云小微](https://cloud.tencent.com/document/product/645) | ✔        | -      | ✔      | 服务级   | -        | - |
+
+
+ ## AI 平台服务	
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851) | -        | -      | -      | -   | -        |   ✔   |	  
 
 ## 游戏服务
 
 | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [游戏多媒体引擎 GME](https://cloud.tencent.com/document/product/607)         |✔        | -      | ✔      | 资源级   | ✔       | -    |	
-
-## 零售服务
-
-| 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
-| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [腾讯优 Mall](https://cloud.tencent.com/document/product/860)         |-        | -      | -      | -   | -        |✔    |	
+| [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)         |✔        | -      | ✔      | 资源级   | ✔       | -    |	
 
  ## 移动服务	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [应用服务平台](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |	
+| [云开发](https://cloud.tencent.com/document/product/876)     |-        | -      | -      | -   | -        | ✔    |	
 
- ## 通信服务	
+ ## 基础通信	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
@@ -164,34 +188,47 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [物联网通信](https://cloud.tencent.com/document/product/634) | ✔        | ✔      | ✔      | 服务级   | ✔   | ✔    |	
-| [加速物联网套件](https://cloud.tencent.com/document/product/568)         |✔        | ✔      | ✔      | 操作级   | ✔        |✔    |	| 
+| 加速物联网套件         |✔        | ✔      | ✔      | 操作级   | ✔        |✔    |	| 
 
  ## 区块链	
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [TBaaS](https://cloud.tencent.com/document/product/663)      | ✔        | ✔      | ✔      | 操作级   | ✔        | - |	
 
+ ## 云资源管理
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [标签](https://cloud.tencent.com/document/product/651)       | ✔        | ✔      | ✔      | 操作级   | ✔        | - |	
 
+ ## 管理与审计
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |		
+| [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        |✔    |
 
- ## 管理工具	
+ ## 监控与运维	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [云监控](https://cloud.tencent.com/document/product/248)     | ✔        | ✔      | ✔      | 操作级   | ✔        | - |	
-| [标签](https://cloud.tencent.com/document/product/651)       | ✔        | ✔      | ✔      | 操作级   | ✔        | - |	
-| [密钥管理服务](https://cloud.tencent.com/document/product/573) | ✔        | ✔      | ✔      | 资源级   | ✔        | -     |	
 | [云拨测](https://cloud.tencent.com/document/product/280)     | ✔        | -      | ✔      | 服务级   | -        | - |	
-| [云审计](https://cloud.tencent.com/document/product/629)     | ✔        | ✔      | ✔      | 操作级   | ✔        |✔    |
-| [蓝鲸平台](https://cloud.tencent.com/document/product/274/3463)         |-        | -      | -      | -   | -        |✔    |	
+| [密钥管理服务](https://cloud.tencent.com/document/product/573) | ✔        | ✔      | ✔      | 资源级   | ✔        | -     |	
 | [迁移服务平台](https://cloud.tencent.com/document/product/659)         |-        | -      | -      | -   | -        |✔    |	
+	
 
+## 开发者工具
+ 
+ | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
+| ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
+| [腾讯蓝鲸一站式运维](https://cloud.tencent.com/document/product/274)         |-        | -      | -      | -   | -        |✔    |	
 
  ## 数据处理	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [视频处理](https://cloud.tencent.com/document/product/314)                |-        | -      | -      | -   | -        |✔    |	
 | [数据万象](https://cloud.tencent.com/document/product/460)   | ✔        | -      | ✔      | 服务级   | -        | ✔ |
+| [视频处理](https://cloud.tencent.com/document/product/314)                |-        | -      | -      | -   | -        |✔    |	
 
  ## 解决方案	
  
@@ -203,15 +240,15 @@
 
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
-| [开发者实验室](https://cloud.tencent.com/document/product/658/13897)       | -      | -     | -    | -   | -      |✔   |	
-| [渠道管理](https://cloud.tencent.com/document/product/563) | ✔       | -      | ✔      | 操作级 | -        | -    |	
+| [渠道合作伙伴](https://cloud.tencent.com/document/product/563) | ✔       | -      | ✔      | 操作级 | -        | -    |	
+| [实验室相关](https://cloud.tencent.com/document/product/658/13897)       | -      | -     | -    | -   | -      |✔   |	
 
  ## 内部服务	
  
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | 媒体转码服务 |-        | -      | -      | -   | -        | ✔    |	
-| 客服支撑平台 |-        | -      | -      | -   | -        | ✔    |	
+| 客服支持平台 |-        | -      | -      | -   | -        | ✔    |	
 | 智能物联网关 | ✔ | ✔ | - | 服务级 | ✔ | - |
 
  ## 第三方服务	

@@ -1,3 +1,13 @@
+### Version 6.3 @ 2019-03-29
+【SDK内核】
+- Android：Android 新增 ARM64 支持，更好的支持64位手机系统
+- iOS&Android：专业版支持实时音视频能力，文档请参考 [实时音视频](https://cloud.tencent.com/document/product/647) 
+
+【Bugfix】
+- iOS&Android：修复偶现频繁缓冲的问题
+- iOS：修复混响首次安装不生效的问题
+- iOS：修复首次推流偶现摄像头会重启的问题
+
 ### Version 5.4 @ 2019-01-04
 【SDK内核】
 - iOS&Android：优化网络协议算法，直播推流抗 30% 丢包无压力

@@ -1,597 +1,801 @@
 <div class="paragraph">
-<p>创建腾讯云云服务器时，用户指定的实例类型决定了实例的主机硬件配置。每个实例类型提供不同的计算、内存和存储功能。用户可基于需要部署运行的应用规模，选择一种适当的实例类型。这些实例族由 CPU、内存、存储、异构硬件和网络带宽组成不同的组合，您可灵活地为您的应用程序选择适当的资源。</p>
+	<p>创建腾讯云云服务器时，用户指定的实例类型决定了实例的主机硬件配置。每个实例类型提供不同的计算、内存和存储功能。用户可基于需要部署运行的应用规模，选择一种适当的实例类型。这些实例族由 CPU、内存、存储、异构硬件和网络带宽组成不同的组合，您可灵活地为您的应用程序选择适当的资源。</p>
 </div>
+
 <div class="paragraph">
-<p>对于稳定业务，推荐您选择包年包月的计费模式，购买时长越久越划算；
-对于突发性业务高峰，您可以选择按量计费的计费模式，随时开通/销毁计算实例，按实例的实际使用量付费。计费精确到秒，最大程度降低成本。</p>
+	<p>对于稳定业务，推荐您选择包年包月的计费模式，购买时长越久越划算；对于突发性业务高峰，您可以选择按量计费的计费模式，随时开通/销毁计算实例，按实例的实际使用量付费。计费精确到秒，最大程度降低成本。</p>
 </div>
+
 <div class="sect1">
-<h2 id="INSTANCETYPE">实例类型</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>腾讯云实例族可分为以下类型：</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="#S">标准型实例族</a></dt>
-<dd>
-<p>均衡的计算、内存和网络资源，可满足大多数场景下的应用资源需求</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#S4">标准型 S4</a> <a href="#SN3ne">标准网络优化型 SN3ne</a> <a href="#S3">标准型 S3</a> <a href="#SA1">标准型 SA1</a> <a href="#S2ne">标准网络优化型 S2ne</a>  <a href="#S2">标准型 S2</a> <a href="#S1">标准型 S1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#M">内存型实例族</a></dt>
-<dd>
-<p>具有大内存的特点，适合高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#M4">内存型 M4</a> <a href="#M3">内存型 M3</a> <a href="#M2">内存型 M2</a> <a href="#M1">内存型 M1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#I">高 IO 型实例族</a></dt>
-<dd>
-<p>具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等 I/O 密集型应用</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#I3">高 IO 型 I3</a> <a href="#I2">高 IO 型 I2</a> <a href="#I1">高 IO 型 I1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#D">大数据型实例族</a></dt>
-<dd>
-<p>搭载海量存储资源，具有高吞吐特点，适合 Hadoop 分布式计算、海量日志处理、分布式文件系统和大型数据仓库等吞吐密集型应用</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#D1">大数据型 D1</a></p>
-</dd>
-<dt class="hdlist1"><a href="#C">计算型实例族</a></dt>
-<dd>
-<p>搭载 3.2GHz 基准主频，具有最高单核计算性能。适合批处理、高性能计算和大型游戏服务器等计算密集型应用</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#CN3">计算型 CN3</a> <a href="#C3">计算型 C3</a>  <a href="#C2">计算型 C2</a></p>
-</dd>
-<dt class="hdlist1"><a href="#OTHER">异构计算实例族</a></dt>
-<dd>
-<p>搭载 GPU、FPGA 等异构硬件，具有实时高速的并行计算和浮点计算能力，适合于深度学习、科学计算、视频编解码和图形工作站等高性能应用</p>
-</dd>
-<dt class="hdlist1"><a href="#B">批量型实例族</a></dt>
-<dd>
-<p>具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a href="#BC1">批量计算型 BC1</a>  <a href="#BS1">批量通用型 BS1</a></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_名词解释">名词解释</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>网络收发包：实例每秒最多可以处理的网络数据包数量（包括收发包两个方向，不区分内外网流量）</p>
-</li>
-<li>
-<p>内网带宽能力：实例内网每秒所能传输的最大数据量（bit）</p>
-</li>
-<li>
-<p>多队列技术：虚拟网卡支持多个收发包队列，每个队列中的数据包可同时由不同的 CPU 进行收发处理</p>
-</li>
-<li>
-<p>队列数：每个虚拟网卡支持的收发包队列的数量（N 队列表示同时支持 N 个收队列与 N 个发队列）</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_实例限制">实例限制</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>在一个区域中可以启动的实例总数存在限制，有关限制的更多信息，请参阅  <a href="https://cloud.tencent.com/document/product/213/2664">CVM 实例购买限制</a>。</p>
-</li>
-<li>
-<p>实例的系统盘和数据盘挂载限制：为了保证磁盘的 IO 性能体验，腾讯云对于随实例购买的数据盘有的大小和类型限制，请参考对应实例族的磁盘搭配模块；必要时您可以通过购买独立云硬盘来规避实例的磁盘限制。</p>
-</li>
-<li>
-<p>请注意实例规格对应的内网带宽能力，该指标为对应规格实例最大内网带宽上限，CVM 内网流量超限后，实例内网可能出现随机丢包。</p>
-</li>
-<li>
-<p>各个地域可供售卖的实例规格不一定完全相同，部分配置可能售罄，请以实际购买页上的信息为准。</p>
-</li>
-<li>
-<p>全文中的网络收发包为纯网络转发测试场景下数据，测试方法可参考 <a href="https://cloud.tencent.com/document/product/213/11460">网络性能测试</a>。业务场景下的性能数据，务必实测之后再预估容量。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>根据您的业务场景，可以分为以下实例族。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="S">标准型实例族</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>标准型实例是计算、内存和网络资源的均衡，可满足大多数场景下的应用资源需求。</p>
-</div>
-<table class="tableblock frame-none grid-all spread custom-style">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
+	<h2 id="INSTANCETYPE">实例类型</h2>
+	<div class="sectionbody">
+		<div class="paragraph">
+			<p>腾讯云实例族可分为以下类型：</p>
+		</div>
+		<div class="dlist">
+<table>
 <tr>
-<td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="S4">标准型 S4</h3>
-<div class="paragraph">
-<p>标准型 S4 实例是最新一代的标准型实例，此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
-</div>
-<div class="paragraph">
-<p>标准型 S4 实例采用至强®处理器 Skylake 全新处理器，内存采用最新 DDR4，默认网络优化，最高内网收发能力达600万pps，最高内网带宽可支持25Gbps。</p>
-</div>
-<div class="sect3">
-<h4 id="_实例特点">实例特点</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>2.4GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
-</li>
-<li>
-<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
-</li>
-<li>
-<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
-</li>
-<li>
-<p>更大实例规格，S4.18XLARGE228，提供72 vCPU 和228GB内存</p>
-</li>
-<li>
-<p>处理器与内存配比为1:2，1:4</p>
-</li>
-<li>
-<p>最高可支持25Gbps内网带宽，超高网络收发包能力，满足极高的内网传输需求</p>
-</li>
-<li>
-<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
-</li>
+<th style="width: 18%;">类型</th>
+<th style="width: 25%;">子类型</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="#S">标准型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#S4">标准型 S4</a> </li>
+	<li><a href="#SN3ne">标准网络优化型 SN3ne</a> </li>
+	<li><a href="#S3">标准型 S3</a> </li>
+	<li><a href="#SA1">标准型 SA1</a> </li>
+	<li><a href="#S2ne">标准网络优化型 S2ne</a> </li>
+	<li><a href="#S2">标准型 S2</a> </li>
+	<li><a href="#S1">标准型 S1</a></li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_使用场景">使用场景</h4>
-<div class="paragraph">
-<p>标准型 S4 实例可应用于以下场景：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>各种类型和规模的企业级应用</p>
-</li>
-<li>
-<p>中小型数据库系统、缓存、搜索集群</p>
-</li>
-<li>
-<p>计算集群、依赖内存的数据处理</p>
-</li>
-<li>
-<p>高网络包收发场景，如视频弹幕、直播、游戏等</p>
-</li>
+</td>
+<td>均衡的计算、内存和网络资源，可满足大多数场景下的应用资源需求</td>
+</tr>
+<tr>
+<td><a href="#M">内存型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#M4">内存型 M4</a> </li>
+	<li><a href="#M3">内存型 M3</a> </li>
+	<li><a href="#M2">内存型 M2</a> </li>
+	<li><a href="#M1">内存型 M1</a></li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_实例要求">实例要求</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>S4实例可以用作包年包月实例和按量计费实例。</p>
-</li>
-<li>
-<p>仅支持在私有网络中启动 S4 实例。</p>
-</li>
-<li>
-<p>S4 实例支持购买配置，请参阅下侧实例规格。确保您选择的 S4 实例大小达到您的操作系统和应用程序的最低CPU内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如 Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
-</li>
+</td>
+<td>具有大内存的特点，适合高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</td>
+</tr>
+<tr>
+<td><a href="#I">高 IO 型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#I3">高 IO 型 I3</a> </li>
+	<li><a href="#I2">高 IO 型 I2</a> </li>
+	<li><a href="#I1">高 IO 型 I1</a></li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+</td>
+<td>具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等 I/O 密集型应用</td>
+</tr>
+<tr>
+<td><a href="#D">大数据型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+<li><a href="#D2">大数据型 D2</a></li>
+<li><a href="#D1">大数据型 D1</a></li>
+</ul>
+</td>
+<td>搭载海量存储资源，具有高吞吐特点，适合 Hadoop 分布式计算、海量日志处理、分布式文件系统和大型数据仓库等吞吐密集型应用</td>
+</tr>
+<tr>
+<td><a href="#C">计算型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#CN3">计算型 CN3</a> </li>
+	<li><a href="#C3">计算型 C3</a> </li>
+	<li><a href="#C2">计算型 C2</a></li>
+</ul>
+</td>
+<td>搭载 3.2GHz 基准主频，具有最高单核计算性能。适合批处理、高性能计算和大型游戏服务器等计算密集型应用</td>
+</tr>
+<tr>
+<td><a href="#OTHER">异构计算实例族</a></td>
+<td>-</td>
+<td>搭载 GPU、FPGA 等异构硬件，具有实时高速的并行计算和浮点计算能力，适合于深度学习、科学计算、视频编解码和图形工作站等高性能应用</td>
+</tr>
+<tr>
+<td><a href="#B">批量型实例族</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#BC1">批量计算型 BC1</a> </li>
+	<li><a href="#BS1">批量通用型 BS1</a></li>
+</ul>
+</td>
+<td>具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用</td>
+</tr>
+<tr>
+<td><a href="#CPM2">黑石物理服务器2.0</a></td>
+<td>
+<ul style="margin-bottom: 0;">
+	<li><a href="#BMS4">标准型 BMS4</a>  </li>
+	<li><a href="#BMD2">大数据型 BMD2</a></li>
+</ul>
+</td>
+<td>黑石物理服务器2.0是基于腾讯云最新虚拟化技术研发的一款拥有超高性能裸金属云服务器。兼具云服务器的灵活弹性和物理机的高稳定、强劲的计算性能；完全无缝和腾讯云全产品融合</td>
+</tr>
+</table>
 
 </div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>规格</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>vCPU</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>内存
-（GB）</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>网络
-收发包
-(pps)</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>队列数</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>内网
-带宽能力
-（Gbps）</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>主频</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>备注</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.SMALL1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>25万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.SMALL2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>25万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.SMALL4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>25万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.MEDIUM4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>30万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.MEDIUM8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>30万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.LARGE8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>50万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.LARGE16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>50万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>1.5</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.2XLARGE16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>80万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>3.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.2XLARGE32</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>32</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>80万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>3.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.4XLARGE32</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>32</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>150万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>6.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.4XLARGE64</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>64</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>150万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>4</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>6.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.6XLARGE48</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>24</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>48</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>200万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>6</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>S4.6XLARGE96</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>24</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>96</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>200万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>6</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>8.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.4GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
+</div>
+</div>
+<div class="sect1">
+	<h2 id="_名词解释">名词解释</h2>
+	<div class="sectionbody">
+		<div class="ulist">
+			<ul>
+				<li>
+					<p>网络收发包：实例每秒最多可以处理的网络数据包数量（包括收发包两个方向，不区分内外网流量）</p>
+				</li>
+				<li>
+					<p><a href="https://cloud.tencent.com/document/product/213/5225">内网</a> 带宽能力：实例内网每秒所能传输的最大数据量（bit）</p>
+				</li>
+				<li>
+					<p>多队列技术：虚拟网卡支持多个收发包队列，每个队列中的数据包可同时由不同的 CPU 进行收发处理</p>
+				</li>
+				<li>
+					<p>队列数：每个虚拟网卡支持的收发包队列的数量（N 队列表示同时支持 N 个收队列与 N 个发队列）</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="sect1">
+	<h2 id="_实例限制">实例限制</h2>
+	<div class="sectionbody">
+		<div class="ulist">
+			<ul>
+				<li>
+					<p>在一个区域中可以启动的实例总数存在限制，有关限制的更多信息，请参阅  <a href="https://cloud.tencent.com/document/product/213/2664">CVM 实例购买限制</a>。</p>
+				</li>
+				<li>
+					<p>实例的系统盘和数据盘挂载限制：为了保证磁盘的 IO 性能体验，腾讯云对于随实例购买的数据盘有的大小和类型限制，请参考对应实例族的磁盘搭配模块；必要时您可以通过购买独立云硬盘来规避实例的磁盘限制。</p>
+				</li>
+				<li>
+					<p>请注意实例规格对应的内网带宽能力，该指标为对应规格实例最大内网带宽上限，CVM 内网流量超限后，实例内网可能出现随机丢包。</p>
+				</li>
+				<li>
+					<p>各个地域可供售卖的实例规格不一定完全相同，部分配置可能售罄，请以实际购买页上的信息为准。</p>
+				</li>
+				<li>
+					<p>全文中的网络收发包为纯网络转发测试场景下数据，测试方法可参考 <a href="https://cloud.tencent.com/document/product/213/11460">网络性能测试</a>。业务场景下的性能数据，务必实测之后再预估容量。</p>
+				</li>
+			</ul>
+		</div>
+		<div class="paragraph">
+			<p>根据您的业务场景，可以分为以下实例族。</p>
+		</div>
+	</div>
+</div>
+
+<div class="sect1">
+	<h2 id="S">标准型实例族</h2>
+		<div class="sectionbody">
+			<div class="paragraph">
+				<p>标准型实例是计算、内存和网络资源的均衡，可满足大多数场景下的应用资源需求。</p>
+			</div>
+			<table class="tableblock frame-none grid-all spread custom-style">
+				<colgroup>
+					<col style="width: 100%;">
+				</colgroup>
+				<tbody>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<div class="sect2">
+									<h3 id="S4">标准型 S4</h3>
+									<div class="paragraph">
+										<p>标准型 S4 实例是最新一代的标准型实例，此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
+									</div>
+									<div class="paragraph">
+										<p>标准型 S4 实例采用至强®处理器 Skylake 全新处理器，内存采用最新 DDR4，默认网络优化，最高内网收发能力达600万pps，最高内网带宽可支持25Gbps。</p>
+									</div>
+									<div class="sect3">
+										<h4 id="_实例特点">实例特点</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+													<p>2.4GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
+												</li>
+												<li>
+													<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+												</li>
+												<li>
+													<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
+												</li>
+												<li>
+													<p>更大实例规格，S4.18XLARGE228，提供72vCPU 和228GB内存</p>
+												</li>
+												<li>
+													<p>处理器与内存配比为1:2，1:4</p>
+												</li>
+												<li>
+													<p>最高可支持25Gbps内网带宽，超高网络收发包能力，满足极高的内网传输需求</p>
+												</li>
+												<li>
+													<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="_使用场景">使用场景</h4>
+										<div class="paragraph">
+											<p>标准型 S4 实例可应用于以下场景：</p>
+										</div>
+										<div class="ulist">
+											<ul>
+												<li>
+													<p>各种类型和规模的企业级应用</p>
+												</li>
+												<li>
+													<p>中小型数据库系统、缓存、搜索集群</p>
+												</li>
+												<li>
+													<p>计算集群、依赖内存的数据处理</p>
+												</li>
+												<li>
+													<p>高网络包收发场景，如视频弹幕、直播、游戏等</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="_实例要求">实例要求</h4>
+										<div class="ulist">
+											<ul>
+												<li>
+													<p>S4 实例可以用作包年包月实例和按量计费实例。</p>
+												</li>
+												<li>
+													<p>仅支持在私有网络中启动 S4 实例。</p>
+												</li>
+												<li>
+													<p>S4 实例支持购买配置，请参阅下侧实例规格。确保您选择的 S4 实例大小达到您的操作系统和应用程序的最低 CPU 内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如 Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="sect3">
+										<h4 id="__a_href_instancetype_回到顶部_a">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tableblock halign-left valign-top">
+							<div>
+								<table class="tableblock frame-all grid-all spread">
+									<colgroup>
+										<col style="width: 20%;">
+										<col style="width: 10%;">
+										<col style="width: 10%;">
+										<col style="width: 10%;">
+										<col style="width: 10%;">
+										<col style="width: 10%;">
+										<col style="width: 10%;">
+										<col style="width: 20%;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>规格</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>vCPU</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>内存（GB）</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>网络收发包（pps）</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>队列数</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>内网带宽能力（Gbps）</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>主频</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>备注</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S4.SMALL1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>25万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1.5</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2.4GHz</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>-</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S4.SMALL2</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>25万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1.5</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2.4GHz</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>-</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S4.SMALL4</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>4</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>25万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1.5</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2.4GHz</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>-</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S4.MEDIUM4</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>4</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>30万</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>1.5</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>2.4GHz</p>
+													</div>
+												</div>
+											</td>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>-</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top">
+												<div>
+													<div class="paragraph">
+														<p>S4.MEDIUM8</p>
+													</div>
+												</div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>30万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>1.5</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+											</tr>
+											<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.LARGE8</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>4</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>50万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>1.5</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.LARGE16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>4</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>50万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>1.5</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.2XLARGE16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>80万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>3.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.2XLARGE32</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>32</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>80万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>3.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.4XLARGE32</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>32</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>150万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>4</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>6.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.4XLARGE64</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>16</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>64</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>150万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>4</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>6.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.6XLARGE48</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>24</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>48</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>200万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>6</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>S4.6XLARGE96</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>24</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>96</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>200万</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>6</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>8.0</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>2.4GHz</p>
+											</div></div></td>
+											<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+											<p>-</p>
+											</div></div></td>
+										</tr>
+										<tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>S4.8XLARGE64</p>
 </div></div></td>
@@ -803,7 +1007,7 @@
 <p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
 </li>
 <li>
-<p>更大实例规格，SN3ne.18XLARGE228，提供72 vCPU 和228GB内存</p>
+<p>更大实例规格，SN3ne.18XLARGE228，提供72vCPU 和228GB内存</p>
 </li>
 <li>
 <p>处理器与内存配比为1:2，1:4</p>
@@ -853,7 +1057,7 @@
 <p>仅支持在私有网络中启动 SN3ne 实例。</p>
 </li>
 <li>
-<p>SN3ne 实例支持购买配置，请参阅下方实例规格。确保您选择的 SN3ne 实例大小达到您的操作系统和应用程序的最低CPU内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如，Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
+<p>SN3ne 实例支持购买配置，请参阅下方实例规格。确保您选择的 SN3ne 实例大小达到您的操作系统和应用程序的最低 CPU 内存要求。在许多使用案例中，带有消耗大量内存和 CPU 资源的图形用户界面的操作系统（例如 Windows）可能需要更大的实例大小。随着您的工作负载对内存和 CPU 的需求随着时间增加，您可以扩展到更高的配置或选用其他类型实例。</p>
 </li>
 </ul>
 </div>
@@ -1393,7 +1597,7 @@
 <p>标准型 S3 实例是较新一代的标准型实例，此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
 </div>
 <div class="paragraph">
-<p>标准型 S3 实例采用至强®处理器Skylake全新处理器，内存采用最新DDR4，最高内网带宽可支持10Gbps。</p>
+<p>标准型 S3 实例采用至强®处理器 Skylake 全新处理器，内存采用最新 DDR4，最高内网带宽可支持10Gbps。</p>
 </div>
 <div class="sect3">
 <h4 id="_实例特点_3">实例特点</h4>
@@ -1403,10 +1607,10 @@
 <p>2.5GHz Intel® Xeon® Skylake 6133 处理器，计算性能稳定</p>
 </li>
 <li>
-<p>最新一代六通道 DDR4 内存，内存带宽达 2666 MT/s</p>
+<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
 </li>
 <li>
-<p>更大实例规格，S3.20XLARGE320，提供 80 vCPU 和 320 GB内存</p>
+<p>更大实例规格，S3.20XLARGE320，提供80vCPU 和320GB内存</p>
 </li>
 <li>
 <p>处理器与内存配比为1:2，1:4</p>
@@ -2091,14 +2295,14 @@
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
 <h3 id="SA1">标准型 SA1</h3>
 <div class="paragraph">
-<p>标准型 SA1 实例是国内首家采用 AMD EPYC™处理器的实例，提供多种规格，具有超高性价比，确保您的工作负载获得业界领先的性价比。此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
+<p>标准型 SA1 实例是采用 AMD EPYC™处理器的实例，提供多种规格，具有超高性价比，确保您的工作负载获得业界领先的性价比。此实例提供了平衡的计算、内存和网络资源，是很多应用程序的最佳选择。</p>
 </div>
 <div class="sect3">
 <h4 id="_实例特点_4">实例特点</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>2.0GHz AMD EPYC™ 7551 处理器，Turbo频率2.55GHz，计算性能稳定</p>
+<p>2.0GHz AMD EPYC™ 7551 处理器，Turbo 频率2.55GHz，计算性能稳定</p>
 </li>
 <li>
 <p>最新一代八通道 DDR4 内存，内存带宽达2666MT/s</p>
@@ -2501,13 +2705,8 @@
 <h3 id="S2ne">标准网络优化型 S2ne</h3>
 <div class="paragraph">
 <p>标准网络优化型 S2ne 实例是高网络收发包能力应用的最佳选择，最高提供每秒数百万次网络收发能力。建议用于大型游戏服务器、视频、直播等高网络 PPS 需求场景。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
-</li>
-</ul>
+<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
 </div>
 <div class="sect3">
 <h4 id="_实例特点_5">实例特点</h4>
@@ -3644,7 +3843,7 @@
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
 <h3 id="S1">标准型 S1</h3>
 <div class="paragraph">
-<p>系列1的标准机型 S1 是覆盖低核到大核的虚拟机类型，满足用户灵活选择配置的需求，具备价格适中和配置灵活可选的特点。数据盘可搭配本地盘、普通云盘和 SSD 云盘等不同类型（具体可能随硬件规格而不同）。</p>
+<p>系列1的标准机型 S1 是覆盖低核到大核的云服务器类型，满足用户灵活选择配置的需求，具备价格适中和配置灵活可选的特点。数据盘可搭配本地盘、普通云盘和 SSD 云盘等不同类型（具体可能随硬件规格而不同）。</p>
 </div>
 <div class="sect3">
 <h4 id="_实例特点_7">实例特点</h4>
@@ -4319,6 +4518,7 @@
 </table>
 </div>
 </div>
+
 <div class="sect1">
 <h2 id="M">内存型实例族</h2>
 <div class="sectionbody">
@@ -4350,7 +4550,7 @@
 <p>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </li>
 <li>
-<p>基因计算等自行搭建 hadoop 集群或 redis 的用户</p>
+<p>基因计算等自行搭建 Hadoop 集群或 Redis 的用户</p>
 </li>
 <li>
 <p>高网络包收发场景，如视频弹幕、直播、游戏等</p>
@@ -4372,7 +4572,7 @@
 <p>最新一代六通道 DDR4 内存， 带宽达2666MT/s</p>
 </li>
 <li>
-<p>更大的实例规格，M4.16XLARGE512，提供 64 vCPU 和512GB内存</p>
+<p>更大的实例规格，M4.16XLARGE512，提供64vCPU 和512GB内存</p>
 </li>
 <li>
 <p>处理器与内存配比为1:8，部分1:12</p>
@@ -4794,7 +4994,7 @@
 <p>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</p>
 </li>
 <li>
-<p>基因计算等自行搭建 hadoop 集群或 redis 的用户</p>
+<p>基因计算等自行搭建 Hadoop 集群或 Redis 的用户</p>
 </li>
 </ul>
 </div>
@@ -4810,7 +5010,7 @@
 <p>最新一代六通道 DDR4 内存， 带宽达2666MT/s</p>
 </li>
 <li>
-<p>更大的实例规格，M3.16XLARGE512，提供64 vCPU和512GB内存</p>
+<p>更大的实例规格，M3.16XLARGE512，提供64vCPU 和512GB内存</p>
 </li>
 <li>
 <p>处理器与内存配比为1:8，部分1:12</p>
@@ -5100,32 +5300,6 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>M3.6XLARGE256</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>24</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>256</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>120万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>16</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>3.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>2.5GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>M3.8XLARGE256</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -5222,8 +5396,11 @@
 <h4 id="_使用场景_10">使用场景</h4>
 <div class="paragraph">
 <p>它们非常适用于下列情况：
-- 高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用
-- 基因计算等自行搭建 Hadoop 集群或 Redis 的用户</p>
+<ul>
+<li>高性能数据库、分布式内存缓存等需要大量的内存操作、查找和计算的应用</li>
+<li>基因计算等自行搭建 Hadoop 集群或 Redis 的用户</li>
+</ul>
+</p>
 </div>
 </div>
 <div class="sect3">
@@ -5234,7 +5411,7 @@
 <p>2.4GHz Intel® Xeon® E5-2680v4 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>最大可提供448GB内存售卖，M2.14XLARGE448，提供 56 vCPU 和448GB内存</p>
+<p>最大可提供448GB内存售卖，M2.14XLARGE448，提供56vCPU 和448GB内存</p>
 </li>
 <li>
 <p>处理器与内存配比为1:8</p>
@@ -5923,6 +6100,7 @@
 </table>
 </div>
 </div>
+
 <div class="sect1">
 <h2 id="I">高 IO 型实例族</h2>
 <div class="sectionbody">
@@ -5942,13 +6120,8 @@
 </div>
 <div class="paragraph">
 <p>与 I2 实例相比，I3 实例提供更便宜且更密集的存储，能够为每个 CPU 核心提供更高的 IOPS 和更多的内网带宽</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
-</li>
-</ul>
+<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
 </div>
 <div class="sect3">
 <h4 id="_使用场景_12">使用场景</h4>
@@ -5958,7 +6131,7 @@
 <p>高性能数据库，NoSQL 数据库（例如 MongoDB）、群集化数据库</p>
 </li>
 <li>
-<p>联机事务处理 (OLTP) 系统、Elastic Search 搜索等需要低时延的 I/O 密集型应用。</p>
+<p>联机事务处理（OLTP）系统、Elastic Search 搜索等需要低时延的 I/O 密集型应用。</p>
 </li>
 </ul>
 </div>
@@ -6244,7 +6417,7 @@
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
 <h3 id="I2">高 IO 型 I2</h3>
 <div class="paragraph">
-<p>高 IO 型 I2 实例经过了优化，可以向应用程序提供每秒上万次低延迟性随机 I/O 操作 (IOPS)，是高 IOPS 应用场景的最佳选择。</p>
+<p>高 IO 型 I2 实例经过了优化，可以向应用程序提供每秒上万次低延迟性随机 I/O 操作（OLTP），是高 IOPS 应用场景的最佳选择。</p>
 </div>
 <div class="paragraph">
 <p>高 IO 型 I2 实例采用 Intel Broadwell 处理器，搭配 DDR4 内存。</p>
@@ -6756,9 +6929,9 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="I1">高IO型 I1</h3>
+<h3 id="I1">高 IO 型 I1</h3>
 <div class="paragraph">
-<p>高 IO 机型 I1 是搭载高性能 SSD 本地盘的虚拟机，可以覆盖对磁盘读写和时延要求高的用户需求。</p>
+<p>高 IO 机型 I1 是搭载高性能 SSD 本地盘的云服务器，可以覆盖对磁盘读写和时延要求高的用户需求。</p>
 </div>
 <div class="sect3">
 <h4 id="_实例特点_14">实例特点</h4>
@@ -6784,7 +6957,7 @@
 <p>高性能数据库，NoSQL 数据库（例如 MongoDB）、群集化数据库</p>
 </li>
 <li>
-<p>联机事务处理 (OLTP) 系统、Elastic Search 搜索等需要低时延的 I/O 密集型应用。</p>
+<p>联机事务处理（OLTP）系统、Elastic Search 搜索等需要低时延的 I/O 密集型应用。</p>
 </li>
 </ul>
 </div>
@@ -6794,7 +6967,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>高IO型 I1 实例可以用作包年包月实例和按量计费实例。</p>
+<p>高 IO 型 I1 实例可以用作包年包月实例和按量计费实例。</p>
 </li>
 <li>
 <p>支持在基础网络和私有网络中启动 I1 实例。</p>
@@ -7278,6 +7451,7 @@
 </table>
 </div>
 </div>
+
 <div class="sect1">
 <h2 id="D">大数据型实例族</h2>
 <div class="sectionbody">
@@ -7335,7 +7509,7 @@
 </div>
 </li>
 <li>
-<p>更大的实例规格，D2.19XLARGE320，最高提供76 vCPU和320GB内存</p>
+<p>更大的实例规格，D2.19XLARGE320，最高提供76vCPU 和320GB内存</p>
 </li>
 <li>
 <p>本地存储单价低至 S2 的1/10，与 IDC 自建 Hadoop 集群拥有相近的总成本</p>
@@ -7867,6 +8041,7 @@
 </table>
 </div>
 </div>
+
 <div class="sect1">
 <h2 id="C">计算型实例族</h2>
 <div class="sectionbody">
@@ -8545,32 +8720,6 @@
 <p>-</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>C3.12XLARGE160</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>48</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>160</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>100万</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>12</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>10.0</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>3.2GHz</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>-</p>
-</div></div></td>
-</tr>
 </tbody>
 </table></div></td>
 </tr>
@@ -8907,6 +9056,7 @@
 </table>
 </div>
 </div>
+
 <div class="sect1">
 <h2 id="OTHER">异构计算实例族</h2>
 <div class="sectionbody">
@@ -8925,94 +9075,95 @@
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="B">批量型实例族</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>批量型实例具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-none grid-all spread custom-style">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="sect2">
-<h3 id="BC1">批量计算型 BC1</h3>
-<div class="paragraph">
-<p>批量计算型 BC1 实例是一款超高性价比按核时计费的实例，计费精确到秒，刊例价低至0.1元/核时。使用灵活，即买即用，用完销毁，支持多种规格，可满足渲染、基因分析、晶体药学等计算密集型用户短时频繁使用超大规模计算节点诉求。</p>
-</div>
-<div class="sect3">
-<h4 id="_使用场景_20">使用场景</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>视频 / 影视渲染</p>
-</li>
-<li>
-<p>基因组学、晶体药学等</p>
-</li>
-<li>
-<p>HPC 计算密集型业务，如气象预测、天文学等</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_实例特点_20">实例特点</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>高性价比，所有实例类型中相同规格小时单价最低</p>
-</li>
-<li>
-<p>处理器与内存配比为1:4</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_实例要求_20">实例要求</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>批量计算型 BC1 实例仅支持按量计费方式启动。</p>
-</li>
-<li>
-<p>支持在基础网络和私有网络中启动 BC1 实例。</p>
-</li>
-<li>
-<p>BC1 实例支持购买配置，请参阅下方实例规格。</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
 
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
+<div class="sect1">
+	<h2 id="B">批量型实例族</h2>
+	<div class="sectionbody">
+		<div class="paragraph">
+			<p>批量型实例具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用。</p>
+			<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
+		</div>
+		<table class="tableblock frame-none grid-all spread custom-style">
+			<colgroup>
+				<col style="width: 100%;">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td class="tableblock halign-left valign-top">
+						<div>
+							<div class="sect2">
+								<h3 id="BC1">批量计算型 BC1</h3>
+								<div class="paragraph">
+									<p>批量计算型 BC1 实例是一款超高性价比按核时计费的实例，计费精确到秒，刊例价低至0.1元/核时。使用灵活，即买即用，用完销毁，支持多种规格，可满足渲染、基因分析、晶体药学等计算密集型用户短时频繁使用超大规模计算节点诉求。</p>
+								</div>
+								<div class="sect3">
+									<h4 id="_使用场景_20">使用场景</h4>
+									<div class="ulist">
+										<ul>
+											<li>
+												<p>视频 / 影视渲染</p>
+											</li>
+											<li>
+												<p>基因组学、晶体药学等</p>
+											</li>
+											<li>
+												<p>HPC 计算密集型业务，如气象预测、天文学等</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="sect3">
+									<h4 id="_实例特点_20">实例特点</h4>
+									<div class="ulist">
+										<ul>
+											<li>
+												<p>高性价比，所有实例类型中相同规格小时单价最低</p>
+											</li>
+											<li>
+												<p>处理器与内存配比为1:4</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="sect3">
+									<h4 id="_实例要求_20">实例要求</h4>
+									<div class="ulist">
+										<ul>
+											<li>
+												<p>批量计算型 BC1 实例仅支持按量计费方式启动。</p>
+											</li>
+											<li>
+												<p>支持在基础网络和私有网络中启动 BC1 实例。</p>
+											</li>
+											<li>
+												<p>BC1 实例支持购买配置，请参阅下方实例规格。</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="sect3">
+									<h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableblock halign-left valign-top">
+						<div>
+							<table class="tableblock frame-all grid-all spread">
+								<colgroup>
+									<col style="width: 20%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 20%;">
+								</colgroup>
+								<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>规格</p>
@@ -9127,6 +9278,7 @@
 </tr>
 </tbody>
 </table>
+
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
 <col style="width: 100%;">
@@ -9318,3 +9470,281 @@
 </table>
 </div>
 </div>
+<div class="sect1">
+	<h2 id="CPM2">黑石物理服务器2.0</h2>
+	<div class="sectionbody">
+	<div class="paragraph">
+<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例暂时处于白名单开放，请找您的售前经理进行实例购买权限开通。</p>
+</blockquote>
+</div>
+		<table class="tableblock frame-none grid-all spread custom-style">
+			<colgroup>
+				<col style="width: 100%;">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td class="tableblock halign-left valign-top">
+						<div>
+							<div class="sect2">
+								<h3 id="BMS4">标准型 BMS4</h3>
+								<div class="paragraph">
+									<p>标准型 BMS4 实例采用至强®处理器 Skylake 全新处理器，内存采用最新 DDR4，采用腾讯云最新的网络虚拟化技术，内网收发能力达1000万pps，最高内网带宽可支持25Gbps。采用腾讯云最新的计算虚拟化，计算性能无损耗，支持嵌套虚拟化。</p>
+								</div>
+								<div class="sect3">
+									<h4 id="_使用场景_22">使用场景</h4>
+									<div class="ulist">
+									<p>标准型 BMS4 实例可应用于以下场景：</p>
+										<ul>
+							<li>
+								<p>各种类型和规模的企业级应用</p>
+							</li>
+							<li>
+								<p>中大型数据库系统、缓存、搜索集群</p>
+							</li>
+							<li>
+								<p>高网络包收发场景，如视频弹幕、直播、游戏等</p>
+							</li>
+						</ul>
+									</div>
+								</div>
+								<div class="sect3">
+									<h4 id="_实例特点_22">实例特点</h4>
+									<div class="ulist">
+										<ul>
+							<li>
+								<p>2.4 GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
+							</li>
+							<li>
+								<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+							</li>
+							<li>
+								<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
+							</li>
+						</ul>
+									</div>
+								</div>
+								<div class="sect3">
+									<h4 id="__a_href_instancetype_回到顶部_a_20">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableblock halign-left valign-top">
+						<div>
+							<table class="tableblock frame-all grid-all spread">
+								<colgroup>
+									<col style="width: 20%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 10%;">
+									<col style="width: 20%;">
+								</colgroup>
+								<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>规格</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>vCPU</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内存
+（GB）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>网络
+收发包
+(pps)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>队列数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内网
+带宽能力
+（Gbps）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>主频</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>备注</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>BMS4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>80</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>384</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1000万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>25</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.4GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+
+<table class="tableblock frame-none grid-all spread custom-style">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="sect2">
+<h3 id="BMD2">大数据型 BMD2</h3>
+<div class="paragraph">
+<p>大数据型 BMD2 实例是最新一代的大数据型实例，配备搭载高吞吐、海量存储资源，最高可搭载144T SATA HDD 本地存储，采用腾讯云最新网络虚拟化技术， 内网收发能力达1000万pps，最高内网带宽可支持25Gbps。采用腾讯云最新的计算虚拟化，计算性能无损耗，支持嵌套虚拟化。适合 Hadoop 分布式计算、并行数据处理等吞吐密集型业务使用。</p>
+</div>
+
+<div class="sect3">
+	<h4 id="_使用场景_23">使用场景</h4>
+	<div class="ulist">
+<ul>
+<li>
+<p>Hadoop MapReduce/HDFS/Hive/HBase等分布式计算</p>
+</li>
+<li>
+<p>Elasticsearch、日志处理和大型数据仓库等业务场景设计</p>
+</li>
+<li>
+<p>互联网行业、金融行业等有大数据计算与存储分析需求的行业客户，进行海量数据存储和计算的业务场景</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="sect3">
+<h4 id="_实例特点_23">实例特点</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>2.4 GHz Intel® Xeon® Skylake 6148 处理器，DDR4 内存</p>
+</li>
+<li>
+<p>实例最高搭载12块12TB本地硬盘，配备最高144TB的基于HDD的本地存储</p>
+</li>
+<li>
+<p>单盘顺序读吞吐能力220+MB/s，顺序写吞吐能力220+MB/s（128KB块大小，32深度）</p>
+</li>
+<li>
+<p>整机吞吐能力最高可达2.8GB/s（128KB块大小，32深度）</p>
+</li>
+<li>
+<p>低至2ms - 5ms读写延时</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_21">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>规格</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>vCPU</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内存
+（GB）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>网络
+收发包
+(pps)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>队列数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内网
+带宽能力
+（Gbps）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>主频</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>备注</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>BMD2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>80</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>384</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1000万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>25</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.4GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+

@@ -16,7 +16,7 @@
 ### 创建安全组
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击【云服务器】，进入云服务器管理页面，在左侧导航栏中，单击【安全组】，进入安全组管理页面。
-![](https://main.qcloudimg.com/raw/5d20200f1a6af447c6c4970d1adeebc6.png)
+![](https://main.qcloudimg.com/raw/df452fec405d26252d03eead48af985a.png)
 2. 单击【新建】，在【模板】中选择模板或自定义，输入安全组的【名称】（例如：my-security-group），选择【所属项目】，选填【备注】，确认后单击【确定】。
 
 
@@ -24,10 +24,10 @@
 [安全组](https://cloud.tencent.com/doc/product/213/500) 是腾讯云提供的实例级别防火墙，可以对云数据库进行入/出流量控制。您可以在购买实例时绑定安全组，也可以购买实例后在控制台绑定安全组。
 >! 目前云数据库 Redis 安全组仅支持**私有网络云数据库**配置。
 
-1. 登录 [控制台](https://console.cloud.tencent.com/redis)。
+1. 登录 [Redis 控制台](https://console.cloud.tencent.com/redis)。
 2. 在实例列表选择需要配置安全组的实例，单击实例名称进入实例详情页。
 3. 在【安全组】页，单击【配置安全组】。
-![](https://main.qcloudimg.com/raw/44e528966e6ee5e556fe169494de09fa.png)
+![](https://main.qcloudimg.com/raw/8396b0a2797acae97fb677ad4c2d5a9b.png)
 4. 选择需要绑定的安全组，单击【确认】，即可完成安全组绑定云数据库的操作。 
 
 ### 删除安全组
