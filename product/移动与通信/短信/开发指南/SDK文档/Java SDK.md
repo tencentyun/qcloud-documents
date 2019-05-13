@@ -354,6 +354,7 @@ try {
 
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
+
 ```java
 import com.github.qcloudsms.TtsVoiceSender;
 import com.github.qcloudsms.TtsVoiceSenderResult;
@@ -386,6 +387,7 @@ try {
 
 - **使用代理**
 部分环境需要使用代理才能上网，可使用 ProxyHTTPClient 来发送请求，示例如下：
+
 ```java
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
@@ -417,7 +419,6 @@ try {
 ```
 
 - **使用连接池**
-
 多个线程可以共用一个连接池发送 API 请求，多线程并发单发短信示例如下：
 
 ```java
