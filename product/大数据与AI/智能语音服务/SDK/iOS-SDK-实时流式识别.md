@@ -81,7 +81,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 
 ## 示例
 ### 使用内置录音器采集语音识别示例
-#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
+#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->*.mm
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
