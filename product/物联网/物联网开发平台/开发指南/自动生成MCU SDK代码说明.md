@@ -39,7 +39,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | ---- | ----------------------- | ------------------------------------------------------------ |
 | 1    | PARSE_THREAD_STACK_SIZE | 串口 AT 解析线程栈大小。                                     |
 | 2    | OS_USED                 | 是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。 |
-| 3    | AUTH_MODE_KEY           | 认证方式，证书认证还是秘钥认证。                             |
+| 3    | AUTH_MODE_KEY           | 认证方式，证书认证还是密钥认证。                             |
 | 4    | DEBUG_DEV_INFO_USED     | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。 |
 
 **2. hal_os.c**
@@ -155,7 +155,7 @@ char sg_device_secret[MAX_SIZE_OF_DEVICE_SERC + 1] = "ttOARy0PjYgzd9OSs4Z3RA==";
 **6. 业务逻辑开发**
 自动生成的代码 data_template_usr_logic.c，已实现数据、事件收发及响应的通用处理逻辑。但是具体的数据处理的业务逻辑需要用户自己根据业务逻辑添加，上下行业务逻辑添加的入口函数分别为 deal_up_stream_user_logic 、deal_down_stream_user_logic。
 
-如果有字符串或 JSON 类型的数据模板，用户需要在函数 update_self_define_value 中完成数据的解析（其他数据类型会根据模板定义自动更新，字符串/json只有你懂你自己哦），可以参考基于场景的示例 light_data_template_sample.c 添加业务处理逻辑。
+如果有字符串或 JSON 类型的数据模板，用户需要在函数 update_self_define_value 中完成数据的解析（其他数据类型会根据模板定义自动更新），可以参考基于场景的示例 light_data_template_sample.c 添加业务处理逻辑。
 
 - **下行业务逻辑实现：**
 
