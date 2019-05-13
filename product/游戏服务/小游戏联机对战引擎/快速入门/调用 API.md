@@ -5,17 +5,17 @@
 const gameInfo = {
   version: 'v1.0',
   // 替换 为控制台上的“游戏ID”
-  gameId: 963136559,
+  gameId: 965779256,
   // 玩家 ID
-  openId: 'openid_123_test',
+  playerId: 'openid_123_test',
   wxAppid: 'wx43c6c54f537cb6de',
   // 替换 为控制台上的“密钥”
-  secretKey: 'PZZMvGNEsJVWQBh03sXXXXXXXXXXX',
+  secretKey: 'BjU3QBZLFxxxxxxxxxxxxxxxxxx',
 };
 
 const config = {
   // 替换 为控制台上的“域名”
-  url: 'access.wxlagame.com',
+  url: '965779256-1.wxlagame.com',
   reconnectMaxTimes: 5,
   reconnectInterval: 1000,
   resendInterval: 1000,
@@ -35,12 +35,12 @@ const room = new Room();
 // 查询玩家自己的房间
 room.getRoomDetail(event => {
   if (event.code !== 0 && event.code !== 20011) {
-    return console.log(event);;
+    return console.log(event);
   }
 
   console.log("查询成功");
 
-  if (event.data.userLocate === 0) {
+  if (event.code === 20011) {
     console.log("玩家不在房间内");
   } else {
     // 玩家已在房间内
