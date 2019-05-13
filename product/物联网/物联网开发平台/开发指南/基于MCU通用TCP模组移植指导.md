@@ -100,7 +100,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 ![](https://main.qcloudimg.com/raw/84cb0bc2e7755fa4c8ee59b72adb972e.png)
 - productID，获取方式如下：
 登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。单击【产品名称】，即可获取。
-![](https://main.qcloudimg.com/raw/96d9250a04d5efb0f689868cb6ab1808.png)
+![](https://main.qcloudimg.com/raw/cc67b7a2d216d74d62f35c524e2e9eb6.png)
 
 证书认证需要获取以下信息：
 - 设备名称和设备证书，获取方式如下：
@@ -108,7 +108,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 ![](https://main.qcloudimg.com/raw/7ba271b64d14b5b13e56f6f80d5ebbee.png)
 - productID，获取方式如下：
 登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。单击【产品名称】，即可获取。
-![](https://main.qcloudimg.com/raw/96d9250a04d5efb0f689868cb6ab1808.png)
+![](https://main.qcloudimg.com/raw/cc67b7a2d216d74d62f35c524e2e9eb6.png)
 >?平台不保存私钥，因此设备的私钥证书只有在设备创建的时候可以下载，之后无法下载。
 
 **3. 设备和平台通信**
