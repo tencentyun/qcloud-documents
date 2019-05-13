@@ -43,9 +43,9 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| ProfileItem | Array | 必填 | 待设置的用户的资料对象数组，数组中每一个对象都包含了 Tag 和 Value。 |
-| Tag | String | 必填 | 指定要设置的资料字段的名称，支持标配资料字段和自定义资料字段的设置，标配资料字段的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)；自定义资料字段的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。 |
-| Value | uint64_t/string/bytes | 必填 | 待设置的资料字段的值，详情可参见：[资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。  |
+| ProfileItem | Array | 必填 | 待设置的用户的资料对象数组，数组中每一个对象都包含了 Tag 和 Value |
+| Tag | String | 必填 | 指定要设置的资料字段的名称，支持标配资料字段和自定义资料字段的设置，标配资料字段的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5),自定义资料字段的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) |
+| Value | String | 必填 | 待设置的资料字段的值，详情可参见：[资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
 
 ### 应答包体示例
 
@@ -62,10 +62,10 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 | 字段 | 类型 | 说明 |
 |---------|---------|---------|
-| ActionStatus | String | 请求处理的结果，“OK”表示处理成功，“FAIL”表示失败。 |
-| ErrorCode | Integer | 错误码。  |
-| ErrorInfo | String  | 详细错误信息。 |
-| ErrorDisplay | String  | 详细的客户端展示信息。 |
+| ActionStatus | String | 请求处理的结果，“OK”表示处理成功，“FAIL”表示失败 |
+| ErrorCode | Number | 错误码  |
+| ErrorInfo | String  | 详细错误信息 |
+| ErrorDisplay | String  | 详细的客户端展示信息 |
 
 
 ### 代码示例 
@@ -196,7 +196,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
 | To_Account | Array | 必填 |需要拉取这些 Identifier 的资料  |
-| TagList | Array | 必填 |指定要拉取的资料对象的名称，支持标配资料和自定义资料的拉取，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)；自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。  |
+| TagList | Array | 必填 |指定要拉取的资料对象的名称，支持标配资料和自定义资料的拉取，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5),自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
 
 
 ### 应答包体示例
@@ -413,19 +413,19 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 | 字段 | 类型 | 说明 |
 |---------|---------|---------|
-| UserProfileItem | Array | 返回的用户资料结构化信息。 |
-| To_Account | String |返回的用户的 Identifier。  |
-| ProfileItem | Array | 返回的用户的资料对象数组，数组中每一个对象都包含了 Tag 和 Value。 |
-| Tag | String | 返回的资料对象的名称，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)；自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。 |
-| Value | uint64_t/string/bytes | 拉取的资料对象的值，详情可参见：[资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。  |
-| ResultCode | Integer | 返回的单个用户的结果，0 表示正确，非 0 表示错误。  |
-| ResultInfo | String | 返回的单个用户的结果详细信息。  |
-| Fail_Account | Array | 返回处理失败的用户列表。  |
-| Invalid_Account | Array | 返回请求包中的非法用户列表。  |
-| ActionStatus | String | 请求处理的结果，“OK”表示处理成功，“FAIL”表示失败。 |
-| ErrorCode | Integer | 错误码。  |
-	| ErrorInfo | String  | 详细错误信息。 |
-| ErrorDisplay | String  | 详细的客户端展示信息。 |
+| UserProfileItem | Array | 返回的用户资料结构化信息 |
+| To_Account | String |返回的用户的 Identifier  |
+| ProfileItem | Array | 返回的用户的资料对象数组，数组中每一个对象都包含了 Tag 和 Value |
+| Tag | String | 返回的资料对象的名称，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5),自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) |
+| Value | String | 拉取的资料对象的值，详情可参见：[资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
+| ResultCode | Number | 返回的单个用户的结果，0表示正确，非0表示错误  |
+| ResultInfo | String | 返回的单个用户的结果详细信息  |
+| Fail_Account | Array | 返回处理失败的用户列表  |
+| Invalid_Account | Array | 返回请求包中的非法用户列表  |
+| ActionStatus | String | 请求处理的结果，“OK”表示处理成功，“FAIL”表示失败 |
+| ErrorCode | Number | 错误码  |
+| ErrorInfo | String  | 详细错误信息 |
+| ErrorDisplay | String  | 详细的客户端展示信息 |
 
 
 ### 代码示例 
@@ -438,7 +438,7 @@ var searchProfileByUserId = function () {
         return;
     }
     if (webim.Tool.trimStr($("#sp_to_account").val()).length == 0) {
-        alert('您输入的用户ID全是空格,请重新输入');
+        alert('您输入的用户 ID 全是空格,请重新输入');
         return;
     }
     var tag_list = [

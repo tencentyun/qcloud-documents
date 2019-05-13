@@ -11,7 +11,7 @@ sessMap["GROUPID"].unread();
 sessMap["C2CID"].unread();
 ```
 
-**示例： **
+**示例：**
 
 ```
 //更新其他聊天对象的未读消息数
@@ -26,8 +26,8 @@ updateSessDiv(sess.id(), sess.unread());
 /* function setAutoRead
  *   //设置会设置会话自动已读标记话自动已读上报标志
  * params:
- *   selSess	- webim.Session类型, 当前会话
- *   isOn	- boolean, 将selSess的自动已读消息标志改为isOn，同时是否上报当前会话已读消息
+ *   selSess	- webim.Session 类型, 当前会话
+ *   isOn	- boolean, 是否上报当前会话已读消息，同时将 selSess 的自动已读消息标志改为 isOn
  *   isResetAll	- boolean，是否重置所有会话的自动已读标志
  * return:
  *   (无)
