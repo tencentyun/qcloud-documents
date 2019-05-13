@@ -70,7 +70,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 1.3 配置之后，单击【确定】即可创建新产品。
 
 **2. 设备侧设备信息配置**
-设备创建完毕后，根据认证方式，将截图4或5的信息赋给示例程序的相应宏，量产产品，需要实现这些信息的生产写入及运行过程的获取，建议对这些信息写入与读取进行加密加扰增加产品安全性。
+设备创建完毕后，根据认证方式，将认证所需要的信息赋给示例程序的相应宏，量产产品，需要实现这些信息的生产写入及运行过程的获取，建议对这些信息写入与读取进行加密加扰增加产品安全性。
 ```
 #ifdef AUTH_MODE_CERT
 	/* 产品名称, 与云端同步设备状态时需要  */
@@ -94,14 +94,31 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 #endif
 ```
 
-![4](https://main.qcloudimg.com/raw/2fdec6255bc64a37b9a02fe93e594d62.jpg)
-![5](https://main.qcloudimg.com/raw/a625ed96a3eecfeb45c77a1fb88818db.jpg)
+密钥认证方式需要获取以下信息：
+- 设备名称和设备密钥，获取方式如下：
+登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。选择【产品名称】 > 【设备列表】>【设备名称】，如下：
+![](https://main.qcloudimg.com/raw/84cb0bc2e7755fa4c8ee59b72adb972e.png)
+- productID，获取方式如下：
+登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。单击【产品名称】，即可获取。
+![](https://main.qcloudimg.com/raw/96d9250a04d5efb0f689868cb6ab1808.png)
+
+证书认证需要获取以下信息：
+- 设备名称和设备证书，获取方式如下：
+登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。选择【产品名称】 > 【设备列表】>【设备名称】
+![](https://main.qcloudimg.com/raw/7ba271b64d14b5b13e56f6f80d5ebbee.png)
+- productID，获取方式如下：
+登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台。单击【产品名称】，即可获取。
+![](https://main.qcloudimg.com/raw/96d9250a04d5efb0f689868cb6ab1808.png)
+>?平台不保存私钥，因此设备的私钥证书只有在设备创建的时候可以下载，之后无法下载。
+
 
 **3. 设备和平台通信**
 
-C-SDK 的 sample 目录 工程目录/qcloud-iot-sdk-embedded-c/samples示例了设备和平台的多种通信协议和应用场景：Coap、Mqtt、Ota、Shadow、GateWay等，各示例的数据流，参阅 [文档中心](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
+C-SDK 的 sample 工程目录`/qcloud-iot-sdk-embedded-c/samples`，示例了设备和平台的多种通信协议和应用场景：Coap、Mqtt、Ota、Shadow、GateWay 等，各示例的数据流，参阅 [文档中心](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
 
 **4. 查看云日志**
 
-设备和云端的交互日志可以在控制台的云日志功能查看，可以看到设备的上下线信息、pulish的消息属性、规则引擎转发情况等，如截图6所示。
-![6](https://main.qcloudimg.com/raw/a28823bca8407a23394531f524c63220.jpg)
+设备和云端的交互日志可以在控制台的云日志功能查看，可以看到设备的上下线信息、pulish 的消息属性、规则引擎转发情况等。
+
+登录 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 控制台，选择【产品名称】>【云日志】，即可查看日志，如下图所示。
+![](https://main.qcloudimg.com/raw/4a1db706a4afe76233fce4c43db9344c.png)
