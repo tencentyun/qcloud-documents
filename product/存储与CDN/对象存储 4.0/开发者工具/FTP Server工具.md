@@ -84,7 +84,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 - append
 - mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
->?FTP Serve 工具暂时不支持断点续传功能。
+>?FTP Server 工具暂时不支持断点续传功能。
 
 <a id="conf"></a>
 ## 配置文件
