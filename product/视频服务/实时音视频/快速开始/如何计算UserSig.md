@@ -8,7 +8,7 @@ UserSig 是腾讯云实时音视频服务（TRTC）会用到的一种“签名�
 
 1. 您的 App 在使用 TRTCSDK 之前，首先要向您的服务器请求 UserSig。
 2. 您的服务器根据 SDKAppID + UserID 计算 UserSig，计算方法和源代码见文章下半部分。
-3. 服务器将计算好的 UserSig 返回给你的 App。
+3. 服务器将计算好的 UserSig 返回给您的 App。
 4. 您的 App 将获得的 UserSig 通过接口函数（TRTCCloud#enterRoom）传递给 TRTCSDK。
 5. TRTCSDK 将 SDKAppID + UserID + UserSig 提交给腾讯云服务器进行校验。
 6. 腾讯云校验 UserSig，确认合法性。
