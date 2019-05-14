@@ -16,21 +16,21 @@ __介绍__
 ### SDK 基础函数
 #### delegate
 
-设置播放回调，见 “TXLivePlayListener.h” 文件中的详细定义。
+设置播放回调，见“TXLivePlayListener.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePlayListener > delegate;
 ```
 ***
 #### videoProcessDelegate
 
-设置视频处理回调，见 “TXVideoCustomProcessDelegate.h” 文件中的详细定义。
+设置视频处理回调，见“TXVideoCustomProcessDelegate.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate;
 ```
 ***
 #### audioRawDataDelegate
 
-设置音频处理回调，见 “TXAudioRawDataDelegate.h” 文件中的详细定义。
+设置音频处理回调，见“TXAudioRawDataDelegate.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate;
 ```
@@ -44,14 +44,14 @@ __介绍__
 ***
 #### config
 
-设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见 “TXLivePlayConfig.h” 文件中的详细定义。
+设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见“TXLivePlayConfig.h”文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePlayConfig * config;
 ```
 ***
 #### recordDelegate
 
-设置短视频录制回调，见 “TXLiveRecordListener.h” 文件中的详细定义。
+设置短视频录制回调，见“TXLiveRecordListener.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate;
 ```
