@@ -1,4 +1,4 @@
-## MLVBLiveRoom
+
 
 __功能__
 
@@ -24,8 +24,8 @@ __介绍__
 
 
 
-### SDK 基础函数
-#### delegate
+## SDK 基础函数
+### delegate
 
 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
 ```
@@ -35,14 +35,14 @@ __介绍__
 >?默认是在 Main Queue 中回调，如果需要自定义回调线程，可使用 delegateQueue。
 
 ***
-#### delegateQueue
+### delegateQueue
 
 设置驱动回调函数的 GCD 队列。
 ```
 @property (nonatomic, copy) dispatch_queue_t delegateQueue
 ```
 ***
-#### sharedInstance
+### sharedInstance
 
 获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
 ```
@@ -57,7 +57,7 @@ __返回__
 
 ***
 
-#### destorySharedInstance
+### destorySharedInstance
 
 销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
 ```
@@ -68,7 +68,7 @@ __返回__
 
 ***
 
-#### loginWithInfo
+### loginWithInfo
 
 登录。
 ```
@@ -84,7 +84,7 @@ __参数__
 
 ***
 
-#### logout
+### logout
 
 登出。
 ```
@@ -94,8 +94,8 @@ __参数__
 ***
 
 
-### 房间相关接口函数
-#### getRoomList
+## 房间相关接口函数
+### getRoomList
 
 获取房间列表。
 ```
@@ -118,7 +118,7 @@ __介绍__
 
 ***
 
-#### getAudienceList
+### getAudienceList
 
 获取观众列表。
 ```
@@ -141,7 +141,7 @@ __介绍__
 
 ***
 
-#### createRoom
+### createRoom
 
 创建房间（主播调用）。
 ```
@@ -164,7 +164,7 @@ __介绍__
 
 ***
 
-#### enterRoom
+### enterRoom
 
 进入房间（观众调用）。
 ```
@@ -187,7 +187,7 @@ __介绍__
 
 ***
 
-#### exitRoom
+### exitRoom
 
 离开房间。
 ```
@@ -202,7 +202,7 @@ __参数__
 
 ***
 
-#### setCustomInfo
+### setCustomInfo
 
 设置当前房间的扩展信息字段。
 ```
@@ -229,7 +229,7 @@ __介绍__
 
 ***
 
-#### getCustomInfo
+### getCustomInfo
 
 获取当前房间的扩展信息字段。
 ```
@@ -245,8 +245,8 @@ __参数__
 ***
 
 
-### 主播和观众连麦
-#### requestJoinAnchor
+## 主播和观众连麦
+### requestJoinAnchor
 
 观众请求连麦。
 ```
@@ -275,7 +275,7 @@ __介绍__
 
 ***
 
-#### responseJoinAnchor
+### responseJoinAnchor
 
 主播处理连麦请求。
 ```
@@ -296,7 +296,7 @@ __介绍__
 
 ***
 
-#### joinAnchor
+### joinAnchor
 
 进入连麦状态。
 ```
@@ -315,7 +315,7 @@ __介绍__
 
 ***
 
-#### quitJoinAnchor
+### quitJoinAnchor
 
 观众退出连麦。
 ```
@@ -334,7 +334,7 @@ __介绍__
 
 ***
 
-#### kickoutJoinAnchor
+### kickoutJoinAnchor
 
 主播踢除连麦观众。
 ```
@@ -354,8 +354,8 @@ __介绍__
 ***
 
 
-### 主播跨房间 PK
-#### requestRoomPK
+## 主播跨房间 PK
+### requestRoomPK
 
 请求跨房 PK。
 ```
@@ -381,7 +381,7 @@ __介绍__
 
 ***
 
-#### responseRoomPK
+### responseRoomPK
 
 响应跨房 PK 请求。
 ```
@@ -402,7 +402,7 @@ __介绍__
 
 ***
 
-#### quitRoomPK
+### quitRoomPK
 
 退出跨房 PK。
 ```
@@ -422,8 +422,8 @@ __介绍__
 ***
 
 
-### 视频相关接口函数
-#### startLocalPreview
+## 视频相关接口函数
+### startLocalPreview
 
 开启本地视频的预览画面。
 ```
@@ -439,7 +439,7 @@ __参数__
 
 ***
 
-#### stopLocalPreview
+### stopLocalPreview
 
 停止本地视频采集及预览。
 ```
@@ -448,7 +448,7 @@ __参数__
 
 ***
 
-#### startRemoteView
+### startRemoteView
 
 启动渲染远端视频画面。
 ```
@@ -469,7 +469,7 @@ __参数__
 
 ***
 
-#### stopRemoteView
+### stopRemoteView
 
 停止渲染远端视频画面。
 ```
@@ -484,7 +484,7 @@ __参数__
 
 ***
 
-#### setMirror
+### setMirror
 
 设置观众端镜像效果。
 ```
@@ -508,8 +508,8 @@ setMirror 所影响的是观众端看到的视频效果，如果想要保持观�
 ***
 
 
-### 音频相关接口函数
-#### muteLocalAudio
+## 音频相关接口函数
+### muteLocalAudio
 
 是否屏蔽本地音频。
 ```
@@ -524,7 +524,7 @@ __参数__
 
 ***
 
-#### muteRemoteAudio
+### muteRemoteAudio
 
 设置指定用户是否静音。
 ```
@@ -540,7 +540,7 @@ __参数__
 
 ***
 
-#### muteAllRemoteAudio
+### muteAllRemoteAudio
 
 设置所有远端用户是否静音。
 ```
@@ -556,8 +556,8 @@ __参数__
 ***
 
 
-### 摄像头相关接口函数
-#### switchCamera
+## 摄像头相关接口函数
+### switchCamera
 
 切换前后摄像头。
 ```
@@ -566,7 +566,7 @@ __参数__
 
 ***
 
-#### setCameraMuteImage
+### setCameraMuteImage
 
 主播屏蔽摄像头期间需要显示的等待图片。
 ```
@@ -585,7 +585,7 @@ __介绍__
 
 ***
 
-#### setZoom
+### setZoom
 
 调整焦距。
 ```
@@ -602,7 +602,7 @@ __参数__
 
 ***
 
-#### enableTorch
+### enableTorch
 
 打开闪关灯。
 ```
@@ -621,7 +621,7 @@ YES：打开成功；NO：打开失败。
 
 ***
 
-#### setFocusPosition
+### setFocusPosition
 
 设置手动对焦区域。
 ```
@@ -635,8 +635,8 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 ***
 
 
-### 美颜滤镜相关接口函数
-#### setBeautyStyle
+## 美颜滤镜相关接口函数
+### setBeautyStyle
 
 设置美颜、美白和红润效果级别。
 ```
@@ -654,7 +654,7 @@ __参数__
 
 ***
 
-#### setFilter
+### setFilter
 
 设置指定素材滤镜特效。
 ```
@@ -672,7 +672,7 @@ __参数__
 
 ***
 
-#### setSpecialRatio
+### setSpecialRatio
 
 设置滤镜浓度。
 ```
@@ -687,7 +687,7 @@ __参数__
 
 ***
 
-#### setEyeScaleLevel
+### setEyeScaleLevel
 
 设置大眼级别（商用企业版有效，普通版本设置此参数无效）。
 ```
@@ -702,7 +702,7 @@ __参数__
 
 ***
 
-#### setFaceScaleLevel
+### setFaceScaleLevel
 
 设置瘦脸级别（商用企业版有效，普通版本设置此参数无效）。
 ```
@@ -717,7 +717,7 @@ __参数__
 
 ***
 
-#### setFaceVLevel
+### setFaceVLevel
 
 设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -732,7 +732,7 @@ __参数__
 
 ***
 
-#### setChinLevel
+### setChinLevel
 
 设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -747,7 +747,7 @@ __参数__
 
 ***
 
-#### setFaceShortLevel
+### setFaceShortLevel
 
 设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -762,7 +762,7 @@ __参数__
 
 ***
 
-#### setNoseSlimLevel
+### setNoseSlimLevel
 
 设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -777,7 +777,7 @@ __参数__
 
 ***
 
-#### setGreenScreenFile
+### setGreenScreenFile
 
 设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -795,7 +795,7 @@ __参数__
 
 ***
 
-#### selectMotionTmpl
+### selectMotionTmpl
 
 选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -812,8 +812,8 @@ __参数__
 ***
 
 
-### 消息发送接口函数
-#### sendRoomTextMsg
+## 消息发送接口函数
+### sendRoomTextMsg
 
 发送文本消息。
 ```
@@ -829,7 +829,7 @@ __参数__
 
 ***
 
-#### sendRoomCustomMsg
+### sendRoomCustomMsg
 
 发送自定义文本消息。
 ```
@@ -847,8 +847,8 @@ __参数__
 ***
 
 
-### 背景混音相关接口函数
-#### playBGM
+## 背景混音相关接口函数
+### playBGM
 
 播放背景音乐。
 ```
@@ -867,7 +867,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### playBGM
+### playBGM
 
 播放背景音乐（高级版本）。
 ```
@@ -889,7 +889,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### stopBGM
+### stopBGM
 
 停止播放背景音乐。
 ```
@@ -898,7 +898,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### pauseBGM
+### pauseBGM
 
 暂停播放背景音乐。
 ```
@@ -907,7 +907,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### resumeBGM
+### resumeBGM
 
 继续播放背景音乐。
 ```
@@ -916,7 +916,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### getMusicDuration
+### getMusicDuration
 
 获取音乐文件总时长，单位毫秒。
 ```
@@ -935,7 +935,7 @@ __返回__
 
 ***
 
-#### setMicVolume
+### setMicVolume
 
 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。
 ```
@@ -950,7 +950,7 @@ __参数__
 
 ***
 
-#### setBGMVolume
+### setBGMVolume
 
 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
 ```
@@ -965,7 +965,7 @@ __参数__
 
 ***
 
-#### setBGMPitch
+### setBGMPitch
 
 调整背景音乐的音调高低。
 ```
@@ -984,7 +984,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setReverbType
+### setReverbType
 
 设置混响效果。
 ```
@@ -1003,7 +1003,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setVoiceChangerType
+### setVoiceChangerType
 
 设置变声类型。
 ```
@@ -1023,8 +1023,8 @@ YES：成功；NO：失败。
 ***
 
 
-### 调试相关接口函数
-#### showVideoDebugLog
+## 调试相关接口函数
+### showVideoDebugLog
 
 在渲染 view 上显示播放或推流状态统计及事件消息浮层。
 ```
