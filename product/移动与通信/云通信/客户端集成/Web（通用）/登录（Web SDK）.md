@@ -14,7 +14,7 @@ webim.login(loginInfo, listeners, options,cbOk,cbErr)
 
 **示例：**
 
-```
+```javascript
 //SDK 登录
 function webimLogin() {
     webim.login(
@@ -60,7 +60,7 @@ function webimLogin() {
 | onMsgNotify             | 监听新消息函数，必填                           | Function |
 | onBigGroupMsgNotify     | 监听新消息(直播聊天室)事件，**直播场景**下必填           | Function |
 | onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Function |
-| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，必填                  | Object   |
+| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，选填                | Object   |
 | onFriendSystemNotifys   | 监听好友系统通知事件，选填                        | Object   |
 | onProfileSystemNotifys  | 监听资料系统（自己或好友）通知事件，选填                 | Object   |
 | onKickedEventCall       | 被其他登录实例踢下线，选填                        | Function |
@@ -69,7 +69,7 @@ function webimLogin() {
 
 示例：
 
-```
+```javascript
 //监听事件
 var listeners = {
     "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
@@ -89,7 +89,7 @@ var listeners = {
 
 **示例：**
 
-```
+```javascript
 //监听连接状态回调变化事件
 var onConnNotify = function (resp) {
     var info;
@@ -128,7 +128,7 @@ var onConnNotify = function (resp) {
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
-```
+```javascript
 //位于 js/demo_base.js 中
 //IE9（含）以下浏览器用到的 jsonp 回调函数
 function jsonpCallback(rspData) {
@@ -151,7 +151,7 @@ function jsonpCallback(rspData) {
 
 >注：其中参数 newMsgList 为 webim.Msg 数组，即 \[webim.Msg]。
 
-```
+```javascript
 //监听新消息事件
 //newMsgList 为新消息数组，结构为[Msg]
 function onMsgNotify(newMsgList) {
@@ -183,7 +183,7 @@ function onMsgNotify(newMsgList) {
 
 **示例：**
 
-```
+```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 receive_group_system_msg.js 文件中
 //注意每个数字代表的含义，比如，
 //1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息
@@ -207,7 +207,7 @@ var groupSystemNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听好友系统通知函数对象，方法都定义在 receive_friend_system_msg.js 文件中
 var onFriendSystemNotifys = {
     "1": onFriendAddNotify, //好友表增加
@@ -223,7 +223,7 @@ var onFriendSystemNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听资料系统通知函数对象，方法都定义在 receive_profile_system_msg.js 文件中
 var onProfileSystemNotifys = {
     "1": onProfileModifyNotify//资料修改
@@ -245,7 +245,7 @@ var onC2cEventNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听 群资料变化 群提示消息
 function onGroupInfoChangeNotify(groupInfo) {
     webim.Log.warn("执行 群资料变化 回调： " + JSON.stringify(groupInfo));
@@ -290,7 +290,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
-```
+```javascript
 //SDK 登录
 function webimLogin() {
     webim.login(
