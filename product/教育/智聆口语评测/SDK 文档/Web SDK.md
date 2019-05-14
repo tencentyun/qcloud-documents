@@ -17,20 +17,20 @@ new TencentSOE
 
 |      参数      |  类型    |  说明    |  是否必填 | 默认值 |
 |     :---:     | :---:    | :---    | :----: | :----  |
-| SecretId      | String   | 用户SecretId | 否| 无 |
-| SecretKey     | String   | 用户SecretKey | 否 | 无 |
+| SecretId      | String   | 用户 SecretId | 否| 无 |
+| SecretKey     | String   | 用户 SecretKey | 否 | 无 |
 | TransInitUrl  | String   | 发音数据传输附带初始化接口地址 | 否 | 无 |
 | WorkMode      | Integer  | 上传方式：语音输入模式，0流式分片（微信端无效），1非流式一次性评估 | 否 | 0 |
 | EvalMode      | Integer  | 0：词模式（中文评测模式下为文字模式），1：句子模式，2：段落模式，3：自由说模式 | 否 | 0 |
 | ScoreCoeff    | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段 | 否 | 3.5 |
-| SoeAppId      | String   | 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数 | 否 | 无 |
-| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
+| SoeAppId      | String   | 业务应用ID，与账号应用 AppID 无关，是用来方便客户管理服务的参数 | 否 | 无 |
+| StorageMode   | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
 | ServerType    | Integer  | 评估语言，0：英文，1：中文 | 否 | 0 |
 | TextMode      | Integer  | 输入文本模式，0: 普通文本，1: 音素结构文本 | 否 | 0 |
 | MediaUrl      | String  | 获取高清语音素材获取接口（微信端） | 是 | 0 |
 | success       | function | 创建成功回调 | 否 | 无 |
 | error         | function | 创建失败回调 | 否 | 无 |
-> 必须同时提供SecretId和SecretKey 或者 TransInitUrl
+> 必须同时提供 SecretId 和 SecretKey 或者 TransInitUrl
 
 - 方式一（推荐）：自行替换后台接口地址（可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)），提供TransInitUrl
 ```
@@ -158,8 +158,8 @@ sdk调试可单击[这里](https://soe.cloud.tencent.com/demo)
 
 
 ### 微信端说明
-只支持一次性测评，录音最长时长为一分钟，超过一分钟会自动触发停止录音。使用前必须引入[微信js-sdk](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)，
-wx接口列表jsApiList需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE对象的创建需在wx成功验证后，如下：
+只支持一次性测评，录音最长时长为一分钟，超过一分钟会自动触发停止录音。使用前必须引入[微信 js-sdk](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)，
+wx 接口列表 jsApiList 需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE 对象的创建需在 wx 成功验证后，如下：
 ```js
 wx.ready(function() {
   var recorder = new TencentSOE({
@@ -210,13 +210,13 @@ module.exports = async function(req, res, next) {
 | 操作系统平台	  | 浏览器/webview                  | 版本要求 | 备注|
 |  :---:      | :---                           | :---   | :--- |
 | iOS         | Safari ( 只支持Safari )         | 11.1.2 | |
-| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机QQ默认内置的浏览器内核为TBS。[TBS介绍](https://x5.tencent.com/) |
+| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为 TBS。[TBS介绍](https://x5.tencent.com/) |
 | Android     | Chrome                         | 60+    | |
 | Mac         | Chrome                         | 47+    | |
 | Mac         | Safari                         | 11+    | |
 | Windows(PC) | Chrome                         | 52+    | |
 | Windows(PC) | QQ浏览器                        | 10.2   | |
-| 微信端       | 微信默认webview                  | 无     | 需引入微信JS-SDK|
+| 微信端       | 微信默认 webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
 非本地环境必须使用 https 协议
