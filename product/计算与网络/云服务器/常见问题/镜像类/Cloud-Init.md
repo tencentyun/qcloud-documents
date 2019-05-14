@@ -34,7 +34,7 @@ cloud-init modules --mode=final
 腾讯云通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明。以下内容简单介绍了相关操作情况，更多详情可见 [Cloud-init 官方文档](http://cloudinit.readthedocs.io/en/latest/)。
 
 <table>
-<tr><th>初始化类型</th><th>默认行为</th><th>禁用方式</th><th>注意事项</th></tr>
+<tr><th style="width: 25%;">初始化类型</th><th style="width: 25%;">默认行为</th><th style="width: 25%;">禁用方式</th><th style="width: 25%;">注意事项</th></tr>
 <tr>
 	<td>hostname 的初始化</td>
 	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 hostname 信息来设置实例的 hostname。</td>
