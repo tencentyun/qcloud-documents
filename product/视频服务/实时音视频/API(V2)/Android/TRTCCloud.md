@@ -971,8 +971,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_NV21。 |
-| bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
+| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
+| bufferType | int | 指定视频帧的数据结构，TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_I420；TRTC_VIDEO_BUFFER_TYPE_TEXTURE 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
 | listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
@@ -982,7 +982,7 @@ __返回__
 __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
-- pixelFormat 指定回调的数据格式，目前暂时只支持 NV21 和 I420 两种格式，纹理方案我们稍后提供。
+- pixelFormat 指定回调的数据格式，目前支持 Texture2D 和 I420 两种格式。
 - bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 java 层的直接操作。
 
 
@@ -1001,7 +1001,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 对方的用户标识。 |
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
+| pixelFormat | int | 指定视频帧的像素格式，目前仅支持 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
 | listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
