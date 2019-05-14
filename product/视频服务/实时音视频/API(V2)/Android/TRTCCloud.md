@@ -983,7 +983,7 @@ __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
 - pixelFormat 指定回调的数据格式，目前支持 Texture2D 和 I420 两种格式。
-- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 java 层的直接操作。
+- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 Java 层的直接操作。
 
 
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
