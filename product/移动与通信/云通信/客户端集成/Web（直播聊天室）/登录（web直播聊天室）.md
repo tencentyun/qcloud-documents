@@ -1,8 +1,7 @@
 
-## SDK 登录
+## SDK 登录`login` 函数**
 
-**登录 `login` 函数名：**
-
+**函数名：**
 ```javascript
 webim.login
 ```
@@ -34,7 +33,7 @@ function sdkLogin() {
 }
 ```
 
-### 用户信息对象 loginInfo
+## 用户信息对象 loginInfo
 
 **属性名：**
 
@@ -46,7 +45,7 @@ function sdkLogin() {
 |identifierNick|	用户昵称，选填	|String|
 |userSig	|鉴权 Token，identifier 不为空时，必填	|String|
 
-### 事件回调对象 listeners
+## 事件回调对象 listeners
 
 **属性名：**
 
@@ -72,7 +71,7 @@ var listeners = {
 };
 ```
 
-### 事件回调对象 listeners.onConnNotify
+## 事件回调对象 listeners.onConnNotify
 
 **示例：**
 
@@ -101,7 +100,7 @@ var onConnNotify = function (resp) {
 |ErrorCode	|连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象|Integer|
 |ErrorInfo	|错误提示信息	|String|
 
-### 事件回调对象 listeners.jsonpCallback
+## 事件回调对象 listeners.jsonpCallback
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
@@ -120,7 +119,7 @@ function jsonpCallback(rspData) {
 |---------|---------|---------|
 |rspData	|接口返回的数据	|String|
 
-### 事件回调对象 listeners.onBigGroupMsgNotify
+## 事件回调对象 listeners.onBigGroupMsgNotify
 
 用来监听直播聊天室消息。其中参数 `msgList` 为 `webim.Msg` 数组，即 `[webim.Msg]`。**示例：**
 
@@ -136,7 +135,7 @@ function onBigGroupMsgNotify(msgList) {
 }
 ```
 
-### 事件回调对象 listeners.onMsgNotify
+## 事件回调对象 listeners.onMsgNotify
 
 用来监听新消息（私聊（包括普通消息和全员推送消息），普通群（非直播聊天室）消息）。其中参数 `newMsgList` 为 `webim.Msg` 数组，即 `[webim.Msg]`。**示例：**
 
@@ -199,7 +198,7 @@ function handlderMsg(msg) {
 }
 ```
 
-### 事件回调对象 listeners.onGroupSystemNotifys
+## 事件回调对象 listeners.onGroupSystemNotifys
 
 **示例：**
 
@@ -223,7 +222,7 @@ var onGroupSystemNotifys = {
 };
 ```
 
-### 事件回调对象 listeners.onGroupInfoChangeNotify
+## 事件回调对象 listeners.onGroupInfoChangeNotify
 
 **示例：**
 
@@ -256,7 +255,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 |GroupNotification	|新的群公告，为空，则表示没有变化	|String|
 |GroupIntroduction	|新的群简介，为空，则表示没有变化|	String|
 
-### 其他对象 options
+## 其他对象 options
 
 **属性名：**
 
@@ -265,7 +264,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 |isAccessFormalEnv	|是否访问正式环境下的后台接口，True-访问正式，False-访问测试环境默认访问正式环境接口，选填	|Boolean|
 |isLogOn	|是否开启控制台打印日志，True-开启；False-关闭，默认开启，选填|	Boolean|
 
-### 回调函数 cbOk & cbErr
+## 回调函数 cbOk & cbErr
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
