@@ -19,14 +19,14 @@ __介绍__
 ### SDK 基础函数
 #### config
 
-设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见 “TXLivePushConfig.h” 文件中的详细定义。
+设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePushConfig * config;
 ```
 ***
 #### delegate
 
-设置推流回调接口，见“TXLivePushListener.h” 文件中的详细定义。
+设置推流回调接口，见“TXLivePushListener.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePushListener > delegate;
 ```
@@ -42,7 +42,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见 “TXLivePushConfig.h” 文件中的详细定义。 |
+| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。 |
 
 ***
 
@@ -333,7 +333,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 使用哪种磨皮算法，支持光滑和自然两种，光滑风格磨皮更加明显，适合秀场直播。见 “TXLiveSDKTypeDef.h” 中的 TX_Enum_Type_BeautyStyle 定义。 |
+| beautyStyle | TX_Enum_Type_BeautyStyle | 使用哪种磨皮算法，支持光滑和自然两种，光滑风格磨皮更加明显，适合秀场直播。见“TXLiveSDKTypeDef.h”中的 TX_Enum_Type_BeautyStyle 定义。 |
 | beautyLevel | float | 美颜级别，取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显。 |
 | whitenessLevel | float | 美白级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 | ruddinessLevel | float | 红润级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
@@ -692,7 +692,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见 “TXLiveSDKTypeDef.h” 中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -711,7 +711,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见 “TXLiveSDKTypeDef.h” 中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
 
 __返回__
 
