@@ -1,6 +1,6 @@
-## SDK login API 函数名
+## SDK login API 函数
 
-
+**函数名：**
 
 ```
 webim.login
