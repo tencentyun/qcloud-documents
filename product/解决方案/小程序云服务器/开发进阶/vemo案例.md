@@ -25,7 +25,7 @@
 git clone https://github.com/lcxfs1991/pai-template.git
 
 ## 进入 vemo demo 目录
-cd vemo
+cd pai-template/vemo
 
 ## 安装依赖
 npm install
@@ -50,13 +50,7 @@ npm i -g @cloudbase/cli
 tcb login
 ```
 
-然后运行以下命令进行首次部署。
-
-```shell
-tcb deploy --start
-```
-
-如果是进行二次部署及重启，则运行以下命令：
+然后运行以下命令进行部署。
 
 ```shell
 tcb deploy
