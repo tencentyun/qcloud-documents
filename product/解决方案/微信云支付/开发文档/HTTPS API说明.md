@@ -1619,7 +1619,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ### 支付成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
+服务商在云支付管理后台配置的回调地址（HTTPS），即“交易完成回调 URL”。
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1700,106 +1700,6 @@ content_type：application/json
 </table>
 
 #### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>错误码。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-</table>
-
-
-
-### 退款成功回调
-#### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
-content_type：application/json
-#### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节 RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见 AuthenInfo</td>
-   </tr>
-</table>
-
-#### RequestContent 结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-   <tr>
-      <td>pay_mch_key</td>
-      <td>是</td>
-      <td>PayMchKey</td>
-      <td>支付商户信息。详见 PayMchKey</td>
-   </tr>
-   <tr>
-      <td>refund_order_content</td>
-      <td>是</td>
-      <td>RefundOrderContent[]</td>
-      <td>订单信息。详见 RefundOrderContent</td>
-   </tr>
-</table>
-
-#### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节 ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见 AuthenInfo</td>
-   </tr>
-</table>
-
-#### ResponseContent 结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>参数名</td>

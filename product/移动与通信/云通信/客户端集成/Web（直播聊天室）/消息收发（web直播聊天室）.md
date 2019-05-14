@@ -1,15 +1,13 @@
-## 消息收发
 
-目前支持实时拉取群消息（普通，点赞，提示，系统）和发送群消息（普通，点赞，红包）。
+目前支持实时拉取群消息（普通、点赞、提示和系统）和发送群消息（普通、点赞和红包）。
 
-### 监听群消息（普通，点赞，提示，红包）
+## 监听群消息（普通、点赞、提示和红包）
 
-> **注意：**
-> 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
+>!现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
 
-**示例：**
+示例代码如下：
 
-```
+```javascript
 //监听大群新消息（普通，点赞，提示，红包）
 function onBigGroupMsgNotify(msgList) {
     for (var i = msgList.length - 1; i >= 0; i--) {//遍历消息，按照时间从后往前
@@ -21,11 +19,11 @@ function onBigGroupMsgNotify(msgList) {
 }
 ```
 
-### 显示群消息（普通，点赞，提示，红包）
+## 显示群消息（普通、点赞、提示和红包）
 
-**示例：**
+示例代码如下：
 
-```
+```javascript
 //显示消息（群普通+点赞+提示+红包）
 function showMsg(msg) {
     var isSelfSend, fromAccount, fromAccountNick, sessType, subType;
@@ -98,9 +96,9 @@ function showMsg(msg) {
 }
 ```
 
-### 解析群消息（普通，点赞，提示，红包）
+## 解析群消息（普通、点赞、提示和红包）
 
-**示例：**
+示例代码如下：
 
 ```
 //把消息转换成 HTML
@@ -145,9 +143,9 @@ function convertMsgtoHtml(msg) {
 }
 ```
 
-### 解析文本消息元素
+## 解析文本消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析文本消息元素
@@ -157,9 +155,9 @@ function convertTextMsgToHtml(content) {
 ```
 
 
-### 解析表情消息元素
+## 解析表情消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析表情消息元素
@@ -179,9 +177,9 @@ function convertFaceMsgToHtml(content) {
 }
 ```
 
-### 解析图片消息元素
+## 解析图片消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析图片消息元素
@@ -199,9 +197,9 @@ function convertImageMsgToHtml(content) {
 }
 ```
 
-### 	解析语音消息元素
+## 解析语音消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析语音消息元素
@@ -215,9 +213,9 @@ function convertSoundMsgToHtml(content) {
 }
 ```
 
-### 解析文件消息元素
+## 解析文件消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析文件消息元素
@@ -227,9 +225,9 @@ function convertFileMsgToHtml(content) {
 }
 ```
 
-### 解析位置消息元素
+## 解析位置消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析位置消息元素
@@ -238,9 +236,9 @@ function convertLocationMsgToHtml(content) {
 }
 ```
 
-### 解析自定义消息元素
+## 解析自定义消息元素
 
-**示例：**
+示例代码如下：
 
 ```
 //解析自定义消息元素
@@ -252,13 +250,13 @@ function convertCustomMsgToHtml(content) {
 }
 ```
 
-### 解析群提示消息元素
+## 解析群提示消息元素
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要选择是否展示给群组用户。
 
-**示例：**
+示例代码如下：
 
-```
+```javascript
 //解析群提示消息元素
 function convertGroupTipMsgToHtml(content) {
     var WEB_IM_GROUP_TIP_MAX_USER_COUNT=10;
@@ -379,17 +377,17 @@ function convertGroupTipMsgToHtml(content) {
 }
 ```
 
-### 发送群消息（普通）
+## 发送群消息（普通）
 
 **`sendMsg` 函数名：**
 
-```
+```javascript
 webim.sendMsg
 ```
 
 **定义：**
 
-```
+```javascript
 webim.sendMsg(msg,cbOk, cbErr)
 ```
 
@@ -403,20 +401,13 @@ webim.sendMsg(msg,cbOk, cbErr)
 
 **示例：**
 
-```
+```javascript
 	//发送消息(普通消息)
 function onSendMsg() {
     if (!loginInfo.identifier) {//未登录
-        if (accountMode == 1) {//托管模式
-            //将account_type保存到cookie中,有效期是 1 天
-            webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
-            //调用tls登录服务
-            tlsLogin();
-        } else {//独立模式
-            //to do
-        }
         return;
     }
+    // selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
     if (!selToID) {
         alert("您还没有进入房间，暂不能聊天");
         $("#send_msg_text").val('');
@@ -509,23 +500,15 @@ function onSendMsg() {
 }
 ```
 
-### 发送群消息（点赞）
+## 发送群消息（点赞）
 
-**示例：**
+示例代码如下：
 
-```
+```javascript
 //发送消息(群点赞消息)
 function sendGroupLoveMsg() {
 
     if (!loginInfo.identifier) {//未登录
-        if (accountMode == 1) {//托管模式
-            //将 account_type 保存到 cookie 中,有效期是 1 天
-            webim.Tool.setCookie('accountType', loginInfo.accountType, 3600 * 24);
-            //调用 TLS 登录服务
-            tlsLogin();
-        } else {//独立模式
-            //to do
-        }
         return;
     }
     if (!selToID) {
@@ -536,7 +519,7 @@ function sendGroupLoveMsg() {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1 表示 SDK 自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     //群消息子类型如下：
@@ -563,10 +546,8 @@ function sendGroupLoveMsg() {
 }
 ```
 
-### 发送群消息（红包）
+## 发送群消息（红包）
 
 红包消息的下发优先级最高，保证不丢消息。
+发送群消息（红包）的示例代码只需将发送群消息（点赞）示例代码中的 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。
 
-**示例：**
-
-同发送群消息（点赞）示例，只需把 `subType` 设成 `webim.GROUP_MSG_SUB_TYPE.REDPACKET` 即可。

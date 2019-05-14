@@ -186,7 +186,7 @@ mLivePlayer.stopRecord();
 
 - 录制的进度以时间为单位，由 ITXVideoRecordListener 的 onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 onRecordComplete 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [拍照和录制(iOS)](https://cloud.tencent.com/document/product/584/9367)。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [拍照和录制（iOS）](https://cloud.tencent.com/document/product/584/9367)。
 
 ### step 10: 清晰度无缝切换
 日常使用中，网络情况在不断发生变化。在网络较差的情况下，最好适度降低画质，以减少卡顿；反之，网速比较好，可以提高观看画质。
@@ -223,15 +223,15 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 时移功能处于公测申请阶段，如您需要可提交工单申请使用。
 
 <h2 id="Delay">延时调节</h2>
-腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
+腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
 
 | 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
 |---------|---------|---------| ------ | ----- |
-| 极速模式 | 较流畅偏高 | 2s- 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如绝地求生）非常适合，卡顿率最低|
-| 自动模式 | 网络自适应 | 2s-8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
+| 极速模式 | 较流畅偏高 | 2s - 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
+| 流畅模式 | 卡顿率最低 | ≥ 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如绝地求生）非常适合，卡顿率最低|
+| 自动模式 | 网络自适应 | 2s - 8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
 
 
 - **三种模式的对接代码**
@@ -262,13 +262,13 @@ mLivePlayer.setConfig(mPlayConfig);
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 
-支持**400ms** 左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
+支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **该功能是不需要开通的**
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发 URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
@@ -280,7 +280,7 @@ mLivePlayer.setConfig(mPlayConfig);
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)，Obs 的推流端积压比较严重，是无法达到低延时效果的。
 
 - **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
 
 
 
@@ -318,7 +318,7 @@ mLivePlayer.setConfig(mPlayConfig);
 > **<font color='red'>如何判断直播已结束？</font>**
 > RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
 >
-> 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
+> 所以`2006`和`-2301`都要监听，用来作为直播结束的判定事件。
 
 
 ### 警告事件
@@ -339,14 +339,14 @@ mLivePlayer.setConfig(mPlayConfig);
 
 
 ## 获取视频分辨率
-通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的 100ms - 200ms 左右就能得到。
+通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的100ms - 200ms左右就能得到。
 
 视频的宽高信息位于 TXLivePlayListener 的 `onPlayEvent(int event, Bundle param)` 通知中的 **param** 参数中。
 
 | 参数 | 含义 | 数值 |
 |---------|---------|---------|
-| EVT_PARMA1 | 视频宽度 | 分辨率数值，如 1920 |
-| EVT_PARMA2 | 视频高度 | 分辨率数值，如 1080 |
+| EVT_PARAM1 | 视频宽度 | 分辨率数值，如1920 |
+| EVT_PARAM2 | 视频高度 | 分辨率数值，如1080 |
 
 ## 定时触发的状态通知
 
@@ -362,5 +362,5 @@ mLivePlayer.setConfig(mPlayConfig);
 |	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 

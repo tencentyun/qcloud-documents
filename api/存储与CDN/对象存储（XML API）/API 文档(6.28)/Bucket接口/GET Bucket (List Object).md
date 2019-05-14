@@ -35,37 +35,65 @@ max-keys|string|单次返回最大的条目数量，默认值为1000，最大为
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
-查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息。
+查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息，列出当前目录的响应体示例如下，其他场景下的响应体请参阅下方的实际案例。
 
 ```shell
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-    <Name>examplebucket-1250000000</Name>
-    <Encoding-Type>url</Encoding-Type>
-    <Prefix>ela</Prefix>
-    <Marker/>
-    <MaxKeys>1000</MaxKeys>
-    <Delimiter>/</Delimiter>
-    <IsTruncated>false</IsTruncated>
-    <NextMarker>exampleobject.txt</NextMarker>
-    <Contents>
-        <Key>photo</Key>
-        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
-        <ETag>\"79f2a852fac7e826c9f4dbe037f8a63b\"</ETag>
-        <Size>10485760</Size>
-        <Owner>
-           <ID>1250000000</ID>
-        </Owner>
-        <StorageClass>STANDARD</StorageClass>
-    </Contents>
-    <CommonPrefixes>
-      <Prefix>example</Prefix>
-    </CommonPrefixes>
+	<Name>examplebucket-1250000000</Name>
+	<Prefix/>
+	<Marker/>
+	<MaxKeys>1000</MaxKeys>
+	<IsTruncated>false</IsTruncated>
+	<Contents>
+		<Key>exampleobject</Key>
+		<LastModified>2019-03-29T02:15:36.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>exampleobject2</Key>
+		<LastModified>2019-03-29T02:15:41.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>exampleobject3</Key>
+		<LastModified>2019-03-29T02:15:46.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>folder/exampleobject</Key>
+		<LastModified>2019-03-29T02:22:12.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
 </ListBucketResult>
 ```
 
@@ -106,8 +134,8 @@ StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STAN
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-ID|ListBucketResult.Contents.Owner|Bucket 的 AppID|string
-
+ID|ListBucketResult.Contents.Owner|Bucket 的 APPID|string
+DisplayName|ListBucketResult.Contents.Owner|Object 持有者的名称|string
 
 **Container 节点 CommonPrefixes 内容：**
 
@@ -121,78 +149,175 @@ Prefix|ListBucketResult.CommonPrefixes|单条 Common 的前缀|string
 
 ## 实际案例
 
-### 请求
+### 列出当前目录
+
+#### 请求
 
 ```shell
 GET / HTTP/1.1
-Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 18 Oct 2014 22:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213451;32557109451&q-key-time=1484213451;32557109451&q-header-list=host&q-url-param-list=&q-signature=0336a1fc8350c74b6c081d4dff8e7a2db9007dc
+User-Agent: curl/7.29.0
+Accept: */*
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1553826090;1554826140&q-key-time=1553826090;1554826140&q-url-param-list=&q-header-list=host&q-signature=2aecbebbeb607670de2fa79c8303a6377adbfec9
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 1132
+Content-Length: 1445
 Connection: keep-alive
-Vary: Accept-Encoding
-Date: Wed, 18 Oct 2014 22:32:00 GMT
+Date: Fri, 29 Mar 2019 02:36:12 GMT
 Server: tencent-cos
-x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
+x-cos-request-id: NWM5ZDg0OWNfMTc5ZDA4MDlfOTJjOF8yYjU3MTc=
 
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-    <Name>examplebucket-1250000000</Name>
-    <Encoding-Type>url</Encoding-Type>
-    <Prefix>ela</Prefix>
-    <Marker/>
-    <MaxKeys>1000</MaxKeys>
-    <Delimiter>/</Delimiter>
-    <IsTruncated>false</IsTruncated>
-    <NextMarker>exampleobject.txt</NextMarker>
-    <Contents>
-        <Key>photo</Key>
-        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
-        <ETag>\"79f2a852fac7e826c9f4dbe037f8a63b\"</ETag>
-        <Size>10485760</Size>
-        <Owner>
-            <ID>1250000001</ID>
-        </Owner>
-    <StorageClass>STANDARD</StorageClass>
-    </Contents>
-    <Contents>
-        <Key>picture</Key>
-        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
-        <ETag>\"3f9a5dbff88b25b769fa6304902b5d9d\"</ETag>
-        <Size>10485760</Size>
-        <Owner>
-            <ID>1250000002</ID>
-        </Owner>
-    <StorageClass>STANDARD</StorageClass>
-    </Contents>
-    <Contents>
-        <Key>file</Key>
-        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
-        <ETag>\"39bfb88c11c65ed6424d2e1cd4db1826\"</ETag>
-        <Size>10485760</Size>
-        <Owner>
-            <ID>1250000003</ID>
-        </Owner>
-    <StorageClass>STANDARD</StorageClass>
-    </Contents>
-    <Contents>
-        <Key>world</Key>
-        <LastModified>2017-06-23T12:33:26.000Z</LastModified>
-        <ETag>\"fb31459ad10289ff49327fd91a3e1f6a\"</ETag>
-        <Size>4</Size>
-        <Owner>
-            <ID>1250000004</ID>
-        </Owner>
-        <StorageClass>STANDARD</StorageClass>
-    </Contents>
+	<Name>examplebucket-1250000000</Name>
+	<Prefix/>
+	<Marker/>
+	<MaxKeys>1000</MaxKeys>
+	<IsTruncated>false</IsTruncated>
+	<Contents>
+		<Key>exampleobject</Key>
+		<LastModified>2019-03-29T02:15:36.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>exampleobject2</Key>
+		<LastModified>2019-03-29T02:15:41.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>exampleobject3</Key>
+		<LastModified>2019-03-29T02:15:46.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>folder/exampleobject</Key>
+		<LastModified>2019-03-29T02:22:12.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+</ListBucketResult>
+```
+
+### 列出下级目录
+
+#### 请求
+```sh
+GET /?prefix=folder/ HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1553826090;1554826140&q-key-time=1553826090;1554826140&q-url-param-list=&q-header-list=host&q-signature=2aecbebbeb607670de2fa79c8303a6377adbfec9
+```
+
+#### 响应
+```sh
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 545
+Connection: keep-alive
+Date: Fri, 29 Mar 2019 02:37:14 GMT
+Server: tencent-cos
+x-cos-request-id: NWM5ZDg0ZGFfMjA5ZDA4MDlfYjYwZV8yYmQxZjI=
+
+<?xml version='1.0' encoding='utf-8' ?>
+<ListBucketResult>
+	<Name>examplebucket-1250000000</Name>
+	<Prefix>folder/</Prefix>
+	<Marker/>
+	<MaxKeys>1000</MaxKeys>
+	<IsTruncated>false</IsTruncated>
+	<Contents>
+		<Key>folder/exampleobject</Key>
+		<LastModified>2019-03-29T02:22:12.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
 </ListBucketResult>
 ```
 
 
+### 遍历目录
+
+#### 请求
+```sh
+GET /?marker=exampleobject2 HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1553826090;1554826140&q-key-time=1553826090;1554826140&q-url-param-list=&q-header-list=host&q-signature=2aecbebbeb607670de2fa79c8303a6377adbfec9
+```
+
+#### 响应
+```sh
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 850
+Connection: keep-alive
+Date: Fri, 29 Mar 2019 02:41:12 GMT
+Server: tencent-cos
+x-cos-request-id: NWM5ZDg1YzhfNmUzZjIyMDlfOGFkZl8yYWFlN2Q=
+
+<?xml version='1.0' encoding='utf-8' ?>
+<ListBucketResult>
+	<Name>examplebucket-1250000000</Name>
+	<Prefix/>
+	<Marker>exampleobject2</Marker>
+	<MaxKeys>1000</MaxKeys>
+	<IsTruncated>false</IsTruncated>
+	<Contents>
+		<Key>exampleobject3</Key>
+		<LastModified>2019-03-29T02:15:46.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+	<Contents>
+		<Key>folder/exampleobject</Key>
+		<LastModified>2019-03-29T02:22:12.000Z</LastModified>
+		<ETag>&quot;c4ca4238a0b923820dcc509a6f75849b&quot;</ETag>
+		<Size>1</Size>
+		<Owner>
+			<ID>1250000000</ID>
+			<DisplayName>1250000000</DisplayName>
+		</Owner>
+		<StorageClass>STANDARD</StorageClass>
+	</Contents>
+</ListBucketResult>
+```

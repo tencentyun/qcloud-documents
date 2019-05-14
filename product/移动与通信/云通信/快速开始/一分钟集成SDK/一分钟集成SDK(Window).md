@@ -10,8 +10,8 @@
 ### 1. 下载 IM SDK
 
 - 在 [Github](https://github.com/tencentyun/TIMSDK) 下载 Windows IM SDK，Windows IM SDK 所在目录：
-![](https://main.qcloudimg.com/raw/2a714a50ca11ee01e36b40fe8211041e.png)
-- 解压并打开 ImSDK 文件夹，包含以下几个部分：
+![](https://main.qcloudimg.com/raw/e2064273916c99845e16d58c107d078d.png)
+- 下载并打开 ImSDK 文件夹，包含以下几个部分：
 
 | 目录名       | 说明                                             |
 | ------------ | ------------------------------------------------ |
@@ -30,7 +30,7 @@
 
 ### 3. 拷贝文件
 将解压后的 ImSDK 文件夹拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
-![](https://main.qcloudimg.com/raw/a139575b723db96334b1226485a3dd3b.png)
+![](https://main.qcloudimg.com/raw/4b13837ffc2662cea6a09f7a6fa5bda4.png)
 
 ### 4. 修改工程配置
 

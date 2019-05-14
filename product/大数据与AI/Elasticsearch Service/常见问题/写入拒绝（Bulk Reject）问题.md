@@ -15,14 +15,14 @@ GET _cat/thread_pool/bulk?s=queue:desc&v
 ### 问题定位
 引起 bulk reject 的大多原因是 shard 容量过大或 shard 分配不均，具体可通过以下方法进行定位分析。
 
-#### 1. 分片（shard）数据量过大
+#### 1. 检查分片（shard）数据量是否过大
 分片数据量过大，有可能引起 Bulk Reject，建议单个分片大小控制在20GB - 50GB左右。可在 kibana 控制台，通过命令查看索引各个分片的大小。
 ```
 GET _cat/shards?index=index_name&v
 ```
 ![](https://main.qcloudimg.com/raw/551e6cb4aaccd8391f619f0ecef0129d.png)
 
-#### 2. 分片数分布不均匀
+#### 2. 检查分片数是否分布不均匀
 集群中的节点分片分布不均匀，有的节点分配的 shard 过多，有的分配的 shard 少。
 - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995#1023983810)。
 - 也可通过 curl 客户端，查看集群各个节点的分片个数。
