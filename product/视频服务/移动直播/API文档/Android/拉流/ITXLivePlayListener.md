@@ -23,7 +23,7 @@ __参数__
 
 ## onNetStatus
 
-网络状态通知.。
+网络状态通知。
 ```
 void onNetStatus(final Bundle status)
 ```
