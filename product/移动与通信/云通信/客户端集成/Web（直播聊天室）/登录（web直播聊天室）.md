@@ -1,5 +1,5 @@
 
-## SDK 登录`login` 函数**
+## SDK 登录`login` 函数
 
 **函数名：**
 ```javascript
