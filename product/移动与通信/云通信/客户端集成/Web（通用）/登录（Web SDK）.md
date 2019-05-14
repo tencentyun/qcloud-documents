@@ -275,7 +275,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 | GroupIntroduction | 新的群简介，为空，则表示没有变化  | String |
 
 
-### 其他对象 options
+## 其他对象 options
 
 **属性名：**
 
@@ -286,7 +286,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 
 
-### 回调函数 cbOk & cbErr
+## 回调函数 cbOk & cbErr
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
