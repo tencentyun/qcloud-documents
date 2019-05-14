@@ -905,7 +905,7 @@ UUID 类型。
 | kTIMGroupGetMemberInfoListParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupGetMemberInfoListParamIdentifierArray |  array string | 只写（选填） | 群成员 ID 列表 |
 | kTIMGroupGetMemberInfoListParamOption |  object [GroupMemberGetInfoOption](https://cloud.tencent.com/document/product/269/33553#groupmembergetinfooption)  | 只写（选填） | 获取群成员信息的选项 |
-| kTIMGroupGetMemberInfoListParamNextSeq | uint64 | 只写（选填） | 分页拉取标志，第一次拉取填 0，回调成功如果不为零，需要分页，传入再次拉取，直至为 0 |
+| kTIMGroupGetMemberInfoListParamNextSeq | uint64 | 只写（选填） | 分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，传入再次拉取，直至为0 |
 
 ### GroupGetMemberInfoListResult
 
