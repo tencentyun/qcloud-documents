@@ -1,4 +1,3 @@
-## TXLivePushConfig
 
 __功能__
 
