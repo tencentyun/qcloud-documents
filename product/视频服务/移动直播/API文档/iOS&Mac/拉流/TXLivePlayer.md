@@ -18,21 +18,21 @@ __介绍__
 
 设置播放回调，见“TXLivePlayListener.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXLivePlayListener > delegate;
+@property (nonatomic, weak) id< TXLivePlayListener > delegate
 ```
 ***
 #### videoProcessDelegate
 
 设置视频处理回调，见“TXVideoCustomProcessDelegate.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate;
+@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate
 ```
 ***
 #### audioRawDataDelegate
 
 设置音频处理回调，见“TXAudioRawDataDelegate.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate;
+@property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate
 ```
 ***
 #### enableHWAcceleration
@@ -46,7 +46,7 @@ __介绍__
 
 设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见“TXLivePlayConfig.h”文件中的详细定义。
 ```
-@property (nonatomic, copy) TXLivePlayConfig * config;
+@property (nonatomic, copy) TXLivePlayConfig * config
 ```
 ***
 #### recordDelegate
@@ -60,7 +60,7 @@ __介绍__
 
 startPlay 后是否立即播放，默认 YES，只有点播有效。
 ```
-@property (nonatomic, ) BOOL isAutoPlay;
+@property (nonatomic, ) BOOL isAutoPlay
 ```
 ***
 
@@ -78,7 +78,7 @@ __参数__
 |-----|-----|-----|
 | frame | CGRect | Widget 在父 view 中的 frame。 |
 | view | TXView * | 父 view。 |
-| idx | unsigned int | Widget 在父 view 上 的层级位置。 |
+| idx | unsigned int | Widget 在父 view 上的层级位置。 |
 
 __介绍__
 
