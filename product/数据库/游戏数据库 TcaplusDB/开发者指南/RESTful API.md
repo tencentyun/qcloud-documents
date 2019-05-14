@@ -134,7 +134,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
  * version > 0 指定客户端数据记录版本号。
 - `x-tcaplus-result-flag` 设置应答中是否包含完整数据的策略，可能的取值有：
  * `0` 设置为0，应答中仅包含请求成功或失败。
- * `1` 设置为1，应答中仅包含被修改的字段最新值。
+ * `1` 设置为1，应答中包含与请求一致的值。
  * `2` 设置为2，应答中包含被修改的数据的所有字段最新值。
  * `3` 设置为3，应答中包含记录被修改前的值。
 
@@ -216,7 +216,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指所有主键的值，select 指需要显示的 value 字段的名称。并且您可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
->!  请求的变量必须通过 UrlEncode 编码。
+>!  请求的变量必须通过 UrlEncode 编码，请将url中的空格编码为"%20"而不是"+"。
 
 |名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
@@ -254,7 +254,6 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7
 {
  "ErrorCode": 0,
  "ErrorMsg": "Succeed",
- "ErrorMsg": "Succeed",
  "RecordVersion": 1,
  "Record": {
   "name": "calvinshao",
@@ -287,6 +286,13 @@ PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 ```
 
 通过指定一条记录的 key 信息设置此记录。如果记录存在执行覆盖操作，否则，执行插入操作。
+
+SetRecord操作支持resultflag设置以下取值：
+
+* `0` 设置为0，应答中仅包含请求成功或失败
+* `1` 设置为1，应答中包含与请求一致的值
+* `2` 设置为2，应答中包含被修改的数据的所有字段最新值
+* `3` 设置为3，应答中包含记录被修改前的值
 
 |名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
@@ -390,6 +396,13 @@ POST /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 ```
 通过指定一条记录的 key 信息插入一条记录。如果记录存在返回错误。
 
+AddRecord操作支持resultflag设置以下取值：
+
+* `0` 设置为0，应答中仅包含请求成功或失败
+* `1` 设置为1，应答中包含与请求一致的值
+* `2` 设置为2，应答中包含被修改的数据的所有字段最新值
+* `3` 设置为3，应答中包含记录被修改前的值
+
 |名称            |类型           |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
@@ -491,6 +504,13 @@ DELETE /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 
 通过指定一条记录的 key 信息删除此记录，如果数据不存在则返回错误。
 
+DeleteRecord操作支持resultflag设置以下取值：
+
+* `0` 设置为0，应答中仅包含请求成功或失败
+* `1` 设置为1，应答中包含与请求一致的值
+* `2` 设置为2，应答中包含被修改的数据的所有字段最新值
+* `3` 设置为3，应答中包含记录被修改前的值
+
 |名称             |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
@@ -552,7 +572,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 从一个 Tcaplus pb 表中通过指定一条记录的 key 信息查询此记录。本操作只查询和传输用户通过 select 变量指定的字段的值，这将减少网络传输流量，这是与 GetRecord 操作最大的不同之处。如果数据记录不存在，将会返回错误。
 必须在 URI 中指定`keys`和`select`变量。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
->! 请求的变量必须通过 urlencode 编码。
+>! 请求的变量必须通过 urlencode 编码，请将url中的空格编码为"%20"而不是"+"。
 
 |名称             |类型            |取值 |
 | -----------------|-------------- | ------------ |
@@ -622,6 +642,12 @@ PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 
 通过指定一条记录的 key 信息修改此记录，与 SetRecord 操作不同的是此操作只传输并设置指定字段的值，并不传输所有字段。这将减轻网络流量。如果数据记录存在，将执行更新操作，否则将会返回错误。
 
+FieldSetRecord操作支持resultflag设置以下取值：
+
+* `0` 设置为0，应答中仅包含请求成功或失败
+* `1` 设置为1，应答中包含与请求一致的值
+
+
 |名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
 |x-tcaplus-target  |String|Tcaplus.SetRecord |
@@ -661,7 +687,13 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 {
  "ReturnValues": "aaaaaaaaaa",
- "Record": {
+ "FieldPath": [ // 显式指定需要更新的字段路径
+    "gamesvrid",
+    "logintime",
+    "pay.total_money",
+    "pay.auth.pay_keys"
+ ],
+ "Record": { // 设置需要更新的字段新值
   "name": "calvinshao",
   "pay": {
    "total_money": 17190,
@@ -710,6 +742,12 @@ PUT /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records
 
 
 通过指定一条记录的 key 信息对指定的字段进行自增操作，此命令字仅支持 `int32`， `int64`， `uint32` 和 `uint64`类型字段。特性与 FieldSetRecord 类似。
+
+SetRecord操作支持resultflag设置以下取值：
+
+* `0` 设置为0，应答中仅包含请求成功或失败
+* `1` 设置为1，应答中包含指定字段修改后的值
+
 
 |名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
@@ -799,7 +837,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
->! 请求的变量必须通过 urlencode 编码。
+>! 请求的变量必须通过urlencode编码，请将url中的空格编码为“%20”而不是“+”
 
 |名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |

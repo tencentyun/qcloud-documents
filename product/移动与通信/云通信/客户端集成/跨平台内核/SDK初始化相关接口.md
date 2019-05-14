@@ -38,7 +38,7 @@ json_value_init[kTIMSdkConfigAccountType] = "107";
 
 uint64_t sdk_app_id = 1234567890;
 if (TIM_SUCC != TIMInit(sdk_app_id, json_value_init.toStyledString().c_str())) {
-    // TIMInit 接口调用错误， IM SDK 初始化失败   
+    // TIMInit 接口调用错误，IM SDK 初始化失败   
 }
 
 // json_value_init.toStyledString() 得到 json_sdk_config JSON 字符串如下
@@ -109,7 +109,7 @@ TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const voi
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | json_config | const char\* | 其他配置选项 |
-| cb | TIMCommCallback | 返回设置配置之后所有配置的回调，此回调 cb 可为空，表示不获取所有配置信息。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)，回调参数解析请参考 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33552#timsetconfig)  |
+| cb | TIMCommCallback | 返回设置配置之后所有配置的回调，此回调 cb 可为空，表示不获取所有配置信息。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
 | user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
 
 **返回值**
