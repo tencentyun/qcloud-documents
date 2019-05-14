@@ -25,11 +25,15 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 ```
 tar -zxvf cloud-init-17.1.tar.gz 
 ```
-2. 执行以下命令，安装 Python-pip。
+2. 执行以下命令，进入已解压的 cloud-init 安装包目录（即进入 cloud-init-17.1 目录）。
+```
+cd cloud-init-17.1
+```
+3. 执行以下命令，安装 Python-pip。
  ```
 yum install python-pip -y
 ```
-3. 执行以下命令，安装依赖包。
+4. 执行以下命令，安装依赖包。
 >!  cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行以下命令，安装 requests 2.20.0 版本以下的版本。
 ```
 pip install 'requests<2.20.0'
@@ -64,7 +68,6 @@ python setup.py install --init-system systemd
 1. 根据不同操作系统，下载 cloud.cfg。
  - [ubuntu 操作系统的 cloud.cfg](http://cloudinit-1251783334.cosgz.myqcloud.com/ubuntu-cloud.cfg)
  - [centos 操作系统的 cloud.cfg](http://cloudinit-1251783334.cosgz.myqcloud.com/centos-cloud.cfg)
- - 其他操作系统待补充
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ### 添加 syslog 用户
@@ -75,11 +78,11 @@ useradd syslog
 
 ### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
- 1) **针对 ubuntu 或 debian 操作系统，需执行以下命令。**
+ 1. **针对 ubuntu 或 debian 操作系统，需执行以下命令。**
 ```
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
 ```
- 2) **所有操作系统都需执行以下命令。**
+ 2. **所有操作系统都需执行以下命令。**
 ```
 systemctl enable cloud-init-local.service 
 systemctl start cloud-init-local.service
@@ -94,7 +97,7 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 ```
- 3) **针对 centos 和 redhat 操作系统，需执行以下命令。**
+ 3. **针对 centos 和 redhat 操作系统，需执行以下命令。**
  将 /lib/systemd/system/cloud-init-local.service 文件替换为如下内容：
 ```
 [Unit]
@@ -170,7 +173,6 @@ apt-get/yum install cloud-init
 1. 根据不同操作系统，下载 cloud.cfg。
  - [ubuntu 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg)
  - [centos 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg)
- - 其他操作系统待补充
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ## 安装 cloud-init 后的相关操作
@@ -185,7 +187,7 @@ rm -rf /var/lib/cloud
 ```
 rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 ```
-3. 将 `/etc/network/interfaces` 修改为以下内容：
+3. 针对 ubuntu 或 debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
 ```
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).

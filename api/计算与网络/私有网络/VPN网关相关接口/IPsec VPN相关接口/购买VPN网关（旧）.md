@@ -42,14 +42,13 @@
 输出
 ```
 {
-    "code" : 0,
-    "message" : "ok",
-    "data":
-    ｛
-       "dealIds":[
-          121
-       ]
-     ｝
+	"code": 0,
+	"message": "ok",
+	"data": {
+		"dealIds": [
+			121
+		]
+	}
 }
 ```
 

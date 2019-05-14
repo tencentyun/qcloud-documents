@@ -26,18 +26,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 ### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": [
-        {
-			"unSubnetId": <子网统一ID>,
-            "subnetId": <子网ID>,
-            "natIpList": [
-                <绑定的IP>
-            ],
-        }
-    ]
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "data": [{
+  "unSubnetId": "<子网统一ID>",
+  "subnetId": "<子网ID>",
+  "natIpList": ["<绑定的IP>"]
+ }]
 }
 ```
 

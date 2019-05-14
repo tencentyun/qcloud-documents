@@ -26,9 +26,9 @@ public static TIMGroupManagerExt getInstance()
 
 ### 创建群组
 
-云通信中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
-- **互动直播聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
+- **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
 > **注意：**
@@ -50,7 +50,7 @@ public void createGroup(@NonNull CreateGroupParam param, @NonNull TIMValueCallBa
 /**
  * 创建群组参数类的构造函数
  * @param type 群类型, 目前支持的群类型：私有群（Private）、公开群（Public）、
- *             聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
+ *             聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
  * @param name 群名称
  */
 public CreateGroupParam(@NonNull String type, @NonNull String name
@@ -116,10 +116,8 @@ param.setNotification("welcome to our group");
 
 //添加群成员
 List<TIMGroupMemberInfo> infos = new ArrayList<TIMGroupMemberInfo>();
-TIMGroupMemberInfo member = new TIMGroupMemberInfo();
-member.setUser("cat");
-member.setRoleType(TIMGroupMemberRoleType.Normal);
-infos.add(member);        
+TIMGroupMemberInfo member = new TIMGroupMemberInfo("cat");
+infos.add(member);
 param.setMembers(infos);
 
 //设置群自定义字段，需要先到控制台配置相应的 key
@@ -150,10 +148,10 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 **权限说明：**
 
 - **私有群：**群成员无需受邀用户同意，直接将其拉入群中。
-- **公开群/聊天室：**不允许群成员邀请他人入群。
-- **互动直播聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
+- **公开群/聊天室：**不允许群成员邀请他人入群。只能由 App 管理员通过 REST API 邀请他人入群。
+- **音视频聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
 
-**原型：**  
+**原型：**
 
 ```
 /**
@@ -187,7 +185,7 @@ public String getUser()
 
 ```
 //创建待加入群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 
@@ -251,12 +249,12 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
     public void onError(int code, String desc) {
         //接口返回了错误码 code 和错误描述 desc，可用于原因
         //错误码 code 列表请参见错误码表
-        Log.e(tag, "disconnected");
+        Log.e(tag, "applyJoinGroup err code = " + code + ", desc = " + desc);
     }
 
     @java.lang.Override
     public void onSuccess() {
-        Log.i(tag, "join group");
+        Log.i(tag, "applyJoinGroup success");
     }
 });
 ```
@@ -306,7 +304,7 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。退出群组的接口由 `TIMGroupManagerExt` 提供。
+群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -346,7 +344,7 @@ public DeleteMemberParam setReason(@NonNull String reason)
 
 ```
 //创建待踢出群组的用户列表
-ArrayListlist = new ArrayList();
+ArrayList list = new ArrayList();
 
 String user = "";
 //添加用户
@@ -429,7 +427,7 @@ TIMGroupManagerExt.getInstance().getGroupMembers(
 **权限说明：**
 
 - **私有群、公开群和聊天室：**支持使用本接口获取用户加入的群组。
-- **互动直播聊天室和在线成员广播大群：**因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
+- **音视频聊天室和在线成员广播大群：**因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
 
 **原型：**
 
@@ -466,12 +464,6 @@ public String getGroupType()
  * @return 群头像 URL
  */
 public String getFaceUrl()
-
-/**
- * 获取自己在这个群内的群内资料
- * @return 自己在这个群内的简单群内资料，详见{@see TIMGroupBasicSelfInfo}
- */
-public TIMGroupBasicSelfInfo getSelfInfo()
 
 /**
  * 获取当前群组是否设置了全员禁言
@@ -589,83 +581,9 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 ## 获取群组资料
 
-### 设置拉取字段
-
-目前 ImSDK 在获取群组资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 ImSDK 之前**，通过 `TIMGroupSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联（参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
-
-**`TIMGroupSettings` 的接口定义如下：**
-
-```
-/**
- * 设置群资料操作选项
- * @param groupInfoOptions 群操作选项，{@see Options}
- */
-public void setGroupInfoOptions(Options groupInfoOptions)
-
-/**
- * 设置群成员资料操作选项
- * @param memberInfoOptions 群成员操作选项，{@see Options}
- */
-public void setMemberInfoOptions(Options memberInfoOptions)
-```
-
-**`TIMGroupSettings.Options` 的接口定义如下：**
-```
-/**
- * 设置群信息或者群成员信息的拉取标志，默认全部拉取
- * @param flags 拉取资料标志
- *              群资料标志如{@see TIMGroupManager#TIM_GET_GROUP_BASE_INFO_FLAG_NAME}等，
- *              群成员资料标志如{@see TIMGroupManager#TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD}等
- */
-public void setFlags(long flags)
-
-/**
- * 设置自定义资料标签
- * @param customTags 自定义资料标签
- */
-public void setCustomTags(List<String> customTags)
-
-/**
- * 添加自定义资料标签
- * @param tag 自定义资料标签
- */
-public void addCustomTag(String tag)
-```
-
-
-**示例：**
-
-```
-TIMGroupSettings settings = new TIMGroupSettings();
-
-//设置群资料拉取字段，这里只关心群头像、群类型、群主ID和自定义字段“Test"
-TIMGroupSettings.Options groupOpt = new TIMGroupSettings.Options();
-long groupFlags = 0;
-groupFlags |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_FACE_URL
-		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_GROUP_TYPE
-		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_OWNER_UIN;
-groupOpt.setFlags(groupFlags);
-groupOpt.addCustomTag("Test");
-settings.setGroupInfoOptions(groupOpt);
-
-//设置群成员资料拉取字段，这里只关心群名片、群角色
-TIMGroupSettings.Options memberOpt = new TIMGroupSettings.Options();
-long memberFlags = 0;
-memberFlags |= TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD
-		| TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_ROLE_INFO;
-memberOpt.setFlags(memberFlags);
-settings.setMemberInfoOptions(memberOpt);
-
-TIMUserConfig config = new TIMUserConfig();
-config.setGroupSettings(settings);
-
-//初始化群设置
-TIMManager.getInstance().setUserConfig(config);
-```
-
 ### 群成员获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料，默认拉取基本资料。
 
 **权限说明：**
 
@@ -830,7 +748,7 @@ TIMGroupManagerExt.getInstance().getGroupDetailInfo(
 
 ### 非群成员获取群组资料
 
-当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空，默认拉取基本资料。
 
 **原型：**
 
@@ -873,8 +791,6 @@ TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallB
 
 如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
 
->注：默认只拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
 **权限说明：**
 
 **直播大群：**无法获取本人在群内的资料。
@@ -892,7 +808,7 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 ### 获取群内某个人的资料
 
-获取群成员资料的接口由 `TIMGroupManagerExt` 提供。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)  进行设置。
+获取群成员资料的接口由 `TIMGroupManagerExt` 提供，默认拉取基本资料。
 
 **权限说明：**
 
@@ -1257,7 +1173,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 
 ###  对群成员进行禁言
 
-通过 `modifyGroupMemberInfoSetSilence` 可以对群成员进行禁言并设置禁言时长。
+通过 `modifyMemberInfoParam.setSilence()` 可以对群成员进行禁言并设置禁言时长。
 
 **权限说明：**
 
@@ -1337,7 +1253,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 **权限说明：**
 
 - **公开群和私有群：**默认消息接收方式为接收并提醒。
-- **聊天室和互动直播聊天室：**默认为接收不提醒。
+- **聊天室和音视频聊天室：**默认为接收不提醒。
 
 
 ** `TIMGroupReceiveMessageOpt` 接口定义如下：**
@@ -1463,15 +1379,15 @@ public void refuse(String msg, TIMCallBack cb)
 
 ### 拉取群未决列表
 
-通过 `TIMGroupManagerExt` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。  
+通过 `TIMGroupManagerExt` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
 **权限说明：**
 
 **只有审批人**有权限拉取相关信息。
 
 >例如：
->- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要过去未决信息。
->- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。  
+>- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取未决信息。
+>- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
 
 **原型：**
 
@@ -1570,142 +1486,17 @@ public void accept(String msg, TIMCallBack cb)
 public void refuse(String msg, TIMCallBack cb)
 ```
 
-## 群资料存储
-
-如果需要本地存储群资料，请手动开启 SDK 的群资料存储，同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。另外，这里仅存储群资料，并未对群成员的资料进行存储，群成员信息可以直接从消息中获取。
-
-### 启用群资料存储
-
-ImSDK 在默认的情况下，不会存储用户的群资料数据，每次调用接口都是从服务端重新获取。如果需要 SDK 进行群资料存储，可以在**登录前**，通过 `TIMUserConfigGroupExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。另外，SDK 只会对群资料进行存储，不会对群成员资料进行存储。群成员资料可以在收到的群消息里直接获取，请参考 [消息发送者及其相关资料](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
-
-**`TIMUserConfigGroupExt` 接口定义如下：**
-
-```
-/**
- * 扩展类构造函数
- * @param config 用户配置实例
- */
-public TIMUserConfigGroupExt(@NonNull TIMUserConfig config)
-
-/**
- * 设置群组资料变更事件监听器
- * @param listener 群组资料变更事件监听器
- */
-public TIMUserConfigGroupExt setGroupAssistantListener(TIMGroupAssistantListener listener)
-
-/**
- * 获取群组资料变更事件监听器
- * @return 群组资料变更事件监听器
- */
-public TIMGroupAssistantListener getGroupAssistantListener()
-
-/**
- * 是否开启群组资料本地储存
- * @return true - 开启， false - 不开启
- */
-public boolean isGroupStorageEnabled()
-
-/**
- * 设置是否开启群组资料本地储存
- * @param groupStorageEnabled true - 开启， false - 不开启
- */
-public TIMUserConfigGroupExt enableGroupStorage(boolean groupStorageEnabled)
-```
-
-**示例：**
-
-具体例子请参考 [用户配置](/doc/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
-
-
-### 群组资料获取同步接口
-
-为了方便读取，ImSDK 增加了群组资料的同步接口（**需要开启群资料存储**）。同步接口均由群组管理扩展包中的 `TIMGroupAssistant` 提供。
-
-**原型：**
-
-```
-/**
- * 同步获取指定的群的群信息
- * @param groupIds 指定要获取的群ID，如果为null，则获取全部的群信息
- * @return 群信息列表，如果出错返回null
- */
-public List<TIMGroupCacheInfo> getGroups(List<String> groupIds)
-```
-
-**返回类型 `TIMGroupCacheInfo` 接口定义如下：**
-
-```
-/**
- * 获取群详细信息
- * @return 群详细信息
- */
-public TIMGroupDetailInfo getGroupInfo()
-
-/**
- * 获取个人在群内的简单信息
- * @return 个人在群内的简单信息
- */
-public TIMGroupBasicSelfInfo getSelfInfo()
-```
-
-### 群通知回调
-
-如果开启了存储，可以通过 `TIMUserConfigGroupExt` 来设置 `TIMGroupAssistantListener` 来监听感知群事件，当有对应事件发生时，会进行回调。
-
-**`TIMGroupAssistantListener` 接口定义如下：**
-
-```
-/**
- * 有新用户加群时的通知回调
- * @param groupId 群 ID
- * @param memberInfos 加群的用户的群内资料列表
- */
-void onMemberJoin(String groupId, List<TIMGroupMemberInfo> memberInfos);
-
-/**
- * 有群成员退群时的通知回调
- * @param groupId 群 ID
- * @param members 退群的成员的identifier列表
- */
-void onMemberQuit(String groupId, List<String> members) ;
-
-/**
- * 群成员信息更新的通知回调
- * @param groupId 群 ID
- * @param memberInfos 更新后的群成员群内资料列表
- */
-void onMemberUpdate(String groupId, List<TIMGroupMemberInfo> memberInfos);
-
-/**
- * 加入群的通知回调
- * @param groupCacheInfo 加入的群组的缓存群资料
- */
-void onGroupAdd(TIMGroupCacheInfo groupCacheInfo);
-
-/**
- * 解散群的通知回调
- * @param groupId 解散群的群 ID
- */
-void onGroupDelete(String groupId);
-
-/**
- * 群缓存资料更新的通知回调
- * @param groupCacheInfo 更新后的群缓存资料信息
- */
-void onGroupUpdate(TIMGroupCacheInfo groupCacheInfo);
-```
-
 ## 群事件消息
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。另外，除了从**新消息通知**中获取群事件消息，还可以在**登录前**通过 `TIMUserConfig` 中的 `setGroupEventListener` 接口设置群事件监听器来统一监听相应的事件。另外，**从群事件消息中可以拿到当前群成员数**。
 
->注：聊天室（ChatRoom）和互动直播聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
+>注：聊天室（ChatRoom）和音视频聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
 
 如下图中，展示一条修改群名的事件消息。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151014031645_92316.jpg)
 
-**`TIMGroupTipsElem` 成员方法：**    
+**`TIMGroupTipsElem` 成员方法：**
 
 ```
 //获取群资料变更信息列表，仅当 tipsType 值为 TIMGroupTipsType.ModifyGroupInfo 时有效

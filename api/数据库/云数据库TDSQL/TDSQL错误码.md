@@ -4,7 +4,7 @@ TDSQL接口的错误码分为两类：
 
 | 错误码 | 描述 |
 |---------|---------|
-| ServiceUnavailable | 没有地区提过 tdsql 服务 |
+| ServiceUnavailable | 没有地区提供 tdsql 服务 |
 | NoServiceAvailableForThisRegionId | 请求的 regionId 不提供 tdsql 服务 |
 | NoServiceAvailableForThisZoneId | 请求的 zoneId 不提供tdsql服务 |
 | ReachThememSizeLimit | 申请的 tdsql 超过最大/最小容量限制 |

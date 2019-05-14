@@ -32,20 +32,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 ```
 
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "cpmSet": [
-            <物理机IP>,
-        ],
-        "vmSet": [
-            <云服务器IP>,
-        ],
-        "tgSet": [
-            <托管机器IP>,
-        ]
-    }
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "data": {
+  "cpmSet": ["< 物理机IP >"],
+  "vmSet": ["<云服务器IP >"],
+  "tgSet": ["<托管机器IP >"]
+ }
 }
 
 ```

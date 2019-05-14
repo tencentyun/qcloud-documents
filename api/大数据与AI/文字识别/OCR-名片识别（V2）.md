@@ -33,7 +33,7 @@
 | ----------- | ------- | ------------ |
 | result_list | JSON 数组 | 具体查询数据，内容见下表。 |
 
-result_list（ISON 数组）中每一项的具体内容：
+result_list（JSON 数组）中每一项的具体内容：
 
 | 字段      | 类型     | 说明           |
 | ------- | ------ | ------------ |
@@ -161,7 +161,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## 错误码
 | 错误码   | 含义                         |
 | ----- | -------------------------- |
-| 3     | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                       |
+| 3     | 错误的请求；当 "message" 字段等于 “account abnormal,errorno is：2”时，表示账号欠费停服               |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
 | 6     | 签名中的 appid/bucket 与操作目标不匹配 |

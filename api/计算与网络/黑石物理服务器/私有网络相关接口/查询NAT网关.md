@@ -35,31 +35,28 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 ### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "totalCount": <NAT网关数目>,
-    "data": [
-        {
-            "natId": <NAT网关ID>,
-            "natName": <NAT网关名称>,
-            "unVpcId": <VPC统一ID>,
-            "vpcId": <vpc网络ID>,
-            "vpcName": <VPC名称>,
-            "state": <NAT网关状态>,
-            "forwardMode": <转发方式>,
-            "productionStatus": <NAT网关生产状态>,
-            "eipCount": <绑定至NAT网关的eip个数>,
-            "eipSet": [
-                <绑定的eip>
-            ],
-            "maxConcurrent":  <NAT网关并发连接上限>,
-            "ntype": <NAT网关并发连接上限类型>,
-            "exclusive": <NAT网关共享型和独占型标识>,
-            "createTime": <创建时间>
-        }
-    ]
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "totalCount": "< NAT网关数目 > ",
+ "data": [{
+  "natId": "< NAT网关ID >",
+  "natName": "< NAT网关名称 >",
+  "unVpcId": "< VPC统一ID >",
+  "vpcId": "< vpc网络ID >",
+  "vpcName": "< VPC名称 >",
+  "state": "< NAT网关状态 >",
+  "forwardMode": "< 转发方式 >",
+  "productionStatus": "< NAT网关生产状态 >",
+  "eipCount": "< 绑定至NAT网关的eip个数 >",
+  "eipSet": ["<绑定的eip >"],
+  "maxConcurrent": "< NAT网关并发连接上限 >",
+  "ntype": "< NAT网关并发连接上限类型 >",
+  "exclusive": "< NAT网关共享型和独占型标识 >",
+  "createTime": "< 创建时间 >"
+ }]
 }
+
 ```
 
 ### 响应参数

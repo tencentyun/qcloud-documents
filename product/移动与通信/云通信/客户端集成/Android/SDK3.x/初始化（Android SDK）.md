@@ -13,7 +13,7 @@ public static TIMManager getInstance()
 TIMManager.getInstance();
 ```
 ## 初始化 SDK 配置
-在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制、Crash 上报等。对应的配置类为 `TIMSdkConfig`，具体 API 可以参考 SDK 下载包中的 `javadoc` 文档。
+在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`。
 
 ### 日志事件
 
@@ -34,7 +34,7 @@ public TIMSdkConfig setLogListener(TIMLogListener logListener)
 ```
 //设置日志回调，SDK 输出的日志将通过此接口回传一份副本
 //[NOTE] 请注意 level 定义在 TIMManager 中，如 TIMManager.ERROR 等， 并不同于 Android 系统定义
-TIMManager.getInstance().setLogListener(new TIMLogListener() {
+mTIMSdkConfig.setLogListener(new TIMLogListener() {
     @Override
     public void log(int level, String tag, String msg) {
         //可以通过此回调将 sdk 的 log 输出到自己的日志系统中
@@ -46,7 +46,7 @@ TIMManager.getInstance().setLogListener(new TIMLogListener() {
 
 在权限允许的情况下，ImSDK 的日志默认会写到日志文件中。通过 `TIMSdkConfig` 中的 `setLogLevel` 接口修改 ImSDK 内部写日志级别可以控制 ImSDK 的文件日志输出。
 
-> **注意：**
+>!
 > * 设置写日志等级， **必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
 > * 可以通过设置日志级别为 `TIMLogLevel.OFF` 来关闭 ImSDK 的文件日志输出，提升性能，建议在开发期间打开日志，方便排查问题。
 
@@ -65,8 +65,8 @@ public TIMSdkConfig setLogLevel(@NonNull TIMLogLevel logLevel)
 
 默认 ImSDK 日志会打印到控制台，如果调试期间干扰太多，可选择通过 `TIMSdkConfig` 中的 `enableLogPrint` 关闭控制台日志（此时文件日志仍然会打印，可设置日志级别禁用）。
 
-> **注意：**
-> 日志设置， **必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
+>! 日志设置， **必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
+
 
 **原型：**
 
@@ -82,7 +82,7 @@ public TIMSdkConfig enableLogPrint(boolean logPrintEnabled)
 
 为了方便统一管理日志，也可以修改默认的日志存储路径。通过 `TIMSdkConfig` 中的 `setLogPath` 接口可以设置日志文件存储路径。
 
-> **注意：**
+>!
 > * 设置日志路径，**必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
 > * ImSDK 默认日志存储路径为：SD 卡下，`/tencent/imsdklogs/(your app package name)/`
 
@@ -96,29 +96,11 @@ public TIMSdkConfig enableLogPrint(boolean logPrintEnabled)
 public TIMSdkConfig setLogPath(@NonNull String logPath)
 ```
 
-
-### Crash上报
-
-ImSDK 内部集成了 [Bugly系统](http://bugly.qq.com)，当应用 crash 后，会自动上报到平台，用户可以根据 Bugly 文档指示上传符号表，显示 crash 详细信息，如果用户有自己的上报组件，可通过 `TIMSdkConfig` 中的 `enableCrashReport` 接口来进行禁用上报。
-
-> **注意：**
-> 禁用 Bugly 的 crash 上报， **必须在 SDK 初始化之前调用**， 在 SDK 初始化之后设置无效。
-
-**原型：**
-```
-/**
- * 设置是否开启 Bugly 的 crash 上报功能， 必须在 SDK 初始化之前设置
- * @param crashReportEnabled true - 开启 Bugly 的 crash 上报功能（需要集成 ImSDK 内部提供的 Bugly 库）
- */
-public TIMSdkConfig enableCrashReport(boolean crashReportEnabled)
-```
-
 ## 初始化 SDK
 
 在使用 SDK 进一步操作之前，需要初始化 SDK。
 
-> **注意：**
-> 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化。
+>! 在存在**多进程**的情况下，请只在一个进程进行 SDK 初始化，调用接口`SessionWrapper.isMainProcess(Context context)`判断。
 
 **原型：**
 
@@ -136,22 +118,23 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 
 ```
 //初始化 SDK 基本配置
-TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-		.enableCrashReport(false);
-		.enableLogPrint(true)
-		.setLogLevel(TIMLogLevel.DEBUG)
-		.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
+//判断是否是在主线程
+if (SessionWrapper.isMainProcess(getApplicationContext())) {
+	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
+			.enableCrashReport(false)
+			.enableLogPrint(true)
+			.setLogLevel(TIMLogLevel.DEBUG)
+			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/");
 
-//初始化 SDK
-TIMManager.getInstance().init(getApplicationContext(), config);
+	//初始化 SDK
+	TIMManager.getInstance().init(getApplicationContext(), config);
+}
 ```
 ## 用户配置
 
 在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。ImSDK 的用户配置分四部分，分别如下：
 + 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
 + 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
-+ 群组管理扩展用户配置 —— 通过 `TIMUserConfigGroupExt` 进行配置。
-+ 资料关系链管理扩展用户配置 —— 通过 `TIMUserConfigSnsExt` 进行配置。
 
 配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
 
@@ -168,10 +151,6 @@ public void setUserConfig(TIMUserConfig userConfig)
 ```
 //基本用户配置
 TIMUserConfig userConfig = new TIMUserConfig()
-		//设置群组资料拉取字段
-		.setGroupSettings(initGroupSettings())
-		//设置资料关系链拉取字段
-		.setFriendshipSettings(initFriendshipSettings())
 		//设置用户状态变更事件监听器
 		.setUserStatusListener(new TIMUserStatusListener() {
 			@Override
@@ -229,86 +208,6 @@ userConfig = new TIMUserConfigMsgExt(userConfig)
 		.enableStorage(false)
 		//开启消息已读回执
 		.enableReadReceipt(true);
-
-//资料关系链扩展用户配置
-userConfig = new TIMUserConfigSnsExt(userConfig)
-		//开启资料关系链本地存储
-		.enableFriendshipStorage(true)
-		//设置关系链变更事件监听器
-		.setFriendshipProxyListener(new TIMFriendshipProxyListener() {
-			@Override
-			public void OnAddFriends(List<TIMUserProfile> users) {
-				Log.i(tag, "OnAddFriends");
-			}
-
-			@Override
-			public void OnDelFriends(List<String> identifiers) {
-				Log.i(tag, "OnDelFriends");
-			}
-
-			@Override
-			public void OnFriendProfileUpdate(List<TIMUserProfile> profiles) {
-				Log.i(tag, "OnFriendProfileUpdate");
-			}
-
-			@Override
-			public void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs) {
-				Log.i(tag, "OnAddFriendReqs");
-			}
-
-			@Override
-			public void OnAddFriendGroups(List<TIMFriendGroup> friendgroups) {
-				Log.i(tag, "OnAddFriendGroups");
-			}
-
-			@Override
-			public void OnDelFriendGroups(List<String> names) {
-				Log.i(tag, "OnDelFriendGroups");
-			}
-
-			@Override
-			public void OnFriendGroupUpdate(List<TIMFriendGroup> friendgroups) {
-				Log.i(tag, "OnFriendGroupUpdate");
-			}
-		});
-
-//群组管理扩展用户配置
-userConfig = new TIMUserConfigGroupExt(userConfig)
-		//开启群组资料本地存储
-		.enableGroupStorage(true)
-		//设置群组资料变更事件监听器
-		.setGroupAssistantListener(new TIMGroupAssistantListener() {
-			@Override
-			public void onMemberJoin(String groupId, List<TIMGroupMemberInfo> memberInfos) {
-				Log.i(tag, "onMemberJoin");
-			}
-
-			@Override
-			public void onMemberQuit(String groupId, List<String> members) {
-				Log.i(tag, "onMemberQuit");
-			}
-
-			@Override
-			public void onMemberUpdate(String groupId, List<TIMGroupMemberInfo> memberInfos) {
-				Log.i(tag, "onMemberUpdate");
-			}
-
-			@Override
-			public void onGroupAdd(TIMGroupCacheInfo groupCacheInfo) {
-				Log.i(tag, "onGroupAdd");
-			}
-
-			@Override
-			public void onGroupDelete(String groupId) {
-				Log.i(tag, "onGroupDelete");
-			}
-
-			@Override
-			public void onGroupUpdate(TIMGroupCacheInfo groupCacheInfo) {
-				Log.i(tag, "onGroupUpdate");
-			}
-		});
-
 //将用户配置与通讯管理器进行绑定
 TIMManager.getInstance().setUserConfig(userConfig);
 ```
@@ -317,8 +216,7 @@ TIMManager.getInstance().setUserConfig(userConfig);
 
 可选设置，如果要用户感知是否已经连接服务器，需要通过 `TIMUserConfig` 来设置此回调，用于通知调用者跟通讯后台链接的连接和断开事件，另外，如果断开网络，等网络恢复后会自动重连，自动拉取消息通知用户，用户无需关心网络状态，仅作通知之用。
 
->**注意：**
->这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与 IM 云 Server 连接状态。只要用户处于登录状态，**ImSDK 内部会进行断网重连，用户无需关心**。
+>!这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与 IM 云 Server 连接状态。只要用户处于登录状态，**ImSDK 内部会进行断网重连，用户无需关心**。
 
 **原型：**
 
@@ -379,8 +277,7 @@ public interface TIMUserStatusListener {
 用户如果在其他终端登录，会被踢下线，这时会收到用户被踢下线的通知。如果设置了用户状态变更通知监听器（参见 [用户状态变更](#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)），则可以在监听器的回调方法`onForceOffline`中进行相应的处理，出现这种情况常规的做法是提示用户进行操作（退出，或者再次把对方踢下线）。
 
 
->**注意：**
-用户如果在离线状态下被踢，下次登录将会失败，可以给用户一个非常强的提醒（登录错误码 ERR_IMSDK_KICKED_BY_OTHERS：6208），开发者也可以选择忽略这次错误，再次登录即可。
+>!用户如果在离线状态下被踢，下次登录将会失败，可以给用户一个非常强的提醒（登录错误码 ERR_IMSDK_KICKED_BY_OTHERS：6208），开发者也可以选择忽略这次错误，再次登录即可。
 
 用户在线情况下的互踢情况如下图所示。用户在设备 1 登录，保持在线状态下，该用户又在设备 2 登录，这时用户会在设备 1 上强制下线，收到 `onForceOffline` 回调。用户在设备 1 上收到回调后，提示用户，可继续调用 `login` 上线，强制设备 2 下线。这里是在线情况下互踢过程。
 
@@ -398,8 +295,7 @@ public interface TIMUserStatusListener {
 ### 禁用存储
 默认情况 ImSDK 会进行消息的存储，如无需存储，可选择通过 `TIMUserConfigMsgExt` 关闭存储来提升处理性能。
 
-> **注意：**
-> 禁用消息存储，**需要在登录之前调用**。
+>! 禁用消息存储，**需要在登录之前调用**。
 
 **原型：**
 ```
@@ -414,7 +310,7 @@ public TIMUserConfigMsgExt enableStorage(boolean storageEnabled)
 
 默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 ImSDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
 
-> **注意：**
+>!
 > * 如果不需要最近联系人可通过接口禁用： [最近联系人漫游](/doc/product/269/9232#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。
 > * 如果不需要离线消息，可以再发消息时使用：[发送在线消息](/doc/product/269/9232#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。
 
@@ -432,7 +328,7 @@ public TIMUserConfig setRefreshListener(TIMRefreshListener listener)
 
 ### 消息撤回通知监听
 
-ImSDK 3.1.0 开始提供了 [消息撤回]() 功能。通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
+ImSDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
 
 **原型：**
 ```
@@ -448,8 +344,7 @@ public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedL
 
 在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，在用户登录的时候，会拉取 C2C 离线消息和最近联系人，为了不漏掉消息通知，建议在登录之前注册新消息通知。
 
-> **注意：**
-> 只要是本地没有的消息，SDK 都会通过注册的消息通知回调给上层应用。
+>! 只要是本地没有的消息，SDK 都会通过注册的消息通知回调给上层应用。
 
 以下为添加一个消息监听器的原型。默认情况下所有消息监听器都将按添加顺序被回调一次。除非用户在 `onNewMessages` 回调中返回 true，此时将不再继续回调下一个消息监听器。
 

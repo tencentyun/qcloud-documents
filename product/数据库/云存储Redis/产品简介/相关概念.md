@@ -1,0 +1,16 @@
+
+了解云数据库 Redis 时，通常会涉及到以下概念：
+
+**实例**：在腾讯云中独立运行的数据库环境，一个数据库实例可以包含多个由用户创建的数据库。
+
+[**私有网络**](https://cloud.tencent.com/document/product/215/20046)：自定义的虚拟网络空间，与其他资源逻辑隔离。
+
+[**安全组**](https://cloud.tencent.com/document/product/239/30911)：对 Redis 实例进行安全的访问控制，指定进入实例的 IP、协议及端口规则。
+
+[**地域和可用区**](https://cloud.tencent.com/document/product/239/4106)：Redis 实例和其他资源的物理位置。
+
+[**腾讯云控制台**](https://console.cloud.tencent.com/cdb)：基于 Web 的用户界面。
+
+[**项目**](https://cloud.tencent.com/document/product/378/10863)：为了让开发商更好的管理云产品而开发的功能，该功能主要以项目为单位来进行，通过将各个云产品分别分配到各个项目中来实现项目管理。
+
+[**读写分离**](https://cloud.tencent.com/document/product/239/19543)：云数据库 Redis 支持开启和关闭读写分离功能，针对读多写少的业务场景，解决热点数据集中的读需求，最大支持1主5从模式，提供最大5倍的读性能扩展能力。

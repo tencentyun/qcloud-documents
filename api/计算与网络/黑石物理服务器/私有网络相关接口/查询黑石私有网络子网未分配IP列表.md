@@ -33,7 +33,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
     "codeDesc": "Success",
     "data": [
         "<不连续的单个可分配IP>",
-        "<连续的可分配IP开始>-<连续的可分配IP结束>",
+        "<连续的可分配IP开始>-<连续的可分配IP结束>"
     ]
 }
 

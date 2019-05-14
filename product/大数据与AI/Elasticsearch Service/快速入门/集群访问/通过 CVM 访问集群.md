@@ -142,11 +142,10 @@ curl -XGET 'http://10.0.0.2:9200/china/city/_search?pretty'
           "y" : 2560,
           "cityNo" : 3
         }
-      }
+      }]
     },
     ......
-}
-    
+}   
 ```
 
 ### 复杂查询

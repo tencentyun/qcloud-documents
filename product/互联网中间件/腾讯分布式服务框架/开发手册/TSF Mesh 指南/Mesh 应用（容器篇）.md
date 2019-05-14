@@ -11,7 +11,7 @@
    - 应用名：填写应用名称
    - 部署方式：选择**容器部署**  
    - 应用类型：选择 **Mesh 应用**
-  
+
 1.4 单击【提交】按钮，完成应用创建。
 
 ### 2. 将镜像推送到仓库
@@ -29,7 +29,7 @@
    - 集群：选择应用将部署的集群
    - 命名空间：选择命名空间属性
    - 实例资源限制：参考下图
-   ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
+      ![](https://main.qcloudimg.com/raw/3d833120463680f3f5cbe9a187130c55.png)
 
 3.3 设置访问设置、更新方式、日志配置项。
    - 网络访问方式：NodePort
@@ -58,10 +58,15 @@
 
 ## 三、验证服务调用
 
-### 1. 触发 user 服务调用 shop 和 promotion 服务 
-user、shop、promotion 三个服务的接口间调用关系如下：
+使用同样的步骤一和步骤二部署 user、shop 和 promotion 三个应用。user、shop、promotion 三个服务的接口间调用关系如下：
 
-user (`/api/v6/user/account/query` )  => shop (`/api/v6/shop/order`) => promotion (`/api/v6/promotion/query`)
+
+
+![](https://main.qcloudimg.com/raw/4b4cfb3f587dcca35f975db0c924542a.png)
+
+
+
+### 1. 触发 user 服务调用 shop 和 promotion 服务 
 
 为了验证 user 服务能通过服务名来调用 shop 服务，需要用户通过以下三种方式来触发 user 服务的接口调用：
 

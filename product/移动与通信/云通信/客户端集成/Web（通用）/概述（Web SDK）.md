@@ -20,8 +20,7 @@ Demo 目录结构如下：
 Demo 主要 JavaScript 文件功能说明如下：
 
 ```html
-<!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
+
 <!--用于获取文件MD5 js api(发送图片时用到)-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 <!--web im sdk-->
@@ -83,38 +82,18 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 然后，引入获取图片 MD5 的 JavaScript 库，用于上传图片：
 
-```
+```javascript
 <!--用于获取文件MD5，上传图片需要先获取文件的 MD5-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 ```
 
-此外，如果业务的帐号体系是托管模式，还需要引入TLS Web SDK：
-
-```
-<!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
-<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
-```
 
 **说明：**如果帐号采用的是独立模式，开发者需要在自己的服务器调用 TLS API 生成用户票据，然后调用 ImSdk 提供的接口进行相关操作。
 
 ### SDK 函数调用顺序
 
-如果帐号是 [托管模式](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用 SDK 登录 API 之前，需要先进行以下操作：
 
-| 步骤 | 对应函数 | 说明 |
-|---------|---------|---------|
-|TLS登录|	TLSHelper.goLogin(tlsLoginInfo);	|TLS 登录，需要传入业务 ID，帐号类型和回调 URL |
-|获取userSig|	TLSHelper.fetchUserSig();|	TLS 登录成功之后，在回调 URL 中会回传临时票据 tmpsig，此时需要根据tmpsig 获取正式的 userSig，fetchUserSig 成功之后，会回调 tlsGetUserSig(res) 函数。|
-|监听fetchUserSig()成功回调	|tlsGetUserSig(res){} |业务需要定义回调函数 tlsGetUserSig(res)，判断res.ErrorCode，当为 WebBigGroupIM.TLS_ERROR_CODE.OK 时则表示成功，为其他值，表示失败。|
-
-其中 `TLSHelper.goLogin` 的参数 `tlsLoginInfo` 对象属性定义如下：
-
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|sdkappid	|业务 ID|	Integer|
-|url	|TLS 登录成功回调地址，一般为业务网站首页地址|	String|
-
-当帐号模式为[独立模式](https://cloud.tencent.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。SDK 函数使用顺序，如下：
+SDK 函数使用顺序，如下：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
@@ -135,7 +114,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 ### 支持版本
 
 - ImSDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
-- Demo 支持 IE 8+ ( windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 ## ImSDK 基本概念
 
 **会话：**ImSDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
@@ -157,7 +136,7 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 |webim.SESSION_TYPE  |会话类型，取值范围：<br/>1) webim.SESSION_TYPE.C2C-私聊<br/>2) webim.SESSION_TYPE.GROUP-群聊| 区分消息属于哪种聊天类型 |
 |webim.C2C_MSG_SUB_TYPE  | C2C 消息子类型，取值范围：<br/>1) webim.C2C_MSG_SUB_TYPE.COMMON-普通消息 | 区分 C2C 消息类型|
 | webim.GROUP_MSG_SUB_TYPE |群消息子类型，取值范围：<br/>1)	webim.GROUP_MSG_SUB_TYPE.COMMON-普通消息<br/>2)	webim.GROUP_MSG_SUB_TYPE.LOVEMSG –点赞消息<br/>3)	webim.GROUP_MSG_SUB_TYPE.TIP –提示消息<br/>4)	webim.GROUP_MSG_SUB_TYPE.REDPACKET –红包消息(优先级最高)|  区分群消息类型，业务可针对不同的消息作出不同的操作。|
-| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>7)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>8)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
+| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>7)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
 |webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE  | 群资料变更类型，取值范围：<br/>1)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL-群头像发生变更<br/>2)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME -群名称发生变更<br/>3)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER-群主发生变更<br/>4)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION -群公告发生变更<br/>5)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION-群简介发生变更| 区分群资料变更类型 |
 | webim.GROUP_SYSTEM_TYPE | 群系统消息类型，取值范围：<br/>1)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST-申请加群请求（只有管理员会收到）<br/>2)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT -申请加群被同意（只有申请人能够收到）<br/>3)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE -申请加群被拒绝（只有申请人能够收到）<br/>4)	webim.GROUP_SYSTEM_TYPE.KICK-被管理员踢出群(只有被踢者接收到)<br/>5)	webim.GROUP_SYSTEM_TYPE.DESTORY -群被解散(全员接收)<br/>6)	webim.GROUP_SYSTEM_TYPE.CREATE -创建群(创建者接收, 不展示)<br/>7)	webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST -邀请加群(被邀请者接收)<br/>8)	webim.GROUP_SYSTEM_TYPE.QUIT-主动退群(主动退出者接收, 不展示)<br/>9)	webim.GROUP_SYSTEM_TYPE.SET_ADMIN -设置管理员(被设置者接收)<br/>10)	webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN -取消管理员(被取消者接收)<br/>11)	webim.GROUP_SYSTEM_TYPE.REVOKE -群已被回收(全员接收, 不展示)<br/>12)	webim.GROUP_SYSTEM_TYPE.CUSTOM -用户自定义通知(默认全员接收)| 区分群系统消息类型 |
 |webim.MSG_ELEMENT_TYPE  | 消息元素类型，取值范围：<br/>1)	webim.MSG_ELEMENT_TYPE.TEXT-文本消息<br/>2)	webim.MSG_ELEMENT_TYPE.FACE表情消息<br/>3)	webim.MSG_ELEMENT_TYPE.IMAGE-图片消息<br/>4)	webim.MSG_ELEMENT_TYPE.SOUND-语音消息<br/>5)	webim.MSG_ELEMENT_TYPE.FILE-文件消息<br/>6)	webim.MSG_ELEMENT_TYPE.LOCATION-位置消息<br/>7)	webim.MSG_ELEMENT_TYPE.CUSTOM-自定义消息<br/>8)	webim.MSG_ELEMENT_TYPE.GROUP_TIP-群提示消息（只有群聊天才会出现）|区分消息元素类型  |
@@ -165,7 +144,6 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 | webim.Emotions |表情对象  | 键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码 |
 | webim.EmotionDataIndexs | 表情标识字符串和 index 的 Map | 键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息。 |
 | webim.BROWSER_INFO | 当前浏览器信息<br/>1)	webim.BROWSER_INFO.type-浏览器类型( 包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’)<br/>2)	webim.BROWSER_INFO.ver-版本号| 区分浏览器版本 |
-|webim.TLS_ERROR_CODE  | TLS 错误码<br/>1)	webim.TLS_ERROR_CODE.OK-成功<br/>2)	webim.TLS_ERROR_CODE.SIGNATURE_EXPIRATION –用户UserSig过期|用于帐号为托管模式的情况 |
 | webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息<br/>3)	webim.CONNECTION_STATUS.RECONNECT-连接重新建立| 用于区分用户的当前连接状态 |
 
 **类对象：**
@@ -179,15 +157,16 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
 ### 会话对象 Session
 
-当前用户和某个群或者好友的聊天描述类。目前主要在发送消息时用得到。**对象名：**
+当前用户和某个群或者好友的聊天描述类。目前主要在发送消息时用得到。
+**对象名：**
 
-```
+```javascript
 webim.Session
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Session (
 	type, id, name, icon, time, seq
 )
@@ -220,9 +199,10 @@ webim.Session (
 
 ### 消息存储对象 MsgStore
 
-webim.MsgStore 是消息数据的 Model 对象（参考 MVC 概念）， 它提供接口访问当前存储的会话和消息数据。**对象名：**
+webim.MsgStore 是消息数据的 Model 对象（参考 MVC 概念）， 它提供接口访问当前存储的会话和消息数据。
+**对象名：**
 
-```
+```javascript
 webim.MsgStore
 ```
 
@@ -237,15 +217,16 @@ webim.MsgStore
 
 ### 消息对象 Msg
 
-一条消息的描述类, 消息发送、接收的 API 中都会涉及此类型的对象。**对象名：**
+一条消息的描述类, 消息发送、接收的 API 中都会涉及此类型的对象。
+**对象名：**
 
-```
+```javascript
 webim.Msg
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg(
 	sess, isSend, seq, random,time,fromAccount,subType,fromAccountNick
 )
@@ -290,15 +271,16 @@ webim.Msg(
 
 ### 消息元素对象 Msg.Elem
 
-一个消息元素的描述类，一条消息 `webim.Msg` 可以由多个 `webim.Msg.Elem` 组成。**对象名：**
+一个消息元素的描述类，一条消息 `webim.Msg` 可以由多个 `webim.Msg.Elem` 组成。
+**对象名：**
 
-```
+```javascript
 webim.Msg.Elem
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem(type,content)
 ```
 
@@ -321,13 +303,13 @@ webim.Msg.Elem(type,content)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Text
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Text(text)
 ```
 
@@ -349,13 +331,13 @@ webim.Msg.Elem.Text(text)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Face
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Face(index,data)
 ```
 
@@ -381,13 +363,13 @@ webim.Msg.Elem.Face(index,data)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Images
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Images(imageId)
 ```
 
@@ -414,13 +396,13 @@ webim.Msg.Elem.Images(imageId)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Images.Image
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Images.Image(type,size,width,height,url)
 ```
 
@@ -448,15 +430,16 @@ webim.Msg.Elem.Images.Image(type,size,width,height,url)
 
 ### 消息元素对象（位置）
 
-暂不支持。**对象名：**
+暂不支持。
+**对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Location
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Location(longitude,latitude,desc)
 ```
 
@@ -484,13 +467,13 @@ webim.Msg.Elem.Location(longitude,latitude,desc)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Sound
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Sound(uuid,second,size,senderId,downUrl)
 ```
 
@@ -522,13 +505,13 @@ webim.Msg.Elem.Sound(uuid,second,size,senderId,downUrl)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.File
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 ```
 
@@ -557,15 +540,16 @@ webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 
 ### 消息元素对象（自定义）
 
-Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。**对象名：**
+Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。
+**对象名：**
 
-```
+```javascript
 webim.Msg.Elem.Custom
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.Custom(data,desc,ext)
 ```
 
@@ -593,13 +577,13 @@ webim.Msg.Elem.Custom(data,desc,ext)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.GroupTip
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 ```
 
@@ -634,13 +618,13 @@ webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.GroupTip.GroupInfo
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.GroupTip.GroupInfo(type,value)
 ```
 
@@ -663,13 +647,13 @@ webim.Msg.Elem.GroupTip.GroupInfo(type,value)
 
 **对象名：**
 
-```
+```javascript
 webim.Msg.Elem.GroupTip.MemberInfo
 ```
 
 **构造函数：**
 
-```
+```javascript
 webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 ```
 
@@ -703,9 +687,10 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 
 ### 工具对象 Tool
 
-`webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。**对象名：**
+`webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。
+**对象名：**
 
-```
+```javascript
 webim.Tool
 ```
 
@@ -718,9 +703,10 @@ webim.Tool
 
 ### 控制台打印日志对象 Log
 
-主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。**对象名：**
+主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。
+**对象名：**
 
-```
+```javascript
 webim.Log
 ```
 

@@ -11,23 +11,18 @@
 3）在 COS 控制台，进入新建的存储桶，单击【基础配置】，配置 CORS 规则，配置示例如下图：
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
 
-### 2. 搭建临时密钥服务
-出于安全考虑，签名使用临时密钥，需要服务端搭建临时密钥服务，可参考 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
-其他语言参考 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 或参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。
-
 >! 正式部署时服务端请加一层您的网站本身的权限检验。
 
-### 3. 计算签名
+### 3. 获取临时密钥和计算签名
 出于安全考虑，签名使用临时密钥，服务端搭建临时密钥服务，可参考 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
 如有其他语言或自行实现可以看以下流程：
-1）前端需要签名，向服务端获取临时密钥，传入 method 和 pathname 必要参数；
-2）服务端首先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，详情请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 文档；
-3）前端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，下文例子已包含前端计算签名步骤，如果业务需要也可以放在后端计算签名。
-4）服务端将计算得到的签名 authorization 和 sessionToken 返回给前端，前端将服务端返回的两个值分别放到 header 的 Authorization 和 x-cos-security-token 字段里，向 COS API 发出上传请求。
+1）向服务端获取临时密钥,服务端首先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，详情请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 文档；
+2）前端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，可参考下文使用 [cos-auth.js](https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js) 来计算签名，如果业务需要也可以放在后端计算签名。
+4）前端将 sessionToken 计算得到的签名 authorization，前端将服务端返回的两个值分别放到 header 的 x-cos-security-token 和  authorization 字段里，向 COS API 发出上传请求。
 
 >! 正式部署时服务端请加一层您的网站本身的权限检验。
 
-### 4. 前端上传
+### 3. 前端上传
 #### 方案 A：使用 AJAX 上传
 AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT Object ](https://cloud.tencent.com/document/product/436/7749)  文档，操作指引如下：
 1）按照 [步骤1. 前期准备](#前期准备) 的步骤，准备存储桶的相关配置。
@@ -60,7 +55,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.28/demo/common/cos-auth.min.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js"></script>
 <script>
     (function () {
         // 请求用到的参数
@@ -68,6 +63,16 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+
+        // 对更多字符编码的 url encode 格式
+        var camSafeUrlEncode = function (str) {
+            return encodeURIComponent(str)
+                .replace(/!/g, '%21')
+                .replace(/'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29')
+                .replace(/\*/g, '%2A');
+        };
 
         // 计算签名
         var getAuthorization = function (options, callback) {
@@ -113,7 +118,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
                 var auth = info.Authorization;
                 var XCosSecurityToken = info.XCosSecurityToken;
-                var url = prefix + Key;
+                var url = prefix + camSafeUrlEncode(Key).replace(/%2F/, '/');
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
@@ -194,7 +199,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 
 <div id="msg"></div>
 
-<script src="https://unpkg.com/cos-js-sdk-v5@0.4.28/demo/common/cos-auth.min.js"></script>
+<script src="https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js"></script>
 <script>
     (function () {
 
@@ -205,6 +210,16 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
+
+        // 对更多字符编码的 url encode 格式
+        var camSafeUrlEncode = function (str) {
+            return encodeURIComponent(str)
+                .replace(/!/g, '%21')
+                .replace(/'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29')
+                .replace(/\*/g, '%2A');
+        };
 
         // 计算签名
         var getAuthorization = function (options, callback) {
@@ -262,7 +277,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                     arr = items[i].split('=');
                     data[arr[0]] = decodeURIComponent(arr[1] || '');
                 }
-                showMessage(null, {url: prefix + encodeURIComponent(Key).replace(/%2F/g, '/'), ETag: data.etag});
+                showMessage(null, {url: prefix + camSafeUrlEncode(Key).replace(/%2F/g, '/'), ETag: data.etag});
             } else {
             }
         };

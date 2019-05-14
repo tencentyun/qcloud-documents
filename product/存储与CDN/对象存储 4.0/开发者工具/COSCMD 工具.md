@@ -1,40 +1,45 @@
 ## 功能说明
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。
 
+>!使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
+
 ## 使用环境
 
 ### 系统环境
 
-Windows 或 Linux 系统。
+支持 Windows、Linux 和 macOS 系统。
 
->?请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常。
+>?
+- 请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常。
+- 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
 
 ### 软件依赖
 
 - Python 2.7/3.5/3.6。
--  最新版本的 pip。
+- 最新版本的 pip。
 
 #### 安装及配置
 
 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 
 ## 下载与安装
+安装 pip 有以下几种方式：
 
 - **pip 安装**
   执行`pip`命令进行安装：
-```shell
+```sh
 pip install coscmd
 ```
 
  安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 - **pip 更新**
   执行`pip`命令进行更新：
-```shell
+```sh
 pip install coscmd -U
 ```
 >! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
-- **源码安装(不推荐)**
+- **源码安装（不推荐）**
   下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)。
 ```shell
 git clone https://github.com/tencentyun/coscmd.git
@@ -42,6 +47,20 @@ cd coscmd
 python setup.py install
 ```
 >!Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。
+
+- **离线安装**
+```sh
+# 在有外网的机器下运行如下命令
+mkdir coscmd-packages
+pip download coscmd -d coscmd-packages
+tar -czvf coscmd-packages.tar.gz coscmd-packages
+```
+>! 请确保两台机器的 python 版本保持一致，否则会出现安装失败的情况。
+>```sh
+># 将安装包拷贝到没有外网的机器后运行如下命令
+>tar -xzvf coscmd-packages.tar.gz
+>pip install coscmd --no-index -f coscmd-packages
+```
 
 ## 使用方法
 
@@ -104,7 +123,7 @@ coscmd upload -h  //查看 upload 命令使用方法
 ### 配置参数
 
 COSCMD 工具在使用前需要进行参数配置，用户可以通过如下命令来配置：
-```
+```shell
 coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
                          (-r <REGION> | -e <ENDPOINT>) [-m <MAX_THREAD>]
                          [-p <PART_SIZE>] [-u <APPID>] [--do-not-use-ssl]
@@ -116,89 +135,91 @@ coscmd  config [-h] -a <SECRET_ID> -s <SECRET_KEY> -b <BUCKET>
 | :--------- | :----------------------------------------------------------- | :----- |
 | SECRET_ID  | 必选参数，APPID 对应的密钥 ID 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
 | SECRET_KEY | 必选参数，APPID 对应的密钥 Key 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
-| BUCKET     | 必选参数，指定的存储桶名称，bucket的命名规则为{name}-{appid} ，参考 [创建存储桶](https://cloud.tencent.com/doc/product/436/6232) | 字符串 |
+| BUCKET     | 必选参数，指定的存储桶名称，bucket的命名规则为`<BucketName-APPID>` ，可参阅 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) | 字符串 |
 | REGION     | 必选参数，存储桶所在地域，参考 [可用地域](https://cloud.tencent.com/doc/product/436/6224) | 字符串 |
-| MAX_THREAD | 可选参数，多线程上传时的最大线程数（默认为5）               | 数字   |
-| PART_SIZE  | 可选参数，分块上传的单块大小（单位为 MB，默认为1MB）        | 数字   |
+| MAX_THREAD | 可选参数，多线程上传时的最大线程数（默认为5，范围为1-10）               | 数字   |
+| PART_SIZE  | 可选参数，分块上传的单块大小（单位MB，默认为1MB，范围为1-100）        | 数字   |
 
 
 >!
-1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
+- 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于**我的文档**下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
   配置完成之后的`.cos.conf`文件内容示例如下所示：
 ```shell
  [common]
-secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
-secret_key = WE54wreefvds3462refgwewerewr
-bucket = ABC-1234567890
+secret_id = AChT4ThiXAbpBDE
+secret_key = WE54wreefvds34
+bucket = examplebucket-1250000000
 region = ap-guangzhou
 max_thread = 5
 part_size = 1
 schema = https
 ```
-2. 可以在配置文件中增加`schema`项来选择 `http/https`，默认为 `https`。
-3. 可以在`anonymous`项中选择`True/False`，来使用匿名模式，即签名保持为空。
-4. bucket 的命名规则为`{name}-{appid}`。
+- 可以在配置文件中增加`schema`项来选择`http/https`，默认为`https`。
+- 可以在`anonymous`项中选择`True/False`，来使用匿名模式，即签名保持为空。
+- bucket 的命名规则为`<BucketName-APPID>`。
 
 
 ### 指定 Bucket 的命令
--  通过`-b <bucket> 指定 Bucket`， 可以指定特定的 Bucket。
--  Bucket 的命名规则为`{name}-{appid}`，此处填写的存储桶名称必须为此格式。
-```shell
+-  通过`-b <BucketName-APPID> 指定 Bucket`， 可以指定特定的 Bucket。
+-  Bucket 的命名规则为`<BucketName-APPID>`，此处填写的存储桶名称必须为此格式。
+```sh
 #命令格式
-coscmd -b <bucket> method ...
+coscmd -b <BucketName-APPID> method ...
 #操作示例-上传文件
-coscmd -b AAA-12345567 upload a.txt b.txt
+coscmd -b examplebucket-1250000000 upload a.txt b.txt
 #操作示例-创建bucket
-coscmd -b AAA-12344567 createbucket
+coscmd -b examplebucket-1250000000 createbucket
 ```
 
 ### 创建存储桶
--  建议配合`-b <bucket> 指定 Bucket`使用。
-```shell
+-  建议配合`-b <BucketName-APPID> 指定 Bucket`使用。
+```sh
 #命令格式
-coscmd -b <bucket> createbucket
+coscmd -b <BucketName-APPID> createbucket
 #操作示例
 coscmd createbucket
-coscmd -b AAA-12344567 createbucket
+coscmd -b examplebucket-1250000000 createbucket
 ```
 
 ### 删除存储桶
--  建议配合`-b <bucket> 指定 Bucket`使用。
-```shell
+-  建议配合`-b <BucketName-APPID> 指定 Bucket`使用。
+```sh
 #命令格式
-coscmd -b <bucket> deletebucket
+coscmd -b <BucketName-APPID> deletebucket
 #操作示例
 coscmd deletebucket
-coscmd -b AAA-12344567 deletebucket
-coscmd -b AAA-12344567 deletebucket -f
+coscmd -b examplebucket-1250000000 deletebucket
+coscmd -b examplebucket-1250000000 deletebucket -f
 ```
 
 - 使用 -f 参数则会强制删除该 bucket，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
 
 ### 上传文件或文件夹
 - 上传文件命令如下：
-```shell
+```sh
 #命令格式
 coscmd upload <localpath> <cospath>
 #操作示例
-coscmd upload /home/aaa/123.txt bbb/123.txt
-coscmd upload /home/aaa/123.txt bbb/
+#将本地的 /home/folder1/text.txt 文件上传到 COS 的 folder2/text.txt 路径
+coscmd upload /home/folder1/text.txt folder2/text.txt
+coscmd upload /home/folder1/text.txt folder2/
 ```
+
 - 上传文件夹命令如下：
-```shell
+```sh
 #命令格式
 coscmd upload -r <localpath> <cospath>
 #操作示例
-coscmd upload -r /home/aaa/ bbb/aaa
-coscmd upload -r /home/aaa/ bbb/
-#该操作会在bbb/目录下新建一个aaa/文件夹
-coscmd upload -r /home/aaa  bbb/
+coscmd upload -r /home/folder1/ folder2/folder1
+coscmd upload -r /home/folder1/ folder2/
+#该操作会在folder2/目录下新建一个folder1/文件夹
+coscmd upload -r /home/folder1  folder2/
 #上传到bucket根目录
-coscmd upload -r /home/aaa/ /
+coscmd upload -r /home/folder1/ /
 #同步上传，跳过md5相同的文件
-coscmd upload -rs /home/aaa/ /home/aaa
+coscmd upload -rs /home/folder1/ /home/folder1
 #忽略.txt和.doc的后缀文件
-coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
+coscmd upload -rs /home/folder1/ /home/folder1 --ignore *.txt,*.doc
 ```
 
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
@@ -211,30 +232,30 @@ coscmd upload -rs /home/aaa/ /home/aaa --ignore *.txt,*.doc
  >  - 使用 -s 参数可以使用同步上传，跳过上传 md5 一致的文件（COS 上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header）。
  >  - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，示例：`coscmd upload -H '{"Cache-Control":"max-age=31536000","Content-Language":"zh-CN"}' <localpath> <cospath>`。
  >  - 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
- >  - 目前只支持上传最大40TB 的单一文件。
+ >  - 目前只支持上传最大40TB的单一文件。
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
-```shell
+```sh
 #命令格式
 coscmd download <cospath> <localpath>
 #操作示例
-coscmd download bbb/123.txt /home/aaa/111.txt
-coscmd download bbb/123.txt /home/aaa/
+coscmd download folder2/text.txt /home/folder1/text.txt
+coscmd download folder2/text.txt /home/folder1/
 ```
 - 下载文件夹命令如下：
-```shell
+```sh
 #命令格式
 coscmd download -r <cospath> <localpath>
 #操作示例
-coscmd download -r /home/aaa/ bbb/aaa
-coscmd download -r /home/aaa/ bbb/
+coscmd download -r /home/folder1/ folder2/folder1
+coscmd download -r /home/folder1/ folder2/
 #覆盖下载当前bucket根目录下所有的文件
-coscmd download -rf / bbb/aaa
+coscmd download -rf / folder2/folder1
 #同步下载当前bucket根目录下所有的文件，跳过md5校验相同的文件
-coscmd download -rs / bbb/aaa
+coscmd download -rs / folder2/folder1
 #忽略.txt和.doc的后缀文件
-coscmd download -rs / bbb/aaa --ignore *.txt,*.doc 
+coscmd download -rs / folder2/folder1 --ignore *.txt,*.doc 
 ```
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
 >!
@@ -245,28 +266,28 @@ coscmd download -rs / bbb/aaa --ignore *.txt,*.doc
 
 ### 删除文件或文件夹
 - 删除文件命令如下：
-```shell
+```sh
 #命令格式
 coscmd delete <cospath>
 #操作示例
-coscmd delete bbb/123.txt
+coscmd delete folder2/text.txt
 ```
 - 删除文件夹命令如下：
-```shell
+```sh
 #命令格式
 coscmd delete -r <cospath>
 #操作示例
-coscmd delete -r bbb/
+coscmd delete -r folder2/
 coscmd delete -r /
 ```
 
  请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
 
- >!批量删除需要输入确定，使用`-f`参数跳过确认 
+ >!批量删除需要输入确定，使用`-f`参数跳过确认。
 
 ### 清除上传文件碎片
 - 命令如下：
-```shell
+```sh
 #命令格式
 coscmd abort
 #操作示例
@@ -275,19 +296,19 @@ coscmd abort
 
 ### 复制文件或文件夹
 - 复制文件命令如下：
-```shell
+```sh
 #命令格式
 coscmd copy <sourcepath> <cospath> 
 #操作示例
-coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt
+coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt folder1/text.txt
 ```
 - 复制文件夹命令如下：
-```shell
+```sh
 #命令格式
 coscmd copy -r <sourcepath> <cospath>
 #操作示例
-coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa
-coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/
+coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ folder1
+coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ folder1/
 ```
 
  请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）
@@ -296,64 +317,63 @@ coscmd copy -r bucket-appid.cos.ap-guangzhou.myqcloud.com/coscmd/ aaa/
 
 ### 打印文件列表
 打印命令如下：
-```shell
+```sh
 #命令格式
 coscmd list <cospath>
 
 #操作示例
 coscmd list -a
-coscmd list bbb/123.txt  -r -n 10
+coscmd list folder2/text.txt  -r -n 10
 ```
 请将"<>"中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
  - 使用`-a`打印全部文件。
- - 使用 `-r` 递归打印，并且会在末尾返回列出文件的数量和大小之和。
+ - 使用 `-r` 递归打印，并且会在末尾返回列出文件的数量和大小之和（大小单位为 Bytes）。
  - 使用 `-n num` 设置打印数量的最大值。
 
 >!`<cospath>`为空默认打印当前 Bucket 根目录。
 
 ### 显示文件信息
 命令如下：
-```shell
+```sh
 #命令格式
 coscmd info <cospath> 
 
 #操作示例
-coscmd info bbb/123.txt
+coscmd info folder2/text.txt
 ```
 请将"<>"中的参数替换为您需要显示的 COS 上文件的路径（cospath）。
 
 ### 获取带签名的下载 URL
 命令如下：
-```shell
+```sh
 #命令格式
 coscmd signurl <cospath>
 
 #操作示例
-coscmd signurl bbb/123.txt
-coscmd signurl bbb/123.txt -t 100
+coscmd signurl folder2/text.txt
+coscmd signurl folder2/text.txt -t 100
 ```
 
 请将 "<>" 中的参数替换为您需要获取下载 URL 的 COS 上文件的路径（cospath）
 使用 `-t time` 设置打印签名的有效时间（单位为秒）
 
 ### 设置访问控制（ACL）
-命令如下：
 使用如下命令设置 Bucket 的访问控制：
-```shell
+```sh
 #命令格式
-coscmd putbucketacl [--grant-read GRANT_READ]  [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL]
+coscmd putbucketacl --grant-read <root_uin> --grant-write <root_uin> --grant-full-control <root_uin>/<sub_uin>
 
 #操作示例 
-coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222
+coscmd putbucketacl --grant-read 100000000001,100000000001/100000000002 --grant-write anyone --grant-full-control 100000000001/100000000003
 ```
 
 使用如下命令设置 Object 的访问控制：
-```shell
+```sh
 #命令格式
-coscmd putobjectacl [--grant-read GRANT_READ] [--grant-write GRANT_WRITE] [--grant-full-control GRANT_FULL_CONTROL] <cospath> 
+coscmd putobjectacl --grant-read <root_uin>,<root_uin>/<sub_uin> --grant-write <root_uin> --grant-full-control <root_uin>/<sub_uin> <cospath> 
 
 #操作示例
-coscmd putobjectacl  --grant-read 12345678,12345678/11111 --grant-write anyone --grant-full-control 12345678/22222 aaa/aaa.txt 
+coscmd putobjectacl  --grant-read 100000000001,100000000001/100000000002 --grant-write anyone --grant-full-control 100000000001/100000000003 folder1/text.txt
 ```
 
 #### ACL 设置指南
@@ -361,16 +381,15 @@ coscmd putobjectacl  --grant-read 12345678,12345678/11111 --grant-write anyone -
 - --grant-read 代表读的权限。
 - --grant-write 代表写的权限。
 - --grant-full-control 代表读写的权限。
-- GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL 代表被赋权的账号。
-- 若赋权根账号，使用 rootid 的形式。
-- 若赋权子账户，使用 rootid/subid 的形式。
+- 若赋权主账号，使用`<root_uin>`的形式，例如100000000001。
+- 若赋权子账户，使用`<root_uin>/<sub_uin>`的形式，例如100000000001/100000000002。
 - 若需要对所有人赋权，使用 anyone 的形式。
-- 同时赋权的多个账号用逗号`,`隔开。
-- 请将参数替换为您所需要删除的 COS 上文件的路径（cospath）。
+- 同时赋权的多个账号用英文逗号`,`隔开。
+- 请将参数替换为您所需要设置 ACL 的文件在 COS 上的路径（cospath）。
 
 ### 获取访问控制（ACL）
 - 使用如下命令设置 Bucket 的访问控制：
-```shell
+```sh
 #命令格式
 coscmd getbucketacl 
 #操作示例
@@ -378,16 +397,16 @@ coscmd getbucketacl
 ```
 
 - 使用如下命令设置 Object 的访问控制：
-```shell
+```sh
 #命令格式
 coscmd putbucketacl <cospath> 
 #操作示例
-coscmd getobjectacl aaa/aaa.txt 
+coscmd getobjectacl folder1/text.txt 
 ```
 
-### 开启关闭版本控制
+### 开关版本控制
 命令如下：
-```shell
+```sh
 #命令格式
 coscmd putbucketversioning <status>
 
@@ -402,16 +421,19 @@ coscmd putbucketversioning Suspended
 >!开启版本控制为不可逆过程，之后该 bucket 将无法使用 JSON API 接口（包括所有 JSON SDK），请慎重选择。
 
 ### 恢复归档文件
-命令如下：
-```shell
+- 恢复归档文件命令如下：
+```sh
 #命令格式
 coscmd restore <cospath>
-
 #操作示例
-coscmd restore a.txt -d 3 -t  Expedited
-
+coscmd restore -d 3 -t Expedited a.txt 
+```
+- 批量恢复归档文件命令如下：
+```sh
+#命令格式
+coscmd restore -r <cospath>
 #操作示例
-coscmd restore a.txt -d 3 -t  Bulk
+coscmd restore -r -d 3 -t Bulk folder/
 ```
 
  请将 "<>" 中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
@@ -420,12 +442,12 @@ coscmd restore a.txt -d 3 -t  Bulk
 
 ### Debug 模式执行命令
 在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
-```shell
+```sh
 #显示upload的详细操作信息，命令格式：
 coscmd -d upload <localpath> <cospath>
 
 #操作示例
-coscmd -d upload /home/aaa/123.txt bbb/123.txt  
+coscmd -d upload /home/folder1/text.txt folder2/text.txt  
 ```
 
 ## 常见问题

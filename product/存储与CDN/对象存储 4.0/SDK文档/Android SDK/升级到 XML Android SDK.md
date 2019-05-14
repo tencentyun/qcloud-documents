@@ -7,15 +7,14 @@
 | 功能       | XML Android SDK         | JSON Android SDK                         |
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
-| 文件下载 | 支持断点续传 | 不支持断点续传 |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
-| 目录操作 | 不支持   | 创建目录<br>查询目录<br>删除目录 |
+| 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
 ## 升级步骤
-请按照下面5个步骤升级 Android SDK。
+请按照以下步骤升级 Android SDK。
 
 **1. 更新 Android SDK**
 
@@ -51,7 +50,9 @@ dependencies {
 **2. 更改 SDK 鉴权方式**
 
 在 JSON Android SDK 中您需要自己在后台计算好签名，再返回客户端使用。而在 XML SDK 使用了新的鉴权算法，在 XML Android SDK 中，强烈建议您后台接入我们的临时密钥 (STS) 方案。该方案不需要您了解签名计算过程，只需要在服务器端接入 CAM，将拿到的临时密钥返回到客户端，并设置到 SDK 中，SDK 会负责管理密钥和计算签名。临时密钥在一段时间后会自动失效，而永久密钥不会泄露。
-您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [快速搭建移动应用直传服务](https://cloud.tencent.com/document/product/436/9068) 以及 [权限控制实例](https://cloud.tencent.com/document/product/436/30172)。
+您还可以按照不同的粒度来控制访问权限。具体的步骤请参考 [移动应用直传实践](https://cloud.tencent.com/document/product/436/9068) 以及 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。
+
+如果您仍然采用后台手动计算签名，再返回客户端使用的方式，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档更新您签名的实现。
 
 **3. 更改 SDK 初始化**
 
@@ -65,7 +66,7 @@ dependencies {
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
 COSClientConfig config = new COSClientConfig();
-//设置园区
+//设置地域
 config.setEndPoint(COSEndPoint.COS_GZ);
 
 Context context = getApplicationContext()；
@@ -111,20 +112,21 @@ CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credenti
 
 
 **4. 更改存储桶名称和可用区域简称**
+
 XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要您进行相应的更改。
 
 **存储桶 Bucket**
 
-XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
+XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 
 ```
-String bucket = "mybucket1-1250000000";
-String cosPath = "test.txt";
-String srcPath = Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+String bucket = "examplebucket-1250000000";
+String cosPath = "exampleobject.doc";
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
 //上传文件
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 ```
@@ -169,9 +171,9 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 API 变化有以下三点：
 
-**1）不再支持目录操作**
+**1）没有单独的目录接口**
 
-在 XML SDK 中，不再支持目录操作。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
 为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
 例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
@@ -185,7 +187,7 @@ API 变化有以下三点：
 
 在 XML SDK 中，我们封装了上传、下载和复制操作，命名为 `TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
-* 支持断点下载。
+* 支持上传下载过程的暂停和恢复。
 * 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
 * 支持任务状态的监听。
 
@@ -208,8 +210,8 @@ TransferConfig transferConfig = new TransferConfig.Builder()
 TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
 String bucket = "存储桶名称";
-String cosPath = [对象键](https://cloud.tencent.com/document/product/436/13324)，即存储到 COS 上的绝对路径; //格式如 cosPath = "test.txt";
-String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+String cosPath = "对象键"; // 即存储到 COS 上的绝对路径,格式如 cosPath = "exampleobject.doc";
+String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
 String uploadId = "分片上传的UploadId";//用于续传，若无，则为null.
 //上传文件
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
@@ -244,7 +246,7 @@ cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
 /**
 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
- putObjectRequest.setRegion(region); //设置存储桶所在的园区
+ putObjectRequest.setRegion(region); //设置存储桶所在的地域
  putObjectRequest.setSign(600); //设置签名sign有效期
  putObjectRequest.setNeedMD5(true); //是否启用Md5校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);

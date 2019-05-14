@@ -15,23 +15,23 @@
 | apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
 | apiType                                  | 否    | String  | API 接口类型，当前只有 NORMAL，后续还会增加其他类型的 API。       |
 | authRequired                             | 否    | String  | 是否需要签名认证，TRUE表示需要，FALSE 表示不需要。默认为 TRUE。如果需要开放在云市场的 API，必须选择 TRUE。 |
-| enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。默认为FALSE    |
+| enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。默认为 FALSE。    |
 | requestConfig.path                       | 是    | String  | API的前端路径，如/path。                         |
 | requestConfig.method                     | 是    | String  | API 的前端请求方法，如 GET。                         |
 | requestParameters.n.name                 | 否    | String  | API 的前端参数名称。                              |
 | requestParameters.n.position             | 否    | String  | API 的前端参数位置。，当前仅支持 PATH、QUERY、HEADER。      |
-| requestParameters.n.type                 | 否    | String  | API 的前端参数类型，如 String、int 等。                 |
+| requestParameters.n.type                 | 否    | String  | API 的前端参数类型，如 String、Int 等。                 |
 | requestParameters.n.defaultValue         | 否    | String  | API 的前端参数默认值。                             |
 | requestParameters.n.required             | 否    | Boolean | API 的前端参数是否必填，TRUE：表示必填，FALSE：表示可选。       |
 | requestParameters.n.desc                 | 否    | String  | API 的前端参数备注。                              |
-| serviceType                              | 是    | Boolean | API 的后端服务类型，现在支持三种：HTTP，MOCK，SCF          |
+| serviceType                              | 是    | Boolean | API 的后端服务类型，现在支持三种：HTTP、MOCK、SCF。          |
 | serviceTimeout                           | 是    | Int     | API 的后端服务超时时间，单位是秒。                       |
-| serviceConfig.url                        | 否    | String  | API 的后端服务url。如果serviceType是HTTP，则此参数必传。   |
-| serviceConfig.path                       | 否    | String  | API 的后端服务路径，如/path。如果serviceType是HTTP，则此参数必传。前后端的路径可不同。API网关会对路径做映射。 |
+| serviceConfig.url                        | 否    | String  | API 的后端服务 URL。如果 serviceType 是 HTTP，则此参数必传。   |
+| serviceConfig.path                       | 否    | String  | API 的后端服务路径，如 /path。如果 serviceType 是 HTTP，则此参数必传。前后端的路径可不同。API 网关会对路径做映射。 |
 | serviceConfig.method                     | 否    | String  | API 的后端服务请求方法，如 GET。如果 serviceType 是 HTTP，则此参数必传。前后端的方法可不同。API 网关会对方法做映射。 |
 | serviceParameters.n.name                 | 否    | String  | API 的后端服务参数名称。只有 serviceType 是 HTTP 才会用到此参数。后端服务的参数名称可与前端参数名称不同。API 网关会对参数名称做映射。但后端参数值与前端参数值相同。 |
-| serviceParameters.n.position             | 否    | String  | API的后端服务参数位置，如head。只有 serviceType 是 HTTP 才会用到此参数。后端服务的位置名称可与前端参数位置不同。API 网关会对参数位置做映射。 |
-| serviceParameters.n.relevantRequestParameterName | 否    | String  | API的后端服务参数对应的前端参数名称。只有 serviceType 是 HTTP 才会用到此参数。 |
+| serviceParameters.n.position             | 否    | String  | API 的后端服务参数位置，如 head。只有 serviceType 是 HTTP 才会用到此参数。后端服务的位置名称可与前端参数位置不同。API 网关会对参数位置做映射。 |
+| serviceParameters.n.relevantRequestParameterName | 否    | String  | API 的后端服务参数对应的前端参数名称。只有 serviceType 是 HTTP 才会用到此参数。 |
 | serviceParameters.n.relevantRequestParameterPosition | 否    | String  | API 的后端服务参数对应的前端参数位置。只有 serviceType 是 HTTP 才会用到此参数。 |
 | serviceParameters.n.desc                 | 否    | String  | API 的后端服务参数备注。只有 serviceType 是 HTTP 才会用到此参数。  |
 | constantParameters.n.name                | 否    | String  | 常量参数名称。只有 serviceType 是 HTTP 才会用到此参数。常量参数为 API 发布者配置在后端的参数，前端调用者不可见。 |
@@ -40,7 +40,9 @@
 | constantParameters.n.defaultValue        | 否    | String  | 常量参数默认值。只有 serviceType 是 HTTP 才会用到此参数。       |
 | serviceMockReturnMessage                 | 否    | String  | API 的后端 Mock 返回信息。如果 serviceType 是 Mock，则此参数必传。 |
 | serviceScfFunctionName                   | 否    | String  | API 的后端SCF函数名称。如果serviceType是Scf，则此参数必传。  |
-| responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持HTML、JSON、TEST、BINARY、XML。（此配置仅用于生成 API 文档提示调用者） |
+| serviceScfIsIntegratedResponse                   | 否    | String  | 是否启用 SCF 集成响应，TRUE 表示开启，FALSE 表示关闭。只有后端是 SCF 类型此参数才有效，默认为 FALSE。  |
+| serviceScfFunctionQualifier                  | 否    | String  | SCF 版本号，默认为 $LATEST。  |
+| responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持 HTML、JSON、TEST、BINARY、XML。（此配置仅用于生成 API 文档提示调用者） |
 | responseSuccessExample                   | 否    | String  | 自定义响应配置成功响应示例。（此配置仅用于生成 API 文档提示调用者）       |
 | responseFailExample                      | 否    | String  | 自定义响应配置失败响应示例。（此配置仅用于生成 API 文档提示调用者）       |
 | responseErrorCodes.n.code                | 否    | Int     | 自定义响应配置错误码。（此配置仅用于生成 API 文档提示调用者）          |
@@ -62,9 +64,8 @@
 
 ## 示例 
 
-创建一个后端服务是 HTTP 的 API：
+**创建一个后端服务是 HTTP 的 API**
 请求示例如下：
-
 ```
 https://apigateway.api.qcloud.com/v2/index.php?
 &<公共请求参数>
@@ -97,22 +98,20 @@ https://apigateway.api.qcloud.com/v2/index.php?
 ```
 
 返回示例如下：
-
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
-创建一个后端服务是 MOCK 的 API：
+**创建一个后端服务是 MOCK 的 API**
 请求示例如下：
-
 ```
 https://apigateway.api.qcloud.com/v2/index.php?
 &<公共请求参数>
@@ -130,26 +129,24 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &requestParameters.0.desc=年龄
 &serviceType=MOCK
 &serviceTimeout=60
-&serviceMockReturnMessage=MOCK的返回信息
+&serviceMockReturnMessage=MOCK 的返回信息
 ```
 
 返回示例如下：
-
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XXX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XXX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
-创建一个后端服务是 SCF 的 API：
+**创建一个后端服务是 SCF 的 API**
 请求示例如下：
-
 ```
 https://apigateway.api.qcloud.com/v2/index.php?
 &<公共请求参数>
@@ -171,16 +168,15 @@ https://apigateway.api.qcloud.com/v2/index.php?
 ```
 
 返回示例如下：
-
 ```
 {
-    "code":"0",
-    "message":"",
-    "codeDesc":"Success",      
-	"apiId":"api-XXXX",
-	"path":"/path",
-	"method":"GET",
-	"createdTime":"2017-08-07T00:00:00Z",
+	"code": "0",
+	"message": "",
+	"codeDesc": "Success",
+	"apiId": "api-XXXX",
+	"path": "/path",
+	"method": "GET",
+	"createdTime": "2017-08-07T00:00:00Z"
 }
 ```
 
