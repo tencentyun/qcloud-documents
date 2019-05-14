@@ -1,8 +1,9 @@
 ## 简介
 
-tc-iot-at-sdk-stm32-freertos-based-example 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
+[tc-iot-at-sdk-stm32-freertos-based-example](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git) 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 代码工程框架
+
 <img src="https://main.qcloudimg.com/raw/d161af7e13cf42536639936bf303a848.jpg"/>
 
 ### 目录结构
@@ -94,22 +95,32 @@ eAtResault module_register_network(eModuleType eType)
 {
 	eAtResault result = AT_ERR_SUCCESS;
 	
-#if (MODULE_TYPE == eMODULE_ESP8266)
-	#define WIFI_SSID	"youga_wifi"
-	#define WIFI_PW		"Iot@2018"
-
-
-	/*此处示例传递热点名字直接联网，通常的做法是特定产品根据特定的事件（譬如按键）触发wifi配网（一键配网/softAP）*/
-	result = wifi_connect(WIFI_SSID, WIFI_PW);
-	//result |= wifi_set_test_server_ip("111.230.126.244");
-	if(AT_ERR_SUCCESS != result)
+#ifdef MODULE_TYPE_WIFI	
+	if(eType == eMODULE_ESP8266)
 	{
-		Log_e("wifi connect fail,ret:%d", result);	
+		#define WIFI_SSID	"youga_wifi"
+		#define WIFI_PW		"Iot@2018"
+
+		/*此处示例传递热点名字直接联网，通常的做法是特定产品根据特定的事件（譬如按键）触发wifi配网（一键配网/softAP）*/
+		result = wifi_connect(WIFI_SSID, WIFI_PW);
+		if(AT_ERR_SUCCESS != result)
+		{
+			Log_e("wifi connect fail,ret:%d", result);	
+		}
 	}
+#else	
+	if(eType == eMODULE_N21)
+	{
 	
-#else
-	/*模组网络注册、或者wifi配网需要用户根据所选模组实现*/			
-#endif
+		/*模组网络注册、或者wifi配网需要用户根据所选模组实现*/			
+		result = N21_net_reg();
+		if(AT_ERR_SUCCESS != result)
+		{
+			Log_e("N21 register network fail,ret:%d", result);	
+		}	
+	}
+#endif	
+
 
 	return result;
 }

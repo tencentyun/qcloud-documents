@@ -10,8 +10,8 @@
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
 4. 单击【下载公私钥】，保存 **keys.zip** 压缩文件。
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
-5. 解压**keys.zip** ，获得 **private_key** 和**public_key** 文件，其中 **private_key** 即为私钥文件。
- ![](https://main.qcloudimg.com/raw/95875a7baca63c21103bc6cd6dac0279.png)
+5. 解压 **keys.zip**文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
+ ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 
 ## 控制台手动生成 UserSig
 1. 登录云通信 [控制台](https://console.cloud.tencent.com/avc)。
