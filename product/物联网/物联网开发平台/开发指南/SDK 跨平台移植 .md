@@ -81,5 +81,5 @@
 <span id="step3"></span>
 ### SDK 接口声明层+例程
 
-- 接口说明：[SDK 接口文档](https://cloud.tencent.com/document/product/634/11929)
+- 接口说明：[SDK 接口文档](https://cloud.tencent.com/document/product/634/12552)
 - 例程介绍：[快速开始](https://cloud.tencent.com/document/product/634/11912)
