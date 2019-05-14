@@ -30,7 +30,7 @@
 
 ### 3. 拷贝文件
 将解压后的 ImSDK 文件夹拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
-![](https://main.qcloudimg.com/raw/a139575b723db96334b1226485a3dd3b.png)
+![](https://main.qcloudimg.com/raw/4b13837ffc2662cea6a09f7a6fa5bda4.png)
 
 ### 4. 修改工程配置
 

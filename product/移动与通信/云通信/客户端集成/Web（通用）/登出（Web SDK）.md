@@ -21,7 +21,7 @@ webim.logout(cbOk, cbErr)
 
 **示例：**
 
-```
+```javascript
 //登出
 function quitClick() {
     if (loginInfo.identifier) {

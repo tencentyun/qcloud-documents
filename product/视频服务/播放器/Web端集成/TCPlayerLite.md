@@ -23,8 +23,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.1.js" charset="utf-8"></script>;
 ```
 
->**注意：**
->直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>! 直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -49,7 +48,7 @@ http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8播放地址
 var player = new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8", //请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
@@ -64,7 +63,7 @@ var player =  new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
@@ -92,17 +91,17 @@ PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开
 ```
 
 ### Step 4：给播放器设置封面
-在前面的代码例子中，您应该注意到 “coverpic” 这个参数了，在这里将详细介绍这个属性的使用方法。
-**备注：封面功能有可能在部分移动端播放环境下失效，由于移动端视频播放环境相对 PC 来说比较复杂，各个浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，如果遇到功能失效的情况，欢迎向我们的技术支持反馈（反馈内容包括系统、浏览器或 App 的版本等关键信息），我们将尽可能去支持。**
+在前面的代码例子中，您应该注意到 “poster” 这个参数了，在这里将详细介绍这个属性的使用方法。
+>?**封面功能有可能在部分移动端播放环境下失效，由于移动端视频播放环境相对 PC 来说比较复杂，各个浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，如果遇到功能失效的情况，欢迎向我们的技术支持反馈（反馈内容包括系统、浏览器或 App 的版本等关键信息），我们将尽可能去支持。**
 
 #### 4.1 简单设置封面
-coverpic 可以传入一个图片地址作为播放器的封面，将在播放器区域内居中并且以图片的实际分辨率进行显示。
+poster 可以传入一个图片地址作为播放器的封面，将在播放器区域内居中并且以图片的实际分辨率进行显示。
 
 ```
-"coverpic" : "http://www.test.com/myimage.jpg"
+"poster" : "http://www.test.com/myimage.jpg"
 ```
 #### 4.2 设置封面的展现样式
-coverpic 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
+poster 同时支持传入一个对象，对象中可以进行设置封面的展现样式 style 和图片地址 src。
 
 style 支持的样式有3种：
 - default：居中并且以图片的实际分辨率进行显示；
@@ -110,7 +109,7 @@ style 支持的样式有3种：
 - cover：优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。
 
 ```
-"coverpic" : {"style":"stretch", "src":"http://www.test.com/myimage.jpg"}
+"poster" : {"style":"stretch", "src":"http://www.test.com/myimage.jpg"}
 ```
 #### 4.3 实现用例
 
@@ -120,8 +119,7 @@ style 支持的样式有3种：
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
 
->**注意：**
->**在某些移动端设置封面会无效，具体说明请查看常见问题。**
+>!**在某些移动端设置封面会无效，具体说明请查看常见问题。**
 
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
@@ -143,8 +141,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8         // 原画，
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
->**注意：**
->**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
+>!**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
 
 #### 5.2 代码实现
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
@@ -155,7 +152,7 @@ var player = new TcPlayer('id_test_video', {
 "m3u8_hd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
 "m3u8_sd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
 "autoplay"  : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-"coverpic"  : "http://www.test.com/myimage.jpg",
+"poster"  : "http://www.test.com/myimage.jpg",
 });
 ```
 
@@ -178,7 +175,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 var player = new TcPlayer('id_test_video', {
 "m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
-"coverpic" : "http://www.test.com/myimage.jpg",
+"poster" : "http://www.test.com/myimage.jpg",
 "wording": {
     2032: "请求视频失败，请检查网络",
     2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
@@ -210,8 +207,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2032	| 获取视频失败，请检查播放链接是否有效。|   （Flash 提示的错误）              |
 | 2048	| 无法加载视频文件，跨域访问被拒绝。 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误）。 |
 
->**备注：**
->**Code 1 - 4 对应的是 H5 的原生事件；**
+>?**Code 1 - 4 对应的是 H5 的原生事件。**
 >**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
 
 ## 源码参考
@@ -286,8 +282,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+]。 | player.switchClarity('od')  |
 |load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频。<br>（**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 RTMP、FLV、HLS 和 MP4 ，H5 模式支持 MP4、HLS 和 FLV（HLS、FLV 取决于浏览器是否支持）** [v2.2.2+]） | player.load(http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4)  |
 
->**注意：**
->**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
+>!**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
 
 ## 进阶攻略
 这里介绍一些视频播放器 SDK 的进阶使用方法。
@@ -315,8 +310,7 @@ var player = new TcPlayer('id_test_video', {
   }
 });
 ```
->**注意：**
->TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
+>! TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支
 
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
@@ -357,12 +351,11 @@ seeked
 resize
 volumechange
 ```
->**注意：**
->如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
+>! 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
 
 Flash 模式下特有的事件：netStatus
 
-**备注：由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
+>?**由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
@@ -370,7 +363,7 @@ Flash 模式下特有的事件：netStatus
 **PC Flash：**
 ![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
 
-**备注：以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
+>?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
 

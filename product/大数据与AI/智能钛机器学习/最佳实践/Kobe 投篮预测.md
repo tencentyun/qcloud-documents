@@ -39,7 +39,11 @@
 - 已完成 [新建工程和工作流](https://cloud.tencent.com/document/product/851/19069)
 
 ## 案例相关材料
-相关材料下载链接：[Kobe 投篮预测 Demo 资料](https://main.qcloudimg.com/raw/7e333d78c73d191bb42f54f1e4c7d390.zip)
+
+请单击下载链接下载 demo 所需资料（Python 文件和 csv 数据文件）：
+
+[Kobe 投篮预测 Demo 资料](https://main.qcloudimg.com/raw/7e333d78c73d191bb42f54f1e4c7d390.zip)
+
 
 ## 操作步骤
 该 Demo 的整体流程如下：
@@ -71,7 +75,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 data_transformation.py
 ![](https://main.qcloudimg.com/raw/694c903c3af1839640f393e25958feb8.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 四、特征选择
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow Job】。
@@ -79,7 +83,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 feature_selection.py
 ![](https://main.qcloudimg.com/raw/d93eb137811e0bf40f5addb6e695c36f.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 五、分类器
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow Job】。
@@ -87,7 +91,7 @@
 3. 填写参数， 其余参数均可默认：
  - 程序脚本：上传文件 classifier.py
 ![](https://main.qcloudimg.com/raw/9fa50daf0b271ee81a01819f21f70028.png)
- - Python版本：选择 Python 3.5
+ - Python 版本：选择 Python 3.5
 
 ### 六、模型评估
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输出】>【模型评估】>【BinaryEvaluator】。
@@ -104,4 +108,3 @@
 ![](https://main.qcloudimg.com/raw/b1460953cd4668e6b3a32fd11fb14fd6.png)
 算法参数和资源参数配置如下：
 ![](https://main.qcloudimg.com/raw/ff49584b3630485723ccc723bb8982e8.png)
-
