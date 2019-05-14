@@ -16,8 +16,8 @@ __介绍__
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK: 使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762#txliveplayer) 两个组件，前者用于推流，后者用于拉流。
-- IM SDK: 使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762#txliveplayer) 两个组件，前者用于推流，后者用于拉流。
+- IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
 参考文档：[直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
@@ -27,9 +27,9 @@ __介绍__
 ### SDK 基础函数
 #### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调 您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
 ```
-@property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate;
+@property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
 ```
 
 >?默认是在 Main Queue 中回调，如果需要自定义回调线程，可使用 delegateQueue。
@@ -39,7 +39,7 @@ __介绍__
 
 设置驱动回调函数的 GCD 队列。
 ```
-@property (nonatomic, copy) dispatch_queue_t delegateQueue;
+@property (nonatomic, copy) dispatch_queue_t delegateQueue
 ```
 ***
 #### sharedInstance
@@ -153,12 +153,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | roomID | NSString * | 房间标识，推荐做法是用主播的 userID 作为房间的 roomID，这样省去了后台映射的成本。room ID 可以填空，此时由后台生成。 |
-| roomInfo | NSString * | 房间信息（非必填），用于房间描述的信息，比如房间名称，允许使用 JSON 格式作为房间信息。 |
+| roomInfo | NSString * | 房间信息（非必填），用于房间描述的信息，如房间名称，允许使用 JSON 格式作为房间信息。 |
 | completion | void(^)(int errCode, NSString *errMsg) | 创建房间的结果回调。 |
 
 __介绍__
 
-主播开播的正常调用流程是： 1.【主播】调用 startLocalPreview() 打开摄像头预览，此时可以调整美颜参数。 2.【主播】调用 createRoom 创建直播间，房间创建成功与否会通过 completion 通知给主播。
+主播开播的正常调用流程是： 
+1. 主播调用 startLocalPreview() 打开摄像头预览，此时可以调整美颜参数。 
+2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 completion 通知主播。
 
 ***
 
@@ -179,7 +181,9 @@ __参数__
 
 __介绍__
 
-观众观看直播的正常调用流程是： 1.【观众】调用 getRoomList() 刷新最新的直播房间列表，并通过 completion 回调拿到房间列表。 2.【观众】选择一个直播间以后，调用 enterRoom() 进入该房间。
+观众观看直播的正常调用流程是： 
+1. 观众调用 getRoomList() 刷新最新的直播房间列表，并通过 completion 回调拿到房间列表。 
+2. 观众选择一个直播间以后，调用 enterRoom() 进入该房间。
 
 ***
 
@@ -216,10 +220,10 @@ __参数__
 
 __介绍__
 
-有时候您需要为当前房间设置一些扩展字段，比如“点赞人数”、“是否正在连麦”等等，这些字段我们很难全都预先定义好，所以提供了如下三种操作接口：
+有时候您需要为当前房间设置一些扩展字段，如“点赞人数”和“是否正在连麦”等，这些字段我们很难全都预先定义好，所以提供了如下三种操作接口：
 - SET：设置，value 可以是数值或者字符串，比如“是否正在连麦”等。
-- INC：增加，value 只能是整数，比如“点赞人数”，“人气指数”等，都可以使用该操作接口。
-- DEC：减少，value 只能是整数，比如“点赞人数”，“人气指数”等，都可以使用该操作接口。
+- INC：增加，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
+- DEC：减少，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
 
 >?op 为 MLVBCustomFieldOpSet 或者 MLVBCustomFieldOpDec 时，value 需要是一个数字。
 
@@ -259,15 +263,15 @@ __参数__
 __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
-1. 【观众】调用 requestJoinAnchor 向主播发起连麦请求。
-2. 【主播】会收到 MLVBLiveRoomDelegate::onRequestJoinAnchor 的回调通知。
-3. 【主播】调用 reponseJoinAnchor 确定是否接受观众的连麦请求。
-4. 【观众】会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
-5. 【观众】如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
-6. 【观众】然后调用 joinAnchor 正式进入连麦状态。
-7. 【主播】一旦观众进入连麦状态，主播就会收到 MLVBLiveRoomDelegate::onAnchorEnter 通知。
-8. 【主播】主播调用 startRemoteView 就可以看到连麦观众的视频画面。
-9. 【观众】如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 MLVBLiveRoomDelegate::onAnchorJoin 通知，用于展示（startRemoteView）其他连麦者的视频画面。
+1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
+2. 主播会收到 MLVBLiveRoomDelegate::onRequestJoinAnchor 的回调通知。
+3. 主播调用 reponseJoinAnchor 确定是否接受观众的连麦请求。
+4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
+5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
+6. 观众然后调用 joinAnchor 正式进入连麦状态。
+7. 主播一旦观众进入连麦状态，主播就会收到 MLVBLiveRoomDelegate::onAnchorEnter 通知。
+8. 主播主播调用 startRemoteView 就可以看到连麦观众的视频画面。
+9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 MLVBLiveRoomDelegate::onAnchorJoin 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***
 
@@ -368,12 +372,12 @@ __参数__
 __介绍__
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B，他们之间的跨房 PK 流程如下：
-1. 【主播 A】调用 requestRoomPK() 向主播 B 发起连麦请求。
-2. 【主播 B】会收到 MLVBLiveRoomDelegate::onRequestRoomPK(AnchorInfo) 回调通知。
-3. 【主播 B】调用 responseRoomPK() 确定是否接受主播 A 的 PK 请求。
-4. 【主播 B】如果接受了主播 A 的要求，可以直接调用 startRemoteView() 来显示主播 A 的视频画面。
-5. 【主播 A】会通过传入的 completion 收到回调通知，可以得知请求是否被同意。
-6. 【主播 A】如果请求被同意，则可以调用 startRemoteView() 显示主播 B 的视频画面。
+1. 主播 A 调用 requestRoomPK() 向主播 B 发起连麦请求。
+2. 主播 B 会收到 MLVBLiveRoomDelegate::onRequestRoomPK(AnchorInfo) 回调通知。
+3. 主播 B 调用 responseRoomPK() 确定是否接受主播 A 的 PK 请求。
+4. 主播 B 如果接受了主播 A 的要求，可以直接调用 startRemoteView() 来显示主播 A 的视频画面。
+5. 主播 A 会通过传入的 completion 收到回调通知，可以得知请求是否被同意。
+6. 主播 A 如果请求被同意，则可以调用 startRemoteView() 显示主播 B 的视频画面。
 
 ***
 
@@ -495,10 +499,10 @@ __参数__
 
 __介绍__
 
-由于前置摄像头采集的画面是取自手机的观察视角，如果将采集到的画面直接展示给观众，是完全没有问题的。 但如果将采集到的画面也直接显示给主播，则会跟主播照镜子时的体验完全相反，会让主播感觉到很奇怪。 因此，SDK 会默认开启本地摄像头预览画面的镜像效果，让主播直播时跟照镜子时保持一个体验效果。
-setMirror 所影响的则是观众端看到的视频效果，如果想要保持观众端看到的效果跟主播端保持一致，需要开启镜像； 如果想要让观众端看到正常的未经处理过的画面（比如主播弹吉他的时候有类似需求），则可以关闭镜像。
+由于前置摄像头采集的画面是取自手机的观察视角，将采集到的画面直接展示给观众是没有问题的，但如果将采集到的画面也直接显示给主播，会让主播感受到和照镜子时完全相反的体验，主播会感到很奇怪。 因此，SDK 会默认开启本地摄像头预览画面的镜像效果，让主播直播时感受到和照镜子一样的体验效果。
+setMirror 所影响的是观众端看到的视频效果，如果想要保持观众端看到的效果跟主播端保持一致，需要开启镜像； 如果想要让观众端看到正常的未经处理过的画面（如主播弹吉他的时候有类似需求），则可以关闭镜像。
 
->?仅当前使用前置摄像头时，setMirror 接口才会生效，在使用后置摄像头时此接口无效。
+>?仅当前使用前置摄像头时，setMirror 接口才会生效，**在使用后置摄像头时此接口无效**。
 
 
 ***
@@ -592,7 +596,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| distance | CGFloat | 焦距大小，取值范围1 - 5。 |
+| distance | CGFloat | 焦距大小，取值范围：1 - 5。 |
 
 >?当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清。
 
@@ -634,7 +638,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 ### 美颜滤镜相关接口函数
 #### setBeautyStyle
 
-设置美颜、美白、红润效果级别。
+设置美颜、美白和红润效果级别。
 ```
 - (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel 
 ```
@@ -643,10 +647,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：天天P图版美颜（商用企业版有效，普通版本设置此选项无效）。 |
-| beautyLevel | float | 美颜级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | float | 美白级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | float | 红润级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
+| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商用企业版有效，普通版本设置此选项无效）。 |
+| beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
+| whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
+| ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 
 ***
 
@@ -663,7 +667,7 @@ __参数__
 |-----|-----|-----|
 | image | UIImage * | 指定素材，即颜色查找表图片。 |
 
->?滤镜素材请使用 png 格式，不能使用 jpg 格式，友情提示，Windows 里直接改文件的后缀名不能改变图片的格式，需要用 Photoshop 进行转换。
+>?滤镜素材请使用 png 格式，不能使用 jpg 格式。友情提示：Windows 里直接改文件的后缀名不能改变图片的格式，需要用 Photoshop 进行转换。
 
 
 ***
@@ -694,7 +698,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| eyeScaleLevel | float | 大眼等级取值为 0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
+| eyeScaleLevel | float | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
 
 ***
 
@@ -709,7 +713,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| faceScaleLevel | float | 瘦脸级别取值范围 0 - 9； 0 表示关闭 1 - 9值越大 效果越明显。 |
+| faceScaleLevel | float | 瘦脸级别取值范围：0 - 9； 0 表示关闭1 - 9值越大 效果越明显。 |
 
 ***
 
@@ -724,7 +728,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| faceVLevel | float | V 脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+| faceVLevel | float | V 脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 
 ***
 
@@ -739,7 +743,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| chinLevel | float | 下巴拉伸或收缩级别，取值范围 -9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。 |
+| chinLevel | float | 下巴拉伸或收缩级别，取值范围：-9 - 9；0表示关闭，小于0表示收缩，大于0表示拉伸。 |
 
 ***
 
@@ -754,7 +758,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| faceShortlevel | float | 短脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+| faceShortlevel | float | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 
 ***
 
@@ -769,7 +773,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| noseSlimLevel | float | 瘦鼻级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+| noseSlimLevel | float | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 
 ***
 
@@ -855,7 +859,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | NSString * | 音乐文件路径，一定要是app对应的document目录下面的路径，否则文件会读取失败。 |
+| path | NSString * | 音乐文件路径，一定要是 `app` 对应的 `document` 目录下面的路径，否则文件会读取失败。 |
 
 __返回__
 
@@ -874,7 +878,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | NSString * | 音乐文件路径，一定要是app对应的document目录下面的路径，否则文件会读取失败。 |
+| path | NSString * | 音乐文件路径，一定要是 `app` 对应的 `document` 目录下面的路径，否则文件会读取失败。 |
 | beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知。 |
 | progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒。 |
 | completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知。 |
@@ -972,7 +976,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pitch | float | 音调，默认值是0.0f，范围是：-1 -1之间的浮点数;。 |
+| pitch | float | 音调，默认值是0.0f，范围：-1 - 1之间的浮点数;。 |
 
 __返回__
 
@@ -991,7 +995,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见 “TXLiveSDKTypeDef.h” 中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -1010,7 +1014,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见 “TXLiveSDKTypeDef.h” 中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
 
 __返回__
 
