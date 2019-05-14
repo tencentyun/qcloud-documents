@@ -32,7 +32,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| status | final Bundle | 通知的内容(key,value)格式,其中 key 请参考 com.tencent.rtmp.TXLiveConstants::NET_STATUS_VIDEO_BITRATE 网络状态通知}。 |
+| status | final Bundle | 通知的内容(key,value)格式,其中 key 请参考 com.tencent.rtmp.TXLiveConstants::NET_STATUS_VIDEO_BITRATE 网络状态通知。 |
 
 ***
 
