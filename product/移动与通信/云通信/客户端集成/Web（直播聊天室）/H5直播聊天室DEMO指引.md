@@ -39,14 +39,13 @@
 
 1. 运行以下代码，修改业务信息。
 ```
-var sdkAppID = 1400001692;//开发者改成自己的业务 ID
-```
+//开发者改成自己的业务 ID
+var sdkAppID = 1400001692;
 
-2. 运行以下代码，修改直播大群 ID。
-```
-//默认房间群ID，开发者可以改成自己的直播聊天室 ID
+//默认房间群 ID，开发者可以改成自己的直播聊天室 ID
 var avChatRoomId = '@TGS#aJIPTVAEE';
 ```
+
  效果如下：
 ![](https://mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
 3. 模拟手机访问，按 F12，单击下图箭头所指的手机图标。
