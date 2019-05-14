@@ -109,7 +109,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 ### 图片消息发送
 
-图片消息由 `TIMImageElem` 定义。它是 `TIMElem` 的一个子类，也就是说图片也是消息的一种内容。 发送图片的过程，就是将 `TIMImageElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `imageList` 获取所有图片类型。另外通过 `getUploadingProgress` 方法可查询当前上传进度。
+图片消息由 `TIMImageElem` 定义。它是 `TIMElem` 的一个子类，也就是说图片也是消息的一种内容。 发送图片的过程，就是将 `TIMImageElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `imageList` 获取所有图片类型。另外通过 `TIMUserConfig -> TIMUploadProgressListener` 监听当前上传进度。
  
 **`TIMImageElem` 原型：**
 
@@ -127,21 +127,19 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @property(nonatomic,retain) NSArray * imageList;
 /**
- * 上传时任务 ID，可用来查询上传进度
+ * 上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
-@property(nonatomic,assign) uint32_t taskId;
+@property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
+
 /**
  *  图片压缩等级，详见 TIM_IMAGE_COMPRESS_TYPE（仅对 jpg 格式有效）
  */
 @property(nonatomic,assign) TIM_IMAGE_COMPRESS_TYPE level;
+
 /**
  *  图片格式，详见 TIM_IMAGE_FORMAT
  */
 @property(nonatomic,assign) TIM_IMAGE_FORMAT format;
-/**
- *  查询上传进度
- */
-- (uint32_t)getUploadingProgress;
 @end
 ```
 
@@ -151,7 +149,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 |---|---|
 |path | 存储要发送的图片路径，必须是本地路径，可参考图片发送示例 |
 |imageList | 发送时不用关注，接收时保存生成的图片所有规格，可以参阅图片消息接收部分|
-|taskId | 发送图片时用来查询上传进度|
+|taskId | 发送图片时用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）|
 |level | 发送图片前对图片进行压缩，level 表示压缩等级，详见 TIM_IMAGE_COMPRESS_TYPE 定义|
 |format | 图片格式，详见 TIM_IMAGE_FORMAT|
 
@@ -241,17 +239,17 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @interface TIMSoundElem : TIMElem
 /**
- *  上传时任务 ID，可用来查询上传进度
+ *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
-@property(nonatomic,assign) uint32_t taskId;
+@property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
- *  上传时，语音文件的路径（设置 path 时，优先上传语音文件）
+ *  上传时，语音文件的路径，接收时使用 getSound 获得数据
  */
-@property(nonatomic,retain) NSString * path;
+@property(nonatomic,strong) NSString * path;
 /**
  *  语音消息内部 ID
  */
-@property(nonatomic,retain) NSString * uuid;
+@property(nonatomic,strong) NSString * uuid;
 /**
  *  语音数据大小
  */
@@ -260,10 +258,29 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  *  语音长度（秒），发送消息时设置
  */
 @property(nonatomic,assign) int second;
+
 /**
- *  查询上传进度
+ *  获取语音数据到指定路径的文件中
+ *
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *
+ *  @param path 语音保存路径
+ *  @param succ 成功回调
+ *  @param fail 失败回调，返回错误码和错误描述
  */
-- (uint32_t) getUploadingProgress;
+- (void)getSound:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+/**
+ *  获取语音数据到指定路径的文件中（有进度回调）
+ *
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *
+ *  @param path 语音保存路径
+ *  @param progress 语音下载进度
+ *  @param succ 成功回调
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void)getSound:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -275,7 +292,6 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 |uuid|上传成功以后会生成唯一的标识，用户可以根据此标识保存文件，ImSDK 内部不会保存资源数据|
 |dataSize|语音数据大小|
 |second|语音长度|
-|getUploadingProgress | 查询上传进度|
 
 **示例：**
 
@@ -344,13 +360,17 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @interface TIMFileElem : TIMElem
 /**
+ *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+ */
+@property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
+/**
  *  上传时，文件的路径（设置 path 时，优先上传文件）
  */
-@property(nonatomic,retain) NSString * path;
+@property(nonatomic,strong) NSString * path;
 /**
- *  文件内部 ID
+ *  文件内部ID
  */
-@property(nonatomic,retain) NSString * uuid;
+@property(nonatomic,strong) NSString * uuid;
 /**
  *  文件大小
  */
@@ -358,7 +378,30 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  文件显示名，发消息时设置
  */
-@property(nonatomic,retain) NSString * filename;
+@property(nonatomic,strong) NSString * filename;
+
+/**
+ *  获取文件数据到指定路径的文件中
+ *
+ *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *
+ *  @param path 文件保存路径
+ *  @param succ 成功回调，返回数据
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void)getFile:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+/**
+ *  获取文件数据到指定路径的文件中（有进度回调）
+ *
+ *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *
+ *  @param path 文件保存路径
+ *  @param progress 文件下载进度
+ *  @param succ 成功回调，返回数据
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void)getFile:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -388,7 +431,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 ### 自定义消息发送 
 
-自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 `Push` 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
+自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data`存储消息的二进制数据，其数据格式由开发者定义。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 `Push` 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
 
 ```
 /**
@@ -398,19 +441,19 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  自定义消息二进制数据
  */
-@property(nonatomic,retain) NSData * data;
+@property(nonatomic,strong) NSData * data;
 /**
- *  自定义消息描述信息，做离线 Push 时文本展示（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
+ *  自定义消息描述信息，做离线Push时文本展示（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
  */
-@property(nonatomic,retain) NSString * desc DEPRECATED_ATTRIBUTE;
+@property(nonatomic,strong) NSString * desc DEPRECATED_ATTRIBUTE;
 /**
- *  离线 Push 时扩展字段信息（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
+ *  离线Push时扩展字段信息（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
  */
-@property(nonatomic,retain) NSString * ext DEPRECATED_ATTRIBUTE;
+@property(nonatomic,strong) NSString * ext DEPRECATED_ATTRIBUTE;
 /**
- *  离线 Push 时声音字段信息（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
+ *  离线Push时声音字段信息（已废弃，请使用 TIMMessage 中 offlinePushInfo 进行配置）
  */
-@property(nonatomic,retain) NSString * sound DEPRECATED_ATTRIBUTE;
+@property(nonatomic,strong) NSString * sound DEPRECATED_ATTRIBUTE;
 @end
 ```
 
@@ -438,6 +481,86 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 	NSLog(@"SendMsg Failed:%d->%@", code, err);
 }];
 ```
+
+### 短视频消息发送
+短视频消息由 TIMVideoElem 定义。它是 TIMElem 的一个子类，也就是说视频截图和视频内容也是消息的一种内容。发送短视频的过程，就是将 TIMVideoElem 加入到 TIMMessage 中，然后随消息一起发送出去。
+
+```
+@interface TIMVideoElem : TIMElem
+
+/**
+ *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+ */
+@property(nonatomic,assign) uint32_t taskId;
+
+/**
+ *  视频文件路径，发送消息时设置
+ */
+@property(nonatomic,strong) NSString * videoPath;
+
+/**
+ *  视频信息，发送消息时设置
+ */
+@property(nonatomic,strong) TIMVideo * video;
+
+/**
+ *  截图文件路径，发送消息时设置
+ */
+@property(nonatomic,strong) NSString * snapshotPath;
+
+/**
+ *  视频截图，发送消息时设置
+ */
+@property(nonatomic,strong) TIMSnapshot * snapshot;
+
+@end
+```
+
+|参数|说明|
+|---|---|
+|taskId|上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度 |
+|videoPath|发送短视频时，本地视频文件的路径|
+|video|视频信息，发送消息时设置 type、duration 参数|
+|snapshotPath|截图文件路径，发送消息时设置|
+|snapshot|截图信息，发送消息时设置 type、width、height 参数|
+
+以下示例中发送了一个短视频消息。示例：
+
+```
+/**
+*  获取聊天会话, 以同用户 iOS-001 的单聊为例
+*/
+TIMConversation * c2c_conversation = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"iOS-001"];
+/**
+*  构造一条消息
+*/
+TIMMessage * msg = [[TIMMessage alloc] init];
+/**
+*  构短视频内容
+*/
+TIMVideoElem * videoElem = [[TIMVideoElem alloc] init];
+videoElem.videoPath = @"/xxx/videoPath.mp4";
+videoElem.video = [[TIMVideo alloc] init];
+videoElem.video.type = @"mp4";
+videoElem.video.duration = 10;
+videoElem.snapshotPath = @"/xxx/snapshotPath.jgp";
+videoElem.snapshot = [[TIMSnapshot alloc] init];
+videoElem.snapshot.type = @"jpg";
+videoElem.snapshot.width = 100;
+videoElem.snapshot.height = 200;
+/**
+*  将短视频内容添加到消息容器中
+*/
+[msg addElem:videoElem];
+/**
+*  发送消息
+*/
+[conversation sendMessage:msg succ:^(){  //成功
+    NSLog(@"SendMsg Succ");
+}fail:^(int code, NSString * err) {  //失败
+    NSLog(@"SendMsg Failed:%d->%@", code, err);
+}];
+````
 
 ### Elem 顺序 
 
@@ -713,17 +836,17 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
  */
 @interface TIMSoundElem : TIMElem
 /**
- *  上传时任务 ID，可用来查询上传进度
+ *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
-@property(nonatomic,assign) uint32_t taskId;
+@property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
  *  上传时，语音文件的路径，接收时使用 getSound 获得数据
  */
-@property(nonatomic,retain) NSString * path;
+@property(nonatomic,strong) NSString * path;
 /**
  *  语音消息内部 ID
  */
-@property(nonatomic,retain) NSString * uuid;
+@property(nonatomic,strong) NSString * uuid;
 /**
  *  语音数据大小
  */
@@ -732,18 +855,29 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
  *  语音长度（秒），发送消息时设置
  */
 @property(nonatomic,assign) int second;
+
 /**
- *  获取语音数据到指定路径的文件中
+ *  获取语音数据到指定路径的文件中 
+ *
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
  *
  *  @param path 语音保存路径
  *  @param succ 成功回调
  *  @param fail 失败回调，返回错误码和错误描述
  */
 - (void)getSound:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
 /**
- *  查询上传进度
+ *  获取语音数据到指定路径的文件中（有进度回调）
+ *
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ * 
+ *  @param path 语音保存路径
+ *  @param progress 语音下载进度
+ *  @param succ 成功回调
+ *  @param fail 失败回调，返回错误码和错误描述
  */
-- (uint32_t) getUploadingProgress;
+- (void)getSound:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -767,6 +901,14 @@ second | 语音时长，以秒为单位
  *  @return TRUE 设置成功
  */
 - (BOOL) setCustomInt:(int32_t) param;
+
+/**
+ *  获取 CustomInt
+ *
+ *  @return CustomInt
+ */
+- (int32_t)customInt;
+
 @end
 ```
 
@@ -784,37 +926,48 @@ second | 语音时长，以秒为单位
  */
 @interface TIMFileElem : TIMElem
 /**
- *  上传时任务 ID，可用来查询上传进度
- */
-@property(nonatomic,assign) uint32_t taskId;
+*  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+*/
+@property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
- *  上传时，文件的路径（设置 path 时，优先上传文件）
- */
-@property(nonatomic,retain) NSString * path;
+*  上传时，文件的路径（设置 path 时，优先上传文件）
+*/
+@property(nonatomic,strong) NSString * path;
 /**
- *  文件内部 ID
- */
-@property(nonatomic,retain) NSString * uuid;
+*  文件内部ID
+*/
+@property(nonatomic,strong) NSString * uuid;
 /**
- *  文件大小
- */
+*  文件大小
+*/
 @property(nonatomic,assign) int fileSize;
 /**
- *  文件显示名，发消息时设置
- */
-@property(nonatomic,retain) NSString * filename;
+*  文件显示名，发消息时设置
+*/
+@property(nonatomic,strong) NSString * filename;
+
 /**
- *  获取文件数据到指定路径的文件中
- *
- *  @param path 文件保存路径
- *  @param succ 成功回调，返回数据
- *  @param fail 失败回调，返回错误码和错误描述
- */
+*  获取文件数据到指定路径的文件中
+*
+*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 文件保存路径
+*  @param succ 成功回调，返回数据
+*  @param fail 失败回调，返回错误码和错误描述
+*/
 - (void)getFile:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
 /**
- *  查询上传进度
- */
-- (uint32_t)getUploadingProgress;
+*  获取文件数据到指定路径的文件中（有进度回调）
+*
+*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 文件保存路径
+*  @param progress 文件下载进度
+*  @param succ 成功回调，返回数据
+*  @param fail 失败回调，返回错误码和错误描述
+*/
+- (void)getFile:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -825,6 +978,130 @@ second | 语音时长，以秒为单位
 uuid | 唯一 ID，方便用户进行缓存 
 fileSize | 文件大小 
 filename |文件显示名 
+
+### 接收短视频消息
+收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+原型：
+
+```
+@interface TIMVideo : NSObject
+/**
+*  视频消息内部 ID，不用设置
+*/
+@property(nonatomic,strong) NSString * uuid;
+/**
+*  视频文件类型，发送消息时设置
+*/
+@property(nonatomic,strong) NSString * type;
+/**
+*  视频大小，不用设置
+*/
+@property(nonatomic,assign) int size;
+/**
+*  视频时长，发送消息时设置
+*/
+@property(nonatomic,assign) int duration;
+
+/**
+*  获取视频
+*
+*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 视频保存路径
+*  @param succ 成功回调
+*  @param fail 失败回调，返回错误码和错误描述
+*/
+- (void)getVideo:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+/**
+*  获取视频（有进度回调）
+*
+*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 视频保存路径
+*  @param progress 视频下载进度
+*  @param succ 成功回调
+*  @param fail 失败回调，返回错误码和错误描述
+*/
+- (void)getVideo:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
+@end
+
+@interface TIMSnapshot : NSObject
+/**
+*  图片ID，不用设置
+*/
+@property(nonatomic,strong) NSString * uuid;
+/**
+*  截图文件类型，发送消息时设置
+*/
+@property(nonatomic,strong) NSString * type;
+/**
+*  图片大小，不用设置
+*/
+@property(nonatomic,assign) int size;
+/**
+*  图片宽度，发送消息时设置
+*/
+@property(nonatomic,assign) int width;
+/**
+*  图片高度，发送消息时设置
+*/
+@property(nonatomic,assign) int height;
+
+/**
+*  获取图片
+*
+*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 图片保存路径
+*  @param succ 成功回调，返回图片数据
+*  @param fail 失败回调，返回错误码和错误描述
+*/
+- (void)getImage:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+/**
+*  获取图片（有进度回调）
+*
+*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*
+*  @param path 图片保存路径
+*  @param progress 图片下载进度
+*  @param succ 成功回调，返回图片数据
+*  @param fail 失败回调，返回错误码和错误描述
+*/
+- (void)getImage:(NSString*)path progress:(TIMProgress)progress succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+
+//以收到新消息回调为例，介绍下短视频消息的解析过程
+//接收到的视频和截图保存的路径
+NSString * video_path = @"/xxx/video.mp4";
+NSString * snapshot_path = @"/xxx/snapshot.jpg";
+[conversation getMessage:10 last:nil succ:^(NSArray * msgList) {  //获取消息成功
+   //遍历所有的消息
+   for (TIMMessage * msg in msgList) {
+     //遍历一条消息的所有元素
+     for (int i = 0; i < msg.elemCount; ++i) {
+         TIMElem *elem = [msg getElem:i];
+         if ([elem isKindOfClass:[TIMVideoElem class]]) {
+              TIMVideoElem * video_elem = (TIMVideoElem * )elem;
+              [video_elem.video getVideo:video_path succ:^()｛
+                  NSLog(@"下载视频文件成功");
+              ｝ fail:^(int code, NSString * err) {
+                  NSLog(@"下载视频文件失败:%@ %d", err, code);
+              }];
+              [video_elem.snapshot getImage:snapshot_path succ:^() {
+                  NSLog(@"下载截图成功");
+              } fail:^(int code, NSString * err) {
+                  NSLog(@"下载截图失败:%@ %d", err, code);
+              }];
+         }
+     }
+} fail:^(int code, NSString * err) {  //获取消息失败
+    NSLog(@"Get Message Failed:%d->%@", code, err);
+}];
+
+```
 
 ## 消息属性 
 
@@ -851,24 +1128,33 @@ filename |文件显示名
 /**
  *  消息状态
  */
-typedef NS_ENUM(NSInteger, TIMMessageStatus){
-    /**
-     *  消息发送中
-     */
-    TIM_MSG_STATUS_SENDING              = 1,
-    /**
-     *  消息发送成功
-     */
-    TIM_MSG_STATUS_SEND_SUCC            = 2,
-    /**
-     *  消息发送失败
-     */
-    TIM_MSG_STATUS_SEND_FAIL            = 3,
-    /**
-     *  消息被删除
-     */
-    TIM_MSG_STATUS_HAS_DELETED          = 4,
-};
+ typedef NS_ENUM(NSInteger, TIMMessageStatus){
+ /**
+ *  消息发送中
+ */
+ TIM_MSG_STATUS_SENDING              = 1,
+ /**
+ *  消息发送成功
+ */
+ TIM_MSG_STATUS_SEND_SUCC            = 2,
+ /**
+ *  消息发送失败
+ */
+ TIM_MSG_STATUS_SEND_FAIL            = 3,
+ /**
+ *  消息被删除
+ */
+ TIM_MSG_STATUS_HAS_DELETED          = 4,
+ /**
+ *  导入到本地的消息
+ */
+ TIM_MSG_STATUS_LOCAL_STORED         = 5,
+ /**
+ *  被撤销的消息
+ */
+ TIM_MSG_STATUS_LOCAL_REVOKED        = 6,
+ };
+
 @interface TIMMessage : NSObject
 /**
  *  消息状态
@@ -910,15 +1196,19 @@ typedef NS_ENUM(NSInteger, TIMMessageStatus){
  */
 - (NSString*)sender;
 /**
- *  获取发送者资料（发送者为自己时可能为空）
+ *  获取发送者资料
  *
- *  @return 发送者资料，nil 表示没有获取资料，目前只有字段：identifier、nickname、faceURL、customInfo
- */
-- (TIMUserProfile*)getSenderProfile;
+ *  如果本地有发送者资料，这里会直接通过 return 值 TIMUserProfile 返回发送者资料，如果本地没有发送者资料，这里会直接 return nil,SDK 内部会向服务器拉取发送者资料，并在 profileCallBack 回调里面返回发送者资料。
+ /**
+  *  获取发送者群内资料（发送者为自己时可能为空）
+  *
+  *  @return 发送者群内资料，nil 表示没有获取资料或者不是群消息，目前仅能获取字段：member ，其他的字段获取建议通过 TIMGroupManager+Ext.h -> getGroupMembers 获取
+  */
+- (TIMUserProfile*)getSenderProfile:(ProfileCallBack)profileCallBack;
 /**
  *  获取发送者群内资料（发送者为自己时可能为空）
  *
- *  @return 发送者群内资料，nil 表示没有获取资料或者不是群消息，目前只有字段：member、nameCard、role、customInfo
+ *  @return 发送者群内资料，nil 表示没有获取资料或者不是群消息，目前仅能获取字段：member ，其他的字段获取建议通过 TIMGroupManager+Ext.h -> getGroupMembers 获取 
  */
 - (TIMGroupMemberInfo*)getSenderGroupMemberProfile;
 @end
@@ -1130,7 +1420,7 @@ IM SDK 登录以后默认会获取最近联系人漫游，同时每个会话会�
  */
 @property(nonatomic,assign) BOOL disableRecnetContact;
 /**
- *  不通过 onNewMessage:抛出最近联系人的最后一条消息（加载消息扩展包有效）
+ *  不通过 onNewMessage:抛出最近联系人的最后一条消息（4.X版本暂未实现）
  */
 @property(nonatomic,assign) BOOL disableRecentContactNotify;
 @end
@@ -1298,7 +1588,7 @@ UI 展示最近联系人列表时，时常会展示用户的最后一条消息�
 ---|---
 count | 需要获取的消息数，注意这里最多为 20 
 
-### 禁用会话本地存储
+### 禁用会话本地存储 (4.X版本暂未实现)
 
 直播场景下，群组类型会话的消息量很大，时常需要禁用直播群的本地消息存储功能。可以针对单个会话禁用本地存储的功能，实现不存储直播群消息，同时存储 C2C 单聊消息。
  

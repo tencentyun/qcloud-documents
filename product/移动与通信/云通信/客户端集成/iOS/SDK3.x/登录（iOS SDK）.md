@@ -102,7 +102,7 @@ userSig 正确的签发方式请参考 [帐号登录集成说明](https://cloud.
 }];
 ```
 
-## 无网络情况下查看消息
+## 无网络情况下查看消息（4.X版本暂未实现）
 
 如用当前网络异常，或者想在不调用 `login` 的时候查看用户消息，可调用 `initStorage` 方法初始化存储，完成后可获取会话列表和消息。
 
@@ -172,7 +172,7 @@ ImSDK 启动后会同步离线消息和最近联系人，最近联系人可通�
 ```
 @interface TIMUserConfig : NSObject
 /**
- *  会话刷新监听器（未读计数、已读同步）（加载消息扩展包有效）
+ *  会话刷新监听器（未读计数、已读同步）
  */
 @property(nonatomic,retain) id<TIMRefreshListener> refreshListener;
 @end

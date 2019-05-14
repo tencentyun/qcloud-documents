@@ -318,6 +318,10 @@ typedef NS_ENUM(NSInteger, TIMGroupMemberStatus) {
 	*  无效操作，加群时已经是群成员，移除群组时不在群内
 	*/
 	TIM_GROUP_MEMBER_STATUS_INVALID           = 2,
+    /**
+    *  等待处理，邀请入群时等待对方处理
+    */
+    TIM_GROUP_MEMBER_STATUS_PENDING           = 3,
 };
 ```
 
@@ -460,7 +464,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 // 添加一个用户 iOS_002
 [members addObject:@"iOS_002"];
 // @"TGID1JYSZEAEQ" 为群组 ID
-[[TIMGroupManager sharedInstance] deleteGroupMember:@"TGID1JYSZEAEQ" reason:@"违反群规则" members:members succ:^(NSArray* arr) {
+[[TIMGroupManager sharedInstance] deleteGroupMemberWithReason:@"TGID1JYSZEAEQ" reason:@"违反群规则" members:members succ:^(NSArray* arr) {
 	for (TIMGroupMemberResult * result in arr) {
 		NSLog(@"user %@ status %d", result.member, result.status);
 	}
@@ -847,9 +851,17 @@ fail | 失败回调
  */
 @property(nonatomic,assign) uint32_t onlineMemberNum;
 /**
+ *  群组是否被搜索类型
+ */
+@property(nonatomic,assign) TIMGroupSearchableType isSearchable;
+/**
  *  群组成员可见类型
  */
 @property(nonatomic,assign) TIMGroupMemberVisibleType isMemberVisible;
+/**
+ *  是否全员禁言
+ */
+@property(nonatomic,assign) BOOL allShutup;
 /**
  *  群组中的本人信息
  */
@@ -1393,7 +1405,7 @@ fail | 失败回调
 
 ```
 @interface TIMGroupManager (Ext)
-- (int)modifyGroupMemberInfoSetCustomInfo:(NSString*)group user:(NSString*)identifier customInfo:(NSDictionary*)customInfo succ:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)modifyGroupMemberInfoSetCustomInfo:(NSString*)group user:(NSString*)identifier customInfo:(NSDictionary<NSString*,NSData*> *)customInfo succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -1410,7 +1422,7 @@ fail | 失败回调
 以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』的自定义属性。**示例：**
 
 ```
-[[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetSilence:@"TGID1JYSZEAEQ" user:@"iOS_001" customInfo:customInfo succ:^() {
+[[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetCustomInfo:@"TGID1JYSZEAEQ" user:@"iOS_001" customInfo:customInfo succ:^() {
 	NSLog(@"modify group member customInfo succ");
 }fail:^(int code, NSString* err) {
 	NSLog(@"failed code: %d %@", code, err);
@@ -1564,6 +1576,26 @@ unReadCnt|所有未读条目个数，不限制于本次分页中
   *  审批信息：同意或拒绝信息
   */
 @property(nonatomic,retain) NSString* handledMsg;
+/**
+  *  同意申请
+  *
+  *  @param msg      同意理由，选填
+  *  @param succ     成功回调
+  *  @param fail     失败回调，返回错误码和错误描述
+  */
+-(void) accept:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+/**
+  *  拒绝申请
+  *
+  *  @param msg      拒绝理由，选填
+  *  @param succ     成功回调
+  *  @param fail     失败回调，返回错误码和错误描述
+  */
+-(void) refuse:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+/**
+  *  用户自己的id
+  */
+@property(nonatomic,strong) NSString* selfIdentifier;
 @end
 ```
 
@@ -1722,45 +1754,59 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
  */
 @interface TIMGroupTipsElem : TIMElem
 /**
- *  群 Tips 类型
- */
+  *  群组Id
+  */
+@property(nonatomic,strong) NSString * group;
+/**
+  *  群Tips类型
+  */
 @property(nonatomic,assign) TIM_GROUP_TIPS_TYPE type;
 /**
- *  操作人用户名
- */
-@property(nonatomic,retain) NSString * opUser;
+  *  操作人用户名
+  */
+@property(nonatomic,strong) NSString * opUser;
 /**
- *  被操作人列表 NSString* 数组
- */
-@property(nonatomic,retain) NSArray * userList;
+  *  被操作人列表 NSString* 数组
+  */
+@property(nonatomic,strong) NSArray * userList;
 /**
- *  在群名变更时表示变更后的群名，否则为 nil
- */
-@property(nonatomic,retain) NSString * groupName;
+  *  在群名变更时表示变更后的群名，否则为 nil
+  */
+@property(nonatomic,strong) NSString * groupName;
 /**
- *  群信息变更： TIM_GROUP_TIPS_TYPE_INFO_CHANGE 时有效，为 TIMGroupTipsElemGroupInfo 结构体列表
- */
-@property(nonatomic,retain) NSArray * groupChangeList;
+  *  群信息变更： TIM_GROUP_TIPS_TYPE_INFO_CHANGE 时有效，为 TIMGroupTipsElemGroupInfo 结构体列表
+  */
+@property(nonatomic,strong) NSArray * groupChangeList;
 /**
- *  成员变更： TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE 时有效，为 TIMGroupTipsElemMemberInfo 结构体列表
- */
-@property(nonatomic,retain) NSArray * memberChangeList;
+  *  成员变更： TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE 时有效，为 TIMGroupTipsElemMemberInfo 结构体列表
+  */
+@property(nonatomic,strong) NSArray * memberChangeList;
 /**
- *  操作者用户资料
- */
-@property(nonatomic,retain) TIMUserProfile * opUserInfo;
+  *  操作者用户资料
+  */
+@property(nonatomic,strong) TIMUserProfile * opUserInfo;
 /**
- *  操作者群成员资料
- */
-@property(nonatomic,retain) TIMGroupMemberInfo * opGroupMemberInfo;
+  *  操作者群成员资料
+  */
+@property(nonatomic,strong) TIMGroupMemberInfo * opGroupMemberInfo;
 /**
- *  变更成员资料
- */
-@property(nonatomic,retain) NSDictionary * changedUserInfo;
+  *  变更成员资料
+  */
+@property(nonatomic,strong) NSDictionary * changedUserInfo;
 /**
- *  变更成员群内资料
- */
-@property(nonatomic,retain) NSDictionary * changedGroupMemberInfo;
+  *  变更成员群内资料
+  */
+@property(nonatomic,strong) NSDictionary * changedGroupMemberInfo;
+/**
+  *  当前群人数： TIM_GROUP_TIPS_TYPE_INVITE、TIM_GROUP_TIPS_TYPE_QUIT_GRP、
+  *             TIM_GROUP_TIPS_TYPE_KICKED时有效
+  */
+@property(nonatomic,assign) uint32_t memberNum;
+/**
+  *  操作方平台信息
+  *  取值： iOS Android Windows Mac Web RESTAPI Unknown
+  */
+@property(nonatomic,strong) NSString * platform;
 @end
 ```
 
@@ -1865,29 +1911,18 @@ groupChangeInfo | 群变更的具体资料信息，为 TIMGroupTipsElemGroupInfo
 
 ```
 /**
- *  群 tips，群变更信息
- */
+  *  群 tips，群变更信息
+  */
 @interface TIMGroupTipsElemGroupInfo : NSObject
 /**
- *  群名，如果没有变更，为 nil
- */
-@property(nonatomic,retain) NSString * groupName;
+  *  变更类型
+  */
+@property(nonatomic, assign) TIM_GROUP_INFO_CHANGE_TYPE type;
+
 /**
- *  群简介： 没有变更时为 nil
- */
-@property(nonatomic,retain) NSString * introduction;
-/**
- *  群公告： 没有变更时为 nil
- */
-@property(nonatomic,retain) NSString * notification;
-/**
- *  群头像： 没有变更时为 nil
- */
-@property(nonatomic,retain) NSString * faceUrl;
-/**
- *  群主： 没有变更时为 nil
- */
-@property(nonatomic,retain) NSString * owner;
+  *  根据变更类型表示不同含义
+  */
+@property(nonatomic,strong) NSString * value;
 @end
 ```
 
@@ -1895,11 +1930,8 @@ groupChangeInfo | 群变更的具体资料信息，为 TIMGroupTipsElemGroupInfo
 
 参数 | 说明
 ---|---
-groupName | 变更后的群名，如果没有变更则为 nil
-introduction | 变更后的群简介，如果没有变更则为 nil
-notification | 变更后的群公告，如果没有变更则为 nil
-faceUrl | 变更后的群头像 URL，如果没有变更则为 nil
-owner | 变更后的群主，如果没有变更则为 nil
+type | 变更类型
+value | 变更后的值，根据变更类型表示不同含义
 
 ### 群成员资料变更
 
@@ -2029,59 +2061,56 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
      *  邀请加群被拒绝(只有发出邀请者会接收到)
      */
     TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE         = 0x0e,
+    /**
+    *  用户自定义通知(默认全员接收)
+    */
+    TIM_GROUP_SYSTEM_CUSTOM_INFO                         = 0xff,
  };
 /**
  *  群系统消息
  */
 @interface TIMGroupSystemElem : TIMElem
 /**
- * 操作类型
- */
+  * 操作类型
+  */
 @property(nonatomic,assign) TIM_GROUP_SYSTEM_TYPE type;
 /**
- * 群组 ID
- */
-@property(nonatomic,retain) NSString * group;
+  * 群组Id
+  */
+@property(nonatomic,strong) NSString * group;
 /**
- * 操作人
- */
-@property(nonatomic,retain) NSString * user;
+  * 操作人
+  */
+@property(nonatomic,strong) NSString * user;
 /**
- * 操作理由
- */
-@property(nonatomic,retain) NSString * msg;
+  * 操作理由
+  */
+@property(nonatomic,strong) NSString * msg;
 /**
- *  消息标识，客户端无需关心
- */
+  *  消息标识，客户端无需关心
+  */
 @property(nonatomic,assign) uint64_t msgKey;
 /**
- *  消息标识，客户端无需关心
- */
-@property(nonatomic,retain) NSData * authKey;
+  *  消息标识，客户端无需关心
+  */
+@property(nonatomic,strong) NSData * authKey;
 /**
- *  操作人资料
- */
-@property(nonatomic,retain) TIMUserProfile * opUserInfo;
+  *  用户自定义透传消息体（type ＝ TIM_GROUP_SYSTEM_CUSTOM_INFO 时有效）
+  */
+@property(nonatomic,strong) NSData * userData;
 /**
- *  操作人群成员资料
- */
-@property(nonatomic,retain) TIMGroupMemberInfo * opGroupMemberInfo;
+  *  操作人资料
+  */
+@property(nonatomic,strong) TIMUserProfile * opUserInfo;
 /**
- *  同意申请，目前只对申请加群和被邀请入群消息生效
- *
- *  @param msg  同意理由，选填
- *  @param succ 成功回调
- *  @param fail 失败回调，返回错误码和错误描述
- */
-- (void)accept:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+  *  操作人群成员资料
+  */
+@property(nonatomic,strong) TIMGroupMemberInfo * opGroupMemberInfo;
 /**
- *  拒绝申请，目前只对申请加群和被邀请入群消息生效
- *
- *  @param msg  拒绝理由，选填
- *  @param succ 成功回调
- *  @param fail 失败回调，返回错误码和错误描述
- */
-- (void)refuse:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+  *  操作方平台信息
+  *  取值： iOS、Android、Windows、Mac、Web、RESTAPI、Unknown
+  */
+@property(nonatomic,strong) NSString * platform;
 @end
 ```
 
