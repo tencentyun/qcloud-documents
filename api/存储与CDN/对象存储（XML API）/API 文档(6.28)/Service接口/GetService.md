@@ -4,7 +4,8 @@ GET Service 接口是用来查询请求者名下的所有存储桶列表或特�
 ## 请求
 ### 请求示例
 
-```
+
+```bash
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: GMT Date
@@ -35,7 +36,7 @@ Authorization: Auth String
 
 ### 响应体
 查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息。
-```xml
+```bash
 <ListAllMyBucketsResult>
   <Owner>
     <ID>string</ID>
@@ -99,7 +100,7 @@ CreateDate|ListAllMyBucketsResult.Buckets.Bucket|Bucket 创建时间。ISO8601 �
 
 #### 请求
 
-```
+```bash
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: Mon, 13 May 2019 06:55:33 GMT
@@ -108,7 +109,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q
 
 #### 响应
 
-```
+```bash
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 804
@@ -151,7 +152,7 @@ x-cos-request-id: NWNkOTE0ZTZfOGViMjM1MGFfMjJlOF9iOTU4****
 
 #### 请求
 
-```
+```bash
 GET / HTTP/1.1
 Host: cos.ap-shanghai.myqcloud.com
 Date: Mon, 13 May 2019 06:55:33 GMT
@@ -160,7 +161,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q
 
 #### 响应
 
-```
+```bash
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 492
