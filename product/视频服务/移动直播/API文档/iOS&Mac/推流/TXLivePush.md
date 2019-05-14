@@ -673,7 +673,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pitch | float | 音调，默认值是0.0f，范围是-1 - 1之间的浮点数;。 |
+| pitch | float | 音调，默认值是0.0f，范围是-1 - 1之间的浮点数。 |
 
 __返回__
 
@@ -725,7 +725,7 @@ YES：成功；NO：失败。
 
 录制回调接口，详见 "TXLiveRecordTypeDef.h" 中的 TXLiveRecordListener 定义。
 ```
-@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate;
+@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
 ***
 #### startRecord
@@ -784,7 +784,7 @@ __参数__
 
 自定义视频处理回调。
 ```
-@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate;
+@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate
 ```
 
 __介绍__
@@ -799,7 +799,7 @@ __介绍__
 
 自定义视频处理回调。
 ```
-@property (nonatomic, weak) id< TXAudioCustomProcessDelegate > audioProcessDelegate;
+@property (nonatomic, weak) id< TXAudioCustomProcessDelegate > audioProcessDelegate
 ```
 
 __介绍__
