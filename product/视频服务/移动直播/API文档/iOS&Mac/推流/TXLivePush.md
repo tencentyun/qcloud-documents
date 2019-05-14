@@ -1,4 +1,3 @@
-## TXLivePush
 
 __功能__
 
@@ -16,22 +15,22 @@ __介绍__
 
 
 
-### SDK 基础函数
-#### config
+## SDK 基础函数
+### config
 
 设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePushConfig * config
 ```
 ***
-#### delegate
+### delegate
 
 设置推流回调接口，见“TXLivePushListener.h”文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePushListener > delegate
 ```
 ***
-#### initWithConfig
+### initWithConfig
 
 创建 TXLivePusher 示例。
 ```
@@ -47,15 +46,15 @@ __参数__
 ***
 
 
-### 推流基础接口
-#### rtmpURL
+## 推流基础接口
+### rtmpURL
 
 获取当前推流的 RTMP 地址。
 ```
 @property (nonatomic, readonly, assign) NSString * rtmpURL
 ```
 ***
-#### startPreview
+### startPreview
 
 启动摄像头预览。
 ```
@@ -74,7 +73,7 @@ __介绍__
 
 ***
 
-#### stopPreview
+### stopPreview
 
 停止摄像头预览。
 ```
@@ -83,7 +82,7 @@ __介绍__
 
 ***
 
-#### startPush
+### startPush
 
 启动 RTMP 推流。
 ```
@@ -106,7 +105,7 @@ __介绍__
 
 ***
 
-#### stopPush
+### stopPush
 
 停止 RTMP 推流。
 ```
@@ -115,7 +114,7 @@ __介绍__
 
 ***
 
-#### pausePush
+### pausePush
 
 暂停摄像头采集并进入垫片推流状态。
 ```
@@ -136,7 +135,7 @@ SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https
 
 ***
 
-#### resumePush
+### resumePush
 
 恢复摄像头采集并结束垫片推流状态。
 ```
@@ -145,7 +144,7 @@ SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https
 
 ***
 
-#### isPublishing
+### isPublishing
 
 查询是否正在推流。
 ```
@@ -159,15 +158,15 @@ YES：推流中；NO：没有在推流。
 ***
 
 
-### 视频相关接口
-#### frontCamera
+## 视频相关接口
+### frontCamera
 
 查询当前是否为前置摄像头。
 ```
 @property (nonatomic, readonly, assign) BOOL frontCamera
 ```
 ***
-#### setVideoQuality
+### setVideoQuality
 
 设置视频编码质量。
 ```
@@ -191,7 +190,7 @@ __介绍__
 
 ***
 
-#### switchCamera
+### switchCamera
 
 切换前后摄像头（iOS）。
 ```
@@ -200,7 +199,7 @@ __介绍__
 
 ***
 
-#### selectCamera
+### selectCamera
 
 选择摄像头（macOS）。
 ```
@@ -209,7 +208,7 @@ __介绍__
 
 ***
 
-#### setMirror
+### setMirror
 
 设置视频镜像效果。
 ```
@@ -232,7 +231,7 @@ setMirror 所影响的则是观众端看到的视频效果，如果想要保持�
 
 ***
 
-#### setRenderRotation
+### setRenderRotation
 
 设置本地摄像头预览画面的旋转方向。
 ```
@@ -263,7 +262,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 ***
 
-#### toggleTorch
+### toggleTorch
 
 打开后置摄像头旁边的闪关灯。
 ```
@@ -286,7 +285,7 @@ __介绍__
 
 ***
 
-#### setZoom
+### setZoom
 
 调整摄像头的焦距。
 ```
@@ -304,7 +303,7 @@ __参数__
 
 ***
 
-#### setFocusPosition
+### setFocusPosition
 
 设置手动对焦区域。
 ```
@@ -321,8 +320,8 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 ***
 
 
-### 美颜相关接口
-#### setBeautyStyle
+## 美颜相关接口
+### setBeautyStyle
 
 设置美颜级别和美白级别。
 ```
@@ -340,7 +339,7 @@ __参数__
 
 ***
 
-#### setFilter
+### setFilter
 
 设置指定素材滤镜特效。
 ```
@@ -351,7 +350,7 @@ __参数__
 
 ***
 
-#### setSpecialRatio
+### setSpecialRatio
 
 设置滤镜浓度。
 ```
@@ -371,8 +370,8 @@ __介绍__
 ***
 
 
-### 商用企业版美颜和动效挂件
-#### setEyeScaleLevel
+## 商用企业版美颜和动效挂件
+### setEyeScaleLevel
 
 设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -387,7 +386,7 @@ __参数__
 
 ***
 
-#### setFaceScaleLevel
+### setFaceScaleLevel
 
 设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -402,7 +401,7 @@ __参数__
 
 ***
 
-#### setFaceVLevel
+### setFaceVLevel
 
 设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -417,7 +416,7 @@ __参数__
 
 ***
 
-#### setChinLevel
+### setChinLevel
 
 设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -432,7 +431,7 @@ __参数__
 
 ***
 
-#### setFaceShortLevel
+### setFaceShortLevel
 
 设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -447,7 +446,7 @@ __参数__
 
 ***
 
-#### setNoseSlimLevel
+### setNoseSlimLevel
 
 设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -462,7 +461,7 @@ __参数__
 
 ***
 
-#### setGreenScreenFile
+### setGreenScreenFile
 
 设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -481,7 +480,7 @@ __介绍__
 
 ***
 
-#### selectMotionTmpl
+### selectMotionTmpl
 
 选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -497,7 +496,7 @@ __参数__
 
 ***
 
-#### setMotionMute
+### setMotionMute
 
 设置动效静音（商用企业版有效，其它版本设置此参数无效）。
 ```
@@ -517,8 +516,8 @@ __介绍__
 ***
 
 
-### 音频相关接口
-#### setMute
+## 音频相关接口
+### setMute
 
 开启静音。
 ```
@@ -537,7 +536,7 @@ __介绍__
 
 ***
 
-#### playBGM
+### playBGM
 
 播放背景音乐。
 ```
@@ -560,7 +559,7 @@ SDK 会将背景音乐和麦克风采集的声音进行混合并一起推送到�
 
 ***
 
-#### playBGM
+### playBGM
 
 播放背景音乐（高级版本）。
 ```
@@ -582,7 +581,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### stopBGM
+### stopBGM
 
 停止播放背景音乐。
 ```
@@ -591,7 +590,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### pauseBGM
+### pauseBGM
 
 暂停播放背景音乐。
 ```
@@ -600,7 +599,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### resumeBGM
+### resumeBGM
 
 继续播放背景音乐。
 ```
@@ -609,7 +608,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### getMusicDuration
+### getMusicDuration
 
 获取背景音乐文件的总时长，单位是毫秒。
 ```
@@ -624,7 +623,7 @@ __参数__
 
 ***
 
-#### setBGMVolume
+### setBGMVolume
 
 设置混音时背景音乐的音量大小，仅在播放背景音乐混音时使用。
 ```
@@ -643,7 +642,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setMicVolume
+### setMicVolume
 
 设置混音时麦克风音量大小，仅在播放背景音乐混音时使用。
 ```
@@ -662,7 +661,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setBgmPitch
+### setBgmPitch
 
 调整背景音乐的音调高低。
 ```
@@ -681,7 +680,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setReverbType
+### setReverbType
 
 设置混响效果。
 ```
@@ -700,7 +699,7 @@ YES：成功；NO：失败。
 
 ***
 
-#### setVoiceChangerType
+### setVoiceChangerType
 
 设置变声类型。
 ```
@@ -720,15 +719,15 @@ YES：成功；NO：失败。
 ***
 
 
-### 本地录制接口
-#### recordDelegate
+## 本地录制接口
+### recordDelegate
 
 录制回调接口，详见 "TXLiveRecordTypeDef.h" 中的 TXLiveRecordListener 定义。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
 ***
-#### startRecord
+### startRecord
 
 开始录制短视频。
 ```
@@ -752,7 +751,7 @@ __返回__
 
 ***
 
-#### stopRecord
+### stopRecord
 ```
 - (int)stopRecord
 ```
@@ -763,7 +762,7 @@ __返回__
 
 ***
 
-#### snapshot
+### snapshot
 
 推流过程中本地截图。
 ```
@@ -779,8 +778,8 @@ __参数__
 ***
 
 
-### 自定义采集和处理
-#### videoProcessDelegate
+## 自定义采集和处理
+### videoProcessDelegate
 
 自定义视频处理回调。
 ```
@@ -795,7 +794,7 @@ __介绍__
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
 ***
-#### audioProcessDelegate
+### audioProcessDelegate
 
 自定义视频处理回调。
 ```
@@ -810,7 +809,7 @@ __介绍__
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
 ***
-#### sendVideoSampleBuffer
+### sendVideoSampleBuffer
 
 自定义视频采集，向 SDK 发送自己采集的视频数据。
 ```
@@ -836,7 +835,7 @@ __介绍__
 
 ***
 
-#### sendCustomPCMData
+### sendCustomPCMData
 
 自定义音频采集，向 SDK 发送自己采集的音频 PCM 数据。
 ```
@@ -862,7 +861,7 @@ __介绍__
 
 ***
 
-#### sendAudioSampleBuffer
+### sendAudioSampleBuffer
 
 自定义音频采集，向 SDK 发送自己采集的音频数据。
 ```
@@ -893,7 +892,7 @@ __介绍__
 
 ***
 
-#### setSendAudioSampleBufferMuted
+### setSendAudioSampleBufferMuted
 
 要求 SDK 发送静音数据。
 ```
@@ -913,8 +912,8 @@ __介绍__
 ***
 
 
-### 更多实用接口
-#### sendMessageEx
+## 更多实用接口
+### sendMessageEx
 
 发送 SEI 消息，播放端（TXLivePlayer）通过 onPlayEvent（EVT_PLAY_GET_MESSAGE）来接收该消息。
 ```
@@ -932,14 +931,14 @@ __介绍__
 
 ***
 
-#### sendMessage
+### sendMessage
 ```
 - (void)sendMessage:(NSData *)data 
 ```
 
 ***
 
-#### showVideoDebugLog
+### showVideoDebugLog
 
 打开包含视频状态信息的调试浮层，该浮层一般用于 SDK 调试期间，外发版本请不要打开。
 ```
@@ -948,7 +947,7 @@ __介绍__
 
 ***
 
-#### setLogViewMargin
+### setLogViewMargin
 
 设置调试浮层在视频 view 上的位置。
 ```
@@ -957,7 +956,7 @@ __介绍__
 
 ***
 
-#### setEnableClockOverlay
+### setEnableClockOverlay
 
 设置推流是否覆盖时钟。
 ```
@@ -968,7 +967,7 @@ __介绍__
 
 ***
 
-#### enableClockOverlay
+### enableClockOverlay
 
 获取当前推流画面是否有覆盖时钟。
 ```
