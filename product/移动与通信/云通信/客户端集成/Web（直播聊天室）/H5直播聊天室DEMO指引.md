@@ -36,22 +36,21 @@
 **REST API  调试地址：**`https://avc.cloud.tencent.com/im/APITester/APITester.html`
 
 ### 4.2 运行 Demo
-1. 运行以下代码，修改业务信息。
 
+1. 运行以下代码，修改业务信息。
 ```
 //开发者改成自己的业务 ID
 var sdkAppID = 1400001692;
-
 //默认房间群 ID，开发者可以改成自己的直播聊天室 ID
 var avChatRoomId = '@TGS#aJIPTVAEE';
 ``` 
  效果如下：
-![](https://mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
-3. 模拟手机访问，按 F12，单击下图箭头所指的手机图标。
+ ![](https://mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
+2. 模拟手机访问，按 F12，单击下图箭头所指的手机图标。
 ![]( https://mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
-4. 填写登录用户信息 `identifier` 和 `userSig`，`userSig` 需要开发者在自己的服务器调用 TLS API 生成。详情请参考 [TLS 后台 API 使用手册](https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)。
+3. 填写登录用户信息 `identifier` 和 `userSig`，`userSig` 需要开发者在自己的服务器调用 TLS API 生成。详情请参考 [TLS 后台 API 使用手册](https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)。
 ![](https://mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
-5. 单击【确定】，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
+4. 单击【确定】，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
 ```javascript
 //当前用户身份
 var loginInfo = {
