@@ -39,7 +39,7 @@ __介绍__
 
 是否开启硬件加速，默认值：NO。
 ```
-@property (nonatomic, assign) BOOL enableHWAcceleration;
+@property (nonatomic, assign) BOOL enableHWAcceleration
 ```
 ***
 #### config
@@ -53,7 +53,7 @@ __介绍__
 
 设置短视频录制回调，见“TXLiveRecordListener.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate;
+@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
 ***
 #### isAutoPlay
