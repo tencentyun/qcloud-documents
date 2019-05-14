@@ -48,7 +48,7 @@ repositories {
 <pre>
 dependencies {
     ...
-    implementation(name: 'tuikit-4.3.81', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
+    implementation(name: 'tuikit-4.3.118', ext: 'aar')  //版本号请替换成线上 <a href="https://github.com/tencentyun/TIMSDK">最新的实际版本号</a>
 }
 </pre>
 
@@ -310,7 +310,7 @@ public class GroupChatFragment extends BaseFragment {
 
 
 - <span id="configs">IMSDK 的版本指定</span>
-目前 TUIKit 所依赖的 IMSDK 版本为 V3.5.0.133。后续 TUIKit 将支持更多版本的腾讯云 IMSDK，届时将在文档里说明如何指定 TUIKit 所依赖的 IMSDK 版本。
+目前 TUIKit 所依赖的 IMSDK 版本为 V4.3.118。在 TIMSDK/Android/tuikit/libs/ 目录下，可以获取最新发布的 IMSDK 版本。
 
 
 - <span id="iminit">和已有的 IM SDK 相结合</span>
