@@ -29,7 +29,7 @@ cloud-init modules --mode=config
 cloud-init modules --mode=final
 ```
 
-### 如何通过 Cloud-Init 实现实例的初始化操作？
+### Cloud-Init 执行了哪些实例初始化的操作？
 
 腾讯云通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明。以下内容简单介绍了相关操作情况，更多详情可见 [Cloud-init 官方文档](http://cloudinit.readthedocs.io/en/latest/)。
 
