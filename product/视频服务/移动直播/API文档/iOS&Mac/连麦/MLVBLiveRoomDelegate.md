@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-包括房间关闭、Debug 事件信息、出错说明等。
+包括房间关闭、Debug 事件信息及出错说明等。
 
 
 
@@ -77,7 +77,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
+| roomID | NSString * | 房间 ID。 |
 
 __介绍__
 
@@ -102,7 +102,7 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 MLVBLiveRoom::startRemoteView() 显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 MLVBLiveRoom::startRemoteView() 显示该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -209,7 +209,7 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求 如果同意 PK ，您需要调用 MLVBLiveRoom::startRemoteView() 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 MLVBLiveRoom::startRemoteView() 接口播放邀约主播的流。
 
 ***
 
@@ -235,8 +235,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
-| userID | NSString * | 发送者ID。 |
+| roomID | NSString * | 房间 ID。 |
+| userID | NSString * | 发送者 ID。 |
 | userName | NSString * | 发送者昵称。 |
 | userAvatar | NSString * | 发送者头像。 |
 | message | NSString * | 文本消息。 |
@@ -254,11 +254,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
-| userID | NSString * | 发送者ID。 |
+| roomID | NSString * | 房间 ID。 |
+| userID | NSString * | 发送者 ID。 |
 | userName | NSString * | 发送者昵称。 |
 | userAvatar | NSString * | 发送者头像。 |
-| cmd | NSString * | 自定义cmd。 |
+| cmd | NSString * | 自定义 cmd。 |
 | message | NSString * | 自定义消息内容。 |
 
 ***
