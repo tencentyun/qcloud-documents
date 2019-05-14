@@ -11,7 +11,7 @@
 
 ### 设置请求域名
 
->! 出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置 socket 合法域名。
+>!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置 socket 合法域名。
 
 1. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
 2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。如下图所示：
@@ -102,6 +102,57 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 import * as MGOBE from "../libs/js/MGOBE";
 const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
+
+
+### Egret 环境
+在 Egret 引擎中使用第三方库的时候，需要先将第三方库编译为 Egret 所要求的模块结构，然后才能正常使用。步骤如下：
+1. 使用命令行工具运行下面的命令，当前目录下会生成 MGOBE_Module 文件夹。MGOBE_Module 包含 package.json、tsconfig.json 两个文件。
+```
+ egret create_lib MGOBE_Module
+```
+![create_lib](https://main.qcloudimg.com/raw/9ed359de06b5368fa3000adca0426422.png)
+2. 在 MGOBE_Module 文件夹下创建 src、typings、bin 三个文件夹。并将 MGOBE.js 拷贝到 src 文件夹，将 MGOBE.d.ts 拷贝到 typings 文件夹。
+ - 修改 tsconfig.json 文件，示例代码如下：
+```
+	{
+		"compilerOptions": {
+			"target": "es5",
+			"noImplicitAny": false,
+			"sourceMap": false,
+			"declaration": false,
+			"outFile": "bin/MGOBE/MGOBE.js",
+			"allowJs": true
+		},
+		"include": [
+			"src"
+		]
+	}
+```
+ - 修改 package.json 文件，示例代码如下：
+```
+	{
+		"name": "MGOBE",
+		"compilerVersion": "5.2.15",
+		"typings": "typings/MGOBE.d.ts"
+	}
+```
+3. 在当前目录运行如下命令，MGOBE_Module 文件夹内将生成 bin/MGOBE 文件夹，该文件夹下包含 MGOBE.js、MGOBE.min.js、 MGOBE.d.ts 三个文件。
+```
+	egret build MGOBE_Module
+```
+![create_lib](https://main.qcloudimg.com/raw/e2a87706c4abb50a43b7e054796c35a4.png)
+4. 将 MGOBE 文件夹拷贝到 Egret 项目的 libs 文件夹下。
+5. 使用 Egret Wing 打开项目，编辑 egretProperties.json 文件，在 modules 数组中新增 MGOBE 库的描述，完成 MGOBE SDK 的导入工作。在项目代码中可以直接使用 MGOBE 对象。
+```
+	{
+		"name": "MGOBE",
+		"path": "./libs/MGOBE"
+	}
+```
+![create_lib](https://main.qcloudimg.com/raw/7e24b61b760927a4fd67be2412573a45.png)
+
+如需了解更多信息请参考 [第三方扩展库](http://developer.egret.com/cn/github/egret-docs/Engine2D/projectConfig/libraryProject/index.html) 文档。
+
 
 ### 初始化监听器 Listener
 
@@ -238,7 +289,6 @@ room.frameBroadcast = event => {
 
 #### 停止帧同步
 使用 room.stopFrameSync 接口可以停止帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家停止接收帧广播。
-
 ```
 // 发起请求
 room.stopFrameSync({}, event => {

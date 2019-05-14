@@ -35,7 +35,7 @@ URL 中各字段含义如下（各字段的值需要进行 URL 编码，生成�
 | APPID | 是 | UInt   | 腾讯云应用 ID 值   | 
 | projectid  | 否   | UInt | 腾讯云项目 ID，不填为默认项目，即 0，总长度不超过 1024 字节 | 
 | sub_service_type  | 是   | UInt    | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
-| engine_model_type | 是  | String  | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型| 
+| engine_model_type | 是  | String  | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型| 
 | callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于 0，小于 2048 |
 | channel_num | 否  | UInt   | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1 |
 | res_text_format | 是 | UInt  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |

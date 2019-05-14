@@ -37,7 +37,7 @@
 - 在 com.tencent.qcloud.uipojo.login.view.LoginActivity 中替换以上第三步在 IM 控制台中获得的 userId 和 userSig 。
 ![](https://main.qcloudimg.com/raw/976f87fe676546bfc93fc3dcb04bc97e.png)
 
->! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 demo 和功能调试，userSig 正确的签发方式请参考 [帐号登录集成说明](https://cloud.tencent.com/document/product/269/1507)。
+>! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 demo 和功能调试，userSig 正确的签发方式请参考 [登录鉴权简介](https://cloud.tencent.com/document/product/269/31999)。
 
 ## 6. 编译运行
 App 启动后，在不同的手机上登录不同的账号，就可以搜索对方的 userId 体验发消息了。

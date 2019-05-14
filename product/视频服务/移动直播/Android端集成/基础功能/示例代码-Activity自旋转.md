@@ -11,7 +11,7 @@
             case Surface.ROTATION_90:
                 pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
                 break;
-            case Surface.ROTATION_270:、
+            case Surface.ROTATION_270:
                 pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_LEFT;
                 break;
             default:

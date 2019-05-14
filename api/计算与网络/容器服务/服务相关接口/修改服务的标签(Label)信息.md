@@ -1,5 +1,5 @@
 ## 接口描述
-本接口（ModifyServiceLabels）用于修改服务的标签(Label)信息。
+本接口（ModifyServiceLabels）用于修改服务的标签（Label）信息。
 
 接口请求域名：
 ```
@@ -15,7 +15,7 @@ ccs.api.qcloud.com
 | clusterId   | 集群 ID，请填写 [查询集群列表](/doc/api/457/9448) 接口中返回的 clusterId 字段   | String   | 是   |
 | serviceName | 服务名，服务名称由小写字母、数字和`-`组成，由小写字母开头，小写字母或数字结尾， 且长度不超过 63 个字符 | String   | 是   |
 | namespace   | 命名空间，请填写 查询集群命名空间 接口中返回的 namespaces 字段，默认为 default   | String   | 否   |
-| labels    | 服务标签（Label）信息，仅支持 k-v 模式，如 {"key": "value"} | Array | 否 |
+| labels    | 服务标签（Label）信息，仅支持 k-v 模式，详情见示例（label 中 key 字段暂时不支持"."和"_"） | Array | 否 |
 
 ## 输出参数
 
@@ -41,10 +41,10 @@ data 字段的结构如下
   Action=ModifyServiceLabels
   &clusterId=cls-xxxxx
   &serviceName=d2048
-  &namespace=u3321337994
-  &labels=qcloud-app=d2048
-  &qcloud-application-label=d2048
-  &aaa=bbb
+  &namespace=default
+  &labels.app=d2048
+  &labels.application-label=d2048
+  &labels.aaa=bbb
   &其他公共参数
 ```
 ### 输出

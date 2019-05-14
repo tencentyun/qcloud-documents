@@ -6,7 +6,8 @@ HEAD Object 接口请求可以获取对应 Object 的 meta 信息数据，HEAD �
 默认情况下，HEAD 操作从当前版本的对象中检索元数据。如要从不同版本检索元数据，请使用 versionId 子资源。
 
 ## 请求
-请求示例：
+### 请求示例
+
 ```shell
 HEAD /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -27,9 +28,9 @@ Authorization: Auth String
 ---|---|---|---
 If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回304
 
-
 ### 请求体
 该请求请求体为空。
+
 ## 响应
 ### 响应头
 
@@ -41,13 +42,14 @@ If-Modified-Since|string|否|当 Object 在指定时间后被修改，则返回�
 
 该请求操作的响应头具体数据为：
 
-|名称|类型|描述|
+|名称|描述|类型|
 |---|---|---|
-|x-cos-meta- *|string|用户自定义的 meta|
-|x-cos-object-type|string|用来表示 Object 是否可以被追加上传，枚举值：normal|
-|x-cos-storage-class|string|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|
-|x-cos-version-id|string|返回的对象的版本ID|
-|x-cos-server-side-encryption|string|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|
+|x-cos-meta- *|用户自定义的 meta|string|
+|x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal|string|
+|x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string|
+|x-cos-version-id|返回的对象的版本 ID|string|
+|x-cos-restore|如果对象是归档类型，且归档对象在恢复期间中（请参阅 [POST Object restore](https://cloud.tencent.com/document/product/436/12633)）或已经还原归档副本，则响应将包含此响应头部。<br>如果已恢复归档副本，则标头值指示删除该临时副本的时间。例如，x-cos-restore: ongoing-request="false", expiry-date="Fri, 15 Dec 2018 00:00:00 GMT"。如果正在进行对象恢复，则标头返回该值 ongoing-request="true"。|string|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
 
 
 ### 响应体
@@ -79,5 +81,3 @@ x-cos-object-type: normal
 x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==
 x-cos-storage-class: STANDARD
 ```
-
-

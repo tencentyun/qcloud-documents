@@ -36,11 +36,11 @@ func main() {
     
 ```
 
-代码开发注意点
+代码开发时，请注意以下几点：
 
 1. 需要使用 package main 包含 main 函数。
 2. 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库。
-3. 入口函数入参可选 0~2 参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明可见如下的入参说明。
+3. 入口函数入参可选0 - 2参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明可见如下的入参说明。
 4. 入口函数返回值可选 0~2 参数，如包含参数，需 返回内容在前，error 错误信息在否，返回值组合有 （），（ret），（error），（ret，error），具体说明可见如下的返回值说明。
 5. 入参 event ，和返回值 ret，均需要能够兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal。
 6. 在 main 函数中使用包内的 Start 函数启动入口函数。
@@ -60,7 +60,7 @@ func main() {
 
 #### 入参
 
-入口函数可以带有 0 ~ 2 个入参，例如：
+入口函数可以带有0 - 2个入参，例如：
 
 ```
 func hello()
@@ -75,9 +75,12 @@ func hello(ctx context.Context, event DefineEvent)
 
 自定义数据结构对应的 JSON 结构，通常与函数执行时的入参对应。在函数调用时，入参的 JSON 数据结构将会转换为自定义数据结构变量并传递和入口函数。
 
+>! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-go-lib/tree/master/cloudevents/scf) 获取 golang 的库并使用。通过在代码中引用 `import "github.com/tencentyun/scf-go-lib/cloudevents/scf"` 来直接使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-go-lib/issues/new) 或提交工单说明。
+
+
 #### 返回值
 
-入口函数可以带有 0 ~ 2 个返回值，例如：
+入口函数可以带有0 - 2个返回值，例如：
 
 ```
 func hello()()
@@ -86,7 +89,7 @@ func hello()(error)
 func hello()(string, error)
 ```
 
-在定义 2 个返回值时，需要确定自定义返回值在前，error 返回值在后。
+在定义2个返回值时，需要确定自定义返回值在前，error 返回值在后。
 
 自定义返回值可以为 Golang 自带基础数据结构，例如 string，int，也可以为自定义的数据结构。在使用自定义的数据结构时，需要确定数据结构可以兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal 操作，否则在返回至外部接口时会因为异常转换而出错。
 

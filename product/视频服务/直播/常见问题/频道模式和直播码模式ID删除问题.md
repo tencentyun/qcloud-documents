@@ -1,7 +1,7 @@
 ### 频道删除接口问题
 
 - 直播码模式没提供创建流的接口，也就没有提供删除流的接口。
-- 频道模式提供了创建流和删除流的接口。删除接口：https://cloud.tencent.com/document/product/267/4722
+- 频道模式提供了创建流和删除流的接口，删除接口请参考 [删除直播频道](https://cloud.tencent.com/document/product/267/4722)。
 
 ### 删除频道问题
 

@@ -98,7 +98,7 @@ allprojects {
 | libliteavsdk.so              | 小直播 SDK 核心组件              |
 | libsaturn.so                 | 小直播 SDK 核心组件              |
 | libtraeimp-rtmp-armeabi.so   | 连麦功能所使用的声学组件库   |
-| libstlport_shared.so         |  C++ stl 基础库（请不要随意替换，版本不匹配亦产生崩溃）        |
+| libstlport_shared.so         |  C++ stl 基础库（请不要随意替换，版本不匹配易产生崩溃）        |
 | libijkffmpeg.so              | ffmpeg 基础库（ijk 版本），用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
 | libijkplayer.so              | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
 | libijksdl.so                 |  ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题        |

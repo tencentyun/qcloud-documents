@@ -10,14 +10,16 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 - 并行上传：支持多个对象同时上传。
 - 迁移校验：对象迁移后的校验。
 
->?COS Migration 的编码格式只支持 UTF-8 格式。
+>!
+>- COS Migration 的编码格式只支持 UTF-8 格式。
+>- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
 ## 使用环境
 ### 系统环境
 Windows、Linux 和 macOS 系统。
 
 ### 软件依赖
-- JDK 1.7 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- JDK 1.8 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
@@ -81,10 +83,10 @@ type=migrateLocal
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 <pre>
-# 迁移工具的公共配置分节，包含了要迁移到得目标 COS 的账户信息 
+# 迁移工具的公共配置分节，包含了要迁移到得目标 COS 的账户信息。
 [common]
-secretId="COS_SECRETID"
-secretKey="COS_SECRETKEY"
+secretId=COS_SECRETID
+secretKey=COS_SECRETKEY
 bucketName=examplebucket-1250000000
 region=ap-guangzhou
 storageClass=Standard
@@ -102,12 +104,12 @@ executeTimeWindow=00:00,24:00
 
 | 名称 | 描述 |默认值|
 | ------| ------ |----- |
-| secretId| 用户密钥 SecretId，可在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 查看 |-|
-| secretKey| 用户密钥 SecretKey，可在 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 查看|-|
+| secretId| 用户密钥 SecretId，请将`COS_SECRETID`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取 |-|
+| secretKey| 用户密钥 SecretKey，请将`COS_SECRETKEY`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取|-|
 | bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
-| region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224) |-|
-| storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
-| cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/aaa/bbb/` 表示要迁移到 Bucket的` /aaa/bbb/` 下，若 `/aaa/bbb/` 不存在，则会自动创建路径|/|
+| region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) |-|
+| storageClass|存储类型：Standard（标准存储），Standard_IA（低频存储），Archive（归档存储） |Standard|
+| cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/folder/doc/` 表示要迁移到 Bucket的`/folder/doc/` 下，若 `/folder/doc/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
 | tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`<br>默认为工具所在路径下的 tmp 目录|./tmp|
 | smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认5MB |5242880|
@@ -144,8 +146,8 @@ ignoreModifiedTimeLessThanSeconds=
 <pre># 从阿里 OSS 迁移到 COS 配置分节
 [migrateAli]
 bucket=bucket-aliyun
-accessKeyId="<yourAccessKeyId>"
-accessKeySecret="<yourAccessKeySecret>"
+accessKeyId=yourAccessKeyId
+accessKeySecret=yourAccessKeySecret
 endPoint= oss-cn-hangzhou.aliyuncs.com
 prefix=
 proxyHost=
@@ -155,8 +157,8 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |bucket|阿里云 OSS  Bucket 名称|
-|accessKeyId|用户的密钥 accessKeyId |
-|accessKeySecret| 用户的密钥 accessKeySecret|
+|accessKeyId|将 yourAccessKeyId 替换为用户的密钥 |
+|accessKeySecret| 将 yourAccessKeySecret 替换为用户的密钥|
 |endPoint|阿里云 endpoint 地址|
 |prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
@@ -168,8 +170,8 @@ proxyPort=
 <pre># 从 AWS 迁移到 COS 配置分节
 [migrateAws]
 bucket=bucket-aws
-accessKeyId="AccessKeyId"
-accessKeySecret="SecretAccessKey"
+accessKeyId=AccessKeyId
+accessKeySecret=SecretAccessKey
 endPoint=s3.us-east-1.amazonaws.com
 prefix=
 proxyHost=
@@ -179,8 +181,8 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |bucket| AWS 对象存储 Bucket 名称|
-|accessKeyId|用户的密钥 accessKeyId |
-|accessKeySecret| 用户的密钥 accessKeySecret|
+|accessKeyId|将 AccessKeyId 替换为用户的密钥|
+|accessKeySecret| 将 SecretAccessKey 替换为用户的密钥|
 |endPoint|AWS 的 endpoint 地址，必须使用域名，不能使用 region|
 |prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
@@ -193,8 +195,8 @@ proxyPort=
 <pre># 从七牛迁移到COS配置分节
 [migrateQiniu]
 bucket=bucket-qiniu
-accessKeyId=”AccessKey”
-accessKeySecret=”SecretKey”
+accessKeyId=AccessKey
+accessKeySecret=SecretKey
 endPoint=www.bkt.clouddn.com
 prefix=
 proxyHost=
@@ -204,8 +206,8 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |bucket|七牛对象存储 Bucket 名称|
-|accessKeyId|用户的密钥 accessKeyId |
-|accessKeySecret| 用户的密钥 accessKeySecret|
+|accessKeyId|将 AccessKey 替换为用户的密钥 |
+|accessKeySecret| 将 SecretKey 替换为用户的密钥|
 |endPoint|七牛下载地址，对应 downloadDomain|
 |prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
@@ -234,8 +236,8 @@ urllistPath=D:\\folder\\urllist.txt
 [migrateBucketCopy]
 srcRegion=ap-shanghai
 srcBucketName=examplebucket-1250000000
-srcSecretId="COS_SECRETID"
-srcSecretKey="COS_SECRETKEY"
+srcSecretId=COS_SECRETID
+srcSecretKey=COS_SECRETKEY
 srcCosPath=/
 </pre>
 

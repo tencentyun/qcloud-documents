@@ -22,7 +22,7 @@ XML  JavaScript SDK 发布在 [npm](https://www.npmjs.com/package/cos-js-sdk-v5)
 npm install cos-js-sdk-v5
 ```
 
-您也可以在 github 源码中下载 js 文件 [dist/cos-js-sdk-v5.min.js](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/dist) ，通过 script 标签加入中。
+您也可以在 github 源码中下载 js 文件 [dist/cos-js-sdk-v5.min.js](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/dist) ，通过 script 标签加入页面 html。
 
 ```html
 <script src="./cos-js-sdk-v5.min.js"></script>
