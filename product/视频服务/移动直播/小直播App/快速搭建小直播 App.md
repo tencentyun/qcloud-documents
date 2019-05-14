@@ -1,102 +1,103 @@
-小直播 App 是一套开源的完整的在线直播解决方案，它基于腾讯云直播服务（LVB）、云通讯服务（TIM）和对象存储服务（COS）构建，并使用云主机（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
+小直播 App 是一套开源的完整的在线直播解决方案，它基于腾讯云直播服务（LVB）、云通讯服务（TIM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
 
-本文主要介绍如何一步步地将小直播 App 的前后台代码运行起来，以便能够快速看到运行效果，整个过程大约耗时10 - 20 分钟。
+本文主要介绍如何一步步地将小直播 App 的前后台代码运行起来，以便能够快速看到运行效果，整个过程大约耗时10 - 20分钟。
 
 ## 一、 开通云服务
-### 1.1 开通直播服务
+### 1. 开通直播服务
 
-#### step1. 申请开通视频直播服务
-进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，单击申请开通。
+#### 1.1 申请开通视频直播服务
+登录腾讯云官网，进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，单击【申请开通】。
 
-#### step2. 申请测试 License
-点击 [移动直播 License](https://console.cloud.tencent.com/live/license) 申请测试 license（基础版，有效期28天），并填写相应的信息：在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 bundleId。
-![](https://main.qcloudimg.com/raw/edd99f145276ad5250f0ca5d0f5d4980.png)
-创建成功后页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
+#### 1.2 申请测试 License
+1. 进入 [移动直播 License](https://console.cloud.tencent.com/live/license)。
+2. 填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 bundleId。
+ ![](https://main.qcloudimg.com/raw/edd99f145276ad5250f0ca5d0f5d4980.png)
+3. 单击【免费创建】。
+ 创建成功后，页面会显示生成的 License 信息。请记录 Key 和 LicenseUrl，便于在 SDK 初始化时使用。
 ![](https://main.qcloudimg.com/raw/ce722e4038a86b85d96b2cb9f5a058e8.png)
 
-#### step3. 在应用管理中添加一个新的应用
-开通直播服务并获取到 License 后，进入【直播控制台】=>【直播SDK】=>【[应用管理](https://console.cloud.tencent.com/live/license/appmanage)】，点击【创建应用】开始创建一个新的应用。
+#### 1.3 在应用管理中添加一个新的应用
+开通直播服务并获取 License 后，进入【直播控制台】>【直播SDK】>【[应用管理](https://console.cloud.tencent.com/live/license/appmanage)】，单击【创建应用】。
 ![](https://main.qcloudimg.com/raw/ccc83c93aa7d85aa1f84ca620ee8f5cb/AppMgr.png)
+待应用创建完成后，记录其 SDKAPPID 信息。
 
->? 这一步的目的是创建一个 TIM 云通信应用，并将当前直播账号和云通信应用绑定起来，云通信应用能够为小直播 App 提供聊天室和连麦互动的能力。
+>?该操作的目的是创建一个云通信应用，并将当前直播账号和该云通信应用绑定起来。云通信应用能为小直播 App 提供聊天室和连麦互动的能力。
 
-#### step4.  获取直播服务配置信息
-点击创建好的应用，可以看下如下所示界面，记录其中的 SDKAPPID，后续步骤中会用到。
+#### 1.4  获取直播服务配置信息
+1. 单击目标应用的 SDKAPPID，进入应用详情页面。
 ![](https://main.qcloudimg.com/raw/818886698bca6e6f331458146cca04c0.jpg)
-
-点击【应用管理】=>【编辑】，创建一个管理员帐号，然后点击【下载公私钥匙】，解压后可以获得公私钥文件：
+2. 选择【应用管理】页签，单击【编辑】，输入一个管理员名称，单击【确定】。
+3. 单击【下载公私钥匙】，下载并保存`authkeys.txt`文件。
 ![](https://main.qcloudimg.com/raw/d8da2aacfea26602100d525ec579eb74.png)
-
-公私钥文件内容如图所示，其中 `-----BEGIN PRIVATE KEY-----` 开始的内容即为私钥，后续步骤中会用到。
+打开公私钥文件中 `-----BEGIN PRIVATE KEY-----` 开始的内容即为私钥。
 ![](https://main.qcloudimg.com/raw/956876a4ce087051d6b1e85cbb5d60c0.png)
 
-### 1.2 开通对象存储服务
-对象存储服务主要用于小直播 App 中的直播封面图片存储，过程如下所示。
+### 2. 开通对象存储服务
+对象存储服务主要用于小直播 App 中的直播封面图片存储。
 
-#### step1. 申请开通对象存储服务
-进入[对象存储服务控制台](https://console.cloud.tencent.com/cos5)，如果还没有服务，直接单击**创建存储桶**按钮即可，如下图：
+#### 2.1 申请开通对象存储服务
+进入 [对象存储服务控制台](https://console.cloud.tencent.com/cos5)，如果还没有服务，直接单击【创建存储桶】即可，如下图：
 ![](https://main.qcloudimg.com/raw/813c62b547c0921134aefea5d25b2ec9.jpg)
 
-#### step2. 创建存储桶并获取基本信息
-填写名称，选择所属地域，使用**公有读私有写**权限创建存储桶，存储桶标签在这里不被使用，可以留空。
+#### 2.2 创建存储桶并获取基本信息
+1. 填写名称，选择所属地域，设置访问权限为【公有读私有写】。单击【确定】创建存储桶。
 ![](https://main.qcloudimg.com/raw/cd92d21f4473fa86125719ca1033e65b/new_cos_dialog.jpg)
-
-单击确定按钮，之后就进入了刚刚创建的存储桶管理界面，点击【基础配置】菜单，记录`存储空间名称`、`所属地域`，分对应于下文"修改云主机配置信息"中的 `COSKEY_BUCKET` 和 `COSKEY_BUCKET_REGION`，这两个数值会在后续步骤中用到。
+2. 单击【基础配置】，记录`存储空间名称`、`所属地域`，分别对应于后文 [修改云服务器配置信息](#STEP4) 中的 `COSKEY_BUCKET` 和 `COSKEY_BUCKET_REGION`。
 ![](https://main.qcloudimg.com/raw/fb059908dd4b13ffbf82814fbca4f020.png)
 
-#### 3. 获取密钥信息
-进入[【对象存储控制台】=>【密钥管理】=>【云API密钥】](https://console.cloud.tencent.com/cam/capi)获取`APPID`、`SecretId`和`SecretKey`， 分别对应于下文"修改云主机配置信息"中的 `COSKEY_APPID`、`COSKEY_SECRETID`和`COSKEY_SECRETKEY`。
+#### 2.3 获取密钥信息
+进入[【对象存储控制台】>【密钥管理】>【云API密钥】](https://console.cloud.tencent.com/cam/capi) 获取`APPID`、`SecretId`和`SecretKey`，分别对应于后文 [修改云服务器配置信息](#STEP4) 中的 `COSKEY_APPID`、`COSKEY_SECRETID`和`COSKEY_SECRETKEY`。
 ![](https://main.qcloudimg.com/raw/b5c6e9471d22d20591d23464dbf717a6.jpg)
 
-## 二、 腾讯云CVM镜像部署
+## 二、 腾讯云 CVM 镜像部署
 
-小直播 App 单靠一套客户端源码还不能正常运行，需要一个简单的账号管理服务器，用于提供登录和注册的服务。同时，我们还在该后台上开发了“精彩回放”的功能，也就是过往的直播会被录制下来存入“回放列表”。由于直播的录制和存储都是腾讯云实现的，所以该服务器的作用仅仅是记录历史视频文件的列表，并提供给小直播 App 进行拉取和查询。
+小直播 App 单靠一套客户端源码还不能正常运行，需要一个简单的帐号管理服务器，用于提供登录和注册的服务。同时，我们还在该后台上开发了“精彩回放”的功能，也就是过往的直播会被录制下来存入“回放列表”。由于直播的录制和存储都是腾讯云实现的，所以该服务器的作用仅仅是记录历史视频文件的列表，并提供给小直播 App 进行拉取和查询。
 
-### 2.1 创建虚拟主机
-进入 [CVM控制台](https://console.cloud.tencent.com/cvm) 点击【新建】开始创建虚拟主机。
+### 1. 创建虚拟主机
+进入 [CVM控制台](https://console.cloud.tencent.com/cvm) ，单击【新建】开始创建云服务器。
 ![](https://mc.qcloudimg.com/static/img/53d7df9e5a8bc5141e55231076cbfd74/image.png)
 
-### 2.2 选取镜像
-进服务市场选取镜像 推荐使用图中的**小直播镜像**。
+### 2. 选取镜像
+进服务市场选取镜像，推荐使用图中的【小直播镜像】。
 ![](https://main.qcloudimg.com/raw/da14288ee7196c45f0d3fcc4def88567.png)
  
-### 2.3 配置主机
-配置硬盘和网络，以及云主机访问密码，**妥善保管好root密码**将用于下文"修改云主机配置信息"，然后设置安全组。
+### 3. 配置云服务器
+配置硬盘和网络，以及云服务器的访问密码，设置安全组。
+>!请**妥善保管 root 密码**，改密码将用于后续 [修改云服务器配置信息](#STEP4) 操作。
 ![](https://main.qcloudimg.com/raw/c265b5c870f6a7ecb2f15f83f7c508c4.jpg)
 
-### 2.4 查看主机信息
-付款后生成云主机。**请记录外网 IP**用于下文“配置录制回调”及“终端集成”中的操作。
+### 4. 查看云服务器信息
+付款后生成云服务器。请记录外网 IP 地址，将用于后续 [配置录制回调](#STEP3_2) 和 [终端集成](#STEP5) 操作。
 ![](https://main.qcloudimg.com/raw/7565c1a85318d56ab93571149a5c3855/cvm_list.jpg)
 
 ## 三、直播录制与回调配置
-小直播 App 中的“精彩回放”功能依托于云直播的录制功能，配置方法如下。
+小直播 App 中的“精彩回放”功能依托于云直播的录制功能。
 
-### 3.1 配制录制参数
-
-在视频直播菜单栏内选择【功能模板】=>【录制配置】，单击 "+" 进行设置。
+### 1. 配制录制参数
+1. 在视频直播菜单栏内选择【功能模板】>【录制配置】，单击 "+" 进行设置。
 ![](https://main.qcloudimg.com/raw/40d0e5c555262246d6a8f3cfd2cfe144.png)
-设置基本信息, 填写【模板名称】，并选择录制文件类型（HLS、MP4 或者 FLV）后点击【保存】。
+2. 设置基本信息, 填写【模板名称】，并选择录制文件类型（HLS、MP4 或者 FLV），单击【保存】。
 ![](https://main.qcloudimg.com/raw/61be5f5e822f048229191c16fba41d03.png)
 
-### 3.2 配置录制回调
-在视频直播菜单栏内选择【功能模板】=>【回调配置】，单击 "+" 创建回调模板。
+<span id="STEP3_2"></span>
+### 2. 配置录制回调
+1. 在视频直播菜单栏内选择【功能模板】>【回调配置】，单击 "+" 创建回调模板。
 ![](https://main.qcloudimg.com/raw/9b364488f509080abfa3d00b41048465.png)
-
-表单中只需填写【回调密钥】和【录制回调】。请记录【回调密钥】并在【录制回调】请填写 `http://您的云主机服务器的公网地址/callback/tape_callback.php`，点击【保存】。
-
+2. 填写并记录【回调密钥】，填写【录制回调】为 `http://您的云服务器公网 IP 地址/callback/tape_callback.php`，单击【保存】。
 ![](https://main.qcloudimg.com/raw/d31e9dcabf17fd394b56207c0d9d557a.png)
 
-### 3.3 应用配置到域名
-进入直播控制台 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，点击默认域名后的【管理】按钮。
+### 3. 应用配置到域名
+1. 进入直播控制台 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，单击默认域名后的【管理】。
 ![](https://main.qcloudimg.com/raw/55ce80bbc36364587fe6db830fd02b2f/doman_mgr.png)
-
-点击【模板配置】，分别点击【回调配置】和【录制配置】，选择上述步骤中建立好的模板。
+2. 单击【模板配置】，分别将【回调配置】和【录制配置】设置为上述步骤中新建的模板。
 ![](https://main.qcloudimg.com/raw/aab97213e80dfc428f7c201ec89f450b/domain_cfg.png)
 
-## 四、修改云主机配置信息
+<span id="STEP4"></span>
+## 四、修改云服务器配置信息
 
-### 4.1 准备配置文件
-将以下内容粘贴到文本编辑器（比如记事本），按照下方脚本中的注释填写各项内容，其中 xxxx 的部分在本文前半部分均能找到对应的值。
+<span id="STEP4_1"></span>
+### 1. 准备配置文件
+将以下内容粘贴到文本编辑器（比如记事本），按照下方脚本中的注释填写各项内容，其中`xxxx`的部分在本文前半部分均能找到对应的值。
 
 ```bash
 #!/bin/bash
@@ -124,30 +125,28 @@ define('APP_BIZID',1234);  // 无需修改
 ?>" > /data/live_demo_service/conf/OutDefine.php;
 ```
 
-> 上面代码中第一个 echo 后跟着的双引号内是 IM 私钥的内容，将上述步骤中下载的“公私钥文件”(authkeys.txt) 中的私钥（`-----BEGIN PRIVATE KEY-----` 开始的内容）填到双引号内即可
+>?上面代码中第一个 echo 后跟着的双引号内是 IM 私钥的内容，将上述步骤中下载的公私钥文件`authkeys.txt`中的私钥（`-----BEGIN PRIVATE KEY-----` 开始的内容）填到双引号内即可。
 
-### 4.2 登录云主机
-在[CVM控制台](https://console.cloud.tencent.com/cvm)点击【登录】目标主机
+### 2. 登录云服务器
+1. 进入 [CVM控制台](https://console.cloud.tencent.com/cvm) ，单击目标主机所在行【登录】。
 ![](https://main.qcloudimg.com/raw/f1b5c3f646e7db26f9b595642e8efd17.png)
-
-选择**标准登录**方式，填写上文“配置主机”中设置的密码，点击【确认】：
+2. 选择【标准登录方式】区域的【立即登录】，输入配置主机时设置的密码，单击【确认】。
 ![](https://main.qcloudimg.com/raw/97c7747e9948574cd5a64297313d2de1.png)
 
-### 4.3 修改配置
-登录成功后会进入一个网页版的控制台界面，您只需要直接将 4.1 中编辑好的文本粘贴过来，按【回车】键确认即可：
+### 3. 修改配置
+登录成功后会进入一个网页版的控制台界面，您只需要直接将 [准备配置文件](#STEP4_1) 中准备好的文本粘贴过来，按`Enter`键确认即可。
 ![](https://main.qcloudimg.com/raw/a9ec373ecfcc20a1cd961b4e299069f1.png)
 
-**至此业务后台部署完成**
-
+<span id="STEP5"></span>
 ## 五、终端集成
-终端集成主要是修改小直播 App 源码中的配置信息，主要是以下几步：
+终端集成主要是修改小直播 App 源码中的配置信息。
 
-### 5.1 小直播源码下载
-小直播 App 的源码位于 Github 仓库中，clone或下载源码后，可以在`Android/XiaoZhiBo`和`iOS/XiaoZhiBo`分别获取到 Android 和 iOS 的源码。
+### 1. 小直播源码下载
+小直播 App 的源码位于 Github 仓库中，clone 或下载源码后，可以在`Android/XiaoZhiBo`和`iOS/XiaoZhiBo`分别获取到 Android 和 iOS 的源码。
 - [iOS 版本](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBo)
 - [Android 版本](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo)
 
-### 5.2 替换小直播后台服务器地址
+### 2. 替换小直播后台服务器地址
 小直播后台服务的地址为 `http://云主机服务器公网地址`。如 `http://134.175.197.138`:
 
 - iOS
@@ -156,13 +155,13 @@ define('APP_BIZID',1234);  // 无需修改
 - Android 
 打开 `Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/common/utils/` 目录下的 **TCConstants.java** 文件，将文件里的 `APP_SVR_URL` 改为您的小直播后台服务的地址。
 
-### 5.3 替换小直播 License 配置
-进入【直播控制台】=>【直播SDK】=>【License管理】复制 License 的 URL 和 Key：
-
+### 3. 替换小直播 License 配置
+1. 进入【直播控制台】>【直播SDK】>【License管理】复制 License 的 URL 和 Key。
+2. 根据实际操作系统选择以下操作：
 - iOS
     打开 `iOS/XiaoZhiBo/XiaoZhiBoApp/Classes/App/` 目录下的 **AppDelegate.m** 文件，将`[TXLiveBase setLicenceURL: key:]`调用的参数替换为您的 License URL 和 Key。
 - Android 
     打开 `Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/` 目录下的 **TCApplication.java** 文件，将`String licenceUrl`, 和 `String licenseKey` 的内容分别替换为您的 License URL 和 Key。
 
-### 5.4 运行并测试
+### 4. 运行并测试
 至此小直播的所有配置均已完成，您可以运行 App 体验小直播的各项功能。
