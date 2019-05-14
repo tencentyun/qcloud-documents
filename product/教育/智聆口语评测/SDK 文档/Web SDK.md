@@ -6,7 +6,7 @@
 
 ### 使用说明
 
-#### SDK引入
+#### SDK 引入
 只需要在您的 Web 页面中添加如下代码即可：
 ```html
 <script src="https://imgcache.qq.com/open/qcloud/soe/TencentSOE-0.0.4.js"></script>
@@ -174,9 +174,9 @@ wx.ready(function() {
   });
 });
 ```
-用户需提供MediaUrl接口用于获取高清语音素材，接受mediaId作为传入参数，通过mediaId和token调用微信高清语音素材获取接口，返回文件流。
+用户需提供 MediaUrl 接口用于获取高清语音素材，接受 mediaId 作为传入参数，通过 mediaId 和 token 调用微信高清语音素材获取接口，返回文件流。
 接口实现参考微信[获取临时素材](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1444738727)中的"附录：高清语音素材获取接口"部分。
-下面提供nodejs版的示例：
+下面提供 nodejs 版的示例：
 ```js
 module.exports = async function(req, res, next) {
   var id = req.query.mediaId; // 获取请求的参数mediaId
@@ -219,4 +219,4 @@ module.exports = async function(req, res, next) {
 | 微信端       | 微信默认webview                  | 无     | 需引入微信JS-SDK|
 
 > Tip：
-非本地环境必须使用https协议
+非本地环境必须使用 https 协议
