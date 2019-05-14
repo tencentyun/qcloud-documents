@@ -63,7 +63,7 @@
 
 ## 设置
 选择功能列表中的【设置】即可使用该功能。其主要功能如下所示：
-![](https://main.qcloudimg.com/raw/82b95c72e62f5bd44739e3d5a92b1e4c.png)
+![](https://main.qcloudimg.com/raw/5b4d74da5b375cee4e9a5bdb01bc0a18.png)
 ## 一码支付打印
 单击设置页面，进入一码支付打印设置页面。通过【开启一码支付打印】，并选择本门店下的二维码【保存】，之后智能 POS 会自动打印所选二维码上的交易小票并进行语音播报。
 ![](https://main.qcloudimg.com/raw/1ad1c9e8be6bfca06745e4eec5495c4b.png)
