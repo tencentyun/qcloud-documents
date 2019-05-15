@@ -4,7 +4,7 @@
 ## 高级特性介绍
 - **安全-权限管理**
 提供了多用户、分角色、权限控制能力，通过该项功能，可以向正确的人员授予正确的访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
-![](https://main.qcloudimg.com/raw/cb5db30841284ee2e4206f151fbda189.png)
+![](https://main.qcloudimg.com/raw/f864f1ce332394ac7b05128d108dee23.png)
 - **SQL**
 提供了同传统数据库相同的 SQL 语句，对 Elasticsearch 数据进行全文搜索和分析，以及 JDBC 连接等。可以实现同原有业务系统的无缝对接，降低新技术学习成本。
 ![](https://main.qcloudimg.com/raw/968cfff0a4c02f1f1f534ea0b1b073f0.png)
