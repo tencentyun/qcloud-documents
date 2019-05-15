@@ -76,7 +76,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
+| roomID | NSString * | 房间 ID。 |
 
 __介绍__
 
@@ -105,7 +105,6 @@ __介绍__
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
-
 ***
 
 ### onAnchorExit
@@ -126,7 +125,6 @@ __介绍__
 房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [stopRemoteView: (MLVBLiveRoom)](https://cloud.tencent.com/document/product/454/34763#stopremoteview.3A+.28mlvbliveroom) 关闭该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
-
 
 ***
 
