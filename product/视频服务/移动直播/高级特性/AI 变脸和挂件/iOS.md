@@ -28,7 +28,7 @@
   ![](https://main.qcloudimg.com/raw/ea12370194d3c1d1fc7b7e8275b6f1dd.jpg)
 2. 单击【Link Binary with Libraries】展开，单击【+】添加依赖库。
   ![](https://main.qcloudimg.com/raw/dc76027fe15ec1bb74fd3329164bd7b3.jpg)
-3. 依次添加所下载的 `TXLiteAVSDK_Enterprise.framework`及其所需依赖库：
+3. 依次添加所下载的`TXLiteAVSDK_Enterprise.framework`及其所需依赖库：
 ```
 libz.tbd 
 libc++.tbd
