@@ -72,7 +72,7 @@ Metal.framework
 @import TXLiteAVSDK_Enterprise;
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString * const licenceURL = @"<获取到的 licenseUrl>";
+    NSString * const licenceURL = @"<获取到的 licenseURL>";
     NSString * const licenceKey = @"<获取到的 key>";
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey];
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
