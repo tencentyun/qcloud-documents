@@ -43,7 +43,7 @@ TIMConversation * grp_conversation = [[TIMManager sharedInstance] getConversatio
 
 #### 消息发送
 
-通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK 对象简介](/doc/product/269/1565#.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。发消息通过 `TIMConversation` 的成员 `sendMessage` 实现，有两种方式实现，一种使用闭包，另一种调用方实现 `protocol` 回调。
+通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 对象简介](/doc/product/269/1565#.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。发消息通过 `TIMConversation` 的成员 `sendMessage` 实现，有两种方式实现，一种使用闭包，另一种调用方实现 `protocol` 回调。
 
 ![](//mccdn.qcloud.com/static/img/7226ab79d4294cc53980c888892f5c6d/image.png)
 
@@ -192,14 +192,14 @@ image_elem.path = @"/xxx/imgPath.jpg";
 
 **参数说明：**
 
-> 注：index 和 data 只需要传入一个即可，ImSDK 只是透传这两个数据。
+> 注：index 和 data 只需要传入一个即可，IM SDK 只是透传这两个数据。
 
 参数 | 说明
 ---|---
 index|表情索引标号，由开发者定义
 data|表情二进制数据，由开发者定义
 
-以下示例中发送了索引为 10 的表情，具体 10 标识哪种表情，需要开发者在两端都持有一份表情包，索引到编号为 10 的表情，也可以通过 data 通过二进制数据来标识。**示例：**
+以下示例中发送了索引为 10 的表情，具体 10 标识哪种表情，需要开发者在两端都持有一份表情包，索引到编号为10的表情，也可以通过 data 通过二进制数据来标识。**示例：**
 
 ```
 TIMFaceElem * face_elem = [[TIMFaceElem alloc] init];
@@ -221,7 +221,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 语音消息由 `TIMSoundElem` 定义，其中 `data` 存储语音数据，语音数据需要提供时长信息，以秒为单位。
 
 >!
->- 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
+>- 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误1，添加不生效。
 >- 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 
 ```
@@ -714,7 +714,7 @@ imageList | 保存本图片的所有规格，目前最多包含三种规格：�
 
 **`TIMImage` 说明：**
 
-获取到消息时通过 `imageList` 得到所有的图片规格，为 `TIMImage` 数据，得到 `TIMImage` 后可通过图片大小进行占位，通过接口 `getImage` 下载不同规格的图片进行展示。**下载的数据需要由开发者缓存，ImSDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。**
+获取到消息时通过 `imageList` 得到所有的图片规格，为 `TIMImage` 数据，得到 `TIMImage` 后可通过图片大小进行占位，通过接口 `getImage` 下载不同规格的图片进行展示。**下载的数据需要由开发者缓存，IM SDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。**
 
 **原型：**
 
@@ -1387,7 +1387,7 @@ NSLog(@"current session list : %@", [conversations description])
 
 ### 最近联系人漫游
 
-ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。如果不需要此功能，可以调用方法禁用。
+IM SDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。如果不需要此功能，可以调用方法禁用。
 
 ```
 @interface TIMManager : NSObject
@@ -1400,7 +1400,7 @@ ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会�
 
 ### 获取会话本地消息
 
-ImSDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参阅 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)，下载后的真实数据不会缓存，需要调用方进行缓存。
+IM SDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参阅 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)，下载后的真实数据不会缓存，需要调用方进行缓存。
 
 **原型：**
 
@@ -1664,7 +1664,7 @@ draft | 需要设置的草稿 ，需要清空会话草稿时传入 nil
 
 ### 删除本地会话消息
 
-ImSDK 支持保留会话同时删除本地的会话消息。**再次拉取消息时群组类型会话会从服务器重新拉取到消息**。
+IM SDK 支持保留会话同时删除本地的会话消息。**再次拉取消息时群组类型会话会从服务器重新拉取到消息**。
 
 **原型：**
 
@@ -1691,7 +1691,7 @@ fail | 失败回调
 
 ### 获取本地指定 ID 的消息
 
-ImSDK 2.5.3 版本提供获取本地指定 ID 消息的接口。
+IM SDK  2.5.3 版本提供获取本地指定 ID 消息的接口。
 
 **原型：**
 
