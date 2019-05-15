@@ -6,9 +6,12 @@
 
 ![基本配置](https://main.qcloudimg.com/raw/3fa85f997895ed2e21b1abe9f7c1f9ee.png)  
 
+>?注意：不同 高级特性 版本（原X-Pack插件）的访问方式不同，开源版和基础版不需要用户名密码鉴权，白金版需要用户名密码鉴权。 具体规则为 curl action -u user:password host ..., 请注意将 user, password 替换为自己实际的用户名密码。下文以创建单个文档为例进行说明，其他命令类似。
 
 ## 创建文档
 ### 创建单个文档
+
+高级特性为开源和基础版：
 输入命令行：
 ```
 curl -XPUT http://10.0.0.2:9200/china/city/beijing -d'
@@ -27,6 +30,24 @@ curl -XPUT http://10.0.0.2:9200/china/city/beijing -d'
 '
 ```
 
+白金版，请注意将下文中的 user，password 替换为自己集群实际的用户名和密码。
+输入命令行：
+```
+curl -XPUT -u user:password http://10.0.0.2:9200/china/city/beijing -d'
+{
+"name":"北京市",
+"province":"北京市",
+"lat":39.9031324643,
+"lon":116.4010433787,
+"x":6763,
+"level.range":4,
+"level.level":1,
+"level.name":"一线城市",
+"y":6381,
+"cityNo":1
+}
+'
+```
 响应如下：
 ```
 {
