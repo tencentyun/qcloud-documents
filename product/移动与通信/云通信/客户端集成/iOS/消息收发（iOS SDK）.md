@@ -230,7 +230,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @interface TIMSoundElem : TIMElem
 /**
- *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+ *  上传时任务 ID，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
 @property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
@@ -257,7 +257,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  获取语音数据到指定路径的文件中
  *
- *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  *
  *  @param path 语音保存路径
  *  @param succ 成功回调
@@ -268,7 +268,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  获取语音数据到指定路径的文件中（有进度回调）
  *
- *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  *
  *  @param path 语音保存路径
  *  @param progress 语音下载进度
@@ -284,7 +284,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 |参数|说明|
 |---|---|
 |path|上传语音的文件路径|
-|uuid|上传成功以后会生成唯一的标识，用户可以根据此标识保存文件，ImSDK 内部不会保存资源数据|
+|uuid|上传成功以后会生成唯一的标识，用户可以根据此标识保存文件，IM SDK 内部不会保存资源数据|
 |dataSize|语音数据大小|
 |second|语音长度|
 
@@ -355,7 +355,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @interface TIMFileElem : TIMElem
 /**
- *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+ *  上传时任务 ID，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
 @property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
@@ -363,7 +363,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
  */
 @property(nonatomic,strong) NSString * path;
 /**
- *  文件内部ID
+ *  文件内部 ID
  */
 @property(nonatomic,strong) NSString * uuid;
 /**
@@ -378,7 +378,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  获取文件数据到指定路径的文件中
  *
- *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  *
  *  @param path 文件保存路径
  *  @param succ 成功回调，返回数据
@@ -389,7 +389,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 /**
  *  获取文件数据到指定路径的文件中（有进度回调）
  *
- *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  *
  *  @param path 文件保存路径
  *  @param progress 文件下载进度
@@ -517,7 +517,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 参数 | 说明
 ---|---
-taskId | 上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+taskId | 上传时任务 ID，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
 videoPath | 发送短视频时，本地视频文件的路径
 video | 视频信息，发送消息时设置 type、duration 参数
 snapshotPath | 发送短视频时，本地截图文件的路径
@@ -590,7 +590,7 @@ videoElem.snapshot.height = 200;
 
 ### 消息转发
 
-在 2.4.0 及以上版本，在 `TIMMessage` 中提供了 `copyFrom` 接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
+在2.4.0及以上版本，在 `TIMMessage` 中提供了 `copyFrom` 接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
 
 **原型：**
 
@@ -612,7 +612,7 @@ videoElem.snapshot.height = 200;
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过此方法抛出，另外需要注意，通过 `onNewMessage` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息（如消息文本，语音数据，图片等等）可参阅[消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)部分。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过此方法抛出，另外需要注意，通过 `onNewMessage` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，IM SDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息（如消息文本，语音数据，图片等等）可参阅 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)部分。
 
 **原型：**
 
@@ -710,7 +710,7 @@ for (int i = 0; i < cnt; i++) {
 参数|说明
 ---|---
 path | 收消息时不用关注，为 nil
-imageList | 保存本图片的所有规格，目前最多包含三种规格：缩略图、大图、原图， 每种规格保存在一个 TIMImage对象中
+imageList | 保存本图片的所有规格，目前最多包含三种规格：缩略图、大图、原图， 每种规格保存在一个 TIMImage 对象中
 
 **`TIMImage` 说明：**
 
@@ -721,7 +721,7 @@ imageList | 保存本图片的所有规格，目前最多包含三种规格：�
 ```
 @interface TIMImage : NSObject
 /**
- *  图片ID，内部标识，可用于外部缓存key
+ *  图片 ID，内部标识，可用于外部缓存 key
  */
 @property(nonatomic,strong) NSString * uuid;
 /**
@@ -741,7 +741,7 @@ imageList | 保存本图片的所有规格，目前最多包含三种规格：�
  */
 @property(nonatomic,assign) int height;
 /**
- *  下载URL
+ *  下载 URL
  */
 @property(nonatomic, strong) NSString * url;
 
@@ -773,12 +773,12 @@ imageList | 保存本图片的所有规格，目前最多包含三种规格：�
 **图片规格说明：**每幅图片有三种规格，分别是 Original（原图）、Large（大图）、Thumb（缩略图）。
 
 - **原图：**指用户发送的原始图片，尺寸和大小都保持不变。
-- **大图：**是将原图等比压缩，压缩后宽、高中较小的一个等于 720 像素。
-- **缩略图：**是将原图等比压缩，压缩后宽、高中较小的一个等于 198 像素。
+- **大图：**是将原图等比压缩，压缩后宽、高中较小的一个等于720像素。
+- **缩略图：**是将原图等比压缩，压缩后宽、高中较小的一个等于198像素。
 
 > 注：
->- 如果原图尺寸就小于 198 像素，则三种规格都保持原始尺寸，不需压缩。
->- 如果原图尺寸在 198~720 之间，则大图和原图一样，不需压缩。
+>- 如果原图尺寸就小于198像素，则三种规格都保持原始尺寸，不需压缩。
+>- 如果原图尺寸在198 - 720之间，则大图和原图一样，不需压缩。
 >- 在手机上展示图片时，建议优先展示缩略图，用户单击缩略图时再下载大图，单击大图时再下载原图。当然开发者也可以选择跳过大图，单击缩略图时直接下载原图。
 >- 在 Pad 或 PC 上展示图片时，由于分辨率较大，且基本都是 Wi-Fi 或有线网络，建议直接显示大图，用户单击大图时再下载原图。
 
@@ -817,14 +817,14 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
 
 ### 接收语音消息
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMSoundElem` 为语音消息节点。其中`path`为创建消息时填写的语音信息，接收消息时为空。获取到消息时可通过时长占位，通过接口 `getSound` 下载语音资源，`getSound` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMSoundElem` 为语音消息节点。其中`path`为创建消息时填写的语音信息，接收消息时为空。获取到消息时可通过时长占位，通过接口 `getSound` 下载语音资源，`getSound` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，IM SDK 并不会存储资源文件。
 
 **原型：**
 
 ```
 @interface TIMSoundElem : TIMElem
 /**
- *  上传时任务Id，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+ *  上传时任务 ID，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
  */
 @property(nonatomic,assign) uint32_t taskId DEPRECATED_ATTRIBUTE;
 /**
@@ -847,7 +847,7 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
 /**
  *  获取语音数据到指定路径的文件中 
  *
- *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  *
  *  @param path 语音保存路径
  *  @param succ 成功回调，返回语音数据
@@ -858,7 +858,7 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
 /**
  *  获取语音数据到指定路径的文件中（有进度回调）
  *
- *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+ *  getSound 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
  * 
  *  @param path 语音保存路径
  *  @param progress 语音下载进度
@@ -878,12 +878,12 @@ uuid | 唯一标识，方便用户缓存
 dataSize | 语音文件大小
 second | 语音时长，以秒为单位
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（iOS%20SDK）#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为1。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/消息收发（iOS%20SDK）#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值0表示未播放，1表示播放，当用户单击播放后可设置 `customInt` 的值为1。
 
 ```
 @interface TIMMessage : NSObject
 /**
- *  设置自定义整数，默认为 0
+ *  设置自定义整数，默认为0
  *
  *  @param param 设置参数
  *
@@ -903,7 +903,7 @@ second | 语音时长，以秒为单位
 
 ### 接收小文件消息
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMFileElem` 为文件消息节点。其中 `path` 为创建消息时填写的文件路径，GET 消息时为空。获取到消息时可只展示文件大小和显示名，通过接口 `getFile` 下载文件资源。`getFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMFileElem` 为文件消息节点。其中 `path` 为创建消息时填写的文件路径，GET 消息时为空。获取到消息时可只展示文件大小和显示名，通过接口 `getFile` 下载文件资源。`getFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，IM SDK 并不会存储资源文件。
 
 **原型：**
 
@@ -933,7 +933,7 @@ second | 语音时长，以秒为单位
 /**
 *  获取文件数据到指定路径的文件中
 *
-*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 文件保存路径
 *  @param succ 成功回调，返回数据
@@ -944,7 +944,7 @@ second | 语音时长，以秒为单位
 /**
 *  获取文件数据到指定路径的文件中（有进度回调）
 *
-*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 文件保存路径
 *  @param progress 文件下载进度
@@ -965,7 +965,7 @@ fileSize | 文件大小
 filename |文件显示名
 
 ### 接收短视频消息
-收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 原型：
 
 ```
@@ -990,7 +990,7 @@ filename |文件显示名
 /**
 *  获取视频
 *
-*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 视频保存路径
 *  @param succ 成功回调
@@ -1001,7 +1001,7 @@ filename |文件显示名
 /**
 *  获取视频（有进度回调）
 *
-*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getVideo 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 视频保存路径
 *  @param progress 视频下载进度
@@ -1037,7 +1037,7 @@ filename |文件显示名
 /**
 *  获取图片
 *
-*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 图片保存路径
 *  @param succ 成功回调，返回图片数据
@@ -1048,7 +1048,7 @@ filename |文件显示名
 /**
 *  获取图片（有进度回调）
 *
-*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，ImSDK 并不会存储资源文件。
+*  getImage 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 *
 *  @param path 图片保存路径
 *  @param progress 图片下载进度
@@ -1092,7 +1092,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
 ### 消息是否已读
 
-通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 测进行的[ 已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 测进行的 [已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
 
 ```
 @interface TIMMessage : NSObject
@@ -1167,9 +1167,9 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
 ### 消息发送者以及相关资料
 
-对于群消息，可以通过 `TIMMessage` 的方法 `sender` 得到发送用户，另外也可以通过方法 `GetSenderProfile` 和 `GetSenderGroupMemberProfile` 获取用户自己的资料和所在群的资料。1.9 版本之前，只有在线消息 `onNewMessage` 抛出的消息可以获取到用户资料，1.9 版本以后，通过 `getMessage` 得到的消息也可以拿到资料（更新版本之前已经收到本地的消息无法获取到）。对于单聊消息，通过通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getReceiver` 可以得到正在聊天的用户。
+对于群消息，可以通过 `TIMMessage` 的方法 `sender` 得到发送用户，另外也可以通过方法 `GetSenderProfile` 和 `GetSenderGroupMemberProfile` 获取用户自己的资料和所在群的资料。1.9版本之前，只有在线消息 `onNewMessage` 抛出的消息可以获取到用户资料，1.9版本以后，通过 `getMessage` 得到的消息也可以拿到资料（更新版本之前已经收到本地的消息无法获取到）。对于单聊消息，通过通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getReceiver` 可以得到正在聊天的用户。
 
->!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
+>!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
 
 ```
 @interface TIMMessage : NSObject
@@ -1233,7 +1233,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
 ### 消息 ID
 
-消息 ID 分为两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间未读，可以认为 10 分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
+消息 ID 分为两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间未读，可以认为10分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
 
 ```
 @interface TIMMessage : NSObject
@@ -1400,7 +1400,7 @@ ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会�
 
 ### 获取会话本地消息
 
-ImSDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参阅[消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)，下载后的真实数据不会缓存，需要调用方进行缓存。
+ImSDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参阅 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)，下载后的真实数据不会缓存，需要调用方进行缓存。
 
 **原型：**
 
@@ -1445,7 +1445,7 @@ fail | 失败回调
 
 ### 获取会话漫游消息
 
-对于群组，登录后可以获取漫游消息，对于 C2C，开通漫游服务后可以获取漫游消息，通过 ImSDK 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
+对于群组，登录后可以获取漫游消息，对于 C2C，开通漫游服务后可以获取漫游消息，通过 IM SDK 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
 
 **原型：**
 
@@ -1509,9 +1509,9 @@ fail | 失败回调
  *  删除会话和消息
  *
  *  @param type 会话类型，TIM_C2C 表示单聊 TIM_GROUP 表示群聊
- *  @param receiver    用户identifier 或者 群组 ID
+ *  @param receiver    用户 identifier 或者 群组 ID
  *
- *  @return TRUE:删除成功  FALSE:删除失败
+ *  @return TRUE：删除成功  FALSE：删除失败
  */
 -(BOOL) deleteConversationAndMessages:(TIMConversationType)type receiver:(NSString*)receiver;
 @end
@@ -1532,7 +1532,7 @@ receiver|会话标识，单聊情况下，receiver 为对方用户 identifier，
 
 ### 同步获取会话最后的消息
 
-UI 展示最近联系人列表时，时常会展示用户的最后一条消息，在 1.9 以后版本增加了同步获取接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
+UI 展示最近联系人列表时，时常会展示用户的最后一条消息，在1.9以后版本增加了同步获取接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
 
 **原型：**
 
@@ -1564,7 +1564,7 @@ count | 需要获取的消息数，注意这里最多为 20
 
 ### 禁用会话本地存储
 
-直播场景下，群组类型会话的消息量很大，时常需要禁用直播群的本地消息存储功能。在 2.2 以后版本增加了针对单个会话禁用本地存储的功能，可以实现不存储直播群消息，同时存储 C2C 私聊消息。
+直播场景下，群组类型会话的消息量很大，时常需要禁用直播群的本地消息存储功能。在2.2以后版本增加了针对单个会话禁用本地存储的功能，可以实现不存储直播群消息，同时存储 C2C 私聊消息。
 
 **原型：**
 
@@ -1580,7 +1580,7 @@ count | 需要获取的消息数，注意这里最多为 20
 
 ### 设置会话草稿
 
-UI 展示最近联系人列表时，时常会展示用户的草稿内容，在 2.2 以后版本增加了设置和获取草稿的接口，用户可以通过此接口设置会话的草稿信息。**草稿信息会存本地数据库，重新登录后依然可以获取**。
+UI 展示最近联系人列表时，时常会展示用户的草稿内容，在2.2以后版本增加了设置和获取草稿的接口，用户可以通过此接口设置会话的草稿信息。**草稿信息会存本地数据库，重新登录后依然可以获取**。
 
 **原型：**
 
@@ -1737,4 +1737,4 @@ fail | 失败回调
 
 - **群事件消息：**当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅：[群组管理-群事件消息](/doc/product/269/群组管理（iOS%20SDK）#.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
 
-- **群系统消息：**当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅：[群组管理-群系统消息](/doc/product/269/群组管理（iOS%20SDK）#.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+- **群系统消息：**当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群组管理-群系统消息](/doc/product/269/群组管理（iOS%20SDK）#.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
