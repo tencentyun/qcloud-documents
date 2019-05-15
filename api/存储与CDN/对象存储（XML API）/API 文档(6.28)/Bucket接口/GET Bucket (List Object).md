@@ -117,7 +117,7 @@ LastModified|ListBucketResult.Contents|说明 Object 最后被修改时间|date
 ETag|ListBucketResult.Contents|文件的 MD5 算法校验值|string
 Size|ListBucketResult.Contents|说明文件大小，单位是 Byte|string
 Owner|ListBucketResult.Contents|Bucket 持有者信息|Container
-StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string
+StorageClass|ListBucketResult.Contents|Object 的存储类型，枚举值：STANDARD，STANDARD_IA，ARCHIVE。详情请参阅 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档 |string
 
 **Container 节点 Owner 内容：**
 
