@@ -197,10 +197,8 @@ Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑
 | 2    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
 | 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。        |
 
-## 相关文档
+## 相关文档 
 
-- [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
-- [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
 - [数据模板说明](https://cloud.tencent.com/document/product/634/)
 
 ## SDK接口说明
