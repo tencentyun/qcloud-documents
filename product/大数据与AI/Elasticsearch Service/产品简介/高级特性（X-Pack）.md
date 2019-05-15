@@ -16,37 +16,165 @@
 更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 和 [API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 ## 不同版本功能
-
-| Elastic Stack    |   开源版   |   基础版   |   白金版   |
-| :----------------: | :--------: | :--------: | :--------: |
-| Elasticsearch    |       -     |   -         |     -       |
-| 可扩展性和弹性   |  \*\*\*\*  |  \*\*\*\*  | \*\*\*\*\* |
-| 查询和分析       |  \*\*\*\*  |  \*\*\*\*  | \*\*\*\*\* |
-| 数据扩充         | \*\*\*\*\* | \*\*\*\*\* | \*\*\*\*\* |
-| 管理和工具       |     \*     |  \*\*\*\*  | \*\*\*\*\* |
-| Security         |      -      |    -        | \*\*\*\*\* |
-| Alerting         |       -     |  -          | \*\*\*\*\* |
-| Machine Learning |      -      |      -      | \*\*\*\*\* |
-| Kibana           |       -     |     -       |        -    |
-| 探索和可视化     |    \*\*    |   \*\*\*   | \*\*\*\*\* |
-| 堆栈管理和工具   |     \*     |   \*\*\*   | \*\*\*\*\* |
-| 堆栈监测         |      -      |     \*     | \*\*\*\*\* |
-| 分享与合作       |     \*     |   \*\*\*   | \*\*\*\*\* |
-| 本地化 UI        |   \*\*\*   | \*\*\*\*\* | \*\*\*\*\* |
-| Security         |    -        |      -      | \*\*\*\*\* |
-| Alerting         |      -      |     -       | \*\*\*\*\* |
-| Machine Learning |      -      |       -     | \*\*\*\*\* |
-| Beats            |       -     |       -     |       -     |
-| 数据收集         |  \*\*\*\*  |  \*\*\*\*  | \*\*\*\*\* |
-| 数据传输         | \*\*\*\*\* | \*\*\*\*\* | \*\*\*\*\* |
-| 模块             |    \*\*    | \*\*\*\*\* | \*\*\*\*\* |
-| 监测和管理       |      -      |   \*\*\*   | \*\*\*\*\* |
-| Logstash         |     -       |     -       |    -        |
-| 数据收集         | \*\*\*\*\* | \*\*\*\*\* | \*\*\*\*\* |
-| 数据扩充         | \*\*\*\*\* | \*\*\*\*\* | \*\*\*\*\* |
-| 数据传输         | \*\*\*\*\* | \*\*\*\*\* | \*\*\*\*\* |
-| 模块             |     \*     | \*\*\*\*\* | \*\*\*\*\* |
-| 监测和管理       |    -        |    \*\*    | \*\*\*\*\* |
+<table>
+<thead>
+<tr>
+<th colspan="2"align="center">Elastic Stack</th>
+<th align="center">开源版</th>
+<th align="center">基础版</th>
+<th align="center">白金版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td rowspan="7">Elasticsearch</td>
+<td align="center">可扩展性和弹性</td>
+<td align="center">****</td>
+<td align="center">****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">查询和分析</td>
+<td align="center">****</td>
+<td align="center">****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">数据扩充</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">管理和工具</td>
+<td align="center">*</td>
+<td align="center">****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Security</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Alerting</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Machine Learning</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td rowspan="8">Kibana</td>
+<td align="center">探索和可视化</td>
+<td align="center">**</td>
+<td align="center">***</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">堆栈管理和工具</td>
+<td align="center">*</td>
+<td align="center">***</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">堆栈监测</td>
+<td align="center">-</td>
+<td align="center">*</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">分享与合作</td>
+<td align="center">*</td>
+<td align="center">***</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">本地化 UI</td>
+<td align="center">***</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Security</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Alerting</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">Machine Learning</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td rowspan="4">Beats</td>
+<td align="center">数据收集</td>
+<td align="center">****</td>
+<td align="center">****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">数据传输</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">模块</td>
+<td align="center">**</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">监测和管理</td>
+<td align="center">-</td>
+<td align="center">***</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td rowspan="5">Logstash</td>
+<td align="center">数据收集</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">数据扩充</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">数据传输</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">模块</td>
+<td align="center">*</td>
+<td align="center">*****</td>
+<td align="center">*****</td>
+</tr>
+<tr>
+<td align="center">监测和管理</td>
+<td align="center">-</td>
+<td align="center">**</td>
+<td align="center">*****</td>
+</tr>
+</tbody></table>
 
 具体功能详情请参见 [高级功能详情](https://www.elastic.co/cn/subscriptions)。
 
