@@ -496,9 +496,9 @@ __参数__
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连.通过此函数设置 SDK 重连次数。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数设置 SDK 重连次数。
 接口说明：
-- 默认值：3
+- 默认值：3。
 - 取值范围：1 - 10。
 
 ***
@@ -518,7 +518,7 @@ __参数__
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连.通过此函数来设置两次重连间隔时间。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数来设置两次重连间隔时间。
 接口说明：
 - 默认值：3秒
 - 取值范围：3 - 30 秒。
@@ -588,7 +588,7 @@ __介绍__
 
 接口说明：
 - 默认值：TXLiveConstants#ENCODE_VIDEO_AUTO，自动选择是否启用硬件加速。
-- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速、TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速.默认禁用硬件加速。
+- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速、TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速，默认禁用硬件加速。
 
 ***
 
@@ -644,7 +644,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyLevel | int | 美颜等级.。 |
+| beautyLevel | int | 美颜等级。 |
 | whiteningLevel | int | 美白等级。 |
 | ruddyLevel | int | 红润等级。 |
 
