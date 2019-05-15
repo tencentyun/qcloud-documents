@@ -155,7 +155,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSString* faceURL;
 /**
- *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
+ *  自定义字段集合,key 是 NSString* 类型，value 是 NSData* 类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 /**
@@ -560,7 +560,7 @@ fail | 失败回调
  *  @param filter     群成员角色过滤方式
  *  @param flags      拉取资料标志
  *  @param custom     要获取的自定义 key（NSString*）列表
- *  @param nextSeq    分页拉取标志，第一次拉取填 0，回调成功如果不为零，需要分页，传入再次拉取，直至为 0
+ *  @param nextSeq    分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，传入再次拉取，直至为0
  *  @param succ       成功回调
  *  @param fail       失败回调
  */
@@ -803,7 +803,7 @@ fail | 失败回调
  */
 @property(nonatomic,retain) NSString * owner;
 /**
- *  群类型：Private,Public,ChatRoom
+ *  群类型：Private、Public 和 ChatRoom
  */
 @property(nonatomic,retain) NSString* groupType;
 /**
@@ -867,7 +867,7 @@ fail | 失败回调
  */
 @property(nonatomic,retain) TIMGroupSelfInfo* selfInfo;
 /**
- *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
+ *  自定义字段集合，key 是 NSString* 类型，value 是 NSData* 类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
@@ -875,7 +875,7 @@ fail | 失败回调
 /**
  *  获取群信息
  *
- *  @param succ 成功回调，不包含 selfInfo信息
+ *  @param succ 成功回调，不包含 selfInfo 信息
  *  @param fail 失败回调
  *
  *  @return 0 成功
@@ -920,7 +920,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 @interface TIMGroupManager (Ext)
 /**
  *  获取群公开信息
- *  @param groups 群组Id
+ *  @param groups 群组 ID
  *  @param succ 成功回调
  *  @param fail 失败回调
  *
@@ -1085,7 +1085,7 @@ fail | 失败回调
 参数 |说明
 ---|---
 group |  群组 ID
-introduction | 群简介，简介最长 120 字节
+introduction | 群简介，简介最长120字节
 succ | 成功回调
 fail | 失败回调
 
@@ -1116,7 +1116,7 @@ fail | 失败回调
  *  修改群公告
  *
  *  @param group            群组 ID
- *  @param notification     群公告（最长 150 字节）
+ *  @param notification     群公告（最长150字节）
  *  @param succ             成功回调
  *  @param fail             失败回调
  *
@@ -1131,7 +1131,7 @@ fail | 失败回调
 参数|说明
 ---|---
 group | 群组 ID
-notification | 群公告，群公告最长 150 字节
+notification | 群公告，群公告最长150字节
 succ | 成功回调
 fail | 失败回调
 
@@ -1162,7 +1162,7 @@ fail | 失败回调
  *  修改群头像
  *
  *  @param group            群组 ID
- *  @param url              群头像地址（最长 100 字节）
+ *  @param url              群头像地址（最长100字节）
  *  @param succ             成功回调
  *  @param fail             失败回调
  *
@@ -1177,7 +1177,7 @@ fail | 失败回调
 参数|说明
 ---|---
 group | 群组 ID
-url| 群头像地址（最长 100 字节）
+url| 群头像地址（最长100字节）
 succ | 成功回调
 fail | 失败回调
 
@@ -1254,7 +1254,7 @@ fail | 失败回调
  *  修改群自定义字段集合
  *
  *  @param group      群组 ID
- *  @param customInfo 自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
+ *  @param customInfo 自定义字段集合，key 是 NSString* 类型，value 是 NSData* 类型
  *  @param succ       成功回调
  *  @param fail       失败回调
  *
@@ -1353,7 +1353,7 @@ stime | 禁言时间，单位秒
 succ | 成功回调
 fail | 失败回调
 
-以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』禁言 120 秒。 **示例：**
+以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』禁言120秒。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetSilence:@"TGID1JYSZEAEQ" user:@"iOS_001" stime:120 succ:^() {
@@ -1529,7 +1529,7 @@ pendencies|拉取的未决条目数组
 
 属性|说明
 ---|---
-nextStartTime|拉取下一个分页的起始时戳，为 0 时表示没有后面的分页了
+nextStartTime|拉取下一个分页的起始时戳，为0时表示没有后面的分页了
 readTimeSeq|已读时戳，用来判定未决条目是否已读
 unReadCnt|所有未读条目个数，不限制于本次分页中
 
@@ -1549,7 +1549,7 @@ unReadCnt|所有未读条目个数，不限制于本次分页中
   */
 @property(nonatomic,retain) NSString* fromUser;
 /**
-  *  判决者 ID，请求加群:0，邀请加群:被邀请人
+  *  判决者 ID，请求加群：0，邀请加群：被邀请人
   */
 @property(nonatomic,retain) NSString* toUser;
 /**
@@ -1754,11 +1754,11 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
  */
 @interface TIMGroupTipsElem : TIMElem
 /**
-  *  群组Id
+  *  群组 ID
   */
 @property(nonatomic,strong) NSString * group;
 /**
-  *  群Tips类型
+  *  群 Tips 类型
   */
 @property(nonatomic,assign) TIM_GROUP_TIPS_TYPE type;
 /**
@@ -2075,7 +2075,7 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
   */
 @property(nonatomic,assign) TIM_GROUP_SYSTEM_TYPE type;
 /**
-  * 群组Id
+  * 群组 ID
   */
 @property(nonatomic,strong) NSString * group;
 /**
@@ -2303,4 +2303,4 @@ user | 操作人
 ---|---
 type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
 group | 群组 ID，表示哪个群被回收了
-~~~~
+
