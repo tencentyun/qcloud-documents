@@ -69,16 +69,15 @@
 |---------|---------|---------|
 | strategyName | 策略名称。 | strategy1 |
 | strategyInfo | 策略描述的内容。（注意，这里要传一个json字符串) | 见示例代码 |
-| remark | 策略的备注。 | horace test |
-| resource | CMQ的资源六段式描述,qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/horacetest1 ,第一段为固定格式qcs,第二段为空，第三段表示消息队列的类型，队列模型为cmqqueue,主题模型为cmqtopic,第四段为地域信息，例如gz,bj,sh,第五段为主账号ID,第六段为资源的描述，注意uin/后的值为创建者ID，如果资源是主账号创建的，那么该ID为主账号ID，而为协作者或者子帐号创建的，该uin为相应子帐号或者协作者帐号的ID。 |* |
+| remark | 策略的备注。 | hello test |
+| resource | CMQ的资源六段式描述,例 qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue ,第一段为固定格式qcs,第二段为空，第三段表示消息队列的类型，队列模型为cmqqueue,主题模型为cmqtopic,第四段为地域信息，例如gz,bj,sh,若为全地域，则设置为空，第五段为主账号ID,第六段为资源的描述，注意uin/后的值为创建者ID，如果资源是主账号创建的，那么该ID为主账号ID，而为协作者或者子帐号创建的，该uin为相应子帐号或者协作者帐号的ID。 |* |
 
 **示例代码：**
 
-注意：resource的资源六段式描述中 uin/1238423 中1238423为主账号的ID，而
 ```
 {
 "strategyName":"strategy1",
-"strategyInfo":{"version":"2.0","principal":{"qcs":["qcs::cam::uin/1238423:uin/3232","qcs::cam::uin/1238423:groupid/13"]},"statement":[{"effect":"allow","action":"name/cmqqueue:ListQueue","resource":"*"},{"effect":"allow","action":["name/cmqqueue:ReceiveMessage","name/cmqqueue:BatchDeleteMessage"],"resource":["qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue","qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/*"]}]},
+"strategyInfo":{"version":"2.0","principal":{"qcs":["qcs::cam::uin/1238423:uin/3232/myqueue","qcs::cam::uin/1238423:groupid/13"]},"statement":[{"effect":"allow","action":"name/cmqqueue:ListQueue","resource":"*"},{"effect":"allow","action":["name/cmqqueue:ReceiveMessage","name/cmqqueue:BatchDeleteMessage"],"resource":["qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue","qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/*"]}]},
 "remark":"horace test"
 }
 ```
