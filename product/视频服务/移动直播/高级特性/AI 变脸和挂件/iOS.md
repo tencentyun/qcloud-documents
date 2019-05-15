@@ -24,7 +24,7 @@
 
 ### 3. 将 SDK 导入您的工程
 
-1. 打开您的 Xcode 工程项目，选择要运行的 target , 选中【Build Phases】。
+1. 打开您的 Xcode 工程项目，选择要运行的 target，选中【Build Phases】。
   ![](https://main.qcloudimg.com/raw/ea12370194d3c1d1fc7b7e8275b6f1dd.jpg)
 2. 单击【Link Binary with Libraries】展开，单击【+】添加依赖库。
   ![](https://main.qcloudimg.com/raw/dc76027fe15ec1bb74fd3329164bd7b3.jpg)
