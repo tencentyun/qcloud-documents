@@ -2,7 +2,7 @@
 
 ### 手动生成
 
-1. 开通腾讯云直播服务：如果您尚未开通云直播服务，请单击 [这里](https://cloud.tencent.com/product/lvb) 申请开通。
+1. 开通腾讯云直播服务：如果您尚未开通云直播服务，请单击 [申请开通](https://cloud.tencent.com/product/lvb)。
 2. 添加直播加速域名：如果您要使用云直播服务，则须要提供一个备案过的域名，并在云直播控制台中添加直播加速域名，详细请参考 [域名管理](https://cloud.tencent.com/document/product/267/30559)。
 3. 生成推流地址：首先登录腾讯云直播控制台，选择左上角【云产品】>【云直播】>【域名管理】，选择添加过的推流域名，在【管理】中选择【推流配置】 ，通过【推流地址生成器】生成一个推流地址。其中 `rtmp://domain/live/test?xxx` 即为推流 URL。
 ![](https://main.qcloudimg.com/raw/9ddfbdf5d0174e24580f1ce0fcdb0225.jpg)
