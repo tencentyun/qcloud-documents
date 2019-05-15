@@ -56,11 +56,11 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 
 **1. 设备创建**
  设备完成 SDK 移植后，下一步即是接入腾讯云平台。
-1.1 登录 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer) ，[创建产品](https://cloud.tencent.com/document/product/1081/34739?!preview&!editLang=zh)。
-1.2 [创建设备](https://cloud.tencent.com/document/product/1081/34740?!preview&!editLang=zh)：
+1.1 登录 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer) ，并 [创建产品](https://cloud.tencent.com/document/product/1081/34739)。
+1.2 [创建设备](https://cloud.tencent.com/document/product/1081/34740)。
 
 **2. 设备侧设备信息配置**
-设备创建完毕后，[查看设备信息](https://cloud.tencent.com/document/product/1081/34741?!preview&!editLang=zh#.E6.9F.A5.E7.9C.8B.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF)，根据认证方式，将设备信息赋给示例程序的相应宏，量产产品，需要实现这些信息的生产写入及运行过程的获取，建议对这些信息写入与读取进行加密加扰增加产品安全性。
+设备创建完毕后，[查看设备信息](https://cloud.tencent.com/document/product/1081/34741#.E6.9F.A5.E7.9C.8B.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF)，根据认证方式，将设备信息赋给示例程序的相应宏，量产产品，需要实现这些信息的生产写入及运行过程的获取，建议对这些信息写入与读取进行加密加扰增加产品安全性。
 
 ```
 #ifdef AUTH_MODE_CERT
@@ -86,15 +86,17 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 ```
 
 **3. 设备和平台通信**
-C-SDK同时支持腾讯的现有的两个物联网平台[物联网通信](https://console.cloud.tencent.com/iotcloud/products) 和 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，物联网开发平台是基于物联网通信平台的底层能力，物联网通信平台实现了Coap、Mqtt、Ota、Shadow、GateWay、Nbiot等底层数据通信能力，物联网开发平台则是基于开发者的角度对数据的进一步抽象封装，形成[数据模板协议](https://cloud.tencent.com/document/product/634/)，开发者基于物联网开发平台的数据模板可以实现产品的快速开发。
+C-SDK 同时支持腾讯的现有的两个物联网平台 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 和 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer)。物联网开发平台是基于物联网通信平台的底层能力，物联网通信平台实现了 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 等底层数据通信能力，物联网开发平台则是基于开发者的角度对数据的进一步抽象封装，形成 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)，开发者基于物联网开发平台的数据模板可以实现产品的快速开发。
 
-物联网通信平台示例：基础示例coap、mqtt、ota、shadow、gateWay、nbiot及scenarized目录下的[空调](https://cloud.tencent.com/document/product/634/11914)和[门控](https://cloud.tencent.com/document/product/634/11913)的场景示例为。各示例的数据流，参阅 [文档中心](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
+- 物联网通信平台示例：
+基础示例 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 及 scenarized 目录下的 [空调](https://cloud.tencent.com/document/product/634/11914) 和 [门控](https://cloud.tencent.com/document/product/634/11913) 的场景示例。各示例的数据流，参阅 [功能组件](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程 STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
 
-物联网开发平台示例：基础示例data_template、event及scenarized目录下的[智能灯](https://cloud.tencent.com/document/product/1081/34744?!preview&!editLang=zh)
+- 物联网开发平台示例：
+基础示例 data_template、event 及 scenarized 目录下的 [智能灯](https://cloud.tencent.com/document/product/1081/34744)。
 
 **4. 查看云日志**
 
-设备和云端的交互日志可以在控制台的云日志功能查看，可以看到设备的上下线信息、pulish 的消息属性、规则引擎转发情况等。物联网开发平台的调试日志查看，参阅[设备调试]( https://cloud.tencent.com/document/product/1081/34741?!preview&!editLang=zh#.E6.9F.A5.E7.9C.8B.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF)。
+设备和云端的交互日志可以在控制台的云日志功能查看，可以看到设备的上下线信息、pulish 的消息属性、规则引擎转发情况等。物联网开发平台的调试日志查看，请参阅 [设备调试]( https://cloud.tencent.com/document/product/1081/34741#.E6.9F.A5.E7.9C.8B.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF) 文档。
 
 
 
