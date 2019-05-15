@@ -19,7 +19,7 @@
 <table>
 <thead>
 <tr>
-<th colspan="2"align="center">Elastic Stack</th>
+<th colspan="2"align="center"width="30%">Elastic Stack</th>
 <th align="center">开源版</th>
 <th align="center">基础版</th>
 <th align="center">白金版</th>
