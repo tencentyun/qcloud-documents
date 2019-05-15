@@ -82,7 +82,7 @@ Metal.framework
 
 ## 功能接口
 
-### 1. 美妆接口（大眼、瘦脸）
+### 美妆接口（大眼、瘦脸）
 
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
@@ -109,7 +109,7 @@ Metal.framework
 - (void)setNoseSlimLevel:(float)noseSlimLevel;
 ```
 
-### 2. AI 贴纸
+### AI 贴纸
 
 购买企业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
@@ -125,7 +125,7 @@ Metal.framework
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3. 绿幕功能
+### 绿幕功能
 
 如果要使用绿幕功能，需要先让主播站在一个绿色背景前。开启绿幕功能以后，SDK 会识别出图像中的绿色区域，并将其替换成视频内容。
 ![](https://main.qcloudimg.com/raw/f1b345135deb4c01ed2a691958ce34f2.jpg)
@@ -143,15 +143,15 @@ Metal.framework
 
 ## 问题排查
 
-### 1. 工程编译不过？  
+### 工程编译不过？  
 检查`AssetsLibrary.framwork`、`CoreMedia.framework`、`Accelerate.framework`和`Metal.framework` 依赖库是否已添加成功。
                  
 
-### 2. 工程运行过程中 Crash？  
+### 工程运行过程中 Crash？  
 - 检查工程是否已配置 -ObjC。
 - 检查 Metal API Validation 是否被设置为 Disabled。
 
-### 3. 工程特效不生效？  
+### 工程特效不生效？  
 - 检查是否已调用`+[TXLiveBase setLicenceURL:key:]`方法，以及参数是否正确。
 - 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含 `pituLicense` 字段。
 - 检查 pitu 资源是否添加正确，尤其要注意 `handdetect`，`handtrack`，`res18_3M`三个文件夹要以 folder refrence 形式添加，最简单的方法就是比对您工程中添加的动效文件是否和 demo 添加的完全一致  。
