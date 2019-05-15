@@ -176,5 +176,5 @@
 </tr>
 </tbody></table>
 
-具体功能详情请参见 [高级功能详情](https://www.elastic.co/cn/subscriptions)。
+具体功能详情请参见 [高级功能](https://www.elastic.co/cn/subscriptions)。
 
