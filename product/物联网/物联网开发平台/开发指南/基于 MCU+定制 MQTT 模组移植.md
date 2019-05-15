@@ -1,6 +1,6 @@
 ## 简介
 
-[tc-iot-at-sdk-stm32-freertos-based-example](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git) 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
+[tc-iot-at-sdk-stm32-freertos-based-example](https://github.com/tencentyun/tc-iot-at-sdk-stm32-freertos-based-example.git) 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 代码工程框架
 
@@ -188,7 +188,9 @@ void demoTask(void)
 | 1    | mqtt_sample.c                  | MQTT 示例，该示例示例基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
 | 1    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
 | 2    | data_template_sample.c         | 通用数据模板及事件功能示例，示例如何基于腾讯物联网平台的数据模板功能快速开发产品。|
-| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。                |
+| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。 | 
+
+data_template_sample、light_data_template_sample为 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)示例，mqtt_sample和shadow_sample为[物联网通信平台](https://console.cloud.tencent.com/iotcloud/products) 示例。
 
 **2.7 示例运行**
 
