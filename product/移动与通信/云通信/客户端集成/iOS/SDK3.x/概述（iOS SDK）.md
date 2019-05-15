@@ -20,6 +20,7 @@ iOS ImSDK 对象主要分为通讯管理器、会话、消息、群管理，具�
 | TIMConversation | 会话 | 负责会话相关操作，包含发送消息、获取会话消息缓存、获取未读计数等 |
 | TIMMessage | 消息 | 包含文本、图片等不同类型消息 |
 | TIMGroupManager | 群管理器 | 负责创建群、增删成员、以及修改群资料等 |
+| TIMFriendshipManager | 好友关系链管理器 | 负责添加、删除好友以及好友资料管理等 |
 
 
 ## 调用顺序介绍
@@ -34,5 +35,6 @@ ImSDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录成
 | 消息收发 | TIMManager:getConversation | 获取会话 |
 | 消息收发 | TIMConversation:sendMessage | 发送消息 |
 | 群组管理 | TIMGroupManager | 群组管理 |
+| 关系链管理 | TIMFriendshipManager | 关系链管理 |
 | 注销 | TIMManager:logout | 注销（用户可选） |
 
