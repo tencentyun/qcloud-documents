@@ -20,7 +20,7 @@ __属性列表__
 | watermark | TXImage * | 水印图片，设为 nil 等同于关闭水印。 | - | - |
 | watermarkPos | CGPoint | 水印图片位置，水印大小为图片实际大小，待废弃，推荐使用 watermarkNormalization。 | - | - |
 | watermarkNormalization | CGRect | 水印图片相对于推流分辨率的归一化坐标。 | 假设推流分辨率为：540x960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.1, 水印高度会被自动计算）。 | watermarkNormalization 的优先级高于 watermarkPos。 |
-| pauseTime | int | 垫片推流的最大持续时间，单位秒，默认值：300s。 | - | 调用 TXLivePusher 的 pausePush() 接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。 |
+| pauseTime | int | 垫片推流的最大持续时间，单位秒，默认值：300s。 | - | 调用 TXLivePusher 的 pausePush  接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。 |
 | pauseFps | int | 垫片推流时的视频帧率，取值范围3 - 8，默认值：5FPS。 | - | - |
 | pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 x 1920。 | - | - |
 | videoResolution | int | 视频分辨率，默认值：VIDEO_RESOLUTION_TYPE_360_640。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
