@@ -302,7 +302,7 @@ class sigcheck
 ### PHP 接口
 
 PHP 实现的方式较为简单，就是调用命令行工具生成 sig，工具是 `bin\signature.exe`，PHP 的调用方式如下：
-> 注：开发者请注意命令执行的路径，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
+>? 开发者请注意命令执行的路径，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
 
 ```
 function signature($identifier, $sdkappid, $private_key_path)
