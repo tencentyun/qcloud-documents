@@ -1,5 +1,4 @@
 
-
 __功能__
 
 腾讯云移动直播 - 连麦直播间。
@@ -90,6 +89,22 @@ __参数__
 ```
 - (void)logout
 ```
+
+***
+
+### setSelfProfile
+
+修改个人信息。
+```
+- (void)setSelfProfile:(NSString *)userName avatarURL:(NSString *)avatarURL completion:(void(^)(int code, NSString *msg))completion 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userName | NSString * | 昵称。 |
+| avatarURL | NSString * | 头像地址。 |
 
 ***
 

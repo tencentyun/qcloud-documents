@@ -1,5 +1,4 @@
 
-
 __功能__
 
 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调。
@@ -77,7 +76,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间 ID。 |
+| roomID | NSString * | 房间ID。 |
 
 __介绍__
 
@@ -87,11 +86,11 @@ __介绍__
 
 
 ## 主播和观众的进出事件回调
-### onPusherJoin
+### onAnchorEnter
 
 收到新主播进房通知。
 ```
-- (void)onPusherJoin:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorEnter:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
@@ -109,11 +108,11 @@ __介绍__
 
 ***
 
-### onPusherQuit
+### onAnchorExit
 
 收到主播退房通知。
 ```
-- (void)onPusherQuit:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorExit:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
