@@ -2,7 +2,7 @@
 
 IOT 设备从联网的方式来看大的情形分为两种，一种是 MCU+模组的形式，一种是 SOC 的方式。对于前者网络协议栈在模组中实现，对于后者网络协议栈在系统侧实现。对于模组又有两种大的情形，一种是模组提供通用的 TCP/UDP 通信的 AT 指令，MCU 侧基于 AT 指令的封装实现 TCP 应用层的读写接口。另一种是将物联网平台的 SDK 封装在模组中，对外暴露 MQTT 协议或者其他的协议指令，MCU 侧不用感知 TCP/UDP 的存在，直接进行基于封装的 AT 指令进行 MQTT 应用层的协议开发。
 
-本文阐述 MCU+通用 TCP 模组如何移植腾讯 IoT Explorer C-SDK，MCU+腾讯 MQTT 定制模组移植，请参阅 [移植指导](https://cloud.tencent.com/document/product/1081/34719?!preview&!editLang=zh)。
+本文阐述 MCU+通用 TCP 模组如何移植腾讯 IoT Explorer C-SDK。MCU+定制 MQTT 模组移植，请参阅 [移植指导](https://cloud.tencent.com/document/product/1081/34719)。
 
 ## 操作步骤
 
@@ -49,7 +49,7 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 | 3    | HAL_DTLS_Write      | 从一个 DTLS 连接中写数据。                               |
 | 4    | HAL_DTLS_Read       | 从一个 DTLS 连接中读数据。                               |
 
-基于模组的 TCP AT 指令如何实现网络读写的 HAL 层适配，请参考 [示例工程STM32+BC26](https://github.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) 移植实现。参考示例头文件`at_for_bc206.h`相关接口的适配实现，注意处理好各接口返回值。对于 TLS/DTLS，一般使用 mbedTLS 库，需要解决 mbedTSL 的移植依赖，SDK 调用的是 SSL_TLS 层的标准 API。移植好的示例工程目录结构如下：
+基于模组的 TCP AT 指令如何实现网络读写的 HAL 层适配，请参考 [示例工程STM32+BC26](https://github.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) 移植实现。参考示例头文件at_for_bc206.h 相关接口的适配实现，注意处理好各接口返回值。对于 TLS/DTLS，一般使用 mbedTLS 库，需要解决 mbedTSL 的移植依赖，SDK 调用的是 SSL_TLS 层的标准 API。移植好的示例工程目录结构如下：
 ![](https://main.qcloudimg.com/raw/2189a594ccc658e1b6f4ffc432565f00.png)
 
 ### 设备创建、配置、鉴权及通信
@@ -86,10 +86,11 @@ SDK 移植到具体平台硬件，需要做的移植工作是实现工程目录`
 ```
 
 **3. 设备和平台通信**
-C-SDK 同时支持腾讯的现有的两个物联网平台 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 和 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer)。物联网开发平台是基于物联网通信平台的底层能力，物联网通信平台实现了 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 等底层数据通信能力，物联网开发平台则是基于开发者的角度对数据的进一步抽象封装，形成 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)，开发者基于物联网开发平台的数据模板可以实现产品的快速开发。
+C-SDK 同时支持腾讯云现有的两个物联网平台 [物联网通信](https://console.cloud.tencent.com/iotcloud/products) 和 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer)。
+物联网开发平台是基于物联网通信平台的底层能力，物联网通信平台实现了 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 等底层数据通信能力，物联网开发平台则是基于开发者的角度对数据的进一步抽象封装，形成 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)，开发者基于物联网开发平台的数据模板可以实现产品的快速开发。
 
 - 物联网通信平台示例：
-基础示例 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 及 scenarized 目录下的 [空调](https://cloud.tencent.com/document/product/634/11914) 和 [门控](https://cloud.tencent.com/document/product/634/11913) 的场景示例。各示例的数据流，参阅 [功能组件](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程 STM32+BC26](https://git.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example.git) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
+基础示例 Coap、Mqtt、Ota、Shadow、GateWay、Nbiot 及 scenarized 目录下的 [空调](https://cloud.tencent.com/document/product/634/11914) 和 [门控](https://cloud.tencent.com/document/product/634/11913) 的场景示例。各示例的数据流，参阅 [功能组件](https://cloud.tencent.com/document/product/634/11915) ，其中 [示例工程 STM32+BC26](https://github.com/tencentyun/qcloud-iot-sdk-for-stm32withfreeRTOS-example) exhibitor_shadow_sample.c 是嵌入式平台已经移植好的示例，这个示例对应的硬件是腾讯云+峰会的参会证，原理图在 doc 目录，其他示例可以参考修改移植。开发者可以基于设备的具体应用场景参考最接近的示例开发。
 
 - 物联网开发平台示例：
 基础示例 data_template、event 及 scenarized 目录下的 [智能灯](https://cloud.tencent.com/document/product/1081/34744)。
