@@ -139,7 +139,7 @@ __介绍__
 
 ### setConnectRetryInterval
 
-设置播放器重连间隔.。
+设置播放器重连间隔。
 ```
 void setConnectRetryInterval(int interval)
 ```
