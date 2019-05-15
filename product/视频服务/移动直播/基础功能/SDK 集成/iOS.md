@@ -1,114 +1,127 @@
-## SDK信息
+本文主要介绍如何快速地将腾讯云移动直播 LiteAVSDK（iOS）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以 [全功能专业版](https://cloud.tencent.com/document/product/454/7873) 为例：
 
-您可以在腾讯云官网更新 [直播SDK](https://cloud.tencent.com/document/product/454/7873)，目前直播SDK有如下几下版本：
+## 开发环境要求
+- Xcode 9.0+。
+- iOS 9.0 以上的 iPhone 或者 iPad 真机。
+- 项目已配置有效的开发者签名。
 
-| 版本类型   | 功能                           |
-| ------ | ---------------------------- |
-| 直播精简版  | 支持推流、直播、点播                   |
-| 独立播放器版 | 支持直播、点播                      |
-| 短视频功能版 | 支持短视频和点播                     |
-| 全功能专业版 | 支持推流、直播、点播、连麦、短视频            |
-| 商用企业版  | 在全功能专业版基础上增加动效贴纸、美瞳瘦脸、绿幕抠图功能 |
+## 集成 LiteAV SDK
+您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK，再将其导入到您当前的工程项目中。
 
-以专业版为例，下载完的SDK解压后有以下几个部分：
-
-![](//mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
-
-| 文件名 | 说明 | 
-|---------|---------|
-| SDK | 包含 framework 的SDK目录| 
-| Demo | 基于 framework 方式的简化 Demo，包含简单的 UI 界面和 SDK 的主要功能演示，使用xcode可以快速导入并体验。|
-| iOS 开发包使用指引.pdf | 介绍SDK的基本功能 |
-
-## Xcode工程设置
-
-### 一、支持平台
-
-+ SDK支持iOS 8.0以上系统
-
-### 二、开发环境
-
-+ Xcode 9或更高版本
-+ OS X 10.10或更高版本
-
-### 三、Xcode工程设置
-
-下面通过一个简单的iOS Application工程，说明如和在Xcode工程中配置SDK。
-
-### 1、拷贝SDK文件
-
-在本例中，新建一个名字叫做HelloSDK的iOS工程，将下载下来的`TXLiteAVSDK_Professional.framework`拷贝至工程目录。目录结构如下图所示：
-
-![](//mc.qcloudimg.com/static/img/d2b95540742662c006039adabb44188a/RTX20170811-210804.png)
-
-### 2、添加Framework
-
-在工程中添加`TXLiteAVSDK_Professional.framework`，同时还要添加以下系统依赖库
-
-> 1. libz.tbd
-> 2. libc++.tbd
-> 3. libresolv.tbd
-> 4. libsqlite3.tbd
-> 5. Accelerate.framework
-> 6. GPUImage.framework(企业版需要)
-
-### 3、添加头文件
-在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：
+### CocoaPods
+#### 1. 安装 CocoaPods
+在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
-#import "TXLiteAVSDK_Professional/TXLivePush.h"
+sudo gem install cocoapods
 ```
 
-### 四、验证
-
-下面在HelloSDK的代码中，调用SDK的接口，获取SDK版本信息，以验证工程设置是否正确。
-
-### 1、引用头文件
-
-在ViewController.m开头引用SDK的头文件：
-
+#### 2. 创建 Podfile 文件
+进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
 ```
-#import "TXLiteAVSDK_Professional/TXLiveBase.h"
+pod init
 ```
 
-### 2、添加调用代码
-
-在viewDidLoad方法中添加代码：
+#### 3. 编辑 Podfile 文件
+编辑 Podfile 文件，有如下有两种设置方式：
+-  方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
 
 ```
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // 打印SDK的版本信息
+  platform :ios, '8.0'
+  
+  target 'App' do
+  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+  end
+```
+
+-  方式二：使用 CocoaPod 官方源，支持选择版本号。
+
+```
+   platform :ios, '8.0'
+   source 'https://github.com/CocoaPods/Specs.git'
+   
+   target 'App' do
+   pod 'TXLiteAVSDK_Professional'
+   end
+```
+
+#### 4. 更新并安装 SDK
+在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAV SDK：
+```
+pod install
+```
+或使用以下命令更新本地库版本：
+```
+pod update
+```
+
+pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
+
+
+### 手动集成
+1. 下载 [LiveAVSDK ](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
+
+2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
+![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)
+
+3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”添加依赖库。
+![](https://main.qcloudimg.com/raw/c3d1a562a7259c668336f24f0525c2db.jpg)
+
+4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 及其所需依赖库 :
+```
+libz.tbd
+libc++.tbd
+libresolv.tbd
+libsqlite3.tbd
+Accelerate.framework
+```
+![](https://main.qcloudimg.com/raw/3ec85750893f4866fe634a5d8dc6d059.jpg)
+
+## 授权摄像头和麦克风使用权限
+使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
+- **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
+
+![](https://main.qcloudimg.com/raw/a924a0e1e7e7d0451dbd49cf97650dd2.jpg)
+
+## 在工程中引入 SDK
+项目代码中使用 SDK 有两种方式：
+- 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
+```
+@import TXLiteAVSDK_Professional;
+```
+
+- 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
+```
+#import "TXLiteAVSDK_Professional/TXLiteAVSDK.h"
+```
+
+## 给 SDK 配置 license 授权
+
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 license，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+
+在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
+
+```objc
+@import TXLiteAVSDK_Professional;
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString * const licenceURL = @"<获取到的licenseUrl>";
+    NSString * const licenceKey = @"<获取到的key>";
+		
+    //TXLiveBase 位于 "TXLiveBase.h" 头文件中
+    [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
 }
+@end
 ```
 
-### 3、编译运行
+## 常见问题
+### 1. LiteAV SDK 是否支持后台运行？
+支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
+![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)
 
-如果前面各个步骤都操作正确的话，HelloSDK工程应该可以顺利编译通过。在Debug模式下运行APP，Xcode的Console窗格会打印出SDK的版本信息。
+### 2. LiteAV SDK 是否支持开启 BitCode？
+支持 Bitcode， App 项目可根据具体需要，在 **Build Settings** 下启用或禁用 Bitcode，如下图所示：
+![](https://main.qcloudimg.com/raw/74326dbed0f09ce016101bb7396986bd.jpg)
 
-> 2017-08-11 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 3.0.1185
 
-至此，工程配置完成。
-
-## LOG打印
-在  TXLiveBase 中可以设置 log 是否在控制台打印以及log的级别，具体代码如下：
-- **setConsoleEnabled**
-设置是否在 xcode 的控制台打印 SDK 的相关输出。
-
-- **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/log** 文件夹下。
-如果您需要我们的技术支持，建议将次开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
-
-- **Log 文件的查看**
-小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
-
-```
-[TXLiveBase setConsoleEnabled:YES];
-[TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
-```
-
-- **SDK日志回调**   如果您需要将日志打印到自己的日志文件上，可以通过实现`TXLiveBaseDelegate`回调中的方法:
-
-```
--(void) onLog:(NSString*)log LogLevel:(int)level WhichModule:(NSString*)module
-```
