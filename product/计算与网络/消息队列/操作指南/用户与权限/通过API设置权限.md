@@ -21,7 +21,7 @@
 	"componentName": "MC",
 	"eventId": 123456,
 	"interface": {
-		"interfaceName": "接口名"
+		"interfaceName": "接口名",
 		"para": {
 			接口对应参数
 		}
