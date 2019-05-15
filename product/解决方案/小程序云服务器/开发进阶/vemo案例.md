@@ -22,6 +22,7 @@
 ## 初始化项目
 
 ```shell
+// 在你自己的开发电脑而不是刚买的主机上操作
 git clone https://github.com/lcxfs1991/pai-template.git
 
 ## 进入 vemo demo 目录
@@ -50,7 +51,7 @@ npm i -g @cloudbase/cli
 tcb login
 ```
 
-然后在当前目录下，然后新建 `tcb.json` 文件，将 `tcb.example.json` 的内容拷贝过来并保存。
+然后在 `pai-template/vemo` 目录下，然后新建 `tcb.json` 文件，将 `tcb.example.json` 的内容拷贝过来并保存。
 
 ```js
 {
@@ -69,6 +70,10 @@ tcb login
 ```shell
 tcb deploy
 ```
+
+如果成功，则会有以下的显示：
+
+![](https://main.qcloudimg.com/raw/26f34ae33be47ce38b5a8ead67a20013.png)
 
 ## 验证
 
