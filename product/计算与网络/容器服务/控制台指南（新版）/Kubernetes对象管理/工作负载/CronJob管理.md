@@ -78,7 +78,7 @@ spec:
           restartPolicy: OnFailure
 ```
 - kind: 标识 CronJob 资源类型.
-- metadata：CronJob 的名称、Label等基本信息。
+- metadata：CronJob 的名称、Label 等基本信息。
 - metadata.annotations：对 CronJob 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 - spec.schedule：CronJob 执行的 Cron 的策略。
 - spec.jobTemplate：Cron 执行的 Job 模板。
