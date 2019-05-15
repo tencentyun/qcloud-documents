@@ -108,3 +108,9 @@
 ![](https://main.qcloudimg.com/raw/b1460953cd4668e6b3a32fd11fb14fd6.png)
 算法参数和资源参数配置如下：
 ![](https://main.qcloudimg.com/raw/ff49584b3630485723ccc723bb8982e8.png)
+
+开始运行任务流，运行成功后可查看运行结果：
+
+将光标放置于“二分类评价”，画布上会展示出运行结果及混淆矩阵（如下图所示）
+
+![https://main.qcloudimg.com/raw/7796f335827d6dad3469b8bd03dc4bf7.png](https://main.qcloudimg.com/raw/7796f335827d6dad3469b8bd03dc4bf7.png)
