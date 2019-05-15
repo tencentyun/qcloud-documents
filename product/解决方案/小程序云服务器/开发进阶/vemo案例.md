@@ -50,7 +50,21 @@ npm i -g @cloudbase/cli
 tcb login
 ```
 
-然后运行以下命令进行部署。
+然后在当前目录下，然后新建 `tcb.json` 文件，将 `tcb.example.json` 的内容拷贝过来并保存。
+
+```js
+{
+    "deploys": [
+        {
+            "name": "vemo",
+            "path": "./",
+            "type": "node"
+        }
+    ]
+}
+```
+
+再运行以下命令进行部署。
 
 ```shell
 tcb deploy
