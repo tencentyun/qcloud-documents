@@ -72,7 +72,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| glRootView | TXCloudVideoView | 视频渲染 View.。 |
+| glRootView | TXCloudVideoView | 视频渲染 View。 |
 
 ***
 
@@ -92,7 +92,7 @@ __参数__
 
 __返回__
 
-是否成功启动播放. 0: 成功. -1: 失败，playUrl为空. -2: 失败，playUrl非法. -3: 失败，playType非法.。
+是否成功启动播放， 0: 成功；-1: 失败，playUrl 为空；-2: 失败，playUrl 非法；-3: 失败，playType 非法。
 
 __介绍__
 
@@ -118,7 +118,7 @@ __参数__
 
 __返回__
 
-0：成功；非0：失败.。
+0：成功；非0：失败。
 
 __介绍__
 
@@ -137,7 +137,7 @@ boolean isPlaying()
 
 __返回__
 
-true：正在播放；false：未播放.。
+true：正在播放；false：未播放。
 
 ***
 
