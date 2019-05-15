@@ -16,7 +16,7 @@ TXLivePushListener 的 onNetStatus 回调，会每隔 1-2 秒会将 SDK 内部�
 |	NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面|
 |	NET_STATUS_CACHE_SIZE    | 音视频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的音视频数据|
 |	NET_STATUS_CODEC_DROP_CNT  |全局丢包次数，为了避免延迟持续恶性堆积，SDK在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重。|
-| NET_STATUS_SERVER_IP     | 连接的推流服务器的IP |
+| NET_STATUS_SERVER_IP     | 连接的推流服务器的 IP |
 
 ### 2. 哪些状态指标有参考价值？
 
@@ -40,7 +40,7 @@ BITRATE( = VIDEO_BITRATE + AUDIO_BITRATE ) 指的是编码器每秒产生了多�
 > 很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
 
 #### SERVER_IP
-如果主播到 SERVER_IP 给出的 ip 地址的 ping 值很高（比如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
+如果主播到 SERVER_IP 给出的 IP 地址的 ping 值很高（比如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
 
 ### 3. 如何看懂腾讯云推流图表？
 在 [直播控制台-质量监控](https://console.cloud.tencent.com/live/livesdk) 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
@@ -79,7 +79,7 @@ TXLivePlayListener 的 onNetStatus 回调，会每隔 1-2 秒会将 SDK 内部�
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 播放缓冲区（jitterbuffer）大小，缓冲区越小越难以抵抗卡顿|
-| NET_STATUS_SERVER_IP | 当前连接的服务器IP | 
+| NET_STATUS_SERVER_IP | 当前连接的服务器 IP | 
 
 ### 2. 哪些状态指标有参考价值？
 #### NET_STATUS_CACHE_SIZE
