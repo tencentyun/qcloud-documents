@@ -16,6 +16,8 @@
 更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 和 [API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 ## 不同版本功能
+各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
+
 <table>
 <thead>
 <tr>
@@ -176,5 +178,5 @@
 </tr>
 </tbody></table>
 
-具体功能详情请参见 [高级功能](https://www.elastic.co/cn/subscriptions)。
+
 
