@@ -33,10 +33,10 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 我们已将上述组件均托管在 [Github](https://github.com/tencentyun/MLVBSDK/) 上，clone 下来便可使用，关键组件的具体获取路径如下表所示：
 
-| 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
-| :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   iOS    | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
-| Android  | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
+| 所属平台 |    LiteAVSDK  |   TIMSDK      |  MLVBLiveRoom 组件      |      示例代码   |
+| :------: | :-------------: | :------------: | :----------------: | :----------: |
+|   iOS    | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
+| Android  | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
 
 ### Step2. 申请 License 
 
