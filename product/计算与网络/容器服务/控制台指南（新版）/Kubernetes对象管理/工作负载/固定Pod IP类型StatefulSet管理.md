@@ -1,22 +1,22 @@
 ### 简介
 
-如果您存在业务在 TKE 中部署，并存在固定 Pod IP 的述求， 您可以使用固定 IP 类型的 StatefulSet。 腾讯云容器服务提供扩展的 StatefulSet 固定 IP 能力。 该类型的 StatefulSet 创建的 Pod 将通过弹性网卡分配真实的 VPC 内的 IP 地址， 腾讯云容器服务 VPC-CNI 的插件负责 IP 分配，当 Pod 重启或迁移，可实现 IP 地址不变。
+如果您存在业务需要在 TKE 中部署，并存在固定 Pod IP 的述求， 您可以使用固定 IP 类型的 StatefulSet。 腾讯云容器服务提供扩展的 StatefulSet 固定 IP 能力，该类型的 StatefulSet 创建的 Pod 将通过弹性网卡分配真实的 VPC 内的 IP 地址。腾讯云容器服务 VPC-CNI 的插件负责 IP 分配，当 Pod 重启或迁移，可实现 IP 地址不变。
 
 ### 应用场景
 
 您可以通过创建固定 IP 类型 StatefulSet 来满足类似以下场景：
-- 通过来源 IP 授权
-- 基于 IP 做流程审核
-- 基于 Pod IP 做日志查询等
+- 通过来源 IP 授权。
+- 基于 IP 做流程审核。
+- 基于 Pod IP 做日志查询等。
 
 ### 使用限制
 
-- 集群内必须开启了 VPC-CNI 模式网络， 详情请参考 [集群开启 VPC-CNI 模式网络]()。
+- 集群内必须开启了 VPC-CNI 模式网络， 详情请参考 [集群开启 VPC-CNI 模式网络](https://cloud.tencent.com/document/product/457/34993)。
 - 支持 StatefulSet 生命周期内固定 IP。
 
 ### 使用方法
 
-前置条件需要集群内开启了 VPC-CNI 模式网络， 详情请参考 [集群开启VPC-CNI模式网络]()。
+前提条件需要集群内开启了 VPC-CNI 模式网络， 详情请参考 [集群开启VPC-CNI模式网络](https://cloud.tencent.com/document/product/457/34993)。
 
 ### 创建固定 IP 类型 StatefulSet
 
