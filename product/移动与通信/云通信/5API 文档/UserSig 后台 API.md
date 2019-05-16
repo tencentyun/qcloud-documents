@@ -1,7 +1,7 @@
 本文将指导您如何生成 UserSig。
 ## 下载签名用的私钥 
 
-1. 登录云通信 [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/3794#.E6.8E.A5.E5.85.A5.E6.AD.A5.E9.AA.A4)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
@@ -20,7 +20,7 @@
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
  ![](https://main.qcloudimg.com/raw/13e78d26c8b813e8d54f257f31384668.png)
 3. 选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信应用指定用户名的 UserSig。
-![](https://main.qcloudimg.com/raw/39f858a08717d90aba5ebc1ee7f32348.png)
+ ![](https://main.qcloudimg.com/raw/4f49cbf64dc287cb55711ee02d6d78dd.png)
 
 Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快速测试和调试。
 
