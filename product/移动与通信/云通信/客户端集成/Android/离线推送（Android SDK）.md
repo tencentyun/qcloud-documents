@@ -1,4 +1,4 @@
-这里的离线指的是应用在没有退出登录的情况下，被系统或者用户杀掉。在这种情况下，如果还想收到 ImSDK 的消息提醒，可以集成云通信离线推送。另外，ImSDK 从 2.1.0 版本开始，提供了适配小米、华为离线推送的方案。
+这里的离线指的是应用在没有退出登录的情况下，被系统或者用户杀掉。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成云通信离线推送。另外，IM SDK 从2.1.0版本开始，提供了适配小米、华为离线推送的方案。
 
 >!
 > - 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
@@ -6,7 +6,7 @@
 
 ## 设置离线推送配置
 ### 设置全局离线推送配置
-ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `setOfflinePushSettings`。
+IM SDK 从2.1.0版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `setOfflinePushSettings`。
 
 >!
 > - 必须在登录成功后调用才生效。
@@ -89,7 +89,7 @@ TIMManager.getInstance().setOfflinePushSettings(settings);
 ```
 
 ### 设置单条消息的离线推送配置
-ImSDK 从 2.2.0 版本开始提供针对单独每一条消息进行离线推送配置的功能。开发者可以针对某条消息设置是否开启离线推送、收到离线推送后提醒声音、离线推送消息描述及扩展字段等。
+IM SDK 从2.2.0版本开始提供针对单独每一条消息进行离线推送配置的功能。开发者可以针对某条消息设置是否开启离线推送、收到离线推送后提醒声音、离线推送消息描述及扩展字段等。
 
 >!
 > - 针对单条消息设置的离线推送配置优先级是最高的，也就是在同时设置了全局离线推送配置及单条消息离线推送配置的情况下，将以单条消息离线推送配置为准。
@@ -288,7 +288,7 @@ try {
 
 //设置在 Android 设备上收到消息时的离线配置
 TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOfflinePushSettings.AndroidSettings();
-//ImSDK 2.5.3 之前的构造方式
+//IM SDK 2.5.3之前的构造方式
 //TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
 //推送自定义通知栏消息，接收方收到消息后单击通知栏消息会给应用回调（针对小米、华为离线推送）
@@ -299,12 +299,12 @@ settings.setAndroidSettings(androidSettings);
 
 //设置在 iOS 设备上收到消息时的离线配置
 TIMMessageOfflinePushSettings.IOSSettings iosSettings = new TIMMessageOfflinePushSettings.IOSSettings();
-//ImSDK 2.5.3 之前的构造方式
+//IM SDK 2.5.3之前的构造方式
 //TIMMessageOfflinePushSettings.IOSSettings iosSettings = settings.new IOSSettings();
 
 //开启 Badge 计数
 iosSettings.setBadgeEnabled(true);  
-//设置 iOS 收到消息时没有提示音且不振动（ImSDK 2.5.3 新增特性）
+//设置 iOS 收到消息时没有提示音且不振动（IM SDK 2.5.3 新增特性）
 //iosSettings.setSound(TIMMessageOfflinePushSettings.IOSSettings.NO_SOUND_NO_VIBRATION);
 //设置 iOS 设备收到离线消息时的提示音
 iosSettings.setSound("/path/to/sound/file");
@@ -333,10 +333,10 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 
 ## 集成云通信离线推送
-ImSDK 从 1.8.0 版本开始提供了离线推送的功能。因为离线推送依赖于守护进程，所以为了保证离线推送的正常运作，需要对应用的**自启动权限**进行授权，而部分对 Android 系统进行了深度定制化的机型（华为、小米等）则需要将应用添加到应用白名单，保证应用被 kill 掉后，守护进程可以自动重启。
+IM SDK 从1.8.0版本开始提供了离线推送的功能。因为离线推送依赖于守护进程，所以为了保证离线推送的正常运作，需要对应用的**自启动权限**进行授权，而部分对 Android 系统进行了深度定制化的机型（华为、小米等）则需要将应用添加到应用白名单，保证应用被 kill 掉后，守护进程可以自动重启。
 
 ### 配置 AndroidManifest
-由于 ImSDK 的离线推送依赖于服务，所以需要应用在 `AndroidManifest.xml` 的 `<application></application>` 中添加以下配置：
+由于 IM SDK 的离线推送依赖于服务，所以需要应用在 `AndroidManifest.xml` 的 `<application></application>` 中添加以下配置：
 
 ```xml
 <!--  消息收发 service -->
@@ -414,7 +414,7 @@ public class MyApplication extends Application {
                 public void handleNotification(TIMOfflinePushNotification notification) {
                     Log.d("MyApplication", "recv offline push");
 
-					// 这里的 doNotify 是 ImSDK 内置的通知栏提醒，应用也可以选择自己利用回调参数 notification 来构造自己的通知栏提醒
+					// 这里的 doNotify 是 IM SDK 内置的通知栏提醒，应用也可以选择自己利用回调参数 notification 来构造自己的通知栏提醒
                     notification.doNotify(getApplicationContext(), R.drawable.ic_launcher);
                 }
             });
@@ -524,7 +524,7 @@ public byte[] getExt()
 
 #### 应用默认通知栏提醒
 
-可以通过 `doNotify` 来应用 ImSDK 提供的默认通知栏提醒样式。
+可以通过 `doNotify` 来应用 IM SDK 提供的默认通知栏提醒样式。
 
 **原型：**
 ```
