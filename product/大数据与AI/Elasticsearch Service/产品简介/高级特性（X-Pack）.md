@@ -13,7 +13,8 @@
 ![](https://main.qcloudimg.com/raw/847984a82bcfe9b21b18b5df8dfb89fb.png)
 - **机器学习（Machine Learning）**
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
-更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 和 [API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+
+更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 ## 不同版本功能
 各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
