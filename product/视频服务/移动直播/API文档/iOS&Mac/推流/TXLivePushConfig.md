@@ -25,7 +25,7 @@ __属性列表__
 | pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 x 1920。 | - | - |
 | videoResolution | int | 视频分辨率，默认值：VIDEO_RESOLUTION_TYPE_360_640。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
 | videoFPS | int | 视频帧率，默认值：15FPS。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
-| videoEncodeGop | int | 视频编码 GOP，也就是常说的关键帧间隔，单位：秒；默认值：3s。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
+| videoEncodeGop | int | 视频编码 GOP，也就是常说的关键帧间隔，单位秒；默认值：3s。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
 | videoBitratePIN | int | 视频编码的平均码率，默认值：700kbps。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
 | enableAutoBitrate | BOOL | 码率自适应开关，开启后，SDK 会根据网络情况自动调节视频码率，调节范围在 (videoBitrateMin - videoBitrateMax)。 | NO | - |
 | autoAdjustStrategy | int | 码率自适应算法。 | AUTO_ADJUST_BITRATE_STRATEGY_1 | - |
