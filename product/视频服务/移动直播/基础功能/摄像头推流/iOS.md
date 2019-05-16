@@ -17,7 +17,7 @@
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7876)指引将 SDK 嵌入您的 App 开发工程。
 
 - **获取测试URL**
-[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息可以参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://mc.qcloudimg.com/static/img/64342b926e05da462a54b8ce4f8c526f/image.png)
 
 ## 代码对接
