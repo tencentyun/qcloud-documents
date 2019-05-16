@@ -27,7 +27,7 @@
 
 ## 4. 运行 Demo
 
-从 [Github](<https://github.com/tencentyun/TIMSDK/tree/master/H5-AVChatRoom>) 下载 SDK 和 Demo。
+从 [Github](<https://github.com/tencentyun/TIMSDK/tree/master/H5/AVChatRoom>) 下载 SDK 和 Demo。
 
 ### 4.1 准备直播大群 ID
 
