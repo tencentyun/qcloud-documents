@@ -108,5 +108,5 @@
 ![](https://main.qcloudimg.com/raw/b1460953cd4668e6b3a32fd11fb14fd6.png)
 算法参数和资源参数配置如下：
 ![](https://main.qcloudimg.com/raw/ff49584b3630485723ccc723bb8982e8.png)
-运行成功后，将光标放置在“二分类评价”，画布展示工作流评估结果：
-![](https://main.qcloudimg.com/raw/7796f335827d6dad3469b8bd03dc4bf7.png)
+运行成功后，将光标放置于“BinaryEvaluator”，画布中将展示工作流评估结果：
+![](https://main.qcloudimg.com/raw/9e742c3501896baea527900e8600e549.png)
