@@ -13,7 +13,7 @@
 <span id="step2"></span>
 ## 配置应用
 1. 单击目标应用所在行的【应用配置】，进入应用详情页面。
- ![](https://main.qcloudimg.com/raw/13e78d26c8b813e8d54f257f31384668.png)
+ ![](https://main.qcloudimg.com/raw/e41602a50754be9d478b9db84c0bcff2.png)
 2. 单击【帐号体系集成】右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
 
