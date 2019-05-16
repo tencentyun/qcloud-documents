@@ -89,7 +89,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 - **推荐参数设置**
 
 | 应用场景 | quality |  adjustBitrate | adjustResolution |
-|:-------:|:-------:|:-------:|
+|:-------:|---------|---------|---------|
 | 秀场直播 | VIDEO_QUALITY_HIGH_DEFINITION 或 <br> VIDEO_QUALITY_SUPER_DEFINITION  | NO | NO |
 | 手游直播 | VIDEO_QUALITY_SUPER_DEFINITION  | YES | YES |
 | 连麦（主画面） | VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | YES | YES | 
@@ -99,7 +99,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 - **内部数据指标**
 
 | quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|:-------:|:-------:|:-------:|:-------:|:-------:|
 | STANDARD | YES | YES | 300~800kbps| 270x480 ~ 360x640| 
 | STANDARD | YES | NO |300~800kbps|360x640| 
 | STANDARD | NO | NO | 800kbps | 360x640| 
@@ -111,7 +111,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 | SUPER | NO | NO |1800kbps|720x1280|
 | MAIN_PUBLISHER | YES | YES |600~1500kbps| 360x640~540x960| 
 | SUB_PUBLISHER | NO | NO |350kbps| 320x480| 
-| VIDEOCHAT | YES | YES | 200~800kbps| 190x320~360x640| 
+| VIDEOCHAT | YES | YES | 200~800kbps| 190x320~360x640|  
 
 ### step 5: 美颜滤镜
 
