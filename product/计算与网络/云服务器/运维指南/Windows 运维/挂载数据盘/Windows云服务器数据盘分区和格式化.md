@@ -9,7 +9,7 @@
 1. 登录 Windows 云服务器。
 2. 单击  <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin:0;"></img>，打开命令行窗口。
 3. 输入 `diskpart` 命令，按 **Enter**。
-4. 输入 `san policy=onlineall` 命令，按 Enter。如下图所示：
+4. 输入 `san policy=onlineall` 命令，按 **Enter**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/d0b5082e73aad74d104980fbe74fe6dd/image.png)
 执行操作后，弹性云硬盘将重新挂载到 Windows 云服务器上。若已包含有效的文件系统，则可以直接开始使用。
 
