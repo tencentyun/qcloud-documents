@@ -10,15 +10,15 @@
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
  ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
 
-## 配置应用
 <span id="step2"></span>
+## 配置应用
 1. 单击目标应用所在行的【应用配置】，进入应用详情页面。
  ![](https://main.qcloudimg.com/raw/13e78d26c8b813e8d54f257f31384668.png)
 2. 单击【帐号体系集成】右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
 
+<span id="step3"></span>
 ## 获取测试 userSig
-
 1. 在控制台应用详情页面，单击【下载公私钥】，保存 **keys.zip** 压缩文件。
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
 2. 解压 **keys.zip**文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
@@ -41,16 +41,16 @@ var sdkAppID = '', // 填写第一步获取到的 sdkappid
 
 ## 运行 Demo
 1. 浏览器打开 index.html。
-2. 在页面上输入通过控制台**开发辅助工具**获取到 identifier 和 userSig，单击确定。
+2. 输入 [获取测试 userSig 步骤](#step3) 获取到 identifier 和 userSig，单击【确定】。
  ![](https://main.qcloudimg.com/raw/77bfeddae0703b84d12fa51f38508adf.png)
-3. 登录成功后，就可以进行查找好友，建群，聊天等操作了。
+3. 登录成功后，可以进行查找好友，建群，聊天等操作：
  ![](https://main.qcloudimg.com/raw/87e6f5eae834907cab89f50d5ce49b49.png)
-4. 搜索并添加好友。
- ![](https://main.qcloudimg.com/raw/ef4c39f1ec649ad4f10cd8764ca51d1c.png)
-5. 选择好友发消息。
- ![](https://main.qcloudimg.com/raw/ff8c787aa814edefd96468de2da59f26.png)
-6. 给好友发消息。
- ![](https://main.qcloudimg.com/raw/d55732975bb5d3e8e44a283e1a26ba4b.png)
+ - 搜索并添加好友。
+  ![](https://main.qcloudimg.com/raw/ef4c39f1ec649ad4f10cd8764ca51d1c.png)
+ - 选择好友发消息。
+  ![](https://main.qcloudimg.com/raw/ff8c787aa814edefd96468de2da59f26.png)
+ - 给好友发消息。
+  ![](https://main.qcloudimg.com/raw/d55732975bb5d3e8e44a283e1a26ba4b.png)
 
 
 
