@@ -68,7 +68,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 - **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面 view 控件和 LivePush 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 3+: 纯音频推流
-如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+如果您的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
 
 ```objectivec
 // 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
@@ -78,7 +78,7 @@ txLivePush.config.enablePureAudioPush = YES;   // YES 为启动纯音频推流�
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";      
 [_txLivePush startPush:rtmpUrl];
 ```
-如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
+如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
 
 ### step 4: 设定清晰度
 
