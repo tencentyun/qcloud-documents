@@ -847,11 +847,11 @@ public void deleteFriendsFromFriendGroup(String groupName, List<String> identifi
 public void renameFriendGroup(String oldName, String newName, @NonNull TIMCallBack cb)
 ```
 
-### 获取指定的好友分组
+### 获取好友分组
 
 ```
 /**
- * 获取指定的好友分组
+ * 获取指定的好友分组，传入 null 获得所有分组信息
  * @param groupNames 要获取信息的好友分组名称列表
  * @param cb 回调
  */
