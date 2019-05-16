@@ -627,7 +627,7 @@ __参数__
 
 ### onReject
 
-拒绝PK。
+拒绝 PK。
 ```
 void onReject(String reason)
 ```
