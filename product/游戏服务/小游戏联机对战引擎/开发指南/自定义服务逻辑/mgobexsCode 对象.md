@@ -5,7 +5,7 @@ mgobexsCode 对象是自定义服务的入口，开发者需要在代码中导�
 
 #### 描述
 
-gameServer 是 mgobexsCode 对象的一个属性，类型为 [GameServer.IGameServer](http://GameServer.IGameServer对象) 。开发者需要实现一个 [GameServer.IGameServer](http://GameServer.IGameServer对象) 对象，并赋值给 gameServer。
+gameServer 是 mgobexsCode 对象的一个属性，类型为 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 。开发者需要实现一个 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 对象，并赋值给 gameServer。
 
 #### 使用示例
 
