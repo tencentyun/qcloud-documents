@@ -31,12 +31,12 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - TIMSDK：闭源，负责构建直播聊天室，以及聊天室中用户之间的消息传输功能。
 - MLVBLiveRoom：开源，基于 LiteAVSDK 和 TIMSDK 搭建一个支持连麦互动和消息互动的“直播间”。
 
-我们已将上述组件均托管在 [Github](https://github.com/tencentyun/LiteAVSDK/) 上，clone 下来便可使用，关键组件的具体获取路径如下表所示：
+我们已将上述组件均托管在 [Github](https://github.com/tencentyun/MLVBSDK/) 上，clone 下来便可使用，关键组件的具体获取路径如下表所示：
 
 | 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
 | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   iOS    | [LiteAVSDK](https://github.com/tencentyun/LiteAVSDK/tree/master/iOS/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/LiteAVSDK/tree/master/iOS/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/LiteAVSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/LiteAVSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
-| Android  | [LiteAVSDK](https://github.com/tencentyun/LiteAVSDK/tree/master/Android/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/LiteAVSDK/tree/master/Android/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/LiteAVSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/LiteAVSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
+|   iOS    | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
+| Android  | [LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK]([LiteAVSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
 
 ### Step2. 申请 License 
 
