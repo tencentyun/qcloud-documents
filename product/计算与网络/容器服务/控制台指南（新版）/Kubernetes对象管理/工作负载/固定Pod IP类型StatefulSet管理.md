@@ -10,7 +10,7 @@
 
 ## 前提条件
 
-需要在集群内开启 VPC-CNI 模式网络， 详情请参考 [集群开启VPC-CNI模式网络](https://cloud.tencent.com/document/product/457/34993)。
+需要在集群内开启 VPC-CNI 模式网络， 详情请参考 [集群开启 VPC-CNI 模式网络](https://cloud.tencent.com/document/product/457/34993)。
 
 ## 操作步骤
 
