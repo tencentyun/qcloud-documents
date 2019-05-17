@@ -4,7 +4,7 @@
 /* function getGroupMemberInfo  
  *   获取群组成员列表
  * params:
- *   options	- 请求参数，详见<a href="https://cloud.tencent.com/document/product/269/1617">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -12,6 +12,8 @@
  */
 getGroupMemberInfo: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [获取群组成员详细资料 API](https://cloud.tencent.com/document/product/269/1617)。
 
 **示例： **
 
@@ -73,7 +75,7 @@ var getGroupMemberInfo = function (group_id) {
 /* function addGroupMember  
  *   邀请好友加群
  * params:
- *   options	- 请求参数，详见<a href="https://cloud.tencent.com/document/product/269/1621">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -81,6 +83,8 @@ var getGroupMemberInfo = function (group_id) {
  */
 addGroupMember: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [增加群组成员 API](https://cloud.tencent.com/document/product/269/1621)。
 
 **示例： **
 
@@ -120,7 +124,7 @@ var addGroupMember = function () {
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
- *   options	- 请求参数，详见<a href="https://cloud.tencent.com/document/product/269/1623">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -128,6 +132,8 @@ var addGroupMember = function () {
  */
 modifyGroupMember: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [修改群成员资料 API](https://cloud.tencent.com/document/product/269/1623)。
 
 **示例： **
 
@@ -168,7 +174,7 @@ var modifyGroupMsgFlag = function () {
 /* function modifyGroupMember  
  *   修改群成员资料（角色或者群消息提类型示）
  * params:
- *   options	- 请求参数，详见<a href="https://cloud.tencent.com/document/product/269/1623">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -176,6 +182,8 @@ var modifyGroupMsgFlag = function () {
  */
 modifyGroupMember: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [修改群成员资料 API](https://cloud.tencent.com/document/product/269/1623)。
 
 **示例： **
 
@@ -215,7 +223,7 @@ var modifyGroupMemberRole = function () {
 /* function forbidSendMsg  
  *   设置群成员禁言时间
  * params:
- *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269/1627">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -223,6 +231,8 @@ var modifyGroupMemberRole = function () {
  */
 forbidSendMsg: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [批量禁言和取消禁言 API](https://cloud.tencent.com/document/product/269/1627)。
 
 **示例：**
 
@@ -275,7 +285,7 @@ var forbidSendMsg = function () {
 /* function deleteGroupMember  
  *   删除群成员
  * params:
- *   options	- 请求参数，详见 <a href="https://cloud.tencent.com/document/product/269/1622">API 文档</a>
+ *   options	- 请求参数
  *   cbOk	- function()类型, 成功时回调函数
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
@@ -283,6 +293,8 @@ var forbidSendMsg = function () {
  */
 deleteGroupMember: function(options, cbOk, cbErr) {},
 ```
+
+>?详细参数说明请参考 [删除群组成员 API](https://cloud.tencent.com/document/product/269/1622)。
 
 **示例：**
 

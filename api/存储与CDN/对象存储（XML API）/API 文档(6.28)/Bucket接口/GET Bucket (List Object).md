@@ -42,7 +42,7 @@ max-keys|string|单次返回最大的条目数量，默认值为1000，最大为
 ### 响应体
 查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息，列出当前目录的响应体示例如下，其他场景下的响应体请参阅下方的实际案例。
 
-```xml
+```shell
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
 	<Name>string</Name>
@@ -114,10 +114,10 @@ CommonPrefixes|ListBucketResult|从 prefix 或从头（如未指定 prefix）到
 ---|---|---|--
 Key|ListBucketResult.Contents|Object 的 Key|string
 LastModified|ListBucketResult.Contents|说明 Object 最后被修改时间|date
-ETag|ListBucketResult.Contents|文件的 MD-5 算法校验值|string
+ETag|ListBucketResult.Contents|文件的 MD5 算法校验值|string
 Size|ListBucketResult.Contents|说明文件大小，单位是 Byte|string
 Owner|ListBucketResult.Contents|Bucket 持有者信息|Container
-StorageClass|ListBucketResult.Contents|Object 的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE|string
+StorageClass|ListBucketResult.Contents|Object 的存储类型，枚举值：STANDARD，STANDARD_IA，ARCHIVE。详情请参阅 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档 |string
 
 **Container 节点 Owner 内容：**
 

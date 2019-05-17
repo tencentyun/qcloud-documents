@@ -3,8 +3,8 @@
 会话的未读记数存储在 `sessMap` 对象中，其结构描述 如下：
 ```javascript
 {
-  // 私聊会话，会话ID skey 为'C2C[toAccount]'，其中'[toAccount]'表示对方的账号
-  // 比如您正在和 identifier 为 'zhangsan' 的账号聊天，而 [toAccout]取值为'zhangsan'。
+  // 私聊会话，会话ID skey 为'C2C[toAccount]'，其中'[toAccount]'表示对方的帐号
+  // 比如您正在和 identifier 为 'zhangsan' 的帐号聊天，而 [toAccout]取值为'zhangsan'。
   // 而'C2C[toAccount]'取值为'C2Czhangsan'
   'C2C[toAccount]': {
      	// ...省略
@@ -14,8 +14,8 @@
       //... 省略
   },
   
-  // 群聊会话，会话ID skey 为'GROUP[groupId]'，其中'[groupId]'表示群组ID
-  // 比如您在群组ID为 'developergroup' 的群中聊天，此时[groupId]取值为'developergroup'。
+  // 群聊会话，会话 ID skey 为'GROUP[groupId]'，其中'[groupId]'表示群组 ID
+  // 比如您在群组 ID 为 'developergroup' 的群中聊天，此时[groupId]取值为'developergroup'。
   // 而'GROUP[groupId]'取值为'GROPdevelopergroup'
   'GROUP[groupId]': {developergdevelopergrouproup
     	// ...省略
@@ -27,17 +27,14 @@
 }
 ```
 
-所以，要获取到某个会话的未读消息记数，需要以下步骤：
-
-1. 取得会话ID : skey，skey的组装规则：私聊 "C2C[toAccount]" ； 群组 "GROUP[groupId]"；
-2. 取得`sessMap`对象，可以通过`webim.MsgStore.sessMap()`方法来取得`sessMap`对象；
+因此，获取某个会话的未读消息记数需要以下步骤：
+1. 取得会话 ID : skey，skey 的组装规则：私聊 "C2C[toAccount]" ； 群组 "GROUP[groupId]"。
+2. 取得`sessMap`对象，可以通过`webim.MsgStore.sessMap()`方法来取得`sessMap`对象。
 3. 用调用`sessMap[skey].unread()`便可取得这个会话的未数消息计数。
-
-
 
 ### 私聊场景示例
 
-这里假设和identifier为'zhangsan'的账号私聊，例子如下:
+以与 identifier 为'zhangsan'的帐号私聊为例，示例如下:
 
 ```javascript
 var skey= 'C2Czhangsan';	// 拼装 skey
@@ -47,14 +44,13 @@ sessMap[skey].unread();	// 获取未读消息记数
 
 ### 群聊场景示例
 
-这里假设群组ID为"developergroup"，例子如下：
+以群组 ID 为"developergroup"为例，示例如下：
 
 ```javascript
-var skey= 'GROUPdevelopergroup';	// 拼装skey
-var sessMap= webim.MsgStore.sessMap();	// 获取sessMap
+var skey= 'GROUPdevelopergroup';	// 拼装 skey
+var sessMap= webim.MsgStore.sessMap();	// 获取 sessMap
 sessMap[skey].unread();	// 获取未读消息记数
 ```
-
 
 ## 设置会话自动已读标记 
 
@@ -70,18 +66,17 @@ sessMap[skey].unread();	// 获取未读消息记数
 setAutoRead: function(selSess, isOn, isResetAll) {}
 ```
 
-`setAutoRead()`方法需要会话(Webim.Session)的实例为参数，所以首先要取得会话实例，再把会话传递给`setAutoRead()`，步骤如下：
-
-1. 取得会话实例。
+`setAutoRead()`方法需要会话（Webim.Session）的实例为参数，所以应先获取会话实例，再把会话传递给`setAutoRead()`，步骤如下：
+1. 获取会话实例。
 2. 调用`setAutoRead()`。
 
 ### 私聊场景示例：
 
-这里假设和identifier为'zhangsan'的账号私聊，例子如下: 
+以与 identifier为'zhangsan'的帐号私聊为例，示例如下: 
 
 ```javascript
-var skey= 'C2Czhangsan';	// 拼装skey
-var sessMap = webim.MsgStore.sessMap();	// 获取sessMap
+var skey= 'C2Czhangsan';	// 拼装 skey
+var sessMap = webim.MsgStore.sessMap();	// 获取 sessMap
 var selSess= sessMap[skey];	// 获取 Session 的实例
 webim.setAutoRead(selSess, true, true);
 ```
@@ -90,13 +85,11 @@ webim.setAutoRead(selSess, true, true);
 
 ### 群组场景示例:
 
-这里假设群组ID为"developergroup"，例子如下：
+以群组 ID 为"developergroup"为例，示例如下：
 
 ```javascript
-var skey= 'GRPUPdevelopergroup';	// 拼装skey
-var sessMap = webim.MsgStore.sessMap();	// 获取sessMap
+var skey= 'GRPUPdevelopergroup';	// 拼装 skey
+var sessMap = webim.MsgStore.sessMap();	// 获取 sessMap
 var selSess= sessMap[skey];	// 获取 Session 的实例
 webim.setAutoRead(selSess, true, true);
 ```
-
-
