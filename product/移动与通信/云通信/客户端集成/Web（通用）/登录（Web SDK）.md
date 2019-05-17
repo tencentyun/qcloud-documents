@@ -72,8 +72,8 @@ function webimLogin() {
 ```javascript
 //监听事件
 var listeners = {
-    "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
-    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数，
+    "onConnNotify": onConnNotify//监听连接状态回调变化事件，选填
+    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数
     ,"onMsgNotify": onMsgNotify//监听新消息（私聊，普通群（非直播聊天室）消息，全员推送消息）事件，必填
     ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息（直播聊天室）事件，直播场景下必填
     ,"onGroupSystemNotifys": onGroupSystemNotifys//监听（多终端同步）群系统消息事件，如果不需要监听，可不填
