@@ -16,8 +16,8 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
      <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
-     <td>FuntouchOS</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
+     <td nowrap="nowrap">FuntouchOS</td> 
      <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
    </tr> 
    <tr> 
@@ -36,7 +36,7 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
      <td>使用魅族推送 push-internal:3.6.+</td> 
    </tr> 
    <tr> 
-     <td>OPPO 推送</td> 
+     <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
      <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。</td> 
    </tr> 
