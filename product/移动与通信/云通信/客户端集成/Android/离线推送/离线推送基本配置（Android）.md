@@ -4,14 +4,44 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
 
 云通信 IM 目前已经支持了 APNs、小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送等厂商推送，具体如下：
 
-| 推送通道  | 系统要求   | 条件说明    |
-| ------------ | ---------- | ---------------- |
-| [ APNs ](https://cloud.tencent.com/document/product/269/9154) | iOS        | iOS 系统推送通道，也是唯一的 iOS 推送通道                    |
-| [vivo 推送](https://cloud.tencent.com/document/product/269/34998) | FuntouchOS | 并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar |
-| [华为推送](https://cloud.tencent.com/document/product/269/34999) | EMUI       | 华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301      |
-| [小米推送](https://cloud.tencent.com/document/product/269/35000) | MIUI       | 使用小米推送 MiPush_SDK_Client_3_6_12.jar                    |
-| [魅族推送](https://cloud.tencent.com/document/product/269/35001) | Flyme      | 使用魅族推送 push-internal:3.6.+                             |
-| OPPO 推送   | ColorOS    | 并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。 |
+<table> 
+   <tr> 
+     <th nowrap="nowrap">推送通道</th> 
+     <th nowrap="nowrap">系统要求</th> 
+     <th>条件说明</th> 
+   </tr> 
+   <tr> 
+     <td><a href="https://cloud.tencent.com/document/product/269/9154" target="_blank"> APNs </a></td> 
+     <td>iOS</td> 
+     <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
+   </tr> 
+   <tr> 
+     <td><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
+     <td>FuntouchOS</td> 
+     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
+   </tr> 
+   <tr> 
+     <td><a href="https://cloud.tencent.com/document/product/269/34999" target="_blank">华为推送</a></td> 
+     <td>EMUI</td> 
+     <td>华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301</td> 
+   </tr> 
+   <tr> 
+     <td><a href="https://cloud.tencent.com/document/product/269/35000" target="_blank">小米推送</a></td> 
+     <td>MIUI</td> 
+     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
+   </tr> 
+   <tr> 
+     <td><a href="https://cloud.tencent.com/document/product/269/35001" target="_blank">魅族推送</a></td> 
+     <td>Flyme</td> 
+     <td>使用魅族推送 push-internal:3.6.+</td> 
+   </tr> 
+   <tr> 
+     <td>OPPO 推送</td> 
+     <td>ColorOS</td> 
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。</td> 
+   </tr> 
+</table>
+
 
 这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成云通信离线推送。
 
