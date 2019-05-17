@@ -19,25 +19,25 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 | sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号                |
 | usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688)  |
-| random             | 请输入32位无符号整数                 |
+| random             | 请输入随机的32位无符号整数                 |
 
 
 ### 最高调用频率
 
-100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api-.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
+100次/秒。
 
 ### 请求包示例
 
 - **基础形式**
-如果 App 中的总群数量超过 10000 个，最多只会返回 10000 个群组 ID（如果需要完整获取，必须使用分页拉取的形式）。
+如果 App 中的总群数量超过10000个，最多只会返回10000个群组 ID（如果需要完整获取，必须使用分页拉取的形式）。
 ```
 {}
 ```
 - **分页拉取**
 可以使用 Limit 和 Next 两个值用于控制分页拉取：
- -  Limit 限制回包中 GroupIdList 中群组的个数，不得超过 10000；
- - Next 控制分页。对于分页请求，第一次填 0，后面的请求填上一次返回的 Next 字段，当返回的 Next 为 0，代表所有的群都拉取到了；
-   例如：假设需要分页拉取，每页展示 20 个，则第一页的请求参数应当为`{“Limit” : 20, “Next” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Next” : 上次返回的Next字段}`，依此类推；
+ -  Limit 限制回包中 GroupIdList 中群组的个数，不得超过10000。
+ - Next 控制分页。对于分页请求，第一次填0，后面的请求填上一次返回的 Next 字段，当返回的 Next 为0，代表所有的群都已拉取到。
+   例如：假设需要分页拉取，每页展示 20 个，则第一页的请求参数应当为`{“Limit” : 20, “Next” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Next” : 上次返回的Next字段}`，依此类推。
 
  Limit 或者 Next 的取值不会对应答包体中的 TotalCount 造成影响。
  ```
