@@ -76,7 +76,7 @@ TCP/UDP 防护端口最多可以配置5个端口段；不同端口段不可以�
 
 ## 绑定与解绑资源
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】。在【DDoS 攻击防护】页签，单击目标策略所在行的【绑定资源】。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【绑定资源】。
 
 - 绑定资源：在弹出的【绑定资源】对话框中，根据实际业务需求勾选一个或多个资源，单击【确定】。
 - 解绑资源：在弹出的【绑定资源】对话框中，根据实际业务需求单击【已选择】区域中已选资源右侧的<img src="https://main.qcloudimg.com/raw/f452deeefbca4c66f34b7db71ec0daca.png"  style="margin:0;">，单击【确定】。
