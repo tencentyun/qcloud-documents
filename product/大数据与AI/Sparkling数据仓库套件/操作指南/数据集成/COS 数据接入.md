@@ -7,7 +7,7 @@
 本节将为您介绍 COS 数据接入方法。更多关于 COS 的信息请参见 [COS 产品介绍](https://cloud.tencent.com/document/product/436) 。
 
 ## 操作步骤
-登录 [Sparkling 控制台](https://sparkling.cloud.tencent.com) 页面，在左侧导航单击【数据】进入数据接入页面，按以下操作步骤完成 COS 数据接入：
+登录 [Sparkling 控制台](https://sparkling.cloud.tencent.com)，在左侧导航单击【数据】进入数据接入页面，按以下操作步骤完成 COS 数据接入：
 ![](https://main.qcloudimg.com/raw/4486aaefec174caad540075c7834e0c7.png)
 
 ### 1. 数据源配置
