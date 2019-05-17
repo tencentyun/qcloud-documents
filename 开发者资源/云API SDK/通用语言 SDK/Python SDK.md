@@ -124,7 +124,7 @@ except TencentCloudSDKException as err:
 
 ## 更多示例
 
-您可以在 GitHub 仓库中 examples 目录下找到更详细的示例。
+您可以在 GitHub 仓库中 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples) 下找到更详细的示例。
 
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请到 [旧版 Python SDK ](https://github.com/QcloudApi/qcloudapi-sdk-python)，但不再维护更新，推荐使用新版 SDK。

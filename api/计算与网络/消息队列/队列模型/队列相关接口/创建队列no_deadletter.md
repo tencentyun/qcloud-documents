@@ -25,29 +25,13 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 0：表示成功，others：错误，详细错误见下表。|
+| code | Int | 0：表示成功，others：错误，详细错误见 [公共错误码](https://cloud.tencent.com/document/product/406/5903)。|
 | message | String | 错误提示信息。|
 | requestId| String| 服务器生成的请求 ID。出现服务器内部错误时，用户可提交此 ID 给后台定位问题。|
 | queueId| String| 队列的唯一标识 ID。|
 
 ## 错误码
-以下是接口特有错误码，如果您要查找的错误码不在其中，可能在 [公共错误码](https://cloud.tencent.com/document/product/406/5903) 中。
-<table class="t">
-<tbody><tr>
-<th> <b>错误代码</b>
-</th><th> <b>模块错误代码</b>
-</th><th> <b>英文提示</b>
-</th><th> <b>描述</b>
-</th></tr>
-
-<td> 6040
-</td><td> 10660
-</td><td> it will take some time to release resources of previous queue before you create a new one with the same name, please try later
-</td><td> 创建同名队列失败。因为刚才删除同名队列需要释放资源，目前 CMQ 为了保证数据一致性，在删除队列之后，十秒内不能创建同名队列。
-</td></tr>
-</tbody></table>
-
-
+请查看 [公共错误码](https://cloud.tencent.com/document/product/406/5903)。
 
 
 ## 示例

@@ -521,7 +521,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 | json_params | const char\* | JSON 字符串，不同的接口，JSON 字符串不一样 |
 | user_data | const void\* | SDK 负责透传的用户自定义数据，未做任何处理 |
 
->?所有回调均需判断`code`是否等于`ERR_SUC`，若不等于说明接口调用失败了，具体原因可以看`code`的值以及`desc`描述。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。
+>?所有回调均需判断 code 是否等于 ERR_SUC，若不等于说明接口调用失败了，具体原因可以看 code 的值以及 desc 描述。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 
 
 >?
