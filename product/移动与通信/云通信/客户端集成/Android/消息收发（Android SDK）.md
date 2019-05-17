@@ -922,7 +922,7 @@ public TIMUserProfile getSenderProfile()
 
 /**
  * 获取发送者群内资料（发送者为本人时可能为空）
- * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user，其他的字段获取建议通过 TIMGroupManagerExt -> getGroupMembers 获取
+ * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user，其他的字段获取建议通过 TIMGroupManagerExt > getGroupMembers 获取
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
