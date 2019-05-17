@@ -21,7 +21,7 @@ VPC-CNI 模式是腾讯云容器服务支持的扩展网络模式，利用腾讯
 
 ### 开启 VPC-CNI
 1. 选择需要查看的集群ID/名称，进入该集群的管理页面。并单击【基本信息】。
-2. 在【VPC-CNI 模式】中单击<img src="https://main.qcloudimg.com/raw/a18f6003b5b787dc2df2ff68aa1354e7.png" style="margin-bottom: -8px;"></img>，弹出【编辑 VPC-CNI 模式】页面。如下图所示：
+2. 在【VPC-CNI 模式】中单击<img src="https://main.qcloudimg.com/raw/a18f6003b5b787dc2df2ff68aa1354e7.png" style="margin-bottom: -10px;"></img>，弹出【编辑 VPC-CNI 模式】页面。如下图所示：
  ![open][1]
   - 子网：选择可用区的子网。
  - Node 上最大 Pod 数量：确认使用数量。
@@ -30,7 +30,7 @@ VPC-CNI 模式是腾讯云容器服务支持的扩展网络模式，利用腾讯
  >!仅支持在集群内不存在任何 VPC-CNI 模式的 Pod 时关闭。
  >
 1. 选择需要查看的集群ID/名称，进入该集群的管理页面。并单击【基本信息】。
-2. 在【VPC-CNI 模式】中单击<img src="https://main.qcloudimg.com/raw/9cb5c23946264871df22cb4dd893d5aa.png" style="margin-bottom: -8px;;"></img>，弹出【关闭 VPC-CNI 模式】页面。如下图所示：
+2. 在【VPC-CNI 模式】中单击<img src="https://main.qcloudimg.com/raw/9cb5c23946264871df22cb4dd893d5aa.png" style="margin-bottom: -10px;;"></img>，弹出【关闭 VPC-CNI 模式】页面。如下图所示：
  ![close][2]
 集群名称：输入集群名称进行确认并提交。
 [1]: https://main.qcloudimg.com/raw/2fb53bed77df80d2859ea213cdaee7c6.png
