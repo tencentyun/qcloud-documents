@@ -99,7 +99,7 @@ df -TH
 8. 备份 `/etc/fstab` 文件。
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
-vi/etc/fstab
+vi /etc/fstab
 ```
 10. 按 **i**，进入编辑模式。
 11. 将光标移至文件末尾，按 **Enter**，添加如下内容。
@@ -137,7 +137,7 @@ mount -a
  ```
 fdisk -l
 ```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+ 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
  ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，进入 fdisk 分区工具，开始对新增数据盘执行分区操作。
  ```

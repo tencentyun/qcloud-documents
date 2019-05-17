@@ -1,4 +1,3 @@
-## MLVBLiveRoomDelegate
 
 __功能__
 
@@ -6,12 +5,12 @@ __功能__
 
 __介绍__
 
-包括房间关闭、Debug 事件信息、出错说明等。
+包括房间关闭、Debug 事件信息及出错说明等。
 
 
 
-### 通用事件回调
-#### onError
+## 通用事件回调
+### onError
 
 错误回调。
 ```
@@ -32,7 +31,7 @@ SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界�
 
 ***
 
-#### onWarning
+### onWarning
 
 警告回调。
 ```
@@ -49,7 +48,7 @@ __参数__
 
 ***
 
-#### onDebugLog
+### onDebugLog
 
 Log 回调。
 ```
@@ -65,8 +64,8 @@ __参数__
 ***
 
 
-### 房间事件回调
-#### onRoomDestroy
+## 房间事件回调
+### onRoomDestroy
 
 房间被销毁的回调。
 ```
@@ -77,7 +76,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
+| roomID | NSString * | 房间 ID。 |
 
 __介绍__
 
@@ -86,12 +85,12 @@ __介绍__
 ***
 
 
-### 主播和观众的进出事件回调
-#### onPusherJoin
+## 主播和观众的进出事件回调
+### onAnchorEnter
 
 收到新主播进房通知。
 ```
-- (void)onPusherJoin:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorEnter:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
@@ -102,18 +101,17 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 MLVBLiveRoom::startRemoteView() 显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 MLVBLiveRoom startRemoteView  显示该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
-
 ***
 
-#### onPusherQuit
+### onAnchorExit
 
 收到主播退房通知。
 ```
-- (void)onPusherQuit:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorExit:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
@@ -124,14 +122,13 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [stopRemoteView: (MLVBLiveRoom)](https://cloud.tencent.com/document/product/454/34763#stopremoteview.3A+.28mlvbliveroom) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763#stopremoteview.3A+.28mlvbliveroom) 关闭该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
-
 ***
 
-#### onAudienceEnter
+### onAudienceEnter
 
 收到观众进房通知。
 ```
@@ -146,7 +143,7 @@ __参数__
 
 ***
 
-#### onAudienceExit
+### onAudienceExit
 
 收到观众退房通知。
 ```
@@ -162,8 +159,8 @@ __参数__
 ***
 
 
-### 主播和观众连麦事件回调
-#### onRequestJoinAnchor
+## 主播和观众连麦事件回调
+### onRequestJoinAnchor
 
 主播收到观众连麦请求时的回调。
 ```
@@ -179,7 +176,7 @@ __参数__
 
 ***
 
-#### onKickoutJoinAnchor
+### onKickoutJoinAnchor
 
 连麦观众收到被踢出连麦的通知。
 ```
@@ -188,13 +185,13 @@ __参数__
 
 __介绍__
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [kickoutJoinAnchor: (MLVBLiveRoom)](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor.3A+.28mlvbliveroom) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor.3A+.28mlvbliveroom) 来退出连麦。
 
 ***
 
 
-### 主播 PK 事件回调
-#### onRequestRoomPK
+## 主播 PK 事件回调
+### onRequestRoomPK
 
 收到请求跨房 PK 通知。
 ```
@@ -209,11 +206,11 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求 如果同意 PK ，您需要调用 MLVBLiveRoom::startRemoteView() 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 MLVBLiveRoom startRemoteView  接口播放邀约主播的流。
 
 ***
 
-#### onQuitRoomPK
+### onQuitRoomPK
 
 收到断开跨房 PK 通知。
 ```
@@ -223,8 +220,8 @@ __介绍__
 ***
 
 
-### 消息事件回调
-#### onRecvRoomTextMsg
+## 消息事件回调
+### onRecvRoomTextMsg
 
 收到文本消息。
 ```
@@ -235,15 +232,15 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
-| userID | NSString * | 发送者ID。 |
+| roomID | NSString * | 房间 ID。 |
+| userID | NSString * | 发送者 ID。 |
 | userName | NSString * | 发送者昵称。 |
 | userAvatar | NSString * | 发送者头像。 |
 | message | NSString * | 文本消息。 |
 
 ***
 
-#### onRecvRoomCustomMsg
+### onRecvRoomCustomMsg
 
 收到自定义消息。
 ```
@@ -254,11 +251,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | NSString * | 房间ID。 |
-| userID | NSString * | 发送者ID。 |
+| roomID | NSString * | 房间 ID。 |
+| userID | NSString * | 发送者 ID。 |
 | userName | NSString * | 发送者昵称。 |
 | userAvatar | NSString * | 发送者头像。 |
-| cmd | NSString * | 自定义cmd。 |
+| cmd | NSString * | 自定义 cmd。 |
 | message | NSString * | 自定义消息内容。 |
 
 ***
