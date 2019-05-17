@@ -22,7 +22,7 @@ source.sql:SELECT * FROM FlinkRawMetrics WHERE id>=? AND id<?
 # time - 时间类型，number - 数字类型，string – 字符串类型（默认）
 source.sql.args-type:time
 
-# 目标数据库JDBC驱动，导入GP请设置为org.postgresql.Driver
+# 目标数据库JDBC驱动，导入目标数据库请设置为org.postgresql.Driver
 target.jdbc-driver:org.postgresql.Driver
 # 目标数据库JDBC连接URL，参考以下示例进行配置，主要配置数据库的主机地址，端口，数据库等参数。reWriteBatchedInserts=true表示启动批量导入，可提供导入效率，通常情况下需要设置
 target.jdbc-url:jdbc:postgresql://DevPG:50010/postgres?reWriteBatchedInserts=true
