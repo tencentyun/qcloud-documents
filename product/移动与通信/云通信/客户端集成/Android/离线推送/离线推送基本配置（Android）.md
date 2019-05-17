@@ -11,7 +11,7 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
      <th>条件说明</th> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/9154" target="_blank"> APNs </a></td> 
+     <td><a href="https://cloud.tencent.com/document/product/269/9154" target="_blank">APNs</a></td> 
      <td>iOS</td> 
      <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
    </tr> 
