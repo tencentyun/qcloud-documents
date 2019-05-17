@@ -35,8 +35,7 @@
 ## 修改源码配置
 使用编辑器打开 index.html ，修改以下参数配置。  
 ``` 
-var sdkAppID = '', // 填写第一步获取到的 sdkappid
-    accountType = ''; // 填写第二步设置账号体系集成获取到的 accountType
+var sdkAppID = '', // 填写第一步获取到的 SDKAppID
 ```
 
 ## 运行 Demo
