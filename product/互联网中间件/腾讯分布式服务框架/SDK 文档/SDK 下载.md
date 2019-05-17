@@ -132,6 +132,7 @@ java -version
 - 查看执行结果，没有错误表明 setting.xml 格式正确。
 - profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中；activeProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。可以通过`mvn help:effective-settings | grep 'qcloud-repo'`命令检查。
 ![](https://main.qcloudimg.com/raw/79026ba5883fb8be138e3c861f20623d.png)
+
 >?执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
 ## 安装 SDK
