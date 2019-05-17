@@ -14,7 +14,7 @@
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 App 开发工程。
 
 - **获取测试 URL**
-[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放 URL](https://cloud.tencent.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息可以参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 
 ## 代码对接
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
@@ -377,9 +377,10 @@ public void stopRtmpPublish() {
 
 <h2 id="Message"> 发送消息 </h2>
 此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
-1、冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
-2、秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
-3、在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
+
+- 冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
+- 秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+- 在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
 
 ```java
 //Android 示例代码

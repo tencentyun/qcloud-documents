@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和 云通讯（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
 - 两个不同房间的主播 PK 互动。
@@ -14,8 +14,8 @@ __介绍__
 
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
-- LiteAVSDK: 使用了其中的 TXLivePusher 和 TXLivePlayer 两个组件，前者用于推流，后者用于拉流。
-- IM SDK: 使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 TXLivePlayer 两个组件，前者用于推流，后者用于拉流。
+- IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
 参考文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
@@ -399,7 +399,7 @@ __介绍__
 ## 主播跨房间 PK
 ### requestRoomPK
 
-请求跨房PK。
+请求跨房 PK。
 ```
 abstract void requestRoomPK(String userID, final IMLVBLiveRoomListener.RequestRoomPKCallback callback)
 ```
@@ -436,7 +436,7 @@ __参数__
 |-----|-----|-----|
 | userID | String | 发起 PK 请求的主播 ID。 |
 | agree | boolean | true：同意；false：拒绝。 |
-| reason | String | 同意/拒绝PK的原因描述。 |
+| reason | String | 同意/拒绝 PK 的原因描述。 |
 
 __返回__
 
@@ -704,7 +704,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | Bitmap | 指定素材，即颜色查找表图片。注意：**一定要用 png 格式**！。 |
+| image | Bitmap | 指定素材，即颜色查找表图片。注意：**一定要用 png 格式**。 |
 
 ***
 

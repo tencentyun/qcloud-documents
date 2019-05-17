@@ -4,7 +4,7 @@
 
 | 所属平台 | SDK 下载 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :--------:| :--------:| :--------:| :--------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7951) |支持| 1.27M（arm64） |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
 | Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M；<br> so(armeabi)：4.4M；<br>so(armeabi-v7a)：4.1M；<br>so(arm64-v8a)：4.9M|
 | 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
 
@@ -18,8 +18,8 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 | 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/9868) |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/454/9868) |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/454/34927) |
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
@@ -27,8 +27,8 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
 
 | 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) |支持|6.15M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/9868) |
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)|支持|  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/454/9868) |
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) |支持|6.15M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)|支持|  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/454/34927) |
 
 ## 各版本差异对照表
 

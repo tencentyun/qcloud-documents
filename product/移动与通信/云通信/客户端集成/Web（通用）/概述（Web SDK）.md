@@ -1,12 +1,12 @@
-## ImSDK 集成
+## IM SDK 集成
 
 - 官网体验 Demo 请直接访问：[云通信 Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
 
 - Demo运行指引请访问：[Demo 指引](https://cloud.tencent.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
 
-### 下载 ImSDK
+### 下载 IM SDK
 
-从 [官网](https://cloud.tencent.com/product/im/developer) 下载 ImSDK，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 `webim sdk` 库，提供了聊天，群组管理，资料管理，关系链（好友，黑名单）管理功能。包含以下库文件：
+从 [官网](https://cloud.tencent.com/product/im/developer) 下载 IM SDK，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 `webim sdk` 库，提供了聊天，群组管理，资料管理，关系链（好友，黑名单）管理功能。包含以下库文件：
 
 ```
 sdk/webim.js
@@ -21,7 +21,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 ```html
 
-<!--用于获取文件MD5 js api(发送图片时用到)-->
+<!--用于获取文件 MD5 js api （发送图片时用到）-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 <!--web im sdk-->
 <script type="text/javascript" src="sdk/ webim.js"></script>
@@ -50,9 +50,9 @@ Demo 主要 JavaScript 文件功能说明如下：
 <script type="text/javascript" src="js/group/group_pendency_manager.js"></script>
 <!--web im 切换聊天好友或群组 示例代码-->
 <script type="text/javascript" src="js/switch_chat_obj.js"></script>
-<!--web im sdk 获取c2c获取群组历史消息 示例代码-->
+<!--web im sdk 获取 c2c 获取群组历史消息 示例代码-->
 <script type="text/javascript" src="js/msg/get_history_msg.js"></script>
-<!--web im sdk 发送普通消息(文本和表情) api 示例代码-->
+<!--web im sdk 发送普通消息（文本和表情） api 示例代码-->
 <script type="text/javascript" src="js/msg/send_common_msg.js"></script>
 <!--web im sdk 上传和发送图片消息 api 示例代码-->
 <script type="text/javascript" src="js/msg/upload_and_send_pic_msg.js"></script>
@@ -60,7 +60,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 <script type="text/javascript" src="js/msg/switch_play_sound_msg.js"></script>
 <!--web im sdk 发送自定义消息 api 示例代码-->
 <script type="text/javascript" src="js/msg/send_custom_msg.js"></script>
-<!--web im 监听新消息(c2c或群) 示例代码-->
+<!--web im 监听新消息（c2c 或群） 示例代码-->
 <script type="text/javascript" src="js/msg/receive_new_msg.js"></script>
 <!--web im 监听群系统通知消息 示例代码-->
 <script type="text/javascript" src="js/msg/receive_group_system_msg.js"></script>
@@ -70,7 +70,7 @@ Demo 主要 JavaScript 文件功能说明如下：
 <script type="text/javascript" src="js/msg/receive_profile_system_msg.js"></script>
 ```
 
-### 集成 ImSDK
+### 集成 IM SDK
 
 首先引入 Web SDK：
 
@@ -83,12 +83,12 @@ Demo 主要 JavaScript 文件功能说明如下：
 然后，引入获取图片 MD5 的 JavaScript 库，用于上传图片：
 
 ```javascript
-<!--用于获取文件MD5，上传图片需要先获取文件的 MD5-->
+<!--用于获取文件 MD5，上传图片需要先获取文件的 MD5-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 ```
 
 
-**说明：**如果帐号采用的是独立模式，开发者需要在自己的服务器调用 TLS API 生成用户票据，然后调用 ImSdk 提供的接口进行相关操作。
+>?如果帐号采用的是独立模式，开发者需要在自己的服务器调用 TLS API 生成用户票据，然后调用 IM SDK 提供的接口进行相关操作。
 
 ### SDK 函数调用顺序
 
@@ -113,11 +113,11 @@ SDK 函数使用顺序，如下：
 
 ### 支持版本
 
-- ImSDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 - Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
-## ImSDK 基本概念
+## IM SDK 基本概念
 
-**会话：**ImSDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
+**会话：**IM SDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
 
 ![](//mccdn.qcloud.com/static/img/a7718fe7aecbcb4a29c6c112640a98d1/image.png)
 
@@ -125,9 +125,9 @@ SDK 函数使用顺序，如下：
 
 ![](//mccdn.qcloud.com/static/img/f9c516615c9917881c2b5842968ed9fd/image.png)
 
-**消息：**ImSDK 中消息（webim.Msg）表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、表情，图片等，消息支持多种 `Elem` 组合发送。
+**消息：**IM SDK 中消息（webim.Msg）表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、表情，图片等，消息支持多种 `Elem` 组合发送。
 
-### ImSDK 对象简介
+### IM SDK 对象简介
 
 SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
@@ -210,7 +210,7 @@ webim.MsgStore
 
 | 名称 | 说明 | 输入参数 |返回类型|
 |---------|---------|---------|---------|
-|sessMap ()	|获取所有会话对象|	无|	[webim.Session]|
+|sessMap ()	|获取所有会话对象|	无|	\[webim.Session]|
 |sessCount ()	|获取对方 ID	|无|	Integer|
 |sessByTypeId (type,id)	|根据会话类型和会话 ID 取得相应会话|type	-String, 会话类型<br/>id-String, 对方 ID	|web.Session|
 |delSessByTypeId(type,id)	|根据会话类型和会话 ID 删除相应会话|type	-String, 会话类型<br/>id-String, 对方 ID|	Boolean|
@@ -236,15 +236,15 @@ webim.Msg(
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
-|sess|	消息所属的会话(e.g：我与好友 A 的 C2C 会话，我与群组 G 的 GROUP 会话)|	webim.Session|
+|sess|	消息所属的会话（例如：我与好友 A 的 C2C 会话，我与群组 G 的 GROUP 会话）|	webim.Session|
 |isSend|	消息是否为自己发送标志:<br/>true：表示是我发出消息,<br/>false：表示是发给我的消息|	Boolean|
 |subType|	消息子类型:<br/>C2C 消息时，参考 C2C 消息子类型对象：webim.C2C_MSG_SUB_TYPE <br/>群消息时，参考群消息子类型对象：webim.GROUP_MSG_SUB_TYPE|	Integer|
 |fromAccount	|消息发送者帐号|	String |
 |fromAccountNick	|消息发送者昵称，用户没有设置昵称时，则为发送者帐号|	String|
 |seq	|消息序列号，用于消息判重	|Integer|
 |random|消息随机数，用于消息判重|	Integer|
-|time|消息时间戳，UNIX timestamp格式|	Integer|
-|elems	|描述消息内容的元素数组|[webim.Msg.Elem]|
+|time|消息时间戳，UNIX timestamp 格式|	Integer|
+|elems	|描述消息内容的元素数组|\[webim.Msg.Elem]|
 
 **对象方法：**
 
@@ -258,11 +258,11 @@ webim.Msg(
 |getSeq()	|获取消息序列号|	无|	Integer|
 |getRandom()	|获取消息随机数|	无|	Integer|
 |getTime()	|获取消息时间戳，UNIX timestamp格式	|无|	Integer|
-|getElems()	|获取描述消息内容的元素数组|	无|	[webim.Msg.Elem]
+|getElems()	|获取描述消息内容的元素数组|	无|	\[webim.Msg.Elem]
 |addText(text)	|向elems中添加一个 Text 元素|	text : Msg.Elem.Text|无|
 |addFace(face)|	向elems中添加一个 Face 元素|	face : Msg.Elem.Face|	无|
-|addImage(image)	|向elems中添加一个 Images 元素|	image: Msg.Elem.Images	|无|
-|addSound(sound)|	向elems中添加一个 Sound 元素|	sound: Msg.Elem.Sound	|无|
+|addImage(image)	|向 Elems 中添加一个 Images 元素|	image: Msg.Elem.Images	|无|
+|addSound(sound)|	向 Elems 中添加一个 Sound 元素|	sound: Msg.Elem.Sound	|无|
 |addFile(file)|	向elems中添加一个 File 元素|	file: Msg.Elem.File	|无|
 |addLocation(location)|	向 Elems 中添加一个 Location 元素|	location: sg.Elem.Location|	无|
 |addCustom(custom)|	向 Elems 中添加一个 Custom 元素|	custom：Msg.Elem.Custom	|无|
@@ -501,7 +501,7 @@ webim.Msg.Elem.Sound(uuid,second,size,senderId,downUrl)
 
 
 
-### 消息元素对象(文件)
+### 消息元素对象（文件）
 
 **对象名：**
 
@@ -595,9 +595,9 @@ webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 |opUserId	|操作者 ID|	String|
 |groupId	|群 ID|	String|
 |groupName|	群名称	|String|
-|userIdList|	被操作的用户 ID 列表|	[String]|
-|groupInfoList|	新的群信息列表，群资料变更时才有值|	[Msg.Elem.GroupTip.GroupInfo]|
-|memberInfoList	|新的群成员信息列表，群成员资料变更时才有值|	[Msg.Elem.GroupTip.MemberInfo]|
+|userIdList|	被操作的用户 ID 列表|	\[String]|
+|groupInfoList|	新的群信息列表，群资料变更时才有值|	\[Msg.Elem.GroupTip.GroupInfo]|
+|memberInfoList	|新的群成员信息列表，群成员资料变更时才有值|	\[Msg.Elem.GroupTip.MemberInfo]|
 
 **对象方法：**
 
@@ -609,9 +609,9 @@ webim.Msg.Elem.GroupTip(opType,opUserId,groupId,groupName,userIdList)
 |getOpUserId()|	获取操作者 ID	|无|	String|
 |getGroupId()|	获取群 ID	|无|	String|
 |getGroupName()	|获取群名称|	无	|String|
-|getUserIdList()|	获取被操作的用户 ID 列表	|无|	[String]|
-|getGroupInfoList()|获取新的群信息列表，群资料变更时才有值	|无|	[Msg.Elem.GroupTip.GroupInfo]|
-|getMemberInfoList()	|获取新的群成员信息列表，群成员资料变更时才有值	|无|	[Msg.Elem.GroupTip.MemberInfo]|
+|getUserIdList()|	获取被操作的用户 ID 列表	|无|	\[String]|
+|getGroupInfoList()|获取新的群信息列表，群资料变更时才有值	|无|	\[Msg.Elem.GroupTip.GroupInfo]|
+|getMemberInfoList()	|获取新的群成员信息列表，群成员资料变更时才有值	|无|	\[Msg.Elem.GroupTip.MemberInfo]|
 |toHtml()	|获取群提示消息元素的 HTML 代码，仅供参考，业务方可自定义实现	|无	|String|
 
 ### 消息元素对象（群资料信息）
@@ -662,14 +662,14 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 |userId	|群成员 ID	|String|
-|shutupTime|	群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒|	Integer|
+|shutupTime|	群成员被禁言时间，0表示取消禁言，大于0表示被禁言时长，单位：秒|	Integer|
 
 **对象方法：**
 
 | 名称 | 说明 | 输入参数 |返回类型|
 |---------|---------|---------|---------|
 |getUserId()	|获取群成员 ID|	无	|String|
-|getShutupTime()	|获取群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒|	无|	Integer|
+|getShutupTime()	|获取群成员被禁言时间，0表示取消禁言，大于0表示被禁言时长，单位：秒|	无|	Integer|
 
 
 

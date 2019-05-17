@@ -281,7 +281,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：静音播放；false:不静音播放。 |
+| mute | boolean | true：静音播放；false：不静音播放。 |
 
 ***
 
@@ -598,7 +598,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| yuvBuffer | byte [] | I420格式 YUV 数据。 |
+| yuvBuffer | byte [] | I420 格式 YUV 数据。 |
 | width | int | 视频宽度。 |
 | height | int | 视频高度。 |
 | timestamp | int | 视频 PTS。 |

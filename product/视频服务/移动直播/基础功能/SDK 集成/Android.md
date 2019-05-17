@@ -8,7 +8,7 @@
 通过导入 aar 库的方式集成 LiteAVSDK：
 
 - **第一步：下载 LiteAVSDK**
-单击 [Github](https://github.com/tencentyun/MVLBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 SDK：
+单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 SDK：
   ![](https://main.qcloudimg.com/raw/bf07b11e65a4bc550a807e2c7e844910.png)
 	
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
@@ -40,7 +40,7 @@ defaultConfig {
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
 
 - **第一步：下载解压 LiteAVSDK**
-  单击 [Github](https://github.com/tencentyun/MVLBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 jar 压缩包，文件名一般为 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
+  单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 jar 压缩包，文件名一般为 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
   ![](https://main.qcloudimg.com/raw/25045f7cad24fcf9f7ec2cb4516fe57b.png)
   解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
   ![](/Users/hans/Library/Application Support/typora-user-images/image-20190509122235784.png)
