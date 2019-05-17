@@ -53,7 +53,7 @@ public void createGroup(@NonNull CreateGroupParam param, @NonNull TIMValueCallBa
  *             聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
  * @param name 群名称
  */
-public CreateGroupParam(@NonNull String type, @NonNull String name
+public CreateGroupParam(@NonNull String type, @NonNull String name)
 
 /**
  * 设置要创建的群的群 ID
@@ -376,7 +376,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
+ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -580,6 +580,89 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 ```
 
 ## 获取群组资料
+
+<span id="TIMGroupSettings"></span>
+### 设置拉取字段
+
+目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 IM SDK 之前**，通过 `TIMGroupSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联（请参见 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
+
+**`TIMGroupSettings` 的接口定义如下：**
+
+```
+/**
+ * 设置群资料操作选项
+ * @param groupInfoOptions 群操作选项，{@see Options}
+ */
+public void setGroupInfoOptions(Options groupInfoOptions)
+
+/**
+ * 设置群成员资料操作选项
+ * @param memberInfoOptions 群成员操作选项，{@see Options}
+ */
+public void setMemberInfoOptions(Options memberInfoOptions)
+```
+
+**`TIMGroupSettings.Options` 的接口定义如下：**
+
+```
+/**
+ * 设置群信息或者群成员信息的拉取标志，默认全部拉取
+ * @param flags 拉取资料标志
+ *              群资料标志如{@see TIMGroupManager#TIM_GET_GROUP_BASE_INFO_FLAG_NAME}等，
+ *              群成员资料标志如{@see TIMGroupManager#TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD}等
+ */
+public void setFlags(long flags)
+
+/**
+ * 设置自定义资料标签
+ * @param customTags 自定义资料标签
+ */
+public void setCustomTags(List<String> customTags)
+
+/**
+ * 添加自定义资料标签
+ * @param tag 自定义资料标签
+ */
+public void addCustomTag(String tag)
+```
+
+**示例：**
+
+首先在控制台配置私有群的群维度自定义字段和群成员维度自定义字段：
+
+![](https://main.qcloudimg.com/raw/d19cc6d6e96672cb8b8a1d04ad76c1ec.png)
+
+然后在 IM SDK 初始化后，添加用户配置：
+
+```
+TIMGroupSettings settings = new TIMGroupSettings();
+
+//设置群资料拉取字段，这里只关心群头像、群类型、群主ID和自定义字段“group_info"
+TIMGroupSettings.Options groupOpt = new TIMGroupSettings.Options();
+long groupFlags = 0;
+groupFlags |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_FACE_URL
+		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_GROUP_TYPE
+		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_OWNER_UIN;
+groupOpt.setFlags(groupFlags);
+groupOpt.addCustomTag("group_info");
+settings.setGroupInfoOptions(groupOpt);
+
+//设置群成员资料拉取字段，这里只关心群名片、群角色和群成员自定义字段“group_member”
+TIMGroupSettings.Options memberOpt = new TIMGroupSettings.Options();
+long memberFlags = 0;
+memberFlags |= TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD
+		| TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_ROLE_INFO;
+memberOpt.setFlags(memberFlags);
+memberOpt.addCustomTag("group_member");
+settings.setMemberInfoOptions(memberOpt);
+
+TIMUserConfig config = new TIMUserConfig();
+config.setGroupSettings(settings);
+
+//初始化群设置
+TIMManager.getInstance().setUserConfig(config);
+```
+
 
 ### 群成员获取群组资料
 
@@ -1255,8 +1338,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 - **公开群和私有群：**默认消息接收方式为接收并提醒。
 - **聊天室和音视频聊天室：**默认为接收不提醒。
 
-
-** `TIMGroupReceiveMessageOpt` 接口定义如下：**
+**`TIMGroupReceiveMessageOpt` 接口定义如下： **
 
 ```
 //不接收群消息， 服务器不会进行转发
