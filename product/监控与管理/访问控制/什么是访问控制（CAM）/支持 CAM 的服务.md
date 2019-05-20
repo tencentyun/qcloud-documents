@@ -54,7 +54,7 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)         |✔         | ✔      | ✔     | 资源级   |✔        | -   |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |✔        |✔     | ✔      |资源级   |✔        |✔    |
-| 云数据库 MariaD         |✔        |✔     | ✔      |资源级   |✔        |-    |
+| [云数据库 MariaD](https://cloud.tencent.com/document/product/237)         |✔        |✔     | ✔      |资源级   |✔        |-    |
 
 ## CDN 与加速	
 | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
@@ -190,7 +190,7 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [物联网通信](https://cloud.tencent.com/document/product/634) | ✔        | ✔      | ✔      | 服务级   | ✔   | ✔    |
-| 腾讯云物联网开发平台        |✔        | ✔      | ✔      | 服务级   | ✔        |-    |	|
+| [物联网开发平台](https://cloud.tencent.com/document/product/1081)        |✔        | ✔      | ✔      | 服务级   | ✔        |-    |	|
 | [加速物联网套件](https://cloud.tencent.com/document/product/568)         |✔        | ✔      | ✔      | 操作级   | ✔        |✔    |	| 
  
 
@@ -245,7 +245,7 @@
  | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
 | ------------------------------------------------------ | -------- | ------ | ------ | -------- | -------- | ---- |	
 | [渠道合作伙伴](https://cloud.tencent.com/document/product/563/31828) | ✔       | -      | ✔      | 操作级 | -        | -    |	
-| 企业组织       | ✔      | ✔     | ✔    | 操作级   |✔     |-   |
+| [企业组织](https://cloud.tencent.com/document/product/850/18556)       | ✔      | ✔     | ✔    | 操作级   |✔     |-   |
 | [开发者实验室](https://cloud.tencent.com/document/product/658/13897)       | -      | -     | -    | -   | -      |✔   |	
 	
 
