@@ -65,8 +65,9 @@ TUIKit 会自动加载所需的 IMSDK。
  * @param context  应用的上下文，一般为对应应用的 ApplicationContext
  * @param sdkAppID 您在腾讯云注册应用时分配的 sdkAppID
  * @param configs  TUIKit 的相关配置项，一般使用默认即可，需特殊配置参考 API 文档
+ * @param customFaceGroupConfigs 聊天自定义表情相关配置，可以参考 PojoApplication.java 文件，传 null 表示无聊天自定义表情相关配置
  */
-TUIKit.init(context,sdkAppId, BaseUIKitConfigs.getDefaultConfigs());
+TUIKit.init(context, sdkAppId, BaseUIKitConfigs.getDefaultConfigs(), customFaceGroupConfigs);
 ```
 
 建议 TUIKit 的初始化在 Application 的 OnCreate 方法中调用（或应用其它初始化相关函数里）。TUIKit 初始化已自行完成 IMSDK 的初始化相关工作。如果您需对 IMSDK 和 TUIKit 的初始化做自定义配置，可以参考 [高级进阶-IMSDK的初始化扩展](#iminit)、[高级进阶-TUIKit的初始化扩展](#configs)。
