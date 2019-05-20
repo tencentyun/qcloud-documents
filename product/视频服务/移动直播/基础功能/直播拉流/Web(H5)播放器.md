@@ -262,6 +262,9 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。|
 | hlsConfig         | Object | 无       | hls.js 初始化配置项[v2.3.0+]。|
 | fivConfig         | Object | 无       | flv.js 初始化配置项[v2.3.1+]。|
+>!
+>- 播放 RTMP 时，确保本地网络防火墙支持 RTMP。
+>- 播放 RTMP 需要浏览器支持 Flash，并启用 Flash，否则将无法播发。
 
 ## 实例方法列表
 下面列出了播放器实例支持的方法：
