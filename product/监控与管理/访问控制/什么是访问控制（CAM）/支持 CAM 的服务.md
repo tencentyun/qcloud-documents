@@ -54,7 +54,7 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652) | ✔        | ✔      | -      | 操作级   | ✔        | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)         |✔         | ✔      | ✔     | 资源级   |✔        | -   |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240)         |✔        |✔     | ✔      |资源级   |✔        |✔    |
-| [云数据库 MariaD](https://cloud.tencent.com/document/product/237)         |✔        |✔     | ✔      |资源级   |✔        |-    |
+| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)         |✔        |✔     | ✔      |资源级   |✔        |-    |
 
 ## CDN 与加速	
 | 服务                                                         | 策略语法 | 云 API | 控制台 | 授权粒度 | 临时密钥 | 角色 |	
