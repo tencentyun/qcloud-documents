@@ -36,7 +36,7 @@
 | pollingWaitSeconds| Int| 更改后的消息接收长轮询等待时间。|
 | visibilityTimeout| Int| 更改后的消息可见性超时。|
 | maxMsgSize| Int| 更改后的消息最大长度。|
-| msgRetentionSeconds| Int| 更改后的消息保留周期。|
+| msgRetentionSeconds| Int| 更改后的消息生命周期。|
 | rewindSeconds |Int|更改后的最长消息回溯时间。|
 
 
