@@ -121,7 +121,7 @@ public boolean init(@NonNull Context context, @NonNull TIMSdkConfig config)
 //判断是否是在主线程
 if (SessionWrapper.isMainProcess(getApplicationContext())) {
 	TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
-			.enableCrashReport(false)
+			.enableCrashReport(false)  //接口已废弃
 			.enableLogPrint(true)
 			.setLogLevel(TIMLogLevel.DEBUG)
 			.setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/");
