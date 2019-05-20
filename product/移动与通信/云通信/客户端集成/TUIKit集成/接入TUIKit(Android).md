@@ -109,7 +109,7 @@ TUIKit.init(context, sdkAppId, BaseUIKitConfigs.getDefaultConfigs(), customFaceG
 会话列表用来展示用户的所有会话记录。SessionPanel 是 TUIKit 提供的和 IM SDK 业务关联，且 UI 交互可扩展的会话列表面板。您调用 initDefault() 即可实现 SessionPanel 的通用的交互功能。SessionPanel 内部已与 IM SDK 关联，实现了会话记录的拉取和更新，您可无需关注。
 ![](http://dldir1.qq.com/hudongzhibo/im/session.jpg)
 
-### 使用方法:
+**使用方法:**
 
 1. 在 Activity 或 Fragment（Demo 示例为创建一个 Fragment，即下面代码的 SessionFragment）的布局文件里引用 SessionPanel。
 
@@ -240,7 +240,7 @@ public class PersonalChatFragment extends BaseFragment {
 3、聊天面板组件提供的可扩展的事件和 UI 处理，具体可参考 [高级进阶—聊天面板 UI 扩展](#chatPanelExtra)。
 
 
-### 群聊面板（GroupChatPanel）使用：
+### 群聊面板（GroupChatPanel）使用
 
 群聊面板与单聊面板的使用基本一致，在 Activity 或 Fragment（Demo 示例为创建一个 Fragment，即下面代码的 GroupChatFragment）的布局文件里引用GroupChatPanel
 
