@@ -1,27 +1,22 @@
-## hadoop命令
+## Hadoop 命令
 
-### 未获取ticket
+### 未获取 ticket
+当启用了 kerberos 时，执行 hadoop 的命令时都需要提前获取 ticket。
 
-当启用了kerberos时，执行hadoop的命令时都需要提前获取ticket
-
-**如果没有获取ticket，则会出现如下错误信息：**
-
+如果没有获取 ticket，则会出现如下错误信息：
 ```
 hadoop fs -ls /
 19/04/19 19:59:03 WARN ipc.Client: Exception encountered while connecting to the server : javax.security.sasl.SaslException: GSS initiate failed [Caused by GSSException: No valid credentials provided (Mechanism level: Failed to find any Kerberos tgt)]
 ls: Failed on local exception: java.io.IOException: javax.security.sasl.SaslException: GSS initiate failed [Caused by GSSException: No valid credentials provided (Mechanism level: Failed to find any Kerberos tgt)]; Host Details : local host is: "172.30.0.27/172.30.0.27"; destination host is: "172.30.0.27":4007; 
 ```
 
-### 获取ticket
-
-前提：hadoop@EMR的principal已添加
-
+### 获取 ticket
+前提：hadoop@EMR的principal 已添加。
 ```
 kinit -kt /var/krb5kdc/emr.keytab hadoop@EMR
 ```
 
-执行命令
-
+执行命令即可正常访问。
 ```
 hadoop fs -ls /
 
@@ -36,13 +31,11 @@ drwxr-xr-x   - hadoop supergroup          0 2019-01-17 14:43 /user
 drwxr-xr-x   - hadoop supergroup          0 2019-01-17 19:43 /usr
 ```
 
-即可正常访问
+## Java 代码访问 HDFS
 
-## java代码访问hdfs
+### 使用本地 ticket
 
-### 使用本地ticket
-
-**注意：需要提前执行kinit获取ticket，ticket过期后程序会访问异常。**
+>!需要提前执行 kinit 获取 ticket，ticket 过期后程序会访问异常。
 
 ```java
 public static void main(String[] args) throws IOException {
@@ -59,7 +52,7 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
-### 使用keytab文件
+### 使用 keytab 文件
 
 ```java
 public static void main(String[] args) throws IOException {
@@ -75,4 +68,3 @@ public static void main(String[] args) throws IOException {
 	}
 }
 ```
-
