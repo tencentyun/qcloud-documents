@@ -478,6 +478,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 > - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+> - 文件大小限制 28MB。
 
 **`TIMFileElem` 成员方法如下：**
 
@@ -995,18 +996,6 @@ public TIMMessagePriority getPriority()
 ```
 
 
-
-### 群组消息会话的接收消息选项
-
-对于群组会话消息，可以通过消息属性判断本群组设置的接收消息选项，可参阅 [群组管理](/doc/product/269/群组管理（Android SDK）)。
-
->!只针对群聊消息有效。
-
-```
-//获取消息通知类型
-public TIMGroupReceiveMessageOpt getRecvFlag()
-```
-
 ### 已读回执
 
 ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
@@ -1461,7 +1450,7 @@ public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
 
 ## 设置后台消息通知栏提醒
 
-ImSDK 后台在线时可以持续接收消息通知，如果此时程序在后台运行，可以以系统通知栏提醒的形式给用户呈现新的消息。新消息可以显示在顶部通知栏，通知中心或锁屏上。具体的实现方式可参见 Demo 中 `PushUtil.java`。
+ImSDK 后台在线时可以持续接收消息通知，如果此时程序在后台运行，可以以系统通知栏提醒的形式给用户呈现新的消息。新消息可以显示在顶部通知栏，通知中心或锁屏上。具体的实现方式可参考下面的示例：
 
 **示例：**
 
