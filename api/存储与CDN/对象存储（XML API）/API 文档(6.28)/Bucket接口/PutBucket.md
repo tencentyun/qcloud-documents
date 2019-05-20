@@ -52,7 +52,7 @@ Authorization: Auth String
 | InvalidBucketName | 400 Bad Request|Bucket 的命名不规范，具体原因可参考 message 的描述|
 | InvalidRequest | 400 Bad Request|Bucket 的命名不规范，具体原因可参考 message 的描述| 
 
-如果 Bucket 设置的 ACL 不正确，也会导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 相关的文档。
+如果 Bucket 设置的 ACL 不正确，也将导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 相关的文档。
 
 
 
