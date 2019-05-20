@@ -24,12 +24,6 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 为方便您接入开发测试，我们在腾讯云 IM 控制台提供了快速生成 userSig 的工具（在这之前您需要先在腾讯云创建自己的 IM 应用，可参考 [云通信 IM 入门](https://cloud.tencent.com/product/im/getting-started)）。登录控制台后，在顶部导航栏选择 >【云通信】>【应用列表】（选择您当前在使用的应用）>【应用配置】>【开发辅助工具】，参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.89.8B.E5.B7.A5.E7.94.9F.E6.88.90-usersig) 即可生成 userSig。
 
 ## TUIKit 工程集成
-如果您需要快速上线，不太关心 TUIKit 源码，可以选择方式一直接集成 TUIKit.framework，如果您自定义需求比较多，需要修改 TUIKit 源码，可以选择方式二直接集成 TUIKit 源码。
-
-### 方式一：集成 TUIKit.framework
-您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK 再将其导入到您当前的工程项目中。
-
-#### CocoaPods 自动加载
 1. **安装 CocoaPods**
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
@@ -48,14 +42,14 @@ pod init
 platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
 target 'App' do
-# TUIKit 需要依赖 IM SDK ，这里要加载 IM SDK
-pod 'TXIMSDK_iOS' 
+# 这里不需要再 pod 'TXIMSDK_iOS' ，TXIMSDK_TUIKit_iOS 会自动依赖最新的 TXIMSDK 库
 pod 'TXIMSDK_TUIKit_iOS'
 end
 ```
 
 4. **更新并安装 SDK**
-在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK 和 TXIMSDK_TUIKit：
+在终端窗口中输入如下命令安装 TUIKit ：
+
 ```
 pod install
 ```
@@ -65,84 +59,19 @@ pod update
 ```
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
-#### 手动集成
-1. **下载 TUIKit 开发包**
-从 [Github](https://github.com/tencentyun/TIMSDK) 下载 TUIKit 开发包，其中 TUIKit.framework 和 ImSDK.framework 所在的位置如下：
-![](https://main.qcloudimg.com/raw/372fda3306f431b06efd7724a63efd6a.png)
-
-2. **创建一个新工程**
-![](https://main.qcloudimg.com/raw/f7c015dbed38f5ac07d40148c0caf885.jpg)
-
-3. **填入工程名（例如：IMDemo）**
-![](https://main.qcloudimg.com/raw/aedee2a8a6b2c7ebb6b877844d606b79.jpg)
-
-4. **集成 TUIKit.framework 和 ImSDK.framework**
- - **添加依赖库：**选中 IMDemo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。
-![](https://main.qcloudimg.com/raw/3a1cc30c280362be2d99058dde347d4f.png)
-
- - **添加依赖库：**
-```
-TUIKit.framework
-ImSDK.framework
-```
-
->!需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
-
-
-### 方式二：集成 TUIKit 源码
-1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，TUIKit 源码工程所在的位置如下：
-![](https://main.qcloudimg.com/raw/6b3d09ba290e78783cc764a9620b42e1.png)
-
-2. 拷贝 TUIKit 文件夹和 ImSDK.framework 到自己工程的开发目录下。
-![](https://main.qcloudimg.com/raw/ced90006f831b8ac83ac8a24e173f46f.png)
-
-3. 以 TUIKitDemo 集成 TUIKit 为例，参考下图，直接把 TUIKit 工程拖入 TUIKitDemo 工程中，然后重启Xcode（这个很重要，防止TUIKit 工程在其他地方打开，导致在 TUIKitDemo 里面链接 TUIKit 无效）。
-![](https://main.qcloudimg.com/raw/4505324e53049acb2a5a6099849cdd2f.png)
-
-4. 重启 Xcode 之后，重新打开 TUIKitDemo ，先选择 TUIKit 工程编译生成 TUIKit.framework 。
-![](https://main.qcloudimg.com/raw/3c32f587941aa511fa3d1b93b5c67415.png)
-
->! 
-- TUIKit 编译会依赖 ImSDK.framework，参考下图在【TUIKit 】> 【Build Settings】>【Framework Search Paths】 里面配置 ImSDK.framework 路径寻址。
- ![](https://main.qcloudimg.com/raw/77735ef7f0ebb1ec86655376c2240e2f.png)
-- 在【TUIKit 】> 【Build Settings】>【Header Search Paths】里面配置 ImSDK.framework 头文件路径寻址
- ![](https://main.qcloudimg.com/raw/2ad323b99b88f5fe03ebeb681ac26e34.png)
-- 请不要直接 copy 以上的配置，您需要根据自己 ImSDK.framework 的实际位置配置。
-
-
-5. 把 TUIKit.framework 和 ImSDK.framework 拖入 【Embedded Binaries】和 【Linked Frameworks and Libraries】里面，编译运行 TUIKitDemo 。
-![](https://main.qcloudimg.com/raw/059163e76d60798256cc903552d2c31e.png)
-
->!TUIKitDemo 编译会依赖 TUIKit工程，参考下图，在 【TUIKitDemo】> 【Build Settings】> 【Header Search Paths 】配置 TUIKit 的头文件路径寻址，这里的文件寻址方式请选择 recursive。
-![](https://main.qcloudimg.com/raw/6c112300d3be5f061e54653ae3b316a9.png)
-请不要直接 copy 以上的配置，您需要根据自己 TUIKit 文件夹的实际位置配置。
-
-### 集成常见问题
-1. **集成 TUIKit 工程后，TUIKit 直接链接了ImSDK，怎么在 TUIKitDemo 里面直接调用 ImSDK 的 API 呢？**
-因为 ImSDK 是在 TUIKit 里面链接的，如果要在 TUIKitDemo 里面调用 ImSDK 头文件，请参考下图在 TUIKitDemo 工程里面配置 ImSDK 的路径寻址。
-![](https://main.qcloudimg.com/raw/508382b9c253972e5a00201410419398.png)
-![](https://main.qcloudimg.com/raw/7737c781a93c609dee999dbf79e99a86.png)
-
-2. **在 TUIKitDemo 里面用 pod 集成了 ImSDK ，编译 TUIKit 为什么报错找不到 IM SDK？**
-因为 TUIKit 并没有链接 ImSDK，您需要参考下图在 TUIKit 工程里面配置 ImSDK 的路径寻址。
-![](https://main.qcloudimg.com/raw/854281df7f83a82d2bbdfddc2514be78.png)
-![](https://main.qcloudimg.com/raw/7be7014e0e9ce81563dbd9d757bafdcf.png)
->!无论出于什么样的业务逻辑，整个工程只能链接一份 IM SDK，否则会导致 API 调用异常，一些客户用我们的 Demo 测试调用 API 没有问题，用自己的 Demo 测试就出现了莫名其妙的错误，大部分都是这个原因导致，一个工程只需要链接一份 IM SDK，如果要在其他位置使用 IM SDK，只需要参考上面的步骤配置下 IM SDK 路径寻址就可以了。
-
-## TUIkit API 调用
+## TUIkit API调用
 ### 目录结构
-![](https://main.qcloudimg.com/raw/64b0d6df1854abbb768e8b15a2c54f98.png)
+![](https://main.qcloudimg.com/raw/6f5b7c7c8bc0d228840d4dd4da457387.png)
 
 | 文件名 |主要用途|
 |---|------|
-|setting|设置界面，目前主要用于管理程序的退出逻辑|
-|chat|聊天界面，主要用于发送和接收各种自定义消息|
-|commom|公共基类，主要用于管理公用的基础模块|
-|conversation|消息列表界面，主要用于管理消息的列表逻辑|
-|group|群组设置界面，主要用于设置群资料，加群，退群的逻辑|
 |TUIKit|TUIKit 入口类，主要用于初始化，登录等|
 |TUIKitConfig|TUIKit 资源配置类，主要用于加载资源图片，表情包等|
-| voiceConvert |主要用于音频文件格式转换|
+|Chat|聊天界面，主要用于发送和接收各种自定义消息|
+|Commom|公共基类，主要用于管理公用的基础模块|
+|Contact|通信录界面，目前主要用于管理好友关系链逻辑|
+|Conversation|消息列表界面，主要用于管理消息的列表逻辑|
+|Group|群组设置界面，主要用于设置群资料，加群，退群的逻辑|
 
 ### 初始化
 通常情况下 TUIKit 的初始化非常简单，只需调用下面接口初始化默认配置即可。
@@ -175,10 +104,16 @@ TTabBarItem *msgItem = [[TTabBarItem alloc] init];
 msgItem.title = @"消息";
 msgItem.controller = [[TNavigationController alloc] initWithRootViewController:[[ConversationController alloc] init]];
 [items addObject:msgItem];
+
+//3，初始化通信录类
+TTabBarItem *contactItem = [[TTabBarItem alloc] init];
+contactItem.title = @"通讯录";
+contactItem.controller = [[TNavigationController alloc] initWithRootViewController:[[ContactsController alloc] init]];
+[items addObject:contactItem];
  
-//3，初始化设置类
+//4，初始化个人设置类
 TTabBarItem *setItem = [[TTabBarItem alloc] init];
-setItem.title = @"设置";
+setItem.title = @"我";
 setItem.controller = [[TNavigationController alloc] initWithRootViewController:[[SettingController alloc] init]];
 [items addObject:setItem];
 tbc.tabBarItems = items;

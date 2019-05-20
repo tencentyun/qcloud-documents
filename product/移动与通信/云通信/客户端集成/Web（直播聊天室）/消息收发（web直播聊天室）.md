@@ -3,7 +3,7 @@
 
 ## 监听群消息（普通、点赞、提示和红包）
 
->!现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
+>!若已调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599#.E8.AE.BE.E7.BD.AE.E4.B8.AA.E4.BA.BA.E8.B5.84.E6.96.99) 设置用户资料，直播群中会自动下发用户资料。
 
 示例代码如下：
 

@@ -54,13 +54,13 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 
 ### 手动集成
 #### 1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，其中 SDK 所在的位置如下：
-![](https://main.qcloudimg.com/raw/2ccfbe6b80be0e2f2a1a0bc5f80439d4.png)
+![](https://main.qcloudimg.com/raw/fcef4a413f6ed3a183f5f60947df1c6f.png)
 
 - IMSDK.framework 为 IMSDK 的核心动态库文件。
 
-| 包名 | 介绍 |  ipa增量 |
-| --- | --- | --- |
-| ImSDK.framework | IM 功能包 | 1.9M|
+| 包名 | 介绍 | 
+| --- | --- |
+| ImSDK.framework | IM 功能包 |
 
 - TXLiteAVSDK_UGC.framework 是腾讯云短视频（UGC）SDK，用于实现 IM 中的短视频收发能力，为可选组件。
 

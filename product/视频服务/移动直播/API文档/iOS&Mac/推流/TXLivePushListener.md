@@ -1,4 +1,4 @@
-## TXLivePushListener
+
 
 __功能__
 
@@ -6,7 +6,7 @@ __功能__
 
 
 
-### onPushEvent
+## onPushEvent
 
 事件通知。
 ```
@@ -22,7 +22,7 @@ __参数__
 
 ***
 
-### onNetStatus
+## onNetStatus
 
 状态通知。
 ```
