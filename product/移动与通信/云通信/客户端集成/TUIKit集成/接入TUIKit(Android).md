@@ -24,7 +24,7 @@ userSig（用户签名）是用于对一个用户进行鉴权认证，确认用�
 首先用户的终端需要向您的服务器注册帐号（userid），您的服务器在进行注册业务处理时，按照用户签名文档中的方法生成一个该用户的 usersig，并返回给客户端。客户端再通过该 userid 和 usersig 到 IM SDK 进行登录操作。
 为方便开发者接入开发测试，我们在腾讯云控制台提供了快速生成 usersig 的工具（在这之前您需要先在腾讯云创建自己的 IM 应用，可参考 [云通信 IM 入门](https://cloud.tencent.com/product/im/getting-started)）。登录控制台后选择-【云通信】>【应用列表】（选择您当前在使用的应用）>【应用配置】>【开发辅助工具】，参考上面说明即可生成 usersig。
 
-## 集成TUIKit
+## 集成 TUIKit
 
 首先开发者需在自身主工程的 build.gradle 文件的依赖配置中添加 TUIKit 的引用及 ABI 架构限定。同时在 <a href="https://github.com/tencentyun/TIMSDK">项目 </a>中 TIMSDK/Android/tuikit/libs/ 目录下，下载最新的 TUIKit 组件。
 
