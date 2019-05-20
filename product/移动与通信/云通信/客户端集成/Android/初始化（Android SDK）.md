@@ -1,5 +1,5 @@
 ## 获取通讯管理器
-ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第一步需要获取 `TIMManager` 单例。`getInstance`获取通讯管理器实例原型如下。
+IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第一步需要获取 `TIMManager` 单例。`getInstance`获取通讯管理器实例原型如下。
 
 **原型：**
 
@@ -13,11 +13,11 @@ public static TIMManager getInstance()
 TIMManager.getInstance();
 ```
 ## 初始化 SDK 配置
-在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SdkAppid、日志控制等。对应的配置类为 `TIMSdkConfig`。
+在初始化 SDK 之前，需要进行简单的 SDK 配置，包括 SDKAppID、日志控制等。对应的配置类为 `TIMSdkConfig`。
 
 ### 日志事件
 
-SDK 内部会进行打印日志，如果调用方有自己统一的日志收集方式，可以通过 `TIMSdkConfig` 中的 `setLogListener` 接口设置日志事件回调，把日志通过回调返给调用方，但 ImSDK 内部仍然会打印，如果需要禁掉，可以通过设置控制台不打印日志，或者设置日志级别。
+SDK 内部会进行打印日志，如果调用方有自己统一的日志收集方式，可以通过 `TIMSdkConfig` 中的 `setLogListener` 接口设置日志事件回调，把日志通过回调返给调用方，但 IM SDK 内部仍然会打印，如果需要禁掉，可以通过设置控制台不打印日志，或者设置日志级别。
 
 **原型：**
 
@@ -44,7 +44,7 @@ mTIMSdkConfig.setLogListener(new TIMLogListener() {
 
 ### 设置日志级别
 
-在权限允许的情况下，ImSDK 的日志默认会写到日志文件中。通过 `TIMSdkConfig` 中的 `setLogLevel` 接口修改 ImSDK 内部写日志级别可以控制 ImSDK 的文件日志输出。
+在权限允许的情况下，IM SDK 的日志默认会写到日志文件中。通过 `TIMSdkConfig` 中的 `setLogLevel` 接口修改 IM SDK 内部写日志级别可以控制 IM SDK 的文件日志输出。
 
 >!
 > * 设置写日志等级， **必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
@@ -63,7 +63,7 @@ public TIMSdkConfig setLogLevel(@NonNull TIMLogLevel logLevel)
 
 ### 控制台不打印日志
 
-默认 ImSDK 日志会打印到控制台，如果调试期间干扰太多，可选择通过 `TIMSdkConfig` 中的 `enableLogPrint` 关闭控制台日志（此时文件日志仍然会打印，可设置日志级别禁用）。
+默认 IM SDK 日志会打印到控制台，如果调试期间干扰太多，可选择通过 `TIMSdkConfig` 中的 `enableLogPrint` 关闭控制台日志（此时文件日志仍然会打印，可设置日志级别禁用）。
 
 >! 日志设置， **必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
 
@@ -84,7 +84,7 @@ public TIMSdkConfig enableLogPrint(boolean logPrintEnabled)
 
 >!
 > * 设置日志路径，**必须在 SDK 初始化之前调用**，在 SDK 初始化之后设置无效。
-> * ImSDK 默认日志存储路径为：SD 卡下，`/tencent/imsdklogs/(your app package name)/`
+> * IM SDK 默认日志存储路径为：SD 卡下，`/tencent/imsdklogs/(your app package name)/`
 
 **原型：**
 
@@ -132,7 +132,7 @@ if (SessionWrapper.isMainProcess(getApplicationContext())) {
 ```
 ## 用户配置
 
-在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。ImSDK 的用户配置分四部分，分别如下：
+在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。IM SDK 的用户配置分四部分，分别如下：
 + 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
 + 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
 
@@ -216,7 +216,7 @@ TIMManager.getInstance().setUserConfig(userConfig);
 
 可选设置，如果要用户感知是否已经连接服务器，需要通过 `TIMUserConfig` 来设置此回调，用于通知调用者跟通讯后台链接的连接和断开事件，另外，如果断开网络，等网络恢复后会自动重连，自动拉取消息通知用户，用户无需关心网络状态，仅作通知之用。
 
->!这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与 IM 云 Server 连接状态。只要用户处于登录状态，**ImSDK 内部会进行断网重连，用户无需关心**。
+>!这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与 IM 云 Server 连接状态。只要用户处于登录状态，**IM SDK 内部会进行断网重连，用户无需关心**。
 
 **原型：**
 
@@ -293,7 +293,7 @@ public interface TIMUserStatusListener {
 
 
 ### 禁用存储
-默认情况 ImSDK 会进行消息的存储，如无需存储，可选择通过 `TIMUserConfigMsgExt` 关闭存储来提升处理性能。
+默认情况 IM SDK 会进行消息的存储，如无需存储，可选择通过 `TIMUserConfigMsgExt` 关闭存储来提升处理性能。
 
 >! 禁用消息存储，**需要在登录之前调用**。
 
@@ -308,7 +308,7 @@ public TIMUserConfigMsgExt enableStorage(boolean storageEnabled)
 
 ### 会话刷新监听
 
-默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 ImSDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
+默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 IM SDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
 
 >!
 > * 如果不需要最近联系人可通过接口禁用： [最近联系人漫游](/doc/product/269/9232#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。
@@ -328,7 +328,7 @@ public TIMUserConfig setRefreshListener(TIMRefreshListener listener)
 
 ### 消息撤回通知监听
 
-ImSDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
+IM SDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
 
 **原型：**
 ```
