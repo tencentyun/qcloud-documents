@@ -44,7 +44,7 @@ fileSet 数组中，各元素的参数说明如下：
 |---------|---------|---------|
 | fileId | String | 视频 ID。 |
 | fileName | String | 视频名称。 |
-| duration | String | 视频持续时间 |
+| duration | String | 视频持续时间。 |
 | status | String | 视频状态：-1：未上传完成，不存在；0：初始化，暂未使用；1：审核不通过，暂未使用； 2：正常；3：暂停；4：转码中；5：发布中；6：删除中；7：转码失败；10：等待转码；11：转码部分完成（终态）100：已删除。 |
 | imageUrl | String | 视频封面图片。 |
 | playSet | Array | 视频播放信息。 |
