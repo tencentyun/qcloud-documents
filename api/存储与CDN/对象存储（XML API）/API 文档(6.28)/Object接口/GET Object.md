@@ -40,7 +40,7 @@ Authorization: Auth String
 
 | 名称                |  描述                                                         |类型   | 必选 |
 | ------------------- | ------ | ---- | ------------------------------------------------------------ |
-| Range               | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位     |string | 否   | 
+| Range               | 对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9 表示您希望拷贝源对象的开头10个字节的数据。如果不指定，则表示读取整个对象     |string | 否   | 
 | If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回412（precondition failed） |string | 否   | 
 | If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回304（not modified） |string | 否   | 
 | If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回412（precondition failed） | string | 否   | 
