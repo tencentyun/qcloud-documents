@@ -22,7 +22,7 @@
 
 <table>
 <tr><th>实例操作系统</th><th>管理员帐号</th><th>密码</th><th>密钥</th></tr>
-<tr><td>SUSE/CentOS/Debian</td><td>root</td><td rowspan="2">如果在购买实例时选择密码登录：<li>如果您在购买实例时设置了自动生成密码，可以登录腾讯云控制台，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img> ，进入站内信页面，该页面将包含云服务器登录管理员帐号及初始密码。</li><li>如果您选择了自定义密码，则密码为您在购买云服务器实例时指定的密码。</li> </td><td rowspan="2">如果您在购买实例时选择密钥登录，请牢记密钥存放在本地的绝对路径。</td></tr>
+<tr><td>SUSE/CentOS/Debian</td><td>root</td><td rowspan="2">如果在购买实例时选择密码登录：<li>如果您在购买实例时设置了自动生成密码，可以登录腾讯云控制台，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img> ，进入站内消息页面，该页面将包含云服务器登录管理员帐号及初始密码。</li><li>如果您选择了自定义密码，则密码为您在购买云服务器实例时指定的密码。</li> </td><td rowspan="2">如果您在购买实例时选择密钥登录，请牢记密钥存放在本地的绝对路径。</td></tr>
 <tr><td>Ubuntu</td><td>ubuntu</td></tr>
 </table>
 
