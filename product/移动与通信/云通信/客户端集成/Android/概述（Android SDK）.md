@@ -45,7 +45,7 @@ IM SDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录�
 					TIMSdkConfig<br>
 				</td>
 				<td>
-					设置 SDK 基本配置，比如 sdkappid、日志等级等<br>
+					设置 SDK 基本配置，比如 SDKAppID、日志等级等<br>
 				</td>
 			</tr>
 			<tr>
