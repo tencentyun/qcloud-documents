@@ -39,7 +39,7 @@ SDK 内部需要访问如下地址，请将以下域名在 【微信公众平台
 - step1：安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
 
 - step2：输入您申请到的微信小程序 AppID（注意：不是上面的 SDKAppID），项目目录选择上一步下载到的代码目录（ **注意：** 目录请选择**根目录**，根目录包含有 `project.config.json`文件），单击【确定】创建小程序项目。
-- step3：修改 `pages/config.js`，将上文获取到的 sdkappid、accountType、identifier 和 userSig 填入 `pages/config.js` 的相应位置。
+- step3：修改 `pages/config.js`，将上文获取到的 SDKAppID、accountType、identifier 和 userSig 填入 `pages/config.js` 的相应位置。
 - step4：使用手机进行测试，直接扫描开发者工具预览生成的二维码进入。
 - step5：选择体验帐号然后登录聊天室，即可进行收发消息。
 ![](https://main.qcloudimg.com/raw/65952c55ee5102973b6e5383ddc5ba7e.png)
