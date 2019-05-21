@@ -103,7 +103,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ```
 /**
- * 从 SDK 取出 elem 时可以调用，获取 elem 包含的图片列表
+ * 从 IM SDK 取出 elem 时可以调用，获取 elem 包含的图片列表
  * @return elem 包含的图片列表
  */
 public ArrayList<TIMImage> getImageList()
@@ -235,7 +235,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 ### 表情消息发送
 
-表情消息由 `TIMFaceElem` 定义，SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，SDK 内部只做透传。
+表情消息由 `TIMFaceElem` 定义，IM SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，IM SDK 内部只做透传。
 
 **`TIMFaceElem` 成员方法如下：**
 
@@ -567,7 +567,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 自定义消息发送
 
-自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
+自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
 
 **`TIMCustomElem` 成员方法如下：**
 
@@ -731,7 +731,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 ```
 /**
- * 从 SDK 取出 Elem 时可以调用，获取 Elem 包含的图片列表
+ * 从 IM SDK 取出 Elem 时可以调用，获取 Elem 包含的图片列表
  * @return elem 包含的图片列表
  */
 public ArrayList<TIMImage> getImageList()
