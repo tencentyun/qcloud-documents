@@ -38,7 +38,7 @@ LiteAVSDK 的商业版，除了包含专业版的所有功能以外，还集成�
   <tr>
 	  <th width="100px" style="text-align:center">功能模块</th>
     <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center">直播基础<br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center">直播基础版<br>LiteAV_Smart</th>
     <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
     <th width="100px" style="text-align:center">TRTC版<br>LiteAV_TRTC</th>
 		<th width="100px" style="text-align:center">播放器版<br>LiteAV_Player</th>
