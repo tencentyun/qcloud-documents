@@ -24,7 +24,7 @@ ugc_ext_libs
 | 包名 | 描述 | 
 |---------|---------|
 | imsdk_ugc_ext.jar | IM SDK 小视频功能扩展 Java 封装，提供小视频上传、小视频消息收发功能 |
-| txrtmpsdk.jar | 小视频功能 IM SDK 库 Java 封装，提供小视频录制、编辑、预览等功能<br>具体功能可以参考 [短视频SDK功能列表](/document/product/584/9457) |
+| txrtmpsdk.jar | 小视频功能 IM SDK 库 Java 封装，提供小视频录制、编辑、预览等功能<br>具体功能可以参考 [短视频 SDK 功能列表](/document/product/584/9457) |
 | cos-sdk-android.1.4.3.6.jar | 对象存储 COS 相关的 jar 包 |
 | okhttp-3.2.0.jar | 网络请求库 |
 | okio-1.6.0.jar | 网络操作 I/O 库 |
