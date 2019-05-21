@@ -1,12 +1,12 @@
 
-本文主要介绍如何快速地将腾讯云 IMSDK(iOS) 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云 IM SDK(iOS) 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
 ## 开发环境要求
 - Xcode 9.0+。
 - iOS 8.0 以上的 iPhone 或者 iPad 真机。
 - 项目已配置有效的开发者签名。
 
-## 集成 IMSDK
+## 集成 IM SDK
 您可以选择使用 CocoaPods 自动加载的方式，或者先 [下载](https://github.com/tencentyun/TIMSDK) SDK 再将其导入到您当前的工程项目中。
 
 ### CocoaPods 自动加载
@@ -76,7 +76,7 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20150928013638_56711.jpg)
 
-#### 2. 集成 ImSDK
+#### 2. 集成 IM SDK
 
 **添加依赖库：**选中 IMDemo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。
 
@@ -88,7 +88,7 @@ ImSDK.framework
 ```
 >!需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
 
-## 引用 ImSDK
+## 引用 IM SDK
 项目代码中使用 SDK 有两种方式：
 - 方式一： 在Xcode -> Build Setting -> Herader Search Paths 设置 ImSDK.framework/Headers 路径，在项目需要使用 SDK API 的文件里，直接引用头文件"ImSDK.h":
 ```
