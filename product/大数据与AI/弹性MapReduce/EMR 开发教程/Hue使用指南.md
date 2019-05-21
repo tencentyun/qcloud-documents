@@ -38,6 +38,7 @@ Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同
 ## Oozie 任务调度
 1. **准备工作流数据**
 Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下：
+```
 | create database if not exists hive_sample; | 
 | show databases;| 
 | use hive_sample;|
@@ -46,6 +47,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 | show tables;|
 |insert into hive_sample select 1, "a";|
 | select * from hive_sample;|
+```
 将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。
 具体的路径在：/usr/local/service/hive/conf/hive-site.xml，复制一个 hive-site.xml 文件，将其中对应配置修改为如下值：
 ```
