@@ -1,6 +1,6 @@
 ## 集成小视频扩展包
 
-从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，小视频扩展包：`IMUGCExt.framework`、`TXRTMPSDK.framework`。
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 IM SDK 开发包，小视频扩展包：`IMUGCExt.framework`、`TXRTMPSDK.framework`。
 
 > **注意：**
 >- 如果不需要使用小视频功能，可以在集成时移除 `IMUGCExt.framework` 和 `TXRTMPSDK.framework` 。
@@ -10,7 +10,7 @@
 
 | 对象 | 介绍 | 功能 |
 | --- | --- | --- |
-| IMUGCExt.framework | IM 小视频 UGC 消息能力扩展包 | 发送小视频消息 TIMUGCElem 功能，上传小视频功能 |
+| IMUGCExt.framework | 云通信 IM 小视频 UGC 消息能力扩展包 | 发送小视频消息 TIMUGCElem 功能，上传小视频功能 |
 | TXRTMPSDK.framework | 小视频录制、编辑能力扩展包 | 包含小视频录制功能、小视频编辑功能，其他能力请参见 [移动直播 SDK 文档](https://cloud.tencent.com/document/product/454/7876) |
   
 在工程中添加 `TXRTMPSDK.framework`，同时还要添加以下系统依赖库。
@@ -28,7 +28,7 @@ libiconv.tbd
 libresolv.tbd
 ```
 
-云通信的短视频默认仅存储7天，如需长期存储，需要在控制台开通短视频点播服务。**短视频点播服务开通方式如下：**
+云通信 IM 的短视频默认仅存储7天，如需长期存储，需要在控制台开通短视频点播服务。**短视频点播服务开通方式如下：**
 
 ![](https://mc.qcloudimg.com/static/img/7830ff8639567e4a9d60923349bf5a58/image.png)
 
@@ -265,7 +265,7 @@ ugc_elem.cover.height = 88;
 @end
 ```
 
-以下示例从会话中取出 10 条消息，获取小视频消息并下载相应数据。**示例：**
+以下示例从会话中取出10条消息，获取小视频消息并下载相应数据。**示例：**
 
 ```
 //以收到新消息回调为例，介绍下图片消息的解析过程
