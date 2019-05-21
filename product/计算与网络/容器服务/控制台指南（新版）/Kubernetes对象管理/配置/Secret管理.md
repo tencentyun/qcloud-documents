@@ -83,7 +83,7 @@ kubectl describe secrets/ test-secret
 
 #### 方式二：YAML 文件手动创建
 
->? 通过 YAML 手动创建 Secret，需提前将 Secret 的 data 进行 Bash64 编码。
+>? 通过 YAML 手动创建 Secret，需提前将 Secret 的 data 进行  Base64 编码。
 
 ```Yaml
 apiVersion: v1
@@ -98,7 +98,7 @@ data:
 
 ### 使用 Secret
 
-#### 方式一： 数据卷使用 ConfigMap 类型
+#### 方式一： 数据卷使用 Secret 类型
 
 YAML 示例如下：
 ```Yaml
@@ -140,7 +140,7 @@ apiVersion: v1
          - name: SECRET_USERNAME
            valueFrom:
              secretKeyRef:
-               name: test-secret ## 设置来源 ConfigMap 文件名
+               name: test-secret ## 设置来源 Secret 文件名
                key: username  ## 设置该环境变量的 Value 来源项
    restartPolicy: Never
 ```

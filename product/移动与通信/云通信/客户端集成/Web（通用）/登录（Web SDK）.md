@@ -1,5 +1,6 @@
+## SDK login API 函数
 
-**SDK 登录 login API 函数名：**
+**函数名：**
 
 ```
 webim.login
@@ -13,7 +14,7 @@ webim.login(loginInfo, listeners, options,cbOk,cbErr)
 
 **示例：**
 
-```
+```javascript
 //SDK 登录
 function webimLogin() {
     webim.login(
@@ -34,17 +35,17 @@ function webimLogin() {
 
 **属性名：**
 
-| 名称             | 说明                                      | 类型      |
-| -------------- | --------------------------------------- | ------- |
-| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填                       | String  |
-| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String  |
-| identifier     | 用户帐号，必填                                 | String  |
-| identifierNick | 用户昵称，选填                                 | String  |
-| userSig        | 鉴权 Token，identifier 不为空时，必填        | String  |
+| 名称           | 说明                                          | 类型   |
+| -------------- | --------------------------------------------- | ------ |
+| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填              | String |
+| appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String |
+| identifier     | 用户帐号，必填                                | String |
+| identifierNick | 用户昵称，选填                                | String |
+| userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
-> **特别注意：**
->- `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
->- Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAPPID 【应用配置】-【功能配置】-【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
+>!
+> - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
+> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
 
 
 ## 事件回调对象 listeners
@@ -58,8 +59,8 @@ function webimLogin() {
 | jsonpCallback           | 用于 IE9（含）以下浏览器中 jsonp 回调函数,移动端可不填，PC 端必填 | Function |
 | onMsgNotify             | 监听新消息函数，必填                           | Function |
 | onBigGroupMsgNotify     | 监听新消息(直播聊天室)事件，**直播场景**下必填           | Function |
-| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Object   |
-| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，必填                  | Object   |
+| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Function |
+| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，选填                | Object   |
 | onFriendSystemNotifys   | 监听好友系统通知事件，选填                        | Object   |
 | onProfileSystemNotifys  | 监听资料系统（自己或好友）通知事件，选填                 | Object   |
 | onKickedEventCall       | 被其他登录实例踢下线，选填                        | Function |
@@ -68,14 +69,13 @@ function webimLogin() {
 
 示例：
 
-```
-//监听事件
+```javascript
 //监听事件
 var listeners = {
     "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
-    ,"jsonpCallback": jsonpCallback//IE9(含)以下浏览器用到的 jsonp 回调函数，
-    ,"onMsgNotify": onMsgNotify//监听新消息(私聊，普通群(非直播聊天室)消息，全员推送消息)事件，必填
-    ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息(直播聊天室)事件，直播场景下必填
+    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数，
+    ,"onMsgNotify": onMsgNotify//监听新消息（私聊，普通群（非直播聊天室）消息，全员推送消息）事件，必填
+    ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息（直播聊天室）事件，直播场景下必填
     ,"onGroupSystemNotifys": onGroupSystemNotifys//监听（多终端同步）群系统消息事件，如果不需要监听，可不填
     ,"onGroupInfoChangeNotify": onGroupInfoChangeNotify//监听群资料变化事件，选填
     ,"onFriendSystemNotifys": onFriendSystemNotifys//监听好友系统通知事件，选填
@@ -89,7 +89,7 @@ var listeners = {
 
 **示例：**
 
-```
+```javascript
 //监听连接状态回调变化事件
 var onConnNotify = function (resp) {
     var info;
@@ -116,11 +116,11 @@ var onConnNotify = function (resp) {
 
 **其中回调返回的参数 `resp` 对象属性定义如下：**
 
-| 名称           | 说明                                      | 类型      |
-| ------------ | --------------------------------------- | ------- |
-| ActionStatus | 连接状态标识，OK-标识连接成功 FAIL-标识连接失败             | String  |
-| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Integer |
-| ErrorInfo    | 错误提示信息                                  | String  |
+| 名称         | 说明                                                     | 类型   |
+| ------------ | -------------------------------------------------------- | ------ |
+| ActionStatus | 连接状态标识，OK 表示连接成功 FAIL 表示连接失败          | String |
+| ErrorCode    | 连接状态码，具体请参考 webim. CONNECTION_STATUS 常量对象 | Number |
+| ErrorInfo    | 错误提示信息                                             | String |
 
 
 
@@ -128,9 +128,9 @@ var onConnNotify = function (resp) {
 
 为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
-```
+```javascript
 //位于 js/demo_base.js 中
-//IE9(含)以下浏览器用到的 jsonp 回调函数
+//IE9（含）以下浏览器用到的 jsonp 回调函数
 function jsonpCallback(rspData) {
 //设置 jsonp 返回的
     webim.setJsonpLastRspData(rspData);
@@ -149,9 +149,9 @@ function jsonpCallback(rspData) {
 
 **示例：**
 
->注：其中参数 newMsgList 为 webim.Msg 数组，即 [webim.Msg]。
+>注：其中参数 newMsgList 为 webim.Msg 数组，即 \[webim.Msg]。
 
-```
+```javascript
 //监听新消息事件
 //newMsgList 为新消息数组，结构为[Msg]
 function onMsgNotify(newMsgList) {
@@ -161,7 +161,7 @@ function onMsgNotify(newMsgList) {
     var sessMap = webim.MsgStore.sessMap();
     for (var j in newMsgList) {//遍历新消息
         newMsg = newMsgList[j];
-        if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息
+        if (newMsg.getSession().id() == selToID) {//为当前聊天对象的消息，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
             selSess = newMsg.getSession();
             //在聊天窗体中新增一条消息
             //console.warn(newMsg);
@@ -183,7 +183,7 @@ function onMsgNotify(newMsgList) {
 
 **示例：**
 
-```
+```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 receive_group_system_msg.js 文件中
 //注意每个数字代表的含义，比如，
 //1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息
@@ -191,15 +191,15 @@ var groupSystemNotifys = {
     "1": onApplyJoinGroupRequestNotify, //申请加群请求（只有管理员会收到）
     "2": onApplyJoinGroupAcceptNotify, //申请加群被同意（只有申请人能够收到）
     "3": onApplyJoinGroupRefuseNotify, //申请加群被拒绝（只有申请人能够收到）
-    "4": onKickedGroupNotify, //被管理员踢出群(只有被踢者接收到)
-    "5": onDestoryGroupNotify, //群被解散(全员接收)
-    "6": onCreateGroupNotify, //创建群(创建者接收)
-    "7": onInvitedJoinGroupNotify, //邀请加群(被邀请者接收)
-    "8": onQuitGroupNotify, //主动退群(主动退出者接收)
-    "9": onSetedGroupAdminNotify, //设置管理员(被设置者接收)
-    "10": onCanceledGroupAdminNotify, //取消管理员(被取消者接收)
-    "11": onRevokeGroupNotify, //群已被回收(全员接收)
-    "255": onCustomGroupNotify//用户自定义通知(默认全员接收)
+    "4": onKickedGroupNotify, //被管理员踢出群（只有被踢者接收到）
+    "5": onDestoryGroupNotify, //群被解散（全员接收）
+    "6": onCreateGroupNotify, //创建群（创建者接收）
+    "7": onInvitedJoinGroupNotify, //邀请加群（被邀请者接收）
+    "8": onQuitGroupNotify, //主动退群（主动退出者接收）
+    "9": onSetedGroupAdminNotify, //设置管理员（被设置者接收）
+    "10": onCanceledGroupAdminNotify, //取消管理员（被取消者接收）
+    "11": onRevokeGroupNotify, //群已被回收（全员接收）
+    "255": onCustomGroupNotify//用户自定义通知（默认全员接收）
 };
 ```
 
@@ -207,7 +207,7 @@ var groupSystemNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听好友系统通知函数对象，方法都定义在 receive_friend_system_msg.js 文件中
 var onFriendSystemNotifys = {
     "1": onFriendAddNotify, //好友表增加
@@ -223,7 +223,7 @@ var onFriendSystemNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听资料系统通知函数对象，方法都定义在 receive_profile_system_msg.js 文件中
 var onProfileSystemNotifys = {
     "1": onProfileModifyNotify//资料修改
@@ -245,7 +245,7 @@ var onC2cEventNotifys = {
 
 **示例：**
 
-```
+```javascript
 //监听 群资料变化 群提示消息
 function onGroupInfoChangeNotify(groupInfo) {
     webim.Log.warn("执行 群资料变化 回调： " + JSON.stringify(groupInfo));
@@ -290,7 +290,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
-```
+```javascript
 //SDK 登录
 function webimLogin() {
     webim.login(
@@ -306,3 +306,4 @@ function webimLogin() {
 }
 ```
 >? 当您集成 SDK 出现错误时，请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) 进行处理。
+
