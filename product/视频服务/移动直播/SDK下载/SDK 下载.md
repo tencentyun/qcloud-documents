@@ -85,7 +85,7 @@ LiteAVSDK 的商业版，除了包含专业版的所有功能以外，还集成�
   </tr>
   <tr>
     <td style="text-align:center">HLS(m3u8)</td>
-    <td></td>
+    <td style="text-align:center">✔</td>
     <td></td>
     <td></td>
 		<td style="text-align:center">✔</td>
