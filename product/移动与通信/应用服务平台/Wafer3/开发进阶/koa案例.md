@@ -1,6 +1,6 @@
-# vemo 案例
+# koa 案例
 
-基于 [vemo](https://github.com/vemoteam/vemo) 框架的 `hello world` 示例。
+基于 [koa](https://github.com/koajs/koa) 框架的 `hello world` 示例。
 
 ## 前置条件
 
@@ -19,14 +19,15 @@
 
 ![](https://main.qcloudimg.com/raw/63512b321eee6c8779d6cb5b20f641cf.png)
 
+
 ## 初始化项目
 
 ```shell
 // 在你自己的开发电脑而不是刚买的主机上操作
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/wafer-template
 
-## 进入 vemo demo 目录
-cd pai-template/vemo
+## 进入 koa demo 目录
+cd wafer-template/koa
 
 ## 安装依赖
 npm install
@@ -51,13 +52,13 @@ npm i -g @cloudbase/cli
 tcb login
 ```
 
-然后在 `pai-template/vemo` 目录下，然后新建 `tcb.json` 文件，将 `tcb.example.json` 的内容拷贝过来并保存。
+然后在 `wafer-template/koa` 目录下，新建 `tcb.json` 文件，将 `tcb.example.json` 的内容拷贝过来并保存。
 
 ```js
 {
     "deploys": [
         {
-            "name": "vemo",
+            "name": "koa",
             "path": "./",
             "type": "node"
         }
@@ -73,7 +74,7 @@ tcb deploy
 
 如果成功，则会有以下的显示：
 
-![](https://main.qcloudimg.com/raw/26f34ae33be47ce38b5a8ead67a20013.png)
+![](https://main.qcloudimg.com/raw/d88b8aa9abea6baf899ffae4cd36b907.png)
 
 ## 验证
 
