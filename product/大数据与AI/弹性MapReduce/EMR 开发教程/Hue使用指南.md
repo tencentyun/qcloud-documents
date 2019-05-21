@@ -45,7 +45,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 | show tables;|
 | create table if not exists hive_sample (a int, b string);|
 | show tables;|
-|insert into hive_sample select 1, "a";|
+| insert into hive_sample select 1, "a";|
 | select * from hive_sample;|
 ```
 将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。
