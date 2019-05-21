@@ -103,18 +103,18 @@ df -TH
  </tr>
  <tr>
      <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>
-     <td><b>优点：</b>每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
+     <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
 		 <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
 	</tr>
 	<tr>
-	   <td>使用文件系统的 UUID</td>
-		 <td nowrap="nowrap">可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+	   <td nowrap="nowrap">使用文件系统的 UUID</td>
+		 <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
 		 <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb</pre></td>
   </tr>
 	<tr>
-	   <td>使用设备名称</td>     
+	   <td nowrap="nowrap">使用设备名称</td>     
 		 <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-		 <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
+		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
  </tr>
 </table>
 8. 备份 `/etc/fstab` 文件。
