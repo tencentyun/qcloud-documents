@@ -23,9 +23,8 @@
 - **principal**
 认证的主体，简单来说就是“用户名”。
 - **realm**
-realm 有点像编程语言中的 namespace。在编程语言中，变量名只有在某个 namespace 里才有意义。同样的，一个 principal 只有在某个 realm 下才有意义。
-所以 realm 可以看成是 principal 的一个“容器”或者“空间”。相对应的，principal 的命名规则是 what_name_you_like@realm。
-在 kerberos，大家都约定成俗用大写来命名 realm，例如：EXAMPLE.COM。
+realm 有点像编程语言中的 namespace。在编程语言中，变量名只有在某个 namespace 里才有意义。同样的，一个 principal 只有在某个 realm 下才有意义。所以 realm 可以看成是 principal 的一个“容器”或者“空间”。相对应的，principal 的命名规则是 what_name_you_like@realm。
+在 kerberos，约定成俗用大写来命名 realm，例如：EXAMPLE.COM。
 - **password**
 某个用户的密码，对应于 kerberos 中的 master_key。password 可以存在一个 keytab 文件中。所以 kerberos 中需要使用密码的场景都可以用一个 keytab 作为输入。
 - **credential**
