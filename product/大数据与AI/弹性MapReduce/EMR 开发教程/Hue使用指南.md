@@ -36,7 +36,7 @@ Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同
 ![](https://main.qcloudimg.com/raw/0dc7e232a81e8900c06adb277b8eaf93.png)
 
 ## Oozie 任务调度
-1. **准备工作流数据。**
+1. **准备工作流数据**
 Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下：
 | create database if not exists hive_sample; | 
 | show databases;| 
