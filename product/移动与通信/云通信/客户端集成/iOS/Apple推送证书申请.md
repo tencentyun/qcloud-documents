@@ -13,27 +13,27 @@
 
 登录 developer.apple.com，选择 Member Center ：
 <img src="//mccdn.qcloud.com/static/img/5d2f381f85718559b708390aa3cc7c5e/image.png" width=640 />
-进入后选择 Certificates, Identifiers & Profiles：
+进入后选择 Certificates，Identifiers & Profiles：
 <img src="//mccdn.qcloud.com/static/img/133a316468454a2514201111b785332d/image.png" width=640 />
 再选择 Identifiers 进行到 Identifiers 管理页：
 <img src="//mccdn.qcloud.com/static/img/441c328294ddca6e9906e3f35d989ea2/image.png" width=640 />
 生成 App ID：
 Identifiers 的右侧列表中，如果您已经配置您的应用，跳到第3步，否则单击“+”号添加 Appid。
 <img src="//mccdn.qcloud.com/static/img/b1c257146018480e246be45f3889d5c4/image.png" width=640 />
-输入您的 App ID 描述信息，可以输入工程名; Bunble ID（在工程的 General 信息中），一般格式为 com.youcompany.youprojname, 选择需要支持 Push Notification，Continue：
+输入您的 App ID 描述信息，可以输入工程名; Bunble ID（在工程的 General 信息中），一般格式为 com.youcompany.youprojname，选择需要支持 Push Notification，Continue：
 <img src="//mccdn.qcloud.com/static/img/1b403cd5e1dcccf0153eb23b3e87d8c6/image.png" width=640 />
 Submit 提交：
 <img src="//mccdn.qcloud.com/static/img/ff761eaa370eb22b487c7b549e2ceab1/image.png" width=640 />
 
 ## 创建 App 的 APS 证书
 
-回到 App IDs 选择你需要推送的 app.展开单击“Edit”：
+回到 App IDs 选择你需要推送的 app。展开单击“Edit”：
 <img src="//mccdn.qcloud.com/static/img/1d4b185be699bda3f1bb87b8232e7907/image.png" width=640 />
 找到最底部的 Push Notifications，单击”Create Cerifcate…”创建 push 证书，这里**开发环境的证书和发布环境的证书需要分别创建，也就是相同的流程要走两遍**：
 <img src="//mccdn.qcloud.com/static/img/17f9f4648c333306abc307777557075e/image.png" width=640 />
 单击 Continue 继续：
 <img src="//mccdn.qcloud.com/static/img/7674151826f92e8209d6cbb8ac7dd74d/image.png" width=640 />
-上传创建好 CSR 文件（参照第一节） xxx.certSigningRequest (例子为：TXIMDemoAPS.certSigningRequest)，单击“Generate”：
+上传创建好 CSR 文件（参照第一节）xxx.certSigningRequest（例子为：TXIMDemoAPS.certSigningRequest），单击“Generate”：
 <img src="//mccdn.qcloud.com/static/img/9e043e3c71ebe7fd5403fb52390642e7/image.png" width=640 />
 aps 证书创建成功了，单击 Download 下载到本地。（文件名：开发版本为 aps_development.cer，发布版本为 aps.cer）：
 <img src="//mccdn.qcloud.com/static/img/9f112c857a992f6b8636a352963a21c4/image.png" width=640 />
