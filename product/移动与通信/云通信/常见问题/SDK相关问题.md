@@ -1,7 +1,7 @@
 ### 登录报错 6012 或  TLSSDK exchange ticket fail ？
 
 - 初始化接口和登录接口要分开调用，不能连续调用（因为初始化方法中有异步操作）；
-- 如果您当前是 IM 体验版，需要升级为专业版，升级后可正常登录，可以到 [云通信 IM 购买页面](https://buy.cloud.tencent.com/avc) 进行购买升级，详细价格说明请参阅 [产品价格](https://cloud.tencent.com/document/product/269/11673)。
+- 如果您当前是云通信 IM 体验版，需要升级为专业版，升级后可正常登录，可以到 [云通信 IM 购买页面](https://buy.cloud.tencent.com/avc) 进行购买升级，详细价格说明请参阅 [产品价格](https://cloud.tencent.com/document/product/269/11673)。
 
 ### 出现 6013 SDK 未初始化错误？
 
@@ -16,7 +16,7 @@
 
 ### 发送表情，消息列表显示为空、或者乱码?
 
-云通信不提供表情包，具体的解析需要自己对齐。
+云通信 IM 不提供表情包，具体的解析需要自己对齐。
 表情使用方式有两种方式：
 - 一种是使用 TIMFaceElem 中的 index，标识表情的索引，比如 Android 和 iOS 两端都有同一套表情图，索引2为笑脸，index=2 就表示笑脸，两端发送和接收都显示同一张索引表情图片即可。
 - 另一种是使用 TIMFaceElem 中的 data，比如表情图片是由字符串命名，smile 表示笑脸，可在 data 中存储 smile，iOS 和 Android 两端都通过 data 作为 key 找到对应表情图片进行显示。
