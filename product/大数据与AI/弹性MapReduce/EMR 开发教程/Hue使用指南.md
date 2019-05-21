@@ -61,7 +61,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 ![](https://main.qcloudimg.com/raw/1bdf334d89fa1be9fcee003d8328ff4d.png)
  4. 单击【Add】之后，还需在 FILES 中指定 hive script 文件。
 ![](https://main.qcloudimg.com/raw/f36e5b22f40b2832f018d0091c8a382c.png)
- 5. 单击右上角“保存”按钮，然后点击执行按钮，运行 workflow。
+ 5. 单击右上角“保存”按钮，然后单击“执行”按钮，运行 workflow。
 ![](https://main.qcloudimg.com/raw/418083ee1956ea3d2faea6afcd520834.png)
 3. **创建定时调度任务**
 Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。
