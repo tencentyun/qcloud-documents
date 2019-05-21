@@ -24,7 +24,7 @@ x-cos-copy-source-if-unmodified-since: time_stamp
 x-cos-copy-source-if-modified-since: time_stamp
 ```
 
->Authorization： Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
