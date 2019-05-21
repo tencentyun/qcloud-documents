@@ -15,7 +15,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 2. 在列表页找到 Hue 组件，单击“原生WebUI访问地址”进入 Hue 页面。
 3. 首次登录 Hue 控制台页面，请使用 root 帐号，密码为创建集群时候提供的密码。
 ![](https://main.qcloudimg.com/raw/ae62e428871fd46c2ce6509fd31cde63.png)
->!由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 账户。后续所有作业通过 hadoop 帐号来提交。
+>!由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 帐号。后续所有作业通过 hadoop 帐号来提交。
 
 ## Hive SQL 查询
 Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同的 Hive数据库，编写 HQL 语句，提交查询任务，查看结果。 
