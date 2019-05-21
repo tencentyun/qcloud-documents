@@ -238,7 +238,7 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
 	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre> blkid /dev/vdc1</pre></td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdc1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
