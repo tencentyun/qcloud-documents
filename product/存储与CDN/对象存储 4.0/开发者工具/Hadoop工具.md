@@ -17,7 +17,7 @@ Hadoop-2.6.0及以上版本。
 
 
 ### 安装 hadoop-cos 插件
-0
+
 1. 将 dep 目录下的 cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
