@@ -21,7 +21,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。 
 1. 在 Hue 控制台上方，选择【Query】>【Editor】>【Hive】。
 ![](https://main.qcloudimg.com/raw/bfcd6944a8a8dd70065218885b55f82d.png)
-2. 在语句输入框中输入要执行语句，然后单击执行按钮执行语句。
+2. 在语句输入框中输入要执行语句，然后单击“执行”按钮执行语句。
 ![](https://main.qcloudimg.com/raw/202878b0b90b42da7317b026e9f2f603.png)
 
 ## Hbase 数据查询
