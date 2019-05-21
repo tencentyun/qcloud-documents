@@ -3,7 +3,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 
 通过使用 Hue 我们可以在浏览器端的 Web 控制台上与 Hadoop 集群进行交互来分析处理数据，例如操作 HDFS 上的数据，运行 MapReduce Job，执行 Hive 的 SQL 语句，浏览 HBase 数据库等。
 
-## HUE功能
+## Hue 功能
 - Hive SQL 查询。
 - Hbase 数据查询和修改、数据展示。
 - 访问 HDFS 和文件浏览。
