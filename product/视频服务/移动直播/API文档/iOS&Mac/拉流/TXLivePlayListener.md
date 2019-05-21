@@ -1,4 +1,4 @@
-## TXLivePlayListener
+
 
 __功能__
 
@@ -6,7 +6,7 @@ __功能__
 
 
 
-### onPlayEvent
+## onPlayEvent
 
 直播事件通知。
 ```
@@ -22,7 +22,7 @@ __参数__
 
 ***
 
-### onNetStatus
+## onNetStatus
 
 网络状态通知。
 ```

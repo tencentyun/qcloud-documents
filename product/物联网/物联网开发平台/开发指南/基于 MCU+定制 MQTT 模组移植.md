@@ -1,6 +1,6 @@
 ## 简介
 
-[tc-iot-at-sdk-stm32-freertos-based-example](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git) 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git) 的移植示例，示例了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
+[tc-iot-at-sdk-stm32-freertos-based-example](https://github.com/tencentyun/tc-iot-at-sdk-stm32-freertos-based-example.git) 面向使用支持腾讯 AT 指令的模组（2/3/4/5G、NB、Wi-Fi 等）接入腾讯物联网平台的终端设备开发者，mcu 侧使用 [腾讯 AT_SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git) 的移植示例，示例展示了基于 STM32F103 MCU 和 FreeRTOS 的软硬件环境如何实现 HAL 层的移植，主要有串口的收发接口（中断接收），延时函数及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 代码工程框架
 
@@ -42,7 +42,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | 4    | DEBUG_DEV_INFO_USED     | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。 |
 
 **2.2 hal_os.c**
-该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等
+该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等。
 
 | 序号 | HAL_API                  | 说明                                                         |
 | ---- | ------------------------ | ------------------------------------------------------------ |
@@ -86,7 +86,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 **2.4 module_api_inf.c**
 配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的 API（module_register_network）需要根据模组适配。
 
-示例基于 [ESP8266 腾讯定制 AT 固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
+示例基于 [ESP8266 腾讯定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。开发者参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
 
 ```
 //模组联网（NB/2/3/4G注册网络）、wifi配网（一键配网/softAP）暂时很难统一,需要用户根据具体模组适配。
@@ -188,7 +188,9 @@ void demoTask(void)
 | 1    | mqtt_sample.c                  | MQTT 示例，该示例示例基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
 | 1    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
 | 2    | data_template_sample.c         | 通用数据模板及事件功能示例，示例如何基于腾讯物联网平台的数据模板功能快速开发产品。|
-| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。                |
+| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。 | 
+
+data_template_sample、light_data_template_sample为 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)示例，mqtt_sample和shadow_sample为[物联网通信平台](https://console.cloud.tencent.com/iotcloud/products) 示例。
 
 **2.7 示例运行**
 
@@ -403,8 +405,8 @@ INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\light_data
 
 - [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
 - [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
-- [数据模板编程](https://cloud.tencent.com/document/product/634/)
+- [数据模板介绍](https://cloud.tencent.com/document/product/1081/34916)
 
 ## SDK接口说明
 
-关于 AT-SDK 的更多使用方式及接口说明，请参阅 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)。
+关于 AT-SDK 的更多使用方式及接口说明，请参阅 [腾讯 AT_SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git)。
