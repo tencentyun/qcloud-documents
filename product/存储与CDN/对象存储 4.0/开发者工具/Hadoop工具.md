@@ -1,5 +1,7 @@
 ## 功能说明
-Hadoop cosn 插件实现了以腾讯云 COS 作为底层存储文件系统运行上层计算任务的功能，使用 Hadoop 大数据处理引擎，如 MapReduce，Hive、Spark、Tez 等，可以处理存储在腾讯云对象存储 COS 上的数据。
+Hadoop-COS基于腾讯云COS对象存储实现了标准的hadoop文件系统，可以为Hadoop、Spark以及Tez等大数据计算框架集成COS提供支持，使其能够像访问HDFS文件系统一样读写存储在COS上的数据。
+
+Hadoop-COS使用`cosn`作为URI的scheme，因此，也经常称Hadoop-COS为CosN文件系统。
 
 ## 使用环境
 ### 系统环境
@@ -15,7 +17,7 @@ Hadoop-2.6.0及以上版本。
 
 
 ### 安装 hadoop-cos 插件
-
+0
 1. 将 dep 目录下的 cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
@@ -37,14 +39,15 @@ done
 
 | 属性键                             | 说明                |默认值|必填项|
 |:-----------------------------------:|:----------------------|:-----:|:-----:|
-|fs.cosn.userinfo.secretId/secretKey| 填写您账户的 API 密钥信息。可登录 [控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥 | 无  | 是|
-|fs.cosn.credentials.provider|配置 secret id 和 secret key 的获取方式。当前支持两种获取方式：1.org.apache.hadoop.fs.auth.SimpleCredentialProvider：从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId和 fs.cosn.userinfo.secretKey 来获取 secret id 和 secret key 2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和COS_SECRET_KEY 中获取|如果不指定改配置项，默认会按照以下顺序读取：1.org.apache.hadoop.fs.auth.SimpleCredentialProvider；2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider。|否|
+|fs.cosn.userinfo.secretId/secretKey| 填写您账户的 API 密钥信息。可登录 [控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。| 无  | 是|
+|fs.cosn.credentials.provider|配置 secret id 和 secret key 的获取方式。当前支持三种获取方式：1.org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求URI中获取secret id和secret key，其格式为：cosn://{secretId}:{secretKey}@examplebucket-1250000000000/；2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId和 fs.cosn.userinfo.secretKey 来获取 secret id 和 secret key； 3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和COS_SECRET_KEY 中获取。|如果不指定改配置项，默认会按照以下顺序读取：1.org.apache.hadoop.fs.auth.SessionCredentialProvider；2.org.apache.hadoop.fs.auth.SimpleCredentialProvider； 3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider。|否|
 |fs.cosn.impl                      | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem| 无 |是|
 |fs.AbstractFileSystem.cosn.impl   | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN | 无 |是|
-|fs.cosn.userinfo.region           | 请填写您的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等 | 无 | 是|
-|fs.cosn.userinfo.endpoint_suffix | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的region配置即可|无|否|
+|fs.cosn.bucket.region           | 请填写待访问bucket的地域信息，枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，如	ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。| 无 | 是|
+|fs.cosn.bucket.endpoint_suffix | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的region配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。|无|否|
 |fs.cosn.tmp.dir                | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处| /tmp/hadoop_cos | 否|
-|fs.cosn.buffer.size        | 向 COS 流式上传文件时，本地使用的内存缓冲区的大小。要求至少大于等于一个 block 的大小 | 33554432（32MB）|否|
+|fs.cosn.upload.buffer|CosN文件系统上传时依赖的缓冲区类型。当前支持三种类型的缓冲区：非直接内存缓冲区（ non_direct_memory），直接内存缓冲区（direct_memory），磁盘映射缓冲区（mapped_disk）。非直接内存缓冲区使用的是JVM堆内存，直接内存缓冲区则使用的是堆外内存，而磁盘映射缓冲区则是基于内存文件映射得到的缓冲区。|mapped_disk|否|
+|fs.cosn.upload.buffer.size        |CosN文件系统上传时依赖的缓冲区大小，如果指定为-1，则表示不限制。若不限制缓冲区大小，则缓冲区类型必须为mapped_disk。如果指定大小大于0，则要求该值至少大于等于一个block大小。兼容原有配置：fs.cosn.buffer.size。| -1（unlimited）|否|
 |fs.cosn.block.size                | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB| 8388608（8MB） | 否 |
 |fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目 | CPU核心数*5 | 否 |
 |fs.cosn.copy_thread_pool          |目录拷贝操作时，可用于并发拷贝文件的线程数目 | CPU核心数目*3 | 否 |
@@ -64,16 +67,6 @@ done
         <name>fs.defaultFS</name>
         <value>cosn://<bucket-appid></value>
     </property>
-      
-    <property>
-        <name>hadoop.tmp.dir</name>
-        <value>${HADOOP_PATH}/tmp</value>
-    </property>
-      
-    <property>
-        <name>dfs.name.dir</name>
-        <value>${HADOOP_PATH}/name</value>
-    </property>
   
     <property>
         <name>fs.cosn.credentials.provider</name>
@@ -84,14 +77,16 @@ done
             Comma-separated class names of credential provider classes which implement
             com.qcloud.cos.auth.COSCredentialsProvider:
 
-            1.org.apache.hadoop.fs.auth.SimpleCredentialProvider: Obtain the secret id and secret key
-            from fs.cosn.userinfo.secretId and fs.cosn.userinfo.secretKey in core-site.xml
-            2.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider: Obtain the secret id and secret key
-            from system environment variables named COS_SECRET_ID and COS_SECRET_KEY
+            1.org.apache.hadoop.fs.auth.SessionCredentialProvider: Obtain the secret id and secret key from the URI: cosn://secretId:secretKey@examplebucket-1250000000000/;
+            2.org.apache.hadoop.fs.auth.SimpleCredentialProvider: Obtain the secret id and secret key
+            from fs.cosn.userinfo.secretId and fs.cosn.userinfo.secretKey in core-site.xml;
+            3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider: Obtain the secret id and secret key
+            from system environment variables named COS_SECRET_ID and COS_SECRET_KEY.
 
             If unspecified, the default order of credential providers is:
-            1. org.apache.hadoop.fs.auth.SimpleCredentialProvider
-            2. org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider
+            1. org.apache.hadoop.fs.auth.SessionCredentialProvider
+            2. org.apache.hadoop.fs.auth.SimpleCredentialProvider
+            3. org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider
 
         </description>
     </property>
@@ -99,7 +94,7 @@ done
     <property>
         <name>fs.cosn.userinfo.secretId</name>
         <value>xxxxxxxxxxxxxxxxxxxxxxxxx</value>
-        <description>Tencent Cloud Secret Id </description>
+        <description>Tencent Cloud Secret Id</description>
     </property>
       
     <property>
@@ -109,13 +104,13 @@ done
     </property>
       
     <property>
-        <name>fs.cosn.userinfo.region</name>
+        <name>fs.cosn.bucket.region</name>
         <value>ap-xxx</value>
-        <description>The region where the bucket is located</description>
+        <description>The region where the bucket is located.</description>
     </property>
       
     <property>
-        <name>fs.cosn.userinfo.endpoint_suffix</name>
+        <name>fs.cosn.bucket.endpoint_suffix</name>
         <value>cos.ap-xxx.myqcloud.com</value>
         <description>
           COS endpoint to connect to. 
@@ -126,7 +121,7 @@ done
     <property>
         <name>fs.cosn.impl</name>
         <value>org.apache.hadoop.fs.CosFileSystem</value>
-        <description>The implementation class of the CosN Filesystem</description>
+        <description>The implementation class of the CosN Filesystem.</description>
     </property>
       
     <property>
@@ -140,11 +135,17 @@ done
         <value>/tmp/hadoop_cos</value>
         <description>Temporary files will be placed here.</description>
     </property>
-      
+  
     <property>
-    	<name>fs.cosn.buffer.size</name>
+      <name>fs.cosn.upload.buffr</name>
+      <value>mapped_disk</value>
+      <description>The type of upload buffer. Available values: non_direct_memory, direct_memory, mapped_disk.</description>
+    </property>
+    
+    <property>
+    	<name>fs.cosn.upload.buffer.size</name>
         <value>33554432</value>
-        <description>The total size of the buffer pool</description>
+        <description>The total size of the buffer pool.</description>
     </property>
       
     <property>
@@ -152,7 +153,7 @@ done
         <value>8388608</value>
         <description>Block size to use cosn filesysten, which is the part size for MultipartUpload.
         Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file.
-        for example, 8MB part size can allow  writing a 78GB single file.</description>
+        For example, 8MB part size can allow  writing a 78GB single file.</description>
     </property>
       
     <property>
@@ -175,7 +176,7 @@ done
 
 ### 使用示例
 
-命令格式为：`hadoop fs -ls -R cosn://bucketname-appid/<路径>` 或 `hadoop fs -ls -R /<路径>`（需要配置 fs.defaultFS 选项为 cosn://bucket-appid），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
+命令格式为：`hadoop fs -ls -R cosn://examplebucket-1250000000/<路径>` 或 `hadoop fs -ls -R /<路径>`（需要配置 fs.defaultFS 选项为 cosn://bucket-appid），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
 
 ```shell
 hadoop fs -ls -R cosn://examplebucket-1250000000/
