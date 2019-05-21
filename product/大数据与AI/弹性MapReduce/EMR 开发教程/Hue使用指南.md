@@ -32,7 +32,7 @@ Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同
 通过 Hue 的 Web 页面可方便查看 HDFS 中的文件及文件夹，以及对其进行创建、下载、上传、复制、修改及删除等操作。
 1. 在 Hue 控制台左侧，选择【Browsers】>【Files】进入 HDFS 文件浏览。
 ![](https://main.qcloudimg.com/raw/b2e05c0c8f05464f0ef1ffe671be1cc3.png)
-2. 进入 File Browser 后，可以执行下图片所示的操作。
+2. 进入 File Browser 后，可以执行下图中所示的操作。
 ![](https://main.qcloudimg.com/raw/0dc7e232a81e8900c06adb277b8eaf93.png)
 
 ## Oozie 任务调度
