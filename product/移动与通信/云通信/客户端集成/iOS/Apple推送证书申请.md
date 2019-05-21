@@ -27,7 +27,7 @@ Submit 提交：
 
 ## 创建 App 的 APS 证书
 
-回到 App IDs 选择你需要推送的 app。展开单击“Edit”：
+回到 App IDs 选择您需要推送的 app。展开单击“Edit”：
 <img src="//mccdn.qcloud.com/static/img/1d4b185be699bda3f1bb87b8232e7907/image.png" width=640 />
 找到最底部的 Push Notifications，单击”Create Cerifcate…”创建 push 证书，这里**开发环境的证书和发布环境的证书需要分别创建，也就是相同的流程要走两遍**：
 <img src="//mccdn.qcloud.com/static/img/17f9f4648c333306abc307777557075e/image.png" width=640 />
