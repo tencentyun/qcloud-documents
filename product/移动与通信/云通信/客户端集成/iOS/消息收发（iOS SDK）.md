@@ -175,7 +175,7 @@ image_elem.path = @"/xxx/imgPath.jpg";
 
 ### 表情消息发送
 
-表情消息由 `TIMFaceElem` 定义，SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用 `data` 存储表情二进制信息以及字符串 `key`，都由用户自定义，SDK 内部只做透传。
+表情消息由 `TIMFaceElem` 定义，IM SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用 `data` 存储表情二进制信息以及字符串 `key`，都由用户自定义，SDK 内部只做透传。
 
 ```
 @interface TIMFaceElem : TIMElem
@@ -199,7 +199,7 @@ image_elem.path = @"/xxx/imgPath.jpg";
 index|表情索引标号，由开发者定义
 data|表情二进制数据，由开发者定义
 
-以下示例中发送了索引为 10 的表情，具体 10 标识哪种表情，需要开发者在两端都持有一份表情包，索引到编号为10的表情，也可以通过 data 通过二进制数据来标识。**示例：**
+以下示例中发送了索引为10的表情，具体10标识哪种表情，需要开发者在两端都持有一份表情包，索引到编号为10的表情，也可以通过 data 通过二进制数据来标识。**示例：**
 
 ```
 TIMFaceElem * face_elem = [[TIMFaceElem alloc] init];
@@ -346,7 +346,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。
 
 >!
->- 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
+>- 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误1，添加不生效。
 >- 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示。
 
 ```
@@ -406,7 +406,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 ---|---
 path | 文件路径
 data | 要发送的文件二进制数据。如设置 path，可不用设置 data，二者只需要设置一个字段即可，推荐使用 path
-filename | 文件名，SDK 不校验是否正确，只透传。
+filename | 文件名，IM SDK 不校验是否正确，只透传。
 
 **示例：**
 
@@ -1691,7 +1691,7 @@ fail | 失败回调
 
 ### 获取本地指定 ID 的消息
 
-IM SDK  2.5.3 版本提供获取本地指定 ID 消息的接口。
+IM SDK 2.5.3 版本提供获取本地指定 ID 消息的接口。
 
 **原型：**
 
