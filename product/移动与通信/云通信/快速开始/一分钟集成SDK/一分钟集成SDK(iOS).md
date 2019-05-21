@@ -154,7 +154,7 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 ```
 
 ### 手动集成
-#### 1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 ImSDK 开发包，其中 SDK 所在的位置如下：
+#### 1. 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IM SDK 开发包，其中 SDK 所在的位置如下：
 ![](https://main.qcloudimg.com/raw/fcef4a413f6ed3a183f5f60947df1c6f.png)
 
 - IMSDK.framework 为 IMSDK 的核心动态库文件。
