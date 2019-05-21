@@ -1,7 +1,7 @@
-本文主要介绍腾讯云 Im SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
 ## 初始化
-- ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
-- SdkAppId 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
+- IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
+- SDKAppID 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 ```
 //初始化 SDK 基本配置
@@ -91,7 +91,7 @@ conversation = TIMManager.getInstance().getConversation(
 
 ### 消息发送
 
-ImSDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
+IM SDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
 ![](https://main.qcloudimg.com/raw/2841a6842e0f46d2ac71eae1e5a13e05.png)
 
 ```
