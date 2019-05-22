@@ -2,7 +2,7 @@
 
 - 官网体验 Demo 请直接访问：[云通信 IM Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
 
-- Demo 运行指引请访问：[Demo 指引](https://cloud.tencent.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
+- Demo 运行指引请访问：[Demo 指引](https://cloud.tencent.com/document/product/269/4196)
 
 ### 下载 IM SDK
 
