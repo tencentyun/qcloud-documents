@@ -75,7 +75,7 @@ function onRevokeGroupNotify(notify) {
 **示例：**
 
 ```
-//监听 用户自定义 群系统消息
+//监听用户自定义群系统消息
 function onCustomGroupNotify(notify) {
     webim.Log.warn("执行 用户自定义系统消息 回调："+JSON.stringify(notify));
     var reportTypeCh = "[用户自定义系统消息]";
