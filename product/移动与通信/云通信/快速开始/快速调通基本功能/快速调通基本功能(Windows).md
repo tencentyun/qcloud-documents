@@ -1,8 +1,8 @@
-本文主要介绍腾讯云 IM SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
 
 ## 初始化
 
-在使用 SDK 进行云通信操作之前，需要初始 SDK。
+在使用 SDK 进行云通信 IM 操作之前，需要初始 SDK。
 **示例：**
 ```c
 int sdk_app_id = 12345678;
@@ -21,7 +21,7 @@ json_value_init[kTIMSdkConfigDeviceInfo] = json_value_dev;
 TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 ```
 
-SDKAppid 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
+SDKAppID 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
 
 
 ## 登录/登出
