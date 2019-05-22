@@ -17,7 +17,7 @@ webim.login(loginInfo, listeners, options,cbOk,cbErr)
 ```javascript
 //IM SDK 登录
 function sdkLogin() {
-    //Web IM SDK 登录
+    //Web SDK 登录
     webim.login(loginInfo, listeners, options,
             function (identifierNick) {
                 //identifierNick 为登录用户昵称(没有设置时，为帐号)，无登录态时为空
@@ -271,7 +271,7 @@ IM SDK 登录时，可以定义成功回调函数和失败回调函数。**示�
 ```javascript
 //IM SDK 登录
 function sdkLogin() {
-    //Web IM SDK 登录
+    //Web SDK 登录
     webim.login(loginInfo, listeners, options,
             function (identifierNick) {
                 //identifierNick 为登录用户昵称(没有设置时，为帐号)，无登录态时为空
