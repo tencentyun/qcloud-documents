@@ -13,21 +13,21 @@
  ![](https://main.qcloudimg.com/raw/b6655906590c0b9bdcd1e0c21776fa93.png)
 2. 单击【帐号体系集成】右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
- >?在使用云通信后台的 REST API 发送消息时会用到帐号管理员信息。
+ >?在使用云通信 IM 后台的 REST API 发送消息时会用到帐号管理员信息。
 
 ## 3. 获取测试 userSig
 1. 在应用详情页面，单击**帐号体系集成**右侧的【下载公私钥】，保存 **keys.zip** 压缩文件。
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
-2. 解压**keys.zip** ，获得 **private_key** 和**public_key** 文件，其中 **private_key** 即为私钥文件。
+2. 解压 **keys.zip** ，获得 **private_key** 和 **public_key** 文件，其中 **private_key** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/95875a7baca63c21103bc6cd6dac0279.png)
-4.  在应用详情页面，选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件 **private_key** 中的内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信应用指定用户名的 UserSig。
+4.  在应用详情页面，选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件 **private_key** 中的内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信 IM 应用指定用户名的 UserSig。
  ![](https://main.qcloudimg.com/raw/0439e0c6f69ec2187035697f4a364b5b.png)
 
 >?可以生成4组或以上 userid 和 usersig，方便在 Demo 中调试使用。
 
 ## 4. 运行 Demo
 
-从 [Github](<https://github.com/tencentyun/TIMSDK/tree/master/H5/AVChatRoom>) 下载 SDK 和 Demo。
+从 [Github](<https://github.com/tencentyun/TIMSDK/tree/master/H5/AVChatRoom>) 下载 IM SDK 和 Demo。
 
 ### 4.1 准备直播大群 ID
 
@@ -50,7 +50,7 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 ![]( https://mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
 3. 填写登录用户信息 `identifier` 和 `userSig`，`userSig` 需要开发者在自己的服务器调用 TLS API 生成。详情请参考 [TLS 后台 API 使用手册](https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)。
 ![](https://mccdn.qcloud.com/static/img/c604fbde4569278532eebc6d5eb7ebc7/image.png)
-4. 单击【确定】，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 SDK。
+4. 单击【确定】，拿到登录用户信息 `identifier` 和 `userSig` 放入 `loginInfo` 去登录 IM SDK。
 ```javascript
 //当前用户身份
 var loginInfo = {
