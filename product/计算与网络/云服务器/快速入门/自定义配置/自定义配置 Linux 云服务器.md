@@ -33,7 +33,7 @@
 腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](/doc/product/213/4941) 进行选择。
 对于刚开始使用腾讯云的用户，推荐选择公共镜像。
 2. **选择操作系统及版本**
-腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 OpenSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
+腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 openSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
 3. 单击【**下一步：选择存储与带宽**】，进入选择存储与带宽页面。
 
 ## 选择存储与带宽

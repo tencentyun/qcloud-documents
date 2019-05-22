@@ -39,9 +39,11 @@
 - 已完成 [新建工程和工作流](https://cloud.tencent.com/document/product/851/19069)
 
 ## 案例相关材料
+
 请单击下载链接下载 demo 所需资料（Python 文件和 csv 数据文件）：
 
 [Kobe 投篮预测 Demo 资料](https://main.qcloudimg.com/raw/7e333d78c73d191bb42f54f1e4c7d390.zip)
+
 
 ## 操作步骤
 该 Demo 的整体流程如下：
@@ -106,4 +108,5 @@
 ![](https://main.qcloudimg.com/raw/b1460953cd4668e6b3a32fd11fb14fd6.png)
 算法参数和资源参数配置如下：
 ![](https://main.qcloudimg.com/raw/ff49584b3630485723ccc723bb8982e8.png)
-
+运行成功后，将光标放置于“BinaryEvaluator”，画布中将展示工作流评估结果：
+![](https://main.qcloudimg.com/raw/9e742c3501896baea527900e8600e549.png)
