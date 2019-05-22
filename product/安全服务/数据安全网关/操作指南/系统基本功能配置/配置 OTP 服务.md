@@ -28,7 +28,7 @@
  - **OTP 认证端口**：默认的 OTP 端口为1812，请根据实际环境填写。
  - **OTP 认证方法**：请根据实际环境填写。例如 PAP。
  - **通信密钥**：OTP 认证密码。请根据实际环境填写。
-![1](https://main.qcloudimg.com/raw/8f9a06d19d296f8469795fb5ece701c1.png)
+![](https://main.qcloudimg.com/raw/0d587d9986c7f37cd085d43b463dbf88.png)
 4. 单击【保存】，即可完成 OTP 服务配置。
 
 

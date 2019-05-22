@@ -232,7 +232,7 @@
 - 对应 Elem 的顺序。
 目前文件和语音 Elem 不一定会按照添加顺序传输，其他 Elem 按照顺序，不过建议不要过于依赖 Elem 顺序进行处理，应该逐个按照 Elem 类型处理，防止异常情况下进程 Crash。
 - 针对群组的红包和点赞消息。
-对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 TIMCustomElem 进行定义，发送消息时，可使用不同接口定义消息优先级。具体消息优先级的策略，可参阅 [互动直播集成多人聊天方案](https://cloud.tencent.com/document/product/269/3885)。
+对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 TIMCustomElem 进行定义，发送消息时，可使用不同接口定义消息优先级。
 - 消息自定义字段。
 开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据（必须转换成 String，JSON 不支持二进制传输），可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
 
@@ -905,7 +905,7 @@ UUID 类型。
 | kTIMGroupGetMemberInfoListParamGroupId | string | 只写（必填） | 群组 ID |
 | kTIMGroupGetMemberInfoListParamIdentifierArray |  array string | 只写（选填） | 群成员 ID 列表 |
 | kTIMGroupGetMemberInfoListParamOption |  object [GroupMemberGetInfoOption](https://cloud.tencent.com/document/product/269/33553#groupmembergetinfooption)  | 只写（选填） | 获取群成员信息的选项 |
-| kTIMGroupGetMemberInfoListParamNextSeq | uint64 | 只写（选填） | 分页拉取标志，第一次拉取填 0，回调成功如果不为零，需要分页，传入再次拉取，直至为 0 |
+| kTIMGroupGetMemberInfoListParamNextSeq | uint64 | 只写（选填） | 分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，传入再次拉取，直至为0 |
 
 ### GroupGetMemberInfoListResult
 

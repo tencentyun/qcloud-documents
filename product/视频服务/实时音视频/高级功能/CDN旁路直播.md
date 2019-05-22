@@ -4,24 +4,29 @@
 ![](https://main.qcloudimg.com/raw/bc9a947800ae8648951a9def71114ca9.gif)
 
 下面主要介绍如何在腾讯云直播 CDN 系统上，通过标准的 **http + flv** 协议，观看 TRTC 房间里的各路音视频流。
-## 平台支持
 
-| iOS | Android | Mac OS | Windows | 微信小程序 | Chrome 浏览器|
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-|     ✔  |    ✔    |    ✔   |    ✔    |    ✔     |   ✔     |
 
 ## 功能体验
 我们在实时音视频 [DEMO](https://cloud.tencent.com/document/product/647/17021) 中加入了旁路直播功能，您可以在视频通话的过程中单击“更多功能”按钮找到该功能的体验入口（播放器 TXLivePlayer 的下载地址在 [移动直播页面](https://cloud.tencent.com/document/product/454/6555)）。
 ![](https://main.qcloudimg.com/raw/1d663f77c71bee9914b60609edaf1fef.jpg)
 
+## 示例代码
+
+| 所属平台 | 计算 CDN 观看地址 | 设置云端混流参数 |
+|---------|---------|---------|
+| iOS | 文件： [TRTCMoreViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMoreViewController.m) <br>函数：onBtnClick() | 文件：[TRTCMainViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMainViewController.m)<br>函数：updateCloudMixtureParams() |
+| Android | 文件：[TRTCMainActivity.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/TRTCMainActivity.java)<br>函数： onClickButtonGetPlayUrl() | 文件：[TRTCMainActivity.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/TRTCMainActivity.java)<br>函数：updateCloudMixtureParams() |
+| Windows |  文件：[TRTCSettingViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCSettingViewController.cpp)<br>函数：NotifyOtherTab | 文件：[TRTCCloudCore.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/sdkinterface/TRTCCloudCore.cpp)<br>函数：updateMixTranCodeInfo() |
+| Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：setupTranscoding() |
 
 ## 应用场景
-基于旁路直播特性，我们可以实现主流直播平台常见的主播连麦功能：
-1. 主播通过 `enterRoom()`创建一个 TRTC 音视频房间。
-2. 如果当前的账号已经开启了“旁路直播”功能，即可获得该房间的一路直播 CDN 播放地址（http - flv 协议）。
-3. 观众可以通过 TXLivePlayer 观看该路（http - flv 协议）直播地址。如果设置极速模式，延时通常为2s - 3s。
-4. 当有观众通过 `enterRoom()`发起连麦，或者有其他主播通过`connectOtherRoom()` 发起 PK 后，即可通过 `setMixTranscodingConfig()` 启动云端混流，这样原来的 CDN 播放地址就会从单一的一路视频变成混合视频。
-5. 当连麦结束后，主播可以再次调用 `setMixTranscodingConfig()` 关闭混流，这样 CDN 播放地址又会恢复成单路画面。
+基于旁路直播特性，我们可以实现主流直播平台常见的主播连麦和直播 PK 功能：
+
+1. 主播通过 TRTCCloud 中的 `enterRoom()` 接口，可以创建一个 TRTC 房间，如果当前的账号已经开启了“旁路直播”功能，即可获得该房间对应的一路直播 CDN 地址（推荐：http - flv 协议，秒开效果好）。
+2. 观众可以通过 TXLivePlayer 播放器观看该路 CDN 地址，如果设置为极速模式，播放延时通常为2s - 3s。
+3. 观众也可以通过 TRTCCloud 中的 `enterRoom()` 接口进入主播当前的 TRTC 房间，这样就可以跟主播进行实时视频连麦互动。主播自己也可以通过  `connectOtherRoom()` 接口跟其他房间的主播进行实时视频连麦 PK。
+4. 主播在进入连麦或者 PK 状态以后，通过 TRTCCloud 中的 `setMixTranscodingConfig()` 接口，可以通知云端进行视频混流，也就是将多路视频画面混合成一路。这样一来，原 CDN 地址中的视频画面就会从单人画面变成多人混合画面。在这个过程中，一直观看 CDN 地址的观众并不需要切换播放地址。
+5. 当连麦结束后，主播可以再次调用 `setMixTranscodingConfig()` 接口关闭混流，这样 CDN 地址中的视频画面就恢复成单人画面。
 
 ## 如何使用
 
@@ -32,26 +37,33 @@
 
 ### step2: 独立画面
 
-开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，其计算规则如下：
+开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
 http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 ```
-- streamid = MD5 (房间号\_用户名\_流类型)。
-- bizid： 一个与直播服务相关的数字，您可以在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 右上角的【账号信息】- **直播信息**页面看到 appid 和 bizid。
+
+其中 `bizid`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
+
+- bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
 ![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
-- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux。
-	>!Web 端目前屏幕分享的流类型也是 main。
+- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
+- streamid：将“房间号”、“用户名”和“流类型” 用下划线连接在一起，然后计算 MD5，得到的就是 streamId，也就是说，`streamid = MD5 (房间号_用户名_流类型)`。
 
-您可以参照下面的计算示例来计算您的**直播流地址**：
+
+我们通过如下例子来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
-例如 bizid = 8888， 房间号 = 12345，用户名 = userA， 用户当前使用了摄像头。
+例如 bizid = 8888， 房间号 = 12345，用户名 = userA， 用户当前使用了摄像头，
 
-那么 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
+那么 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8。
 
-所以 userA 这一路的腾讯云 CDN 观看地址（推荐 http - flv）是：
+所以 userA 这一路的腾讯云 CDN 观看地址是：
 
-http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
+flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
+hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
 ```
+
+>! 上述实例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
+![](https://main.qcloudimg.com/raw/5dd6df3b7420e0fed2bb347d4ff9dd5a.png)
 
 ### step3: 混合画面
 
@@ -60,7 +72,7 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
  - 混合画面的画面质量和编码参数。
 
 详细配置方法请参考 [云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
->! `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，并在云端服务器进行混流和转码。由于混流和转码都需要对原来的音视频数据进行解码和二次编码，所以需要更长的处理时间。因此，混合画面的实际观看时延要比独立画面的多出1 - 2秒。
+>! `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，并在云端服务器进行混流和转码。由于混流和转码都需要对原来的音视频数据进行解码和二次编码，所以需要更长的处理时间。因此，混合画面的实际观看时延要比独立画面的多出1s - 2s。
 
 ### step4: 对接播放
 
@@ -76,11 +88,10 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 | 旁路流类型 | TXLivePlayer 的播放模式 |  平均延时 |
 |:-------:|:-------:|:--------:|
 | 独立画面 | 极速模式（推荐） | **2s - 3s** |
-| 独立画面 | 流畅模式 | >= 5s |
 | 混合画面 | 极速模式（推荐） | **4s - 5s** |
-| 混合画面 | 混合模式 | >= 7s |
 
-![](https://main.qcloudimg.com/raw/c34bc689fc4783829563860c94cbc9ca.jpg)
+![](https://main.qcloudimg.com/raw/63c4fbd1ddc006f660c4d1f13ae1b076.jpg)
+
 如果您在实测中看到的延时比上表中的要大，可以按照如下指引来优化延时：
 
 - **使用 TRTC SDK 自带的 TXLivePlayer**
@@ -88,17 +99,16 @@ http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
 
 - **设置 TXLivePlayer 的播放模式为极速模式**
 可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/7880#Delay) 为例，设置代码如下：
+	```
+	// 设置 TXLivePlayer 的播放模式为极速模式
+	TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
+	config.bAutoAdjustCacheTime = YES;
+	config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
+	config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
+	[player setConfig:config];
 
-```
-// 设置 TXLivePlayer 的播放模式为极速模式
-TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
-config.bAutoAdjustCacheTime = YES;
-config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
-config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
-[player setConfig:config];
-
-// 启动直播播放
-```
+	// 启动直播播放
+	```
 
 ## 常见问题
 **为什么房间里只有一个人的时候画面又卡又模糊?**

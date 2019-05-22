@@ -67,7 +67,7 @@ fdisk -l
 
  以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
 ```
-resize2fs/dev/vdb
+resize2fs /dev/vdb
 ```
 以 `/dev/vdb` 为例， XFS 文件系统执行以下命令：
 ```
