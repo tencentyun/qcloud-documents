@@ -1,5 +1,5 @@
 
-## SDK 登录`login` 函数
+## IM SDK 登录 `login` 函数
 
 **函数名：**
 ```javascript
@@ -15,9 +15,9 @@ webim.login(loginInfo, listeners, options,cbOk,cbErr)
 **示例：**
 
 ```javascript
-//SDK 登录
+//IM SDK 登录
 function sdkLogin() {
-    //Web SDK 登录
+    //Web IM SDK 登录
     webim.login(loginInfo, listeners, options,
             function (identifierNick) {
                 //identifierNick 为登录用户昵称(没有设置时，为帐号)，无登录态时为空
@@ -39,7 +39,7 @@ function sdkLogin() {
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
-|sdkAppID	|用户标识接入 SDK 的应用 ID，必填|	String|
+|sdkAppID	|用户标识接入 IM SDK 的应用 ID，必填|	String|
 |appIDAt3rd	|App 用户使用 OAuth 授权体系分配的 Appid，必填	|String|
 |identifier	|用户帐号，选填	|String|
 |identifierNick|	用户昵称，选填	|String|
@@ -102,7 +102,7 @@ var onConnNotify = function (resp) {
 
 ## 事件回调对象 listeners.jsonpCallback
 
-为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
+为了兼容低版本的 IE 浏览器，IM SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
 ```javascript
 //位于 js/demo_base.js 中
@@ -205,7 +205,7 @@ function handlderMsg(msg) {
 ```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 demo_group_notice.js 文件中
 //注意每个数字代表的含义，比如，
-//1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息等
+//1表示监听申请加群消息，2表示监听申请加群被同意消息，3表示监听申请加群被拒绝消息等
 var onGroupSystemNotifys = {
     //"1": onApplyJoinGroupRequestNotify, //申请加群请求（只有管理员会收到,暂不支持）
     //"2": onApplyJoinGroupAcceptNotify, //申请加群被同意（只有申请人能够收到,暂不支持）
@@ -244,7 +244,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 }
 ```
 
-**其中返回的参数groupInfo对象属性如下：**
+**其中返回的参数 groupInfo 对象属性如下：**
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
@@ -266,15 +266,15 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 ## 回调函数 cbOk & cbErr
 
-SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
+IM SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
 ```javascript
-//SDK 登录
+//IM SDK 登录
 function sdkLogin() {
-    //Web SDK 登录
+    //Web IM SDK 登录
     webim.login(loginInfo, listeners, options,
             function (identifierNick) {
-                //identifierNick为登录用户昵称(没有设置时，为帐号)，无登录态时为空
+                //identifierNick 为登录用户昵称(没有设置时，为帐号)，无登录态时为空
                 webim.Log.info('webim登录成功');
                 applyJoinBigGroup(avChatRoomId);//加入大群
                 hideDiscussForm();//隐藏评论表单
