@@ -12,7 +12,7 @@ IM SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载�
 
 - **第一步：添加 SDK 依赖**
 
- 找到 tuikit lib 工程的 build.gradle，在 dependencies 中添加 IMSDK 的依赖。
+ 找到 tuikit lib 工程的 build.gradle，在 dependencies 中添加 IM SDK 的依赖。
 ```
 dependencies {
 		api 'com.tencent.imsdk:imsdk:版本号'
