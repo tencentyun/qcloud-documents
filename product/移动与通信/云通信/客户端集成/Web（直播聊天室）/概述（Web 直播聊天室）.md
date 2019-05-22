@@ -165,7 +165,7 @@ webim.Msg(
 |addFace(face)|	向 elems 中添加一个 Face 元素|	face : Msg.Elem.Face|	无|
 |addImage(image)	|向 elems 中添加一个 Images 元素|	image: Msg.Elem.Images	|无|
 |addSound(sound)|	向 elems 中添加一个 Sound 元素|	sound: Msg.Elem.Sound	|无|
-|addFile(file)|	向elems中添加一个File元素|	file: Msg.Elem.File	|无|
+|addFile(file)|	向 elems 中添加一个 File 元素|	file: Msg.Elem.File	|无|
 |addLocation(location)|	向 elems 中添加一个 Location 元素|	location: sg.Elem.Location|	无|
 |addCustom(custom)|	向 elems 中添加一个 Custom 元素|	custom：Msg.Elem.Custom	|无|
 |addGroupTip(groupTip)|	向 elems 中添加一个 GroupTip 元素	|groupTip: Msg.Elem.GroupTip|	无|
