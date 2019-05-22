@@ -1,4 +1,4 @@
-## SDK 集成 
+## IM SDK 集成 
 
 - 单击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
 
@@ -8,18 +8,18 @@
 
 -  单击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
 
-### 下载 SDK
+### 下载 IM SDK
 
-从官网下载 [SDK 包](https://cloud.tencent.com/product/im/developer)，包含以下库文件，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 webim SDK 库，提供了登录，加群，收发消息，退群，登出功能。
+从官网下载 [IM SDK 包](https://cloud.tencent.com/product/im/developer)，包含以下库文件，其中 `json2.js` 提供了 JSON 的序列化和反序列化方法，可以将一个 JSON 对象转换成 JSON 字符串，也可以将一个 JSON 字符串转换成一个 JSON 对象。`webim.js` 就是 webim SDK 库，提供了登录，加群，收发消息，退群，登出功能。
 
 ```
 sdk/webim.js
 sdk/json2.js
 ```
 
-### 集成 SDK
+### 集成 IM SDK
 
-**首先引入 SDK 文件：**
+**首先引入 IM SDK 文件：**
 
 ```
 <!--引入 webim sdk-->
@@ -29,31 +29,31 @@ sdk/json2.js
 
 
 ### 函数调用顺序
-SDK 函数使用顺序，如下：
+IM SDK 函数使用顺序，如下：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
-| 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 SDK，需要传入当前用户信息，新消息通知回调函数等 |
+| 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 IM SDK，需要传入当前用户信息，新消息通知回调函数等 |
 | 进群 | webim.applyJoinBigGroup(options,cbOk, cbErr);| 进群 |
-|监听新消息 |Demo 中使用的监听函数是:<br/>onBigGroupMsgNotify(监听群普通消，点赞，提示和红包消息);<br/>groupSystemNotifys（监听群系统消息）;<br/>onMsgNotify（监听新消息(私聊(包括普通消息和全员推送消息)，普通群(非直播聊天室)消息)）|业务自定义监听函数，包括群普通消息，群提示消息和群系统消息，登录时传给 SDK |
+|监听新消息 |Demo 中使用的监听函数是:<br/>onBigGroupMsgNotify(监听群普通消，点赞，提示和红包消息);<br/>groupSystemNotifys（监听群系统消息）;<br/>onMsgNotify（监听新消息(私聊(包括普通消息和全员推送消息)，普通群(非直播聊天室)消息)）|业务自定义监听函数，包括群普通消息，群提示消息和群系统消息，登录时传给 IM SDK |
 |发消息(带登录态) |webim.sendMsg(options,cbOk, cbErr); |发消息（普通，点赞，红包） |
 |退群 |webim.quitBigGroup(options,cbOk, cbErr);|退群 |
 |登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
 
 ### 支持浏览器版本
 
-SDK 支持 IE 7+，Chrome 7+，FireFox 3.6+，Opera 12+和 Safari 6+（PC 端）和主流移动端浏览器。
+IM SDK 支持 IE 7+，Chrome 7+，FireFox 3.6+，Opera 12+和 Safari 6+（PC 端）和主流移动端浏览器。
 
-## SDK 基本概念
+## IM SDK 基本概念
 
-**会话：**SDK 中会话（webim.Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。
+**会话：**IM SDK 中会话（webim.Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。
 
-**消息：**SDK 中消息（webim.Msg）表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、表情，图片等，消息支持多种 `Elem` 组合发送。
+**消息：**IM SDK 中消息（webim.Msg）表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、表情，图片等，消息支持多种 `Elem` 组合发送。
 
 
-### SDK 对象简介
+### IM SDK 对象简介
 
- SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
+ IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
 |对象 | 介绍 | 功能 |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ SDK 支持 IE 7+，Chrome 7+，FireFox 3.6+，Opera 12+和 Safari 6+（PC 端）
 |webim.Session|一个会话对象|即聊天对象，包括获取会话类型（私聊还是群聊），对方帐号，未读消息数，总消息数等|
 |webim.Msg|一条消息对象|消息发送、接收的 API 中都会涉及此类型的对象|
 |webim.Tool|工具对象|提供了一些公用的函数。比如格式化时间戳函数 formatTimeStamp()，获取字符串（UTF-8 编码）所占字节数 getStrBytes() 等|
-|webim.Log|控制台打印日志对象|方便查看接口的请求 URL，请求 data 和响应 data，在 SDK 登录时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
+|webim.Log|控制台打印日志对象|方便查看接口的请求 URL，请求 data 和响应 data，在 IM SDK 登录时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
 
 ### 会话对象 Session
 
@@ -100,7 +100,7 @@ webim.Session (
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 | type | 会话类型， 包括群聊和私聊，具体参考 webim. SESSION_TYPE 常量对象，必填|	string |
-| id | 对方ID , 群聊时，为群 ID；私聊时，对方帐号，必填 |String|
+| id | 对方 ID , 群聊时，为群 ID；私聊时，对方帐号，必填 |String|
 |name  |对方名称，群聊时，为群名称；私聊时，为对方昵称，暂未使用，选填  |String  |
 |icon  | 对方头像 URL，暂未使用，选填 | String |
 | time |当前会话中的最新消息的时间戳，UNIX timestamp 格式，暂未使用，选填  | Integer |
@@ -138,7 +138,7 @@ webim.Msg(
 
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
-|sess|	消息所属的会话(e.g：我与好友 A 的 C2C 会话，我与群组 G 的 GROUP 会话)|	webim.Session|
+|sess|	消息所属的会话（e.g：我与好友 A 的 C2C 会话，我与群组 G 的 GROUP 会话）|	webim.Session|
 |isSend|	消息是否为自己发送标志:<br/>true：表示是我发出消息,<br/>false：表示是发给我的消息|	Boolean|
 |subType|	消息子类型:<br/>C2C 消息时，参考 C2C 消息子类型对象：webim.C2C_MSG_SUB_TYPE <br/>群消息时，参考群消息子类型对象：webim.GROUP_MSG_SUB_TYPE|	Integer|
 |fromAccount	|消息发送者帐号|	String |
@@ -553,14 +553,14 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 |userId	|群成员 ID	|String|
-|shutupTime|	群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒|	Integer|
+|shutupTime|	群成员被禁言时间，0表示取消禁言，大于0表示被禁言时长，单位：秒|	Integer|
 
 **对象方法：**
 
 | 名称 | 说明 | 输入参数 |返回类型|
 |---------|---------|---------|---------|
 |getUserId()	|获取群成员 ID|	无	|String|
-|getShutupTime()	|获取群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒|	无|	Integer|
+|getShutupTime()	|获取群成员被禁言时间，0表示取消禁言，大于0表示被禁言时长，单位：秒|	无|	Integer|
 
 ### 表情对象 Emotions
 
@@ -597,7 +597,7 @@ webim.Tool 提供了一些通用的函数。比如格式化时间戳函数 `form
 webim.Log
 ```
 
-主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在 SDK 登录时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。**对象方法：**
+主要作用是方便查看 IM SDK 调用后台接口的请求 URL，请求 data 和响应 data，在 IM SDK 登录时，可以传递一个布尔类型的变量来控制 IM SDK 是否在控制台打印日志。**对象方法：**
 
 | 名称 | 说明 | 输入参数 |返回类型|
 |---------|---------|---------|---------|
