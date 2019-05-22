@@ -1,7 +1,7 @@
 本文主要介绍腾讯云 IM SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
 ## 初始化
 - IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
-- SDKAppID 可以在云通讯 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
+- SDKAppID 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 ```
 //初始化 SDK 基本配置
