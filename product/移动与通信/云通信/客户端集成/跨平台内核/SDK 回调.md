@@ -499,7 +499,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 >?请参考 [TIMRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33552#timrecvnewmsgcallback)。
 
 
-## IM SDK 接口回调
+## SDK 接口回调
 
 
 ### TIMCommCallback
