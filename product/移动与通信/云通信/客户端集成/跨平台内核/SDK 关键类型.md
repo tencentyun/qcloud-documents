@@ -8,7 +8,7 @@
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
 | TIM_SUCC | 0 | 接口调用成功 |
-| TIM_ERR_SDKUNINIT | -1 | 接口调用失败，SDK 未初始化 |
+| TIM_ERR_SDKUNINIT | -1 | 接口调用失败，IM SDK 未初始化 |
 | TIM_ERR_NOTLOGIN | -2 | 接口调用失败，用户未登录 |
 | TIM_ERR_JSON | -3 | 接口调用失败，错误的 JSON 格式或 JSON Key |
 | TIM_ERR_PARAM | -4 | 接口调用成功，参数错误 |
@@ -66,7 +66,7 @@
 
 ### SdKConfig
 
-初始化 SDK 的配置。
+初始化 IM SDK 的配置。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
@@ -289,7 +289,7 @@
 | kTIMFaceElemIndex | int | 读写（必填） | 表情索引 |
 | kTIMFaceElemBuf | string | 读写（选填） | 其他额外数据，可由用户自定义填写。若要传输二进制，麻烦先转码成字符串。JSON 只支持字符串 |
 
->?SDK 并不提供表情包，如果开发者有表情包，可使用`kTIMFaceElemIndex`存储表情在表情包中的索引，由用户自定义。或者直接使用`kTIMFaceElemBuf`存储表情二进制信息（必须转换成 String，JSON 不支持二进制传输），由用户自定义，SDK 内部只做透传。
+>?IM SDK 并不提供表情包，如果开发者有表情包，可使用`kTIMFaceElemIndex`存储表情在表情包中的索引，由用户自定义。或者直接使用`kTIMFaceElemBuf`存储表情二进制信息（必须转换成 String，JSON 不支持二进制传输），由用户自定义，IM SDK 内部只做透传。
 
 
 ### LocationElem
