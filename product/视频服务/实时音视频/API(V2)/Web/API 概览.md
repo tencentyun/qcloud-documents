@@ -56,7 +56,7 @@
     ## WebRTCAPI.getSpeakerDevices
         枚举音频输出设备
     ## WebRTCAPI.chooseSpeakerDevice
-        枚举音频输出设备
+        选择音频输出设备
 
 
 ### 联系我们
