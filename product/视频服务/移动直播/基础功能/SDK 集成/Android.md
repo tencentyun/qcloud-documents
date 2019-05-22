@@ -72,7 +72,7 @@ defaultConfig {
   单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 jar 压缩包，文件名一般为 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
   ![](https://main.qcloudimg.com/raw/25045f7cad24fcf9f7ec2cb4516fe57b.png)
   解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
-  ![](/Users/hans/Library/Application Support/typora-user-images/image-20190509122235784.png)
+  ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
   将解压得到的 jar文件和 armeabi、armeabi-v7a、arm64-v8a 文件夹拷贝到 app/libs 目录下。
